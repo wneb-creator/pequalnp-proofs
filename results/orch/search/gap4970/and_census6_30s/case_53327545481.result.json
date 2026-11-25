@@ -1,0 +1,78 @@
+{
+  "graph": "/workspace/pequalnp-proofs/results/orch/search/gap4970/cases6/graph_53327545481.json",
+  "p": 6,
+  "l": 6,
+  "edges": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      4,
+      3
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      5,
+      0
+    ],
+    [
+      5,
+      4
+    ],
+    [
+      5,
+      5
+    ]
+  ],
+  "cover_number": 6,
+  "and_budget": 5,
+  "pin_control": false,
+  "variables": 1655,
+  "clauses": 6486,
+  "test_count": 41,
+  "memory_mb": 512,
+  "seconds_limit": 30,
+  "status": "UNSAT",
+  "seconds": 4.968145998000182,
+  "returncode": 20
+}

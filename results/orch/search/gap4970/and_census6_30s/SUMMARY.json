@@ -1,0 +1,319 @@
+{
+  "plan": {
+    "classes_total": 24,
+    "fresh_solver_calls": 23,
+    "seconds_per_case": 30,
+    "memory_mb": 512,
+    "encoder_sha256": "f8b7264c258883137ed6a5e0eb488bf1a1e043c85e7270a6874adc7f29bb3b44",
+    "reused_mask": 52237542732,
+    "reuse_isomorphism": {
+      "swap_sides": false,
+      "rows": [
+        0,
+        1,
+        5,
+        3,
+        2,
+        4
+      ],
+      "columns": [
+        2,
+        4,
+        5,
+        1,
+        3,
+        0
+      ]
+    },
+    "ordered_masks": [
+      52220757323,
+      52237542732,
+      52220773577,
+      52221035657,
+      52237051793,
+      52254065801,
+      52253791491,
+      52220257347,
+      52253803587,
+      52254049539,
+      52286817351,
+      54367732803,
+      52220756291,
+      52217012547,
+      53327545481,
+      43562943633,
+      52220274247,
+      52220761347,
+      54384493827,
+      52220240195,
+      56514675011,
+      52220274499,
+      52219695875,
+      52215980355
+    ]
+  },
+  "started_utc": "2026-11-25T16:18:51.780619+00:00",
+  "updated_utc": "2026-11-25T16:20:38.178158+00:00",
+  "classes_completed": 24,
+  "results": [
+    {
+      "mask": 52220757323,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 8.140868400001636,
+      "variables": 1480,
+      "clauses": 5756,
+      "edge_count": 15,
+      "maximal_independent_count": 21
+    },
+    {
+      "mask": 52237542732,
+      "status": "UNSAT",
+      "reused": true,
+      "source_result": "/workspace/pequalnp-proofs/results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.result.json",
+      "seconds": 9.243178976999843,
+      "isomorphism": {
+        "swap_sides": false,
+        "rows": [
+          0,
+          1,
+          5,
+          3,
+          2,
+          4
+        ],
+        "columns": [
+          2,
+          4,
+          5,
+          1,
+          3,
+          0
+        ]
+      },
+      "edge_count": 16,
+      "maximal_independent_count": 23
+    },
+    {
+      "mask": 52220773577,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 3.6417307990013796,
+      "variables": 1550,
+      "clauses": 6076,
+      "edge_count": 15,
+      "maximal_independent_count": 23
+    },
+    {
+      "mask": 52221035657,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 3.5665989110002556,
+      "variables": 1550,
+      "clauses": 6096,
+      "edge_count": 15,
+      "maximal_independent_count": 23
+    },
+    {
+      "mask": 52237051793,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 4.222165434999624,
+      "variables": 1585,
+      "clauses": 6266,
+      "edge_count": 15,
+      "maximal_independent_count": 24
+    },
+    {
+      "mask": 52254065801,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 5.469975718000569,
+      "variables": 1585,
+      "clauses": 6206,
+      "edge_count": 15,
+      "maximal_independent_count": 24
+    },
+    {
+      "mask": 52253791491,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 5.636021330999938,
+      "variables": 1545,
+      "clauses": 6085,
+      "edge_count": 14,
+      "maximal_independent_count": 24
+    },
+    {
+      "mask": 52220257347,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 3.313739455999894,
+      "variables": 1580,
+      "clauses": 6305,
+      "edge_count": 14,
+      "maximal_independent_count": 25
+    },
+    {
+      "mask": 52253803587,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 4.323477261001244,
+      "variables": 1580,
+      "clauses": 6275,
+      "edge_count": 14,
+      "maximal_independent_count": 25
+    },
+    {
+      "mask": 52254049539,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 3.902830797000206,
+      "variables": 1580,
+      "clauses": 6275,
+      "edge_count": 14,
+      "maximal_independent_count": 25
+    },
+    {
+      "mask": 52286817351,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 3.707854246000352,
+      "variables": 1580,
+      "clauses": 6295,
+      "edge_count": 14,
+      "maximal_independent_count": 25
+    },
+    {
+      "mask": 54367732803,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 4.811762182998791,
+      "variables": 1580,
+      "clauses": 6255,
+      "edge_count": 14,
+      "maximal_independent_count": 25
+    },
+    {
+      "mask": 52220756291,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 5.884433729001103,
+      "variables": 1540,
+      "clauses": 6134,
+      "edge_count": 13,
+      "maximal_independent_count": 25
+    },
+    {
+      "mask": 52217012547,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 5.879639365999537,
+      "variables": 1500,
+      "clauses": 6013,
+      "edge_count": 12,
+      "maximal_independent_count": 25
+    },
+    {
+      "mask": 53327545481,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 4.968145998000182,
+      "variables": 1655,
+      "clauses": 6486,
+      "edge_count": 15,
+      "maximal_independent_count": 26
+    },
+    {
+      "mask": 43562943633,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 3.628489617000014,
+      "variables": 1615,
+      "clauses": 6405,
+      "edge_count": 14,
+      "maximal_independent_count": 26
+    },
+    {
+      "mask": 52220274247,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 4.024980580999909,
+      "variables": 1615,
+      "clauses": 6485,
+      "edge_count": 14,
+      "maximal_independent_count": 26
+    },
+    {
+      "mask": 52220761347,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 4.015507968999373,
+      "variables": 1615,
+      "clauses": 6415,
+      "edge_count": 14,
+      "maximal_independent_count": 26
+    },
+    {
+      "mask": 54384493827,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 7.137234702000569,
+      "variables": 1615,
+      "clauses": 6405,
+      "edge_count": 14,
+      "maximal_independent_count": 26
+    },
+    {
+      "mask": 52220240195,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 3.2123571499996615,
+      "variables": 1610,
+      "clauses": 6494,
+      "edge_count": 13,
+      "maximal_independent_count": 27
+    },
+    {
+      "mask": 56514675011,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 5.47546892399987,
+      "variables": 1610,
+      "clauses": 6474,
+      "edge_count": 13,
+      "maximal_independent_count": 27
+    },
+    {
+      "mask": 52220274499,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 2.96953583100003,
+      "variables": 1685,
+      "clauses": 6805,
+      "edge_count": 14,
+      "maximal_independent_count": 28
+    },
+    {
+      "mask": 52219695875,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 3.2132801709994965,
+      "variables": 1645,
+      "clauses": 6644,
+      "edge_count": 13,
+      "maximal_independent_count": 28
+    },
+    {
+      "mask": 52215980355,
+      "status": "UNSAT",
+      "reused": false,
+      "seconds": 3.6276250470000377,
+      "variables": 1640,
+      "clauses": 6693,
+      "edge_count": 12,
+      "maximal_independent_count": 29
+    }
+  ],
+  "claim": "Uncertified exact free-OR/limited-AND experiments; no Lean certificate."
+}

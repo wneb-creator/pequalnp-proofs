@@ -1,0 +1,17 @@
+{
+  "job": "pequalnp-pilot-94",
+  "message_id": "msg-33fc81b3613d14feb0f07db4",
+  "gap": "L-meta-4970",
+  "outcome": "checked partial only; no full proof or refutation",
+  "pr": null,
+  "build_exit": 0,
+  "checker_exit": 3,
+  "checker_verdict": "FAULT: external memory guard stopped verifier; no verdict",
+  "cleanup_lines_before": 1148,
+  "cleanup_lines_after": 1148,
+  "null_desk_answers": 0,
+  "null_messages": [],
+  "subagents": 7,
+  "elapsed_minutes": 162.4,
+  "updated_at": "2026-11-25T16:26:26.079571+00:00"
+}

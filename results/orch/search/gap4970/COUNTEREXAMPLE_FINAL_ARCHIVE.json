@@ -1,0 +1,3872 @@
+{
+  "scope": "Counterexample-agent-owned L-meta-4970 source/data/control/solver logs; later free-OR AND batch belongs to lemmas agent.",
+  "owned_nonderived_files": 467,
+  "omissions": [],
+  "all_nonderived_files_preserved": true,
+  "files": [
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4.stdout",
+      "bytes": 13919,
+      "sha256": "fd916f1f4d21a8cd32560d95a7c0623203b153ae5c319138bda7020d02668905",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/cycle8_10.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/cycle6_8.solver.stdout",
+      "bytes": 12932,
+      "sha256": "88028db63a5464fe65ca9a52e548f596d0183971a27e37f46256132570ffbfbb",
+      "identical_archive": [
+        "results/orch/search/gap4970/controls/cycle6_8.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/cycle6_8.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/path4_4.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/cycle6_8.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/path4_5_tail.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/path4_4.solver.stdout",
+      "bytes": 3792,
+      "sha256": "52102e9e392ed4d6abda44f772ae6975a5560d3670d7ffc6f66ac6656d21bcea",
+      "identical_archive": [
+        "results/orch/search/gap4970/controls/path4_4.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/path4_4.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/path4_4.result.json",
+      "bytes": 439,
+      "sha256": "53a213d226c322ade85fa9b5bf824f277d3b16822b16c55b0438518e11f34d3d",
+      "identical_archive": [
+        "results/orch/search/gap4970/controls/path4_4.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/cycle6_8.result.json",
+      "bytes": 1995,
+      "sha256": "ee44db69c624c91f530b8e5396fd8ac620fd4d151cb4819cdbc8fa62ff6c8d52",
+      "identical_archive": [
+        "results/orch/search/gap4970/controls/cycle6_8.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/path4_5_tail.result.json",
+      "bytes": 1288,
+      "sha256": "001455312dbe788797b6a7c2fdd97c538668a0fac253873a95f6b6e7bd1b8570",
+      "identical_archive": [
+        "results/orch/search/gap4970/controls/path4_5_tail.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/path4_5_tail.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/cycle6_7.solver.stdout",
+      "bytes": 10377,
+      "sha256": "ee3ce5caea5635f5fb3c2ed7baba0e381e26154126bb03cc29a08d9f9c17c730",
+      "identical_archive": [
+        "results/orch/search/gap4970/controls/cycle6_7.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/path4_4.driver.stdout",
+      "bytes": 337,
+      "sha256": "e536b9eeadadc84efaea63326343aae892d4a42d667f8bbbdfdf0d7d19144753",
+      "identical_archive": [
+        "results/orch/search/gap4970/controls/path4_4.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/path4_5_tail.solver.stdout",
+      "bytes": 4986,
+      "sha256": "8aa07ce70f42d4ec32fc1abdfb34c27cb843eaae7ca3fb5750122d8659e8217b",
+      "identical_archive": [
+        "results/orch/search/gap4970/controls/path4_5_tail.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/cycle6_7.result.json",
+      "bytes": 526,
+      "sha256": "f4e9b682d7d15fb7cde6487eb7cee8a8700714d59db2956c402a713e41231a78",
+      "identical_archive": [
+        "results/orch/search/gap4970/controls/cycle6_7.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/path4_5_tail.driver.stdout",
+      "bytes": 694,
+      "sha256": "242318b909dd28acc10218bc4d207b5fc9182e769216ecc37626efb7df42789f",
+      "identical_archive": [
+        "results/orch/search/gap4970/controls/path4_5_tail.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/cycle6_7.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/cycle6_7.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/cycle6_7.driver.stdout",
+      "bytes": 358,
+      "sha256": "b4dba3adfa7925ed3d9d2e6b2fe533f244ab47153f5e93c1fd2a20e44cff329a",
+      "identical_archive": [
+        "results/orch/search/gap4970/controls/cycle6_7.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/cycle6_8.driver.stdout",
+      "bytes": 933,
+      "sha256": "1e0dbc4921485870ee7ecf54f6de0bfa0238c2bae9e22826f41f6ad74693cbf7",
+      "identical_archive": [
+        "results/orch/search/gap4970/controls/cycle6_8.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_862.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4414.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_53.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_15.solver.stdout",
+      "bytes": 3890,
+      "sha256": "4e13eb60075ca0d1bdec40fe8c5942774ab0d58aa9d55e16288caf88b236255c",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_15.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_60.result.json",
+      "bytes": 469,
+      "sha256": "bec1c01c9b8e280a954b9b7eeaad555c49c46430286a274e5f6697081ed9e71a",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_60.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_13726.solver.stdout",
+      "bytes": 11049,
+      "sha256": "2424a3cfeef9d6c27b626b7316d7b7ec91d3ed41492aa450a924ceae925ed479",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_13726.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4732.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_53.result.json",
+      "bytes": 470,
+      "sha256": "9e0b08a02f3259b576f432753630b0b36177eeb2c3ae31bd07cd6069f27b86a5",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_53.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4972.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_286.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_278.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_317.solver.stdout",
+      "bytes": 9120,
+      "sha256": "1b0c148a45a83607b3b72b5c52e5c6ed51ab291ca98a3e18a5d5718c4dc2f8ec",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_317.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_316.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4459.result.json",
+      "bytes": 559,
+      "sha256": "87d472f33dac69f1eac1e0a25902c3337c51d7772976238acc6e9284978407e3",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4459.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_318.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4458.solver.stdout",
+      "bytes": 8080,
+      "sha256": "8d751e48c3e8228a30f1166923f8239e22dac2aa5a0ea68dc30ea1e258d5488e",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4458.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_13726.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_5805.solver.stdout",
+      "bytes": 12596,
+      "sha256": "fca8d6ce1a734c532eb29fe70ed8ee8ff4bb249a108a00b7c551fdebe3499e0d",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_5805.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_317.result.json",
+      "bytes": 526,
+      "sha256": "72059d5163a043636114bc32bbbf4fc1b1146e08526768f08942bbb894c7a6de",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_317.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_13740.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_318.solver.stdout",
+      "bytes": 9201,
+      "sha256": "757e7fd6368f6b9ff301dfb7115ab489cf27ebfa2a58c09777389d50ddb0df6d",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_318.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_13726.result.json",
+      "bytes": 623,
+      "sha256": "798af473ffb627bbbb2ef6729f06bb1b7706699a9d297cdf7997b68f14a6cdc7",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_13726.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4458.result.json",
+      "bytes": 527,
+      "sha256": "3f40e832f9a3660d591b1e3649d8c7c43ee70511b85fff213e6a01e5359d9539",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4458.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4382.solver.stdout",
+      "bytes": 6204,
+      "sha256": "d8754ad46a1b4fb9e1d8899f6fd08319b6bd4e53b8d61877bebfaa8203d6c29c",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4382.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4972.result.json",
+      "bytes": 560,
+      "sha256": "86d4b55fc9c0bf51c9a9607f1dde63d1b714cc814663f642e13d0e9b31f22b5a",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4972.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4732.result.json",
+      "bytes": 560,
+      "sha256": "22e2205cfc34032c863fa377d6df7d50edb4fa93a22fa73a5a394abd3e80ccc9",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4732.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_13740.result.json",
+      "bytes": 669,
+      "sha256": "85deb6d30cf4c20688c0762dcb3649b393d1bc7d293dccfb81ea0c6668de6f4e",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_13740.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_23.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4383.solver.stdout",
+      "bytes": 9862,
+      "sha256": "8de1f4816e39ec33c3e5dbb204a95c9a9422c3c5fa45bce356a70b560fbde0d8",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4383.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4702.result.json",
+      "bytes": 560,
+      "sha256": "e42da4cff7bfddef3fae076756e8ebef4ad2a3f0f71e4dbe726dcaed187d8f22",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4702.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4687.solver.stdout",
+      "bytes": 12782,
+      "sha256": "1302217b0f01359468db2f6cc8338b9e45e8da43c66f4d04aba8caaa5297529a",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4687.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_53.solver.stdout",
+      "bytes": 3892,
+      "sha256": "f1c36f3e7cb1e8ea1d8967aecbfb43f823eee8f670ec9ed767036e8fc83897d0",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_53.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_13740.solver.stdout",
+      "bytes": 14277,
+      "sha256": "42b8aaa101fb3da1dcbdf9bbd8b5e8e5ba86a370e71f9de5e2327c04c9f28331",
+      "identical_archive": [
+        "results/orch/search/gap4970/controls/cycle8_10.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_15.result.json",
+      "bytes": 470,
+      "sha256": "114fe6cd23f538cbcfb2515be0d1d4bfab023381aa13c4a12942e534788d007f",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_15.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_317.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_295.solver.stdout",
+      "bytes": 6450,
+      "sha256": "d59066cfe3967008b79e4e405ce298ddc674ec3d3e7b25ea504068a2015e16e2",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_295.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_5805.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_286.result.json",
+      "bytes": 498,
+      "sha256": "535b3d6fb89aa5618109bbc70418386d45900533aab9aa52497593fb33ec14c5",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_286.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_279.result.json",
+      "bytes": 499,
+      "sha256": "2af2f19f8ff53704f975a9b2e81c8688f53950b6a8d7dad068d3e7bd8904ad30",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_279.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4399.result.json",
+      "bytes": 561,
+      "sha256": "ae5d8a7a6ea06f38251d217b222e2e87b211349a1cef127d69edc1acf1985443",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4399.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4398.result.json",
+      "bytes": 527,
+      "sha256": "703cb84763b6c93eb13025325dd79761d1c3d099fe774a3cc07f721bfa48bc71",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4398.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4383.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_857.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_61.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_278.result.json",
+      "bytes": 469,
+      "sha256": "d6df1d4f37095a5ccfb78c805b3ffaa913eb44af0781500cc915d32c1b8fb599",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_278.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4398.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_23.result.json",
+      "bytes": 468,
+      "sha256": "673a903cc649ad2d6dea32a43d29d2bf23672f3c9b5b8c39ab8cb64729fec712",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_23.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_15.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4382.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4459.solver.stdout",
+      "bytes": 14856,
+      "sha256": "9bb46715d59298ba234d9520b818f0c50b174b05599b322477dd4a131452a4cd",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4459.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4702.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_19.solver.stdout",
+      "bytes": 3627,
+      "sha256": "76bab494d45ddf70618d7d037f37e7539d32bab094c6da6537a32ecd4fa2f1c8",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_19.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4973.result.json",
+      "bytes": 593,
+      "sha256": "2eb9f679ba36fa02b33f65c2bed18b27b9f210d945a40db1eb7689a713bf600e",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4973.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4699.solver.stdout",
+      "bytes": 12324,
+      "sha256": "fea54cedba801bb608b48cefb45884da8db69a7d1d98dec14f9ed892c841413a",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4699.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_279.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_303.solver.stdout",
+      "bytes": 9525,
+      "sha256": "cea24d2948bc5c660cd0f3036661740cfb29857913453d9078f7c6247822cbc0",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_303.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4973.solver.stdout",
+      "bytes": 12023,
+      "sha256": "fb05d9cc1e42f9c36f4f99f322b35efeee825acae8708603e8b9f94776377c3d",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4973.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4698.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_310.result.json",
+      "bytes": 498,
+      "sha256": "1b7b1c14772d08f3aec0159ac06e698abe10c6d8f6035c3c9365c0449e534018",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_310.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_295.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_363.result.json",
+      "bytes": 526,
+      "sha256": "d1b285ae5d28105bd37db1c0aa9691765999e54286f3b904f698ecc239598a17",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_363.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4698.solver.stdout",
+      "bytes": 13258,
+      "sha256": "f99be059e7bc9b2cfc14fe02e65a87cf8628c8bebda1521f0616e3ec771f4b71",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4698.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_19.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_854.result.json",
+      "bytes": 526,
+      "sha256": "d984d5a03347cd1ae332f8b3307b3bf332a48fa6c6b5ab3c9a1183019125aeff",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_854.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_310.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_60.solver.stdout",
+      "bytes": 3781,
+      "sha256": "4fc4f93d76eda24a220b32e48a7c94836691690e6a9e9da599a8ecaafb46d25c",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_60.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4702.solver.stdout",
+      "bytes": 11227,
+      "sha256": "90fa550c92329713b48a725a97013fa3e68fffc276de469ae287d95a182089a7",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4702.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4382.result.json",
+      "bytes": 527,
+      "sha256": "ca78f76e54f4853b8f388045fa7edfe39d2cb9c20ad97cb7618dc47e5f0e7c8a",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4382.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_61.result.json",
+      "bytes": 497,
+      "sha256": "8dba500168c42c582c04864ad612e278c4a1f30cf8301b24ccccc79f7b16d928",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_61.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_7.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4383.result.json",
+      "bytes": 559,
+      "sha256": "a6f5d45ad853b6bd66da493039c89b8b1447e77c4a18c4f85c26f36ddc96fe7c",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4383.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_31.solver.stdout",
+      "bytes": 4986,
+      "sha256": "7d94bc4a2b9d6db8856ed86ea94e2511ae1fe14cf110c903744a9aef292bb4a3",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_31.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_7.solver.stdout",
+      "bytes": 3726,
+      "sha256": "01738e6e30b31c390f5797447504a2d0cdc49f0af6a8cb59042ebb23df2185cc",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_7.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_60.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_316.solver.stdout",
+      "bytes": 6553,
+      "sha256": "c10d743e56c791babffc106f0367cf3c75bdc69919a66b191652e503de0fa820",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_316.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_862.result.json",
+      "bytes": 560,
+      "sha256": "cefe58d123d662dc98c0d4b7d84786739752900fd8a54a6a22afebfe8ad0cf20",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_862.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_278.solver.stdout",
+      "bytes": 3792,
+      "sha256": "68235654286ba9b59c5059f294b9bf5cbaa4dcf3e2e571f0b4603946171938ab",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_278.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/SUMMARY.json",
+      "bytes": 16806,
+      "sha256": "c77c76b74870303c98eb8cc67fa2b6b7119e04febad0f98d19bdd46cb34cb7b1",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/SUMMARY.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_286.solver.stdout",
+      "bytes": 4322,
+      "sha256": "a14b2060a49e782c492aacc67599aa2c4b70898b420b0d08d85a5510f3a27ccd",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_286.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4732.solver.stdout",
+      "bytes": 12315,
+      "sha256": "474ae0f82829ef201d8a3bd3bb9724b2c2ecb64611e5cf370a55f6804dc77edf",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4732.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4414.result.json",
+      "bytes": 561,
+      "sha256": "64bd7fcbdd9d341225451e8ba3d6f847ae713855e49cf5d65c31e4f8f17822c1",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4414.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4459.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4958.solver.stdout",
+      "bytes": 11281,
+      "sha256": "839ee2e1d08f5b1a509a5c28b10bd6daf27d551b98bb14a398785b068bbce263",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4958.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4958.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_310.solver.stdout",
+      "bytes": 6514,
+      "sha256": "e9fe777a6ef5209e1cadd59b2ea66662f63b247dd79907792d23aeb284536ba7",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_310.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4398.solver.stdout",
+      "bytes": 8744,
+      "sha256": "09e358d3a0d0327242be73f879469cb38404d1f6a343958c54ba45cf7d200dae",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4398.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_3.solver.stdout",
+      "bytes": 2735,
+      "sha256": "1e64da57369de6e2daedf0768ff619077f72ebf45f214e2e758b90d0a68556ee",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_3.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_61.solver.stdout",
+      "bytes": 4371,
+      "sha256": "91c1ed70e4961b11a5f3d329a6a575c42accc06c9aead41b8c8c4686c1df9d72",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_61.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_31.result.json",
+      "bytes": 499,
+      "sha256": "b2762414af560a8885bbef4e4bd33ca068091fe18de9cb95c02cbd717c4555f0",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_31.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_857.solver.stdout",
+      "bytes": 8029,
+      "sha256": "6b95a080b22a584a5ba10af46e40a8b690ab15e3e654db23d97922c2f7e57d0c",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_857.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4973.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_318.result.json",
+      "bytes": 527,
+      "sha256": "06bc1d15ae79f4ee3cee8632c98b76503a6df50eb16f3e6a9391272c669fa081",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_318.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_363.solver.stdout",
+      "bytes": 9496,
+      "sha256": "6625a006cf8f222190bfa79cfa8e22272df929cb6aa7be7fa816c135b834de21",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_363.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_287.solver.stdout",
+      "bytes": 7045,
+      "sha256": "9b83842900e8520f8cef34e91e105c7c62bd207908ee19e1ed8791c157cc990e",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_287.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_31.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4414.solver.stdout",
+      "bytes": 13969,
+      "sha256": "fa5ed4df443cbc9cd381b8971477280be3ba5846396b24202e40d103bc592126",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4414.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_7.result.json",
+      "bytes": 440,
+      "sha256": "6ed46ee430498f6c2960fb94d35b51b9019a521daba983f147cbc8ff09792d55",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_7.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4972.solver.stdout",
+      "bytes": 12320,
+      "sha256": "e41df9e521c557dcaf6565bc6fa95401113ef71890f6c2d53f390b96e6d35b52",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4972.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_287.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_23.solver.stdout",
+      "bytes": 4046,
+      "sha256": "27199418890c3b5d80ac837f7131885cbed02c8afd94102491c637df94281184",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_23.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4699.result.json",
+      "bytes": 561,
+      "sha256": "124175bc030c59419c08547f70790229473d1735d3020d6763b6fc5c08a3813d",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4699.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_303.result.json",
+      "bytes": 529,
+      "sha256": "3e3cdfd72adfddbb32cb87e411354cf4e373f21eb96c936037a65a103100c354",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_303.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4687.result.json",
+      "bytes": 561,
+      "sha256": "92d6098023e96a352f3b99d28385a04c29596ab2226dd038a3110281fc0c8d64",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4687.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4399.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_363.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_316.result.json",
+      "bytes": 497,
+      "sha256": "ce24db9b3c0659a1ccb9a5899944d76cb911ac10386b10f40afaaf563f67a005",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_316.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_857.result.json",
+      "bytes": 527,
+      "sha256": "f0407d2e72b17d5cce4afff9f5c8a58204714890c663d1e16bb1e8f3ee1da7ca",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_857.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_854.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4699.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_3.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_854.solver.stdout",
+      "bytes": 10726,
+      "sha256": "e6346601154e322ea4a009ce2e6349cd1f276ab833962840f9a5c9d7c5137377",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_854.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_3.result.json",
+      "bytes": 408,
+      "sha256": "19715657be4439e2b6a27bcda273edd4e1210478e44aa238a537a2e5d8de482f",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_3.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_862.solver.stdout",
+      "bytes": 13398,
+      "sha256": "dd22ca973ffed6966ba8666ec6f97f64b59d4a836a7b6427247ece26057a6bcc",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_862.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_858.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4458.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4698.result.json",
+      "bytes": 529,
+      "sha256": "3363eb8bb3630a8081b93b2acf54ed4bed4aa74a1e1f611b9b9c0ac9690a33e2",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4698.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4958.result.json",
+      "bytes": 592,
+      "sha256": "2a9d683e561f3475030ebeb4b1b09ea99c0b299bd7fd8301a3e5d12f7f164597",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4958.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_295.result.json",
+      "bytes": 498,
+      "sha256": "36eb786c33caf96e97f9b843c23d709939bf0b43b965b94e2a0efa25a173af98",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_295.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_858.result.json",
+      "bytes": 527,
+      "sha256": "4d7c8008462dd1b4cddbde7cc5aec3f1db2be034ba10e67837af5caafbee2548",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_858.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_858.solver.stdout",
+      "bytes": 8849,
+      "sha256": "a78ae47c4c0675ada787daf511b4ab9c02b186d57a720448976d2970d045aea1",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_858.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_287.result.json",
+      "bytes": 529,
+      "sha256": "9ecccb5ca2de135240c953c65f6f8c7397b10b0f0a955e3654d5b654ee7eda49",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_287.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_303.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_279.solver.stdout",
+      "bytes": 4322,
+      "sha256": "d779c69526f95296c0c82449b1e10b584c274e92360a3b30c6fd67814691810f",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_279.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_19.result.json",
+      "bytes": 439,
+      "sha256": "64f52e62dd711e4709e371e4c83bd9954cae1e3c020c8a7e6f577eff853d6f3f",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_19.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4687.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_4399.solver.stdout",
+      "bytes": 14372,
+      "sha256": "805e98a613c6edc001b2ec6a3dba6b90ae01d24cc19fcd272b27b87d4271ecb8",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_4399.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4/case_5805.result.json",
+      "bytes": 593,
+      "sha256": "602989692af836e5696ea56fd19282ff7414ffd08547d209ad32c36c593c6ab1",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4/case_5805.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/k4inc_14.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/gap4970-free-and-k4inc-or10.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/k4inc_14.solver.stdout",
+      "bytes": 37605,
+      "sha256": "a7807131e0db119faf797e886fe72147f443d436c0386e4f402d6e6ea9f8293a",
+      "identical_archive": [
+        "results/orch/search/gap4970/k4-original/k4inc_14.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/case4-generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4687.driver.stdout",
+      "bytes": 434,
+      "sha256": "329cca90768aa14e2240d6dc33182cc5dbb090401340690f7893d768f2d9eec4",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4687.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_862.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4414.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_53.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_15.solver.stdout",
+      "bytes": 3742,
+      "sha256": "70aaefd9b56b2bcaef4383dbd6c5fe9a96ab5364b76888fa960881139936eb6a",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_15.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_60.result.json",
+      "bytes": 533,
+      "sha256": "83a4f1108da1fb3320e7bcdbc7520afa5333805861b5754140832708f48db95d",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_60.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4702.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4973.driver.stdout",
+      "bytes": 441,
+      "sha256": "5d201409b9bd559b7d3433495ae328c9ddf5cc58350be98e047ccfc3ee450c22",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4973.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_13726.solver.stdout",
+      "bytes": 11453,
+      "sha256": "f48a2065e681a7cca8d42c76ba5867b2a604c0d4eeacd3310dc80625b8d3a142",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_13726.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_23.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4732.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_53.result.json",
+      "bytes": 534,
+      "sha256": "0dca059c2cc7b65546392fa1f1e0227c82816fcd21ac8bb61ad493b29b0d50d4",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_53.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_53.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_5805.driver.stdout",
+      "bytes": 441,
+      "sha256": "de48133b440633e2de94f6c8264f86d8882251cbbc854441df55a7bf55fb9e69",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_5805.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4972.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_60.driver.stdout",
+      "bytes": 409,
+      "sha256": "e1ea987538b010977a210fbd5acaa7a13bdf697e974b6ece39d5d0d3e1acf631",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_60.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_317.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_286.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_278.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_317.solver.stdout",
+      "bytes": 4329,
+      "sha256": "99b2678898cfbbba04d52c54a0b757d5cc76d9b199711a4b927f4d5097b629e5",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_317.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_316.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4459.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_317.driver.stdout",
+      "bytes": 424,
+      "sha256": "45273e1d5f3b6893f702efea8ba07fae5e33b8df1bc6eab2240c8b6964d43654",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_317.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_31.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_316.driver.stdout",
+      "bytes": 417,
+      "sha256": "a392c3471ff7e636446093820de8e30af0c56883a819ae77ff01b8eaec91df7f",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_316.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_61.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_316.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4459.result.json",
+      "bytes": 623,
+      "sha256": "5b778f3798e267077b47080573712970f508d90e31a1c854049e30bfdb0fd95a",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4459.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_7.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_318.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_363.driver.stdout",
+      "bytes": 426,
+      "sha256": "0c715593db0bd7c3d7bf82df21e2f91cb0aefe9227608e9518684c764d941556",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_363.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_53.driver.stdout",
+      "bytes": 410,
+      "sha256": "1a04221ae747288fc14e3759e9c3cb69c835472912bbe5fbc79edb020c537bfb",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_53.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4699.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_31.driver.stdout",
+      "bytes": 418,
+      "sha256": "eeea0f096b3263a3bc1c6f1ca18d3681a5dbf16dd19e02625400c4577188cff1",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_31.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_310.driver.stdout",
+      "bytes": 417,
+      "sha256": "310f89135215dcc0cb22956ef8b0634b1360509674fed5b494fa373a5192c7e9",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_310.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4699.driver.stdout",
+      "bytes": 433,
+      "sha256": "970b8ac8cb1550c4b74d7337559bb86dfbb5cd8c986383b55848596ce11712bb",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4699.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4458.solver.stdout",
+      "bytes": 4112,
+      "sha256": "5c7b84b05deccaead076e681beed631edeb3674ef6d0842d6638f4012a323645",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4458.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_13726.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4382.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4972.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_5805.solver.stdout",
+      "bytes": 9200,
+      "sha256": "25d933460e87a83bdb51c5f291cb11b9617b9873f9dc6834d988798ba4c13504",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_5805.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4383.driver.stdout",
+      "bytes": 433,
+      "sha256": "3a2f67f4849c8c26af0a8ce0c5247528112882ebc3c79d5dd43ceb2483efa6dc",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4383.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_317.result.json",
+      "bytes": 592,
+      "sha256": "06fcd3fb64d18f3cd409de32df4f56778272c027874e0d22eef71379003994e5",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_317.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4698.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4687.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_13740.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_318.solver.stdout",
+      "bytes": 4482,
+      "sha256": "bad04d3463a4a0f3af618e3ac37a0e3d2b1ffefe498d6c20a26198cdc86cb0c2",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_318.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_13726.result.json",
+      "bytes": 684,
+      "sha256": "43436a8e560580d2408a638465eaf2ab2a60507a0124931f065040853208131d",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_13726.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4458.result.json",
+      "bytes": 594,
+      "sha256": "fe00dfc8bac2a279a278d79d6ccbaeedab97fe3f96735938042fb94b92538a7e",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4458.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_862.driver.stdout",
+      "bytes": 434,
+      "sha256": "6df330cb1a8b5c2c0e473daab8e014a50b4040fd0918f2c3520365921376a0b7",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_862.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4382.solver.stdout",
+      "bytes": 4331,
+      "sha256": "9d82be5bed54366fc8491308112cdb43ee983a7e566be8548636c9ba2bd715a3",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4382.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_363.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4972.result.json",
+      "bytes": 624,
+      "sha256": "01416698c8df23ad89e862d7628e46b360ca79dc6cf3f9ee86e154be3c8dcedb",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4972.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4732.result.json",
+      "bytes": 623,
+      "sha256": "2d8ca99037f556051cbc819a621b47aa5a347a955b2c83e1614bf78464489c4e",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4732.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_858.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_13740.result.json",
+      "bytes": 651,
+      "sha256": "7acf5e49e6836ceba258cf87da0b3e3964fba3d2df1a9cd508ea1fcf04a3148c",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_13740.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_23.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4383.solver.stdout",
+      "bytes": 7435,
+      "sha256": "a1659468ac807b66e10abc0789922b0f9aa6fb167e1fbae2c67564c0fcc7e22c",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4383.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_278.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_857.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4702.result.json",
+      "bytes": 620,
+      "sha256": "e2990c8640a2bcf533695075cfbe9830441e024d494c5f65e3b3eaa0a0532828",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4702.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4687.solver.stdout",
+      "bytes": 5685,
+      "sha256": "8ac630470fae1924848e18c5e187fff654d440de51cb608ea0af234d092897fc",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4687.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4958.driver.stdout",
+      "bytes": 441,
+      "sha256": "75215e448eb0281b9028513db03f5ba11113dca522101d3bb0a49986ac5c2c1f",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4958.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_53.solver.stdout",
+      "bytes": 3572,
+      "sha256": "eb8c8f3c38dc94581a1358f3f3f32d53792de4420318ba12aaf6400a8415b203",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_53.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4732.driver.stdout",
+      "bytes": 433,
+      "sha256": "2456a697cd9fd461f9fbc77ce330bdda539e84a34504feb8f1bae1c628e425d7",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4732.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_13740.solver.stdout",
+      "bytes": 9934,
+      "sha256": "4ce3134372989607e77c764c7fa1a75d43af372e0237ab6733c788457fb2e02a",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_13740.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_15.result.json",
+      "bytes": 535,
+      "sha256": "307e1678e7c832f49c890a13dc2f4b4aa7f1f5d097971bfaa0260fab34e283f8",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_15.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4458.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_317.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_295.solver.stdout",
+      "bytes": 3957,
+      "sha256": "2efe46fdfa919e3582a73d23bc6395389b9a8bfbce0a62717868fa7b422f3e4b",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_295.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_5805.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_286.result.json",
+      "bytes": 563,
+      "sha256": "28d22663ae029bf9b7a1022bac68a167d465a570f028db2a62c297a2ccb18bfd",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_286.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_279.result.json",
+      "bytes": 564,
+      "sha256": "7d7d17a4fb7c67e54f2515f687aa55786db73ff177d4a276b24ba5188740fdab",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_279.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4414.driver.stdout",
+      "bytes": 433,
+      "sha256": "8c8ddc2511259abedc4fb2022c16893c23a716c9c1642accba8ac049b59901e3",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4414.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4399.result.json",
+      "bytes": 623,
+      "sha256": "e028149df39aab5717342ac4fa6ca26bf998ef0691bbc7090da870b8baaf2060",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4399.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4702.driver.stdout",
+      "bytes": 430,
+      "sha256": "2756e6d490b6f8ac8af3e211e2186026ec73ece78939046f60b4eb340ff551c3",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4702.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4398.result.json",
+      "bytes": 594,
+      "sha256": "9ed3ed4bd4a20bf9e8790903935dac3782b3668d869c134d5fa57b83437e4873",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4398.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_318.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4383.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_857.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_61.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_278.result.json",
+      "bytes": 534,
+      "sha256": "cbb1399c84fde25af09b55f62a9fa3c108ff76ef5aad5f1018bec15750b2f8a4",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_278.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_286.driver.stdout",
+      "bytes": 417,
+      "sha256": "cd20f05fb9da4f010014c1eba5c5d78efbf1ea099e7d4fdb320b0fd8cd1c2b61",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_286.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_15.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4398.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_23.result.json",
+      "bytes": 534,
+      "sha256": "d9dda51d7a906ca5c05448dcf255c5d4ef9c6623356b1ae46fdce812e53281a0",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_23.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_15.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_60.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4382.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4958.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4459.solver.stdout",
+      "bytes": 6051,
+      "sha256": "585fa71cacd5f048e64b8e492d0ee35a714603fdce240b2c9fb2e0a4917240f0",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4459.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4702.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_19.solver.stdout",
+      "bytes": 2753,
+      "sha256": "aff9cb636f232ec7112faf80228b999b90754b49f8288743f7ef4128602ebf51",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_19.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4399.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4973.result.json",
+      "bytes": 653,
+      "sha256": "110a7eef2e947d56ef28cb6c3bf6e341250336a62a7f8c1d36c8a4372bb65354",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4973.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4699.solver.stdout",
+      "bytes": 5998,
+      "sha256": "2eb36a9f03c4bd6c6ede0a39a25936111799ae5ec342dd48fa6b4762236b41cb",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4699.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_279.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_303.solver.stdout",
+      "bytes": 4432,
+      "sha256": "2d5919924095aea6938785afb2801fcb9542166d1c8ab9c400b99f4c621ee4bb",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_303.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_303.driver.stdout",
+      "bytes": 427,
+      "sha256": "5a2da995b787141ad23678a3b0f8ca4f3a4ebd456cbae85213b70eb1c4aca405",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_303.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4398.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4973.solver.stdout",
+      "bytes": 9119,
+      "sha256": "efb8556588a9a8b608a612fd01cf872604da57e2a5ba77727f6f532f1bf08285",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4973.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4698.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_310.result.json",
+      "bytes": 563,
+      "sha256": "3e0322aebbb7924e3a1160451e3346099f39aa082495858e060e9c434442b835",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_310.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_15.driver.stdout",
+      "bytes": 411,
+      "sha256": "f05c554fbda9cb2a8048c17514ec8ecbc41fb946843a399a940751edec6630f8",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_15.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_295.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_363.result.json",
+      "bytes": 594,
+      "sha256": "a33700355ac0d9a775d7e76f08a12908b06b476266cf66029e430ae0b6981e46",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_363.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4698.solver.stdout",
+      "bytes": 4178,
+      "sha256": "91935fddd0f93e85106808c9872d7785742c454a5d4eb8b0484f67b883aba41a",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4698.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_19.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_862.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_318.driver.stdout",
+      "bytes": 426,
+      "sha256": "83d08f4ad05e51062164607ad14e1fd98395fc821c47a1c2a2e3271c7f0a643c",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_318.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_13726.driver.stdout",
+      "bytes": 450,
+      "sha256": "05bc981378000a7537006f5431fecaaf8393ce78559721458684a0210fe76d37",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_13726.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_854.result.json",
+      "bytes": 594,
+      "sha256": "00c1558b238ef3c416f901b15e2bc869737205d4ac9cfaa08fc379804ace4763",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_854.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4972.driver.stdout",
+      "bytes": 434,
+      "sha256": "031777717a5f8bd2e4b099eff795a1a1e4109a9460d65fc9eda721e9cf9bfbd0",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4972.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_286.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4398.driver.stdout",
+      "bytes": 426,
+      "sha256": "ac92b000b1d8d66df2e58416f0ab1272b433aebbbe894a6809e7aadad958d114",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4398.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_310.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_19.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_60.solver.stdout",
+      "bytes": 3340,
+      "sha256": "ee9e2ed231c2f4fa3370e059d20948f6746a29bb50a1ef2e700f39deb28aba34",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_60.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4702.solver.stdout",
+      "bytes": 5951,
+      "sha256": "8db1b69fdb49f4d04c7d5567633b08905aed221f3f2b19f8b57cbe09c18347e1",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4702.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4382.result.json",
+      "bytes": 592,
+      "sha256": "cf46fcfc0d0f50076f0ddbbacbaad8b7a77ca905ba4f4714dc3c7a2ddd925555",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4382.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_61.result.json",
+      "bytes": 564,
+      "sha256": "1955e94b9711468e25bf2b682e26eddda8f3572d0fc6efaad230f8000782d2f8",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_61.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_7.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4383.result.json",
+      "bytes": 623,
+      "sha256": "346f036bab7847c1f87b7cb0f4fb1a78d3b49737a1f877cc8657be2bb92b7b53",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4383.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_31.solver.stdout",
+      "bytes": 4006,
+      "sha256": "39ab1320d1ada0f697585d8ae31747ce0c47fe108a60e7f6d2f13ed1fff4fe2f",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_31.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_7.solver.stdout",
+      "bytes": 3563,
+      "sha256": "0fa79061e4d97649ca2d59a55c934e0ad7f982597cac407c55ee301f50ab16e7",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_7.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4698.driver.stdout",
+      "bytes": 426,
+      "sha256": "6cb73cb4c0a5c650a1efd8f344eb3baec7861d962c09dc8e2e2db72c6fcd31db",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4698.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_60.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_316.solver.stdout",
+      "bytes": 4008,
+      "sha256": "d84191bda06ffd755ed8612864dbd7ffbbe39b3f0f7e27074b659127ca2a97ba",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_316.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_862.result.json",
+      "bytes": 624,
+      "sha256": "18929c9ca9ea980d7f46ce6caf1de451a5daed8dcb60c64260d2d17467d2236f",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_862.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_295.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_278.solver.stdout",
+      "bytes": 3406,
+      "sha256": "a02fd1f28b82ff133d5809ab2690d452ff1061b389dbbf2dbd35aa2e132db7d3",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_278.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4399.driver.stdout",
+      "bytes": 433,
+      "sha256": "ea60d0fc493acd74c5cc46c045c3ec428ff3d7aa524b3ce083496498ce989a5c",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4399.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/SUMMARY.json",
+      "bytes": 17950,
+      "sha256": "635a82dd4b870d811b05904b96ac41deddf55359b59b00681eb6ae6f649649be",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/SUMMARY.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4382.driver.stdout",
+      "bytes": 424,
+      "sha256": "b7e97fd27488e9fc62496aff853169349b424a3564e72540358f6558c7b80e7f",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4382.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4732.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_286.solver.stdout",
+      "bytes": 3855,
+      "sha256": "814b54f90f7d989015677ae1c5519d1bb8e7414f4bcdd78188ba31e99ebcac55",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_286.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4458.driver.stdout",
+      "bytes": 426,
+      "sha256": "92e4ce4bcd71aa41501883c25f63e83462102e3947ca99e573a89080058f9917",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4458.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4732.solver.stdout",
+      "bytes": 5790,
+      "sha256": "20270bb46a7cd99da2ab0684e7844f8a522a0f6d0b72b9dd1bafa9a47039991b",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4732.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4973.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4414.result.json",
+      "bytes": 623,
+      "sha256": "af8262732925a89f78217257466b6e035fa15fb170373b0c9807a513a1c40487",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4414.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4459.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4958.solver.stdout",
+      "bytes": 9439,
+      "sha256": "602dade9982c6e806d445ad8292cc7fa03819ec966c8c4e7bf05d3a624b00842",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4958.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4958.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4383.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_19.driver.stdout",
+      "bytes": 401,
+      "sha256": "f82d711129656136137140c3a337b9a3e26bcef4bb6e55ae9e7dc9d78f45d668",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_19.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_310.solver.stdout",
+      "bytes": 3957,
+      "sha256": "aab21956917263ef0ad04ad21477c997932139d5b4ea16f46cda41b7ab54855f",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_310.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4398.solver.stdout",
+      "bytes": 4331,
+      "sha256": "f56ab1476e75fc068db127f6fb9a328a895c69eb420aa5a9d70a831b96b4fb96",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4398.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_3.solver.stdout",
+      "bytes": 2748,
+      "sha256": "31ecdfa0e04b70048ae25980133e8568e41001ac872d5f3bde4bf927adf9e9a3",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_3.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_61.solver.stdout",
+      "bytes": 3853,
+      "sha256": "f962e4b3c52530a92ba90e4960dd602d0ff717f3933446db368998d51b2b4b33",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_61.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_303.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_31.result.json",
+      "bytes": 564,
+      "sha256": "febdd379f3fbc4d89e6e17cbcf8814568641b4142e92180073fa351538e54272",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_31.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_857.solver.stdout",
+      "bytes": 3753,
+      "sha256": "9e923603ee79f2d055cce27aa4e71d4a433bb6825de9e468e1a8045ee2454b4b",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_857.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4973.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_318.result.json",
+      "bytes": 594,
+      "sha256": "6da515129526d5d252d2759f102a8e1a444b5dadaa459fd88f9d0325d2748972",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_318.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_363.solver.stdout",
+      "bytes": 4482,
+      "sha256": "e4cece0093444e19087279a8dd4c3297f65d240b5909ab6bdebfdeda3029241b",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_363.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_3.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_287.solver.stdout",
+      "bytes": 5937,
+      "sha256": "a61f319dccb2255702a52ef1baf50bcc4140488d1868486ea2a8c668a0a84ec3",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_287.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_31.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4414.solver.stdout",
+      "bytes": 6946,
+      "sha256": "10a0d2dc6d6a7b26e993af9067e54f9a0ab83aebdb36ea6461efce6edaf958e7",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4414.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_7.result.json",
+      "bytes": 502,
+      "sha256": "0b9f19a39e23510ac43d721ab8b6f3c06239bf858ab7e3fc9edc6142bbd3fa9d",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_7.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_287.driver.stdout",
+      "bytes": 425,
+      "sha256": "25d9d5730c94252b613aae46cdbcbf90b29b74921372c2545df7d6c000baf038",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_287.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4414.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4972.solver.stdout",
+      "bytes": 5890,
+      "sha256": "b08dba6276f09a678920a6eae83e2ee4488255496f2f787fbfa75d549aab0df1",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4972.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_3.driver.stdout",
+      "bytes": 391,
+      "sha256": "556a046d0aeda8cfcb83a82cc0ef099ece3151cec9e72facaf8ea3cfe45a62e3",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_3.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_854.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_278.driver.stdout",
+      "bytes": 410,
+      "sha256": "6952ac2cb0bfcf7ae2948b87473ca10f54859dda3ca91f17b28f875c7f56ea21",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_278.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_287.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_23.solver.stdout",
+      "bytes": 3659,
+      "sha256": "d8fd9dc97bd4686d647e1f994e68870b780b9dfeeb54b5b55c4c0089235f37ed",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_23.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_310.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4699.result.json",
+      "bytes": 623,
+      "sha256": "90bd0bad4f4d0b7c37d1c7b7788606fa37b913b9bd93820b8060f891a53092d5",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4699.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_303.result.json",
+      "bytes": 595,
+      "sha256": "6c72ed73d51ed0fde315aae72fd60fd1baa4a94ceb6281b7739330791baa65bb",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_303.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4687.result.json",
+      "bytes": 624,
+      "sha256": "125f2469b6c3b9cc4a55a0fa714dc5703cc1a0258f8107207f4d5d0f6fc3352b",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4687.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_13740.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_854.driver.stdout",
+      "bytes": 426,
+      "sha256": "44d0dd09c8371c7d235a2e21a543daff724be9cf65b2d149126571ce9377775b",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_854.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_857.driver.stdout",
+      "bytes": 425,
+      "sha256": "e63be3df3fb382b3fb014296a046fa3c646b881ad01ba7c7a2be2d5799b14ee8",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_857.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4399.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_363.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_316.result.json",
+      "bytes": 563,
+      "sha256": "65400b27f42a34788f73be1f6ef5fab55e933da8588f7a83cc273463a256db6c",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_316.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_858.driver.stdout",
+      "bytes": 425,
+      "sha256": "7c0f27198f61528f23b671d24861652bf8e09eb091728c215db2d245e361cc13",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_858.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_857.result.json",
+      "bytes": 593,
+      "sha256": "e380fa05cd107a1a9a4c2d6d7c8392302322d4cf572497b49ac596a2abb78b93",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_857.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_5805.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_854.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4699.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_287.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_3.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_854.solver.stdout",
+      "bytes": 4380,
+      "sha256": "83d06f1b549979981a32bfac5f86ac4de2aecf2dcbcb5bb030041942f15fed91",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_854.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_3.result.json",
+      "bytes": 471,
+      "sha256": "7084dc68eedf648e8e9b4ad64945c70e5031f5bc8808c794766821948dfecb09",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_3.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_61.driver.stdout",
+      "bytes": 418,
+      "sha256": "ad12a41dec8da7994b5d7df1fe6ef9d1da0ed230877b02e354debd8d0bfb171e",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_61.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_7.driver.stdout",
+      "bytes": 400,
+      "sha256": "a65a2cb4e4e7c5ceca769d5259887422fb8c661c16b24bb7f8b30ac85e28e024",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_7.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_862.solver.stdout",
+      "bytes": 7057,
+      "sha256": "34a9d21b7923958185fe707beda44d431e78a9a58b2dc234cc3c15e2e6c345f0",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_862.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_858.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4458.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_279.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4698.result.json",
+      "bytes": 594,
+      "sha256": "d18da7d00da276712d074119ff5886e55fb1a7f3068fdf687e32f19364557ad4",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4698.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4459.driver.stdout",
+      "bytes": 433,
+      "sha256": "5381ccadb593a604330eeda6927320c1a6e15271f0dcd4a5e00ded87ddf96d91",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4459.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4958.result.json",
+      "bytes": 653,
+      "sha256": "21fd32f6c8f1b2c770a7e48b0c7b2f8827f28d0eb2a7eb192ee0ee2f0c15c5e8",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4958.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_295.result.json",
+      "bytes": 564,
+      "sha256": "a4c09a38b2cee36315ad6d73d60cbff56c112d367e1e4d91ff07016bbed1398a",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_295.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_858.result.json",
+      "bytes": 593,
+      "sha256": "dda3f28f39e8d6136ddd21d828c2fb723bc407fd728559519fefe1df9ce724c4",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_858.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_858.solver.stdout",
+      "bytes": 4380,
+      "sha256": "c147dd8f678f55c34567258aa22fac80082fedb6a36a16634bca6787c27e2bcb",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_858.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_287.result.json",
+      "bytes": 593,
+      "sha256": "bad2fa162a1ff81bf96915f034237d816146033f675158a82e693384248aa579",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_287.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_303.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_279.solver.stdout",
+      "bytes": 3855,
+      "sha256": "a6007467550dda567ea37e5ee648d194a415c71ac19ac4514df4efb8cb8858b1",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_279.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_13726.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_19.result.json",
+      "bytes": 503,
+      "sha256": "c9cff68c720372610bd52b4198b7136f734ccdeeb89dd83f755310d0a6a59626",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_19.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4687.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_13740.driver.stdout",
+      "bytes": 439,
+      "sha256": "5925221979df95fbea0efa1e0456b82f6811ece97327a034ad6cc3d1fbee38b4",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_13740.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_279.driver.stdout",
+      "bytes": 418,
+      "sha256": "309610b421f7e7a05cff49c5199b53f6eb8f87f31f913b7e7f43faf2ae42b562",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_279.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_4399.solver.stdout",
+      "bytes": 6051,
+      "sha256": "dda72ba110498fff186a263a4afc9ddebf29d2c117008084d6b657ac0a486c69",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_4399.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_295.driver.stdout",
+      "bytes": 418,
+      "sha256": "788150e89e4c76f36dd6aa02ca5684427a43e67081a2c1e925c2315191edcbc4",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_295.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_23.driver.stdout",
+      "bytes": 410,
+      "sha256": "f8da6c91e965d3336a5ec5ccf1004b8dd8e80cf7734cb4ee20b4c22c5d2f256c",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_23.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and-census4/case_5805.result.json",
+      "bytes": 653,
+      "sha256": "e0b74dd52bf61030a9fb6e84cf2880cbbf5c7950f5a3a03f16b21646c4ae2111",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and-census4/case_5805.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/k4inc_14.result.json",
+      "bytes": 712,
+      "sha256": "b137c558fe0bd77d48cf2193b7d5139c482a60df1d38bab26aa7adcaee767189",
+      "identical_archive": [
+        "results/orch/search/gap4970/k4-original/k4inc_14.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/case6-generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/cycle8_10.run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/k4inc_14.generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/cycle8_10.solver.stdout",
+      "bytes": 14277,
+      "sha256": "42b8aaa101fb3da1dcbdf9bbd8b5e8e5ba86a370e71f9de5e2327c04c9f28331",
+      "identical_archive": [
+        "results/orch/search/gap4970/controls/cycle8_10.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/k4-cuts/star15_control.result.json",
+      "bytes": 4249,
+      "sha256": "e733092b9adf5f81c4a5c34c5015298db88d95a60ce88201e2fd5a4dbd7a076b",
+      "identical_archive": [
+        "results/orch/search/gap4970/k4-cuts/star15_control.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/k4-cuts/star15_control.driver.stdout",
+      "bytes": 1919,
+      "sha256": "f7d35cf4e72b0ce35accfedc01c13dc16ae6e5b659fac97f386ae515bff39bd1",
+      "identical_archive": [
+        "results/orch/search/gap4970/k4-cuts/star15_control.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/k4-cuts/star15_control.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/k4-cuts/direct-control.json",
+      "bytes": 3216,
+      "sha256": "5b6a79be1c5311fb2f6b5b4ddeeaf37b71cfa189b8f9a89d5ba442f347128d77",
+      "identical_archive": [
+        "results/orch/search/gap4970/k4-cuts/direct-control.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/k4-cuts/star15_control.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/k4-cuts/star15_control.solver.stdout",
+      "bytes": 24763,
+      "sha256": "61dfe49a8f95ce694d2c6371d3ddb7446a27e358733f7b083a546a22628b1342",
+      "identical_archive": [
+        "results/orch/search/gap4970/k4-cuts/star15_control.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/path4_5_and2.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/path4_5_and2.solver.stdout",
+      "bytes": 4887,
+      "sha256": "9f428ecb806ad9e44839da45ea21d6ee2b892d2c5a4b3427e8b842e281a9f445",
+      "identical_archive": [
+        "results/orch/search/gap4970/operator-controls/path4_5_and2.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/path4_5_or3.solver.stdout",
+      "bytes": 4880,
+      "sha256": "16af42c7ff7afad60ef95e97f6a15731f52d64f77ccf4d2ef1de3929db97c0be",
+      "identical_archive": [
+        "results/orch/search/gap4970/operator-controls/path4_5_or3.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/path4_5_or3.driver.stdout",
+      "bytes": 990,
+      "sha256": "b76b27c48eb5cda0b6b2641d11ae1f99e8187da31c14ec7aea6c02dc72686235",
+      "identical_archive": [
+        "results/orch/search/gap4970/operator-controls/path4_5_or3.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/path4_5_or3.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/cycle6_12_or4.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/cycle6_12_and2.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/path4_5_and2.driver.stdout",
+      "bytes": 991,
+      "sha256": "c37d67827cc3d81b2f5d9b7bd96e315729583b3a8f5146ee2123c2886c28ebca",
+      "identical_archive": [
+        "results/orch/search/gap4970/operator-controls/path4_5_and2.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/path4_5_or3.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/cycle6_12_or4.result.json",
+      "bytes": 770,
+      "sha256": "a6f3a8d2d52c7f55a2907127a730e79de319d5a5520c46164f245d7876dee38f",
+      "identical_archive": [
+        "results/orch/search/gap4970/operator-controls/cycle6_12_or4.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/cycle6_12_or4.solver.stdout",
+      "bytes": 17759,
+      "sha256": "100e31258e1f5e3702c99eea67f2ffe4ca428d14c691827e4b502adb5d217bf9",
+      "identical_archive": [
+        "results/orch/search/gap4970/operator-controls/cycle6_12_or4.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/path4_5_and2.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/cycle6_12_and2.driver.stdout",
+      "bytes": 577,
+      "sha256": "e28a3353adcfd18d815ce21f44b247a15a3f31c91dafa81ac6a04a53c91e1486",
+      "identical_archive": [
+        "results/orch/search/gap4970/operator-controls/cycle6_12_and2.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/cycle6_12_and2.result.json",
+      "bytes": 771,
+      "sha256": "3b1e5bf61ddde30bc6c55b89595fc3626a2b1cda630793a67e485b88fdbeb625",
+      "identical_archive": [
+        "results/orch/search/gap4970/operator-controls/cycle6_12_and2.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/cycle6_12_or4.driver.stdout",
+      "bytes": 576,
+      "sha256": "64c60690b2162b144ea1e4d4ca795a1e2e7c3d279050a7a4dc37acbe2517ae40",
+      "identical_archive": [
+        "results/orch/search/gap4970/operator-controls/cycle6_12_or4.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/cycle6_12_and2.solver.stdout",
+      "bytes": 12196,
+      "sha256": "89250d08a3771acd4ffda62409e010c610b50545d366ccd318b305d85d0b4511",
+      "identical_archive": [
+        "results/orch/search/gap4970/operator-controls/cycle6_12_and2.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/path4_5_or3.result.json",
+      "bytes": 1626,
+      "sha256": "6baa9f01b78329642dc3c7bede0a6ab3d3b62ce68655c3ab7e138bf0878ad9fd",
+      "identical_archive": [
+        "results/orch/search/gap4970/operator-controls/path4_5_or3.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/cycle6_12_or4.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/cardinality-control.json",
+      "bytes": 141,
+      "sha256": "14fe101c964ace1c832d106c945b14b4279d863b71ae9e28f97c5c6966f41ddf",
+      "identical_archive": [
+        "results/orch/search/gap4970/operator-controls/cardinality-control.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/path4_5_and2.result.json",
+      "bytes": 1627,
+      "sha256": "3c80ca1a5a89dcbd93383cdca23547f30931caf0e7637c73254309df99d8d297",
+      "identical_archive": [
+        "results/orch/search/gap4970/operator-controls/path4_5_and2.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/cycle6_12_and2.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/case4-generation.stdout",
+      "bytes": 118,
+      "sha256": "c2d078912516246017f1ee53b61e5c5aaf53b52135899c3bf1cf6621d94d035c",
+      "identical_archive": [
+        "results/orch/search/gap4970/case4-generation.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/gap4970-free-and-k4inc-or10.stdout",
+      "bytes": 476,
+      "sha256": "97602b59729a4bef761356703657e74f10679ea595327d5fc27cda01b1e29871",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and/gap4970-free-and-k4inc-or10.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/cycle8_10.run.stdout",
+      "bytes": 380,
+      "sha256": "116cc300a622afcb123fcdcbf2086a6f1f62cc87a2815de5dec4659dffcce289",
+      "identical_archive": [
+        "results/orch/search/gap4970/controls/cycle8_10.run.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_15.solver.stdout",
+      "bytes": 4056,
+      "sha256": "ebed5684de4c173e44aa891c94c39bdba3449bf80fcfef38380692bddb09d670",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/case_15.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_78.solver.stdout",
+      "bytes": 3829,
+      "sha256": "314aca38629825a4242226e4f93a913b90854a454c1173346ac8b15a9c9b040f",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/case_78.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_87.result.json",
+      "bytes": 498,
+      "sha256": "96f5da6f92c87b0c8a987616a5f15baa61d2f1f49934592c163c13c5eb534d62",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/case_87.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_79.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_11.result.json",
+      "bytes": 439,
+      "sha256": "56b3acf02ce20e7c03dec1017858956eb071dd83da689ce6d1d665a1ab79a7f1",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/case_11.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_238.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_11.solver.stdout",
+      "bytes": 3625,
+      "sha256": "38baa668e0d75d9cffe2666b8e1e936cf9d9d9d30eae7e5d6565a770a9b46e34",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/case_11.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_238.result.json",
+      "bytes": 611,
+      "sha256": "0a50251438a6bcb81f9c64c19f603e7a9b29acd6c58408d1d73da7b289015d99",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/case_238.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_94.solver.stdout",
+      "bytes": 6507,
+      "sha256": "c3ea9eb6896990e4b93b18aa56b94e0c4c6f3b05a9930061878963528634d888",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/case_94.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_94.result.json",
+      "bytes": 498,
+      "sha256": "ef807178c5d7751b2e3a53c4c9b1f500fcea983fd8812ace60e2ab915c39ba73",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/case_94.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_87.solver.stdout",
+      "bytes": 6128,
+      "sha256": "f62814073c15b1afbdfb7658a8e653f8c11fcdd5c5155a97158213c68b5ddc44",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/case_87.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_15.result.json",
+      "bytes": 469,
+      "sha256": "1b86fa3283bb91d230a2e4367b3f706b4619da20e0f771b3be566bad89c2014a",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/case_15.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_78.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_79.solver.stdout",
+      "bytes": 5348,
+      "sha256": "b0392792c0dc55aa3fe64b508c30e518942035d06fe81d677bc910451bd9ed2e",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/case_79.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_79.result.json",
+      "bytes": 498,
+      "sha256": "34829de17f30259db0446b1ed94237b997a529859df9ce73e740b29e7c5b96c1",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/case_79.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_15.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_94.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_29.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_7.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_29.solver.stdout",
+      "bytes": 3991,
+      "sha256": "1bcc49a31039026f1b601f84ae4341e3789b8f147cf9935b572ef46cc184feb3",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/case_29.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_7.solver.stdout",
+      "bytes": 3824,
+      "sha256": "7f49cc3276cfeab0ad350899d15a86dbbea255fe0dc50f7bc1760f7d0705f5d9",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/case_7.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_29.result.json",
+      "bytes": 469,
+      "sha256": "952555d85a6774ed9ff44e9cfeae60aab21ba68a97daf481e61a2f28b5efdc36",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/case_29.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/SUMMARY.json",
+      "bytes": 1859,
+      "sha256": "37b6b908815dc537c1d3366020c3c0b98bfd072a922e32b8cfd745e1e76f0397",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/SUMMARY.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_3.solver.stdout",
+      "bytes": 2733,
+      "sha256": "8c23711226e109b2b8684b15544c35b0b90283e2ba53810cbafb6b99b1ea5cc4",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/case_3.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_7.result.json",
+      "bytes": 438,
+      "sha256": "c750c2a3c8691c0e44aae6b4bd476ec9376e60ccb9d7c7ab72c33708187f0840",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/case_7.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_11.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_238.solver.stdout",
+      "bytes": 10377,
+      "sha256": "ee3ce5caea5635f5fb3c2ed7baba0e381e26154126bb03cc29a08d9f9c17c730",
+      "identical_archive": [
+        "results/orch/search/gap4970/controls/cycle6_7.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_87.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_3.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_3.result.json",
+      "bytes": 407,
+      "sha256": "3aeac5e1dba2d818a75014b7835d5185a27422d2bf3f1607e3723908a122d15f",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/case_3.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_78.result.json",
+      "bytes": 469,
+      "sha256": "711aecb439c7471a5d13d4abd2c8c1d28da22b0557880b070a299040abb243c9",
+      "identical_archive": [
+        "results/orch/search/gap4970/census/case_78.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/k4inc_14.generation.stdout",
+      "bytes": 372,
+      "sha256": "6c1824f4cd2c5ed255fa55b90a491cb71966e76f979ad5a93dad24ed8f896bae",
+      "identical_archive": [
+        "results/orch/search/gap4970/k4-original/k4inc_14.generation.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/cycle8_10.generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/case6-generation.stdout",
+      "bytes": 540,
+      "sha256": "847d377ad79cbcd4a0ce4c61045625e2e995fffa8ed5604fb6fdf84202eb2681",
+      "identical_archive": [
+        "results/orch/search/gap4970/case6-generation.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/k4inc_14.run.stdout",
+      "bytes": 412,
+      "sha256": "49bf3ec5fbe61705ff5a4972b56cd84a7a22f05e1e8ab68f23fc68132a45bdff",
+      "identical_archive": [
+        "results/orch/search/gap4970/k4-original/k4inc_14.run.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/census4.stdout",
+      "bytes": 13074,
+      "sha256": "5ad9eedcc4e3926483ff374ba87a7c3e9b66aac04a07609d082787d2ccad3853",
+      "identical_archive": [
+        "results/orch/search/gap4970/census4.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/cycle8_10.result.json",
+      "bytes": 592,
+      "sha256": "de432a905fc51bc6b0645a11f2053af0ec43759ba65d399f0e0127b56ef6d557",
+      "identical_archive": [
+        "results/orch/search/gap4970/controls/cycle8_10.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/cycle8_10.generation.stdout",
+      "bytes": 339,
+      "sha256": "e37734416c738083a462beec7fd9dc7523383bb43a3e7fbeddd3fc8de2a9faf3",
+      "identical_archive": [
+        "results/orch/search/gap4970/controls/cycle8_10.generation.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/k4inc_14.run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/direct-controls-replayed.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/k4inc_or10.result.json",
+      "bytes": 776,
+      "sha256": "6ed06e59c8fe5222c26b136f9f76a812bd9648c2386c9bf8574c9a6d93e8a1b5",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and/k4inc_or10.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/fano_minor_or14_300.solver.stdout",
+      "bytes": 25428,
+      "sha256": "8f4beea446864481ba0177fdfb50a18e5cecbe5b8e67e067a1d9e6cbc17675a6",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and/fano_minor_or14_300.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/direct-controls-replayed.json",
+      "bytes": 2787,
+      "sha256": "9a735c6447d929e08f6d13e6950c778ac6bed62e1a5c4c84d8347a75d221aeb0",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and/direct-controls.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/k4inc_or10.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/cycle6_or5_control.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/cycle6_or4.solver.stdout",
+      "bytes": 4319,
+      "sha256": "155512dbfddb58a4a95f87e5ab8574a734c87a89929128931e485ced4131fc9c",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and/cycle6_or4.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/theta333_or7_120.result.json",
+      "bytes": 683,
+      "sha256": "b092ec6f995e8b6a966d47fc07c5d0d3f8ecd434adde7d4661b83d1bfad75c83",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and/theta333_or7_120.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/theta333_or7_120.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/theta333_or7_120.solver.stdout",
+      "bytes": 21854,
+      "sha256": "0e1badcd6af3fd40eea86a590cd82b6625d4b51ecb58b59c27c3e24597056bd9",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and/theta333_or7_120.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/fano_minor_or14_300.driver.stdout",
+      "bytes": 508,
+      "sha256": "60681ddbc0f2f0bb7b7e5a48cf7f329d1c146c92045d8367511bba27f769f84b",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and/fano_minor_or14_300.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/cycle6_or5_control.result.json",
+      "bytes": 4344,
+      "sha256": "50089e39f689ca5a89457331a0fcfa0977db1a3ed89ca226a6cb983adcd92112",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and/cycle6_or5_control.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/cycle6_or5_control.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/fano_minor_or14_300.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/theta333_or7_120.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/cycle6_or4.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/direct-controls.json",
+      "bytes": 2787,
+      "sha256": "9a735c6447d929e08f6d13e6950c778ac6bed62e1a5c4c84d8347a75d221aeb0",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and/direct-controls.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/direct-controls-replayed.stdout",
+      "bytes": 1143,
+      "sha256": "fecfccf436a599449801b3830e589ad53a67d5ffcca9420a60d810b23d7ee0f3",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and/direct-controls-replayed.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/fano_minor_or14_300.result.json",
+      "bytes": 896,
+      "sha256": "a1d9c4d49f5a609907660fc7ea54654f2c7bba8df55f27d54cd6de937626157a",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and/fano_minor_or14_300.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/cycle6_or5_control.driver.stdout",
+      "bytes": 1902,
+      "sha256": "5b65ce26cb79f031848febc8b5797585b3daa2eab17bb094cb9f8f69a703b011",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and/cycle6_or5_control.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/theta333_or7_120.driver.stdout",
+      "bytes": 449,
+      "sha256": "e395e408f39d1db7d4d52e6fe40fc9e0b84be19f061130dc286c94039e09d3cb",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and/theta333_or7_120.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/cycle6_or4.result.json",
+      "bytes": 593,
+      "sha256": "d57535e865353cf40746d96f749703289ffcb5b3a78f8de465b4bd5530b0c6fb",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and/cycle6_or4.result.json"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/cycle6_or4.driver.stdout",
+      "bytes": 425,
+      "sha256": "7061aa13e464c5e515c73fd275ecbdfbe8b6610bb9659222399f021980ded5dd",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and/cycle6_or4.driver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/fano_minor_or14_300.solver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/k4inc_or10.solver.stdout",
+      "bytes": 23503,
+      "sha256": "a6fb39390fcb95df8b61f0a5456a7e9bd19224a854c7838d0cbfa1ad0ac45316",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and/k4inc_or10.solver.stdout"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/cycle6_or4.driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "identical_archive": [
+        "results/orch/search/gap4970/free_or_and_fano_minor_and5_120s.solver.stderr"
+      ]
+    },
+    {
+      "scratch_path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/cycle6_or5_control.solver.stdout",
+      "bytes": 8018,
+      "sha256": "b869f22525dc87313249a9728d84c332080edb4b88c6fc69f05bead4a7349ce4",
+      "identical_archive": [
+        "results/orch/search/gap4970/free-and/cycle6_or5_control.solver.stdout"
+      ]
+    }
+  ],
+  "regenerable_CNF_files_retained_in_scratch": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/cycle6_8.cnf",
+      "bytes": 100717,
+      "sha256": "417cc133fa65fb147ba1c7bcab3c3336f1936e6dd1e45e47eb450b2465ff46e1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/cycle6_7.cnf",
+      "bytes": 81333,
+      "sha256": "d22e4fff1abe0e1057c227dab42275b01bb1a9ff533e9d3364ec290699e2b5e1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/path4_4.cnf",
+      "bytes": 14497,
+      "sha256": "734f99b6aefd18d63fec8072e2c24d2a2894aaebe85f0a4c307be62a6cb0e51f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/controls/path4_5_tail.cnf",
+      "bytes": 20450,
+      "sha256": "95173a10577735908c9e5655bc9da3260125bc06b3c909ff7cc7546b563c5630"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/k4inc_14.cnf",
+      "bytes": 711736,
+      "sha256": "b27e7e3a52cfc2035108e57e816d1796c8e034308c6c02e33989b9f0c0706971"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/k4-cuts/star15_control.cnf",
+      "bytes": 818192,
+      "sha256": "7f0670e4a5f1a093ed94113413a20bcbad6c23d27626383180f92a112c441530"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/path4_5_or3.cnf",
+      "bytes": 20513,
+      "sha256": "2026787c359ba0e35c2ba098b90988f310727ed9281838d49ec963dc539f7bc4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/path4_5_and2.cnf",
+      "bytes": 20523,
+      "sha256": "6be5f15c79ff3d3a866b76fccae6b675729f2ad516f1c066b07e2fbc748c3fa7"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/cycle6_12_and2.cnf",
+      "bytes": 205940,
+      "sha256": "4f4875c3f31b6618e0afcfb0c0f825c5a906f8ab49cfc0aefcf086ca9f8b69b1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/operator-controls/cycle6_12_or4.cnf",
+      "bytes": 218469,
+      "sha256": "b2e86688e9199d880df33d04e81489b57f992218d1d9d6777108234345755ddd"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_15.cnf",
+      "bytes": 25887,
+      "sha256": "7ea56b311f829fba1f0799605da13fd0f6de12effbbe7ebed8472cb6e838a78d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_94.cnf",
+      "bytes": 56323,
+      "sha256": "c7516304ba98cbb4ac1dc9711918a0e61aaf09148e45be5c0af40a8051c66f96"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_79.cnf",
+      "bytes": 43669,
+      "sha256": "e8982d2f42d7c4a9e5d61d1ab758d6012ea1c271b593554d0155f334c4cc599a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_7.cnf",
+      "bytes": 8829,
+      "sha256": "c59408ed57b5698defba5699570cf2af54ea8d10632caa3984efff8ca2a6de3b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_3.cnf",
+      "bytes": 2727,
+      "sha256": "9d375b31dd8a0531e58720879bb5cd5c0dcc4a6d859a24d77c20f0eae1e57a79"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_87.cnf",
+      "bytes": 59274,
+      "sha256": "9980831ed68982d69159e1d25e44fe439355526b8ea8834742f02faffcdebefa"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_29.cnf",
+      "bytes": 25453,
+      "sha256": "52678d7a88955f2def2c85d3b29148c9ac59ec9f5e64dcbd2f41d4df1801adca"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_11.cnf",
+      "bytes": 13466,
+      "sha256": "75d014190bad4c3e03145219c649ed8da9c0bb8a720de1ab557bf9d19461b9fa"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/census/case_78.cnf",
+      "bytes": 25263,
+      "sha256": "419404f79786feec6cfa6c9b7eb81c172e3d2f96f01f5b9987fafe8e21eab435"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/cycle8_10.cnf",
+      "bytes": 234821,
+      "sha256": "a4ba8dd2a4cfc48d00ed007b1761a42c8ebbf7cbb539619d1f0f51d496fb40f5"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/k4inc_or10.cnf",
+      "bytes": 470889,
+      "sha256": "600bfa6dbfa3861de898d350e1525be7db062d154e884c213c5ee1b6917ed34c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/fano_minor_or14_300.cnf",
+      "bytes": 1430691,
+      "sha256": "8ebb34583168a8da5c45b8b652997e5f27aadca6b60dcbf29430a8f472c474b9"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/cycle6_or4.cnf",
+      "bytes": 32981,
+      "sha256": "1cbd6f29181e8b9adf184a1bf69501e581d61022ddf47a0f3379a8086de226ed"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/cycle6_or5_control.cnf",
+      "bytes": 48344,
+      "sha256": "cf6e139a69a4fff741b934300d26d97a05f9b99d2c8f2df268ef5a02f33de2bf"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-94/gap4970/free-and/theta333_or7_120.cnf",
+      "bytes": 168420,
+      "sha256": "8030a0954564eea30d7607bcb2a220f57e72392f61c461e73479018a892277ca"
+    }
+  ],
+  "excluded": "Python bytecode caches and solver/generated binaries are not delivery artifacts."
+}

@@ -1,0 +1,220 @@
+{
+  "verdict": "PASS: all24 reported solver-UNSAT outcomes match complete preserved logs and exact frozen-encoder CNFs; no certified UNSAT or Lean target proof is claimed",
+  "fresh_runs_verified": 23,
+  "isomorphic_reuses_verified": 1,
+  "source_hashes_verified": {
+    "free_or_and_sat.py": "f8b7264c258883137ed6a5e0eb488bf1a1e043c85e7270a6874adc7f29bb3b44",
+    "run_free_or_census6.py": "cdee85f61159b66614932de48fc645d46c64839805ea33d8e06cfd5d5407d411",
+    "make_cases_6x6.py": "b3fa55fccf9595d16f8f05ed16964ec6d2006927c62f8c4a6915545e597e39fd",
+    "case_manifest_6x6.json": "11fd09bc5a10c5c7cebd80484c3b3f34f72e3442d1739294b83871829221e8b2"
+  },
+  "cases": [
+    {
+      "mask": 52220757323,
+      "reused": false,
+      "cnf_sha256": "6360804e936cdf1efbc0251585f7347bf87b5c948374886de5c8c34944c7e0d8",
+      "cnf_bytes": 74696,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 52237542732,
+      "reused": true,
+      "cnf_sha256": "ca1d24e1d8727840284a0afc9e6b1c469574a70069d2fba2e29b38197914bc98",
+      "cnf_bytes": 80289,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 52220773577,
+      "reused": false,
+      "cnf_sha256": "9c8c914d6a97beb0222515798c8a2f0aead90bf562917fc60ecebde900755cd6",
+      "cnf_bytes": 79100,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 52221035657,
+      "reused": false,
+      "cnf_sha256": "b852a309620289ff6ae1f0b39ccc1cb6d60b9b214a6412b0911250a1e74cdd6d",
+      "cnf_bytes": 79364,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 52237051793,
+      "reused": false,
+      "cnf_sha256": "3820c3be664c2b8d1ecc46a717b0b3fb08747a106dd5e1f933516f478bcbbccc",
+      "cnf_bytes": 81709,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 52254065801,
+      "reused": false,
+      "cnf_sha256": "5f9c33ff304c0f786a16b09253a61b965316330df8f968aefb3aacb30e3a3bc9",
+      "cnf_bytes": 80905,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 52253791491,
+      "reused": false,
+      "cnf_sha256": "4e2f2d2d8041cc9c0b3a53a7d81f442eec3b6511879b7d905574e8c6c84ed7fc",
+      "cnf_bytes": 79202,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 52220257347,
+      "reused": false,
+      "cnf_sha256": "5828fca3149658236c0b8fad628da2243cb3d24282c4abd8c772ddf7a14a7944",
+      "cnf_bytes": 82203,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 52253803587,
+      "reused": false,
+      "cnf_sha256": "56cbb81a4da6a2e477e8bac915a541643f8534672144dc1ed0fbe68f60d1da90",
+      "cnf_bytes": 81805,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 52254049539,
+      "reused": false,
+      "cnf_sha256": "e63acea7b969b708bc382aa503bed975682633b8d1992f658f4189761578395a",
+      "cnf_bytes": 81803,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 52286817351,
+      "reused": false,
+      "cnf_sha256": "c8350a3822f72bc732deb127da4159d91996cda6bbe36ea81a4a4553ad03deba",
+      "cnf_bytes": 82067,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 54367732803,
+      "reused": false,
+      "cnf_sha256": "ed5bfa2d95c0cc93636b47a3ce5d314466a75c58300694277bbfc158563bf438",
+      "cnf_bytes": 81537,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 52220756291,
+      "reused": false,
+      "cnf_sha256": "aee5835062c1d0e56286d5f263040ac4bce9d62c9b166270432b67e5afb35cdb",
+      "cnf_bytes": 79834,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 52217012547,
+      "reused": false,
+      "cnf_sha256": "1703bb26607ac0605220ee7c8aa56b5627eab79a49495c26089c126dfcf52e42",
+      "cnf_bytes": 78123,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 53327545481,
+      "reused": false,
+      "cnf_sha256": "aa0434b5a9f133758e2e8c460a413574992ba1d69be9910819128ed59a06bb64",
+      "cnf_bytes": 84781,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 43562943633,
+      "reused": false,
+      "cnf_sha256": "9bb5814cdecf3cee207191180634998edc3f83c0ec72f7b7cc23f9ea199c847d",
+      "cnf_bytes": 83608,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 52220274247,
+      "reused": false,
+      "cnf_sha256": "3caf01854e76cf10854a2aa1746405fe54c88732b81b05ca82c5e73d1e21604a",
+      "cnf_bytes": 84670,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 52220761347,
+      "reused": false,
+      "cnf_sha256": "cb93ab82dc9a2fe9a5af3217763f0875a51006468038dd8567a8734a4971fb72",
+      "cnf_bytes": 83740,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 54384493827,
+      "reused": false,
+      "cnf_sha256": "f92454f9e7f12875b683ce450252047ff1298d5c12087843d4c7fc622d82a6ba",
+      "cnf_bytes": 83608,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 52220240195,
+      "reused": false,
+      "cnf_sha256": "346afe3bbc6947e28a7bb5cf7e5052d55e5013d3fb3e9c447e72c82b28884336",
+      "cnf_bytes": 84772,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 56514675011,
+      "reused": false,
+      "cnf_sha256": "8d7ad49803e523ba900269a36e022bca5c9ec8fdaf4e0458d364d5a9d79a2c30",
+      "cnf_bytes": 84506,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 52220274499,
+      "reused": false,
+      "cnf_sha256": "f148e06496e3d76a2fe9334b03d573d6cdca026efb44e87fac00d2f4b7a9b3c5",
+      "cnf_bytes": 89082,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 52219695875,
+      "reused": false,
+      "cnf_sha256": "97a1cfa215b9615dcda79858358d6b3029b2cb223a48babbd73865875b48502d",
+      "cnf_bytes": 86841,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    },
+    {
+      "mask": 52215980355,
+      "reused": false,
+      "cnf_sha256": "3e245ac5ca4824e39d89f740b099a8edb9ccd0f04497977ed2cd2121b5bc7feb",
+      "cnf_bytes": 87475,
+      "solver_exit20_and_UNSAT_line_verified": true,
+      "regenerated_CNF_exact_match": true
+    }
+  ],
+  "punctured_Fano_OR14_status": "UNKNOWN",
+  "limitations": [
+    "Solver UNSAT results are not Lean or independently checked proof certificates.",
+    "The finite census is restricted to6x6 C4-free graphs with minimum degree at least2.",
+    "The named1148-line Lean file is still a partial without the target theorem."
+  ],
+  "seconds": 0.41060543499952473,
+  "counterexample_owned_artifacts_verified": 467,
+  "named_Lean": {
+    "lines": 1148,
+    "sha256": "276c73d6b0e605c3fc1acaae13aace996786a612cb871bf122452e341db0f17d",
+    "static_forbidden_markers_absent": true,
+    "status": "partial only; no target theorem"
+  },
+  "review_note": "The first review attempt expected an explicit s UNKNOWN line in the time-limited OR14 solver log. CaDiCaL instead emitted no s verdict and exit0; the review was corrected to accept that documented UNKNOWN convention. All24 UNSAT records had already passed."
+}

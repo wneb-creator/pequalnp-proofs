@@ -94,3 +94,6 @@
 - 2026-11-25T16:16:07.595461+00:00 structure: puncturedFanoCGP480s completed normally;336,751,024mutations,1348restarts,best21,no20; complete4096-row validation passed; archived along with candidateAND6 argument finite facts (notLean).
 
 2026-11-25T16:16:33.313452+00:00 — Punctured Fano free-AND OR14 run ended UNKNOWN, exact start 2026-11-25T16:09:49.824096+00:00, duration 300.0277503310008 seconds, return code0. All full outputs and source archived. Counterexample agent has no running solver and pauses further timed searches pending the independent AND5 census.
+
+- 2026-11-25T16:20:38Z: six-by-six AND5 batch completed: 24/24 solver-UNSAT, uncertified.
+- 2026-11-25T16:26:26.079571+00:00: final independent archive and branch review passed; exact target remains unproved, no refutation or proof PR. Preserving final artifacts before releasing own lease.

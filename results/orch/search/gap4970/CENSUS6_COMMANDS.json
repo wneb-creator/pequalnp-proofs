@@ -12,5 +12,5 @@
   "labeled_graphs": 7182720,
   "candidates_MIS_at_most32": 24,
   "independent_review": "review-census6.result.json",
-  "timed_search_status": "No timed batch of these classes has been launched."
+  "timed_search_status": "Completed and_census6_30s/SUMMARY.json: all 24 eligible classes solver-UNSAT, comprising 23 fresh runs and one explicitly verified isomorphic reuse. These are uncertified SAT experiments, not Lean proofs or checker acceptance."
 }

@@ -1,0 +1,66 @@
+{
+  "utc": "2026-11-25T15:42:02.817258+00:00",
+  "gates": [
+    [
+      "or",
+      0,
+      1
+    ],
+    [
+      "and",
+      0,
+      5
+    ],
+    [
+      "or",
+      0,
+      2
+    ],
+    [
+      "and",
+      0,
+      7
+    ],
+    [
+      "and",
+      6,
+      8
+    ],
+    [
+      "or",
+      3,
+      4
+    ],
+    [
+      "or",
+      3,
+      4
+    ],
+    [
+      "and",
+      10,
+      11
+    ],
+    [
+      "and",
+      9,
+      12
+    ]
+  ],
+  "inputs": [
+    "p",
+    "r",
+    "s",
+    "b",
+    "c"
+  ],
+  "output": 13,
+  "full_truth_rows": 32,
+  "baseline_direction_checks": 1024,
+  "target": "p and (b or c)",
+  "two_colour_count": 0,
+  "distinct_parent_indices": true,
+  "pure_star_witness_wire": 10,
+  "negative_baseline_derivative_always_false": true,
+  "status": "EXHAUSTIVE_PYTHON_CHECK_NOT_LEAN"
+}

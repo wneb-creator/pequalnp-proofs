@@ -1,0 +1,19 @@
+{
+  "file": "lean/PEqualNP/Outside/L_meta_4970.lean",
+  "lines": 1148,
+  "sha256": "276c73d6b0e605c3fc1acaae13aace996786a612cb871bf122452e341db0f17d",
+  "checks": [
+    {
+      "check": "prohibited_text",
+      "rg_exit": 1,
+      "result": "no matches"
+    },
+    {
+      "check": "attributes_options",
+      "rg_exit": 1,
+      "result": "no matches"
+    }
+  ],
+  "final_theorem_present": false,
+  "claim": "Checked partial only; no posted proof or refutation."
+}

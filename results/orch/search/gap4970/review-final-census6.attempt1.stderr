@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-94/review-final-census6.py", line 86, in <module>
+    assert re.findall(r'^s (.+)$', unknown.with_suffix('.solver.stdout').read_text(), flags=re.M) == ['UNKNOWN']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
