@@ -1,0 +1,1 @@
+{"output": "repair-cegis26-k3.cnf", "budget": 3, "nv": 7515, "clauses": 183145, "seed_errors": {"false_negative_boundary_rows": 0, "false_positive_boundary_rows": 11}}

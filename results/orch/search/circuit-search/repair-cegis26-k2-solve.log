@@ -1,0 +1,184 @@
+c ---- [ banner ] ------------------------------------------------------------
+c
+c Kissat SAT Solver
+c 
+c Copyright (c) 2021-2024 Armin Biere University of Freiburg
+c Copyright (c) 2019-2021 Armin Biere Johannes Kepler University Linz
+c 
+c Version 4.0.4 8af8e56f174b778aef3aa45af9f739b2a5f492c2
+c gcc (Debian 14.2.0-19) 14.2.0 -W -Wall -O3 -DNDEBUG
+c Wed Nov 25 07:07:53 UTC 2026 Linux 196c9d1861a3 6.18.57 x86_64
+c
+c ---- [ parsing ] -----------------------------------------------------------
+c
+c opened and reading DIMACS file:
+c
+c   /tmp/oec/pequalnp-pilot-70/circuit-search/repair-cegis26-k2.cnf
+c
+c parsed 'p cnf 7437 182991' header
+c closing input after reading 3100903 bytes (3 MB)
+c finished parsing after 0.06 seconds
+c
+c ---- [ options ] -----------------------------------------------------------
+c
+c --seed=1                         (different from default '0')
+c --statistics=true                (different from default 'false')
+c
+c ---- [ solving ] -----------------------------------------------------------
+c
+c seconds switched rate     size/glue tier1  binary         remaining
+c        MB reductions conflicts size  tier2     irredundant
+c         level restarts redundant glue  trail         variables
+c
+c *  0.06  8 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 55923 84785 7378 99%
+c (  0.06  9 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 55923 84785 7378 99%
+c .  0.07  9 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 56039 84495 7378 99%
+c b  0.15 15 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 56097 84495 7364 99%
+c d  0.21 15 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 56097 84495 7363 99%
+c f  0.43 16 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 27583 84495 10243 138%
+c )  0.43 16 0 0 0  0 0   0   0 0.0 0 0 0 0 0% 27583 84495 10243 138%
+c {  0.44 16 0 0 0  0 0   0   0 0.0 0 0 2 6 0% 27583 84495 10243 138%
+c i  0.45 16 52 0 0  8 6 102  75 1.9 5 3 2 4 35% 27595 84495 10242 138%
+c i  0.46 16 43 0 0  8 5 130  94 1.8 5 3 2 4 31% 27597 84495 9517 128%
+c i  0.46 16 42 0 0  8 6 134  97 1.8 5 3 2 4 31% 27597 84495 9502 128%
+c i  0.46 16 41 0 0  8 6 135  97 1.8 5 3 2 4 31% 27597 84495 9474 127%
+c i  0.46 16 41 0 0  8 6 136  97 1.8 5 3 2 4 31% 27597 84495 9473 127%
+c i  0.46 16 41 0 0  8 6 137  97 1.8 5 3 2 4 31% 27597 84495 9129 123%
+c i  0.47 16 36 0 0  8 6 169 113 1.8 5 3 2 4 31% 27604 84495 8927 120%
+c i  0.47 16 35 0 0  8 6 170 113 1.8 5 3 2 4 32% 27604 84495 8570 115%
+c i  0.47 16 35 0 0  8 6 172 114 1.8 5 3 2 4 32% 27604 84495 8569 115%
+c i  0.47 16 35 0 0  8 6 173 114 1.8 5 3 2 4 32% 27604 84495 8238 111%
+c i  0.47 16 34 0 0  8 6 178 118 1.8 5 3 2 4 33% 27604 84495 8232 111%
+c i  0.47 16 34 0 0  8 6 179 118 1.8 5 3 2 4 32% 27604 84495 7767 104%
+c
+c seconds  switched rate     size/glue tier1   binary         remaining
+c        MB reductions conflicts  size  tier2      irredundant
+c         level restarts redundant  glue   trail         variables
+c
+c i  0.47 16 29 0 0  8 5 231 158 2.1 5 3 2 4 34% 27612 84495 7751 104%
+c i  0.49 16 23 0 0  8 4 302 198 2.2 5 2 1 3 37% 27626 84494 7715 104%
+c i  0.49 16 21 0 0  8 4 347 215 2.1 5 2 1 3 38% 27645 84494 7714 104%
+c i  0.49 16 21 0 0  8 4 353 218 2.1 5 2 1 3 38% 27647 84494 7679 103%
+c i  0.50 16 21 0 0  8 4 364 222 2.1 5 2 1 3 37% 27650 84494 7660 103%
+c i  0.50 16 20 0 0  8 4 366 223 2.1 5 2 1 3 37% 27650 84494 5750 77%
+c }  0.50 16 20 0 0  8 4 368 223 2.1 5 2 1 3 37% 27650 84494 4654 63%
+c 0  0.50 16 20 0 0  8 4 368 223 2.1 5 2 1 3 37% 27650 84494 4654 63%
+c
+c ---- [ result ] ------------------------------------------------------------
+c
+s UNSATISFIABLE
+c
+c ---- [ profiling ] ---------------------------------------------------------
+c
+c           0.37   74.86 %  preprocess
+c           0.37   73.78 %  probe
+c           0.23   45.59 %  factor
+c           0.07   14.62 %  congruence
+c           0.06   11.25 %  search
+c           0.06   11.25 %  focused
+c           0.06   11.10 %  parse
+c           0.05   10.93 %  sweep
+c           0.01    2.71 %  lucky
+c           0.01    1.53 %  substitute
+c           0.01    1.09 %  backbone
+c           0.00    0.00 %  simplify
+c =============================================
+c           0.50  100.00 %  total
+c
+c ---- [ statistics ] --------------------------------------------------------
+c
+c backbone_computations:                    1              368    interval
+c backbone_ticks:                      200041 
+c chronological:                            9                2 %  conflicts
+c clauses_added:                       168793              100 %  added
+c clauses_binary:                       27650               16 %  added
+c clauses_irredundant:                  84494               50 %  added
+c clauses_learned:                        356               97 %  conflicts
+c clauses_original:                    140708               83 %  added
+c clauses_redundant:                      223 
+c clauses_used:                           894              251 %  learned
+c clauses_used_focused:                   894              100 %  used
+c clauses_used_stable:                      0                0 %  used
+c closures:                                 1              368    interval
+c conflicts:                              368              736.34 per second
+c congruent:                                0                0 %  variables
+c congruent_gates:                         52               52.00 per closure
+c congruent_gates_ands:                     0                0 %  gates
+c congruent_gates_ites:                    52              100 %  gates
+c congruent_gates_xors:                     0                0 %  gates
+c congruent_matched:                        0                0 %  congruent
+c congruent_matched_ands:                   0                0 %  matched
+c congruent_matched_ites:                   0                0 %  matched
+c congruent_matched_xors:                   0                0 %  matched
+c decisions:                             1369                3.72 per conflict
+c eliminated:                               0                0 %  variables
+c eliminate_resolutions:                    0                0.00 per second
+c eliminations:                             0                0    interval
+c factored:                              2880               39 %  variables
+c factorizations:                           1              368    interval
+c factor_ticks:                      12556646 
+c fast_eliminated:                          0                0 %  eliminated
+c fast_strengthened:                        0                0 %  per strengthened
+c fast_subsumed:                            0                0 %  per subsumed
+c forward_checks:                           0 
+c forward_steps:                            0                0.00 per check
+c iterations:                              19                0 %  variables
+c kitten_propagations:                 467609              126.86 per solved
+c kitten_solved:                         3686 
+c kitten_ticks:                       1000272                2.14 per prop
+c literals_factor:                      24470                3.29 per variable
+c probings:                                 1              368    interval
+c probing_ticks:                       668074 
+c propagations:                        625201          1250985    per second
+c random_sequences:                         0                0    interval
+c reductions:                               0                0    interval
+c reordered:                                0                0    interval
+c rephased:                                 0                0    interval
+c restarts:                                 8               46    interval
+c retiered:                                 4               92    interval
+c searches:                                 1              368    interval
+c search_ticks:                       1794433 
+c strengthened:                             0                0 %  checks
+c substituted:                              0                0 %  variables
+c substitute_ticks:                     75270 
+c subsumed:                                 0                0 %  checks
+c subsumption_checks:                       0 
+c sweep:                                    1              368    interval
+c sweep_completed:                          0                0.00 sweeps
+c sweep_equivalences:                       0                0 %  variables
+c sweep_solved:                          3686              100 %  kitten_solved
+c sweep_units:                              0                0 %  variables
+c switched:                                 0                0    interval
+c transitive_ticks:                         0 
+c units:                                 5663               76 %  variables
+c variables_activated:                  10317                1.39 per variable
+c variables_eliminate:                  10317                1.39 variables
+c variables_extension:                   2880                0.39 per variable
+c variables_factor:                         0                0.00 per variable
+c variables_original:                    7437                1.00 per variable
+c variables_subsume:                    10317                1.39 per variable
+c vivifications:                            0                0    interval
+c vivified:                                 0                0 %  checks
+c vivify_checks:                            0                0    per vivify
+c vivify_probes:                            0                0.00 per check
+c vivify_reused:                            0                0 %  probes
+c walks:                                    0                0    interval
+c walk_steps:                               0 
+c warming_decisions:                        0                0.00 per walk
+c warming_propagations:                     0                0 %  propagations
+c warmups:                                  0                0 %  walks
+c
+c ---- [ glue usage ] --------------------------------------------------------
+c
+c focused glue 1 used 638 clauses 71.36% accumulated 71.36% tier1
+c focused glue 2 used 153 clauses 17.11% accumulated 88.48%
+c focused glue 3 used  39 clauses  4.36% accumulated 92.84% tier2
+c
+c ---- [ resources ] ---------------------------------------------------------
+c
+c maximum-resident-set-size:         16543744 bytes         16 MB
+c process-time:                                              0.50 seconds
+c
+c ---- [ shutting down ] -----------------------------------------------------
+c
+c exit 20

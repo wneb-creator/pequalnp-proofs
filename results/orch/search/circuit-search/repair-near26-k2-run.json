@@ -1,0 +1,16 @@
+{
+  "name": "repair-near26-k2",
+  "started_at": "2026-11-25T07:43:44.053300+00:00",
+  "wall_limit_seconds": 120,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=120",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-near26-k2.cnf"
+  ],
+  "backend": "kissat",
+  "preset": "default",
+  "cnf_sha256": "7c655524b72a37ddf55d37dd6aff2ba6a169f4908b3bb38e7c3978d8f7c5442d",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1"
+}

@@ -1,0 +1,19 @@
+{
+  "verified_correlated_assignments": 1024,
+  "mismatches": 13,
+  "masks": [
+    17,
+    21,
+    25,
+    29,
+    81,
+    273,
+    277,
+    337,
+    529,
+    537,
+    593,
+    785,
+    849
+  ]
+}

@@ -1,0 +1,1 @@
+{"original_gates": 27, "genuine_gates": 27, "padded_gates": 27, "verified_inputs": 16384, "original_repair_distance": 1, "initial_fanins_distinct": true, "output": "repair-star27-k1-smoke-normalized.json"}

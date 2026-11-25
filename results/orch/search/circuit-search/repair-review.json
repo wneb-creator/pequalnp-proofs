@@ -1,0 +1,18 @@
+{
+  "reviewer": "root",
+  "verdict": "PASS",
+  "recorded_at": "2026-11-25T07:43:43.867640+00:00",
+  "scope": "Unordered operand-edit distance plus operation flips; unrestricted constant-free forward AND/OR base with repeated initial operands and sorted fanins. No semantic completeness claim outside the selected neighborhood.",
+  "hashes": {
+    "repair_base.py": "3cb9a0dd85d8e68ab3412545a572db1c519c68fb3569865b5e3eed8eb9c388d7",
+    "repair_neighborhood.py": "5590d94344a5290fd83970b442ad49eecaad228f7d70319e7a29e0d622048457",
+    "repair_properties.py": "d0dab730323be33a8558e008c295c7bb78d4825bb7b6a35576709d744fef6a8c",
+    "run_kissat.py": "46632f432f6f0e6da1538f126ed6fe0edf01ec10e5b78150456f2ba60796f084"
+  },
+  "property_log": "repair-properties.log",
+  "smokes": [
+    "repair-near26-k0-smoke-result.json",
+    "repair-star27-k0-smoke-result.json",
+    "repair-star27-k1-smoke-result.json"
+  ]
+}

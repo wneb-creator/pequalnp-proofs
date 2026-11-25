@@ -1,0 +1,19 @@
+{
+  "name": "f0-available-a24",
+  "started_at": "2026-11-25T07:38:57.223636+00:00",
+  "wall_limit_seconds": 2700,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=2700",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/f0-available-a24.cnf"
+  ],
+  "backend": "kissat",
+  "preset": "default",
+  "cnf_sha256": "c44a631233dabbf3bca1831f0e5d1ff409ea81fc82085bf0230c9eae39e8c83f",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1",
+  "assembly_helper_sha256": "ecc2ba6736568545e3fc3940e9898af55e8fe788e87a610c5850cbeac7b16574",
+  "extension_gate_count": 2,
+  "independent_review": "PASS by repo_review"
+}

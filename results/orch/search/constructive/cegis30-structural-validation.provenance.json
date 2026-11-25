@@ -1,0 +1,6 @@
+{
+  "input_file": "/tmp/oec/pequalnp-pilot-70/lower-bound/cegis26-hints.iteration-7.json",
+  "sha256": "df7b3bde56a8c0ae6fda31082d0c33cb1170c4ed0dd2f68fcce993636eba28ab",
+  "validation_file": "/tmp/oec/pequalnp-pilot-70/constructive/cegis30-structural-validation.json",
+  "method": "Direct evaluation of all 16384 assignments against the posted Heawood edge list and that list plus (0,13),(3,13),(5,13),(6,13)."
+}

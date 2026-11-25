@@ -1,0 +1,5 @@
+{
+  "source": "run_kissat.py",
+  "source_sha256": "46632f432f6f0e6da1538f126ed6fe0edf01ec10e5b78150456f2ba60796f084",
+  "changes": "Use the correlated decoder, which also assembles and checks the full14-input circuit."
+}

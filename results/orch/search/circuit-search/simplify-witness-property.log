@@ -1,0 +1,1 @@
+{"status": "PASS", "original_gates": 30, "genuine_gates": 27, "padded_gates": 30, "verified_original_inputs": 16384, "verified_rewired_inputs": 16384, "tested": ["initial idempotent gate", "dead gate", "duplicate gate", "tail padding"]}

@@ -1,0 +1,321 @@
+{
+  "status": "passed",
+  "variants": [
+    {
+      "variant": 0,
+      "choice": [
+        -1,
+        -1,
+        -1
+      ],
+      "orbit_size": 1,
+      "seed_errors": [
+        {
+          "edge": [
+            3,
+            11
+          ],
+          "residual_misses": 20,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            3,
+            12
+          ],
+          "residual_misses": 25,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            3,
+            7
+          ],
+          "residual_misses": 34,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            5,
+            9
+          ],
+          "residual_misses": 26,
+          "full_misses": 47
+        }
+      ]
+    },
+    {
+      "variant": 1,
+      "choice": [
+        -1,
+        -1,
+        0
+      ],
+      "orbit_size": 6,
+      "seed_errors": [
+        {
+          "edge": [
+            3,
+            11
+          ],
+          "residual_misses": 20,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            3,
+            12
+          ],
+          "residual_misses": 25,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            3,
+            7
+          ],
+          "residual_misses": 34,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            5,
+            9
+          ],
+          "residual_misses": 26,
+          "full_misses": 47
+        }
+      ]
+    },
+    {
+      "variant": 2,
+      "choice": [
+        -1,
+        0,
+        0
+      ],
+      "orbit_size": 3,
+      "seed_errors": [
+        {
+          "edge": [
+            3,
+            11
+          ],
+          "residual_misses": 20,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            3,
+            12
+          ],
+          "residual_misses": 25,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            3,
+            7
+          ],
+          "residual_misses": 34,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            5,
+            9
+          ],
+          "residual_misses": 26,
+          "full_misses": 47
+        }
+      ]
+    },
+    {
+      "variant": 3,
+      "choice": [
+        -1,
+        0,
+        1
+      ],
+      "orbit_size": 6,
+      "seed_errors": [
+        {
+          "edge": [
+            3,
+            11
+          ],
+          "residual_misses": 20,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            3,
+            12
+          ],
+          "residual_misses": 25,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            3,
+            7
+          ],
+          "residual_misses": 34,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            5,
+            9
+          ],
+          "residual_misses": 26,
+          "full_misses": 47
+        }
+      ]
+    },
+    {
+      "variant": 4,
+      "choice": [
+        -1,
+        2,
+        1
+      ],
+      "orbit_size": 3,
+      "seed_errors": [
+        {
+          "edge": [
+            3,
+            11
+          ],
+          "residual_misses": 20,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            3,
+            12
+          ],
+          "residual_misses": 25,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            3,
+            7
+          ],
+          "residual_misses": 34,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            5,
+            9
+          ],
+          "residual_misses": 26,
+          "full_misses": 47
+        }
+      ]
+    },
+    {
+      "variant": 5,
+      "choice": [
+        1,
+        0,
+        0
+      ],
+      "orbit_size": 6,
+      "seed_errors": [
+        {
+          "edge": [
+            3,
+            11
+          ],
+          "residual_misses": 20,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            3,
+            12
+          ],
+          "residual_misses": 25,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            3,
+            7
+          ],
+          "residual_misses": 34,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            5,
+            9
+          ],
+          "residual_misses": 26,
+          "full_misses": 47
+        }
+      ]
+    },
+    {
+      "variant": 6,
+      "choice": [
+        1,
+        2,
+        0
+      ],
+      "orbit_size": 2,
+      "seed_errors": [
+        {
+          "edge": [
+            3,
+            11
+          ],
+          "residual_misses": 20,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            3,
+            12
+          ],
+          "residual_misses": 25,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            3,
+            7
+          ],
+          "residual_misses": 34,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            5,
+            9
+          ],
+          "residual_misses": 26,
+          "full_misses": 47
+        }
+      ]
+    }
+  ],
+  "boundary_rows": 27,
+  "underlying_inputs_checked_per_variant": 2048,
+  "full_inputs_checked_per_variant": 16384,
+  "full_cut_identities_checked_per_variant": 6,
+  "choice_count": 27,
+  "choice_orbits": 7,
+  "candidate_variables": 2435,
+  "candidate_clauses": 50876,
+  "candidate_sha256": "e0cd6f075eedd44f8a1df3fc3c287d3728776de97acddc9972231c4265740ad9",
+  "smoke_clauses_verified": 56005,
+  "source_hashes": {
+    "correlated_family_synthesize.py": "347c9231b4b38c609ca7905e6aa2a23a4cd41083122dd4901f751000403c608c",
+    "decode_correlated_family.py": "af52c59ccfb8d749c046af0d25173f968fa2edc9ea33fdec0cb5fefbca7a2580",
+    "run_correlated_family.py": "b27dd8a99f333d32469ade0ac756da95c9d63f55c11f575acd4ab4d7012a954d"
+  }
+}

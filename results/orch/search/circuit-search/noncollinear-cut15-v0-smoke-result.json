@@ -1,0 +1,25 @@
+{
+  "name": "noncollinear-cut15-v0-smoke",
+  "started_at": "2026-11-25T07:55:35.319241+00:00",
+  "wall_limit_seconds": 30,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=30",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/noncollinear-cut15-v0-smoke.cnf"
+  ],
+  "backend": "kissat",
+  "preset": "default",
+  "verification": "all underlying correlated inputs and all16384 full inputs",
+  "cnf_sha256": "ae1faba02c3a8fe71b7379c13dc813fa51baaf44673589ad75d691050ae748b2",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1",
+  "finished_at": "2026-11-25T07:55:35.329794+00:00",
+  "wall_seconds": 0.008014810999156907,
+  "cpu_seconds": 0.007717999999999999,
+  "max_rss_kib": 12160,
+  "exit_code": 10,
+  "status": "SAT",
+  "full_truth_table_verified": true,
+  "witness_file": "/tmp/oec/pequalnp-pilot-70/circuit-search/noncollinear-cut15-v0-smoke-witness.json"
+}

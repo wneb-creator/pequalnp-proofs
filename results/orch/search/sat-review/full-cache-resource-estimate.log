@@ -1,0 +1,98 @@
+{
+  "at_utc": "2026-11-25T07:55:20.565294+00:00",
+  "full_original_cache_completed_modules": 9117,
+  "outside_regular_files": 87928,
+  "outside_regular_logical_bytes": 998917844,
+  "outside_lost_files": 9932,
+  "outside_lost_logical_bytes": 3838418984,
+  "full_additional_logical_bytes": 4837336828,
+  "logical_pin_floor_at_cleanup_bytes": 4055275260,
+  "filesystem_fragment_bytes": 4096,
+  "rounded_outside_regular_bytes": 1294639104,
+  "rounded_outside_lost_bytes": 3858665472,
+  "estimated_full_additional_allocated_bytes": 5153304576,
+  "current_free_bytes": 747855872,
+  "scenarios": [
+    {
+      "free_basis": "after_focused_cleanup",
+      "batch_archives_MiB": 0,
+      "disk_reserve_MiB": 0,
+      "pin_bytes": 4371243008,
+      "pin_GiB": 4.071037292480469,
+      "remaining_of_8GiB_before_other_processes_GiB": 3.9289627075195312
+    },
+    {
+      "free_basis": "after_focused_cleanup",
+      "batch_archives_MiB": 32,
+      "disk_reserve_MiB": 128,
+      "pin_bytes": 4539015168,
+      "pin_GiB": 4.227287292480469,
+      "remaining_of_8GiB_before_other_processes_GiB": 3.7727127075195312
+    },
+    {
+      "free_basis": "after_focused_cleanup",
+      "batch_archives_MiB": 64,
+      "disk_reserve_MiB": 128,
+      "pin_bytes": 4572569600,
+      "pin_GiB": 4.258537292480469,
+      "remaining_of_8GiB_before_other_processes_GiB": 3.7414627075195312
+    },
+    {
+      "free_basis": "after_focused_cleanup",
+      "batch_archives_MiB": 128,
+      "disk_reserve_MiB": 256,
+      "pin_bytes": 4773896192,
+      "pin_GiB": 4.446037292480469,
+      "remaining_of_8GiB_before_other_processes_GiB": 3.5539627075195312
+    },
+    {
+      "free_basis": "now",
+      "batch_archives_MiB": 0,
+      "disk_reserve_MiB": 0,
+      "pin_bytes": 4405448704,
+      "pin_GiB": 4.102893829345703,
+      "remaining_of_8GiB_before_other_processes_GiB": 3.897106170654297
+    },
+    {
+      "free_basis": "now",
+      "batch_archives_MiB": 32,
+      "disk_reserve_MiB": 128,
+      "pin_bytes": 4573220864,
+      "pin_GiB": 4.259143829345703,
+      "remaining_of_8GiB_before_other_processes_GiB": 3.740856170654297
+    },
+    {
+      "free_basis": "now",
+      "batch_archives_MiB": 64,
+      "disk_reserve_MiB": 128,
+      "pin_bytes": 4606775296,
+      "pin_GiB": 4.290393829345703,
+      "remaining_of_8GiB_before_other_processes_GiB": 3.709606170654297
+    },
+    {
+      "free_basis": "now",
+      "batch_archives_MiB": 128,
+      "disk_reserve_MiB": 256,
+      "pin_bytes": 4808101888,
+      "pin_GiB": 4.477893829345703,
+      "remaining_of_8GiB_before_other_processes_GiB": 3.522106170654297
+    }
+  ],
+  "memory_history": {
+    "checker_RSS_KiB": 4967096,
+    "checker_RSS_GiB": 4.736991882324219,
+    "concurrent_Lean_RSS_KiB": 1683736,
+    "concurrent_Lean_RSS_GiB": 1.6057357788085938,
+    "old_memfd_bytes": 5368706264,
+    "old_memfd_GiB": 4.999997340142727,
+    "two_active_solver_RSS_KiB": 210080
+  },
+  "limitations": [
+    "Allocated-byte estimate rounds each file to filesystem fragments; extents/inodes/directories and possible sparse storage are not in the manifest.",
+    "Current free disk may change while agents write.",
+    "RSS overlaps shared mappings/page-cache and cannot be added directly to memfd bytes.",
+    "The saved checker RSS is a sample, not peak or PSS/private memory; exit137 establishes failure but not a reliable required-memory upper bound.",
+    "Removing the baseline avoids irrelevant replay but the savings have not been measured.",
+    "Archive peak must be enforced by bounded completed batches; deleting archives does not reduce extracted runtime bytes."
+  ]
+}

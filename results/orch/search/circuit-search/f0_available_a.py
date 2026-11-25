@@ -14,6 +14,7 @@ allfix.add_argument('gates', type=Path)
 extend = sub.add_parser('extend')
 extend.add_argument('gates', type=Path)
 extend.add_argument('output', type=Path)
+extend.add_argument('--method', choices=('direct', 'shannon'), default='direct')
 args = parser.parse_args()
 
 if args.action in ('fix-prefix', 'fix-network'):
@@ -67,15 +68,21 @@ else:
         return wire + (wire >= 13)
     full = [[op, rename(a), rename(b)] for op, a, b in gates]
     f0 = 13 + len(full)
-    full.append(['or', 15, f0])
-    f1 = 13 + len(full)
-    full.append(['or', 13, f0])
-    factor = 13 + len(full)
-    full.append(['and', f1, factor])
+    if args.method == 'shannon':
+        full.append(['or', 15, f0])
+        f1 = 13 + len(full)
+        full.append(['or', 13, f0])
+        factor = 13 + len(full)
+        full.append(['and', f1, factor])
+    else:
+        full.append(['and', 13, 15])
+        term = 13 + len(full)
+        full.append(['or', f0, term])
     for mask in range(1 << 14):
         target = any(mask >> a & 1 and mask >> b & 1 for a, b in edges)
         assert evaluate(full, 14, mask) == target
     args.output.write_text(json.dumps(full, indent=2) + '\n')
     print(json.dumps({'input_gates': len(gates), 'extended_gates': len(full),
+                      'method': args.method,
                       'checked_F0_rows': 1 << 13, 'checked_full_rows': 1 << 14,
                       'output': str(args.output)}))

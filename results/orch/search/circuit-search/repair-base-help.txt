@@ -1,0 +1,23 @@
+usage: repair_base.py [-h] [--gates GATES] [--prefix PREFIX] [--no-canon]
+                      [--allow-trivial] [--allow-initial-repeats]
+                      [--ordered-max] [--no-lex-order] [--no-liveness]
+                      [--minimal] [--minimal-prefix MINIMAL_PREFIX]
+                      [--dirty-and] [--edge-file EDGE_FILE]
+                      [--shadow-missing {0,1,2,3}] --output OUTPUT
+
+options:
+  -h, --help            show this help message and exit
+  --gates GATES
+  --prefix PREFIX
+  --no-canon
+  --allow-trivial
+  --allow-initial-repeats
+  --ordered-max
+  --no-lex-order
+  --no-liveness
+  --minimal
+  --minimal-prefix MINIMAL_PREFIX
+  --dirty-and
+  --edge-file EDGE_FILE
+  --shadow-missing {0,1,2,3}
+  --output OUTPUT

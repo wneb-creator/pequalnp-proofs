@@ -1,0 +1,5 @@
+{
+  "source": "repair_base.py",
+  "source_sha256": "3cb9a0dd85d8e68ab3412545a572db1c519c68fb3569865b5e3eed8eb9c388d7",
+  "changes": "Optional explicitly correlated boundary rows, validated against underlying graph extrema; existing gate CNF unchanged."
+}

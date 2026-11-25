@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "source_sha256": {
+    "correlated_synthesize.py": "5ac0f576775cc374423746819cfe45e95d343d23e30932d055256aae9cfaeba6",
+    "decode_correlated.py": "06c11a76f1ec55814c89bf31482c3b35c332498c18a7a7f2dd5c2826ea798fac",
+    "run_correlated.py": "79b76424e887c0e9cc454a542e7b831bf3b5de179bca39e6b11be0ba82ea2439",
+    "fix_correlated_smoke.py": "7fef32653955f50b8e07de943f671c15ddab00241589b6bf36be81d049e8dbd8"
+  },
+  "candidate_cnf_sha256": "0dfce4c90b10097d92feb5ed997449648e84cc93861b2e10c64eef60b54fc2f1",
+  "candidate_variables": 2085,
+  "candidate_clauses": 37549,
+  "smokes": {
+    "matching-cut15-lex-smoke": {
+      "clauses": 41538,
+      "status": "SAT",
+      "residual_mismatches": 0
+    },
+    "matching-cut14-seed-smoke": {
+      "clauses": 37591,
+      "status": "UNSAT",
+      "residual_mismatches": 13
+    }
+  }
+}

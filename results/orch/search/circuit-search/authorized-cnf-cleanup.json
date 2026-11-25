@@ -1,0 +1,123 @@
+{
+  "authorized_at": "2026-11-25T07:37:13.114201+00:00",
+  "scope": "Only listed obsolete/regenerable top-level CNFs; retain generators, maps, all logs, and models. Current24-gate F0 files and future repair files excluded.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/shadow3-26.cnf",
+      "bytes": 5390816
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/prefix-smoke-20.cnf",
+      "bytes": 7671919
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/subgraph-3-0.cnf",
+      "bytes": 202622
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/subgraph-3-0-baseline.cnf",
+      "bytes": 238295
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/f0-available-a25-smoke.cnf",
+      "bytes": 2352637
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/third-shadow-smoke-and28.cnf",
+      "bytes": 6209666
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/third-shadow-smoke-28.cnf",
+      "bytes": 6209657
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/heawood26.cnf",
+      "bytes": 3513208
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/f0-available-a23-base.cnf",
+      "bytes": 2065943
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/f0-available-a25-smoke-base.cnf",
+      "bytes": 2352125
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/subgraph-4-1.cnf",
+      "bytes": 509617
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/f0-available-a23.cnf",
+      "bytes": 2065975
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/subgraph-4-0.cnf",
+      "bytes": 597583
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/minimal26.cnf",
+      "bytes": 5318977
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/live-dirty26.cnf",
+      "bytes": 3550396
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/third-shadow-smoke-or28.cnf",
+      "bytes": 6209665
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/shadow-smoke-27.cnf",
+      "bytes": 5723949
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/shadow-smoke-28.cnf",
+      "bytes": 6101922
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/heawood27.cnf",
+      "bytes": 3734771
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/third-shadow3-prefix20-and26.cnf",
+      "bytes": 7068244
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/star27.cnf",
+      "bytes": 3735326
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/heawood26-regenerated.cnf",
+      "bytes": 3513208
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/subgraph-3-1-baseline.cnf",
+      "bytes": 257900
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/subgraph-4-0-baseline.cnf",
+      "bytes": 667950
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/subgraph-4-1-baseline.cnf",
+      "bytes": 571222
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/third-shadow3-prefix20-26.cnf",
+      "bytes": 7068235
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/shadow3-prefix20-26.cnf",
+      "bytes": 6945640
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/prefix-smoke-28.cnf",
+      "bytes": 8286943
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/subgraph-3-1.cnf",
+      "bytes": 219981
+    }
+  ],
+  "total_bytes": 108354392
+}

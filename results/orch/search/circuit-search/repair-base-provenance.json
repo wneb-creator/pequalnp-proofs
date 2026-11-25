@@ -1,0 +1,5 @@
+{
+  "source": "synthesize.py",
+  "source_sha256": "d98b7e44a4f662c5875ee9701edcaac095c75ce83549e22461eaf205b235061d",
+  "changes": "Optional first-two repeated operands, guarded by --no-canon. Existing encoder remains unchanged."
+}

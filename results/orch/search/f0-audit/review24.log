@@ -1,0 +1,1 @@
+{"verdict": "PASS", "base_sha256": "c3ae35e9f9c2371b8eb9a4eca54acd5e454d12a83fe6e1d8c5c759f0427340ad", "fixed_clauses": 130758, "units": [3, 17, 28, 199, 222, 223], "direct_extension_added_gates": 2, "route": "24+2=26", "smoke": "25+2=27", "full_smoke_rows_checked": 16384, "source_sha256": "ecc2ba6736568545e3fc3940e9898af55e8fe788e87a610c5850cbeac7b16574"}

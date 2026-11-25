@@ -47,3 +47,12 @@ The permutation direction and suffix bookkeeping are correct: u is op1 evaluated
 The result preserves the24-gate residual budget and Monotone2. score_sorted together with prefixIndex_val yields precisely the rank of the permuted original pair, including the fixed prefix wire14. This discharges the previously abstract transport hypothesis; only existence of an uncanonicalized prefixWitness remains needed for the global canonical result.
 
 All helper declarations remain in allowed module namespaces, imports only at the top, matching ends at column0, and no forbidden text/tactic/option was found. Preserve as partial work until the actual existential circuit witness is supplied.
+
+
+## Pair-clean subgraph bridge review (2026-11-25)
+
+PASS for the 891-line compiled PairCleanSubgraph.lean. Compared against L_meta_1983: ambient G retains cleanliness, no-four-cycle and cross-support conditions; subgraph J supplies the positively hit pairs, counted edges and requested vertex cover. Birth witnesses imply necessary ambient adjacency, so the stated theorem does not require an extra explicit J-subgraph-G assumption. Output singleton rejection and positive J-edge evaluation are correctly used; malformed outputs follow existing default-false semantics. The conclusion is the conditional pair-clean bound, not an unrestricted circuit lower bound. Format scan found no forbidden strings, root escapes, unsafe proof commands or attributes.
+
+## Current-target 20-gate bound review (2026-11-25)
+
+PASS for Heawood20.lean (1101 lines, empty compile log and reported exit 0). Its original 1069-line prefix is byte-identical to accepted L_meta_1483 after removing the full Mathlib import and renaming its namespace/theorem. Independently enumerated all 21 currentEdges and confirmed exact identity-map agreement with the cyclic Heawood relation. current_adjacency uses kernel decide; current_lower20 correctly swaps endpoints for reversed adjacency. It requires exact full evaluation and proves size at least 20. This does not by itself prove the requested 26-gate witness or the separate minimality/padding consequences. Helpers require final one-theorem namespace packaging before a complete proof PR.

@@ -1,0 +1,24 @@
+{
+  "name": "repair-star27-k1-smoke",
+  "started_at": "2026-11-25T07:41:48.106862+00:00",
+  "wall_limit_seconds": 30,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=30",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-star27-k1-smoke.cnf"
+  ],
+  "backend": "kissat",
+  "preset": "default",
+  "cnf_sha256": "5b040c0844d895639194ae55c56d2269a23b512e1e28194ffe1593424a536f18",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1",
+  "finished_at": "2026-11-25T07:41:48.326794+00:00",
+  "wall_seconds": 0.21372056399923167,
+  "cpu_seconds": 0.212443,
+  "max_rss_kib": 16768,
+  "exit_code": 10,
+  "status": "SAT",
+  "full_truth_table_verified": true,
+  "witness_file": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-star27-k1-smoke-witness.json"
+}

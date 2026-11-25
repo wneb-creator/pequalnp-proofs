@@ -1,0 +1,1 @@
+{"output": "repair-star27-k1-smoke.cnf", "budget": 1, "nv": 7696, "clauses": 193494, "seed_errors": {"false_negative_boundary_rows": 2, "false_positive_boundary_rows": 0}}

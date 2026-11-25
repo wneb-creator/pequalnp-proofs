@@ -1,0 +1,8 @@
+usage: simplify_witness.py [-h] --mapping MAPPING --witness WITNESS --output
+                           OUTPUT
+
+options:
+  -h, --help         show this help message and exit
+  --mapping MAPPING
+  --witness WITNESS
+  --output OUTPUT
