@@ -28,3 +28,7 @@
 - 2026-11-25T10:29:46.832935+00:00 geometry_route: launched improved rowgraph F4 with bounded subset checkpoints. LA44/t2/batch2048,6GiB address limit,3600s CPU/wall,120s checkpoint interval,512MiB conservative whole-polynomial subset budget; root lease renewed10:29:34,expires10:49:34.619.
 
 - 2026-11-25T10:30:50.809249+00:00: Diagonal.lean compiled and independently reviewed; preserving partial for the boundary argument.
+
+- 2026-11-25T10:33:32.062815+00:00 geometry_route: first real bounded checkpoint succeeded afterround10:1828/5908 complete generators,3103077/44880532terms,53528718actual textbytes,16054279gzipbytes. Processcontinues samepairset; noGB/targetverdict.
+
+- 2026-11-25T10:36:12.194068+00:00: IsotropicThree.lean compiled and independently reviewed; preserving chart-coverage helper.

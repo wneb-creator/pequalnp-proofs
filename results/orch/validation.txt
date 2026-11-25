@@ -101,3 +101,8 @@ SHA256 5ade3e3d5394381f0ec2842cbabad4b8cab0d3190e895bcef478a5af0559e0ab;70lines.
 Scope: per(J+z·diag(u))=24 for all complexz impliesu=0. Partial only; target unresolved, no target checker verdict.
 
 2026-11-25T10:33:38.198437+00:00 Checkpoint infrastructure:36files/58722bytes independently reviewed by geometry_route; exact hashes and pristine-source patch reproduction verified. Six finite-field/elimination restart tests, signal tests, subset-size tests pass. This is diagnostic infrastructure, no target proof. Manifest checkpoint/ARCHIVE-MANIFEST.json.
+
+2026-11-25T10:36:12.194068+00:00 IsotropicThree.lean: compilation exit0 in4.85s; complete stdout/stderr empty in lemmas/isotropic-three-build.log.
+Command: lake env lean --threads=1 --memory=3000 ../results/orch/lemmas/IsotropicThree.lean (pinned Lean4.36.0, documented task environment).
+SHA256 af72b8a295175899bb7103dfaa717dbcf131a96cd7b1fa786b184d50e04268d2;14lines. Independent exact-source review: construction_search approved.
+Scope: two orthogonal isotropic triples have vanishing first2×2minor. Auxiliary partial only, target unresolved.
