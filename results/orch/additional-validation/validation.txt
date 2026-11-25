@@ -1,5 +1,0 @@
-Supplementary compiled-theorem axiom audit passed; it does not replace the official checker.
-Official checker verdict remains FAULT (exit137), with no acceptance.
-Source remains the exact successful full-build source, SHA2560199ec155b8609bb2b9412fb772637b7971e9ee9d633c08f9ae388b3f08b325d.
-Sub-agents: repo_review, proof_template, graph_search, lower_bound, toolchain, lower_bound/not_count, advanced_certificate, tight_not_count, review_final
-TIMING total=158 subagents=9
