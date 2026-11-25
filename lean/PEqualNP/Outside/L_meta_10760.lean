@@ -683,4 +683,387 @@ lemma cut_circuit_no_two_decreases {n : ℕ} (gates : List Gate) (o : ℕ)
       (cutInput_fn_mono pre inputs hpre') hFx hFz hpq hqr hrs
     simpa only [cut_not_eval] using And.intro hp (And.intro hq (And.intro hr hs))
 
+def fourRowLE {w : ℕ} (ws : List (BitVec w)) (i j : Fin w) : Prop :=
+  ∀ v ∈ ws, v.getLsbD i.val ≤ v.getLsbD j.val
+
+def fourLow {w : ℕ} (ws : List (BitVec w)) (t : BitVec w) (q : Fin w) : BitVec w :=
+  ws.foldl (fun acc v => if v.getLsbD q.val then acc else acc &&& ~~~v) t
+
+def fourUp {w : ℕ} (ws : List (BitVec w)) (t : BitVec w) (q : Fin w) : BitVec w :=
+  ws.foldl (fun acc v => if v.getLsbD q.val then acc &&& v else acc) t
+
+def fourDropPos {w : ℕ} (ws : List (BitVec w)) (t : BitVec w) : BitVec w :=
+  (List.finRange w).foldl
+    (fun acc q => acc ||| (if t.getLsbD q.val then 0 else fourLow ws t q)) 0
+
+def fourBlocked {w : ℕ} (ws : List (BitVec w)) (t : BitVec w) : Bool :=
+  let dp := fourDropPos ws t
+  (List.finRange w).any (fun q => !t.getLsbD q.val &&
+    decide (fourLow ws t q ≠ 0) && decide (fourUp ws t q &&& dp ≠ 0))
+
+lemma fourLow_bit_iff {w : ℕ} (ws : List (BitVec w)) (t : BitVec w) (q i : Fin w) :
+    (fourLow ws t q).getLsbD i.val = true ↔
+      t.getLsbD i.val = true ∧ fourRowLE ws i q := by
+  induction ws generalizing t with
+  | nil => simp [fourLow, fourRowLE]
+  | cons v ws ih =>
+    change (fourLow ws (if v.getLsbD q.val then t else t &&& ~~~v) q).getLsbD i.val = true ↔ _
+    rw [ih]
+    cases hq : v.getLsbD q.val <;> cases hi : v.getLsbD i.val <;>
+      simp only [fourRowLE, List.forall_mem_cons, hq, hi,
+        Bool.false_eq_true, ite_false, ite_true,
+        BitVec.getLsbD_and, BitVec.getLsbD_not, i.isLt, decide_true, Bool.true_and] <;>
+      simp
+
+lemma fourUp_bit_iff {w : ℕ} (ws : List (BitVec w)) (t : BitVec w) (q i : Fin w) :
+    (fourUp ws t q).getLsbD i.val = true ↔
+      t.getLsbD i.val = true ∧ fourRowLE ws q i := by
+  induction ws generalizing t with
+  | nil => simp [fourUp, fourRowLE]
+  | cons v ws ih =>
+    change (fourUp ws (if v.getLsbD q.val then t &&& v else t) q).getLsbD i.val = true ↔ _
+    rw [ih]
+    cases hq : v.getLsbD q.val <;> cases hi : v.getLsbD i.val <;>
+      simp only [fourRowLE, List.forall_mem_cons, hq, hi,
+        Bool.false_eq_true, ite_false, ite_true, BitVec.getLsbD_and] <;>
+      simp
+
+lemma fourOrFold_bit_iff {w : ℕ} (qs : List (Fin w)) (f : Fin w → BitVec w)
+    (acc : BitVec w) (i : Fin w) :
+    (qs.foldl (fun acc q => acc ||| f q) acc).getLsbD i.val = true ↔
+      acc.getLsbD i.val = true ∨ ∃ q ∈ qs, (f q).getLsbD i.val = true := by
+  induction qs generalizing acc with
+  | nil => simp
+  | cons q qs ih =>
+    rw [List.foldl_cons, ih]
+    simp [or_assoc]
+
+lemma fourDropPos_bit_iff {w : ℕ} (ws : List (BitVec w)) (t : BitVec w) (i : Fin w) :
+    (fourDropPos ws t).getLsbD i.val = true ↔
+      ∃ s : Fin w, t.getLsbD s.val = false ∧
+        t.getLsbD i.val = true ∧ fourRowLE ws i s := by
+  rw [fourDropPos, fourOrFold_bit_iff]
+  simp only [BitVec.ofNat_eq_ofNat, BitVec.getLsbD_zero, Bool.false_eq_true, false_or,
+    List.mem_finRange, true_and]
+  apply exists_congr
+  intro s
+  cases hs : t.getLsbD s.val <;>
+    simp only [Bool.false_eq_true,
+      Bool.true_eq_false, ite_false, ite_true, BitVec.getLsbD_zero, fourLow_bit_iff, true_and, false_and]
+
+lemma four_exists_bit_of_ne_zero {w : ℕ} (v : BitVec w) (hv : v ≠ 0) :
+    ∃ i : Fin w, v.getLsbD i.val = true := by
+  by_contra hn
+  apply hv
+  apply BitVec.eq_of_getLsbD_eq
+  intro i hi
+  have hb : v.getLsbD i ≠ true := fun h => hn ⟨⟨i, hi⟩, h⟩
+  cases he : v.getLsbD i <;> simp_all
+
+lemma fourBlocked_chain {w : ℕ} (ws : List (BitVec w)) (t : BitVec w)
+    (hb : fourBlocked ws t = true) :
+    ∃ p q r s : Fin w,
+      fourRowLE ws p q ∧ fourRowLE ws q r ∧ fourRowLE ws r s ∧
+      t.getLsbD p.val = true ∧ t.getLsbD q.val = false ∧
+      t.getLsbD r.val = true ∧ t.getLsbD s.val = false := by
+  simp only [fourBlocked, List.any_eq_true, Bool.and_eq_true, Bool.not_eq_true',
+    decide_eq_true_eq] at hb
+  obtain ⟨q, _, ⟨hq, hl⟩, hu⟩ := hb
+  obtain ⟨p, hp⟩ := four_exists_bit_of_ne_zero (fourLow ws t q) hl
+  obtain ⟨r, hr⟩ := four_exists_bit_of_ne_zero (fourUp ws t q &&& fourDropPos ws t) hu
+  have hlow := (fourLow_bit_iff ws t q p).1 hp
+  rw [BitVec.getLsbD_and, Bool.and_eq_true] at hr
+  have hup := (fourUp_bit_iff ws t q r).1 hr.1
+  obtain ⟨s, hs, _, hrs⟩ := (fourDropPos_bit_iff ws t r).1 hr.2
+  exact ⟨p, q, r, s, hlow.2, hup.2, hrs, hlow.1, hq, hup.1, hs⟩
+
+def fourPattern {w : ℕ} (ws : List (BitVec w)) (q : Fin w) : Fin ws.length → Bool :=
+  fun i => (ws.get i).getLsbD q.val
+
+lemma fourPattern_mono {w : ℕ} (ws : List (BitVec w)) {p q : Fin w}
+    (h : fourRowLE ws p q) : fourPattern ws p ≤ fourPattern ws q := by
+  intro i
+  exact h (ws.get i) (List.get_mem ws i)
+
+lemma fourBlocked_no_continuation {w : ℕ} (ws : List (BitVec w)) (t : BitVec w)
+    (hblocked : fourBlocked ws t = true) (gates : List Gate) (o : ℕ)
+    (hb : ∀ g ∈ gates,
+      (g.op = GateOp.and ∨ g.op = GateOp.or ∨ g.op = GateOp.not) ∧ g.inputs.length ≤ 2)
+    (hu : ∀ i j : Fin gates.length, (gates.get i).op = GateOp.not →
+      (gates.get j).op = GateOp.not → i = j)
+    (hf : ∀ q : Fin w, Circuit.eval ⟨gates, o⟩ (List.ofFn (fourPattern ws q)) =
+      t.getLsbD q.val) : False := by
+  obtain ⟨p, q, r, s, hpq, hqr, hrs, hp, hq, hr, hs⟩ := fourBlocked_chain ws t hblocked
+  exact cut_circuit_no_two_decreases gates o hb hu
+    (fourPattern_mono ws hpq) (fourPattern_mono ws hqr) (fourPattern_mono ws hrs)
+    ⟨(hf p).trans hp, (hf q).trans hq, (hf r).trans hr, (hf s).trans hs⟩
+
+lemma suffix_cutRun_length (gates : List Gate) (w : List Bool) :
+    (cutRun gates w).length = w.length + gates.length := by
+  induction gates generalizing w with
+  | nil => simp [cutRun]
+  | cons g gates ih =>
+    change (cutRun gates (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])).length = _
+    rw [ih]
+    simp only [List.length_append, List.length_cons, List.length_nil]
+    omega
+
+lemma suffix_append_last (w : List Bool) (b : Bool) :
+    (w ++ [b]).getD w.length false = b := by
+  rw [List.getD_append_right _ _ _ _ (le_refl _)]
+  simp
+
+lemma suffix_append_irrel (w : List Bool) (a b : Bool) (i : ℕ) (hi : i ≠ w.length) :
+    (w ++ [a]).getD i false = (w ++ [b]).getD i false := by
+  by_cases hlt : i < w.length
+  · rw [List.getD_append _ _ _ _ hlt, List.getD_append _ _ _ _ hlt]
+  · have hla : (w ++ [a]).length ≤ i := by simp; omega
+    have hlb : (w ++ [b]).length ≤ i := by simp; omega
+    rw [List.getD_eq_default _ _ hla, List.getD_eq_default _ _ hlb]
+
+lemma suffix_cutOutput_nil (pre : List Gate) (x : List Bool) (z : Bool) :
+    cutOutput pre [] (x.length + pre.length) x z = z := by
+  change (cutRun pre x ++ [z]).getD (x.length + pre.length) false = z
+  rw [← suffix_cutRun_length pre x]
+  exact suffix_append_last _ _
+
+lemma suffix_cutOutput_last (pre : List Gate) (g : Gate) (x : List Bool) (z : Bool) :
+    cutOutput pre [g] (x.length + pre.length + 1) x z =
+      g.op.eval (g.inputs.map fun i => (cutRun pre x ++ [z]).getD i false) := by
+  change ((cutRun pre x ++ [z]) ++
+    [g.op.eval (g.inputs.map fun i => (cutRun pre x ++ [z]).getD i false)]).getD
+    (x.length + pre.length + 1) false = _
+  have hl : (cutRun pre x ++ [z]).length = x.length + pre.length + 1 := by
+    simp [suffix_cutRun_length]
+  rw [← hl]
+  exact suffix_append_last _ _
+
+lemma suffix_cutOutput_unread (pre : List Gate) (g : Gate) (x : List Bool) (a b : Bool)
+    (hn : x.length + pre.length ∉ g.inputs) :
+    cutOutput pre [g] (x.length + pre.length + 1) x a =
+      cutOutput pre [g] (x.length + pre.length + 1) x b := by
+  rw [suffix_cutOutput_last, suffix_cutOutput_last]
+  apply congrArg g.op.eval
+  apply List.map_congr_left
+  intro i hi
+  apply suffix_append_irrel
+  rw [suffix_cutRun_length]
+  intro heq
+  exact hn (heq ▸ hi)
+
+lemma suffix_cutOutput_and_read (pre : List Gate) (g : Gate) (x : List Bool) (z : Bool)
+    (hg : g.op = GateOp.and) (hm : x.length + pre.length ∈ g.inputs)
+    (he : cutOutput pre [g] (x.length + pre.length + 1) x z = true) : z = true := by
+  rw [suffix_cutOutput_last, hg] at he
+  change (g.inputs.map fun i => (cutRun pre x ++ [z]).getD i false).all id = true at he
+  have hh := List.all_eq_true.mp he
+  apply hh z
+  apply List.mem_map.mpr
+  refine ⟨x.length + pre.length, hm, ?_⟩
+  rw [← suffix_cutRun_length pre x]
+  exact suffix_append_last _ _
+
+lemma suffix_cutOutput_or_read (pre : List Gate) (g : Gate) (x : List Bool) (z : Bool)
+    (hg : g.op = GateOp.or) (hm : x.length + pre.length ∈ g.inputs)
+    (he : cutOutput pre [g] (x.length + pre.length + 1) x z = false) : z = false := by
+  rw [suffix_cutOutput_last, hg] at he
+  change (g.inputs.map fun i => (cutRun pre x ++ [z]).getD i false).any id = false at he
+  cases hz : z with
+  | false => rfl
+  | true =>
+    have hmem : true ∈ g.inputs.map (fun i => (cutRun pre x ++ [z]).getD i false) := by
+      apply List.mem_map.mpr
+      refine ⟨x.length + pre.length, hm, ?_⟩
+      rw [← suffix_cutRun_length pre x, suffix_append_last, hz]
+    have ht : (g.inputs.map fun i => (cutRun pre x ++ [z]).getD i false).any id = true :=
+      List.any_eq_true.mpr ⟨true, hmem, rfl⟩
+    have hbad : false = true := he.symm.trans ht
+    cases hbad
+
+lemma suffix_cutInput_false_of_top {n : ℕ} (pre : List Gate) (inputs : List ℕ)
+    (hp : ∀ g ∈ pre, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (ht : cutInput pre inputs (List.ofFn (fun _ : Fin n => true)) = false) :
+    ∀ x : Fin n → Bool, cutInput pre inputs (List.ofFn x) = false := by
+  intro x
+  cases hx : cutInput pre inputs (List.ofFn x) with
+  | false => rfl
+  | true =>
+    have hmono := cutInput_mono pre inputs hp
+      (cutRel_ofFn (x := x) (y := fun _ : Fin n => true) (fun i _ => rfl))
+    have he := hmono hx
+    have hbad : false = true := ht.symm.trans he
+    cases hbad
+
+lemma suffix_cutInput_true_of_bottom {n : ℕ} (pre : List Gate) (inputs : List ℕ)
+    (hp : ∀ g ∈ pre, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (hb : cutInput pre inputs (List.ofFn (fun _ : Fin n => false)) = true) :
+    ∀ x : Fin n → Bool, cutInput pre inputs (List.ofFn x) = true := by
+  intro x
+  have hmono := cutInput_mono pre inputs hp
+    (cutRel_ofFn (x := fun _ : Fin n => false) (y := x) (fun i he => by cases he))
+  exact hmono hb
+
+lemma suffix_one_replace_last {n : ℕ} (pre : List Gate) (inputs : List ℕ) (g : Gate)
+    (hp : ∀ k ∈ pre, k.op = GateOp.and ∨ k.op = GateOp.or)
+    (hg : g.op = GateOp.and ∨ g.op = GateOp.or)
+    (hf0 : Circuit.eval ⟨pre ++ ⟨GateOp.not, inputs⟩ :: [g], n + pre.length + 1⟩
+      (List.ofFn (fun _ : Fin n => false)) = false)
+    (hf1 : Circuit.eval ⟨pre ++ ⟨GateOp.not, inputs⟩ :: [g], n + pre.length + 1⟩
+      (List.ofFn (fun _ : Fin n => true)) = true) :
+    (∀ x : Fin n → Bool,
+      Circuit.eval ⟨pre ++ ⟨GateOp.and, []⟩ :: [g], n + pre.length + 1⟩ (List.ofFn x) =
+      Circuit.eval ⟨pre ++ ⟨GateOp.not, inputs⟩ :: [g], n + pre.length + 1⟩ (List.ofFn x)) ∨
+    (∀ x : Fin n → Bool,
+      Circuit.eval ⟨pre ++ ⟨GateOp.or, []⟩ :: [g], n + pre.length + 1⟩ (List.ofFn x) =
+      Circuit.eval ⟨pre ++ ⟨GateOp.not, inputs⟩ :: [g], n + pre.length + 1⟩ (List.ofFn x)) := by
+  by_cases hn : n + pre.length ∈ g.inputs
+  · rcases hg with hg | hg
+    · have he := suffix_cutOutput_and_read pre g (List.ofFn (fun _ : Fin n => true))
+        (!(cutInput pre inputs (List.ofFn (fun _ : Fin n => true)))) hg
+        (by simpa using hn) (by simpa only [List.length_ofFn, cut_not_eval] using hf1)
+      have ht : cutInput pre inputs (List.ofFn (fun _ : Fin n => true)) = false := by
+        cases hh : cutInput pre inputs (List.ofFn (fun _ : Fin n => true)) <;> simp_all
+      have hc := suffix_cutInput_false_of_top pre inputs hp ht
+      exact Or.inl (fun x => by rw [cut_true_eval, cut_not_eval]; simp [hc x])
+    · have he := suffix_cutOutput_or_read pre g (List.ofFn (fun _ : Fin n => false))
+        (!(cutInput pre inputs (List.ofFn (fun _ : Fin n => false)))) hg
+        (by simpa using hn) (by simpa only [List.length_ofFn, cut_not_eval] using hf0)
+      have hb : cutInput pre inputs (List.ofFn (fun _ : Fin n => false)) = true := by
+        cases hh : cutInput pre inputs (List.ofFn (fun _ : Fin n => false)) <;> simp_all
+      have hc := suffix_cutInput_true_of_bottom pre inputs hp hb
+      exact Or.inr (fun x => by rw [cut_false_eval, cut_not_eval]; simp [hc x])
+  · right
+    intro x
+    rw [cut_false_eval, cut_not_eval]
+    simpa only [List.length_ofFn] using suffix_cutOutput_unread pre g (List.ofFn x)
+      false (!(cutInput pre inputs (List.ofFn x))) (by simpa using hn)
+
+lemma suffix_cutOutput_nil_fn {n : ℕ} (pre : List Gate) (x : Fin n → Bool) (z : Bool) :
+    cutOutput pre [] (n + pre.length) (List.ofFn x) z = z := by
+  simpa only [List.length_ofFn] using suffix_cutOutput_nil pre (List.ofFn x) z
+
+lemma suffix_zero_last_impossible {n : ℕ} (pre : List Gate) (inputs : List ℕ)
+    (hp : ∀ k ∈ pre, k.op = GateOp.and ∨ k.op = GateOp.or)
+    (hf0 : Circuit.eval ⟨pre ++ [⟨GateOp.not, inputs⟩], n + pre.length⟩
+      (List.ofFn (fun _ : Fin n => false)) = false)
+    (hf1 : Circuit.eval ⟨pre ++ [⟨GateOp.not, inputs⟩], n + pre.length⟩
+      (List.ofFn (fun _ : Fin n => true)) = true) : False := by
+  rw [cut_not_eval, suffix_cutOutput_nil_fn] at hf0 hf1
+  have hb : cutInput pre inputs (List.ofFn (fun _ : Fin n => false)) = true := by
+    cases hh : cutInput pre inputs (List.ofFn (fun _ : Fin n => false)) <;> simp_all
+  have hc := suffix_cutInput_true_of_bottom pre inputs hp hb (fun _ : Fin n => true)
+  rw [hc] at hf1
+  cases hf1
+
+lemma suffix_short_replace_last {n : ℕ} (pre suffix : List Gate) (inputs : List ℕ)
+    (hp : ∀ k ∈ pre, (k.op = GateOp.and ∨ k.op = GateOp.or) ∧ k.inputs.length ≤ 2)
+    (hs : ∀ k ∈ suffix, (k.op = GateOp.and ∨ k.op = GateOp.or) ∧ k.inputs.length ≤ 2)
+    (hl : suffix.length ≤ 1)
+    (hf0 : Circuit.eval ⟨pre ++ ⟨GateOp.not, inputs⟩ :: suffix,
+      n + pre.length + suffix.length⟩ (List.ofFn (fun _ : Fin n => false)) = false)
+    (hf1 : Circuit.eval ⟨pre ++ ⟨GateOp.not, inputs⟩ :: suffix,
+      n + pre.length + suffix.length⟩ (List.ofFn (fun _ : Fin n => true)) = true) :
+    ∃ (gates' : List Gate) (o' : ℕ),
+      (∀ g ∈ gates', (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
+      gates'.length = (pre ++ ⟨GateOp.not, inputs⟩ :: suffix).length ∧
+      ∀ x : Fin n → Bool, Circuit.eval ⟨gates', o'⟩ (List.ofFn x) =
+        Circuit.eval ⟨pre ++ ⟨GateOp.not, inputs⟩ :: suffix,
+          n + pre.length + suffix.length⟩ (List.ofFn x) := by
+  cases suffix with
+  | nil =>
+    exact False.elim (suffix_zero_last_impossible pre inputs (fun g hg => (hp g hg).1)
+      (by simpa only [List.length_nil, Nat.add_zero] using hf0)
+      (by simpa only [List.length_nil, Nat.add_zero] using hf1))
+  | cons g suffix =>
+    cases suffix with
+    | nil =>
+      have hg := hs g List.mem_cons_self
+      rcases suffix_one_replace_last pre inputs g (fun k hk => (hp k hk).1) hg.1
+        (by simpa only [List.length_cons, List.length_nil] using hf0)
+        (by simpa only [List.length_cons, List.length_nil] using hf1) with ht | hf
+      · refine ⟨pre ++ ⟨GateOp.and, []⟩ :: [g], n + pre.length + 1,
+          cut_replace_mono_basis pre [g] _ hp hs ⟨Or.inl rfl, by simp⟩, by simp, ?_⟩
+        simpa only [List.length_cons, List.length_nil] using ht
+      · refine ⟨pre ++ ⟨GateOp.or, []⟩ :: [g], n + pre.length + 1,
+          cut_replace_mono_basis pre [g] _ hp hs ⟨Or.inr rfl, by simp⟩, by simp, ?_⟩
+        simpa only [List.length_cons, List.length_nil] using hf
+    | cons k suffix => simp at hl
+
+lemma suffix_cutOutput_old (pre suffix : List Gate) (x : List Bool) (z : Bool)
+    (o : ℕ) (ho : o < x.length + pre.length) :
+    cutOutput pre suffix o x z = (cutRun pre x).getD o false := by
+  unfold cutOutput
+  rw [cutRun_input suffix _ o (by simp [suffix_cutRun_length]; omega)]
+  rw [List.getD_append _ _ _ _ (by simpa only [suffix_cutRun_length] using ho)]
+
+lemma suffix_cutOutput_slot (pre suffix : List Gate) (x : List Bool) (z : Bool) :
+    cutOutput pre suffix (x.length + pre.length) x z = z := by
+  unfold cutOutput
+  rw [cutRun_input suffix _ _ (by simp [suffix_cutRun_length])]
+  rw [← suffix_cutRun_length pre x]
+  exact suffix_append_last _ _
+
+lemma suffix_cutOutput_slot_fn {n : ℕ} (pre suffix : List Gate) (x : Fin n → Bool) (z : Bool) :
+    cutOutput pre suffix (n + pre.length) (List.ofFn x) z = z := by
+  simpa only [List.length_ofFn] using suffix_cutOutput_slot pre suffix (List.ofFn x) z
+
+lemma suffix_cutOutput_past (pre suffix : List Gate) (x : List Bool) (z : Bool)
+    (o : ℕ) (ho : x.length + pre.length + 1 + suffix.length ≤ o) :
+    cutOutput pre suffix o x z = false := by
+  unfold cutOutput
+  apply List.getD_eq_default
+  simpa only [suffix_cutRun_length, List.length_append, List.length_singleton] using ho
+
+lemma suffix_not_slot_impossible {n : ℕ} (pre suffix : List Gate) (inputs : List ℕ)
+    (hp : ∀ k ∈ pre, k.op = GateOp.and ∨ k.op = GateOp.or)
+    (hf0 : Circuit.eval ⟨pre ++ ⟨GateOp.not, inputs⟩ :: suffix, n + pre.length⟩
+      (List.ofFn (fun _ : Fin n => false)) = false)
+    (hf1 : Circuit.eval ⟨pre ++ ⟨GateOp.not, inputs⟩ :: suffix, n + pre.length⟩
+      (List.ofFn (fun _ : Fin n => true)) = true) : False := by
+  rw [cut_not_eval, suffix_cutOutput_slot_fn] at hf0 hf1
+  have hb : cutInput pre inputs (List.ofFn (fun _ : Fin n => false)) = true := by
+    cases hh : cutInput pre inputs (List.ofFn (fun _ : Fin n => false)) <;> simp_all
+  have hc := suffix_cutInput_true_of_bottom pre inputs hp hb (fun _ : Fin n => true)
+  rw [hc] at hf1
+  cases hf1
+
+lemma suffix_short_replace_any_output {n : ℕ} (pre suffix : List Gate) (inputs : List ℕ)
+    (o : ℕ)
+    (hp : ∀ k ∈ pre, (k.op = GateOp.and ∨ k.op = GateOp.or) ∧ k.inputs.length ≤ 2)
+    (hs : ∀ k ∈ suffix, (k.op = GateOp.and ∨ k.op = GateOp.or) ∧ k.inputs.length ≤ 2)
+    (hl : suffix.length ≤ 1)
+    (hf0 : Circuit.eval ⟨pre ++ ⟨GateOp.not, inputs⟩ :: suffix, o⟩
+      (List.ofFn (fun _ : Fin n => false)) = false)
+    (hf1 : Circuit.eval ⟨pre ++ ⟨GateOp.not, inputs⟩ :: suffix, o⟩
+      (List.ofFn (fun _ : Fin n => true)) = true) :
+    ∃ (gates' : List Gate) (o' : ℕ),
+      (∀ g ∈ gates', (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
+      gates'.length = (pre ++ ⟨GateOp.not, inputs⟩ :: suffix).length ∧
+      ∀ x : Fin n → Bool, Circuit.eval ⟨gates', o'⟩ (List.ofFn x) =
+        Circuit.eval ⟨pre ++ ⟨GateOp.not, inputs⟩ :: suffix, o⟩ (List.ofFn x) := by
+  by_cases hbefore : o < n + pre.length
+  · refine ⟨pre ++ ⟨GateOp.or, []⟩ :: suffix, o,
+      cut_replace_mono_basis pre suffix _ hp hs ⟨Or.inr rfl, by simp⟩, by simp, ?_⟩
+    intro x
+    rw [cut_false_eval, cut_not_eval]
+    rw [suffix_cutOutput_old pre suffix (List.ofFn x) false o (by simpa only [List.length_ofFn] using hbefore),
+      suffix_cutOutput_old pre suffix (List.ofFn x) _ o (by simpa only [List.length_ofFn] using hbefore)]
+  · by_cases hat : o = n + pre.length
+    · subst o
+      exact False.elim (suffix_not_slot_impossible pre suffix inputs
+        (fun g hg => (hp g hg).1) hf0 hf1)
+    · have hbound : o < n + pre.length + 1 + suffix.length := by
+        by_contra hb
+        have he := suffix_cutOutput_past pre suffix (List.ofFn (fun _ : Fin n => true))
+          (!(cutInput pre inputs (List.ofFn (fun _ : Fin n => true)))) o
+          (by simpa only [List.length_ofFn] using Nat.le_of_not_gt hb)
+        have ht : cutOutput pre suffix o (List.ofFn (fun _ : Fin n => true))
+            (!(cutInput pre inputs (List.ofFn (fun _ : Fin n => true)))) = true := by
+          simpa only [cut_not_eval] using hf1
+        have hbad : false = true := he.symm.trans ht
+        cases hbad
+      have hlast : o = n + pre.length + suffix.length := by omega
+      subst o
+      exact suffix_short_replace_last pre suffix inputs hp hs hl hf0 hf1
+
 end PEqualNP.Outside.L_meta_10760
