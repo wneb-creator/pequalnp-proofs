@@ -10983,3 +10983,229 @@ lemma partner_no_dependency {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.
     exact hnot (by simpa only [heq] using hpath)
 
 end PEqualNP.Outside.L_meta_3566.LastDirtyAndDependency
+
+namespace PEqualNP.Outside.L_meta_3566.PrivateInputIndependence
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership ParallelRewrite
+
+lemma wire_eq {n : ℕ} (C : Circuit) (hAO : IsAO2 n C) (H : ℕ) (a : Fin n)
+    (hsole : ∀ j, j < C.gates.length → a.val ∈ (gateAt C j).inputs → j = H)
+    (x y : Fin n → Bool) (hxy : ∀ v, v ≠ a → x v = y v)
+    (w : ℕ) (hwa : w ≠ a.val)
+    (hno : w ≠ n+H ∧ (n ≤ w → ¬ InCone n C H (w-n))) : value C x w = value C y w := by
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    by_cases hwn : w < n
+    · rw [value_input C x w hwn,value_input C y w hwn]
+      apply hxy
+      intro heq
+      exact hwa (congrArg Fin.val heq)
+    by_cases hwlen : w < n+C.gates.length
+    · let k := w-n
+      have hk : k < C.gates.length := by dsimp [k]; omega
+      have hw : w = n+k := by dsimp [k]; omega
+      have hkH : k ≠ H := by intro heq; apply hno.1; omega
+      have hanc : ¬ InCone n C H k := hno.2 (by omega)
+      rw [hw,value_gate C hAO.2.1 x k hk,value_gate C hAO.2.1 y k hk]
+      congr 1
+      apply List.map_congr_left
+      intro u hu
+      have hub : u < w := by have := hAO.2.1 k hk u hu; omega
+      apply ih u hub
+      · intro heq
+        subst u
+        exact hkH (hsole k hk hu)
+      · constructor
+        · intro heq
+          subst u
+          exact hanc (JunkPurity.cone_step C hAO hk hu (Or.inl rfl))
+        · intro hnu hcu
+          exact hanc ((JunkPurity.inCone_iff n C H k hk).mpr
+            ⟨u,hu,hnu,hAO.2.1 k hk u hu,Or.inr hcu⟩)
+    · rw [value_missing C x w (by omega),value_missing C y w (by omega)]
+
+end PEqualNP.Outside.L_meta_3566.PrivateInputIndependence
+
+namespace PEqualNP.Outside.L_meta_3566.ReaderDegreeCount
+
+open PEqualNP.TopForm
+
+lemma neighbors_card_le {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (h4 : NoFourCycle G) (a : Fin n) {ι : Type*} [DecidableEq ι]
+    (J : Finset ι) (v : ι → Fin n)
+    (hne : ∀ j ∈ J, v j ≠ a)
+    (hcover : ∀ c, G.Adj a c → ∃ j ∈ J, G.Adj (v j) c) :
+    (Finset.univ.filter (G.Adj a)).card ≤ J.card := by
+  classical
+  let S : ι → Finset (Fin n) := fun j =>
+    Finset.univ.filter (fun c => G.Adj a c ∧ G.Adj (v j) c)
+  have hsub : Finset.univ.filter (G.Adj a) ⊆ J.biUnion S := by
+    intro c hc
+    obtain ⟨j, hj, hv⟩ := hcover c (Finset.mem_filter.mp hc).2
+    exact Finset.mem_biUnion.mpr ⟨j, hj,
+      Finset.mem_filter.mpr ⟨Finset.mem_univ c, (Finset.mem_filter.mp hc).2, hv⟩⟩
+  calc
+    (Finset.univ.filter (G.Adj a)).card ≤ (J.biUnion S).card := Finset.card_le_card hsub
+    _ ≤ ∑ j ∈ J, (S j).card := Finset.card_biUnion_le
+    _ ≤ ∑ _j ∈ J, 1 := Finset.sum_le_sum (fun j hj => h4 a (v j) (hne j hj).symm)
+    _ = J.card := by simp
+
+lemma neighbors_card_le_fintype {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (h4 : NoFourCycle G) (a : Fin n) {ι : Type*} [Fintype ι]
+    (v : ι → Fin n) (hne : ∀ j, v j ≠ a)
+    (hcover : ∀ c, G.Adj a c → ∃ j, G.Adj (v j) c) :
+    (Finset.univ.filter (G.Adj a)).card ≤ Fintype.card ι := by
+  classical
+  exact neighbors_card_le G h4 a Finset.univ v (fun j _ => hne j)
+    (fun c hc => by obtain ⟨j, hj⟩ := hcover c hc; exact ⟨j, Finset.mem_univ j, hj⟩)
+
+end PEqualNP.Outside.L_meta_3566.ReaderDegreeCount
+
+namespace PEqualNP.Outside.L_meta_3566.PrivateReaderTransport
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership ParallelRewrite
+
+lemma edge_top_dependency {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (H : ℕ) (a : Fin n) (hdirty : ¬ BelowF G C H)
+    (hsole : ∀ j, j < C.gates.length → a.val ∈ (gateAt C j).inputs → j = H)
+    (c : Fin n) (hac : G.Adj a c) :
+    ∃ k ∈ tops G C, gateVal n C k (pairInput a c) = true ∧ InCone n C H k := by
+  classical
+  obtain ⟨k,hk,_,htrue⟩ := TopFrontierCoverage.edge_reaches_top G C hAO hfun a c hac
+  have hkd := MixedColor.topData hk
+  have hkH : k ≠ H := by intro heq; subst k; exact hdirty hkd.2.2
+  refine ⟨k,hk,htrue,?_⟩
+  by_contra hno
+  have he := PrivateInputIndependence.wire_eq C hAO H a hsole (pairInput a c) (pairInput c c)
+    (by intro v hva; simp [pairInput,hva]) (n+k) (by have := a.isLt; omega)
+    ⟨by omega,by simpa using hno⟩
+  have hsingle : gateVal n C k (pairInput c c) = true := by
+    change value C (pairInput c c) (n+k) = true
+    rw [← he]
+    exact htrue
+  exact G.irrefl ((MixedColor.graphFun_pair G c c).mp (hkd.2.2 _ hsingle))
+
+lemma leaf_ne_private {n : ℕ} (C : Circuit) (H : ℕ) (a : Fin n)
+    (hHa : (gateAt C H).op = .and)
+    (hsole : ∀ j, j < C.gates.length → a.val ∈ (gateAt C j).inputs → j = H)
+    {j T : ℕ} (hj : j < C.gates.length) (hjo : (gateAt C j).op = .or)
+    (hT : T ∈ (gateAt C j).inputs) {v : Fin n} (hv : v ∈ orIn n C T) : v ≠ a := by
+  intro heq
+  subst v
+  simp only [orIn,Finset.mem_filter,Finset.mem_univ,true_and] at hv
+  rcases hv with hv | ⟨k,hk,_,hko,hka⟩
+  · have hjH := hsole j hj (hv ▸ hT)
+    rw [hjH,hHa] at hjo
+    cases hjo
+  · have hkH := hsole k hk hka
+    rw [hkH,hHa] at hko
+    cases hko
+
+lemma neighbor_transport {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅) (hTF : TopForm G C)
+    (H : ℕ) (a : Fin n) (hdirty : ¬ BelowF G C H)
+    (hsole : ∀ j, j < C.gates.length → a.val ∈ (gateAt C j).inputs → j = H)
+    (hlast : ∀ k, H < k → k < C.gates.length → (gateAt C k).op = .and → BelowF G C k)
+    (hreadOR : ∀ j ∈ readers n C H, (gateAt C j).op = .or)
+    (T : ℕ → ℕ) (v : ℕ → Fin n)
+    (hleaf : ∀ j ∈ readers n C H, T j ∈ (gateAt C j).inputs ∧ v j ∈ orIn n C (T j))
+    (c : Fin n) (hac : G.Adj a c) : ∃ j ∈ readers n C H, G.Adj (v j) c := by
+  classical
+  obtain ⟨k,hkT,hkt,hHk⟩ := edge_top_dependency G C hAO hfun H a hdirty hsole c hac
+  obtain ⟨hk,hka,hkc⟩ := MixedColor.topData hkT
+  have hkH : k ≠ H := by intro heq; subst k; exact hdirty hkc
+  obtain ⟨w,hwm,hnw,hwk,hHw⟩ := (JunkPurity.inCone_iff n C H k hk).mp hHk
+  have hwcone : InCone n C (w-n) k :=
+    (JunkPurity.inCone_iff n C (w-n) k hk).mpr ⟨w,hwm,hnw,hwk,Or.inl rfl⟩
+  have hwpath := LastDirtyAndDependency.cone_to_or_path G C hAO hTF hlast hk hka
+    (by omega) hwcone hHw
+  have hw_eq : n+(w-n) = w := by omega
+  rw [hw_eq] at hwpath
+  obtain ⟨u,z,huz⟩ := MixedColor.binaryInputs hAO hk
+  have hwuz : w = u ∨ w = z := by simpa [huz] using hwm
+  obtain ⟨r,hshape⟩ : ∃ r, (gateAt C k).inputs = [w,r] ∨ (gateAt C k).inputs = [r,w] := by
+    rcases hwuz with hwu | hwz
+    · exact ⟨z,Or.inl (hwu ▸ huz)⟩
+    · exact ⟨u,Or.inr (hwz ▸ huz)⟩
+  have hrmem : r ∈ (gateAt C k).inputs := by rcases hshape with hs | hs <;> simp [hs]
+  have hrno := LastDirtyAndDependency.partner_no_dependency G C hAO hTF hdirty hlast
+    hk hka hkc hshape hwpath
+  have hrna : r ≠ a.val := by
+    intro heq
+    subst r
+    exact hkH (hsole k hk hrmem)
+  have hrt : value C (pairInput a c) r = true :=
+    ((MixedColor.val_and (n := n) (C := C) (x := List.ofFn (pairInput a c))
+      (by simp) hk hka).mp hkt r hrmem).2
+  have hre := PrivateInputIndependence.wire_eq C hAO H a hsole (pairInput a c) (pairInput c c)
+    (by intro z hza; simp [pairInput,hza]) r hrna hrno
+  have hrs : value C (pairInput c c) r = true := by rw [← hre]; exact hrt
+  rcases Relation.ReflTransGen.cases_tail hwpath with hwH | ⟨z,hpre,hstep⟩
+  · have hkr : k ∈ readers n C H := by
+      simp only [readers,Finset.mem_filter,Finset.mem_range]
+      exact ⟨hk,hwH ▸ hwm⟩
+    have hko := hreadOR k hkr
+    rw [hka] at hko
+    cases hko
+  · obtain ⟨j,hj,rfl,hjo,hjH,_⟩ := hstep
+    have hjr : j ∈ readers n C H := by
+      simp only [readers,Finset.mem_filter,Finset.mem_range]
+      exact ⟨hj,hjH⟩
+    obtain ⟨hTj,hvj⟩ := hleaf j hjr
+    have hTval : value C (pairInput (v j) c) (T j) = true :=
+      MixedColor.reach_var_val _ _ _ (MixedColor.mem_orIn_reach (v j) hvj)
+        (MixedColor.pairInput_left (v j) c)
+    have hjval : value C (pairInput (v j) c) (n+j) = true :=
+      (MixedColor.val_or (n := n) (C := C) (x := List.ofFn (pairInput (v j) c))
+        (by simp) hj hjo).mpr ⟨T j,hTj,hAO.2.1 j hj _ hTj,hTval⟩
+    have hwval : value C (pairInput (v j) c) w = true := MixedColor.orStep_up (by simp) hpre hjval
+    have hmono : pairInput c c ≤ pairInput (v j) c := by
+      intro z
+      by_cases hzc : z = c <;> simp [pairInput,hzc]
+    have hrval : value C (pairInput (v j) c) r = true :=
+      Bool.le_iff_imp.mp ((WireFacts.wire_monotone C hAO r) hmono) hrs
+    have hkval : gateVal n C k (pairInput (v j) c) = true := by
+      change value C (pairInput (v j) c) (n+k) = true
+      rw [value_gate C hAO.2.1 _ k hk,hka]
+      rcases hshape with hs | hs <;> simp [hs,GateOp.eval,hwval,hrval]
+    exact ⟨j,hjr,(MixedColor.graphFun_pair G (v j) c).mp (hkc _ hkval)⟩
+
+end PEqualNP.Outside.L_meta_3566.PrivateReaderTransport
+
+namespace PEqualNP.Outside.L_meta_3566.PrivateReaderDegree
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership
+
+lemma degree_le_readers {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (hTF : TopForm G C) (h4 : NoFourCycle G) (H : ℕ) (a : Fin n)
+    (hHa : (gateAt C H).op = .and) (hdirty : ¬ BelowF G C H)
+    (hsole : ∀ j, j < C.gates.length → a.val ∈ (gateAt C j).inputs → j = H)
+    (hlast : ∀ k, H < k → k < C.gates.length → (gateAt C k).op = .and → BelowF G C k)
+    (hreadOR : ∀ j ∈ readers n C H, (gateAt C j).op = .or)
+    (hraw : ∀ j ∈ readers n C H, ∃ T ∈ (gateAt C j).inputs, (orIn n C T).Nonempty) :
+    G.degree a ≤ (readers n C H).card := by
+  classical
+  have hex : ∀ j : ℕ, ∃ T : ℕ, ∃ v : Fin n, j ∈ readers n C H →
+      T ∈ (gateAt C j).inputs ∧ v ∈ orIn n C T := by
+    intro j
+    by_cases hj : j ∈ readers n C H
+    · obtain ⟨T,hT,v,hv⟩ := hraw j hj
+      exact ⟨T,v,fun _ => ⟨hT,hv⟩⟩
+    · exact ⟨0,a,fun h => (hj h).elim⟩
+  choose T v hdata using hex
+  have hne : ∀ j ∈ readers n C H, v j ≠ a := by
+    intro j hj
+    have hjl : j < C.gates.length := (Finset.mem_filter.mp hj).1 |> Finset.mem_range.mp
+    exact PrivateReaderTransport.leaf_ne_private C H a hHa hsole hjl (hreadOR j hj)
+      (hdata j hj).1 (hdata j hj).2
+  have hcover := PrivateReaderTransport.neighbor_transport G C hAO hfun hTF H a hdirty
+    hsole hlast hreadOR T v hdata
+  rw [SimpleGraph.degree,SimpleGraph.neighborFinset_eq_filter]
+  exact ReaderDegreeCount.neighbors_card_le G h4 a (readers n C H) v hne hcover
+
+end PEqualNP.Outside.L_meta_3566.PrivateReaderDegree
