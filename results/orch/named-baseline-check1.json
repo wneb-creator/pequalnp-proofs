@@ -1,0 +1,27 @@
+{
+  "mode": "check",
+  "source": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_670.lean",
+  "sha256": "e7096bd2a59d800db72b93a8e62a85831173ef94194418ef6689c668b49bbe22",
+  "bytes": 516783,
+  "lines": 5226,
+  "cpus": [
+    2,
+    3
+  ],
+  "command": [
+    "node",
+    "tools/check-lean.mjs",
+    "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_670.lean",
+    "/tmp/oec/pequalnp-pilot-61/statement.txt",
+    "check"
+  ],
+  "started": "2026-11-25T06:01:43.650622+00:00",
+  "exitCode": 0,
+  "wallSeconds": 1665.7088996390012,
+  "userSeconds": 1483.465529,
+  "systemSeconds": 147.310997,
+  "maxRssKiB": 11346556,
+  "sourceUnchanged": true,
+  "log": "/tmp/oec/pequalnp-pilot-61/named-baseline-check1.log",
+  "finished": "2026-11-25T06:29:29.361843+00:00"
+}

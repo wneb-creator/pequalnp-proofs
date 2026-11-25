@@ -1,10 +1,10 @@
-# L-meta-670 preservation status
+# Current delivery status
 
-2026-11-25 05:51 UTC: the desk returned HTTP410 before a new full replay, despite the previous lease expiry06:01. New proof work paused; owned heartbeat stopped. Three complete attributed Lean proof variants are already committed and pushed. The named baseline lake build was in progress when the lease error arrived; the repository checker has not yet run.
+L-meta-670 namedfile passed both exact lakebuild and repositorychecker (ACCEPTED(check),5168constants, standardthreeaxioms). Source SHAe7096bd2a59d800db72b93a8e62a85831173ef94194418ef6689c668b49bbe22,516783bytes,5226lines. Cleanup retainedtheexactpassingfile,5226→5226lines. OnefilePRbeingprepared. Its upstreamintake has a separatetimebudget; no upstreamacceptanceisclaimed.
 
-The faster PR12203 generic core has now been converted from four custom records to library types and checked, both before and after reversible identifier shortening. The combined flat-table candidate is512092bytes, SHA25695ff093ce92c73313771526a879a0135b168d5f5218f1d96a1818741e0ada9b4, and passes static format/size/namespace guards. Its numerical certificate has NOT been replayed.
+Four complete670 variants have compiled, including the plain-record/flat-data95ff093c variant. Latestpublic12184 backup0995d354 is beingvalidated to addressruntime ifneeded.
 
-Availability/operand caches, pool filtering, and insertion-sorted links have checked generic proofs but offer no useful measured improvement, so they are excluded from the submission candidate.
+Currentownlease is6349, renewed06:39:11expiry. Its10gateupper isLeanchecked/pushed. Canonical9gateSATisUNSAT, but trimmedLRAT has2.036millionderivedclauses andcannotfit512KiB byordinarypacking. PlainLRATchecker+renaminggenericcomponentcompiled; fullbridgeconversionandstrongerSATrestrictionsinprogress. Prior670/2602leasesunexpectedlyreturned410andareinactive.
 
 Sub-agents: status review, toolchain, structural, finite verification, normalization, restriction mathematics, compact runtime audit.
-TIMING total=188 subagents=7
+TIMING total=228 subagents=7

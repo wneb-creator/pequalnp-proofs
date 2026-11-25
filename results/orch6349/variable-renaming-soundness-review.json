@@ -1,0 +1,41 @@
+{
+  "utc": "2026-11-25T06:25:07.752448+00:00",
+  "checker_sha256": "b692fd5c81b65b8b47a1c9b5ab5f65db8aaf9d83f9c0a99d65cd793614d0878b",
+  "task": "Independent design review of variable-renaming unsatisfiability transport",
+  "renameLit": "renameLit f l = 2 * f (l / 2) + l % 2",
+  "required_assumption": "forall c in F, forall l in c, inv (f (l / 2)) = l / 2",
+  "conclusion": "not FormulaSat (F.map (List.map (renameLit f))) -> not FormulaSat F",
+  "proof_strategy": [
+    "Assume a satisfies original F. Define renamed assignment b w := a (inv w).",
+    "Nat.mod_lt yields l%2<2; therefore renameLit f l /2 = f(l/2) and renameLit f l %2 = l%2.",
+    "For each occurring literal, the left-inverse hypothesis implies litVal b (renameLit f l) = litVal a l.",
+    "Carry each original clause witness through both List.map memberships; b satisfies the renamed formula.",
+    "Apply the supplied renamed-formula unsatisfiability contradiction."
+  ],
+  "unnecessary_assumptions": [
+    "No global injectivity of f.",
+    "No surjectivity.",
+    "No inverse law outside formula variable support.",
+    "No positive-variable condition is needed for the logical FormulaSat transport alone."
+  ],
+  "certificate_audit_requirements": [
+    "For serialized clauses, map all variables to positive IDs so encoded literal0 cannot become the clause delimiter.",
+    "Original Lean literal/2 equals DIMACS variable ID=Link.ix+1.",
+    "In ASCII LRAT, rename signed clause literals between addition ID and first0; preserve addition IDs, hint IDs, and zero delimiters.",
+    "In custom LRAT token format, rename both clause literals and claimed unit literals, but keep new-clause key slots and hint keys unchanged.",
+    "Initial fk entries are clause keys with q-1 storage convention, not variable IDs.",
+    "Boundary entry B uses q::literals: preserve q, rename tail only.",
+    "Use a separate explicit clause-ID bijection if keys are intentionally compacted; never conflate it with variable numbering.",
+    "Audit all formula, certificate and boundary-entry variable occurrences; certificate-only variables must belong to the supported map or be added injectively.",
+    "For packed words, verify unpack recovers the intended complete token stream, each token is below2^W, sentinel1 is preserved, and per-word field count<=fuelW1024.",
+    "Renaming must preserve complement parity, clause order, literal multiplicity and signs.",
+    "The final Lean checker replay remains authoritative; Python preparation is untrusted."
+  ],
+  "status": "Both generic renaming directions and reviewed plain Checker compiled successfully in hash-bound CheckerRenameProbe; numerical certificate work remains.",
+  "reviewed_concrete_theorem_sources": {
+    "report": "results/orch6349/checker-rename-independent-review.json",
+    "report_sha256": "dbd93e3e5885dad71721ecafa9b1b045b664b1fac0cda629a921113248ed3c24",
+    "candidate_sha256": "89096007e7f7ad965be2b5cd0171cfae9059738cb339e838a313adeb0e32eff9",
+    "verdict": "PASS independent mathematical/source-composition review; matching-source Lean replay exited0"
+  }
+}
