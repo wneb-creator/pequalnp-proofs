@@ -1,0 +1,11 @@
+{
+  "cubic_seed_counts_by_guard_count": {
+    "2": 2059,
+    "3": 149,
+    "4": 0
+  },
+  "distinct_cubic_test_signatures": 1115,
+  "selected": 159,
+  "minimum_errors": 145,
+  "minimum_gates": 39
+}

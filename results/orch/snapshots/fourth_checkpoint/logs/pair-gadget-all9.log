@@ -1,0 +1,5 @@
+2026-11-25T04:05:24.555924+00:00 PAIR GADGET 9 gates variables 1385 clauses 9878 required_raw_inputs 9 free_features 9
+2026-11-25T04:05:24.556325+00:00 RESULT 9 10 seconds 0.0
+2026-11-25T04:05:24.557922+00:00 VERIFIED ALL512 RAW INPUTS 9
+2026-11-25T04:05:24.628273+00:00 PAIR GADGET 8 gates variables 1215 clauses 8494 required_raw_inputs 9 free_features 9
+2026-11-25T04:05:27.770206+00:00 RESULT 8 20 seconds 3.14

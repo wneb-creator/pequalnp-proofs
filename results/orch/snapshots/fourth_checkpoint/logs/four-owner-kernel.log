@@ -1,0 +1,1 @@
+{'raw_inputs': 10, 'features': [[5, 8], [4, 7], [6, 9]], 'tests': 24, 'target': 14, 'necessity_status': 'Requires a proof that restricting four private inputs removes at least four paid gates.'}

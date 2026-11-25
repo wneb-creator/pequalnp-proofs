@@ -1,0 +1,53 @@
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e+00, 1e+00]
+  Cost   [2e+00, 8e+00]
+  Bound  [1e+00, 1e+00]
+  RHS    [1e+00, 1e+00]
+Presolving model
+40 rows, 401 cols, 1224 nonzeros  0s
+40 rows, 401 cols, 1224 nonzeros  0s
+Objective function is integral with scale 1
+
+Solving MIP model with:
+   40 rows
+   401 cols (401 binary, 0 integer, 0 implied int., 0 continuous)
+   1224 nonzeros
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+ u       0       0         0   0.00%   -inf            1560               Large        0    -40      0         0     0.0s
+MIP-Timing:      0.0039 - starting analytic centre calculation
+ T       0       0         0   0.00%   0               45               100.00%        0      0      0        70     0.0s
+         1       0         1 100.00%   45              45                 0.00%        0      0      0        70     0.0s
+
+Solving report
+  Status            Optimal
+  Primal bound      45
+  Dual bound        45
+  Gap               0%
+  P-D integral      0.00284433364868
+  Solution status   feasible
+                    45 (objective)
+                    0 (bound viol.)
+                    0 (int. viol.)
+                    0 (row viol.)
+  Timing            0.01 (total)
+                    0.00 (presolve)
+                    0.00 (solve)
+                    0.00 (postsolve)
+  Max sub-MIP depth 0
+  Nodes             1
+  Repair LPs        0 (0 feasible; 0 iterations)
+  LP iterations     70 (total)
+                    0 (strong br.)
+                    0 (separation)
+                    0 (heuristics)
+edges 40 rectangles 401 status 0 message Optimization terminated successfully. (HiGHS Status 7: Optimal)
+objective 45.0 dual 45.0
+{"objective": 45.0, "status": 0, "rectangles": [{"rows": [1], "lines": [9, 11, 17, 21]}, {"rows": [2], "lines": [20, 21]}, {"rows": [0, 2], "lines": [9, 10, 12, 16, 18]}, {"rows": [3], "lines": [9, 15, 19, 20]}, {"rows": [4], "lines": [13, 17, 18, 20]}, {"rows": [5], "lines": [12, 16, 17, 19]}, {"rows": [6], "lines": [11, 15, 16, 18]}, {"rows": [7], "lines": [9, 13, 14, 16]}, {"rows": [8], "lines": [11, 12, 14, 20]}]}

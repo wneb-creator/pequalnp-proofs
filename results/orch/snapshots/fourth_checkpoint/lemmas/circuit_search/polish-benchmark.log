@@ -1,0 +1,7 @@
+ALLPOS initial false 25
+POLISH seconds 0.0015707 sweeps 1 evaluations 28728 best 25 current 25
+POLISH BEST false 23 sweep 43 evaluations 1235304
+POLISH seconds 10.0013 sweeps 6581 evaluations 189058968 best 23 current 25
+POLISH seconds 20.0009 sweeps 13139 evaluations 377457192 best 23 current 23
+POLISH seconds 30.0013 sweeps 19683 evaluations 565453224 best 23 current 23
+POLISH DONE sweeps 19683 evaluations 565453224 best 23

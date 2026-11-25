@@ -1,0 +1,11 @@
+2026-11-25T03:21:33.466705+00:00 INITIAL None errors 4 variables 17235 clauses 249036
+2026-11-25T03:21:33.712776+00:00 SOLVER budget 4 attempt 0 result 10 seconds 0.25
+2026-11-25T03:21:33.714791+00:00 CANDIDATE observed_errors 4
+2026-11-25T03:23:33.744470+00:00 SOLVER budget 3 attempt 0 result 0 seconds 120.03
+2026-11-25T03:25:33.747345+00:00 SOLVER budget 3 attempt 1 result 0 seconds 120.0
+2026-11-25T03:27:33.749246+00:00 SOLVER budget 3 attempt 2 result 0 seconds 120.0
+2026-11-25T03:29:33.751376+00:00 SOLVER budget 3 attempt 3 result 0 seconds 120.0
+2026-11-25T03:31:33.753856+00:00 SOLVER budget 3 attempt 4 result 0 seconds 120.0
+2026-11-25T03:33:33.755519+00:00 SOLVER budget 3 attempt 5 result 0 seconds 120.0
+2026-11-25T03:35:33.757937+00:00 SOLVER budget 3 attempt 6 result 0 seconds 120.0
+2026-11-25T03:37:33.760825+00:00 SOLVER budget 3 attempt 7 result 0 seconds 120.0

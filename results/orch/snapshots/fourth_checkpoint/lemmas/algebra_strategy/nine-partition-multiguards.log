@@ -1,0 +1,5 @@
+BEST 178 gates 43 guards 3 group (0, 1, 2, 4, 6)
+BEST 175 gates 43 guards 3 group (0, 1, 2, 4, 6)
+BEST 174 gates 41 guards 3 group (0, 1, 2, 7, 8)
+BEST 173 gates 42 guards 3 group (1, 2, 3, 4, 6)
+{"checked": 15442, "elapsed_seconds": 6.138544493000154, "stopped": false, "seeds": 172, "best_errors": 173}

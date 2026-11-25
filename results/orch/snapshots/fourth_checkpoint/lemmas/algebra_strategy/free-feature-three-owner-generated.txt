@@ -1,0 +1,118 @@
+
+namespace PEqualNP.Outside.L_meta_650_aux.FreeFeatureElimination.ThreeOwner
+
+open PEqualNP.MetaComplexity
+open PEqualNP.CircuitLowerBounds
+
+def restrict (t : ℕ) (x : Fin 12 → Bool) : Fin 12 → Bool :=
+  fun i => if i.val < 12 - t then x i else false
+
+def base (x : Fin 12 → Bool) : Bool :=
+  (x 0 && (x 3 || x 4 || x 6 || x 9)) ||
+  (x 1 && (x 3 || x 5 || x 7 || x 10)) ||
+  (x 2 && (x 4 || x 5 || x 8 || x 11))
+
+def f (t : ℕ) (x : Fin 12 → Bool) : Bool := base (restrict t x)
+
+def input (x : Fin 12 → Bool) : Fin 35 → Bool :=
+  ![x 0, x 1, x 2, x 3, x 4, x 5, x 6, x 7, x 8, x 9, x 10, x 11, false, x 3 || x 8, x 3 || x 11, x 4 || x 7, x 4 || x 10, x 7 || x 6, x 7 || x 6 || x 11, x 7 || x 8, x 7 || x 8 || x 9, x 7 || x 9, x 7 || x 11, x 6 || x 8, x 6 || x 8 || x 10, x 6 || x 10, x 6 || x 11, x 6 || x 5, x 8 || x 10, x 8 || x 9, x 10 || x 9, x 10 || x 9 || x 11, x 10 || x 11, x 9 || x 11, x 9 || x 5]
+
+def encode (t : ℕ) (x : Fin 12 → Bool) : Fin 35 → Bool := input (restrict t x)
+
+def normalizer : Fin 6 → Fin 35 → Fin 35 :=
+  ![![0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34], ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 3, 15, 16, 17, 18, 19, 20, 21, 7, 23, 24, 25, 6, 27, 28, 29, 30, 31, 10, 9, 34], ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 3, 15, 4, 17, 18, 19, 20, 21, 7, 23, 24, 6, 6, 27, 8, 29, 9, 9, 12, 9, 34], ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 3, 15, 4, 17, 18, 19, 20, 7, 7, 23, 24, 6, 6, 27, 8, 8, 12, 12, 12, 12, 5], ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 3, 3, 15, 4, 17, 18, 7, 7, 7, 7, 6, 6, 6, 6, 27, 12, 12, 12, 12, 12, 12, 5], ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 3, 3, 4, 4, 6, 6, 12, 12, 12, 12, 6, 6, 6, 6, 27, 12, 12, 12, 12, 12, 12, 5]]
+
+def point : Fin 6 → Fin 35 := ![11, 10, 9, 8, 7, 6]
+
+def w0 : Fin 6 → Fin 12 → Bool :=
+  ![![false, false, true, true, false, false, true, true, false, true, true, false], ![false, true, false, false, true, false, true, false, true, true, false, false], ![true, false, false, false, false, true, false, true, true, false, false, false], ![false, false, true, true, false, false, true, true, false, false, false, false], ![false, true, false, false, true, false, true, false, false, false, false, false], ![true, false, false, false, false, true, false, false, false, false, false, false]]
+
+def w1 (t : Fin 6) : Fin 12 → Bool :=
+  Function.update (w0 t) ⟨11 - t.val, by omega⟩ true
+
+theorem normalize_correct (t : Fin 6) (x : Fin 12 → Bool) :
+    encode t.val x ∘ normalizer t = encode t.val x := by
+  fin_cases t <;> funext k <;> fin_cases k <;>
+    simp [encode, input, restrict, normalizer, Function.comp_def]
+
+theorem restrict_twice (t : Fin 6) (x : Fin 12 → Bool) :
+    restrict t.val (restrict (t.val + 1) x) = restrict (t.val + 1) x := by
+  fin_cases t <;> funext k <;> fin_cases k <;> simp [restrict]
+
+theorem next_encode (t : Fin 6) (x : Fin 12 → Bool) :
+    encode (t.val + 1) x = encode t.val (restrict (t.val + 1) x) := by
+  simp only [encode, restrict_twice]
+
+theorem next_f (t : Fin 6) (x : Fin 12 → Bool) :
+    f (t.val + 1) x = f t.val (restrict (t.val + 1) x) := by
+  simp only [f, restrict_twice]
+
+theorem next_zero (t : Fin 6) (x : Fin 12 → Bool) :
+    encode (t.val + 1) x (point t) = false := by
+  fin_cases t <;> simp [encode, input, restrict, point]
+
+theorem witnesses : ∀ t : Fin 6,
+    Function.update (encode t.val (w0 t)) (point t)
+      (!(encode t.val (w0 t) (point t))) ∘ normalizer t = encode t.val (w1 t) := by
+  decide +kernel
+
+theorem witness_changes : ∀ t : Fin 6, f t.val (w1 t) ≠ f t.val (w0 t) := by
+  decide +kernel
+
+theorem next_nonconstant (t : Fin 6) :
+    ∃ x y : Fin 12 → Bool, f (t.val + 1) x ≠ f (t.val + 1) y := by
+  refine ⟨fun i => decide (i.val = 0 ∨ i.val = 3), fun _ => false, ?_⟩
+  fin_cases t <;> decide
+
+theorem step (t : Fin 6) (s : ℕ)
+    (h : HasEncoded (encode t.val) (f t.val) (s + 1)) :
+    HasEncoded (encode (t.val + 1)) (f (t.val + 1)) s :=
+  encoded_elim _ _ _ _ (normalizer t) (point t) (restrict (t.val + 1))
+    (normalize_correct t) (next_encode t) (next_f t) (next_zero t)
+    (w0 t) (w1 t) (witnesses t) (witness_changes t) (next_nonconstant t) s h
+
+def collapse : Fin 35 → Fin 7 :=
+  ![0, 1, 2, 3, 4, 5, 6, 6, 6, 6, 6, 6, 6, 3, 3, 4, 4, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 5, 6, 6, 6, 6, 6, 6, 5]
+
+def cycle (x : Fin 6 → Bool) : Bool :=
+  (x 0 && (x 3 || x 4)) || (x 1 && (x 3 || x 5)) || (x 2 && (x 4 || x 5))
+
+theorem collapse_correct (x : Fin 6 → Bool) :
+    Fin.snoc x false ∘ collapse = encode 6 (Fin.append x (fun _ : Fin 6 => false)) := by
+  funext k
+  fin_cases k <;> simp [collapse, encode, input, restrict, Function.comp_def, Fin.append]
+
+theorem final_f (x : Fin 6 → Bool) :
+    f 6 (Fin.append x (fun _ : Fin 6 => false)) = cycle x := by
+  simp [f, base, restrict, cycle, Fin.append]
+
+theorem no_thirteen : ¬ HasEncoded (encode 0) (f 0) 13 := by
+  intro h
+  have h1 : HasEncoded (encode 1) (f 1) 12 := step 0 12 h
+  have h2 : HasEncoded (encode 2) (f 2) 11 := step 1 11 h1
+  have h3 : HasEncoded (encode 3) (f 3) 10 := step 2 10 h2
+  have h4 : HasEncoded (encode 4) (f 4) 9 := step 3 9 h3
+  have h5 : HasEncoded (encode 5) (f 5) 8 := step 4 8 h4
+  have h6 : HasEncoded (encode 6) (f 6) 7 := step 5 7 h5
+  obtain ⟨C, hfan, hsize, hev⟩ := h6
+  have hr := Helpers.PermInputs.relabel_size collapse
+    (fun y : Fin 35 → Bool => C.eval (List.ofFn y)) 7 ⟨C, hfan, hsize, fun _ => rfl⟩
+  have hh := Helpers.fix_last 6 _ false 7 hr
+  have heq : (fun x : Fin 6 → Bool => C.eval (List.ofFn (Fin.snoc x false ∘ collapse))) =
+      cycle := by
+    funext x
+    rw [collapse_correct, hev, final_f]
+  change HasCircuitSize 6
+    (fun x : Fin 6 → Bool => C.eval (List.ofFn (Fin.snoc x false ∘ collapse))) 7 at hh
+  rw [heq] at hh
+  let π : Fin 6 → Fin 6 := ![0, 2, 4, 1, 5, 3]
+  have hc := Helpers.PermInputs.relabel_size π cycle 7 hh
+  have eq_cycle : (fun x : Fin 6 → Bool => cycle (x ∘ π)) =
+      (fun x : Fin 6 → Bool => decide (∃ i j : Fin 6,
+        (i.val + 1) % 6 = j.val ∧ x i = true ∧ x j = true)) := by
+    exact funext (by decide +kernel)
+  rw [eq_cycle] at hc
+  have := (PEqualNP.MetaComplexity.L106 6 7 (by decide)).mp hc
+  omega
+
+end PEqualNP.Outside.L_meta_650_aux.FreeFeatureElimination.ThreeOwner

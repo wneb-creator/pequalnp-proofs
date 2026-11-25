@@ -1,39 +1,49 @@
 # L-meta-650 research checkpoint
 
-The posted63-gate claim is not proved or refuted. No proof PR has been opened. This branch preserves independently reviewed Lean components, search sources, complete diagnostics and explicitly incorrect candidates.
+The posted claim is not proved or refuted. No proof PR has been opened, and the repository checker has not accepted the target. This branch preserves independently reviewed Lean components, research programs, complete diagnostics and explicitly incorrect candidates.
 
 ## Checked components
 
 | File under lemmas/ | What it proves |
 | --- | --- |
-| lean_baseline/BaselineCorrect2.lean | An explicit64-gate monotone circuit computes the exact posted52-edge function on every input. |
-| verification/FiniteVerification.lean | A monotone≤63-gate candidate passing the specified finite boundary tests proves the exact posted statement. It supplies no candidate. |
-| lean_baseline/BipartiteBasis.lean | Generic soundness of edge positives and independent-extension negatives for monotone bipartite functions. |
-| reduction_analysis/SpecializedLiftFast.lean | Exact smaller-core completion routes, including a≤28-gate six-row core. |
-| reduction_analysis/PairTapCompletion.lean | A≤29-gate exact six-row core with the specified conditional pair tap extends to63 gates:29+4+30. |
-| reduction_analysis/AttachFull.lean | The two-gate attachment half of the existing residual/tap reduction. |
-| algebra_strategy/FourRowLower.lean | The designated four-row core needs at least19 gates; its proposed18-gate route is impossible. Research imports. |
-| reduction_analysis/SixLeafCycleLower.lean | The designated three-row subproblem with six private leaves needs at least14 gates. Research imports. |
-| reduction_analysis/SingletonDirtySemantic.lean | A semantic replacement under explicit one-unsafe-AND form hypotheses; no global normalization or size bound. |
+| lean_baseline/BaselineCorrect2.lean | An explicit circuit with 64 gates computes the exact posted function on every input. |
+| lean_baseline/FullPairAugment.lean | A circuit with 60 gates computes the 52 required edges plus six extra edges. It is not a target witness. |
+| lower_bound/AugmentedCandidate17.lean | A circuit with 28 gates computes the 24 core edges plus four extra edges. |
+| verification/CertifiedAugmented17.lean | The same augmented circuit is verified by finite DNF certificates for all input lists of length 17. |
+| reduction_analysis/DNFVerifierMono.lean | A sound gate-by-gate DNF certificate checker, including every wire, false-default references and Monotone2. |
+| verification/FiniteVerification.lean | A candidate passing the stated finite boundary checks suffices for the exact posted target. No candidate is supplied. |
+| reduction_analysis/SpecializedLiftFast.lean | Smaller-core completion routes, including a circuit with at most 28 gates for the six-row core. |
+| reduction_analysis/NineRowCompletion.lean | A nine-row circuit with at most 43 gates extends to the posted 63-gate target. |
+| reduction_analysis/PairTapCompletionWeak.lean | A core with at most 29 gates and the conditional pair tap extends to 63 gates. |
+| reduction_analysis/TripleTapCompletion.lean | A core with at most 30 gates and the conditional triple tap extends to 63 gates. |
+| reduction_analysis/NineTapCompletion.lean | A circuit with at most 17 gates computing two stars and nine cross-OR taps extends to 63 gates. |
+| reduction_analysis/AttachFull.lean | The two-gate attachment half of the existing full residual/tap reduction. |
+| algebra_strategy/FourRowLower.lean | The designated four-row core needs at least 19 gates. Research imports. |
+| reduction_analysis/SixLeafCycleLower.lean | The designated three-row subproblem with six private leaves needs at least 14 gates. Research imports. |
+| algebra_strategy/FreeCrossPairLower.lean | The two-owner function cannot use eight additional gates with all nine fixed free cross-OR features. Research imports. |
 
-Further checked monotonicity, geometry, lifting, Boolean identities and normalization lemmas are recorded in NOTES.md and validation.txt. Research imports are not eligible for the final proof file without inlining permitted dependencies. Every quoted compiler success applies only to its named component. The repository checker has not accepted the posted target.
+Further checked monotonicity, geometry, lifting and normalization lemmas are recorded in NOTES.md and validation.txt. Research imports are not eligible for the final file without permitted inlining. The fixed-feature lower bound does not automatically exclude the more general interleaved multioutput completion theorem.
 
-## Search status
+## Current search and verification status
 
-The best preserved28-gate six-row approximation computes the24 required edges plus four unwanted edges. It fails17 maximal-negative tests and accepts255 additional inputs out of131072. It is not a witness. The repairs from25 to23 to17 failed tests strictly improve the represented function. The defective13-gate three-row cone cannot be repaired in isolation, by the checked14-gate lower bound.
+The best preserved bare six-row approximation fails 17 maximal-negative tests and accepts 255 extra assignments among 131072 inputs. Its repairs from 25 to 23 to 17 failed tests strictly improve the represented function. The defective three-row cone cannot be repaired in isolation by the checked lower bound. New feature-aware candidates use values already computed by outside stars; their results are recorded separately.
 
-Active construction routes are exact28-gate core synthesis, joint exact-core/conditional-tap synthesis, and full-plane63-gate guarded merges. Full boundary verification remains mandatory. SAT timeouts are UNKNOWN; local UNSAT results apply only to explicitly bounded neighborhoods.
+Construction routes now include free-feature gadgets, full-plane coupled repair, and joint synthesis of the full residual and a conditional tap. Every proposed witness must pass the complete boundary verifier and then Lean. SAT timeouts are UNKNOWN; restricted UNSAT, formula-DP and MILP results apply only to their documented models.
 
-Large direct finite-set kernel computations reached12–13GB and were stopped. The small symbolic-evaluation calibration passed; unfinished benchmark files are not checked proofs. Complete diagnostics are retained in snapshots.
+The DNF verifier now avoids large input enumeration for Lean proofs. Its concrete augmented-circuit certificate passed in about eight seconds including imports. Earlier large finite-set batches were stopped for memory and are retained as unsuccessful diagnostics. The submission assembler binds the exact assigned statement, rejects the known incorrect circuit, and creates no target file until a candidate has at most 63 gates and exactly the 52 required prime terms. Its complete generated final theorem still needs a positive-candidate Lean build and repository checker run.
+
+Four preservation snapshots retain changed programs, datasets, seeds and selected complete logs. MANIFEST files record original and stored SHA256 hashes; large datasets are gzip-compressed. Snapshot STATUS files distinguish checked results, near misses, calibration circuits and unfinished experiments.
 
 ## Administration
 
-Special check L-meta-1035 returned not_open; the response did not identify whether it was checked or stood down. Three initial hard-desk requests returned null with the exact note: no step is free that you have not already looked at and handed back in the last hour (2); new steps are posted through the day, ask again in a few minutes. L-meta-650 was assigned on2026-11-25 at02:14:27 UTC. Only its lease is renewed by this job.
+Special check L-meta-1035 returned not_open; the response did not say whether it was checked or stood down. Three initial hard-desk requests returned null with this exact note:
 
-An optional authenticated GitHub API read returned401. VENDOR-LIMITATION git-auth-401 was reported; no alternate credentials were used. Git fetch and preservation pushes succeeded.
+> no step is free that you have not already looked at and handed back in the last hour (2); new steps are posted through the day, ask again in a few minutes
+
+L-meta-650 was assigned on 2026-11-25 at 02:14:27 UTC. Only this job's lease is renewed. An optional authenticated GitHub API read returned 401; VENDOR-LIMITATION git-auth-401 was reported, and no alternate credentials were used. Git fetch and preservation pushes succeeded.
 
 Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review (6 distinct agents).
 
-TIMING total=94.3 subagents=6 (checkpoint at 2026-11-25T03:35:27.477097+00:00; work continues).
+TIMING total=139.7 subagents=6 (checkpoint at 2026-11-25T04:20:49.246161+00:00; work continues).
 
 Job ID: msg-e98796d0d0ad050188abca1f.

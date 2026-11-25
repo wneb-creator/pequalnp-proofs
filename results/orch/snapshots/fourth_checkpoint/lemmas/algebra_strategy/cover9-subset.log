@@ -1,0 +1,49 @@
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e+00, 8e+00]
+  Cost   [1e+00, 1e+00]
+  Bound  [1e+00, 1e+00]
+  RHS    [1e+00, 4e+01]
+Presolving model
+2942 rows, 1797 cols, 11448 nonzeros  0s
+2146 rows, 1372 cols, 8569 nonzeros  0s
+2144 rows, 1370 cols, 8559 nonzeros  0s
+Objective function is integral with scale 1
+
+Solving MIP model with:
+   2144 rows
+   1370 cols (1370 binary, 0 integer, 0 implied int., 0 continuous)
+   8559 nonzeros
+MIP-Timing:        0.52 - starting analytic centre calculation
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.5s
+         0       0         0   0.00%   0               inf                  inf        0      0      0      1147     0.7s
+         0       0         0   0.00%   1               inf                  inf     1973     38     91      5086     5.8s
+         0       0         0   0.00%   1               inf                  inf     2140     44    109     12092    10.3s
+
+Solving report
+  Status            Time limit reached
+  Primal bound      inf
+  Dual bound        1
+  Gap               inf
+  P-D integral      0
+  Solution status   -
+  Timing            10.25 (total)
+                    0.00 (presolve)
+                    0.00 (solve)
+                    0.00 (postsolve)
+  Max sub-MIP depth 2
+  Nodes             0
+  Repair LPs        0 (0 feasible; 0 iterations)
+  LP iterations     12092 (total)
+                    0 (strong br.)
+                    4399 (separation)
+                    6546 (heuristics)
+variables 1805 status 1 objective None dual None

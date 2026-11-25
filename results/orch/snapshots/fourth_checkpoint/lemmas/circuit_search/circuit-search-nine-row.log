@@ -1,0 +1,55 @@
+ALLPOS initial false 181
+seconds 7e-08 iterations 0 restarts 0 best 100000 current miss 0 false 181 pool 1
+BEST 205 miss 8 false 181 at 5.1236e-05
+BEST 195 miss 0 false 195 at 0.000186496
+BEST 164 miss 18 false 110 at 0.000271491
+BEST 140 miss 18 false 86 at 0.000691342
+BEST 132 miss 20 false 72 at 0.000884287
+BEST 72 miss 20 false 12 at 0.00106603
+BEST 68 miss 20 false 8 at 0.00128217
+BEST 66 miss 20 false 6 at 0.00149638
+BEST 63 miss 21 false 0 at 0.00167889
+BEST 60 miss 20 false 0 at 0.00196721
+BEST 57 miss 19 false 0 at 0.00201592
+BEST 54 miss 18 false 0 at 0.00295029
+BEST 51 miss 17 false 0 at 0.00322051
+BEST 48 miss 16 false 0 at 0.00473718
+BEST 45 miss 15 false 0 at 0.00719336
+BEST 42 miss 14 false 0 at 0.0126328
+BEST 39 miss 13 false 0 at 0.0191977
+BEST 36 miss 12 false 0 at 0.0199657
+BEST 33 miss 11 false 0 at 0.0201924
+BEST 30 miss 10 false 0 at 0.0587376
+BEST 27 miss 9 false 0 at 0.0704906
+BEST 24 miss 8 false 0 at 0.0772702
+seconds 10.0033 iterations 47994843 restarts 1 best 24 current miss 16 false 1 pool 193
+seconds 20.0033 iterations 89823722 restarts 2 best 24 current miss 0 false 226 pool 329
+BEST 21 miss 7 false 0 at 28.3518
+seconds 30.0033 iterations 132918006 restarts 4 best 21 current miss 0 false 226 pool 512
+seconds 40.0033 iterations 173666650 restarts 5 best 21 current miss 0 false 226 pool 512
+seconds 50.0034 iterations 215236705 restarts 7 best 21 current miss 17 false 0 pool 512
+seconds 60.0033 iterations 256953759 restarts 8 best 21 current miss 36 false 2 pool 512
+seconds 70.0033 iterations 297466924 restarts 9 best 21 current miss 0 false 226 pool 512
+seconds 80.0033 iterations 337379302 restarts 11 best 21 current miss 36 false 0 pool 512
+seconds 90.0033 iterations 378829018 restarts 12 best 21 current miss 36 false 8 pool 512
+seconds 100.003 iterations 421124755 restarts 14 best 21 current miss 35 false 0 pool 512
+seconds 110.003 iterations 462765942 restarts 15 best 21 current miss 0 false 225 pool 512
+BEST 18 miss 6 false 0 at 115.467
+seconds 120.003 iterations 505068287 restarts 16 best 18 current miss 5 false 215 pool 512
+seconds 130.003 iterations 547126427 restarts 18 best 18 current miss 36 false 0 pool 512
+seconds 140.003 iterations 589084757 restarts 19 best 18 current miss 36 false 0 pool 512
+seconds 150.008 iterations 627385289 restarts 20 best 18 current miss 0 false 226 pool 512
+seconds 160.003 iterations 659388463 restarts 21 best 18 current miss 0 false 226 pool 512
+seconds 170.003 iterations 690007502 restarts 23 best 18 current miss 31 false 0 pool 512
+seconds 180.003 iterations 729096111 restarts 24 best 18 current miss 0 false 226 pool 512
+seconds 190.003 iterations 770902785 restarts 25 best 18 current miss 11 false 16 pool 512
+seconds 200.003 iterations 810660362 restarts 27 best 18 current miss 36 false 0 pool 512
+BEST 15 miss 5 false 0 at 206.964
+BEST 12 miss 4 false 0 at 207.028
+seconds 210.003 iterations 852517585 restarts 28 best 12 current miss 0 false 226 pool 512
+seconds 220.003 iterations 893687200 restarts 29 best 12 current miss 0 false 226 pool 512
+ALLPOS false 161 at 226.278
+seconds 230.003 iterations 936340061 restarts 31 best 12 current miss 31 false 0 pool 512
+seconds 240.003 iterations 978894511 restarts 32 best 12 current miss 36 false 1 pool 512
+seconds 250.003 iterations 1021099461 restarts 34 best 12 current miss 36 false 0 pool 512
+seconds 260 iterations 1070216469 restarts 35 best 12 current miss 12 false 0 pool 512

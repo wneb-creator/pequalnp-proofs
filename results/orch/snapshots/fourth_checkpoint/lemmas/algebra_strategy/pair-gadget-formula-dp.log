@@ -1,0 +1,11 @@
+terminals [2575, 3312, 273, 1282, 1284, 1288, 800, 832, 896, 1826, 1860, 1928] target 255
+cost 1 new_signatures 74 total 86 seconds 0.0001389760000165552 target_cost 99
+cost 2 new_signatures 239 total 325 seconds 0.0005207610001889407 target_cost 99
+cost 3 new_signatures 514 total 839 seconds 0.0018795810001392965 target_cost 99
+cost 4 new_signatures 905 total 1744 seconds 0.006071974000406044 target_cost 99
+cost 5 new_signatures 1000 total 2744 seconds 0.02134746499996254 target_cost 99
+cost 6 new_signatures 822 total 3566 seconds 0.053769414000271354 target_cost 99
+cost 7 new_signatures 391 total 3957 seconds 0.13194451599974855 target_cost 99
+cost 8 new_signatures 117 total 4074 seconds 0.2559900240003117 target_cost 99
+cost 9 new_signatures 21 total 4095 seconds 0.5035801590001938 target_cost 9
+WITNESS {"formula_cost": 9, "dag_gate_count": 9, "gates": [[1, 4, 5], [1, 3, 12], [1, 2, 13], [0, 0, 14], [1, 7, 8], [1, 6, 16], [1, 2, 17], [0, 1, 18], [1, 15, 19]], "output": 20}

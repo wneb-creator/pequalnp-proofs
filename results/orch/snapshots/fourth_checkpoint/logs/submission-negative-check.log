@@ -1,0 +1,3 @@
+usage: make_submission.py [-h] [--wire WIRE] [--validate-only]
+                          candidate statement
+make_submission.py: error: candidate is not the posted function: 0 missing and 6 extra prime terms
