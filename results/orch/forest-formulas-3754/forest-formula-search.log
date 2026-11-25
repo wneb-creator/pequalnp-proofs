@@ -1,0 +1,9 @@
+{"edges": [[0, 1]], "star_bound": 1, "dirty_fixed_formula_cost": null, "clean_cost": 1, "states": 25, "seconds": 0.0}
+{"edges": [[0, 1], [0, 2]], "star_bound": 2, "dirty_fixed_formula_cost": null, "clean_cost": 2, "states": 104, "seconds": 0.0}
+{"edges": [[0, 1], [2, 3]], "star_bound": 3, "dirty_fixed_formula_cost": null, "clean_cost": 3, "states": 360, "seconds": 0.009}
+{"edges": [[0, 1], [0, 2], [0, 3]], "star_bound": 3, "dirty_fixed_formula_cost": null, "clean_cost": 3, "states": 346, "seconds": 0.002}
+{"edges": [[0, 1], [0, 2], [1, 3]], "star_bound": 4, "dirty_fixed_formula_cost": null, "clean_cost": 4, "states": 842, "seconds": 0.013}
+{"edges": [[0, 1], [0, 2], [3, 4]], "star_bound": 4, "dirty_fixed_formula_cost": null, "clean_cost": 4, "states": 842, "seconds": 0.007}
+{"edges": [[0, 1], [0, 2], [0, 3], [0, 4]], "star_bound": 4, "dirty_fixed_formula_cost": null, "clean_cost": 4, "states": 789, "seconds": 0.007}
+{"edges": [[0, 1], [0, 2], [0, 3], [1, 4]], "star_bound": 5, "dirty_fixed_formula_cost": null, "clean_cost": 5, "states": 1658, "seconds": 0.054}
+{"edges": [[0, 1], [0, 2], [1, 3], [2, 4]], "star_bound": 5, "dirty_fixed_formula_cost": null, "clean_cost": 5, "states": 1686, "seconds": 0.023}

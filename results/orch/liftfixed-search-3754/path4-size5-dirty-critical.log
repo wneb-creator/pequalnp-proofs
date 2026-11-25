@@ -1,0 +1,32 @@
+2026-11-25T17:23:08.930403+00:00 path 4 edges 3 tau 2 gates 5 patterns 6 mode dirty liftfixed True
+RESULT sat seconds 0.16
+VERIFIED_FULL_TRUTH_TABLE {"n": 4, "edges": [[0, 1], [1, 2], [2, 3]], "bipartition": [0, 1, 0, 1], "gates": [["or", 0, 2], ["and", 1, 4], ["and", 3, 4], ["and", 2, 6], ["or", 5, 7]], "output": 8, "dirty_and_indices": [2], "below_gate": [false, true, false, true, true], "cover": [0, 2], "standard_bound": 4}
+(:max-memory              25.95
+ :memory                  17.29
+ :num-allocs              789883
+ :rlimit-count            89321
+ :sat-backjumps           202
+ :sat-conflicts           202
+ :sat-decisions           389
+ :sat-del-clause          3221
+ :sat-elim-bool-vars-res  535
+ :sat-elim-clauses        217
+ :sat-elim-literals       689
+ :sat-minimized-lits      280
+ :sat-mk-clause-2ary      2024
+ :sat-mk-clause-3ary      1181
+ :sat-mk-clause-nary      3896
+ :sat-mk-var              1013
+ :sat-probing-assigned    4
+ :sat-propagations-2ary   13919
+ :sat-propagations-nary   14409
+ :sat-restarts            1
+ :sat-scc-elim-binary     9
+ :sat-scc-elim-vars       57
+ :sat-subs-resolution     89
+ :sat-subs-resolution-dyn 9
+ :sat-subsumed            441
+ :sat-units               30
+ :solve-eqs-elim-vars     18
+ :solve-eqs-steps         260
+ :time                    0.15)

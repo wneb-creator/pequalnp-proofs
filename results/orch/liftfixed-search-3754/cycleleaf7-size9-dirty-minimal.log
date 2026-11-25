@@ -1,0 +1,36 @@
+2026-11-25T17:21:00.483368+00:00 cycleleaf 7 edges 7 tau 3 gates 9 patterns 13 mode dirty liftfixed True
+RESULT unknown seconds 30.01
+REASON timeout
+(:max-memory              34.48
+ :memory                  18.05
+ :num-allocs              180532188
+ :rlimit-count            62823896
+ :sat-ate                 333
+ :sat-backjumps           245017
+ :sat-bce                 178
+ :sat-conflicts           245017
+ :sat-decisions           442029
+ :sat-del-clause          214322
+ :sat-elim-bool-vars-res  1958
+ :sat-elim-clauses        331
+ :sat-elim-literals       64495
+ :sat-gc-clause           185114
+ :sat-minimized-lits      4031854
+ :sat-mk-clause-2ary      7277
+ :sat-mk-clause-3ary      3958
+ :sat-mk-clause-nary      260922
+ :sat-mk-var              3646
+ :sat-probing-assigned    7
+ :sat-propagations-2ary   14466671
+ :sat-propagations-nary   54699817
+ :sat-restarts            13356
+ :sat-scc-elim-binary     63
+ :sat-scc-elim-vars       181
+ :sat-subs-resolution     27206
+ :sat-subs-resolution-dyn 91556
+ :sat-subsumed            11295
+ :sat-tr                  71
+ :sat-units               48
+ :solve-eqs-elim-vars     32
+ :solve-eqs-steps         942
+ :time                    30.01)

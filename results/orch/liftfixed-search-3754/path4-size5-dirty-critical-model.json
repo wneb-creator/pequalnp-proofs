@@ -1,0 +1,66 @@
+{
+  "n": 4,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "bipartition": [
+    0,
+    1,
+    0,
+    1
+  ],
+  "gates": [
+    [
+      "or",
+      0,
+      2
+    ],
+    [
+      "and",
+      1,
+      4
+    ],
+    [
+      "and",
+      3,
+      4
+    ],
+    [
+      "and",
+      2,
+      6
+    ],
+    [
+      "or",
+      5,
+      7
+    ]
+  ],
+  "output": 8,
+  "dirty_and_indices": [
+    2
+  ],
+  "below_gate": [
+    false,
+    true,
+    false,
+    true,
+    true
+  ],
+  "cover": [
+    0,
+    2
+  ],
+  "standard_bound": 4
+}

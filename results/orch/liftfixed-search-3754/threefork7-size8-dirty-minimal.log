@@ -1,0 +1,35 @@
+2026-11-25T17:20:27.034885+00:00 threefork 7 edges 6 tau 3 gates 8 patterns 14 mode dirty liftfixed True
+RESULT unsat seconds 20.954
+(:max-memory              32.01
+ :memory                  17.65
+ :num-allocs              78752484
+ :rlimit-count            38437982
+ :sat-ate                 66
+ :sat-backjumps           171178
+ :sat-bce                 144
+ :sat-conflicts           171179
+ :sat-decisions           285885
+ :sat-del-clause          162871
+ :sat-elim-bool-vars-res  1501
+ :sat-elim-clauses        38487
+ :sat-elim-literals       58944
+ :sat-gc-clause           104674
+ :sat-minimized-lits      2528770
+ :sat-mk-clause-2ary      6709
+ :sat-mk-clause-3ary      3017
+ :sat-mk-clause-nary      182930
+ :sat-mk-var              2959
+ :sat-probing-assigned    15
+ :sat-propagations-2ary   10699943
+ :sat-propagations-nary   32314768
+ :sat-restarts            9426
+ :sat-scc-elim-binary     61
+ :sat-scc-elim-vars       174
+ :sat-subs-resolution     19742
+ :sat-subs-resolution-dyn 66144
+ :sat-subsumed            9087
+ :sat-tr                  36
+ :sat-units               492
+ :solve-eqs-elim-vars     20
+ :solve-eqs-steps         808
+ :time                    20.95)

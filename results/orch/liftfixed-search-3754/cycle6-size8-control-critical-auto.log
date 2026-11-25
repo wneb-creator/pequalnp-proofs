@@ -1,0 +1,12 @@
+FIRST_PAIR_AUTOMORPHISM_REPRESENTATIVES 12 [(0, 0), (0, 1), (0, 2), (0, 3)]
+2026-11-25T17:24:14.083854+00:00 cycle 6 edges 6 tau 3 gates 8 patterns 11 mode control liftfixed True
+RESULT sat seconds 0.006
+VERIFIED_FULL_TRUTH_TABLE {"n": 6, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0]], "bipartition": [0, 1, 0, 1, 0, 1], "gates": [["or", 0, 2], ["or", 0, 4], ["or", 2, 4], ["and", 1, 6], ["and", 3, 8], ["or", 9, 10], ["and", 5, 7], ["or", 11, 12]], "output": 13, "dirty_and_indices": [], "below_gate": [false, false, false, true, true, true, true, true], "cover": [0, 2, 4], "standard_bound": 8}
+(:max-memory          17.27
+ :memory              17.15
+ :num-allocs          48388
+ :rlimit-count        15727
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 40
+ :solve-eqs-steps     40
+ :time                0.00)

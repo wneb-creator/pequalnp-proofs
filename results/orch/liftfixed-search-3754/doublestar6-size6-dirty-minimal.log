@@ -1,0 +1,31 @@
+2026-11-25T17:20:01.004031+00:00 doublestar 6 edges 5 tau 2 gates 6 patterns 8 mode dirty liftfixed True
+RESULT unsat seconds 0.602
+(:max-memory              26.08
+ :memory                  17.32
+ :num-allocs              1811083
+ :rlimit-count            865414
+ :sat-backjumps           6349
+ :sat-conflicts           6350
+ :sat-decisions           11221
+ :sat-del-clause          5045
+ :sat-elim-bool-vars-res  682
+ :sat-elim-clauses        1487
+ :sat-elim-literals       1290
+ :sat-minimized-lits      37407
+ :sat-mk-clause-2ary      2549
+ :sat-mk-clause-3ary      1475
+ :sat-mk-clause-nary      10843
+ :sat-mk-var              1289
+ :sat-probing-assigned    22
+ :sat-propagations-2ary   286842
+ :sat-propagations-nary   568963
+ :sat-restarts            392
+ :sat-scc-elim-binary     12
+ :sat-scc-elim-vars       7
+ :sat-subs-resolution     95
+ :sat-subs-resolution-dyn 679
+ :sat-subsumed            523
+ :sat-units               40
+ :solve-eqs-elim-vars     13
+ :solve-eqs-steps         458
+ :time                    0.60)

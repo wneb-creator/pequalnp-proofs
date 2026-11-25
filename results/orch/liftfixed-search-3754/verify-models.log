@@ -1,0 +1,6 @@
+cycle6-size8-control-critical-auto-model.json verified 64 assignments 0 dirty ANDs
+cycle6-size8-control-model.json verified 64 assignments 0 dirty ANDs
+path4-size5-dirty-critical-auto-model.json verified 16 assignments 1 dirty ANDs
+path4-size5-dirty-critical-model.json verified 16 assignments 1 dirty ANDs
+path4-size5-dirty-model.json verified 16 assignments 1 dirty ANDs
+MODELS_VERIFIED 5

@@ -1,0 +1,1 @@
+{"edges": [[0, 1], [0, 2], [1, 3]], "star_bound": 5, "dirty_fixed_formula_cost": 5, "clean_cost": 4, "states": 1671, "seconds": 0.059, "formula": ["AND", ["OR", "1", "2"], ["OR", "0", ["AND", "3", ["OR", "0", "1"]]]]}

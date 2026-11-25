@@ -1,0 +1,31 @@
+2026-11-25T17:15:50.124473+00:00 path 5 edges 4 tau 2 gates 5 patterns 8 mode dirty liftfixed
+RESULT unsat seconds 0.06
+(:max-memory              25.64
+ :memory                  17.17
+ :num-allocs              407659
+ :rlimit-count            142312
+ :sat-backjumps           1380
+ :sat-conflicts           1381
+ :sat-decisions           2146
+ :sat-del-clause          2814
+ :sat-elim-bool-vars-res  384
+ :sat-elim-clauses        752
+ :sat-elim-literals       1249
+ :sat-minimized-lits      6372
+ :sat-mk-clause-2ary      1738
+ :sat-mk-clause-3ary      784
+ :sat-mk-clause-nary      3774
+ :sat-mk-var              776
+ :sat-probing-assigned    7
+ :sat-propagations-2ary   37776
+ :sat-propagations-nary   69241
+ :sat-restarts            41
+ :sat-scc-elim-binary     11
+ :sat-scc-elim-vars       69
+ :sat-subs-resolution     75
+ :sat-subs-resolution-dyn 77
+ :sat-subsumed            301
+ :sat-units               98
+ :solve-eqs-elim-vars     14
+ :solve-eqs-steps         304
+ :time                    0.06)

@@ -1,0 +1,87 @@
+[
+  {
+    "query": "cycle6-size8-control-critical-auto",
+    "result": "sat",
+    "seconds": 0.006
+  },
+  {
+    "query": "cycle6-size8-control",
+    "result": "sat",
+    "seconds": 0.002
+  },
+  {
+    "query": "cycle6-size8-dirty-minimal",
+    "result": "unsat",
+    "seconds": 18.461
+  },
+  {
+    "query": "cycle6-size8-dirty",
+    "result": "unsat",
+    "seconds": 25.087
+  },
+  {
+    "query": "cycle8-size11-dirty-minimal-clean",
+    "result": "unknown",
+    "seconds": 180.018
+  },
+  {
+    "query": "cycle8-size11-dirty",
+    "result": "unknown",
+    "seconds": 180.133
+  },
+  {
+    "query": "cycleleaf7-size9-dirty-minimal",
+    "result": "unknown",
+    "seconds": 30.01
+  },
+  {
+    "query": "doublestar6-size6-dirty-minimal",
+    "result": "unsat",
+    "seconds": 0.602
+  },
+  {
+    "query": "path4-size4-dirty",
+    "result": "unsat",
+    "seconds": 0.01
+  },
+  {
+    "query": "path4-size5-dirty-critical-auto",
+    "result": "sat",
+    "seconds": 0.13
+  },
+  {
+    "query": "path4-size5-dirty-critical",
+    "result": "sat",
+    "seconds": 0.16
+  },
+  {
+    "query": "path4-size5-dirty",
+    "result": "sat",
+    "seconds": 0.182
+  },
+  {
+    "query": "path5-size5-dirty",
+    "result": "unsat",
+    "seconds": 0.06
+  },
+  {
+    "query": "theta3338-size11-unfixed",
+    "result": "unknown",
+    "seconds": 180.05
+  },
+  {
+    "query": "theta3338-size12-dirty-minimal-clean",
+    "result": "unknown",
+    "seconds": 180.09
+  },
+  {
+    "query": "theta3338-size12-dirty",
+    "result": "unknown",
+    "seconds": 180.015
+  },
+  {
+    "query": "threefork7-size8-dirty-minimal",
+    "result": "unsat",
+    "seconds": 20.954
+  }
+]

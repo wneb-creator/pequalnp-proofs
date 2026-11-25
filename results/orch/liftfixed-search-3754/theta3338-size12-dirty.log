@@ -1,0 +1,36 @@
+2026-11-25T17:18:35.892690+00:00 theta333 8 edges 9 tau 4 gates 12 patterns 18 mode dirty liftfixed True
+RESULT unknown seconds 180.015
+REASON timeout
+(:max-memory              55.81
+ :memory                  18.63
+ :num-allocs              2706867592
+ :rlimit-count            342915337
+ :sat-ate                 3720
+ :sat-backjumps           1197046
+ :sat-bce                 38
+ :sat-conflicts           1197046
+ :sat-decisions           2221004
+ :sat-del-clause          1183014
+ :sat-elim-bool-vars-res  4032
+ :sat-elim-clauses        600
+ :sat-elim-literals       266258
+ :sat-gc-clause           1120822
+ :sat-minimized-lits      28030505
+ :sat-mk-clause-2ary      12344
+ :sat-mk-clause-3ary      6637
+ :sat-mk-clause-nary      1232162
+ :sat-mk-var              6249
+ :sat-probing-assigned    34
+ :sat-propagations-2ary   79324890
+ :sat-propagations-nary   295159874
+ :sat-restarts            77473
+ :sat-scc-elim-binary     103
+ :sat-scc-elim-vars       263
+ :sat-subs-resolution     65144
+ :sat-subs-resolution-dyn 897818
+ :sat-subsumed            10137
+ :sat-tr                  130
+ :sat-units               57
+ :solve-eqs-elim-vars     33
+ :solve-eqs-steps         1552
+ :time                    180.01)

@@ -1,0 +1,11 @@
+2026-11-25T17:15:50.100049+00:00 cycle 6 edges 6 tau 3 gates 8 patterns 11 mode control liftfixed
+RESULT sat seconds 0.002
+VERIFIED_FULL_TRUTH_TABLE_AND_LIFT_FIXED {"n": 6, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0]], "bipartition": [0, 1, 0, 1, 0, 1], "gates": [["or", 1, 3], ["or", 1, 5], ["or", 3, 5], ["and", 0, 7], ["and", 2, 6], ["or", 9, 10], ["and", 4, 8], ["or", 11, 12]], "output": 13, "dirty_and_indices": [], "below_gate": [false, false, false, true, true, true, true, true], "cover": [0, 2, 4], "standard_bound": 8}
+(:max-memory          17.04
+ :memory              17.04
+ :num-allocs          16608
+ :rlimit-count        5228
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 40
+ :solve-eqs-steps     40
+ :time                0.00)

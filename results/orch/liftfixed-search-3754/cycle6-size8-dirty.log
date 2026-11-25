@@ -1,0 +1,35 @@
+2026-11-25T17:15:50.135115+00:00 cycle 6 edges 6 tau 3 gates 8 patterns 11 mode dirty liftfixed
+RESULT unsat seconds 25.087
+(:max-memory              31.98
+ :memory                  17.48
+ :num-allocs              141505274
+ :rlimit-count            58774111
+ :sat-ate                 197
+ :sat-backjumps           357673
+ :sat-bce                 25
+ :sat-conflicts           357674
+ :sat-decisions           542308
+ :sat-del-clause          350780
+ :sat-elim-bool-vars-res  1260
+ :sat-elim-clauses        49178
+ :sat-elim-literals       123624
+ :sat-gc-clause           277651
+ :sat-minimized-lits      5593094
+ :sat-mk-clause-2ary      5409
+ :sat-mk-clause-3ary      2724
+ :sat-mk-clause-nary      366369
+ :sat-mk-var              2180
+ :sat-probing-assigned    31
+ :sat-propagations-2ary   17163967
+ :sat-propagations-nary   49172220
+ :sat-restarts            15207
+ :sat-scc-elim-binary     48
+ :sat-scc-elim-vars       147
+ :sat-subs-resolution     31974
+ :sat-subs-resolution-dyn 151563
+ :sat-subsumed            13507
+ :sat-tr                  53
+ :sat-units               120
+ :solve-eqs-elim-vars     15
+ :solve-eqs-steps         698
+ :time                    25.09)

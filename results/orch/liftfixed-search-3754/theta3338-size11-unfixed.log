@@ -1,0 +1,37 @@
+2026-11-25T17:21:49.739070+00:00 theta333 8 edges 9 tau 4 gates 11 patterns 18 mode unfixed liftfixed False
+RESULT unknown seconds 180.05
+REASON timeout
+(:elim-unconstrained      20
+ :max-memory              47.68
+ :memory                  18.24
+ :num-allocs              1459438599
+ :rlimit-count            268445006
+ :sat-ate                 2038
+ :sat-backjumps           1017510
+ :sat-bce                 29
+ :sat-conflicts           1017510
+ :sat-decisions           1849011
+ :sat-del-clause          984253
+ :sat-elim-bool-vars-res  3164
+ :sat-elim-clauses        544
+ :sat-elim-literals       198757
+ :sat-gc-clause           938689
+ :sat-minimized-lits      26485368
+ :sat-mk-clause-2ary      10253
+ :sat-mk-clause-3ary      5650
+ :sat-mk-clause-nary      1043180
+ :sat-mk-var              4968
+ :sat-probing-assigned    39
+ :sat-propagations-2ary   61343441
+ :sat-propagations-nary   231591436
+ :sat-restarts            54656
+ :sat-scc-elim-binary     63
+ :sat-scc-elim-vars       199
+ :sat-subs-resolution     50361
+ :sat-subs-resolution-dyn 583847
+ :sat-subsumed            12974
+ :sat-tr                  49
+ :sat-units               51
+ :solve-eqs-elim-vars     42
+ :solve-eqs-steps         1382
+ :time                    180.05)
