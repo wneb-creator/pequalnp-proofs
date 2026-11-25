@@ -1,0 +1,42 @@
+NEOGB nvars=12 ngens=31 characteristic=0 terms=973 exact_sparse=2 pairs=0 threads=1 native_simd=AVX512
+
+--------------- INPUT DATA ---------------
+#variables                      12
+#equations                      31
+#invalid equations               0
+field characteristic             0
+homogeneous input?               0
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            2
+initial hash table size     131072 (2^17)
+max pair selection             ALL
+reduce gb                        1
+#threads                         1
+info level                       2
+generate pbm files               0
+------------------------------------------
+
+Legend for f4 information
+--------------------------------------------------------
+deg       current degree of pairs selected in this round
+sel       number of pairs selected in this round
+pairs     total number of pairs in pair list
+mat       matrix dimensions (# rows x # columns)
+density   density of the matrix
+new data  # new elements for basis in this round
+          # zero reductions during linear algebra
+time(rd)  time of the current f4 round in seconds given
+          for real and cpu time
+--------------------------------------------------------
+
+deg     sel   pairs        mat          density            new data         time(rd) in sec (real|cpu)
+------------------------------------------------------------------------------------------------------
+  3      18      33      82 x 434         4.28%     18 new       0 zero         0.00 | 0.00         
+  4      78      78     555 x 1639        1.56%     60 new      18 zero         0.01 | 0.00         
+  5     306     440    2505 x 4918        0.99%    180 new     126 zero         0.17 | 0.17         
+  5     625    1155    3410 x 5152        3.05%    577 new      48 zero        66.61 | 65.30        
+  4      11    2682     189 x 761        34.85%      9 new       2 zero         0.03 | 0.03         
+  4      44    2691     562 x 1260       16.96%     44 new       0 zero         0.32 | 0.31         
+  4     228    2731    1049 x 1561       12.01%

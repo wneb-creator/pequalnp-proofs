@@ -1,0 +1,72 @@
+[
+  {
+    "name": "wide-p0-t1",
+    "characteristic": 0,
+    "pairs_per_round": 1,
+    "basis_size": 1,
+    "unit": true
+  },
+  {
+    "name": "wide-p0-t3",
+    "characteristic": 0,
+    "pairs_per_round": 1,
+    "basis_size": 1,
+    "unit": true
+  },
+  {
+    "name": "wide-p101-t1",
+    "characteristic": 101,
+    "pairs_per_round": 1,
+    "basis_size": 1,
+    "unit": true
+  },
+  {
+    "name": "wide-p101-t3",
+    "characteristic": 101,
+    "pairs_per_round": 1,
+    "basis_size": 1,
+    "unit": true
+  },
+  {
+    "name": "wide-p1009-t1",
+    "characteristic": 1009,
+    "pairs_per_round": 1,
+    "basis_size": 1,
+    "unit": true
+  },
+  {
+    "name": "wide-p1009-t3",
+    "characteristic": 1009,
+    "pairs_per_round": 1,
+    "basis_size": 1,
+    "unit": true
+  },
+  {
+    "name": "wide-p65537-t1",
+    "characteristic": 65537,
+    "pairs_per_round": 1,
+    "basis_size": 1,
+    "unit": true
+  },
+  {
+    "name": "wide-p65537-t3",
+    "characteristic": 65537,
+    "pairs_per_round": 1,
+    "basis_size": 1,
+    "unit": true
+  },
+  {
+    "name": "wide-p2147483647-t1",
+    "characteristic": 2147483647,
+    "pairs_per_round": 1,
+    "basis_size": 1,
+    "unit": true
+  },
+  {
+    "name": "wide-p2147483647-t3",
+    "characteristic": 2147483647,
+    "pairs_per_round": 1,
+    "basis_size": 1,
+    "unit": true
+  }
+]

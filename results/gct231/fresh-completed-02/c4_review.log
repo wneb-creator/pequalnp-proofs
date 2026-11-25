@@ -1,0 +1,20 @@
+Review start UTC 2026-11-25T10:21:11.049364+00:00
+SHA256 c4_characters.py 327753aa3252aec7761e84311db9f6d27487f96e4fae70fd9ac7ef171fad18b2
+SHA256 c4_planes.py 999abc98452fd393bfe0381c21bc94d5cdb85912504096fe18d5515ff9d7633b
+Character 1 Ryser coefficients [0, 8*(3*u**2 + 2*u*v + v**2), -16*u*(u + v)**2, 4*(9*u**4 + 8*u**3*v + 8*u**2*v**2 + 4*u*v**3 + v**4)]
+Character -1 Ryser coefficients [0, -4*(a**2 + 4*a*c - 2*b**2 + c**2), 0, a**4 - 4*a**2*b**2 + 2*a**2*c**2 + 8*a*b**2*c + 4*b**4 - 4*b**2*c**2 + c**4]
+Character I Ryser coefficients [0, 0, 0, -I*v**2*(4*u**2 - I*v**2)]
+Character -I Ryser coefficients [0, 0, 0, I*v**2*(4*u**2 + I*v**2)]
+Full symmetric character multiplicities are3,3,2,2; tangent multiplicities2,3,2,2
+Opposite-character pair 0 0 nonzero coefficient (2, 2) 16
+Opposite-character pair 0 1 nonzero coefficient (1, 1) -16 - 16*I - 4*sqrt(2)*(1 - I)
+Opposite-character pair 0 2 nonzero coefficient (1, 1) -16 - 16*I + 4*sqrt(2)*(1 - I)
+Opposite-character pair 1 0 nonzero coefficient (1, 1) -16 - 4*sqrt(2)*(1 + I) + 16*I
+Opposite-character pair 1 1 nonzero coefficient (2, 2) 1
+Opposite-character pair 1 2 nonzero coefficient (2, 2) 1
+Opposite-character pair 2 0 nonzero coefficient (1, 1) -16 + 4*sqrt(2)*(1 + I) + 16*I
+Opposite-character pair 2 1 nonzero coefficient (2, 2) 1
+Opposite-character pair 2 2 nonzero coefficient (2, 2) 1
+All nine opposite-character pairs fail; no C4-stable solution3-plane
+Review finish UTC 2026-11-25T10:21:13.164937+00:00
+PASS

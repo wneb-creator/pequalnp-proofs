@@ -1,0 +1,12 @@
+--- msolve/src/neogb/convert.c
++++ native/engine/convert.c
+@@ -658,8 +658,7 @@
+     hm_t **rows = mat->tr;
+     deg_t pairs_deg = sht->hd[hcm[0]].deg;
+     switch_hcm_data_to_basis_hash_table(hcm, bht, mat, sht);
+-#pragma omp parallel for num_threads(st->nthrds) \
+-    private(i, j, k)
++/* Keep basis conversion serial: deg and constant flag have serial semantics. */
+     for (k = 0; k < np; ++k) {
+         /* We first insert the highest leading monomial element to the basis
+          * for a better Gebauer-Moeller application when updating the pair

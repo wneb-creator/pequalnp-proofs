@@ -1,0 +1,12 @@
+{
+  "neogb-star-support-native-p1009-b32-control-basis.json": "b36efd5827aeef2505840075c288a40ab1724fbd3198905c89934a31111f3c74",
+  "neogb-star-support-native-p1009-b32-control-wrapper.log": "f605e941793ffcb6fecddbc9d4a4038e6305e1d533f0c710bce11a2cfa1b2e9c",
+  "neogb-star-support-native-p1009-b32-control.log": "24cf35b83794a9039a190f4835812f54d47b1b63773cc5fd61d4dc505f8c5ac6",
+  "neogb-star-support-native-p1009-b32-control.result.json": "45ca6b76fe4c3b76d6a3dde645f75cda253ffac2475c3cc1fbec1749cb8646ac",
+  "neogb-star-support-p1009-convert.log": "f335b022cb1e74ba516431d5960596b882dfc37b54ef1506aa452b55e912f569",
+  "neogb-star-support-p1009-preflight.log": "188bac61fc2f6c50853cee0dc9f365a50426ec67e0ee45411b48bb2773e0bf12",
+  "neogb-star-support-p1009.in": "9b96ff1fd240864b690cc01481f9cafc982cfc457433a893abf26e1db0b5c545",
+  "neogb-star-support-p1009.provenance.json": "aec9da8af5b8a1cf751246f2a3c5a6f42de7b5ed3789885864efddd1198b1fdc",
+  "review_neogb_field_input.py": "126e88533e97f16b475e931879c9115336f5e17f0b09892567a6ede51640a2f8",
+  "star-support-buchberger-equations.json": "c822273c0662873783ae82e4b8b12d37a1711dc36ad75d9b538fa1957ade6609"
+}

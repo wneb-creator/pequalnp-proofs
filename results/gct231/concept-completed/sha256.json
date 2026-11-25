@@ -1,0 +1,23 @@
+{
+  "PROVENANCE.json": "e0cbeafb69fdbffb3e565f35a593fa825a4059377032edfe494f8f00991d0b52",
+  "README.md": "8ff105fd14f760bf91ca1009551f2afb104acbe6851619e5676bdfa1f7067f72",
+  "concept.md": "9e9875196394ceed999fca7f16082c10e341f3f5df72741913adfe998c4a340d",
+  "hidden-linear-symmetry/invariants.log": "752f602ed93885c2f82e362b3f80ad1abc0ec62fae5375f7b67ad1c2b445bdaf",
+  "hidden-linear-symmetry/invariants.py": "5b3785bac260dacac4b51f82ded152584541cc4950f0918208578025b9982a72",
+  "hidden-linear-symmetry/source-sha256.json": "55fc80056321b5ec8c50d0cd2701d9a03a2cb570489e5a1a6d2766d58485a422",
+  "hidden-linear-symmetry/stabilizer-fast.json": "2a54d082a054c2f3b9428bb149f1185245e481a31d3e15c34cb06ad271bb765f",
+  "hidden-linear-symmetry/stabilizer-fast.log": "a3338069629c2f73c7ca27db0ec9b2fdb8392c51e0af0203fccef7a6f52720ca",
+  "hidden-linear-symmetry/stabilizer-integer-matrix.json": "fe306863a9ed12f2e223a3eb989993bdb6ce154fdbac47340ec593cc825cdd02",
+  "hidden-linear-symmetry/stabilizer-minor-certificate.json": "c6a9694a29fc6cb13efc2cecae1d45565cd447132dd758bdb6d6bbc1b7351d31",
+  "hidden-linear-symmetry/stabilizer-verification.log": "4cefe1866e5bc2967d4db0103c25452d10b76433f0e66b24a26d1a39f04b9c61",
+  "hidden-linear-symmetry/stabilizer.log": "5c209684b100f1a4251bbb3cc7f827228070e502dfd2275bef773162999254fb",
+  "hidden-linear-symmetry/stabilizer.py": "19062085bd04e2ef5a1a6830b0e2d6fba8a9cd0758a90a5dcd5d5ebd4ee794e0",
+  "hidden-linear-symmetry/stabilizer_fast.py": "a345576e4762c61b56f1b37d2e41ff6213d2d88d270157f2c8b26efe3af6fde1",
+  "hidden-linear-symmetry/verify_stabilizer.py": "7c66a64a3b190ce05fc6850a7441a8914e798e56ae9dda63a8e8d4f6f1e25d0a",
+  "zero-diagonal-classification/source-sha256.json": "daa5027582acedb3c32b1a0d9c87752f2a03a695b4ef818fbc8758bf16fc7da1",
+  "zero-diagonal-classification/verify_formulas-v2.log": "2ac1423218a153bf8c1072a0f10b3017a855d94b0e379376fa2a91035d07b8d8",
+  "zero-diagonal-classification/verify_formulas.json": "db0dc0d6593265ad62456dd5b0aba4417f9cd807b6cc0b326ccf0620a1509b8d",
+  "zero-diagonal-classification/verify_formulas.log": "46b472bb17b8d60c64fccbed1ca9a27b0eae270bb6f4c42b9bf86226159be69a",
+  "zero-diagonal-classification/verify_formulas.py": "bf2368bde45c8fa6fd9c101a67737a0ab6b726529372e9d85a5f8b077b449ad3",
+  "zero-diagonal-classification.md": "9d3b3b29e7a3aef3588ac0cb3771a2a4d96cb4d54e45698c704893d0af2dfcc8"
+}

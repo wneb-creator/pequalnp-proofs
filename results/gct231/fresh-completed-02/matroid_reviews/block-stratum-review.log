@@ -1,0 +1,9 @@
+PASS exact block-diagonal permanent expansion by all24 permutations.
+Coefficients: [6*(a + b + c + d + 2*x + 2*z), 2*(a*b + a*c + a*d + 2*a*z + b*c + b*d + 2*b*z + c*d + 2*c*x + 2*d*x + x**2 + 4*x*z + z**2), a*b*c + a*b*d + 2*a*b*z + a*c*d + a*z**2 + b*c*d + b*z**2 + 2*c*d*x + c*x**2 + d*x**2 + 2*x**2*z + 2*x*z**2, (a*b + x**2)*(c*d + z**2)]
+Over the polynomial domain C[x,z], coefficient vanishing implies
+sb=-sa, pa+pb=sa^2, sa*(pb-pa)=0, pa*pb=0.
+The last equation gives pa=0 or pb=0, hence sa^3=0 and sa=sb=pa=pb=0.
+Then each block has no cross-parameter diagonal term: beta^2=0.
+Its remaining diagonal coefficient satisfies alpha^2+2alpha-1=0.
+Swapping the two vertices sends alpha to -2-alpha and exchanges the roots.
+Conditional stratum calculation only; no global chart exclusion is asserted.

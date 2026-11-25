@@ -1,0 +1,5 @@
+GRAM_DET -54
+CUBIC_MOD_Q_MATRIX (165, 46)
+MODULAR_RANK 46 PRIME 1009 DENOMINATOR 6 SECONDS 3.4153968859991437
+INDEPENDENT_ROW_INDICES [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36, 37, 38, 39, 41, 56, 57, 62, 84, 90, 120]
+Full column rank modulo1009 proves full column rank overQQ andC. Only scalar infinitesimal linear automorphisms preserve the quadratic and cubic ideals.

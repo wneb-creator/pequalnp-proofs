@@ -1,0 +1,7 @@
+Start UTC 2026-11-25T10:39:42.738312+00:00
+Q mixed -8*(2*r*u + r*v*(2 - 2*I) + t*u*(2 + 2*I) + t*v) C_NUU 4*I*(2*c*u**2 + c*u*v*(2 - 2*I) - I*c*v**2 - 2*v**2) C_NVV -4*I*(2*c*r**2 + c*r*t*(2 + 2*I) + I*c*t**2 - 2*t**2)
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-75/gct231/fresh/cubic_geometry/c4_cubic_only.py", line 22, in <module>
+    assert s.factor(P.coeff_monomial(x*x))==8-4*c*c
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

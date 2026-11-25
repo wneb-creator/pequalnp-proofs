@@ -1,0 +1,149 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-75/gct231/fresh/path-c4-equations.json",
+  "source_sha256": "95581baa94cc80db67d9a6a6025dfd9de935ae13f825cac51ef52f88081b50e1",
+  "characteristic": 0,
+  "variables": [
+    "d0",
+    "d1",
+    "d2",
+    "d3",
+    "d4",
+    "d5",
+    "d6",
+    "d7",
+    "d8",
+    "o3",
+    "o4",
+    "o5"
+  ],
+  "generator_count": 31,
+  "term_count": 973,
+  "dropped_modular_zero_terms": 0,
+  "equation_scalings": [
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "2"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "2"
+    },
+    {
+      "denominator": "1",
+      "content": "2"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "2"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "2"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "2"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "2"
+    }
+  ],
+  "input_sha256": "0bbe0c2f65b276ddfbf99d3bc262dfe160af2ef2d0062be5675784fb4241f9b6"
+}

@@ -1,0 +1,59 @@
+--- neogb_cli.c
++++ native/neogb_cli_native.c
+@@ -3,13 +3,14 @@
+ #include <stdint.h>
+ #include <limits.h>
+ #include <gmp.h>
+-#include "msolve/src/neogb/f4.h"
++#include <omp.h>
++#include "f4.h"
+ 
+ static void fail(const char *s) { fprintf(stderr, "%s\n", s); exit(2); }
+ 
+ int main(int argc, char **argv) {
+-    if (argc != 3 && argc != 4) {
+-        fprintf(stderr, "usage: neogb_cli INPUT OUTPUT_JSON [MAX_PAIRS]\n");
++    if (argc < 3 || argc > 5) {
++        fprintf(stderr, "usage: neogb_cli INPUT OUTPUT_JSON [MAX_PAIRS] [THREADS]\n");
+         return 2;
+     }
+     FILE *in = fopen(argv[1], "r");
+@@ -21,12 +22,22 @@
+         terms > 10000000 || p < 0 || p == 1)
+         fail("unsupported header bounds");
+     int pairs = 0;
+-    if (argc == 4) {
++    if (argc >= 4) {
+         char *end;
+         long v = strtol(argv[3], &end, 10);
+         if (*end || v < 0 || v > INT_MAX) fail("bad max-pairs value");
+         pairs = (int)v;
+     }
++    int threads = 2;
++    if (argc == 5) {
++        char *end;
++        long v = strtol(argv[4], &end, 10);
++        if (*end || v < 1 || v > 3) fail("threads must be between 1 and 3");
++        threads = (int)v;
++    }
++    omp_set_dynamic(0);
++    omp_set_max_active_levels(1);
++    omp_set_num_threads(threads);
+     int32_t *lens = malloc((size_t)m * sizeof(*lens));
+     int32_t *exps = malloc((size_t)terms * n * sizeof(*exps));
+     int32_t *finite = malloc((size_t)terms * sizeof(*finite));
+@@ -75,11 +86,11 @@
+     fclose(in);
+     int32_t bld = 0, *blen = NULL, *bexp = NULL;
+     void *bcf = NULL;
+-    fprintf(stderr, "NEOGB nvars=%d ngens=%d characteristic=%d terms=%d exact_sparse=2 pairs=%d threads=1\n",
+-            n, m, p, terms, pairs);
++    fprintf(stderr, "NEOGB nvars=%d ngens=%d characteristic=%d terms=%d exact_sparse=2 pairs=%d threads=%d native_simd=AVX512\n",
++            n, m, p, terms, pairs, threads);
+     int64_t returned = export_f4(malloc, &bld, &blen, &bexp, &bcf,
+         lens, exps, p ? (void *)finite : (void *)rational_ptrs,
+-        (uint32_t)p, 0, 0, n, m, 17, 1, pairs, 0, 2, 1, 0, 2);
++        (uint32_t)p, 0, 0, n, m, 17, threads, pairs, 0, 2, 1, 0, 2);
+     FILE *out = fopen(argv[2], "w");
+     if (!out) fail("cannot open output");
+     fprintf(out, "{\"characteristic\":%d,\"nvars\":%d,\"nterms\":%lld,\"basis\":[",

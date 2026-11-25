@@ -1,0 +1,7 @@
+Start UTC 2026-11-25T10:34:47.935130+00:00
+All 10 native and 17 original frozen hashes match
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native/independent_native_review.py", line 27, in <module>
+    assert upstream.count(old) == 1
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

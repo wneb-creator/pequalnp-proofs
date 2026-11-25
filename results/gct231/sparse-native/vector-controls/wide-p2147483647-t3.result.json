@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native/neogb_cli_native",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native/vector-controls/wide-p2147483647.in",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native/vector-controls/wide-p2147483647-t3.basis.json",
+    "1",
+    "3"
+  ],
+  "status": "COMPLETED",
+  "returncode": 0,
+  "seconds": 0.004692757000157144,
+  "wall_limit_seconds": 20,
+  "memory_mib": 512,
+  "threads": 3,
+  "cpu_soft_seconds": 62,
+  "library_sha256": "557a320ab8d064e7c57ae7798b8574b1ffd70728390ae98fcbc4e378bd726711",
+  "child_maxrss_kib": 7516,
+  "binary_sha256": "5b2450117bea1df00d2f6fadaca11666588fd9cb76fb2ec943fa939f724b7441",
+  "input_sha256": "73ecdf92dd28be12550a8350b6e88d7e379f5788fb3c5e199f16888f62961364",
+  "unit_basis": true,
+  "basis_size": 1,
+  "output_sha256": "f231c349388126f4c74372512187b19eadd21668113ba7831e89a880981ea0a8"
+}

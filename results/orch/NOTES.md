@@ -60,3 +60,8 @@ Priorities for this interval:
 - Root: integrate checked components, review/retain scopes, renew lease, preserve results by early commits/pushes. Do not submit incomplete file as proof.
 
 All research archives are under results/gct231; current frozen manifests include finite82files, fresh-completed22files, path14files, coordinate-pairs5files. Eight distinct subagents total.
+
+
+## L-gct-231 replan 2026-11-25T10:51:04.724353+00:00
+
+Named partial624lines builds and audits successfully; checker06 rejects no-theorem. Compact neogb rowzero certificate46lines is checked, standardaxioms only. Fullstar nativeALL-pairsF1009 completed moredegree6 reductions but timedout600s withoutbasis. Active newstrategies: nativefullstarF1009pairs32/2threads600s6GiB and distinctdirect-C4tracedQQpairs32/1thread600s4GiB. Keep exactQQ/Lean requirement; modularunit alone isnotproof. A proposed diagonalrank1-pencil impossibility was disproved by a concrete2Dfamily; do notuse diagonal-injectivityshortcut. Everyknown3Dextension remainsexcluded onlywithin explicitlyscopedfamilies. Lastmanualrenewal10:48:46UTC expiry11:08:46UTC; timer renews every8minutes. Deadline13:03UTC. Eightdistinctsubagents.

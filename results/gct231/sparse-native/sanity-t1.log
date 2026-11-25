@@ -1,0 +1,16 @@
+unit 0 PASS 1 basis elements 0.005441773999336874 seconds
+nonunit 0 PASS 2 basis elements 0.005202291000387049 seconds
+rational 0 PASS 2 basis elements 0.0058380589998705545 seconds
+unit 101 PASS 1 basis elements 0.00522762699984014 seconds
+nonunit 101 PASS 2 basis elements 0.005218713000431308 seconds
+rational 101 PASS 2 basis elements 0.005146215999047854 seconds
+unit 1009 PASS 1 basis elements 0.01832886900047015 seconds
+nonunit 1009 PASS 2 basis elements 0.018514860999857774 seconds
+rational 1009 PASS 2 basis elements 0.010301999000148498 seconds
+unit 65537 PASS 1 basis elements 0.009711983999295626 seconds
+nonunit 65537 PASS 2 basis elements 0.0065667419985402375 seconds
+rational 65537 PASS 2 basis elements 0.005538154999157996 seconds
+unit 2147483647 PASS 1 basis elements 0.00583327099957387 seconds
+nonunit 2147483647 PASS 2 basis elements 0.009425055999599863 seconds
+rational 2147483647 PASS 2 basis elements 0.005131224999786355 seconds
+ALL_FIFTEEN_NATIVE_SANITY_CASES_PASS

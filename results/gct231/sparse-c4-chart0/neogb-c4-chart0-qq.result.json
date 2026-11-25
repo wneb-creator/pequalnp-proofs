@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/neogb_cli_qqfix",
+    "/tmp/oec/pequalnp-pilot-75/gct231/neogb-c4-chart0-qq.in",
+    "/tmp/oec/pequalnp-pilot-75/gct231/neogb-c4-chart0-qq-basis.json",
+    "0"
+  ],
+  "status": "UNKNOWN_TIME_LIMIT",
+  "returncode": null,
+  "seconds": 120.03206736600077,
+  "wall_limit_seconds": 120,
+  "memory_mib": 4096,
+  "child_maxrss_kib": 695596,
+  "binary_sha256": "644e650682ead6ec3d8c4c7b55dc335fb6bb6d883553c2b7c4dddcc48572d1ca",
+  "input_sha256": "d49c676b4edd368a24f476484d9cf9733307731a99af65670d718001414c678d"
+}

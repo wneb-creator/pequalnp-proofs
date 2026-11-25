@@ -1,0 +1,11 @@
+# Native SIMD/OpenMP neogb variant
+
+Separate scratch-only build of the same pinned msolve v0.11.0 core. Existing serial generic library and the earlier frozen126-file archive are unchanged. Official configure uses AX_EXT and OpenMP; source SIMD paths test HAVE_AVX2 and HAVE_AVX512_F. This host reports AVX2 and AVX512F/BW/DQ, and GCC with -march=native defines the corresponding ISA macros. Captured CPU/compiler metadata are adjacent.
+
+The library uses -O3 -march=native -fopenmp -DHAVE_AVX2 -DHAVE_AVX512_F and the already reviewed three QQ pivot-count fixes. A second tiny patch keeps only the basis-row conversion loop serial: upstream's loop shares the degree temporary and constant flag across workers, whereas its following code expects the serial last-iteration degree. Removing that pragma preserves the previous serial semantics while keeping sparse linear algebra parallel. The original vendor clone and old derived core are unchanged.
+
+Run `python3 run_neogb_native.py INPUT OUTPUT_JSON PREFIX --seconds 120 --memory-mib 4096 --pairs 0 --threads 2`. Threads may be1,2,3 (default2). The wrapper disables OpenMP dynamic teams and nested parallelism, sets the default team size, and passes the requested thread count explicitly to the engine. The wall limit is unchanged; CPU limit scales by thread count. Core dumps remain disabled. Metadata now include both executable and shared-library hashes.
+
+Validation:45 complete reduced-basis comparisons against Sympy cover QQ and finite fields101,1009,65537,2147483647 at each of1,2,3threads; nine further three-variable/rational/unit/redundant-generator controls use pair cap1. All54pass. The extra redundant-generator cases exercise zero reductions. These are control cases, not proof of arbitrary solver correctness. No full-chart speedup has yet been measured with this build.
+
+The initial uncorrected parallel-conversion build also passed all54controls, but was superseded after source review identified the shared-variable issue. Its complete artifacts remain under initial/ for diagnosis; use only the final top-level binary/library. No vendor trees or binaries should be committed to the proof repository. Preserve only wrapper sources, patches, exact build provenance and complete validation logs.

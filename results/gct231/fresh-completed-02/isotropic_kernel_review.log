@@ -1,0 +1,13 @@
+Review start UTC 2026-11-25T10:28:53.072245+00:00
+SHA256 isotropic_kernel_certificate.py 51dab1477a123bd686d5af247924b35590a53a6c2ad28b96c256d3ec108310cb
+SHA256 rowzero_nilpotent.py 28bda3f8d14100252d4f260a1b645de18281ffef38e7905a4d7f67dd7bced212
+SHA256 isotropic-kernel-bezout.json bdccb466e962ac2f04c2f5d3d771a814136e44b87c8db47b8726fc412104e7a3
+Both isotropic-kernel tangent quadratics checked in an explicit Witt metric
+Finite conic parameter and derivative checks passed; derivative norm16
+Independent first-line resultant degree 72
+Second-line coefficients independently checked; necessary polynomial degree 53
+Exported rational Bezout identity exactly replayed against independent R and Y
+Infinity line: cubic−2048lambda; quartic6144lambda^4+3072, hence incompatible
+No full FGLM calculation used; only exact necessary-line identities and Bezout replay
+Review finish UTC 2026-11-25T10:28:53.576441+00:00
+PASS

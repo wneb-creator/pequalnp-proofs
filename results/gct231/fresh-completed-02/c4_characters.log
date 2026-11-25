@@ -1,0 +1,8 @@
+CHAR 1 params [a8, a9] matrix Matrix([[a9, a8, -2*a8 - a9, a8], [a8, a9, a8, -2*a8 - a9], [-2*a8 - a9, a8, a9, a8], [a8, -2*a8 - a9, a8, a9]])
+coefficients [0, 8*(3*a8**2 + 2*a8*a9 + a9**2), -16*a8*(a8 + a9)**2, 4*(9*a8**4 + 8*a8**3*a9 + 8*a8**2*a9**2 + 4*a8*a9**3 + a9**4)]
+CHAR -1 params [a6, a8, a9] matrix Matrix([[-a9, a8, -a6, -a8], [a8, a9, -a8, a6], [-a6, -a8, -a9, a8], [-a8, a6, a8, a9]])
+coefficients [0, -4*(a6**2 + 4*a6*a9 - 2*a8**2 + a9**2), 0, a6**4 - 4*a6**2*a8**2 + 2*a6**2*a9**2 + 8*a6*a8**2*a9 + 4*a8**4 - 4*a8**2*a9**2 + a9**4]
+CHAR I params [a8, a9] matrix Matrix([[I*a9, -a8, 0, I*a8], [-a8, -a9, -I*a8, 0], [0, -I*a8, -I*a9, a8], [I*a8, 0, a8, a9]])
+coefficients [0, 0, 0, -I*a9**2*(4*a8**2 - I*a9**2)]
+CHAR -I params [a8, a9] matrix Matrix([[-I*a9, -a8, 0, -I*a8], [-a8, -a9, I*a8, 0], [0, I*a8, I*a9, a8], [-I*a8, 0, a8, a9]])
+coefficients [0, 0, 0, I*a9**2*(4*a8**2 + I*a9**2)]

@@ -1,0 +1,11 @@
+Start UTC 2026-11-25T10:37:58.031337+00:00
+Q= -6*b1**2 - 6*b2**2 - 6*b3**2 + d1**2 + d2**2 + d3**2 + 2*o1**2 + 2*o2**2 + 2*o3**2
+C= b1**2*d1 + 6*b1*b2*b3 + 2*b1*b2*o3 + 2*b1*b3*o2 - 2*b1*d2*o1 - 2*b1*d3*o1 - 2*b1*o2*o3 + b2**2*d2 + 2*b2*b3*o1 - 2*b2*d1*o2 - 2*b2*d3*o2 - 2*b2*o1*o3 + b3**2*d3 - 2*b3*d1*o3 - 2*b3*d2*o3 - 2*b3*o1*o2 + d1*d2*d3 + d1*o1**2 + d2*o2**2 + d3*o3**2 + 2*o1*o2*o3
+Hessian span dimension 9 augmented with Q 10
+Hessian E equals Q solutions EmptySet
+Separating Hessian functional [(0, 0, '1')]
+C terms 21 D terms 96
+At e_d1: gradient zero; Hessian rank8; radial kernel; transverse determinant -64
+Generic3x3 determinant at rank-one representative: Hessian rank4
+Jordan identity failure: left=0, right=2e_d3 for x=e_d1+e_d2,y=e_d1
+Finish UTC 2026-11-25T10:37:58.268896+00:00

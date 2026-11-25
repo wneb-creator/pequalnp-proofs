@@ -1,0 +1,10 @@
+{
+  "status": "UNKNOWN_RESIDENT_MEMORY_LIMIT",
+  "returncode": -15,
+  "wall_seconds": 82.37555056699966,
+  "seconds_limit": 180,
+  "resident_memory_mib_limit": 6144,
+  "peak_group_rss_kib": 6330308,
+  "rss_sample_seconds": 0.5,
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/GrindRowzeroAudit.lean"
+}

@@ -1,0 +1,10 @@
+{
+  "status": "FAIL",
+  "returncode": 1,
+  "wall_seconds": 7.616637369999808,
+  "seconds_limit": 60,
+  "resident_memory_mib_limit": 6144,
+  "peak_group_rss_kib": 3731824,
+  "rss_sample_seconds": 0.5,
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/GrindRowzeroSmallAudit.lean"
+}

@@ -1,0 +1,10 @@
+threevar-rational-t1 PASS basis_size 3 unit False
+threevar-unit-t1 PASS basis_size 1 unit True
+redundant-zero-reductions-t1 PASS basis_size 3 unit False
+threevar-rational-t2 PASS basis_size 3 unit False
+threevar-unit-t2 PASS basis_size 1 unit True
+redundant-zero-reductions-t2 PASS basis_size 3 unit False
+threevar-rational-t3 PASS basis_size 3 unit False
+threevar-unit-t3 PASS basis_size 1 unit True
+redundant-zero-reductions-t3 PASS basis_size 3 unit False
+ALL_NINE_EXTRA_NATIVE_CONTROLS_PASS

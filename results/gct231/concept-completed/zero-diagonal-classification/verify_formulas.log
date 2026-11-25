@@ -1,0 +1,8 @@
+quadratic 2*p**2 + 2*p*q + 2*q**2 - x**2 - y**2 - z**2
+cubic -p**2*q - p*q**2 - x*y*z
+quartic (-2*p**2 - 2*p*q - 2*q**2 + x**2 + y**2 + z**2)**2/16
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-75/gct231/zero_diagonal_classification/verify_formulas.py", line 25, in <module>
+    assert s.expand(coeff.coeff_monomial(h*h)-D/2)==0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,72 @@
+Start UTC 2026-11-25T10:34:58.672031+00:00
+All 10 native and 17 original frozen hashes match
+Source deltas exactly match all three recorded patches
+Expected native runpath, GMP/OpenMP dependencies and CPU/compiler capabilities verified
+sanity-nonunit-p0-t1.result.json PASS
+sanity-nonunit-p0-t2.result.json PASS
+sanity-nonunit-p0-t3.result.json PASS
+sanity-nonunit-p1009-t1.result.json PASS
+sanity-nonunit-p1009-t2.result.json PASS
+sanity-nonunit-p1009-t3.result.json PASS
+sanity-nonunit-p101-t1.result.json PASS
+sanity-nonunit-p101-t2.result.json PASS
+sanity-nonunit-p101-t3.result.json PASS
+sanity-nonunit-p2147483647-t1.result.json PASS
+sanity-nonunit-p2147483647-t2.result.json PASS
+sanity-nonunit-p2147483647-t3.result.json PASS
+sanity-nonunit-p65537-t1.result.json PASS
+sanity-nonunit-p65537-t2.result.json PASS
+sanity-nonunit-p65537-t3.result.json PASS
+sanity-rational-p0-t1.result.json PASS
+sanity-rational-p0-t2.result.json PASS
+sanity-rational-p0-t3.result.json PASS
+sanity-rational-p1009-t1.result.json PASS
+sanity-rational-p1009-t2.result.json PASS
+sanity-rational-p1009-t3.result.json PASS
+sanity-rational-p101-t1.result.json PASS
+sanity-rational-p101-t2.result.json PASS
+sanity-rational-p101-t3.result.json PASS
+sanity-rational-p2147483647-t1.result.json PASS
+sanity-rational-p2147483647-t2.result.json PASS
+sanity-rational-p2147483647-t3.result.json PASS
+sanity-rational-p65537-t1.result.json PASS
+sanity-rational-p65537-t2.result.json PASS
+sanity-rational-p65537-t3.result.json PASS
+sanity-unit-p0-t1.result.json PASS
+sanity-unit-p0-t2.result.json PASS
+sanity-unit-p0-t3.result.json PASS
+sanity-unit-p1009-t1.result.json PASS
+sanity-unit-p1009-t2.result.json PASS
+sanity-unit-p1009-t3.result.json PASS
+sanity-unit-p101-t1.result.json PASS
+sanity-unit-p101-t2.result.json PASS
+sanity-unit-p101-t3.result.json PASS
+sanity-unit-p2147483647-t1.result.json PASS
+sanity-unit-p2147483647-t2.result.json PASS
+sanity-unit-p2147483647-t3.result.json PASS
+sanity-unit-p65537-t1.result.json PASS
+sanity-unit-p65537-t2.result.json PASS
+sanity-unit-p65537-t3.result.json PASS
+extra-controls/redundant-zero-reductions-t1.result.json PASS
+extra-controls/redundant-zero-reductions-t2.result.json PASS
+extra-controls/redundant-zero-reductions-t3.result.json PASS
+extra-controls/threevar-rational-t1.result.json PASS
+extra-controls/threevar-rational-t2.result.json PASS
+extra-controls/threevar-rational-t3.result.json PASS
+extra-controls/threevar-unit-t1.result.json PASS
+extra-controls/threevar-unit-t2.result.json PASS
+extra-controls/threevar-unit-t3.result.json PASS
+vector-controls/wide-p0-t1.result.json PASS
+vector-controls/wide-p0-t3.result.json PASS
+vector-controls/wide-p1009-t1.result.json PASS
+vector-controls/wide-p1009-t3.result.json PASS
+vector-controls/wide-p101-t1.result.json PASS
+vector-controls/wide-p101-t3.result.json PASS
+vector-controls/wide-p2147483647-t1.result.json PASS
+vector-controls/wide-p2147483647-t3.result.json PASS
+vector-controls/wide-p65537-t1.result.json PASS
+vector-controls/wide-p65537-t3.result.json PASS
+All 64 saved controls independently match complete monic reduced Sympy bases
+No solver rerun or compile performed; no claim of proof certificate or exhaustive concurrency audit
+Finish UTC 2026-11-25T10:34:59.069418+00:00
+PASS

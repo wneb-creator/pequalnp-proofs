@@ -1,0 +1,17 @@
+Review start UTC 2026-11-25T10:31:18.663649+00:00
+SHA256 c4_support_rational_charts.py 394275833622cec13810b95a654a31993d7f2dc4739051e4f77dd4688564ff18
+SHA256 c4_support_charts.py 35101d7f18f1add1ab9216c1a477c584b494bfdb18f98ee5597bb2e93263118e
+SHA256 c4-support-homogeneous.json 8b38aaf0882cec05c5101309ca89dc0b0c76e1830b91d20a3d5933aa502f76ac
+SHA256 c4-support-rational-chart-0.json 3ab6980d652d11bf784ad960b1e5e377bbadc1d858d82a2455956b2a97f3c2c9
+All support homogeneous coefficients independently checked by Ryser; Gram determinant−1728
+Support equations equivalent to d2=d1+d3 and b2=o2; coordinate determinant -1/2
+Rational E/F/Z frame verified; residual norm12; frame determinant 1/12
+All8 six-parameter chart graph identities checked
+Chart0 independent exact Ryser sample 0 passed
+Chart0 independent exact Ryser sample 1 passed
+Chart0 independent exact Ryser sample 2 passed
+Chart0 independent exact Ryser sample 3 passed
+All25 exported coefficients agree up to fixed nonzero denominator-clearing factors
+No Groebner basis run or chart solution verdict is part of this review
+Review finish UTC 2026-11-25T10:31:37.558756+00:00
+PASS

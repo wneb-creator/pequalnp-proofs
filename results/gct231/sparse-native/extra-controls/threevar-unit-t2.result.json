@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native/neogb_cli_native",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/independent-review/threevar-unit.in",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native/extra-controls/threevar-unit-t2.basis.json",
+    "1",
+    "2"
+  ],
+  "status": "COMPLETED",
+  "returncode": 0,
+  "seconds": 0.00547144499978458,
+  "wall_limit_seconds": 20,
+  "memory_mib": 512,
+  "threads": 2,
+  "cpu_soft_seconds": 42,
+  "library_sha256": "557a320ab8d064e7c57ae7798b8574b1ffd70728390ae98fcbc4e378bd726711",
+  "child_maxrss_kib": 7516,
+  "binary_sha256": "5b2450117bea1df00d2f6fadaca11666588fd9cb76fb2ec943fa939f724b7441",
+  "input_sha256": "cb8f2251be721b7abc71636e7d1dfef8e6aaf332d95bb8bc627192db89b60bc3",
+  "unit_basis": true,
+  "basis_size": 1,
+  "output_sha256": "6387f992f1d515fd1d6608c2fdd6bf617d7811272493b4b62a8e04141ae54042"
+}

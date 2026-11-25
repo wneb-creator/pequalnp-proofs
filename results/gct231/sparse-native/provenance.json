@@ -1,0 +1,36 @@
+{
+  "recorded_utc": "2026-11-25T10:32:49.832244+00:00",
+  "upstream": "msolve v0.11.0 cc044551f8e202d00691990fd3fd0b1226a88ea2",
+  "core_compile": "gcc -std=gnu11 -O3 -march=native -fopenmp -DHAVE_AVX2 -DHAVE_AVX512_F -fPIC -shared -Imsolve/src/neogb native/engine/gb.c -o native/libneogb_native.so -lgmp -lm",
+  "wrapper_compile": "gcc -std=gnu11 -O3 -march=native -fopenmp -Imsolve/src/neogb native/neogb_cli_native.c -Lnative -Wl,-rpath,/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native -lneogb_native -lgmp -lm -o native/neogb_cli_native",
+  "patches": [
+    "same three QQ pivot-count assignments as original validated qqfix",
+    "keep basis-row conversion serial by removing one OpenMP pragma; preserve degree and constant-flag semantics"
+  ],
+  "threads": [
+    1,
+    2,
+    3
+  ],
+  "controls_passed": 54,
+  "control_fields": [
+    0,
+    101,
+    1009,
+    65537,
+    2147483647
+  ],
+  "scope": "Research computation only; no claim of ideal-membership certificate or Lean proof. Native binary is tied to current CPU capabilities.",
+  "files": {
+    "neogb_cli_native.c": "0694031bdc26fe6c8427e93e188228ac5fda5982cfed7d904b6a3ec933e8f837",
+    "run_neogb_native.py": "c401c7783498b87691d6427570158b4ff9fc3d462b87c027dc40dfe15c7e5b40",
+    "engine/gb.c": "391e1aea8d5f7375fd38fffe4197b8270cf2cb035c0256ffe82a2491c9dcaa19",
+    "engine/la_qq.c": "f1b5a21fdd480d461adebae90b3cffacb588ec3737bccccc6315ea8ce6519dd5",
+    "engine/convert.c": "dacbe1c3f7a851e2b48ed6155b0f53013a306e3fbfaccdec129407094db84758",
+    "openmp-conversion.patch": "45acfd60d8172dd5771ec64b32b14752de8e936a25cc277495cf2715ed16cbcc",
+    "libneogb_native.so": "557a320ab8d064e7c57ae7798b8574b1ffd70728390ae98fcbc4e378bd726711",
+    "neogb_cli_native": "5b2450117bea1df00d2f6fadaca11666588fd9cb76fb2ec943fa939f724b7441",
+    "sanity_native.py": "5bf41d1bb8a7bf9b33e555b06f16c3b052e6abf9b39d86717c04603c9f86f195",
+    "extra_native_controls.py": "73020be9138183edb8d5c90c63c0794179dedab37073164303097c0b745f38e8"
+  }
+}

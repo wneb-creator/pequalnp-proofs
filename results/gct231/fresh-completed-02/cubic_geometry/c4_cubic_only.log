@@ -1,0 +1,12 @@
+Start UTC 2026-11-25T10:40:31.833777+00:00
+Q mixed -8*(2*r*u + r*v*(2 - 2*I) + t*u*(2 + 2*I) + t*v) C_NUU 4*I*(2*c*u**2 + c*u*v*(2 - 2*I) - I*c*v**2 - 2*v**2) C_NVV -4*I*(2*c*r**2 + c*r*t*(2 + 2*I) + I*c*t**2 - 2*t**2)
+Closed elimination resultant 256*(c**2 - 3*c + 1)*(c**2 + 3*c + 1) mod c^2-2: -2304
+sign 1 normalizations u r basis [1]
+sign 1 normalizations u t basis [1]
+sign 1 normalizations v r basis [1]
+sign 1 normalizations v t basis [1]
+sign -1 normalizations u r basis [1]
+sign -1 normalizations u t basis [1]
+sign -1 normalizations v r basis [1]
+sign -1 normalizations v t basis [1]
+Finish UTC 2026-11-25T10:40:36.233892+00:00

@@ -1,0 +1,9 @@
+Review start UTC 2026-11-25T10:20:07.084987+00:00
+Source SHA256 eb8dc47ccb3020f8493f4d535e72527c6d1c91c2150f4a0068e3aff1d4ca97c1
+Nonisotropic w normal form determinant 8*(ss - 1)**2
+Isotropic nonzero w normal form rank4; radical exactly span(ww^T)
+Independent Ryser coefficient counts {2: 3, 3: 4, 4: 5}
+Independent Ryser radical-plane Groebner basis [a**2 - a, -2*a + h + 1, b, c]
+The chart solutions are exactly w=e0 and w=e3; permutation coverage reviewed separately
+Review finish UTC 2026-11-25T10:20:08.571183+00:00
+PASS

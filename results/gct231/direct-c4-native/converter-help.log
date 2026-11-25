@@ -1,0 +1,11 @@
+usage: neogb_convert.py [-h] [--characteristic CHARACTERISTIC] json output
+
+Convert reviewed chart equations to neogb sparse array input.
+
+positional arguments:
+  json
+  output
+
+options:
+  -h, --help            show this help message and exit
+  --characteristic CHARACTERISTIC

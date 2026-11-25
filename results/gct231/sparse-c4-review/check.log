@@ -1,0 +1,7 @@
+manifest shape dict
+archive coverage/hash PASS 10
+PASS all25 exactQQ equations,5609terms; statusUNKNOWN_TIME_LIMIT, no basis verdict
+source 3ab6980d652d11bf784ad960b1e5e377bbadc1d858d82a2455956b2a97f3c2c9
+input d49c676b4edd368a24f476484d9cf9733307731a99af65670d718001414c678d
+converter 1654f4f8ee64087ef5e2db8711f738bbb4052081c773c994e3869e60c3b1461f
+manifest 276f82ba0099f6cbade02f71970b00c086652273c6d800dfbe6c2d1f8b9ca380
