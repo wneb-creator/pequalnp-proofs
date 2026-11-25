@@ -1,0 +1,1 @@
+{"single_batch_limit_verified": true, "exact_matrix_and_original_polynomial_identity": true, "resumed_state_verified": true, "immutable_checkpoint": true, "invalid_carry_rejected_without_state_write": true, "wrong_binding_rejected_without_state_write": true}

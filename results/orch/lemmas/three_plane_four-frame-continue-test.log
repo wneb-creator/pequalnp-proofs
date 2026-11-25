@@ -1,0 +1,1 @@
+[{"case": "restored_unit", "uninterrupted_equals_chunked": true, "complete_state_resumes": true, "all_coordinate_queries_verified": true, "immutable_seed_preserved": true}, {"case": "no_unit", "uninterrupted_equals_chunked": true, "complete_state_resumes": true, "all_coordinate_queries_verified": true, "immutable_seed_preserved": true}]

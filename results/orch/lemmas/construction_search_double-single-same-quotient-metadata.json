@@ -1,0 +1,28 @@
+{
+  "branch": "same",
+  "variant": "quotient",
+  "source": "/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean",
+  "bytes": 82778,
+  "lines": 184,
+  "certificate_terms": 411,
+  "active_equations": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    16
+  ],
+  "exact_original_polynomial_identity_verified": true,
+  "identity_modulo_rr_squared_minus_two": true,
+  "sha256": "7c94d4024fc89031ac3a596f95b76d594261a80498e1608e41ff2df0ae33e7d0"
+}

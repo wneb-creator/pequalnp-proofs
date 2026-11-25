@@ -1,0 +1,24 @@
+[
+  {
+    "case": "square",
+    "integer_carry_identity_every_digit": true,
+    "chunked_equals_uninterrupted": true,
+    "independent_exact_rational_solution": true,
+    "checkpoint_unchanged": true,
+    "out_of_bound_carry_rejected": true,
+    "inconsistent_rhs_rejected": false
+  },
+  {
+    "case": "rectangular",
+    "integer_carry_identity_every_digit": true,
+    "chunked_equals_uninterrupted": true,
+    "independent_exact_rational_solution": true,
+    "checkpoint_unchanged": true,
+    "out_of_bound_carry_rejected": true,
+    "inconsistent_rhs_rejected": true
+  },
+  {
+    "case": "overflow",
+    "unsafe_arithmetic_bound_rejected": true
+  }
+]

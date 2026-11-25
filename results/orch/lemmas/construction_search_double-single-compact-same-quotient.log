@@ -1,0 +1,214 @@
+import took 1.29s
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:11:24: warning: Variable name `rr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _rr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:26:24: warning: Variable name `rr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _rr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:32:24: warning: Variable name `rr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _rr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:35:12: warning: Variable name `a` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _a
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:35:14: warning: Variable name `b` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:35:16: warning: Variable name `c` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _c
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:35:18: warning: Variable name `d` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _d
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:35:20: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:35:22: warning: Variable name `j` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _j
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:35:24: warning: Variable name `rr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _rr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:50:25: warning: Variable name `rr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _rr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+elaboration took 124ms
+interpretation of Mathlib.Tactic.RingNF._aux_Mathlib_Tactic_Ring_RingNF___elabRules_Mathlib_Tactic_RingNF_ringNF_1._boxed took 1.99s
+ring took 270ms
+instantiate metavars took 234ms
+share common exprs took 2.12s
+fix level params took 146ms
+process pre-definitions took 2.28s
+elaboration took 850ms
+type checking took 4.88s
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:66:5: warning: Variable name `e7` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e7
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:71:5: warning: Variable name `e12` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e12
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:79:18: warning: This simp argument is unused:
+  cm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cp, cz] at e17
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+linting took 1.44s
+elaboration took 163ms
+ring took 109ms
+ring took 113ms
+ring took 137ms
+ring took 268ms
+ring took 102ms
+ring took 116ms
+instantiate metavars took 136ms
+share common exprs took 1.2s
+process pre-definitions took 402ms
+elaboration took 670ms
+type checking took 1.12s
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:122:23: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:128:23: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:134:23: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:137:23: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:140:23: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:144:25: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:149:23: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:152:23: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:162:25: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:171:25: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleSameQuotientCertificate.lean:176:23: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 107ms
+linting took 1.23s
+cumulative profiling times:
+	attribute application 0.148ms
+	compilation (IR) 7.06ms
+	compilation (LCNF base) 42.1ms
+	compilation (LCNF impure) 25.2ms
+	compilation (LCNF mono) 42.5ms
+	congr simp thm 4.79ms
+	declTypeLinter 18ms
+	elaboration 1.92s
+	fix level params 173ms
+	import 1.29s
+	initialization 27.3ms
+	instantiate metavars 372ms
+	interpretation 3.39s
+	let-to-have transformation 1.62ms
+	linting 2.7s
+	module linting 0.114ms
+	norm_num 659ms
+	parsing 162ms
+	process pre-definitions 2.69s
+	ring 1.58s
+	share common exprs 3.32s
+	simp 240ms
+	tactic execution 85.2ms
+	tacticAnalysis 10.9ms
+	type checking 6s
+	typeclass inference 386ms

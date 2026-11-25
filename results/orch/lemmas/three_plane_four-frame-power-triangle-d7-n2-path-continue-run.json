@@ -1,0 +1,69 @@
+{
+  "classification": "Finite-field certificate extraction; not Lean checked",
+  "base": "four-frame-power-triangle-d7-n2",
+  "prime": 1000000007,
+  "records": [
+    {
+      "chunk": 1,
+      "status": "finished",
+      "exit": 0,
+      "seconds": 48.71030764099851,
+      "peak_rss_bytes": 755273728,
+      "log": "/tmp/oec/pequalnp-pilot-79/four-frame-power-triangle-d7-n2-continue-20261125T120248Z-chunk-1.log",
+      "checkpointed": true,
+      "next_row": 24905,
+      "rank": 18542,
+      "path_query": {
+        "prime": 1000000007,
+        "target_column": 13091,
+        "next_row": 24905,
+        "rank": 18542,
+        "member": false
+      },
+      "original_checkpoint_unchanged": true
+    },
+    {
+      "chunk": 2,
+      "status": "finished",
+      "exit": 0,
+      "seconds": 48.96685316500043,
+      "peak_rss_bytes": 758542336,
+      "log": "/tmp/oec/pequalnp-pilot-79/four-frame-power-triangle-d7-n2-continue-20261125T120248Z-chunk-2.log",
+      "checkpointed": true,
+      "next_row": 25945,
+      "rank": 18691,
+      "path_query": {
+        "prime": 1000000007,
+        "target_column": 13091,
+        "next_row": 25945,
+        "rank": 18691,
+        "member": true
+      },
+      "verified_matrix_support": 17569,
+      "verified_original_support": 17569,
+      "original_checkpoint_unchanged": true
+    }
+  ],
+  "reason": "verified_modular_path_witness",
+  "elapsed_seconds": 114.46348614300041,
+  "peak_rss_bytes": 758542336,
+  "binding": {
+    "matrix_sha256": "e4d8ebf56fd11ab674862c1038cfb75bc7ebce9bdd9db615bad5a88876696469",
+    "metadata_sha256": "6ba5344b31d285d5b3261fc4d2688917ead1293c3d1f95d53bc68cde56db9190",
+    "original_checkpoint_sha256": "c0ea667311ac0ef5d001189adbf66f13b31dee2e1c0b0ab6610e484764b949cb",
+    "prime": 1000000007,
+    "target": [
+      0,
+      0,
+      3,
+      0,
+      3,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "column": 13091
+  }
+}
