@@ -1,0 +1,9 @@
+{
+  "sha256": "ec1f2f40f2cec0e24fb274911856e0a6dee7641f01b111e4dc171e954e657eed",
+  "lines": 2232,
+  "exit_code": 0,
+  "compiled_at_utc": "2026-11-25T03:51:48.809701+00:00",
+  "source": "results/orch/lemmas/Twenty.lean",
+  "log": "/tmp/oec/pequalnp-pilot-62/twenty-build-002.log",
+  "claim": "Posted assumptions imply at least 20 OR gates; exact goal is 51."
+}
