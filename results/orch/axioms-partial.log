@@ -1,0 +1,5 @@
+'PEqualNP.Outside.L_meta_2592_aux.finite_normalization' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.exclusion_of_finite_exclusion' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.final_not_cannot_rise' depends on axioms: [propext, Classical.choice, Quot.sound]

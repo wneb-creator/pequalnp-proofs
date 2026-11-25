@@ -1,0 +1,13 @@
+{"signed": false, "depth": 1, "states": 20, "targets": 25, "seconds": 8.384600005229004e-05}
+{"signed": false, "depth": 2, "states": 310, "targets": 105, "seconds": 0.001142613000070014}
+{"signed": false, "depth": 3, "states": 4440, "targets": 365, "seconds": 0.06374950600002194}
+{"signed": false, "depth": 4, "states": 62565, "targets": 907, "seconds": 0.9142419869999685}
+{"signed": false, "depth": 5, "states": 896104, "targets": 1727, "seconds": 14.070463998000037}
+{"signed": false, "depth": 6, "states": 0, "targets": 3587, "seconds": 63.557166026999994}
+{"signed": true, "depth": 1, "states": 28, "targets": 25, "seconds": 7.527200000367884e-05}
+{"signed": true, "depth": 2, "states": 570, "targets": 105, "seconds": 0.0009222600000384773}
+{"signed": true, "depth": 3, "states": 10428, "targets": 365, "seconds": 0.019786401000033038}
+{"signed": true, "depth": 4, "states": 184327, "targets": 907, "seconds": 0.7173566290000508}
+{"signed": true, "depth": 5, "states": 3261710, "targets": 1727, "seconds": 27.546901705000096}
+{"signed": true, "depth": 6, "states": 0, "targets": 3587, "seconds": 142.27323892599998}
+COUNTEREXAMPLES []

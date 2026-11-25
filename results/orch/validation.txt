@@ -11,3 +11,5 @@ No counterexample found so far. SAT timeouts/UNKNOWN are not proofs.
 
 Sub-agents: status_review, not_elimination, circuit_search, gate_lower_bound, finite_certificate, checker_storage
 TIMING total=17.1 subagents=6
+
+Checkpoint4: polarized-context repair and neutral pin constraints compile; finite Petersen support classification compiles. Root reviewed every new lemma. Named partial rebuild exits0 (5149 jobs). Axiom audit of existing named helpers uses only propext, Classical.choice, Quot.sound. Exploratory one-input-NOT synthesis scripts/logs preserved with explicit scope limitations.
