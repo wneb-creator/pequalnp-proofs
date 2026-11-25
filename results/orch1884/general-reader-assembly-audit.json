@@ -1,0 +1,101 @@
+{
+  "utc": "2026-11-25T16:13:30.092118+00:00",
+  "source": "results/orch1884/lemmas/GeneralReaderStandalone.lean",
+  "sha256": "fe3aba339859099b2b5f38b9ad44ab8b41f5072079b12cf7d059160e9104d55e",
+  "bytes": 523379,
+  "lines": 7103,
+  "remaining_bytes": 909,
+  "base_sha256": "8242ee789c29d292de4d5c50bde66241f8de54356a1df1ac9ad6f559531604dd",
+  "base_exact_pruning": true,
+  "assembly_exact": true,
+  "renames": [
+    {
+      "from": "panelDispatchBlock",
+      "to": "pdb",
+      "occurrences": 58
+    },
+    {
+      "from": "graphGoal",
+      "to": "ggl",
+      "occurrences": 120
+    },
+    {
+      "from": "before_sound",
+      "to": "bef",
+      "occurrences": 75
+    },
+    {
+      "from": "extendKnown",
+      "to": "extK",
+      "occurrences": 64
+    },
+    {
+      "from": "boundsBefore",
+      "to": "bpre",
+      "occurrences": 56
+    },
+    {
+      "from": "mixedEmpty",
+      "to": "memp",
+      "occurrences": 61
+    },
+    {
+      "from": "strong_full",
+      "to": "sfull",
+      "occurrences": 50
+    },
+    {
+      "from": "cellsBlock",
+      "to": "cblk",
+      "occurrences": 53
+    },
+    {
+      "from": "contextWire",
+      "to": "cwire",
+      "occurrences": 46
+    },
+    {
+      "from": "isMaskedConstant",
+      "to": "isMC",
+      "occurrences": 27
+    }
+  ],
+  "rename_bytes_saved": 4745,
+  "reverse_token_roundtrip": true,
+  "only_defs_import": true,
+  "all_options_scoped": true,
+  "forbidden_form_lines": [],
+  "successful_dependency_logs": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-103/1884-nine-general-second.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-103/1884-nine-general-second.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-103/1884-general-concrete-first.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-103/1884-general-concrete-first.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-103/1884-nine-general-export.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-103/1884-nine-general-export.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "standalone_build": "pending"
+}
