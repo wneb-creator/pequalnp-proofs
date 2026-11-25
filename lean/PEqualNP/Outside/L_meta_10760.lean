@@ -1419,4 +1419,121 @@ lemma not_fin_coloring_of_fast {graph : List ℕ} {colors : ℕ}
     (hproper : ∀ i j, (graph.getD i.val 0).testBit j.val = true → f i ≠ f j) : False :=
   not_graphColorable_of_fast h (graphColorable_of_fin f hproper)
 
+
+
+def inducedGraph (graph chosen : List ℕ) : List ℕ :=
+  chosen.map fun v => (BitVec.ofBoolListLE (chosen.map fun u => graphEdge graph v u)).toNat
+
+lemma inducedGraph_length (graph chosen : List ℕ) :
+    (inducedGraph graph chosen).length = chosen.length := by
+  simp only [inducedGraph, List.length_map]
+
+lemma inducedGraph_bit (graph chosen : List ℕ) (i j : ℕ)
+    (hi : i < chosen.length) (hj : j < chosen.length) :
+    ((inducedGraph graph chosen).getD i 0).testBit j =
+      graphEdge graph (chosen.getD i 0) (chosen.getD j 0) := by
+  rw [List.getD_eq_getElem _ _ (by simpa only [inducedGraph_length] using hi)]
+  simp only [inducedGraph, List.getElem_map, BitVec.testBit_toNat,
+    BitVec.getLsbD_ofBoolListLE]
+  rw [List.getD_eq_getElem _ _ (by simpa only [List.length_map] using hj),
+    List.getElem_map, List.getD_eq_getElem _ _ hi, List.getD_eq_getElem _ _ hj]
+
+lemma graphColorable_induced {graph chosen : List ℕ} {colors : ℕ}
+    (hc : graphColorable graph colors)
+    (hchosen : ∀ v ∈ chosen, v < graph.length) :
+    graphColorable (inducedGraph graph chosen) colors := by
+  obtain ⟨f, hbound, hproper⟩ := hc
+  have hv (i : ℕ) (hi : i < chosen.length) : chosen.getD i 0 < graph.length := by
+    rw [List.getD_eq_getElem _ _ hi]
+    exact hchosen _ (List.getElem_mem hi)
+  refine ⟨fun i => f (chosen.getD i 0), ?_, ?_⟩
+  · intro i hi
+    rw [inducedGraph_length] at hi
+    exact hbound _ (hv i hi)
+  · intro i hi j hj he
+    rw [inducedGraph_length] at hi hj
+    rw [inducedGraph_bit graph chosen i j hi hj] at he
+    exact graphEdge_colors hproper (hv i hi) (hv j hj) he
+
+def graphDegree (graph : List ℕ) (v : ℕ) : ℕ :=
+  ((List.range graph.length).filter fun u => graphEdge graph v u).length
+
+def degreeInsert (a : ℕ × ℕ) : List (ℕ × ℕ) → List (ℕ × ℕ)
+  | [] => [a]
+  | b :: rest => if b.1 ≤ a.1 then a :: b :: rest else b :: degreeInsert a rest
+
+def degreeSort : List (ℕ × ℕ) → List (ℕ × ℕ)
+  | [] => []
+  | a :: rest => degreeInsert a (degreeSort rest)
+
+def graphOrder (graph : List ℕ) : List ℕ :=
+  (degreeSort (((List.range graph.length).map fun v => (graphDegree graph v, v)).filter
+    fun entry => 0 < entry.1)).map Prod.snd
+
+lemma mem_degreeInsert (a entry : ℕ × ℕ) (entries : List (ℕ × ℕ)) :
+    entry ∈ degreeInsert a entries ↔ entry = a ∨ entry ∈ entries := by
+  induction entries with
+  | nil => simp [degreeInsert]
+  | cons b rest ih =>
+    simp only [degreeInsert]
+    split
+    · simp only [List.mem_cons]
+    · simp only [List.mem_cons, ih]
+      tauto
+
+lemma mem_degreeSort (entry : ℕ × ℕ) (entries : List (ℕ × ℕ)) :
+    entry ∈ degreeSort entries ↔ entry ∈ entries := by
+  induction entries with
+  | nil => rfl
+  | cons a rest ih =>
+    simp only [degreeSort, mem_degreeInsert, ih, List.mem_cons]
+
+lemma graphOrder_valid (graph : List ℕ) :
+    ∀ v ∈ graphOrder graph, v < graph.length := by
+  intro v hv
+  simp only [graphOrder, List.mem_map] at hv
+  obtain ⟨entry, he, hvalue⟩ := hv
+  rw [mem_degreeSort] at he
+  have hentry := (List.mem_filter.mp he).1
+  obtain ⟨u, hu, hue⟩ := List.mem_map.mp hentry
+  have hlt : u < graph.length := List.mem_range.mp hu
+  subst entry
+  change u = v at hvalue
+  simpa only [hvalue] using hlt
+
+def graphOrderedCheck (graph : List ℕ) (colors : ℕ) : Bool :=
+  graphColorCheck (inducedGraph graph (graphOrder graph)) colors
+
+lemma graphOrderedCheck_complete {graph : List ℕ} {colors : ℕ}
+    (hc : graphColorable graph colors) : graphOrderedCheck graph colors = true := by
+  exact graphColorCheck_complete (graphColorable_induced hc (graphOrder_valid graph))
+
+lemma not_graphColorable_of_ordered {graph : List ℕ} {colors : ℕ}
+    (h : graphOrderedCheck graph colors = false) : ¬ graphColorable graph colors := by
+  intro hc
+  have hh := graphOrderedCheck_complete hc
+  rw [h] at hh
+  cases hh
+
+def graphColorDegreeFast (graph : List ℕ) (colors : ℕ) : Bool :=
+  if colors = 1 then graphEmptyCheck graph
+  else if 1 < colors then graphOrderedCheck graph colors
+  else graphColorCheck graph colors
+
+lemma graphColorDegreeFast_complete {graph : List ℕ} {colors : ℕ}
+    (hc : graphColorable graph colors) : graphColorDegreeFast graph colors = true := by
+  unfold graphColorDegreeFast
+  split
+  · next h => subst colors; exact graphEmptyCheck_complete hc
+  · split
+    · exact graphOrderedCheck_complete hc
+    · exact graphColorCheck_complete hc
+
+lemma not_graphColorable_of_degreeFast {graph : List ℕ} {colors : ℕ}
+    (h : graphColorDegreeFast graph colors = false) : ¬ graphColorable graph colors := by
+  intro hc
+  have hh := graphColorDegreeFast_complete hc
+  rw [h] at hh
+  cases hh
+
 end PEqualNP.Outside.L_meta_10760
