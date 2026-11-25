@@ -1,0 +1,18 @@
+{
+  "checked_at_utc": "2026-11-25T03:56:52.432692+00:00",
+  "command": "lake env lean ../results/orch/lemmas/ClampSemantic.lean",
+  "exit_code": 0,
+  "log": "/tmp/oec/pequalnp-pilot-60/clamp-semantic-check1.log",
+  "files": [
+    {
+      "path": "results/orch/lemmas/ClampSemantic.lean",
+      "sha256": "eb488ac8bd4233fc2723eea8a50c3882149fd97a8325223d671c153c77dd94bc",
+      "lines": 514
+    },
+    {
+      "path": "results/orch/lemmas/ClampSemanticFragment.lean",
+      "sha256": "01336013624772b570679f0fede82d1d3a1553e2f32314b7fdf6acf3654db65e",
+      "lines": 80
+    }
+  ]
+}

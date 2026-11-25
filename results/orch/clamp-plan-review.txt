@@ -1,0 +1,15 @@
+Independent ClampPlan source review (2026-11-25T03:58:18.566812+00:00)
+Verdict: PASS for partial preservation.
+File: results/orch/lemmas/ClampPlan.lean
+SHA256: a03e38b54214db808695120a7138947ad519cd3a7404b17ebbab83532a4dc984
+Lines: 787; bytes: 33791.
+
+Integration: the reviewed Derivative body occurs verbatim once. ClampPlanDefs, ClampShapeFragment and ClampPlanFragment each occur verbatim once. Independently read all new definitions and proofs, including the Rule/Plan interface, local shape lemmas, recursive representatives, collision selection, replacement gates and all buildPlan fields.
+
+Mathematical scope: the constructor builds a circuit of unchanged length with proper distinct earlier AND/OR inputs, no reads of the designated source, bounded idempotent representatives fixing original inputs, source representative none, explicit local rewrite rules, and concrete OR-padding shape for every strict alias. It does not yet claim evaluation preservation, derivative preservation, output validity or a gate-count decrease. The dummy AND gate is not claimed identically false; its two distinct original inputs are explicit parameters. The representative function takes an absolute wire index for the suppressed source; buildPlan correctly passes n+c for gate index c. Duplicate-AND representatives deliberately retain the current gate, and the alias operand is one of the original distinct inputs different from the common representative, so properness is preserved without replacing AND by an idempotent copy.
+
+Boundedness/fixed-point proofs use earlier-wire strong induction. Fixed representatives exclude the suppressed source. Only OR cases can produce strict earlier aliases, giving the required physical OR-padding gate. All source, padding and distinct-zero-input assumptions used by shape proofs remain explicit. No existence of a useful source or final posted lower bound is asserted.
+
+Format: only PEqualNP.Defs is imported; no forbidden _root_ text, quotes, sorry, axioms, native_decide, bv_decide, unsafe, attributes or set_options occur. Current source guard explicitly permits small inductive data types and instances (outside-guard.mjs:211-215); the Rule/Plan declarations do not themselves require flattening. Guard calls give only the expected helper-only missing target/top-level theorem errors. Final proof incorporation still needs the actual posted full-name theorem last.
+
+Compilation: root reported exit0 for this exact hash. Complete existing stdout has only two deprecation warnings at line495 for if_neg/if_pos, stderr empty. This review did not launch another Lean or heavy checker process.

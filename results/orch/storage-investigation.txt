@@ -27,3 +27,7 @@ libLean.a.zst, libLean-original.sha256, libLean-compressed.sha256;
 mathlib-runtime-unused.tar.zst, mathlib-runtime-unused-manifest.json;
 runtime-assets-compress.stdout/.stderr, runtime-assets-verify.stdout/.stderr;
 checklemma-readelf.stdout/.stderr, checklemma-ldd.stdout/.stderr.
+
+Runtime artifact audit and redundant-archive cleanup (2026-11-25T03:58:18.568138+00:00)
+CheckLemma uses importModules default level=private (installed Lean Environment.lean:2808-2818), forcing transitive importAll and needsIR (2547-2555). Its loader reads main/server/private parts unconditionally for module-system artifacts (2443-2455), and IR signature plus IR body when signatures exist (2458-2469). These runtime files cannot safely be removed. Mathlib also imports Lake.Util.Casing through its text linter. The failed retry peaked near4.97GB anonymous+3.18GB shmem+0.44GB kernel memory.
+After another complete verification of all20,889 original files and normal resource state, only the three now-redundant compressed archives were deleted, freeing260,083,361bytes. Original bytes/modes/mtimes, manifests, keeper and recreation code remain intact. Recreation script: /tmp/oec/pequalnp-pilot-60/recreate-runtime-archives.py. No further full checker retry is authorized or running.

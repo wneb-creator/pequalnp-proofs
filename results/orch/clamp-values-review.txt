@@ -1,0 +1,10 @@
+Independent reviewer: derivative_lemmas
+Verdict: PASS for internal checked partial preservation; not a completed gap proof or final-guard approval.
+SHA256: e01a9999306275860a989f0b667acd4018006a306d40af4a27f8981df63d423d
+Lines: 524
+Verbatim reviewed Derivative prelude + current ClampPlanDefs + ClampValuesFragment confirmed.
+Representative recurrence accurately models a clamped false source. The andAlias branch uses the Plan.strictAlias hypothesis to recover an actual OR padding gate and then applies Boolean absorption q AND (q OR pad)=q, with no constraint on padding values needed for representative semantics.
+Strong earlier-wire induction gives new representative value <= old physical value on all inputs and equality whenever the original source is false. Physical equality is separately proved only when both dummy and all padding values are zero; that restriction is explicit and appropriate for the two singleton bases.
+The actual-wire specialization uses real circuit recurrences and unchanged input values. Output selection uses a positive original input on which the source is false, forces its representative to be Some q, and proves q is in range and not the deleted source via bounded/fixed/source Plan fields.
+All construction assumptions remain explicit in Plan. This file proves no unconditional Plan existence or full target theorem. Custom Rule/Plan types remain an internal preservation-format caveat acknowledged by root.
+Forbidden text/string literals/non-simp attributes absent; only PEqualNP.Defs import; helper namespaces under L_meta_2602_aux. Parent reports Lean exit0; reviewer did not launch a duplicate check.

@@ -13,3 +13,7 @@ Previous full original-statement checker run on partial4: FAULT, verifier exit13
 Additional independently reviewed, compiled standalone partials preserved: CombinedFrontier.lean (1211 lines), FlagAutomorphismsChecked.lean (368 lines), ClampAux.lean (797 lines).
 The exact checked Flag snapshot needs local limit options before final-file integration; ClampAux uses custom Rule/Plan declarations that trigger manual review under CONTRIBUTING. Neither is claimed to prove the target.
 TIMING total=72.3 subagents=6
+
+Further compiled and independently reviewed components: ClampValues (524 lines), ClampPlan (787 lines), ClampSemantic (514 lines). Full logs preserved. The assembled inactive-gate-removal theorem is still under integration check.
+Current source guard explicitly permits small inductive types; CONTRIBUTING nevertheless routes custom datatypes to manual review. No datatype flattening has been done.
+TIMING total=75.8 subagents=6

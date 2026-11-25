@@ -1,0 +1,7 @@
+Independent reviewer: derivative_lemmas
+Verdict: PASS for checked partial preservation; no full target theorem claimed.
+SHA256: eb488ac8bd4233fc2723eea8a50c3882149fd97a8325223d671c153c77dd94bc
+Lines: 514
+Verbatim reviewed FirstDirty prelude + 80-line ClampSemantic fragment confirmed.
+The generic minterm bridge uses explicit downward semantic implication and equality where the designated original wire is false, then monotonicity of the actual new proper circuit to lift a smaller positive assignment. The plane specialization uses exactly the cyclic incidence relation and two-input edge assignments, with edge positivity and coordinatewise domination explicitly proved. Thus unchanged edge assignments plus no new positives imply the full Boolean function, not only its restriction to pairs. Here c is an absolute wire index, not a gate index; callers must use n+c when appropriate.
+No hidden construction or source-inactivity theorem is asserted: properness, semantic comparison, and inactivity on every incidence edge remain explicit hypotheses. Only PEqualNP.Defs import and allowed helper namespaces; forbidden tokens/string literals/non-simp attributes absent. Parent reports exit0; no redundant Lean run performed.
