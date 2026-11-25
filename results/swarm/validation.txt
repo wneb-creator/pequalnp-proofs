@@ -6,7 +6,7 @@ Status: checked helper diagnostics only; no proof or refutation of the posted st
 
 Pinned Lean: v4.36.0.
 Validation: lake env lean ../results/swarm/H9RedTeam.lean passed with PEqualNP.Defs.
-All 64 helper lemmas compile and pass an axiom audit.
+All 100 helper lemmas compile and pass an axiom audit.
 Axioms are restricted to propext, Classical.choice, and Quot.sound.
 Independent exhaustive circuit evaluation passed.
 Independent mathematical and plain-file review passed.
@@ -45,9 +45,19 @@ CrossRectangleCover and BooleanFactorCover prove seven conditional cover lemmas.
 A C4-free union of a baseline rectangle and two nested cross rectangles has a
 cover of size at most two. The Boolean wrappers give the same bound for three
 explicit factorization equations, covering the empty-support, one-colour, and
-mixed-support exceptional-OR cases. The circuit-to-factorization induction is
-not included in these results. Independent exact-diff mathematical and source
-review passed; all seven new lemmas use only the three standard axioms.
+mixed-support exceptional-OR cases. Independent exact-diff mathematical and
+source review passed; all seven lemmas use only the three standard axioms.
+
+CutPolicy, the seed decompositions, and PairFactorCover prove the required
+factorizations and connect them to the finite graph cover certificates.
+CutConstruction.indexed_one_exceptional_or_cover constructs its own cut evaluator
+from an indexed binary-wire recurrence. If every OR except one has nonempty
+singleton support in both children and monochromatic singleton support at the
+gate, the C4-free output pair relation has a vertex cover of size at most two.
+The exceptional OR may have empty, one-colour, or mixed singleton support.
+These are explicit semantic conditions; literal T0 does not imply them.
+The current theorem uses an indexed wire model, not an actual-Circuit adapter,
+and it does not prove the arbitrary-count OR bound or the posted gap.
 
 Independent review of peer h1 4348340c and h3 a7ec7e53: mathematical source audit,
 plain-file audit, and exact unchanged-source Lean compilation all passed.
@@ -62,4 +72,4 @@ limitation. The exact posted hypotheses and actual OR witnesses are preserved.
 
 No PR opened; no desk lease requested or released.
 Sub-agents: 2 (toolchain restoration, independent diagnostic and peer theorem audit; peer lemma review and cut-circuit analysis)
-TIMING total=55.0 subagents=2
+TIMING total=64.0 subagents=2

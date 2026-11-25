@@ -732,4 +732,861 @@ lemma empty_support_factor_cover (R : α → β → Prop) (hno : NoFour R)
 
 end BooleanFactorCover
 
+
+namespace CutPolicy
+
+variable {n : ℕ}
+
+def single (i : Fin n) : Fin n → Bool := fun j => decide (j = i)
+
+def PolicyDepends (colour : Fin n → Bool) (allow : Bool → Bool)
+    (f : (Fin n → Bool) → Bool → Bool) (c : Bool) : Prop :=
+  ∀ x y z z', (∀ i, colour i = c → x i = y i) →
+    (allow c = true → z = z') → f x z = f y z'
+
+def SeedMonotone (f : (Fin n → Bool) → Bool → Bool) : Prop :=
+  ∀ x, f x false = true → f x true = true
+
+def Separated (colour : Fin n → Bool) (allow : Bool → Bool)
+    (f : (Fin n → Bool) → Bool → Bool) : Prop :=
+  ∃ g h : (Fin n → Bool) → Bool → Bool,
+    PolicyDepends colour allow g false ∧ PolicyDepends colour allow h true ∧
+    SeedMonotone g ∧ SeedMonotone h ∧ ∀ x z, f x z = (g x z && h x z)
+
+lemma separated_of_dep (colour : Fin n → Bool) (allow : Bool → Bool)
+    (f : (Fin n → Bool) → Bool → Bool) (c : Bool)
+    (hd : PolicyDepends colour allow f c) (hm : SeedMonotone f) :
+    Separated colour allow f := by
+  cases c with
+  | false =>
+    refine ⟨f, fun _ _ => true, hd, ?_, hm, ?_, ?_⟩
+    · intro x y z z' hxy hzz; rfl
+    · intro x hx; rfl
+    · intro x z; simp
+  | true =>
+    refine ⟨fun _ _ => true, f, ?_, hd, ?_, hm, ?_⟩
+    · intro x y z z' hxy hzz; rfl
+    · intro x hx; rfl
+    · intro x z; simp
+
+lemma separated_and (colour : Fin n → Bool) (allow : Bool → Bool)
+    (f k : (Fin n → Bool) → Bool → Bool)
+    (hf : Separated colour allow f) (hk : Separated colour allow k) :
+    Separated colour allow (fun x z => f x z && k x z) := by
+  obtain ⟨g₁,h₁,dg₁,dh₁,mg₁,mh₁,e₁⟩ := hf
+  obtain ⟨g₂,h₂,dg₂,dh₂,mg₂,mh₂,e₂⟩ := hk
+  refine ⟨fun x z => g₁ x z && g₂ x z, fun x z => h₁ x z && h₂ x z, ?_, ?_, ?_, ?_, ?_⟩
+  · intro x y z z' hxy hzz
+    dsimp only
+    rw [dg₁ x y z z' hxy hzz, dg₂ x y z z' hxy hzz]
+  · intro x y z z' hxy hzz
+    dsimp only
+    rw [dh₁ x y z z' hxy hzz, dh₂ x y z z' hxy hzz]
+  · intro x hx
+    obtain ⟨ha,hb⟩ := Bool.and_eq_true_iff.mp hx
+    exact Bool.and_eq_true_iff.mpr ⟨mg₁ x ha,mg₂ x hb⟩
+  · intro x hx
+    obtain ⟨ha,hb⟩ := Bool.and_eq_true_iff.mp hx
+    exact Bool.and_eq_true_iff.mpr ⟨mh₁ x ha,mh₂ x hb⟩
+  · intro x z
+    dsimp only
+    rw [e₁,e₂]
+    simp only [Bool.and_assoc, Bool.and_left_comm, Bool.and_comm]
+
+section Wire
+
+variable (N cut : ℕ) (F : ℕ → (Fin n → Bool) → Bool → Bool)
+  (f : ℕ → (Fin n → Bool) → Bool) (a b : ℕ → ℕ) (isAnd : ℕ → Bool)
+  (colour : Fin n → Bool) (seed : (Fin n → Bool) → Bool)
+  (hinput : ∀ w (hw : w < n) x z, F w x z = x ⟨w,hw⟩)
+  (hcut : ∀ x z, F cut x z = z)
+  (hgate : ∀ w, n ≤ w → w < N → w ≠ cut → a w < w ∧ b w < w ∧
+    ∀ x z, F w x z = if isAnd w then F (a w) x z && F (b w) x z
+      else F (a w) x z || F (b w) x z)
+  (hactual : ∀ w, w < N → ∀ x, f w x = F w x (seed x))
+  (hproductive : ∀ w, n ≤ w → w < N → w ≠ cut → isAnd w = false →
+    (∃ i, f (a w) (single i) = true) ∧ (∃ i, f (b w) (single i) = true))
+  (hmono : ∀ w, n ≤ w → w < N → w ≠ cut → isAnd w = false →
+    ∀ i j, f w (single i) = true → f w (single j) = true → colour i = colour j)
+
+include hinput hcut hgate hactual hproductive hmono
+
+lemma cut_singleton_dependence (allow : Bool → Bool)
+    (hsupport : ∀ i, seed (single i) = true → allow (colour i) = true) :
+    ∀ w, w < N → ∀ i, f w (single i) = true → PolicyDepends colour allow (F w) (colour i) := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw i hi
+    by_cases hc : w = cut
+    · subst w
+      have ht : seed (single i) = true := by simpa only [hactual cut hw, hcut] using hi
+      intro x y z z' hxy hzz
+      rw [hcut,hcut]
+      exact hzz (hsupport i ht)
+    · by_cases hn : w < n
+      · have he : (⟨w,hn⟩ : Fin n) = i := by
+          simpa [hactual w hw,hinput w hn,single] using hi
+        intro x y z z' hxy hzz
+        rw [hinput w hn,hinput w hn]
+        exact hxy ⟨w,hn⟩ (by rw [he])
+      · have hng : n ≤ w := by omega
+        obtain ⟨ha,hb,heval⟩ := hgate w hng hw hc
+        have hsem (x : Fin n → Bool) : f w x =
+            if isAnd w then f (a w) x && f (b w) x else f (a w) x || f (b w) x := by
+          simpa only [← hactual w hw, ← hactual (a w) (lt_trans ha hw),
+            ← hactual (b w) (lt_trans hb hw)] using heval x (seed x)
+        cases hop : isAnd w with
+        | false =>
+          obtain ⟨⟨ia,hia⟩,⟨ib,hib⟩⟩ := hproductive w hng hw hc hop
+          have hwa : f w (single ia) = true := by simp [hsem,hop,hia]
+          have hwb : f w (single ib) = true := by simp [hsem,hop,hib]
+          have hca := hmono w hng hw hc hop ia i hwa hi
+          have hcb := hmono w hng hw hc hop ib i hwb hi
+          have hda : PolicyDepends colour allow (F (a w)) (colour i) := by
+            simpa only [hca] using ih (a w) ha (lt_trans ha hw) ia hia
+          have hdb : PolicyDepends colour allow (F (b w)) (colour i) := by
+            simpa only [hcb] using ih (b w) hb (lt_trans hb hw) ib hib
+          intro x y z z' hxy hzz
+          have ea := hda x y z z' hxy hzz
+          have eb := hdb x y z z' hxy hzz
+          simp [heval,hop,ea,eb]
+        | true =>
+          have hh : f (a w) (single i) = true ∧ f (b w) (single i) = true := by
+            simpa [hsem,hop] using hi
+          have hda := ih (a w) ha (lt_trans ha hw) i hh.1
+          have hdb := ih (b w) hb (lt_trans hb hw) i hh.2
+          intro x y z z' hxy hzz
+          have ea := hda x y z z' hxy hzz
+          have eb := hdb x y z z' hxy hzz
+          simp [heval,hop,ea,eb]
+
+omit hactual hproductive hmono in
+lemma cut_seed_monotone : ∀ w, w < N → SeedMonotone (F w) := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw x hx
+    by_cases hc : w = cut
+    · subst w
+      simp [hcut]
+    · by_cases hn : w < n
+      · simpa only [hinput w hn] using hx
+      · have hng : n ≤ w := by omega
+        obtain ⟨ha,hb,heval⟩ := hgate w hng hw hc
+        have hma := ih (a w) ha (lt_trans ha hw) x
+        have hmb := ih (b w) hb (lt_trans hb hw) x
+        cases hop : isAnd w with
+        | false =>
+          have hh : F (a w) x false = true ∨ F (b w) x false = true := by simpa [heval,hop] using hx
+          rcases hh with hh | hh
+          · simp [heval,hop,hma hh]
+          · simp [heval,hop,hmb hh]
+        | true =>
+          have hh : F (a w) x false = true ∧ F (b w) x false = true := by simpa [heval,hop] using hx
+          simp [heval,hop,hma hh.1,hmb hh.2]
+
+lemma cut_separated (allow : Bool → Bool)
+    (hsupport : ∀ i, seed (single i) = true → allow (colour i) = true)
+    (hallow : allow false = true ∨ allow true = true) :
+    ∀ w, w < N → Separated colour allow (F w) := by
+  have hdep := cut_singleton_dependence N cut F f a b isAnd colour seed
+    hinput hcut hgate hactual hproductive hmono allow hsupport
+  have hmon := cut_seed_monotone N cut F a b isAnd hinput hcut hgate
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw
+    by_cases hc : w = cut
+    · subst w
+      rcases hallow with hallow | hallow
+      · apply separated_of_dep colour allow (F cut) false _ (hmon cut hw)
+        intro x y z z' hxy hzz
+        rw [hcut,hcut]
+        exact hzz hallow
+      · apply separated_of_dep colour allow (F cut) true _ (hmon cut hw)
+        intro x y z z' hxy hzz
+        rw [hcut,hcut]
+        exact hzz hallow
+    · by_cases hn : w < n
+      · have hi : f w (single ⟨w,hn⟩) = true := by simp [hactual w hw,hinput w hn,single]
+        exact separated_of_dep colour allow (F w) (colour ⟨w,hn⟩) (hdep w hw ⟨w,hn⟩ hi) (hmon w hw)
+      · have hng : n ≤ w := by omega
+        obtain ⟨ha,hb,heval⟩ := hgate w hng hw hc
+        cases hop : isAnd w with
+        | false =>
+          obtain ⟨⟨i,hi⟩,_⟩ := hproductive w hng hw hc hop
+          have hi' : F (a w) (single i) (seed (single i)) = true := by
+            simpa only [← hactual (a w) (lt_trans ha hw)] using hi
+          have hw' : f w (single i) = true := by simp [hactual w hw,heval,hop,hi']
+          exact separated_of_dep colour allow (F w) (colour i) (hdep w hw i hw') (hmon w hw)
+        | true =>
+          have he : F w = fun x z => F (a w) x z && F (b w) x z := by funext x z; simp [heval,hop]
+          rw [he]
+          exact separated_and colour allow _ _ (ih (a w) ha (lt_trans ha hw)) (ih (b w) hb (lt_trans hb hw))
+
+omit hcut hactual hproductive hmono in
+lemma cut_independent_before : ∀ w, w < cut → w < N → ∀ x z z', F w x z = F w x z' := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hc hw x z z'
+    by_cases hn : w < n
+    · rw [hinput w hn,hinput w hn]
+    · obtain ⟨ha,hb,heval⟩ := hgate w (by omega) hw (by omega)
+      have ea := ih (a w) ha (lt_trans ha hc) (lt_trans ha hw) x z z'
+      have eb := ih (b w) hb (lt_trans hb hc) (lt_trans hb hw) x z z'
+      simp only [heval,ea,eb]
+
+lemma cut_separated_before : ∀ w, w < cut → w < N →
+    Separated colour (fun _ => false) (F w) := by
+  intro w hc hw
+  have hs := cut_separated N cut F f a b isAnd colour seed hinput hcut hgate
+    hactual hproductive hmono (fun _ => true) (fun _ _ => rfl) (Or.inl rfl) w hw
+  obtain ⟨g,h,dg,dh,mg,mh,he⟩ := hs
+  have hind := cut_independent_before N cut F a b isAnd hinput hgate w hc hw
+  refine ⟨fun x _ => g x false, fun x _ => h x false, ?_, ?_, ?_, ?_, ?_⟩
+  · intro x y z z' hxy hzz
+    exact dg x y false false hxy (fun _ => rfl)
+  · intro x y z z' hxy hzz
+    exact dh x y false false hxy (fun _ => rfl)
+  · intro x hx; exact hx
+  · intro x hx; exact hx
+  · intro x z
+    exact (hind x z false).trans (he x false)
+
+lemma actual_singleton_dependence_before : ∀ w, w < cut → w < N → ∀ i,
+    f w (single i) = true →
+      PolicyDepends colour (fun _ => false) (fun x _ => f w x) (colour i) := by
+  intro w hc hw i hi
+  have hd := cut_singleton_dependence N cut F f a b isAnd colour seed hinput hcut hgate
+    hactual hproductive hmono (fun _ => true) (fun _ _ => rfl) w hw i hi
+  have hind := cut_independent_before N cut F a b isAnd hinput hgate w hc hw
+  intro x y z z' hxy hzz
+  change f w x = f w y
+  rw [hactual w hw,hactual w hw]
+  exact (hind x (seed x) (seed y)).trans (hd x y (seed y) (seed y) hxy (fun _ => rfl))
+
+omit hactual hproductive hmono in
+lemma cut_zero_false : ∀ w, w < N → F w (fun _ => false) false = false := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw
+    by_cases hc : w = cut
+    · subst w; exact hcut _ false
+    · by_cases hn : w < n
+      · exact hinput w hn _ false
+      · obtain ⟨ha,hb,heval⟩ := hgate w (by omega) hw hc
+        have ea := ih (a w) ha (lt_trans ha hw)
+        have eb := ih (b w) hb (lt_trans hb hw)
+        simp [heval,ea,eb]
+
+omit hproductive hmono in
+lemma actual_zero_false_before : ∀ w, w < cut → w < N → f w (fun _ => false) = false := by
+  intro w hc hw
+  rw [hactual w hw]
+  exact (cut_independent_before N cut F a b isAnd hinput hgate w hc hw _ _ false).trans
+    (cut_zero_false N cut F a b isAnd hinput hcut hgate w hw)
+
+end Wire
+
+end CutPolicy
+
+namespace CutPolicy
+
+variable {n : ℕ}
+
+def EmptySeparated (colour : Fin n → Bool)
+    (f : (Fin n → Bool) → Bool → Bool) : Prop :=
+  ∃ g h : (Fin n → Bool) → Bool, ∃ useSeed : Bool,
+    PolicyDepends colour (fun _ => false) (fun x _ => g x) false ∧
+    PolicyDepends colour (fun _ => false) (fun x _ => h x) true ∧
+    ∀ x z, f x z = ((g x && h x) && if useSeed then z else true)
+
+lemma empty_separated_of_separated (colour : Fin n → Bool)
+    (f : (Fin n → Bool) → Bool → Bool)
+    (hf : Separated colour (fun _ => false) f) : EmptySeparated colour f := by
+  obtain ⟨g,h,dg,dh,mg,mh,he⟩ := hf
+  refine ⟨fun x => g x true, fun x => h x true, false, ?_, ?_, ?_⟩
+  · intro x y z z' hxy hzz
+    exact dg x y true true hxy (by simp)
+  · intro x y z z' hxy hzz
+    exact dh x y true true hxy (by simp)
+  · intro x z
+    have eg := dg x x z true (fun _ _ => rfl) (by simp)
+    have eh := dh x x z true (fun _ _ => rfl) (by simp)
+    simp [he, eg, eh]
+
+lemma empty_separated_and (colour : Fin n → Bool)
+    (f k : (Fin n → Bool) → Bool → Bool)
+    (hf : EmptySeparated colour f) (hk : EmptySeparated colour k) :
+    EmptySeparated colour (fun x z => f x z && k x z) := by
+  obtain ⟨g₁,h₁,u₁,dg₁,dh₁,e₁⟩ := hf
+  obtain ⟨g₂,h₂,u₂,dg₂,dh₂,e₂⟩ := hk
+  refine ⟨fun x => g₁ x && g₂ x, fun x => h₁ x && h₂ x, u₁ || u₂, ?_, ?_, ?_⟩
+  · intro x y z z' hxy hzz
+    dsimp only
+    exact congrArg₂ Bool.and (dg₁ x y z z' hxy hzz) (dg₂ x y z z' hxy hzz)
+  · intro x y z z' hxy hzz
+    dsimp only
+    exact congrArg₂ Bool.and (dh₁ x y z z' hxy hzz) (dh₂ x y z z' hxy hzz)
+  · intro x z
+    dsimp only
+    rw [e₁,e₂]
+    cases u₁ <;> cases u₂ <;> cases z <;> simp [Bool.and_assoc, Bool.and_left_comm, Bool.and_comm]
+
+lemma empty_cut_factorization
+    (N cut : ℕ) (F : ℕ → (Fin n → Bool) → Bool → Bool)
+    (f : ℕ → (Fin n → Bool) → Bool) (a b : ℕ → ℕ) (isAnd : ℕ → Bool)
+    (colour : Fin n → Bool) (seed : (Fin n → Bool) → Bool)
+    (hinput : ∀ w (hw : w < n) x z, F w x z = x ⟨w,hw⟩)
+    (hcut : ∀ x z, F cut x z = z)
+    (hgate : ∀ w, n ≤ w → w < N → w ≠ cut → a w < w ∧ b w < w ∧
+      ∀ x z, F w x z = if isAnd w then F (a w) x z && F (b w) x z
+        else F (a w) x z || F (b w) x z)
+    (hactual : ∀ w, w < N → ∀ x, f w x = F w x (seed x))
+    (hproductive : ∀ w, n ≤ w → w < N → w ≠ cut → isAnd w = false →
+      (∃ i, f (a w) (single i) = true) ∧ (∃ i, f (b w) (single i) = true))
+    (hmono : ∀ w, n ≤ w → w < N → w ≠ cut → isAnd w = false →
+      ∀ i j, f w (single i) = true → f w (single j) = true → colour i = colour j)
+    (hempty : ∀ i, seed (single i) = false) :
+    ∀ w, w < N → EmptySeparated colour (F w) := by
+  have hdep := cut_singleton_dependence N cut F f a b isAnd colour seed
+    hinput hcut hgate hactual hproductive hmono (fun _ => false)
+    (by intro i hi; simp [hempty i] at hi)
+  have hmon := cut_seed_monotone N cut F a b isAnd hinput hcut hgate
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw
+    by_cases hc : w = cut
+    · subst w
+      refine ⟨fun _ => true, fun _ => true, true, ?_, ?_, ?_⟩
+      · intro x y z z' hxy hzz; rfl
+      · intro x y z z' hxy hzz; rfl
+      · intro x z; simp [hcut]
+    · by_cases hn : w < n
+      · have hi : f w (single ⟨w,hn⟩) = true := by simp [hactual w hw,hinput w hn,single]
+        exact empty_separated_of_separated colour (F w)
+          (separated_of_dep colour (fun _ => false) (F w) (colour ⟨w,hn⟩)
+            (hdep w hw ⟨w,hn⟩ hi) (hmon w hw))
+      · have hng : n ≤ w := by omega
+        obtain ⟨ha,hb,heval⟩ := hgate w hng hw hc
+        cases hop : isAnd w with
+        | false =>
+          obtain ⟨⟨i,hi⟩,_⟩ := hproductive w hng hw hc hop
+          have hi' : F (a w) (single i) (seed (single i)) = true := by
+            simpa only [← hactual (a w) (lt_trans ha hw)] using hi
+          have hw' : f w (single i) = true := by simp [hactual w hw,heval,hop,hi']
+          exact empty_separated_of_separated colour (F w)
+            (separated_of_dep colour (fun _ => false) (F w) (colour i)
+              (hdep w hw i hw') (hmon w hw))
+        | true =>
+          have he : F w = fun x z => F (a w) x z && F (b w) x z := by
+            funext x z; simp [heval,hop]
+          rw [he]
+          exact empty_separated_and colour _ _
+            (ih (a w) ha (lt_trans ha hw)) (ih (b w) hb (lt_trans hb hw))
+
+end CutPolicy
+
+namespace CutPolicy
+
+variable {n : ℕ}
+
+def Pure (colour : Fin n → Bool) (f : (Fin n → Bool) → Bool) (c : Bool) : Prop :=
+  ∀ x y, (∀ i, colour i = c → x i = y i) → f x = f y
+
+def PlainSeparated (colour : Fin n → Bool) (c : Bool)
+    (f : (Fin n → Bool) → Bool) : Prop :=
+  ∃ g h : (Fin n → Bool) → Bool,
+    Pure colour g c ∧ Pure colour h (!c) ∧ ∀ x, f x = (g x && h x)
+
+lemma pure_opposite_singleton (colour : Fin n → Bool)
+    (f : (Fin n → Bool) → Bool) (c : Bool) (i : Fin n)
+    (hcolour : colour i ≠ c) (hpure : Pure colour f c)
+    (hzero : f (fun _ => false) = false) : f (single i) = false := by
+  rw [hpure (single i) (fun _ => false) ?_, hzero]
+  intro j hj
+  have hji : j ≠ i := by intro he; subst j; exact hcolour hj
+  simp [single, hji]
+
+lemma mixed_seed_decomposition (colour : Fin n → Bool)
+    (u v seed : (Fin n → Bool) → Bool)
+    (hseed : ∀ x, seed x = (u x || v x))
+    (hup : ∀ i, u (single i) = true → Pure colour u (colour i))
+    (hvp : ∀ i, v (single i) = true → Pure colour v (colour i))
+    (hu0 : u (fun _ => false) = false) (hv0 : v (fun _ => false) = false)
+    (hleft : ∃ i, colour i = false ∧ seed (single i) = true)
+    (hright : ∃ i, colour i = true ∧ seed (single i) = true) :
+    ∃ g h : (Fin n → Bool) → Bool,
+      Pure colour g false ∧ Pure colour h true ∧ ∀ x, seed x = (g x || h x) := by
+  obtain ⟨i, hi, hsi⟩ := hleft
+  obtain ⟨j, hj, hsj⟩ := hright
+  have hsi' : u (single i) = true ∨ v (single i) = true := by simpa [hseed] using hsi
+  have hsj' : u (single j) = true ∨ v (single j) = true := by simpa [hseed] using hsj
+  rcases hsi' with hui | hvi
+  · have hp : Pure colour u false := by simpa [hi] using hup i hui
+    rcases hsj' with huj | hvj
+    · have hz := pure_opposite_singleton colour u false j (by simp [hj]) hp hu0
+      simp [hz] at huj
+    · exact ⟨u,v,hp,by simpa [hj] using hvp j hvj,hseed⟩
+  · have hp : Pure colour v false := by simpa [hi] using hvp i hvi
+    rcases hsj' with huj | hvj
+    · exact ⟨v,u,hp,by simpa [hj] using hup j huj,fun x => by rw [hseed]; exact Bool.or_comm _ _⟩
+    · have hz := pure_opposite_singleton colour v false j (by simp [hj]) hp hv0
+      simp [hz] at hvj
+
+lemma one_colour_seed_decomposition (colour : Fin n → Bool) (c : Bool)
+    (u v seed : (Fin n → Bool) → Bool)
+    (hseed : ∀ x, seed x = (u x || v x))
+    (hup : ∀ i, u (single i) = true → Pure colour u (colour i))
+    (hvp : ∀ i, v (single i) = true → Pure colour v (colour i))
+    (hus : PlainSeparated colour c u) (hvs : PlainSeparated colour c v)
+    (hpos : ∃ i, colour i = c ∧ seed (single i) = true) :
+    ∃ g h k : (Fin n → Bool) → Bool,
+      Pure colour g c ∧ Pure colour h c ∧ Pure colour k (!c) ∧
+      ∀ x, seed x = (g x || (h x && k x)) := by
+  obtain ⟨i,hi,hsi⟩ := hpos
+  have hsi' : u (single i) = true ∨ v (single i) = true := by simpa [hseed] using hsi
+  rcases hsi' with hui | hvi
+  · obtain ⟨h,k,hh,hk,he⟩ := hvs
+    exact ⟨u,h,k,by simpa [hi] using hup i hui,hh,hk,fun x => by rw [hseed,he]⟩
+  · obtain ⟨h,k,hh,hk,he⟩ := hus
+    refine ⟨v,h,k,by simpa [hi] using hvp i hvi,hh,hk,?_⟩
+    intro x
+    rw [hseed,he]
+    exact Bool.or_comm _ _
+
+lemma separated_seed_decomposition (colour : Fin n → Bool)
+    (u v seed : (Fin n → Bool) → Bool)
+    (hseed : ∀ x, seed x = (u x || v x))
+    (hus : PlainSeparated colour false u) (hvs : PlainSeparated colour false v) :
+    ∃ g h k m : (Fin n → Bool) → Bool,
+      Pure colour g false ∧ Pure colour h true ∧
+      Pure colour k false ∧ Pure colour m true ∧
+      ∀ x, seed x = ((g x && h x) || (k x && m x)) := by
+  obtain ⟨g,h,hg,hh,hu⟩ := hus
+  obtain ⟨k,m,hk,hm,hv⟩ := hvs
+  exact ⟨g,h,k,m,hg,hh,hk,hm,fun x => by rw [hseed,hu,hv]⟩
+
+end CutPolicy
+
+namespace CutPolicy
+
+variable {n : ℕ}
+
+variable (N cut : ℕ) (F : ℕ → (Fin n → Bool) → Bool → Bool)
+  (f : ℕ → (Fin n → Bool) → Bool) (a b : ℕ → ℕ) (isAnd : ℕ → Bool)
+  (colour : Fin n → Bool) (seed : (Fin n → Bool) → Bool)
+  (hinput : ∀ w (hw : w < n) x z, F w x z = x ⟨w,hw⟩)
+  (hcut : ∀ x z, F cut x z = z)
+  (hgate : ∀ w, n ≤ w → w < N → w ≠ cut → a w < w ∧ b w < w ∧
+    ∀ x z, F w x z = if isAnd w then F (a w) x z && F (b w) x z
+      else F (a w) x z || F (b w) x z)
+  (hactual : ∀ w, w < N → ∀ x, f w x = F w x (seed x))
+  (hproductive : ∀ w, n ≤ w → w < N → w ≠ cut → isAnd w = false →
+    (∃ i, f (a w) (single i) = true) ∧ (∃ i, f (b w) (single i) = true))
+  (hmono : ∀ w, n ≤ w → w < N → w ≠ cut → isAnd w = false →
+    ∀ i j, f w (single i) = true → f w (single j) = true → colour i = colour j)
+
+include hinput hcut hgate hactual hproductive hmono
+
+lemma actual_plain_separated_before (w : ℕ) (hc : w < cut) (hw : w < N) :
+    PlainSeparated colour false (f w) := by
+  obtain ⟨g,h,dg,dh,mg,mh,he⟩ := cut_separated_before N cut F f a b isAnd colour seed
+    hinput hcut hgate hactual hproductive hmono w hc hw
+  have hind := cut_independent_before N cut F a b isAnd hinput hgate w hc hw
+  refine ⟨fun x => g x false, fun x => h x false, ?_, ?_, ?_⟩
+  · intro x y hxy
+    exact dg x y false false hxy (fun _ => rfl)
+  · intro x y hxy
+    exact dh x y false false hxy (fun _ => rfl)
+  · intro x
+    rw [hactual w hw]
+    exact (hind x (seed x) false).trans (he x false)
+
+lemma actual_plain_separated_before_colour (c : Bool) (w : ℕ) (hc : w < cut) (hw : w < N) :
+    PlainSeparated colour c (f w) := by
+  have hs := actual_plain_separated_before N cut F f a b isAnd colour seed
+    hinput hcut hgate hactual hproductive hmono w hc hw
+  cases c with
+  | false => exact hs
+  | true =>
+    obtain ⟨g,h,hg,hh,he⟩ := hs
+    refine ⟨h,g,hh,hg,?_⟩
+    intro x
+    rw [he]
+    exact Bool.and_comm _ _
+
+lemma actual_pure_before (w : ℕ) (hc : w < cut) (hw : w < N)
+    (i : Fin n) (hi : f w (single i) = true) : Pure colour (f w) (colour i) := by
+  have hd := actual_singleton_dependence_before N cut F f a b isAnd colour seed
+    hinput hcut hgate hactual hproductive hmono w hc hw i hi
+  intro x y hxy
+  exact hd x y false false hxy (fun _ => rfl)
+
+end CutPolicy
+
+namespace PairFactorCover
+
+open CutPolicy CrossRectangleCover
+
+variable {n : ℕ} {α β : Type*} [Fintype α] [Fintype β] [DecidableEq α] [DecidableEq β]
+
+def pair (i j : Fin n) : Fin n → Bool := fun k => decide (k = i ∨ k = j)
+
+section Pairs
+
+variable (colour : Fin n → Bool) (L : α → Fin n) (R : β → Fin n)
+  (hL : ∀ a, colour (L a) = false) (hR : ∀ b, colour (R b) = true)
+
+include hR in
+lemma pair_agrees_left (a : α) (b : β) :
+    ∀ i, colour i = false → pair (L a) (R b) i = single (L a) i := by
+  intro i hi
+  have hne : i ≠ R b := by
+    intro he
+    subst i
+    simpa [hR b] using hi
+  simp [pair, single, hne]
+
+include hL in
+lemma pair_agrees_right (a : α) (b : β) :
+    ∀ i, colour i = true → pair (L a) (R b) i = single (R b) i := by
+  intro i hi
+  have hne : i ≠ L a := by
+    intro he
+    subst i
+    simpa [hL a] using hi
+  simp [pair, single, hne]
+
+include hR in
+lemma pure_pair_left (u : (Fin n → Bool) → Bool) (hu : Pure colour u false) (a : α) (b : β) :
+    u (pair (L a) (R b)) = u (single (L a)) :=
+  hu _ _ (pair_agrees_left colour L R hR a b)
+
+include hL in
+lemma pure_pair_right (v : (Fin n → Bool) → Bool) (hv : Pure colour v true) (a : α) (b : β) :
+    v (pair (L a) (R b)) = v (single (R b)) :=
+  hv _ _ (pair_agrees_right colour L R hL a b)
+
+include hL hR in
+lemma separated_pairs (allow : Bool → Bool) (F : (Fin n → Bool) → Bool → Bool)
+    (hf : Separated colour allow F) :
+    ∃ g : α → Bool → Bool, ∃ h : β → Bool → Bool,
+      (∀ a, g a false = true → g a true = true) ∧
+      (∀ b, h b false = true → h b true = true) ∧
+      (∀ a b z, F (pair (L a) (R b)) z = (g a z && h b z)) ∧
+      (allow false = false → ∀ a z, g a z = g a false) ∧
+      (allow true = false → ∀ b z, h b z = h b false) := by
+  obtain ⟨g,h,dg,dh,mg,mh,he⟩ := hf
+  refine ⟨fun a => g (single (L a)), fun b => h (single (R b)),
+    fun a => mg _, fun b => mh _, ?_, ?_, ?_⟩
+  · intro a b z
+    rw [he, dg _ _ z z (pair_agrees_left colour L R hR a b) (fun _ => rfl),
+      dh _ _ z z (pair_agrees_right colour L R hL a b) (fun _ => rfl)]
+  · intro ha a z
+    exact dg _ _ z false (fun _ _ => rfl) (by simp [ha])
+  · intro ha b z
+    exact dh _ _ z false (fun _ _ => rfl) (by simp [ha])
+
+include hL hR in
+lemma mixed_pair_cover (E : α → β → Prop) (hno : NoFour E)
+    (F : (Fin n → Bool) → Bool → Bool) (hf : Separated colour (fun _ => true) F)
+    (seed u v : (Fin n → Bool) → Bool)
+    (hu : Pure colour u false) (hv : Pure colour v true)
+    (hseed : ∀ x, seed x = (u x || v x))
+    (hrel : ∀ a b, E a b ↔ F (pair (L a) (R b)) (seed (pair (L a) (R b))) = true) :
+    ∃ P : Finset α, ∃ Q : Finset β,
+      (∀ a b, E a b → a ∈ P ∨ b ∈ Q) ∧ P.card + Q.card ≤ 2 := by
+  obtain ⟨g,h,mg,mh,he,_,_⟩ := separated_pairs colour L R hL hR _ F hf
+  apply BooleanFactorCover.mixed_factor_cover E hno g h
+    (fun a => u (single (L a))) (fun b => v (single (R b))) mg mh
+  intro a b
+  rw [hrel, hseed, he, pure_pair_left colour L R hR u hu a b,
+    pure_pair_right colour L R hL v hv a b]
+  simp
+
+include hL hR in
+lemma left_pair_cover (E : α → β → Prop) (hno : NoFour E)
+    (F : (Fin n → Bool) → Bool → Bool) (hf : Separated colour (fun c => !c) F)
+    (seed u v w : (Fin n → Bool) → Bool)
+    (hu : Pure colour u false) (hv : Pure colour v false) (hw : Pure colour w true)
+    (hseed : ∀ x, seed x = (u x || (v x && w x)))
+    (hrel : ∀ a b, E a b ↔ F (pair (L a) (R b)) (seed (pair (L a) (R b))) = true) :
+    ∃ P : Finset α, ∃ Q : Finset β,
+      (∀ a b, E a b → a ∈ P ∨ b ∈ Q) ∧ P.card + Q.card ≤ 2 := by
+  obtain ⟨g,h,mg,mh,he,ig,ih⟩ := separated_pairs colour L R hL hR _ F hf
+  apply BooleanFactorCover.one_sided_factor_cover E hno g (fun b => h b false)
+    (fun a => u (single (L a))) (fun a => v (single (L a))) (fun b => w (single (R b))) mg
+  intro a b
+  rw [hrel, hseed, he, pure_pair_left colour L R hR u hu a b,
+    pure_pair_left colour L R hR v hv a b, pure_pair_right colour L R hL w hw a b,
+    ih rfl b]
+  simp
+
+include hL hR in
+lemma right_pair_cover (E : α → β → Prop) (hno : NoFour E)
+    (F : (Fin n → Bool) → Bool → Bool) (hf : Separated colour (fun c => c) F)
+    (seed u v w : (Fin n → Bool) → Bool)
+    (hu : Pure colour u true) (hv : Pure colour v true) (hw : Pure colour w false)
+    (hseed : ∀ x, seed x = (u x || (v x && w x)))
+    (hrel : ∀ a b, E a b ↔ F (pair (L a) (R b)) (seed (pair (L a) (R b))) = true) :
+    ∃ P : Finset α, ∃ Q : Finset β,
+      (∀ a b, E a b → a ∈ P ∨ b ∈ Q) ∧ P.card + Q.card ≤ 2 := by
+  obtain ⟨g,h,mg,mh,he,ig,ih⟩ := separated_pairs colour L R hL hR _ F hf
+  have hn : NoFour (fun b a => E a b) := by
+    intro b b' a a' hbb haa he
+    exact hno a a' b b' haa hbb ⟨he.1,he.2.2.1,he.2.1,he.2.2.2⟩
+  obtain ⟨Q,P,hcover,hcard⟩ := BooleanFactorCover.one_sided_factor_cover (fun b a => E a b) hn
+    h (fun a => g a false) (fun b => u (single (R b))) (fun b => v (single (R b)))
+    (fun a => w (single (L a))) mh (by
+      intro b a
+      rw [hrel, hseed, he, pure_pair_right colour L R hL u hu a b,
+        pure_pair_right colour L R hL v hv a b, pure_pair_left colour L R hR w hw a b,
+        ig rfl a, Bool.and_comm]
+      simp)
+  exact ⟨P,Q,fun a b hab => (hcover b a hab).symm, by omega⟩
+
+lemma rectangle_pair_cover (E : α → β → Prop) (hno : NoFour E) (g : α → Bool) (h : β → Bool)
+    (he : ∀ a b, E a b ↔ (g a && h b) = true) :
+    ∃ P : Finset α, ∃ Q : Finset β,
+      (∀ a b, E a b → a ∈ P ∨ b ∈ Q) ∧ P.card + Q.card ≤ 1 := by
+  let U := BooleanFactorCover.support g
+  let V := BooleanFactorCover.support h
+  have hm : ∀ a b, E a b ↔ a ∈ U ∧ b ∈ V := by
+    intro a b
+    simp [he,U,V,BooleanFactorCover.support]
+  obtain ⟨P,Q,hcover,hcard⟩ := rectangle_cover E hno U V
+    (fun a ha b hb => (hm a b).mpr ⟨ha,hb⟩)
+  exact ⟨P,Q,fun a b hab => hcover a ((hm a b).mp hab).1 b ((hm a b).mp hab).2,hcard⟩
+
+include hL hR in
+lemma empty_pair_cover (E : α → β → Prop) (hno : NoFour E)
+    (F : (Fin n → Bool) → Bool → Bool) (hf : EmptySeparated colour F)
+    (seed u v s t : (Fin n → Bool) → Bool)
+    (hu : Pure colour u false) (hv : Pure colour v false)
+    (hs : Pure colour s true) (ht : Pure colour t true)
+    (hseed : ∀ x, seed x = ((u x && s x) || (v x && t x)))
+
+    (hrel : ∀ a b, E a b ↔ F (pair (L a) (R b)) (seed (pair (L a) (R b))) = true) :
+    ∃ P : Finset α, ∃ Q : Finset β,
+      (∀ a b, E a b → a ∈ P ∨ b ∈ Q) ∧ P.card + Q.card ≤ 2 := by
+  obtain ⟨g,h,useSeed,dg,dh,he⟩ := hf
+  have eg (a : α) (b : β) : g (pair (L a) (R b)) = g (single (L a)) :=
+    dg _ _ false false (pair_agrees_left colour L R hR a b) (by simp)
+  have eh (a : α) (b : β) : h (pair (L a) (R b)) = h (single (R b)) :=
+    dh _ _ false false (pair_agrees_right colour L R hL a b) (by simp)
+  cases useSeed with
+  | false =>
+    have hr : ∀ a b, E a b ↔ (g (single (L a)) && h (single (R b))) = true := by
+      intro a b
+      simp only [hrel,he,eg,eh,Bool.false_eq_true,ite_false,Bool.and_true]
+    obtain ⟨P,Q,hcover,hcard⟩ := rectangle_pair_cover E hno _ _ hr
+    exact ⟨P,Q,hcover,by omega⟩
+  | true =>
+    apply BooleanFactorCover.empty_support_factor_cover E hno
+      (fun a => g (single (L a))) (fun a => u (single (L a))) (fun a => v (single (L a)))
+      (fun b => h (single (R b))) (fun b => s (single (R b))) (fun b => t (single (R b)))
+    intro a b
+    rw [hrel,he,eg,eh,hseed,pure_pair_left colour L R hR u hu a b,
+      pure_pair_left colour L R hR v hv a b,pure_pair_right colour L R hL s hs a b,
+      pure_pair_right colour L R hL t ht a b]
+    simp [Bool.and_assoc, Bool.and_left_comm, Bool.and_comm]
+
+end Pairs
+
+end PairFactorCover
+
+namespace OneExceptional
+
+open CutPolicy PairFactorCover CrossRectangleCover
+
+variable {n : ℕ} {α β : Type*} [Fintype α] [Fintype β] [DecidableEq α] [DecidableEq β]
+
+lemma one_exceptional_or_cover
+    (N cut output : ℕ) (F : ℕ → (Fin n → Bool) → Bool → Bool)
+    (f : ℕ → (Fin n → Bool) → Bool) (a b : ℕ → ℕ) (isAnd : ℕ → Bool)
+    (colour : Fin n → Bool) (seed : (Fin n → Bool) → Bool)
+    (hinput : ∀ w (hw : w < n) x z, F w x z = x ⟨w,hw⟩)
+    (hcut : ∀ x z, F cut x z = z)
+    (hgate : ∀ w, n ≤ w → w < N → w ≠ cut → a w < w ∧ b w < w ∧
+      ∀ x z, F w x z = if isAnd w then F (a w) x z && F (b w) x z
+        else F (a w) x z || F (b w) x z)
+    (hactual : ∀ w, w < N → ∀ x, f w x = F w x (seed x))
+    (hproductive : ∀ w, n ≤ w → w < N → w ≠ cut → isAnd w = false →
+      (∃ i, f (a w) (single i) = true) ∧ (∃ i, f (b w) (single i) = true))
+    (hmono : ∀ w, n ≤ w → w < N → w ≠ cut → isAnd w = false →
+      ∀ i j, f w (single i) = true → f w (single j) = true → colour i = colour j)
+    (hcutlt : cut < N) (ha : a cut < cut) (hb : b cut < cut)
+    (hseed : ∀ x, seed x = (f (a cut) x || f (b cut) x))
+    (hout : output < N)
+    (L : α → Fin n) (R : β → Fin n)
+    (hL : ∀ i, colour (L i) = false) (hR : ∀ j, colour (R j) = true)
+    (E : α → β → Prop) (hno : NoFour E)
+    (hrel : ∀ i j, E i j ↔ f output (pair (L i) (R j)) = true) :
+    ∃ P : Finset α, ∃ Q : Finset β,
+      (∀ i j, E i j → i ∈ P ∨ j ∈ Q) ∧ P.card + Q.card ≤ 2 := by
+  classical
+  have hau : a cut < N := lt_trans ha hcutlt
+  have hbu : b cut < N := lt_trans hb hcutlt
+  have hup := actual_pure_before N cut F f a b isAnd colour seed
+    hinput hcut hgate hactual hproductive hmono (a cut) ha hau
+  have hvp := actual_pure_before N cut F f a b isAnd colour seed
+    hinput hcut hgate hactual hproductive hmono (b cut) hb hbu
+  have hus (c : Bool) := actual_plain_separated_before_colour N cut F f a b isAnd colour seed
+    hinput hcut hgate hactual hproductive hmono c (a cut) ha hau
+  have hvs (c : Bool) := actual_plain_separated_before_colour N cut F f a b isAnd colour seed
+    hinput hcut hgate hactual hproductive hmono c (b cut) hb hbu
+  have hu0 := actual_zero_false_before N cut F f a b isAnd seed hinput hcut hgate hactual
+    (a cut) ha hau
+  have hv0 := actual_zero_false_before N cut F f a b isAnd seed hinput hcut hgate hactual
+    (b cut) hb hbu
+  have hrel' : ∀ i j, E i j ↔
+      F output (pair (L i) (R j)) (seed (pair (L i) (R j))) = true := by
+    intro i j
+    rw [hrel, hactual output hout]
+  have hsep (allow : Bool → Bool)
+      (hs : ∀ i, seed (single i) = true → allow (colour i) = true)
+      (hal : allow false = true ∨ allow true = true) :=
+    cut_separated N cut F f a b isAnd colour seed hinput hcut hgate hactual hproductive hmono
+      allow hs hal output hout
+  by_cases hl : ∃ i, colour i = false ∧ seed (single i) = true
+  · by_cases hr : ∃ i, colour i = true ∧ seed (single i) = true
+    · obtain ⟨u,v,hu,hv,hs⟩ := mixed_seed_decomposition colour (f (a cut)) (f (b cut)) seed
+        hseed hup hvp hu0 hv0 hl hr
+      exact mixed_pair_cover colour L R hL hR E hno (F output)
+        (hsep (fun _ => true) (fun _ _ => rfl) (Or.inl rfl)) seed u v hu hv hs hrel'
+    · have hsupport : ∀ i, seed (single i) = true → (!colour i) = true := by
+        intro i hi
+        cases hc : colour i with
+        | false => rfl
+        | true => exact (hr ⟨i,hc,hi⟩).elim
+      obtain ⟨u,v,w,hu,hv,hw,hs⟩ := one_colour_seed_decomposition colour false
+        (f (a cut)) (f (b cut)) seed hseed hup hvp (hus false) (hvs false) hl
+      exact left_pair_cover colour L R hL hR E hno (F output)
+        (hsep (fun c => !c) hsupport (Or.inl rfl)) seed u v w hu hv hw hs hrel'
+  · by_cases hr : ∃ i, colour i = true ∧ seed (single i) = true
+    · have hsupport : ∀ i, seed (single i) = true → colour i = true := by
+        intro i hi
+        cases hc : colour i with
+        | false => exact (hl ⟨i,hc,hi⟩).elim
+        | true => rfl
+      obtain ⟨u,v,w,hu,hv,hw,hs⟩ := one_colour_seed_decomposition colour true
+        (f (a cut)) (f (b cut)) seed hseed hup hvp (hus true) (hvs true) hr
+      exact right_pair_cover colour L R hL hR E hno (F output)
+        (hsep (fun c => c) hsupport (Or.inr rfl)) seed u v w hu hv hw hs hrel'
+    · have hempty : ∀ i, seed (single i) = false := by
+        intro i
+        cases hs : seed (single i) with
+        | false => rfl
+        | true =>
+          cases hc : colour i with
+          | false => exact (hl ⟨i,hc,hs⟩).elim
+          | true => exact (hr ⟨i,hc,hs⟩).elim
+      obtain ⟨u,s,v,t,hu,hs,hv,ht,hshape⟩ := separated_seed_decomposition colour
+        (f (a cut)) (f (b cut)) seed hseed (hus false) (hvs false)
+      have he := empty_cut_factorization N cut F f a b isAnd colour seed
+        hinput hcut hgate hactual hproductive hmono hempty output hout
+      exact empty_pair_cover colour L R hL hR E hno (F output) he seed u v s t
+        hu hv hs ht hshape hrel'
+
+end OneExceptional
+
+namespace CutConstruction
+
+open CutPolicy OneExceptional CrossRectangleCover PairFactorCover
+
+def cutValue (n cut : ℕ) (a b : ℕ → ℕ) (isAnd : ℕ → Bool)
+    (x : Fin n → Bool) (z : Bool) (w : ℕ) : Bool :=
+  if w = cut then z
+  else if hw : w < n then x ⟨w,hw⟩
+  else if hr : a w < w ∧ b w < w then
+    if isAnd w then cutValue n cut a b isAnd x z (a w) && cutValue n cut a b isAnd x z (b w)
+    else cutValue n cut a b isAnd x z (a w) || cutValue n cut a b isAnd x z (b w)
+  else false
+termination_by w
+
+variable {n : ℕ}
+
+lemma cutValue_input (cut : ℕ) (a b : ℕ → ℕ) (isAnd : ℕ → Bool) (hcut : n ≤ cut)
+    (w : ℕ) (hw : w < n) (x : Fin n → Bool) (z : Bool) :
+    cutValue n cut a b isAnd x z w = x ⟨w,hw⟩ := by
+  have hne : w ≠ cut := by omega
+  rw [cutValue]
+  simp [hne,hw]
+
+lemma cutValue_cut (cut : ℕ) (a b : ℕ → ℕ) (isAnd : ℕ → Bool)
+    (x : Fin n → Bool) (z : Bool) : cutValue n cut a b isAnd x z cut = z := by
+  rw [cutValue]
+  simp
+
+lemma cutValue_gate (cut : ℕ) (a b : ℕ → ℕ) (isAnd : ℕ → Bool)
+    (w : ℕ) (hw : n ≤ w) (hc : w ≠ cut) (ha : a w < w) (hb : b w < w)
+    (x : Fin n → Bool) (z : Bool) :
+    cutValue n cut a b isAnd x z w =
+      if isAnd w then cutValue n cut a b isAnd x z (a w) && cutValue n cut a b isAnd x z (b w)
+      else cutValue n cut a b isAnd x z (a w) || cutValue n cut a b isAnd x z (b w) := by
+  rw [cutValue]
+  simp [hc,show ¬w < n by omega,ha,hb]
+
+lemma cutValue_actual
+    (N cut : ℕ) (a b : ℕ → ℕ) (isAnd : ℕ → Bool)
+    (f : ℕ → (Fin n → Bool) → Bool) (hcut : n ≤ cut)
+    (hinput : ∀ w (hw : w < n) x, f w x = x ⟨w,hw⟩)
+    (hgate : ∀ w, n ≤ w → w < N → a w < w ∧ b w < w ∧
+      ∀ x, f w x = if isAnd w then f (a w) x && f (b w) x else f (a w) x || f (b w) x) :
+    ∀ w, w < N → ∀ x, f w x = cutValue n cut a b isAnd x (f cut x) w := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw x
+    by_cases hc : w = cut
+    · subst w
+      rw [cutValue_cut]
+    · by_cases hn : w < n
+      · rw [hinput w hn,cutValue_input cut a b isAnd hcut w hn]
+      · have hng : n ≤ w := by omega
+        obtain ⟨ha,hb,he⟩ := hgate w hng hw
+        rw [he,cutValue_gate cut a b isAnd w hng hc ha hb,
+          ih (a w) ha (lt_trans ha hw) x,ih (b w) hb (lt_trans hb hw) x]
+
+variable {α β : Type*} [Fintype α] [Fintype β] [DecidableEq α] [DecidableEq β]
+
+lemma indexed_one_exceptional_or_cover
+    (N cut output : ℕ) (f : ℕ → (Fin n → Bool) → Bool)
+    (a b : ℕ → ℕ) (isAnd : ℕ → Bool) (colour : Fin n → Bool)
+    (hinput : ∀ w (hw : w < n) x, f w x = x ⟨w,hw⟩)
+    (hgate : ∀ w, n ≤ w → w < N → a w < w ∧ b w < w ∧
+      ∀ x, f w x = if isAnd w then f (a w) x && f (b w) x else f (a w) x || f (b w) x)
+    (hproductive : ∀ w, n ≤ w → w < N → w ≠ cut → isAnd w = false →
+      (∃ i, f (a w) (single i) = true) ∧ (∃ i, f (b w) (single i) = true))
+    (hmono : ∀ w, n ≤ w → w < N → w ≠ cut → isAnd w = false →
+      ∀ i j, f w (single i) = true → f w (single j) = true → colour i = colour j)
+    (hcutlo : n ≤ cut) (hcutlt : cut < N) (hcutop : isAnd cut = false)
+    (hout : output < N)
+    (L : α → Fin n) (R : β → Fin n)
+    (hL : ∀ i, colour (L i) = false) (hR : ∀ j, colour (R j) = true)
+    (E : α → β → Prop) (hno : NoFour E)
+    (hrel : ∀ i j, E i j ↔ f output (pair (L i) (R j)) = true) :
+    ∃ P : Finset α, ∃ Q : Finset β,
+      (∀ i j, E i j → i ∈ P ∨ j ∈ Q) ∧ P.card + Q.card ≤ 2 := by
+  obtain ⟨ha,hb,he⟩ := hgate cut hcutlo hcutlt
+  apply one_exceptional_or_cover N cut output
+    (fun w x z => cutValue n cut a b isAnd x z w) f a b isAnd colour (f cut)
+    (cutValue_input cut a b isAnd hcutlo)
+    (cutValue_cut cut a b isAnd)
+    (by
+      intro w hw hn hc
+      obtain ⟨ha,hb,_⟩ := hgate w hw hn
+      exact ⟨ha,hb,cutValue_gate cut a b isAnd w hw hc ha hb⟩)
+    (cutValue_actual N cut a b isAnd f hcutlo hinput hgate)
+    hproductive hmono hcutlt ha hb
+    (by intro x; simpa [hcutop] using he x)
+    hout L R hL hR E hno hrel
+
+end CutConstruction
+
 end PEqualNP.Outside.L_meta_4970.H9RedTeam
