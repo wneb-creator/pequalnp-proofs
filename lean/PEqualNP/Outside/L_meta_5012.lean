@@ -1,5 +1,6 @@
 import PEqualNP.Defs
 import Mathlib.Combinatorics.SimpleGraph.Acyclic
+import Mathlib.Data.Fin.Tuple.Sort
 
 namespace PEqualNP.Outside.L_meta_5012
 
@@ -3279,5 +3280,2362 @@ lemma two_color_projection_circuits (n : ℕ) (C : Circuit) (hC : TopForm.IsAO2 
   exact heval (List.ofFn x) (by simp)
 
 end TwoOrBuild
+
+namespace BoundarySources
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_5012
+
+noncomputable def sources (n : ℕ) (C : Circuit) (B J : Finset ℕ) (w : ℕ) : Finset ℕ := by
+  classical
+  exact B.filter (fun b => Relation.ReflTransGen (CountCut.cutOrStep n C J) b w)
+
+lemma step_value {n : ℕ} (C : Circuit) (x : Fin n → Bool) (u v : ℕ)
+    (hstep : CountCut.orWireStep n C u v) :
+    wireVal n C u x = true → wireVal n C v x = true := by
+  rintro hu
+  obtain ⟨j, hj, rfl, hop, hread, hlt⟩ := hstep
+  exact MixedFrontier.W_or n C x j hj hop u hread hlt hu
+
+lemma path_value {n : ℕ} (C : Circuit) (J : Finset ℕ) (x : Fin n → Bool)
+    {u v : ℕ} (hpath : Relation.ReflTransGen (CountCut.cutOrStep n C J) u v) :
+    wireVal n C u x = true → wireVal n C v x = true := by
+  induction hpath with
+  | refl => exact id
+  | tail _ hs ih => exact fun hu => step_value C x _ _ hs.1 (ih hu)
+
+lemma wire_true_iff_source {n : ℕ} (C : Circuit) (hAO : IsAO2 n C)
+    (B J : Finset ℕ)
+    (hJ : ∀ w ∈ J, ∃ j < C.gates.length, w = n + j ∧ (gateAt C j).op = GateOp.or)
+    (hparents : ∀ w ∈ J, ∀ b : Fin 2, opnd C (w - n) b ∈ B ∪ J)
+    (x : Fin n → Bool) :
+    ∀ w ∈ B ∪ J, wireVal n C w x = true ↔
+      ∃ b ∈ sources n C B J w, wireVal n C b x = true := by
+  classical
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    intro hw
+    constructor
+    · intro hv
+      by_cases hb : w ∈ B
+      · exact ⟨w, Finset.mem_filter.mpr ⟨hb, Relation.ReflTransGen.refl⟩, hv⟩
+      have hwJ : w ∈ J := (Finset.mem_union.mp hw).resolve_left hb
+      obtain ⟨j, hj, rfl, hop⟩ := hJ w hwJ
+      obtain ⟨_, hinp, ha, hb, _⟩ := CriticalEdge.gate2 hAO hj
+      have hh : CriticalEdge.isAnd C j = false := by simp [CriticalEdge.isAnd, hop]
+      have hrec := CriticalEdge.val_rec C hAO x j hj
+      change CriticalEdge.val n C x (n + j) = true at hv
+      rw [hrec] at hv
+      simp only [hh, Bool.false_eq_true, ↓reduceIte, Bool.or_eq_true] at hv
+      have pick : ∀ d : Fin 2, wireVal n C (opnd C j d) x = true →
+          ∃ b ∈ sources n C B J (n + j), wireVal n C b x = true := by
+        intro d hd
+        have hdmem : opnd C j d ∈ (gateAt C j).inputs := by
+          rw [hinp]
+          fin_cases d <;> simp
+        have hdlt := hAO.2.1 j hj _ hdmem
+        have hdpar : opnd C j d ∈ B ∪ J := by
+          simpa using hparents (n + j) hwJ d
+        obtain ⟨b, hbS, hbV⟩ := (ih (opnd C j d) hdlt hdpar).mp hd
+        obtain ⟨hbB, hbPath⟩ := Finset.mem_filter.mp hbS
+        refine ⟨b, Finset.mem_filter.mpr ⟨hbB, hbPath.tail ?_⟩, hbV⟩
+        exact ⟨⟨j, hj, rfl, hop, hdmem, hdlt⟩, hwJ⟩
+      rcases hv with hv | hv
+      · exact pick 0 hv
+      · exact pick 1 hv
+    · rintro ⟨b, hb, hv⟩
+      exact path_value C J x (Finset.mem_filter.mp hb).2 hv
+
+lemma wire_eq_sourceOr {n : ℕ} (C : Circuit) (hAO : IsAO2 n C)
+    (B J : Finset ℕ)
+    (hJ : ∀ w ∈ J, ∃ j < C.gates.length, w = n + j ∧ (gateAt C j).op = GateOp.or)
+    (hparents : ∀ w ∈ J, ∀ b : Fin 2, opnd C (w - n) b ∈ B ∪ J)
+    (x : Fin n → Bool) (w : ℕ) (hw : w ∈ B ∪ J) :
+    wireVal n C w x = TwoOrBuild.sourceOr C.gates (List.ofFn x) (sources n C B J w) := by
+  apply Bool.eq_iff_iff.mpr
+  rw [wire_true_iff_source C hAO B J hJ hparents x w hw]
+  simp [TwoOrBuild.sourceOr, TwoOrBuild.run, wireVal, Circuit.wires]
+
+lemma sources_subset (n : ℕ) (C : Circuit) (B J : Finset ℕ) (w : ℕ) :
+    sources n C B J w ⊆ B := by
+  classical
+  exact Finset.filter_subset _ _
+
+lemma two_sources_union (n : ℕ) (C : Circuit) (B J : Finset ℕ) (r s : ℕ)
+    (hused : ∀ b ∈ B, ∃ j ∈ J, CountCut.cutOrStep n C J b j)
+    (hroot : ∀ j ∈ J, Relation.ReflTransGen (CountCut.cutOrStep n C J) j r ∨
+      Relation.ReflTransGen (CountCut.cutOrStep n C J) j s) :
+    sources n C B J r ∪ sources n C B J s = B := by
+  classical
+  apply Finset.Subset.antisymm
+  · exact Finset.union_subset (sources_subset n C B J r) (sources_subset n C B J s)
+  · intro b hb
+    obtain ⟨j, hj, hstep⟩ := hused b hb
+    rcases hroot j hj with hr | hs
+    · exact Finset.mem_union_left _ (Finset.mem_filter.mpr
+        ⟨hb, (Relation.ReflTransGen.single hstep).trans hr⟩)
+    · exact Finset.mem_union_right _ (Finset.mem_filter.mpr
+        ⟨hb, (Relation.ReflTransGen.single hstep).trans hs⟩)
+
+lemma pairCost_le_gates (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (B J : Finset ℕ) (hdis : Disjoint B J) (r s : ℕ) (hr : r ∈ J) (hs : s ∈ J)
+    (hparents : ∀ j ∈ J, ∀ d : Fin 2, opnd C (j - n) d ∈ B ∪ J)
+    (hused : ∀ b ∈ B, ∃ j ∈ J, CountCut.cutOrStep n C J b j)
+    (hroot : ∀ j ∈ J, Relation.ReflTransGen (CountCut.cutOrStep n C J) j r ∨
+      Relation.ReflTransGen (CountCut.cutOrStep n C J) j s)
+    (hSr : (sources n C B J r).Nonempty) (hSs : (sources n C B J s).Nonempty) :
+    TwoOrBuild.pairCost (sources n C B J r) (sources n C B J s) ≤ J.card := by
+  classical
+  have hU := two_sources_union n C B J r s hused hroot
+  have hR : ({r, s} : Finset ℕ) ⊆ B ∪ J := by
+    intro w hw
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hw
+    rcases hw with rfl | rfl <;> exact Finset.mem_union_right _ (by assumption)
+  have hused' : ∀ b ∈ B, ∃ j ∈ J, b = opnd C (j - n) 0 ∨ b = opnd C (j - n) 1 := by
+    intro b hb
+    obtain ⟨j, hj, hstep⟩ := hused b hb
+    exact ⟨j, hj, CountCut.orStep_operand_eq n C hAO b j hstep.1⟩
+  have hroot' : ∀ j ∈ J, ∃ w ∈ ({r, s} : Finset ℕ),
+      Relation.ReflTransGen (CountCut.cutOrStep n C J) j w := by
+    intro j hj
+    rcases hroot j hj with hjr | hjs
+    · exact ⟨r, by simp, hjr⟩
+    · exact ⟨s, by simp, hjs⟩
+  by_cases hI : sources n C B J r ∩ sources n C B J s = ∅
+  · have hbound := CountCut.circuit_cut_boundary_le_gates_add_two n C hAO B J {r, s}
+      hdis (by have := Finset.card_insert_le r ({s} : Finset ℕ); simp_all)
+      (fun j hj => hparents j hj 0) (fun j hj => hparents j hj 1) hR hused' hroot'
+    have hcard := Finset.card_union_add_card_inter (sources n C B J r) (sources n C B J s)
+    rw [hU, hI, Finset.card_empty] at hcard
+    have hrpos := Finset.card_pos.mpr hSr
+    have hspos := Finset.card_pos.mpr hSs
+    simp only [TwoOrBuild.pairCost, if_pos hI]
+    omega
+  · obtain ⟨b, hb⟩ := Finset.nonempty_iff_ne_empty.mpr hI
+    obtain ⟨hbr, hbs⟩ := Finset.mem_inter.mp hb
+    obtain ⟨hbB, hpathr⟩ := Finset.mem_filter.mp hbr
+    have hpaths := (Finset.mem_filter.mp hbs).2
+    have hbound := CountCut.circuit_cut_shared_source_boundary_le_gates_add_one n C hAO
+      B J {r, s} hdis (fun j hj => hparents j hj 0) (fun j hj => hparents j hj 1)
+      hR hused' hroot' b (Finset.mem_union_left _ hbB) (by
+        intro w hw
+        simp only [Finset.mem_insert, Finset.mem_singleton] at hw
+        rcases hw with rfl | rfl <;> assumption)
+    simp only [TwoOrBuild.pairCost, if_neg hI, hU]
+    omega
+
+end BoundarySources
+
+namespace MixedCut
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_5012.CriticalEdge
+open PEqualNP.Outside.L_meta_5012.MixedFrontier
+open PEqualNP.Outside.L_meta_5012.MixedReach
+
+def region (n : ℕ) (C : Circuit) (g h : ℕ) : Finset ℕ :=
+  (Finset.range C.gates.length).filter fun k =>
+    ∃ a ∈ ({g, h} : Finset ℕ), ∃ b : Fin 2, OrReaches n C (opnd C a b) k
+
+def pureRegion (n : ℕ) (C : Circuit) (s : Fin n → Bool) (g h : ℕ) : Finset ℕ :=
+  (region n C g h).filter fun k => ∃ c : Bool, ∀ i ∈ orIn n C (n + k), s i = c
+
+def mixedRegion (n : ℕ) (C : Circuit) (s : Fin n → Bool) (g h : ℕ) : Finset ℕ :=
+  region n C g h \ pureRegion n C s g h
+
+lemma region_mem {n : ℕ} (C : Circuit) (g h k : ℕ) :
+    k ∈ region n C g h ↔ k < C.gates.length ∧
+      ∃ a ∈ ({g, h} : Finset ℕ), ∃ b : Fin 2, OrReaches n C (opnd C a b) k := by
+  simp only [region, Finset.mem_filter, Finset.mem_range]
+
+lemma junk_data {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (j : ℕ) (hj : j ∈ junk G C) :
+    j < C.gates.length ∧ (gateAt C j).op = GateOp.and := by
+  exact ⟨Finset.mem_range.mp (Finset.mem_filter.mp hj).1, (Finset.mem_filter.mp hj).2.1⟩
+
+lemma operand_mem {n : ℕ} (C : Circuit) (hAO : IsAO2 n C) (a : ℕ)
+    (ha : a < C.gates.length) (b : Fin 2) : opnd C a b ∈ (gateAt C a).inputs := by
+  have hlen := hAO.2.2 _ (gateAt_mem' C a ha)
+  unfold opnd
+  rw [List.getD_eq_getElem?_getD, List.getElem?_eq_getElem (by omega)]
+  exact List.getElem_mem _
+
+lemma and_ancestor_junk {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hT : TopForm G C) (a k : ℕ)
+    (ha : a < C.gates.length) (hk : k < C.gates.length)
+    (haop : (gateAt C a).op = GateOp.and) (hkop : (gateAt C k).op = GateOp.and)
+    (hcone : InCone n C k a) : k ∈ junk G C := by
+  have hnb : ¬ BelowF G C k := fun hb => hT k hk a ha hkop hb haop hcone
+  have hex : ∃ x : Fin n → Bool, gateVal n C k x = true ∧ graphFun G ∅ x = false := by
+    by_contra h
+    apply hnb
+    intro x hx
+    by_contra hf
+    exact h ⟨x, hx, Bool.eq_false_iff.mpr hf⟩
+  obtain ⟨x, hx, hf⟩ := hex
+  exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hk, hkop, hk, x, hx, hf⟩
+
+lemma region_only_or {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hT : TopForm G C) (g h : ℕ)
+    (hpair : junk G C = {g, h}) (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (k : ℕ) (hk : k ∈ region n C g h) : (gateAt C k).op = GateOp.or := by
+  obtain ⟨hklt, a, hapair, b, hr⟩ := (region_mem C g h k).mp hk
+  have haj : a ∈ junk G C := by rwa [hpair]
+  obtain ⟨halt, haop⟩ := junk_data G C a haj
+  have hbmem := operand_mem C hAO a halt b
+  have hblt := hAO.2.1 a halt _ hbmem
+  have hcone := reach_cone n C a halt _ hbmem hblt k hr
+  rcases hAO.1 _ (gateAt_mem' C k hklt) with hop | hop
+  · have hkj := and_ancestor_junk G C hT a k halt hklt haop hop hcone
+    rw [hpair] at hkj
+    simp only [Finset.mem_insert, Finset.mem_singleton] at hapair hkj
+    rcases hapair with haeq | haeq <;> rcases hkj with hkeq | hkeq
+    · subst a
+      subst k
+      have := inCone_lt n C g g hcone
+      omega
+    · subst a
+      subst k
+      exact (hhg hcone).elim
+    · subst a
+      subst k
+      exact (hgh hcone).elim
+    · subst a
+      subst k
+      have := inCone_lt n C h h hcone
+      omega
+  · exact hop
+
+lemma orSets_trans {n : ℕ} (C : Circuit) :
+    ∀ k < C.gates.length, ∀ j, j ∈ (orSets n C).getD k [] →
+      ∀ r, r ∈ (orSets n C).getD j [] → r ∈ (orSets n C).getD k [] := by
+  intro k
+  induction k using Nat.strong_induction_on with
+  | _ k ih =>
+    intro hk j hj r hr
+    rcases (orSets_mem_iff n C k j hk).mp hj with heq | ⟨hop, w, hw, hn, hlt, hmem⟩
+    · subst j
+      exact hr
+    · have hsub := ih (w - n) (by omega) (by omega) j hmem r hr
+      exact (orSets_mem_iff n C k r hk).mpr (Or.inr ⟨hop, w, hw, hn, hlt, hsub⟩)
+
+lemma orReaches_transitive {n : ℕ} (C : Circuit) (w k r : ℕ)
+    (hw : w < n + C.gates.length) (hk : OrReaches n C w k)
+    (hr : OrReaches n C (n + k) r) : OrReaches n C w r := by
+  obtain ⟨hn, hmem⟩ := hk
+  obtain ⟨_, hinner⟩ := hr
+  have heq : n + k - n = k := by omega
+  rw [heq] at hinner
+  exact ⟨hn, orSets_trans C (w - n) (by omega) k hmem r hinner⟩
+
+lemma region_predecessor_closed {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hT : TopForm G C) (g h : ℕ)
+    (hpair : junk G C = {g, h}) (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (k : ℕ) (hk : k ∈ region n C g h) (r : ℕ)
+    (hread : n + r ∈ (gateAt C k).inputs) : r ∈ region n C g h := by
+  have hop := region_only_or G C hAO hT g h hpair hgh hhg k hk
+  obtain ⟨hklt, a, hapair, b, hreach⟩ := (region_mem C g h k).mp hk
+  have hrk := hAO.2.1 k hklt (n + r) hread
+  have hrlt : r < C.gates.length := by omega
+  have hrreach := orReach_trans n C k hklt hop (n + r) hread hrk r (orReach_self n C r hrlt)
+  have haj : a ∈ junk G C := by rwa [hpair]
+  have halt := (junk_data G C a haj).1
+  have hoblt := hAO.2.1 a halt _ (operand_mem C hAO a halt b)
+  exact (region_mem C g h r).mpr ⟨hrlt, a, hapair, b,
+    orReaches_transitive C _ k r (by omega) hreach hrreach⟩
+
+lemma region_or_ancestor_closed {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (g h : ℕ) (hpair : junk G C = {g, h})
+    (k : ℕ) (hk : k ∈ region n C g h) (r : ℕ)
+    (hr : OrReaches n C (n + k) r) : r ∈ region n C g h := by
+  obtain ⟨hklt, a, hapair, b, hreach⟩ := (region_mem C g h k).mp hk
+  have hrmem := hr.2
+  have heq : n + k - n = k := by omega
+  rw [heq] at hrmem
+  have hrlt : r < C.gates.length := by
+    rcases orSets_cone n C k hklt r hrmem with h | h
+    · omega
+    · have := inCone_lt n C k r h
+      omega
+  have haj : a ∈ junk G C := by rwa [hpair]
+  have halt := (junk_data G C a haj).1
+  have hoblt := hAO.2.1 a halt _ (operand_mem C hAO a halt b)
+  exact (region_mem C g h r).mpr ⟨hrlt, a, hapair, b,
+    orReaches_transitive C _ k r (by omega) hreach hr⟩
+
+lemma region_gate_semantics {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hT : TopForm G C) (g h : ℕ)
+    (hpair : junk G C = {g, h}) (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (k : ℕ) (hk : k ∈ region n C g h) (x : Fin n → Bool) :
+    W n C x (n + k) = true ↔ ∃ i ∈ orIn n C (n + k), x i = true := by
+  constructor
+  · intro hv
+    have hops : ∀ a < C.gates.length,
+        (gateAt C a).op = GateOp.and ∨ (gateAt C a).op = GateOp.or :=
+      fun a ha => hAO.1 _ (gateAt_mem' C a ha)
+    rcases down n C x hops (n + k) hv with hi | ⟨a, ha, hr, haop, _⟩
+    · exact hi
+    · have haK := region_or_ancestor_closed G C hAO g h hpair k hk a hr
+      have hor := region_only_or G C hAO hT g h hpair hgh hhg a haK
+      rw [haop] at hor
+      cases hor
+  · rintro ⟨i, hi, hx⟩
+    exact orIn_val C x (n + k) i hi hx
+
+lemma region_support_nonempty {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hT : TopForm G C) (g h : ℕ)
+    (hpair : junk G C = {g, h}) (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (k : ℕ) (hk : k ∈ region n C g h) : (orIn n C (n + k)).Nonempty := by
+  have hklt := ((region_mem C g h k).mp hk).1
+  have hv := W_all_true C hAO (n + k) (by omega)
+  obtain ⟨i, hi, _⟩ := (region_gate_semantics G C hAO hT g h hpair hgh hhg k hk _).mp hv
+  exact ⟨i, hi⟩
+
+lemma pureRegion_predecessor_closed {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hAO : IsAO2 n C) (hT : TopForm G C) (g h : ℕ)
+    (hpair : junk G C = {g, h}) (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (k : ℕ) (hk : k ∈ pureRegion n C s g h) (r : ℕ)
+    (hread : n + r ∈ (gateAt C k).inputs) : r ∈ pureRegion n C s g h := by
+  obtain ⟨hkK, c, hmono⟩ := Finset.mem_filter.mp hk
+  have hop := region_only_or G C hAO hT g h hpair hgh hhg k hkK
+  have hklt := ((region_mem C g h k).mp hkK).1
+  have hrK := region_predecessor_closed G C hAO hT g h hpair hgh hhg k hkK r hread
+  have hsub := orIn_or_step C k hklt hop (n + r) hread (hAO.2.1 k hklt _ hread)
+  exact Finset.mem_filter.mpr ⟨hrK, c, fun i hi => hmono i (hsub hi)⟩
+
+lemma not_monochromatic_mixed {n : ℕ} (s : Fin n → Bool) (S : Finset (Fin n))
+    (hpure : ¬ ∃ c : Bool, ∀ i ∈ S, s i = c) :
+    ∀ c : Bool, ∃ i ∈ S, s i = c := by
+  intro c
+  by_contra h
+  push Not at h
+  apply hpure
+  refine ⟨!c, ?_⟩
+  intro i hi
+  have hbool : ∀ a b : Bool, a ≠ b → a = !b := by decide
+  exact hbool (s i) c (h i hi)
+
+lemma mixedRegion_mem {n : ℕ} (C : Circuit) (s : Fin n → Bool) (g h k : ℕ) :
+    k ∈ mixedRegion n C s g h ↔ k ∈ region n C g h ∧
+      ∀ c : Bool, ∃ i ∈ orIn n C (n + k), s i = c := by
+  constructor
+  · intro hk
+    obtain ⟨hkK, hkP⟩ := Finset.mem_sdiff.mp hk
+    refine ⟨hkK, not_monochromatic_mixed s _ ?_⟩
+    intro hpure
+    exact hkP (Finset.mem_filter.mpr ⟨hkK, hpure⟩)
+  · rintro ⟨hkK, hmix⟩
+    refine Finset.mem_sdiff.mpr ⟨hkK, ?_⟩
+    intro hkP
+    exact mixed_not_monochromatic s _ hmix (Finset.mem_filter.mp hkP).2
+
+lemma mixedRegion_boundary_raw_or_pure {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hAO : IsAO2 n C) (hT : TopForm G C) (g h : ℕ)
+    (hpair : junk G C = {g, h}) (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (k : ℕ) (hk : k ∈ mixedRegion n C s g h) (w : ℕ)
+    (hread : w ∈ (gateAt C k).inputs)
+    (hout : ∀ r ∈ mixedRegion n C s g h, w ≠ n + r) :
+    w < n ∨ ∃ r ∈ pureRegion n C s g h, w = n + r := by
+  by_cases hw : w < n
+  · exact Or.inl hw
+  right
+  obtain ⟨r, rfl⟩ : ∃ r, w = n + r := ⟨w - n, by omega⟩
+  have hkK := (Finset.mem_sdiff.mp hk).1
+  have hrK := region_predecessor_closed G C hAO hT g h hpair hgh hhg k hkK r hread
+  refine ⟨r, ?_, rfl⟩
+  by_contra hnot
+  exact hout r (Finset.mem_sdiff.mpr ⟨hrK, hnot⟩) rfl
+
+lemma all_mixed_mem_region {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true)
+    (g h : ℕ) (hpair : junk G C = {g, h}) (k : ℕ) (hk : k < C.gates.length)
+    (hmix : ∀ c : Bool, ∃ i ∈ orIn n C (n + k), s i = c) :
+    k ∈ region n C g h := by
+  obtain ⟨a, ha, b, hr⟩ := least_mixed_reaches_junk G C s hbip hL hT hJ k hk hmix
+  exact (region_mem C g h k).mpr ⟨hk, a, by rwa [← hpair], b, hr⟩
+
+lemma mixedRegion_or_reader_closed {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true)
+    (g h : ℕ) (hpair : junk G C = {g, h})
+    (k : ℕ) (hk : k ∈ mixedRegion n C s g h) (r : ℕ)
+    (hr : r < C.gates.length) (hrop : (gateAt C r).op = GateOp.or)
+    (hread : n + k ∈ (gateAt C r).inputs) : r ∈ mixedRegion n C s g h := by
+  obtain ⟨_, hmix⟩ := (mixedRegion_mem C s g h k).mp hk
+  have hsub := orIn_or_step C r hr hrop (n + k) hread (hL.1.2.1 r hr _ hread)
+  have hmixr : ∀ c : Bool, ∃ i ∈ orIn n C (n + r), s i = c := by
+    intro c
+    obtain ⟨i, hi, hc⟩ := hmix c
+    exact ⟨i, hsub hi, hc⟩
+  exact (mixedRegion_mem C s g h r).mpr
+    ⟨all_mixed_mem_region G C s hbip hL hT hJ g h hpair r hr hmixr, hmixr⟩
+
+lemma mixedRegion_external_reader_junk {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true)
+    (g h : ℕ) (hpair : junk G C = {g, h})
+    (k : ℕ) (hk : k ∈ mixedRegion n C s g h) (r : ℕ)
+    (hr : r < C.gates.length) (hnot : r ∉ mixedRegion n C s g h)
+    (hread : n + k ∈ (gateAt C r).inputs) : r ∈ junk G C := by
+  rcases hL.1.1 _ (gateAt_mem' C r hr) with hop | hop
+  · obtain ⟨hkK, hmix⟩ := (mixedRegion_mem C s g h k).mp hk
+    have hklt := ((region_mem C g h k).mp hkK).1
+    have hlen := hL.1.2.2 _ (gateAt_mem' C r hr)
+    obtain ⟨p, hp, heq⟩ := List.getElem_of_mem hread
+    have hp' : p < 2 := by omega
+    have hb : opnd C r ⟨p, hp'⟩ = n + k := by
+      unfold opnd
+      rw [List.getD_eq_getElem?_getD, List.getElem?_eq_getElem hp]
+      exact heq
+    apply mixed_and_frontier_junk G C s hbip hL.1 hT hJ k hmix r hr hop ⟨p, hp'⟩
+    rw [hb]
+    exact orReach_self n C k hklt
+  · exact (hnot (mixedRegion_or_reader_closed G C s hbip hL hT hJ g h hpair k hk r hr hop hread)).elim
+
+lemma mixedRegion_not_output {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hfun : circuitFun n C = graphFun G ∅) (g h k : ℕ)
+    (hk : k ∈ mixedRegion n C s g h) : n + k ≠ C.output := by
+  obtain ⟨hkK, hmix⟩ := (mixedRegion_mem C s g h k).mp hk
+  have hklt := ((region_mem C g h k).mp hkK).1
+  intro he
+  apply mixed_not_or_output G C s hbip hfun k hmix
+  rw [← he]
+  exact orReach_self n C k hklt
+
+lemma junk_not_mem_region {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hT : TopForm G C) (g h : ℕ)
+    (hpair : junk G C = {g, h}) (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (j : ℕ) (hj : j ∈ junk G C) : j ∉ region n C g h := by
+  intro hreg
+  have hor := region_only_or G C hAO hT g h hpair hgh hhg j hreg
+  have hand := (junk_data G C j hj).2
+  rw [hand] at hor
+  cases hor
+
+end MixedCut
+
+namespace MixedCut
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_5012.MixedFrontier
+open PEqualNP.Outside.L_meta_5012.MixedReach
+
+lemma raw_or_region_wire_semantics {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hT : TopForm G C) (g h : ℕ)
+    (hpair : junk G C = {g, h}) (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (w : ℕ) (hw : w < n ∨ ∃ k ∈ region n C g h, w = n + k) (x : Fin n → Bool) :
+    wireVal n C w x = decide (∃ i ∈ orIn n C w, x i = true) := by
+  apply Bool.eq_iff_iff.mpr
+  rw [decide_eq_true_eq]
+  rcases hw with hraw | ⟨k, hk, rfl⟩
+  · change W n C x w = true ↔ _
+    constructor
+    · intro hv
+      rw [W_input n C x w hraw] at hv
+      exact ⟨⟨w, hraw⟩, (orIn_mem n C w _).mpr (Or.inl rfl), hv⟩
+    · rintro ⟨i, hi, hx⟩
+      exact orIn_val C x w i hi hx
+  · exact region_gate_semantics G C hAO hT g h hpair hgh hhg k hk x
+
+lemma raw_or_region_support_nonempty {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hT : TopForm G C) (g h : ℕ)
+    (hpair : junk G C = {g, h}) (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (w : ℕ) (hw : w < n ∨ ∃ k ∈ region n C g h, w = n + k) :
+    (orIn n C w).Nonempty := by
+  rcases hw with hraw | ⟨k, hk, rfl⟩
+  · exact ⟨⟨w, hraw⟩, (orIn_mem n C w _).mpr (Or.inl rfl)⟩
+  · exact region_support_nonempty G C hAO hT g h hpair hgh hhg k hk
+
+lemma raw_or_pure_support_monochromatic {n : ℕ} (C : Circuit) (s : Fin n → Bool)
+    (g h w : ℕ) (hw : w < n ∨ ∃ k ∈ pureRegion n C s g h, w = n + k) :
+    ∃ c : Bool, ∀ i ∈ orIn n C w, s i = c := by
+  rcases hw with hraw | ⟨k, hk, rfl⟩
+  · refine ⟨s ⟨w, hraw⟩, ?_⟩
+    intro i hi
+    rcases (orIn_mem n C w i).mp hi with heq | ⟨k, hk, hr, _, _⟩
+    · have hiw : i = (⟨w, hraw⟩ : Fin n) := Fin.ext heq
+      rw [hiw]
+    · have := hr.1
+      omega
+  · exact (Finset.mem_filter.mp hk).2
+
+lemma mixedRegion_boundary_support {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hAO : IsAO2 n C) (hT : TopForm G C) (g h : ℕ)
+    (hpair : junk G C = {g, h}) (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (k : ℕ) (hk : k ∈ mixedRegion n C s g h) (w : ℕ)
+    (hread : w ∈ (gateAt C k).inputs)
+    (hout : ∀ r ∈ mixedRegion n C s g h, w ≠ n + r) :
+    (orIn n C w).Nonempty ∧ (∃ c : Bool, ∀ i ∈ orIn n C w, s i = c) ∧
+      ∀ x : Fin n → Bool, wireVal n C w x = decide (∃ i ∈ orIn n C w, x i = true) := by
+  have hw := mixedRegion_boundary_raw_or_pure G C s hAO hT g h hpair hgh hhg k hk w hread hout
+  have hwK : w < n ∨ ∃ a ∈ region n C g h, w = n + a := by
+    rcases hw with hraw | ⟨a, ha, heq⟩
+    · exact Or.inl hraw
+    · exact Or.inr ⟨a, (Finset.mem_filter.mp ha).1, heq⟩
+  exact ⟨raw_or_region_support_nonempty G C hAO hT g h hpair hgh hhg w hwK,
+    raw_or_pure_support_monochromatic C s g h w hw,
+    raw_or_region_wire_semantics G C hAO hT g h hpair hgh hhg w hwK⟩
+
+end MixedCut
+
+namespace Reorder
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+
+def run (gs : List Gate) (x : List Bool) : List Bool :=
+  gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) x
+
+lemma run_snoc (gs : List Gate) (g : Gate) (x : List Bool) :
+    run (gs ++ [g]) x = run gs x ++ [g.op.eval (g.inputs.map fun i => (run gs x).getD i false)] := by
+  simp [run, List.foldl_append]
+
+lemma run_length (gs : List Gate) (x : List Bool) : (run gs x).length = x.length + gs.length := by
+  induction gs using List.reverseRecOn with
+  | nil => simp [run]
+  | append_singleton gs g ih => rw [run_snoc]; simp [ih]; omega
+
+lemma getD_lt (l : List Bool) (b : Bool) (t : ℕ) (h : t < l.length) :
+    (l ++ [b]).getD t false = l.getD t false := by
+  simp [List.getD_eq_getElem?_getD, List.getElem?_append_left h]
+
+lemma getD_at (l : List Bool) (b : Bool) : (l ++ [b]).getD l.length false = b := by
+  simp [List.getD_eq_getElem?_getD]
+
+lemma getD_ltz {α : Type} (z : α) (l : List α) (b : α) (t : ℕ) (h : t < l.length) :
+    (l ++ [b]).getD t z = l.getD t z := by
+  simp [List.getD_eq_getElem?_getD, List.getElem?_append_left h]
+
+lemma getD_at' {α : Type} (z : α) (l : List α) (b : α) : (l ++ [b]).getD l.length z = b := by
+  simp [List.getD_eq_getElem?_getD]
+
+lemma run_prefix (gs hs : List Gate) (x : List Bool) (i : ℕ) (hi : i < x.length + gs.length) :
+    (run (gs ++ hs) x).getD i false = (run gs x).getD i false := by
+  induction hs using List.reverseRecOn with
+  | nil => simp
+  | append_singleton hs g ih =>
+    rw [← List.append_assoc, run_snoc, getD_ltz false _ _ _ (by
+      rw [run_length, List.length_append]; omega), ih]
+
+lemma run_input (gs : List Gate) (x : List Bool) (i : ℕ) (hi : i < x.length) :
+    (run gs x).getD i false = x.getD i false := by
+  have := run_prefix [] gs x i (by simpa using hi)
+  simpa [run] using this
+
+lemma run_gate (gs : List Gate) (x : List Bool) : ∀ (j : ℕ) (hj : j < gs.length),
+    (run gs x).getD (x.length + j) false = gs[j].op.eval (gs[j].inputs.map fun i =>
+      if i < x.length + j then (run gs x).getD i false else false) := by
+  induction gs using List.reverseRecOn with
+  | nil => intro j hj; simp at hj
+  | append_singleton gs g ih =>
+    intro j hj
+    have hlen : (run gs x).length = x.length + gs.length := run_length gs x
+    have same : ∀ (k : ℕ), k ≤ gs.length → ∀ l : List ℕ,
+        (l.map fun i => if i < x.length + k then (run (gs ++ [g]) x).getD i false else false) =
+        l.map fun i => if i < x.length + k then (run gs x).getD i false else false := by
+      intro k hk l
+      refine List.map_congr_left fun i _ => ?_
+      split_ifs with h
+      · exact run_prefix gs [g] x i (by omega)
+      · rfl
+    rcases Nat.lt_or_ge j gs.length with h | h
+    · rw [List.getElem_append_left h, same j (by omega), run_prefix gs [g] x _ (by omega)]
+      exact ih j h
+    · have hjj : j = gs.length := by simp at hj; omega
+      subst hjj
+      have hg : (gs ++ [g])[gs.length] = g := by simp
+      rw [hg, same _ le_rfl, run_snoc, ← hlen, getD_at']
+      congr 1
+      refine List.map_congr_left fun i _ => ?_
+      split_ifs with h
+      · rfl
+      · exact List.getD_eq_default _ _ (by omega)
+
+
+
+def Ok (n : ℕ) (gs : List Gate) : Prop :=
+  ∀ j (hj : j < gs.length), ∃ o s t, gs[j] = ⟨o, [s, t]⟩ ∧ (o = GateOp.and ∨ o = GateOp.or) ∧
+    s < n + j ∧ t < n + j
+
+lemma ok_snoc {n : ℕ} {gs : List Gate} (h : Ok n gs) {o : GateOp} {s t : ℕ}
+    (ho : o = GateOp.and ∨ o = GateOp.or) (hs : s < n + gs.length) (ht : t < n + gs.length) :
+    Ok n (gs ++ [⟨o, [s, t]⟩]) := by
+  intro j hj
+  by_cases hlt : j < gs.length
+  · rw [List.getElem_append_left hlt]; exact h j hlt
+  · have : j = gs.length := by simp at hj; omega
+    subst this
+    exact ⟨o, s, t, by simp, ho, hs, ht⟩
+
+def ov (gs : List Gate) (x : List Bool) (o : Option ℕ) : Bool :=
+  match o with
+  | none => false
+  | some w => (run gs x).getD w false
+
+lemma ov_ext (gs hs : List Gate) (x : List Bool) (o : Option ℕ)
+    (h : ∀ w, o = some w → w < x.length + gs.length) : ov (gs ++ hs) x o = ov gs x o := by
+  cases o with
+  | none => rfl
+  | some w => exact run_prefix gs hs x w (h w rfl)
+
+lemma ov_new (gs : List Gate) (n : ℕ) (x : List Bool) (hx : x.length = n) (o : GateOp) (s t : ℕ)
+    (hs : s < n + gs.length) (ht : t < n + gs.length) :
+    ov (gs ++ [⟨o, [s, t]⟩]) x (some (n + gs.length)) =
+      o.eval [(run gs x).getD s false, (run gs x).getD t false] := by
+  unfold ov
+  simp only
+  rw [run_snoc]
+  have : n + gs.length = (run gs x).length := by rw [run_length, hx]
+  rw [this, getD_at]
+  rfl
+
+lemma ok_ao {n : ℕ} {gs : List Gate} {w : ℕ} (hok : Ok n gs) : TopForm.IsAO2 n ⟨gs, w⟩ := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro q hq
+    obtain ⟨i, hi, rfl⟩ := List.getElem_of_mem hq
+    obtain ⟨o', s', t', h1, h2, _⟩ := hok i hi
+    rw [h1]; exact h2
+  · intro j hj i hi
+    obtain ⟨o', s', t', h1, h2, h3, h4⟩ := hok j hj
+    have e1 : gateAt ⟨gs, w⟩ j = gs[j] := List.getD_eq_getElem _ _ hj
+    rw [e1, h1] at hi
+    simp only [List.mem_cons, List.not_mem_nil, or_false] at hi
+    rcases hi with rfl | rfl <;> assumption
+  · intro q hq
+    obtain ⟨i, hi, rfl⟩ := List.getElem_of_mem hq
+    obtain ⟨o', s', t', h1, h2, _⟩ := hok i hi
+    rw [h1]; rfl
+
+lemma ao_ok {n : ℕ} (C : Circuit) (hC : TopForm.IsAO2 n C) : Ok n C.gates := by
+  intro j hj
+  have hm : C.gates[j] ∈ C.gates := List.getElem_mem hj
+  obtain ⟨a, b, hin⟩ := List.length_eq_two.mp (hC.2.2 _ hm)
+  have heq : gateAt C j = C.gates[j] := List.getD_eq_getElem _ _ hj
+  have hin' : (gateAt C j).inputs = [a, b] := by rwa [heq]
+  refine ⟨(C.gates[j]).op, a, b, ?_, hC.1 _ hm,
+    hC.2.1 j hj a (by rw [hin']; simp), hC.2.1 j hj b (by rw [hin']; simp)⟩
+  cases hgt : C.gates[j]
+  simp only [hgt] at hin ⊢
+  cases hin
+  rfl
+
+
+open PEqualNP.TopForm PEqualNP.CleanedNonEdge
+
+def wireMap (n N : ℕ) (p : Equiv.Perm (Fin N)) (w : ℕ) : ℕ :=
+  if w < n then w
+  else if h : w - n < N then n + (p ⟨w - n, h⟩).val
+  else n + N
+
+def mappedGate (n N : ℕ) (p : Equiv.Perm (Fin N)) (g : Gate) : Gate :=
+  ⟨g.op, g.inputs.map (wireMap n N p)⟩
+
+def permute (n : ℕ) (C : Circuit) (p : Equiv.Perm (Fin C.gates.length)) : Circuit :=
+  ⟨List.ofFn (fun k => mappedGate n C.gates.length p C.gates[(p.symm k).val]),
+    wireMap n C.gates.length p C.output⟩
+
+def DependencyOrder (n : ℕ) (C : Circuit) (p : Equiv.Perm (Fin C.gates.length)) : Prop :=
+  ∀ i j : Fin C.gates.length, n + i.val ∈ (gateAt C j.val).inputs → (p i).val < (p j).val
+
+lemma wireMap_input {n N : ℕ} (p : Equiv.Perm (Fin N)) (w : ℕ) (hw : w < n) :
+    wireMap n N p w = w := by simp [wireMap, hw]
+
+lemma wireMap_gate {n N : ℕ} (p : Equiv.Perm (Fin N)) (j : Fin N) :
+    wireMap n N p (n + j.val) = n + (p j).val := by
+  simp [wireMap, Nat.not_lt.mpr (Nat.le_add_right n j.val), j.isLt]
+
+lemma wireMap_large {n N : ℕ} (p : Equiv.Perm (Fin N)) (w : ℕ) (hw : n + N ≤ w) :
+    wireMap n N p w = n + N := by
+  have hn : ¬ w < n := by omega
+  have hN : ¬ w - n < N := by omega
+  simp [wireMap, hn, hN]
+
+lemma permute_length (n : ℕ) (C : Circuit) (p : Equiv.Perm (Fin C.gates.length)) :
+    (permute n C p).gates.length = C.gates.length := by simp [permute]
+
+lemma permute_gateAt (n : ℕ) (C : Circuit) (p : Equiv.Perm (Fin C.gates.length))
+    (k : Fin C.gates.length) :
+    gateAt (permute n C p) k.val = mappedGate n C.gates.length p C.gates[(p.symm k).val] := by
+  simp [permute, gateAt, List.getD_eq_getElem?_getD, k.isLt]
+
+lemma gateAt_get (C : Circuit) (j : Fin C.gates.length) : gateAt C j.val = C.gates[j.val] :=
+  List.getD_eq_getElem _ _ j.isLt
+
+lemma wireMap_operand_lt {n : ℕ} (C : Circuit) (hC : IsAO2 n C)
+    (p : Equiv.Perm (Fin C.gates.length)) (hp : DependencyOrder n C p)
+    (j : Fin C.gates.length) (w : ℕ) (hw : w ∈ (gateAt C j.val).inputs) :
+    wireMap n C.gates.length p w < n + (p j).val := by
+  have hb := hC.2.1 j.val j.isLt w hw
+  by_cases hn : w < n
+  · rw [wireMap_input p w hn]
+    omega
+  · have hi : w - n < C.gates.length := by have := j.isLt; omega
+    let i : Fin C.gates.length := ⟨w - n, hi⟩
+    have heq : n + i.val = w := by dsimp [i]; omega
+    have hdep := hp i j (by rwa [heq])
+    rw [← heq, wireMap_gate]
+    omega
+
+lemma permute_isAO2 {n : ℕ} (C : Circuit) (hC : IsAO2 n C)
+    (p : Equiv.Perm (Fin C.gates.length)) (hp : DependencyOrder n C p) :
+    IsAO2 n (permute n C p) := by
+  apply ok_ao
+  intro k hk
+  have hk' : k < C.gates.length := by simpa only [List.length_ofFn] using hk
+  let q : Fin C.gates.length := ⟨k, hk'⟩
+  let j : Fin C.gates.length := p.symm q
+  obtain ⟨o, a, b, hgt, hop, ha, hb⟩ := ao_ok C hC j.val j.isLt
+  have hinputs : (gateAt C j.val).inputs = [a, b] := by
+    rw [gateAt_get C j, hgt]
+  refine ⟨o, wireMap n C.gates.length p a, wireMap n C.gates.length p b, ?_, hop, ?_, ?_⟩
+  · simp only [List.getElem_ofFn]
+    change mappedGate n C.gates.length p C.gates[j.val] = _
+    rw [hgt]
+    rfl
+  · have h := wireMap_operand_lt C hC p hp j a (by rw [hinputs]; simp)
+    simpa [j, q] using h
+  · have h := wireMap_operand_lt C hC p hp j b (by rw [hinputs]; simp)
+    simpa [j, q] using h
+
+def wv (n : ℕ) (C : Circuit) (x : Fin n → Bool) (w : ℕ) : Bool :=
+  (run C.gates (List.ofFn x)).getD w false
+
+lemma wv_input {n : ℕ} (C : Circuit) (x : Fin n → Bool) (w : ℕ) (hw : w < n) :
+    wv n C x w = (List.ofFn x).getD w false :=
+  run_input C.gates (List.ofFn x) w (by simpa using hw)
+
+lemma wv_gate {n : ℕ} (C : Circuit) (hC : IsAO2 n C) (x : Fin n → Bool)
+    (j : Fin C.gates.length) :
+    wv n C x (n + j.val) = (gateAt C j.val).op.eval
+      ((gateAt C j.val).inputs.map (wv n C x)) := by
+  have h := run_gate C.gates (List.ofFn x) j.val j.isLt
+  rw [List.length_ofFn] at h
+  change (run C.gates (List.ofFn x)).getD (n + j.val) false = _
+  rw [h, ← gateAt_get C j]
+  congr 1
+  apply List.map_congr_left
+  intro w hw
+  rw [if_pos (hC.2.1 j.val j.isLt w hw)]
+  rfl
+
+lemma permute_wv_gate {n : ℕ} (C : Circuit) (hC : IsAO2 n C)
+    (p : Equiv.Perm (Fin C.gates.length)) (hp : DependencyOrder n C p) (x : Fin n → Bool) :
+    ∀ k : ℕ, ∀ hk : k < C.gates.length,
+      wv n (permute n C p) x (n + k) = wv n C x (n + (p.symm ⟨k, hk⟩).val) := by
+  have hD := permute_isAO2 C hC p hp
+  intro k
+  induction k using Nat.strong_induction_on with
+  | _ k ih =>
+    intro hk
+    let q : Fin C.gates.length := ⟨k, hk⟩
+    let j : Fin C.gates.length := p.symm q
+    have hkD : k < (permute n C p).gates.length := by simpa only [permute_length] using hk
+    have hrec := wv_gate (permute n C p) hD x ⟨k, hkD⟩
+    rw [permute_gateAt n C p q] at hrec
+    change wv n (permute n C p) x (n + k) = wv n C x (n + j.val)
+    rw [hrec, wv_gate C hC x j, gateAt_get C j]
+    simp only [mappedGate, List.map_map]
+    congr 1
+    apply List.map_congr_left
+    intro w hw
+    have hw' : w ∈ (gateAt C j.val).inputs := by rwa [gateAt_get C j]
+    have hb := hC.2.1 j.val j.isLt w hw'
+    by_cases hn : w < n
+    · rw [Function.comp_apply, wireMap_input p w hn, wv_input _ x w hn, wv_input _ x w hn]
+    · have hi : w - n < C.gates.length := by have := j.isLt; omega
+      let i : Fin C.gates.length := ⟨w - n, hi⟩
+      have heq : n + i.val = w := by dsimp [i]; omega
+      have hdep : (p i).val < k := by
+        have h := hp i j (by rwa [heq])
+        simpa [j, q] using h
+      have hh := ih (p i).val hdep (p i).isLt
+      have hsym : p.symm ⟨(p i).val, (p i).isLt⟩ = i := p.symm_apply_apply i
+      rw [hsym] at hh
+      rw [Function.comp_apply, ← heq, wireMap_gate]
+      exact hh
+
+lemma permute_wv {n : ℕ} (C : Circuit) (hC : IsAO2 n C)
+    (p : Equiv.Perm (Fin C.gates.length)) (hp : DependencyOrder n C p)
+    (x : Fin n → Bool) (w : ℕ) :
+    wv n (permute n C p) x (wireMap n C.gates.length p w) = wv n C x w := by
+  by_cases hn : w < n
+  · rw [wireMap_input p w hn, wv_input _ x w hn, wv_input _ x w hn]
+  by_cases hN : w - n < C.gates.length
+  · let j : Fin C.gates.length := ⟨w - n, hN⟩
+    have heq : n + j.val = w := by dsimp [j]; omega
+    have hh := permute_wv_gate C hC p hp x (p j).val (p j).isLt
+    have hsym : p.symm ⟨(p j).val, (p j).isLt⟩ = j := p.symm_apply_apply j
+    rw [hsym] at hh
+    rw [← heq, wireMap_gate]
+    exact hh
+  · have hw : n + C.gates.length ≤ w := by omega
+    rw [wireMap_large p w hw]
+    change (run (permute n C p).gates (List.ofFn x)).getD (n + C.gates.length) false =
+      (run C.gates (List.ofFn x)).getD w false
+    rw [List.getD_eq_default _ _ (by rw [run_length, List.length_ofFn, permute_length]),
+      List.getD_eq_default _ _ (by rw [run_length, List.length_ofFn]; exact hw)]
+
+lemma permute_semantics {n : ℕ} (C : Circuit) (hC : IsAO2 n C)
+    (p : Equiv.Perm (Fin C.gates.length)) (hp : DependencyOrder n C p) :
+    IsAO2 n (permute n C p) ∧ (permute n C p).size = C.size ∧
+      circuitFun n (permute n C p) = circuitFun n C ∧
+      ∀ x : Fin n → Bool, ∀ w : ℕ,
+        wireVal n (permute n C p) (wireMap n C.gates.length p w) x = wireVal n C w x := by
+  refine ⟨permute_isAO2 C hC p hp, permute_length n C p, ?_, ?_⟩
+  · funext x
+    exact permute_wv C hC p hp x C.output
+  · exact permute_wv C hC p hp
+
+noncomputable def sortPerm {N : ℕ} (key : Fin N → ℕ) : Equiv.Perm (Fin N) :=
+  (Tuple.sort key).symm
+
+lemma sortPerm_key_lt {N : ℕ} (key : Fin N → ℕ) (i j : Fin N)
+    (hkey : key i < key j) : (sortPerm key i).val < (sortPerm key j).val := by
+  by_contra h
+  have hle : sortPerm key j ≤ sortPerm key i := by change _ ≤ _; omega
+  have hs := Tuple.monotone_sort key hle
+  have hkey' : key j ≤ key i := by simpa [sortPerm, Function.comp_apply] using hs
+  omega
+
+lemma sortPerm_prefix {N : ℕ} (key : Fin N → ℕ) (a : ℕ) (j : Fin N) :
+    (sortPerm key j).val < (Finset.univ.filter (fun i : Fin N => key i < a)).card ↔ key j < a := by
+  let σ := Tuple.sort key
+  let Q : Finset (Fin N) := Finset.univ.filter (fun k => key (σ k) < a)
+  let R : Finset (Fin N) := Finset.univ.filter (fun k => key k < a)
+  have himage : Q.image σ = R := by
+    ext i
+    simp only [Q, R, Finset.mem_image, Finset.mem_filter, Finset.mem_univ, true_and]
+    constructor
+    · rintro ⟨k, hk, rfl⟩
+      exact hk
+    · intro hi
+      exact ⟨σ.symm i, by simpa only [Equiv.apply_symm_apply] using hi, σ.apply_symm_apply i⟩
+  have hcard : Q.card = R.card := by
+    rw [← himage, Finset.card_image_of_injective Q σ.injective]
+  have hcut := Tuple.lt_card_lt_iff_apply_lt_of_monotone
+    (j := sortPerm key j) (a := a) (Tuple.monotone_sort key)
+  change (sortPerm key j).val < Q.card ↔ key (σ (sortPerm key j)) < a at hcut
+  rw [hcard] at hcut
+  simpa [σ, sortPerm] using hcut
+
+def PredecessorClosed (n : ℕ) (C : Circuit) (S : Finset (Fin C.gates.length)) : Prop :=
+  ∀ i j : Fin C.gates.length, j ∈ S → n + i.val ∈ (gateAt C j.val).inputs → i ∈ S
+
+def priorityKey {N : ℕ} (S : Finset (Fin N)) (j : Fin N) : ℕ :=
+  if j ∈ S then j.val else N + j.val
+
+lemma priorityKey_lt_iff {N : ℕ} (S : Finset (Fin N)) (j : Fin N) :
+    priorityKey S j < N ↔ j ∈ S := by
+  by_cases hj : j ∈ S
+  · simp [priorityKey, hj, j.isLt]
+  · simp only [priorityKey, if_neg hj]
+    have : ¬ N + j.val < N := by omega
+    simp [this, hj]
+
+lemma closed_hoist_dependency {n : ℕ} (C : Circuit) (hC : IsAO2 n C)
+    (S : Finset (Fin C.gates.length)) (hS : PredecessorClosed n C S) :
+    DependencyOrder n C (sortPerm (priorityKey S)) := by
+  intro i j hdep
+  have hback := hC.2.1 j.val j.isLt (n + i.val) hdep
+  have hij : i.val < j.val := by omega
+  apply sortPerm_key_lt
+  by_cases hi : i ∈ S <;> by_cases hj : j ∈ S
+  · simp only [priorityKey, if_pos hi, if_pos hj]
+    exact hij
+  · simp only [priorityKey, if_pos hi, if_neg hj]
+    have := i.isLt
+    omega
+  · exact (hi (hS i j hj hdep)).elim
+  · simp only [priorityKey, if_neg hi, if_neg hj]
+    omega
+
+lemma closed_hoist_prefix {N : ℕ} (S : Finset (Fin N)) (j : Fin N) :
+    (sortPerm (priorityKey S) j).val < S.card ↔ j ∈ S := by
+  have hset : Finset.univ.filter (fun i : Fin N => priorityKey S i < N) = S := by
+    ext i
+    simp only [Finset.mem_filter, Finset.mem_univ, true_and, priorityKey_lt_iff]
+  have h := sortPerm_prefix (priorityKey S) N j
+  rwa [hset, priorityKey_lt_iff] at h
+
+lemma closed_hoist_stable {N : ℕ} (S : Finset (Fin N)) (i j : Fin N)
+    (hmem : i ∈ S ↔ j ∈ S) (hij : i.val < j.val) :
+    (sortPerm (priorityKey S) i).val < (sortPerm (priorityKey S) j).val := by
+  apply sortPerm_key_lt
+  by_cases hi : i ∈ S
+  · have hj := hmem.mp hi
+    simp only [priorityKey, if_pos hi, if_pos hj]
+    exact hij
+  · have hj : j ∉ S := fun h => hi (hmem.mpr h)
+    simp only [priorityKey, if_neg hi, if_neg hj]
+    omega
+
+lemma closed_hoist_semantics {n : ℕ} (C : Circuit) (hC : IsAO2 n C)
+    (S : Finset (Fin C.gates.length)) (hS : PredecessorClosed n C S) :
+    IsAO2 n (permute n C (sortPerm (priorityKey S))) ∧
+      (permute n C (sortPerm (priorityKey S))).size = C.size ∧
+      circuitFun n (permute n C (sortPerm (priorityKey S))) = circuitFun n C ∧
+      ∀ x : Fin n → Bool, ∀ w : ℕ,
+        wireVal n (permute n C (sortPerm (priorityKey S)))
+          (wireMap n C.gates.length (sortPerm (priorityKey S)) w) x = wireVal n C w x := by
+  exact permute_semantics C hC _ (closed_hoist_dependency C hC S hS)
+
+def blockKey {N : ℕ} (P K : Finset (Fin N)) (j : Fin N) : ℕ :=
+  if j ∈ P then j.val else if j ∈ K then N + j.val else 2 * N + j.val
+
+lemma blockKey_small_iff {N : ℕ} (P K : Finset (Fin N)) (j : Fin N) :
+    blockKey P K j < N ↔ j ∈ P := by
+  have hjN := j.isLt
+  constructor
+  · intro hlt
+    by_contra hjP
+    unfold blockKey at hlt
+    rw [if_neg hjP] at hlt
+    split_ifs at hlt <;> omega
+  · intro hjP
+    simpa only [blockKey, if_pos hjP] using hjN
+
+lemma blockKey_large_iff {N : ℕ} (P K : Finset (Fin N)) (hPK : P ⊆ K) (j : Fin N) :
+    blockKey P K j < 2 * N ↔ j ∈ K := by
+  have hjN := j.isLt
+  constructor
+  · intro hlt
+    by_contra hjK
+    have hjP : j ∉ P := fun h => hjK (hPK h)
+    simp only [blockKey, if_neg hjP, if_neg hjK] at hlt
+    omega
+  · intro hjK
+    unfold blockKey
+    by_cases hjP : j ∈ P
+    · rw [if_pos hjP]
+      omega
+    · rw [if_neg hjP, if_pos hjK]
+      omega
+
+lemma two_closed_hoist_dependency {n : ℕ} (C : Circuit) (hC : IsAO2 n C)
+    (P K : Finset (Fin C.gates.length))
+    (hP : PredecessorClosed n C P) (hK : PredecessorClosed n C K) :
+    DependencyOrder n C (sortPerm (blockKey P K)) := by
+  intro i j hdep
+  have hback := hC.2.1 j.val j.isLt (n + i.val) hdep
+  have hij : i.val < j.val := by omega
+  have hiN := i.isLt
+  apply sortPerm_key_lt
+  by_cases hiP : i ∈ P <;> by_cases hjP : j ∈ P
+  · simp only [blockKey, if_pos hiP, if_pos hjP]
+    exact hij
+  · simp only [blockKey, if_pos hiP, if_neg hjP]
+    by_cases hjK : j ∈ K
+    · rw [if_pos hjK]
+      omega
+    · rw [if_neg hjK]
+      omega
+  · exact (hiP (hP i j hjP hdep)).elim
+  · simp only [blockKey, if_neg hiP, if_neg hjP]
+    by_cases hiK : i ∈ K <;> by_cases hjK : j ∈ K
+    · rw [if_pos hiK, if_pos hjK]
+      omega
+    · rw [if_pos hiK, if_neg hjK]
+      omega
+    · exact (hiK (hK i j hjK hdep)).elim
+    · rw [if_neg hiK, if_neg hjK]
+      omega
+
+lemma two_closed_hoist_prefix_small {N : ℕ} (P K : Finset (Fin N)) (j : Fin N) :
+    (sortPerm (blockKey P K) j).val < P.card ↔ j ∈ P := by
+  have hset : Finset.univ.filter (fun i : Fin N => blockKey P K i < N) = P := by
+    ext i
+    simp only [Finset.mem_filter, Finset.mem_univ, true_and, blockKey_small_iff]
+  have h := sortPerm_prefix (blockKey P K) N j
+  rwa [hset, blockKey_small_iff] at h
+
+lemma two_closed_hoist_prefix_large {N : ℕ} (P K : Finset (Fin N)) (hPK : P ⊆ K) (j : Fin N) :
+    (sortPerm (blockKey P K) j).val < K.card ↔ j ∈ K := by
+  have hset : Finset.univ.filter (fun i : Fin N => blockKey P K i < 2 * N) = K := by
+    ext i
+    simp only [Finset.mem_filter, Finset.mem_univ, true_and, blockKey_large_iff P K hPK]
+  have h := sortPerm_prefix (blockKey P K) (2 * N) j
+  rwa [hset, blockKey_large_iff P K hPK] at h
+
+lemma two_closed_hoist_middle {N : ℕ} (P K : Finset (Fin N)) (hPK : P ⊆ K) (j : Fin N) :
+    (P.card ≤ (sortPerm (blockKey P K) j).val ∧
+      (sortPerm (blockKey P K) j).val < K.card) ↔ j ∈ K \ P := by
+  have hs := two_closed_hoist_prefix_small P K j
+  have hl := two_closed_hoist_prefix_large P K hPK j
+  rw [Finset.mem_sdiff]
+  constructor
+  · rintro ⟨hlo, hhi⟩
+    exact ⟨hl.mp hhi, fun h => by have := hs.mpr h; omega⟩
+  · rintro ⟨hK, hP⟩
+    refine ⟨?_, hl.mpr hK⟩
+    by_contra h
+    apply hP
+    exact hs.mp (by omega)
+
+lemma two_closed_hoist_stable {N : ℕ} (P K : Finset (Fin N)) (i j : Fin N)
+    (hP : i ∈ P ↔ j ∈ P) (hK : i ∈ K ↔ j ∈ K) (hij : i.val < j.val) :
+    (sortPerm (blockKey P K) i).val < (sortPerm (blockKey P K) j).val := by
+  apply sortPerm_key_lt
+  by_cases hiP : i ∈ P
+  · have hjP := hP.mp hiP
+    simp only [blockKey, if_pos hiP, if_pos hjP]
+    exact hij
+  · have hjP : j ∉ P := fun h => hiP (hP.mpr h)
+    simp only [blockKey, if_neg hiP, if_neg hjP]
+    by_cases hiK : i ∈ K
+    · have hjK := hK.mp hiK
+      rw [if_pos hiK, if_pos hjK]
+      omega
+    · have hjK : j ∉ K := fun h => hiK (hK.mpr h)
+      rw [if_neg hiK, if_neg hjK]
+      omega
+
+lemma two_closed_hoist_semantics {n : ℕ} (C : Circuit) (hC : IsAO2 n C)
+    (P K : Finset (Fin C.gates.length))
+    (hP : PredecessorClosed n C P) (hK : PredecessorClosed n C K) :
+    IsAO2 n (permute n C (sortPerm (blockKey P K))) ∧
+      (permute n C (sortPerm (blockKey P K))).size = C.size ∧
+      circuitFun n (permute n C (sortPerm (blockKey P K))) = circuitFun n C ∧
+      ∀ x : Fin n → Bool, ∀ w : ℕ,
+        wireVal n (permute n C (sortPerm (blockKey P K)))
+          (wireMap n C.gates.length (sortPerm (blockKey P K)) w) x = wireVal n C w x := by
+  exact permute_semantics C hC _ (two_closed_hoist_dependency C hC P K hP hK)
+
+lemma permute_gateAt_old (n : ℕ) (C : Circuit) (p : Equiv.Perm (Fin C.gates.length))
+    (j : Fin C.gates.length) :
+    gateAt (permute n C p) (p j).val = mappedGate n C.gates.length p (gateAt C j.val) := by
+  simpa only [Equiv.symm_apply_apply, gateAt_get] using permute_gateAt n C p (p j)
+
+lemma permute_isLeastAO {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hC : IsLeastAO G C) (p : Equiv.Perm (Fin C.gates.length))
+    (hp : DependencyOrder n C p) : IsLeastAO G (permute n C p) := by
+  obtain ⟨hAO, hsize, hfun, _⟩ := permute_semantics C hC.1 p hp
+  refine ⟨hAO, hfun.trans hC.2.1, ?_⟩
+  intro D hD hDF
+  rw [hsize]
+  exact hC.2.2 D hD hDF
+
+lemma take_isAO2 {n : ℕ} (C : Circuit) (hC : IsAO2 n C) (t out : ℕ) :
+    IsAO2 n ⟨C.gates.take t, out⟩ := by
+  apply ok_ao
+  intro j hj
+  have hj' : j < C.gates.length := by simp only [List.length_take] at hj; omega
+  obtain ⟨o, a, b, heq, hop, ha, hb⟩ := ao_ok C hC j hj'
+  refine ⟨o, a, b, ?_, hop, ha, hb⟩
+  simpa only [List.getElem_take] using heq
+
+lemma take_wireVal {n : ℕ} (C : Circuit) (t out : ℕ) (x : Fin n → Bool) (w : ℕ)
+    (hw : w < n + min t C.gates.length) :
+    wireVal n ⟨C.gates.take t, out⟩ w x = wireVal n C w x := by
+  have h := run_prefix (C.gates.take t) (C.gates.drop t) (List.ofFn x) w
+    (by simpa only [List.length_ofFn, List.length_take] using hw)
+  rw [List.take_append_drop] at h
+  exact h.symm
+
+end Reorder
+
+namespace Region
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+
+def run (gs : List Gate) (x : List Bool) : List Bool :=
+  gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) x
+
+lemma run_snoc (gs : List Gate) (g : Gate) (x : List Bool) :
+    run (gs ++ [g]) x = run gs x ++ [g.op.eval (g.inputs.map fun i => (run gs x).getD i false)] := by
+  simp [run, List.foldl_append]
+
+lemma run_length (gs : List Gate) (x : List Bool) : (run gs x).length = x.length + gs.length := by
+  induction gs using List.reverseRecOn with
+  | nil => simp [run]
+  | append_singleton gs g ih => rw [run_snoc]; simp [ih]; omega
+
+lemma getD_lt (l : List Bool) (b : Bool) (t : ℕ) (h : t < l.length) :
+    (l ++ [b]).getD t false = l.getD t false := by
+  simp [List.getD_eq_getElem?_getD, List.getElem?_append_left h]
+
+lemma getD_at (l : List Bool) (b : Bool) : (l ++ [b]).getD l.length false = b := by
+  simp [List.getD_eq_getElem?_getD]
+
+lemma getD_ltz {α : Type} (z : α) (l : List α) (b : α) (t : ℕ) (h : t < l.length) :
+    (l ++ [b]).getD t z = l.getD t z := by
+  simp [List.getD_eq_getElem?_getD, List.getElem?_append_left h]
+
+lemma getD_at' {α : Type} (z : α) (l : List α) (b : α) : (l ++ [b]).getD l.length z = b := by
+  simp [List.getD_eq_getElem?_getD]
+
+lemma run_prefix (gs hs : List Gate) (x : List Bool) (i : ℕ) (hi : i < x.length + gs.length) :
+    (run (gs ++ hs) x).getD i false = (run gs x).getD i false := by
+  induction hs using List.reverseRecOn with
+  | nil => simp
+  | append_singleton hs g ih =>
+    rw [← List.append_assoc, run_snoc, getD_ltz false _ _ _ (by
+      rw [run_length, List.length_append]; omega), ih]
+
+lemma run_input (gs : List Gate) (x : List Bool) (i : ℕ) (hi : i < x.length) :
+    (run gs x).getD i false = x.getD i false := by
+  have := run_prefix [] gs x i (by simpa using hi)
+  simpa [run] using this
+
+lemma run_gate (gs : List Gate) (x : List Bool) : ∀ (j : ℕ) (hj : j < gs.length),
+    (run gs x).getD (x.length + j) false = gs[j].op.eval (gs[j].inputs.map fun i =>
+      if i < x.length + j then (run gs x).getD i false else false) := by
+  induction gs using List.reverseRecOn with
+  | nil => intro j hj; simp at hj
+  | append_singleton gs g ih =>
+    intro j hj
+    have hlen : (run gs x).length = x.length + gs.length := run_length gs x
+    have same : ∀ (k : ℕ), k ≤ gs.length → ∀ l : List ℕ,
+        (l.map fun i => if i < x.length + k then (run (gs ++ [g]) x).getD i false else false) =
+        l.map fun i => if i < x.length + k then (run gs x).getD i false else false := by
+      intro k hk l
+      refine List.map_congr_left fun i _ => ?_
+      split_ifs with h
+      · exact run_prefix gs [g] x i (by omega)
+      · rfl
+    rcases Nat.lt_or_ge j gs.length with h | h
+    · rw [List.getElem_append_left h, same j (by omega), run_prefix gs [g] x _ (by omega)]
+      exact ih j h
+    · have hjj : j = gs.length := by simp at hj; omega
+      subst hjj
+      have hg : (gs ++ [g])[gs.length] = g := by simp
+      rw [hg, same _ le_rfl, run_snoc, ← hlen, getD_at']
+      congr 1
+      refine List.map_congr_left fun i _ => ?_
+      split_ifs with h
+      · rfl
+      · exact List.getD_eq_default _ _ (by omega)
+
+
+
+def Ok (n : ℕ) (gs : List Gate) : Prop :=
+  ∀ j (hj : j < gs.length), ∃ o s t, gs[j] = ⟨o, [s, t]⟩ ∧ (o = GateOp.and ∨ o = GateOp.or) ∧
+    s < n + j ∧ t < n + j
+
+lemma ok_snoc {n : ℕ} {gs : List Gate} (h : Ok n gs) {o : GateOp} {s t : ℕ}
+    (ho : o = GateOp.and ∨ o = GateOp.or) (hs : s < n + gs.length) (ht : t < n + gs.length) :
+    Ok n (gs ++ [⟨o, [s, t]⟩]) := by
+  intro j hj
+  by_cases hlt : j < gs.length
+  · rw [List.getElem_append_left hlt]; exact h j hlt
+  · have : j = gs.length := by simp at hj; omega
+    subst this
+    exact ⟨o, s, t, by simp, ho, hs, ht⟩
+
+def ov (gs : List Gate) (x : List Bool) (o : Option ℕ) : Bool :=
+  match o with
+  | none => false
+  | some w => (run gs x).getD w false
+
+lemma ov_ext (gs hs : List Gate) (x : List Bool) (o : Option ℕ)
+    (h : ∀ w, o = some w → w < x.length + gs.length) : ov (gs ++ hs) x o = ov gs x o := by
+  cases o with
+  | none => rfl
+  | some w => exact run_prefix gs hs x w (h w rfl)
+
+lemma ov_new (gs : List Gate) (n : ℕ) (x : List Bool) (hx : x.length = n) (o : GateOp) (s t : ℕ)
+    (hs : s < n + gs.length) (ht : t < n + gs.length) :
+    ov (gs ++ [⟨o, [s, t]⟩]) x (some (n + gs.length)) =
+      o.eval [(run gs x).getD s false, (run gs x).getD t false] := by
+  unfold ov
+  simp only
+  rw [run_snoc]
+  have : n + gs.length = (run gs x).length := by rw [run_length, hx]
+  rw [this, getD_at]
+  rfl
+
+lemma ok_ao {n : ℕ} {gs : List Gate} {w : ℕ} (hok : Ok n gs) : TopForm.IsAO2 n ⟨gs, w⟩ := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro q hq
+    obtain ⟨i, hi, rfl⟩ := List.getElem_of_mem hq
+    obtain ⟨o', s', t', h1, h2, _⟩ := hok i hi
+    rw [h1]; exact h2
+  · intro j hj i hi
+    obtain ⟨o', s', t', h1, h2, h3, h4⟩ := hok j hj
+    have e1 : gateAt ⟨gs, w⟩ j = gs[j] := List.getD_eq_getElem _ _ hj
+    rw [e1, h1] at hi
+    simp only [List.mem_cons, List.not_mem_nil, or_false] at hi
+    rcases hi with rfl | rfl <;> assumption
+  · intro q hq
+    obtain ⟨i, hi, rfl⟩ := List.getElem_of_mem hq
+    obtain ⟨o', s', t', h1, h2, _⟩ := hok i hi
+    rw [h1]; rfl
+
+def remapSuffix (gs : List Gate) (f : ℕ → ℕ → ℕ) : List Gate :=
+  List.ofFn fun j : Fin gs.length =>
+    ⟨gs[j].op, gs[j].inputs.map (f j)⟩
+
+lemma remapSuffix_length (gs : List Gate) (f : ℕ → ℕ → ℕ) :
+    (remapSuffix gs f).length = gs.length := by
+  simp [remapSuffix]
+
+lemma remapSuffix_get (gs : List Gate) (f : ℕ → ℕ → ℕ)
+    (j : ℕ) (hj : j < gs.length) :
+    (remapSuffix gs f)[j]'(by simpa [remapSuffix_length] using hj) =
+      ⟨gs[j].op, gs[j].inputs.map (f j)⟩ := by
+  simp [remapSuffix]
+
+lemma append_get (p s : List Gate) (j : ℕ) (hj : j < s.length) :
+    (p ++ s)[p.length + j]'(by simp; omega) = s[j] := by
+  simp
+
+lemma append_get_left (p s : List Gate) (j : ℕ) (hj : j < p.length) :
+    (p ++ s)[j]'(by simp; omega) = p[j] := by
+  simp [List.getElem_append_left hj]
+
+lemma remapSuffix_ok (n : ℕ) (p s : List Gate) (f : ℕ → ℕ → ℕ)
+    (hp : Ok n p)
+    (hs : ∀ j (hj : j < s.length),
+      ∃ o a b, s[j] = ⟨o, [a, b]⟩ ∧ (o = GateOp.and ∨ o = GateOp.or))
+    (hf : ∀ j (hj : j < s.length), ∀ w ∈ s[j].inputs,
+      f j w < n + p.length + j) :
+    Ok n (p ++ remapSuffix s f) := by
+  intro j hj
+  by_cases hjp : j < p.length
+  · rw [append_get_left p _ j hjp]
+    exact hp j hjp
+  · have hj' : j - p.length < s.length := by
+      simp only [List.length_append, remapSuffix_length] at hj
+      omega
+    have hjrem : j - p.length < (remapSuffix s f).length := by
+      simpa only [remapSuffix_length] using hj'
+    have heq : j = p.length + (j - p.length) := by omega
+    obtain ⟨o, a, b, hg, hop⟩ := hs (j - p.length) hj'
+    have ha := hf (j - p.length) hj' a (by rw [hg]; simp)
+    have hb := hf (j - p.length) hj' b (by rw [hg]; simp)
+    refine ⟨o, f (j - p.length) a, f (j - p.length) b, ?_, hop, by omega, by omega⟩
+    have hget := append_get p (remapSuffix s f) (j - p.length) hjrem
+    have hget' : (p ++ remapSuffix s f)[j] = (remapSuffix s f)[j - p.length] := by
+      simpa only [← heq] using hget
+    rw [hget', remapSuffix_get s f _ hj', hg]
+    rfl
+
+lemma ao_grammar {n : ℕ} (C : Circuit) (hC : TopForm.IsAO2 n C)
+    (p s : List Gate) (hgs : C.gates = p ++ s) :
+    ∀ j (hj : j < s.length),
+      ∃ o a b, s[j] = ⟨o, [a, b]⟩ ∧ (o = GateOp.and ∨ o = GateOp.or) := by
+  intro j hj
+  have hmem : s[j] ∈ C.gates := by
+    rw [hgs]
+    exact List.mem_append_right _ (List.getElem_mem hj)
+  have hop := hC.1 _ hmem
+  obtain ⟨a, b, hin⟩ := List.length_eq_two.mp (hC.2.2 _ hmem)
+  refine ⟨s[j].op, a, b, ?_, hop⟩
+  cases h : s[j]
+  simp only [h] at hin ⊢
+  cases hin
+  rfl
+
+lemma ao_suffix_back {n : ℕ} (C : Circuit) (hC : TopForm.IsAO2 n C)
+    (p s : List Gate) (hgs : C.gates = p ++ s) :
+    ∀ j (hj : j < s.length), ∀ w ∈ s[j].inputs, w < n + p.length + j := by
+  intro j hj w hw
+  have hi : p.length + j < C.gates.length := by rw [hgs]; simp; omega
+  have hgate : gateAt C (p.length + j) = s[j] := by
+    rw [gateAt, hgs, List.getD_eq_getElem _ _ (by simp; omega), append_get p s j hj]
+  have hh := hC.2.1 (p.length + j) hi w (by rwa [hgate])
+  omega
+
+lemma run_append_gate (p s : List Gate) (x : List Bool) (j : ℕ) (hj : j < s.length)
+    (hback : ∀ w ∈ s[j].inputs, w < x.length + p.length + j) :
+    (run (p ++ s) x).getD (x.length + p.length + j) false =
+      s[j].op.eval (s[j].inputs.map fun w => (run (p ++ s) x).getD w false) := by
+  have h := run_gate (p ++ s) x (p.length + j) (by simp; omega)
+  rw [append_get p s j hj] at h
+  rw [show x.length + p.length + j = x.length + (p.length + j) by omega, h]
+  congr 1
+  apply List.map_congr_left
+  intro w hw
+  exact if_pos (by have := hback w hw; omega)
+
+def LocalSim (R : Bool → Bool → Prop) (oldP newP s : List Gate)
+    (f : ℕ → ℕ → ℕ) (x : List Bool) : Prop :=
+  ∀ j (hj : j < s.length) (u v : ℕ → Bool),
+    (∀ w < x.length + oldP.length, u w = (run oldP x).getD w false) →
+    (∀ w < x.length + newP.length, v w = (run newP x).getD w false) →
+    (∀ i < j, R (u (x.length + oldP.length + i)) (v (x.length + newP.length + i))) →
+    R (s[j].op.eval (s[j].inputs.map u))
+      (s[j].op.eval (s[j].inputs.map fun w => v (f j w)))
+
+lemma block_transfer (oldP newP s : List Gate) (f : ℕ → ℕ → ℕ)
+    (x : List Bool) (R : Bool → Bool → Prop)
+    (hold : ∀ j (hj : j < s.length), ∀ w ∈ s[j].inputs,
+      w < x.length + oldP.length + j)
+    (hnew : ∀ j (hj : j < s.length), ∀ w ∈ s[j].inputs,
+      f j w < x.length + newP.length + j)
+    (hlocal : LocalSim R oldP newP s f x) :
+    ∀ j < s.length,
+      R ((run (oldP ++ s) x).getD (x.length + oldP.length + j) false)
+        ((run (newP ++ remapSuffix s f) x).getD (x.length + newP.length + j) false) := by
+  intro j
+  induction j using Nat.strong_induction_on with
+  | _ j ih =>
+    intro hj
+    have hR := hlocal j hj
+      (fun w => (run (oldP ++ s) x).getD w false)
+      (fun w => (run (newP ++ remapSuffix s f) x).getD w false)
+      (fun w hw => run_prefix oldP s x w hw)
+      (fun w hw => run_prefix newP (remapSuffix s f) x w hw)
+      (fun i hi => ih i hi (by omega))
+    have hj' : j < (remapSuffix s f).length := by simpa [remapSuffix_length] using hj
+    have hback' : ∀ w ∈ (remapSuffix s f)[j].inputs,
+        w < x.length + newP.length + j := by
+      rw [remapSuffix_get s f j hj]
+      intro w hw
+      obtain ⟨v, hv, rfl⟩ := List.mem_map.mp hw
+      exact hnew j hj v hv
+    rw [run_append_gate oldP s x j hj (hold j hj),
+      run_append_gate newP (remapSuffix s f) x j hj' hback', remapSuffix_get s f j hj]
+    simpa only [List.map_map, Function.comp_def] using hR
+
+def replaceBlock (n : ℕ) (p oldRegion newRegion s : List Gate)
+    (f : ℕ → ℕ → ℕ) (j : ℕ) : Circuit :=
+  ⟨(p ++ newRegion) ++ remapSuffix s f, n + (p ++ newRegion).length + j⟩
+
+lemma replaceBlock_size (n : ℕ) (p oldRegion newRegion s : List Gate)
+    (f : ℕ → ℕ → ℕ) (j : ℕ) :
+    (replaceBlock n p oldRegion newRegion s f j).size =
+      p.length + newRegion.length + s.length := by
+  simp [replaceBlock, Circuit.size, remapSuffix_length, Nat.add_assoc]
+
+lemma replaceBlock_shorter (n : ℕ) (p oldRegion newRegion s : List Gate)
+    (f : ℕ → ℕ → ℕ) (j : ℕ) (hshort : newRegion.length < oldRegion.length) :
+    (replaceBlock n p oldRegion newRegion s f j).size <
+      (⟨(p ++ oldRegion) ++ s, n + (p ++ oldRegion).length + j⟩ : Circuit).size := by
+  rw [replaceBlock_size]
+  simp only [Circuit.size, List.length_append]
+  omega
+
+lemma replaceBlock_ao (n : ℕ) (p oldRegion newRegion s : List Gate)
+    (f : ℕ → ℕ → ℕ) (j : ℕ)
+    (hold : TopForm.IsAO2 n ⟨(p ++ oldRegion) ++ s, n + (p ++ oldRegion).length + j⟩)
+    (hprefix : Ok n (p ++ newRegion))
+    (hf : ∀ k (hk : k < s.length), ∀ w ∈ s[k].inputs,
+      f k w < n + (p ++ newRegion).length + k) :
+    TopForm.IsAO2 n (replaceBlock n p oldRegion newRegion s f j) := by
+  apply ok_ao
+  apply remapSuffix_ok n (p ++ newRegion) s f hprefix
+  · exact ao_grammar _ hold (p ++ oldRegion) s rfl
+  · exact hf
+
+lemma replaceBlock_eval (n : ℕ) (p oldRegion newRegion s : List Gate)
+    (f : ℕ → ℕ → ℕ) (j : ℕ) (hj : j < s.length)
+    (hold : TopForm.IsAO2 n ⟨(p ++ oldRegion) ++ s, n + (p ++ oldRegion).length + j⟩)
+    (hf : ∀ k (hk : k < s.length), ∀ w ∈ s[k].inputs,
+      f k w < n + (p ++ newRegion).length + k)
+    (x : List Bool) (hx : x.length = n) (R : Bool → Bool → Prop)
+    (hlocal : LocalSim R (p ++ oldRegion) (p ++ newRegion) s f x) :
+    R ((⟨(p ++ oldRegion) ++ s, n + (p ++ oldRegion).length + j⟩ : Circuit).eval x)
+      ((replaceBlock n p oldRegion newRegion s f j).eval x) := by
+  have hb := ao_suffix_back _ hold (p ++ oldRegion) s rfl
+  have h := block_transfer (p ++ oldRegion) (p ++ newRegion) s f x R
+    (by simpa only [hx] using hb) (by simpa only [hx] using hf) hlocal j hj
+  simpa only [hx, replaceBlock, Circuit.eval, Circuit.wires, run] using h
+
+lemma ao_ok {n : ℕ} (C : Circuit) (hC : TopForm.IsAO2 n C) : Ok n C.gates := by
+  intro j hj
+  have hm : C.gates[j] ∈ C.gates := List.getElem_mem hj
+  obtain ⟨a, b, hin⟩ := List.length_eq_two.mp (hC.2.2 _ hm)
+  have heq : gateAt C j = C.gates[j] := List.getD_eq_getElem _ _ hj
+  have hin' : (gateAt C j).inputs = [a, b] := by rwa [heq]
+  refine ⟨(C.gates[j]).op, a, b, ?_, hC.1 _ hm,
+    hC.2.1 j hj a (by rw [hin']; simp), hC.2.1 j hj b (by rw [hin']; simp)⟩
+  cases hgt : C.gates[j]
+  simp only [hgt] at hin ⊢
+  cases hin
+  rfl
+
+lemma run_mono (n : ℕ) (gs : List Gate) (hgs : Ok n gs)
+    (x y : List Bool) (hx : x.length = n) (hy : y.length = n)
+    (hxy : ∀ i < n, x.getD i false = true → y.getD i false = true) :
+    ∀ w < n + gs.length,
+      (run gs x).getD w false = true → (run gs y).getD w false = true := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    intro hw htrue
+    by_cases hin : w < n
+    · rw [run_input gs x w (by omega)] at htrue
+      rw [run_input gs y w (by omega)]
+      exact hxy w hin htrue
+    obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
+    have hj : j < gs.length := by omega
+    obtain ⟨o, a, b, hg, hop, ha, hb⟩ := hgs j hj
+    have rx := run_gate gs x j hj
+    have ry := run_gate gs y j hj
+    rw [hx, hg] at rx
+    rw [hy, hg] at ry
+    simp only [List.map_cons, List.map_nil, if_pos ha, if_pos hb] at rx ry
+    rw [rx] at htrue
+    rw [ry]
+    rcases hop with rfl | rfl
+    · simp only [GateOp.eval, List.all_cons, List.all_nil, id_eq,
+        Bool.and_true, Bool.and_eq_true] at htrue ⊢
+      exact ⟨ih a ha (by omega) htrue.1, ih b hb (by omega) htrue.2⟩
+    · simp only [GateOp.eval, List.any_cons, List.any_nil, id_eq,
+        Bool.or_false, Bool.or_eq_true] at htrue ⊢
+      rcases htrue with h | h
+      · exact Or.inl (ih a ha (by omega) h)
+      · exact Or.inr (ih b hb (by omega) h)
+
+lemma eval_mono {n : ℕ} (C : Circuit) (hC : TopForm.IsAO2 n C)
+    (x y : Fin n → Bool) (hxy : ∀ i, x i = true → y i = true) :
+    C.eval (List.ofFn x) = true → C.eval (List.ofFn y) = true := by
+  intro hx
+  by_cases hout : C.output < n + C.gates.length
+  · exact run_mono n C.gates (ao_ok C hC) (List.ofFn x) (List.ofFn y)
+      (by simp) (by simp) (by
+        intro i hi hxi
+        simpa only [List.getD_eq_getElem?_getD, List.getElem?_ofFn,
+          dif_pos hi, Option.getD_some] using hxy ⟨i, hi⟩ (by
+            simpa only [List.getD_eq_getElem?_getD, List.getElem?_ofFn,
+              dif_pos hi, Option.getD_some] using hxi)) C.output hout hx
+  · have hfalse : C.eval (List.ofFn x) = false := by
+      change (run C.gates (List.ofFn x)).getD C.output false = false
+      exact List.getD_eq_default _ _ (by rw [run_length, List.length_ofFn]; omega)
+    rw [hfalse] at hx
+    cases hx
+
+lemma graphFun_true {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (x : Fin n → Bool) :
+    graphFun G ∅ x = true ↔ ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true := by
+  simp [graphFun]
+
+lemma least_block_contradiction (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (p oldRegion newRegion s : List Gate) (f : ℕ → ℕ → ℕ) (j : ℕ) (hj : j < s.length)
+    (hL : TopForm.IsLeastAO G
+      ⟨(p ++ oldRegion) ++ s, n + (p ++ oldRegion).length + j⟩)
+    (hprefix : TopForm.IsAO2 n ⟨p ++ newRegion, 0⟩)
+    (hf : ∀ k (hk : k < s.length), ∀ w ∈ s[k].inputs,
+      f k w < n + (p ++ newRegion).length + k)
+    (hshort : newRegion.length < oldRegion.length)
+    (hnegative : ∀ x : Fin n → Bool, graphFun G ∅ x = false →
+      LocalSim (fun old new => new = true → old = true)
+        (p ++ oldRegion) (p ++ newRegion) s f (List.ofFn x))
+    (hedge : ∀ u v : Fin n, G.Adj u v →
+      LocalSim (fun old new => old = true → new = true)
+        (p ++ oldRegion) (p ++ newRegion) s f
+        (List.ofFn (PEqualNP.EdgeOwnership.pairInput u v))) : False := by
+  let D := replaceBlock n p oldRegion newRegion s f j
+  have hAO : TopForm.IsAO2 n D :=
+    replaceBlock_ao n p oldRegion newRegion s f j hL.1 (ao_ok _ hprefix) hf
+  have hDF : circuitFun n D = graphFun G ∅ := by
+    funext x
+    apply Bool.eq_iff_iff.mpr
+    constructor
+    · intro hDx
+      cases hxF : graphFun G ∅ x with
+      | true => rfl
+      | false =>
+        have hs := replaceBlock_eval n p oldRegion newRegion s f j hj hL.1 hf
+          (List.ofFn x) (by simp) (fun old new => new = true → old = true)
+          (hnegative x hxF)
+        have hold := hs hDx
+        change circuitFun n _ x = true at hold
+        rw [hL.2.1, hxF] at hold
+        cases hold
+    · intro hxF
+      obtain ⟨u, v, huv, hu, hv⟩ := (graphFun_true G x).mp hxF
+      have hpair : D.eval (List.ofFn (PEqualNP.EdgeOwnership.pairInput u v)) = true := by
+        have hs := replaceBlock_eval n p oldRegion newRegion s f j hj hL.1 hf
+          (List.ofFn (PEqualNP.EdgeOwnership.pairInput u v)) (by simp)
+          (fun old new => old = true → new = true) (hedge u v huv)
+        apply hs
+        change circuitFun n _ (PEqualNP.EdgeOwnership.pairInput u v) = true
+        rw [hL.2.1]
+        exact (graphFun_true G _).mpr ⟨u, v, huv,
+          by simp [PEqualNP.EdgeOwnership.pairInput], by simp [PEqualNP.EdgeOwnership.pairInput]⟩
+      apply eval_mono D hAO (PEqualNP.EdgeOwnership.pairInput u v) x ?_ hpair
+      intro i hi
+      have hi' : i = u ∨ i = v := by simpa [PEqualNP.EdgeOwnership.pairInput] using hi
+      rcases hi' with rfl | rfl <;> assumption
+  have hmin := hL.2.2 D hAO hDF
+  have hsize := replaceBlock_shorter n p oldRegion newRegion s f j hshort
+  change D.size < _ at hsize
+  omega
+
+end Region
+
+namespace Reorder
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm PEqualNP.CleanedNonEdge
+
+lemma wireMap_inverse_valid {n N : ℕ} (p : Equiv.Perm (Fin N)) (w : ℕ) (hw : w < n + N) :
+    wireMap n N p.symm (wireMap n N p w) = w := by
+  by_cases hn : w < n
+  · rw [wireMap_input p w hn, wireMap_input p.symm w hn]
+  · let j : Fin N := ⟨w - n, by omega⟩
+    have heq : n + j.val = w := by dsimp [j]; omega
+    rw [← heq, wireMap_gate, wireMap_gate, p.symm_apply_apply]
+
+lemma wireMap_injective_valid {n N : ℕ} (p : Equiv.Perm (Fin N))
+    (u v : ℕ) (hu : u < n + N) (hv : v < n + N)
+    (heq : wireMap n N p u = wireMap n N p v) : u = v := by
+  have h := congrArg (wireMap n N p.symm) heq
+  rwa [wireMap_inverse_valid p u hu, wireMap_inverse_valid p v hv] at h
+
+lemma wireMap_image_card {n N : ℕ} (p : Equiv.Perm (Fin N)) (S : Finset ℕ)
+    (hS : ∀ w ∈ S, w < n + N) : (S.image (wireMap n N p)).card = S.card := by
+  apply Finset.card_image_iff.mpr
+  intro u hu v hv heq
+  exact wireMap_injective_valid p u v (hS u hu) (hS v hv) heq
+
+lemma wireMap_image_inter {n N : ℕ} (p : Equiv.Perm (Fin N)) (S T : Finset ℕ)
+    (hS : ∀ w ∈ S, w < n + N) (hT : ∀ w ∈ T, w < n + N) :
+    S.image (wireMap n N p) ∩ T.image (wireMap n N p) = (S ∩ T).image (wireMap n N p) := by
+  ext w
+  constructor
+  · intro hw
+    obtain ⟨hs, ht⟩ := Finset.mem_inter.mp hw
+    obtain ⟨a, ha, haw⟩ := Finset.mem_image.mp hs
+    obtain ⟨b, hb, hbw⟩ := Finset.mem_image.mp ht
+    have hab := wireMap_injective_valid p a b (hS a ha) (hT b hb) (haw.trans hbw.symm)
+    subst b
+    exact Finset.mem_image.mpr ⟨a, Finset.mem_inter.mpr ⟨ha, hb⟩, haw⟩
+  · intro hw
+    obtain ⟨a, ha, haw⟩ := Finset.mem_image.mp hw
+    exact Finset.mem_inter.mpr ⟨Finset.mem_image.mpr ⟨a, (Finset.mem_inter.mp ha).1, haw⟩,
+      Finset.mem_image.mpr ⟨a, (Finset.mem_inter.mp ha).2, haw⟩⟩
+
+lemma wireMap_prefix_iff {n N : ℕ} (p : Equiv.Perm (Fin N)) (S : Finset (Fin N))
+    (hp : ∀ j : Fin N, (p j).val < S.card ↔ j ∈ S) (w : ℕ) (hw : w < n + N) :
+    wireMap n N p w < n + S.card ↔ w < n ∨ ∃ j ∈ S, w = n + j.val := by
+  by_cases hn : w < n
+  · rw [wireMap_input p w hn]
+    constructor
+    · intro _; exact Or.inl hn
+    · intro _; omega
+  · let j : Fin N := ⟨w - n, by omega⟩
+    have heq : n + j.val = w := by dsimp [j]; omega
+    rw [← heq, wireMap_gate]
+    constructor
+    · intro h
+      exact Or.inr ⟨j, (hp j).mp (by omega), rfl⟩
+    · rintro (h | ⟨k, hk, hkj⟩)
+      · omega
+      · have hkj' : k = j := Fin.ext (by omega)
+        subst k
+        have h := (hp j).mpr hk
+        omega
+
+lemma wireMap_two_closed_small_iff {n N : ℕ} (P K : Finset (Fin N))
+    (w : ℕ) (hw : w < n + N) :
+    wireMap n N (sortPerm (blockKey P K)) w < n + P.card ↔
+      w < n ∨ ∃ j ∈ P, w = n + j.val := by
+  exact wireMap_prefix_iff _ P (two_closed_hoist_prefix_small P K) w hw
+
+lemma wireMap_two_closed_large_iff {n N : ℕ} (P K : Finset (Fin N)) (hPK : P ⊆ K)
+    (w : ℕ) (hw : w < n + N) :
+    wireMap n N (sortPerm (blockKey P K)) w < n + K.card ↔
+      w < n ∨ ∃ j ∈ K, w = n + j.val := by
+  exact wireMap_prefix_iff _ K (two_closed_hoist_prefix_large P K hPK) w hw
+
+lemma two_closed_hoist_output_suffix {n : ℕ} (C : Circuit)
+    (P K : Finset (Fin C.gates.length)) (hPK : P ⊆ K)
+    (houtLo : n ≤ C.output) (houtHi : C.output < n + C.gates.length)
+    (houtK : ∀ j ∈ K, n + j.val ≠ C.output) :
+    ∃ j < C.gates.length - K.card,
+      (permute n C (sortPerm (blockKey P K))).output = n + K.card + j := by
+  let q : Fin C.gates.length := ⟨C.output - n, by omega⟩
+  have hq : n + q.val = C.output := by dsimp [q]; omega
+  have hqK : q ∉ K := fun h => houtK q h hq
+  have hge : K.card ≤ (sortPerm (blockKey P K) q).val := by
+    by_contra h
+    exact hqK ((two_closed_hoist_prefix_large P K hPK q).mp (by omega))
+  have hlt := (sortPerm (blockKey P K) q).isLt
+  refine ⟨(sortPerm (blockKey P K) q).val - K.card, by omega, ?_⟩
+  change wireMap n C.gates.length (sortPerm (blockKey P K)) C.output = _
+  rw [← hq, wireMap_gate]
+  omega
+
+end Reorder
+
+namespace BoundaryColors
+
+open PEqualNP.EdgeOwnership PEqualNP.MetaComplexity.NestedCover
+open ColorProjection
+
+noncomputable def color {n : ℕ} (A : ℕ → Finset (Fin n)) (s : Fin n → Bool)
+    (w : ℕ) : Bool :=
+  if h : ∃ c : Bool, ∀ i ∈ A w, s i = c then Classical.choose h else false
+
+lemma color_spec {n : ℕ} (A : ℕ → Finset (Fin n)) (s : Fin n → Bool)
+    (w : ℕ) (h : ∃ c : Bool, ∀ i ∈ A w, s i = c) :
+    ∀ i ∈ A w, s i = color A s w := by
+  simp only [color, dif_pos h]
+  exact Classical.choose_spec h
+
+lemma setOr_ext {n : ℕ} (A B : Finset (Fin n))
+    (h : ∀ x : Fin n → Bool, setOr A x = setOr B x) : A = B := by
+  ext i
+  have hi := congrArg (fun b : Bool => b = true) (h (pairInput i i))
+  simpa [setOr, pairInput] using hi
+
+lemma support_union_eq {n : ℕ} (S : Finset ℕ) (A : ℕ → Finset (Fin n))
+    (T : Finset (Fin n)) (V : ℕ → (Fin n → Bool) → Bool)
+    (hV : ∀ w ∈ S, ∀ x : Fin n → Bool, V w x = setOr (A w) x)
+    (hsem : ∀ x : Fin n → Bool,
+      decide (∃ w ∈ S, V w x = true) = setOr T x) : S.biUnion A = T := by
+  apply setOr_ext
+  intro x
+  rw [← hsem x]
+  apply Bool.eq_iff_iff.mpr
+  simp only [setOr, decide_eq_true_eq, Finset.mem_biUnion]
+  constructor
+  · rintro ⟨i, ⟨w, hw, hi⟩, hx⟩
+    exact ⟨w, hw, (hV w hw x).trans (decide_eq_true ⟨i, hi, hx⟩)⟩
+  · rintro ⟨w, hw, hv⟩
+    rw [hV w hw x] at hv
+    obtain ⟨i, hi, hx⟩ := of_decide_eq_true hv
+    exact ⟨i, ⟨w, hw, hi⟩, hx⟩
+
+lemma source_each_color {n : ℕ} (S : Finset ℕ) (A : ℕ → Finset (Fin n))
+    (T : Finset (Fin n)) (s : Fin n → Bool)
+    (hmono : ∀ w ∈ S, ∃ c : Bool, ∀ i ∈ A w, s i = c)
+    (hunion : S.biUnion A = T)
+    (hmixed : ¬ ∃ c : Bool, ∀ i ∈ T, s i = c) (c : Bool) :
+    ∃ w ∈ S, color A s w = c := by
+  by_contra hnone
+  apply hmixed
+  refine ⟨!c, ?_⟩
+  intro i hi
+  rw [← hunion] at hi
+  obtain ⟨w, hw, hiw⟩ := Finset.mem_biUnion.mp hi
+  have hne : color A s w ≠ c := fun hc => hnone ⟨w, hw, hc⟩
+  have hc : color A s w = !c := by
+    cases hcw : color A s w <;> cases c <;> simp_all
+  exact (color_spec A s w (hmono w hw) i hiw).trans hc
+
+lemma source_projection_semantics {n : ℕ} (S : Finset ℕ)
+    (A : ℕ → Finset (Fin n)) (T : Finset (Fin n)) (s : Fin n → Bool)
+    (V : ℕ → Bool) (x : Fin n → Bool)
+    (hmono : ∀ w ∈ S, ∃ c : Bool, ∀ i ∈ A w, s i = c)
+    (hunion : S.biUnion A = T)
+    (hV : ∀ w ∈ S, V w = setOr (A w) x) (c : Bool) :
+    decide (∃ w ∈ S.filter (fun w => color A s w = c), V w = true) =
+      setOr (project T s c) x := by
+  rw [← hunion]
+  exact source_projection_eq S A (color A s) s c x V hV
+    (fun w hw => color_spec A s w (hmono w hw))
+
+lemma product_project_decreases {n : ℕ} (A B : Finset (Fin n))
+    (s : Fin n → Bool) (c : Bool) (x : Fin n → Bool) :
+    (setOr A x && setOr (project B s c) x) = true →
+      (setOr A x && setOr B x) = true := by
+  simp only [Bool.and_eq_true]
+  exact fun h => ⟨h.1, project_le B s c x h.2⟩
+
+lemma product_projection_boundary {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (A B : Finset (Fin n)) (s : Fin n → Bool) (c : Bool)
+    (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hA : ∀ a ∈ A, s a = c) (hdis : Disjoint A B) :
+    (∀ x : Fin n → Bool, (setOr A x && setOr (project B s (!c)) x) = true →
+      (setOr A x && setOr B x) = true) ∧
+    (∀ u v, G.Adj u v →
+      (setOr A (pairInput u v) && setOr B (pairInput u v)) = true →
+      (setOr A (pairInput u v) && setOr (project B s (!c)) (pairInput u v)) = true) := by
+  refine ⟨fun x => product_project_decreases A B s (!c) x, ?_⟩
+  intro u v huv ht
+  rwa [product_project_pair A B s c hA hdis u v (hbip u v huv)]
+
+end BoundaryColors
+
+namespace OutputSupport
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+open MixedFrontier MixedReach MixedCut
+
+lemma graphFun_diagonal {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (i : Fin n) : graphFun G ∅ (pairInput i i) = false := by
+  simp [graphFun, pairInput]
+
+lemma output_orIn_empty {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hF : circuitFun n C = graphFun G ∅) :
+    orIn n C C.output = ∅ := by
+  apply Finset.eq_empty_iff_forall_notMem.mpr
+  intro i hi
+  have hv := orIn_val C (pairInput i i) C.output i hi (by simp [pairInput])
+  change circuitFun n C (pairInput i i) = true at hv
+  rw [hF, graphFun_diagonal] at hv
+  contradiction
+
+lemma output_not_raw {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hF : circuitFun n C = graphFun G ∅) : n ≤ C.output := by
+  by_contra h
+  have hraw : C.output < n := by omega
+  have hi : (⟨C.output, hraw⟩ : Fin n) ∈ orIn n C C.output :=
+    (orIn_mem n C C.output _).mpr (Or.inl rfl)
+  rw [output_orIn_empty G C hF] at hi
+  exact Finset.notMem_empty _ hi
+
+lemma region_not_output {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hF : circuitFun n C = graphFun G ∅)
+    (hT : TopForm G C) (g h : ℕ) (hpair : junk G C = {g, h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (k : ℕ) (hk : k ∈ region n C g h) : n + k ≠ C.output := by
+  intro heq
+  have hne := region_support_nonempty G C hAO hT g h hpair hgh hhg k hk
+  rw [heq, output_orIn_empty G C hF] at hne
+  exact Finset.not_nonempty_empty hne
+
+end OutputSupport
+
+namespace TwoOrBuild
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+
+lemma circuit_output_valid_of_true {n : ℕ} (C : Circuit) (x : Fin n → Bool)
+    (htrue : circuitFun n C x = true) : C.output < n + C.gates.length := by
+  by_contra h
+  have hout : (run C.gates (List.ofFn x)).length ≤ C.output := by
+    rw [run_length, List.length_ofFn]
+    omega
+  have hfalse : circuitFun n C x = false := List.getD_eq_default _ _ hout
+  rw [hfalse] at htrue
+  contradiction
+
+lemma sourceOr_all_true {n : ℕ} (C : Circuit) (hC : PEqualNP.TopForm.IsAO2 n C)
+    (S : Finset ℕ) (hS : ∀ w ∈ S, w < n + C.gates.length)
+    (hne : S.Nonempty) : sourceOr C.gates (List.ofFn (fun _ : Fin n => true)) S = true := by
+  obtain ⟨w, hw⟩ := hne
+  apply decide_eq_true
+  exact ⟨w, hw, MixedFrontier.W_all_true C hC w (hS w hw)⟩
+
+lemma two_color_projection_circuits_valid (n : ℕ) (C : Circuit)
+    (hC : PEqualNP.TopForm.IsAO2 n C) (color : ℕ → Bool) (c d : Bool) (S T : Finset ℕ)
+    (hS : ∀ w ∈ S, w < n + C.gates.length) (hT : ∀ w ∈ T, w < n + C.gates.length)
+    (hSmixed : HasBoth color S) (hTmixed : HasBoth color T) :
+    ∃ (hs : List Gate) (wS wT : ℕ),
+      PEqualNP.TopForm.IsAO2 n ⟨C.gates ++ hs, wS⟩ ∧
+      PEqualNP.TopForm.IsAO2 n ⟨C.gates ++ hs, wT⟩ ∧
+      (∀ g ∈ hs, g.op = GateOp.or) ∧ hs.length < pairCost S T ∧
+      wS < n + (C.gates ++ hs).length ∧ wT < n + (C.gates ++ hs).length ∧
+      ∀ x : Fin n → Bool,
+        circuitFun n ⟨C.gates ++ hs, wS⟩ x = sourceOr C.gates (List.ofFn x) (projectColor color c S) ∧
+        circuitFun n ⟨C.gates ++ hs, wT⟩ x = sourceOr C.gates (List.ofFn x) (projectColor color d T) := by
+  obtain ⟨hs, wS, wT, hAO1, hAO2, hops, hlen, heval⟩ :=
+    two_color_projection_circuits n C hC color c d S T hS hT hSmixed hTmixed
+  have hall := heval (fun _ => true)
+  have htrueS : circuitFun n ⟨C.gates ++ hs, wS⟩ (fun _ => true) = true := by
+    rw [hall.1]
+    exact sourceOr_all_true C hC _
+      (fun w hw => hS w (project_subset color c S hw)) (project_nonempty color c S hSmixed)
+  have htrueT : circuitFun n ⟨C.gates ++ hs, wT⟩ (fun _ => true) = true := by
+    rw [hall.2]
+    exact sourceOr_all_true C hC _
+      (fun w hw => hT w (project_subset color d T hw)) (project_nonempty color d T hTmixed)
+  exact ⟨hs, wS, wT, hAO1, hAO2, hops, hlen,
+    circuit_output_valid_of_true _ _ htrueS, circuit_output_valid_of_true _ _ htrueT, heval⟩
+
+end TwoOrBuild
+
+namespace ActualCut
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_5012
+open MixedCut MixedFrontier MixedReach
+
+def wires (n : ℕ) (C : Circuit) (s : Fin n → Bool) (g h : ℕ) : Finset ℕ :=
+  (mixedRegion n C s g h).image (fun k => n + k)
+
+def boundary (n : ℕ) (C : Circuit) (s : Fin n → Bool) (g h : ℕ) : Finset ℕ :=
+  ((mixedRegion n C s g h).biUnion fun k => (gateAt C k).inputs.toFinset) \
+    wires n C s g h
+
+lemma wires_card {n : ℕ} (C : Circuit) (s : Fin n → Bool) (g h : ℕ) :
+    (wires n C s g h).card = (mixedRegion n C s g h).card := by
+  apply Finset.card_image_iff.mpr
+  intro a _ b _ hab
+  exact Nat.add_left_cancel hab
+
+lemma boundary_disjoint {n : ℕ} (C : Circuit) (s : Fin n → Bool) (g h : ℕ) :
+    Disjoint (boundary n C s g h) (wires n C s g h) := by
+  exact Finset.sdiff_disjoint
+
+lemma wires_or {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hAO : IsAO2 n C) (hT : TopForm G C)
+    (g h : ℕ) (hpair : junk G C = {g, h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g) :
+    ∀ w ∈ wires n C s g h, ∃ k < C.gates.length,
+      w = n + k ∧ (gateAt C k).op = GateOp.or := by
+  intro w hw
+  obtain ⟨k, hk, rfl⟩ := Finset.mem_image.mp hw
+  have hkK := (Finset.mem_sdiff.mp hk).1
+  exact ⟨k, ((region_mem C g h k).mp hkK).1, rfl,
+    region_only_or G C hAO hT g h hpair hgh hhg k hkK⟩
+
+lemma boundary_parents {n : ℕ} (C : Circuit) (s : Fin n → Bool)
+    (hAO : IsAO2 n C) (g h : ℕ) :
+    ∀ w ∈ wires n C s g h, ∀ b : Fin 2,
+      opnd C (w - n) b ∈ boundary n C s g h ∪ wires n C s g h := by
+  intro w hw b
+  obtain ⟨k, hk, rfl⟩ := Finset.mem_image.mp hw
+  have hklt := ((region_mem C g h k).mp (Finset.mem_sdiff.mp hk).1).1
+  have hinp := operand_mem C hAO k hklt b
+  have hmem : opnd C k b ∈ (mixedRegion n C s g h).biUnion
+      (fun j => (gateAt C j).inputs.toFinset) :=
+    Finset.mem_biUnion.mpr ⟨k, hk, List.mem_toFinset.mpr hinp⟩
+  have hsub : (mixedRegion n C s g h).biUnion (fun j => (gateAt C j).inputs.toFinset) ⊆
+      boundary n C s g h ∪ wires n C s g h := by
+    intro u hu
+    by_cases hj : u ∈ wires n C s g h
+    · exact Finset.mem_union_right _ hj
+    · exact Finset.mem_union_left _ (Finset.mem_sdiff.mpr ⟨hu, hj⟩)
+  simpa using hsub hmem
+
+lemma boundary_used {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hAO : IsAO2 n C) (hT : TopForm G C)
+    (g h : ℕ) (hpair : junk G C = {g, h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g) :
+    ∀ b ∈ boundary n C s g h, ∃ w ∈ wires n C s g h,
+      CountCut.cutOrStep n C (wires n C s g h) b w := by
+  intro b hb
+  obtain ⟨hb, _⟩ := Finset.mem_sdiff.mp hb
+  obtain ⟨k, hk, hread⟩ := Finset.mem_biUnion.mp hb
+  have hkK := (Finset.mem_sdiff.mp hk).1
+  have hklt := ((region_mem C g h k).mp hkK).1
+  have hread' := List.mem_toFinset.mp hread
+  have hw : n + k ∈ wires n C s g h := Finset.mem_image.mpr ⟨k, hk, rfl⟩
+  exact ⟨n + k, hw, ⟨⟨k, hklt, rfl,
+    region_only_or G C hAO hT g h hpair hgh hhg k hkK, hread',
+    hAO.2.1 k hklt b hread'⟩, hw⟩⟩
+
+lemma boundary_pure {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hAO : IsAO2 n C) (hT : TopForm G C)
+    (g h : ℕ) (hpair : junk G C = {g, h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (w : ℕ) (hw : w ∈ boundary n C s g h) :
+    (w < n ∨ ∃ k ∈ pureRegion n C s g h, w = n + k) ∧
+    (orIn n C w).Nonempty ∧ (∃ c : Bool, ∀ i ∈ orIn n C w, s i = c) ∧
+      ∀ x : Fin n → Bool, wireVal n C w x = decide (∃ i ∈ orIn n C w, x i = true) := by
+  obtain ⟨hw, hout⟩ := Finset.mem_sdiff.mp hw
+  obtain ⟨k, hk, hread⟩ := Finset.mem_biUnion.mp hw
+  have hout' : ∀ r ∈ mixedRegion n C s g h, w ≠ n + r := by
+    intro r hr heq
+    exact hout (Finset.mem_image.mpr ⟨r, hr, heq.symm⟩)
+  exact ⟨mixedRegion_boundary_raw_or_pure G C s hAO hT g h hpair hgh hhg k hk w
+    (List.mem_toFinset.mp hread) hout',
+    mixedRegion_boundary_support G C s hAO hT g h hpair hgh hhg k hk w
+    (List.mem_toFinset.mp hread) hout'⟩
+
+lemma wires_forward_closed {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true)
+    (g h : ℕ) (hpair : junk G C = {g, h}) :
+    ∀ u ∈ wires n C s g h, ∀ v, CountCut.orWireStep n C u v → v ∈ wires n C s g h := by
+  intro u hu v hv
+  obtain ⟨k, hk, rfl⟩ := Finset.mem_image.mp hu
+  obtain ⟨r, hr, rfl, hrop, hread, _⟩ := hv
+  exact Finset.mem_image.mpr ⟨r,
+    mixedRegion_or_reader_closed G C s hbip hL hT hJ g h hpair k hk r hr hrop hread, rfl⟩
+
+lemma mixed_wire_mem {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true)
+    (g h : ℕ) (hpair : junk G C = {g, h}) (w : ℕ) (hw : w < n + C.gates.length)
+    (hmix : ∀ c : Bool, ∃ i ∈ orIn n C w, s i = c) : w ∈ wires n C s g h := by
+  have hn : n ≤ w := by
+    by_contra hn
+    have hpure := raw_or_pure_support_monochromatic C s g h w (Or.inl (by omega))
+    exact mixed_not_monochromatic s _ hmix hpure
+  obtain ⟨k, rfl⟩ : ∃ k, w = n + k := ⟨w - n, by omega⟩
+  have hk : k < C.gates.length := by omega
+  exact Finset.mem_image.mpr ⟨k, (mixedRegion_mem C s g h k).mpr
+    ⟨all_mixed_mem_region G C s hbip hL hT hJ g h hpair k hk hmix, hmix⟩, rfl⟩
+
+lemma wires_two_roots {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true)
+    (g h : ℕ) (bg bh : Fin 2) (hpair : junk G C = {g, h})
+    (hpureg : ∃ c : Bool, ∀ i ∈ side (n := n) C g (1 - bg), s i = c)
+    (hpureh : ∃ c : Bool, ∀ i ∈ side (n := n) C h (1 - bh), s i = c) :
+    ∀ w ∈ wires n C s g h,
+      Relation.ReflTransGen (CountCut.cutOrStep n C (wires n C s g h)) w (opnd C g bg) ∨
+      Relation.ReflTransGen (CountCut.cutOrStep n C (wires n C s g h)) w (opnd C h bh) := by
+  intro w hw
+  obtain ⟨k, hk, rfl⟩ := Finset.mem_image.mp hw
+  have hmem : n + k ∈ wires n C s g h := Finset.mem_image.mpr ⟨k, hk, rfl⟩
+  obtain ⟨hkK, hmix⟩ := (mixedRegion_mem C s g h k).mp hk
+  have hklt := ((region_mem C g h k).mp hkK).1
+  have hc := wires_forward_closed G C s hbip hL hT hJ g h hpair
+  rcases least_mixed_two_operand_coverage G C s hbip hL hT hJ g h bg bh hpair
+      hpureg hpureh k hklt hmix with hr | hr
+  · exact Or.inl (CountCut.closed_path_is_cutPath n C _ hc hmem
+      (CountCut.orReaches_path n C _ k hr)).2
+  · exact Or.inr (CountCut.closed_path_is_cutPath n C _ hc hmem
+      (CountCut.orReaches_path n C _ k hr)).2
+
+lemma sources_nonempty {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hAO : IsAO2 n C) (hT : TopForm G C)
+    (g h : ℕ) (hpair : junk G C = {g, h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (w : ℕ) (hw : w ∈ wires n C s g h) :
+    (BoundarySources.sources n C (boundary n C s g h) (wires n C s g h) w).Nonempty := by
+  have hJ := wires_or G C s hAO hT g h hpair hgh hhg
+  obtain ⟨k, hk, rfl, _⟩ := hJ w hw
+  have hv : wireVal n C (n + k) (fun _ => true) = true := W_all_true C hAO _ (by omega)
+  obtain ⟨b, hb, _⟩ := (BoundarySources.wire_true_iff_source C hAO _ _ hJ
+    (boundary_parents C s hAO g h) (fun _ => true) _ (Finset.mem_union_right _ hw)).mp hv
+  exact ⟨b, hb⟩
+
+lemma mixed_operand_mem {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true)
+    (g h : ℕ) (hpair : junk G C = {g, h}) (a : ℕ) (ha : a ∈ junk G C) (b : Fin 2)
+    (hmix : ∀ c : Bool, ∃ i ∈ side (n := n) C a b, s i = c) :
+    opnd C a b ∈ wires n C s g h := by
+  have halt := (junk_data G C a ha).1
+  have hw := hL.1.2.1 a halt _ (operand_mem C hL.1 a halt b)
+  exact mixed_wire_mem G C s hbip hL hT hJ g h hpair _ (by omega) hmix
+
+lemma pairCost_le_mixedRegion {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v)
+    (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hJ : ∀ k ∈ junk G C, ∃ c : Bool, gateVal n C k (mono s c) = true)
+    (g h : ℕ) (bg bh : Fin 2) (hpair : junk G C = {g, h})
+    (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g)
+    (hpureg : ∃ c : Bool, ∀ i ∈ side (n := n) C g (1 - bg), s i = c)
+    (hpureh : ∃ c : Bool, ∀ i ∈ side (n := n) C h (1 - bh), s i = c)
+    (hmixg : ∀ c : Bool, ∃ i ∈ side (n := n) C g bg, s i = c)
+    (hmixh : ∀ c : Bool, ∃ i ∈ side (n := n) C h bh, s i = c) :
+    TwoOrBuild.pairCost
+      (BoundarySources.sources n C (boundary n C s g h) (wires n C s g h) (opnd C g bg))
+      (BoundarySources.sources n C (boundary n C s g h) (wires n C s g h) (opnd C h bh)) ≤
+      (mixedRegion n C s g h).card := by
+  have hgj : g ∈ junk G C := by rw [hpair]; simp
+  have hhj : h ∈ junk G C := by rw [hpair]; simp
+  have hrg := mixed_operand_mem G C s hbip hL hT hJ g h hpair g hgj bg hmixg
+  have hrh := mixed_operand_mem G C s hbip hL hT hJ g h hpair h hhj bh hmixh
+  have hbound := BoundarySources.pairCost_le_gates n C hL.1
+    (boundary n C s g h) (wires n C s g h) (boundary_disjoint C s g h)
+    (opnd C g bg) (opnd C h bh) hrg hrh
+    (boundary_parents C s hL.1 g h)
+    (boundary_used G C s hL.1 hT g h hpair hgh hhg)
+    (wires_two_roots G C s hbip hL hT hJ g h bg bh hpair hpureg hpureh)
+    (sources_nonempty G C s hL.1 hT g h hpair hgh hhg _ hrg)
+    (sources_nonempty G C s hL.1 hT g h hpair hgh hhg _ hrh)
+  simpa only [wires_card] using hbound
+
+end ActualCut
+
+namespace RegionLocal
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_5012.Region
+
+lemma gate_eval_imp (g : Gate) (hop : g.op = GateOp.and ∨ g.op = GateOp.or)
+    (u v : ℕ → Bool) (h : ∀ w ∈ g.inputs, u w = true → v w = true) :
+    g.op.eval (g.inputs.map u) = true → g.op.eval (g.inputs.map v) = true := by
+  intro hu
+  rcases hop with ho | ho
+  · have hu' : ∀ w ∈ g.inputs, u w = true := by
+      simpa [ho, GateOp.eval, List.all_eq_true] using hu
+    have hv : ∀ w ∈ g.inputs, v w = true := fun w hw => h w hw (hu' w hw)
+    simpa [ho, GateOp.eval, List.all_eq_true] using hv
+  · obtain ⟨w, hw, hwu⟩ : ∃ w ∈ g.inputs, u w = true := by
+      simpa [ho, GateOp.eval, List.any_eq_true] using hu
+    have hv : ∃ w ∈ g.inputs, v w = true := ⟨w, hw, h w hw hwu⟩
+    simpa [ho, GateOp.eval, List.any_eq_true] using hv
+
+lemma localSim_of_prefix_gate (R : Bool → Bool → Prop) (oldP newP : List Gate)
+    (g : Gate) (f : ℕ → ℕ) (x : List Bool) (u v : ℕ → Bool)
+    (hOld : ∀ w ∈ g.inputs, w < x.length + oldP.length)
+    (hNew : ∀ w ∈ g.inputs, f w < x.length + newP.length)
+    (hu : ∀ w < x.length + oldP.length, u w = (run oldP x).getD w false)
+    (hv : ∀ w < x.length + newP.length, v w = (run newP x).getD w false)
+    (hgate : R (g.op.eval (g.inputs.map fun w => (run oldP x).getD w false))
+      (g.op.eval (g.inputs.map fun w => (run newP x).getD (f w) false))) :
+    R (g.op.eval (g.inputs.map u)) (g.op.eval (g.inputs.map fun w => v (f w))) := by
+  have hmu : g.inputs.map u = g.inputs.map (fun w => (run oldP x).getD w false) :=
+    List.map_congr_left (fun w hw => hu w (hOld w hw))
+  have hmv : g.inputs.map (fun w => v (f w)) =
+      g.inputs.map (fun w => (run newP x).getD (f w) false) :=
+    List.map_congr_left (fun w hw => hv (f w) (hNew w hw))
+  rwa [hmu, hmv]
+
+lemma localSim_of_targets (R : Bool → Bool → Prop)
+    (hrefl : ∀ z : Bool, R z z)
+    (hcompat : ∀ (g : Gate), (g.op = GateOp.and ∨ g.op = GateOp.or) →
+      ∀ u v : ℕ → Bool, (∀ w ∈ g.inputs, R (u w) (v w)) →
+      R (g.op.eval (g.inputs.map u)) (g.op.eval (g.inputs.map v)))
+    (p q r s : List Gate) (f : ℕ → ℕ → ℕ) (x : List Bool) (targets : Finset ℕ)
+    (hops : ∀ k (hk : k < s.length), s[k].op = GateOp.and ∨ s[k].op = GateOp.or)
+    (hback : ∀ k (hk : k < s.length), ∀ w ∈ s[k].inputs,
+      w < x.length + (p ++ q).length + k)
+    (hkeep : ∀ k w, w < x.length + p.length → f k w = w)
+    (hshift : ∀ k w, x.length + (p ++ q).length ≤ w →
+      f k w = x.length + (p ++ r).length + (w - (x.length + (p ++ q).length)))
+    (hordinary : ∀ k (hk : k < s.length), k ∉ targets → ∀ w ∈ s[k].inputs,
+      w < x.length + p.length ∨ x.length + (p ++ q).length ≤ w)
+    (htOld : ∀ k (hk : k < s.length), k ∈ targets → ∀ w ∈ s[k].inputs,
+      w < x.length + (p ++ q).length)
+    (htNew : ∀ k (hk : k < s.length), k ∈ targets → ∀ w ∈ s[k].inputs,
+      f k w < x.length + (p ++ r).length)
+    (htarget : ∀ k (hk : k < s.length), k ∈ targets →
+      R (s[k].op.eval (s[k].inputs.map fun w => (run (p ++ q) x).getD w false))
+        (s[k].op.eval (s[k].inputs.map fun w => (run (p ++ r) x).getD (f k w) false))) :
+    LocalSim R (p ++ q) (p ++ r) s f x := by
+  classical
+  intro k hk u v hu hv hprevious
+  by_cases hkt : k ∈ targets
+  · exact localSim_of_prefix_gate R (p ++ q) (p ++ r) s[k] (f k) x u v
+      (htOld k hk hkt) (htNew k hk hkt) hu hv (htarget k hk hkt)
+  · apply hcompat s[k] (hops k hk) u (fun w => v (f k w))
+    intro w hw
+    rcases hordinary k hk hkt w hw with hp | hs
+    · have hpo : w < x.length + (p ++ q).length := by simp only [List.length_append]; omega
+      have hpn : w < x.length + (p ++ r).length := by simp only [List.length_append]; omega
+      rw [hkeep k w hp, hu w hpo, hv w hpn,
+        run_prefix p q x w hp, run_prefix p r x w hp]
+      exact hrefl _
+    · have hi : w - (x.length + (p ++ q).length) < k := by
+        have := hback k hk w hw
+        omega
+      have hprev := hprevious _ hi
+      rw [hshift k w hs]
+      have heq : x.length + (p ++ q).length + (w - (x.length + (p ++ q).length)) = w := by omega
+      rwa [heq] at hprev
+
+lemma localSim_forward_of_targets (p q r s : List Gate) (f : ℕ → ℕ → ℕ)
+    (x : List Bool) (targets : Finset ℕ)
+    (hops : ∀ k (hk : k < s.length), s[k].op = GateOp.and ∨ s[k].op = GateOp.or)
+    (hback : ∀ k (hk : k < s.length), ∀ w ∈ s[k].inputs, w < x.length + (p ++ q).length + k)
+    (hkeep : ∀ k w, w < x.length + p.length → f k w = w)
+    (hshift : ∀ k w, x.length + (p ++ q).length ≤ w →
+      f k w = x.length + (p ++ r).length + (w - (x.length + (p ++ q).length)))
+    (hordinary : ∀ k (hk : k < s.length), k ∉ targets → ∀ w ∈ s[k].inputs,
+      w < x.length + p.length ∨ x.length + (p ++ q).length ≤ w)
+    (htOld : ∀ k (hk : k < s.length), k ∈ targets → ∀ w ∈ s[k].inputs, w < x.length + (p ++ q).length)
+    (htNew : ∀ k (hk : k < s.length), k ∈ targets → ∀ w ∈ s[k].inputs, f k w < x.length + (p ++ r).length)
+    (htarget : ∀ k (hk : k < s.length), k ∈ targets →
+      s[k].op.eval (s[k].inputs.map fun w => (run (p ++ q) x).getD w false) = true →
+        s[k].op.eval (s[k].inputs.map fun w => (run (p ++ r) x).getD (f k w) false) = true) :
+    LocalSim (fun old new => old = true → new = true) (p ++ q) (p ++ r) s f x :=
+  localSim_of_targets _ (fun _ h => h) gate_eval_imp p q r s f x targets
+    hops hback hkeep hshift hordinary htOld htNew htarget
+
+lemma localSim_reverse_of_targets (p q r s : List Gate) (f : ℕ → ℕ → ℕ)
+    (x : List Bool) (targets : Finset ℕ)
+    (hops : ∀ k (hk : k < s.length), s[k].op = GateOp.and ∨ s[k].op = GateOp.or)
+    (hback : ∀ k (hk : k < s.length), ∀ w ∈ s[k].inputs, w < x.length + (p ++ q).length + k)
+    (hkeep : ∀ k w, w < x.length + p.length → f k w = w)
+    (hshift : ∀ k w, x.length + (p ++ q).length ≤ w →
+      f k w = x.length + (p ++ r).length + (w - (x.length + (p ++ q).length)))
+    (hordinary : ∀ k (hk : k < s.length), k ∉ targets → ∀ w ∈ s[k].inputs,
+      w < x.length + p.length ∨ x.length + (p ++ q).length ≤ w)
+    (htOld : ∀ k (hk : k < s.length), k ∈ targets → ∀ w ∈ s[k].inputs, w < x.length + (p ++ q).length)
+    (htNew : ∀ k (hk : k < s.length), k ∈ targets → ∀ w ∈ s[k].inputs, f k w < x.length + (p ++ r).length)
+    (htarget : ∀ k (hk : k < s.length), k ∈ targets →
+      s[k].op.eval (s[k].inputs.map fun w => (run (p ++ r) x).getD (f k w) false) = true →
+        s[k].op.eval (s[k].inputs.map fun w => (run (p ++ q) x).getD w false) = true) :
+    LocalSim (fun old new => new = true → old = true) (p ++ q) (p ++ r) s f x :=
+  localSim_of_targets _ (fun _ h => h)
+    (fun g ho u v h => gate_eval_imp g ho v u h) p q r s f x targets
+    hops hback hkeep hshift hordinary htOld htNew htarget
+
+def blockMap (n : ℕ) (p q r : List Gate) (targetWire : ℕ → ℕ) (k w : ℕ) : ℕ :=
+  if w < n + p.length then w
+  else if n + (p ++ q).length ≤ w then
+    n + (p ++ r).length + (w - (n + (p ++ q).length))
+  else targetWire k
+
+lemma blockMap_keep (n : ℕ) (p q r : List Gate) (targetWire : ℕ → ℕ) :
+    ∀ k w, w < n + p.length → blockMap n p q r targetWire k w = w := by
+  intro k w hw
+  simp only [blockMap, if_pos hw]
+
+lemma blockMap_shift (n : ℕ) (p q r : List Gate) (targetWire : ℕ → ℕ) :
+    ∀ k w, n + (p ++ q).length ≤ w → blockMap n p q r targetWire k w =
+      n + (p ++ r).length + (w - (n + (p ++ q).length)) := by
+  intro k w hw
+  have hnot : ¬ w < n + p.length := by simp only [List.length_append] at hw; omega
+  simp only [blockMap, if_neg hnot, if_pos hw]
+
+lemma blockMap_region (n : ℕ) (p q r : List Gate) (targetWire : ℕ → ℕ)
+    (k w : ℕ) (hlo : n + p.length ≤ w) (hhi : w < n + (p ++ q).length) :
+    blockMap n p q r targetWire k w = targetWire k := by
+  have hnot : ¬ w < n + p.length := by omega
+  have hnot' : ¬ n + (p ++ q).length ≤ w := by omega
+  simp only [blockMap, if_neg hnot, if_neg hnot']
+
+lemma blockMap_prefix_bound (n : ℕ) (p q r : List Gate) (targetWire : ℕ → ℕ)
+    (k w : ℕ) (hw : w < n + (p ++ q).length)
+    (ht : targetWire k < n + (p ++ r).length) :
+    blockMap n p q r targetWire k w < n + (p ++ r).length := by
+  by_cases hp : w < n + p.length
+  · rw [blockMap_keep n p q r targetWire k w hp]
+    simp only [List.length_append]
+    omega
+  · rw [blockMap_region n p q r targetWire k w (by omega) hw]
+    exact ht
+
+lemma blockMap_back (n : ℕ) (p q r s : List Gate) (targetWire : ℕ → ℕ)
+    (targets : Finset ℕ)
+    (hback : ∀ k (hk : k < s.length), ∀ w ∈ s[k].inputs, w < n + (p ++ q).length + k)
+    (hordinary : ∀ k (hk : k < s.length), k ∉ targets → ∀ w ∈ s[k].inputs,
+      w < n + p.length ∨ n + (p ++ q).length ≤ w)
+    (hroot : ∀ k ∈ targets, targetWire k < n + (p ++ r).length) :
+    ∀ k (hk : k < s.length), ∀ w ∈ s[k].inputs,
+      blockMap n p q r targetWire k w < n + (p ++ r).length + k := by
+  intro k hk w hw
+  by_cases hp : w < n + p.length
+  · rw [blockMap_keep n p q r targetWire k w hp]
+    simp only [List.length_append]
+    omega
+  · by_cases hs : n + (p ++ q).length ≤ w
+    · rw [blockMap_shift n p q r targetWire k w hs]
+      have := hback k hk w hw
+      omega
+    · have hkt : k ∈ targets := by
+        by_contra hnot
+        exact (hordinary k hk hnot w hw).elim hp hs
+      rw [blockMap_region n p q r targetWire k w (by omega) (by omega)]
+      have := hroot k hkt
+      omega
+
+lemma least_block_with_targets (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (p q r s : List Gate) (targetWire : ℕ → ℕ) (targets : Finset ℕ)
+    (j : ℕ) (hj : j < s.length)
+    (hL : TopForm.IsLeastAO G ⟨(p ++ q) ++ s, n + (p ++ q).length + j⟩)
+    (hprefix : TopForm.IsAO2 n ⟨p ++ r, 0⟩)
+    (hshort : r.length < q.length)
+    (hroot : ∀ k ∈ targets, targetWire k < n + (p ++ r).length)
+    (hordinary : ∀ k (hk : k < s.length), k ∉ targets → ∀ w ∈ s[k].inputs,
+      w < n + p.length ∨ n + (p ++ q).length ≤ w)
+    (htOld : ∀ k (hk : k < s.length), k ∈ targets → ∀ w ∈ s[k].inputs,
+      w < n + (p ++ q).length)
+    (hnegative : ∀ x : Fin n → Bool, graphFun G ∅ x = false →
+      ∀ k (hk : k < s.length), k ∈ targets →
+      s[k].op.eval (s[k].inputs.map fun w =>
+        (run (p ++ r) (List.ofFn x)).getD (blockMap n p q r targetWire k w) false) = true →
+      s[k].op.eval (s[k].inputs.map fun w => (run (p ++ q) (List.ofFn x)).getD w false) = true)
+    (hedge : ∀ u v : Fin n, G.Adj u v → ∀ k (hk : k < s.length), k ∈ targets →
+      s[k].op.eval (s[k].inputs.map fun w =>
+        (run (p ++ q) (List.ofFn (PEqualNP.EdgeOwnership.pairInput u v))).getD w false) = true →
+      s[k].op.eval (s[k].inputs.map fun w =>
+        (run (p ++ r) (List.ofFn (PEqualNP.EdgeOwnership.pairInput u v))).getD
+          (blockMap n p q r targetWire k w) false) = true) : False := by
+  have hb := ao_suffix_back _ hL.1 (p ++ q) s rfl
+  have hops : ∀ k (hk : k < s.length), s[k].op = GateOp.and ∨ s[k].op = GateOp.or := by
+    intro k hk
+    obtain ⟨o, a, b, heq, hop⟩ := ao_grammar _ hL.1 (p ++ q) s rfl k hk
+    simpa only [heq] using hop
+  have htNew : ∀ k (hk : k < s.length), k ∈ targets → ∀ w ∈ s[k].inputs,
+      blockMap n p q r targetWire k w < n + (p ++ r).length := by
+    intro k hk hkt w hw
+    exact blockMap_prefix_bound n p q r targetWire k w (htOld k hk hkt w hw) (hroot k hkt)
+  apply least_block_contradiction n G p q r s (blockMap n p q r targetWire) j hj hL hprefix
+    (blockMap_back n p q r s targetWire targets hb hordinary hroot) hshort
+  · intro x hx
+    apply localSim_reverse_of_targets p q r s (blockMap n p q r targetWire) (List.ofFn x)
+      targets hops
+      (by simpa only [List.length_ofFn] using hb)
+      (by simpa only [List.length_ofFn] using blockMap_keep n p q r targetWire)
+      (by simpa only [List.length_ofFn] using blockMap_shift n p q r targetWire)
+      (by simpa only [List.length_ofFn] using hordinary)
+      (by simpa only [List.length_ofFn] using htOld)
+      (by simpa only [List.length_ofFn] using htNew)
+    exact hnegative x hx
+  · intro u v huv
+    apply localSim_forward_of_targets p q r s (blockMap n p q r targetWire)
+      (List.ofFn (PEqualNP.EdgeOwnership.pairInput u v)) targets hops
+      (by simpa only [List.length_ofFn] using hb)
+      (by simpa only [List.length_ofFn] using blockMap_keep n p q r targetWire)
+      (by simpa only [List.length_ofFn] using blockMap_shift n p q r targetWire)
+      (by simpa only [List.length_ofFn] using hordinary)
+      (by simpa only [List.length_ofFn] using htOld)
+      (by simpa only [List.length_ofFn] using htNew)
+    exact hedge u v huv
+
+end RegionLocal
+
+namespace HoistTransport
+open PEqualNP.EdgeOwnership
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm PEqualNP.CleanedNonEdge
+open Reorder TwoOrBuild
+
+def boundedSet (N : ℕ) (S : Finset ℕ) : Finset (Fin N) :=
+  Finset.univ.filter (fun i => i.val ∈ S)
+
+lemma boundedSet_mem (N : ℕ) (S : Finset ℕ) (i : Fin N) :
+    i ∈ boundedSet N S ↔ i.val ∈ S := by simp [boundedSet]
+
+lemma boundedSet_card (N : ℕ) (S : Finset ℕ) (hS : ∀ i ∈ S, i < N) :
+    (boundedSet N S).card = S.card := by
+  apply Finset.card_bij (fun i _ => i.val)
+  · intro i hi; exact (boundedSet_mem N S i).mp hi
+  · intro i hi j hj hij; exact Fin.ext hij
+  · intro i hi; exact ⟨⟨i, hS i hi⟩, (boundedSet_mem N S _).mpr hi, rfl⟩
+
+lemma boundedSet_subset {N : ℕ} {S T : Finset ℕ} (h : S ⊆ T) :
+    boundedSet N S ⊆ boundedSet N T := by
+  intro i hi; exact (boundedSet_mem _ _ _).mpr (h ((boundedSet_mem _ _ _).mp hi))
+
+lemma boundedSet_closed {n : ℕ} (C : Circuit) (S : Finset ℕ)
+    (hS : ∀ k ∈ S, ∀ r, n + r ∈ (gateAt C k).inputs → r ∈ S) :
+    Reorder.PredecessorClosed n C (boundedSet C.gates.length S) := by
+  intro i j hj hdep
+  exact (boundedSet_mem _ _ _).mpr (hS j.val ((boundedSet_mem _ _ _).mp hj) i.val hdep)
+
+lemma pairCost_image {n N : ℕ} (p : Equiv.Perm (Fin N)) (S T : Finset ℕ)
+    (hS : ∀ w ∈ S, w < n + N) (hT : ∀ w ∈ T, w < n + N) :
+    pairCost (S.image (wireMap n N p)) (T.image (wireMap n N p)) = pairCost S T := by
+  have hi := wireMap_image_inter p S T hS hT
+  have hu : ∀ w ∈ S ∪ T, w < n + N := by
+    intro w hw; rcases Finset.mem_union.mp hw with h | h
+    · exact hS w h
+    · exact hT w h
+  simp only [pairCost, hi, Finset.image_eq_empty, ← Finset.image_union]
+  rw [wireMap_image_card p S hS, wireMap_image_card p T hT, wireMap_image_card p (S ∪ T) hu]
+
+def movedColor {n N : ℕ} (p : Equiv.Perm (Fin N)) (color : ℕ → Bool) (w : ℕ) : Bool :=
+  color (wireMap n N p.symm w)
+
+lemma movedColor_map {n N : ℕ} (p : Equiv.Perm (Fin N)) (color : ℕ → Bool)
+    (w : ℕ) (hw : w < n + N) :
+    movedColor (n := n) p color (wireMap n N p w) = color w := by
+  simp only [movedColor, wireMap_inverse_valid p w hw]
+
+lemma projectColor_image {n N : ℕ} (p : Equiv.Perm (Fin N)) (color : ℕ → Bool)
+    (c : Bool) (S : Finset ℕ) (hS : ∀ w ∈ S, w < n + N) :
+    projectColor (movedColor (n := n) p color) c (S.image (wireMap n N p)) =
+      (projectColor color c S).image (wireMap n N p) := by
+  ext w
+  simp only [projectColor, Finset.mem_filter, Finset.mem_image]
+  constructor
+  · rintro ⟨⟨u, hu, rfl⟩, hc⟩
+    exact ⟨u, ⟨hu, by rwa [movedColor_map p color u (hS u hu)] at hc⟩, rfl⟩
+  · rintro ⟨u, ⟨hu, hc⟩, rfl⟩
+    exact ⟨⟨u, hu, rfl⟩, by rwa [movedColor_map p color u (hS u hu)]⟩
+
+lemma hasBoth_image {n N : ℕ} (p : Equiv.Perm (Fin N)) (color : ℕ → Bool)
+    (S : Finset ℕ) (hS : ∀ w ∈ S, w < n + N) (h : HasBoth color S) :
+    HasBoth (movedColor (n := n) p color) (S.image (wireMap n N p)) := by
+  intro c
+  obtain ⟨w, hw, hc⟩ := h c
+  exact ⟨wireMap n N p w, Finset.mem_image.mpr ⟨w, hw, rfl⟩,
+    (movedColor_map p color w (hS w hw)).trans hc⟩
+
+lemma sourceOr_image (gs hs : List Gate) (x : List Bool) (S : Finset ℕ) (f : ℕ → ℕ)
+    (h : ∀ w ∈ S, (TwoOrBuild.run hs x).getD (f w) false =
+      (TwoOrBuild.run gs x).getD w false) :
+    sourceOr hs x (S.image f) = sourceOr gs x S := by
+  unfold sourceOr
+  congr 1
+  apply propext
+  constructor
+  · rintro ⟨w, hw, hv⟩
+    obtain ⟨u, hu, rfl⟩ := Finset.mem_image.mp hw
+    exact ⟨u, hu, by rwa [h u hu] at hv⟩
+  · rintro ⟨w, hw, hv⟩
+    exact ⟨f w, Finset.mem_image.mpr ⟨w, hw, rfl⟩, by rwa [h w hw]⟩
+
+
+lemma hoist_prefix_wireVal {n : ℕ} (C : Circuit) (hAO : IsAO2 n C)
+    (P K : Finset (Fin C.gates.length))
+    (hP : PredecessorClosed n C P) (hK : PredecessorClosed n C K)
+    (w : ℕ) (hw : w < n ∨ ∃ j ∈ P, w = n + j.val) (x : Fin n → Bool) :
+    wireVal n ⟨(permute n C (sortPerm (blockKey P K))).gates.take P.card, 0⟩
+      (wireMap n C.gates.length (sortPerm (blockKey P K)) w) x = wireVal n C w x := by
+  have hvalid : w < n + C.gates.length := by
+    rcases hw with h | ⟨j, hj, rfl⟩
+    · omega
+    · omega
+  have hsmall := (wireMap_two_closed_small_iff P K w hvalid).mpr hw
+  have hcard : P.card ≤ C.gates.length := by
+    simpa only [Finset.card_univ, Fintype.card_fin] using Finset.card_le_univ P
+  rw [take_wireVal _ P.card 0 x _ (by
+    simpa only [permute, List.length_ofFn, Fintype.card_fin, Nat.min_eq_left hcard] using hsmall)]
+  exact (two_closed_hoist_semantics C hAO P K hP hK).2.2.2 x w
+
+lemma hoist_prefix_sourceOr {n : ℕ} (C : Circuit) (hAO : IsAO2 n C)
+    (P K : Finset (Fin C.gates.length))
+    (hP : PredecessorClosed n C P) (hK : PredecessorClosed n C K)
+    (S : Finset ℕ) (hS : ∀ w ∈ S, w < n ∨ ∃ j ∈ P, w = n + j.val)
+    (x : Fin n → Bool) :
+    sourceOr ((permute n C (sortPerm (blockKey P K))).gates.take P.card)
+      (List.ofFn x) (S.image (wireMap n C.gates.length (sortPerm (blockKey P K)))) =
+    sourceOr C.gates (List.ofFn x) S := by
+  apply sourceOr_image
+  intro w hw
+  exact hoist_prefix_wireVal C hAO P K hP hK w (hS w hw) x
+
+lemma hoist_projected_sourceOr {n : ℕ} (C : Circuit) (hAO : IsAO2 n C)
+    (P K : Finset (Fin C.gates.length))
+    (hP : PredecessorClosed n C P) (hK : PredecessorClosed n C K)
+    (S : Finset ℕ) (hS : ∀ w ∈ S, w < n ∨ ∃ j ∈ P, w = n + j.val)
+    (color : ℕ → Bool) (c : Bool) (x : Fin n → Bool) :
+    sourceOr ((permute n C (sortPerm (blockKey P K))).gates.take P.card) (List.ofFn x)
+      (projectColor (movedColor (n := n) (sortPerm (blockKey P K)) color) c
+        (S.image (wireMap n C.gates.length (sortPerm (blockKey P K))))) =
+    sourceOr C.gates (List.ofFn x) (projectColor color c S) := by
+  rw [projectColor_image _ color c S (by
+    intro w hw
+    rcases hS w hw with h | ⟨j, hj, rfl⟩
+    · omega
+    · omega)]
+  apply hoist_prefix_sourceOr C hAO P K hP hK
+  intro w hw
+  exact hS w (Finset.mem_filter.mp hw).1
+
+
+lemma region_bounded {n : ℕ} (C : Circuit) (g h : ℕ) :
+    ∀ k ∈ MixedCut.region n C g h, k < C.gates.length := by
+  intro k hk; exact ((MixedCut.region_mem C g h k).mp hk).1
+
+lemma pureRegion_bounded {n : ℕ} (C : Circuit) (s : Fin n → Bool) (g h : ℕ) :
+    ∀ k ∈ MixedCut.pureRegion n C s g h, k < C.gates.length := by
+  intro k hk; exact region_bounded C g h k (Finset.mem_filter.mp hk).1
+
+lemma region_fin_closed {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hT : TopForm G C) (g h : ℕ)
+    (hpair : junk G C = {g, h}) (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g) :
+    PredecessorClosed n C (boundedSet C.gates.length (MixedCut.region n C g h)) := by
+  exact boundedSet_closed C _ (MixedCut.region_predecessor_closed G C hAO hT g h hpair hgh hhg)
+
+lemma pureRegion_fin_closed {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (s : Fin n → Bool) (hAO : IsAO2 n C) (hT : TopForm G C) (g h : ℕ)
+    (hpair : junk G C = {g, h}) (hgh : ¬ InCone n C g h) (hhg : ¬ InCone n C h g) :
+    PredecessorClosed n C (boundedSet C.gates.length (MixedCut.pureRegion n C s g h)) := by
+  exact boundedSet_closed C _ (MixedCut.pureRegion_predecessor_closed G C s hAO hT g h hpair hgh hhg)
+
+lemma pureRegion_fin_subset {n : ℕ} (C : Circuit) (s : Fin n → Bool) (g h : ℕ) :
+    boundedSet C.gates.length (MixedCut.pureRegion n C s g h) ⊆
+      boundedSet C.gates.length (MixedCut.region n C g h) := by
+  exact boundedSet_subset (Finset.filter_subset _ _)
+
+lemma mixedRegion_card_sub {n : ℕ} (C : Circuit) (s : Fin n → Bool) (g h : ℕ) :
+    (MixedCut.mixedRegion n C s g h).card =
+      (boundedSet C.gates.length (MixedCut.region n C g h)).card -
+      (boundedSet C.gates.length (MixedCut.pureRegion n C s g h)).card := by
+  rw [boundedSet_card _ _ (region_bounded C g h),
+    boundedSet_card _ _ (pureRegion_bounded C s g h)]
+  exact Finset.card_sdiff_of_subset (Finset.filter_subset _ _)
+
+lemma raw_or_pure_fin {n : ℕ} (C : Circuit) (s : Fin n → Bool) (g h w : ℕ)
+    (hw : w < n ∨ ∃ k ∈ MixedCut.pureRegion n C s g h, w = n + k) :
+    w < n ∨ ∃ k ∈ boundedSet C.gates.length (MixedCut.pureRegion n C s g h),
+      w = n + k.val := by
+  rcases hw with h | ⟨k, hk, he⟩
+  · exact Or.inl h
+  · exact Or.inr ⟨⟨k, pureRegion_bounded C s g h k hk⟩,
+      (boundedSet_mem _ _ _).mpr hk, he⟩
+
+end HoistTransport
 
 end PEqualNP.Outside.L_meta_5012
