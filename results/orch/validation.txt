@@ -20,3 +20,9 @@ Build completed successfully (18251 jobs).
 SemanticPureOr.lean: lake env lean passed; exit0; complete stdout/stderr empty.
 Independent source/diff review: PASS for partial-preservation push, by status_review; not proof-PR acceptance.
 Main file line count: 136. Cleanup not run because posted theorem unproved.
+
+Second partial checkpoint:
+lake build PEqualNP.Outside.L_meta_4970 passed (exit0).
+Complete stdout/stderr: results/orch/build-002.txt.
+Named file 475 lines; includes unique centres, witness cover, pure-OR AND choice, T=0 monochromatic OR reach, demand pruning, and the complete single-centre special case.
+Independent source and merged-diff review: PASS by status_review. Full posted theorem still unproved; no PR.

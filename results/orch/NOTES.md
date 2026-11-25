@@ -71,3 +71,19 @@ StarCentres.lean compiled successfully using pinned Lean 4.36.0 via lake env lea
 At cofactor_route request, tested the stronger separate claims OR-count >= |E|-1 and AND-count >= minimum vertex-cover size. All 35 eligible C4-free graph functions on 2x3, all T=0 AO circuits through 5 gates, 86,606,101 states: no violation, without imposing the star-witness condition. Source/log: /tmp/oec/pequalnp-pilot-157/counterexample_opcounts.cpp and .log. Pure computational evidence only.
 
 Toolchain agent: initial `lake build PEqualNP.Defs` passed (exit 0, 5,147 jobs; no Mathlib source builds), and `lake build checklemma` passed (exit 0, 5 jobs). Full logs `/tmp/oec/pequalnp-pilot-157/build-defs.log` and `/tmp/oec/pequalnp-pilot-157/build-checklemma.log`. Scratch proofs/checker can run after sourcing the toolchain environment helper.
+
+CofactorStar.lean compiled successfully (lake env lean, exit 0, empty output) at 2026-11-25T15:56:57.287057+00:00. It contains single_centre_size and single_centre_cover, 198 lines. It uses only Mathlib and PEqualNP.Defs; no forbidden text found.
+
+## counterexample expanded finite search 2026-11-25T15:57:30.415690+00:00
+
+2x4 exhaustive check completed: 136 C4-free graph targets with no isolated-edge component, up to 5 gates, 399,653,516 T=0 AO circuit states. No output computed a target graph function below |E|+tau-1, even before checking star witnesses. Source/log counterexample_2x4.cpp/.log under /tmp/oec/pequalnp-pilot-157. No concrete counterexample found; strategy exhausted small cases and semantic loopholes.
+
+### status_review — useful existing semantic counting infrastructure
+
+Inspected all 110 narrowed linear-sum candidate theorem statements (full extraction saved in scratch JSON). Best reusable proof is `L_meta_986.lean`: `cut` (119–175), `support` (177), `owned` (205), and `countOne` (210–258). It proves a single output's |S intersect P|-1 lower bound on gates whose original singleton support intersect P has size at least two and lies in S. A cut frontier has at most 1+owned-gates nodes; complement evaluation ensures every false frontier node supports at most one demanded singleton. Its constant-true exceptional wire z is for a one-NOT application and can be removed for the monotone case. This gives center-disjoint charging, but currently charges AND as well as OR gates.
+
+`L_meta_1376.lean` supplies stronger versions: `smart_cut` at 294, `count_eq_R` at 595, `count_general` at 648, and `owned_disjoint` at 744. The first handles a separate excluded unary-gate set; it is more complex than needed here.
+
+Counting agent's repaired projection is sound: retain demanded ORIGINAL singleton supports. A wire false at complement Q has singleton support contained in Q by monotonicity. At AND choose a complement-false child; its original support contains the parent's demands. At OR branch only nonempty demands. Every retained branching OR therefore has at least two original singleton supports in Q, allowing C4-free unique-center charging. My earlier redundant w gadget is pruned because its original singleton support is empty. An OR-only cut proof can traverse AND with no frontier-size increment and count OR expansions only.
+
+Independent review: compiled CofactorStar, SemanticNoMixed, SemanticPureOr, DemandPruning all pass source correctness/format review as partial helper results. Frozen 136-line target-path helper file likewise passed partial-preservation review. None proves or claims the full posted theorem; no proof PR is appropriate yet.
