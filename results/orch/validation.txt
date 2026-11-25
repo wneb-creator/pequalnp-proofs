@@ -1,0 +1,13 @@
+PARTIAL CHECKPOINT: compiled helper lemmas only. The posted dimension-three existence theorem is not yet proved.
+
+Build: lake build PEqualNP.Outside.L_gct_231
+Exit: 0
+Result: Build completed successfully (5149 jobs).
+Complete stdout and stderr accompany this record.
+
+Checker: no verdict on this partial file. Full checker runtime smoke is resource-blocked in this container (8 GiB memory, 7.9 GiB disk); no checker/source alteration was made.
+
+Independent review: artifact_analysis checked the helper proofs and plain-file restrictions; no sorry, new axioms, native_decide, forbidden root qualifier, strings, attributes or options. This snapshot is not a proof PR.
+
+Sub-agents: status_review (dimension/star formalization), toolchain_setup (setup/permanent), artifact_analysis (independent review/research), construct_search (symbolic constructions), geometry_search (geometric constraints), rowzero (row-zero classification).
+TIMING total=87.2 subagents=6
