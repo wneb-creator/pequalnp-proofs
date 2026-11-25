@@ -105,7 +105,7 @@ Current targets and independently enumerated graph data:
 | C10chords0 | 10 | 12 | 5 | 14 | 15 |
 
 Each target is one below edges + cover number - 1. All five graphs are bipartite
-and have no four-cycle. These searches were still running at this snapshot.
+and have no four-cycle. Final outcomes: C6book3 UNKNOWN, Heawood12noninc UNKNOWN, GP8del_inc UNKNOWN, GP8del_noninc UNKNOWN, C10chords0 UNKNOWN. The original processes were interrupted by a workspace reconnect without terminal verdicts; these outcomes come from identical-CNF restarts with explicit wall-clock caps.
 The full solver diagnostics remain in the job workspace; only portable scripts,
 graph fixtures, and small checked records are committed.
 
@@ -155,8 +155,8 @@ readback and evaluates all 16,384 inputs. The published
 `C6book3-standard-calibration.json` is explicitly a known 22-gate control with
 seven ANDs and fifteen ORs, not a six-AND witness. Its full truth table was checked
 independently. The original restricted six-AND pilot ended UNKNOWN after 1200.11 seconds.
-A separate linear-Kraft variant is still running at this snapshot. Neither is a
-completed lower bound. The CLI and reconstruction require a nonempty edge set;
+The separate linear-Kraft variant also ended UNKNOWN after 1200.11 seconds.
+Neither is a completed lower bound. The CLI and reconstruction require a nonempty edge set;
 low-level generation retains empty graphs for arithmetic boundary checks.
 
 The optional `--and-kraft` constraint enforces only a linear consequence of the bound
@@ -170,8 +170,8 @@ review and finite arithmetic tests. For book3 at k=6, its budget is 23.
 The separate `--and-kraft-full` flag enforces the full exponential sum, with
 width bit_length(M*2^k) preventing shift or accumulator overflow. Independent
 checks covered 1,274 arithmetic vectors, 14 fixed circuits, 24 unchanged legacy
-fingerprints and moved-directory execution. No target query using this new flag
-has completed at this snapshot.
+fingerprints and moved-directory execution. The seven-AND/private-OR14 Z3 query was interrupted by the reconnect. Its exact
+native-CNF replacement ended UNKNOWN; no unrestricted lower bound follows.
 
 A bounded repository census found no applicable existing lower bound for either
 GP8 deletion. It checked 112 files mentioning exact dimension 14, ten nearby
@@ -215,3 +215,30 @@ C10chords0 is independently isomorphic to helper-2's balanced n10-g256 fixture.
 `C10chords0-g256-isomorphism.json` checks the relabeling on all 100 ordered pairs.
 The current total-15 query uses only the generic four-AND MIS lower bound; it
 does not impose the separately reported five-AND or nine-OR bounds.
+
+The native candidate path in `bv_dimacs.py` exports the exact QF_BV query through
+Z3 bit-blast and Tseitin CNF. It retains source, metadata and DIMACS hashes and
+rebuilds the identical transformation for SAT readback. Every CNF clause and every
+original SMT assertion is checked before reconstruction and exhaustive graph truth
+validation. Independent review covered 48 arithmetic queries, six graph cases,
+nine Boolean projection cases and five malformed-model rejections. The planted
+seven-AND/fifteen-OR book circuit passed all 16,384 assignments, including fresh
+process reconstruction with both Kraft constraints. UNSAT remains external solver
+evidence with the same restricted private-OR scope; no proof certificate is included.
+`native-book3-query.json` records the exact seven-AND/fourteen-OR-cost candidate.
+
+Native reproduction (from this directory; use a fresh output directory):
+
+```
+python3 bv_dimacs.py export --fixture graphs/C6book3.json --and-cap 7 --private-or-cap 14 --and-kraft --and-kraft-full --outdir native-book3
+kissat --time=1800 native-book3/query.cnf > native-book3/solver.stdout 2> native-book3/solver.stderr
+python3 bv_dimacs.py decode --directory native-book3 --solver-output native-book3/solver.stdout --result-out native-book3/decoded.json
+python3 test_bv_dimacs.py --solver PATH --workdir CHECK_DIRECTORY
+```
+
+The live job separately enforced a wall-clock cap; the solver's time option alone
+is not presented as that wall-clock guard. PATH and CHECK_DIRECTORY are explicit
+local arguments, not bundled executables or job-specific paths.
+
+Final record: all helper-owned candidate workers have ended. The complete original
+and restarted logs remain in the job workspace. The posted gap remains unresolved.

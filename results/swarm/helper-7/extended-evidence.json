@@ -1,5 +1,5 @@
 {
-  "snapshot_utc": "2026-11-25T23:02:09.857159+00:00",
+  "snapshot_utc": "2026-11-25T23:54:34.337082+00:00",
   "gap_status": "No final theorem or counterexample; L-meta-3566 unresolved by this helper",
   "solver_scope": "External solver results only; no independent UNSAT certificate included",
   "all_pruning_control": {
@@ -30,7 +30,7 @@
       "graph": "C6book3",
       "gate_target": 21,
       "explicit_min_and": 0,
-      "status": "RUNNING",
+      "status": "UNKNOWN",
       "constraints": [
         "MIS lower bound",
         "lexicographic minimum ordering",
@@ -41,13 +41,19 @@
         "MIS/AND and edge/OR pair separation"
       ],
       "and_bound_scope": "generic MIS bound only",
-      "complete_graph_boundary": true
+      "complete_graph_boundary": true,
+      "prior_run_status": "UNKNOWN_INTERRUPTED",
+      "restart_seconds": 2400.1893591669996,
+      "restart_exit": -2,
+      "cnf_sha256": "b254451703ab8db5b2a00cef525e8ab624839f007d2451b5a102ee3752447b7a",
+      "restart_wall_limit_seconds": 2400,
+      "termination": "Wall limit reached; SIGINT; no terminal solver verdict"
     },
     {
       "graph": "Heawood12noninc",
       "gate_target": 19,
       "explicit_min_and": 6,
-      "status": "RUNNING",
+      "status": "UNKNOWN",
       "constraints": [
         "MIS lower bound",
         "lexicographic minimum ordering",
@@ -58,13 +64,19 @@
         "MIS/AND and edge/OR pair separation"
       ],
       "and_bound_scope": "independently reproduced external AND>=6 result, no Lean certificate",
-      "complete_graph_boundary": true
+      "complete_graph_boundary": true,
+      "prior_run_status": "UNKNOWN_INTERRUPTED",
+      "restart_seconds": 2400.0858575459997,
+      "restart_exit": -2,
+      "cnf_sha256": "b4c5bccfdde3fbfb4e3118498a9f150111ae2d594cfeab5d67770715bf54b5d2",
+      "restart_wall_limit_seconds": 2400,
+      "termination": "Wall limit reached; SIGINT; no terminal solver verdict"
     },
     {
       "graph": "GP8del_inc",
       "gate_target": 24,
       "explicit_min_and": 0,
-      "status": "RUNNING",
+      "status": "UNKNOWN",
       "constraints": [
         "MIS lower bound",
         "lexicographic minimum ordering",
@@ -75,13 +87,19 @@
         "MIS/AND and edge/OR pair separation"
       ],
       "and_bound_scope": "generic MIS bound only",
-      "complete_graph_boundary": true
+      "complete_graph_boundary": true,
+      "prior_run_status": "UNKNOWN_INTERRUPTED",
+      "restart_seconds": 2400.117296040001,
+      "restart_exit": -2,
+      "cnf_sha256": "b4032efb77c4a9f121649ca2add9cb1c67bb81f14b65a309796c755fad0acaa1",
+      "restart_wall_limit_seconds": 2400,
+      "termination": "Wall limit reached; SIGINT; no terminal solver verdict"
     },
     {
       "graph": "GP8del_noninc",
       "gate_target": 23,
       "explicit_min_and": 0,
-      "status": "RUNNING",
+      "status": "UNKNOWN",
       "constraints": [
         "MIS lower bound",
         "lexicographic minimum ordering",
@@ -92,13 +110,19 @@
         "MIS/AND and edge/OR pair separation"
       ],
       "and_bound_scope": "generic MIS bound only",
-      "complete_graph_boundary": true
+      "complete_graph_boundary": true,
+      "prior_run_status": "UNKNOWN_INTERRUPTED",
+      "restart_seconds": 2400.1872847530003,
+      "restart_exit": -2,
+      "cnf_sha256": "4ac31de8a54cf0d60bb3e37ad15da15894e19571ea214ef9f3edf206e10d7275",
+      "restart_wall_limit_seconds": 2400,
+      "termination": "Wall limit reached; SIGINT; no terminal solver verdict"
     },
     {
       "graph": "C10chords0",
       "gate_target": 15,
       "explicit_min_and": 0,
-      "status": "RUNNING",
+      "status": "UNKNOWN",
       "constraints": [
         "MIS lower bound",
         "lexicographic minimum ordering",
@@ -109,7 +133,13 @@
         "MIS/AND and edge/OR pair separation"
       ],
       "and_bound_scope": "generic MIS bound only; no AND>=5 or OR>=9 restriction",
-      "complete_graph_boundary": true
+      "complete_graph_boundary": true,
+      "prior_run_status": "UNKNOWN_INTERRUPTED",
+      "restart_seconds": 2400.0837439469997,
+      "restart_exit": 0,
+      "cnf_sha256": "6ab19c6408d0ca5fa28660c6bd06579cf9bb19d90d8c09afe8f1df330cebb4ea",
+      "restart_wall_limit_seconds": 2400,
+      "termination": "Wall limit reached; solver reported UNKNOWN"
     }
   ],
   "restricted_book3_query": {
@@ -145,14 +175,36 @@
     "private_or_cap": 15,
     "and_kraft": true,
     "and_kraft_full": false,
-    "status": "RUNNING",
-    "scope": "Sufficient private-OR witness family; no lower-bound conclusion"
+    "status": "UNKNOWN",
+    "scope": "Sufficient private-OR witness family; no lower-bound conclusion",
+    "seconds": 1200.1096085609997,
+    "smt_sha256": "e86e2a816ebceb5d7929d8bc11c4853afc6b09229bcab3b6546fc22e18786f6a"
   },
   "full_kraft_validation": {
     "arithmetic_vectors": 1274,
     "fixed_circuit_cases": 14,
     "legacy_fingerprints": 24,
     "independent_review": "PASS",
-    "target_query_run": false
-  }
+    "target_query_run": true
+  },
+  "record_status": "Final helper record; no full gap theorem or counterexample",
+  "restricted_book3_full_kraft_z3_query": {
+    "and_cap": 7,
+    "private_or_cap": 14,
+    "and_kraft": true,
+    "and_kraft_full": true,
+    "status": "UNKNOWN_INTERRUPTED",
+    "scope": "Private-OR witness family; environment reconnect interrupted the process before a verdict"
+  },
+  "native_book3_query": {
+    "and_cap": 7,
+    "private_or_cap": 14,
+    "status": "UNKNOWN",
+    "seconds": 1800.0468578220007,
+    "exit": -2,
+    "scope": "Private-OR witness family; not a total-size lower bound",
+    "record": "native-book3-query.json",
+    "termination": "Wall limit reached; SIGINT; no terminal solver verdict"
+  },
+  "environment_interruption": "Workspace reconnect interrupted the five original full queries and the A7/private14 Z3 query; old logs retained without a terminal verdict. Identical full-query CNFs were restarted with explicit wall caps."
 }

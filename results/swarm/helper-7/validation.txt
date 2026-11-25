@@ -1,5 +1,5 @@
 Helper-7 research record for L-meta-3566
-Snapshot recorded 2026-11-25 23:02:09 UTC. This directory is a computational research artifact, not a proof submission.
+Snapshot recorded 2026-11-25 23:54:34 UTC. This directory is a computational research artifact, not a proof submission.
 No final theorem or counterexample to L-meta-3566 was produced.
 The bounded-synthesis lower results have no Lean certificate. The named Lean file
 contains a local double-cover diagnostic and general primary-reader counting helpers.
@@ -21,16 +21,17 @@ They are not Lean-checked results, and no independent UNSAT certificate is inclu
 
 Searches on theta333 at 11 gates, Heawood at 26 gates, and C10chords0 at 15 gates
 have UNKNOWN status in the saved summaries. Those runs were interrupted to change
-search strategies. UNKNOWN is neither a counterexample nor a lower bound. Other
-searches may still have been running when this snapshot was prepared; they are not
-represented as completed results here. The theta and Heawood searches were retired
+search strategies. UNKNOWN is neither a counterexample nor a lower bound. Later searches are recorded separately below. The theta and Heawood searches were retired
 after existing unconditional bounds were located; see research-notes.md. A Heawood CEGAR run
 ended UNKNOWN after 606 seconds: three relaxed witnesses failed exhaustive evaluation
 with 186, 181, and 173 false-positive inputs; the fourth query timed out at 300 seconds.
-Full-boundary searches on Heawood12noninc (19 gates), GP8del_inc (24),
-GP8del_noninc (23), C6book3 (21), and C10chords0 (15) are running at this snapshot. None has produced
-a verified witness or a completed lower-bound result. Earlier variants were interrupted
-to add reviewed constraints and retain UNKNOWN status.
+Final full-boundary query outcomes: C6book3 UNKNOWN, Heawood12noninc UNKNOWN, GP8del_inc UNKNOWN, GP8del_noninc UNKNOWN, C10chords0 UNKNOWN.
+Original runs ended UNKNOWN_INTERRUPTED after the workspace reconnect, with no
+terminal solver verdict. These final outcomes are exact-CNF restarts with explicit
+wall caps; complete old and new diagnostics were retained. C10 reported UNKNOWN;
+the other four final full queries and native book query ended by SIGINT at their
+wall caps without terminal solver verdicts, so their UNKNOWN labels denote
+unresolved bounded searches. All six final solver stderr files are empty.
 The current H12 total-19 variant uses AND>=6, supported separately by an independently
 reproduced external five-AND/free-OR UNSAT result (libz3 4.13.3, 106.5968 seconds).
 This is not a Lean or DRAT certificate, nor a total-gate result. Its complete short
@@ -81,8 +82,10 @@ Encoding and validation:
   tiny SAT/UNSAT controls, exact H12 hash regression and reconstruction checks.
   The known book3 calibration has 7 ANDs + 15 ORs = 22 gates and passed all
   16,384 inputs. The cap-six/private-OR-at-most-fifteen pilot ended UNKNOWN
-  after 1200.11 seconds. A separate linear-Kraft variant is still running; any
-  UNSAT result there describes only that restricted witness family.
+  after 1200.11 seconds. The separate linear-Kraft variant also ended UNKNOWN after 1200.11 seconds.
+  The seven-AND/private-OR14 Z3 process was interrupted without a verdict; its
+  exact native-CNF replacement ended UNKNOWN. Any UNSAT result for this
+  private-cost family is not a total-size lower bound.
   Its optional full-MIS Kraft counter passed independent arithmetic/model tests,
   including padding, zero ANDs and impossible budgets. Existing running queries
   were not modified to add it. The separate full exponential Kraft option passed
@@ -160,6 +163,16 @@ Checked general primary-reader bounds:
   integrated named build passed (26 seconds); all 69 axiom lists use standard3 only.
   No final theorem for the posted gap is present; the target remains unresolved.
 
+Native candidate export/readback:
+  bv_dimacs.py passed independent source and exact-export review. The target uses
+  17,827 variables and 131,668 clauses, and preserves the interrupted SMT byte for
+  byte. SAT readback validates all CNF clauses, all original SMT assertions and
+  all graph truth assignments. Controls covered 48 arithmetic queries, six graph
+  cases, nine projections and five invalid models; the full-size planted book
+  control checked all 16,384 assignments. Fresh-process mapping replay passed.
+  The native query retains the private-OR witness-family scope. No UNSAT proof
+  certificate or full-gap theorem is supplied by the external solver pipeline.
+
 Sub-agents: toolchain, sat_setup, optimization_review, toolchain/mixed_count
-TIMING total=120.7 subagents=4
-Timing is cumulative at this research snapshot; work continues toward the full target.
+TIMING total=173.2 subagents=4
+Timing is cumulative for this final helper record. All candidate workers have ended.

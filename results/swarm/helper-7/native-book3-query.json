@@ -1,0 +1,37 @@
+{
+  "z3_version": "4.13.3.0",
+  "tactics": [
+    "bit-blast",
+    "tseitin-cnf"
+  ],
+  "variables": 17827,
+  "clauses": 131668,
+  "original_assertions": 31,
+  "smt_sha256": "ed14b0d5303eab077a93c8e0706daaa51c49328c80b914d136b2ad26063b2041",
+  "cnf_sha256": "394d003196b7ffed4f5b5ac6982e1c31e66def06a2def74f43c14ee169413183",
+  "metadata_sha256": "53ba8d1687787042210009494857495cab60a54ef17a303ba2514d6895fb8cca",
+  "scope": "restricted private-OR witness family; UNSAT is not a full lower bound",
+  "private_or_cap": 14,
+  "and_cap": 7,
+  "proof_certificate": null,
+  "model_readback": "rebuild exact transformation; verify CNF digest; convert goal model; check all original assertions; reconstruct full truth table",
+  "fixture": "C6book3",
+  "status": "UNKNOWN",
+  "and_kraft": true,
+  "and_kraft_full": true,
+  "independent_review": "PASS",
+  "validation": {
+    "arithmetic_queries": 48,
+    "graph_cases": 6,
+    "boolean_projection_queries": 9,
+    "bad_output_rejections": 5,
+    "planted_book3_truth_rows": 16384,
+    "fresh_process_exact_reexport": "PASS"
+  },
+  "solver_exit": -2,
+  "seconds": 1800.0468578220007,
+  "wall_limit_seconds": 1800,
+  "solver": "Kissat 4.0.4",
+  "prior_z3_status": "UNKNOWN_INTERRUPTED",
+  "termination": "Wall limit reached; SIGINT; no terminal solver verdict"
+}
