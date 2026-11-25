@@ -14,3 +14,5 @@
 - 2026-11-25T08:51:29.133605+00:00: third partials pushed 38cd863e9c0377f010d4574bd42ae3941ae24331; TopForm and two-pivot components reviewed.
 
 - 2026-11-25T08:53:03.123045+00:00: batch4 pushed 12d696ada764c63b76fd10566a0a0b80629ceee6; finite search independently reproduced and stronger exchange certificates reviewed.
+
+- 2026-11-25T08:55:46.984022+00:00: batch5 pushed 24d4022685801b43368cac83563ac649677f6e5a; canonical witness and singleton refinements reviewed.

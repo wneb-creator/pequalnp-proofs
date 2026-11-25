@@ -1540,4 +1540,32 @@ lemma minimal_has_topform {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Ad
     intro i hi
     simp [hlen] at hi
 
+lemma minimal_has_topform_junk {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hmin : PEqualNP.MetaComplexity.IsMinimalMonoCircuit n C)
+    (hf : circuitFun n C = graphFun G ∅) :
+    ∃ D : Circuit, PEqualNP.MetaComplexity.IsMinimalMonoCircuit n D ∧
+      circuitFun n D = graphFun G ∅ ∧ D.size = C.size ∧
+      (junk G D).card = (junk G C).card ∧ TopForm G D := by
+  classical
+  by_cases hex : ∃ a b, G.Adj a b
+  · obtain ⟨a, b, hab⟩ := hex
+    have hne : G.edgeFinset.Nonempty := ⟨s(a, b), by simpa using hab⟩
+    obtain ⟨D, hD, hs, hjunk, ht⟩ := main_aux G hne (andIndexSum C) C rfl
+      (PEqualNP.Outside.L_meta_1772_aux.clean.minimal_graph_isLeastAO G hmin hf)
+    exact ⟨D, PEqualNP.Outside.L_meta_1772_aux.clean.leastAO_graph_isMinimal G hD,
+      hD.2.1, hs, hjunk, ht⟩
+  · have hNo : ∀ a b, ¬ G.Adj a b := fun a b hab => hex ⟨a, b, hab⟩
+    let D : Circuit := ⟨[], n⟩
+    have hD : Monotone2 D := by intro g hg; simp [D] at hg
+    have hDF : circuitFun n D = circuitFun n C := by
+      rw [hf]
+      funext x
+      change (List.ofFn x).getD n false = graphFun G ∅ x
+      simp [graphFun, hNo, List.getD_eq_getElem?_getD]
+    have hsz := hmin.2 D hD hDF
+    have hlen : C.gates.length = 0 := by simpa [Circuit.size, D] using hsz
+    refine ⟨C, hmin, hf, rfl, rfl, ?_⟩
+    intro i hi
+    simp [hlen] at hi
+
 end PEqualNP.Outside.L_meta_1772_aux.topform
