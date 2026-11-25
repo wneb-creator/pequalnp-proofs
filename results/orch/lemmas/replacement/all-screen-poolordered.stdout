@@ -1,0 +1,379 @@
+/tmp/oec/pequalnp-pilot-184/replacement/AllScreenPoolOrdered.lean:435:29: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/replacement/AllScreenPoolOrdered.lean:450:31: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/replacement/AllScreenPoolOrdered.lean:479:29: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/replacement/AllScreenPoolOrdered.lean:494:31: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/replacement/AllScreenPoolOrdered.lean:523:29: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/replacement/AllScreenPoolOrdered.lean:538:31: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/replacement/AllScreenPoolOrdered.lean:638:29: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/replacement/AllScreenPoolOrdered.lean:653:31: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/replacement/AllScreenPoolOrdered.lean:686:29: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/replacement/AllScreenPoolOrdered.lean:701:31: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/replacement/AllScreenPoolOrdered.lean:730:29: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/replacement/AllScreenPoolOrdered.lean:745:31: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/replacement/AllScreenPoolOrdered.lean:1011:30: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/replacement/AllScreenPoolOrdered.lean:1026:32: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+CHECK	compact21	0	0	[]
+CHECK	compact21	1	0	[]
+CHECK	compact21	2	0	[]
+CHECK	compact21	3	1	[]
+CHECK	compact21	4	0	[]
+CHECK	compact21	5	0	[]
+CHECK	compact21	6	0	[]
+CHECK	compact21	7	0	[]
+CHECK	compact21	8	0	[]
+CHECK	compact21	9	0	[]
+CHECK	compact21	10	0	[]
+CHECK	compact21	11	0	[]
+CHECK	compact21	12	0	[]
+CHECK	compact23	0	0	[]
+CHECK	compact23	1	0	[]
+CHECK	compact23	2	0	[]
+CHECK	compact23	3	0	[]
+CHECK	compact23	4	1	[]
+CHECK	compact23	5	0	[]
+CHECK	compact23	6	0	[]
+CHECK	compact23	7	0	[]
+CHECK	compact23	8	0	[]
+CHECK	compact23	9	0	[]
+CHECK	compact23	10	0	[]
+CHECK	compact23	11	0	[]
+CHECK	compact23	12	0	[]
+CHECK	compact27	0	0	[]
+CHECK	compact27	1	0	[]
+CHECK	compact27	2	0	[]
+CHECK	compact27	3	1	[]
+CHECK	compact27	4	0	[]
+CHECK	compact27	5	0	[]
+CHECK	compact27	6	0	[]
+CHECK	compact27	7	0	[]
+CHECK	compact27	8	0	[]
+CHECK	compact27	9	0	[]
+CHECK	compact27	10	0	[]
+CHECK	compact27	11	0	[]
+CHECK	compact27	12	0	[]
+CHECK	compact31	0	0	[]
+CHECK	compact31	1	0	[]
+CHECK	compact31	2	0	[]
+CHECK	compact31	3	0	[]
+CHECK	compact31	4	1	[]
+CHECK	compact31	5	3	[]
+CHECK	compact31	6	1	[]
+CHECK	compact31	7	0	[]
+CHECK	compact31	8	0	[]
+CHECK	compact31	9	0	[]
+CHECK	compact31	10	0	[]
+CHECK	compact31	11	0	[]
+CHECK	compact31	12	0	[]
+CHECK	compact55	0	0	[]
+CHECK	compact55	1	0	[]
+CHECK	compact55	2	0	[]
+CHECK	compact55	3	0	[]
+CHECK	compact55	4	0	[]
+CHECK	compact55	5	1	[]
+CHECK	compact55	6	0	[]
+CHECK	compact55	7	0	[]
+CHECK	compact55	8	0	[]
+CHECK	compact55	9	0	[]
+CHECK	compact55	10	0	[]
+CHECK	compact55	11	0	[]
+CHECK	compact55	12	0	[]
+CHECK	compact63	0	0	[]
+CHECK	compact63	1	0	[]
+CHECK	compact63	2	0	[]
+CHECK	compact63	3	0	[]
+CHECK	compact63	4	0	[]
+CHECK	compact63	5	0	[]
+CHECK	compact63	6	0	[]
+CHECK	compact63	7	0	[]
+CHECK	compact63	8	1	[]
+CHECK	compact63	9	0	[]
+CHECK	compact63	10	0	[]
+CHECK	compact63	11	0	[]
+CHECK	compact63	12	0	[]
+CHECK	compact85	0	0	[]
+CHECK	compact85	1	0	[]
+CHECK	compact85	2	0	[]
+CHECK	compact85	3	0	[]
+CHECK	compact85	4	1	[]
+CHECK	compact85	5	0	[]
+CHECK	compact85	6	0	[]
+CHECK	compact85	7	0	[]
+CHECK	compact85	8	0	[]
+CHECK	compact85	9	0	[]
+CHECK	compact85	10	0	[]
+CHECK	compact85	11	0	[]
+CHECK	compact85	12	0	[]
+CHECK	compact87	0	0	[]
+CHECK	compact87	1	0	[]
+CHECK	compact87	2	0	[]
+CHECK	compact87	3	0	[]
+CHECK	compact87	4	1	[]
+CHECK	compact87	5	1	[]
+CHECK	compact87	6	1	[]
+CHECK	compact87	7	0	[]
+CHECK	compact87	8	0	[]
+CHECK	compact87	9	0	[]
+CHECK	compact87	10	0	[]
+CHECK	compact87	11	0	[]
+CHECK	compact87	12	0	[]
+CHECK	compact91	0	0	[]
+CHECK	compact91	1	0	[]
+CHECK	compact91	2	0	[]
+CHECK	compact91	3	0	[]
+CHECK	compact91	4	1	[]
+CHECK	compact91	5	2	[]
+CHECK	compact91	6	1	[]
+CHECK	compact91	7	0	[]
+CHECK	compact91	8	0	[]
+CHECK	compact91	9	0	[]
+CHECK	compact91	10	0	[]
+CHECK	compact91	11	0	[]
+CHECK	compact91	12	0	[]
+CHECK	compact95	0	0	[]
+CHECK	compact95	1	0	[]
+CHECK	compact95	2	0	[]
+CHECK	compact95	3	0	[]
+CHECK	compact95	4	0	[]
+CHECK	compact95	5	5	[]
+CHECK	compact95	6	33	[]
+CHECK	compact95	7	26	[]
+CHECK	compact95	8	7	[]
+CHECK	compact95	9	1	[]
+CHECK	compact95	10	0	[]
+CHECK	compact95	11	0	[]
+CHECK	compact95	12	0	[]
+CHECK	compact107	0	0	[]
+CHECK	compact107	1	0	[]
+CHECK	compact107	2	0	[]
+CHECK	compact107	3	0	[]
+CHECK	compact107	4	0	[]
+CHECK	compact107	5	0	[]
+CHECK	compact107	6	1	[]
+CHECK	compact107	7	0	[]
+CHECK	compact107	8	0	[]
+CHECK	compact107	9	0	[]
+CHECK	compact107	10	0	[]
+CHECK	compact107	11	0	[]
+CHECK	compact107	12	0	[]
+CHECK	compact111	0	0	[]
+CHECK	compact111	1	0	[]
+CHECK	compact111	2	0	[]
+CHECK	compact111	3	0	[]
+CHECK	compact111	4	0	[]
+CHECK	compact111	5	7	[]
+CHECK	compact111	6	38	[]
+CHECK	compact111	7	34	[]
+CHECK	compact111	8	11	[]
+CHECK	compact111	9	1	[]
+CHECK	compact111	10	0	[]
+CHECK	compact111	11	0	[]
+CHECK	compact111	12	0	[]
+CHECK	compact119	0	0	[]
+CHECK	compact119	1	0	[]
+CHECK	compact119	2	0	[]
+CHECK	compact119	3	0	[]
+CHECK	compact119	4	0	[]
+CHECK	compact119	5	38	[]
+CHECK	compact119	6	198	[]
+CHECK	compact119	7	111	[]
+CHECK	compact119	8	17	[]
+CHECK	compact119	9	1	[]
+CHECK	compact119	10	0	[]
+CHECK	compact119	11	0	[]
+CHECK	compact119	12	0	[]
+CHECK	ax31	0	0	[]
+CHECK	ax31	1	0	[]
+CHECK	ax31	2	1	[]
+CHECK	ax31	3	11	[]
+CHECK	ax31	4	55	[]
+CHECK	ax31	5	56	[]
+CHECK	ax31	6	8	[]
+CHECK	ax31	7	0	[]
+CHECK	ax31	8	0	[]
+CHECK	ax31	9	0	[]
+CHECK	ax31	10	0	[]
+CHECK	ax31	11	0	[]
+CHECK	ax31	12	0	[]
+CHECK	ax55	0	0	[]
+CHECK	ax55	1	0	[]
+CHECK	ax55	2	0	[]
+CHECK	ax55	3	0	[]
+CHECK	ax55	4	0	[]
+CHECK	ax55	5	1	[]
+CHECK	ax55	6	0	[]
+CHECK	ax55	7	0	[]
+CHECK	ax55	8	0	[]
+CHECK	ax55	9	0	[]
+CHECK	ax55	10	0	[]
+CHECK	ax55	11	0	[]
+CHECK	ax55	12	0	[]
+CHECK	ax87	0	0	[]
+CHECK	ax87	1	0	[]
+CHECK	ax87	2	0	[]
+CHECK	ax87	3	10	[]
+CHECK	ax87	4	43	[]
+CHECK	ax87	5	47	[]
+CHECK	ax87	6	9	[]
+CHECK	ax87	7	0	[]
+CHECK	ax87	8	0	[]
+CHECK	ax87	9	0	[]
+CHECK	ax87	10	0	[]
+CHECK	ax87	11	0	[]
+CHECK	ax87	12	0	[]
+CHECK	ax91	0	0	[]
+CHECK	ax91	1	0	[]
+CHECK	ax91	2	0	[]
+CHECK	ax91	3	0	[]
+CHECK	ax91	4	8	[]
+CHECK	ax91	5	24	[]
+CHECK	ax91	6	4	[]
+CHECK	ax91	7	0	[]
+CHECK	ax91	8	0	[]
+CHECK	ax91	9	0	[]
+CHECK	ax91	10	0	[]
+CHECK	ax91	11	0	[]
+CHECK	ax91	12	0	[]
+CHECK	ax107	0	0	[]
+CHECK	ax107	1	0	[]
+CHECK	ax107	2	0	[]
+CHECK	ax107	3	2	[]
+CHECK	ax107	4	15	[]
+CHECK	ax107	5	13	[]
+CHECK	ax107	6	5	[]
+CHECK	ax107	7	0	[]
+CHECK	ax107	8	0	[]
+CHECK	ax107	9	0	[]
+CHECK	ax107	10	0	[]
+CHECK	ax107	11	0	[]
+CHECK	ax107	12	0	[]
+CHECK	ax63	0	0	[]
+CHECK	ax63	1	0	[]
+CHECK	ax63	2	0	[]
+CHECK	ax63	3	0	[]
+CHECK	ax63	4	0	[]
+CHECK	ax63	5	0	[]
+CHECK	ax63	6	0	[]
+CHECK	ax63	7	3	[]
+CHECK	ax63	8	7	[]
+CHECK	ax63	9	0	[]
+CHECK	ax63	10	0	[]
+CHECK	ax63	11	0	[]
+CHECK	ax63	12	0	[]
+CHECK	ax95	0	0	[]
+CHECK	ax95	1	0	[]
+CHECK	ax95	2	0	[]
+CHECK	ax95	3	0	[]
+CHECK	ax95	4	8	[]
+CHECK	ax95	5	23	[]
+CHECK	ax95	6	164	[]
+CHECK	ax95	7	217	[]
+CHECK	ax95	8	73	[]
+CHECK	ax95	9	5	[]
+CHECK	ax95	10	0	[]
+CHECK	ax95	11	0	[]
+CHECK	ax95	12	0	[]
+CHECK	ax111	0	0	[]
+CHECK	ax111	1	0	[]
+CHECK	ax111	2	0	[]
+CHECK	ax111	3	0	[]
+CHECK	ax111	4	0	[]
+CHECK	ax111	5	0	[]
+CHECK	ax111	6	2	[]
+CHECK	ax111	7	15	[]
+CHECK	ax111	8	21	[]
+CHECK	ax111	9	2	[]
+CHECK	ax111	10	0	[]
+CHECK	ax111	11	0	[]
+CHECK	ax111	12	0	[]
+CHECK	ax127	0	0	[]
+CHECK	ax127	1	0	[]
+CHECK	ax127	2	0	[]
+CHECK	ax127	3	0	[]
+CHECK	ax127	4	0	[]
+CHECK	ax127	5	0	[]
+CHECK	ax127	6	8	[]
+CHECK	ax127	7	93	[]
+CHECK	ax127	8	337	[]
+CHECK	ax127	9	631	[]
+CHECK	ax127	10	171	[]
+CHECK	ax127	11	15	[]
+CHECK	ax127	12	1	[]
+PRIM	ax31	19	[]
+PRIM	ax55	1	[]
+PRIM	ax87	22	[]
+PRIM	ax91	4	[]
+PRIM	ax107	15	[]
+PRIM	ax63	11	[]
+PRIM	ax95	7	[]
+PRIM	ax111	3	[]
+TOTAL_BAD	0

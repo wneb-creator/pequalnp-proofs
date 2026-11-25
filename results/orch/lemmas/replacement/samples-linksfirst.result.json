@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-184/replacement/LinksFirstSamples.lean",
+  "cmd": [
+    "lake",
+    "env",
+    "lean",
+    "--profile",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-184/replacement/LinksFirstSamples.lean"
+  ],
+  "elapsed_s": 11.832858436999686,
+  "exit_code": 0
+}

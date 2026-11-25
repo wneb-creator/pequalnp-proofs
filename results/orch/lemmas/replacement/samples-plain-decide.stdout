@@ -1,0 +1,25 @@
+elaboration took 318ms
+tactic execution of Lean.Parser.Tactic.decide took 954ms
+type checking took 939ms
+ComputeBench.sample0 : chartBlock (ax127check 9) 0 1 = true
+tactic execution of Lean.Parser.Tactic.decide took 1.33s
+type checking took 680ms
+ComputeBench.sample1 : chartBlock (ax127check 9) 90 1 = true
+tactic execution of Lean.Parser.Tactic.decide took 1.15s
+type checking took 814ms
+ComputeBench.sample2 : chartBlock (ax127check 9) 180 1 = true
+tactic execution of Lean.Parser.Tactic.decide took 1.31s
+type checking took 825ms
+ComputeBench.sample3 : chartBlock (ax127check 9) 270 1 = true
+tactic execution of Lean.Parser.Tactic.decide took 1.19s
+type checking took 897ms
+ComputeBench.sample4 : chartBlock (ax127check 9) 360 1 = true
+tactic execution of Lean.Parser.Tactic.decide took 1.53s
+type checking took 811ms
+ComputeBench.sample5 : chartBlock (ax127check 9) 450 1 = true
+tactic execution of Lean.Parser.Tactic.decide took 1.39s
+type checking took 1.2s
+ComputeBench.sample6 : chartBlock (ax127check 9) 540 1 = true
+tactic execution of Lean.Parser.Tactic.decide took 1.29s
+type checking took 641ms
+ComputeBench.sample7 : chartBlock (ax127check 9) 630 1 = true

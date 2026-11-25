@@ -1,0 +1,48 @@
+command: lean -j1 -M2600 --profile ForceSamples.lean
+exit: 0
+Purpose: constructor-forcing identity lemmas plus eight finite checker nodes.
+No speedup established under concurrent full-build load.
+stdout:
+elaboration took 474ms
+type checking took 1.52s
+ComputeBench.sample0 : chartBlock (ax127check 9) 0 1 = true
+type checking took 1.41s
+ComputeBench.sample1 : chartBlock (ax127check 9) 90 1 = true
+type checking took 1.06s
+ComputeBench.sample2 : chartBlock (ax127check 9) 180 1 = true
+type checking took 789ms
+ComputeBench.sample3 : chartBlock (ax127check 9) 270 1 = true
+type checking took 686ms
+ComputeBench.sample4 : chartBlock (ax127check 9) 360 1 = true
+type checking took 651ms
+ComputeBench.sample5 : chartBlock (ax127check 9) 450 1 = true
+type checking took 878ms
+ComputeBench.sample6 : chartBlock (ax127check 9) 540 1 = true
+type checking took 525ms
+ComputeBench.sample7 : chartBlock (ax127check 9) 630 1 = true
+
+stderr:
+import took 827ms
+cumulative profiling times:
+	attribute application 1.62ms
+	blocked (unaccounted) 40.1s
+	compilation (IR) 38ms
+	compilation (LCNF base) 143ms
+	compilation (LCNF impure) 52.5ms
+	compilation (LCNF mono) 89.1ms
+	congr simp thm 2.06ms
+	elaboration 925ms
+	fix level params 1.52ms
+	import 827ms
+	initialization 43.6ms
+	instantiate metavars 2.39ms
+	interpretation 4.82ms
+	let-to-have transformation 7.21ms
+	linting 151ms
+	parsing 40ms
+	process pre-definitions 57.9ms
+	share common exprs 8.27ms
+	simp 67.2ms
+	tactic execution 115ms
+	type checking 7.56s
+	typeclass inference 291ms

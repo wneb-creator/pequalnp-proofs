@@ -1,0 +1,4 @@
+elaboration took 368ms
+dsimp took 343ms
+simp took 542ms
+type checking took 775ms

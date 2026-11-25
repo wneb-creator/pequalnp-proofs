@@ -1,0 +1,17 @@
+elaboration took 537ms
+type checking took 1.01s
+ComputeBench.sample0 : chartBlock (ax127check 9) 0 1 = true
+type checking took 676ms
+ComputeBench.sample1 : chartBlock (ax127check 9) 90 1 = true
+type checking took 638ms
+ComputeBench.sample2 : chartBlock (ax127check 9) 180 1 = true
+type checking took 764ms
+ComputeBench.sample3 : chartBlock (ax127check 9) 270 1 = true
+type checking took 630ms
+ComputeBench.sample4 : chartBlock (ax127check 9) 360 1 = true
+type checking took 633ms
+ComputeBench.sample5 : chartBlock (ax127check 9) 450 1 = true
+type checking took 783ms
+ComputeBench.sample6 : chartBlock (ax127check 9) 540 1 = true
+type checking took 584ms
+ComputeBench.sample7 : chartBlock (ax127check 9) 630 1 = true

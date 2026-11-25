@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-184/replacement/FastComputeBench.lean",
+  "cmd": [
+    "lake",
+    "env",
+    "lean",
+    "--profile",
+    "-j2",
+    "/tmp/oec/pequalnp-pilot-184/replacement/FastComputeBench.lean"
+  ],
+  "elapsed_s": 5.82997279999995,
+  "exit_code": 0
+}

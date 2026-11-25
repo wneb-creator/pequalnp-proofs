@@ -1,0 +1,12 @@
+{
+  "exit_code": 0,
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/replacement/AllScreenSelected.lean",
+  "source_sha256": "d17a45d426c30f778b737ada8ba4b2b9cc99e73b5e8d900381ede4e4512c0014",
+  "variant": "Selected256",
+  "status": "compiled computational screen only; not a full kernel proof build or repository checker verdict",
+  "nodes": 2655,
+  "primitive_checks": 82,
+  "grids": 22,
+  "total_bad": 0,
+  "exit_status_provenance": "Recorded from completed exec tool return; no rerun performed."
+}

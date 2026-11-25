@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-184/replacement/StagedCovSamples.lean",
+  "cmd": [
+    "lake",
+    "env",
+    "lean",
+    "--profile",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-184/replacement/StagedCovSamples.lean"
+  ],
+  "elapsed_s": 12.960045818000253,
+  "exit_code": 0
+}

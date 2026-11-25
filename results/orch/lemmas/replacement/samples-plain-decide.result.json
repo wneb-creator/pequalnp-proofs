@@ -1,0 +1,14 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-184/replacement/PlainDecideSamples.lean",
+  "cmd": [
+    "lake",
+    "env",
+    "lean",
+    "-M2400",
+    "--profile",
+    "-j2",
+    "/tmp/oec/pequalnp-pilot-184/replacement/PlainDecideSamples.lean"
+  ],
+  "elapsed_s": 20.938698577000196,
+  "exit_code": 0
+}

@@ -1,0 +1,12 @@
+{
+  "exit_code": 0,
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/replacement/AllScreenPoolOrdered.lean",
+  "source_sha256": "232a8a821657352a4fc4b60ea0aa40e6be329e33c6566078ac9251825f19445c",
+  "variant": "PoolOrdered256",
+  "status": "compiled computational screen only; not a full kernel proof build or repository checker verdict",
+  "nodes": 2655,
+  "primitive_checks": 82,
+  "grids": 22,
+  "total_bad": 0,
+  "exit_status_provenance": "Recorded from completed exec tool return; no rerun performed."
+}

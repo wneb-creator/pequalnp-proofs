@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-184/replacement/SelectedComputeSamples.lean",
+  "cmd": [
+    "lake",
+    "env",
+    "lean",
+    "--profile",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-184/replacement/SelectedComputeSamples.lean"
+  ],
+  "elapsed_s": 11.395745111999986,
+  "exit_code": 0
+}

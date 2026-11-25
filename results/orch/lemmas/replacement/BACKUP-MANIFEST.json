@@ -1,0 +1,236 @@
+{
+  "scope": "L-meta-10760 preserved proof experiments; no new runs",
+  "experiments": [
+    {
+      "id": "node-original",
+      "status": "kernel microbenchmark passed",
+      "source": "results/orch/lemmas/replacement/ComputeBench.lean",
+      "source_sha256": "4aac83404aaa0e16fcf5d57be46b7574f79bde2e6bbb6868c100651328d6a14b",
+      "logs": [
+        "results/orch/lemmas/replacement/node-original.stdout",
+        "results/orch/lemmas/replacement/node-original.stderr",
+        "results/orch/lemmas/replacement/node-original.result.json"
+      ],
+      "elapsed_s": 4.796096732000024,
+      "exit_code": 0
+    },
+    {
+      "id": "samples-original",
+      "status": "kernel microbenchmark passed",
+      "source": "results/orch/lemmas/replacement/ComputeSamples.lean",
+      "source_sha256": "d2a4472cfd3b4a168208e32573748b982014bce5a387cb387f79581cfe383ec8",
+      "logs": [
+        "results/orch/lemmas/replacement/samples-original.stdout",
+        "results/orch/lemmas/replacement/samples-original.stderr",
+        "results/orch/lemmas/replacement/samples-original.result.json"
+      ],
+      "elapsed_s": 11.555926277999788,
+      "exit_code": 0
+    },
+    {
+      "id": "samples-rfl",
+      "status": "kernel microbenchmark passed",
+      "source": "results/orch/lemmas/replacement/RflComputeSamples.lean",
+      "source_sha256": "2b3e62f60933955aab7eb986193770e0e3b90430b7a4842fd9233a9e299b150c",
+      "logs": [
+        "results/orch/lemmas/replacement/samples-rfl.stdout",
+        "results/orch/lemmas/replacement/samples-rfl.stderr",
+        "results/orch/lemmas/replacement/samples-rfl.result.json"
+      ],
+      "elapsed_s": 27.49191309899993,
+      "exit_code": 0
+    },
+    {
+      "id": "node-fastdata",
+      "status": "kernel microbenchmark passed",
+      "source": "results/orch/lemmas/replacement/FastComputeBench.lean",
+      "source_sha256": "22ff699c26db62a9b9cd4479e33552e46b99e11a9398ab331684532ad31f5b38",
+      "logs": [
+        "results/orch/lemmas/replacement/node-fastdata.stdout",
+        "results/orch/lemmas/replacement/node-fastdata.stderr",
+        "results/orch/lemmas/replacement/node-fastdata.result.json"
+      ],
+      "elapsed_s": 5.82997279999995,
+      "exit_code": 0
+    },
+    {
+      "id": "samples-fastdata",
+      "status": "kernel microbenchmark passed",
+      "source": "results/orch/lemmas/replacement/FastComputeSamples.lean",
+      "source_sha256": "0394990f56fe9f9bb5ca057a186cc290d55269e5bcce7692bbb2e560af9418c7",
+      "logs": [
+        "results/orch/lemmas/replacement/samples-fastdata.stdout",
+        "results/orch/lemmas/replacement/samples-fastdata.stderr",
+        "results/orch/lemmas/replacement/samples-fastdata.result.json"
+      ],
+      "elapsed_s": 16.547361335999994,
+      "exit_code": 0
+    },
+    {
+      "id": "samples-linksfirst",
+      "status": "kernel microbenchmark passed",
+      "source": "results/orch/lemmas/replacement/LinksFirstSamples.lean",
+      "source_sha256": "c21a870317c2dfb84d5a45d85626dbeff167daedf1a972c78ea49b847c7cb91a",
+      "logs": [
+        "results/orch/lemmas/replacement/samples-linksfirst.stdout",
+        "results/orch/lemmas/replacement/samples-linksfirst.stderr",
+        "results/orch/lemmas/replacement/samples-linksfirst.result.json"
+      ],
+      "elapsed_s": 11.832858436999686,
+      "exit_code": 0
+    },
+    {
+      "id": "node-staged",
+      "status": "kernel microbenchmark passed",
+      "source": "results/orch/lemmas/replacement/StagedComputeBench.lean",
+      "source_sha256": "19d14a34031769b6ff52a8480da6e5d1781f97346fe99fada1a7ff18582b6ca9",
+      "logs": [
+        "results/orch/lemmas/replacement/node-staged.stdout",
+        "results/orch/lemmas/replacement/node-staged.stderr",
+        "results/orch/lemmas/replacement/node-staged.result.json"
+      ],
+      "elapsed_s": 6.606133749000037,
+      "exit_code": 0
+    },
+    {
+      "id": "node-staged-pools2",
+      "status": "kernel microbenchmark passed",
+      "source": "results/orch/lemmas/replacement/StagedPoolsComputeBench.lean",
+      "source_sha256": "dde768773e4e6aced6d7ff74a058603228891522ded0bc0178b617c8ff05e4a6",
+      "logs": [
+        "results/orch/lemmas/replacement/node-staged-pools2.stdout",
+        "results/orch/lemmas/replacement/node-staged-pools2.stderr",
+        "results/orch/lemmas/replacement/node-staged-pools2.result.json"
+      ],
+      "elapsed_s": 7.988855941999645,
+      "exit_code": 0
+    },
+    {
+      "id": "samples-selected",
+      "status": "kernel microbenchmark passed",
+      "source": "results/orch/lemmas/replacement/SelectedComputeSamples.lean",
+      "source_sha256": "5888f28587cc1676e21f7b70f810655abe6b53e08478bb6a6f292b60dce12186",
+      "logs": [
+        "results/orch/lemmas/replacement/samples-selected.stdout",
+        "results/orch/lemmas/replacement/samples-selected.stderr",
+        "results/orch/lemmas/replacement/samples-selected.result.json"
+      ],
+      "elapsed_s": 11.395745111999986,
+      "exit_code": 0
+    },
+    {
+      "id": "samples-staged",
+      "status": "kernel microbenchmark passed",
+      "source": "results/orch/lemmas/replacement/StagedComputeSamples.lean",
+      "source_sha256": "c188fda8cd70ffeca7cf77051bab9fe0196cebeb85b8c3a572072ca68cf56faf",
+      "logs": [
+        "results/orch/lemmas/replacement/samples-staged.stdout",
+        "results/orch/lemmas/replacement/samples-staged.stderr",
+        "results/orch/lemmas/replacement/samples-staged.result.json"
+      ],
+      "elapsed_s": 14.545249311999669,
+      "exit_code": 0
+    },
+    {
+      "id": "samples-staged-cov",
+      "status": "kernel microbenchmark passed",
+      "source": "results/orch/lemmas/replacement/StagedCovSamples.lean",
+      "source_sha256": "dab0dd20fb9814a99b31f7d0694e7eac7303c433567eb1658dc09e570c746704",
+      "logs": [
+        "results/orch/lemmas/replacement/samples-staged-cov.stdout",
+        "results/orch/lemmas/replacement/samples-staged-cov.stderr",
+        "results/orch/lemmas/replacement/samples-staged-cov.result.json"
+      ],
+      "elapsed_s": 12.960045818000253,
+      "exit_code": 0
+    },
+    {
+      "id": "samples-literal",
+      "status": "kernel microbenchmark passed",
+      "source": "results/orch/lemmas/replacement/LiteralComputeSamples.lean",
+      "source_sha256": "818065793d7b235a96f3d64c7071b78a85b8538387f9a39746a6e54bdab60ebe",
+      "logs": [
+        "results/orch/lemmas/replacement/samples-literal.stdout",
+        "results/orch/lemmas/replacement/samples-literal.stderr",
+        "results/orch/lemmas/replacement/samples-literal.result.json"
+      ],
+      "elapsed_s": 9.407345189999887,
+      "exit_code": 0
+    },
+    {
+      "id": "samples-plain-decide",
+      "status": "kernel microbenchmark passed",
+      "source": "results/orch/lemmas/replacement/PlainDecideSamples.lean",
+      "source_sha256": "83f2e269af2bca716e623b4f158ac792303aa17fa0c930b2c6bb9fbbacfb628e",
+      "logs": [
+        "results/orch/lemmas/replacement/samples-plain-decide.stdout",
+        "results/orch/lemmas/replacement/samples-plain-decide.stderr",
+        "results/orch/lemmas/replacement/samples-plain-decide.result.json"
+      ],
+      "elapsed_s": 20.938698577000196,
+      "exit_code": 0
+    },
+    {
+      "id": "node-dsimp",
+      "status": "kernel microbenchmark passed",
+      "source": "results/orch/lemmas/replacement/DSimpComputeBench.lean",
+      "source_sha256": "5ba3731decc3753a773817879c5eb710670a524dc74f2123482f2c126f31be3f",
+      "logs": [
+        "results/orch/lemmas/replacement/node-dsimp.stdout",
+        "results/orch/lemmas/replacement/node-dsimp.stderr",
+        "results/orch/lemmas/replacement/node-dsimp.result.json"
+      ],
+      "elapsed_s": 5.938856374000352,
+      "exit_code": 0
+    },
+    {
+      "id": "full-original",
+      "status": "full-source frontend kernel compile passed",
+      "source": "results/orch/lemmas/replacement/Original10760.lean",
+      "source_sha256": "58db9dda685dd09b0cd131efd58df1901541eeb159d7c97707169931a0eedf73",
+      "logs": [
+        "results/orch/lemmas/replacement/full-original.stdout",
+        "results/orch/lemmas/replacement/full-original.stderr",
+        "results/orch/lemmas/replacement/full-original.result.json"
+      ],
+      "elapsed_s": 1286.9653551749998,
+      "exit_code": 0
+    },
+    {
+      "id": "all-screen-selected",
+      "status": "compiled computational screen only; not a full kernel proof build or repository checker verdict",
+      "source": "results/orch/lemmas/replacement/AllScreenSelected.lean",
+      "source_sha256": "d17a45d426c30f778b737ada8ba4b2b9cc99e73b5e8d900381ede4e4512c0014",
+      "logs": [
+        "results/orch/lemmas/replacement/all-screen-selected.stdout",
+        "results/orch/lemmas/replacement/all-screen-selected.stderr",
+        "results/orch/lemmas/replacement/all-screen-selected.result.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "id": "all-screen-selected128",
+      "status": "compiled computational screen only; not a full kernel proof build or repository checker verdict",
+      "source": "results/orch/lemmas/replacement/AllScreenSelected128.lean",
+      "source_sha256": "a15396b211e469287bdc82b2ad62c3d00a220b45417de7e0af2e09b0edf3a224",
+      "logs": [
+        "results/orch/lemmas/replacement/all-screen-selected128.stdout",
+        "results/orch/lemmas/replacement/all-screen-selected128.stderr",
+        "results/orch/lemmas/replacement/all-screen-selected128.result.json"
+      ],
+      "exit_code": 0
+    },
+    {
+      "id": "all-screen-poolordered",
+      "status": "compiled computational screen only; not a full kernel proof build or repository checker verdict",
+      "source": "results/orch/lemmas/replacement/AllScreenPoolOrdered.lean",
+      "source_sha256": "232a8a821657352a4fc4b60ea0aa40e6be329e33c6566078ac9251825f19445c",
+      "logs": [
+        "results/orch/lemmas/replacement/all-screen-poolordered.stdout",
+        "results/orch/lemmas/replacement/all-screen-poolordered.stderr",
+        "results/orch/lemmas/replacement/all-screen-poolordered.result.json"
+      ],
+      "exit_code": 0
+    }
+  ]
+}

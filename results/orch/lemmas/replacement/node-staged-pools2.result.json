@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-184/replacement/StagedPoolsComputeBench.lean",
+  "cmd": [
+    "lake",
+    "env",
+    "lean",
+    "--profile",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-184/replacement/StagedPoolsComputeBench.lean"
+  ],
+  "elapsed_s": 7.988855941999645,
+  "exit_code": 0
+}

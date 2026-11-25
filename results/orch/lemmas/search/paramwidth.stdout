@@ -1,0 +1,858 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:119:53: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.false_and, Bool.and_true, Bool.and_false,
+    Bool.false_or, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:119:67: warning: This simp argument is unused:
+  Bool.false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.and_true, Bool.and_false,
+    Bool.false_or, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:119:111: warning: This simp argument is unused:
+  Bool.false_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.false_and, Bool.and_true,
+    Bool.and_false, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:120:22: warning: This simp argument is unused:
+  Bool.true_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.false_and, Bool.and_true,
+    Bool.and_false, Bool.false_or, Bool.or_false, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:121:58: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hy, bit_neg, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:121:61: warning: This simp argument is unused:
+  hy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, bit_neg, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:121:64: warning: This simp argument is unused:
+  bit_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:121:72: warning: This simp argument is unused:
+  bit_prime
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, bit_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:459:20: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:459:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:460:20: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:460:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:633:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [eqv]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:663:60: warning: This simp argument is unused:
+  er
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:875:47: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1022:6: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [column, ite_true, BitVec.getLsbD_and, BitVec.getLsbD_not, i.isLt, decide_true, (correct.2 a i).1,
+    (correct.2 a i).2, hp, hn, Bool.not_false, Bool.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1410:27: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1412:27: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1410:15: warning: This simp argument is unused:
+  colCheck
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, if_true, Bool.and_eq_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1412:15: warning: This simp argument is unused:
+  colCheck
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, if_false, Bool.and_eq_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1623:19: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1625:19: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1637:26: warning: Variable name `raw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _raw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1753:13: error: Invalid simp theorem: Expected a proposition, but found
+  (Fin W → Row) → (Fin W → Row) → Decor W → Prop
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1753:33: error: Invalid simp theorem: Expected a proposition, but found
+  ℕ → Decor W → Decor W → Decor W
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1753:49: error: Invalid simp theorem: Expected a proposition, but found
+  (Fin W → Row) → (Fin W → Row) → Sig → Signals W
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1753:2: error: `simp` made no progress
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1791:14: warning: This simp argument is unused:
+  List.length_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1850:27: error: Invalid simp theorem: Expected a proposition, but found
+  ℕ → (ℕ → Bits W) → Bits W
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1848:90: error: unsolved goals
+W m : ℕ
+v : ℕ → Bits W
+i : Fin W
+pos : ∀ j < 7, BitVec.getLsbD (vertex m j) ↑(asRow v i) = BitVec.getLsbD (if m.testBit j = true then v j else 0) ↑i
+⊢ (BitVec.getLsbD (if m.testBit 0 = true then v 0 else 0) ↑i &&
+                            BitVec.getLsbD (if m.testBit 2 = true then v 2 else 0) ↑i ||
+                          BitVec.getLsbD (if m.testBit 1 = true then v 1 else 0) ↑i &&
+                            BitVec.getLsbD (if m.testBit 3 = true then v 3 else 0) ↑i ||
+                        BitVec.getLsbD (if m.testBit 0 = true then v 0 else 0) ↑i &&
+                          BitVec.getLsbD (if m.testBit 4 = true then v 4 else 0) ↑i ||
+                      BitVec.getLsbD (if m.testBit 1 = true then v 1 else 0) ↑i &&
+                        BitVec.getLsbD (if m.testBit 4 = true then v 4 else 0) ↑i ||
+                    BitVec.getLsbD (if m.testBit 2 = true then v 2 else 0) ↑i &&
+                      BitVec.getLsbD (if m.testBit 4 = true then v 4 else 0) ↑i ||
+                  BitVec.getLsbD (if m.testBit 0 = true then v 0 else 0) ↑i &&
+                    BitVec.getLsbD (if m.testBit 5 = true then v 5 else 0) ↑i ||
+                BitVec.getLsbD (if m.testBit 1 = true then v 1 else 0) ↑i &&
+                  BitVec.getLsbD (if m.testBit 5 = true then v 5 else 0) ↑i ||
+              BitVec.getLsbD (if m.testBit 3 = true then v 3 else 0) ↑i &&
+                BitVec.getLsbD (if m.testBit 5 = true then v 5 else 0) ↑i ||
+            BitVec.getLsbD (if m.testBit 0 = true then v 0 else 0) ↑i &&
+              BitVec.getLsbD (if m.testBit 6 = true then v 6 else 0) ↑i ||
+          BitVec.getLsbD (if m.testBit 2 = true then v 2 else 0) ↑i &&
+            BitVec.getLsbD (if m.testBit 6 = true then v 6 else 0) ↑i ||
+        BitVec.getLsbD (if m.testBit 3 = true then v 3 else 0) ↑i &&
+          BitVec.getLsbD (if m.testBit 6 = true then v 6 else 0) ↑i ||
+      BitVec.getLsbD (if m.testBit 5 = true then v 5 else 0) ↑i &&
+        BitVec.getLsbD (if m.testBit 6 = true then v 6 else 0) ↑i) =
+    BitVec.getLsbD (liftGoal m v) ↑i
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1868:13: error: Invalid simp theorem: Expected a proposition, but found
+  Cov W → Bits W → Bits W
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1868:32: error: Invalid simp theorem: Expected a proposition, but found
+  Bits W → Cov W → Cov W
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1868:2: error: `simp` made no progress
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1874:13: error: Invalid simp theorem: Expected a proposition, but found
+  Cov W → Bits W → Bits W → Bits W
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1874:32: error: Invalid simp theorem: Expected a proposition, but found
+  Bits W → Cov W → Cov W
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1874:2: error: `simp` made no progress
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1882:15: error: Invalid simp theorem: Expected a proposition, but found
+  Bits W → Cov W → Cov W
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1882:4: error: `simp` made no progress
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1885:17: error: Invalid simp theorem: Expected a proposition, but found
+  Bits W → Cov W → Cov W
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1885:6: error: `simp` made no progress
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1885:17: error: Invalid simp theorem: Expected a proposition, but found
+  Bits W → Cov W → Cov W
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1885:6: error: `simp` made no progress
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1986:34: error: Invalid simp theorem: Expected a proposition, but found
+  List (Decor W) → Decor W → Decor W → Bool → Bool → List (Decor W)
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1986:52: error: Invalid simp theorem: Expected a proposition, but found
+  List (Decor W) → Decor W → Bool → List (Decor W)
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1986:34: error: Invalid simp theorem: Expected a proposition, but found
+  List (Decor W) → Decor W → Decor W → Bool → Bool → List (Decor W)
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1986:52: error: Invalid simp theorem: Expected a proposition, but found
+  List (Decor W) → Decor W → Bool → List (Decor W)
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1986:34: error: Invalid simp theorem: Expected a proposition, but found
+  List (Decor W) → Decor W → Decor W → Bool → Bool → List (Decor W)
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1986:52: error: Invalid simp theorem: Expected a proposition, but found
+  List (Decor W) → Decor W → Bool → List (Decor W)
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1986:34: error: Invalid simp theorem: Expected a proposition, but found
+  List (Decor W) → Decor W → Decor W → Bool → Bool → List (Decor W)
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1986:52: error: Invalid simp theorem: Expected a proposition, but found
+  List (Decor W) → Decor W → Bool → List (Decor W)
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1984:67: error: unsolved goals
+case false.false
+W : ℕ
+ws : List (Decor W)
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+ne : a ≠ b
+hm : b ∈ ws.erase a
+⊢ (delTwo ws a b false false).length = ws.length - 1 - 1
+
+case false.true
+W : ℕ
+ws : List (Decor W)
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+ne : a ≠ b
+hm : b ∈ ws.erase a
+⊢ (delTwo ws a b false true).length = ws.length - 1
+
+case true.false
+W : ℕ
+ws : List (Decor W)
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+ne : a ≠ b
+hm : b ∈ ws.erase a
+⊢ (delTwo ws a b true false).length = ws.length - 1
+
+case true.true
+W : ℕ
+ws : List (Decor W)
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+ne : a ≠ b
+hm : b ∈ ws.erase a
+⊢ (delTwo ws a b true true).length = ws.length
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1986:70: warning: This simp argument is unused:
+  List.length_erase_of_mem ha
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [(delTwo (W := W)), (delOne (W := W)), List.length_erase_of_mem hb, List.length_erase_of_mem hm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1986:98: warning: This simp argument is unused:
+  List.length_erase_of_mem hb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [(delTwo (W := W)), (delOne (W := W)), List.length_erase_of_mem ha, List.length_erase_of_mem hm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:1986:126: warning: This simp argument is unused:
+  List.length_erase_of_mem hm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [(delTwo (W := W)), (delOne (W := W)), List.length_erase_of_mem ha, List.length_erase_of_mem hb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2033:8: error: unexpected token '('; expected identifier
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2075:15: error: Invalid simp theorem: Expected a proposition, but found
+  NodeContext W → List (Decor W) → Bool
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2075:51: error: Invalid simp theorem: Expected a proposition, but found
+  NodeContext W → Decor W → List (Decor W) → Bool
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2075:4: error: `simp` made no progress
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2085:13: error: Invalid simp theorem: Expected a proposition, but found
+  NodeContext W → Decor W → Decor W → ℕ → Bool
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2085:2: error: `simp` made no progress
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2092:20: error: Invalid simp theorem: Expected a proposition, but found
+  List (Decor W) → Decor W → Bool → List (Decor W)
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2092:20: error: Invalid simp theorem: Expected a proposition, but found
+  List (Decor W) → Decor W → Bool → List (Decor W)
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2091:58: error: unsolved goals
+case false
+W : ℕ
+v : List (Decor W)
+nd : v.Nodup
+a w : Decor W
+⊢ w ∈ delOne v a false ↔ ¬w = a ∧ w ∈ v
+
+case true
+W : ℕ
+v : List (Decor W)
+nd : v.Nodup
+a w : Decor W
+⊢ w ∈ delOne v a true ↔ w ∈ v
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2092:38: warning: This simp argument is unused:
+  nd.mem_erase_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [(delOne (W := W)), and_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2112:13: error: Invalid simp theorem: Expected a proposition, but found
+  List (Decor W) → Decor W → Decor W → Bool → Bool → List (Decor W)
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2115:14: error: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+  hw
+has type
+  List.Mem w (delTwo ws a b ka kb)
+which is not a one-constructor inductive type.
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2115:26: error: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+  hw
+has type
+  List.Mem w (delTwo ws a b ka kb)
+which is not a one-constructor inductive type.
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2116:10: error: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+  hw
+has type
+  List.Mem w (delTwo ws a b ka kb)
+which is not a one-constructor inductive type.
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2118:13: error: Invalid `⟨...⟩` notation: The expected type
+  List.Mem w (delTwo ws a b ka kb)
+has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2112:44: warning: This simp argument is unused:
+  (mem_delone (W := W)) wn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [(delTwo (W := W)), List.mem_map, (mem_delone (W := W)) dn]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2112:69: warning: This simp argument is unused:
+  (mem_delone (W := W)) dn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [(delTwo (W := W)), List.mem_map, (mem_delone (W := W)) wn]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2128:13: error: Invalid simp theorem: Expected a proposition, but found
+  List (Decor W) → ℕ → Decor W → Decor W → Bool → Bool → List Sig
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2129:88: error: Invalid simp theorem: Expected a proposition, but found
+  ℕ → Decor W → Decor W → Decor W
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2124:63: error: unsolved goals
+case neg.false.false
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : v = a.1
+⊢ a.1 ∈ moveFront ws d a b false false ↔ a.1 = bin d a.1 b.1
+
+case neg.false.true
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : v = a.1
+⊢ a.1 ∈ moveFront ws d a b false true ↔ a.1 = bin d a.1 b.1
+
+case neg.true.false
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : v = a.1
+⊢ a.1 ∈ moveFront ws d a b true false
+
+case neg.true.true
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : v = a.1
+⊢ a.1 ∈ moveFront ws d a b true true
+
+case pos.false.false
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : ¬b.1 = a.1
+vb : v = b.1
+⊢ b.1 ∈ moveFront ws d a b false false ↔ b.1 = bin d a.1 b.1
+
+case pos.false.true
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : ¬b.1 = a.1
+vb : v = b.1
+⊢ b.1 ∈ moveFront ws d a b false true
+
+case pos.true.false
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : ¬b.1 = a.1
+vb : v = b.1
+⊢ b.1 ∈ moveFront ws d a b true false ↔ b.1 = bin d a.1 b.1
+
+case pos.true.true
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : ¬b.1 = a.1
+vb : v = b.1
+⊢ b.1 ∈ moveFront ws d a b true true
+
+case neg.false.false
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : ¬v = a.1
+vb : ¬v = b.1
+⊢ v ∈ moveFront ws d a b false false ↔ v = bin d a.1 b.1 ∨ ∃ a b, (v, a, b) ∈ ws
+
+case neg.false.true
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : ¬v = a.1
+vb : ¬v = b.1
+⊢ v ∈ moveFront ws d a b false true ↔ v = bin d a.1 b.1 ∨ ∃ a b, (v, a, b) ∈ ws
+
+case neg.true.false
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : ¬v = a.1
+vb : ¬v = b.1
+⊢ v ∈ moveFront ws d a b true false ↔ v = bin d a.1 b.1 ∨ ∃ a b, (v, a, b) ∈ ws
+
+case neg.true.true
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : ¬v = a.1
+vb : ¬v = b.1
+⊢ v ∈ moveFront ws d a b true true ↔ v = bin d a.1 b.1 ∨ ∃ a b, (v, a, b) ∈ ws
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2129:4: warning: This simp argument is unused:
+  (kept_value (W := W)) nd ha hb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [(moveFront (W := W)), childTwo, List.toFinset_cons, Finset.mem_insert, List.mem_toFinset, keep_mem,
+    (nd.erase _).mem_erase_iff, nd.mem_erase_iff, (dbin (W := W))]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2264:10: error: unexpected token '('; expected identifier
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2261:17: error: Invalid simp theorem: Expected a proposition, but found
+  List (Decor W) → ℕ → List (Decor W)
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2261:8: error: unsolved goals
+case nil
+W : ℕ
+r s : Fin W → Row
+mask : ℕ
+base : ∀ v ∈ [], faithful r s v
+⊢ ∀ (a : Sig) (a_1 b : Bits W), (a, a_1, b) ∈ rowWires [] mask → faithful r s (a, a_1, b)
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2418:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [hw] at contra
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2487:8: error: unexpected token '('; expected identifier
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2529:15: error: Invalid simp theorem: Expected a proposition, but found
+  cached_NodeContext W → List (Decor W) → Bool
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2529:58: error: Invalid simp theorem: Expected a proposition, but found
+  cached_NodeContext W → Decor W → List (Decor W) → Bool
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2529:4: error: `simp` made no progress
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2539:13: error: Invalid simp theorem: Expected a proposition, but found
+  cached_NodeContext W → Decor W → Decor W → ℕ → Bool
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2539:2: error: `simp` made no progress
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2546:20: error: Invalid simp theorem: Expected a proposition, but found
+  List (Decor W) → Decor W → Bool → List (Decor W)
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2546:20: error: Invalid simp theorem: Expected a proposition, but found
+  List (Decor W) → Decor W → Bool → List (Decor W)
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2545:58: error: unsolved goals
+case false
+W : ℕ
+v : List (Decor W)
+nd : v.Nodup
+a w : Decor W
+⊢ w ∈ delOne v a false ↔ ¬w = a ∧ w ∈ v
+
+case true
+W : ℕ
+v : List (Decor W)
+nd : v.Nodup
+a w : Decor W
+⊢ w ∈ delOne v a true ↔ w ∈ v
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2546:38: warning: This simp argument is unused:
+  nd.mem_erase_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [(delOne (W := W)), and_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2566:13: error: Invalid simp theorem: Expected a proposition, but found
+  List (Decor W) → Decor W → Decor W → Bool → Bool → List (Decor W)
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2569:14: error: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+  hw
+has type
+  List.Mem w (delTwo ws a b ka kb)
+which is not a one-constructor inductive type.
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2569:26: error: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+  hw
+has type
+  List.Mem w (delTwo ws a b ka kb)
+which is not a one-constructor inductive type.
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2570:10: error: Invalid projection: Projections extract constructor fields for one-constructor inductive types. The expression
+  hw
+has type
+  List.Mem w (delTwo ws a b ka kb)
+which is not a one-constructor inductive type.
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2572:13: error: Invalid `⟨...⟩` notation: The expected type
+  List.Mem w (delTwo ws a b ka kb)
+has more than one constructor
+
+Note: This notation can only be used when the expected type is an inductive type with a single constructor
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2566:44: warning: This simp argument is unused:
+  (cached_mem_delone (W := W)) wn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [(delTwo (W := W)), List.mem_map, (cached_mem_delone (W := W)) dn]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2566:76: warning: This simp argument is unused:
+  (cached_mem_delone (W := W)) dn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [(delTwo (W := W)), List.mem_map, (cached_mem_delone (W := W)) wn]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2582:13: error: Invalid simp theorem: Expected a proposition, but found
+  List (Decor W) → ℕ → Decor W → Decor W → Bool → Bool → List Sig
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2583:102: error: Invalid simp theorem: Expected a proposition, but found
+  ℕ → Decor W → Decor W → Decor W
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2578:63: error: unsolved goals
+case neg.false.false
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : v = a.1
+⊢ a.1 ∈ cached_moveFront ws d a b false false ↔ a.1 = bin d a.1 b.1
+
+case neg.false.true
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : v = a.1
+⊢ a.1 ∈ cached_moveFront ws d a b false true ↔ a.1 = bin d a.1 b.1
+
+case neg.true.false
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : v = a.1
+⊢ a.1 ∈ cached_moveFront ws d a b true false
+
+case neg.true.true
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : v = a.1
+⊢ a.1 ∈ cached_moveFront ws d a b true true
+
+case pos.false.false
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : ¬b.1 = a.1
+vb : v = b.1
+⊢ b.1 ∈ cached_moveFront ws d a b false false ↔ b.1 = bin d a.1 b.1
+
+case pos.false.true
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : ¬b.1 = a.1
+vb : v = b.1
+⊢ b.1 ∈ cached_moveFront ws d a b false true
+
+case pos.true.false
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : ¬b.1 = a.1
+vb : v = b.1
+⊢ b.1 ∈ cached_moveFront ws d a b true false ↔ b.1 = bin d a.1 b.1
+
+case pos.true.true
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : ¬b.1 = a.1
+vb : v = b.1
+⊢ b.1 ∈ cached_moveFront ws d a b true true
+
+case neg.false.false
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : ¬v = a.1
+vb : ¬v = b.1
+⊢ v ∈ cached_moveFront ws d a b false false ↔ v = bin d a.1 b.1 ∨ ∃ a b, (v, a, b) ∈ ws
+
+case neg.false.true
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : ¬v = a.1
+vb : ¬v = b.1
+⊢ v ∈ cached_moveFront ws d a b false true ↔ v = bin d a.1 b.1 ∨ ∃ a b, (v, a, b) ∈ ws
+
+case neg.true.false
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : ¬v = a.1
+vb : ¬v = b.1
+⊢ v ∈ cached_moveFront ws d a b true false ↔ v = bin d a.1 b.1 ∨ ∃ a b, (v, a, b) ∈ ws
+
+case neg.true.true
+W : ℕ
+ws : List (Decor W)
+nd : (List.map Prod.fst ws).Nodup
+a b : Decor W
+ha : a ∈ ws
+hb : b ∈ ws
+d : ℕ
+v : Sig
+ne : ¬a.1 = b.1
+av : ∃ a_1 b, (a.1, a_1, b) ∈ ws
+bv' : ∃ a b_1, (b.1, a, b_1) ∈ ws
+va : ¬v = a.1
+vb : ¬v = b.1
+⊢ v ∈ cached_moveFront ws d a b true true ↔ v = bin d a.1 b.1 ∨ ∃ a b, (v, a, b) ∈ ws
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2583:4: warning: This simp argument is unused:
+  (cached_kept_value (W := W)) nd ha hb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [(cached_moveFront (W := W)), childTwo, List.toFinset_cons, Finset.mem_insert, List.mem_toFinset,
+    cached_keep_mem, (nd.erase _).mem_erase_iff, nd.mem_erase_iff, (dbin (W := W))]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2645:13: error: Invalid simp theorem: Expected a proposition, but found
+  CompactGrid W → CompactTable → Domains → Perms → ℕ → ℕ → Bool
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2645:2: error: `simp` made no progress
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2680:15: warning: This simp argument is unused:
+  Nat.add_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [chartBlock, Bool.and_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2925:13: error: Invalid simp theorem: Expected a proposition, but found
+  CompactGrid W → CompactTable → RichDomains → Perms → ℕ → ℕ → Bool
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2925:2: error: `simp` made no progress
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:2996:43: warning: This simp argument is unused:
+  Bool.false_eq_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [flexibleCheck, hc, beq_iff_eq, ite_false, Bool.and_eq_true] at good
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:3025:13: error: Invalid simp theorem: Expected a proposition, but found
+  CompactGrid W → List BoundPool → (ℕ → List (List Sig)) → ℕ → Bool
+/workspace/pequalnp-proofs/results/orch/lemmas/search/ParamWidth.lean:3025:2: error: `simp` made no progress

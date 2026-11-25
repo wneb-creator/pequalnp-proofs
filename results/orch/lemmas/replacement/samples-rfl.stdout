@@ -1,0 +1,49 @@
+elaboration took 287ms
+/tmp/oec/pequalnp-pilot-184/replacement/RflComputeSamples.lean:558:0: warning: exponent 1024 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+attribute application took 863ms
+/tmp/oec/pequalnp-pilot-184/replacement/RflComputeSamples.lean:558:58: warning: exponent 1024 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+elaboration took 858ms
+type checking took 705ms
+ComputeBench.sample0 : chartBlock (ax127check 9) 0 1 = true
+/tmp/oec/pequalnp-pilot-184/replacement/RflComputeSamples.lean:563:0: warning: exponent 1024 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+attribute application took 825ms
+/tmp/oec/pequalnp-pilot-184/replacement/RflComputeSamples.lean:563:59: warning: exponent 1024 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+elaboration took 764ms
+type checking took 933ms
+ComputeBench.sample1 : chartBlock (ax127check 9) 90 1 = true
+/tmp/oec/pequalnp-pilot-184/replacement/RflComputeSamples.lean:568:0: warning: exponent 1024 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+attribute application took 880ms
+/tmp/oec/pequalnp-pilot-184/replacement/RflComputeSamples.lean:568:60: warning: exponent 1024 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+elaboration took 863ms
+type checking took 926ms
+ComputeBench.sample2 : chartBlock (ax127check 9) 180 1 = true
+/tmp/oec/pequalnp-pilot-184/replacement/RflComputeSamples.lean:573:0: warning: exponent 1024 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+attribute application took 847ms
+/tmp/oec/pequalnp-pilot-184/replacement/RflComputeSamples.lean:573:60: warning: exponent 1024 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+elaboration took 762ms
+type checking took 905ms
+ComputeBench.sample3 : chartBlock (ax127check 9) 270 1 = true
+/tmp/oec/pequalnp-pilot-184/replacement/RflComputeSamples.lean:578:0: warning: exponent 1024 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+attribute application took 983ms
+/tmp/oec/pequalnp-pilot-184/replacement/RflComputeSamples.lean:578:60: warning: exponent 1024 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+elaboration took 871ms
+type checking took 1.2s
+ComputeBench.sample4 : chartBlock (ax127check 9) 360 1 = true
+/tmp/oec/pequalnp-pilot-184/replacement/RflComputeSamples.lean:583:0: warning: exponent 1024 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+attribute application took 854ms
+/tmp/oec/pequalnp-pilot-184/replacement/RflComputeSamples.lean:583:60: warning: exponent 1024 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+elaboration took 805ms
+type checking took 992ms
+ComputeBench.sample5 : chartBlock (ax127check 9) 450 1 = true
+/tmp/oec/pequalnp-pilot-184/replacement/RflComputeSamples.lean:588:0: warning: exponent 1024 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+attribute application took 1.18s
+/tmp/oec/pequalnp-pilot-184/replacement/RflComputeSamples.lean:588:60: warning: exponent 1024 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+elaboration took 1.09s
+type checking took 1.46s
+ComputeBench.sample6 : chartBlock (ax127check 9) 540 1 = true
+/tmp/oec/pequalnp-pilot-184/replacement/RflComputeSamples.lean:593:0: warning: exponent 1024 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+attribute application took 722ms
+/tmp/oec/pequalnp-pilot-184/replacement/RflComputeSamples.lean:593:60: warning: exponent 1024 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+elaboration took 655ms
+type checking took 1.23s
+ComputeBench.sample7 : chartBlock (ax127check 9) 630 1 = true

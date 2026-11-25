@@ -1,0 +1,3 @@
+elaboration took 301ms
+tactic execution of Lean.Parser.Tactic.Conv.cbv took 261ms
+type checking took 743ms

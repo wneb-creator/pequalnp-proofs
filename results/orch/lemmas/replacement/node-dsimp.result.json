@@ -1,0 +1,14 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-184/replacement/DSimpComputeBench.lean",
+  "cmd": [
+    "lake",
+    "env",
+    "lean",
+    "-M2400",
+    "--profile",
+    "-j1",
+    "/tmp/oec/pequalnp-pilot-184/replacement/DSimpComputeBench.lean"
+  ],
+  "elapsed_s": 5.938856374000352,
+  "exit_code": 0
+}

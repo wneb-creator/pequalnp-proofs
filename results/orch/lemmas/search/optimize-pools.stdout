@@ -1,0 +1,27 @@
+progress 100 nodes ('compact119', 7, 10) seconds 0.76
+progress 200 nodes ('compact119', 8, 15) seconds 0.83
+progress 300 nodes ('ax95', 7, 68) seconds 0.9
+progress 400 nodes ('ax95', 8, 19) seconds 0.99
+compact21 {'states': 1, 'visited': 0, 'old': 0, 'new': 0, 'reordered': 0, 'no_pool_success': 0}
+compact23 {'states': 1, 'visited': 0, 'old': 0, 'new': 0, 'reordered': 0, 'no_pool_success': 0}
+compact27 {'states': 1, 'visited': 0, 'old': 0, 'new': 0, 'reordered': 0, 'no_pool_success': 0}
+compact31 {'states': 5, 'visited': 46, 'old': 75, 'new': 75, 'reordered': 0, 'no_pool_success': 5}
+compact55 {'states': 1, 'visited': 0, 'old': 0, 'new': 0, 'reordered': 0, 'no_pool_success': 0}
+compact63 {'states': 1, 'visited': 60, 'old': 148, 'new': 142, 'reordered': 1, 'no_pool_success': 0}
+compact85 {'states': 1, 'visited': 0, 'old': 0, 'new': 0, 'reordered': 0, 'no_pool_success': 0}
+compact87 {'states': 3, 'visited': 53, 'old': 117, 'new': 89, 'reordered': 1, 'no_pool_success': 2}
+compact91 {'states': 4, 'visited': 40, 'old': 130, 'new': 130, 'reordered': 0, 'no_pool_success': 10}
+compact95 {'states': 72, 'visited': 1364, 'old': 4740, 'new': 3987, 'reordered': 26, 'no_pool_success': 143}
+compact107 {'states': 1, 'visited': 44, 'old': 90, 'new': 86, 'reordered': 1, 'no_pool_success': 0}
+compact111 {'states': 91, 'visited': 2575, 'old': 7820, 'new': 6023, 'reordered': 48, 'no_pool_success': 191}
+compact119 {'states': 365, 'visited': 5092, 'old': 15526, 'new': 12679, 'reordered': 124, 'no_pool_success': 728}
+ax31 {'states': 131, 'visited': 359, 'old': 786, 'new': 734, 'reordered': 12, 'no_pool_success': 115}
+ax55 {'states': 1, 'visited': 0, 'old': 0, 'new': 0, 'reordered': 0, 'no_pool_success': 0}
+ax87 {'states': 109, 'visited': 553, 'old': 1299, 'new': 1169, 'reordered': 15, 'no_pool_success': 118}
+ax91 {'states': 36, 'visited': 110, 'old': 292, 'new': 292, 'reordered': 0, 'no_pool_success': 33}
+ax107 {'states': 35, 'visited': 205, 'old': 430, 'new': 374, 'reordered': 6, 'no_pool_success': 31}
+ax63 {'states': 10, 'visited': 773, 'old': 2649, 'new': 1871, 'reordered': 7, 'no_pool_success': 3}
+ax95 {'states': 490, 'visited': 10850, 'old': 40944, 'new': 30407, 'reordered': 217, 'no_pool_success': 789}
+ax111 {'states': 40, 'visited': 3034, 'old': 7939, 'new': 5268, 'reordered': 37, 'no_pool_success': 60}
+ax127 {'states': 1256, 'visited': 110395, 'old': 245963, 'new': 245963, 'reordered': 0, 'no_pool_success': 2502}
+TOTAL {'states': 2655, 'visited': 135553, 'old': 328948, 'new': 309289, 'no_pool_success': 4730, 'reordered': 495} time 2.2890250539999215
