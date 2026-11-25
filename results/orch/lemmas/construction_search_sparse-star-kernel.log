@@ -1,0 +1,34 @@
+import took 1.37s
+/tmp/oec/pequalnp-pilot-79/SparseStarKernel.lean:128:28: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/SparseStarKernel.lean:128:28: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+cumulative profiling times:
+	attribute application 0.168ms
+	compilation (IR) 0.172ms
+	compilation (LCNF base) 1.32ms
+	compilation (LCNF impure) 0.789ms
+	compilation (LCNF mono) 1.19ms
+	congr simp thm 1.21ms
+	declTypeLinter 5.66ms
+	elaboration 43.1ms
+	fix level params 2.1ms
+	import 1.37s
+	initialization 42.6ms
+	instantiate metavars 6.72ms
+	interpretation 261ms
+	let-to-have transformation 0.14ms
+	linting 33.5ms
+	module linting 0.0566ms
+	norm_num 3.06ms
+	parsing 4.85ms
+	process pre-definitions 14.7ms
+	ring 56.9ms
+	share common exprs 19.7ms
+	simp 31.4ms
+	tactic execution 237ms
+	tacticAnalysis 2.35ms
+	type checking 98.2ms
+	typeclass inference 217ms
