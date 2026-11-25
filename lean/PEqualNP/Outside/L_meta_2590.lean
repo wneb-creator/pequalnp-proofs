@@ -640,4 +640,172 @@ lemma exists_bounded_essential_impurity {n : ℕ} (P N : (Fin n → Bool) → Pr
     exact hminimal D ⟨hD, hsize.trans_le hC.2.1, hcorrect⟩
   · exact himpure
 
+def edgeFunction {n : ℕ} (edges : List (Fin n × Fin n)) (x : Fin n → Bool) : Bool :=
+  edges.any fun e => x e.1 && x e.2
+
+def EdgePositive {n : ℕ} (edges : List (Fin n × Fin n)) (x : Fin n → Bool) : Prop :=
+  ∃ e ∈ edges, x = PEqualNP.EdgeOwnership.pairInput e.1 e.2
+
+def EdgeNegative {n : ℕ} (edges : List (Fin n × Fin n)) (x : Fin n → Bool) : Prop :=
+  edgeFunction edges x = false
+
+lemma edgeFunction_true_iff {n : ℕ} (edges : List (Fin n × Fin n)) (x : Fin n → Bool) :
+    edgeFunction edges x = true ↔ ∃ e ∈ edges, edgeTerm e.1 e.2 x = true := by
+  simp [edgeFunction, edgeTerm, List.any_eq_true]
+
+lemma edgeFunction_term_le {n : ℕ} (edges : List (Fin n × Fin n))
+    (e : Fin n × Fin n) (he : e ∈ edges) : edgeTerm e.1 e.2 ≤ edgeFunction edges := by
+  intro x hx
+  exact (edgeFunction_true_iff edges x).mpr ⟨e, he, hx⟩
+
+lemma edgeTerm_pairInput {n : ℕ} (u v : Fin n) :
+    edgeTerm u v (PEqualNP.EdgeOwnership.pairInput u v) = true := by
+  simp [edgeTerm, PEqualNP.EdgeOwnership.pairInput]
+
+lemma edgeFunction_positive {n : ℕ} (edges : List (Fin n × Fin n))
+    (x : Fin n → Bool) (hx : EdgePositive edges x) : edgeFunction edges x = true := by
+  obtain ⟨e, he, rfl⟩ := hx
+  exact edgeFunction_term_le edges e he _ (edgeTerm_pairInput e.1 e.2)
+
+lemma edgeFunction_mono {n : ℕ} (edges : List (Fin n × Fin n)) :
+    Monotone (edgeFunction edges) := by
+  intro x y hxy hx
+  obtain ⟨e, he, hterm⟩ := (edgeFunction_true_iff edges x).mp hx
+  exact (edgeFunction_true_iff edges y).mpr
+    ⟨e, he, (inf_le_inf (hxy e.1) (hxy e.2)) hterm⟩
+
+lemma edge_positive_pair_pure {n : ℕ} (edges : List (Fin n × Fin n)) :
+    ∀ x, EdgePositive edges x → ∃ u v : Fin n,
+      x = PEqualNP.EdgeOwnership.pairInput u v ∧
+        ∀ y, EdgeNegative edges y → edgeTerm u v y = false := by
+  rintro x ⟨e, he, hxeq⟩
+  refine ⟨e.1, e.2, hxeq, ?_⟩
+  intro y hy
+  have hle := edgeFunction_term_le edges e he y
+  change edgeFunction edges y = false at hy
+  rw [hy] at hle
+  exact le_antisymm hle (Bool.false_le _)
+
+lemma circuitFun_mono (n : ℕ) (C : Circuit) (hC : Monotone2 C) :
+    Monotone (circuitFun n C) := by
+  intro x y hxy
+  exact fold_mono C.gates (fun g hg => mono_gate_op hC g hg)
+    (List.ofFn x) (List.ofFn y) (by simp) (ofFn_wireLE hxy) C.output
+
+lemma edge_correct_iff {n : ℕ} (edges : List (Fin n × Fin n))
+    (f : (Fin n → Bool) → Bool) (hf : Monotone f) :
+    Correct (EdgePositive edges) (EdgeNegative edges) f ↔ f = edgeFunction edges := by
+  constructor
+  · intro hcorrect
+    funext x
+    cases hvalue : edgeFunction edges x with
+    | false => exact hcorrect.2 x hvalue
+    | true =>
+        obtain ⟨e, he, hterm⟩ := (edgeFunction_true_iff edges x).mp hvalue
+        exact hf (pairInput_le hterm) (hcorrect.1 _ ⟨e, he, rfl⟩)
+  · intro heq
+    rw [heq]
+    exact ⟨edgeFunction_positive edges, fun _ h => h⟩
+
+lemma edge_circuit_correct_iff {n : ℕ} (edges : List (Fin n × Fin n))
+    (C : Circuit) (hC : Monotone2 C) :
+    Correct (EdgePositive edges) (EdgeNegative edges) (circuitFun n C) ↔
+      circuitFun n C = edgeFunction edges :=
+  edge_correct_iff edges (circuitFun n C) (circuitFun_mono n C hC)
+
+def HasEssentialEdgePairs {n : ℕ} (edges : List (Fin n × Fin n)) (C : Circuit) : Prop :=
+  ∀ pre g post out, C = splice pre g post out →
+    Impure (EdgeNegative edges) (selectedValue n pre g) →
+      ∃ e₁ ∈ edges, ∃ e₂ ∈ edges,
+        PEqualNP.EdgeOwnership.pairInput e₁.1 e₁.2 ≠
+          PEqualNP.EdgeOwnership.pairInput e₂.1 e₂.2 ∧
+        suffixContext post (prefixValues n pre)
+          (PEqualNP.EdgeOwnership.pairInput e₁.1 e₁.2) false out = false ∧
+        suffixContext post (prefixValues n pre)
+          (PEqualNP.EdgeOwnership.pairInput e₂.1 e₂.2) false out = false
+
+lemma normalize_edge_circuit {n : ℕ} (edges : List (Fin n × Fin n))
+    (C : Circuit) (hC : Monotone2 C) (hcorrect : circuitFun n C = edgeFunction edges) :
+    ∃ D, Monotone2 D ∧ D.size ≤ C.size ∧ circuitFun n D = edgeFunction edges ∧
+      HasEssentialEdgePairs edges D := by
+  have hex : ∃ D, BoundarySolution (EdgePositive edges) (EdgeNegative edges) C.size D :=
+    ⟨C, hC, le_rfl, (edge_circuit_correct_iff edges C hC).mpr hcorrect⟩
+  obtain ⟨D, hD, hessential⟩ := exists_bounded_essential_impurity
+    (EdgePositive edges) (EdgeNegative edges) (edge_positive_pair_pure edges) C.size hex
+  refine ⟨D, hD.1, hD.2.1, (edge_circuit_correct_iff edges D hD.1).mp hD.2.2, ?_⟩
+  intro pre g post out heq himpure
+  obtain ⟨x, y, hx, hy, hne, hzeroX, hzeroY⟩ := hessential pre g post out heq himpure
+  obtain ⟨e₁, he₁, hxeq⟩ := hx
+  obtain ⟨e₂, he₂, hyeq⟩ := hy
+  refine ⟨e₁, he₁, e₂, he₂, ?_, ?_, ?_⟩
+  · simpa only [hxeq, hyeq] using hne
+  · simpa only [hxeq] using hzeroX
+  · simpa only [hyeq] using hzeroY
+
+lemma normalize_edge_circuit_bounded {n : ℕ} (edges : List (Fin n × Fin n))
+    (k : ℕ) (C : Circuit) (hC : Monotone2 C) (hsize : C.size ≤ k)
+    (hcorrect : circuitFun n C = edgeFunction edges) :
+    ∃ D, Monotone2 D ∧ D.size ≤ k ∧ circuitFun n D = edgeFunction edges ∧
+      HasEssentialEdgePairs edges D := by
+  obtain ⟨D, hD, hbound, hfun, hpairs⟩ := normalize_edge_circuit edges C hC hcorrect
+  exact ⟨D, hD, hbound.trans hsize, hfun, hpairs⟩
+
+def petersenEdges : List (Fin 10 × Fin 10) :=
+  [(0, 1), (1, 2), (2, 3), (3, 4), (4, 0), (0, 5), (1, 6), (2, 7), (3, 8), (4, 9), (5, 7), (7, 9), (9, 6), (6, 8), (8, 5)]
+
+lemma petersen_edgeFunction_eq_posted :
+    edgeFunction petersenEdges = (fun (x5 : Fin (10 : ℕ) → Bool) => x5 (0 : Fin (10 : ℕ)) && x5 (1 : Fin (10 : ℕ)) || x5 (1 : Fin (10 : ℕ)) && x5 (2 : Fin (10 : ℕ)) || x5 (2 : Fin (10 : ℕ)) && x5 (3 : Fin (10 : ℕ)) || x5 (3 : Fin (10 : ℕ)) && x5 (4 : Fin (10 : ℕ)) || x5 (4 : Fin (10 : ℕ)) && x5 (0 : Fin (10 : ℕ)) || x5 (0 : Fin (10 : ℕ)) && x5 (5 : Fin (10 : ℕ)) || x5 (1 : Fin (10 : ℕ)) && x5 (6 : Fin (10 : ℕ)) || x5 (2 : Fin (10 : ℕ)) && x5 (7 : Fin (10 : ℕ)) || x5 (3 : Fin (10 : ℕ)) && x5 (8 : Fin (10 : ℕ)) || x5 (4 : Fin (10 : ℕ)) && x5 (9 : Fin (10 : ℕ)) || x5 (5 : Fin (10 : ℕ)) && x5 (7 : Fin (10 : ℕ)) || x5 (7 : Fin (10 : ℕ)) && x5 (9 : Fin (10 : ℕ)) || x5 (9 : Fin (10 : ℕ)) && x5 (6 : Fin (10 : ℕ)) || x5 (6 : Fin (10 : ℕ)) && x5 (8 : Fin (10 : ℕ)) || x5 (8 : Fin (10 : ℕ)) && x5 (5 : Fin (10 : ℕ))) := by
+  funext x
+  simp [edgeFunction, petersenEdges, Bool.or_assoc]
+
+lemma exists_size_minimal_essential_impurity {n : ℕ} (P N : (Fin n → Bool) → Prop)
+    (hpositive : ∀ x, P x → ∃ u v : Fin n,
+      x = PEqualNP.EdgeOwnership.pairInput u v ∧ ∀ y, N y → edgeTerm u v y = false)
+    (k : ℕ) (hex : ∃ C, BoundarySolution P N k C) :
+    ∃ C, BoundarySolution P N k C ∧
+      (∀ D, BoundarySolution P N k D → C.size ≤ D.size) ∧
+      ∀ pre g post out, C = splice pre g post out → Impure N (selectedValue n pre g) →
+        ∃ x y, P x ∧ P y ∧ x ≠ y ∧
+          suffixContext post (prefixValues n pre) x false out = false ∧
+          suffixContext post (prefixValues n pre) y false out = false := by
+  obtain ⟨C₀, hC₀, hsize₀⟩ :=
+    exists_minimum_nat_measure (BoundarySolution P N k) Circuit.size hex
+  obtain ⟨C, hC, himpurity⟩ := exists_minimum_nat_measure
+    (fun D => BoundarySolution P N k D ∧ D.size = C₀.size)
+    (circuitImpurity N) ⟨C₀, hC₀, rfl⟩
+  refine ⟨C, hC.1, ?_, ?_⟩
+  · intro D hD
+    rw [hC.2]
+    exact hsize₀ D hD
+  · intro pre g post out heq himpure
+    apply minimal_impurity_two_essential P N hpositive pre g post out
+    · simpa only [← heq] using hC.1.1
+    · simpa only [← heq] using hC.1.2.2
+    · intro D hD hsize hcorrect
+      rw [← heq] at hsize ⊢
+      exact himpurity D ⟨⟨hD, hsize.trans_le hC.1.2.1, hcorrect⟩, hsize.trans hC.2⟩
+    · exact himpure
+
+lemma normalize_edge_circuit_size_minimal {n : ℕ} (edges : List (Fin n × Fin n))
+    (k : ℕ) (C : Circuit) (hC : Monotone2 C) (hsize : C.size ≤ k)
+    (hcorrect : circuitFun n C = edgeFunction edges) :
+    ∃ D, Monotone2 D ∧ D.size ≤ k ∧ circuitFun n D = edgeFunction edges ∧
+      (∀ F, Monotone2 F → F.size ≤ k → circuitFun n F = edgeFunction edges →
+        D.size ≤ F.size) ∧ HasEssentialEdgePairs edges D := by
+  have hex : ∃ D, BoundarySolution (EdgePositive edges) (EdgeNegative edges) k D :=
+    ⟨C, hC, hsize, (edge_circuit_correct_iff edges C hC).mpr hcorrect⟩
+  obtain ⟨D, hD, hminimal, hessential⟩ := exists_size_minimal_essential_impurity
+    (EdgePositive edges) (EdgeNegative edges) (edge_positive_pair_pure edges) k hex
+  refine ⟨D, hD.1, hD.2.1, (edge_circuit_correct_iff edges D hD.1).mp hD.2.2, ?_, ?_⟩
+  · intro F hF hFsize hFfun
+    exact hminimal F ⟨hF, hFsize, (edge_circuit_correct_iff edges F hF).mpr hFfun⟩
+  · intro pre g post out heq himpure
+    obtain ⟨x, y, hx, hy, hne, hzeroX, hzeroY⟩ := hessential pre g post out heq himpure
+    obtain ⟨e₁, he₁, hxeq⟩ := hx
+    obtain ⟨e₂, he₂, hyeq⟩ := hy
+    refine ⟨e₁, he₁, e₂, he₂, ?_, ?_, ?_⟩
+    · simpa only [hxeq, hyeq] using hne
+    · simpa only [hxeq] using hzeroX
+    · simpa only [hyeq] using hzeroY
+
 end PEqualNP.Outside.L_meta_2590.EssentialPruning
