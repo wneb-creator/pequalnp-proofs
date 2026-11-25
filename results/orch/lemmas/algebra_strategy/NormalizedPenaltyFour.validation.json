@@ -1,0 +1,30 @@
+{
+  "status": "COMPILED, frozen for independent review",
+  "scope": "Necessary condition only: every exact posted plane Monotone2 circuit of size\u226463 normalizes without size increase to least TopForm with penalty2centreless+junk+nonlam\u22654. The penalty\u22654 cases remain open.",
+  "source_lines": 9150,
+  "copied_accepted_proofs": [
+    "L_meta_5779",
+    "L_meta_5781",
+    "L_meta_8103",
+    "L_meta_4181",
+    "L_meta_5869"
+  ],
+  "new_geometry": "Generic bipartite/no-C4 proof; no finite witness-table assumption",
+  "format_scan": {
+    "sorry": false,
+    "native_decide": false,
+    "axiom": false,
+    "root_token": false,
+    "string_quotes": false
+  },
+  "exit_code": 0,
+  "sha256": "92910e3bc436ae5e78c3f90b1714f56be6ae855e2c01bb81a9e07c5534cc91bf",
+  "log": "NormalizedPenaltyFour.build.log",
+  "successful_log_bytes": 19516,
+  "resource_cap_MB": 6144,
+  "completed_UTC": "2026-11-25T07:03:56.523117+00:00",
+  "imports": [
+    "PEqualNP.Defs",
+    "Mathlib.Combinatorics.Enumerative.DoubleCounting"
+  ]
+}
