@@ -1,0 +1,146 @@
+{
+  "created_utc": "2026-11-25T02:47:15.549295+00:00",
+  "kind": "local_original_checker_acceptance_preservation",
+  "gap": "L-meta-1768",
+  "files": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/checker-010.stdout",
+      "target": "results/orch/validation/checker-010/run/checker-010.stdout",
+      "bytes": 13844,
+      "sha256": "c0ad677145e161f12fae6621e11b86c2d4fea8092d91fe2331cf18544cae5526",
+      "source_mtime_utc": "2026-11-25T02:43:05.894166+00:00",
+      "purpose": "Complete original checker010 run or auxiliary sampler evidence"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/checker-010.stderr",
+      "target": "results/orch/validation/checker-010/run/checker-010.stderr",
+      "bytes": 908,
+      "sha256": "a535dd4ef361f0476cc0f88447f83bd317100742d80f60f16fc2cf92d7b004d5",
+      "source_mtime_utc": "2026-11-25T02:43:05.886165+00:00",
+      "purpose": "Complete original checker010 run or auxiliary sampler evidence"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/checker-010.exit",
+      "target": "results/orch/validation/checker-010/run/checker-010.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "source_mtime_utc": "2026-11-25T02:43:05.898166+00:00",
+      "purpose": "Complete original checker010 run or auxiliary sampler evidence"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/checker-010.pid",
+      "target": "results/orch/validation/checker-010/run/checker-010.pid",
+      "bytes": 6,
+      "sha256": "b0e72c8876771873f61aeee5a5de866d715c61e8574a7c958ef848932981eeea",
+      "source_mtime_utc": "2026-11-25T02:25:54.133605+00:00",
+      "purpose": "Complete original checker010 run or auxiliary sampler evidence"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/checker-010-resources.jsonl",
+      "target": "results/orch/validation/checker-010/run/checker-010-resources.jsonl",
+      "bytes": 109813,
+      "sha256": "e6565980d78712ab5189acf053037a3099fb252b512d39abcfb5e6b70dc59dbd",
+      "source_mtime_utc": "2026-11-25T02:39:21.566162+00:00",
+      "purpose": "Complete original checker010 run or auxiliary sampler evidence"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/checker-010-monitor.stdout",
+      "target": "results/orch/validation/checker-010/run/checker-010-monitor.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_mtime_utc": "2026-11-25T02:25:55.356017+00:00",
+      "purpose": "Complete original checker010 run or auxiliary sampler evidence"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/checker-010-monitor.stderr",
+      "target": "results/orch/validation/checker-010/run/checker-010-monitor.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_mtime_utc": "2026-11-25T02:25:55.356017+00:00",
+      "purpose": "Complete original checker010 run or auxiliary sampler evidence"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/checker-010-monitor-stop.txt",
+      "target": "results/orch/validation/checker-010/run/checker-010-monitor-stop.txt",
+      "bytes": 141,
+      "sha256": "1ff4718005f65139b99abf4c9bf00a8cd83f5b0cc3469dd161d537eb5b6838f9",
+      "source_mtime_utc": "2026-11-25T02:39:25.203526+00:00",
+      "purpose": "Complete original checker010 run or auxiliary sampler evidence"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/checker-010-stopped-monitor.pid",
+      "target": "results/orch/validation/checker-010/run/checker-010-stopped-monitor.pid",
+      "bytes": 6,
+      "sha256": "411249fcafb99a1d12acbe7440ecb6b057462683f6728512ed5b90433445c057",
+      "source_mtime_utc": "2026-11-25T02:39:25.203526+00:00",
+      "purpose": "Complete original checker010 run or auxiliary sampler evidence"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/review-accepted010.json",
+      "target": "results/orch/validation/checker-010/review/review-accepted010.json",
+      "bytes": 611,
+      "sha256": "b4da4ec16ce312d85728febd9790442e194ea00b3f414c4f00313fa77e350b46",
+      "source_mtime_utc": "2026-11-25T02:45:28.041887+00:00",
+      "purpose": "Independent acceptance and restored-storage summary"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/sparse-core-expansion/review-checker010-base.stdout",
+      "target": "results/orch/validation/checker-010/review/review-checker010-base.stdout",
+      "bytes": 399,
+      "sha256": "dfbc0b4649e8a05b69cc3363a48023af27c1f465b88749d611dbcee7b72555ef",
+      "source_mtime_utc": "2026-11-25T02:45:06.784393+00:00",
+      "purpose": "Complete independent exact restoration audit"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/sparse-core-expansion/review-checker010-base.stderr",
+      "target": "results/orch/validation/checker-010/review/review-checker010-base.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_mtime_utc": "2026-11-25T02:45:03.844340+00:00",
+      "purpose": "Complete independent exact restoration audit"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/sparse-core-expansion/review-checker010-core.stdout",
+      "target": "results/orch/validation/checker-010/review/review-checker010-core.stdout",
+      "bytes": 237,
+      "sha256": "eddae4edb245e84d6c50a177c294c7ec384f6b691fd61ba813f5244b93a0421b",
+      "source_mtime_utc": "2026-11-25T02:45:04.492352+00:00",
+      "purpose": "Complete independent exact restoration audit"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/sparse-core-expansion/review-checker010-core.stderr",
+      "target": "results/orch/validation/checker-010/review/review-checker010-core.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source_mtime_utc": "2026-11-25T02:45:03.840340+00:00",
+      "purpose": "Complete independent exact restoration audit"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/R_meta_1768_45.lean",
+      "target": "results/orch/validation/checker-010/source/R_meta_1768_45.lean",
+      "bytes": 5172,
+      "sha256": "191b2cda8c5f17e7b401f9a3b17a1678ba2c456ea294db429667d46d3b757983",
+      "source_mtime_utc": "2026-11-24T23:36:49.719962+00:00",
+      "purpose": "Exact accepted 97-line proof source"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/statement.txt",
+      "target": "results/orch/validation/checker-010/source/statement.txt",
+      "bytes": 776,
+      "sha256": "fc6294f85eab759a4b321f18aa09cc223996ab87f2b40e51e01e85cbc5e7c76d",
+      "source_mtime_utc": "2026-11-24T21:48:57.038534+00:00",
+      "purpose": "Exact statement file bytes supplied to the local checker"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/imports.json",
+      "target": "results/orch/validation/checker-010/source/imports.json",
+      "bytes": 18,
+      "sha256": "dbe8d7f722c23b00484c2a082ad1bbdbf5ab7e410439d0f4338d7daaec89b950",
+      "source_mtime_utc": "2026-11-24T21:48:57.038575+00:00",
+      "purpose": "Allowed imports snapshot"
+    }
+  ],
+  "copied_files": 17,
+  "copied_bytes": 131933,
+  "excluded": "Large packs, journals, machinery, binaries, credentials and lease material; existing validation artifacts are referenced by hash."
+}

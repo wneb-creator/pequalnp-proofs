@@ -1,0 +1,62 @@
+{
+  "created_utc": "2026-11-25T02:47:15.549295+00:00",
+  "verdict": "ACCEPTED (reduce)",
+  "scope": "Local original tools/check-lean.mjs verdict; no PR yet",
+  "checker_exit": 0,
+  "module": "PEqualNP.Outside.R_meta_1768_45",
+  "children": 2,
+  "axioms": [
+    "propext",
+    "Quot.sound",
+    "Classical.choice"
+  ],
+  "kernel_rechecked_constants": 1654,
+  "proof_lines": 97,
+  "proof_sha256": "191b2cda8c5f17e7b401f9a3b17a1678ba2c456ea294db429667d46d3b757983",
+  "checker_exit_file_mtime_utc": "2026-11-25T02:43:05.898166+00:00",
+  "success_observed_by_root_utc": "2026-11-25T02:43:56Z",
+  "sampler": {
+    "intentionally_stopped_utc": "2026-11-25T02:39:25.203526Z",
+    "resources_file_last_mtime_utc": "2026-11-25T02:39:21.566162Z",
+    "limitation": "The preserved resource stream ends before checker completion; stopping the auxiliary sampler did not synthesize checker completion."
+  },
+  "restoration": {
+    "status": "PASS",
+    "files": 32748,
+    "logical_bytes": 2990839320,
+    "evidence": "Complete independent base/core audit logs in review/"
+  },
+  "source_build_guard_references": [
+    {
+      "path": "tools/check-lean.mjs",
+      "bytes": 14865,
+      "sha256": "d3f8ca82be7a4aabcf5aba7727b715140c82fa575340c6a8f5d7b134bf4d23ad"
+    },
+    {
+      "path": "results/orch/validation/build-003-narrow.stdout",
+      "bytes": 57255,
+      "sha256": "eb185f032b0b9562e76a18e6c8e57ebcbd8c9faced1b0261313418bdf6e3f949"
+    },
+    {
+      "path": "results/orch/validation/build-003-narrow.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/validation/guard-003-narrow.stdout",
+      "bytes": 31,
+      "sha256": "19c350aa816e348ae3d6af5ca17c0bcbdc488cfdbd5a6d4548dced5b74bf4217"
+    },
+    {
+      "path": "results/orch/validation/guard-003-narrow.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/validation/narrow-imports-result.json",
+      "bytes": 393,
+      "sha256": "d868b4046b2a0d0bf938409fab7f54b5d7c9d385bb48b46b1108df47b0c945e8"
+    }
+  ],
+  "copy_manifest_sha256": "8a81c65b7614cc94cc38f2c25c9f4324ea5ed389a3d76f6335354cf23c097528"
+}
