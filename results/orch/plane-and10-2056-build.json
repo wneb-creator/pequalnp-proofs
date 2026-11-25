@@ -1,0 +1,10 @@
+{
+  "observed_at_utc": "2026-11-25T17:31:56.081026+00:00",
+  "command": "lake env lean ../results/orch/lemmas/PlaneAndCountLower2056.lean",
+  "workdir": "lean",
+  "exit_code": 0,
+  "source_sha256": "044bff5c51b463811d3811ceb36894bd58a6f1d6f7ff0994f1e3d0f5f3e40a49",
+  "lines": 1019,
+  "scope": "Any Monotone2 circuit computing the literal52-edge order-three plane function has at least10 AND gates. Kernel edges_spec identifies the literal edge list with the posted sum incidence. This is a supporting lower bound, not the requested63-gate existence theorem or a64-gate lower bound.",
+  "checker": "Not submitted as a proof of L-meta-2056."
+}
