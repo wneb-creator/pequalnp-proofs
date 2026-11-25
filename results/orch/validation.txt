@@ -24,3 +24,11 @@ The posted L-meta-2592 statement remains unproved; no proof PR opened.
 
 root_row_lookup.lean: Lean exit0 with narrow Mathlib.Data.BitVec import; independent review PASS.
 It lifts the finite certificate to arbitrary listed input signatures; certificate remains an explicit hypothesis discharged by root_row_witness in integration.
+
+CHECKPOINT AFTER HTTP410
+Last successful lease beat: 14:35:16 UTC; reported expiry14:55:16 UTC. Renewal14:40:17 returned HTTP410. Required curl -si diagnostic reproduced410. Complete headers/body: desk-error-full.txt.
+New checked partials: routes_no_alias.lean and elimination_star_one_aux.lean, independently reviewed PASS. The latter verifies only a finite one-auxiliary mask predicate, with no arbitrary-circuit completeness claim.
+lower_binary17.lean compiled the copied existing floor16 baseline. The new floor17 theorem in lower_binary17_finish.lean remains UNCOMPILED. See lower-logs/STATUS.txt for exact source/log states.
+All other draft proof files and finite two-auxiliary search proofs remain UNCOMPILED unless explicitly recorded as checked above. No complete L-meta-2592 proof or refutation, no proof PR, no posted-statement checker verdict.
+Sub-agents: 6 (status/toolchain review, circuit search, lower bound, definitions audit, lemma routes, elimination)
+TIMING total=29.1 subagents=6

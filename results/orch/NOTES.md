@@ -84,3 +84,42 @@ Normalized-live and sole-primary-reader partials are checked and pushed. Search 
 - Local exact repair of original19best with≤3changedgate definitions:UNSAT;≤4repair timedout180s. Signed18≤4repair timedout180s.
 - Added colexfanin order restriction (search heuristic, no completeness theorem), signedwirephase normalization falseatallzero (AND/OR/ANDNOT/NOTAND), and2NOTexactcount mode. Paused/terminated extrajobs toreserve2CPUsforLean.
 - Onlynormalizedsigned18SAT currentlyrunning; ABCcompile effectively1CPU, onecompilerpaused in scratch abc-paused-pids.json and MUST resumeonce remainingbuildwaits.
+
+## 2026-11-25T14:36:10.763148+00:00 elimination star diagnostic
+Assigned by root to formalize search_star_closure.py finite12-row mask condition. Python mirror confirms all8orientations after filtering AND candidates to target-supersets and OR candidates to target-subsets. circuit_search independently reviewed explicit targettables and6-pass greedyclosure semantics. Monolithic orientation0 kernel checks were interrupted for memory/time; now running elimination_star_closure_chunks.lean with93first-mask caselemmas and narrow Mathlib.Data.Nat.Bitwise import. This only checks the finite closure condition; no general arbitrarycircuit enumeration-completeness bridge has been proved.
+
+## Alias erasure and unary-copy exclusion (2026-11-25T14:39:02.766816+00:00; lemma_routes)
+
+New checked partial results/orch/lemmas/routes_no_alias.lean: 290 lines, 13534 bytes; exact file compiled exit 0, zero warnings. Complete log /tmp/oec/pequalnp-pilot-117/routes-no-alias-build.log is empty. The Alias namespace extracts L551 generic redirection/deletion for a gate whose output equals an earlier wire, preserving the computed function and reducing gate count by one. New lemmas no_alias, no_unary_copy, and no_duplicate_copy derive contradiction from semantic minimum size, excluding AND/OR singleton inputs or repeated binary inputs. This supplies the remaining gate-shape condition requested by definitions_audit for the exact1NOT single-use-primary route. File held unchanged for independent review and preservation push.
+
+## 2026-11-25T14:41:09.752353+00:00 definitions_audit lease pause and preservation
+Proof work paused on root instruction after own-lease HTTP410. No new builds or desk calls.
+- audit_last_not.lean: 404 lines, COMPILED exit0 against full Defs, independently reviewed PASS. extended-build.log empty.
+- audit_single_use.lean: 545 lines, UNCOMPILED current revision. Previous compile failed at primary_use_positive because an implicit finite-sum summand was not inferred. Explicit summand was added after failure; not rerun.
+- audit_single_use_draft.lean: 1058 lines, UNCOMPILED integration draft copied from scratch. Includes checked audit/raw-count/Alias scaffolds and proposed every-primary-read, exact one-occurrence split, and one-NOT internal-partner conclusion. No claim of Lean acceptance.
+Complete audit logs copied under results/orch/validation/audit; original scratch logs retained.
+
+## 2026-11-25T14:41:32.846426+00:00 elimination paused after checked star partial
+CHECKED: elimination_star_one_aux.lean compiled Lean4.36.0 exit0; profile import1.31s, kerneltypechecking24.1s. no_one_auxiliary proves all8explicit12-row families fail greedy targetclosure with atmost1non-targetauxiliary mask. It does NOT certify the planned2aux condition or a general circuit-completeness bridge. Independentreview requested from status_review for rootpreservationpush. All2aux attempts are incomplete: monolithic, filtered, and93case chunked variants were interrupted exit130 for resourcebudget; their sources/full logs retained. Rootreported leaseHTTP410 and askedpause; no elimination-owned process remains.
+
+## 2026-11-25T14:41:55.168728+00:00 lower_bound interruption
+Lower-bound work interrupted because own lease renewed with HTTP410.
+
+The new floor17 theorem is UNCOMPILED.
+
+Independent mathematical review PASS (root and status_review); Python projection checks PASS.
+
+Existing L6581-derived baseline compile interrupted before completion; no complete Lean result.
+
+Projection global and optimized runs interrupted to control memory; final chunked run interrupted on410.
+
+Generic bridge had one hypothesis-shadowing error, corrected in source but not yet recompiled.
+
+Draft sources: lower_binary17_base.lean, lower_binary17_finish.lean, lower_projection.lean, lower_bridge.lean.
+
+No claim of a new checked proof.
+
+
+Correction 2026-11-25T14:42:15.804986+00:00: baseline lower_binary17.lean completed with Lean exit0 before termination; this is copied existing L6581 proof only (floor16), not the drafted floor17 result. New floor17 remains UNCOMPILED. Final chunked projection terminated exit143.
+
+- Search-log correction after full review: all eight finite closures are false, but frontiers are [1,79,3901] for orientations 0/3/5/6 and [1,78,3818] for 1/2/4/7. The interrupted paid19 run exited -15 (SIGTERM), not 0; it has no solver verdict.

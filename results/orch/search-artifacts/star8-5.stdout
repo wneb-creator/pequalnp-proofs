@@ -1,0 +1,3 @@
+groups [[1, 4, 5], [2, 6], [2, 4], [2, 5, 9], [3, 6, 5], [4, 6]]
+solve 0 samples 112 vars 2976 clauses 45563
+exit 20

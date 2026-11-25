@@ -1,0 +1,61 @@
+/tmp/oec/pequalnp-pilot-117/audit/audit_slim.lean:136:77: error: Application type mismatch: The argument
+  hzero
+has type
+  (!(wf gs (List.ofFn fun x => false)).getD i false) = false
+but is expected to have type
+  (wf gs (List.ofFn fun x => false)).getD i false = true
+in the application
+  mono2 gs hleg (List.ofFn fun x => false) (List.ofFn fun x => true) ?m.124
+    (fun w => ofFn_mono 10 (fun x => false) (fun x => true) ?m.130 w) i hzero
+/tmp/oec/pequalnp-pilot-117/audit/audit_slim.lean:137:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  !(wf gs (List.ofFn fun x => true)).getD i false
+in the target expression
+  (wf gs (List.ofFn fun x => true)).getD i false = true
+
+case cons
+gs : List Gate
+hleg : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2
+i : ℕ
+is : List ℕ
+hzero : (!(wf gs (List.ofFn fun x => false)).getD i false) = false
+hone : (!(wf gs (List.ofFn fun x => true)).getD i false) = true
+hp : (wf gs (List.ofFn fun x => true)).getD i false = true
+⊢ False
+/tmp/oec/pequalnp-pilot-117/audit/audit_slim.lean:132:47: warning: This simp argument is unused:
+  Bool.not_eq_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.map_cons, List.headD_cons] at hzero
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-117/audit/audit_slim.lean:133:47: warning: This simp argument is unused:
+  Bool.not_eq_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.map_cons, List.headD_cons] at hone
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-117/audit/audit_slim.lean:251:32: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-117/audit/audit_slim.lean:252:30: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-117/audit/audit_slim.lean:253:30: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-117/audit/audit_slim.lean:254:30: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

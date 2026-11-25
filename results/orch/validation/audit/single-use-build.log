@@ -1,0 +1,8 @@
+../results/orch/lemmas/audit_single_use.lean:432:19: error: Application type mismatch: The argument
+  Finset.single_le_sum (fun i x => Nat.zero_le (?m.84 i)) (Finset.mem_univ j)
+has type
+  ?m.84 j ≤ ∑ x, ?m.84 x
+but is expected to have type
+  List.count (↑v) (C.gates.get j).inputs ≤ ∑ j, List.count (↑v) (C.gates.get j).inputs
+in the application
+  LE.le.trans hpos (Finset.single_le_sum (fun i x => Nat.zero_le (?m.84 i)) (Finset.mem_univ j))

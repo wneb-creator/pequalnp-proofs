@@ -1,0 +1,9 @@
+2026-11-25T14:41:55.167851+00:00
+Lower-bound work interrupted because own lease renewed with HTTP410.
+The new floor17 theorem is UNCOMPILED.
+Independent mathematical review PASS (root and status_review); Python projection checks PASS.
+Existing L6581-derived baseline lower_binary17.lean completed with Lean exit0 immediately before termination; this verifies the existing floor16 only, not the newfloor17 theorem.
+Projection global and optimized runs interrupted to control memory; final chunked run interrupted on410.
+Generic bridge had one hypothesis-shadowing error, corrected in source but not yet recompiled.
+Draft sources: lower_binary17_base.lean, lower_binary17_finish.lean, lower_projection.lean, lower_bridge.lean.
+No claim of a new checked proof.

@@ -1,0 +1,1 @@
+2026-11-25T14:39:07.006394+00:00 root requested scheduling pause; PID23881 already defunct on inspection; session35977 exited1. Full source/log preserved. No restart pending root approval.

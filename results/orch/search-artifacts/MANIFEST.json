@@ -1,0 +1,542 @@
+[
+  {
+    "path": "results/orch/search-artifacts/star8-3.stdout",
+    "original_bytes": 117,
+    "stored_bytes": 117,
+    "sha256_uncompressed": "79a8267d98bc3ae34fd8e8d65ebba8b6326f2e48f5426c52e9dc6298f1480147"
+  },
+  {
+    "path": "results/orch/search-artifacts/sat-first2/0.log",
+    "original_bytes": 18921,
+    "stored_bytes": 18921,
+    "sha256_uncompressed": "a364db9f517c107c6eacacbb1a69310cf3a832ebabf3d534452ead477f7f409a"
+  },
+  {
+    "path": "results/orch/search-artifacts/sat-first2/0.cnf.gz",
+    "original_bytes": 1951833,
+    "stored_bytes": 436377,
+    "sha256_uncompressed": "6f00fdc164fe4abbcac1c04a0622211230b9fa7118d0864ca152b6ae0648d648"
+  },
+  {
+    "path": "results/orch/search-artifacts/sat-first2/0.sol",
+    "original_bytes": 10,
+    "stored_bytes": 10,
+    "sha256_uncompressed": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+  },
+  {
+    "path": "results/orch/search-artifacts/encoding-test.cnf.gz",
+    "original_bytes": 24224792,
+    "stored_bytes": 4989231,
+    "sha256_uncompressed": "2963469008724967bb24bdbe1c20b53aa5177ee42c9c4a1877ce42e7d3b42907"
+  },
+  {
+    "path": "results/orch/search-artifacts/cgp3-build.log",
+    "original_bytes": 0,
+    "stored_bytes": 0,
+    "sha256_uncompressed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/search-artifacts/abc-build.log",
+    "original_bytes": 90570,
+    "stored_bytes": 90570,
+    "sha256_uncompressed": "1f4055e2cc57397ef0e2a5e74abab66f24a4e86f640c2decab7ef4710e40ba57"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-1/0.log",
+    "original_bytes": 8831,
+    "stored_bytes": 8831,
+    "sha256_uncompressed": "252ca9afbdb0df5a3a36083668d129ba5f7fb80234fe1ea2018c145c99b3e230"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-1/0.cnf.gz",
+    "original_bytes": 650278,
+    "stored_bytes": 144421,
+    "sha256_uncompressed": "81d264727270783af6b1fd5c9da9a92700f11e956c207c901814ce391e8a2572"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-1/0.sol",
+    "original_bytes": 16,
+    "stored_bytes": 16,
+    "sha256_uncompressed": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162"
+  },
+  {
+    "path": "results/orch/search-artifacts/cgp-build.log",
+    "original_bytes": 0,
+    "stored_bytes": 0,
+    "sha256_uncompressed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/search-artifacts/paid19-two-not-colex/0.log",
+    "original_bytes": 18266,
+    "stored_bytes": 18266,
+    "sha256_uncompressed": "8a7d791a9d31440ce1a60bb83fd8aa801f3eae42cdba82da7b7d6ece3084620f"
+  },
+  {
+    "path": "results/orch/search-artifacts/paid19-two-not-colex/0.cnf.gz",
+    "original_bytes": 2202341,
+    "stored_bytes": 472276,
+    "sha256_uncompressed": "6df70b1ca17d7046e2ca9479eac44e738346fb5d936d5679eedbaea7b8d40f4d"
+  },
+  {
+    "path": "results/orch/search-artifacts/cgp-signed118.stdout",
+    "original_bytes": 1979,
+    "stored_bytes": 1979,
+    "sha256_uncompressed": "3ab592b1006d331e186ced9443adf3d7913eece6b792c330fe82e68bb7add7a4"
+  },
+  {
+    "path": "results/orch/search-artifacts/cgp-signed118-best.json",
+    "original_bytes": 218,
+    "stored_bytes": 218,
+    "sha256_uncompressed": "35f250e7d7e90cc2e7c78b620993a7e585beba1deece1b6725dbe7821d61dbd8"
+  },
+  {
+    "path": "results/orch/search-artifacts/cgp-117-best.json",
+    "original_bytes": 230,
+    "stored_bytes": 230,
+    "sha256_uncompressed": "3fac915cd7fc9ebdc48f96a677dc6bc82f2a7a63298a36fb962f20bf8951fd59"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-2/0.log",
+    "original_bytes": 8787,
+    "stored_bytes": 8787,
+    "sha256_uncompressed": "7c98ff6a8854cdee21b4868d9073d44bb6fb0a1efb58c679ec7cc17cd334fdc5"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-2/0.cnf.gz",
+    "original_bytes": 650278,
+    "stored_bytes": 144389,
+    "sha256_uncompressed": "9124f9dd0d8125481976d73b00d49ad3b6c64bb80adcca7acf88b864dd6956c3"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-2/0.sol",
+    "original_bytes": 16,
+    "stored_bytes": 16,
+    "sha256_uncompressed": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162"
+  },
+  {
+    "path": "results/orch/search-artifacts/kissat-build.log",
+    "original_bytes": 5478,
+    "stored_bytes": 5478,
+    "sha256_uncompressed": "d9fd3aacd9b7f79c4ec31d613195a44c919007efca0ce2e4fbffe65a70f7168e"
+  },
+  {
+    "path": "results/orch/search-artifacts/graph.json",
+    "original_bytes": 243,
+    "stored_bytes": 243,
+    "sha256_uncompressed": "7e461a600c1c52cdaf9808f8065afbec31ce8179d619f9ee579d71a9526ae564"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-3/0.log",
+    "original_bytes": 8945,
+    "stored_bytes": 8945,
+    "sha256_uncompressed": "d4f7bdccab7267dbe12aef574893948739fa0e6dda4486d3976f33995a99cf4d"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-3/0.cnf.gz",
+    "original_bytes": 650278,
+    "stored_bytes": 144407,
+    "sha256_uncompressed": "83ca4deffe4003e9f0f9d22b186760199e0cc20933a0752dff1e64fb71f47e7b"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-3/0.sol",
+    "original_bytes": 16,
+    "stored_bytes": 16,
+    "sha256_uncompressed": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162"
+  },
+  {
+    "path": "results/orch/search-artifacts/cgp-117.stdout",
+    "original_bytes": 6620,
+    "stored_bytes": 6620,
+    "sha256_uncompressed": "f310bc14043fc03c1331501c25490df4a1cc846bba80dfd37381db3f6ff7f78a"
+  },
+  {
+    "path": "results/orch/search-artifacts/paid19-two-not-colex.stdout",
+    "original_bytes": 58,
+    "stored_bytes": 58,
+    "sha256_uncompressed": "21003396c583ad28e6a560e0ad0eda211af909bf25133807d3e4a41c65276e4d"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-1.stdout",
+    "original_bytes": 117,
+    "stored_bytes": 117,
+    "sha256_uncompressed": "b9cfa05d131384192064dc0efd540fe85e3dfa859b691b5295ed18c307b6f546"
+  },
+  {
+    "path": "results/orch/search-artifacts/kissat-configure.log",
+    "original_bytes": 518,
+    "stored_bytes": 518,
+    "sha256_uncompressed": "44f52ca901837633788ccf9158daae3861eab2439b60fe1b4ba0f4087d0ecd84"
+  },
+  {
+    "path": "results/orch/search-artifacts/cgp-signed119.stderr",
+    "original_bytes": 2509,
+    "stored_bytes": 2509,
+    "sha256_uncompressed": "6aedfa051b2f4a7b27a34e814936d42300d675008350e0dbc16043b3129fb06f"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-4.stdout",
+    "original_bytes": 117,
+    "stored_bytes": 117,
+    "sha256_uncompressed": "be3399b031d262b9cf653d095ea50e74e5e050f0199604c81b02531ea6861ccf"
+  },
+  {
+    "path": "results/orch/search-artifacts/paid19-one-not-retained/0.log",
+    "original_bytes": 19116,
+    "stored_bytes": 19116,
+    "sha256_uncompressed": "2dba718ed320bbacaa3e75a41ed8fd3efc8a9319fecb18b4118de1e847d0e04c"
+  },
+  {
+    "path": "results/orch/search-artifacts/paid19-one-not-retained/0.cnf.gz",
+    "original_bytes": 5453680,
+    "stored_bytes": 1149908,
+    "sha256_uncompressed": "e0b0d0cfcd3ef728704e9dde099c4ab710ff7dfa616e7aaf7870699d5eefbbae"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-2.stdout",
+    "original_bytes": 117,
+    "stored_bytes": 117,
+    "sha256_uncompressed": "1a105e8e36168e690b834f13a71030c7d51820bba630a9fa4586986476b66ba9"
+  },
+  {
+    "path": "results/orch/search-artifacts/sat-signed18/0.log",
+    "original_bytes": 18069,
+    "stored_bytes": 18069,
+    "sha256_uncompressed": "f203fab2ee8f6de5164349b6f14c97bbc586d73fea57c43160e3b78d72310bfd"
+  },
+  {
+    "path": "results/orch/search-artifacts/sat-signed18/0.cnf.gz",
+    "original_bytes": 2729778,
+    "stored_bytes": 516858,
+    "sha256_uncompressed": "a3d44e2bea478cd1a0724274436385513db00d21440736a27e0b8b7cc193f366"
+  },
+  {
+    "path": "results/orch/search-artifacts/sat-signed18/0.sol",
+    "original_bytes": 10,
+    "stored_bytes": 10,
+    "sha256_uncompressed": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-6.stdout",
+    "original_bytes": 117,
+    "stored_bytes": 117,
+    "sha256_uncompressed": "6d2e65842743b4ac3e5604ecaa445cedae00d6653fd74669b185679a5f41013b"
+  },
+  {
+    "path": "results/orch/search-artifacts/cgp-signed119.stdout",
+    "original_bytes": 7354,
+    "stored_bytes": 7354,
+    "sha256_uncompressed": "719d69bfc71ac8d4a00fb3a6336ddf955a8bc9b4f8fccdc5f31423d424597cac"
+  },
+  {
+    "path": "results/orch/search-artifacts/cgp-signed118.stderr",
+    "original_bytes": 720,
+    "stored_bytes": 720,
+    "sha256_uncompressed": "06ffc88d74ca952b0e9fbc454af7dc58501b16a8e1c213365f541e2d5816b3fa"
+  },
+  {
+    "path": "results/orch/search-artifacts/star-closure.log",
+    "original_bytes": 200,
+    "stored_bytes": 200,
+    "sha256_uncompressed": "47df90a0b8e9f6b2378f467aed8633296a6a06ab253193f6cf4e54010200ce4b"
+  },
+  {
+    "path": "results/orch/search-artifacts/petersen20.bench",
+    "original_bytes": 481,
+    "stored_bytes": 481,
+    "sha256_uncompressed": "c5b62f50fc6d5308e096931686e15bc6f16c93e13712ae963e49e706a9bf89cf"
+  },
+  {
+    "path": "results/orch/search-artifacts/cgp2-build.log",
+    "original_bytes": 0,
+    "stored_bytes": 0,
+    "sha256_uncompressed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "results/orch/search-artifacts/cgp-117.stderr",
+    "original_bytes": 2228,
+    "stored_bytes": 2228,
+    "sha256_uncompressed": "570b59c832d044a760e05f6ed9229f1f56a9606403b9de8c209b8bb0f976f536"
+  },
+  {
+    "path": "results/orch/search-artifacts/repair-original4.stdout",
+    "original_bytes": 56,
+    "stored_bytes": 56,
+    "sha256_uncompressed": "0e05a207a2e99d0555f54590fb9fbe01aad1961f53856217e3f055862625c585"
+  },
+  {
+    "path": "results/orch/search-artifacts/kissat-signed18.log",
+    "original_bytes": 59783,
+    "stored_bytes": 59783,
+    "sha256_uncompressed": "b51b6ccc15dd43217b0d7767c0a9efe73a5052936bea3f78d27cc69ee73a511b"
+  },
+  {
+    "path": "results/orch/search-artifacts/repair-original4/0.log",
+    "original_bytes": 15401,
+    "stored_bytes": 15401,
+    "sha256_uncompressed": "bc91e0eb188daf93b6a7ba22d606e15ffd663eb4a6ad268606ce9d7ec858c1b0"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-7/0.log",
+    "original_bytes": 8784,
+    "stored_bytes": 8784,
+    "sha256_uncompressed": "5747a4837334b9057e460c11c601abc1492a65bfa5dd879f3d1d03688e1a8ce3"
+  },
+  {
+    "path": "results/orch/search-artifacts/repair-original4/0.cnf.gz",
+    "original_bytes": 2321458,
+    "stored_bytes": 467999,
+    "sha256_uncompressed": "9f18919729a9e0b02f8f484c1b2b009b5bb22c448b652c6bf282956677ffdae5"
+  },
+  {
+    "path": "results/orch/search-artifacts/repair-original4/0.sol",
+    "original_bytes": 10,
+    "stored_bytes": 10,
+    "sha256_uncompressed": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+  },
+  {
+    "path": "results/orch/search-artifacts/repair-original3/0.log",
+    "original_bytes": 11007,
+    "stored_bytes": 11007,
+    "sha256_uncompressed": "f0622fb0569ddd49bfc0f92f9bb0f1f882fec798193c5dc3d9dbc78752348b56"
+  },
+  {
+    "path": "results/orch/search-artifacts/repair-original3/0.cnf.gz",
+    "original_bytes": 2050138,
+    "stored_bytes": 447022,
+    "sha256_uncompressed": "7b5ea64f65bb71211a980d8ecf4ec0821e0df4a91159cc722c86e3e238c6c185"
+  },
+  {
+    "path": "results/orch/search-artifacts/repair-original3/0.sol",
+    "original_bytes": 16,
+    "stored_bytes": 16,
+    "sha256_uncompressed": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-5/0.log",
+    "original_bytes": 8572,
+    "stored_bytes": 8572,
+    "sha256_uncompressed": "ed99e73e1dd7bebde13a1873ec5aab16e208ae82b2bc5ed9a035e8523c1b472d"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-5/0.cnf.gz",
+    "original_bytes": 650278,
+    "stored_bytes": 144403,
+    "sha256_uncompressed": "6eba8e19262d0f84fe5e43b0f3d67171a43d4232e4d3cbcbb8699efadb93337a"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-5/0.sol",
+    "original_bytes": 16,
+    "stored_bytes": 16,
+    "sha256_uncompressed": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162"
+  },
+  {
+    "path": "results/orch/search-artifacts/encoding-test.log",
+    "original_bytes": 399159,
+    "stored_bytes": 399159,
+    "sha256_uncompressed": "6008e5985288fbc59efb8e0f514fd5d1f9eac4c92f1f6a6d1e3f4ba65815b250"
+  },
+  {
+    "path": "results/orch/search-artifacts/sat-signed18.stdout",
+    "original_bytes": 56,
+    "stored_bytes": 56,
+    "sha256_uncompressed": "6340573427630fbb3e1e6f3324c8bf415a80db10ae12bd85369527d3a81bb33f"
+  },
+  {
+    "path": "results/orch/search-artifacts/sat-first2.stdout",
+    "original_bytes": 56,
+    "stored_bytes": 56,
+    "sha256_uncompressed": "9ce47353672b09982877c319f71193baf0f027feabd6b58fcade89971e4ef3d6"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-5.stdout",
+    "original_bytes": 117,
+    "stored_bytes": 117,
+    "sha256_uncompressed": "f80f4cb2d20c811ab5341c31463f0c5c16483d025bb1817f554971bb9dc5e7b0"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-7/0.sol",
+    "original_bytes": 16,
+    "stored_bytes": 16,
+    "sha256_uncompressed": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-4/0.log",
+    "original_bytes": 8833,
+    "stored_bytes": 8833,
+    "sha256_uncompressed": "b0938069381eac132f06f72bdf814daae2b972096e63b59e115cd610c22a1248"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-4/0.cnf.gz",
+    "original_bytes": 650278,
+    "stored_bytes": 144384,
+    "sha256_uncompressed": "258e7457664bfe58981155a73cb7b1cdd4c274ce406bb2d365fd444f3a897ca1"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-4/0.sol",
+    "original_bytes": 16,
+    "stored_bytes": 16,
+    "sha256_uncompressed": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-7/0.cnf.gz",
+    "original_bytes": 650278,
+    "stored_bytes": 144387,
+    "sha256_uncompressed": "dc0fceeb7b2774e2414b4323c69e15305ad503a9274665e4ae7e4419bed0c2b7"
+  },
+  {
+    "path": "results/orch/search-artifacts/abc-paused-pids.json",
+    "original_bytes": 34,
+    "stored_bytes": 34,
+    "sha256_uncompressed": "7335d47cfc5ed973b40d6189288beeb8adee465708d0f5bc718acfff7f55be0e"
+  },
+  {
+    "path": "results/orch/search-artifacts/signed18-zero-colex.stdout",
+    "original_bytes": 56,
+    "stored_bytes": 56,
+    "sha256_uncompressed": "061ec7cc1f4d5e1bb505d5158407f87f73ac2c7573980c50d15a802542d70e88"
+  },
+  {
+    "path": "results/orch/search-artifacts/repair-signed4.stdout",
+    "original_bytes": 56,
+    "stored_bytes": 56,
+    "sha256_uncompressed": "bfa9782fd7b109fe67d8c64ab54943ab18d20fc42666bb826c1b3be771df1185"
+  },
+  {
+    "path": "results/orch/search-artifacts/repair-signed4/0.log",
+    "original_bytes": 17009,
+    "stored_bytes": 17009,
+    "sha256_uncompressed": "12a30c4747647baf7aead84bdfce18f1bf62fffb2b7c8e139b6d1e75b3ef0fe2"
+  },
+  {
+    "path": "results/orch/search-artifacts/repair-signed4/0.cnf.gz",
+    "original_bytes": 3003277,
+    "stored_bytes": 540809,
+    "sha256_uncompressed": "5f6ccca52fd0673d7986300d96fbb03efb955e65180e8551ec72e86b51ffd162"
+  },
+  {
+    "path": "results/orch/search-artifacts/repair-signed4/0.sol",
+    "original_bytes": 10,
+    "stored_bytes": 10,
+    "sha256_uncompressed": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+  },
+  {
+    "path": "results/orch/search-artifacts/star-encoding-test.log",
+    "original_bytes": 156045,
+    "stored_bytes": 156045,
+    "sha256_uncompressed": "f9b0aac5d44ddefb46f91039953fe939d52e548608eb22f9d349f182b62af0a8"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8/0.log",
+    "original_bytes": 8971,
+    "stored_bytes": 8971,
+    "sha256_uncompressed": "4f6d5bfeb1eb17749ad61afccd0d2689fbd8b0d1371ee08420bc525fe643225a"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8/0.cnf.gz",
+    "original_bytes": 650278,
+    "stored_bytes": 144405,
+    "sha256_uncompressed": "9064a86eff5579470f12b096fe49fe87775ec6e6dae4403e9b0e1b08b6e48033"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8/0.sol",
+    "original_bytes": 16,
+    "stored_bytes": 16,
+    "sha256_uncompressed": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162"
+  },
+  {
+    "path": "results/orch/search-artifacts/sat-delete9-16.stdout",
+    "original_bytes": 55,
+    "stored_bytes": 55,
+    "sha256_uncompressed": "b2c1a895634549496450ab66a49e9f9bf8ea1782e903e84730c3c6bbdbd45a00"
+  },
+  {
+    "path": "results/orch/search-artifacts/paid19-one-not-retained.stdout",
+    "original_bytes": 60,
+    "stored_bytes": 60,
+    "sha256_uncompressed": "dde13dd0ba79ccffc17201af8c35b90fe08a68261b44bae8a4e14bda4d3b9634"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8.stdout",
+    "original_bytes": 117,
+    "stored_bytes": 117,
+    "sha256_uncompressed": "7134410a7b87e8201b0235e2dac5611c35e0bddce8c23039df323367ddb20d9c"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-7.stdout",
+    "original_bytes": 117,
+    "stored_bytes": 117,
+    "sha256_uncompressed": "4d0dafc668a3ff27a72cfdaebb5f48ef9272dce09403ef6eef3fd33326582e9a"
+  },
+  {
+    "path": "results/orch/search-artifacts/star-encoding-test.cnf.gz",
+    "original_bytes": 6174331,
+    "stored_bytes": 1305112,
+    "sha256_uncompressed": "e20ac15c6b3b12d341b5dc38c427aba737f0f0f7f386ee6835a7efaa6c2dc6a4"
+  },
+  {
+    "path": "results/orch/search-artifacts/automorphisms.json",
+    "original_bytes": 3840,
+    "stored_bytes": 3840,
+    "sha256_uncompressed": "60c799d9b39005d8d8ad14e9cd2c4b22bcb82b13b6de81adb653a1ff122baa49"
+  },
+  {
+    "path": "results/orch/search-artifacts/sat-delete9-16/0.log",
+    "original_bytes": 18333,
+    "stored_bytes": 18333,
+    "sha256_uncompressed": "b5440aaefdd55e0dc13ffde054766f52070b00b87077d944ffdb04b4ece4e3e5"
+  },
+  {
+    "path": "results/orch/search-artifacts/sat-delete9-16/0.cnf.gz",
+    "original_bytes": 1102393,
+    "stored_bytes": 250280,
+    "sha256_uncompressed": "5b9b3079849d997c1eee18434352e4ebc966f277d3f9a57f33c3a3f0910570a7"
+  },
+  {
+    "path": "results/orch/search-artifacts/sat-delete9-16/0.sol",
+    "original_bytes": 10,
+    "stored_bytes": 10,
+    "sha256_uncompressed": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+  },
+  {
+    "path": "results/orch/search-artifacts/repair-original3.stdout",
+    "original_bytes": 57,
+    "stored_bytes": 57,
+    "sha256_uncompressed": "d5ae246211ca896955ad6678f8d6da7cb844389c82c5fa52c17bde0a5c0af940"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-6/0.log",
+    "original_bytes": 8508,
+    "stored_bytes": 8508,
+    "sha256_uncompressed": "043955b6c950199f460601f625c02a8d66767bece2eabe0f28d48fc79b5d38ac"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-6/0.cnf.gz",
+    "original_bytes": 650278,
+    "stored_bytes": 144364,
+    "sha256_uncompressed": "36e2376a1d1964e1a76d297f391bcb3f30a93bd154589460e8c1bac43b6e1464"
+  },
+  {
+    "path": "results/orch/search-artifacts/star8-6/0.sol",
+    "original_bytes": 16,
+    "stored_bytes": 16,
+    "sha256_uncompressed": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162"
+  },
+  {
+    "path": "results/orch/search-artifacts/signed18-zero-colex/0.cnf.gz",
+    "original_bytes": 2763890,
+    "stored_bytes": 524078,
+    "sha256_uncompressed": "fc85379732db23e623d4572cd9299001396441f85864360b2043b603694043a3"
+  },
+  {
+    "path": "results/orch/search-artifacts/signed18-zero-colex/0.sol",
+    "original_bytes": 10,
+    "stored_bytes": 10,
+    "sha256_uncompressed": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+  },
+  {
+    "path": "results/orch/search-artifacts/signed18-zero-colex/0.log",
+    "original_bytes": 23970,
+    "stored_bytes": 23970,
+    "sha256_uncompressed": "03c41c30a366a75e74f4e93b90afeca433d4cd6ae142c2bb80f44ef015c90054"
+  }
+]
