@@ -1,0 +1,68 @@
+[
+  {
+    "original_name": "multi_output_direct_cover_cnf.py",
+    "original_sha256": "24ee7c106a59eb0849106489a31736cd2ad6d177c91362934f63f1fdc7ef1d4f",
+    "original_size": 12642,
+    "archived_name": "multi_output_direct_cover_cnf.py"
+  },
+  {
+    "original_name": "multi_output_exact_pencil_cnf.py",
+    "original_sha256": "5064d46e68408b24ea1ffaa0fee2dd829af8d7cd7879e55187276da1de32eecc",
+    "original_size": 13619,
+    "archived_name": "multi_output_exact_pencil_cnf.py"
+  },
+  {
+    "original_name": "multi_output_useful_pencil_cnf.py",
+    "original_sha256": "7d745c804f574f5b0b26ec28a7c032ab53705748948a9281fff8e7e1982e6955",
+    "original_size": 14533,
+    "archived_name": "multi_output_useful_pencil_cnf.py"
+  },
+  {
+    "original_name": "multi-output-exact-pencil-estimate.json",
+    "original_sha256": "0715eb633b9cecc03f078ec82fcfa0993e7464c01f57840d046e2d8b580f555d",
+    "original_size": 1166,
+    "archived_name": "multi-output-exact-pencil-estimate.json"
+  },
+  {
+    "original_name": "multi-output-useful-pencil-estimate.json",
+    "original_sha256": "3031c1899d474bf3787183bc20808e12c83feaa626225cc3e99333bcfd445bf6",
+    "original_size": 1740,
+    "archived_name": "multi-output-useful-pencil-estimate.json"
+  },
+  {
+    "original_name": "repo_audit_exact_pencil.py",
+    "original_sha256": "df5858d8e117b864809ddeb4439b1d1ac6daa605930cc34babd32608ce81bc7b",
+    "original_size": 4856,
+    "archived_name": "repo_audit_exact_pencil.py"
+  },
+  {
+    "original_name": "exact-pencil-independent-audit.json",
+    "original_sha256": "dee20e3edf1a33ab2628948f80e91f3780d25eb0d6026ea34089045f9621cd47",
+    "original_size": 2180,
+    "archived_name": "exact-pencil-independent-audit.json"
+  },
+  {
+    "original_name": "exact-pencil-independent-audit.log",
+    "original_sha256": "dee20e3edf1a33ab2628948f80e91f3780d25eb0d6026ea34089045f9621cd47",
+    "original_size": 2180,
+    "archived_name": "exact-pencil-independent-audit.log"
+  },
+  {
+    "original_name": "repo_audit_useful_pencil.py",
+    "original_sha256": "0a7e2ce19bb0f4a86ab82dc4e15a9221000d6359ae71dc80dc3e3f0af1d37e3d",
+    "original_size": 3416,
+    "archived_name": "repo_audit_useful_pencil.py"
+  },
+  {
+    "original_name": "useful-pencil-independent-audit.json",
+    "original_sha256": "26daee57210131a346b83abefbd279e3017decdf62ac838c1f7609b582e546b5",
+    "original_size": 2409,
+    "archived_name": "useful-pencil-independent-audit.json"
+  },
+  {
+    "original_name": "useful-pencil-independent-audit.log",
+    "original_sha256": "26daee57210131a346b83abefbd279e3017decdf62ac838c1f7609b582e546b5",
+    "original_size": 2409,
+    "archived_name": "useful-pencil-independent-audit.log"
+  }
+]

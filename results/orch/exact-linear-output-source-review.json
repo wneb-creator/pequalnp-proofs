@@ -1,0 +1,13 @@
+{
+  "status": "Source-only independent mathematical review PASS; Lean elaboration pending",
+  "source": "results/orch/lemmas/ExactLinearOutputs.lean",
+  "sha256": "fb231dadc624882dbecf1c17e58dd213711b1a37a4e4d30ece8996795a219dde",
+  "reviewer": "/root/algebraic_witness",
+  "findings": [
+    "Routes.mcount only assumes the one-coordinate implication, so raw singleton positives are allowed even though they need not extend complement baselines.",
+    "The cut witness supplies distinct singleton indices, and backward reads allow their acceptance to lift from OR operands to the counted gate.",
+    "False evaluation on another target complement plus monotonicity forces both accepted singletons into that target; an intersection of cardinality at most one gives a contradiction.",
+    "The endpoint conditions imply exact OR-of-target behavior by monotonicity. They are stronger than the cap-only promise and do not rule out the current 38-OR promise-model search."
+  ],
+  "checked": false
+}

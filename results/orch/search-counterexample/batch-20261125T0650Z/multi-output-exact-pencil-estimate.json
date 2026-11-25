@@ -1,0 +1,117 @@
+{
+  "old_variables": 745242,
+  "old_clauses": 2722655,
+  "old_first_or_representatives": 2,
+  "new_first_or_representatives": 26,
+  "exact_cut_variables": 38,
+  "exact_cut_clauses": 533,
+  "estimated_new_variables": 745304,
+  "estimated_new_clauses": 2723836,
+  "new_first_or_representative_pairs": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      7
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      1,
+      10
+    ],
+    [
+      1,
+      11
+    ],
+    [
+      1,
+      12
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      2,
+      10
+    ],
+    [
+      2,
+      11
+    ],
+    [
+      2,
+      12
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      4,
+      8
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      4,
+      11
+    ],
+    [
+      7,
+      8
+    ]
+  ],
+  "note": "Source-only estimate; no CNF generated or solver launched."
+}

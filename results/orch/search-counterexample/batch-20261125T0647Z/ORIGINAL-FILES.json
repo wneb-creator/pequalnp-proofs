@@ -1,0 +1,182 @@
+[
+  {
+    "original_name": "collinear3_separator_data.py",
+    "original_sha256": "a82e020425877e9ea5bebbd34ebba3289371de5a3939f1d348df8b918336c47a",
+    "original_size": 4390,
+    "archived_name": "collinear3_separator_data.py"
+  },
+  {
+    "original_name": "collinear3-full-truth.json",
+    "original_sha256": "2e835c4b00037c897bca2f309b2d3852e820d5d454a730fac4a6c670742302ec",
+    "original_size": 5606,
+    "archived_name": "collinear3-full-truth.json"
+  },
+  {
+    "original_name": "collinear3-full-first-or-symmetry.json",
+    "original_sha256": "a13db9cb970a715f2279e2f42f74e416f84f9671abcb888d5fe5f5c27f906589",
+    "original_size": 16528,
+    "archived_name": "collinear3-full-first-or-symmetry.json"
+  },
+  {
+    "original_name": "collinear3-full-data-summary.json",
+    "original_sha256": "3cbef999e30d45a79db450d6e4b802d1b1ffc739ce384c4656ae46a427f8c237",
+    "original_size": 615,
+    "archived_name": "collinear3-full-data-summary.json"
+  },
+  {
+    "original_name": "collinear3-full-data.log",
+    "original_sha256": "1a43fecb1f2e3d955d9112ff58d826371aa6678cd2b303c99e1e491314877494",
+    "original_size": 473,
+    "archived_name": "collinear3-full-data.log"
+  },
+  {
+    "original_name": "local_separator_cnf_v2.py",
+    "original_sha256": "6a2a6481879ca75f4b00e61017ec389cdad43084572fccdb5c4b625db944a66f",
+    "original_size": 11114,
+    "archived_name": "local_separator_cnf_v2.py"
+  },
+  {
+    "original_name": "embed_local_separator.py",
+    "original_sha256": "33dca4402a0bb6ae04027c6e25ea184d74594f61af9ddfd1c7b1e4f2b80aff95",
+    "original_size": 3211,
+    "archived_name": "embed_local_separator.py"
+  },
+  {
+    "original_name": "collinear3-direct11-control.json",
+    "original_sha256": "c29f01973c20f62b54560ae26f33a0a8dbcab9acacc460b28b36815c07a175f2",
+    "original_size": 1007,
+    "archived_name": "collinear3-direct11-control.json"
+  },
+  {
+    "original_name": "collinear3-direct11-global51-control.json",
+    "original_sha256": "1f02da8093ec0a77ce1e98fd2b835aece93667b2ff0bfbc9ddf62cc001fd756c",
+    "original_size": 4718,
+    "archived_name": "collinear3-direct11-global51-control.json"
+  },
+  {
+    "original_name": "collinear3-direct11-global51-control.log",
+    "original_sha256": "c3f06c7b2a78239891244cb4e04ba47b202c8b5ff2e63a307a2b62ed0191b9a8",
+    "original_size": 255,
+    "archived_name": "collinear3-direct11-global51-control.log"
+  },
+  {
+    "original_name": "collinear3-generation-commands.json",
+    "original_sha256": "967a0d9537b15fb473684d96ae30cb260f6d54657e9dc2879445ec3a6aabf247",
+    "original_size": 1037,
+    "archived_name": "collinear3-generation-commands.json"
+  },
+  {
+    "original_name": "repo_audit_collinear3.py",
+    "original_sha256": "618dda82ca45e525a291b28f60a2c7fcc759651c471e7d2a717bb517cff8c552",
+    "original_size": 8307,
+    "archived_name": "repo_audit_collinear3.py"
+  },
+  {
+    "original_name": "collinear3-independent-audit.json",
+    "original_sha256": "dbf0ec0ca30195e1e27d05ca9ae699de94e406d1ae728ce9f5ba1c7cb9f2fcb9",
+    "original_size": 1908,
+    "archived_name": "collinear3-independent-audit.json"
+  },
+  {
+    "original_name": "collinear3-independent-audit.log",
+    "original_sha256": "dbf0ec0ca30195e1e27d05ca9ae699de94e406d1ae728ce9f5ba1c7cb9f2fcb9",
+    "original_size": 1908,
+    "archived_name": "collinear3-independent-audit.log"
+  },
+  {
+    "original_name": "collinear3-separator11-control.cnf",
+    "original_sha256": "860c9573e484c6a78e1801f8b2fe6b0a0c330be030e7cc01a8e29e359d7a15ad",
+    "original_size": 2820433,
+    "archived_name": "collinear3-separator11-control.cnf.gz"
+  },
+  {
+    "original_name": "collinear3-separator11-control.mapping.json",
+    "original_sha256": "e96458eda0477ce49782c5eb7ab13b57c7808ab0b23c80afed01f84082c4abf7",
+    "original_size": 6225,
+    "archived_name": "collinear3-separator11-control.mapping.json"
+  },
+  {
+    "original_name": "collinear3-separator11-control.encode.log",
+    "original_sha256": "acd4935cd48a81835153d89fbdc4a61a4424aced9556a3964213ebb92d7a7426",
+    "original_size": 303,
+    "archived_name": "collinear3-separator11-control.encode.log"
+  },
+  {
+    "original_name": "collinear3-separator10.cnf",
+    "original_sha256": "f41f3dbd0afcfc6315fe9d68e058c817d6be151c45bb3bfae681106f931d44ff",
+    "original_size": 2491401,
+    "archived_name": "collinear3-separator10.cnf.gz"
+  },
+  {
+    "original_name": "collinear3-separator10.mapping.json",
+    "original_sha256": "cc1b9a208fbcafa1dde689dde9a8714692a313ea0a1c852a910a7bebd206eaa0",
+    "original_size": 5890,
+    "archived_name": "collinear3-separator10.mapping.json"
+  },
+  {
+    "original_name": "collinear3-separator10.encode.log",
+    "original_sha256": "6d945a9778dd9b54b5ad1b1f612926d5990d231f6e52d6e68f91af31f63e32e7",
+    "original_size": 302,
+    "archived_name": "collinear3-separator10.encode.log"
+  },
+  {
+    "original_name": "collinear3-separator11-control-run.log",
+    "original_sha256": "499c842b89e0f86d2a73dd6598dce5329b6a719d7961ec3771dd884809cc02f5",
+    "original_size": 529,
+    "archived_name": "collinear3-separator11-control-run.log"
+  },
+  {
+    "original_name": "collinear3-separator11-control-run.command.json",
+    "original_sha256": "5b6b99c3e41bb663592e4dfe44d47266604492b971a212e0ee461064b0da245e",
+    "original_size": 267,
+    "archived_name": "collinear3-separator11-control-run.command.json"
+  },
+  {
+    "original_name": "collinear3-separator11-control-run.process.json",
+    "original_sha256": "bf067a8d92203e7be94731d221112bd7cf26d80521df886d22f5cc67358765d5",
+    "original_size": 762,
+    "archived_name": "collinear3-separator11-control-run.process.json"
+  },
+  {
+    "original_name": "collinear3-separator11-control-run.status.json",
+    "original_sha256": "523600139e24af254bb68f07b85753d6c96a908bdd8cebabdfa91c92026af747",
+    "original_size": 413,
+    "archived_name": "collinear3-separator11-control-run.status.json"
+  },
+  {
+    "original_name": "collinear3-separator11-control-run.solver.log",
+    "original_sha256": "88ea209088c3ad4a52cae9a72113587ffcb2c16fd54ca048ad2f0bae61168920",
+    "original_size": 3039,
+    "archived_name": "collinear3-separator11-control-run.solver.log"
+  },
+  {
+    "original_name": "collinear3-separator11-control-run.reader.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "original_size": 0,
+    "archived_name": "collinear3-separator11-control-run.reader.log"
+  },
+  {
+    "original_name": "collinear3-separator11-control-run.sol",
+    "original_sha256": "3d41c5afcec609b7ec7279cb1662c6658acf37b682e9e706c4f5282bb1b0698f",
+    "original_size": 308165,
+    "archived_name": "collinear3-separator11-control-run.sol.gz"
+  },
+  {
+    "original_name": "collinear3-separator11-control-run.witness.json",
+    "original_sha256": "b30003357434f4b59ffb0071178f3b86606c938d7228ce4ad8f76ee2bebddf04",
+    "original_size": 1498,
+    "archived_name": "collinear3-separator11-control-run.witness.json"
+  },
+  {
+    "original_name": "collinear3-separator11-control-run.global51.json",
+    "original_sha256": "d186a97d3cdf1d6421512ccbe9dedb2d05ae9cdcc1e06814890a84c44394891a",
+    "original_size": 4766,
+    "archived_name": "collinear3-separator11-control-run.global51.json"
+  },
+  {
+    "original_name": "collinear3-separator11-control-run.embedding.log",
+    "original_sha256": "c3f06c7b2a78239891244cb4e04ba47b202c8b5ff2e63a307a2b62ed0191b9a8",
+    "original_size": 255,
+    "archived_name": "collinear3-separator11-control-run.embedding.log"
+  }
+]

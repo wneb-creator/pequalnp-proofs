@@ -1,0 +1,11 @@
+{
+  "status": "UNCOMPILED source-only draft; no Lean process launched during solver window",
+  "source": "results/orch/lemmas/ExactLinearOutputs.lean",
+  "sha256": "fb231dadc624882dbecf1c17e58dd213711b1a37a4e4d30ece8996795a219dde",
+  "lines": 128,
+  "scope": "Backward monotone fan-in-two multioutput DAG; each output accepts every singleton in its target and rejects the full complement of that target. Pairwise target intersection has cardinality at most one. Conclusion: OR count at least sum of target cardinalities minus one. Arbitrary AND gates are allowed. This does not apply to cap-only promise outputs and does not prove the posted 51 bound.",
+  "dependencies": [
+    "Cached TwentyOne.olean supplies Routes.mcount and FourRowsSensitivity.val_mono"
+  ],
+  "proof": "Each target has exactly |S|-1 merging-OR charges from mcount. Each charged OR accepts two distinct target singletons. A gate rejecting complement(T) cannot accept a singleton outside T by monotonicity. Two charges on the same gate would force two elements in the intersection of distinct targets."
+}

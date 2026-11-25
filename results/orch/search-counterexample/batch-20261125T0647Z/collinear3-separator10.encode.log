@@ -1,0 +1,1 @@
+{"scenario": "collinear3", "input_count": 13, "positive_count": 12, "negative_count": 81, "or_count": 10, "first_OR_orbits": 10, "false_OR_bounds": [2, 5, 7], "cover_prefix": 7, "cover_row_count": 81, "variables": 41200, "clauses": 145594, "encoding_seconds": 0.3794308369997452, "max_rss_KiB": 13568}

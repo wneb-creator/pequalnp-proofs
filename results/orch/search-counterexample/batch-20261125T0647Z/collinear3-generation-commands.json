@@ -1,0 +1,40 @@
+{
+  "working_directory": "/tmp/oec/pequalnp-pilot-62",
+  "commands": [
+    [
+      "python3",
+      "collinear3_separator_data.py"
+    ],
+    [
+      "python3",
+      "local_separator_cnf_v2.py",
+      "11",
+      "--scenario",
+      "collinear3",
+      "--fixed-baseline",
+      "--cover-suffix",
+      "3",
+      "--cnf-only",
+      "--tag",
+      "collinear3-separator11-control"
+    ],
+    [
+      "python3",
+      "local_separator_cnf_v2.py",
+      "10",
+      "--scenario",
+      "collinear3",
+      "--cover-suffix",
+      "3",
+      "--cnf-only",
+      "--tag",
+      "collinear3-separator10"
+    ]
+  ],
+  "dependencies": {
+    "geometry-data.json": "d7d52fe1fca77e997babd599087214adaa84ccfa947c50f7838ef3911836aa24",
+    "global-first-or-symmetry.json": "652ceb0d5f5daa4eb87bb24eba1e30b6f1107ecb10d87c674dd923c2ba34342f",
+    "multi_output_direct_cnf.py": "23cb341999a69951a4a0911926ba85726bf499d8908e067238f84613453f9a54",
+    "solve_global_cnf_v10.py": "a4ae71f112bacc80323f57b6d3347ef758e7108eeac0e26a6f1e1dd5d1d016c4"
+  }
+}

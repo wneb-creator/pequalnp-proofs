@@ -1,0 +1,24 @@
+{
+  "reviewer": "repo_audit",
+  "status": "PASS source-only mathematical review; all four Lean drafts UNCOMPILED",
+  "sources": {
+    "results/orch/lemmas/ExactLinearOutputs.lean": "fb231dadc624882dbecf1c17e58dd213711b1a37a4e4d30ece8996795a219dde",
+    "results/orch/lemmas/ExactPencilOutputs.lean": "b9d073a85fa78f6b8ecf7eae7d7458f8ad5cf6692eeea3e7406e19b8b675b2d8",
+    "results/orch/lemmas/ExactPencilGuardCut.lean": "2c0149696e7b41b141e0dc6072ea6850aa6dd57e51ff7b1e704cc61aae108914",
+    "results/orch/lemmas/UsefulPencilGuardCut.lean": "aaf7769d6897b7c4eeb0c66a5c7267bec561a282251bcdfbc450e3c2e601a981"
+  },
+  "findings": [
+    "ExactLinearOutputs charges |S|-1 OR merges to each target and proves pairwise charge disjointness by rejection of full complements and monotonicity. Full-complement rejection is explicit and stronger than cap-only promise negatives.",
+    "ExactPencilOutputs instantiates the generic full-complement bound with13 four-element pencils of pairwise intersection1, yielding39 under those stronger explicit premises.",
+    "ExactPencilGuardCut uses only already checked support-family guard charging: all13 targets active gives39<=k; contrapositive gives an exact pencil for k<=38. No Scheme hypothesis is used.",
+    "UsefulPencilGuardCut transports via Fintype.equivFin and a subtype indexed by U; all separation witnesses must explicitly belong to U. Card(U)<=k<=38 gives an exact support inside U. Actual circuit-to-support transport and useful-gate selection remain mathematical model arguments, not additional Lean claims.",
+    "SAT variants were independently reviewed with P0-preserving first-gate symmetry; all54 useful cap row indices and clause estimates verified.",
+    "Collinear minterm census independently recomputed on8192 assignments:12 edges,1 point triple,21 concurrent-line triples, no higher-degree minimal supports."
+  ],
+  "dependencies": {
+    "TwentyOne": "results/orch/checked/TwentyOne.lean",
+    "RestrictedUnionBound": "results/orch/checked/restricted-union-bound.lean",
+    "GuardGeometry": "results/orch/checked/modules/GuardGeometry.lean"
+  },
+  "forbidden_proof_escapes_found": false
+}

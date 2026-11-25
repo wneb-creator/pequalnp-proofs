@@ -1,0 +1,41 @@
+{
+  "reviewer": "repo_audit",
+  "status": "PASS computational model and embedding audit; no solver or Lean run",
+  "scope": "13-input projected-row separator with12 incidence positives and81 maximal original-row projections, allowing22 cubic minterms. A10-OR witness embeds with40 joins to a50-OR global candidate; actual full replay and Lean certification still required.",
+  "checks": {
+    "original_rows": 468,
+    "local_projections": 225,
+    "maximal_projections": 81,
+    "global_group": 11232,
+    "local_actions": 108,
+    "initial_signatures": 16,
+    "incomparable_pairs": 105,
+    "complete_disjoint_orbits": 10,
+    "local_control_assignments": 8192,
+    "global_control_samples": 547,
+    "adapter_exact_line_replacements": 3
+  },
+  "cnfs": [
+    {
+      "stem": "collinear3-separator10",
+      "variables": 41200,
+      "clauses": 145594,
+      "sha256": "f41f3dbd0afcfc6315fe9d68e058c817d6be151c45bb3bfae681106f931d44ff"
+    },
+    {
+      "stem": "collinear3-separator11-control",
+      "variables": 46070,
+      "clauses": 163668,
+      "sha256": "860c9573e484c6a78e1801f8b2fe6b0a0c330be030e7cc01a8e29e359d7a15ad"
+    }
+  ],
+  "files": {
+    "collinear3_separator_data.py": "a82e020425877e9ea5bebbd34ebba3289371de5a3939f1d348df8b918336c47a",
+    "collinear3-full-truth.json": "2e835c4b00037c897bca2f309b2d3852e820d5d454a730fac4a6c670742302ec",
+    "collinear3-full-first-or-symmetry.json": "a13db9cb970a715f2279e2f42f74e416f84f9671abcb888d5fe5f5c27f906589",
+    "local_separator_cnf_v2.py": "6a2a6481879ca75f4b00e61017ec389cdad43084572fccdb5c4b625db944a66f",
+    "embed_local_separator.py": "33dca4402a0bb6ae04027c6e25ea184d74594f61af9ddfd1c7b1e4f2b80aff95",
+    "collinear3-direct11-control.json": "c29f01973c20f62b54560ae26f33a0a8dbcab9acacc460b28b36815c07a175f2",
+    "collinear3-direct11-global51-control.json": "1f02da8093ec0a77ce1e98fd2b835aece93667b2ff0bfbc9ddf62cc001fd756c"
+  }
+}

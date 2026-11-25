@@ -1,0 +1,29 @@
+{
+  "reviewer": "repo_audit",
+  "status": "PASS source-only cut, mathematical model bridge, and finite symmetry audit; no Lean, full CNF generation or solver run",
+  "scope": "Only the13-output line-input canonical free-AND promise model with all13 targets and all four-cap negatives. This does not establish the unrestricted26-input posted51 theorem.",
+  "logical_bridge": [
+    "No exact pencil makes all13 targets active; checked local_guard_charge and guard_targets_card plus three_per_active_target yield39<=k, without PureUnionAncestry.Scheme.",
+    "A rejected canonical output is an AND with a false input/OR factor whose singleton support contains its four-element pencil. Such a factor cannot be an initial singleton. Monotonicity forces its support to miss the rejected cap. Hence the supports satisfy the separates hypothesis.",
+    "For k<=38 there is some OR with exact pencil support. Translate line and output labels simultaneously to send that pencil to P0. The revised first-pair symmetry uses only multipliers1,3,9 with zero shift, all preserving P0. The old translation-normalized first-pair constraint must not also be retained.",
+    "The Lean corollary source is UNCOMPILED; the circuit-to-support bridge and symmetry existence argument are reviewed mathematics, not new Lean theorems."
+  ],
+  "checks": {
+    "four_caps": 234,
+    "encoded_negative_maxima": 234,
+    "old_symmetries": 39,
+    "new_pencil_stabilizing_symmetries": 3,
+    "all_first_input_pairs": 78,
+    "old_orbits": 2,
+    "new_disjoint_complete_orbits": 26,
+    "estimated_added_variables": 62,
+    "estimated_added_clauses": 1181
+  },
+  "files": {
+    "multi_output_direct_cover_cnf.py": "24ee7c106a59eb0849106489a31736cd2ad6d177c91362934f63f1fdc7ef1d4f",
+    "multi_output_exact_pencil_cnf.py": "5064d46e68408b24ea1ffaa0fee2dd829af8d7cd7879e55187276da1de32eecc",
+    "multi-output-exact-pencil-estimate.json": "0715eb633b9cecc03f078ec82fcfa0993e7464c01f57840d046e2d8b580f555d",
+    "multi-output-line-neighborhoods.json": "673b99e94dfea3d73a5b8e006629891597310c50db198cb76a986ad4cd40fb4e"
+  },
+  "corollary_sha256": "2c0149696e7b41b141e0dc6072ea6850aa6dd57e51ff7b1e704cc61aae108914"
+}
