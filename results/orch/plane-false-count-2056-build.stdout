@@ -1,0 +1,6 @@
+../results/orch/lemmas/PlaneFalseCount2056.lean:214:50: error: unsolved goals
+⊢ (true && true && true && true && true && true && true && true && true && true && true && true && true && true &&
+          true &&
+        true &&
+      true) =
+    true

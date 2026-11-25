@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-25T17:19:52.908467+00:00",
+  "n": 26,
+  "size": 63,
+  "sampled_rows": 756,
+  "variables": 157185,
+  "clauses": 8697553,
+  "conversion_seconds": 40.23398501400152,
+  "seconds_limit": 300,
+  "fixed_prefix": 0,
+  "warm_true_variables": 48826,
+  "encoder": "equivalent polarity-renamed progressive CNF with --phase=false",
+  "status": "CNF emitted; solver not run"
+}

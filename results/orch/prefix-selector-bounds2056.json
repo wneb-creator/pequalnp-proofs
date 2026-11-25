@@ -1,0 +1,7267 @@
+{
+  "scope": "Diagnostic mathematical selector-bucket bound only; no Lean certificate or solver constraint.",
+  "input_hashes": {
+    "/tmp/oec/pequalnp-pilot-121/window2056-sat/reused28-prefix-star-menus-2056.json": "c3c434411fbe33648926c749494654d390b08b88fc1612afd857d16c7e615cb2",
+    "/tmp/oec/pequalnp-pilot-121/window2056-sat/plane63-prefix34-2056.data.json": "788e40caf2de1a4f635250167ec856d4c0a00eeec90692b4b9e73d18b1088b2b"
+  },
+  "menu_summary": {
+    "variants": 225,
+    "fixed_ands": [
+      3
+    ],
+    "left_bucket_min": 12,
+    "left_bucket_max": 12,
+    "left_bound_min": 7,
+    "left_bound_max": 7,
+    "best_bucket_min": 15,
+    "best_bucket_max": 15,
+    "best_bound_min": 7,
+    "best_bound_max": 7
+  },
+  "menu_variants": [
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    },
+    {
+      "negative_rows": 59,
+      "fixed_gates": 12,
+      "fixed_ands": 3,
+      "and_indices": [
+        2,
+        6,
+        10
+      ],
+      "left_only": {
+        "orientations": [
+          0,
+          0,
+          0
+        ],
+        "max_bucket": 12,
+        "and_lower_bound": 7
+      },
+      "best_orientation": {
+        "orientations": [
+          1,
+          0,
+          0
+        ],
+        "max_bucket": 15,
+        "and_lower_bound": 7
+      },
+      "orientation_bucket_min": 12,
+      "orientation_bucket_max": 15,
+      "orientation_bound_min": 7,
+      "orientation_bound_max": 7
+    }
+  ],
+  "full_plane_prefix34": {
+    "negative_rows": 704,
+    "fixed_gates": 34,
+    "fixed_ands": 7,
+    "and_indices": [
+      3,
+      7,
+      12,
+      17,
+      22,
+      27,
+      32
+    ],
+    "left_only": {
+      "orientations": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_bucket": 45,
+      "and_lower_bound": 13
+    },
+    "best_orientation": {
+      "orientations": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "max_bucket": 45,
+      "and_lower_bound": 13
+    },
+    "orientation_bucket_min": 45,
+    "orientation_bucket_max": 45,
+    "orientation_bound_min": 13,
+    "orientation_bound_max": 13
+  }
+}

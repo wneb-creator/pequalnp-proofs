@@ -62,5 +62,10 @@
   "direct-normalized-control64-free3.sol": "3e7460fa4851f087d0d592582e6b3a6947a2a4400dbf87c7445a707b0ac8c9e5",
   "direct-normalized-control64-free3.mapping.json": "6cd407cfa2eca0d980e8a8c4600bd66f1524f53edb99373505460c453db96950",
   "direct-normalized-control64-free3-wrapper.stdout": "f848c650bbf02ace209ced74f7884416a76385701bff0095354a6afb05c4d610",
-  "direct-normalized-control64-free3-wrapper.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  "direct-normalized-control64-free3-wrapper.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "direct-normalized-search-001.json": "20d835db52c64043188ce9166e1c60874520f1f5b63aca3e76f754ef3ac98c1d",
+  "direct-normalized-search-001.stdout": "0fd8a3728539b4a2574e899e5d78eb824761345260df8d5f187c6caeb651ae71",
+  "direct-normalized-search-001.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "direct-normalized-search-001-wrapper.stdout": "5b67880573723e00b2ac748c1c1e828ecec462211c4f540e93621b754414a47a",
+  "direct-normalized-search-001-wrapper.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
 }

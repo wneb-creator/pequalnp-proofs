@@ -1,0 +1,23 @@
+{
+  "source_sha256": "7448bf3bfb00d988feecba42ca039f990b9584fa302116d49d748088093e768e",
+  "original_inverted_seed": {
+    "conflict": true,
+    "assigned": 220
+  },
+  "canonical_seed": {
+    "conflict": false,
+    "assigned": 243,
+    "all_clauses_checked": 1294
+  },
+  "local_prefix_eq_truth_table_cases": 16,
+  "lex_order_widths_checked": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "scope": "Static source, auxiliary truth tables and exact CNF permutation controls approved; no native search or unrestricted lower bound."
+}

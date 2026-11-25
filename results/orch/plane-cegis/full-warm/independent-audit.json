@@ -1,0 +1,42 @@
+{
+  "warm-near63-full-emitted": {
+    "variables": 157185,
+    "clauses_checked": 8697553,
+    "violations": [
+      [
+        8696803,
+        [
+          154923
+        ]
+      ],
+      [
+        8696809,
+        [
+          154929
+        ]
+      ],
+      [
+        8696840,
+        [
+          154960
+        ]
+      ]
+    ],
+    "original_model_violations": [],
+    "boundary_mismatches": [
+      32770,
+      33554436,
+      525312
+    ],
+    "mapping_sha256": "b31f48cf9cae96c132bed97839de1867bcf82b42b7edaceac0b70f6991913552"
+  },
+  "warm-control64-full-free3": {
+    "variables": 159808,
+    "clauses_checked": 8932804,
+    "violations": [],
+    "original_model_violations": [],
+    "boundary_mismatches": [],
+    "mapping_sha256": "0b771445c8fdf5ee7c8ee7839343cad92a6c0f7a25df458e9b7a8dc324783172"
+  },
+  "seconds": 63.874001530000896
+}

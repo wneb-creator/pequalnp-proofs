@@ -1,0 +1,7 @@
+{
+  "clauses": 722162,
+  "renamed_and_original_models_pass": true,
+  "adjacent_independent_order_pass": true,
+  "full_boundary_rows": 756,
+  "mismatches": []
+}

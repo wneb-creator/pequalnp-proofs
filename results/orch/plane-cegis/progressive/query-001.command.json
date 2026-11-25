@@ -1,0 +1,14 @@
+[
+  "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+  "/tmp/oec/pequalnp-pilot-121/plane2056-cegis/direct_cnf_progressive.py",
+  "--data",
+  "/tmp/oec/pequalnp-pilot-121/plane2056-cegis/plane2056-data.json",
+  "--rows",
+  "/tmp/oec/pequalnp-pilot-121/plane2056-cegis/progressive/rows-001.json",
+  "--size",
+  "63",
+  "--seconds",
+  "300",
+  "--prefix",
+  "/tmp/oec/pequalnp-pilot-121/plane2056-cegis/progressive/query-001"
+]

@@ -1,0 +1,16 @@
+{
+  "status": "process completed; final analysis pending",
+  "source_sha256": "285ef7eeb40727455eab97ac5f215a04ac0821dae77f39a02b44b65e38b880ea",
+  "config_sha256": "7ef88072d2828cd6a904a04b3977037798ddc32d1eeefb44b236b4c2cc3734eb",
+  "started_utc": "2026-11-25T17:06:37.490565+00:00",
+  "seconds_limit": 1200,
+  "random_seed": 205614,
+  "loaded_seeds": 520,
+  "seeds66": 52,
+  "seeds67": 468,
+  "guarded67_gate_count": 19,
+  "reviewer": "proof_route",
+  "cpu_workers": 1,
+  "exit_code": 0,
+  "finished_utc": "2026-11-25T17:26:37.729434+00:00"
+}

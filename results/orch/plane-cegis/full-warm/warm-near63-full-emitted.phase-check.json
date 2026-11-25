@@ -1,0 +1,53 @@
+{
+  "clauses": 8697553,
+  "all_false_phase_violations": [
+    {
+      "clause_index": 8696803,
+      "literals": [
+        154923
+      ],
+      "row": 32770,
+      "active_inputs": [
+        1,
+        15
+      ]
+    },
+    {
+      "clause_index": 8696809,
+      "literals": [
+        154929
+      ],
+      "row": 33554436,
+      "active_inputs": [
+        2,
+        25
+      ]
+    },
+    {
+      "clause_index": 8696840,
+      "literals": [
+        154960
+      ],
+      "row": 525312,
+      "active_inputs": [
+        10,
+        19
+      ]
+    }
+  ],
+  "expected_missing_edges": [
+    [
+      1,
+      15
+    ],
+    [
+      2,
+      25
+    ],
+    [
+      10,
+      19
+    ]
+  ],
+  "unexpected_constraint_failures": []
+}

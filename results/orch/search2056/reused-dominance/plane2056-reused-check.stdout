@@ -1,0 +1,1 @@
+PASS 8320 valid deleted nets; 7488 preserve both reused dirty paths before normalization; no lost positives, no new negatives, emitted nets match, backward reads valid

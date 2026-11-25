@@ -179,3 +179,9 @@ TIMING total=130.91 subagents=6
 2026-11-25T16:49:08.714083+00:00 FullPlaneCover2056.lean extension: Lean exit0, independent final-byte review APPROVED, SHA256 36a295bcdc1049470b895bb62cf99b2089d8fccf42f75c2df91a4b3d8344c76e,349 lines. Adds small-side≤3 and exact posted tests imply full incidence-function equality for Monotone2 circuits. No63-gate existence conclusion.
 
 2026-11-25T16:50:36.153137+00:00 RectangleCover2056.lean: Lean exit0; final independent review APPROVED;35lines, SHA256 d583038d687907e440f6cb7b266fa703a1b92a5062929d1b6678f9f976a86b99. Generic5/4 dual-certificate theorem forces weighted-cover cost≥65. Independent enumeration confirms all22 allowed proper rectangles satisfy the hypothesis. Auxiliary rectangle-cover model only; no general circuit lower bound.
+
+2026-11-25T17:30:17.081353+00:00 Three additional compiled and independently reviewed helpers pushed at 1bbb11feef0c63b1ff58d5481d1f7cb4e4304c01: CircuitMaxFalse2056 (662 lines), PlaneFalseCount2056 (221 lines), MaskFalseRows2056 (93 lines). Full build logs and explicit partial-scope metadata are preserved alongside them. No completed target checker or cleanup.
+Sub-agents: circuit_search, gate_elimination, not_elimination, proof_route, status_review, toolchain_setup
+TIMING total=195.13 subagents=6
+
+2026-11-25T17:31:56.081026+00:00 PlaneAndCountLower2056.lean: Lean exit0, independent final-byte review APPROVED;1019lines;SHA256044bff5c51b463811d3811ceb36894bd58a6f1d6f7ff0994f1e3d0f5f3e40a49. Proves at least10 actual AND gates for the exact literal plane incidence function. Complete stdout has five inherited linter warnings, stderr empty. Full build metadata and logs preserved; not the posted63-gate existence theorem or a64-gate total lower bound.

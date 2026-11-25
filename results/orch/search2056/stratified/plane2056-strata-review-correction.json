@@ -1,0 +1,7 @@
+{
+  "obsolete_source_sha256": "e813832616bf4b27ce912e69815fcadcd493f5b3015b3cc2dbcb83052be77ba6",
+  "issue": "No singleton acceptance is not the definition of dirtiness; old metric labels were wrong",
+  "correction": "Shared candidate AND must accept at least one negative boundary row; singleton restriction removed entirely",
+  "active_search_affected": false,
+  "long_stratified_search_launched": false
+}

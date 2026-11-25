@@ -1,0 +1,12 @@
+{
+  "status": "counterexamples added",
+  "gates": 63,
+  "tested_rows": 756,
+  "violations": 702,
+  "previous_rows": 54,
+  "selected_rows": [
+    90288,
+    426061
+  ],
+  "updated_rows": 56
+}

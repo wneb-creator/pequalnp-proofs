@@ -1,0 +1,1 @@
+{"utc": "2026-11-25T17:27:23.302593+00:00", "n": 4, "size": 4, "sampled_rows": 16, "variables": 243, "clauses": 1294, "conversion_seconds": 0.003049961000215262, "seconds_limit": 60, "fixed_prefix": 1, "prefix_menu_size": 0, "prefix_menu_variants": 1, "ordered_sources": true, "order_independent": true, "encoder": "direct one-hot binary AND/OR with exact finite prefix menu"}

@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-25T17:17:58.525548+00:00",
+  "n": 26,
+  "size": 63,
+  "sampled_rows": 57,
+  "variables": 25074,
+  "clauses": 682120,
+  "conversion_seconds": 2.771452072000102,
+  "seconds_limit": 300,
+  "fixed_prefix": 0,
+  "warm_true_variables": 5091,
+  "encoder": "equivalent polarity-renamed progressive CNF with --phase=false",
+  "exit_code": 0,
+  "status": "UNKNOWN; time or resource limit",
+  "elapsed_seconds": 302.8648316560011,
+  "max_rss_kb": 253288
+}

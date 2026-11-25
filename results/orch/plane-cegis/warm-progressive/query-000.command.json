@@ -1,0 +1,16 @@
+[
+  "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+  "/tmp/oec/pequalnp-pilot-121/plane2056-cegis/direct_cnf_warm.py",
+  "--data",
+  "/tmp/oec/pequalnp-pilot-121/plane2056-cegis/plane2056-data.json",
+  "--rows",
+  "/tmp/oec/pequalnp-pilot-121/plane2056-cegis/warm-progressive/rows-000.json",
+  "--size",
+  "63",
+  "--seconds",
+  "300",
+  "--prefix",
+  "/tmp/oec/pequalnp-pilot-121/plane2056-cegis/warm-progressive/query-000",
+  "--warm-gates",
+  "/tmp/oec/pequalnp-pilot-121/plane2056-cegis/warm-progressive/warm-000.json"
+]

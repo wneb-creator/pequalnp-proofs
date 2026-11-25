@@ -1,0 +1,1 @@
+PASS 19653 valid deleted/mutated nets; 9152 preserve reused paths, including 1664 nested cases before normalization; 13467 have independently matched dirty reuse; no lost positives, no new negatives, emitted nets match, backward reads valid

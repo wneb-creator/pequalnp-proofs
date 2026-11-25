@@ -1,0 +1,187 @@
+{
+  "utc": "2026-11-25T17:23:39.560240+00:00",
+  "n": 19,
+  "size": 32,
+  "sampled_rows": 83,
+  "variables": 2331,
+  "clauses": 68259,
+  "conversion_seconds": 0.4078387829995336,
+  "seconds_limit": 60,
+  "fixed_prefix": 28,
+  "prefix_menu_size": 12,
+  "prefix_menu_variants": 225,
+  "ordered_sources": true,
+  "encoder": "direct one-hot binary AND/OR with exact finite prefix menu",
+  "exit_code": 10,
+  "chosen_prefix_variant": 224,
+  "status": "SAT; full boundary passed; Lean verification required",
+  "gates": [
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      6,
+      7
+    ],
+    [
+      0,
+      19,
+      20
+    ],
+    [
+      1,
+      7,
+      18
+    ],
+    [
+      1,
+      17,
+      22
+    ],
+    [
+      1,
+      13,
+      23
+    ],
+    [
+      0,
+      2,
+      24
+    ],
+    [
+      1,
+      11,
+      18
+    ],
+    [
+      1,
+      16,
+      26
+    ],
+    [
+      1,
+      15,
+      27
+    ],
+    [
+      0,
+      4,
+      28
+    ],
+    [
+      1,
+      25,
+      29
+    ],
+    [
+      1,
+      9,
+      15
+    ],
+    [
+      1,
+      21,
+      31
+    ],
+    [
+      0,
+      0,
+      32
+    ],
+    [
+      1,
+      30,
+      33
+    ],
+    [
+      1,
+      3,
+      5
+    ],
+    [
+      1,
+      21,
+      35
+    ],
+    [
+      0,
+      6,
+      36
+    ],
+    [
+      1,
+      34,
+      37
+    ],
+    [
+      1,
+      8,
+      14
+    ],
+    [
+      1,
+      18,
+      39
+    ],
+    [
+      0,
+      1,
+      40
+    ],
+    [
+      1,
+      38,
+      41
+    ],
+    [
+      1,
+      12,
+      16
+    ],
+    [
+      1,
+      17,
+      43
+    ],
+    [
+      0,
+      3,
+      44
+    ],
+    [
+      1,
+      42,
+      45
+    ],
+    [
+      1,
+      11,
+      13
+    ],
+    [
+      1,
+      10,
+      47
+    ],
+    [
+      0,
+      5,
+      48
+    ],
+    [
+      1,
+      46,
+      49
+    ]
+  ],
+  "cnf_clauses_verified": 68259,
+  "full_boundary_mismatches": [],
+  "full_boundary_rows": 83,
+  "exhaustive_assignments": 524288,
+  "exhaustive_mismatches": 0,
+  "elapsed_seconds": 2.4774548379991757,
+  "max_rss_kb": 29440
+}

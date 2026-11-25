@@ -1,0 +1,97 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 60 seconds real time (due to '-t 60')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-121/window2056-sat/menu-reused32-free4-control-2056.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-121/window2056-sat/menu-reused32-free4-control-2056.cnf'
+c found 'p cnf 2331 68259' header
+c parsed 68259 clauses in 0.02 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant  irredundant
+c         MB    restarts       trail     variables
+c          level   conflicts       glue       remaining
+c 
+c *  0.02 10  0 0   0    0    0  0% 0 68176 2248 96%
+c {  0.02 10  0 0   0    0    0  0% 0 68176 2248 96%
+c -  0.04 10 87 1  46  300  275 40% 11 67927 2248 96%
+c i  0.05 10 46 1  52  699  563 38% 7 67927 2247 96%
+c -  0.07 13 51 2  72  902  606 41% 7 67918 2247 96%
+c }  0.07 13 57 2  72 1000  692 42% 7 67918 2247 96%
+c [  0.07 13  0 2  72 1000  692  0% 0 67918 2247 96%
+c O  0.07 13 100 2  72 1002  694 62% 2 67918 2247 96%
+c ]  0.09 13 15 2  72 1420 1028 52% 7 67918 2247 96%
+c 1  0.09 13 15 2  72 1420 1028 52% 7 67918 2247 96%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to '/tmp/oec/pequalnp-pilot-121/window2056-sat/menu-reused32-free4-control-2056.sol'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.07   99.69% search
+c         0.05   71.27% unstable
+c         0.02   30.32% parse
+c         0.02   26.38% stable
+c         0.00    1.95% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.07   75.65% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:               735        51.76 %  of conflicts
+c conflicts:                  1420     20417.85    per second
+c decisions:                  7874    113218.40    per second
+c fixed:                        84         3.60 %  of all variables
+c learned:                    1313        92.46 %  per conflict
+c learned_lits:              43391       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                   8912        20.54 %  learned literals
+c minishrunken:               5821        13.42 %  learned literals
+c otfs:                         37         2.61 %  of conflict
+c propagations:             302896         4.36 M  per second
+c reduced:                      30         2.11 %  per conflict
+c rephased:                      1      1420.00    interval
+c restarts:                     72        19.72    interval
+c stabilizing:                   1        29.51 %  of conflicts
+c subsumed:                    150         0.22 %  of all clauses
+c strengthened:                 36         0.05 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.09    seconds
+c total real time since initialization:            0.09    seconds
+c maximum resident set size of process:           28.75    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 10

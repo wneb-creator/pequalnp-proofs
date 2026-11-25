@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-25T17:17:27.588255+00:00",
+  "n": 19,
+  "size": 28,
+  "sampled_rows": 83,
+  "variables": 6995,
+  "clauses": 175517,
+  "conversion_seconds": 0.5560841930000606,
+  "seconds_limit": 1200,
+  "fixed_prefix": 12,
+  "prefix_menu_size": 12,
+  "prefix_menu_variants": 225,
+  "ordered_sources": true,
+  "encoder": "direct one-hot binary AND/OR with exact finite prefix menu",
+  "status": "CNF emitted; solver not run"
+}

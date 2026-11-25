@@ -1,0 +1,7 @@
+{"utc": "2026-11-25T17:11:25.135110+00:00", "elapsed_seconds": 0.0008626300004834775, "event": "phase_start", "wall_budget_seconds": 1200, "native_cap_seconds": 300, "batch_size": 2, "initial_rows": 54}
+{"utc": "2026-11-25T17:11:25.136227+00:00", "elapsed_seconds": 0.0019751500003621913, "event": "query_start", "iteration": 0, "rows": 54, "native_seconds": 10, "fixed_initial_seed": true}
+{"utc": "2026-11-25T17:11:28.800147+00:00", "elapsed_seconds": 3.665905710999141, "event": "query_result", "iteration": 0, "rows": 54, "status": "SAT; sampled rows passed; full boundary incomplete", "solver_exit_code": 10, "clauses": 647908}
+{"utc": "2026-11-25T17:11:28.870363+00:00", "elapsed_seconds": 3.7362028489988006, "event": "model_checked", "iteration": 0, "rows": 54, "full_boundary_rows": 756, "violations": 702, "new_rows": 56, "selected_rows": [90288, 426061]}
+{"utc": "2026-11-25T17:11:28.870955+00:00", "elapsed_seconds": 3.7367008210003405, "event": "query_start", "iteration": 1, "rows": 56, "native_seconds": 300, "fixed_initial_seed": false}
+{"utc": "2026-11-25T17:16:32.381288+00:00", "elapsed_seconds": 307.2471036099996, "event": "query_result", "iteration": 1, "rows": 56, "status": "UNKNOWN; time or resource limit", "solver_exit_code": 0, "clauses": 670653}
+{"utc": "2026-11-25T17:16:32.387939+00:00", "elapsed_seconds": 307.2537040589996, "event": "phase_end", "status": "UNKNOWN; time or resource limit"}

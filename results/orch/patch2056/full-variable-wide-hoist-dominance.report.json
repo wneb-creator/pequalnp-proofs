@@ -1,0 +1,50 @@
+{
+  "seconds": 0.0058679949997895164,
+  "exact_networks": 6,
+  "best_size": 64,
+  "hit": false,
+  "results": [
+    {
+      "source_record": 0,
+      "original": 64,
+      "size": 64,
+      "output": 89,
+      "steps": 0
+    },
+    {
+      "source_record": 1,
+      "original": 68,
+      "size": 68,
+      "output": 93,
+      "steps": 0
+    },
+    {
+      "source_record": 2,
+      "original": 69,
+      "size": 69,
+      "output": 94,
+      "steps": 0
+    },
+    {
+      "source_record": 3,
+      "original": 67,
+      "size": 67,
+      "output": 92,
+      "steps": 0
+    },
+    {
+      "source_record": 4,
+      "original": 64,
+      "size": 64,
+      "output": 89,
+      "steps": 0
+    },
+    {
+      "source_record": 5,
+      "original": 66,
+      "size": 66,
+      "output": 91,
+      "steps": 0
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+PASS755 exact nonlinear seed controls
+PASS1000 scalar/bitset and compaction differential controls
+PASS755 seed classes,572 eligible/104 nested; high-bit frontier and zero-positive AND barrier controls;1000 mutant metric records

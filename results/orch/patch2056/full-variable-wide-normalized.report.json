@@ -1,0 +1,596 @@
+{
+  "seconds": 0.12378010800057382,
+  "exact_networks": 84,
+  "best_size": 64,
+  "hit": false,
+  "results": [
+    {
+      "source_record": 0,
+      "original": 64,
+      "size": 64,
+      "output": 89,
+      "steps": 0
+    },
+    {
+      "source_record": 1,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 2,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 3,
+      "original": 69,
+      "size": 69,
+      "output": 94,
+      "steps": 0
+    },
+    {
+      "source_record": 4,
+      "original": 64,
+      "size": 64,
+      "output": 89,
+      "steps": 0
+    },
+    {
+      "source_record": 5,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 6,
+      "original": 70,
+      "size": 69,
+      "output": 94,
+      "steps": 1
+    },
+    {
+      "source_record": 7,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 8,
+      "original": 67,
+      "size": 67,
+      "output": 92,
+      "steps": 0
+    },
+    {
+      "source_record": 9,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 10,
+      "original": 67,
+      "size": 67,
+      "output": 92,
+      "steps": 0
+    },
+    {
+      "source_record": 11,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 12,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 13,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 14,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 15,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 16,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 17,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 18,
+      "original": 67,
+      "size": 67,
+      "output": 92,
+      "steps": 0
+    },
+    {
+      "source_record": 19,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 20,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 21,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 22,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 23,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 24,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 25,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 26,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 27,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 28,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 29,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 30,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 31,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 32,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 33,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 34,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 35,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 36,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 37,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 38,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 39,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 40,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 41,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 42,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 43,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 44,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 45,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 46,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 47,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 48,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 49,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 50,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 51,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 52,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 53,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 54,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 55,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 56,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 57,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 58,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 59,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 60,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 61,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 62,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 63,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 64,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 65,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 66,
+      "original": 70,
+      "size": 69,
+      "output": 94,
+      "steps": 1
+    },
+    {
+      "source_record": 67,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 68,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 69,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 70,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 71,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 72,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 73,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 74,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 75,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 76,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 77,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 78,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 79,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 80,
+      "original": 70,
+      "size": 69,
+      "output": 94,
+      "steps": 1
+    },
+    {
+      "source_record": 81,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 82,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    },
+    {
+      "source_record": 83,
+      "original": 70,
+      "size": 70,
+      "output": 95,
+      "steps": 0
+    }
+  ]
+}

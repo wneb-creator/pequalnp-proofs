@@ -1,0 +1,89 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 30 seconds real time (due to '-t 30')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-121/plane2056-cegis/progressive-control64-free3.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-121/plane2056-cegis/progressive-control64-free3.cnf'
+c found 'p cnf 25024 665350' header
+c parsed 665350 clauses in 0.49 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant  irredundant
+c         MB    restarts       trail      variables
+c          level   conflicts       glue        remaining
+c 
+c *  0.49 70  0 0   0    0    0  0% 0 665113 1485  6%
+c {  0.51 70  0 0   0    0    0  0% 0 665113 1485  6%
+c i  0.51 70  1 0   0    1    0 95% 0 665113 1395  6%
+c i  0.51 70 18 0   1   74   27 97% 7 665113 1306  5%
+c }  0.51 70 27 0   2  165   84 98% 4 665113 1306  5%
+c 1  0.51 70 27 0   2  165   84 98% 4 665113 1306  5%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to '/tmp/oec/pequalnp-pilot-121/plane2056-cegis/progressive-control64-free3.sol'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.49 2226.86% parse
+c         0.02   98.99% search
+c         0.02   80.92% lucky
+c         0.00   17.90% unstable
+c         0.00    0.00% simplify
+c   =================================
+c         0.02    4.27% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:                67        40.61 %  of conflicts
+c conflicts:                   165      7526.00    per second
+c decisions:                   384     17515.05    per second
+c fixed:                     23718        94.78 %  of all variables
+c learned:                      93        56.36 %  per conflict
+c learned_lits:               3236       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                    776        23.98 %  learned literals
+c minishrunken:                165         5.10 %  learned literals
+c otfs:                          1         0.61 %  of conflict
+c propagations:              49545         2.26 M  per second
+c restarts:                      2        82.50    interval
+c subsumed:                      7         0.00 %  of all clauses
+c strengthened:                  1         0.00 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.51    seconds
+c total real time since initialization:            0.51    seconds
+c maximum resident set size of process:          119.12    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 10

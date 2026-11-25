@@ -1,0 +1,17 @@
+{
+  "started_utc": "2026-11-25T17:09:43.382335+00:00",
+  "duration_requested_seconds": 1200,
+  "seed": 205670,
+  "source_hashes": {
+    "full_variable70_pair.cpp": "67ec862e8e3c451f71ba789a1b0972b51aeb41d29ea1b13877eccd2a55ffbb39",
+    "full_variable_wide_seeds.hpp": "4cf72b9093ce4dbb6de8bd0a0c305d01bd11d7e244689539f6038d75baa77bae",
+    "neutral_pair_care_full.hpp": "b71c28ebe7959f62031c4f5e1874410a02780107c448f7ee1bb2ba4e936b099f",
+    "scatter_spares_full.hpp": "71900b15fffab2f1c094bf208a686520a048b40f307519040ec9128db26e4d14",
+    "repair_shrink_full.hpp": "3e55cb3b72e8eedfc8c535052e7906dbf6f4df2be2d43986b90e6f58a83466b3"
+  },
+  "binary_sha256": "0cc026c27727b8b24bdd34d18d392add6ff60dc2d9749ff5f27913649f74578e",
+  "status": "completed",
+  "ended_utc": "2026-11-25T17:29:44.052629+00:00",
+  "wall_seconds": 1200.6649168160002,
+  "returncode": 0
+}

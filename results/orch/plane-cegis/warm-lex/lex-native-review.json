@@ -1,0 +1,29 @@
+{
+  "clauses": 1294,
+  "variables": 243,
+  "gates": [
+    [
+      1,
+      0,
+      2
+    ],
+    [
+      0,
+      0,
+      1
+    ],
+    [
+      0,
+      2,
+      3
+    ],
+    [
+      1,
+      5,
+      6
+    ]
+  ],
+  "assignments": 16,
+  "model_sha256": "067e5e6bb5ce25fc681bb6875930c18785dc3599173af9416c9775241ed6fc85",
+  "status": "independently verified"
+}

@@ -1,0 +1,21 @@
+{
+  "warm-control64-free3.json": "770cb6ad76c602d59962c113b74d4b205532758716a722f7a88710a512557a0b",
+  "cadical-help-warm.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "warm-seed56-emitted.json": "387ccf2380152c03ee1d25993db42fac4f5850d9fd9418f3084eef3ae5495e10",
+  "warm-control64-free3.sol": "dca933c7a4bbd1a6a5d654638a0922ea5f307bcd51d555d43fbc903fbff78ac0",
+  "warm-control64-free3.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "README.md": "ce06dd3bc1ca6146a3ecc17459afe277cf7f125b16bedd1713bc780a00503752",
+  "warm-control64-free3.stdout": "87aa1fa4f6818c72a1315001e0de3f7c40e4bd6a89ea80a1e3f5d4db50d02fe1",
+  "direct_cnf_warm.py": "3a998470bcc86d5f0b2840d2d0fc5185f58afb9632122090a22a6fd777dccaa7",
+  "warm-seed56-emitted.mapping.json": "8654f7427798de4606b882e418ebd6e5198fa5d97238de10085acd75a18fec52",
+  "warm-control64-free3-wrapper.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "warm-seed56-gates.json": "aa66ba97e2661d3f9f9a620fbf2b748adb3d57d564e38503acfe8ce8e17dffed",
+  "cadical-help-warm.stdout": "3130f29128ff982dbf028386f6af7e99342bde5f9dd10db4a65ab0b91a7da23c",
+  "warm-seed56-emitted-wrapper.stdout": "c35c59209ff21d5096b81bbad910cca795149d009f837bccd197798530df8ca0",
+  "warm-control64-free3.mapping.json": "aed1557aa3845f8a1f91ac84a7db46d206134a9e9121b9cffd53d49315862d8e",
+  "warm-seed56-emitted-wrapper.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "warm_progressive_phase.py": "da981ebd1c4eb7f0ba6050d4a17c8ac8dd6ee779f63f586fae589f387c8359e6",
+  "warm-control64-free3.process.json": "6b092521b4b298be749ff07eb56e4becbe8d03494df0b79dfc4b8c9abb9bc6d1",
+  "warm-control64-free3-wrapper.stdout": "63d72efafdb571b9ec410df1017f75284e0a72c5f26468dd8d43b9bc8ec38af6",
+  "warm-seed56-emitted.phase-check.json": "594a10b0c8ed1e66de178c2b3b7adac95a597d25bccda54e6cd75fb9fc081c05"
+}

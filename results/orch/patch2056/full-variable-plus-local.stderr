@@ -1,0 +1,5 @@
+PASS105 exact nonlinear seed controls
+PASS1000 scalar/bitset and compaction differential controls
+PASS66-to-65 exact shrink control; rounds=1
+PASS100 exact CNF/DNF expansion controls
+accepted=251146440 repair_calls=1996 repair_expressions=67136312142

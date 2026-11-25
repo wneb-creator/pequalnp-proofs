@@ -194,3 +194,80 @@ It tried 295050948 proposals without an exact witness; best actual
 errors remained one and three missed edges, with no false positives.
 The complete source, logs, data and actual-network analyses are frozen in
 search2056/full-dominance/. No worker from this phase remains.
+
+
+## Protected shared-AND phase
+
+The next phase uses the audited52 double-star66-gate controls plus468
+67-gate controls with one dirty AND reused along two downstream AND paths.
+During initial deletion only, the latter protect their dirty input cone,
+both immediate consumer paths, their join, and an OR-only path to output.
+This marks19 gates; the final output is independently never deleted.
+Later mutations remain unrestricted, and actual zero-error reporting is
+unchanged. No expanded or composite seed families were added.
+
+Independent review approved source
+285ef7eeb40727455eab97ac5f215a04ac0821dae77f39a02b44b65e38b880ea
+and configuration
+7ef88072d2828cd6a904a04b3977037798ddc32d1eeefb44b236b4c2cc3734eb.
+All128 randomized and520 loaded controls pass their complete boundary.
+A further8320 deleted-net test passes: every one of7488 reused-seed cases
+retains both dirty paths before normalization, and all cases preserve
+backward reads, actual emitted-net evaluation, positive acceptance and
+absence of new negative acceptance through normalization.
+
+The parent renewed at17:06:14UTC. Seed205614 started at
+2026-11-25T17:06:37.490565+00:00, with1200seconds and one CPU. Source and
+seed pool are frozen for the phase. Complete preservation artifacts are
+in search2056/reused-dominance/. No witness is yet claimed.
+
+
+## Prepared stratified successor
+
+A successor adds a third population restricted to a live, positive-profile
+AND that accepts an actual negative boundary row and reaches two distinct
+positive-profile first-AND consumers through zero or more OR gates. Every
+AND stops path propagation. The negative-row condition is the definition
+of dirtiness relative to this target; absence of singleton acceptance is
+not sufficient and is not used. The first two populations retain the
+existing plain and non-read1 scoring. All zero-error checks precede class
+filters, and final retained pools are exported for finite combinations.
+
+The loader accepts66/67/69-gate controls, with the old520-control prefix
+unchanged and104 independently audited nested69 controls appended. Guards
+for the latter follow actual metadata: dirty input cones, first-AND paths,
+and OR paths from exposed frontier gates to output. They mark23--26 gates.
+The19653-case differential check passes, including9152 shared-path and1664
+nested-path preservation cases. Actual-dirty reuse counts independently
+match negative-row truth evaluation and explicit graph traversal.
+The source/config/control archive is search2056/stratified/. The current
+protected-only search remains unchanged until the parent authorizes a
+reviewed switch after renewal. No target witness has been found.
+
+
+The protected shared-AND phase completed its1200-second allowance and
+exited0, with 309784519 proposals and no exact witness. The complete
+emitted best-history nets and full logs are frozen in reused-dominance/.
+Its unchanged source did not export internal populations; those memory
+pools cannot be recovered after exit. Every actual zero-error candidate
+would have been printed before pool insertion. The successor adds final
+population export. No worker from the completed phase remains.
+
+
+The combined624-control successor received final independent approval.
+The parent renewed at17:27:01UTC; seed205616 began at
+2026-11-25T17:27:56.745856+00:00 for1200seconds on one CPU. Source and
+configuration remain exactly at the reviewed hashes. Early independent
+checks confirm all three populations: plain misses one edge, non-read1
+misses three, and the shared-dirty class misses four while retaining one
+actual dirty AND with two relevant first-AND consumers. No witness exists
+in the observed output. Error and class metrics agree with independent
+emitted-net truth-table and graph-traversal checks.
+
+The independent analyzer now includes all reported modes and final pool
+records. It recomputes actual errors and sharing from the emitted network;
+reported-label mismatches are diagnostic fields, so they cannot suppress
+an actual zero-error candidate. Reviewed source and completed validation
+records are preserved in search2056/stratified/; active run logs remain in
+scratch, with repository prefix snapshots to be replaced by the full logs
+at completion.

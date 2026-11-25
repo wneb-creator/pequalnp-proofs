@@ -1,0 +1,22 @@
+{
+  "unique_exact_networks": 1,
+  "sizes": [
+    65
+  ],
+  "nonread1_networks": 0,
+  "networks_with_shared_dirty_AND": 0,
+  "networks_with_indirect_dirty_AND_reuse": 0,
+  "results": [
+    {
+      "record": 0,
+      "gates": 65,
+      "AND": 14,
+      "accepted_without_read1": 0,
+      "clean_AND": 0,
+      "mixed_OR": 0,
+      "dominated": 0,
+      "shared_dirty_AND": [],
+      "dirty_AND_multi_next_AND": {}
+    }
+  ]
+}
