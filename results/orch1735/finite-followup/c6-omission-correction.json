@@ -1,0 +1,18 @@
+{
+  "graph": "C6",
+  "omitted_maximal_independent_set": 21,
+  "remaining_cover_clauses": [
+    54,
+    45,
+    27,
+    21
+  ],
+  "actual_independent_bad_assignments": [
+    5,
+    17,
+    20,
+    21
+  ],
+  "minimum_bad_certificate": 2,
+  "correction": "omitting the even-transversal complement clause does not give F OR x0x2x4; proper even pairs also survive"
+}

@@ -1,0 +1,39 @@
+{
+  "C7_exact10_reduced_nested_TopForm": "TIMEOUT_INCONCLUSIVE,300.00s,exit0; no SAT candidate or UNSAT result",
+  "subdivided_K4_fixed4OR_prefix_plus_exact9_new_gates": "TIMEOUT_INCONCLUSIVE,300.00s,exit0; fixed-prefix research class only",
+  "minimality": "No least nested-junk witness or strict minimum gap found; no new SAT minimality certificate or Lean minimum proof",
+  "matching_m3_control": {
+    "gates": 23,
+    "junk": 6,
+    "min_independent_bad_certificate": 3,
+    "TopForm": true,
+    "all_child_bypasses_essential": true,
+    "ordinary_upper_bound": 5,
+    "least": false,
+    "full_truth_rows": 64
+  },
+  "matching_m4_control": {
+    "gates": 63,
+    "junk": 14,
+    "min_independent_bad_certificate": 4,
+    "TopForm": true,
+    "all_child_bypasses_essential": true,
+    "ordinary_upper_bound": 7,
+    "least": false,
+    "full_truth_rows": 256
+  },
+  "subdivided_K4_control": {
+    "gates": 15,
+    "junk": 2,
+    "nested_junk_pairs": 1,
+    "Ustar": 2,
+    "TopForm": true,
+    "all_child_bypasses_essential": true,
+    "ordinary_upper_bound": 13,
+    "least": false,
+    "full_truth_rows": 256
+  },
+  "C5_context12_independent_review": "PASS full32rows,TopForm,Ustar5,all126 earlier-wire substitutions changeoutput,explicit7gate comparison",
+  "failed_C6_omission_claim": "Corrected: surviving independent assignments are5,17,20,21; min bad certificate2, not3",
+  "active_search_processes": 0
+}

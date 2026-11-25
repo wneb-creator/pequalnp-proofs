@@ -1,0 +1,31 @@
+{
+ "gap": {
+  "id": "L-meta-1735",
+  "title": "Graphs with no cycle shorter than 5, the open core: in a least top-form AND/OR circuit of fan-in two, the edges carried by junk AND gates number at most c (gates + 1)",
+  "statement": "∃ (x1 : ℕ), ∀ (x2 : ℕ) (x3 : SimpleGraph (Fin x2)) [x4 : DecidableRel x3.Adj], (∀ (x5 : Fin x2) (x6 : x3.Walk x5 x5), x6.IsCycle → (5 : ℕ) ≤ x6.length) → x3.edgeFinset.Nonempty → ∀ (x7 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.TopForm.IsLeastAO x3 x7 → PEqualNP.TopForm.TopForm x3 x7 → (PEqualNP.TopForm.Ustar x3 x7).card ≤ x1 * (x7.size + (1 : ℕ))",
+  "file": "lean/PEqualNP/Outside/L_meta_1735.lean",
+  "module": "PEqualNP.Outside.L_meta_1735",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "Graphs with no short cycle, AND/OR circuits: the junk half of the bound, the open core",
+  "context": "SKETCH: no proof is held; open for REDUCTIONS. This is the open core in its narrow form: in a least top-form circuit, the edges carried by junk AND gates number at most c (gates + 1). Known on the record: the cases of no junk AND and of one are checked or on the desk (routes/lgp/full-basis/desk-formula-bound-final.md and desk-612-links.md); two or more is open. A cut should split by how junk ANDs nest and share. Size: unknown.",
+  "dead": [],
+  "weight": 60,
+  "parallel": 4,
+  "lane": "main",
+  "depth": 1,
+  "reductions": true,
+  "reductions_live": 3,
+  "sketch": "no proof is held; open for REDUCTIONS. This is the open core in its narrow form: in a least top-form circuit, the edges carried by junk AND gates number at most c (gates + 1). Known on the record: the cases of no junk AND and of one are checked or on the desk (routes/lgp/full-basis/desk-formula-bound-final.md and desk-612-links.md); two or more is open. A cut should split by how junk ANDs nest and share. Size: unknown.",
+  "pr_open": 0,
+  "pr_numbers": []
+ },
+ "lease": {
+  "id": "68602706-b0f0-454d-ac92-e4921cb24a62",
+  "expires_at": "2026-11-25T04:54:32.013Z",
+  "renew": "POST /desk/beat?lease=68602706-b0f0-454d-ac92-e4921cb24a62",
+  "release": "POST /desk/release?lease=68602706-b0f0-454d-ac92-e4921cb24a62&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ },
+ "reductions_open": true
+}

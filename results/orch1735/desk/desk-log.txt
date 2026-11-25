@@ -1,0 +1,305 @@
+2026-11-25T03:06:57.821807+00:00 REQUEST 1 hard=1
+2026-11-25T03:07:08.531202+00:00 ANSWER 1
+{
+ "gap": {
+  "id": "L-meta-2602",
+  "title": "A step toward: Order 3 plane: no circuit of at most 64 AND/OR gates of fan-in two (distinct earlier wires) computes incidence and has a double re-read incidence (step 2 of 2)",
+  "statement": "¬∃ (x1 : PEqualNP.CircuitLowerBounds.Circuit), (63 : ℕ) ≤ x1.size ∧ x1.size ≤ (64 : ℕ) ∧ (∀ (x2 : ℕ) (x3 : PEqualNP.CircuitLowerBounds.Gate), x1.gates[x2]? = Option.some x3 → (x3.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ x3.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ ∃ (x5 : ℕ) (x6 : ℕ), x3.inputs = [x5, x6] ∧ x5 ≠ x6 ∧ x5 < (26 : ℕ) + x2 ∧ x6 < (26 : ℕ) + x2) ∧ (∀ (x2 : Fin (26 : ℕ) → Bool), x1.eval (List.ofFn x2) = Bool.true ↔ ∃ (x3 : Fin (13 : ℕ)) (x4 : Fin (13 : ℕ)), (x3 = x4 ∨ x3 = x4 + (1 : Fin (13 : ℕ)) ∨ x3 = x4 + (3 : Fin (13 : ℕ)) ∨ x3 = x4 + (9 : Fin (13 : ℕ))) ∧ x2 (Fin.castAdd (13 : ℕ) x3) = Bool.true ∧ x2 (Fin.natAdd (13 : ℕ) x4) = Bool.true) ∧ (∃ (x2 : ℕ → Bool), (∀ x3 < (26 : ℕ), x2 x3 = Decidable.decide (x3 = (13 : ℕ))) ∧ (∀ (x3 : ℕ) (x4 : PEqualNP.CircuitLowerBounds.Gate) (x5 x6 : ℕ), x1.gates[x3]? = Option.some x4 → x4.inputs = [x5, x6] → (x4.op = PEqualNP.CircuitLowerBounds.GateOp.and → x2 ((26 : ℕ) + x3) = ((x1.wires (List.ofFn fun (x10 : Fin (26 : ℕ)) => Decidable.decide (↑x10 = (0 : ℕ)))).getD x5 Bool.false && x2 x6 || x2 x5 && (x1.wires (List.ofFn fun (x10 : Fin (26 : ℕ)) => Decidable.decide (↑x10 = (0 : ℕ)))).getD x6 Bool.false)) ∧ (x4.op = PEqualNP.CircuitLowerBounds.GateOp.or → x2 ((26 : ℕ) + x3) = (x2 x5 || x2 x6))) ∧ x2 x1.output = Bool.false) ∧ ∃ (x2 : ℕ → Bool), (∀ x3 < (26 : ℕ), x2 x3 = Decidable.decide (x3 = (0 : ℕ))) ∧ (∀ (x3 : ℕ) (x4 : PEqualNP.CircuitLowerBounds.Gate) (x5 x6 : ℕ), x1.gates[x3]? = Option.some x4 → x4.inputs = [x5, x6] → (x4.op = PEqualNP.CircuitLowerBounds.GateOp.and → x2 ((26 : ℕ) + x3) = ((x1.wires (List.ofFn fun (x10 : Fin (26 : ℕ)) => Decidable.decide (↑x10 = (13 : ℕ)))).getD x5 Bool.false && x2 x6 || x2 x5 && (x1.wires (List.ofFn fun (x10 : Fin (26 : ℕ)) => Decidable.decide (↑x10 = (13 : ℕ)))).getD x6 Bool.false)) ∧ (x4.op = PEqualNP.CircuitLowerBounds.GateOp.or → x2 ((26 : ℕ) + x3) = (x2 x5 || x2 x6))) ∧ x2 x1.output = Bool.false",
+  "file": "lean/PEqualNP/Outside/L_meta_2602.lean",
+  "module": "PEqualNP.Outside.L_meta_2602",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "With its 1 sibling(s) it proves a posted step.",
+  "context": "A hypothesis of a checked reduction, as Lean printed it.",
+  "dead": [],
+  "weight": 40,
+  "parallel": 4,
+  "lane": "main",
+  "depth": 1,
+  "reductions": true,
+  "reductions_live": 3,
+  "sketch": "Step 2 of 2 of a checked cut of L-meta-1482. Its sibling steps: L-meta-2600. Together they give the parent; the parent's own sketch: The exact least size at the plane of order 3: the star circuit has 64 gates. This side: no circuit of at most the stated size. SIZE, corrected 24 Nov: NOT a session-sized search by plain SAT; in-house controls show about eight times more time per gate (a 10-input case: 9 gates in 162 seconds, 12 gates unanswered in 3 minutes). Take it only with a real method: symmetry, a structural argument, or a construction for the side asking for a circuit. A circuit found is ",
+  "pr_open": 0,
+  "pr_numbers": []
+ },
+ "lease": {
+  "id": "ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "expires_at": "2026-11-25T03:26:56.138Z",
+  "renew": "POST /desk/beat?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "release": "POST /desk/release?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ },
+ "holding": 5,
+ "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another"
+}
+
+2026-11-25T03:08:38.399541+00:00 BEAT 1
+{
+ "lease": {
+  "id": "ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "expires_at": "2026-11-25T03:28:38.209Z",
+  "renew": "POST /desk/beat?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "release": "POST /desk/release?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T03:12:47.134448+00:00 BEAT 2
+{
+ "lease": {
+  "id": "ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "expires_at": "2026-11-25T03:32:46.950Z",
+  "renew": "POST /desk/beat?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "release": "POST /desk/release?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T03:21:13.953109+00:00 BEAT 3
+{
+ "lease": {
+  "id": "ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "expires_at": "2026-11-25T03:41:13.695Z",
+  "renew": "POST /desk/beat?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "release": "POST /desk/release?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T03:24:04.940467+00:00 BEAT 4
+{
+ "lease": {
+  "id": "ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "expires_at": "2026-11-25T03:44:04.677Z",
+  "renew": "POST /desk/beat?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "release": "POST /desk/release?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T03:36:01.557245+00:00 BEAT 5
+{
+ "lease": {
+  "id": "ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "expires_at": "2026-11-25T03:56:01.338Z",
+  "renew": "POST /desk/beat?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "release": "POST /desk/release?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T03:37:20.988147+00:00 AUTO BEAT 1
+{
+ "lease": {
+  "id": "ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "expires_at": "2026-11-25T03:57:21.302Z",
+  "renew": "POST /desk/beat?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "release": "POST /desk/release?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T03:45:22.250446+00:00 AUTO BEAT 2
+{
+ "lease": {
+  "id": "ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "expires_at": "2026-11-25T04:05:22.518Z",
+  "renew": "POST /desk/beat?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "release": "POST /desk/release?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T03:50:15.933924+00:00 AUTO BEAT 3
+{
+ "lease": {
+  "id": "ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "expires_at": "2026-11-25T04:10:16.195Z",
+  "renew": "POST /desk/beat?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "release": "POST /desk/release?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T03:58:16.706768+00:00 AUTO BEAT 4
+{
+ "lease": {
+  "id": "ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "expires_at": "2026-11-25T04:18:17.015Z",
+  "renew": "POST /desk/beat?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "release": "POST /desk/release?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T04:06:17.641173+00:00 AUTO BEAT 5
+{
+ "lease": {
+  "id": "ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "expires_at": "2026-11-25T04:26:17.916Z",
+  "renew": "POST /desk/beat?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "release": "POST /desk/release?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T04:09:42.276209+00:00 AUTO BEAT 6
+{
+ "lease": {
+  "id": "ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "expires_at": "2026-11-25T04:29:42.654Z",
+  "renew": "POST /desk/beat?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "release": "POST /desk/release?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T04:13:41.080683+00:00 AUTO BEAT 7
+{
+ "lease": {
+  "id": "ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "expires_at": "2026-11-25T04:33:41.350Z",
+  "renew": "POST /desk/beat?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "release": "POST /desk/release?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T04:17:27.987034+00:00 AUTO BEAT 8
+{
+ "lease": {
+  "id": "ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "expires_at": "2026-11-25T04:37:28.281Z",
+  "renew": "POST /desk/beat?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "release": "POST /desk/release?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T04:20:49.922420+00:00 AUTO BEAT 9
+{
+ "lease": {
+  "id": "ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "expires_at": "2026-11-25T04:40:50.219Z",
+  "renew": "POST /desk/beat?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "release": "POST /desk/release?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T04:24:14.800368+00:00 AUTO BEAT 10
+{
+ "lease": {
+  "id": "ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "expires_at": "2026-11-25T04:44:15.042Z",
+  "renew": "POST /desk/beat?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c",
+  "release": "POST /desk/release?lease=ebb1cfad-3f09-4d20-a4d6-a1955bc7654c&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T04:31:06.703782+00:00 AUTO BEAT 11
+{
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+
+
+2026-11-25T04:34:31.756468+00:00 REQUEST 2 after HTTP410 preservation, another=1 hard=1
+2026-11-25T04:34:35.861883+00:00 ANSWER 2
+{
+ "gap": {
+  "id": "L-meta-1735",
+  "title": "Graphs with no cycle shorter than 5, the open core: in a least top-form AND/OR circuit of fan-in two, the edges carried by junk AND gates number at most c (gates + 1)",
+  "statement": "∃ (x1 : ℕ), ∀ (x2 : ℕ) (x3 : SimpleGraph (Fin x2)) [x4 : DecidableRel x3.Adj], (∀ (x5 : Fin x2) (x6 : x3.Walk x5 x5), x6.IsCycle → (5 : ℕ) ≤ x6.length) → x3.edgeFinset.Nonempty → ∀ (x7 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.TopForm.IsLeastAO x3 x7 → PEqualNP.TopForm.TopForm x3 x7 → (PEqualNP.TopForm.Ustar x3 x7).card ≤ x1 * (x7.size + (1 : ℕ))",
+  "file": "lean/PEqualNP/Outside/L_meta_1735.lean",
+  "module": "PEqualNP.Outside.L_meta_1735",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "Graphs with no short cycle, AND/OR circuits: the junk half of the bound, the open core",
+  "context": "SKETCH: no proof is held; open for REDUCTIONS. This is the open core in its narrow form: in a least top-form circuit, the edges carried by junk AND gates number at most c (gates + 1). Known on the record: the cases of no junk AND and of one are checked or on the desk (routes/lgp/full-basis/desk-formula-bound-final.md and desk-612-links.md); two or more is open. A cut should split by how junk ANDs nest and share. Size: unknown.",
+  "dead": [],
+  "weight": 60,
+  "parallel": 4,
+  "lane": "main",
+  "depth": 1,
+  "reductions": true,
+  "reductions_live": 3,
+  "sketch": "no proof is held; open for REDUCTIONS. This is the open core in its narrow form: in a least top-form circuit, the edges carried by junk AND gates number at most c (gates + 1). Known on the record: the cases of no junk AND and of one are checked or on the desk (routes/lgp/full-basis/desk-formula-bound-final.md and desk-612-links.md); two or more is open. A cut should split by how junk ANDs nest and share. Size: unknown.",
+  "pr_open": 0,
+  "pr_numbers": []
+ },
+ "lease": {
+  "id": "68602706-b0f0-454d-ac92-e4921cb24a62",
+  "expires_at": "2026-11-25T04:54:32.013Z",
+  "renew": "POST /desk/beat?lease=68602706-b0f0-454d-ac92-e4921cb24a62",
+  "release": "POST /desk/release?lease=68602706-b0f0-454d-ac92-e4921cb24a62&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ },
+ "reductions_open": true
+}
+
+2026-11-25T04:40:35.091508+00:00 AUTO BEAT 1
+{
+ "lease": {
+  "id": "68602706-b0f0-454d-ac92-e4921cb24a62",
+  "expires_at": "2026-11-25T05:00:35.378Z",
+  "renew": "POST /desk/beat?lease=68602706-b0f0-454d-ac92-e4921cb24a62",
+  "release": "POST /desk/release?lease=68602706-b0f0-454d-ac92-e4921cb24a62&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T04:44:38.786433+00:00 AUTO BEAT 2
+{
+ "lease": {
+  "id": "68602706-b0f0-454d-ac92-e4921cb24a62",
+  "expires_at": "2026-11-25T05:04:38.997Z",
+  "renew": "POST /desk/beat?lease=68602706-b0f0-454d-ac92-e4921cb24a62",
+  "release": "POST /desk/release?lease=68602706-b0f0-454d-ac92-e4921cb24a62&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T04:52:19.215595+00:00 AUTO BEAT 3
+{
+ "lease": {
+  "id": "68602706-b0f0-454d-ac92-e4921cb24a62",
+  "expires_at": "2026-11-25T05:12:19.404Z",
+  "renew": "POST /desk/beat?lease=68602706-b0f0-454d-ac92-e4921cb24a62",
+  "release": "POST /desk/release?lease=68602706-b0f0-454d-ac92-e4921cb24a62&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T04:54:06.608886+00:00 AUTO BEAT 4
+{
+ "lease": {
+  "id": "68602706-b0f0-454d-ac92-e4921cb24a62",
+  "expires_at": "2026-11-25T05:14:06.816Z",
+  "renew": "POST /desk/beat?lease=68602706-b0f0-454d-ac92-e4921cb24a62",
+  "release": "POST /desk/release?lease=68602706-b0f0-454d-ac92-e4921cb24a62&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T04:54:34.994872+00:00 AUTO BEAT 5
+{
+ "lease": {
+  "id": "68602706-b0f0-454d-ac92-e4921cb24a62",
+  "expires_at": "2026-11-25T05:14:35.198Z",
+  "renew": "POST /desk/beat?lease=68602706-b0f0-454d-ac92-e4921cb24a62",
+  "release": "POST /desk/release?lease=68602706-b0f0-454d-ac92-e4921cb24a62&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T04:55:45.423103+00:00 AUTO BEAT 6
+{
+ "lease": {
+  "id": "68602706-b0f0-454d-ac92-e4921cb24a62",
+  "expires_at": "2026-11-25T05:15:45.726Z",
+  "renew": "POST /desk/beat?lease=68602706-b0f0-454d-ac92-e4921cb24a62",
+  "release": "POST /desk/release?lease=68602706-b0f0-454d-ac92-e4921cb24a62&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T04:59:23.253598+00:00 AUTO BEAT 7
+{
+ "lease": {
+  "id": "68602706-b0f0-454d-ac92-e4921cb24a62",
+  "expires_at": "2026-11-25T05:19:23.419Z",
+  "renew": "POST /desk/beat?lease=68602706-b0f0-454d-ac92-e4921cb24a62",
+  "release": "POST /desk/release?lease=68602706-b0f0-454d-ac92-e4921cb24a62&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T05:01:49.835793+00:00 AUTO BEAT 8
+{
+ "lease": {
+  "id": "68602706-b0f0-454d-ac92-e4921cb24a62",
+  "expires_at": "2026-11-25T05:21:50.011Z",
+  "renew": "POST /desk/beat?lease=68602706-b0f0-454d-ac92-e4921cb24a62",
+  "release": "POST /desk/release?lease=68602706-b0f0-454d-ac92-e4921cb24a62&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+

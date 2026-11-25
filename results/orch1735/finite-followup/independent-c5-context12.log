@@ -1,0 +1,71 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch1735/status-review/c5-context-essential12.json",
+  "full_rows": 32,
+  "legal_gates": 12,
+  "clean_ANDs": [
+    11
+  ],
+  "TopForm": true,
+  "Ustar": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "earlier_wire_replacements_checked": 126,
+  "preserving_replacements": [],
+  "seven_gate_comparison": [
+    [
+      "or",
+      1,
+      4
+    ],
+    [
+      "and",
+      0,
+      5
+    ],
+    [
+      "or",
+      1,
+      3
+    ],
+    [
+      "and",
+      2,
+      7
+    ],
+    [
+      "and",
+      3,
+      4
+    ],
+    [
+      "or",
+      6,
+      8
+    ],
+    [
+      "or",
+      9,
+      10
+    ]
+  ],
+  "verdict": "PASS: all claims independently verified; nonleast despite every earlier-wire replacement changing output"
+}

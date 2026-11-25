@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-65/finite-1735-targeted/c6_bad_triple_control.py", line 16, in <module>
+    assert values[D]==[g or m&omit==omit for m,g in enumerate(graph)]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

@@ -1,0 +1,2 @@
+PASS: 32 truth rows; TopForm; Ustar=5; 126 earlier-wire replacements fail.
+PASS: explicit seven-gate circuit computes the same graph; twelve-gate witness is NOT least.

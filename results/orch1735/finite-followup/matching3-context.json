@@ -1,0 +1,423 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-65/finite-1735-targeted/matching3-bad-certificate.witness.json",
+  "gate_count": 23,
+  "all_child_bypasses_essential": true,
+  "removable_child_bypasses": [],
+  "records": [
+    {
+      "gate": 0,
+      "op": "or",
+      "side": 0,
+      "source": 1,
+      "essential": true,
+      "certificate_mask": 12,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 0,
+      "op": "or",
+      "side": 1,
+      "source": 3,
+      "essential": true,
+      "certificate_mask": 3,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 1,
+      "op": "or",
+      "side": 0,
+      "source": 6,
+      "essential": true,
+      "certificate_mask": 48,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 1,
+      "op": "or",
+      "side": 1,
+      "source": 4,
+      "essential": true,
+      "certificate_mask": 3,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 2,
+      "op": "or",
+      "side": 0,
+      "source": 1,
+      "essential": true,
+      "certificate_mask": 12,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 2,
+      "op": "or",
+      "side": 1,
+      "source": 2,
+      "essential": true,
+      "certificate_mask": 3,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 3,
+      "op": "or",
+      "side": 0,
+      "source": 8,
+      "essential": true,
+      "certificate_mask": 48,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 3,
+      "op": "or",
+      "side": 1,
+      "source": 5,
+      "essential": true,
+      "certificate_mask": 3,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 4,
+      "op": "or",
+      "side": 0,
+      "source": 1,
+      "essential": true,
+      "certificate_mask": 12,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 4,
+      "op": "or",
+      "side": 1,
+      "source": 2,
+      "essential": true,
+      "certificate_mask": 3,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 5,
+      "op": "or",
+      "side": 0,
+      "source": 10,
+      "essential": true,
+      "certificate_mask": 48,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 5,
+      "op": "or",
+      "side": 1,
+      "source": 4,
+      "essential": true,
+      "certificate_mask": 3,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 6,
+      "op": "or",
+      "side": 0,
+      "source": 0,
+      "essential": true,
+      "certificate_mask": 12,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 6,
+      "op": "or",
+      "side": 1,
+      "source": 3,
+      "essential": true,
+      "certificate_mask": 3,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 7,
+      "op": "or",
+      "side": 0,
+      "source": 12,
+      "essential": true,
+      "certificate_mask": 48,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 7,
+      "op": "or",
+      "side": 1,
+      "source": 5,
+      "essential": true,
+      "certificate_mask": 3,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 8,
+      "op": "or",
+      "side": 0,
+      "source": 0,
+      "essential": true,
+      "certificate_mask": 12,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 8,
+      "op": "or",
+      "side": 1,
+      "source": 3,
+      "essential": true,
+      "certificate_mask": 3,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 9,
+      "op": "or",
+      "side": 0,
+      "source": 14,
+      "essential": true,
+      "certificate_mask": 48,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 9,
+      "op": "or",
+      "side": 1,
+      "source": 4,
+      "essential": true,
+      "certificate_mask": 3,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 10,
+      "op": "or",
+      "side": 0,
+      "source": 0,
+      "essential": true,
+      "certificate_mask": 12,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 10,
+      "op": "or",
+      "side": 1,
+      "source": 2,
+      "essential": true,
+      "certificate_mask": 3,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 11,
+      "op": "or",
+      "side": 0,
+      "source": 16,
+      "essential": true,
+      "certificate_mask": 48,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 11,
+      "op": "or",
+      "side": 1,
+      "source": 5,
+      "essential": true,
+      "certificate_mask": 3,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 12,
+      "op": "or",
+      "side": 0,
+      "source": 0,
+      "essential": true,
+      "certificate_mask": 12,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 12,
+      "op": "or",
+      "side": 1,
+      "source": 2,
+      "essential": true,
+      "certificate_mask": 3,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 13,
+      "op": "or",
+      "side": 0,
+      "source": 18,
+      "essential": true,
+      "certificate_mask": 48,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 13,
+      "op": "or",
+      "side": 1,
+      "source": 4,
+      "essential": true,
+      "certificate_mask": 3,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 14,
+      "op": "or",
+      "side": 0,
+      "source": 1,
+      "essential": true,
+      "certificate_mask": 12,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 14,
+      "op": "or",
+      "side": 1,
+      "source": 3,
+      "essential": true,
+      "certificate_mask": 3,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 15,
+      "op": "or",
+      "side": 0,
+      "source": 20,
+      "essential": true,
+      "certificate_mask": 48,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 15,
+      "op": "or",
+      "side": 1,
+      "source": 5,
+      "essential": true,
+      "certificate_mask": 3,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 16,
+      "op": "and",
+      "side": 0,
+      "source": 7,
+      "essential": true,
+      "certificate_mask": 25,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 16,
+      "op": "and",
+      "side": 1,
+      "source": 9,
+      "essential": true,
+      "certificate_mask": 37,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 17,
+      "op": "and",
+      "side": 0,
+      "source": 22,
+      "essential": true,
+      "certificate_mask": 41,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 17,
+      "op": "and",
+      "side": 1,
+      "source": 11,
+      "essential": true,
+      "certificate_mask": 25,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 18,
+      "op": "and",
+      "side": 0,
+      "source": 23,
+      "essential": true,
+      "certificate_mask": 22,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 18,
+      "op": "and",
+      "side": 1,
+      "source": 13,
+      "essential": true,
+      "certificate_mask": 9,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 19,
+      "op": "and",
+      "side": 0,
+      "source": 24,
+      "essential": true,
+      "certificate_mask": 38,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 19,
+      "op": "and",
+      "side": 1,
+      "source": 15,
+      "essential": true,
+      "certificate_mask": 9,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 20,
+      "op": "and",
+      "side": 0,
+      "source": 25,
+      "essential": true,
+      "certificate_mask": 26,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 20,
+      "op": "and",
+      "side": 1,
+      "source": 17,
+      "essential": true,
+      "certificate_mask": 6,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 21,
+      "op": "and",
+      "side": 0,
+      "source": 26,
+      "essential": true,
+      "certificate_mask": 42,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 21,
+      "op": "and",
+      "side": 1,
+      "source": 19,
+      "essential": true,
+      "certificate_mask": 6,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 22,
+      "op": "and",
+      "side": 0,
+      "source": 27,
+      "essential": true,
+      "certificate_mask": 21,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 22,
+      "op": "and",
+      "side": 1,
+      "source": 21,
+      "essential": true,
+      "certificate_mask": 2,
+      "certificate_kind": "new independent false positive"
+    }
+  ],
+  "scope": "necessary condition for leastness only; does not certify a global optimum"
+}

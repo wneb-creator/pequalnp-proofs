@@ -1,0 +1,72 @@
+{
+  "n": 8,
+  "matching_size": 4,
+  "output": 70,
+  "distinguished_dirty_wire": 69,
+  "graph_edges": [
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      6,
+      7
+    ]
+  ],
+  "size": 63,
+  "full_truth_rows_checked": 256,
+  "TopForm": true,
+  "tops": [
+    62
+  ],
+  "junk": [
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59,
+    60,
+    61
+  ],
+  "Ustar": [
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      6,
+      7
+    ]
+  ],
+  "dirty_bad_assignments": [
+    85
+  ],
+  "min_independent_bad_certificate": 4,
+  "dirty_function": "matching edge function OR conjunction of even-indexed inputs",
+  "standard_star_upper": 7,
+  "least": false,
+  "scope": "nonleast TopForm control showing no uniform bound on independent dirty-certificate size"
+}

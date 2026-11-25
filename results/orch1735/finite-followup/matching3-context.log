@@ -1,0 +1,7 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-65/finite-1735-targeted/matching3-bad-certificate.witness.json",
+  "gate_count": 23,
+  "all_child_bypasses_essential": true,
+  "removable_child_bypasses": [],
+  "scope": "necessary condition for leastness only; does not certify a global optimum"
+}

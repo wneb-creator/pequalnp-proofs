@@ -1,0 +1,35 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch1735/finite/c5-reduced-nested9.witness.json",
+  "gate_count": 9,
+  "all_child_bypasses_essential": false,
+  "removable_child_bypasses": [
+    {
+      "gate": 4,
+      "op": "and",
+      "side": 0,
+      "source": 5,
+      "essential": false,
+      "certificate_mask": null,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 4,
+      "op": "and",
+      "side": 1,
+      "source": 6,
+      "essential": false,
+      "certificate_mask": null,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 6,
+      "op": "and",
+      "side": 0,
+      "source": 1,
+      "essential": false,
+      "certificate_mask": null,
+      "certificate_kind": "new independent false positive"
+    }
+  ],
+  "scope": "necessary condition for leastness only; does not certify a global optimum"
+}

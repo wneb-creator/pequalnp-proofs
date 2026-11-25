@@ -1,0 +1,74 @@
+{
+  "checked_at": "2026-11-25T04:58:47.283320+00:00",
+  "public_snapshot_generated_at": "2026-11-25T04:53:57.597Z",
+  "gap": {
+    "id": "L-meta-1735",
+    "title": "Part 2 of 2 of a proof of: Conjecture: circuits of AND and OR gates for the edge function of a graph with no cycle shorter than 5 have size linear in the number",
+    "formal_statement": "\u2203 (x1 : \u2115), \u2200 (x2 : \u2115) (x3 : SimpleGraph (Fin x2)) [x4 : DecidableRel x3.Adj], (\u2200 (x5 : Fin x2) (x6 : x3.Walk x5 x5), x6.IsCycle \u2192 (5 : \u2115) \u2264 x6.length) \u2192 x3.edgeFinset.Nonempty \u2192 \u2200 (x7 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.TopForm.IsLeastAO x3 x7 \u2192 PEqualNP.TopForm.TopForm x3 x7 \u2192 (PEqualNP.TopForm.Ustar x3 x7).card \u2264 x1 * (x7.size + (1 : \u2115))",
+    "statement_hash": "sha256:e8a3e37e2f1413e1badd113ef3c786d3ebb2f0d11ff3faf2382d53a00a4f6045",
+    "plain_statement": "One of 2 statements that together prove: There is a constant c such that for every graph G with no cycle of length below 5, and every circuit of AND and OR gates only, each reading at most two wires, every gate counted, that is true exactly when both ends of some edge of G are true, the number of edges of G is at most c times (the number of gates + 1). The constant is fixed before the graph. It carries content only on dense graphs, such as point-line incidence graphs of projective planes. Conjecture.",
+    "status": "conjecture",
+    "barrier": null,
+    "depends_on": [],
+    "program": "meta_complexity",
+    "seat": null,
+    "proposed_at": "2026-11-24T05:37:36.518Z",
+    "attempts": [],
+    "kind": "helper",
+    "used_by": [],
+    "status_at": "2026-11-24T05:37:36.518Z",
+    "layer": 0
+  },
+  "github_repository_metadata": {
+    "requested": "brilliant-hq/pequalnp-proofs",
+    "public_canonical": "open-goat/pequalnp-proofs",
+    "remotes_changed": false
+  },
+  "pr_search": {
+    "total_count": 21,
+    "returned": 21,
+    "incomplete_results": false,
+    "open_matching_prs": [
+      {
+        "number": 11238,
+        "title": "R_meta_3775_733 (reduction of L-meta-3775)",
+        "url": "https://github.com/open-goat/pequalnp-proofs/pull/11238"
+      }
+    ]
+  },
+  "merged_reductions": [
+    {
+      "number": 3949,
+      "html_url": "https://github.com/open-goat/pequalnp-proofs/pull/3949",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-24T06:38:22Z"
+    },
+    {
+      "number": 4098,
+      "html_url": "https://github.com/open-goat/pequalnp-proofs/pull/4098",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-24T07:25:18Z"
+    },
+    {
+      "number": 4142,
+      "html_url": "https://github.com/open-goat/pequalnp-proofs/pull/4142",
+      "state": "closed",
+      "merged": true,
+      "merged_at": "2026-11-24T08:59:20Z"
+    }
+  ],
+  "reduce_extra_comments": [
+    {
+      "html_url": "https://github.com/open-goat/pequalnp-proofs/pull/7588#issuecomment-7139765375",
+      "created_at": "2026-11-24T17:49:49Z",
+      "body": "Checked on the base repository at commit `75ad0716cc`.\n\n**REJECTED (reduce-extra)**\n\nRun: https://github.com/open-goat/pequalnp-proofs/actions/runs/45451959544\n\nThis is an automatic message. A new commit on this pull request is checked again."
+    },
+    {
+      "html_url": "https://github.com/open-goat/pequalnp-proofs/pull/7588#issuecomment-7151985689",
+      "created_at": "2026-11-25T03:30:55Z",
+      "body": "Closed by the hourly sweep: the verdict posted above stands as posted, and this pull request has not changed in six hours. Nothing is lost: the step stays open, and a fresh pull request for the same step is welcome once what the verdict names is fixed. This is an automatic message."
+    }
+  ]
+}

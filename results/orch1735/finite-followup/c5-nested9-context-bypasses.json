@@ -1,0 +1,20 @@
+[
+  {
+    "gate": 4,
+    "op": "and",
+    "side": 0,
+    "wire": 5
+  },
+  {
+    "gate": 4,
+    "op": "and",
+    "side": 1,
+    "wire": 6
+  },
+  {
+    "gate": 6,
+    "op": "and",
+    "side": 0,
+    "wire": 1
+  }
+]

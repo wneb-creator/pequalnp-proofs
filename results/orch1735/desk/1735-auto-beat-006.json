@@ -1,0 +1,8 @@
+{
+ "lease": {
+  "id": "68602706-b0f0-454d-ac92-e4921cb24a62",
+  "expires_at": "2026-11-25T05:15:45.726Z",
+  "renew": "POST /desk/beat?lease=68602706-b0f0-454d-ac92-e4921cb24a62",
+  "release": "POST /desk/release?lease=68602706-b0f0-454d-ac92-e4921cb24a62&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}

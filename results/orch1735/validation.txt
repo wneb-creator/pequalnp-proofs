@@ -1,19 +1,30 @@
 KIT-MESSAGE-ID msg-07569722ae629e1f3149d063
 Gap: L-meta-1735
-Sub-agents: 6 reused (library, structure, finite search, status, toolchain, independent review)
-TIMING total=110.06 subagents=6
-Main posted theorem is unproved. No checker acceptance or PR claimed.
+Sub-agents: finite_search, independent_review, lemma_route, status_review, structure_proof, toolchain
+TIMING total=117.90 subagents=6
 
-Nested-two partial (1635 lines,75898bytes) compiled with lake env lean; exit0,three harmless unused-binder warnings. Independent mathematical review PASS; final axiom audit only propext,Classical.choice,Quot.sound. Proves Ustar.card≤4*(size+1) under girth≥5,IsLeastAO,TopForm,junk.card=2,and nestedjunk. Full arbitrary-junk1735 theorem remains unproved.
+OUTCOME: Partial results only. The exact posted statement remains unproved; no refutation found; no PR opened.
 
-At-most-two partial:2454 lines, standalone Lean exit0, independent review PASS, final axiom audit only standard3axioms. It provides a uniform constant for all junk.card≤2; unrestricted1735 remains unproved.
+Canonical named file: lean/PEqualNP/Outside/L_meta_1735.lean
+3217 lines,150651 bytes,SHA256 c4727b0197e1cec0f82aa36b9643e3cd225333f070889fa540af0fadc09b2328.
+lake build PEqualNP.Outside.L_meta_1735: exit0,16.599238s,peak3787372KiB. Complete output:1735-canonical-build-002.log; metrics:1735-canonical-build-002.log.metrics.json.
+Independent proof, namespace/body and forbidden-pattern reviews: PASS.
 
-Canonical named file:2452 lines,114206bytes. lake build PEqualNP.Outside.L_meta_1735 exit0, 9.99s,peak3740536KiB. Independent namespace/format review PASS. Mainexacttheorem absent; no checker acceptance or PR claimed.
+Actual local checker: exit1,77.435648s,peak13725160KiB.
+REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_1735 (one lemma, one file: the theorem carries the module's name)
+Complete output:1735-checker-partial-001.log; metrics:1735-checker-partial-001.log.metrics.json.
+Canonical file has not changed since this build/checker run.
 
-Fixed-depth partial: 766 lines, frozen SHA256 159910fbcdb675b0c9504ed8504d5ca7e59627e03cf272660ee9b4400a7bb1c8. Standalone build exit0 and final axiom audit only propext, Classical.choice, Quot.sound. Independent proof review PASS. Gives an edge bound and Ustar bound with a constant depending on the AND-depth cap D; it does not prove a uniform constant across D.
+Compiled partials:
+- Exactly two nested junk gates: Ustar.card <= 4*(size+1).
+- At most two junk gates: a uniform constant bound, using the nested case and the parallel-junk edge bound.
+- Any fixed AND depth D: edgeFinset.card <= size*gateBound D, with a constant depending on D. This is not uniform in D.
+- Contextual OR essentiality: every OR gate in a least circuit has two distinct graph edges whose output fails under the respective operand bypasses, with opposite fanin truth patterns. Standalone584-line source SHA256006be1cb1769675c54a15006701ffd18d6bd43070bac55d31115fbf3a1c8dd5d; build4 exit0,axiom audit standard3only,independent review PASS. This supplies no bounded-load charging argument.
+All partial conclusion audits use only propext, Classical.choice, Quot.sound.
 
-Integrated canonical file: 3217 lines,150651bytes,SHA256 c4727b0197e1cec0f82aa36b9643e3cd225333f070889fa540af0fadc09b2328. lake build PEqualNP.Outside.L_meta_1735 exit0,16.60s,peak3787372KiB. Independent namespace/body/static review PASS. Final posted main theorem absent. Cleanup pass not applicable until exact checker accepts; no cleanup change.
+Post-acceptance cleanup pass: not applicable because the exact checker did not accept. Canonical line count before/after omitted pass:3217/3217. Earlier integration increased the canonical file from2452 to3217 lines; no proof-shortening acceptance claimed.
 
-Finite archive: 35 files,155930bytes; independent verification PASS. Computational UNSAT results are not Lean certificates. All positive examples are explicitly nonleast. Semantic route note is an unformalized construction sketch, not a refutation.
+Finite archive:35 files,155930 bytes,independent review PASS. Computational UNSAT exclusions apply to pruned TopForm models and are not Lean certificates. All positive controls are explicitly nonleast; the earlier C7 search is UNKNOWN.
+Final follow-up searches: two300-second capped models, both UNKNOWN. Context irreducibility examples refute only proposed shortcuts; they are not counterexamples to the posted statement. Follow-up archive review recorded in NOTES.
 
-Actual local checker: exit1 after77.435648s,peak13725160KiB. Verdict: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_1735 (one lemma, one file: the theorem carries the module's name). The partial build is successful; the requested statement remains unproved. Full checker stdout/stderr and resource metrics are preserved. No PR opened.
+Desk requests:2 assignments,0 null answers. Prior L-meta-2602 lease returned410; complete body and headers preserved under results/orch/desk. All work was pushed before reassignment. Active L-meta-1735 lease disposition will be appended after release.

@@ -1,0 +1,46 @@
+{
+  "manifest_files": 33,
+  "manifest_bytes": 138465,
+  "manifest_sha256": "88fecf18f2324cd211a8388c8f0cf7c6ddfec350bb97f79033bd897c55736a61",
+  "all_hashes_and_census_match": true,
+  "witnesses": [
+    {
+      "file": "matching3-bad-certificate.witness.json",
+      "full_truth_rows": 64,
+      "gates": 23,
+      "junk": 6,
+      "nested_pairs": 15,
+      "TopForm": true,
+      "Ustar": 3,
+      "child_bypasses_verified": 46,
+      "independent_bad_assignments": [
+        21
+      ]
+    },
+    {
+      "file": "matching4-bad-certificate.witness.json",
+      "full_truth_rows": 256,
+      "gates": 63,
+      "junk": 14,
+      "nested_pairs": 91,
+      "TopForm": true,
+      "Ustar": 4,
+      "child_bypasses_verified": 126,
+      "independent_bad_assignments": [
+        85
+      ]
+    },
+    {
+      "file": "subdivided-k4-control15.witness.json",
+      "full_truth_rows": 256,
+      "gates": 15,
+      "junk": 2,
+      "nested_pairs": 1,
+      "TopForm": true,
+      "Ustar": 2,
+      "child_bypasses_verified": 30,
+      "independent_bad_assignments": null
+    }
+  ],
+  "C6_correction_verified": true
+}

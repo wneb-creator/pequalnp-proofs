@@ -1,0 +1,199 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch1735/finite/c5-reduced-nested9.witness.json",
+  "gate_count": 9,
+  "all_child_bypasses_essential": false,
+  "removable_child_bypasses": [
+    {
+      "gate": 4,
+      "op": "and",
+      "side": 0,
+      "source": 5,
+      "essential": false,
+      "certificate_mask": null,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 4,
+      "op": "and",
+      "side": 1,
+      "source": 6,
+      "essential": false,
+      "certificate_mask": null,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 6,
+      "op": "and",
+      "side": 0,
+      "source": 1,
+      "essential": false,
+      "certificate_mask": null,
+      "certificate_kind": "new independent false positive"
+    }
+  ],
+  "records": [
+    {
+      "gate": 0,
+      "op": "or",
+      "side": 0,
+      "source": 0,
+      "essential": true,
+      "certificate_mask": 24,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 0,
+      "op": "or",
+      "side": 1,
+      "source": 3,
+      "essential": true,
+      "certificate_mask": 3,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 1,
+      "op": "or",
+      "side": 0,
+      "source": 1,
+      "essential": true,
+      "certificate_mask": 12,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 1,
+      "op": "or",
+      "side": 1,
+      "source": 3,
+      "essential": true,
+      "certificate_mask": 3,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 2,
+      "op": "and",
+      "side": 0,
+      "source": 4,
+      "essential": true,
+      "certificate_mask": 16,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 2,
+      "op": "and",
+      "side": 1,
+      "source": 5,
+      "essential": true,
+      "certificate_mask": 1,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 3,
+      "op": "and",
+      "side": 0,
+      "source": 2,
+      "essential": true,
+      "certificate_mask": 4,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 3,
+      "op": "and",
+      "side": 1,
+      "source": 6,
+      "essential": true,
+      "certificate_mask": 2,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 4,
+      "op": "and",
+      "side": 0,
+      "source": 5,
+      "essential": false,
+      "certificate_mask": null,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 4,
+      "op": "and",
+      "side": 1,
+      "source": 6,
+      "essential": false,
+      "certificate_mask": null,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 5,
+      "op": "or",
+      "side": 0,
+      "source": 7,
+      "essential": true,
+      "certificate_mask": 6,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 5,
+      "op": "or",
+      "side": 1,
+      "source": 8,
+      "essential": true,
+      "certificate_mask": 17,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 6,
+      "op": "and",
+      "side": 0,
+      "source": 1,
+      "essential": false,
+      "certificate_mask": null,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 6,
+      "op": "and",
+      "side": 1,
+      "source": 9,
+      "essential": true,
+      "certificate_mask": 9,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 7,
+      "op": "and",
+      "side": 0,
+      "source": 0,
+      "essential": true,
+      "certificate_mask": 1,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 7,
+      "op": "and",
+      "side": 1,
+      "source": 11,
+      "essential": true,
+      "certificate_mask": 10,
+      "certificate_kind": "new independent false positive"
+    },
+    {
+      "gate": 8,
+      "op": "or",
+      "side": 0,
+      "source": 10,
+      "essential": true,
+      "certificate_mask": 3,
+      "certificate_kind": "lost positive edge"
+    },
+    {
+      "gate": 8,
+      "op": "or",
+      "side": 1,
+      "source": 12,
+      "essential": true,
+      "certificate_mask": 17,
+      "certificate_kind": "lost positive edge"
+    }
+  ],
+  "scope": "necessary condition for leastness only; does not certify a global optimum"
+}
