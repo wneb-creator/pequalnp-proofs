@@ -148,3 +148,4 @@ Lease initial expiry: 2026-11-25T14:04:05.796Z
 - 2026-11-25T14:18:22.463815+00:00 reduction_design: integrated17 source review PASS; second-gate exploration stopped short of residual certificate.
 2026-11-25T14:19:35.933229+00:00 local_projection.lean compiled and independently reviewed: nonedge alias x0=not x2 has15 total gates,14 binary,1 NOT; proposed projection bound false.
 2026-11-25T14:19:53.487345+00:00 checked nonedge-projection witness preserved; projection lower-bound route dropped.
+2026-11-25T14:21:19.487905+00:00 frozen computational archives independently audited; preserving scripts and complete logs.

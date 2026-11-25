@@ -1,0 +1,111 @@
+{
+  "files": {
+    "count": 50,
+    "bytes": 38872,
+    "max_bytes": 11567,
+    "utf8_no_binary": true,
+    "credential_pattern_scan": "clean"
+  },
+  "recorded_hashes": "all match",
+  "unsat_census": [
+    {
+      "orbit": 0,
+      "seconds": 51.340938091278076
+    },
+    {
+      "orbit": 1,
+      "seconds": 51.464247703552246
+    },
+    {
+      "orbit": 2,
+      "seconds": 25.615461111068726
+    },
+    {
+      "orbit": 3,
+      "seconds": 37.04747986793518
+    },
+    {
+      "orbit": 4,
+      "seconds": 33.490931272506714
+    },
+    {
+      "orbit": 5,
+      "seconds": 41.17234563827515
+    },
+    {
+      "orbit": 6,
+      "seconds": 30.33195948600769
+    },
+    {
+      "orbit": 7,
+      "seconds": 30.56691336631775
+    },
+    {
+      "orbit": 8,
+      "seconds": 35.9460928440094
+    },
+    {
+      "orbit": 9,
+      "seconds": 81.98012924194336
+    },
+    {
+      "orbit": 10,
+      "seconds": 62.405877113342285
+    },
+    {
+      "orbit": 11,
+      "seconds": 16.177454710006714
+    },
+    {
+      "orbit": 12,
+      "seconds": 14.49223518371582
+    },
+    {
+      "orbit": 13,
+      "seconds": 37.62009048461914
+    },
+    {
+      "orbit": 14,
+      "seconds": 36.03453230857849
+    }
+  ],
+  "prefix_orbits": {
+    "all_81_covered": true,
+    "representatives": 15,
+    "critical_rows": 30
+  },
+  "validation": {
+    "total_gates": 21,
+    "assignments": 1024,
+    "seed_errors": 0,
+    "recorded_model_errors": 0
+  },
+  "one_not_rerun": {
+    "counts": [
+      {
+        "binary": 0,
+        "monotone": 15,
+        "one_not": 15
+      },
+      {
+        "binary": 1,
+        "monotone": 121,
+        "one_not": 380
+      },
+      {
+        "binary": 2,
+        "monotone": 777,
+        "one_not": 5107
+      },
+      {
+        "binary": 3,
+        "monotone": 3767,
+        "one_not": 49660
+      }
+    ],
+    "subsets_tested": 575,
+    "determining_subsets": 0,
+    "witness": false
+  },
+  "scope": "PASS: explicit fixed prefixes only; fixed-bank obstruction only; no Lean certificate or general lower-bound claim"
+}

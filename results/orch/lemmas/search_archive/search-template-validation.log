@@ -1,0 +1,4 @@
+started 1795615219.772108 shard 0 variables 1440 patterns 30
+round 0 status 1 seconds 0.27173280715942383 patterns 30 variables 1440
+candidate [(0, 0, 5), (0, 2, 3), (0, 6, 9), (1, 21, 22), (1, 23, 24), (0, 7, 13), (1, 18, 19), (1, 20, 26), (1, 27, 28), (1, 25, 29)] errors 0
+WITNESS

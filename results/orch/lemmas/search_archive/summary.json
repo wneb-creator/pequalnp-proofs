@@ -1,0 +1,12 @@
+{
+  "result": "15 of15fixed-prefixorbits UNSAT for <=7additionalANDORgates (18total)",
+  "status": "computed by Z3; not Lean checked; restricted template only",
+  "start": "2026-11-25T14:03:25Z",
+  "finish": "2026-11-25T14:13:13Z",
+  "sha256": {
+    "search-z3-template.py": "594a50ec9a5161ed8f88a1f9f9b6c3b9029162c717629640ae9d663a72453487",
+    "search-template-batch.py": "f09279e7e367d6568be540924b5e8533ada07efceb3b7d83291c87600a20a0c4",
+    "local-prefix-orbits.json": "a0b0183057d51312ae5baf3432a2e4c105c250c39955af1c2c6a06face176905"
+  },
+  "z3_version": "4.13.3.0"
+}

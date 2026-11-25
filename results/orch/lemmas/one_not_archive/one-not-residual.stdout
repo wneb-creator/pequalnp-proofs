@@ -1,0 +1,4 @@
+{"binary": 0, "monotone": 15, "one_not": 15, "seconds": 0.0002683600000636943}
+{"binary": 1, "monotone": 121, "one_not": 380, "seconds": 0.004817899000045145}
+{"binary": 2, "monotone": 777, "one_not": 5107, "seconds": 0.02254962599999999}
+{"binary": 3, "monotone": 3767, "one_not": 49660, "seconds": 0.5146893830001318}
