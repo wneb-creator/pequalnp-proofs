@@ -1,0 +1,18 @@
+{
+  "independent_ryser_expansion_matches_all_20_input_equations": true,
+  "input_sha256": "ec892e0a1026f3a715d1960ef0803805c2d8b1111303231134cdb4b353a47930",
+  "degrees": [
+    2,
+    3,
+    4
+  ],
+  "coefficient_counts": [
+    6,
+    10,
+    3
+  ],
+  "linear_condition_identically_satisfied": true,
+  "quartic_has_required_xyz_factor": true,
+  "seconds": 0.43519870299860486,
+  "scope": "conditional all-three-complementary-diagonal-restrictions-zero branch; CAS unit result is not a Lean certificate"
+}

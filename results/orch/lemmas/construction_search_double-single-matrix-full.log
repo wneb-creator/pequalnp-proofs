@@ -1,0 +1,791 @@
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:16:24: warning: Variable name `rr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _rr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:31:24: warning: Variable name `rr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _rr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:37:24: warning: Variable name `rr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _rr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:40:12: warning: Variable name `a` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _a
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:40:14: warning: Variable name `b` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:40:16: warning: Variable name `c` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _c
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:40:18: warning: Variable name `d` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _d
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:40:20: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:40:22: warning: Variable name `j` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _j
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:40:24: warning: Variable name `rr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _rr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:55:25: warning: Variable name `rr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _rr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:61:25: warning: Variable name `rr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _rr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:74:5: warning: Variable name `e7` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e7
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:79:5: warning: Variable name `e12` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e12
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:137:23: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:174:25: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:217:13: warning: Variable name `a` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _a
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:220:13: warning: Variable name `a` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _a
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:220:15: warning: Variable name `b` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:220:17: warning: Variable name `c` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _c
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:220:19: warning: Variable name `d` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _d
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:220:21: warning: Variable name `e` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:220:23: warning: Variable name `g` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _g
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:220:25: warning: Variable name `k` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _k
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:220:27: warning: Variable name `j` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _j
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:220:29: warning: Variable name `rr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _rr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:235:15: warning: Variable name `b` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:241:29: warning: Variable name `rr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _rr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:247:5: warning: Variable name `e0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:253:5: warning: Variable name `e6` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e6
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:256:5: warning: Variable name `e9` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e9
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:261:5: warning: Variable name `e14` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e14
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:351:37: warning: This simp argument is unused:
+  cz
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [polynomial, ca, cm, cp] at h0 h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 h17 h18
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:399:26: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [perm4, Matrix.of_apply, model, polynomial, coefficients, ca, cm, cp, cz, Matrix.cons_val_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:421:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:426:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:430:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:431:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:435:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:436:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:440:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:441:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:442:141: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:445:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:446:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:447:141: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:450:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:451:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:455:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:456:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:460:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:461:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:462:141: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:465:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:466:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:470:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:471:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:475:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:476:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:480:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:481:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:485:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:486:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:490:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:491:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:495:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:496:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:500:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:501:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:502:141: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:505:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:506:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:510:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:511:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:526:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:531:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:535:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:536:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:540:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:541:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:545:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:546:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:547:143: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:550:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:551:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:552:143: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:555:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:556:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:560:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:561:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:565:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:566:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:567:143: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:570:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:571:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:575:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:576:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:580:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:581:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:585:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:586:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:590:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:591:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:595:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:596:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:600:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:601:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:605:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:606:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:607:143: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:610:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:611:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:615:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:616:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixFull.lean:627:55: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [model, ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

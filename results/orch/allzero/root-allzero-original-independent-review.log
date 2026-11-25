@@ -1,0 +1,19 @@
+{
+  "integer_identity_verified": true,
+  "input_equations": 20,
+  "multiplier_support": 2501,
+  "constant_bits": 421,
+  "input_sha256": "ec892e0a1026f3a715d1960ef0803805c2d8b1111303231134cdb4b353a47930",
+  "certificate_sha256": "b7a6c6df9ac2e323bc9c9adfe1faaa17b4c87cf023256770bbf26f93af6f0d2d",
+  "source_variable_order": [
+    "a",
+    "b",
+    "c",
+    "l",
+    "m",
+    "n",
+    "h"
+  ],
+  "scope": "Exact characteristic-zero obstruction for the conditional all-three-complementary-diagonal-restrictions-zero normalized coefficient system; no Lean or global coverage claim",
+  "seconds": 0.44474532599997474
+}

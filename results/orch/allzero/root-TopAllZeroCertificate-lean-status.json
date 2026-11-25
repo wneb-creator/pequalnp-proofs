@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/TopAllZeroCertificate.lean",
+  "sha256": "8662583d1ee565e1d201ce12e45444888dcb9ea42d4f5583765e8fe2a5183846",
+  "source_sha256_after": "8662583d1ee565e1d201ce12e45444888dcb9ea42d4f5583765e8fe2a5183846",
+  "started_utc": "2026-11-25T11:22:13.288573+00:00",
+  "finished_utc": "2026-11-25T11:22:33.345682+00:00",
+  "exit_code": -9,
+  "reason": "rss_limit",
+  "peak_rss_bytes": 4312956928,
+  "seconds": 20.057133529000566,
+  "rss_limit_bytes": 4294967296,
+  "wall_limit_seconds": 180
+}

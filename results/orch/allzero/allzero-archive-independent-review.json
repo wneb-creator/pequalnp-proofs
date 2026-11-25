@@ -1,0 +1,299 @@
+{
+  "approved_files": 41,
+  "bytes": 2891558,
+  "exact_manifest_hashes": true,
+  "credential_and_lease_value_scan_clear": true,
+  "python_no_network_or_subprocess_imports": true,
+  "scope": "Exact CAS identity only; two failed Lean attempts and split development clearly labelled; no final target or checker claim",
+  "files": [
+    {
+      "path": "results/orch/allzero/root_allzero_macaulay.py",
+      "bytes": 1898,
+      "sha256": "775ddbb2da5a3ad6512c2d744aa966c28563fa25b7a492a894123e014f883891",
+      "imports": [
+        "pathlib",
+        "importlib.util",
+        "json",
+        "sys",
+        "itertools"
+      ]
+    },
+    {
+      "path": "results/orch/allzero/root_allzero_invariants.py",
+      "bytes": 2784,
+      "sha256": "295095582b473ca590522b79f1b86efc17129c89aff6bfb335878713ad54d3f3",
+      "imports": [
+        "pathlib",
+        "json",
+        "itertools",
+        "collections",
+        "sys"
+      ]
+    },
+    {
+      "path": "results/orch/allzero/root_allzero_invariant_certificate.py",
+      "bytes": 3561,
+      "sha256": "f9daaf7b52416f45d075483c2e89b50a0f686bdc06dcfc28254209e034d83fb8",
+      "imports": [
+        "pathlib",
+        "importlib.util",
+        "json",
+        "itertools",
+        "collections",
+        "sys",
+        "math"
+      ]
+    },
+    {
+      "path": "results/orch/allzero/root_allzero_lean_gen.py",
+      "bytes": 2503,
+      "sha256": "189f71cc02a4afe4a4463198eee91539d6f6e130a4256c4a1859bd74a82759b5",
+      "imports": [
+        "pathlib",
+        "importlib.util",
+        "json"
+      ]
+    },
+    {
+      "path": "results/orch/allzero/root_allzero_split.py",
+      "bytes": 2815,
+      "sha256": "87fadf9ab974fb64c179021f8d47b1b4cf8384240b551cfc54079c69d0a8c44d",
+      "imports": [
+        "pathlib",
+        "importlib.util",
+        "json",
+        "itertools",
+        "collections"
+      ]
+    },
+    {
+      "path": "results/orch/allzero/root_allzero_split_lean_gen.py",
+      "bytes": 6345,
+      "sha256": "f04ab938f55aa0c5a3dbe2e5824e1121e4c8941d4fa8a8077412bad39aa98269",
+      "imports": [
+        "pathlib",
+        "importlib.util",
+        "json",
+        "itertools",
+        "collections",
+        "math"
+      ]
+    },
+    {
+      "path": "results/orch/allzero/root-allzero-d8.matrix",
+      "bytes": 1340220,
+      "sha256": "7d4f0d0d6eef6ae2fd767ed22c3e4afb1dad148fc6ffa256db11147d2dcc0677"
+    },
+    {
+      "path": "results/orch/allzero/root-allzero-d8-metadata.json",
+      "bytes": 184753,
+      "sha256": "20c7f431aa6b4b4e707364a4dd0a8dfe231f8a626a70eb9f893473ea93711eb1"
+    },
+    {
+      "path": "results/orch/allzero/root-allzero-d8-invariant.matrix",
+      "bytes": 247442,
+      "sha256": "b1f05cea85409329922c338cf648abedf1b36560271414d10c488c63adc8003c"
+    },
+    {
+      "path": "results/orch/allzero/root-allzero-d8-invariant-metadata.json",
+      "bytes": 22634,
+      "sha256": "62c25a6100fda99fdf62c659c519dcf45ab3a37da83c1593cdfae3e10f49143f"
+    },
+    {
+      "path": "results/orch/allzero/root-allzero-d8-invariant-exact-certificate.json",
+      "bytes": 49973,
+      "sha256": "0b0337b56212a0c02b47203a14ae53d6ec5147be75d29efef429bbe2d57b2873"
+    },
+    {
+      "path": "results/orch/allzero/root-allzero-d8-invariant-crt.log",
+      "bytes": 1483,
+      "sha256": "8d87ded11252ffbddd427d9ebf8c3426b12bf64193070351f2d073bccce7015b"
+    },
+    {
+      "path": "results/orch/allzero/root-allzero-d8-invariant-crt2.log",
+      "bytes": 3141,
+      "sha256": "b391dbd85df19494a62e642f20a04ef51bdea9a36048e48093dba5ebd9a0cfad"
+    },
+    {
+      "path": "results/orch/allzero/root-allzero-original-exact-certificate.json",
+      "bytes": 361450,
+      "sha256": "b7a6c6df9ac2e323bc9c9adfe1faaa17b4c87cf023256770bbf26f93af6f0d2d"
+    },
+    {
+      "path": "results/orch/allzero/root-allzero-original-exact-verification.log",
+      "bytes": 193,
+      "sha256": "5acc865cd1993c6ec33dde39116a101c801309c4fcac36afa339b2f1c27fd81a"
+    },
+    {
+      "path": "results/orch/allzero/root-allzero-original-independent-review.py",
+      "bytes": 2116,
+      "sha256": "043a06f4a408401badc158fb12a32a6f56d5fba8b89194bd407c05e5fa4de254",
+      "imports": [
+        "pathlib",
+        "collections",
+        "json",
+        "hashlib",
+        "time",
+        "resource",
+        "sympy",
+        "sympy.polys.rings",
+        "sympy.polys.domains"
+      ]
+    },
+    {
+      "path": "results/orch/allzero/root-allzero-original-independent-review.log",
+      "bytes": 614,
+      "sha256": "ca504badb95d0e8ac6866c71be909bf27d480946d04ed0df7a4c36caf2eabc79"
+    },
+    {
+      "path": "results/orch/allzero/root-allzero-split-model.json",
+      "bytes": 385776,
+      "sha256": "5c134765059f1f164544e27caa0930608c03b563ec5f8c846d475a378fe9ff7a"
+    },
+    {
+      "path": "results/orch/allzero/root-allzero-split.log",
+      "bytes": 197,
+      "sha256": "829c78c8387d2ddc1c849e98c627cfa950d1b29c9dc2f15ff5990847ae3d7399"
+    },
+    {
+      "path": "results/orch/allzero/root-allzero-split-lean-gen.log",
+      "bytes": 81,
+      "sha256": "eac0ace9a76ee8050dd861c38549a34ed7aca77300c7cfe28fdeda2e2d78525e"
+    },
+    {
+      "path": "results/orch/allzero/fresh-top-allzero-independent-review.py",
+      "bytes": 2822,
+      "sha256": "da3feb70f6f217b29e4e2913d0868bce682bbeda0adec57a4873e32ff3d227a9",
+      "imports": [
+        "pathlib",
+        "itertools",
+        "json",
+        "hashlib",
+        "time",
+        "resource",
+        "sympy.polys.rings",
+        "sympy.polys.domains",
+        "sympy"
+      ]
+    },
+    {
+      "path": "results/orch/allzero/fresh-top-allzero-independent-review.log",
+      "bytes": 505,
+      "sha256": "f33054b31c5cd317d43d92a8c628edb0685f06368b72b1350492060bf9218ebf"
+    },
+    {
+      "path": "results/orch/allzero/root-TopAllZeroCertificate-lean.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/allzero/root-TopAllZeroCertificate-lean-status.json",
+      "bytes": 523,
+      "sha256": "0aeb5e857e5652904c4aa2946c0a3e92bd57bf2264d51b8371a50b40753c4176"
+    },
+    {
+      "path": "results/orch/allzero/root-TopAllZeroCertificate-lean-8g.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/allzero/root-TopAllZeroCertificate-lean-8g-status.json",
+      "bytes": 522,
+      "sha256": "df629b2062d07d0148ffed612e8c1c8646e29b56c96cb5f0ac702a15a12d00ee"
+    },
+    {
+      "path": "results/orch/allzero/root-allzero-d8-crt.log",
+      "bytes": 4252,
+      "sha256": "9616112d6d9af7785e67032893f250ac35eccea11077c7db434309c97d3639b7"
+    },
+    {
+      "path": "results/orch/allzero/root-allzero-d8-crt2.log",
+      "bytes": 14118,
+      "sha256": "8b4186a4bb5409ed188d535c626c1068a91f63a133620aec906ac95cfcbcdebb"
+    },
+    {
+      "path": "results/orch/allzero/TopAllZeroCertificate.lean.txt",
+      "bytes": 215591,
+      "sha256": "8662583d1ee565e1d201ce12e45444888dcb9ea42d4f5583765e8fe2a5183846"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_top_allzero.py",
+      "bytes": 1752,
+      "sha256": "2c6fd890311dbf9e3ff13eda4e20812a0ed307a1a0fa0bc84c72d9cf0361a414",
+      "imports": [
+        "itertools",
+        "time",
+        "sys",
+        "pathlib",
+        "sympy.polys.rings",
+        "sympy.polys.domains"
+      ]
+    },
+    {
+      "path": "results/orch/lemmas/fresh_top_allzero.md",
+      "bytes": 2465,
+      "sha256": "47292038f18107c98cfe99e3ce3d301ff862d5122b21c01187887f8dc4b7c16c"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_top_allzero_gen.log",
+      "bytes": 83,
+      "sha256": "d841da7ec9e9863d6f25182ffa250c45bd129d462c37d4c7349b931f7df50c6d"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_top_allzero97.result",
+      "bytes": 577,
+      "sha256": "dbb5dd0212e2779073fe4d38dfef9938e42500baa0b1d370ebc22b0f9e3028a0"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_top_allzeroQQ_f4.log",
+      "bytes": 4293,
+      "sha256": "3bca5fd66671dee509792fd2d0df294612ae861c0a0c80dbcfb24398a3540521"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_top_allzero97_f4.log",
+      "bytes": 4875,
+      "sha256": "7fc1d3f65b3420ed6614eefe937fb19b2377d8a4e7938edeba286223f08c99e8"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_top_allzero_97.msolve",
+      "bytes": 7793,
+      "sha256": "b156b2f1b666de3d690baf161397d51f104aea5c8683e65c65cb5319f219e339"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_top_allzeroQQ.result",
+      "bytes": 173,
+      "sha256": "146ca66a4defdb45838be939e34384450fc88d3900912b3b293fd9d3a71d7ca2"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_top_allzero_0.msolve",
+      "bytes": 8268,
+      "sha256": "ec892e0a1026f3a715d1960ef0803805c2d8b1111303231134cdb4b353a47930"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_top_allzero_verify.log",
+      "bytes": 152,
+      "sha256": "bc92a6a7f822aca472f0048e08ff6aaec2e553c75644cf366d6c6969d5b35612"
+    },
+    {
+      "path": "results/orch/lemmas/fresh_top_allzero_verify.py",
+      "bytes": 1882,
+      "sha256": "c88205349caae5fafa97d789bf1e731ccef5406d70d3a2fa8119cf1e6377123b",
+      "imports": [
+        "pathlib",
+        "itertools",
+        "random",
+        "math",
+        "json",
+        "hashlib",
+        "sympy.polys.rings",
+        "sympy.polys.domains",
+        "sympy"
+      ]
+    },
+    {
+      "path": "results/orch/allzero/STATUS.md",
+      "bytes": 933,
+      "sha256": "4365a95db4afeafeff3df2d60a6fd3b8934f83fa7f0880783181e83d84648448"
+    }
+  ]
+}

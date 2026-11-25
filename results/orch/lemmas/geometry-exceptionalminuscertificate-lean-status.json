@@ -1,0 +1,17 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/ExceptionalMinusCertificate.lean",
+  "sha256": "4e70aca9287ab2eead73c7d0af5358fb5b3ee3726a265def0fe61ff000787ab8",
+  "started_utc": "2026-11-25T11:35:28.418640+00:00",
+  "limits": {
+    "lean_memory_mib": 10000,
+    "process_tree_rss_gib": 4,
+    "cpu_seconds": 180,
+    "wall_seconds": 300
+  },
+  "pid": 31725,
+  "peak_rss_bytes": 863711232,
+  "exit_code": 0,
+  "seconds": 35.81823543700011,
+  "finished_utc": "2026-11-25T11:36:04.236671+00:00",
+  "source_sha256_after": "4e70aca9287ab2eead73c7d0af5358fb5b3ee3726a265def0fe61ff000787ab8"
+}

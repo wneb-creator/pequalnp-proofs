@@ -1,0 +1,100 @@
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 32, "modulus_bits": 957, "seconds": 0.639335089999804}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 33, "modulus_bits": 987, "seconds": 0.4753165350011841}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 34, "modulus_bits": 1017, "seconds": 0.522434628001065}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 35, "modulus_bits": 1047, "unreconstructed": 830, "accepted_nonzero": 1276, "stable_nonzero": 0, "accepted_height_range": [518, 523, 523], "seconds": 0.7016634299998259}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 36, "modulus_bits": 1077, "seconds": 0.5465046989993425}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 37, "modulus_bits": 1107, "seconds": 0.4736437740011752}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 38, "modulus_bits": 1137, "seconds": 0.4751725930000248}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 39, "modulus_bits": 1166, "seconds": 0.4748039570004039}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 40, "modulus_bits": 1196, "unreconstructed": 849, "accepted_nonzero": 1257, "stable_nonzero": 0, "accepted_height_range": [592, 597, 598], "seconds": 0.8372643309994601}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 41, "modulus_bits": 1226, "seconds": 0.4753117130003375}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 42, "modulus_bits": 1256, "seconds": 0.47509536200050206}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 43, "modulus_bits": 1286, "seconds": 0.4841673209994042}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 44, "modulus_bits": 1316, "seconds": 0.5851131440012978}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 45, "modulus_bits": 1346, "unreconstructed": 809, "accepted_nonzero": 1297, "stable_nonzero": 0, "accepted_height_range": [665, 672, 673], "seconds": 0.8019151509997755}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 46, "modulus_bits": 1376, "seconds": 0.48340892499982147}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 47, "modulus_bits": 1406, "seconds": 0.5655461369988188}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 48, "modulus_bits": 1436, "seconds": 0.5412593969995214}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 49, "modulus_bits": 1465, "seconds": 0.4761840139999549}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 50, "modulus_bits": 1495, "unreconstructed": 800, "accepted_nonzero": 1306, "stable_nonzero": 0, "accepted_height_range": [743, 747, 747], "seconds": 0.8728466459997435}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 51, "modulus_bits": 1525, "seconds": 0.5404110239996953}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 52, "modulus_bits": 1555, "seconds": 0.4792605359998561}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 53, "modulus_bits": 1585, "seconds": 0.48026617799951055}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 54, "modulus_bits": 1615, "seconds": 0.4783566400001291}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 55, "modulus_bits": 1645, "unreconstructed": 808, "accepted_nonzero": 1298, "stable_nonzero": 0, "accepted_height_range": [817, 822, 822], "seconds": 1.024272151000332}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 56, "modulus_bits": 1675, "seconds": 0.4835366699990118}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 57, "modulus_bits": 1705, "seconds": 0.4786201320002874}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 58, "modulus_bits": 1735, "seconds": 0.4852661929999158}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 59, "modulus_bits": 1764, "seconds": 0.4820870900002774}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 60, "modulus_bits": 1794, "unreconstructed": 861, "accepted_nonzero": 1245, "stable_nonzero": 0, "accepted_height_range": [891, 896, 897], "seconds": 0.9802523260004818}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 61, "modulus_bits": 1824, "seconds": 0.49804961100016953}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 62, "modulus_bits": 1854, "seconds": 0.5354746949997207}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 63, "modulus_bits": 1884, "seconds": 0.4833431940005539}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 64, "modulus_bits": 1914, "seconds": 0.48311677200035774}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 65, "modulus_bits": 1944, "unreconstructed": 836, "accepted_nonzero": 1270, "stable_nonzero": 0, "accepted_height_range": [967, 971, 972], "seconds": 1.0792940570008795}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 66, "modulus_bits": 1974, "seconds": 0.48688953899909393}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 67, "modulus_bits": 2004, "seconds": 0.4820122069995705}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 68, "modulus_bits": 2034, "seconds": 0.48119730899998103}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 69, "modulus_bits": 2063, "seconds": 0.4829466660012258}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 70, "modulus_bits": 2093, "unreconstructed": 829, "accepted_nonzero": 1277, "stable_nonzero": 0, "accepted_height_range": [1041, 1046, 1046], "seconds": 1.1170230799998535}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 71, "modulus_bits": 2123, "seconds": 0.480926124000689}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 72, "modulus_bits": 2153, "seconds": 0.5363634889999958}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 73, "modulus_bits": 2183, "seconds": 0.5319311380008003}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 74, "modulus_bits": 2213, "seconds": 0.49304821800069476}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 75, "modulus_bits": 2243, "unreconstructed": 821, "accepted_nonzero": 1285, "stable_nonzero": 0, "accepted_height_range": [1116, 1121, 1121], "seconds": 1.3154106469992257}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 76, "modulus_bits": 2273, "seconds": 0.5399304519996804}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 77, "modulus_bits": 2303, "seconds": 0.486631468998894}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 78, "modulus_bits": 2332, "seconds": 0.496389944000839}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 79, "modulus_bits": 2362, "seconds": 0.48929379699984565}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 80, "modulus_bits": 2392, "unreconstructed": 839, "accepted_nonzero": 1267, "stable_nonzero": 0, "accepted_height_range": [1190, 1195, 1196], "seconds": 1.3124523099995713}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 81, "modulus_bits": 2422, "seconds": 0.5402986869994493}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 82, "modulus_bits": 2452, "seconds": 0.4871275700006663}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 83, "modulus_bits": 2482, "seconds": 0.48863607500061335}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 84, "modulus_bits": 2512, "seconds": 0.48783389700111}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 85, "modulus_bits": 2542, "unreconstructed": 827, "accepted_nonzero": 1279, "stable_nonzero": 0, "accepted_height_range": [1266, 1270, 1271], "seconds": 1.414095398000427}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 86, "modulus_bits": 2572, "seconds": 0.48645333599961305}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 87, "modulus_bits": 2602, "seconds": 0.488002531001257}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 88, "modulus_bits": 2631, "seconds": 0.5504789400001755}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 89, "modulus_bits": 2661, "seconds": 0.4925338310004008}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 90, "modulus_bits": 2691, "unreconstructed": 815, "accepted_nonzero": 1291, "stable_nonzero": 0, "accepted_height_range": [1337, 1345, 1345], "seconds": 1.5178074539999216}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 91, "modulus_bits": 2721, "seconds": 0.5441581019986188}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 92, "modulus_bits": 2751, "seconds": 0.5410028610003792}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 93, "modulus_bits": 2781, "seconds": 0.4889262039996538}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 94, "modulus_bits": 2811, "seconds": 0.5528908659998706}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 95, "modulus_bits": 2841, "unreconstructed": 778, "accepted_nonzero": 1328, "stable_nonzero": 0, "accepted_height_range": [1415, 1420, 1420], "seconds": 1.5716025290003017}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 96, "modulus_bits": 2871, "seconds": 0.5520337939997262}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 97, "modulus_bits": 2901, "seconds": 0.49880900400057726}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 98, "modulus_bits": 2930, "seconds": 0.4923827820002771}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 99, "modulus_bits": 2960, "seconds": 0.4924427089990786}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 100, "modulus_bits": 2990, "unreconstructed": 840, "accepted_nonzero": 1266, "stable_nonzero": 0, "accepted_height_range": [1488, 1494, 1495], "seconds": 1.8686241039995366}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 101, "modulus_bits": 3020, "seconds": 0.6093805199998314}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 102, "modulus_bits": 3050, "seconds": 0.5013298399990163}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 103, "modulus_bits": 3080, "seconds": 0.49826355799996236}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 104, "modulus_bits": 3110, "seconds": 0.49923189699984505}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 105, "modulus_bits": 3140, "unreconstructed": 838, "accepted_nonzero": 1268, "stable_nonzero": 0, "accepted_height_range": [1565, 1569, 1570], "seconds": 1.8694667250001658}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 106, "modulus_bits": 3170, "seconds": 0.5523552979993838}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 107, "modulus_bits": 3200, "seconds": 0.5780148649992043}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 108, "modulus_bits": 3229, "seconds": 0.5506331230008072}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 109, "modulus_bits": 3259, "seconds": 0.5493502029985393}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 110, "modulus_bits": 3289, "unreconstructed": 864, "accepted_nonzero": 1242, "stable_nonzero": 0, "accepted_height_range": [1638, 1644, 1644], "seconds": 1.95659175199944}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 111, "modulus_bits": 3319, "seconds": 0.5040779280006973}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 112, "modulus_bits": 3349, "seconds": 0.5017055409989553}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 113, "modulus_bits": 3379, "seconds": 0.4980550039999798}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 114, "modulus_bits": 3409, "seconds": 0.5016095769988169}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 115, "modulus_bits": 3439, "unreconstructed": 808, "accepted_nonzero": 1298, "stable_nonzero": 0, "accepted_height_range": [1715, 1719, 1719], "seconds": 2.3384523790009553}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 116, "modulus_bits": 3469, "seconds": 0.5548761769987323}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 117, "modulus_bits": 3498, "seconds": 0.5529825869998604}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 118, "modulus_bits": 3528, "seconds": 0.6131772999997338}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 119, "modulus_bits": 3558, "seconds": 0.6892925060001289}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 120, "modulus_bits": 3588, "unreconstructed": 818, "accepted_nonzero": 1288, "stable_nonzero": 0, "accepted_height_range": [1789, 1793, 1794], "seconds": 2.454468358999293}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 121, "modulus_bits": 3618, "seconds": 0.562753738999163}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 122, "modulus_bits": 3648, "seconds": 0.5575900959993305}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 123, "modulus_bits": 3678, "seconds": 0.6264863819997117}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 124, "modulus_bits": 3708, "seconds": 0.5596303290003561}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 125, "modulus_bits": 3738, "unreconstructed": 773, "accepted_nonzero": 1333, "stable_nonzero": 0, "accepted_height_range": [1863, 1868, 1869], "seconds": 2.4577413860006345}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 126, "modulus_bits": 3768, "seconds": 0.5059688149995054}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 127, "modulus_bits": 3797, "seconds": 0.5649124020001182}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 128, "modulus_bits": 3827, "seconds": 0.5093896589987708}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 129, "modulus_bits": 3857, "seconds": 0.508121402001052}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 130, "modulus_bits": 3887, "unreconstructed": 820, "accepted_nonzero": 1286, "stable_nonzero": 0, "accepted_height_range": [1938, 1943, 1943], "seconds": 2.4993533530014247}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 131, "modulus_bits": 3917, "unreconstructed": 256, "accepted_nonzero": 1850, "stable_nonzero": 1, "accepted_height_range": [1942, 1955, 1958], "seconds": 2.5851643860005424}

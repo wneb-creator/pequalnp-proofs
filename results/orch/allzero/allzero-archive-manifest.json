@@ -1,0 +1,207 @@
+[
+  {
+    "path": "results/orch/allzero/root_allzero_macaulay.py",
+    "sha256": "775ddbb2da5a3ad6512c2d744aa966c28563fa25b7a492a894123e014f883891",
+    "bytes": 1898
+  },
+  {
+    "path": "results/orch/allzero/root_allzero_invariants.py",
+    "sha256": "295095582b473ca590522b79f1b86efc17129c89aff6bfb335878713ad54d3f3",
+    "bytes": 2784
+  },
+  {
+    "path": "results/orch/allzero/root_allzero_invariant_certificate.py",
+    "sha256": "f9daaf7b52416f45d075483c2e89b50a0f686bdc06dcfc28254209e034d83fb8",
+    "bytes": 3561
+  },
+  {
+    "path": "results/orch/allzero/root_allzero_lean_gen.py",
+    "sha256": "189f71cc02a4afe4a4463198eee91539d6f6e130a4256c4a1859bd74a82759b5",
+    "bytes": 2503
+  },
+  {
+    "path": "results/orch/allzero/root_allzero_split.py",
+    "sha256": "87fadf9ab974fb64c179021f8d47b1b4cf8384240b551cfc54079c69d0a8c44d",
+    "bytes": 2815
+  },
+  {
+    "path": "results/orch/allzero/root_allzero_split_lean_gen.py",
+    "sha256": "f04ab938f55aa0c5a3dbe2e5824e1121e4c8941d4fa8a8077412bad39aa98269",
+    "bytes": 6345
+  },
+  {
+    "path": "results/orch/allzero/root-allzero-d8.matrix",
+    "sha256": "7d4f0d0d6eef6ae2fd767ed22c3e4afb1dad148fc6ffa256db11147d2dcc0677",
+    "bytes": 1340220
+  },
+  {
+    "path": "results/orch/allzero/root-allzero-d8-metadata.json",
+    "sha256": "20c7f431aa6b4b4e707364a4dd0a8dfe231f8a626a70eb9f893473ea93711eb1",
+    "bytes": 184753
+  },
+  {
+    "path": "results/orch/allzero/root-allzero-d8-invariant.matrix",
+    "sha256": "b1f05cea85409329922c338cf648abedf1b36560271414d10c488c63adc8003c",
+    "bytes": 247442
+  },
+  {
+    "path": "results/orch/allzero/root-allzero-d8-invariant-metadata.json",
+    "sha256": "62c25a6100fda99fdf62c659c519dcf45ab3a37da83c1593cdfae3e10f49143f",
+    "bytes": 22634
+  },
+  {
+    "path": "results/orch/allzero/root-allzero-d8-invariant-exact-certificate.json",
+    "sha256": "0b0337b56212a0c02b47203a14ae53d6ec5147be75d29efef429bbe2d57b2873",
+    "bytes": 49973
+  },
+  {
+    "path": "results/orch/allzero/root-allzero-d8-invariant-crt.log",
+    "sha256": "8d87ded11252ffbddd427d9ebf8c3426b12bf64193070351f2d073bccce7015b",
+    "bytes": 1483
+  },
+  {
+    "path": "results/orch/allzero/root-allzero-d8-invariant-crt2.log",
+    "sha256": "b391dbd85df19494a62e642f20a04ef51bdea9a36048e48093dba5ebd9a0cfad",
+    "bytes": 3141
+  },
+  {
+    "path": "results/orch/allzero/root-allzero-original-exact-certificate.json",
+    "sha256": "b7a6c6df9ac2e323bc9c9adfe1faaa17b4c87cf023256770bbf26f93af6f0d2d",
+    "bytes": 361450
+  },
+  {
+    "path": "results/orch/allzero/root-allzero-original-exact-verification.log",
+    "sha256": "5acc865cd1993c6ec33dde39116a101c801309c4fcac36afa339b2f1c27fd81a",
+    "bytes": 193
+  },
+  {
+    "path": "results/orch/allzero/root-allzero-original-independent-review.py",
+    "sha256": "043a06f4a408401badc158fb12a32a6f56d5fba8b89194bd407c05e5fa4de254",
+    "bytes": 2116
+  },
+  {
+    "path": "results/orch/allzero/root-allzero-original-independent-review.log",
+    "sha256": "ca504badb95d0e8ac6866c71be909bf27d480946d04ed0df7a4c36caf2eabc79",
+    "bytes": 614
+  },
+  {
+    "path": "results/orch/allzero/root-allzero-split-model.json",
+    "sha256": "5c134765059f1f164544e27caa0930608c03b563ec5f8c846d475a378fe9ff7a",
+    "bytes": 385776
+  },
+  {
+    "path": "results/orch/allzero/root-allzero-split.log",
+    "sha256": "829c78c8387d2ddc1c849e98c627cfa950d1b29c9dc2f15ff5990847ae3d7399",
+    "bytes": 197
+  },
+  {
+    "path": "results/orch/allzero/root-allzero-split-lean-gen.log",
+    "sha256": "eac0ace9a76ee8050dd861c38549a34ed7aca77300c7cfe28fdeda2e2d78525e",
+    "bytes": 81
+  },
+  {
+    "path": "results/orch/allzero/fresh-top-allzero-independent-review.py",
+    "sha256": "da3feb70f6f217b29e4e2913d0868bce682bbeda0adec57a4873e32ff3d227a9",
+    "bytes": 2822
+  },
+  {
+    "path": "results/orch/allzero/fresh-top-allzero-independent-review.log",
+    "sha256": "f33054b31c5cd317d43d92a8c628edb0685f06368b72b1350492060bf9218ebf",
+    "bytes": 505
+  },
+  {
+    "path": "results/orch/allzero/root-TopAllZeroCertificate-lean.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "path": "results/orch/allzero/root-TopAllZeroCertificate-lean-status.json",
+    "sha256": "0aeb5e857e5652904c4aa2946c0a3e92bd57bf2264d51b8371a50b40753c4176",
+    "bytes": 523
+  },
+  {
+    "path": "results/orch/allzero/root-TopAllZeroCertificate-lean-8g.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "path": "results/orch/allzero/root-TopAllZeroCertificate-lean-8g-status.json",
+    "sha256": "df629b2062d07d0148ffed612e8c1c8646e29b56c96cb5f0ac702a15a12d00ee",
+    "bytes": 522
+  },
+  {
+    "path": "results/orch/allzero/root-allzero-d8-crt.log",
+    "sha256": "9616112d6d9af7785e67032893f250ac35eccea11077c7db434309c97d3639b7",
+    "bytes": 4252
+  },
+  {
+    "path": "results/orch/allzero/root-allzero-d8-crt2.log",
+    "sha256": "8b4186a4bb5409ed188d535c626c1068a91f63a133620aec906ac95cfcbcdebb",
+    "bytes": 14118
+  },
+  {
+    "path": "results/orch/allzero/TopAllZeroCertificate.lean.txt",
+    "sha256": "8662583d1ee565e1d201ce12e45444888dcb9ea42d4f5583765e8fe2a5183846",
+    "bytes": 215591
+  },
+  {
+    "path": "results/orch/lemmas/fresh_top_allzero.py",
+    "sha256": "2c6fd890311dbf9e3ff13eda4e20812a0ed307a1a0fa0bc84c72d9cf0361a414",
+    "bytes": 1752
+  },
+  {
+    "path": "results/orch/lemmas/fresh_top_allzero.md",
+    "sha256": "47292038f18107c98cfe99e3ce3d301ff862d5122b21c01187887f8dc4b7c16c",
+    "bytes": 2465
+  },
+  {
+    "path": "results/orch/lemmas/fresh_top_allzero_gen.log",
+    "sha256": "d841da7ec9e9863d6f25182ffa250c45bd129d462c37d4c7349b931f7df50c6d",
+    "bytes": 83
+  },
+  {
+    "path": "results/orch/lemmas/fresh_top_allzero97.result",
+    "sha256": "dbb5dd0212e2779073fe4d38dfef9938e42500baa0b1d370ebc22b0f9e3028a0",
+    "bytes": 577
+  },
+  {
+    "path": "results/orch/lemmas/fresh_top_allzeroQQ_f4.log",
+    "sha256": "3bca5fd66671dee509792fd2d0df294612ae861c0a0c80dbcfb24398a3540521",
+    "bytes": 4293
+  },
+  {
+    "path": "results/orch/lemmas/fresh_top_allzero97_f4.log",
+    "sha256": "7fc1d3f65b3420ed6614eefe937fb19b2377d8a4e7938edeba286223f08c99e8",
+    "bytes": 4875
+  },
+  {
+    "path": "results/orch/lemmas/fresh_top_allzero_97.msolve",
+    "sha256": "b156b2f1b666de3d690baf161397d51f104aea5c8683e65c65cb5319f219e339",
+    "bytes": 7793
+  },
+  {
+    "path": "results/orch/lemmas/fresh_top_allzeroQQ.result",
+    "sha256": "146ca66a4defdb45838be939e34384450fc88d3900912b3b293fd9d3a71d7ca2",
+    "bytes": 173
+  },
+  {
+    "path": "results/orch/lemmas/fresh_top_allzero_0.msolve",
+    "sha256": "ec892e0a1026f3a715d1960ef0803805c2d8b1111303231134cdb4b353a47930",
+    "bytes": 8268
+  },
+  {
+    "path": "results/orch/lemmas/fresh_top_allzero_verify.log",
+    "sha256": "bc92a6a7f822aca472f0048e08ff6aaec2e553c75644cf366d6c6969d5b35612",
+    "bytes": 152
+  },
+  {
+    "path": "results/orch/lemmas/fresh_top_allzero_verify.py",
+    "sha256": "c88205349caae5fafa97d789bf1e731ccef5406d70d3a2fa8119cf1e6377123b",
+    "bytes": 1882
+  },
+  {
+    "path": "results/orch/allzero/STATUS.md",
+    "sha256": "4365a95db4afeafeff3df2d60a6fd3b8934f83fa7f0880783181e83d84648448",
+    "bytes": 933
+  }
+]

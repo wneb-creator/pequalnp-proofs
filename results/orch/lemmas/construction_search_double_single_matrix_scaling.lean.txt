@@ -1,0 +1,34 @@
+lemma model_rescale (a b c d e f g k i j rr sy sz x y z : ℂ) :
+    model (a*sy) (b*sz) (c*sy) (d*sz) (e*sz) (f*sy)
+      (g*sy) (k*sz) (i*sz) (j*sy) rr x y z =
+    model a b c d e f g k i j rr x (sy*y) (sz*z) := by
+  ext r s
+  fin_cases r <;> fin_cases s <;> simp [model, ca, cm, cp, cz] <;> ring
+
+lemma same_nonzero_matrix_obstruction (a b c d e f g k i j rr : ℂ)
+    (hr : rr ^ 2 = 2) (he : e ≠ 0) (hf : f ≠ 0)
+    (hp : ∀ x y z, Matrix.permanent (Matrix.of fun r s => (1 : ℂ) +
+      model a b c d e f g k i j rr x y z r s) = 24) : False := by
+  apply same_matrix_obstruction (a*f⁻¹) (b*e⁻¹) (c*f⁻¹) (d*e⁻¹)
+    (g*f⁻¹) (k*e⁻¹) (i*e⁻¹) (j*f⁻¹) rr hr
+  intro x y z
+  have he1 : e * e⁻¹ = 1 := mul_inv_cancel₀ he
+  have hf1 : f * f⁻¹ = 1 := mul_inv_cancel₀ hf
+  have hm := model_rescale a b c d e f g k i j rr f⁻¹ e⁻¹ x y z
+  rw [he1, hf1] at hm
+  rw [hm]
+  exact hp x (f⁻¹*y) (e⁻¹*z)
+
+lemma cross_nonzero_matrix_obstruction (a b c d e f g k i j rr : ℂ)
+    (hr : rr ^ 2 = 2) (hi : i ≠ 0) (hf : f ≠ 0)
+    (hp : ∀ x y z, Matrix.permanent (Matrix.of fun r s => (1 : ℂ) +
+      model a b c d e f g k i j rr x y z r s) = 24) : False := by
+  apply cross_matrix_obstruction (a*f⁻¹) (b*i⁻¹) (c*f⁻¹) (d*i⁻¹)
+    (e*i⁻¹) (g*f⁻¹) (k*i⁻¹) (j*f⁻¹) rr hr
+  intro x y z
+  have hi1 : i * i⁻¹ = 1 := mul_inv_cancel₀ hi
+  have hf1 : f * f⁻¹ = 1 := mul_inv_cancel₀ hf
+  have hm := model_rescale a b c d e f g k i j rr f⁻¹ i⁻¹ x y z
+  rw [hi1, hf1] at hm
+  rw [hm]
+  exact hp x (f⁻¹*y) (i⁻¹*z)

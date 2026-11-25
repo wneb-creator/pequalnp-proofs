@@ -1,0 +1,30 @@
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 2, "modulus_bits": 60, "seconds": 0.5257889479998994}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 3, "modulus_bits": 90, "seconds": 0.4703986860004079}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 4, "modulus_bits": 120, "seconds": 0.4743277070010663}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 5, "modulus_bits": 150, "unreconstructed": 786, "accepted_nonzero": 1320, "stable_nonzero": 0, "accepted_height_range": [69, 74, 75], "seconds": 0.5018839239983208}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 6, "modulus_bits": 180, "seconds": 0.4713075359995855}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 7, "modulus_bits": 210, "seconds": 0.47045445399999153}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 8, "modulus_bits": 240, "seconds": 0.47079428100005316}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 9, "modulus_bits": 270, "seconds": 0.471396653998454}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 10, "modulus_bits": 299, "unreconstructed": 845, "accepted_nonzero": 1261, "stable_nonzero": 0, "accepted_height_range": [144, 149, 149], "seconds": 0.5365016830000968}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 11, "modulus_bits": 329, "seconds": 0.4721312649999163}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 12, "modulus_bits": 359, "seconds": 0.47311514700049884}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 13, "modulus_bits": 389, "seconds": 0.5355643860002601}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 14, "modulus_bits": 419, "seconds": 0.47812652599895955}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 15, "modulus_bits": 449, "unreconstructed": 824, "accepted_nonzero": 1282, "stable_nonzero": 0, "accepted_height_range": [217, 224, 224], "seconds": 0.5493302539998695}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 16, "modulus_bits": 479, "seconds": 0.4717066609991889}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 17, "modulus_bits": 509, "seconds": 0.47278835299948696}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 18, "modulus_bits": 539, "seconds": 0.47174599200116063}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 19, "modulus_bits": 569, "seconds": 0.47132054599933326}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 20, "modulus_bits": 598, "unreconstructed": 782, "accepted_nonzero": 1324, "stable_nonzero": 0, "accepted_height_range": [292, 298, 299], "seconds": 0.5816641609999351}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 21, "modulus_bits": 628, "seconds": 0.4715382240010513}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 22, "modulus_bits": 658, "seconds": 0.48560987900054897}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 23, "modulus_bits": 688, "seconds": 0.4732296990005125}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 24, "modulus_bits": 718, "seconds": 0.47589180700015277}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 25, "modulus_bits": 748, "unreconstructed": 839, "accepted_nonzero": 1267, "stable_nonzero": 0, "accepted_height_range": [369, 373, 374], "seconds": 0.7204103790008958}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 26, "modulus_bits": 778, "seconds": 0.530002618999788}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 27, "modulus_bits": 808, "seconds": 0.528432437000447}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 28, "modulus_bits": 838, "seconds": 0.5262093309993361}
+{"stage": "crt_saved", "chart": "root-allzero-d8", "primes": 29, "modulus_bits": 868, "seconds": 0.5248206029991707}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 30, "modulus_bits": 897, "unreconstructed": 798, "accepted_nonzero": 1308, "stable_nonzero": 0, "accepted_height_range": [444, 448, 448], "seconds": 0.7674485679999634}
+{"stage": "crt", "chart": "root-allzero-d8", "primes": 31, "modulus_bits": 927, "unreconstructed": 804, "accepted_nonzero": 1302, "stable_nonzero": 0, "accepted_height_range": [458, 463, 463], "seconds": 0.7043816529985634}

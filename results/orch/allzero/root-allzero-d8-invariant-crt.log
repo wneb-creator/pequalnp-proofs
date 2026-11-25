@@ -1,0 +1,10 @@
+{"stage": "crt_saved", "chart": "root-allzero-d8-invariant", "primes": 1, "modulus_bits": 30, "seconds": 0.02040824699906807}
+{"stage": "crt_saved", "chart": "root-allzero-d8-invariant", "primes": 2, "modulus_bits": 60, "seconds": 0.01930602600077691}
+{"stage": "crt_saved", "chart": "root-allzero-d8-invariant", "primes": 3, "modulus_bits": 90, "seconds": 0.020560887000101502}
+{"stage": "crt_saved", "chart": "root-allzero-d8-invariant", "primes": 4, "modulus_bits": 120, "seconds": 0.02011902200138138}
+{"stage": "crt", "chart": "root-allzero-d8-invariant", "primes": 5, "modulus_bits": 150, "unreconstructed": 177, "accepted_nonzero": 201, "stable_nonzero": 0, "accepted_height_range": [70, 74, 75], "seconds": 0.026650775000234717}
+{"stage": "crt_saved", "chart": "root-allzero-d8-invariant", "primes": 6, "modulus_bits": 180, "seconds": 0.020632174999263952}
+{"stage": "crt_saved", "chart": "root-allzero-d8-invariant", "primes": 7, "modulus_bits": 210, "seconds": 0.01968342599866446}
+{"stage": "crt_saved", "chart": "root-allzero-d8-invariant", "primes": 8, "modulus_bits": 240, "seconds": 0.019661461999930907}
+{"stage": "crt_saved", "chart": "root-allzero-d8-invariant", "primes": 9, "modulus_bits": 270, "seconds": 0.019695012000738643}
+{"stage": "crt", "chart": "root-allzero-d8-invariant", "primes": 10, "modulus_bits": 299, "unreconstructed": 148, "accepted_nonzero": 230, "stable_nonzero": 0, "accepted_height_range": [145, 149, 149], "seconds": 0.041271520998634514}

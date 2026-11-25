@@ -1,0 +1,209 @@
+set_option maxHeartbeats 100000000 in
+set_option maxRecDepth 100000 in
+lemma same_matrix_obstruction (a b c d g k i j rr : ℂ) (hr : rr ^ 2 = 2)
+    (hp : ∀ x y z, Matrix.permanent (Matrix.of fun r s => (1 : ℂ) +
+      model a b c d 1 1 g k i j rr x y z r s) = 24) : False := by
+  have hz := coefficients_zero a b c d 1 1 g k i j rr hr hp
+  apply PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.normalized_same_obstruction a b c d g k i j rr
+  · have h := hz 0
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 1
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 2
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 3
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 4
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination (1 / 2 : ℂ) * h
+  · have h := hz 5
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination (1 / 2 : ℂ) * h
+  · have h := hz 6
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 7
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 8
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination (1 / 2 : ℂ) * h
+  · have h := hz 9
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 10
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 11
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 12
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 13
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination (1 / 2 : ℂ) * h
+  · have h := hz 14
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 15
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 16
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination (1 / 2 : ℂ) * h
+  · have h := hz 17
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 18
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination (1 / 2 : ℂ) * h
+  · simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameCertificate.cz]
+    linear_combination hr
+
+set_option maxHeartbeats 100000000 in
+set_option maxRecDepth 100000 in
+lemma cross_matrix_obstruction (a b c d e g k j rr : ℂ) (hr : rr ^ 2 = 2)
+    (hp : ∀ x y z, Matrix.permanent (Matrix.of fun r s => (1 : ℂ) +
+      model a b c d e 1 g k 1 j rr x y z r s) = 24) : False := by
+  have hz := coefficients_zero a b c d e 1 g k 1 j rr hr hp
+  apply PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.normalized_cross_obstruction a b c d e g k j rr
+  · have h := hz 0
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 1
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 2
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 3
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 4
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination (1 / 2 : ℂ) * h
+  · have h := hz 5
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination (1 / 2 : ℂ) * h
+  · have h := hz 6
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 7
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 8
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination (1 / 2 : ℂ) * h
+  · have h := hz 9
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 10
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 11
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 12
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 13
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination (1 / 2 : ℂ) * h
+  · have h := hz 14
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 15
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 16
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination (1 / 2 : ℂ) * h
+  · have h := hz 17
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination (1 : ℂ) * h
+  · have h := hz 18
+    simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero,
+      Matrix.cons_val_succ] at h
+    simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination (1 / 2 : ℂ) * h
+  · simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.ca, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cm, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cp, PEqualNP.Outside.L_gct_231_aux.DoubleSingleCrossCertificate.cz]
+    linear_combination hr
