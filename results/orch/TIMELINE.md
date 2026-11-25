@@ -51,3 +51,5 @@
 2026-11-25T01:55:34.068453+00:00 — R1342_46 full local checker ACCEPTED(reduce), two independent children, permitted axioms only,1649constants kernel rechecked. Cleanup starts from48lines2634bytes; trying a two-line contraction of hypothesis decomposition.
 
 2026-11-25T01:57:00.046770+00:00 — Cleanup kept:48lines2634bytes to46lines2594bytes. Named build and local checker again passed; ACCEPTED(reduce),1649constants,only standard axioms. Full search portfolio finished without21-gate witness. The generic prefix child is closed separately; the18-gate continuation remains conjectural. Preparing one-file PR with research preserved in checkpoint history.
+
+2026-11-25T01:59:55.081470+00:00 — Merged latest fetched upstream1a5c63dbe2d38fd964125568c42bb27a785cddb8. Final unchanged46-line reduction passed named build1.9s5149jobs and full local checker ACCEPTED(reduce),1661constants,standard axioms only. Source SHA b509d19053858353214f24ba08df3cae26b176fc6a7950912b5bcebc026148f1. Independent archive/source review passed before preservation pushes.
