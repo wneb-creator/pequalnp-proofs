@@ -23,3 +23,14 @@ Exit status: 0. Complete stdout/stderr in partial-build.stdout and partial-build
 Independent review: status_review approved the identical PetersenBinaryFloor draft before build.
 SHA256: 6c8e232341117fe3ea3d7204332d3d2d60aa7b7b28d17da484f7c13b7e128a4f
 Scope: binary floor15 and 1..4NOT necessary condition. Full posted theorem remains absent; no full checker acceptance claimed.
+
+Compiled partial: results/orch/lemmas/ProfilePruning.lean
+Command (from lean/): lake env lean ../results/orch/lemmas/ProfilePruning.lean
+Exit status: 0. Complete logs: profile-pruning-build.stdout and profile-pruning-build.stderr
+Independent review: proof_route approved SHA256 f0c75432b495610abbef42877460111856cc84ea56032450d60ffad43fdc3307.
+
+Compiled partial: results/orch/lemmas/EliminationBound.lean
+Command (from lean/): lake env lean ../results/orch/lemmas/EliminationBound.lean
+Exit status: 0. Complete logs: profile-bound-build.stdout and profile-bound-build.stderr
+Independent review: status_review approved SHA256 bd8385aa5a11b5196b5d128af831366d950fa78273693317624e66f1dd20c16b.
+Scope: generic profile-trace pruning and conditional eight-binary-profile lower bound. The finite checked=true certificate remains a hypothesis in EliminationBound.
