@@ -38,3 +38,5 @@ PendantCycleLower.lean: exit0, empty full log, dependency build passed. Independ
 Optional public GitHub header read hit VENDOR-LIMITATION git-auth-401; no retry helper found on PATH, no credentials changed; local work continues.
 
 2026-11-25T02:51:26.239105+00:00 ResearchMonoElim.lean: exit0, only tactic-style warnings; generic essential-input elimination savesonegate and preservesMonotone2 when the restricted function remains nonconstant. Independent review passed. RESEARCH ONLY: Helpers.Elim import exceeds finalgapallowlist.
+
+2026-11-25T02:58:30.057584+00:00 FourRowLower.lean: exit0, inherited tactic/linter warnings only; dependency build passed. Exact k4_p2 monotone circuit lowerbound19 proved viafourprivateinput eliminations and L_meta_723. Independent review and axiom audit passed; onlypropext,Classical.choice,Quot.sound. RESEARCH ONLY: extraimports exceed finalgapallowlist; not fullL650refutation.

@@ -23,3 +23,8 @@
 2026-11-25T02:48:05.449251+00:00 Pendant-cycle lower bound compiled, reviewed, and axiom-audited; smallest search retired.
 2026-11-25T02:50:11.853627+00:00 reduction_analysis monotone input-restriction theorem compiled (research artifact).
 2026-11-25T02:51:26.239105+00:00 Monotone gate elimination compiled and reviewed; supports four-row obstruction.
+2026-11-25T02:53:48.063144+00:00 circuit_search consolidated update: initialstar search completed1215082281 evaluations; sparse/fulltopology phases retired; residual+tap completed136249401; exactnonlinearcore lane retiredbest30. Currenttwo lanes: fixed28mixed-error (since02:42:14), atom-rich completion-cost (since02:50:48).
+
+- 2026-11-25T02:54:07.062634+00:00: algebra_strategy completed checked k4_p2 min19 restriction corollary FourRowLower; finite k4 search retired.
+2026-11-25T02:54:47.431909+00:00 Renewed lease; expiry 2026-11-25T03:14:47.805Z.
+2026-11-25T02:58:30.057584+00:00 Four-row lowerbound19 compiled, reviewed, axiom-audited; k4_p2 search retired.
