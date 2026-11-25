@@ -31,3 +31,5 @@ PureClause.lean: lake env lean passed, exit0;45 lines, no output. Pure disjuncti
 
 Witness65.lean: lake env lean passed, exit0;86 lines. Explicit65-gate circuit, size and symbolic evaluation formula; independent review passed. This is not a refutation of64.
 ClausePrune.lean: lake env lean passed, exit0;134 lines. Semantic pure-clause AND bypass and singleton replacement; independent review passed.
+
+SupportConnect.lean: lake env lean passed, exit0;106 lines, no output. Singleton-support connectivity through abstract topological AND/OR wires; independent review passed.

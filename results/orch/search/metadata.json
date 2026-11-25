@@ -1,46 +1,22 @@
 {
-  "recorded_at": "2026-11-25T03:22:26.133079+00:00",
+  "recorded_at": "2026-11-25T03:32:20.492958+00:00",
   "gap": "L-meta-2602",
-  "status": "Restricted-neighborhood SAT observations only; not Lean/kernel checked; no full-gap result. Active solver logs may be incomplete until refreshed.",
+  "status": "Restricted-neighborhood SAT observations only; not Lean/kernel checked; no full-gap result. Completed repair logs are preserved byte-for-byte in gzip. Recorded CNFs are regenerable from archived encoders and are omitted.",
   "records": [
     {
-      "path": "repair-28-29-30-55-57-60-61-62/round-1.cnf",
-      "sha256": "a827c78a67c0695c201d76594875d64965b5d125e0a0c2a33601c27b440a46c3",
-      "bytes": 9581964,
-      "saved": false
-    },
-    {
-      "path": "repair-28-29-30-55-57-60-61-62/round-0.cnf",
-      "sha256": "11206a6679c02c5ae5f4167d93ada33330fba3d7aedd1e922f4db77588365c62",
-      "bytes": 1419027,
-      "saved": false
-    },
-    {
-      "path": "repair-28-29-30-55-57-60-61-62/round-1.stderr.gz",
-      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
-      "bytes": 20,
-      "saved": true,
-      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "uncompressed_bytes": 0,
-      "encoding": "gzip"
-    },
-    {
-      "path": "repair-28-29-30-55-57-60-61-62/round-0.candidate.json",
-      "sha256": "5da798e8cb207cabe4123a5a3eb03fe64971582989181d97ac6cc07b087e56ae",
-      "bytes": 2837,
+      "path": "and_count_search.py",
+      "sha256": "4c119525000854c40132198f9466e94b6c7a2ed0805b8abe1216e3cba072b8d1",
+      "bytes": 6697,
       "saved": true
     },
     {
-      "path": "repair-28-29-30-55-57-60-61-62/round-1.stdout.gz",
-      "sha256": "cef94f71a7474f45233c0b1c255b4053426403b1843b24829cad839fef694a9f",
-      "bytes": 2260,
-      "saved": true,
-      "uncompressed_sha256": "0ef4de5da0702980c67d5670cb34a10be50a65d0a6b7c7229ddb277b8518b7d7",
-      "uncompressed_bytes": 6988,
-      "encoding": "gzip"
+      "path": "double-star-9-defect.cnf",
+      "sha256": "e36bfcc045da515d28b32da1977e340d56d4c72e55beadcf34ed23e826fa1090",
+      "bytes": 1393123,
+      "saved": false
     },
     {
-      "path": "repair-28-29-30-55-57-60-61-62/round-0.stderr.gz",
+      "path": "double-star-9-defect.stderr.gz",
       "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
       "bytes": 20,
       "saved": true,
@@ -49,40 +25,55 @@
       "encoding": "gzip"
     },
     {
-      "path": "repair-28-29-30-55-57-60-61-62/round-0.stdout.gz",
-      "sha256": "089813ccdc58e00be32844a265c682e5a8e7dd44f046c66227dcfb368c1e7635",
-      "bytes": 12321,
+      "path": "double-star-9-defect.stdout.gz",
+      "sha256": "f84373d1ea6cb1f168d6d4ae891c40538626be68b5f13cde598376afbcf5af11",
+      "bytes": 3538,
       "saved": true,
-      "uncompressed_sha256": "ce9ebdee99d4767f3adcf94857eb6c587725e5e7c02fcaa39452d67eccbce4e3",
-      "uncompressed_bytes": 29202,
+      "uncompressed_sha256": "c6779a06363ecb4f080e3a64b2068c8d2961c68ba8e026f27db091a4711f86bb",
+      "uncompressed_bytes": 12436,
       "encoding": "gzip"
     },
     {
-      "path": "repair-six.log",
-      "sha256": "2f48d34fb88ddcb5579de0dd01b95588812a15c48205394246bec1d386440a24",
-      "bytes": 311,
+      "path": "double-star-9.log",
+      "sha256": "34c3c4c4dd2f7b994948ed54e7d9b6b0e6b1f2d96a96d39c0a5db3ece27c6874",
+      "bytes": 140,
       "saved": true
     },
     {
-      "path": "repair-0-1-2-28-29-30-61-63/round-1.cnf",
-      "sha256": "3a127b6263089f6bd23617087ddfb605c469cc9eb55d0f0aef67441acd3d2dc1",
-      "bytes": 6942250,
-      "saved": false
+      "path": "double_star_search.py",
+      "sha256": "7837f8e95f12528563aa46923b29605398e2a604cade27d8cd5ff179bca6f21f",
+      "bytes": 3879,
+      "saved": true
     },
     {
-      "path": "repair-0-1-2-28-29-30-61-63/round-0.cnf",
-      "sha256": "574d0a234e508e17c9f49d4cb13d7fd03c7c86370d312688b6898193a92e661a",
-      "bytes": 1016505,
-      "saved": false
+      "path": "double_star_search_v1.py",
+      "sha256": "d394cde7a941f1e23051a58513a6fe6e471c907a9bf7550d180f3d969fa68759",
+      "bytes": 3460,
+      "saved": true
     },
     {
-      "path": "repair-0-1-2-28-29-30-61-63/round-1.stderr.gz",
-      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
-      "bytes": 20,
-      "saved": true,
-      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-      "uncompressed_bytes": 0,
-      "encoding": "gzip"
+      "path": "plane-nearmiss64-distributed-1.json",
+      "sha256": "e095e1fb582157e55a0fae4386aee12c890996aa2fdccccf0df72495ad230cac",
+      "bytes": 2981,
+      "saved": true
+    },
+    {
+      "path": "plane-nearmiss64-distributed-2.json",
+      "sha256": "5134477e404bda5ded1f8ee4c189ff5f8acf5ff877595483b561445d470effd2",
+      "bytes": 2981,
+      "saved": true
+    },
+    {
+      "path": "plane-nearmiss64-distributed-3.json",
+      "sha256": "c3982d1846fea7ab1ff0cb981f6aa9ee6eed956eae1d1c064859bc5a352431cd",
+      "bytes": 2982,
+      "saved": true
+    },
+    {
+      "path": "plane-nearmiss64-distributed-4.json",
+      "sha256": "eea10a543d7f1bc9293d9021d8c92a66621993b05fcc226fea063969d129f542",
+      "bytes": 2982,
+      "saved": true
     },
     {
       "path": "repair-0-1-2-28-29-30-61-63/round-0.candidate.json",
@@ -91,13 +82,10 @@
       "saved": true
     },
     {
-      "path": "repair-0-1-2-28-29-30-61-63/round-1.stdout.gz",
-      "sha256": "607e9dce47ef2abfa00cdbc4b39a186238661c1922400b3db0ab5a5c794b794e",
-      "bytes": 1441,
-      "saved": true,
-      "uncompressed_sha256": "a843babbcd98d67d1cb9f961ef3ca7da93018ff02ecd09f16f300e0612278d70",
-      "uncompressed_bytes": 6113,
-      "encoding": "gzip"
+      "path": "repair-0-1-2-28-29-30-61-63/round-0.cnf",
+      "sha256": "574d0a234e508e17c9f49d4cb13d7fd03c7c86370d312688b6898193a92e661a",
+      "bytes": 1016505,
+      "saved": false
     },
     {
       "path": "repair-0-1-2-28-29-30-61-63/round-0.stderr.gz",
@@ -118,54 +106,81 @@
       "encoding": "gzip"
     },
     {
-      "path": "repair_nearmiss.py",
-      "sha256": "5fe128246038b08c8238ca1e65c957780e82201d9111cae6f4d8628345fd5f5d",
-      "bytes": 6333,
-      "saved": true
-    },
-    {
-      "path": "repair-eight-b.log",
-      "sha256": "2d9e12d5c8a83437934fe95b6866371e44d0d8cab86b43ee396d476880e836ff",
-      "bytes": 223,
-      "saved": true
-    },
-    {
-      "path": "repair-eight.log",
-      "sha256": "a0676a798db352ee6507100602047bd6c5d6855bd04325f41da8ecfad5735596",
-      "bytes": 320,
-      "saved": true
-    },
-    {
-      "path": "repair-eight-a.log",
-      "sha256": "9636763a154bb1a838684b3f6021d652fce6c491c8bae769797fa908f8b69259",
-      "bytes": 227,
-      "saved": true
-    },
-    {
-      "path": "and_count_search.py",
-      "sha256": "4c119525000854c40132198f9466e94b6c7a2ed0805b8abe1216e3cba072b8d1",
-      "bytes": 6697,
-      "saved": true
-    },
-    {
-      "path": "repair-28-29-30-55-60-61-62-63/round-1.cnf",
-      "sha256": "01ee7cc8882156181b4aa81015ace724e37cfbfce40701fbdbd7f7d76b70a9d5",
-      "bytes": 9734431,
+      "path": "repair-0-1-2-28-29-30-61-63/round-1.cnf",
+      "sha256": "3a127b6263089f6bd23617087ddfb605c469cc9eb55d0f0aef67441acd3d2dc1",
+      "bytes": 6942250,
       "saved": false
     },
     {
-      "path": "repair-28-29-30-55-60-61-62-63/round-0.cnf",
-      "sha256": "fabce62213fd5210a5007d86d62a6917565902899476160e62d020e33274126d",
-      "bytes": 1444197,
-      "saved": false
-    },
-    {
-      "path": "repair-28-29-30-55-60-61-62-63/round-1.stderr.gz",
+      "path": "repair-0-1-2-28-29-30-61-63/round-1.stderr.gz",
       "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
       "bytes": 20,
       "saved": true,
       "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "uncompressed_bytes": 0,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-0-1-2-28-29-30-61-63/round-1.stdout.gz",
+      "sha256": "f42764e2c047759d6f7e2f2a998574d4e0e6580a74796fc621c68a83324ea026",
+      "bytes": 3048,
+      "saved": true,
+      "uncompressed_sha256": "a453dcba8f8725922a4b4804790ea925e53b44b891885ecc5f7b1320d18ce14a",
+      "uncompressed_bytes": 12041,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-28-29-30-55-57-60-61-62/round-0.candidate.json",
+      "sha256": "5da798e8cb207cabe4123a5a3eb03fe64971582989181d97ac6cc07b087e56ae",
+      "bytes": 2837,
+      "saved": true
+    },
+    {
+      "path": "repair-28-29-30-55-57-60-61-62/round-0.cnf",
+      "sha256": "11206a6679c02c5ae5f4167d93ada33330fba3d7aedd1e922f4db77588365c62",
+      "bytes": 1419027,
+      "saved": false
+    },
+    {
+      "path": "repair-28-29-30-55-57-60-61-62/round-0.stderr.gz",
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "bytes": 20,
+      "saved": true,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-28-29-30-55-57-60-61-62/round-0.stdout.gz",
+      "sha256": "089813ccdc58e00be32844a265c682e5a8e7dd44f046c66227dcfb368c1e7635",
+      "bytes": 12321,
+      "saved": true,
+      "uncompressed_sha256": "ce9ebdee99d4767f3adcf94857eb6c587725e5e7c02fcaa39452d67eccbce4e3",
+      "uncompressed_bytes": 29202,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-28-29-30-55-57-60-61-62/round-1.cnf",
+      "sha256": "a827c78a67c0695c201d76594875d64965b5d125e0a0c2a33601c27b440a46c3",
+      "bytes": 9581964,
+      "saved": false
+    },
+    {
+      "path": "repair-28-29-30-55-57-60-61-62/round-1.stderr.gz",
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "bytes": 20,
+      "saved": true,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-28-29-30-55-57-60-61-62/round-1.stdout.gz",
+      "sha256": "cef94f71a7474f45233c0b1c255b4053426403b1843b24829cad839fef694a9f",
+      "bytes": 2260,
+      "saved": true,
+      "uncompressed_sha256": "0ef4de5da0702980c67d5670cb34a10be50a65d0a6b7c7229ddb277b8518b7d7",
+      "uncompressed_bytes": 6988,
       "encoding": "gzip"
     },
     {
@@ -175,13 +190,10 @@
       "saved": true
     },
     {
-      "path": "repair-28-29-30-55-60-61-62-63/round-1.stdout.gz",
-      "sha256": "b34147e3cd11dee42807d77dfc450717d7a416f8aa8c0f37a0acadc5f400d8c0",
-      "bytes": 1388,
-      "saved": true,
-      "uncompressed_sha256": "e4da9040dd6f6dbec2542b6863cdae4795df70f39b2ff4a71bbeaafbfa7968fb",
-      "uncompressed_bytes": 5789,
-      "encoding": "gzip"
+      "path": "repair-28-29-30-55-60-61-62-63/round-0.cnf",
+      "sha256": "fabce62213fd5210a5007d86d62a6917565902899476160e62d020e33274126d",
+      "bytes": 1444197,
+      "saved": false
     },
     {
       "path": "repair-28-29-30-55-60-61-62-63/round-0.stderr.gz",
@@ -202,24 +214,27 @@
       "encoding": "gzip"
     },
     {
-      "path": "repair-28-29-30-61-62-63/round-1.cnf",
-      "sha256": "a85b1dca0648779d541ee0aa8049c1d39d4eff50b89797bd3fdce99ca2cdd04e",
-      "bytes": 5428287,
+      "path": "repair-28-29-30-55-60-61-62-63/round-1.cnf",
+      "sha256": "01ee7cc8882156181b4aa81015ace724e37cfbfce40701fbdbd7f7d76b70a9d5",
+      "bytes": 9734431,
       "saved": false
     },
     {
-      "path": "repair-28-29-30-61-62-63/round-0.cnf",
-      "sha256": "8d09f7db064b48e68fc20a497a9a0f50ecdf6650c82fdcbf8b7d6e51d86bba03",
-      "bytes": 1010984,
-      "saved": false
-    },
-    {
-      "path": "repair-28-29-30-61-62-63/round-1.stderr.gz",
+      "path": "repair-28-29-30-55-60-61-62-63/round-1.stderr.gz",
       "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
       "bytes": 20,
       "saved": true,
       "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "uncompressed_bytes": 0,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-28-29-30-55-60-61-62-63/round-1.stdout.gz",
+      "sha256": "9d89cadb61aa5c6afcb1e11eddaa4fb3954215a1f338a9fcabc37425de32fec5",
+      "bytes": 3025,
+      "saved": true,
+      "uncompressed_sha256": "25e8646b013fac575fe7baaa1644d8cb0ab3ddb4cd30d136671bb2dbf6451116",
+      "uncompressed_bytes": 11596,
       "encoding": "gzip"
     },
     {
@@ -229,13 +244,10 @@
       "saved": true
     },
     {
-      "path": "repair-28-29-30-61-62-63/round-1.stdout.gz",
-      "sha256": "bc846ead66cb57a39410e112131d01290268021704d22e0a9fcd4803343a7417",
-      "bytes": 3051,
-      "saved": true,
-      "uncompressed_sha256": "78e8fdd65dcbdb184a0ace00bf9d8811afad9eb22bd357ea1acbe45f13cd3657",
-      "uncompressed_bytes": 11956,
-      "encoding": "gzip"
+      "path": "repair-28-29-30-61-62-63/round-0.cnf",
+      "sha256": "8d09f7db064b48e68fc20a497a9a0f50ecdf6650c82fdcbf8b7d6e51d86bba03",
+      "bytes": 1010984,
+      "saved": false
     },
     {
       "path": "repair-28-29-30-61-62-63/round-0.stderr.gz",
@@ -254,10 +266,612 @@
       "uncompressed_sha256": "48e002660536b021ad63ff2ed191093b3d6dc42556bc170c0bda111b9f50ac48",
       "uncompressed_bytes": 26068,
       "encoding": "gzip"
+    },
+    {
+      "path": "repair-28-29-30-61-62-63/round-1.cnf",
+      "sha256": "a85b1dca0648779d541ee0aa8049c1d39d4eff50b89797bd3fdce99ca2cdd04e",
+      "bytes": 5428287,
+      "saved": false
+    },
+    {
+      "path": "repair-28-29-30-61-62-63/round-1.stderr.gz",
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "bytes": 20,
+      "saved": true,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-28-29-30-61-62-63/round-1.stdout.gz",
+      "sha256": "bc846ead66cb57a39410e112131d01290268021704d22e0a9fcd4803343a7417",
+      "bytes": 3051,
+      "saved": true,
+      "uncompressed_sha256": "78e8fdd65dcbdb184a0ace00bf9d8811afad9eb22bd357ea1acbe45f13cd3657",
+      "uncompressed_bytes": 11956,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-distributed-1-five.log",
+      "sha256": "171abb61ee2bc2b8da90c703f8c52ae2cc24d30a032e1586dc977a7010eeda5b",
+      "bytes": 242,
+      "saved": true
+    },
+    {
+      "path": "repair-distributed-3-five.log",
+      "sha256": "f1ccf719b10fbda58fde3b33c21de75ae8730c0e95990ae8eaa4b3fd6d6bc67e",
+      "bytes": 239,
+      "saved": true
+    },
+    {
+      "path": "repair-eight-a.log",
+      "sha256": "45f6dea5fd557358dfe80015d1a0cb28cb7675b49ed7d5af77b51cbc9ddd3cc6",
+      "bytes": 321,
+      "saved": true
+    },
+    {
+      "path": "repair-eight-b.log",
+      "sha256": "12a900ebe8c7bafa640a15c3e1ff6829ce0f9f5c5de9c024a6a5a3f195761f5a",
+      "bytes": 317,
+      "saved": true
+    },
+    {
+      "path": "repair-eight-c-v2.log",
+      "sha256": "45f47e9324eb0c11bbd5058dfc8ab291f327c7c26e4b079878c29ce7802a3aec",
+      "bytes": 320,
+      "saved": true
+    },
+    {
+      "path": "repair-eight-d-v2.log",
+      "sha256": "4003a90a714b8903afa41174879f60d05353d1f6175397037d6631ceb8735f4d",
+      "bytes": 202,
+      "saved": true
+    },
+    {
+      "path": "repair-eight-e-v2.log",
+      "sha256": "bd4e135c9e7120e82309f5ed928c68455e290511c3cfa2e1332198c5a07ea261",
+      "bytes": 202,
+      "saved": true
+    },
+    {
+      "path": "repair-eight.log",
+      "sha256": "a0676a798db352ee6507100602047bd6c5d6855bd04325f41da8ecfad5735596",
+      "bytes": 320,
+      "saved": true
+    },
+    {
+      "path": "repair-six-v2-full.log",
+      "sha256": "4a5fed38118f7cc845aad44cbc05c9ebbcce6be8d32b6e5c20d77f27809465ba",
+      "bytes": 194,
+      "saved": true
+    },
+    {
+      "path": "repair-six.log",
+      "sha256": "2f48d34fb88ddcb5579de0dd01b95588812a15c48205394246bec1d386440a24",
+      "bytes": 311,
+      "saved": true
+    },
+    {
+      "path": "repair-v2-28-29-30-39-40-61-62-63/round-0.cnf",
+      "sha256": "2cf03a3fdef96dd5c5ae99eea7b5f8edf3e2f4bb9f060e3ea4054a0a4b0fdda8",
+      "bytes": 14161195,
+      "saved": false
+    },
+    {
+      "path": "repair-v2-28-29-30-39-40-61-62-63/round-0.stderr.gz",
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "bytes": 20,
+      "saved": true,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-v2-28-29-30-39-40-61-62-63/round-0.stdout.gz",
+      "sha256": "38909e70dfe5109c408f1927eb698dcf51107c9e2e5860dd9b252038689fac0c",
+      "bytes": 3306,
+      "saved": true,
+      "uncompressed_sha256": "81664c93273e46b0bcc3c8c68ae154880250c9b0a4cfc1ff01841d5e22797d77",
+      "uncompressed_bytes": 12630,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-v2-28-29-30-47-48-61-62-63/round-0.cnf",
+      "sha256": "9d41342ec74a3144601cbcf1924ed0db3b8b7ec6a5475f7bba6eece799c430c7",
+      "bytes": 14445858,
+      "saved": false
+    },
+    {
+      "path": "repair-v2-28-29-30-47-48-61-62-63/round-0.stderr.gz",
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "bytes": 20,
+      "saved": true,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-v2-28-29-30-47-48-61-62-63/round-0.stdout.gz",
+      "sha256": "ffbe4eec4b57c2f7e9d30b348192a079c5eaaeec68d7d873a92d2d1dc952995f",
+      "bytes": 3007,
+      "saved": true,
+      "uncompressed_sha256": "a2472aeb0c2d1887e290951628d8d573308212ae31490ba002db5aaf62f16f5a",
+      "uncompressed_bytes": 10203,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-v2-28-29-30-57-60-61-62-63/round-0.candidate.json",
+      "sha256": "eb33197c25310b4e574ca2876dbf3557827222c81d286795249b26dfc434b9e8",
+      "bytes": 2837,
+      "saved": true
+    },
+    {
+      "path": "repair-v2-28-29-30-57-60-61-62-63/round-0.cnf",
+      "sha256": "5fbf883a898f1974d33cc0d38884515c17c8d4c0456dc87548e30250302169cb",
+      "bytes": 1148508,
+      "saved": false
+    },
+    {
+      "path": "repair-v2-28-29-30-57-60-61-62-63/round-0.stderr.gz",
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "bytes": 20,
+      "saved": true,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-v2-28-29-30-57-60-61-62-63/round-0.stdout.gz",
+      "sha256": "f7c771aba10b311e66a20a1102f5716a706ad6413c910550045e073352415e8a",
+      "bytes": 13204,
+      "saved": true,
+      "uncompressed_sha256": "49d5d9f7b02e21eff5a0ca60c6638bf083957027ca0b4b0275060810713aa191",
+      "uncompressed_bytes": 33912,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-v2-28-29-30-57-60-61-62-63/round-1.cnf",
+      "sha256": "4cf984dffbf4b2624ade4db9e21eef7e9bd50297327428711a4f7349df9837dd",
+      "bytes": 9648055,
+      "saved": false
+    },
+    {
+      "path": "repair-v2-28-29-30-57-60-61-62-63/round-1.stderr.gz",
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "bytes": 20,
+      "saved": true,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-v2-28-29-30-57-60-61-62-63/round-1.stdout.gz",
+      "sha256": "ebbc74239c9c4e44b8e73fcb66c358e0b042df49be0b57db57ff9d3efb2ef593",
+      "bytes": 3013,
+      "saved": true,
+      "uncompressed_sha256": "effeea7873389189923bf284fe7a7981e6bd0a48ca7b91224708bf5a2b0af226",
+      "uncompressed_bytes": 11545,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-v2-28-29-30-61-62-63/round-0.cnf",
+      "sha256": "37b17f1db3f5cb152dd1e7357458be10c378a3101389d0c9c32ce36ee62bc56c",
+      "bytes": 10223393,
+      "saved": false
+    },
+    {
+      "path": "repair-v2-28-29-30-61-62-63/round-0.stderr.gz",
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "bytes": 20,
+      "saved": true,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-v2-28-29-30-61-62-63/round-0.stdout.gz",
+      "sha256": "1d1b25915d50c10cdc444788c223e07882a499d87d57199c8a40b36e6cc02429",
+      "bytes": 2932,
+      "saved": true,
+      "uncompressed_sha256": "f5ba9e8696e69e8b3cac50a6c627a2453f9d4d648ba059b078a212a332269bc5",
+      "uncompressed_bytes": 11400,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-v3-plane-nearmiss64-distributed-1-40-41-61-62-63/round-0.cnf",
+      "sha256": "bdc212c4a0857ebeb2133f4db2288350a380d2d647541b2cc2c79a8b62abd386",
+      "bytes": 8780551,
+      "saved": false
+    },
+    {
+      "path": "repair-v3-plane-nearmiss64-distributed-1-40-41-61-62-63/round-0.stderr.gz",
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "bytes": 20,
+      "saved": true,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-v3-plane-nearmiss64-distributed-1-40-41-61-62-63/round-0.stdout.gz",
+      "sha256": "e16cfc2320616a21db9ad18479d5a51da99c40ba56a50f879cc0e69848c0af8a",
+      "bytes": 1948,
+      "saved": true,
+      "uncompressed_sha256": "9bff994c75d4eb34e2d5284fdb9672d979288b959bc83c40073140cbbe58d78c",
+      "uncompressed_bytes": 6006,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-v3-plane-nearmiss64-distributed-3-8-9-61-62-63/round-0.cnf",
+      "sha256": "01515383a6530b1e66d61cbf6bfc0e3a9f53be905284377a07b1afc38cdb0fd9",
+      "bytes": 7462532,
+      "saved": false
+    },
+    {
+      "path": "repair-v3-plane-nearmiss64-distributed-3-8-9-61-62-63/round-0.stderr.gz",
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "bytes": 20,
+      "saved": true,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "uncompressed_bytes": 0,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair-v3-plane-nearmiss64-distributed-3-8-9-61-62-63/round-0.stdout.gz",
+      "sha256": "759bde05132ab17af6aa8dca910bab3223d7f29bb25315df8b973a61b85cb7e4",
+      "bytes": 1941,
+      "saved": true,
+      "uncompressed_sha256": "188519fc9010b59b6fd9ac021eb3f5ebffdb47d96659b51d43466d00f9d1ba6e",
+      "uncompressed_bytes": 5868,
+      "encoding": "gzip"
+    },
+    {
+      "path": "repair_nearmiss.py",
+      "sha256": "5fe128246038b08c8238ca1e65c957780e82201d9111cae6f4d8628345fd5f5d",
+      "bytes": 6333,
+      "saved": true
+    },
+    {
+      "path": "repair_nearmiss_v2.py",
+      "sha256": "82984bed1301c94d7710c6092c222515f4eb262fdf9ba0b6cf0e136bc306d325",
+      "bytes": 6399,
+      "saved": true
+    },
+    {
+      "path": "repair_nearmiss_v3.py",
+      "sha256": "3addd1a015aca4c47d518027e4ccf1b1806a6f583edde8e5d0821891c57db36e",
+      "bytes": 6488,
+      "saved": true
     }
   ],
   "seed": {
     "filename": "seed-nearmiss64.json",
     "sha256": "e1fc21b2b6bdd3588243443b128a91a2089f1f40a8bdec2302685cf43491a262"
-  }
+  },
+  "repair_runs": [
+    {
+      "summary_log": "repair-six.log",
+      "encoder": "repair_nearmiss.py",
+      "encoder_sha256": "5fe128246038b08c8238ca1e65c957780e82201d9111cae6f4d8628345fd5f5d",
+      "argv": [
+        "--free",
+        "28,29,30,61,62,63",
+        "--seconds",
+        "45"
+      ],
+      "seed": "plane-nearmiss64.json",
+      "seed_sha256": "e1fc21b2b6bdd3588243443b128a91a2089f1f40a8bdec2302685cf43491a262",
+      "solver": "CaDiCaL bundled with Lean 4.36.0",
+      "solver_time_limit_seconds": 45,
+      "maximum_rounds": 6,
+      "rounds": [
+        {
+          "round": 0,
+          "rows": 54,
+          "variables": 2803,
+          "clauses": 74231,
+          "code": 10,
+          "seconds": 8.82,
+          "violated_negatives": 341
+        },
+        {
+          "round": 1,
+          "rows": 395,
+          "variables": 8941,
+          "clauses": 395794,
+          "code": 20,
+          "seconds": 35.27
+        }
+      ],
+      "conclusion": "restricted neighborhood UNSAT, not kernel checked"
+    },
+    {
+      "summary_log": "repair-eight.log",
+      "encoder": "repair_nearmiss.py",
+      "encoder_sha256": "5fe128246038b08c8238ca1e65c957780e82201d9111cae6f4d8628345fd5f5d",
+      "argv": [
+        "--free",
+        "28,29,30,55,57,60,61,62",
+        "--seconds",
+        "45"
+      ],
+      "seed": "plane-nearmiss64.json",
+      "seed_sha256": "e1fc21b2b6bdd3588243443b128a91a2089f1f40a8bdec2302685cf43491a262",
+      "solver": "CaDiCaL bundled with Lean 4.36.0",
+      "solver_time_limit_seconds": 45,
+      "maximum_rounds": 6,
+      "rounds": [
+        {
+          "round": 0,
+          "rows": 54,
+          "variables": 3871,
+          "clauses": 102460,
+          "code": 10,
+          "seconds": 11.83,
+          "violated_negatives": 442
+        },
+        {
+          "round": 1,
+          "rows": 496,
+          "variables": 14921,
+          "clauses": 671756,
+          "code": 0,
+          "seconds": 51.9
+        }
+      ],
+      "conclusion": "timeout; no mathematical verdict"
+    },
+    {
+      "summary_log": "repair-eight-a.log",
+      "encoder": "repair_nearmiss.py",
+      "encoder_sha256": "5fe128246038b08c8238ca1e65c957780e82201d9111cae6f4d8628345fd5f5d",
+      "argv": [
+        "--free",
+        "28,29,30,55,60,61,62,63",
+        "--seconds",
+        "60"
+      ],
+      "seed": "plane-nearmiss64.json",
+      "seed_sha256": "e1fc21b2b6bdd3588243443b128a91a2089f1f40a8bdec2302685cf43491a262",
+      "solver": "CaDiCaL bundled with Lean 4.36.0",
+      "solver_time_limit_seconds": 60,
+      "maximum_rounds": 6,
+      "rounds": [
+        {
+          "round": 0,
+          "rows": 54,
+          "variables": 3833,
+          "clauses": 103969,
+          "code": 10,
+          "seconds": 36.68,
+          "violated_negatives": 442
+        },
+        {
+          "round": 1,
+          "rows": 496,
+          "variables": 14441,
+          "clauses": 680779,
+          "code": 0,
+          "seconds": 68.26
+        }
+      ],
+      "conclusion": "timeout; no mathematical verdict"
+    },
+    {
+      "summary_log": "repair-eight-b.log",
+      "encoder": "repair_nearmiss.py",
+      "encoder_sha256": "5fe128246038b08c8238ca1e65c957780e82201d9111cae6f4d8628345fd5f5d",
+      "argv": [
+        "--free",
+        "0,1,2,28,29,30,61,63",
+        "--seconds",
+        "60"
+      ],
+      "seed": "plane-nearmiss64.json",
+      "seed_sha256": "e1fc21b2b6bdd3588243443b128a91a2089f1f40a8bdec2302685cf43491a262",
+      "solver": "CaDiCaL bundled with Lean 4.36.0",
+      "solver_time_limit_seconds": 60,
+      "maximum_rounds": 6,
+      "rounds": [
+        {
+          "round": 0,
+          "rows": 54,
+          "variables": 3142,
+          "clauses": 72697,
+          "code": 10,
+          "seconds": 38.01,
+          "violated_negatives": 422
+        },
+        {
+          "round": 1,
+          "rows": 476,
+          "variables": 13451,
+          "clauses": 480928,
+          "code": 0,
+          "seconds": 65.37
+        }
+      ],
+      "conclusion": "timeout; no mathematical verdict"
+    },
+    {
+      "summary_log": "repair-eight-c-v2.log",
+      "encoder": "repair_nearmiss_v2.py",
+      "encoder_sha256": "82984bed1301c94d7710c6092c222515f4eb262fdf9ba0b6cf0e136bc306d325",
+      "argv": [
+        "--free",
+        "28,29,30,57,60,61,62,63",
+        "--seconds",
+        "60"
+      ],
+      "seed": "plane-nearmiss64.json",
+      "seed_sha256": "e1fc21b2b6bdd3588243443b128a91a2089f1f40a8bdec2302685cf43491a262",
+      "solver": "CaDiCaL bundled with Lean 4.36.0",
+      "solver_time_limit_seconds": 60,
+      "maximum_rounds": 6,
+      "rounds": [
+        {
+          "round": 0,
+          "rows": 54,
+          "variables": 3841,
+          "clauses": 81491,
+          "code": 10,
+          "seconds": 15.57,
+          "violated_negatives": 450
+        },
+        {
+          "round": 1,
+          "rows": 504,
+          "variables": 14641,
+          "clauses": 671441,
+          "code": 0,
+          "seconds": 65.81
+        }
+      ],
+      "conclusion": "timeout; no mathematical verdict"
+    },
+    {
+      "summary_log": "repair-eight-d-v2.log",
+      "encoder": "repair_nearmiss_v2.py",
+      "encoder_sha256": "82984bed1301c94d7710c6092c222515f4eb262fdf9ba0b6cf0e136bc306d325",
+      "argv": [
+        "--free",
+        "28,29,30,47,48,61,62,63",
+        "--seconds",
+        "180",
+        "--full"
+      ],
+      "seed": "plane-nearmiss64.json",
+      "seed_sha256": "e1fc21b2b6bdd3588243443b128a91a2089f1f40a8bdec2302685cf43491a262",
+      "solver": "CaDiCaL bundled with Lean 4.36.0",
+      "solver_time_limit_seconds": 180,
+      "maximum_rounds": 6,
+      "rounds": [
+        {
+          "round": 0,
+          "rows": 756,
+          "variables": 21361,
+          "clauses": 980787,
+          "code": 0,
+          "seconds": 191.02
+        }
+      ],
+      "conclusion": "timeout; no mathematical verdict"
+    },
+    {
+      "summary_log": "repair-eight-e-v2.log",
+      "encoder": "repair_nearmiss_v2.py",
+      "encoder_sha256": "82984bed1301c94d7710c6092c222515f4eb262fdf9ba0b6cf0e136bc306d325",
+      "argv": [
+        "--free",
+        "28,29,30,39,40,61,62,63",
+        "--seconds",
+        "180",
+        "--full"
+      ],
+      "seed": "plane-nearmiss64.json",
+      "seed_sha256": "e1fc21b2b6bdd3588243443b128a91a2089f1f40a8bdec2302685cf43491a262",
+      "solver": "CaDiCaL bundled with Lean 4.36.0",
+      "solver_time_limit_seconds": 180,
+      "maximum_rounds": 6,
+      "rounds": [
+        {
+          "round": 0,
+          "rows": 756,
+          "variables": 20737,
+          "clauses": 959455,
+          "code": 0,
+          "seconds": 190.92
+        }
+      ],
+      "conclusion": "timeout; no mathematical verdict"
+    },
+    {
+      "summary_log": "repair-six-v2-full.log",
+      "encoder": "repair_nearmiss_v2.py",
+      "encoder_sha256": "82984bed1301c94d7710c6092c222515f4eb262fdf9ba0b6cf0e136bc306d325",
+      "argv": [
+        "--free",
+        "28,29,30,61,62,63",
+        "--seconds",
+        "90",
+        "--full"
+      ],
+      "seed": "plane-nearmiss64.json",
+      "seed_sha256": "e1fc21b2b6bdd3588243443b128a91a2089f1f40a8bdec2302685cf43491a262",
+      "solver": "CaDiCaL bundled with Lean 4.36.0",
+      "solver_time_limit_seconds": 90,
+      "maximum_rounds": 6,
+      "rounds": [
+        {
+          "round": 0,
+          "rows": 756,
+          "variables": 15439,
+          "clauses": 720276,
+          "code": 20,
+          "seconds": 59.22
+        }
+      ],
+      "conclusion": "restricted neighborhood UNSAT, not kernel checked"
+    },
+    {
+      "summary_log": "repair-distributed-1-five.log",
+      "encoder": "repair_nearmiss_v3.py",
+      "encoder_sha256": "3addd1a015aca4c47d518027e4ccf1b1806a6f583edde8e5d0821891c57db36e",
+      "argv": [
+        "--input",
+        "plane-nearmiss64-distributed-1.json",
+        "--free",
+        "40,41,61,62,63",
+        "--seconds",
+        "90",
+        "--full"
+      ],
+      "seed": "plane-nearmiss64-distributed-1.json",
+      "seed_sha256": "e095e1fb582157e55a0fae4386aee12c890996aa2fdccccf0df72495ad230cac",
+      "solver": "CaDiCaL bundled with Lean 4.36.0",
+      "solver_time_limit_seconds": 90,
+      "maximum_rounds": 6,
+      "rounds": [
+        {
+          "round": 0,
+          "rows": 756,
+          "variables": 13024,
+          "clauses": 645842,
+          "code": 20,
+          "seconds": 29.24
+        }
+      ],
+      "conclusion": "restricted neighborhood UNSAT, not kernel checked"
+    },
+    {
+      "summary_log": "repair-distributed-3-five.log",
+      "encoder": "repair_nearmiss_v3.py",
+      "encoder_sha256": "3addd1a015aca4c47d518027e4ccf1b1806a6f583edde8e5d0821891c57db36e",
+      "argv": [
+        "--input",
+        "plane-nearmiss64-distributed-3.json",
+        "--free",
+        "8,9,61,62,63",
+        "--seconds",
+        "90",
+        "--full"
+      ],
+      "seed": "plane-nearmiss64-distributed-3.json",
+      "seed_sha256": "c3982d1846fea7ab1ff0cb981f6aa9ee6eed956eae1d1c064859bc5a352431cd",
+      "solver": "CaDiCaL bundled with Lean 4.36.0",
+      "solver_time_limit_seconds": 90,
+      "maximum_rounds": 6,
+      "rounds": [
+        {
+          "round": 0,
+          "rows": 756,
+          "variables": 12768,
+          "clauses": 547986,
+          "code": 20,
+          "seconds": 17.1
+        }
+      ],
+      "conclusion": "restricted neighborhood UNSAT, not kernel checked"
+    }
+  ]
 }

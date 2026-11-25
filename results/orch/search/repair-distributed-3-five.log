@@ -1,0 +1,2 @@
+{"seed_file": "plane-nearmiss64-distributed-3.json", "free": [8, 9, 61, 62, 63], "total_gates": 64, "positive_basis": 52, "negative_basis": 704}
+{"round": 0, "rows": 756, "variables": 12768, "clauses": 547986, "code": 20, "seconds": 17.1}

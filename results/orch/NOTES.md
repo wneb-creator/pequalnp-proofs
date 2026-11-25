@@ -106,3 +106,15 @@ Root conjectural elimination route for the13 pure-OR outputs only: eliminate the
 - ClausePrune.lean checked: if (f AND g) OR r equals OR(A), one child can replace the AND. If f OR r equals OR(A) and r is monotone, replacing f by its singleton linear part preserves the output. If f feeds two target clauses whose sets meet in at most one variable, that linear part is constantfalse or oneinput.
 - Proposed circuit normalform: remove the latest AND. Its downstream outputs have OR-only contexts. If one output is affected, bypass a child; if two or more are affected in a linear family, replace by its at-most-singleton support. Constantfalse means prune that OR branch rather than introducing a gate. Repeating should yield an OR-only circuit without more gates; the 13 degree4 neighborhood outputs then need39 OR gates. Circuit-level rewiring and counting are still unproved.
 - Distributed.lean checked extension: linearParts appending, zero linear outputs of the distributed wrapper, and valid distinct-earlier-input topology.
+
+## Independent audit of 10+56-1 cut 2026-11-25T03:31:19.283241+00:00
+
+The local compression must preserve both formal derivatives and distinct operand wires. Ordinary Boolean simplification is insufficient: after a zero-specialization, bypassing an OR may identify two distinct input wires of an AND; simplifying the resulting AND(w,w) changes formal derivatives. With repeated operands allowed, an ordinary 8-gate double-star circuit followed by AND(output,output) is a 9-gate double-defect circuit. Consequently the proposed local lower bound10 is false in that relaxed model; duplicate-producing gates must remain or be explicitly charged.
+
+### Structural cut analysis at 2026-11-25T03:36:07.219926+00:00
+
+For the edge (point0,line0), take T={point0,line0}, N={point1,point3,point9,line4,line10,line12}, R=the other18 inputs. Restricting R=0 yields an8-variable double-star with7edges; restricting T=0 yields the45-edge face. A desired cut inequality would preserve the local formal derivatives and bound face-circuit size plus local-circuit size by original size plus1. This remains unproved. Distinct operand IDs are essential: restriction/constant pruning can alias two operands and dropping AND(w,w) changes formal derivatives. In the repeated-operand model, an8-gate ordinary double-star plus AND(output,output) already gives a9-gate defect. Thus the strict local10 lower bound cannot be applied after naive pruning.
+
+The65-gate witness has form (G OR p4) AND (G OR N4), with G the other12 row stars. Its local restriction is G AND (G OR line4), explaining why one unit of cross-sharing must be allowed if one uses strict local cost10 and face minimum56. A generic C4-free cut inequality would itself imply strong unrestricted monotone lower bounds, so this is the hard theorem, not routine gate cleanup.
+
+Finite exact-DNF check of face pruning is in job scratch face-collapse-check.py / face-collapse-check.log. Ordinary64-star: (duplicate gates, removable after pruning)=(6,8) on all52 faces. Wrapped66-star: (7,10) on48faces, (8,10) on4faces.
