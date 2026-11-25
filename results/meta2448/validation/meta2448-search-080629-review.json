@@ -1,0 +1,88 @@
+{
+  "review": "PASS ended nonstar-prefix diagnostic and known-bound correction note",
+  "scope": "Actual normalized-model UNKNOWN; no nonstar witness or full theorem. Correction accurately records accepted no12/yes13 results and distinguishes every-minimum from exists-minimum star profile.",
+  "original_records_verified": 11,
+  "result": {
+    "result": "unknown",
+    "solver_exit": 0,
+    "elapsed": 300.04707013699954,
+    "peak_child_KiB": 65792
+  },
+  "files": [
+    {
+      "path": "results/meta2448/search-20261125T080629Z/ORIGINAL-FILES.json",
+      "sha256": "26781d6a76eb0508323b259488a2ec6ce5ceff69065c5f1d99c3fffd72b93ccf",
+      "bytes": 3290
+    },
+    {
+      "path": "results/meta2448/search-20261125T080629Z/README.md",
+      "sha256": "86b224a17cf1211781680f257ef59f44cd9e21d7a2a73b1a1ed2b094fb892190",
+      "bytes": 700
+    },
+    {
+      "path": "results/meta2448/search-20261125T080629Z/SHA256SUMS",
+      "sha256": "1f8bd1895e68ff8a4e56c93b543375bdcb3a3384ce71c5e39fb15ac214235252",
+      "bytes": 1473
+    },
+    {
+      "path": "results/meta2448/search-20261125T080629Z/petersenminus-nonstar-prefix13-v10-run300.cnf",
+      "sha256": "0919b3327fb4d0d980e5d4acc70b0cec463e65cf9b5d2c28f176da629a404f6f",
+      "bytes": 528174
+    },
+    {
+      "path": "results/meta2448/search-20261125T080629Z/petersenminus-nonstar-prefix13-v10-run300.command.json",
+      "sha256": "b11b177f16d691cd8331fb849cf8185a7053cb329e8b2683dd1b8ed0bb9ef5fa",
+      "bytes": 290
+    },
+    {
+      "path": "results/meta2448/search-20261125T080629Z/petersenminus-nonstar-prefix13-v10-run300.guard-status.json",
+      "sha256": "e748043efe754d2b34b454ef13b7518a94775e7e83b4b7ba855a9cc2b0f6a0f6",
+      "bytes": 898
+    },
+    {
+      "path": "results/meta2448/search-20261125T080629Z/petersenminus-nonstar-prefix13-v10-run300.guard.json",
+      "sha256": "953e9886f1dab035f21c1b5b8acd33391eb0ee80502bbf6d596bc26d5feacade",
+      "bytes": 671
+    },
+    {
+      "path": "results/meta2448/search-20261125T080629Z/petersenminus-nonstar-prefix13-v10-run300.guard.log",
+      "sha256": "d4a080ceff5f778e0321ed055d0e2e9c32b039fbd0686943e7833d506c17df56",
+      "bytes": 794
+    },
+    {
+      "path": "results/meta2448/search-20261125T080629Z/petersenminus-nonstar-prefix13-v10-run300.log",
+      "sha256": "f6bcc56714809d2d24d3f05b406fb0b80d3a61c57a2bd3bc1066672dc6cebd77",
+      "bytes": 228
+    },
+    {
+      "path": "results/meta2448/search-20261125T080629Z/petersenminus-nonstar-prefix13-v10-run300.mapping.json",
+      "sha256": "5725c85d0e908c8b9f2563b9d469cb4e87e32983eafd10257418259d5763b719",
+      "bytes": 7917
+    },
+    {
+      "path": "results/meta2448/search-20261125T080629Z/petersenminus-nonstar-prefix13-v10-run300.sol",
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+      "bytes": 10
+    },
+    {
+      "path": "results/meta2448/search-20261125T080629Z/petersenminus-nonstar-prefix13-v10-run300.solver.log",
+      "sha256": "20baadc9f51a5bb86ff951e0798d94ad1c040f6bf1564d057f62fd931305b6e4",
+      "bytes": 32192
+    },
+    {
+      "path": "results/meta2448/search-20261125T080629Z/petersenminus-nonstar-prefix13-v10-run300.source-provenance.json",
+      "sha256": "cb4d1c2741ea9a74726debbd21e7c4ead9530dad04701f4abf1db0a78657b905",
+      "bytes": 762
+    },
+    {
+      "path": "results/meta2448/search-20261125T080629Z/petersenminus-nonstar-prefix13-v10-run300.status.json",
+      "sha256": "7dd6f31d1b70cf42d62ffcde8c2c60b24895b4de84fe54c5d31bb7bc88eee62b",
+      "bytes": 106
+    },
+    {
+      "path": "results/meta2448/petersen-core-search-correction.md",
+      "sha256": "a86b13d8ac36aadd680dc43fba2c6c89732585392dd34e5d51ca5ccb79d3d4e8",
+      "bytes": 1339
+    }
+  ]
+}

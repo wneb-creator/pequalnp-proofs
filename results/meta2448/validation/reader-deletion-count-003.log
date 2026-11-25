@@ -1,0 +1,52 @@
+import took 1.38s
+simp took 104ms
+simp took 115ms
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletionCount.lean:40:59: warning: This simp argument is unused:
+  Stat.val
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [simplify, simpOr, count, contribution, weight, GateOp.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/meta2448/ReaderDeletionCount.lean:40:69: warning: This simp argument is unused:
+  GateOp.eval
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [simplify, simpOr, count, contribution, weight, Stat.val]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+cumulative profiling times:
+	.olean serialization 13ms
+	attribute application 0.166ms
+	blocked (unaccounted) 7.47ms
+	compilation (IR) 0.656ms
+	compilation (LCNF base) 2.99ms
+	compilation (LCNF impure) 1.29ms
+	compilation (LCNF mono) 2.29ms
+	congr simp thm 11.6ms
+	declTypeLinter 6.72ms
+	elaboration 74.5ms
+	fix level params 0.565ms
+	import 1.38s
+	initialization 38ms
+	instantiate metavars 2.49ms
+	interpretation 256ms
+	let-to-have transformation 0.194ms
+	linting 61.8ms
+	module linting 0.0216ms
+	parsing 11.9ms
+	process pre-definitions 10.2ms
+	share common exprs 5.37ms
+	simp 925ms
+	tactic execution 281ms
+	tacticAnalysis 5.27ms
+	type checking 63.3ms
+	typeclass inference 191ms
+
+EXIT 0
+RESOURCE_STOPPED False
+WALL_SECONDS 4.017015814999468
+USER_SECONDS 2.711708
+SYS_SECONDS 1.406966
+PEAK_RSS_KIB 2918732
+PEAK_CGROUP_BYTES 4323880960

@@ -1,0 +1,15 @@
+{
+  "source": "results/meta2448/checked/graph-repair.lean",
+  "sha256": "f643f7dc83c05e16a17866def758d63d43b8a4a9e2a462086e593417174ba164",
+  "reviewer": "/root/or_lower_bound",
+  "status": "Independent mathematical and source review PASS at exact compiled hash",
+  "scope": "Actual graph-function-preserving circuit repair under two universal centers, exact linear prefix operands, and the explicitly stated generic cofactor premises hRmono, hRle and hcut. No unconditional dirty-gate normalization or ownership conclusion.",
+  "findings": [
+    "The two center hypotheses imply the disjoint-side property used by repair_preserves_edges.",
+    "Every accepted graph-edge pair is retained by the forced cofactor if the product is false, or covered by the two-star repair if it is true. Monotonicity extends this coverage to every positive input.",
+    "The reverse implication uses only the cofactor <= original premise and global graph soundness of both repair stars.",
+    "The false-input premise needed for the compiled output is derived from graph exactness and hRle.",
+    "The circuit constructor correctly transfers the two raw center coordinates and two preserved prefix operands, with the exact size bound inherited from RepairAssembly."
+  ],
+  "validation": "Author reports first-run EXIT0; immutable source SHA matches the reviewed file."
+}

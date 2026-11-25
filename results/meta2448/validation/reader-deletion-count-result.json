@@ -1,0 +1,8 @@
+{
+  "source": "results/meta2448/checked/reader-deletion-count.lean",
+  "sha256": "dda9444ec5f6dd992340d4a08f25f84bd35ce1f3dbf5884ceea53c33f5d24a1b",
+  "lines": 205,
+  "exit_code": 0,
+  "log": "results/meta2448/validation/reader-deletion-count-003.log",
+  "scope": "Per-input and finite-sum true-AND counts decrease under the compiled forced-false cofactor; strict if the removed gate contributes1 on one sampled input. No repair count or full minimum normalization is claimed."
+}

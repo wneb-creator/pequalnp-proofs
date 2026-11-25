@@ -1,0 +1,8 @@
+{
+  "reviewer": "algebraic_witness",
+  "source": "results/meta2448/checked/reader-deletion-count.lean",
+  "sha256": "dda9444ec5f6dd992340d4a08f25f84bd35ce1f3dbf5884ceea53c33f5d24a1b",
+  "verdict": "PASS",
+  "scope": "Independent source and mathematical review of all205 lines. Compiler emission retains the operation and its forced value under Inv; no emission adds zero count. Suffix monotonicity bounds forced-false evaluations by original evaluations at equal wire lengths. The removed gate contribution is counted separately, and the finite-sum strictness premise is explicit. This does not yet count the appended repair gates or prove ownership normalization.",
+  "checked_at_utc": "2026-11-25T08:09:10.209746+00:00"
+}

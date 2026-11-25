@@ -1,0 +1,9 @@
+{
+  "source": "results/meta2448/GraphRepair.lean",
+  "checked_source": "results/meta2448/checked/graph-repair.lean",
+  "sha256": "f643f7dc83c05e16a17866def758d63d43b8a4a9e2a462086e593417174ba164",
+  "lines": 94,
+  "exit": 0,
+  "build_log": "results/meta2448/validation/graph-repair-001.log",
+  "scope": "Graph-specific actual circuit repair under explicit cofactor premises and pure two-center product assumptions; exact graph function preserved and size+readerCount<=oldsize+3. No ownership normalization."
+}

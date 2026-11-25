@@ -1,0 +1,23 @@
+{
+  "review": "PASS compiled GraphRepair and ReaderDeletionCount partials",
+  "sources": [
+    {
+      "source": "results/meta2448/checked/graph-repair.lean",
+      "sha256": "f643f7dc83c05e16a17866def758d63d43b8a4a9e2a462086e593417174ba164",
+      "lines": 94,
+      "exit": 0
+    },
+    {
+      "source": "results/meta2448/checked/reader-deletion-count.lean",
+      "sha256": "dda9444ec5f6dd992340d4a08f25f84bd35ce1f3dbf5884ceea53c33f5d24a1b",
+      "lines": 205,
+      "exit": 0
+    }
+  ],
+  "scope": [
+    "GraphRepair preserves the exact graph function and total-size inequality under explicit two-center linear-support hypotheses and hRmono/hRle/hcut cofactor assumptions. These premises are not proved for arbitrary gates.",
+    "ReaderDeletionCount shows per-input and finite-sum true-AND count decrease for forced-false compilation, strictly when removed gate contributes on one sampled input. It does not yet count appended repair gates or prove a full normalization."
+  ],
+  "format": "Debug dependencies are checked and must be flattened for final single-file construction. No prohibited proof escapes.",
+  "validation": "Both complete successful logs retained; counts source contains only unused-simp warnings."
+}

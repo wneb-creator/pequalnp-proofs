@@ -1,0 +1,64 @@
+{
+  "review": "PASS compiled GraphRepair and ReaderDeletionCount partials",
+  "scope": [
+    "GraphRepair preserves the exact graph function and total-size inequality under explicit two-center linear-support hypotheses and hRmono/hRle/hcut cofactor assumptions. These premises are not proved for arbitrary gates.",
+    "ReaderDeletionCount shows per-input and finite-sum true-AND count decrease for forced-false compilation, strictly when removed gate contributes on one sampled input. It does not yet count appended repair gates or prove a full normalization."
+  ],
+  "files": [
+    {
+      "path": "results/meta2448/checked/graph-repair.lean",
+      "sha256": "f643f7dc83c05e16a17866def758d63d43b8a4a9e2a462086e593417174ba164",
+      "bytes": 4464
+    },
+    {
+      "path": "results/meta2448/graph-repair-independent-review.json",
+      "sha256": "ff1a250f3bf81727e2abbf0f56e0a28fcabb2cae70e0ce2bd3a17b245fe18593",
+      "bytes": 1353
+    },
+    {
+      "path": "results/meta2448/validation/graph-repair-result.json",
+      "sha256": "525c3d8c7414e8078d0341e0c0f257000a0ee4cf2ad4be0af09b32dd56b902dc",
+      "bytes": 510
+    },
+    {
+      "path": "results/meta2448/validation/graph-repair-001.log",
+      "sha256": "8031654d51cc237b6e7e29c88d92fa2a5230cc982e6c50c58f54f7ce4436b8bd",
+      "bytes": 705
+    },
+    {
+      "path": "results/meta2448/validation/graph-repair-001.guard.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/meta2448/checked/reader-deletion-count.lean",
+      "sha256": "dda9444ec5f6dd992340d4a08f25f84bd35ce1f3dbf5884ceea53c33f5d24a1b",
+      "bytes": 8547
+    },
+    {
+      "path": "results/meta2448/reader-deletion-count-independent-review.json",
+      "sha256": "069f44dcc46c75dd4f3e741317a57d8a88394a5a836a537d0cc4b78bb3c8cc9d",
+      "bytes": 724
+    },
+    {
+      "path": "results/meta2448/validation/reader-deletion-count-result.json",
+      "sha256": "da06655a3259ee8ddf45daf92450ce0fc5519dac80875dfb51eebbaed65b12b1",
+      "bytes": 480
+    },
+    {
+      "path": "results/meta2448/validation/reader-deletion-count-003.log",
+      "sha256": "eb4751dee9dda33041a44abf9abe97708040d2c4547f227691ccbdc0c940249b",
+      "bytes": 1537
+    },
+    {
+      "path": "results/meta2448/validation/reader-deletion-count-003.runner.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/meta2448/validation/graph-repair-count-preservation-independent-review.json",
+      "sha256": "38fcb06e714df95730d10c883937c75ac6c3819eff715b364023010497e7565d",
+      "bytes": 1227
+    }
+  ]
+}
