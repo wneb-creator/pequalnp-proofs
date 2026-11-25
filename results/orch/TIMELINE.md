@@ -9,3 +9,5 @@
 2026-11-25T14:45:44.706306+00:00 Replan: generic17 binary floor and conditional18 non-OR floor checked through development components; final instance-free assembly validation pending. Structural binary-leaf/partner bridges complete. Signed-cost search active; monotone18 boundary-row search prioritized next.
 
 2026-11-25 14:48 UTC: Found automatic renewal failed HTTP410 at14:39:57 although beat14 at14:35 returned expiry14:55. Repeated curl-si diagnostic preserved. Freeze and preserve all checked partials before lease recovery.
+
+2026-11-25 14:49:30 UTC: Recovery request assigned L-meta-2583 (Read1 projectiveplane incidence normalization). OldL-meta-2592 partials all pushed. Newleaseexpires15:09:30, renewal14:50:14extends15:10:14. Allsixagentsretasked.

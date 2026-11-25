@@ -33,3 +33,11 @@ StructuralRaw, Partner, Split and Reader compiled with exit0 and were independen
 Full checker remains a storage FAULT. No proof PR opened.
 Sub-agents: 6 (proof strategies, circuit search, setup and independent validation).
 TIMING total=43 subagents=6
+
+Latest checkpoint:
+Partial preservation only: no full proof or refutation, no PR.
+L-meta-2592 named file5337lines: lake build PASS; official checker CHECKER FAULT, missing full Mathlib dependency Batteries.olean (see complete logs).
+L-meta-2583 named file108lines: lake build PASS; only incidence prime-implicant helpers.
+Sub-agents: counterexample_search, lemma_routes, reduction_strategy, restriction_review, status_review, structural_proof
+TIMING total=68 subagents=6
+Cleanup: not started; full checker cannot run in available storage.
