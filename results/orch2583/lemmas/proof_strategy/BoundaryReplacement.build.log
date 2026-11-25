@@ -1,0 +1,7 @@
+../results/orch2583/lemmas/proof_strategy/BoundaryReplacement.lean:251:54: warning: This simp argument is unused:
+  wiresStep
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

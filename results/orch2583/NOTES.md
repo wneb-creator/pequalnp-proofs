@@ -33,3 +33,9 @@ Research source read2026-11-25: https://github.com/open-goat/pequalnp-proofs/dis
 ## SAT finite Fano route (2026-11-25 15:02 UTC)
 
 Explicit q=2 plane is GF(2)^3 orthogonality on seven nonzero vectors, with14 incidence inputs. There are21 minimal true rows and37 maximal false rows (21 size4,14 size5,2 size7), hence58 exact monotone boundary rows. A standard star AO2 circuit has27 gates; pinned solver sanity check is SAT. A26-gate search is running with a600-second bound. No counterexample or UNSAT certificate yet. Complete source/data/CNF/log artifacts live under `results/orch2583/sat`. `FanoFinite.checked.lean` kernel-proves plane axioms and both boundary coverage directions, including all37 maximal false masks; local Lean build passes with empty output. No full task theorem claimed.
+
+Counterexample update 2026-11-25T15:03:14.585997+00:00:
+PG3 localrepair first windows of3,4,5free gates UNSAT; three9freegate windows UNKNOWN at60seconds each. Positivecontrol pinned star64 SAT on756rows. status_review independently audited encoding and boundary (via opposite-side independent-set enumeration); scope is fixed-backbone only. Complete current data/summary/control logs preserved under results/orch2583/lemmas/counterexample; raw CNFs are reproducible in scratch.
+Threeclause membership audit checks729 multiplicity profiles0/1/2:54 qualifying homogeneous quadratic bipartite C4free cases,42stars and12double-stars. Fourclause presence audit checks16384 profiles:334 qualifying cases, all forests. These are explicit computational cases, not Lean proofs; data and source preserved. Toolchain agent owns symbolic proof generalization.
+
+PG3 localrepair round complete at 2026-11-25T15:04:29.030050+00:00: {'SAT': 0, 'UNSAT': 8, 'UNKNOWN': 4} across12windows. No counterexample. Complete stdout/stderr andresult JSON preserved in results/orch2583/lemmas/counterexample; manifest records hashes. CNFs stay in scratch and reproduce from pg3_local.py.

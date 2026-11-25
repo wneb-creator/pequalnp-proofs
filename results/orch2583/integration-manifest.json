@@ -1,0 +1,27 @@
+[
+  {
+    "source": "results/orch2583/lemmas/reduction_strategy/SingleLevelChecked.lean",
+    "sha256": "a33452377361ae5c66cb06c0ce70b83b9ea8ab10beaef43ae7bde955fdf459ea",
+    "namespace": "SingleLevel"
+  },
+  {
+    "source": "results/orch2583/lemmas/proof_strategy/PrimeReplacement.lean",
+    "sha256": "634f5b221ac59ec9a809a703e7f82eb77b8a5afcea84f899a21b28eae4b5dca8",
+    "namespace": "PrimeReplacement"
+  },
+  {
+    "source": "results/orch2583/lemmas/sat_strategy/FanoFinite.checked.lean",
+    "sha256": "fa0298ae6a8ec58488ed2fd12581c68315ca94d4ab175d3216d471dea573738c",
+    "namespace": "FanoFinite"
+  },
+  {
+    "source": "results/orch2583/lemmas/root/PlaneCount.lean",
+    "sha256": "f06cd29d8fbde0321883c402e3d0135e8ccd22903088fc5bd7592cc19522d1b0",
+    "namespace": ""
+  },
+  {
+    "source": "results/orch2583/lemmas/root/Boundary.lean",
+    "sha256": "61a1fbf026aacfaac0102642aa3e58ede9b577502338981f26fe1a8961ffcab2",
+    "namespace": ""
+  }
+]

@@ -1,0 +1,16 @@
+'PEqualNP.Outside.L_meta_2583_aux.SingleLevel.top_form_junk_empty_read_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2583_aux.PrimeReplacement.lower_wire_preserves' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2583_aux.FanoFinite.false_boundary_complete' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2583_aux.FanoFinite.true_boundary_complete' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2583_aux.incidence_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2583_aux.eq_of_minimal_true_maximal_false' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

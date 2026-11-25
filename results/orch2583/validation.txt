@@ -10,3 +10,9 @@ SingleLevelChecked.lean:541lines, clean lake env lean exit0; conditional TopForm
 Boundary.lean: clean lake env lean exit0; finite minimal-true/maximal-false verification lemma. Independentreview APPROVED.
 PrimeReplacement.lean: clean lake env lean exit0; lowering monotone intermediate signal preserves edge function when all prime-edge values agree. Independentreview APPROVED. No gate-count conclusion.
 FanoFinite.checked.lean:102lines, clean lake env lean exit0; explicitFanoaxioms and58rowtruth-boundary coverage proved; localoptionsfixedandindependentlyreviewed. No26gatecandidate.
+Integrated named module lean/PEqualNP/Outside/L_meta_2583.lean:882lines; lake build passed,5149jobs,target9.3s. No Mathlib source build. Independent integration review APPROVED.
+Axiom audit of six integrated helpers passed: only propext, Classical.choice, Quot.sound.
+Actual local checker run exit3: CHECKER FAULT, Batteries.olean unavailable while importing fullMathlib. No verdict.
+Cleanup pass skipped because fullchecker cannot run locally. Before/after cleanup882/882lines; no cleanup attempted.
+BoundaryReplacement.lean: checked264line semantic dual; no gate-count claim. ThreeClause.lean: checked specific5→4 gate rewrite. Independentlyreviewed.
+TIMING total=64 subagents=6

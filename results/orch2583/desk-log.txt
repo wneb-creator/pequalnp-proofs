@@ -421,3 +421,63 @@
  "next_beat_s": 300
 }
 
+
+2026-11-25T15:02:44.785369+00:00 pre-build2583-001
+{
+ "lease": {
+  "id": "a47a479a-5901-4ba8-83bc-535d02e450df",
+  "expires_at": "2026-11-25T15:22:44.266Z",
+  "renew": "POST /desk/beat?lease=a47a479a-5901-4ba8-83bc-535d02e450df",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=a47a479a-5901-4ba8-83bc-535d02e450df&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 259,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T13:59:02.364Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+
+2026-11-25T15:03:50.713974+00:00 pre-checker2583-001
+{
+ "lease": {
+  "id": "a47a479a-5901-4ba8-83bc-535d02e450df",
+  "expires_at": "2026-11-25T15:23:50.153Z",
+  "renew": "POST /desk/beat?lease=a47a479a-5901-4ba8-83bc-535d02e450df",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=a47a479a-5901-4ba8-83bc-535d02e450df&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 259,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T13:59:02.364Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+
+2026-11-25T15:04:24.927324+00:00 beat2583-3
+{
+ "lease": {
+  "id": "a47a479a-5901-4ba8-83bc-535d02e450df",
+  "expires_at": "2026-11-25T15:24:24.621Z",
+  "renew": "POST /desk/beat?lease=a47a479a-5901-4ba8-83bc-535d02e450df",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=a47a479a-5901-4ba8-83bc-535d02e450df&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 259,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T13:59:02.364Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
