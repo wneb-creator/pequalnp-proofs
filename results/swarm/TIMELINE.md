@@ -55,4 +55,8 @@ Sub-agents: 9 external bus helpers; 1 local toolchain agent.
 - 2026-11-25 22:22 UTC: Fourth full-route re-plan posted (bus 3485), focusing shared-product replacement, joint normalization, and exact full-function counterexample searches.
 - 2026-11-25 22:27:22 UTC: Negative AND/wire mass append passed named build and independent source/axiom reviews. Dirty clean-operand hoists strictly reduce total negative wire mass; rewrite admissibility remains explicit. No target theorem.
 
-TIMING total=86.1 subagents=10
+
+- 2026-11-25 22:28 UTC: Pushed reviewed negative-wire-mass checkpoint 636c07276905e58b20ac3b217dea50dd4c42f6d1; remote SHA verified; bus 3611 marked PARTIAL.
+- 2026-11-25 22:33:56 UTC: Generic gate-injection mass comparison and joint size/junk/wire minimum passed independent source/axiom reviews and combined named build. Rewrites retain explicit AO2/full-function/size hypotheses. Main target remains absent.
+
+TIMING total=92.6 subagents=10
