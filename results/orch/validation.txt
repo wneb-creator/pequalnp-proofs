@@ -45,3 +45,5 @@ Width768Probe.lean: Lean exit 0, full generic core and g15/g31 certificate repla
 
 BoundedBatchLargeProbe.lean: exit 0 in 258.061 s, full replay through valid383. Independent finite_verification review passed: grouped cells cover exactly [0,47), use unchanged witnesses, and compose through the checked generic helper; mixed corner proofs are preserved. Full log logs/bounded-batch-large-build.log.
 UnifiedAllRecords1678Prefix.lean: exit 0, 0 errors; optional Forest/IndexTree representation conversion. Root independent review of the complete 100-line diff passed. Full log unified-all-records-1678-prefix-build.log. This optional variant increases final source size by 1,916 bytes and is not integrated.
+
+OrdinaryGenericEqualities.lean: clean exit 0 in18.032 s; 297 unconditional whole-function equalities proved by rfl (151 C1676 and146 C1678 toC2444). Root independent review passed; all297 theorem statements and pure rfl bodies checked against the successful log and certified map. Full log logs/ordinary-generic-equalities-2.log. Earlier diagnostic candidates were filtered; no claim is made for those rejected equalities.

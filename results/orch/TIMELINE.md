@@ -44,3 +44,7 @@
 - 2026-11-25T04:10:41.688966+00:00: Wider5120 verifier and two certificate families checked and independently reviewed.
 
 - 2026-11-25T04:16:36.164565+00:00: Bounded proof batches checked through valid383 and independently reviewed; optional1678Forest prefix also preserved.
+
+- 2026-11-25T04:18:09.009280+00:00: Re-plan: retain the uncapped raw/v7 replays; semantic sharing and the common-width interface remain active. New lanes target live-mask codec deltas, T-forest traversal reuse, OR01 verifier reuse for OR04, and checked short tactic proofs. All completed proof components have been pushed; complete gap checker remains pending.
+
+- 2026-11-25T04:21:38.855976+00:00: The final297 generic equalities completed a clean recheck and independent preservation review.
