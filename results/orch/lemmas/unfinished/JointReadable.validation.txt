@@ -1,0 +1,10 @@
+Lean validation: PASS
+Completed UTC: 2026-11-25 14:43:55
+Exit code: 0
+Elapsed: approximately 19 minutes 18 seconds
+Tool session: 91625
+Command: PATH=/tmp/oec/pequalnp-pilot-95/toolchain/lean-4.36.0-linux/bin:$PATH lake env lean -R /tmp/oec/pequalnp-pilot-95/proof-route -o /tmp/oec/pequalnp-pilot-95/proof-route/JointReadable.olean /tmp/oec/pequalnp-pilot-95/proof-route/JointReadable.lean
+Workdir: /workspace/pequalnp-proofs/lean
+Complete stdout: joint-readable-v2.stdout
+Complete stderr: joint-readable-v2.stderr
+No repository checker was run on this helper-only research assembly. It contains no theorem proving the full posted gap, and its source exceeds512KiB.

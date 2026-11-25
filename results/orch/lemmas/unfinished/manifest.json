@@ -1,0 +1,24 @@
+{
+  "snapshot_utc": "2026-11-25T14:44:41.884258+00:00",
+  "status": "MIXED: JointReadable.lean passed Lean; later MonoReady assemblies remain unverified or failed. No full L-meta-2592 theorem or repository-checker acceptance is asserted.",
+  "sources": {
+    "JointReadable.lean": "LEAN PASS exit0 at2026-11-25 14:43:55UTC, session91625, approximately19m18s. Helper-only source exceeds512KiB and does not prove the full posted gap.",
+    "MonoReadyReadable.lean": "Unchecked assembly; never completed compilation.",
+    "MonoReadyCompact.lean": "Unchecked compact assembly; lexical errors in mono-ready-full streams.",
+    "MonoReadyCompactShift.lean": "Unchecked compact assembly; lexical errors in mono-ready-full streams."
+  },
+  "provenance": "All files copied exactly from /tmp/oec/pequalnp-pilot-95/proof-route/; source files are retained for later repair, not submitted proof files.",
+  "sha256": {
+    "JointReadable.lean": "de11d33445d5567560e1d496a71e61aff8b4afe372f0b60102db33fe5090f75d",
+    "MonoReadyReadable.lean": "de3896c87f969dc264b8bc855f7f0c3db55543a923e35e548960d9c8bc6bcfb7",
+    "MonoReadyCompact.lean": "8199fda60d6230e9f67ec6b2c005f9aa41112d5885ac575ed0d0909ce83b1290",
+    "MonoReadyCompactShift.lean": "92acc61935de4f5186a4477977f6ad0de4bd14b2267c86d11d63a11987e76b00",
+    "joint-readable-v2.stdout": "6b27370cf7582df5ef1a83b4cb71ea6db7b45f3088f4c86595bdcd2d27c546cd",
+    "joint-readable-v2.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mono-ready-full.stdout": "4d1dd64a8a998e7e0348b39d4fa836c40a8591b4e6c0241abf9303424921c8a7",
+    "mono-ready-full.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "README.md": "43ad683573fe641e7a69f675fec6de60761929b76e16354ecbcdc33ddd0e2024",
+    "JointReadable.validation.txt": "1ceae65b5b015f3a0383a23a348193c1248f937890221c3d4692f9303f721ec1",
+    "joint-readable-v2.exit": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+  }
+}

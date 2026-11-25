@@ -7,3 +7,5 @@ Counterexample archive: 81 SHA256-listed payloads verified (82 files including m
 SAT archive:227 current payload hashes verified plus two historical source snapshots whose filename prefixes match SHA256. SCOPE.md accurately distinguishes fixed neighborhoods/shards, UNKNOWN and interrupted runs, and planted sanity models. All27 fixed-bank UNSAT cases concern the first seven-input subdivided-claw orbit. They do not establish a full Petersen lower bound. Current source/log archives were scanned for credential patterns; none found.
 
 Unfinished source archives are explicitly UNVERIFIED and are not submitted proofs. Empty or warning-only logs from an unfinished process are not counted as compilation success. The producing agent owns the final running-build status update.
+
+Final update: independent review of completed JointReadable core PASS. Source8338lines532411bytes exceeds submission cap; complete stdout67076bytes has no errors, stderr empty, recorded exit0. It checks nineMonoFloor16 and signednineFloor15 plus extraction, but does not include the later mono18 wrapper or full posted theorem. SHA256 de11d33445d5567560e1d496a71e61aff8b4afe372f0b60102db33fe5090f75d.

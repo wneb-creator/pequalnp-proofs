@@ -51,3 +51,4 @@
 2026-11-25T14:40:46.566171+00:00 Recovery twice returned pre-existing L-meta-2583 lease issued13:59:02, holding5. Did not work, renew or release that other pilot lease. Stopping per isolation rule after final preservation.
 
 - 2026-11-25T14:41:32.413922+00:00 SAT searches stopped after root desk410 report. All27 first-orbit fixed-bank cases had completed with restricted UNSAT; no19-gate counterexample found. Sources and full logs preserved for review.
+2026-11-25T14:43:55Z Existing JointReadable build finished successfully; preserved oversize checked core, final gap still unproved. All builds/searches stopped.

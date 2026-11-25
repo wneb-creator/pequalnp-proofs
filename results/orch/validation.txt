@@ -5,7 +5,7 @@ Restriction.lean: lake env lean exit 0; retained constant input charges one gate
 Local full-gap checker: not run; partial file does not claim the posted theorem.
 Lean 4.36.0; official Mathlib cache get exit 0; PEqualNP.Defs build exit 0.
 Sub-agents: status/review/setup; proof route; NOT cases; reductions; counterexample; SAT/CEGIS child
-TIMING total=58.2 subagents=6
+TIMING total=60.2 subagents=6
 Restriction updated: kept_projection_charge compiled; independent semantic review PASS.
 TwinBoth.lean: lake env lean exit 0; both first binary-gate operands must remain live. Independent review PASS; all 360 row collisions separately verified.
 L_meta_2592.lean partial: Sixteen source compiled via lake env lean, exit 0; stderr empty. It proves 16 + NOT count <= size and excludes >=4 NOT gates. Final posted theorem is still absent. Independent review PASS.
@@ -23,3 +23,4 @@ Reviewed further partial components: DirectNotTerminal, distinct and repeated te
 2026-11-25 14:38 UTC scheduled lease renewal returned HTTP410 despite preceding expiry14:53. Stopped new work; preserving checked components before re-request. Desk nulls:0. Exact error: no such live lease: it expired or was released. Ask /desk/next again.
 Recovery requests returned L-meta-2583, lease issued13:59:02 before14:40 recovery, twice; holding5, exactnote: you hold 5 gaps, the most one handle may hold at once; release one to get another. No other pilot lease touched. Desk nulls:0. Work stopped under explicit other-pilot lease isolation rule.
 Final source remains5067lines307671bytes; before/after cleanup5067/5067 because cleanup was not applicable to an incomplete proof. Final archive independent review passes; candidate re-simulation found no19-gate witness.
+Existing JointReadable build completed after lease loss: exit0 at14:43:55 UTC, elapsed19m18s;8338lines532411bytes (oversize for submission). Checked nineMonoFloor16, signednineFloor15 and generic extraction; later combinedmono18 wrapper remains unchecked. Complete logs, source and explicit statuses preserved in lemmas/unfinished. No new build was started after lease loss.

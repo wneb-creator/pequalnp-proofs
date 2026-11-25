@@ -1,0 +1,3295 @@
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:112:52: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.false_and, Bool.and_true, Bool.and_false,
+    Bool.false_or, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:112:66: warning: This simp argument is unused:
+  Bool.false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.and_true, Bool.and_false,
+    Bool.false_or, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:112:110: warning: This simp argument is unused:
+  Bool.false_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.false_and, Bool.and_true,
+    Bool.and_false, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:113:21: warning: This simp argument is unused:
+  Bool.true_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.false_and, Bool.and_true,
+    Bool.and_false, Bool.false_or, Bool.or_false, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:114:53: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hy, bit_neg, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:114:56: warning: This simp argument is unused:
+  hy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, bit_neg, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:114:59: warning: This simp argument is unused:
+  bit_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:114:67: warning: This simp argument is unused:
+  bit_prime
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, bit_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:420:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:420:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:421:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:421:28: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:574:5: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [eqv]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:604:55: warning: This simp argument is unused:
+  er
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:799:46: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:935:5: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [column, ite_true, BitVec.getLsbD_and, BitVec.getLsbD_not, i.isLt, decide_true, (correct.2 a i).1,
+    (correct.2 a i).2, hp, hn, Bool.not_false, Bool.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:1285:21: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:1287:21: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:1285:14: warning: This simp argument is unused:
+  QbF
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, if_true, Bool.and_eq_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:1287:14: warning: This simp argument is unused:
+  QbF
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, if_false, Bool.and_eq_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:1314:18: warning: Variable name `raw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _raw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:1457:13: warning: This simp argument is unused:
+  List.length_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:1680:9: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:1904:64: warning: This simp argument is unused:
+  BitVec.getLsbD_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Qdk, hp, hq, BitVec.getLsbD_allOnes, i.isLt, decide_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:1915:11: warning: `List.Sublist.cons₂` has been deprecated: Use `List.Sublist.cons_cons` instead
+
+Hint: Replace the deprecated name:
+  List.Sublist.cons₂̵_̲c̲o̲n̲s̲
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:1936:24: warning: Variable name `data` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _data
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:1938:5: warning: Variable name `width` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _width
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2034:6: warning: Variable name `num` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _num
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2034:16: warning: Variable name `cw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _cw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2034:19: warning: Variable name `iw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _iw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2034:22: warning: Variable name `pw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _pw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2034:25: warning: Variable name `offw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _offw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2034:30: warning: Variable name `lw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _lw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2034:33: warning: Variable name `data` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _data
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2058:69: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2087:14: warning: This simp argument is unused:
+  Nat.add_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [block, Bool.and_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2222:16: warning: This simp argument is unused:
+  ge
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_false, di, List.getElem_cons_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2222:19: warning: This simp argument is unused:
+  ite_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ge, di, List.getElem_cons_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2222:29: warning: This simp argument is unused:
+  di
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ge, ite_false, List.getElem_cons_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2307:42: warning: This simp argument is unused:
+  List.getElem?_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Qeu, Qet, List.getD_eq_getElem?_getD, List.getElem?_range, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2307:60: warning: This simp argument is unused:
+  List.getElem?_range
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Qeu, Qet, List.getD_eq_getElem?_getD, List.getElem?_map, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2353:28: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2492:25: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2528:21: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2528:31: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2534:16: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2528:21: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2528:31: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2534:16: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2531:12: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2536:12: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2568:90: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2568:100: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2568:90: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2568:100: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2568:90: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2568:100: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2568:90: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2568:100: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2616:28: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2788:24: warning: Variable name `data` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _data
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2799:3: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2852:7: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2863:14: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2863:27: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2842:53: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2842:53: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2910:6: warning: Variable name `num` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _num
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2910:16: warning: Variable name `cw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _cw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2910:19: warning: Variable name `iw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _iw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2910:22: warning: Variable name `pw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _pw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2910:25: warning: Variable name `offw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _offw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2910:30: warning: Variable name `lw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _lw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2910:33: warning: Variable name `data` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _data
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2934:23: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2944:48: error: unexpected token '→'; expected term
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2962:18: error: unexpected token ')'; expected term
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2976:26: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  c - e ≥ 1
+  c + d - e ≥ 1
+where
+ c := ↑a
+ d := ↑b
+ e := ↑j
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2977:26: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  e ≥ 0
+  d ≥ 0
+  c ≥ 0
+  c - e ≤ 0
+  c + d - e ≥ 1
+where
+ c := ↑a
+ d := ↑b
+ e := ↑j
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2988:27: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  b ≥ 0
+  a ≥ 0
+  a - b ≤ -1
+where
+ a := ↑num
+ b := ↑ar
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2995:7: error(lean.unknownIdentifier): Unknown identifier `Qfv`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:2996:7: error: No goals to be solved
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3150:22: error: Application type mismatch: The argument
+  owns v p n
+has type
+  Prop
+of sort `Type` but is expected to have type
+  Type ?u.44
+of sort `Type (?u.44 + 1)` in the application
+  OrderHom (owns v p n)
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3150:34: error: Function expected at
+  wns
+but this term has type
+  ?m.15
+
+Note: Expected a function because this term is being applied to the argument
+  w
+
+Hint: The identifier `wns` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3151:38: error: Application type mismatch: The argument
+  owns v p' n
+has type
+  Prop
+of sort `Type` but is expected to have type
+  Type ?u.60
+of sort `Type (?u.60 + 1)` in the application
+  OrderHom (owns v p' n)
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3151:51: error: Function expected at
+  wns
+but this term has type
+  ?m.25
+
+Note: Expected a function because this term is being applied to the argument
+  v
+
+Hint: The identifier `wns` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3156:28: error: Tactic `subst` failed: invalid equality proof, it is not of the form (x = t) or (t = x)
+  ℕ
+
+T : Sig
+v : Prop
+w : v
+p n : Sig
+val✝ : ℕ
+isLt✝ : val✝ < 512
+⊢ {n : Row} → sorry
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3157:29: error(nested.lean.propRecLargeElim): Tactic `cases` failed with a nested error:
+Tactic `induction` failed: recursor `Nat.le.casesOn` can only eliminate into `Prop`
+
+T : Sig
+v : Prop
+p : v
+n : Sig
+p' n' : Row
+e : ℕ
+isLt✝¹ : e < 512
+a✝ : ℕ
+isLt✝ : e.succ.le a✝
+⊢ 512 = a✝ → isLt✝¹ ≍ isLt✝ → {n' : Row} → n = T ∧ bit p' T = true ∧ bit n' T = false → sorry
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3209:11: error(lean.unknownIdentifier): Unknown identifier `ve.trans`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3196:1: error: unsolved goals
+case refine_3.succ.zero.succ.zero
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : KWRooms (insert (bin d a b) U) T
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+w : v
+p n : Sig
+isLt✝¹ isLt✝ : 0 + 1 < 512
+⊢ sorry
+
+case refine_3.succ.zero.succ.succ
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : KWRooms (insert (bin d a b) U) T
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+w : v
+p n : Sig
+isLt✝¹ : 0 + 1 < 512
+n✝ : ℕ
+isLt✝ : n✝ + 1 + 1 < 512
+⊢ sorry
+
+case refine_3.succ.succ.zero
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : KWRooms (insert (bin d a b) U) T
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+w : v
+p n : Sig
+n✝ : ℕ
+isLt✝¹ : n✝ + 1 + 1 < 512
+isLt✝ : 0 < 512
+⊢ sorry
+
+case refine_3.succ.succ.succ.zero
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : KWRooms (insert (bin d a b) U) T
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+w : v
+p n : Sig
+n✝ : ℕ
+isLt✝¹ : n✝ + 1 + 1 < 512
+isLt✝ : 0 + 1 < 512
+⊢ sorry
+
+case refine_3.succ.succ.succ.succ
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : KWRooms (insert (bin d a b) U) T
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+w : v
+p n : Sig
+n✝¹ : ℕ
+isLt✝¹ : n✝¹ + 1 + 1 < 512
+n✝ : ℕ
+isLt✝ : n✝ + 1 + 1 < 512
+⊢ sorry
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3212:18: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3213:34: error: Application type mismatch: The argument
+  n
+has type
+  Sig
+but is expected to have type
+  Row
+in the application
+  outside p' n
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3213:37: error(lean.unknownIdentifier): Unknown identifier `we`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3214:31: error: Application type mismatch: The argument
+  p
+has type
+  v
+of sort `Prop` but is expected to have type
+  Row
+of sort `Type` in the application
+  outside p
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3214:37: error(lean.unknownIdentifier): Unknown identifier `ve`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3215:19: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3210:1: error: unsolved goals
+case refine_4.succ.zero.succ.zero
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : KWRooms (insert (bin d a b) U) T
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+p : v
+n : Sig
+p' n' : Row
+isLt✝¹ isLt✝ : 0 + 1 < 512
+⊢ n ∈ U ∧ H.owns n p' ⟨0 + 1, isLt✝⟩ ∨ n = sel p' ⟨0 + 1, isLt✝⟩ ∧ H.owns z p' ⟨0 + 1, isLt✝⟩ → sorry
+
+case refine_4.succ.zero.succ.succ
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : KWRooms (insert (bin d a b) U) T
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+p : v
+n : Sig
+p' n' : Row
+isLt✝¹ : 0 + 1 < 512
+n✝ : ℕ
+isLt✝ : n✝ + 1 + 1 < 512
+⊢ n ∈ U ∧ H.owns n p' ⟨n✝ + 1 + 1, isLt✝⟩ ∨ n = sel p' ⟨n✝ + 1 + 1, isLt✝⟩ ∧ H.owns z p' ⟨n✝ + 1 + 1, isLt✝⟩ → sorry
+
+case refine_4.succ.succ.zero
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : KWRooms (insert (bin d a b) U) T
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+p : v
+n : Sig
+p' n' : Row
+n✝ : ℕ
+isLt✝¹ : n✝ + 1 + 1 < 512
+isLt✝ : 0 < 512
+⊢ n ∈ U ∧ H.owns n p' ⟨0, isLt✝⟩ ∨ n = sel p' ⟨0, isLt✝⟩ ∧ H.owns z p' ⟨0, isLt✝⟩ → sorry
+
+case refine_4.succ.succ.succ.zero
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : KWRooms (insert (bin d a b) U) T
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+p : v
+n : Sig
+p' n' : Row
+n✝ : ℕ
+isLt✝¹ : n✝ + 1 + 1 < 512
+isLt✝ : 0 + 1 < 512
+⊢ n ∈ U ∧ H.owns n p' ⟨0 + 1, isLt✝⟩ ∨ n = sel p' ⟨0 + 1, isLt✝⟩ ∧ H.owns z p' ⟨0 + 1, isLt✝⟩ → sorry
+
+case refine_4.succ.succ.succ.succ
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : KWRooms (insert (bin d a b) U) T
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+p : v
+n : Sig
+p' n' : Row
+n✝¹ : ℕ
+isLt✝¹ : n✝¹ + 1 + 1 < 512
+n✝ : ℕ
+isLt✝ : n✝ + 1 + 1 < 512
+⊢ n ∈ U ∧ H.owns n p' ⟨n✝ + 1 + 1, isLt✝⟩ ∨ n = sel p' ⟨n✝ + 1 + 1, isLt✝⟩ ∧ H.owns z p' ⟨n✝ + 1 + 1, isLt✝⟩ → sorry
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3253:62: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3253:62: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3261:8: warning: declaration uses `sorry`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3262:4: warning: Variable name `A` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _A
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3262:23: warning: Variable name `B` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _B
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3263:4: warning: Variable name `C` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _C
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3263:23: warning: Variable name `D` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _D
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3274:22: error: Application type mismatch: The argument
+  owns v p n
+has type
+  Prop
+of sort `Type` but is expected to have type
+  Type ?u.47
+of sort `Type (?u.47 + 1)` in the application
+  OrderHom (owns v p n)
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3274:34: error: Function expected at
+  wns
+but this term has type
+  ?m.17
+
+Note: Expected a function because this term is being applied to the argument
+  w
+
+Hint: The identifier `wns` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3275:38: error: Application type mismatch: The argument
+  owns v p' n
+has type
+  Prop
+of sort `Type` but is expected to have type
+  Type ?u.63
+of sort `Type (?u.63 + 1)` in the application
+  OrderHom (owns v p' n)
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3275:51: error: Function expected at
+  wns
+but this term has type
+  ?m.27
+
+Note: Expected a function because this term is being applied to the argument
+  v
+
+Hint: The identifier `wns` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3289:7: error: don't know how to synthesize implicit argument `p'`
+  @KWRooms.rect S T D (?m.54 D h) ⋯ v✝ p✝ (?m.56 D h) (?m.57 D h) n'✝
+context:
+S : Finset Sig
+T : Sig
+D : KWRooms S T
+h : Sig
+x✝ : Prop
+wns✝ : x✝
+v✝ : Sig
+p✝ n✝ p'✝ n'✝ : Row
+⊢ Row
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3289:7: error: don't know how to synthesize implicit argument `n`
+  @KWRooms.rect S T D (?m.54 D h) ⋯ v✝ p✝ (?m.56 D h) (?m.57 D h) n'✝
+context:
+S : Finset Sig
+T : Sig
+D : KWRooms S T
+h : Sig
+x✝ : Prop
+wns✝ : x✝
+v✝ : Sig
+p✝ n✝ p'✝ n'✝ : Row
+⊢ Row
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3289:7: error: don't know how to synthesize implicit argument `wns`
+  @KWRooms.rect S T D (?m.54 D h) ⋯ v✝ p✝ (?m.56 D h) (?m.57 D h) n'✝
+context:
+S : Finset Sig
+T : Sig
+D : KWRooms S T
+h : Sig
+x✝ : Prop
+wns✝ : x✝
+v✝ : Sig
+p✝ n✝ p'✝ n'✝ : Row
+⊢ ?m.54 D h
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3289:7: error: don't know how to synthesize implicit argument
+  @KWRooms.rect S T D (?m.54 D h) ⋯ v✝ p✝ (?m.56 D h) (?m.57 D h) n'✝
+context:
+S : Finset Sig
+T : Sig
+D : KWRooms S T
+h : Sig
+x✝ : Prop
+wns✝ : x✝
+v✝ : Sig
+p✝ n✝ p'✝ n'✝ : Row
+⊢ Prop
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3288:9: error: don't know how to synthesize implicit argument `n`
+  @KWRooms.unique S T D (?m.48 D h) ⋯ (?m.50 D h) (?m.51 D h) (?m.52 D h) (?m.53 D h)
+context:
+S : Finset Sig
+T : Sig
+D : KWRooms S T
+h : Sig
+x✝ : Prop
+wns✝ : x✝
+v✝ w✝ : Sig
+p✝ n✝ : Row
+⊢ Row
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3288:9: error: don't know how to synthesize implicit argument `p`
+  @KWRooms.unique S T D (?m.48 D h) ⋯ (?m.50 D h) (?m.51 D h) (?m.52 D h) (?m.53 D h)
+context:
+S : Finset Sig
+T : Sig
+D : KWRooms S T
+h : Sig
+x✝ : Prop
+wns✝ : x✝
+v✝ w✝ : Sig
+p✝ n✝ : Row
+⊢ Row
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3288:9: error: don't know how to synthesize implicit argument `w`
+  @KWRooms.unique S T D (?m.48 D h) ⋯ (?m.50 D h) (?m.51 D h) (?m.52 D h) (?m.53 D h)
+context:
+S : Finset Sig
+T : Sig
+D : KWRooms S T
+h : Sig
+x✝ : Prop
+wns✝ : x✝
+v✝ w✝ : Sig
+p✝ n✝ : Row
+⊢ Sig
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3288:9: error: don't know how to synthesize implicit argument `v`
+  @KWRooms.unique S T D (?m.48 D h) ⋯ (?m.50 D h) (?m.51 D h) (?m.52 D h) (?m.53 D h)
+context:
+S : Finset Sig
+T : Sig
+D : KWRooms S T
+h : Sig
+x✝ : Prop
+wns✝ : x✝
+v✝ w✝ : Sig
+p✝ n✝ : Row
+⊢ Sig
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3288:9: error: don't know how to synthesize implicit argument `wns`
+  @KWRooms.unique S T D (?m.48 D h) ⋯ (?m.50 D h) (?m.51 D h) (?m.52 D h) (?m.53 D h)
+context:
+S : Finset Sig
+T : Sig
+D : KWRooms S T
+h : Sig
+x✝ : Prop
+wns✝ : x✝
+v✝ w✝ : Sig
+p✝ n✝ : Row
+⊢ ?m.48 D h
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3288:9: error: don't know how to synthesize implicit argument
+  @KWRooms.unique S T D (?m.48 D h) ⋯ (?m.50 D h) (?m.51 D h) (?m.52 D h) (?m.53 D h)
+context:
+S : Finset Sig
+T : Sig
+D : KWRooms S T
+h : Sig
+x✝ : Prop
+wns✝ : x✝
+v✝ w✝ : Sig
+p✝ n✝ : Row
+⊢ Prop
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3290:4: warning: declaration uses `sorry`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3290:17: warning: Variable name `D` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _D
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3315:20: error(lean.invalidField): Invalid field notation: Type of
+  h
+is not known; cannot resolve field `elim`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `And.elim`
+  • `BEx.elim`
+  • `ContravariantClass.elim`
+  • `CovariantClass.elim`
+  • `Dvd.elim`
+  • `Empty.elim`
+  • `Exists.elim`
+  • `ExistsUnique.elim`
+  • `Fact.elim`
+  • `False.elim`
+  • `HEq.elim`
+  • `Iff.elim`
+  • `IsEmpty.elim`
+  • `IsExtrOn.elim`
+  • `IsLocalExtr.elim`
+  • `IsLocalExtrOn.elim`
+  • `Nonempty.elim`
+  • `Not.elim`
+  • `Option.elim`
+  • `Or.elim`
+  • `PEmpty.elim`
+  • `PSigma.elim`
+  • `Subsingleton.elim`
+  • `Sum.elim`
+  • `WType.elim`
+  • `Aesop.Goal.elim`
+  • `Aesop.MVarCluster.elim`
+  • `Aesop.Rapp.elim`
+  • `BinaryTree.nil.elim`
+  • `BinaryTree.node.elim`
+  • `Bool.false.elim`
+  • `Bool.true.elim`
+  • `DoResultBC.break.elim`
+  • `DoResultBC.continue.elim`
+  • `DoResultPR.pure.elim`
+  • `DoResultPR.return.elim`
+  • `DoResultPRBC.break.elim`
+  • `DoResultPRBC.continue.elim`
+  • `DoResultPRBC.pure.elim`
+  • `DoResultPRBC.return.elim`
+  • `DoResultSBC.break.elim`
+  • `DoResultSBC.continue.elim`
+  • `DoResultSBC.pureReturn.elim`
+  • `Dyadic.ofOdd.elim`
+  • `Dyadic.zero.elim`
+  • `Except.error.elim`
+  • `Except.ok.elim`
+  • `ForInStep.done.elim`
+  • `ForInStep.yield.elim`
+  • `Int.NonNeg.elim`
+  • `Int.le.elim`
+  • `Int.lt.elim`
+  • `Int.negSucc.elim`
+  • `Int.ofNat.elim`
+  • `List.Vector.elim`
+  • `List.cons.elim`
+  • `List.nil.elim`
+  • `Nat.sub.elim`
+  • `Nat.succ.elim`
+  • `Nat.zero.elim`
+  • `Num.pos.elim`
+  • `Num.zero.elim`
+  • `NzsNum.bit.elim`
+  • `NzsNum.msb.elim`
+  • `Option.none.elim`
+  • `Option.some.elim`
+  • `Ordering.eq.elim`
+  • `Ordering.gt.elim`
+  • `Ordering.lt.elim`
+  • `PSum.inl.elim`
+  • `PSum.inr.elim`
+  • `PosNum.bit0.elim`
+  • `PosNum.bit1.elim`
+  • `PosNum.one.elim`
+  • `SNum.nz.elim`
+  • `SNum.zero.elim`
+  • `Set.MemUnion.elim`
+  • `Set.PairwiseDisjoint.elim`
+  • `Std.MaxEqOr.elim`
+  • `Std.MinEqOr.elim`
+  • `Sum.inl.elim`
+  • `Sum.inr.elim`
+  • `Symbol.nonterminal.elim`
+  • `Symbol.terminal.elim`
+  • `ZNum.neg.elim`
+  • `ZNum.pos.elim`
+  • `ZNum.zero.elim`
+  • `Aesop.BaseRuleSetMember.normForwardRule.elim`
+  • `Aesop.BaseRuleSetMember.normRule.elim`
+  • `Aesop.BaseRuleSetMember.safeForwardRule.elim`
+  • `Aesop.BaseRuleSetMember.safeRule.elim`
+  • `Aesop.BaseRuleSetMember.unfoldRule.elim`
+  • `Aesop.BaseRuleSetMember.unsafeForwardRule.elim`
+  • `Aesop.BaseRuleSetMember.unsafeRule.elim`
+  • `Aesop.BuilderName.apply.elim`
+  • `Aesop.BuilderName.cases.elim`
+  • `Aesop.BuilderName.constructors.elim`
+  • `Aesop.BuilderName.destruct.elim`
+  • `Aesop.BuilderName.forward.elim`
+  • `Aesop.BuilderName.simp.elim`
+  • `Aesop.BuilderName.tactic.elim`
+  • `Aesop.BuilderName.unfold.elim`
+  • `Aesop.CasesTarget.decl.elim`
+  • `Aesop.CasesTarget.patterns.elim`
+  • `Aesop.CasesTarget'.decl.elim`
+  • `Aesop.CasesTarget'.patterns.elim`
+  • `Aesop.DisplayRuleName.normSimp.elim`
+  • `Aesop.DisplayRuleName.normUnfold.elim`
+  • `Aesop.DisplayRuleName.ruleName.elim`
+  • `Aesop.ElabRuleTerm.const.elim`
+  • `Aesop.ElabRuleTerm.term.elim`
+  • `Aesop.ForwardRulePriority.normSafe.elim`
+  • `Aesop.ForwardRulePriority.unsafe.elim`
+  • `Aesop.GlobalRuleSetMember.base.elim`
+  • `Aesop.GlobalRuleSetMember.normSimpRule.elim`
+  • `Aesop.GoalKind.postNorm.elim`
+  • `Aesop.GoalKind.preNorm.elim`
+  • `Aesop.GoalOrigin.copied.elim`
+  • `Aesop.GoalOrigin.droppedMVar.elim`
+  • `Aesop.GoalOrigin.subgoal.elim`
+  • `Aesop.GoalState.provenByNormalization.elim`
+  • `Aesop.GoalState.provenByRuleApplication.elim`
+  • `Aesop.GoalState.unknown.elim`
+  • `Aesop.GoalState.unprovable.elim`
+  • `Aesop.IndexMatchLocation.hyp.elim`
+  • `Aesop.IndexMatchLocation.none.elim`
+  • `Aesop.IndexMatchLocation.target.elim`
+  • `Aesop.IndexingMode.hyps.elim`
+  • `Aesop.IndexingMode.or.elim`
+  • `Aesop.IndexingMode.target.elim`
+  • `Aesop.IndexingMode.unindexed.elim`
+  • `Aesop.LocalRuleSetMember.global.elim`
+  • `Aesop.LocalRuleSetMember.localNormSimpRule.elim`
+  • `Aesop.NodeState.proven.elim`
+  • `Aesop.NodeState.unknown.elim`
+  • `Aesop.NodeState.unprovable.elim`
+  • `Aesop.NormRuleResult.proved.elim`
+  • `Aesop.NormRuleResult.succeeded.elim`
+  • `Aesop.NormSeqResult.changed.elim`
+  • `Aesop.NormSeqResult.proved.elim`
+  • `Aesop.NormSeqResult.unchanged.elim`
+  • `Aesop.NormalizationState.normal.elim`
+  • `Aesop.NormalizationState.notNormal.elim`
+  • `Aesop.NormalizationState.provenByNormalization.elim`
+  • `Aesop.PatSubstSource.hyp.elim`
+  • `Aesop.PatSubstSource.target.elim`
+  • `Aesop.PhaseName.norm.elim`
+  • `Aesop.PhaseName.safe.elim`
+  • `Aesop.PhaseName.unsafe.elim`
+  • `Aesop.PhaseSpec.norm.elim`
+  • `Aesop.PhaseSpec.safe.elim`
+  • `Aesop.PhaseSpec.unsafe.elim`
+  • `Aesop.RawHyp.fvarId.elim`
+  • `Aesop.RawHyp.patSubst.elim`
+  • `Aesop.RegularRule.safe.elim`
+  • `Aesop.RegularRule.unsafe.elim`
+  • `Aesop.RuleResult.failed.elim`
+  • `Aesop.RuleResult.proved.elim`
+  • `Aesop.RuleResult.succeeded.elim`
+  • `Aesop.RuleTacDescr.apply.elim`
+  • `Aesop.RuleTacDescr.cases.elim`
+  • `Aesop.RuleTacDescr.constructors.elim`
+  • `Aesop.RuleTacDescr.forward.elim`
+  • `Aesop.RuleTacDescr.forwardMatches.elim`
+  • `Aesop.RuleTacDescr.preprocess.elim`
+  • `Aesop.RuleTacDescr.ruleTac.elim`
+  • `Aesop.RuleTacDescr.singleRuleTac.elim`
+  • `Aesop.RuleTacDescr.tacGen.elim`
+  • `Aesop.RuleTacDescr.tacticM.elim`
+  • `Aesop.RuleTacDescr.tacticStx.elim`
+  • `Aesop.RuleTerm.const.elim`
+  • `Aesop.RuleTerm.term.elim`
+  • `Aesop.SafeRuleResult.postponed.elim`
+  • `Aesop.SafeRuleResult.regular.elim`
+  • `Aesop.SafeRulesResult.failed.elim`
+  • `Aesop.SafeRulesResult.proved.elim`
+  • `Aesop.SafeRulesResult.skipped.elim`
+  • `Aesop.SafeRulesResult.succeeded.elim`
+  • `Aesop.Safety.almostSafe.elim`
+  • `Aesop.Safety.safe.elim`
+  • `Aesop.ScopeName.global.elim`
+  • `Aesop.ScopeName.local.elim`
+  • `Aesop.SimpResult.simplified.elim`
+  • `Aesop.SimpResult.solved.elim`
+  • `Aesop.SimpResult.unchanged.elim`
+  • `Aesop.Strategy.bestFirst.elim`
+  • `Aesop.Strategy.breadthFirst.elim`
+  • `Aesop.Strategy.depthFirst.elim`
+  • `Aesop.TreeRef.goal.elim`
+  • `Aesop.TreeRef.mvarCluster.elim`
+  • `Aesop.TreeRef.rapp.elim`
+  • `Aesop.UnsafeQueueEntry.postponedSafeRule.elim`
+  • `Aesop.UnsafeQueueEntry.unsafeRule.elim`
+  • `Computability.Γ'.bit.elim`
+  • `Computability.Γ'.blank.elim`
+  • `Computability.Γ'.bra.elim`
+  • `Computability.Γ'.comma.elim`
+  • `Computability.Γ'.ket.elim`
+  • `EST.Out.error.elim`
+  • `EST.Out.ok.elim`
+  • `EStateM.Result.error.elim`
+  • `EStateM.Result.ok.elim`
+  • `ExistsAndEq.GoTo.andLeft.elim`
+  • `ExistsAndEq.GoTo.andRight.elim`
+  • `ExistsAndEq.GoTo.existsBody.elim`
+  • `ExistsAndEq.GoTo.existsType.elim`
+  • `FreeAlgebra.Pre.add.elim`
+  • `FreeAlgebra.Pre.mul.elim`
+  • `FreeAlgebra.Pre.of.elim`
+  • `FreeAlgebra.Pre.ofScalar.elim`
+  • `IO.Error.alreadyExists.elim`
+  • `IO.Error.hardwareFault.elim`
+  • `IO.Error.illegalOperation.elim`
+  • `IO.Error.inappropriateType.elim`
+  • `IO.Error.interrupted.elim`
+  • `IO.Error.invalidArgument.elim`
+  • `IO.Error.noFileOrDirectory.elim`
+  • `IO.Error.noSuchThing.elim`
+  • `IO.Error.otherError.elim`
+  • `IO.Error.permissionDenied.elim`
+  • `IO.Error.protocolError.elim`
+  • `IO.Error.resourceBusy.elim`
+  • `IO.Error.resourceExhausted.elim`
+  • `IO.Error.resourceVanished.elim`
+  • `IO.Error.timeExpired.elim`
+  • `IO.Error.unexpectedEof.elim`
+  • `IO.Error.unsatisfiedConstraints.elim`
+  • `IO.Error.unsupportedOperation.elim`
+  • `IO.Error.userError.elim`
+  • `IO.TaskState.finished.elim`
+  • `IO.TaskState.running.elim`
+  • `IO.TaskState.waiting.elim`
+  • `Lake.ComparatorOp.eq.elim`
+  • `Lake.ComparatorOp.ge.elim`
+  • `Lake.ComparatorOp.gt.elim`
+  • `Lake.ComparatorOp.le.elim`
+  • `Lake.ComparatorOp.lt.elim`
+  • `Lake.ComparatorOp.ne.elim`
+  • `Lake.Glob.andSubmodules.elim`
+  • `Lake.Glob.one.elim`
+  • `Lake.Glob.submodules.elim`
+  • `Lake.ToolchainVer.nightly.elim`
+  • `Lake.ToolchainVer.other.elim`
+  • `Lake.ToolchainVer.pr.elim`
+  • `Lake.ToolchainVer.release.elim`
+  • `Lean.AssocList.cons.elim`
+  • `Lean.AssocList.nil.elim`
+  • `Lean.AsyncBranch.asyncEnv.elim`
+  • `Lean.AsyncBranch.mainEnv.elim`
+  • `Lean.AsyncList.cons.elim`
+  • `Lean.AsyncList.delayed.elim`
+  • `Lean.AsyncList.nil.elim`
+  • `Lean.AttributeApplicationTime.afterCompilation.elim`
+  • `Lean.AttributeApplicationTime.afterTypeChecking.elim`
+  • `Lean.AttributeApplicationTime.beforeElaboration.elim`
+  • `Lean.AttributeKind.global.elim`
+  • `Lean.AttributeKind.local.elim`
+  • `Lean.AttributeKind.scoped.elim`
+  • `Lean.BinderInfo.default.elim`
+  • `Lean.BinderInfo.implicit.elim`
+  • `Lean.BinderInfo.instImplicit.elim`
+  • `Lean.BinderInfo.strictImplicit.elim`
+  • `Lean.CasesAltInfo.ctor.elim`
+  • `Lean.CasesAltInfo.default.elim`
+  • `Lean.ConstantInfo.axiomInfo.elim`
+  • `Lean.ConstantInfo.ctorInfo.elim`
+  • `Lean.ConstantInfo.defnInfo.elim`
+  • `Lean.ConstantInfo.inductInfo.elim`
+  • `Lean.ConstantInfo.opaqueInfo.elim`
+  • `Lean.ConstantInfo.quotInfo.elim`
+  • `Lean.ConstantInfo.recInfo.elim`
+  • `Lean.ConstantInfo.thmInfo.elim`
+  • `Lean.ConstantKind.axiom.elim`
+  • `Lean.ConstantKind.ctor.elim`
+  • `Lean.ConstantKind.defn.elim`
+  • `Lean.ConstantKind.induct.elim`
+  • `Lean.ConstantKind.opaque.elim`
+  • `Lean.ConstantKind.quot.elim`
+  • `Lean.ConstantKind.recursor.elim`
+  • `Lean.ConstantKind.thm.elim`
+  • `Lean.DataValue.ofBool.elim`
+  • `Lean.DataValue.ofInt.elim`
+  • `Lean.DataValue.ofName.elim`
+  • `Lean.DataValue.ofNat.elim`
+  • `Lean.DataValue.ofString.elim`
+  • `Lean.DataValue.ofSyntax.elim`
+  • `Lean.Declaration.axiomDecl.elim`
+  • `Lean.Declaration.defnDecl.elim`
+  • `Lean.Declaration.inductDecl.elim`
+  • `Lean.Declaration.mutualDefnDecl.elim`
+  • `Lean.Declaration.opaqueDecl.elim`
+  • `Lean.Declaration.quotDecl.elim`
+  • `Lean.Declaration.thmDecl.elim`
+  • `Lean.DefinitionSafety.partial.elim`
+  • `Lean.DefinitionSafety.safe.elim`
+  • `Lean.DefinitionSafety.unsafe.elim`
+  • `Lean.ElabBlock.custom.elim`
+  • `Lean.ElabBlock.deferred.elim`
+  • `Lean.ElabInline.custom.elim`
+  • `Lean.ElabInline.deferred.elim`
+  • `Lean.Exception.error.elim`
+  • `Lean.Exception.internal.elim`
+  • `Lean.Expr.app.elim`
+  • `Lean.Expr.bvar.elim`
+  • `Lean.Expr.const.elim`
+  • `Lean.Expr.forallE.elim`
+  • `Lean.Expr.fvar.elim`
+  • `Lean.Expr.lam.elim`
+  • `Lean.Expr.letE.elim`
+  • `Lean.Expr.lit.elim`
+  • `Lean.Expr.mdata.elim`
+  • `Lean.Expr.mvar.elim`
+  • `Lean.Expr.proj.elim`
+  • `Lean.Expr.sort.elim`
+  • `Lean.ExternEntry.adhoc.elim`
+  • `Lean.ExternEntry.inline.elim`
+  • `Lean.ExternEntry.opaque.elim`
+  • `Lean.ExternEntry.standard.elim`
+  • `Lean.HeadIndex.const.elim`
+  • `Lean.HeadIndex.forallE.elim`
+  • `Lean.HeadIndex.fvar.elim`
+  • `Lean.HeadIndex.lam.elim`
+  • `Lean.HeadIndex.lit.elim`
+  • `Lean.HeadIndex.mvar.elim`
+  • `Lean.HeadIndex.proj.elim`
+  • `Lean.HeadIndex.sort.elim`
+  • `Lean.Html.element.elim`
+  • `Lean.Html.raw.elim`
+  • `Lean.Html.seq.elim`
+  • `Lean.Html.text.elim`
+  • `Lean.IRPhases.all.elim`
+  • `Lean.IRPhases.comptime.elim`
+  • `Lean.IRPhases.runtime.elim`
+  • `Lean.Json.arr.elim`
+  • `Lean.Json.bool.elim`
+  • `Lean.Json.null.elim`
+  • `Lean.Json.num.elim`
+  • `Lean.Json.obj.elim`
+  • `Lean.Json.str.elim`
+  • `Lean.LBool.false.elim`
+  • `Lean.LBool.true.elim`
+  • `Lean.LBool.undef.elim`
+  • `Lean.LOption.none.elim`
+  • `Lean.LOption.some.elim`
+  • `Lean.LOption.undef.elim`
+  • `Lean.LeanOptionValue.ofBool.elim`
+  • `Lean.LeanOptionValue.ofNat.elim`
+  • `Lean.LeanOptionValue.ofString.elim`
+  • `Lean.Level.imax.elim`
+  • `Lean.Level.max.elim`
+  • `Lean.Level.mvar.elim`
+  • `Lean.Level.param.elim`
+  • `Lean.Level.succ.elim`
+  • `Lean.Level.zero.elim`
+  • `Lean.Literal.natVal.elim`
+  • `Lean.Literal.strVal.elim`
+  • `Lean.LocalDecl.cdecl.elim`
+  • `Lean.LocalDecl.ldecl.elim`
+  • `Lean.LocalDeclKind.auxDecl.elim`
+  • `Lean.LocalDeclKind.default.elim`
+  • `Lean.LocalDeclKind.implDetail.elim`
+  • `Lean.MessageData.compose.elim`
+  • `Lean.MessageData.group.elim`
+  • `Lean.MessageData.nest.elim`
+  • `Lean.MessageData.ofFormatWithInfos.elim`
+  • `Lean.MessageData.ofGoal.elim`
+  • `Lean.MessageData.ofLazy.elim`
+  • `Lean.MessageData.ofOriginatingSyntax.elim`
+  • `Lean.MessageData.ofWidget.elim`
+  • `Lean.MessageData.tagged.elim`
+  • `Lean.MessageData.trace.elim`
+  • `Lean.MessageData.withContext.elim`
+  • `Lean.MessageData.withNamingContext.elim`
+  • `Lean.MessageSeverity.error.elim`
+  • `Lean.MessageSeverity.information.elim`
+  • `Lean.MessageSeverity.warning.elim`
+  • `Lean.Meta.ElimEmptyInductive.elim`
+  • `Lean.Meta.FastSubsingleton.elim`
+  • `Lean.MetavarKind.natural.elim`
+  • `Lean.MetavarKind.synthetic.elim`
+  • `Lean.MetavarKind.syntheticOpaque.elim`
+  • `Lean.Name.anonymous.elim`
+  • `Lean.Name.num.elim`
+  • `Lean.Name.str.elim`
+  • `Lean.NamePart.num.elim`
+  • `Lean.NamePart.str.elim`
+  • `Lean.NoConfusionInfo.perCtor.elim`
+  • `Lean.NoConfusionInfo.regular.elim`
+  • `Lean.OLeanLevel.exported.elim`
+  • `Lean.OLeanLevel.private.elim`
+  • `Lean.OLeanLevel.server.elim`
+  • `Lean.OpenDecl.explicit.elim`
+  • `Lean.OpenDecl.simple.elim`
+  • `Lean.ParserDescr.binary.elim`
+  • `Lean.ParserDescr.cat.elim`
+  • `Lean.ParserDescr.const.elim`
+  • `Lean.ParserDescr.node.elim`
+  • `Lean.ParserDescr.nodeWithAntiquot.elim`
+  • `Lean.ParserDescr.nonReservedSymbol.elim`
+  • `Lean.ParserDescr.parser.elim`
+  • `Lean.ParserDescr.sepBy.elim`
+  • `Lean.ParserDescr.sepBy1.elim`
+  • `Lean.ParserDescr.symbol.elim`
+  • `Lean.ParserDescr.trailingNode.elim`
+  • `Lean.ParserDescr.unary.elim`
+  • `Lean.ParserDescr.unicodeSymbol.elim`
+  • `Lean.PersistentArrayNode.leaf.elim`
+  • `Lean.PersistentArrayNode.node.elim`
+  • `Lean.QuotKind.ctor.elim`
+  • `Lean.QuotKind.ind.elim`
+  • `Lean.QuotKind.lift.elim`
+  • `Lean.QuotKind.type.elim`
+  • `Lean.RArray.branch.elim`
+  • `Lean.RArray.leaf.elim`
+  • `Lean.ReducibilityHints.abbrev.elim`
+  • `Lean.ReducibilityHints.opaque.elim`
+  • `Lean.ReducibilityHints.regular.elim`
+  • `Lean.ReducibilityStatus.implicitReducible.elim`
+  • `Lean.ReducibilityStatus.instanceReducible.elim`
+  • `Lean.ReducibilityStatus.irreducible.elim`
+  • `Lean.ReducibilityStatus.reducible.elim`
+  • `Lean.ReducibilityStatus.semireducible.elim`
+  • `Lean.SourceInfo.none.elim`
+  • `Lean.SourceInfo.original.elim`
+  • `Lean.SourceInfo.synthetic.elim`
+  • `Lean.Syntax.atom.elim`
+  • `Lean.Syntax.ident.elim`
+  • `Lean.Syntax.missing.elim`
+  • `Lean.Syntax.node.elim`
+  • `Lean.TraceResult.error.elim`
+  • `Lean.TraceResult.failure.elim`
+  • `Lean.TraceResult.success.elim`
+  • `Lean.TransformStep.continue.elim`
+  • `Lean.TransformStep.done.elim`
+  • `Lean.TransformStep.visit.elim`
+  • `Lean.VersoDocstringMarkup.document.elim`
+  • `Lean.VersoDocstringMarkup.parseFailure.elim`
+  • `LeanSearchClient.LoogleResult.empty.elim`
+  • `LeanSearchClient.LoogleResult.failure.elim`
+  • `LeanSearchClient.LoogleResult.success.elim`
+  • `Mathlib.Ineq.eq.elim`
+  • `Mathlib.Ineq.le.elim`
+  • `Mathlib.Ineq.lt.elim`
+  • `Plausible.TestResult.failure.elim`
+  • `Plausible.TestResult.gaveUp.elim`
+  • `Plausible.TestResult.success.elim`
+  • `ProofWidgets.CheckRequestResponse.done.elim`
+  • `ProofWidgets.CheckRequestResponse.running.elim`
+  • `ProofWidgets.Html.component.elim`
+  • `ProofWidgets.Html.element.elim`
+  • `ProofWidgets.Html.text.elim`
+  • `ProofWidgets.LayoutKind.block.elim`
+  • `ProofWidgets.LayoutKind.inline.elim`
+  • `Qq.MaybeDefEq.defEq.elim`
+  • `Qq.MaybeDefEq.notDefEq.elim`
+  • `Qq.MaybeLevelDefEq.defEq.elim`
+  • `Qq.MaybeLevelDefEq.notDefEq.elim`
+  • `SimpleGraph.Walk.cons.elim`
+  • `SimpleGraph.Walk.nil.elim`
+  • `Simps.ProjectionRule.add.elim`
+  • `Simps.ProjectionRule.erase.elim`
+  • `Simps.ProjectionRule.prefix.elim`
+  • `Simps.ProjectionRule.rename.elim`
+  • `Std.Format.align.elim`
+  • `Std.Format.append.elim`
+  • `Std.Format.group.elim`
+  • `Std.Format.line.elim`
+  • `Std.Format.nest.elim`
+  • `Std.Format.nil.elim`
+  • `Std.Format.tag.elim`
+  • `Std.Format.text.elim`
+  • `Std.IterStep.done.elim`
+  • `Std.IterStep.skip.elim`
+  • `Std.IterStep.yield.elim`
+  • `Turing.Dir.left.elim`
+  • `Turing.Dir.right.elim`
+  • `Aesop.EqualUpToIds.MVarValue.delayedAssignment.elim`
+  • `Aesop.EqualUpToIds.MVarValue.expr.elim`
+  • `Aesop.EqualUpToIds.MVarValue.mvarId.elim`
+  • `Aesop.Frontend.BuilderOption.casesPatterns.elim`
+  • `Aesop.Frontend.BuilderOption.immediate.elim`
+  • `Aesop.Frontend.BuilderOption.index.elim`
+  • `Aesop.Frontend.BuilderOption.pattern.elim`
+  • `Aesop.Frontend.BuilderOption.transparency.elim`
+  • `Aesop.Frontend.DBuilderName.default.elim`
+  • `Aesop.Frontend.DBuilderName.regular.elim`
+  • `Aesop.Frontend.Feature.builder.elim`
+  • `Aesop.Frontend.Feature.builderOption.elim`
+  • `Aesop.Frontend.Feature.phase.elim`
+  • `Aesop.Frontend.Feature.priority.elim`
+  • `Aesop.Frontend.Feature.ruleSets.elim`
+  • `Aesop.Frontend.Feature.term.elim`
+  • `Aesop.Frontend.Priority.int.elim`
+  • `Aesop.Frontend.Priority.percent.elim`
+  • `Aesop.Script.SScript.empty.elim`
+  • `Aesop.Script.SScript.focusAndSolve.elim`
+  • `Aesop.Script.SScript.onGoal.elim`
+  • `Aesop.Script.StepTree.empty.elim`
+  • `Aesop.Script.StepTree.node.elim`
+  • `Aesop.ScriptGenerated.Method.dynamic.elim`
+  • `Aesop.ScriptGenerated.Method.static.elim`
+  • `Batteries.Tactic.TransRelation.app.elim`
+  • `Batteries.Tactic.TransRelation.implies.elim`
+  • `ByteArray.utf8DecodeChar?.FirstByte.done.elim`
+  • `ByteArray.utf8DecodeChar?.FirstByte.invalid.elim`
+  • `ByteArray.utf8DecodeChar?.FirstByte.oneMore.elim`
+  • `ByteArray.utf8DecodeChar?.FirstByte.threeMore.elim`
+  • `ByteArray.utf8DecodeChar?.FirstByte.twoMore.elim`
+  • `Float.Model.UnpackedFloat.finite.elim`
+  • `Float.Model.UnpackedFloat.infinity.elim`
+  • `Float.Model.UnpackedFloat.notANumber.elim`
+  • `Float.Model.UnpackedFloat.zero.elim`
+  • `IO.FS.FileType.dir.elim`
+  • `IO.FS.FileType.file.elim`
+  • `IO.FS.FileType.other.elim`
+  • `IO.FS.FileType.symlink.elim`
+  • `IO.FS.Mode.append.elim`
+  • `IO.FS.Mode.read.elim`
+  • `IO.FS.Mode.readWrite.elim`
+  • `IO.FS.Mode.write.elim`
+  • `IO.FS.Mode.writeNew.elim`
+  • `IO.Process.Stdio.inherit.elim`
+  • `IO.Process.Stdio.null.elim`
+  • `IO.Process.Stdio.piped.elim`
+  • `ImportGraph.Shake.ComptimeDependency.indirect.elim`
+  • `ImportGraph.Shake.ComptimeDependency.stx.elim`
+  • `ImportGraph.Shake.ConstLocation.type.elim`
+  • `ImportGraph.Shake.ConstLocation.value.elim`
+  • `ImportGraph.Shake.DeclDeclNeedsKind.comptime.elim`
+  • `ImportGraph.Shake.DeclDeclNeedsKind.expr.elim`
+  • `ImportGraph.Shake.DeclDeclNeedsKind.metaIR.elim`
+  • `ImportGraph.Shake.DeclDeclNeedsKind.runtimeIR.elim`
+  • `ImportGraph.Widget.CopyDisplay.copiedText.elim`
+  • `ImportGraph.Widget.CopyDisplay.iconOnly.elim`
+  • `ImportGraph.Widget.CopyDisplay.text.elim`
+  • `ImportGraph.Widget.RelativeRangeLocation.end.elim`
+  • `ImportGraph.Widget.RelativeRangeLocation.start.elim`
+  • `ImportGraph.WorkspaceModel.Error.noLibOfModule.elim`
+  • `ImportGraph.WorkspaceModel.Error.readImportsFailure.elim`
+  • `Lean.CodeAction.FindTacticResult.tactic.elim`
+  • `Lean.CodeAction.FindTacticResult.tacticSeq.elim`
+  • `Lean.Compiler.InlineAttributeKind.alwaysInline.elim`
+  • `Lean.Compiler.InlineAttributeKind.inline.elim`
+  • `Lean.Compiler.InlineAttributeKind.inlineIfReduce.elim`
+  • `Lean.Compiler.InlineAttributeKind.macroInline.elim`
+  • `Lean.Compiler.InlineAttributeKind.noinline.elim`
+  • `Lean.Compiler.SpecializeAttributeKind.nospecialize.elim`
+  • `Lean.Compiler.SpecializeAttributeKind.specialize.elim`
+  • `Lean.Data.Trie.leaf.elim`
+  • `Lean.Data.Trie.node.elim`
+  • `Lean.Data.Trie.node1.elim`
+  • `Lean.Diff.Action.delete.elim`
+  • `Lean.Diff.Action.insert.elim`
+  • `Lean.Diff.Action.skip.elim`
+  • `Lean.Doc.ArgValView.name.elim`
+  • `Lean.Doc.ArgValView.num.elim`
+  • `Lean.Doc.ArgValView.str.elim`
+  • `Lean.Doc.ArgView.anon.elim`
+  • `Lean.Doc.ArgView.flag.elim`
+  • `Lean.Doc.ArgView.named.elim`
+  • `Lean.Doc.Block.blockquote.elim`
+  • `Lean.Doc.Block.code.elim`
+  • `Lean.Doc.Block.concat.elim`
+  • `Lean.Doc.Block.dl.elim`
+  • `Lean.Doc.Block.ol.elim`
+  • `Lean.Doc.Block.other.elim`
+  • `Lean.Doc.Block.para.elim`
+  • `Lean.Doc.Block.ul.elim`
+  • `Lean.Doc.BlockView.blockquote.elim`
+  • `Lean.Doc.BlockView.codeblock.elim`
+  • `Lean.Doc.BlockView.command.elim`
+  • `Lean.Doc.BlockView.directive.elim`
+  • `Lean.Doc.BlockView.dl.elim`
+  • `Lean.Doc.BlockView.footnoteRef.elim`
+  • `Lean.Doc.BlockView.header.elim`
+  • `Lean.Doc.BlockView.linkRef.elim`
+  • `Lean.Doc.BlockView.metadata.elim`
+  • `Lean.Doc.BlockView.ol.elim`
+  • `Lean.Doc.BlockView.para.elim`
+  • `Lean.Doc.BlockView.ul.elim`
+  • `Lean.Doc.DeferredCheckSite.decl.elim`
+  • `Lean.Doc.DeferredCheckSite.moduleDoc.elim`
+  • `Lean.Doc.DocArg.ident.elim`
+  • `Lean.Doc.DocArg.num.elim`
+  • `Lean.Doc.DocArg.str.elim`
+  • `Lean.Doc.Inline.bold.elim`
+  • `Lean.Doc.Inline.code.elim`
+  • `Lean.Doc.Inline.concat.elim`
+  • `Lean.Doc.Inline.emph.elim`
+  • `Lean.Doc.Inline.footnote.elim`
+  • `Lean.Doc.Inline.image.elim`
+  • `Lean.Doc.Inline.linebreak.elim`
+  • `Lean.Doc.Inline.link.elim`
+  • `Lean.Doc.Inline.math.elim`
+  • `Lean.Doc.Inline.other.elim`
+  • `Lean.Doc.Inline.text.elim`
+  • `Lean.Doc.InlineView.bold.elim`
+  • `Lean.Doc.InlineView.code.elim`
+  • `Lean.Doc.InlineView.emph.elim`
+  • `Lean.Doc.InlineView.footnote.elim`
+  • `Lean.Doc.InlineView.image.elim`
+  • `Lean.Doc.InlineView.linebreak.elim`
+  • `Lean.Doc.InlineView.link.elim`
+  • `Lean.Doc.InlineView.math.elim`
+  • `Lean.Doc.InlineView.role.elim`
+  • `Lean.Doc.InlineView.text.elim`
+  • `Lean.Doc.LinkTargetView.ref.elim`
+  • `Lean.Doc.LinkTargetView.url.elim`
+  • `Lean.Doc.MathMode.display.elim`
+  • `Lean.Doc.MathMode.inline.elim`
+  • `Lean.Doc.SuggestionMode.batch.elim`
+  • `Lean.Doc.SuggestionMode.interactive.elim`
+  • `Lean.Elab.CompletionInfo.dot.elim`
+  • `Lean.Elab.CompletionInfo.dotId.elim`
+  • `Lean.Elab.CompletionInfo.endSection.elim`
+  • `Lean.Elab.CompletionInfo.errorName.elim`
+  • `Lean.Elab.CompletionInfo.fieldId.elim`
+  • `Lean.Elab.CompletionInfo.id.elim`
+  • `Lean.Elab.CompletionInfo.namespaceId.elim`
+  • `Lean.Elab.CompletionInfo.option.elim`
+  • `Lean.Elab.CompletionInfo.tactic.elim`
+  • `Lean.Elab.ComputeKind.meta.elim`
+  • `Lean.Elab.ComputeKind.noncomputable.elim`
+  • `Lean.Elab.ComputeKind.regular.elim`
+  • `Lean.Elab.DefKind.abbrev.elim`
+  • `Lean.Elab.DefKind.def.elim`
+  • `Lean.Elab.DefKind.example.elim`
+  • `Lean.Elab.DefKind.instance.elim`
+  • `Lean.Elab.DefKind.opaque.elim`
+  • `Lean.Elab.DefKind.theorem.elim`
+  • `Lean.Elab.DocElabKind.codeBlock.elim`
+  • `Lean.Elab.DocElabKind.command.elim`
+  • `Lean.Elab.DocElabKind.directive.elim`
+  • `Lean.Elab.DocElabKind.role.elim`
+  • `Lean.Elab.Info.ofChoiceInfo.elim`
+  • `Lean.Elab.Info.ofChoiceResolutionInfo.elim`
+  • `Lean.Elab.Info.ofCommandInfo.elim`
+  • `Lean.Elab.Info.ofCompletionInfo.elim`
+  • `Lean.Elab.Info.ofCustomInfo.elim`
+  • `Lean.Elab.Info.ofDelabTermInfo.elim`
+  • `Lean.Elab.Info.ofDocElabInfo.elim`
+  • `Lean.Elab.Info.ofDocInfo.elim`
+  • `Lean.Elab.Info.ofErrorNameInfo.elim`
+  • `Lean.Elab.Info.ofFVarAliasInfo.elim`
+  • `Lean.Elab.Info.ofFieldInfo.elim`
+  • `Lean.Elab.Info.ofFieldRedeclInfo.elim`
+  • `Lean.Elab.Info.ofMacroExpansionInfo.elim`
+  • `Lean.Elab.Info.ofOptionInfo.elim`
+  • `Lean.Elab.Info.ofPartialTermInfo.elim`
+  • `Lean.Elab.Info.ofTacticInfo.elim`
+  • `Lean.Elab.Info.ofTermInfo.elim`
+  • `Lean.Elab.Info.ofUserWidgetInfo.elim`
+  • `Lean.Elab.InfoTree.context.elim`
+  • `Lean.Elab.InfoTree.hole.elim`
+  • `Lean.Elab.InfoTree.node.elim`
+  • `Lean.Elab.InlayHintKind.parameter.elim`
+  • `Lean.Elab.InlayHintKind.type.elim`
+  • `Lean.Elab.InlayHintLabel.name.elim`
+  • `Lean.Elab.InlayHintLabel.parts.elim`
+  • `Lean.Elab.PartialContextInfo.autoImplicitCtx.elim`
+  • `Lean.Elab.PartialContextInfo.commandCtx.elim`
+  • `Lean.Elab.PartialContextInfo.parentDeclCtx.elim`
+  • `Lean.Elab.PartialFixpointType.coinductiveFixpoint.elim`
+  • `Lean.Elab.PartialFixpointType.inductiveFixpoint.elim`
+  • `Lean.Elab.PartialFixpointType.partialFixpoint.elim`
+  • `Lean.Elab.RecKind.default.elim`
+  • `Lean.Elab.RecKind.nonrec.elim`
+  • `Lean.Elab.RecKind.partial.elim`
+  • `Lean.Elab.Visibility.private.elim`
+  • `Lean.Elab.Visibility.public.elim`
+  • `Lean.Elab.Visibility.regular.elim`
+  • `Lean.EnvExtension.AsyncMode.async.elim`
+  • `Lean.EnvExtension.AsyncMode.local.elim`
+  • `Lean.EnvExtension.AsyncMode.mainOnly.elim`
+  • `Lean.EnvExtension.AsyncMode.sync.elim`
+  • `Lean.EnvExtension.WriteLog.decl.elim`
+  • `Lean.EnvExtension.WriteLog.missing.elim`
+  • `Lean.EnvExtension.WriteLog.unlogged.elim`
+  • `Lean.Environment.Visibility.private.elim`
+  • `Lean.Environment.Visibility.public.elim`
+  • `Lean.Expr.FindStep.done.elim`
+  • `Lean.Expr.FindStep.found.elim`
+  • `Lean.Expr.FindStep.visit.elim`
+  • `Lean.FuzzyMatching.CharRole.head.elim`
+  • `Lean.FuzzyMatching.CharRole.separator.elim`
+  • `Lean.FuzzyMatching.CharRole.tail.elim`
+  • `Lean.FuzzyMatching.CharType.lower.elim`
+  • `Lean.FuzzyMatching.CharType.separator.elim`
+  • `Lean.FuzzyMatching.CharType.upper.elim`
+  • `Lean.IR.Alt.ctor.elim`
+  • `Lean.IR.Alt.default.elim`
+  • `Lean.IR.Arg.erased.elim`
+  • `Lean.IR.Arg.var.elim`
+  • `Lean.IR.Decl.extern.elim`
+  • `Lean.IR.Decl.fdecl.elim`
+  • `Lean.IR.Expr.ap.elim`
+  • `Lean.IR.Expr.box.elim`
+  • `Lean.IR.Expr.ctor.elim`
+  • `Lean.IR.Expr.fap.elim`
+  • `Lean.IR.Expr.isShared.elim`
+  • `Lean.IR.Expr.lit.elim`
+  • `Lean.IR.Expr.pap.elim`
+  • `Lean.IR.Expr.proj.elim`
+  • `Lean.IR.Expr.reset.elim`
+  • `Lean.IR.Expr.reuse.elim`
+  • `Lean.IR.Expr.sproj.elim`
+  • `Lean.IR.Expr.unbox.elim`
+  • `Lean.IR.Expr.uproj.elim`
+  • `Lean.IR.FnBody.case.elim`
+  • `Lean.IR.FnBody.dec.elim`
+  • `Lean.IR.FnBody.del.elim`
+  • `Lean.IR.FnBody.inc.elim`
+  • `Lean.IR.FnBody.jdecl.elim`
+  • `Lean.IR.FnBody.jmp.elim`
+  • `Lean.IR.FnBody.ret.elim`
+  • `Lean.IR.FnBody.set.elim`
+  • `Lean.IR.FnBody.setTag.elim`
+  • `Lean.IR.FnBody.sset.elim`
+  • `Lean.IR.FnBody.unreachable.elim`
+  • `Lean.IR.FnBody.uset.elim`
+  • `Lean.IR.FnBody.vdecl.elim`
+  • `Lean.IR.IRType.erased.elim`
+  • `Lean.IR.IRType.float.elim`
+  • `Lean.IR.IRType.float32.elim`
+  • `Lean.IR.IRType.object.elim`
+  • `Lean.IR.IRType.struct.elim`
+  • `Lean.IR.IRType.tagged.elim`
+  • `Lean.IR.IRType.tobject.elim`
+  • `Lean.IR.IRType.uint16.elim`
+  • `Lean.IR.IRType.uint32.elim`
+  • `Lean.IR.IRType.uint64.elim`
+  • `Lean.IR.IRType.uint8.elim`
+  • `Lean.IR.IRType.union.elim`
+  • `Lean.IR.IRType.usize.elim`
+  • `Lean.IR.IRType.void.elim`
+  • `Lean.IR.LitVal.num.elim`
+  • `Lean.IR.LitVal.str.elim`
+  • `Lean.IR.LocalContextEntry.localVar.elim`
+  • `Lean.IR.LocalContextEntry.param.elim`
+  • `Lean.IR.LogEntry.message.elim`
+  • `Lean.IR.LogEntry.step.elim`
+  • `Lean.Json.Structured.arr.elim`
+  • `Lean.Json.Structured.obj.elim`
+  • `Lean.JsonRpc.ErrorCode.contentModified.elim`
+  • `Lean.JsonRpc.ErrorCode.internalError.elim`
+  • `Lean.JsonRpc.ErrorCode.invalidParams.elim`
+  • `Lean.JsonRpc.ErrorCode.invalidRequest.elim`
+  • `Lean.JsonRpc.ErrorCode.methodNotFound.elim`
+  • `Lean.JsonRpc.ErrorCode.parseError.elim`
+  • `Lean.JsonRpc.ErrorCode.requestCancelled.elim`
+  • `Lean.JsonRpc.ErrorCode.rpcNeedsReconnect.elim`
+  • `Lean.JsonRpc.ErrorCode.serverNotInitialized.elim`
+  • `Lean.JsonRpc.ErrorCode.unknownErrorCode.elim`
+  • `Lean.JsonRpc.ErrorCode.workerCrashed.elim`
+  • `Lean.JsonRpc.ErrorCode.workerExited.elim`
+  • `Lean.JsonRpc.Message.notification.elim`
+  • `Lean.JsonRpc.Message.request.elim`
+  • `Lean.JsonRpc.Message.response.elim`
+  • `Lean.JsonRpc.Message.responseError.elim`
+  • `Lean.JsonRpc.MessageDirection.clientToServer.elim`
+  • `Lean.JsonRpc.MessageDirection.serverToClient.elim`
+  • `Lean.JsonRpc.MessageKind.notification.elim`
+  • `Lean.JsonRpc.MessageKind.request.elim`
+  • `Lean.JsonRpc.MessageKind.response.elim`
+  • `Lean.JsonRpc.MessageKind.responseError.elim`
+  • `Lean.JsonRpc.MessageMetaData.notification.elim`
+  • `Lean.JsonRpc.MessageMetaData.request.elim`
+  • `Lean.JsonRpc.MessageMetaData.response.elim`
+  • `Lean.JsonRpc.MessageMetaData.responseError.elim`
+  • `Lean.JsonRpc.RequestID.null.elim`
+  • `Lean.JsonRpc.RequestID.num.elim`
+  • `Lean.JsonRpc.RequestID.str.elim`
+  • `Lean.Kernel.Exception.alreadyDeclared.elim`
+  • `Lean.Kernel.Exception.appTypeMismatch.elim`
+  • `Lean.Kernel.Exception.declHasFVars.elim`
+  • `Lean.Kernel.Exception.declHasMVars.elim`
+  • `Lean.Kernel.Exception.declTypeMismatch.elim`
+  • `Lean.Kernel.Exception.deepRecursion.elim`
+  • `Lean.Kernel.Exception.deterministicTimeout.elim`
+  • `Lean.Kernel.Exception.excessiveMemory.elim`
+  • `Lean.Kernel.Exception.exprTypeMismatch.elim`
+  • `Lean.Kernel.Exception.funExpected.elim`
+  • `Lean.Kernel.Exception.interrupted.elim`
+  • `Lean.Kernel.Exception.invalidProj.elim`
+  • `Lean.Kernel.Exception.letTypeMismatch.elim`
+  • `Lean.Kernel.Exception.other.elim`
+  • `Lean.Kernel.Exception.thmTypeIsNotProp.elim`
+  • `Lean.Kernel.Exception.typeExpected.elim`
+  • `Lean.Kernel.Exception.unknownConstant.elim`
+  • `Lean.Lsp.CodeActionTriggerKind.automatic.elim`
+  • `Lean.Lsp.CodeActionTriggerKind.invoked.elim`
+  • `Lean.Lsp.CompletionIdentifier.const.elim`
+  • `Lean.Lsp.CompletionIdentifier.fvar.elim`
+  • `Lean.Lsp.CompletionItemKind.class.elim`
+  • `Lean.Lsp.CompletionItemKind.color.elim`
+  • `Lean.Lsp.CompletionItemKind.constant.elim`
+  • `Lean.Lsp.CompletionItemKind.constructor.elim`
+  • `Lean.Lsp.CompletionItemKind.enum.elim`
+  • `Lean.Lsp.CompletionItemKind.enumMember.elim`
+  • `Lean.Lsp.CompletionItemKind.event.elim`
+  • `Lean.Lsp.CompletionItemKind.field.elim`
+  • `Lean.Lsp.CompletionItemKind.file.elim`
+  • `Lean.Lsp.CompletionItemKind.folder.elim`
+  • `Lean.Lsp.CompletionItemKind.function.elim`
+  • `Lean.Lsp.CompletionItemKind.interface.elim`
+  • `Lean.Lsp.CompletionItemKind.keyword.elim`
+  • `Lean.Lsp.CompletionItemKind.method.elim`
+  • `Lean.Lsp.CompletionItemKind.module.elim`
+  • `Lean.Lsp.CompletionItemKind.operator.elim`
+  • `Lean.Lsp.CompletionItemKind.property.elim`
+  • `Lean.Lsp.CompletionItemKind.reference.elim`
+  • `Lean.Lsp.CompletionItemKind.snippet.elim`
+  • `Lean.Lsp.CompletionItemKind.struct.elim`
+  • `Lean.Lsp.CompletionItemKind.text.elim`
+  • `Lean.Lsp.CompletionItemKind.typeParameter.elim`
+  • `Lean.Lsp.CompletionItemKind.unit.elim`
+  • `Lean.Lsp.CompletionItemKind.value.elim`
+  • `Lean.Lsp.CompletionItemKind.variable.elim`
+  • `Lean.Lsp.DependencyBuildMode.always.elim`
+  • `Lean.Lsp.DependencyBuildMode.never.elim`
+  • `Lean.Lsp.DependencyBuildMode.once.elim`
+  • `Lean.Lsp.DiagnosticCode.int.elim`
+  • `Lean.Lsp.DiagnosticCode.string.elim`
+  • `Lean.Lsp.DiagnosticSeverity.error.elim`
+  • `Lean.Lsp.DiagnosticSeverity.hint.elim`
+  • `Lean.Lsp.DiagnosticSeverity.information.elim`
+  • `Lean.Lsp.DiagnosticSeverity.warning.elim`
+  • `Lean.Lsp.DiagnosticTag.deprecated.elim`
+  • `Lean.Lsp.DiagnosticTag.unnecessary.elim`
+  • `Lean.Lsp.DocumentChange.create.elim`
+  • `Lean.Lsp.DocumentChange.delete.elim`
+  • `Lean.Lsp.DocumentChange.edit.elim`
+  • `Lean.Lsp.DocumentChange.rename.elim`
+  • `Lean.Lsp.DocumentHighlightKind.read.elim`
+  • `Lean.Lsp.DocumentHighlightKind.text.elim`
+  • `Lean.Lsp.DocumentHighlightKind.write.elim`
+  • `Lean.Lsp.FileChangeType.Changed.elim`
+  • `Lean.Lsp.FileChangeType.Created.elim`
+  • `Lean.Lsp.FileChangeType.Deleted.elim`
+  • `Lean.Lsp.FoldingRangeKind.comment.elim`
+  • `Lean.Lsp.FoldingRangeKind.imports.elim`
+  • `Lean.Lsp.FoldingRangeKind.region.elim`
+  • `Lean.Lsp.InlayHintKind.parameter.elim`
+  • `Lean.Lsp.InlayHintKind.type.elim`
+  • `Lean.Lsp.InlayHintLabel.name.elim`
+  • `Lean.Lsp.InlayHintLabel.parts.elim`
+  • `Lean.Lsp.InlayHintTooltip.markdown.elim`
+  • `Lean.Lsp.InlayHintTooltip.plaintext.elim`
+  • `Lean.Lsp.LeanDiagnosticTag.goalsAccomplished.elim`
+  • `Lean.Lsp.LeanDiagnosticTag.unsolvedGoals.elim`
+  • `Lean.Lsp.LeanFileProgressKind.fatalError.elim`
+  • `Lean.Lsp.LeanFileProgressKind.processing.elim`
+  • `Lean.Lsp.LeanImportMetaKind.full.elim`
+  • `Lean.Lsp.LeanImportMetaKind.meta.elim`
+  • `Lean.Lsp.LeanImportMetaKind.nonMeta.elim`
+  • `Lean.Lsp.MarkupKind.markdown.elim`
+  • `Lean.Lsp.MarkupKind.plaintext.elim`
+  • `Lean.Lsp.MessageType.error.elim`
+  • `Lean.Lsp.MessageType.info.elim`
+  • `Lean.Lsp.MessageType.log.elim`
+  • `Lean.Lsp.MessageType.warning.elim`
+  • `Lean.Lsp.OpenNamespace.allExcept.elim`
+  • `Lean.Lsp.OpenNamespace.renamed.elim`
+  • `Lean.Lsp.ParameterInformationLabel.name.elim`
+  • `Lean.Lsp.ParameterInformationLabel.range.elim`
+  • `Lean.Lsp.RefIdent.const.elim`
+  • `Lean.Lsp.RefIdent.fvar.elim`
+  • `Lean.Lsp.RpcWireFormat.v0.elim`
+  • `Lean.Lsp.RpcWireFormat.v1.elim`
+  • `Lean.Lsp.SemanticTokenModifier.abstract.elim`
+  • `Lean.Lsp.SemanticTokenModifier.async.elim`
+  • `Lean.Lsp.SemanticTokenModifier.declaration.elim`
+  • `Lean.Lsp.SemanticTokenModifier.defaultLibrary.elim`
+  • `Lean.Lsp.SemanticTokenModifier.definition.elim`
+  • `Lean.Lsp.SemanticTokenModifier.deprecated.elim`
+  • `Lean.Lsp.SemanticTokenModifier.documentation.elim`
+  • `Lean.Lsp.SemanticTokenModifier.modification.elim`
+  • `Lean.Lsp.SemanticTokenModifier.readonly.elim`
+  • `Lean.Lsp.SemanticTokenModifier.static.elim`
+  • `Lean.Lsp.SemanticTokenType.class.elim`
+  • `Lean.Lsp.SemanticTokenType.comment.elim`
+  • `Lean.Lsp.SemanticTokenType.decorator.elim`
+  • `Lean.Lsp.SemanticTokenType.enum.elim`
+  • `Lean.Lsp.SemanticTokenType.enumMember.elim`
+  • `Lean.Lsp.SemanticTokenType.event.elim`
+  • `Lean.Lsp.SemanticTokenType.function.elim`
+  • `Lean.Lsp.SemanticTokenType.interface.elim`
+  • `Lean.Lsp.SemanticTokenType.keyword.elim`
+  • `Lean.Lsp.SemanticTokenType.leanSorryLike.elim`
+  • `Lean.Lsp.SemanticTokenType.macro.elim`
+  • `Lean.Lsp.SemanticTokenType.method.elim`
+  • `Lean.Lsp.SemanticTokenType.modifier.elim`
+  • `Lean.Lsp.SemanticTokenType.namespace.elim`
+  • `Lean.Lsp.SemanticTokenType.number.elim`
+  • `Lean.Lsp.SemanticTokenType.operator.elim`
+  • `Lean.Lsp.SemanticTokenType.parameter.elim`
+  • `Lean.Lsp.SemanticTokenType.property.elim`
+  • `Lean.Lsp.SemanticTokenType.regexp.elim`
+  • `Lean.Lsp.SemanticTokenType.string.elim`
+  • `Lean.Lsp.SemanticTokenType.struct.elim`
+  • `Lean.Lsp.SemanticTokenType.type.elim`
+  • `Lean.Lsp.SemanticTokenType.typeParameter.elim`
+  • `Lean.Lsp.SemanticTokenType.variable.elim`
+  • `Lean.Lsp.SignatureHelpTriggerKind.contentChange.elim`
+  • `Lean.Lsp.SignatureHelpTriggerKind.invoked.elim`
+  • `Lean.Lsp.SignatureHelpTriggerKind.triggerCharacter.elim`
+  • `Lean.Lsp.SymbolKind.array.elim`
+  • `Lean.Lsp.SymbolKind.boolean.elim`
+  • `Lean.Lsp.SymbolKind.class.elim`
+  • `Lean.Lsp.SymbolKind.constant.elim`
+  • `Lean.Lsp.SymbolKind.constructor.elim`
+  • `Lean.Lsp.SymbolKind.enum.elim`
+  • `Lean.Lsp.SymbolKind.enumMember.elim`
+  • `Lean.Lsp.SymbolKind.event.elim`
+  • `Lean.Lsp.SymbolKind.field.elim`
+  • `Lean.Lsp.SymbolKind.file.elim`
+  • `Lean.Lsp.SymbolKind.function.elim`
+  • `Lean.Lsp.SymbolKind.interface.elim`
+  • `Lean.Lsp.SymbolKind.key.elim`
+  • `Lean.Lsp.SymbolKind.method.elim`
+  • `Lean.Lsp.SymbolKind.module.elim`
+  • `Lean.Lsp.SymbolKind.namespace.elim`
+  • `Lean.Lsp.SymbolKind.null.elim`
+  • `Lean.Lsp.SymbolKind.number.elim`
+  • `Lean.Lsp.SymbolKind.object.elim`
+  • `Lean.Lsp.SymbolKind.operator.elim`
+  • `Lean.Lsp.SymbolKind.package.elim`
+  • `Lean.Lsp.SymbolKind.property.elim`
+  • `Lean.Lsp.SymbolKind.string.elim`
+  • `Lean.Lsp.SymbolKind.struct.elim`
+  • `Lean.Lsp.SymbolKind.typeParameter.elim`
+  • `Lean.Lsp.SymbolKind.variable.elim`
+  • `Lean.Lsp.TextDocumentContentChangeEvent.fullChange.elim`
+  • `Lean.Lsp.TextDocumentContentChangeEvent.rangeChange.elim`
+  • `Lean.Lsp.TextDocumentSyncKind.full.elim`
+  • `Lean.Lsp.TextDocumentSyncKind.incremental.elim`
+  • `Lean.Lsp.TextDocumentSyncKind.none.elim`
+  • `Lean.Lsp.Trace.messages.elim`
+  • `Lean.Lsp.Trace.off.elim`
+  • `Lean.Lsp.Trace.verbose.elim`
+  • `Lean.Macro.Exception.error.elim`
+  • `Lean.Macro.Exception.unsupportedSyntax.elim`
+  • `Lean.Meta.ApplyNewGoals.all.elim`
+  • `Lean.Meta.ApplyNewGoals.nonDependentFirst.elim`
+  • `Lean.Meta.ApplyNewGoals.nonDependentOnly.elim`
+  • `Lean.Meta.CoeFnType.coe.elim`
+  • `Lean.Meta.CoeFnType.coeFun.elim`
+  • `Lean.Meta.CoeFnType.coeSort.elim`
+  • `Lean.Meta.CongrArgKind.cast.elim`
+  • `Lean.Meta.CongrArgKind.eq.elim`
+  • `Lean.Meta.CongrArgKind.fixed.elim`
+  • `Lean.Meta.CongrArgKind.fixedNoParam.elim`
+  • `Lean.Meta.CongrArgKind.heq.elim`
+  • `Lean.Meta.CongrArgKind.subsingletonInst.elim`
+  • `Lean.Meta.EtaStructMode.all.elim`
+  • `Lean.Meta.EtaStructMode.none.elim`
+  • `Lean.Meta.EtaStructMode.notClasses.elim`
+  • `Lean.Meta.FunIndParamKind.dropped.elim`
+  • `Lean.Meta.FunIndParamKind.param.elim`
+  • `Lean.Meta.FunIndParamKind.target.elim`
+  • `Lean.Meta.InjectionResult.solved.elim`
+  • `Lean.Meta.InjectionResult.subgoal.elim`
+  • `Lean.Meta.InjectionResultCore.solved.elim`
+  • `Lean.Meta.InjectionResultCore.subgoal.elim`
+  • `Lean.Meta.InjectionsResult.solved.elim`
+  • `Lean.Meta.InjectionsResult.subgoal.elim`
+  • `Lean.Meta.NormCast.Label.elim`
+  • `Lean.Meta.Occurrences.all.elim`
+  • `Lean.Meta.Occurrences.neg.elim`
+  • `Lean.Meta.Occurrences.pos.elim`
+  • `Lean.Meta.Origin.decl.elim`
+  • `Lean.Meta.Origin.fvar.elim`
+  • `Lean.Meta.Origin.other.elim`
+  • `Lean.Meta.Origin.stx.elim`
+  • `Lean.Meta.ProjReductionKind.no.elim`
+  • `Lean.Meta.ProjReductionKind.yes.elim`
+  • `Lean.Meta.ProjReductionKind.yesWithDelta.elim`
+  • `Lean.Meta.ProjReductionKind.yesWithDeltaI.elim`
+  • `Lean.Meta.RecursorUnivLevelPos.majorType.elim`
+  • `Lean.Meta.RecursorUnivLevelPos.motive.elim`
+  • `Lean.Meta.ReduceMatcherResult.notMatcher.elim`
+  • `Lean.Meta.ReduceMatcherResult.partialApp.elim`
+  • `Lean.Meta.ReduceMatcherResult.reduced.elim`
+  • `Lean.Meta.ReduceMatcherResult.stuck.elim`
+  • `Lean.Meta.SimpEntry.thm.elim`
+  • `Lean.Meta.SimpEntry.toUnfold.elim`
+  • `Lean.Meta.SimpEntry.toUnfoldThms.elim`
+  • `Lean.Meta.SplitKind.both.elim`
+  • `Lean.Meta.SplitKind.ite.elim`
+  • `Lean.Meta.SplitKind.match.elim`
+  • `Lean.Meta.TacticResultCNM.closed.elim`
+  • `Lean.Meta.TacticResultCNM.modified.elim`
+  • `Lean.Meta.TacticResultCNM.noChange.elim`
+  • `Lean.Meta.TransparencyMode.all.elim`
+  • `Lean.Meta.TransparencyMode.default.elim`
+  • `Lean.Meta.TransparencyMode.implicit.elim`
+  • `Lean.Meta.TransparencyMode.instances.elim`
+  • `Lean.Meta.TransparencyMode.none.elim`
+  • `Lean.Meta.TransparencyMode.reducible.elim`
+  • `Lean.Meta.ZetaUnusedMode.no.elim`
+  • `Lean.Meta.ZetaUnusedMode.singlePass.elim`
+  • `Lean.Meta.ZetaUnusedMode.twoPasses.elim`
+  • `Lean.Name.MatchUpToIndexSuffix.exactMatch.elim`
+  • `Lean.Name.MatchUpToIndexSuffix.noMatch.elim`
+  • `Lean.Name.MatchUpToIndexSuffix.suffixMatch.elim`
+  • `Lean.Parser.AliasValue.binary.elim`
+  • `Lean.Parser.AliasValue.const.elim`
+  • `Lean.Parser.AliasValue.unary.elim`
+  • `Lean.Parser.FirstTokens.epsilon.elim`
+  • `Lean.Parser.FirstTokens.optTokens.elim`
+  • `Lean.Parser.FirstTokens.tokens.elim`
+  • `Lean.Parser.FirstTokens.unknown.elim`
+  • `Lean.Parser.LeadingIdentBehavior.both.elim`
+  • `Lean.Parser.LeadingIdentBehavior.default.elim`
+  • `Lean.Parser.LeadingIdentBehavior.symbol.elim`
+  • `Lean.Parser.OrElseOnAntiquotBehavior.acceptLhs.elim`
+  • `Lean.Parser.OrElseOnAntiquotBehavior.merge.elim`
+  • `Lean.Parser.OrElseOnAntiquotBehavior.takeLongest.elim`
+  • `Lean.Parser.ParserResolution.alias.elim`
+  • `Lean.Parser.ParserResolution.category.elim`
+  • `Lean.Parser.ParserResolution.parser.elim`
+  • `Lean.PersistentHashMap.Entry.entry.elim`
+  • `Lean.PersistentHashMap.Entry.null.elim`
+  • `Lean.PersistentHashMap.Entry.ref.elim`
+  • `Lean.PersistentHashMap.Node.collision.elim`
+  • `Lean.PersistentHashMap.Node.entries.elim`
+  • `Lean.PersistentHashMap.Zipper.consCollision.elim`
+  • `Lean.PersistentHashMap.Zipper.consEntries.elim`
+  • `Lean.PersistentHashMap.Zipper.done.elim`
+  • `Lean.ScopedEnvExtension.Entry.global.elim`
+  • `Lean.ScopedEnvExtension.Entry.scoped.elim`
+  • `Lean.Server.GoToKind.declaration.elim`
+  • `Lean.Server.GoToKind.definition.elim`
+  • `Lean.Server.GoToKind.type.elim`
+  • `Lean.Server.RequestHandlerCompleteness.complete.elim`
+  • `Lean.Server.RequestHandlerCompleteness.partial.elim`
+  • `Lean.Server.ServerRequestResponse.failure.elim`
+  • `Lean.Server.ServerRequestResponse.success.elim`
+  • `Lean.SubExpr.GoalLocation.hyp.elim`
+  • `Lean.SubExpr.GoalLocation.hypType.elim`
+  • `Lean.SubExpr.GoalLocation.hypValue.elim`
+  • `Lean.SubExpr.GoalLocation.target.elim`
+  • `Lean.Syntax.Preresolved.decl.elim`
+  • `Lean.Syntax.Preresolved.namespace.elim`
+  • `Lean.Widget.DiffTag.wasChanged.elim`
+  • `Lean.Widget.DiffTag.wasDeleted.elim`
+  • `Lean.Widget.DiffTag.wasInserted.elim`
+  • `Lean.Widget.DiffTag.willChange.elim`
+  • `Lean.Widget.DiffTag.willDelete.elim`
+  • `Lean.Widget.DiffTag.willInsert.elim`
+  • `Lean.Widget.MsgEmbed.expr.elim`
+  • `Lean.Widget.MsgEmbed.goal.elim`
+  • `Lean.Widget.MsgEmbed.trace.elim`
+  • `Lean.Widget.MsgEmbed.widget.elim`
+  • `Lean.Widget.PanelWidgetsExtEntry.global.elim`
+  • `Lean.Widget.PanelWidgetsExtEntry.local.elim`
+  • `Lean.Widget.StrictOrLazy.lazy.elim`
+  • `Lean.Widget.StrictOrLazy.strict.elim`
+  • `Lean.Widget.TaggedText.append.elim`
+  • `Lean.Widget.TaggedText.tag.elim`
+  • `Lean.Widget.TaggedText.text.elim`
+  • `Mathlib.CrossRef.Database.dlmf.elim`
+  • `Mathlib.CrossRef.Database.kerodon.elim`
+  • `Mathlib.CrossRef.Database.lmfdb.elim`
+  • `Mathlib.CrossRef.Database.oeis.elim`
+  • `Mathlib.CrossRef.Database.pibase.elim`
+  • `Mathlib.CrossRef.Database.stacks.elim`
+  • `Mathlib.CrossRef.Database.wikidata.elim`
+  • `Mathlib.Ineq.WithStrictness.eq.elim`
+  • `Mathlib.Ineq.WithStrictness.le.elim`
+  • `Mathlib.Ineq.WithStrictness.lt.elim`
+  • `Mathlib.Notation3.BoundValueType.foldl.elim`
+  • `Mathlib.Notation3.BoundValueType.foldr.elim`
+  • `Mathlib.Notation3.BoundValueType.normal.elim`
+  • `Mathlib.Notation3.DelabKey.app.elim`
+  • `Mathlib.Notation3.DelabKey.other.elim`
+  • `Mathlib.Tactic.BehaviorIfUnchanged.error.elim`
+  • `Mathlib.Tactic.BehaviorIfUnchanged.silent.elim`
+  • `Mathlib.Tactic.BehaviorIfUnchanged.warning.elim`
+  • `Mathlib.TacticAnalysis.TriggerCondition.accept.elim`
+  • `Mathlib.TacticAnalysis.TriggerCondition.continue.elim`
+  • `Mathlib.TacticAnalysis.TriggerCondition.skip.elim`
+  • `GateOp.and.elim`
+  • `GateOp.maj.elim`
+  • `GateOp.mod.elim`
+  • `GateOp.not.elim`
+  • `GateOp.or.elim`
+  • `MetaComplexity.DMFormula.and.elim`
+  • `MetaComplexity.DMFormula.lit.elim`
+  • `MetaComplexity.DMFormula.or.elim`
+  • `ReadTwo.Sk.lf.elim`
+  • `ReadTwo.Sk.nd.elim`
+  • `ReadTwo.Tm.lt.elim`
+  • `ReadTwo.Tm.nd.elim`
+  • `ReadTwo.Ty.P.elim`
+  • `ReadTwo.Ty.W.elim`
+  • `ReadTwo.Ty.x.elim`
+  • `ReadTwo.Ty.y.elim`
+  • `Search.ResLinQTree.ax.elim`
+  • `Search.ResLinQTree.res.elim`
+  • `Search.ResLinQTree.weaken.elim`
+  • `Qq.Impl.ExprBackSubstResult.quoted.elim`
+  • `Qq.Impl.ExprBackSubstResult.unquoted.elim`
+  • `Qq.Impl.MVarSynth.level.elim`
+  • `Qq.Impl.MVarSynth.term.elim`
+  • `Qq.Impl.MVarSynth.type.elim`
+  • `Std.Do.PostShape.arg.elim`
+  • `Std.Do.PostShape.except.elim`
+  • `Std.Do.PostShape.pure.elim`
+  • `Std.Format.FlattenAllowability.allow.elim`
+  • `Std.Format.FlattenAllowability.disallow.elim`
+  • `Std.Format.FlattenBehavior.allOrNone.elim`
+  • `Std.Format.FlattenBehavior.fill.elim`
+  • `Std.Time.Awareness.any.elim`
+  • `Std.Time.Awareness.only.elim`
+  • `Std.Time.DayPeriod.am.elim`
+  • `Std.Time.DayPeriod.midnight.elim`
+  • `Std.Time.DayPeriod.noon.elim`
+  • `Std.Time.DayPeriod.pm.elim`
+  • `Std.Time.ExtendedDayPeriod.afternoon.elim`
+  • `Std.Time.ExtendedDayPeriod.evening.elim`
+  • `Std.Time.ExtendedDayPeriod.midnight.elim`
+  • `Std.Time.ExtendedDayPeriod.morning.elim`
+  • `Std.Time.ExtendedDayPeriod.night.elim`
+  • `Std.Time.ExtendedDayPeriod.noon.elim`
+  • `Std.Time.FormatPart.modifier.elim`
+  • `Std.Time.FormatPart.string.elim`
+  • `Std.Time.Fraction.nano.elim`
+  • `Std.Time.Fraction.truncated.elim`
+  • `Std.Time.HourMarker.am.elim`
+  • `Std.Time.HourMarker.pm.elim`
+  • `Std.Time.Modifier.A.elim`
+  • `Std.Time.Modifier.B.elim`
+  • `Std.Time.Modifier.D.elim`
+  • `Std.Time.Modifier.E.elim`
+  • `Std.Time.Modifier.F.elim`
+  • `Std.Time.Modifier.G.elim`
+  • `Std.Time.Modifier.H.elim`
+  • `Std.Time.Modifier.K.elim`
+  • `Std.Time.Modifier.L.elim`
+  • `Std.Time.Modifier.M.elim`
+  • `Std.Time.Modifier.N.elim`
+  • `Std.Time.Modifier.O.elim`
+  • `Std.Time.Modifier.Q.elim`
+  • `Std.Time.Modifier.S.elim`
+  • `Std.Time.Modifier.V.elim`
+  • `Std.Time.Modifier.W.elim`
+  • `Std.Time.Modifier.X.elim`
+  • `Std.Time.Modifier.Y.elim`
+  • `Std.Time.Modifier.Z.elim`
+  • `Std.Time.Modifier.a.elim`
+  • `Std.Time.Modifier.b.elim`
+  • `Std.Time.Modifier.c.elim`
+  • `Std.Time.Modifier.d.elim`
+  • `Std.Time.Modifier.e.elim`
+  • `Std.Time.Modifier.h.elim`
+  • `Std.Time.Modifier.k.elim`
+  • `Std.Time.Modifier.m.elim`
+  • `Std.Time.Modifier.n.elim`
+  • `Std.Time.Modifier.q.elim`
+  • `Std.Time.Modifier.s.elim`
+  • `Std.Time.Modifier.u.elim`
+  • `Std.Time.Modifier.v.elim`
+  • `Std.Time.Modifier.w.elim`
+  • `Std.Time.Modifier.x.elim`
+  • `Std.Time.Modifier.y.elim`
+  • `Std.Time.Modifier.z.elim`
+  • `Std.Time.OffsetO.full.elim`
+  • `Std.Time.OffsetO.short.elim`
+  • `Std.Time.OffsetX.hour.elim`
+  • `Std.Time.OffsetX.hourMinute.elim`
+  • `Std.Time.OffsetX.hourMinuteColon.elim`
+  • `Std.Time.OffsetX.hourMinuteSecond.elim`
+  • `Std.Time.OffsetX.hourMinuteSecondColon.elim`
+  • `Std.Time.OffsetZ.full.elim`
+  • `Std.Time.OffsetZ.hourMinute.elim`
+  • `Std.Time.OffsetZ.hourMinuteSecondColon.elim`
+  • `Std.Time.Text.full.elim`
+  • `Std.Time.Text.narrow.elim`
+  • `Std.Time.Text.short.elim`
+  • `Std.Time.Text.twoLetterShort.elim`
+  • `Std.Time.Weekday.friday.elim`
+  • `Std.Time.Weekday.monday.elim`
+  • `Std.Time.Weekday.saturday.elim`
+  • `Std.Time.Weekday.sunday.elim`
+  • `Std.Time.Weekday.thursday.elim`
+  • `Std.Time.Weekday.tuesday.elim`
+  • `Std.Time.Weekday.wednesday.elim`
+  • `Std.Time.Year.any.elim`
+  • `Std.Time.Year.extended.elim`
+  • `Std.Time.Year.fourDigit.elim`
+  • `Std.Time.Year.twoDigit.elim`
+  • `Std.Time.ZoneId.full.elim`
+  • `Std.Time.ZoneId.short.elim`
+  • `Std.Time.ZoneId.unknown.elim`
+  • `Std.Time.ZoneName.full.elim`
+  • `Std.Time.ZoneName.short.elim`
+  • `String.Slice.RevSplitIterator.atEnd.elim`
+  • `String.Slice.RevSplitIterator.operating.elim`
+  • `String.Slice.SplitInclusiveIterator.atEnd.elim`
+  • `String.Slice.SplitInclusiveIterator.operating.elim`
+  • `String.Slice.SplitIterator.atEnd.elim`
+  • `String.Slice.SplitIterator.operating.elim`
+  • `Turing.TM0.Stmt.move.elim`
+  • `Turing.TM0.Stmt.write.elim`
+  • `Turing.TM0to1.Λ'.act.elim`
+  • `Turing.TM0to1.Λ'.normal.elim`
+  • `Turing.TM1.Stmt.branch.elim`
+  • `Turing.TM1.Stmt.goto.elim`
+  • `Turing.TM1.Stmt.halt.elim`
+  • `Turing.TM1.Stmt.load.elim`
+  • `Turing.TM1.Stmt.move.elim`
+  • `Turing.TM1.Stmt.write.elim`
+  • `Turing.TM1to1.Λ'.normal.elim`
+  • `Turing.TM1to1.Λ'.write.elim`
+  • `Turing.TM2.Stmt.branch.elim`
+  • `Turing.TM2.Stmt.goto.elim`
+  • `Turing.TM2.Stmt.halt.elim`
+  • `Turing.TM2.Stmt.load.elim`
+  • `Turing.TM2.Stmt.peek.elim`
+  • `Turing.TM2.Stmt.pop.elim`
+  • `Turing.TM2.Stmt.push.elim`
+  • `Turing.TM2to1.StAct.peek.elim`
+  • `Turing.TM2to1.StAct.pop.elim`
+  • `Turing.TM2to1.StAct.push.elim`
+  • `Turing.TM2to1.Λ'.go.elim`
+  • `Turing.TM2to1.Λ'.normal.elim`
+  • `Turing.TM2to1.Λ'.ret.elim`
+  • `Batteries.BinomialHeap.Imp.Heap.cons.elim`
+  • `Batteries.BinomialHeap.Imp.Heap.nil.elim`
+  • `Batteries.BinomialHeap.Imp.HeapNode.nil.elim`
+  • `Batteries.BinomialHeap.Imp.HeapNode.node.elim`
+  • `Batteries.Tactic.Alias.AliasInfo.forward.elim`
+  • `Batteries.Tactic.Alias.AliasInfo.plain.elim`
+  • `Batteries.Tactic.Alias.AliasInfo.reverse.elim`
+  • `Batteries.Tactic.Lint.LintVerbosity.high.elim`
+  • `Batteries.Tactic.Lint.LintVerbosity.low.elim`
+  • `Batteries.Tactic.Lint.LintVerbosity.medium.elim`
+  • `Float.Model.UnpackedFloat.Accuracy.exact.elim`
+  • `Float.Model.UnpackedFloat.Accuracy.inexact.elim`
+  • `Float.Model.UnpackedFloat.Sign.negative.elim`
+  • `Float.Model.UnpackedFloat.Sign.positive.elim`
+  • `ImportGraph.Lean.Import.FormatBehavior.grouped.elim`
+  • `ImportGraph.Lean.Import.FormatBehavior.none.elim`
+  • `ImportGraph.Lean.Import.FormatBehavior.sorted.elim`
+  • `Int.Internal.Linear.Expr.add.elim`
+  • `Int.Internal.Linear.Expr.mulL.elim`
+  • `Int.Internal.Linear.Expr.mulR.elim`
+  • `Int.Internal.Linear.Expr.neg.elim`
+  • `Int.Internal.Linear.Expr.num.elim`
+  • `Int.Internal.Linear.Expr.sub.elim`
+  • `Int.Internal.Linear.Expr.var.elim`
+  • `Int.Internal.Linear.Poly.add.elim`
+  • `Int.Internal.Linear.Poly.num.elim`
+  • `Lean.Compiler.LCNF.Alt.alt.elim`
+  • `Lean.Compiler.LCNF.Alt.ctorAlt.elim`
+  • `Lean.Compiler.LCNF.Alt.default.elim`
+  • `Lean.Compiler.LCNF.Arg.erased.elim`
+  • `Lean.Compiler.LCNF.Arg.fvar.elim`
+  • `Lean.Compiler.LCNF.Arg.type.elim`
+  • `Lean.Compiler.LCNF.CacheAuxDeclResult.alreadyCached.elim`
+  • `Lean.Compiler.LCNF.CacheAuxDeclResult.new.elim`
+  • `Lean.Compiler.LCNF.Code.cases.elim`
+  • `Lean.Compiler.LCNF.Code.dec.elim`
+  • `Lean.Compiler.LCNF.Code.del.elim`
+  • `Lean.Compiler.LCNF.Code.fun.elim`
+  • `Lean.Compiler.LCNF.Code.inc.elim`
+  • `Lean.Compiler.LCNF.Code.jmp.elim`
+  • `Lean.Compiler.LCNF.Code.jp.elim`
+  • `Lean.Compiler.LCNF.Code.let.elim`
+  • `Lean.Compiler.LCNF.Code.oset.elim`
+  • `Lean.Compiler.LCNF.Code.return.elim`
+  • `Lean.Compiler.LCNF.Code.setTag.elim`
+  • `Lean.Compiler.LCNF.Code.sset.elim`
+  • `Lean.Compiler.LCNF.Code.unreach.elim`
+  • `Lean.Compiler.LCNF.Code.uset.elim`
+  • `Lean.Compiler.LCNF.CodeDecl.dec.elim`
+  • `Lean.Compiler.LCNF.CodeDecl.del.elim`
+  • `Lean.Compiler.LCNF.CodeDecl.fun.elim`
+  • `Lean.Compiler.LCNF.CodeDecl.inc.elim`
+  • `Lean.Compiler.LCNF.CodeDecl.jp.elim`
+  • `Lean.Compiler.LCNF.CodeDecl.let.elim`
+  • `Lean.Compiler.LCNF.CodeDecl.oset.elim`
+  • `Lean.Compiler.LCNF.CodeDecl.setTag.elim`
+  • `Lean.Compiler.LCNF.CodeDecl.sset.elim`
+  • `Lean.Compiler.LCNF.CodeDecl.uset.elim`
+  • `Lean.Compiler.LCNF.CtorFieldInfo.erased.elim`
+  • `Lean.Compiler.LCNF.CtorFieldInfo.object.elim`
+  • `Lean.Compiler.LCNF.CtorFieldInfo.scalar.elim`
+  • `Lean.Compiler.LCNF.CtorFieldInfo.spilled.elim`
+  • `Lean.Compiler.LCNF.CtorFieldInfo.usize.elim`
+  • `Lean.Compiler.LCNF.CtorFieldInfo.void.elim`
+  • `Lean.Compiler.LCNF.DeclValue.code.elim`
+  • `Lean.Compiler.LCNF.DeclValue.extern.elim`
+  • `Lean.Compiler.LCNF.LetValue.box.elim`
+  • `Lean.Compiler.LCNF.LetValue.const.elim`
+  • `Lean.Compiler.LCNF.LetValue.ctor.elim`
+  • `Lean.Compiler.LCNF.LetValue.erased.elim`
+  • `Lean.Compiler.LCNF.LetValue.fap.elim`
+  • `Lean.Compiler.LCNF.LetValue.fvar.elim`
+  • `Lean.Compiler.LCNF.LetValue.isShared.elim`
+  • `Lean.Compiler.LCNF.LetValue.lit.elim`
+  • `Lean.Compiler.LCNF.LetValue.oproj.elim`
+  • `Lean.Compiler.LCNF.LetValue.pap.elim`
+  • `Lean.Compiler.LCNF.LetValue.proj.elim`
+  • `Lean.Compiler.LCNF.LetValue.reset.elim`
+  • `Lean.Compiler.LCNF.LetValue.reuse.elim`
+  • `Lean.Compiler.LCNF.LetValue.sproj.elim`
+  • `Lean.Compiler.LCNF.LetValue.unbox.elim`
+  • `Lean.Compiler.LCNF.LetValue.uproj.elim`
+  • `Lean.Compiler.LCNF.LitValue.nat.elim`
+  • `Lean.Compiler.LCNF.LitValue.str.elim`
+  • `Lean.Compiler.LCNF.LitValue.uint16.elim`
+  • `Lean.Compiler.LCNF.LitValue.uint32.elim`
+  • `Lean.Compiler.LCNF.LitValue.uint64.elim`
+  • `Lean.Compiler.LCNF.LitValue.uint8.elim`
+  • `Lean.Compiler.LCNF.LitValue.usize.elim`
+  • `Lean.Compiler.LCNF.NormFVarResult.erased.elim`
+  • `Lean.Compiler.LCNF.NormFVarResult.fvar.elim`
+  • `Lean.Compiler.LCNF.Ownedness.borrow.elim`
+  • `Lean.Compiler.LCNF.Ownedness.bot.elim`
+  • `Lean.Compiler.LCNF.Ownedness.own.elim`
+  • `Lean.Compiler.LCNF.Ownedness.top.elim`
+  • `Lean.Compiler.LCNF.Phase.base.elim`
+  • `Lean.Compiler.LCNF.Phase.impure.elim`
+  • `Lean.Compiler.LCNF.Phase.mono.elim`
+  • `Lean.Compiler.LCNF.Purity.impure.elim`
+  • `Lean.Compiler.LCNF.Purity.pure.elim`
+  • `Lean.Compiler.LCNF.SimpleGroundArg.rawReference.elim`
+  • `Lean.Compiler.LCNF.SimpleGroundArg.reference.elim`
+  • `Lean.Compiler.LCNF.SimpleGroundArg.tagged.elim`
+  • `Lean.Compiler.LCNF.SimpleGroundExpr.array.elim`
+  • `Lean.Compiler.LCNF.SimpleGroundExpr.byteArray.elim`
+  • `Lean.Compiler.LCNF.SimpleGroundExpr.ctor.elim`
+  • `Lean.Compiler.LCNF.SimpleGroundExpr.nameMkStr.elim`
+  • `Lean.Compiler.LCNF.SimpleGroundExpr.pap.elim`
+  • `Lean.Compiler.LCNF.SimpleGroundExpr.reference.elim`
+  • `Lean.Compiler.LCNF.SimpleGroundExpr.string.elim`
+  • `Lean.Compiler.LCNF.SpecParamInfo.fixedHO.elim`
+  • `Lean.Compiler.LCNF.SpecParamInfo.fixedInst.elim`
+  • `Lean.Compiler.LCNF.SpecParamInfo.fixedNeutral.elim`
+  • `Lean.Compiler.LCNF.SpecParamInfo.other.elim`
+  • `Lean.Compiler.LCNF.SpecParamInfo.user.elim`
+  • `Lean.Data.AC.Expr.op.elim`
+  • `Lean.Data.AC.Expr.var.elim`
+  • `Lean.Doc.Parser.ListStyle.ordered.elim`
+  • `Lean.Doc.Parser.ListStyle.unordered.elim`
+  • `Lean.Doc.Parser.OrderedListType.numDot.elim`
+  • `Lean.Doc.Parser.OrderedListType.parenAfter.elim`
+  • `Lean.Doc.Parser.UnorderedListType.asterisk.elim`
+  • `Lean.Doc.Parser.UnorderedListType.dash.elim`
+  • `Lean.Doc.Parser.UnorderedListType.plus.elim`
+  • `Lean.Elab.ConfigEval.EvalConfigItemHandlerKind.exact.elim`
+  • `Lean.Elab.ConfigEval.EvalConfigItemHandlerKind.wildcard.elim`
+  • `Lean.Elab.Do.CodeLiveness.alive.elim`
+  • `Lean.Elab.Do.CodeLiveness.deadSemantically.elim`
+  • `Lean.Elab.Do.CodeLiveness.deadSyntactically.elim`
+  • `Lean.Elab.Do.DoElemContKind.duplicable.elim`
+  • `Lean.Elab.Do.DoElemContKind.nonDuplicable.elim`
+  • `Lean.Elab.Tactic.ElabSimpArgResult.addEntries.elim`
+  • `Lean.Elab.Tactic.ElabSimpArgResult.addLetToUnfold.elim`
+  • `Lean.Elab.Tactic.ElabSimpArgResult.addSimproc.elim`
+  • `Lean.Elab.Tactic.ElabSimpArgResult.erase.elim`
+  • `Lean.Elab.Tactic.ElabSimpArgResult.eraseSimproc.elim`
+  • `Lean.Elab.Tactic.ElabSimpArgResult.ext.elim`
+  • `Lean.Elab.Tactic.ElabSimpArgResult.none.elim`
+  • `Lean.Elab.Tactic.ElabSimpArgResult.star.elim`
+  • `Lean.Elab.Tactic.Location.targets.elim`
+  • `Lean.Elab.Tactic.Location.wildcard.elim`
+  • `Lean.Elab.Tactic.ResolveSimpIdResult.expr.elim`
+  • `Lean.Elab.Tactic.ResolveSimpIdResult.ext.elim`
+  • `Lean.Elab.Tactic.ResolveSimpIdResult.none.elim`
+  • `Lean.Elab.Tactic.ResolveSimpIdResult.simproc.elim`
+  • `Lean.Elab.Tactic.SimpKind.dsimp.elim`
+  • `Lean.Elab.Tactic.SimpKind.simp.elim`
+  • `Lean.Elab.Tactic.SimpKind.simpAll.elim`
+  • `Lean.Elab.Term.Arg.expr.elim`
+  • `Lean.Elab.Term.Arg.stx.elim`
+  • `Lean.Elab.Term.LVal.fieldIdx.elim`
+  • `Lean.Elab.Term.LVal.fieldName.elim`
+  • `Lean.Elab.Term.LValResolution.const.elim`
+  • `Lean.Elab.Term.LValResolution.localRec.elim`
+  • `Lean.Elab.Term.LValResolution.projFn.elim`
+  • `Lean.Elab.Term.LValResolution.projIdx.elim`
+  • `Lean.Elab.Term.MVarErrorKind.custom.elim`
+  • `Lean.Elab.Term.MVarErrorKind.hole.elim`
+  • `Lean.Elab.Term.MVarErrorKind.implicitArg.elim`
+  • `Lean.Elab.Term.PostponeBehavior.no.elim`
+  • `Lean.Elab.Term.PostponeBehavior.partial.elim`
+  • `Lean.Elab.Term.PostponeBehavior.yes.elim`
+  • `Lean.Elab.Term.SyntheticMVarKind.coe.elim`
+  • `Lean.Elab.Term.SyntheticMVarKind.postponed.elim`
+  • `Lean.Elab.Term.SyntheticMVarKind.tactic.elim`
+  • `Lean.Elab.Term.SyntheticMVarKind.typeClass.elim`
+  • `Lean.Elab.Term.TacticMVarKind.autoParam.elim`
+  • `Lean.Elab.Term.TacticMVarKind.fieldAutoParam.elim`
+  • `Lean.Elab.Term.TacticMVarKind.term.elim`
+  • `Lean.Elab.Term.UseImplicitLambdaResult.no.elim`
+  • `Lean.Elab.Term.UseImplicitLambdaResult.postpone.elim`
+  • `Lean.Elab.Term.UseImplicitLambdaResult.yes.elim`
+  • `Lean.Grind.AC.Expr.op.elim`
+  • `Lean.Grind.AC.Expr.var.elim`
+  • `Lean.Grind.AC.Seq.cons.elim`
+  • `Lean.Grind.AC.Seq.var.elim`
+  • `Lean.Grind.AC.SubseqResult.exact.elim`
+  • `Lean.Grind.AC.SubseqResult.false.elim`
+  • `Lean.Grind.AC.SubseqResult.middle.elim`
+  • `Lean.Grind.AC.SubseqResult.prefix.elim`
+  • `Lean.Grind.AC.SubseqResult.suffix.elim`
+  • `Lean.Grind.AC.SubsetResult.exact.elim`
+  • `Lean.Grind.AC.SubsetResult.false.elim`
+  • `Lean.Grind.AC.SubsetResult.strict.elim`
+  • `Lean.Grind.CommRing.Expr.add.elim`
+  • `Lean.Grind.CommRing.Expr.intCast.elim`
+  • `Lean.Grind.CommRing.Expr.mul.elim`
+  • `Lean.Grind.CommRing.Expr.natCast.elim`
+  • `Lean.Grind.CommRing.Expr.neg.elim`
+  • `Lean.Grind.CommRing.Expr.num.elim`
+  • `Lean.Grind.CommRing.Expr.pow.elim`
+  • `Lean.Grind.CommRing.Expr.sub.elim`
+  • `Lean.Grind.CommRing.Expr.var.elim`
+  • `Lean.Grind.CommRing.Mon.mult.elim`
+  • `Lean.Grind.CommRing.Mon.unit.elim`
+  • `Lean.Grind.CommRing.Poly.add.elim`
+  • `Lean.Grind.CommRing.Poly.num.elim`
+  • `Lean.Grind.Linarith.Expr.add.elim`
+  • `Lean.Grind.Linarith.Expr.intMul.elim`
+  • `Lean.Grind.Linarith.Expr.natMul.elim`
+  • `Lean.Grind.Linarith.Expr.neg.elim`
+  • `Lean.Grind.Linarith.Expr.sub.elim`
+  • `Lean.Grind.Linarith.Expr.var.elim`
+  • `Lean.Grind.Linarith.Expr.zero.elim`
+  • `Lean.Grind.Linarith.Poly.add.elim`
+  • `Lean.Grind.Linarith.Poly.nil.elim`
+  • `Lean.Html.Syntax.AttrValView.interp.elim`
+  • `Lean.Html.Syntax.AttrValView.str.elim`
+  • `Lean.Html.Syntax.AttrView.bool.elim`
+  • `Lean.Html.Syntax.AttrView.interp.elim`
+  • `Lean.Html.Syntax.AttrView.val.elim`
+  • `Lean.Html.Syntax.ContentItemView.element.elim`
+  • `Lean.Html.Syntax.ContentItemView.interp.elim`
+  • `Lean.Html.Syntax.ContentItemView.textComments.elim`
+  • `Lean.IR.EmitLLVM.RefcountKind.dec.elim`
+  • `Lean.IR.EmitLLVM.RefcountKind.inc.elim`
+  • `Lean.IR.EmitLLVM.ShouldForwardControlFlow.no.elim`
+  • `Lean.IR.EmitLLVM.ShouldForwardControlFlow.yes.elim`
+  • `Lean.Language.SnapshotTask.ReportingRange.inherit.elim`
+  • `Lean.Language.SnapshotTask.ReportingRange.skip.elim`
+  • `Lean.Language.SnapshotTask.ReportingRange.some.elim`
+  • `Lean.Level.PP.Result.imaxNode.elim`
+  • `Lean.Level.PP.Result.leaf.elim`
+  • `Lean.Level.PP.Result.maxNode.elim`
+  • `Lean.Level.PP.Result.num.elim`
+  • `Lean.Level.PP.Result.offset.elim`
+  • `Lean.Linter.CodeQuality.Source.declaration.elim`
+  • `Lean.Linter.CodeQuality.Source.module.elim`
+  • `Lean.Linter.CodeQuality.Value.dict.elim`
+  • `Lean.Linter.CodeQuality.Value.scalar.elim`
+  • `Lean.Lsp.RefIdent.RefIdentJsonRepr.c.elim`
+  • `Lean.Lsp.RefIdent.RefIdentJsonRepr.f.elim`
+  • `Lean.Meta.ACLt.ReduceMode.none.elim`
+  • `Lean.Meta.ACLt.ReduceMode.reduce.elim`
+  • `Lean.Meta.ACLt.ReduceMode.reduceSimpleOnly.elim`
+  • `Lean.Meta.DiscrTree.Key.arrow.elim`
+  • `Lean.Meta.DiscrTree.Key.const.elim`
+  • `Lean.Meta.DiscrTree.Key.fvar.elim`
+  • `Lean.Meta.DiscrTree.Key.lit.elim`
+  • `Lean.Meta.DiscrTree.Key.other.elim`
+  • `Lean.Meta.DiscrTree.Key.proj.elim`
+  • `Lean.Meta.DiscrTree.Key.star.elim`
+  • `Lean.Meta.DiscrTree.Trie.chain.elim`
+  • `Lean.Meta.DiscrTree.Trie.node.elim`
+  • `Lean.Meta.Grind.ActionResult.closed.elim`
+  • `Lean.Meta.Grind.ActionResult.stuck.elim`
+  • `Lean.Meta.Grind.ActivateNextGuardResult.next.elim`
+  • `Lean.Meta.Grind.ActivateNextGuardResult.ready.elim`
+  • `Lean.Meta.Grind.AttrKind.cases.elim`
+  • `Lean.Meta.Grind.AttrKind.ematch.elim`
+  • `Lean.Meta.Grind.AttrKind.ext.elim`
+  • `Lean.Meta.Grind.AttrKind.funCC.elim`
+  • `Lean.Meta.Grind.AttrKind.homo.elim`
+  • `Lean.Meta.Grind.AttrKind.homoPred.elim`
+  • `Lean.Meta.Grind.AttrKind.infer.elim`
+  • `Lean.Meta.Grind.AttrKind.inj.elim`
+  • `Lean.Meta.Grind.AttrKind.intro.elim`
+  • `Lean.Meta.Grind.AttrKind.norm.elim`
+  • `Lean.Meta.Grind.AttrKind.symbol.elim`
+  • `Lean.Meta.Grind.AttrKind.unfold.elim`
+  • `Lean.Meta.Grind.CheckCoverageResult.missing.elim`
+  • `Lean.Meta.Grind.CheckCoverageResult.ok.elim`
+  • `Lean.Meta.Grind.CheckResult.closed.elim`
+  • `Lean.Meta.Grind.CheckResult.none.elim`
+  • `Lean.Meta.Grind.CheckResult.progress.elim`
+  • `Lean.Meta.Grind.CheckResult.propagated.elim`
+  • `Lean.Meta.Grind.EMatchDiagSource.ematch.elim`
+  • `Lean.Meta.Grind.EMatchDiagSource.other.elim`
+  • `Lean.Meta.Grind.EMatchTheoremConstraint.check.elim`
+  • `Lean.Meta.Grind.EMatchTheoremConstraint.defEq.elim`
+  • `Lean.Meta.Grind.EMatchTheoremConstraint.depthLt.elim`
+  • `Lean.Meta.Grind.EMatchTheoremConstraint.genLt.elim`
+  • `Lean.Meta.Grind.EMatchTheoremConstraint.guard.elim`
+  • `Lean.Meta.Grind.EMatchTheoremConstraint.isGround.elim`
+  • `Lean.Meta.Grind.EMatchTheoremConstraint.isValue.elim`
+  • `Lean.Meta.Grind.EMatchTheoremConstraint.maxInsts.elim`
+  • `Lean.Meta.Grind.EMatchTheoremConstraint.notDefEq.elim`
+  • `Lean.Meta.Grind.EMatchTheoremConstraint.notValue.elim`
+  • `Lean.Meta.Grind.EMatchTheoremConstraint.sizeLt.elim`
+  • `Lean.Meta.Grind.EMatchTheoremKind.bwd.elim`
+  • `Lean.Meta.Grind.EMatchTheoremKind.default.elim`
+  • `Lean.Meta.Grind.EMatchTheoremKind.eqBoth.elim`
+  • `Lean.Meta.Grind.EMatchTheoremKind.eqBwd.elim`
+  • `Lean.Meta.Grind.EMatchTheoremKind.eqLhs.elim`
+  • `Lean.Meta.Grind.EMatchTheoremKind.eqRhs.elim`
+  • `Lean.Meta.Grind.EMatchTheoremKind.fwd.elim`
+  • `Lean.Meta.Grind.EMatchTheoremKind.leftRight.elim`
+  • `Lean.Meta.Grind.EMatchTheoremKind.rightLeft.elim`
+  • `Lean.Meta.Grind.EMatchTheoremKind.user.elim`
+  • `Lean.Meta.Grind.Entry.cases.elim`
+  • `Lean.Meta.Grind.Entry.ematch.elim`
+  • `Lean.Meta.Grind.Entry.ext.elim`
+  • `Lean.Meta.Grind.Entry.funCC.elim`
+  • `Lean.Meta.Grind.Entry.inj.elim`
+  • `Lean.Meta.Grind.MinIndexableMode.both.elim`
+  • `Lean.Meta.Grind.MinIndexableMode.no.elim`
+  • `Lean.Meta.Grind.MinIndexableMode.yes.elim`
+  • `Lean.Meta.Grind.Origin.decl.elim`
+  • `Lean.Meta.Grind.Origin.fvar.elim`
+  • `Lean.Meta.Grind.Origin.local.elim`
+  • `Lean.Meta.Grind.Origin.stx.elim`
+  • `Lean.Meta.Grind.SolverTerms.next.elim`
+  • `Lean.Meta.Grind.SolverTerms.nil.elim`
+  • `Lean.Meta.Grind.SplitInfo.arg.elim`
+  • `Lean.Meta.Grind.SplitInfo.default.elim`
+  • `Lean.Meta.Grind.SplitInfo.imp.elim`
+  • `Lean.Meta.Grind.SplitSource.beta.elim`
+  • `Lean.Meta.Grind.SplitSource.ematch.elim`
+  • `Lean.Meta.Grind.SplitSource.existsProp.elim`
+  • `Lean.Meta.Grind.SplitSource.ext.elim`
+  • `Lean.Meta.Grind.SplitSource.forallProp.elim`
+  • `Lean.Meta.Grind.SplitSource.guard.elim`
+  • `Lean.Meta.Grind.SplitSource.inj.elim`
+  • `Lean.Meta.Grind.SplitSource.input.elim`
+  • `Lean.Meta.Grind.SplitSource.mbtc.elim`
+  • `Lean.Meta.Grind.SplitStatus.notReady.elim`
+  • `Lean.Meta.Grind.SplitStatus.ready.elim`
+  • `Lean.Meta.Grind.SplitStatus.resolved.elim`
+  • `Lean.Meta.Grind.ToProcessElement.eq.elim`
+  • `Lean.Meta.Grind.ToProcessElement.fact.elim`
+  • `Lean.Meta.Grind.ToProcessElement.propagateUp.elim`
+  • `Lean.Meta.Grind.ToProcessElement.solverDiseq.elim`
+  • `Lean.Meta.Grind.ToProcessElement.solverEq.elim`
+  • `Lean.Meta.Hint.DiffGranularity.all.elim`
+  • `Lean.Meta.Hint.DiffGranularity.auto.elim`
+  • `Lean.Meta.Hint.DiffGranularity.char.elim`
+  • `Lean.Meta.Hint.DiffGranularity.none.elim`
+  • `Lean.Meta.Hint.DiffGranularity.word.elim`
+  • `Lean.Meta.LazyDiscrTree.Key.arrow.elim`
+  • `Lean.Meta.LazyDiscrTree.Key.const.elim`
+  • `Lean.Meta.LazyDiscrTree.Key.fvar.elim`
+  • `Lean.Meta.LazyDiscrTree.Key.lit.elim`
+  • `Lean.Meta.LazyDiscrTree.Key.other.elim`
+  • `Lean.Meta.LazyDiscrTree.Key.proj.elim`
+  • `Lean.Meta.LazyDiscrTree.Key.star.elim`
+  • `Lean.Meta.LibrarySearch.DeclMod.mp.elim`
+  • `Lean.Meta.LibrarySearch.DeclMod.mpr.elim`
+  • `Lean.Meta.LibrarySearch.DeclMod.none.elim`
+  • `Lean.Meta.Match.Example.arrayLit.elim`
+  • `Lean.Meta.Match.Example.ctor.elim`
+  • `Lean.Meta.Match.Example.underscore.elim`
+  • `Lean.Meta.Match.Example.val.elim`
+  • `Lean.Meta.Match.Example.var.elim`
+  • `Lean.Meta.Match.Pattern.arrayLit.elim`
+  • `Lean.Meta.Match.Pattern.as.elim`
+  • `Lean.Meta.Match.Pattern.ctor.elim`
+  • `Lean.Meta.Match.Pattern.inaccessible.elim`
+  • `Lean.Meta.Match.Pattern.val.elim`
+  • `Lean.Meta.Match.Pattern.var.elim`
+  • `Lean.Meta.MonadSimp.Result.rfl.elim`
+  • `Lean.Meta.MonadSimp.Result.step.elim`
+  • `Lean.Meta.NormCast.Label.elim.elim`
+  • `Lean.Meta.NormCast.Label.move.elim`
+  • `Lean.Meta.NormCast.Label.squash.elim`
+  • `Lean.Meta.RefinedDiscrTree.Key.bvar.elim`
+  • `Lean.Meta.RefinedDiscrTree.Key.const.elim`
+  • `Lean.Meta.RefinedDiscrTree.Key.forall.elim`
+  • `Lean.Meta.RefinedDiscrTree.Key.fvar.elim`
+  • `Lean.Meta.RefinedDiscrTree.Key.labelledStar.elim`
+  • `Lean.Meta.RefinedDiscrTree.Key.lam.elim`
+  • `Lean.Meta.RefinedDiscrTree.Key.lit.elim`
+  • `Lean.Meta.RefinedDiscrTree.Key.opaque.elim`
+  • `Lean.Meta.RefinedDiscrTree.Key.proj.elim`
+  • `Lean.Meta.RefinedDiscrTree.Key.sort.elim`
+  • `Lean.Meta.RefinedDiscrTree.Key.star.elim`
+  • `Lean.Meta.RefinedDiscrTree.StackEntry.expr.elim`
+  • `Lean.Meta.RefinedDiscrTree.StackEntry.star.elim`
+  • `Lean.Meta.Simp.DischargeResult.failedAssign.elim`
+  • `Lean.Meta.Simp.DischargeResult.maxDepth.elim`
+  • `Lean.Meta.Simp.DischargeResult.notProved.elim`
+  • `Lean.Meta.Simp.DischargeResult.proved.elim`
+  • `Lean.Meta.Simp.Step.continue.elim`
+  • `Lean.Meta.Simp.Step.done.elim`
+  • `Lean.Meta.Simp.Step.visit.elim`
+  • `Lean.Meta.Sym.ApplyResult.failed.elim`
+  • `Lean.Meta.Sym.ApplyResult.goals.elim`
+  • `Lean.Meta.Sym.CongrInfo.congrTheorem.elim`
+  • `Lean.Meta.Sym.CongrInfo.fixedPrefix.elim`
+  • `Lean.Meta.Sym.CongrInfo.interlaced.elim`
+  • `Lean.Meta.Sym.CongrInfo.none.elim`
+  • `Lean.Meta.Sym.Offset.add.elim`
+  • `Lean.Meta.Sym.Offset.num.elim`
+  • `Lean.Meta.SynthInstance.Waiter.consumerNode.elim`
+  • `Lean.Meta.SynthInstance.Waiter.root.elim`
+  • `Lean.Parser.ParserExtension.Entry.category.elim`
+  • `Lean.Parser.ParserExtension.Entry.kind.elim`
+  • `Lean.Parser.ParserExtension.Entry.parser.elim`
+  • `Lean.Parser.ParserExtension.Entry.token.elim`
+  • `Lean.Parser.ParserExtension.OLeanEntry.category.elim`
+  • `Lean.Parser.ParserExtension.OLeanEntry.kind.elim`
+  • `Lean.Parser.ParserExtension.OLeanEntry.parser.elim`
+  • `Lean.Parser.ParserExtension.OLeanEntry.token.elim`
+  • `Lean.Parser.Tactic.MCasesPat.alts.elim`
+  • `Lean.Parser.Tactic.MCasesPat.clear.elim`
+  • `Lean.Parser.Tactic.MCasesPat.one.elim`
+  • `Lean.Parser.Tactic.MCasesPat.pure.elim`
+  • `Lean.Parser.Tactic.MCasesPat.stateful.elim`
+  • `Lean.Parser.Tactic.MCasesPat.tuple.elim`
+  • `Lean.Parser.Tactic.MRefinePat.hole.elim`
+  • `Lean.Parser.Tactic.MRefinePat.one.elim`
+  • `Lean.Parser.Tactic.MRefinePat.pure.elim`
+  • `Lean.Parser.Tactic.MRefinePat.stateful.elim`
+  • `Lean.Parser.Tactic.MRefinePat.tuple.elim`
+  • `Lean.PrettyPrinter.Delaborator.AppImplicitArg.named.elim`
+  • `Lean.PrettyPrinter.Delaborator.AppImplicitArg.optional.elim`
+  • `Lean.PrettyPrinter.Delaborator.AppImplicitArg.regular.elim`
+  • `Lean.PrettyPrinter.Delaborator.AppImplicitArg.skip.elim`
+  • `Lean.PrettyPrinter.Delaborator.OmissionReason.deep.elim`
+  • `Lean.PrettyPrinter.Delaborator.OmissionReason.maxSteps.elim`
+  • `Lean.PrettyPrinter.Delaborator.OmissionReason.proof.elim`
+  • `Lean.PrettyPrinter.Delaborator.OmissionReason.string.elim`
+  • `Lean.Server.Completion.HoverInfo.after.elim`
+  • `Lean.Server.Completion.HoverInfo.inside.elim`
+  • `Lean.Util.ParamMinimizer.Status.approx.elim`
+  • `Lean.Util.ParamMinimizer.Status.missing.elim`
+  • `Lean.Util.ParamMinimizer.Status.precise.elim`
+  • `Mathlib.Meta.FunProp.DecompositionResult.comp.elim`
+  • `Mathlib.Meta.FunProp.DecompositionResult.failed.elim`
+  • `Mathlib.Meta.FunProp.DecompositionResult.uncurried.elim`
+  • `Mathlib.Meta.FunProp.LambdaTheoremArgs.apply.elim`
+  • `Mathlib.Meta.FunProp.LambdaTheoremArgs.comp.elim`
+  • `Mathlib.Meta.FunProp.LambdaTheoremArgs.const.elim`
+  • `Mathlib.Meta.FunProp.LambdaTheoremArgs.id.elim`
+  • `Mathlib.Meta.FunProp.LambdaTheoremArgs.pi.elim`
+  • `Mathlib.Meta.FunProp.LambdaTheoremType.apply.elim`
+  • `Mathlib.Meta.FunProp.LambdaTheoremType.comp.elim`
+  • `Mathlib.Meta.FunProp.LambdaTheoremType.const.elim`
+  • `Mathlib.Meta.FunProp.LambdaTheoremType.id.elim`
+  • `Mathlib.Meta.FunProp.LambdaTheoremType.pi.elim`
+  • `Mathlib.Meta.FunProp.MaybeFunctionData.data.elim`
+  • `Mathlib.Meta.FunProp.MaybeFunctionData.lam.elim`
+  • `Mathlib.Meta.FunProp.MaybeFunctionData.letE.elim`
+  • `Mathlib.Meta.FunProp.MorApplication.exact.elim`
+  • `Mathlib.Meta.FunProp.MorApplication.none.elim`
+  • `Mathlib.Meta.FunProp.MorApplication.overApplied.elim`
+  • `Mathlib.Meta.FunProp.MorApplication.underApplied.elim`
+  • `Mathlib.Meta.FunProp.Origin.decl.elim`
+  • `Mathlib.Meta.FunProp.Origin.fvar.elim`
+  • `Mathlib.Meta.FunProp.Theorem.function.elim`
+  • `Mathlib.Meta.FunProp.Theorem.lam.elim`
+  • `Mathlib.Meta.FunProp.Theorem.mor.elim`
+  • `Mathlib.Meta.FunProp.Theorem.transition.elim`
+  • `Mathlib.Meta.FunProp.TheoremForm.comp.elim`
+  • `Mathlib.Meta.FunProp.TheoremForm.uncurried.elim`
+  • `Mathlib.Meta.NormNum.Result'.isBool.elim`
+  • `Mathlib.Meta.NormNum.Result'.isNNRat.elim`
+  • `Mathlib.Meta.NormNum.Result'.isNat.elim`
+  • `Mathlib.Meta.NormNum.Result'.isNegNNRat.elim`
+  • `Mathlib.Meta.NormNum.Result'.isNegNat.elim`
+  • `Mathlib.Meta.Positivity.Strictness.none.elim`
+  • `Mathlib.Meta.Positivity.Strictness.nonnegative.elim`
+  • `Mathlib.Meta.Positivity.Strictness.nonzero.elim`
+  • `Mathlib.Meta.Positivity.Strictness.positive.elim`
+  • `Mathlib.Tactic.Abel.AbelMode.raw.elim`
+  • `Mathlib.Tactic.Abel.AbelMode.term.elim`
+  • `Mathlib.Tactic.Abel.NormalExpr.nterm.elim`
+  • `Mathlib.Tactic.Abel.NormalExpr.zero.elim`
+  • `Mathlib.Tactic.Choose.ElimStatus.failure.elim`
+  • `Mathlib.Tactic.Choose.ElimStatus.success.elim`
+  • `Mathlib.Tactic.ClickSuggestions.Premise.const.elim`
+  • `Mathlib.Tactic.ClickSuggestions.Premise.fvar.elim`
+  • `Mathlib.Tactic.ClickSuggestions.RwKind.hasBVars.elim`
+  • `Mathlib.Tactic.ClickSuggestions.RwKind.valid.elim`
+  • `Mathlib.Tactic.ClickSuggestions.SectionKind.currFile.elim`
+  • `Mathlib.Tactic.ClickSuggestions.SectionKind.hyp.elim`
+  • `Mathlib.Tactic.ClickSuggestions.SectionKind.imported.elim`
+  • `Mathlib.Tactic.Conv.Path.arg.elim`
+  • `Mathlib.Tactic.Conv.Path.body.elim`
+  • `Mathlib.Tactic.Conv.Path.fun.elim`
+  • `Mathlib.Tactic.Conv.Path.type.elim`
+  • `Mathlib.Tactic.DepRewrite.CastMode.all.elim`
+  • `Mathlib.Tactic.DepRewrite.CastMode.proofs.elim`
+  • `Mathlib.Tactic.FieldSimp.DenomCondition.none.elim`
+  • `Mathlib.Tactic.FieldSimp.DenomCondition.nonzero.elim`
+  • `Mathlib.Tactic.FieldSimp.DenomCondition.positive.elim`
+  • `Mathlib.Tactic.FieldSimp.Sign.minus.elim`
+  • `Mathlib.Tactic.FieldSimp.Sign.plus.elim`
+  • `Mathlib.Tactic.IntervalCases.Bound.le.elim`
+  • `Mathlib.Tactic.IntervalCases.Bound.lt.elim`
+  • `Mathlib.Tactic.LibraryRewrite.Kind.fromCache.elim`
+  • `Mathlib.Tactic.LibraryRewrite.Kind.fromFile.elim`
+  • `Mathlib.Tactic.LibraryRewrite.Kind.hypothesis.elim`
+  • `Mathlib.Tactic.LinearCombination.Expanded.const.elim`
+  • `Mathlib.Tactic.LinearCombination.Expanded.proof.elim`
+  • `Mathlib.Tactic.Order.AtomicFact.eq.elim`
+  • `Mathlib.Tactic.Order.AtomicFact.isBot.elim`
+  • `Mathlib.Tactic.Order.AtomicFact.isInf.elim`
+  • `Mathlib.Tactic.Order.AtomicFact.isSup.elim`
+  • `Mathlib.Tactic.Order.AtomicFact.isTop.elim`
+  • `Mathlib.Tactic.Order.AtomicFact.le.elim`
+  • `Mathlib.Tactic.Order.AtomicFact.lt.elim`
+  • `Mathlib.Tactic.Order.AtomicFact.ne.elim`
+  • `Mathlib.Tactic.Order.AtomicFact.nle.elim`
+  • `Mathlib.Tactic.Order.AtomicFact.nlt.elim`
+  • `Mathlib.Tactic.Order.OrderType.lin.elim`
+  • `Mathlib.Tactic.Order.OrderType.part.elim`
+  • `Mathlib.Tactic.Order.OrderType.pre.elim`
+  • `Mathlib.Tactic.Push.Head.const.elim`
+  • `Mathlib.Tactic.Push.Head.forall.elim`
+  • `Mathlib.Tactic.Push.Head.lambda.elim`
+  • `Mathlib.Tactic.Ring.ExceptType.notComparable.elim`
+  • `Mathlib.Tactic.Ring.ExceptType.tooSmall.elim`
+  • `Mathlib.Tactic.RingNF.RingMode.SOP.elim`
+  • `Mathlib.Tactic.RingNF.RingMode.raw.elim`
+  • `Mathlib.Tactic.TermCongr.CongrType.eq.elim`
+  • `Mathlib.Tactic.TermCongr.CongrType.heq.elim`
+  • `Mathlib.Tactic.Translate.RelevantArg.arg.elim`
+  • `Mathlib.Tactic.Translate.RelevantArg.noArg.elim`
+  • `Mathlib.Tactic.UnfoldBoundary.UnfoldEntry.cast.elim`
+  • `Mathlib.Tactic.UnfoldBoundary.UnfoldEntry.unfold.elim`
+  • `Nat.Internal.Linear.Expr.add.elim`
+  • `Nat.Internal.Linear.Expr.mulL.elim`
+  • `Nat.Internal.Linear.Expr.mulR.elim`
+  • `Nat.Internal.Linear.Expr.num.elim`
+  • `Nat.Internal.Linear.Expr.var.elim`
+  • `Nat.Internal.SOM.Expr.add.elim`
+  • `Nat.Internal.SOM.Expr.mul.elim`
+  • `Nat.Internal.SOM.Expr.num.elim`
+  • `Nat.Internal.SOM.Expr.var.elim`
+  • `MetaComplexity.NestedCover.Kind.b.elim`
+  • `MetaComplexity.NestedCover.Kind.o.elim`
+  • `MetaComplexity.NestedCover.Kind.top.elim`
+  • `MetaComplexity.NestedCover.Kind.z.elim`
+  • `Std.DHashMap.Internal.AssocList.cons.elim`
+  • `Std.DHashMap.Internal.AssocList.nil.elim`
+  • `Std.DTreeMap.Internal.Impl.inner.elim`
+  • `Std.DTreeMap.Internal.Impl.leaf.elim`
+  • `Std.Internal.Parsec.Error.eof.elim`
+  • `Std.Internal.Parsec.Error.other.elim`
+  • `Std.Internal.Parsec.ParseResult.error.elim`
+  • `Std.Internal.Parsec.ParseResult.success.elim`
+  • `Std.Iterators.Types.Append.fst.elim`
+  • `Std.Iterators.Types.Append.snd.elim`
+  • `Std.Time.TimeZone.StdWall.standard.elim`
+  • `Std.Time.TimeZone.StdWall.wall.elim`
+  • `Std.Time.TimeZone.TransitionSpec.julian.elim`
+  • `Std.Time.TimeZone.TransitionSpec.julian0.elim`
+  • `Std.Time.TimeZone.TransitionSpec.mwd.elim`
+  • `Std.Time.TimeZone.UTLocal.local.elim`
+  • `Std.Time.TimeZone.UTLocal.ut.elim`
+  • `Std.Time.Year.Era.bce.elim`
+  • `Std.Time.Year.Era.ce.elim`
+  • `String.Slice.Pattern.ForwardSliceSearcher.atEnd.elim`
+  • `String.Slice.Pattern.ForwardSliceSearcher.emptyAt.elim`
+  • `String.Slice.Pattern.ForwardSliceSearcher.emptyBefore.elim`
+  • `String.Slice.Pattern.ForwardSliceSearcher.proper.elim`
+  • `String.Slice.Pattern.SearchStep.matched.elim`
+  • `String.Slice.Pattern.SearchStep.rejected.elim`
+  • `Lean.Compiler.LCNF.FixedParams.AbsValue.erased.elim`
+  • `Lean.Compiler.LCNF.FixedParams.AbsValue.top.elim`
+  • `Lean.Compiler.LCNF.FixedParams.AbsValue.val.elim`
+  • `Lean.Compiler.LCNF.FloatLetIn.Decision.arm.elim`
+  • `Lean.Compiler.LCNF.FloatLetIn.Decision.default.elim`
+  • `Lean.Compiler.LCNF.FloatLetIn.Decision.dont.elim`
+  • `Lean.Compiler.LCNF.FloatLetIn.Decision.unknown.elim`
+  • `Lean.Compiler.LCNF.Simp.CtorInfo.ctor.elim`
+  • `Lean.Compiler.LCNF.Simp.CtorInfo.natVal.elim`
+  • `Lean.Compiler.LCNF.Simp.FunDeclInfo.many.elim`
+  • `Lean.Compiler.LCNF.Simp.FunDeclInfo.mustInline.elim`
+  • `Lean.Compiler.LCNF.Simp.FunDeclInfo.once.elim`
+  • `Lean.Compiler.LCNF.UnreachableBranches.Value.bot.elim`
+  • `Lean.Compiler.LCNF.UnreachableBranches.Value.choice.elim`
+  • `Lean.Compiler.LCNF.UnreachableBranches.Value.ctor.elim`
+  • `Lean.Compiler.LCNF.UnreachableBranches.Value.top.elim`
+  • `Lean.Elab.Tactic.Conv.PatternMatchState.all.elim`
+  • `Lean.Elab.Tactic.Conv.PatternMatchState.occs.elim`
+  • `Lean.Elab.Tactic.Grind.ExtraTheorem.const.elim`
+  • `Lean.Elab.Tactic.Grind.ExtraTheorem.fvar.elim`
+  • `Lean.Elab.Tactic.Grind.LiftActionCoreResult.closed.elim`
+  • `Lean.Elab.Tactic.Grind.LiftActionCoreResult.subgoals.elim`
+  • `Lean.Elab.Tactic.Omega.Justification.assumption.elim`
+  • `Lean.Elab.Tactic.Omega.Justification.bmod.elim`
+  • `Lean.Elab.Tactic.Omega.Justification.combine.elim`
+  • `Lean.Elab.Tactic.Omega.Justification.combo.elim`
+  • `Lean.Elab.Tactic.Omega.Justification.tidy.elim`
+  • `Lean.Elab.Tactic.RCases.RCasesPatt.alts.elim`
+  • `Lean.Elab.Tactic.RCases.RCasesPatt.clear.elim`
+  • `Lean.Elab.Tactic.RCases.RCasesPatt.explicit.elim`
+  • `Lean.Elab.Tactic.RCases.RCasesPatt.one.elim`
+  • `Lean.Elab.Tactic.RCases.RCasesPatt.paren.elim`
+  • `Lean.Elab.Tactic.RCases.RCasesPatt.tuple.elim`
+  • `Lean.Elab.Tactic.RCases.RCasesPatt.typed.elim`
+  • `Lean.Elab.Tactic.Simp.DischargeWrapper.custom.elim`
+  • `Lean.Elab.Tactic.Simp.DischargeWrapper.default.elim`
+  • `Lean.Elab.Term.Do.Code.action.elim`
+  • `Lean.Elab.Term.Do.Code.break.elim`
+  • `Lean.Elab.Term.Do.Code.continue.elim`
+  • `Lean.Elab.Term.Do.Code.decl.elim`
+  • `Lean.Elab.Term.Do.Code.ite.elim`
+  • `Lean.Elab.Term.Do.Code.jmp.elim`
+  • `Lean.Elab.Term.Do.Code.joinpoint.elim`
+  • `Lean.Elab.Term.Do.Code.match.elim`
+  • `Lean.Elab.Term.Do.Code.matchExpr.elim`
+  • `Lean.Elab.Term.Do.Code.reassign.elim`
+  • `Lean.Elab.Term.Do.Code.return.elim`
+  • `Lean.Elab.Term.Do.Code.seq.elim`
+  • `Lean.Elab.Term.Quotation.HeadCheck.other.elim`
+  • `Lean.Elab.Term.Quotation.HeadCheck.shape.elim`
+  • `Lean.Elab.Term.Quotation.HeadCheck.slice.elim`
+  • `Lean.Elab.Term.Quotation.HeadCheck.unconditional.elim`
+  • `Lean.Elab.Term.Quotation.MatchResult.covered.elim`
+  • `Lean.Elab.Term.Quotation.MatchResult.uncovered.elim`
+  • `Lean.Elab.Term.Quotation.MatchResult.undecided.elim`
+  • `Lean.Language.SnapshotTree.foldSnaps.Control.done.elim`
+  • `Lean.Language.SnapshotTree.foldSnaps.Control.proceed.elim`
+  • `Lean.Meta.Grind.AC.DiseqCnstrProof.core.elim`
+  • `Lean.Meta.Grind.AC.DiseqCnstrProof.erase0.elim`
+  • `Lean.Meta.Grind.AC.DiseqCnstrProof.erase_dup.elim`
+  • `Lean.Meta.Grind.AC.DiseqCnstrProof.simp_ac.elim`
+  • `Lean.Meta.Grind.AC.DiseqCnstrProof.simp_exact.elim`
+  • `Lean.Meta.Grind.AC.DiseqCnstrProof.simp_middle.elim`
+  • `Lean.Meta.Grind.AC.DiseqCnstrProof.simp_prefix.elim`
+  • `Lean.Meta.Grind.AC.DiseqCnstrProof.simp_suffix.elim`
+  • `Lean.Meta.Grind.AC.EqCnstrProof.core.elim`
+  • `Lean.Meta.Grind.AC.EqCnstrProof.erase0.elim`
+  • `Lean.Meta.Grind.AC.EqCnstrProof.erase0_rhs.elim`
+  • `Lean.Meta.Grind.AC.EqCnstrProof.erase_dup.elim`
+  • `Lean.Meta.Grind.AC.EqCnstrProof.erase_dup_rhs.elim`
+  • `Lean.Meta.Grind.AC.EqCnstrProof.refl.elim`
+  • `Lean.Meta.Grind.AC.EqCnstrProof.simp_ac.elim`
+  • `Lean.Meta.Grind.AC.EqCnstrProof.simp_exact.elim`
+  • `Lean.Meta.Grind.AC.EqCnstrProof.simp_middle.elim`
+  • `Lean.Meta.Grind.AC.EqCnstrProof.simp_prefix.elim`
+  • `Lean.Meta.Grind.AC.EqCnstrProof.simp_suffix.elim`
+  • `Lean.Meta.Grind.AC.EqCnstrProof.superpose.elim`
+  • `Lean.Meta.Grind.AC.EqCnstrProof.superpose_ac.elim`
+  • `Lean.Meta.Grind.AC.EqCnstrProof.superpose_ac_idempotent.elim`
+  • `Lean.Meta.Grind.AC.EqCnstrProof.superpose_head_idempotent.elim`
+  • `Lean.Meta.Grind.AC.EqCnstrProof.superpose_tail_idempotent.elim`
+  • `Lean.Meta.Grind.AC.EqCnstrProof.swap.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DvdCnstrProof.elim`
+  • `Lean.Meta.Grind.EMatch.Cnstr.continue.elim`
+  • `Lean.Meta.Grind.EMatch.Cnstr.match.elim`
+  • `Lean.Meta.Grind.EMatch.Cnstr.offset.elim`
+  • `Lean.Meta.Grind.NormalizePattern.PatternArgKind.instImplicit.elim`
+  • `Lean.Meta.Grind.NormalizePattern.PatternArgKind.outParam.elim`
+  • `Lean.Meta.Grind.NormalizePattern.PatternArgKind.proof.elim`
+  • `Lean.Meta.Grind.NormalizePattern.PatternArgKind.relevant.elim`
+  • `Lean.Meta.Grind.NormalizePattern.PatternArgKind.typeFormer.elim`
+  • `Lean.Meta.Sym.Arith.ClassifyResult.commRing.elim`
+  • `Lean.Meta.Sym.Arith.ClassifyResult.commSemiring.elim`
+  • `Lean.Meta.Sym.Arith.ClassifyResult.nonCommRing.elim`
+  • `Lean.Meta.Sym.Arith.ClassifyResult.nonCommSemiring.elim`
+  • `Lean.Meta.Sym.Arith.ClassifyResult.none.elim`
+  • `Lean.Meta.Sym.Arith.Kind.commRing.elim`
+  • `Lean.Meta.Sym.Arith.Kind.commSemiring.elim`
+  • `Lean.Meta.Sym.Arith.Kind.ring.elim`
+  • `Lean.Meta.Sym.Arith.Kind.semiring.elim`
+  • `Lean.Meta.Sym.Arith.RelKind.eq.elim`
+  • `Lean.Meta.Sym.Arith.RelKind.le.elim`
+  • `Lean.Meta.Sym.Arith.RelKind.lt.elim`
+  • `Lean.Meta.Sym.DSimp.Result.rfl.elim`
+  • `Lean.Meta.Sym.DSimp.Result.step.elim`
+  • `Lean.Meta.Sym.Simp.DischargeResult.failed.elim`
+  • `Lean.Meta.Sym.Simp.DischargeResult.solved.elim`
+  • `Lean.Meta.Sym.Simp.Result.rfl.elim`
+  • `Lean.Meta.Sym.Simp.Result.step.elim`
+  • `Lean.Meta.Tactic.TryThis.SuggestionText.string.elim`
+  • `Lean.Meta.Tactic.TryThis.SuggestionText.tsyntax.elim`
+  • `Lean.Server.FileWorker.SignatureHelp.CandidateKind.appArg.elim`
+  • `Lean.Server.FileWorker.SignatureHelp.CandidateKind.pipeArg.elim`
+  • `Lean.Server.FileWorker.SignatureHelp.CandidateKind.termArg.elim`
+  • `Lean.Server.FileWorker.SignatureHelp.SearchControl.continue.elim`
+  • `Lean.Server.FileWorker.SignatureHelp.SearchControl.stop.elim`
+  • `Mathlib.Tactic.Ring.Common.ExBase.atom.elim`
+  • `Mathlib.Tactic.Ring.Common.ExBase.sum.elim`
+  • `Mathlib.Tactic.Ring.Common.ExBaseNat.atom.elim`
+  • `Mathlib.Tactic.Ring.Common.ExBaseNat.sum.elim`
+  • `Mathlib.Tactic.Ring.Common.ExProd.const.elim`
+  • `Mathlib.Tactic.Ring.Common.ExProd.mul.elim`
+  • `Mathlib.Tactic.Ring.Common.ExProdNat.const.elim`
+  • `Mathlib.Tactic.Ring.Common.ExProdNat.mul.elim`
+  • `Mathlib.Tactic.Ring.Common.ExSum.add.elim`
+  • `Mathlib.Tactic.Ring.Common.ExSum.zero.elim`
+  • `Mathlib.Tactic.Ring.Common.ExSumNat.add.elim`
+  • `Mathlib.Tactic.Ring.Common.ExSumNat.zero.elim`
+  • `Mathlib.Tactic.Ring.Common.Overlap.nonzero.elim`
+  • `Mathlib.Tactic.Ring.Common.Overlap.zero.elim`
+  • `Std.DTreeMap.Internal.Impl.ExplorationStep.eq.elim`
+  • `Std.DTreeMap.Internal.Impl.ExplorationStep.gt.elim`
+  • `Std.DTreeMap.Internal.Impl.ExplorationStep.lt.elim`
+  • `Std.Time.Database.TZdb.TZSpec.filePath.elim`
+  • `Std.Time.Database.TZdb.TZSpec.zoneId.elim`
+  • `Lean.Elab.Term.Do.ToTerm.Kind.forIn.elim`
+  • `Lean.Elab.Term.Do.ToTerm.Kind.forInWithReturn.elim`
+  • `Lean.Elab.Term.Do.ToTerm.Kind.nestedBC.elim`
+  • `Lean.Elab.Term.Do.ToTerm.Kind.nestedPR.elim`
+  • `Lean.Elab.Term.Do.ToTerm.Kind.nestedPRBC.elim`
+  • `Lean.Elab.Term.Do.ToTerm.Kind.nestedSBC.elim`
+  • `Lean.Elab.Term.Do.ToTerm.Kind.regular.elim`
+  • `Lean.Meta.Grind.Arith.CommRing.EqCnstrProof.core.elim`
+  • `Lean.Meta.Grind.Arith.CommRing.EqCnstrProof.coreS.elim`
+  • `Lean.Meta.Grind.Arith.CommRing.EqCnstrProof.div.elim`
+  • `Lean.Meta.Grind.Arith.CommRing.EqCnstrProof.gcd.elim`
+  • `Lean.Meta.Grind.Arith.CommRing.EqCnstrProof.mul.elim`
+  • `Lean.Meta.Grind.Arith.CommRing.EqCnstrProof.numEq0.elim`
+  • `Lean.Meta.Grind.Arith.CommRing.EqCnstrProof.simp.elim`
+  • `Lean.Meta.Grind.Arith.CommRing.EqCnstrProof.superpose.elim`
+  • `Lean.Meta.Grind.Arith.CommRing.PolyDerivation.input.elim`
+  • `Lean.Meta.Grind.Arith.CommRing.PolyDerivation.normEq0.elim`
+  • `Lean.Meta.Grind.Arith.CommRing.PolyDerivation.step.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.CooperSplitProof.dec.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.CooperSplitProof.last.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DiseqCnstrProof.commRingNorm.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DiseqCnstrProof.core.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DiseqCnstrProof.core0.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DiseqCnstrProof.coreToInt.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DiseqCnstrProof.divCoeffs.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DiseqCnstrProof.neg.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DiseqCnstrProof.norm.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DiseqCnstrProof.reorder.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DiseqCnstrProof.subst.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DvdCnstrProof.commRingNorm.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DvdCnstrProof.cooper₁.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DvdCnstrProof.cooper₂.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DvdCnstrProof.core.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DvdCnstrProof.coreOfNat.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DvdCnstrProof.divCoeffs.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DvdCnstrProof.elim.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DvdCnstrProof.norm.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DvdCnstrProof.ofEq.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DvdCnstrProof.reorder.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DvdCnstrProof.solveCombine.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DvdCnstrProof.solveElim.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.DvdCnstrProof.subst.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.EqCnstrProof.commRingNorm.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.EqCnstrProof.core.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.EqCnstrProof.core0.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.EqCnstrProof.coreToInt.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.EqCnstrProof.defn.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.EqCnstrProof.defnCommRing.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.EqCnstrProof.defnNat.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.EqCnstrProof.defnNatCommRing.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.EqCnstrProof.div.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.EqCnstrProof.divCoeffs.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.EqCnstrProof.mod.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.EqCnstrProof.mul.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.EqCnstrProof.norm.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.EqCnstrProof.ofLeGe.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.EqCnstrProof.ofZeroDvd.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.EqCnstrProof.pow.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.EqCnstrProof.reorder.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.EqCnstrProof.subst.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.bound.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.combine.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.combineDivCoeffs.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.commRingNorm.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.cooper.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.core.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.coreNeg.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.coreToInt.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.dec.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.divCoeffs.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.dvdTight.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.negDvdTight.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.norm.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.ofDiseqSplit.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.ofLeDiseq.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.ofNatNonneg.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.reorder.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.LeCnstrProof.subst.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.UnsatProof.cooper.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.UnsatProof.diseq.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.UnsatProof.dvd.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.UnsatProof.eq.elim`
+  • `Lean.Meta.Grind.Arith.Cutsat.UnsatProof.le.elim`
+  • `Lean.Meta.Grind.Arith.Linear.DiseqCnstrProof.core.elim`
+  • `Lean.Meta.Grind.Arith.Linear.DiseqCnstrProof.coreOfNat.elim`
+  • `Lean.Meta.Grind.Arith.Linear.DiseqCnstrProof.neg.elim`
+  • `Lean.Meta.Grind.Arith.Linear.DiseqCnstrProof.oneNeZero.elim`
+  • `Lean.Meta.Grind.Arith.Linear.DiseqCnstrProof.ring.elim`
+  • `Lean.Meta.Grind.Arith.Linear.DiseqCnstrProof.subst.elim`
+  • `Lean.Meta.Grind.Arith.Linear.DiseqCnstrProof.subst1.elim`
+  • `Lean.Meta.Grind.Arith.Linear.EqCnstrProof.coeff.elim`
+  • `Lean.Meta.Grind.Arith.Linear.EqCnstrProof.core.elim`
+  • `Lean.Meta.Grind.Arith.Linear.EqCnstrProof.coreCommRing.elim`
+  • `Lean.Meta.Grind.Arith.Linear.EqCnstrProof.coreOfNat.elim`
+  • `Lean.Meta.Grind.Arith.Linear.EqCnstrProof.neg.elim`
+  • `Lean.Meta.Grind.Arith.Linear.EqCnstrProof.subst.elim`
+  • `Lean.Meta.Grind.Arith.Linear.IneqCnstrProof.combine.elim`
+  • `Lean.Meta.Grind.Arith.Linear.IneqCnstrProof.core.elim`
+  • `Lean.Meta.Grind.Arith.Linear.IneqCnstrProof.coreOfNat.elim`
+  • `Lean.Meta.Grind.Arith.Linear.IneqCnstrProof.dec.elim`
+  • `Lean.Meta.Grind.Arith.Linear.IneqCnstrProof.norm.elim`
+  • `Lean.Meta.Grind.Arith.Linear.IneqCnstrProof.notCore.elim`
+  • `Lean.Meta.Grind.Arith.Linear.IneqCnstrProof.notCoreOfNat.elim`
+  • `Lean.Meta.Grind.Arith.Linear.IneqCnstrProof.ofDiseqSplit.elim`
+  • `Lean.Meta.Grind.Arith.Linear.IneqCnstrProof.ofEq.elim`
+  • `Lean.Meta.Grind.Arith.Linear.IneqCnstrProof.ofEqOfNat.elim`
+  • `Lean.Meta.Grind.Arith.Linear.IneqCnstrProof.oneGtZero.elim`
+  • `Lean.Meta.Grind.Arith.Linear.IneqCnstrProof.ring.elim`
+  • `Lean.Meta.Grind.Arith.Linear.IneqCnstrProof.ringEq.elim`
+  • `Lean.Meta.Grind.Arith.Linear.IneqCnstrProof.subst.elim`
+  • `Lean.Meta.Grind.Arith.Linear.RingDiseqCnstrProof.cancelDen.elim`
+  • `Lean.Meta.Grind.Arith.Linear.RingDiseqCnstrProof.core.elim`
+  • `Lean.Meta.Grind.Arith.Linear.RingEqCnstrProof.cancelDen.elim`
+  • `Lean.Meta.Grind.Arith.Linear.RingEqCnstrProof.core.elim`
+  • `Lean.Meta.Grind.Arith.Linear.RingEqCnstrProof.symm.elim`
+  • `Lean.Meta.Grind.Arith.Linear.RingIneqCnstrProof.cancelDen.elim`
+  • `Lean.Meta.Grind.Arith.Linear.RingIneqCnstrProof.core.elim`
+  • `Lean.Meta.Grind.Arith.Linear.RingIneqCnstrProof.notCore.elim`
+  • `Lean.Meta.Grind.Arith.Linear.UnsatProof.diseq.elim`
+  • `Lean.Meta.Grind.Arith.Linear.UnsatProof.lt.elim`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3370:11: error(lean.unknownIdentifier): Unknown identifier `ve.trans`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3357:1: error: unsolved goals
+case refine_3.succ.zero.succ.zero
+h : Sig
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : FreeRooms (insert (bin d a b) U) T h
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+w : v
+p n : Sig
+isLt✝¹ isLt✝ : 0 + 1 < 512
+⊢ sorry
+
+case refine_3.succ.zero.succ.succ
+h : Sig
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : FreeRooms (insert (bin d a b) U) T h
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+w : v
+p n : Sig
+isLt✝¹ : 0 + 1 < 512
+n✝ : ℕ
+isLt✝ : n✝ + 1 + 1 < 512
+⊢ sorry
+
+case refine_3.succ.succ.zero
+h : Sig
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : FreeRooms (insert (bin d a b) U) T h
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+w : v
+p n : Sig
+n✝ : ℕ
+isLt✝¹ : n✝ + 1 + 1 < 512
+isLt✝ : 0 < 512
+⊢ sorry
+
+case refine_3.succ.succ.succ.zero
+h : Sig
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : FreeRooms (insert (bin d a b) U) T h
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+w : v
+p n : Sig
+n✝ : ℕ
+isLt✝¹ : n✝ + 1 + 1 < 512
+isLt✝ : 0 + 1 < 512
+⊢ sorry
+
+case refine_3.succ.succ.succ.succ
+h : Sig
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : FreeRooms (insert (bin d a b) U) T h
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+w : v
+p n : Sig
+n✝¹ : ℕ
+isLt✝¹ : n✝¹ + 1 + 1 < 512
+n✝ : ℕ
+isLt✝ : n✝ + 1 + 1 < 512
+⊢ sorry
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3373:18: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3374:34: error: Application type mismatch: The argument
+  n
+has type
+  Sig
+but is expected to have type
+  Row
+in the application
+  outside p' n
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3374:37: error(lean.unknownIdentifier): Unknown identifier `we`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3375:31: error: Application type mismatch: The argument
+  p
+has type
+  v
+of sort `Prop` but is expected to have type
+  Row
+of sort `Type` in the application
+  outside p
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3375:37: error(lean.unknownIdentifier): Unknown identifier `ve`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3376:19: error: Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3371:1: error: unsolved goals
+case refine_4.succ.zero.succ.zero
+h : Sig
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : FreeRooms (insert (bin d a b) U) T h
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+p : v
+n : Sig
+p' n' : Row
+isLt✝¹ isLt✝ : 0 + 1 < 512
+⊢ n ∈ U ∧ H.owns n p' ⟨0 + 1, isLt✝⟩ ∨ n = sel p' ⟨0 + 1, isLt✝⟩ ∧ H.owns z p' ⟨0 + 1, isLt✝⟩ → sorry
+
+case refine_4.succ.zero.succ.succ
+h : Sig
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : FreeRooms (insert (bin d a b) U) T h
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+p : v
+n : Sig
+p' n' : Row
+isLt✝¹ : 0 + 1 < 512
+n✝ : ℕ
+isLt✝ : n✝ + 1 + 1 < 512
+⊢ n ∈ U ∧ H.owns n p' ⟨n✝ + 1 + 1, isLt✝⟩ ∨ n = sel p' ⟨n✝ + 1 + 1, isLt✝⟩ ∧ H.owns z p' ⟨n✝ + 1 + 1, isLt✝⟩ → sorry
+
+case refine_4.succ.succ.zero
+h : Sig
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : FreeRooms (insert (bin d a b) U) T h
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+p : v
+n : Sig
+p' n' : Row
+n✝ : ℕ
+isLt✝¹ : n✝ + 1 + 1 < 512
+isLt✝ : 0 < 512
+⊢ n ∈ U ∧ H.owns n p' ⟨0, isLt✝⟩ ∨ n = sel p' ⟨0, isLt✝⟩ ∧ H.owns z p' ⟨0, isLt✝⟩ → sorry
+
+case refine_4.succ.succ.succ.zero
+h : Sig
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : FreeRooms (insert (bin d a b) U) T h
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+p : v
+n : Sig
+p' n' : Row
+n✝ : ℕ
+isLt✝¹ : n✝ + 1 + 1 < 512
+isLt✝ : 0 + 1 < 512
+⊢ n ∈ U ∧ H.owns n p' ⟨0 + 1, isLt✝⟩ ∨ n = sel p' ⟨0 + 1, isLt✝⟩ ∧ H.owns z p' ⟨0 + 1, isLt✝⟩ → sorry
+
+case refine_4.succ.succ.succ.succ
+h : Sig
+U : Finset Sig
+T a b : Sig
+d : ℕ
+d01 : d = 0 ∨ d = 1
+ha : a ∉ U
+hb : b ∉ U
+hz : bin d a b ∉ U
+H : FreeRooms (insert (bin d a b) U) T h
+z : Sig := bin d a b
+sel : Row → Row → Sig := fun p n => if d = 0 then if bit n a = true then b else a else if bit p a = true then a else b
+pick : ∀ (p n : Row), sel p n = a ∨ sel p n = b
+outside : ∀ (p n : Row), sel p n ∉ U
+separates : ∀ (p n : Fin 512), bit p z = true → bit n z = false → bit p (sel p n) = true ∧ bit n (sel p n) = false
+v : Prop
+p : v
+n : Sig
+p' n' : Row
+n✝¹ : ℕ
+isLt✝¹ : n✝¹ + 1 + 1 < 512
+n✝ : ℕ
+isLt✝ : n✝ + 1 + 1 < 512
+⊢ n ∈ U ∧ H.owns n p' ⟨n✝ + 1 + 1, isLt✝⟩ ∨ n = sel p' ⟨n✝ + 1 + 1, isLt✝⟩ ∧ H.owns z p' ⟨n✝ + 1 + 1, isLt✝⟩ → sorry
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3418:63: warning: This simp argument is unused:
+  z
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3426:28: warning: This simp argument is unused:
+  z
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3427:34: warning: Variable name `ab` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ab
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3466:63: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3466:63: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3511:8: warning: declaration uses `sorry`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3512:4: warning: Variable name `aout` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _aout
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3512:21: warning: Variable name `bout` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _bout
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3513:20: warning: Variable name `A` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _A
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3513:39: warning: Variable name `B` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _B
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3514:4: warning: Variable name `C` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _C
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3514:23: warning: Variable name `D` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _D
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3517:8: warning: declaration uses `sorry`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3518:20: warning: Variable name `A` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _A
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3518:51: warning: Variable name `B` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _B
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3519:4: warning: Variable name `C` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _C
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3519:35: warning: Variable name `D` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _D
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/proof-route/MonoReadyCompactShift.lean:3975:11: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to sil
