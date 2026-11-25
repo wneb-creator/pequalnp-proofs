@@ -40,3 +40,21 @@ Frozen `EdgeReplacement.lean`, SHA256 `d2eba86ded07dd451b567d01572b250ab795c9336
 `edge_equiv_smaller_replacement` requires an earlier wire y<n+g whose value implies gate g on every input, and agrees with g on every graph-edge input. Erasing g and redirecting to y yields strict AO2, strictly smaller size, and the same exact graph function. No output-cone premise, no bipartite/C4 assumptions. Proof combines the general erasure relation with monotonicity and graph edge generation.
 
 `least_gate_separates_earlier`: in a least AO2 graph circuit, each such earlier implicant wire must miss some edge accepted by the gate. `singleton_overlap_on_edge` proves the pure set identity needed for the first-AND overlap case: if A∩B is exactly{u} and every graph edge across A×B touches u, then AND(OR A,OR B) and input u agree on every edge input. The global implication from u to that gate is immediate, hence the replacement lemma rules out such a gate in a least circuit.
+
+## 2026-11-25T15:05:21.378362+00:00 Target-relative same-size gate patch compiled
+
+Frozen `GatePatch.lean`, SHA256 `f4bf6171d882de4c430064c8274a84b96e124aaee6ba53758dca8aef511b2e70`,1659lines80549bytes. Lean exited0 on first run; complete logs `gate-patch-01.stdout/.stderr`. Exactly frozen EdgeReplacement prefix plus164lines. Root/reviewer/lower_bound/library_route notified immediately.
+
+`patchGate C g fresh` replaces one gate slot and preserves the output index. New helpers prove exact length, strict AO2 when fresh is AND/OR with exactly2 earlier operands, prefix wire equality, and generic `patch_val_rel` propagation for a reflexive relation preserved by old AND/OR gates.
+
+`patch_below_target` assumes C computes graphFun G ∅, old gate g implies the target globally, fresh gate evaluation on the old earlier wires also implies the target globally, and fresh dominates the old gate on every positive edge input. It concludes strict AO2, exact unchanged size, and the same complete graph function for the patched circuit. On target-false inputs both gate values are false, so the complete execution agrees by equality propagation; on true edge inputs acceptance propagates forward by implication; monotonicity extends edge acceptance to every target-true assignment. No global fresh≤old or fresh≥old condition is assumed.
+
+This matches lower_bound's RectangleFamilies envelope: fresh can be one AND whose operands are a raw center input and one already-existing earlier pure OR-clause wire. The finite geometry supplies global below-target and edge-dominance premises, while this compiler lemma handles the circuit modification. It does not by itself classify arbitrary alternating AND/OR blocks or complete the posted normalization theorem.
+
+## 2026-11-25T15:05:48.100935+00:00 Frozen interface and remaining obstacle
+
+Root requested artifact generation pause; all compiled files and reported hashes remain frozen. No active Lean processes remain from this agent.
+
+Final checked compiler interface is `L_meta_2583_aux.EdgeInvisible.patch_below_target n G C g fresh hAO hF hg hop hlen hback hold hnew hedge`. Fresh must be an AND or OR gate with exactly2 operands less than n+g. `hold` and `hnew` state that old and proposed gate values globally imply graphFun G ∅. `hedge` states the proposed gate is true whenever the old gate is true on an incident-pair input. Output: patched AO2, exactly equal size, exactly equal graph function.
+
+The unrestricted obstacle remains precise: RectangleFamilies supplies the star envelope for an AND-only cone over pure one-sided OR clauses. General AO2 blocks may instead contain alternating OR mixtures internally. We have not proved that every such block can be rewritten into the required pure-clause AND-cone form at the same cost, nor that its accepted edges admit the required star represented by an already-existing earlier clause wire. Thus the checked geometry plus gate patch proves restricted replacements only. It does not prove the complete posted read-one normalization theorem or its equivalent unrestricted size lower bound.

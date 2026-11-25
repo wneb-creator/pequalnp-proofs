@@ -29,3 +29,5 @@
 2026-11-25T15:01:10.686776+00:00 — Re-plan: exact-cost characterization complete; unrestricted gate count and shared dirty-core accounting remain open. Continue focused Fano search and new two-rectangle/point-restriction lemmas. Combined checker rejected missing theorem. Archived92 reviewed computational files.
 
 2026-11-25T15:02:56.315095+00:00 — Two-rectangle star semantics, selector-center uniqueness, and simultaneous negative-input witnesses compiled and independently reviewed. These narrow special cases; shared AND/OR mixtures remain open.
+
+2026-11-25T15:07:37.274124+00:00 — Second premature410; all L-meta-2583 research stopped. Final7379-line named partial built successfully and independently reviewed; immediate preservation before recovery.

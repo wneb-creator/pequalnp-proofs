@@ -29,3 +29,13 @@ Consequence: any bipartite vertex cover A,B with both A and B proper has |A|+|B|
 Computational check only: exhaustive point-subset enumeration for the standard projective planes over F2 and F3 confirms maximum mixed independent-set totals5 and10, with14 and26 maximizers respectively. JSON is mixed-cover-check.json. These computations are not part of the Lean proof.
 
 Possible structural use, still unproved: a rectangle core (OR points on l) AND (OR lines through p), for incident p,l, has allowable singleton centers exactly p,l. Distinct rectangle cores OR-mixed before a top have allowed centers in the intersection of their endpoint pairs, hence at most one. This suggests cost-preserving normalization of a layer of rectangle junk gates; arbitrary nonlinear cores and their sharing remain open.
+
+## Rectangle centers and arbitrary pure-clause conjunctions
+
+Checked 2026-11-25T15:04:03.927383+00:00: RectangleCenters.lean (97 lines), SHA25609f1dbac2903e6ad4b34b05150f7714d18b3d6d8bc23ac1be2ab67063fc8a210, exportexit0, emptylogs. Full-neighborhood rectangle around incidentp,l can be filtered belowincidence by a point singleton exactly when it is p, and by a line singleton exactly when it is l. Consequently safe OR-selector supports lieinside {p} and {l}. Caution: partial2×2rectangles canhave largerallowed-center sets.
+
+Checked RectangleFamilies.lean, SHAd9a5084a16032def6550004e098540f28141145cf1c400bcf2f02d193c9a7479, exportexit0, oneunusedI warning. OnlyDefsimport. This is a newgenericC4freebipartite lemma: any edge-visible product of arbitrary pure-point ORclauses and pure-line ORclauses that is belowincidence has a star envelope using a raw center and ONEexistingclause. Acceptedpairs are the Cartesian product of the two clause intersections; C4freeness forces one intersection to be a singleton. Fix that singleton input; the opposite CNF implies its neighbor-OR, so one clause is contained in the neighborhood (otherwise all nonneighbors satisfy the CNF). The resulting star is belowincidence and contains everyoldacceptedpair.
+
+This covers AND-onlycones over pureORclauses, regardlesshowmanyrectanglefactors, but not mixedpoint/lineORclauses or ORmixturesbetweenjunkANDs. sat_encoding is providing exact-size gate patching from belowincidence+pairdomination.
+
+Point-restriction charging obstruction: g1=(x1 AND a) OR(x2 AND c), g2=(x1 AND b) OR(x2 AND d), g=g1 ORg2 is a correct7gate circuit for two disjoint2edge stars. The finalOR serves bothpointrestrictions. Canonicalstarcost is5, so repeatedcharges needto be paid fromnonminimal/excessANDstructure, notjustuniquecommonpoint geometry. This is an algebraiccounterexample, not separatelyLean-certified.

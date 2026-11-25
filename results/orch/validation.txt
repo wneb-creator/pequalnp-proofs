@@ -2,11 +2,11 @@ Partial research checkpoints; no proof PR opened.
 Updated 2026-11-25T14:57:24.349702+00:00
 
 Current gap: L-meta-2583.
-Named file: lean/PEqualNP/Outside/L_meta_2583.lean (6743 lines, 325031 bytes).
-SHA256: 8a03feeb873579241a25cb2a6d24b3d1cda1496d770dee51240153028e731046.
-Named lake build passed. Full stdout/stderr: validation/2583-build-combined-01.*.
-Independent review verified the exact four-component composition and all mathematical premises. The plain-file guard reports only the missing final theorem.
-Local checker on the combined file: REJECTED (no-theorem). The file has no full posted theorem. Full stdout/stderr: validation/2583-checker-combined.*.
+Named file: lean/PEqualNP/Outside/L_meta_2583.lean (7379 lines, 352301 bytes).
+SHA256: 01bfe8716581cbd0fb80b0e7d9bd1c56cafe3b863659985fcd616756c43ddb65.
+Named lake build passed. Full stdout/stderr: validation/2583-build-final-combined.*.
+Independent review verified the exact nine-component composition and all mathematical premises. The plain-file guard reports only the missing final theorem.
+Local checker on the earlier 6743-line combined file: REJECTED (no-theorem). Final 7379-line file likewise has no posted theorem; its actual plain-file guard flags only missing theorem. Final local checker rerun pending.
 
 Checked components: size-preserving lift/block decomposition; exact equivalence of a read-one replacement with the cost bound N*(q+2) <= C.size+1; canonical read-one construction; plane regularity and cover counting; removal of gates false on every edge; earlier-wire replacement preserving all edge inputs; and the N+q bound for proper mixed vertex covers. The unrestricted circuit lower bound remains unproved. Conditional cost-debt assumptions remain explicit.
 
@@ -14,7 +14,7 @@ Prior gap: L-meta-2592. The desk returned HTTP 410 at 14:40:48 despite its previ
 
 Solver searches have found no counterexample or completed UNSAT certificate. Partial traces/timeouts are not proofs. Fano positive controls succeeded; active search outputs will be archived when finished.
 
-Cleanup: not started because the posted theorem has not passed the checker. Integration changed the current named file from 1749 to 6743 lines; this was not a cleanup pass.
+Cleanup: not started because the posted theorem has not passed the checker. Integration changed the current named file from 1749 to 7379 lines; this was not a cleanup pass.
 Desk null responses: 0. Own old lease ended with 410; own new lease is being renewed. No other pilot lease has been released.
 Sub-agents: status_review, lower_bound, counterexample, library_route, reduction_strategy, sat_encoding (6).
 TIMING total=70.9 subagents=6
@@ -22,3 +22,5 @@ TIMING total=70.9 subagents=6
 92 frozen search/control files and three hash manifests were independently reviewed and archived under search_artifacts/. Fano27 controls pass all16384 truth rows and joint read-one checks; the incomplete26 candidate fails47 rows. No completed UNSAT certificate or counterexample is claimed. RectangleLayer compiled and passed independent review as semantic identities only, with no shared-DAG gate-cost claim.
 
 Additional reviewed checked semantic components: TwoRectangles, RectangleCenters, RectangleWitness, RectangleWitnessInputFixed. The two-rectangle lemma preserves accepted edges by an existing star side; the witness lemma constructs a single negative Boolean input satisfying any at-most-q ideal full-neighborhood rectangles. No unrestricted shared-circuit gate bound is claimed.
+
+2026-11-25T15:06:29Z: L-meta-2583 renewal also returned HTTP410, despite its previously reported15:24:20.551 expiry. Complete headers/body: validation/2583-beat-11-response.txt. All searches stopped. Final7379-line named build passed18423jobs; independent review approved exact nine-source composition and clean diff. GatePatch and RectangleFamilies close the restricted AND-only replacement interface, but arbitrary OR mixtures remain unproved. Preserving before mandatory desk recovery.

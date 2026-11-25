@@ -1,0 +1,41 @@
+{
+  "components": [
+    {
+      "source": "new2583/library_route/CostEquivalence.lean",
+      "sha256": "53295d611325a8fa7f2c63887260350158d532a2a7582fc419a4363ef3240b9e"
+    },
+    {
+      "source": "gap2583/reduction_strategy/Blocks.lean",
+      "sha256": "b2e852164e257d645b2c95522167ed860a13ca53cb0c66b9755418166a247ec9"
+    },
+    {
+      "source": "gap2583/sat_encoding/GatePatch.lean",
+      "sha256": "f4bf6171d882de4c430064c8274a84b96e124aaee6ba53758dca8aef511b2e70"
+    },
+    {
+      "source": "gap2583/lower_bound/MixedCoverGap.lean",
+      "sha256": "19a1a42a301a7000db931591f2ee68ad2115f4f46a4d89984fedc4886cb27b45"
+    },
+    {
+      "source": "gap2583/reduction_strategy/RectangleLayer.lean",
+      "sha256": "ec16b018154b61d0da71ea969809e1d60f8bd9c41fffe11ee99b629f98c4e65c"
+    },
+    {
+      "source": "new2583/library_route/TwoRectangles.lean",
+      "sha256": "28283a67591ebd050b3b083c29e47c2bb99eac20717881c8d7e9b07e9b1c43a6"
+    },
+    {
+      "source": "gap2583/lower_bound/RectangleCenters.lean",
+      "sha256": "09f1dbac2903e6ad4b34b05150f7714d18b3d6d8bc23ac1be2ab67063fc8a210"
+    },
+    {
+      "source": "gap2583/reduction_strategy/RectangleWitnessInputFixed.lean",
+      "sha256": "2fa8cd85c29cb4569cfdb440f50de6eb1f465d260c2655348bd8067cd99be9b6"
+    },
+    {
+      "source": "gap2583/lower_bound/RectangleFamilies.lean",
+      "sha256": "d9a5084a16032def6550004e098540f28141145cf1c400bcf2f02d193c9a7479"
+    }
+  ],
+  "combined_sha256": "01bfe8716581cbd0fb80b0e7d9bd1c56cafe3b863659985fcd616756c43ddb65"
+}

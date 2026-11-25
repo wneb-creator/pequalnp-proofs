@@ -40,3 +40,7 @@ Both searches retain exact inputs, source, complete stdout, and complete stderr.
 - Inspected L_meta_6076: its65-gate q3 construction is the64-gate star expression with its last OR-over-AND distributed to an AND root, at an extra one-gate cost. It is not evidence of a smaller nonlinear circuit.
 
 Original stochastic26 search finished600 seconds and3986685952 mutations. Best candidate misses one minimal positive edge assignment and is wrong on47 of16384 full truth rows. It is not a counterexample.
+
+At15:04UTC the edge-visible26 SAT run completed600 seconds with UNKNOWN (exit0). The weighted stochastic lane completed2813591552 mutations/600 seconds and retained one missing minimal edge; independent full truth verification finds47 incorrect rows. No candidate refutes the statement. All final logs are frozen in archive-review-final-lanes.json.
+
+At15:06:29UTC root reported lease410 despite prior15:24:20expiry. The final OR(0,1)-restricted26 search was gracefully stopped at15:06:41UTC, abouttwo minutes after launch; no SAT/UNSAT result. Its fixed27 control completed SAT/full truth verification. All final outputs frozen in archive-review-lease-stop.json; no further2583 searches launched.

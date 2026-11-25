@@ -6557,6 +6557,170 @@ lemma singleton_overlap_on_edge {n : ℕ} (G : SimpleGraph (Fin n)) (A B : Finse
     · exact Or.inr (hinter b hb hb')
   · rintro (rfl | rfl) <;> simp [huA, huB]
 
+
+def patchGate (C : Circuit) (g : ℕ) (fresh : Gate) : Circuit :=
+  ⟨C.gates.set g fresh, C.output⟩
+
+lemma patch_length (C : Circuit) (g : ℕ) (fresh : Gate) :
+    (patchGate C g fresh).gates.length = C.gates.length := by simp [patchGate]
+
+lemma patch_gate_other (C : Circuit) (g j : ℕ) (fresh : Gate) (h : g ≠ j) :
+    gateAt (patchGate C g fresh) j = gateAt C j := by
+  simp [patchGate, gateAt, List.getD_eq_getElem?_getD, h]
+
+lemma patch_gate_self (C : Circuit) (g : ℕ) (fresh : Gate) (hg : g < C.gates.length) :
+    gateAt (patchGate C g fresh) g = fresh := by
+  simp [patchGate, gateAt, List.getD_eq_getElem?_getD, hg]
+
+lemma patch_isAO2 (n : ℕ) (C : Circuit) (g : ℕ) (fresh : Gate)
+    (hAO : PEqualNP.TopForm.IsAO2 n C) (hg : g < C.gates.length)
+    (hop : fresh.op = GateOp.and ∨ fresh.op = GateOp.or)
+    (hlen : fresh.inputs.length = 2) (hback : ∀ i ∈ fresh.inputs, i < n + g) :
+    PEqualNP.TopForm.IsAO2 n (patchGate C g fresh) := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro gt hgt
+    rcases List.mem_or_eq_of_mem_set hgt with h | rfl
+    · exact hAO.1 gt h
+    · exact hop
+  · intro j hj
+    have hjC : j < C.gates.length := by simpa [patchGate] using hj
+    change ∀ i ∈ (gateAt (patchGate C g fresh) j).inputs, i < n + j
+    by_cases h : j = g
+    · subst j
+      rw [patch_gate_self C g fresh hg]
+      exact hback
+    · rw [patch_gate_other C g j fresh (Ne.symm h)]
+      exact hAO.2.1 j hjC
+  · intro gt hgt
+    rcases List.mem_or_eq_of_mem_set hgt with h | rfl
+    · exact hAO.2.2 gt h
+    · exact hlen
+
+lemma patch_eq_before (n : ℕ) (C : Circuit) (g : ℕ) (fresh : Gate)
+    (hAO : PEqualNP.TopForm.IsAO2 n C) (hg : g < C.gates.length)
+    (x : List Bool) (hx : x.length = n) :
+    ∀ i, i < n + g → val (patchGate C g fresh) x i = val C x i := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | _ i ih =>
+    intro hi
+    by_cases hinput : i < n
+    · rw [val_input hx hinput, val_input hx hinput]
+    obtain ⟨j, rfl⟩ : ∃ j, i = n + j := ⟨i - n, by omega⟩
+    have hj : j < C.gates.length := by omega
+    have hjp : j < (patchGate C g fresh).gates.length := by rw [patch_length]; exact hj
+    rw [val_gate hx hjp, patch_gate_other C g j fresh (by omega), val_gate hx hj]
+    congr 1
+    apply List.map_congr_left
+    intro k hk
+    have hb := hAO.2.1 j hj k hk
+    simp only [if_pos hb]
+    exact ih k hb (by omega)
+
+lemma patch_val_self (n : ℕ) (C : Circuit) (g : ℕ) (fresh : Gate)
+    (hAO : PEqualNP.TopForm.IsAO2 n C) (hg : g < C.gates.length)
+    (hback : ∀ i ∈ fresh.inputs, i < n + g) (x : List Bool) (hx : x.length = n) :
+    val (patchGate C g fresh) x (n + g) = fresh.op.eval (fresh.inputs.map (val C x)) := by
+  rw [val_gate hx (by rw [patch_length]; exact hg), patch_gate_self C g fresh hg]
+  congr 1
+  apply List.map_congr_left
+  intro i hi
+  have hb := hback i hi
+  simp only [if_pos hb]
+  exact patch_eq_before n C g fresh hAO hg x hx i hb
+
+lemma patch_val_rel (n : ℕ) (C : Circuit) (g : ℕ) (fresh : Gate)
+    (hAO : PEqualNP.TopForm.IsAO2 n C) (hg : g < C.gates.length)
+    (hback : ∀ i ∈ fresh.inputs, i < n + g) (x : List Bool) (hx : x.length = n)
+    (R : Bool → Bool → Prop) (hrefl : ∀ b, R b b) (hmono : OpMono R)
+    (hgate : R (val C x (n + g)) (fresh.op.eval (fresh.inputs.map (val C x)))) :
+    ∀ i, R (val C x i) (val (patchGate C g fresh) x i) := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | _ i ih =>
+    by_cases hinput : i < n
+    · rw [val_input hx hinput, val_input hx hinput]
+      exact hrefl _
+    by_cases hin : i < n + C.gates.length
+    · obtain ⟨j, rfl⟩ : ∃ j, i = n + j := ⟨i - n, by omega⟩
+      have hj : j < C.gates.length := by omega
+      by_cases hjg : j = g
+      · subst j
+        rw [patch_val_self n C g fresh hAO hg hback x hx]
+        exact hgate
+      have hjp : j < (patchGate C g fresh).gates.length := by rw [patch_length]; exact hj
+      rw [val_gate hx hj, val_gate hx hjp, patch_gate_other C g j fresh (Ne.symm hjg)]
+      apply hmono _ (hAO.1 _ (gateAt_mem hj))
+      intro k hk
+      have hb := hAO.2.1 j hj k hk
+      simp only [if_pos hb]
+      exact ih k hb
+    · rw [val_ge hx (by omega), val_ge (C := patchGate C g fresh) hx
+        (by rw [patch_length]; omega)]
+      exact hrefl _
+
+lemma patch_opMono_eq : OpMono (fun a b => a = b) := by
+  intro op _ l f f' h
+  congr 1
+  exact List.map_congr_left h
+
+theorem patch_below_target (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (g : ℕ) (fresh : Gate) (hAO : PEqualNP.TopForm.IsAO2 n C)
+    (hF : circuitFun n C = graphFun G ∅) (hg : g < C.gates.length)
+    (hop : fresh.op = GateOp.and ∨ fresh.op = GateOp.or)
+    (hlen : fresh.inputs.length = 2) (hback : ∀ i ∈ fresh.inputs, i < n + g)
+    (hold : ∀ x : Fin n → Bool, val C (List.ofFn x) (n + g) = true → graphFun G ∅ x = true)
+    (hnew : ∀ x : Fin n → Bool,
+      fresh.op.eval (fresh.inputs.map (val C (List.ofFn x))) = true → graphFun G ∅ x = true)
+    (hedge : ∀ u z : Fin n, G.Adj u z →
+      val C (List.ofFn (PEqualNP.EdgeOwnership.pairInput u z)) (n + g) = true →
+      fresh.op.eval (fresh.inputs.map (val C (List.ofFn (PEqualNP.EdgeOwnership.pairInput u z)))) = true) :
+    PEqualNP.TopForm.IsAO2 n (patchGate C g fresh) ∧ (patchGate C g fresh).size = C.size ∧
+      circuitFun n (patchGate C g fresh) = graphFun G ∅ := by
+  have hD := patch_isAO2 n C g fresh hAO hg hop hlen hback
+  refine ⟨hD, by simp [patchGate, Circuit.size], ?_⟩
+  funext x
+  cases hFx : graphFun G ∅ x with
+  | false =>
+    have hgo : val C (List.ofFn x) (n + g) = false := by
+      apply Bool.eq_false_iff.mpr
+      intro h
+      have := hold x h
+      simp [hFx] at this
+    have hgn : fresh.op.eval (fresh.inputs.map (val C (List.ofFn x))) = false := by
+      apply Bool.eq_false_iff.mpr
+      intro h
+      have := hnew x h
+      simp [hFx] at this
+    have heq := patch_val_rel n C g fresh hAO hg hback (List.ofFn x) (by simp)
+      (fun a b => a = b) (fun b => rfl) patch_opMono_eq (by rw [hgo, hgn]) C.output
+    change val (patchGate C g fresh) (List.ofFn x) C.output = false
+    rw [← heq]
+    change circuitFun n C x = false
+    rw [hF, hFx]
+  | true =>
+    have he : ∃ u z : Fin n, G.Adj u z ∧ x u = true ∧ x z = true := by
+      unfold graphFun at hFx
+      simpa using hFx
+    obtain ⟨u, z, hadj, hxu, hxz⟩ := he
+    have hle : ∀ i : Fin n, PEqualNP.EdgeOwnership.pairInput u z i = true → x i = true := by
+      intro i hi
+      simp only [PEqualNP.EdgeOwnership.pairInput, decide_eq_true_eq] at hi
+      rcases hi with rfl | rfl
+      · exact hxu
+      · exact hxz
+    apply mono n (patchGate C g fresh) hD.1 (PEqualNP.EdgeOwnership.pairInput u z) x hle C.output
+    apply patch_val_rel n C g fresh hAO hg hback
+      (List.ofFn (PEqualNP.EdgeOwnership.pairInput u z)) (by simp)
+      (fun a b => a = true → b = true) (fun b hb => hb) opMono_imp (hedge u z hadj) C.output
+    change circuitFun n C (PEqualNP.EdgeOwnership.pairInput u z) = true
+    rw [hF]
+    unfold graphFun
+    simp only [Bool.or_eq_true, decide_eq_true_eq]
+    right
+    exact ⟨u, z, hadj, by simp [PEqualNP.EdgeOwnership.pairInput],
+      by simp [PEqualNP.EdgeOwnership.pairInput]⟩
+
 end PEqualNP.Outside.L_meta_2583_aux.EdgeInvisible
 
 namespace PEqualNP.Outside.L_meta_2583.PlaneGeometry
@@ -6741,3 +6905,475 @@ lemma proper_mixed_cover_pays_debt {q N s : Nat} (I : Fin N → Fin N → Prop) 
   omega
 
 end PEqualNP.Outside.L_meta_2583.PlaneGeometry
+
+
+namespace PEqualNP.Outside.L_meta_2583.RectangleLayer
+
+lemma rectangle_split (p l a b : Bool)
+    (hp : p = true → a = true) (hl : l = true → b = true) :
+    ((a && b) && (p || l)) = ((p && b) || (l && a)) := by
+  cases p <;> cases l <;> simp_all
+
+lemma rectangle_family_split (p l : Bool) (xs : List (Bool × Bool))
+    (hp : ∀ x ∈ xs, p = true → x.1 = true)
+    (hl : ∀ x ∈ xs, l = true → x.2 = true) :
+    ((xs.any fun x => x.1 && x.2) && (p || l)) =
+      ((p && xs.any Prod.snd) || (l && xs.any Prod.fst)) := by
+  induction xs with
+  | nil => simp
+  | cons x xs ih =>
+    have hx := rectangle_split p l x.1 x.2 (hp x (by simp)) (hl x (by simp))
+    have hi := ih (fun y hy => hp y (by simp [hy])) (fun y hy => hl y (by simp [hy]))
+    simp only [List.any_cons]
+    have distrib (a b c : Bool) : ((a || b) && c) = ((a && c) || (b && c)) := by
+      cases a <;> cases b <;> cases c <;> rfl
+    rw [distrib, hx, hi]
+    cases p <;> cases l <;> simp [Bool.or_assoc, Bool.or_left_comm, Bool.or_comm]
+
+lemma shared_centre_projection (p : Bool) (xs : List (Bool × Bool))
+    (hp : ∀ x ∈ xs, p = true → x.1 = true) :
+    (p && (xs.any fun x => x.1 && x.2)) = (p && xs.any Prod.snd) := by
+  cases p
+  · simp
+  · simp only [Bool.true_and]
+    induction xs with
+    | nil => rfl
+    | cons x xs ih =>
+      rw [List.any_cons, List.any_cons, hp x (by simp) rfl]
+      simp only [Bool.true_and]
+      rw [ih (fun y hy => hp y (by simp [hy]))]
+
+lemma distinct_pair_selectors {P L : Type} [DecidableEq P] [DecidableEq L]
+    (p p' : P) (l l' : L) (S : Finset (Sum P L))
+    (hne : p ≠ p' ∨ l ≠ l')
+    (hleft : ∀ x ∈ S, x = Sum.inl p ∨ x = Sum.inr l)
+    (hright : ∀ x ∈ S, x = Sum.inl p' ∨ x = Sum.inr l') :
+    S.card ≤ 1 := by
+  rcases hne with hpp | hll
+  · have hs : S ⊆ {Sum.inr l} := by
+      intro x hx
+      apply Finset.mem_singleton.mpr
+      rcases hleft x hx with rfl | he
+      · rcases hright (Sum.inl p) hx with he | he
+        · exact False.elim (hpp (Sum.inl.inj he))
+        · cases he
+      · exact he
+    exact (Finset.card_le_card hs).trans_eq (Finset.card_singleton _)
+  · have hs : S ⊆ {Sum.inl p} := by
+      intro x hx
+      apply Finset.mem_singleton.mpr
+      rcases hleft x hx with he | rfl
+      · exact he
+      · rcases hright (Sum.inr l) hx with he | he
+        · cases he
+        · exact False.elim (hll (Sum.inr.inj he))
+    exact (Finset.card_le_card hs).trans_eq (Finset.card_singleton _)
+
+end PEqualNP.Outside.L_meta_2583.RectangleLayer
+
+
+namespace PEqualNP.Outside.L_meta_2583.TwoRectangles
+
+lemma one_side_incident {α β : Type} [DecidableEq α] [DecidableEq β]
+    (I : α → β → Prop) (P₁ P₂ : Finset α) (L₁ L₂ : Finset β)
+    (below : ∀ (X : Finset α) (Y : Finset β),
+      (P₁ ∩ X).Nonempty → (P₂ ∩ X).Nonempty →
+      (L₁ ∩ Y).Nonempty → (L₂ ∩ Y).Nonempty → ∃ p ∈ X, ∃ l ∈ Y, I p l)
+    (p : α) (hp₁ : p ∈ P₁) (hp₂ : p ∈ P₂) :
+    (∀ l ∈ L₁, I p l) ∨ (∀ l ∈ L₂, I p l) := by
+  classical
+  by_cases first : ∀ l ∈ L₁, I p l
+  · exact Or.inl first
+  right
+  by_contra second
+  push Not at first second
+  obtain ⟨l₁, hl₁, hn₁⟩ := first
+  obtain ⟨l₂, hl₂, hn₂⟩ := second
+  obtain ⟨u, hu, v, hv, incident⟩ := below {p} {l₁, l₂}
+    ⟨p, by simp [hp₁]⟩ ⟨p, by simp [hp₂]⟩
+    ⟨l₁, by simp [hl₁]⟩ ⟨l₂, by simp [hl₂]⟩
+  have same : u = p := Finset.mem_singleton.mp hu
+  subst u
+  simp only [Finset.mem_insert, Finset.mem_singleton] at hv
+  rcases hv with rfl | rfl
+  · exact hn₁ incident
+  · exact hn₂ incident
+
+lemma star_replacement {α β : Type} [DecidableEq α] [DecidableEq β]
+    (I : α → β → Prop) (P₁ P₂ : Finset α) (L₁ L₂ : Finset β)
+    (noRectangle : ∀ p p' l l', p ≠ p' → l ≠ l' →
+      ¬ (I p l ∧ I p l' ∧ I p' l ∧ I p' l'))
+    (below : ∀ (X : Finset α) (Y : Finset β),
+      (P₁ ∩ X).Nonempty → (P₂ ∩ X).Nonempty →
+      (L₁ ∩ Y).Nonempty → (L₂ ∩ Y).Nonempty → ∃ p ∈ X, ∃ l ∈ Y, I p l)
+    (pointEdge : (P₁ ∩ P₂).Nonempty) (lineEdge : (L₁ ∩ L₂).Nonempty) :
+    (∃ p, P₁ ∩ P₂ = {p} ∧ ((∀ l ∈ L₁, I p l) ∨ (∀ l ∈ L₂, I p l))) ∨
+    (∃ l, L₁ ∩ L₂ = {l} ∧ ((∀ p ∈ P₁, I p l) ∨ (∀ p ∈ P₂, I p l))) := by
+  classical
+  have commonIncident : ∀ p ∈ P₁ ∩ P₂, ∀ l ∈ L₁ ∩ L₂, I p l := by
+    intro p hp l hl
+    have hp₁ := (Finset.mem_inter.mp hp).1
+    have hp₂ := (Finset.mem_inter.mp hp).2
+    have hl₁ := (Finset.mem_inter.mp hl).1
+    have hl₂ := (Finset.mem_inter.mp hl).2
+    obtain ⟨u, hu, v, hv, hit⟩ := below {p} {l}
+      ⟨p, by simp [hp₁]⟩ ⟨p, by simp [hp₂]⟩
+      ⟨l, by simp [hl₁]⟩ ⟨l, by simp [hl₂]⟩
+    have hu' := Finset.mem_singleton.mp hu
+    have hv' := Finset.mem_singleton.mp hv
+    subst u
+    subst v
+    exact hit
+  obtain ⟨p, hp⟩ := pointEdge
+  obtain ⟨l, hl⟩ := lineEdge
+  by_cases singleton : P₁ ∩ P₂ = {p}
+  · exact Or.inl ⟨p, singleton,
+      one_side_incident I P₁ P₂ L₁ L₂ below p
+        (Finset.mem_inter.mp hp).1 (Finset.mem_inter.mp hp).2⟩
+  have other : ∃ p' ∈ P₁ ∩ P₂, p' ≠ p := by
+    by_contra! h
+    apply singleton
+    ext u
+    rw [Finset.mem_singleton]
+    constructor
+    · exact h u
+    · rintro rfl
+      exact hp
+  obtain ⟨p', hp', different⟩ := other
+  have lineSingleton : L₁ ∩ L₂ = {l} := by
+    ext v
+    rw [Finset.mem_singleton]
+    constructor
+    · intro hv
+      by_contra ne
+      exact noRectangle p p' l v (Ne.symm different) (Ne.symm ne)
+        ⟨commonIncident p hp l hl, commonIncident p hp v hv,
+          commonIncident p' hp' l hl, commonIncident p' hp' v hv⟩
+    · rintro rfl
+      exact hl
+  right
+  refine ⟨l, lineSingleton, ?_⟩
+  apply one_side_incident (fun l p => I p l) L₁ L₂ P₁ P₂
+  · intro Y X hy₁ hy₂ hx₁ hx₂
+    obtain ⟨p, hp, l, hl, hit⟩ := below X Y hx₁ hx₂ hy₁ hy₂
+    exact ⟨l, hl, p, hp, hit⟩
+  · exact (Finset.mem_inter.mp hl).1
+  · exact (Finset.mem_inter.mp hl).2
+
+
+lemma row_preserves_edges {α β : Type} [DecidableEq α] [DecidableEq β]
+    (P₁ P₂ : Finset α) (L₁ L₂ K : Finset β) (p : α)
+    (singleton : P₁ ∩ P₂ = {p}) (existing : K = L₁ ∨ K = L₂) :
+    ∀ u v, u ∈ P₁ → u ∈ P₂ → v ∈ L₁ → v ∈ L₂ → u = p ∧ v ∈ K := by
+  intro u v hu₁ hu₂ hv₁ hv₂
+  constructor
+  · apply Finset.mem_singleton.mp
+    rw [← singleton]
+    exact Finset.mem_inter.mpr ⟨hu₁, hu₂⟩
+  · rcases existing with rfl | rfl
+    · exact hv₁
+    · exact hv₂
+
+end PEqualNP.Outside.L_meta_2583.TwoRectangles
+
+namespace PEqualNP.Outside.L_meta_2583.PlaneGeometry
+
+def rectangleHits {N : Nat} (I : Fin N → Fin N → Prop) (p l : Fin N)
+    (A B : Finset (Fin N)) : Prop :=
+  (∃ a ∈ A, I a l) ∧ (∃ b ∈ B, I p b)
+
+def hasIncidence {N : Nat} (I : Fin N → Fin N → Prop)
+    (A B : Finset (Fin N)) : Prop := ∃ a ∈ A, ∃ b ∈ B, I a b
+
+lemma rectangle_point_center {q N : Nat} (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hl : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hu : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l)
+    (p l : Fin N) (edge : I p l) (r : Fin N) :
+    (∀ A B : Finset (Fin N), rectangleHits I p l A B → r ∈ A → hasIncidence I A B) ↔ r = p := by
+  constructor
+  · intro safe
+    by_contra rp
+    obtain ⟨m, hm, unique⟩ := hu p r (Ne.symm rp)
+    have fresh : ∃ b : Fin N, I p b ∧ b ≠ l ∧ b ≠ m := by
+      by_contra! no
+      have sub : Finset.univ.filter (fun b => I p b) ⊆ ({l, m} : Finset (Fin N)) := by
+        intro b hb
+        have pb := (Finset.mem_filter.mp hb).2
+        by_cases eq : b = l
+        · simp [eq]
+        · have eqm := no b pb eq
+          simp [eqm]
+      have bound := Finset.card_le_card sub
+      rw [lines_through q N I (by omega) hN hl hu p] at bound
+      have pair : ({l, m} : Finset (Fin N)).card ≤ 2 := by
+        by_cases lm : l = m <;> simp [lm]
+      omega
+    obtain ⟨b, pb, bl, bm⟩ := fresh
+    have rb : ¬ I r b := fun rb => bm (unique b ⟨pb, rb⟩)
+    have ac : ((Finset.univ.filter (fun a => I a l)).erase p).card = q := by
+      rw [Finset.card_erase_of_mem (by simp [edge]), hl l]
+      rfl
+    obtain ⟨a, ha⟩ := Finset.card_pos.mp (show 0 < ((Finset.univ.filter (fun a => I a l)).erase p).card by omega)
+    have ap : a ≠ p := Finset.ne_of_mem_erase ha
+    have al : I a l := (Finset.mem_filter.mp (Finset.mem_erase.mp ha).2).2
+    have ab : ¬ I a b := fun ab => bl ((hu p a ap.symm).unique ⟨pb, ab⟩ ⟨edge, al⟩)
+    have bad := safe {a, r} {b} ⟨⟨a, by simp, al⟩, ⟨b, by simp, pb⟩⟩ (by simp)
+    obtain ⟨x, hx, y, hy, xy⟩ := bad
+    simp only [Finset.mem_singleton] at hy
+    subst y
+    rcases Finset.mem_insert.mp hx with h | h
+    · exact ab (h ▸ xy)
+    · have xr := Finset.mem_singleton.mp h
+      exact rb (xr ▸ xy)
+  · intro equality A B hit hp
+    subst r
+    obtain ⟨b, hb, pb⟩ := hit.2
+    exact ⟨p, hp, b, hb, pb⟩
+
+lemma rectangle_line_center {q N : Nat} (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hl : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hu : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l)
+    (p l : Fin N) (edge : I p l) (r : Fin N) :
+    (∀ A B : Finset (Fin N), rectangleHits I p l A B → r ∈ B → hasIncidence I A B) ↔ r = l := by
+  have transpose := rectangle_point_center (fun x y => I y x) hq hN
+    (lines_through q N I (by omega) hN hl hu)
+    (fun x y ne => lines_intersect I (by omega) hN hl hu x y ne) l p edge r
+  constructor
+  · intro safe
+    apply transpose.mp
+    intro A B hit hr
+    obtain ⟨a, ha, b, hb, ab⟩ := safe B A ⟨hit.2, hit.1⟩ hr
+    exact ⟨b, hb, a, ha, ab⟩
+  · intro equality A B hit hlB
+    subst r
+    obtain ⟨a, ha, al⟩ := hit.1
+    exact ⟨a, ha, l, hlB, al⟩
+
+lemma rectangle_selector_centers {q N : Nat} (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hl : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hu : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l)
+    (p l : Fin N) (edge : I p l) (P L : Finset (Fin N))
+    (safe : ∀ A B : Finset (Fin N), rectangleHits I p l A B →
+      ((A ∩ P).Nonempty ∨ (B ∩ L).Nonempty) → hasIncidence I A B) :
+    P ⊆ {p} ∧ L ⊆ {l} := by
+  constructor
+  · intro r hr
+    apply Finset.mem_singleton.mpr
+    apply (rectangle_point_center I hq hN hl hu p l edge r).mp
+    intro A B hit hA
+    exact safe A B hit (Or.inl ⟨r, Finset.mem_inter.mpr ⟨hA, hr⟩⟩)
+  · intro r hr
+    apply Finset.mem_singleton.mpr
+    apply (rectangle_line_center I hq hN hl hu p l edge r).mp
+    intro A B hit hB
+    exact safe A B hit (Or.inr ⟨r, Finset.mem_inter.mpr ⟨hB, hr⟩⟩)
+
+end PEqualNP.Outside.L_meta_2583.PlaneGeometry
+
+
+namespace PEqualNP.Outside.L_meta_2583.RectangleWitness
+
+open scoped BigOperators
+
+lemma point_avoiding (q N r : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hdegree : ∀ l, (Finset.univ.filter fun p => I p l).card = q+1)
+    (hr : r ≤ q) (centres : Fin r → Fin N) (l : Fin N) :
+    ∃ p, I p l ∧ ∀ i, p ≠ centres i := by
+  classical
+  let T : Finset (Fin N) := Finset.univ.image centres
+  have ht : T.card ≤ r := by
+    exact Finset.card_image_le.trans (by simp)
+  by_contra h
+  push Not at h
+  have hs : (Finset.univ.filter fun p => I p l) ⊆ T := by
+    intro p hp
+    obtain ⟨i, hi⟩ := h p (Finset.mem_filter.mp hp).2
+    exact Finset.mem_image.mpr ⟨i, Finset.mem_univ _, hi.symm⟩
+  have hc := Finset.card_le_card hs
+  rw [hdegree] at hc
+  omega
+
+lemma line_avoiding (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hdegree : ∀ p, (Finset.univ.filter fun l => I p l).card = q+1)
+    (hunique : ∀ p p', p ≠ p' → ∃! l, I p l ∧ I p' l)
+    (A : Finset (Fin N)) (ha : A.card ≤ q) (p : Fin N) (hp : p ∉ A) :
+    ∃ l, I p l ∧ ∀ a ∈ A, ¬I a l := by
+  classical
+  let bad (a : Fin N) : Finset (Fin N) := Finset.univ.filter fun l => I p l ∧ I a l
+  have hbad : ∀ a ∈ A, (bad a).card ≤ 1 := by
+    intro a ha
+    apply Finset.card_le_one.mpr
+    intro l hl l' hl'
+    have hpa : p ≠ a := by
+      intro he
+      subst a
+      exact hp ha
+    obtain ⟨k, hk, hu⟩ := hunique p a hpa
+    exact (hu l (Finset.mem_filter.mp hl).2).trans (hu l' (Finset.mem_filter.mp hl').2).symm
+  let B := A.biUnion bad
+  have hB : B.card ≤ A.card := by
+    calc
+      B.card ≤ ∑ a ∈ A, (bad a).card := Finset.card_biUnion_le
+      _ ≤ ∑ a ∈ A, 1 := Finset.sum_le_sum hbad
+      _ = A.card := by simp
+  by_contra h
+  push Not at h
+  have hs : (Finset.univ.filter fun l => I p l) ⊆ B := by
+    intro l hl
+    have hpl := (Finset.mem_filter.mp hl).2
+    obtain ⟨a, ha, hal⟩ := h l hpl
+    apply Finset.mem_biUnion.mpr
+    exact ⟨a, ha, Finset.mem_filter.mpr ⟨Finset.mem_univ _, hpl, hal⟩⟩
+  have hc := Finset.card_le_card hs
+  rw [hdegree] at hc
+  omega
+
+lemma rectangle_family_negative (q N r : ℕ)
+    (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hline : ∀ l, (Finset.univ.filter fun p => I p l).card = q+1)
+    (hpoint : ∀ p, (Finset.univ.filter fun l => I p l).card = q+1)
+    (hunique : ∀ p p', p ≠ p' → ∃! l, I p l ∧ I p' l)
+    (hr : r ≤ q) (centres lines : Fin r → Fin N) :
+    ∃ A B : Finset (Fin N), A.card ≤ r ∧ B.card ≤ r ∧
+      (∀ a ∈ A, ∀ b ∈ B, ¬I a b) ∧
+      (∀ i, ∃ a ∈ A, I a (lines i)) ∧
+      (∀ i, ∃ b ∈ B, I (centres i) b) := by
+  classical
+  have hx : ∀ i, ∃ a, I a (lines i) ∧ ∀ j, a ≠ centres j :=
+    fun i => point_avoiding q N r I hline hr centres (lines i)
+  choose a ha hne using hx
+  let A : Finset (Fin N) := Finset.univ.image a
+  have hA : A.card ≤ r := Finset.card_image_le.trans (by simp)
+  have hcentres : ∀ i, centres i ∉ A := by
+    intro i hi
+    obtain ⟨j, hj, he⟩ := Finset.mem_image.mp hi
+    exact hne j i he
+  have hy : ∀ i, ∃ b, I (centres i) b ∧ ∀ c ∈ A, ¬I c b :=
+    fun i => line_avoiding q N I hpoint hunique A (hA.trans hr) (centres i) (hcentres i)
+  choose b hb havoid using hy
+  let B : Finset (Fin N) := Finset.univ.image b
+  refine ⟨A, B, hA, Finset.card_image_le.trans (by simp), ?_, ?_, ?_⟩
+  · intro x hx y hy
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp hy
+    exact havoid i x hx
+  · intro i
+    exact ⟨a i, Finset.mem_image.mpr ⟨i, Finset.mem_univ _, rfl⟩, ha i⟩
+  · intro i
+    exact ⟨b i, Finset.mem_image.mpr ⟨i, Finset.mem_univ _, rfl⟩, hb i⟩
+
+lemma rectangle_family_false_positive (q N r : ℕ)
+    (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hline : ∀ l, (Finset.univ.filter fun p => I p l).card = q+1)
+    (hpoint : ∀ p, (Finset.univ.filter fun l => I p l).card = q+1)
+    (hunique : ∀ p p', p ≠ p' → ∃! l, I p l ∧ I p' l)
+    (hr : r ≤ q) (centres lines : Fin r → Fin N) :
+    ∃ z : Fin (N+N) → Bool,
+      (¬∃ p l, I p l ∧ z (Fin.castAdd N p) = true ∧ z (Fin.natAdd N l) = true) ∧
+      ∀ i, (∃ p, I p (lines i) ∧ z (Fin.castAdd N p) = true) ∧
+        (∃ l, I (centres i) l ∧ z (Fin.natAdd N l) = true) := by
+  classical
+  obtain ⟨A, B, hA, hB, hind, ha, hb⟩ :=
+    rectangle_family_negative q N r I hline hpoint hunique hr centres lines
+  let z : Fin (N+N) → Bool :=
+    Fin.addCases (fun p => decide (p ∈ A)) (fun l => decide (l ∈ B))
+  have hzP (p : Fin N) : z (Fin.castAdd N p) = decide (p ∈ A) := by simp [z]
+  have hzL (l : Fin N) : z (Fin.natAdd N l) = decide (l ∈ B) := by
+    exact Fin.addCases_right l
+  refine ⟨z, ?_, ?_⟩
+  · rintro ⟨p, l, hpl, hp, hl⟩
+    rw [hzP] at hp
+    rw [hzL] at hl
+    exact hind p (of_decide_eq_true hp) l (of_decide_eq_true hl) hpl
+  · intro i
+    obtain ⟨p, hp, hpi⟩ := ha i
+    obtain ⟨l, hl, hil⟩ := hb i
+    refine ⟨⟨p, hpi, ?_⟩, ⟨l, hil, ?_⟩⟩
+    · simpa only [hzP, decide_eq_true_eq] using hp
+    · simpa only [hzL, decide_eq_true_eq] using hl
+
+end PEqualNP.Outside.L_meta_2583.RectangleWitness
+
+namespace PEqualNP.Outside.L_meta_2583.RectangleFamilies
+
+variable {n m : Nat} {ι κ : Type}
+variable (I : Fin n → Fin m → Prop) [DecidableRel I]
+variable (P : ι → Finset (Fin n)) (L : κ → Finset (Fin m))
+
+def HitsPointClauses (X : Finset (Fin n)) : Prop := ∀ i, ∃ p ∈ X, p ∈ P i
+
+def HitsLineClauses (Y : Finset (Fin m)) : Prop := ∀ j, ∃ l ∈ Y, l ∈ L j
+
+def BelowIncidence : Prop := ∀ X Y,
+  HitsPointClauses P X → HitsLineClauses L Y → ∃ p ∈ X, ∃ l ∈ Y, I p l
+
+lemma point_clause (below : BelowIncidence I P L) (p : Fin n) (common : ∀ i, p ∈ P i) :
+    ∃ j, ∀ l ∈ L j, I p l := by
+  classical
+  by_contra! no
+  let Y := Finset.univ.filter (fun l => ¬ I p l)
+  have points : HitsPointClauses P {p} := fun i => ⟨p, by simp, common i⟩
+  have lines : HitsLineClauses L Y := by
+    intro j
+    obtain ⟨l, hl, bad⟩ := no j
+    exact ⟨l, Finset.mem_filter.mpr ⟨Finset.mem_univ _, bad⟩, hl⟩
+  obtain ⟨r, hr, l, hl, edge⟩ := below {p} Y points lines
+  have rp := Finset.mem_singleton.mp hr
+  subst r
+  exact (Finset.mem_filter.mp hl).2 edge
+
+lemma line_clause (below : BelowIncidence I P L) (l : Fin m) (common : ∀ j, l ∈ L j) :
+    ∃ i, ∀ p ∈ P i, I p l := by
+  have transposed : BelowIncidence (fun l p => I p l) L P := by
+    intro Y X lineHit pointHit
+    obtain ⟨p, hp, l, hl, edge⟩ := below X Y pointHit lineHit
+    exact ⟨l, hl, p, hp, edge⟩
+  exact point_clause (fun l p => I p l) L P transposed l common
+
+lemma common_cross (below : BelowIncidence I P L) (p : Fin n) (l : Fin m)
+    (point : ∀ i, p ∈ P i) (line : ∀ j, l ∈ L j) : I p l := by
+  obtain ⟨j, hj⟩ := point_clause I P L below p point
+  exact hj l (line j)
+
+lemma star_envelope
+    (noFour : ∀ p p' : Fin n, ∀ l l' : Fin m, p ≠ p' → l ≠ l' →
+      ¬ (I p l ∧ I p l' ∧ I p' l ∧ I p' l'))
+    (below : BelowIncidence I P L)
+    (useful : ∃ p : Fin n, ∃ l : Fin m, (∀ i, p ∈ P i) ∧ (∀ j, l ∈ L j)) :
+    (∃ p : Fin n, ∃ j : κ,
+      (∀ p' : Fin n, (∀ i, p' ∈ P i) → p' = p) ∧ (∀ l ∈ L j, I p l)) ∨
+    (∃ l : Fin m, ∃ i : ι,
+      (∀ l' : Fin m, (∀ j, l' ∈ L j) → l' = l) ∧ (∀ p ∈ P i, I p l)) := by
+  classical
+  obtain ⟨p, l, hp, hl⟩ := useful
+  by_cases singleton : ∀ p' : Fin n, (∀ i, p' ∈ P i) → p' = p
+  · obtain ⟨j, hj⟩ := point_clause I P L below p hp
+    exact Or.inl ⟨p, j, singleton, hj⟩
+  · push_neg at singleton
+    obtain ⟨p', hp', diff⟩ := singleton
+    have singleLine : ∀ l' : Fin m, (∀ j, l' ∈ L j) → l' = l := by
+      intro l' hl'
+      by_contra different
+      exact noFour p p' l l' (Ne.symm diff) (Ne.symm different)
+        ⟨common_cross I P L below p l hp hl,
+          common_cross I P L below p l' hp hl',
+          common_cross I P L below p' l hp' hl,
+          common_cross I P L below p' l' hp' hl'⟩
+    obtain ⟨i, hi⟩ := line_clause I P L below l hl
+    exact Or.inr ⟨l, i, singleLine, hi⟩
+
+lemma point_envelope_preserves (p : Fin n) (j : κ)
+    (singleton : ∀ p' : Fin n, (∀ i, p' ∈ P i) → p' = p) :
+    ∀ p' : Fin n, ∀ l : Fin m, (∀ i, p' ∈ P i) → (∀ j, l ∈ L j) → p' = p ∧ l ∈ L j := by
+  intro p' l hp hl
+  exact ⟨singleton p' hp, hl j⟩
+
+lemma line_envelope_preserves (l : Fin m) (i : ι)
+    (singleton : ∀ l' : Fin m, (∀ j, l' ∈ L j) → l' = l) :
+    ∀ p : Fin n, ∀ l' : Fin m, (∀ i, p ∈ P i) → (∀ j, l' ∈ L j) → l' = l ∧ p ∈ P i := by
+  intro p l' hp hl
+  exact ⟨singleton l' hl, hp i⟩
+
+end PEqualNP.Outside.L_meta_2583.RectangleFamilies

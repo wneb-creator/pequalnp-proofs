@@ -431,3 +431,61 @@
  "next_beat_s": 300
 }
 
+2026-11-25T14:57:36.500474+00:00 L2583 beat-08 {
+ "lease": {
+  "id": "a47a479a-5901-4ba8-83bc-535d02e450df",
+  "expires_at": "2026-11-25T15:17:36.062Z",
+  "renew": "POST /desk/beat?lease=a47a479a-5901-4ba8-83bc-535d02e450df",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=a47a479a-5901-4ba8-83bc-535d02e450df&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 259,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T13:59:02.364Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T15:02:18.447655+00:00 L2583 beat-09 {
+ "lease": {
+  "id": "a47a479a-5901-4ba8-83bc-535d02e450df",
+  "expires_at": "2026-11-25T15:22:17.564Z",
+  "renew": "POST /desk/beat?lease=a47a479a-5901-4ba8-83bc-535d02e450df",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=a47a479a-5901-4ba8-83bc-535d02e450df&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 259,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T13:59:02.364Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T15:04:21.022619+00:00 L2583 beat-10 {
+ "lease": {
+  "id": "a47a479a-5901-4ba8-83bc-535d02e450df",
+  "expires_at": "2026-11-25T15:24:20.551Z",
+  "renew": "POST /desk/beat?lease=a47a479a-5901-4ba8-83bc-535d02e450df",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=a47a479a-5901-4ba8-83bc-535d02e450df&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 259,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T13:59:02.364Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T15:06:04.601257+00:00 L2583 beat-11 {
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+
