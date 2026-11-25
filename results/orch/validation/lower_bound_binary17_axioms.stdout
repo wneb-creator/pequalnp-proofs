@@ -1,0 +1,2 @@
+'PEqualNP.Outside.L_meta_2592_aux.Binary16.binary17' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.Binary16.one_or_two_not' depends on axioms: [propext, Classical.choice, Quot.sound]

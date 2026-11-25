@@ -1,12 +1,18 @@
-L-meta-2592 PARTIAL CHECKPOINT
-The exact posted theorem is not yet proved. No proof PR is ready.
+L-meta-2592 PARTIAL CHECKPOINT; lease lost during work
 
-Current named Lean file proves 16 + notCount C <= C.size for every fan-in-two circuit computing the Petersen edge function, hence size<=19 implies notCount<=3.
-Complete source compiled with lake env lean: exit 0; inherited linter warnings only; stderr empty.
-Full-gap checker: not run; the posted theorem is absent.
-Earlier normalization and finite-code equivalence compiled; named normalization lake build passed (6655 jobs).
-Independent review: prior four checkpoints passed; binary16 source pending final review.
-All searches remain nonproof evidence; the saved approximation has 4 false positives and is explicitly not a counterexample.
-Desk null responses: 0. Lease renews every 5 minutes on a root-owned timer.
-Sub-agents: 6 (checker review, semantics, counterexample search, lower bound, existing results, one-NOT strategy)
-TIMING total=18.8 subagents=6
+The exact posted theorem remains unproved. No proof PR is ready.
+Self-contained source: lean/PEqualNP/Outside/L_meta_2592.lean
+SHA-256: c9f474e6ab6295325381d345b003a63b90c487e8f70bcf213671cf62679c8843
+5240 lines,312616 bytes.
+Proved:17+notCount C<=C.size for every permitted circuit computing the posted Petersen function. Thus a size<=19 candidate containing a NOT has exactly1or2NOTs.
+Full self-contained compilation: exit0; complete stdout/stderr preserved in results/orch/validation/lower_bound_binary17_full.*. Warnings only.
+Axiom audit: propext, Classical.choice, Quot.sound only.
+Independent source/plain-format review: PASS; sourcehash unchanged since review.
+Full-gap checker: NOT RUN because the exact top-level target theorem is absent. Static namespace guard reports that expected absence.
+Cleanup pass: not applicable; full-gap checker has not passed.
+
+Desk timer renewed successfully at14:34:14UTC, expiry14:54:14.565Z, then returned410 at14:39:15UTC. Same call repeated once with curl-si, also410. All proof development/searches stopped. Full diagnostic in results/orch/desk-410-response.txt.
+Desk null responses:0. Exact error: no such live lease: it expired or was released. Ask /desk/next again.
+
+Sub-agents:6 (checker review, semantics, counterexample search, lower bound, existing results, one-NOT strategy)
+TIMING total=43.5 subagents=6

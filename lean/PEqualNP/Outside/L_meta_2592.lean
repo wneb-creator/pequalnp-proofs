@@ -1,4 +1,6 @@
+import Mathlib.Tactic
 import PEqualNP.Defs
+
 
 -- This proof reuses the signed circuit certificate from L_meta_7306.
 -- That certificate is adapted from L_meta_7794, whose root certificate
@@ -4563,6 +4565,676 @@ lemma notCount_le_three (C : Circuit) (legal : PEqualNP.MetaComplexity.FanInTwo 
     (computes : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = Extended.f10 x) :
     PEqualNP.NotBracket.notCount C ≤ 3 := by
   have := binary_floor16 C legal computes
+  omega
+
+end PEqualNP.Outside.L_meta_2592_aux.Binary16
+
+namespace PEqualNP.Outside.L_meta_2592_aux.Binary16
+
+def canonicalExtra (j : Fin 2) (d : Fin 4) : Extended.Sig :=
+  Extended.bin d.val (Extended.pins.getD 0 Extended.zero)
+    (Extended.pins.getD (j.val + 1) Extended.zero)
+
+def canonicalWitnessA (j : Fin 2) (d : Fin 4) : Extended.Row :=
+  if d.val = 0 ∨ d.val = 3 then 16 else if j.val = 0 then 128 else 48
+
+def canonicalWitnessB (j : Fin 2) (d : Fin 4) : Extended.Row := canonicalWitnessA j d + 512
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma canonicalWitness : ∀ (j : Fin 2) (d : Fin 4),
+    Extended.bit (canonicalWitnessA j d) Extended.target ≠ Extended.bit (canonicalWitnessB j d) Extended.target ∧
+    (Extended.pins ++ [canonicalExtra j d]).all (fun a =>
+      (Extended.bit (canonicalWitnessA j d) a == Extended.bit (canonicalWitnessB j d) a) ||
+      (a == Extended.first)) = true := by decide +kernel
+
+set_option maxRecDepth 8192 in
+set_option maxHeartbeats 0 in
+lemma canonicalProjects : ∀ (j : Fin 2) (d : Fin 4),
+    (Extended.pins ++ [canonicalExtra j d]).all (fun a =>
+      (projected a == zero) || inputs.contains (projected a)) = true := by decide +kernel
+
+lemma firstNeededCanonical (j : Fin 2) (d : Fin 4) {k S}
+    (run : Extended.Live true Extended.target k S)
+    (raw : ∀ a ∈ S, a ∈ Extended.pins ++ [canonicalExtra j d]) : Extended.first ∈ S := by
+  obtain ⟨a, ha, hchange⟩ := Extended.live_row_difference run (canonicalWitness j d).1
+  have chk := List.all_eq_true.mp (canonicalWitness j d).2 a (raw a ha)
+  simp only [Bool.or_eq_true, beq_iff_eq] at chk
+  exact chk.resolve_left hchange ▸ ha
+
+lemma suffixSixteen (j : Fin 2) (d : Fin 4) {k S}
+    (run : Extended.Live true Extended.target k S)
+    (raw : ∀ a ∈ S, a ∈ Extended.pins ++ [canonicalExtra j d]) : 16 ≤ k := by
+  classical
+  have hfirst := firstNeededCanonical j d run raw
+  let front := Extended.first :: (S.erase Extended.first).toList
+  have nd : front.Nodup := by
+    apply List.nodup_cons.mpr
+    exact ⟨by simp, Finset.nodup_toList _⟩
+  have eqS : front.toFinset = S := by
+    ext a
+    by_cases ha : a = Extended.first <;> simp [front, ha, hfirst]
+  have hrun := Extended.list_run run front nd eqS
+  have same : restrictRows embed (Extended.observe Extended.target) = observe graph := by
+    rw [observe_projected]
+    exact congrArg observe (by decide +kernel)
+  have isZero : observe zero = fun _ => false := by funext r; simp [observe, bit, zero]
+  have supplyRoots : supply true (inputs.map observe)
+      ((front.map Extended.observe).map (restrictRows embed)) := by
+    intro v hv
+    obtain ⟨_, hin, rfl⟩ := List.mem_map.mp hv
+    obtain ⟨a, hmFront, rfl⟩ := List.mem_map.mp hin
+    rw [observe_projected]
+    have hh := List.all_eq_true.mp (canonicalProjects j d) a
+      (raw a (eqS ▸ List.mem_toFinset.mpr hmFront))
+    simp only [Bool.or_eq_true, beq_iff_eq] at hh
+    rcases hh with hz | hm
+    · exact Or.inr (Or.inl ⟨false, hz ▸ isZero⟩)
+    · exact Or.inl (List.mem_map.mpr ⟨_, by simpa using hm, rfl⟩)
+  have need := projected_bound embed hrun (same ▸ observe_proper graph_proper)
+    Reach.start supplyRoots (L := 15) (same ▸ nineFloor)
+  have charge : 1 ≤ mass ((front.map Extended.observe).map (restrictRows embed)) := by
+    have ac : Constant (restrictRows embed (Extended.observe Extended.first)) := by
+      rw [observe_projected, show projected Extended.first = zero by decide +kernel]
+      exact ⟨false, isZero⟩
+    simp [front, mass_cons, cost, ac]
+  omega
+
+end PEqualNP.Outside.L_meta_2592_aux.Binary16
+
+namespace PEqualNP.Outside.L_meta_2592_aux
+
+def petersenEdges : List (Fin 10 × Fin 10) :=
+  [(0,1), (1,2), (2,3), (3,4), (4,0), (0,5), (1,6), (2,7), (3,8), (4,9),
+   (5,7), (7,9), (9,6), (6,8), (8,5)]
+
+def petersenAdjacent (a b : Fin 10) : Prop :=
+  (a,b) ∈ petersenEdges ∨ (b,a) ∈ petersenEdges
+
+def pairSecond (a b : Fin 10) : Fin 10 :=
+  if (a,b) ∈ petersenEdges ∨ (b,a) ∈ petersenEdges then 1 else 2
+
+def pairMove : Fin 10 → Fin 10 → Fin 10 → Fin 10 :=
+  ![![![0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      ![0, 4, 3, 2, 1, 5, 9, 8, 7, 6],
+      ![0, 4, 3, 2, 1, 5, 9, 8, 7, 6],
+      ![0, 5, 7, 2, 1, 4, 8, 9, 3, 6],
+      ![0, 1, 6, 8, 5, 4, 2, 9, 3, 7],
+      ![0, 5, 7, 2, 1, 4, 8, 9, 3, 6],
+      ![0, 5, 8, 3, 4, 1, 7, 6, 2, 9],
+      ![0, 4, 9, 6, 1, 5, 3, 7, 8, 2]],
+    ![![1, 0, 4, 3, 2, 6, 5, 9, 8, 7],
+      ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      ![1, 2, 3, 4, 0, 6, 7, 8, 9, 5],
+      ![1, 2, 3, 4, 0, 6, 7, 8, 9, 5],
+      ![1, 0, 4, 3, 2, 6, 5, 9, 8, 7],
+      ![1, 0, 5, 7, 2, 6, 4, 8, 9, 3],
+      ![1, 6, 8, 3, 2, 0, 9, 5, 4, 7],
+      ![1, 2, 7, 5, 0, 6, 3, 9, 8, 4],
+      ![1, 6, 8, 3, 2, 0, 9, 5, 4, 7],
+      ![1, 6, 9, 4, 0, 2, 8, 7, 3, 5]],
+    ![![2, 1, 0, 4, 3, 7, 6, 5, 9, 8],
+      ![2, 1, 0, 4, 3, 7, 6, 5, 9, 8],
+      ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      ![2, 3, 4, 0, 1, 7, 8, 9, 5, 6],
+      ![2, 3, 4, 0, 1, 7, 8, 9, 5, 6],
+      ![2, 7, 5, 0, 1, 3, 9, 8, 4, 6],
+      ![2, 1, 6, 8, 3, 7, 0, 9, 5, 4],
+      ![2, 7, 5, 0, 1, 3, 9, 8, 4, 6],
+      ![2, 3, 8, 5, 7, 1, 4, 6, 0, 9],
+      ![2, 7, 9, 4, 3, 1, 5, 6, 0, 8]],
+    ![![3, 4, 0, 1, 2, 8, 9, 5, 6, 7],
+      ![3, 2, 1, 0, 4, 8, 7, 6, 5, 9],
+      ![3, 2, 1, 0, 4, 8, 7, 6, 5, 9],
+      ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      ![3, 4, 0, 1, 2, 8, 9, 5, 6, 7],
+      ![3, 8, 5, 0, 4, 2, 6, 7, 1, 9],
+      ![3, 8, 6, 1, 2, 4, 5, 9, 0, 7],
+      ![3, 2, 7, 5, 8, 4, 1, 9, 0, 6],
+      ![3, 8, 5, 0, 4, 2, 6, 7, 1, 9],
+      ![3, 4, 9, 6, 8, 2, 0, 7, 1, 5]],
+    ![![4, 0, 1, 2, 3, 9, 5, 6, 7, 8],
+      ![4, 0, 1, 2, 3, 9, 5, 6, 7, 8],
+      ![4, 3, 2, 1, 0, 9, 8, 7, 6, 5],
+      ![4, 3, 2, 1, 0, 9, 8, 7, 6, 5],
+      ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      ![4, 0, 5, 7, 9, 3, 1, 8, 2, 6],
+      ![4, 9, 6, 1, 0, 3, 7, 8, 2, 5],
+      ![4, 9, 7, 2, 3, 0, 6, 5, 1, 8],
+      ![4, 3, 8, 5, 0, 9, 2, 6, 7, 1],
+      ![4, 9, 6, 1, 0, 3, 7, 8, 2, 5]],
+    ![![5, 0, 1, 2, 7, 8, 4, 6, 3, 9],
+      ![5, 0, 1, 2, 7, 8, 4, 6, 3, 9],
+      ![5, 7, 2, 1, 0, 8, 9, 3, 6, 4],
+      ![5, 8, 3, 2, 7, 0, 6, 4, 1, 9],
+      ![5, 0, 4, 3, 8, 7, 1, 9, 2, 6],
+      ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      ![5, 8, 6, 1, 0, 7, 3, 9, 2, 4],
+      ![5, 7, 2, 1, 0, 8, 9, 3, 6, 4],
+      ![5, 8, 3, 2, 7, 0, 6, 4, 1, 9],
+      ![5, 7, 9, 4, 0, 8, 2, 6, 3, 1]],
+    ![![6, 1, 0, 4, 9, 8, 2, 5, 3, 7],
+      ![6, 1, 0, 4, 9, 8, 2, 5, 3, 7],
+      ![6, 1, 2, 3, 8, 9, 0, 7, 4, 5],
+      ![6, 8, 3, 2, 1, 9, 5, 4, 7, 0],
+      ![6, 9, 4, 0, 1, 8, 7, 3, 5, 2],
+      ![6, 8, 5, 0, 1, 9, 3, 7, 4, 2],
+      ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      ![6, 9, 7, 2, 1, 8, 4, 5, 3, 0],
+      ![6, 8, 3, 2, 1, 9, 5, 4, 7, 0],
+      ![6, 9, 4, 0, 1, 8, 7, 3, 5, 2]],
+    ![![7, 5, 0, 1, 2, 9, 8, 4, 6, 3],
+      ![7, 2, 1, 0, 5, 9, 3, 6, 4, 8],
+      ![7, 2, 1, 0, 5, 9, 3, 6, 4, 8],
+      ![7, 2, 3, 4, 9, 5, 1, 8, 0, 6],
+      ![7, 9, 4, 0, 5, 2, 6, 3, 1, 8],
+      ![7, 5, 0, 1, 2, 9, 8, 4, 6, 3],
+      ![7, 9, 6, 1, 2, 5, 4, 8, 0, 3],
+      ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      ![7, 5, 8, 3, 2, 9, 0, 6, 4, 1],
+      ![7, 9, 4, 0, 5, 2, 6, 3, 1, 8]],
+    ![![8, 5, 0, 1, 6, 3, 7, 4, 2, 9],
+      ![8, 6, 1, 0, 5, 3, 9, 2, 4, 7],
+      ![8, 3, 2, 1, 6, 5, 4, 7, 0, 9],
+      ![8, 3, 2, 1, 6, 5, 4, 7, 0, 9],
+      ![8, 3, 4, 0, 5, 6, 2, 9, 1, 7],
+      ![8, 5, 0, 1, 6, 3, 7, 4, 2, 9],
+      ![8, 6, 1, 0, 5, 3, 9, 2, 4, 7],
+      ![8, 5, 7, 2, 3, 6, 0, 9, 1, 4],
+      ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      ![8, 6, 9, 4, 3, 5, 1, 7, 0, 2]],
+    ![![9, 4, 0, 1, 6, 7, 3, 5, 2, 8],
+      ![9, 6, 1, 0, 4, 7, 8, 2, 5, 3],
+      ![9, 7, 2, 1, 6, 4, 5, 3, 0, 8],
+      ![9, 4, 3, 2, 7, 6, 0, 8, 1, 5],
+      ![9, 4, 0, 1, 6, 7, 3, 5, 2, 8],
+      ![9, 7, 5, 0, 4, 6, 2, 8, 1, 3],
+      ![9, 6, 1, 0, 4, 7, 8, 2, 5, 3],
+      ![9, 7, 2, 1, 6, 4, 5, 3, 0, 8],
+      ![9, 6, 8, 3, 4, 7, 1, 5, 2, 0],
+      ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9]]]
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 10000 in
+lemma pairMove_properties : ∀ a b : Fin 10, a ≠ b →
+    pairMove a b 0 = a ∧ pairMove a b (pairSecond a b) = b ∧
+    Function.Bijective (pairMove a b) ∧
+    ∀ i j : Fin 10, petersenAdjacent (pairMove a b i) (pairMove a b j) ↔
+      petersenAdjacent i j := by
+  unfold petersenAdjacent
+  decide +kernel
+
+def edgeFunction (x : Fin 10 → Bool) : Bool :=
+  x 0 && x 1 || x 1 && x 2 || x 2 && x 3 || x 3 && x 4 || x 4 && x 0 ||
+  x 0 && x 5 || x 1 && x 6 || x 2 && x 7 || x 3 && x 8 || x 4 && x 9 ||
+  x 5 && x 7 || x 7 && x 9 || x 9 && x 6 || x 6 && x 8 || x 8 && x 5
+
+lemma edgeFunction_edges (x : Fin 10 → Bool) : edgeFunction x = true ↔
+    ∃ e ∈ petersenEdges, x e.1 = true ∧ x e.2 = true := by
+  simp [edgeFunction, petersenEdges, Bool.or_eq_true, Bool.and_eq_true, or_assoc]
+
+lemma edgeFunction_adjacent (x : Fin 10 → Bool) : edgeFunction x = true ↔
+    ∃ i j : Fin 10, petersenAdjacent i j ∧ x i = true ∧ x j = true := by
+  rw [edgeFunction_edges]
+  constructor
+  · rintro ⟨⟨i,j⟩, he, hi, hj⟩
+    exact ⟨i,j,Or.inl he,hi,hj⟩
+  · rintro ⟨i,j,he,hi,hj⟩
+    rcases he with he | he
+    · exact ⟨(i,j),he,hi,hj⟩
+    · exact ⟨(j,i),he,hj,hi⟩
+
+lemma edgeFunction_pairMove (a b : Fin 10) (hne : a ≠ b) (x : Fin 10 → Bool) :
+    edgeFunction (fun i => x (pairMove a b i)) = edgeFunction x := by
+  obtain ⟨_,_,hbij,hadj⟩ := pairMove_properties a b hne
+  apply Bool.eq_iff_iff.mpr
+  rw [edgeFunction_adjacent,edgeFunction_adjacent]
+  constructor
+  · rintro ⟨i,j,he,hi,hj⟩
+    exact ⟨pairMove a b i,pairMove a b j,(hadj i j).mpr he,hi,hj⟩
+  · rintro ⟨i,j,he,hi,hj⟩
+    obtain ⟨i,rfl⟩ := hbij.2 i
+    obtain ⟨j,rfl⟩ := hbij.2 j
+    exact ⟨i,j,(hadj i j).mp he,hi,hj⟩
+
+end PEqualNP.Outside.L_meta_2592_aux
+
+namespace PEqualNP.Outside.L_meta_2592_aux.RowEncoding
+
+abbrev Row := Fin 1024
+abbrev Sig := BitVec 1024
+
+def position : Fin 10 → Fin 10 := ![9,7,5,8,6,4,2,0,3,1]
+def variableAt : Fin 10 → Fin 10 := ![7,9,6,8,5,2,4,1,3,0]
+
+lemma variableAt_position : ∀ j : Fin 10, variableAt (position j) = j := by decide +kernel
+lemma position_variableAt : ∀ j : Fin 10, position (variableAt j) = j := by decide +kernel
+
+def decode (r : Row) (j : Fin 10) : Bool :=
+  (BitVec.ofFin r : BitVec 10).getLsbD (position j).val
+
+def encode (x : Fin 10 → Bool) : Row :=
+  let word : BitVec 10 :=
+    (BitVec.ofBoolListLE (List.ofFn (fun j : Fin 10 => x (variableAt j)))).cast List.length_ofFn
+  word.toFin
+
+lemma decode_encode (x : Fin 10 → Bool) : decode (encode x) = x := by
+  funext j
+  simp only [decode, encode, BitVec.ofFin_toFin, BitVec.getLsbD_cast,
+    BitVec.getLsbD_ofBoolListLE, List.getD_eq_getElem?_getD, List.getElem?_ofFn]
+  simp only [Fin.isLt, dite_true, Option.getD_some]
+  change x (variableAt (position j)) = x j
+  rw [variableAt_position]
+
+lemma encode_decode : ∀ r : Row, encode (decode r) = r := by
+  decide +kernel
+
+lemma decode_injective : Function.Injective decode :=
+  Function.LeftInverse.injective encode_decode
+
+lemma encode_injective : Function.Injective encode :=
+  Function.LeftInverse.injective decode_encode
+
+def move (p : Fin 10 → Fin 10) (r : Row) : Row := encode (fun j => decode r (p j))
+
+lemma decode_move (p : Fin 10 → Fin 10) (r : Row) (j : Fin 10) :
+    decode (move p r) j = decode r (p j) := by
+  rw [move,decode_encode]
+
+lemma move_injective (p : Fin 10 → Fin 10) (hp : Function.Surjective p) :
+    Function.Injective (move p) := by
+  intro r s h
+  apply decode_injective
+  funext j
+  obtain ⟨j,rfl⟩ := hp j
+  have hh := congrArg (fun t => decode t j) h
+  simpa only [decode_move] using hh
+
+lemma move_surjective (p : Fin 10 → Fin 10) (hp : Function.Surjective p) :
+    Function.Surjective (move p) :=
+  ((Fintype.bijective_iff_injective_and_card (move p)).mpr
+    ⟨move_injective p hp, rfl⟩).2
+
+def bit (r : Row) (a : Sig) : Bool := a.getLsbD r.val
+
+def table (f : Row → Bool) : Sig :=
+  (BitVec.ofBoolListLE (List.ofFn f)).cast List.length_ofFn
+
+lemma bit_table (f : Row → Bool) (r : Row) : bit r (table f) = f r := by
+  simp only [bit,table,BitVec.getLsbD_cast,BitVec.getLsbD_ofBoolListLE,
+    List.getD_eq_getElem?_getD,List.getElem?_ofFn]
+  simp [r.isLt]
+
+lemma bit_ext {a b : Sig} (h : ∀ r, bit r a = bit r b) : a = b := by
+  apply BitVec.eq_of_getLsbD_eq
+  intro j hj
+  exact h ⟨j,hj⟩
+
+def transform (p : Fin 10 → Fin 10) (a : Sig) : Sig :=
+  table (fun r => bit (move p r) a)
+
+lemma bit_transform (p : Fin 10 → Fin 10) (a : Sig) (r : Row) :
+    bit r (transform p a) = bit (move p r) a := bit_table _ _
+
+lemma transform_injective (p : Fin 10 → Fin 10) (hp : Function.Surjective p) :
+    Function.Injective (transform p) := by
+  intro a b h
+  apply bit_ext
+  intro r
+  obtain ⟨r,rfl⟩ := move_surjective p hp r
+  have hh := congrArg (bit r) h
+  simpa only [bit_transform] using hh
+
+lemma transform_zero (p : Fin 10 → Fin 10) : transform p 0 = 0 := by
+  apply bit_ext
+  intro r
+  rw [bit_transform]
+  simp [bit]
+
+lemma transform_one (p : Fin 10 → Fin 10) :
+    transform p (BitVec.allOnes 1024) = BitVec.allOnes 1024 := by
+  apply bit_ext
+  intro r
+  rw [bit_transform]
+  unfold bit
+  rw [BitVec.getLsbD_allOnes,BitVec.getLsbD_allOnes]
+  simp
+
+lemma bit_and (a b : Sig) (r : Row) : bit r (a &&& b) = (bit r a && bit r b) := by
+  simp [bit]
+
+lemma bit_or (a b : Sig) (r : Row) : bit r (a ||| b) = (bit r a || bit r b) := by
+  simp [bit]
+
+lemma bit_not (a : Sig) (r : Row) : bit r (~~~a) = !(bit r a) := by
+  simp [bit,r.isLt]
+
+lemma transform_and (p : Fin 10 → Fin 10) (a b : Sig) :
+    transform p (a &&& b) = transform p a &&& transform p b := by
+  apply bit_ext
+  intro r
+  rw [bit_transform,bit_and,bit_and,bit_transform,bit_transform]
+
+lemma transform_or (p : Fin 10 → Fin 10) (a b : Sig) :
+    transform p (a ||| b) = transform p a ||| transform p b := by
+  apply bit_ext
+  intro r
+  rw [bit_transform,bit_or,bit_or,bit_transform,bit_transform]
+
+lemma transform_not (p : Fin 10 → Fin 10) (a : Sig) :
+    transform p (~~~a) = ~~~transform p a := by
+  apply bit_ext
+  intro r
+  rw [bit_transform,bit_not,bit_not,bit_transform]
+
+end PEqualNP.Outside.L_meta_2592_aux.RowEncoding
+namespace PEqualNP.Outside.L_meta_2592_aux.Binary16
+open PEqualNP.CircuitLowerBounds
+lemma first_binary_split (C : Circuit) (legal : PEqualNP.MetaComplexity.FanInTwo C)
+    (computes : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = Extended.f10 x) :
+    ∃ (k : ℕ) (U : Finset Extended.Sig) (a b : Extended.Sig) (d : ℕ),
+      k + 1 ≤ C.gates.countP (fun g => !Extended.isNot g) ∧ d < 4 ∧
+      a ∈ Extended.initial ∧ b ∈ Extended.initial ∧ a ≠ b ∧
+      Extended.Live true Extended.target k (insert (Extended.bin d a b) U) ∧
+      ∀ v ∈ U, v ∈ Extended.initial := by
+  obtain ⟨k, S, hk, run, raw⟩ := Extended.realize C legal computes
+  cases k with
+  | zero =>
+      obtain ⟨rfl, hp⟩ := run
+      have hmem := raw Extended.target (by simp)
+      have hn : Extended.target ∉ Extended.initial := by decide +kernel
+      exact False.elim (hn hmem)
+  | succ k =>
+      obtain ⟨U, a, b, d, hd, rfl, ha, hb, hab, hfresh, tail⟩ := run
+      have hd4 : d < 4 := by
+        rcases hd with hd | ⟨hu, hd⟩ <;> omega
+      exact ⟨k, U, a, b, d, hk, hd4, raw a (by simp), raw b (by simp), hab,
+        tail, fun v hv => raw v (by simp [hv])⟩
+
+lemma binary_floor17_of_suffix
+    (suffix : ∀ (k : ℕ) (S : Finset Extended.Sig) (a b : Extended.Sig) (d : ℕ),
+      d < 4 → a ∈ Extended.initial → b ∈ Extended.initial → a ≠ b →
+      Extended.Live true Extended.target k S →
+      (∀ v ∈ S, v ∈ Extended.initial ++ [Extended.bin d a b]) → 16 ≤ k)
+    (C : Circuit) (legal : PEqualNP.MetaComplexity.FanInTwo C)
+    (computes : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = Extended.f10 x) :
+    17 + PEqualNP.NotBracket.notCount C ≤ C.size := by
+  obtain ⟨k, U, a, b, d, hk, hd, ha, hb, hab, tail, raw⟩ :=
+    first_binary_split C legal computes
+  have floor : 16 ≤ k := by
+    apply suffix k (insert (Extended.bin d a b) U) a b d hd ha hb hab tail
+    intro v hv
+    rcases Finset.mem_insert.mp hv with rfl | hv
+    · simp
+    · exact List.mem_append_left _ (raw v hv)
+  have sameNot :
+      (fun g : Gate => @decide (g.op = GateOp.not) (lineDegreeGateOpDecEq g.op GateOp.not)) = Extended.isNot := by
+    funext g
+    obtain ⟨op, operands⟩ := g
+    cases op <;> rfl
+  rw [PEqualNP.NotBracket.notCount, sameNot, ← List.countP_eq_length_filter]
+  have negSame : (fun g : Gate => decide (¬ Extended.isNot g = true)) = (fun g => !Extended.isNot g) := by
+    funext g
+    cases Extended.isNot g <;> rfl
+  have count := List.length_eq_countP_add_countP Extended.isNot (l := C.gates)
+  rw [negSame] at count
+  change 17 + C.gates.countP Extended.isNot ≤ C.gates.length
+  omega
+
+lemma map_live {u : Bool} {T : Extended.Sig} {k : ℕ} {S : Finset Extended.Sig}
+    (h : Extended.Live u T k S) (φ : Extended.Sig → Extended.Sig)
+    (hinj : Function.Injective φ) (hz : φ Extended.zero = Extended.zero)
+    (ho : φ Extended.one = Extended.one)
+    (hbin : ∀ d a b, φ (Extended.bin d a b) = Extended.bin d (φ a) (φ b)) :
+    Extended.Live u (φ T) k (S.image φ) := by
+  have hproper : ∀ a, Extended.proper a → Extended.proper (φ a) := by
+    intro a ha
+    constructor
+    · intro he
+      exact ha.1 (hinj (he.trans hz.symm))
+    · intro he
+      exact ha.2 (hinj (he.trans ho.symm))
+  induction h using Extended.Live.ind with
+  | stop hp =>
+      simpa only [Finset.image_singleton] using Extended.Live.stop (u := u) (hproper T hp)
+  | @binary k U a b d hd ha hb hab hf tail ih =>
+      simp only [Finset.image_insert]
+      apply Extended.Live.binary hd (hproper a ha) (hproper b hb)
+        (fun he => hab (hinj he))
+      · intro he
+        have hm : φ (Extended.bin d a b) ∈
+            (insert a (insert b U)).image φ := by
+          simpa only [Finset.image_insert, hbin] using he
+        obtain ⟨v, hv, hvEq⟩ := Finset.mem_image.mp hm
+        exact hf (hinj hvEq ▸ hv)
+      · simpa only [Finset.image_insert, hbin] using ih
+
+end PEqualNP.Outside.L_meta_2592_aux.Binary16
+
+namespace PEqualNP.Outside.L_meta_2592_aux.Binary16
+
+open PEqualNP.Outside.L_meta_2592_aux PEqualNP.CircuitLowerBounds
+
+abbrev inputPin (j : Fin 10) : Extended.Sig := Extended.pins.getD j.val Extended.zero
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma assign_decode : ∀ (r : Extended.Row) (j : Fin 10),
+    Extended.assign r j = RowEncoding.decode r j := by decide +kernel
+
+lemma pin_mem (j : Fin 10) : inputPin j ∈ Extended.pins := by
+  have hlen : Extended.pins.length = 10 := by decide +kernel
+  have hi : j.val < Extended.pins.length := by omega
+  simp only [inputPin,List.getD_eq_getElem?_getD,List.getElem?_eq_getElem hi,Option.getD_some]
+  exact List.getElem_mem hi
+
+lemma member_pin {a : Extended.Sig} (ha : a ∈ Extended.pins) :
+    ∃ j : Fin 10, inputPin j = a := by
+  obtain ⟨i,hi,he⟩ := List.mem_iff_getElem.mp ha
+  have hlen : Extended.pins.length = 10 := by decide +kernel
+  let j : Fin 10 := ⟨i,by omega⟩
+  refine ⟨j,?_⟩
+  simp only [inputPin,j,List.getD_eq_getElem?_getD,List.getElem?_eq_getElem hi,
+    Option.getD_some,he]
+
+lemma transform_pin (p : Fin 10 → Fin 10) (j : Fin 10) :
+    RowEncoding.transform p (inputPin j) = inputPin (p j) := by
+  apply RowEncoding.bit_ext
+  intro r
+  rw [RowEncoding.bit_transform]
+  change Extended.assign (RowEncoding.move p r) j = Extended.assign r (p j)
+  rw [assign_decode,assign_decode,RowEncoding.decode_move]
+
+lemma transform_bin (p : Fin 10 → Fin 10) (d : ℕ) (a b : Extended.Sig) :
+    RowEncoding.transform p (Extended.bin d a b) =
+      Extended.bin d (RowEncoding.transform p a) (RowEncoding.transform p b) := by
+  unfold Extended.bin
+  split_ifs <;> simp only [RowEncoding.transform_and,RowEncoding.transform_or,
+    RowEncoding.transform_not]
+
+lemma transform_target (p : Fin 10 → Fin 10)
+    (hp : ∀ x : Fin 10 → Bool, edgeFunction (fun j => x (p j)) = edgeFunction x) :
+    RowEncoding.transform p Extended.target = Extended.target := by
+  apply RowEncoding.bit_ext
+  intro r
+  rw [RowEncoding.bit_transform]
+  change Extended.bit (RowEncoding.move p r) Extended.target = Extended.bit r Extended.target
+  rw [Extended.rowTarget,Extended.rowTarget]
+  have hm : Extended.assign (RowEncoding.move p r) = fun j => Extended.assign r (p j) := by
+    funext j
+    rw [assign_decode,assign_decode,RowEncoding.decode_move]
+  rw [hm]
+  exact hp (Extended.assign r)
+
+lemma canonical_second (a b : Fin 10) : pairSecond a b = 1 ∨ pairSecond a b = 2 := by
+  unfold pairSecond
+  split <;> simp
+
+lemma suffix_of_canonical
+    (canonical : ∀ (j : Fin 2) (d : Fin 4) (k : ℕ) (S : Finset Extended.Sig),
+      Extended.Live true Extended.target k S →
+      (∀ v ∈ S, v ∈ Extended.pins ++ [canonicalExtra j d]) → 16 ≤ k)
+    (a b : Fin 10) (hne : a ≠ b) (d : Fin 4) (k : ℕ) (S : Finset Extended.Sig)
+    (run : Extended.Live true Extended.target k S)
+    (raw : ∀ v ∈ S, v ∈ Extended.pins ++ [Extended.bin d.val (inputPin a) (inputPin b)]) :
+    16 ≤ k := by
+  classical
+  obtain ⟨hzero,hsecond,hbij,hadj⟩ := pairMove_properties a b hne
+  let e : Fin 10 ≃ Fin 10 := Equiv.ofBijective (pairMove a b) hbij
+  let j : Fin 2 := if pairSecond a b = 1 then 0 else 1
+  have hj : (⟨j.val + 1, by have := j.isLt; omega⟩ : Fin 10) = pairSecond a b := by
+    rcases canonical_second a b with h | h <;> simp [j,h]
+  have ea : e.symm a = 0 := by
+    apply e.injective
+    simpa [e] using hzero.symm
+  have eb : e.symm b = ⟨j.val + 1, by have := j.isLt; omega⟩ := by
+    rw [hj]
+    apply e.injective
+    simpa [e] using hsecond.symm
+  have hp : ∀ x : Fin 10 → Bool,
+      edgeFunction (fun i => x (e.symm i)) = edgeFunction x := by
+    intro x
+    have hh := edgeFunction_pairMove a b hne (fun i => x (e.symm i))
+    change edgeFunction (fun i => x (e.symm (e i))) =
+      edgeFunction (fun i => x (e.symm i)) at hh
+    simpa only [Equiv.symm_apply_apply] using hh.symm
+  let φ : Extended.Sig → Extended.Sig := RowEncoding.transform e.symm
+  have moved := map_live run φ (RowEncoding.transform_injective e.symm e.symm.surjective)
+    (RowEncoding.transform_zero e.symm) (RowEncoding.transform_one e.symm)
+    (transform_bin e.symm)
+  have ht : φ Extended.target = Extended.target := transform_target e.symm hp
+  rw [ht] at moved
+  apply canonical j d k (S.image φ) moved
+  intro v hv
+  obtain ⟨w,hw,rfl⟩ := Finset.mem_image.mp hv
+  have hr := raw w hw
+  rcases List.mem_append.mp hr with hr | hr
+  · obtain ⟨i,rfl⟩ := member_pin hr
+    apply List.mem_append_left
+    change RowEncoding.transform e.symm (inputPin i) ∈ Extended.pins
+    rw [transform_pin]
+    exact pin_mem _
+  · have he : w = Extended.bin d.val (inputPin a) (inputPin b) := by simpa using hr
+    rw [he]
+    apply List.mem_append_right
+    change RowEncoding.transform e.symm (Extended.bin d.val (inputPin a) (inputPin b)) ∈
+      [canonicalExtra j d]
+    rw [transform_bin,transform_pin,transform_pin,ea,eb]
+    simp only [List.mem_singleton]
+    rfl
+
+lemma suffix_of_canonical_with_extra {L : ℕ} (condition : Fin 4 → Prop)
+    (canonical : ∀ (j : Fin 2) (d : Fin 4) (k : ℕ) (S : Finset Extended.Sig),
+      condition d → Extended.Live true Extended.target k S → canonicalExtra j d ∈ S →
+      (∀ v ∈ S, v ∈ Extended.pins ++ [canonicalExtra j d]) → L ≤ k)
+    (a b : Fin 10) (hne : a ≠ b) (d : Fin 4) (hd : condition d) (k : ℕ) (S : Finset Extended.Sig)
+    (run : Extended.Live true Extended.target k S)
+    (hasExtra : Extended.bin d.val (inputPin a) (inputPin b) ∈ S)
+    (raw : ∀ v ∈ S, v ∈ Extended.pins ++ [Extended.bin d.val (inputPin a) (inputPin b)]) :
+    L ≤ k := by
+  classical
+  obtain ⟨hzero,hsecond,hbij,hadj⟩ := pairMove_properties a b hne
+  let e : Fin 10 ≃ Fin 10 := Equiv.ofBijective (pairMove a b) hbij
+  let j : Fin 2 := if pairSecond a b = 1 then 0 else 1
+  have hj : (⟨j.val + 1, by have := j.isLt; omega⟩ : Fin 10) = pairSecond a b := by
+    rcases canonical_second a b with h | h <;> simp [j,h]
+  have ea : e.symm a = 0 := by
+    apply e.injective
+    simpa [e] using hzero.symm
+  have eb : e.symm b = ⟨j.val + 1, by have := j.isLt; omega⟩ := by
+    rw [hj]
+    apply e.injective
+    simpa [e] using hsecond.symm
+  have hp : ∀ x : Fin 10 → Bool,
+      edgeFunction (fun i => x (e.symm i)) = edgeFunction x := by
+    intro x
+    have hh := edgeFunction_pairMove a b hne (fun i => x (e.symm i))
+    change edgeFunction (fun i => x (e.symm (e i))) =
+      edgeFunction (fun i => x (e.symm i)) at hh
+    simpa only [Equiv.symm_apply_apply] using hh.symm
+  let φ : Extended.Sig → Extended.Sig := RowEncoding.transform e.symm
+  have moved := map_live run φ (RowEncoding.transform_injective e.symm e.symm.surjective)
+    (RowEncoding.transform_zero e.symm) (RowEncoding.transform_one e.symm)
+    (transform_bin e.symm)
+  have ht : φ Extended.target = Extended.target := transform_target e.symm hp
+  rw [ht] at moved
+  apply canonical j d k (S.image φ) hd moved
+  · have hx : φ (Extended.bin d.val (inputPin a) (inputPin b)) ∈ S.image φ :=
+      Finset.mem_image.mpr ⟨_,hasExtra,rfl⟩
+    change RowEncoding.transform e.symm (Extended.bin d.val (inputPin a) (inputPin b)) ∈ S.image φ at hx
+    rw [transform_bin,transform_pin,transform_pin,ea,eb] at hx
+    exact hx
+  · intro v hv
+    obtain ⟨w,hw,rfl⟩ := Finset.mem_image.mp hv
+    have hr := raw w hw
+    rcases List.mem_append.mp hr with hr | hr
+    · obtain ⟨i,rfl⟩ := member_pin hr
+      apply List.mem_append_left
+      change RowEncoding.transform e.symm (inputPin i) ∈ Extended.pins
+      rw [transform_pin]
+      exact pin_mem _
+    · have he : w = Extended.bin d.val (inputPin a) (inputPin b) := by simpa using hr
+      rw [he]
+      apply List.mem_append_right
+      change RowEncoding.transform e.symm (Extended.bin d.val (inputPin a) (inputPin b)) ∈
+        [canonicalExtra j d]
+      rw [transform_bin,transform_pin,transform_pin,ea,eb]
+      simp only [List.mem_singleton]
+      rfl
+
+
+lemma binary_floor17_of_canonical
+    (canonical : ∀ (j : Fin 2) (d : Fin 4) (k : ℕ) (S : Finset Extended.Sig),
+      Extended.Live true Extended.target k S →
+      (∀ v ∈ S, v ∈ Extended.pins ++ [canonicalExtra j d]) → 16 ≤ k)
+    (C : Circuit) (legal : PEqualNP.MetaComplexity.FanInTwo C)
+    (computes : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = Extended.f10 x) :
+    17 + PEqualNP.NotBracket.notCount C ≤ C.size := by
+  apply binary_floor17_of_suffix _ C legal computes
+  intro k S a b d hd ha hb hab run raw
+  obtain ⟨ia,rfl⟩ := member_pin ha
+  obtain ⟨ib,rfl⟩ := member_pin hb
+  have hne : ia ≠ ib := fun he => hab (congrArg inputPin he)
+  exact suffix_of_canonical canonical ia ib hne ⟨d,hd⟩ k S run raw
+
+end PEqualNP.Outside.L_meta_2592_aux.Binary16
+
+namespace PEqualNP.Outside.L_meta_2592_aux.Binary16
+
+open PEqualNP.CircuitLowerBounds
+
+lemma binary17 (C : Circuit) (legal : PEqualNP.MetaComplexity.FanInTwo C)
+    (computes : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = Extended.f10 x) :
+    17 + PEqualNP.NotBracket.notCount C ≤ C.size := by
+  exact binary_floor17_of_canonical (fun j d _ _ run raw => suffixSixteen j d run raw)
+    C legal computes
+
+lemma at_most_two_not (C : Circuit) (legal : PEqualNP.MetaComplexity.FanInTwo C)
+    (small : C.size ≤ 19)
+    (computes : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = Extended.f10 x) :
+    PEqualNP.NotBracket.notCount C ≤ 2 := by
+  have bound := binary17 C legal computes
+  omega
+
+lemma one_or_two_not (C : Circuit) (legal : PEqualNP.MetaComplexity.FanInTwo C)
+    (small : C.size ≤ 19)
+    (hasNot : ∃ g ∈ C.gates, g.op = GateOp.not)
+    (computes : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = Extended.f10 x) :
+    PEqualNP.NotBracket.notCount C = 1 ∨ PEqualNP.NotBracket.notCount C = 2 := by
+  have bound := at_most_two_not C legal small computes
+  have pos : 0 < PEqualNP.NotBracket.notCount C := by
+    obtain ⟨g,hg,hnot⟩ := hasNot
+    let _ : DecidableEq GateOp := lineDegreeGateOpDecEq
+    have mem : g ∈ C.gates.filter (fun h => decide (h.op = GateOp.not)) :=
+      List.mem_filter.mpr ⟨hg,decide_eq_true hnot⟩
+    by_contra! h
+    have hz : PEqualNP.NotBracket.notCount C = 0 := by omega
+    have empty := List.length_eq_zero_iff.mp hz
+    rw [empty] at mem
+    cases mem
   omega
 
 end PEqualNP.Outside.L_meta_2592_aux.Binary16

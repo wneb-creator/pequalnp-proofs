@@ -16,3 +16,14 @@
 - 2026-11-25T14:17:03.225115+00:00: timer renewed lease; expires 2026-11-25T14:37:03.164Z.
 - 2026-11-25T14:18:44.784204+00:00: binary16 partial compiled; preparing preservation checkpoint; general target now reduced mathematically to1–3NOT cases.
 - 2026-11-25T14:18:44.784204+00:00:6subagents now used (one-NOT specialist added).
+- 2026-11-25T14:19:20.616530+00:00: semantics checked first-gate input reuse from finite distinguishing witnesses.
+- 2026-11-25T14:21:23.623893+00:00: timer renewed lease; expires 2026-11-25T14:41:23.484Z.
+- 2026-11-25T14:25:03.956566+00:00: timer renewed lease; expires 2026-11-25T14:45:03.139Z.
+- 2026-11-25T14:30:04.284844+00:00: timer renewed lease; expires 2026-11-25T14:50:04.116Z.
+- 2026-11-25T14:32:24.679651+00:00: timer renewed lease; expires 2026-11-25T14:52:24.553Z.
+- 2026-11-25T14:32:28.612875+00:00: counterexample_search completed first signed17 run: 4,499,867,997 evaluations, no witness; prepared residual signed15 search.
+- 2026-11-25T14:34:14.913485+00:00: timer renewed lease; expires 2026-11-25T14:54:14.565Z.
+- 2026-11-25T14:37:36.727508+00:00: semantics checked exact first-OR and mixed OR/negative-AND live-root descriptions and independent-gate commutation.
+- 2026-11-25T14:42:06.703029+00:00: counterexample_search stopped residual signed15 and residual SMT with SIGTERM after root reported lease HTTP410; all current logs and last printed candidate preserved in results/orch/stop_410.
+- 2026-11-25T14:39:15Z: timer renewal returned410; diagnosticcurl-si also410, despite prior14:54:14expiry.
+- 2026-11-25T14:43:24.825309+00:00: all agents stopped; fullself-containedbinary17 compile confirmed exit0 and prepared for preservation push.
