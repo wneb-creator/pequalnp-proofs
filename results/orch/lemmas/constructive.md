@@ -15,3 +15,28 @@ Scratch source: `/tmp/oec/pequalnp-pilot-70/constructive/search.cpp`. It perform
 A second algorithm (`constructive/neutral.cpp`) uses 54 physical gate slots with 27 initially active gates, leaving free intermediate slots for neutral circuit rewrites. It maintains exact agreement on the 58 rows while seeking an active cone of at most 26 gates. This explores a different fitness landscape from the first fixed-size, near-correct search.
 
 No Lean file changed, compiled, or claimed as a proof by this strategy.
+
+## Run log
+
+- Fixed-size stochastic run 1: 600 seconds, 1,573,204,800 mutations, 6,292 restarts, best result one incorrect extremal row. No witness. Complete log `constructive/run1.log` in job scratch.
+- Neutral-rewrite smoke run: 30 seconds, 33,483,328 mutations, 33 restarts, 15,656,236 accepted changes, 1,939 changes to the active cone. Best active gate count 27. An independent Python evaluator verified its saved 27-gate candidate on all 16,384 assignments, with zero errors.
+- Neutral-rewrite run 1 started around 05:41 UTC for a 600-second budget after root confirmed lease renewal at 05:40:04 UTC (expiry 06:00:04 UTC). It uses 54 physical gate slots; temporary active gate counts up to 32 are permitted during annealing. Every accepted candidate agrees exactly on all 58 extremal rows. It also records any 27-gate candidates containing AND gates that accept false inputs of weight at most two. Full log `constructive/neutral-run1.log`.
+
+The first phase did not exhaust any finite search space; its negative result is only a heuristic search outcome, not evidence of nonexistence sufficient for a theorem.
+
+## Smaller sufficient synthesis problems
+
+Retain k vertices on the left and all their incident edges. The obvious circuit has 4k−1 gates. A circuit with 4k−2 gates for that subfunction extends to the full function in 26 gates: append the omitted 7−k three-edge stars (three gates each), then join those outputs to the subfunction using 7−k OR gates. This is only a mathematical sufficiency argument so far; prefix canonicalization remains the same separate task as for any found witness.
+
+`constructive/induced_subproblems.py` prepared six relabeled instances in scratch. Every stored baseline was checked against its full truth table. Each JSON contains essential input labels, edges, extrema, the baseline, and the desired bound.
+
+| Instance | Inputs | Positive rows | Negative rows | Desired gates |
+| --- | ---: | ---: | ---: | ---: |
+| k3_collinear | 10 | 9 | 8 | 10 |
+| k3_noncollinear | 9 | 9 | 8 | 10 |
+| k4_complement_collinear | 10 | 12 | 12 | 14 |
+| k4_complement_noncollinear | 11 | 12 | 15 | 14 |
+| k5 | 12 | 15 | 22 | 18 |
+| k6 | 13 | 18 | 30 | 22 |
+
+The k4 complement-of-line case is the incidence graph of K4: four retained points and six lines, each line joining one pair of retained points. This identification follows directly from the listed edges. No improved circuit has been found for it.

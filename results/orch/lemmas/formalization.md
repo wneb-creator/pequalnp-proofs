@@ -8,11 +8,17 @@
 - The search agent has the packed rows and canonical prefix table from `R_meta_2732_3.lean`.
 - The definitions root has 86 project modules and 67 direct Mathlib roots; exact roots are recorded in `/tmp/oec/pequalnp-pilot-70/formalization/defs-imports.json`.
 
-Prepared but not yet compiled, waiting for root's definitions build:
+Checked results:
 
-- `Baseline.lean`: canonical 27-gate circuit supplied by the search agent, with symbolic correctness proof.
+- `PrefixNormalize.lean` compiled with exit 0 on its first attempt. It combines generic circuit renaming, minimum-score selection, and transport under automorphisms. Applying `canonical_prefix F raw (transport_prefix F)` gives the exact ordered, symmetry-minimal prefix shape required by the assigned statement from any raw prefix witness.
+- `rename/Rename.lean` compiled with exit 0. Root has integrated and independently reviewed these helpers.
+- `Baseline.lean` compiled with exit 0. It proves monotonicity, exact size 27, and exact Heawood edge-function semantics for the search agent's canonical star circuit. Full log: `baseline-check-4.log`. The broad propositional simplification takes roughly 87 seconds; a shorter `tauto` variant is being tested separately without changing the checked source.
+
+Prepared components:
+
+- `BaselineTauto.lean`: optional shorter verification of the same canonical 27-gate circuit.
 - `PrefixMin.lean`: choose a raw prefix witness of minimum numerical score, then derive canonicality from transport under automorphisms.
 - `Transport.fragment`: transport raw prefix witnesses using input renaming and sorted fan-ins.
 - Child agent `/root/formalization/rename_wires` prepared `rename/Rename.lean`: generic input renaming, suffix preservation, circuit size and monotonicity preservation.
 
-All scratch Lean sources are under `/tmp/oec/pequalnp-pilot-70/formalization/`. No builds or final-file edits have been performed by this strategy yet.
+All scratch Lean sources and complete build logs are under `/tmp/oec/pequalnp-pilot-70/formalization/`. No final-file edits have been performed by this strategy. Root owns integration and publication.

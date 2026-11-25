@@ -23,6 +23,9 @@ Its first two gates are OR(0,1), OR(0,2), canonical score 227. Its packed gate c
 ## Active searches
 
 - `heawood26.cnf`: general 26-gate network, 7,381 variables and 201,740 clauses. Complete solver log: `heawood26-solve.log`. Initial wall budget 1,800 seconds.
-- `minimal26.cnf`: liveness and semantic non-domination variant, complete solver log `minimal26-solve.log`. Initial wall budget 1,800 seconds.
+- `minimal26.cnf`: liveness and semantic non-domination variant, complete solver log `minimal26-solve.log`. Initial wall budget 1,800 seconds. Paused at 05:34:31 UTC at root's request to reserve CPU for Lean builds; pause time is not search evidence.
+- `live-dirty26.cnf`: prepared but not yet launched. Adds liveness and the necessary existence of an AND gate accepting some maximal false row (a consequence of the existing pair-clean lower bound for size26).
 
 No 26-gate witness or exhaustive nonexistence certificate has been found yet.
+
+At 05:40 UTC the general search had about 2 million conflicts and 253 CPU seconds, still running without a verdict.

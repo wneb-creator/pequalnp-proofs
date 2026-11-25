@@ -26,3 +26,13 @@ Each strategy records findings in its own file under lemmas/.
 - The independent SAT review confirmed 21 minimal true rows and 37 maximal false rows, and checked the encoding.
 - The focused cache downloaded 2,387 Mathlib dependencies. A no-build check passed for all 67 direct Mathlib roots (4,974 jobs). PEqualNP.Defs is building now.
 - The local checker loads all Mathlib; full-cache disk capacity remains a concern.
+
+## First strategy review
+
+- The complete symmetry transport/minimization proof is checked and pushed. A raw witness now suffices for the assigned symmetry condition.
+- The full local filter-cover geometry is checked. Gate-count accounting across shared intermediate computations remains unresolved; no 27-gate lower bound for arbitrary circuits has been proved.
+- The 27-gate baseline is Lean checked; integration is building. No 26-gate witness has been found.
+- Fixed-size stochastic search completed 600 seconds without a witness; neutral exact-function rewrites are in progress.
+- General SAT is temporarily paused for bounded three-star/four-star subgraph searches. Both three-star searches timed out UNKNOWN; no UNSAT conclusion is justified.
+- Next SAT candidates: near-witness phases, incremental counterexample-guided synthesis, and the reviewed at-most-one-dirty-AND subproblem. CPU quota is two cores, so runs must be scheduled rather than all launched together.
+- Formalization next prepares the existing packed58-row decoder to verify a found witness cheaply.

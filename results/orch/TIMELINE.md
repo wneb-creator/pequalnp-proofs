@@ -10,3 +10,5 @@
 - 2026-11-25T05:41:05.529245+00:00: full prefix normalization and transport integrated; named-module build passed, independent review passed.
 - 2026-11-25T05:43:47.373789+00:00: overlapping-support filter helper integrated; named-module build and independent review passed.
 - 2026-11-25T05:45:33.774163+00:00: full arbitrary-support filter cover lemma integrated; named-module build and independent reviews passed.
+- 2026-11-25T05:47:41.673718+00:00: first strategy review; shifted search to smaller subgraphs and prepared incremental/near-witness alternatives.
+- 2026-11-25T05:48:47.014648+00:00: explicit27-gate Heawood baseline integrated; named-module build passed. This does not meet26-gate target.

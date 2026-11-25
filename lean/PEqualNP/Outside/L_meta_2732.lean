@@ -453,4 +453,66 @@ lemma safeFilter_coverTwo {α : Type} (R : α → α → Prop)
   · exact ⟨z, z, fun u v ha _ _ => ha.elim
       (fun h => False.elim (hA ⟨u, h⟩)) (fun h => False.elim (hA ⟨v, h⟩))⟩
 
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def heawoodEdges : List (ℕ × ℕ) :=
+  [(0, 7), (0, 8), (0, 10), (1, 7), (1, 9), (1, 13), (2, 8), (2, 12), (2, 13),
+   (3, 7), (3, 11), (3, 12), (4, 10), (4, 11), (4, 13), (5, 9), (5, 10), (5, 12),
+   (6, 8), (6, 9), (6, 11)]
+
+def star27 : Circuit :=
+  ⟨[⟨GateOp.or, [0, 1]⟩, ⟨GateOp.or, [0, 2]⟩, ⟨GateOp.or, [0, 4]⟩,
+    ⟨GateOp.or, [1, 2]⟩, ⟨GateOp.or, [1, 5]⟩, ⟨GateOp.or, [2, 3]⟩,
+    ⟨GateOp.or, [3, 4]⟩, ⟨GateOp.or, [3, 14]⟩, ⟨GateOp.or, [4, 17]⟩,
+    ⟨GateOp.or, [5, 16]⟩, ⟨GateOp.or, [5, 19]⟩, ⟨GateOp.or, [6, 15]⟩,
+    ⟨GateOp.or, [6, 18]⟩, ⟨GateOp.or, [6, 20]⟩, ⟨GateOp.and, [7, 21]⟩,
+    ⟨GateOp.and, [8, 25]⟩, ⟨GateOp.and, [9, 26]⟩, ⟨GateOp.and, [10, 23]⟩,
+    ⟨GateOp.and, [11, 27]⟩, ⟨GateOp.and, [12, 24]⟩, ⟨GateOp.and, [13, 22]⟩,
+    ⟨GateOp.or, [28, 29]⟩, ⟨GateOp.or, [30, 35]⟩, ⟨GateOp.or, [31, 36]⟩,
+    ⟨GateOp.or, [32, 37]⟩, ⟨GateOp.or, [33, 38]⟩, ⟨GateOp.or, [34, 39]⟩], 40⟩
+
+lemma star27_monotone : Monotone2 star27 := by
+  simp [Monotone2, star27]
+
+lemma star27_size : star27.size = 27 := rfl
+
+def starFormula (x : Fin 14 → Bool) : Bool :=
+  (x 13 && (x 4 || (x 1 || x 2))) ||
+  ((x 12 && (x 5 || (x 2 || x 3))) ||
+  ((x 11 && (x 6 || (x 3 || x 4))) ||
+  ((x 10 && (x 5 || (x 0 || x 4))) ||
+  ((x 9 && (x 6 || (x 1 || x 5))) ||
+  ((x 7 && (x 3 || (x 0 || x 1))) || (x 8 && (x 6 || (x 0 || x 2))))))))
+
+set_option maxRecDepth 4000 in
+set_option maxHeartbeats 800000 in
+lemma star27_eval (x : Fin 14 → Bool) : star27.eval (List.ofFn x) = starFormula x := by
+  simp [star27, starFormula, Circuit.eval, Circuit.wires, GateOp.eval, List.ofFn_succ]
+
+set_option maxRecDepth 4000 in
+set_option maxHeartbeats 800000 in
+lemma star27_correct (x : Fin 14 → Bool) :
+    star27.eval (List.ofFn x) = decide
+      (∃ u v : Fin 14, (u.val, v.val) ∈ heawoodEdges ∧ x u = true ∧ x v = true) := by
+  rw [star27_eval]
+  apply Bool.eq_iff_iff.mpr
+  simp only [starFormula, Bool.or_eq_true, Bool.and_eq_true, decide_eq_true_eq]
+  simp [heawoodEdges, Fin.exists_fin_succ]
+  simp only [and_or_left]
+  generalize x 0 = b0
+  generalize x 1 = b1
+  generalize x 2 = b2
+  generalize x 3 = b3
+  generalize x 4 = b4
+  generalize x 5 = b5
+  generalize x 6 = b6
+  generalize x 7 = b7
+  generalize x 8 = b8
+  generalize x 9 = b9
+  generalize x 10 = b10
+  generalize x 11 = b11
+  generalize x 12 = b12
+  generalize x 13 = b13
+  simp only [and_comm, or_assoc, or_comm, or_left_comm]
+
 end PEqualNP.Outside.L_meta_2732_aux
