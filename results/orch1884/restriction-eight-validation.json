@@ -1,0 +1,11 @@
+{
+  "time_utc": "2026-11-25T16:48:48.761242+00:00",
+  "source": "results/orch1884/lemmas/RestrictionEight.lean",
+  "sha256": "fc349a6226f76fc768893622c3e1e93dd19d6cbfe3bd7089adccddb7573c0690",
+  "bytes": 4895,
+  "lines": 127,
+  "check_exit": 0,
+  "exported": true,
+  "check_kind": "dependency imports EightExtension Forced13Compile StrongRelaxRows",
+  "statement": "Monotone2 and correct x2=false natural-nine cofactor imply 12+count(direct raw2 reader gates)<=size; compiled_floor exposes the actual simplified circuit floor12"
+}

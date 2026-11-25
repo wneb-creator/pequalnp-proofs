@@ -1,0 +1,17 @@
+{
+  "wrapper_pid": 40740,
+  "stopping": false,
+  "updated_at": "2026-11-25T16:32:38.722118+00:00",
+  "jobs": [
+    {
+      "tag": "h5-direct600-Astar",
+      "case_pid": 40741,
+      "exit": 0
+    },
+    {
+      "tag": "h5-direct600-Vpartial",
+      "case_pid": 40742,
+      "exit": 0
+    }
+  ]
+}

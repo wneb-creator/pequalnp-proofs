@@ -1,0 +1,72 @@
+[
+  {
+    "name": "STATUS.json",
+    "bytes": 572,
+    "sha256": "adce9d6cc3ce8ed02f4043154854c692adf20f74c186ffdb6981209b0081225e"
+  },
+  {
+    "name": "cofactor_aux.py",
+    "bytes": 8817,
+    "sha256": "4df10ce784b6b32d4bf9bf62199378fed8efb1b02f82af98a1ba73165225626d"
+  },
+  {
+    "name": "parallel_relax_runs.py",
+    "bytes": 2601,
+    "sha256": "9718b863bdf23b07ffe55e7f42f0aef7f26631d6de65e1ba59b6d226aec5ebd3"
+  },
+  {
+    "name": "relax-batch-report.json",
+    "bytes": 4620,
+    "sha256": "4e5e4bf79c4afc308e0247c3e360876c4794255f55fc207aa2cbf531a04982ee"
+  },
+  {
+    "name": "relax-batch-running.json",
+    "bytes": 294,
+    "sha256": "8601fde421a90ff95079d4d4a720311c4c7902d4f3cf060ba3381fe0c1c91674"
+  },
+  {
+    "name": "relax-batch.log",
+    "bytes": 169,
+    "sha256": "8fbc66a7a4ebb1d43e85ce61358fd2831a0c2483700fac6cbc02fdaf841f8910"
+  },
+  {
+    "name": "relax12-600-25rows-result.json",
+    "bytes": 1130,
+    "sha256": "5d50aec372e766a1105e0d60a7b5ef806f1f380386124ce88de11c6534d16866"
+  },
+  {
+    "name": "relax12-600-25rows.log",
+    "bytes": 1242,
+    "sha256": "4fc88c2b933f374b6fc212a25c688d440fc13b6185dfc4870b215549535b6426"
+  },
+  {
+    "name": "relax12-600-25rows.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "relax12-600-25rows.stdout",
+    "bytes": 40325,
+    "sha256": "27398cd8b1cfa4cdfe3a6d5a873a453e0a14f25bd89ab1d5e415259be5701851"
+  },
+  {
+    "name": "relax13-600-26rows-result.json",
+    "bytes": 1150,
+    "sha256": "b77d665e7623bd2bcb1a535508671ed5ed129cf71e7c5e08cf7002fb46bcdfde"
+  },
+  {
+    "name": "relax13-600-26rows.log",
+    "bytes": 1257,
+    "sha256": "f171c25c45d8d1830d21e91a66886540b3ac1e4a8689fa5eb5265130f79303ee"
+  },
+  {
+    "name": "relax13-600-26rows.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "name": "relax13-600-26rows.stdout",
+    "bytes": 41976,
+    "sha256": "1c063de560ee0080ba96a312685f3068a1120c61a570868451d44128e0bd77b4"
+  }
+]

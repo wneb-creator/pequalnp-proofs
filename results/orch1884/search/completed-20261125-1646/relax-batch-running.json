@@ -1,0 +1,17 @@
+{
+  "wrapper_pid": 42159,
+  "stopping": false,
+  "updated_at": "2026-11-25T16:45:02.112454+00:00",
+  "jobs": [
+    {
+      "tag": "relax12-600-25rows",
+      "case_pid": 42160,
+      "exit": 0
+    },
+    {
+      "tag": "relax13-600-26rows",
+      "case_pid": 42161,
+      "exit": 0
+    }
+  ]
+}

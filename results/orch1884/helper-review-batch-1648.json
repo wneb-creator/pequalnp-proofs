@@ -1,0 +1,77 @@
+{
+  "utc": "2026-11-25T16:46:56.330579+00:00",
+  "sources": {
+    "PairReaderCharge.lean": {
+      "sha256": "ac073a9d55a7a8b490092fe6746e397ca22c35b78d1672418590c9251fcbc943",
+      "bytes": 3861,
+      "lines": 96,
+      "logs": [
+        {
+          "path": "results/orch1884/lemmas/pair-reader-charge.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "results/orch1884/lemmas/pair-reader-charge.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    "DirectFilterRows.lean": {
+      "sha256": "549ffa38c3e0dc9d2571917ad6dbcc0fa33c901ba85b79d9340242f8d752479a",
+      "bytes": 2358,
+      "lines": 58,
+      "logs": [
+        {
+          "path": "results/orch1884/lemmas/direct-filter-rows.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "results/orch1884/lemmas/direct-filter-rows.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    "EightThetaFloor.lean": {
+      "sha256": "f961accc734456b8ad6b1f43959d5a00c8388cad7c4f6d3a89ff616bd770697a",
+      "bytes": 11522,
+      "lines": 179,
+      "logs": [
+        {
+          "path": "/tmp/oec/pequalnp-pilot-103/1884-eight-theta-first.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "/tmp/oec/pequalnp-pilot-103/1884-eight-theta-first.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    },
+    "ZeroNot.lean": {
+      "sha256": "7911c7d20ac46682372ded7fb0955ff6938e68243429c49586f05ed854f62c98",
+      "bytes": 1241,
+      "lines": 32,
+      "logs": [
+        {
+          "path": "results/orch1884/zero-not-checked.stdout",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "results/orch1884/zero-not-checked.stderr",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ]
+    }
+  },
+  "independent_finite_checks": {
+    "direct_filter_negative_rows": 13,
+    "theta_isomorphism_rows": 128
+  }
+}

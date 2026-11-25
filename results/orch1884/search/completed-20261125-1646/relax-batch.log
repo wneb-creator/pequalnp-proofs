@@ -1,0 +1,3 @@
+STARTED relax12-600-25rows 42160
+STARTED relax13-600-26rows 42161
+BATCH_FINISHED {"interrupted": false, "cases": [["relax12-600-25rows", 0], ["relax13-600-26rows", 0]]}

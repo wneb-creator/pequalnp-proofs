@@ -1,0 +1,76 @@
+{
+  "timestamp": "2026-11-25T16:41:36.209791+00:00",
+  "gap": "L-meta-1884",
+  "target_witness_found": false,
+  "completed_target_runs": [
+    {
+      "tag": "exact18-free-not",
+      "status": "UNKNOWN",
+      "elapsed_seconds": 119.06237381099982
+    },
+    {
+      "tag": "first-paid-not-neighbor",
+      "status": "UNKNOWN",
+      "elapsed_seconds": 119.15426239899989
+    },
+    {
+      "tag": "first-paid-not-distance2",
+      "status": "UNKNOWN",
+      "elapsed_seconds": 119.10841073099982
+    },
+    {
+      "tag": "rails18-neighbor",
+      "status": "UNKNOWN",
+      "elapsed_seconds": 119.15937960599967
+    },
+    {
+      "tag": "rails18-distance2",
+      "status": "UNKNOWN",
+      "elapsed_seconds": 119.13776872900053
+    },
+    {
+      "tag": "rails18-guard600-neighbor",
+      "status": "UNKNOWN",
+      "elapsed_seconds": 599.1780216109992
+    },
+    {
+      "tag": "rails18-guard600-distance2",
+      "status": "UNKNOWN",
+      "elapsed_seconds": 599.1879367799993
+    },
+    {
+      "tag": "h5-direct600-Astar",
+      "status": "UNKNOWN",
+      "elapsed_seconds": 599.1609157980001
+    },
+    {
+      "tag": "h5-direct600-Vpartial",
+      "status": "UNKNOWN",
+      "elapsed_seconds": 599.138936723999
+    }
+  ],
+  "current_auxiliary_batch": {
+    "wrapper_pid": 42159,
+    "stopping": false,
+    "updated_at": "2026-11-25T16:35:02.733921+00:00",
+    "jobs": [
+      {
+        "tag": "relax12-600-25rows",
+        "case_pid": 42160,
+        "exit": null
+      },
+      {
+        "tag": "relax13-600-26rows",
+        "case_pid": 42161,
+        "exit": null
+      }
+    ]
+  },
+  "current_batch_is_not_the_posted_statement": true,
+  "local_three_gate_repair": {
+    "completed_cases": 816,
+    "all_unsat": true,
+    "remaining15_gate_definitions_pinned": true
+  },
+  "validation_circuits_are_not_target_counterexamples": true
+}

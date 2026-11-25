@@ -1,0 +1,1 @@
+{"source_gates": 20, "lifted_gates": 23, "used_existing_H": true, "existing_H_gate_index": 16, "inserted_gates": 3, "inputs": 9, "output": 31, "full_rows_checked": 512, "bad_rows": [], "scope": "Exact nine-input cofactor circuit; this alone is not a counterexample to the posted1884 statement."}

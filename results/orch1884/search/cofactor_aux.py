@@ -12,14 +12,27 @@ P.add_argument('--fresh', action='store_true')
 P.add_argument('--productive', action='store_true')
 P.add_argument('--sat-preset', action='store_true')
 P.add_argument('--seed', type=int, default=0)
+P.add_argument('--prefix-b', type=int)
+P.add_argument('--pin-prefix')
+P.add_argument('--primary-minimal', action='store_true')
+P.add_argument('--relax-negative', type=int)
+P.add_argument('--extra-negative', type=int, action='append', default=[])
 args = P.parse_args()
 root = Path('/tmp/oec/pequalnp-pilot-103/orch1884')
 solver = Path('/tmp/oec/pequalnp-pilot-103/setup/lean-4.36.0-linux/bin/cadical')
 E = [(0,1),(1,2),(2,3),(0,5),(1,6),(2,7),(3,8),(4,6),(6,8),(8,5),(5,7),(7,4)]
-negative = [25,52,58,69,100,104,138,201,274,277,385,386]
+all_negative = [25,52,58,69,100,104,138,201,274,277,385,386]
+negative = list(all_negative)
+if args.relax_negative is not None:
+    assert args.plain and args.relax_negative in all_negative
+    negative.remove(args.relax_negative)
+for extra in args.extra_negative:
+    assert args.plain and extra not in negative
+    assert not any(extra>>a&1 and extra>>b&1 for a,b in E)
+    negative.append(extra)
 positive = [(1 << a) | (1 << b) for a,b in E]
 rows = sorted(positive + negative)
-assert len(set(rows)) == 24
+assert len(set(rows)) == len(rows)
 bad_negative = [x for x in negative if x not in (100,386)]
 n, N = 9, args.gates
 
@@ -60,6 +73,23 @@ if args.pin:
         a,b=sorted((a,b))
         assert op in [0,1] and 0<=a<=b<n+i
         c.clause(O[i] if op else -O[i]); c.clause(A[i][a]); c.clause(B[i][b])
+fixed_h_index=None
+if args.prefix_b is not None:
+    assert args.prefix_b in [0,2,6] and N>=4 and not args.plain
+    prefix=[(1,args.prefix_b,7),(1,args.prefix_b,8),(0,9,10),(0,1,11)]
+    for i,(op,a,b) in enumerate(prefix):
+        a,b=sorted((a,b))
+        c.clause(O[i] if op else -O[i]);c.clause(A[i][a]);c.clause(B[i][b])
+    fixed_h_index=3
+if args.pin_prefix:
+    assert args.prefix_b is None and not args.plain
+    prefix=json.loads(Path(args.pin_prefix).read_text())
+    if isinstance(prefix,dict):prefix=prefix['gates']
+    assert 0<len(prefix)<=N
+    for i,(op,a,b) in enumerate(prefix):
+        a,b=sorted((a,b));assert op in[0,1]and 0<=a<=b<n+i
+        c.clause(O[i] if op else -O[i]);c.clause(A[i][a]);c.clause(B[i][b])
+    fixed_h_index=len(prefix)-1
 V={}
 for x in rows:
     values=[]
@@ -79,6 +109,12 @@ for x in rows:
     V[x]=values
 if args.productive:
     for i in range(N): c.clause(*(V[x][i] for x in positive))
+if args.primary_minimal:
+    for i in range(N):
+        for src in range(n):
+            differences=[V[x][i] if not(x>>src&1) else -V[x][i]for x in positive]
+            increases=[-V[x][i]for x in negative if x>>src&1]
+            c.clause(*(differences+increases))
 if args.fresh:
     for i in range(N):
         vals=[V[x][i] for x in rows]
@@ -94,6 +130,7 @@ H=[]
 if not args.plain:
     H=[c.var() for _ in range(N)]
     c.one(H)
+    if fixed_h_index is not None: c.clause(H[fixed_h_index])
     for i,h in enumerate(H):
         c.clause(-h,V[386][i])
         for x in bad_negative: c.clause(-h,-V[x][i])
@@ -126,11 +163,21 @@ if status=='SAT':
         values=[bool(x>>j&1) for j in range(n)]
         for op,a,b in gates: values.append((values[a] or values[b]) if op else (values[a] and values[b]))
         return values
-    bad=[x for x in range(512) if ev(x)[-1]!=target(x)]
+    false_negatives=[x for x in range(512) if target(x) and not ev(x)[-1]]
+    false_positives=[x for x in range(512) if ev(x)[-1] and not target(x)]
+    if args.relax_negative is None:
+        bad=false_negatives+false_positives
+    else:
+        bad=false_negatives+[x for x in false_positives if x&~args.relax_negative]
+    for extra in args.extra_negative:
+        if ev(extra)[-1]:bad.append(extra)
     bad_h=[] if h is None else [x for x in range(512) if ev(x)[n+h] and x&25 and not target(x)]
     h_true_triads=[] if h is None else [x for x in (100,386) if ev(x)[n+h]]
     h_true_edges=[] if h is None else [x for x in positive if ev(x)[n+h]]
     result.update({'full_rows_checked':512,'bad_output_rows':bad,'bad_auxiliary_rows':bad_h,
+                   'false_negative_rows':false_negatives,'false_positive_rows':false_positives,
+                   'validation_kind':'exact function' if args.relax_negative is None else
+                       'superfunction; false positives confined to the exceptional independent set; extra negative checked',
                    'H_gate_index':h,'H_true_triads':h_true_triads,'H_true_edge_rows':h_true_edges,
                    'gates':gates})
     valid=not bad and (args.plain or (not bad_h and 386 in h_true_triads and h_true_edges))

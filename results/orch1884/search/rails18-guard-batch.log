@@ -1,0 +1,3 @@
+STARTED rails18-guard600-neighbor 38835
+STARTED rails18-guard600-distance2 38836
+BATCH_FINISHED {"interrupted": false, "cases": [["rails18-guard600-neighbor", 0], ["rails18-guard600-distance2", 0]]}

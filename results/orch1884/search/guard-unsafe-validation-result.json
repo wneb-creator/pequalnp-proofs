@@ -1,0 +1,224 @@
+{
+  "started_at": "2026-11-25T16:08:43.764966+00:00",
+  "finished_at": "2026-11-25T16:08:43.954695+00:00",
+  "elapsed_seconds": 0.18973283400009677,
+  "arguments": {
+    "gates": 34,
+    "max_nots": 0,
+    "seconds": 5,
+    "first": null,
+    "pin": "/tmp/oec/pequalnp-pilot-103/orch1884/rails-unsafe-positive34.json",
+    "mutable": null,
+    "allow_unused": false,
+    "require_free_use": false,
+    "full_rows": false,
+    "fresh": false,
+    "sat_preset": false,
+    "seed": 0,
+    "once_input": null,
+    "rail_readers": true,
+    "primary_minimal": false,
+    "positive_guard": true,
+    "tag": "guard-unsafe-validation"
+  },
+  "stages": [
+    {
+      "stage": 0,
+      "rows": 38,
+      "variables": 5848,
+      "clauses": 173771,
+      "cnf_sha256": "e95c646801dc619b54c53ecdb7168ec38af521d11e8b7edc20a40becac17251a",
+      "solver_seconds": 4,
+      "solver_arguments": [
+        "-t",
+        "4",
+        "--seed=0",
+        "/tmp/oec/pequalnp-pilot-103/orch1884/guard-unsafe-validation-stage0.cnf"
+      ],
+      "exit": 10,
+      "status": "SAT",
+      "full_rows_checked": 1024,
+      "bad_rows": [],
+      "candidate": [
+        [
+          1,
+          2,
+          6
+        ],
+        [
+          0,
+          1,
+          11
+        ],
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          1,
+          8,
+          13
+        ],
+        [
+          0,
+          3,
+          14
+        ],
+        [
+          1,
+          2,
+          5
+        ],
+        [
+          1,
+          9,
+          16
+        ],
+        [
+          0,
+          7,
+          17
+        ],
+        [
+          1,
+          5,
+          6
+        ],
+        [
+          0,
+          8,
+          19
+        ],
+        [
+          1,
+          4,
+          6
+        ],
+        [
+          0,
+          9,
+          21
+        ],
+        [
+          1,
+          12,
+          15
+        ],
+        [
+          1,
+          18,
+          23
+        ],
+        [
+          1,
+          20,
+          24
+        ],
+        [
+          1,
+          22,
+          25
+        ],
+        [
+          1,
+          3,
+          7
+        ],
+        [
+          0,
+          2,
+          27
+        ],
+        [
+          1,
+          3,
+          6
+        ],
+        [
+          0,
+          8,
+          29
+        ],
+        [
+          1,
+          6,
+          7
+        ],
+        [
+          0,
+          9,
+          31
+        ],
+        [
+          1,
+          28,
+          30
+        ],
+        [
+          1,
+          32,
+          33
+        ],
+        [
+          1,
+          1,
+          4
+        ],
+        [
+          1,
+          5,
+          35
+        ],
+        [
+          1,
+          34,
+          36
+        ],
+        [
+          0,
+          2,
+          8
+        ],
+        [
+          0,
+          9,
+          38
+        ],
+        [
+          1,
+          26,
+          39
+        ],
+        [
+          1,
+          0,
+          40
+        ],
+        [
+          0,
+          10,
+          26
+        ],
+        [
+          1,
+          37,
+          42
+        ],
+        [
+          0,
+          41,
+          43
+        ]
+      ]
+    }
+  ],
+  "strict_earlier_wires": true,
+  "free_not_input": 10,
+  "constant_sources": false,
+  "exact_cofactor_specification": true,
+  "fixed_inputs_for_cofactor_specification": [
+    0
+  ],
+  "solver_results_are_not_lean_proofs": true
+}

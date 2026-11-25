@@ -1,0 +1,11 @@
+Independent semantic review: PASS.
+
+Reviewed results/orch1884/lemmas/TrimNot.lean, 83 lines, 2655 bytes, SHA256 698c599f7e3453d4085bd4ad42f39e0aa008fbeb981dd8ac2e330b7222092f30. No new compilation was performed. The author reports successful compilation; both supplied 1884-trim-not-002 diagnostic streams are empty.
+
+The transformation changes only NOT gates, replacing their operand list by take 1. Every other gate is unchanged. This exactly matches NOT evaluation by the first mapped operand, including the empty-list case; arbitrary ignored tail indices do not affect semantics. The proof covers every GateOp constructor, not merely the FanInTwo operations. No gate is inserted, removed, or reordered, and the output index is unchanged.
+
+The wires theorem inducts over the gate list with an arbitrary initial Boolean list. Its induction step uses the per-gate evaluation equality to make appended values equal, so the entire wire list is preserved on every input, not only the constrained free-negation slice. Consequently output evaluation is preserved even for out-of-range indices. The size equality follows from map length. FanInTwo transfers because operation tags are unchanged and input length can only decrease. notCount transfers because each mapped gate has exactly the same operation tag, retaining all NOT gates even if they are unused.
+
+not_reads_head is the exact needed bridge: after transformation, a NOT gate syntactically reads index i if and only if the original operand list has head some i. It handles empty and nonempty lists and ignores discarded tail entries. Combined with nonnot, this equates syntactic reader predicates on the trimmed circuit with effective reader predicates on the original circuit. The helper does not state an aggregate reader-count theorem, but the displayed gatewise identities suffice for that routine transport. Thus a later sole-reader factorization may use full-list omission after trimming, without assuming unused NOT operands never mention the distinguished raw input.
+
+Only PEqualNP.Defs is imported. The source stays inside the L_meta_1884 namespace and contains no forbidden root text, strings, attributes, sorry, axioms, native_decide, or option changes. This proves a semantics-preserving normalization, not the posted circuit lower bound by itself.

@@ -1,0 +1,29 @@
+{
+  "checked_assignments": 512,
+  "and_gates": 2,
+  "or_gates": 4,
+  "independent_true_sets": [
+    [
+      3,
+      6,
+      7
+    ],
+    [
+      2,
+      8,
+      9
+    ]
+  ],
+  "true_pairs": [
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      6
+    ]
+  ],
+  "formula": "(x1 OR ((x8 OR x3) AND (x9 OR x7))) AND (x2 OR x6)",
+  "scope": "Finite Python check, not Lean-checked; illustrates semantic lower bound2 is tight and does not satisfy leastness."
+}

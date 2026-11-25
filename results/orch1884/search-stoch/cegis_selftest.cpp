@@ -44,7 +44,7 @@ bool refine(const Circuit&c){
 }
 
 int score(const Circuit& c){
- array<Bits,43> w;
+ array<Bits,43> w{};
  for(int j=0;j<11;j++) w[j]=inputs[j];
  bool hasnot=false;
  for(int i=0;i<32;i++){
@@ -91,7 +91,7 @@ Circuit seed(){
 }
 
 array<Bits,43> values(const Circuit& c){
- array<Bits,43> w;
+ array<Bits,43> w{};
  for(int j=0;j<11;j++) w[j]=inputs[j];
  for(int i=0;i<32;i++){
   auto g=c[i];

@@ -1,0 +1,10 @@
+{
+  "time_utc": "2026-11-25T16:50:15.211373+00:00",
+  "source": "results/orch1884/lemmas/UniqueReader.lean",
+  "sha256": "a43f943861d9971e1c06f2ed36dc1d84243f0299478f8263e18772fd82c5f030",
+  "bytes": 2508,
+  "lines": 71,
+  "check_exit": 0,
+  "exported": true,
+  "statement": "count<=1 plus reader existence gives a pre/sole-reader/post split with no other raw2 reader"
+}

@@ -1,0 +1,17 @@
+{
+  "wrapper_pid": 38834,
+  "stopping": false,
+  "updated_at": "2026-11-25T16:20:09.593624+00:00",
+  "jobs": [
+    {
+      "tag": "rails18-guard600-neighbor",
+      "case_pid": 38835,
+      "exit": 0
+    },
+    {
+      "tag": "rails18-guard600-distance2",
+      "case_pid": 38836,
+      "exit": 0
+    }
+  ]
+}

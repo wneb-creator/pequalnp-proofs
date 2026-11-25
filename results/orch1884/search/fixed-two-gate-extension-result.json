@@ -1,0 +1,92 @@
+{
+  "fixed_baseline_gates": 16,
+  "mapped_baseline": [
+    [
+      1,
+      2,
+      6
+    ],
+    [
+      0,
+      1,
+      11
+    ],
+    [
+      1,
+      2,
+      4
+    ],
+    [
+      1,
+      13,
+      8
+    ],
+    [
+      0,
+      3,
+      14
+    ],
+    [
+      1,
+      2,
+      5
+    ],
+    [
+      1,
+      16,
+      9
+    ],
+    [
+      0,
+      7,
+      17
+    ],
+    [
+      1,
+      6,
+      5
+    ],
+    [
+      0,
+      8,
+      19
+    ],
+    [
+      1,
+      4,
+      6
+    ],
+    [
+      0,
+      9,
+      21
+    ],
+    [
+      1,
+      12,
+      15
+    ],
+    [
+      1,
+      23,
+      18
+    ],
+    [
+      1,
+      24,
+      20
+    ],
+    [
+      1,
+      25,
+      22
+    ]
+  ],
+  "full_assignments": 1024,
+  "additional_gate_budget": 2,
+  "free_negated_x0": true,
+  "free_constants_relaxation": true,
+  "distinct_first_gate_functions": 587,
+  "found_extension": null,
+  "scope": "Append at most two AND/OR/NOT gates after the fixed16gate cofactor baseline; earlier gates unchanged."
+}

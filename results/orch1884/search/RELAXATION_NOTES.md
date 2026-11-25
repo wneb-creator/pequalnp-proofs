@@ -1,0 +1,13 @@
+Conditional relaxation searches
+
+These are auxiliary statements for the shared-filter paid-NOT branch, not the posted L-meta-1884 statement. Coordinates are new i=original(i+1). The exceptional maximal independent set is I=277={0,2,4,8}, and the two raw filter vertices are0 and4. The other two vertices form T=260={2,8}.
+
+The original loose specification requires all12 graph edges true and all11 other maximal independent sets false (23rows). The two-filter-only refinement also rejects T (24rows); that extra rejection does not follow when the NOT has other effective readers. Both versions and their complete validation outputs were preserved before strengthening.
+
+Under the additional shared-filter branch premises supplied by fresh_proof, rows21={0,2,4} and273={0,4,8} are also negative. The NOT operand is independent of the two filter vertices and rejects singleton2 andsingleton8, so the NOT was already true on those rows. This gives25rows for the≤12 auxiliary and26rows for the≤13 two-reader-only auxiliary. The exact circuit-level wrappers are separate proof work; these assumptions are recorded rather than claimed universally.
+
+The25row case can have false positives only260,261,276,277. The26row case can have false positives only261,276,277. Every SAT model is checked independently on all512 assignments: no false negatives, false positives confined to the exceptional independent set, and every additional negative row rejected. Positive fixtures exercise the allowed false positives, and a negative fixture confirms that the stronger case rejects the added pair260.
+
+The active searches use productive gates and primary-input bypass normalization. Full trace freshness is deliberately disabled, allowing a smaller witness to be padded by copying its output. Gates are AND/OR only with two earlier inputs, output last, and all internal gates structurally used. The target gate budgets are12 and13, respectively; both run under599second solver caps.
+
+Constructive follow-up if a26row witness is found: replacing variables0 and4 by x0∧¬T andx4∧¬T restores the exact cofactor function. This costs four gates if T is newly computed. It costs three if an existing gate H is independent of0,4, true at T, and H implies T or an edge unaffected by deleting0,4. Examples are H=(x2∨x5)(x8∨x7) and H=(x2∨x6)(x8∨x1). The lift_relax_witness.py utility searches for such an existing cone, moves it before the filtered inputs, inserts NOT plus two filters, and independently verifies all512 outputs. Both an existing-cone reordering case and a fresh-T fallback have been validated. These lifts are cofactor circuits; they do not by themselves refute the posted ten-input statement.

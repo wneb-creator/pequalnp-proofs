@@ -18,7 +18,7 @@ array<Bits,11> inputs;
 Bits target;
 vector<pair<int,int>> edges={{0,1},{1,2},{2,3},{3,4},{4,0},{0,5},{1,6},{2,7},{3,8},{4,9},{5,7},{7,9},{9,6},{6,8},{8,5}};
 vector<int> covers;
-vector<int> samples={3,6,12,13,17,24,33,50,66,69,104,116,132,133,138,160,200,201,208,264,265,276,288,320,321,385,402,521,528,548,554,576,577,640,641,770,772,773};
+vector<int> samples={3,6,12,13,17,24,33,50,66,69,104,116,132,133,138,160,200,201,208,264,265,276,288,320,321,385,402,521,528,548,554,576,577,640,641,770,772,773,0,1,1022,1023};
 int blocks=1;
 Bits rowMasks{};
 void rebuild(){
@@ -44,7 +44,7 @@ bool refine(const Circuit&c){
 }
 
 int score(const Circuit& c){
- array<Bits,29> w;
+ array<Bits,29> w{};
  for(int j=0;j<11;j++) w[j]=inputs[j];
  bool hasnot=false;
  for(int i=0;i<18;i++){
@@ -91,7 +91,7 @@ Circuit seed(){
 }
 
 array<Bits,29> values(const Circuit& c){
- array<Bits,29> w;
+ array<Bits,29> w{};
  for(int j=0;j<11;j++) w[j]=inputs[j];
  for(int i=0;i<18;i++){
   auto g=c[i];

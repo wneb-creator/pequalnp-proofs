@@ -1,0 +1,28 @@
+{
+  "utc": "2026-11-25T16:48:02.753072+00:00",
+  "natural_to_canonical": [
+    4,
+    0,
+    1,
+    6,
+    7,
+    3,
+    5,
+    2,
+    8
+  ],
+  "canonical_to_natural": [
+    1,
+    2,
+    7,
+    5,
+    0,
+    6,
+    3,
+    4,
+    8
+  ],
+  "identity": "StrongRelaxRows.target (y \u2218 natural_to_canonical) = GeneralReaderCertificate.edge y",
+  "exhaustive_assignments": 512,
+  "pass": true
+}

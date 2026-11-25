@@ -1,0 +1,27 @@
+{
+  "minimum_size": 5,
+  "minimum_covers": [
+    [
+      0,
+      2,
+      6,
+      7,
+      8
+    ],
+    [
+      1,
+      2,
+      4,
+      5,
+      8
+    ],
+    [
+      1,
+      3,
+      5,
+      6,
+      7
+    ]
+  ],
+  "all_126_size4_subsets_checked": true
+}

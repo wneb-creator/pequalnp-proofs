@@ -1,0 +1,1 @@
+{"family": "Three raw two-input OR clauses followed by two AND gates; five total gates", "candidate_OR_pairs": 21, "families_passing_H_profile_before_bypass_checks": 27, "all_gates_edge_productive": true, "earlier_wire_positive_profile_bypass_forbidden": true, "valid_distinct_H_functions": 9, "general_five_gate_exclusion_proved": false}

@@ -1,0 +1,9 @@
+# Independent review: EightThetaFloor.lean
+
+UTC: 2026-11-25T16:46:56.330579+00:00
+
+Verdict: PASS for the stated helper scope. Exact source SHA256 `f961accc734456b8ad6b1f43959d5a00c8388cad7c4f6d3a89ff616bd770697a`, 11522 bytes/179 lines. Author reported successful Lean exit0; complete named logs were read and hashed, with no error diagnostics and empty stderr. This reviewer did not rebuild.
+
+This is a conditional restriction compiler, not an unconditional eight-variable floor12. It assumes the actual seven-input theta circuit lower bound11 and proves11+number-of-effective-leaf-reader-gates≤originalsize. The restricted leaf is eight-input index2; the explicit permutation maps its false cofactor to the theta graph. Independent Python enumeration checked all128 rows of this permutation. The compiler stores original wires as either constants or valid seven-input emitted-wire references. It preserves semantics at every original index, including invalid-reference false defaults, and emits at mostone gate per original operation. Every effective leaf reader emits no gate. NOT uses only its first operand, including empty NOT=true, and the reader predicate deliberately ignores later unused NOT operands. Nullary/unary AND/OR cases fold consistently. The invariant retains status-bank lengths, restricted-leaffalse, emitted-wire bounds, legality and all-input evaluation. A constant final output is excluded using theta at allfalse/alltrue; otherwise the explicit assumed lower bound applies to the emitted circuit. The essential-leaf reader≥1 fact is not asserted by this source.
+
+The only import is PEqualNP.Defs. Correct L_meta_1884 namespace. Any numeric options are scoped over their finite declaration. No forbidden constructs, new axioms, native_decide, unsafe declarations, attributes, strings, or secret-like content; below512KiB. None of these files claims the full posted L-meta-1884 theorem.

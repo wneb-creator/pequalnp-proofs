@@ -1,0 +1,44 @@
+{
+  "gap": "L-meta-1884",
+  "updated_utc": "2026-11-25T16:42:54Z",
+  "last_root_renewal_report": "2026-11-25T16:41:52.574997Z",
+  "last_reported_expiry": "2026-11-25T17:01:52.568Z",
+  "exact_counterexample_found": false,
+  "active_jobs": [
+    {
+      "name": "signed17",
+      "command": "/tmp/oec/pequalnp-pilot-103/search1884_signed17 188473 1200",
+      "started_utc": "2026-11-25T16:33:43Z",
+      "stdout": "signed17.stdout",
+      "stderr": "signed17.stderr",
+      "rows": 1024,
+      "binary_gates": 17,
+      "not_budget": "unrestricted signs; exact phase realization tested after Boolean correctness"
+    },
+    {
+      "name": "critical_pattern",
+      "command": "/tmp/oec/pequalnp-pilot-103/search1884_cegis_critical 188481 1200 -1 2 2",
+      "started_utc": "2026-11-25T16:42:54Z",
+      "stdout": "critical.stdout",
+      "stderr": "critical.stderr",
+      "initial_rows": 90,
+      "scope": "conditional positive-OR/negative-AND reader pattern"
+    }
+  ],
+  "reader_cap": 2,
+  "mandatory_endpoints_for_future_runs": [
+    0,
+    1,
+    1022,
+    1023
+  ],
+  "completed_major_iterations": {
+    "fullcube": 20448000,
+    "ordinary38": 172186000,
+    "syntactic_active": 13884000,
+    "meaningful_free_input": 59499000,
+    "old_late_cegis": 30575000,
+    "early_cegis": 75608000,
+    "strong_late_cegis": 81777000
+  }
+}

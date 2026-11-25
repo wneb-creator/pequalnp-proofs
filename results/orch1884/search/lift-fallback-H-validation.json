@@ -1,0 +1,114 @@
+{
+  "source_gates": 16,
+  "lifted_gates": 20,
+  "used_existing_H": false,
+  "existing_H_gate_index": null,
+  "inserted_gates": 4,
+  "gates": [
+    [
+      0,
+      2,
+      8
+    ],
+    [
+      2,
+      9,
+      9
+    ],
+    [
+      0,
+      0,
+      10
+    ],
+    [
+      0,
+      4,
+      10
+    ],
+    [
+      1,
+      1,
+      5
+    ],
+    [
+      0,
+      11,
+      13
+    ],
+    [
+      1,
+      1,
+      3
+    ],
+    [
+      1,
+      15,
+      7
+    ],
+    [
+      0,
+      2,
+      16
+    ],
+    [
+      1,
+      1,
+      12
+    ],
+    [
+      1,
+      18,
+      8
+    ],
+    [
+      0,
+      6,
+      19
+    ],
+    [
+      1,
+      5,
+      12
+    ],
+    [
+      0,
+      7,
+      21
+    ],
+    [
+      1,
+      3,
+      5
+    ],
+    [
+      0,
+      8,
+      23
+    ],
+    [
+      1,
+      14,
+      17
+    ],
+    [
+      1,
+      25,
+      20
+    ],
+    [
+      1,
+      26,
+      22
+    ],
+    [
+      1,
+      27,
+      24
+    ]
+  ],
+  "inputs": 9,
+  "output": 28,
+  "full_rows_checked": 512,
+  "bad_rows": [],
+  "scope": "Exact nine-input cofactor circuit; this alone is not a counterexample to the posted1884 statement."
+}

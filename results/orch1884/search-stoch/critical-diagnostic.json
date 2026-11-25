@@ -1,0 +1,17 @@
+{
+  "critical_candidates_checked": 17,
+  "critical_latest": {
+    "sample_count": 90,
+    "sampled_score": 4,
+    "false_positive": 0,
+    "false_negative": 58,
+    "trial": 21446
+  },
+  "completed_strong_late": {
+    "sample_count": 90,
+    "sampled_score": 2,
+    "false_positive": 0,
+    "false_negative": 33,
+    "trial": 74473417
+  }
+}

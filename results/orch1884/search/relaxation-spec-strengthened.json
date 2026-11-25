@@ -1,0 +1,49 @@
+{
+  "inputs": 9,
+  "mapping": "new i = original(i+1)",
+  "positive_edge_rows": [
+    3,
+    6,
+    12,
+    33,
+    66,
+    132,
+    264,
+    80,
+    320,
+    288,
+    160,
+    144
+  ],
+  "negative_rows": [
+    25,
+    52,
+    58,
+    69,
+    100,
+    104,
+    138,
+    201,
+    274,
+    385,
+    386
+  ],
+  "exceptional_independent_set": 277,
+  "loose_gate_budget": 12,
+  "strong_gate_budget": 13,
+  "strong_additional_negative_row": 260,
+  "strong_condition": "The paid NOT has no additional effective readers beyond the two raw filters, unless another justification establishes the extra row.",
+  "loose_statement_is_auxiliary": true,
+  "loose_extra_negative_rows": [
+    21,
+    273
+  ],
+  "strong_extra_negative_rows": [
+    21,
+    273,
+    260
+  ],
+  "loose_row_count": 25,
+  "strong_row_count": 26,
+  "scope": "Necessary only under the fresh_proof shared-filter branch premises; not universal over all1884 candidates. Exact wrapper pending."
+}

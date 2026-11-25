@@ -1,0 +1,11 @@
+{
+  "time_utc": "2026-11-25T16:46:31.802560+00:00",
+  "source": "results/orch1884/lemmas/EightExtension.lean",
+  "sha256": "32c56c28b9d4ed667b887aa8a8bdf0a07642cad0a349c6f850e411a8b4eacbd2",
+  "bytes": 6371,
+  "lines": 151,
+  "check_exit": 0,
+  "check_kind": "dependency import GeneralReaderStandalone; no standalone assembled check",
+  "statement": "eight_floor: FanInTwo C and correct Petersen-minus-{0,3} eight-input graph imply 12 <= C.size",
+  "method": "restore one degree-three vertex with two OR, one AND, and output OR; apply checked nine-variable floor16"
+}

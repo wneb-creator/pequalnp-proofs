@@ -1,0 +1,24 @@
+[
+  {
+    "partition": "early",
+    "checked_candidates": 19,
+    "latest": {
+      "sample_count": 54,
+      "sampled_score": 1,
+      "false_positive": 18,
+      "false_negative": 92,
+      "trial": 287345
+    }
+  },
+  {
+    "partition": "late",
+    "checked_candidates": 22,
+    "latest": {
+      "sample_count": 54,
+      "sampled_score": 1,
+      "false_positive": 22,
+      "false_negative": 98,
+      "trial": 14678
+    }
+  }
+]

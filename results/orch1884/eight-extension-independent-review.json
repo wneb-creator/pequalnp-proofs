@@ -1,0 +1,18 @@
+{
+  "utc": "2026-11-25T16:48:36.498173+00:00",
+  "source_sha256": "32c56c28b9d4ed667b887aa8a8bdf0a07642cad0a349c6f850e411a8b4eacbd2",
+  "logs": [
+    {
+      "path": "results/orch1884/eight-extension-checked.stdout",
+      "bytes": 2143,
+      "sha256": "c2e99f2aa5d298389595de7512467ca7a939cf07d4aa9f5098c951b88d415de0"
+    },
+    {
+      "path": "results/orch1884/eight-extension-checked.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "edge_split_inputs_checked": 512,
+  "result": "PASS"
+}

@@ -1,0 +1,23 @@
+{
+  "archived_at": "2026-11-25T16:46:28.786586+00:00",
+  "owned_solvers_active": false,
+  "source_sha256_matches_batch": true,
+  "candidate_found": false,
+  "scope": "Conditional shared-filter branch auxiliaries, not the posted1884 statement",
+  "cases": [
+    {
+      "tag": "relax12-600-25rows",
+      "gates": 12,
+      "rows": 25,
+      "elapsed_seconds": 599.0323821740003,
+      "status": "UNKNOWN"
+    },
+    {
+      "tag": "relax13-600-26rows",
+      "gates": 13,
+      "rows": 26,
+      "elapsed_seconds": 599.0754933730004,
+      "status": "UNKNOWN"
+    }
+  ]
+}

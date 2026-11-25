@@ -1,0 +1,18 @@
+{
+  "snapshot_utc": "2026-11-25T16:44:16Z",
+  "exact_witness_found": false,
+  "hot_files_excluded": [
+    "signed17.stdout",
+    "signed17.stderr",
+    "critical.stdout",
+    "critical.stderr"
+  ],
+  "prepared_not_run": [
+    "search_cegis.cpp",
+    "search_cegis_paid.cpp"
+  ],
+  "historical_configuration": [
+    "search_cegis_composite_initial38.cpp"
+  ],
+  "rejected_sampled_fits": "cegis-early/late and their smoke diagnostics; no FULL_WITNESS"
+}

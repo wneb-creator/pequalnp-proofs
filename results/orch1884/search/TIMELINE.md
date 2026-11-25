@@ -3,3 +3,6 @@
 - 2026-11-25T15:42:00.901957+00:00: First zero-paid-NOT18gate search returnedUNKNOWN; no witness. All diagnostic streams archived.
 - 2026-11-25T15:50:01.000524+00:00: Local repair completed793 of816 triplets; verdict counts{'UNSAT': 793}; no witness. Complete streams saved losslessly in gzipJSON.
 - 2026-11-25T15:53:30.999775+00:00: Checkpointed allthree UNKNOWN targetruns, complete816-case localrepairUNSAT census, and auxiliaryencoder validation. No active solver atcheckpoint.
+- 2026-11-25T16:20:19.719253+00:00: Both600second guarded-rails cases completedUNKNOWN; noSAT model or counterexample. Full outputs and process ledger archived.
+- 2026-11-25T16:24:17.384756+00:00: Recorded current results: seven completed target searchesUNKNOWN; two fixed-H-prefix600second searches active. All completed streams preserved.
+- 2026-11-25T16:32:38.843708+00:00: Both600second fixed-H direct18gate searches returnedUNKNOWN; complete diagnostics archived.

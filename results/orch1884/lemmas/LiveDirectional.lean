@@ -28,7 +28,7 @@ theorem live_row_increase {T k S} (h : Live false T k S) {r s : Row}
       · exact ⟨b, by simp, hb⟩
     · exact ⟨v, Finset.mem_insert_of_mem (Finset.mem_insert_of_mem hu), hvr, hvs⟩
 
-theorem increasing_root_required {T k S} (h : Live false T k S)
+theorem increasing_rt_required {T k S} (h : Live false T k S)
     (roots : List Sig) (a : Sig) (sub : ∀ v ∈ S, v ∈ roots) (r s : Row)
     (hr : bit r T = false) (hs : bit s T = true)
     (isolated : ∀ v ∈ roots, bit r v = false → bit s v = true → v = a) : a ∈ S := by

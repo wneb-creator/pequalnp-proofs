@@ -16,6 +16,9 @@ P.add_argument('--fresh', action='store_true')
 P.add_argument('--sat-preset', action='store_true')
 P.add_argument('--seed', type=int, default=0)
 P.add_argument('--once-input', type=int)
+P.add_argument('--rail-readers', action='store_true')
+P.add_argument('--primary-minimal', action='store_true')
+P.add_argument('--positive-guard', action='store_true')
 P.add_argument('--tag', default='free-not')
 args = P.parse_args()
 root = Path('/tmp/oec/pequalnp-pilot-103/orch1884')
@@ -100,6 +103,13 @@ for stage in range(30):
     if args.once_input is not None:
         assert args.max_nots == 0 and 0 <= args.once_input < n
         c.one([v for j in range(N) for v in (A[j][args.once_input], B[j][args.once_input])])
+    if args.rail_readers:
+        assert args.max_nots == 0
+        for src, op in [(0,1),(10,0)]:
+            readers=[v for j in range(N) for v in (A[j][src],B[j][src])]
+            c.one(readers)
+            for j in range(N):
+                c.clause(-A[j][src],O[j][op]);c.clause(-B[j][src],O[j][op])
     if args.first:
         op, a, b = map(int, args.first.split(','))
         if op == 2:
@@ -156,6 +166,25 @@ for stage in range(30):
                     c.clause(-d, u, v); c.clause(-d, -u, -v)
                     c.clause(d, u, -v); c.clause(d, -u, v)
                 c.clause(*different)
+    if args.primary_minimal:
+        assert args.max_nots == 0
+        ordered_rows = sorted(seen)
+        for values in vectors:
+            for src in range(base):
+                differences=[v if not input_bit(x,src) else -v
+                             for x,v in zip(ordered_rows,values) if target(x)]
+                increases=[-v for x,v in zip(ordered_rows,values)
+                           if not target(x) and input_bit(x,src)]
+                c.clause(*(differences+increases))
+    if args.positive_guard:
+        assert args.rail_readers and args.max_nots == 0
+        guard_rows=[2*x for x in [25,52,58,69,104,138,201,274,277,385]]
+        ordered_rows=sorted(seen)
+        assert set(guard_rows)<=seen
+        for i,values in enumerate(vectors):
+            for x in guard_rows:
+                w=values[ordered_rows.index(x)]
+                c.clause(-A[i][0],-w);c.clause(-B[i][0],-w)
     cnf = root / f'{args.tag}-stage{stage}.cnf'
     c.write(cnf)
     stdout = root / f'{args.tag}-stage{stage}.stdout'

@@ -1,0 +1,50 @@
+{
+  "started_at": "2026-11-25T16:05:59.653100+00:00",
+  "finished_at": "2026-11-25T16:07:58.790862+00:00",
+  "elapsed_seconds": 119.13776872900053,
+  "arguments": {
+    "gates": 18,
+    "max_nots": 0,
+    "seconds": 120,
+    "first": null,
+    "pin": null,
+    "mutable": null,
+    "allow_unused": false,
+    "require_free_use": false,
+    "full_rows": false,
+    "fresh": true,
+    "sat_preset": true,
+    "seed": 103,
+    "once_input": 2,
+    "rail_readers": true,
+    "primary_minimal": true,
+    "tag": "rails18-distance2"
+  },
+  "stages": [
+    {
+      "stage": 0,
+      "rows": 38,
+      "variables": 8622,
+      "clauses": 80941,
+      "cnf_sha256": "4606f12c9736a96459bf755cacc66101bf67f210d4bbbfda0a535d0360e6f887",
+      "solver_seconds": 119,
+      "solver_arguments": [
+        "-t",
+        "119",
+        "--seed=103",
+        "--sat",
+        "/tmp/oec/pequalnp-pilot-103/orch1884/rails18-distance2-stage0.cnf"
+      ],
+      "exit": 0,
+      "status": "UNKNOWN"
+    }
+  ],
+  "strict_earlier_wires": true,
+  "free_not_input": 10,
+  "constant_sources": false,
+  "exact_cofactor_specification": true,
+  "fixed_inputs_for_cofactor_specification": [
+    0
+  ],
+  "solver_results_are_not_lean_proofs": true
+}

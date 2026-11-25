@@ -1,0 +1,4 @@
+  File "/workspace/pequalnp-proofs/results/orch1884/search/lift_relax_witness.py", line 62
+    'existing_H_gate_index':hi,'inserted_gates':3 if used_existing else4,
+                                                ^^^^^^^^^^^^^^^^^^
+SyntaxError: expected 'else' after 'if' expression

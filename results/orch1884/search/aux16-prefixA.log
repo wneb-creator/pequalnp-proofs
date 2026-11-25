@@ -1,0 +1,1 @@
+START 2026-11-25T15:59:15.969545+00:00 {'gates': 16, 'seconds': 119, 'tag': 'aux16-prefixA', 'pin': None, 'plain': False, 'fresh': True, 'productive': True, 'sat_preset': True, 'seed': 103, 'prefix_b': 0} variables 4592 clauses 39622
