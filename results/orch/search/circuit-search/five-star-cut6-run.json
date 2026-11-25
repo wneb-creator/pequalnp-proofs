@@ -1,0 +1,24 @@
+{
+  "name": "five-star-cut6",
+  "started_at": "2026-11-25T08:09:41.020707+00:00",
+  "wall_limit_seconds": 120,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=120",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/five-star-cut6.cnf"
+  ],
+  "backend": "kissat",
+  "preset": "default",
+  "verification": "all underlying correlated inputs and all16384 full inputs",
+  "cnf_sha256": "a7cb2362f168d8bdf4bd8cf284bcb2ec751451650105af90b87f88e2441e1070",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1",
+  "independent_review": "PASS by sat_review",
+  "scope": "Six-gate residual cone with four correlated OR cuts and a fixed19-gate five-star prefix; full target remains unrestricted outside this sufficient architecture.",
+  "source_sha256": {
+    "correlated_family_synthesize.py": "347c9231b4b38c609ca7905e6aa2a23a4cd41083122dd4901f751000403c608c",
+    "decode_correlated_flexible.py": "855b24bedf489453ab073f3760ae44f1def43cc5cc49e53e3f1ba9df9a941335",
+    "run_correlated_flexible.py": "a2a9cbb02fb35a56605d6b89467d1cbb2cf6f272f20945f57c214d04ab5204ed"
+  }
+}

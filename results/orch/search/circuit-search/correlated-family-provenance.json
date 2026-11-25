@@ -1,0 +1,8 @@
+{
+  "sources": {
+    "correlated_synthesize.py": "5ac0f576775cc374423746819cfe45e95d343d23e30932d055256aae9cfaeba6",
+    "decode_correlated.py": "06c11a76f1ec55814c89bf31482c3b35c332498c18a7a7f2dd5c2826ea798fac",
+    "run_correlated.py": "79b76424e887c0e9cc454a542e7b831bf3b5de179bca39e6b11be0ba82ea2439"
+  },
+  "changes": "Separate copies generalize OR cuts to finite supports and arbitrary underlying input count; decoder additionally checks every cut embedding on all16384 original assignments. Active matching-cut14 sources unchanged."
+}

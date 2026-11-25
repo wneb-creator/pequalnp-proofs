@@ -1,0 +1,53 @@
+{
+  "boundary_bits": 10,
+  "formula_limit": 10,
+  "completed_cost_bounded_formula_dp": true,
+  "settled_signatures": 1024,
+  "comparisons": 433181,
+  "target_minimum_formula_cost": 7,
+  "target_root_candidates": 147,
+  "best": {
+    "gates": [
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        1,
+        11,
+        5
+      ],
+      [
+        0,
+        12,
+        0
+      ],
+      [
+        1,
+        4,
+        2
+      ],
+      [
+        1,
+        14,
+        6
+      ],
+      [
+        0,
+        15,
+        1
+      ],
+      [
+        1,
+        13,
+        16
+      ]
+    ],
+    "output": 17,
+    "cut_inputs": 11,
+    "expanded_formula_cost": 7
+  },
+  "elapsed_seconds": 0.296874,
+  "scope": "Minimum formula costs and one stored representation per signature; root pairs share equal signatures. Not exhaustive DAG search."
+}

@@ -1,0 +1,15 @@
+{"event": "progress", "states": 10000, "seconds": 1.8885031850004452}
+{"event": "progress", "states": 20000, "seconds": 4.569296715999371}
+{"event": "progress", "states": 30000, "seconds": 7.39383415500015}
+{"event": "progress", "states": 40000, "seconds": 10.572228188999361}
+{"event": "progress", "states": 50000, "seconds": 13.167411397998876}
+{"event": "progress", "states": 60000, "seconds": 14.494506954999451}
+{"event": "progress", "states": 70000, "seconds": 16.505837579999934}
+{"event": "progress", "states": 80000, "seconds": 18.052405851000003}
+{"event": "progress", "states": 90000, "seconds": 19.670687236999584}
+{"event": "progress", "states": 100000, "seconds": 21.28434487499908}
+{"event": "progress", "states": 110000, "seconds": 22.80448771400006}
+{"event": "progress", "states": 120000, "seconds": 24.662716279999586}
+{"event": "progress", "states": 130000, "seconds": 26.467297875999066}
+{"event": "progress", "states": 140000, "seconds": 28.703764758000034}
+{"cache": "CacheInfo(hits=1944813, misses=141468, maxsize=None, currsize=141468)", "event": "complete", "one_one_bounds": [16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16], "one_zero_bounds": [18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18], "root_lower_bound": 20, "seconds": 29.20864317499945, "states": 141468}

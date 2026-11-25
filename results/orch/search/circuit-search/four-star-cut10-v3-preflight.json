@@ -1,0 +1,9 @@
+{
+  "candidate_sha256": "03e68eaff952394d311e5f9aeb52245df811110f7664b2ba28bb114965043a36",
+  "data_sha256": "ea34b806d748ac4862a58fc1fee02e5689c33820c855ed9dd3ef8e95503c1e18",
+  "variables": 1399,
+  "clauses": 24691,
+  "row_match": true,
+  "source_data_match": true,
+  "source_review": "sat_review four-star-review.json (all six variants)"
+}

@@ -1,0 +1,23 @@
+{
+  "name": "five-star-cut6-seed-smoke",
+  "started_at": "2026-11-25T08:03:26.514233+00:00",
+  "wall_limit_seconds": 30,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=30",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/five-star-cut6-seed-smoke.cnf"
+  ],
+  "backend": "kissat",
+  "preset": "default",
+  "verification": "all underlying correlated inputs and all16384 full inputs",
+  "cnf_sha256": "cabdfa714e9d5eb19c503197eec8a0cb71ff689ced721c0d093887835dcb4320",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1",
+  "finished_at": "2026-11-25T08:03:26.522708+00:00",
+  "wall_seconds": 0.006912939999892842,
+  "cpu_seconds": 0.006493,
+  "max_rss_kib": 11776,
+  "exit_code": 20,
+  "status": "UNSAT"
+}

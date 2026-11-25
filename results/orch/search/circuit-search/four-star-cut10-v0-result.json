@@ -1,0 +1,23 @@
+{
+  "name": "four-star-cut10-v0",
+  "started_at": "2026-11-25T08:11:49.066058+00:00",
+  "wall_limit_seconds": 120,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=120",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/four-star-cut10-v0.cnf"
+  ],
+  "backend": "kissat",
+  "preset": "default",
+  "verification": "all underlying correlated inputs and all16384 full inputs",
+  "cnf_sha256": "3d64a96cfad3b465c15000fa22ec014e28835a1c13c5ca955fdc15d06fe5c7e0",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1",
+  "finished_at": "2026-11-25T08:13:49.119517+00:00",
+  "wall_seconds": 120.04827327899875,
+  "cpu_seconds": 73.560918,
+  "max_rss_kib": 17228,
+  "exit_code": 0,
+  "status": "UNKNOWN"
+}

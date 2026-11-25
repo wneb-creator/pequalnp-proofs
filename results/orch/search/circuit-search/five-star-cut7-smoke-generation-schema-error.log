@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-70/circuit-search/correlated_family_synthesize.py", line 35, in <module>
+    assert ninputs==real_inputs+len(correlated['free_or_supports'])
+                                    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+KeyError: 'free_or_supports'

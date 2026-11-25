@@ -1,0 +1,156 @@
+{
+  "status": "PASS",
+  "variants": [
+    {
+      "variant": 0,
+      "orbit_size": 12,
+      "stabilizer": 2,
+      "seed_errors": [
+        {
+          "edge": [
+            1,
+            7
+          ],
+          "residual_misses": 25,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            1,
+            13
+          ],
+          "residual_misses": 16,
+          "full_misses": 47
+        }
+      ]
+    },
+    {
+      "variant": 1,
+      "orbit_size": 12,
+      "stabilizer": 2,
+      "seed_errors": [
+        {
+          "edge": [
+            1,
+            7
+          ],
+          "residual_misses": 25,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            1,
+            13
+          ],
+          "residual_misses": 16,
+          "full_misses": 47
+        }
+      ]
+    },
+    {
+      "variant": 2,
+      "orbit_size": 24,
+      "stabilizer": 1,
+      "seed_errors": [
+        {
+          "edge": [
+            1,
+            7
+          ],
+          "residual_misses": 25,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            1,
+            13
+          ],
+          "residual_misses": 16,
+          "full_misses": 47
+        }
+      ]
+    },
+    {
+      "variant": 3,
+      "orbit_size": 3,
+      "stabilizer": 8,
+      "seed_errors": [
+        {
+          "edge": [
+            1,
+            7
+          ],
+          "residual_misses": 25,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            1,
+            13
+          ],
+          "residual_misses": 16,
+          "full_misses": 47
+        }
+      ]
+    },
+    {
+      "variant": 4,
+      "orbit_size": 24,
+      "stabilizer": 1,
+      "seed_errors": [
+        {
+          "edge": [
+            1,
+            7
+          ],
+          "residual_misses": 25,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            1,
+            13
+          ],
+          "residual_misses": 16,
+          "full_misses": 47
+        }
+      ]
+    },
+    {
+      "variant": 5,
+      "orbit_size": 6,
+      "stabilizer": 4,
+      "seed_errors": [
+        {
+          "edge": [
+            1,
+            7
+          ],
+          "residual_misses": 25,
+          "full_misses": 47
+        },
+        {
+          "edge": [
+            1,
+            13
+          ],
+          "residual_misses": 16,
+          "full_misses": 47
+        }
+      ]
+    }
+  ],
+  "boundary_rows": 17,
+  "underlying_inputs_checked_per_variant": 1024,
+  "full_inputs_checked_per_variant": 16384,
+  "cut_identities_checked_per_variant": 8,
+  "candidate_variables": 1399,
+  "candidate_clauses": 24691,
+  "smoke_clauses_verified": 28025,
+  "source_sha256": {
+    "correlated_family_synthesize.py": "347c9231b4b38c609ca7905e6aa2a23a4cd41083122dd4901f751000403c608c",
+    "decode_correlated_flexible.py": "855b24bedf489453ab073f3760ae44f1def43cc5cc49e53e3f1ba9df9a941335",
+    "run_correlated_flexible.py": "a2a9cbb02fb35a56605d6b89467d1cbb2cf6f272f20945f57c214d04ab5204ed"
+  },
+  "candidate_cnf_sha256": "3d64a96cfad3b465c15000fa22ec014e28835a1c13c5ca955fdc15d06fe5c7e0"
+}

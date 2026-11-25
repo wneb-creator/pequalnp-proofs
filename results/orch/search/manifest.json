@@ -2,10 +2,22 @@
   "snapshot_utc": "2026-11-25T05:55:32.835429+00:00",
   "files": [
     {
+      "path": "circuit-search/add_raw_fanout.py",
+      "bytes": 2180,
+      "sha256": "d50aa52f37814cdb2c07ee7c3015497f0d28c53b63be589a3314a75fafe2af22",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
       "path": "circuit-search/authorized-cnf-cleanup.json",
       "bytes": 3657,
       "sha256": "310879f6a28d225ec0c3ee787caef6593e3882c9c02b49da62d4f58f62f0067b",
       "captured_utc": "2026-11-25T07:59:53.613898+00:00"
+    },
+    {
+      "path": "circuit-search/correlated-family-provenance.json",
+      "bytes": 542,
+      "sha256": "5a60bcc6af828e6e633ae8a5cd93bcc70a40e1ee496e1bdc964cac151c4371a6",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
     },
     {
       "path": "circuit-search/correlated-runner-provenance.json",
@@ -29,7 +41,7 @@
       "path": "circuit-search/correlated_family_synthesize.py",
       "bytes": 9246,
       "sha256": "347c9231b4b38c609ca7905e6aa2a23a4cd41083122dd4901f751000403c608c",
-      "captured_utc": "2026-11-25T07:59:53.613898+00:00"
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
     },
     {
       "path": "circuit-search/correlated_synthesize.py",
@@ -54,6 +66,12 @@
       "bytes": 3180,
       "sha256": "af52c59ccfb8d749c046af0d25173f968fa2edc9ea33fdec0cb5fefbca7a2580",
       "captured_utc": "2026-11-25T07:59:53.613898+00:00"
+    },
+    {
+      "path": "circuit-search/decode_correlated_flexible.py",
+      "bytes": 3212,
+      "sha256": "855b24bedf489453ab073f3760ae44f1def43cc5cc49e53e3f1ba9df9a941335",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
     },
     {
       "path": "circuit-search/encode-shadow3-26.log",
@@ -266,6 +284,168 @@
       "captured_utc": "2026-11-25T07:59:53.613898+00:00"
     },
     {
+      "path": "circuit-search/five-star-cut-cone-adapted.json",
+      "bytes": 3801,
+      "sha256": "2bf09f958b494baad01bc5da82176aa0aa67e81c7b30fd6acb93723906de65bd",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut6-generation-schema-error.log",
+      "bytes": 304,
+      "sha256": "cbf9e8083f20352f568a27371b139a700bf190351ff4f8f60ed7fee999f741cc",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut6-generation.log",
+      "bytes": 106,
+      "sha256": "cda484a7583de92473fa3e13602a9d85b305a77d888a91ac455edf8659789654",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut6-result.json",
+      "bytes": 1349,
+      "sha256": "c9a313668fcdfac5c0d512fbbb87ca4b0b485615002d24ea321bde7b0471731f",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut6-run.json",
+      "bytes": 1167,
+      "sha256": "f35e63e028031cdd015be8821aab5ff0ef91f8a4afe4e6de00e39d0d77a908d2",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut6-seed-smoke-fix-schema-error.log",
+      "bytes": 868,
+      "sha256": "ded9230774550d5549e2f5b2c422716c862cdb1114629bfa001d776a897e4b94",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut6-seed-smoke-fix.log",
+      "bytes": 56,
+      "sha256": "911f3d8e06c8870bb9bd9b4d107a3caf3ebdb06ef0f98a705ee5317e1ba40c64",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut6-seed-smoke-result.json",
+      "bytes": 811,
+      "sha256": "30daeda66f659cc900bb4fe1b72eece821d1872392744635fa2d106e59271c78",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut6-seed-smoke-run.json",
+      "bytes": 627,
+      "sha256": "d877278f685c7657ac487badca276cf2569dece0047ae4252f17f8bfd498a3c1",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut6-seed-smoke-solve.log",
+      "bytes": 7945,
+      "sha256": "e5ceb55b18e3186f51e061e35216e4fc664c4dd6fed500e3e4143446692ac3d8",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut6-seed-smoke-wrapper.log",
+      "bytes": 756,
+      "sha256": "0b62b5bae460271d552be7cc3f178427c59185ca2d7aa2d769f5d4d9c6b8750d",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut6-seed-smoke.map.json",
+      "bytes": 3471,
+      "sha256": "56bd07e51f9e9f3b74dff28888eadce8c259e5e3d84996a59dbb5c5f3094e597",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut6-solve.log",
+      "bytes": 15061,
+      "sha256": "32ec54b2cc3fc93bda481138622bacd0118c332d3251be20fa718a1ef603d23e",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut6-wrapper.log",
+      "bytes": 734,
+      "sha256": "ca17d388470667a7b0361d14afbeb40ea08f8a0f13bb726b4c411a5caa03c7db",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut6.map.json",
+      "bytes": 3356,
+      "sha256": "45c838ed94a1e6a9e05b0480036b70f4ea419c027dffbde567bc55c224f90652",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut7-smoke-base.map.json",
+      "bytes": 3619,
+      "sha256": "552cd277971dad77e1bca769c5cc9ae351a9af704acfacddbf0aba5740fe8de3",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut7-smoke-fix.log",
+      "bytes": 56,
+      "sha256": "5a4d794f31430f9fd5e9bcf4f0b9bb2e9657ee0cde1519f2fc421a1045967e2c",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut7-smoke-generation-schema-error.log",
+      "bytes": 304,
+      "sha256": "cbf9e8083f20352f568a27371b139a700bf190351ff4f8f60ed7fee999f741cc",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut7-smoke-generation.log",
+      "bytes": 117,
+      "sha256": "67743eec8ae14f4ffd37bf05e869b5825ee4602218712605ab98081e269efbab",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut7-smoke-result.json",
+      "bytes": 932,
+      "sha256": "61a0d92868800cd7437318567c056673f388c55fc90cc6bf80381c416f6435ce",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut7-smoke-run.json",
+      "bytes": 617,
+      "sha256": "4bde9b504a3805066c90098486f35aa00eb53132219afc207a901c250a457092",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut7-smoke-solve.cone.json",
+      "bytes": 235,
+      "sha256": "3d01c00eea0a64f5f6fd98f1e5f395c88af083413544af247a055700be3ac2e5",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut7-smoke-solve.log",
+      "bytes": 10828,
+      "sha256": "6d7babdb0a2e6d6bfe653ced08da1a7aae94f3e07726dd850cc70538f0bac366",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut7-smoke-verified.log",
+      "bytes": 1143,
+      "sha256": "553e65da981cc5fada41d66d4eb1a017b3653d614edc9252593537f9fd48fcee",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut7-smoke-witness.json",
+      "bytes": 911,
+      "sha256": "ec3ea5506dedf01e30b8a9268eed1f46d3b69311915be5a7ef5acde92ea1c96d",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut7-smoke-wrapper.log",
+      "bytes": 873,
+      "sha256": "d3da035041b98bce6027decf852e26a602a668174700b4c3f355b4539392a9a4",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/five-star-cut7-smoke.map.json",
+      "bytes": 3749,
+      "sha256": "d35c75760a83384a65bec25d1b8a55d3dc23f76fe33e1ea4d52d81c59b2f2a21",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
       "path": "circuit-search/fix_correlated_smoke.py",
       "bytes": 2174,
       "sha256": "7fef32653955f50b8e07de943f671c15ddab00241589b6bf36be81d049e8dbd8",
@@ -276,6 +456,198 @@
       "bytes": 1819,
       "sha256": "33f85dc838fea7321251a7b8f099e2cf7e158ce926fc05abcd63898d411d9488",
       "captured_utc": "2026-11-25T07:59:53.613898+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut10-v0-generation.log",
+      "bytes": 113,
+      "sha256": "abd1970f89ba086568ffdba9ad50a834571e5ae1e07f8d67be601595cb4b56a9",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut10-v0-result.json",
+      "bytes": 799,
+      "sha256": "cce7c2de7f17a8424a9e2333ef75c12233f63abeadc6e06d70757f2a5658c14e",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut10-v0-run.json",
+      "bytes": 615,
+      "sha256": "32f3fa3299348e436f174b2df2357071f9221c632b2c0aaca1de4afb9e3f8299",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut10-v0-solve.log",
+      "bytes": 44710,
+      "sha256": "d93d45a487b6badc6d00fc7d16a320097574292b8eddfca947c6ba238216a1f3",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut10-v0-wrapper.log",
+      "bytes": 744,
+      "sha256": "28552e6c6b26e9e1ff3fa5edf20f017c19df32627472268377d8cf2c5a12aa7a",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut10-v0.map.json",
+      "bytes": 6939,
+      "sha256": "856089d288e38a8c2283b2c1a8e1822419702e5aa262589cbef6574ab3012aca",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut10-v3-generation.log",
+      "bytes": 113,
+      "sha256": "2561125220f83085ea04cdcc0604e09fdc0e46ed4203fd563f5017bbd0c59e9b",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut10-v3-preflight.json",
+      "bytes": 343,
+      "sha256": "53ca284823d8d405189a91eaf969a8371ef6106f3c3e804627afe27a7934b3f9",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut10-v3-result.json",
+      "bytes": 799,
+      "sha256": "4a2a6c311a6d527e958f13ac306c33986698719be381941ade3ea844d86b7604",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut10-v3-run.json",
+      "bytes": 615,
+      "sha256": "550e13b7df5faf69dcccf7fe026ef78fcb449f49af5089fc8d3b14a8027e474f",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut10-v3-solve.log",
+      "bytes": 56464,
+      "sha256": "79ebfd58fbdb04163a44f32b8b10b3264bc553e18ee36ece3a75ed22503db4bd",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut10-v3-wrapper.log",
+      "bytes": 744,
+      "sha256": "11a267b648f1e2dc444421b1464c175606fb61158c197358456bcd6f4177998f",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut10-v3.map.json",
+      "bytes": 6812,
+      "sha256": "fb01612992ba241566578c628118a812e8bd81ad3db241dadd7fc8fdd1afa09c",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut11-v0-smoke-base.map.json",
+      "bytes": 7421,
+      "sha256": "d22d22cee8ead172e739e9a7ed575fee9ea985ae7ec31ddcfcf715fd8c16a854",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut11-v0-smoke-fix.log",
+      "bytes": 57,
+      "sha256": "a0b55e7fd90b6a22518f4ec067213a4a12c17a0028a4e2d2be263f3dcbe89d9e",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut11-v0-smoke-generation.log",
+      "bytes": 124,
+      "sha256": "5dafb55be2f350bc2d5862a7f1df4213dd23b11231e8d4359f845cd45e3fe781",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut11-v0-smoke-result.json",
+      "bytes": 943,
+      "sha256": "8b4a1cbc42e8988a3b20dc572b67dd0104736f785fd6d42992d96ef1b4ce618f",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut11-v0-smoke-run.json",
+      "bytes": 625,
+      "sha256": "f5231d48c2577408c8ea3bff56e38344f43533ffd50a2364ad85e33d05101598",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut11-v0-smoke-solve.cone.json",
+      "bytes": 368,
+      "sha256": "c40d271a2c8b0cd1fda5fe4de0406b6f49d05a172e024fbcc156b060b3afdad2",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut11-v0-smoke-solve.log",
+      "bytes": 16153,
+      "sha256": "0cc26872c70f3f7404dd1b9d8bf35cac59bb9923b8053d9b68b8c73cebac6b5b",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut11-v0-smoke-verified.log",
+      "bytes": 1144,
+      "sha256": "826b48d5df6fb4bace60c670d19cdb1ed534803eb36b34c82a58e37caae02221",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut11-v0-smoke-witness.json",
+      "bytes": 911,
+      "sha256": "149c9115c9133e7c92cb9f23555d377888ffceb9627f7c58fc374342b84a5584",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut11-v0-smoke-wrapper.log",
+      "bytes": 884,
+      "sha256": "fa4d974e6eb9fc4fc958ad8c56f76b41f708365fb2c98cd4cbdc0c0d520f1647",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/four-star-cut11-v0-smoke.map.json",
+      "bytes": 7612,
+      "sha256": "0d6d54a32ec6c3c086cc8101a452308a3b9f616e76093186f9e06b144e211920",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/general-or26-base-generation.log",
+      "bytes": 114,
+      "sha256": "dfb393a1fa2bfef33fe8c77abd613375ac43b126fff3c39bb740b99b315dd9ad",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/general-or26-base.map.json",
+      "bytes": 28014,
+      "sha256": "f661cfd16e0e1c8978e93f667fe7f785b7ce9f31884c41e6525338d5babbef56",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/general-or26-fanout-generation.log",
+      "bytes": 63,
+      "sha256": "7d5d604a4feabdfa480abe6b4b962f54059df7ea1d588497f5fcd51336464651",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/general-or26-fanout.map.json",
+      "bytes": 24472,
+      "sha256": "549525321670954b2e0b6113c0e9f50eb26dcd873c5fc34489ba599dea459b58",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/general-or26-root-generation.log",
+      "bytes": 114,
+      "sha256": "5ca3fb23ee3576aa892ce5df1b1ada5f683c9c8a0b8ca1b87040c458947041bc",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/general-or26-root.map.json",
+      "bytes": 24255,
+      "sha256": "500b6ad5ac6f5048b708df696789ad20e59c73809778c8581b68618bbcf600b8",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/general-or26-third-generation.log",
+      "bytes": 158,
+      "sha256": "43ae13d6336f6030bb1e7f8e7c3f06b1f0018bb915984646969f6269fd549e91",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/general-or26-third.map.json",
+      "bytes": 24133,
+      "sha256": "73413e93981a0cc0c8596f93a6dff73252586bcf2a4661a098e4d46c6168445e",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
     },
     {
       "path": "circuit-search/general-reproduction.json",
@@ -775,6 +1147,36 @@
       "captured_utc": "2026-11-25T07:59:53.613898+00:00"
     },
     {
+      "path": "circuit-search/raw-fanout26-generation.log",
+      "bytes": 62,
+      "sha256": "4d9ae965d7f197f73c37fbe82f20a9cdf568f835f1cf1f20982fe0165554753f",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/raw-fanout26.map.json",
+      "bytes": 15947,
+      "sha256": "1d2c9b4b70cd814f86780c92e228b4b06033c8910a59c29e3d361834ddbb4094",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/raw-fanout27-smoke-generation.log",
+      "bytes": 62,
+      "sha256": "747175f623ec148445de7beab09d8600335b052472567516399a336d86a2b0a3",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/raw-fanout27-smoke-validation.log",
+      "bytes": 167,
+      "sha256": "9ead47c76e39bfa205ea1247d72a13ac2cea849485e30f279d5de686fdfae44a",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "circuit-search/raw-fanout27-smoke.map.json",
+      "bytes": 18094,
+      "sha256": "401c5c7f21d317d0b65d13d2f806cbffb357dec9f7780f7374ca1180c1feded8",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
       "path": "circuit-search/repair-base-help.txt",
       "bytes": 743,
       "sha256": "a53a1f8f6e6dfc81d58862708035e25307d5a49c12455279a6b4e3dbd24d8ef2",
@@ -1157,6 +1559,12 @@
       "bytes": 2841,
       "sha256": "b27dd8a99f333d32469ade0ac756da95c9d63f55c11f575acd4ab4d7012a954d",
       "captured_utc": "2026-11-25T07:59:53.613898+00:00"
+    },
+    {
+      "path": "circuit-search/run_correlated_flexible.py",
+      "bytes": 2843,
+      "sha256": "a2a9cbb02fb35a56605d6b89467d1cbb2cf6f272f20945f57c214d04ab5204ed",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
     },
     {
       "path": "circuit-search/run_kissat.py",
@@ -1601,6 +2009,114 @@
       "captured_utc": "2026-11-25T06:30:25.373703+00:00"
     },
     {
+      "path": "constructive/five-star-cut-cone-baseline7.json",
+      "bytes": 335,
+      "sha256": "4216c39bcc63e41ff6974f70df9c41d0c786ff93fbf453d3f24767438afb2946",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "constructive/five-star-cut-cone-formula-dp.json",
+      "bytes": 850,
+      "sha256": "c239447a6057d09ed4013955f7e7e468e75dd9a3ff5d10e458a1573c3d8315df",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "constructive/five-star-cut-cone-rows.json",
+      "bytes": 3557,
+      "sha256": "a783fcc53f5b1c275e72b1d4796f89371055b526be62d560cd0ad962c1560f0f",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "constructive/five-star-cut-cone-seed6-missing-0-7.json",
+      "bytes": 386,
+      "sha256": "e83422c5c438d7cb4140ee4cc1a363b75250423c59abb3de0d80d14fe0060de4",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "constructive/five-star-cut-cone-seed6-missing-0-8.json",
+      "bytes": 386,
+      "sha256": "64ded87613f2d9f5bbe207776ec7ed9b10cffa54337a8056f659cf09e9b2e10e",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "constructive/five-star-cut-cone-symmetries.json",
+      "bytes": 1521,
+      "sha256": "85f227c1110552619e290ec531974f25492badb0d31a91135597a074a08ce507",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "constructive/five_star_cut_cone.py",
+      "bytes": 7049,
+      "sha256": "e1cbae3879f6c4f1ce840c308e74cb2ac8646c1afbe6feeffef8a2f29c658ff0",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "constructive/four-star-cut-cone-baseline11.json",
+      "bytes": 495,
+      "sha256": "df568ccd53d7efa43b23be155402a845f497fa4b3c20913bb4375aa1bd247ea4",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "constructive/four-star-cut-cone-seed10-missing-1-13.json",
+      "bytes": 547,
+      "sha256": "093660282d5d8cf44d30f4749d0964f84ceecdf536a8a8b4faa0a27dfb0776a6",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "constructive/four-star-cut-cone-seed10-missing-1-7.json",
+      "bytes": 546,
+      "sha256": "5b5d6af299342c90348e10f8e0a364f1f0435887b442bc20037142b12ac1db3a",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "constructive/four-star-cut-cone-symmetries.json",
+      "bytes": 5643,
+      "sha256": "bafaf600521eab7063b211ff807b4ae34c9762dba28f65beb2e138a854c827e5",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "constructive/four-star-cut-cone-variant-0.json",
+      "bytes": 7192,
+      "sha256": "8475eeafa7c21f38892b41b43d6e0c01bef7469a78a76cb89f7a8107fed013eb",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "constructive/four-star-cut-cone-variant-1.json",
+      "bytes": 7192,
+      "sha256": "4a0538c26b82cafdc5ce3eb2a7cfac73829f93119a3cb2225a3426c9fd0e20df",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "constructive/four-star-cut-cone-variant-2.json",
+      "bytes": 7768,
+      "sha256": "a36b921344cb8d310ededf9dbed47b4da90f940685843b99cc1630a549af4080",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "constructive/four-star-cut-cone-variant-3.json",
+      "bytes": 6759,
+      "sha256": "ea34b806d748ac4862a58fc1fee02e5689c33820c855ed9dd3ef8e95503c1e18",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "constructive/four-star-cut-cone-variant-4.json",
+      "bytes": 7768,
+      "sha256": "91e250c9e7932563e99b74897458b0d954e0fe8881a0e5cd1683b31fb196312e",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "constructive/four-star-cut-cone-variant-5.json",
+      "bytes": 6903,
+      "sha256": "abd4355d4bb112bb312c4dc27cf551f20eeabe94d4dff32d755a43c94981b3e6",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "constructive/four_star_cut_cones.py",
+      "bytes": 9378,
+      "sha256": "f7d850adde1b5cf4ad97f34ce5f35f56016733e6f7325a63db6a0d87af086bb1",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
       "path": "constructive/induced_subproblems.py",
       "bytes": 2159,
       "sha256": "8e191f3cfdff73103bbb0c0883c92656dd8979bbd637f7296faf2aea7c9c5b0d"
@@ -1762,6 +2278,12 @@
       "sha256": "b47e80e5bea90c4bcc74d11b3fe8db7a6299681ab65806c03e4d981a13e3e9d2"
     },
     {
+      "path": "constructive/small_formula_dp.py",
+      "bytes": 4212,
+      "sha256": "b1b8ee110fa312adadfa8c5b48547cdb2fd097e23eaff4dde0b7858a6a19e883",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
       "path": "f0-audit/review24.json",
       "bytes": 407,
       "sha256": "9abf1cb82c942e4703d143557e27fffe230342a5b618a8158f81a032a5f295fe",
@@ -1904,6 +2426,30 @@
       "captured_utc": "2026-11-25T06:30:25.373703+00:00"
     },
     {
+      "path": "lower-bound/cubic-gate-elimination-dp.log",
+      "bytes": 1309,
+      "sha256": "e41124941b8cf141ffe26dc609f1f5183d5c430c45047d01d2d52f7332abe96a",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "lower-bound/cubic-gate-elimination-probe.log",
+      "bytes": 4982,
+      "sha256": "81f33cd8f38bcb375e15aaea1e82a2bf2f104504b91773ca5b1bbd42f7d13403",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "lower-bound/cubic_gate_elimination_dp.py",
+      "bytes": 3324,
+      "sha256": "6e30a23a575db7beb3786c374c53bbf90ffeb8564b8293f0acc5ec98b9d16461",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "lower-bound/cubic_gate_elimination_probe.py",
+      "bytes": 6130,
+      "sha256": "b6b31972183434807c8a78c36319c0621e36433859048765bb7e7fce5c647b19",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
       "path": "lower-bound/final-accept.log",
       "bytes": 3049,
       "sha256": "d2573cabf9cfb95f3cf0c6dc1e044fb20c69d43554f22a00485112164d6442de",
@@ -1919,6 +2465,12 @@
       "path": "lower-bound/fix_cegis_smoke.py",
       "bytes": 1731,
       "sha256": "9af62e198dbf0aeedeb1e9844d8824f99bc32998b8c3a406c755c90a7878eda9"
+    },
+    {
+      "path": "lower-bound/general-or26-fanout-independent-review.log",
+      "bytes": 563,
+      "sha256": "2faf3412d62f3b00202932fe5dab1b7b7e6a892b9814c01afc2b620f8efba397",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
     },
     {
       "path": "lower-bound/hint-accept.log",
@@ -1991,6 +2543,24 @@
       "captured_utc": "2026-11-25T07:59:53.613898+00:00"
     },
     {
+      "path": "lower-bound/raw-fanout26-independent-review.log",
+      "bytes": 551,
+      "sha256": "203458651038c05d0682834dfa71a619628346ae12292b7011b6d31f6a342400",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "lower-bound/raw-fanout27-independent-review.log",
+      "bytes": 575,
+      "sha256": "7524eea3320ce1735ff8e10d62dab248f12a0686724f61a7069dd29e76de808c",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "lower-bound/review_raw_fanout.py",
+      "bytes": 5247,
+      "sha256": "3d0998c9af7191f3956ec73bfb946e9e5af813c067bcf1bce3983a412233b01e",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
       "path": "lower-bound/smoke26complete.log",
       "bytes": 2811,
       "sha256": "d0b6f7669092100455c82663ca7d6c3dd0cfbd5b90d5e5cd0fba053777381bdd"
@@ -2023,6 +2593,30 @@
       "bytes": 2955,
       "sha256": "cd9805df0275cd637d188f3d752d42dd7d0a5fa199305a6527afd9c614f4b521",
       "captured_utc": "2026-11-25T07:59:53.613898+00:00"
+    },
+    {
+      "path": "sat-review/five-star-review.json",
+      "bytes": 1139,
+      "sha256": "302762a60df61ff96932105abc2ab25ab2e098562d6118cd2fdfbd8b3dbd6661",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "sat-review/five-star-review.log",
+      "bytes": 1139,
+      "sha256": "302762a60df61ff96932105abc2ab25ab2e098562d6118cd2fdfbd8b3dbd6661",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "sat-review/four-star-review.json",
+      "bytes": 3123,
+      "sha256": "1bc43f3ec651de4e22fb1a17edd4d9c87afe788b3b4533b389825536832066ce",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "sat-review/four-star-review.log",
+      "bytes": 3123,
+      "sha256": "1bc43f3ec651de4e22fb1a17edd4d9c87afe788b3b4533b389825536832066ce",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
     },
     {
       "path": "sat-review/full-cache-resource-estimate.json",
@@ -2065,6 +2659,18 @@
       "bytes": 3075,
       "sha256": "f3462acce249d98916b8246dedfcdd2541b0486bcd1e9b423ab7c911f31b4a14",
       "captured_utc": "2026-11-25T07:59:53.613898+00:00"
+    },
+    {
+      "path": "sat-review/review_five_star.py",
+      "bytes": 6744,
+      "sha256": "141678250fadb13e38ef289c26bdbb2d23f2f5c00eca64b258ca16d5289674cf",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
+    },
+    {
+      "path": "sat-review/review_four_star.py",
+      "bytes": 7105,
+      "sha256": "68597cdc074cbf7b5f28ca34b6f809f64788055b2a2b584f00a557750d380b7c",
+      "captured_utc": "2026-11-25T08:22:04.118620+00:00"
     },
     {
       "path": "sat-review/review_matching_cut.py",
@@ -2133,5 +2739,5 @@
       "captured_utc": "2026-11-25T07:59:53.613898+00:00"
     }
   ],
-  "updated_utc": "2026-11-25T08:00:28.775326+00:00"
+  "updated_utc": "2026-11-25T08:23:45.565670+00:00"
 }

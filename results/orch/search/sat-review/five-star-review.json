@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "candidate_variables": 497,
+  "candidate_clauses": 5489,
+  "boundary_rows": 10,
+  "underlying_inputs_checked": 128,
+  "full_inputs_checked": 16384,
+  "cut_identities_checked": 4,
+  "seed_checks": [
+    {
+      "edge": [
+        0,
+        7
+      ],
+      "residual_misses": 4,
+      "full_misses": 47
+    },
+    {
+      "edge": [
+        0,
+        8
+      ],
+      "residual_misses": 5,
+      "full_misses": 47
+    }
+  ],
+  "smokes": {
+    "five-star-cut7-smoke": {
+      "clauses": 6753,
+      "status": "SAT",
+      "underlying_mismatches": 0
+    },
+    "five-star-cut6-seed-smoke": {
+      "clauses": 5507,
+      "status": "UNSAT",
+      "underlying_mismatches": 5
+    }
+  },
+  "source_sha256": {
+    "correlated_family_synthesize.py": "347c9231b4b38c609ca7905e6aa2a23a4cd41083122dd4901f751000403c608c",
+    "decode_correlated_flexible.py": "855b24bedf489453ab073f3760ae44f1def43cc5cc49e53e3f1ba9df9a941335",
+    "run_correlated_flexible.py": "a2a9cbb02fb35a56605d6b89467d1cbb2cf6f272f20945f57c214d04ab5204ed"
+  },
+  "candidate_cnf_sha256": "a7cb2362f168d8bdf4bd8cf284bcb2ec751451650105af90b87f88e2441e1070"
+}
