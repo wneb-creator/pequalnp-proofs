@@ -42,3 +42,5 @@
 - 2026-11-25T04:09:51+00:00: widened 5120 core + two certificate forests passed Lean; small-probe slot released to root bounded-batch test.
 
 - 2026-11-25T04:10:41.688966+00:00: Wider5120 verifier and two certificate families checked and independently reviewed.
+
+- 2026-11-25T04:16:36.164565+00:00: Bounded proof batches checked through valid383 and independently reviewed; optional1678Forest prefix also preserved.

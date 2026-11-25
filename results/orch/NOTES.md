@@ -213,3 +213,5 @@ Frozen v7 independent static review passed: all manifest hashes match; the two i
 ### 2026-11-25T04:09:51+00:00 — widened 5120 verifier replay passed
 
 `Width768Probe.lean` passed Lean, covering the complete generic 5120 checker widened from 91 to 768 sample bits and certificate forests g15/g31 through valid31. New sample positions repeat original row90; 14 full-source sample arrays are adapted by `padSample` where bit90 is set. Opcode data and generated witness declarations remain byte-for-byte unchanged. The earlier literal92 witness state-bound hazard was caught before testing and fixed. Preserved successful component: `results/orch/lemmas/Width768Probe.lean`; full output: `results/orch/width768-probe-build.log`. Full-file certificate replay remains required before adoption.
+
+2026-11-25 04:15 UTC — v7 repaired fastState has passed its former failure point in the full replay. Both real guard exports checkPlain/checkOwnNamespace pass; size1,935,481bytes remains overcap. Independent preservation review confirms exact theorem and checked block hashes. Optional width768 stage yielded v8 at1,913,207bytes; active v7 untouched.

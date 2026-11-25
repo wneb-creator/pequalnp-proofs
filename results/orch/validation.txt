@@ -42,3 +42,6 @@ BinaryCofactorProbe.lean: exit 0, 22.445 s; full normalized lower bound 14 and n
 FastStateCodecProbe.lean: exit 0 in 40.524 s. Root independent review passed: optimized state decoder uses the new cmpNode/cmpOps interface and proves equality to the unchanged semantic stateSet. Full log logs/fast-state-codec-check.log.
 
 Width768Probe.lean: Lean exit 0, full generic core and g15/g31 certificate replay. Root independent review passed: sample row 90 is repeated through rows 91..767; generic bit width and packed-lane stride change consistently, while opcode/witness data remain unchanged. Full log width768-probe-build.log. Remaining widened certificates are not yet replayed.
+
+BoundedBatchLargeProbe.lean: exit 0 in 258.061 s, full replay through valid383. Independent finite_verification review passed: grouped cells cover exactly [0,47), use unchanged witnesses, and compose through the checked generic helper; mixed corner proofs are preserved. Full log logs/bounded-batch-large-build.log.
+UnifiedAllRecords1678Prefix.lean: exit 0, 0 errors; optional Forest/IndexTree representation conversion. Root independent review of the complete 100-line diff passed. Full log unified-all-records-1678-prefix-build.log. This optional variant increases final source size by 1,916 bytes and is not integrated.
