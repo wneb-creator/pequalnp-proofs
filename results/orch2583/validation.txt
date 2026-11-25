@@ -10,7 +10,7 @@ No full-target checker run or proof PR. Conditional component is not a submitted
 Cleanup not attempted; lines before/after unchanged636 and678.
 
 Sub-agents:6 (status review, semantic proof, counterexample search, combinatorial bound, toolchain research, star construction)
-TIMING total=57.03 subagents=6
+TIMING total=60.02 subagents=6
 
 PlaneGeometry.lean:155lines; point regularity, edge count, Hall condition, C4 exclusion, and cover lower bound. Lean exit0; stdout/stderr empty. Independent audit PASS.
 SHA256 ba2df371d6d92b69d37c3fc019e7e594b424e19c33cd6d3d5111397ef85d10b0.
@@ -21,3 +21,10 @@ SHA256 2f43a4b3c1f8491a3c3eae664087a8e67ff83819eb1c04d74d5c80155e1c777f.
 SemanticTripleBlock.lean:75lines; finite two-rectangle core has a star cover within the three-factor leaf budget. This is a set-theoretic subcase, not arbitrary circuit normalization. Lean exit0; stdout/stderr empty. Independent audit PASS.
 SHA256 2c5218282ca1b11e5c9cd65d1c344ead9ac7ff5662b2cfec60bdcccc93d440e8.
 The exact posted full theorem remains unproved. No full-target checker or PR yet.
+
+RectangleCover.lean: C4-free rectangle/union star-cover budgets; one-junk Boolean block shape requires separate semantic extraction. Lean exit0; logs empty; independent audit PASS. SHA25685a6f2c9c12e09c33d6426af3500eff94ddcd031f303b63373f17285d9df8593.
+SingleOrSparse.lean: a false input accepted by a semantic single-OR sibling must contain at leastq+1 other points. Explicit cut and monotonicity assumptions. Lean exit0, logs empty; independent audit PASS. Final comment-only delta hash7904baedb11ec677463900bdcf4382d7ea6bb6c0b31a24f50e5983377b7b4f03.
+SingleOrCertificates.lean: small accepting certificates or support (at mostq points) force the sibling below incidence onp=false. Lean exit0 after final comment correction; empty logs; independent audit PASS. SHA2569ce7830cac626b6c0fd3dcc34ffeac026282f89379c71b5b6dfbee3f891bb765.
+SemanticClauses.lean: semantic extraction for three OR clauses, not arbitrary circuit blocks. Lean exit0; stdout two simp suggestions, stderr empty; independent audit PASS. SHA256b55f36ab59b2c0fd5b97943959bb2fd8005fcad22e709973467508df7de3b9d6.
+CommonFilterGeometry.lean: C4-free filtered-rectangle cardinality and explicit cover budget for two rectangles. Nonempty side assumptions explicit. Lean exit0; stdout harmless warnings, stderr empty; independent audit PASS. SHA256869e6545c8c351987440efe7c42800555eda9cfed5e5107fd82c0b43e3710d53.
+All are partials. General shared-gate normalization and exact target remain unproved.
