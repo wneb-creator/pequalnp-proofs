@@ -5529,3 +5529,342 @@ lemma wire_not_dirty {n : ℕ} {ι : Type*} (G : SimpleGraph (Fin n))
     exact hStar.1 x hx
 
 end PEqualNP.Outside.L_meta_3566.OnePureFrontier
+
+namespace PEqualNP.Outside.L_meta_3566.InputAlias
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge
+
+lemma least_no_earlier_wire_pivotal_cover {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hC : IsLeastAO G C)
+    (j : ℕ) (hj : j < C.size) (r : ℕ) (hr : r < n + j)
+    (hDown : ∀ x : Fin n → Bool, wireVal n C r x = true → gateVal n C j x = true)
+    (hPivot : ∀ a b : Fin n, G.Adj a b → JunkPivotal.pivotal C j a b →
+      wireVal n C r (pairInput a b) = true) : False := by
+  let g : Gate := ⟨GateOp.and, [r, r]⟩
+  let D := SharedRewrite.replace C j g
+  have hj' : j < C.gates.length := hj
+  have hback : ∀ i ∈ g.inputs, i < n + j := by
+    intro i hi
+    have hi' : i = r := by simpa [g] using hi
+    simpa only [hi'] using hr
+  have heval (x : Fin n → Bool) :
+      g.op.eval (g.inputs.map fun i =>
+        (C.wires (List.ofFn x)).getD i false) = wireVal n C r x := by
+    simp only [g, GateOp.eval, List.map_cons, List.map_nil, List.all_cons,
+      List.all_nil, id_eq, Bool.and_true, Bool.and_self, wireVal]
+  obtain ⟨hD, hfun, hsize⟩ := JunkPivotal.correct_of_pivotal_cover_le G C hC.1 hC.2.1
+    j hj' g (Or.inl rfl) rfl hback
+    (by intro a b hab hp; rw [heval]; exact hPivot a b hab hp)
+    (by intro x; rw [heval]; exact Bool.le_iff_imp.mpr (hDown x))
+  have hLeast : IsLeastAO G D := by
+    refine ⟨hD, hfun, ?_⟩
+    intro E hE hEFun
+    rw [hsize]
+    exact hC.2.2 E hE hEFun
+  have hjD : j < D.size := by
+    change j < (SharedRewrite.replace C j g).size
+    omega
+  have hjD' : j < D.gates.length := hjD
+  have hgate : gateAt D j = g := by
+    simp [D, SharedRewrite.replace_gateAt C j g hj' j]
+  have ho : D.output < n + D.size :=
+    least_output_bound_of_gate G D hLeast j hjD
+  apply Absorption.least_no_equivalent n G D hLeast j r hjD hr ho
+  intro x
+  have heq := LeafStep.Pruning.gate_eq D hD j hjD' x
+  simp only [hgate, g, LeafStep.Pruning.isA, LeafStep.Pruning.opv, opnd] at heq
+  change gateVal n D j x = (wireVal n D r x && wireVal n D r x) at heq
+  simpa only [gateVal, wireVal, Bool.and_self] using heq
+
+lemma exists_pivotal_edge_avoiding_wire {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hC : IsLeastAO G C)
+    (j : ℕ) (hj : j < C.size) (r : ℕ) (hr : r < n + j)
+    (hDown : ∀ x : Fin n → Bool, wireVal n C r x = true → gateVal n C j x = true) :
+    ∃ a b : Fin n, G.Adj a b ∧ JunkPivotal.pivotal C j a b ∧
+      wireVal n C r (pairInput a b) = false := by
+  classical
+  by_contra hnone
+  apply least_no_earlier_wire_pivotal_cover G C hC j hj r hr hDown
+  intro a b hab hp
+  apply Bool.eq_true_of_not_eq_false
+  intro hu
+  exact hnone ⟨a, b, hab, hp, hu⟩
+
+end PEqualNP.Outside.L_meta_3566.InputAlias
+
+namespace PEqualNP.Outside.L_meta_3566.InputAlias
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge
+
+lemma or_pivotal_opposite_operands {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hC : IsLeastAO G C)
+    (j : ℕ) (hj : j < C.size) (hOr : (gateAt C j).op = GateOp.or) :
+    ∃ a b c d : Fin n, G.Adj a b ∧ G.Adj c d ∧
+      JunkPivotal.pivotal C j a b ∧ JunkPivotal.pivotal C j c d ∧
+      wireVal n C (opnd C j 0) (pairInput a b) = false ∧
+      wireVal n C (opnd C j 1) (pairInput a b) = true ∧
+      wireVal n C (opnd C j 0) (pairInput c d) = true ∧
+      wireVal n C (opnd C j 1) (pairInput c d) = false := by
+  have hmem (b : Fin 2) : opnd C j b ∈ (gateAt C j).inputs := by
+    have hg : gateAt C j ∈ C.gates :=
+      FalseRestrict.list_getD_mem C.gates j _ hj
+    obtain ⟨r, s, hrs⟩ := List.length_eq_two.mp (hC.1.2.2 _ hg)
+    fin_cases b <;> simp [opnd, hrs]
+  have hback (b : Fin 2) : opnd C j b < n + j :=
+    hC.1.2.1 j hj _ (hmem b)
+  have hgate (x : Fin n → Bool) : gateVal n C j x =
+      (wireVal n C (opnd C j 0) x || wireVal n C (opnd C j 1) x) := by
+    rw [LeafStep.Pruning.gate_eq C hC.1 j hj x, hOr]
+    rfl
+  obtain ⟨a, b, hab, hpab, h0⟩ := exists_pivotal_edge_avoiding_wire G C hC j hj
+    (opnd C j 0) (hback 0) (by intro x hx; rw [hgate x, hx]; rfl)
+  obtain ⟨c, d, hcd, hpcd, h1⟩ := exists_pivotal_edge_avoiding_wire G C hC j hj
+    (opnd C j 1) (hback 1) (by intro x hx; rw [hgate x, hx]; exact Bool.or_true _)
+  have hab1 : wireVal n C (opnd C j 1) (pairInput a b) = true := by
+    have ht := JunkPivotal.pivotal_on G C hC.1 hC.2.1 j hj a b hab hpab
+    rw [hgate, h0] at ht
+    exact ht
+  have hcd0 : wireVal n C (opnd C j 0) (pairInput c d) = true := by
+    have ht := JunkPivotal.pivotal_on G C hC.1 hC.2.1 j hj c d hcd hpcd
+    rw [hgate, h1, Bool.or_false] at ht
+    exact ht
+  exact ⟨a, b, c, d, hab, hcd, hpab, hpcd, h0, hab1, hcd0, h1⟩
+
+lemma or_has_two_pivotal_edges {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hC : IsLeastAO G C)
+    (j : ℕ) (hj : j < C.size) (hOr : (gateAt C j).op = GateOp.or) :
+    ∃ a b c d : Fin n, G.Adj a b ∧ G.Adj c d ∧
+      JunkPivotal.pivotal C j a b ∧ JunkPivotal.pivotal C j c d ∧ s(a, b) ≠ s(c, d) := by
+  obtain ⟨a, b, c, d, hab, hcd, hpab, hpcd, h0, _, hc0, _⟩ :=
+    or_pivotal_opposite_operands G C hC j hj hOr
+  refine ⟨a, b, c, d, hab, hcd, hpab, hpcd, ?_⟩
+  intro heq
+  have hpair : pairInput a b = pairInput c d := by
+    rcases Sym2.eq_iff.mp heq with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩
+    · rfl
+    · funext x
+      simp [pairInput, or_comm]
+  rw [hpair] at h0
+  exact Bool.false_ne_true (h0.symm.trans hc0)
+
+end PEqualNP.Outside.L_meta_3566.InputAlias
+
+namespace PEqualNP.Outside.L_meta_3566.MonoNormalize
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+def input {n : ℕ} (color : Fin n → Bool) (b : Bool) : Fin n → Bool :=
+  fun v => decide (color v = b)
+
+def mass {n : ℕ} (color : Fin n → Bool) (C : Circuit) : ℕ :=
+  (C.wires (List.ofFn (input color false))).count true +
+    (C.wires (List.ofFn (input color true))).count true
+
+def IsMonoJunkLeastAO {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C : Circuit) : Prop :=
+  IsLeastAO G C ∧ (∀ D : Circuit, IsLeastAO G D → mass color C ≤ mass color D) ∧
+    ∀ D : Circuit, IsLeastAO G D → mass color D = mass color C →
+      (junk G C).card ≤ (junk G D).card
+
+def IsMonoJunkWireLeastAO {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C : Circuit) : Prop :=
+  IsMonoJunkLeastAO G color C ∧
+    ∀ D : Circuit, IsLeastAO G D → mass color D = mass color C →
+      (junk G D).card = (junk G C).card → WireMass.mass G C ≤ WireMass.mass G D
+
+lemma exists_mono_junk_least {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C0 : Circuit) (hC0 : IsLeastAO G C0) :
+    ∃ C : Circuit, IsMonoJunkLeastAO G color C := by
+  classical
+  have hm : ∃ k : ℕ, ∃ C : Circuit, IsLeastAO G C ∧ mass color C = k :=
+    ⟨mass color C0, C0, hC0, rfl⟩
+  obtain ⟨C1, hC1, hMass1⟩ := Nat.find_spec hm
+  have hMin1 : ∀ D : Circuit, IsLeastAO G D → mass color C1 ≤ mass color D := by
+    intro D hD
+    rw [hMass1]
+    exact Nat.find_min' hm ⟨D, hD, rfl⟩
+  have hj : ∃ k : ℕ, ∃ C : Circuit, IsLeastAO G C ∧ mass color C = mass color C1 ∧
+      (junk G C).card = k := ⟨(junk G C1).card, C1, hC1, rfl, rfl⟩
+  obtain ⟨C, hC, hMass, hJunk⟩ := Nat.find_spec hj
+  refine ⟨C, hC, ?_, ?_⟩
+  · intro D hD
+    rw [hMass]
+    exact hMin1 D hD
+  · intro D hD hDMass
+    rw [hJunk]
+    exact Nat.find_min' hj ⟨D, hD, hDMass.trans hMass, rfl⟩
+
+lemma exists_mono_junk_wire_least {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C0 : Circuit) (hC0 : IsLeastAO G C0) :
+    ∃ C : Circuit, IsMonoJunkWireLeastAO G color C := by
+  classical
+  obtain ⟨C1, hC1⟩ := exists_mono_junk_least G color C0 hC0
+  have hw : ∃ k : ℕ, ∃ C : Circuit, IsLeastAO G C ∧ mass color C = mass color C1 ∧
+      (junk G C).card = (junk G C1).card ∧ WireMass.mass G C = k :=
+    ⟨WireMass.mass G C1, C1, hC1.1, rfl, rfl, rfl⟩
+  obtain ⟨C, hC, hMass, hJunk, hWire⟩ := Nat.find_spec hw
+  refine ⟨C, ⟨hC, ?_, ?_⟩, ?_⟩
+  · intro D hD
+    rw [hMass]
+    exact hC1.2.1 D hD
+  · intro D hD hDMass
+    rw [hJunk]
+    exact hC1.2.2 D hD (hDMass.trans hMass)
+  · intro D hD hDMass hDJunk
+    rw [hWire]
+    exact Nat.find_min' hw ⟨D, hD, hDMass.trans hMass, hDJunk.trans hJunk, rfl⟩
+
+lemma exists_mono_junk_wire_least_of_edges {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (color : Fin n → Bool) (hE : G.edgeFinset.Nonempty) :
+    ∃ C : Circuit, IsMonoJunkWireLeastAO G color C := by
+  obtain ⟨C, hC⟩ := PEqualNP.Outside.L_meta_3566.exists_least_ao G hE
+  exact exists_mono_junk_wire_least G color C hC
+
+lemma input_false {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hBip : ∀ a b, G.Adj a b → color a ≠ color b)
+    (b : Bool) : graphFun G ∅ (input color b) = false := by
+  apply Bool.eq_false_iff.mpr
+  intro hF
+  have hEdge : ∃ u v : Fin n, G.Adj u v ∧ input color b u = true ∧
+      input color b v = true := by simpa [graphFun] using hF
+  obtain ⟨u, v, huv, hu, hv⟩ := hEdge
+  have huColor : color u = b := of_decide_eq_true hu
+  have hvColor : color v = b := of_decide_eq_true hv
+  exact hBip u v huv (huColor.trans hvColor.symm)
+
+lemma mass_le_of_clean_replace {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hBip : ∀ a b, G.Adj a b → color a ≠ color b)
+    (C : Circuit) (hAO : AndOrOnly C) (j : ℕ) (hj : j < C.gates.length) (g : Gate)
+    (hgback : ∀ i ∈ g.inputs, i < n + j)
+    (hClean : ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (C.wires (List.ofFn x)).getD i false) = true →
+        graphFun G ∅ x = true) :
+    mass color (SharedRewrite.replace C j g) ≤ mass color C := by
+  let D := SharedRewrite.replace C j g
+  have hlen : D.gates.length = C.gates.length := by simp [D, SharedRewrite.replace]
+  have hCount (b : Bool) : (D.wires (List.ofFn (input color b))).count true ≤
+      (C.wires (List.ofFn (input color b))).count true := by
+    apply WireProfile.wire_count_le C D id
+      (by intro k hk; simpa only [id_eq, hlen] using hk)
+      (by intro a ha b hb hab; exact hab)
+    intro k hk hOn
+    have hzero : g.op.eval (g.inputs.map fun i =>
+        (C.wires (List.ofFn (input color b))).getD i false) = false := by
+      apply Bool.eq_false_iff.mpr
+      intro ht
+      have hF := hClean (input color b) ht
+      rw [input_false G color hBip b] at hF
+      exact Bool.false_ne_true hF
+    have hle : gateVal n D k (input color b) ≤ gateVal n C k (input color b) :=
+      SharedRewrite.replace_ge n ⟨C.gates, n + k⟩ j hj g hgback hAO (input color b)
+        (by change g.op.eval (g.inputs.map fun i =>
+              (C.wires (List.ofFn (input color b))).getD i false) ≤ _
+            rw [hzero]
+            exact Bool.false_le _)
+    exact Bool.le_iff_imp.mp hle hOn
+  exact Nat.add_le_add (hCount false) (hCount true)
+
+lemma not_dirty_of_clean_pivotal_gate {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hBip : ∀ a b, G.Adj a b → color a ≠ color b)
+    (C : Circuit) (hC : IsMonoJunkLeastAO G color C)
+    (j : ℕ) (hj : j < C.gates.length) (g : Gate)
+    (hgop : g.op = GateOp.and ∨ g.op = GateOp.or) (hglen : g.inputs.length = 2)
+    (hgback : ∀ i ∈ g.inputs, i < n + j)
+    (hPos : ∀ a b : Fin n, G.Adj a b → JunkPivotal.pivotal C j a b →
+      g.op.eval (g.inputs.map fun i =>
+        (C.wires (List.ofFn (pairInput a b))).getD i false) = true)
+    (hClean : ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (C.wires (List.ofFn x)).getD i false) = true →
+        graphFun G ∅ x = true) : j ∉ junk G C := by
+  intro hDirty
+  obtain ⟨hD, hFun, hSize⟩ := JunkPivotal.correct_of_pivotal_cover G C hC.1.1 hC.1.2.1
+    j hj g hgop hglen hgback hPos hClean
+  have hLeast : IsLeastAO G (SharedRewrite.replace C j g) :=
+    ⟨hD, hFun, fun D hD hFunD => hSize.trans_le (hC.1.2.2 D hD hFunD)⟩
+  have hNewClean : BelowF G (SharedRewrite.replace C j g) j := by
+    intro x hx
+    rw [SharedRewrite.replace_gateVal n C j hj g hgback x] at hx
+    exact hClean x hx
+  have hMass := mass_le_of_clean_replace G color hBip C hC.1.1.1 j hj g hgback hClean
+  have hMassEq : mass color (SharedRewrite.replace C j g) = mass color C :=
+    Nat.le_antisymm hMass (hC.2.1 _ hLeast)
+  have hStrict := JunkNormalize.junk_card_lt_of_clean_replace_any_op G C hC.1.1.1
+    j hj g hgback hClean hDirty hNewClean
+  have hMin := hC.2.2 _ hLeast hMassEq
+  omega
+
+lemma one_pivotal_edge_not_dirty {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hBip : ∀ a b, G.Adj a b → color a ≠ color b)
+    (C : Circuit) (hC : IsMonoJunkLeastAO G color C)
+    (j : ℕ) (hj : j < C.gates.length) (w u : Fin n) (hwu : G.Adj w u)
+    (hKeep : ∀ a b : Fin n, G.Adj a b → JunkPivotal.pivotal C j a b →
+      (pairInput a b w && pairInput a b u) = true) : j ∉ junk G C := by
+  have hBack : ∀ i ∈ [w.val, u.val], i < n + j := by
+    intro i hi
+    simp at hi
+    rcases hi with rfl | rfl <;> omega
+  have hEval : ∀ x : Fin n → Bool,
+      GateOp.and.eval ([w.val, u.val].map fun i =>
+        (C.wires (List.ofFn x)).getD i false) = (x w && x u) := by
+    intro x
+    simp only [GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil,
+      id_eq, Bool.and_true]
+    rw [SharedRewrite.input_val, SharedRewrite.input_val]
+  apply not_dirty_of_clean_pivotal_gate G color hBip C hC j hj
+    ⟨GateOp.and, [w.val, u.val]⟩ (Or.inl rfl) rfl hBack
+  · intro a b hab hp
+    rw [hEval]
+    exact hKeep a b hab hp
+  · intro x hx
+    rw [hEval] at hx
+    have hx' : x w = true ∧ x u = true := by simpa using hx
+    simp only [graphFun, Finset.notMem_empty, false_and, exists_false, decide_false,
+      Bool.false_or, decide_eq_true_eq]
+    exact ⟨w, u, hwu, hx'.1, hx'.2⟩
+
+lemma dirty_has_two_pivotal_edges {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hBip : ∀ a b, G.Adj a b → color a ≠ color b)
+    (hE : ∃ w u : Fin n, G.Adj w u)
+    (C : Circuit) (hC : IsMonoJunkLeastAO G color C)
+    (j : ℕ) (hDirty : j ∈ junk G C) :
+    ∃ a b c d : Fin n, G.Adj a b ∧ G.Adj c d ∧
+      JunkPivotal.pivotal C j a b ∧ JunkPivotal.pivotal C j c d ∧ s(a, b) ≠ s(c, d) := by
+  classical
+  have hj := ((JunkNormalize.mem_junk_iff G C j).mp hDirty).1
+  by_contra hTwo
+  by_cases hPivot : ∃ w u : Fin n, G.Adj w u ∧ JunkPivotal.pivotal C j w u
+  · obtain ⟨w, u, hwu, hOn⟩ := hPivot
+    apply one_pivotal_edge_not_dirty G color hBip C hC j hj w u hwu ?_ hDirty
+    intro a b hab hp
+    have heq : s(a, b) = s(w, u) := by
+      by_contra hne
+      exact hTwo ⟨w, u, a, b, hwu, hab, hOn, hp, fun he => hne he.symm⟩
+    have hw : w ∈ s(a, b) := by rw [heq]; simp
+    have hu : u ∈ s(a, b) := by rw [heq]; simp
+    have hw' : pairInput a b w = true := by simpa [pairInput] using hw
+    have hu' : pairInput a b u = true := by simpa [pairInput] using hu
+    simp [hw', hu']
+  · obtain ⟨w, u, hwu⟩ := hE
+    apply one_pivotal_edge_not_dirty G color hBip C hC j hj w u hwu ?_ hDirty
+    intro a b hab hp
+    exact False.elim (hPivot ⟨a, b, hab, hp⟩)
+
+lemma exists_normalized_two_pivotal {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (color : Fin n → Bool)
+    (hBip : ∀ a b, G.Adj a b → color a ≠ color b) (hE : G.edgeFinset.Nonempty) :
+    ∃ C : Circuit, IsMonoJunkWireLeastAO G color C ∧
+      ∀ j ∈ junk G C, ∃ a b c d : Fin n, G.Adj a b ∧ G.Adj c d ∧
+        JunkPivotal.pivotal C j a b ∧ JunkPivotal.pivotal C j c d ∧ s(a, b) ≠ s(c, d) := by
+  obtain ⟨C, hC⟩ := exists_mono_junk_wire_least_of_edges G color hE
+  have hEdges : ∃ a b : Fin n, G.Adj a b := by
+    obtain ⟨e, he⟩ := hE
+    revert he
+    refine Sym2.ind (fun a b => ?_) e
+    intro he
+    exact ⟨a, b, by simpa using he⟩
+  exact ⟨C, hC, fun j hj => dirty_has_two_pivotal_edges G color hBip hEdges C hC.1 j hj⟩
+
+end PEqualNP.Outside.L_meta_3566.MonoNormalize
