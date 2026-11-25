@@ -1,0 +1,9 @@
+'PEqualNP.Outside.L_meta_2089.CofactorBridge.select_wire_linear_factors' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2089.CofactorBridge.select_linear_factors' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2089.CofactorBridge.rejected_cut_linear_cofactor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

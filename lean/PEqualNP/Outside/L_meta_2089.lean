@@ -1741,3 +1741,262 @@ lemma plane_linear_outputs_bound (C : Circuit) (hm : Monotone2 C)
   · exact hneg
 
 end PEqualNP.Outside.L_meta_2089.LinearBound
+
+namespace PEqualNP.Outside.L_meta_2089.CofactorBridge
+
+def onePoint (p : Fin 13) (y : Fin 13 → Bool) (i : Fin 26) : Bool :=
+  decide (i = Fin.castAdd 13 p ∨ ∃ l, i = Fin.natAdd 13 l ∧ y l = true)
+
+lemma pair_le_onePoint (p l : Fin 13) (y : Fin 13 → Bool) (hy : y l = true) :
+    ∀ i, pairInput p l i = true → onePoint p y i = true := by
+  intro i hi
+  simp only [pairInput, decide_eq_true_eq] at hi
+  simp only [onePoint, decide_eq_true_eq]
+  rcases hi with hi | hi
+  · exact Or.inl hi
+  · exact Or.inr ⟨l, hi, hy⟩
+
+lemma onePoint_le_cut (p : Fin 13) (y : Fin 13 → Bool)
+    (hy : ¬∃ l, incidence p l ∧ y l = true) :
+    ∀ i, onePoint p y i = true → cutInput {p} i = true := by
+  intro i hi
+  simp only [onePoint, decide_eq_true_eq] at hi
+  simp only [cutInput, decide_eq_true_eq]
+  rcases hi with hi | ⟨l, hi, hyl⟩
+  · exact Or.inl ⟨p, Finset.mem_singleton_self p, hi⟩
+  · refine Or.inr ⟨l, hi, ?_⟩
+    intro q hq
+    obtain rfl := Finset.mem_singleton.mp hq
+    exact fun hpl => hy ⟨l, hpl, hyl⟩
+
+lemma rejected_cut_linear_cofactor (f : (Fin 26 → Bool) → Bool)
+    (hmono : ∀ a b, (∀ i, a i = true → b i = true) → f a = true → f b = true)
+    (p : Fin 13)
+    (hpositive : ∀ l, incidence p l → f (pairInput p l) = true)
+    (hnegative : f (cutInput {p}) = false) (y : Fin 13 → Bool) :
+    f (onePoint p y) = decide (∃ l, (∃ d ∈ delta, p = l + d) ∧ y l = true) := by
+  classical
+  by_cases h : ∃ l, (∃ d ∈ delta, p = l + d) ∧ y l = true
+  · rw [decide_eq_true h]
+    obtain ⟨l, hpl, hl⟩ := h
+    exact hmono _ _ (pair_le_onePoint p l y hl) (hpositive l hpl)
+  · rw [decide_eq_false h]
+    apply Bool.eq_false_iff.mpr
+    intro hf
+    have hc := hmono _ _ (onePoint_le_cut p y h) hf
+    exact Bool.noConfusion (hc.symm.trans hnegative)
+
+lemma select_linear_factors (f g : (Fin 26 → Bool) → Bool)
+    (hfmono : ∀ a b, (∀ i, a i = true → b i = true) → f a = true → f b = true)
+    (hgmono : ∀ a b, (∀ i, a i = true → b i = true) → g a = true → g b = true)
+    (hpositive : ∀ p l, incidence p l →
+      (f (pairInput p l) && g (pairInput p l)) = true)
+    (hnegative : ∀ A, isClosed A → isDegenerate A →
+      (f (cutInput A) && g (cutInput A)) = false) :
+    ∃ choose : Fin 13 → Bool, ∀ p y,
+      (if choose p then f else g) (onePoint p y) =
+        decide (∃ l, (∃ d ∈ delta, p = l + d) ∧ y l = true) := by
+  classical
+  refine ⟨fun p => decide (f (cutInput {p}) = false), ?_⟩
+  intro p y
+  have hn := hnegative {p} (singleton_maximal p) (singleton_degenerate p)
+  by_cases hf : f (cutInput {p}) = false
+  · simp only [decide_eq_true hf, ↓reduceIte]
+    apply rejected_cut_linear_cofactor f hfmono p _ hf y
+    intro l hl
+    have hp : f (pairInput p l) = true ∧ g (pairInput p l) = true := by
+      simpa using hpositive p l hl
+    exact hp.1
+  · have hg : g (cutInput {p}) = false := by
+      cases hff : f (cutInput {p}) with
+      | false => exact False.elim (hf hff)
+      | true => simpa [hff] using hn
+    simp only [decide_eq_false hf, Bool.false_eq_true, ↓reduceIte]
+    apply rejected_cut_linear_cofactor g hgmono p _ hg y
+    intro l hl
+    have hp : f (pairInput p l) = true ∧ g (pairInput p l) = true := by
+      simpa using hpositive p l hl
+    exact hp.2
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity Structural
+
+lemma select_wire_linear_factors (C : Circuit) (hm : Monotone2 C) (a b : ℕ)
+    (hpositive : ∀ p l, incidence p l →
+      (value C (pairInput p l) a && value C (pairInput p l) b) = true)
+    (hnegative : ∀ A, isClosed A → isDegenerate A →
+      (value C (cutInput A) a && value C (cutInput A) b) = false) :
+    ∃ choose : Fin 13 → Bool, ∀ p y,
+      value C (onePoint p y) (if choose p then a else b) =
+        decide (∃ l, (∃ d ∈ delta, p = l + d) ∧ y l = true) := by
+  have monotone_wire (w : ℕ) : ∀ x y : Fin 26 → Bool,
+      (∀ i, x i = true → y i = true) →
+        value C x w = true → value C y w = true := by
+    intro x y hxy hx
+    have hh : value C x w ≤ value C y w := by
+      apply LinearBound.wire_monotone C hm w
+      intro i
+      cases he : x i with
+      | false => simp
+      | true => simp [hxy i he]
+    exact Bool.eq_true_of_true_le (hx ▸ hh)
+  obtain ⟨choose, hc⟩ := select_linear_factors (fun x => value C x a)
+    (fun x => value C x b) (monotone_wire a) (monotone_wire b) hpositive hnegative
+  refine ⟨choose, ?_⟩
+  intro p y
+  cases hp : choose p <;> simpa [hp] using hc p y
+
+end PEqualNP.Outside.L_meta_2089.CofactorBridge
+
+namespace PEqualNP.Outside.L_meta_2089.CofactorQuota
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open Structural LinearBound
+
+def testSupport {n m : ℕ} (C : Circuit) (Y : Fin m → Fin n → Bool) (w : ℕ) : Finset (Fin m) :=
+  Finset.univ.filter fun j => value C (Y j) w = true
+
+lemma test_quota {n m : ℕ} (C : Circuit) (hm : Monotone2 C)
+    (Y : Fin m → Fin n → Bool) (x : Fin n → Bool)
+    (hraw : ∀ i : Fin n, x i = false →
+      (Finset.univ.filter fun j => Y j i = true).card ≤ 1)
+    (a : ℕ) (hoff : value C x a = false) :
+    ∃ I : Finset ℕ, (testSupport C Y a).card ≤ I.card + 1 ∧
+      ∀ i ∈ I, n ≤ i ∧ i < n + C.size ∧ i ≤ a ∧
+        (gateAt C (i - n)).op = GateOp.or ∧ value C x i = false ∧
+        2 ≤ (testSupport C Y i).card := by
+  classical
+  let G := (Finset.Ico n (n + C.size)).filter
+    (fun w => value C x w = false ∧ 2 ≤ (testSupport C Y w).card)
+  let O := G.filter fun w => (gateAt C (w - n)).op = GateOp.or
+  let V : Option (Fin m) → ℕ → Bool := fun z w => value C (z.elim x Y) w
+  have ginfo (w : ℕ) (hw : w ∈ G) : n ≤ w ∧ w < n + C.size ∧
+      value C x w = false ∧ 2 ≤ (testSupport C Y w).card := by
+    simpa only [G, Finset.mem_filter, Finset.mem_Ico, and_assoc] using hw
+  have step (w : ℕ) (hw : w ∈ G) : ∃ P : Finset ℕ,
+      P.card ≤ 1 + (if w ∈ O then 1 else 0) ∧
+      (∀ r ∈ P, r < w) ∧ (∀ r ∈ P, V none r = false) ∧
+      ∀ y, (∀ r ∈ P, V y r = false) → V y w = false := by
+    obtain ⟨hn, hlt, hx, _⟩ := ginfo w hw
+    obtain ⟨P, hc, hb, hp, ht⟩ := gate_false_step C hm x w hn hlt hx
+    have he : orCharge (gateAt C (w - n)).op = (if w ∈ O then 1 else 0) := by
+      cases h : (gateAt C (w - n)).op <;> simp [orCharge, O, hw, h]
+    exact ⟨P, by simpa only [he] using hc, hb, hp, fun y hy => ht (y.elim x Y) hy⟩
+  obtain ⟨B, hd, hc, hBx, hp⟩ := weighted_cut V none G O step (a + 1) {a}
+    (by intro w hw _; obtain rfl := Finset.mem_singleton.mp hw; omega)
+    (by intro w hw; obtain rfl := Finset.mem_singleton.mp hw; exact hoff)
+  have hsmall : ∀ w ∈ B, (testSupport C Y w).card ≤ 1 := by
+    intro w hw
+    by_cases hn : w < n
+    · let i : Fin n := ⟨w, hn⟩
+      have hx : x i = false := by
+        rw [← input_value C x i]
+        exact hBx w hw
+      have he : testSupport C Y w = Finset.univ.filter fun j => Y j i = true := by
+        ext j
+        simp only [testSupport, Finset.mem_filter, Finset.mem_univ, true_and]
+        exact Iff.of_eq (congrArg (· = true) (input_value C (Y j) i))
+      rw [he]
+      exact hraw i hx
+    · by_cases htotal : w < n + C.size
+      · by_contra hlarge
+        have hg : w ∈ G := Finset.mem_filter.mpr
+          ⟨Finset.mem_Ico.mpr ⟨by omega, htotal⟩, hBx w hw, by omega⟩
+        exact Finset.disjoint_left.mp hd hw hg
+      · have he : testSupport C Y w = ∅ := by
+          ext j
+          simp [testSupport, missing_value C (Y j) w (by omega)]
+        simp [he]
+  have hsub : testSupport C Y a ⊆ B.biUnion (testSupport C Y) := by
+    intro j hj
+    by_contra hn
+    have hout : value C (Y j) a = false := by
+      apply hp (some j) ?_ a (by simp)
+      intro w hw
+      change value C (Y j) w = false
+      cases hv : value C (Y j) w with
+      | false => rfl
+      | true =>
+        exact (hn (Finset.mem_biUnion.mpr ⟨w, hw,
+          Finset.mem_filter.mpr ⟨Finset.mem_univ _, hv⟩⟩)).elim
+    exact Bool.noConfusion ((Finset.mem_filter.mp hj).2.symm.trans hout)
+  have hsize : (testSupport C Y a).card ≤ B.card := by
+    calc
+      (testSupport C Y a).card ≤ (B.biUnion (testSupport C Y)).card := Finset.card_le_card hsub
+      _ ≤ ∑ w ∈ B, (testSupport C Y w).card := Finset.card_biUnion_le
+      _ ≤ ∑ _w ∈ B, 1 := Finset.sum_le_sum hsmall
+      _ = B.card := by simp
+  let I := O.filter (· < a + 1)
+  refine ⟨I, ?_, ?_⟩
+  · have hb : B.card ≤ I.card + 1 := by
+      simpa only [Finset.card_singleton, I, Nat.add_comm] using hc
+    exact hsize.trans hb
+  · intro i hi
+    obtain ⟨hO, hia⟩ := Finset.mem_filter.mp hi
+    obtain ⟨hG, hop⟩ := Finset.mem_filter.mp hO
+    obtain ⟨hn, hlt, hx, hs⟩ := ginfo i hG
+    exact ⟨hn, hlt, by omega, hop, hx, hs⟩
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 2000000 in
+lemma point_raw_support : ∀ (p : Fin 13) (i : Fin 26), cutInput {p} i = false →
+    (Finset.univ.filter fun l : Fin 13 => pairInput p l i = true).card ≤ 1 := by
+  unfold cutInput pairInput delta
+  decide +kernel
+
+lemma point_cofactor_quota (C : Circuit) (hm : Monotone2 C) (p : Fin 13) (a : ℕ)
+    (hpos : ∀ l, incidence p l → value C (pairInput p l) a = true)
+    (hneg : value C (cutInput {p}) a = false) :
+    ∃ I : Finset ℕ, 3 ≤ I.card ∧
+      ∀ i ∈ I, 26 ≤ i ∧ i < 26 + C.size ∧ i ≤ a ∧
+        (gateAt C (i - 26)).op = GateOp.or ∧ value C (cutInput {p}) i = false ∧
+        2 ≤ (testSupport C (pairInput p) i).card := by
+  obtain ⟨I, hc, hI⟩ := test_quota C hm (pairInput p) (cutInput {p}) (point_raw_support p) a hneg
+  have hs : planeSupport p ⊆ testSupport C (pairInput p) a := by
+    intro l hl
+    refine Finset.mem_filter.mpr ⟨Finset.mem_univ _, hpos l ?_⟩
+    exact (Finset.mem_filter.mp hl).2
+  have hn := Finset.card_le_card hs
+  have hg := plane_support_properties.1 p
+  exact ⟨I, by omega, hI⟩
+
+
+lemma joint_point_certificates (C : Circuit) (hm : Monotone2 C) (a b : ℕ)
+    (hpositive : ∀ p l, incidence p l →
+      (value C (pairInput p l) a && value C (pairInput p l) b) = true)
+    (hnegative : ∀ A, isClosed A → isDegenerate A →
+      (value C (cutInput A) a && value C (cutInput A) b) = false) :
+    ∀ p : Fin 13, ∃ I : Finset ℕ, 3 ≤ I.card ∧
+      ∀ i ∈ I, 26 ≤ i ∧ i < 26 + C.size ∧ i ≤ max a b ∧
+        (gateAt C (i - 26)).op = GateOp.or ∧ value C (cutInput {p}) i = false ∧
+        2 ≤ (testSupport C (pairInput p) i).card := by
+  intro p
+  have hn : value C (cutInput {p}) a = false ∨ value C (cutInput {p}) b = false := by
+    have h := hnegative {p} (singleton_maximal p) (singleton_degenerate p)
+    cases ha : value C (cutInput {p}) a with
+    | false => exact Or.inl rfl
+    | true => exact Or.inr (by simpa [ha] using h)
+  have run (w : ℕ) (hw : w ≤ max a b)
+      (hp : ∀ l, incidence p l → value C (pairInput p l) w = true)
+      (hn : value C (cutInput {p}) w = false) :
+      ∃ I : Finset ℕ, 3 ≤ I.card ∧
+        ∀ i ∈ I, 26 ≤ i ∧ i < 26 + C.size ∧ i ≤ max a b ∧
+          (gateAt C (i - 26)).op = GateOp.or ∧ value C (cutInput {p}) i = false ∧
+          2 ≤ (testSupport C (pairInput p) i).card := by
+    obtain ⟨I, hc, hI⟩ := point_cofactor_quota C hm p w hp hn
+    refine ⟨I, hc, ?_⟩
+    intro i hi
+    obtain ⟨hl, hu, hw', hop, hf, hs⟩ := hI i hi
+    exact ⟨hl, hu, hw'.trans hw, hop, hf, hs⟩
+  rcases hn with ha | hb
+  · apply run a (le_max_left a b) _ ha
+    intro l hl
+    have hh : value C (pairInput p l) a = true ∧ value C (pairInput p l) b = true := by
+      simpa using hpositive p l hl
+    exact hh.1
+  · apply run b (le_max_right a b) _ hb
+    intro l hl
+    have hh : value C (pairInput p l) a = true ∧ value C (pairInput p l) b = true := by
+      simpa using hpositive p l hl
+    exact hh.2
+
+end PEqualNP.Outside.L_meta_2089.CofactorQuota

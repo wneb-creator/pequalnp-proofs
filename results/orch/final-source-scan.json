@@ -1,0 +1,27 @@
+{
+  "lines": 2002,
+  "bytes": 87812,
+  "regular": true,
+  "executable": false,
+  "imports": [
+    "import Mathlib",
+    "import PEqualNP.Defs"
+  ],
+  "forbidden_matches": {
+    "_root_": false,
+    "\"": false,
+    "\\bsorry\\b": false,
+    "\\bnative_decide\\b": false,
+    "^axiom ": false,
+    "^local instance": false,
+    "^instance ": false,
+    "^#": false
+  },
+  "attributes": [],
+  "options": [
+    "maxHeartbeats",
+    "maxRecDepth",
+    "synthInstance.maxSize"
+  ],
+  "target_theorem_present": false
+}
