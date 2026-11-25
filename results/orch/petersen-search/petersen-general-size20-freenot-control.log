@@ -1,0 +1,12 @@
+2026-11-25T16:38:53.227655+00:00 GENERAL CEGIS 20 free not paid_NOT_budget 5 seedpatterns 38
+ITERATION 1 patterns 38 RESULT sat seconds 0.122
+VERIFIED_FULL_TRUTH_TABLE {"inputs": 11, "free_unary": "not", "gates": [["or", 1, 5], ["or", 2, 4], ["or", 2, 5], ["or", 2, 6], ["or", 4, 6], ["or", 4, 11], ["or", 5, 6], ["or", 8, 12], ["or", 9, 13], ["and", 0, 16], ["and", 1, 14], ["or", 20, 21], ["and", 3, 18], ["or", 22, 23], ["and", 7, 19], ["or", 24, 25], ["and", 8, 17], ["or", 26, 27], ["and", 9, 15], ["or", 28, 29]], "output": 30, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0], [0, 5], [1, 6], [2, 7], [3, 8], [4, 9], [5, 7], [7, 9], [9, 6], [6, 8], [8, 5]]}
+TOTAL_SECONDS 0.306
+(:max-memory          21.95
+ :memory              20.92
+ :num-allocs          2316622
+ :rlimit-count        206422
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 820
+ :solve-eqs-steps     820
+ :time                0.12)

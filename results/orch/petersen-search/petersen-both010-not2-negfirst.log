@@ -1,0 +1,32 @@
+2026-11-25T16:45:06.816438+00:00 GENERAL CEGIS 18 free not paid_NOT_budget 2 seedpatterns 108
+ITERATION 1 patterns 108 RESULT unknown seconds 180.135
+REASON timeout
+TOTAL_SECONDS 180.609
+(:added-eqs           5663548
+ :binary-propagations 138501558
+ :bv-bit2core         704946
+ :bv-dynamic-diseqs   3043840
+ :bv-dynamic-eqs      332
+ :bv->core-eq         123566
+ :conflicts           255952
+ :decisions           1659364
+ :del-clause          3451568
+ :max-memory          97.64
+ :memory              63.52
+ :minimized-lits      1605514
+ :mk-bool-var         359814
+ :mk-clause           3835524
+ :mk-clause-binary    184888
+ :num-allocs          608413180
+ :num-checks          2
+ :pb-conflicts        78
+ :pb-predicates       570
+ :pb-propagations     123210
+ :pb-resolves         72
+ :propagations        571296900
+ :restarts            628
+ :rlimit-count        299535086
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 1944
+ :solve-eqs-steps     159300
+ :time                180.13)

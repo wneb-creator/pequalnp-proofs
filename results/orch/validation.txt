@@ -64,3 +64,7 @@ TIMING total=86.4 subagents=6
 
 PetersenkernelSATbridge2598lines compiled and independently approvedbystatus_review; SHA256a485c32e2e51e9bdd8999f0195a0fa6d0b31d2356a9e8a40e18b2284e02841c3. ReusesprojectLibrary/LRAT checkerandnormalization copiedunderownnamespace; exactcorrelatedfreeNOTrowsverifiedarithmetically. BothbridgesrequireUNSATasexplicitpremise. NoUNSATcertificateorfullproof claimed.
 TIMING total=88.7 subagents=6
+
+2026-11-25T16:57:15.216025+00:00 PARTIAL PRESERVATION ONLY. semantic-flip-checked.lean: 261 lines, compiled independently by ledger_proof (exit0), exact unique-NOT flip result. petersen-nonnot-combined.lean: 4726 lines, full Lean build exit0; ledger independently verified exact renamed accepted L6581 prefix and previously approved prepend suffix. Forbidden syntax scan clean. Posted L-meta-1884 theorem remains absent, so the target local checker has not passed. Search manifest70 entries and all compressed SMT payloads independently hash-verified by root; all exclusions remain UNKNOWN, positive controls full-truth checked.
+Sub-agents: six agents, reused across the old and current lease.
+TIMING total=94.6 subagents=6

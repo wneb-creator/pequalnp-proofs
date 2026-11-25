@@ -1,0 +1,37 @@
+2026-11-25T16:37:11.993794+00:00 PETERSEN 18 AO gates, freeNOTx0 andfalse patterns 38 mode general
+RESULT unknown seconds 180.02
+REASON timeout
+(:max-memory              84.71
+ :memory                  21.71
+ :num-allocs              13672193158.00
+ :rlimit-count            542217962
+ :sat-ate                 7026
+ :sat-backjumps           766897
+ :sat-backtracks          40
+ :sat-bce                 86
+ :sat-conflicts           766937
+ :sat-decisions           1554599
+ :sat-del-clause          813965
+ :sat-elim-bool-vars-res  12839
+ :sat-elim-clauses        1476
+ :sat-elim-literals       249830
+ :sat-gc-clause           694188
+ :sat-minimized-lits      21555280
+ :sat-mk-clause-2ary      44073
+ :sat-mk-clause-3ary      21055
+ :sat-mk-clause-nary      898330
+ :sat-mk-var              22985
+ :sat-probing-assigned    27
+ :sat-propagations-2ary   106939080
+ :sat-propagations-nary   458359727
+ :sat-restarts            66353
+ :sat-scc-elim-binary     157
+ :sat-scc-elim-vars       874
+ :sat-subs-resolution     41264
+ :sat-subs-resolution-dyn 862338
+ :sat-subsumed            13933
+ :sat-tr                  114
+ :sat-units               75
+ :solve-eqs-elim-vars     28
+ :solve-eqs-steps         3605
+ :time                    180.02)

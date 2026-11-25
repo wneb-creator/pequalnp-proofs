@@ -1,0 +1,3 @@
+petersen-both010-rawfirst-control23 gates 23 raw_readers [(18, 'or')] aux_readers [(20, 'and')] FULL_TRUTH_TABLE_VERIFIED
+petersen-both010-negfirst-control23 gates 23 raw_readers [(21, 'or')] aux_readers [(19, 'and')] FULL_TRUTH_TABLE_VERIFIED
+petersen-only10-control21 gates 21 raw_readers [] aux_readers [(14, 'not')] FULL_TRUTH_TABLE_VERIFIED

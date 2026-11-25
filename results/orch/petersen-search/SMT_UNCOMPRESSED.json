@@ -1,0 +1,54 @@
+{
+  "petersen-ao-size18-general.smt2": {
+    "bytes": 53313,
+    "sha256": "0fea4fe9d458738c0f6429b85cf670fdd8f6a387e6b1ce25b50bb51fed99aed7"
+  },
+  "petersen-ao-size19-general.smt2": {
+    "bytes": 57845,
+    "sha256": "355481b7f62a855be71126e4b47759d208772c8c2846b14e0405124860cff8b2"
+  },
+  "petersen-ao-size20-canonical.smt2": {
+    "bytes": 64660,
+    "sha256": "11333c248c117a3e562a1fe787d60b98d8dbe7febf67952a8215f6d3a9e9010f"
+  },
+  "petersen-both010-not2-negfirst-size23.smt2": {
+    "bytes": 7310716,
+    "sha256": "7be6caeff885b0513fbe9b783b56fbda1d0852351b4c582c81ab6f3eb1be6ad6"
+  },
+  "petersen-both010-not2-negfirst.smt2": {
+    "bytes": 5033362,
+    "sha256": "6bcd4670193050c26ffeb5a1706cde715ae7fab9b532399e5d793861214b44b0"
+  },
+  "petersen-both010-not2-rawfirst-size23.smt2": {
+    "bytes": 7311322,
+    "sha256": "9baced678d5934a7d628fceb99b6011deafbd47e6760bad0c7bc4a06a2fc755c"
+  },
+  "petersen-both010-not2-rawfirst.smt2": {
+    "bytes": 5033632,
+    "sha256": "02881c912053e3ef1c5f481794d349705add7ddd79c65cbed6c01f9bb83550a1"
+  },
+  "petersen-general-readers-size18-freenot.smt2": {
+    "bytes": 1771702,
+    "sha256": "51bde3c5caf99bd74d520da13cf83321db27c74da6256c390f8a707f1bf4af58"
+  },
+  "petersen-general-size18-freenot.smt2": {
+    "bytes": 1768873,
+    "sha256": "c8fc48bec90ba3233721464e1d3070a96c597f742a0102e41a2a991b67e03ea4"
+  },
+  "petersen-general-size20-freenot.smt2": {
+    "bytes": 2069949,
+    "sha256": "3e1992a9f530849f7b72016ac474fa8d390d3df7623fd917782ffe1317181b78"
+  },
+  "petersen-only10-not2-size18.smt2": {
+    "bytes": 5072717,
+    "sha256": "ef1c3af9eadabaa5aaa514cbbb8971ad0b72eafbe01eb52cd131cd6c932f2862"
+  },
+  "petersen-only10-not2-size21.smt2": {
+    "bytes": 6403248,
+    "sha256": "26cbb917e501f542150a988578370bfa1b1c257daa1f10d412a4016cb587936b"
+  },
+  "petersen-prefix9-completion9-freenot.smt2": {
+    "bytes": 8339543,
+    "sha256": "66dbbe857ba36483b317b104b716de358712acbadccd3fa71c36824668091780"
+  }
+}
