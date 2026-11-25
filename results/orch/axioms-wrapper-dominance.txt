@@ -1,0 +1,7 @@
+'PEqualNP.Outside.L_meta_2962.AbsorbWrapper.wrapped_maximalCores' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2962.AbsorbWrapper.wrapped_coneSet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2962_aux.WrapperCone.maximalCores_eq_singleton_of_core_dominance' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
