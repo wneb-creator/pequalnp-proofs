@@ -1,0 +1,396 @@
+[
+  {
+    "kind": "path",
+    "n": 3,
+    "edges": 2,
+    "cover": 1,
+    "minimal_covers": [
+      2,
+      1
+    ],
+    "CNF_gates": 2,
+    "star_gates": 2,
+    "overhead": 0,
+    "junk_chain_length": 0
+  },
+  {
+    "kind": "star",
+    "n": 3,
+    "edges": 2,
+    "cover": 1,
+    "minimal_covers": [
+      2,
+      1
+    ],
+    "CNF_gates": 2,
+    "star_gates": 2,
+    "overhead": 0,
+    "junk_chain_length": 0
+  },
+  {
+    "kind": "path",
+    "n": 4,
+    "edges": 3,
+    "cover": 2,
+    "minimal_covers": [
+      2,
+      2,
+      2
+    ],
+    "CNF_gates": 5,
+    "star_gates": 4,
+    "overhead": 1,
+    "junk_chain_length": 1
+  },
+  {
+    "kind": "star",
+    "n": 4,
+    "edges": 3,
+    "cover": 1,
+    "minimal_covers": [
+      3,
+      1
+    ],
+    "CNF_gates": 3,
+    "star_gates": 3,
+    "overhead": 0,
+    "junk_chain_length": 0
+  },
+  {
+    "kind": "path",
+    "n": 5,
+    "edges": 4,
+    "cover": 2,
+    "minimal_covers": [
+      3,
+      3,
+      3,
+      2
+    ],
+    "CNF_gates": 10,
+    "star_gates": 5,
+    "overhead": 5,
+    "junk_chain_length": 2
+  },
+  {
+    "kind": "cycle",
+    "n": 5,
+    "edges": 5,
+    "cover": 3,
+    "minimal_covers": [
+      3,
+      3,
+      3,
+      3,
+      3
+    ],
+    "CNF_gates": 14,
+    "star_gates": 7,
+    "overhead": 7,
+    "junk_chain_length": 3
+  },
+  {
+    "kind": "star",
+    "n": 5,
+    "edges": 4,
+    "cover": 1,
+    "minimal_covers": [
+      4,
+      1
+    ],
+    "CNF_gates": 4,
+    "star_gates": 4,
+    "overhead": 0,
+    "junk_chain_length": 0
+  },
+  {
+    "kind": "path",
+    "n": 6,
+    "edges": 5,
+    "cover": 3,
+    "minimal_covers": [
+      4,
+      3,
+      3,
+      3,
+      3
+    ],
+    "CNF_gates": 15,
+    "star_gates": 7,
+    "overhead": 8,
+    "junk_chain_length": 3
+  },
+  {
+    "kind": "cycle",
+    "n": 6,
+    "edges": 6,
+    "cover": 3,
+    "minimal_covers": [
+      4,
+      4,
+      3,
+      4,
+      3
+    ],
+    "CNF_gates": 17,
+    "star_gates": 8,
+    "overhead": 9,
+    "junk_chain_length": 3
+  },
+  {
+    "kind": "star",
+    "n": 6,
+    "edges": 5,
+    "cover": 1,
+    "minimal_covers": [
+      5,
+      1
+    ],
+    "CNF_gates": 5,
+    "star_gates": 5,
+    "overhead": 0,
+    "junk_chain_length": 0
+  },
+  {
+    "kind": "path",
+    "n": 7,
+    "edges": 6,
+    "cover": 3,
+    "minimal_covers": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      3
+    ],
+    "CNF_gates": 26,
+    "star_gates": 8,
+    "overhead": 18,
+    "junk_chain_length": 5
+  },
+  {
+    "kind": "cycle",
+    "n": 7,
+    "edges": 7,
+    "cover": 4,
+    "minimal_covers": [
+      4,
+      4,
+      4,
+      4,
+      4,
+      4,
+      4
+    ],
+    "CNF_gates": 27,
+    "star_gates": 10,
+    "overhead": 17,
+    "junk_chain_length": 5
+  },
+  {
+    "kind": "star",
+    "n": 7,
+    "edges": 6,
+    "cover": 1,
+    "minimal_covers": [
+      6,
+      1
+    ],
+    "CNF_gates": 6,
+    "star_gates": 6,
+    "overhead": 0,
+    "junk_chain_length": 0
+  },
+  {
+    "kind": "path",
+    "n": 8,
+    "edges": 7,
+    "cover": 4,
+    "minimal_covers": [
+      5,
+      5,
+      5,
+      4,
+      5,
+      4,
+      4,
+      4,
+      4
+    ],
+    "CNF_gates": 39,
+    "star_gates": 10,
+    "overhead": 29,
+    "junk_chain_length": 7
+  },
+  {
+    "kind": "cycle",
+    "n": 8,
+    "edges": 8,
+    "cover": 4,
+    "minimal_covers": [
+      5,
+      5,
+      5,
+      5,
+      5,
+      4,
+      5,
+      5,
+      5,
+      4
+    ],
+    "CNF_gates": 47,
+    "star_gates": 11,
+    "overhead": 36,
+    "junk_chain_length": 8
+  },
+  {
+    "kind": "star",
+    "n": 8,
+    "edges": 7,
+    "cover": 1,
+    "minimal_covers": [
+      7,
+      1
+    ],
+    "CNF_gates": 7,
+    "star_gates": 7,
+    "overhead": 0,
+    "junk_chain_length": 0
+  },
+  {
+    "kind": "path",
+    "n": 9,
+    "edges": 8,
+    "cover": 4,
+    "minimal_covers": [
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      4
+    ],
+    "CNF_gates": 59,
+    "star_gates": 11,
+    "overhead": 48,
+    "junk_chain_length": 10
+  },
+  {
+    "kind": "cycle",
+    "n": 9,
+    "edges": 9,
+    "cover": 5,
+    "minimal_covers": [
+      6,
+      5,
+      6,
+      5,
+      5,
+      5,
+      5,
+      6,
+      5,
+      5,
+      5,
+      5
+    ],
+    "CNF_gates": 62,
+    "star_gates": 13,
+    "overhead": 49,
+    "junk_chain_length": 10
+  },
+  {
+    "kind": "star",
+    "n": 9,
+    "edges": 8,
+    "cover": 1,
+    "minimal_covers": [
+      8,
+      1
+    ],
+    "CNF_gates": 8,
+    "star_gates": 8,
+    "overhead": 0,
+    "junk_chain_length": 0
+  },
+  {
+    "kind": "path",
+    "n": 10,
+    "edges": 9,
+    "cover": 5,
+    "minimal_covers": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      6,
+      6,
+      6,
+      5,
+      6,
+      5,
+      5,
+      5,
+      5
+    ],
+    "CNF_gates": 89,
+    "star_gates": 13,
+    "overhead": 76,
+    "junk_chain_length": 14
+  },
+  {
+    "kind": "cycle",
+    "n": 10,
+    "edges": 10,
+    "cover": 5,
+    "minimal_covers": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5
+    ],
+    "CNF_gates": 99,
+    "star_gates": 14,
+    "overhead": 85,
+    "junk_chain_length": 15
+  },
+  {
+    "kind": "star",
+    "n": 10,
+    "edges": 9,
+    "cover": 1,
+    "minimal_covers": [
+      9,
+      1
+    ],
+    "CNF_gates": 9,
+    "star_gates": 9,
+    "overhead": 0,
+    "junk_chain_length": 0
+  }
+]

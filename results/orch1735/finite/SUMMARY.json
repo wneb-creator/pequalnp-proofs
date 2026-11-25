@@ -1,0 +1,34 @@
+{
+  "C5_CNF_positive_control14": {
+    "size": 14,
+    "junk": 3,
+    "nested_junk_pairs": 3,
+    "Ustar": 5,
+    "TopForm": true,
+    "least": false,
+    "full_rows_checked": 32
+  },
+  "C5_nested_fanin_incomparable_control9": {
+    "size": 9,
+    "junk": 2,
+    "nested_junk_pairs": 1,
+    "Ustar": 1,
+    "TopForm": true,
+    "least": false,
+    "full_rows_checked": 32
+  },
+  "PG3_nested_control102": {
+    "size": 102,
+    "junk": 14,
+    "nested_junk_pairs": 13,
+    "Ustar": 52,
+    "TopForm": true,
+    "least": false,
+    "standard_star_upper_bound": 64,
+    "critical_rows_checked": 756
+  },
+  "universal_L_meta_1735": "not proved or refuted",
+  "C5_pruned_topform_any_junk_size_at_most7": "UNSAT,0.76s, repeated fanins allowed; computational exclusion only",
+  "C6_pruned_topform_any_junk_size_at_most8": "UNSAT,6.69s, repeated fanins allowed; computational exclusion only",
+  "C7_pruned_topform_Ustar_edge01_size_at_most10": "TIMEOUT180s, UNKNOWN"
+}

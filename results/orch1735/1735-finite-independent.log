@@ -1,0 +1,60 @@
+{
+  "manifest_files": 35,
+  "manifest_bytes": 155930,
+  "manifest_all_hashes_and_census_match": true,
+  "witnesses": [
+    {
+      "file": "c5-nested-control14.witness.json",
+      "size": 14,
+      "edges": 5,
+      "junk": 3,
+      "nested_pairs": 3,
+      "tops": 1,
+      "Ustar": 5,
+      "TopForm": true,
+      "all_fanins_incomparable": true,
+      "maximum_intermediate_antichain": 6,
+      "full_semantics_via_minimal_monomials": true
+    },
+    {
+      "file": "c5-reduced-nested9.witness.json",
+      "size": 9,
+      "edges": 5,
+      "junk": 2,
+      "nested_pairs": 1,
+      "tops": 3,
+      "Ustar": 1,
+      "TopForm": true,
+      "all_fanins_incomparable": true,
+      "maximum_intermediate_antichain": 5,
+      "full_semantics_via_minimal_monomials": true
+    },
+    {
+      "file": "c5-repeat-top-ustar8.witness.json",
+      "size": 8,
+      "edges": 5,
+      "junk": 1,
+      "nested_pairs": 0,
+      "tops": 3,
+      "Ustar": 1,
+      "TopForm": true,
+      "all_fanins_incomparable": false,
+      "maximum_intermediate_antichain": 5,
+      "full_semantics_via_minimal_monomials": true
+    },
+    {
+      "file": "plane-nested-control102.witness.json",
+      "size": 102,
+      "edges": 52,
+      "junk": 14,
+      "nested_pairs": 13,
+      "tops": 13,
+      "Ustar": 52,
+      "TopForm": true,
+      "all_fanins_incomparable": true,
+      "maximum_intermediate_antichain": 169,
+      "full_semantics_via_minimal_monomials": true
+    }
+  ],
+  "cnf_family_census_records_verified": 22
+}

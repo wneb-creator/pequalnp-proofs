@@ -1,0 +1,4 @@
+'PEqualNP.Outside.L_meta_1735_aux.FixedDepth.edge_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1735_aux.FixedDepth.fixed_depth_ustar_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,13 @@
+# Finite diagnostics for L-meta-1735
+
+These are computational diagnostics, not a proof or refutation of the universal existence statement. No file here establishes IsLeastAO for a circuit.
+
+`topform_sat_v1.py` is the exact repeated-fanin encoder used for the cycle budget tests; `topform_sat_distinct.py` is the earlier distinct-fanin pilot. `topform_sat.py` extends v1 with dirty-AND ancestry and optional full-truth-row fanin incomparability. `decode_topform.py` independently evaluates every decoded small circuit on all assignments, computes clean gates, raw OR supports, TopForm, Ustar, and nested dirty pairs.
+
+The C5 budget7 and C6 budget8 repeated-fanin searches exclude every pruned TopForm circuit with a dirty AND within those budgets (all gates lie in the output cone). An unused budget can be filled by OR(output,output), which preserves TopForm, junk and Ustar, so the exact-budget tests cover smaller circuits too. Minimum-size circuits are pruned: an unused gate can be removed without changing the computed function. These budgets have standard star upper bounds. The C7 budget10 marked-Ustar test timed out at180 seconds and is inconclusive. Agent status_review independently audited v1 support/cleanliness/TopForm/padding semantics. The SAT exclusions are not kernel-checked Lean proofs.
+
+Positive controls prevent confusing TopForm with absence of nested junk. A C5 CNF circuit has14 gates, three nested dirty ANDs, only its final AND clean, and Ustar equal to all five edges. A9-gate C5 circuit has two nested dirty ANDs and one Ustar edge; all fanin functions are incomparable on all32 assignments, but context simplification still reduces it to the ordinary7-gate circuit. The8-gate C5 Ustar witness uses a redundant AND(x,x) and is explicitly nonleast.
+
+The projective-plane diagnostic has26 inputs,52 edges,102 gates,14 dirty ANDs and13 nested dirty pairs; it is TopForm and Ustar contains all52 edges. It is explicitly not least: the standard star circuit uses64 gates. Exact monotone semantics and cleanliness were checked on all52 minimal positive pairs and704 independently regenerated maximal independent negative assignments. This shows why bounds based only on input support or on edges accepted by one dirty gate fail without exploiting leastness or total circuit cost.
+
+All logs contain complete captured stdout/stderr. Generated CNFs and solver binaries are omitted; scripts regenerate them. The two source versions retain original scratch paths where relevant. MANIFEST.json contains hashes and byte lengths. All finite witnesses must be distinguished from the requested universal constant bound.

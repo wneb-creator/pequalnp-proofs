@@ -1,0 +1,64 @@
+{
+  "n": 5,
+  "size": 8,
+  "graph_edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "mode": "ustar",
+  "full_truth_rows": 32,
+  "topform": true,
+  "tops": [
+    2,
+    4,
+    5
+  ],
+  "junk": [
+    0
+  ],
+  "nested_junk_pairs": [],
+  "star_edges": [
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "Ustar": [
+    [
+      0,
+      1
+    ]
+  ],
+  "ratio_Ustar_over_size_plus_one": 0.1111111111111111,
+  "leastness": "not claimed by this decoder; requires a separate lower bound or exact exclusion"
+}

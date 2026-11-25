@@ -1,11 +1,17 @@
 KIT-MESSAGE-ID msg-07569722ae629e1f3149d063
 Gap: L-meta-1735
 Sub-agents: 6 reused (library, structure, finite search, status, toolchain, independent review)
-TIMING total=101.82 subagents=6
-No proof or checker verdict for this new gap yet.
+TIMING total=110.06 subagents=6
+Main posted theorem is unproved. No checker acceptance or PR claimed.
 
 Nested-two partial (1635 lines,75898bytes) compiled with lake env lean; exit0,three harmless unused-binder warnings. Independent mathematical review PASS; final axiom audit only propext,Classical.choice,Quot.sound. Proves Ustar.card≤4*(size+1) under girth≥5,IsLeastAO,TopForm,junk.card=2,and nestedjunk. Full arbitrary-junk1735 theorem remains unproved.
 
 At-most-two partial:2454 lines, standalone Lean exit0, independent review PASS, final axiom audit only standard3axioms. It provides a uniform constant for all junk.card≤2; unrestricted1735 remains unproved.
 
 Canonical named file:2452 lines,114206bytes. lake build PEqualNP.Outside.L_meta_1735 exit0, 9.99s,peak3740536KiB. Independent namespace/format review PASS. Mainexacttheorem absent; no checker acceptance or PR claimed.
+
+Fixed-depth partial: 766 lines, frozen SHA256 159910fbcdb675b0c9504ed8504d5ca7e59627e03cf272660ee9b4400a7bb1c8. Standalone build exit0 and final axiom audit only propext, Classical.choice, Quot.sound. Independent proof review PASS. Gives an edge bound and Ustar bound with a constant depending on the AND-depth cap D; it does not prove a uniform constant across D.
+
+Integrated canonical file: 3217 lines,150651bytes,SHA256 c4727b0197e1cec0f82aa36b9643e3cd225333f070889fa540af0fadc09b2328. lake build PEqualNP.Outside.L_meta_1735 exit0,16.60s,peak3787372KiB. Independent namespace/body/static review PASS. Final posted main theorem absent. Cleanup pass not applicable until exact checker accepts; no cleanup change.
+
+Finite archive: 35 files,155930bytes; independent verification PASS. Computational UNSAT results are not Lean certificates. All positive examples are explicitly nonleast. Semantic route note is an unformalized construction sketch, not a refutation.

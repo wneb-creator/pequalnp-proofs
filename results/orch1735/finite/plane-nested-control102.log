@@ -1,0 +1,100 @@
+{
+  "n": 26,
+  "output": 127,
+  "minimal_positive_rows": 52,
+  "maximal_negative_rows": 704,
+  "exact_semantics_verified": true,
+  "girth_at_least_6": "bipartite and pairwise-left common-neighbor count <=1 verified",
+  "size": 102,
+  "star_upper_bound": 64,
+  "is_least": false,
+  "leastness_failure": "explicit standard point-star circuit has only64 gates",
+  "TopForm": true,
+  "tops": [
+    29,
+    34,
+    39,
+    44,
+    49,
+    54,
+    59,
+    64,
+    69,
+    74,
+    79,
+    84,
+    89
+  ],
+  "junk": [
+    24,
+    28,
+    33,
+    38,
+    43,
+    48,
+    53,
+    58,
+    63,
+    68,
+    73,
+    78,
+    83,
+    88
+  ],
+  "nested_junk_pairs": [
+    [
+      24,
+      28
+    ],
+    [
+      24,
+      33
+    ],
+    [
+      24,
+      38
+    ],
+    [
+      24,
+      43
+    ],
+    [
+      24,
+      48
+    ],
+    [
+      24,
+      53
+    ],
+    [
+      24,
+      58
+    ],
+    [
+      24,
+      63
+    ],
+    [
+      24,
+      68
+    ],
+    [
+      24,
+      73
+    ],
+    [
+      24,
+      78
+    ],
+    [
+      24,
+      83
+    ],
+    [
+      24,
+      88
+    ]
+  ],
+  "ratio_Ustar_over_size_plus_one": 0.5048543689320388,
+  "scope": "nonleast nested-junk diagnostic, not a refutation of L-meta-1735"
+}
