@@ -1,0 +1,21 @@
+/tmp/oec/pequalnp-pilot-114/last_not_cut.lean:34:56: warning: This simp argument is unused:
+  List.length_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.foldl_cons, ih, List.length_append, List.length_cons, List.length_nil]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-114/last_not_cut.lean:77:27: warning: This simp argument is unused:
+  hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GateOp.eval, hz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-114/last_not_cut.lean:80:47: warning: This simp argument is unused:
+  hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GateOp.eval, Circuit.eval, hout]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

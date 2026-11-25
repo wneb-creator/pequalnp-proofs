@@ -1,0 +1,13 @@
+Stopped under the explicit other-pilot lease rule.
+Job began: 2026-11-25T14:11:56Z
+Initial desk request: 2026-11-25T14:13:19Z
+Returned lease terms issued_at: 2026-11-25T13:44:05.796Z (before this job).
+The one allowed retry at 2026-11-25T14:22:12Z returned the same gap and same lease.
+Both replies: holding=5
+Exact note: you hold 5 gaps, the most one handle may hold at once; release one to get another
+Allocation responses: 2
+Null responses: 0
+The initial response was mistakenly treated as a new assignment. Three beats were sent before the timestamp discrepancy was identified.
+No release request was made. No new lease owned by this job was identified.
+No further proof work or desk requests after the repeated pre-existing lease was confirmed.
+Existing compilation was allowed to finish solely to preserve its result.

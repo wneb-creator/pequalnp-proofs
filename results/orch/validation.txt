@@ -1,7 +1,7 @@
 L-meta-2592 partial artifact; the posted statement is not proved.
 
 Sub-agents: 6 (status_review, toolchain_setup, counterexample, lower_bound, reductions, not_elimination)
-TIMING total=8.16 subagents=6
+TIMING total=15.3 subagents=6
 
 Command: toolchain/run lake env lean ../results/orch/lemmas/OutputPruning.lean
 Working directory: lean/
@@ -11,5 +11,17 @@ Lines: 107
 Independent red-team review: PASS for partial artifact (not_elimination).
 Local checker: not run; this partial has no theorem claiming the posted statement.
 
-LastNot.lean:90lines; toolchain/run lake env lean /tmp/oec/pequalnp-pilot-114/last_not_cut.lean; exit0; complete stdout/stderr empty.
+LastNot.lean:89lines; toolchain/run lake env lean /tmp/oec/pequalnp-pilot-114/last_not_cut.lean; exit0; three unused-simp warnings; complete stdout/stderr in logs/last-not-build.log.
 Independent red-team review PASS (status_review). Partial duplicates checked upstream L_meta_8295; does not prove L-meta-2592.
+
+LowerBound16.lean:4593lines,285336bytes.
+Command: toolchain/run lake env lean ../results/orch/lemmas/LowerBound16.lean
+Working directory: lean/
+Exit status:0 (finished naturally 2026-11-25T14:26:44Z); no errors; warnings only.
+Complete stdout/stderr: logs/lower-bound16-build.log
+Independent red-team review: PASS (status_review).
+Proved partial: every fan-in-two Petersen circuit has size at least16+notCount. This excludes4or moreNOTs at size19;1to3NOTs remain unresolved.
+The posted statement is not proved. No PR opened. Local checker NOT RUN (see checker.txt).
+Cleanup pass skipped: no full proof/checker acceptance, and checker lacks the full Mathlib runtime closure.
+Line counts before/after cleanup unchanged: OutputPruning107/107, LastNot89/89, LowerBound164593/4593.
+Desk allocation responses2; nulls0; same pre-existinglease returnedtwice; no release.

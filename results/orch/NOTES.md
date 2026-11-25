@@ -21,3 +21,17 @@ See lemmas/audit.md. No immediate semantic counterexample: invalid reads default
 Counterexample agent: ordinary gate semantics confirmed; CEGIS search running for 19 gates/exactly one NOT. See lemmas/search.md.
 
 - 2026-11-25T14:18:14.495659+00:00 not_elimination: located checked binaryFloor L4725 (15+NOT≤size), stronger residual binaryFloor L5236, and9-input deletion boundL8367. Main few-NOT pieces remain open; see lemmas/not-elimination.md.
+
+## status_review pruning 2026-11-25T14:20:31.204835+00:00
+
+OutputPruning.lean compiles with exit0 and no diagnostics (107 lines). Generic prune by take(output+1-n) preserves evaluation, FanInTwo, exact legal predicate; produces last-gate output; preserves NOT or strictly drops size. OutputPruning.validation.txt records check. Independent static red-team review of LowerBound16 adaptation passes: original certificate prefix unchanged save namespace, pins10 execution is correct, then initial membership enlarged. It proves16+NOTcount≤size, so only1..3NOT remain at size19; still awaiting compiler result.
+
+- reductions: easy children already checked:7389 normalization,8295 last-NOT cut,4725 15binary floor. Independent LastNot.lean compiled exit0 (duplicates8295); redirecting to hard1–2NOT lowerbound routes.
+
+## status_review final preservation 2026-11-25T14:23:33.813859+00:00
+
+Stopped after root confirmed reused other-pilot lease at handle cap; no release and no further desk calls. See audit.md appended strategy: possible signed binary17 by first-step cofactor retention plus one projected constant; nonOR first steps potentially18 via two constants. OR duplicate projection is NOT counted by current mass and needs a new lemma. LastNot independent review PASS; LowerBound16 adaptation independent review PASS pending compiler result. OutputPruning already checked and pushed by root.
+
+## Stop: pre-existing lease returned twice
+
+The initial response was mistakenly treated as a new assignment. Its issued_at predates this job; the allowed allocation retry returned the same lease at the five-gap account limit. No release was called. See lease-status.txt. Further research stopped; only the existing compilation and artifact preservation continued.

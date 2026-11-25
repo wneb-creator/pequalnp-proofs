@@ -1,0 +1,4 @@
+Local checker verdict: NOT RUN.
+The posted statement was not proved, and no proof PR was opened.
+The checker executable itself compiled successfully; complete build output is in logs/checker-build.log.
+The complete Mathlib import closure required at runtime did not fit the supplied disk; only the modules needed for the partial Lean files were cached. The checker and source/configuration files were not modified.

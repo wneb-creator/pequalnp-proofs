@@ -1,0 +1,7 @@
+Checked at 2026-11-25T14:20:31.204558+00:00
+Command: /tmp/oec/pequalnp-pilot-114/toolchain/run lake env lean ../results/orch/lemmas/OutputPruning.lean
+Workdir: /workspace/pequalnp-proofs/lean
+Exit status: 0
+Lines: 107
+Compiler stdout/stderr: empty
+Scope: generic truncation helper lemmas; not a proof of L-meta-2592.

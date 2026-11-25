@@ -1,0 +1,1 @@
+{"event": "start", "args": {"gates": 19, "nots": 1, "seed": 116, "seconds": 300, "out": "/tmp/oec/pequalnp-pilot-114/search/witness-near.json", "first": "any", "fixed": null, "near": "/tmp/oec/pequalnp-pilot-114/search/near.json", "distance": 5}, "samples": 32}

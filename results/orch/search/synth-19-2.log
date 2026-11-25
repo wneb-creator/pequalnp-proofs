@@ -1,0 +1,1 @@
+{"event": "start", "args": {"gates": 19, "nots": 2, "seed": 115, "seconds": 600, "out": "/tmp/oec/pequalnp-pilot-114/search/witness-2.json", "first": "and-edge"}, "samples": 32}
