@@ -1,0 +1,5 @@
+lake env lean /tmp/oec/pequalnp-pilot-71/single-core/LeafUnion.lean
+exit code: 0
+stdout: empty
+stderr: empty
+This is a checked component, not a proof of L-meta-2962.

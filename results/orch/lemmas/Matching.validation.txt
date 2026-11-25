@@ -1,0 +1,5 @@
+lake env lean /tmp/oec/pequalnp-pilot-71/single-core/Matching.lean
+exit code: 0
+stdout: empty
+stderr: empty
+This proves L-meta-2962 only under an additional matching hypothesis on accepted core edges.

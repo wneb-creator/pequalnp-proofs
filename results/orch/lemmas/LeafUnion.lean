@@ -1,0 +1,447 @@
+import Mathlib
+import PEqualNP.Defs
+
+namespace PEqualNP.Outside.L_meta_2962_aux.Leaf
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+lemma foldl_snoc_prefix {α β : Type _} (F : List α → β → α) (gs : List β) (init : List α) :
+    init <+: gs.foldl (fun R g => R ++ [F R g]) init := by
+  induction gs generalizing init with
+  | nil => exact List.prefix_refl _
+  | cons g gs ih => exact (List.prefix_append init [F init g]).trans (ih _)
+
+lemma foldl_snoc_length {α β : Type _} (F : List α → β → α) (gs : List β) (init : List α) :
+    (gs.foldl (fun R g => R ++ [F R g]) init).length = init.length + gs.length := by
+  induction gs generalizing init with
+  | nil => simp
+  | cons g gs ih => simp [ih]; omega
+
+lemma getD_of_prefix {α : Type _} {P L : List α} (h : P <+: L) {i : ℕ} (hi : i < P.length)
+    (d : α) : L.getD i d = P.getD i d := by
+  obtain ⟨t, rfl⟩ := h
+  simp [List.getD_eq_getElem?_getD, List.getElem?_append_left hi]
+
+lemma foldl_snoc_init {α : Type _} (G : List α → Gate → α) (d : α) (init : List α)
+    (gs : List Gate) (i : ℕ) (hi : i < init.length) :
+    (gs.foldl (fun R g => R ++ [G (g.inputs.map fun i => R.getD i d) g]) init).getD i d
+      = init.getD i d :=
+  getD_of_prefix (foldl_snoc_prefix (fun R g => G (g.inputs.map fun i => R.getD i d) g) _ _) hi d
+
+lemma foldl_snoc_beyond {α : Type _} (G : List α → Gate → α) (d : α) (init : List α)
+    (gs : List Gate) (i : ℕ) (hi : init.length + gs.length ≤ i) :
+    (gs.foldl (fun R g => R ++ [G (g.inputs.map fun i => R.getD i d) g]) init).getD i d = d := by
+  apply List.getD_eq_default
+  rw [foldl_snoc_length (fun R g => G (g.inputs.map fun i => R.getD i d) g)]
+  exact hi
+
+lemma foldl_snoc_gate {α : Type _} (G : List α → Gate → α) (d : α) (init : List α)
+    (gs : List Gate) (j : ℕ) (hj : j < gs.length)
+    (hrb : ∀ i ∈ gs[j].inputs, i < init.length + j) :
+    (gs.foldl (fun R g => R ++ [G (g.inputs.map fun i => R.getD i d) g]) init).getD
+        (init.length + j) d
+      = G (gs[j].inputs.map fun i =>
+          (gs.foldl (fun R g => R ++ [G (g.inputs.map fun i => R.getD i d) g]) init).getD i d)
+          gs[j] := by
+  have hsplit : gs = gs.take j ++ gs[j] :: gs.drop (j + 1) := by simp
+  set P := (gs.take j).foldl (fun R g => R ++ [G (g.inputs.map fun i => R.getD i d) g]) init
+    with hP
+  have hPl : P.length = init.length + j := by
+    rw [hP, foldl_snoc_length (fun R g => G (g.inputs.map fun i => R.getD i d) g)]
+    simp; omega
+  have hpre : (P ++ [G (gs[j].inputs.map fun i => P.getD i d) gs[j]]) <+:
+      gs.foldl (fun R g => R ++ [G (g.inputs.map fun i => R.getD i d) g]) init := by
+    conv_rhs => rw [hsplit]
+    rw [List.foldl_append, List.foldl_cons]
+    exact foldl_snoc_prefix (fun R g => G (g.inputs.map fun i => R.getD i d) g) _ _
+  have hpre2 := (List.prefix_append P _).trans hpre
+  rw [getD_of_prefix hpre (by simp; omega)]
+  have e1 : (P ++ [G (gs[j].inputs.map fun i => P.getD i d) gs[j]]).getD (init.length + j) d
+      = G (gs[j].inputs.map fun i => P.getD i d) gs[j] := by
+    rw [← hPl]; simp
+  rw [e1]
+  congr 1
+  apply List.map_congr_left
+  intro i hi
+  rw [getD_of_prefix hpre2 (by rw [hPl]; exact hrb i hi)]
+
+
+lemma wires_eq (C : Circuit) (x : List Bool) :
+    C.wires x = C.gates.foldl
+      (fun R g => R ++ [(fun ins (g : Gate) => g.op.eval ins) (g.inputs.map fun i => R.getD i false) g])
+      x := rfl
+
+lemma gateAt_eq (C : Circuit) (j : ℕ) (hj : j < C.gates.length) :
+    gateAt C j = C.gates[j] := by
+  simp [gateAt, List.getD_eq_getElem?_getD, hj]
+
+
+section Wires
+variable (C : Circuit) (n : ℕ)
+abbrev W (x : Fin n → Bool) (i : ℕ) : Bool := (C.wires (List.ofFn x)).getD i false
+
+lemma W_input (x : Fin n → Bool) (i : ℕ) (hi : i < n) : W C n x i = x ⟨i, hi⟩ := by
+  unfold W
+  rw [wires_eq, foldl_snoc_init (fun ins (g : Gate) => g.op.eval ins) false _ _ _ (by simpa using hi)]
+  simp [List.getD_eq_getElem?_getD, hi]
+
+lemma W_gate (x : Fin n → Bool) (j : ℕ) (hj : j < C.gates.length)
+    (hrb : ∀ i ∈ (gateAt C j).inputs, i < n + j) :
+    W C n x (n + j) = (gateAt C j).op.eval ((gateAt C j).inputs.map (W C n x)) := by
+  unfold W
+  rw [gateAt_eq C j hj] at hrb ⊢
+  have := foldl_snoc_gate (fun ins (g : Gate) => g.op.eval ins) false (List.ofFn x) C.gates j hj
+    (by simpa using hrb)
+  simp only [List.length_ofFn] at this
+  rw [wires_eq, this]
+
+end Wires
+
+section Basic
+
+variable (n : ℕ) (C : Circuit)
+
+
+def Step (a b : ℕ) : Prop := ∃ g < C.gates.length, a = n + g ∧ b ∈ (gateAt C g).inputs
+
+
+abbrev Reach : ℕ → ℕ → Prop := Relation.ReflTransGen (Step n C)
+
+lemma foldl_snoc_split {α β : Type _} (F : List α → β → α) (gs : List β) (init : List α)
+    (j : ℕ) (hj : j < gs.length) (d : α) :
+    (gs.foldl (fun R g => R ++ [F R g]) init).getD (init.length + j) d
+      = F ((gs.take j).foldl (fun R g => R ++ [F R g]) init) gs[j] ∧
+    ((gs.take j).foldl (fun R g => R ++ [F R g]) init) <+:
+      gs.foldl (fun R g => R ++ [F R g]) init ∧
+    ((gs.take j).foldl (fun R g => R ++ [F R g]) init).length = init.length + j := by
+  have hsplit : gs = gs.take j ++ gs[j] :: gs.drop (j + 1) := by simp
+  set P := (gs.take j).foldl (fun R g => R ++ [F R g]) init with hP
+  have hPl : P.length = init.length + j := by
+    rw [hP, foldl_snoc_length F]; simp; omega
+  have hpre : (P ++ [F P gs[j]]) <+: gs.foldl (fun R g => R ++ [F R g]) init := by
+    conv_rhs => rw [hsplit]
+    rw [List.foldl_append, List.foldl_cons]
+    exact foldl_snoc_prefix F _ _
+  refine ⟨?_, (List.prefix_append P _).trans hpre, hPl⟩
+  rw [getD_of_prefix hpre (by simp; omega), ← hPl]
+  simp
+
+
+def coneF (cs : List (List ℕ)) (g : Gate) : List ℕ :=
+  (g.inputs.filter (fun w => decide (n ≤ w ∧ w < n + cs.length))).flatMap
+    (fun w => (w - n) :: cs.getD (w - n) [])
+
+lemma cones_eq : cones n C = C.gates.foldl (fun R g => R ++ [coneF n R g]) [] := rfl
+
+lemma flatMap_congr' {α β : Type _} {l : List α} {f g : α → List β}
+    (h : ∀ a ∈ l, f a = g a) : l.flatMap f = l.flatMap g := by
+  induction l with
+  | nil => rfl
+  | cons a l ih =>
+    simp only [List.flatMap_cons]
+    rw [h a (by simp), ih (fun b hb => h b (by simp [hb]))]
+
+lemma cone_getD {j : ℕ} (hj : j < C.gates.length) :
+    (cones n C).getD j [] = ((gateAt C j).inputs.filter
+      (fun w => decide (n ≤ w ∧ w < n + j))).flatMap (fun w => (w - n) :: (cones n C).getD (w - n) []) := by
+  obtain ⟨h1, h2, h3⟩ := foldl_snoc_split (coneF n) C.gates [] j hj []
+  simp only [List.length_nil, zero_add] at h1 h3
+  rw [← cones_eq] at h1 h2
+  generalize (C.gates.take j).foldl (fun R g => R ++ [coneF n R g]) [] = P at h1 h2 h3
+  rw [h1, gateAt_eq C j hj]
+  unfold coneF
+  rw [h3]
+  apply flatMap_congr'
+  intro w hw
+  rw [List.mem_filter] at hw
+  have : w - n < j := by simp at hw; omega
+  rw [getD_of_prefix h2 (by rw [h3]; exact this)]
+
+lemma inCone_iff (hrb : ReadsBack n C) {i j : ℕ} (hj : j < C.gates.length) :
+    InCone n C i j ↔ ∃ w ∈ (gateAt C j).inputs, n ≤ w ∧ (w - n = i ∨ InCone n C i (w - n)) := by
+  unfold InCone
+  rw [cone_getD n C hj]
+  constructor
+  · intro h
+    obtain ⟨w, hw, hi⟩ := List.mem_flatMap.1 h
+    rw [List.mem_filter] at hw
+    simp only [decide_eq_true_eq] at hw
+    rcases List.mem_cons.1 hi with h' | h'
+    · exact ⟨w, hw.1, hw.2.1, Or.inl h'.symm⟩
+    · exact ⟨w, hw.1, hw.2.1, Or.inr h'⟩
+  · rintro ⟨w, hw, hnw, h⟩
+    refine List.mem_flatMap.2 ⟨w, List.mem_filter.2 ⟨hw, ?_⟩, ?_⟩
+    · simp only [decide_eq_true_eq]; exact ⟨hnw, hrb j hj w hw⟩
+    · rcases h with h | h
+      · exact List.mem_cons.2 (Or.inl h.symm)
+      · exact List.mem_cons.2 (Or.inr h)
+
+lemma inCone_iff_trans (hrb : ReadsBack n C) (i : ℕ) :
+    ∀ j, j < C.gates.length → (InCone n C i j ↔ Relation.TransGen (Step n C) (n + j) (n + i)) := by
+  intro j
+  induction j using Nat.strong_induction_on with
+  | _ j ih =>
+  intro hj
+  rw [inCone_iff n C hrb hj]
+  constructor
+  · rintro ⟨w, hw, hnw, h⟩
+    have hwl : w < n + j := hrb j hj w hw
+    have hst : Step n C (n + j) w := ⟨j, hj, rfl, hw⟩
+    rcases h with h | h
+    · have : w = n + i := by omega
+      subst this
+      exact Relation.TransGen.single hst
+    · have hlt : w - n < j := by omega
+      have := (ih (w - n) hlt (by omega)).1 h
+      have hw' : n + (w - n) = w := by omega
+      rw [hw'] at this
+      exact Relation.TransGen.head hst this
+  · intro h
+    obtain ⟨c, ⟨g, hg, hjg, hc⟩, hr⟩ := Relation.TransGen.head'_iff.1 h
+    have hgj : g = j := by omega
+    subst hgj
+    have hcl : c < n + g := hrb g hg c hc
+    rcases Relation.ReflTransGen.cases_head hr with hci | ⟨d, ⟨g', hg', hcg', _⟩, hr'⟩
+    · exact ⟨c, hc, by omega, Or.inl (by omega)⟩
+    · refine ⟨c, hc, by omega, Or.inr ?_⟩
+      have hlt : c - n < g := by omega
+      refine (ih (c - n) hlt (by omega)).2 ?_
+      have hcn : n + (c - n) = c := by omega
+      rw [hcn]
+      exact Relation.TransGen.head' ⟨g', hg', hcg', by assumption⟩ hr'
+
+lemma mem_coneSet (hrb : ReadsBack n C) {j : ℕ} (hj : j < C.gates.length) (g : ℕ) :
+    g ∈ PEqualNP.Core.coneSet n C j ↔ g < C.gates.length ∧ Reach n C (n + j) (n + g) := by
+  unfold PEqualNP.Core.coneSet
+  rw [Finset.mem_insert, Finset.mem_filter, Finset.mem_range]
+  constructor
+  · rintro (rfl | ⟨hg, hc⟩)
+    · exact ⟨hj, Relation.ReflTransGen.refl⟩
+    · exact ⟨hg, ((inCone_iff_trans n C hrb g j hj).1 hc).to_reflTransGen⟩
+  · rintro ⟨hg, hr⟩
+    rcases Relation.reflTransGen_iff_eq_or_transGen.1 hr with h | h
+    · left; omega
+    · right; exact ⟨hg, (inCone_iff_trans n C hrb g j hj).2 h⟩
+
+lemma reach_le (hrb : ReadsBack n C) {a b : ℕ} (h : Reach n C a b) : b ≤ a := by
+  induction h with
+  | refl => exact le_refl _
+  | tail _ hst ih =>
+    obtain ⟨g, hg, rfl, hc⟩ := hst
+    have := hrb g hg _ hc
+    omega
+
+end Basic
+
+
+section AO
+
+variable {n : ℕ} {C : Circuit}
+
+lemma list_two {l : List ℕ} (h : l.length = 2) : l = [l.getD 0 0, l.getD 1 0] := by
+  match l, h with
+  | [a, b], _ => rfl
+
+lemma ao_inputs (hC : IsAO2 n C) {g : ℕ} (hg : g < C.gates.length) :
+    (gateAt C g).inputs = [opnd C g 0, opnd C g 1] := by
+  have hl : (gateAt C g).inputs.length = 2 := by
+    rw [gateAt_eq C g hg]; exact hC.2.2 _ (List.getElem_mem hg)
+  exact list_two hl
+
+lemma ao_op (hC : IsAO2 n C) {g : ℕ} (hg : g < C.gates.length) :
+    (gateAt C g).op = GateOp.and ∨ (gateAt C g).op = GateOp.or := by
+  rw [gateAt_eq C g hg]; exact hC.1 _ (List.getElem_mem hg)
+
+lemma opnd_mem (hC : IsAO2 n C) {g : ℕ} (hg : g < C.gates.length) (b : Fin 2) :
+    opnd C g b ∈ (gateAt C g).inputs := by
+  rw [ao_inputs hC hg]; fin_cases b <;> simp
+
+lemma opnd_lt (hC : IsAO2 n C) {g : ℕ} (hg : g < C.gates.length) (b : Fin 2) :
+    opnd C g b < n + g := hC.2.1 g hg _ (opnd_mem hC hg b)
+
+lemma step_opnd (hC : IsAO2 n C) {g : ℕ} (hg : g < C.gates.length) (b : Fin 2) :
+    Step n C (n + g) (opnd C g b) := ⟨g, hg, rfl, opnd_mem hC hg b⟩
+
+lemma step_inv (hC : IsAO2 n C) {a c : ℕ} (h : Step n C a c) :
+    ∃ g < C.gates.length, a = n + g ∧ ∃ b : Fin 2, c = opnd C g b := by
+  obtain ⟨g, hg, rfl, hc⟩ := h
+  rw [ao_inputs hC hg] at hc
+  simp only [List.mem_cons, List.not_mem_nil, or_false] at hc
+  rcases hc with hc | hc
+  · exact ⟨g, hg, rfl, 0, hc⟩
+  · exact ⟨g, hg, rfl, 1, hc⟩
+
+variable {j : ℕ}
+
+lemma K_lt (hC : IsAO2 n C) (hj : j < C.gates.length) {g : ℕ}
+    (hK : g ∈ PEqualNP.Core.coneSet n C j) : g < C.gates.length :=
+  ((mem_coneSet n C hC.2.1 hj g).1 hK).1
+
+lemma K_reach (hC : IsAO2 n C) (hj : j < C.gates.length) {g g' : ℕ}
+    (hK : g ∈ PEqualNP.Core.coneSet n C j) (hr : Reach n C (n + g) (n + g'))
+    (hg' : g' < C.gates.length) : g' ∈ PEqualNP.Core.coneSet n C j := by
+  rw [mem_coneSet n C hC.2.1 hj] at hK ⊢
+  exact ⟨hg', hK.2.trans hr⟩
+
+lemma K_opnd (hC : IsAO2 n C) (hj : j < C.gates.length) {g : ℕ}
+    (hK : g ∈ PEqualNP.Core.coneSet n C j) (b : Fin 2) (hge : n ≤ opnd C g b) :
+    opnd C g b - n ∈ PEqualNP.Core.coneSet n C j ∧ opnd C g b - n < g := by
+  have hg := K_lt hC hj hK
+  have hlt := opnd_lt hC hg b
+  refine ⟨K_reach hC hj hK ?_ (by omega), by omega⟩
+  have : n + (opnd C g b - n) = opnd C g b := by omega
+  rw [this]
+  exact Relation.ReflTransGen.single (step_opnd hC hg b)
+
+lemma K_cover (hC : IsAO2 n C) (hj : j < C.gates.length) {g : ℕ}
+    (hK : g ∈ PEqualNP.Core.coneSet n C j) (hne : g ≠ j) :
+    ∃ h ∈ PEqualNP.Core.coneSet n C j, ∃ b : Fin 2, opnd C h b = n + g := by
+  have hr := ((mem_coneSet n C hC.2.1 hj g).1 hK).2
+  rcases Relation.reflTransGen_iff_eq_or_transGen.1 hr with h | h
+  · exact absurd (by omega) hne
+  · obtain ⟨c, hrc, hst⟩ := Relation.TransGen.tail'_iff.1 h
+    obtain ⟨h', hh', rfl, b, hb⟩ := step_inv hC hst
+    refine ⟨h', ?_, b, hb.symm⟩
+    rw [mem_coneSet n C hC.2.1 hj]
+    exact ⟨hh', hrc⟩
+
+
+def slots (n : ℕ) (C : Circuit) (j : ℕ) : Finset (ℕ × Fin 2) :=
+  PEqualNP.Core.coneSet n C j ×ˢ (Finset.univ : Finset (Fin 2))
+
+
+def slotW (C : Circuit) (p : ℕ × Fin 2) : ℕ := opnd C p.1 p.2
+
+end AO
+
+section Main
+
+variable {n : ℕ} {C : Circuit}
+
+
+lemma agree (hC : IsAO2 n C) {j : ℕ} (hj : j < C.gates.length) (x y : Fin n → Bool)
+    (hxy : ∀ i (hi : i < n), i ∈ (slots n C j).image (slotW C) → x ⟨i, hi⟩ = y ⟨i, hi⟩) :
+    ∀ g ∈ PEqualNP.Core.coneSet n C j, W C n x (n + g) = W C n y (n + g) := by
+  intro g
+  induction g using Nat.strong_induction_on with
+  | _ g ih =>
+  intro hK
+  have hg := K_lt hC hj hK
+  have hop : ∀ b : Fin 2, W C n x (opnd C g b) = W C n y (opnd C g b) := by
+    intro b
+    by_cases hn : opnd C g b < n
+    · rw [W_input C n x _ hn, W_input C n y _ hn]
+      apply hxy
+      exact Finset.mem_image.2 ⟨(g, b), Finset.mem_product.2 ⟨hK, Finset.mem_univ _⟩, rfl⟩
+    · obtain ⟨hK', hlt⟩ := K_opnd hC hj hK b (by omega)
+      have he : n + (opnd C g b - n) = opnd C g b := by omega
+      rw [← he]
+      exact ih _ hlt hK'
+  rw [W_gate C n x g hg (hC.2.1 g hg), W_gate C n y g hg (hC.2.1 g hg), ao_inputs hC hg]
+  simp only [List.map_cons, List.map_nil, hop 0, hop 1]
+
+lemma pairInput_comm (u v : Fin n) : pairInput u v = pairInput v u := by
+  funext w; unfold pairInput; simp [or_comm]
+
+
+lemma end_mem (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (hC : IsAO2 n C) {j : ℕ}
+    (hj : j < C.gates.length) (hbelow : BelowF G C j) {u v : Fin n} (huv : G.Adj u v)
+    (hacc : gateVal n C j (pairInput u v) = true) :
+    u.val ∈ (slots n C j).image (slotW C) := by
+  by_contra hu
+  have hjK : j ∈ PEqualNP.Core.coneSet n C j := Finset.mem_insert_self _ _
+  have hag := agree hC hj (pairInput u v) (fun w => decide (w = v)) (by
+    intro i hi hI
+    have hne : (⟨i, hi⟩ : Fin n) ≠ u := by
+      rintro rfl; exact hu hI
+    unfold pairInput
+    simp [hne]) j hjK
+  have hy : gateVal n C j (fun w => decide (w = v)) = true := by
+    have e1 : gateVal n C j (fun w => decide (w = v)) = W C n (fun w => decide (w = v)) (n + j) := rfl
+    have e2 : gateVal n C j (pairInput u v) = W C n (pairInput u v) (n + j) := rfl
+    rw [e1, ← hag, ← e2]; exact hacc
+  have := hbelow _ hy
+  unfold graphFun at this
+  simp at this
+
+end Main
+
+def unionSlots (U : Finset ℕ) : Finset (ℕ × Fin 2) := U ×ˢ Finset.univ
+
+def unionInputs (n : ℕ) (C : Circuit) (U : Finset ℕ) : Finset (Fin n) :=
+  Finset.univ.filter fun v => v.val ∈ (unionSlots U).image (slotW C)
+
+lemma union_leaf_count {n : ℕ} {C : Circuit} (hC : IsAO2 n C)
+    (M : Finset ℕ) (hM : ∀ j ∈ M, j < C.gates.length) :
+    (unionInputs n C (M.biUnion (PEqualNP.Core.coneSet n C))).card ≤
+      (M.biUnion (PEqualNP.Core.coneSet n C)).card + M.card := by
+  classical
+  let U := M.biUnion (PEqualNP.Core.coneSet n C)
+  let I := (unionSlots U).image (slotW C)
+  have hMsub : M ⊆ U := by
+    intro j hj
+    exact Finset.mem_biUnion.mpr ⟨j, hj, Finset.mem_insert_self _ _⟩
+  have hS : (unionInputs n C U).card ≤ (I.filter fun w => w < n).card := by
+    apply Finset.card_le_card_of_injOn (fun w : Fin n => w.val)
+    · intro w hw
+      simp only [unionInputs, Finset.coe_filter, Finset.mem_univ, true_and,
+        Set.mem_ofPred_eq] at hw
+      simp only [Finset.coe_filter, Set.mem_ofPred_eq]
+      exact ⟨hw, w.isLt⟩
+    · intro a _ b _ h
+      exact Fin.ext h
+  have hG : (U \ M).card ≤ (I.filter fun w => ¬ w < n).card := by
+    apply Finset.card_le_card_of_injOn (fun g => n + g)
+    · intro g hg
+      simp only [Finset.coe_sdiff, Set.mem_sdiff, Finset.mem_coe] at hg
+      obtain ⟨j, hj, hgj⟩ := Finset.mem_biUnion.mp hg.1
+      have hne : g ≠ j := fun h => hg.2 (h ▸ hj)
+      obtain ⟨h, hh, b, hb⟩ := K_cover hC (hM j hj) hgj hne
+      have hhU : h ∈ U := Finset.mem_biUnion.mpr ⟨j, hj, hh⟩
+      simp only [Finset.coe_filter, Set.mem_ofPred_eq]
+      refine ⟨Finset.mem_image.mpr ⟨(h, b),
+        Finset.mem_product.mpr ⟨hhU, Finset.mem_univ _⟩, hb⟩, ?_⟩
+      omega
+    · intro a _ b _ h
+      simp only at h
+      omega
+  have hsplit := Finset.card_filter_add_card_filter_not (s := I) (fun w => w < n)
+  have hslots : (unionSlots U).card = U.card * 2 := by
+    simp [unionSlots]
+  have himage : I.card ≤ (unionSlots U).card := Finset.card_image_le
+  have hdiff := Finset.card_sdiff_of_subset hMsub
+  change (unionInputs n C U).card ≤ U.card + M.card
+  omega
+
+lemma core_endpoints_leaf_bound {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hC : IsAO2 n C) :
+    (((PEqualNP.Core.maximalCores G C).biUnion (gammaE G C)).biUnion Sym2.toFinset).card ≤
+      ((PEqualNP.Core.maximalCores G C).biUnion (PEqualNP.Core.coneSet n C)).card +
+        (PEqualNP.Core.maximalCores G C).card := by
+  classical
+  let M := PEqualNP.Core.maximalCores G C
+  let U := M.biUnion (PEqualNP.Core.coneSet n C)
+  have hM : ∀ j ∈ M, j < C.gates.length := by
+    intro j hj
+    exact Finset.mem_range.mp (Finset.mem_filter.mp hj).1
+  apply le_trans ?_ (union_leaf_count hC M hM)
+  apply Finset.card_le_card
+  intro v hv
+  obtain ⟨e, he, hv⟩ := Finset.mem_biUnion.mp hv
+  obtain ⟨j, hj, hej⟩ := Finset.mem_biUnion.mp he
+  have hcore : PEqualNP.Core.IsCore G C j := (Finset.mem_filter.mp hj).2.1
+  obtain ⟨heG, a, b, rfl, hab⟩ := Finset.mem_filter.mp hej
+  have hadj : G.Adj a b := by simpa using heG
+  have slot : v.val ∈ (slots n C j).image (slotW C) := by
+    rcases Sym2.mem_iff.mp (Sym2.mem_toFinset.mp hv) with rfl | rfl
+    · exact end_mem G hC (hM j hj) hcore.2.1.1 hadj hab
+    · exact end_mem G hC (hM j hj) hcore.2.1.1 hadj.symm
+        (by rw [pairInput_comm]; exact hab)
+  obtain ⟨⟨g, b⟩, hgb, heq⟩ := Finset.mem_image.mp slot
+  have hg : g ∈ U := Finset.mem_biUnion.mpr ⟨j, hj, (Finset.mem_product.mp hgb).1⟩
+  apply Finset.mem_filter.mpr
+  exact ⟨Finset.mem_univ _, Finset.mem_image.mpr ⟨(g, b),
+    Finset.mem_product.mpr ⟨hg, Finset.mem_univ _⟩, heq⟩⟩
+
+end PEqualNP.Outside.L_meta_2962_aux.Leaf

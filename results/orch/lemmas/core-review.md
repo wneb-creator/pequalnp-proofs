@@ -36,3 +36,18 @@ The following are independently achievable mathematical components:
 Consequently a sufficient circuit-only bound is |D|+tau(D) <= |U|+mc. This isolates the shared-cone resource-counting difficulty from ordinary cover extension. It is stronger than the posted statement and is not proved here. A two-hypothesis reduction could use cover extension and this circuit bound, but the lease does not advertise reductions_open; parent must not assume reduction submission is eligible.
 
 Beware invalid simplifications: a core can accept a non-star edge family, so tau(D)<=mc is not automatic. A core with a large accepted star can have only about |D| gates in its cone, so the coarser sufficient bound 2|D|<=|U|+mc is false in general.
+
+## Generic lower-bound census
+
+A second census searched final theorem statements and helper modules for edge-cardinality / circuit-size inequalities. No unconditional exact lower bound for arbitrary monotone C4-free bipartite graph circuits was found. Closest checked repository results:
+
+- L_meta_2237 (1878 lines): edge count plus a cover size is at most size+1 under the additional global read-1 hypothesis.
+- L_meta_3706 (1662 lines): edge count plus minimum cover size after deleting reread edges is at most circuit size plus number of reread edges plus1.
+- L_meta_2432 (687 lines): accepted-edge count is at most circuit size under singleton rejection, girth>=5, and the condition that every AND gate rejects every nonedge pair.
+- L_meta_3525 (1730 lines): exact edges+cover-1 lower bound for forests.
+- L_meta_1602 is conditional on the clean-AND exact lower bound; it does not establish the unrestricted result.
+- Only reductions R_meta_612_1, R_meta_612_2, R_meta_612_4, R_meta_612_7 were found for the general exact-bound step.
+
+The read-1 theorem cannot apply directly to a core, which is defined using a reread witness. The clean-AND theorem requires an additional argument controlling internal gates, not merely the core output being below the graph function.
+
+Independent review of single_core/extra.lean: the new singleton-incidence partial is valid in scope. It explicitly assumes each maximal core accepts at most one edge, derives |D|<=mc<=|U|, chooses an edge cover with at most |D| vertices, and applies the generic certificate implication. This remains a conditional partial, not the full target.

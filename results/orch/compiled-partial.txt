@@ -1,5 +1,7 @@
-L-meta-2962 PARTIAL: deleted-edge cover extension, sufficient certificate implication, and full inequality when each maximal core accepts at most one edge.
+L-meta-2962 PARTIAL, not the posted theorem.
+Checked components: deleted-edge cover extension; singleton-incidence case; cores are AND gates; explicit tight circuit example; input-vertex bound for overlapping cones; matching-incidence case.
 Named build: lake build PEqualNP.Outside.L_meta_2962, exit 0. Full output: partial-build-output.txt.
-This file does not prove the posted statement yet. Local checker has not run.
+Local checker not run: the full theorem is absent.
+Target line count: 856. No final cleanup pass yet.
 Sub-agents: 5 (status_review, structural_proof, counterexample, lemma_search, single_core)
-TIMING total=20 subagents=5
+TIMING total=28 subagents=5

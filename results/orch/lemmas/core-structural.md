@@ -12,3 +12,5 @@ This isolates one sufficient circuit certificate. It is stronger than the target
 Core definitions: coneSet includes the core gate itself; IsCore requires NOT BOTH operands to be implicant gates, rather than neither. Maximal cores range over dead gates too, while lift-fixedpoint constrains only output cone.
 
 Relevant existing refutations: L_meta_3446 disproves analogous bound using only private core-cone gates; L_meta_2969 disproves companion outside-cone count; neither directly refutes current unfiltered U bound.
+
+Structured search: glued P4 deadcore gadgets with globally deduplicated gate expressions. Script structural/glue_p4.py, output structural/glue-p4.log. Minimum observed margin zero; no negative candidate. Parent requested second route: 5-minute evolutionary mutations seeded by P4, fixed random C4-free bipartite graphs n=6..9, exact truth-table below-F and exact read-once pair mask, score uses target tau(G)-tau(G-D). Script structural/evolve_core.py, output structural/evolve-core.log. Currently running.
