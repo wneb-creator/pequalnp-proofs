@@ -316,4 +316,92 @@ lemma live_iff_labeledPatterns {k m n budget : ℕ}
     (rowsMatch_of_patterns_eq front goal front' goal' same)
     (rowsMatch_of_patterns_eq front' goal' front goal same.symm)
 
+lemma rowsMatch_not {k m n : ℕ}
+    {front : Fin k → BitVec m} {goal : BitVec m}
+    {front' : Fin k → BitVec n} {goal' : BitVec n}
+    (h : rowsMatch front goal front' goal') :
+    rowsMatch front (~~~goal) front' (~~~goal') := by
+  intro i
+  obtain ⟨j, hg, hf⟩ := h i
+  refine ⟨j, ?_, hf⟩
+  simp only [BitVec.getElem_not, hg]
+
+lemma build_signed_iff_matching_rows {k m n budget : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (forth : rowsMatch front goal front' goal')
+    (back : rowsMatch front' goal' front goal) :
+    (build basicOps goal budget (frontierRoots front) ∨
+      build basicOps (~~~goal) budget (frontierRoots front)) ↔
+    (build basicOps goal' budget (frontierRoots front') ∨
+      build basicOps (~~~goal') budget (frontierRoots front')) := by
+  exact or_congr (build_iff_matching_rows front goal front' goal' forth back)
+    (build_iff_matching_rows front (~~~goal) front' (~~~goal')
+      (rowsMatch_not forth) (rowsMatch_not back))
+
+lemma live_signed_iff_matching_rows {k m n budget : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (forth : rowsMatch front goal front' goal')
+    (back : rowsMatch front' goal' front goal) :
+    (live basicOps goal budget (frontierRoots front) ∨
+      live basicOps (~~~goal) budget (frontierRoots front)) ↔
+    (live basicOps goal' budget (frontierRoots front') ∨
+      live basicOps (~~~goal') budget (frontierRoots front')) := by
+  exact or_congr (live_iff_matching_rows front goal front' goal' forth back)
+    (live_iff_matching_rows front (~~~goal) front' (~~~goal')
+      (rowsMatch_not forth) (rowsMatch_not back))
+
+lemma build_signed_iff_swappedPatterns {k m n budget : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (same : labeledPatterns front goal = labeledPatterns front' (~~~goal')) :
+    (build basicOps goal budget (frontierRoots front) ∨
+      build basicOps (~~~goal) budget (frontierRoots front)) ↔
+    (build basicOps goal' budget (frontierRoots front') ∨
+      build basicOps (~~~goal') budget (frontierRoots front')) := by
+  have h := build_signed_iff_matching_rows (budget := budget) front goal front' (~~~goal')
+    (rowsMatch_of_patterns_eq front goal front' (~~~goal') same)
+    (rowsMatch_of_patterns_eq front' (~~~goal') front goal same.symm)
+  simp only [BitVec.not_not] at h
+  exact h.trans or_comm
+
+lemma live_signed_iff_swappedPatterns {k m n budget : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (same : labeledPatterns front goal = labeledPatterns front' (~~~goal')) :
+    (live basicOps goal budget (frontierRoots front) ∨
+      live basicOps (~~~goal) budget (frontierRoots front)) ↔
+    (live basicOps goal' budget (frontierRoots front') ∨
+      live basicOps (~~~goal') budget (frontierRoots front')) := by
+  have h := live_signed_iff_matching_rows (budget := budget) front goal front' (~~~goal')
+    (rowsMatch_of_patterns_eq front goal front' (~~~goal') same)
+    (rowsMatch_of_patterns_eq front' (~~~goal') front goal same.symm)
+  simp only [BitVec.not_not] at h
+  exact h.trans or_comm
+
+lemma frontierRoots_reindex {k l m : ℕ} (front : Fin k → BitVec m)
+    (e : Fin l ≃ Fin k) : frontierRoots (front ∘ e) = frontierRoots front := by
+  unfold frontierRoots
+  ext w
+  constructor
+  · intro h
+    obtain ⟨q, _, he⟩ := Finset.mem_image.mp h
+    exact Finset.mem_image.mpr ⟨e q, Finset.mem_univ _, he⟩
+  · intro h
+    obtain ⟨q, _, he⟩ := Finset.mem_image.mp h
+    exact Finset.mem_image.mpr ⟨e.symm q, Finset.mem_univ _, by simpa using he⟩
+
+lemma build_iff_reindex {k l m budget : ℕ} (front : Fin k → BitVec m)
+    (e : Fin l ≃ Fin k) (goal : BitVec m) :
+    build basicOps goal budget (frontierRoots (front ∘ e)) ↔
+      build basicOps goal budget (frontierRoots front) := by
+  rw [frontierRoots_reindex]
+
+lemma live_iff_reindex {k l m budget : ℕ} (front : Fin k → BitVec m)
+    (e : Fin l ≃ Fin k) (goal : BitVec m) :
+    live basicOps goal budget (frontierRoots (front ∘ e)) ↔
+      live basicOps goal budget (frontierRoots front) := by
+  rw [frontierRoots_reindex]
+
 end PEqualNP.Outside.L_meta_10760
