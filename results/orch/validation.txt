@@ -32,3 +32,6 @@ Transformation scripts preserved in tools/; some composed transformations remain
 
 LowerEqualityProbe.lean: exit 0, empty diagnostics; independently reviewed equality of original model definitions within each family, with no assumptions equating the two distinct families. Full log logs/lower-equality-probe.log.
 UnifiedRecords2444Prefix.lean and UnifiedRecords1678Prefix.lean: exit 0; combined state/record generic prefixes checked. Logs unified-records-2444-prefix-build.log and logs/unified-records-1678-prefix.log. Root reviewed the constituent transformations and compiled combinations; full certificate replay remains outstanding.
+
+LowerTransferProbe.lean: exit 0 in 5.24 s. Every ordinary NOT step is simulated by an OR of the freely available inverse with itself; bank and gate count are preserved. Root semantic review passed. Complete log logs/lower-transfer-check-3.log.
+ParentSortedLargeProbe.lean: exit 0, through valid383. Combines the previously reviewed parent opcode/rule reconstruction and compact sorted lookup, with unchanged certificate checks. Complete log logs/parent-sorted-large-probe.log. Full gap proof/checker still pending.

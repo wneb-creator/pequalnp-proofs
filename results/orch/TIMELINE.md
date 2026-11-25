@@ -25,3 +25,10 @@
 
 - 2026-11-25T03:39:43+00:00: normalization lane compiled combined1678 prefix and generic graph-bound equality probe; handed 78-theorem semantic alias pass to structural integration.
 - 2026-11-25T03:44:25.277945+00:00: preserved checked generic Lower equalities and both combined state/record verifier prefixes after independent review. Second strategy review prioritizes proof-family sharing, precise dependency scopes, and alternative NOT packages.
+
+- 2026-11-25T03:46:05.487509+00:00: ParentSortedLargeProbe completed successfully (parent sharing + sorted lookup through valid383).
+
+- 2026-11-25T03:50:25+00:00: theorem alpha pipeline measured 193 KB saving; simple definition AST alpha strategy closed after only 5 KB extra; cross-model lower alias pass expanded to 90 bounds.
+
+2026-11-25T03:50:33.339518+00:00 Scoped raw replay with-j3-M6500 abortedexit134 on lean::memory_exception ininterpreter enteringC4338(prefixline5048), afterC2444 withoutprooferrors. NoFullRaw.olean produced. Full output full-raw-scoped-build.log retained. Rawvalidationpaused; compressed-j1aggregate ownsbuildslot.
+- 2026-11-25T03:53:57.802227+00:00: root independently reviewed the free-negation-to-ordinary Lower transfer and composed parent/sorted certificate benchmark; preserving checked results.
