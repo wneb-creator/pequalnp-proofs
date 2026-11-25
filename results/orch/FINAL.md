@@ -28,11 +28,15 @@ are not Lean certificates of the unrestricted posted statement.
 Ten initial null desk answers are preserved in desk-log.txt. Last exact text:
 no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes
 
-Lease disposition: pending release with reason=other after this archive is
-pushed. Only this job's L-meta-2583 lease will be released.
+Lease disposition: this job's L-meta-2583 lease was released with reason=other
+at 2026-11-25 11:36:22 UTC, after archive commit
+14a6abe8366c5e8a93fa68a5ed7ab464fb58aacf was pushed to origin/pnp/pilot-76.
+The desk confirmed {released: L-meta-2583, reason: other}. No other lease was
+touched and no new gap was requested. The unrestricted sharp bound remains
+unproved; the build success concerns partial lemmas only.
 
 Sub-agents: status_1035, lean_setup, counterexample, structural,
 decomposition, lower_bound, fresh_math, gate_charge, restriction_charge,
 boolean_identity, quadratic_structure.
-TIMING total=209 subagents=11
+TIMING total=214 subagents=11
 Message acknowledged: msg-1be039552af80db7b71971f9.
