@@ -181,3 +181,61 @@ Each file compiled with Lean exit0 and empty final stdout/stderr. Root integrate
 The reviewed free-OR encoder was dualized to search K4-incidence circuits with at most10 original OR gates. The unrestricted3300-variable/13772-clause run ended UNKNOWN after480.014s. A3550-variable/18812-clause restricted run ended UNKNOWN after110.012s. Restrictions were point-reader cap2, line-pair reader-union cap3, and clique bare operands; mathematical justifications are archived, not jointly Lean-certified. No satisfying witness, UNSAT verdict, or checked lower-bound certificate was obtained. Controls fixedFano7 SAT, C5dual3 UNSAT, C5dual4 SAT and clique-C5dual4 SAT matched expectations; SAT models were independently checked on every assignment. Complete source/CNFs/results/stdout/stderr/control reviews live in `results/orch/structure-search`.
 
 The full remaining route is still a size-preserving normalization, or the sharp unrestricted bound N*(q+2)≤C.size+1. Existing READ1 lower and upper bounds make that equivalence precise. The strongest structural progress handles closed components with pure-OR contexts and the syntactically line-linear subclass. A general proof must pay for shared nonlinear contexts, or show that remaining unread-edge components have sufficiently restricted structure. No unrestricted counterexample or normalization proof was found. No solver remains in this agent’s slot; it was released to the counterexample agent at15:04 UTC.
+
+### 2026-11-25 — research: new L-meta-4970 ledger census
+
+Only L_meta_4791 among existing Outside files mentions TwoColour/tCount. It transforms a singleton-rejecting AO2 circuit into T=0 at cost D.size+4<=6*C.size; it is not a sharp zero-T ledger.
+
+Closest exact conclusion: L_meta_4990:936 proves E.card+cover.card<=C.size+1, but requires two wire sets P,L closed under OR gates from point/line inputs and EVERY AND gate taking its first operand in L and its second in P. The new star witnesses concern arbitrary circuit gates and do not imply this hypothesis.
+
+L_meta_2234:545 is a useful structural partial ledger. Inputs: NoFourCycle G, AO2 C, output false on every singleton, finite F of indices, maps ctr and lf, and each OR-reach orIn(lf j) lies in neighbors of ctr j. Conclusions: (1) every nontrivial OR gate OR-reachable from these wires is outside the output OR cone; (2) sum over centers of the number of distinct witnessed neighbors is at most the number of those nontrivial OR gates plus F.card. L_meta_2233:215 additionally bounds the number of AND gates OR-reachable from output by output-OR-count+1. Joining these needs top AND ownership/center data absent from the new hypothesis.
+
+L_meta_278:297 is the stronger SEMANTIC support ledger: a wire o has singleton support S, rejects all weight<=k inputs outside S, c<=k, c+1<=S.card; then c is at most the number of gates j whose semantic singleton support is a subset of S and has at least two vertices. Pure OR-of-S witnesses meet these assumptions with c=S.card-1. The counted gates may be AND or OR, so idempotent AND barriers do not defeat the lemma. L_meta_270:307 sums such charges for a family with pairwise support intersections<=1. L_meta_529:251 gives the full multiple-output OR-family bound sum(|S_i|-1)<=gates.length under pairwise intersections<=1 and fanin<=2, with no read condition.
+
+Caution: witnesses from DIFFERENT centers on the same side have support intersection<=1 by no-C4; opposite sides are disjoint. Several witnesses for the SAME center can overlap arbitrarily, and the hypothesis need not supply one circuit wire representing their whole union. Thus simply applying L270 to all witnesses is invalid; a grouped component ledger is still needed. Also semantic pure OR witnesses need not have identical syntactic OR-reach: (b AND b) OR c computes b OR c but has orIn={c}. T=0 does not prevent this masking.
+
+Other exact ledgers L2235/L2237 assume joint read1, and L4183/L1491 require minimum AO circuit plus TopForm and include the unresolved Ustar surcharge. They do not directly apply. No checked theorem assembling the new hypotheses into the exact conclusion was located. Exact selected statements retained in 4970-ledger-exact-statements.json.
+
+## 2026-11-25 15:27:33 UTC — gap4970 semantic star ledger and READ1 obstruction checked
+
+`gap4970_star_ledger.lean` extracts the localized assigned-gate proof from merged L_meta_782; `assigned C T` consists of gate wires whose accepted-singleton support is contained in T and has cardinal at least2. `pure_or_card_assigned` proves Q.card−1≤assigned.card for any existing output exactly OR Q with Q⊆T; `assigned_disjoint` handles support sets intersecting in at most one point. This works for arbitrary monotone implementations, not merely literal OR-reach. 324 lines, compiler exit0, empty logs.
+
+`gap4970_read_obstruction.lean` checks that tCount0 plus the new pure-star service assumption does not imply READ1 of the given circuit: the 3-gate circuit OR(y0,y1), AND(x0,g0), AND(g1,g1) computes the one-centre two-edge star, has tCount0, is not READ1, and its first gate serves each edge. This is an obstruction to that proof route, not a counterexample to the posted cardinality bound. Both auxiliary files use Defs+Mathlib.Tactic only; full logs are in plane-lemmas with matching filenames and explicit .exit.
+
+2026-11-25T15:30:51.004638+00:00
+
+### Structure: checked star-centre selection for L-meta-4970
+
+Checked Lean helper `results/orch/lemmas/gap4970_structure.lean` proves that one semantic pure-star wire with support of size at least two has a unique centre in a bipartite C4-free graph. The proof handles both sides and uses singleton assignments to identify the support; opposite-side linear OR functions cannot coincide. `witness_cover_bound` then chooses all centres witnessed in a finite set J of gate indices, obtaining a vertex cover of size at most J.card. Gate operation and validity may be enforced in J. This conclusion permits unused witnesses and does not assert the full gate bound. Lean exit 0; complete stdout/stderr are empty in scratch `gap4970-structure.stdout` and `.stderr`.
+
+Unresolved ledger: the OR-only preprocessing cost is available from the separate partition helper, but a disjoint lower bound for the remaining computation is not established. A C6 example warns against charging full witness unions twice: compute by three point stars (8 gates), append three unused line-star ORs (3 gates), choose all six centres. Six preprocessing ORs leave five gates, while the naive m+S-1 remainder would demand eleven. The correction must subtract double-covered incidences D, or select/orient the witness family appropriately. This is not a counterexample to the posted statement.
+
+Also, tCount=0 is syntactic: b AND b hides line b from OR-only reach, so a OR (b AND b) has mixed semantic singleton support while no two-colour OR is counted. Any semantic-colour normalization must charge these AND barriers.
+
+## 2026-11-25 15:32:09 UTC — gap4970 OR-only partition bound checked and frozen
+
+`gap4970_or_partition.lean` (315 lines; SHA256 `30d82ea23a5c2bb10a8e19d243d7bdfff656b4a410d350f3442e463b4429a7b9`) adapts merged L_meta_529 partition invariant to count OR gates only. New and_false_parent proves that an AND gate false on the complement of T cannot merge singleton-label classes: choose an operand false there and invoke the previous label invariant. Therefore main_inv bounds T.card by the number of remaining labels plus D.card, where D consists only of OR gates false on complement T and true on at least two singletons. New roots_bound handles any family of existing OR Q outputs with Q⊆T and one representative per connected component of their support-overlap relation; T.card≤representatives.card+D.card. This supplies the connected-component pure-star budget while leaving all AND gates uncharged. It does not prove the remaining output/centre gate budget. Compiler exit0; complete stdout (1965 bytes deprecation warnings), empty stderr, and explicit exit status saved as plane-lemmas/gap4970_or_partition.*. File frozen for independent review; future work will use a separate auxiliary file.
+
+### 2026-11-25 — independent research review
+
+Independent red-team review: APPROVED as partial helpers, not as a complete proof of L-meta-4970.
+
+Reviewer: pilot94_research.
+Scope: the frozen StarLedger, ReadObstruction, and Structure helper files; OrPartition was deliberately excluded from this review.
+
+Validation: concatenated the exact helper sources with imports moved to the top in a scratch audit file, appended #print axioms for eight principal declarations, and ran prepared lake env lean. Exit code 0, stderr empty. Every inspected helper depends only on propext, Classical.choice, Quot.sound. Existing individual compile logs were also empty and successful.
+
+Static checks: no sorry, axiom, native_decide, unsafe, partial, opaque, initialize, run_cmd, or elab declarations; no _root_ text, quotes, attributes, or set_option. Imports are PEqualNP.Defs and Mathlib.Tactic on import lines. Each helper is under its gap-specific namespace. No declaration claims the exact posted final theorem.
+
+Semantic review: StarLedger uses actual circuit wire semantics including out-of-range reads false, and its cut proof counts only removed gates. assigned counts wires whose singleton support has at least two inputs and is contained in the target; missing/input wires cannot enter it. pure_or_card_assigned correctly handles the empty support case. ReadObstruction computes a star followed by an idempotent output AND; it disproves the direct READ1 implication while satisfying the star-service condition and T=0. It does not refute the held size statement. Structure proves uniqueness of semantic nontrivial star centers using no-C4, distinguishes point/line supports on split assignments, and constructs a vertex cover of size at most a finite witness set J; J need not be minimal or all live gates.
+
+Provenance: StarLedger inherited run/value/cut/card_assigned toolkit was copied/adapted from merged L_meta_782 (which credits k-sandhu PR149 and notes card_assigned adapted from L270), with new assigned_disjoint and pure_or_card_assigned corollaries. ReadObstruction and Structure are new helper implementations for this job.
+
+Frozen hashes:
+- results/orch/lemmas/gap4970_star_ledger.lean: afde4d31f0e2c32ff1d3c2149907c96dc750299a9f4d3a4a98a9c1060fc89168 (325 lines)
+- results/orch/lemmas/gap4970_read_obstruction.lean: a9c14fbf33ae8d98181765cd151d087201b2fabd3ba4a28ef9792cf6fe104caa (33 lines)
+- results/orch/lemmas/gap4970_structure.lean: 9972ce8a5cc1bd6c065328012355b7b3cb83e51526f31a676d6185f410b85c29 (126 lines)
+
+Audit outputs retained at /tmp/oec/pequalnp-pilot-94/plane-research/4970-review-audit.stdout and .stderr; static data in 4970-review-static.json.
+
+Named integration review APPROVED: lean/PEqualNP/Outside/L_meta_4970.lean, 484 lines, sha256 3b38a082914478f3fd4cce85e6885ca03b47750ca9bb6ee7d2f08101ba83a79e. All three declaration/proof bodies match the independently reviewed frozen sources verbatim after only namespace/import/open relocation. Imports first, one allowed outer namespace, no prohibited keywords, _root_ text, quotes, attributes, options, or claimed final target. Approval is for a compiled partial checkpoint, not completion of the gap.

@@ -1,0 +1,8 @@
+{
+  "gap": "L-meta-2590",
+  "lease_terms_issued_at": "2026-11-25T15:07:28.124Z",
+  "holding": 5,
+  "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another",
+  "request_completed_at": "2026-11-25T15:19:10.708824+00:00",
+  "handling": "Treated as another pilot\u2019s pre-existing lease; no work, beat or release call for it. One retry pending."
+}

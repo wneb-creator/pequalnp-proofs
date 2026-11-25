@@ -1,24 +1,18 @@
-pequalnp-pilot-94 — checked partial results; no full proof or refutation
+pequalnp-pilot-94 — L-meta-4970 checked partial, full theorem unresolved
 
-Last held gap: L-meta-2583. Its lease was invalidated by the desk at 2026-11-25T15:10:17Z (HTTP410), despite a last reported expiry of 15:25:16.842Z. The required curl-si diagnostic also returned410. All searches stopped. No other pilot lease was released. Earlier own L-meta-1904 lease also returned410; its 315-line checked partial remains archived.
+Current own lease issued 2026-11-25T15:22:04.914Z; latest manual renewal expiry 15:50:26.003Z. A separate timer renews every 5 minutes. The recovery desk first returned another pilot's pre-existing L-meta-2590 lease with the five-gap capacity message; it was not worked, renewed or released. The permitted retry returned this fresh own lease. Desk null answers: 0.
 
-Named file: lean/PEqualNP/Outside/L_meta_2583.lean (3207 lines).
-Build: lake build PEqualNP.Outside.L_meta_2583, exit 0.
-Output: Build completed successfully (6669 jobs).
-Complete build stdout/stderr: plane-build.stdout, plane-build.stderr.
+Named file: lean/PEqualNP/Outside/L_meta_4970.lean, 484 lines.
+Build: lake build PEqualNP.Outside.L_meta_4970, exit 0.
+Build output: Build completed successfully (6655 jobs).
+Complete stdout/stderr: gap4970-build.stdout, gap4970-build.stderr.
 
-Checked components include incidence geometry and matching; an exact READ1 upper construction; the READ1 lower bound and equivalence between the requested replacement and the unrestricted size threshold; concrete Fano incidence and READ1 minimum 27; three-line orientation, shared-OR semantics, absorption padding, and finite extremal-test sufficiency.
-Independent source/axiom reviews passed, using only propext, Classical.choice, Quot.sound. These are partial lemmas, not a proof of the posted statement.
+The partial proves semantic singleton-support gate costs, disjoint support charging, uniqueness of nontrivial star centres and a finite witness-cover bound. A separate kernel-checked example shows that the posted hypotheses do not imply the given circuit itself is READ1; it is not a refutation of the posted size bound.
 
-Source guard: REFUSED: the file holds no theorem; the required final theorem is absent. Complete output is final-source-guard.stdout/stderr.
-Full tools/check-lean.mjs was not run: its CheckLemma build requires uncached Mathlib modules. The genuine import smoke test fails at missing Batteries.olean, and full-cache extraction does not fit the available disk. Building Mathlib from source is prohibited by this job. No checker acceptance is claimed.
-Cleanup was not triggered: the full theorem/checker did not pass. Line counts before/after: 3207/3207.
-No proof PR opened.
+Independent review of all three components passed. Principal helper axioms are only propext, Classical.choice, Quot.sound; complete review artifacts are included. StarLedger reuses the checked L_meta_782 toolkit (k-sandhu, PR149; card_assigned adapted there from L270) and adds two corollaries. Structure and ReadObstruction are new.
 
-Search outcomes: fixed-edge Fano 26 SAT UNKNOWN after 900s; strengthened ordered SAT UNKNOWN after 1800s; minimum-AND7 phase interrupted on lease loss. Original and weighted CGP 480s phases found no ≤26 circuit, best 27. The old normalized-only run was interrupted after 411s; its candidate-detection limitation is documented. Corrected raw-or-normalized source has independent controls/regression review only, with no timed run started. K4-incidence dual searches returned UNKNOWN after 480s and 110s (the latter explicitly restricted). UNKNOWN and heuristic non-discovery establish no lower bound. Complete programs, tested circuits, logs, reviewer reports and historical-only artifacts are archived.
-
-Desk null answers: 0. Exact 410 message: no such live lease: it expired or was released. Ask /desk/next again.
-Recovery request pending until this checkpoint is pushed.
+No final target theorem is declared. No full proof or refutation is claimed and no PR is opened. Full tools/check-lean.mjs runtime requires the complete Mathlib cache, which is not yet available within ordinary disk capacity. Its CheckLemma executable imports Lean, while statement checking imports Mathlib at runtime. Earlier checkpoint wording saying the executable itself imports all Mathlib was inaccurate. Genuine memory-backed cache storage is under investigation; no checker edits or Mathlib source builds.
+Cleanup has not been triggered; line counts before/after 484/484.
 
 Sub-agents: 7 (status/setup/review, structure, counterexample search, lemmas, research, C4-free theory, nested-AND theory)
-TIMING total=93 subagents=7
+TIMING total=111 subagents=7

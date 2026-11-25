@@ -1,0 +1,41 @@
+[
+  {
+    "file": "results/orch/lemmas/gap4970_star_ledger.lean",
+    "sha256": "afde4d31f0e2c32ff1d3c2149907c96dc750299a9f4d3a4a98a9c1060fc89168",
+    "lines": 325,
+    "checks": {
+      "forbidden_keyword": false,
+      "root_text": false,
+      "quotes": false,
+      "attributes": [],
+      "options": [],
+      "final_target_decl": false
+    }
+  },
+  {
+    "file": "results/orch/lemmas/gap4970_read_obstruction.lean",
+    "sha256": "a9c14fbf33ae8d98181765cd151d087201b2fabd3ba4a28ef9792cf6fe104caa",
+    "lines": 33,
+    "checks": {
+      "forbidden_keyword": false,
+      "root_text": false,
+      "quotes": false,
+      "attributes": [],
+      "options": [],
+      "final_target_decl": false
+    }
+  },
+  {
+    "file": "results/orch/lemmas/gap4970_structure.lean",
+    "sha256": "9972ce8a5cc1bd6c065328012355b7b3cb83e51526f31a676d6185f410b85c29",
+    "lines": 126,
+    "checks": {
+      "forbidden_keyword": false,
+      "root_text": false,
+      "quotes": false,
+      "attributes": [],
+      "options": [],
+      "final_target_decl": false
+    }
+  }
+]

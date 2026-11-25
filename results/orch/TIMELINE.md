@@ -50,3 +50,9 @@
 2026-11-25T15:10:17Z: own L-meta-2583 renewal and required curl-si diagnostic both returned410 before last reported expiry. All proof/search work stopped; archival review and checkpoint only.
 
 2026-11-25T15:16:38.234605+00:00: completed archival review and documentation after lease invalidation; all new results ready for push before recovery request.
+
+2026-11-25T15:22:04.914Z: permitted retry returned a fresh own lease forL-meta-4970; issued_at equals request time, different from pre-existingL-meta-2590. Work transfers to4970; other pilot lease untouched.
+
+- 2026-11-25T15:30:51.004638+00:00 structure: semantic star-centre uniqueness and finite witness-cover cardinal bound compiled; frozen for review. Full joint gate ledger remains unresolved.
+
+2026-11-25T15:32:37.330068+00:00: named484-line L-meta-4970 partial builds; independent component review passed. Preparing checkpoint, full ledger unresolved.

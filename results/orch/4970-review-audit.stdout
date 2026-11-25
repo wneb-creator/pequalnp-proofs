@@ -1,0 +1,14 @@
+'PEqualNP.Outside.L_meta_4970.StarLedger.cut' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4970.StarLedger.card_assigned' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4970.StarLedger.assigned_disjoint' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4970.StarLedger.pure_or_card_assigned' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_4970.ReadObstruction.duplicateStar_properties' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_4970.ReadObstruction.duplicateStar_service' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_4970.Structure.witness_unique' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4970.Structure.witness_cover_bound' depends on axioms: [propext, Classical.choice, Quot.sound]

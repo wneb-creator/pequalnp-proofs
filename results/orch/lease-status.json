@@ -1,11 +1,9 @@
 {
   "job": "pequalnp-pilot-94",
-  "gap": "L-meta-2583",
-  "live_lease": false,
-  "desk_status": 410,
-  "diagnostic_repeated_once": true,
-  "last_timer_success": "2026-11-25T15:05:16.978281+00:00 renewed; expires 2026-11-25T15:25:16.842Z",
-  "error": "no such live lease: it expired or was released. Ask /desk/next again.",
-  "action": "Stopped searches; preserving results before recovery request.",
+  "gap": "L-meta-4970",
+  "live_lease": true,
+  "issued_at": "2026-11-25T15:22:04.914Z",
+  "latest_manual_expiry": "2026-11-25T15:50:26.003Z",
+  "timer_interval_seconds": 300,
   "null_desk_answers": 0
 }
