@@ -1,0 +1,10 @@
+{
+  "source_sha256": "375ce65329b3754cf78169a50fcee872e4c4e4ec9a0197844042a3216e521b6e",
+  "original_hypotheses_exact_match": 20,
+  "source_integer_certificate_verified": true,
+  "certificate_support": 1194,
+  "constant_bits": 136,
+  "manifest_files_verified": 3,
+  "scope": "20 original normalized cross-chart equations imply False; permanent-to-coefficient bridge remains separate",
+  "seconds": 0.419984846999796
+}

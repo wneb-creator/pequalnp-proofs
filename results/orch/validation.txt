@@ -155,3 +155,8 @@ Sym3ChartNormalization.lean: SHA256 e291b0afd7f2a1b91c50d9ef00d3f867b47645fdd514
 DoubleSingleSameCertificate.lean: SHA256 6f47202014470ad0cf2f2b517997a01b2461ae207428c3e074a217cb945c6d84;181lines;exit0 in30.14s. Complete log lemmas/construction_search_double-single-same-certificate.log; independent review lemmas/double-single-same-independent-review.log.
 CollinearLeafConditions.lean: SHA256 2d60d0ba270798cd08ab071fb19e2a0915d36be705581c334c411b3e31ad2fd2;245lines;exit0 in8.07s. Complete log lemmas/collinear-leaf-lean.log; independent review lemmas/collinear-leaf-independent-review.log.
 Scope: same repeated-kernel coefficient chart excluded; automatic leaf nonzero conditions proved; Witt chart normalization proved. Full target and chart coverage/bridges remain incomplete; no target checker run.
+
+2026-11-25T11:23:49.351189+00:00 Additional checked/reviewed partials
+DoubleSingleCrossCertificate.lean: SHA256 375ce65329b3754cf78169a50fcee872e4c4e4ec9a0197844042a3216e521b6e;90lines;exit0 in52.23s. Complete log lemmas/construction_search_double-single-cross-certificate.log; independent review lemmas/double-single-cross-independent-review.log.
+ProjectiveNormalization.lean: SHA256 4da23b5f3d478a410ce18c8ae74bddcc4f0d5796dc07d61ddc01078e7342e6b1;102lines;exit0 in3.52s. Complete log lemmas/projective-normalization-lean-v4.log; independent review lemmas/projective-normalization-independent-review.log.
+Scope: cross repeated-kernel coefficient chart excluded; abstract projective/frame normalization and dimension contradiction helpers proved. Full target remains unresolved; no target checker run.

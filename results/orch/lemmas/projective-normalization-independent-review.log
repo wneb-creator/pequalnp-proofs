@@ -1,0 +1,5 @@
+APPROVED ProjectiveNormalization exact SHA256 4da23b5f3d478a410ce18c8ae74bddcc4f0d5796dc07d61ddc01078e7342e6b1
+Collinear lemma uses pair-span coefficients and excludes a zero coefficient by the corresponding singleton-span hypothesis; does not assume more than stated.
+Frame lemma constructs an actual basis from independent A,B,C in dimension3, expands D, and uses each stated complementary independent triple to rule out a zero coordinate by an explicit linear relation with one coefficient1.
+Pair-span finrank bound uses inclusion into a two-generator span and handles duplicate generators; dimension3 contradiction follows. All finite-dimensional hypotheses are explicit where needed.
+Format clean; recorded Lean exit0,3.52s,empty log.
