@@ -1,0 +1,10 @@
+L-meta-1479 PARTIAL ONLY
+Named file: lean/PEqualNP/Outside/L_meta_1479.lean
+Contains normalized binary gate validation and directional derivative trace lemmas.
+Build: lake build PEqualNP.Outside.L_meta_1479, exit 0.
+Build completed successfully (5149 jobs).
+Checker: not run; no final target theorem yet.
+Independent review: PASS for partial trust, semantics, format, and namespace; expected final theorem absent.
+Complete build stdout/stderr archived alongside this file.
+Sub-agents: 6 (structural review, Lean formalization, constructive search, stochastic search, SAT decomposition, algebraic route)
+TIMING total=40.1 subagents=6
