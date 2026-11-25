@@ -23,3 +23,6 @@
 2026-11-25T05:27:09Z: lease renewed; expiry2026-11-25T05:47:09.008Z.
 2026-11-25T05:34:25.001990+00:00: lease renewed; expiry 2026-11-25T05:54:13.217Z.
 2026-11-25T05:36:07.304243+00:00: standard checker still active on frozen primary; independent final source review passed. Pruning strategy produced source-only candidate; retained all expensive forests. Read-only verifier investigation favors smaller PR12203 certificates if primary faults. No additional Lean jobs while verifier runs.
+2026-11-25T05:42:22.389857+00:00: lease renewed; expiry 2026-11-25T06:02:17.322Z.
+2026-11-25T05:47:26.184844+00:00: local checker ACCEPTED; exit 0, 1175.624 seconds, 4877 constants re-checked; source hash unchanged. This is the local verdict, not a hosted verdict.
+2026-11-25T05:48:46.091852+00:00: capped cleanup review completed; retained checked source, 5221 to 5221 lines. Exact statement and source guard rechecked.
