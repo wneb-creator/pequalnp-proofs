@@ -90,3 +90,31 @@ Frozen fragments normalization_support_fragment.lean and normalization_support_f
 `results/orch/lemmas/singleton_formula.lean` (165 lines) compiles with exit 0 and empty final diagnostics (`singleton-formula-005.stdout`/`.stderr`). Namespace `PEqualNP.Outside.L_meta_3451_aux.SingletonFormula`; uses library `DMFormula`, no custom datatype. `normalize` proves every positive formula has an equivalent positive formula with no more leaves in which every AND node rejects every singleton. No graph/C4 assumptions are needed. `extract` exposes a singleton input through OR-only paths in a clean formula and removes one occurrence with exact leaf saving. The rewrite `(x∨A)∧(x∨B)=x∨(A∧B)` strictly reduces leaves and strong induction closes. This is a generic no-sharing theorem, not the posted circuit theorem. Shared OR DAG residual extraction remains the unproved cost-accounting step. See singleton_strategy.md for the failed bypass and ownership route.
 
 2026-11-25T01:08:02.797610+00:00 Dependency support route COMPILES cleanly: results/orch/lemmas/dependency.lean. Self-contained Support.lean closure with only Defs+Mathlib.Tactic imports. Generic essential_card_le: any finite set of essential inputs has card≤C.size+1 for any fan-in≤2 circuit, no operation or ReadsBack assumption. Incidence activePoints.card+activeLines.card≤C.size+1, and each side separately≤C.size. Namespace aux.Dependency. Normalization agent uses active_sides_bound for stars and root uses total bound for all C.size≤3.
+
+## Arbitrary-size star normalization 2026-11-25T01:10:11.112742+00:00
+
+Star.construct builds a fan-in-two monotone ReadsBack circuit of at most xs.length gates for z(center) AND OR(xs), with every AND globally below the output. Star.point_star and Star.line_star use the checked active-side cardinality lower bound to prove the full normalization conclusion whenever all incidences share one point or one line, for arbitrary N. Original C needs only fan-in≤2 and exact semantics; C4-free, monotonicity and ReadsBack are unnecessary for this special case.
+
+Frozen sources normalization_star.lean and normalization_star_final_fragment.lean, plus dependency.lean, compiled cleanly against namedmodule; logs normalization-star-final.stdout/stderr empty.
+
+## Global strategy: contextual mixed-centre surgery checked
+
+`results/orch/lemmas/global_context.lean` is a standalone 573-line superset of the prior surgery fragments. It compiled with exit 0 and empty diagnostics in `/tmp/oec/pequalnp-pilot-51/global-context-003.stdout` and `.stderr`. Do not combine standalone supersets without removing duplicate declarations.
+
+The new `contextual_same_function` theorem permits an arbitrary monotone continuation after the three replacement gates, provided that the continuation and chosen final output do not directly read the two changed internal wires. The two domination implications c implies a and d implies b need hold only on assignments where the original global output is false. On those assignments all usable wires remain equal; on other assignments the replacement final wire increases and monotonicity preserves the true output. `context_equal_size`, `context_monotone_models`, and `context_back` preserve the circuit invariants. `bool_mass_nonincrease` and `bool_mass_strict` verify the local true-AND-count potential: on negative assignments the sum decreases strictly when ab was true but ab(c or d) was false. Full global exposure of such contexts remains unproved.
+
+Primary research read 2026-11-25: Stasys Jukna, *Disproving the Single Level Conjecture*, https://web.vu.lt/mif/s.jukna/ftp/single1.pdf . Section 3.5 discusses the |E| lower bound for SINGLE-LEVEL circuits on K2,2-free graphs. Section 8 records superlinear explicit lower bounds for unrestricted monotone quadratic circuits as an open problem at publication. Thus proposing a general exact m+vertex-cover-size-1 bound would require substantial new reasoning. Present-day status of that historical open question is UNVERIFIED. No claim here refutes L-meta-3451.
+
+## All incidence circuits with at most three gates 2026-11-25T01:12:20.048943+00:00
+
+Small.normalize_three proves the entire posted normalization conclusion for arbitrary N and any incidence relation when original C.size≤3, with Monotone2/ReadsBack/exact semantics. No C4-free hypothesis is needed in this finite frontier. The generic dependency bound gives activePoints.card+activeLines.card≤4; empty sides use false circuit, singleton sides use optimal stars, otherwise both active sides have exactly two vertices and the checked Support theorem applies.
+
+Frozen normalization_small_fragment.lean compiled against cached namedmodule+Dependency+Stars, exit0 and empty diagnostics.
+
+### Exact-output obstruction to pair-only contextual domination
+
+Let a = p0 OR p1, b = l0 OR l1, c = p0 OR (p2 AND p3), d = l1. Take local h = (a AND b) AND (c OR d), then global output h AND (p0 OR l1). The original output is exactly p0l0 OR p0l1 OR p1l1, a C4-free P4 incidence function, by absorption. The domination c implies a and d implies b holds on every singleton and every crosspair; the prefix AND p2 AND p3 is weak-clean. But replacing h by (c AND b) OR (d AND a) makes the independent assignment {p2,p3,l0,l1} true. Therefore the checked context theorem must not weaken its full-global-negative domination premises to the posted singleton/nonedge tests. This concrete argument is mathematical, not yet a Lean-checked instance.
+
+A safe general observation is that a wire false on every positive incidence-edge assignment can be replaced by false without changing the exact quadratic output: substitution only decreases the global output, positive edge certificates survive, and monotonicity recovers every positive assignment. This removes fully edge-inert residues, but does not cheaply extract a linear part from a wire that mixes useful linear terms and independent higher-degree terms.
+
+Independent status_review review of global_context.lean: PASS, 573 lines, SHA-256 f193409f75138f594c4733cefdb942e0d7a501e62abe33948816a71728d86cbd. Scope of contextual semantics, read-back, excluded wires, and Boolean mass lemmas confirmed. No forbidden syntax or hidden full-normalization claim.

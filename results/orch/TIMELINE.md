@@ -35,3 +35,7 @@
 
 2026-11-25T01:08:02.797610+00:00 essential-input support and incidence-active bounds completed and Lean checked.
 2026-11-25T01:09:19.507246+00:00 named-file build passed: supported, 2273 lines
+2026-11-25T01:10:11.112742+00:00 arbitraryN pointstar/linestar normalization compiled cleanly.
+2026-11-25T01:10:53.842851+00:00 renewed; expiry 2026-11-25T01:30:53.705Z
+2026-11-25T01:12:20.048943+00:00 arbitraryN normalization for every circuit size≤3 compiled cleanly.
+2026-11-25T01:16:14.022856+00:00 named-file build passed: general-components, 2273 lines
