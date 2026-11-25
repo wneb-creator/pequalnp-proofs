@@ -1,0 +1,11 @@
+{
+  "status": "COMPILED; frozen for review",
+  "exit_code": 0,
+  "sha256": "ac3e16f88bcd790451ebf5426a8e047217483fb30e04988397e2803393deb86a",
+  "lines": 82,
+  "log": "ThreeNeighborBound.build.log",
+  "scope": "Generic finite-set degree4/pairwiseoverlap\u22641 neighbor bounds and mixed cardinal\u226411 on13-elementparts. Excludes mixed independent12sets under explicit incidence assumptions; not a circuit exclusion.",
+  "imports": [
+    "PEqualNP.Defs"
+  ]
+}
