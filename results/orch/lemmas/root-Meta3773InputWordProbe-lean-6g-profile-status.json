@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/Meta3773InputWordProbe.lean",
+  "sha256": "224b1a14dd979de7cb56a359448f67ddab36977ffae514a6b751cffff8159639",
+  "source_sha256_after": "224b1a14dd979de7cb56a359448f67ddab36977ffae514a6b751cffff8159639",
+  "started_utc": "2026-11-25T13:32:20.670626+00:00",
+  "finished_utc": "2026-11-25T13:33:01.629364+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 4810481664,
+  "seconds": 40.95876379800029,
+  "rss_limit_bytes": 6442450944,
+  "wall_limit_seconds": 120
+}

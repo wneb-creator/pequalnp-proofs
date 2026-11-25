@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean",
+  "sha256": "1880117569398bec2b87053540d7134f4558fc96ee8060189c70e5d0ac5f15d0",
+  "source_sha256_after": "1880117569398bec2b87053540d7134f4558fc96ee8060189c70e5d0ac5f15d0",
+  "started_utc": "2026-11-25T13:33:39.848900+00:00",
+  "finished_utc": "2026-11-25T13:33:41.273698+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 1097146368,
+  "seconds": 1.4248950639994291,
+  "rss_limit_bytes": 3221225472,
+  "wall_limit_seconds": 60
+}
