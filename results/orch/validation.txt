@@ -27,3 +27,10 @@ and-bound-binary-checked.lean SHA256 6f9420ecaf82f624a654231d3f961c4739d44561956
 review-extra-checked.lean SHA256 30bd9e09619372bd64fa47e381f20fbce93d4f32c7285d695d5369ed320e2991
 Reviews: root reviewed compression bridge, OR-source recovery, star-cofactor injection, and cover baseline; status_review reviewed compressor prefix; ledger_proof reviewed binary-AND certificate; and_lower_bound reviewed forced original-value semantics. No full posted proof or refutation claimed.
 TIMING total=42.7 subagents=6
+
+Compiled typed cut/lift checkpoint independently approved by and_lower_bound: AO2, T0, size nonincrease, strict AND decrease, output and pure OR wire preservation. This does not prove the full gate-budget statement.
+semantic-typed-cut-lift-checked.lean SHA256 d370eb3a993e66d406b7a8ed751b94509033413d530ba22d2b4aeb812a07b8c9
+ledger-forced-cofactor-checked.lean SHA256 16896e9f4e9b313de3c815f36a5b19d29bca3b2be4b85a5fd89dff77a53e037f
+and-count-cut-checked.lean SHA256 7871b9f85bc17857f69808c99a8f711551d87a88a12d4d01db13d0eb9e8b4828
+Forced cofactor snapshot independently approved by toolchain_setup; strict count snapshot by status_review.
+TIMING total=53.6 subagents=6
