@@ -74,3 +74,6 @@ Pair-clean subcase: 1021 lines, Lean exit 0 in 30.6 seconds, peak 4,436,904 KiB.
 Local exact-statement checker ran on partial snapshot: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2602 (one lemma, one file: the theorem carries the module's name). Full output preserved. No proof PR is justified yet.
 
 Integrated canonical partial: 2874 lines, 137614 bytes; lake build exit 0, 58.10 seconds, peak 4667156 KiB. Independent merged-diff review PASS. The four-center shared-rectangle cover and pair-clean subcase are included. Main theorem remains unproved.
+
+Canonical axiom audit PASS for all 144 helper lemmas in the 2874-line snapshot: only propext, Classical.choice, Quot.sound. Full Lean audit exit 0 in 90.9 seconds; this is distinct from the exact-statement checker, whose no-theorem rejection still applies.
+Generic matching-cover helper (105 lines) compiled and independently reviewed PASS; no three-edge matching implies a two-vertex cover, even for infinite types.

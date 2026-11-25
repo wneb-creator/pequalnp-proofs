@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_meta_2602_aux.MatchingCover.cover_two_of_no_matching_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

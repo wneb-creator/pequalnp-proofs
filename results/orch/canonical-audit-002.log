@@ -1,0 +1,232 @@
+/tmp/oec/pequalnp-pilot-65/canonical-audit-002.lean:697:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-65/canonical-audit-002.lean:699:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-65/canonical-audit-002.lean:760:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-65/canonical-audit-002.lean:761:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-65/canonical-audit-002.lean:763:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-65/canonical-audit-002.lean:774:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-65/canonical-audit-002.lean:775:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-65/canonical-audit-002.lean:777:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-65/canonical-audit-002.lean:1263:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-65/canonical-audit-002.lean:2848:56: warning: This simp argument is unused:
+  sub_eq_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_insert, Finset.mem_singleton, sub_eq_iff_eq_add, add_comm, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'PEqualNP.Outside.L_meta_2602_aux.incidence_diagonal' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_sub_right' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_no_rectangle_zero' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_no_rectangle' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_point_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_line_degree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_edge_count' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_deleted_edge_count' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_deleted_cover_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.trace_carries' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.false_trace_no_path' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.true_trace_reachable' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.trace_true_iff_reachable' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.trace_unique' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_shift_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.incidenceNeighborhood_eq_add' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_neighborhood_expand' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.incidence_mixed_cover_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_size' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2602_aux.upper65_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_absorb' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2602_aux.upper65_lines_mem' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_eval_stars' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_star_true' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_semantics' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_gate_bound' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_valid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_wires0' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_wires13' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_trace13_init' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_trace0_init' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_trace13_rec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_trace0_rec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_trace13_output' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2602_aux.upper65_trace0_output' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2602_aux.rectangle_filter_point_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.rectangle_filter_line_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.rectangle_full_points_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.rectangle_full_lines_card' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.rectangle_point_filter_absorb' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.rectangle_line_filter_absorb' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.rectangle_filters_expand' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.rectangle_filter_pair_footprint' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.rectangle_filter_clean_centers' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.rectangle_filter_two_stars' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.upper65_witness' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.wires_eq_foldl' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.foldl_length' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.foldl_getD_lt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.getD_ge' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.foldl_getD_gate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.eval_eq_val' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.gateAt_eq' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.gateAt_mem' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.val_input' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.val_ge' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.val_gate' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.opMono_eq' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.opMono_imp' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.val_or' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.val_and' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.biclique_star' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.val_ofFn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.gateVal_eq_val' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.orStep_up' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.or_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.pairInput_left' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.pairInput_right' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.pairInput_true' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.graphFun_pair' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.operand_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.reach_var_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.side_adj' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.edge_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.below_of_reach' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.cones_len' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.cones_char' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.inCone_iff' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.orStep_le' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.orStep_cone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.operand_cone' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.trace_or_up' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.trace_and_up' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.value_and_up' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.topform_one_active_junk_trace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.OneJunk.topform_one_junk_trace' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.rectangle_meet_full_point' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.rectangle_meet_full_line' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.rectangle_meet_global_centers' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.RectangleCNF.cert_correct' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.RectangleCNF.no_four_clauses' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.RectangleCNF.edge_encode' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.RectangleCNF.no_matching_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.RectangleCNF.no_two_filtered_edges_away_from_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.RectangleCNF.no_matching_implies_star' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.RectangleCNF.all_clean_filters_one_extra_center' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.RectangleCNF.no_matching_three_augmented' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.RectangleCNF.product_and_filters_one_extra_center' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.RectangleCNF.two_rectangles_four_center_cover' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.eval_eq' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.wf_snoc' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.wf_len' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.wf_keep' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.wf_prefix' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.getD_snoc_lt' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.getD_snoc_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.getD_snoc_gt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.wire_take' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.gate_val' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.iv_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.val_and' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.val_or' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.val_input' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.val_big' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.val_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.mem_N' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.adj_irr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.adj_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.hLN' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.degN' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.adj_total' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.k22' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.cost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.W_inj' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.parent' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.children' does not depend on any axioms
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.pc' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.pairDis' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.budget' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.pieceWire' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.groupCost' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.ecard' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.geom' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.avoid' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.tallyRoots' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.tag_symm' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.starChoice' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.route' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.decomp' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.assemble' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.adjSide' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.pairSpec' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.pair_clean_trace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.pair_clean_no_double' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

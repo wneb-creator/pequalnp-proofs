@@ -1,0 +1,31 @@
+Bipartite relation matching-cover validation
+UTC 2026-11-25T04:22:25.091737+00:00
+SHA256 56ccfa31a3690f8465df2c20676d5be6efb43847d11f690403bf2c73dc319504
+Independent review: PASS (augmenting-edge cases, swapped orientation, distinctness, arbitrary-type scope).
+Main hypothesis: no injective Fin3 matching. Conclusion: finite left/right vertex cover of total cardinality at most2.
+Assumptions: DecidableEq on each type only; no finite-type or DecidableRel requirement.
+
+BUILD OUTPUT
+
+BUILD METRICS
+{
+  "exit_code": 0,
+  "wall_seconds": 15.684752414000286,
+  "user_seconds": 4.568241,
+  "system_seconds": 2.117198,
+  "max_rss_kib": 3550788
+}
+
+AXIOM OUTPUT
+'PEqualNP.Outside.L_meta_2602_aux.MatchingCover.cover_two_of_no_matching_three' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+AXIOM METRICS
+{
+  "exit_code": 0,
+  "wall_seconds": 9.665659832000529,
+  "user_seconds": 5.167155,
+  "system_seconds": 2.578032,
+  "max_rss_kib": 3553908
+}
