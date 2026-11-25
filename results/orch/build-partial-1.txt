@@ -1,0 +1,5 @@
+⚠ [1278/1279] Built PEqualNP.Outside.L_meta_4970 (1.0s)
+warning: PEqualNP/Outside/L_meta_4970.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [1279/1279] Ran PEqualNP.Outside.L_meta_4970:irArts
+warning: PEqualNP/Outside/L_meta_4970.lean: imports `Mathlib.Data.Finset.Card` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+Build completed successfully (1279 jobs).
