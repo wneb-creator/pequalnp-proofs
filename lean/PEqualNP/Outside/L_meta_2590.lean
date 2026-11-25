@@ -582,4 +582,189 @@ lemma circuit_boundary_trace (C : Circuit) (hC : Monotone2 C)
     rw [hf, boundaryInput_value]
     exact decide_eq_false (by omega)
 
+
+namespace CausalBarrier
+
+abbrev Wire := Finset (Fin 10) × Bool
+
+def Safe (T : Finset (Fin 10)) (w : Wire) : Prop :=
+  w.2 = true → (w.1 ∩ T).Nonempty
+
+def Join (a b : Wire) : Wire := (a.1 ∪ b.1, a.2 || b.2)
+
+def Meet (a b : Wire) : Wire := (a.1 ∩ b.1, a.2 && b.2)
+
+def Separates (T A B : Finset (Fin 10)) : Prop :=
+  ¬ ((A ∩ T).Nonempty ∧ (B ∩ T).Nonempty)
+
+lemma safe_join {T : Finset (Fin 10)} {a b : Wire}
+    (ha : Safe T a) (hb : Safe T b) : Safe T (Join a b) := by
+  intro h
+  change a.2 || b.2 = true at h
+  rcases Bool.or_eq_true_iff.mp h with h | h
+  · rcases ha h with ⟨v, hv⟩
+    refine ⟨v, ?_⟩
+    simpa only [Join, Finset.mem_inter, Finset.mem_union] using
+      And.intro (Or.inl (Finset.mem_inter.mp hv).1) (Finset.mem_inter.mp hv).2
+  · rcases hb h with ⟨v, hv⟩
+    refine ⟨v, ?_⟩
+    simpa only [Join, Finset.mem_inter, Finset.mem_union] using
+      And.intro (Or.inr (Finset.mem_inter.mp hv).1) (Finset.mem_inter.mp hv).2
+
+lemma safe_meet {T : Finset (Fin 10)} {a b : Wire}
+    (ha : Safe T a) (hb : Safe T b) (hs : Separates T a.1 b.1) :
+    Safe T (Meet a b) := by
+  intro h
+  change a.2 && b.2 = true at h
+  rcases Bool.and_eq_true_iff.mp h with ⟨ha', hb'⟩
+  exact False.elim (hs ⟨ha ha', hb hb'⟩)
+
+def Step (T : Finset (Fin 10)) (pool : List Wire) (w : Wire) : Prop :=
+  ∃ a ∈ pool, ∃ b ∈ pool,
+    w = Join a b ∨ (Separates T a.1 b.1 ∧ w = Meet a b)
+
+def Trace (T : Finset (Fin 10)) (pool : List Wire) : List Wire → Prop
+  | [] => True
+  | w :: ws => Step T pool w ∧ Trace T (w :: pool) ws
+
+lemma safe_step {T : Finset (Fin 10)} {pool : List Wire} {w : Wire}
+    (hp : ∀ a ∈ pool, Safe T a) (h : Step T pool w) : Safe T w := by
+  rcases h with ⟨a, ha, b, hb, h | ⟨hs, h⟩⟩
+  · subst w
+    exact safe_join (hp a ha) (hp b hb)
+  · subst w
+    exact safe_meet (hp a ha) (hp b hb) hs
+
+lemma safe_trace {T : Finset (Fin 10)} {pool ws : List Wire}
+    (hp : ∀ a ∈ pool, Safe T a) (h : Trace T pool ws) :
+    ∀ w ∈ ws, Safe T w := by
+  induction ws generalizing pool with
+  | nil => simp
+  | cons a ws ih =>
+      obtain ⟨hs, ht⟩ := h
+      have ha := safe_step hp hs
+      have hp' : ∀ b ∈ a :: pool, Safe T b := by
+        intro b hb
+        rcases List.mem_cons.mp hb with rfl | hb
+        · exact ha
+        · exact hp b hb
+      intro w hw
+      rcases List.mem_cons.mp hw with rfl | hw
+      · exact ha
+      · exact ih hp' ht w hw
+
+lemma safe_zero_false {T : Finset (Fin 10)} {w : Wire}
+    (h : Safe T w) (hz : w.1 = ∅) : w.2 = false := by
+  cases hv : w.2
+  · rfl
+  · have hn := h hv
+    simp [hz] at hn
+
+def OtherSides : List (Finset (Fin 10) × Finset (Fin 10)) :=
+  [({0}, {1}), ({0}, {4, 5}), ({1}, {2, 6}), ({2}, {3, 7}), ({6}, {8, 9}),
+    (∅, ∅)]
+
+def BarrierSets : List (Finset (Fin 10)) :=
+  [{0, 3, 8}, {1, 4, 9}, {2, 5, 8}, {6, 3, 4}]
+
+def DirtyEdges : List (Finset (Fin 10)) :=
+  [{3, 4}, {4, 9}, {5, 7}, {7, 9}, {3, 8}, {5, 8}]
+
+def OutsideVertices : Finset (Fin 10) := {0, 1, 2, 6}
+
+def ChosenEdge (v : Fin 10) : Finset (Fin 10) :=
+  match v.val with
+  | 0 => {3, 8}
+  | 1 => {4, 9}
+  | 2 => {5, 8}
+  | _ => {3, 4}
+
+def ChosenBarrier (v : Fin 10) : Finset (Fin 10) := insert v (ChosenEdge v)
+
+lemma finite_separation :
+    ∀ T ∈ BarrierSets, ∀ AB ∈ OtherSides,
+      Separates T AB.1 AB.2 ∧ Separates T AB.2 AB.1 := by
+  simp [BarrierSets, OtherSides, Separates]
+
+lemma dirty_edge_separation :
+    ∀ E ∈ DirtyEdges, ∀ AB ∈ OtherSides,
+      Separates E AB.1 AB.2 ∧ Separates E AB.2 AB.1 := by
+  simp [DirtyEdges, OtherSides, Separates]
+
+lemma chosen_barrier_valid :
+    ∀ v : Fin 10, v ∈ OutsideVertices →
+      ChosenBarrier v ∈ BarrierSets ∧ ChosenEdge v ∈ DirtyEdges := by
+  decide
+
+lemma safe_mono {E T : Finset (Fin 10)} {w : Wire}
+    (hET : E ⊆ T) (h : Safe E w) : Safe T w := by
+  intro hv
+  obtain ⟨v, hv'⟩ := h hv
+  obtain ⟨hve, hvE⟩ := Finset.mem_inter.mp hv'
+  exact ⟨v, Finset.mem_inter.mpr ⟨hve, hET hvE⟩⟩
+
+lemma carrier_safe {v : Fin 10} {w : Wire} (h : v ∈ w.1) :
+    Safe (ChosenBarrier v) w := by
+  intro _
+  exact ⟨v, Finset.mem_inter.mpr ⟨h, Finset.mem_insert_self _ _⟩⟩
+
+lemma preexisting_safe {v : Fin 10} {w : Wire} (h : Safe (ChosenEdge v) w) :
+    Safe (ChosenBarrier v) w :=
+  safe_mono (Finset.subset_insert _ _) h
+
+lemma canonical_meet_step {v : Fin 10} {pool : List Wire} {a b : Wire}
+    (hv : v ∈ OutsideVertices) (ha : a ∈ pool) (hb : b ∈ pool)
+    (hs : (a.1, b.1) ∈ OtherSides ∨ (b.1, a.1) ∈ OtherSides) :
+    Step (ChosenBarrier v) pool (Meet a b) := by
+  refine ⟨a, ha, b, hb, Or.inr ⟨?_, rfl⟩⟩
+  have hT := (chosen_barrier_valid v hv).1
+  rcases hs with hs | hs
+  · exact (finite_separation _ hT _ hs).1
+  · exact (finite_separation _ hT _ hs).2
+
+lemma zero_output_impossible {T : Finset (Fin 10)} {pool ws : List Wire} {w : Wire}
+    (hp : ∀ a ∈ pool, Safe T a) (h : Trace T pool ws)
+    (hw : w ∈ ws) (hz : w.1 = ∅) : w.2 ≠ true := by
+  rw [safe_zero_false (safe_trace hp h w hw) hz]
+  decide
+
+lemma carrier_cut_impossible {v : Fin 10} {pool ws : List Wire} {carrier out : Wire}
+    (hp : ∀ a ∈ pool, Safe (ChosenEdge v) a)
+    (hc : v ∈ carrier.1)
+    (ht : Trace (ChosenBarrier v) (carrier :: pool) ws)
+    (ho : out ∈ ws) (hz : out.1 = ∅) : out.2 ≠ true := by
+  apply zero_output_impossible (T := ChosenBarrier v) (pool := carrier :: pool) ?_ ht ho hz
+  intro a ha
+  rcases List.mem_cons.mp ha with rfl | ha
+  · exact carrier_safe hc
+  · exact preexisting_safe (hp a ha)
+
+def SidePair (i : Fin 6) : Finset (Fin 10) × Finset (Fin 10) :=
+  match i.val with
+  | 0 => ({0}, {1})
+  | 1 => ({0}, {4, 5})
+  | 2 => ({1}, {2, 6})
+  | 3 => ({2}, {3, 7})
+  | 4 => ({6}, {8, 9})
+  | _ => ({4, 7, 8}, {3, 5, 9})
+
+def Side (i : Fin 6) (b : Bool) : Finset (Fin 10) :=
+  if b then (SidePair i).1 else (SidePair i).2
+
+lemma sides_inter_card :
+    ∀ (i j : Fin 6) (a b : Bool), i ≠ j →
+      (Side i a ∩ Side j b).card ≤ 1 := by
+  decide
+
+lemma singleton_of_two_exits {S : Finset (Fin 10)} {i j : Fin 6} {a b : Bool}
+    (hne : S.Nonempty) (hij : i ≠ j)
+    (hi : S ⊆ Side i a) (hj : S ⊆ Side j b) : ∃ v, S = {v} := by
+  apply Finset.card_eq_one.mp
+  apply Nat.le_antisymm
+  · exact (Finset.card_le_card (Finset.subset_inter hi hj)).trans
+      (sides_inter_card i j a b hij)
+  · exact Finset.one_le_card.mpr hne
+
+end CausalBarrier
+
 end PEqualNP.Outside.L_meta_2590
