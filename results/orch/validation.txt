@@ -14,3 +14,15 @@ Line count: 86
 
 Sub-agents: 6 (status review, semantic proof, counterexample search, combinatorial bound, toolchain setup, few-NOT cases)
 TIMING total=9.90 subagents=6
+
+Artifact: results/orch/lemmas/EmbedExtra.lean
+Scope: Extra input embedding preserves evaluation, fan-in, size, and NOT count.
+Lean exit: 0; stdout empty; stderr empty.
+Independent review: root read complete source and verified the stated scope and format. PASS as partial only.
+SHA256: 1f03ccc3b52b2ef37687ba0519b2c9966704d4eb0eae908da5d3c201c4e97bc7
+
+Artifact: results/orch/lemmas/Combinatorial.lean
+Scope: Petersen pair cofactors cannot factor through one Boolean value.
+Lean exit: 0; stdout empty; stderr empty.
+Independent review: root read complete source and verified the stated scope and format. PASS as partial only.
+SHA256: 9ee8658365e528be8e10283fddf7e3031c2dace8cd8a7bd29f50c9fba5e6c0cc
