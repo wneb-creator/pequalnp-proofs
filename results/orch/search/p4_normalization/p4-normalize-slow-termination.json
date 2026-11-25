@@ -1,0 +1,6 @@
+{
+  "pid": 21763,
+  "time": "2026-11-25T04:24:32.083731+00:00",
+  "reason": "Superseded by completed fast proof using generic symmetric gate rewrites; old whole-circuit 32-case tactic abandoned.",
+  "verdict": "terminated without a theorem result"
+}

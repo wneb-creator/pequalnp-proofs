@@ -1,0 +1,63 @@
+{
+  "scope": "Computational unknown C4-free bipartite4x4 graph test with fixed diagonal matching and unrestricted OR regions around 3AND gates; no formal normalization/CNF bridge or plane lower bound.",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 1975,
+      "sha256": "49c25968a4b9e0c93bb35cfc8e1a603b2c59b672194aa4b29cb1c419854a9cda"
+    },
+    {
+      "file": "unknown-bipartite-3.json",
+      "bytes": 565,
+      "sha256": "7cd3e212b66ea764aa5084999750686e67f8a21c801a727a0bdd4572910d08e5"
+    },
+    {
+      "file": "unknown-bipartite-3.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "encoding": "gzip",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "unknown-bipartite-3.stdout.gz",
+      "bytes": 2165,
+      "sha256": "e492019a9cad2336bbcea7c068c7983eba3c4e4ac0a9f9807b5316bdce7ce432",
+      "encoding": "gzip",
+      "original_bytes": 7083,
+      "original_sha256": "fd6bd51c5b35444c8a4bda1e7be380587ae89277506c72d914a0ed7f1c53ef06"
+    },
+    {
+      "file": "unknown-bipartite-4-control.json",
+      "bytes": 1416,
+      "sha256": "b1484080e7fd86facd4e98653e954bb1edd8e4afe25298ad2d98ae790be530c3"
+    },
+    {
+      "file": "unknown-bipartite-4-control.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "encoding": "gzip",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "unknown-bipartite-4-control.stdout.gz",
+      "bytes": 20657,
+      "sha256": "78e4820cb9b3a1402106896ba42b9b90ebccca694dabbb7adacbb298a20f8f4a",
+      "encoding": "gzip",
+      "original_bytes": 46189,
+      "original_sha256": "0ae011f2153f5492202b2072fea6a24a4dec7f27dbf85444e2bd4b9a6a3e5f96"
+    },
+    {
+      "file": "unknown_bipartite_and.py",
+      "bytes": 5282,
+      "sha256": "e9a2f15f08de7d0d02499dc147dac8b94aca417a43d36d0cedcfbc9983611ea7"
+    },
+    {
+      "file": "validate.py",
+      "bytes": 3006,
+      "sha256": "6ec5fe6193172ac56e98a4df1c33557e648ce051cb777564717deb6a4ebbf7d4"
+    }
+  ],
+  "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647"
+}

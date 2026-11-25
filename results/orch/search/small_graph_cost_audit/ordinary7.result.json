@@ -1,0 +1,41 @@
+{
+  "case": "cycle6",
+  "n": 6,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      5,
+      0
+    ]
+  ],
+  "m": 6,
+  "tau": 3,
+  "claimed_ordinary_bound": 8,
+  "gates": 7,
+  "mode": "ordinary",
+  "edge_index": 0,
+  "boundary_rows": 11,
+  "variables": 477,
+  "clauses": 2847,
+  "code": 20,
+  "seconds": 7.6861673640000845
+}

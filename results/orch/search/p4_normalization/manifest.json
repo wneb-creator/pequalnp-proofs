@@ -1,0 +1,91 @@
+{
+  "scope": "Kernel-checked symmetric operand-order normalization for typed five-gate candidates; not a local lower bound or the full gap.",
+  "axioms": [
+    "propext",
+    "Quot.sound"
+  ],
+  "files": [
+    {
+      "file": "P4NormalizeAxioms.lean",
+      "bytes": 360,
+      "sha256": "5844a3dadb8c3b4fddd79710ff78c4da025ce41c8fbde1aa1b5c1c918b0003e3"
+    },
+    {
+      "file": "README.md",
+      "bytes": 1702,
+      "sha256": "d66c725bc864c22cb0d06f3397c0eb9d70bcd34dcdd01754832b302ad8675605"
+    },
+    {
+      "file": "p4-normalize-build.log.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "encoding": "gzip",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "p4-normalize-fast-axioms.log.gz",
+      "bytes": 156,
+      "sha256": "08a83c3daeeec4d58b823027fcccb9ef868f35b2fce5f4bec8533eb89741b665",
+      "encoding": "gzip",
+      "original_bytes": 426,
+      "original_sha256": "552ba6f179f92526594bce3359afe1f425df0eaa507ce51d0e200b4c57ba2e3c"
+    },
+    {
+      "file": "p4-normalize-fast-build-2.log.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "encoding": "gzip",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "p4-normalize-fast-build.log.gz",
+      "bytes": 2054,
+      "sha256": "e1691b0f6dc48c33e5b4e360f3333715a548df637ea469931ac34fc81a7f5859",
+      "encoding": "gzip",
+      "original_bytes": 76844,
+      "original_sha256": "25af6bb7007a6e9a0f0ad2bc85714831fa2ee74c0673b478df8d375c22d6425a"
+    },
+    {
+      "file": "p4-normalize-fast-generation-2.log.gz",
+      "bytes": 81,
+      "sha256": "4de542b46ee436336678c614996330000135904810638c45af504a7c75867f2f",
+      "encoding": "gzip",
+      "original_bytes": 61,
+      "original_sha256": "f407b26b755bbcd5aa65c404bc1ec997f5a52432f88faf2c0795655555274b3c"
+    },
+    {
+      "file": "p4-normalize-slow-termination.json",
+      "bytes": 250,
+      "sha256": "06be8206112a72f00942cbe03220aee014a31648930794e09fed4345c62653e7"
+    },
+    {
+      "file": "p4_normalize_fast_generate.py",
+      "bytes": 3069,
+      "sha256": "3d028fa1d0d33b60228b15688bee812709d9f7de4d0b124bf74cd7f0c4cc2a70"
+    }
+  ],
+  "references": [
+    {
+      "file": "results/orch/lemmas/ReductionsNormalizeFast.lean",
+      "bytes": 4462,
+      "sha256": "432a9b1ed8e0373334b7b265598a379e9e765c2cfb5f478f41db38e528175e7b"
+    },
+    {
+      "file": "results/orch/lemmas/ReductionsSemantics.lean",
+      "bytes": 15161,
+      "sha256": "af76f3f045ce5c533bdfbb8b93dbb1d5c67ab800b8ca41843f6c686fb954433f"
+    },
+    {
+      "file": "results/orch/lemmas/ReductionsIR.lean",
+      "bytes": 79691,
+      "sha256": "c6017c154255c2e20a078365e9e47ff6448457134eba1e4fd3ac48777798a152"
+    },
+    {
+      "file": "results/orch/lemmas/Reductions.lean",
+      "bytes": 341095,
+      "sha256": "2d5892106342f43c4f211970c47351adf342440c1aeafdf341c540ecb8f21029"
+    }
+  ]
+}

@@ -66,3 +66,7 @@ ReductionsIR.lean948lines andReductionsSemantics.lean185lines: lake env lean pas
 P4prefix30: compiled checkpoint of30localclauseproofs; exported proposition isTrue. Preserved onlyascompilationprovenance, not a useful lower-bound theorem. Independent review PASS.
 Majorpartialtrustaudit: Witness65,PlaneOrBound,CofactorProductive compiled with explicit axiom audit; each depends only onpropext,Classical.choice,Quot.sound. Completeoutputs and source hashes independentlyreviewed.
 12ANDincrementaldiagnostics: both restricted encodings timedoutUNKNOWN; no candidate/noUNSAT. Both impose original-input disjointness, reducedadds earlier-AND disjointness; completenessunproved. Independent archive review PASS.
+
+ReductionsNormalizeFast.lean: lake env lean passed, exit0;108lines, empty buildlog. Sorting distinct operand pairs preserves all five-gate values and both formal derivative traces; standardaxiomsonly. Independent review PASS.
+Small-graph cost and unknown4x4 C4free archives: computationalUNSAT/SATcontrols andUNKNOWNtimeouts fully recorded, regenerated and independently reviewed. No plane lowerbound or Lean CNFbridge claimed for these experiments.
+H1/H2 routes: conditionalalgebra andsmallcontrols independently reviewed. No qualifyingplane H1 exists in these artifacts; one-sided≤50 target would already implyan ordinary≤63 circuit.

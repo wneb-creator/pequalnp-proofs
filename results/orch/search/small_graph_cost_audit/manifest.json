@@ -1,0 +1,676 @@
+{
+  "scope": "Unrestricted binary monotone circuits on small C4-free graphs; not the plane gap",
+  "solver_path": "/tmp/oec/pequalnp-pilot-64/toolchain/lean-4.36.0-linux/bin/cadical",
+  "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647",
+  "runs": [
+    {
+      "label": "ordinary7",
+      "source": "small_graph_cost_search_v1.py",
+      "source_sha256": "5996238e0a54f953cf680ad1a19f083007e197a51930da7af8de3c6907cd97cc",
+      "argv": [
+        "--case",
+        "cycle6",
+        "--mode",
+        "ordinary",
+        "--seconds",
+        "30"
+      ],
+      "solver_argv": [
+        "cadical",
+        "-t",
+        "30",
+        "cost-cycle6-ordinary-edge0.cnf"
+      ],
+      "files": {
+        "ordinary7.cnf.gz": {
+          "uncompressed_sha256": "8229b15514dec7c23db7536da49b3c4f36c60a502558dcf0bb99dc3d405f69c7",
+          "uncompressed_bytes": 38542
+        },
+        "ordinary7.stdout.gz": {
+          "uncompressed_sha256": "38f6c4dc67899ebd81e151e91466d163642ca14b0a6fdff509f05d87af99fee2",
+          "uncompressed_bytes": 10329
+        },
+        "ordinary7.stderr.gz": {
+          "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "uncompressed_bytes": 0
+        },
+        "ordinary7.result.json": {
+          "uncompressed_sha256": "677490f926ba77584445c3301e95a356630f034f2ff124207407d726beec0bda",
+          "uncompressed_bytes": 447
+        }
+      },
+      "summary": {
+        "case": "cycle6",
+        "n": 6,
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "m": 6,
+        "tau": 3,
+        "claimed_ordinary_bound": 8,
+        "gates": 7,
+        "mode": "ordinary",
+        "edge_index": 0,
+        "boundary_rows": 11,
+        "variables": 477,
+        "clauses": 2847,
+        "code": 20,
+        "seconds": 7.6861673640000845
+      }
+    },
+    {
+      "label": "defect8_initial",
+      "source": "small_graph_cost_search.py",
+      "source_sha256": "309a42f7bb498963ae567afe70adf591084c43c9a82a65af3f323648a786d61e",
+      "argv": [
+        "--case",
+        "cycle6",
+        "--mode",
+        "defect",
+        "--seconds",
+        "30"
+      ],
+      "solver_argv": [
+        "cadical",
+        "-t",
+        "30",
+        "cost-cycle6-defect-30s/cost-cycle6-defect-g8-edge0.cnf"
+      ],
+      "files": {
+        "defect8_initial.cnf.gz": {
+          "uncompressed_sha256": "23b81cb5fc83187a671564db613cf90a418afcbd7fa84760c32fa1a114a25899",
+          "uncompressed_bytes": 63940
+        },
+        "defect8_initial.stdout.gz": {
+          "uncompressed_sha256": "832ca346834912d964e2a5a173c4994b3112d13e72657c14f42347ef6d13cff5",
+          "uncompressed_bytes": 13133
+        },
+        "defect8_initial.stderr.gz": {
+          "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "uncompressed_bytes": 0
+        },
+        "defect8_initial.result.json": {
+          "uncompressed_sha256": "5f38254b46d8f1edf2c64e804f6e72e25411dcd2b3dbbea776e36ca5d9b05f34",
+          "uncompressed_bytes": 444
+        }
+      },
+      "summary": {
+        "case": "cycle6",
+        "n": 6,
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "m": 6,
+        "tau": 3,
+        "claimed_ordinary_bound": 8,
+        "gates": 8,
+        "mode": "defect",
+        "edge_index": 0,
+        "boundary_rows": 11,
+        "variables": 721,
+        "clauses": 4650,
+        "code": 0,
+        "seconds": 30.049406954999995
+      }
+    },
+    {
+      "label": "defect8",
+      "source": "small_graph_cost_search.py",
+      "source_sha256": "309a42f7bb498963ae567afe70adf591084c43c9a82a65af3f323648a786d61e",
+      "argv": [
+        "--case",
+        "cycle6",
+        "--mode",
+        "defect",
+        "--seconds",
+        "120"
+      ],
+      "solver_argv": [
+        "cadical",
+        "-t",
+        "120",
+        "cost-cycle6-defect-g8-edge0.cnf"
+      ],
+      "files": {
+        "defect8.cnf.gz": {
+          "uncompressed_sha256": "23b81cb5fc83187a671564db613cf90a418afcbd7fa84760c32fa1a114a25899",
+          "uncompressed_bytes": 63940
+        },
+        "defect8.stdout.gz": {
+          "uncompressed_sha256": "274717bc94d0b2674e760033ffbc62b529a5390178305934238e858d299ad01a",
+          "uncompressed_bytes": 17941
+        },
+        "defect8.stderr.gz": {
+          "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "uncompressed_bytes": 0
+        },
+        "defect8.result.json": {
+          "uncompressed_sha256": "4f45661bb85e7e72b784f5e480e0216706fb26744a5ffdc550e86cc2fe180fa4",
+          "uncompressed_bytes": 445
+        }
+      },
+      "summary": {
+        "case": "cycle6",
+        "n": 6,
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "m": 6,
+        "tau": 3,
+        "claimed_ordinary_bound": 8,
+        "gates": 8,
+        "mode": "defect",
+        "edge_index": 0,
+        "boundary_rows": 11,
+        "variables": 721,
+        "clauses": 4650,
+        "code": 20,
+        "seconds": 113.71157024500008
+      }
+    },
+    {
+      "label": "ordinary8_control",
+      "source": "small_graph_cost_search.py",
+      "source_sha256": "309a42f7bb498963ae567afe70adf591084c43c9a82a65af3f323648a786d61e",
+      "argv": [
+        "--case",
+        "cycle6",
+        "--mode",
+        "ordinary",
+        "--gates",
+        "8",
+        "--seconds",
+        "30"
+      ],
+      "solver_argv": [
+        "cadical",
+        "-t",
+        "30",
+        "cost-cycle6-ordinary-g8-edge0.cnf"
+      ],
+      "files": {
+        "ordinary8_control.cnf.gz": {
+          "uncompressed_sha256": "595584cce9a23c694e4a0e4ff3be7a195451ff59b488cf3b8549ed45742e5b2d",
+          "uncompressed_bytes": 47558
+        },
+        "ordinary8_control.stdout.gz": {
+          "uncompressed_sha256": "b65e7a5c6c7a915970c7ef521cc7a3bba837711526f2ca913a126623457ba4a3",
+          "uncompressed_bytes": 9477
+        },
+        "ordinary8_control.stderr.gz": {
+          "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "uncompressed_bytes": 0
+        },
+        "ordinary8_control.result.json": {
+          "uncompressed_sha256": "d2857d4c4f1ab861d0948f5ca3300e8e10342ba30bc6b212ab61064caa0cf9b6",
+          "uncompressed_bytes": 863
+        }
+      },
+      "summary": {
+        "case": "cycle6",
+        "n": 6,
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "m": 6,
+        "tau": 3,
+        "claimed_ordinary_bound": 8,
+        "gates": 8,
+        "mode": "ordinary",
+        "edge_index": 0,
+        "boundary_rows": 11,
+        "variables": 561,
+        "clauses": 3464,
+        "code": 10,
+        "seconds": 0.5846736609996697,
+        "gates_list": [
+          [
+            0,
+            2,
+            4
+          ],
+          [
+            0,
+            0,
+            4
+          ],
+          [
+            0,
+            0,
+            2
+          ],
+          [
+            1,
+            3,
+            6
+          ],
+          [
+            1,
+            1,
+            8
+          ],
+          [
+            1,
+            5,
+            7
+          ],
+          [
+            0,
+            10,
+            11
+          ],
+          [
+            0,
+            9,
+            12
+          ]
+        ],
+        "verified_all_assignments": 64,
+        "counterexample_to_proposed_bound": false
+      }
+    },
+    {
+      "label": "defect9_control",
+      "source": "small_graph_cost_search.py",
+      "source_sha256": "309a42f7bb498963ae567afe70adf591084c43c9a82a65af3f323648a786d61e",
+      "argv": [
+        "--case",
+        "cycle6",
+        "--mode",
+        "defect",
+        "--gates",
+        "9",
+        "--seconds",
+        "30"
+      ],
+      "solver_argv": [
+        "cadical",
+        "-t",
+        "30",
+        "cost-cycle6-defect-g9-edge0.cnf"
+      ],
+      "files": {
+        "defect9_control.cnf.gz": {
+          "uncompressed_sha256": "3aa362e4629845275dedf3a478d2aa3bd5fdc6ed68c1a04d120cf4f162596bf5",
+          "uncompressed_bytes": 77025
+        },
+        "defect9_control.stdout.gz": {
+          "uncompressed_sha256": "792abdf081dca50491cc1d7a48f5ffb57b167ac2fb486f35ebc0c0ea5e0723f0",
+          "uncompressed_bytes": 15846
+        },
+        "defect9_control.stderr.gz": {
+          "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "uncompressed_bytes": 0
+        },
+        "defect9_control.result.json": {
+          "uncompressed_sha256": "36f44859279edfe1c8e3b6e2e46a82adf4a33d70bf5f4a5014cf1488a45f4e89",
+          "uncompressed_bytes": 902
+        }
+      },
+      "summary": {
+        "case": "cycle6",
+        "n": 6,
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            5,
+            0
+          ]
+        ],
+        "m": 6,
+        "tau": 3,
+        "claimed_ordinary_bound": 8,
+        "gates": 9,
+        "mode": "defect",
+        "edge_index": 0,
+        "boundary_rows": 11,
+        "variables": 829,
+        "clauses": 5540,
+        "code": 10,
+        "seconds": 22.619727977000366,
+        "gates_list": [
+          [
+            0,
+            3,
+            5
+          ],
+          [
+            0,
+            1,
+            3
+          ],
+          [
+            0,
+            1,
+            5
+          ],
+          [
+            1,
+            0,
+            8
+          ],
+          [
+            1,
+            2,
+            7
+          ],
+          [
+            0,
+            9,
+            10
+          ],
+          [
+            0,
+            6,
+            11
+          ],
+          [
+            0,
+            4,
+            11
+          ],
+          [
+            1,
+            12,
+            13
+          ]
+        ],
+        "verified_all_assignments": 64,
+        "counterexample_to_proposed_bound": false
+      }
+    },
+    {
+      "label": "theta3_defect12",
+      "source": "small_graph_cost_search_v1.py",
+      "source_sha256": "5996238e0a54f953cf680ad1a19f083007e197a51930da7af8de3c6907cd97cc",
+      "argv": [
+        "--case",
+        "theta3",
+        "--mode",
+        "defect",
+        "--edge",
+        "1",
+        "--seconds",
+        "30"
+      ],
+      "solver_argv": [
+        "cadical",
+        "-t",
+        "30",
+        "cost-theta3-defect-edge1.cnf"
+      ],
+      "files": {
+        "theta3_defect12.cnf.gz": {
+          "uncompressed_sha256": "11299b398691b9401b3350792166e9b8a59197e307cfd068922224613482a2b4",
+          "uncompressed_bytes": 198701
+        },
+        "theta3_defect12.stdout.gz": {
+          "uncompressed_sha256": "6c0a534a65ed9da1d05c1dce65e16729c978cabe58b394e928453037b52c0c7b",
+          "uncompressed_bytes": 13143
+        },
+        "theta3_defect12.stderr.gz": {
+          "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "uncompressed_bytes": 0
+        },
+        "theta3_defect12.result.json": {
+          "uncompressed_sha256": "499c4bf428a99b4e1baecd88db9a95138b7639f52e7c97cc7716281f9b1ab91f",
+          "uncompressed_bytes": 538
+        }
+      },
+      "summary": {
+        "case": "theta3",
+        "n": 8,
+        "edges": [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            7,
+            1
+          ]
+        ],
+        "m": 9,
+        "tau": 4,
+        "claimed_ordinary_bound": 12,
+        "gates": 12,
+        "mode": "defect",
+        "edge_index": 1,
+        "boundary_rows": 18,
+        "variables": 1525,
+        "clauses": 13263,
+        "code": 0,
+        "seconds": 30.050102611000057
+      }
+    },
+    {
+      "label": "theta3_ordinary11",
+      "source": "small_graph_cost_search.py",
+      "source_sha256": "309a42f7bb498963ae567afe70adf591084c43c9a82a65af3f323648a786d61e",
+      "argv": [
+        "--case",
+        "theta3",
+        "--mode",
+        "ordinary",
+        "--seconds",
+        "30"
+      ],
+      "solver_argv": [
+        "cadical",
+        "-t",
+        "30",
+        "cost-theta3-ordinary-g11-edge0.cnf"
+      ],
+      "files": {
+        "theta3_ordinary11.cnf.gz": {
+          "uncompressed_sha256": "c758c7c6110c93c05f08dc3363f68cc006b1ba34e9903d436c63187703c0c5b5",
+          "uncompressed_bytes": 137943
+        },
+        "theta3_ordinary11.stdout.gz": {
+          "uncompressed_sha256": "de45d8d751bf4bc0588ae19c861310d25de43b2b412eabc38fcd69b6ca06527f",
+          "uncompressed_bytes": 13348
+        },
+        "theta3_ordinary11.stderr.gz": {
+          "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "uncompressed_bytes": 0
+        },
+        "theta3_ordinary11.result.json": {
+          "uncompressed_sha256": "e10dcbab705fae5680e4f0a473101753c8aa3474d91a73af695aa60223127482",
+          "uncompressed_bytes": 537
+        }
+      },
+      "summary": {
+        "case": "theta3",
+        "n": 8,
+        "edges": [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            3,
+            6
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            4,
+            7
+          ],
+          [
+            7,
+            1
+          ]
+        ],
+        "m": 9,
+        "tau": 4,
+        "claimed_ordinary_bound": 12,
+        "gates": 11,
+        "mode": "ordinary",
+        "edge_index": 0,
+        "boundary_rows": 18,
+        "variables": 1156,
+        "clauses": 9556,
+        "code": 0,
+        "seconds": 30.0185056549999
+      }
+    }
+  ]
+}

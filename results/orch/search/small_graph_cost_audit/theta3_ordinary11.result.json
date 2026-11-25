@@ -1,0 +1,53 @@
+{
+  "case": "theta3",
+  "n": 8,
+  "edges": [
+    [
+      0,
+      2
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      5,
+      1
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      6,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      7,
+      1
+    ]
+  ],
+  "m": 9,
+  "tau": 4,
+  "claimed_ordinary_bound": 12,
+  "gates": 11,
+  "mode": "ordinary",
+  "edge_index": 0,
+  "boundary_rows": 18,
+  "variables": 1156,
+  "clauses": 9556,
+  "code": 0,
+  "seconds": 30.0185056549999
+}

@@ -1,0 +1,90 @@
+{
+  "gates": 4,
+  "control": true,
+  "argv": [
+    "/tmp/oec/pequalnp-pilot-64/toolchain/lean-4.36.0-linux/bin/cadical",
+    "-t",
+    "10",
+    "/tmp/oec/pequalnp-pilot-64/unknown-bipartite-4-control/formula.cnf"
+  ],
+  "seconds": 0.09550297699934163,
+  "returncode": 10,
+  "variables": 7776,
+  "clauses": 31805,
+  "cnf_sha256": "bfb9910efc56d61551b3988d9c287814abd17dbe1e502be48da4aae6d2a5ec82",
+  "encoder_sha256": "e9a2f15f08de7d0d02499dc147dac8b94aca417a43d36d0cedcfbc9983611ea7",
+  "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647",
+  "candidate": {
+    "edges": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        3,
+        3
+      ]
+    ],
+    "gates": [
+      [
+        [
+          7
+        ],
+        [
+          3
+        ]
+      ],
+      [
+        [
+          2,
+          8
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      [
+        [
+          5,
+          8,
+          9
+        ],
+        [
+          1,
+          8,
+          9
+        ]
+      ],
+      [
+        [
+          0,
+          8,
+          9,
+          10
+        ],
+        [
+          4,
+          8,
+          9,
+          10
+        ]
+      ]
+    ],
+    "outputs": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "validation": "All CNF clauses and all 256 truth rows pass scalar validation."
+}

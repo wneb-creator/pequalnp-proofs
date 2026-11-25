@@ -1,0 +1,17 @@
+{
+  "gates": 3,
+  "control": false,
+  "argv": [
+    "/tmp/oec/pequalnp-pilot-64/toolchain/lean-4.36.0-linux/bin/cadical",
+    "-t",
+    "30",
+    "/tmp/oec/pequalnp-pilot-64/unknown-bipartite-3/formula.cnf"
+  ],
+  "seconds": 5.212581223000598,
+  "returncode": 20,
+  "variables": 5193,
+  "clauses": 21295,
+  "cnf_sha256": "7390b690975380a754349938ce79c2d9079b5c79c2295f283af9c270e08d39f2",
+  "encoder_sha256": "e9a2f15f08de7d0d02499dc147dac8b94aca417a43d36d0cedcfbc9983611ea7",
+  "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647"
+}
