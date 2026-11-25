@@ -31,3 +31,5 @@
 2026-11-25T14:43:24.922355+00:00: padding helper integrated;3128-line named partial builds, independently reviewed. Cumulative subagents7.
 
 2026-11-25T14:48:27.027033+00:00: independently reviewed reproducible CGP and research archive checkpoint; full target still unproved.
+
+2026-11-25T14:54:24.393602+00:00: concrete Fano geometry and exact READ1 minimum integrated;3168-line named partial builds. No full proof/refutation.
