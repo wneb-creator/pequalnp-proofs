@@ -1883,4 +1883,66 @@ lemma lower_bound_of_induced_matching (G : SimpleGraph (Fin n)) [DecidableRel G.
 
 end InducedMatchingRestriction
 
+
+namespace TwoSingletonRepair
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma gatePrefix_or {n : ℕ} (pre : List Gate) (u w : Fin n) (x : Fin n → Bool) :
+    gatePrefix pre ⟨.or, [u.val, w.val]⟩ x = (x u || x w) := by
+  simp only [gatePrefix, GateOp.eval, List.map_cons, List.map_nil, List.any_cons,
+    List.any_nil, id_eq, Bool.or_false]
+  rw [run_input pre x u, run_input pre x w]
+
+lemma two_singleton_circuit_repair {n : ℕ} (G : SimpleGraph (Fin n))
+    (pre post : List Gate) (g : Gate) (out : ℕ)
+    (hc : Monotone2 (patchCircuit pre post g out))
+    (correct : ∀ x : Fin n → Bool,
+      (patchCircuit pre post g out).eval (List.ofFn x) = true ↔ hit G x)
+    (u w : Fin n)
+    (hu : gatePrefix pre g (mask {u}) = true)
+    (hw : gatePrefix pre g (mask {w}) = true)
+    (critical : ∀ a b, G.Adj a b →
+      (patchCircuit pre post ⟨.or, []⟩ out).eval (List.ofFn (mask {a, b})) = false →
+        a = u ∨ b = u ∨ a = w ∨ b = w) :
+    let C := patchCircuit pre post g out
+    let D := patchCircuit pre post ⟨.or, [u.val, w.val]⟩ out
+    Monotone2 D ∧ D.size = C.size ∧
+    (∀ x : Fin n → Bool, D.eval (List.ofFn x) = true ↔ hit G x) ∧
+    (∀ x : Fin n → Bool, WireLE (D.wires (List.ofFn x)) (C.wires (List.ofFn x))) ∧
+    D.gates[pre.length]? = some ⟨.or, [u.val, w.val]⟩ := by
+  dsimp only
+  have hpre : ∀ q ∈ pre, q.op = GateOp.and ∨ q.op = GateOp.or := by
+    intro q hq
+    exact (hc q (List.mem_append_left _ hq)).1
+  have hg : g.op = GateOp.and ∨ g.op = GateOp.or :=
+    (hc g (List.mem_append_right _ List.mem_cons_self)).1
+  have dominated : ∀ x : Fin n → Bool,
+      gatePrefix pre ⟨.or, [u.val, w.val]⟩ x = true → gatePrefix pre g x = true := by
+    intro x hx
+    rw [gatePrefix_or] at hx
+    simp only [Bool.or_eq_true] at hx
+    rcases hx with hxu | hxw
+    · apply gatePrefix_mono pre g hpre hg (mask {u}) x ?_ hu
+      intro i hi
+      have hiu : i = u := by simpa [mask] using hi
+      subst i
+      exact hxu
+    · apply gatePrefix_mono pre g hpre hg (mask {w}) x ?_ hw
+      intro i hi
+      have hiw : i = w := by simpa [mask] using hi
+      subst i
+      exact hxw
+  have keeps : ∀ a b, G.Adj a b →
+      (patchCircuit pre post ⟨.or, []⟩ out).eval (List.ofFn (mask {a, b})) = false →
+        gatePrefix pre ⟨.or, [u.val, w.val]⟩ (mask {a, b}) = true := by
+    intro a b hab hz
+    rw [gatePrefix_or]
+    rcases critical a b hab hz with rfl | rfl | rfl | rfl <;> simp [mask]
+  obtain ⟨hm, hs, he, hl⟩ := critical_gate_repair G pre post g
+    ⟨.or, [u.val, w.val]⟩ out hc ⟨Or.inr rfl, by simp⟩ correct dominated keeps
+  exact ⟨hm, hs, he, hl, by simp [patchCircuit]⟩
+
+end TwoSingletonRepair
+
 end PEqualNP.Outside.L_meta_1904_aux
