@@ -1,0 +1,87 @@
+[
+  {
+    "file": "gadget_helper_library.py",
+    "sha256": "abbca4eb64f4780560dbf3afe22837a9bbdddcda6323ff32f146534295557deb",
+    "bytes": 14162
+  },
+  {
+    "file": "gadget_absorbed_library.py",
+    "sha256": "49a24d76315532a08200cc1602ec1e3894bc623446fdc9948f597bba9927ff15",
+    "bytes": 14942
+  },
+  {
+    "file": "gadget_relaxed_sat.py",
+    "sha256": "1cd01e5fa1d7a049d11c86f7e54193e3e5b435c0ce26ab7377f596a05b635242",
+    "bytes": 10062
+  },
+  {
+    "file": "subk33-observed-sat.json",
+    "sha256": "98aa1af7e693ca092c3799b9fe830029608d325f8312c5d4a66322b55e5d12e8",
+    "bytes": 1956
+  },
+  {
+    "file": "subk33-observed-sat.log",
+    "sha256": "1b48b33634f1cd4ff5cbd5615c5d283274eeeeffa12f6ed1fdc8d7807f97063f",
+    "bytes": 498
+  },
+  {
+    "file": "subk33-observed-sat.solver.log",
+    "sha256": "bc3d0d6faa0b071cb948997f89c33f760149d062862be1c29dcca94798df47b7",
+    "bytes": 13015
+  },
+  {
+    "file": "subk33-absorbed-direct-library.json",
+    "sha256": "f1bbff8ee3e0162e3241fbd1837e75806b1f73c350ae7b17eed24ae4d06a3ffe",
+    "bytes": 511574
+  },
+  {
+    "file": "subk33-absorbed-direct-library-stats.json",
+    "sha256": "ba60090470278d8e8117bc5e376a3cad30207a22c6c8995ed93e223a36744e8c",
+    "bytes": 3341
+  },
+  {
+    "file": "subk33-absorbed-direct-library-generation.log",
+    "sha256": "846161f9f2c7fa283b4ea1aefeb0f07c82884454421c888c50858c57d9acde56",
+    "bytes": 511
+  },
+  {
+    "file": "p5-absorbed-library.json",
+    "sha256": "e72c26268f7a5ed4c34866f4bde5c73c2dabbb44949877ac8b0c7e64cf66c841",
+    "bytes": 6359
+  },
+  {
+    "file": "p5-absorbed-library-stats.json",
+    "sha256": "1552b3834ddff22521c7c49618f1e09e120cf695acd2f44948b4a5fe289b5566",
+    "bytes": 539
+  },
+  {
+    "file": "p5-absorbed-generation.log",
+    "sha256": "ae84372024024f0793f8028d6d22229481d24d4a2163253a770f39869b4a6a3f",
+    "bytes": 496
+  },
+  {
+    "file": "p5-absorbed-control.json",
+    "sha256": "c6467fb11d05ff35db9c94c89feb2fa8bf0afbc4b2426feb07ed0831fbadf3cf",
+    "bytes": 1315
+  },
+  {
+    "file": "p5-absorbed-control.log",
+    "sha256": "526a5d1af69ade922b17fe15833743e82fa33ea95de95600b2f54dd328c132d8",
+    "bytes": 491
+  },
+  {
+    "file": "p5-absorbed-control.solver.log",
+    "sha256": "d6491c7a95b21d43765f87f776af8b0843a237f0f27d8928270311b0152c2e56",
+    "bytes": 7365
+  },
+  {
+    "file": "subk33-extended-linears.json",
+    "sha256": "8baddc22d3665af8ba1c703ff8ec2aec1aff95cbcc810bad1cf9d3319a7e3135",
+    "bytes": 1592
+  },
+  {
+    "file": "subk33-absorbed-library-generation.log",
+    "sha256": "55a33b62b2a64995570479cf07396b357a8db58af90dad435133de119a09e97e",
+    "bytes": 126
+  }
+]

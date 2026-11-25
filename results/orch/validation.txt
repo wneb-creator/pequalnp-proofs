@@ -53,3 +53,9 @@ Sub-agents: six (proof routes, finite search, certificate search, gate eliminati
 TIMING total=177.0 subagents=6
 
 Symbolic extension partials: SymbolicPrefix.lean passes4.696s and SymbolicCut.lean passes7.080s. These check31-input63-gate circuit arity/backward wiring/size, and the15-input base graph identity. The full31-input circuit correctness theorem remains pending; no new counterexample. Root independent review PASS for these limited claims; source contains no forbidden commands/strings/axioms. Full successful logs preserved in witness3566/.
+
+SymbolicLargeFast.lean: full31-input known-upper certificate PASS,484lines60722bytes, SHA256cfad2ef51ea932db37e91baad2da718aa9c0a9e84f93d49b012c90c1c6f1b50d. Leanexit0,16.136s,3095680KiB, six unused-simp warnings. Independent reviewer repo_review PASS: exact JSON/source match, generator reproducibility, full32768-row base/helper check, monotone-DNF normalization to exact50 edges, bipartite/C4free graph, cover and matching14.63=m+tau−1, so this is a knownupper control, not a refutation. Source and complete build/audit logs preserved in witness3566/. Fullposted3566theorem/negation remains absent.
+
+Final research checkpoint:19 finite run logs record14 UNKNOWN, two smallC6 diagnostic UNSAT, three interruptions; no below-bound circuit. The246-file archive is hashed in its manifest. Both120s K3,3 triple-helper queries returnedUNKNOWN. Uncapped pendant audit:2269 circuits,48811 feasible subsets, no improvement. All288 optimal materializations normalize to clean circuits. Independent final reviewPASS. Symbolic pipeline smallcontrolPASS13.651s;15-input kernel fallbackPASS12.562s. Main619-line partial unchanged, cleanup not triggered, local checker not run because endpoint remains unproved. Raw solverlogs preserve their original trailing spaces.
+Sub-agents: six (proof routes, finite search, certificate search, gate elimination, Lean setup, independent review).
+TIMING total=187.1 subagents=6

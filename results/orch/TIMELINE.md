@@ -72,3 +72,7 @@
 - 2026-11-25T21:52:59.564882+00:00: Preserved reviewed helper/pendant amplification sources, full run logs, frozen circuit inputs and replay wrappers. Completed native C8 helper sweep:137233 cases, no candidate. Helper-objective mutation:260997 evaluations, no candidate. Current3566 target remains a checked619-line partial; neither posted theorem nor negation is proved.
 
 - 2026-11-25T21:59:08.864310+00:00: Checked and preserved31-input circuit-prefix and15-input Boolean-cut partials. Full symbolic extension correctness still pending.
+
+- 2026-11-25T22:02:08.088226+00:00: Full symbolic31-input known-upper certificate compiled16.136s and passed independent review:63 gates,50 edges,cover14. No new counterexample.
+
+- 2026-11-25T22:03:02.218186+00:00: Preserved completed search archives, independent final audits and full symbolic witness pipeline. No full3566proof/refutation. A final distinct24-safe-pair library is being prepared for one bounded query.

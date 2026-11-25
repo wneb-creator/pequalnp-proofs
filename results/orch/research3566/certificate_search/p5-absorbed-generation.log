@@ -1,0 +1,4 @@
+{"stage": "products", "rows": 13, "linear": 16, "dirty": 37, "clean": 7, "nodes": 59, "seconds": 0.0007783780001773266}
+{"stage": "absorbed", "dirty": 39, "nodes": 61, "seconds": 0.0009347479990537977}
+{"stage": "guards", "dirty": 39, "clean": 12, "nodes": 66, "recipes": 171, "seconds": 0.0014277469999797177}
+{"stage": "pruned", "positive_count": 4, "linear_count": 16, "dirty_count": 39, "clean_count": 12, "active_nodes": 57, "recipe_count": 159, "generation_seconds": 0.0016727909987821477}

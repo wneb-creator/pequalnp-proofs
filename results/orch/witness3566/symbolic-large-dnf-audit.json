@@ -1,0 +1,8 @@
+{
+  "n": 31,
+  "gates": 63,
+  "target_edges": 50,
+  "output_minimal_monomials": 50,
+  "peak_minimal_monomials": 50,
+  "symbolic_dnf_exact": true
+}

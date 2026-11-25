@@ -1,0 +1,481 @@
+{
+  "seconds": 180.00024820900035,
+  "restarts": 63,
+  "valid_graphs": 27886,
+  "counters": {
+    "evaluated": 156952,
+    "valid": 61742,
+    "safe_helper_cases": 38464,
+    "full_audits": 7169,
+    "incomplete_audits": 0,
+    "pendant_eligible_cases": 61741,
+    "pendant_positive_rise_cases": 21032,
+    "pendant_subsets": 1085039,
+    "combined_improvement_cases": 21425
+  },
+  "witness": null,
+  "best_amplification": {
+    "inputs": 14,
+    "gates": [
+      [
+        0,
+        4,
+        5
+      ],
+      [
+        0,
+        0,
+        10
+      ],
+      [
+        0,
+        0,
+        11
+      ],
+      [
+        0,
+        3,
+        7
+      ],
+      [
+        0,
+        0,
+        8
+      ],
+      [
+        1,
+        4,
+        6
+      ],
+      [
+        1,
+        16,
+        15
+      ],
+      [
+        1,
+        8,
+        9
+      ],
+      [
+        1,
+        18,
+        17
+      ],
+      [
+        0,
+        7,
+        19
+      ],
+      [
+        0,
+        2,
+        21
+      ],
+      [
+        1,
+        24,
+        23
+      ],
+      [
+        1,
+        22,
+        25
+      ],
+      [
+        1,
+        20,
+        26
+      ]
+    ],
+    "output": 27,
+    "edges": [
+      [
+        0,
+        8
+      ],
+      [
+        0,
+        10
+      ],
+      [
+        0,
+        11
+      ],
+      [
+        2,
+        8
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        4,
+        7
+      ],
+      [
+        6,
+        7
+      ]
+    ],
+    "metrics": {
+      "base_gain": -3,
+      "amplification_profit": 0,
+      "helper_profit": -3,
+      "pendant_rise": 3,
+      "pendant_upper": 4,
+      "pendant_choices": [
+        [
+          3,
+          3,
+          1
+        ],
+        [
+          8,
+          4,
+          0
+        ],
+        [
+          10,
+          1,
+          0
+        ],
+        [
+          0,
+          2,
+          1
+        ]
+      ],
+      "eligible_centers": 7,
+      "optimistic_profit": 1,
+      "extra_rows": 0,
+      "bad_pairs": 0,
+      "four_cycles": 0,
+      "edges": 8,
+      "cover": 3,
+      "cost": 13,
+      "safe_helpers": 0,
+      "helper_signatures": [
+        [],
+        [
+          0,
+          2,
+          3,
+          7,
+          8,
+          10,
+          11
+        ]
+      ],
+      "valid": true,
+      "graph_key": 4398317142042
+    },
+    "audit": null
+  },
+  "best_graph": {
+    "inputs": 14,
+    "gates": [
+      [
+        1,
+        7,
+        12
+      ],
+      [
+        1,
+        13,
+        9
+      ],
+      [
+        1,
+        8,
+        11
+      ],
+      [
+        1,
+        10,
+        13
+      ],
+      [
+        1,
+        12,
+        16
+      ],
+      [
+        1,
+        8,
+        15
+      ],
+      [
+        0,
+        4,
+        19
+      ],
+      [
+        1,
+        14,
+        13
+      ],
+      [
+        0,
+        3,
+        11
+      ],
+      [
+        1,
+        11,
+        17
+      ],
+      [
+        1,
+        22,
+        20
+      ],
+      [
+        1,
+        10,
+        12
+      ],
+      [
+        0,
+        1,
+        18
+      ],
+      [
+        1,
+        9,
+        25
+      ],
+      [
+        0,
+        2,
+        23
+      ],
+      [
+        1,
+        11,
+        7
+      ],
+      [
+        1,
+        24,
+        26
+      ],
+      [
+        1,
+        9,
+        29
+      ],
+      [
+        1,
+        30,
+        28
+      ],
+      [
+        0,
+        6,
+        27
+      ],
+      [
+        1,
+        10,
+        7
+      ],
+      [
+        1,
+        8,
+        34
+      ],
+      [
+        0,
+        0,
+        31
+      ],
+      [
+        0,
+        5,
+        35
+      ],
+      [
+        1,
+        33,
+        37
+      ],
+      [
+        1,
+        38,
+        36
+      ],
+      [
+        1,
+        32,
+        39
+      ]
+    ],
+    "output": 40,
+    "edges": [
+      [
+        0,
+        7
+      ],
+      [
+        0,
+        9
+      ],
+      [
+        0,
+        11
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        1,
+        12
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        2,
+        11
+      ],
+      [
+        2,
+        13
+      ],
+      [
+        3,
+        11
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        9
+      ],
+      [
+        4,
+        13
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        5,
+        8
+      ],
+      [
+        5,
+        10
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        6,
+        10
+      ],
+      [
+        6,
+        12
+      ]
+    ],
+    "metrics": {
+      "base_gain": 0,
+      "amplification_profit": 0,
+      "helper_profit": 0,
+      "pendant_rise": 0,
+      "pendant_upper": 1,
+      "pendant_choices": [],
+      "eligible_centers": 8,
+      "optimistic_profit": 3,
+      "extra_rows": 0,
+      "bad_pairs": 0,
+      "four_cycles": 0,
+      "edges": 19,
+      "cover": 7,
+      "cost": 25,
+      "safe_helpers": 2,
+      "helper_signatures": [
+        [
+          [
+            4224,
+            1
+          ],
+          [
+            12416,
+            2
+          ]
+        ],
+        [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          11
+        ]
+      ],
+      "valid": true,
+      "graph_key": 193910829095189
+    },
+    "audit": {
+      "n": 14,
+      "edges": 19,
+      "cover": 7,
+      "raw_gates": 27,
+      "normalized_output_gates": 25,
+      "deficit": 0,
+      "helpers": [
+        {
+          "wire": 21,
+          "support": [
+            7,
+            12,
+            13
+          ],
+          "cone": 129,
+          "incremental_cost": 2,
+          "single_profit": 0
+        },
+        {
+          "wire": 14,
+          "support": [
+            7,
+            12
+          ],
+          "cone": 1,
+          "incremental_cost": 1,
+          "single_profit": 0
+        }
+      ],
+      "rejected": {
+        "small_support": 13,
+        "color_conflict": 0,
+        "common_neighbor": 12,
+        "extra_true_rows": 0
+      },
+      "best_extension_profit": 0,
+      "best_helpers": [],
+      "subset_states": 6,
+      "subset_complete": true
+    }
+  }
+}

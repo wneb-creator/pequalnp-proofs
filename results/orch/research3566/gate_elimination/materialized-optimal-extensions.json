@@ -1,0 +1,2603 @@
+{
+  "summary": {
+    "seconds": 0.1680629399997997,
+    "materialized": 288,
+    "dirty_optimal": 0,
+    "unchecked_wanted": 0
+  },
+  "cases": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-one-helper/case-3.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-one-helper/case-4.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-one-helper/case-11.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-one-helper/case-12.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-one-helper/case-13.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-one-helper/case-15.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-one-helper/case-19.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-one-helper/case-21.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5.json",
+      "n": 12,
+      "edges": 12,
+      "gates": 17,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-8.json",
+      "n": 12,
+      "edges": 12,
+      "gates": 17,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-9.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-16.json",
+      "n": 12,
+      "edges": 12,
+      "gates": 17,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-18.json",
+      "n": 12,
+      "edges": 12,
+      "gates": 17,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-20.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-24.json",
+      "n": 12,
+      "edges": 12,
+      "gates": 17,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-25.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-30.json",
+      "n": 12,
+      "edges": 12,
+      "gates": 17,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-38.json",
+      "n": 12,
+      "edges": 12,
+      "gates": 17,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-41.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-43.json",
+      "n": 12,
+      "edges": 12,
+      "gates": 17,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-46.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-49.json",
+      "n": 12,
+      "edges": 12,
+      "gates": 17,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-54.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-55.json",
+      "n": 12,
+      "edges": 12,
+      "gates": 17,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-57.json",
+      "n": 12,
+      "edges": 12,
+      "gates": 17,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-62.json",
+      "n": 12,
+      "edges": 12,
+      "gates": 17,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-65.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-131.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-132.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-141.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-145.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-182.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-183.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-203.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-209.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-249.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-250.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-252.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-255.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-267.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-268.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-275.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-276.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-283.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-284.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-311.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-313.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-316.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-319.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-322.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-324.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-328.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-329.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-347.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-348.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-413.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-418.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-424.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-431.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-458.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-461.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-465.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-468.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-493.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-494.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-496.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-497.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-499.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-501.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-630.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-632.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-634.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-642.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-721.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-743.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-744.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-749.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-751.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-808.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-810.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-813.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-817.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-822.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-858.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-932.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-963.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-966.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-981.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-986.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1010.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1011.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1013.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1014.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1027.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1031.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1276.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1279.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1281.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1303.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1363.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1490.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1491.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1493.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1510.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1564.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1567.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1570.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1575.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1581.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1622.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1675.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1844.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1845.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1847.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1848.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1936.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1937.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1939.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1942.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1943.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1946.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1959.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1962.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1966.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-1969.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2211.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2215.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2216.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2218.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2219.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2222.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2224.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2228.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2232.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2235.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2418.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2422.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2426.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2431.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2437.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2444.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2573.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2574.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2576.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2579.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2669.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2744.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2745.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-2938.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3010.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3012.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3192.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3195.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3204.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3216.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3378.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3383.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3397.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3403.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3482.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3483.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3485.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3490.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3496.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3503.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3577.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3581.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3584.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3589.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3692.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3693.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3694.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3698.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3906.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3909.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3915.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-3919.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4032.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4033.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4035.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4038.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4042.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4049.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4108.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4110.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4114.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4119.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4277.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4412.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4413.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4414.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4419.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4427.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4536.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4537.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4538.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4543.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4709.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4710.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4711.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4720.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4731.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4816.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4817.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4826.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-4836.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5097.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5100.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5106.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5113.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5173.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5174.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5176.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5178.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5244.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5362.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5363.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5368.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5371.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5374.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5650.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5652.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5656.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5659.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5781.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5783.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5791.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5797.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5799.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5869.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5870.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5873.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-5875.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6135.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6136.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6137.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6139.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6236.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6239.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6243.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6248.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6325.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6326.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6328.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6331.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6413.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6504.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6505.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6507.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6509.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6519.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6567.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6570.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6572.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6576.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6718.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6720.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6723.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6724.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6739.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6774.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6775.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6791.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6793.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6881.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6882.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6883.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-6885.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-7009.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-7081.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-7082.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-7084.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-7087.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-7092.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-7124.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-7125.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-7127.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-7132.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-helpers-2-3-all/case-7140.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-3.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-4.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-14.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-15.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-19.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-21.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-27.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-178/gap3566/certificate_search/c8-all-safe-one-helper/case-29.json",
+      "n": 10,
+      "edges": 10,
+      "gates": 14,
+      "profit": 0,
+      "dirty_and_count": 0,
+      "pair_dirty_and_count": 0
+    }
+  ],
+  "dirty": []
+}

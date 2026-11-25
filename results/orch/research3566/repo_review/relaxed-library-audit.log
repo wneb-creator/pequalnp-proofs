@@ -1,0 +1,50 @@
+{
+  "library_sha256": "f1bbff8ee3e0162e3241fbd1837e75806b1f73c350ae7b17eed24ae4d06a3ffe",
+  "nodes": 4040,
+  "recipes": 6181,
+  "rows": 181,
+  "global_maximal_independent_rows": 50,
+  "initial_active": 1493,
+  "union_dag_max_depth": 10,
+  "induced_maximal_independent_counts": [
+    8,
+    8,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29
+  ],
+  "candidate_counts": [
+    10,
+    10,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13
+  ],
+  "candidate_count": 98,
+  "candidate_sets_disjoint": true,
+  "controls": [
+    {
+      "name": "p5-relaxed-control.json",
+      "assignments": 32,
+      "raw": 6,
+      "paid": 5
+    },
+    {
+      "name": "p5-absorbed-control.json",
+      "assignments": 32,
+      "raw": 6,
+      "paid": 5
+    }
+  ],
+  "source_hashes": {
+    "gadget_helper_library.py": "abbca4eb64f4780560dbf3afe22837a9bbdddcda6323ff32f146534295557deb",
+    "gadget_absorbed_library.py": "49a24d76315532a08200cc1602ec1e3894bc623446fdc9948f597bba9927ff15",
+    "gadget_relaxed_sat.py": "1cd01e5fa1d7a049d11c86f7e54193e3e5b435c0ce26ab7377f596a05b635242"
+  }
+}

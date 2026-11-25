@@ -8,4 +8,5 @@ spec=importlib.util.spec_from_file_location(name,HERE/(name+'.py'));module=impor
 engine=module.ea if combined else module
 seeds=json.loads((HERE/'evolution-search-seeds.json').read_text())['combined' if combined else 'helper']
 engine.load_seeds=lambda:[tuple(tuple(g) for g in circuit) for circuit in seeds]
-engine.main()
+if combined and '--validate-only' in sys.argv:module.validate()
+else:engine.main()

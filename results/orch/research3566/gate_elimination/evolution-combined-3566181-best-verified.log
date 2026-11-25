@@ -1,0 +1,1 @@
+{"counterexample": false, "dirty_and_count": 1, "edges": 8, "gain": -3, "minimum_vertex_cover": [0, 2, 7], "pair_dirty_and_count": 1, "used_gates": 13, "verified_assignments": 16384}

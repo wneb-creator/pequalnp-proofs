@@ -1,0 +1,94 @@
+import took 5.18s
+.olean serialization took 128ms
+type checking took 163ms
+simp took 124ms
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicSmall.lean:123:44: warning: This simp argument is unused:
+  Bool.and_or_distrib_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.and_or_distrib_left, Bool.and_assoc, Bool.and_comm, Bool.and_left_comm, Bool.or_assoc,
+    Bool.or_comm, Bool.or_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicSmall.lean:124:8: warning: This simp argument is unused:
+  Bool.and_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.and_or_distrib_left, Bool.and_or_distrib_right, Bool.and_comm, Bool.and_left_comm, Bool.or_assoc,
+    Bool.or_comm, Bool.or_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicSmall.lean:124:24: warning: This simp argument is unused:
+  Bool.and_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.and_or_distrib_left, Bool.and_or_distrib_right, Bool.and_assoc, Bool.and_left_comm, Bool.or_assoc,
+    Bool.or_comm, Bool.or_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicSmall.lean:124:39: warning: This simp argument is unused:
+  Bool.and_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.and_or_distrib_left, Bool.and_or_distrib_right, Bool.and_assoc, Bool.and_comm, Bool.or_assoc,
+    Bool.or_comm, Bool.or_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicSmall.lean:125:8: warning: This simp argument is unused:
+  Bool.or_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.and_or_distrib_left, Bool.and_or_distrib_right, Bool.and_assoc, Bool.and_comm, Bool.and_left_comm,
+    Bool.or_comm, Bool.or_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicSmall.lean:126:4: warning: Unused tactic linter: `revert b0 b1 b2 b3 b4 b5 b6 b7` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicSmall.lean:127:4: warning: Unused tactic linter: `decide +kernel` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicSmall.lean:126:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicSmall.lean:127:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+type checking took 176ms
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicSmall.lean:135:57: warning: This simp argument is unused:
+  Bool.and_or_distrib_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [witnessGraphExpr, Bool.and_or_distrib_left]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+type checking took 114ms
+simp took 601ms
+cumulative profiling times:
+	.olean serialization 128ms
+	attribute application 5.16ms
+	compilation (IR) 2.51ms
+	compilation (LCNF base) 10.9ms
+	compilation (LCNF impure) 5.19ms
+	compilation (LCNF mono) 8.69ms
+	congr simp thm 4.95ms
+	declTypeLinter 13.7ms
+	elaboration 217ms
+	fix level params 3.52ms
+	import 5.18s
+	initialization 118ms
+	instantiate metavars 36.1ms
+	interpretation 649ms
+	let-to-have transformation 1.91ms
+	linting 78.3ms
+	module linting 0.11ms
+	parsing 77.8ms
+	process pre-definitions 46.7ms
+	share common exprs 42.8ms
+	simp 784ms
+	tactic execution 1.28s
+	tacticAnalysis 18.4ms
+	type checking 535ms
+	typeclass inference 105ms
+
+RESULT exit=0 elapsed_seconds=13.651 max_rss_kib=2932480

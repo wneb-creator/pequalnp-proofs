@@ -1,0 +1,2 @@
+{"variables": 73860, "clauses": 153877, "budget": 39, "generation_seconds": 0.5689761989997351}
+{"exit": 0, "seconds": 120.5945039549988, "library_sha256": "95bbca6e3802b38a71662bddd7fcee5ae91ee9d94f6b57c14eef42f9dcf598ec", "variables": 73860, "clauses": 153877, "budget": 39, "paid_limit": 23, "helper_overhead": 16, "observed_helper_supports": [[0, 1, 2], [3, 4, 5], [6, 10, 14], [6, 11, 13], [7, 9, 14], [7, 11, 12], [8, 9, 13], [8, 10, 12]], "scope": "only the supplied finite recipe library"}

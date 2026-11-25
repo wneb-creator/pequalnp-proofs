@@ -1,0 +1,22 @@
+{
+  "verdict": "PASS: checked upper control, not a counterexample",
+  "n": 31,
+  "gates": 63,
+  "edges": 50,
+  "output": 93,
+  "minimum_cover": 14,
+  "standard_upper": 63,
+  "symbolic_minimal_monomials": 50,
+  "base_truth_rows": 32768,
+  "exact_lean_json_match": true,
+  "unchanged_circuit_and_graph_bridges": true,
+  "generator_byte_reproduction": true,
+  "source_lines": 484,
+  "source_bytes": 60722,
+  "source_sha256": "cfad2ef51ea932db37e91baad2da718aa9c0a9e84f93d49b012c90c1c6f1b50d",
+  "generator_sha256": "703ca0c9e79f543ffc9787ca029e60ed0cab2487f38a59d991c6d5433704d3d0",
+  "amplifier_sha256": "3c7cb46d2dd6c32f7dfc2ba81dd7cdca06b5e56047afa44a998822e5375920de",
+  "build_warning_count": 6,
+  "elapsed_seconds": 16.136,
+  "max_rss_kib": 3095680
+}

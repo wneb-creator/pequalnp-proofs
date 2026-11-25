@@ -1,0 +1,47 @@
+{
+  "graph": {
+    "n": 5,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "cover": 2,
+    "star_cover_upper": 5
+  },
+  "rows": [
+    3,
+    6,
+    12,
+    24,
+    1,
+    2,
+    4,
+    8,
+    9,
+    10,
+    16,
+    18,
+    21
+  ],
+  "positive_count": 4,
+  "linear_count": 16,
+  "dirty_count": 39,
+  "clean_count": 12,
+  "active_nodes": 57,
+  "recipe_count": 159,
+  "generation_seconds": 0.0016727909987821477
+}

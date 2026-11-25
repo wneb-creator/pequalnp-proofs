@@ -1,0 +1,87 @@
+import took 2.94s
+.olean serialization took 149ms
+tactic execution of Lean.Parser.Tactic.exact took 111ms
+tactic execution of Lean.Parser.Tactic.decide took 908ms
+type checking took 153ms
+simp took 813ms
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicLargeFast.lean:194:34: warning: This simp argument is unused:
+  Bool.and_or_distrib_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.and_or_distrib_left, Bool.and_assoc, Bool.and_comm, Bool.and_left_comm, Bool.or_assoc,
+    Bool.or_comm, Bool.or_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicLargeFast.lean:195:4: warning: This simp argument is unused:
+  Bool.and_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.and_or_distrib_left, Bool.and_or_distrib_right, Bool.and_comm, Bool.and_left_comm, Bool.or_assoc,
+    Bool.or_comm, Bool.or_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicLargeFast.lean:195:20: warning: This simp argument is unused:
+  Bool.and_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.and_or_distrib_left, Bool.and_or_distrib_right, Bool.and_assoc, Bool.and_left_comm, Bool.or_assoc,
+    Bool.or_comm, Bool.or_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicLargeFast.lean:195:35: warning: This simp argument is unused:
+  Bool.and_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.and_or_distrib_left, Bool.and_or_distrib_right, Bool.and_assoc, Bool.and_comm, Bool.or_assoc,
+    Bool.or_comm, Bool.or_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicLargeFast.lean:196:4: warning: This simp argument is unused:
+  Bool.or_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.and_or_distrib_left, Bool.and_or_distrib_right, Bool.and_assoc, Bool.and_comm, Bool.and_left_comm,
+    Bool.or_comm, Bool.or_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+type checking took 350ms
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicLargeFast.lean:204:57: warning: This simp argument is unused:
+  Bool.and_or_distrib_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [witnessGraphExpr, Bool.and_or_distrib_left]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+type checking took 489ms
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 158ms
+linting took 176ms
+simp took 1.66s
+type checking took 183ms
+cumulative profiling times:
+	.olean serialization 149ms
+	attribute application 5.23ms
+	compilation (IR) 0.963ms
+	compilation (LCNF base) 10.7ms
+	compilation (LCNF impure) 18.9ms
+	compilation (LCNF mono) 10.3ms
+	congr simp thm 10.8ms
+	declTypeLinter 43.2ms
+	elaboration 368ms
+	fix level params 3.47ms
+	import 2.94s
+	initialization 76.9ms
+	instantiate metavars 23.6ms
+	interpretation 758ms
+	let-to-have transformation 3.99ms
+	linting 231ms
+	module linting 0.114ms
+	parsing 101ms
+	process pre-definitions 123ms
+	share common exprs 62.4ms
+	simp 2.65s
+	tactic execution 5.07s
+	tacticAnalysis 42.1ms
+	type checking 1.19s
+	typeclass inference 172ms
+
+RESULT exit=0 elapsed_seconds=16.136 max_rss_kib=3095680
