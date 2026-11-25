@@ -68,3 +68,5 @@ Sub-agents: construct_search,geometry_search,status_review,toolchain_setup,artif
 TIMING total=205.5 subagents=7
 
 Checked BasicStar components: DuplicateConstantComplete.lean217lines (SHAc2b12311b5400d76a9918e4e12164968ae9a52c90e033d72b5ff1e1a02841f9d) and BasicStarRows.lean23lines (SHA90042e4eec56934b03ecff679c57eb0681fe45905a56e828da741d77ffc600b2), each compiled exit0. Independent status_review PASS for new components; rowzero and construct independently reviewed shared duplicate-row permanent/linear-map helpers. Complete successful logs preserved. Final BasicStar ambient theorem still being assembled; no global proof claim.
+
+DuplicateNormalized.lean140-line component (including shared Common prefix) compiled exit0; independently reviewed by geometry_search and construct_search, SHA7b71d0d3613dc24e136e596c6437da00025b2c9fa806b65b3733e6c0e85b4279. Exact normalized duplicate-row pair obstruction checked, including both polynomial Bezout branches. Complete stdout/stderr preserved. Full BasicStar theorem still being assembled.
