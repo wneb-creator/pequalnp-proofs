@@ -41,3 +41,4 @@
 2026-11-25T12:48:35.108705+00:00 abstract C4-free rectangle/star dichotomy kernel-checked and independently reviewed; exploring degree-three critical-case consequence.
 2026-11-25T12:50:45.465513+00:00 pure-OR wire semantic bridge compiled and independently reviewed; preserved without circuit-normalization claim.
 2026-11-25T12:51:25.986377+00:00 compact SAT archive independently audited, including27-gate one-NOT dual-helper control; no24-gate witness. Stronger571-sample screens running.
+2026-11-25T12:52:15.450360+00:00 dirty-chain operands proved pure OR under explicit TopForm hypotheses; abstract subcubic rectangle off-center bound≤2 compiled and independently reviewed.

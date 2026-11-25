@@ -1,0 +1,5 @@
+Independent review: DirtyPureInputs.lean
+SHA256 a4fbb2407f49ffad540a9850a9bbfedc0519e1a435bed26774cb7324c14bce4f;999lines42506bytes.
+Exact84-line extension of reviewedDirtyPure. ORreach-to-cone and operand-membership lemmas correctly use validity/backward order. First dirtyg inputs cannot ORreach a dirtyAND because any ancestor is earlier thang and junk={g,T},g<T; any clean BelowF AND ancestor is forbidden by actual TopForm definition. Therefore pure_or_eval applies.
+For second dirtyT, a BelowF AND ancestor is again excluded by TopForm; remaining junkancestor mustg. Its ORpath either immediately equalswire n+g (explicit hother excludes this) or starts with an ORreader ofg. Sole-reader identifies that ORreader withT, contradictingT being AND. Thus the chosen distinct operand is pure OR. No implicit assumption thatT operands differ: inequality is an explicitpremise.
+Scope remains conditionalAO2+TopForm+twojunk structuralresult; does not prove these from the posted arbitrarycircuit hypothesis. Guard only expected absentfinaltheorem. Forbidden scan clean; savedlog11warnings/noerrors; authorreportedexit0. Reviewpassed.

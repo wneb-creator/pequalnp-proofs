@@ -5,4 +5,4 @@ Ordinarymonotone ANDcount≥7: LeancompilePASS; independentsemantic/formatreview
 Exactposted no24-gate theorem absent; localchecker REJECTED(no-theorem): finalpostedtheorem isabsent. No PR.
 Namedlines: initialupper40; mergedbounds9249. Cleanup ofcompletedgap notapplicable.
 Sub-agents: 6 (lower_bound, lemma_search, counterexample, linear_network, status_review, toolchain)
-TIMING total=65 subagents=6
+TIMING total=72 subagents=6

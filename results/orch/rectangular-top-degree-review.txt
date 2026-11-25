@@ -1,0 +1,4 @@
+Independent review: RectangularTop.lean degree extension
+SHA256 c9d995ecebaa6d289a167e3c73616a40d7dc6689a44cb778cc5816d0ecb5777b;75lines3142bytes (parent estimated77lines).
+Previous rectangle lemmas unchanged. New rectangle_off_center_card assumes NoFourCycle, degree<=3, B subset neighborsz, and all edges I times(JintersectionB). If I subset{z},Ierasez empty. Otherwise JintersectionB lies in asingleton; emptycase productempty. Nonemptycase JintersectionB={b}, and all Ierasez plusz are distinctneighbors ofb, so |Ierasez|+1<=3. Productcard therefore<=2. Adjacency symmetry is applied correctly.
+Exact scope is the ordered Finsetproduct (Ierasez)times(JintersectionB); neither a general circuit-replacement cost bound nor preservationofotheredges is claimed. Explicitdegree/C4 premises retained. Format clean, officialguard only expected missingfinaltheorem; parentreportscompileexit0emptylog. Reviewpassed.
