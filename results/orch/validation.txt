@@ -9,5 +9,12 @@ Independent static review: special_status passed all three exact files.
 Repository checker: not run; no complete theorem for the posted statement exists.
 No proof PR is being opened for these partial results.
 
-Sub-agents: special_status, structural_proof, counterexample_search, reduction_routes, finite_certificate
-TIMING total=11.8 subagents=5
+Additional Lean 4.36.0 checks, all exit 0:
+- RestrictionGeneric.lean: conditional abstract restriction bound L+2.
+- RestrictionGenericResult.lean: strengthens it to L+3 when the retained operand and first result become constant.
+- Endpoints.lean: a monotone circuit followed by a final NOT cannot compute a target satisfying f(0)=0 and f(1)=1. The monotonicity helpers are adapted from L_meta_1612.
+These are standalone snapshots; Generic and GenericResult share declaration names.
+Complete logs preserved; independent review passed before push.
+
+Sub-agents: special_status, structural_proof, counterexample_search, reduction_routes, finite_certificate, or_first_bound
+TIMING total=18.3 subagents=6

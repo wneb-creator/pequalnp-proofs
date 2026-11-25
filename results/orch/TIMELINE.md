@@ -6,3 +6,4 @@
 2026-11-25T13:52:40.203492+00:00 Finite.lean compiled; checkpoint prepared for independent review
 2026-11-25T13:53:03.491248+00:00 reduction_routes cut_last_not Lean checked, 98 lines
 2026-11-25T13:56:19.826148+00:00 Second independently reviewed partial checkpoint prepared
+2026-11-25T14:02:49.155616+00:00 Third reviewed partial checkpoint prepared; new OR-first strategy active
