@@ -7,3 +7,7 @@ Construction source: L_meta_7684, commit 051efff1, PR #12317, Bastian Milan.
 Cleanup not started; partial has 1175 lines.
 Sub-agents: 6 (audit, structural proof, counterexample search, library lower-bound route, construction/SAT search, toolchain setup)
 TIMING total=6.4 subagents=6
+
+Necessity.lean: lake env lean exited 0; independent partial review PASS.
+Necessity lines: 2087. No cleanup pass yet.
+TIMING total=8.0 subagents=6

@@ -7,3 +7,5 @@
 2026-11-25T14:57:25Z lease renewal succeeded; expiry 15:17:25Z
 2026-11-25T14:58:29Z construction and lower-bound routes identified; no full proof
 2026-11-25T15:01:13.641387+00:00 Construction.lean compiles; independent static review passed; preparing first partial push
+2026-11-25T15:02:17.377588+00:00 library-route necessity package compiled successfully
+2026-11-25T15:02:47.183240+00:00 Necessity.lean compiled; independent review passed; preparing partial push
