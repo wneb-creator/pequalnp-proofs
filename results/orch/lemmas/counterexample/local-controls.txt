@@ -1,0 +1,5 @@
+CNF positive/negative controls:
+fixed checked20gate witness,1024rows: SAT,exit10
+fourfree gates in checked20gate witness,1024rows: SAT,exit10
+fixed flawed19gate candidate,1024rows: UNSAT,exit20
+Independent encoding audit: proof_strategy PASS.

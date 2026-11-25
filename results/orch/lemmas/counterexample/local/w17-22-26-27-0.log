@@ -1,0 +1,120 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2026
+c Armin Biere, Mathias Fleury, Nils Froleyks, Katalin Fazekas
+c Florian Pollitt, Tobias Faller, Emil Landbeck
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 3.1.0 e4d9bd93af444c6575a908a24da2c4130cb2a1c7
+c g++ (Debian 14.2.0-19) 14.2.0 -Wall -Wextra -O3 -DNDEBUG
+c Wed Nov 25 14:05:59 UTC 2026 Linux 458fb3e493ec 6.18.57 x86_64
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 15 seconds real time (due to '-t 15')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-110/counterexample/local/w17-22-26-27-0.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-110/counterexample/local/w17-22-26-27-0.cnf'
+c found 'p cnf 2206 31099' header
+c parsed 31099 clauses in 0.01 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reduction conflicts       size tier2      variables
+c         MB    restarts   redundant    glue  trail        remaining
+c          level     rate       size/glu tier1  irredundant
+c 
+c *  0.01  5  0 0   0  0    0    0 0.0 0 0 2 6  0% 22481 1025 46%
+c {  0.01  6  0 0   0  0    0    0 0.0 0 0 2 6  0% 22481 1025 46%
+c -  0.02  6 25 1   8  2  300  227 2.9 10 3 2 6 75% 21980 1025 46%
+c -  0.03  7 17 2  83  3  733  532 2.4 10 4 2 6 71% 21980 1025 46%
+c }  0.03  7 15 2 102  3 1001  730 2.4 10 4 2 6 71% 21980 1025 46%
+c [  0.03  7  0 2 102  0 1001  730 0.0 0 0 2 6  0% 21980 1025 46%
+c O  0.03  7  6 2 102  7 1002  731 1.3 4 3 2 6 91% 21980 1025 46%
+c i  0.04  7  5 2 102  1 1165  860 2.5 8 3 2 6 74% 21980 1024 46%
+c i  0.04  7  5 2 102  1 1186  871 2.6 8 3 2 6 74% 21980 1021 46%
+c i  0.04  7  6 2 102  1 1275  928 2.5 9 3 2 6 73% 21980 1020 46%
+c i  0.04  7  6 2 102  1 1292  933 2.5 8 3 2 6 73% 21980 1019 46%
+c i  0.04  7  5 2 102  1 1333  958 2.5 8 3 2 6 73% 21980 876 40%
+c ]  0.04  7  5 2 102  1 1336  959 2.5 8 3 2 6 73% 21980 774 35%
+c 0  0.04  7  5 2 102  1 1336  959 2.5 8 3 2 6 73% 21980 774 35%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+s UNSATISFIABLE
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time and ticks taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c       ticks  percent     rate         real   solve
+c 
+c     1.1e+06   99.82%  3.5e+07         0.03   99.09% search              
+c     1.1e+06   96.49%  3.5e+07         0.03   95.90% unstable            
+c     0.0e+00    0.00%  0.0e+00         0.01   28.11% parse               
+c     3.6e+04    3.33%  3.7e+07         0.00    3.14% lucky               
+c     0.0e+00    0.00%  0.0e+00         0.00    0.00% simplify            
+c   ====================================================================
+c     1.1e+06  100.00%  3.5e+07         0.03   77.72% solve               
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c clauses:                         23688
+c collections:                         2      668.00     interval             
+c conflicts:                        1336    42718.09 per second               
+c decisions:                        3007    96147.67 per second               
+c eager_subsumed:                    203       99.02 %   subsumed             
+c otfs_strengthened:                  40        2.99 %   conflicts            
+c otfs_subsumed:                       1        0.07 %   conflicts            
+c propagations:                   168413        5.38 M   per second           
+c reduced:                            44        3.63 %   learned_clauses      
+c reductions:                          2      668.00     interval             
+c rephased:                            1     1336.00     interval             
+c restart:                           102       13.10     interval             
+c reused:                             44        0.43 per restart              
+c searches:                            1
+c shrunken:                         4879       24.45 %   learned_literals     
+c shrunken_minimize:                3439       17.23 %   learned_literals     
+c stable_phases_total:                 1     1336.00     interval             
+c strengthened:                       40        0.17 %   clauses              
+c subsumed:                          205        0.87 %   clauses              
+c ticks:                         1091394       34.90 M   per second           
+c variables_original:               2206      100.00 %   vars                 
+c vars:                             2206
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ glue usage ] ---------------------------------------------------------
+c 
+c focused glue 2 used 776 clauses 22.22% accumulated 75.37% tier1
+c focused glue 3 used 422 clauses 12.08% accumulated 87.45%
+c focused glue 4 used 191 clauses 5.469% accumulated 92.92%
+c focused glue 5 used 108 clauses 3.092% accumulated 96.01%
+c focused glue 6 used 54 clauses 1.546% accumulated 97.56% tier2
+c 
+c stable glue 1 used 1072 clauses 54.55% accumulated 54.55% tier1
+c stable glue 2 used 510 clauses 25.95% accumulated 80.50% tier2
+c 
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.04    seconds
+c total real time since initialization:            0.04    seconds
+c maximum resident set size of process:           14.25    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 20

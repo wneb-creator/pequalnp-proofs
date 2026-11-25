@@ -1,0 +1,122 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2026
+c Armin Biere, Mathias Fleury, Nils Froleyks, Katalin Fazekas
+c Florian Pollitt, Tobias Faller, Emil Landbeck
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 3.1.0 e4d9bd93af444c6575a908a24da2c4130cb2a1c7
+c g++ (Debian 14.2.0-19) 14.2.0 -Wall -Wextra -O3 -DNDEBUG
+c Wed Nov 25 14:05:59 UTC 2026 Linux 458fb3e493ec 6.18.57 x86_64
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 15 seconds real time (due to '-t 15')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-110/counterexample/local/w10-11-17-22-0.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-110/counterexample/local/w10-11-17-22-0.cnf'
+c found 'p cnf 2142 19483' header
+c parsed 19483 clauses in 0.00 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reduction conflicts       size tier2      variables
+c         MB    restarts   redundant    glue  trail       remaining
+c          level     rate       size/glu tier1  irredundant
+c 
+c *  0.00  5  0 0   0  0    0    0 0.0 0 0 2 6  0% 15635 926 43%
+c {  0.00  5  0 0   0  0    0    0 0.0 0 0 2 6  0% 15635 926 43%
+c -  0.01  5 16 1  11  2  301  206 2.4 12 5 2 6 79% 14468 926 43%
+c -  0.01  6 15 2  28  2  734  521 2.7 12 4 2 6 78% 14468 926 43%
+c i  0.01  6 15 2  28  2  742  522 2.7 12 4 2 6 78% 14468 925 43%
+c i  0.02  6 15 2  28  2  770  541 2.6 11 4 2 6 78% 14468 924 43%
+c i  0.02  6 14 2  28  2  814  571 2.6 11 4 2 6 78% 14468 923 43%
+c }  0.02  6 13 2  28  2 1001  697 2.5 10 4 2 6 77% 14468 923 43%
+c [  0.02  6  0 2  28  0 1001  697 0.0 0 0 2 6  0% 14468 923 43%
+c O  0.02  6  3 2  28  4 1002  698 1.5 3 2 2 6 72% 14468 923 43%
+c i  0.02  6  6 2  28  1 1111  773 2.3 10 4 2 6 73% 14468 921 43%
+c i  0.02  6  7 2  28  2 1354  937 2.2 10 5 2 6 70% 14468 782 37%
+c i  0.02  6  7 2  28  2 1357  938 2.2 10 5 2 6 70% 14468 781 36%
+c i  0.02  6  7 2  28  1 1365  941 2.2 10 5 2 6 70% 14468 777 36%
+c ]  0.02  6  7 2  28  1 1370  944 2.2 10 5 2 6 70% 14468 513 24%
+c 0  0.02  6  7 2  28  1 1370  944 2.2 10 5 2 6 70% 14468 513 24%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+s UNSATISFIABLE
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time and ticks taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c       ticks  percent     rate         real   solve
+c 
+c     1.1e+06   99.72%  5.4e+07         0.02   99.03% search              
+c     1.0e+06   97.01%  5.3e+07         0.02   97.21% unstable            
+c     0.0e+00    0.00%  0.0e+00         0.00   16.75% parse               
+c     2.9e+04    2.70%  8.2e+07         0.00    1.77% lucky               
+c     0.0e+00    0.00%  0.0e+00         0.00    0.00% simplify            
+c   ====================================================================
+c     1.1e+06  100.00%  5.4e+07         0.02   85.20% solve               
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c clauses:                         16915
+c collections:                         2      685.00     interval             
+c conflicts:                        1370    68955.52 per second               
+c decisions:                        2516   126636.56 per second               
+c eager_subsumed:                    269       98.53 %   subsumed             
+c otfs_strengthened:                  27        1.97 %   conflicts            
+c otfs_subsumed:                       2        0.15 %   conflicts            
+c propagations:                   179770        9.05 M   per second           
+c reduced:                            65        5.05 %   learned_clauses      
+c reductions:                          2      685.00     interval             
+c rephased:                            1     1370.00     interval             
+c restart:                            28       48.93     interval             
+c reused:                             19        0.68 per restart              
+c searches:                            1
+c shrunken:                         4535       21.88 %   learned_literals     
+c shrunken_minimize:                2909       14.04 %   learned_literals     
+c stable_phases_total:                 1     1370.00     interval             
+c strengthened:                       27        0.16 %   clauses              
+c subsumed:                          273        1.61 %   clauses              
+c ticks:                         1065097       53.61 M   per second           
+c variables_original:               2142      100.00 %   vars                 
+c vars:                             2142
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ glue usage ] ---------------------------------------------------------
+c 
+c focused glue 2 used 901 clauses 29.36% accumulated 64.04% tier1
+c focused glue 3 used 576 clauses 18.77% accumulated 82.82%
+c focused glue 4 used 227 clauses 7.398% accumulated 90.22%
+c focused glue 5 used 111 clauses 3.617% accumulated 93.83%
+c focused glue 6 used 56 clauses 1.825% accumulated 95.66% tier2
+c 
+c stable glue 2 used 377 clauses 23.35% accumulated 68.15% tier1
+c stable glue 3 used 209 clauses 12.94% accumulated 81.10% tier2
+c 
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.02    seconds
+c total real time since initialization:            0.02    seconds
+c maximum resident set size of process:           13.12    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 20

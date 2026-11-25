@@ -1,0 +1,108 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2026
+c Armin Biere, Mathias Fleury, Nils Froleyks, Katalin Fazekas
+c Florian Pollitt, Tobias Faller, Emil Landbeck
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 3.1.0 e4d9bd93af444c6575a908a24da2c4130cb2a1c7
+c g++ (Debian 14.2.0-19) 14.2.0 -Wall -Wextra -O3 -DNDEBUG
+c Wed Nov 25 14:05:59 UTC 2026 Linux 458fb3e493ec 6.18.57 x86_64
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 15 seconds real time (due to '-t 15')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-110/counterexample/local/w11-17-22-0.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-110/counterexample/local/w11-17-22-0.cnf'
+c found 'p cnf 1968 17038' header
+c parsed 17038 clauses in 0.00 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reduction conflicts       size tier2      variables
+c         MB    restarts   redundant    glue  trail       remaining
+c          level     rate       size/glu tier1  irredundant
+c 
+c *  0.00  4  0 0   0  0    0    0 0.0 0 0 2 6  0% 12668 678 34%
+c {  0.00  4  0 0   0  0    0    0 0.0 0 0 2 6  0% 12668 678 34%
+c i  0.01  5  9 0   0  3   73   64 3.1 12 4 2 6 80% 12668 677 34%
+c i  0.01  5  9 0   0  3   89   75 2.9 11 4 2 6 80% 12668 676 34%
+c i  0.01  5  8 0   0  2  146  105 2.7 9 3 2 6 82% 12668 675 34%
+c i  0.01  5  9 0   4  2  204  150 2.6 10 4 2 6 81% 12668 665 34%
+c }  0.01  5  9 0   4  2  209  153 2.6 10 4 2 6 81% 12668 541 27%
+c 0  0.01  5  9 0   4  2  209  153 2.6 10 4 2 6 81% 12668 541 27%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+s UNSATISFIABLE
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time and ticks taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c       ticks  percent     rate         real   solve
+c 
+c     0.0e+00    0.00%  0.0e+00         0.00   91.34% parse               
+c     1.6e+05   98.10%  4.9e+07         0.00   89.82% search              
+c     1.4e+05   86.00%  4.6e+07         0.00   83.78% unstable            
+c     2.0e+04   12.10%  9.0e+07         0.00    6.03% lucky               
+c     0.0e+00    0.00%  0.0e+00         0.00    0.00% simplify            
+c   ====================================================================
+c     1.6e+05  100.00%  4.5e+07         0.00   51.35% solve               
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c clauses:                         12864
+c conflicts:                         209    57514.80 per second               
+c decisions:                         427   117506.32 per second               
+c eager_subsumed:                     43      100.00 %   subsumed             
+c otfs_strengthened:                   3        1.44 %   conflicts            
+c propagations:                    29132        8.02 M   per second           
+c restart:                             4       52.25     interval             
+c reused:                              3        0.75 per restart              
+c searches:                            1
+c shrunken:                          686       23.53 %   learned_literals     
+c shrunken_minimize:                 304       10.43 %   learned_literals     
+c strengthened:                        3        0.02 %   clauses              
+c subsumed:                           43        0.33 %   clauses              
+c ticks:                          163651       45.04 M   per second           
+c variables_original:               1968      100.00 %   vars                 
+c vars:                             1968
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ glue usage ] ---------------------------------------------------------
+c 
+c focused glue 2 used 127 clauses 23.87% accumulated 64.84% tier1
+c focused glue 3 used 99 clauses 18.60% accumulated 83.45% tier2
+c 
+c stable glue 2 used 0 clauses 0.000% accumulated 0.000% tier1
+c stable glue 3 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 4 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 5 used 0 clauses 0.000% accumulated 0.000%
+c stable glue 6 used 0 clauses 0.000% accumulated 0.000% tier2
+c 
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.01    seconds
+c total real time since initialization:            0.01    seconds
+c maximum resident set size of process:           13.12    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 20

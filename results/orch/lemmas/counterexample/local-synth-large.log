@@ -1,0 +1,5 @@
+{"window": [10, 11, 15, 17, 21, 22], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 6.227937409999868, "returncode": 20}
+{"window": [10, 11, 15, 17, 18, 19, 20, 21, 22], "iterations": 1, "rows": 74, "status": "UNKNOWN", "seconds": 15.33587987399983, "returncode": 0}
+{"window": [11, 15, 17, 18, 19, 20, 21, 22, 26, 27], "iterations": 1, "rows": 74, "status": "UNKNOWN", "seconds": 15.52967699099986, "returncode": 0}
+{"window": [10, 11, 15, 17, 18, 19, 20, 21, 22, 26, 27, 28], "iterations": 1, "rows": 74, "status": "UNKNOWN", "seconds": 15.895407460000115, "returncode": 0}
+{"window": [10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 21, 22, 26, 27, 28], "iterations": 1, "rows": 74, "status": "UNKNOWN", "seconds": 15.595841657999927, "returncode": 0}

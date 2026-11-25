@@ -1,0 +1,97 @@
+{
+  "augment.py": {
+    "sha256": "05e9dadc6cc0b63a385339431392bb8f4a76362fd464c2bc3e85ff60020099af",
+    "bytes": 4102,
+    "stored": "augment.py"
+  },
+  "decode.py": {
+    "sha256": "5d175927d9794c452a9a115b54b67235986c14d3be5496d4b207ff9118565368",
+    "bytes": 1953,
+    "stored": "decode.py"
+  },
+  "gennotrows.py": {
+    "sha256": "bfd4ba0ece392c16bad28a14b74ff6a611c9324a0b2294c1c51898c0d7ca0bce",
+    "bytes": 5426,
+    "stored": "gennotrows.py"
+  },
+  "automorphisms.py": {
+    "sha256": "b2182fe90a661146df32904d5295607c74c765c21407c65436eded631a18f916",
+    "bytes": 1805,
+    "stored": "automorphisms.py"
+  },
+  "automorphisms.json": {
+    "sha256": "3bc4299ba741ad3adb28dfaa25bb581bb0ec6d25fee75109c09eeeddb16cb781",
+    "bytes": 13788,
+    "stored": "automorphisms.json"
+  },
+  "automorphisms.log": {
+    "sha256": "a423927a3f3741d9752ed02c404efb45587f59619d0c12b34c8d882b09087ca8",
+    "bytes": 210,
+    "stored": "automorphisms.log"
+  },
+  "model30.json": {
+    "sha256": "77e48581f49abfe641c34c9d3d7a39533c4f917a62d40e21fd43a96557ed66da",
+    "bytes": 3073,
+    "stored": "model30.json"
+  },
+  "model30-validation.json": {
+    "sha256": "688b5c5e15da832ff903a4a688b30705f2ccc1e9e1d19b8c7da2acb1d0129454",
+    "bytes": 99,
+    "stored": "model30-validation.json"
+  },
+  "cofactor-lean.log": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "stored": "cofactor-lean.log"
+  },
+  "solve-not4-300.log": {
+    "sha256": "adb4441ca19eda0e8a28a6dd89acbede0d4c6e14266575f2aa0892d0c1159d99",
+    "bytes": 1271878,
+    "stored": "solve-not4-300.log.gz"
+  },
+  "solve-82-not4-pad-300.log": {
+    "sha256": "c3614cb8ed517f995511da251050e45b73b4f2a1f7f8ea03c0f4be0b0ed68645",
+    "bytes": 53603,
+    "stored": "solve-82-not4-pad-300.log"
+  },
+  "solve-82-not4-pad-inc-300.log": {
+    "sha256": "3f36d5921a89f44e13218fbfb13c32477a15cf41591dbeef3340d34075980fa4",
+    "bytes": 48680,
+    "stored": "solve-82-not4-pad-inc-300.log"
+  },
+  "petersen19-rows-not4.cnf": {
+    "sha256": "b75e5da6f6b168e59411629cbf1f2570e738840f5e2199df9577fc598d3e8868",
+    "bytes": 6165224,
+    "stored": "petersen19-rows-not4.cnf.gz"
+  },
+  "petersen19-full-not4-pad-inc-sym.cnf": {
+    "sha256": "752b8e586f0b1aa81f8f1b837d1421fc65d847c371cbc49743cd4adb1892f647",
+    "bytes": 34380083,
+    "stored": "petersen19-full-not4-pad-inc-sym.cnf.gz"
+  },
+  "petersen19-82rows-not4-pad-inc-sym-read.cnf": {
+    "sha256": "8baa4c7516768d8e07ad84da9283a4e18641b99b72baa0216601ec2de80a152c",
+    "bytes": 8107381,
+    "stored": "petersen19-82rows-not4-pad-inc-sym-read.cnf.gz"
+  },
+  "symmetry-lean.log": {
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0,
+    "stored": "symmetry-lean.log"
+  },
+  "solver-source.txt": {
+    "sha256": "b80643883a475cf91a37fea0bf6428e4157f0f416a37a0945be6cea54b956b04",
+    "bytes": 62,
+    "stored": "solver-source.txt"
+  },
+  "solve-82-not4-pad-inc-sym-read-600.log": {
+    "sha256": "df2c50255d3255eb818204c46cdf72ecc774de66b545b60c85242a5f7a7e0b2a",
+    "bytes": 73141,
+    "stored": "solve-82-not4-pad-inc-sym-read-600.log"
+  },
+  "petersen19-82rows-not4-pad-sym-read.cnf": {
+    "sha256": "5bc6b267c3d937134b59b525bc6c753e2ee4509693a52d2abc917133757cc263",
+    "bytes": 7957163,
+    "stored": "petersen19-82rows-not4-pad-sym-read.cnf.gz"
+  }
+}

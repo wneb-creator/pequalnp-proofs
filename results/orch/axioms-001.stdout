@@ -1,0 +1,13 @@
+'PEqualNP.Outside.L_meta_2592_aux.trimNotCircuit_eval' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2592_aux.cutLast' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.petersen_vertex_cover_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.sat_dependency_witness' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.sat_output_bounds' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.Endpoint.penultimate_not_smaller' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.Reader.first_gate_must_read_again' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

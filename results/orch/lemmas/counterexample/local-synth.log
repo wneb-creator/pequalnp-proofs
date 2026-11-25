@@ -1,0 +1,22 @@
+{"window": [17, 22], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.050358820000042215, "returncode": 20}
+{"window": [11, 15, 17], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.050726101000009294, "returncode": 20}
+{"window": [10, 21, 22], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.04380785700004708, "returncode": 20}
+{"window": [15, 17, 22], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.048375308000004225, "returncode": 20}
+{"window": [10, 17, 22], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.042023361999895315, "returncode": 20}
+{"window": [11, 17, 22], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.04419513300001654, "returncode": 20}
+{"window": [17, 21, 22], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.05282505200000287, "returncode": 20}
+{"window": [17, 22, 27], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.05971451900006741, "returncode": 20}
+{"window": [17, 22, 26], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.05467136100003245, "returncode": 20}
+{"window": [17, 22, 28], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.05950120900001821, "returncode": 20}
+{"window": [11, 15, 17, 22], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.11252416499996798, "returncode": 20}
+{"window": [10, 17, 21, 22], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.07138354100004562, "returncode": 20}
+{"window": [10, 11, 17, 22], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.06756205700003193, "returncode": 20}
+{"window": [15, 17, 21, 22], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.0886409149999281, "returncode": 20}
+{"window": [17, 18, 20, 22], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.0719115880000345, "returncode": 20}
+{"window": [17, 19, 20, 22], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.07875431200000094, "returncode": 20}
+{"window": [14, 17, 22, 24], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.06867308599998978, "returncode": 20}
+{"window": [17, 22, 26, 27], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.11719155900004807, "returncode": 20}
+{"window": [10, 11, 15, 17], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.06075549400009095, "returncode": 20}
+{"window": [10, 11, 21, 22], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.0915875270000015, "returncode": 20}
+{"window": [11, 15, 21, 22], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.11381126100002348, "returncode": 20}
+{"window": [10, 15, 17, 22], "iterations": 1, "rows": 74, "status": "UNSAT", "seconds": 0.10645879100002276, "returncode": 20}

@@ -14,3 +14,12 @@ Independent review: PASS for both partial sources. Endpoint removes a sole termi
 The integrated 190-line named file is not yet checked: compilation was interrupted at 6.9 GB RSS; smaller algebraic proofs are being developed. The committed named-file baseline remains the initial 71-line checked partial.
 Sub-agents: status/review, toolchain setup, proof strategy, counterexample search, reductions, SAT search
 TIMING total=20 subagents=6
+
+Third preservation: integrated named file is 590 lines and lake build passed, exit 0, target 28s, zero Mathlib source builds.
+Individual helper axiom audit passed: only propext, Classical.choice and Quot.sound. Full output in axioms-001.stdout.
+Local checker invocation: node tools/check-lean.mjs lean/PEqualNP/Outside/L_meta_2592.lean /tmp/oec/pequalnp-pilot-110/statement.txt check
+Local checker exit 3: CHECKER FAULT: the verifier ended without a verdict (exit 3). Missing pinned Batteries.olean in the full Mathlib closure; at least 3,900,394,376 additional bytes needed. Complete stdout/stderr preserved.
+Posted theorem remains absent; no proof PR is ready. Cleanup pass skipped because the checker cannot run with the available offline cache.
+Named-file line counts: 71 initial checked normalization lines; 590 integrated partial lines. This is component integration, not a cleanup reduction.
+Sub-agents: status/review, toolchain setup, proof strategy, counterexample search, reductions, SAT search
+TIMING total=28 subagents=6

@@ -108,3 +108,53 @@ Reviewed current 190-line named file (6985 bytes) and 20-line SatCofactor source
 ### status_review — Endpoint partial 2026-11-25T14:19:51.069616+00:00
 
 PASS for checked partial preservation of Endpoint.lean. Final NOT cannot realize a function with false/true endpoint values after a monotone prefix. A penultimate unary NOT feeding final AND/OR can be deleted, dropping only its final-gate occurrences, and the resulting monotone circuit has exactly one fewer gate. The proof handles out-of-range wire references through the existing false default; no hidden legal-wiring assumption is needed. Exact monotone-prefix and endpoint hypotheses prevent overclaiming general internal-NOT elimination. File source scan clear, only Defs import and no attrs/options/escapes. Scratch Pilot110Endpoint namespace needs own-file namespace adaptation before final submission. Full190-line named build review remains conditional after root stopped memory-heavy run.
+
+## proof_strategy: endpoint deletion and first-gate readers
+
+- `results/orch/lemmas/proof_strategy/Endpoint.lean` (250 lines) compiles with only `PEqualNP.Defs`. New `final_not_impossible`, `remove_terminal_not`, `penultimate_not_smaller` lemmas show a monotone prefix followed by a unary NOT and at most one final AND/OR gate cannot be an essential use of NOT for an output taking false/true at the cube endpoints. The penultimate case explicitly removes the NOT and removes its neutral reads, producing a monotone circuit one gate smaller. Invalid source indices and constant prefix wires are handled. Generic monotone-wire infrastructure was adapted from checked L_meta_610. Build log: `/tmp/oec/pequalnp-pilot-110/endpoint-build.log`, empty, exit0.
+- `results/orch/lemmas/proof_strategy/ReaderBridge.lean` (89 lines) compiles. `first_gate_must_read_again` proves a first AND/OR gate cannot be the only reader of an input when the target retains dependence on that input after the other source is fixed to the controlling value. Arbitrary suffix gate operations and invalid reads are allowed. Pair with SatCofactor.sat_dependency_witness. Build log: `/tmp/oec/pequalnp-pilot-110/reader-bridge-build.log`, empty, exit0.
+- Both files scanned: no forbidden `_root_`, quotes, attributes, sorry or native_decide. No claimed proof of the full gap.
+- Reviewed `counterexample/local_synth.py`: CNF encoding and full1024-row CEGAR decoding consistent. Local UNSAT covers selected fixed-backbone windows only; require_not assumes monotone BASE; constanttrue must export as AND[].
+- Mathematical search observation: two near-solution rectangles17,22 form C6 plus extraneous edge(1,9) in7gates. Rewriting just them seeks a7gate C6 realization; include common-neighbor6 star for a broader theta gadget.
+
+### status_review — ReaderBridge source review 2026-11-25T14:21:17.175089+00:00
+
+PASS for compiled ReaderBridge.lean source preservation. Cofactor sensitivity forces a later reader of the first binary gate input after the other input is fixed to a masking bit. Equal-length wire vectors and getD-default reasoning cover out-of-range/future reads. Arbitrary later operations are allowed because the proof only uses equality of their operand lists. Output-ne-u is explicitly required and necessary. Distinctness u!=v follows from the essential-witness premise if needed, so its absence is not a gap. No global lower-bound claim, no forbidden constructs, only Defs import. Scratch Pilot110ReaderBridge namespace must be adapted before integration. git diff --check clean.
+
+## toolchain_setup — full checker disk blocker (2026-11-25 14:22 UTC)
+
+The earlier Mathlib-root artifact only satisfied the initial existence check. CheckLemma dynamically imports full Mathlib, so full runtime closure is needed. Exact measurement of all 9,117 pinned archives: 7,032,216,931 bytes expanded; 6,213,035,400 bytes in required olean/private/server/IR artifacts. Existing files leave 4,620,204,936 additional required bytes. After compressed archive cleanup, free space is 719,810,560 bytes: minimum deficit 3,900,394,376 bytes. Static/editor/source cleanup cannot recover enough. See `results/orch/toolchain-validation.txt`.
+
+A failed C-artifact cleanup triggered Lake source rebuilding; root stopped it and all 2,480 selected prebuilt modules were force-restored. Final Defs no-build check and fresh Defs import pass. Do not remove generated C or ilean files: Lake checks them even for dependent builds. Full Mathlib import remains unavailable; the checker executable itself built successfully. No further package-artifact cleanup is planned.
+
+## counterexample — algebraic upper-bound proof and local synthesis
+
+2026-11-25T14:24:10.860587+00:00: `UpperBoundAlgebraic.lean` replaces exhaustive finite evaluation with circuit simplification, canonical six-star expression, distributivity and Boolean AC simplification. Lean passed exit0,48.588seconds,peak2,912,376KiB (~2.78GiB), no diagnostics. Parent notified immediately. Original checked file retained separately.
+
+Fixed-backbone local CNF synthesis passed independent audit from proof_strategy plus positive/negative controls (known20gate circuit fixed and with4free gates SAT, flawed19gate fixed UNSAT). All22 selected2–4gate windows and the6gate rectangle-builder window are UNSAT on74 boundary/error rows. Broader9/10/12/15gate windows timed out at15seconds. Two cross-component9/10gate windows are now running300seconds with at most4NOTs. Any SATmodel is checked on all1024inputs before claiming a witness. None found so far.
+
+### status_review — third preservation sources 2026-11-25T14:24:20.060811+00:00
+
+PASS for compiled UpperBoundAlgebraic.lean, extended SatCofactor.lean, and root/VertexCover.lean. Algebraic upper-bound proof retains exact20-gate circuit and uses Boolean distributivity/commutativity after unfolding. Cofactor extension constructs the required witness inputs and proves output bounds 10<=output<10+size for any circuit computing Petersen, using default-false invalid outputs and edge witnesses avoiding any input. Arbitrary gate operations do not undermine preservation of existing input wires. VertexCover proposition unchanged from independent exhaustive check; plain decide is permitted. No forbidden tokens/imports/attrs/options. No posted theorem yet; these are source-artifact partials only, not a proof PR.
+
+2026-11-25T14:24:37.767910+00:00: both broader9/10gate local synthesis runs ended UNKNOWN at300seconds; noSATmodel obtained. All23 smallerwindow cases were UNSAT, but no global lower bound is established. No active counterexample search or Lean processes remain. Full solver logs preserved under the counterexample lemma directory.
+
+## sat_strategy (2026-11-25T14:24:55.054617+00:00)
+SatCofactor.lean now includes checked output bounds: every circuit computing the Petersen function has output index at least10 and below10+size. The finite cofactor-essentiality lemma and output bounds discharge the concrete hypotheses of the generic first-gate reader bridge. Latest compile passes with empty output after removing one deprecated theorem alias. SAT artifacts are preserved under results/orch/sat (about8MB compressed). No full lower bound or counterexample has been found.
+
+### status_review — integrated named partial review 2026-11-25T14:27:03.480801+00:00
+
+PASS for preservation of actual 590-line/25679-byte named module after reported lake build exit0. Compared body text against all six reviewed sources: TrimNot, CutLast, VertexCover, Endpoint, Reader match exactly excluding scope headers; SatCofactor differs only dif_pos versus cleaned dite_eq_left. Namespace nesting and scope ends are correct; sole import Defs, forbidden scans clear, git diff --check clean. Repository checkProofFile run on actual bytes reports exactly the two expected missing-final-theorem refusals, no other plain/import/namespace errors. Zero top-level theorem declarations, so the file makes no claim to prove the posted gap and is not PR-ready.
+
+### status_review — symmetry table 2026-11-25T14:28:36.415537+00:00
+
+PASS for compiled 147-line SatSymmetry.lean preservation. Independently parsed the table and verified all100 maps are permutations, all200 representative-image conditions, and all10000 ordered adjacency-preservation conditions. Adjacency is exactly undirected Petersen15edges; finite index bounds cover all list lookups. Own-file descendant namespace and four-limit option syntax valid; no forbidden tokens. This theorem gives finite automorphism witnesses only, with no circuit relabeling bridge or complete lower-bound claim.
+
+## Root continuation state
+
+- Job began2026-11-25 14:00:30UTC; minimum sustained-effort window ends15:30:30UTC unless the exact target is proved/refuted. Continue the held L-meta-2592 step.
+- Own lease d30cd9f5-2ff3-41d8-b031-e33b731294ac only. Root renews every5minutes and before long work; full responses saved in scratch desk-log.txt. Never touch any other pilot lease.
+- Branch pnp/pilot-110 only, authorized origin fork. Two preservation pushes already succeeded (c93f2f11,7b799d1f); next includes590-line integrated partial. No PR exists.
+- Exact statement in /tmp/oec/pequalnp-pilot-110/statement.txt; gap metadata in gap.json.
+- Named file builds, but has no exact final theorem. Local checker actually ran and returned exit3/CHECKER FAULT because fullMathlib closure does not fit. See checker-001 logs and toolchain-validation.txt. Do not claim acceptance.
+- Full-table SAT remains running; proof_strategy and reduction_strategy pursue floor16/two-binary-gate deletion, counterexample builds vertex transitivity, sat_strategy owns pair symmetry/cofactor certificates.

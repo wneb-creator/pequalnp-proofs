@@ -1,0 +1,45 @@
+Toolchain validation, pilot 110
+Lean: 4.36.0, release commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9.
+Mathlib pin: fc4f59e577feb1a4956671bc04ac18aaaf8cd842.
+Project pins and checker source were not modified.
+
+PASS: lake exe cache get for 67 direct Mathlib import roots, 2480 prebuilt modules.
+PASS: lake build PEqualNP.Defs, 5147 jobs.
+PASS: lake build checklemma, 5 jobs.
+
+A space-recovery attempt removed generated Mathlib C files. Lake tracks those files,
+so another build began unintended source rebuilds. Root stopped that build. All 2480
+selected modules were then force-restored from the exact pinned prebuilt cache,
+including C files and any replaced source-built artifacts. No more package artifacts
+were deleted. After restoration:
+PASS: lake --no-build build PEqualNP.Defs, all 5147 jobs up-to-date.
+PASS: fresh lake env lean input importing only PEqualNP.Defs.
+
+BLOCKED: the local checker dynamically imports all of Mathlib. A root Mathlib.olean
+artifact alone does not supply that closure. Fresh input importing Mathlib reports:
+object file Batteries.olean of module Batteries does not exist.
+
+Downloaded all 9117 official archives once without installing the full closure.
+Measured each archive by isolated scratch extraction and deletion; live package
+artifacts were untouched by this measurement. Genuine compiled runtime artifacts
+cannot fit alongside the working toolchain. No RAM artifact symlinks, fake markers,
+checker changes, or dependency pin changes were used.
+
+{
+  "archive_count": 9117,
+  "archive_bytes": 460999207,
+  "expanded_bytes": 7032216931,
+  "required_runtime_bytes": 6213035400,
+  "present_runtime_bytes": 1592830464,
+  "missing_runtime_bytes": 4620204936,
+  "missing_runtime_files": 34635,
+  "wrong_size_files": [],
+  "filesystem_total_bytes": 8417406976,
+  "free_bytes_now": 251666432,
+  "free_after_removing_archive_bytes": 712665639,
+  "shortage_bytes_after_removing_archives": 3907539297,
+  "archive_allocated_bytes": 479633408,
+  "free_bytes_after_archives_removed": 719810560,
+  "minimum_shortage_bytes": 3900394376,
+  "measured_at": "2026-11-25T14:22:10.959153+00:00"
+}

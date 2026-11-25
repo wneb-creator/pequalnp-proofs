@@ -1,0 +1,4 @@
+lake env lean ../results/orch/lemmas/counterexample/UpperBound.lean
+exit=0
+stdout+stderr: empty
+checked at 2026-11-25T14:09:59.685731+00:00
