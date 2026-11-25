@@ -1375,3 +1375,440 @@ lemma disjoint_arms_normalize (A B : Finset (Fin 26))
     · exact Or.inr ⟨inverse_image _ _ ha, inverse_image _ _ hb⟩
 
 end PEqualNP.Outside.L_meta_2056.FirstOrOrbit
+
+namespace PEqualNP.Outside.L_meta_2056.ProgramSaturation
+
+abbrev Program := List (List ℕ × List ℕ)
+
+def atom {α : Type*} (V : List (α → Bool)) (i : ℕ) : α → Bool :=
+  V.getD i (fun _ => false)
+
+def arm {α : Type*} (V : List (α → Bool)) (a : List ℕ) (x : α) : Bool :=
+  a.all fun i => atom V i x
+
+def stage {α : Type*} (V : List (α → Bool)) (a : List ℕ × List ℕ) : List (α → Bool) :=
+  V ++ [fun x => arm V a.1 x || arm V a.2 x]
+
+def run {α : Type*} (V : List (α → Bool)) : Program → List (α → Bool)
+  | [] => V
+  | a :: p => run (stage V a) p
+
+def wellFormed (n : ℕ) : Program → Prop
+  | [] => True
+  | a :: p => (∀ i ∈ a.1 ++ a.2, i < n) ∧ wellFormed (n + 1) p
+
+noncomputable def saturateArm {α : Type*} (P : Finset α)
+    (V : List (α → Bool)) (a : List ℕ) : List ℕ := by
+  classical
+  exact (List.range V.length).filter fun i => ∀ x ∈ P, arm V a x = true → atom V i x = true
+
+noncomputable def transform {α : Type*} (P : Finset α)
+    (V : List (α → Bool)) : Program → Program
+  | [] => []
+  | a :: p =>
+    let b := (saturateArm P V a.1, saturateArm P V a.2)
+    b :: transform P (stage V b) p
+
+def atomRel {α : Type*} (P : Finset α) (f g : α → Bool) : Prop :=
+  (∀ x, f x = true → g x = true) ∧ ∀ x ∈ P, f x = g x
+
+def canonical {α : Type*} (P : Finset α) (V : List (α → Bool)) : Program → Prop
+  | [] => True
+  | a :: p => a.1 = saturateArm P V a.1 ∧ a.2 = saturateArm P V a.2 ∧
+      canonical P (stage V a) p
+
+lemma atomRel_refl {α : Type*} (P : Finset α) (f : α → Bool) : atomRel P f f :=
+  ⟨fun _ h => h, fun _ _ => rfl⟩
+
+lemma atomRel_trans {α : Type*} (P : Finset α) {f g h : α → Bool}
+    (hfg : atomRel P f g) (hgh : atomRel P g h) : atomRel P f h := by
+  exact ⟨fun x hx => hgh.1 x (hfg.1 x hx), fun x hx => (hfg.2 x hx).trans (hgh.2 x hx)⟩
+
+lemma related_atom {α : Type*} (P : Finset α) {W V : List (α → Bool)}
+    (h : List.Forall₂ (atomRel P) W V) (i : ℕ) : atomRel P (atom W i) (atom V i) := by
+  induction h generalizing i with
+  | nil => exact atomRel_refl _ _
+  | @cons f g W V hfg hWV ih =>
+    cases i with
+    | zero => exact hfg
+    | succ i => exact ih i
+
+lemma related_arm {α : Type*} (P : Finset α) {W V : List (α → Bool)}
+    (h : List.Forall₂ (atomRel P) W V) (a : List ℕ) :
+    atomRel P (arm W a) (arm V a) := by
+  constructor
+  · intro x hx
+    apply List.all_eq_true.mpr
+    intro i hi
+    exact (related_atom P h i).1 x (List.all_eq_true.mp hx i hi)
+  · intro x hx
+    unfold arm
+    apply congrArg (fun f : ℕ → Bool => a.all f)
+    funext i
+    exact (related_atom P h i).2 x hx
+
+lemma saturateArm_mem {α : Type*} (P : Finset α) (V : List (α → Bool))
+    (a : List ℕ) (i : ℕ) :
+    i ∈ saturateArm P V a ↔
+      i < V.length ∧ ∀ x ∈ P, arm V a x = true → atom V i x = true := by
+  classical
+  simp only [saturateArm, List.mem_filter, List.mem_range, decide_eq_true_eq]
+
+lemma saturateArm_decreases {α : Type*} (P : Finset α) (V : List (α → Bool))
+    (a : List ℕ) (hvalid : ∀ i ∈ a, i < V.length) (x : α)
+    (h : arm V (saturateArm P V a) x = true) : arm V a x = true := by
+  apply List.all_eq_true.mpr
+  intro i hi
+  apply List.all_eq_true.mp h i
+  apply (saturateArm_mem P V a i).mpr
+  refine ⟨hvalid i hi, ?_⟩
+  intro y hy hay
+  exact List.all_eq_true.mp hay i hi
+
+lemma saturateArm_positive {α : Type*} (P : Finset α) (V : List (α → Bool))
+    (a : List ℕ) (hvalid : ∀ i ∈ a, i < V.length) (x : α) (hx : x ∈ P) :
+    arm V (saturateArm P V a) x = arm V a x := by
+  cases ho : arm V a x with
+  | false =>
+    cases hn : arm V (saturateArm P V a) x with
+    | false => rfl
+    | true =>
+      have := saturateArm_decreases P V a hvalid x hn
+      simp [ho] at this
+  | true =>
+    apply List.all_eq_true.mpr
+    intro i hi
+    exact ((saturateArm_mem P V a i).mp hi).2 x hx ho
+
+lemma saturateArm_idempotent {α : Type*} (P : Finset α) (V : List (α → Bool))
+    (a : List ℕ) (hvalid : ∀ i ∈ a, i < V.length) :
+    saturateArm P V (saturateArm P V a) = saturateArm P V a := by
+  classical
+  unfold saturateArm
+  apply List.filter_congr
+  intro i hi
+  apply decide_eq_decide.mpr
+  constructor
+  · intro h x hx hax
+    apply h x hx
+    exact (saturateArm_positive P V a hvalid x hx).trans hax
+  · intro h x hx hax
+    apply h x hx
+    exact (saturateArm_positive P V a hvalid x hx).symm.trans hax
+
+lemma saturated_stage_related {α : Type*} (P : Finset α) {W V : List (α → Bool)}
+    (h : List.Forall₂ (atomRel P) W V) (a : List ℕ × List ℕ)
+    (hvalid : ∀ i ∈ a.1 ++ a.2, i < V.length) :
+    List.Forall₂ (atomRel P)
+      (stage W (saturateArm P W a.1, saturateArm P W a.2)) (stage V a) := by
+  have hlen := h.length_eq
+  have ha : ∀ i ∈ a.1, i < W.length := by
+    intro i hi
+    rw [hlen]
+    exact hvalid i (List.mem_append.mpr (Or.inl hi))
+  have hb : ∀ i ∈ a.2, i < W.length := by
+    intro i hi
+    rw [hlen]
+    exact hvalid i (List.mem_append.mpr (Or.inr hi))
+  apply List.rel_append h
+  apply List.Forall₂.cons _ List.Forall₂.nil
+  constructor
+  · intro x hx
+    rcases Bool.or_eq_true_iff.mp hx with hx | hx
+    · apply Bool.or_eq_true_iff.mpr
+      exact Or.inl ((related_arm P h a.1).1 x (saturateArm_decreases P W a.1 ha x hx))
+    · apply Bool.or_eq_true_iff.mpr
+      exact Or.inr ((related_arm P h a.2).1 x (saturateArm_decreases P W a.2 hb x hx))
+  · intro x hx
+    change (arm W (saturateArm P W a.1) x || arm W (saturateArm P W a.2) x) =
+      (arm V a.1 x || arm V a.2 x)
+    rw [saturateArm_positive P W a.1 ha x hx, saturateArm_positive P W a.2 hb x hx,
+      (related_arm P h a.1).2 x hx, (related_arm P h a.2).2 x hx]
+
+lemma transform_length {α : Type*} (P : Finset α) (V : List (α → Bool)) (p : Program) :
+    (transform P V p).length = p.length := by
+  induction p generalizing V with
+  | nil => rfl
+  | cons a p ih => simpa only [transform, List.length_cons] using congrArg Nat.succ (ih _)
+
+lemma transform_wellFormed {α : Type*} (P : Finset α)
+    (V : List (α → Bool)) (p : Program) : wellFormed V.length (transform P V p) := by
+  induction p generalizing V with
+  | nil => trivial
+  | cons a p ih =>
+    constructor
+    · intro i hi
+      rcases List.mem_append.mp hi with hi | hi
+      · exact ((saturateArm_mem P V a.1 i).mp hi).1
+      · exact ((saturateArm_mem P V a.2 i).mp hi).1
+    · simpa only [stage, List.length_append, List.length_singleton] using
+        ih (stage V (saturateArm P V a.1, saturateArm P V a.2))
+
+lemma transform_canonical {α : Type*} (P : Finset α)
+    (V : List (α → Bool)) (p : Program) (hvalid : wellFormed V.length p) :
+    canonical P V (transform P V p) := by
+  induction p generalizing V with
+  | nil => trivial
+  | cons a p ih =>
+    refine ⟨?_, ?_, ?_⟩
+    · exact (saturateArm_idempotent P V a.1 (fun i hi =>
+        hvalid.1 i (List.mem_append.mpr (Or.inl hi)))).symm
+    · exact (saturateArm_idempotent P V a.2 (fun i hi =>
+        hvalid.1 i (List.mem_append.mpr (Or.inr hi)))).symm
+    · apply ih
+      simpa only [stage, List.length_append, List.length_singleton] using hvalid.2
+
+lemma run_transform_related {α : Type*} (P : Finset α)
+    (p : Program) (W V : List (α → Bool))
+    (h : List.Forall₂ (atomRel P) W V) (hvalid : wellFormed V.length p) :
+    List.Forall₂ (atomRel P) (run W (transform P W p)) (run V p) := by
+  induction p generalizing W V with
+  | nil => exact h
+  | cons a p ih =>
+    apply ih
+    · exact saturated_stage_related P h a hvalid.1
+    · simpa only [stage, List.length_append, List.length_singleton] using hvalid.2
+
+lemma base_related {α : Type*} (P : Finset α) (D : List (α → Bool)) :
+    List.Forall₂ (atomRel P) ((fun _ => false) :: D) ((fun _ => false) :: D) := by
+  apply List.forall₂_same.mpr
+  intro f hf
+  exact atomRel_refl P f
+
+lemma saturateArm_old_signature {α : Type*} (P : Finset α)
+    {W V : List (α → Bool)} (h : List.Forall₂ (atomRel P) W V)
+    (a : List ℕ) (i : ℕ) :
+    i ∈ saturateArm P W a ↔ i < W.length ∧
+      ∀ x ∈ P, arm V a x = true → atom W i x = true := by
+  rw [saturateArm_mem]
+  constructor
+  · rintro ⟨hi, ha⟩
+    refine ⟨hi, ?_⟩
+    intro x hx hax
+    exact ha x hx (((related_arm P h a).2 x hx).trans hax)
+  · rintro ⟨hi, ha⟩
+    refine ⟨hi, ?_⟩
+    intro x hx hax
+    exact ha x hx (((related_arm P h a).2 x hx).symm.trans hax)
+
+lemma final_saturated_output_signature {α : Type*} (P : Finset α)
+    (V : List (α → Bool)) (o : List ℕ)
+    (hpos : ∀ x ∈ P, arm V o x = true) (i : ℕ) :
+    i ∈ saturateArm P V o ↔ i < V.length ∧ ∀ x ∈ P, atom V i x = true := by
+  rw [saturateArm_mem]
+  constructor
+  · rintro ⟨hi, h⟩
+    exact ⟨hi, fun x hx => h x hx (hpos x hx)⟩
+  · rintro ⟨hi, h⟩
+    exact ⟨hi, fun x hx _ => h x hx⟩
+
+lemma separator_preserved {α : Type*} (P N : Finset α) (D : List (α → Bool))
+    (p : Program) (o : List ℕ) (hvalid : wellFormed (D.length + 1) p)
+    (hpos : ∀ x ∈ P, arm (run ((fun _ => false) :: D) p) o x = true)
+    (hneg : ∀ x ∈ N, arm (run ((fun _ => false) :: D) p) o x = false) :
+    let V := (fun _ => false) :: D
+    let q := transform P V p
+    q.length = p.length ∧ wellFormed V.length q ∧ canonical P V q ∧
+      (∀ x ∈ P, arm (run V q) o x = true) ∧
+      (∀ x ∈ N, arm (run V q) o x = false) := by
+  intro V q
+  have hw : wellFormed V.length p := by simpa only [V, List.length_cons] using hvalid
+  have hr := run_transform_related P p V V (base_related P D) hw
+  have ho := related_arm P hr o
+  refine ⟨transform_length P V p, transform_wellFormed P V p,
+    transform_canonical P V p hw, ?_, ?_⟩
+  · intro x hx
+    exact (ho.2 x hx).trans (hpos x hx)
+  · intro x hx
+    cases hnew : arm (run V q) o x with
+    | false => rfl
+    | true =>
+      have hold := ho.1 x hnew
+      rw [hneg x hx] at hold
+      contradiction
+
+lemma separator_preserved_saturated_output {α : Type*}
+    (P N : Finset α) (D : List (α → Bool))
+    (p : Program) (o : List ℕ) (hvalid : wellFormed (D.length + 1) p)
+    (hout : ∀ i ∈ o, i < (run ((fun _ => false) :: D) p).length)
+    (hpos : ∀ x ∈ P, arm (run ((fun _ => false) :: D) p) o x = true)
+    (hneg : ∀ x ∈ N, arm (run ((fun _ => false) :: D) p) o x = false) :
+    let V := (fun _ => false) :: D
+    let q := transform P V p
+    let W := run V q
+    let r := saturateArm P W o
+    q.length = p.length ∧ wellFormed V.length q ∧ canonical P V q ∧
+      r = saturateArm P W r ∧
+      (∀ x ∈ P, arm W r x = true) ∧ (∀ x ∈ N, arm W r x = false) := by
+  intro V q W r
+  obtain ⟨hlen, hwf, hcanon, hqpos, hqneg⟩ := separator_preserved P N D p o hvalid hpos hneg
+  have hw : wellFormed V.length p := by simpa only [V, List.length_cons] using hvalid
+  have hr := run_transform_related P p V V (base_related P D) hw
+  have ho : ∀ i ∈ o, i < W.length := by
+    intro i hi
+    rw [hr.length_eq]
+    exact hout i hi
+  refine ⟨hlen, hwf, hcanon, (saturateArm_idempotent P W o ho).symm, ?_, ?_⟩
+  · intro x hx
+    exact (saturateArm_positive P W o ho x hx).trans (hqpos x hx)
+  · intro x hx
+    cases hn : arm W r x with
+    | false => rfl
+    | true =>
+      have hold := saturateArm_decreases P W o ho x hn
+      rw [hqneg x hx] at hold
+      contradiction
+
+end PEqualNP.Outside.L_meta_2056.ProgramSaturation
+
+namespace PEqualNP.Outside.L_meta_2056.IndexedCompile
+
+open PEqualNP.CircuitLowerBounds
+open ProgramSaturation
+
+lemma indices_of_members {α : Type*} (V : List (α → Bool))
+    (a : List (α → Bool)) (h : ∀ f ∈ a, f ∈ V) :
+    ∃ b : List ℕ, (∀ i ∈ b, i < V.length) ∧
+      ∀ x, arm V b x = OrCompile.meet a x := by
+  induction a with
+  | nil => exact ⟨[], by simp, fun _ => rfl⟩
+  | cons f a ih =>
+    obtain ⟨i, hi⟩ := List.mem_iff_get.mp (h f (by simp))
+    obtain ⟨b, hb, heval⟩ := ih (fun g hg => h g (by simp [hg]))
+    refine ⟨i.val :: b, ?_, ?_⟩
+    · intro j hj
+      rcases List.mem_cons.mp hj with rfl | hj
+      · exact i.isLt
+      · exact hb j hj
+    · intro x
+      change (atom V i.val x && arm V b x) = (f x && OrCompile.meet a x)
+      rw [heval]
+      congr 1
+      change V.getD i.val (fun _ => false) x = f x
+      rw [List.getD_eq_getElem V _ i.isLt]
+      exact congrFun hi x
+
+lemma run_append {α : Type*} (V : List (α → Bool)) (p q : Program) :
+    run V (p ++ q) = run (run V p) q := by
+  induction p generalizing V with
+  | nil => rfl
+  | cons a p ih => exact ih (stage V a)
+
+lemma run_length {α : Type*} (V : List (α → Bool)) (p : Program) :
+    (run V p).length = V.length + p.length := by
+  induction p generalizing V with
+  | nil => simp [run]
+  | cons a p ih =>
+    rw [run, ih]
+    simp [stage, Nat.add_assoc, Nat.add_comm]
+
+lemma wellFormed_append (n : ℕ) (p q : Program)
+    (hp : wellFormed n p) (hq : wellFormed (n + p.length) q) :
+    wellFormed n (p ++ q) := by
+  induction p generalizing n with
+  | nil => simpa using hq
+  | cons a p ih =>
+    refine ⟨hp.1, ?_⟩
+    apply ih (n + 1) hp.2
+    simpa [Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using hq
+
+lemma good_prefix {α : Type*} (D V : List (α → Bool)) (f : α → Bool)
+    (h : OrCompile.good D (V ++ [f])) : OrCompile.good D V := by
+  intro i
+  obtain ⟨a, b, hab, heval⟩ := h ⟨i.val, by simp only [List.length_append, List.length_singleton]; omega⟩
+  refine ⟨a, b, ?_, ?_⟩
+  · simpa only [List.take_append_of_le_length (Nat.le_of_lt i.isLt)] using hab
+  · change V[i.val] = _
+    change (V ++ [f])[i.val] = _ at heval
+    simpa only [List.getElem_append_left i.isLt] using heval
+
+set_option maxHeartbeats 1000000 in
+lemma index_good {α : Type*} (D V : List (α → Bool)) (h : OrCompile.good D V) :
+    ∃ p : Program, p.length = V.length ∧
+      wellFormed (((fun _ => false) :: D).length) p ∧
+      run ((fun _ => false) :: D) p = ((fun _ => false) :: D) ++ V := by
+  induction V using List.reverseRecOn with
+  | nil => exact ⟨[], rfl, trivial, by simp [run]⟩
+  | append_singleton V f ih =>
+    obtain ⟨p, hlen, hwf, hrun⟩ := ih (good_prefix D V f h)
+    obtain ⟨a, b, hab, heval⟩ := h ⟨V.length, by simp⟩
+    have ha : ∀ k ∈ a, k ∈ ((fun _ => false) :: D) ++ V := by
+      intro k hk
+      simpa using hab k (List.mem_append.mpr (Or.inl hk))
+    have hb : ∀ k ∈ b, k ∈ ((fun _ => false) :: D) ++ V := by
+      intro k hk
+      simpa using hab k (List.mem_append.mpr (Or.inr hk))
+    obtain ⟨a', ha', hea⟩ := indices_of_members (((fun _ => false) :: D) ++ V) a ha
+    obtain ⟨b', hb', heb⟩ := indices_of_members (((fun _ => false) :: D) ++ V) b hb
+    refine ⟨p ++ [(a', b')], by simp [hlen], ?_, ?_⟩
+    · apply wellFormed_append _ _ _ hwf
+      constructor
+      · intro i hi
+        rcases List.mem_append.mp hi with hi | hi
+        · simpa only [List.length_append, hlen] using ha' i hi
+        · simpa only [List.length_append, hlen] using hb' i hi
+      · trivial
+    · rw [run_append, hrun]
+      change ((((fun _ => false) :: D) ++ V) ++
+        [fun x => arm (((fun _ => false) :: D) ++ V) a' x ||
+          arm (((fun _ => false) :: D) ++ V) b' x]) =
+        ((fun _ => false) :: D) ++ (V ++ [f])
+      rw [List.append_assoc]
+      congr 2
+      apply congrArg (fun g : α → Bool => [g])
+      funext x
+      rw [hea, heb]
+      have hf : f = fun x => OrCompile.meet a x || OrCompile.meet b x := by
+        simpa using heval
+      exact (congrFun hf x).symm
+
+lemma compile {α : Type*} (D : List (α → Bool)) (C : Circuit)
+    (hm : PEqualNP.MetaComplexity.Monotone2 C) :
+    ∃ (p : Program) (o : List ℕ),
+      p.length = {i : Fin C.gates.length | (C.gates.get i).op = GateOp.or}.ncard ∧
+      wellFormed (D.length + 1) p ∧
+      (∀ i ∈ o, i < (run ((fun _ => false) :: D) p).length) ∧
+      ∀ x, arm (run ((fun _ => false) :: D) p) o x = C.eval (D.map fun f => f x) := by
+  obtain ⟨V, a, hgood, hcount, havail, heval⟩ := OrCompile.compile D C hm
+  obtain ⟨p, hlen, hwf, hrun⟩ := index_good D V hgood
+  obtain ⟨o, ho, hout⟩ := indices_of_members (((fun _ => false) :: D) ++ V) a havail
+  refine ⟨p, o, hlen.trans hcount, ?_, ?_, ?_⟩
+  · simpa only [List.length_cons] using hwf
+  · simpa only [hrun] using ho
+  · intro x
+    rw [hrun, hout, heval]
+
+
+lemma saturated_compile {α : Type*} (P : Finset α)
+    (D : List (α → Bool)) (C : Circuit) (hm : PEqualNP.MetaComplexity.Monotone2 C) :
+    ∃ (p : Program) (o : List ℕ),
+      p.length = {i : Fin C.gates.length | (C.gates.get i).op = GateOp.or}.ncard ∧
+      wellFormed (D.length + 1) p ∧ canonical P ((fun _ => false) :: D) p ∧
+      (∀ i ∈ o, i < (run ((fun _ => false) :: D) p).length) ∧
+      o = saturateArm P (run ((fun _ => false) :: D) p) o ∧
+      atomRel P (arm (run ((fun _ => false) :: D) p) o)
+        (fun x => C.eval (D.map fun f => f x)) := by
+  obtain ⟨p, o, hcount, hwf, hout, heval⟩ := compile D C hm
+  let B : List (α → Bool) := (fun _ => false) :: D
+  let q := transform P B p
+  let W := run B q
+  have hwfB : wellFormed B.length p := by simpa only [B, List.length_cons] using hwf
+  have hr := run_transform_related P p B B (base_related P D) hwfB
+  have hi : ∀ i ∈ o, i < W.length := by
+    intro i hi
+    rw [hr.length_eq]
+    exact hout i hi
+  have hs : atomRel P (arm W (saturateArm P W o)) (arm W o) :=
+    ⟨saturateArm_decreases P W o hi, saturateArm_positive P W o hi⟩
+  have houtput : arm (run B p) o = fun x => C.eval (D.map fun f => f x) := funext heval
+  have ho : atomRel P (arm W o) (fun x => C.eval (D.map fun f => f x)) := by
+    rw [← houtput]
+    exact related_arm P hr o
+  refine ⟨q, saturateArm P W o, (transform_length P B p).trans hcount, ?_,
+    transform_canonical P B p hwfB, ?_, (saturateArm_idempotent P W o hi).symm,
+    atomRel_trans P hs ho⟩
+  · simpa only [B, List.length_cons] using transform_wellFormed P B p
+  · intro i hi
+    exact ((saturateArm_mem P W o i).mp hi).1
+
+end PEqualNP.Outside.L_meta_2056.IndexedCompile
