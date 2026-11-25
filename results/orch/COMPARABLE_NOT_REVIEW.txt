@@ -1,0 +1,4 @@
+Independent root review: PASS for semantic supporting partial.
+SHA256: 1b4662b833e58afb4ae24fbb5e4a2d905059b1d6948bca8ecdb18886af31606d
+Pointwisecases suffice: when h=true, h<=f forces f=true, andmonotonicity lifts G(false)=true toG(true)=true. When h=false, originalevaluation alreadyusesG(true). Dualargument establishesfalse replacement underf<=h. Assumptions exact; no circuitcostclaim.
+Lean compileexit0, emptyfull logs retained. Plain imports, namespace, andtokens pass.

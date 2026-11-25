@@ -31,3 +31,6 @@ TIMING total=25.20 subagents=7
 
 BinaryRestrictionPetersen.lean: compileexit0; independentrootreviewPASS.
 TIMING total=26.63 subagents=7
+
+SignedCore.lean andComparableNot.lean: compileexit0; independentreviewsPASS. Full logs retained.
+TIMING total=28.90 subagents=7

@@ -1,0 +1,10 @@
+Reviewed by status_and_review at 2026-11-25T14:28:00.048355+00:00
+Verdict: PASS for preservation as a checked partial; NOT a proof of L-meta-2592.
+Source: results/orch/lemmas/SignedCore.lean
+SHA256: 3256f14c3bd9e075f4c510f64877b72a555599e9d9eb8f6052eb900afa0cfe58
+Size: 243 lines, 11656 bytes.
+Provenance: all 42 definition/abbreviation/theorem declaration bodies occur verbatim in lean/PEqualNP/Outside/L_meta_8367.lean. Only the enclosing namespace and selected extraction differ. The scratch source named in the compiler log is byte-identical to the repository source.
+Build evidence: signed-core-build-003.stdout is 836 bytes of deprecation warnings only; stderr is empty. Author reports exit 0. This review deliberately did not run another heavy build while SignedFloor was compiling.
+Proof chain: Reach counts forward binary gates with constants freely available and optional inversion. Run describes backwards two-wire contraction with explicit retention and permutation. extend_two and extend_comb account for constants using cost/mass; contraction combines these by induction on Run. Restricting rows commutes with every allowed operation, so projected_bound follows from contraction plus an independently supplied lower bound. The nonconstant-goal premise is retained and essential. No concrete Petersen lower bound is asserted in this file.
+Static checks: import only PEqualNP.Defs; all helpers under PEqualNP.Outside.L_meta_2592.SignedFloor; no _root_ text, double quotes, sorry, new axioms, native_decide, unsafe commands, attributes, resource options, own data types, or instances. Plain generic definitions and proofs only.
+Integration: the final proof file must still contain the exact posted target theorem and the eventual concrete lower-bound arguments. This partial alone does not justify a proof PR.
