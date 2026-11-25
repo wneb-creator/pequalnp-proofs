@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS archival termination snapshot only",
+  "manifest_sha256": "08bbe2ca4fd2a1b8594d8037daa705ea0ed962386d6eeba1f1aba557c5ba0f60",
+  "listed_files": 18,
+  "bytes": 88972,
+  "candidate_rows_checked": 1024,
+  "candidate_wrong_rows": [
+    138,
+    385,
+    521,
+    770
+  ],
+  "candidate_false_negatives": [],
+  "candidate_is_counterexample": false,
+  "cadical_statuses": "SIGINT, exit -2, UNKNOWN; no SAT/UNSAT result",
+  "freepolarity_status": "SIGTERM, exit143; no completed-run claim"
+}

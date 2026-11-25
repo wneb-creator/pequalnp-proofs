@@ -1,0 +1,92 @@
+[
+  {
+    "file": "signed2-long-nor01.status.json",
+    "bytes": 707,
+    "sha256": "3762fd67ecba8363ec8f33c11759601c7cfcc86251bb7ba98b8a48b91e681e6a"
+  },
+  {
+    "file": "signed2-long-nor01.log",
+    "bytes": 20041,
+    "sha256": "7e95d4aff89ce77376eb689cb03a414f004e82495b9694a1fa11496dfb95617e"
+  },
+  {
+    "file": "signed2-long-driver.log",
+    "bytes": 555,
+    "sha256": "1fa5d5f7668b1e9ee956d3805fa280b54772127d41d4a2decbdd65c76eecd8fd"
+  },
+  {
+    "file": "signed1-long-broad.status.json",
+    "bytes": 703,
+    "sha256": "ff80ba9fb6fd55cb509ad7de07274e0cf2063b3686738cb547c7e1f19e68851a"
+  },
+  {
+    "file": "signed1-long-broad.log",
+    "bytes": 10987,
+    "sha256": "71c7ebdb0190ec380fd2724b0c5c02062cce0bb52d433c11401042090828c437"
+  },
+  {
+    "file": "signed1-long-driver.log",
+    "bytes": 551,
+    "sha256": "178faac7474404d15f8214cda7631179c322d3bba71f3d1497ad9db299c2ccfb"
+  },
+  {
+    "file": "free_polarity.cpp",
+    "bytes": 3955,
+    "sha256": "e6955ffd738141334c30e1499b556bffc4144bc97b84626193bc6703406d4c36"
+  },
+  {
+    "file": "free-polarity-compile.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "free18-497.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "free18-497.stderr",
+    "bytes": 19397,
+    "sha256": "a5be3877552247462917830cd47891a809f15165a3de877f8fa8a50ba815f514"
+  },
+  {
+    "file": "free18-final.status.json",
+    "bytes": 535,
+    "sha256": "6d736cff5271728d25ea4373194a6d5a3cf6bfccbbac6f6b77d40156efdc03be"
+  },
+  {
+    "file": "free18-near-final.json",
+    "bytes": 1267,
+    "sha256": "aa43280ac59db2a91e9a476d00195ce5a24b0364ecde69745779f8bf886a0e52"
+  },
+  {
+    "file": "signed2-strong-nor01.log",
+    "bytes": 14573,
+    "sha256": "d54387cb2bac2153d505518ea4452ce74064471d640871b5d868c728a19e8f9d"
+  },
+  {
+    "file": "signed1-input0.log",
+    "bytes": 13414,
+    "sha256": "c763d2931722a007f6c921008fb198951ce56c963fc886a622b8e37997bfc11b"
+  },
+  {
+    "file": "run_long.py",
+    "bytes": 813,
+    "sha256": "a0054bec926a2f646f95671a7f61e87f77781f28e573b136dedada4e2a2a7dab"
+  },
+  {
+    "file": "termination.json",
+    "bytes": 563,
+    "sha256": "6e57d487ce453b8f1f3e74f50aba672306c7c6fcd5c5ecd233b1f5764b696ae1"
+  },
+  {
+    "file": "lease-pause.json",
+    "bytes": 112,
+    "sha256": "373b11235863f02415426c6bc0895e2456b643af2bbbfb67a72bb16aa302bae2"
+  },
+  {
+    "file": "README.txt",
+    "bytes": 799,
+    "sha256": "08d0f660db6f2ddf1a01f062673bf4519c23e43ecf5e21207597179f8182d7d2"
+  }
+]

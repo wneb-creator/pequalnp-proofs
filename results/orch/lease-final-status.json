@@ -1,0 +1,15 @@
+{
+  "original_gap": "L-meta-2592",
+  "original_lease": "d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "last_successful_manual_renewal_expiry": "2026-11-25T14:55:57.890Z",
+  "failure": "HTTP410 on timer renewal at14:38; same curl-si diagnostic returned410",
+  "error": "no such live lease: it expired or was released. Ask /desk/next again.",
+  "recovery_requests": 2,
+  "returned_gap": "L-meta-2583",
+  "returned_lease_issued_at": "2026-11-25T13:59:02.364Z",
+  "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another",
+  "interpretation": "Same pre-existing lease and holding5 cap returned twice; treated as another pilot lease under user rule. Neither renewed nor released.",
+  "null_count": 0,
+  "original_gap_release": "Not called: original lease no longer live; no other lease touched.",
+  "work_status": "Exact theorem remains unproved. Checked partials and research artifacts pushed; no PR opened."
+}

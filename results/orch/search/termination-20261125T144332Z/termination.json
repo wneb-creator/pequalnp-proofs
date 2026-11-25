@@ -1,0 +1,16 @@
+[
+  {
+    "status_file": "signed2-long-nor01.status.json",
+    "pid": 18091,
+    "requested_at": "2026-11-25T14:42:41.848551+00:00",
+    "reason": "lease410; no new own lease after allowed recovery retries",
+    "action": "SIGINT then SIGCONT for graceful solver interruption"
+  },
+  {
+    "status_file": "signed1-long-broad.status.json",
+    "pid": 22678,
+    "requested_at": "2026-11-25T14:42:41.848637+00:00",
+    "reason": "lease410; no new own lease after allowed recovery retries",
+    "action": "SIGINT then SIGCONT for graceful solver interruption"
+  }
+]

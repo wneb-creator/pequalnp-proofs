@@ -1,0 +1,17 @@
+{
+  "started_at": "2026-11-25T14:36:15.479442+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-97/toolchain/lean-4.36.0-linux/bin/cadical",
+    "-t",
+    "3600",
+    "--unsat",
+    "--seed=302",
+    "/tmp/oec/pequalnp-pilot-97/counterexample/signed1-lex-full.cnf"
+  ],
+  "cnf_sha256": "9d305c2bdcd5bd03b32f6315a4c24ad30a6409ef9304ef914479f9d11f579422",
+  "status": "completed",
+  "pid": 22678,
+  "ended_at": "2026-11-25T14:42:41.865881+00:00",
+  "exit_code": -2,
+  "log_sha256": "71c7ebdb0190ec380fd2724b0c5c02062cce0bb52d433c11401042090828c437"
+}

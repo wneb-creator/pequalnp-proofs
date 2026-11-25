@@ -1,0 +1,11 @@
+{
+  "status": "interrupted",
+  "signal": "SIGTERM",
+  "shell_exit_code": 143,
+  "reason": "Own lease returnedHTTP410; recovery returnedanotherpilotsexistinglease twice; rootrequiredstop.",
+  "best_published_score_line": "score=16 errors=4 evaluations=418795884",
+  "last_published_progress": "progress runs=27000 best=4 evaluations=2700027000",
+  "solver_verdict": null,
+  "exact_witness_found": false,
+  "note": "The300second run waspausedonlease loss andterminatedwithoutresumption ofsearch; thelastprogresscountisnotafinaltotal."
+}

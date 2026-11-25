@@ -54,3 +54,5 @@ Sixteenth checkpoint: ReaderCharge, MaskedConjunction, and LiveReorder compiled 
 TIMING total=55 subagents=6
 
 Seventeenth checkpoint: AndConsumer compiled exit0 and independent library_route review PASS. It proves a unique positive-input AND reader must have a later consumer in the concrete NOR-prefix case. The planned fourth-deletion application is not yet implemented.
+
+Eighteenth checkpoint: final search termination snapshot and lease recovery records independently reviewed by status_audit. All18 snapshot files match frozen manifest. Both long SAT runs were interrupted (SIGINT/UNKNOWN), and free-polarity search interrupted with four false positives. Recovery returned the same pre-existing L-meta-2583 lease twice; neither renewed nor released. Null response count0. No further proof work or search launched. Final checker invocation pending after official elan installation repaired its wrapper environment.
