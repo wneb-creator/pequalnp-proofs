@@ -1,0 +1,27 @@
+L-meta-1884 partial validation
+UTC: 2026-11-25T16:52:40.633248+00:00
+Source: results/orch/lemmas/structural.lean
+Command: lake env lean ../results/orch/lemmas/structural.lean
+Exit status: 0
+Complete stdout:
+../results/orch/lemmas/structural.lean:79:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+../results/orch/lemmas/structural.lean:93:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+
+Complete stderr:
+
+Scope: checked omission/coverage/unary helpers only. Full gap remains unproved.
+Independent review: status_review and root.
+Sub-agents: 6 (rules/toolchain/normalization; structural proof; counterexample search; existing lemmas; combinatorial review; finite certificates)
+TIMING total=14 subagents=6

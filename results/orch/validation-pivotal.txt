@@ -1,0 +1,9 @@
+L-meta-1884 partial validation
+UTC: 2026-11-25T16:52:29.130571+00:00
+Command: lake build PEqualNP.Outside.L_meta_1884
+Exit status: 0
+Complete logs: build-001.stdout and build-001.stderr
+Scope: finite pivotal helper only; exact posted theorem absent. This is not checker acceptance or a submission.
+Independent review: combinatorial and finite_certificate agents; 2640 admissible pin configurations verified separately.
+Sub-agents: 6 (rules/toolchain/normalization; structural proof; counterexample search; existing lemmas; combinatorial review; finite certificates)
+TIMING total=14 subagents=6
