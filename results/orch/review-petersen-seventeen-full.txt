@@ -1,0 +1,18 @@
+Independent assembled17-gate partial review by lean_setup, 2026-11-25 UTC
+
+Source: /tmp/oec/pequalnp-pilot-87/proof_structure/PetersenSeventeenFull.lean
+SHA256: 67329ed982f00731191ac223c424eef83797b13cbe9cea474df3b9c6cacf5721
+Size: 330182 bytes, 7156 lines.
+Verdict: PASS static/mathematical/trust review as a partial, conditional on final self-contained compilation. The required posted theorem is absent.
+
+Verified source composition: the complete current98-line target facts are retained unchanged. The NineSigned block is identical, ignoring blank lines, to checked NineSignedReach, and the Live1024 block to checked Live1024Count. The generic17 proof replaces its previous explicit priorNine parameter with the checked NineSigned.nine_reach_lower theorem. No new assumption is introduced.
+
+The edge function is exactly the posted15-edge Petersen function: outer5-cycle, five spokes, and inner5-star edges. Independently checked all10relabel permutations and all512rows for each: each projection fixes its selected vertex false, preserves the nine-input graph function, and maps all remaining inputs to the matching nine-input coordinates. Independently verified all90ordered distinct-input OR-identification witness obligations. Complete computational audit is preserved in petersen-seventeen-independent-audit.txt.
+
+Reviewed concrete instantiation and counting wrappers. live_lower_seventeen discharges every generic row-map/noOr hypothesis. circuit_binary_lower is17≤countP(non-NOT). binary_not_partition counts every gate exactly once in non-NOT/NOT categories. notCount_eq_countP matches the library definition by case analysis on GateOp. Therefore circuit_not_budget gives17+notCount≤size for fan-in-two circuits computing the exact graph. The public petersen_three_not_exclusion consequence only excludes size≤19 circuits containing at least3NOT gates. Circuits with0,1,2NOTs remain unresolved; this is not the posted full lower bound or gap theorem.
+
+Trust/format scan: sole import PEqualNP.Defs; all declarations inside target-prefixed namespaces; no sorry, axioms, native_decide, bv_decide, unsafe/extern/run_tac, custom structure/inductive/instance, _root_, strings, or attributes. Only permitted heartbeat/recursion options, all declaration-local using in. Namespace blocks are repeated for partial assembly; a future final PR must consolidate as required by repository format and supply the exact top-level target theorem. This artifact is appropriate for the authorized partial branch checkpoint.
+
+Final self-contained compile is still running at the time of this report. Update this report with its exit/log before treating the assembled source as machine checked.
+
+Final self-contained compilation update: author build EXIT0; exact reviewed source archived as results/orch/lemmas/PetersenSeventeenFull.lean with SHA256 67329ed982f00731191ac223c424eef83797b13cbe9cea474df3b9c6cacf5721. Inspected complete compiler output: 199 linter warnings, no errors or sorry warnings. Final verdict: PASS for preserving this checked unconditional17binary-gate /three-NOT-exclusion partial. It remains incomplete for the posted target.

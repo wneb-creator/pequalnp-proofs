@@ -1,0 +1,12 @@
+Independent mathematical review by lean_setup, 2026-11-25 UTC
+
+Fragment: /tmp/oec/pequalnp-pilot-87/counterexample/generaldeficit/FirstRetention.txt
+SHA256: b805762b971e177303785e7f0e190efce7b8bf4c3eea76f6f157e3f3c7ccc9e5
+Size: 4413bytes,76lines.
+Verdict: PASS mathematics; final full-source compile/hash audit pending.
+
+For positive deficit defined by k+1=|S|+delta, a drop-both transition preserves delta, one retained operand leaves delta−1, and both retained operands leave delta−2. In the last case the tail Live size bound forces delta≥2, validating truncated subtraction. The zero-gate case contradicts positive deficit because Live ends at a singleton. Operand flipping normalizes a retained operand into position a without changing its output signature or allowed-operation status. The no-retention prefix transfers the already checked label partition, certificate entries and column supports by merge_cert_state.
+
+The result states a first-retention state decomposition and exact remaining deficit. It does not claim a generic copied-basis certificate, prefix length/provenance theorem, or a full arbitrary-deficit exclusion. This matches what the proof establishes. No mathematical blocker found.
+
+Final immutable-source audit: results/orch/lemmas/Live1024FirstRetention.lean, SHA256 a2122aef06514264db749fbcd43187a07e942da0c6977bee78c4a7ba707866de,112481bytes2248lines. Whole-source comparison shows exactly one insertion of the reviewed76-line fragment into checked Live1024DeltaOne. Author build EXIT0; full log inspected:29linterwarnings/no errors/no sorry warnings. No forbidden constructs, imports, attrs or custom types; only target-prefixed namespaces and inherited declaration-local option. Final verdict: PASS for preserving this checked generic first-retention partial.

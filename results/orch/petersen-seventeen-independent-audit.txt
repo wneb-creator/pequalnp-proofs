@@ -1,0 +1,7 @@
+SOURCE_SHA256 67329ed982f00731191ac223c424eef83797b13cbe9cea474df3b9c6cacf5721
+PASS unchanged checked component NineSigned
+PASS unchanged checked component Live1024
+PASS complete current target facts retained unchanged
+PASS all10row maps:5120graph projections,5120fixed-zero assertions,46080input correspondences
+PASS all90ordered distinct-input OR-identification witness obligations
+PASS required posted theorem absent; result remains a partial binary-gate/NOT-count lower bound

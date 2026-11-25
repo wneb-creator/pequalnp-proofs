@@ -2,18 +2,18 @@ L-meta-2373 PARTIAL CHECKPOINT — TARGET UNPROVED
 
 The required top-level theorem is absent. No proof PR has been opened and no ACCEPTED verdict is claimed.
 
-Target: lean/PEqualNP/Outside/L_meta_2373.lean (98 lines).
-Target SHA256: 266bb1614e6f2a8a9a8bdc048ca30c84089591e8cc4f89ceafa64711d74e3952.
-The Defs-only target lake build exited 0: Build completed successfully (5149 jobs).
+Target: lean/PEqualNP/Outside/L_meta_2373.lean (7156 lines).
+Target SHA256: 67329ed982f00731191ac223c424eef83797b13cbe9cea474df3b9c6cacf5721.
+The earlier 98-line Defs-only target lake build exited 0: Build completed successfully (5149 jobs).
 Full output: build-trimmed.txt. The previous 135-line source and successful full build output are preserved as lemmas/TargetPartial135.lean and .compile.txt.
-Repository checker against ORIGINAL statement now completes, exit 1:
+The checker on that earlier partial completed against the ORIGINAL statement, exit 1:
 REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2373 (one lemma, one file: the theorem carries the module's name)
 Full output: check-trimmed.txt. Earlier checker attempts exhausted memory; their complete fault logs are preserved. Narrowing imports resolved that infrastructure problem.
 The target trim reduced 135 lines to 98, preserving graph facts and archiving the unused upper-bound construction. This was a partial-result resource improvement, not the final post-acceptance cleanup pass.
 
-Reviewed compiled components are archived under lemmas/, with complete logs and independent reviews. These include a signed nine-input lower bound, generic finite closure certificates, a conditional 17-binary-gate lift, and first-operand-retention lemmas. They do not prove the posted statement. The concrete twelve-wire/12-gate terminal-state exclusion has compiled and passed independent review; it supplies all thirteen copied-basis certificates. A self-contained concrete 17-binary-gate lower bound is undergoing its final standalone build.
+Reviewed compiled components are archived under lemmas/, with complete logs and independent reviews. These include a signed nine-input lower bound, generic finite closure certificates, a conditional 17-binary-gate lift, and first-operand-retention lemmas. They do not prove the posted statement. The concrete twelve-wire/12-gate terminal-state exclusion has compiled and passed independent review; it supplies all thirteen copied-basis certificates. The self-contained concrete 17-binary-gate lower bound has compiled (exit 0, full log at lemmas/PetersenSeventeenFull.compile.txt) and passed independent review. It proves 17 plus the NOT-gate count is at most circuit size, hence excludes size-at-most-19 circuits with at least three NOT gates. The exact reviewed source is now installed in the named target; its lake build is running. The general positive-deficit first-retention decomposition also compiled and is preserved.
 All full-target searches remain incomplete or bounded, with no exact counterexample. Archive READMEs state their limits.
 Desk null replies: 0. One lease held, L-meta-2373; renewed every 5 minutes.
 
 Sub-agents: status_review, proof_structure, counterexample, library_route, lean_setup, finite_invariants
-TIMING total=67 subagents=6
+TIMING total=70 subagents=6

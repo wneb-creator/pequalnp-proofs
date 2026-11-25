@@ -1,0 +1,76 @@
+theorem positive_deficit_first_retention {α Ω : Type} [DecidableEq α]
+    (roots : Finset α) (raw : α → Sig) (col : Sig → Set Ω) (need : Set Ω)
+    (Cert : Finset α → Sig → Prop) (u : Bool) (T : Sig)
+    (gateCol : ∀ d a b, allowed u d → col (bin d a b) ⊆ col a ∪ col b)
+    (rowCover : ∀ k S, Live u T k S → ∀ o ∈ need, ∃ v ∈ S, o ∈ col v)
+    (closed : ∀ A B a b d, Disjoint A B → allowed u d → a ≠ b → bin d a b ≠ a →
+      bin d a b ≠ b → proper (bin d a b) → Cert A a → Cert B b →
+      ColumnAdmissible roots raw col need (A ∪ B) (bin d a b) → Cert (A ∪ B) (bin d a b))
+    {k δ : Nat} {S : Finset Sig} (positive : 0 < δ) (run : Live u T k S)
+    (deficit : k + 1 = S.card + δ)
+    (label : Sig → Finset α) (part : LabelPartition roots S label)
+    (entries : ∀ v ∈ S, Cert (label v) v)
+    (supports : ∀ v ∈ S, ColumnSupport raw col (label v) v) :
+    ∃ (j : Nat) (U : Finset Sig) (a b : Sig) (d : Nat) (labels : Sig → Finset α),
+      allowed u d ∧ proper a ∧ proper b ∧ a ≠ b ∧
+      bin d a b ∉ insert a (insert b U) ∧ a ∈ U ∧
+      Live u T j (insert (bin d a b) U) ∧
+      ((b ∉ U ∧ j + 1 = (insert (bin d a b) U).card + (δ - 1)) ∨
+       (b ∈ U ∧ 2 ≤ δ ∧ j + 1 = (insert (bin d a b) U).card + (δ - 2))) ∧
+      LabelPartition roots (insert a (insert b U)) labels ∧
+      (∀ v ∈ insert a (insert b U), Cert (labels v) v) ∧
+      (∀ v ∈ insert a (insert b U), ColumnSupport raw col (labels v) v) := by
+  classical
+  induction k generalizing S label with
+  | zero =>
+    obtain ⟨rfl, _⟩ := run
+    simp only [Finset.card_singleton] at deficit
+    omega
+  | succ k ih =>
+    obtain ⟨U, a, b, d, hd, rfl, pa, pb, hab, hfresh, tail⟩ := run
+    have fresh : bin d a b ∉ U :=
+      fun h => hfresh (Finset.mem_insert_of_mem (Finset.mem_insert_of_mem h))
+    have bound := live_size tail
+    rw [Finset.card_insert_of_notMem fresh] at bound
+    by_cases ha : a ∈ U
+    · by_cases hb : b ∈ U
+      · have cardTail : k + 1 = (insert (bin d a b) U).card + (δ - 2) := by
+          rw [Finset.card_insert_of_notMem fresh]
+          rw [Finset.insert_eq_of_mem hb, Finset.insert_eq_of_mem ha] at deficit
+          omega
+        have two : 2 ≤ δ := by
+          rw [Finset.insert_eq_of_mem hb, Finset.insert_eq_of_mem ha] at deficit
+          omega
+        exact ⟨k, U, a, b, d, label, hd, pa, pb, hab, hfresh, ha,
+          tail, Or.inr ⟨hb, two, cardTail⟩, part, entries, supports⟩
+      · have cardTail : k + 1 = (insert (bin d a b) U).card + (δ - 1) := by
+          rw [Finset.card_insert_of_notMem fresh]
+          rw [Finset.insert_eq_of_mem (Finset.mem_insert_of_mem ha),
+            Finset.card_insert_of_notMem hb] at deficit
+          omega
+        exact ⟨k, U, a, b, d, label, hd, pa, pb, hab, hfresh, ha,
+          tail, Or.inl ⟨hb, cardTail⟩, part, entries, supports⟩
+    · by_cases hb : b ∈ U
+      · have cardTail : k + 1 = (insert (bin d a b) U).card + (δ - 1) := by
+          rw [Finset.card_insert_of_notMem fresh]
+          rw [Finset.insert_eq_of_mem hb, Finset.card_insert_of_notMem ha] at deficit
+          omega
+        have swapped : bin (flipOp d) b a = bin d a b := (bin_flip hd a b).symm
+        refine ⟨k, U, b, a, flipOp d, label, (flip_flip hd).1, pb, pa,
+          hab.symm, ?_, hb, ?_, ?_, ?_, ?_, ?_⟩
+        · simpa only [swapped, Finset.insert_comm] using hfresh
+        · simpa only [swapped] using tail
+        · exact Or.inl ⟨ha, by simpa only [swapped] using cardTail⟩
+        · simpa only [Finset.insert_comm] using part
+        · simpa only [Finset.insert_comm] using entries
+        · simpa only [Finset.insert_comm] using supports
+      · have ha' : a ∉ insert b U := by simp [ha, hab]
+        have nextDeficit : k + 1 = (insert (bin d a b) U).card + δ := by
+          rw [Finset.card_insert_of_notMem fresh]
+          rw [Finset.card_insert_of_notMem ha', Finset.card_insert_of_notMem hb] at deficit
+          omega
+        obtain ⟨next, nextPart, nextEntries, nextSupports⟩ :=
+          merge_cert_state roots raw col need Cert u gateCol closed U a b d hd hab hfresh
+            ha hb (live_proper tail _ (Finset.mem_insert_self _ _))
+            (rowCover k _ tail) label part entries supports
+        exact ih tail nextDeficit next nextPart nextEntries nextSupports

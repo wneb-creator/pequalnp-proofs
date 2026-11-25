@@ -39,3 +39,11 @@
 - 2026-11-25 13:57:01 UTC — counterexample: final localized concrete state0 terminal exclusion compiled EXIT0 and archived; immutable SHA25644d4eeedc4fa48cd1f7d8b3048f3d4ddd4be435e6e0de44aa24e1e4633ce7b4a.
 
 - 2026-11-25T13:57:34.326013+00:00: Concrete twelve-wire terminal-state exclusion completed and independently reviewed, with all thirteen copy certificates; preserving complete source and compiler output.
+
+- 2026-11-25 13:59:23 UTC — counterexample: arbitrary positive-deficit first-retention decomposition compiled EXIT0; archived source/log for review and parent push.
+
+- 2026-11-25T13:59:40.738997+00:00: proof_structure: self-contained Petersen seventeen-binary lower bound compiled exit0; total330182bytes7156lines, independent static review passed; preserved source and complete log for immediate target checkpoint.
+
+- 2026-11-25T14:00:29.038396+00:00: proof_structure:17KiB eighteen-binary first-AND-type extension compiled exit0 against checked standalone17 cache; exact two-NOT reduction to first-OR roots preserved.
+
+- 2026-11-25T14:00:49.605388+00:00: Standalone 17-binary lower bound and general first-retention theorem compiled and independently reviewed. Exact 17-binary source installed in named target; lake build started.
