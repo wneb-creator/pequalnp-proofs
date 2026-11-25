@@ -17,3 +17,13 @@ semantic-lift-checked.lean SHA256 6e1108b1a4974a6c3fd886af11d70da4f5a60af7fdd686
 review-extra-checked.lean SHA256 5cbe4b0ab1d4dde9bda73c0ebb07e48e30f56471b3f68473d8068c558363137f
 counterexample_checked.lean SHA256 9635b2d227b31ef7d7e8ce8aab96a83d274a94834a97f07751df032bcdbe41d3
 TIMING total=37.1 subagents=6
+
+Further compiled snapshots independently reviewed for partial preservation:
+semantic-cut-compression-checked.lean SHA256 70bc44d16cdbef972eed736a5a612ca96f2759b229ac5dc16a99e98575264d6d
+pure-or-source-checked.lean SHA256 3c1b9e440f4dc9cd3033685310c3af5178104d3e571dc42d5af1c6f0b018d520
+stars-checked.lean SHA256 5dc82ba90f2902e883970cf5ba22da274cf67b7211d87b5df531c898b99e5aff
+ledger-force-original-checked.lean SHA256 8db4dad5568a3af6504e9a4c14820c36de586d754efe470166aa659b24a41a7d
+and-bound-binary-checked.lean SHA256 6f9420ecaf82f624a654231d3f961c4739d44561956357b8c07cac4a8f7c982f
+review-extra-checked.lean SHA256 30bd9e09619372bd64fa47e381f20fbce93d4f32c7285d695d5369ed320e2991
+Reviews: root reviewed compression bridge, OR-source recovery, star-cofactor injection, and cover baseline; status_review reviewed compressor prefix; ledger_proof reviewed binary-AND certificate; and_lower_bound reviewed forced original-value semantics. No full posted proof or refutation claimed.
+TIMING total=42.7 subagents=6

@@ -456,4 +456,106 @@ lemma or_restriction_bound {n : ℕ} (S : Finset (Fin n)) (C : Circuit)
       exact heval x)
   simpa only [Fin.sum_univ_one, fixed_orGates_card] using h
 
+lemma edge_restriction {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (S : Finset (Fin (p + l)))
+    (hcover : ∀ a b, (a, b) ∈ E → Fin.castAdd l a ∈ S ∨ Fin.natAdd p b ∈ S)
+    (hprivate : ∀ v ∈ S, ∃ a b, (a, b) ∈ E ∧
+      ((Fin.castAdd l a = v ∧ Fin.natAdd p b ∉ S) ∨
+        (Fin.natAdd p b = v ∧ Fin.castAdd l a ∉ S)))
+    (x : Fin (p + l) → Bool) :
+    decide (∃ a b, (a, b) ∈ E ∧ fill S x (Fin.castAdd l a) = true ∧
+      fill S x (Fin.natAdd p b) = true) = decide (∃ v ∈ S, x v = true) := by
+  apply Bool.eq_iff_iff.mpr
+  simp only [decide_eq_true_eq]
+  constructor
+  · rintro ⟨a, b, hab, hxa, hxb⟩
+    rcases hcover a b hab with ha | hb
+    · exact ⟨Fin.castAdd l a, ha, by simpa [fill, ha] using hxa⟩
+    · exact ⟨Fin.natAdd p b, hb, by simpa [fill, hb] using hxb⟩
+  · rintro ⟨v, hv, hxv⟩
+    obtain ⟨a, b, hab, h⟩ := hprivate v hv
+    refine ⟨a, b, hab, ?_⟩
+    rcases h with ⟨rfl, hb⟩ | ⟨rfl, ha⟩
+    · simp [fill, hv, hb, hxv]
+    · simp [fill, hv, ha, hxv]
+
+lemma cover_or_bound {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (S : Finset (Fin (p + l))) (C : Circuit)
+    (hgood : ∀ g ∈ C.gates,
+      (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (heval : ∀ x : Fin (p + l) → Bool,
+      C.eval (List.ofFn x) = decide (∃ a b, (a, b) ∈ E ∧
+        x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true))
+    (hcover : ∀ a b, (a, b) ∈ E → Fin.castAdd l a ∈ S ∨ Fin.natAdd p b ∈ S)
+    (hprivate : ∀ v ∈ S, ∃ a b, (a, b) ∈ E ∧
+      ((Fin.castAdd l a = v ∧ Fin.natAdd p b ∉ S) ∨
+        (Fin.natAdd p b = v ∧ Fin.castAdd l a ∉ S))) :
+    S.card - 1 ≤ (orGates (p + l) C.gates).card := by
+  exact or_restriction_bound S C hgood fun x =>
+    (heval (fill S x)).trans (edge_restriction E S hcover hprivate x)
+
+lemma exists_private_cover {p l : ℕ} (E : Finset (Fin p × Fin l)) :
+    ∃ S : Finset (Fin (p + l)),
+      (∀ a b, (a, b) ∈ E → Fin.castAdd l a ∈ S ∨ Fin.natAdd p b ∈ S) ∧
+      (∀ v ∈ S, ∃ a b, (a, b) ∈ E ∧
+        ((Fin.castAdd l a = v ∧ Fin.natAdd p b ∉ S) ∨
+          (Fin.natAdd p b = v ∧ Fin.castAdd l a ∉ S))) := by
+  classical
+  let Covers := fun S : Finset (Fin (p + l)) =>
+    ∀ a b, (a, b) ∈ E → Fin.castAdd l a ∈ S ∨ Fin.natAdd p b ∈ S
+  have hex : ∃ k : ℕ, ∃ S : Finset (Fin (p + l)), S.card = k ∧ Covers S := by
+    refine ⟨Finset.univ.card, Finset.univ, rfl, ?_⟩
+    intro a b hab
+    exact Or.inl (Finset.mem_univ _)
+  obtain ⟨S, hcard, hcover⟩ := Nat.find_spec hex
+  have hmin : ∀ T : Finset (Fin (p + l)), Covers T → S.card ≤ T.card := by
+    intro T hT
+    rw [hcard]
+    exact Nat.find_min' hex ⟨T, rfl, hT⟩
+  refine ⟨S, hcover, ?_⟩
+  intro v hv
+  by_contra hn
+  have herase : Covers (S.erase v) := by
+    intro a b hab
+    have hne : Fin.castAdd l a ≠ Fin.natAdd p b := by
+      intro h
+      have hv := congrArg Fin.val h
+      simp only [Fin.val_castAdd, Fin.val_natAdd] at hv
+      omega
+    by_cases ha : Fin.castAdd l a ∈ S.erase v
+    · exact Or.inl ha
+    · have hae : Fin.castAdd l a ∈ S → Fin.castAdd l a = v := by
+        intro has
+        by_contra he
+        exact ha (Finset.mem_erase.mpr ⟨he, has⟩)
+      have hb : Fin.natAdd p b ∈ S := by
+        by_contra hbs
+        have has : Fin.castAdd l a ∈ S := (hcover a b hab).resolve_right hbs
+        exact hn ⟨a, b, hab, Or.inl ⟨hae has, hbs⟩⟩
+      have hbe : Fin.natAdd p b ≠ v := by
+        intro he
+        have has : Fin.castAdd l a ∉ S := by
+          intro has
+          exact hne ((hae has).trans he.symm)
+        exact hn ⟨a, b, hab, Or.inr ⟨he, has⟩⟩
+      exact Or.inr (Finset.mem_erase.mpr ⟨hbe, hb⟩)
+  have hle := hmin (S.erase v) herase
+  rw [Finset.card_erase_of_mem hv] at hle
+  have hpos : 0 < S.card := Finset.card_pos.mpr ⟨v, hv⟩
+  omega
+
+lemma exists_cover_or_bound {p l : ℕ} (E : Finset (Fin p × Fin l)) (C : Circuit)
+    (hgood : ∀ g ∈ C.gates,
+      (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (heval : ∀ x : Fin (p + l) → Bool,
+      C.eval (List.ofFn x) = decide (∃ a b, (a, b) ∈ E ∧
+        x (Fin.castAdd l a) = true ∧ x (Fin.natAdd p b) = true)) :
+    ∃ S : Finset (Fin (p + l)),
+      (∀ a b, (a, b) ∈ E → Fin.castAdd l a ∈ S ∨ Fin.natAdd p b ∈ S) ∧
+      S.card ≤ (orGates (p + l) C.gates).card + 1 := by
+  obtain ⟨S, hcover, hprivate⟩ := exists_private_cover E
+  refine ⟨S, hcover, ?_⟩
+  have := cover_or_bound E S C hgood heval hcover hprivate
+  omega
+
 end PEqualNP.Outside.L_meta_4970.ORCover

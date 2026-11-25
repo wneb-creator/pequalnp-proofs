@@ -9,3 +9,5 @@
 - 2026-11-25T15:47:30.276681+00:00: semantic OR-only lowerbound, T0 reach facts, strengthened stars, and counterexample-to-shortcut audit compiled and independently reviewed; second preservation push.
 - 2026-11-25T15:53:30.156482+00:00: 1313-line named partial file compiled and independently reviewed; third preservation push.
 - 2026-11-25T15:59:44.683093+00:00: preserved compiled normalization semantics, OR cofactor restriction, and full-hypothesis P4 auxiliary-counterexample audit after independent review.
+- 2026-11-25T16:00:53.600083+00:00: first 20-minute proof replan. Keep normalization, cofactor/dirty-use charging, and direct C12 counterexample synthesis; abandon residual-empty-singleton gate count (Lean counterexample) and naive cover-exchange disjointness.
+- 2026-11-25T16:05:18.385763+00:00: preserved concrete zero compression, OR-witness recovery, cofactor/forced-value semantics, binary-AND minterm certificate, and vertex-cover baseline OR count.
