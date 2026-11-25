@@ -90,3 +90,46 @@ No new proof work or compilation performed by reviewer.
 - LibraryNext.lean SHA256 05e498f6c4e4293cd2d0dd35f37f41ffe9d5f257c63c06c112ac59e2371472de (2899 lines): safety scan clean, archive as UNVALIDATED because compilation has reported failures.
 - Certificate.lean SHA256 49f914d27f27d158197310c44fb0dfce738e49aeec51a131d1fa173163b5051f (705 lines): safety scan clean, archive as UNVALIDATED while compilation pending. Finite ledger alone is not the full gap theorem.
 - gen_certificate.py and ledger_probe.py inspected in full: task-local source reads/writes, deterministic finite computations, no credentials, no network, no shell/subprocess execution. Safe to preserve as research artifacts; their numerical results do not substitute for the Lean checker.
+
+## New assigned gap L-meta-2583
+
+Previous gap2592 lease returned410; workstopped andpartials pushed17967427. Recovery request assigned2583, reductions_open:false. Rootonlyholdsthislease. Statement in scratch statement-2583.txt. Newhelpers use2583namespace andnewfilename, avoidoverwriting2592artifacts.
+
+2026-11-25T14:42:25.144949+00:00 Certificate.lean pending validation exited137 with empty stdout/stderr; resource termination. This component is not Lean-checked. No edits were made after desk410.
+
+## submission_rules L-meta-2583 model and duplicate audit
+
+New lease only; no further old-gap proof work.
+
+- Current definitions: IsAO2 means AND/OR only, reads earlier wires, exactly two operands (repetitions allowed). IsReadK is joint proof-tree multiplicity for every prime implicant; it is not fan-out and not separate per-variable minima. For this incidence function prime implicants are point-line pairs. The lower hypotheses imply N>=7, nonempty incidence, and the usual regular projective-plane design; no immediate vacuity or model loophole found.
+- Saved complete 931-open-PR census contains PR13723, titled L_meta_2583, same author handle, created 2026-11-25T11:49:40Z. Read-only API request made using brilliant-hq path redirects to the same renamed open-goat project. One added file at correct path, 7090 lines/333774 bytes; no main theorem named PEqualNP.Outside.L_meta_2583 occurs.
+- Authoritative comment at https://github.com/open-goat/pequalnp-proofs/pull/13723#issuecomment-7161809767: REFUSED before any build because the theorem must be top-level, last, fully qualified. Run https://github.com/open-goat/pequalnp-proofs/actions/runs/45608830837. Current local format guard reproduces refusal. There are no check-runs for its head SHA in the API. Thus no checked full competitor; do not treat this partial as a completed proof.
+- Public partial source saved to /tmp/oec/pequalnp-pilot-131/pr13723-L_meta_2583.lean. Useful declarations: plane_read_one_upper line1216 (size<=N*(q+2)-1); read_one_plane_lower line3395; read_one_replacement_iff_size line3416; normalization line4300; unrestricted_plane_size_lower line7075 only gives3*N-1. Source has no obvious sorry/native_decide/axiom tokens, but has not been Lean-validated in this job. Its equivalence isolates the missing general lower bound (Fano27 vs currently20).
+- Desk pr_open=0 contradicts saved open PR census, likely because this is refused/partial; authoritative refusal and lack of target declaration are directly verified. No current negated twin identified in saved artifacts. Reductions explicitly disabled for new2583 lease even though sketch proposes cuts; old2592 reduction authorization does not apply.
+- Old Certificate validation finished exit137 (resource termination), empty logs, not Lean-checked. Agent preserved result in results/orch/search/certificate-status.txt. Keep UNVALIDATED label.
+
+## restriction_route: L-meta-2583
+
+Checked component `lemmas/IncidenceRestriction.lean`: for any circuit computing a bipartite incidence function, prime implicants are exactly the incident point-line pairs. Consequently `IsReadK k` is equivalent to the per-edge `readsAtMost` checks on the pair's setList, for any k. This needs no AO2 or projective-plane geometry and does not establish a size-preserving circuit normalization. `pair_prime` follows the existing L_meta_2581 argument; the converse and read equivalence are added here. Compilation exit0, no warnings; complete logs `incidence-restriction.stdout/.stderr`.
+
+## Incidence counterexample route 2026-11-25T14:44:38.641797+00:00
+
+New leased step L-meta-2583 asks no-size-increase READ1 normalization of monotone projectiveplane incidence circuits. Audited IsAO2 and ReadK definitions: exactbinary legalAND/OR, joint per-primeimplicant proof-tree counts; no obvious semantic loophole. Fano q2 has21 edges,458 independentsets and37 maximal independentsets (21ofsize4,14ofsize5,2ofsize7). Thus58 criticalrows completely determine a monotone computingcircuit. Libraryagent found READ1 lowerbound27 (L_meta_7639); any26-gate AND/OR witness would be promisingrefutation.
+
+Started20-minute26-gate stochastic bitsetsearch and Cadical search over58 criticalrows. Candidateverification will use all16384 assignments. Searchdata/scripts/fullstdoutstderr under /tmp/oec/pequalnp-pilot-131/fano-*. Noresult yet.
+
+## submission_rules IncidenceRestriction pre-push review
+
+PASS for archival checked partial. Reviewed SHA256 e8b19569ddfa5439d1b553b7ce1382c3e516865ee949682f139bc353fef7f2c7, 89 lines. Agent reports Lean exit0; saved stdout/stderr are empty. The castAdd/natAdd inputs are provably disjoint. Every incident pair is prime because a proper subset cannot retain both endpoints; every prime accepting set contains such a pair and minimality forces equality. The ReadK equivalence follows by this classification for arbitrary k. No plane axioms or IsAO2 assumption are needed because these are semantic claims under exact function equality. No forbidden proof shortcuts, extra axioms, or format hazards found. Correct own helper namespace; file contains helpers only, so remains an archival component and not the final2583 theorem or submission-ready PR file.
+
+## submission_rules IncidenceLibrary pre-push review
+
+PASS for archival checked partial, SHA256 9a3c903705cbdadcee5ea16d26a0c7d4488f33d16d720760896ef1c800c12d72, 1175 lines. First1126 lines match merged L_meta_7684 exactly after namespace substitution and final theorem-to-canonical-lemma rename. Added incidence count N*(q+1), point-star construction size<=N*(q+2)-1, and conditional replacement via explicit size hypothesis are correct. Reported Lean exit0, saved logs only contain unused/deprecated tactic warnings. No forbidden tokens or new axioms. This does not prove2583 because required original-circuit lower bound remains a hypothesis. Before eventual final PR, move fully qualified canonical helper at1123 into an own namespace block; top-level helper declaration is allowed for this archival partial but fails final proof-file format.
+
+## L-meta-2583 construction component (library_route)
+
+`results/orch/lemmas/IncidenceLibrary.lean` compiles with only `Mathlib` and `PEqualNP.Defs` imports. Namespace `PEqualNP.Outside.L_meta_2583_aux.CanonicalConstruction`. It copies the checked L-meta-7684 generic bipartite cover construction and specializes to the all-points cover. The incidence cardinality and specialization match archived PR13723. `plane_read_one_upper` assumes only every line has q+1 points and constructs AO2/read1 D with size <= N*(q+2)-1. `plane_read_one_replacement_of_size` additionally assumes this threshold <= C.size and gives the target replacement witness. This is a checked partial, not a solution of L-meta-2583.
+
+Build exit 0, full logs `/tmp/oec/pequalnp-pilot-131/incidence-library.stdout` and `.stderr`; warnings are inherited unreachable/deprecated tactics. SHA256 `9a3c903705cbdadcee5ea16d26a0c7d4488f33d16d720760896ef1c800c12d72`, 1175 lines. Independent submission_rules archival review PASS.
+
+No unconditional exact N*(q+2)-1 lower bound found. Existing generic exact bounds L-meta-4897/7639 require read1, L-meta-8569 requires leastAO+TopForm+junk empty, and L-meta-7241 assumes every AND gate false on every nonedge pair (including diagonal pairs). The archived PR already proves read1 replacement iff this exact size threshold. L-meta-3376 supplies the weaker general 3N-1 bound.

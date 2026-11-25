@@ -1,0 +1,1 @@
+Lean validation exited 137; no stdout/stderr. Resource termination, not a checked proof.

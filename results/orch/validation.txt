@@ -10,10 +10,17 @@ TIMING total=10 subagents=6
 Restriction.lean: reported Lean exit0; strengthened component independently reviewed.
 NotStructure.lean: Lean exit0; independent source review passed.
 LibraryNext.lean: NOT CHECKED; compile failed at cut_check finite decidability.
-Certificate.lean: compile started before lease loss, outcome pending. Python finite search is computational evidence only.
+Certificate.lean: compile exited137 (resource termination); NOT Lean-checked. Python finite search is computational evidence only.
 Local checklemma executable builds successfully; checker has not accepted the exact gap theorem.
 Lease recovery status: HTTP410 on2026-11-25T14:39:21Z; no release request sent.
 
 Preservation review passed for checked components; incomplete sources and finite-search evidence are explicitly labeled.
 Sub-agents: 6
 TIMING total=12.8 subagents=6
+
+L-meta-2583 currentgap: IncidenceRestriction.lean compiled exit0; independent review passed.
+IncidenceLibrary.lean compiled exit0; independent review passed; canonical read1 upper bound and conditional replacement only.
+Full L-meta-2583 theorem remains unproved.
+
+Sub-agents: 6
+TIMING total=18.0 subagents=6

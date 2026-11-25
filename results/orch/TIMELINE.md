@@ -11,3 +11,8 @@
 2026-11-25T14:40:22.665352+00:00 Lease beat returned HTTP410 despite earlier expiry14:56:56; active searches stopped. Full response archived. Preparing preservation push before recovery request.
 
 2026-11-25T14:41:03.130054+00:00 Independent review completed; preserving five checked components plus clearly labeled incomplete sources/search logs.
+
+2026-11-25T14:41:29.792045+00:00 Recovery desk assigned L-meta-2583; expires 2026-11-25T15:00:37.581Z.
+2026-11-25T14:44:33.535925+00:00 restriction_route checked incidence prime characterization and per-edge read equivalence for2583.
+
+2026-11-25T14:45:35.434458+00:002583 semantic and canonicalconstruction components compiled; Fano26search stopped after discovery of checked27lowerbound onmain.
