@@ -13,3 +13,6 @@ Necessity lines: 2087. No cleanup pass yet.
 TIMING total=8.0 subagents=6
 
 Structure.lean: lake env lean exited 0; independent partial review PASS; 117 lines.
+
+Equivalence.lean: lake env lean exited 0; independent partial review PASS; 3291 lines.
+Exact arbitrary-circuit lower bound remains unproved; no target checker acceptance claimed.

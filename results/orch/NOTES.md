@@ -46,3 +46,12 @@ Necessity.lean compiles (lake env lean exit 0), and independent red-team review 
 ## Structural partial 2026-11-25T15:03:49.914620+00:00
 
 Structure.lean compiles and independently passes static/mathematical review. It proves strict neighbor expansion for nonempty proper point subsets in equal-degree incidence relations with a common line through every point pair. Consequently a vertex cover of size at most N must be one complete side. Independent exhaustive Fano checks verified all 126 nonempty proper subsets and the two minimum covers. These are auxiliary structural facts, not the missing arbitrary-circuit lower bound.
+
+2026-11-25T15:03:54.213313+00:00 EQUIVALENCE COMPILES: `Equivalence.lean` combines Construction and Necessity without extra project modules. `replacement_iff_size_bound` proves the exact requested replacement existence iff N*(q+2) ≤ C.size+1. The residual arbitrary-circuit lower bound is precisely equivalent, not merely sufficient. Exit0; logs /tmp/oec/pequalnp-pilot-147/equivalence.stdout/.stderr.
+
+## Exact SAT synthesis (construction agent, 2026-11-25)
+CaDiCaL built from arminbiere/cadical GitHub source in scratch. Two one-hot predecessor selectors per gate, ordered distinct operands, AND/OR selector and58 boundary truth tests encode AO2 synthesis. Fixed27 canonical model SAT; decoded model verified on all16384 inputs. All16384 assignments are covered by21 minimal-true and37 maximal-false tests. General26 instance5928 variables156019 clauses running with15minute limit. Scoped repair instances fix all except6–7 gates around two canonical stars; first5 scopes UNSAT, not a global lower bound. Full source and logs under /tmp/oec/pequalnp-pilot-147/fano-sat*.
+
+## Exact residual problem 2026-11-25T15:04:30.251401+00:00
+
+Equivalence.lean compiles and independently passes review. It combines the construction and read-1 necessity and proves that the desk replacement conclusion holds exactly when N*(q+2) <= C.size+1. The replacement statement matches the posted conclusion modulo whitespace, with no read-1 assumption on C. The numerical lower bound for arbitrary C is still open. This equivalence is a checked partial, not a solution or an authorized reduction submission.
