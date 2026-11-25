@@ -1,0 +1,59 @@
+{
+  "posted_statement": "unproved",
+  "posted_counterexample": null,
+  "heuristic_evaluations_with_repeats": 30570811,
+  "SAT_results_are_not_Lean_proofs": true,
+  "queries": [
+    {
+      "instance": "and-free-exact6",
+      "status": "UNKNOWN"
+    },
+    {
+      "instance": "and-free-matching6",
+      "status": "UNKNOWN"
+    },
+    {
+      "instance": "and-free-exact6-ordered",
+      "status": "UNKNOWN"
+    },
+    {
+      "instance": "and-free-matching6-ordered",
+      "status": "UNKNOWN"
+    },
+    {
+      "instance": "unknown4-and3",
+      "status": "UNSATISFIABLE"
+    },
+    {
+      "instance": "unknown5-and4",
+      "status": "UNSATISFIABLE"
+    },
+    {
+      "instance": "target-unknown-g9-r1",
+      "status": "UNSATISFIABLE"
+    },
+    {
+      "instance": "target-unknown-g10-r2",
+      "status": "UNKNOWN"
+    },
+    {
+      "instance": "target-orbits-g10-r2",
+      "status": "UNKNOWN"
+    },
+    {
+      "instance": "normalized-c12-and5",
+      "status": "UNSATISFIABLE"
+    },
+    {
+      "instance": "normalized-fano6",
+      "status": "INTERRUPTED_NO_VERDICT",
+      "note": "Process is defunct after environment reconnect; full available log ends abruptly, with no solver verdict or solution."
+    },
+    {
+      "instance": "unknown6-normalized-and5",
+      "status": "INTERRUPTED_NO_VERDICT",
+      "note": "Process is defunct after environment reconnect; full available log ends abruptly, with no solver verdict or solution."
+    }
+  ],
+  "all_owned_solver_processes_finished": true
+}

@@ -1,0 +1,22 @@
+{
+  "encoder_sha256": "1daeb0301f7845966c457e98c72b750b69326ff4548418c2b679e8fc8ff788f0",
+  "controls": [
+    {
+      "control": "normalized-positive-fano",
+      "clauses": 20521,
+      "truth_assignments": 16384,
+      "AND_count": 7,
+      "OR_count": 20,
+      "all_ports_disjoint": true
+    },
+    {
+      "control": "normalized-positive-c12",
+      "clauses": 11964,
+      "truth_assignments": 4096,
+      "AND_count": 6,
+      "OR_count": 11,
+      "all_ports_disjoint": true
+    }
+  ],
+  "result": "Auxiliary normalized free-OR controls verified; no smaller-AND or total-gate theorem inferred."
+}

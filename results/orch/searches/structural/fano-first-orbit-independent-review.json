@@ -1,0 +1,31 @@
+{
+  "pruning_source_sha256": "e267871bb32be881bb467b4194c7d24dc6cc9c95fd07366224738334d72b9174",
+  "automorphisms_distinct_and_closed": 336,
+  "unordered_input_pairs": 105,
+  "orbit_minima": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      7
+    ],
+    [
+      2,
+      7
+    ]
+  ],
+  "control_clauses": 351935,
+  "control_truth_rows": 16384,
+  "first_gate": [
+    1,
+    0,
+    1
+  ],
+  "result": "Orbit-minimum first-pair pruning and transformed positive control reviewed; no twenty-six-gate outcome inferred."
+}

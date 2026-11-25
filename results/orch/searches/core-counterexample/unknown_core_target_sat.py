@@ -1,7 +1,7 @@
 from pathlib import Path
 from itertools import combinations
 import argparse,json
-parser=argparse.ArgumentParser();parser.add_argument('--gates',type=int,default=8);parser.add_argument('--roots',type=int,default=1);parser.add_argument('--matching',type=int,default=4);parser.add_argument('--ordered',action='store_true');parser.add_argument('--control',choices=['p4','c4']);parser.add_argument('--stem',required=True);args=parser.parse_args()
+parser=argparse.ArgumentParser();parser.add_argument('--gates',type=int,default=8);parser.add_argument('--roots',type=int,default=1);parser.add_argument('--matching',type=int,default=4);parser.add_argument('--ordered',action='store_true');parser.add_argument('--graph-orbits',action='store_true');parser.add_argument('--control',choices=['p4','c4']);parser.add_argument('--stem',required=True);args=parser.parse_args()
 source=Path('/tmp/oec/pequalnp-pilot-71/core-counterexample/and_free_or_sat.py').read_text();scope={};exec('class CNF:'+source.split('class CNF:',1)[1].split('n=14;k=',1)[0],scope);CNF=scope['CNF']
 def and_many(c,terms):
  q=1
@@ -22,6 +22,11 @@ for a in range(p):c.add(gvar[a,m+a])
 if args.control!='c4':
  for a,b in combinations(range(m),2):
   for x,y in combinations(range(m,n),2):c.add(-gvar[a,x],-gvar[a,y],-gvar[b,x],-gvar[b,y])
+if args.graph_orbits:
+ assert p==4 and args.control is None
+ orbitdata=json.loads(Path('/tmp/oec/pequalnp-pilot-71/core-counterexample/graph44-orbits.json').read_text());choices=[c.var() for _ in orbitdata['orbits']];c.add(*choices)
+ for choice,record in zip(choices,orbitdata['orbits']):
+  for k,v in enumerate(ev):c.add(-choice,v if record['rep']>>k&1 else -v)
 fvals=[c.or_many([v for (a,b),v in zip(edges,ev) if S>>a&1 and S>>b&1]) for S in rows]
 ops=[c.var() for _ in range(g)];sels=[[[c.var() for a in range(n+j)] for side in range(2)] for j in range(g)];vals=[[1 if S>>a&1 else -1 for S in rows] for a in range(n)];singles=[[1 if a==b else -1 for b in range(n)] for a in range(n)];imp=[-1]*n;ports=[];simport=[];import_=[]
 for j,ss in enumerate(sels):

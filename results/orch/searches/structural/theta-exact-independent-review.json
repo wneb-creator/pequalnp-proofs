@@ -1,0 +1,72 @@
+{
+  "encoder_sha256": "494ffb1a94119f0feb1f318c7141b1b351575d97010b7d07947778c1f36513fb",
+  "all_clauses": 25800,
+  "all_truth_rows": 256,
+  "all_gates_and_inputs_reach_output": true,
+  "AND_count": 4,
+  "OR_count": 8,
+  "fanout_extra_arcs": 5,
+  "comparison_keys": [
+    [
+      2,
+      1,
+      1
+    ],
+    [
+      4,
+      1,
+      1
+    ],
+    [
+      4,
+      2,
+      1
+    ],
+    [
+      6,
+      1,
+      1
+    ],
+    [
+      8,
+      3,
+      0
+    ],
+    [
+      9,
+      5,
+      0
+    ],
+    [
+      10,
+      6,
+      1
+    ],
+    [
+      11,
+      7,
+      0
+    ],
+    [
+      13,
+      12,
+      1
+    ],
+    [
+      14,
+      0,
+      0
+    ],
+    [
+      16,
+      15,
+      1
+    ],
+    [
+      18,
+      17,
+      1
+    ]
+  ],
+  "result": "Exact theta twelve-gate positive control verified; no eleven-gate witness or exclusion inferred."
+}

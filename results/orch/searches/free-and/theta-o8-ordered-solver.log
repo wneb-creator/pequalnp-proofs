@@ -1,0 +1,137 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 10 seconds real time (due to '-t 10')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-71/free-and/theta-o8-ordered-control.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-71/free-and/theta-o8-ordered-control.cnf'
+c found 'p cnf 1872 8479' header
+c parsed 8479 clauses in 0.00 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant irredundant
+c         MB    restarts       trail    variables
+c          level   conflicts       glue      remaining
+c 
+c *  0.00  4  0 0   0    0    0  0% 0 8315 1763 94%
+c {  0.00  4  0 0   0    0    0  0% 0 8315 1763 94%
+c i  0.00  4 137 0   0   24   22 76% 4 8315 1762 94%
+c i  0.01  4 52 0  28  225  199 57% 5 8315 1761 94%
+c -  0.01  4 50 1  48  301  271 56% 5 7952 1761 94%
+c i  0.01  4 41 1  90  488  428 50% 6 7952 1760 94%
+c i  0.01  4 41 1  90  489  428 50% 6 7952 1759 94%
+c i  0.01  4 40 1  93  507  439 49% 6 7952 1758 94%
+c -  0.02  5 43 2 136  906  742 54% 6 7912 1758 94%
+c }  0.02  5 41 2 156 1000  829 52% 7 7912 1758 94%
+c [  0.02  5  0 2 156 1000  829  0% 0 7912 1758 94%
+c O  0.02  5 54 2 156 1005  834 74% 11 7912 1758 94%
+c -  0.03  5 55 3 156 1808 1370 76% 14 7912 1758 94%
+c ]  0.07  5 44 3 157 3000 2469 76% 16 7912 1758 94%
+c {  0.07  5 41 3 157 3000 2469 52% 7 7912 1758 94%
+c F  0.07  5 41 3 159 3006 2474 52% 7 7912 1758 94%
+c -  0.07  5 41 4 160 3011 1952 52% 7 7912 1758 94%
+c i  0.07  5 41 4 173 3097 2030 53% 7 7912 1757 94%
+c i  0.07  5 41 4 192 3222 2148 54% 7 7912 1756 94%
+c i  0.08  5 39 4 195 3454 2357 53% 7 7912 1747 93%
+c 
+c  seconds  reductions  redundant irredundant
+c         MB    restarts       trail    variables
+c          level   conflicts       glue      remaining
+c 
+c i  0.08  5 39 4 230 3653 2549 53% 7 7912 1745 93%
+c s  0.10  5 38 4 331 4476 3246 55% 7 7903 1745 93%
+c v  0.10  5 38 4 331 4476 3246 55% 7 7886 1745 93%
+c w  0.10  5 38 4 331 4476 3241 55% 7 7886 1745 93%
+c t  0.11  5 38 4 331 4476 3228 55% 7 7880 1727 92%
+c e  0.11  5 38 4 331 4476  557 55% 7 5266 961 51%
+c s  0.11  5 38 4 331 4476  515 55% 7 5250 961 51%
+c -  0.12  5 38 5 340 4511  468 48% 7 5250 961 51%
+c p  0.13  5 38 5 416 5000 1087 54% 7 5250 961 51%
+c #  0.14  5 37 5 553 6007 2002 49% 8 5250 961 51%
+c -  0.14  5 37 6 595 6314 2091 49% 8 5250 961 51%
+c }  0.15  5 35 6 647 7001 2704 46% 8 5250 961 51%
+c [  0.15  5 44 6 647 7001 2704 147% 16 5250 961 51%
+c -  0.18  6 40 7 648 8419 3267 109% 15 5250 961 51%
+c ]  0.19  6 40 7 648 8725 3548 106% 15 5250 961 51%
+c 1  0.19  6 40 7 648 8725 3548 106% 15 5250 961 51%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to '/tmp/oec/pequalnp-pilot-71/free-and/theta-o8-ordered-control.sol'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.17   90.88% search
+c         0.08   45.87% unstable
+c         0.08   44.81% stable
+c         0.02    9.07% simplify
+c         0.01    3.83% elim
+c         0.00    1.72% subsume
+c         0.00    1.42% vivify
+c         0.00    0.90% parse
+c         0.00    0.49% probe
+c         0.00    0.47% ternary
+c         0.00    0.17% lucky
+c   =================================
+c         0.18   98.70% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:              3448        39.52 %  of conflicts
+c conflicts:                  8725     47520.23    per second
+c decisions:                 37011    201578.38    per second
+c eliminated:                  766        40.92 %  of all variables
+c fixed:                       145         7.75 %  of all variables
+c learned:                    8392        96.18 %  per conflict
+c learned_lits:             247865       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                  35870        14.47 %  learned literals
+c minishrunken:              24421         9.85 %  learned literals
+c otfs:                         99         1.13 %  of conflict
+c propagations:            1401951         7.64 M  per second
+c reduced:                    1638        18.77 %  per conflict
+c rephased:                      3      2908.33    interval
+c restarts:                    648        13.46    interval
+c stabilizing:                   2        42.68 %  of conflicts
+c subsumed:                    644         3.14 %  of all clauses
+c strengthened:                520         2.54 %  of all clauses
+c ternary:                       4         0.07 %  of resolved
+c vivified:                     19         0.09 %  of all clauses
+c weakened:                   4352         3.06    average size
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.19    seconds
+c total real time since initialization:            0.19    seconds
+c maximum resident set size of process:            5.74    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 10

@@ -1,0 +1,10 @@
+{
+  "encoder_sha256": "74b49a6ab429241eb31d805a6cd3438bbf2649d8cc1a1dfce6e4f4ebea7e710f",
+  "all_clauses": 351922,
+  "all_truth_rows": 16384,
+  "all_gates_and_inputs_reach_output": true,
+  "AND_count": 7,
+  "OR_count": 20,
+  "fanout_extra_arcs": 14,
+  "result": "Exact Fano twenty-seven-gate positive control verified; no twenty-six-gate verdict inferred."
+}

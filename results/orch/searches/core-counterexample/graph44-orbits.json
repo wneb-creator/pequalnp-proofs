@@ -1,0 +1,86 @@
+{
+  "valid": 311,
+  "maximum_edges": 9,
+  "orbits": [
+    {
+      "rep": 33825,
+      "edges": 4,
+      "orbit": 1
+    },
+    {
+      "rep": 33827,
+      "edges": 5,
+      "orbit": 12
+    },
+    {
+      "rep": 33831,
+      "edges": 6,
+      "orbit": 24
+    },
+    {
+      "rep": 33839,
+      "edges": 7,
+      "orbit": 8
+    },
+    {
+      "rep": 33845,
+      "edges": 6,
+      "orbit": 24
+    },
+    {
+      "rep": 33853,
+      "edges": 7,
+      "orbit": 24
+    },
+    {
+      "rep": 33897,
+      "edges": 6,
+      "orbit": 12
+    },
+    {
+      "rep": 33899,
+      "edges": 7,
+      "orbit": 48
+    },
+    {
+      "rep": 33901,
+      "edges": 7,
+      "orbit": 24
+    },
+    {
+      "rep": 34147,
+      "edges": 7,
+      "orbit": 8
+    },
+    {
+      "rep": 34153,
+      "edges": 7,
+      "orbit": 24
+    },
+    {
+      "rep": 34155,
+      "edges": 8,
+      "orbit": 48
+    },
+    {
+      "rep": 34281,
+      "edges": 8,
+      "orbit": 24
+    },
+    {
+      "rep": 34729,
+      "edges": 8,
+      "orbit": 12
+    },
+    {
+      "rep": 38371,
+      "edges": 9,
+      "orbit": 12
+    },
+    {
+      "rep": 38565,
+      "edges": 8,
+      "orbit": 6
+    }
+  ]
+}

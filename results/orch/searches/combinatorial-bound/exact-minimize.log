@@ -1,0 +1,42 @@
+BEST theta loss=5 evaluations=1 seconds=0.000146389
+BEST theta loss=2 evaluations=3 seconds=0.000289193
+BEST theta loss=1 evaluations=20 seconds=0.000704454
+BEST fano loss=26 evaluations=1 seconds=0.00617233
+BEST fano loss=20 evaluations=8 seconds=0.0062206
+BEST fano loss=18 evaluations=35 seconds=0.00651295
+BEST fano loss=17 evaluations=22231 seconds=0.0109385
+BEST fano loss=15 evaluations=60001 seconds=0.0289232
+BEST fano loss=5 evaluations=60002 seconds=0.0292432
+BEST fano loss=4 evaluations=90004 seconds=0.0410981
+BEST fano loss=3 evaluations=90011 seconds=0.0413338
+BEST fano loss=1 evaluations=90022 seconds=0.0415343
+PROGRESS seconds=30.003 theta_evaluations=75540000 best=1 fano_evaluations=75540000 best=1
+PROGRESS seconds=60.0059 theta_evaluations=150420000 best=1 fano_evaluations=150420000 best=1
+PROGRESS seconds=90.009 theta_evaluations=224850000 best=1 fano_evaluations=224820000 best=1
+PROGRESS seconds=120.012 theta_evaluations=300570000 best=1 fano_evaluations=300540000 best=1
+PROGRESS seconds=150.013 theta_evaluations=375360000 best=1 fano_evaluations=375330000 best=1
+PROGRESS seconds=180.017 theta_evaluations=445500000 best=1 fano_evaluations=445470000 best=1
+PROGRESS seconds=210.021 theta_evaluations=520590000 best=1 fano_evaluations=520560000 best=1
+PROGRESS seconds=240.024 theta_evaluations=594510000 best=1 fano_evaluations=594510000 best=1
+PROGRESS seconds=270.031 theta_evaluations=667950000 best=1 fano_evaluations=667950000 best=1
+PROGRESS seconds=300.032 theta_evaluations=742950000 best=1 fano_evaluations=742950000 best=1
+PROGRESS seconds=330.034 theta_evaluations=812640000 best=1 fano_evaluations=812610000 best=1
+PROGRESS seconds=360.039 theta_evaluations=884220000 best=1 fano_evaluations=884190000 best=1
+PROGRESS seconds=390.043 theta_evaluations=957630000 best=1 fano_evaluations=957630000 best=1
+PROGRESS seconds=420.044 theta_evaluations=1030680000 best=1 fano_evaluations=1030650000 best=1
+PROGRESS seconds=450.044 theta_evaluations=1105710000 best=1 fano_evaluations=1105680000 best=1
+PROGRESS seconds=480.045 theta_evaluations=1179630000 best=1 fano_evaluations=1179630000 best=1
+PROGRESS seconds=510.05 theta_evaluations=1253070000 best=1 fano_evaluations=1253040000 best=1
+PROGRESS seconds=540.051 theta_evaluations=1327950000 best=1 fano_evaluations=1327920000 best=1
+PROGRESS seconds=570.052 theta_evaluations=1403280000 best=1 fano_evaluations=1403280000 best=1
+PROGRESS seconds=600.053 theta_evaluations=1479900000 best=1 fano_evaluations=1479870000 best=1
+PROGRESS seconds=630.054 theta_evaluations=1555650000 best=1 fano_evaluations=1555620000 best=1
+PROGRESS seconds=660.054 theta_evaluations=1630560000 best=1 fano_evaluations=1630560000 best=1
+PROGRESS seconds=690.063 theta_evaluations=1706340000 best=1 fano_evaluations=1706340000 best=1
+PROGRESS seconds=720.064 theta_evaluations=1782420000 best=1 fano_evaluations=1782390000 best=1
+PROGRESS seconds=750.066 theta_evaluations=1857990000 best=1 fano_evaluations=1857990000 best=1
+PROGRESS seconds=780.071 theta_evaluations=1934640000 best=1 fano_evaluations=1934610000 best=1
+PROGRESS seconds=810.073 theta_evaluations=2010180000 best=1 fano_evaluations=2010150000 best=1
+PROGRESS seconds=840.074 theta_evaluations=2086140000 best=1 fano_evaluations=2086110000 best=1
+PROGRESS seconds=870.079 theta_evaluations=2161410000 best=1 fano_evaluations=2161410000 best=1
+DONE seconds=900 theta_evaluations=2236744869 best=1 fano_evaluations=2236740000 best=1

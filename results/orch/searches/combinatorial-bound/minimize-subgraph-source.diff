@@ -1,0 +1,101 @@
+--- exact_minimize.cpp
++++ exact_minimize_subgraph.cpp
+@@ -8,11 +8,15 @@
+ #include <iostream>
+ #include <random>
+ #include <string>
++#include <unordered_map>
+ #include <vector>
+ using U = uint64_t;
+ struct Gate { int op,a,b; };
+ struct Circuit { std::vector<Gate> g; int out; };
+-struct Model { std::string name; int n,k,rows; U target; std::vector<U> inputs; std::vector<Circuit> seeds; int best=1000; U tests=0; std::vector<Circuit> elite; };
++struct Model { std::string name; int n,k,rows; U target; std::vector<U> inputs; std::vector<Circuit> seeds; int best=1000; U tests=0; std::vector<Circuit> elite;
++ std::vector<std::array<int,3>> edges;std::vector<int> left,masks;std::vector<U> contained;
++ std::unordered_map<U,std::vector<int>> witnesses;U subtests=0,fullchecks=0;
++};
+ std::mt19937_64 rng(718276);
+ int pick(int n){return int(rng()%n);}
+ double unit(){return (rng()>>11)*0x1.0p-53;}
+@@ -66,30 +70,78 @@
+  std::ofstream f(path); f<<"{\"model\":\""<<m.name<<"\",\"n\":"<<m.n<<",\"gate_budget\":"<<m.k<<",\"loss\":"<<loss<<",\"output\":"<<c.out<<",\"signature\":"<<mask<<",\"gates\":[";
+  for(size_t i=0;i<c.g.size();++i){auto g=c.g[i];if(i)f<<',';f<<'['<<g.op<<','<<g.a<<','<<g.b<<']';}f<<"]}\n";
+ }
++bool scalar(const Model&m,const Circuit&c,int mask){
++ std::array<bool,128> v{};for(int i=0;i<m.n;++i)v[i]=(mask>>i)&1;
++ for(int j=0;j<m.k;++j){auto g=c.g[j];v[m.n+j]=g.op?(v[g.a]||v[g.b]):(v[g.a]&&v[g.b]);}
++ return v[c.out];
++}
++int matching(const Model&m,U h){
++ std::array<U,32> adj{};for(auto e:m.edges)if(h>>e[2]&1){adj[e[0]]|=U(1)<<e[1];adj[e[1]]|=U(1)<<e[0];}
++ std::array<int,32> matched;matched.fill(-1);
++ auto aug=[&](auto&& self,int a,U&seen)->bool{
++  U choices=adj[a]&~seen;while(choices){int b=std::countr_zero(choices);choices&=choices-1;if(seen>>b&1)continue;seen|=U(1)<<b;
++   if(matched[b]<0||self(self,matched[b],seen)){matched[b]=a;return true;}}
++  return false;
++ };
++ int size=0;for(int a:m.left){U seen=0;if(aug(aug,a,seen))++size;}return size;
++}
++void prepare(Model&m){
++ std::vector<int> color(m.n,-1);std::vector<std::vector<int>> adj(m.n);
++ for(int r=0;r<m.rows;++r)if(m.target>>r&1){std::vector<int> support;for(int i=0;i<m.n;++i)if(m.inputs[i]>>r&1)support.push_back(i);
++  if(support.size()!=2)throw std::runtime_error("nonpair positive row");
++  m.edges.push_back({support[0],support[1],r});adj[support[0]].push_back(support[1]);adj[support[1]].push_back(support[0]);}
++ for(int a=0;a<m.n;++a)for(int b=a+1;b<m.n;++b){int common=0;for(int w:adj[a])if(std::find(adj[b].begin(),adj[b].end(),w)!=adj[b].end())++common;
++  if(common>1)throw std::runtime_error("four cycle in target graph");}
++ for(int i=0;i<m.n;++i)if(color[i]<0){std::vector<int> todo{i};color[i]=0;for(size_t t=0;t<todo.size();++t)for(int b:adj[todo[t]]){
++  if(color[b]<0){color[b]=color[todo[t]]^1;todo.push_back(b);}else if(color[b]==color[todo[t]])throw std::runtime_error("not bipartite");}}
++ for(int i=0;i<m.n;++i)if(!color[i])m.left.push_back(i);
++ m.contained.resize(1<<m.n);for(int mask=0;mask<(1<<m.n);++mask){for(auto e:m.edges)if(mask>>e[0]&1&&mask>>e[1]&1)m.contained[mask]|=U(1)<<e[2];m.masks.push_back(mask);}
++ std::stable_sort(m.masks.begin(),m.masks.end(),[](int a,int b){return std::popcount(unsigned(a))<std::popcount(unsigned(b));});
++}
++bool inspect_subgraph(Model&m,const Circuit&c,U value,int ac,const std::string&directory){
++ if(value&~m.target)return false;
++ U h=value&m.target;int ec=std::popcount(h);
++ if(ec==0||ac>=ec+int(m.left.size())-1)return false;
++ ++m.subtests;int tau=matching(m,h);if(ac>=ec+tau-1)return false;
++ auto&bad=m.witnesses[h];for(int mask:bad)if(scalar(m,c,mask))return false;
++ ++m.fullchecks;
++ for(int mask:m.masks){if(!(m.contained[mask]&h)&&m.contained[mask]&&scalar(m,c,mask)){if(bad.size()<128)bad.push_back(mask);return false;}}
++ U reached=0;if(c.out>=m.n)reached|=U(1)<<(c.out-m.n);
++ for(int j=m.k-1;j>=0;--j)if(reached>>j&1)for(int w:{c.g[j].a,c.g[j].b})if(w>=m.n)reached|=U(1)<<(w-m.n);
++ Circuit d;std::array<int,128> map;for(int i=0;i<m.n;++i)map[i]=i;
++ for(int j=0;j<m.k;++j)if(reached>>j&1){auto g=c.g[j];map[m.n+j]=m.n+d.g.size();d.g.push_back({g.op,map[g.a],map[g.b]});}
++ d.out=map[c.out];std::ofstream f(directory+"/minimize-SUBGRAPH-FOUND.json");
++ f<<"{\"model\":\""<<m.name<<"\",\"n\":"<<m.n<<",\"active_gates\":"<<ac<<",\"edge_count\":"<<ec<<",\"cover\":"<<tau<<",\"output\":"<<d.out<<",\"edges\":[";
++ bool comma=false;for(auto e:m.edges)if(h>>e[2]&1){if(comma)f<<',';comma=true;f<<'['<<e[0]<<','<<e[1]<<']';}f<<"],\"gates\":[";
++ for(size_t j=0;j<d.g.size();++j){auto g=d.g[j];if(j)f<<',';f<<'['<<g.op<<','<<g.a<<','<<g.b<<']';}f<<"]}\n";
++ std::cout<<"SUBGRAPH_FOUND "<<m.name<<" active="<<ac<<" edges="<<ec<<" cover="<<tau<<std::endl;return true;
++}
+ int main(int argc,char**argv){
+  if(argc!=4){std::cerr<<"usage: exact_minimize DATA SECONDS OUTPUT_DIRECTORY\n";return 2;}
+  std::ifstream f(argv[1]);int count;f>>count;std::vector<Model> models(count);
+  for(auto&m:models){int ns;f>>m.name>>m.n>>m.k>>m.rows>>ns;f>>m.target;m.inputs.resize(m.n);for(auto&x:m.inputs)f>>x;
+-  for(int s=0;s<ns;++s){Circuit c;f>>c.out;for(int j=0;j<m.k+1;++j){Gate g;f>>g.op>>g.a>>g.b;c.g.push_back(g);}if(evaluate(m,c)!=m.target){std::cerr<<"bad seed\n";return 3;}m.seeds.push_back(c);}}
++  for(int s=0;s<ns;++s){Circuit c;f>>c.out;for(int j=0;j<m.k+1;++j){Gate g;f>>g.op>>g.a>>g.b;c.g.push_back(g);}if(evaluate(m,c)!=m.target){std::cerr<<"bad seed\n";return 3;}m.seeds.push_back(c);}prepare(m);}
+  if(!f){std::cerr<<"bad data\n";return 4;}
+  auto start=std::chrono::steady_clock::now();double limit=std::stod(argv[2]),last=0;U rounds=0;
+  auto elapsed=[&](){return std::chrono::duration<double>(std::chrono::steady_clock::now()-start).count();};
+  while(elapsed()<limit){
+   auto&m=models[rounds++%models.size()]; Circuit c=(m.elite.empty()||pick(100)<65)?seed(m):m.elite[pick(m.elite.size())];
+   U val=evaluate(m,c);int used=active(m,c);
++  if(inspect_subgraph(m,c,val,used,argv[3]))return 0;
+   double fpweight=1.0+pick(4)*0.4;
+   auto score=[&](U v,int ac){return std::popcount(m.target&~v)+fpweight*std::popcount(v&~m.target)+0.015*ac;};
+   double energy=score(val,used),temp=(pick(100)<70?0.05:0.7+unit()*1.3);
+   for(int iter=0;iter<30000&&elapsed()<limit;++iter){
+    auto d=mutate(m,c);U nv=evaluate(m,d);++m.tests;int nl=std::popcount(nv^m.target),nu=active(m,d);double ne=score(nv,nu);
++   if(inspect_subgraph(m,d,nv,nu,argv[3]))return 0;
+    if(nl<m.best){m.best=nl;m.elite.clear();save(std::string(argv[3])+"/minimize-best-"+m.name+".json",m,d,nl,nv);std::cout<<"BEST "<<m.name<<" loss="<<nl<<" evaluations="<<m.tests<<" seconds="<<elapsed()<<std::endl;}
+    if(nl==0){save(std::string(argv[3])+"/minimize-FOUND.json",m,d,nl,nv);std::cout<<"FOUND "<<m.name<<std::endl;return 0;}
+    if(nl==m.best&&pick(2000)==0){if(m.elite.size()<64)m.elite.push_back(d);else m.elite[pick(64)]=d;}
+    double t=temp*(1.0-double(iter)/32000.0);
+    if(ne<=energy||unit()<std::exp((energy-ne)/t)){c=std::move(d);val=nv;used=nu;energy=ne;}
+   }
+-  double now=elapsed();if(now-last>30){last=now;std::cout<<"PROGRESS seconds="<<now;for(auto&m:models)std::cout<<' '<<m.name<<"_evaluations="<<m.tests<<" best="<<m.best;std::cout<<std::endl;}
++  double now=elapsed();if(now-last>30){last=now;std::cout<<"PROGRESS seconds="<<now;for(auto&m:models)std::cout<<' '<<m.name<<"_evaluations="<<m.tests<<" best="<<m.best<<" subtests="<<m.subtests<<" fullchecks="<<m.fullchecks;std::cout<<std::endl;}
+  }
+- std::cout<<"DONE seconds="<<elapsed();for(auto&m:models)std::cout<<' '<<m.name<<"_evaluations="<<m.tests<<" best="<<m.best;std::cout<<std::endl;
++ std::cout<<"DONE seconds="<<elapsed();for(auto&m:models)std::cout<<' '<<m.name<<"_evaluations="<<m.tests<<" best="<<m.best<<" subtests="<<m.subtests<<" fullchecks="<<m.fullchecks;std::cout<<std::endl;
+  return 1;
+ }

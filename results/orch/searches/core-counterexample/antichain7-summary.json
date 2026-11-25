@@ -1,0 +1,22 @@
+[
+  {
+    "family": 0,
+    "exit": 20,
+    "status": "s UNSATISFIABLE"
+  },
+  {
+    "family": 1,
+    "exit": 20,
+    "status": "s UNSATISFIABLE"
+  },
+  {
+    "family": 2,
+    "exit": 20,
+    "status": "s UNSATISFIABLE"
+  },
+  {
+    "family": 3,
+    "exit": 20,
+    "status": "s UNSATISFIABLE"
+  }
+]

@@ -1,0 +1,5 @@
+{
+  "status": "INTERRUPTED",
+  "detected_utc": "2026-11-25T07:41:18.925696+00:00",
+  "reason": "Environment reconnect; process state Z; no solver exit marker. No SAT/UNSAT verdict."
+}

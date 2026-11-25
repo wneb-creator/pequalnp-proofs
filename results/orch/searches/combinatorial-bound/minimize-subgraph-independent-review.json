@@ -1,0 +1,26 @@
+{
+  "source_sha256": "031249bdf0aa7f0556a958dd99315bad7904e0dd64f9a2e11576a2feb000a5f3",
+  "models": [
+    {
+      "model": "theta",
+      "matching_vs_exhaustive_cover_subgraphs": 512,
+      "best_complete_truth_rows": 256,
+      "best_pair_edges": 8,
+      "best_cover": 4,
+      "active_gates": 11,
+      "best_exact_pair_graph": true,
+      "strict_saving": false
+    },
+    {
+      "model": "fano",
+      "matching_vs_exhaustive_cover_subgraphs": 256,
+      "best_complete_truth_rows": 16384,
+      "best_pair_edges": 20,
+      "best_cover": 7,
+      "active_gates": 26,
+      "best_exact_pair_graph": true,
+      "strict_saving": false
+    }
+  ],
+  "review": "PASS for current verified data; heuristic only, all witnesses still need independent full truth and Lean"
+}

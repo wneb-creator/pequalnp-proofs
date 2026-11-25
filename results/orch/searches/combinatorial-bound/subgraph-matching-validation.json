@@ -1,0 +1,8 @@
+{
+  "result": "PASS",
+  "method": "Kuhn matching compared with exhaustive vertex-cover enumeration",
+  "cases": {
+    "theta": 512,
+    "fano": 128
+  }
+}

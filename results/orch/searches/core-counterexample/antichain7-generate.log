@@ -1,0 +1,4 @@
+{"family": 0, "variables": 50, "cnf_clauses": 537, "minterms": 88}
+{"family": 1, "variables": 50, "cnf_clauses": 538, "minterms": 89}
+{"family": 2, "variables": 50, "cnf_clauses": 537, "minterms": 88}
+{"family": 3, "variables": 50, "cnf_clauses": 534, "minterms": 85}

@@ -1,0 +1,12 @@
+BEST theta loss=5 evaluations=1 seconds=0.000662852
+BEST theta loss=2 evaluations=3 seconds=0.00144533
+BEST theta loss=1 evaluations=20 seconds=0.00206098
+BEST fano loss=26 evaluations=1 seconds=0.0110821
+BEST fano loss=20 evaluations=8 seconds=0.0111501
+BEST fano loss=18 evaluations=35 seconds=0.0114945
+BEST fano loss=17 evaluations=22231 seconds=0.0195448
+BEST fano loss=15 evaluations=60001 seconds=0.0466971
+BEST fano loss=5 evaluations=60002 seconds=0.0469987
+BEST fano loss=4 evaluations=90004 seconds=0.0610802
+BEST fano loss=3 evaluations=90011 seconds=0.061382
+BEST fano loss=1 evaluations=90022 seconds=0.0615696

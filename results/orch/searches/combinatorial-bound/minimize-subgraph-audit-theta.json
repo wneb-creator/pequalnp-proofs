@@ -1,0 +1,9 @@
+{
+  "graph": "theta",
+  "pair_edges": 8,
+  "cover": 4,
+  "active_gates": 11,
+  "exact_pair_function": true,
+  "canonical_bound": 11,
+  "global_counterexample": false
+}

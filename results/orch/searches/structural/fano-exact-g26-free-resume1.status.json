@@ -1,0 +1,19 @@
+{
+  "status": "TIMEOUT_OR_UNKNOWN",
+  "started_utc": "2026-11-25T07:43:15.957706+00:00",
+  "supervisor_pid": 18509,
+  "seconds_limit": 900,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-71/elan/toolchains/leanprover--lean4---v4.36.0/bin/cadical",
+    "--sat",
+    "-t",
+    "900",
+    "-w",
+    "/tmp/oec/pequalnp-pilot-71/structural/fano-exact-g26-free-resume1.sol",
+    "/tmp/oec/pequalnp-pilot-71/structural/fano-exact-g26-free-resume1.cnf"
+  ],
+  "solver_pid": 18510,
+  "returncode": 0,
+  "finished_utc": "2026-11-25T07:58:16.025989+00:00",
+  "wall_seconds": 900.0684403189998
+}
