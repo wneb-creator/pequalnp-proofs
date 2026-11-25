@@ -1816,4 +1816,774 @@ lemma crossing_or_center_of_large_neighborhood_filter
 
 end RectangleNeighborhood
 
+
+namespace PackingTransversal
+
+lemma filter_loss_le_one {α : Type*} [DecidableEq α]
+    (G : SimpleGraph α) [DecidableRel G.Adj] (S : Finset α) (a : α)
+    (h : (S.filter (G.Adj a)).card ≤ 1) :
+    S.card ≤ (S.filter (fun x => ¬ G.Adj a x)).card + 1 := by
+  have hp := Finset.card_filter_add_card_filter_not (s := S) (p := G.Adj a)
+  omega
+
+lemma filter_local {α : Type*} [DecidableEq α]
+    (G : SimpleGraph α) [DecidableRel G.Adj] (S T : Finset α)
+    (hST : S ⊆ T) (hT : ∀ w, (T.filter (G.Adj w)).card ≤ 1) :
+    ∀ w, (S.filter (G.Adj w)).card ≤ 1 := by
+  intro w
+  exact (Finset.card_le_card (by
+    intro x hx
+    exact Finset.mem_filter.mpr ⟨hST (Finset.mem_filter.mp hx).1,
+      (Finset.mem_filter.mp hx).2⟩)).trans (hT w)
+
+lemma insert_independent {α : Type*} [DecidableEq α] (G : SimpleGraph α)
+    (S : Finset α) (a : α)
+    (hS : ∀ x ∈ S, ∀ y ∈ S, ¬ G.Adj x y)
+    (ha : ∀ x ∈ S, ¬ G.Adj a x) :
+    ∀ x ∈ insert a S, ∀ y ∈ insert a S, ¬ G.Adj x y := by
+  intro x hx y hy hxy
+  rcases Finset.mem_insert.mp hx with hxa | hxS
+  · subst x
+    rcases Finset.mem_insert.mp hy with hya | hyS
+    · subst y
+      exact G.irrefl hxy
+    · exact ha y hyS hxy
+  · rcases Finset.mem_insert.mp hy with hya | hyS
+    · subst y
+      exact ha x hxS hxy.symm
+    · exact hS x hxS y hyS hxy
+
+/-- A path through three different classes improves the greedy size threshold
+  from the number of classes to one less, in a triangle-free graph. -/
+lemma independent_hitting_set_of_three_class_path
+    {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (G : SimpleGraph α) [DecidableRel G.Adj]
+    (U : Finset β) (A : β → Finset α)
+    (htri : ∀ x y z, G.Adj x y → G.Adj y z → ¬ G.Adj z x)
+    (hlocal : ∀ i ∈ U, ∀ w, ((A i).filter (G.Adj w)).card ≤ 1)
+    (hsize : ∀ i ∈ U, U.card ≤ (A i).card + 1)
+    (i j k : β) (hi : i ∈ U) (hj : j ∈ U) (hk : k ∈ U)
+    (hij : i ≠ j) (hik : i ≠ k) (hjk : j ≠ k)
+    (a b c : α) (ha : a ∈ A i) (hb : b ∈ A j) (hc : c ∈ A k)
+    (hac : G.Adj a c) (hbc : G.Adj b c) :
+    ∃ R : Finset α, R.card ≤ U.card ∧ R ⊆ U.biUnion A ∧
+      (∀ x ∈ R, ∀ y ∈ R, ¬ G.Adj x y) ∧
+      (∀ l ∈ U, ∃ x ∈ R, x ∈ A l) := by
+  classical
+  let D := ((U.erase i).erase j).erase k
+  have hj' : j ∈ U.erase i := Finset.mem_erase.mpr ⟨hij.symm, hj⟩
+  have hk' : k ∈ (U.erase i).erase j :=
+    Finset.mem_erase.mpr ⟨hjk.symm, Finset.mem_erase.mpr ⟨hik.symm, hk⟩⟩
+  have hDcard : D.card + 3 = U.card := by
+    have h₁ := Finset.card_erase_add_one hi
+    have h₂ := Finset.card_erase_add_one hj'
+    have h₃ := Finset.card_erase_add_one hk'
+    dsimp [D]
+    omega
+  have hDU : D ⊆ U := by
+    intro l hl
+    exact Finset.mem_of_mem_erase (Finset.mem_of_mem_erase (Finset.mem_of_mem_erase hl))
+  let F := fun l => ((A l).filter (fun x => ¬ G.Adj a x)).filter (fun x => ¬ G.Adj b x)
+  have hFsub (l : β) : F l ⊆ A l := by
+    intro x hx
+    exact (Finset.mem_filter.mp (Finset.mem_filter.mp hx).1).1
+  have hFlocal (l : β) (hl : l ∈ U) := filter_local G (F l) (A l) (hFsub l) (hlocal l hl)
+  have hFsize (l : β) (hl : l ∈ U) : U.card ≤ (F l).card + 3 := by
+    have h₁ := filter_loss_le_one G (A l) a (hlocal l hl a)
+    have h₂ := filter_loss_le_one G ((A l).filter (fun x => ¬ G.Adj a x)) b
+      (filter_local G _ (A l) (Finset.filter_subset _ _) (hlocal l hl) b)
+    have h₃ := hsize l hl
+    change _ ≤ (F l).card + 1 at h₂
+    omega
+  obtain ⟨R, hRcard, hRsub, hRind, hRhit⟩ := independent_hitting_set G D F
+    (fun l hl => hFlocal l (hDU hl)) (by
+      intro J hJ hJne
+      obtain ⟨l, hl⟩ := hJne
+      have hs := hFsize l (hDU (hJ hl))
+      have hjd := Finset.card_le_card hJ
+      exact ⟨l, hl, by omega⟩)
+  have hcenter : A k \ {c} ⊆ F k := by
+    intro x hx
+    obtain ⟨hxk, hxc⟩ := Finset.mem_sdiff.mp hx
+    have hxc' : x ≠ c := by simpa using hxc
+    have hax : ¬ G.Adj a x := by
+      intro hax
+      exact hxc' ((Finset.card_le_one.mp (hlocal k hk a)) x
+        (Finset.mem_filter.mpr ⟨hxk, hax⟩) c (Finset.mem_filter.mpr ⟨hc, hac⟩))
+    have hbx : ¬ G.Adj b x := by
+      intro hbx
+      exact hxc' ((Finset.card_le_one.mp (hlocal k hk b)) x
+        (Finset.mem_filter.mpr ⟨hxk, hbx⟩) c (Finset.mem_filter.mpr ⟨hc, hbc⟩))
+    exact Finset.mem_filter.mpr ⟨Finset.mem_filter.mpr ⟨hxk, hax⟩, hbx⟩
+  have hcenter_size : U.card ≤ (F k).card + 2 := by
+    have hs := Finset.card_le_card hcenter
+    have he := Finset.card_erase_add_one hc
+    have ht := hsize k hk
+    have heq : A k \ {c} = (A k).erase c := by ext x; simp [and_comm]
+    rw [heq] at hs
+    omega
+  let bad := R.biUnion (fun r => (F k).filter (G.Adj r))
+  have hbad : bad.card ≤ R.card := by
+    calc
+      bad.card ≤ ∑ r ∈ R, ((F k).filter (G.Adj r)).card := Finset.card_biUnion_le
+      _ ≤ ∑ r ∈ R, 1 := Finset.sum_le_sum (fun r hr => hFlocal k hk r)
+      _ = R.card := by simp
+  obtain ⟨d, hd, hdnot⟩ := Finset.exists_mem_notMem_of_card_lt_card
+    (show bad.card < (F k).card by omega)
+  have hdR : ∀ r ∈ R, ¬ G.Adj d r := by
+    intro r hr hdr
+    exact hdnot (Finset.mem_biUnion.mpr ⟨r, hr, Finset.mem_filter.mpr ⟨hd, hdr.symm⟩⟩)
+  have hRavoid : ∀ r ∈ R, ¬ G.Adj a r ∧ ¬ G.Adj b r := by
+    intro r hr
+    obtain ⟨l, hl, hrl⟩ := Finset.mem_biUnion.mp (hRsub hr)
+    exact ⟨(Finset.mem_filter.mp (Finset.mem_filter.mp hrl).1).2,
+      (Finset.mem_filter.mp hrl).2⟩
+  have had : ¬ G.Adj a d := (Finset.mem_filter.mp (Finset.mem_filter.mp hd).1).2
+  have hbd : ¬ G.Adj b d := (Finset.mem_filter.mp hd).2
+  have hab : ¬ G.Adj a b := fun hab => htri a b c hab hbc hac.symm
+  have h₁ := insert_independent G R d hRind hdR
+  have h₂ := insert_independent G (insert d R) b h₁ (by
+    intro r hr
+    rcases Finset.mem_insert.mp hr with rfl | hr
+    · exact hbd
+    · exact (hRavoid r hr).2)
+  have h₃ := insert_independent G (insert b (insert d R)) a h₂ (by
+    intro r hr
+    rcases Finset.mem_insert.mp hr with rfl | hr
+    · exact hab
+    · rcases Finset.mem_insert.mp hr with rfl | hr
+      · exact had
+      · exact (hRavoid r hr).1)
+  refine ⟨insert a (insert b (insert d R)), ?_, ?_, h₃, ?_⟩
+  · have h₁ := Finset.card_insert_le d R
+    have h₂ := Finset.card_insert_le b (insert d R)
+    have h₃ := Finset.card_insert_le a (insert b (insert d R))
+    omega
+  · intro r hr
+    simp only [Finset.mem_insert] at hr
+    rcases hr with rfl | rfl | rfl | hr
+    · exact Finset.mem_biUnion.mpr ⟨i, hi, ha⟩
+    · exact Finset.mem_biUnion.mpr ⟨j, hj, hb⟩
+    · exact Finset.mem_biUnion.mpr ⟨k, hk, hFsub k hd⟩
+    · obtain ⟨l, hl, hrl⟩ := Finset.mem_biUnion.mp (hRsub hr)
+      exact Finset.mem_biUnion.mpr ⟨l, hDU hl, hFsub l hrl⟩
+  · intro l hl
+    by_cases hli : l = i
+    · subst l
+      exact ⟨a, by simp, ha⟩
+    by_cases hlj : l = j
+    · subst l
+      exact ⟨b, by simp, hb⟩
+    by_cases hlk : l = k
+    · subst l
+      exact ⟨d, by simp, hFsub k hd⟩
+    have hld : l ∈ D := by simp [D, hli, hlj, hlk, hl]
+    obtain ⟨r, hr, hrl⟩ := hRhit l hld
+    exact ⟨r, by simp [hr], hFsub l hrl⟩
+
+end PackingTransversal
+
+namespace PackingTransversal
+
+def HasThreeClassPath {α β : Type*} (G : SimpleGraph α)
+    (U : Finset β) (A : β → Finset α) : Prop :=
+  ∃ i ∈ U, ∃ j ∈ U, ∃ k ∈ U, i ≠ j ∧ i ≠ k ∧ j ≠ k ∧
+    ∃ a ∈ A i, ∃ b ∈ A j, ∃ c ∈ A k, G.Adj a c ∧ G.Adj b c
+
+def classLiftGraph {α β : Type*} (G : SimpleGraph α)
+    (U : Finset β) (A : β → Finset α) : SimpleGraph (β × α) where
+  Adj p q := p.1 ∈ U ∧ p.2 ∈ A p.1 ∧ q.1 ∈ U ∧ q.2 ∈ A q.1 ∧ G.Adj p.2 q.2
+  symm := by
+    constructor
+    intro p q h
+    exact ⟨h.2.2.1, h.2.2.2.1, h.1, h.2.1, h.2.2.2.2.symm⟩
+  loopless := by
+    constructor
+    intro p h
+    exact G.irrefl h.2.2.2.2
+
+def classLiftSet {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (A : β → Finset α) (i : β) : Finset (β × α) :=
+  (A i).image (fun a => (i, a))
+
+lemma classLiftSet_card {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (A : β → Finset α) (i : β) : (classLiftSet A i).card = (A i).card :=
+  Finset.card_image_of_injective _ (fun _a _b h => congrArg Prod.snd h)
+
+lemma classLiftSet_disjoint {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (A : β → Finset α) {i j : β} (hij : i ≠ j) :
+    Disjoint (classLiftSet A i) (classLiftSet A j) := by
+  apply Finset.disjoint_left.mpr
+  intro p hp hq
+  obtain ⟨a, ha, rfl⟩ := Finset.mem_image.mp hp
+  obtain ⟨b, hb, he⟩ := Finset.mem_image.mp hq
+  exact hij (congrArg Prod.fst he).symm
+
+lemma classLiftGraph_local {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (G : SimpleGraph α) [DecidableRel G.Adj]
+    (U : Finset β) (A : β → Finset α)
+    [DecidableRel (classLiftGraph G U A).Adj]
+    (hlocal : ∀ i ∈ U, ∀ w, ((A i).filter (G.Adj w)).card ≤ 1) :
+    ∀ i ∈ U, ∀ w, ((classLiftSet A i).filter ((classLiftGraph G U A).Adj w)).card ≤ 1 := by
+  intro i hi w
+  apply Finset.card_le_one.mpr
+  intro p hp q hq
+  obtain ⟨hp, hwp⟩ := Finset.mem_filter.mp hp
+  obtain ⟨hq, hwq⟩ := Finset.mem_filter.mp hq
+  obtain ⟨a, ha, rfl⟩ := Finset.mem_image.mp hp
+  obtain ⟨b, hb, rfl⟩ := Finset.mem_image.mp hq
+  have hab := Finset.card_le_one.mp (hlocal i hi w.2) a
+    (Finset.mem_filter.mpr ⟨ha, hwp.2.2.2.2⟩) b
+    (Finset.mem_filter.mpr ⟨hb, hwq.2.2.2.2⟩)
+  exact congrArg (fun x => (i, x)) hab
+
+lemma classLiftGraph_degree_one {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (G : SimpleGraph α) [DecidableRel G.Adj]
+    (U : Finset β) (A : β → Finset α)
+    (hlocal : ∀ i ∈ U, ∀ w, ((A i).filter (G.Adj w)).card ≤ 1)
+    (hind : ∀ i ∈ U, ∀ a ∈ A i, ∀ b ∈ A i, ¬ G.Adj a b)
+    (hnopath : ¬ HasThreeClassPath G U A) :
+    ∀ p q r, (classLiftGraph G U A).Adj p q →
+      (classLiftGraph G U A).Adj p r → q = r := by
+  rintro ⟨i, a⟩ ⟨j, b⟩ ⟨k, c⟩ hpq hpr
+  obtain ⟨hi, ha, hj, hb, hab⟩ := hpq
+  obtain ⟨_, _, hk, hc, hac⟩ := hpr
+  by_cases hjk : j = k
+  · subst k
+    have hbc := Finset.card_le_one.mp (hlocal j hj a) b
+      (Finset.mem_filter.mpr ⟨hb, hab⟩) c (Finset.mem_filter.mpr ⟨hc, hac⟩)
+    subst c
+    rfl
+  · have hji : j ≠ i := by
+      intro hji
+      subst j
+      exact hind i hi a ha b hb hab
+    have hki : k ≠ i := by
+      intro hki
+      subst k
+      exact hind i hi a ha c hc hac
+    exact (hnopath ⟨j, hj, k, hk, i, hi, hjk, hji, hki,
+      b, hb, c, hc, a, ha, hab.symm, hac.symm⟩).elim
+
+end PackingTransversal
+
+namespace MatchingCompletion
+
+lemma independent_insert {α : Type*} [DecidableEq α]
+    (G : SimpleGraph α) (R : Finset α) (a : α)
+    (hR : ∀ x ∈ R, ∀ y ∈ R, ¬G.Adj x y)
+    (ha : ∀ r ∈ R, ¬G.Adj a r) :
+    ∀ x ∈ insert a R, ∀ y ∈ insert a R, ¬G.Adj x y := by
+  intro x hx y hy
+  simp only [Finset.mem_insert] at hx hy
+  rcases hx with hx | hx <;> rcases hy with hy | hy
+  · subst x; subst y
+    exact G.irrefl
+  · subst x
+    exact ha y hy
+  · subst y
+    exact fun h => ha x hx h.symm
+  · exact hR x hx y hy
+
+lemma matching_completion {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (G : SimpleGraph α) (U : Finset β) (A : β → Finset α)
+    (hdegree : ∀ a b c, G.Adj a b → G.Adj a c → b = c)
+    (hdisjoint : ∀ i ∈ U, ∀ j ∈ U, i ≠ j → Disjoint (A i) (A j))
+    (hlarge : ∀ i ∈ U, U.card - 1 ≤ (A i).card)
+    (hk : 3 ≤ U.card)
+    (z : β) (hz : z ∈ U) (R : Finset α)
+    (hRcard : R.card ≤ U.card - 1)
+    (hRsub : R ⊆ (U.erase z).biUnion A)
+    (hRind : ∀ a ∈ R, ∀ b ∈ R, ¬G.Adj a b)
+    (hRhit : ∀ i ∈ U.erase z, ∃ a ∈ R, a ∈ A i) :
+    ∃ S : Finset α, S.card ≤ U.card ∧ S ⊆ U.biUnion A ∧
+      (∀ a ∈ S, ∀ b ∈ S, ¬G.Adj a b) ∧
+      (∀ i ∈ U, ∃ a ∈ S, a ∈ A i) := by
+  classical
+  have oldSub : R ⊆ U.biUnion A := by
+    intro r hr
+    obtain ⟨i, hi, hri⟩ := Finset.mem_biUnion.mp (hRsub hr)
+    exact Finset.mem_biUnion.mpr ⟨i, Finset.mem_of_mem_erase hi, hri⟩
+  by_cases free : ∃ a ∈ A z, ∀ r ∈ R, ¬G.Adj a r
+  · obtain ⟨a, ha, hfree⟩ := free
+    refine ⟨insert a R, ?_, ?_, independent_insert G R a hRind hfree, ?_⟩
+    · have := Finset.card_insert_le a R
+      omega
+    · intro r hr
+      rcases Finset.mem_insert.mp hr with hr | hr
+      · subst r
+        exact Finset.mem_biUnion.mpr ⟨z, hz, ha⟩
+      · exact oldSub hr
+    · intro i hi
+      by_cases hiz : i = z
+      · subst i
+        exact ⟨a, Finset.mem_insert_self _ _, ha⟩
+      · obtain ⟨r, hr, hri⟩ := hRhit i (Finset.mem_erase.mpr ⟨hiz, hi⟩)
+        exact ⟨r, Finset.mem_insert_of_mem hr, hri⟩
+  · push Not at free
+    have chosen : ∀ a : {x // x ∈ A z}, ∃ r ∈ R, G.Adj a.val r := by
+      intro a
+      exact free a.val a.property
+    choose f hf hfa using chosen
+    have inj : Function.Injective f := by
+      intro a b heq
+      apply Subtype.ext
+      apply hdegree (f a) a.val b.val
+      · exact (hfa a).symm
+      · simpa only [heq] using (hfa b).symm
+    let T : Finset α := (A z).attach.image f
+    have hTcard : T.card = (A z).card := by
+      simp only [T, Finset.card_image_of_injective _ inj, Finset.card_attach]
+    have hTsub : T ⊆ R := by
+      intro r hr
+      obtain ⟨a, _, rfl⟩ := Finset.mem_image.mp hr
+      exact hf a
+    have hTeq : T = R := by
+      apply Finset.eq_of_subset_of_card_le hTsub
+      rw [hTcard]
+      exact hRcard.trans (hlarge z hz)
+    have matched : ∀ r ∈ R, ∃ a ∈ A z, G.Adj r a := by
+      intro r hr
+      rw [← hTeq] at hr
+      obtain ⟨a, _, rfl⟩ := Finset.mem_image.mp hr
+      exact ⟨a.val, a.property, (hfa a).symm⟩
+    have hzcard : 0 < (A z).card := by
+      have := hlarge z hz
+      omega
+    obtain ⟨a0, ha0⟩ := Finset.card_pos.mp hzcard
+    obtain ⟨r0, hr0, har⟩ := free a0 ha0
+    obtain ⟨i, hi, hr0i⟩ := Finset.mem_biUnion.mp (hRsub hr0)
+    have hiU : i ∈ U := Finset.mem_of_mem_erase hi
+    have hiz : i ≠ z := (Finset.mem_erase.mp hi).1
+    have hicard : 2 ≤ (A i).card := by
+      have := hlarge i hiU
+      omega
+    have other : ∃ b ∈ A i, b ≠ r0 := by
+      by_contra hn
+      have hs : A i ⊆ {r0} := by
+        intro b hb
+        have he : b = r0 := by
+          by_contra hne
+          exact hn ⟨b, hb, hne⟩
+        simp only [Finset.mem_singleton, he]
+      have := Finset.card_le_card hs
+      simp only [Finset.card_singleton] at this
+      omega
+    obtain ⟨b, hb, hbne⟩ := other
+    have hbnot : b ∉ A z := by
+      exact fun h => Finset.disjoint_left.mp (hdisjoint i hiU z hz hiz) hb h
+    have hbfree : ∀ r ∈ R, ¬G.Adj b r := by
+      intro r hr hbr
+      obtain ⟨a, ha, hra⟩ := matched r hr
+      have he : b = a := hdegree r b a hbr.symm hra
+      exact hbnot (he.symm ▸ ha)
+    have hafree : ∀ r ∈ R.erase r0, ¬G.Adj a0 r := by
+      intro r hr hadj
+      exact (Finset.mem_erase.mp hr).1 (hdegree a0 r r0 hadj har)
+    have hab : ¬G.Adj a0 b := by
+      intro hadj
+      exact hbne (hdegree a0 b r0 hadj har)
+    have herase : ∀ x ∈ R.erase r0, ∀ y ∈ R.erase r0, ¬G.Adj x y := by
+      intro x hx y hy
+      exact hRind x (Finset.mem_of_mem_erase hx) y (Finset.mem_of_mem_erase hy)
+    have hbind := independent_insert G (R.erase r0) b herase
+      (fun r hr => hbfree r (Finset.mem_of_mem_erase hr))
+    have hafree' : ∀ r ∈ insert b (R.erase r0), ¬G.Adj a0 r := by
+      intro r hr
+      rcases Finset.mem_insert.mp hr with hr | hr
+      · subst r
+        exact hab
+      · exact hafree r hr
+    refine ⟨insert a0 (insert b (R.erase r0)), ?_, ?_,
+      independent_insert G _ a0 hbind hafree', ?_⟩
+    · have h1 := Finset.card_insert_le a0 (insert b (R.erase r0))
+      have h2 := Finset.card_insert_le b (R.erase r0)
+      have h3 := Finset.card_erase_add_one hr0
+      omega
+    · intro r hr
+      rcases Finset.mem_insert.mp hr with hr | hr
+      · subst r
+        exact Finset.mem_biUnion.mpr ⟨z, hz, ha0⟩
+      · rcases Finset.mem_insert.mp hr with hr | hr
+        · subst r
+          exact Finset.mem_biUnion.mpr ⟨i, hiU, hb⟩
+        · exact oldSub (Finset.mem_of_mem_erase hr)
+    · intro j hj
+      by_cases hjz : j = z
+      · subst j
+        exact ⟨a0, Finset.mem_insert_self _ _, ha0⟩
+      · by_cases hji : j = i
+        · subst j
+          exact ⟨b, Finset.mem_insert_of_mem (Finset.mem_insert_self _ _), hb⟩
+        · obtain ⟨r, hr, hrj⟩ := hRhit j (Finset.mem_erase.mpr ⟨hjz, hj⟩)
+          have hrne : r ≠ r0 := by
+            intro he
+            exact Finset.disjoint_left.mp (hdisjoint i hiU j hj (Ne.symm hji))
+              hr0i (he ▸ hrj)
+          exact ⟨r, Finset.mem_insert_of_mem (Finset.mem_insert_of_mem
+            (Finset.mem_erase.mpr ⟨hrne, hr⟩)), hrj⟩
+
+end MatchingCompletion
+
+namespace PackingTransversal
+
+/-- Triangle-free packing classes of size at least one less than their number
+  have an independent hitting set, when there are at least three classes. -/
+lemma independent_hitting_set_triangle_free
+    {α β : Type*} [DecidableEq α] [DecidableEq β]
+    (G : SimpleGraph α) [DecidableRel G.Adj]
+    (U : Finset β) (A : β → Finset α)
+    (htri : ∀ x y z, G.Adj x y → G.Adj y z → ¬ G.Adj z x)
+    (hlocal : ∀ i ∈ U, ∀ w, ((A i).filter (G.Adj w)).card ≤ 1)
+    (hind : ∀ i ∈ U, ∀ a ∈ A i, ∀ b ∈ A i, ¬ G.Adj a b)
+    (hsize : ∀ i ∈ U, U.card ≤ (A i).card + 1)
+    (hcount : 3 ≤ U.card) :
+    ∃ R : Finset α, R.card ≤ U.card ∧ R ⊆ U.biUnion A ∧
+      (∀ x ∈ R, ∀ y ∈ R, ¬ G.Adj x y) ∧
+      (∀ i ∈ U, ∃ x ∈ R, x ∈ A i) := by
+  classical
+  by_cases hpath : HasThreeClassPath G U A
+  · obtain ⟨i, hi, j, hj, k, hk, hij, hik, hjk, a, ha, b, hb, c, hc, hac, hbc⟩ := hpath
+    exact independent_hitting_set_of_three_class_path G U A htri hlocal hsize
+      i j k hi hj hk hij hik hjk a b c ha hb hc hac hbc
+  · let H := classLiftGraph G U A
+    let B := classLiftSet A
+    have hdegree := classLiftGraph_degree_one G U A hlocal hind hpath
+    have hloc : ∀ i ∈ U, ∀ w, ((B i).filter (H.Adj w)).card ≤ 1 :=
+      classLiftGraph_local G U A hlocal
+    have hcard : ∀ i ∈ U, U.card - 1 ≤ (B i).card := by
+      intro i hi
+      change U.card - 1 ≤ (classLiftSet A i).card
+      rw [classLiftSet_card]
+      have := hsize i hi
+      omega
+    obtain ⟨z, hz⟩ := Finset.card_pos.mp (show 0 < U.card by omega)
+    have herase : (U.erase z).card + 1 = U.card := Finset.card_erase_add_one hz
+    obtain ⟨R, hRcard, hRsub, hRind, hRhit⟩ := independent_hitting_set H (U.erase z) B
+      (fun i hi => hloc i (Finset.mem_of_mem_erase hi)) (by
+        intro J hJ hne
+        obtain ⟨i, hi⟩ := hne
+        have hs := hcard i (Finset.mem_of_mem_erase (hJ hi))
+        have hjc := Finset.card_le_card hJ
+        exact ⟨i, hi, by omega⟩)
+    obtain ⟨S, hScard, hSsub, hSind, hShit⟩ :=
+      PEqualNP.Outside.L_meta_1904_aux.MatchingCompletion.matching_completion H U B hdegree
+        (fun i hi j hj hij => classLiftSet_disjoint A hij) hcard hcount z hz R
+        (by omega) hRsub hRind hRhit
+    have hactive (p : β × α) (hp : p ∈ S) : p.1 ∈ U ∧ p.2 ∈ A p.1 := by
+      obtain ⟨i, hi, hpi⟩ := Finset.mem_biUnion.mp (hSsub hp)
+      obtain ⟨a, ha, rfl⟩ := Finset.mem_image.mp hpi
+      exact ⟨hi, ha⟩
+    refine ⟨S.image Prod.snd, (Finset.card_image_le).trans hScard, ?_, ?_, ?_⟩
+    · intro a ha
+      obtain ⟨p, hp, rfl⟩ := Finset.mem_image.mp ha
+      exact Finset.mem_biUnion.mpr ⟨p.1, (hactive p hp).1, (hactive p hp).2⟩
+    · intro a ha b hb hab
+      obtain ⟨p, hp, rfl⟩ := Finset.mem_image.mp ha
+      obtain ⟨q, hq, rfl⟩ := Finset.mem_image.mp hb
+      exact hSind p hp q hq ⟨(hactive p hp).1, (hactive p hp).2,
+        (hactive q hq).1, (hactive q hq).2, hab⟩
+    · intro i hi
+      obtain ⟨p, hp, hpi⟩ := hShit i hi
+      obtain ⟨a, ha, rfl⟩ := Finset.mem_image.mp hpi
+      exact ⟨a, Finset.mem_image.mpr ⟨(i, a), hp, rfl⟩, ha⟩
+
+end PackingTransversal
+
+namespace WeightedEquality
+
+def weight {α ι : Type*} [DecidableEq α] (B : ι → Finset α) (v : α) (i : ι) : ℚ :=
+  if v ∈ B i then 1 / (B i).card else 0
+
+lemma weight_nonneg {α ι : Type*} [DecidableEq α]
+    (B : ι → Finset α) (v : α) (i : ι) : 0 ≤ weight B v i := by
+  dsimp only [weight]
+  split_ifs
+  · positivity
+  · exact le_rfl
+
+lemma weight_pos {α ι : Type*} [DecidableEq α]
+    (B : ι → Finset α) (v : α) (i : ι) (hv : v ∈ B i) : 0 < weight B v i := by
+  have hpos : (0 : ℚ) < (B i).card := by
+    exact_mod_cast (Finset.card_pos.mpr ⟨v, hv⟩)
+  dsimp only [weight]
+  rw [ite_eq_left hv]
+  exact one_div_pos.mpr hpos
+
+lemma column_le_one {α ι : Type*} [DecidableEq α]
+    (V : Finset α) (B : ι → Finset α) (i : ι) :
+    (∑ v ∈ V, weight B v i) ≤ 1 := by
+  simp only [weight, Finset.sum_ite_mem, Finset.sum_const, nsmul_eq_mul]
+  by_cases empty : (B i).card = 0
+  · simp [empty]
+  · have nz : ((B i).card : ℚ) ≠ 0 := by exact_mod_cast empty
+    calc
+      ((V ∩ B i).card : ℚ) * (1 / (B i).card) ≤
+          ((B i).card : ℚ) * (1 / (B i).card) := by
+        apply mul_le_mul_of_nonneg_right
+        · exact_mod_cast Finset.card_le_card (Finset.inter_subset_right : V ∩ B i ⊆ B i)
+        · positivity
+      _ = 1 := by field_simp
+
+lemma row_eq_one_of_card_eq {α ι : Type*} [DecidableEq α]
+    (V : Finset α) (U : Finset ι) (B : ι → Finset α)
+    (hrow : ∀ v ∈ V, 1 ≤ ∑ i ∈ U, weight B v i)
+    (heq : V.card = U.card) :
+    ∀ v ∈ V, (∑ i ∈ U, weight B v i) = 1 := by
+  have htotal : (∑ v ∈ V, ∑ i ∈ U, weight B v i) ≤ (V.card : ℚ) := by
+    calc
+      (∑ v ∈ V, ∑ i ∈ U, weight B v i) =
+          ∑ i ∈ U, ∑ v ∈ V, weight B v i := Finset.sum_comm
+      _ ≤ ∑ _i ∈ U, (1 : ℚ) := Finset.sum_le_sum (fun i _ => column_le_one V B i)
+      _ = V.card := by simp [heq]
+  intro v hv
+  apply le_antisymm _ (hrow v hv)
+  by_contra hnot
+  have hlt : (1 : ℚ) < ∑ i ∈ U, weight B v i := lt_of_not_ge hnot
+  have hsum := Finset.sum_lt_sum hrow ⟨v, hv, hlt⟩
+  have hstrict : (V.card : ℚ) < ∑ v ∈ V, ∑ i ∈ U, weight B v i := by
+    simpa using hsum
+  exact (not_lt_of_ge htotal) hstrict
+
+lemma block_lower_bound {α ι : Type*} [DecidableEq α]
+    (B : ι → Finset α) (v : α) (J : Finset ι) (hJ : J.Nonempty)
+    (hJi : ∀ i ∈ J, v ∈ B i ∧ (B i).card ≤ J.card) :
+    1 ≤ ∑ i ∈ J, weight B v i := by
+  have hposJ : (0 : ℚ) < J.card := by exact_mod_cast hJ.card_pos
+  calc
+    (1 : ℚ) = ∑ i ∈ J, (1 : ℚ) / J.card := by
+      simp only [Finset.sum_const, nsmul_eq_mul]
+      field_simp
+    _ ≤ ∑ i ∈ J, weight B v i := by
+      apply Finset.sum_le_sum
+      intro i hi
+      obtain ⟨hvi, hc⟩ := hJi i hi
+      have hpos : (0 : ℚ) < (B i).card := by
+        exact_mod_cast (Finset.card_pos.mpr ⟨v, hvi⟩)
+      dsimp only [weight]
+      rw [ite_eq_left hvi]
+      exact one_div_le_one_div_of_le hpos (by exact_mod_cast hc)
+
+lemma row_ge_one_of_block {α ι : Type*} [DecidableEq α]
+    (U J : Finset ι) (B : ι → Finset α) (v : α)
+    (hJ : J.Nonempty) (hJU : J ⊆ U)
+    (hJi : ∀ i ∈ J, v ∈ B i ∧ (B i).card ≤ J.card) :
+    1 ≤ ∑ i ∈ U, weight B v i := by
+  exact le_trans (block_lower_bound B v J hJ hJi)
+    (Finset.sum_le_sum_of_subset_of_nonneg hJU (fun i _ _ => weight_nonneg B v i))
+
+lemma block_saturation {α ι : Type*} [DecidableEq α] [DecidableEq ι]
+    (U J : Finset ι) (B : ι → Finset α) (v : α)
+    (hrow : (∑ i ∈ U, weight B v i) = 1)
+    (hJ : J.Nonempty) (hJU : J ⊆ U)
+    (hJi : ∀ i ∈ J, v ∈ B i ∧ (B i).card ≤ J.card) :
+    J = U.filter (fun i => v ∈ B i) ∧ ∀ i ∈ J, (B i).card = J.card := by
+  have hsumJ : (∑ i ∈ J, weight B v i) = 1 := by
+    apply le_antisymm _ (block_lower_bound B v J hJ hJi)
+    calc
+      (∑ i ∈ J, weight B v i) ≤ ∑ i ∈ U, weight B v i :=
+        Finset.sum_le_sum_of_subset_of_nonneg hJU (fun i _ _ => weight_nonneg B v i)
+      _ = 1 := hrow
+  constructor
+  · apply Finset.Subset.antisymm
+    · intro i hi
+      exact Finset.mem_filter.mpr ⟨hJU hi, (hJi i hi).1⟩
+    · intro i hi
+      obtain ⟨hiU, hvi⟩ := Finset.mem_filter.mp hi
+      by_contra hiJ
+      have hsub : insert i J ⊆ U := by
+        intro j hj
+        rcases Finset.mem_insert.mp hj with rfl | hj
+        · exact hiU
+        · exact hJU hj
+      have hbound := Finset.sum_le_sum_of_subset_of_nonneg hsub
+        (fun j _ _ => weight_nonneg B v j)
+      rw [Finset.sum_insert hiJ, hsumJ, hrow] at hbound
+      have hpos := weight_pos B v i hvi
+      linarith
+  · intro i hi
+    apply le_antisymm (hJi i hi).2
+    by_contra hnot
+    have hlt : (B i).card < J.card := Nat.lt_of_not_ge hnot
+    have hposJ : (0 : ℚ) < J.card := by exact_mod_cast hJ.card_pos
+    have hconst : (∑ _j ∈ J, (1 : ℚ) / J.card) = 1 := by
+      simp only [Finset.sum_const, nsmul_eq_mul]
+      field_simp
+    have hterms : ∀ j ∈ J, (1 : ℚ) / J.card ≤ weight B v j := by
+      intro j hj
+      have hvj := (hJi j hj).1
+      have hpos : (0 : ℚ) < (B j).card := by
+        exact_mod_cast (Finset.card_pos.mpr ⟨v, hvj⟩)
+      dsimp only [weight]
+      rw [ite_eq_left hvj]
+      exact one_div_le_one_div_of_le hpos (by exact_mod_cast (hJi j hj).2)
+    have hstrict : (1 : ℚ) / J.card < weight B v i := by
+      have hvi := (hJi i hi).1
+      have hpos : (0 : ℚ) < (B i).card := by
+        exact_mod_cast (Finset.card_pos.mpr ⟨v, hvi⟩)
+      dsimp only [weight]
+      rw [ite_eq_left hvi]
+      exact one_div_lt_one_div_of_lt hpos (by exact_mod_cast hlt)
+    have hsum := Finset.sum_lt_sum hterms ⟨i, hi, hstrict⟩
+    rw [hconst, hsumJ] at hsum
+    exact (lt_irrefl (1 : ℚ)) hsum
+
+lemma uniform_incidence_of_card_eq {α ι : Type*} [DecidableEq α] [DecidableEq ι]
+    (V : Finset α) (U : Finset ι) (B : ι → Finset α)
+    (hblocks : ∀ v ∈ V, ∃ J : Finset ι, J.Nonempty ∧ J ⊆ U ∧
+      ∀ i ∈ J, v ∈ B i ∧ (B i).card ≤ J.card)
+    (heq : V.card = U.card) :
+    ∀ v ∈ V, (U.filter (fun i => v ∈ B i)).Nonempty ∧
+      ∀ i ∈ U.filter (fun i => v ∈ B i),
+        (B i).card = (U.filter (fun i => v ∈ B i)).card := by
+  have hrow : ∀ v ∈ V, 1 ≤ ∑ i ∈ U, weight B v i := by
+    intro v hv
+    obtain ⟨J, hJ, hJU, hJi⟩ := hblocks v hv
+    exact row_ge_one_of_block U J B v hJ hJU hJi
+  intro v hv
+  obtain ⟨J, hJ, hJU, hJi⟩ := hblocks v hv
+  obtain ⟨hJW, hcards⟩ := block_saturation U J B v
+    (row_eq_one_of_card_eq V U B hrow heq v hv) hJ hJU hJi
+  subst J
+  exact ⟨hJ, hcards⟩
+
+lemma large_source_has_uniform_incidence {α ι : Type*}
+    [DecidableEq α] [DecidableEq ι]
+    (V : Finset α) (U : Finset ι) (B : ι → Finset α)
+    (hsub : ∀ i ∈ U, B i ⊆ V)
+    (hblocks : ∀ v ∈ V, ∃ J : Finset ι, J.Nonempty ∧ J ⊆ U ∧
+      ∀ i ∈ J, v ∈ B i ∧ (B i).card ≤ J.card)
+    (heq : V.card = U.card) {i : ι} (hi : i ∈ U) (hlarge : 3 ≤ (B i).card) :
+    ∃ v ∈ V, 3 ≤ (U.filter (fun j => v ∈ B j)).card ∧
+      ∀ j ∈ U.filter (fun j => v ∈ B j),
+        (B j).card = (U.filter (fun j => v ∈ B j)).card := by
+  obtain ⟨v, hvi⟩ := Finset.card_pos.mp (show 0 < (B i).card by omega)
+  have hv : v ∈ V := hsub i hi hvi
+  have hc := (uniform_incidence_of_card_eq V U B hblocks heq v hv).2
+  refine ⟨v, hv, ?_, hc⟩
+  rw [← hc i (Finset.mem_filter.mpr ⟨hi, hvi⟩)]
+  exact hlarge
+
+lemma supports_card_le_two_of_no_large_uniform_incidence {α ι : Type*}
+    [DecidableEq α] [DecidableEq ι]
+    (V : Finset α) (U : Finset ι) (B : ι → Finset α)
+    (hsub : ∀ i ∈ U, B i ⊆ V)
+    (hblocks : ∀ v ∈ V, ∃ J : Finset ι, J.Nonempty ∧ J ⊆ U ∧
+      ∀ i ∈ J, v ∈ B i ∧ (B i).card ≤ J.card)
+    (heq : V.card = U.card)
+    (hno : ∀ v ∈ V, ¬ (3 ≤ (U.filter (fun j => v ∈ B j)).card ∧
+      ∀ j ∈ U.filter (fun j => v ∈ B j),
+        (B j).card = (U.filter (fun j => v ∈ B j)).card)) :
+    ∀ i ∈ U, (B i).card ≤ 2 := by
+  intro i hi
+  by_contra hnot
+  obtain ⟨v, hv, hlarge, hcards⟩ :=
+    large_source_has_uniform_incidence V U B hsub hblocks heq hi (by omega)
+  exact hno v hv ⟨hlarge, hcards⟩
+
+end WeightedEquality
+
+namespace PackingSources
+
+lemma no_large_uniform_incidence {n : ℕ} {I : Type} [DecidableEq I]
+    (G : SimpleGraph (Fin n)) (B : I → Finset (Fin n)) (U : Finset I)
+    (v : Fin n) (hne : ∃ w, G.Adj v w)
+    (htri : ∀ x y z, G.Adj x y → G.Adj y z → ¬ G.Adj z x)
+    (hind : ∀ i ∈ U, ∀ a ∈ B i, ∀ b ∈ B i, ¬ G.Adj a b)
+    (hpacking : ∀ i ∈ U, ∀ a ∈ B i, ∀ b ∈ B i, a ≠ b →
+      ∀ w, ¬ (G.Adj a w ∧ G.Adj b w))
+    (hagree : ∀ x y : Fin n → Bool,
+      (∀ i ∈ U, SignalAgreement.clause (B i) x ↔
+        SignalAgreement.clause (B i) y) →
+      SignalAgreement.hit G x → SignalAgreement.hit G y) :
+    ¬ (3 ≤ (U.filter (fun j => v ∈ B j)).card ∧
+      ∀ j ∈ U.filter (fun j => v ∈ B j),
+        (B j).card = (U.filter (fun j => v ∈ B j)).card) := by
+  classical
+  let W : Finset I := U.filter (fun i => v ∈ B i)
+  let A : I → Finset (Fin n) := fun i => (B i).erase v
+  rintro ⟨hcount, hcards⟩
+  have hlocal : ∀ i ∈ W, ∀ w, ((A i).filter (G.Adj w)).card ≤ 1 := by
+    intro i hi w
+    apply Finset.card_le_one.mpr
+    intro a ha b hb
+    have hai := (Finset.mem_filter.mp ha).1
+    have hbi := (Finset.mem_filter.mp hb).1
+    by_contra hab
+    exact hpacking i (Finset.mem_filter.mp hi).1 a (Finset.mem_of_mem_erase hai)
+      b (Finset.mem_of_mem_erase hbi) hab w
+      ⟨(Finset.mem_filter.mp ha).2.symm, (Finset.mem_filter.mp hb).2.symm⟩
+  have hAi : ∀ i ∈ W, ∀ a ∈ A i, ∀ b ∈ A i, ¬ G.Adj a b := by
+    intro i hi a ha b hb
+    exact hind i (Finset.mem_filter.mp hi).1 a (Finset.mem_of_mem_erase ha)
+      b (Finset.mem_of_mem_erase hb)
+  have hsize : ∀ i ∈ W, W.card ≤ (A i).card + 1 := by
+    intro i hi
+    have he := Finset.card_erase_add_one (Finset.mem_filter.mp hi).2
+    have hc := hcards i hi
+    change W.card ≤ ((B i).erase v).card + 1
+    change (B i).card = W.card at hc
+    omega
+  obtain ⟨R, hRc, hRU, hRI, hhit⟩ :=
+    PackingTransversal.independent_hitting_set_triangle_free G W A htri hlocal hAi hsize hcount
+  have hreplace : ∀ i ∈ U, v ∈ B i → ∃ a ∈ B i, a ∈ R := by
+    intro i hi hvi
+    obtain ⟨a, haR, haA⟩ := hhit i (Finset.mem_filter.mpr ⟨hi, hvi⟩)
+    exact ⟨a, Finset.mem_of_mem_erase haA, haR⟩
+  have hremote : ∀ a ∈ R, ∀ w, ¬ (G.Adj v w ∧ G.Adj a w) := by
+    intro a ha w
+    obtain ⟨i, hi, hai⟩ := Finset.mem_biUnion.mp (hRU ha)
+    have hiU := (Finset.mem_filter.mp hi).1
+    have hvi := (Finset.mem_filter.mp hi).2
+    have hai' := Finset.mem_erase.mp hai
+    exact hpacking i hiU v hvi a hai'.2 hai'.1.symm w
+  obtain ⟨a, ha, b, hb, hab⟩ :=
+    SignalAgreement.replacement_support_has_edge G B U v R hne hreplace hremote hagree
+  exact hRI a ha b hb hab
+
+lemma equality_forces_singletons_or_pairs {n : ℕ} {I : Type} [DecidableEq I]
+    (G : SimpleGraph (Fin n)) (B : I → Finset (Fin n)) (U : Finset I)
+    (hne : ∀ v, ∃ w, G.Adj v w)
+    (htri : ∀ x y z, G.Adj x y → G.Adj y z → ¬ G.Adj z x)
+    (hind : ∀ i ∈ U, ∀ a ∈ B i, ∀ b ∈ B i, ¬ G.Adj a b)
+    (hpacking : ∀ i ∈ U, ∀ a ∈ B i, ∀ b ∈ B i, a ≠ b →
+      ∀ w, ¬ (G.Adj a w ∧ G.Adj b w))
+    (hagree : ∀ x y : Fin n → Bool,
+      (∀ i ∈ U, SignalAgreement.clause (B i) x ↔
+        SignalAgreement.clause (B i) y) →
+      SignalAgreement.hit G x → SignalAgreement.hit G y)
+    (heq : n = U.card) :
+    ∀ i ∈ U, (B i).card ≤ 2 := by
+  classical
+  apply WeightedEquality.supports_card_le_two_of_no_large_uniform_incidence
+    (Finset.univ : Finset (Fin n)) U B
+    (by intros; exact Finset.subset_univ _)
+    (fun v _ => small_subfamily_of_essential_vertex G B U v (hne v) hpacking hagree)
+    (by simpa using heq)
+  intro v hv
+  exact no_large_uniform_incidence G B U v (hne v) htri hind hpacking hagree
+
+lemma large_clause_forces_extra_source {n : ℕ} {I : Type} [DecidableEq I]
+    (G : SimpleGraph (Fin n)) (B : I → Finset (Fin n)) (U : Finset I)
+    (hne : ∀ v, ∃ w, G.Adj v w)
+    (htri : ∀ x y z, G.Adj x y → G.Adj y z → ¬ G.Adj z x)
+    (hind : ∀ i ∈ U, ∀ a ∈ B i, ∀ b ∈ B i, ¬ G.Adj a b)
+    (hpacking : ∀ i ∈ U, ∀ a ∈ B i, ∀ b ∈ B i, a ≠ b →
+      ∀ w, ¬ (G.Adj a w ∧ G.Adj b w))
+    (hagree : ∀ x y : Fin n → Bool,
+      (∀ i ∈ U, SignalAgreement.clause (B i) x ↔
+        SignalAgreement.clause (B i) y) →
+      SignalAgreement.hit G x → SignalAgreement.hit G y)
+    (hlarge : ∃ i ∈ U, 3 ≤ (B i).card) :
+    n + 1 ≤ U.card := by
+  have hle := card_le_used_packing_sources G B U hne hpacking hagree
+  have hnequ : n ≠ U.card := by
+    intro heq
+    obtain ⟨i, hi, hci⟩ := hlarge
+    have hsmall := equality_forces_singletons_or_pairs G B U hne htri hind hpacking hagree heq i hi
+    omega
+  omega
+
+end PackingSources
+
 end PEqualNP.Outside.L_meta_1904_aux
