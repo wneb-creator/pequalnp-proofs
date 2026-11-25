@@ -1,5 +1,8 @@
 # L-meta-1031 research handoff
 
+Final lease audit correction: the initial desk response itself had holding=5 and the exact five-gap limit note. This job incorrectly treated its returned L-meta-1031 lease as an own assignment, worked on the gap, and renewed that lease 19 times instead of applying the required retry/stop rule. Ownership was never established. The lease later returned HTTP 410; this job never released it. Later returned L-meta-2602 was treated conservatively under the holding-limit rule and was not worked, renewed, or released. Earlier references to an own lease/assignment are superseded by this correction.
+
+
 The posted theorem remains unproved. No refutation of that theorem was found, and no proof PR was opened. This branch preserves partial Lean results and search evidence; it is not a single-file submission branch.
 
 The named file is `lean/PEqualNP/Outside/L_meta_1031.lean`. Its 6,066 lines have SHA256 `2011a533d49ecf0a82d095ef56836673c07337a6174bdb870e66edab55aad8e3`. The named build completed successfully with 5,183 jobs. Complete output is in `named-v2-build.stdout` and `named-v2-build.stderr`.

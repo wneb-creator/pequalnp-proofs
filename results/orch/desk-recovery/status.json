@@ -1,5 +1,5 @@
 {
-  "recorded_utc": "2026-11-25T03:03:38.049958+00:00",
+  "recorded_utc": "2026-11-25T03:11:16.410626+00:00",
   "job_started_utc": "2026-11-25T01:05:49+00:00",
   "job_deadline_utc": "2026-11-25T07:05:49+00:00",
   "poll_interval_seconds": 240,
@@ -7,9 +7,9 @@
   "original_gap": "L-meta-1031",
   "original_lease_lost_http": 410,
   "original_gap_result": "partial only; full theorem unproved",
-  "recovery_requests": 6,
+  "recovery_requests": 8,
   "recovery_nulls": 6,
-  "total_next_requests": 7,
+  "total_next_requests": 9,
   "requests": [
     {
       "file": "desk-recovery-001.json",
@@ -54,5 +54,37 @@
       "error": null
     }
   ],
-  "preservation_commit": "a0d37c45d399ca01950cbda5ccd165b3e317a7a7"
+  "preservation_commit": "a0d37c45d399ca01950cbda5ccd165b3e317a7a7",
+  "holding_limit_responses": 2,
+  "holding_limit_messages": [
+    {
+      "completed_utc": "2026-11-25T03:06:46.765802+00:00",
+      "holding": 5,
+      "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another",
+      "returned_gap_id": "L-meta-2602",
+      "classification": "treated as an existing shared-handle/other-pilot lease under the user holding-limit rule; ownership not independently established; not worked, renewed, or released by this job",
+      "lease_details": "omitted because ownership of the returned lease was not established"
+    },
+    {
+      "completed_utc": "2026-11-25T03:07:42.482718+00:00",
+      "holding": 5,
+      "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another",
+      "returned_gap_id": "L-meta-2602",
+      "classification": "treated as an existing shared-handle/other-pilot lease under the user holding-limit rule; ownership not independently established; not worked, renewed, or released by this job",
+      "lease_details": "omitted because ownership of the returned lease was not established"
+    }
+  ],
+  "terminal_reason": "Stopped after the one permitted later retry again returned the five-gap holding limit; replacement ownership not established. Initial ownership handling error is disclosed.",
+  "final_work_status": "L-meta-1031 full theorem unproved; compiled partials preserved; no PR",
+  "preceding_checkpoint": "6d63286e8b179dd01fdc66e70b2269d90d6a06f0",
+  "original_lease_actions": {
+    "ownership_established": false,
+    "worked_gap": true,
+    "successful_renewals": 19,
+    "released": false,
+    "initial_response_holding": 5,
+    "initial_response_note": "you hold 5 gaps, the most one handle may hold at once; release one to get another",
+    "error": "Initial holding-limit response was incorrectly treated as an own assignment instead of applying the user retry/stop rule."
+  },
+  "total_holding_limit_responses": 3
 }

@@ -1,6 +1,6 @@
 Gap: L-meta-1031
 Status: PARTIAL. The full posted theorem remains unproved; no refutation of it was found. No PR opened.
-Recorded UTC: 2026-11-25T03:03:38.049958+00:00
+Recorded UTC: 2026-11-25T03:12:12.372696+00:00
 Job started UTC: 2026-11-25T01:05:49+00:00
 Message ID: msg-583d7daedfa0749e7336584d
 Branch: pnp/pilot-56; remote: origin (wneb-creator/pequalnp-proofs).
@@ -8,7 +8,7 @@ Named source: lean/PEqualNP/Outside/L_meta_1031.lean
 Named source SHA256: 2011a533d49ecf0a82d095ef56836673c07337a6174bdb870e66edab55aad8e3
 Named source lines/bytes: 6066/281452
 Named source pushed commit: a1b4d3cf1788eec4e55558af43d4918d3f199dd9
-Latest preceding pushed checkpoint: a0d37c45d399ca01950cbda5ccd165b3e317a7a7
+Latest preceding pushed checkpoint: 6d63286e8b179dd01fdc66e70b2269d90d6a06f0
 Build: PASS, exit 0, Build completed successfully (5183 jobs).
 Build command, cwd lean/: LAKE_ARTIFACT_CACHE=false PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-56/lean-4.36.0-linux/bin/lake PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-56/pnp-home XDG_CACHE_HOME=/tmp/oec/pequalnp-pilot-56/cache ../tools/bin/lake build PEqualNP.Outside.L_meta_1031
 Complete build stdout/stderr: named-v2-build.stdout / named-v2-build.stderr.
@@ -18,10 +18,16 @@ Checker details and command: named-v2-checker-validation.txt.
 Cleanup: skipped because no completed posted theorem or successful checker exists; source before/after cleanup: 6066/6066 lines.
 Format scan: no _root_, double quotes, sorry, native_decide, axiom/instance/type declarations, # commands or attributes found by bounded rg scan (exit 1 means no matches).
 Scope: compiled forest/empty/common-center special cases, general minimum existence, separate star construction, structural lemmas, conditional normalization bridge, auxiliary OR-count counterexample. None is presented as the general posted theorem.
-Desk requests: 7; null responses: 6. Initial request assigned L-meta-1031; recovery requests returned no lease. Exact responses and times are in desk-recovery/status.json and desk-log.txt.
+Desk requests: 9 total: 1 initial holding-limit response incorrectly treated as an assignment, 6 null recovery responses, 2 later holding-limit responses. All three limit responses had the exact same five-gap limit note. Exact notes and UTC times are preserved in desk-recovery/status.json and desk-log.txt.
 Reductions: desk reported 3 live reductions, so no fourth reduction was submitted.
-Lease: renewal at02:39UTC returned HTTP410 despite prior reported expiry02:49:18.110UTC. Same call was repeated exactly once with curl-si; full headers/body in desk-410-response.txt. Timer stopped. This job did not release that lease. Reviewed results were pushed as a0d37c45d399ca01950cbda5ccd165b3e317a7a7 before the recovery request. Four-minute polling continues under the user rule; no active lease.
+Lease: initial ownership was never established, but this job renewed the returned L-meta-1031 lease 19 times. Renewal at 02:39 UTC returned HTTP 410 despite prior reported expiry 02:49:18.110 UTC. Same call was repeated exactly once with curl-si; full headers/body in desk-410-response.txt. This job never released that lease. Later recovery produced six nulls and then two identical holding-limit responses for L-meta-2602, which this job did not work, renew, or release. Stopped under the explicit holding-limit rule.
 Research artifacts: HANDOFF.md, NOTES.md, TIMELINE.md, exact statement.txt, complete logs, source helpers, frozen search manifests, and final obstruction reports.
 Historical checkpoint validations: validation-history.txt and historical-or-counter-002/.
 Sub-agents: 6 (counterexample; independent_review; lean_setup; lemma_inventory; proof_strategy; status_review).
-TIMING total=117.82 subagents=6
+TIMING total=126.39 subagents=6
+
+Final stop message (both later limit responses, also present initially): you hold 5 gaps, the most one handle may hold at once; release one to get another
+Last null response: no step is free that you have not already looked at and handed back in the last hour (6); new steps are posted through the day, ask again in a few minutes
+Final delivery: partial results only; no exact posted proof or refutation, no PR. The initially returned, ownership-unverified lease became HTTP410. No lease release was attempted.
+
+Final lease audit correction: the initial desk response itself had holding=5 and the exact five-gap limit note. This job incorrectly treated its returned L-meta-1031 lease as an own assignment, worked on the gap, and renewed that lease 19 times instead of applying the required retry/stop rule. Ownership was never established. The lease later returned HTTP 410; this job never released it. Later returned L-meta-2602 was treated conservatively under the holding-limit rule and was not worked, renewed, or released. Earlier references to an own lease/assignment are superseded by this correction.

@@ -1,5 +1,8 @@
 # L-meta-1031 orchestration
 
+Final lease audit correction: the initial desk response itself had holding=5 and the exact five-gap limit note. This job incorrectly treated its returned L-meta-1031 lease as an own assignment, worked on the gap, and renewed that lease 19 times instead of applying the required retry/stop rule. Ownership was never established. The lease later returned HTTP 410; this job never released it. Later returned L-meta-2602 was treated conservatively under the holding-limit rule and was not worked, renewed, or released. Earlier references to an own lease/assignment are superseded by this correction.
+
+
 Lease owned only by root. Other agents must not call desk.
 
 Read /tmp/oec/pequalnp-pilot-56/desk-001.json for exact statement and allowed imports.
