@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS interrupted final search preservation; no solver verdict or full-gap result",
+  "reviewer": "repo_audit",
+  "archive": "results/meta2448/search-20261125T083344Z-final",
+  "findings": [
+    "Normal model status is absent. ACTUAL-RESULT names the separate interruption-status source and explicitly records no collected solver exit code. No normal status was fabricated.",
+    "The full411-line solver log contains caught and reraised SIGINT, a c UNKNOWN comment, no standard s result line,944.34 CPU seconds and956.90real seconds. The model wrapper has KeyboardInterrupt and observed guardian child exit\u22122. This is lease-loss interruption, not normal1200-second completion.",
+    "Stop request model/guardian process-group identities and startticks match the original guardian records. Cleanup has no live group members, no resource-triggered stop and no candidate. Explicit root-issued SIGINT is recorded separately from guardian cleanup_signals.",
+    "Final freezer selects explicit interruption data only when normal status is absent, requires guardian gone/zombie and empty owned group, and verifies source/destination bytes and compressed roundtrip.",
+    "Independent hash audit verifies all21archive files,20SHA256SUMS entries,17original records and the complete30,575,248-byte CNF decompression, with75698variables and1628857clauses.",
+    "Public full desk response contains HTTP410 and the exact expired-or-released message. No lease capability or account credential is present. Its initial HTTP1.1 200 line is the proxy response; the origin status is410.",
+    "No full proof, refutation, accepted theorem, or successful release is claimed. Release helper must not execute on the now-dead lease."
+  ]
+}

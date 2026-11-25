@@ -1,0 +1,38 @@
+{
+  "status": "Independent deterministic replay PASS",
+  "reviewer": "/root/lean_setup",
+  "input_hashes": {
+    "results/meta2448/L584-adjacent-restrictions.py": "268ac29d0f230ad05feb47d2053b2fd1615dc59d4556d4635db6f44e4f51bbb2",
+    "results/meta2448/L584-adjacent-restrictions.json": "7b45037698092782a9cc218eb6aaa00c051cbef6d53249ba976ec9ea77a3c190",
+    "results/meta2448/L584-adjacent-restrictions.log": "9563aca94d48de8c50b4a26e9e06402a9a4fc44a11a18b5172f29da0fb80f9d1",
+    "results/meta2448/petersen-L584-exact20-independent-replay.json": "1efdd76094c1a00702d6a5730970e77f6d7d6e7fe2b94311bad20529f0ce9625"
+  },
+  "restrictions": 15,
+  "candidate_aliases_checked": 5908,
+  "assignments_each": 256,
+  "all_initial_final_circuits_and_greedy_steps_match": true,
+  "all_ownership_profiles_match": true,
+  "thirteen_gate_results": [
+    {
+      "deleted": [
+        4,
+        9
+      ],
+      "initial": 15,
+      "final": 13,
+      "star": true
+    },
+    {
+      "deleted": [
+        5,
+        8
+      ],
+      "initial": 15,
+      "final": 13,
+      "star": true
+    }
+  ],
+  "elapsed_seconds": 0.6829455480001343,
+  "files_unchanged": true,
+  "scope": "Greedy local aliases only, including exhaustive candidate checks at each visited state. Not exhaustive over alias sequences, not a minimum-circuit proof, and not a refutation of the gap."
+}

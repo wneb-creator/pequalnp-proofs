@@ -1,0 +1,16 @@
+{
+  "result": "unknown",
+  "reason": "lease_lost_HTTP_410",
+  "normal_model_status_file_present": false,
+  "guardian_child_exit": -2,
+  "solver_observed_signal": "SIGINT",
+  "solver_exit_code_collected": null,
+  "solver_result_lines": [],
+  "solver_cpu_time_line": [
+    "c total process time since initialization:       944.34    seconds"
+  ],
+  "requested_stop_utc": "2026-11-25T08:32:44.410487+00:00",
+  "guardian_ended_utc": "2026-11-25T08:32:45.876368+00:00",
+  "live_group_members_after_cleanup": [],
+  "scope": "Explicit interruption record; the Python model exited on SIGINT before writing its normal status. No SAT/UNSAT verdict or normal timeout is claimed."
+}

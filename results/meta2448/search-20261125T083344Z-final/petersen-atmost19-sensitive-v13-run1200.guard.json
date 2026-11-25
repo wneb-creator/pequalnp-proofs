@@ -1,0 +1,30 @@
+{
+  "command": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-62/meta2448/synthesize_v13.py",
+    "--graph",
+    "petersen",
+    "--gates",
+    "19",
+    "--profile",
+    "any",
+    "--symmetry-first",
+    "--essential-gates",
+    "--ordered-independent",
+    "--undominated-signatures",
+    "--at-most",
+    "--bypass-sensitive",
+    "--constant-sensitive",
+    "--count-bounds",
+    "--seconds",
+    "1200",
+    "--tag",
+    "petersen-atmost19-sensitive-v13-run1200"
+  ],
+  "pid": 45348,
+  "owned_process_group": 45348,
+  "process_start_ticks": 2003079,
+  "started_utc": "2026-11-25T08:16:43.589678+00:00",
+  "synthesis_address_space_limit_bytes": 1073741824,
+  "shared_stop_limit_bytes": 6979321856
+}

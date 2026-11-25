@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS independent outcome count/scope check",
+  "result": "/tmp/oec/pequalnp-pilot-62/meta2448/L584-two-edit-replay.json",
+  "result_sha256": "579d7ab4722ce5a72d91fa95bd1725c1c343663e965ab6d00b1406c9ac28c4f4",
+  "deletion_cases": 430,
+  "normalized_bases": 387,
+  "rewire_checks": 2078136,
+  "stop_reason": "exhausted",
+  "witness": null,
+  "scope": "Verified every per-base count equals the exact loop cardinality2*sum choose(10+h,2); totals match. No re-execution of neighborhood search and no global lower-bound claim."
+}

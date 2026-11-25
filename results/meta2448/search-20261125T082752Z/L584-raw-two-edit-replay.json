@@ -1,0 +1,2590 @@
+{
+  "source_sha256": "1efdd76094c1a00702d6a5730970e77f6d7d6e7fe2b94311bad20529f0ce9625",
+  "deletion_cases": [
+    {
+      "deleted_gate": 0,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7790
+    },
+    {
+      "deleted_gate": 0,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7790
+    },
+    {
+      "deleted_gate": 0,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7790
+    },
+    {
+      "deleted_gate": 0,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7790
+    },
+    {
+      "deleted_gate": 0,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7790
+    },
+    {
+      "deleted_gate": 0,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7790
+    },
+    {
+      "deleted_gate": 0,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7790
+    },
+    {
+      "deleted_gate": 0,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7790
+    },
+    {
+      "deleted_gate": 0,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7790
+    },
+    {
+      "deleted_gate": 0,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7790
+    },
+    {
+      "deleted_gate": 0,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7790
+    },
+    {
+      "deleted_gate": 0,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7790
+    },
+    {
+      "deleted_gate": 1,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7770
+    },
+    {
+      "deleted_gate": 1,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7770
+    },
+    {
+      "deleted_gate": 1,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7770
+    },
+    {
+      "deleted_gate": 1,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7770
+    },
+    {
+      "deleted_gate": 1,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7770
+    },
+    {
+      "deleted_gate": 1,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7770
+    },
+    {
+      "deleted_gate": 1,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7770
+    },
+    {
+      "deleted_gate": 1,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7770
+    },
+    {
+      "deleted_gate": 1,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7770
+    },
+    {
+      "deleted_gate": 1,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7770
+    },
+    {
+      "deleted_gate": 1,
+      "replacement_type": "wire",
+      "replacement": 10,
+      "tested_rewires": 7770
+    },
+    {
+      "deleted_gate": 1,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7770
+    },
+    {
+      "deleted_gate": 1,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7770
+    },
+    {
+      "deleted_gate": 2,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7748
+    },
+    {
+      "deleted_gate": 2,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7748
+    },
+    {
+      "deleted_gate": 2,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7748
+    },
+    {
+      "deleted_gate": 2,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7748
+    },
+    {
+      "deleted_gate": 2,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7748
+    },
+    {
+      "deleted_gate": 2,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7748
+    },
+    {
+      "deleted_gate": 2,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7748
+    },
+    {
+      "deleted_gate": 2,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7748
+    },
+    {
+      "deleted_gate": 2,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7748
+    },
+    {
+      "deleted_gate": 2,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7748
+    },
+    {
+      "deleted_gate": 2,
+      "replacement_type": "wire",
+      "replacement": 10,
+      "tested_rewires": 7748
+    },
+    {
+      "deleted_gate": 2,
+      "replacement_type": "wire",
+      "replacement": 11,
+      "tested_rewires": 7748
+    },
+    {
+      "deleted_gate": 2,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7748
+    },
+    {
+      "deleted_gate": 2,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7748
+    },
+    {
+      "deleted_gate": 3,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7724
+    },
+    {
+      "deleted_gate": 3,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7724
+    },
+    {
+      "deleted_gate": 3,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7724
+    },
+    {
+      "deleted_gate": 3,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7724
+    },
+    {
+      "deleted_gate": 3,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7724
+    },
+    {
+      "deleted_gate": 3,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7724
+    },
+    {
+      "deleted_gate": 3,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7724
+    },
+    {
+      "deleted_gate": 3,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7724
+    },
+    {
+      "deleted_gate": 3,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7724
+    },
+    {
+      "deleted_gate": 3,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7724
+    },
+    {
+      "deleted_gate": 3,
+      "replacement_type": "wire",
+      "replacement": 10,
+      "tested_rewires": 7724
+    },
+    {
+      "deleted_gate": 3,
+      "replacement_type": "wire",
+      "replacement": 11,
+      "tested_rewires": 7724
+    },
+    {
+      "deleted_gate": 3,
+      "replacement_type": "wire",
+      "replacement": 12,
+      "tested_rewires": 7724
+    },
+    {
+      "deleted_gate": 3,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7724
+    },
+    {
+      "deleted_gate": 3,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7724
+    },
+    {
+      "deleted_gate": 4,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7698
+    },
+    {
+      "deleted_gate": 4,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7698
+    },
+    {
+      "deleted_gate": 4,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7698
+    },
+    {
+      "deleted_gate": 4,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7698
+    },
+    {
+      "deleted_gate": 4,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7698
+    },
+    {
+      "deleted_gate": 4,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7698
+    },
+    {
+      "deleted_gate": 4,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7698
+    },
+    {
+      "deleted_gate": 4,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7698
+    },
+    {
+      "deleted_gate": 4,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7698
+    },
+    {
+      "deleted_gate": 4,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7698
+    },
+    {
+      "deleted_gate": 4,
+      "replacement_type": "wire",
+      "replacement": 10,
+      "tested_rewires": 7698
+    },
+    {
+      "deleted_gate": 4,
+      "replacement_type": "wire",
+      "replacement": 11,
+      "tested_rewires": 7698
+    },
+    {
+      "deleted_gate": 4,
+      "replacement_type": "wire",
+      "replacement": 12,
+      "tested_rewires": 7698
+    },
+    {
+      "deleted_gate": 4,
+      "replacement_type": "wire",
+      "replacement": 13,
+      "tested_rewires": 7698
+    },
+    {
+      "deleted_gate": 4,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7698
+    },
+    {
+      "deleted_gate": 4,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7698
+    },
+    {
+      "deleted_gate": 5,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7670
+    },
+    {
+      "deleted_gate": 5,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7670
+    },
+    {
+      "deleted_gate": 5,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7670
+    },
+    {
+      "deleted_gate": 5,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7670
+    },
+    {
+      "deleted_gate": 5,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7670
+    },
+    {
+      "deleted_gate": 5,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7670
+    },
+    {
+      "deleted_gate": 5,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7670
+    },
+    {
+      "deleted_gate": 5,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7670
+    },
+    {
+      "deleted_gate": 5,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7670
+    },
+    {
+      "deleted_gate": 5,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7670
+    },
+    {
+      "deleted_gate": 5,
+      "replacement_type": "wire",
+      "replacement": 10,
+      "tested_rewires": 7670
+    },
+    {
+      "deleted_gate": 5,
+      "replacement_type": "wire",
+      "replacement": 11,
+      "tested_rewires": 7670
+    },
+    {
+      "deleted_gate": 5,
+      "replacement_type": "wire",
+      "replacement": 12,
+      "tested_rewires": 7670
+    },
+    {
+      "deleted_gate": 5,
+      "replacement_type": "wire",
+      "replacement": 13,
+      "tested_rewires": 7670
+    },
+    {
+      "deleted_gate": 5,
+      "replacement_type": "wire",
+      "replacement": 14,
+      "tested_rewires": 7670
+    },
+    {
+      "deleted_gate": 5,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7670
+    },
+    {
+      "deleted_gate": 5,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7670
+    },
+    {
+      "deleted_gate": 6,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7640
+    },
+    {
+      "deleted_gate": 6,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7640
+    },
+    {
+      "deleted_gate": 6,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7640
+    },
+    {
+      "deleted_gate": 6,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7640
+    },
+    {
+      "deleted_gate": 6,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7640
+    },
+    {
+      "deleted_gate": 6,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7640
+    },
+    {
+      "deleted_gate": 6,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7640
+    },
+    {
+      "deleted_gate": 6,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7640
+    },
+    {
+      "deleted_gate": 6,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7640
+    },
+    {
+      "deleted_gate": 6,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7640
+    },
+    {
+      "deleted_gate": 6,
+      "replacement_type": "wire",
+      "replacement": 10,
+      "tested_rewires": 7640
+    },
+    {
+      "deleted_gate": 6,
+      "replacement_type": "wire",
+      "replacement": 11,
+      "tested_rewires": 7640
+    },
+    {
+      "deleted_gate": 6,
+      "replacement_type": "wire",
+      "replacement": 12,
+      "tested_rewires": 7640
+    },
+    {
+      "deleted_gate": 6,
+      "replacement_type": "wire",
+      "replacement": 13,
+      "tested_rewires": 7640
+    },
+    {
+      "deleted_gate": 6,
+      "replacement_type": "wire",
+      "replacement": 14,
+      "tested_rewires": 7640
+    },
+    {
+      "deleted_gate": 6,
+      "replacement_type": "wire",
+      "replacement": 15,
+      "tested_rewires": 7640
+    },
+    {
+      "deleted_gate": 6,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7640
+    },
+    {
+      "deleted_gate": 6,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7640
+    },
+    {
+      "deleted_gate": 7,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7608
+    },
+    {
+      "deleted_gate": 7,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7608
+    },
+    {
+      "deleted_gate": 7,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7608
+    },
+    {
+      "deleted_gate": 7,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7608
+    },
+    {
+      "deleted_gate": 7,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7608
+    },
+    {
+      "deleted_gate": 7,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7608
+    },
+    {
+      "deleted_gate": 7,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7608
+    },
+    {
+      "deleted_gate": 7,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7608
+    },
+    {
+      "deleted_gate": 7,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7608
+    },
+    {
+      "deleted_gate": 7,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7608
+    },
+    {
+      "deleted_gate": 7,
+      "replacement_type": "wire",
+      "replacement": 10,
+      "tested_rewires": 7608
+    },
+    {
+      "deleted_gate": 7,
+      "replacement_type": "wire",
+      "replacement": 11,
+      "tested_rewires": 7608
+    },
+    {
+      "deleted_gate": 7,
+      "replacement_type": "wire",
+      "replacement": 12,
+      "tested_rewires": 7608
+    },
+    {
+      "deleted_gate": 7,
+      "replacement_type": "wire",
+      "replacement": 13,
+      "tested_rewires": 7608
+    },
+    {
+      "deleted_gate": 7,
+      "replacement_type": "wire",
+      "replacement": 14,
+      "tested_rewires": 7608
+    },
+    {
+      "deleted_gate": 7,
+      "replacement_type": "wire",
+      "replacement": 15,
+      "tested_rewires": 7608
+    },
+    {
+      "deleted_gate": 7,
+      "replacement_type": "wire",
+      "replacement": 16,
+      "tested_rewires": 7608
+    },
+    {
+      "deleted_gate": 7,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7608
+    },
+    {
+      "deleted_gate": 7,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7608
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "wire",
+      "replacement": 10,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "wire",
+      "replacement": 11,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "wire",
+      "replacement": 12,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "wire",
+      "replacement": 13,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "wire",
+      "replacement": 14,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "wire",
+      "replacement": 15,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "wire",
+      "replacement": 16,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "wire",
+      "replacement": 17,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 8,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7574
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "wire",
+      "replacement": 10,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "wire",
+      "replacement": 11,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "wire",
+      "replacement": 12,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "wire",
+      "replacement": 13,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "wire",
+      "replacement": 14,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "wire",
+      "replacement": 15,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "wire",
+      "replacement": 16,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "wire",
+      "replacement": 17,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "wire",
+      "replacement": 18,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 9,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7538
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 10,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 11,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 12,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 13,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 14,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 15,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 16,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 17,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 18,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "wire",
+      "replacement": 19,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 10,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7500
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 10,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 11,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 12,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 13,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 14,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 15,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 16,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 17,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 18,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 19,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "wire",
+      "replacement": 20,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 11,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7460
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 10,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 11,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 12,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 13,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 14,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 15,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 16,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 17,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 18,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 19,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 20,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "wire",
+      "replacement": 21,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 12,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7418
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 10,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 11,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 12,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 13,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 14,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 15,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 16,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 17,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 18,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 19,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 20,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 21,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "wire",
+      "replacement": 22,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 13,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7374
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 10,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 11,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 12,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 13,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 14,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 15,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 16,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 17,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 18,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 19,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 20,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 21,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 22,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "wire",
+      "replacement": 23,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 14,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7328
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 10,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 11,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 12,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 13,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 14,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 15,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 16,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 17,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 18,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 19,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 20,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 21,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 22,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 23,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "wire",
+      "replacement": 24,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 15,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7280
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 10,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 11,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 12,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 13,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 14,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 15,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 16,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 17,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 18,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 19,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 20,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 21,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 22,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 23,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 24,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "wire",
+      "replacement": 25,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 16,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7230
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 10,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 11,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 12,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 13,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 14,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 15,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 16,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 17,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 18,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 19,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 20,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 21,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 22,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 23,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 24,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 25,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "wire",
+      "replacement": 26,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 17,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7178
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 10,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 11,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 12,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 13,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 14,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 15,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 16,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 17,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 18,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 19,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 20,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 21,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 22,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 23,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 24,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 25,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 26,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "wire",
+      "replacement": 27,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 18,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7124
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 0,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 1,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 2,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 3,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 4,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 5,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 6,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 7,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 8,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 9,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 10,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 11,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 12,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 13,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 14,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 15,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 16,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 17,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 18,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 19,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 20,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 21,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 22,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 23,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 24,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 25,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 26,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 27,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "wire",
+      "replacement": 28,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "constant",
+      "replacement": false,
+      "tested_rewires": 7068
+    },
+    {
+      "deleted_gate": 19,
+      "replacement_type": "constant",
+      "replacement": true,
+      "tested_rewires": 7068
+    }
+  ],
+  "rewire_checks": 3193710,
+  "elapsed_seconds": 16.200188701001025,
+  "stop_reason": "exhausted",
+  "witness": null,
+  "scope": "Deletion and one distinct-gate rewire are both applied to the original20gate program before any simplification. Aliases are evaluated dynamically if the earlier rewire changes their source. The rewire may reference the deleted wire, interpreted as its free alias/constant. After complete30row screening, a witness is constant/alias-simplified and dead-pruned, then verified on all1024inputs with<=19gates. No global lower bound is claimed."
+}

@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS independent raw-two-edit source review",
+  "source": "/tmp/oec/pequalnp-pilot-62/meta2448/repair_L584_raw_two_edits.py",
+  "source_sha256": "5a08f958ff5fd61ed1b01bc2a5ae66db514ba15830d96f71f2ac1d54656a29d6",
+  "deterministic_primitive_checks": 32680,
+  "assignments_each": 1024,
+  "scope": "Source/primitive review only; did not execute the full raw neighborhood search.",
+  "findings": [
+    "Prefix reuse stops at min(deleted_gate,rewired_gate), so it reuses no modified original gate. Every later gate is evaluated again.",
+    "Deleted-wire replacement reads the current shadow trace, including any earlier rewire. Rewires may read an earlier deleted wire through its shadow alias or constant.",
+    "The witness normalizer applies the same original-index rewire before resolving prior aliases, and the same dynamic deletion replacement; all tested control pairs agree on every1024input.",
+    "All430deletion cases and every distinct second gate are covered; all distinct earlier operand pairs and both monotone operations are enumerated, subject to the explicit bounded stop.",
+    "Complete edge/MIS screening is followed by full1024input validation and <=19gate check after normalization.",
+    "512MiB address-space,120second monotonic and6.5GiB shared-memory guards retain the reviewed cadence and break everyloop.",
+    "No minimum or global impossibility claim follows from exhaustion of this two-edit neighborhood."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "reason": "lease_lost_HTTP_410",
+  "root_reported_renewal_utc": "2026-11-25T08:31:28+00:00",
+  "requested_stop_utc": "2026-11-25T08:32:44.410487+00:00",
+  "model_group": 45348,
+  "model_start_ticks": 2003079,
+  "guardian_pid": 45347,
+  "guardian_start_ticks": 2003073,
+  "signal": "SIGINT",
+  "signal_sent": true
+}

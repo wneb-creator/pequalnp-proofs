@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS frozen completed computational archive082752",
+  "reviewer": "repo_audit",
+  "archive": "results/meta2448/search-20261125T082752Z",
+  "scope": [
+    "The raw two-edit search exhausted exactly430 deletion choices and3193710 distinct-gate rewire cases with no witness. I independently checked all per-case loop cardinalities and the exact set of deletion/constant choices against the archived result. This is a restricted neighborhood, not a global circuit lower bound.",
+    "Actual observed unified process exit codes are0 for raw and normalized searches. The normalized run full source/results/log are preserved in the earlier082011 batch; its execution-status filename here is a cross-batch reference.",
+    "Independent lean_setup replay verified all15 adjacent restrictions,5908 full256-input alias checks, every selected greedy step, final circuits, and strict-cone ownership. Only deletions[4,9] and[5,8] reached13gates, bothstar. This is not exhaustive over all sequences or circuits.",
+    "The accepted graph-isomorphic core lower bound and historical correction are included; no further core12 query or new theorem is claimed.",
+    "Archive hash audit verifies18paths,17SHA256SUMS entries and15raw original records; unchanged bytes and no compressed records. Live Petersen19 output is excluded."
+  ],
+  "hash_audit": "audit082752-hash-compression.json",
+  "adjacent_replay": "L584-adjacent-restrictions-independent-review.json"
+}
