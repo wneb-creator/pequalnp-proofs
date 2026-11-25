@@ -82,6 +82,7 @@ import PEqualNP.Defs.Core
 import PEqualNP.Defs.PointTypes
 import PEqualNP.Defs.FactorSubst
 import PEqualNP.Defs.TwoColour
+import PEqualNP.Defs.Represents
 
 /-!
 # The definitions root
