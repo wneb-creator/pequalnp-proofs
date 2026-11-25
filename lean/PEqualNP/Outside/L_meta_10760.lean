@@ -2127,4 +2127,836 @@ lemma rejected_roots_no_build {rep : Nat → Q → List (BitVec width) → Prop}
 
 end PNQuotient
 
+
+
+namespace PNFrontier
+
+open PnProjection PnTransition
+
+variable {width : Nat}
+
+def rowCode (ws : List (BitVec width)) (r : Fin width) : Nat :=
+  (BitVec.ofBoolListLE (ws.map fun w => w[r.val])).toNat
+
+lemma testBit_rowCode (ws : List (BitVec width)) (r : Fin width) (i : Nat) :
+    (rowCode ws r).testBit i = ((ws[i]?).map fun w => w[r.val]).getD false := by
+  change (BitVec.ofBoolListLE (ws.map fun w => w[r.val])).getLsbD i = _
+  rw [BitVec.getLsbD_ofBoolListLE, List.getD_eq_getElem?_getD, List.getElem?_map]
+
+lemma rowCode_testBit (ws : List (BitVec width)) (r : Fin width) (i : Nat)
+    (hi : i < ws.length) : (rowCode ws r).testBit i = ws[i][r.val] := by
+  simp [testBit_rowCode, hi]
+
+lemma rowCode_lt (ws : List (BitVec width)) (r : Fin width) : rowCode ws r < 2^ws.length := by
+  simpa only [rowCode, List.length_map] using
+    (BitVec.ofBoolListLE (ws.map fun w => w[r.val])).isLt
+
+lemma rowCode_eraseIdx (ws : List (BitVec width)) (r : Fin width) (i : Nat) :
+    rowCode (ws.eraseIdx i) r = delBit i (rowCode ws r) := by
+  apply Nat.eq_of_testBit_eq
+  intro j
+  rw [testBit_rowCode, testBit_delBit, testBit_rowCode, List.getElem?_eraseIdx]
+  by_cases h : j < i <;> simp [h]
+
+lemma rowCode_append_insBit (ws : List (BitVec width)) (z : BitVec width) (r : Fin width) :
+    rowCode (ws ++ [z]) r = insBit ws.length z[r.val] (rowCode ws r) := by
+  apply Nat.eq_of_testBit_eq
+  intro j
+  rw [testBit_rowCode, testBit_insBit, List.getElem?_append]
+  by_cases h : j < ws.length
+  · simp [h, testBit_rowCode]
+  · by_cases e : j = ws.length
+    · simp [e]
+    · have hs : ws.length ≤ j-1 := by omega
+      have hz : j-ws.length ≠ 0 := by omega
+      simp [h, e, testBit_rowCode, List.getElem?_eq_none hs, hz]
+
+lemma rowCode_append_singleton (ws : List (BitVec width)) (z : BitVec width) (r : Fin width) :
+    rowCode (ws ++ [z]) r = rowCode ws r + (if z[r.val] then 2^ws.length else 0) := by
+  rw [rowCode_append_insBit, insBit_top _ _ (rowCode_lt ws r)]
+
+def keptFront (i j : Nat) (keep : Fin 4) (ws : List (BitVec width)) : List (BitVec width) :=
+  let ws := if keep.val &&& 2 == 0 then ws.eraseIdx j else ws
+  if keep.val &&& 1 == 0 then ws.eraseIdx i else ws
+
+lemma rowCode_keptFront (i j : Nat) (keep : Fin 4) (ws : List (BitVec width)) (r : Fin width) :
+    rowCode (keptFront i j keep ws) r = dropPattern i j keep (rowCode ws r) := by
+  unfold keptFront dropPattern
+  split_ifs <;> simp only [rowCode_eraseIdx]
+
+lemma keptFront_length {i j : Nat} (keep : Fin 4) (ws : List (BitVec width))
+    (hij : i < j) (hj : j < ws.length) :
+    (keptFront i j keep ws).length = ws.length-2+keepSize keep := by
+  have hi : i < ws.length := by omega
+  have hi' : i < (ws.eraseIdx j).length := by
+    rw [List.length_eraseIdx_of_lt hj]
+    omega
+  fin_cases keep <;>
+    simp [keptFront, keepSize, List.length_eraseIdx_of_lt hj,
+      List.length_eraseIdx_of_lt hi, List.length_eraseIdx_of_lt hi'] <;> omega
+
+lemma keptFront_sublist (i j : Nat) (keep : Fin 4) (ws : List (BitVec width)) :
+    (keptFront i j keep ws).Sublist ws := by
+  unfold keptFront
+  split_ifs <;>
+    first
+    | exact (List.eraseIdx_sublist _ _).trans (List.eraseIdx_sublist _ _)
+    | exact List.eraseIdx_sublist _ _
+    | exact List.Sublist.refl _
+
+lemma keptFront_mem {i j : Nat} {keep : Fin 4} {ws : List (BitVec width)} {w : BitVec width}
+    (hw : w ∈ keptFront i j keep ws) : w ∈ ws := by
+  unfold keptFront at hw
+  split_ifs at hw <;>
+    first
+    | exact List.mem_of_mem_eraseIdx (List.mem_of_mem_eraseIdx hw)
+    | exact List.mem_of_mem_eraseIdx hw
+    | exact hw
+
+end PNFrontier
+
+namespace PNSelectors
+
+lemma singles_index {α : Type} {ws r : List α} {a : α}
+    (h : (a,r) ∈ SearchKernel.singles ws) :
+    ∃ i, i < ws.length ∧ ws[i]? = some a ∧ r = ws.eraseIdx i ∧
+      ws.Perm (a :: r) := by
+  induction ws generalizing a r with
+  | nil => simp [SearchKernel.singles] at h
+  | cons x xs ih =>
+    simp only [SearchKernel.singles, List.mem_cons, List.mem_map] at h
+    rcases h with he | ⟨⟨a,r⟩, hm, he⟩
+    · cases he
+      exact ⟨0, by simp, rfl, rfl, .refl _⟩
+    · cases he
+      obtain ⟨i, hi, hv, hr, hp⟩ := ih hm
+      refine ⟨i+1, by simpa using hi, by simpa using hv, ?_, ?_⟩
+      · simp [hr]
+      · exact (hp.cons x).trans (.swap _ _ _)
+
+lemma pairs_indices {α : Type} {ws r : List α} {a b : α}
+    (h : (a,b,r) ∈ SearchKernel.pairs ws) :
+    ∃ i j, i < j ∧ j < ws.length ∧ ws[i]? = some a ∧ ws[j]? = some b ∧
+      r = (ws.eraseIdx j).eraseIdx i ∧ ws.Perm (a :: b :: r) := by
+  induction ws generalizing a b r with
+  | nil => simp [SearchKernel.pairs] at h
+  | cons x xs ih =>
+    simp only [SearchKernel.pairs, List.mem_append, List.mem_map] at h
+    rcases h with ⟨⟨b,r⟩, hm, he⟩ | ⟨⟨a,b,r⟩, hm, he⟩
+    · cases he
+      obtain ⟨j, hj, hv, hr, hp⟩ := singles_index hm
+      refine ⟨0, j+1, by omega, by simpa using hj, rfl,
+        by simpa using hv, ?_, hp.cons x⟩
+      simp [hr]
+    · cases he
+      obtain ⟨i, j, hij, hj, hiVal, hjVal, hr, hp⟩ := ih hm
+      refine ⟨i+1, j+1, by omega, by simpa using hj,
+        by simpa using hiVal, by simpa using hjVal, ?_, ?_⟩
+      · simp [hr]
+      · exact (hp.cons x).trans ((List.Perm.swap _ _ _).trans
+          ((List.Perm.swap _ _ _).cons a))
+
+lemma perm_cons_eraseIdx {α : Type} {ws : List α} {i : Nat} {a : α}
+    (h : ws[i]? = some a) : ws.Perm (a :: ws.eraseIdx i) := by
+  induction ws generalizing i with
+  | nil => simp at h
+  | cons x xs ih =>
+    cases i with
+    | zero =>
+      simp only [List.getElem?_cons_zero, Option.some.injEq] at h
+      subst x
+      exact .refl _
+    | succ i =>
+      have hp := ih (by simpa using h)
+      simpa using (hp.cons x).trans (.swap _ _ _)
+
+lemma pairs_retention_indices {α : Type} {ws r : List α} {a b : α}
+    (h : (a,b,r) ∈ SearchKernel.pairs ws) :
+    ∃ i j, i < j ∧ j < ws.length ∧ ws[i]? = some a ∧ ws[j]? = some b ∧
+      (ws.eraseIdx j).eraseIdx i = r ∧
+      (ws.eraseIdx j).Perm (a :: r) ∧
+      (ws.eraseIdx i).Perm (b :: r) ∧ ws.Perm (a :: b :: r) := by
+  obtain ⟨i, j, hij, hj, hiVal, hjVal, hr, hp⟩ := pairs_indices h
+  refine ⟨i, j, hij, hj, hiVal, hjVal, hr.symm, ?_, ?_, hp⟩
+  · have hb := perm_cons_eraseIdx hjVal
+    have hab : ws.Perm (b :: a :: r) := hp.trans (.swap _ _ _)
+    exact (List.perm_cons b).mp (hb.symm.trans hab)
+  · have ha := perm_cons_eraseIdx hiVal
+    exact (List.perm_cons a).mp (ha.symm.trans hp)
+
+lemma pairs_keptFront_indices {width : Nat}
+    {ws r front : List (BitVec width)} {a b : BitVec width}
+    (h : (a,b,r) ∈ SearchKernel.pairs ws)
+    (hf : front ∈ ([[], [a], [b], [a,b]] : List (List (BitVec width)))) :
+    ∃ i j, ∃ keep : Fin 4,
+      i < j ∧ j < ws.length ∧ ws[i]? = some a ∧ ws[j]? = some b ∧
+      (PNFrontier.keptFront i j keep ws).Perm (front ++ r) := by
+  obtain ⟨i, j, hij, hj, ha, hb, hnone, honlyA, honlyB, hboth⟩ := pairs_retention_indices h
+  simp only [List.mem_cons, List.not_mem_nil, or_false] at hf
+  rcases hf with rfl | rfl | rfl | rfl
+  · refine ⟨i, j, 0, hij, hj, ha, hb, ?_⟩
+    simpa [PNFrontier.keptFront, hnone] using (List.Perm.refl r)
+  · refine ⟨i, j, 1, hij, hj, ha, hb, ?_⟩
+    simpa [PNFrontier.keptFront] using honlyA
+  · refine ⟨i, j, 2, hij, hj, ha, hb, ?_⟩
+    simpa [PNFrontier.keptFront] using honlyB
+  · refine ⟨i, j, 3, hij, hj, ha, hb, ?_⟩
+    simpa [PNFrontier.keptFront] using hboth
+
+end PNSelectors
+
+namespace PNConcrete
+
+open PnTransition PNPlanes
+
+
+def Rep {width : Nat} (target : BitVec width) (anchor : Fin width)
+    (k : Nat) (state : Nat × Nat × Nat) (ws : List (BitVec width)) : Prop :=
+  ws.length = state.1 ∧ state.1 + k ≤ 19 ∧ state.1 ≤ 10 ∧
+    (∀ w ∈ ws, w[anchor.val] = false) ∧
+    ∀ value : Bool, ∀ x : Nat,
+      (if value then state.2.1 else state.2.2).testBit x = true ↔
+        ∃ r : Fin width, target[r.val] = value ∧ PNFrontier.rowCode ws r = x
+
+lemma bitmap_bound {ρ : Type} {m S : Nat} {code : ρ → Nat} {label : ρ → Prop}
+    (bounded : ∀ r, code r < 2^m)
+    (represented : ∀ x, S.testBit x = true ↔ ∃ r, label r ∧ code r = x) :
+    S < 2^(2^m) := by
+  apply Nat.lt_pow_two_of_testBit
+  intro x hx
+  cases hb : S.testBit x with
+  | false => rfl
+  | true =>
+    obtain ⟨r, hr, he⟩ := (represented x).mp hb
+    have hc := bounded r
+    omega
+
+lemma transitionSet_exact {ρ : Type} {m i j S : Nat}
+    (hij : i < j) (hj : j < m) (hm : m ≤ 10) (hS : S < 2^(2^m))
+    (keep gate : Fin 4) {code childCode : ρ → Nat} {label : ρ → Prop}
+    (represented : ∀ x, S.testBit x = true ↔ ∃ r, label r ∧ code r = x)
+    (rows : ∀ r, childCode r = dropPattern i j keep (code r) +
+      (if ChromGate.eval gate ((code r).testBit i) ((code r).testBit j)
+        then 2^(m-2+keepSize keep) else 0)) :
+    ∀ y, (transitionSet m i j keep (gateMask i j gate) S).testBit y = true ↔
+      ∃ r, label r ∧ childCode r = y := by
+  intro y
+  rw [transitionSet_gate_image hij hj hm hS]
+  constructor
+  · rintro ⟨x, hx, hy⟩
+    obtain ⟨r, hr, hcode⟩ := (represented x).mp hx
+    subst x
+    exact ⟨r, hr, (rows r).trans hy.symm⟩
+  · rintro ⟨r, hr, hy⟩
+    refine ⟨code r, (represented (code r)).mpr ⟨r, hr, rfl⟩, ?_⟩
+    exact hy.symm.trans (rows r)
+
+def childState (m P N i j : Nat) (keep gate : Fin 4) : Nat × Nat × Nat :=
+  (m - 1 + keepSize keep,
+    transitionSet m i j keep (gateMask i j gate) P,
+    transitionSet m i j keep (gateMask i j gate) N)
+
+def childFront {width : Nat} (ws : List (BitVec width)) (i j : Nat)
+    (keep gate : Fin 4) (a b : BitVec width) : List (BitVec width) :=
+  PNFrontier.keptFront i j keep ws ++ [ChromGate.word gate a b]
+
+lemma childFront_rows {width : Nat} (ws : List (BitVec width)) (i j : Nat)
+    (keep gate : Fin 4) (a b : BitVec width)
+    (hij : i < j) (hj : j < ws.length)
+    (ha : ws[i]? = some a) (hb : ws[j]? = some b) (r : Fin width) :
+    PNFrontier.rowCode (childFront ws i j keep gate a b) r =
+      dropPattern i j keep (PNFrontier.rowCode ws r) +
+        (if ChromGate.eval gate ((PNFrontier.rowCode ws r).testBit i)
+          ((PNFrontier.rowCode ws r).testBit j)
+          then 2^(ws.length-2+keepSize keep) else 0) := by
+  rw [childFront, PNFrontier.rowCode_append_singleton,
+    PNFrontier.rowCode_keptFront, PNFrontier.keptFront_length keep ws hij hj,
+    ChromGate.word_get, PNFrontier.testBit_rowCode, PNFrontier.testBit_rowCode,
+    ha, hb]
+  rfl
+
+lemma childFront_nodup {width : Nat} {ws : List (BitVec width)} {i j : Nat}
+    {keep gate : Fin 4} {a b : BitVec width} (hn : ws.Nodup)
+    (fresh : ChromGate.word gate a b ∉ ws.toFinset) :
+    (childFront ws i j keep gate a b).Nodup := by
+  rw [childFront, List.nodup_append]
+  refine ⟨hn.sublist (PNFrontier.keptFront_sublist i j keep ws), by simp, ?_⟩
+  intro w hw v hv hwv
+  have he := List.mem_singleton.mp hv
+  subst v
+  subst w
+  exact fresh (List.mem_toFinset.mpr (PNFrontier.keptFront_mem hw))
+
+lemma rep_transition {width k m P N i j : Nat}
+    {target goal a b : BitVec width} {anchor : Fin width} {ws : List (BitVec width)}
+    (keep gate : Fin 4) (hn : ws.Nodup) (rep : Rep target anchor (k + 1) (m,P,N) ws)
+    (hij : i < j) (hj : j < m) (ha : ws[i]? = some a) (hb : ws[j]? = some b)
+    (hamem : a ∈ ws) (hbmem : b ∈ ws)
+    (fresh : ChromGate.word gate a b ∉ ws.toFinset)
+    (tail : live basicOps goal k (childFront ws i j keep gate a b).toFinset) :
+    Rep target anchor k (childState m P N i j keep gate)
+      (childFront ws i j keep gate a b) := by
+  obtain ⟨hlen, hroom, hcap, hzero, hexact⟩ := rep
+  have hjw : j < ws.length := by omega
+  have hm2 : 2 ≤ m := by omega
+  have hsize : keepSize keep ≤ 2 := by
+    fin_cases keep <;> decide
+  have childlen : (childFront ws i j keep gate a b).length = m-1+keepSize keep := by
+    simp only [childFront, List.length_append, List.length_singleton,
+      PNFrontier.keptFront_length keep ws hij hjw, hlen]
+    omega
+  have childroom : (m-1+keepSize keep) + k ≤ 19 := by omega
+  have childcap : m-1+keepSize keep ≤ 10 := by
+    have hc := live_card tail
+    rw [List.toFinset_card_of_nodup (childFront_nodup hn fresh), childlen] at hc
+    omega
+  refine ⟨childlen, childroom, childcap, ?_, ?_⟩
+  · intro w hw
+    rcases List.mem_append.mp hw with hold | hnew
+    · exact hzero w (PNFrontier.keptFront_mem hold)
+    · have he := List.mem_singleton.mp hnew
+      subst w
+      rw [ChromGate.word_get, hzero a hamem, hzero b hbmem]
+      fin_cases gate <;> rfl
+  · intro value y
+    have bound : (if value then P else N) < 2^(2^m) := by
+      apply bitmap_bound (code := PNFrontier.rowCode ws) (label := fun r => target[r.val] = value)
+      · intro r
+        simpa only [hlen] using PNFrontier.rowCode_lt ws r
+      · exact hexact value
+    have he := transitionSet_exact hij hj hcap bound keep gate
+      (represented := hexact value)
+      (rows := fun r => by
+        simpa only [hlen] using childFront_rows ws i j keep gate a b hij hjw ha hb r) y
+    cases value <;> exact he
+
+end PNConcrete
+
+namespace PNConcrete
+
+lemma transitionCover {width k m P N : Nat}
+    {target goal a b z : BitVec width} {anchor : Fin width}
+    {ws r front : List (BitVec width)}
+    (hn : ws.Nodup) (rep : Rep target anchor (k+1) (m,P,N) ws)
+    (hpair : (a,b,r) ∈ SearchKernel.pairs ws)
+    (hfront : front ∈ ([[], [a], [b], [a,b]] : List (List (BitVec width))))
+    (hz : z ∈ basicOps a b) (fresh : z ∉ ws.toFinset)
+    (tail : live basicOps goal k (z :: (front ++ r)).toFinset) :
+    ∃ i j, ∃ keep gate : Fin 4, i < j ∧ j < m ∧
+      ∃ ys, Rep target anchor k (childState m P N i j keep gate) ys ∧
+        ys.Perm (z :: (front ++ r)) := by
+  obtain ⟨i, j, keep, hij, hj, ha, hb, hp⟩ := PNSelectors.pairs_keptFront_indices hpair hfront
+  obtain ⟨gate, rfl⟩ := ChromGate.of_basicOps hz
+  have hperm : (childFront ws i j keep gate a b).Perm
+      (ChromGate.word gate a b :: (front ++ r)) := by
+    change (PNFrontier.keptFront i j keep ws ++ [ChromGate.word gate a b]).Perm _
+    exact List.perm_append_comm.trans (hp.cons _)
+  have heq : (childFront ws i j keep gate a b).toFinset =
+      (ChromGate.word gate a b :: (front ++ r)).toFinset := by
+    ext w
+    simp only [List.mem_toFinset]
+    exact hperm.mem_iff
+  have htail : live basicOps goal k (childFront ws i j keep gate a b).toFinset :=
+    heq.symm ▸ tail
+  have hamem : a ∈ ws := (PNSelectors.perm_cons_eraseIdx ha).mem_iff.mpr (by simp)
+  have hbmem : b ∈ ws := (PNSelectors.perm_cons_eraseIdx hb).mem_iff.mpr (by simp)
+  have hjm : j < m := by have hlen := rep.1; omega
+  exact ⟨i, j, keep, gate, hij, hjm, childFront ws i j keep gate a b,
+    rep_transition keep gate hn rep hij hjm ha hb hamem hbmem fresh htail, hperm⟩
+
+def coordinateChildren (state : Nat × Nat × Nat) : List (Nat × Nat × Nat) :=
+  (List.range state.1).flatMap fun j =>
+    (List.range j).flatMap fun i =>
+      (List.finRange 4).flatMap fun gate =>
+        (List.finRange 4).map fun keep =>
+          childState state.1 state.2.1 state.2.2 i j keep gate
+
+lemma childState_mem {m P N i j : Nat} (keep gate : Fin 4)
+    (hij : i < j) (hj : j < m) :
+    childState m P N i j keep gate ∈ coordinateChildren (m,P,N) := by
+  simp only [coordinateChildren, List.mem_flatMap, List.mem_map, List.mem_range]
+  exact ⟨j, hj, i, hij, gate, by simp, keep, by simp, rfl⟩
+
+lemma coordinateCover {width k : Nat}
+    {target goal a b z : BitVec width} {anchor : Fin width}
+    {state : Nat × Nat × Nat} {ws r front : List (BitVec width)}
+    (hn : ws.Nodup) (rep : Rep target anchor (k+1) state ws)
+    (hpair : (a,b,r) ∈ SearchKernel.pairs ws)
+    (hfront : front ∈ ([[], [a], [b], [a,b]] : List (List (BitVec width))))
+    (hz : z ∈ basicOps a b) (fresh : z ∉ ws.toFinset)
+    (tail : live basicOps goal k (z :: (front ++ r)).toFinset) :
+    ∃ child ∈ coordinateChildren state,
+      ∃ ys, Rep target anchor k child ys ∧ ys.Perm (z :: (front ++ r)) := by
+  obtain ⟨m, P, N⟩ := state
+  obtain ⟨i, j, keep, gate, hij, hj, ys, hrep, hp⟩ :=
+    transitionCover hn rep hpair hfront hz fresh tail
+  exact ⟨childState m P N i j keep gate, childState_mem keep gate hij hj, ys, hrep, hp⟩
+
+lemma coordinate_liveState_step {width : Nat} {target goal : BitVec width}
+    {anchor : Fin width} {done : (Nat × Nat × Nat) → Bool}
+    (finish : ∀ k s, Rep target anchor k s [goal] → done s = true)
+    (k : Nat) (s : Nat × Nat × Nat)
+    (run : PNQuotient.liveState (Rep target anchor) goal (k+1) s) :
+    done s = true ∨ ∃ t ∈ coordinateChildren s,
+      PNQuotient.liveState (Rep target anchor) goal k t := by
+  apply PNQuotient.liveState_step (children := fun _ => coordinateChildren) finish ?_ run
+  intro k s ws a b z r front hn hrep hpair hfront hz fresh tail
+  exact coordinateCover hn hrep hpair hfront hz fresh tail
+
+lemma coordinate_search_complete {width : Nat} {target goal : BitVec width}
+    {anchor : Fin width} {done : (Nat × Nat × Nat) → Bool}
+    {admissible : Nat → (Nat × Nat × Nat) → Bool}
+    (finish : ∀ k s, Rep target anchor k s [goal] → done s = true)
+    (allowed : ∀ k s, PNQuotient.liveState (Rep target anchor) goal (k+1) s →
+      admissible (k+1) s = true)
+    {k : Nat} {s : Nat × Nat × Nat}
+    (run : PNQuotient.liveState (Rep target anchor) goal k s) :
+    PNQuotient.search done admissible (fun _ => coordinateChildren) k s = true :=
+  PNQuotient.search_complete finish (coordinate_liveState_step finish) allowed run
+
+end PNConcrete
+
+namespace PNConcrete
+
+lemma rowCode_singleton {width : Nat} (w : BitVec width) (r : Fin width) :
+    PNFrontier.rowCode [w] r = if w[r.val] then 1 else 0 := by
+  change (BitVec.ofBoolListLE [w[r.val]]).toNat = if w[r.val] then 1 else 0
+  cases w[r.val] <;> rfl
+
+lemma mask_empty_of_rows {ρ : Type} {S mask : Nat} {code : ρ → Nat} {label : ρ → Prop}
+    (represented : ∀ x, S.testBit x = true ↔ ∃ r, label r ∧ code r = x)
+    (excluded : ∀ r, label r → mask.testBit (code r) = false) : S &&& mask = 0 := by
+  apply Nat.eq_of_testBit_eq
+  intro x
+  rw [Nat.testBit_and, show (0 : Nat).testBit x = false by simp]
+  cases hx : S.testBit x with
+  | false => rfl
+  | true =>
+    change mask.testBit x = false
+    obtain ⟨r, hr, he⟩ := (represented x).mp hx
+    rw [← he]
+    exact excluded r hr
+
+def solved (n positive negative : Nat) : Bool :=
+  (List.range n).any fun i =>
+    ((positive &&& PNMasks.lowMask i == 0) && (negative &&& PNPlanes.highMask i == 0)) ||
+      ((positive &&& PNPlanes.highMask i == 0) && (negative &&& PNMasks.lowMask i == 0))
+
+lemma solved_singleton {width k : Nat} {target goal : BitVec width} {anchor : Fin width}
+    {state : Nat × Nat × Nat} (goal_eq : goal = target ∨ goal = ~~~target)
+    (rep : Rep target anchor k state [goal]) :
+    solved state.1 state.2.1 state.2.2 = true := by
+  obtain ⟨m, P, N⟩ := state
+  obtain ⟨hlen, hroom, hcap, hzero, hexact⟩ := rep
+  have hm : m = 1 := by simpa using hlen.symm
+  subst m
+  unfold solved
+  apply List.any_eq_true.mpr
+  refine ⟨0, by simp, ?_⟩
+  simp only [Bool.or_eq_true, Bool.and_eq_true, beq_iff_eq]
+  have low1 : (PNMasks.lowMask 0).testBit 1 = false := by
+    simpa using PNMasks.lowMask_bits (0 : Fin 10) (1 : Fin 1024)
+  have high0 : (PNPlanes.highMask 0).testBit 0 = false := by
+    simpa using PNPlanes.highMask_bits (0 : Fin 10) (0 : Fin 1024)
+  rcases goal_eq with rfl | rfl
+  · left
+    constructor
+    · apply mask_empty_of_rows (hexact true)
+      intro r hr
+      rw [rowCode_singleton, hr]
+      exact low1
+    · apply mask_empty_of_rows (hexact false)
+      intro r hr
+      rw [rowCode_singleton, hr]
+      exact high0
+  · right
+    constructor
+    · apply mask_empty_of_rows (hexact true)
+      intro r hr
+      rw [rowCode_singleton, BitVec.getElem_not, hr]
+      exact high0
+    · apply mask_empty_of_rows (hexact false)
+      intro r hr
+      rw [rowCode_singleton, BitVec.getElem_not, hr]
+      exact low1
+
+end PNConcrete
+
+namespace PNGuards
+
+open PNConcrete PNFrontier PNPlanes
+
+lemma rep_active {width k m P N : Nat} {target : BitVec width} {anchor : Fin width}
+    {ws : List (BitVec width)} (rep : Rep target anchor k (m,P,N) ws) (r : Fin width) :
+    (P ||| N).testBit (rowCode ws r) = true := by
+  have represented := rep.2.2.2.2 (target[r.val]) (rowCode ws r)
+  have hbit := represented.mpr ⟨r, rfl, rfl⟩
+  rw [Nat.testBit_or]
+  cases h : target[r.val] with
+  | false =>
+    have hn : N.testBit (rowCode ws r) = true := by simpa [h] using hbit
+    simp [hn]
+  | true =>
+    have hp : P.testBit (rowCode ws r) = true := by simpa [h] using hbit
+    simp [hp]
+
+lemma rowCode_eq_bits {width : Nat} {ws : List (BitVec width)} {p q : Fin width}
+    (he : rowCode ws p = rowCode ws q) {w : BitVec width} (hw : w ∈ ws) :
+    w[p.val] = w[q.val] := by
+  obtain ⟨i, hi, hwi⟩ := List.getElem_of_mem hw
+  have hb := congrArg (fun x : Nat => x.testBit i) he
+  simpa only [rowCode_testBit ws p i hi, rowCode_testBit ws q i hi, hwi] using hb
+
+lemma rep_disjoint {width k m P N : Nat} {target g : BitVec width} {anchor : Fin width}
+    {ws : List (BitVec width)} (rep : Rep target anchor k (m,P,N) ws)
+    (run : live basicOps g k ws.toFinset) (hg : g = target ∨ g = ~~~target) :
+    P &&& N = 0 := by
+  apply Nat.eq_of_testBit_eq
+  intro x
+  rw [Nat.testBit_and, Nat.zero_testBit]
+  cases hp : P.testBit x with
+  | false => simp
+  | true =>
+    cases hn : N.testBit x with
+    | false => simp
+    | true =>
+      obtain ⟨p, htp, hcp⟩ := (rep.2.2.2.2 true x).mp hp
+      obtain ⟨q, htq, hcq⟩ := (rep.2.2.2.2 false x).mp hn
+      have htarget : target[p.val] ≠ target[q.val] := by simp [htp, htq]
+      obtain ⟨w, hw, hdiff⟩ := live_target_separates run hg htarget
+      exact False.elim (hdiff (rowCode_eq_bits (hcp.trans hcq.symm) (List.mem_toFinset.mp hw)))
+
+def redundant (n active gate : Nat) : Bool :=
+  (List.range n).any fun i =>
+    active &&& (gate ^^^ (PNMasks.lowMasks[i]! <<< (1 <<< i))) == 0
+
+lemma redundant_eq_true {m active gate : Nat} :
+    redundant m active gate = true ↔
+      ∃ i, i < m ∧ active &&& (gate ^^^ (PNMasks.lowMasks[i]! <<< (1 <<< i))) = 0 := by
+  simp [redundant, List.any_eq_true]
+
+lemma lookup_bound {α : Type} {ws : List α} {i : Nat} {a : α}
+    (ha : ws[i]? = some a) : i < ws.length := by
+  by_contra hi
+  have hn : ws[i]? = none := List.getElem?_eq_none (by omega)
+  rw [hn] at ha
+  contradiction
+
+lemma rep_fresh_nonredundant {width k m P N i j : Nat}
+    {target a b : BitVec width} {anchor : Fin width} {ws : List (BitVec width)}
+    (rep : Rep target anchor k (m,P,N) ws) (op : Fin 4)
+    (ha : ws[i]? = some a) (hb : ws[j]? = some b)
+    (fresh : ChromGate.word op a b ∉ ws.toFinset) :
+    redundant m (P ||| N) (gateMask i j op) = false := by
+  apply Bool.eq_false_iff.mpr
+  intro hred
+  obtain ⟨v, hv, hzero⟩ := redundant_eq_true.mp hred
+  have hlen := rep.1
+  have hcap := rep.2.2.1
+  have hi : i < 10 := by have := lookup_bound ha; omega
+  have hj : j < 10 := by have := lookup_bound hb; omega
+  have hv10 : v < 10 := by omega
+  have hvw : v < ws.length := by omega
+  let w := ws[v]'hvw
+  have hword : ChromGate.word op a b = w := by
+    apply BitVec.eq_of_getLsbD_eq
+    intro r hr
+    let row : Fin width := ⟨r, hr⟩
+    have hcode : rowCode ws row < 1024 := lt_of_lt_of_le (rowCode_lt ws row)
+      (by simpa only [hlen] using Nat.pow_le_pow_right (by decide : 1 ≤ 2) hcap)
+    have heq := congrArg (fun x : Nat => x.testBit (rowCode ws row)) hzero
+    have hlookup : PNMasks.lowMasks[v]! <<< (1 <<< v) = highMask v := by
+      rw [← PnProjection.lowMask_getBang ⟨v, hv10⟩]
+      rfl
+    rw [hlookup, Nat.testBit_and, Nat.testBit_xor, Nat.zero_testBit,
+      rep_active rep row, gateMask_bits ⟨i, hi⟩ ⟨j, hj⟩ op ⟨rowCode ws row, hcode⟩,
+      highMask_bits ⟨v, hv10⟩ ⟨rowCode ws row, hcode⟩] at heq
+    have hgate : ChromGate.eval op ((rowCode ws row).testBit i) ((rowCode ws row).testBit j) =
+        (rowCode ws row).testBit v := by
+      simpa using heq
+    change (ChromGate.word op a b)[row.val] = w[row.val]
+    rw [ChromGate.word_get]
+    simpa [testBit_rowCode, ha, hb, w, hvw] using hgate
+  apply fresh
+  rw [hword]
+  exact List.mem_toFinset.mpr (List.getElem_mem hvw)
+
+end PNGuards
+
+namespace PNConcrete
+
+open PnTransition
+
+lemma keepSize_le_of_live_length {width k m : Nat} {keep : Fin 4}
+    {goal : BitVec width} {ys : List (BitVec width)}
+    (hn : ys.Nodup) (hlen : ys.length = m - 1 + keepSize keep)
+    (run : live basicOps goal k ys.toFinset) :
+    keepSize keep ≤ k + 2 - m := by
+  have hc := live_card run
+  rw [List.toFinset_card_of_nodup hn, hlen] at hc
+  omega
+
+lemma represented_child_keepSize_le {width k m P N i j : Nat} {keep gate : Fin 4}
+    {target goal : BitVec width} {anchor : Fin width} {ys : List (BitVec width)}
+    (hn : ys.Nodup) (rep : Rep target anchor k (childState m P N i j keep gate) ys)
+    (run : live basicOps goal k ys.toFinset) :
+    keepSize keep ≤ k + 2 - m :=
+  keepSize_le_of_live_length hn rep.1 run
+
+lemma selected_child_nodup {width : Nat} {ws r front : List (BitVec width)}
+    {a b z : BitVec width} (hn : ws.Nodup)
+    (hpair : (a,b,r) ∈ SearchKernel.pairs ws)
+    (hfront : front ∈ ([[], [a], [b], [a,b]] : List (List (BitVec width))))
+    (fresh : z ∉ ws.toFinset) : (z :: (front ++ r)).Nodup := by
+  obtain ⟨i,j,keep,_,_,_,_,hp⟩ := PNSelectors.pairs_keptFront_indices hpair hfront
+  have hkept := hn.sublist (PNFrontier.keptFront_sublist i j keep ws)
+  refine List.nodup_cons.mpr ⟨?_, hp.nodup_iff.mp hkept⟩
+  intro hz
+  exact fresh (List.mem_toFinset.mpr (PNFrontier.keptFront_mem (hp.mem_iff.mpr hz)))
+
+lemma transitionCover_sizeBound {width k m P N : Nat}
+    {target goal a b z : BitVec width} {anchor : Fin width}
+    {ws r front : List (BitVec width)}
+    (hn : ws.Nodup) (rep : Rep target anchor (k+1) (m,P,N) ws)
+    (hpair : (a,b,r) ∈ SearchKernel.pairs ws)
+    (hfront : front ∈ ([[], [a], [b], [a,b]] : List (List (BitVec width))))
+    (hz : z ∈ basicOps a b) (fresh : z ∉ ws.toFinset)
+    (tail : live basicOps goal k (z :: (front ++ r)).toFinset) :
+    ∃ i j, ∃ keep gate : Fin 4, i < j ∧ j < m ∧ keepSize keep ≤ k+2-m ∧
+      ∃ ys, Rep target anchor k (childState m P N i j keep gate) ys ∧
+        ys.Perm (z :: (front ++ r)) := by
+  obtain ⟨i,j,keep,gate,hij,hj,ys,hrep,hp⟩ :=
+    transitionCover hn rep hpair hfront hz fresh tail
+  have hny : ys.Nodup := hp.nodup_iff.mpr (selected_child_nodup hn hpair hfront fresh)
+  have heq : ys.toFinset = (z :: (front ++ r)).toFinset := by
+    ext w
+    simp only [List.mem_toFinset]
+    exact hp.mem_iff
+  have hrun : live basicOps goal k ys.toFinset := heq.symm ▸ tail
+  exact ⟨i,j,keep,gate,hij,hj,represented_child_keepSize_le hny hrep hrun,ys,hrep,hp⟩
+
+def sizeCoordinateChildren (budget : Nat) (state : Nat × Nat × Nat) :
+    List (Nat × Nat × Nat) :=
+  (List.range state.1).flatMap fun j =>
+    (List.range j).flatMap fun i =>
+      (List.finRange 4).flatMap fun gate =>
+        ((List.finRange 4).filter fun keep => decide (keepSize keep ≤ budget+1-state.1)).map
+          fun keep => childState state.1 state.2.1 state.2.2 i j keep gate
+
+lemma childState_mem_size {budget m P N i j : Nat} (keep gate : Fin 4)
+    (hij : i < j) (hj : j < m) (hkeep : keepSize keep ≤ budget+1-m) :
+    childState m P N i j keep gate ∈ sizeCoordinateChildren budget (m,P,N) := by
+  simp only [sizeCoordinateChildren, List.mem_flatMap, List.mem_map,
+    List.mem_filter, List.mem_range, decide_eq_true_eq]
+  exact ⟨j,hj,i,hij,gate,by simp,keep,⟨by simp,hkeep⟩,rfl⟩
+
+lemma sizeCoordinateCover {width k : Nat}
+    {target goal a b z : BitVec width} {anchor : Fin width}
+    {state : Nat × Nat × Nat} {ws r front : List (BitVec width)}
+    (hn : ws.Nodup) (rep : Rep target anchor (k+1) state ws)
+    (hpair : (a,b,r) ∈ SearchKernel.pairs ws)
+    (hfront : front ∈ ([[], [a], [b], [a,b]] : List (List (BitVec width))))
+    (hz : z ∈ basicOps a b) (fresh : z ∉ ws.toFinset)
+    (tail : live basicOps goal k (z :: (front ++ r)).toFinset) :
+    ∃ child ∈ sizeCoordinateChildren (k+1) state,
+      ∃ ys, Rep target anchor k child ys ∧ ys.Perm (z :: (front ++ r)) := by
+  obtain ⟨m,P,N⟩ := state
+  obtain ⟨i,j,keep,gate,hij,hj,hkeep,ys,hrep,hp⟩ :=
+    transitionCover_sizeBound hn rep hpair hfront hz fresh tail
+  exact ⟨childState m P N i j keep gate,
+    childState_mem_size keep gate hij hj (by simpa [Nat.add_assoc] using hkeep),ys,hrep,hp⟩
+
+end PNConcrete
+
+
+namespace PNGraphEdges
+
+def phaseMask (i : Nat) (b : Bool) : Nat :=
+  if b then PNPlanes.highMask i else PNMasks.lowMask i
+
+lemma phaseMask_bits (i : Fin 10) (x : Fin 1024) (b : Bool) :
+    (phaseMask i.val b).testBit x.val = (x.val.testBit i.val == b) := by
+  cases b <;> simp [phaseMask, PNPlanes.highMask_bits, PNMasks.lowMask_bits]
+
+lemma bit_bound {S x : Nat} (hS : S < 2^1024) (hbit : S.testBit x = true) :
+    x < 1024 := by
+  by_contra h
+  have hp : 2^1024 ≤ 2^x := Nat.pow_le_pow_right (by decide) (by omega)
+  have hf := Nat.testBit_lt_two_pow (show S < 2^x by omega)
+  simp only [hbit] at hf
+  exact Bool.noConfusion hf
+
+def maskWitness (P N : Nat) (flip : Nat → Nat → Nat) (i j : Nat) : Prop :=
+  ∃ p q,
+    (P &&& flip i N).testBit p = true ∧ (P &&& flip j N).testBit p = true ∧
+    (N &&& flip i P).testBit q = true ∧ (N &&& flip j P).testBit q = true ∧
+    p.testBit i ≠ q.testBit i ∧ p.testBit j ≠ q.testBit j
+
+lemma quadrant_witness (P N : Nat) (flip : Nat → Nat → Nat) (i j : Fin 10)
+    (hP : P < 2^1024) (hN : N < 2^1024) (a b : Bool)
+    (hp : ((P &&& flip i.val N) &&& (P &&& flip j.val N)) &&&
+      phaseMask i.val a &&& phaseMask j.val b ≠ 0)
+    (hq : ((N &&& flip i.val P) &&& (N &&& flip j.val P)) &&&
+      phaseMask i.val (!a) &&& phaseMask j.val (!b) ≠ 0) :
+    maskWitness P N flip i.val j.val := by
+  obtain ⟨p, hp⟩ := Nat.exists_testBit_of_ne_zero hp
+  obtain ⟨q, hq⟩ := Nat.exists_testBit_of_ne_zero hq
+  simp only [Nat.testBit_and, Bool.and_eq_true] at hp hq
+  have pb := bit_bound hP hp.1.1.1.1
+  have qb := bit_bound hN hq.1.1.1.1
+  have pa := hp.1.2
+  have pbb := hp.2
+  have qa := hq.1.2
+  have qbb := hq.2
+  rw [phaseMask_bits i ⟨p,pb⟩ a] at pa
+  rw [phaseMask_bits j ⟨p,pb⟩ b] at pbb
+  rw [phaseMask_bits i ⟨q,qb⟩ (!a)] at qa
+  rw [phaseMask_bits j ⟨q,qb⟩ (!b)] at qbb
+  simp only [beq_iff_eq] at pa pbb qa qbb
+  refine ⟨p,q,?_,?_,?_,?_,?_,?_⟩
+  · simpa only [Nat.testBit_and, Bool.and_eq_true] using hp.1.1.1
+  · simpa only [Nat.testBit_and, Bool.and_eq_true] using hp.1.1.2
+  · simpa only [Nat.testBit_and, Bool.and_eq_true] using hq.1.1.1
+  · simpa only [Nat.testBit_and, Bool.and_eq_true] using hq.1.1.2
+  · rw [pa, qa]; cases a <;> decide
+  · rw [pbb, qbb]; cases b <;> decide
+
+def vertex (P N : Nat) (flip : Nat → Nat → Nat) (i : Nat) :
+    Nat × Nat × Nat × Nat × Nat :=
+  (i,PNMasks.lowMask i,PNPlanes.highMask i,P &&& flip i N,N &&& flip i P)
+
+def edgeBoolFast (vi vj : Nat × Nat × Nat × Nat × Nat) : Bool :=
+  let (_,li,hi,pi,ni) := vi
+  let (_,lj,hj,pj,nj) := vj
+  let cp := pi &&& pj
+  let cn := ni &&& nj
+  (!(cp &&& li &&& lj == 0) && !(cn &&& hi &&& hj == 0)) ||
+  (!(cp &&& hi &&& lj == 0) && !(cn &&& li &&& hj == 0)) ||
+  (!(cp &&& li &&& hj == 0) && !(cn &&& hi &&& lj == 0)) ||
+  (!(cp &&& hi &&& hj == 0) && !(cn &&& li &&& lj == 0))
+
+lemma edgeBoolFast_witness (P N : Nat) (flip : Nat → Nat → Nat) (i j : Fin 10)
+    (hP : P < 2^1024) (hN : N < 2^1024)
+    (h : edgeBoolFast (vertex P N flip i.val) (vertex P N flip j.val) = true) :
+    maskWitness P N flip i.val j.val := by
+  simp only [edgeBoolFast, vertex, Bool.or_eq_true, Bool.and_eq_true,
+    Bool.not_eq_true', beq_eq_false_iff_ne] at h
+  rcases h with ((⟨hp,hq⟩ | ⟨hp,hq⟩) | ⟨hp,hq⟩) | ⟨hp,hq⟩
+  · exact quadrant_witness P N flip i j hP hN false false hp hq
+  · exact quadrant_witness P N flip i j hP hN true false hp hq
+  · exact quadrant_witness P N flip i j hP hN false true hp hq
+  · exact quadrant_witness P N flip i j hP hN true true hp hq
+
+end PNGraphEdges
+
+
+namespace PNConcrete
+
+open PnTransition PNPlanes
+
+lemma transitionCover_guards {width k m P N : Nat}
+    {target goal a b z : BitVec width} {anchor : Fin width}
+    {ws r front : List (BitVec width)}
+    (hg : goal = target ∨ goal = ~~~target)
+    (hn : ws.Nodup) (rep : Rep target anchor (k+1) (m,P,N) ws)
+    (hpair : (a,b,r) ∈ SearchKernel.pairs ws)
+    (hfront : front ∈ ([[], [a], [b], [a,b]] : List (List (BitVec width))))
+    (hz : z ∈ basicOps a b) (fresh : z ∉ ws.toFinset)
+    (tail : live basicOps goal k (z :: (front ++ r)).toFinset) :
+    ∃ i j, ∃ keep gate : Fin 4, i < j ∧ j < m ∧
+      PNGuards.redundant m (P ||| N) (gateMask i j gate) = false ∧
+      keepSize keep ≤ k+2-m ∧
+      (childState m P N i j keep gate).2.1 &&&
+        (childState m P N i j keep gate).2.2 = 0 ∧
+      ∃ ys, Rep target anchor k (childState m P N i j keep gate) ys ∧
+        ys.Perm (z :: (front ++ r)) := by
+  obtain ⟨i,j,keep,hij,hj,ha,hb,hp⟩ := PNSelectors.pairs_keptFront_indices hpair hfront
+  obtain ⟨gate,rfl⟩ := ChromGate.of_basicOps hz
+  have hperm : (childFront ws i j keep gate a b).Perm
+      (ChromGate.word gate a b :: (front ++ r)) := by
+    change (PNFrontier.keptFront i j keep ws ++ [ChromGate.word gate a b]).Perm _
+    exact List.perm_append_comm.trans (hp.cons _)
+  have heq : (childFront ws i j keep gate a b).toFinset =
+      (ChromGate.word gate a b :: (front ++ r)).toFinset := by
+    ext w
+    simp only [List.mem_toFinset]
+    exact hperm.mem_iff
+  have htail : live basicOps goal k (childFront ws i j keep gate a b).toFinset :=
+    heq.symm ▸ tail
+  have hamem : a ∈ ws := (PNSelectors.perm_cons_eraseIdx ha).mem_iff.mpr (by simp)
+  have hbmem : b ∈ ws := (PNSelectors.perm_cons_eraseIdx hb).mem_iff.mpr (by simp)
+  have hjm : j < m := by have hlen := rep.1; omega
+  have hrep := rep_transition keep gate hn rep hij hjm ha hb hamem hbmem fresh htail
+  have hkeep := represented_child_keepSize_le (childFront_nodup hn fresh) hrep htail
+  have hdisjoint := PNGuards.rep_disjoint hrep htail hg
+  exact ⟨i,j,keep,gate,hij,hjm,PNGuards.rep_fresh_nonredundant rep gate ha hb fresh,
+    hkeep,hdisjoint,childFront ws i j keep gate a b,hrep,hperm⟩
+
+def filteredChildren (budget : Nat) (state : Nat × Nat × Nat) : List (Nat × Nat × Nat) :=
+  (List.range state.1).flatMap fun j =>
+    (List.range j).flatMap fun i =>
+      (List.finRange 4).flatMap fun gate =>
+        if PNGuards.redundant state.1 (state.2.1 ||| state.2.2) (gateMask i j gate) then [] else
+          (((List.finRange 4).filter fun keep => decide (keepSize keep ≤ budget+1-state.1)).map
+            fun keep => childState state.1 state.2.1 state.2.2 i j keep gate).filter
+              fun child => child.2.1 &&& child.2.2 == 0
+
+lemma childState_mem_filtered {budget m P N i j : Nat} (keep gate : Fin 4)
+    (hij : i < j) (hj : j < m)
+    (hred : PNGuards.redundant m (P ||| N) (gateMask i j gate) = false)
+    (hkeep : keepSize keep ≤ budget+1-m)
+    (hdisjoint : (childState m P N i j keep gate).2.1 &&&
+      (childState m P N i j keep gate).2.2 = 0) :
+    childState m P N i j keep gate ∈ filteredChildren budget (m,P,N) := by
+  apply List.mem_flatMap.mpr
+  refine ⟨j, by simp [hj], List.mem_flatMap.mpr ?_⟩
+  refine ⟨i, by simp [hij], List.mem_flatMap.mpr ?_⟩
+  refine ⟨gate, by simp, ?_⟩
+  simp only [hred, Bool.false_eq_true, ite_false, List.mem_filter, List.mem_map,
+    decide_eq_true_eq, beq_iff_eq]
+  exact ⟨⟨keep,⟨by simp,hkeep⟩,rfl⟩,hdisjoint⟩
+
+lemma filteredCoordinateCover {width k : Nat}
+    {target goal a b z : BitVec width} {anchor : Fin width}
+    {state : Nat × Nat × Nat} {ws r front : List (BitVec width)}
+    (hg : goal = target ∨ goal = ~~~target)
+    (hn : ws.Nodup) (rep : Rep target anchor (k+1) state ws)
+    (hpair : (a,b,r) ∈ SearchKernel.pairs ws)
+    (hfront : front ∈ ([[], [a], [b], [a,b]] : List (List (BitVec width))))
+    (hz : z ∈ basicOps a b) (fresh : z ∉ ws.toFinset)
+    (tail : live basicOps goal k (z :: (front ++ r)).toFinset) :
+    ∃ child ∈ filteredChildren (k+1) state,
+      ∃ ys, Rep target anchor k child ys ∧ ys.Perm (z :: (front ++ r)) := by
+  obtain ⟨m,P,N⟩ := state
+  obtain ⟨i,j,keep,gate,hij,hj,hred,hkeep,hdisjoint,ys,hrep,hp⟩ :=
+    transitionCover_guards hg hn rep hpair hfront hz fresh tail
+  exact ⟨childState m P N i j keep gate,
+    childState_mem_filtered keep gate hij hj hred
+      (by simpa [Nat.add_assoc] using hkeep) hdisjoint,ys,hrep,hp⟩
+
+lemma filtered_liveState_step {width : Nat} {target goal : BitVec width}
+    {anchor : Fin width} (hg : goal = target ∨ goal = ~~~target)
+    (k : Nat) (s : Nat × Nat × Nat)
+    (run : PNQuotient.liveState (Rep target anchor) goal (k+1) s) :
+    solved s.1 s.2.1 s.2.2 = true ∨ ∃ t ∈ filteredChildren (k+1) s,
+      PNQuotient.liveState (Rep target anchor) goal k t := by
+  apply PNQuotient.liveState_step (children := filteredChildren)
+    (fun _ _ hrep => solved_singleton hg hrep) ?_ run
+  intro k s ws a b z r front hn hrep hpair hfront hz fresh tail
+  exact filteredCoordinateCover hg hn hrep hpair hfront hz fresh tail
+
+lemma filtered_search_complete {width : Nat} {target goal : BitVec width}
+    {anchor : Fin width} {admissible : Nat → (Nat × Nat × Nat) → Bool}
+    (hg : goal = target ∨ goal = ~~~target)
+    (allowed : ∀ k s, PNQuotient.liveState (Rep target anchor) goal (k+1) s →
+      admissible (k+1) s = true)
+    {k : Nat} {s : Nat × Nat × Nat}
+    (run : PNQuotient.liveState (Rep target anchor) goal k s) :
+    PNQuotient.search (fun state => solved state.1 state.2.1 state.2.2)
+      admissible filteredChildren k s = true :=
+  PNQuotient.search_complete (fun _ _ hrep => solved_singleton hg hrep)
+    (filtered_liveState_step hg) allowed run
+
+end PNConcrete
+
 end PEqualNP.Outside.L_meta_10760
