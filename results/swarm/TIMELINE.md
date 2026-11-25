@@ -27,4 +27,8 @@ Sub-agents: 9 external bus helpers; 1 local toolchain agent.
 - 2026-11-25 21:24:08 UTC: Independent reviewer passed the restriction/pruning glue, including natural-subtraction and output-bound checks (bus 1981).
 - 2026-11-25 21:25 UTC: Partial checkpoint prepared for push after independent source and axiom reviews.
 
-TIMING total=24.2 subagents=10
+- 2026-11-25 21:26 UTC: Pushed independently reviewed partial checkpoint 7ecdb489257942bfd543536a420f672da724df06; remote SHA verified; bus 2046 explicitly marked PARTIAL.
+- 2026-11-25 21:30 UTC: Root began formalizing OR-gate removal from an essential input, based on helper-2 paper argument.
+- 2026-11-25 21:35 UTC: Generic OR-removal and graph specialization compiled; local independent reviewer rebuilt and confirmed standard axioms. Merged named-file build passed (5149 jobs). No final theorem.
+
+TIMING total=34.5 subagents=10

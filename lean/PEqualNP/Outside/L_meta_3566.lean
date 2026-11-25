@@ -2228,3 +2228,194 @@ lemma cutWitness_of_saving {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.A
   omega
 
 end PEqualNP.Outside.L_meta_3566.FoldPrune
+
+namespace PEqualNP.Outside.L_meta_3566.OrRemoval
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_3566.AO2Upper
+open PEqualNP.Outside.L_meta_3566.FalseRestrict
+
+def isOr (g : Gate) : Bool :=
+  match g.op with
+  | .or => true
+  | _ => false
+
+def orCount (gs : List Gate) : ℕ := (gs.filter isOr).length
+
+def stepSaved (σ : List (Option ℕ)) (g : Gate) : ℕ :=
+  if isOr g && ((σ.getD (g.inputs.getD 0 0) none).isNone ||
+    (σ.getD (g.inputs.getD 1 0) none).isNone) then 1 else 0
+
+def savedOr (m : ℕ) (σ : List (Option ℕ)) : List Gate → ℕ
+  | [] => 0
+  | g :: gs =>
+      let r := emit m σ g
+      stepSaved σ g + savedOr (m + r.1.length) (σ ++ [r.2]) gs
+
+lemma count_append (gs hs : List Gate) : orCount (gs ++ hs) = orCount gs + orCount hs := by
+  simp [orCount, List.filter_append]
+
+lemma count_cons (g : Gate) (gs : List Gate) :
+    orCount (g :: gs) = (if isOr g then 1 else 0) + orCount gs := by
+  cases h : isOr g <;> simp [orCount, h, Nat.add_comm]
+
+lemma emit_count (m : ℕ) (σ : List (Option ℕ)) (g : Gate) :
+    orCount (emit m σ g).1 + stepSaved σ g = if isOr g then 1 else 0 := by
+  cases hg : g.op <;>
+    cases ha : σ.getD (g.inputs.getD 0 0) none <;>
+    cases hb : σ.getD (g.inputs.getD 1 0) none <;>
+    simp only [emit, stepSaved, isOr, hg, ha, hb, reduceGate] <;>
+    rfl
+
+lemma compile_count (gs : List Gate) (m : ℕ) (σ : List (Option ℕ)) :
+    orCount (compile m σ gs).1 + savedOr m σ gs = orCount gs := by
+  induction gs generalizing m σ with
+  | nil => simp [compile, savedOr, orCount]
+  | cons g gs ih =>
+    have hs := emit_count m σ g
+    have hr := ih (m + (emit m σ g).1.length) (σ ++ [(emit m σ g).2])
+    simp only [compile, savedOr, count_append, count_cons]
+    omega
+
+def Retained (σ : List (Option ℕ)) (s t : List Bool) : Prop :=
+  σ.length = s.length ∧ s.length = t.length ∧
+    ∀ i, (σ.getD i none).isSome = true → s.getD i false = t.getD i false
+
+lemma retained_step (m : ℕ) (σ : List (Option ℕ)) (s t : List Bool) (g : Gate)
+    (h : Retained σ s t) (hop : g.op = GateOp.and ∨ g.op = GateOp.or)
+    (hlen : g.inputs.length = 2) (hs : stepSaved σ g = 0) :
+    Retained (σ ++ [(emit m σ g).2])
+      (s ++ [g.op.eval (g.inputs.map fun i => s.getD i false)])
+      (t ++ [g.op.eval (g.inputs.map fun i => t.getD i false)]) := by
+  have hev : (emit m σ g).2.isSome = true →
+      g.op.eval (g.inputs.map fun i => s.getD i false) =
+      g.op.eval (g.inputs.map fun i => t.getD i false) := by
+    obtain ⟨a, b, hg⟩ := List.length_eq_two.mp hlen
+    rcases hop with hop | hop <;>
+      cases ha : σ.getD a none <;> cases hb : σ.getD b none <;>
+      simp_all [emit, reduceGate, stepSaved, isOr, hg, Retained]
+  refine ⟨by simp [h.1], by simp [h.2.1], ?_⟩
+  intro j hj
+  by_cases he : j = σ.length
+  · subst j
+    rw [getD_snoc_eq] at hj
+    rw [h.1, getD_snoc_eq, h.2.1, getD_snoc_eq]
+    exact hev hj
+  · rw [getD_snoc_ne _ _ _ _ he] at hj
+    have hslen : j ≠ s.length := by rw [← h.1]; exact he
+    have htlen : j ≠ t.length := by rw [← h.2.1]; exact hslen
+    rw [getD_snoc_ne _ _ _ _ hslen, getD_snoc_ne _ _ _ _ htlen]
+    exact h.2.2 j hj
+
+lemma compile_retained (gs : List Gate) (m : ℕ) (σ : List (Option ℕ)) (s t : List Bool)
+    (h : Retained σ s t)
+    (hbasis : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length = 2)
+    (hs : savedOr m σ gs = 0) :
+    Retained (compile m σ gs).2 (wiresFrom gs s) (wiresFrom gs t) := by
+  induction gs generalizing m σ s t with
+  | nil => simpa [compile, wiresFrom] using h
+  | cons g gs ih =>
+    have hstep : stepSaved σ g = 0 := by simp only [savedOr] at hs; omega
+    have hrest : savedOr (m + (emit m σ g).1.length) (σ ++ [(emit m σ g).2]) gs = 0 := by
+      simp only [savedOr] at hs
+      omega
+    obtain ⟨hop, hlen⟩ := hbasis g List.mem_cons_self
+    exact ih _ _ _ _ (retained_step m σ s t g h hop hlen hstep)
+      (fun g' hg' => hbasis g' (List.mem_cons_of_mem g hg')) hrest
+
+lemma initial_retained_update (n : ℕ) (z : Fin n) (y : Fin n → Bool) :
+    Retained (initialMap n z) (List.ofFn y) (List.ofFn (Function.update y z false)) := by
+  refine ⟨by simp [initialMap], by simp, ?_⟩
+  intro j hj
+  by_cases hlt : j < n
+  · by_cases heq : (⟨j, hlt⟩ : Fin n) = z
+    · simp [initialMap, hlt, heq] at hj
+    · simp [hlt, Function.update_of_ne heq]
+  · simp [hlt]
+
+lemma output_isSome_of_nonzero (n : ℕ) (z : Fin n) (C : Circuit)
+    (hAO : IsAO2 n C) (x : Fin n → Bool)
+    (hx : circuitFun n C (Function.update x z false) = true) :
+    ((compile n (initialMap n z) C.gates).2.getD C.output none).isSome = true := by
+  have hbasis : ∀ g ∈ C.gates,
+      (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length = 2 :=
+    fun g hg => ⟨hAO.1 g hg, hAO.2.2 g hg⟩
+  have hc := compile_correct C.gates (initialMap n z) _ _ (initial_rel n z x) hbasis
+  simp only [List.length_ofFn] at hc
+  have hv := hc.2.2.2 C.output
+  change circuitFun n C (Function.update x z false) = _ at hv
+  rw [hx] at hv
+  cases h : (compile n (initialMap n z) C.gates).2.getD C.output none with
+  | none =>
+      rw [h] at hv
+      cases hv
+  | some j => rfl
+
+lemma savedOr_pos (n : ℕ) (z : Fin n) (C : Circuit) (hAO : IsAO2 n C)
+    (hnz : ∃ x : Fin n → Bool, circuitFun n C (Function.update x z false) = true)
+    (hess : ∃ y : Fin n → Bool,
+      circuitFun n C y ≠ circuitFun n C (Function.update y z false)) :
+    0 < savedOr n (initialMap n z) C.gates := by
+  by_contra hnot
+  have hzero : savedOr n (initialMap n z) C.gates = 0 := by omega
+  obtain ⟨x, hx⟩ := hnz
+  obtain ⟨y, hy⟩ := hess
+  have hs := output_isSome_of_nonzero n z C hAO x hx
+  have hbasis : ∀ g ∈ C.gates,
+      (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length = 2 :=
+    fun g hg => ⟨hAO.1 g hg, hAO.2.2 g hg⟩
+  have hr := compile_retained C.gates n (initialMap n z) _ _
+    (initial_retained_update n z y) hbasis hzero
+  exact hy (hr.2.2 C.output hs)
+
+lemma restriction_removes_or (n : ℕ) (z : Fin n) (C : Circuit) (hAO : IsAO2 n C)
+    (hnz : ∃ x : Fin n → Bool, circuitFun n C (Function.update x z false) = true)
+    (hess : ∃ y : Fin n → Bool,
+      circuitFun n C y ≠ circuitFun n C (Function.update y z false)) :
+    orCount (restricted n z C).gates + 1 ≤ orCount C.gates := by
+  have hp := savedOr_pos n z C hAO hnz hess
+  have hc := compile_count C.gates n (initialMap n z)
+  change orCount (compile n (initialMap n z) C.gates).1 + 1 ≤ _
+  omega
+
+lemma graph_restriction_removes_or {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (z : Fin n) (C : Circuit)
+    (hAO : IsAO2 n C) (hfun : circuitFun n C = NestedCover.graphFun G ∅)
+    (hz : 0 < G.degree z)
+    (hne : (G.deleteEdges (G.incidenceSet z)).edgeFinset.Nonempty) :
+    orCount (restricted n z C).gates + 1 ≤ orCount C.gates := by
+  classical
+  apply restriction_removes_or n z C hAO
+  · refine ⟨fun _ => true, ?_⟩
+    rw [hfun]
+    simp only [NestedCover.graphFun, Finset.notMem_empty, false_and, exists_false,
+      decide_false, Bool.false_or, decide_eq_true_eq]
+    obtain ⟨e, he⟩ := hne
+    revert he
+    refine Sym2.ind (fun a b => ?_) e
+    intro he
+    have hab := (G.deleteEdges (G.incidenceSet z)).mem_edgeFinset.mp he
+    obtain ⟨hab, haz, hbz⟩ := (PEqualNP.Outside.L_meta_3566.cut_adj G z a b).mp hab
+    exact ⟨a, b, hab, by simp [Function.update_of_ne haz],
+      by simp [Function.update_of_ne hbz]⟩
+  · have hn : (G.neighborFinset z).Nonempty := Finset.card_pos.mp hz
+    obtain ⟨w, hw⟩ := hn
+    have hzw : G.Adj z w := (G.mem_neighborFinset z w).mp hw
+    let y : Fin n → Bool := fun i => decide (i = z ∨ i = w)
+    have hu : Function.update y z false = (fun i : Fin n => decide (i = w)) := by
+      funext i
+      by_cases hi : i = z
+      · subst i
+        simp [hzw.ne]
+      · simp [Function.update_of_ne hi, y, hi]
+    have hon : NestedCover.graphFun G ∅ y = true := by
+      simp only [NestedCover.graphFun, Finset.notMem_empty, false_and, exists_false,
+        decide_false, Bool.false_or, decide_eq_true_eq]
+      exact ⟨z, w, hzw, by simp [y], by simp [y]⟩
+    have hoff : NestedCover.graphFun G ∅ (Function.update y z false) = false := by
+      rw [hu]
+      simp [NestedCover.graphFun, SimpleGraph.irrefl]
+    refine ⟨y, ?_⟩
+    rw [hfun, hon, hoff]
+    decide
+
+end PEqualNP.Outside.L_meta_3566.OrRemoval
