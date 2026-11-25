@@ -1,0 +1,6 @@
+Start UTC 2026-11-25T12:43:30.171057+00:00
+equal actual6normalizedhypotheses, 183 multiplierterms and nonzero integerdenominator match exact reviewed identity; unusedgenerators1,3omitted: PASS
+different actual6normalizedhypotheses, 250 multiplierterms and nonzero integerdenominator match exact reviewed identity; unusedgenerators1,3omitted: PASS
+Scope: exactly two conditional polynomial contradiction lemmas over C, six explicit hypotheses each includingu^2-2. Geometric reduction/coverage not asserted. Source-only before authorcompile; no compiler or solver rerun.
+Finish UTC 2026-11-25T12:43:30.321196+00:00
+PASS

@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "sha256": "f5508fba3b3c32933c3cfa55aa9b37a944c8b76b3ad031143e5ecae9bb5e30e2",
+  "lines": 3133,
+  "bytes": 504298,
+  "one_outer_namespace": true,
+  "scope": "Partial helpers only; main theorem absent.",
+  "review": "Root independently verified baseinnerbody and all3new component bodies, exactcommonroot dedup, imports/limits/bannedfeatures; c3 independentPASS."
+}

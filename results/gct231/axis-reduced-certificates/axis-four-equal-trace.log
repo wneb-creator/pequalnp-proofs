@@ -1,0 +1,97 @@
+NEOGB nvars=4 ngens=8 characteristic=0 terms=208 exact_sparse=2 pairs=32 threads=1
+
+--------------- INPUT DATA ---------------
+#variables                       4
+#equations                       8
+#invalid equations               0
+field characteristic             0
+homogeneous input?               0
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            2
+initial hash table size     131072 (2^17)
+max pair selection              32
+reduce gb                        1
+#threads                         1
+info level                       2
+generate pbm files               0
+------------------------------------------
+
+Legend for f4 information
+--------------------------------------------------------
+deg       current degree of pairs selected in this round
+sel       number of pairs selected in this round
+pairs     total number of pairs in pair list
+mat       matrix dimensions (# rows x # columns)
+density   density of the matrix
+new data  # new elements for basis in this round
+          # zero reductions during linear algebra
+time(rd)  time of the current f4 round in seconds given
+          for real and cpu time
+--------------------------------------------------------
+
+deg     sel   pairs        mat          density            new data         time(rd) in sec (real|cpu)
+------------------------------------------------------------------------------------------------------
+  5       1       8       3 x 35         62.86%      1 new       0 zero         0.00 | 0.00         
+  6       6       8      31 x 81         16.09%      6 new       0 zero         0.00 | 0.00         
+  6      13      18      57 x 108        16.96%     10 new       3 zero         0.00 | 0.00         
+  5       4      26      27 x 65         28.15%      3 new       1 zero         0.00 | 0.00         
+  5      12      28      47 x 84         21.00%     12 new       0 zero         0.00 | 0.00         
+  4       6      39      26 x 52         34.39%      6 new       0 zero         0.00 | 0.00         
+  4      15      39      45 x 55         29.09%     15 new       0 zero         0.00 | 0.00         
+  2       3      50      12 x 14         31.55%      3 new       0 zero         0.00 | 0.00         
+  2       5      50      13 x 10         31.54%      2 new       3 zero         0.00 | 0.00         
+------------------------------------------------------------------------------------------------------
+reduce final basis        1 x 1         100.00%      1 new       0 zero         0.00 | 0.00         
+------------------------------------------------------------------------------------------------------
+
+---------------- TIMINGS ----------------
+overall(elapsed)        0.01 sec
+overall(cpu)            0.01 sec
+select                  0.00 sec   2.1%
+symbolic prep.          0.00 sec   1.2%
+update                  0.00 sec   6.3%
+convert                 0.00 sec  10.8%
+linear algebra          0.01 sec  77.0%
+reduce gb               0.00 sec   0.0%
+-----------------------------------------
+
+---------- COMPUTATIONAL DATA -----------
+size of basis                     1
+#terms in basis                   1
+#pairs reduced                   65
+#GM criterion                  2038
+#redundant elements              65
+#rows reduced                   131
+#zero reductions                  7
+max. matrix data                 57 x 108 (16.959%)
+max. symbolic hash table size  2^11
+max. basis hash table size     2^16
+-----------------------------------------
+
+
+---------------- TIMINGS ----------------
+overall(elapsed)        0.01 sec
+overall(cpu)            0.01 sec
+select                  0.00 sec   0.0%
+symbolic prep.          0.00 sec   0.0%
+update                  0.00 sec   0.0%
+convert                 0.00 sec   0.0%
+linear algebra          0.00 sec   0.0%
+reduce gb               0.00 sec   0.0%
+-----------------------------------------
+
+---------- COMPUTATIONAL DATA -----------
+size of basis                     1
+#terms in basis                   1
+#pairs reduced                    0
+#GM criterion                     0
+#redundant elements               0
+#rows reduced                     0
+#zero reductions                  0
+max. matrix data                  0 x 0 (0.000%)
+max. symbolic hash table size  2^-2147483648
+max. basis hash table size     2^16
+-----------------------------------------
+

@@ -1,0 +1,49 @@
+{
+  "source": "gct231/triangle-kernel-zero/axis-four-different.json",
+  "source_sha256": "e5475d11aff3e08aade543ec178381e4c6369d584f8342236a4e87bcd9a81275",
+  "characteristic": 0,
+  "variables": [
+    "o7",
+    "o8",
+    "o1",
+    "u"
+  ],
+  "generator_count": 8,
+  "term_count": 265,
+  "dropped_modular_zero_terms": 0,
+  "equation_scalings": [
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    }
+  ],
+  "input_sha256": "c54d4002330a9dc36148b0657cdbee0e87c00c1ab777534d2c8dd97dfad2e0e0"
+}

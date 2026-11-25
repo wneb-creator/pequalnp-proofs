@@ -1,0 +1,6 @@
+'PEqualNP.Outside.L_gct_231_aux.AxisReduced.equal_chart_inconsistent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.AxisReduced.different_chart_inconsistent' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

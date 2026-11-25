@@ -1,0 +1,16 @@
+equal 14 terms 24 degree 6
+equal 16 terms 46 degree 7
+equal 17 terms 21 degree 5
+equal 18 terms 46 degree 7
+equal 19 terms 24 degree 5
+equal 20 terms 24 degree 6
+equal 21 terms 21 degree 5
+equal None terms 2 degree 2
+different 14 terms 24 degree 6
+different 16 terms 58 degree 8
+different 17 terms 21 degree 5
+different 18 terms 64 degree 9
+different 19 terms 36 degree 6
+different 20 terms 30 degree 7
+different 21 terms 30 degree 7
+different None terms 2 degree 2

@@ -1,0 +1,11 @@
+SOLVE d7 (-9*o1**2*u + 6*o1**2 - 4*o1*o7 - 10*o1*u + 4*o1 + 4*o7 - u - 2)/(4*o1 - 4)
+SOLVE d8 (9*o5**2*u + 6*o5**2 - 4*o5*o8 + 10*o5*u + 4*o5 + 4*o8 + u - 2)/(4*o5 - 4)
+ROW 10 terms 7 degree 4
+ROW 14 terms 24 degree 6
+ROW 16 terms 84 degree 7
+ROW 17 terms 21 degree 5
+ROW 18 terms 84 degree 7
+ROW 19 terms 33 degree 5
+ROW 20 terms 24 degree 6
+ROW 21 terms 21 degree 5
+ROW None terms 2 degree 2

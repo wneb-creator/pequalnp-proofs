@@ -1,0 +1,17 @@
+{
+  "scope": "FINAL PARTIAL FILE: no posted theorem or refutation.",
+  "lines": 3133,
+  "bytes": 504298,
+  "lake_build_exit": 0,
+  "module_seconds": 227,
+  "lake_jobs": 6687,
+  "axiom_audit_exit": 0,
+  "axiom_audit_declarations": 326,
+  "axioms": "Only propext/Classical.choice/Quot.sound",
+  "independent_review": "Root+c3 exact body preservation, oneouterauxnamespace, allformatchecksPASS",
+  "format_rg_exit": 1,
+  "format_meaning": "No forbiddenmatches orattributes",
+  "checker10": "RUNNING; finaloutput willbe archivedseparately",
+  "last_checker": "09REJECTED(no-theorem)",
+  "cleanup": "Not reached: no accepted proof;3133linesbefore/after any finalcleanup, whichwasnotperformed."
+}

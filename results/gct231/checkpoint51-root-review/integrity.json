@@ -1,0 +1,12 @@
+[
+  {
+    "archive": "polynomial-coefficient-list",
+    "files": 6,
+    "manifest_sha256": "afde8b30de6d5786c8dbd81eff05226943410a3b2894921974c0d7133d4b1956"
+  },
+  {
+    "archive": "axis-reduced-certificates",
+    "files": 70,
+    "manifest_sha256": "954fd6b0909da2a3390ab3b2f5831dae3a61b2228db85e4a614e9c288f81dabf"
+  }
+]

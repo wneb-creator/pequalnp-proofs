@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "returncode": 0,
+  "wall_seconds": 45.37547578900194,
+  "seconds_limit": 90,
+  "resident_memory_mib_limit": 4096,
+  "peak_group_rss_kib": 3269860,
+  "rss_sample_seconds": 0.5,
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/triangle-kernel-zero/AxisReducedAudit.lean"
+}

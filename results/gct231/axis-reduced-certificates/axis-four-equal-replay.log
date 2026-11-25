@@ -1,0 +1,2 @@
+{"input": "/tmp/oec/pequalnp-pilot-75/gct231/triangle-kernel-zero/axis-four-equal-trace.f4.in", "trace": "/tmp/oec/pequalnp-pilot-75/gct231/triangle-kernel-zero/axis-four-equal-trace.trace", "variables": ["x0", "x1", "x2", "x3"], "record_counts": {"G": 8, "I": 8, "O": 67, "M": 262, "S": 655, "A": 1169}, "verified_output_count": 67, "proved_nonzero_constant": true, "constant_step": 70}
+needed_steps 50 all_steps 71

@@ -1,0 +1,6 @@
+Start UTC 2026-11-25T12:46:56.551708+00:00
+Exact70-entry coverage/hash/text-only/all preserved scratch copies; compiled source and both reviewed exact certificates unchanged: PASS
+Exactsource+2queries driver; exit0/45.375476s/3269860KiB under90s/4GiB; boththeorems standard3axioms: PASS
+All6omitted intermediate sizes/fullstream hashes verified; smalltraces included text-only. README explicitly leaves geometry/coverage bridge unreviewed/unformalized. No solver/compile rerun.
+Finish UTC 2026-11-25T12:46:56.741644+00:00
+PASS

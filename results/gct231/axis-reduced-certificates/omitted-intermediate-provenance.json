@@ -1,0 +1,29 @@
+{
+  "files": {
+    "axis-four-equal-flat-certificate.json": {
+      "sha256": "610b8c034351803d023f2199f01c3368ca001d4e8f5f25ed1ae07d1d75d4e559",
+      "bytes": 2470403
+    },
+    "axis-four-equal-quotient-linear.in": {
+      "sha256": "89526521adb42b362bfe465701a9014489a12b9ab4307c970aa662b93787828d",
+      "bytes": 6701978
+    },
+    "axis-four-equal-quotient-linear.basis.json": {
+      "sha256": "72e2fe1a9aed9a8dc57d681e522c290056488f5dc4df0ec80b35decb4d1c1b28",
+      "bytes": 18918202
+    },
+    "axis-four-different-flat-certificate.json": {
+      "sha256": "24b6b25b44a4f1bd1eb310fd927ff80b9c9b8ee0544497811aa58352f71ef596",
+      "bytes": 13957580
+    },
+    "axis-four-different-quotient-linear.in": {
+      "sha256": "28a3ef415a0e5fd5094925e3e6def11afefdccf8454d4b387299482f5d759c01",
+      "bytes": 20895319
+    },
+    "axis-four-different-quotient-linear.basis.json": {
+      "sha256": "dd5731d1b251ce4918043cebdb8a77553d6299964b28260c037f4a36a066715d",
+      "bytes": 48851188
+    }
+  },
+  "scope": "Large superseded multiplier and rational linear-system intermediates remain scratch. Final exact identities, Lean proof and all solver stdout/stderr are preserved."
+}

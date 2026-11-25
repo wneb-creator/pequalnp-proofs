@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native/neogb_cli_native",
+    "/tmp/oec/pequalnp-pilot-75/gct231/triangle-kernel-zero/axis-four-equal-quotient-linear.in",
+    "/tmp/oec/pequalnp-pilot-75/gct231/triangle-kernel-zero/axis-four-equal-quotient-linear.basis.json",
+    "32",
+    "1"
+  ],
+  "status": "COMPLETED",
+  "returncode": 0,
+  "seconds": 1.2692327200020372,
+  "wall_limit_seconds": 120,
+  "memory_mib": 2048,
+  "threads": 1,
+  "cpu_soft_seconds": 122,
+  "library_sha256": "557a320ab8d064e7c57ae7798b8574b1ffd70728390ae98fcbc4e378bd726711",
+  "child_maxrss_kib": 79804,
+  "binary_sha256": "5b2450117bea1df00d2f6fadaca11666588fd9cb76fb2ec943fa939f724b7441",
+  "input_sha256": "89526521adb42b362bfe465701a9014489a12b9ab4307c970aa662b93787828d",
+  "unit_basis": false,
+  "basis_size": 253,
+  "output_sha256": "72e2fe1a9aed9a8dc57d681e522c290056488f5dc4df0ec80b35decb4d1c1b28"
+}
