@@ -1,0 +1,9 @@
+{
+  "source": "results/orch/lemmas/structural-cofactor-multi-standalone.lean",
+  "sha256": "229a79f0770e6f42ac1b6aff747af6df598cbec4640b6ca4de8245fc0c4c10b5",
+  "lines": 6215,
+  "exit_code": 0,
+  "compiled_at_utc": "2026-11-25T11:45:48.700700+00:00",
+  "accepted_prefix_lines": 6032,
+  "scope": "Defs-only standalone: finite-set cofactor surplus slack and restriction wrappers, no full target or unconditional +4 claim."
+}

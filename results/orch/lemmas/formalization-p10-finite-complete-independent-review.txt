@@ -1,0 +1,6 @@
+PASS independent composition and final-fragment review.
+Source SHA256 c048aeea92bb1a1c4831caf425746ebab85053e90107de37457561f730af7d59.
+The complete source preserves the exact frozen finite-certificate prefix and reviewed bridge, followed by the exact nine-line final fragment.
+The final theorem chooses one code for each of seven Finset(Fin2) masks using the checked surjectivity theorem; function extensionality recovers the original residual function. Its assumed Finset budget implies the Boolean constraint is true, contradicting the kernel certificate that it is false.
+No circuit semantics are assumed or concluded by this standalone finite obstruction; the actual-circuit transfer is a separate proof obligation.
+The full standalone build receipt now records exit0 for this exact SHA256; both complete logs are empty. I verified the source hash, receipt and log sizes independently.

@@ -1,0 +1,8 @@
+{
+  "exit_code": 0,
+  "source": "results/orch/lemmas/formalization-compact-masks-core.lean",
+  "sha256": "51a43f58f815b793a3d9ca3db85d1970206925438443f4b1edbb4622f7d874ce",
+  "lines": 162,
+  "completed_utc": "2026-11-25T11:47:37.727190+00:00",
+  "scope": "Compact q5 table/forced/count equivalences and Finset constraints to Bool bridge only. Finite impossibility certificate not yet included."
+}

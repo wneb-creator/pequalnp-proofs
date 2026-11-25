@@ -1,0 +1,16 @@
+{
+  "reviewer": "constructive_search",
+  "verdict": "PASS core source/math; enumeration certificates not reviewed yet",
+  "utc": "2026-11-25T11:48:07.598638+00:00",
+  "source": "results/orch/lemmas/formalization-compact-masks-core.lean",
+  "sha256": "51a43f58f815b793a3d9ca3db85d1970206925438443f4b1edbb4622f7d874ce",
+  "checks": [
+    "All64 subset table entries encode ordinary three-bit inclusion; eight cardinalities correct.",
+    "The five forced Boolean rows exactly match q5_neighbors.",
+    "Protected-point exclusions are complements of rows0,1,3, triggered by precisely the non-line7 singleton-mask neighbors.",
+    "Six consumption inequalities use the correct extra unit only at indices1,2,3,4.",
+    "q5_compact_of_constraints is the needed implication; reverse equivalence is not required for sound finite exclusion.",
+    "Small local kernel certificates establish mask/card/filter-count correctness; no native decision, instances, options, strings, or forbidden-root markers introduced."
+  ],
+  "scope": "162-line frozen core, excluding future exhaustive compact certificates and wrapper assembly."
+}

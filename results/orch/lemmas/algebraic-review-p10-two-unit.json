@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/stochastic-p10-two-unit-finite.lean",
+  "sha256": "f8ee44cc4553c657cc979a577b0f6c6ba5984456e5c1c71099103bc4d68d7e92",
+  "lines": 508,
+  "independent_assignments": 16384,
+  "independent_survivors": 0,
+  "forbidden_markers": [],
+  "scope": "Finite Boolean residual-consumption certificate only; actual circuit transfer remains separate.",
+  "checks": [
+    "Mask and subset tables match nonempty subset on two units.",
+    "Adjacency matches Heawood points 0,1,2,3 and lines 7 through 13.",
+    "Extra edge slot is zero only on line 7, whose neighbors all lie in the ineligible set.",
+    "All 64 fixed-prefix certificates and final exhaustive assembly have matching indices.",
+    "Ordinary kernel decide only; permitted Defs import and scoped limit options."
+  ]
+}

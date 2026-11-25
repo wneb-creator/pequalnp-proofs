@@ -1,0 +1,14 @@
+{
+  "exit_code": 0,
+  "sha256": "f8ee44cc4553c657cc979a577b0f6c6ba5984456e5c1c71099103bc4d68d7e92",
+  "source": "results/orch/lemmas/stochastic-p10-two-unit-finite.lean",
+  "lines": 508,
+  "completed_utc": "2026-11-25T11:49:51.880191+00:00",
+  "command": "lake env lean -j1 -M6000 --profile results/orch/lemmas/stochastic-p10-two-unit-finite.lean",
+  "scope": "Kernel checked finite residual-mask obstruction only; actual-circuit transfer and final posted gap theorem are separate.",
+  "earlier_attempt": {
+    "memory_limit_mb": 3000,
+    "exit_code": 134,
+    "reason": "Lean interpreter memory_exception after import"
+  }
+}

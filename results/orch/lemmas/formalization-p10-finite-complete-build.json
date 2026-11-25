@@ -1,0 +1,9 @@
+{
+  "source": "results/orch/lemmas/formalization-p10-finite-complete.lean",
+  "sha256": "c048aeea92bb1a1c4831caf425746ebab85053e90107de37457561f730af7d59",
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T11:53:16.954623+00:00",
+  "lines": 564,
+  "bytes": 19679,
+  "scope": "No Fin7\u2192Finset(Fin2) family satisfies the exact p10 forced-consumption constraints; includes kernel finite certificate and arbitrary-Finset bridge. Actual-circuit transfer is separate."
+}

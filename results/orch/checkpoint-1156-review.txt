@@ -1,0 +1,11 @@
+PASS independent checkpoint-1156 preservation review.
+
+Reviewed the exact57-file manifest (1,292,076bytes), all under results/orch, as ordinary nonsymlink files. Every source byte count and SHA256 matches. The p10 composition review record already matched its finalized exit0 text at review time, so no manifest entry required a change. The nested33-file p10 archive matches all917,987bytes and hashes and is included completely.
+
+Verified exact-hash exit0 receipts and independent review bindings for the6215-line standalone multi-unit cofactor package,564-line complete p10 finite/Finset obstruction,162-line compact q5 equivalence core, and98-line cached actual-circuit p10 transfer. The compact q5 log contains only unused-simp warnings; its scope does not include a finite impossibility certificate. The cached circuit transfer is explicitly distinguished from its pending combined standalone consequence. Mathematical source reviews were already completed independently; this review checks their exact-source binding and preservation scope.
+
+The p10 archive preserves ordinary-kernel certificate logs, the failed3000MB attempt, the successful6000MB attempt, independent exact enumerations and bounded three-unit refinement with full logs. Three-unit survivors are explicitly necessary-condition assignments, not circuits or an exclusion. No optional experimental two-slot rule is used in the checked p10 theorem.
+
+Read the NOTES/TIMELINE/validation changes. They accurately retain the missing full target, REJECTED(no-theorem) checker status, pending p9/K4 work, six subagents and179.1-minute timing. There is no full proof or refutation overclaim. Metadata and reports separate ordinary cofactor statements from derivative preservation.
+
+Scanned all selected bytes, including decompressed census data, for credential/key patterns without printing any values; no findings. Selected Lean sources have no prohibited root marker, double quote, sorry, native decision, axiom declaration or unsupported attributes. No source was edited.

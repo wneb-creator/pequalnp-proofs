@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-p10-transfer-tail.lean",
+  "sha256": "f6ccaf44fada6a96b55087f1a59d049f30d225388dd66c1ac0fa2d359a98710b",
+  "lines": 98,
+  "scope": "Actual strict-live correct Heawood circuit with ineligible set {0,1,2,3} and Bplus\u226412 yields the finite two-unit residual constraints.",
+  "checks": [
+    "tri012 plus eligible-cardinality 10 and card_residual force exactly two residual supported units.",
+    "Fin2 equivalence is injective and onto residual units; coordinate images preserve support-mask cardinalities.",
+    "Direct adjacency and nonempty residual inclusion both force the assigned operand to carry the target line.",
+    "Distinct ineligible assigned positions give the basic consumption budget; every line except 7 has an eligible neighbor and hence one distinct extra slot.",
+    "No protected-input, missing-mask, Bzero, derivative, or hidden normalization assumption is used.",
+    "Cached complete logs are empty; parent reports exit 0."
+  ],
+  "forbidden_markers": []
+}

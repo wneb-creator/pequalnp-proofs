@@ -1,0 +1,10 @@
+{
+  "units": 2,
+  "enumerated": 16384,
+  "survivor_count": 0,
+  "seconds": 0.000487692,
+  "first_failure_counts": [8832, 6616, 512, 164, 120, 124, 16, 0],
+  "survivors": [
+
+  ]
+}

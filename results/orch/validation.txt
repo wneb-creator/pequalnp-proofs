@@ -6,7 +6,7 @@ Checker: exit 1, REJECTED (no-theorem); final target theorem is absent. The chec
 Independent whole-file review: PASS by status_review; all new tails also reviewed by algebraic_route.
 Complete build logs and earlier axiom audit are archived alongside this file.
 Sub-agents: 6 (structural review, Lean formalization, constructive search, stochastic search, SAT decomposition, algebraic route)
-TIMING total=168.0 subagents=6
+TIMING total=179.1 subagents=6
 Additional archival partial: constructive-completion.lean, 80 lines; all 441 witness cases independently recomputed, Lean exit 0, no claim about arbitrary AND factors.
 Normal-form axiom audit: only propext, Classical.choice, Quot.sound.
 Additional archival partial: algebraic-blocking.lean, 44 lines, Lean exit 0; blocking-set classification and pure-point constraint for an OR-of-lines masked factor. Independent review PASS; scope excludes arbitrary AND factors.
@@ -37,3 +37,5 @@ P14 ordinary-feasibility SAT bundle:15 hashed files,2922241 bytes. Exact35 Fano 
 Preferred shorter integration, standalone exit0 and independently reviewed: generic trace-preserving trim/delete (777 lines,34386 bytes) and exact posted-to-canonical conditional bridge (3050 lines,144941 bytes). This removes ordinary-minimality/lower-bound dependencies; the missing structural no-quiet premise remains explicit. Also preserved the reviewed protected-mask/co-label/coordinate package (7460 lines), exit0/empty logs.
 Completed high-search archive:157 hashed files,416270 bytes; root reran both snapshot verifiers (68+74 snapshots,16384 rows each, direct traces). No27 quiet witness. The recorded phase made330955223 mutations, with replayed RNG prefix and CSE eligibility limitations explicitly documented.
 K4 controls independently verified on1024 rows each:15/16/17 gates with0/2/4 eligible original vertices and Bzero0. These are exact examples, not a universal eligibility bound.
+
+Further checked partials: multi-unit cofactor slack (6215 lines), complete p10 two-unit finite/Finset obstruction (564 lines), and compact q5 mask equivalence core (162 lines), all standalone Lean exit0 and independently reviewed. The actual-circuit-to-p10-constraints fragment (98 lines) separately compiled against the accepted cached prefix and passed independent review; its combined standalone circuit consequence is pending. The 33-file p10 research archive includes the kernel certificate, successful/failed resource logs, exact bounded enumerations, and explicit scope limitations. No new full target or negation is claimed.

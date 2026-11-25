@@ -1,0 +1,333 @@
+{
+  "scope": "Finite arithmetic necessary conditions only, not a Lean theorem or circuit existence assertion. Includes tri012 lower12 and tri_hw lower13 when Bzero<=1.",
+  "ineligible": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "patterns": [
+    {
+      "missing": [],
+      "missing_ineligible": 0,
+      "Bplus": 14,
+      "Bzero": 0,
+      "union": [],
+      "saturated": true
+    },
+    {
+      "missing": [
+        1,
+        3,
+        4,
+        5
+      ],
+      "missing_ineligible": 2,
+      "Bplus": 12,
+      "Bzero": 2,
+      "union": [
+        7,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "saturated": true
+    },
+    {
+      "missing": [
+        0,
+        1,
+        4,
+        6
+      ],
+      "missing_ineligible": 2,
+      "Bplus": 12,
+      "Bzero": 2,
+      "union": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        13
+      ],
+      "saturated": true
+    },
+    {
+      "missing": [
+        0,
+        3,
+        5,
+        6
+      ],
+      "missing_ineligible": 2,
+      "Bplus": 12,
+      "Bzero": 2,
+      "union": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "saturated": true
+    },
+    {
+      "missing": [
+        4,
+        5,
+        6
+      ],
+      "missing_ineligible": 0,
+      "Bplus": 14,
+      "Bzero": 0,
+      "union": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "saturated": true
+    },
+    {
+      "missing": [
+        0,
+        4,
+        5,
+        6
+      ],
+      "missing_ineligible": 1,
+      "Bplus": 13,
+      "Bzero": 1,
+      "union": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "saturated": true
+    },
+    {
+      "missing": [
+        1,
+        4,
+        5,
+        6
+      ],
+      "missing_ineligible": 1,
+      "Bplus": 13,
+      "Bzero": 1,
+      "union": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "saturated": true
+    },
+    {
+      "missing": [
+        0,
+        1,
+        4,
+        5,
+        6
+      ],
+      "missing_ineligible": 2,
+      "Bplus": 12,
+      "Bzero": 2,
+      "union": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "saturated": true
+    },
+    {
+      "missing": [
+        2,
+        4,
+        5,
+        6
+      ],
+      "missing_ineligible": 1,
+      "Bplus": 12,
+      "Bzero": 2,
+      "union": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "saturated": false
+    },
+    {
+      "missing": [
+        2,
+        4,
+        5,
+        6
+      ],
+      "missing_ineligible": 1,
+      "Bplus": 13,
+      "Bzero": 1,
+      "union": [
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "saturated": true
+    },
+    {
+      "missing": [
+        0,
+        2,
+        4,
+        5,
+        6
+      ],
+      "missing_ineligible": 2,
+      "Bplus": 12,
+      "Bzero": 2,
+      "union": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "saturated": true
+    },
+    {
+      "missing": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "missing_ineligible": 2,
+      "Bplus": 12,
+      "Bzero": 2,
+      "union": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "saturated": true
+    },
+    {
+      "missing": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "missing_ineligible": 1,
+      "Bplus": 13,
+      "Bzero": 1,
+      "union": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "saturated": true
+    },
+    {
+      "missing": [
+        0,
+        3,
+        4,
+        5,
+        6
+      ],
+      "missing_ineligible": 2,
+      "Bplus": 12,
+      "Bzero": 2,
+      "union": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "saturated": true
+    },
+    {
+      "missing": [
+        1,
+        3,
+        4,
+        5,
+        6
+      ],
+      "missing_ineligible": 2,
+      "Bplus": 12,
+      "Bzero": 2,
+      "union": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "saturated": true
+    },
+    {
+      "missing": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "missing_ineligible": 2,
+      "Bplus": 12,
+      "Bzero": 2,
+      "union": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "saturated": true
+    }
+  ]
+}

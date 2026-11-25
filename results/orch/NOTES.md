@@ -76,3 +76,5 @@ The exact posted-to-canonical bridge now has a successful standalone build and i
 - P10 one-sided line case: two independent enumerations found a two-residual-unit contradiction using generic co-label and consumption constraints. A small Boolean kernel certificate and Finset transfer are being developed; the larger residual budgets remain open.
 - P14: the broad and targeted ordinary SAT workers run separately. The stochastic phase ended without a witness. Structural work now considers marked-edge routing and multi-unit cofactor loss, with K4 surplus7 eligibility as a possible refinement.
 - Continue preserving every compiled reviewed component. No proof PR until the exact target or its negated twin passes the full checker.
+
+2026-11-25T11:56:17.197695+00:00: Preserving completed p10 finite obstruction and cached circuit transfer separately, compact q5 core, and multi-unit cofactor slack. Full p9 and strengthened K4 standalone builds are pending; main target remains absent.

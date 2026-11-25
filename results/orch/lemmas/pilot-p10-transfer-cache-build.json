@@ -1,0 +1,8 @@
+{
+  "source": "results/orch/lemmas/pilot-p10-transfer-tail.lean",
+  "sha256": "f6ccaf44fada6a96b55087f1a59d049f30d225388dd66c1ac0fa2d359a98710b",
+  "lines": 98,
+  "cached_exit_code": 0,
+  "scope": "Actual-circuit transfer to finite two-unit constraints; no full Fano no-quiet conclusion.",
+  "completed_utc": "2026-11-25T11:52:50.196675+00:00"
+}

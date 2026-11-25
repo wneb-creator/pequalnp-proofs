@@ -1,0 +1,14 @@
+{
+  "exit_code": 0,
+  "source": "results/orch/lemmas/stochastic-p10-three-unit-refinement.py",
+  "sha256": "01ff529e29e66e5e05fd3bde62a0594ab398936de11e2b81e5710ead731543d4",
+  "matches_prior_result_except_elapsed_seconds": true,
+  "survivors": [
+    2826,
+    2826,
+    2988,
+    2826
+  ],
+  "completed_utc": "2026-11-25T11:53:08.284727+00:00",
+  "scope": "Bounded finite necessary-condition exploration only. No three-unit exclusion and no circuit witness."
+}

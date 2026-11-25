@@ -1,0 +1,21 @@
+M [1, 3, 4, 5] protected [0, 2] two_slot False {'initial': 5184, 'missing_mask': 4992, 'co_label_exact_closure': 68}
+M [1, 3, 4, 5] protected [0, 2] two_slot True {'initial': 5184, 'missing_mask': 4992, 'co_label_exact_closure': 52}
+M [0, 1, 4, 6] protected [2, 3] two_slot False {'initial': 5184, 'missing_mask': 4992, 'co_label_exact_closure': 68}
+M [0, 1, 4, 6] protected [2, 3] two_slot True {'initial': 5184, 'missing_mask': 4992, 'co_label_exact_closure': 52}
+M [0, 3, 5, 6] protected [1, 2] two_slot False {'initial': 5184, 'missing_mask': 4992, 'co_label_exact_closure': 68}
+M [0, 3, 5, 6] protected [1, 2] two_slot True {'initial': 5184, 'missing_mask': 4992, 'co_label_exact_closure': 52}
+M [0, 1, 4, 5, 6] protected [2, 3] two_slot False {'initial': 5184, 'missing_mask': 4960, 'co_label_exact_closure': 68}
+M [0, 1, 4, 5, 6] protected [2, 3] two_slot True {'initial': 5184, 'missing_mask': 4960, 'co_label_exact_closure': 52}
+M [2, 4, 5, 6] protected [] two_slot False {'initial': 5184, 'missing_mask': 4960, 'co_label_exact_closure': 4960}
+M [2, 4, 5, 6] protected [] two_slot True {'initial': 5184, 'missing_mask': 4960, 'co_label_exact_closure': 4960}
+M [0, 2, 4, 5, 6] protected [1, 3] two_slot False {'initial': 5184, 'missing_mask': 4898, 'co_label_exact_closure': 192}
+M [0, 2, 4, 5, 6] protected [1, 3] two_slot True {'initial': 5184, 'missing_mask': 4898, 'co_label_exact_closure': 108}
+M [1, 2, 4, 5, 6] protected [0, 3] two_slot False {'initial': 5184, 'missing_mask': 4898, 'co_label_exact_closure': 192}
+M [1, 2, 4, 5, 6] protected [0, 3] two_slot True {'initial': 5184, 'missing_mask': 4898, 'co_label_exact_closure': 108}
+M [0, 3, 4, 5, 6] protected [1, 2] two_slot False {'initial': 5184, 'missing_mask': 4960, 'co_label_exact_closure': 68}
+M [0, 3, 4, 5, 6] protected [1, 2] two_slot True {'initial': 5184, 'missing_mask': 4960, 'co_label_exact_closure': 52}
+M [1, 3, 4, 5, 6] protected [0, 2] two_slot False {'initial': 5184, 'missing_mask': 4960, 'co_label_exact_closure': 68}
+M [1, 3, 4, 5, 6] protected [0, 2] two_slot True {'initial': 5184, 'missing_mask': 4960, 'co_label_exact_closure': 52}
+M [2, 3, 4, 5, 6] protected [0, 1] two_slot False {'initial': 5184, 'missing_mask': 4898, 'co_label_exact_closure': 192}
+M [2, 3, 4, 5, 6] protected [0, 1] two_slot True {'initial': 5184, 'missing_mask': 4898, 'co_label_exact_closure': 108}
+elapsed_seconds 3.0222356150006817

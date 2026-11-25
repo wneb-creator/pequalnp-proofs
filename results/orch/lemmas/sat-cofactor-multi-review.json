@@ -1,0 +1,38 @@
+{
+  "verdict": "PASS (independent mathematical/source review; frozen standalone build exit0)",
+  "reviewed_utc": "2026-11-25T11:47:48.735351+00:00",
+  "sources": [
+    {
+      "path": "results/orch/lemmas/structural-cofactor-multi-tail.lean",
+      "sha256": "6ba60fb3c21d2bf8dc6a24ec138d32972b995f8238d09a2e7a541ad2acad43cd"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-multi-restrict-tail.lean",
+      "sha256": "d2238c477719d16e238e40362954dcf1f7e0a969ec1760f34ac20f290b84559b"
+    }
+  ],
+  "checks": [
+    "The multi-wire slack theorem restricts cofactor surplus to branching image wires T. Every selected original wire V maps to a nonbranching image, so V is disjoint from the original preimage set charged by cof_core. Each V wire has cofactor degree at least2 and contributes at least one disjoint surplus unit.",
+    "No injectivity of the translation t on V is required. Multiple selected original wires may map to the same nonbranching cofactor wire; the charged original-wire summands remain distinct.",
+    "The unit version explicitly requires Sigma.fst injective on U. This makes U.card equal the cardinality of distinct original wires; it does not double-count multiple units on one wire. Membership in cof_kept supplies a live original inner wire and cofactor degree at least2.",
+    "An ineligible cofactor label in a kept wire support forces the translated wire to have fanout at most1, by the cofactor evaluation invariant and the definition of ineligible.",
+    "The restriction wrapper construction, StrictLive proof, correctness, original surplus bounds and protected-input transport are textually identical to the previous reviewed wrapper through its final new slack obligation.",
+    "The graph wrapper retains exact graph-restriction hypotheses, derives essential inputs from the induced graph assumptions, and supplies the new finite-unit slack simultaneously for arbitrary U satisfying its explicit premises.",
+    "No unconditional multi-unit improvement, distinctness of translated images or full target conclusion is asserted.",
+    "Final edits make the first-projection type explicit in all unit-set signatures and add classical to the wrappers; the mathematical assumptions and construction are unchanged.",
+    "The final standalone matches the exact6032-line accepted-derived prefix and both reviewed tails after namespace-only renaming. Its source hash matches the exit0 receipt and both diagnostic files are empty."
+  ],
+  "issues": [],
+  "limits": [
+    "The package proves only the explicit finite-wire/unit slack and restriction statements, not an unconditional multi-unit improvement or the full target."
+  ],
+  "build": {
+    "source": "results/orch/lemmas/structural-cofactor-multi-standalone.lean",
+    "sha256": "229a79f0770e6f42ac1b6aff747af6df598cbec4640b6ca4de8245fc0c4c10b5",
+    "lines": 6215,
+    "exit_code": 0,
+    "compiled_at_utc": "2026-11-25T11:45:48.700700+00:00",
+    "accepted_prefix_lines": 6032,
+    "scope": "Defs-only standalone: finite-set cofactor surplus slack and restriction wrappers, no full target or unconditional +4 claim."
+  }
+}
