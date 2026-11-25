@@ -184,3 +184,16 @@ Independent review: few_not checked all1024 truth assignments and the final symb
 Scope: known20gate monotone upper bound and explicit six-vertex cover. No lower bound or new result claimed.
 Complete compiler stdout: results/orch/logs/witness-build-4.stdout
 Complete compiler stderr: results/orch/logs/witness-build-4.stderr
+
+Checkpoint 6: 2026-11-25T14:16:32.333131+00:00
+Artifact: results/orch/lemmas/BinaryFloor.lean
+SHA256: bcff29d80b9da5fc18127e20854777d0ec15a828eabe864ca6f91dd2303ace57
+Lines: 3228
+Build: lake env lean ../results/orch/lemmas/BinaryFloor.lean (workdir lean/), exit 0.
+Independent review: few_not compared complete source against checked upstream L_meta_4725; statements and proof bodies unchanged apart from qualified namespace references.
+Scope: reused existing15+NOTcount lower bound, not a new proof or complete solution of L-meta-2592. Explicit upstream attribution retained.
+Complete compiler stdout: results/orch/logs/binary-floor-002.stdout
+Complete compiler stderr: results/orch/logs/binary-floor-002.stderr
+Full-gap checker: prior diagnostic FAULT (missing Batteries.olean), no verdict. Posted final theorem remains unproved.
+Sub-agents: 6 (library/decomposition; proof/normalization; toolchain/review; counterexample/SAT; few-NOT/SAT audit; structural lower-bound search)
+TIMING total=31.6 subagents=6
