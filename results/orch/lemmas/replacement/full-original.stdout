@@ -1,0 +1,1605 @@
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:119:53: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.false_and, Bool.and_true, Bool.and_false,
+    Bool.false_or, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:119:67: warning: This simp argument is unused:
+  Bool.false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.and_true, Bool.and_false,
+    Bool.false_or, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:119:111: warning: This simp argument is unused:
+  Bool.false_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.false_and, Bool.and_true,
+    Bool.and_false, Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:120:22: warning: This simp argument is unused:
+  Bool.true_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, bit_prime, ha, hb, bit_bin, bit_neg, Bool.true_and, Bool.false_and, Bool.and_true,
+    Bool.and_false, Bool.false_or, Bool.or_false, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:121:58: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hy, bit_neg, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:121:61: warning: This simp argument is unused:
+  hy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, bit_neg, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:121:64: warning: This simp argument is unused:
+  bit_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, bit_prime]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:121:72: warning: This simp argument is unused:
+  bit_prime
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, bit_neg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:459:20: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:459:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:460:20: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:460:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:633:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [eqv]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:663:60: warning: This simp argument is unused:
+  er
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:875:47: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+simp took 483ms
+simp took 483ms
+simp took 492ms
+simp took 459ms
+simp took 466ms
+simp took 468ms
+simp took 491ms
+simp took 479ms
+simp took 486ms
+simp took 482ms
+simp took 462ms
+simp took 552ms
+simp took 465ms
+simp took 486ms
+simp took 476ms
+simp took 477ms
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:1022:6: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [column, ite_true, BitVec.getLsbD_and, BitVec.getLsbD_not, i.isLt, decide_true, (correct.2 a i).1,
+    (correct.2 a i).2, hp, hn, Bool.not_false, Bool.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:1410:27: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:1412:27: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:1410:15: warning: This simp argument is unused:
+  colCheck
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, if_true, Bool.and_eq_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:1412:15: warning: This simp argument is unused:
+  colCheck
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, if_false, Bool.and_eq_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+type checking took 2.94s
+type checking took 379ms
+typeclass inference of Nonempty took 238ms
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:1623:19: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:1625:19: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:1637:26: warning: Variable name `raw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _raw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:1791:14: warning: This simp argument is unused:
+  List.length_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+type checking took 127ms
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:2035:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+simp took 117ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 189ms
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:2418:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [hw] at contra
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:2489:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 186ms
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:2680:15: warning: This simp argument is unused:
+  Nat.add_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [chartBlock, Bool.and_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:2996:43: warning: This simp argument is unused:
+  Bool.false_eq_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [flexibleCheck, hc, beq_iff_eq, ite_false, Bool.and_eq_true] at good
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:3077:29: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:3092:31: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:3120:29: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:3135:31: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:3163:29: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:3178:31: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:3276:29: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:3291:31: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:3323:29: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:3338:31: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:3366:29: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:3381:31: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:3643:30: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:3658:32: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+type checking took 115ms
+type checking took 262ms
+type checking took 179ms
+type checking took 345ms
+type checking took 128ms
+type checking took 217ms
+type checking took 357ms
+type checking took 139ms
+type checking took 291ms
+type checking took 369ms
+type checking took 160ms
+type checking took 183ms
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:4489:13: warning: Unused tactic linter: `all_goals` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+type checking took 193ms
+type checking took 194ms
+type checking took 204ms
+type checking took 202ms
+type checking took 387ms
+type checking took 241ms
+type checking took 265ms
+type checking took 182ms
+type checking took 198ms
+type checking took 192ms
+type checking took 316ms
+type checking took 163ms
+type checking took 162ms
+type checking took 168ms
+type checking took 199ms
+type checking took 178ms
+type checking took 110ms
+type checking took 391ms
+type checking took 516ms
+type checking took 217ms
+type checking took 561ms
+type checking took 178ms
+type checking took 736ms
+type checking took 386ms
+type checking took 526ms
+type checking took 402ms
+type checking took 633ms
+type checking took 505ms
+type checking took 538ms
+type checking took 233ms
+type checking took 630ms
+type checking took 550ms
+type checking took 770ms
+type checking took 610ms
+type checking took 1.45s
+type checking took 1.17s
+type checking took 1.14s
+type checking took 408ms
+type checking took 180ms
+type checking took 364ms
+type checking took 110ms
+type checking took 237ms
+type checking took 182ms
+type checking took 192ms
+type checking took 347ms
+type checking took 305ms
+type checking took 386ms
+type checking took 239ms
+type checking took 498ms
+type checking took 376ms
+type checking took 276ms
+type checking took 309ms
+type checking took 226ms
+type checking took 185ms
+type checking took 231ms
+type checking took 188ms
+type checking took 582ms
+type checking took 528ms
+type checking took 275ms
+type checking took 349ms
+type checking took 430ms
+type checking took 357ms
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:4700:13: warning: Unused tactic linter: `all_goals` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+type checking took 558ms
+type checking took 848ms
+type checking took 1.17s
+type checking took 1.12s
+type checking took 548ms
+type checking took 877ms
+type checking took 592ms
+type checking took 589ms
+type checking took 528ms
+type checking took 767ms
+type checking took 331ms
+type checking took 688ms
+type checking took 927ms
+type checking took 625ms
+type checking took 792ms
+type checking took 580ms
+type checking took 820ms
+type checking took 1.42s
+type checking took 3.13s
+type checking took 1.66s
+type checking took 2.04s
+type checking took 444ms
+type checking took 402ms
+type checking took 186ms
+type checking took 139ms
+type checking took 144ms
+type checking took 128ms
+type checking took 127ms
+type checking took 127ms
+type checking took 182ms
+type checking took 145ms
+type checking took 141ms
+type checking took 232ms
+type checking took 149ms
+type checking took 148ms
+type checking took 181ms
+type checking took 211ms
+type checking took 128ms
+type checking took 142ms
+type checking took 264ms
+type checking took 358ms
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:4828:13: warning: Unused tactic linter: `all_goals` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+type checking took 317ms
+type checking took 329ms
+type checking took 286ms
+type checking took 244ms
+type checking took 340ms
+type checking took 199ms
+type checking took 262ms
+type checking took 249ms
+type checking took 197ms
+type checking took 262ms
+type checking took 370ms
+type checking took 197ms
+type checking took 208ms
+type checking took 166ms
+type checking took 226ms
+type checking took 168ms
+type checking took 189ms
+type checking took 211ms
+type checking took 354ms
+type checking took 258ms
+type checking took 212ms
+type checking took 241ms
+type checking took 227ms
+type checking took 339ms
+type checking took 171ms
+type checking took 183ms
+type checking took 179ms
+type checking took 188ms
+type checking took 170ms
+type checking took 218ms
+type checking took 188ms
+type checking took 168ms
+type checking took 193ms
+type checking took 192ms
+type checking took 271ms
+type checking took 203ms
+type checking took 232ms
+type checking took 223ms
+type checking took 192ms
+type checking took 186ms
+type checking took 199ms
+type checking took 188ms
+type checking took 217ms
+type checking took 239ms
+type checking took 455ms
+type checking took 268ms
+type checking took 198ms
+type checking took 186ms
+type checking took 235ms
+type checking took 219ms
+type checking took 221ms
+type checking took 169ms
+type checking took 194ms
+type checking took 247ms
+type checking took 580ms
+type checking took 366ms
+type checking took 183ms
+type checking took 182ms
+type checking took 241ms
+type checking took 253ms
+type checking took 303ms
+type checking took 265ms
+type checking took 201ms
+type checking took 284ms
+type checking took 187ms
+type checking took 225ms
+type checking took 188ms
+type checking took 234ms
+type checking took 192ms
+type checking took 201ms
+type checking took 291ms
+type checking took 161ms
+type checking took 195ms
+type checking took 200ms
+type checking took 226ms
+type checking took 195ms
+type checking took 212ms
+type checking took 212ms
+type checking took 192ms
+type checking took 176ms
+type checking took 264ms
+type checking took 200ms
+type checking took 267ms
+type checking took 189ms
+type checking took 209ms
+type checking took 205ms
+type checking took 159ms
+type checking took 166ms
+type checking took 325ms
+type checking took 215ms
+type checking took 206ms
+type checking took 193ms
+type checking took 222ms
+type checking took 199ms
+type checking took 186ms
+type checking took 203ms
+type checking took 412ms
+type checking took 354ms
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:4863:13: warning: Unused tactic linter: `all_goals` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+type checking took 860ms
+type checking took 854ms
+type checking took 851ms
+type checking took 727ms
+type checking took 969ms
+type checking took 657ms
+type checking took 545ms
+type checking took 704ms
+type checking took 550ms
+type checking took 872ms
+type checking took 871ms
+type checking took 600ms
+type checking took 975ms
+type checking took 617ms
+type checking took 1.12s
+type checking took 573ms
+type checking took 1.39s
+type checking took 698ms
+type checking took 932ms
+type checking took 532ms
+type checking took 624ms
+type checking took 450ms
+type checking took 715ms
+type checking took 672ms
+type checking took 370ms
+type checking took 775ms
+type checking took 586ms
+type checking took 717ms
+type checking took 537ms
+type checking took 614ms
+type checking took 597ms
+type checking took 778ms
+type checking took 519ms
+type checking took 801ms
+type checking took 691ms
+type checking took 1.06s
+type checking took 363ms
+type checking took 821ms
+type checking took 921ms
+type checking took 424ms
+type checking took 558ms
+type checking took 799ms
+type checking took 551ms
+type checking took 779ms
+type checking took 687ms
+type checking took 688ms
+type checking took 733ms
+type checking took 688ms
+type checking took 281ms
+type checking took 612ms
+type checking took 442ms
+type checking took 905ms
+type checking took 337ms
+type checking took 604ms
+type checking took 570ms
+type checking took 768ms
+type checking took 1.48s
+type checking took 1.48s
+type checking took 968ms
+type checking took 1.46s
+type checking took 1.06s
+type checking took 1.7s
+type checking took 1.17s
+type checking took 3.01s
+type checking took 503ms
+type checking took 105ms
+type checking took 170ms
+type checking took 133ms
+type checking took 140ms
+type checking took 183ms
+type checking took 191ms
+type checking took 199ms
+type checking took 524ms
+type checking took 414ms
+type checking took 186ms
+type checking took 502ms
+type checking took 221ms
+type checking took 546ms
+type checking took 201ms
+type checking took 220ms
+type checking took 851ms
+type checking took 514ms
+type checking took 373ms
+type checking took 136ms
+type checking took 144ms
+type checking took 133ms
+type checking took 158ms
+type checking took 221ms
+type checking took 125ms
+type checking took 124ms
+type checking took 134ms
+type checking took 122ms
+type checking took 139ms
+type checking took 190ms
+type checking took 175ms
+type checking took 162ms
+type checking took 134ms
+type checking took 153ms
+type checking took 255ms
+type checking took 281ms
+type checking took 176ms
+type checking took 146ms
+type checking took 189ms
+type checking took 128ms
+type checking took 182ms
+type checking took 190ms
+type checking took 127ms
+type checking took 223ms
+type checking took 255ms
+type checking took 364ms
+type checking took 260ms
+type checking took 257ms
+type checking took 240ms
+type checking took 242ms
+type checking took 252ms
+type checking took 193ms
+type checking took 235ms
+type checking took 662ms
+type checking took 623ms
+type checking took 484ms
+type checking took 530ms
+type checking took 105ms
+type checking took 157ms
+type checking took 112ms
+type checking took 114ms
+type checking took 126ms
+type checking took 101ms
+type checking took 120ms
+type checking took 118ms
+type checking took 134ms
+type checking took 125ms
+type checking took 195ms
+type checking took 140ms
+type checking took 154ms
+type checking took 318ms
+type checking took 160ms
+type checking took 156ms
+type checking took 250ms
+type checking took 241ms
+type checking took 285ms
+type checking took 331ms
+type checking took 359ms
+type checking took 187ms
+type checking took 251ms
+type checking took 202ms
+type checking took 178ms
+type checking took 123ms
+type checking took 209ms
+type checking took 186ms
+type checking took 177ms
+type checking took 216ms
+type checking took 197ms
+type checking took 193ms
+type checking took 136ms
+type checking took 169ms
+type checking took 176ms
+type checking took 184ms
+type checking took 179ms
+type checking took 531ms
+type checking took 721ms
+type checking took 471ms
+type checking took 917ms
+type checking took 301ms
+type checking took 101ms
+type checking took 309ms
+type checking took 235ms
+type checking took 235ms
+type checking took 192ms
+type checking took 161ms
+type checking took 215ms
+type checking took 199ms
+type checking took 227ms
+type checking took 470ms
+type checking took 583ms
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:6488:13: warning: Unused tactic linter: `all_goals` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+type checking took 144ms
+type checking took 153ms
+type checking took 209ms
+type checking took 193ms
+type checking took 174ms
+type checking took 105ms
+type checking took 263ms
+type checking took 134ms
+type checking took 177ms
+type checking took 408ms
+type checking took 618ms
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:6625:13: warning: Unused tactic linter: `all_goals` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+elaboration took 104ms
+type checking took 722ms
+type checking took 101ms
+type checking took 544ms
+type checking took 700ms
+type checking took 1.33s
+type checking took 1.11s
+type checking took 1.23s
+elaboration took 384ms
+tactic execution of Lean.Parser.Tactic.apply took 165ms
+tactic execution of Lean.Parser.Tactic.rcases took 144ms
+tactic execution of Lean.Parser.Tactic.rcases took 229ms
+type checking took 2.3s
+type checking took 105ms
+type checking took 102ms
+type checking took 149ms
+type checking took 265ms
+type checking took 302ms
+type checking took 428ms
+type checking took 278ms
+type checking took 377ms
+type checking took 478ms
+type checking took 351ms
+type checking took 220ms
+type checking took 173ms
+type checking took 190ms
+type checking took 213ms
+type checking took 158ms
+type checking took 277ms
+type checking took 166ms
+type checking took 185ms
+type checking took 192ms
+type checking took 160ms
+type checking took 155ms
+type checking took 264ms
+type checking took 200ms
+type checking took 194ms
+type checking took 202ms
+type checking took 206ms
+type checking took 210ms
+type checking took 335ms
+type checking took 193ms
+type checking took 246ms
+type checking took 207ms
+type checking took 205ms
+type checking took 195ms
+type checking took 202ms
+type checking took 252ms
+type checking took 208ms
+type checking took 278ms
+type checking took 168ms
+type checking took 230ms
+type checking took 414ms
+type checking took 223ms
+type checking took 280ms
+type checking took 409ms
+type checking took 276ms
+type checking took 232ms
+type checking took 290ms
+type checking took 206ms
+type checking took 193ms
+type checking took 273ms
+type checking took 216ms
+type checking took 179ms
+type checking took 198ms
+type checking took 169ms
+type checking took 219ms
+type checking took 192ms
+type checking took 292ms
+type checking took 277ms
+type checking took 197ms
+type checking took 238ms
+type checking took 246ms
+type checking took 191ms
+type checking took 229ms
+type checking took 154ms
+type checking took 248ms
+type checking took 203ms
+type checking took 470ms
+type checking took 418ms
+type checking took 314ms
+type checking took 492ms
+type checking took 391ms
+type checking took 507ms
+type checking took 233ms
+type checking took 191ms
+type checking took 228ms
+type checking took 337ms
+type checking took 260ms
+type checking took 274ms
+type checking took 280ms
+type checking took 285ms
+type checking took 269ms
+type checking took 238ms
+type checking took 190ms
+type checking took 198ms
+type checking took 222ms
+type checking took 183ms
+type checking took 239ms
+type checking took 199ms
+type checking took 206ms
+type checking took 223ms
+type checking took 188ms
+type checking took 267ms
+type checking took 233ms
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:7132:13: warning: Unused tactic linter: `all_goals` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+type checking took 601ms
+type checking took 1.04s
+type checking took 588ms
+type checking took 601ms
+type checking took 900ms
+type checking took 702ms
+type checking took 784ms
+type checking took 889ms
+type checking took 527ms
+type checking took 793ms
+type checking took 473ms
+type checking took 487ms
+type checking took 821ms
+type checking took 483ms
+type checking took 623ms
+type checking took 645ms
+type checking took 538ms
+type checking took 489ms
+type checking took 487ms
+type checking took 728ms
+type checking took 827ms
+type checking took 977ms
+type checking took 862ms
+type checking took 942ms
+type checking took 417ms
+type checking took 449ms
+type checking took 583ms
+type checking took 491ms
+type checking took 760ms
+type checking took 499ms
+type checking took 671ms
+type checking took 562ms
+type checking took 520ms
+type checking took 785ms
+type checking took 520ms
+type checking took 537ms
+type checking took 673ms
+type checking took 548ms
+type checking took 983ms
+type checking took 414ms
+type checking took 495ms
+type checking took 1.03s
+type checking took 512ms
+type checking took 923ms
+type checking took 583ms
+type checking took 754ms
+type checking took 825ms
+type checking took 494ms
+type checking took 469ms
+type checking took 470ms
+type checking took 543ms
+type checking took 620ms
+type checking took 530ms
+type checking took 963ms
+type checking took 1.24s
+type checking took 1.19s
+type checking took 1.12s
+type checking took 793ms
+type checking took 667ms
+type checking took 768ms
+type checking took 567ms
+type checking took 447ms
+type checking took 760ms
+type checking took 828ms
+type checking took 540ms
+type checking took 640ms
+type checking took 448ms
+type checking took 502ms
+type checking took 714ms
+type checking took 721ms
+type checking took 830ms
+type checking took 970ms
+type checking took 495ms
+type checking took 496ms
+type checking took 530ms
+type checking took 470ms
+type checking took 376ms
+type checking took 401ms
+type checking took 430ms
+type checking took 594ms
+type checking took 483ms
+type checking took 526ms
+type checking took 367ms
+type checking took 328ms
+type checking took 392ms
+type checking took 401ms
+type checking took 409ms
+type checking took 390ms
+type checking took 459ms
+type checking took 498ms
+type checking took 532ms
+type checking took 1.24s
+type checking took 852ms
+type checking took 482ms
+type checking took 560ms
+type checking took 511ms
+type checking took 182ms
+type checking took 412ms
+type checking took 262ms
+type checking took 394ms
+type checking took 191ms
+type checking took 516ms
+type checking took 351ms
+type checking took 523ms
+type checking took 167ms
+type checking took 354ms
+type checking took 231ms
+type checking took 666ms
+type checking took 503ms
+type checking took 1.05s
+type checking took 583ms
+type checking took 591ms
+type checking took 1.73s
+type checking took 1.97s
+type checking took 2.74s
+type checking took 2.01s
+type checking took 1.38s
+type checking took 1.92s
+type checking took 1.49s
+type checking took 1.44s
+type checking took 1.9s
+type checking took 1.94s
+type checking took 1.39s
+type checking took 1.8s
+type checking took 1.46s
+type checking took 1.73s
+type checking took 2.97s
+type checking took 1.87s
+type checking took 2.82s
+type checking took 2.13s
+type checking took 1.33s
+type checking took 2.23s
+type checking took 2.85s
+type checking took 2.41s
+type checking took 1.78s
+type checking took 884ms
+type checking took 1.2s
+type checking took 1.77s
+type checking took 1.38s
+type checking took 1.62s
+type checking took 1.7s
+type checking took 2.47s
+type checking took 1.1s
+type checking took 1.59s
+type checking took 1.26s
+type checking took 1.74s
+type checking took 1.98s
+type checking took 3.33s
+type checking took 2.11s
+type checking took 3.44s
+/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean:7199:13: warning: Unused tactic linter: `all_goals` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+elaboration took 178ms
+type checking took 1.05s
+type checking took 406ms
+type checking took 381ms
+type checking took 346ms
+type checking took 679ms
+type checking took 435ms
+type checking took 812ms
+type checking took 540ms
+type checking took 983ms
+type checking took 709ms
+type checking took 1.05s
+type checking took 1.84s
+type checking took 796ms
+type checking took 1.52s
+type checking took 1.58s
+type checking took 2.05s
+type checking took 1.99s
+type checking took 1.61s
+type checking took 2.9s
+elaboration took 311ms
+tactic execution of Lean.Parser.Tactic.rcases took 2.1s
+type checking took 4.08s
+type checking took 104ms
+type checking took 402ms
+type checking took 300ms
+type checking took 325ms
+type checking took 332ms
+type checking took 464ms
+type checking took 499ms
+type checking took 307ms
+type checking took 262ms
+type checking took 309ms
+type checking took 357ms
+type checking took 320ms
+type checking took 314ms
+type checking took 295ms
+type checking took 380ms
+type checking took 305ms
+type checking took 330ms
+type checking took 330ms
+type checking took 375ms
+type checking took 271ms
+type checking took 354ms
+type checking took 340ms
+type checking took 415ms
+type checking took 238ms
+type checking took 325ms
+type checking took 329ms
+type checking took 281ms
+type checking took 272ms
+type checking took 327ms
+type checking took 293ms
+type checking took 274ms
+type checking took 308ms
+type checking took 297ms
+type checking took 327ms
+type checking took 309ms
+type checking took 286ms
+type checking took 291ms
+type checking took 131ms
+type checking took 440ms
+type checking took 385ms
+type checking took 340ms
+type checking took 239ms
+type checking took 376ms
+type checking took 589ms
+type checking took 539ms
+type checking took 121ms
+type checking took 298ms
+type checking took 325ms
+type checking took 294ms
+type checking took 293ms
+type checking took 392ms
+type checking took 266ms
+type checking took 237ms
+type checking took 1.46s
+type checking took 1.06s
+type checking took 972ms
+type checking took 935ms
+type checking took 906ms
+type checking took 679ms
+type checking took 1.06s
+type checking took 790ms
+type checking took 744ms
+type checking took 632ms
+type checking took 392ms
+type checking took 413ms
+type checking took 621ms
+type checking took 568ms
+type checking took 539ms
+type checking took 554ms
+type checking took 522ms
+type checking took 512ms
+type checking took 431ms
+type checking took 521ms
+type checking took 884ms
+type checking took 514ms
+type checking took 445ms
+type checking took 1.04s
+type checking took 885ms
+type checking took 527ms
+type checking took 771ms
+type checking took 624ms
+type checking took 593ms
+type checking took 785ms
+type checking took 472ms
+type checking took 719ms
+type checking took 634ms
+type checking took 472ms
+type checking took 793ms
+type checking took 706ms
+type checking took 630ms
+type checking took 515ms
+type checking took 601ms
+type checking took 550ms
+type checking took 529ms
+type checking took 693ms
+type checking took 416ms
+type checking took 806ms
+type checking took 1.31s
+type checking took 530ms
+type checking took 441ms
+type checking took 437ms
+type checking took 468ms
+type checking took 488ms
+type checking took 842ms
+type checking took 763ms
+type checking took 695ms
+type checking took 617ms
+type checking took 400ms
+type checking took 607ms
+type checking took 1.03s
+type checking took 1.17s
+type checking took 565ms
+type checking took 898ms
+type checking took 592ms
+type checking took 887ms
+type checking took 903ms
+type checking took 942ms
+type checking took 734ms
+type checking took 849ms
+type checking took 733ms
+type checking took 746ms
+type checking took 608ms
+type checking took 448ms
+type checking took 744ms
+type checking took 1.05s
+type checking took 955ms
+type checking took 719ms
+type checking took 739ms
+type checking took 1.14s
+type checking took 1.05s
+type checking took 601ms
+type checking took 465ms
+type checking took 464ms
+type checking took 404ms
+type checking took 375ms
+type checking took 684ms
+type checking took 548ms
+type checking took 457ms
+type checking took 484ms
+type checking took 405ms
+type checking took 447ms
+type checking took 386ms
+type checking took 798ms
+type checking took 509ms
+type checking took 739ms
+type checking took 548ms
+type checking took 473ms
+type checking took 592ms
+type checking took 545ms
+type checking took 531ms
+type checking took 907ms
+type checking took 705ms
+type checking took 723ms
+type checking took 599ms
+type checking took 710ms
+type checking took 604ms
+type checking took 909ms
+type checking took 693ms
+type checking took 685ms
+type checking took 680ms
+type checking took 648ms
+type checking took 466ms
+type checking took 626ms
+type checking took 442ms
+type checking took 663ms
+type checking took 947ms
+type checking took 485ms
+type checking took 674ms
+type checking took 1.08s
+type checking took 790ms
+type checking took 1.11s
+type checking took 1.49s
+type checking took 1.36s
+type checking took 564ms
+type checking took 844ms
+type checking took 1.19s
+type checking took 1.07s
+type checking took 750ms
+type checking took 746ms
+type checking took 456ms
+type checking took 556ms
+type checking took 771ms
+type checking took 509ms
+type checking took 514ms
+type checking took 488ms
+type checking took 770ms
+type checking took 923ms
+type checking took 931ms
+type checking took 456ms
+type checking took 1.03s
+type checking took 562ms
+type checking took 738ms
+type checking took 893ms
+type checking took 691ms
+type checking took 960ms
+type checking took 1.03s
+type checking took 1.12s
+type checking took 1.29s
+type checking took 1.46s
+type checking took 1.24s
+type checking took 4.35s
+type checking took 2.11s
+type checking took 922ms
+type checking took 635ms
+type checking took 602ms
+type checking took 1.44s
+type checking took 689ms
+type checking took 684ms
+type checking took 462ms
+type checking took 501ms
+type checking took 455ms
+type checking took 656ms
+type checking took 526ms
+type checking took 870ms
+type checking took 647ms
+type checking took 562ms
+type checking took 1.2s
+type checking took 846ms
+type checking took 827ms
+type checking took 909ms
+type checking took 1.29s
+type checking took 1.27s
+type checking took 1.3s
+type checking took 1.22s
+type checking took 1.16s
+type checking took 1.34s
+type checking took 1.24s
+type checking took 1.17s
+type checking took 1.05s
+type checking took 1.2s
+type checking took 1.46s
+type checking took 1.52s
+type checking took 1.53s
+type checking took 1.83s
+type checking took 1.17s
+type checking took 1.43s
+type checking took 1.45s
+type checking took 1.08s
+type checking took 1.31s
+type checking took 1.49s
+type checking took 1.52s
+type checking took 1.13s
+type checking took 1.27s
+type checking took 1.36s
+type checking took 1.42s
+type checking took 1.3s
+type checking took 1.31s
+type checking took 1.3s
+type checking took 1.28s
+type checking took 1.44s
+type checking took 1.4s
+type checking took 1.69s
+type checking took 1.4s
+type checking took 1.47s
+type checking took 1.24s
+type checking took 1.47s
+type checking took 2.6s
+type checking took 1.29s
+type checking took 1.61s
+type checking took 1.32s
+type checking took 1.62s
+type checking took 1.56s
+type checking took 1.55s
+type checking took 1.01s
+type checking took 1.82s
+type checking took 2.58s
+type checking took 2.1s
+type checking took 1.72s
+type checking took 1.2s
+type checking took 1.31s
+type checking took 1.11s
+type checking took 2.16s
+type checking took 954ms
+type checking took 2.14s
+type checking took 2.51s
+type checking took 2.08s
+type checking took 1.92s
+type checking took 1.66s
+type checking took 1.39s
+type checking took 1.33s
+type checking took 1.79s
+type checking took 1.4s
+type checking took 2.58s
+type checking took 2.64s
+type checking took 2.47s
+type checking took 1.61s
+type checking took 2.71s
+type checking took 1.91s
+type checking took 1.43s
+type checking took 2.37s
+type checking took 1.59s
+type checking took 1.45s
+type checking took 1.72s
+type checking took 1.75s
+type checking took 2.38s
+type checking took 2.88s
+type checking took 1.52s
+type checking took 1.85s
+type checking took 830ms
+type checking took 1.15s
+type checking took 1.85s
+type checking took 1.52s
+type checking took 1.73s
+type checking took 1.73s
+type checking took 1.47s
+type checking took 1.41s
+type checking took 1.75s
+type checking took 1.67s
+type checking took 1.69s
+type checking took 1.42s
+type checking took 1.44s
+type checking took 1.64s
+type checking took 1.47s
+type checking took 2.07s
+type checking took 1.79s
+type checking took 2.09s
+type checking took 1.66s
+type checking took 1.67s
+type checking took 1.73s
+type checking took 1.39s
+type checking took 1.48s
+type checking took 1.32s
+type checking took 1.94s
+type checking took 1.6s
+type checking took 1.16s
+type checking took 1.59s
+type checking took 1.78s
+type checking took 1.28s
+type checking took 1.42s
+type checking took 1.2s
+type checking took 1.32s
+type checking took 1.62s
+type checking took 1.15s
+type checking took 2.02s
+type checking took 1.33s
+type checking took 1.49s
+type checking took 1.23s
+type checking took 1.96s
+type checking took 3.25s
+type checking took 1.87s
+type checking took 2.31s
+type checking took 1.69s
+type checking took 1.6s
+type checking took 1.2s
+type checking took 1.16s
+type checking took 1.32s
+type checking took 1.17s
+type checking took 1.16s
+type checking took 1.33s
+type checking took 1.72s
+type checking took 1.16s
+type checking took 1.18s
+type checking took 1.14s
+type checking took 1.4s
+type checking took 1.02s
+type checking took 1.35s
+type checking took 1.51s
+type checking took 1.29s
+type checking took 1.3s
+type checking took 1.86s
+type checking took 1.12s
+type checking took 1.39s
+type checking took 1.36s
+type checking took 1.29s
+type checking took 1.58s
+type checking took 1.65s
+type checking took 960ms
+type checking took 1.49s
+type checking took 1.32s
+type checking took 1.01s
+type checking took 1.16s
+type checking took 1.11s
+type checking took 1.6s
+type checking took 2.07s
+type checking took 1.47s
+type checking took 1.58s
+type checking took 1.16s
+type checking took 1.68s
+type checking took 1.46s
+type checking took 1.82s
+type checking took 1.05s
+type checking took 1.17s
+type checking took 969ms
+type checking took 1.32s
+type checking took 1.12s
+type checking took 1.06s
+type checking took 1.18s
+type checking took 1.14s
+type checking took 1.22s
+type checking took 951ms
+type checking took 2.14s
+type checking took 1.61s
+type checking took 1.68s
+type checking took 1.84s
+type checking took 1.66s
+type checking took 1.45s
+type checking took 2.37s
+type checking took 1.93s
+type checking took 1.75s
+type checking took 2.3s
+type checking took 3s
+type checking took 2.98s
+type checking took 1.57s
+type checking took 1.62s
+type checking took 1.4s
+type checking took 1.83s
+type checking took 1.71s
+type checking took 1.48s
+type checking took 1.73s
+type checking took 1.68s
+type checking took 934ms
+type checking took 1.21s
+type checking took 1.17s
+type checking took 1.78s
+type checking took 1.09s
+type checking took 1.4s
+type checking took 1.64s
+type checking took 1.29s
+type checking took 2.72s
+type checking took 1.37s
+type checking took 1.57s
+type checking took 1.39s
+type checking took 1.96s
+type checking took 1.84s
+type checking took 1.23s
+type checking took 1.73s
+type checking took 1.75s
+type checking took 1.44s
+type checking took 1.29s
+type checking took 1.41s
+type checking took 1.35s
+type checking took 1.28s
+type checking took 1.42s
+type checking took 2.09s
+type checking took 1.88s
+type checking took 2s
+type checking took 1.56s
+type checking took 1.23s
+type checking took 1.3s
+type checking took 1.98s
+type checking took 1.68s
+type checking took 1.63s
+type checking took 1.72s
+type checking took 1.85s
+type checking took 3.57s
+type checking took 1.54s
+type checking took 1.19s
+type checking took 1.82s
+type checking took 1.18s
+type checking took 991ms
+type checking took 1.96s
+type checking took 1.05s
+type checking took 1.02s
+type checking took 1.79s
+type checking took 2.28s
+type checking took 1.77s
+type checking took 1.07s
+type checking took 1.26s
+type checking took 1.18s
+type checking took 1.23s
+type checking took 1.66s
+type checking took 1.33s
+type checking took 1.23s
+type checking took 1.79s
+type checking took 1.78s
+type checking took 2.13s
+type checking took 1.51s
+type checking took 1.33s
+type checking took 1.78s
+type checking took 2.37s
+type checking took 1.61s
+type checking took 1.58s
+type checking took 1.66s
+type checking took 1.57s
+type checking took 1.17s
+type checking took 1.88s
+type checking took 1.96s
+type checking took 1.77s
+type checking took 2.26s
+type checking took 2.37s
+type checking took 2.32s
+type checking took 1.79s
+type checking took 1.33s
+type checking took 1.49s
+type checking took 1.48s
+type checking took 1.89s
+type checking took 1.67s
+type checking took 2.42s
+type checking took 1.46s
+type checking took 1.65s
+type checking took 1.67s
+type checking took 1.67s
+type checking took 1.14s
+type checking took 1.32s
+type checking took 1.35s
+type checking took 1.26s
+type checking took 1.16s
+type checking took 968ms
+type checking took 971ms
+type checking took 1.05s
+type checking took 1.13s
+type checking took 1.11s
+type checking took 1.62s
+type checking took 1.26s
+type checking took 1.57s
+type checking took 1.84s
+type checking took 1.58s
+type checking took 1.06s
+type checking took 1.09s
+type checking took 1.47s
+type checking took 1.97s
+type checking took 1.28s
+type checking took 2s
+type checking took 1.03s
+type checking took 1.18s
+type checking took 1.52s
+type checking took 1.64s
+type checking took 937ms
+type checking took 1.51s
+type checking took 1.12s
+type checking took 1.25s
+type checking took 1.03s
+type checking took 1.14s
+type checking took 933ms
+type checking took 1.14s
+type checking took 1.24s
+type checking took 1.74s
+type checking took 2.89s
+type checking took 2.56s
+type checking took 2.03s
+type checking took 2.17s
+type checking took 2.03s
+type checking took 2.13s
+type checking took 1.99s
+type checking took 1.89s
+type checking took 2.31s
+type checking took 2.1s
+type checking took 2.61s
+type checking took 1.91s
+type checking took 2.36s
+type checking took 3.97s
+type checking took 2.58s
+type checking took 1.62s
+type checking took 2.98s
+type checking took 2.71s
+type checking took 2.99s
+type checking took 3.23s
+type checking took 2.71s
+type checking took 3.29s
+type checking took 1.6s
+type checking took 1.59s
+type checking took 2.57s
+type checking took 1.93s
+type checking took 1.82s
+type checking took 2.83s
+type checking took 1.79s
+type checking took 1.65s
+type checking took 2.31s
+type checking took 2.03s
+type checking took 2.67s
+type checking took 3.16s
+type checking took 1.78s
+type checking took 1.44s
+type checking took 2.52s
+type checking took 2.03s
+type checking took 2.48s
+type checking took 2.59s
+type checking took 2.9s
+type checking took 1.86s
+type checking took 1.96s
+type checking took 1.93s
+type checking took 2.04s
+type checking took 1.76s
+type checking took 1.79s
+type checking took 4.28s
+type checking took 1.76s
+type checking took 3.86s
+type checking took 2.65s
+type checking took 4.36s
+type checking took 1.81s
+type checking took 2.86s
+type checking took 2.97s
+type checking took 2.22s
+type checking took 4.2s
+type checking took 2.58s
+type checking took 4.25s
+type checking took 1.9s
+type checking took 2.21s
+type checking took 2.12s
+type checking took 2.71s
+type checking took 2.59s
+type checking took 3.56s
+type checking took 2.35s
+type checking took 3.23s
+type checking took 2.14s
+type checking took 1.97s
+type checking took 1.98s
+type checking took 2s
+type checking took 1.89s
+type checking took 1.57s
+type checking took 1.67s
+type checking took 1.74s
+type checking took 3.04s
+type checking took 2.43s
+type checking took 2.61s
+type checking took 1.98s
+type checking took 2.01s
+type checking took 2.54s
+type checking took 1.97s
+type checking took 2.21s
+type checking took 1.86s
+type checking took 1.82s
+type checking took 2.07s
+type checking took 2s
+type checking took 4.39s
+type checking took 2.91s
+type checking took 3.03s
+type checking took 1.32s
+type checking took 2.82s
+type checking took 2.56s
+type checking took 3.04s
+type checking took 2.83s
+type checking took 3.19s
+type checking took 3.19s
+type checking took 2.88s
+type checking took 848ms

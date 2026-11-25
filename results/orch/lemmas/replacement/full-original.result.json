@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean",
+  "cmd": [
+    "lake",
+    "env",
+    "lean",
+    "--profile",
+    "-j2",
+    "/tmp/oec/pequalnp-pilot-184/pr16243-L_meta_10760.lean"
+  ],
+  "elapsed_s": 1286.9653551749998,
+  "exit_code": 0
+}
