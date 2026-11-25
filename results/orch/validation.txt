@@ -1,0 +1,12 @@
+Gap: L-meta-2583
+Status: PARTIAL ONLY. The posted theorem is not proved.
+File: lean/PEqualNP/Outside/L_meta_2583.lean
+Lean: 4.36.0
+Build command: lake build PEqualNP.Outside.L_meta_2583
+Build exit: 0
+Build output: Build completed successfully (18423 jobs).
+Checker: not accepted; target theorem is absent.
+Independent source review: PASS for partial preservation.
+Lines: 659 before cleanup; 659 after (cleanup not started).
+Sub-agents: intake_review, proof_route, counterexample, combinatorial_route, lower_bound
+TIMING total=9.6 subagents=5
