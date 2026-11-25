@@ -1,0 +1,25 @@
+{
+  "source_sha256": "72c333a765a480d06fbae71d6afa211f788c15109a7f201eae70da7a1f798890",
+  "source_bytes": 476959,
+  "source_lines": 9440,
+  "build_exit_code": 0,
+  "imports": [
+    "Mathlib",
+    "PEqualNP.Defs"
+  ],
+  "scope": "Conditional theorem only: IsAO2 minimum graph circuit with junk.card <= 1 yields minimum star-profile witness. Not the full L-meta-2448 statement.",
+  "source_roots": [
+    "lean/PEqualNP/Outside/L_meta_3760.lean",
+    "lean/PEqualNP/Outside/L_meta_2448.lean",
+    "results/orch/lemmas/AtMostOneJunkStarIntegrated2.lean"
+  ],
+  "rename": {
+    "PEqualNP.Outside.L_meta_3760": "PEqualNP.Outside.L_meta_2448_aux.foundation"
+  },
+  "axiom_audit_exit_code": 0,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ]
+}

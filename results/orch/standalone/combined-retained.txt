@@ -1,0 +1,16 @@
+13 PEqualNP.Outside.L_meta_2448_aux.oneJunk.cover_of_budget 1616
+46 PEqualNP.Outside.L_meta_2448_aux.oneJunk.one_center 3866
+117 PEqualNP.Outside.L_meta_2448_aux.oneJunk.two_centers 16704
+407 PEqualNP.Outside.L_meta_2448_aux.oneJunk.cover_no_singletons 9037
+565 PEqualNP.Outside.L_meta_2448_aux.oneJunk.one_junk_cover 1714
+603 PEqualNP.Outside.L_meta_2448_aux.oneJunk.cover_inter_ge_two 6534
+719 PEqualNP.Outside.L_meta_2448_aux.oneJunk.cover_inter_one_side 26589
+1171 PEqualNP.Outside.L_meta_2448_aux.oneJunk.cover_with_singletons 6906
+1285 PEqualNP.Outside.L_meta_2448_aux.oneJunk.one_junk_cover_all 1966
+1329 PEqualNP.Outside.L_meta_2448_aux.oneJunk.least_single_junk_cover 892
+1360 PEqualNP.Outside.L_meta_2448.StarCoverPrototype.orTree_all_or 409
+1374 PEqualNP.Outside.L_meta_2448.StarCoverPrototype.star_cover_witness 16693
+1723 PEqualNP.Outside.L_meta_2448_aux.oneJunkStar.mono_of_AO2 202
+1749 PEqualNP.Outside.L_meta_2448_aux.oneJunkStar.star_of_no_junk 847
+1767 PEqualNP.Outside.L_meta_2448_aux.oneJunkStar.empty_graph_star_minimum 897
+1790 PEqualNP.Outside.L_meta_2448_aux.oneJunkStar.posted_conclusion_of_at_most_one_junk 1409

@@ -1,36 +1,18 @@
 # Continuing state
 
-This is an ongoing attempt on **L-meta-2448**. The posted theorem is **not proved**. Do not open a proof PR for the current partial file.
+L-meta-2448 remains UNPROVED. Do not open a proof PR for this partial.
 
-- Repository: `/workspace/pequalnp-proofs`; authorized branch `pnp/pilot-75`; only push to fork `origin`.
-- Job began 2026-11-25 07:02:59 UTC. Lease obtained 07:04:37 UTC. Continue sustained work; do not stop merely because partials compile. Ninety minutes from job start is 08:32:59 UTC.
-- Exact gap and statement: `/tmp/oec/pequalnp-pilot-75/gap.json` and `statement.txt`.
-- Only this job's lease is in `desk-first.json` in the same scratch directory. Never display its identifier or touch other pilots' leases.
-- Root heartbeat runs every eight minutes (PID tracked in scratch heartbeat.pid; restarted as13568); logs are `heartbeat-process.log` and `heartbeat.log`. Manual renewals before long operations use curl exactly as join.txt specifies. Append/summarize sanitized responses into `desk-log.txt`; no null answers so far.
-- Lean: prepend `/tmp/oec/pequalnp-pilot-75/lean-tools/lean-4.36.0-linux/bin` to PATH. Full pinned cache downloaded successfully. Never lake update or build Mathlib from source.
-- Checker requires `PEQUALNP_REAL_LAKE` set to the explicit lake binary above, and `PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-75/build-state` for its queue.
-- Last pushed checkpoint at this note: `cde15a9173ad75035c3fab8855cc3482f2709beb`. The named file has 2012 lines and its build passed; the existing local checker verdict is `REJECTED (no-theorem)` because the main declaration is absent.
-- Fourteen exposed partial lemmas were checked for axioms: only propext, Classical.choice and Quot.sound; complete output is scratch `partial-axioms.log`.
-
-## Active team
-
-Seven sub-agents have been used (do not count root): status_review, structural_proof, library_route, finite_cases, lean_setup, global_normal_form, fresh_main_proof.
-
-- status_review independently reviews each compiled Lean fragment before root pushes it. It has reviewed the broader frozen OneJunkTopFree and EarliestJunk prototypes.
-- library_route compiled a new conditional one-junk, singleton-silent graph-cover bound without a bipartite assumption. This prototype imports checked L_meta_3760 and must remain a results artifact until dependencies are extracted. Full target allows multiple interacting dirty gates.
-- global_normal_form has frozen, reviewed component extraction already integrated; now formalizing continuation/suffix interfaces in fresh files.
-- structural_proof's equal-size star-prefix repair is integrated; it is investigating separate AND/OR lower bounds or another full-goal invariant.
-- finite_cases runs exact finite circuit synthesis. Basic CNF encoding independently reviewed by lean_setup; solver UNSAT is computational evidence, not a Lean proof. Theta 233/333 900-second SAT runs were still active near 07:38 UTC. Many heuristic searches found no counterexample.
-- lean_setup also independently reviewed finite artifacts and all 1197 logged BFS witnesses. It can review additional computational artifacts.
-
-## Publication constraints
-
-The user explicitly requires early preservation of compiled partials on the work branch, including results artifacts. This is why the branch currently adds more than one file. An actual proof PR must have only the named Lean file in its final diff; preserve results in earlier branch history if such a PR becomes possible. No PR yet.
-
-Before every push: independent review, meaningful build, stage named files, git status, explicit commit. Print PUSHED with branch, SHA, gap, and honest description. Never claim checker acceptance for a partial.
-
-At completion include `Sub-agents: ...`, `TIMING total=<minutes> subagents=7`, message-id acknowledgement, null count, and finish with the exact three lines for gap, PR, checker verdict. Release only this lease. Do not lose checked work.
-
-Current update at 2026-11-25T08:08:18.868134+00:00: AtMostOneJunkStarIntegrated2 conditional aggregate independently reviewed and preserved. Seven distinct subagents used. New free-OR archive independently reconstructed and validated; no full theorem or counterexample. Finite ordered theta searches continue with native solver time limits; global dependency extraction aims to preserve the conditional result under allowed imports.
-
-2026-11-25T08:14:12.739036+00:00: Named partial now2049lines, build10 passes; checker09 explicitly rejects absent main theorem. Formal witness contrast proves the11gate witness is nonminimum by a5gate star circuit.
+- Work branch pnp/pilot-75; only push origin (fork). Last pushed74cced85b7c154200fc1eb3454bc635820920c61; next checkpoint contains standalone replacement.
+- Started2026-11-25 07:02:59UTC; own lease acquired07:04:37. Minimum90-minute effort point08:32:59. Current time2026-11-25T08:23:16.895458+00:00.
+- Named file now9440lines/476959bytes, SHA72c333a765a480d06fbae71d6afa211f788c15109a7f201eae70da7a1f798890. Only Mathlib+Defs. Full named build12 passes.
+- Strongest helper proves posted existential conditionally on an exact public minimum AO2 circuit with junk.card<=1. The main unconditional theorem is absent. Checker12 running; previous checker09 REJECTED(no-theorem).
+- Old2078line helper collection is preserved in results/orch/lemmas/IntegratedRepairs.lean and prior pushed history. Standalone source/logs/provenance are in results/orch/standalone/.
+- Independent scope/format/axiom review by status_review and exact418declaration provenance review by lean_setup passed. Final helper uses standard3axioms only.
+- Seven distinct subagents used: status_review, structural_proof, library_route, finite_cases, lean_setup, global_normal_form, fresh_main_proof.
+- Root heartbeat PID13568 renews every8minutes. Check STAT, not merelyPID existence. Current manual beat20 expiry08:42:22UTC. Private own lease is only in scratch desk-first.json; never display/log its identifier.
+- Scratch /tmp/oec/pequalnp-pilot-75. Lean bin lean-tools/lean-4.36.0-linux/bin there; prependPATH. Checker needs PEQUALNP_REAL_LAKE explicitlake and PEQUALNP_HOME=.../build-state.
+- Finite orderedtheta searches timedout UNKNOWN; C7dirty query awaiting final review/preservation. Do not infer negative proof from timeout.
+- Essential-star AND-minimum induction was refuted by a P4 circuit with2AND/5total gates; canonical2AND/4total gate circuit exists. Allowed-import Lean witness being independently reviewed and preserved. Tie-breaking by OR count still has the global sharing obstacle.
+- No proof PR or lease release yet. Reduction slots were full(3 live), so no extra reduction was submitted.
+- Before ending: preserve all completed reviewed artifacts, finalchecker output, source hashes/timing, stop heartbeat, release only ownlease with honest reason, push finalrecords. User minimum90minutes must be respected.
+- Final include messageID, Sub-agents, TIMING total=<min> subagents=7; end with gap/pr/checker lines. No desk null replies.

@@ -30,3 +30,5 @@ No complete proof or accepted submission yet.
 - 2026-11-25T08:08:18.868134+00:00: Preserved independently reviewed at-most-one-junk conditional theorem aggregate and all 14 free-OR synthesis runs. No accepted proof.
 
 - 2026-11-25T08:14:12.739036+00:00: TwoJunkContrast built and reviewed; integrated2049line partial builds. Posted theorem remains unproved.
+
+- 2026-11-25T08:21:23.760253+00:00: Independent provenance/scope/format/axiom reviews passed for9440line allowed-import conditional theorem. Replaced named partial with it; all previous2078line helpers retained in IntegratedRepairs.lean and pushed history. Named build12 started.

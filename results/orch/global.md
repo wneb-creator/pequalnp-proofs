@@ -59,3 +59,16 @@ Reviewed `StarCoverPrototype.lean` independently: its constructor assigns each g
 `AtMostOneJunkStar.lean` removes the top-form and nonempty-graph premises using `OneJunkTopFree.lean`, and handles zero dirty ANDs directly. Its final theorem proves the posted existential conclusion provided there is a public minimum circuit `C` that is `IsAO2` and satisfies `(junk G C).card <= 1`. The case of two or more dirty AND gates remains unsolved, so this is not a proof of L-meta-2448.
 
 The combined file `AtMostOneJunkStarIntegrated2.lean` compiled successfully. Its only warnings are the two inherited unused variables in `OneJunkTopFree`. These prototypes use outside imports and are checked scratch results, not submission-format files.
+
+## Allowed-import standalone at-most-one-junk partial
+
+Frozen at 2026-11-25T08:17:28.204161+00:00.
+
+- Source: `/tmp/oec/pequalnp-pilot-75/global/AtMostOneJunkStandalone2.lean`.
+- Lean build: exit 0; full output `global/at-most-one-junk-standalone-build2.log`. Inherited deprecated `if_pos`/`if_neg` and unused-binder warnings only.
+- SHA256: `72c333a765a480d06fbae71d6afa211f788c15109a7f201eae70da7a1f798890`. Size: 476,959 bytes / 9,440 lines, below 512 KiB.
+- Only imports `Mathlib` and `PEqualNP.Defs`; all helper names under `PEqualNP.Outside.L_meta_2448` or `_aux`. No forbidden token scan hits.
+- Extracted by actual Lean proof constant closure: 375 L3760 declarations (renamed under `_aux.foundation`), 27 cross helpers, 16 new conditional-proof declarations. Source lists `L_meta_3760-retained.txt`, `L_meta_2448-retained.txt`, and `AtMostOneJunkStarIntegrated2-retained.txt`; closure `dependency-probe3.log`; extraction script `extract_standalone.py`.
+- Scope: a public minimum circuit C computing the graph function, additionally satisfying IsAO2 and at most one junk gate, gives a public minimum star-profile witness for any triangle/C4-free graph. Empty graph and zero/one junk are handled. No TopForm or nonempty assumption remains. There is NO claim for two or more junk gates, and NO full posted-gap theorem.
+- Independent reviews requested from lean_setup (source/dependency rename) and status_review (scope/format). Main named file was not changed by this worker.
+- Preserved source/provenance and full logs in `results/orch/standalone/`. Separate scratch axiom audit also built exit 0; final conditional theorem depends only on `propext`, `Classical.choice`, `Quot.sound`. The preserved proof source contains no audit command.
