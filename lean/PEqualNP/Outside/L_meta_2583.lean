@@ -3728,25 +3728,111 @@ def inc13 (a b : Fin 13) : Prop := a = b ∨ a = b + 1 ∨ a = b + 3 ∨ a = b +
 
 lemma inc13_diagonal (a : Fin 13) : inc13 a a := Or.inl rfl
 
-def rows13 (i : Fin 158) : ℕ × ℕ :=
-  ([(0, 8191), (1, 3054), (2, 6108), (4, 4025), (5, 2984), (8, 8050), (10, 5968), (16, 7909), (20, 3745), (25, 2656), (32, 7627), (33, 2506), (40, 7490), (50, 5312), (64, 7063), (65, 2950), (66, 5012), (80, 6789), (83, 644), (100, 2433), (101, 2432), (128, 5935), (129, 814), (130, 5900), (132, 1833), (133, 808), (160, 5387), (166, 1288), (200, 4866), (202, 4864), (256, 3679), (257, 2638), (258, 1628), (260, 3609), (264, 3666), (266, 1616), (320, 2583), (321, 2566), (332, 2576), (349, 2560), (400, 1541), (404, 1537), (467, 516), (512, 7358), (514, 5276), (516, 3256), (520, 7218), (528, 7332), (532, 3232), (640, 5166), (642, 5132), (664, 5152), (698, 5120), (800, 3082), (808, 3074), (934, 1032), (1024, 6525), (1027, 332), (1028, 2361), (1032, 6512), (1040, 6245), (1056, 6473), (1064, 6464), (1191, 264), (1280, 2141), (1283, 76), (1284, 2073), (1328, 2113), (1337, 2112), (1396, 2049), (1541, 2088), (1565, 2080), (1600, 6164), (1616, 6148), (1829, 2056), (1868, 2064), (1917, 2048), (2048, 4859), (2049, 746), (2054, 664), (2056, 4722), (2064, 4833), (2073, 608), (2080, 4299), (2081, 202), (2112, 4755), (2128, 4737), (2135, 640), (2382, 528), (2433, 522), (2439, 520), (2505, 514), (2527, 512), (2560, 4282), (2566, 152), (2568, 4146), (2656, 4226), (2674, 4224), (2792, 4098), (2977, 10), (3082, 4176), (3130, 4160), (3200, 4137), (3232, 4105), (3658, 4112), (3717, 40), (3736, 4128), (3834, 4096), (4007, 8), (4096, 1527), (4098, 1492), (4108, 1328), (4112, 1253), (4128, 1475), (4137, 322), (4146, 1216), (4160, 407), (4162, 404), (4224, 1319), (4256, 1283), (4270, 1280), (4329, 258), (4609, 166), (4691, 132), (4737, 38), (4764, 1056), (4866, 1044), (4878, 1040), (5010, 1028), (5054, 1024), (5120, 373), (5132, 304), (5136, 101), (5163, 320), (5312, 261), (5315, 260), (5348, 257), (5359, 256), (5584, 5), (5954, 20), (6099, 4), (6164, 161), (6260, 129), (6400, 83), (6441, 66), (6464, 19), (6677, 160), (6753, 130), (6775, 128), (7145, 2), (7316, 33), (7434, 80), (7472, 65), (7483, 64), (7668, 1), (7837, 32), (8014, 16), (8191, 0)] : List (ℕ × ℕ)).getD i.val (0, 0)
+def rows13Data : List (ℕ × ℕ) := [(0, 8191), (1, 3054), (2, 6108), (4, 4025), (5, 2984), (8, 8050), (10, 5968), (16, 7909), (20, 3745), (25, 2656), (32, 7627), (33, 2506), (40, 7490), (50, 5312), (64, 7063), (65, 2950), (66, 5012), (80, 6789), (83, 644), (100, 2433), (101, 2432), (128, 5935), (129, 814), (130, 5900), (132, 1833), (133, 808), (160, 5387), (166, 1288), (200, 4866), (202, 4864), (256, 3679), (257, 2638), (258, 1628), (260, 3609), (264, 3666), (266, 1616), (320, 2583), (321, 2566), (332, 2576), (349, 2560), (400, 1541), (404, 1537), (467, 516), (512, 7358), (514, 5276), (516, 3256), (520, 7218), (528, 7332), (532, 3232), (640, 5166), (642, 5132), (664, 5152), (698, 5120), (800, 3082), (808, 3074), (934, 1032), (1024, 6525), (1027, 332), (1028, 2361), (1032, 6512), (1040, 6245), (1056, 6473), (1064, 6464), (1191, 264), (1280, 2141), (1283, 76), (1284, 2073), (1328, 2113), (1337, 2112), (1396, 2049), (1541, 2088), (1565, 2080), (1600, 6164), (1616, 6148), (1829, 2056), (1868, 2064), (1917, 2048), (2048, 4859), (2049, 746), (2054, 664), (2056, 4722), (2064, 4833), (2073, 608), (2080, 4299), (2081, 202), (2112, 4755), (2128, 4737), (2135, 640), (2382, 528), (2433, 522), (2439, 520), (2505, 514), (2527, 512), (2560, 4282), (2566, 152), (2568, 4146), (2656, 4226), (2674, 4224), (2792, 4098), (2977, 10), (3082, 4176), (3130, 4160), (3200, 4137), (3232, 4105), (3658, 4112), (3717, 40), (3736, 4128), (3834, 4096), (4007, 8), (4096, 1527), (4098, 1492), (4108, 1328), (4112, 1253), (4128, 1475), (4137, 322), (4146, 1216), (4160, 407), (4162, 404), (4224, 1319), (4256, 1283), (4270, 1280), (4329, 258), (4609, 166), (4691, 132), (4737, 38), (4764, 1056), (4866, 1044), (4878, 1040), (5010, 1028), (5054, 1024), (5120, 373), (5132, 304), (5136, 101), (5163, 320), (5312, 261), (5315, 260), (5348, 257), (5359, 256), (5584, 5), (5954, 20), (6099, 4), (6164, 161), (6260, 129), (6400, 83), (6441, 66), (6464, 19), (6677, 160), (6753, 130), (6775, 128), (7145, 2), (7316, 33), (7434, 80), (7472, 65), (7483, 64), (7668, 1), (7837, 32), (8014, 16), (8191, 0)]
+
+def rows13 (i : Fin 158) : ℕ × ℕ := rows13Data.getD i.val (0, 0)
+
+namespace ListCheck
+
+lemma shared_bit {r : ℕ} (a b c d : ℕ) (ha : a < 2^r) (hb : b < 2^r)
+    (hn : (a ||| b) &&& (c ||| d) ≠ 0) :
+    ∃ i : Fin r, (a.testBit i.val = true ∨ b.testBit i.val = true) ∧
+      (c.testBit i.val = true ∨ d.testBit i.val = true) := by
+  obtain ⟨i, hi⟩ := Nat.exists_testBit_of_ne_zero hn
+  have hu := Nat.or_lt_two_pow ha hb
+  have hz : (a ||| b) &&& (c ||| d) < 2^r := lt_of_le_of_lt Nat.and_le_left hu
+  have hir : i < r := by
+    by_contra h
+    have hri : r ≤ i := by omega
+    have hpow : 2^r ≤ 2^i := Nat.pow_le_pow_right (by decide) hri
+    have hbit := Nat.ge_two_pow_of_testBit hi
+    omega
+  refine ⟨⟨i, hir⟩, ?_⟩
+  simpa only [Nat.testBit_and, Nat.testBit_or, Bool.and_eq_true, Bool.or_eq_true] using hi
+
+def rowsList : List (ℕ × ℕ) := rows13Data
+
+set_option maxRecDepth 100000 in
+lemma rowsList_length : rowsList.length = 158 := rfl
+
+lemma rows13_eq (i : Fin 158) : rows13 i = rowsList.getD i.val (0, 0) := rfl
+
+lemma rows13_mem (i : Fin 158) : rows13 i ∈ rowsList := by
+  rw [rows13_eq, List.getD_eq_getElem rowsList (0, 0) (by rw [rowsList_length]; exact i.isLt)]
+  exact List.getElem_mem _
 
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 100000000 in
-lemma rows13_independent : ∀ (i : Fin 158) (a b : Fin 13),
-    (rows13 i).1.testBit a.val = true →
-    (rows13 i).2.testBit b.val = true → ¬ inc13 a b := by
-  unfold inc13
-  intro i
-  fin_cases i <;> decide +kernel
+lemma rowsList_bound : ∀ row ∈ rowsList, row.1 < 2^13 := by
+  decide +kernel
 
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 100000000 in
-lemma rows13_separated : ∀ (i j : Fin 158), i ≠ j → ∃ a : Fin 13,
+lemma rowsList_pairwise : rowsList.Pairwise (fun a b =>
+    (a.1 ||| b.1) &&& (a.2 ||| b.2) ≠ 0) := by
+  decide +kernel
+
+lemma rows_bound (i : Fin 158) : (rows13 i).1 < 2^13 :=
+  rowsList_bound _ (rows13_mem i)
+
+lemma row_masks_separated (i j : Fin 158) (hij : i ≠ j) :
+    ((rows13 i).1 ||| (rows13 j).1) &&& ((rows13 i).2 ||| (rows13 j).2) ≠ 0 := by
+  have hi : i.val < rowsList.length := by rw [rowsList_length]; exact i.isLt
+  have hj : j.val < rowsList.length := by rw [rowsList_length]; exact j.isLt
+  rw [rows13_eq, rows13_eq, List.getD_eq_getElem rowsList (0, 0) hi,
+    List.getD_eq_getElem rowsList (0, 0) hj]
+  rcases lt_trichotomy i.val j.val with hlt | heq | hgt
+  · exact rowsList_pairwise.rel_getElem_of_lt hi hj hlt
+  · exact (hij (Fin.ext heq)).elim
+  · have h := rowsList_pairwise.rel_getElem_of_lt hj hi hgt
+    simpa only [Nat.or_comm] using h
+
+lemma rows_separated_fast : ∀ (i j : Fin 158), i ≠ j → ∃ a : Fin 13,
     ((rows13 i).1.testBit a.val = true ∨ (rows13 j).1.testBit a.val = true) ∧
     ((rows13 i).2.testBit a.val = true ∨ (rows13 j).2.testBit a.val = true) := by
-  intro i
-  fin_cases i <;> decide +kernel
+  intro i j hij
+  exact shared_bit _ _ _ _ (rows_bound i) (rows_bound j) (row_masks_separated i j hij)
+
+def incidence_mask (a : Fin 13) : ℕ :=
+  ([5137, 2083, 4166, 141, 282, 564, 1128, 2256, 4512, 833, 1666, 3332, 6664] : List ℕ).getD a.val 0
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 100000000 in
+lemma incidence_mask_spec : ∀ a b : Fin 13,
+    (incidence_mask a).testBit b.val = true ↔ inc13 a b := by
+  unfold inc13
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 100000000 in
+lemma rowsList_independent : ∀ row ∈ rowsList, ∀ a : Fin 13,
+    row.1.testBit a.val = true → row.2 &&& incidence_mask a = 0 := by
+  decide +kernel
+
+lemma row_masks_independent (i : Fin 158) (a : Fin 13)
+    (ha : (rows13 i).1.testBit a.val = true) : (rows13 i).2 &&& incidence_mask a = 0 :=
+  rowsList_independent _ (rows13_mem i) a ha
+
+lemma rows_independent_fast : ∀ (i : Fin 158) (a b : Fin 13),
+    (rows13 i).1.testBit a.val = true →
+    (rows13 i).2.testBit b.val = true → ¬ inc13 a b := by
+  intro i a b ha hb hab
+  have heq := congrArg (fun x : ℕ => x.testBit b.val) (row_masks_independent i a ha)
+  have hbit := (incidence_mask_spec a b).mpr hab
+  simp [Nat.testBit_and, hb, hbit] at heq
+
+end ListCheck
+
+lemma rows13_independent : ∀ (i : Fin 158) (a b : Fin 13),
+    (rows13 i).1.testBit a.val = true →
+    (rows13 i).2.testBit b.val = true → ¬ inc13 a b :=
+  ListCheck.rows_independent_fast
+
+lemma rows13_separated : ∀ (i j : Fin 158), i ≠ j → ∃ a : Fin 13,
+    ((rows13 i).1.testBit a.val = true ∨ (rows13 j).1.testBit a.val = true) ∧
+    ((rows13 i).2.testBit a.val = true ∨ (rows13 j).2.testBit a.val = true) :=
+  ListCheck.rows_separated_fast
+
 
 lemma safe_matching_cnf_13_lower
     (F : Finset (Finset (Bool × Fin 13)))
