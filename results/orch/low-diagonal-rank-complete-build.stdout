@@ -1,0 +1,9 @@
+/tmp/oec/pequalnp-pilot-78/low_diag/LowDiagonalRankComplete.lean:341:61: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-78/low_diag/LowDiagonalRankComplete.lean:341:65: warning: Unused tactic linter: `ring` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-78/low_diag/LowDiagonalRankComplete.lean:341:65: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`

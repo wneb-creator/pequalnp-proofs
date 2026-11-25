@@ -1,0 +1,35 @@
+{
+  "status": "PASS",
+  "scope": "independent source/math/format review; no Lean rebuild by reviewer",
+  "components": {
+    "WittCoordinates": {
+      "sha256": "6c28d22f2cff26825ba24ee1658eac4c155330ebc86f7aa020a01e4733a7398f",
+      "line_count": 169
+    },
+    "OrbitContainment": {
+      "sha256": "f29b69d7cf23a6473b9c4359c5eef19490027c40e94f086a6ef8934492f3f1f9",
+      "line_count": 213
+    },
+    "LowDiagonalRank": {
+      "sha256": "f2ba15486e3a6d6e7efcadc077053cb25583b910c2e76036224e39128179f8d6",
+      "line_count": 121
+    }
+  },
+  "complete_sha256": "5f25e8474bf664cb7972d40101dd179ae6b1bcb8d94823915e01f083519aea41",
+  "complete_line_count": 493,
+  "complete_contains_exact_reviewed_component_bodies": true,
+  "hollow_witt_reconstruction_membership": true,
+  "triangle_chart_permutation_orientation": true,
+  "normalized_pair_stays_inside_permuted_hollow_submodule": true,
+  "classified_even_chart_containment": true,
+  "canonical_obstruction_and_finrank_transport": true,
+  "hollow_kernel_submodule_is_image_of_restricted_diagonal_kernel": true,
+  "kernel_dimension_preserved_by_subtype_injection": true,
+  "diagonal_range_dimension_equals_submodule_map_dimension": true,
+  "rank_nullity_argument": true,
+  "statement_scope": [
+    "Every valid symmetric permanent-flat containing a hollow subspace of dimension at least two has dimension at most two.",
+    "Every valid symmetric permanent-flat with diagonal image dimension at most one has dimension at most two."
+  ],
+  "limitation": "This does not settle flats whose diagonal image has dimension two or more."
+}
