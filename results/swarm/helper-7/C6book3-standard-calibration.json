@@ -1,0 +1,181 @@
+{
+  "fixture": "C6book3",
+  "calibration_only": true,
+  "solver_run": false,
+  "cover": [
+    0,
+    3,
+    5,
+    7,
+    9,
+    11,
+    13
+  ],
+  "circuit": {
+    "n": 14,
+    "gates": [
+      {
+        "op": "or",
+        "inputs": [
+          2,
+          4
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          3,
+          14
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          1,
+          4
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          16,
+          5
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          6,
+          8
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          7,
+          18
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          1,
+          8
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          20,
+          9
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          1,
+          2
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          22,
+          6
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          23,
+          10
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          0,
+          24
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          10,
+          12
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          11,
+          26
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          1,
+          12
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          28,
+          13
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          15,
+          17
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          30,
+          19
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          31,
+          21
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          32,
+          25
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          33,
+          27
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          34,
+          29
+        ]
+      }
+    ],
+    "output": 35,
+    "size": 22,
+    "and_count": 7,
+    "or_count": 15,
+    "unshared_private_or_cost": 15,
+    "exhaustively_checked_inputs": 16384,
+    "matches_graph": true,
+    "lean_circuit_literal": "\u27e8[\u27e8.or,[2,4]\u27e9,\u27e8.and,[3,14]\u27e9,\u27e8.or,[1,4]\u27e9,\u27e8.and,[16,5]\u27e9,\u27e8.or,[6,8]\u27e9,\u27e8.and,[7,18]\u27e9,\u27e8.or,[1,8]\u27e9,\u27e8.and,[20,9]\u27e9,\u27e8.or,[1,2]\u27e9,\u27e8.or,[22,6]\u27e9,\u27e8.or,[23,10]\u27e9,\u27e8.and,[0,24]\u27e9,\u27e8.or,[10,12]\u27e9,\u27e8.and,[11,26]\u27e9,\u27e8.or,[1,12]\u27e9,\u27e8.and,[28,13]\u27e9,\u27e8.or,[15,17]\u27e9,\u27e8.or,[30,19]\u27e9,\u27e8.or,[31,21]\u27e9,\u27e8.or,[32,25]\u27e9,\u27e8.or,[33,27]\u27e9,\u27e8.or,[34,29]\u27e9],35\u27e9"
+  }
+}

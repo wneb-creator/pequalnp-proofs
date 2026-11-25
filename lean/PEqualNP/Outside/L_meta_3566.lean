@@ -626,3 +626,118 @@ lemma count_gate_only_bound {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.
   omega
 
 end PEqualNP.Outside.L_meta_3566.ReaderCut
+
+namespace PEqualNP.Outside.L_meta_3566.ReaderCut
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm
+
+open scoped BigOperators
+
+def selectedOccurrenceWeight {n : ℕ} (S : Finset (Fin n)) (C : Circuit) (i : ℕ) : ℕ :=
+  if i ∈ S.image Fin.val then if (C.gates.flatMap Gate.inputs).count i = 1 then 2 else 1 else 0
+
+def hasSelectedInput {n : ℕ} (S : Finset (Fin n)) (g : Gate) : Bool :=
+  g.inputs.any fun i => decide (i ∈ S.image Fin.val)
+
+lemma selectedOccurrenceWeight_gate {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hC : circuitFun n C = graphFun G ∅)
+    (hfour : NoFourCycle G) (S : Finset (Fin n))
+    (hdeg : ∀ v ∈ S, ∃ a b : Fin n, a ≠ b ∧ G.Adj v a ∧ G.Adj v b)
+    (g : Gate) (hg : g ∈ C.gates) :
+    (g.inputs.map (selectedOccurrenceWeight S C)).sum ≤
+      if hasSelectedInput S g then 2 else 0 := by
+  obtain ⟨a, b, he⟩ := List.length_eq_two.mp (hAO.2.2 g hg)
+  by_cases ha : a ∈ S.image Fin.val
+  · have hs : hasSelectedInput S g = true := by
+      simp only [hasSelectedInput, List.any_eq_true, decide_eq_true_eq]
+      exact ⟨a, by simp [he], ha⟩
+    rw [hs]
+    by_cases hb : b ∈ S.image Fin.val
+    · obtain ⟨u, hu, hua⟩ := Finset.mem_image.mp ha
+      obtain ⟨v, hv, hvb⟩ := Finset.mem_image.mp hb
+      subst a
+      subst b
+      obtain ⟨j, hj, hjg⟩ := List.mem_iff_getElem.mp hg
+      let ji : Fin C.gates.length := ⟨j, hj⟩
+      have hjg' : C.gates[ji] = g := hjg
+      have hi : C.gates[ji].inputs = [u.val, v.val] := by rw [hjg']; exact he
+      have hcu := raw_vertex_occurrences G C hAO hC hfour ji u v (Or.inl hi) (hdeg u hu)
+      have hcv := raw_vertex_occurrences G C hAO hC hfour ji v u (Or.inr hi) (hdeg v hv)
+      have hnu : (C.gates.flatMap Gate.inputs).count u.val ≠ 1 := by omega
+      have hnv : (C.gates.flatMap Gate.inputs).count v.val ≠ 1 := by omega
+      simp [he, selectedOccurrenceWeight, ha, hb, hnu, hnv]
+    · simp [he, selectedOccurrenceWeight, ha, hb]
+      split <;> omega
+  · by_cases hb : b ∈ S.image Fin.val
+    · have hs : hasSelectedInput S g = true := by
+        simp only [hasSelectedInput, List.any_eq_true, decide_eq_true_eq]
+        exact ⟨b, by simp [he], hb⟩
+      rw [hs]
+      simp [he, selectedOccurrenceWeight, ha, hb]
+      split <;> omega
+    · simp [he, selectedOccurrenceWeight, hasSelectedInput, ha, hb]
+
+lemma count_selected_input_gates {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hC : circuitFun n C = graphFun G ∅)
+    (hfour : NoFourCycle G) (S : Finset (Fin n))
+    (hdeg : ∀ v ∈ S, ∃ a b : Fin n, a ≠ b ∧ G.Adj v a ∧ G.Adj v b) :
+    S.card ≤ (C.gates.filter (hasSelectedInput S)).length := by
+  classical
+  have hz : ∀ i, n ≤ i → selectedOccurrenceWeight S C i = 0 := by
+    intro i hi
+    have hn : i ∉ S.image Fin.val := by
+      intro him
+      obtain ⟨v, hv, hvi⟩ := Finset.mem_image.mp him
+      have hvlt := v.isLt
+      omega
+    simp [selectedOccurrenceWeight, hn]
+  have hweight := list_weight_count n (C.gates.flatMap Gate.inputs)
+    (selectedOccurrenceWeight S C) hz
+  have hlower : 2 * S.card ≤
+      ((C.gates.flatMap Gate.inputs).map (selectedOccurrenceWeight S C)).sum := by
+    rw [hweight]
+    calc
+      2 * S.card = ∑ v ∈ S, 2 := by simp [Nat.mul_comm]
+      _ ≤ ∑ v ∈ S, (C.gates.flatMap Gate.inputs).count v.val *
+          selectedOccurrenceWeight S C v.val := by
+        apply Finset.sum_le_sum
+        intro v hv
+        obtain ⟨a, b, hab, hva, hvb⟩ := hdeg v hv
+        have hpos := input_occurs_of_neighbor G C hAO hC v a hva
+        have hvImage : v.val ∈ S.image Fin.val := Finset.mem_image.mpr ⟨v, hv, rfl⟩
+        simp only [selectedOccurrenceWeight, hvImage, ite_true]
+        split <;> omega
+      _ ≤ ∑ v : Fin n, (C.gates.flatMap Gate.inputs).count v.val *
+          selectedOccurrenceWeight S C v.val := by
+        apply Finset.sum_le_sum_of_subset_of_nonneg (Finset.subset_univ S)
+        intro v hv hvS
+        exact Nat.zero_le _
+  have hupper := weighted_gate_sum_bound C.gates (selectedOccurrenceWeight S C)
+    (hasSelectedInput S) (fun g hg => selectedOccurrenceWeight_gate G C hAO hC hfour S hdeg g hg)
+  omega
+
+lemma count_selected_input_gates_of_degree {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hAO : IsAO2 n C)
+    (hC : circuitFun n C = graphFun G ∅) (hfour : NoFourCycle G) (S : Finset (Fin n))
+    (hdeg : ∀ v ∈ S, 2 ≤ G.degree v) :
+    S.card ≤ (C.gates.filter (hasSelectedInput S)).length := by
+  apply count_selected_input_gates G C hAO hC hfour S
+  intro w hw
+  have hc : 1 < (G.neighborFinset w).card := by
+    rw [G.card_neighborFinset_eq_degree]
+    exact Nat.lt_of_lt_of_le (by decide) (hdeg w hw)
+  obtain ⟨a, ha, b, hb, hab⟩ := Finset.one_lt_card.mp hc
+  exact ⟨a, b, hab, (G.mem_neighborFinset w a).mp ha, (G.mem_neighborFinset w b).mp hb⟩
+
+lemma count_no_selected_input_bound {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hAO : IsAO2 n C)
+    (hC : circuitFun n C = graphFun G ∅) (hfour : NoFourCycle G) (S : Finset (Fin n))
+    (hdeg : ∀ v ∈ S, 2 ≤ G.degree v) :
+    (C.gates.filter (fun g => !(hasSelectedInput S g))).length ≤ C.size - S.card := by
+  have hbound := count_selected_input_gates_of_degree G C hAO hC hfour S hdeg
+  have hpartition := filter_complement_length C.gates (hasSelectedInput S)
+  change (C.gates.filter (fun g => !(hasSelectedInput S g))).length ≤ C.gates.length - S.card
+  omega
+
+end PEqualNP.Outside.L_meta_3566.ReaderCut

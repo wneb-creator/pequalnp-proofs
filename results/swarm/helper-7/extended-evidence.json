@@ -1,0 +1,117 @@
+{
+  "snapshot_utc": "2026-11-25T22:38:22.188032+00:00",
+  "gap_status": "No final theorem or counterexample; L-meta-3566 unresolved by this helper",
+  "solver_scope": "External solver results only; no independent UNSAT certificate included",
+  "all_pruning_control": {
+    "graph": "C8",
+    "k": 10,
+    "min_and": 4,
+    "explicit_min_and": 0,
+    "effective_min_and": 4,
+    "mis_lower": true,
+    "mis_count": 10,
+    "mis_and_bound": 4,
+    "conditional_explicit_min_and": false,
+    "explicit_min_and_scope": "No additional explicit lower-bound assumption.",
+    "max_and": null,
+    "conditional_max_and_restriction": false,
+    "lex": true,
+    "input_budget": true,
+    "primary_reader_bound": true,
+    "pair_separation": true,
+    "edge_pivotal": true,
+    "dirty_and_two_pivotal": true,
+    "exit": 20,
+    "seconds": 8.060528126999998,
+    "status": "UNSAT"
+  },
+  "full_target_queries": [
+    {
+      "graph": "C6book3",
+      "gate_target": 21,
+      "explicit_min_and": 0,
+      "status": "RUNNING",
+      "constraints": [
+        "MIS lower bound",
+        "lexicographic minimum ordering",
+        "input-slot budget",
+        "primary-reader bound",
+        "pivotal edges",
+        "two pivotal edges for dirty ANDs",
+        "MIS/AND and edge/OR pair separation"
+      ],
+      "and_bound_scope": "generic MIS bound only",
+      "complete_graph_boundary": true
+    },
+    {
+      "graph": "Heawood12noninc",
+      "gate_target": 19,
+      "explicit_min_and": 6,
+      "status": "RUNNING",
+      "constraints": [
+        "MIS lower bound",
+        "lexicographic minimum ordering",
+        "input-slot budget",
+        "primary-reader bound",
+        "pivotal edges",
+        "two pivotal edges for dirty ANDs",
+        "MIS/AND and edge/OR pair separation"
+      ],
+      "and_bound_scope": "independently reproduced external AND>=6 result, no Lean certificate",
+      "complete_graph_boundary": true
+    },
+    {
+      "graph": "GP8del_inc",
+      "gate_target": 24,
+      "explicit_min_and": 0,
+      "status": "RUNNING",
+      "constraints": [
+        "MIS lower bound",
+        "lexicographic minimum ordering",
+        "input-slot budget",
+        "primary-reader bound",
+        "pivotal edges",
+        "two pivotal edges for dirty ANDs",
+        "MIS/AND and edge/OR pair separation"
+      ],
+      "and_bound_scope": "generic MIS bound only",
+      "complete_graph_boundary": true
+    },
+    {
+      "graph": "GP8del_noninc",
+      "gate_target": 23,
+      "explicit_min_and": 0,
+      "status": "RUNNING",
+      "constraints": [
+        "MIS lower bound",
+        "lexicographic minimum ordering",
+        "input-slot budget",
+        "primary-reader bound",
+        "pivotal edges",
+        "two pivotal edges for dirty ANDs",
+        "MIS/AND and edge/OR pair separation"
+      ],
+      "and_bound_scope": "generic MIS bound only",
+      "complete_graph_boundary": true
+    }
+  ],
+  "restricted_book3_query": {
+    "and_cap": 6,
+    "private_or_cap": 15,
+    "status": "RUNNING",
+    "scope": "Sufficient witness family; UNSAT is not a total-size lower bound",
+    "and_kraft": false
+  },
+  "lean_helper": {
+    "file": "lean/PEqualNP/Outside/L_meta_3566.lean",
+    "lemma_count": 45,
+    "named_build": "PASS",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "final_gap_theorem_present": false
+  },
+  "diagnostics": "Complete original stdout/stderr and solver inputs retained in job workspace; only small summaries are bundled"
+}

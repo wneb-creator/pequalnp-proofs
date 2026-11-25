@@ -6,6 +6,7 @@ CEGAR row samples are not supported. Solver outcomes are computational evidence,
 not Lean certificates.
 """
 import argparse
+from itertools import combinations
 import json
 import subprocess
 import sys
@@ -196,6 +197,56 @@ def add_edge_pivotal(formula, mapping, info, k, dirty_and_two=False):
     return data
 
 
+def original_operand_values(formula, mapping, info, k):
+    n = info['n']
+    left_values, right_values = [], []
+    for j in range(k):
+        left_values.append([formula.var() for _ in info['rows']])
+        right_values.append([formula.var() for _ in info['rows']])
+        for row, (mask, _) in enumerate(info['rows']):
+            for selectors, selected in [(mapping['left'][j], left_values[j][row]),
+                                         (mapping['right'][j], right_values[j][row])]:
+                for source, selector in enumerate(selectors):
+                    if source < n:
+                        formula.add(-selector, selected if mask & (1 << source) else -selected)
+                    else:
+                        value = mapping['val'][source - n][row]
+                        formula.add(-selector, -selected, value)
+                        formula.add(-selector, selected, -value)
+    return {'left': left_values, 'right': right_values}
+
+
+def add_pair_separation(formula, mapping, info, k):
+    operands = original_operand_values(formula, mapping, info, k)
+    negative = [r for r, (_, target) in enumerate(info['rows']) if not target]
+    positive = [r for r, (_, target) in enumerate(info['rows']) if target]
+    pairs = []
+    for kind, rows, operation in [('negative_mis', negative, 'and'),
+                                  ('positive_edge', positive, 'or')]:
+        for first, second in combinations(rows, 2):
+            witnesses = []
+            for j in range(k):
+                witness = formula.var()
+                witnesses.append(witness)
+                ls, rs = operands['left'][j][first], operands['right'][j][first]
+                lt, rt = operands['left'][j][second], operands['right'][j][second]
+                required_op = mapping['op'][j] if operation == 'and' else -mapping['op'][j]
+                formula.add(-witness, required_op)
+                formula.add(-witness, ls, rs)
+                formula.add(-witness, -ls, -rs)
+                formula.add(-witness, lt, rt)
+                formula.add(-witness, -lt, -rt)
+                formula.add(-witness, ls, lt)
+                formula.add(-witness, -ls, -lt)
+            formula.add(*witnesses)
+            pairs.append({'kind': kind, 'operation': operation,
+                          'row_indices': [first, second],
+                          'row_masks': [info['rows'][first][0], info['rows'][second][0]],
+                          'witness_flags': witnesses})
+    return {'operand_values': operands, 'negative_row_indices': negative,
+            'positive_row_indices': positive, 'pairs': pairs}
+
+
 def maximal_false_and_bound(info):
     count = sum(not target for _, target in info['rows'])
     assert count >= 1
@@ -217,6 +268,7 @@ def main():
     ap.add_argument('--edge-pivotal', action='store_true')
     ap.add_argument('--dirty-and-two-pivotal', action='store_true',
                     help='also enables --edge-pivotal')
+    ap.add_argument('--pair-separation', action='store_true')
     a = ap.parse_args()
     if a.solver is None:
         ap.error('Kissat was not found; provide --solver PATH')
@@ -228,6 +280,8 @@ def main():
     info = s.graph_info(g['n'], g['edges'])
     if (a.edge_pivotal or a.dirty_and_two_pivotal) and not info['edges']:
         ap.error('pivotal-edge normal forms require a nonempty graph edge set')
+    if a.pair_separation and not info['edges']:
+        ap.error('pair separation requires a nonempty graph edge set and full graph boundary rows')
     primary_graph_check = None
     if a.primary_reader_bound:
         try:
@@ -261,6 +315,7 @@ def main():
     edge_pivotal_enabled = a.edge_pivotal or a.dirty_and_two_pivotal
     edge_pivotal = (add_edge_pivotal(f, mp, info, a.k, a.dirty_and_two_pivotal)
                     if edge_pivotal_enabled else None)
+    pair_separation = add_pair_separation(f, mp, info, a.k) if a.pair_separation else None
     mis_proof = (
         'For a circuit with A AND gates, globally select one parent at every AND gate. '
         'Each of the at most 2^A selections produces an OR-only clause above the circuit. '
@@ -292,6 +347,8 @@ def main():
         name += '-edge-pivotal'
     if a.dirty_and_two_pivotal:
         name += '-dirty-two'
+    if a.pair_separation:
+        name += '-pair-separation'
     d = s.ROOT / 'synthesis' / (name + '-' + str(time.time_ns()))
     d.mkdir(parents=True)
     f.write(d / 'input.cnf')
@@ -310,6 +367,19 @@ def main():
             'no global upper bound on the AND count is asserted.')
             if a.max_and is not None else None,
         'lex': a.lex, 'input_budget': input_budget,
+        'pair_separation': pair_separation,
+        'pair_separation_proof': (
+            'This script uses the full graph boundary from graph_info. For distinct '
+            'maximal independent sets S,T, their union contains an edge, so the '
+            'circuit is false on both S,T and true on their union. Inputs preserve '
+            'join; the first gate failing join preservation must be an AND whose '
+            'operand states are 10 on S and 01 on T, or the reverse. For distinct '
+            'positive edges, their intersection has at most one vertex and is false. '
+            'Inputs preserve meet; the first gate failing meet preservation must be '
+            'an OR with the same crossing operand states on the two edges. These '
+            'facts hold for arbitrary AO2 circuits, including shared subcircuits, '
+            'and do not require a minimum-circuit normal form.')
+            if a.pair_separation else None,
         'edge_pivotal': edge_pivotal,
         'dirty_and_two_pivotal': a.dirty_and_two_pivotal,
         'edge_pivotal_proof': (
@@ -368,6 +438,7 @@ def main():
               'conditional_max_and_restriction': a.max_and is not None,
               'lex': a.lex, 'input_budget': a.input_budget,
               'primary_reader_bound': a.primary_reader_bound,
+              'pair_separation': a.pair_separation,
               'edge_pivotal': edge_pivotal_enabled,
               'dirty_and_two_pivotal': a.dirty_and_two_pivotal,
               'exit': code, 'seconds': time.monotonic() - started, 'directory': str(d),

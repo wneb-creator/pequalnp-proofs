@@ -1,5 +1,5 @@
 Helper-7 research record for L-meta-3566
-Snapshot recorded 2026-11-25 22:14 UTC. This directory is a computational research artifact, not a proof submission.
+Snapshot recorded 2026-11-25 22:37:57 UTC. This directory is a computational research artifact, not a proof submission.
 No final theorem or counterexample to L-meta-3566 was produced.
 The bounded-synthesis lower results have no Lean certificate. The named Lean file
 contains a local double-cover diagnostic and general primary-reader counting helpers.
@@ -72,6 +72,19 @@ Encoding and validation:
   C6/C8 circuits passed all truth assignments. Invalid graph guards were verified
   with solver launch forbidden. Explicit unsupported AND lower restrictions are
   labeled as constraints on the encoded normal-form subclass, not global bounds.
+- Pair-separation clauses passed independent mathematical/code review and a
+  moved-directory run covering 8,970 circuits, 1,703,496 clauses and 3,049 invalid
+  witness flips. The all-pruning C8 at-most-10 control returned external UNSAT
+  in 8.0605 seconds. This is not a controlled performance benchmark or a formal
+  lower-bound certificate.
+- The generalized free-OR generator passed independent source/model/cost review,
+  tiny SAT/UNSAT controls, exact H12 hash regression and reconstruction checks.
+  The known book3 calibration has 7 ANDs + 15 ORs = 22 gates and passed all
+  16,384 inputs. A separate cap-six/private-OR-at-most-fifteen pilot is running;
+  any UNSAT result there describes only that restricted witness family.
+  Its optional full-MIS Kraft counter passed independent arithmetic/model tests,
+  including padding, zero ANDs and impossible budgets. Existing running queries
+  were not modified to add it.
 
 Solver: Kissat 4.0.4, official source commit
 8af8e56f174b778aef3aa45af9f739b2a5f492c2.
@@ -94,6 +107,9 @@ Portable reproduction (run from this directory):
   python3 test_mis_lower.py
   python3 test_primary_reader_bound.py
   python3 test_edge_pivotal.py
+  python3 test_pair_separation.py
+  python3 free_or_and_query.py --self-test
+  python3 test_free_or_and_kraft.py
 Here PATH means the local Kissat executable. New CNFs and complete solver stdout/stderr
 are retained under synthesis/ and excluded from version control. evidence.json contains
 only small result summaries and SAT witnesses; full original diagnostics remain with
@@ -123,9 +139,14 @@ Checked general primary-reader bounds:
   at least two; neither minimum circuit size nor bipartiteness is required.
   Independent source reviews and fresh elaboration passed for the core, degree
   wrapper and weighted counting appendix. The integrated named lake build passed.
-  All 41 helper lemmas use only propext, Classical.choice and Quot.sound.
+  count_selected_input_gates_of_degree generalizes the result to a chosen S,
+  with degree >=2 required only on S; leaves and isolates outside S are allowed.
+  count_no_selected_input_bound gives the complementary C.size - S.card bound.
+  The selected-set appendix passed independent source review/fresh elaboration.
+  The integrated named build and all 45 helper lemma axiom checks passed using
+  only propext, Classical.choice and Quot.sound.
   No final theorem for the posted gap is present; the target remains unresolved.
 
 Sub-agents: toolchain, sat_setup, optimization_review, toolchain/mixed_count
-TIMING total=72.6 subagents=4
+TIMING total=96.5 subagents=4
 Timing is cumulative at this research snapshot; work continues toward the full target.

@@ -35,7 +35,10 @@ The proof includes duplicate operands. Consequently at least n gates read an
 original input, and at most C.size - n gates read only internal wires. Neither
 minimality nor bipartiteness is assumed. The direct-reader separation theorem,
 sole-AND/OR neighbor lemmas, occurrence bound, and weighted counting argument are
-all formalized in the named Lean file. Its 41 helper lemmas passed an axiom audit
+all formalized in the named Lean file. The selected-set extension requires degree
+at least two only for vertices in a chosen set S, and proves that at least |S|
+gates read an input from S. All other vertices may have any degree. The complementary
+bound is C.size - |S|. Its 45 helper lemmas passed an axiom audit
 using only propext, Classical.choice, and Quot.sound. There is still no final
 theorem for L-meta-3566.
 
@@ -53,6 +56,18 @@ this property. Both options require a nonempty edge set. Their normal-form
 arguments and exact CNF implementation were independently reviewed; cut values
 are recomputed through the complete suffix, including shared paths. Appended OR
 copies remain pivotal and introduce no dirty AND gates.
+
+The optional `--pair-separation` clauses hold for every exact AO2 circuit.
+Distinct maximal independent sets have an accepting union. The first wire failing
+to preserve their Boolean join must be an AND whose operand states are 10 and 01
+on the two sets, in either order. Dually, two distinct positive edges have a
+rejected intersection, so some OR gate has those crossing operand states.
+The implementation enforces these witnesses on the full boundary and handles
+shared subcircuits. Independent tests checked 8,970 small circuits, 1,703,496
+clauses and 3,049 invalid witness flips, plus planted C6/C8 circuits.
+All constraints together reproduced C8 at-most-10 UNSAT in 8.0605 seconds;
+the earlier strongest query took 171.02 seconds. These runs were not a controlled
+performance benchmark, and neither includes a formal UNSAT certificate.
 
 Current targets and independently enumerated graph data:
 
@@ -102,6 +117,27 @@ It is not a completed total-gate lower bound or a gap counterexample.
 The reproducer needs an installed shared libz3 only when `--solve` is requested;
 without it, the standard-library script just generates and hashes the SMT file.
 
+`free_or_and_query.py` generalizes that reviewed generator and reconstructs every
+SAT model as an explicit AO2 circuit. It supports a conditional private-OR cost
+cap, the exact sum of max(region size - 1, 0) across all AND operand regions and
+the output region. AND cap six and private-OR cap fifteen are sufficient for a
+21-gate book3 witness. UNSAT with this cap only excludes the encoded witness
+family: OR sharing or normalization may change this private cost. Reconstruction
+removes false/dead gates and duplicates, shares available OR computations, checks
+readback and evaluates all 16,384 inputs. The published
+`C6book3-standard-calibration.json` is explicitly a known 22-gate control with
+seven ANDs and fifteen ORs, not a six-AND witness. Its full truth table was checked
+independently. The restricted six-AND pilot is still running at this snapshot.
+
+The optional `--and-kraft` constraint in this generator uses the general bound
+sum over maximal false rows of 2^(equal AND operand count) <= 2^k for k ANDs.
+At some AND, any two such rows must have opposite 10/01 states; the corresponding
+partial-signature cubes are disjoint. Since 2^e >= e+1, the sum of all equal 00/11
+operand counts is at most 2^k - M. This bound includes syntactic false padding.
+The implementation uses the complete MIS suffix, exact-width arithmetic and an
+explicit contradiction when M > 2^k. It passed independent mathematical/code
+review and finite arithmetic tests. For book3 at k=6, its budget is 23.
+
 A bounded repository census found no applicable existing lower bound for either
 GP8 deletion. It checked 112 files mentioning exact dimension 14, ten nearby
 size-bound candidates, strict numeric edge lists, 835 lists of fourteen numerical
@@ -126,6 +162,9 @@ python3 test_input_budget.py
 python3 test_mis_lower.py
 python3 test_primary_reader_bound.py
 python3 test_edge_pivotal.py
+python3 test_pair_separation.py
+python3 free_or_and_query.py --self-test
+python3 test_free_or_and_kraft.py
 python3 count_query.py --graph C6 --k 7 --min-and 0 --mis-lower --lex --input-budget --seconds 60
 python3 single_query.py --help
 python3 h12_and5_reproducer.py --output h12-and5.smt2 --solve
