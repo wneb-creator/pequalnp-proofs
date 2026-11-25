@@ -11104,14 +11104,15 @@ lemma leaf_ne_private {n : ℕ} (C : Circuit) (H : ℕ) (a : Fin n)
     rw [hkH,hHa] at hko
     cases hko
 
-lemma neighbor_transport {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+lemma neighbor_transport_of_singletons {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     (C : Circuit) (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅) (hTF : TopForm G C)
     (H : ℕ) (a : Fin n) (hdirty : ¬ BelowF G C H)
     (hsole : ∀ j, j < C.gates.length → a.val ∈ (gateAt C j).inputs → j = H)
     (hlast : ∀ k, H < k → k < C.gates.length → (gateAt C k).op = .and → BelowF G C k)
     (hreadOR : ∀ j ∈ readers n C H, (gateAt C j).op = .or)
     (T : ℕ → ℕ) (v : ℕ → Fin n)
-    (hleaf : ∀ j ∈ readers n C H, T j ∈ (gateAt C j).inputs ∧ v j ∈ orIn n C (T j))
+    (hleaf : ∀ j ∈ readers n C H, T j ∈ (gateAt C j).inputs ∧
+      value C (pairInput (v j) (v j)) (T j) = true)
     (c : Fin n) (hac : G.Adj a c) : ∃ j ∈ readers n C H, G.Adj (v j) c := by
   classical
   obtain ⟨k,hkT,hkt,hHk⟩ := edge_top_dependency G C hAO hfun H a hdirty hsole c hac
@@ -11155,9 +11156,11 @@ lemma neighbor_transport {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj
       simp only [readers,Finset.mem_filter,Finset.mem_range]
       exact ⟨hj,hjH⟩
     obtain ⟨hTj,hvj⟩ := hleaf j hjr
+    have hmT : pairInput (v j) (v j) ≤ pairInput (v j) c := by
+      intro z
+      by_cases hz : z = v j <;> simp [pairInput,hz]
     have hTval : value C (pairInput (v j) c) (T j) = true :=
-      MixedColor.reach_var_val _ _ _ (MixedColor.mem_orIn_reach (v j) hvj)
-        (MixedColor.pairInput_left (v j) c)
+      Bool.le_iff_imp.mp ((WireFacts.wire_monotone C hAO (T j)) hmT) hvj
     have hjval : value C (pairInput (v j) c) (n+j) = true :=
       (MixedColor.val_or (n := n) (C := C) (x := List.ofFn (pairInput (v j) c))
         (by simp) hj hjo).mpr ⟨T j,hTj,hAO.2.1 j hj _ hTj,hTval⟩
@@ -11172,6 +11175,22 @@ lemma neighbor_transport {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj
       rw [value_gate C hAO.2.1 _ k hk,hka]
       rcases hshape with hs | hs <;> simp [hs,GateOp.eval,hwval,hrval]
     exact ⟨j,hjr,(MixedColor.graphFun_pair G (v j) c).mp (hkc _ hkval)⟩
+
+lemma neighbor_transport {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅) (hTF : TopForm G C)
+    (H : ℕ) (a : Fin n) (hdirty : ¬ BelowF G C H)
+    (hsole : ∀ j, j < C.gates.length → a.val ∈ (gateAt C j).inputs → j = H)
+    (hlast : ∀ k, H < k → k < C.gates.length → (gateAt C k).op = .and → BelowF G C k)
+    (hreadOR : ∀ j ∈ readers n C H, (gateAt C j).op = .or)
+    (T : ℕ → ℕ) (v : ℕ → Fin n)
+    (hleaf : ∀ j ∈ readers n C H, T j ∈ (gateAt C j).inputs ∧ v j ∈ orIn n C (T j))
+    (c : Fin n) (hac : G.Adj a c) : ∃ j ∈ readers n C H, G.Adj (v j) c := by
+  apply neighbor_transport_of_singletons G C hAO hfun hTF H a hdirty hsole hlast
+    hreadOR T v ?_ c hac
+  intro j hj
+  exact ⟨(hleaf j hj).1, MixedColor.reach_var_val _ _ _
+    (MixedColor.mem_orIn_reach (v j) (hleaf j hj).2)
+    (MixedColor.pairInput_left (v j) (v j))⟩
 
 end PEqualNP.Outside.L_meta_3566.PrivateReaderTransport
 
@@ -11207,5 +11226,37 @@ lemma degree_le_readers {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     hsole hlast hreadOR T v hdata
   rw [SimpleGraph.degree,SimpleGraph.neighborFinset_eq_filter]
   exact ReaderDegreeCount.neighbors_card_le G h4 a (readers n C H) v hne hcover
+
+end PEqualNP.Outside.L_meta_3566.PrivateReaderDegree
+
+namespace PEqualNP.Outside.L_meta_3566.PrivateReaderDegree
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership ParallelRewrite
+
+lemma degree_le_readers_of_singletons {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (hTF : TopForm G C) (h4 : NoFourCycle G) (H : ℕ) (a : Fin n)
+    (hdirty : ¬ BelowF G C H)
+    (hsole : ∀ j, j < C.gates.length → a.val ∈ (gateAt C j).inputs → j = H)
+    (hlast : ∀ k, H < k → k < C.gates.length → (gateAt C k).op = .and → BelowF G C k)
+    (hreadOR : ∀ j ∈ readers n C H, (gateAt C j).op = .or)
+    (hsingle : ∀ j ∈ readers n C H, ∃ T ∈ (gateAt C j).inputs, ∃ v : Fin n,
+      v ≠ a ∧ value C (pairInput v v) T = true) :
+    G.degree a ≤ (readers n C H).card := by
+  classical
+  have hex : ∀ j : ℕ, ∃ T : ℕ, ∃ v : Fin n, j ∈ readers n C H →
+      T ∈ (gateAt C j).inputs ∧ v ≠ a ∧ value C (pairInput v v) T = true := by
+    intro j
+    by_cases hj : j ∈ readers n C H
+    · obtain ⟨T,hT,v,hv,htrue⟩ := hsingle j hj
+      exact ⟨T,v,fun _ => ⟨hT,hv,htrue⟩⟩
+    · exact ⟨0,a,fun h => (hj h).elim⟩
+  choose T v hdata using hex
+  have hcover := PrivateReaderTransport.neighbor_transport_of_singletons G C hAO hfun hTF
+    H a hdirty hsole hlast hreadOR T v (fun j hj => ⟨(hdata j hj).1,(hdata j hj).2.2⟩)
+  rw [SimpleGraph.degree,SimpleGraph.neighborFinset_eq_filter]
+  exact ReaderDegreeCount.neighbors_card_le G h4 a (readers n C H) v
+    (fun j hj => (hdata j hj).2.1) hcover
 
 end PEqualNP.Outside.L_meta_3566.PrivateReaderDegree
