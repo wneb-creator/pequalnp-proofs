@@ -1,0 +1,12 @@
+Gap: L-meta-10760
+PARTIAL RESULT: explicit 14-gate monotone witness and correctness on all 128 inputs. The full posted size-comparison theorem remains unproved.
+File: lean/PEqualNP/Outside/L_meta_10760.lean
+Lines: 36
+Build: lake build PEqualNP.Outside.L_meta_10760
+Build exit: 0
+Build completed successfully (5149 jobs).
+Checker: not run; final theorem absent in this partial checkpoint.
+Independent partial review: repo_review passed; exact source SHA256 fddf0763607e156a803cf41fca0eb4dda420ce81553054886a9ed9f59d8482e2
+Desk null answers: 0
+Sub-agents: repo_review, proof_template, graph_search, lower_bound, toolchain
+TIMING total=8.9 subagents=5
