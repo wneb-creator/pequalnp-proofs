@@ -1,0 +1,20 @@
+../results/orch/lemmas/reduction_analysis/FiveOwnerLiftSound.lean:108:25: warning: Variable name `ha` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ha
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerLiftSound.lean:108:45: warning: Variable name `hb` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hb
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/reduction_analysis/FiveOwnerLiftSound.lean:118:4: warning: This simp argument is unused:
+  ite_eq_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp (disch := omega) only [lift_snoc_read, List.length_append, List.length_cons, List.length_nil,
+    Nat.add_assoc, Nat.reduceAdd, Nat.add_left_cancel_iff, ite_eq_right, ite_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

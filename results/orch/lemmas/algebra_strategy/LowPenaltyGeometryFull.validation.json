@@ -1,0 +1,10 @@
+{
+  "sha256": "386be2590cb2e8d0158ef80b4338dbcd1f5f2bea0a550d225960bf485205d52d",
+  "lines": 164,
+  "exit_code": 0,
+  "scope": "Generic bipartite no-C4 residual-cardinality-at-most-one theorem plus one-edge vertex-cover extension; exact low-penalty promise still a hypothesis.",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "log": "LowPenaltyGeometryFull.build.log"
+}

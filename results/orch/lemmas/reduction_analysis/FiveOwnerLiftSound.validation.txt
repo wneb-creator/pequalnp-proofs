@@ -1,0 +1,5 @@
+UTC 2026-11-25T06:57:29.578401+00:00
+SHA256 99800d2344d8d893649bcee480a59081a05aaa57428405715713f760c61acc81
+Lean build exit0, complete log retained with3 inherited RowLift warnings.
+Standalone Defs-only; exact frozen RowLift prefix plus AllAndSound definition, liftedCircuit_wire and liftedCircuit_sound. These prove input reindexing preserves the property that every true AND wire implies true circuit output. Also defines the16→26 five-owner input map, exact5-row Boolean function, and remaining8 full rows. No assembly or gate-count conclusion yet.
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env lean -j1 -M4096 ../results/orch/lemmas/reduction_analysis/FiveOwnerLiftSound.lean

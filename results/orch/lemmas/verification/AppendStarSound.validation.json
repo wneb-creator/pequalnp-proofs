@@ -1,0 +1,13 @@
+{
+  "utc": "2026-11-25T06:57:19.750161+00:00",
+  "sha256": "0dd455786375e9447022b52bf1973a35a13c746df3bfd6bd9fd167ecb1bf983e",
+  "lines": 323,
+  "exit_code": 0,
+  "log": "AppendStarSound.build.log",
+  "scope": "AllAndSound is preserved by appendStar and appendRows under a valid initial output. Each AND output true implies circuit output true. No graph, size lower bound, or full L650 conclusion.",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "prefix": "Frozen RowLift.lean copied unchanged except namespace end removed to add the new tail.",
+  "warnings": "Complete successful log retained; unused-variable and simplification warnings only."
+}
