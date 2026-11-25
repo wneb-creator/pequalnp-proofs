@@ -1,0 +1,73 @@
+{
+  "graph": "c5",
+  "n": 5,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      0
+    ]
+  ],
+  "gates": 6,
+  "samples": [
+    [
+      3,
+      true
+    ],
+    [
+      6,
+      true
+    ],
+    [
+      12,
+      true
+    ],
+    [
+      24,
+      true
+    ],
+    [
+      17,
+      true
+    ],
+    [
+      5,
+      false
+    ],
+    [
+      9,
+      false
+    ],
+    [
+      10,
+      false
+    ],
+    [
+      18,
+      false
+    ],
+    [
+      20,
+      false
+    ]
+  ],
+  "variables": 288,
+  "clauses": 2307,
+  "constants": "false only",
+  "all_gates_reach_output": true
+}

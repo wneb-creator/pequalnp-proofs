@@ -2,6 +2,8 @@
 
 These are exploratory computations, not Lean-checked theorems. The separate `lemmas/Counterexample.lean` contains a Lean-checked zero-gate base case for edgeless graphs and an explicit nonminimal C5 boundary example: an eight-gate circuit that violates star ownership, plus a seven-gate correct witness proving the eight-gate circuit is not least. It is not a refutation of L-meta-1031.
 
+A later ordinary-kernel proof in `lemmas/PetersenOrCounterexample.lean` refutes the separate proposed OR-count lower bound: an eight-vertex, ten-edge graph with no triangles or four-cycles has an eight-OR/six-AND circuit. Its fourteen total gates exceed the thirteen-gate star optimum, so it does not refute L-meta-1031. Details and the clean axiom audit are in `PETERSEN_OR_COUNTEREXAMPLE.md`.
+
 | Family | Checked instances | Outcome |
 | --- | ---: | --- |
 | Triangle/C4-free labeled graphs, 1 vertex | 1 | Minimum gate count equals star construction |
@@ -33,3 +35,5 @@ C5 witness (inputs 0 through 4, new wires 5 through 11):
 ```
 
 Sources: `lemmas/Counterexample.py`, `lemmas/CounterexampleBfsUnsafe.py`, `lemmas/CounterexampleMilp.py`, `lemmas/CounterexampleSat.py`. Complete diagnostics are saved under `/tmp/oec/pequalnp-pilot-54/` and will be copied into the branch results before delivery.
+
+Subsequent exact finite OR-budget censuses, native SAT certificates, and total-gate searches are documented in `OR_POTENTIAL_CENSUS.md`, `NATIVE_SEARCH.md`, and `NATIVE_TOTAL_SEARCH.md`. In particular, the theta graph with path lengths 2,3,3 cannot be computed with six OR gates and unbounded AND gates in the exact SAT model; its UNSAT certificate passed an independent integer RUP check. This is computational certification of that model, not a Lean theorem. The later eight-vertex OR counterexample invalidates the proposed general OR bound despite all completed cases through five vertices satisfying it.

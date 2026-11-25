@@ -1,0 +1,15 @@
+Independent final preservation review by prior_gap_check
+Time: 2026-11-25T02:33:06.119336+00:00
+Verdict: PASS for a partial-results branch checkpoint, not a proof submission.
+
+Scope: inspected modified documentation/provenance and new result artifacts, especially the two UNVERIFIED P5 drafts and native-total-final-verdicts.json. No long build was run for this review.
+
+The named main Lean source is unchanged at SHA256 dd5e95e0747207c188593b931ad99582f3a6a2fc10acbae8cd58a5a8b8ea4215. Its earlier successful build and standard-three-axiom audit remain applicable. FreshBridgeFactors338 was separately independently recompiled with an axiom audit; both main conclusions use only permitted axioms.
+
+The P5 preservation documents explicitly distinguish the ordinary-Python finite census from unsuccessful Lean attempts. Both preserved draft sources use decide +kernel, contain no axiom declarations, sorry, native_decide, bv_decide, unsafe, or elaborator code, and have not passed complete builds. Their failed-build logs are preserved. The split draft has global options and three axiom-print directives, so it is a research artifact only and must not be placed in a proof PR. The documented earlier native-reflection attempt is not among the preserved new Lean sources. No correspondence theorem with the public Circuit type is claimed.
+
+The native total-search verdict JSON is a two-element array, and both entries correctly say UNKNOWN_TIME_LIMIT, formal_lean false, and no certificate. The corresponding preserved solution files contain exactly c UNKNOWN; the full solver logs report 900.00 seconds and exit 0. Current and historical encoder SHA256 hashes match the recorded hashes. The incomplete multi-gigabyte traces are described as scratch artifacts, never as UNSAT certificates. Their hashes were not recomputed in this short review. C5 validation has a separate preserved RUP-check result and SAT witness validation.
+
+Documentation correctly distinguishes the checked eight-OR Petersen-minus-two counterexample from L-meta-1031: its fourteen total gates exceed the thirteen-gate optimum, so it refutes only the separate OR-count conjecture. Native larger total-gate searches remain inconclusive. No reviewed new artifact claims the posted gap is solved.
+
+Exclude generated results/orch/lemmas/__pycache__/ bytecode from staging. All reviewed research files belong only to the pilot results checkpoint; a future upstream proof PR still requires exactly the named single Lean file and an exact accepted theorem.

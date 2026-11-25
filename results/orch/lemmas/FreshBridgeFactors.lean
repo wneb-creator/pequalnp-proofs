@@ -209,4 +209,130 @@ lemma exact_operands_of_second_bridge (h3 : NoTri G) (h4 : NoSq G) {a b : V}
       · exact hr
 
 end Branch
+lemma common_pair_eq {V : Type*} {G : SimpleGraph V} (h4 : NoSq G) {x y a b : V}
+    (hab : a ≠ b) (hxa : G.Adj x a) (hxb : G.Adj x b)
+    (hya : G.Adj y a) (hyb : G.Adj y b) : x = y :=
+  (h4 x a y b hxa hya.symm hyb hxb.symm).resolve_right hab
+
+lemma three_hits {V : Type*} {G : SimpleGraph V} (h4 : NoSq G) {p q z a b c : V}
+    (hab : a ≠ b) (hac : a ≠ c) (hbc : b ≠ c)
+    (hza : G.Adj z a) (hzb : G.Adj z b) (hzc : G.Adj z c)
+    (ha : G.Adj p a ∨ G.Adj q a) (hb : G.Adj p b ∨ G.Adj q b)
+    (hc : G.Adj p c ∨ G.Adj q c) : z = p ∨ z = q := by
+  rcases ha with ha | ha <;> rcases hb with hb | hb
+  · exact Or.inl (common_pair_eq h4 hab hza hzb ha hb)
+  · rcases hc with hc | hc
+    · exact Or.inl (common_pair_eq h4 hac hza hzc ha hc)
+    · exact Or.inr (common_pair_eq h4 hbc hzb hzc hb hc)
+  · rcases hc with hc | hc
+    · exact Or.inl (common_pair_eq h4 hbc hzb hzc hb hc)
+    · exact Or.inr (common_pair_eq h4 hac hza hzc ha hc)
+  · exact Or.inr (common_pair_eq h4 hab hza hzb ha hb)
+
+def Joins {V ι : Type*} (G : SimpleGraph V) (L R : ι → V) (x : V) : Prop :=
+  ∀ i, G.Adj x (L i) ∨ G.Adj x (R i)
+
+def Opposed {V ι : Type*} (G : SimpleGraph V) (L R : ι → V) (x y : V) : Prop :=
+  ∀ i, (G.Adj x (L i) ∧ G.Adj y (R i)) ∨ (G.Adj x (R i) ∧ G.Adj y (L i))
+
+def DisjointEdges {V ι : Type*} (L R : ι → V) : Prop :=
+  Pairwise fun i j => Disjoint ({L i, R i} : Set V) {L j, R j}
+
+lemma opposed_symm {V ι : Type*} {G : SimpleGraph V} {L R : ι → V} {x y : V}
+    (h : Opposed G L R x y) : Opposed G L R y x := by
+  intro i
+  rcases h i with ⟨h1,h2⟩ | ⟨h1,h2⟩
+  · exact Or.inr ⟨h2,h1⟩
+  · exact Or.inl ⟨h2,h1⟩
+
+lemma endpoint_ne {V ι : Type*} {L R : ι → V} (hd : DisjointEdges L R)
+    {i j : ι} (hij : i ≠ j) {a b : V}
+    (ha : a ∈ ({L i,R i} : Set V)) (hb : b ∈ ({L j,R j} : Set V)) : a ≠ b := by
+  rintro rfl
+  exact Set.disjoint_left.mp (hd hij) ha hb
+
+lemma endpoint_hit {V ι : Type*} {G : SimpleGraph V} {L R : ι → V} {x : V}
+    (h : Joins G L R x) (i : ι) : ∃ a ∈ ({L i,R i} : Set V), G.Adj x a := by
+  rcases h i with h | h
+  · exact ⟨L i,by simp,h⟩
+  · exact ⟨R i,by simp,h⟩
+
+lemma opposed_dominate {V ι : Type*} {G : SimpleGraph V} {L R : ι → V} {p q : V}
+    (h : Opposed G L R p q) {i : ι} {a : V} (ha : a ∈ ({L i,R i} : Set V)) :
+    G.Adj p a ∨ G.Adj q a := by
+  rcases Set.mem_insert_iff.mp ha with he | he
+  · subst a
+    rcases h i with hh | hh
+    · exact Or.inl hh.1
+    · exact Or.inr hh.2
+  · obtain rfl := Set.mem_singleton_iff.mp he
+    rcases h i with hh | hh
+    · exact Or.inr hh.2
+    · exact Or.inl hh.1
+
+lemma three_bridges_unique {V ι : Type*} {G : SimpleGraph V} (h4 : NoSq G)
+    {L R : ι → V} (hd : DisjointEdges L R) {i j k : ι} (hij : i ≠ j)
+    (hik : i ≠ k) (hjk : j ≠ k) {p q z : V} (hpq : Opposed G L R p q)
+    (hz : Joins G L R z) : z=p ∨ z=q := by
+  obtain ⟨a,hai,hza⟩ := endpoint_hit hz i
+  obtain ⟨b,hbj,hzb⟩ := endpoint_hit hz j
+  obtain ⟨c,hck,hzc⟩ := endpoint_hit hz k
+  exact three_hits h4 (endpoint_ne hd hij hai hbj) (endpoint_ne hd hik hai hck)
+    (endpoint_ne hd hjk hbj hck) hza hzb hzc (opposed_dominate hpq hai)
+    (opposed_dominate hpq hbj) (opposed_dominate hpq hck)
+
+
+lemma branches_opposed {V ι : Type*} {G : SimpleGraph V} {U : Set V}
+    (h3 : NoTri G) (h4 : NoSq G) (F : ι → Branch G U) (B : Branch G U)
+    {l r : V} (hl : l ∈ B.left) (hlp : l ≠ B.p) (hr : r ∈ B.right) (hrq : r ≠ B.q) :
+    Opposed G (fun i => (F i).p) (fun i => (F i).q) l r := by
+  intro i
+  rcases B.split_bridge h3 h4 (F i).pU (F i).qU (F i).edge hl hlp hr hrq with ⟨u,v⟩|⟨u,v⟩
+  · exact Or.inl ⟨u.symm,v.symm⟩
+  · exact Or.inr ⟨v.symm,u.symm⟩
+
+lemma joins_left {V ι : Type*} {G : SimpleGraph V} {L R : ι → V} {x y : V}
+    (h : Opposed G L R x y) : Joins G L R x := by
+  intro i
+  exact (h i).imp And.left And.left
+
+lemma three_bridge_family {V ι : Type*} {G : SimpleGraph V} {U : Set V}
+    (h3 : NoTri G) (h4 : NoSq G) (F : ι → Branch G U)
+    (hIJ : Function.Injective fun i => ({(F i).p,(F i).q} : Set V))
+    {i j k : ι} (hij : i ≠ j) (hik : i ≠ k) (hjk : j ≠ k) :
+    ∃ l r : V, l ≠ r ∧ ∀ B : Branch G U,
+      (B.left = {B.p,l} ∧ B.right = {B.q,r}) ∨
+      (B.left = {B.p,r} ∧ B.right = {B.q,l}) := by
+  classical
+  let P := fun t => (F t).p
+  let Q := fun t => (F t).q
+  have hDI : DisjointEdges P Q := by
+    intro s t hst
+    exact ((F s).induced_edge h3 h4 (F t).pU (F t).qU (F t).edge).resolve_left (fun h => hst (hIJ h))
+  obtain ⟨l,hl,hlp⟩ := (F i).left_witness
+  obtain ⟨r,hr,hrq⟩ := (F i).right_witness
+  have ref : Opposed G P Q l r := branches_opposed h3 h4 F (F i) hl hlp hr hrq
+  have distinct (B : Branch G U) {x y : V} (hx : x ∈ B.left) (hy : y ∈ B.right) : x ≠ y := by
+    rintro rfl
+    exact h3 B.p B.q x B.edge (B.nearL x hx) (B.nearR x hy).symm
+  refine ⟨l,r,distinct (F i) hl hr,?_⟩
+  intro B
+  have other : ∃ t : ι, ({B.p,B.q} : Set V) ≠ {(F t).p,(F t).q} := by
+    by_cases h : ({B.p,B.q} : Set V) = {(F i).p,(F i).q}
+    · exact ⟨j,fun hh => hij (hIJ (h.symm.trans hh))⟩
+    · exact ⟨i,h⟩
+  obtain ⟨t,ht⟩ := other
+  obtain ⟨x,y,hxp,hyq,hL,hR⟩ := B.exact_operands_of_second_bridge h3 h4 (F t).pU (F t).qU (F t).edge ht
+  have hx : x ∈ B.left := by simp [hL]
+  have hy : y ∈ B.right := by simp [hR]
+  have hxy : x ≠ y := distinct B hx hy
+  have opp : Opposed G P Q x y := branches_opposed h3 h4 F B hx hxp hy hyq
+  have dx := three_bridges_unique h4 hDI hij hik hjk ref (joins_left opp)
+  have dy := three_bridges_unique h4 hDI hij hik hjk ref (joins_left (opposed_symm opp))
+  rcases dx with hh|hh <;> rcases dy with hh'|hh'
+  · exact (hxy (hh.trans hh'.symm)).elim
+  · exact Or.inl ⟨hh ▸ hL,hh' ▸ hR⟩
+  · exact Or.inr ⟨hh ▸ hL,hh' ▸ hR⟩
+  · exact (hxy (hh.trans hh'.symm)).elim
+
 end PEqualNP.Outside.L_meta_1031.FreshBridgeFactors

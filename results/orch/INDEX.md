@@ -13,3 +13,7 @@ The assigned theorem remains unresolved. No proof PR has been opened. The named 
 Independent source reviews and axiom-audit outputs are retained alongside the artifacts. The accepted partials use only the standard Lean axioms (propext, Classical.choice, Quot.sound, or subsets). Numerical SAT/MILP evidence is separately labeled; a timeout is inconclusive. Large native proof traces are kept in scratch during the job, while small CNFs, outputs, verification logs, hashes and reproducible sources are retained here.
 
 The initial desk assignment reported all three reduction slots occupied, so a fourth reduction was not submitted. Only the root holds and renews the L-meta-1031 lease. See `TIMELINE.md`, `NOTES.md`, and `validation.txt` for measurements and chronological findings.
+
+Final checked extensions: `FirstLiteral.lean` preserves all existing gate ownership while normalizing an already-owned first star under its explicit prefix and degree premises; `FreshTheta.lean` proves a concrete equal-size theta-template rewrite; `FreshBridgeFactors.lean` classifies three-bridge families under explicit Branch premises. Their source reviews and axiom audit logs are included. None supplies the remaining unconditional global argument.
+
+The two final total-gate SAT searches (Petersen minus one vertex with 15 gates, Petersen with 19 gates) each returned `c UNKNOWN` at 900 seconds. `native-total-final-verdicts.json` records the exact outcomes. Drafts in `experiments/` are explicitly unverified and are not accepted Lean results.

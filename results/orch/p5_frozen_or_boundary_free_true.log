@@ -1,0 +1,5 @@
+{"n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4]], "prefix": [["or", 1, 3], ["or", 1, 2], ["or", 6, 4], ["or", 0, 4], ["or", 8, 2], ["or", 0, 3], ["or", 10, 2]], "base_signals": 14, "free_false": true, "free_true": true, "max_added_gates": 3}
+{"added_gates": 1, "states_examined": 1, "next_states": 44, "accepted_transitions": 87, "transitions": 210, "seconds": 0.0004529090001597069}
+{"added_gates": 2, "states_examined": 44, "next_states": 1311, "accepted_transitions": 4293, "transitions": 10770, "seconds": 0.020844512000167015}
+{"added_gates": 3, "states_examined": 1311, "next_states": 0, "accepted_transitions": 144848, "transitions": 367362, "seconds": 0.2313624510002228}
+NO_VALID_STAR_OWNERSHIP_COMPLETION_WITH_AT_MOST_3_GATES

@@ -1,0 +1,4 @@
+'PEqualNP.Outside.L_meta_1031.FreshBridgeFactors.branches_opposed' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.FreshBridgeFactors.three_bridge_family' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

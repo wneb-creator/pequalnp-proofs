@@ -1,0 +1,58 @@
+[
+  {
+    "utc": "2026-11-25T02:29:07.236981+00:00",
+    "run": "total_petersen-minus1_15_sym",
+    "status": "UNKNOWN_TIME_LIMIT",
+    "exit": 0,
+    "native_status_exact": "c UNKNOWN",
+    "timing": [
+      "c total process time since initialization:       892.90    seconds",
+      "c total real time since initialization:          900.00    seconds"
+    ],
+    "incomplete_trace_bytes": 2735184189,
+    "incomplete_trace_sha256": "2fb004be34e62b1a5638347c268f53076948a09077327b4f4b94531c1416e23d",
+    "formal_lean": false,
+    "certificate": "none; incomplete trace has no UNSAT verdict",
+    "encoder_argv": [
+      "python3",
+      "/workspace/pequalnp-proofs/results/orch/lemmas/CounterexampleTotalSat.py",
+      "--graph",
+      "petersen-minus1",
+      "--gates",
+      "15",
+      "--first-pair-symmetry",
+      "--out",
+      "/tmp/oec/pequalnp-pilot-54/total_petersen-minus1_15_sym"
+    ],
+    "source_sha256": "ff3abbc30c820c717002043640c2f845382a986e0b3e7510ec915ed86dd4ded6",
+    "cwd": "/workspace/pequalnp-proofs"
+  },
+  {
+    "utc": "2026-11-25T02:29:10.903299+00:00",
+    "run": "total_petersen_19_sym",
+    "status": "UNKNOWN_TIME_LIMIT",
+    "exit": 0,
+    "native_status_exact": "c UNKNOWN",
+    "timing": [
+      "c total process time since initialization:       894.19    seconds",
+      "c total real time since initialization:          900.00    seconds"
+    ],
+    "incomplete_trace_bytes": 3322135590,
+    "incomplete_trace_sha256": "e3c15856af5436bdd0496acb3a09e2865ca996be3229b2b06125752e0e496c04",
+    "formal_lean": false,
+    "certificate": "none; incomplete trace has no UNSAT verdict",
+    "encoder_argv": [
+      "python3",
+      "/workspace/pequalnp-proofs/results/orch/lemmas/CounterexampleTotalSat.py",
+      "--graph",
+      "petersen",
+      "--gates",
+      "19",
+      "--first-pair-symmetry",
+      "--out",
+      "/tmp/oec/pequalnp-pilot-54/total_petersen_19_sym"
+    ],
+    "source_sha256": "ff3abbc30c820c717002043640c2f845382a986e0b3e7510ec915ed86dd4ded6",
+    "cwd": "/workspace/pequalnp-proofs"
+  }
+]

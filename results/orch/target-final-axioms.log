@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_meta_1031.OneJunkProfile.profile_of_one_junk' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -2,6 +2,8 @@
 
 This is an ordinary program search, not a Lean-checked proof. The candidate bound is `#OR >= |E| - rank_F2(four-cycle vectors) - 1`, truncated at zero. For a signal false on the empty input and every singleton, its pair graph has an edge exactly when that two-element input is accepted. Higher-order minterms are allowed.
 
+The general candidate bound was subsequently refuted on eight vertices by the ordinary-kernel-checked circuit in `lemmas/PetersenOrCounterexample.lean`: a ten-edge graph with no four-cycles has a circuit with eight OR gates. See `PETERSEN_OR_COUNTEREXAMPLE.md`. The completed censuses below remain valid evidence for the stated cases through five vertices.
+
 ## Why the projected search is a valid relaxation
 
 Restriction of Boolean functions to the set of empty, singleton, and two-element inputs preserves AND, OR, false, and true pointwise. Thus every actual circuit maps to a circuit on these finite signatures with exactly the same operation sequence and OR count. A graph-function circuit maps to the signature of its graph. A general proper monotone function maps to the signature of its pair graph, irrespective of higher-order minterms. Consequently absence of a counterexample in the signature model implies absence in the original model; finding one still requires reconstructing and independently evaluating an actual circuit.

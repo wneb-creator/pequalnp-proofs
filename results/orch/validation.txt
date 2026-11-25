@@ -1,17 +1,19 @@
-L-meta-1031: PARTIAL RESULTS ONLY; posted theorem not proved.
-Named file: 9,791 lines, 497,881 bytes; independently reviewed OneJunkProfile.lean.
-Lean 4.36.0: lake build PEqualNP.Outside.L_meta_1031 passed (exit 0).
-Strongest partial: exact posted existential conclusion follows if a globally least public circuit is AO2 and has exactly one unsound AND. The extra premise remains unproved in general.
-Independent review: PASS for conditional partial scope; prior core axiom audit uses only propext, Classical.choice, Quot.sound.
-Latest checker run on the current compact OneJunkProfile target: REJECTED (no-theorem). The unconditional named theorem remains missing. Full output: checker-latest.log.
-Other checked partials, numerical evidence, source reviews and full outputs are under results/orch/. Numerical UNSAT claims have no Lean certificate; timeouts are inconclusive.
-No full-proof PR opened. Cleanup requiring a full checker pass has not been triggered.
-Sub-agents: 9 across proof strategies, counterexample search and independent reviews; two fresh-core agents use gpt-6.2-astra at ultra effort.
-TIMING total=62.0 subagents=9
-
-Checkpoint: namespace normalization independently reviewed; full named-file lake build passed. FreshCore concrete repair extension (914 lines) independently recompiled and reviewed. Numerical tools and finite claims independently reviewed; native RUP evidence is not Lean certification.
-
-Partial simplification: removed25 unused declarations and attached scoped opens; 10,255 to9,791lines,519,732 to497,881bytes. Independent deletion-only review PASS; named lake build exit0. Full-proof cleanup remains untriggered because the main theorem is absent.
-FreshBudget1144 independently compiled and axiom-audited: generic fanout exchange and strict minimum-junk budget, standard three axioms only. P5Context220 independent audit also standard three only.
-
-Auxiliary OR-count conjecture refuted by a standard-axiom Lean certificate: eight-vertex girth-five graph, ten edges, fourteen total gates with eight ORs. This is not a refutation of the assigned least-ownership statement.
+L-meta-1031: UNRESOLVED; partial results only. No proof or reduction PR opened.
+Message ID: msg-4a0166c9a8e044fbed25ceb4.
+Named file: lean/PEqualNP/Outside/L_meta_1031.lean, 9791 lines, 497881 bytes.
+SHA256: dd5e95e0747207c188593b931ad99582f3a6a2fc10acbae8cd58a5a8b8ea4215.
+Build: lake build PEqualNP.Outside.L_meta_1031, exit 0.
+Exact final build output: Build completed successfully (18423 jobs).
+Checker: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_1031 (one lemma, one file: the theorem carries the module's name).
+Complete build/checker output: partial-build.log and checker-latest.log.
+Strongest conditional result: profile_of_one_junk derives the exact posted existential conclusion from an existing globally least AO2 circuit with exactly one unsound AND. This additional premise remains unresolved in general.
+Final compact-target axiom audit: propext, Classical.choice, Quot.sound only; target-final-axioms.log.
+Partial compaction: 10255 -> 9791 lines; 519732 -> 497881 bytes. Independently reviewed deletion-only change; build and checker rerun. Full-proof cleanup was not triggered because checker never passed.
+Independent final review: PASS for partial checkpoint, not a proof of the assigned statement. See FINAL_REVIEW.txt and HANDOFF.md.
+Auxiliary result: PetersenOrCounterexample.lean refutes an unconditional OR-count conjecture with 8 ORs for 10 graph edges. Its 14 gates exceed the available 13-gate star circuit; it does not refute L-meta-1031. Kernel and standard-axiom audits passed.
+Final total-gate searches: Petersen-minus-one at 15 gates and Petersen at 19 gates both UNKNOWN at 900 seconds. No witness or UNSAT certificate. P5 experimental Lean drafts are unverified and failed compilation; no native-reflection source is preserved.
+Initial special task: L-meta-1035 was already refuted in merged PR2095, so the desk-assigned different gap was researched.
+Desk: acquired L-meta-1031 at 2026-11-25T01:04:49Z. Null answers: 0; no null message occurred. Own lease renewed throughout. Reduction slots were full (3); no fourth reduction attempted.
+Lease closing status: pending preservation push and own-lease release.
+Sub-agents: 9 used for parallel proof routes, counterexample searches, and independent reviews; two fresh-core agents used gpt-6.2-astra at ultra effort.
+TIMING total=89.3 subagents=9
