@@ -39,3 +39,5 @@ Ninth checkpoint: TwoNotOrFirst compiled and independently reviewed/axiom-checke
 Tenth checkpoint: required named file now proves unconditional17+NOT-count bound. lake build PEqualNP.Outside.L_meta_2592 exit0; target355s; full output archived. Independent assembled-file red-team PASS.
 Named file before assembly3245lines; after5210lines/309284bytes. This was integration, not the requested final cleanup pass; that pass awaits an exact main proof and checker acceptance.
 Only importPEqualNP.Defs, one outer namespace, scoped permitted limits. Exact module-named main theorem remains absent; checker not run for incomplete statement.
+
+Eleventh checkpoint: ReaderDeletion and ReaderRename compiled exit0; independent status_audit and one_not_route reviews PASS at frozen source hashes. Both results explicitly assume the accepted nine-variable lower16 statement h15; it has not yet been inlined. The arbitrary-input reader limit is two under size19. Full posted theorem remains unsolved.

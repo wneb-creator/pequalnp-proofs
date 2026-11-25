@@ -1,0 +1,3 @@
+Independent one_not_route review PASS, 2026-11-25 14:28 UTC.
+SHA256 6314e17d63b79ca529550cc1e9bf2309361d837d3aa0f34ff0b51b02264525ff
+renameWire changes only indices<10; complement wire10 and all other references remain fixed. NOT reader counting uses take1. Evaluation transports input assignment through a Petersen automorphism. Both conclusions retain explicit h15 premise; no hidden premise discharged. Forbidden-text scan no matches; build exited0.

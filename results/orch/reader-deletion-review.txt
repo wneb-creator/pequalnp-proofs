@@ -1,0 +1,11 @@
+UTC 2026-11-25T14:24:49.324543+00:00
+PASS: independent ReaderDeletion review
+SHA256: 57d15eb715781fbc29b2d81ea31b9819b64844138b4073554bc408aa2aa68192
+Lines: 215
+The extraction/simplification core through cind matches upstream L_meta_5367.R byte for byte.
+Reader counting is a union: each gate contributes at most one, even if it reads both special wires or repeats an operand. NOT uses only take1, so its ignored second operand does not count.
+The symbolic environment maps original wire0 to false and original wire10 to true after the restriction. It appends an entry for every original gate, preserving source indices, while emitted gates use9+newLength. Default-false reads and arbitrary output indices are covered by getD invariants.
+The size inequality correctly strengthens to16+readers<=suffixSize under h15. For a full circuit starting NOT[0] of size<=19, suffixSize<=18, giving readers<=2.
+The h15 premise remains explicit and is not discharged here.
+Independently checked by Lean: ReaderDeletion.p9 equals the raw Boolean function in the final accepted L_meta_4033 statement. Review check exited0 with empty stdout/stderr.
+No forbidden format markers found.
