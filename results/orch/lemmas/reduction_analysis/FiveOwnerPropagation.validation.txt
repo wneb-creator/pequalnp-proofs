@@ -1,0 +1,5 @@
+UTC 2026-11-25T06:22:21.127348+00:00
+Lean build exit0, complete log empty.
+Defs-only AndCountCircuit research component. Accepted stable/value helpers copied; new first_active_raw, pair_has_origin, singleton/disjointness, rejected_forbids_source, only_selected_active, dirty_source_cannot_compute. These isolate exact generic origin and no-first-filter propagation implications; no five-owner finite classification/full theorem or ordinary-Circuit transfer is claimed.
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env lean -j1 -M4096 ../results/orch/lemmas/reduction_analysis/FiveOwnerPropagation.lean
+SHA256 d8c1a5c9ea0b894467812ebe375a0ca0f6933ca2543e94fac8871f0d48d8cba9
