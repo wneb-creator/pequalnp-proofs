@@ -1,63 +1,39 @@
-Current4970 namedfile909lines40260bytes SHAae68dec66a8597198f79ee6e9b367a5df8be1fd77599520b72297fea44f493c1. NamedlakebuildPASSED18423jobs; independentreviewPASS. ActualpartialusespostedAO2+C4free+starwitnesses toproveE.card≤2*ORcount. ItdoesnotproveE.card+covercard≤size+1. Lastofficialcheckerremains593linecheckpointREJECTED(no-theorem); fresh909checkerpending. PortableStrengthTransferStandalone separatelycompiledandrecheckedprovenance; explicitlyASSUMESexactPostedstatement andderivesE+2τ+6≤12C fornonemptygraphs withevenleftdegrees. Itisconditionalresearch, neitherproofof4970 norvalidreduction submission.
+Research checkpoints; no completed proof, refutation, reduction submission, or PR.
+Updated 2026-11-25T16:15:58.824916+00:00
+Job pequalnp-pilot-99. KIT-MESSAGE-ID msg-6f9c7453afc710bc87553b5d.
+Branch pnp/pilot-99; all pushes went only to origin, wneb-creator/pequalnp-proofs.
 
-Current4970 namedfile1099lines46956bytes SHAe60de0f62b0ec8c7905dd37dbaf592f55b16aa2b4ec8020660b5766bd8d539a2. Exact5-sourcecompositionreviewPASS; namedlakebuildPASSED18423jobs. Lastactualofficialchecker (593linepreviouscheckpoint) REJECTED(no-theorem), fulllogsarchived. Currentfilealsolacksfinaltheorem; guardonlymissingmain. Addedcheckedstargraphbasecases, servingendpointcoverassignment, C4freeneighborhoodintersection, genericMergeGraph/MergeRank. Deadstarcontrolrefutesonlyanauxiliarycountingclaim, notpostedtheorem.
+Current assignment: L-meta-4970, assigned by desk poll003 around15:40UTC.
+Root holds and renews this lease. Last recorded successful expiry: 2026-11-25T16:34:07.479Z (beat-auto-09.json). No STOP response has been received for this lease. Three earlier assigned leases ended with HTTP410; no release call has been made for any lease, and no other pilot's lease was touched.
 
-Current4970 namedfile updatedto593lines25839bytes SHA825fd5fc2fb26a97e1e0eef366df29bcc3d42c7d0d85ba0bfc0e00fa6b61377b. Exact3sourcecomposition independentlyreviewed; namedlakebuild passed18423jobs. Guardonlymissingmaintheorem. NewhelpersboundsemanticORsupportcost anduniquestarcenters; fullgatecountstillunproved.
+Current named file: lean/PEqualNP/Outside/L_meta_4970.lean.
+Exact snapshot: 909 lines,40260 bytes; SHA256 ae68dec66a8597198f79ee6e9b367a5df8be1fd77599520b72297fea44f493c1.
+Named lake build: PASSED,18423 jobs. Full logs: validation/4970-build-posted-edge-bound.stdout and .stderr.
+Official local checker on this exact snapshot: REJECTED (no-theorem). Full logs: validation/4970-checker-posted-edge-bound.stdout and .stderr.
+Independent review: passed exact four-source composition and semantic/format checks. The guard reports the missing final theorem only.
 
-CURRENT ASSIGNMENT: L-meta-4970, assigned after three null responses. Live root lease renewed at15:46UTC; advertised expiry16:06:04. No proof PR yet.
-Updated 2026-11-25T15:46:54.216097+00:00
-Named partial lean/PEqualNP/Outside/L_meta_4970.lean:234 lines10368bytes, SHA25639024ed2f2f3056bff56dc112abba2d60f5c5f85e1cf378f5118a43523051752. Named lakebuild passed; fulloutput validation/4970-build-support-budget.*. Independentreview PASS; plain-fileguard only missingfinaltheorem. Officialchecker notyet rerun for this checkpoint.
-Also preserved separatelycompiled SemanticSupport:156lines6433bytes, SHA256382498a7ac184c9c633816973766263a4cd2b0eb9a7c4c73d8d485e4696ecacc; independentreview PASS, emptycompilelogs.
-These helpers prove abstract merge counting and semantic complement/monotonicity facts, not the posted gatecount. No final theorem or refutation. Newconditionalcostledgers are being checked independently against smallcases.
-Previous1967line2590target removedfromOutside; exactsnapshotalready preserved inchecked2590/NormalizedReplay.lean. Alloldwork remainsdurable.
-Cleanupnotstarted; before/aftercleanup notapplicable.
-Sub-agents: status_review, lower_bound, counterexample, library_route, reduction_strategy, sat_encoding (6).
-TIMING total=120.4 subagents=6
+What the current file proves: the posted AO2, C4-free, and per-edge pure-star OR witness hypotheses imply E.card <= 2*orWires.card. This proof does not require circuit correctness or T=0. It is a weaker partial result, not the posted E.card+cover.card <= C.size+1 conclusion.
 
-HISTORICAL STATUS SNAPSHOT (superseded only for current assignment/timing/nullcount):
+Other checked4970 results are preserved under lemmas/checked4970: semantic support and complement identities, disjoint OR charging, overlap-component budgets, star-center uniqueness, serving-endpoint cover assignment, essential-input bounds, and the exact desired cover conclusion for star graphs or p<=1 or l<=1. Earlier named checkpoints of234,593,1099 lines built successfully and remain in branch history; their logs/manifests are archived. These are historical checkpoints, not separate completed proofs.
 
-Partial research archive; no completed proof, refutation, reduction submission, or PR.
-Updated 2026-11-25T15:30:04.584604+00:00
-Job: pequalnp-pilot-99; KIT-MESSAGE-ID msg-6f9c7453afc710bc87553b5d.
-Branch: pnp/pilot-99, pushed only to origin (wneb-creator/pequalnp-proofs).
+StrengthTransferStandalone.lean is a separate portable CONDITIONAL result:1873 lines,87786 bytes; SHA256 9c58f3b3c4d3ef48c2fcff24ebd04918790c3550c3cfce16ed73fb3842a9322e. Its exact Posted hypothesis is the desk's full statement. Assuming that statement, it derives E.card+2*tau+6 <=12*C.size for nonempty C4-free bipartite graphs with even left degrees and any vertex-cover lower bound tau. It compiled successfully with inherited deprecation warnings only; independent review passed. Logs: validation/4970-strength-transfer-standalone.*. It is neither a proof/refutation of4970 nor a valid reduction submission, because it assumes the posted theorem.
 
-Desk status: no live lease. Three assigned leases ended with HTTP 410 before their advertised expiry. Research stopped each time and checked components were pushed before requesting recovery. No lease release call was made. Recovery03 returned gap=null; the checker backlog temporarily prevents new assignments. Polling continues. Exact responses and UTC timestamps are in validation/desk-log.txt.
-Null responses so far: 2.
-First exact null message: The checker is behind: 521 proofs are queued for a check and 528 were checked in the last hour, about 59 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.
+Search status: no counterexample or completed proof found. Reviewed positive controls satisfy every actual premise and were evaluated on all inputs. Counterexamples to auxiliary counting/deletion claims are not refutations of4970. A20-minute,one-CPU stochastic portfolio began around16:11UTC; it is heuristic. Near-miss circuits are independently checked as possible different graph functions, with unused gates pruned and their own covers/star witnesses re-evaluated. Existing verified near misses meet the bound rather than violate it. Complete completed-run logs, source manifests and controls are archived under search_artifacts; active phase outputs will be frozen and archived when finished.
 
-Last assignment L-meta-2590 (monotone Petersen lower bound):
-- Current named file lean/PEqualNP/Outside/L_meta_2590.lean: 1967 lines, 91645 bytes; SHA256 d6c8de40fecb32c7e0cf0ed197c04b38c6932ee2c13bbf385eeb88383d262b06.
-- Named lake build passed 18423 jobs. Full output: validation/2590-build-replay.stdout and .stderr.
-- Official local checker: REJECTED (no-theorem). Full output: validation/2590-checker-replay.stdout and .stderr.
-- The file proves normalization, CNF completeness, and conditional LRAT replay. It supplies no UNSAT certificate and no final theorem.
-- Six separately compiled structural modules in lemmas/checked2590 reduce the problem to six actual DAG cases and establish conditional counting bounds. The final contradictions remain unproved. The modular chain was not combined into a standalone named file.
-- FourOrbitLowSharing in drafts2590 is UNCOMPILED. Optional FourOrbitCodes olean export failed because its scratch path was outside the project root; the ordinary Lean check passed. Both logs are retained.
-- Actual Lean CNF and Python CNF matched byte-for-byte. The 20-gate positive control passed all 1024 inputs. The 19-gate solver was stopped at lease withdrawal with SIGINT/UNKNOWN. No SAT/UNSAT verdict or completed certificate.
-- The 1,689,837,568-byte unfinished LRAT prefix remains scratch-only, is unverified, and is not a result. Encoders, exact CNF, complete solver logs and independently audited controls are durable.
-- Third HTTP 410 confirmed 15:22:26 UTC, before advertised 15:34:37.944. Full headers/body: validation/2590-beat-03-response.txt.
+Prior assignment L-meta-2590: final1967-line named partial is preserved byte-for-byte as lemmas/checked2590/NormalizedReplay.lean, SHA256 d6c8de40fecb32c7e0cf0ed197c04b38c6932ee2c13bbf385eeb88383d262b06. Named build passed18423 jobs; checker REJECTED(no-theorem), validation/2590-build-replay.* and2590-checker-replay.*. Checked normalized CNF/replay bridges and a modular six-case structural reduction do not supply a final contradiction. The separate FourOrbitLowSharing draft is UNCOMPILED. The solver ended SIGINT/UNKNOWN at withdrawal; its1,689,837,568-byte unverified incomplete LRAT prefix remains scratch-only. No certificate is claimed. Third410 confirmed15:22:26 before advertised15:34:37.944; full headers/body in validation/2590-beat-03-response.txt.
 
-Earlier assignment L-meta-2583 (projective-plane read-one normalization):
-- Final named partial is archived byte-for-byte as lemmas/checked2583/FinalPartial.lean: 7379 lines, 352301 bytes; SHA256 01bfe8716581cbd0fb80b0e7d9bd1c56cafe3b863659985fcd616756c43ddb65.
-- Named lake build passed 18423 jobs. Official checker REJECTED (no-theorem). Full final outputs: validation/2583-build-final-combined.* and validation/2583-checker-final-combined.*.
-- Reviewed exact nine-component composition: normalization/block decomposition, canonical read-one construction, equivalence with the needed cost inequality, plane geometry, gate replacement, and restricted rectangle lemmas. The unrestricted circuit cost inequality remains unproved; conditional premises are explicit.
-- Second HTTP 410 confirmed 15:06:29 UTC, before advertised 15:24:20.551. Full headers/body: validation/2583-beat-11-response.txt.
+Prior assignment L-meta-2583: final7379-line named partial is preserved byte-for-byte as lemmas/checked2583/FinalPartial.lean, SHA256 01bfe8716581cbd0fb80b0e7d9bd1c56cafe3b863659985fcd616756c43ddb65. Named build passed18423 jobs; checker REJECTED(no-theorem), validation/2583-build-final-combined.* and2583-checker-final-combined.*. Exact nine-source composition was reviewed. The cost equivalence, canonical read-one construction and restricted replacement/rectangle results do not prove the unrestricted cost bound. Second410 confirmed15:06:29 before advertised15:24:20.551; full response validation/2583-beat-11-response.txt.
 
-First assignment L-meta-2592 (Petersen lower bound with NOT):
-- The 503-line named partial built and is archived byte-for-byte as lemmas/checked/StructuralWitness.lean. Official checker REJECTED (no-theorem); validation/checker-partial.*.
-- Separately checked components prove at least 17 non-NOT gates, hence at most two NOT gates at total size 19. They do not exclude those remaining cases. Full17.lean is a reviewed inline snapshot, NOT separately built; its components were compiled modularly.
-- Checked conditional circuit/CNF and LRAT components are preserved in lemmas/checked. No completed UNSAT certificate or counterexample was found.
-- First HTTP 410 at 14:40:48 UTC, before advertised 14:53:45.327. Full headers/body: validation/desk-410-response.txt.
+Prior assignment L-meta-2592: the503-line named partial is preserved as lemmas/checked/StructuralWitness.lean. Its named build passed and checker REJECTED(no-theorem); validation/build-witness.* andchecker-partial.*. Separately checked modules prove at least17 non-NOT gates, leaving at most two NOT gates at total size19; those remaining cases are not excluded. Full17.lean is a reviewed concatenation NOT separately built; its components were checked modularly. First410 at14:40:48 before advertised14:53:45.327; full response validation/desk-410-response.txt.
 
-Validation limits and archival review:
-- All pushed checked Lean components received independent review. Standalone compilation, modular compilation, draft status, and conditional premises are distinguished above and in per-strategy notes.
-- The three named partials pass their reported builds but fail the official checker because they omit the final posted theorem. No checker acceptance is claimed.
-- Search timeouts, incomplete candidates, abstract code models, and restricted controls are not proofs or refutations. Their full logs and reviewed manifests are under search_artifacts/.
-- Scratch imports and diagnostic programs are archival aids, not proposed proof-PR contents. This research branch has many results files and is not a compliant single-file proof PR.
-- No cleanup pass began because no posted theorem passed the checker. Last named-file line count is 1967; before/after cleanup is not applicable.
-- Never ran lake update or built Mathlib from source. Used the official Lean 4.36.0 release and Mathlib cache.
+Preservation and limits: all pushed checked Lean sources received independent review. Modular builds, standalone builds, uncompiled drafts, conditional claims and finite computational controls are distinguished in their notes. The branch is a research archive with results files, not a compliant one-file proof PR. Scratch imports must be inlined for any eventual submission. Raw compiler logs retain their original whitespace. No lake update or Mathlib source rebuild was run; the official Lean4.36.0 release and Mathlib cache were used.
+
+Cleanup pass: not started, because no full posted theorem has passed the checker. Before/after cleanup line counts are not applicable. The named file changed from1099 to909 lines during integration of the stronger partial; that was not the requested final cleanup pass.
+
+Desk null responses: 3. Exact messages follow; full UTC log is validation/desk-log.txt.
+desk-recover-03.json: The checker is behind: 521 proofs are queued for a check and 528 were checked in the last hour, about 59 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.
+desk-poll-001.json: The checker is behind: 521 proofs are queued for a check and 516 were checked in the last hour, about 61 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.
+desk-poll-002.json: The checker is behind: 521 proofs are queued for a check and 478 were checked in the last hour, about 65 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.
 
 Sub-agents: status_review, lower_bound, counterexample, library_route, reduction_strategy, sat_encoding (6).
-TIMING total=103.6 subagents=6
-
-Second null response at 15:32:52 UTC: The checker is behind: 521 proofs are queued for a check and 516 were checked in the last hour, about 61 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.
-Restored14 small reproduction inputs; independent hash check and restart controls passed. Complete logs: validation/reproduction-restart-tests.*.
+TIMING total=149.5 subagents=6

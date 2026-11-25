@@ -1,0 +1,26 @@
+{
+  "frozen_utc": "2026-11-25T16:14:45.781573+00:00",
+  "notes": "Valid4970 C6 circuit refutes two proposed literal-restriction elimination steps; not posted4970. Includes constant/idempotence folding and complete dead-cone cleanup; absorption identities deliberately excluded.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/restriction_obstruction.py",
+      "size": 3799,
+      "sha256": "7a75a6f028e7fefe9d37bc571718c5eda1fd9803c38cfa1f2c6c44cfdca99831"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/restriction_obstruction.json",
+      "size": 8235,
+      "sha256": "a49c1ccdbd70702db944b80a4406a62f8dd6ddbf557f4871817c18d5450203f0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/restriction_obstruction.stdout",
+      "size": 359,
+      "sha256": "03f6b2511fd5450f921bcd31aaa0385e678f3f55184a4e1dbaba07a7127afd3c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/restriction_obstruction.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

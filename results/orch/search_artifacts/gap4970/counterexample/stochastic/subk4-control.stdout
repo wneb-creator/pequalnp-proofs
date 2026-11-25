@@ -1,0 +1,4 @@
+GRAPH n=10 edges=12 bound=15 target=14 rows=46 maximal_independent=12
+VALIDATE positive-control gates=15 full_rows=1024 wrong=0 mixed=0 missing_star_edges=0
+VALIDATE positive-control gates=16 full_rows=1024 wrong=0 mixed=0 missing_star_edges=0
+VALIDATE positive-control gates=17 full_rows=1024 wrong=0 mixed=0 missing_star_edges=0

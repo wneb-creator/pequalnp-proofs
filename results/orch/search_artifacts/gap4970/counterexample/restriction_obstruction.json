@@ -1,0 +1,632 @@
+{
+  "n": 6,
+  "p": 3,
+  "edges": [
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      5
+    ]
+  ],
+  "gates": [
+    [
+      1,
+      3,
+      5
+    ],
+    [
+      0,
+      0,
+      6
+    ],
+    [
+      1,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      8
+    ],
+    [
+      1,
+      4,
+      5
+    ],
+    [
+      0,
+      2,
+      10
+    ],
+    [
+      1,
+      7,
+      9
+    ],
+    [
+      1,
+      12,
+      11
+    ],
+    [
+      1,
+      13,
+      6
+    ],
+    [
+      0,
+      13,
+      14
+    ],
+    [
+      1,
+      15,
+      8
+    ],
+    [
+      0,
+      15,
+      16
+    ],
+    [
+      1,
+      17,
+      10
+    ],
+    [
+      0,
+      17,
+      18
+    ]
+  ],
+  "output": 19,
+  "size": 14,
+  "tCount": 0,
+  "truth_rows_checked": 64,
+  "star_hypothesis": true,
+  "restrictions": [
+    {
+      "vertex": 0,
+      "degree": 2,
+      "tau_drop": 1,
+      "saving_output_only": 2,
+      "saving_preserve_stars": 2,
+      "required_degree_step": 3,
+      "surviving_served_edges": 4,
+      "required_W_step": 3,
+      "folded_gates": [
+        [
+          1,
+          3,
+          5
+        ],
+        [
+          1,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          7
+        ],
+        [
+          1,
+          4,
+          5
+        ],
+        [
+          0,
+          2,
+          9
+        ],
+        [
+          1,
+          8,
+          10
+        ],
+        [
+          1,
+          11,
+          6
+        ],
+        [
+          0,
+          11,
+          12
+        ],
+        [
+          1,
+          13,
+          7
+        ],
+        [
+          0,
+          13,
+          14
+        ],
+        [
+          1,
+          15,
+          9
+        ],
+        [
+          0,
+          15,
+          16
+        ]
+      ],
+      "folded_output": 17,
+      "kept_output_gate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "vertex": 1,
+      "degree": 2,
+      "tau_drop": 1,
+      "saving_output_only": 2,
+      "saving_preserve_stars": 2,
+      "required_degree_step": 3,
+      "surviving_served_edges": 4,
+      "required_W_step": 3,
+      "folded_gates": [
+        [
+          1,
+          3,
+          5
+        ],
+        [
+          0,
+          0,
+          6
+        ],
+        [
+          1,
+          3,
+          4
+        ],
+        [
+          1,
+          4,
+          5
+        ],
+        [
+          0,
+          2,
+          9
+        ],
+        [
+          1,
+          7,
+          10
+        ],
+        [
+          1,
+          11,
+          6
+        ],
+        [
+          0,
+          11,
+          12
+        ],
+        [
+          1,
+          13,
+          8
+        ],
+        [
+          0,
+          13,
+          14
+        ],
+        [
+          1,
+          15,
+          9
+        ],
+        [
+          0,
+          15,
+          16
+        ]
+      ],
+      "folded_output": 17,
+      "kept_output_gate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "vertex": 2,
+      "degree": 2,
+      "tau_drop": 1,
+      "saving_output_only": 2,
+      "saving_preserve_stars": 2,
+      "required_degree_step": 3,
+      "surviving_served_edges": 4,
+      "required_W_step": 3,
+      "folded_gates": [
+        [
+          1,
+          3,
+          5
+        ],
+        [
+          0,
+          0,
+          6
+        ],
+        [
+          1,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          8
+        ],
+        [
+          1,
+          4,
+          5
+        ],
+        [
+          1,
+          7,
+          9
+        ],
+        [
+          1,
+          11,
+          6
+        ],
+        [
+          0,
+          11,
+          12
+        ],
+        [
+          1,
+          13,
+          8
+        ],
+        [
+          0,
+          13,
+          14
+        ],
+        [
+          1,
+          15,
+          10
+        ],
+        [
+          0,
+          15,
+          16
+        ]
+      ],
+      "folded_output": 17,
+      "kept_output_gate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "vertex": 3,
+      "degree": 2,
+      "tau_drop": 1,
+      "saving_output_only": 2,
+      "saving_preserve_stars": 2,
+      "required_degree_step": 3,
+      "surviving_served_edges": 2,
+      "required_W_step": 5,
+      "folded_gates": [
+        [
+          0,
+          0,
+          5
+        ],
+        [
+          0,
+          1,
+          4
+        ],
+        [
+          1,
+          4,
+          5
+        ],
+        [
+          0,
+          2,
+          8
+        ],
+        [
+          1,
+          6,
+          7
+        ],
+        [
+          1,
+          10,
+          9
+        ],
+        [
+          1,
+          11,
+          5
+        ],
+        [
+          0,
+          11,
+          12
+        ],
+        [
+          1,
+          13,
+          4
+        ],
+        [
+          0,
+          13,
+          14
+        ],
+        [
+          1,
+          15,
+          8
+        ],
+        [
+          0,
+          15,
+          16
+        ]
+      ],
+      "folded_output": 17,
+      "kept_output_gate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "vertex": 4,
+      "degree": 2,
+      "tau_drop": 1,
+      "saving_output_only": 2,
+      "saving_preserve_stars": 2,
+      "required_degree_step": 3,
+      "surviving_served_edges": 2,
+      "required_W_step": 5,
+      "folded_gates": [
+        [
+          1,
+          3,
+          5
+        ],
+        [
+          0,
+          0,
+          6
+        ],
+        [
+          0,
+          1,
+          3
+        ],
+        [
+          0,
+          2,
+          5
+        ],
+        [
+          1,
+          7,
+          8
+        ],
+        [
+          1,
+          10,
+          9
+        ],
+        [
+          1,
+          11,
+          6
+        ],
+        [
+          0,
+          11,
+          12
+        ],
+        [
+          1,
+          13,
+          3
+        ],
+        [
+          0,
+          13,
+          14
+        ],
+        [
+          1,
+          15,
+          5
+        ],
+        [
+          0,
+          15,
+          16
+        ]
+      ],
+      "folded_output": 17,
+      "kept_output_gate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    },
+    {
+      "vertex": 5,
+      "degree": 2,
+      "tau_drop": 1,
+      "saving_output_only": 2,
+      "saving_preserve_stars": 2,
+      "required_degree_step": 3,
+      "surviving_served_edges": 2,
+      "required_W_step": 5,
+      "folded_gates": [
+        [
+          0,
+          0,
+          3
+        ],
+        [
+          1,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          7
+        ],
+        [
+          0,
+          2,
+          4
+        ],
+        [
+          1,
+          6,
+          8
+        ],
+        [
+          1,
+          10,
+          9
+        ],
+        [
+          1,
+          11,
+          3
+        ],
+        [
+          0,
+          11,
+          12
+        ],
+        [
+          1,
+          13,
+          7
+        ],
+        [
+          0,
+          13,
+          14
+        ],
+        [
+          1,
+          15,
+          4
+        ],
+        [
+          0,
+          15,
+          16
+        ]
+      ],
+      "folded_output": 17,
+      "kept_output_gate_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ]
+    }
+  ],
+  "scope": "Counterexample to literal constant folding/idempotence/dead-pruning existential elimination, not to4970. Absorption identities remove the masks and may restore a viable strategy."
+}

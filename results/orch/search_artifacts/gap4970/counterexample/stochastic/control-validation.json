@@ -1,0 +1,1529 @@
+[
+  {
+    "graph": "subk4",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-control.control0.json",
+    "gates": 15,
+    "full_rows_checked": 1024,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 2,
+        "support": [
+          5,
+          7
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 2,
+        "support": [
+          5,
+          7,
+          9
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 1,
+        "support": [
+          4,
+          7
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 1,
+        "support": [
+          4,
+          7,
+          8
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 0,
+        "support": [
+          4,
+          6
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 0,
+        "support": [
+          4,
+          5,
+          6
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 3,
+        "support": [
+          8,
+          9
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 3,
+        "support": [
+          6,
+          8,
+          9
+        ]
+      }
+    ],
+    "tau": 4,
+    "posted_bound": 15,
+    "is_counterexample": false
+  },
+  {
+    "graph": "subk4",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-control.control1.json",
+    "gates": 16,
+    "full_rows_checked": 1024,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 3,
+        "support": [
+          8,
+          9
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 3,
+        "support": [
+          6,
+          8,
+          9
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 1,
+        "support": [
+          4,
+          8
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 1,
+        "support": [
+          4,
+          7,
+          8
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 2,
+        "support": [
+          5,
+          9
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 2,
+        "support": [
+          5,
+          7,
+          9
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 0,
+        "support": [
+          4,
+          5
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 0,
+        "support": [
+          4,
+          5,
+          6
+        ]
+      }
+    ],
+    "tau": 4,
+    "posted_bound": 15,
+    "is_counterexample": false
+  },
+  {
+    "graph": "subk4",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/subk4-control.control2.json",
+    "gates": 17,
+    "full_rows_checked": 1024,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 1,
+        "support": [
+          4,
+          7
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 1,
+        "support": [
+          4,
+          7,
+          8
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 3,
+        "support": [
+          6,
+          9
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 3,
+        "support": [
+          6,
+          8,
+          9
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 2,
+        "support": [
+          5,
+          9
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 2,
+        "support": [
+          5,
+          7,
+          9
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 0,
+        "support": [
+          4,
+          6
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 0,
+        "support": [
+          4,
+          5,
+          6
+        ]
+      }
+    ],
+    "tau": 4,
+    "posted_bound": 15,
+    "is_counterexample": false
+  },
+  {
+    "graph": "irregular11",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-control.control0.json",
+    "gates": 18,
+    "full_rows_checked": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 0,
+        "support": [
+          5,
+          6
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 4,
+        "support": [
+          6,
+          8
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 4,
+        "support": [
+          6,
+          8,
+          10
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 1,
+        "support": [
+          5,
+          8
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 1,
+        "support": [
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 2,
+        "support": [
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 2,
+        "support": [
+          5,
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 3,
+        "support": [
+          6,
+          9
+        ]
+      },
+      {
+        "gate": 8,
+        "center": 3,
+        "support": [
+          6,
+          7,
+          9
+        ]
+      }
+    ],
+    "tau": 5,
+    "posted_bound": 18,
+    "is_counterexample": false
+  },
+  {
+    "graph": "irregular11",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-control.control1.json",
+    "gates": 19,
+    "full_rows_checked": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 0,
+        "support": [
+          5,
+          6
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 2,
+        "support": [
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 2,
+        "support": [
+          5,
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 3,
+        "support": [
+          7,
+          9
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 3,
+        "support": [
+          6,
+          7,
+          9
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 4,
+        "support": [
+          6,
+          8
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 4,
+        "support": [
+          6,
+          8,
+          10
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 1,
+        "support": [
+          5,
+          8
+        ]
+      },
+      {
+        "gate": 8,
+        "center": 1,
+        "support": [
+          5,
+          7,
+          8
+        ]
+      }
+    ],
+    "tau": 5,
+    "posted_bound": 18,
+    "is_counterexample": false
+  },
+  {
+    "graph": "irregular11",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/irregular11-control.control2.json",
+    "gates": 20,
+    "full_rows_checked": 2048,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 3,
+        "support": [
+          7,
+          9
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 3,
+        "support": [
+          6,
+          7,
+          9
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 2,
+        "support": [
+          5,
+          9
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 2,
+        "support": [
+          5,
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 4,
+        "support": [
+          6,
+          8
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 4,
+        "support": [
+          6,
+          8,
+          10
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 0,
+        "support": [
+          5,
+          6
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 1,
+        "support": [
+          5,
+          8
+        ]
+      },
+      {
+        "gate": 8,
+        "center": 1,
+        "support": [
+          5,
+          7,
+          8
+        ]
+      }
+    ],
+    "tau": 5,
+    "posted_bound": 18,
+    "is_counterexample": false
+  },
+  {
+    "graph": "fano_minus_incident",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_incident-control.control0.json",
+    "gates": 21,
+    "full_rows_checked": 4096,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 2,
+        "support": [
+          7,
+          8
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 4,
+        "support": [
+          7,
+          10
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 4,
+        "support": [
+          7,
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 0,
+        "support": [
+          6,
+          10
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 3,
+        "support": [
+          6,
+          9
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 3,
+        "support": [
+          6,
+          8,
+          9
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 1,
+        "support": [
+          7,
+          11
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 1,
+        "support": [
+          6,
+          7,
+          11
+        ]
+      },
+      {
+        "gate": 8,
+        "center": 5,
+        "support": [
+          8,
+          11
+        ]
+      },
+      {
+        "gate": 9,
+        "center": 5,
+        "support": [
+          8,
+          10,
+          11
+        ]
+      }
+    ],
+    "tau": 6,
+    "posted_bound": 21,
+    "is_counterexample": false
+  },
+  {
+    "graph": "fano_minus_incident",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_incident-control.control1.json",
+    "gates": 22,
+    "full_rows_checked": 4096,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 5,
+        "support": [
+          10,
+          11
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 5,
+        "support": [
+          8,
+          10,
+          11
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 3,
+        "support": [
+          6,
+          9
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 3,
+        "support": [
+          6,
+          8,
+          9
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 1,
+        "support": [
+          6,
+          7
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 1,
+        "support": [
+          6,
+          7,
+          11
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 2,
+        "support": [
+          7,
+          8
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 4,
+        "support": [
+          7,
+          10
+        ]
+      },
+      {
+        "gate": 8,
+        "center": 4,
+        "support": [
+          7,
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 9,
+        "center": 0,
+        "support": [
+          6,
+          10
+        ]
+      }
+    ],
+    "tau": 6,
+    "posted_bound": 21,
+    "is_counterexample": false
+  },
+  {
+    "graph": "fano_minus_incident",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_incident-control.control2.json",
+    "gates": 23,
+    "full_rows_checked": 4096,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 5,
+        "support": [
+          8,
+          11
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 5,
+        "support": [
+          8,
+          10,
+          11
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 3,
+        "support": [
+          6,
+          8
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 3,
+        "support": [
+          6,
+          8,
+          9
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 0,
+        "support": [
+          6,
+          10
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 2,
+        "support": [
+          7,
+          8
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 1,
+        "support": [
+          7,
+          11
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 1,
+        "support": [
+          6,
+          7,
+          11
+        ]
+      },
+      {
+        "gate": 8,
+        "center": 4,
+        "support": [
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 9,
+        "center": 4,
+        "support": [
+          7,
+          9,
+          10
+        ]
+      }
+    ],
+    "tau": 6,
+    "posted_bound": 21,
+    "is_counterexample": false
+  },
+  {
+    "graph": "fano_minus_nonincident",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-control.control0.json",
+    "gates": 20,
+    "full_rows_checked": 4096,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 2,
+        "support": [
+          6,
+          8
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 4,
+        "support": [
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 0,
+        "support": [
+          7,
+          10
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 0,
+        "support": [
+          6,
+          7,
+          10
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 3,
+        "support": [
+          7,
+          9
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 3,
+        "support": [
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 1,
+        "support": [
+          7,
+          11
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 5,
+        "support": [
+          8,
+          11
+        ]
+      },
+      {
+        "gate": 8,
+        "center": 5,
+        "support": [
+          8,
+          10,
+          11
+        ]
+      }
+    ],
+    "tau": 6,
+    "posted_bound": 20,
+    "is_counterexample": false
+  },
+  {
+    "graph": "fano_minus_nonincident",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-control.control1.json",
+    "gates": 21,
+    "full_rows_checked": 4096,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 5,
+        "support": [
+          10,
+          11
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 5,
+        "support": [
+          8,
+          10,
+          11
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 3,
+        "support": [
+          7,
+          9
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 3,
+        "support": [
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 1,
+        "support": [
+          7,
+          11
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 2,
+        "support": [
+          6,
+          8
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 4,
+        "support": [
+          9,
+          10
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 0,
+        "support": [
+          6,
+          10
+        ]
+      },
+      {
+        "gate": 8,
+        "center": 0,
+        "support": [
+          6,
+          7,
+          10
+        ]
+      }
+    ],
+    "tau": 6,
+    "posted_bound": 20,
+    "is_counterexample": false
+  },
+  {
+    "graph": "fano_minus_nonincident",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/fano_minus_nonincident-control.control2.json",
+    "gates": 22,
+    "full_rows_checked": 4096,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 5,
+        "support": [
+          8,
+          11
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 5,
+        "support": [
+          8,
+          10,
+          11
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 3,
+        "support": [
+          7,
+          8
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 3,
+        "support": [
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 0,
+        "support": [
+          6,
+          10
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 0,
+        "support": [
+          6,
+          7,
+          10
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 2,
+        "support": [
+          6,
+          8
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 1,
+        "support": [
+          7,
+          11
+        ]
+      },
+      {
+        "gate": 8,
+        "center": 4,
+        "support": [
+          9,
+          10
+        ]
+      }
+    ],
+    "tau": 6,
+    "posted_bound": 20,
+    "is_counterexample": false
+  },
+  {
+    "graph": "cubic16",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16-control.control0.json",
+    "gates": 31,
+    "full_rows_checked": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 2,
+        "support": [
+          9,
+          14
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 2,
+        "support": [
+          9,
+          10,
+          14
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 4,
+        "support": [
+          14,
+          15
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 4,
+        "support": [
+          8,
+          14,
+          15
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 0,
+        "support": [
+          8,
+          12
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 0,
+        "support": [
+          8,
+          11,
+          12
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 3,
+        "support": [
+          11,
+          15
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 3,
+        "support": [
+          10,
+          11,
+          15
+        ]
+      },
+      {
+        "gate": 8,
+        "center": 1,
+        "support": [
+          8,
+          13
+        ]
+      },
+      {
+        "gate": 9,
+        "center": 1,
+        "support": [
+          8,
+          9,
+          13
+        ]
+      },
+      {
+        "gate": 10,
+        "center": 7,
+        "support": [
+          11,
+          14
+        ]
+      },
+      {
+        "gate": 11,
+        "center": 7,
+        "support": [
+          11,
+          13,
+          14
+        ]
+      },
+      {
+        "gate": 12,
+        "center": 6,
+        "support": [
+          12,
+          13
+        ]
+      },
+      {
+        "gate": 13,
+        "center": 6,
+        "support": [
+          10,
+          12,
+          13
+        ]
+      },
+      {
+        "gate": 14,
+        "center": 5,
+        "support": [
+          9,
+          15
+        ]
+      },
+      {
+        "gate": 15,
+        "center": 5,
+        "support": [
+          9,
+          12,
+          15
+        ]
+      }
+    ],
+    "tau": 8,
+    "posted_bound": 31,
+    "is_counterexample": false
+  },
+  {
+    "graph": "cubic16",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16-control.control1.json",
+    "gates": 32,
+    "full_rows_checked": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 7,
+        "support": [
+          13,
+          14
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 7,
+        "support": [
+          11,
+          13,
+          14
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 6,
+        "support": [
+          10,
+          12
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 6,
+        "support": [
+          10,
+          12,
+          13
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 1,
+        "support": [
+          8,
+          9
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 1,
+        "support": [
+          8,
+          9,
+          13
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 0,
+        "support": [
+          8,
+          11
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 0,
+        "support": [
+          8,
+          11,
+          12
+        ]
+      },
+      {
+        "gate": 8,
+        "center": 4,
+        "support": [
+          8,
+          15
+        ]
+      },
+      {
+        "gate": 9,
+        "center": 4,
+        "support": [
+          8,
+          14,
+          15
+        ]
+      },
+      {
+        "gate": 10,
+        "center": 2,
+        "support": [
+          10,
+          14
+        ]
+      },
+      {
+        "gate": 11,
+        "center": 2,
+        "support": [
+          9,
+          10,
+          14
+        ]
+      },
+      {
+        "gate": 12,
+        "center": 3,
+        "support": [
+          10,
+          15
+        ]
+      },
+      {
+        "gate": 13,
+        "center": 3,
+        "support": [
+          10,
+          11,
+          15
+        ]
+      },
+      {
+        "gate": 14,
+        "center": 5,
+        "support": [
+          9,
+          12
+        ]
+      },
+      {
+        "gate": 15,
+        "center": 5,
+        "support": [
+          9,
+          12,
+          15
+        ]
+      }
+    ],
+    "tau": 8,
+    "posted_bound": 31,
+    "is_counterexample": false
+  },
+  {
+    "graph": "cubic16",
+    "circuit": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/cubic16-control.control2.json",
+    "gates": 33,
+    "full_rows_checked": 65536,
+    "wrong_rows": 0,
+    "tCount": 0,
+    "missing_star_edges": [],
+    "witnesses": [
+      {
+        "gate": 0,
+        "center": 0,
+        "support": [
+          8,
+          11
+        ]
+      },
+      {
+        "gate": 1,
+        "center": 0,
+        "support": [
+          8,
+          11,
+          12
+        ]
+      },
+      {
+        "gate": 2,
+        "center": 2,
+        "support": [
+          10,
+          14
+        ]
+      },
+      {
+        "gate": 3,
+        "center": 2,
+        "support": [
+          9,
+          10,
+          14
+        ]
+      },
+      {
+        "gate": 4,
+        "center": 5,
+        "support": [
+          12,
+          15
+        ]
+      },
+      {
+        "gate": 5,
+        "center": 5,
+        "support": [
+          9,
+          12,
+          15
+        ]
+      },
+      {
+        "gate": 6,
+        "center": 4,
+        "support": [
+          8,
+          14
+        ]
+      },
+      {
+        "gate": 7,
+        "center": 4,
+        "support": [
+          8,
+          14,
+          15
+        ]
+      },
+      {
+        "gate": 8,
+        "center": 7,
+        "support": [
+          11,
+          13
+        ]
+      },
+      {
+        "gate": 9,
+        "center": 7,
+        "support": [
+          11,
+          13,
+          14
+        ]
+      },
+      {
+        "gate": 10,
+        "center": 1,
+        "support": [
+          8,
+          13
+        ]
+      },
+      {
+        "gate": 11,
+        "center": 1,
+        "support": [
+          8,
+          9,
+          13
+        ]
+      },
+      {
+        "gate": 12,
+        "center": 6,
+        "support": [
+          12,
+          13
+        ]
+      },
+      {
+        "gate": 13,
+        "center": 6,
+        "support": [
+          10,
+          12,
+          13
+        ]
+      },
+      {
+        "gate": 14,
+        "center": 3,
+        "support": [
+          10,
+          11
+        ]
+      },
+      {
+        "gate": 15,
+        "center": 3,
+        "support": [
+          10,
+          11,
+          15
+        ]
+      }
+    ],
+    "tau": 8,
+    "posted_bound": 31,
+    "is_counterexample": false
+  }
+]

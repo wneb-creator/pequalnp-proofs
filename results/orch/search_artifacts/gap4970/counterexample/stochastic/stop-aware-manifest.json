@@ -1,0 +1,36 @@
+{
+  "frozen_utc": "2026-11-25T16:11:15.037840+00:00",
+  "scope": "STOP-aware engine/driver; semantic search logic unchanged from reviewed presearch source. Local STOP control exits75. Checks gap4970/STOP everysecond.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/search_v2.cpp",
+      "size": 10921,
+      "sha256": "e34df079fffeba8533eedf530ec0a76136b8daf4eb138b025e8c2c9c0709516a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/run_portfolio_v2.py",
+      "size": 1351,
+      "sha256": "d15ace2ca812f063ba8bca533029fc740652de74b04c0b8928e7a81b323079d1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/build-v2.stdout",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/build-v2.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/stop-control.stdout",
+      "size": 803,
+      "sha256": "1763c41034cd778ae707ca6c66a52e9b80f051a1ed766520ab070dfa28f355ba"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap4970/counterexample/stochastic/stop-control.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

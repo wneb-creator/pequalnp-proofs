@@ -49,3 +49,5 @@
 2026-11-25T15:56:30.860088+00:00 — 1099linecombined4970checkpointbuildpasses, independentlyreviewed; genericmergeconnectivity/rankandstarbasecasespreserved. Fullcountstillopen; shielding+deadwitnessreductionshowsscopebroaderthansketch.
 
 2026-11-25T16:07:16.962959+00:00 — Exactpostedwitnesshalf-edgeORboundcompiled standaloneandnamed(909lines), independentreviewPASS. Conditionalstrengthtransfercompiledstandalone(1873lines), explicitlyassumesPosted. Bothpreserved.
+
+2026-11-25T16:15:58.824916+00:00 — Replanned after the checked half-edge bound and conditional strength transfer. Full target remains open; one-CPU portfolio and independent near-miss post-processing continue. Consolidated status replaces stale current-file paragraphs.

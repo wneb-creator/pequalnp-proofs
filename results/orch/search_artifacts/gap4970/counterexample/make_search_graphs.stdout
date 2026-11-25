@@ -1,0 +1,5 @@
+subk4 n 10 edges 12 tau 4 target 14 rows 46
+irregular11 n 11 edges 14 tau 5 target 17 rows 60
+fano_minus_incident n 12 edges 16 tau 6 target 20 rows 75
+fano_minus_nonincident n 12 edges 15 tau 6 target 19 rows 71
+cubic16 n 16 edges 24 tau 8 target 30 rows 158

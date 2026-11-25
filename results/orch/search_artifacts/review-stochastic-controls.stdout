@@ -1,0 +1,18 @@
+presearch-manifest.json all hashes verified 51
+stop-aware-manifest.json all hashes verified 6
+subk4 0 15 1024 rows PASS
+subk4 1 16 1024 rows PASS
+subk4 2 17 1024 rows PASS
+irregular11 0 18 2048 rows PASS
+irregular11 1 19 2048 rows PASS
+irregular11 2 20 2048 rows PASS
+fano_minus_incident 0 21 4096 rows PASS
+fano_minus_incident 1 22 4096 rows PASS
+fano_minus_incident 2 23 4096 rows PASS
+fano_minus_nonincident 0 20 4096 rows PASS
+fano_minus_nonincident 1 21 4096 rows PASS
+fano_minus_nonincident 2 22 4096 rows PASS
+cubic16 0 31 65536 rows PASS
+cubic16 1 32 65536 rows PASS
+cubic16 2 33 65536 rows PASS
+All 15 controls independently verified by full truth-table bitsets; no stochastic search rerun.
