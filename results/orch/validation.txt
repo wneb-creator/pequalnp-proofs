@@ -118,3 +118,6 @@ Scope: coefficientequations for the three-collinear arrowhead pencil force g=i=k
 
 2026-11-25T10:51:35.176467+00:00 MixedMinorCoverage.lean compiledexit0; fullstdout/stderr empty, runtime/resource metadata archived. Independentconstruction_search reviewapproved; rootrecheckedidentitiesandstatement. SHA256 02b9e23efc6f62fffd84481dfb81042b843e49ee869686097cbbde0e947dbeee. Auxiliarychartcoverageonly.
 Frozenround15F4checkpoint:1830generators/3102302terms; gzip16071753bytes SHA2565b8e71460a57106cb3fc22a1cf42eb3b5d3853787e8e200c92cf595ecbae54b3. Fullintegrity/schema/count/hash review byrules_reviewpassed. ExplicitPARTIALsubset,notGroebnerbasisandnotmathematicalverdict. Resumewithoriginalinputunion.
+
+2026-11-25T10:53:04.033015+00:00 CollinearArrowhead.lean compiledexit0,22.668s,emptyoutput (v2logs/statusarchived); exactSHA256 85ab1bb2ec4d74946bb155b1c319f152af7241f8630604dc1b5ba405741c9cb2. Independentgeometry_route reviewexpandedall24permutations andcheckedall7coefficientextractions, matrixshapesandstaridentities.
+Scope: actualsymmetricconstant-leveltwo-generatorpencil withthree specifiedzero-rowdirections/nonzero leafrows is theordinarycenter3star2. This is a checkedboundaryclassification, not globalcoverage or targetrefutation.

@@ -34,3 +34,5 @@
 - 2026-11-25T10:36:12.194068+00:00: IsotropicThree.lean compiled and independently reviewed; preserving chart-coverage helper.
 
 - 2026-11-25T10:42:43.303938+00:00: Arrowhead certificate and full coefficient classification compiled, exact-source independently reviewed, preserving partials.
+
+- 2026-11-25T10:53:04.033015+00:00: Actual collinear-row matrix bridge compiledandindependentlyreviewed; preservingcheckedpartial.

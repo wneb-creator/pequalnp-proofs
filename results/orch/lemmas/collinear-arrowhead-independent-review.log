@@ -1,0 +1,5 @@
+Previously reviewed exact coefficient certificate and classification are unchanged
+Independent24-permutation expansion verifies both linear normalizations and all seven finite-evaluation coefficient extractions
+Final A/B identities match star3(0,-f) and star3(f,0); nonzero f follows explicitly from the nonzero third leaf row
+Format PASS, SHA256 85ab1bb2ec4d74946bb155b1c319f152af7241f8630604dc1b5ba405741c9cb2
+Scope: actual symmetric two-generator family with the three specified zero-row directions and nonzero leaf rows is classified. No gap theorem, arbitrary chart coverage, or three-plane nonexistence claimed.
