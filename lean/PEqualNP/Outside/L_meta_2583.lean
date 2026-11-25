@@ -1680,7 +1680,6 @@ lemma near_minimum_partial_cover_single_star (q N : ℕ) (I : Fin N → Fin N �
 
 namespace CircuitLedger
 
--- Circuit semantics copied from helper-9 commit 03d0e54e5 (Budget prefix only).
 namespace Budget
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
@@ -3240,7 +3239,7 @@ lemma operand_reachable_lt (hAO : IsAO2 n C) {j k : ℕ} {b : Fin 2}
   have hlt := Budget.opndBound hAO hj b
   omega
 
-lemma false_root_raw_leaf (hAO : IsAO2 n C) (hT : TopForm G C)
+lemma false_source_raw_leaf (hAO : IsAO2 n C) (hT : TopForm G C)
     (p l : Fin n) {j : ℕ} (hj : j ∈ junk G C)
     (hf : gateVal n C j (pairInput p p) = false)
     (hon : gateVal n C j (pairInput p l) = true)
@@ -3281,7 +3280,7 @@ lemma false_junk_roots_cover (hAO : IsAO2 n C) (hT : TopForm G C) (p l : Fin n)
     exact ⟨j, Finset.mem_filter.mpr ⟨hj, hf, hon⟩⟩
   let j := S.min' hS
   obtain ⟨hj, hf, hon⟩ := Finset.mem_filter.mp (S.min'_mem hS)
-  refine ⟨j, hj, hf, false_root_raw_leaf hAO hT p l hj hf hon ?_⟩
+  refine ⟨j, hj, hf, false_source_raw_leaf hAO hT p l hj hf hon ?_⟩
   intro k hk hkj hkfalse
   by_contra hn
   have hkon := Bool.eq_true_of_not_eq_false hn
@@ -5857,6 +5856,258 @@ lemma small_residual_plane_exclusion
     omega
 
 end IncidenceCoverTransport
+
+
+
+
+namespace PureProvider
+open SimpleGraph
+open scoped Classical
+variable {V : Type*}
+
+/-- A free provider is a raw input, or a pure OR of clean neighbors of one centre. -/
+def Provider (K : SimpleGraph V) (U : Finset (Sym2 V)) (S : Finset V) : Prop :=
+  S.card ≤ 1 ∨ ∃ c, ∀ v ∈ S, K.Adj c v ∧ s(c,v) ∉ U
+
+/-- Acceptance by a conjunction of pure provider clauses on a two-point assignment. -/
+def HitPair (Q : Finset (Finset V)) (p q : V) : Prop :=
+  ∀ S ∈ Q, p ∈ S ∨ q ∈ S
+
+lemma hitPair_swap {Q : Finset (Finset V)} {p q : V} (h : HitPair Q p q) :
+    HitPair Q q p := fun S hS => (h S hS).symm
+
+lemma bool_eq_of_ne_common (a b c : Bool) (ha : a ≠ c) (hb : b ≠ c) : a = b := by
+  cases a <;> cases b <;> cases c <;> simp_all
+
+lemma provider_monochromatic (K : SimpleGraph V) (U : Finset (Sym2 V))
+    (color : V → Bool) (hbip : ∀ a b, K.Adj a b → color a ≠ color b)
+    {S : Finset V} (hS : Provider K U S) {u v : V} (hu : u ∈ S) (hv : v ∈ S) :
+    color u = color v := by
+  rcases hS with hsmall | ⟨c,hc⟩
+  · exact congrArg color (Finset.card_le_one.mp hsmall u hu v hv)
+  · exact bool_eq_of_ne_common _ _ _ (hbip u c (hc u hu).1.symm)
+      (hbip v c (hc v hv).1.symm)
+
+lemma shared_endpoint_unique (K : SimpleGraph V) (U : Finset (Sym2 V))
+    (Q : Finset (Finset V))
+    (hfour : ∀ a b, a ≠ b → ∀ l m,
+      K.Adj a l → K.Adj b l → K.Adj a m → K.Adj b m → l = m)
+    (hprovider : ∀ S ∈ Q, Provider K U S)
+    (hsafe : ∀ p q, HitPair Q p q → K.Adj p q)
+    {p l m : V} (he : s(p,l) ∈ U)
+    (hl : HitPair Q p l) (hm : HitPair Q p m) : l = m := by
+  classical
+  have hn : ¬ HitPair Q p p := fun h => K.irrefl (hsafe p p h)
+  obtain ⟨S,hSQ,hp⟩ : ∃ S ∈ Q, p ∉ S := by
+    by_contra h
+    apply hn
+    intro S hS
+    left
+    by_contra hp
+    exact h ⟨S,hS,hp⟩
+  have hlS : l ∈ S := (hl S hSQ).resolve_left hp
+  have hmS : m ∈ S := (hm S hSQ).resolve_left hp
+  rcases hprovider S hSQ with hsmall | ⟨c,hc⟩
+  · exact Finset.card_le_one.mp hsmall l hlS m hmS
+  · have hpc : p ≠ c := by
+      intro h
+      exact (hc l hlS).2 (h ▸ he)
+    exact hfour p c hpc l m (hsafe p l hl) (hc l hlS).1
+      (hsafe p m hm) (hc m hmS).1
+
+lemma cross_accepted (K : SimpleGraph V) (U : Finset (Sym2 V))
+    (Q : Finset (Finset V)) (color : V → Bool)
+    (hbip : ∀ a b, K.Adj a b → color a ≠ color b)
+    (hprovider : ∀ S ∈ Q, Provider K U S)
+    {p l q m : V} (hcol : color p = color q) (hop : color p ≠ color l)
+    (hl : HitPair Q p l) (hm : HitPair Q q m) : HitPair Q p m := by
+  intro S hS
+  rcases hl S hS with hpS | hlS
+  · exact Or.inl hpS
+  · rcases hm S hS with hqS | hmS
+    · have he := provider_monochromatic K U color hbip (hprovider S hS) hqS hlS
+      exact False.elim (hop (hcol.trans he))
+    · exact Or.inr hmS
+
+lemma oriented_edges_unique (K : SimpleGraph V) (U : Finset (Sym2 V))
+    (Q : Finset (Finset V)) (color : V → Bool)
+    (hbip : ∀ a b, K.Adj a b → color a ≠ color b)
+    (hfour : ∀ a b, a ≠ b → ∀ l m,
+      K.Adj a l → K.Adj b l → K.Adj a m → K.Adj b m → l = m)
+    (hprovider : ∀ S ∈ Q, Provider K U S)
+    (hsafe : ∀ p q, HitPair Q p q → K.Adj p q)
+    {p l q m : V} (hcol : color p = color q)
+    (he : s(p,l) ∈ U) (hf : s(q,m) ∈ U)
+    (hl : HitPair Q p l) (hm : HitPair Q q m) : p = q ∧ l = m := by
+  have hpm := cross_accepted K U Q color hbip hprovider hcol
+    (hbip p l (hsafe p l hl)) hl hm
+  have hlm := shared_endpoint_unique K U Q hfour hprovider hsafe he hl hpm
+  subst m
+  have hep : s(l,p) ∈ U := by simpa only [Sym2.eq_swap] using he
+  have hpq := shared_endpoint_unique K U Q hfour hprovider hsafe hep
+    (hitPair_swap hl) (hitPair_swap hm)
+  exact ⟨hpq,rfl⟩
+
+/-- A safe conjunction of pure clean providers accepts at most one residual edge.
+  Only safety on two-point assignments (including singletons) is needed. -/
+lemma residual_card_le_one (K : SimpleGraph V) (U : Finset (Sym2 V))
+    (Q : Finset (Finset V)) (color : V → Bool)
+    (hbip : ∀ a b, K.Adj a b → color a ≠ color b)
+    (hfour : ∀ a b, a ≠ b → ∀ l m,
+      K.Adj a l → K.Adj b l → K.Adj a m → K.Adj b m → l = m)
+    (hprovider : ∀ S ∈ Q, Provider K U S)
+    (hsafe : ∀ p q, HitPair Q p q → K.Adj p q)
+    (haccept : ∀ p q, s(p,q) ∈ U → HitPair Q p q) : U.card ≤ 1 := by
+  apply Finset.card_le_one.mpr
+  intro e he f hf
+  induction e using Sym2.ind with
+  | h p l =>
+    induction f using Sym2.ind with
+    | h q m =>
+      have hl := haccept p l he
+      have hm := haccept q m hf
+      by_cases hc : color p = color q
+      · obtain ⟨rfl,rfl⟩ := oriented_edges_unique K U Q color hbip hfour hprovider hsafe hc he hf hl hm
+        rfl
+      · have hcm : color p = color m :=
+          bool_eq_of_ne_common _ _ _ hc (hbip m q (hsafe q m hm).symm)
+        have hf' : s(m,q) ∈ U := by simpa only [Sym2.eq_swap] using hf
+        obtain ⟨rfl,rfl⟩ := oriented_edges_unique K U Q color hbip hfour hprovider hsafe hcm he hf' hl (hitPair_swap hm)
+        exact Sym2.eq_swap
+
+end PureProvider
+
+
+namespace PureProvider
+open SimpleGraph
+open scoped Classical
+variable {V : Type*}
+
+/-- The Boolean semantics of a conjunction of pure provider clauses. -/
+def Hits (Q : Finset (Finset V)) (X : Set V) : Prop :=
+  ∀ S ∈ Q, ∃ v ∈ S, v ∈ X
+
+lemma singleton_clause (K : SimpleGraph V) (U : Finset (Sym2 V))
+    (Q : Finset (Finset V)) (color : V → Bool)
+    (hbip : ∀ a b, K.Adj a b → color a ≠ color b)
+    (hfour : ∀ a b, a ≠ b → ∀ l m,
+      K.Adj a l → K.Adj b l → K.Adj a m → K.Adj b m → l = m)
+    (hprovider : ∀ S ∈ Q, Provider K U S)
+    (hsafe : ∀ X : Set V, Hits Q X → ∃ u ∈ X, ∃ v ∈ X, K.Adj u v)
+    {p l : V} (he : s(p,l) ∈ U) (haccept : HitPair Q p l) : {p} ∈ Q := by
+  classical
+  by_contra hsingle
+  let X : Set V := {v | v = l ∨ (color v = color p ∧ ¬ K.Adj l v)}
+  have hhit : Hits Q X := by
+    intro S hS
+    by_cases hlS : l ∈ S
+    · exact ⟨l,hlS,Or.inl rfl⟩
+    have hpS : p ∈ S := (haccept S hS).resolve_right hlS
+    have hnsub : ¬ (∀ v ∈ S, K.Adj l v) := by
+      intro hsub
+      have hsmall : ∀ v ∈ S, v = p := by
+        rcases hprovider S hS with hcard | ⟨c,hc⟩
+        · intro v hv
+          exact Finset.card_le_one.mp hcard v hv p hpS
+        · have hcl : c ≠ l := by
+            intro hcl
+            have hclean := (hc p hpS).2
+            apply hclean
+            rw [hcl]
+            simpa only [Sym2.eq_swap] using he
+          intro v hv
+          exact hfour c l hcl v p (hc v hv).1 (hsub v hv)
+            (hc p hpS).1 (hsub p hpS)
+      have heq : S = {p} := by
+        ext v
+        simp only [Finset.mem_singleton]
+        exact ⟨hsmall v,fun h => h ▸ hpS⟩
+      exact hsingle (heq ▸ hS)
+    obtain ⟨v,hv,hnv⟩ : ∃ v ∈ S, ¬ K.Adj l v := by
+      by_contra hn
+      apply hnsub
+      intro v hv
+      by_contra hnv
+      exact hn ⟨v,hv,hnv⟩
+    exact ⟨v,hv,Or.inr ⟨provider_monochromatic K U color hbip (hprovider S hS) hv hpS,hnv⟩⟩
+  obtain ⟨u,hu,v,hv,huv⟩ := hsafe X hhit
+  rcases hu with rfl | ⟨hu,hnlu⟩
+  · rcases hv with rfl | ⟨_,hnlv⟩
+    · exact K.irrefl huv
+    · exact hnlv huv
+  · rcases hv with rfl | ⟨hv,_⟩
+    · exact hnlu huv.symm
+    · exact hbip u v huv (hu.trans hv.symm)
+
+/-- A fully safe pure-provider term accepting a residual edge is exactly that edge term. -/
+lemma hits_iff_edge (K : SimpleGraph V) (U : Finset (Sym2 V))
+    (Q : Finset (Finset V)) (color : V → Bool)
+    (hbip : ∀ a b, K.Adj a b → color a ≠ color b)
+    (hfour : ∀ a b, a ≠ b → ∀ l m,
+      K.Adj a l → K.Adj b l → K.Adj a m → K.Adj b m → l = m)
+    (hprovider : ∀ S ∈ Q, Provider K U S)
+    (hsafe : ∀ X : Set V, Hits Q X → ∃ u ∈ X, ∃ v ∈ X, K.Adj u v)
+    {p l : V} (he : s(p,l) ∈ U) (haccept : HitPair Q p l) (X : Set V) :
+    Hits Q X ↔ p ∈ X ∧ l ∈ X := by
+  classical
+  have hp := singleton_clause K U Q color hbip hfour hprovider hsafe he haccept
+  have he' : s(l,p) ∈ U := by simpa only [Sym2.eq_swap] using he
+  have hl := singleton_clause K U Q color hbip hfour hprovider hsafe he' (hitPair_swap haccept)
+  constructor
+  · intro h
+    obtain ⟨u,hu,huX⟩ := h {p} hp
+    obtain ⟨v,hv,hvX⟩ := h {l} hl
+    simp only [Finset.mem_singleton] at hu hv
+    exact ⟨hu ▸ huX,hv ▸ hvX⟩
+  · rintro ⟨hpX,hlX⟩ S hS
+    rcases haccept S hS with hpS | hlS
+    · exact ⟨p,hpS,hpX⟩
+    · exact ⟨l,hlS,hlX⟩
+
+end PureProvider
+
+
+namespace PureProvider
+open SimpleGraph
+open scoped Classical
+variable {V ι : Type*}
+
+lemma provider_mono_residual (K : SimpleGraph V) {U W : Finset (Sym2 V)}
+    (hsub : W ⊆ U) {S : Finset V} (h : Provider K U S) : Provider K W S := by
+  rcases h with hsmall | ⟨c,hc⟩
+  · exact Or.inl hsmall
+  · exact Or.inr ⟨c,fun v hv => ⟨(hc v hv).1,fun he => (hc v hv).2 (hsub he)⟩⟩
+
+/-- A finite family of safe pure-provider conjunctions covers at most one residual edge per term.
+  This is a term-count bound and asserts no conversion from circuit OR counts to term counts. -/
+lemma family_residual_card_le (K : SimpleGraph V) (U : Finset (Sym2 V))
+    (I : Finset ι) (W : ι → Finset (Sym2 V)) (Q : ι → Finset (Finset V))
+    (color : V → Bool)
+    (hbip : ∀ a b, K.Adj a b → color a ≠ color b)
+    (hfour : ∀ a b, a ≠ b → ∀ l m,
+      K.Adj a l → K.Adj b l → K.Adj a m → K.Adj b m → l = m)
+    (hsub : ∀ i ∈ I, W i ⊆ U)
+    (hcover : ∀ e ∈ U, ∃ i ∈ I, e ∈ W i)
+    (hprovider : ∀ i ∈ I, ∀ S ∈ Q i, Provider K U S)
+    (hsafe : ∀ i ∈ I, ∀ p q, HitPair (Q i) p q → K.Adj p q)
+    (haccept : ∀ i ∈ I, ∀ p q, s(p,q) ∈ W i → HitPair (Q i) p q) :
+    U.card ≤ I.card := by
+  classical
+  have hsmall : ∀ i ∈ I, (W i).card ≤ 1 := by
+    intro i hi
+    exact residual_card_le_one K (W i) (Q i) color hbip hfour
+      (fun S hS => provider_mono_residual K (hsub i hi) (hprovider i hi S hS))
+      (hsafe i hi) (haccept i hi)
+  calc
+    U.card ≤ (I.biUnion W).card := Finset.card_le_card (by
+      intro e he
+      obtain ⟨i,hi,hei⟩ := hcover e he
+      exact Finset.mem_biUnion.mpr ⟨i,hi,hei⟩)
+    _ ≤ ∑ i ∈ I, (W i).card := Finset.card_biUnion_le
+    _ ≤ ∑ _i ∈ I, 1 := Finset.sum_le_sum hsmall
+    _ = I.card := by simp
+
+end PureProvider
 
 
 end PEqualNP.Outside.L_meta_2583
