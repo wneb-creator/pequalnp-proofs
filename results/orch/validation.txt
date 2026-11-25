@@ -5,7 +5,7 @@ Result: For a fan-in-two circuit computing the Petersen function: 15 + NOT-count
 This ports the checked L_meta_4725 counting proof and adds the arithmetic consequence.
 Remaining: exclude circuits with one to four NOT gates, or find a verified counterexample.
 Full compiler stdout/stderr: results/orch/high-not-build.log.
-Target checker: not run for this partial checkpoint; target theorem absent.
+Target named build: PASS, 6655 jobs. Target checker: REJECTED (no-theorem); target theorem absent. Full outputs preserved in results/orch/target-build.* and partial-check.*.
 Cleanup: not started; 3228 lines before and after.
 SHA256: 7823c8648e521541c4e05085327ed3ce37e88603e56c0c86535c35db02b4ac4c
 Sub-agents: six (setup/review, structural proof, counterexample search, definition audit, library search, finite bounds)
@@ -14,3 +14,5 @@ Additional checked partials archived: Endpoint.lean (exit0, linter warning), Aud
 NotComparable.lean: semantic replacement of a NOT whose operand is comparable with the target; direct Lean exit0, empty complete log. No gate-count conclusion asserted.
 BranchBudget.lean: tight fanout budget gives exact read counts; compiled exit0, empty log. EndpointClean.lean is the warning-free checked revision of Endpoint.lean (exit0, empty log).
 NotComparableExtended.lean and GraphSeparator.lean: checked semantic refinements for an essential NOT operand; direct Lean exit0 with empty full logs. Neither proves the posted circuit-size bound.
+BranchCovered.lean: Lean exit0, establishes fresh first-input coverage for every branch in a Least Petersen circuit with at most15 binary gates. UnaryBranch.lean: Lean exit0, proves the generic unary-successor path obstruction. Full logs archived.
+Latest checkpoint measurement: TIMING total=21.27 subagents=6

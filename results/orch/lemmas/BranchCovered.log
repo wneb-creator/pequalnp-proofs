@@ -1,0 +1,118 @@
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:154:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [noNeighbors] at live
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:184:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_4725.BranchGraph.edgeless_mono`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:440:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:442:26: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:444:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:440:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:442:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:444:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:471:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:471:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:477:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:477:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:587:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:589:26: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:591:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:587:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:589:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:591:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:610:10: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [opCount_cons, opCount, he]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:610:13: warning: This simp argument is unused:
+  opCount_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h, opCount, he]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:2693:0: warning: Definition `PEqualNP.Outside.L_meta_4725.petersenAdjDecidable` of class type is semireducible. Most type class instances should be instance-reducible, so consider marking this
+definition with `@[instance_reducible]`. If it is intentionally semireducible, this warning can be disabled with `set_option warn.classDefReducibility false`.
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:2713:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:2720:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:3028:2: warning: Unused tactic linter: `change (_ ↔ decode (code I) O)` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:3138:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:3178:39: warning: This simp argument is unused:
+  h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-109/structural/BranchCovered.lean:3219:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
