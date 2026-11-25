@@ -284,3 +284,55 @@ lemma same_both : ∀ (op : Fin 4) (a b : Bool),
 end GateCollision
 
 end PEqualNP.Outside.L_meta_10760
+
+namespace PEqualNP.Outside.L_meta_10760.SupportCompression
+
+lemma eq_of_updates {n : Nat} (f : (Fin n → Bool) → Bool) (D : Finset (Fin n)) :
+    (∀ i ∈ D, ∀ x b, f (Function.update x i b) = f x) →
+    ∀ x y, (∀ i ∉ D, x i = y i) → f x = f y := by
+  induction D using Finset.induction_on with
+  | empty =>
+    intro _ x y hxy
+    exact congrArg f (funext fun i => hxy i (by simp))
+  | @insert i D hi ih =>
+    intro hstep x y hxy
+    calc
+      f x = f (Function.update x i (y i)) := (hstep i (by simp) x (y i)).symm
+      _ = f y := by
+        apply ih (fun j hj => hstep j (Finset.mem_insert_of_mem hj))
+        intro j hj
+        by_cases hji : j = i
+        · subst j; simp
+        · simpa [hji] using hxy j (by simp [hji, hj])
+
+lemma eq_of_agree_on {n : Nat} (f : (Fin n → Bool) → Bool) (S : Finset (Fin n))
+    (hstep : ∀ i ∉ S, ∀ x b, f (Function.update x i b) = f x)
+    (x y : Fin n → Bool) (hxy : ∀ i ∈ S, x i = y i) : f x = f y := by
+  apply eq_of_updates f (Finset.univ \ S)
+  · intro i hi
+    exact hstep i (Finset.mem_sdiff.mp hi).2
+  · intro i hi
+    apply hxy i
+    simpa using hi
+
+lemma update_of_flip {n : Nat} (f : (Fin n → Bool) → Bool) (S : Finset (Fin n))
+    (hflip : ∀ i ∉ S, ∀ x, f (Function.update x i (!(x i))) = f x) :
+    ∀ i ∉ S, ∀ x b, f (Function.update x i b) = f x := by
+  intro i hi x b
+  by_cases h : b = x i
+  · apply congrArg f
+    funext j
+    by_cases hji : j = i
+    · subst j; simpa using h
+    · simp [hji]
+  · have hb : b = !(x i) := by
+      cases hx : x i <;> cases b <;> simp_all
+    rw [hb]
+    exact hflip i hi x
+
+lemma eq_of_flip_invariant {n : Nat} (f : (Fin n → Bool) → Bool) (S : Finset (Fin n))
+    (hflip : ∀ i ∉ S, ∀ x, f (Function.update x i (!(x i))) = f x)
+    (x y : Fin n → Bool) (hxy : ∀ i ∈ S, x i = y i) : f x = f y :=
+  eq_of_agree_on f S (update_of_flip f S hflip) x y hxy
+
+end PEqualNP.Outside.L_meta_10760.SupportCompression
