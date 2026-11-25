@@ -12,3 +12,6 @@
 2026-11-25T14:20:50.159569+00:00 InitialRetained andPetersenReplay compiled and independentlyreviewed; preservingexactsource/fullcompilelogs.
 2026-11-25T14:23:12.663900+00:00 AtMostThree andReplayControls compiled+reviewed, hashesmatchedbeforearchival; preserving.
 2026-11-25T14:28:38.317984+00:00 Archived reviewed projection, two-constant bound, kernel replay controls, and LRAT utility. All Lean components compiled successfully.
+2026-11-25T14:30:09.834067+00:00 Second replan after~44minutes: focus SAT certificates and structural17/18 integration; retire generic duplicate-charge shortcut and stop optional heavy controls.
+
+2026-11-25T14:40:48Z — Lease renewal returned HTTP 410 before the previously advertised expiry. All work paused; independently reviewed ≥17 components preserved before desk recovery.

@@ -11,8 +11,10 @@ Checked components include last-NOT factorization, monotonicity and endpoint lem
 
 Kernel replay controls accept valid toy certificates and reject a corrupted certificate. The LRAT packing utility passed independent review and text/binary/slicing/packing tests. Generated data must still pass the Lean checker.
 
-The seventeen/eighteen-binary-gate strengthening is being assembled. No solver has returned a counterexample or an UNSAT certificate. Timeouts and partial proof traces are not lower-bound proofs.
+The seventeen-non-NOT-gate lower bound and at-most-two-NOT corollary compiled modularly and passed independent semantic review. Full17.lean is the exact combined source, pending a standalone build. Killed-NOT monotonicity and predicate-preserving extraction also compiled. Generic at-most-k and exact-two-NOT encodings compiled and were reviewed. No solver has returned a counterexample or an UNSAT certificate. Timeouts and partial proof traces are not lower-bound proofs.
 
 Cleanup: not started; the full posted theorem has not passed the checker.
 Sub-agents: status_review, lower_bound, counterexample, library_route, reduction_strategy, sat_encoding (6).
-TIMING total=42.2 subagents=6
+TIMING total=56.0 subagents=6
+
+2026-11-25T14:40:48Z: renewal returned HTTP 410 despite previously advertised expiry 14:53:45.327Z. Complete headers and body are preserved in validation/desk-410-response.txt. Preserving all reviewed new sources before the required recovery request.

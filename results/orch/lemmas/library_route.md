@@ -60,3 +60,27 @@ The independently compiled retention wrapper shows both inputs of the first sign
 Prepared `Seventeen.lean.txt` combines retention and projection and derives at most two NOT gates for a computing circuit of size at most nineteen. The lower_bound agent separately prepares a two-constant charge for first AND-type gates, giving eighteen binary gates in that case. Generic duplicate-root charging for first OR is invalid (a multiplexer counterexample); reduction_strategy investigates the Petersen-specific next-gate structure.
 
 The initial Partial16 cache export failed because Lean required an explicit package root for an output olean. Corrected command uses `lean -R /tmp/oec/pequalnp-pilot-99/library_route -o .../Partial16.olean`; one corrected base cache build is running.
+
+## Checked projection component (2026-11-25 14:24 UTC)
+
+`Projection17.lean` completed with exit status 0; complete stdout and stderr logs are empty. This independently checks all ten deletion maps, target truth tables, input images, pin injectivity, and deleted pin values. Parent was notified immediately for independent review and preservation.
+
+Additional library census found `L_meta_8035.lean` proving monotone Petersen-minus-vertex size at least sixteen and `L_meta_8367.lean` proving arbitrary fan-in-two total size at least sixteen. The latter combines a monotone sixteen bound with signed binary fifteen, so it does not improve the free-complement signed binary floor.
+
+The seventeen-gate assembly harness encountered two integration-only issues: proof-only section variable `nineFloor` needs an explicit binder, and the supplied FirstCollision append contained a closing namespace command. Both are corrected in the split `ProjectionChecked.lean` / `Bound17.lean` modules prepared for cache-based compilation. No claim of a compiled seventeen-gate bound yet.
+
+## 2026-11-25 14:37 UTC: seventeen bound checked
+
+`Partial16.olean` export completed successfully. `ProjectionChecked.lean`, importing that module, then compiled with exit 0 and empty logs; its finite helpers and retention theorem use the actual original model. `Bound17.lean`, importing `ProjectionChecked`, compiled with exit 0, two inherited-style `if_pos` deprecation warnings, and no errors.
+
+Checked conclusions:
+- `atLeastSeventeen`: every signed Live schedule for the full Petersen function from raw pins has at least 17 binary steps.
+- `binary_floor17`: any computing fan-in-two circuit satisfies `17 + NotBracket.notCount C ≤ C.size`.
+- `atMostTwoNots`: a computing circuit of size at most 19 has at most 2 NOT gates.
+- `Projection.tail_bound_two_constants`: when first signed gate has d=0 or d=2, deleting its positive input yields two distinct constant roots, so its remaining tail needs at least 17 binary gates (total at least 18).
+
+Parent notified immediately. `Full17.lean` is an exact source-only concatenation of the three checked modules with only `import PEqualNP.Defs`; it has 4984 lines, 302464 bytes, and awaits a standalone compilation if desired. Modular checked sources and complete logs remain in the scratch library_route directory. This is a partial result, not yet the posted theorem.
+
+## 2026-11-25 14:39 UTC: normalization and projected monotonicity
+
+`NormalizeMono.lean` compiled with exit 0 and empty diagnostics. `Extended.normalization_projected_monotone` says that if `rows : R → Fin1024` sends the bottom point of an ordered type to row zero, and a signature projects to a monotone Boolean function, then its signed normalization also projects to a monotone function. The zero-at-bottom branch leaves it unchanged; the true-at-bottom branch forces the entire projected function to be true, and normalization makes it constantly false. The helper-only text is `NormalizeMono.append.txt`. This supports lower_bound’s checked Trace-to-monotone-Run bridge for projections that kill the sole NOT.

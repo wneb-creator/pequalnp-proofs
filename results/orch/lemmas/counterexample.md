@@ -50,6 +50,20 @@ At about 14:07 UTC, following root's fresh lease renewal, started a 1500-second 
 
 The lower-bound agent supplied five simultaneous automorphism orbits with fixed true edge mask3 and independent blocker masks50,104,116,138,201. `witness_branches.py` adds exactly-one-NOT and the source/sign witness constraints, plus six counterfactual evaluations forcing the opened suffix to have the majority pattern on intersection, edge, blocker, and union. These are currently search constraints only; the full canonical CNF is kept unchanged. Each branch has an initial 60-second run, with all outputs retained.
 
+All five witness branches timed out after 60 seconds; no model or contradiction was found.
+
+## Count-restricted canonical search and storage
+
+The `sat_encoding` agent compiled exact preservation of NOT count and completeness for the canonical formula with at most three NOTs. Together with the compiled sixteen-binary-gate floor, this remains complete for the full posted target. `canonical19-le3.cnf` appends 3,876 clauses, in descending quadruple order, to the unchanged baseline, for 121,822 total clauses.
+
+Following root's renewals, the search portfolio now consists of the unrestricted canonical baseline started about 14:07 UTC and a canonical-at-most-three run started about 14:19 UTC. The latter writes binary LRAT to reduce disk use. A tiny UNSAT control confirmed the binary format. The earlier restricted colex run and the first text-LRAT at-most-three run were interrupted deliberately, with full outputs retained and their incomplete proof prefixes compressed. They did not produce a verdict and are not certificates. At least 5 GB of free disk is reserved for Lean artifacts.
+
+A separate all-1024-row canonical probe, containing 1,328,735 clauses, timed out after 60 seconds.
+
+## Free-complement sanity search
+
+At the structural agents' request, `aig.py` searches seventeen binary gates with free wire and output complements. This is a different model from a nineteen-total-gate counterexample: a found witness would still need its NOT cost evaluated. A positive twenty-gate control passed SAT and all 1024 truth-table rows. The unrestricted seventeen-gate probe and two probes fixing the first signed gate to the edge/nonedge OR cases all timed out after 60 seconds. A ten-minute bit-parallel stochastic search in this model is running as `aig_search.cpp`; no exact witness has been found.
+
 ## Existing reductions
 
 All three reductions are already in the repository: `R_meta_2592_408` normalizes wires and output; `R_meta_2592_271` separates the 15-binary-gate floor from the one-to-four-NOT case; `R_meta_2592_318` cuts at the last NOT. A fourth reduction should not be assumed available.
