@@ -21,3 +21,5 @@
 2026-11-25T03:21:49.360136+00:00 Mixed-cover ≥16 lemma checked using Cauchy-Davenport; reported immediately for checkpoint push.
 
 2026-11-25T03:22:08.580224+00:0065gate full-semantics core compiled and independently reviewed; checkpoint.
+
+2026-11-25T03:22:46.898029+00:00 Mixed-cover bound and full65gate double-reread witness compiled and independently reviewed.

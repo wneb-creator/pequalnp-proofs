@@ -27,3 +27,10 @@ Snapshot: results/orch/lemmas/upper65_core.lean,157lines.
 Proves size65, full incidence semantics, valid distinct earlier binary AND/OR inputs.
 Independent review PASS, including symbolic52-edge monomial enumeration.
 Double derivative proofs still pending in live upper65.lean; no64-gate lowerbound claimed.
+
+65-gate full double-reread construction: lake env lean exit0, stdout/stderr empty.
+File results/orch/lemmas/upper65.lean,230lines. Both formal recurrence witnesses now checked.
+Independent review: PASS semantics and trace arrays. Size65 is outside posted forbidden63..64 range.
+
+Mixed-cover partial: lake env lean exit0, stdout/stderr empty;75lines.
+Any cover with neither bipartition side full has size≥16. Independent review: PASS.
