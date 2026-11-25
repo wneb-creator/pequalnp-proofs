@@ -16,3 +16,10 @@ TIMING total=11.9 subagents=6
 AlgebraicRoute.lean: lake env lean ../results/orch/lemmas/AlgebraicRoute.lean
 Exit 0; stdout and stderr empty. Checked at-most-four killing vertices from two disjoint false-positive pairs and NoFourCycle.
 Independent source review: rules_review PASS. Repository checker not run on this partial lemma.
+
+2026-11-25T03:41:06.133022+00:00 partial batch
+SingleAncestor.lean: lake env lean ../results/orch/lemmas/SingleAncestor.lean; exit 0. Full stdout/stderr in single-ancestor-build.log.
+LocalNormalForm.lean: lake env lean ../results/orch/lemmas/LocalNormalForm.lean; exit 0. Full stdout/stderr in local-normal-form-build.log.
+SharedKillers.lean: lake env lean ../results/orch/lemmas/SharedKillers.lean; exit 0. Full stdout/stderr in shared-killers-build.log.
+SoundAnd.lean: lake env lean ../results/orch/lemmas/SoundAnd.lean; exit 0. Full stdout/stderr in sound-and-build.log.
+Independent source review: rules_review PASS for all four. Repository checker not run on partial artifacts.
