@@ -1,18 +1,19 @@
-L-meta-2089 PARTIAL preservation only.
-Posted theorem is not yet proved; no proof PR opened.
+L-meta-2089: PARTIAL preservation only.
+The posted theorem is unproved and is not declared. No proof PR has been opened.
+
+Latest source: lean/PEqualNP/Outside/L_meta_2089.lean, 1444 lines.
 Build: lake build PEqualNP.Outside.L_meta_2089 passed.
-Local checker: not run; the main theorem is intentionally absent from this partial file.
-Independent review: status_review PASS for reviewed helper components, not full statement acceptance.
-Lines: 1444
+Local checker checkpoint: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2089.
+Format checkpoint: REFUSED because the main theorem is absent.
+Independent reviews: PASS for the supporting helper lemmas and source restrictions, not for the full gap statement.
+Axiom audit: five principal helper lemmas use only propext, Classical.choice, and Quot.sound.
+Cleanup pass: not started, because the target checker has not passed. Line counts before/after: 1444/1444.
+
+Preserved components: false-OR certificate quota; exact behavior on thin inputs; one operand has at most twelve nonincident pairs and at most one singleton; a merged-pair pattern forces the other bad family into one column with at most nine entries.
+Experimental scripts and outputs are computational research artifacts, not Lean certificates. No valid counterexample was found in completed searches.
+
 Sub-agents: status_review, toolchain_setup, structural_proof, library_route, counterexample, normal_form
-TIMING total=49 subagents=6
+TIMING total=53 subagents=6
 
-Second merged build passed; independent source and body-equivalence review passed.
-Preserved separately: checked 29-line incidence rectangle lemma, independently reviewed by root.
-
-Third merged build passed, including complete OR quota, exact thin-input restrictions, posted-mask bridge, and small singleton support. All independently reviewed.
-
-Fourth merged build: passed (1444 lines). Independent merged-pair review: PASS for partial preservation.
-Checker checkpoint for the preceding1347-line partial: REJECTED (no-theorem). The main theorem remains absent.
-Format guard: REFUSED, no theorem. Axiom audit of four major helper lemmas: only propext, Classical.choice, Quot.sound.
-Experimental programs and outputs are computational research artifacts, not Lean certificates; no counterexample witness found.
+Desk nulls: 1
+Exact null message: no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes
