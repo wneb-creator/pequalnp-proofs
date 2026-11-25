@@ -1,0 +1,79 @@
+import took 1.2s
+/tmp/oec/pequalnp-pilot-79/ExceptionalCoefficientBridgeFlat.lean:14:41: warning: Variable name `b5` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b5
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+elaboration took 202ms
+/tmp/oec/pequalnp-pilot-79/ExceptionalCoefficientBridgeFlat.lean:17:41: warning: Variable name `b5` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b5
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+elaboration took 124ms
+/tmp/oec/pequalnp-pilot-79/ExceptionalCoefficientBridgeFlat.lean:18:24: warning: Variable name `r` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _r
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalCoefficientBridgeFlat.lean:19:24: warning: Variable name `r` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _r
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalCoefficientBridgeFlat.lean:20:24: warning: Variable name `r` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _r
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+simp took 111ms
+simp took 3.43s
+ring took 8.48s
+share common exprs took 12.3s
+fix level params took 1.01s
+process pre-definitions took 17.1s
+elaboration took 5.76s
+type checking took 19.9s
+linting took 15.2s
+share common exprs took 267ms
+elaboration took 134ms
+type checking took 108ms
+linting took 208ms
+ring took 310ms
+share common exprs took 217ms
+elaboration took 140ms
+type checking took 336ms
+linting took 266ms
+cumulative profiling times:
+	attribute application 0.308ms
+	compilation (IR) 0.118ms
+	compilation (LCNF base) 1.22ms
+	compilation (LCNF impure) 0.575ms
+	compilation (LCNF mono) 0.989ms
+	congr simp thm 9.09ms
+	declTypeLinter 16.9ms
+	dsimp 3.8ms
+	elaboration 6.63s
+	fix level params 1.03s
+	import 1.2s
+	initialization 36.3ms
+	instantiate metavars 99.1ms
+	interpretation 1.81s
+	let-to-have transformation 1.6ms
+	linting 15.8s
+	module linting 0.0451ms
+	norm_num 148ms
+	parsing 105ms
+	process pre-definitions 17.4s
+	ring 9.35s
+	share common exprs 12.9s
+	simp 4.24s
+	tactic execution 110ms
+	tacticAnalysis 10.1ms
+	type checking 20.5s
+	typeclass inference 1.06s

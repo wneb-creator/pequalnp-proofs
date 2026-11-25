@@ -1,0 +1,35 @@
+{
+  "scope": "First abstract CommRing identity only; later identities and optimized wrappers remain uncompiled",
+  "files": [
+    {
+      "file": "ExceptionalOneIntegerIdentity.lean",
+      "bytes": 44028,
+      "sha256": "c80bab2b5deaa41528b78531ae1aebacd3992ed14566991653d7a3e1ac9e8d64"
+    },
+    {
+      "file": "root-ExceptionalOneIntegerIdentity-lean-profile.log",
+      "bytes": 21668,
+      "sha256": "651c8ec34c3017141b7af40aa187e53a7e02c296a4b67e333a08a1f5bd00aef4"
+    },
+    {
+      "file": "root-ExceptionalOneIntegerIdentity-lean-profile-status.json",
+      "bytes": 521,
+      "sha256": "21878580c2999017070efcdbc71046935af9ed8a90c6979b49242d5b577504d5"
+    },
+    {
+      "file": "geometry-exceptional-integer-lean.py",
+      "bytes": 3433,
+      "sha256": "9ddc1cf3f5f054c9eb8bb651bffec0739a1b71c617486bbec16cc65ab9535be8"
+    },
+    {
+      "file": "geometry-exceptional-integer-gen.log",
+      "bytes": 60,
+      "sha256": "34b0fec3a18ac393664c1c4e83d6202ded0177ed5a0d505ce29f2e3a12402cd0"
+    },
+    {
+      "file": "geometry-exceptional-integer-metadata.json",
+      "bytes": 1436,
+      "sha256": "9022e95094ebadd019ed599accf4b41424684f71b974087d7c3beb188c9c2731"
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "scope": "Lean-checked conditional scalar triangle contradiction from six norms, three cross-products and six actual permanent quadratic coefficients. The two base cubic implications from the original constraints remain unproved.",
+  "files": [
+    {
+      "file": "FramePairedTriangle.lean",
+      "bytes": 90643,
+      "sha256": "eb0b00852ee9643a12839b2fc75a4e575cd5832a14883dadd1027a38a8495842"
+    },
+    {
+      "file": "frame_paired_bridge_generate.py",
+      "bytes": 5428,
+      "sha256": "e9ae92c415af0f9c288ab8dcf2c22e0e259a4fbf88e5c350729df15063c32538"
+    },
+    {
+      "file": "frame-paired-bridge-generate.log",
+      "bytes": 116,
+      "sha256": "060a5ca5abe35a853f35dfc3df7ce6153cdeddecd57b1a13ab15221a47605810"
+    },
+    {
+      "file": "frame-paired-triangle-lean-v2.log",
+      "bytes": 21744,
+      "sha256": "3038729a2c1f5e520467fe76360332241e098169d276d3a4ce87b913b2006741"
+    },
+    {
+      "file": "frame-paired-triangle-lean-v2.status.json",
+      "bytes": 190,
+      "sha256": "631622139754d42403e4e47be551bb4fed57720980d605cdd105e1c872036bed"
+    }
+  ]
+}

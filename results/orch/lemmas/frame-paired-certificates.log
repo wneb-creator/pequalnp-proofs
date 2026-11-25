@@ -1,0 +1,12 @@
+{"signs": [1, 1, 1], "degree": 2, "rows": 12, "columns": 30, "rank": 13, "constant_member": false, "seconds": 0.001745621000736719}
+{"signs": [1, 1, 1], "degree": 3, "rows": 60, "columns": 70, "rank": 61, "constant_member": false, "seconds": 0.022008390000337386}
+{"signs": [1, 1, 1], "degree": 4, "rows": 180, "columns": 140, "rank": 140, "constant_member": true, "seconds": 1.4605218339984276}
+{"signs": [1, 1, -1], "degree": 2, "rows": 12, "columns": 30, "rank": 13, "constant_member": false, "seconds": 0.0020323429998825304}
+{"signs": [1, 1, -1], "degree": 3, "rows": 60, "columns": 70, "rank": 61, "constant_member": false, "seconds": 0.042820237000341876}
+{"signs": [1, 1, -1], "degree": 4, "rows": 180, "columns": 140, "rank": 140, "constant_member": true, "seconds": 1.6020652930001233}
+{"signs": [1, -1, 1], "degree": 2, "rows": 12, "columns": 30, "rank": 13, "constant_member": false, "seconds": 0.003775911000047927}
+{"signs": [1, -1, 1], "degree": 3, "rows": 60, "columns": 70, "rank": 61, "constant_member": false, "seconds": 0.0502571960005298}
+{"signs": [1, -1, 1], "degree": 4, "rows": 180, "columns": 140, "rank": 140, "constant_member": true, "seconds": 2.0563512120006635}
+{"signs": [1, -1, -1], "degree": 2, "rows": 12, "columns": 30, "rank": 13, "constant_member": false, "seconds": 0.0021320029991329648}
+{"signs": [1, -1, -1], "degree": 3, "rows": 60, "columns": 70, "rank": 61, "constant_member": false, "seconds": 0.027864616999067948}
+{"signs": [1, -1, -1], "degree": 4, "rows": 180, "columns": 140, "rank": 140, "constant_member": true, "seconds": 1.1352420710009028}

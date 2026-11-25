@@ -229,3 +229,11 @@ TIMING total=221.7 subagents=7
 2026-11-25T12:20:39.752861+00:00 Preserved independently reviewed complete repeated-matrix obstruction, compressed from1313lines/336626bytes to1165lines/169702bytes; pinnedLean exit0/116.68s/3.973GiB. Added checked constant-b normalized degeneracy lemmas (exit0/5.04s) and actual paired-matrix permanent bridge/normalized affine obstruction (exit0/4.84s). Global target remains unresolved; target build/checker and final cleanup have not run.
 Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
 TIMING total=224.9 subagents=7
+
+2026-11-25T12:24:57.386271+00:00 Preserved independently reviewed FramePairedCases (Lean exit0/16.64s) and FramePairedTriangle (exit0/20.13s) proving the conditional triangle obstruction from six scalar norms,three cross-products,six actual quadratic constraints. The two base cubic implications remain unproved. Preserved actual ExceptionalCoefficientBridgeFlat (exit0/92.56s) and one generic integer identity (exit0/26.28s). Combined exceptional fixed-direction theorem is currently checking. Full global target remains unresolved; no target checker verdict.
+Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
+TIMING total=229.2 subagents=7
+
+2026-11-25T12:27:23.346380+00:00 Preserved independently reviewed FramePairedCases (Lean exit0/16.64s) and FramePairedTriangle (exit0/20.13s) proving the conditional triangle obstruction from six scalar norms,three cross-products,six actual quadratic constraints. The two base cubic implications remain unproved. Preserved actual ExceptionalCoefficientBridgeFlat (exit0/92.56s) and one generic integer identity (exit0/26.28s). Combined exceptional fixed-direction theorem is currently checking. Full global target remains unresolved; no target checker verdict.
+Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
+TIMING total=231.7 subagents=7

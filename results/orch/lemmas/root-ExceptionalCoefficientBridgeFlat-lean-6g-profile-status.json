@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/ExceptionalCoefficientBridgeFlat.lean",
+  "sha256": "f4b4f5f313828256d8cd4f516195cf7bfab420e9a0a65fe0754385ca7e0f2525",
+  "source_sha256_after": "f4b4f5f313828256d8cd4f516195cf7bfab420e9a0a65fe0754385ca7e0f2525",
+  "started_utc": "2026-11-25T12:15:31.261624+00:00",
+  "finished_utc": "2026-11-25T12:17:03.818397+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 5381185536,
+  "seconds": 92.55679943700125,
+  "rss_limit_bytes": 6442450944,
+  "wall_limit_seconds": 180
+}

@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/ExceptionalOneIntegerIdentity.lean",
+  "sha256": "c80bab2b5deaa41528b78531ae1aebacd3992ed14566991653d7a3e1ac9e8d64",
+  "source_sha256_after": "c80bab2b5deaa41528b78531ae1aebacd3992ed14566991653d7a3e1ac9e8d64",
+  "started_utc": "2026-11-25T12:17:39.312741+00:00",
+  "finished_utc": "2026-11-25T12:18:05.592911+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 2747494400,
+  "seconds": 26.28019900199979,
+  "rss_limit_bytes": 4294967296,
+  "wall_limit_seconds": 60
+}

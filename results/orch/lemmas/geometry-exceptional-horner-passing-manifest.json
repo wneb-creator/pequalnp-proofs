@@ -33,8 +33,8 @@
     },
     {
       "file": "geometry-exceptional-reduction-status.md",
-      "bytes": 1841,
-      "sha256": "4ccba9636b7f5a16c7f808d0aaee529256251b6a46141af9e53fb196e21be681"
+      "bytes": 2352,
+      "sha256": "09c6ac84ad23c0722de69b45a4bb3a9971ddd18a28f26f8b9465ea30b2636eee"
     },
     {
       "file": "fresh_exception_horner_review.py",

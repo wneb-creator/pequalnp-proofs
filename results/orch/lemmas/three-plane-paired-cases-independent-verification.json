@@ -1,0 +1,54 @@
+{
+  "classification": "Independent exact algebra verification of conditional paired-root cases; does not establish the two base cubic implications",
+  "cases": [
+    {
+      "signs": [
+        1,
+        1,
+        1
+      ],
+      "physical_permanent_quadratic_source_verified": true,
+      "all_six_root_substitutions_verified": true,
+      "original_quadratics_after_substitution_verified": true,
+      "exact_certificate_verified": true,
+      "support": 138
+    },
+    {
+      "signs": [
+        1,
+        1,
+        -1
+      ],
+      "physical_permanent_quadratic_source_verified": true,
+      "all_six_root_substitutions_verified": true,
+      "original_quadratics_after_substitution_verified": true,
+      "exact_certificate_verified": true,
+      "support": 137
+    },
+    {
+      "signs": [
+        1,
+        -1,
+        1
+      ],
+      "physical_permanent_quadratic_source_verified": true,
+      "all_six_root_substitutions_verified": true,
+      "original_quadratics_after_substitution_verified": true,
+      "exact_certificate_verified": true,
+      "support": 135
+    },
+    {
+      "signs": [
+        1,
+        -1,
+        -1
+      ],
+      "physical_permanent_quadratic_source_verified": true,
+      "all_six_root_substitutions_verified": true,
+      "original_quadratics_after_substitution_verified": true,
+      "exact_certificate_verified": true,
+      "support": 132
+    }
+  ],
+  "seconds": 1.4628658990004624
+}

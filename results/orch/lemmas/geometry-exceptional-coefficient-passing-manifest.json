@@ -1,0 +1,50 @@
+{
+  "scope": "Lean-checked actual permanent expansion, eight coefficient extractions, and normalized partner reconstruction; final exceptional obstruction composition still pending",
+  "files": [
+    {
+      "file": "ExceptionalCoefficientBridgeFlat.lean",
+      "bytes": 48568,
+      "sha256": "f4b4f5f313828256d8cd4f516195cf7bfab420e9a0a65fe0754385ca7e0f2525"
+    },
+    {
+      "file": "geometry-exceptional-coefficient-flat-lean.py",
+      "bytes": 4533,
+      "sha256": "b087b6ace1cb69742aaaa2a3ea1363e94e0d95cfe96a985fa7512767d9006c4b"
+    },
+    {
+      "file": "geometry-exceptional-partner-tail.lean",
+      "bytes": 1482,
+      "sha256": "56d1b27eb534a43b5a887ae962c537edc054023370b006b5b2bc1185991f6578"
+    },
+    {
+      "file": "geometry-exceptional-permanent-correction.json",
+      "bytes": 2552,
+      "sha256": "7d153e805cd9a94f1af0dfc68b3500b43f076378e6878d7088a514e78ce17d72"
+    },
+    {
+      "file": "geometry-exceptional-coefficient-flat-gen.log",
+      "bytes": 138,
+      "sha256": "413b3020549c82d038f669bd55be6ac633ff52bd22c642cdbea38104989abdc1"
+    },
+    {
+      "file": "root-ExceptionalCoefficientBridgeFlat-lean-6g-profile.log",
+      "bytes": 2990,
+      "sha256": "666155bdc59d0f93a7e833169e3302b2db9b635da9be52c1b70b872ef4ce7d2d"
+    },
+    {
+      "file": "root-ExceptionalCoefficientBridgeFlat-lean-6g-profile-status.json",
+      "bytes": 525,
+      "sha256": "c9a1fe0ee15b2abd6ac0d70d9465e00d56521d06e39cb3e36bcf3ec5e7aa2f37"
+    },
+    {
+      "file": "fresh_exception_coefficient_review.py",
+      "bytes": 3317,
+      "sha256": "3095f8cb23b0c3e8e852881ebf2df7a7562d1dab08a67148f98ea4a1f3127c59"
+    },
+    {
+      "file": "fresh_exception_coefficient_review.log",
+      "bytes": 308,
+      "sha256": "06020f0eecc08098304d127da253f317f3375f161852b348d84e9df2b295adca"
+    }
+  ]
+}

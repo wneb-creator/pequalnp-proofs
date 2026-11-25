@@ -1,0 +1,80 @@
+{
+  "scope": "Lean-checked four relative paired-root scalar case obstructions. The two base cubic implications from the original permanent constraints remain unproved.",
+  "files": [
+    {
+      "file": "FramePairedCases.lean",
+      "bytes": 59703,
+      "sha256": "4bb780f0222f807cedbfe3b0581da4a7d6a84f35fea0593ee4a0bb5493735b33"
+    },
+    {
+      "file": "frame-paired-cases-lean.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "frame-paired-cases-lean.status.json",
+      "bytes": 187,
+      "sha256": "37c828258574d12292a5f33b2c1602bdb5668b104e0c1706cd7d5da169f76958"
+    },
+    {
+      "file": "frame_paired_cases.py",
+      "bytes": 2193,
+      "sha256": "eed070fcfc14e174df0fea23bcb912736fd89fce73b97733936a4e5ef26fab99"
+    },
+    {
+      "file": "frame-paired-cases.json",
+      "bytes": 16063,
+      "sha256": "dffa3909d8a361bb973295e2ff0205a567da4dd2d835078d34dd18ca27d36c54"
+    },
+    {
+      "file": "frame-paired-cases.log",
+      "bytes": 15184,
+      "sha256": "16a7913a18c1d804e3a99a99f3ba5d5ad1ae0431fe9d4bf61e9723843b81e942"
+    },
+    {
+      "file": "frame_paired_certificates.py",
+      "bytes": 2847,
+      "sha256": "f3013b5dbdba799782aacd0e5224e0113f8631c7524e18e4fda5ad2a6c295738"
+    },
+    {
+      "file": "frame-paired-exact-certificates.json",
+      "bytes": 197153,
+      "sha256": "c87b5db66ea1bf5337e8c00f5432e6eeff30ebdfdee0379791eeb130b589dc71"
+    },
+    {
+      "file": "frame-paired-certificates.log",
+      "bytes": 1596,
+      "sha256": "0d6a557308d4348a1f2914ed093ce09191fe25f32bf6fe88fb2219bd41c5b992"
+    },
+    {
+      "file": "frame_paired_lean_generate.py",
+      "bytes": 2737,
+      "sha256": "9c078fd97659f054f3ed0ca08dff2b07ec98675e465683a69b52f9fd28cf6825"
+    },
+    {
+      "file": "frame-paired-integer-certificates.json",
+      "bytes": 58884,
+      "sha256": "83f96996cac3afa56ce7e952c57036f3c6d3f830b07a8ba8738fd7d7814c16d9"
+    },
+    {
+      "file": "frame-paired-lean-generate.log",
+      "bytes": 448,
+      "sha256": "46f07ea718303dced7393a1c03613b8c209867bc56ca7123d21ff266aee5c2f7"
+    },
+    {
+      "file": "three_plane_verify_paired_cases.py",
+      "bytes": 3890,
+      "sha256": "cf35dd12706d0da513fd9009a14ccc2066e0df31ae077f400c6ce6c060f8f91f"
+    },
+    {
+      "file": "three-plane-paired-cases-independent-verification.log",
+      "bytes": 1112,
+      "sha256": "46959d542f152efe6a48e4b8dd00b56bff7da8cc00f831bdd538c12e422b7d30"
+    },
+    {
+      "file": "three-plane-paired-cases-independent-verification.json",
+      "bytes": 1436,
+      "sha256": "354b3662c91b84f850a77ce7c2759a9faf7a6e80da6c915dd80f8e2740e04eec"
+    }
+  ]
+}
