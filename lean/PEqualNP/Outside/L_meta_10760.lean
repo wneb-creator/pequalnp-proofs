@@ -6085,4 +6085,67 @@ lemma fixedAnd_pair01_45_replacement
   fixedAnd_pair_reduce_to_positive_bound pre suffix inputs o p
     (by rcases hp with rfl | rfl <;> decide) hpre hsuf hpair hf hsmall (completion01_45_lower p hp)
 
+def graphWitness14Gates : List Gate :=
+  [⟨GateOp.or, [0, 1]⟩, ⟨GateOp.or, [0, 4]⟩,
+   ⟨GateOp.or, [1, 5]⟩, ⟨GateOp.or, [4, 5]⟩,
+   ⟨GateOp.or, [0, 2]⟩, ⟨GateOp.or, [11, 3]⟩,
+   ⟨GateOp.or, [12, 5]⟩, ⟨GateOp.and, [13, 6]⟩,
+   ⟨GateOp.and, [3, 9]⟩, ⟨GateOp.and, [2, 8]⟩,
+   ⟨GateOp.and, [7, 10]⟩, ⟨GateOp.or, [14, 15]⟩,
+   ⟨GateOp.or, [18, 16]⟩, ⟨GateOp.or, [19, 17]⟩]
+
+lemma graphWitness14_basis : ∀ g ∈ graphWitness14Gates,
+    (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2 := by
+  simp [graphWitness14Gates]
+
+lemma graphWitness14_length : graphWitness14Gates.length = 14 := rfl
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 4000000 in
+lemma graphWitness14_correct : ∀ x : Fin 7 → Bool,
+    Circuit.eval ⟨graphWitness14Gates, 20⟩ (List.ofFn x) = postedEdgeFun x := by
+  decide
+
+lemma graph_replacement_of_fourteen_le (k : ℕ) (hk : 14 ≤ k) :
+    ∃ (gs : List Gate) (out : ℕ),
+      (∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
+      gs.length ≤ k ∧
+      ∀ x : Fin 7 → Bool, Circuit.eval ⟨gs, out⟩ (List.ofFn x) = postedEdgeFun x :=
+  ⟨graphWitness14Gates, 20, graphWitness14_basis,
+    by simpa only [graphWitness14_length] using hk, graphWitness14_correct⟩
+
+lemma fixedAnd_pair01_45_replacement_all_sizes
+    (pre suffix : List Gate) (inputs : List ℕ) (o : ℕ)
+    (p : Fin 7 × Fin 7) (hp : p = (0, 1) ∨ p = (4, 5))
+    (hpre : ∀ g ∈ pre, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hsuf : ∀ g ∈ suffix, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hpair : ∀ q ∈ nonedgePairs,
+      cutInput pre inputs (List.ofFn (pairPoint q)) = pairAndInput p (pairPoint q))
+    (hf : ∀ x : Fin 7 → Bool,
+      Circuit.eval ⟨pre ++ ⟨GateOp.not, inputs⟩ :: suffix, o⟩ (List.ofFn x) = postedEdgeFun x) :
+    ∃ (gs : List Gate) (out : ℕ),
+      (∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
+      gs.length ≤ (pre ++ ⟨GateOp.not, inputs⟩ :: suffix).length ∧
+      ∀ x : Fin 7 → Bool, Circuit.eval ⟨gs, out⟩ (List.ofFn x) = postedEdgeFun x := by
+  by_cases hsmall : (pre ++ ⟨GateOp.not, inputs⟩ :: suffix).length ≤ 13
+  · exact fixedAnd_pair01_45_replacement pre suffix inputs o p hp hpre hsuf hpair hf hsmall
+  · exact graph_replacement_of_fourteen_le _ (by omega)
+
+lemma forced_pair01_45_replacement
+    (pre suffix : List Gate) (inputs : List ℕ) (o : ℕ)
+    (p : Fin 7 × Fin 7) (hp : p = (0, 1) ∨ p = (4, 5))
+    (hpre : ∀ g ∈ pre, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hsuf : ∀ g ∈ suffix, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hf : ∀ x : Fin 7 → Bool,
+      Circuit.eval ⟨pre ++ ⟨GateOp.not, inputs⟩ :: suffix, o⟩ (List.ofFn x) = postedEdgeFun x)
+    (hpair : ∀ q ∈ nonedgePairs,
+      Circuit.eval ⟨pre ++ ⟨GateOp.and, []⟩ :: suffix, o⟩ (List.ofFn (pairPoint q)) =
+        pairAndInput p (pairPoint q)) :
+    ∃ (gs : List Gate) (out : ℕ),
+      (∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
+      gs.length ≤ (pre ++ ⟨GateOp.not, inputs⟩ :: suffix).length ∧
+      ∀ x : Fin 7 → Bool, Circuit.eval ⟨gs, out⟩ (List.ofFn x) = postedEdgeFun x :=
+  graph_replacement_of_fourteen_le _
+    (forced_pair01_45_size_lower_bound pre suffix inputs o p hp hpre hsuf hf hpair)
+
 end PEqualNP.Outside.L_meta_10760
