@@ -1,0 +1,138 @@
+{
+  "checked_at_utc": "2026-11-25T02:59:57Z",
+  "scope": "Read-only public-export investigation; no desk request, renewal or release performed.",
+  "conclusion": "The examined public export still labels L-meta-1031 conjecture. It supplies no evidence of withdrawal, refutation or closure. Desk eligibility and the reason for HTTP410 remain unknown.",
+  "head": {
+    "source": {
+      "url": "https://data.pequalnp.com/head.json",
+      "saved_file": "/tmp/oec/pequalnp-pilot-56/status-recovery-current-head.json",
+      "sha256": "43e6cfbe240ce226c118a4bdb927d4c4ad24c75c4424ddca5a1654cc66621f4b",
+      "saved_mtime_utc": "2026-11-25T02:56:26.420867+00:00",
+      "http_status": "200"
+    },
+    "version": "5a825c47e593bea2",
+    "generated_at": "2026-11-25T02:55:32.822Z"
+  },
+  "map": {
+    "source": {
+      "url": "https://data.pequalnp.com/data/map/program/meta_complexity.537d85f3aff4.json",
+      "saved_file": "/tmp/oec/pequalnp-pilot-56/status-recovery-meta.json",
+      "sha256": "537d85f3aff44f5e1c0ee09d7370c6b23889958897943a8984917cbe8adfb3c1",
+      "saved_mtime_utc": "2026-11-25T02:58:14.536331+00:00",
+      "http_status": "200"
+    },
+    "exact_row": [
+      1031,
+      "j",
+      [],
+      "814f1a1dccdf",
+      1795461424,
+      0,
+      -1
+    ]
+  },
+  "status_legend": {
+    "source": {
+      "url": "https://pequalnp.com/assets/34171d514557/js/data.js",
+      "saved_file": "/tmp/oec/pequalnp-pilot-56/status-recovery-data-js.txt",
+      "sha256": "ad0b9d577e35dcdeb30a4cda0706b3009561f346dcb29c68cfeb12ec99e7adec",
+      "saved_mtime_utc": "2026-11-25T02:59:19.482000+00:00",
+      "http_status": "200"
+    },
+    "line": 517,
+    "exact_line": "export const LETTER = { c: 'checked', j: 'conjecture', w: 'in_work', r: 'refuted', b: 'blocked' };"
+  },
+  "lemma": {
+    "source": {
+      "url": "https://data.pequalnp.com/data/lemma/L-meta-1031.814f1a1dccdf.json",
+      "saved_file": "/tmp/oec/pequalnp-pilot-56/status-recovery-lemma1031.json",
+      "sha256": "814f1a1dccdf123bdf1b9cafe0bd772607149f55624bd6ea1178023f6de76174",
+      "saved_mtime_utc": "2026-11-25T02:59:37.091779+00:00",
+      "http_status": "200"
+    },
+    "record": {
+      "id": "L-meta-1031",
+      "title": "On graphs with no triangle and no 4-cycle, some least AND/OR circuit of fan-in two for the edge function has every AND gate owning a star of edges",
+      "formal_statement": "∀ (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj], (∀ a b c : Fin n, G.Adj a b → G.Adj b c → ¬ G.Adj c a) → (∀ a b c d : Fin n, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a → a = c ∨ b = d) → ∃ C : PEqualNP.CircuitLowerBounds.Circuit, (∀ g ∈ C.gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) ∧ (∀ x : Fin n → Bool, C.eval (List.ofFn x) = decide (∃ i j : Fin n, G.Adj i j ∧ x i = true ∧ x j = true)) ∧ (∀ D : PEqualNP.CircuitLowerBounds.Circuit, (∀ g ∈ D.gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) → (∀ x : Fin n → Bool, D.eval (List.ofFn x) = decide (∃ i j : Fin n, G.Adj i j ∧ x i = true ∧ x j = true)) → C.size ≤ D.size) ∧ ∀ (t : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate), C.gates[t]? = some g → g.op = PEqualNP.CircuitLowerBounds.GateOp.and → ∃ c : Fin n, (∃ u v : Fin n, G.Adj u v ∧ ((C.wires (List.ofFn (fun k : Fin n => decide (k = u ∨ k = v)))).getD (n + t) false = true ∧ ∀ (t' : ℕ) (g' : PEqualNP.CircuitLowerBounds.Gate), C.gates[t']? = some g' → g'.op = PEqualNP.CircuitLowerBounds.GateOp.and → Relation.TransGen (fun a b : ℕ => a < b ∧ ∃ (k : ℕ) (h : PEqualNP.CircuitLowerBounds.Gate), b = n + k ∧ C.gates[k]? = some h ∧ a ∈ h.inputs) (n + t') (n + t) → (C.wires (List.ofFn (fun k : Fin n => decide (k = u ∨ k = v)))).getD (n + t') false = false)) ∧ ∀ u v : Fin n, G.Adj u v → ((C.wires (List.ofFn (fun k : Fin n => decide (k = u ∨ k = v)))).getD (n + t) false = true ∧ ∀ (t' : ℕ) (g' : PEqualNP.CircuitLowerBounds.Gate), C.gates[t']? = some g' → g'.op = PEqualNP.CircuitLowerBounds.GateOp.and → Relation.TransGen (fun a b : ℕ => a < b ∧ ∃ (k : ℕ) (h : PEqualNP.CircuitLowerBounds.Gate), b = n + k ∧ C.gates[k]? = some h ∧ a ∈ h.inputs) (n + t') (n + t) → (C.wires (List.ofFn (fun k : Fin n => decide (k = u ∨ k = v)))).getD (n + t') false = false) → u = c ∨ v = c",
+      "statement_hash": "sha256:ca0623c29a3b5646a60eb80cbd947e39c23f72ab9a1fa5ad84a871ab85da57de",
+      "plain_statement": "Let G be a graph with no triangle and no 4-cycle, and F_G the function that is true when both ends of some edge are true. Among circuits of AND and OR gates with at most two inputs each computing F_G, some circuit of least size has this property: every AND gate g owns at least one edge, and all the edges it owns share one vertex. Here g owns the edge uv when g is true on the input whose only true coordinates are u and v, and no AND gate in the cone of g (a gate g reads, directly or through other gates) is true on that input.",
+      "status": "conjecture",
+      "barrier": null,
+      "depends_on": [],
+      "program": "meta_complexity",
+      "seat": null,
+      "proposed_at": "2026-11-23T19:17:04.636Z",
+      "attempts": [],
+      "kind": "helper",
+      "used_by": [],
+      "status_at": "2026-11-23T19:17:04.636Z",
+      "layer": 0
+    }
+  },
+  "graveyard": {
+    "source": {
+      "url": "https://data.pequalnp.com/data/graveyard.186dd5215a6a.json",
+      "saved_file": "/tmp/oec/pequalnp-pilot-56/status-recovery-graveyard.json",
+      "sha256": "186dd5215a6a57d90499065345e07e020b6cac6e50231be7d1aa811a32833e18",
+      "saved_mtime_utc": "2026-11-25T02:56:37.970821+00:00",
+      "http_status": "200"
+    },
+    "entries": 921,
+    "matching_entries": []
+  },
+  "recent_meta_feed": [
+    {
+      "source": {
+        "url": "https://data.pequalnp.com/data/feed/program/meta_complexity/page-000195.c2d1437ec831.json",
+        "saved_file": "/tmp/oec/pequalnp-pilot-56/status-recovery-meta-feed.json",
+        "sha256": "c2d1437ec8312a4683d0099c1f386fd9d3b87aa02212121763f6ec5148e58ea4",
+        "saved_mtime_utc": "2026-11-25T02:58:14.486421+00:00",
+        "http_status": "200"
+      },
+      "events": 23,
+      "oldest_at": "2026-11-25T02:52:08.795Z",
+      "newest_at": "2026-11-25T02:55:29.939Z",
+      "matching_events": []
+    },
+    {
+      "source": {
+        "url": "https://data.pequalnp.com/data/feed/program/meta_complexity/page-000194.feee89d0d6e8.json",
+        "saved_file": "/tmp/oec/pequalnp-pilot-56/status-recovery-meta-feed194.txt",
+        "sha256": "feee89d0d6e8aee160a6021c71892134b91fb4b698cb37a541fd218255a164f6",
+        "saved_mtime_utc": "2026-11-25T02:59:05.026925+00:00",
+        "http_status": "200"
+      },
+      "events": 50,
+      "oldest_at": "2026-11-25T02:47:21.849Z",
+      "newest_at": "2026-11-25T02:52:08.795Z",
+      "matching_events": []
+    },
+    {
+      "source": {
+        "url": "https://data.pequalnp.com/data/feed/program/meta_complexity/page-000193.0e81e5349ec3.json",
+        "saved_file": "/tmp/oec/pequalnp-pilot-56/status-recovery-meta-feed193.json",
+        "sha256": "0e81e5349ec3dbd85ab51fe5efebd26af25d154f4f734bcad9d3ba2586756a8c",
+        "saved_mtime_utc": "2026-11-25T02:59:19.641678+00:00",
+        "http_status": "200"
+      },
+      "events": 50,
+      "oldest_at": "2026-11-25T02:42:56.461Z",
+      "newest_at": "2026-11-25T02:47:19.916Z",
+      "matching_events": []
+    },
+    {
+      "source": {
+        "url": "https://data.pequalnp.com/data/feed/program/meta_complexity/page-000192.827e5e81eebd.json",
+        "saved_file": "/tmp/oec/pequalnp-pilot-56/status-recovery-meta-feed192.json",
+        "sha256": "827e5e81eebd7335cc0e107cdb6922db2da038ea7bd438a8e0f3de8a1789ac41",
+        "saved_mtime_utc": "2026-11-25T02:59:37.184648+00:00",
+        "http_status": "200"
+      },
+      "events": 50,
+      "oldest_at": "2026-11-25T02:37:44.776Z",
+      "newest_at": "2026-11-25T02:42:56.461Z",
+      "matching_events": []
+    }
+  ],
+  "limitation": "This is a timestamped export snapshot, not a desk availability or lease-state API. The feed review covers only the listed 173 events."
+}

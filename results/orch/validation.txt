@@ -1,6 +1,6 @@
 Gap: L-meta-1031
 Status: PARTIAL. The full posted theorem remains unproved; no refutation of it was found. No PR opened.
-Recorded UTC: 2026-11-25T02:37:22.029933+00:00
+Recorded UTC: 2026-11-25T03:03:38.049958+00:00
 Job started UTC: 2026-11-25T01:05:49+00:00
 Message ID: msg-583d7daedfa0749e7336584d
 Branch: pnp/pilot-56; remote: origin (wneb-creator/pequalnp-proofs).
@@ -8,7 +8,7 @@ Named source: lean/PEqualNP/Outside/L_meta_1031.lean
 Named source SHA256: 2011a533d49ecf0a82d095ef56836673c07337a6174bdb870e66edab55aad8e3
 Named source lines/bytes: 6066/281452
 Named source pushed commit: a1b4d3cf1788eec4e55558af43d4918d3f199dd9
-Latest preceding pushed checkpoint: 59dde9d921883e0f1627ccbfde4bfa80c9ccd57b
+Latest preceding pushed checkpoint: a0d37c45d399ca01950cbda5ccd165b3e317a7a7
 Build: PASS, exit 0, Build completed successfully (5183 jobs).
 Build command, cwd lean/: LAKE_ARTIFACT_CACHE=false PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-56/lean-4.36.0-linux/bin/lake PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-56/pnp-home XDG_CACHE_HOME=/tmp/oec/pequalnp-pilot-56/cache ../tools/bin/lake build PEqualNP.Outside.L_meta_1031
 Complete build stdout/stderr: named-v2-build.stdout / named-v2-build.stderr.
@@ -18,10 +18,10 @@ Checker details and command: named-v2-checker-validation.txt.
 Cleanup: skipped because no completed posted theorem or successful checker exists; source before/after cleanup: 6066/6066 lines.
 Format scan: no _root_, double quotes, sorry, native_decide, axiom/instance/type declarations, # commands or attributes found by bounded rg scan (exit 1 means no matches).
 Scope: compiled forest/empty/common-center special cases, general minimum existence, separate star construction, structural lemmas, conditional normalization bridge, auxiliary OR-count counterexample. None is presented as the general posted theorem.
-Desk requests: 1; null responses: 0. No null/no-step message was returned. Assigned gap L-meta-1031 on the first request.
+Desk requests: 7; null responses: 6. Initial request assigned L-meta-1031; recovery requests returned no lease. Exact responses and times are in desk-recovery/status.json and desk-log.txt.
 Reductions: desk reported 3 live reductions, so no fourth reduction was submitted.
-Lease: renewal at02:39UTC returned HTTP410 despite prior reported expiry02:49:18.110UTC. Same call was repeated exactly once with curl-si; full headers/body in desk-410-response.txt. Timer stopped. This job did not release that lease. Recovery request follows preservation push under the user's explicit410 rule.
+Lease: renewal at02:39UTC returned HTTP410 despite prior reported expiry02:49:18.110UTC. Same call was repeated exactly once with curl-si; full headers/body in desk-410-response.txt. Timer stopped. This job did not release that lease. Reviewed results were pushed as a0d37c45d399ca01950cbda5ccd165b3e317a7a7 before the recovery request. Four-minute polling continues under the user rule; no active lease.
 Research artifacts: HANDOFF.md, NOTES.md, TIMELINE.md, exact statement.txt, complete logs, source helpers, frozen search manifests, and final obstruction reports.
 Historical checkpoint validations: validation-history.txt and historical-or-counter-002/.
 Sub-agents: 6 (counterexample; independent_review; lean_setup; lemma_inventory; proof_strategy; status_review).
-TIMING total=91.55 subagents=6
+TIMING total=117.82 subagents=6

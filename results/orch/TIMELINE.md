@@ -16,3 +16,5 @@
 - 2026-11-25T02:37:22.029933+00:00 — Passed 90 minutes of work. Full theorem still unresolved. Final conceptual reviews exclude the tested local shortcuts; last bounded searches continue. Named 6066-line source and checker-fault diagnostics are already pushed.
 
 - 2026-11-25T02:40:34.021787+00:00 — Own lease renewal returned HTTP410 at02:39, despite prior announced expiry02:49. Diagnostic curl-si repeated the same call once; complete response preserved. Timer stopped. Saving all reviewed results before recovery request.
+
+- 2026-11-25T03:03:38.049958+00:00 — Recovery polling checkpoint: 6 null responses, no active lease. Complete response log preserved. Public status record still says conjecture; cause of410 remains unknown.
