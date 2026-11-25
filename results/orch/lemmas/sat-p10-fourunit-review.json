@@ -1,0 +1,24 @@
+{
+  "status": "PASS independent finite census/predicate and frozen manifest audit",
+  "utc": "2026-11-25T14:03:55.442230+00:00",
+  "manifest_sha256": "4017376a3f28c311d4bfc60608a12ccd4d110bfb2878020253c68899b2af96dc",
+  "verified_files": 13,
+  "independent_representation": "Python frozensets for masks, intersection/union, subset, cardinality and residual-coordinate sets; author bitwise predicates not reused.",
+  "counts": {
+    "parent_choices": 10000,
+    "families": 2408,
+    "constructible": 81,
+    "unit_multisets": 58905,
+    "survivors": 49,
+    "automorphisms": 6,
+    "orbits": 12
+  },
+  "checks": [
+    "All parent option tables regenerated independently.",
+    "Every family union/intersection closure and missing-mask list independently regenerated.",
+    "All four-unit multisets and every staged predicate/count regenerated from set semantics.",
+    "Six preserving Fano automorphisms and all canonical orbit memberships independently regenerated.",
+    "All13 frozen artifact hashes and sizes match manifest."
+  ],
+  "qualification": "Finite research only. The actual-circuit mask-family/count/protection transfers are explicit separate premises and were not Lean-checked by this audit. Surviving abstractions are not circuits; no contradiction or assigned-gap proof is claimed."
+}

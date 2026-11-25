@@ -1,0 +1,18 @@
+{
+  "verdict": "PASS conditional mathematical sketch review; not a Lean theorem",
+  "checked_utc": "2026-11-25T14:08:01.628918+00:00",
+  "source": "results/orch/lemmas/stochastic-p10-equality-structure.md",
+  "sha256": "77f9d4de670c901dcb308e97ee36bb14e3881099a2f8916149a6878bbc96f087",
+  "scope": "Assumes exact8-mask family shape and equality in every stated flow/cost/fiber bound. Does not prove the finite family shape, formalize the equality propagation, eliminate unary OR proxies, or prove a remaining Fano case.",
+  "checked_points": [
+    "Exact fiber cardinality2 identifies every chosen outside pair with its two disjoint witness labels; equality in the big-mask lower bound excludes additional outside pairs.",
+    "The singleton-output cost argument requires sup_Wit operand-mask cardinality\u22642; accepted sup_wit_same_pos then prevents two lost labels at one operand. Without that bound the claim would fail for a triple operand.",
+    "Unique big occurrence means a sup_big merge, not every wire carrying the mask. Unary OR copies can repeat a mask, as explicitly retained in the caveat.",
+    "Given the stated restricted mask family, an AND retaining at least2 projected labels repeats a parent nontrivial mask; the first-occurrence/count equality is the intended obstruction."
+  ],
+  "remaining_requirements": [
+    "Formal equality extraction from the weighted cost partition and flow bound.",
+    "Exact formal finite-family statement and coverage of all current circuit masks.",
+    "No route from empty projected AND support to pure line OR functions is established."
+  ]
+}

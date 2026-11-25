@@ -1,0 +1,38 @@
+{
+  "created_utc": "2026-11-25T14:11:06.277704+00:00",
+  "scope": "Generic consuming_changed_path cached proof, exit0/full emptylogs and independent exact-source review. No separate permitted-import standalone claimed; future combined ordered-cut standalone is separate. No graph/no-double-quiet conclusion.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/formalization-consuming-changed-path-tail.lean",
+      "bytes": 1467,
+      "sha256": "65e4c09d4ec600f51c7d15fc207cbb37c2f450341d9439a2032e28a2553e7748"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-consuming-changed-path-cache.lean",
+      "bytes": 1552,
+      "sha256": "8ed6c91a7146da6ca5288fdf103716d8be6cb639c423770b3bfc2a9e6108f578"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-consuming-changed-path-cache-build.json",
+      "bytes": 539,
+      "sha256": "07c0339bbdfdcca8797701eff9e5477721b5a1ead0aaaf867201e6a5a69d92ae"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-consuming-changed-path-cache-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-consuming-changed-path-cache-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/status-consuming-changed-path-review.json",
+      "bytes": 1026,
+      "sha256": "9597135cd1dcfbba7f2c0a8459c06c7edbfee28d6bce1161d84647c65612d38f"
+    }
+  ],
+  "file_count": 6,
+  "bytes": 4584
+}

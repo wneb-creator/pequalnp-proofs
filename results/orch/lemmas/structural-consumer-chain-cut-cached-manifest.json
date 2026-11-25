@@ -1,0 +1,88 @@
+{
+  "created_utc": "2026-11-25T14:16:57.883411+00:00",
+  "scope": "Independent cached success for consuming changed-path extraction, unordered consumer-chain semantic cut and barrier edge-survival. Explicit two-consumer/empty-opposite/single-reader-chain/later-target hypotheses; no ordering hypothesis on the second consumer. Complete diagnostics and historical first cut attempt retained. Full permitted-import standalone pending and excluded; no first-filter identity, surgery or full target result.",
+  "file_count": 16,
+  "bytes": 30815,
+  "files": [
+    {
+      "path": "results/orch/lemmas/structural-ordered-consumer-cut-tail.lean",
+      "bytes": 5197,
+      "sha256": "e94b81e2357d2fa6671605c295cd42fed590f90389aa54685ec77d6288d1e6a8"
+    },
+    {
+      "path": "results/orch/lemmas/structural-ordered-consumer-cut.lean",
+      "bytes": 9134,
+      "sha256": "76f548415bf40f6bcd9abce41e6477c86185dd57bbc87c9cb5bf4d6609a743de"
+    },
+    {
+      "path": "results/orch/lemmas/structural-ordered-consumer-cut-build.json",
+      "bytes": 297,
+      "sha256": "3bdaf4d7bcb5ea1a02edfaae8d502dc9da5e7198fcad4833f59f7143d55b5ddc"
+    },
+    {
+      "path": "results/orch/lemmas/structural-ordered-consumer-cut-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-ordered-consumer-cut-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-ordered-consumer-cut-attempt1.lean",
+      "bytes": 9085,
+      "sha256": "b5966643475d5c4df6cd96196a0f35dccf3fa1d599309b5512ad75117d04061f"
+    },
+    {
+      "path": "results/orch/lemmas/structural-ordered-consumer-cut-attempt1.json",
+      "bytes": 297,
+      "sha256": "4dcd3dcb3a0d7ffba56317339f80270149602706a6c5a417f4b87210894806f6"
+    },
+    {
+      "path": "results/orch/lemmas/structural-ordered-consumer-cut-attempt1.stdout",
+      "bytes": 397,
+      "sha256": "4359b740a02640557ffc75b3578a58d1a7f2f9f1737cd09732f0515ef2c6da3b"
+    },
+    {
+      "path": "results/orch/lemmas/structural-ordered-consumer-cut-attempt1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/constructive-review-consumer-chain-cut.json",
+      "bytes": 1824,
+      "sha256": "0746a70b3aa0ebedc730e7e638bce051588510fe1f2421dd9211299bf2063127"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-consuming-changed-path-tail.lean",
+      "bytes": 1467,
+      "sha256": "65e4c09d4ec600f51c7d15fc207cbb37c2f450341d9439a2032e28a2553e7748"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-consuming-changed-path-cache.lean",
+      "bytes": 1552,
+      "sha256": "8ed6c91a7146da6ca5288fdf103716d8be6cb639c423770b3bfc2a9e6108f578"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-consuming-changed-path-cache-build.json",
+      "bytes": 539,
+      "sha256": "07c0339bbdfdcca8797701eff9e5477721b5a1ead0aaaf867201e6a5a69d92ae"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-consuming-changed-path-cache-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-consuming-changed-path-cache-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/status-consuming-changed-path-review.json",
+      "bytes": 1026,
+      "sha256": "9597135cd1dcfbba7f2c0a8459c06c7edbfee28d6bce1161d84647c65612d38f"
+    }
+  ]
+}

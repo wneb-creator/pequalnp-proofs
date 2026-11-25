@@ -3,8 +3,8 @@
   "original_source": "results/orch/lemmas/formalization-q2-complete-standalone.lean",
   "original_sha256": "6f0a5c74f2419f25f6e623512d30415a03a7511e44c934c51cdd7f903eb9ac4f",
   "pruned_source": "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-standalone.lean",
-  "pruned_sha256": "dcf552e93876198f9c6c21d6cf0ef2054be0a13d34418b9021c75c848f3cce3a",
-  "pruned_bytes": 452362,
+  "pruned_sha256": "2458f4bdea62219a576cac34d9cc886286a1b61cd20d1439e565568be0e440fd",
+  "pruned_bytes": 450772,
   "pruned_lines": 8014,
   "removed_declarations": [
     "unitsOn",
@@ -228,8 +228,8 @@
     "equality_three_slot_full"
   ],
   "cached_source": "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-cache.lean",
-  "cached_sha256": "030b43fec12176eb23ecb22458a390d96dc9faca8fe15d4a7b3d6d1240c3a112",
-  "cached_bytes": 332756,
+  "cached_sha256": "e11a4d823a26d4104ee181980e84ea662c43c68f1ec839255a6e94a39645810b",
+  "cached_bytes": 331166,
   "imported_finite_declarations": [
     "cap7_decode",
     "cap7_sum",
@@ -432,5 +432,7 @@
     "q2f_cert_14_9",
     "q2f_certificate_all"
   ],
-  "scope": "Dependency-guided textual pruning candidate; uncompiled. Cached companion imports only the already checked finite certificate to validate retained core faster. No theorem statement changes."
+  "scope": "Dependency-guided pruning removes219unused declarations and10orphan documentation comments, with all retained proof/context commands unchanged by independent reviews. The original cached check exited1 solely on those10 orphan-comment parser errors; the corrected fullstandalone build is pending. No new complete standalone success claimed.",
+  "revision_utc": "2026-11-25T14:09:58.757786+00:00",
+  "comment_fix_report": "results/orch/lemmas/pilot-q2-pruning-comment-fix.json"
 }

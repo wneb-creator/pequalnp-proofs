@@ -1,0 +1,6 @@
+{
+  "exit_code": 0,
+  "utc": "2026-11-25T14:15:42.193806+00:00",
+  "scope": "Independent portable audit completed against a freshly restored immutable bundle; no solver run.",
+  "source_sha256": "f8219c61987ace1ae043976eb52f49657324b7ee25e8618fa26c8bf6bed9292e"
+}

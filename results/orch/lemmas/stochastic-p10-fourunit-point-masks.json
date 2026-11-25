@@ -1,0 +1,292 @@
+{
+  "scope": "Additional necessary per-eligible-point residual-coordinate possibilities from proved three-slot-full, nonempty co-label and assigned_budget_extra. This is not a joint full-support existence test.",
+  "rows": [
+    {
+      "units": [
+        1,
+        2,
+        32,
+        64
+      ],
+      "full_assigned_points": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "allowed_eligible_point_unit_masks": [
+        0
+      ]
+    },
+    {
+      "units": [
+        2,
+        33,
+        65,
+        96
+      ],
+      "full_assigned_points": [
+        0,
+        2
+      ],
+      "allowed_eligible_point_unit_masks": [
+        0,
+        2,
+        4,
+        8
+      ]
+    },
+    {
+      "units": [
+        2,
+        33,
+        65,
+        98
+      ],
+      "full_assigned_points": [],
+      "allowed_eligible_point_unit_masks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "units": [
+        2,
+        33,
+        69,
+        96
+      ],
+      "full_assigned_points": [
+        0,
+        2
+      ],
+      "allowed_eligible_point_unit_masks": [
+        0,
+        2,
+        4,
+        8
+      ]
+    },
+    {
+      "units": [
+        2,
+        33,
+        69,
+        98
+      ],
+      "full_assigned_points": [],
+      "allowed_eligible_point_unit_masks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "units": [
+        2,
+        49,
+        69,
+        96
+      ],
+      "full_assigned_points": [
+        0,
+        2
+      ],
+      "allowed_eligible_point_unit_masks": [
+        0,
+        2,
+        4,
+        8
+      ]
+    },
+    {
+      "units": [
+        2,
+        49,
+        69,
+        98
+      ],
+      "full_assigned_points": [],
+      "allowed_eligible_point_unit_masks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "units": [
+        3,
+        33,
+        68,
+        98
+      ],
+      "full_assigned_points": [],
+      "allowed_eligible_point_unit_masks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "units": [
+        3,
+        36,
+        69,
+        98
+      ],
+      "full_assigned_points": [],
+      "allowed_eligible_point_unit_masks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "units": [
+        3,
+        48,
+        69,
+        98
+      ],
+      "full_assigned_points": [],
+      "allowed_eligible_point_unit_masks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "units": [
+        6,
+        49,
+        69,
+        98
+      ],
+      "full_assigned_points": [],
+      "allowed_eligible_point_unit_masks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "units": [
+        10,
+        49,
+        69,
+        98
+      ],
+      "full_assigned_points": [],
+      "allowed_eligible_point_unit_masks": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    }
+  ]
+}

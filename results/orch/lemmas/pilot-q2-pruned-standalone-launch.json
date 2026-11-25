@@ -1,0 +1,7 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-standalone.lean",
+  "sha256": "2458f4bdea62219a576cac34d9cc886286a1b61cd20d1439e565568be0e440fd",
+  "started_utc": "2026-11-25T14:10:17.995393+00:00",
+  "command": "Pinned Lean4.36 lake env lean -j1 -M10000 --profile <pruned standalone source>",
+  "scope": "Permitted-import full finite+actual q2 exact subcase; source450772bytes. Original oversized attempt failed M6000 memory limit; pruning and orphan-comment fix independently reviewed. Running, no standalone success claimed."
+}

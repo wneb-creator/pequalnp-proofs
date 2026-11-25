@@ -1,0 +1,18 @@
+{
+  "reviewer": "lean_setup",
+  "utc": "2026-11-25T14:08:32.234642+00:00",
+  "verdict": "PASS exact source composition, cached binding, and permitted-import standalone exit0",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/structural-nonedge-unbranched-fano-standalone.lean",
+  "sha256": "da7bcb5321240c467b0d2744f97318d3e3528291d17474dbeab3deed2087195d",
+  "line_count": 3500,
+  "cached_source": "/workspace/pequalnp-proofs/results/orch/lemmas/structural-nonedge-unbranched-fano.lean",
+  "cached_sha256": "4dad290db572f9e65d6e01e662d8949b248037caeae48b4be6a5fa91cb502a2a",
+  "cached_receipt_sha256": "c732f08fa5345bef4becf73c46c4a1d8a227aa24ad4dc2805506f64ff4bee078",
+  "composition": "Exact accepted first3240lines plus close SemPaths/namespace and exact cached257line source body with import removed. Only uniform namespace rename to L_meta_1479.NonedgeSignal and separator whitespace.",
+  "math_review": "constructive-review-nonedge-unbranched.json covers generic and actual Fano wrapper; root nonedge and first-filter components have separate frozen reviews.",
+  "scope": "Actual Fano nonedge first-filter consequence under explicit strict-live/correctness and totalSurplus\u2264eligible-card equality budget. The no-branching premise is discharged. Incoming support at the first filter is unrestricted; no full p14/no-double-quiet or full-gap conclusion.",
+  "format": "Single Defs import; trust/format scans clean; only permitted limit options and inherited simp/local simp attributes.",
+  "standalone_exit": 0,
+  "standalone_receipt_sha256": "fa7bb13aef1ba30c1c993129bd195ba23389283afcae17d6a304c2c03d11913e",
+  "standalone_logs": "Complete stdout/stderr empty"
+}

@@ -1,0 +1,38 @@
+{
+  "verdict": "PASS author complete controls",
+  "source_sha256": "9a7d694c8ca8d8a580c9752c9b36dd3e068490d0f683a9faa1d5baf884a4fd93",
+  "target": {
+    "variables": 35836,
+    "clauses": 184074,
+    "added_variables": 3185,
+    "added_clauses": 42889,
+    "transfer_clauses": 30240
+  },
+  "controls": [
+    {
+      "tag": "sat-p14-compact-cross28-control",
+      "variables": 6624,
+      "clauses": 25632,
+      "cross": false,
+      "graph": "fano",
+      "all_truth_rows": 16384,
+      "marked_derivatives": [
+        false,
+        false
+      ]
+    },
+    {
+      "tag": "sat-p14-compact-cross-host-control",
+      "variables": 82386,
+      "clauses": 409397,
+      "cross": true,
+      "graph": "matching",
+      "all_truth_rows": 16384,
+      "marked_derivatives": [
+        false,
+        false
+      ]
+    }
+  ],
+  "scope": "New cross cut enabled on hosted matching control, disabled on exact28 Fano control. No solver run or target claim."
+}

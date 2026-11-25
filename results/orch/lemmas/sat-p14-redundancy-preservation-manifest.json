@@ -1,0 +1,245 @@
+{
+  "created_utc": "2026-11-25T14:15:42.195298+00:00",
+  "scope": "Reviewed positive-support OR-redundancy cuts for hosted and single-use AND atoms, extending full-cross p14 model. Requires exact27 reconstruction and accepted ordinary Fano lower bound. No SAT outcome or target proof.",
+  "source_sha256": "f8219c61987ace1ae043976eb52f49657324b7ee25e8618fa26c8bf6bed9292e",
+  "requires": [
+    "results/orch/lemmas/sat-p14-cross-preservation-manifest.json"
+  ],
+  "files": [
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-redundancy.py",
+      "bytes": 3544,
+      "sha256": "f8219c61987ace1ae043976eb52f49657324b7ee25e8618fa26c8bf6bed9292e",
+      "restore_as": "sat-p14-compact-redundancy.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-redundancy-controls.py",
+      "bytes": 2751,
+      "sha256": "9688abf2276f363ccec6374ce9a5ff08f735b817089d6f91739c79c5bc5e5e4e",
+      "restore_as": "sat-p14-compact-redundancy-controls.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-redundancy-controls.json",
+      "bytes": 1052,
+      "sha256": "38d24b4ca9cad0b7774c703de997cc14ddb13f28f5ca930ff0c68f06384fb441",
+      "restore_as": "sat-p14-compact-redundancy-controls.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-redundancy-controls.stdout",
+      "bytes": 864,
+      "sha256": "d5567383214eb85f455c7f5f18281a9090ea5fc238d4ff018bbb4d43df7df45c",
+      "restore_as": "sat-p14-compact-redundancy-controls.stdout",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-redundancy-controls.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "sat-p14-compact-redundancy-controls.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-redundancy-audit.py",
+      "bytes": 5973,
+      "sha256": "f30340e710b219b7c2eb0280f411e35afc54f0aea36bbb6a94010155e2b73a4e",
+      "restore_as": "constructive-redundancy-audit.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-redundancy-encoder-review.json",
+      "bytes": 2234,
+      "sha256": "98d9f6ff52f51a3acdd5868389feb776c13f651256613f6e72dbe1b0466d5673",
+      "restore_as": "constructive-redundancy-encoder-review.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-redundancy-audit.stdout",
+      "bytes": 1970,
+      "sha256": "e3961609009cd6e71c408887e28faabf3911c945ce5c29748ad7e1f5c32ca574",
+      "restore_as": "constructive-redundancy-audit.stdout",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-redundancy-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "constructive-redundancy-audit.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-redundancy-model.md",
+      "bytes": 2206,
+      "sha256": "2edc985a75ee540d5e10ae501c21f9d4cb3b81b095721ff20115c5da249e103c",
+      "restore_as": "sat-p14-redundancy-model.md",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-redundancy18-target.cnf.gz",
+      "bytes": 764629,
+      "sha256": "dd2f313188244ef05c546cdbe12e35e3c5f72b8df2ce6e52efad73dd36c12e1c",
+      "restore_as": "sat-p14-compact-redundancy18-target.cnf",
+      "gzip": true,
+      "raw_bytes": 3337912,
+      "raw_sha256": "9565dee2040ba91c584b4a38bc57711ea78bf80c974541479a25a4324990c729"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-redundancy18-target.metadata.json.gz",
+      "bytes": 132021,
+      "sha256": "b161f72ea3f582f3ae38b25094849b23dd18f3edd8880b6ad1ee178410e35c3d",
+      "restore_as": "sat-p14-compact-redundancy18-target.metadata.json",
+      "gzip": true,
+      "raw_bytes": 1392717,
+      "raw_sha256": "974d304758e82a1e1e4d6fd29500e7df54b954d62b6de2ce0c8fe8d20d11ccdd"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-cross18-target.cnf.gz",
+      "bytes": 732396,
+      "sha256": "a63915fb14e66a40037fd46e7c12056eb1734aba5a3ed12cbafcadcced662abe",
+      "restore_as": "sat-p14-compact-cross18-target.cnf",
+      "gzip": true,
+      "raw_bytes": 3138706,
+      "raw_sha256": "e2d53e376bbc55faed7e01773d6a2d3bb9d18471fe75e3ffc00484c6c281777f"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-cross18-target.metadata.json.gz",
+      "bytes": 127059,
+      "sha256": "f91a5483105e67694a8b72cdf2fefed5619304f708f70a356a4d83280e57785a",
+      "restore_as": "sat-p14-compact-cross18-target.metadata.json",
+      "gzip": true,
+      "raw_bytes": 1201833,
+      "raw_sha256": "4402eabd40193f4da68f8682e2493659f1add3062a12f5930e965db14bc4c446"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-redundancy28-control.cnf.gz",
+      "bytes": 105716,
+      "sha256": "7c136311b2d587b16f53fd0ff11ede9c12c57c7aee9aec481aede49bfd4b0204",
+      "restore_as": "sat-p14-compact-redundancy28-control.cnf",
+      "gzip": true,
+      "raw_bytes": 386864,
+      "raw_sha256": "e1fbc86f60224733e999a76f5a4ae860ed687ac005a9fa8c551753946367b34a"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-redundancy28-control.metadata.json.gz",
+      "bytes": 21999,
+      "sha256": "8f06ded3df3064ecba2d357b72c25a7dafcb1f91d42bb55e3d68fc701cd8b6f1",
+      "restore_as": "sat-p14-compact-redundancy28-control.metadata.json",
+      "gzip": true,
+      "raw_bytes": 176310,
+      "raw_sha256": "24192bb692463334a0611fd63d8aba9b87e6de43273f1211bf0391213d8061ca"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-cross28-control.cnf.gz",
+      "bytes": 105716,
+      "sha256": "7c136311b2d587b16f53fd0ff11ede9c12c57c7aee9aec481aede49bfd4b0204",
+      "restore_as": "sat-p14-compact-cross28-control.cnf",
+      "gzip": true,
+      "raw_bytes": 386864,
+      "raw_sha256": "e1fbc86f60224733e999a76f5a4ae860ed687ac005a9fa8c551753946367b34a"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-cross28-control.metadata.json.gz",
+      "bytes": 21973,
+      "sha256": "30ddb1478b04514fd8fe2fdcec78b3c61f4555a370fea65cbda2d9ac0208903a",
+      "restore_as": "sat-p14-compact-cross28-control.metadata.json",
+      "gzip": true,
+      "raw_bytes": 176160,
+      "raw_sha256": "efe91df60cd0c3f17ac42b8704f78b56431e83c0f86141e6df3d3fbfeaf54603"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-redundancy28-control.complete-assignment.json.gz",
+      "bytes": 16873,
+      "sha256": "105c6fba478bf78fff421a47cd92e7e95109472f2a45468dfaf521c1449e0199",
+      "restore_as": "sat-p14-compact-redundancy28-control.complete-assignment.json",
+      "gzip": true,
+      "raw_bytes": 110664,
+      "raw_sha256": "192c6292e0d1dbcc42e0de5d882075458063ef8df79cfe37b21db963aa9e5ba1"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-redundancy28-control.compact-control.json.gz",
+      "bytes": 261,
+      "sha256": "7f7dee2d767fcb6221b639a7836a79056b5c23a8a8b1f445b5059f4de7811b93",
+      "restore_as": "sat-p14-compact-redundancy28-control.compact-control.json",
+      "gzip": true,
+      "raw_bytes": 2231,
+      "raw_sha256": "a128f4991090a93b53f5a0e05330d03d86af008dc84d844045cac997f9e01eb5"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-redundancy-host-control.cnf.gz",
+      "bytes": 1530206,
+      "sha256": "63019e789d9f57c54e8181c365cb735cf4f9f750fd2bba6f718e174faf452726",
+      "restore_as": "sat-p14-compact-redundancy-host-control.cnf",
+      "gzip": true,
+      "raw_bytes": 7137639,
+      "raw_sha256": "2c13ca059350978c573d59965e740a51ad5c1551c65e88a48faccb39f36c6a2c"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-redundancy-host-control.metadata.json.gz",
+      "bytes": 271938,
+      "sha256": "f0fd6191de2f30142f8d5ace7560e71c8b4c84bc56b9e4a28174092c6c4c4a59",
+      "restore_as": "sat-p14-compact-redundancy-host-control.metadata.json",
+      "gzip": true,
+      "raw_bytes": 2404543,
+      "raw_sha256": "ee5621da9ebe7508b1b6f2499dc1ae5ce7aa83643bcaa2b4809ad6ffb164c29d"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-cross-host-control.cnf.gz",
+      "bytes": 1499651,
+      "sha256": "b06061682082adac5cd0dc2dd4041d1a892baec12f8ea40f5eed8f817c2d5e75",
+      "restore_as": "sat-p14-compact-cross-host-control.cnf",
+      "gzip": true,
+      "raw_bytes": 6953193,
+      "raw_sha256": "8ca126f6aa1df78424f52135699b2415734fa59d4de3719c9baeef02ccb18fab"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-cross-host-control.metadata.json.gz",
+      "bytes": 268446,
+      "sha256": "f8b015cd194f1aaa3bc28a9516f756aa0e8a93ed4c4c567bf91c2bb830e418da",
+      "restore_as": "sat-p14-compact-cross-host-control.metadata.json",
+      "gzip": true,
+      "raw_bytes": 2302369,
+      "raw_sha256": "c3d0dbd79f129aaa9f51f92418ca6a61bbc341c3194e2876a3f3277c2bcd0e77"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-redundancy-host-control.complete-assignment.json.gz",
+      "bytes": 207070,
+      "sha256": "4225e6a92925566afe7f136972d8258f625323d8a391dbaab98c9748802b6eb5",
+      "restore_as": "sat-p14-compact-redundancy-host-control.complete-assignment.json",
+      "gzip": true,
+      "raw_bytes": 1473705,
+      "raw_sha256": "8bb293f62ffd875601102ab3fb96291d762fadead6c8d009ab6e44219a82e5bc"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-redundancy-host-control.compact-control.json.gz",
+      "bytes": 321,
+      "sha256": "7634e93bb539f3fd48479dd8fe9ba3e06ff1b75cd2d5d716212b72001213d9e3",
+      "restore_as": "sat-p14-compact-redundancy-host-control.compact-control.json",
+      "gzip": true,
+      "raw_bytes": 5023,
+      "raw_sha256": "5f14f7b5f4aa483a0a11f07fdc2ef3b73a0ad810f434b4316510d1ab24dfeb6c"
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-redundancy-reproduction-check.stdout",
+      "bytes": 1970,
+      "sha256": "529ccbdbb6731c690a05d8bfae2e3b27701867df91390e4d0df15f8d65d9e392",
+      "restore_as": "sat-p14-redundancy-reproduction-check.stdout",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-redundancy-reproduction-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "sat-p14-redundancy-reproduction-check.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-redundancy-reproduction-check.json",
+      "bytes": 264,
+      "sha256": "dda37a3bb0f921f7562624766df000a56d2620f428dd3801abd82f2019e6d1ca",
+      "restore_as": "sat-p14-redundancy-reproduction-check.json",
+      "gzip": false
+    }
+  ]
+}

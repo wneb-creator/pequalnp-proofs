@@ -1,0 +1,11 @@
+# Positive-support redundancy restriction
+
+This extends the reviewed full-cross p14 compact model. It is a computational witness search, not a Lean refutation or an assigned-gap proof.
+
+For an AND atom Q and input x, R(Q,x) says Q is true on at least one minimal positive edge assignment omitting x. The added clauses require R(Q,x) when Q selects hosting mode x, and when Q selects single-use mode0 and its consuming slot carries x as a primary input. The target adds252 summary variables and9324 clauses at cap18.
+
+The justification uses the independently reviewed exact27 reconstruction and the accepted ordinary Fano lower bound27. If Q has two uses hosted by x, reconstruction places it once inside the shared proxy x OR (owned atoms). If Q is true only on edges containing x, deleting Q from this proxy leaves every positive-edge value unchanged and can only decrease every negative value. The proxy still contains x, so at least one physical OR gate disappears. If Q has only one use, it is a direct argument in its consuming OR region; the x argument may itself be a shared proxy, but it is true whenever x is true. The same deletion removes an OR gate. Subsequent aliasing, idempotence or dead-gate cleanup is function-only and can only save more gates. Thus either deletion gives a correct ordinary Fano circuit with at most26 gates, contradicting the lower bound. Formal derivative preservation is unnecessary for this argument.
+
+A hosting mode is allowed to encode one use in the overapproximation; that case follows the single-use argument because the mode requires x in its consumer slot. The rule does not constrain a twice-used Q relative to unrelated primary labels in only one of its consumers. Removing Q from only that consumer could require undoing sharing, so such a stronger rule was deliberately not encoded.
+
+The exact28 Fano control has this new cut disabled. The separate hosted matching control enables it and checks every added variable and clause, all16384 truth assignments and both raw marked traces. That matching control is not a Fano witness. Mathematical review and the exact-source/control audit are separately recorded. Both older active solver sources remain frozen.

@@ -1,0 +1,10 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-consuming-changed-path-cache.lean",
+  "sha256": "8ed6c91a7146da6ca5288fdf103716d8be6cb639c423770b3bfc2a9e6108f578",
+  "tail_sha256": "65e4c09d4ec600f51c7d15fc207cbb37c2f450341d9439a2032e28a2553e7748",
+  "exit_code": 0,
+  "started_utc": "2026-11-25T14:09:56.958897+00:00",
+  "finished_utc": "2026-11-25T14:10:04.093960+00:00",
+  "elapsed_seconds": 7.135062433000712,
+  "scope": "Generic first support-loss consumer on changed-wire path; no graph/noquiet claim."
+}

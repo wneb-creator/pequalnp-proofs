@@ -1,0 +1,8 @@
+{
+  "source": "results/orch/lemmas/structural-ordered-consumer-cut.lean",
+  "sha256": "b5966643475d5c4df6cd96196a0f35dccf3fa1d599309b5512ad75117d04061f",
+  "lines": 191,
+  "exit_code": 1,
+  "started_utc": "2026-11-25T14:14:14.682472+00:00",
+  "completed_utc": "2026-11-25T14:14:26.027862+00:00"
+}

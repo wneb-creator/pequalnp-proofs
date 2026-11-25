@@ -1,0 +1,37 @@
+{
+  "verdict": "PASS author complete controls",
+  "source_sha256": "f8219c61987ace1ae043976eb52f49657324b7ee25e8618fa26c8bf6bed9292e",
+  "target": {
+    "variables": 36088,
+    "clauses": 193398,
+    "added_variables": 252,
+    "added_clauses": 9324
+  },
+  "controls": [
+    {
+      "tag": "sat-p14-compact-redundancy28-control",
+      "variables": 6624,
+      "clauses": 25632,
+      "positive_redundancy": false,
+      "graph": "fano",
+      "all_truth_rows": 16384,
+      "marked_derivatives": [
+        false,
+        false
+      ]
+    },
+    {
+      "tag": "sat-p14-compact-redundancy-host-control",
+      "variables": 82680,
+      "clauses": 417629,
+      "positive_redundancy": true,
+      "graph": "matching",
+      "all_truth_rows": 16384,
+      "marked_derivatives": [
+        false,
+        false
+      ]
+    }
+  ],
+  "scope": "Positive-support redundancy enabled on hosted matching control, disabled on exact28 Fano control. General justification uses exact27 reconstruction and ordinary Fano lower bound. No solver run or target claim."
+}

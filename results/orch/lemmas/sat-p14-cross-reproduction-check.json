@@ -1,0 +1,6 @@
+{
+  "exit_code": 0,
+  "utc": "2026-11-25T14:03:05.404030+00:00",
+  "scope": "Independent portable audit completed exit0 against a fresh immutable bundle; packaging hash-call error after the audit was corrected without modifying payload. No solver run.",
+  "source_sha256": "9a7d694c8ca8d8a580c9752c9b36dd3e068490d0f683a9faa1d5baf884a4fd93"
+}

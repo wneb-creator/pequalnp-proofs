@@ -41,3 +41,5 @@ Checkpoint1348 (2026-11-25T13:47:49.638632+00:00): complete q2 cached subcase th
 Checkpoint1353 (2026-11-25T13:53:22.171769+00:00): all mixed-p9 two-missing cases now have full standalone exit0 and exact composition review. Shared-slot productivity is also standalone checked. One-missing mixed-p9 and the full target remain open. Combined q2 exact-subcase standalone is actively building; no success is claimed.
 
 Checkpoint1403 (2026-11-25T14:03:19.293067+00:00): full mixed-p9 case closed in cached Lean with independent review; full standalone pending. The combined q2 standalone had a resource failure134; independently reviewed pruning candidate is under preliminary checking, so its previous cached result is the strongest complete combined result. Public reduction quota is full.
+
+Checkpoint1416 (2026-11-25T14:17:28.180078+00:00): actual Fano nonedge first-filter is standalone checked. Generic unordered consumer-chain cut/edge-survival is cached checked; explicit hypotheses remain. Corrected q2 standalone is active after a parser-only failed preliminary run. No further canonical row or posted target is newly closed.

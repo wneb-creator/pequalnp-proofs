@@ -1,0 +1,23 @@
+{
+  "verdict": "PASS mathematical/source review and cached compilation",
+  "reviewer": "constructive_search",
+  "utc": "2026-11-25T14:16:46.269060+00:00",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/structural-ordered-consumer-cut-tail.lean",
+  "source_sha256": "e94b81e2357d2fa6671605c295cd42fed590f90389aa54685ec77d6288d1e6a8",
+  "scope": "Generic semantic cut and barrier-positive corollary only; no Fano minimality or surgery consequence claimed.",
+  "findings": [
+    "The changed target path starts at one of exactly two possible consuming gate indices. The g case hits the unchanged barrier through the explicit unique-reader chain.",
+    "If the second consumer changes, its singleton-empty opposite child must change because it is false at the singleton base and the consumer is AND. Consuming-path extraction for that child cannot originate at its own later parent by strict topology; hence it starts at g. Concatenating g-to-child-to-parent with the target suffix discharges the second case without an ordering premise on the second consumer.",
+    "The final corollary supposes the inserted barrier false. Monotonicity forces its singleton-base value false, so the cut contradicts the stated target change. All support, target-order, chain, and two-consumer hypotheses remain explicit."
+  ],
+  "cached_source": {
+    "path": "/workspace/pequalnp-proofs/results/orch/lemmas/structural-ordered-consumer-cut.lean",
+    "sha256": "76f548415bf40f6bcd9abce41e6477c86185dd57bbc87c9cb5bf4d6609a743de",
+    "lines": 192,
+    "exit_code": 0,
+    "receipt": "structural-ordered-consumer-cut-build.json",
+    "stdout_bytes": 0,
+    "stderr_bytes": 0
+  },
+  "repair": "One definitional change reduces sem_bar projection before the existing strict-order omega argument; no mathematical or statement change."
+}

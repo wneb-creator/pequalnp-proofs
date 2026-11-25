@@ -1,0 +1,52 @@
+{
+  "created_utc": "2026-11-25T14:09:12.817067+00:00",
+  "scope": "Remove exactly10 orphan doc-comments left immediately before section/end commands by declaration pruning. Previous preliminary build exited1 with only these10 parser errors and two inherited linter warnings; no unknown-constant or theorem-proof errors. New fullstandalone pending.",
+  "files": [
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-standalone.lean",
+      "before_sha256": "dcf552e93876198f9c6c21d6cf0ef2054be0a13d34418b9021c75c848f3cce3a",
+      "after_sha256": "2458f4bdea62219a576cac34d9cc886286a1b61cd20d1439e565568be0e440fd",
+      "bytes": 450772,
+      "lines": 8014,
+      "removed_orphan_doc_comments": [
+        "/-- Antichain property in operand form. -/",
+        "/-- The private-position lemma: if the code of `x` has at most two positions and contains\nthe position opposite the pure operand of an ineligible `i`, then it is that position\ntogether with one position `Z` consuming no other label, at a gate assigned to no\nineligible label. -/",
+        "/-- Descent along single-reader carriers: from a wire `c` carrying all of `X`, when the\ncarriers of the labels of `X` have no merge and no branching from `c` on, an arm leads to\nthe source of a position consuming every label of `X`. -/",
+        "/-- Restriction of a circuit for a graph edge function to an induced subgraph: vertices\nfixed to false are deleted, and every neighbour of a vertex fixed to true is fixed to\nfalse. -/",
+        "/-- Gates of `D` that are live on the cofactor and have two non-constant operands. -/",
+        "/-- Fix the side opposite to `i` to true and leave the side of `i` free. -/",
+        "/-- Master count for a label set `P`: occurring triples cost two merges each, wide exits\none arc each, and every witnessed label one further unit of the flow of `P`. -/",
+        "/-- A nonempty family of `k` Fano lines covers at least `min (k + 2) 7` points. -/",
+        "/-- Triangle count with occurring masks: `J` assigned exits, one private exit per label of\n`T`, and one merge per occurring mask of `F`. -/",
+        "/-- Equality case of the triangle count. When the budget is exhausted by `J` assigned exits,\nthree private exits and the pair masks `F`: no wire carries all of `T`, the labels of `T`\nhave no carrier merge, each has at most one consumption outside the assigned positions of\n`J`, and every residual unit meets `T`. -/"
+      ]
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-cache.lean",
+      "before_sha256": "030b43fec12176eb23ecb22458a390d96dc9faca8fe15d4a7b3d6d1240c3a112",
+      "after_sha256": "e11a4d823a26d4104ee181980e84ea662c43c68f1ec839255a6e94a39645810b",
+      "bytes": 331166,
+      "lines": 6935,
+      "removed_orphan_doc_comments": [
+        "/-- Antichain property in operand form. -/",
+        "/-- The private-position lemma: if the code of `x` has at most two positions and contains\nthe position opposite the pure operand of an ineligible `i`, then it is that position\ntogether with one position `Z` consuming no other label, at a gate assigned to no\nineligible label. -/",
+        "/-- Descent along single-reader carriers: from a wire `c` carrying all of `X`, when the\ncarriers of the labels of `X` have no merge and no branching from `c` on, an arm leads to\nthe source of a position consuming every label of `X`. -/",
+        "/-- Restriction of a circuit for a graph edge function to an induced subgraph: vertices\nfixed to false are deleted, and every neighbour of a vertex fixed to true is fixed to\nfalse. -/",
+        "/-- Gates of `D` that are live on the cofactor and have two non-constant operands. -/",
+        "/-- Fix the side opposite to `i` to true and leave the side of `i` free. -/",
+        "/-- Master count for a label set `P`: occurring triples cost two merges each, wide exits\none arc each, and every witnessed label one further unit of the flow of `P`. -/",
+        "/-- A nonempty family of `k` Fano lines covers at least `min (k + 2) 7` points. -/",
+        "/-- Triangle count with occurring masks: `J` assigned exits, one private exit per label of\n`T`, and one merge per occurring mask of `F`. -/",
+        "/-- Equality case of the triangle count. When the budget is exhausted by `J` assigned exits,\nthree private exits and the pair masks `F`: no wire carries all of `T`, the labels of `T`\nhave no carrier merge, each has at most one consumption outside the assigned positions of\n`J`, and every residual unit meets `T`. -/"
+      ]
+    }
+  ],
+  "preserved_attempt1": [
+    "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-standalone-attempt1.lean",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-cache-attempt1.lean",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-cache-build-attempt1.stdout",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-cache-build-attempt1.stderr",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-cache-build-attempt1.json",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruning-attempt1.json"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "created_utc": "2026-11-25T14:09:05.980773+00:00",
+  "scope": "Successful independently reviewed permitted-import actual Fano nonedge first-filter standalone. Tight totalSurplus\u2264eligible premise explicit; no no-quiet, support-emptiness at filter operand, or surgery result claimed.",
+  "file_count": 5,
+  "bytes": 164490,
+  "files": [
+    {
+      "path": "results/orch/lemmas/structural-nonedge-unbranched-fano-standalone.lean",
+      "bytes": 162433,
+      "sha256": "da7bcb5321240c467b0d2744f97318d3e3528291d17474dbeab3deed2087195d"
+    },
+    {
+      "path": "results/orch/lemmas/structural-nonedge-unbranched-fano-standalone-build.json",
+      "bytes": 372,
+      "sha256": "fa7bb13aef1ba30c1c993129bd195ba23389283afcae17d6a304c2c03d11913e"
+    },
+    {
+      "path": "results/orch/lemmas/structural-nonedge-unbranched-fano-standalone-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-nonedge-unbranched-fano-standalone-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-review-nonedge-first-filter-standalone.json",
+      "bytes": 1685,
+      "sha256": "eaffe3db4d3a0cab891d4a189d6b52c189205d8960ddbe658c1e078c3d44d880"
+    }
+  ]
+}

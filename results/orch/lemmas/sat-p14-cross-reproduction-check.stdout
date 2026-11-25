@@ -1,0 +1,52 @@
+{
+  "verdict": "PASS independent exact-extension/full-control audit",
+  "source_sha256": "9a7d694c8ca8d8a580c9752c9b36dd3e068490d0f683a9faa1d5baf884a4fd93",
+  "reports": [
+    {
+      "tag": "sat-p14-compact-cross18-target",
+      "source_variables": 35836,
+      "clauses": 184074,
+      "cross_enabled": true,
+      "added_variables": 3185,
+      "added_clauses": 42889,
+      "transfer_clauses": 30240,
+      "exact_shared_prefix": true
+    },
+    {
+      "tag": "sat-p14-compact-cross28-control",
+      "source_variables": 6624,
+      "clauses": 25632,
+      "cross_enabled": false,
+      "added_variables": 0,
+      "added_clauses": 0,
+      "transfer_clauses": 0,
+      "exact_shared_prefix": true,
+      "complete_assignment_pass": true,
+      "all_truth_rows": 16384,
+      "raw_derivatives": [
+        false,
+        false
+      ],
+      "graph": "fano"
+    },
+    {
+      "tag": "sat-p14-compact-cross-host-control",
+      "source_variables": 82386,
+      "clauses": 409397,
+      "cross_enabled": true,
+      "added_variables": 3731,
+      "added_clauses": 50113,
+      "transfer_clauses": 35280,
+      "exact_shared_prefix": true,
+      "complete_assignment_pass": true,
+      "all_truth_rows": 16384,
+      "raw_derivatives": [
+        false,
+        false
+      ],
+      "graph": "matching"
+    }
+  ],
+  "unordered_orientation_cases": 512,
+  "scope": "Only the new pair-at-most-once and cross-transfer CNF extension and exact preserved prefix. One unordered orientation is sufficient with pair-at-most-once. Controls are full clause/truth/trace checks, not solver results or a target witness."
+}

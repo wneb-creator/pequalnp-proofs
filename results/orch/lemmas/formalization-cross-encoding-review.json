@@ -1,0 +1,69 @@
+{
+  "verdict": "PASS independent exact-extension/full-control audit",
+  "source_sha256": "9a7d694c8ca8d8a580c9752c9b36dd3e068490d0f683a9faa1d5baf884a4fd93",
+  "reports": [
+    {
+      "tag": "sat-p14-compact-cross18-target",
+      "source_variables": 35836,
+      "clauses": 184074,
+      "cross_enabled": true,
+      "added_variables": 3185,
+      "added_clauses": 42889,
+      "transfer_clauses": 30240,
+      "exact_shared_prefix": true
+    },
+    {
+      "tag": "sat-p14-compact-cross28-control",
+      "source_variables": 6624,
+      "clauses": 25632,
+      "cross_enabled": false,
+      "added_variables": 0,
+      "added_clauses": 0,
+      "transfer_clauses": 0,
+      "exact_shared_prefix": true,
+      "complete_assignment_pass": true,
+      "all_truth_rows": 16384,
+      "raw_derivatives": [
+        false,
+        false
+      ],
+      "graph": "fano"
+    },
+    {
+      "tag": "sat-p14-compact-cross-host-control",
+      "source_variables": 82386,
+      "clauses": 409397,
+      "cross_enabled": true,
+      "added_variables": 3731,
+      "added_clauses": 50113,
+      "transfer_clauses": 35280,
+      "exact_shared_prefix": true,
+      "complete_assignment_pass": true,
+      "all_truth_rows": 16384,
+      "raw_derivatives": [
+        false,
+        false
+      ],
+      "graph": "matching"
+    }
+  ],
+  "unordered_orientation_cases": 512,
+  "scope": "Only the new pair-at-most-once and cross-transfer CNF extension and exact preserved prefix. One unordered orientation is sufficient with pair-at-most-once. Controls are full clause/truth/trace checks, not solver results or a target witness.",
+  "reviewer": "lean_setup",
+  "utc": "2026-11-25T14:01:46.880491+00:00",
+  "independent_process_exit_code": 0,
+  "auditor": {
+    "path": "results/orch/lemmas/formalization-cross-encoding-review.py",
+    "sha256": "5af2e3552e488ad1b4cf7d3344c61ec15a1a4ec618d5a9c12886a8a2eb4d66da",
+    "portable": "artifact directory supplied as argv1; no encoder import or solver invocation"
+  },
+  "full_stdout": {
+    "path": "results/orch/lemmas/formalization-cross-encoding-review.stdout",
+    "sha256": "82292c3adc316058b2c3adf3356400064f0608d98f374a84899d261819fd434f"
+  },
+  "full_stderr": {
+    "path": "results/orch/lemmas/formalization-cross-encoding-review.stderr",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "source_review": "AMO prefix is exact OR of earlier pair terms, each new conjunction is forbidden together with that prefix. All transfer clauses are generated once for a<b nonadjacent, every center x distinct from both, and each slot. Pair AMO plus a present in one slot and global cooccurrence with b forces b into that same slot, excluding a cross-slot nonadjacent pair; the symmetric case is represented by the slot that contains the smaller label. No missing opposite orientation."
+}

@@ -1,0 +1,8 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-cache.lean",
+  "sha256": "030b43fec12176eb23ecb22458a390d96dc9faca8fe15d4a7b3d6d1240c3a112",
+  "started_utc": "2026-11-25T14:00:19.629403+00:00",
+  "finished_utc": "2026-11-25T14:07:31.555526+00:00",
+  "exit_code": 1,
+  "scope": "Dependency-pruned q2 exact subcase core with imported complete finite certificate; not full target"
+}

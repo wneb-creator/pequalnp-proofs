@@ -1,0 +1,16 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/structural-ordered-consumer-cut.lean:148:6: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  h ≥ 0
+  d ≥ 0
+  c ≥ 0
+  b ≥ 0
+  b - c + d ≤ 0
+  b + d - h ≥ 1
+  a ≥ 0
+  a - b ≥ 1
+where
+ a := ↑(List.length D)
+ b := ↑f.1
+ c := ↑(src D (sem_bar e))
+ d := ↑n
+ h := ↑(src D (e.1, !e.2))

@@ -1,0 +1,12 @@
+{
+  "verdict": "PASS independent mathematics/source and cached-build binding",
+  "checked_utc": "2026-11-25T14:10:51.267249+00:00",
+  "source_sha256": "8ed6c91a7146da6ca5288fdf103716d8be6cb639c423770b3bfc2a9e6108f578",
+  "tail_sha256": "65e4c09d4ec600f51c7d15fc207cbb37c2f450341d9439a2032e28a2553e7748",
+  "exit_code": 0,
+  "complete_logs_empty": true,
+  "receipt": "results/orch/lemmas/formalization-consuming-changed-path-cache-build.json",
+  "argument": "The accepted changed-wire path starts at input i, which carries singleton i support, and ends outside that support. Head induction selects the first support-loss read step. Its operand carries i, its output does not, hence it is a valid sem_W position; the changed-output label and remaining changed path are inherited exactly.",
+  "scope": "Strict DAG with assignments agreeing away from one input. No graph, minimality, trace, ordering or no-quiet conclusion.",
+  "standalone_status": "Not yet separately built; planned exact inclusion in ordered-cut standalone."
+}

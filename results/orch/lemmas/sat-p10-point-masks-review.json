@@ -1,0 +1,39 @@
+{
+  "status": "PASS independent finite predicates and necessary-condition premise review",
+  "utc": "2026-11-25T14:09:03.083329+00:00",
+  "files": [
+    {
+      "path": "results/orch/lemmas/stochastic-p10-point-masks.py",
+      "sha256": "65b74b33e9bdaa9056bce9eb7f4f2b238db1ea1d477de157f3602abcf3a19c91",
+      "bytes": 1062
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-point-masks.stdout",
+      "sha256": "b75e7130a9a35bee46e85cb581c3cf6e8c0692f2a265029ae249a644df21ed9d",
+      "bytes": 1853
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-point-masks.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-fourunit-point-masks.json",
+      "sha256": "0507230a693f1b7b1d563c65b75a0b329ca8dcf012b689d24cc5755965457e29",
+      "bytes": 4015
+    }
+  ],
+  "classes": 12,
+  "point_masks_checked": 192,
+  "finite_check": "Independently regenerated every full-assigned-point set and allowed point residual mask using Python sets; all match frozen data.",
+  "protection_bridge": [
+    "Accepted sem_noempty_unique (lines3413\u20133420) turns every reader path from an ineligible point into a chain under StrictLive/Correct/Bzero=0.",
+    "If its endpoint branches, sem_branch_empty (3344\u20133352) forces empty support, contradicting sem_bzero_branch (3384\u20133393). Thus every reader descendant has fanout at most one, supplying the explicit equality_three_slot_full protection premise."
+  ],
+  "other_checks": [
+    "A critical line with residual cardinal at most1 and at least2 required point neighbors has two distinct ineligible neighbors; Fano degree3 provides the third distinct neighbor required by the three-slot theorem.",
+    "A nonempty residual line-mask included in an eligible point-mask supplies a shared residual wire, hence the co-label lemma forces the point into that assigned operand. It cannot lie in a full point-neighborhood operand.",
+    "Every eligible point has an eligible line neighbor; assigned_budget_extra gives forced-assignment count at most1 plus residual point-cardinality."
+  ],
+  "qualification": "Necessary per-point abstract restrictions under the stated canonical p10/Bzero0 hypotheses and prior mask-family assumptions only. No simultaneous realizability, circuit construction, Lean specialization or full-case contradiction is claimed."
+}

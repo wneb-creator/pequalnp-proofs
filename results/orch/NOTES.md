@@ -111,3 +111,5 @@ TIMING total=285.3 subagents=6
 - 2026-11-25T13:53:22.171769+00:00: Mixed-p9 ANY-two-missing full standalone exit0 is preserved with final independent review; one-missing still open. Shared-slot full standalone passed. Full q2 subcase source is frozen and under a long standalone check, not yet claimed successful.
 
 - 2026-11-25T14:03:19.293067+00:00: Entiremixedp9 cached ordinary impossibility passed with no extra premises; standalone pending. Original combinedq2 standalone hit-M6000memorylimit134; pruned candidate452362bytes has independent source/context review and active preliminary check. New structural partials passed; both earlier semantic searches returnedUNKNOWN. Public1479 reduction quota full.
+
+- 2026-11-25T14:17:28.180078+00:00: Fano first-filter standalone passed3500lines; unordered semanticcut+edge-survival cached passed. q2pruned preliminary parsererrors fixed by10comment deletions; corrected450772byte fullbuild active from14:10:17. Nonlinear carrier contamination still blocks unproved star deletion. FinalSATsuccessor fullyreviewed/queued.

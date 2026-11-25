@@ -1,0 +1,22 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-cache.lean:1668:42: error: unexpected token 'end'; expected 'lemma'
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-cache.lean:1690:20: error: unexpected token 'section'; expected 'lemma'
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-cache.lean:1722:57: error: unexpected token 'end'; expected 'lemma'
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-cache.lean:4018:9: error: unexpected token 'end'; expected 'lemma'
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-cache.lean:4028:85: error: unexpected token 'end'; expected 'lemma'
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-cache.lean:4032:75: error: unexpected token 'section'; expected 'lemma'
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-cache.lean:4038:79: error: unexpected token 'end'; expected 'lemma'
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-cache.lean:4051:82: error: unexpected token 'section'; expected 'lemma'
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-cache.lean:4121:48: error: unexpected token 'end'; expected 'lemma'
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-cache.lean:4131:42: error: unexpected token 'end'; expected 'lemma'
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-cache.lean:4324:24: warning: Variable name `hi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-pruned-cache.lean:4324:37: warning: Variable name `hix` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hix
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

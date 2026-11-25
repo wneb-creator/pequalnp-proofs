@@ -1665,7 +1665,7 @@ theorem sem_cover_free (hG : sem_Gr G) (hS : Strict n D) (hC : sem_Comp n G D)
   exact ⟨(j, s), sem_mem_W.mpr ⟨hj, h1, h2⟩, fun h => Finset.disjoint_left.mp hd h (by simp),
     fun h => Finset.disjoint_left.mp hd h (by simp)⟩
 
-/-- Antichain property in operand form. -/
+
 end SemCodes
 
 
@@ -1684,10 +1684,10 @@ theorem sem_hw_cover_free {D : Dag} (h : StrictLive 14 D) (hD : Correct D) {x a 
   exact sem_cover_free sem_heawood_gr h.1 (sem_heawood_comp hD) hab ((hc_adjB_iff x y).mp h1)
     (sem_adjB_false.mp h2) (sem_adjB_false.mp h3)
 
-/-- The private-position lemma: if the code of `x` has at most two positions and contains
-the position opposite the pure operand of an ineligible `i`, then it is that position
-together with one position `Z` consuming no other label, at a gate assigned to no
-ineligible label. -/
+
+
+
+
 section SemArms
 
 variable {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
@@ -1717,9 +1717,9 @@ theorem sem_code_count (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D
   rw [h3] at h2
   omega
 
-/-- Descent along single-reader carriers: from a wire `c` carrying all of `X`, when the
-carriers of the labels of `X` have no merge and no branching from `c` on, an arm leads to
-the source of a position consuming every label of `X`. -/
+
+
+
 end SemArms
 
 
@@ -4013,9 +4013,9 @@ theorem cof_edge {G : Fin n → Fin n → Prop} (hok : cof_Ok ρ ι) (hsym : ∀
   · rintro ⟨i, i', huv, hi, hi'⟩
     exact ⟨ι i, ι i', huv, by rw [cof_ext_free hok]; exact hi, by rw [cof_ext_free hok]; exact hi'⟩
 
-/-- Restriction of a circuit for a graph edge function to an induced subgraph: vertices
-fixed to false are deleted, and every neighbour of a vertex fixed to true is fixed to
-false. -/
+
+
+
 end CofRestrict
 
 
@@ -4025,17 +4025,17 @@ open Classical
 
 variable {n m : ℕ} {D : Dag} {ρ : Fin n → Option Bool} {ι : Fin m → Fin n}
 
-/-- Gates of `D` that are live on the cofactor and have two non-constant operands. -/
+
 end CofCount
 
 
-/-- Fix the side opposite to `i` to true and leave the side of `i` free. -/
+
 section L3Gen
 
 variable {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
 
-/-- Master count for a label set `P`: occurring triples cost two merges each, wide exits
-one arc each, and every witnessed label one further unit of the flow of `P`. -/
+
+
 end L3Gen
 
 
@@ -4048,7 +4048,7 @@ def os_pt (k : Fin 7) : Fin 14 := ⟨k.val, by omega⟩
 
 theorem os_nb_sub : ∀ k : Fin 7, sem_hw_nb (os_pt k) ⊆ sem_hw_opp 0 := by decide +kernel
 
-/-- A nonempty family of `k` Fano lines covers at least `min (k + 2) 7` points. -/
+
 section L3bGen
 
 variable {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
@@ -4117,18 +4117,18 @@ theorem full_gen (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
         exact hvi (Finset.mem_singleton.1 this)⟩
     exact hv _ hp hj (by rw [show sem_bar (j', !s) = (j', !(!s)) from rfl, hw']; exact hsub)
 
-/-- Triangle count with occurring masks: `J` assigned exits, one private exit per label of
-`T`, and one merge per occurring mask of `F`. -/
+
+
 end L3bGen
 
 section L3bTri
 
 variable {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
 
-/-- Equality case of the triangle count. When the budget is exhausted by `J` assigned exits,
-three private exits and the pair masks `F`: no wire carries all of `T`, the labels of `T`
-have no carrier merge, each has at most one consumption outside the assigned positions of
-`J`, and every residual unit meets `T`. -/
+
+
+
+
 end L3bTri
 
 

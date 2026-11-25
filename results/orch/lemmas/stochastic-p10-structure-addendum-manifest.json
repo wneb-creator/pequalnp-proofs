@@ -1,0 +1,46 @@
+{
+  "created_utc": "2026-11-25T14:10:58.353537+00:00",
+  "scope": "Independently reviewed conditional equality-structure sketch plus per-eligible-point finite residual restrictions. No new Lean theorem, joint circuit model or remaining-case contradiction. Prior13file finite bundle remains unchanged.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/stochastic-p10-equality-structure.md",
+      "sha256": "77f9d4de670c901dcb308e97ee36bb14e3881099a2f8916149a6878bbc96f087",
+      "bytes": 4565
+    },
+    {
+      "path": "results/orch/lemmas/status-p10-equality-structure-review.json",
+      "sha256": "7ab1a7de24d65ae5d0de1efeba339569b4f090b202d4e3399f5e046a08a833b4",
+      "bytes": 1599
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-point-masks.py",
+      "sha256": "65b74b33e9bdaa9056bce9eb7f4f2b238db1ea1d477de157f3602abcf3a19c91",
+      "bytes": 1062
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-point-masks.stdout",
+      "sha256": "b75e7130a9a35bee46e85cb581c3cf6e8c0692f2a265029ae249a644df21ed9d",
+      "bytes": 1853
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-point-masks.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p10-fourunit-point-masks.json",
+      "sha256": "0507230a693f1b7b1d563c65b75a0b329ca8dcf012b689d24cc5755965457e29",
+      "bytes": 4015
+    },
+    {
+      "path": "results/orch/lemmas/sat-p10-point-masks-review.json",
+      "sha256": "7a8dc6bddbcc25eee4b947aa24b44626f7ef98f677726a69fe47bc496c73696d",
+      "bytes": 2433
+    },
+    {
+      "path": "results/orch/lemmas/sat-p10-fourunit-review.json",
+      "sha256": "72ffa022eb8dce9d605feed39003b543c45dbd11bdf494333048e4712d235883",
+      "bytes": 1302
+    }
+  ]
+}
