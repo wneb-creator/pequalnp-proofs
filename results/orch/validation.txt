@@ -83,3 +83,5 @@ ClassIteration/ClassCover/ClassPrefix are prerequisites subsumed by CleanClassRe
 
 2026-11-25T04:23:44.336128+00:00 DoubleStarRepair.lean:1584 lines; Lean exit0; independent reviewer PASS; SHA256 5fc8b746c4cef079d8a4fab43e8b74b21bb0096201dd87bf6828e8f593bccf53; full log double-star-repair-build.log.
 Concrete two-edit repair under explicit literal-filter shape, existing AND-free OR factor, neighborhood and OR-output-path hypotheses. Preserves size, minimality, function and unaffected ownership; repairs the two selected gates. Full statement remains unproved; repository checker not run on partial artifacts.
+
+2026-11-25T04:33:13.054324+00:00 SharedFactoryRestriction.lean:126 lines; Lean exit0, empty full log shared-factory-restriction-build.log; independent review PASS; SHA256 2a3f58092e16ed82bc638800934f2812203e82f8c9345325b3b8e296a4a8ea76. Conditional common-OR-factory geometry only, with explicit sound-filter hypotheses. No full theorem or repository-checker acceptance.
