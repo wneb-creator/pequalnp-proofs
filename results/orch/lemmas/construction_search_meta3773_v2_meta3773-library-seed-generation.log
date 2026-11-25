@@ -1,0 +1,1 @@
+{"genotype_gates": 128, "output": 153, "active_base": 63, "inactive_library": 64, "output_function": "same as first overapprox circuit; explicit identity wrapper"}

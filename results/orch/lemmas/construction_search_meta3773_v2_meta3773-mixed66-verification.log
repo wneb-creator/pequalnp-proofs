@@ -1,0 +1,1 @@
+{"file": "meta3773-mixed66-seed.json", "sha256": "e0826813c029517214918a8ee92cd4420b9519f081f0a0df95c3b1a1dffc5709", "gates": 66, "positive_count": 52, "negative_count": 756, "fn": 0, "fp": 0, "unproductive": 1, "meets63": false}

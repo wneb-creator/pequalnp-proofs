@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-79/geometry-meta3773-witness-generate.py", line 60, in <module>
+    raise ValueError('The circuit does not pass every exact808-row packed test.')
+ValueError: The circuit does not pass every exact808-row packed test.

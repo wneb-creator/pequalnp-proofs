@@ -1,0 +1,10 @@
+{
+  "seed": 79040,
+  "genotype": 140,
+  "warm_seed": "meta3773-warm-pencil60.txt",
+  "exit": 1,
+  "seconds": 112.06558344000223,
+  "timeout": false,
+  "peak_rss_bytes": 2105344,
+  "source_sha": "234ad5cfb5a579d7f7d039f9b7dfa96c5d53c9839e407b33b408e3142bf96f34"
+}

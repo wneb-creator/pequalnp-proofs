@@ -1,0 +1,138 @@
+import took 6.67s
+/tmp/oec/pequalnp-pilot-79/GeometryWitnessTest_control64.lean:26:35: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-79/GeometryWitnessTest_control64.lean:27:35: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-79/GeometryWitnessTest_control64.lean:35:35: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+simp took 116ms
+type checking took 1.28s
+type checking took 1.38s
+type checking took 1.55s
+type checking took 1.51s
+type checking took 1.8s
+type checking took 1.85s
+type checking took 1.57s
+type checking took 1.4s
+type checking took 1.38s
+type checking took 1.54s
+type checking took 1.43s
+type checking took 1.5s
+type checking took 1.51s
+type checking took 1.32s
+type checking took 1.36s
+type checking took 1.63s
+type checking took 1.61s
+type checking took 1.72s
+type checking took 1.74s
+type checking took 1.67s
+type checking took 1.52s
+type checking took 1.36s
+type checking took 1.49s
+type checking took 1.45s
+type checking took 1.41s
+type checking took 1.48s
+type checking took 177ms
+type checking took 353ms
+/tmp/oec/pequalnp-pilot-79/GeometryWitnessTest_control64.lean:480:52: warning: This simp argument is unused:
+  ha
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/GeometryWitnessTest_control64.lean:480:55: warning: This simp argument is unused:
+  hb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ha]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/GeometryWitnessTest_control64.lean:497:40: warning: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.foldl_cons, ih, packedStep, Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+simp took 814ms
+simp took 850ms
+simp took 751ms
+tactic execution of Lean.Parser.Tactic.exact took 4.66s
+type checking took 7.59s
+/tmp/oec/pequalnp-pilot-79/GeometryWitnessTest_control64.lean:634:12: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/GeometryWitnessTest_control64.lean:634:16: warning: Unused tactic linter: `congr 1` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/GeometryWitnessTest_control64.lean:634:24: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/GeometryWitnessTest_control64.lean:634:28: warning: Unused tactic linter: `funext i` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/GeometryWitnessTest_control64.lean:634:37: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/GeometryWitnessTest_control64.lean:634:41: warning: Unused tactic linter: `symm` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/GeometryWitnessTest_control64.lean:634:46: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/GeometryWitnessTest_control64.lean:635:6: warning: Unused tactic linter: `first
+| exact Fin.addCases_left i
+| exact Fin.addCases_right i` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/GeometryWitnessTest_control64.lean:634:16: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-79/GeometryWitnessTest_control64.lean:634:28: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-79/GeometryWitnessTest_control64.lean:634:41: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-79/GeometryWitnessTest_control64.lean:635:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+cumulative profiling times:
+	attribute application 0.515ms
+	blocked (unaccounted) 872s
+	compilation (IR) 2.57ms
+	compilation (LCNF base) 47.3ms
+	compilation (LCNF impure) 11.7ms
+	compilation (LCNF mono) 28.7ms
+	congr simp thm 19.4ms
+	declTypeLinter 29.9ms
+	elaboration 313ms
+	fix level params 2.9ms
+	import 6.67s
+	initialization 144ms
+	instantiate metavars 14.3ms
+	interpretation 525ms
+	let-to-have transformation 7.03ms
+	linting 70ms
+	module linting 0.0865ms
+	parsing 31.5ms
+	process pre-definitions 45.2ms
+	share common exprs 33.5ms
+	simp 2.97s
+	tactic execution 5.33s
+	tacticAnalysis 14.1ms
+	type checking 47.7s
+	typeclass inference 733ms

@@ -1,0 +1,14 @@
+{
+  "seed": 79052,
+  "genotype": 110,
+  "data": "meta3773-synthesis-singleton-data.txt",
+  "data_sha": "ff5dc35794f88778213fca4289855cf62de54d74aec7384a538b325e9f9b26df",
+  "source_sha_before": "96cd6f99e84d7bdf7262ebc8306a5d245d4c400653c8e6f07ad49e3987aeace3",
+  "binary_sha": "bc82e282e7d2f0325f80075edfde374d5b85df8561d9ce26386d8f6e4b1fc961",
+  "warm_seed": "meta3773-warm-mixed66.txt",
+  "exit": 1,
+  "seconds": 112.11144292300014,
+  "timeout": false,
+  "peak_rss_bytes": 2101248,
+  "source_sha": "96cd6f99e84d7bdf7262ebc8306a5d245d4c400653c8e6f07ad49e3987aeace3"
+}

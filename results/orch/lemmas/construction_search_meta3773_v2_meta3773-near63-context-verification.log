@@ -1,0 +1,1 @@
+{"file": "meta3773-cgp-79024-100-best.json.near-unproductive", "sha256": "845c15a09bb4dfa28344aa026c9fd9ffbf20d243fae95f6958296f454da9db65", "gates": 63, "fn": 3, "fp": 0, "bad": [31], "essential_bad": [], "redundant_bad": [{"gate": 31, "fanin_changes": [true, false]}]}

@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/GeometryWitnessTest_control64.lean",
+  "sha256": "888becf4f2bb9299d003b4ffde38f484cd9cb39a55bd4f632031160b7e4f5d9a",
+  "source_sha256_after": "888becf4f2bb9299d003b4ffde38f484cd9cb39a55bd4f632031160b7e4f5d9a",
+  "started_utc": "2026-11-25T14:15:59.431265+00:00",
+  "finished_utc": "2026-11-25T14:17:04.437308+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 4227092480,
+  "seconds": 65.00606522299859,
+  "rss_limit_bytes": 6442450944,
+  "wall_limit_seconds": 120
+}

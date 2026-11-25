@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-79/geometry-meta3773-witness-generate.py", line 17, in <module>
+    raise ValueError('The output must be distinct from every generator input and the generator itself.')
+ValueError: The output must be distinct from every generator input and the generator itself.

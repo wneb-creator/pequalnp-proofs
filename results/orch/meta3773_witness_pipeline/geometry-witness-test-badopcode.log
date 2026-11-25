@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-79/geometry-meta3773-witness-generate.py", line 38, in <module>
+    raise ValueError('Only binary AND/OR opcodes0 and1 are supported.')
+ValueError: Only binary AND/OR opcodes0 and1 are supported.

@@ -1,0 +1,14 @@
+{
+  "seed": 79068,
+  "genotype": 140,
+  "data": "meta3773-synthesis-sparse-data.txt",
+  "data_sha": "892f58a522b60eb384dbfb35bae711a8eaf9c079ec8db4f9b0535dac3d083329",
+  "source_sha_before": "c653cf90b8037d3c5ab0df77be310cbdcc70b52d1d70038162b237662185c1e4",
+  "binary_sha": "2666918e9c17cddb0235c3993783163a7924c695100d9b2e3a593054d86b1cd5",
+  "warm_seed": "meta3773-warm-pencil60.txt",
+  "exit": 1,
+  "seconds": 112.1740736669999,
+  "timeout": false,
+  "peak_rss_bytes": 3936256,
+  "source_sha": "c653cf90b8037d3c5ab0df77be310cbdcc70b52d1d70038162b237662185c1e4"
+}

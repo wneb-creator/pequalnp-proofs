@@ -1,0 +1,115 @@
+{
+  "scope": "Checked generated 64-gate control and tested late-witness generator; no63 witness.",
+  "files": [
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/geometry-meta3773-witness-generate.py",
+      "bytes": 6050,
+      "sha256": "b01b60e7cdb44c32faf4a1eafd601004b91d0ee019d0526aaca74bffba143b4e"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/geometry-meta3773-witness-tests.py",
+      "bytes": 3265,
+      "sha256": "ff7cc88af9c8d604eb7eaa141e7653b146309be49294e66bc57663e2be31515c"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/geometry-meta3773-witness-tests-result.json",
+      "bytes": 2229,
+      "sha256": "c9987f9ccf6a57321df7d1cb9482d41096f04970f9c59524c1cc041834311745"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/geometry-meta3773-witness-tests.log",
+      "bytes": 1815,
+      "sha256": "80b5a5cf12638285625abd51edc2d7fe47186233e512e3076fa8586163d274d3"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/geometry-meta3773-control64.json",
+      "bytes": 2655,
+      "sha256": "a670f5ddc4f1e8babbcca3b902ee437b9e8376b206d61022e58c9ed7320a0cfc"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/meta3773-statement.txt",
+      "bytes": 1271,
+      "sha256": "96c725c1f7c452c1e544b1b5903494636b67cd531d63c097bc1f54a11da2ed41"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/meta3773-input-words.json",
+      "bytes": 6662,
+      "sha256": "ab8ec671f022fd9928769319c498ea7acf3bc7c43f3c9fda89ef6bede896f0e1"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/Meta3773Control64Fast.lean",
+      "bytes": 54966,
+      "sha256": "d7ef078f0fddf3efe61c6af689f9fb6fc82c6d113f40fb0c39b572b8c698e05f"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/GeometryWitnessTest_control64.lean",
+      "bytes": 54994,
+      "sha256": "888becf4f2bb9299d003b4ffde38f484cd9cb39a55bd4f632031160b7e4f5d9a"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/root-GeometryWitnessTest_control64-lean-6g-profile.log",
+      "bytes": 5554,
+      "sha256": "052db2f738ecc4f446a0eae9de041cc58978b021669e7dd40a1287618b0b48e7"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/root-GeometryWitnessTest_control64-lean-6g-profile-status.json",
+      "bytes": 522,
+      "sha256": "78fd30dad0d8c0b5781822c3d7de8be2e7ebf2f4566e46c51fd887354efd2c99"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/geometry-witness-test-badhead.log",
+      "bytes": 287,
+      "sha256": "38a4e68584f968eef79ab1464d8775b903bc57d49fe0f57620aa2cb91a388943"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/geometry-witness-test-badopcode.log",
+      "bytes": 263,
+      "sha256": "ec17cdffad70d9bb6adc490ba17a70c36811c0656775076cb85142a518f57976"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/geometry-witness-test-commutedhead.log",
+      "bytes": 394,
+      "sha256": "b786d1fa714b5870b688b3522b24d09c08d3475defeefde89e4ca5244bae83b1"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/geometry-witness-test-control64.log",
+      "bytes": 394,
+      "sha256": "496ae94c7cc8024c9e9cfe40fd3b12c284623d0e153872c027e767f7230c8d42"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/geometry-witness-test-default63_rejects64.log",
+      "bytes": 269,
+      "sha256": "17c428a21f875ca7eb3639a31c444902fc77ba5c7f708cc8444d510109204411"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/geometry-witness-test-futurewire.log",
+      "bytes": 239,
+      "sha256": "5843c1ad65143195cee9cbc3019acbb4f5d8ae6a9e1fbdfda9b6166e3d06d08c"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/geometry-witness-test-incorrect63.log",
+      "bytes": 283,
+      "sha256": "0cf4915978fb39830eb80479b7428ef9321391fe1bc5bbc9f027ef02247376a8"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/geometry-witness-test-inverseopcodes.log",
+      "bytes": 394,
+      "sha256": "b6d225badc4920fc248c60b018ec5492816a6064868e6773cd22758e487b3b91"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/geometry-witness-test-nonlastoutput.log",
+      "bytes": 275,
+      "sha256": "1e9b6a319ba12fecf0a7e53fab9fe2ecb0be837b6358c4d174d0de76723e76de"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/geometry-witness-test-protectedoutput.log",
+      "bytes": 329,
+      "sha256": "471df9cd970218e2b713741fb9f903308239b708cda1ec0751da2b1581f73d2d"
+    },
+    {
+      "file": "/workspace/pequalnp-proofs/results/orch/meta3773_witness_pipeline/README.md",
+      "bytes": 1723,
+      "sha256": "d400218cc712fa2b40d8879d6438f0e7fc51f6295c24d91f96e94a7e2670d56e"
+    }
+  ]
+}
