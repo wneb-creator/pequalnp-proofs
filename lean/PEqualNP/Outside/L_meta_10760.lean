@@ -1555,3 +1555,44 @@ lemma not_live_of_larger_failure {α : Type} [DecidableEq α] (ops : α → α �
   fun run => fail (live_mono_budget ops goal le run)
 
 end PEqualNP.Outside.L_meta_10760
+
+namespace PEqualNP.Outside.L_meta_10760.MemoPruned
+
+variable {α : Type}
+
+def plain (admissible : Nat → α → Bool) (done : α → Bool) (children : Nat → α → List α) : Nat → α → Bool
+  | 0, x => if admissible 0 x then done x else false
+  | k + 1, x => if admissible (k+1) x then done x || (children k x).any (plain admissible done children k) else false
+
+end PEqualNP.Outside.L_meta_10760.MemoPruned
+
+namespace PEqualNP.Outside.L_meta_10760.PNQuotient
+
+variable {Q : Type}
+
+def search (done : Q → Bool) (admissible : Nat → Q → Bool)
+    (children : Nat → Q → List Q) : Nat → Q → Bool
+  | 0, s => done s
+  | k + 1, s => done s ||
+      (admissible (k + 1) s && (children (k + 1) s).any (search done admissible children k))
+
+lemma memoPlain_eq_search (done : Q → Bool) (admissible : Nat → Q → Bool)
+    (children : Nat → Q → List Q) (k : Nat) (s : Q) :
+    MemoPruned.plain (fun k s => done s || admissible k s) done
+        (fun k s => children (k + 1) s) k s =
+      search done admissible children k s := by
+  induction k generalizing s with
+  | zero =>
+    change (if done s || admissible 0 s then done s else false) = done s
+    cases done s <;> simp
+  | succ k ih =>
+    have hchildren :
+        (children (k + 1) s).any
+            (MemoPruned.plain (fun k s => done s || admissible k s) done
+              (fun k s => children (k + 1) s) k) =
+          (children (k + 1) s).any (search done admissible children k) :=
+      congrArg ((children (k + 1) s).any) (funext ih)
+    rw [MemoPruned.plain, search, hchildren]
+    cases done s <;> cases admissible (k + 1) s <;> rfl
+
+end PEqualNP.Outside.L_meta_10760.PNQuotient
