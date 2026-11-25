@@ -1,8 +1,17 @@
-L-meta-9811 partial results, NOT a completed proof of posted claim.
-Named file: lower20 plus upper25; lakebuildPASS,5149jobs.
-Axioms for both bounds: propext,Classical.choice,Quot.sound only.
-Ordinarymonotone ANDcount≥7: LeancompilePASS; independentsemantic/formatreviewPASS.
-Exactposted no24-gate theorem absent; localchecker REJECTED(no-theorem): finalpostedtheorem isabsent. No PR.
-Namedlines: initialupper40; mergedbounds9249. Cleanup ofcompletedgap notapplicable.
+L-meta-9811: partial results only; posted claim neither proved nor refuted. No PR.
+Named file: lean/PEqualNP/Outside/L_meta_9811.lean
+Named SHA256: 773f0b9c16f44f2d7be6cc2cb756a21bcbf05c2c45b61c963186068e4ef4994b
+Checked global bounds: at least 20 and at most 25 gates for the exact target.
+lake build +PEqualNP.Outside.L_meta_9811: PASS (5149 jobs; complete output in named-build.txt).
+Both global bounds use only propext, Classical.choice, Quot.sound; see axioms.txt.
+Official posted checker: REJECTED (no-theorem): the final exact posted theorem is absent.
+Complete checker output: checker-posted.txt.
+Named file lines before/after the final preservation pass: 9249 / 9249 (unchanged).
+Cleanup was not run because the posted theorem did not pass the checker.
+Additional conditional result: OneExtraOR.lean, 2214 lines, kernel build and independent axiom probe PASS; explicit AO2/TopForm/cone/graph hypotheses remain. It does not eliminate NOT gates or prove the posted bound.
+All full-target SAT runs returned UNKNOWN. Restricted local pair coverage of 42/42 and the small one-NOT census of 26 cases are computational results within their specified models, not the full theorem.
+Desk null replies: 0. Only our lease was renewed. It is to be released with reason=other after all final artifacts are pushed.
 Sub-agents: 6 (lower_bound, lemma_search, counterexample, linear_network, status_review, toolchain)
-TIMING total=72 subagents=6
+TIMING total=118.2 subagents=6
+Validation snapshot UTC: 2026-11-25T13:38:20.970509+00:00
+Acknowledged KIT-MESSAGE-ID msg-227d26e866e373bbdbc2cca9.

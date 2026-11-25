@@ -1,0 +1,7 @@
+[
+  "/tmp/oec/pequalnp-pilot-85/sat-tool/cadical-rel-3.1.0/build/cadical",
+  "--default",
+  "-t",
+  "30",
+  "/tmp/oec/pequalnp-pilot-85/linear_network/final-unused-pair-39/checkpoint/control26/query.cnf"
+]

@@ -1,0 +1,7 @@
+{
+  "bytes": 1012277802,
+  "sha256": "074cfc97e3b48d1e01daa129701397575261d1fd7f550f8d114a9aaf76ca9155",
+  "path_in_scratch": "/tmp/oec/pequalnp-pilot-85/sat-tool/official24-phase-sat/run-incomplete.lrat",
+  "complete": false,
+  "is_unsat_certificate": false
+}

@@ -1,0 +1,14 @@
+{
+  "started_utc": "2026-11-25T13:25:34.250151+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-85/sat-tool/cadical-phase-lrat",
+    "--sat",
+    "-t",
+    "300",
+    "/tmp/oec/pequalnp-pilot-85/sat-tool/official24/official.cnf",
+    "--phase-file",
+    "/tmp/oec/pequalnp-pilot-85/counterexample/official-phase-missing-edge24/phases.txt",
+    "--lrat-file",
+    "/tmp/oec/pequalnp-pilot-85/sat-tool/official24-phase-sat/run.lrat"
+  ]
+}

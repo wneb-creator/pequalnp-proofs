@@ -1,0 +1,10 @@
+[
+  "python3",
+  "/tmp/oec/pequalnp-pilot-85/counterexample/official_phases.py",
+  "--directory",
+  "/tmp/oec/pequalnp-pilot-85/sat-tool/official24",
+  "--seed",
+  "/tmp/oec/pequalnp-pilot-85/counterexample/best-pair.json",
+  "--out",
+  "/tmp/oec/pequalnp-pilot-85/counterexample/official-phase-missing-edge24"
+]

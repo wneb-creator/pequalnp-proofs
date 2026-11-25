@@ -1,0 +1,11 @@
+{
+  "used_aggregate_branch": "UNSAT_STRENGTHENED_MODEL",
+  "unused_aggregate_branch": "UNSAT_UNUSED_AGGREGATE_BRANCH",
+  "original_case39_excluded": true,
+  "scope": "Original fixed-prefix local family only; no unrestricted circuit bound.",
+  "old_excluded_pair_count": 41,
+  "combined_excluded_pair_count": 42,
+  "total_pair_families": 42,
+  "old_archives_unchanged": true,
+  "snapshot_utc": "2026-11-25T13:35:30.561497+00:00"
+}

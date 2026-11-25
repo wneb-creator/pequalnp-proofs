@@ -1,0 +1,77 @@
+{
+  "created_utc": "2026-11-25T13:33:54.482642+00:00",
+  "files": {
+    "README.md": {
+      "bytes": 1952,
+      "sha256": "0a6da4c96f445ffe0121b61d74da2e517cc5c76220eebb7dfeba5e36de59360d"
+    },
+    "REVIEW.md": {
+      "bytes": 2120,
+      "sha256": "f665595258e918463de770113795ba684815ec9a6854a221c15a8e96e6b8e6ce"
+    },
+    "command.json": {
+      "bytes": 440,
+      "sha256": "e61e23c3f2769ec6aca0127fe2623bb74ddc2b2c5f30f2c0cf89b9cf9ae9c7c3"
+    },
+    "incomplete-trace-metadata.json": {
+      "bytes": 261,
+      "sha256": "087ea4bf1a55c7d63b9893985155ff1fc97890564ee4b330b3dad16f5bc9973c"
+    },
+    "official_phases.py": {
+      "bytes": 5077,
+      "sha256": "3d9b4edbe88a0e2c44b0dbed40a5a8abe4ff4077d12ce56624521a23dc85433c"
+    },
+    "phase-preparation/command.json": {
+      "bytes": 313,
+      "sha256": "11b0a8b823c6cee858643dcecfd5ef2789d4ad70d2c4b613317c0ad5b4245f93"
+    },
+    "phase-preparation/driver.log": {
+      "bytes": 148,
+      "sha256": "3001f042d8b00fdce56686e69e6b2098c367eb780af95b3fd99138c876f48b9a"
+    },
+    "phase-preparation/metadata.json": {
+      "bytes": 646,
+      "sha256": "bb6c1335fbc5132a4d52d97bab3981a8a0d75ded7d11995293d1e1cbb9cb54f8"
+    },
+    "phase-preparation/normalized-seed.json": {
+      "bytes": 990,
+      "sha256": "899b1b463f5b211ea1c3973b60f1cf1262d6669147919f3a8afda348617f8892"
+    },
+    "phase-preparation/phases.txt": {
+      "bytes": 372420,
+      "sha256": "b8234d30fd34d83843a46234effe9d75dff0c00973fa6d4fc41a04f8af681a2a"
+    },
+    "positive-control/control-candidate.json": {
+      "bytes": 3702,
+      "sha256": "92adc7420ed828eeb4def4303f515b58db4bb814eeaeac525b528f2f3a861b6d"
+    },
+    "positive-control/control-decoder.log": {
+      "bytes": 133,
+      "sha256": "601abc632d8cf6380a9bff9dab9eb4bc29f0142cde4ac874888ba3872dfab518"
+    },
+    "positive-control/control-status.json": {
+      "bytes": 173,
+      "sha256": "c6617b735d59a2cfb27580f900c15db6706ea8ac303677a859edaba9e455e1ba"
+    },
+    "positive-control/metadata.json": {
+      "bytes": 580,
+      "sha256": "39618e60d633ecbdce0038ff18d52f84a733eb367448f4e5c53d3411c9742a65"
+    },
+    "positive-control/phase-metadata.json": {
+      "bytes": 554,
+      "sha256": "b574433efeadc798e1d8aaa9d346d583170f168516e3d942590c2a75a2ba571d"
+    },
+    "seed-original.json": {
+      "bytes": 375,
+      "sha256": "54130000495b854248a81c274422ff52859a2efc6507b7f29a046907abc140f0"
+    },
+    "solver.log": {
+      "bytes": 32840,
+      "sha256": "19a1c2bf22daaebf13d4b62476a6788bcccf8c7ab88b445352945d9d4b8adf67"
+    },
+    "status.json": {
+      "bytes": 387,
+      "sha256": "e814439c54b936644c4fc248b0aff3dd70575303c60a8eb445491b5b62f17e71"
+    }
+  }
+}

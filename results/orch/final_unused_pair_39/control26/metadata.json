@@ -1,0 +1,32 @@
+{
+  "gate_count": 26,
+  "frozen_prefix_gates": 17,
+  "samples": 571,
+  "variables": 46390,
+  "clauses": 1380900,
+  "blocking": {
+    "added_clauses": 20506,
+    "frozen_readers": [
+      1,
+      2,
+      2,
+      2,
+      2,
+      1,
+      3,
+      1,
+      1,
+      1,
+      0,
+      1,
+      0,
+      1
+    ],
+    "reader_disjunction_flags": 20,
+    "pattern_clauses": 20162,
+    "original_positive_literal_occurrences": 322596
+  },
+  "capacity_applied": false,
+  "aggregate_must_be_unused": true,
+  "cnf_sha256": "c9853989b3ce461032d47752e3c32d018cf904213367bf3afb6de562f16dd038"
+}

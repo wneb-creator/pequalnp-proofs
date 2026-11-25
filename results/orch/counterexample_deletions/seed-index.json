@@ -1,0 +1,2262 @@
+[
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-17-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-17-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 0,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-17-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-17-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 0,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 1
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-21-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-21-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 0,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-21-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-21-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 0,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 1
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-25-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-25-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 0,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-25-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-25-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 0,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 1
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-29-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-29-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 0,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-29-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-29-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 0,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 1
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-33-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-33-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 0,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-33-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-33-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 0,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 1
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-37-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-37-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 0,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-37-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-00-mask-37-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 0,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 8,
+    "ands_before_not": 1
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-15-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-15-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 1,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-15-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-15-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 1,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 8,
+    "ands_before_not": 1
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-21-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-21-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 1,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-21-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-21-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 1,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 2
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-25-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-25-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 1,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-25-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-25-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 1,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 2
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-29-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-29-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 1,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-29-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-29-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 1,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 2
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-33-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-33-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 1,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-33-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-33-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 1,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 2
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-37-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-37-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 1,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-37-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-01-mask-37-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 1,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 8,
+    "ands_before_not": 2
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-15-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-15-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 2,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-15-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-15-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 2,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 8,
+    "ands_before_not": 2
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-17-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-17-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 2,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-17-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-17-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 2,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 2
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-25-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-25-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 2,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-25-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-25-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 2,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 3
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-29-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-29-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 2,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-29-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-29-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 2,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 3
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-33-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-33-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 2,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-33-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-33-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 2,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 3
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-37-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-37-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 2,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-37-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-02-mask-37-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 2,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 8,
+    "ands_before_not": 3
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-15-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-15-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 3,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-15-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-15-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 3,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 8,
+    "ands_before_not": 3
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-17-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-17-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 3,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-17-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-17-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 3,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 3
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-21-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-21-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 3,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-21-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-21-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 3,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 3
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-29-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-29-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 3,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-29-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-29-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 3,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 4
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-33-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-33-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 3,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-33-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-33-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 3,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 4
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-37-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-37-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 3,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-37-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-03-mask-37-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 3,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 8,
+    "ands_before_not": 4
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-15-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-15-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 4,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-15-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-15-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 4,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 8,
+    "ands_before_not": 4
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-17-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-17-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 4,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-17-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-17-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 4,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 4
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-21-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-21-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 4,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-21-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-21-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 4,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 4
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-25-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-25-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 4,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-25-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-25-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 4,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 4
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-33-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-33-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 4,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-33-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-33-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 4,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 5
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-37-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-37-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 4,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-37-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-04-mask-37-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 4,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 8,
+    "ands_before_not": 5
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-15-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-15-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 5,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-15-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-15-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 5,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 8,
+    "ands_before_not": 5
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-17-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-17-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 5,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-17-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-17-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 5,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 5
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-21-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-21-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 5,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-21-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-21-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 5,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 5
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-25-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-25-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 5,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-25-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-25-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 5,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 5
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-29-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-29-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 5,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-29-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-29-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 5,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 5
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-37-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-37-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 5,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-37-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-05-mask-37-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 5,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 8,
+    "ands_before_not": 6
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-15-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-15-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 6,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-15-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-15-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 6,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 8,
+    "ands_before_not": 6
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-17-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-17-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 6,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-17-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-17-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 6,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 6
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-21-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-21-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 6,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-21-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-21-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 6,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 6
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-25-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-25-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 6,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-25-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-25-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 6,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 6
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-29-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-29-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 6,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-29-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-29-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 6,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 6
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-33-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-33-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 6,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-33-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-06-mask-33-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 6,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 6
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-15-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-15-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 7,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-15-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-15-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 7,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 8,
+    "ands_before_not": 1
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-21-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-21-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 7,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-21-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-21-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 7,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 2
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-29-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-29-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 7,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-29-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-29-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 7,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 2
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-33-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-33-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 7,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-33-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-33-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 7,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 2
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-37-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-37-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 7,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-37-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-07-mask-37-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 7,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 8,
+    "ands_before_not": 2
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-08-mask-17-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-08-mask-17-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 8,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-08-mask-17-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-08-mask-17-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 8,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 1
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-08-mask-25-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-08-mask-25-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 8,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-08-mask-25-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-08-mask-25-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 8,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 1
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-08-mask-29-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-08-mask-29-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 8,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-08-mask-29-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-08-mask-29-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 8,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 1
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-08-mask-33-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-08-mask-33-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 8,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-08-mask-33-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-08-mask-33-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 8,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 1
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-15-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-15-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 9,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-15-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-15-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 9,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 8,
+    "ands_before_not": 5
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-17-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-17-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 9,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-17-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-17-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 9,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 5
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-21-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-21-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 9,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-21-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-21-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 9,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 5
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-25-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-25-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 9,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-25-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-25-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 9,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 5
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-29-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-29-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 9,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-29-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-09-mask-29-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 9,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 5
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-10-mask-17-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-10-mask-17-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 10,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-10-mask-17-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-10-mask-17-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 10,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 1
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-10-mask-21-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-10-mask-21-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 10,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-10-mask-21-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-10-mask-21-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 10,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 1
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-10-mask-25-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-10-mask-25-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 10,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-10-mask-25-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-10-mask-25-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 10,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 1
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-10-mask-37-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-10-mask-37-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 10,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-10-mask-37-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-10-mask-37-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 10,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 8,
+    "ands_before_not": 1
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-11-mask-15-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-11-mask-15-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 11,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-11-mask-15-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-11-mask-15-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 11,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 8,
+    "ands_before_not": 3
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-11-mask-17-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-11-mask-17-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 11,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-11-mask-17-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-11-mask-17-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 11,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 3
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-11-mask-21-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-11-mask-21-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 11,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-11-mask-21-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-11-mask-21-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 11,
+    "mask_gate": 21,
+    "mask_support": [
+      2,
+      8,
+      12,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 3
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-11-mask-33-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-11-mask-33-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 11,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-11-mask-33-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-11-mask-33-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 11,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 4
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-12-mask-15-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-12-mask-15-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 12,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-12-mask-15-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-12-mask-15-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 12,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 8,
+    "ands_before_not": 2
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-12-mask-17-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-12-mask-17-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 12,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-12-mask-17-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-12-mask-17-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 12,
+    "mask_gate": 17,
+    "mask_support": [
+      1,
+      7,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 2
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-12-mask-29-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-12-mask-29-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 12,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-12-mask-29-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-12-mask-29-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 12,
+    "mask_gate": 29,
+    "mask_support": [
+      4,
+      10,
+      11,
+      13
+    ],
+    "and_count": 8,
+    "ands_before_not": 3
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-12-mask-37-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-12-mask-37-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 12,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-12-mask-37-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-12-mask-37-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 12,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 8,
+    "ands_before_not": 3
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-13-mask-15-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-13-mask-15-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 13,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-13-mask-15-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-13-mask-15-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 13,
+    "mask_gate": 15,
+    "mask_support": [
+      0,
+      8,
+      10
+    ],
+    "and_count": 8,
+    "ands_before_not": 1
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-13-mask-25-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-13-mask-25-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 13,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-13-mask-25-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-13-mask-25-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 13,
+    "mask_gate": 25,
+    "mask_support": [
+      3,
+      7,
+      11,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 2
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-13-mask-33-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-13-mask-33-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 13,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-13-mask-33-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-13-mask-33-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 13,
+    "mask_gate": 33,
+    "mask_support": [
+      5,
+      9,
+      10,
+      12
+    ],
+    "and_count": 8,
+    "ands_before_not": 2
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-13-mask-37-positive.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-13-mask-37-positive.blif",
+    "gate_count": 26,
+    "not_count": 0,
+    "masked_input": 13,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 7,
+    "ands_before_not": null
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-13-mask-37-negative.json",
+    "blif": "/tmp/oec/pequalnp-pilot-85/abc-search/masked-seeds/input-13-mask-37-negative.blif",
+    "gate_count": 27,
+    "not_count": 1,
+    "masked_input": 13,
+    "mask_gate": 37,
+    "mask_support": [
+      6,
+      8,
+      9,
+      11
+    ],
+    "and_count": 8,
+    "ands_before_not": 2
+  }
+]

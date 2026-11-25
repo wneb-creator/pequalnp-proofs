@@ -1,0 +1,9 @@
+{
+  "synthesize_reference.py": "7f0fd04cefa8fda324aceb7b3a7369ea3c1d835bed58449791a828565fdff531",
+  "search.py": "b69c3cf8fcc5ad5e11cc0bb44089d20ed7c5c1979446ef64fce82235f6efcccd",
+  "normalized.py": "221a06d5e69a662c3bf42a293dfe6c2b6abd007e2f3701a13b6b87be33972edc",
+  "blocking_cuts.py": "57135aeab4eb843761aba5da331912a26ba07830608ed6a1c4a7b256b3f0d688",
+  "blocking_cuts_compact.py": "779622487fd0e1885a66e8276bef7bd2eb831e644396e34ba4eff276761fb005",
+  "reader_capacity.py": "b006ecad77d92911a87b7130d79f69d145e1f17f484d7d1c70b9ecdbc3bf1f9d",
+  "final_retry_source.py": "9f3f6c36a07ccdb727079723ec5fd6177cc125038da9a26aba1ea16dc4ff3224"
+}

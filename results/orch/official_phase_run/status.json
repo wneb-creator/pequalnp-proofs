@@ -1,0 +1,10 @@
+{
+  "started_utc": "2026-11-25T13:25:34.250151+00:00",
+  "elapsed_seconds": 300.1600694159997,
+  "exit_code": 0,
+  "result": "UNKNOWN",
+  "proof_complete": false,
+  "proof_path": "/tmp/oec/pequalnp-pilot-85/sat-tool/official24-phase-sat/run-incomplete.lrat",
+  "certification": "not yet Lean checked",
+  "cnf_sha256": "b877eccd57565a513b25c347eca5193429883cc32be15b30ebc0230dd2c084b0"
+}

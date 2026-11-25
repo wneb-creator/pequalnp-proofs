@@ -1,0 +1,9 @@
+# Final phase-hinted search on the unchanged official formula
+
+The run returned UNKNOWN after 300.160 seconds, exit 0. It produced neither a candidate circuit nor a completed UNSAT certificate. All solver stdout and stderr are preserved in `solver.log`; `status.json` and `command.json` record the exact outcome and invocation. The incomplete text LRAT prefix remains in scratch, with its full size and SHA-256 digest preserved here.
+
+The target CNF remained byte-for-byte the official LinkN2 formula with SHA-256 `b877eccd57565a513b25c347eca5193429883cc32be15b30ebc0230dd2c084b0`. It has 1,466,230 clauses and uses 42,543 sparse variables. The SAT preset received a complete preference vector from an approximate 24-gate circuit that omits edge (6,8). That circuit still has 47 full truth-table errors. It satisfies every structural clause and all but one sampled output clause; it is not a counterexample. Preferences add no clauses or assumptions.
+
+The phase-generator source, original and normalized seeds, complete preference vector, exact preparation metadata/output, positive-control metadata/circuit, and independent reviews are retained. The prior official formula generator and inputs are under `../official_sat/`; the wrapper and complete positive-control output are under `../phase_lrat_tool/`. The current archive adds no new solver claim beyond UNKNOWN. `REVIEW.md` records the independent source and control checks so those verdicts do not live only in messages.
+
+The original seed JSON is preserved unchanged. Its legacy `errors: 65583` field is the weighted search score from `evolve_pair.py`, not the actual number of truth-table mismatches. That search used `65536 * (mismatches on inputs of Hamming weight at most two) + (all mismatches)`. Here one low-weight mismatch plus 47 full-table mismatches gives 65583. The independent full-table mismatch count is 47; phase generation reads only the gate list and does not use this score.

@@ -69,3 +69,8 @@
 2026-11-25T13:25:47.963520+00:00 complete frozen search archives independently audited: official240s/1200s UNKNOWN;41/42 frozen-prefix pair families excluded;26 small graph cases covered;10631 ABC mappings best25. Final targeted retries run separately.
 2026-11-25T13:28:22.335903+00:00 preserved independently reviewed LRAT phase-wrapper and exact25-gate controls, including losslessly compressed full control stdout. No target certificate claimed.
 2026-11-25T13:31:05.089449+00:00 independently reviewed full reader-cut and capacity-cut searches preserved: both24-gate targets UNKNOWN; both25-gate controls exact.
+
+- 2026-11-25T12:58:47.500235+00:00: Official default screen ended UNKNOWN; no completed certificate.
+- 2026-11-25T13:21:03.899807+00:00: Official unsat-preset run ended UNKNOWN; no completed certificate.
+- 2026-11-25T13:30:34.410220+00:00: Official phase-hinted run ended UNKNOWN; no completed certificate.
+- 2026-11-25T13:33:16.007074+00:00: Counterexample agent froze all completed searches and final archives; no exact at-most-24-gate circuit found; all of its processes stopped.

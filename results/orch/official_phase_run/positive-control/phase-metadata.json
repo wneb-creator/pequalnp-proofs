@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-85/counterexample/baseline25-ordered.json",
+  "source_sha256": "ae878ceaf9c26e6196d7a1dcaafe3bcbdf3248e840c91dca7781c9d5f25cb4f5",
+  "gates": 25,
+  "normalization_swaps": 36,
+  "all_input_function_preserved": true,
+  "phase_variables": 44340,
+  "clauses_checked": 1575093,
+  "violated_output_clauses": [],
+  "violated_structural_clauses": 0,
+  "cnf_sha256": "a9c1a4d6e779355daba488de7ea5f5c9e603a54e6f476deb9522139b71cb3290",
+  "scope": "Preferences only for unchanged official CNF; seed is not a counterexample"
+}

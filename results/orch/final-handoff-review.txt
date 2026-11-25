@@ -1,0 +1,38 @@
+FINAL INDEPENDENT HANDOFF AND PRESERVATION REVIEW: PASS
+Reviewed 2026-11-25. This replaces the earlier in-progress handoff review.
+
+Pinned documentation hashes (SHA256):
+HANDOFF.md: 1b51ffa90bf8dfb8958c3870350c140a67ceab1292f77892a03b16de57983abc
+validation.txt: ac4a2872d62a2109d06c094a01258c702005ca7df9af62957a577c4e21c8f1b6
+NOTES.md: 2117453184bc258855d0b08b6377e3ea7c1d2fd7d6620d32c86e84315db8f572
+TIMELINE.md: beb7e4b6e90373f9192d358e091d200d436ac3fb93a4cc293e79e4fbf9a16a38
+desk-renewals.txt: 22b895c0bf4ba5cb8ff1ffdd081c8a02c308cf9e1a6a22873155e85cbd36c42b
+final-format-check.txt: 808242389e06bfff68ed229ae4ca6ef863961e6f3d6378ae864763fd393faf93
+
+Outcome and named file
+
+HANDOFF and validation explicitly state that the posted L-meta-9811 claim is neither proved nor refuted and that no proof PR exists. The named file remains SHA256 773f0b9c16f44f2d7be6cc2cb756a21bcbf05c2c45b61c963186068e4ef4994b, 9,249 lines and 522,141 bytes, with checked global bounds of 20 and 25 only. The complete build log records success for 5,149 jobs. Both bounds depend only on propext, Classical.choice and Quot.sound. The exact posted checker remains REJECTED (no-theorem). Cleanup is correctly recorded as not performed. The final format record agrees with the source hash, permitted limit options, absence of forbidden source forms, and the single named Lean file.
+
+Conditional mathematics
+
+OneExtraOR.lean has 2,214 lines. It proves Ustar.card <= 2 under explicit AO2, TopForm, correct output, output-cone, zero-centreless, at-most-one-extra-OR, bipartite, C4-free and maximum-degree-three hypotheses. Its independent rebuild and axiom probe passed with only the three allowed axioms. The handoff retains the unresolved cleanup regimes and unrestricted NOT case. It does not claim a general normalization theorem or the posted lower bound.
+
+Final search scope
+
+All exact official 24-gate formula runs ended UNKNOWN (240, 1,200 and 300 seconds), as did the general reader-cut and capacity-cut searches. Incomplete LRAT traces are explicitly not certificates. The audited used/unused aggregate partition now has both UNSAT logs, so the stated 42/42 restricted frozen-prefix pair-family coverage is supported as external SAT evidence. The 26 small-graph one-NOT cases are also finite computational evidence, not the posted theorem. ABC's 10,631 validated mappings, best 25-gate result and 27-gate one-NOT seeds are accurately scoped. The handoff now distinguishes 1,324,800 generated deletion choices from 1,061,015 candidates with a live NOT that were truth-table evaluated. No exact at-most-24-gate witness was found.
+
+NOTES and TIMELINE are timestamped research history. Earlier pending builds, active searches and 41/42 entries are historical snapshots, not current claims. Their later entries and the terminal HANDOFF/validation identify the completed partial results and retain the unproved-gap limitation. The timeline contains no claim that a proof was accepted. Validation's 118.2-minute snapshot agrees with the 11:40:08 start and 13:38:20.970509 snapshot. Six subagents and the KIT message ID are listed.
+
+Lease record
+
+The sanitized desk record identifies only our L-meta-9811 gap and contains 30 monotonically increasing renewal expiries. The latest is 2026-11-25T13:59:16.831Z. The maximum spacing between recorded renewal expiries is 369.915 seconds, below ten minutes. The record does not claim release has happened. Validation correctly describes release as a future action after the final push. This review neither performs nor asserts that release. The recorded zero null replies agrees with the recorded acquisition history.
+
+Final pending diff and whitespace exception
+
+I independently enumerated the 188 pending paths; all are under results/orch. The named Lean file and its build/checker logs remain unchanged. Complete status output is retained in scratch final-pending-status.txt.
+
+After staging, an independent git diff --cached --check returned only 651 trailing-whitespace diagnostics in five exact raw solver.log files: the used-aggregate control and target logs, unused-aggregate control and target logs, and final official phase log. Preserving those bytes is intentional because their reviewed manifests hash the complete original output. There are no source or prose whitespace diagnostics. The full independent diagnostic is saved as scratch final-reviewed-staged-check.txt. This limited raw-log exception does not change the semantic or preservation verdict.
+
+Separate frozen source, archive and integration reviews cover all completed searches and have already been delivered to the owner. No further proof changes or searches were performed for this terminal review.
+
+PASS means the partial research and its limitations are accurately preserved. It is not a pass of the posted proof checker, a Lean certification of external solver UNSAT, or grounds to open a proof PR without the exact statement.

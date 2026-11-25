@@ -1,0 +1,9 @@
+{
+  "seeds": 72,
+  "enumerated": 1324800,
+  "live_not_candidates": 1061015,
+  "elapsed_seconds": 38.11503441599962,
+  "best_full_errors": 126,
+  "best_sample_errors": 2,
+  "best_sample_full_errors": 206
+}

@@ -1,0 +1,34 @@
+{
+  "file": "lean/PEqualNP/Outside/L_meta_9811.lean",
+  "sha256": "773f0b9c16f44f2d7be6cc2cb756a21bcbf05c2c45b61c963186068e4ef4994b",
+  "lines": 9249,
+  "bytes": 522141,
+  "pattern_checks": {
+    "namespace_escape": {
+      "rg_exit": 1,
+      "matches": "",
+      "stderr": ""
+    },
+    "string_literal": {
+      "rg_exit": 1,
+      "matches": "",
+      "stderr": ""
+    },
+    "forbidden_proof_words": {
+      "rg_exit": 1,
+      "matches": "",
+      "stderr": ""
+    }
+  },
+  "attributes": [],
+  "options": [
+    "maxHeartbeats",
+    "maxRecDepth",
+    "maxHeartbeats"
+  ],
+  "changed_lean_files": [
+    "lean/PEqualNP/Outside/L_meta_9811.lean"
+  ],
+  "posted_checker": "REJECTED (no-theorem)",
+  "cleanup": "Not performed: posted theorem absent; named source unchanged."
+}

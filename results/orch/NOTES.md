@@ -172,3 +172,15 @@ PartnerData exact SHA correction: 444cb2174e2f36ff932132b66c0130f5e9a94487860d82
 ABC:10,631 independently evaluated valid mappings, best25; transformed one-NOT best27. All144 masking seeds independently reviewed. Exact local target models:41/42 pair-cut families excluded by SAT UNSAT, one90s timeout remains; three-star model stays UNKNOWN after default/UNSAT-profile/blocked trials. No unrestricted lower-bound conclusion or counterexample. Small census: all26 connected bipartite C4-free graph types on2–7 vertices exclude an exactly-one-NOT improvement below their star upper bound under the audited SAT model.
 
 All six Lean-checked BlockingAll rules were encoded and independently audited; a compact definitional reader-disjunction encoding was supplied to counterexample for general24 search. A separate full-schema capacity cut D+F≤S+1−N was independently audited and integrated after positive controls; no fixed-prefix use. Final helper/source/log/scopes/manifests are frozen in results/orch/{abc_search,star_cut,small_one_not}. Parent continues global proof/search.
+
+### 2026-11-25T13:33:16.007074+00:00 counterexample final handoff
+
+Counterexample search final status: no exact circuit with at most 24 gates and no completed UNSAT certificate were found. All processes from this agent have ended.
+
+The exact official CNF was independently audited and reproduced byte for byte by Lean. Default 240-second, unsat-preset 1200-second, and final phase-hinted 300-second runs all returned UNKNOWN. Full stdout/stderr, commands, statuses, and incomplete-trace hashes/sizes are preserved under results/orch/official_sat_runs and results/orch/official_phase_run. The final phase seed differs from the target exactly by missing edge (6,8), hence has 47 full truth-table mismatches; it satisfies every structural clause and all but one sampled-output clause. Its preference vector did not alter the official formula. The actual 25-gate positive control passed every CNF clause and all 16,384 inputs.
+
+The general custom 24-gate model with all six Lean-checked reader constraints returned UNKNOWN after 299.42 seconds. Adding the independently audited D+F<=11 reader-capacity constraint also returned UNKNOWN after 239.42 seconds. Both 25-gate controls were exact. Their complete records are in results/orch/counterexample_blocking. The capacity argument counts at least S-1 internal reads and N+D primary reads against at most 2S-F actual fanin slots.
+
+The final bounded deletion heuristic examined 1,324,800 circuits from 72 exact masked 27-gate seeds in 38.115 seconds. Of these, 1,061,015 had a reachable NOT. Best full mismatch count was 126; best score on the 571 sampled rows was 2, with 206 full mismatches. No witness was found. Full inputs, source, output, and candidate records are in results/orch/counterexample_deletions. These finite heuristic counts establish no lower bound.
+
+No further search is planned. All final archives were submitted for independent preservation review; earlier encoder, wrapper, source, and positive-control reviews passed.

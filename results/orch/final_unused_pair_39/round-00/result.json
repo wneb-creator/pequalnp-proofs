@@ -1,0 +1,7 @@
+{
+  "solver_exit": 20,
+  "status": "UNSAT_UNUSED_AGGREGATE_BRANCH",
+  "round": 0,
+  "elapsed_seconds": 43.86837093699978,
+  "timestamp": "2026-11-25T13:33:49.880356+00:00"
+}

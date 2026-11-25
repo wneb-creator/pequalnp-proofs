@@ -1,0 +1,21 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-85/counterexample/best-pair.json",
+  "source_sha256": "54130000495b854248a81c274422ff52859a2efc6507b7f29a046907abc140f0",
+  "gates": 24,
+  "normalization_swaps": 0,
+  "all_input_function_preserved": true,
+  "phase_variables": 42543,
+  "clauses_checked": 1466230,
+  "violated_output_clauses": [
+    {
+      "clause": 1169929,
+      "literals": [
+        -2463638,
+        1609873
+      ]
+    }
+  ],
+  "violated_structural_clauses": 0,
+  "cnf_sha256": "b877eccd57565a513b25c347eca5193429883cc32be15b30ebc0230dd2c084b0",
+  "scope": "Preferences only for unchanged official CNF; seed is not a counterexample"
+}
