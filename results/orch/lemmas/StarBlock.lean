@@ -1,4 +1,5 @@
 import Mathlib.Data.Finset.Card
+import Mathlib.Data.Fintype.Fin
 import Mathlib.Tactic.Push
 
 namespace PEqualNP.Outside.L_meta_2585_aux
@@ -38,5 +39,17 @@ lemma rectangle_is_star {P L : ℕ} (I : Fin P → Fin L → Prop)
     apply Finset.card_eq_one.mp
     have := Finset.card_pos.mpr hB
     omega
+
+lemma neighborhood_inter_card_le_one {P L : ℕ} (I : Fin P → Fin L → Prop)
+    [DecidableRel I]
+    (hfour : ∀ p p' : Fin P, ∀ l l' : Fin L, p ≠ p' → l ≠ l' →
+      ¬ (I p l ∧ I p l' ∧ I p' l ∧ I p' l'))
+    (p p' : Fin P) (hpp' : p ≠ p') :
+    ((Finset.univ.filter (I p)) ∩ (Finset.univ.filter (I p'))).card ≤ 1 := by
+  apply Finset.card_le_one.mpr
+  intro l hl l' hl'
+  by_contra hll'
+  simp only [Finset.mem_inter, Finset.mem_filter, Finset.mem_univ, true_and] at hl hl'
+  exact hfour p p' l l' hpp' hll' ⟨hl.1, hl'.1, hl.2, hl'.2⟩
 
 end PEqualNP.Outside.L_meta_2585_aux

@@ -67,3 +67,15 @@ Created `Star.lean` (~400 lines) implementing recursive OR of a nonempty neighbo
 ## 2026-11-25T12:30:04.052695+00:00 — proof_route checked clean-block lemma
 
 `results/orch/lemmas/StarBlock.lean` compiles with Lean 4.36.0 via lake env lean, exit 0, no warnings after replacing deprecated push_neg. It proves any rectangle contained in a C4-free incidence relation has a side of size at most one; a nonempty rectangle is a star. This is a partial lemma, not the posted normalization statement. Complete stdout/stderr are scratch proof-route/starblock3.stdout and starblock3.stderr (both empty on success).
+
+## 2026-11-25T12:31:43.315929+00:00 normalization partial status
+
+Normalization.lean is now 713 lines. New conclusions beyond source L4295: lift invariants transported over the whole chain; OR inputs have equivalent below-output status for any function vanishing on singleton assignments; specialization to bipartite incidence functions; nonempty incidence implies a valid output wire. Static independent review by status_review found no formal-rule issue and no claim of read1. First compilation attempt was blocked only by missing Defs.olean during the root dependency build.
+
+## 2026-11-25T12:31:47.949744+00:00 — OR-only charging component (math_bound)
+
+Located accepted L_meta_8435, whose 245-line initial charging argument supplies the needed OR-only direct sum bound. Adapted to independent row/input counts in `/tmp/oec/pequalnp-pilot-86/math-bound/OrBound.lean` (326 lines), namespace `PEqualNP.Outside.L_meta_2585_aux.OrBound`; compilation waits for Defs.olean.
+
+The proposed corollaries state: for S : Fin m -> Finset (Fin n) with distinct rows intersecting in at most one variable, an OR circuit serving each nonempty row at cost c has sum_p (|S p|-1) <= c. Equivalent active-row form is sum_p |S p| <= c + number of nonempty rows. The proof charges every nonminimum row member to the earliest gate whose support is inside that row and contains a smaller member. C4-freeness makes the row unique, and binary-merge earliestness makes the charged member unique. This does NOT handle dirty AND gates and does NOT prove L-meta-2585.
+
+- 2026-11-25T12:31:54.626898+00:00: StarBlock extended with `neighborhood_inter_card_le_one`, using Mathlib.Data.Fintype.Fin. All 56 lines compile with exit 0 and no warnings; complete logs proof-route/starblock5.stdout, starblock5.stderr.
