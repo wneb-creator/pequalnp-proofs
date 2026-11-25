@@ -47,3 +47,5 @@ Sub-agents: six (status_review, circuit_search, algebra_strategy, lean_baseline,
 TIMING total=64.3 subagents=6
 
 2026-11-25 03:14 UTC: MergeGuard.lean (13 lines) and BipartiteBasis.lean (55 lines) compile with Lean 4.36.0. Independent status_review approved both. These are conditional/algebraic components, not a 63-gate witness. Complete compiler logs are preserved.
+
+2026-11-25 03:17 UTC: CircuitMonotonicity.lean compiled; independently reviewed by status_review. It proves semantic monotonicity for Monotone2 circuits, with arbitrary false-default references. No gate-budget or witness claim.
