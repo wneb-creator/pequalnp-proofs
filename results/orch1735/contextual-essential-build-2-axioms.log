@@ -1,0 +1,6 @@
+'PEqualNP.Outside.L_meta_1735_aux.ContextualEssential.smaller_lower_misses_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1735_aux.ContextualEssential.or_left_bypass_essential' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
