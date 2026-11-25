@@ -1,0 +1,11 @@
+UTC 2026-11-25T13:52:43.574414+00:00
+Gap: L-meta-2592
+File: lean/PEqualNP/Outside/L_meta_2592.lean
+Scope: partial checked lemmas only; exact posted theorem is not declared.
+Build: lake build PEqualNP.Outside.L_meta_2592
+Exit: 0
+Source: sanitized and renamed proof from upstream L_meta_4725; adds notCount_le_four and no_five_nots.
+Lines: 3245
+Bytes: 146697
+Full build stdout/stderr: results/orch/partial-2592-build.log
+Local exact-statement checker: not run; expected rejection because partial file does not declare the posted theorem.
