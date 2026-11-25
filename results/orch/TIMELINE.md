@@ -39,3 +39,7 @@
 2026-11-25T01:10:53.842851+00:00 renewed; expiry 2026-11-25T01:30:53.705Z
 2026-11-25T01:12:20.048943+00:00 arbitraryN normalization for every circuit size≤3 compiled cleanly.
 2026-11-25T01:16:14.022856+00:00 named-file build passed: general-components, 2273 lines
+2026-11-25T01:17:32.266823+00:00 renewed; expiry 2026-11-25T01:37:32.159Z
+
+2026-11-25T01:19:53.321250+00:00 global_strategy: compiled edge-inert AND elimination; 207-line fragment global_prune_fragment.lean, exit0 global-prune-007, independent review requested.
+2026-11-25T01:19:59.672028+00:00 named-file build passed: small-normalization, 3332 lines
