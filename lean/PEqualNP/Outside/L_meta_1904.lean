@@ -3252,4 +3252,314 @@ lemma and_product_support_of_prior_below {n : ℕ} (G : SimpleGraph (Fin n)) [De
   simp only [GateOp.eval, List.map_cons, List.map_nil, List.all_cons, List.all_nil,
     id_eq, Bool.and_true, hA x, hB x]
 
+lemma critical_boundary_gate_correct (n : ℕ) (pre post : List Gate) (g h : Gate) (out : ℕ)
+    (F : (Fin n → Bool) → Bool) (P N : (Fin n → Bool) → Prop)
+    (hm : Monotone2 ⟨pre ++ g :: post, out⟩)
+    (hh : h.op ∈ ({GateOp.and, GateOp.or} : Set GateOp) ∧ h.inputs.length ≤ 2)
+    (hcorrect : ∀ x : Fin n → Bool,
+      Circuit.eval ⟨pre ++ g :: post, out⟩ (List.ofFn x) = F x)
+    (hpos_cover : ∀ x : Fin n → Bool, F x = true →
+      ∃ y : Fin n → Bool, F y = true ∧ P y ∧ ∀ i, y i = true → x i = true)
+    (hneg_cover : ∀ x : Fin n → Bool, F x = false →
+      ∃ y : Fin n → Bool, F y = false ∧ N y ∧ ∀ i, x i = true → y i = true)
+    (hpos : ∀ x : Fin n → Bool, F x = true → P x →
+      Circuit.eval ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (List.ofFn x) = false →
+      h.op.eval (h.inputs.map fun i => (run pre (List.ofFn x)).getD i false) = true)
+    (hneg : ∀ x : Fin n → Bool, N x →
+      h.op.eval (h.inputs.map fun i => (run pre (List.ofFn x)).getD i false) = true →
+      g.op.eval (g.inputs.map fun i => (run pre (List.ofFn x)).getD i false) = true) :
+    ∀ x : Fin n → Bool,
+      Circuit.eval ⟨pre ++ h :: post, out⟩ (List.ofFn x) = F x := by
+  let D : Circuit := ⟨pre ++ h :: post, out⟩
+  have hD : Monotone2 D := deletion_mono_replace_gate pre post g h out hm hh
+  have hpost : ∀ a ∈ post, a.op = .and ∨ a.op = .or := by
+    intro a ha
+    simpa using (hm a (List.mem_append_right _ (List.mem_cons_of_mem _ ha))).1
+  let W := fun x : Fin n → Bool => run pre (List.ofFn x)
+  let old := fun x : Fin n → Bool => g.op.eval (g.inputs.map fun i => (W x).getD i false)
+  let new := fun x : Fin n → Bool => h.op.eval (h.inputs.map fun i => (W x).getD i false)
+  have old_eval (x : Fin n → Bool) :
+      (run post (W x ++ [old x])).getD out false = F x := by
+    simpa only [Circuit.eval, Circuit.wires, run, List.foldl_append, List.foldl_cons, W, old]
+      using hcorrect x
+  have new_eval (x : Fin n → Bool) : D.eval (List.ofFn x) =
+      (run post (W x ++ [new x])).getD out false := by
+    simp only [D, Circuit.eval, Circuit.wires, run, List.foldl_append, List.foldl_cons, W, new]
+  have zero_eval (x : Fin n → Bool) :
+      Circuit.eval ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (List.ofFn x) =
+        (run post (W x ++ [false])).getD out false := by
+    simp [Circuit.eval, Circuit.wires, run, List.foldl_append, GateOp.eval, W]
+  have positive (x : Fin n → Bool) (hf : F x = true) (hp : P x) :
+      D.eval (List.ofFn x) = true := by
+    rw [new_eval]
+    cases hz : Circuit.eval ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (List.ofFn x) with
+    | false =>
+      have hn : new x = true := hpos x hf hp hz
+      apply run_mono post (by simp)
+        (wireLE_snoc rfl (fun _ h => h) (fun _ => hn)) hpost out
+      exact (old_eval x).trans hf
+    | true =>
+      apply run_mono post (by simp)
+        (wireLE_snoc (a := false) (b := new x) rfl (fun _ h => h) (by intro h; cases h)) hpost out
+      exact (zero_eval x).symm.trans hz
+  have negative (x : Fin n → Bool) (hf : F x = false) (hn : N x) :
+      D.eval (List.ofFn x) = false := by
+    apply Bool.eq_false_iff.mpr
+    intro hx
+    rw [new_eval] at hx
+    have ht := run_mono post (by simp)
+      (wireLE_snoc rfl (fun _ h => h) (hneg x hn)) hpost out hx
+    rw [old_eval, hf] at ht
+    contradiction
+  intro x
+  change D.eval (List.ofFn x) = F x
+  cases hf : F x with
+  | true =>
+    obtain ⟨y, hy, hp, hxy⟩ := hpos_cover x hf
+    exact signed_eval_mono D hD hxy (positive y hy hp)
+  | false =>
+    obtain ⟨y, hy, hn, hxy⟩ := hneg_cover x hf
+    apply Bool.eq_false_iff.mpr
+    intro hx
+    have ht := signed_eval_mono D hD hxy hx
+    rw [negative y hy hn] at ht
+    contradiction
+
+lemma erase_gate_of_critical_boundary (n : ℕ) (pre post : List Gate) (g : Gate) (out r : ℕ)
+    (F : (Fin n → Bool) → Bool) (P N : (Fin n → Bool) → Prop)
+    (hm : Monotone2 ⟨pre ++ g :: post, out⟩)
+    (hcorrect : ∀ x : Fin n → Bool,
+      Circuit.eval ⟨pre ++ g :: post, out⟩ (List.ofFn x) = F x)
+    (hpos_cover : ∀ x : Fin n → Bool, F x = true →
+      ∃ y : Fin n → Bool, F y = true ∧ P y ∧ ∀ i, y i = true → x i = true)
+    (hneg_cover : ∀ x : Fin n → Bool, F x = false →
+      ∃ y : Fin n → Bool, F y = false ∧ N y ∧ ∀ i, x i = true → y i = true)
+    (hpos : ∀ x : Fin n → Bool, F x = true → P x →
+      Circuit.eval ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (List.ofFn x) = false →
+      (run pre (List.ofFn x)).getD r false = true)
+    (hneg : ∀ x : Fin n → Bool, N x →
+      (run pre (List.ofFn x)).getD r false = true →
+      g.op.eval (g.inputs.map fun i => (run pre (List.ofFn x)).getD i false) = true) :
+    ∃ D : Circuit, Monotone2 D ∧ D.size + 1 = Circuit.size ⟨pre ++ g :: post, out⟩ ∧
+      ∀ x : Fin n → Bool, D.eval (List.ofFn x) = F x := by
+  apply erase_gate_of_aliased_correct n pre post g out r F hm
+  apply critical_boundary_gate_correct n pre post g ⟨GateOp.or, [r]⟩ out F P N
+    hm (by simp) hcorrect hpos_cover hneg_cover
+  · intro x hf hp hz
+    simpa only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil,
+      id_eq, Bool.or_false] using hpos x hf hp hz
+  · intro x hn
+    simpa only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil,
+      id_eq, Bool.or_false] using hneg x hn
+
+lemma negative_replacement_wires_le (n : ℕ) (pre post : List Gate) (g h : Gate) (out : ℕ)
+    (F : (Fin n → Bool) → Bool)
+    (hm : Monotone2 ⟨pre ++ g :: post, out⟩)
+    (hneg : ∀ x : Fin n → Bool, F x = false →
+      h.op.eval (h.inputs.map fun i => (run pre (List.ofFn x)).getD i false) = true →
+      g.op.eval (g.inputs.map fun i => (run pre (List.ofFn x)).getD i false) = true) :
+    ∀ x : Fin n → Bool, F x = false → ∀ w : ℕ,
+      (Circuit.wires ⟨pre ++ h :: post, out⟩ (List.ofFn x)).getD w false = true →
+      (Circuit.wires ⟨pre ++ g :: post, out⟩ (List.ofFn x)).getD w false = true := by
+  intro x hf
+  change WireLE (run (pre ++ h :: post) (List.ofFn x))
+    (run (pre ++ g :: post) (List.ofFn x))
+  rw [run_append, run_append]
+  have hpost : ∀ a ∈ post, a.op = .and ∨ a.op = .or := by
+    intro a ha
+    simpa using (hm a (List.mem_append_right _ (List.mem_cons_of_mem _ ha))).1
+  exact run_mono post (by simp)
+    (wireLE_snoc rfl (fun _ h => h) (hneg x hf)) hpost
+
+
+lemma cone_nonincrease_primary_rewire (n : ℕ) (C D : Circuit)
+    (hlen : D.gates.length = C.gates.length)
+    (hdeps : ∀ j < D.gates.length, ∀ w : ℕ, n ≤ w →
+      w ∈ (PEqualNP.MetaComplexity.NestedCover.gateAt D j).inputs →
+      w ∈ (PEqualNP.MetaComplexity.NestedCover.gateAt C j).inputs) :
+    ∀ i j, PEqualNP.EdgeOwnership.InCone n D i j → PEqualNP.EdgeOwnership.InCone n C i j := by
+  intro i j
+  induction j using Nat.strong_induction_on with
+  | _ j ih =>
+    intro hcone
+    obtain ⟨hj, k, hkj, hw, hpath⟩ := (SafeLift.inCone_iff n D i j).mp hcone
+    apply (SafeLift.inCone_iff n C i j).mpr
+    refine ⟨by simpa only [hlen] using hj, k, hkj, hdeps j hj (n+k) (by omega) hw, ?_⟩
+    rcases hpath with hpath | hpath
+    · exact Or.inl hpath
+    · exact Or.inr (ih k hkj hpath)
+
+lemma andPairs_nonincrease_primary_rewire (n : ℕ) (C D : Circuit)
+    (hlen : D.gates.length = C.gates.length)
+    (hdeps : ∀ j < D.gates.length, ∀ w : ℕ, n ≤ w →
+      w ∈ (PEqualNP.MetaComplexity.NestedCover.gateAt D j).inputs →
+      w ∈ (PEqualNP.MetaComplexity.NestedCover.gateAt C j).inputs)
+    (hops : ∀ j < D.gates.length,
+      (PEqualNP.MetaComplexity.NestedCover.gateAt D j).op = GateOp.and →
+      (PEqualNP.MetaComplexity.NestedCover.gateAt C j).op = GateOp.and) :
+    PEqualNP.TopForm.andPairs n D ≤ PEqualNP.TopForm.andPairs n C := by
+  unfold PEqualNP.TopForm.andPairs
+  apply Finset.card_le_card
+  rintro ⟨i,j⟩ hp
+  simp only [Finset.mem_filter, Finset.mem_product, Finset.mem_range] at hp ⊢
+  obtain ⟨⟨hi,hj⟩, hiand, hjand, hcone⟩ := hp
+  exact ⟨⟨by simpa only [hlen] using hi, by simpa only [hlen] using hj⟩,
+    hops i hi hiand, hops j hj hjand, cone_nonincrease_primary_rewire n C D hlen hdeps i j hcone⟩
+
+
+def supportValue {n : ℕ} (A : Finset (Fin n)) (x : Fin n → Bool) : Bool :=
+  decide (∃ a ∈ A, x a = true)
+
+lemma overlap_operand_switch_negative {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (A B : Finset (Fin n)) (c : Fin n)
+    (hremote : ∀ a ∈ A, a ∉ B → G.Adj c a)
+    (x : Fin n → Bool) (hfalse : graphFun G ∅ x = false)
+    (hnew : supportValue A x && x c = true) :
+    supportValue A x && supportValue B x = true := by
+  have ha : supportValue A x = true := by
+    cases h : supportValue A x <;> simp_all
+  have hc : x c = true := by simpa [ha] using hnew
+  have ha' : ∃ a ∈ A, x a = true := by simpa only [supportValue, decide_eq_true_eq] using ha
+  obtain ⟨a, haA, hxa⟩ := ha'
+  suffices hb : supportValue B x = true by simp [ha, hb]
+  by_cases haB : a ∈ B
+  · exact decide_eq_true ⟨a, haB, hxa⟩
+  · have hpos : graphFun G ∅ x = true := by
+      simpa [graphFun] using (show ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true from
+        ⟨c, a, hremote a haA haB, hc, hxa⟩)
+    rw [hfalse] at hpos
+    contradiction
+
+lemma overlap_operand_switch_singleton {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (A B : Finset (Fin n)) (c u : Fin n)
+    (huA : u ∈ A) (huB : u ∈ B) (hcu : c ≠ u) :
+    let x : Fin n → Bool := fun v => decide (v = u)
+    graphFun G ∅ x = false ∧
+      (supportValue A x && supportValue B x) = true ∧
+      (supportValue A x && x c) = false := by
+  simp [graphFun, supportValue, huA, huB, hcu]
+
+
+namespace SharedSupport
+
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+
+def setInput {n : ℕ} (X : Finset (Fin n)) : Fin n → Bool :=
+  fun w => decide (w ∈ X)
+
+def InputMonotone {n : ℕ} (f : (Fin n → Bool) → Bool) : Prop :=
+  ∀ x y, (∀ w, x w = true → y w = true) → f x = true → f y = true
+
+/-- A set omitting a center needs distinct vertices to cover its distinct neighbors. -/
+lemma neighbor_cover_card {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : NoFourCycle G) (v : Fin n) (L X : Finset (Fin n))
+    (hL : ∀ l ∈ L, G.Adj v l) (hv : v ∉ X)
+    (hcover : ∀ l ∈ L, ∃ x ∈ X, G.Adj x l) : L.card ≤ X.card := by
+  classical
+  let f : L → X := fun l =>
+    ⟨Classical.choose (hcover l l.property), (Classical.choose_spec (hcover l l.property)).1⟩
+  have hf : ∀ l : L, G.Adj (f l) l := fun l =>
+    (Classical.choose_spec (hcover l l.property)).2
+  have hinj : Function.Injective f := by
+    intro l₁ l₂ heq
+    apply Subtype.ext
+    have hvf : v ≠ (f l₁ : Fin n) := by
+      intro he
+      exact hv (he ▸ (f l₁).property)
+    have hc := hfour v (f l₁) hvf
+    apply Finset.card_le_one.mp hc
+    · exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, hL l₁ l₁.property, hf l₁⟩
+    · exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, hL l₂ l₂.property, by
+        rw [heq]
+        exact hf l₂⟩
+  simpa using Fintype.card_le_of_injective f hinj
+
+/-- Negative graph inputs are precisely independent vertex sets. -/
+lemma graphFun_setInput_false_iff {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (X : Finset (Fin n)) :
+    graphFun G ∅ (setInput X) = false ↔
+      ∀ a ∈ X, ∀ b ∈ X, ¬ G.Adj a b := by
+  simp [graphFun, setInput]
+  aesop
+
+/-- If `U` accepts every singleton in `L` and `U AND D` is below the edge function,
+  every negative input accepted by `D` must neighbor every vertex of `L`. -/
+lemma neighbor_cover_of_safe_and {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (L X : Finset (Fin n))
+    (U D : (Fin n → Bool) → Bool)
+    (hUm : InputMonotone U) (hDm : InputMonotone D)
+    (hU : ∀ l ∈ L, U (setInput {l}) = true)
+    (hbelow : ∀ x, U x = true → D x = true → graphFun G ∅ x = true)
+    (hX : graphFun G ∅ (setInput X) = false)
+    (hD : D (setInput X) = true) :
+    ∀ l ∈ L, ∃ x ∈ X, G.Adj x l := by
+  classical
+  intro l hl
+  by_contra hn
+  have hXi := (graphFun_setInput_false_iff G X).mp hX
+  have hins : ∀ a ∈ insert l X, ∀ b ∈ insert l X, ¬ G.Adj a b := by
+    intro a ha b hb hab
+    rcases Finset.mem_insert.mp ha with hal | ha
+    · rcases Finset.mem_insert.mp hb with hbl | hb
+      · rw [hal, hbl] at hab
+        exact G.irrefl hab
+      · rw [hal] at hab
+        exact hn ⟨b, hb, hab.symm⟩
+    · rcases Finset.mem_insert.mp hb with hbl | hb
+      · rw [hbl] at hab
+        exact hn ⟨a, ha, hab⟩
+      · exact hXi a ha b hb hab
+  have hUi : U (setInput (insert l X)) = true := by
+    apply hUm (setInput {l}) (setInput (insert l X)) ?_ (hU l hl)
+    intro w hw
+    simpa only [setInput, decide_eq_true_eq, Finset.mem_singleton] using
+      (show w ∈ insert l X from by
+        have he : w = l := by simpa only [setInput, decide_eq_true_eq,
+          Finset.mem_singleton] using hw
+        simp [he])
+  have hDi : D (setInput (insert l X)) = true := by
+    apply hDm (setInput X) (setInput (insert l X)) ?_ hD
+    intro w hw
+    have hwX : w ∈ X := by simpa only [setInput, decide_eq_true_eq] using hw
+    simpa only [setInput, decide_eq_true_eq] using Finset.mem_insert_of_mem hwX
+  have hfalse := (graphFun_setInput_false_iff G (insert l X)).mpr hins
+  have htrue := hbelow (setInput (insert l X)) hUi hDi
+  exact Bool.noConfusion (hfalse.symm.trans htrue)
+
+/-- A negative witness omitting the center has at least as many vertices as the
+  shared singleton support. No triangle-free assumption is needed. -/
+lemma safe_and_negative_witness_card {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (hfour : NoFourCycle G)
+    (v : Fin n) (L X : Finset (Fin n))
+    (hL : ∀ l ∈ L, G.Adj v l) (hv : v ∉ X)
+    (U D : (Fin n → Bool) → Bool)
+    (hUm : InputMonotone U) (hDm : InputMonotone D)
+    (hU : ∀ l ∈ L, U (setInput {l}) = true)
+    (hbelow : ∀ x, U x = true → D x = true → graphFun G ∅ x = true)
+    (hX : graphFun G ∅ (setInput X) = false)
+    (hD : D (setInput X) = true) : L.card ≤ X.card := by
+  exact neighbor_cover_card G hfour v L X hL hv
+    (neighbor_cover_of_safe_and G L X U D hUm hDm hU hbelow hX hD)
+
+end SharedSupport
+
+
+lemma GraphExtremal.activity_le_of_nonincrease {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] {activity : Circuit → ℕ} {C D : Circuit}
+    (hC : GraphExtremal n G activity C) (hmD : Monotone2 D)
+    (hcD : circuitFun n D = graphFun G ∅) (hsize : D.size ≤ C.size)
+    (hjunk : (PEqualNP.TopForm.junk G D).card ≤ (PEqualNP.TopForm.junk G C).card)
+    (hpairs : PEqualNP.TopForm.andPairs n D ≤ PEqualNP.TopForm.andPairs n C) :
+    activity C ≤ activity D := by
+  have hminD : IsMinimalMonoCircuit n D := by
+    refine ⟨hmD, ?_⟩
+    intro E hmE he
+    exact hsize.trans (hC.1.2 E hmE ((he.trans hcD).trans hC.2.1.symm))
+  have hj : (PEqualNP.TopForm.junk G D).card = (PEqualNP.TopForm.junk G C).card :=
+    Nat.le_antisymm hjunk (hC.2.2.2.1 D hminD hcD)
+  have hp : PEqualNP.TopForm.andPairs n D = PEqualNP.TopForm.andPairs n C :=
+    Nat.le_antisymm hpairs (hC.2.2.2.2.1 D hminD hcD hj)
+  exact hC.2.2.2.2.2 D hminD hcD hj hp
+
 end PEqualNP.Outside.L_meta_1904_aux
