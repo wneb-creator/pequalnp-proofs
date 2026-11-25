@@ -1,0 +1,7 @@
+L-meta-3457 partial: all relabeled six-cycle incidences
+2026-11-25T02:19:16.903041+00:00
+SHA256 814a15f5ee604442157d75c68ff3e8237ee4e2500289a6fb6c65d9739c33e2e3
+Lines 4678
+Central lake env lean CycleSixPerm3457V3.lean: exit 0, warnings only, no sorry warnings. Complete stdout/stderr preserved. Independent source review approved this exact hash.
+Extends the canonical six-cycle proof to every missing perfect matching on Fin3 via input relabeling. The five added finite checks use ordinary decide and are checked by Lean; no native computation. All target conclusions hold for these relabeled incidences. This is not the arbitrary-N statement.
+Retains copied custom data/proposition types, so manual format review would be required for a proof submission.
