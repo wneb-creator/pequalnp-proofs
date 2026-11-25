@@ -1,0 +1,4 @@
+{"case": "identity", "exit": 0, "seconds": 0.03542067600028531, "complete": true, "nonzero_constant": "591117408", "independent_exact_residual": "0", "multiplier_terms": 1023}
+{"case": "swap-pair", "exit": 0, "seconds": 0.11689783000110765, "complete": true, "nonzero_constant": "106740064718269756569194988649085284393476", "independent_exact_residual": "0", "multiplier_terms": 592}
+{"case": "swap-cross", "exit": 0, "seconds": 0.06735763200049405, "complete": true, "nonzero_constant": "92286757331413999459693162304", "independent_exact_residual": "0", "multiplier_terms": 245}
+{"case": "cycle", "exit": 0, "seconds": 0.07085617700067814, "complete": true, "nonzero_constant": "4252125116050344", "independent_exact_residual": "0", "multiplier_terms": 228}

@@ -1,0 +1,9 @@
+{
+  "reviewer": "status_review",
+  "utc": "2026-11-25T12:30:41.203326+00:00",
+  "verdict": "PASS",
+  "hash_size_mismatches": 0,
+  "sensitive_values_detected": 0,
+  "source_manifest_count": 2,
+  "mathematical_scope": "Restricted exact certificates and chart construction only; no global or Lean checker claim."
+}

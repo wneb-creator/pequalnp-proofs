@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "charts": 3,
+  "variables_each": 16,
+  "equations_each": 31,
+  "total_ryser_audit_checks": 288,
+  "seconds": 0.7861662350005645,
+  "max_rss_kib": 16512,
+  "chart_json_bytes": 426280
+}

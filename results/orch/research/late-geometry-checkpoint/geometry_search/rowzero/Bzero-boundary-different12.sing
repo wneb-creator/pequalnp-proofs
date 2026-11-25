@@ -1,0 +1,5 @@
+ring r=0,(a,b,c,d),dp;
+option(redSB);
+ideal I=-a^2 - c^2 + 2,-a*b - 2*a - c*d,-b^2 - 4*b - d^2 - 1,c^4 - 3*c^2 + 2,2*a*c^2 - 2*a + 2*c^3*d - 3*c*d,5*a^2 + 8*a*c*d + 4*b*c^2 - 4*b + 6*c^2*d^2 + c^2 - 3*d^2 - 3,5*a*b + 2*a*d^2 + 2*a + 4*b*c*d + 2*c*d^3 + c*d,5*b^2 + 4*b*d^2 + 4*b + d^4 + d^2 + 1;
+ideal G=std(I);
+print("BASIS_SIZE");size(G);print("DIMENSION");dim(G);print("BASIS");G;quit;

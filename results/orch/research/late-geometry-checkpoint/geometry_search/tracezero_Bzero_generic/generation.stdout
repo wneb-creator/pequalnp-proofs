@@ -1,0 +1,4 @@
+{"name": "identity", "term_counts": [2, 6, 3, 6, 19, 14, 32, 14, 19], "cubic_identity_exact": true}
+{"name": "swap-pair", "term_counts": [2, 5, 5, 5, 14, 21, 28, 21, 14], "cubic_identity_exact": true}
+{"name": "swap-cross", "term_counts": [2, 6, 4, 5, 19, 16, 30, 19, 14], "cubic_identity_exact": true}
+{"name": "cycle", "term_counts": [2, 5, 5, 5, 14, 21, 28, 21, 14], "cubic_identity_exact": true}

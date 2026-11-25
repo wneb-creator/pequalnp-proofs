@@ -1,0 +1,823 @@
+{
+  "created_utc": "2026-11-25T12:16:28.815861+00:00",
+  "scope": "Complete algebraic exclusion of B-rank-zero, D-rank-two tracezero two-planes via four generic UFD charts and four zero-factor boundary charts. Exact identities and complete chart coverage independently reviewed. Not yet Lean formalized; no global L-gct-231 result. RankB1 and global extension cases remain open.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/Bzero-boundaries-independent-audit.json",
+      "relative_path": "geometry_search/Bzero-boundaries-independent-audit.json",
+      "bytes": 1503,
+      "sha256": "9c522a46f6294539d191932c184fe2c40bdcdf25305034bb62ffe0ad38762b86"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/Bzero-boundaries-independent-audit.stderr",
+      "relative_path": "geometry_search/Bzero-boundaries-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/Bzero-boundaries-independent-audit.stdout",
+      "relative_path": "geometry_search/Bzero-boundaries-independent-audit.stdout",
+      "bytes": 1503,
+      "sha256": "9c522a46f6294539d191932c184fe2c40bdcdf25305034bb62ffe0ad38762b86"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/audit_Bzero_boundaries.py",
+      "relative_path": "geometry_search/audit_Bzero_boundaries.py",
+      "bytes": 2945,
+      "sha256": "78c656bf242c95eee08d266db86b28b13ca3ae6777fc69b8878371d71ff31348"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/extract_Bzero_generic_certificates.py",
+      "relative_path": "geometry_search/extract_Bzero_generic_certificates.py",
+      "bytes": 2744,
+      "sha256": "68bca8bb28d996fbfab98fe0c1d4589732c1075cb194646510fb2482359b6315"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/generate_Bzero_generic.py",
+      "relative_path": "geometry_search/generate_Bzero_generic.py",
+      "bytes": 3480,
+      "sha256": "a9501e48bdf1d1f85063cf217dfdc493837f942934ed2197f470bd85fa888d94"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundaries-generator.stderr",
+      "relative_path": "geometry_search/rowzero/Bzero-boundaries-generator.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundaries-generator.stdout",
+      "relative_path": "geometry_search/rowzero/Bzero-boundaries-generator.stdout",
+      "bytes": 401,
+      "sha256": "7704a7652e0055385c5baacb5451b12713987d730ff19c733d44d55633f902ba"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundaries-lift-results.json",
+      "relative_path": "geometry_search/rowzero/Bzero-boundaries-lift-results.json",
+      "bytes": 1047,
+      "sha256": "0e05de243d3d55357360483ff235c36f397eeab16ca28defc83d7d0d8f7b604a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundaries-lift-run.stderr",
+      "relative_path": "geometry_search/rowzero/Bzero-boundaries-lift-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundaries-lift-run.stdout",
+      "relative_path": "geometry_search/rowzero/Bzero-boundaries-lift-run.stdout",
+      "bytes": 904,
+      "sha256": "c04ea75cd79534709d3f19bcaaa4df9861d9a1ac46239b22bfbdb6f11e8d3648"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundaries-lift2-results.json",
+      "relative_path": "geometry_search/rowzero/Bzero-boundaries-lift2-results.json",
+      "bytes": 1052,
+      "sha256": "079b9ebdce6699c9ae9902f35e91fdfd234db40667a27d779a7e7159b6dcffb7"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundaries-lift2-run.stderr",
+      "relative_path": "geometry_search/rowzero/Bzero-boundaries-lift2-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundaries-lift2-run.stdout",
+      "relative_path": "geometry_search/rowzero/Bzero-boundaries-lift2-run.stdout",
+      "bytes": 909,
+      "sha256": "8efb923603d7f3951b633f79a5c7a7b9a5eeaa2d71c32c40c962abf64f2a374f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundaries-manifest.json",
+      "relative_path": "geometry_search/rowzero/Bzero-boundaries-manifest.json",
+      "bytes": 3216,
+      "sha256": "f451c081da43bcbd44df71361b7ce0ea66fbd75d067707e9e0aa8a8170d445ba"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundaries-std-results.json",
+      "relative_path": "geometry_search/rowzero/Bzero-boundaries-std-results.json",
+      "bytes": 1040,
+      "sha256": "e0a965b27617b3f8f6e56b65afedd7b80a314dfc89ebbc44f54ff89399cb097a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundaries-std-run.stderr",
+      "relative_path": "geometry_search/rowzero/Bzero-boundaries-std-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundaries-std-run.stdout",
+      "relative_path": "geometry_search/rowzero/Bzero-boundaries-std-run.stdout",
+      "bytes": 897,
+      "sha256": "0d9176f6167553d45553cd83604b899bef7fca8ce3e6ff3a6376837207354aaf"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-certificates-verified.json",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-certificates-verified.json",
+      "bytes": 6478,
+      "sha256": "620b2bfe57ccf36dbbcc5d6e593cba11ec48ca87a50f7906d7b532606676b65e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-certificates-verified.stderr",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-certificates-verified.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-certificates-verified.stdout",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-certificates-verified.stdout",
+      "bytes": 1392,
+      "sha256": "a4ea11c49e47d0a35562c57e63475b734b0961fa98f2434448c0cb37409547b9"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-coverage.md",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-coverage.md",
+      "bytes": 2727,
+      "sha256": "cf1f5510ea90afa457f290dd2d0e862aae20c9dcec7eb1eb3da5f4c04fd0d4d5"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different01-lift.result.json",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different01-lift.result.json",
+      "bytes": 244,
+      "sha256": "8f0c1488ae609cf3ce7791e4e16a2d8741f9f81c73b0b31953eb4d3d4520f3cc"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different01-lift.sing",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different01-lift.sing",
+      "bytes": 728,
+      "sha256": "9d02c33ef932b1e1d54ccb235457aadb74d9999a03d4fd91388bf9e712c94e1c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different01-lift.stderr",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different01-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different01-lift.stdout",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different01-lift.stdout",
+      "bytes": 29,
+      "sha256": "5947a0cbbfe053d598bfdac14d8d318459e24763fb2634b1c0babf3afac9f4af"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different01-lift2.result.json",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different01-lift2.result.json",
+      "bytes": 245,
+      "sha256": "374bec7f2dda84c0940784228e029a2162f69c85e259b9b9dbadd885c114ac56"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different01-lift2.sing",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different01-lift2.sing",
+      "bytes": 800,
+      "sha256": "8b5105b8bbaa1fa3d9922ca29410c847e9666739a0dad8578838636f08b7a460"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different01-lift2.stderr",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different01-lift2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different01-lift2.stdout",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different01-lift2.stdout",
+      "bytes": 1071,
+      "sha256": "13c793b551779c19027aaccf92d75905bb41c065ee465a6960d66e35322c32b9"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different01-std.result.json",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different01-std.result.json",
+      "bytes": 242,
+      "sha256": "1e8cc2adeb0b28aa89e4cd365f21f6f968325afb78cac3ab9bf4f10449b2a55d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different01-std.stderr",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different01-std.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different01-std.stdout",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different01-std.stdout",
+      "bytes": 39,
+      "sha256": "4c45b32fb88c6d2959e7a972cc2308a619c9fa16977b9091b36088386546a2fd"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different01.sing",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different01.sing",
+      "bytes": 564,
+      "sha256": "60acf789f6a5ab0f1e659cb8535853b8a1ceed7f1e0cbc865dcf17f65187fe05"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different02-lift.result.json",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different02-lift.result.json",
+      "bytes": 244,
+      "sha256": "c7bfa1aea315446ccedec8e6f9a77b8d7bd20f113dca50c01b89a4431ae72e68"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different02-lift.sing",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different02-lift.sing",
+      "bytes": 571,
+      "sha256": "bbb63a6e0d42ffee45d2f0c19505f808b0b96bba022edb2255d4c018e1d98996"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different02-lift.stderr",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different02-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different02-lift.stdout",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different02-lift.stdout",
+      "bytes": 28,
+      "sha256": "87f11bfcb8804171dff6461213f8b09bacc9e0ffcd3e53c2018e48d343028d80"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different02-lift2.result.json",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different02-lift2.result.json",
+      "bytes": 245,
+      "sha256": "9e52ac41a6613cdaf3a85be186b3fa88c78ac08f0e3ed6dbfa4712d855cbf148"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different02-lift2.sing",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different02-lift2.sing",
+      "bytes": 643,
+      "sha256": "9a751b237244574d6ccbf42ee7deb2dfcf7be217115fe910d529649046f11c23"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different02-lift2.stderr",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different02-lift2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different02-lift2.stdout",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different02-lift2.stdout",
+      "bytes": 781,
+      "sha256": "90aa7a22562381ccaa2703593f1b8cb3b1f7d38afb9128bfed5c28c165235908"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different02-std.result.json",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different02-std.result.json",
+      "bytes": 243,
+      "sha256": "72912a9fd7b1ea4592a48b56b2bec18a10fcc26b3f5a574f91b403a1029650a1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different02-std.stderr",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different02-std.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different02-std.stdout",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different02-std.stdout",
+      "bytes": 39,
+      "sha256": "4c45b32fb88c6d2959e7a972cc2308a619c9fa16977b9091b36088386546a2fd"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different02.sing",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different02.sing",
+      "bytes": 407,
+      "sha256": "3bf843e1183ac7e45b04e35d8579da17e22fa0d6c3962bf6f39bd93f3eb2a2bf"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different12-lift.result.json",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different12-lift.result.json",
+      "bytes": 243,
+      "sha256": "1faad6853f09d82244a48f3f26c46e0b6f7bcdb5c47f2699ddb80cb62684e819"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different12-lift.sing",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different12-lift.sing",
+      "bytes": 553,
+      "sha256": "821816914ec83a1478d60e0227032f6c30bd33c148728d0e1c01e117ba16a933"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different12-lift.stderr",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different12-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different12-lift.stdout",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different12-lift.stdout",
+      "bytes": 28,
+      "sha256": "93e131ff8c6bcff7882189e29b95d85f36dda07179f3fc37b348f8f87d772682"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different12-lift2.result.json",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different12-lift2.result.json",
+      "bytes": 245,
+      "sha256": "bcec1f5adcf78ae6cde9f15e02367bcd52eb601dd600b064b7c5d4f4e02d16fc"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different12-lift2.sing",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different12-lift2.sing",
+      "bytes": 625,
+      "sha256": "6a0dd7a3c01400cfb0c2d1d618442cee0fe236855151ecb6cde87cfcccce3f93"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different12-lift2.stderr",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different12-lift2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different12-lift2.stdout",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different12-lift2.stdout",
+      "bytes": 745,
+      "sha256": "d8c6c835a50e53c956928dc954a5c861e218cac3bcb63f250e463c9485673e2c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different12-std.result.json",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different12-std.result.json",
+      "bytes": 242,
+      "sha256": "346bcacc48949f7df0b821baf750b95c4e0a156e632249bf27ae3f1b1e6d9b95"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different12-std.stderr",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different12-std.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different12-std.stdout",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different12-std.stdout",
+      "bytes": 39,
+      "sha256": "4c45b32fb88c6d2959e7a972cc2308a619c9fa16977b9091b36088386546a2fd"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-different12.sing",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-different12.sing",
+      "bytes": 389,
+      "sha256": "1e58cbd87b05746db308f8e0b6648112e5f945ef922562f82bed41518913fe76"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-same-lift.result.json",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-same-lift.result.json",
+      "bytes": 237,
+      "sha256": "b8afe3a92399d6db0647fcd9a3c798b95be7eb1a59d770b48a46ac0cb21c8f1c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-same-lift.sing",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-same-lift.sing",
+      "bytes": 499,
+      "sha256": "8f132c244790aedf111fc3367361fc8dd4d0bbfe1af2cfe84aaeeec389927535"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-same-lift.stderr",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-same-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-same-lift.stdout",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-same-lift.stdout",
+      "bytes": 33,
+      "sha256": "9b9be3af11c49fac50e83bc780ae8f8ac472614adadb6478835c25a2d171647a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-same-lift2.result.json",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-same-lift2.result.json",
+      "bytes": 238,
+      "sha256": "54abf1d7e18289ebe7909dd1e0249d3ed200100d99bde107e8b1cb01c161bc42"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-same-lift2.sing",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-same-lift2.sing",
+      "bytes": 571,
+      "sha256": "35bf4e18ba5efb039bc6915418692f9b19ffc233decc3a515d2840912fe38042"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-same-lift2.stderr",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-same-lift2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-same-lift2.stdout",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-same-lift2.stdout",
+      "bytes": 452,
+      "sha256": "c241530e2ece56fa347f68afc62057a86bf6bea3bb59e6039a7eb6c2d1b6f978"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-same-std.result.json",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-same-std.result.json",
+      "bytes": 234,
+      "sha256": "97e88a92715758966cec7597274ce136151cea0585fbf409a4e9e2dfa1fb1975"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-same-std.stderr",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-same-std.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-same-std.stdout",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-same-std.stdout",
+      "bytes": 39,
+      "sha256": "4c45b32fb88c6d2959e7a972cc2308a619c9fa16977b9091b36088386546a2fd"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-boundary-same.sing",
+      "relative_path": "geometry_search/rowzero/Bzero-boundary-same.sing",
+      "bytes": 335,
+      "sha256": "381a0a41ef8914afb48694c1dbeae5d0c74e246a4fcd486d6324d7a1d237ff83"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-generic-independent-audit.json",
+      "relative_path": "geometry_search/rowzero/Bzero-generic-independent-audit.json",
+      "bytes": 2266,
+      "sha256": "3a00ffe4517420765ceb6e1f7b711007268376eccb7840511a7dc766dddf89db"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-generic-independent-audit.stderr",
+      "relative_path": "geometry_search/rowzero/Bzero-generic-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/Bzero-generic-independent-audit.stdout",
+      "relative_path": "geometry_search/rowzero/Bzero-generic-independent-audit.stdout",
+      "bytes": 1313,
+      "sha256": "9f660bc8fbec95b3ed8f748cc14ba2ce8d24f06fb66a5651565d3ec2e3d044e0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/audit_Bzero_generic.py",
+      "relative_path": "geometry_search/rowzero/audit_Bzero_generic.py",
+      "bytes": 3991,
+      "sha256": "95cdae9df2699bbe9bed562d32f6a013e1c5a5c4950e90e0280c79289d580d9b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/generate_Bzero_boundaries.py",
+      "relative_path": "geometry_search/rowzero/generate_Bzero_boundaries.py",
+      "bytes": 2859,
+      "sha256": "72dc655d76ad4d45928e489c3108cba35fe1fb32d25f8570c5e92288b1836212"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/run_Bzero_boundaries.py",
+      "relative_path": "geometry_search/rowzero/run_Bzero_boundaries.py",
+      "bytes": 2506,
+      "sha256": "039c4b488f45e37aa9e26f7baaf065d232a6593e55fa5a1b0dc3f33e0a6ec368"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/run_trace_Bzero.py",
+      "relative_path": "geometry_search/rowzero/run_trace_Bzero.py",
+      "bytes": 3526,
+      "sha256": "edfa216c394bbd4202fe77007a34a9dc85e1c8d2dbd000112a246d4b5fcabed7"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/run_trace_Bzero_std.py",
+      "relative_path": "geometry_search/rowzero/run_trace_Bzero_std.py",
+      "bytes": 1538,
+      "sha256": "4ca620edb23fe816b37969dfc7efa4303d1fd5638c1d3165a9097dbc1ba5d3ce"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bzero-compact-identities.json",
+      "relative_path": "geometry_search/rowzero/trace-Bzero-compact-identities.json",
+      "bytes": 500,
+      "sha256": "3a343e676e69624a5b04d492c8d2b2cf646568587756c55ca241ca690e7daf50"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bzero-manifest.json",
+      "relative_path": "geometry_search/rowzero/trace-Bzero-manifest.json",
+      "bytes": 3067,
+      "sha256": "360b69cfbe23e985e90f90165668fa91300aa13f959657f6b16ea68744fffe28"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bzero-result.json",
+      "relative_path": "geometry_search/rowzero/trace-Bzero-result.json",
+      "bytes": 277,
+      "sha256": "567869210acb1ab107c2f9ceb7cdb12275a5fc6ee5a98ba8591e817ce3e01b09"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bzero-run.stderr",
+      "relative_path": "geometry_search/rowzero/trace-Bzero-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bzero-run.stdout",
+      "relative_path": "geometry_search/rowzero/trace-Bzero-run.stdout",
+      "bytes": 265,
+      "sha256": "efe7ceb84ff6c225bcefe87dd8918ac0aae2dbda25bd64f9c8a5827b497762a1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bzero-singular.stderr",
+      "relative_path": "geometry_search/rowzero/trace-Bzero-singular.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bzero-singular.stdout",
+      "relative_path": "geometry_search/rowzero/trace-Bzero-singular.stdout",
+      "bytes": 164,
+      "sha256": "5ee35aab321e765492f66e33e908aa9c2c32dc8684a2bf7f8f53cafc8c9b27fc"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bzero-std-result.json",
+      "relative_path": "geometry_search/rowzero/trace-Bzero-std-result.json",
+      "bytes": 237,
+      "sha256": "f7348b1de456f283039cc25a106b32fed55f073c1992e2e0702991c2fd4e7d5d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bzero-std-run.stderr",
+      "relative_path": "geometry_search/rowzero/trace-Bzero-std-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bzero-std-run.stdout",
+      "relative_path": "geometry_search/rowzero/trace-Bzero-std-run.stdout",
+      "bytes": 223,
+      "sha256": "5b2f28669fee84a41b041b27b70107e5195701fed1c2d2361f0e0ff7bc29ce32"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bzero-std.sing",
+      "relative_path": "geometry_search/rowzero/trace-Bzero-std.sing",
+      "bytes": 2413,
+      "sha256": "2a52c15e5c8aa5fe16f0e30c224329ed684477d303df7df972bb54fc5b883a6c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bzero-std.stderr",
+      "relative_path": "geometry_search/rowzero/trace-Bzero-std.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bzero-std.stdout",
+      "relative_path": "geometry_search/rowzero/trace-Bzero-std.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bzero.sing",
+      "relative_path": "geometry_search/rowzero/trace-Bzero.sing",
+      "bytes": 2416,
+      "sha256": "08f7485714405136f0bb91613e5188e2458a6bb956bf66a054832eecf5680b19"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/verify_Bzero_boundary_certificates.py",
+      "relative_path": "geometry_search/rowzero/verify_Bzero_boundary_certificates.py",
+      "bytes": 1626,
+      "sha256": "02c45f0256b0a23501d331d64ed97ffae3e47b9c023733cb75d4251f3258279e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/run_Bzero_generic.py",
+      "relative_path": "geometry_search/run_Bzero_generic.py",
+      "bytes": 1392,
+      "sha256": "a0f26c8fd3547d0ea0428493a303bcc936035ebc539ab455201d4fd666dbb5ce"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/SCOPE.md",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/SCOPE.md",
+      "bytes": 3261,
+      "sha256": "2f9c782fca6837edf3431116cfab9e26d80075333537d93f62f7c662cc4b0fad"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/certificate-driver-2.stderr",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/certificate-driver-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/certificate-driver-2.stdout",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/certificate-driver-2.stdout",
+      "bytes": 761,
+      "sha256": "9872116903ea4198b1dca3a458d8b110810eba1637cd81a801d9b4648f9986b4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/certificate-driver.stderr",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/certificate-driver.stderr",
+      "bytes": 282,
+      "sha256": "49d60ee80338f8e4e44c8f8031cc70465e3204f9bd05c7e77083f218fc9f269d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/certificate-driver.stdout",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/certificate-driver.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/cycle-certificate.json",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/cycle-certificate.json",
+      "bytes": 8115,
+      "sha256": "ffb1490364c22a020198c8ed56a31dd12006311edeadf0839d9b8330350b1738"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/cycle-lift.sing",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/cycle-lift.sing",
+      "bytes": 1429,
+      "sha256": "867f2065209660d8a106e31baae5351b5cfbf9e8fa89f0dbf8ed865fe25f721e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/cycle-lift.stderr",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/cycle-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/cycle-lift.stdout",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/cycle-lift.stdout",
+      "bytes": 5919,
+      "sha256": "27aa69789059e204e1c94839ae73e7a95da77fc5c00bcfe2da8cebd6396832cb"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/cycle.result.json",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/cycle.result.json",
+      "bytes": 217,
+      "sha256": "66d623f9a2c965bf0b35b341396d2ee37b9b61c52bf73992d90f8a4dff668335"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/cycle.sing",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/cycle.sing",
+      "bytes": 1316,
+      "sha256": "3fc8477abd150101345ba810fb304133e1fdbf4b9137e4ebcb15b3982e677d92"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/cycle.stderr",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/cycle.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/cycle.stdout",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/cycle.stdout",
+      "bytes": 53,
+      "sha256": "e859be82ddd42bc4a5c5b8a422f7fc2a9752fa8b8fb4e4272e1d38e428dfcab0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/driver.stderr",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/driver.stdout",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/driver.stdout",
+      "bytes": 815,
+      "sha256": "b2c103221cd0684fe22338bb1c8b2a5a8a6d30c3a4ebc3c7a1c68d6c290be7b4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/generation.stderr",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/generation.stdout",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/generation.stdout",
+      "bytes": 400,
+      "sha256": "0b93a208eb74b12f6572d0a9d3c998f2c6f3c280f13e3b82c594593adb116de4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/identity-certificate.json",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/identity-certificate.json",
+      "bytes": 27942,
+      "sha256": "b381fafd7434d6faad2774781ceebc501b34bce8cdf3c02fdbe1e6fb4b97d102"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/identity-lift.sing",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/identity-lift.sing",
+      "bytes": 1479,
+      "sha256": "019c017ee45ae8d2adb574542f6720739fe91779e4368cb69310dee59909f1e3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/identity-lift.stderr",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/identity-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/identity-lift.stdout",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/identity-lift.stdout",
+      "bytes": 22078,
+      "sha256": "b4d7d1e484a9dd964906017871d8205fdc21c7038318d5c9911dd2c0157a3229"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/identity.result.json",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/identity.result.json",
+      "bytes": 220,
+      "sha256": "6e0c2a87747bca8eff2b4421648c3a08ada4b0eb55e95b6070977680afbf663a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/identity.sing",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/identity.sing",
+      "bytes": 1366,
+      "sha256": "8a583fb5c9ad20ad614e9f9a85b2bdace60603b57e1580b60f315d5235ded976"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/identity.stderr",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/identity.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/identity.stdout",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/identity.stdout",
+      "bytes": 53,
+      "sha256": "e859be82ddd42bc4a5c5b8a422f7fc2a9752fa8b8fb4e4272e1d38e428dfcab0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/swap-cross-certificate.json",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/swap-cross-certificate.json",
+      "bytes": 11824,
+      "sha256": "a7631e5b0c500b82986c8ffb426579a10dd0887c1bffc51c8902f9aaf7631f91"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/swap-cross-lift.sing",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/swap-cross-lift.sing",
+      "bytes": 1439,
+      "sha256": "81b2a68365eb5893916e34f76ff8d7f77394f7e401dab4ed7ae8703503747431"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/swap-cross-lift.stderr",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/swap-cross-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/swap-cross-lift.stdout",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/swap-cross-lift.stdout",
+      "bytes": 9520,
+      "sha256": "fab3ba68ffe6f13ba9039c42e9bf28488e8ed6ee00f7e99ea1c23f2bab1c843b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/swap-cross.result.json",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/swap-cross.result.json",
+      "bytes": 221,
+      "sha256": "16a4b87512db92765c45b25c7c88adf9d7bd18191ac475b61f32bd6f9bb13bf3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/swap-cross.sing",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/swap-cross.sing",
+      "bytes": 1326,
+      "sha256": "ef904b8f324987b6629a8a1ecd1aace79c962f8ae3ca8384bd78d7b07ad28c9f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/swap-cross.stderr",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/swap-cross.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/swap-cross.stdout",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/swap-cross.stdout",
+      "bytes": 53,
+      "sha256": "e859be82ddd42bc4a5c5b8a422f7fc2a9752fa8b8fb4e4272e1d38e428dfcab0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/swap-pair-certificate.json",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/swap-pair-certificate.json",
+      "bytes": 34628,
+      "sha256": "4d7298fad95441c0fc9404e9843def787d84949d978cb413326c6f2e458f20be"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/swap-pair-lift.sing",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/swap-pair-lift.sing",
+      "bytes": 1459,
+      "sha256": "b9f0a9887686fed8ecccac56bc8928e29487011487b21d6a964eaaf826c1e0ca"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/swap-pair-lift.stderr",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/swap-pair-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/swap-pair-lift.stdout",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/swap-pair-lift.stdout",
+      "bytes": 30920,
+      "sha256": "1c8585a2bb4335f017cf02b74f36795b2a75c3a508b584c9bca0d0bf23368c84"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/swap-pair.result.json",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/swap-pair.result.json",
+      "bytes": 221,
+      "sha256": "d7fd02fdfb028e302b6aaa93105a3c390300aba0c6202282e266496dd03fffc6"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/swap-pair.sing",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/swap-pair.sing",
+      "bytes": 1346,
+      "sha256": "c1bf966990081ac9fed2f149b7646638fde5be398bee5d100f9f6f3e975c1049"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/swap-pair.stderr",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/swap-pair.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/swap-pair.stdout",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/swap-pair.stdout",
+      "bytes": 53,
+      "sha256": "e859be82ddd42bc4a5c5b8a422f7fc2a9752fa8b8fb4e4272e1d38e428dfcab0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_Bzero_generic/systems.json",
+      "relative_path": "geometry_search/tracezero_Bzero_generic/systems.json",
+      "bytes": 11470,
+      "sha256": "7a69022f0978454e0853a1357553ab182025bf6719911f22d4204aa889c7740f"
+    }
+  ],
+  "total_bytes": 255913
+}
