@@ -1,0 +1,8 @@
+L-meta-2583 partial checkpoint 1
+Independent reviewer: status_1035, PASS AS PARTIAL at 2026-11-25 08:49 UTC.
+Prime-implicant characterization compiles with lake env lean, exit 0.
+Named-module build output is saved in build-checkpoint-1.log.
+The full posted theorem is not proved. Checker verdict: not run; final theorem absent.
+No PR is opened for this checkpoint.
+Sub-agents: status_1035 (review), lean_setup (direct proof and setup), counterexample, structural, decomposition, lower_bound.
+TIMING total=47 subagents=6
