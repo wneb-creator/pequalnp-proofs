@@ -65,3 +65,20 @@ Reduction slots reported: 3 live; reductions_open true. Need inspect existing re
 - New target is weaker and applies to triangle/C4-free graphs: a least AO2 circuit with exactly one junk AND admits a vertexcover T with |E|+|T|≤C.size+1. Combined with the star-cover construction, this gives a sound replacement no larger than C.
 - The strict-improvement tails needing bipartiteness are pruned. All branches use the one-junk global budget, with charges pen+mix+2centreless+coneGates≥|Ustar|+extra-cover-vertices−1. Singletonstar cases need cg≥U−1 and mix+2cl≥1. Doublestar cases use cg bounds from both sides and triangle exclusion to distinguish mixing witnesses.
 - The remaining gap for the assigned theorem is arbitrary many junk AND gates. No global telescope or valid boundary-preserving local replacement has been proved.
+
+## First-junk and gate-count investigation 2026-11-25T01:17:03.335074+00:00
+- FirstJunk.lean compiles: a TopForm circuit with nonempty junk has a least-index junk AND with no AND ancestor, without assuming there is only one junk gate. General cone bound proved from a short fold invariant. This gives pure-OR predecessors, but does not isolate arbitrary downstream dirty gates.
+- Proposed separate #AND>=vertex-cover and #OR>=|E|-1 strategy is exactly existing reduction R_meta_612_7. #AND bound known up to target5 (L_meta_217); full small n6 (L_meta_950); numeric Petersen/Fano lower bounds also available.
+- #OR>=|E|-1 is known for pseudoforests with no4cycle in L_meta_599 and L_meta_4837, requiring every induced subgraph edge count <=vertex count. L_meta_598 gives general weaker #OR>=nonisolated vertices-nontrivial components-1. L_meta_287 gives exact counts for forests.
+- L_meta_1006 counterexample to C4free vertex-cover/AND bound uses triangles and weak maximal-independent-set boundary promise, not exact graph function; it does not refute the noC3/noC4 exact-function strategy.
+
+## Star-cover construction and star forests (prior_gap_check)
+
+- StarCover.lean now includes checked cover_and_formula, cover_flat, cover_no_and_ancestor, cover_owned_stars, single_star_data, and generic cover_data. The generic wrapper computes exactly the graph described by its owner lists, uses sum(neighbor-list lengths)+number-of-owners-1 gates, and every AND owns a nonempty star in the posted TransGen sense. No graph girth assumption is needed for this construction.
+- Checked log: /tmp/oec/pequalnp-pilot-54/starcover-build-08.txt (exit 0).
+- StarForest.lean is a standalone checked snapshot combining StarCover and StarLeast. star_forest_minimal proves leastness when the flattened center-and-neighbor lists have no repeats (disjoint union of nonempty stars, with arbitrary isolated vertices). Log: /tmp/oec/pequalnp-pilot-54/starforest-build-01.txt (exit 0).
+- Further library search found L_meta_3525 (1730 lines) already proves |E|+tau-1 circuit lower bounds for all acyclic graphs, and L_meta_5355 (401 lines) constructs a circuit from any vertex cover with size <= |E|+|T|-1 and nonempty ownership. Its N / edge_N / sumN_le helpers can instantiate our generic cover_data with explicit star ownership. General girth>=5 lower bound remains the missing piece.
+
+- 2026-11-25T01:17:54.236498+00:00: ownership_lemma: OneJunk.lean checked successfully, Lean4.36 exit0. one_junk_cover_cost proves |E|+|T|≤C.size+1 for a vertex cover T when C is least AO2, graph has no triangles/C4, and junk.card=1. Frozen SHA256 b2ff037bc1ce38c4e6b6694e2b7593c03bce3e0eb143c264586f810f2b3512f1. This is a partial theorem, not L-meta-1031.
+
+- 2026-11-25T01:18:35.609025+00:00: counterexample_search: C5 with7gates and any unsafe AND is solver-INFEASIBLE (HiGHS242.7s after cycle symmetry); C5 with8gates+unsafe is SAT(7.4s). All291 five-vertex forests exhaustively have minimum star cost and no unsafe minimum circuits. Combined covers all303 labeled girth>=5 graphs on5vertices (solver trust needed for C5). Lean-checked explicit8gate C5 boundary lacks star profile and has an empty AND owner; explicit7gate correct witness proves this8gate circuit is not least, so it is NOT a refutation of L1031.

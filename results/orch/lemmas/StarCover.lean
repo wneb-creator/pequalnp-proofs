@@ -756,4 +756,41 @@ lemma single_star_data {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     subst o
     exact (hgraph c v).mpr (Or.inl ⟨rfl, hv⟩)
 
+lemma cover_data {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (own : List (Fin n × List (Fin n)))
+    (hne : ∀ o ∈ own, o.2 ≠ [])
+    (hgraph : ∀ u v : Fin n, G.Adj u v ↔
+      ∃ o ∈ own, (o.1 = u ∧ v ∈ o.2) ∨ (o.1 = v ∧ u ∈ o.2)) :
+    let C := coverCircuitB n (encodeOwners own)
+    C.size = (own.map (fun o => o.2.length)).sum + own.length - 1 ∧
+    (∀ g ∈ C.gates, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
+    (∀ x : Fin n → Bool, C.eval (List.ofFn x) =
+      decide (∃ i j : Fin n, G.Adj i j ∧ x i = true ∧ x j = true)) ∧
+    ∀ (t : ℕ) (g : Gate), C.gates[t]? = some g → g.op = GateOp.and → ∃ c : Fin n,
+      (∃ u v : Fin n, G.Adj u v ∧ OwnsDirect n C t u v) ∧
+      ∀ u v : Fin n, OwnsDirect n C t u v → u = c ∨ v = c := by
+  dsimp only
+  have hn : ∀ o ∈ encodeOwners own, o.2 ≠ [] := by
+    intro o ho
+    obtain ⟨o', ho', rfl⟩ := List.mem_map.mp ho
+    simpa using hne o' ho'
+  obtain ⟨hsize, heval⟩ := cover_all n (encodeOwners own) (encodeOwners_bounded own) hn
+  refine ⟨by simpa [encodeOwners, List.map_map, Function.comp_def] using hsize, cover_monotone _ _, ?_, ?_⟩
+  · intro x
+    rw [heval (List.ofFn x) List.length_ofFn]
+    apply Bool.eq_iff_iff.mpr
+    simp only [hit, encodeOwners, List.any_map, Function.comp_def, List.any_eq_true,
+      Bool.and_eq_true, read, decide_eq_true_eq]
+    constructor
+    · rintro ⟨o, ho, hc, v, hv, hxv⟩
+      exact ⟨o.1, v, (hgraph o.1 v).mpr ⟨o, ho, Or.inl ⟨rfl, hv⟩⟩, hc, hxv⟩
+    · rintro ⟨u, v, huv, hu, hv⟩
+      obtain ⟨o, ho, hcase⟩ := (hgraph u v).mp huv
+      rcases hcase with ⟨rfl, hmem⟩ | ⟨rfl, hmem⟩
+      · exact ⟨o, ho, hu, v, hmem, hv⟩
+      · exact ⟨o, ho, hv, u, hmem, hu⟩
+  · apply cover_owned_stars G own
+    intro o ho v hv
+    exact (hgraph o.1 v).mpr ⟨o, ho, Or.inl ⟨rfl, hv⟩⟩
+
 end PEqualNP.Outside.L_meta_1031.StarCover

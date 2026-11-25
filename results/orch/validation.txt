@@ -1,7 +1,7 @@
 L-meta-1031: PARTIAL RESULTS ONLY; posted theorem not proved.
 Lean4.36.0: named file builds successfully (exit0),1227lines.
-Checked partials: star-family combinatorics, edgeless least circuit, P4 exchange, C5 obstruction to an invalid inference, finite exchange-boundary obstruction, essential-input lower bound, and explicit star-cover ownership.
-Independent reviews: PASS for partial scope only.
-Local checker: not run; posted theorem remains absent.
-Sub-agents:5 (prior-gap/construction, structure, counterexample search, reductions/exchange, ownership/review)
-TIMING total=12.6 subagents=5
+New checked result: OneJunk.Close.one_junk_cover_cost eliminates bipartiteness from a non-strict cover-cost bound for leastAO2 circuits with exactlyone unsound AND. All checked partials are preserved under lemmas/.
+Independent OneJunk review: PASS; axioms propext, Classical.choice, Quot.sound only. Other component reviews pass for their stated partial scopes.
+Local checker on posted statement: running; final theorem absent. No full-proof PR opened.
+Sub-agents:6 (construction, structure/review, counterexample search, exchanges, one-junk normalization, direct ownership)
+TIMING total=16.5 subagents=6
