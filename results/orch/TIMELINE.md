@@ -23,3 +23,10 @@
 2026-11-25T14:22:36.532176+00:00 Sixth reviewed checkpoint: unconditional17binary floor, standard axioms verified
 
 2026-11-25T14:27:12.261522+00:00 Checkpoint7: independently reviewed and checked sole-reader, first-OR core, and seeded semantics partials; full theorem remains open. Last lease renewal14:25:00UTC, expiry14:45:00UTC.
+
+- 2026-11-25 14:28:48 UTC: Started optimized114-case seeded three-gate kernel certificate; parent renewed14:28:26, expiry14:48:26.
+
+2026-11-25T14:28:51.404377+00:00 or_first_bound: Tight constant-step companion and standalone core both checked successfully.
+2026-11-25T14:29:11.146686+00:00 completion observed for general two-NOT and both fixed-prefix NOT searches; no witness
+
+2026-11-25T14:34:02.971896+00:00 Checkpoint8: checked pruning, slot counts, restricted mask classification, and final heuristic-search snapshots. Lease expires14:52:30UTC. Full theorem still open.

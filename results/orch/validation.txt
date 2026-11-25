@@ -37,7 +37,7 @@ Checkpoint6:
 Independent review passed all frozen sources. One-NOT and two-NOT cases of the posted theorem remain open.
 
 Sub-agents: special_status, structural_proof, counterexample_search, reduction_routes, finite_certificate, or_first_bound
-TIMING total=43.6 subagents=6
+TIMING total=49.5 subagents=6
 
 Checkpoint7:
 - OneNotPetersen/OneUseInput: Lean exit0; sole-reader obstructions, under explicit structural hypotheses.
@@ -47,3 +47,14 @@ Checkpoint7:
 - Prefix searches: two fixed input NOTs and17AND/OR gates; independent source, symmetry and candidate review passed. General two-NOT and fixed-prefix searches remain heuristic evidence only.
 Full L-meta-2592 remains unproved; no full-statement checker or proof PR.
 - OneUseMask: Lean exit0; the sole binary reader mask depending on two distinct inputs must be neutral except possibly when both are true and adjacent. Independent review passed exact source hash f2d3fca2563ec361c0f2a93110074f424033fb93892f1822331ae52eacbd6877.
+
+Checkpoint8:
+- OneUseClassified: exact neutral-constant/adjacent-edge classification of a sole reader mask depending on two distinct inputs; Lean exit0.
+- BypassNand: replaces AND(i,NOT edge) by unary OR(i) under a monotone suffix and edge-implies-target hypothesis, preserving semantics; no deletion or size conclusion alone. Lean exit0.
+- InputSlots: normalized effective NOT arity, slot budget, and unique effective input reader under explicit essential/live hypotheses. Lean exit0.
+- Prune: deletion of an unread gate with arbitrary wire references, preserving evaluation and fan-in two; exact size/NOT accounting and nonincrease of size+indicator(noNOT). Lean exit0.
+- OrTight/Core and OrUses/Core: conditional restriction tightness and gate-use counting bounds. Lean exit0; the cores are standalone snapshots, while companions use scratch modules.
+- finite/FastSeededZero: checked incremental safety and first case only; full optimized certificate pending. The original slow full certificate was stopped with SIGTERM (exit143), not accepted.
+InputSlots and Prune contain local instances, and OrUses/Core introduces a datatype; these are valid research artifacts but need reformulation for automatic PR merging under CONTRIBUTING. No original-gap claim is made.
+The heuristic searches have now all ended: general two-NOT best18 errors after3,349,810,000 mutations; adjacent-prefix best22 errors after1,425,600,000; nonadjacent-prefix best22 errors after1,487,580,000. Frozen manifests and candidates were independently verified. These are computational observations, not lower-bound proofs.
+All listed frozen sources and search evidence passed independent review. Full L-meta-2592 remains unproved, and its checker has not run.

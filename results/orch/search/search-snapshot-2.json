@@ -1,0 +1,38 @@
+{
+  "completion_observed_at": "2026-11-25T14:29:11.146686+00:00",
+  "jobs": {
+    "two_not": {
+      "duration_limit_seconds": 1200,
+      "iterations": 3349810000,
+      "best_errors": 18,
+      "candidate": "best_two_not_final.json",
+      "source_log": "search_cgp_two_not.log",
+      "log_sha256": "090584f66b338ff0eb9e729f286127d56a229154c00da75661ce37685f03c3f7",
+      "scope": "Heuristic search; no exhaustive lower bound and no Lean-checked result."
+    },
+    "prefix_adjacent": {
+      "duration_limit_seconds": 600,
+      "iterations": 1425600000,
+      "best_errors": 22,
+      "candidate": "best_prefix_adjacent_final.json",
+      "source_log": "search_prefix_adjacent.log",
+      "log_sha256": "fab0a0590e3e3a6817d243ac2b3df7f52cbd0ef759e65d3d1d7d427fb4923bbf",
+      "scope": "Heuristic search; no exhaustive lower bound and no Lean-checked result."
+    },
+    "prefix_nonadjacent": {
+      "duration_limit_seconds": 600,
+      "iterations": 1487580000,
+      "best_errors": 22,
+      "candidate": "best_prefix_nonadjacent_final.json",
+      "source_log": "search_prefix_nonadjacent.log",
+      "log_sha256": "b08514aade15ae4ea0df46cc5dd040673039004eb1038e8adb194e23a693ec0a",
+      "scope": "Heuristic search; no exhaustive lower bound and no Lean-checked result."
+    }
+  },
+  "sources": {
+    "search_cgp_two_not.cpp": "51cea8c00920238a9a4f0abf9536e4ed85ed6158fdde110e7bb532050e845f56",
+    "search_cgp_prefix_not.cpp": "91f5b0411edfb2d91c8a6c9fab400525588feb573b9aaf6628183e9c2bf8cba7",
+    "prefix_symmetry.py": "cd4d00fda8b84068d94fa721e872b2904f09d0e10adb96534cb2998afd186176"
+  },
+  "verification_source_sha256": "abdd5d67ced8b49ecda3d640f11228391e255adb9f0576da68f025b952d72ce3"
+}

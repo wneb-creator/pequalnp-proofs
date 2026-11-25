@@ -2,3 +2,10 @@ SeededCaseZero.lean checked: lake env lean -j 1 -M 6500; exit 0, stdout/stderr e
 This checks only the case in which the first additional signal is constant false, NOT the full seeded three-gate bound.
 C++ exhaustive searches are unverified computations: no <=4 additional gates for the matching function from all supplied seeds, including intermediate pair ORs and constants.
 Full SeededMatch.lean (114 cases) checking in progress.
+
+Original full SeededMatch.lean run stopped with SIGTERM after15minutes, no diagnostics; NOT checked.
+FastSeededZero.lean checked with kernel decide: exit0,6.00s wall, empty stdout/stderr.
+SeededRows.lean and SeededSemantics.lean checked: exit0, empty stdout/stderr.
+Full114-case FastSeededMatch.lean assembled; full check in progress; not accepted yet.
+
+FastSeededMatch.lean FULL114-case certificate checked: exit0,231.93s wall, stdout/stderr empty. Restricted three-gate seeded matching bound only.

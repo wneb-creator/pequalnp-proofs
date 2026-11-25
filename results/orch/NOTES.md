@@ -67,3 +67,26 @@ A fresh signed-binary 9-input, 15-gate CNF for the Petersen graph with vertex 9 
 ## 2026-11-25 14:24:13 UTC — seeded semantic bridge compiled
 
 SeededSemantics.lean compiled with exit0 and empty stdout/stderr. It proves signature agreement respects AND, OR, and NOT; all generated signatures stay below8192; agreement with the matching target implies signature30; and the three-gate Boolean certificate implies no three generated signals compute that matching on the13 selected rows. This file assumes the explicit certificate proposition; the closed114-case certificate in SeededMatch.lean is still checking.
+
+## 2026-11-25 14:28:20 UTC — optimized incremental certificate
+
+The original SeededMatch.lean114-case run was deliberately stopped with SIGTERM after15minutes, no diagnostics, and is NOT a checked full certificate. FastSeededZero.lean in results/orch/finite is checked (6.00s wall, exit0). It contains proved generic incremental-safety lemmas and the optimized firstcase0. Full FastSeededMatch.lean has114 optimized cases assembled but awaits parent renewal and checking. Optimization checks only pairs involving the newly added signal, reusing proved safety of the old bank.
+
+Signed9/15 full512-row SAT timed out at300.14s wall/201.78s CPU,155.62MB peak, with no verdict. Full logs and source preserved in results/orch/finite.
+
+2026-11-25T14:28:51.404377+00:00 or_first_bound: OrTight.lean and allowed-import OrTightCore.lean compiled exit 0; companion logs are empty, standalone stdout contains inherited if_pos/if_neg deprecation warnings, stderr is empty. Complete logs: or-tight.stdout/stderr and or-tight-core.stdout/stderr. Generic tight_constant_step: at a constant-consuming projected gate with total reachable budget L+1, every constant operand is discarded and the result stays nonconstant; false-left permits only OR or complement-left AND, false-right permits only OR or complement-right AND. These are local equal-budget constraints; a whole-run incidence bridge is next. Original nineFloor derives solely from packed cap14 search, exporting no equality characterization.
+
+2026-11-25T14:29:11.146686+00:00 counterexample_search: General two-NOT search and both fixed-input-NOT prefix searches completed without a witness. Final results independently checked on all 1,024 rows and preserved in results/orch/search/search-snapshot-2.json. This remains computational search evidence only.
+
+2026-11-25 14:30:36 UTC [structural_proof] Frozen checked artifacts: OneUseClassified.lean proves sole-reader support-two masks are neutral constants or AND/NAND of an edge; witnesses use independent triples and search only three neighbors. BypassNand.lean proves an actual same-length replacement of AND(i,NAND(edge)) by unary OR(i) when the remaining tail is monotone, since edge=true already forces the target true. Both compiled exit0; complete logs one-use-classified-build.log and bypass-nand-build-3.log in scratch. Reduction_routes owns effective input-slot count and normalization. Remaining challenge: shared computed mask with support≥3, or OR(i,AND(edge)) before the unique NOT.
+
+### 2026-11-25T14:31:00.785082+00:00 reduction_routes: effective input slots
+InputSlots.lean compiled exit 0 with empty diagnostics. It proves NOT take-one normalization preserves evaluation, size, and NOT count; effective slot length + NOT count <= 2 size; internal output use costs at least size-1 slots; hence ten essential inputs and live circuit size<=19 with a NOT force an input with exactly one occurrence and a unique gate reader index. Explicit essential/live hypotheses remain; generic dead-gate deletion is next. Frozen SHA256 1c438f2794d4ecc992431b6233c516600a244d6fd6957d6fc1105448e120b413.
+
+2026-11-25T14:31:09.661950+00:00 or_first_bound: OrUses.lean checked exit0 with empty or-uses2.stdout/stderr. CountRun tracks binary gates whose operand satisfies an arbitrary predicate on original semantic wires. counted_projection_lower proves L + selectedGateCount <= initialReachCost + binarySteps if selected wires restrict to constants. Thus Petersen nineFloor15 implies every raw input occurs in at most two binary gates in a tight17 normalized schedule. Actual Circuit syntax/slot bridge not yet assembled.
+
+## 2026-11-25 14:34:53 UTC — full seeded three-gate bound checked
+
+FastSeededMatch.lean compiled successfully: exit0,231.93s wall, empty stdout/stderr. All114 first-signal cases and the closed choices_noThree theorem are kernel-checked. Scope: from the16 fixed signatures (constants, raw6 variables, four3-OR seeds, four intermediate2-OR seeds), no sequence of≤3 additional AND/OR/NOT gates reaches matching signature30 on13 selected rows. This is a restricted architecture result, not the full Petersen gap. Source is frozen for independent review.
+
+Correction: native forest prototype extracts215 restriction columns (the earlier224 was a reading estimate); all768 separation pairs,12 automorphisms, and nonempty/nonconstant domains validated.

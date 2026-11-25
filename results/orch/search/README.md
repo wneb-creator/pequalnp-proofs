@@ -10,4 +10,6 @@ The insertion searches add a NOT gate to the 18-gate near-circuit and modify one
 
 Gate operation codes in the C++ logs are 0 = AND, 1 = OR, 2 = NOT. In the SAT manifests they are 0 = AND, 1 = OR, 2 = constant true/padding, 3 = NOT. Input wires have indices 0 through 9. Subsequent wire indices are assigned in gate order. SAT manifests use the encoding from the repository's `notes/data/lrat-link/gennot.py` with n = 10, s = 19, A = 1055.
 
-The two-NOT log remains live. Its JSON candidate file is an independently evaluated earlier snapshot. The report timestamps this documentation snapshot and includes hashes of the static two-NOT and window-search sources.
+The first checkpoint was taken while the two-NOT log was live. Its candidate JSON is an independently evaluated earlier snapshot. The completed runs and final candidate files are identified below.
+
+The later searches completed without a counterexample. The general two-NOT run ended with 18 incorrect rows; the adjacent and nonadjacent fixed-prefix runs ended with 22 and 22 incorrect rows. Their final candidates were independently reevaluated on all 1,024 inputs by `finalize_searches.py`. Final counts, hashes, and candidate paths are in `search-snapshot-2.json`; the earlier candidate JSON files remain historical snapshots.
