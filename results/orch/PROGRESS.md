@@ -28,7 +28,7 @@ Thus a hypothetical three-dimensional example must have diagonal-image dimension
 
 `research/s4-checkpoint/` contains the rational eighteen-variable chart for diagonal-rank-three candidates, its independent equation and symmetry audits, and modular certificate searches through degree eight. Each unsuccessful bounded search has a verified modular dual. Those duals establish only failure of that bounded modular certificate search. They establish neither characteristic-zero nonexistence nor existence. The numerical searches found no solution and provide no proof.
 
-The active alternative is to classify valid trace-zero two-dimensional spaces. If every such space over the complex numbers were hollow, intersection with the trace kernel would reduce any hypothetical three-dimensional space to the checked hollow-plane theorem. This classification is currently a conjectural route. Small finite fields have nonhollow trace-zero planes in characteristics five, seven, and thirteen; these must not be mistaken for complex examples or silently ignored in a characteristic-free claim.
+The active alternative is to classify valid trace-zero two-dimensional spaces and exclude their extensions. The stronger shortcut that every such complex space is hollow is false: an exact degree-sixteen algebraic construction gives nonhollow examples containing a basic star direction. Its equations and independent permanent-residue verification are preserved separately; this auxiliary construction is not a counterexample to the posted three-dimensional claim. Small finite-field censuses also have nonhollow planes. Neither a finite-field example nor its absence settles the complex classification.
 
 ## Verification and preservation
 

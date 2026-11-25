@@ -1,0 +1,595 @@
+{
+  "created_utc": "2026-11-25T11:45:46.314070+00:00",
+  "scope": "Frozen trace-zero research: certified auxiliary two-plane counterexample, exact chart equations and independent audits, completed bounded probes and finite-field censuses. No full L-gct-231 result; global rank-two/rank-three cases remain open.",
+  "exclusions": "No active CAS output, lease response, credentials, binary executables, or unrelated repository data. Subsequent Hadamard rational run goes to a separate directory.",
+  "secret_scan": "PASS on text/binary archive inputs; compressed native stdout independently inspected before archive",
+  "files": [
+    {
+      "path": "construct_search/hadamard-polynomials.txt",
+      "bytes": 1547,
+      "sha256": "caf82f2314b246c580e812cf75ad2069ee5be6025c055db08b4cb603b3c4c9a5"
+    },
+    {
+      "path": "construct_search/net_normal_form/audit_tracezero.py",
+      "bytes": 2307,
+      "sha256": "3dab1f9f41f8e6cf3881cb6068348895acf6b2b28feb6ed216ec7b04aa2b6e1b"
+    },
+    {
+      "path": "construct_search/net_normal_form/classify_tracezero_extras.py",
+      "bytes": 3265,
+      "sha256": "832f18de169487eb81d104731a46673d00bfd2a2f3c5ee107eb088f4d0dc1ef7"
+    },
+    {
+      "path": "construct_search/net_normal_form/run_tracezero.py",
+      "bytes": 1291,
+      "sha256": "1ba01fb54f1ef935556154a53fef92cd9d741567a1149a6896b4d0cd12c179db"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-direct-audit.json",
+      "bytes": 936,
+      "sha256": "c2ebdec396dfb138045f8731794537e5ae299044503eba9d0fa7ccdcc63248de"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-direct-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-direct-audit.stdout",
+      "bytes": 649,
+      "sha256": "53dbf907e98dd2598b6495a8316e42ea19b116cc57004919c1d810cbece261e6"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-extra-orbits.json",
+      "bytes": 11715,
+      "sha256": "623e91aba67da76688c885973bcfbe29ec31780362aec73f2d24f4597c20c409"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-extra-orbits.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-extra-orbits.stdout",
+      "bytes": 11715,
+      "sha256": "623e91aba67da76688c885973bcfbe29ec31780362aec73f2d24f4597c20c409"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f11-2planes.json",
+      "bytes": 1167,
+      "sha256": "292b8c847d1187a5b1eca5a1cc3dd29f080db716c5be69d5592aef970227fcc3"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f11.result.json",
+      "bytes": 174,
+      "sha256": "dd30a109365324abf0e994f2843377ddc3377d752ceb0c4e6d836dbe6ea252ad"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f11.stderr",
+      "bytes": 116,
+      "sha256": "b12df9249e13f4213178585fdc599db90a06f837bc8ff84a39f1b9b8c0241310"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f11.stdout",
+      "bytes": 325,
+      "sha256": "ee8325fc1f535734149cc80fdcd0c4b67fbe3ec45888efee170cac7403db731d"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f13-2planes.json",
+      "bytes": 1389,
+      "sha256": "d69946d2ce119c4506f9b5267e72296b9b3abeeb54f4ef282e7875ec34dbeb55"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f13.result.json",
+      "bytes": 174,
+      "sha256": "ae2fcb10d888cfc9e9ca830ac8debf90d3ff29b3c61dd52c4d7a00233bfe6f00"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f13.stderr",
+      "bytes": 175,
+      "sha256": "50b3b6064c021a7ed91f237441e0600dc47cfb3850cd87eb0196582c8260fa8a"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f13.stdout",
+      "bytes": 324,
+      "sha256": "f48f0675c00d2502bf5172f72445e9746f1c5c7cc7ff3b72f8b62e6379b302f9"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f17-2planes.json",
+      "bytes": 1195,
+      "sha256": "6993ad0bf4e16b76eefb6db2308b7524a1d3639a31bb6ceac05e667eff91b59c"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f17.result.json",
+      "bytes": 172,
+      "sha256": "ac0029a4d5a2b833524acd351e81efd24dae65464c8d8b9974cdd38d558b84bf"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f17.stderr",
+      "bytes": 536,
+      "sha256": "bbee39b3536f3c3c811e7d74efb84dc1c6bc695651da9ce23a3d929ea91df9ed"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f17.stdout",
+      "bytes": 325,
+      "sha256": "665e3d0550a0d81cfff26aea9ca091f7fc6bce4c5285b6cde1944d78fcf51ab2"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f19-2planes.json",
+      "bytes": 2838,
+      "sha256": "cc538304ae6544f66d2dfe48bc5d1301e9bb078289c94de9741e141e1356a24d"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f19.result.json",
+      "bytes": 166,
+      "sha256": "e2ef33a969dea896653f6d9de598b408be0ab841b1c7f701e193e3d163ff0232"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f19.stderr",
+      "bytes": 864,
+      "sha256": "122df1114b7621692d326ab342e6a4d3b271f6a72d3f8c38d1b5d43a13af5913"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f19.stdout",
+      "bytes": 330,
+      "sha256": "1ed5bc34f472addd050e819ff0c05bac8c97ecdb13b14bb5c57a5db276a80dea"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f23-2planes.json",
+      "bytes": 2469,
+      "sha256": "b2677ee7a5e4658f6eb2d15f97161ef167474f1626cd4f0f58bd49eb719a1653"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f23.result.json",
+      "bytes": 176,
+      "sha256": "a836d4d7dd5d594d9d1fabdab944d7060aaaef928d36a84371cd315bd7de2c2e"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f23.stderr",
+      "bytes": 1947,
+      "sha256": "aa79a2875368b5a76809a6ae3088fc72da324f5d481ba282f8c19cd5fb24e5d8"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f23.stdout",
+      "bytes": 332,
+      "sha256": "501028a597480807b4fe49ef67b494243d61af319ff02c9f01dcd12e41bef89c"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f5-2planes.json",
+      "bytes": 1695,
+      "sha256": "8cbf943c092b920505a0206db40b72c65961bcc1f3693f52231fb10ac9fd38b9"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f5.result.json",
+      "bytes": 176,
+      "sha256": "f1a626d914441a172dd8f3c55eeaa797e34f7a0d042b5757040e6c311980b4ce"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f5.stderr",
+      "bytes": 24,
+      "sha256": "aad06231593f4428c07df827da6403e113edc2ba0c5052eb534c5812cb980b48"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f5.stdout",
+      "bytes": 319,
+      "sha256": "ad4855f06e3c1a50e69fe81c7ed6817521d6a7b244485ed84809a42d6d4ca3ed"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f7-2planes.json",
+      "bytes": 1507,
+      "sha256": "1a0a2c397c7693652452bdd387d425c9386a0713c9ae47679bd919084bc4c34b"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f7.result.json",
+      "bytes": 163,
+      "sha256": "7c86538cfa32506640d253326288c16c79bc3089490a38f3c6f34e4ad403c83e"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f7.stderr",
+      "bytes": 25,
+      "sha256": "7d6c77d3936a5416eda3dcc78d594923780f57767a5a43f26823bca0ed4fd09f"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-f7.stdout",
+      "bytes": 319,
+      "sha256": "1a128eb542bdfe7d14bd67cd432b3af078ed76caacc44a490e1df88e1d1d4fe0"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-manifest.json",
+      "bytes": 6473,
+      "sha256": "b4c334281c48112444ce9279292df8094a95d8a217f384be0d27db915d23164e"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero-saved-validation.json",
+      "bytes": 122,
+      "sha256": "093f86a4261ab50eba98aabb56582c0bbd4a0eb9db2b4db3cdf5018c7c4ac95f"
+    },
+    {
+      "path": "construct_search/net_normal_form/tracezero_census.cpp",
+      "bytes": 8078,
+      "sha256": "037e3b2f93ffe9a363203da7b786c1cfcae94d45ff4b6268c0d2f094d03eeaae"
+    },
+    {
+      "path": "construct_search/run_tracezero_hadamard.py",
+      "bytes": 1314,
+      "sha256": "99867b2925bed059c22c464ddbee17bf29e5e425d8e66371cda76df2e3e0d9c5"
+    },
+    {
+      "path": "construct_search/tracezero-cubic-symmetry.json",
+      "bytes": 99,
+      "sha256": "eefed2137eb1990c7adf20160ad137fb68a10dcce1f0b39a944d275c367d6fff"
+    },
+    {
+      "path": "construct_search/tracezero-cubic-symmetry.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/tracezero-cubic-symmetry.stdout",
+      "bytes": 54,
+      "sha256": "e2133fe48ed04dd8f8e5f210f1ab8206f9d909220fab8f409d5b876bb4aa5474"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard-0.sing",
+      "bytes": 8073,
+      "sha256": "6b1dabb4fac875883aa39cc825636fcfc3beba342a04114f65818749949d4f74"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard-101-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard-101-run.stdout",
+      "bytes": 120,
+      "sha256": "9fcad57e31eef3cbbc660b42c2fbd44f55f69868c7354646315751c7d81726b4"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard-101.result.json",
+      "bytes": 120,
+      "sha256": "9fcad57e31eef3cbbc660b42c2fbd44f55f69868c7354646315751c7d81726b4"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard-101.sing",
+      "bytes": 8075,
+      "sha256": "3b5b8098bace626947e032c97be6e7b304b4432f134f971e595e6b23a4d5e7ab"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard-101.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard-101.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard.json",
+      "bytes": 9011,
+      "sha256": "2d141e1724e004e63b73565618afa1569c3d263970c801063beb677599ae6040"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/tracezero-hadamard.stdout",
+      "bytes": 166,
+      "sha256": "7575770910b38b4193fe52e956fdc641a57e24e52fe61c90ef66127d2dc617e0"
+    },
+    {
+      "path": "construct_search/tracezero_cubic_symmetry.py",
+      "bytes": 1377,
+      "sha256": "5ccde616f5c2943630839f2c92decdd7c2d9dc85169b1fc58d34db919b58ff07"
+    },
+    {
+      "path": "construct_search/tracezero_hadamard.py",
+      "bytes": 3014,
+      "sha256": "e38fdf5a003fe3758495de9a6a1be9fb0f074fc8c3c1ef7f78c779a6461fdfff"
+    },
+    {
+      "path": "geometry_search/generate_tracezero_charts.py",
+      "bytes": 4615,
+      "sha256": "a9feabfef3c23c9c10f798aa82f5b06e3c398ed3f978fd26f3763714b6052301"
+    },
+    {
+      "path": "geometry_search/rowzero/audit_parent_star_tracezero.py",
+      "bytes": 2623,
+      "sha256": "b73d086a1b70f3cceb8d05405a90fc7e5d67be7c1feb53dce87a81cb4550d73e"
+    },
+    {
+      "path": "geometry_search/rowzero/audit_star_tracezero_degree8.py",
+      "bytes": 2979,
+      "sha256": "91c365c2d5c4ab26c9a66c8f3481b7027cb46986974e4c574f335d236595537b"
+    },
+    {
+      "path": "geometry_search/rowzero/parent-star-tracezero-independent-audit.json",
+      "bytes": 571,
+      "sha256": "5c7b5b452f7fa00eb6469b62726bdd4d8d49e4acae9017e796544ff662a399ab"
+    },
+    {
+      "path": "geometry_search/rowzero/parent-star-tracezero-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/parent-star-tracezero-independent-audit.stdout",
+      "bytes": 537,
+      "sha256": "2db2bcf73728dfce87ba102f19af4fde44aa5e1831026e7b58ce1b769c982cd6"
+    },
+    {
+      "path": "geometry_search/rowzero/star-tracezero-degree8-independent-audit.json",
+      "bytes": 3155,
+      "sha256": "323df17eb0e95c616c321568ff1563f8bed8f89e8d658975da9fa767eef3bb99"
+    },
+    {
+      "path": "geometry_search/rowzero/star-tracezero-degree8-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/star-tracezero-degree8-independent-audit.stdout",
+      "bytes": 1151,
+      "sha256": "03a3923ffb5f2be111dbee3e99bd84866d6add524b5cf0fc393fcbefa35c8bef"
+    },
+    {
+      "path": "geometry_search/rowzero/star-tracezero-invariants.json",
+      "bytes": 923,
+      "sha256": "93f8e6d85c9a09a00caf0f353554725baa7ff00593375c5654de50255a65b4bd"
+    },
+    {
+      "path": "geometry_search/rowzero/star-tracezero-invariants.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/star-tracezero-invariants.stdout",
+      "bytes": 1054,
+      "sha256": "00aab86dd1d70d054f07cadb7b99fe426d78ca7fc3b940c582568cecbe667776"
+    },
+    {
+      "path": "geometry_search/rowzero/star_tracezero_invariants.py",
+      "bytes": 1813,
+      "sha256": "bbc67828368296f796c4388483f17351412683a33ff95abee4e475f220058a49"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-zero-rankone-invariants.json",
+      "bytes": 2557,
+      "sha256": "41d71fc27111a681422f0737ceb0ebbbe15c41f75631983fb9609c44e0453f0c"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-zero-rankone-invariants.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-zero-rankone-invariants.stdout",
+      "bytes": 1235,
+      "sha256": "a52af778b6d59e464a08d1cd5f8e776a7d2645d08dde2fd89007d6c4e963b928"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-zero-saved-planes-19.json",
+      "bytes": 3285,
+      "sha256": "463fe62b9ccf8c333659329c37f7d8b613105adf268be4038e628664fef70bc1"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-zero-saved-planes-19.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-zero-saved-planes-19.stdout",
+      "bytes": 1192,
+      "sha256": "15f8d702372d3131feedd1cc150fad42295d773b69f0274ae3c515bc2e2d2a7e"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-zero-saved-planes.json",
+      "bytes": 5685,
+      "sha256": "784757f1622f8d033929ae26c2fdcdf27599ba64933aa33d5b6b9ebf49547f02"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-zero-saved-planes.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/rowzero/trace-zero-saved-planes.stdout",
+      "bytes": 2334,
+      "sha256": "7babc45c760c4dc16ee542d8e501dba5152c00dbc05c3b676e01d44651a33c26"
+    },
+    {
+      "path": "geometry_search/rowzero/trace_zero_rankone_invariants.py",
+      "bytes": 1633,
+      "sha256": "c7d1cd9e12f722b4cc474df6456f24167bda6f9f590adf53b0c983b8e1d5c2f2"
+    },
+    {
+      "path": "geometry_search/rowzero/trace_zero_saved_planes.py",
+      "bytes": 5632,
+      "sha256": "d38e129e37e95b42185b6895cee9c05a484855e2ffa1d1994af7702e5c361aa1"
+    },
+    {
+      "path": "geometry_search/run_tracezero_native.py",
+      "bytes": 2279,
+      "sha256": "07ea42c3694fec7270edb2e9680c0468dd6eaf3c94b16d7ef80ddf481743c429"
+    },
+    {
+      "path": "geometry_search/tracezero/README.md",
+      "bytes": 2585,
+      "sha256": "047fb13604f6e0abe2a399dee529875978bae6a87c233876739d403e9c3fe0e9"
+    },
+    {
+      "path": "geometry_search/tracezero/charts-manifest.json",
+      "bytes": 33956,
+      "sha256": "9cf0dfb7f25731df21ccf339ce106bda41d1f38bfa48a3a159da4b1ccadbf296"
+    },
+    {
+      "path": "geometry_search/tracezero/compact-forms.json",
+      "bytes": 2297,
+      "sha256": "4264295ada49cff5acea64e1749317fdb0c57c97149c2b33ce778c16684fdb6f"
+    },
+    {
+      "path": "geometry_search/tracezero/compact-forms.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/tracezero/compact-forms.stdout",
+      "bytes": 2297,
+      "sha256": "4264295ada49cff5acea64e1749317fdb0c57c97149c2b33ce778c16684fdb6f"
+    },
+    {
+      "path": "geometry_search/tracezero/compact_forms.py",
+      "bytes": 1184,
+      "sha256": "5ca3d84df4e36f9ddda446da6a8be96ab9723adde336c5dafebc5e01b37403de"
+    },
+    {
+      "path": "geometry_search/tracezero/generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/tracezero/generation.stdout",
+      "bytes": 466,
+      "sha256": "7afcaca383cd622dd57433531cb6dde3c8512b1e69e78afe6d517fc858567ffb"
+    },
+    {
+      "path": "geometry_search/tracezero/invariant-identities.json",
+      "bytes": 365,
+      "sha256": "0c1e7eabd3af25af0db7975dda54ad62c5f961ff37b147244efedb50eb0d2be2"
+    },
+    {
+      "path": "geometry_search/tracezero/invariant-identities.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/tracezero/invariant-identities.stdout",
+      "bytes": 365,
+      "sha256": "0c1e7eabd3af25af0db7975dda54ad62c5f961ff37b147244efedb50eb0d2be2"
+    },
+    {
+      "path": "geometry_search/tracezero/invariant_identities.py",
+      "bytes": 1222,
+      "sha256": "c62d60975493a04250ba94a3eb6e01007c1995d28c1c411256aae686889ddd07"
+    },
+    {
+      "path": "geometry_search/tracezero/rank1-disjoint-p0.ms",
+      "bytes": 6546,
+      "sha256": "7825823e434601f1b7f8173d3d6d429a5da82c5fac6529805b51649b429404e7"
+    },
+    {
+      "path": "geometry_search/tracezero/rank1-disjoint-p101.ms",
+      "bytes": 6548,
+      "sha256": "4cd4e18dd62b688898ea830c7ab7533573e875e61d0c70d679496cd156032819"
+    },
+    {
+      "path": "geometry_search/tracezero/rank1-incident-p0.ms",
+      "bytes": 5599,
+      "sha256": "711c118641aaa9249953680f3a1057ebf1934f4c457b70cc1f109249627af53c"
+    },
+    {
+      "path": "geometry_search/tracezero/rank1-incident-p101.ms",
+      "bytes": 5601,
+      "sha256": "d36cb507bb7a453c07f846af2594db96b0226b03d91fd4820b299a5cba63aa3f"
+    },
+    {
+      "path": "geometry_search/tracezero/rank2-Q-std.result.json",
+      "bytes": 447,
+      "sha256": "11bb2a06c2a8246286097b56ee42fcc9e284f84d0ff965bc32846ba87a9f617c"
+    },
+    {
+      "path": "geometry_search/tracezero/rank2-Q-std.sing",
+      "bytes": 10915,
+      "sha256": "822f796b89b4243ea27192ed0e2297dab6efdab98eef841eff5c05d71c1d82b5"
+    },
+    {
+      "path": "geometry_search/tracezero/rank2-Q-std.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/tracezero/rank2-Q-std.stdout.zst",
+      "bytes": 966,
+      "sha256": "f07d081e46bb561ba32670d40cad7056d7f0b9b965389b317460be44d516e914"
+    },
+    {
+      "path": "geometry_search/tracezero/rank2-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/tracezero/rank2-driver.stdout",
+      "bytes": 425,
+      "sha256": "d4d9d0f17274b0e9bf852e34052bedafd3caa85c5e87878082d6e56ee0729486"
+    },
+    {
+      "path": "geometry_search/tracezero/rank2-p0.ms",
+      "bytes": 10633,
+      "sha256": "bf84cf3531f9a1a9f432b77de870f3cfd2563889fe368640b1a76dcbc69d3518"
+    },
+    {
+      "path": "geometry_search/tracezero/rank2-p101.ms",
+      "bytes": 10635,
+      "sha256": "b493a9c3997afe9c067472d242ae8c970c18e729088cdee3a092ba7bfb708e9d"
+    },
+    {
+      "path": "geometry_search/tracezero/star-line-tracezero.json",
+      "bytes": 711,
+      "sha256": "9b562ea95c113a3dbcc7c94d0a8ffa97e67d08a412bfcf5c0536f8b8ef728cb6"
+    },
+    {
+      "path": "geometry_search/tracezero/star-tracezero-certificate.json",
+      "bytes": 4716,
+      "sha256": "9438c8c11785d1afe5b015132bc3ff7dd880e2ece421adb1417138cdf5d7b403"
+    },
+    {
+      "path": "geometry_search/tracezero/star-tracezero-certificate.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "geometry_search/tracezero/star-tracezero-certificate.stdout",
+      "bytes": 4716,
+      "sha256": "9438c8c11785d1afe5b015132bc3ff7dd880e2ece421adb1417138cdf5d7b403"
+    },
+    {
+      "path": "geometry_search/tracezero/star_tracezero_certificate.py",
+      "bytes": 3067,
+      "sha256": "ead8b705fd0c7c78ef31ad79a637329866b9585185329923542dede924be2764"
+    },
+    {
+      "path": "trace_chart_audit/audit-rank1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "trace_chart_audit/audit-rank1.stdout",
+      "bytes": 617,
+      "sha256": "b6d02435ffb6fbaa63adb1cdd337e20dc4cf9d96a5254c0179db4d76e6ea8935"
+    },
+    {
+      "path": "trace_chart_audit/audit_rank1.py",
+      "bytes": 5329,
+      "sha256": "305b51b266c8c80b1ebd27f5cc4cbb7053bd589cf802ac65350eab5388d6e399"
+    },
+    {
+      "path": "trace_chart_audit/rank1-independent-audit.json",
+      "bytes": 14034,
+      "sha256": "7a0ba4292af565cbe2d5b1f55304200bc7b660ec3c9858be44edb5383e8b288a"
+    }
+  ],
+  "file_count": 117,
+  "total_raw_bytes": 280438
+}

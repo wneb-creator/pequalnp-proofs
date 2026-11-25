@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "reviewer": "root, independent of bundle producer",
+  "timestamp": "2026-11-25T11:47:31.161967+00:00",
+  "archive_sha256": "220a3db4ccffad1248a18c980f08c99b1755e4fe6b975f3cc4ac22b5502c960a",
+  "verified_files": 117,
+  "credential_pattern_scan": "PASS",
+  "size_and_hash_check": "PASS",
+  "scope": "Auxiliary trace-zero2plane examples and searches; no posted3D proof or counterexample."
+}
