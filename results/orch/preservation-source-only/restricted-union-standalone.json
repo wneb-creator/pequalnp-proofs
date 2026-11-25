@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-62/RestrictedUnionBoundStandalone.lean",
+  "sha256": "75db870d83873c2e4d12679a7172466178174040ebca8366e1c1ddc898263d9d",
+  "lines": 1150,
+  "status": "standalone concatenation prepared; original module graph checked, standalone file not yet checked",
+  "dependencies": {
+    "GuardCharging.lean": "6e2c31baa3ce2f08339feb65bfaa9e5f13da150da828e5bd7f669ca63b52d9be",
+    "GuardGeometry.lean": "e4b9ff52fd31e90936007c5c61e61a1ddae5bbc1ab71868ca4d147a7d2d00589",
+    "PureUnionAncestry.lean": "a32671d59adbd49c58b0772d542d44b6f8247fb6f573c5de6391918da114ee92",
+    "RestrictedUnionBound.lean": "cc9d08b8e1e098eb94ab0bd454ee0bfbd324467b036d8f373fe2dff6913b5bba"
+  },
+  "omitted_unused_geometry_data": "Only exact AllRows.incidence declaration is referenced by these modules; unused rows/points tables omitted."
+}

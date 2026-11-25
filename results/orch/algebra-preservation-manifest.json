@@ -1,0 +1,245 @@
+{
+  "scope": "Preservation only after desk HTTP410; ordinary finite audits and mathematical notes unless individually marked Lean checked. No new research or build run.",
+  "files": [
+    {
+      "path": "results/orch/algebra.md",
+      "bytes": 4943,
+      "sha256": "18778c2d581268d3ada2f3a7926f5c42591239647f8b1d60b7d00faa0c21e3c1",
+      "git_status": "?? results/orch/algebra.md"
+    },
+    {
+      "path": "results/orch/algebra-packing/README.md",
+      "bytes": 10340,
+      "sha256": "4c0996bab527a4ebab76fda58bb019691304c4ee2f0c4b5c8203d16504404739",
+      "git_status": "M results/orch/algebra-packing/README.md"
+    },
+    {
+      "path": "results/orch/algebra-packing/SHA256.json",
+      "bytes": 8056,
+      "sha256": "8daa4ef855ddafe32b49e67344d687c663e8c5ec2c4aa8c32385520400889776",
+      "git_status": "M results/orch/algebra-packing/SHA256.json"
+    },
+    {
+      "path": "results/orch/algebra-packing/audit_packing3_actions.py",
+      "bytes": 3251,
+      "sha256": "ac6b975270b57777d3d3db1f2cdc518ccba542b125cce625aac0bbfd7b1400ef",
+      "git_status": "?? results/orch/algebra-packing/audit_packing3_actions.py"
+    },
+    {
+      "path": "results/orch/algebra-packing/pack_capacity3_orbits.py",
+      "bytes": 3546,
+      "sha256": "a45d1a49f6359fd4d75f96bee506e4cd372eb624c3616c61b1e1fcb67c50dc65",
+      "git_status": "?? results/orch/algebra-packing/pack_capacity3_orbits.py"
+    },
+    {
+      "path": "results/orch/algebra-packing/packing-capacity3-compact-labels.lean.txt",
+      "bytes": 86337,
+      "sha256": "6b86f6bd29bc7091026f03ea0a53119b87f6a303a23794a5483c6903bed109c5",
+      "git_status": "?? results/orch/algebra-packing/packing-capacity3-compact-labels.lean.txt"
+    },
+    {
+      "path": "results/orch/algebra-packing/packing-capacity3-compact-orbits.json",
+      "bytes": 595782,
+      "sha256": "396fc6e6ebc6178e84cc7fb60f304283b648273f9af418b12b552b443fa55d90",
+      "git_status": "?? results/orch/algebra-packing/packing-capacity3-compact-orbits.json"
+    },
+    {
+      "path": "results/orch/algebra-packing/packing-capacity3-compact-orbits.log",
+      "bytes": 2470,
+      "sha256": "dd807fabce5cbea40d5e8ff9897528aaacc46fb0ef921848bc1163a7cdc9fb73",
+      "git_status": "?? results/orch/algebra-packing/packing-capacity3-compact-orbits.log"
+    },
+    {
+      "path": "results/orch/algebra-packing/packing-capacity3-inverse-permutations.lean.txt",
+      "bytes": 395,
+      "sha256": "eeb159cbf67895a0f1bedee2e5b9cf7bff55e0f4874721e5e9e6051c13d89886",
+      "git_status": "?? results/orch/algebra-packing/packing-capacity3-inverse-permutations.lean.txt"
+    },
+    {
+      "path": "results/orch/algebra-packing/packing-capacity3-triangular-labels.lean.txt",
+      "bytes": 101349,
+      "sha256": "ff6d01c0ecdb338aa2f6b5d22591116d0ae861f583d2d6bb48c7ddcde5e05e39",
+      "git_status": "?? results/orch/algebra-packing/packing-capacity3-triangular-labels.lean.txt"
+    },
+    {
+      "path": "results/orch/algebra-packing/packing3-actions-independent-audit.json",
+      "bytes": 1445,
+      "sha256": "e12056a01a86a25548b394bbbf577ed73d0f73dc6ad27876497eb0e4afbac18d",
+      "git_status": "?? results/orch/algebra-packing/packing3-actions-independent-audit.json"
+    },
+    {
+      "path": "results/orch/algebra-packing/packing3-actions-independent-audit.log",
+      "bytes": 1445,
+      "sha256": "e12056a01a86a25548b394bbbf577ed73d0f73dc6ad27876497eb0e4afbac18d",
+      "git_status": "?? results/orch/algebra-packing/packing3-actions-independent-audit.log"
+    },
+    {
+      "path": "results/orch/search-counterexample/ADJACENT-ORDERING-REVIEW.md",
+      "bytes": 1660,
+      "sha256": "6039f59fa51935791e47790eb69143ca8409c41ea634c2787898ef26e03ea367",
+      "git_status": "?? results/orch/search-counterexample/ADJACENT-ORDERING-REVIEW.md"
+    },
+    {
+      "path": "results/orch/search-counterexample/COMPILER-CONTROL-DATA-REVIEW.md",
+      "bytes": 1053,
+      "sha256": "877bb0c4667ff46569a82b3501d91ac8ddc8e0972673e492d24fd91fbf76580b",
+      "git_status": "?? results/orch/search-counterexample/COMPILER-CONTROL-DATA-REVIEW.md"
+    },
+    {
+      "path": "results/orch/search-counterexample/DIRTY-SINGLETON-REVIEW.md",
+      "bytes": 2020,
+      "sha256": "389db422294d8efdc3b770f697f1106aa133a48ca9b4341db2840452ea03d463",
+      "git_status": "?? results/orch/search-counterexample/DIRTY-SINGLETON-REVIEW.md"
+    },
+    {
+      "path": "results/orch/search-counterexample/EXACT-LINEAR-OUTPUTS-REVIEW.md",
+      "bytes": 4378,
+      "sha256": "050dfd3f866cdf0dff55249f2baacb9b3a0059e4535faeeb2d6fc1ab1250042d",
+      "git_status": "?? results/orch/search-counterexample/EXACT-LINEAR-OUTPUTS-REVIEW.md"
+    },
+    {
+      "path": "results/orch/search-counterexample/PURE-UNION-LOWER-BOUND-REVIEW.md",
+      "bytes": 4950,
+      "sha256": "baee6dfb14d7f29d797df7c83d64a08e10815541bb5f6ad5ca6be3efdd00609d",
+      "git_status": "?? results/orch/search-counterexample/PURE-UNION-LOWER-BOUND-REVIEW.md"
+    },
+    {
+      "path": "results/orch/search-counterexample/PURE-UNION-REVIEW.md",
+      "bytes": 2182,
+      "sha256": "05c90d21d6d368fcbaa415cfb111d291f4594df3277268fe337c84cf8040e02b",
+      "git_status": "?? results/orch/search-counterexample/PURE-UNION-REVIEW.md"
+    },
+    {
+      "path": "results/orch/search-counterexample/THETA4-ADAPTER-REVIEW.md",
+      "bytes": 1618,
+      "sha256": "931f9615b05871b97ea2ba9974066232edd6ba83faf4e260409d6750619bafe2",
+      "git_status": "?? results/orch/search-counterexample/THETA4-ADAPTER-REVIEW.md"
+    },
+    {
+      "path": "results/orch/search-counterexample/TWO-USEFUL-PENCILS-REVIEW.md",
+      "bytes": 3418,
+      "sha256": "1401661a47df8c54b7fc14e8b3ccd0b79fb9c86037633868270c4c2352c13e20",
+      "git_status": "?? results/orch/search-counterexample/TWO-USEFUL-PENCILS-REVIEW.md"
+    },
+    {
+      "path": "results/orch/search-counterexample/audit_compiler_control_data.py",
+      "bytes": 2638,
+      "sha256": "3bae19427760b354c207b444fff978e27a8aa1ac2b55cd67ad1bb48d168474f5",
+      "git_status": "?? results/orch/search-counterexample/audit_compiler_control_data.py"
+    },
+    {
+      "path": "results/orch/search-counterexample/audit_dirty_singletons.py",
+      "bytes": 2910,
+      "sha256": "d6fede809272de72096d9a66ca58f25e2e254e6e56af1bbd8c8a4322d50929e4",
+      "git_status": "?? results/orch/search-counterexample/audit_dirty_singletons.py"
+    },
+    {
+      "path": "results/orch/search-counterexample/audit_pure_union.py",
+      "bytes": 2945,
+      "sha256": "dbdd75efccf59d8631556f543793a28525f113dd16c73f0f375a5e5a135f5fad",
+      "git_status": "?? results/orch/search-counterexample/audit_pure_union.py"
+    },
+    {
+      "path": "results/orch/search-counterexample/audit_pure_union_lower_bound.py",
+      "bytes": 4530,
+      "sha256": "bd6d0593b1b6654be42d09a7a8982735b38e3740673618914fb2b5905fcbe4ca",
+      "git_status": "?? results/orch/search-counterexample/audit_pure_union_lower_bound.py"
+    },
+    {
+      "path": "results/orch/search-counterexample/audit_theta4_adapter.py",
+      "bytes": 4560,
+      "sha256": "b5efc94253b3dd35ed5c5fe1db1c355e0b1c1b155f48ac580cd3f5a506fbd955",
+      "git_status": "?? results/orch/search-counterexample/audit_theta4_adapter.py"
+    },
+    {
+      "path": "results/orch/search-counterexample/audit_collinear3_minterms.py",
+      "bytes": 1802,
+      "sha256": "a689eebb8d8c8814548a95f0273cd652c3d5879a84be58e70b59b4a54fe3a3dc",
+      "git_status": "tracked clean"
+    },
+    {
+      "path": "results/orch/search-counterexample/compiler-control-data-audit.json",
+      "bytes": 841,
+      "sha256": "f722d951b42f4c91493e0e09499908360554a8b37f63cef9d358416580594dcf",
+      "git_status": "?? results/orch/search-counterexample/compiler-control-data-audit.json"
+    },
+    {
+      "path": "results/orch/search-counterexample/compiler-control-data-audit.log",
+      "bytes": 841,
+      "sha256": "f722d951b42f4c91493e0e09499908360554a8b37f63cef9d358416580594dcf",
+      "git_status": "?? results/orch/search-counterexample/compiler-control-data-audit.log"
+    },
+    {
+      "path": "results/orch/search-counterexample/dirty-singletons-independent-audit.json",
+      "bytes": 834,
+      "sha256": "5b2b4001fb0779009664650e0f8c23a7a394b7ece1fa9cecc36f3fb22267344e",
+      "git_status": "?? results/orch/search-counterexample/dirty-singletons-independent-audit.json"
+    },
+    {
+      "path": "results/orch/search-counterexample/dirty-singletons-independent-audit.log",
+      "bytes": 834,
+      "sha256": "5b2b4001fb0779009664650e0f8c23a7a394b7ece1fa9cecc36f3fb22267344e",
+      "git_status": "?? results/orch/search-counterexample/dirty-singletons-independent-audit.log"
+    },
+    {
+      "path": "results/orch/search-counterexample/multi-model-audit.json",
+      "bytes": 825,
+      "sha256": "ef44212d4da56970d839b94e36b899ddf7b055217b9db6695f76eb1e8fcb629c",
+      "git_status": "?? results/orch/search-counterexample/multi-model-audit.json"
+    },
+    {
+      "path": "results/orch/search-counterexample/multi-model-audit.log",
+      "bytes": 825,
+      "sha256": "ef44212d4da56970d839b94e36b899ddf7b055217b9db6695f76eb1e8fcb629c",
+      "git_status": "?? results/orch/search-counterexample/multi-model-audit.log"
+    },
+    {
+      "path": "results/orch/search-counterexample/pure-union-independent-audit.json",
+      "bytes": 623,
+      "sha256": "4cec8136a08b6913e3b996d307ba8f32948a3cb8fe13ec688b1b83029874167b",
+      "git_status": "?? results/orch/search-counterexample/pure-union-independent-audit.json"
+    },
+    {
+      "path": "results/orch/search-counterexample/pure-union-independent-audit.log",
+      "bytes": 623,
+      "sha256": "4cec8136a08b6913e3b996d307ba8f32948a3cb8fe13ec688b1b83029874167b",
+      "git_status": "?? results/orch/search-counterexample/pure-union-independent-audit.log"
+    },
+    {
+      "path": "results/orch/search-counterexample/pure-union-lower-bound-independent-audit.json",
+      "bytes": 1836,
+      "sha256": "9e3fa5a7adebc53d53815cd285e46555641f8216cdec9c6b460206ce4a5951bb",
+      "git_status": "?? results/orch/search-counterexample/pure-union-lower-bound-independent-audit.json"
+    },
+    {
+      "path": "results/orch/search-counterexample/pure-union-lower-bound-independent-audit.log",
+      "bytes": 1836,
+      "sha256": "9e3fa5a7adebc53d53815cd285e46555641f8216cdec9c6b460206ce4a5951bb",
+      "git_status": "?? results/orch/search-counterexample/pure-union-lower-bound-independent-audit.log"
+    },
+    {
+      "path": "results/orch/search-counterexample/theta4-adapter-independent-audit.json",
+      "bytes": 895,
+      "sha256": "2de3881915dcecd1a48b727e10b20e0896f08d55388c49da4d2131d421d2371b",
+      "git_status": "?? results/orch/search-counterexample/theta4-adapter-independent-audit.json"
+    },
+    {
+      "path": "results/orch/search-counterexample/theta4-adapter-independent-audit.log",
+      "bytes": 895,
+      "sha256": "2de3881915dcecd1a48b727e10b20e0896f08d55388c49da4d2131d421d2371b",
+      "git_status": "?? results/orch/search-counterexample/theta4-adapter-independent-audit.log"
+    },
+    {
+      "path": "results/orch/search-counterexample/collinear3-minterms-independent-audit.json",
+      "bytes": 2379,
+      "sha256": "d27ca6eebb50bd086ba53b3fc149138e75f65dec7acffb669cfe17ab65695bd4",
+      "git_status": "tracked clean"
+    },
+    {
+      "path": "results/orch/search-counterexample/collinear3-minterms-independent-audit.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "git_status": "tracked clean"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-25T07:01:11.412496+00:00",
+  "event": "renewal returned HTTP410; exact curl-si retry also410",
+  "last_successful_renewal_utc": "2026-11-25T06:50:47.876852+00:00",
+  "last_reported_expiry_utc": "2026-11-25T07:10:48.063Z",
+  "error_received_utc": "2026-11-25T06:58:17Z",
+  "error_body": {
+    "error": "no such live lease: it expired or was released. Ask /desk/next again."
+  },
+  "public_feed_updated_at": "2026-11-25T06:59:26.269Z",
+  "gap_still_publicly_open": true,
+  "gap_marked_checked": false,
+  "gap_withdrawn": null,
+  "actions": "Both owned solver groups interrupted and reaped; renewal timer stopped. Preserve and push before any desk recovery. No release request sent for the dead lease."
+}

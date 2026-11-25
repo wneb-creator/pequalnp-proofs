@@ -1,0 +1,19 @@
+{
+  "reviewed_utc": "2026-11-25T06:21:25.638148+00:00",
+  "source": "results/orch/lemmas/GuardGeometry.lean",
+  "sha256": "1b2ade56c13539181c6e57adaca8ca984720c7fa60f5e498693d9be16a08e1ea",
+  "lines": 312,
+  "reviewer": "or_lower_bound",
+  "verdict": "Source semantic review PASS; still UNCOMPILED",
+  "delta": "101-line append adds small incidence facts and double-counts four-cap avoiding points",
+  "checks": [
+    "line_points_card has13 cases and line_inter_points_card has169 cases, with the exact existing incidence relation.",
+    "degree_sum counts the same point-line incidence pairs in both orders.",
+    "ordered_degree_sum counts ordered distinct line pairs; Mathlib mem_offDiag and offDiag_card signatures match the source.",
+    "For four-cap local degrees0,1,2, the identity2*d+2*[d=0]=2+d*d-d is correct.",
+    "Total incidence16 and ordered-pair incidence12 imply32+2*z=26+12, hence z=3.",
+    "fourCap_avoiding_card exactly matches the previously missing RestrictedUnionBound dependency.",
+    "The earlier211-line geometry prefix is unchanged; the immutable source archive is untouched."
+  ],
+  "lean_or_solver_process_started": false
+}

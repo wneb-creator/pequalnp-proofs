@@ -1,5 +1,5 @@
 PARTIAL CHECKPOINT — L-meta-1896
-UTC: 2026-11-25T05:17:17.122686+00:00
+UTC: 2026-11-25T07:01:11.412496+00:00
 Posted target: at least51 OR gates, still unproved. This branch is not a proof PR.
 Checked partial: exact posted hypotheses imply at least21 OR gates.
 Named file: lean/PEqualNP/Outside/L_meta_1896.lean
@@ -10,8 +10,13 @@ Named lake build exited0 in331.17s; full output: validation/twenty-one-named-bui
 Actual tools/check-lean.mjs check exited3 in11.88s. It built the verifier, file and definitions root, then faulted before a proof verdict:
 checker fault: object file '/workspace/pequalnp-proofs/lean/.lake/packages/batteries/.lake/build/lib/lean/Batteries.olean' of module Batteries does not exist
 CHECKER FAULT: the verifier ended without a verdict (exit3).
-Full checker output: validation/twenty-one-posted-checker.log. The earlier missing root Mathlib artifact was restored genuinely, but its complete dependency cache remains unavailable. Further cache feasibility is being assessed; checker source and project configuration remain unchanged.
+Full checker output: validation/twenty-one-posted-checker.log. The earlier missing root Mathlib artifact was restored genuinely, but its complete dependency cache remains unavailable. The recorded cache assessment found insufficient disk for the full dependency closure; checker source and project configuration remain unchanged.
 Independent review: repo_audit and proof_routes approved this exact source hash as a labelled partial, including exact hypotheses, finite certificates and final glue. No forbidden source constructs.
 No PR opened because the posted51-OR statement is not proved or refuted.
 Sub-agents: repo_audit, lean_setup, or_lower_bound, counterexample, proof_routes, algebraic_witness, proof_routes/quadratic_shadow
-TIMING total=153.8 subagents=7
+TIMING total=257.7 subagents=7
+
+LEASE LOSS CHECKPOINT: HTTP410 on renewal and exact curl-si retry at06:58:17 UTC, before the last reported07:10:48 expiry. Full response: validation/desk-http-410-response.txt. Both active searches stopped without a verdict: ordered50 interrupted at1114.838s; four-cap14 interrupted at894.274s. The public feed still listed the gap open. No next search or new control was launched.
+Checked research includes restricted39 geometry/union lemmas, generic extension obstruction, the full conditional counterexample certification pipeline, and a48-OR weakened-shadow example that explicitly fails a posted negative. None proves or refutes the51 target.
+Cleanup pass not run because the full target and checker have not passed; named-file line counts before/after cleanup:4133/4133.
+Desk null count:5. Exact messages and response timestamps are in validation/desk-null-history.json.

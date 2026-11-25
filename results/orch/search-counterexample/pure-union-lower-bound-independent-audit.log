@@ -1,0 +1,96 @@
+{
+  "status": "All finite geometric ingredients of the restricted39 charging proof passed independent audit.",
+  "useful_union_supports": 3016,
+  "guard_histogram": [
+    {
+      "support_size": 4,
+      "contained_pencils": 1,
+      "count": 13
+    },
+    {
+      "support_size": 5,
+      "contained_pencils": 1,
+      "count": 117
+    },
+    {
+      "support_size": 6,
+      "contained_pencils": 1,
+      "count": 468
+    },
+    {
+      "support_size": 7,
+      "contained_pencils": 1,
+      "count": 936
+    },
+    {
+      "support_size": 7,
+      "contained_pencils": 2,
+      "count": 78
+    },
+    {
+      "support_size": 8,
+      "contained_pencils": 1,
+      "count": 702
+    },
+    {
+      "support_size": 8,
+      "contained_pencils": 2,
+      "count": 468
+    },
+    {
+      "support_size": 9,
+      "contained_pencils": 3,
+      "count": 234
+    }
+  ],
+  "cap_edge_bijection_checks": 702,
+  "private_extra_line_incidence_checks": 37206,
+  "shared_other_pencil_incidence_checks": 5616,
+  "residual_vertex_cover_cases": [
+    {
+      "private_count": 0,
+      "part_sizes": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "minimum_cover": 9,
+      "count": 13
+    },
+    {
+      "private_count": 1,
+      "part_sizes": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "minimum_cover": 6,
+      "count": 117
+    },
+    {
+      "private_count": 2,
+      "part_sizes": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "minimum_cover": 3,
+      "count": 468
+    },
+    {
+      "private_count": 2,
+      "part_sizes": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "minimum_cover": 6,
+      "count": 117
+    }
+  ],
+  "scope": "Supports a mathematical39-OR lower bound only for internal pure unions and final free intersections; not Lean checked and not the arbitrary-AND51 target."
+}

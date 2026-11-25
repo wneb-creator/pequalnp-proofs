@@ -81,3 +81,15 @@ GeometryMaskData and the first128-mask completeness chunk both passed with cache
 All64 chunks covering8192 point masks compiled in eight cached groups, followed by the symbolic aggregate. GeometryComplete.admissible_complete is now a checked theorem. Total group wall time255.94seconds; aggregate3.01seconds. Maximum group peakRSS3,839,360KiB and peakcgroup5,251,825,664bytes. GeometryRowsAgreement is still running; the source/log/hash archive is being frozen for independent review. This result supports verification of a future circuit witness and does not itself settle51 OR gates.
 
 GeometryRowsAgreement subsequently passed exit0 in42.04seconds. Its AllRows.row_eq theorem is cached and frozen with the other geometry modules. The complete coverage/input-transport pipeline is now checked; all archive metadata is frozen for review.
+
+## Restricted guard geometry: source draft only
+
+GuardGeometry.lean now drafts the local residual_cover_bound required by guard-charging-plan.md. It uses the exact AllRows.incidence relation. The residual set excludes the target point and avoids the selected private extra lines. Its size is12,8,5 for zero,one,two distinct extras; ray classes have bounds3,2,2, giving covers9,6,3. For two residual points on different rays, capFor is the set of four lines avoiding their noncollinear triple with the target. Its avoiding points are exactly that triple, which turns the cap-guard hypothesis into a multipartite vertex cover.
+
+The211-line draft contains bounded finite certificate statements over at most three Fin13 indices and symbolic assembly through the previously checked GuardCharging.residual_cover_count. It has not been compiled; no Lean process was launched during the primary solver window. Status and source hash are in guard-geometry-draft-status.json. This is partial geometry for a restricted architecture, not a proof of the posted51-OR bound. The unrestricted exact-pencil ancestry and mixed-variable reduction remain separate open steps.
+
+## Guard geometry compiled
+
+GuardGeometry is now fully kernel checked at599lines, SHA256e4b9ff52fd31e90936007c5c61e61a1ddae5bbc1ab71868ca4d147a7d2d00589. The three largest finite facts were split into13 fixed-first-coordinate cases each. A final symbolic set-equality step uses an explicit rewrite before simplification. The successful run took61.10seconds and peaked at5.39GB cgroup use; it emitted a cached GuardGeometry.olean.
+
+The checked scope includes residual_cover_bound and fourCap_avoiding_card, together with the finite PG(2,3) facts they require. It does not establish the unrestricted51-OR result. Complete successful source/log/hash/metadata are in checked/modules; the resource-stopped first run and the one-error second run are preserved under guard-geometry-builds. The previously frozen restricted39 source archive remains unchanged. The Lean slot was handed to or_lower_bound for the final restricted assembly.

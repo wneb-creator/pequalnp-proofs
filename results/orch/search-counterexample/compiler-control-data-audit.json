@@ -1,0 +1,21 @@
+{
+  "verdict": "data_match",
+  "program_operation_count": 51,
+  "program_reference_lists": 103,
+  "input_masks_checked": 26,
+  "or_output_masks_checked": 51,
+  "final_mask": 4503599627370495,
+  "sample_count": 520,
+  "scope": "Data equality only; no new Lean theorem and no counterexample",
+  "source_sha256": {
+    "results/orch/checked/canonical-global-control.lean": "c0521c306db3245beb24c28ed2812251e78e80313e5e198e22f882305aa00fb7",
+    "results/orch/checked/canonical-sample-data.lean": "aaf1b7f9ac939d646781ea74210b1de19cbff4e791c13e7fdd8edd6061a113b5"
+  },
+  "sample_bit_benchmark": {
+    "sha256": "5dd3708b45378f376d90173b58d1b352073fdb392abfc58863627715df3a42b7",
+    "positive_coordinates": 1352,
+    "negative_coordinates_checked": 468,
+    "negative_coordinate": "0 only",
+    "other_negative_coordinates_pending": 11700
+  }
+}

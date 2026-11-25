@@ -1,0 +1,21 @@
+{
+  "run001": {
+    "source": "GuardGeometry-before-split.lean",
+    "sha256": "1b2ade56c13539181c6e57adaca8ca984720c7fa60f5e498693d9be16a08e1ea",
+    "log": "guard-geometry-001.log",
+    "status": "RESOURCE_STOPPED; no compiled result"
+  },
+  "run002": {
+    "source": "GuardGeometry-run002.lean",
+    "sha256": "3127c70b9b757161b9cc0d980ef6fc614c8a83b75c7d56a9ec0b31a13bc3e1f6",
+    "log": "guard-geometry-002.log",
+    "status": "EXIT1; all finite facts checked but symbolic hzero simplification failed"
+  },
+  "run003": {
+    "source": "results/orch/lemmas/GuardGeometry.lean",
+    "sha256": "e4b9ff52fd31e90936007c5c61e61a1ddae5bbc1ab71868ca4d147a7d2d00589",
+    "log": "results/orch/checked/modules/GuardGeometry.log",
+    "status": "EXIT0; complete module checked",
+    "snapshot": "results/orch/checked/modules/GuardGeometry.lean"
+  }
+}

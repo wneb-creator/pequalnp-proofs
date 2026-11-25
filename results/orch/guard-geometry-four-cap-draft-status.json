@@ -1,0 +1,19 @@
+{
+  "source": "results/orch/checked/modules/GuardGeometry.lean",
+  "sha256": "e4b9ff52fd31e90936007c5c61e61a1ddae5bbc1ab71868ca4d147a7d2d00589",
+  "lines": 599,
+  "exit_code": 0,
+  "kernel_checked": true,
+  "checked_utc": "2026-11-25T06:36:45.267953+00:00",
+  "scope": [
+    "PG(2,3) pencils, residual sets and ray bounds",
+    "Noncollinear triple to four-cap and exact avoiding triple",
+    "residual_cover_bound",
+    "fourCap_avoiding_card via incidence double counting"
+  ],
+  "wall_seconds": 61.09978586099896,
+  "peak_rss_kib": 3497660,
+  "peak_cgroup_bytes": 5388914688,
+  "warnings": "Three deprecation warnings for if_pos/if_neg; no proof errors.",
+  "not_claimed": "This geometry module does not prove the unrestricted51-OR statement."
+}

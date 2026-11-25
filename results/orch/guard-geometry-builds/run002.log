@@ -1,0 +1,104 @@
+import took 8.13s
+type checking took 130ms
+type checking took 395ms
+type checking took 831ms
+type checking took 707ms
+type checking took 733ms
+type checking took 749ms
+type checking took 720ms
+type checking took 747ms
+type checking took 731ms
+type checking took 764ms
+type checking took 696ms
+type checking took 694ms
+type checking took 727ms
+type checking took 747ms
+type checking took 770ms
+type checking took 2.23s
+type checking took 280ms
+type checking took 259ms
+type checking took 307ms
+type checking took 267ms
+type checking took 285ms
+type checking took 252ms
+type checking took 276ms
+type checking took 277ms
+type checking took 409ms
+type checking took 303ms
+type checking took 426ms
+type checking took 273ms
+type checking took 292ms
+type checking took 2.74s
+type checking took 2.88s
+type checking took 2.86s
+type checking took 2.67s
+type checking took 2.67s
+type checking took 3.11s
+type checking took 3.18s
+type checking took 3.22s
+type checking took 2.76s
+type checking took 2.93s
+type checking took 3.11s
+type checking took 2.75s
+type checking took 2.74s
+/workspace/pequalnp-proofs/results/orch/lemmas/GuardGeometry.lean:442:26: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/GuardGeometry.lean:453:28: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/GuardGeometry.lean:468:28: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+type checking took 162ms
+/workspace/pequalnp-proofs/results/orch/lemmas/GuardGeometry.lean:567:33: error: unsolved goals
+N : Finset (Fin 13)
+hN : IsFourCap N
+hdegree : ∑ p, (N ∩ pencil p).card = 16
+hpairs : ∑ p, ((N ∩ pencil p).card * (N ∩ pencil p).card - (N ∩ pencil p).card) = 12
+hf : {p | (N ∩ pencil p).card = 0} = avoidingPoints N
+⊢ {x | N ∩ pencil x = ∅}.card = (avoidingPoints N).card
+/workspace/pequalnp-proofs/results/orch/lemmas/GuardGeometry.lean:573:10: warning: This simp argument is unused:
+  hf
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+cumulative profiling times:
+	attribute application 1.18ms
+	blocked (unaccounted) 811s
+	compilation (IR) 0.651ms
+	compilation (LCNF base) 16.1ms
+	compilation (LCNF impure) 4.07ms
+	compilation (LCNF mono) 9.35ms
+	congr simp thm 11ms
+	declTypeLinter 41.3ms
+	elaboration 392ms
+	fix level params 2.27ms
+	import 8.13s
+	initialization 32.8ms
+	instantiate metavars 3.05ms
+	interpretation 626ms
+	let-to-have transformation 1.89ms
+	linting 98.6ms
+	module linting 0.156ms
+	parsing 42.9ms
+	process pre-definitions 49.8ms
+	share common exprs 14ms
+	simp 753ms
+	tactic execution 636ms
+	tacticAnalysis 19.2ms
+	type checking 54.3s
+	typeclass inference 1.13s
+
+EXIT 1
+RESOURCE_STOPPED False
+WALL_SECONDS 67.58317868700033
+USER_SECONDS 58.406953
+SYS_SECONDS 5.55602
+PEAK_RSS_KIB 3489596
+PEAK_CGROUP_BYTES 5418700800

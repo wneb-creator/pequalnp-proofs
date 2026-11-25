@@ -1,0 +1,25 @@
+{
+  "status": "Theta-four adapter, projection, automorphism and baseline checks passed.",
+  "source_sha256": "7aae28cbbc5fb235a5a5ff0e03aa50de8d40f11cc94a0c45dd5d62b57ac3817b",
+  "symmetry_source_sha256": "a6ad1307049efbcb539d1c751a7dd020c1f72def47f75db2ea23b72ed44d68b9",
+  "symmetry_data_sha256": "9bb3a18f308a8ffbeedd93f1a772f76451a1cd67af362e50cd405ffd8f6e7d14",
+  "inputs": 10,
+  "positive_edges": 12,
+  "maximal_negative_samples": 19,
+  "distinct_global_negative_projections": 63,
+  "initial_nonempty_signatures": 22,
+  "incomparable_initial_pairs": 207,
+  "automorphisms": 48,
+  "first_OR_orbits": 18,
+  "baseline_ORs": 11,
+  "full_truth_cases": 1024,
+  "forced_positive_cases": 910,
+  "forced_negative_cases": 86,
+  "free_cases": 28,
+  "false_OR_bound_histogram": {
+    "4": 12,
+    "7": 1,
+    "5": 6
+  },
+  "scope": "Finite local model/control only; no ten-OR search or Lean proof."
+}

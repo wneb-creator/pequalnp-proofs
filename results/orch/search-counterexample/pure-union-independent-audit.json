@@ -1,0 +1,21 @@
+{
+  "status": "Independent pure-union requirement, symmetry and witness checks passed.",
+  "source_sha256": "430f51be0d59e5a080f61624ff749d66987d9ca922d5457233b159f4465bffac",
+  "witness_sha256": "d9a35ee2cd72f8169cca82dbad65a6d8553eda7b3b0d3a855b95a3c04db63674",
+  "or_count": 39,
+  "requirements": 702,
+  "cap_assignments": 560,
+  "output_comparisons": 7280,
+  "symmetries": 39,
+  "first_OR_representatives": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ]
+  ],
+  "restriction": "Internal gates compute pure line unions; final output meets are free. UNSAT would concern this restricted architecture only."
+}

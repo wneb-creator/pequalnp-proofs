@@ -1,0 +1,23 @@
+{
+  "status": "Singleton-cut premise checks and51-baseline replay passed.",
+  "source_sha256": "c0609c8919b046ae38d274dedf82061b42e2db8fb4afb731fc7f7232f4f1f205",
+  "all_distinct_positive_meets_have_at_most_one_coordinate": true,
+  "singleton_generic_row_coverage_histogram": {
+    "126": 26
+  },
+  "baseline_positive_checks": 52,
+  "baseline_generic_negative_checks": 468,
+  "baseline_singleton_negative_checks": 26,
+  "baseline_empty_negative_checks": 1,
+  "baseline_ORs_true_on_some_singleton": 39,
+  "baseline_total_OR_singleton_true_entries": 104,
+  "baseline_dirty_OR_signature_size_histogram": {
+    "2": 26,
+    "4": 13,
+    "0": 12
+  },
+  "new_singleton_false_OR_bounds": {
+    "3": 26
+  },
+  "scope": "Redundant cut for at most50 ORs, justified by the checked CleanOrGeneral lemma; finite replay is not a new Lean proof."
+}

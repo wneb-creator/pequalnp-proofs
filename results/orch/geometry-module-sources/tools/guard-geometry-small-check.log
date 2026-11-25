@@ -1,0 +1,11 @@
+{
+  "status": "Python finite sanity check passed; not a Lean certificate",
+  "counts": {
+    "pencil_card": 13,
+    "pencil_inter_card": 156,
+    "residual_configurations": 598,
+    "ray_card_cases": 7176,
+    "noncollinear_triples": 1404
+  },
+  "wall_seconds": 0.06842463800057885
+}

@@ -1,0 +1,30 @@
+{
+  "data_sha256": "673b99e94dfea3d73a5b8e006629891597310c50db198cb76a986ad4cd40fb4e",
+  "script_sha256": "f89f9b68487376c9a2de238bba10551fc1b0b7076664fc62688145fe668633cd",
+  "witness_sha256": "fd448d3998fb4bb9d401b86c90676ff38f3efc364ac45af860adce9ccaf5f5a4",
+  "targets": 13,
+  "singleton_inputs": 13,
+  "original_negatives": 468,
+  "retained_negatives": 234,
+  "retained_per_target": [
+    54
+  ],
+  "all_cap_assignments": 560,
+  "joint_false_OR_bounds": [
+    6
+  ],
+  "required_outputs_per_retained_negative": [
+    3
+  ],
+  "sensitivity_union_size": [
+    9
+  ],
+  "symmetries": 39,
+  "first_OR_pair_orbits": {
+    "(0, 1)": 39,
+    "(0, 2)": 39
+  },
+  "control_OR_count": 39,
+  "independent_output_checks": 7280,
+  "status": "independent finite checks passed; normalization and lower bound reviewed mathematically"
+}
