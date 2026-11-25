@@ -18,3 +18,4 @@
 - 2026-11-25T06:04:52.123267+00:00: general SAT run ended UNKNOWN after1800wallseconds/1104.63CPUseconds; phase-guided search started. Source/provenance/log snapshot independently reviewed and completed.
 - 2026-11-25T06:22:42.043664+00:00: three-filter cross-pair and double-star-center lemmas compiled and independently reviewed; preserving standalone helpers.
 - 2026-11-25T06:26:24.923216+00:00: adjacent-center cover lemmas compiled and independently reviewed; preserving standalone sources and complete logs.
+- 2026-11-25T06:32:45.637621+00:00: arbitrary-family filter-union adjacent-cover lemma compiled and independently reviewed.
