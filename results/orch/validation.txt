@@ -44,3 +44,7 @@ Fourth partial checkpoint:
 lake build PEqualNP.Outside.L_meta_4970 passed (exit0), 946 lines.
 Complete stdout/stderr: results/orch/build-004.txt.
 Added checked OR-only frontier count, disjoint-support sums, and actual-circuit witness cover specialization. Independent merged source review: PASS by status_review. Full posted theorem remains unproved.
+
+Fifth partial checkpoint:
+StarFamilyCount.lean and RootDomination.lean compile with exit0 and empty diagnostics. RootDomination uses the corrected name undominated_rt_subfamily. Independent review by status_review: mathematical PASS; forbidden identifier corrected and compilation rerun.
+Local checker on the named 946-line helper-only file: REJECTED (no-theorem): no theorem named PEqualNP.Outside.L_meta_4970. Full output: results/orch/checker-004.txt. This expected rejection confirms the file is not a complete proof submission. No PR opened.
