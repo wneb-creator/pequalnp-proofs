@@ -6,7 +6,7 @@ Independent red-team review: status_review passed semantics and format.
 The full posted statement has not been proved. No proof PR is ready.
 Local checker not yet applicable: final theorem absent.
 Sub-agents: seven (toolchain/review, direct proof, independent bound, counterexample search, construction, normalization, fresh cost review)
-TIMING total=45 subagents=7
+TIMING total=87.3 subagents=7
 
 RelCount.lean: lake env lean exit 0; empty complete logs saved. Independent review passed.
 
@@ -51,3 +51,5 @@ FreshCostExample.lean65lines: Lean exit0, empty full logs, independent status_re
 LATEST assigned partial:4752lines,210858bytes,SHA256 531e373e4f1294d246ae74facb8840e3e1c3f32c18dde7ad98da848b6bf9df95. lake build PASSED exit0 (5149jobs), full stdout/stderr and status retained. Exact15-component assembly and final format delta independently reviewed PASS. The full theorem remains absent. Checker fault unchanged; cleanup skipped,4752/4752lines. FreshCost optimality is now checked, so its6double-reread edges exceed the true optimality excess4.
 
 Final-source official checker rerun: exit3, same missing-full-Mathlib-cache FAULT; full checker-final logs retained. No acceptance verdict. Seven major partial endpoints passed an independent Lean axiom-dependency audit with only propext, Classical.choice and Quot.sound; full logs and scratch audit source retained. This does not replace statement checking.
+
+Lease interruption: manual beat at13:45:08 and scheduled beat at13:45:39 returnedHTTP410 despite prior13:40:39 expiry14:00:39. Exact error: no such live lease: it expired or was released. Ask /desk/next again. Full diagnostic headers/body retained. Searches paused; renewal loop stopped. Named4752-line checked partial unchanged. Unfinished K5 handoff drafts are explicitly uncompiled; failed logs preserved.

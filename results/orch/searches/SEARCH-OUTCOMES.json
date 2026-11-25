@@ -6,5 +6,42 @@
     "wall_seconds": 3600.01,
     "cpu_seconds": 1337.73,
     "interpretation": "No SAT or UNSAT result; not a lower-bound proof."
+  },
+  "evolve8-dense-slack": {
+    "status": "NO_WITNESS_HEURISTIC",
+    "exit_code": 0,
+    "wall_budget_seconds": 1800,
+    "mutation_evaluations": 305500000,
+    "valid_mutation_outcomes": 96131238,
+    "restarts": 3055,
+    "best_saving": 0,
+    "mean_valid_edges": 20.0118,
+    "interpretation": "Mutation counts include repeated and no-op outcomes; not exhaustive and not a lower-bound proof."
+  },
+  "k5-23-sym-orbit-semantic-edge-active": {
+    "status": "UNKNOWN",
+    "exit_code": 0,
+    "reason": "wall-clock limit",
+    "wall_seconds": 1800.0,
+    "cpu_seconds": 830.54,
+    "interpretation": "No SAT or UNSAT result; pruning is justified for minimum circuits at the requested size only."
+  },
+  "mk-30-sym-orbit": {
+    "stem": "mk-30-sym-orbit",
+    "pid": 10391,
+    "status": "PAUSED_PENDING",
+    "paused_utc": "2026-11-25T13:46:43.550424+00:00",
+    "process_state": "T",
+    "cpu_at_pause": "24m49s",
+    "reason": "Root lease renewal returned HTTP410; waiting for explicit lease recovery."
+  },
+  "k5-23-sym-orbit-semantic-edge-active-edge-essential": {
+    "stem": "k5-23-sym-orbit-semantic-edge-active-edge-essential",
+    "pid": 15831,
+    "status": "PAUSED_PENDING",
+    "paused_utc": "2026-11-25T13:46:43.550424+00:00",
+    "process_state": "T",
+    "cpu_at_pause": "6m10s",
+    "reason": "Root lease renewal returned HTTP410; waiting for explicit lease recovery."
   }
 }

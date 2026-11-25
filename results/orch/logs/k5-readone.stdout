@@ -1,0 +1,174 @@
+../results/orch/lemmas/K5ReadOne.lean:1415:10: error: Type mismatch
+  fun x x_1 h => ?m.20
+has type
+  (x : ?m.16) → (x_1 : ?m.21 x) → (h : ?m.22 x x_1) → ?m.23 x x_1 h
+but is expected to have type
+  Std.Symm fun u v => (u, v) ∈ edgePairs ∨ (v, u) ∈ edgePairs
+../results/orch/lemmas/K5ReadOne.lean:1415:23: error(lean.invalidField): Invalid field notation: Type of
+  h
+is not known; cannot resolve field `symm`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `symm`
+  • `AddCommute.symm`
+  • `AddCon.symm`
+  • `AddEquiv.symm`
+  • `AlgEquiv.symm`
+  • `And.symm`
+  • `AntisymmRel.symm`
+  • `Associated.symm`
+  • `BEq.symm`
+  • `Codisjoint.symm`
+  • `Commute.symm`
+  • `Con.symm`
+  • `ContinuousAddEquiv.symm`
+  • `ContinuousAlgEquiv.symm`
+  • `ContinuousLinearEquiv.symm`
+  • `ContinuousMulEquiv.symm`
+  • `DilationEquiv.symm`
+  • `Disjoint.symm`
+  • `Eq.symm`
+  • `Equiv.symm`
+  • `Equivalence.symm`
+  • `HEq.symm`
+  • `Homeomorph.symm`
+  • `Iff.symm`
+  • `Inseparable.symm`
+  • `InvImage.symm`
+  • `IsAddConj.symm`
+  • `IsChain.symm`
+  • `IsCompl.symm`
+  • `IsConj.symm`
+  • `IsCoprime.symm`
+  • `IsMaxAntichain.symm`
+  • `IsMaxChain.symm`
+  • `IsRelPrime.symm`
+  • `IsStarOrtho.symm`
+  • `IsometryEquiv.symm`
+  • `LinearEquiv.symm`
+  • `LinearIsometryEquiv.symm`
+  • `MulEquiv.symm`
+  • `Ne.symm`
+  • `Or.symm`
+  • `OrderAddMonoidIso.symm`
+  • `OrderIso.symm`
+  • `OrderMonoidIso.symm`
+  • `OrderRingIso.symm`
+  • `PartialEquivBEq.symm`
+  • `RelEmbedding.symm`
+  • `RelIso.symm`
+  • `RingCon.symm`
+  • `RingEquiv.symm`
+  • `RingHomInvPair.symm`
+  • `SModEq.symm`
+  • `SMulCommClass.symm`
+  • `SeparatedNhds.symm`
+  • `SetRel.symm`
+  • `Setoid.symm`
+  • `SimpleGraph.symm`
+  • `Specializes.symm`
+  • `StarAlgEquiv.symm`
+  • `StarMulEquiv.symm`
+  • `StarRingEquiv.symm`
+  • `Subtype.symm`
+  • `UniformEquiv.symm`
+  • `UniformSpace.symm`
+  • `VAddCommClass.symm`
+  • `AddCommGroup.ModEq.symm`
+  • `AddConGen.Rel.symm`
+  • `Algebra.IsPushout.symm`
+  • `Array.Perm.symm`
+  • `CompositionSeries.Equivalent.symm`
+  • `ConGen.Rel.symm`
+  • `Equiv.subsingleton.symm`
+  • `Filter.EventuallyEq.symm`
+  • `Filter.EventuallyEqSet.symm`
+  • `Function.Commute.symm`
+  • `Int.ModEq.symm`
+  • `List.Disjoint.symm`
+  • `List.IsRotated.symm`
+  • `List.Perm.symm`
+  • `Matrix.IsDetpBalanced.symm`
+  • `Nat.Coprime.symm`
+  • `Nat.ModEq.symm`
+  • `Relation.EqvGen.symm`
+  • `Relation.Join.symm`
+  • `Relation.SymmGen.symm`
+  • `Relator.BiTotal.symm`
+  • `Relator.LeftTotal.symm`
+  • `Relator.RightTotal.symm`
+  • `RingConGen.Rel.symm`
+  • `Set.BijOn.symm`
+  • `Set.EqOn.symm`
+  • `Set.InvOn.symm`
+  • `SimpleGraph.Adj.symm`
+  • `SimpleGraph.Dart.symm`
+  • `SimpleGraph.IsCompleteBetween.symm`
+  • `SimpleGraph.Iso.symm`
+  • `SimpleGraph.Subgraph.symm`
+  • `Std.Symm.symm`
+  • `Sym2.Rel.symm`
+  • `Turing.BlankRel.symm`
+  • `UniformSpace.Core.symm`
+  • `Vector.Perm.symm`
+  • `AddConGen.Rel.below.symm`
+  • `ConGen.Rel.below.symm`
+  • `Equiv.Perm.Disjoint.symm`
+  • `Equiv.Perm.SameCycle.symm`
+  • `Equiv.Perm.subtypeCongr.symm`
+  • `Lean.Parser.Tactic.symm`
+  • `Relation.EqvGen.below.symm`
+  • `RingConGen.Rel.below.symm`
+  • `SimpleGraph.Subgraph.Adj.symm`
+  • `Std.BundledIterM.Equiv.symm`
+  • `Std.DHashMap.Equiv.symm`
+  • `Std.DTreeMap.Equiv.symm`
+  • `Std.HashMap.Equiv.symm`
+  • `Std.HashSet.Equiv.symm`
+  • `Std.Iter.Equiv.symm`
+  • `Std.IterM.Equiv.symm`
+  • `Std.TreeMap.Equiv.symm`
+  • `Std.TreeSet.Equiv.symm`
+  • `Lean.Meta.SolveByElim.ApplyRulesConfig.symm`
+  • `Mathlib.Tactic.ClickSuggestions.GrwLemma.symm`
+  • `Mathlib.Tactic.ClickSuggestions.RwKey.symm`
+  • `Mathlib.Tactic.ClickSuggestions.RwLemma.symm`
+  • `Mathlib.Tactic.LibraryRewrite.Rewrite.symm`
+  • `Mathlib.Tactic.LibraryRewrite.RewriteInterface.symm`
+  • `Mathlib.Tactic.LibraryRewrite.RewriteLemma.symm`
+  • `Std.DHashMap.Raw.Equiv.symm`
+  • `Std.Do.SPred.bientails.symm`
+  • `Std.HashMap.Raw.Equiv.symm`
+  • `Std.HashSet.Raw.Equiv.symm`
+  • `Std.DTreeMap.Internal.Impl.BalancedAtRoot.symm`
+  • `Std.DTreeMap.Internal.Impl.Equiv.symm`
+  • `Std.DTreeMap.Internal.Impl.SameKeys.symm`
+  • `Lean.Meta.Grind.Arith.Linear.RingEqCnstrProof.symm`
+../results/orch/lemmas/K5ReadOne.lean:1416:17: error: failed to synthesize
+  Decidable (Std.Irrefl fun u v => (u, v) ∈ edgePairs ∨ (v, u) ∈ edgePairs)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+../results/orch/lemmas/K5ReadOne.lean:1483:15: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => decide (∃ p l, I p l ∧ z (Fin.castAdd 10 p) = true ∧ z (Fin.natAdd 5 l) = true) = decide _a
+Error: Application type mismatch: The argument
+  Nat.decidableExistsFin fun u => ∃ v, G.Adj u v ∧ z u = true ∧ z v = true
+has type
+  Decidable (∃ i v, G.Adj i v ∧ z i = true ∧ z v = true)
+but is expected to have type
+  Decidable _a
+in the application
+  @decide _a (Nat.decidableExistsFin fun u => ∃ v, G.Adj u v ∧ z u = true ∧ z v = true)
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+C : Circuit
+hAO : TopForm.IsAO2 15 C
+hcomp :
+  ∀ (z : Fin 15 → Bool),
+    circuitFun 15 C z = decide (∃ p l, I p l ∧ z (Fin.castAdd 10 p) = true ∧ z (Fin.natAdd 5 l) = true)
+hread : ReadK.IsReadK 15 C 1
+z : Fin 15 → Bool
+⊢ decide (∃ p l, I p l ∧ z (Fin.castAdd 10 p) = true ∧ z (Fin.natAdd 5 l) = true) =
+    decide (∃ u v, G.Adj u v ∧ z u = true ∧ z v = true)

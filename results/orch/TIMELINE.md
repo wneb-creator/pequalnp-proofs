@@ -42,3 +42,7 @@
 - 2026-11-25T13:35:05.751671+00:00: final-source checker fault reproduced; seven main partial endpoints passed standard-axiom dependency audit.
 
 - 2026-11-25T13:37:35.534035+00:00: final audit, reviewed search constraints, auxiliary mask obstruction and interrupted drafts preserved; general theorem unresolved.
+
+- 2026-11-25T13:41:47.748326+00:00: final independent radical-ideal/absorption route stalled on shared dirty operands; no full proof/refutation. Remaining work is the bounded SAT search.
+
+- 2026-11-25T13:47:03.402999+00:00: desk returnedHTTP410 despite last successful expiry14:00:39; renew loop stopped, active searches paused, current state preserved before recovery request.

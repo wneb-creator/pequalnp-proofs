@@ -9,7 +9,8 @@
   ],
   "started_utc": "2026-11-25T13:36:04.275826+00:00",
   "wall_cap_seconds": 1800,
-  "status": "running",
+  "status": "paused_checkpoint",
   "nice": 10,
-  "pid": 15831
+  "pid": 15831,
+  "paused_utc": "2026-11-25T13:46:43.550424+00:00"
 }

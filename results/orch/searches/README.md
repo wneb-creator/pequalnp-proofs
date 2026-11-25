@@ -35,4 +35,10 @@ All long workers run at nice10. Assertions remain enabled in C++ and Python.
 
 The compact edge-essentiality block passed independent review at source SHA256af3a25897085936f07e63d584e55ee02eecce88845b90e0794382049b4953a30. Fresh independent decoder/positive/negative-control logs are `essential-review-*`. The next prepared K5-23 instance has10414 variables and245197 clauses; generate it with `python3 synthesis_essential.py k5 23 --sym --orbit --semantic --edge-active --edge-essential`. Root authorized one30minute run after the original K5 worker reaches its wall-clock cap.
 
-Original K5-23 sym+orbit run reached its3600second wall cap with UNKNOWN/exit0 (3600.01s wall,1337.73s CPU). The reviewed stronger edge-essential run started2026-11-25T13:36:04.275826Z with1800s cap; exact argv/start/PID are in its `.run.json`, currently a running checkpoint. See SEARCH-OUTCOMES.json for completed long runs.
+Original K5-23 sym+orbit run reached its3600second wall cap with UNKNOWN/exit0 (3600.01s wall,1337.73s CPU). The reviewed stronger edge-essential run started2026-11-25T13:36:04.275826Z with1800s cap; exact argv/start/PID are in its `.run.json`, now a paused checkpoint. See SEARCH-OUTCOMES.json for completed long runs.
+
+Dense dynamic run completed its30minute budget without a witness:305500000 mutation evaluations,96131238 outcomes accepted by the complete antichain tests,3055 restarts,best saving0,mean valid edges20.0118. Mutations may repeat circuits or be no-ops; these are not distinct-case counts or an exhaustive lower bound.
+
+K5-23 sym+orbit+semantic+edge-active reached its30minute cap with UNKNOWN/exit0 (1800.00s wall,830.54s CPU). Full logs, solution status and metadata are archived.
+
+Lease interruption: root reported HTTP410 at13:45:08 despite a prior renewal claiming expiry14:00. All active searches were SIGSTOP-paused on instruction: MK PID10391 and stronger K5 PID15831, confirmed stateT. Complete emitted stdout/stderr and metadata are preserved as PAUSED/PENDING checkpoints; these are neither SAT nor UNSAT results. SEARCH-PAUSE.json records the pause. No search will resume without root confirming a recovered lease.

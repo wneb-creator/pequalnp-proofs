@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-25T13:37:35.534035+00:00",
+  "at": "2026-11-25T13:48:22.452979+00:00",
   "files": {
     "ClosedIncidenceTests-fixed.stderr": {
       "bytes": 0,
@@ -34,16 +34,20 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "README.md": {
-      "bytes": 5391,
-      "sha256": "2d49f453332609917500e02014ee1f91d733a256375f773450b3ccbb949fa9fd"
+      "bytes": 6309,
+      "sha256": "21aa97361e8591bf6912e0e9f78b37beff2995df936ca8ff6c888af270c88dce"
     },
     "SEARCH-BUILD.json": {
       "bytes": 579,
       "sha256": "3eb92a15687648d897f9615077e0c18fe582c660803d360dd57550ccd7e209c1"
     },
     "SEARCH-OUTCOMES.json": {
-      "bytes": 240,
-      "sha256": "fd815035516a551ce1d02e8a42a0419cf6a859c7746a80c6e642f45786954dbd"
+      "bytes": 1631,
+      "sha256": "cc2de995a0b7ced82b08a65c49f8f43cc9105fc6f19842df0b5f9e170efc0ea9"
+    },
+    "SEARCH-PAUSE.json": {
+      "bytes": 618,
+      "sha256": "92bdd316a94234fb6d05b75c4287a358a5d4b6497c52ee419f19c8f31f73a27b"
     },
     "c6-15-active.generate.stderr": {
       "bytes": 0,
@@ -337,6 +341,14 @@
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
+    "evolve8-dense-slack.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evolve8-dense-slack.stdout": {
+      "bytes": 255,
+      "sha256": "d9032c67f902d6662331bcff89b38a73ca14164167686d33a004b1a4a299f915"
+    },
     "evolve8.stderr": {
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
@@ -626,8 +638,16 @@
       "sha256": "a30cfc100384df1a8466e499e54b8303b14b24615f6274da71b9ae07ddfbb38a"
     },
     "k5-23-sym-orbit-semantic-edge-active-edge-essential.run.json": {
-      "bytes": 380,
-      "sha256": "98e67fc04dd6342991e4a0e3d13482928d65c2be15689b2e19fbace97c4e21c6"
+      "bytes": 442,
+      "sha256": "1ea33af0f730b3072a509183edcc7601d29927a09be9ecf1a070b3c8df69c68e"
+    },
+    "k5-23-sym-orbit-semantic-edge-active-edge-essential.solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "k5-23-sym-orbit-semantic-edge-active-edge-essential.solver.stdout": {
+      "bytes": 23208,
+      "sha256": "080596d9db541e4d3aea3c4231f6ac5617e6dfa95613dad11dcee22527e8b5be"
     },
     "k5-23-sym-orbit-semantic-edge-active.generate.stderr": {
       "bytes": 0,
@@ -636,6 +656,22 @@
     "k5-23-sym-orbit-semantic-edge-active.generate.stdout": {
       "bytes": 222,
       "sha256": "bffa3aed8bec1b834e4558e47287a993f2794cd2deb81f039842f1745fa9cb93"
+    },
+    "k5-23-sym-orbit-semantic-edge-active.json": {
+      "bytes": 14153,
+      "sha256": "029f0c6363558d667630f89c971b9264638afcce3a3d460629927783d027ab1a"
+    },
+    "k5-23-sym-orbit-semantic-edge-active.solution": {
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    "k5-23-sym-orbit-semantic-edge-active.solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "k5-23-sym-orbit-semantic-edge-active.solver.stdout": {
+      "bytes": 36762,
+      "sha256": "8311e18f20b449e5ca66e395a3ca4542c19d74420344389ea845f422a94b78dd"
     },
     "k5-23-sym-orbit.json": {
       "bytes": 14061,
@@ -896,6 +932,18 @@
     "mk-30-sym-orbit.generate.stdout": {
       "bytes": 202,
       "sha256": "3512960f9d19cda4a3fa7eb591489542b590bb591dd45cc2339ceff3e18bb2d3"
+    },
+    "mk-30-sym-orbit.json": {
+      "bytes": 29606,
+      "sha256": "d6e2c7f63afaec18f71549efc6865d0e10bd362c0c9a641fe67ea30f482708c9"
+    },
+    "mk-30-sym-orbit.solver.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "mk-30-sym-orbit.solver.stdout": {
+      "bytes": 33077,
+      "sha256": "51db4f909c22f234e2ab27dc1472d0383013bb6b0104c7ea8090e54ad6682521"
     },
     "mk-31-canonical-control.json": {
       "bytes": 378,
