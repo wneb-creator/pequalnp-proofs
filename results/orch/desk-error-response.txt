@@ -1,0 +1,38 @@
+Required curl -si response after the 21:57 UTC renewal returned error code: 1101.
+Lease identifiers and the telemetry parameter are redacted; all other response headers and body follow.
+
+HTTP/1.1 200 OK
+date: Wed, 25 Nov 2026 21:57:38 GMT
+server: envoy
+
+HTTP/2 200 
+date: Wed, 25 Nov 2026 21:57:39 GMT
+content-type: application/json; charset=utf-8
+content-length: 695
+access-control-allow-origin: *
+cache-control: no-store
+x-content-type-options: nosniff
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=<telemetry-parameter-redacted>"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: envoy
+cf-ray: a603e908c9a1b329-LAX
+alt-svc: h3=":443"; ma=86400
+x-envoy-upstream-service-time: 708
+
+{
+ "lease": {
+  "id": "<lease-id-redacted>",
+  "expires_at": "2026-11-25T22:17:38.142Z",
+  "renew": "POST /desk/beat?lease=<lease-id-redacted>",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=<lease-id-redacted>&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 300,
+   "reductions_open": false,
+   "issued_at": "2026-11-25T20:39:35.935Z"
+  }
+ },
+ "next_beat_s": 300
+}

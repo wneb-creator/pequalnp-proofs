@@ -59,3 +59,7 @@ SymbolicLargeFast.lean: full31-input known-upper certificate PASS,484lines60722b
 Final research checkpoint:19 finite run logs record14 UNKNOWN, two smallC6 diagnostic UNSAT, three interruptions; no below-bound circuit. The246-file archive is hashed in its manifest. Both120s K3,3 triple-helper queries returnedUNKNOWN. Uncapped pendant audit:2269 circuits,48811 feasible subsets, no improvement. All288 optimal materializations normalize to clean circuits. Independent final reviewPASS. Symbolic pipeline smallcontrolPASS13.651s;15-input kernel fallbackPASS12.562s. Main619-line partial unchanged, cleanup not triggered, local checker not run because endpoint remains unproved. Raw solverlogs preserve their original trailing spaces.
 Sub-agents: six (proof routes, finite search, certificate search, gate elimination, Lean setup, independent review).
 TIMING total=187.1 subagents=6
+
+FINAL STOP: desk renewal returned error code:1101; required -si diagnosticHTTP200. Stopping under user rule after discovering timer log. Last own lease expiry22:23:32.966UTC; timer stopped, no later release/next call. Named619-line partial unchanged; no full theorem/refutation, checkerNOTRUN. Final24-pair search prepared and reviewed but NOTRUN.
+Sub-agents: six (proof_route, finite_search, certificate_search, gate_elimination, lean_setup, repo_review).
+TIMING total=189.7 subagents=6
