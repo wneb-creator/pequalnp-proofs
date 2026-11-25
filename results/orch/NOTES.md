@@ -118,3 +118,16 @@ For the edge (point0,line0), take T={point0,line0}, N={point1,point3,point9,line
 The65-gate witness has form (G OR p4) AND (G OR N4), with G the other12 row stars. Its local restriction is G AND (G OR line4), explaining why one unit of cross-sharing must be allowed if one uses strict local cost10 and face minimum56. A generic C4-free cut inequality would itself imply strong unrestricted monotone lower bounds, so this is the hard theorem, not routine gate cleanup.
 
 Finite exact-DNF check of face pruning is in job scratch face-collapse-check.py / face-collapse-check.log. Ordinary64-star: (duplicate gates, removable after pruning)=(6,8) on all52 faces. Wrapped66-star: (7,10) on48faces, (8,10) on4faces.
+
+2026-11-25T03:42:41.900352+00:00 COMPLETE relaxed-threshold witness compiled: Witness65.lean (496 lines) proves all posted semantic, gate-legality and two derivative-trace clauses, with size exactly65. It does not refute threshold64. Combined lemma size65_double_read; empty build10 log, exit0. All five stochastic searches completed without a64-gate counterexample.
+
+## Checked OR-family lower bound
+
+- OrFamilyBound.lean now CHECKED (or-family-check-5.log, exit0): a common topological monotone AND/OR wire family computing m pure disjunctions, each on d inputs, with pairwise target intersections of size at most1, needs at least m*(d-1) OR gates. For the13 order3 line neighborhoods this is39.
+- Proof extends upstream L_meta_5763 finite-set union charging to unary subset redirects. A wire below a targetclause contributes its singleton support; a large AND redirects to one child below that clause; large OR gates are charged. One output needs d-1 charges; a charged gate cannot be shared by two linear-family targets.
+- This uses one common wire-function family F. It does NOT identify charges across different point/line cofactors of a single incidence-output circuit; that step would require an additional AND/OR accounting argument.
+- CircuitAdapter.lean supplies actualCircuit evaluation/monotonicity/topology bridge; structural agent is specializing to13 neighborhood outputs.
+
+### Circuit adapter checked at 2026-11-25T03:45:12.712234+00:00
+
+`CircuitAdapter.lean` (195lines) passes Lean with empty output (`adapter-build-3.log`). For `TopForm.IsAO2 n C`, it proves the exact input-wire semantics, binary gate recurrence with natural-number operands, strict backward operand bounds, monotonicity of every wire, and a count bridge from abstract OR-gate indices to `ReadTwo.nOr C`. No distinct-operand assumption is needed by these adapter facts. Combined standalone plane-neighborhood39-OR application is now checking in `PlaneOrBound.lean`.

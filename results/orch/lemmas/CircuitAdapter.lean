@@ -161,4 +161,35 @@ lemma wire_monotone (n : ℕ) (C : Circuit) (hC : PEqualNP.TopForm.IsAO2 n C) :
 lemma eval_is_wire (n : ℕ) (C : Circuit) (x : Fin n → Bool) :
     C.eval (List.ofFn x) = wire n C C.output x := rfl
 
+lemma count_filter_range {α : Type} (p : α → Bool) (d : α) (gs : List α) :
+    ((Finset.range gs.length).filter (fun j => p (gs.getD j d) = true)).card =
+      (gs.filter p).length := by
+  induction gs using List.reverseRecOn with
+  | nil => simp
+  | append_singleton gs g ih =>
+    have old :
+        (Finset.range gs.length).filter (fun j => p ((gs ++ [g]).getD j d) = true) =
+        (Finset.range gs.length).filter (fun j => p (gs.getD j d) = true) := by
+      ext j
+      simp only [Finset.mem_filter, Finset.mem_range]
+      by_cases hj : j < gs.length
+      · rw [List.getD_append _ _ _ _ hj]
+      · simp [hj]
+    have last : (gs ++ [g]).getD gs.length d = g := by
+      simp [List.getD_eq_getElem?_getD]
+    rw [List.length_append, List.length_singleton, Finset.range_add_one,
+      Finset.filter_insert, last, old, List.filter_append, List.length_append]
+    cases hp : p g <;> simp [hp] <;>
+      simpa only [List.getD_eq_getElem?_getD] using ih
+
+lemma or_count (C : Circuit) :
+    ((Finset.range C.size).filter (fun j => isOr C j = true)).card =
+      PEqualNP.ReadTwo.nOr C := by
+  let : DecidableEq GateOp := gateOpDecEq
+  have hp (j : ℕ) : isOr C j = decide ((gateAt C j).op = .or) := by
+    unfold isOr
+    cases (gateAt C j).op <;> rfl
+  simp_rw [hp]
+  exact count_filter_range (fun g : Gate => decide (g.op = .or)) ⟨.or, []⟩ C.gates
+
 end PEqualNP.Outside.L_meta_2602_aux.CircuitAdapter

@@ -1,0 +1,14 @@
+Witness65.lean: complete 65-gate witness for the relaxed bound only.
+This does not refute the posted L-meta-2602 threshold64.
+
+Checked properties: size65; distinct earlier AND/OR inputs; exact incidence semantics on all26-bit inputs; both posted derivative traces and their zero output values.
+Final combined lemma: PEqualNP.Outside.L_meta_2602_aux.Witness65.size65_double_read.
+
+Command: lake env lean /tmp/oec/pequalnp-pilot-64/Witness65Complete.lean
+Exit code:0
+Complete stdout/stderr: empty (witness65-build-10.log).
+No posted-statement checker verdict: this is a research partial, not a proof of the leased statement.
+
+Lines:496
+Bytes:25286
+SHA256:2d77ce67e2913b46eed59023f53df0151ebbf36110ac89a2caf855c9d187dda9

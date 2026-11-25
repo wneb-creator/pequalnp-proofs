@@ -235,4 +235,86 @@ lemma clause_charge_bound (n k : ℕ) (A : Finset (Fin n))
     (n + k) le_rfl {out} (by simpa using hout)
   simpa only [Finset.singleton_biUnion, Finset.card_singleton, hfout, hfil, Nat.add_comm] using h
 
+lemma charged_disjoint (n k : ℕ) (A B : Finset (Fin n))
+    (F : ℕ → (Fin n → Bool) → Bool) (op : ℕ → Bool)
+    (hsmall : ∀ p q, p ∈ A → p ∈ B → q ∈ A → q ∈ B → p = q) :
+    Disjoint (charged n k A F op) (charged n k B F op) := by
+  classical
+  apply Finset.disjoint_left.mpr
+  intro w hwA hwB
+  simp only [charged, Finset.mem_filter, Finset.mem_range] at hwA hwB
+  obtain ⟨_, _, _, hA, hsize⟩ := hwA
+  obtain ⟨_, _, _, hB, _⟩ := hwB
+  have mem (T : Finset (Fin n)) (hT : Below T (F w)) (p : Fin n)
+      (hp : p ∈ support n F w) : p ∈ T := by
+    have h := hT (singleton p) (Finset.mem_filter.mp hp).2
+    simpa [singleton] using h
+  have hcard : (support n F w).card ≤ 1 := by
+    apply Finset.card_le_one.mpr
+    intro p hp q hq
+    exact hsmall p q (mem A hA p hp) (mem B hB p hp) (mem A hA q hq) (mem B hB q hq)
+  omega
+
+lemma family_or_lower_bound (n k m d : ℕ) (A : Fin m → Finset (Fin n))
+    (F : ℕ → (Fin n → Bool) → Bool) (op : ℕ → Bool) (a b : ℕ → ℕ)
+    (hinput : ∀ i (hi : i < n) x, F i x = x ⟨i, hi⟩)
+    (hgate : ∀ j < k, ∀ x, F (n + j) x =
+      if op j then F (a j) x || F (b j) x else F (a j) x && F (b j) x)
+    (ha : ∀ j < k, a j < n + j) (hb : ∀ j < k, b j < n + j)
+    (hmono : ∀ i < n + k, BitMonotone (F i))
+    (out : Fin m → ℕ) (hout : ∀ i, out i < n + k)
+    (hspec : ∀ i x, F (out i) x = true ↔ ∃ p ∈ A i, x p = true)
+    (hsize : ∀ i, (A i).card = d)
+    (hintersection : ∀ i j, i ≠ j →
+      ∀ p q, p ∈ A i → p ∈ A j → q ∈ A i → q ∈ A j → p = q) :
+    m * (d - 1) ≤ ((Finset.range k).filter (fun j => op j = true)).card := by
+  classical
+  have each (i : Fin m) : d - 1 ≤ (charged n k (A i) F op).card := by
+    have h := clause_charge_bound n k (A i) F op a b hinput hgate ha hb hmono
+      (out i) (hout i) (hspec i)
+    rw [hsize i] at h
+    omega
+  have hd : ((Finset.univ : Finset (Fin m)) : Set (Fin m)).PairwiseDisjoint
+      (fun i => charged n k (A i) F op) := by
+    intro i _ j _ hij
+    exact charged_disjoint n k (A i) (A j) F op (hintersection i j hij)
+  let U := Finset.univ.biUnion (fun i : Fin m => charged n k (A i) F op)
+  have hU : U.card = ∑ i : Fin m, (charged n k (A i) F op).card :=
+    Finset.card_biUnion hd
+  have hsub : U ⊆ ((Finset.range k).filter (fun j => op j = true)).image (fun j => n + j) := by
+    intro w hw
+    obtain ⟨i, _, hi⟩ := Finset.mem_biUnion.mp hw
+    simp only [charged, Finset.mem_filter, Finset.mem_range] at hi
+    obtain ⟨hwk, hwn, hop, _, _⟩ := hi
+    apply Finset.mem_image.mpr
+    refine ⟨w - n, ?_, by omega⟩
+    simp only [Finset.mem_filter, Finset.mem_range]
+    exact ⟨by omega, hop⟩
+  have hupper : U.card ≤ ((Finset.range k).filter (fun j => op j = true)).card :=
+    (Finset.card_le_card hsub).trans Finset.card_image_le
+  have hlower : m * (d - 1) ≤ ∑ i : Fin m, (charged n k (A i) F op).card := by
+    calc
+      m * (d - 1) = ∑ _ : Fin m, (d - 1) := by simp
+      _ ≤ _ := Finset.sum_le_sum (fun i _ => each i)
+  rw [hU] at hupper
+  exact hlower.trans hupper
+
+lemma family_size_lower_bound (n k m d : ℕ) (A : Fin m → Finset (Fin n))
+    (F : ℕ → (Fin n → Bool) → Bool) (op : ℕ → Bool) (a b : ℕ → ℕ)
+    (hinput : ∀ i (hi : i < n) x, F i x = x ⟨i, hi⟩)
+    (hgate : ∀ j < k, ∀ x, F (n + j) x =
+      if op j then F (a j) x || F (b j) x else F (a j) x && F (b j) x)
+    (ha : ∀ j < k, a j < n + j) (hb : ∀ j < k, b j < n + j)
+    (hmono : ∀ i < n + k, BitMonotone (F i))
+    (out : Fin m → ℕ) (hout : ∀ i, out i < n + k)
+    (hspec : ∀ i x, F (out i) x = true ↔ ∃ p ∈ A i, x p = true)
+    (hsize : ∀ i, (A i).card = d)
+    (hintersection : ∀ i j, i ≠ j →
+      ∀ p q, p ∈ A i → p ∈ A j → q ∈ A i → q ∈ A j → p = q) :
+    m * (d - 1) ≤ k := by
+  have h := family_or_lower_bound n k m d A F op a b hinput hgate ha hb hmono out hout
+    hspec hsize hintersection
+  apply h.trans
+  simpa using Finset.card_le_card (Finset.filter_subset (fun j => op j = true) (Finset.range k))
+
 end PEqualNP.Outside.L_meta_2602_aux.OrFamilyBound

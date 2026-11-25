@@ -32,3 +32,8 @@
 2026-11-25T03:38:40.135363+00:00 Witness65 full incidence semantics and unary-DAG count compiled and independently reviewed.
 
 2026-11-25T03:42:15.581305+00:00 ActualCircuit adapter and single-clause charging bound compiled and independently reviewed.
+2026-11-25T03:42:41.900352+00:00 complete65-gate witness Lean-checked; posted64 gap remains unresolved.
+2026-11-25T03:43:46.435668+00:00 abstract same-circuit OR-family lower bound compiled: m clauses of size d with pairwise intersection <=1 need >=m*(d-1) OR gates; 13x4 gives39.
+2026-11-25T03:45:12.712234+00:00 circuit semantic/OR-count adapter compiled; concrete39-OR plane-family application in progress.
+
+2026-11-25T03:46:26.140512+00:00 Complete65-gate double-read witness and concrete39-OR multioutput lower bound compiled and independently reviewed.
