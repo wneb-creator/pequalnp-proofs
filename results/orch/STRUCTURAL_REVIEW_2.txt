@@ -1,0 +1,4 @@
+Independent root review: PASS for supporting partial.
+SHA256: 11650ea5c0645db5e5947de6b1102264c8e0637cdf7040efd7d1b596ad2d9dd9
+Reviewed diff against prior64-line checked source. Independently verified all10 explicit permutations and all1024 assignments for each; checked1080 pair-cofactor distinctions over11 witnesses. NoFunnel follows from the first equality contradicting a distinguishing witness. Token/import/option scan passes.
+Lean exit0; full empty logs preserved. Full lower bound remains unproved.

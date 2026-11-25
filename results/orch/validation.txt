@@ -12,3 +12,7 @@ TIMING total=10.11 subagents=5
 BinaryFloor.lean: lake env lean ../results/orch/lemmas/BinaryFloor.lean exited 0. Linter warnings only; full logs retained.
 Sub-agents: six (repository/review, counterexample search, Lean environment, structural argument, finite lower-bound search, primary-NOT elimination)
 TIMING total=11.73 subagents=6
+
+Structural partial extended to120lines; Lean exit0.
+Sub-agents: seven total, including structural/read_once_count.
+TIMING total=14.70 subagents=7
