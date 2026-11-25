@@ -18,4 +18,6 @@ Integrated L_meta_2592.lean binaryFloor17: lake build exit 0, 5149jobs. Proves17
 binaryFloor17 axiom audit: only propext, Classical.choice, Quot.sound. Checker exit3, FAULT missing full prebuiltMathlib cache.
 SensitivityExtension.lean: lake env lean exit0, independent exhaustive review PASS.
 Current namedfile:4804lines,297371bytes. Cleanup not started because full checker cannot run offline.
-TIMING total=30.59 subagents=6
+BinaryFloor18NonOrExtension.lean: lake env lean exit0; independent implementation/data review PASS. Gives18binarygates only when firstsignedgate is AND orANDNOT; OR excluded.
+Prefix search archive SHA256 df6dc8e27e9ff65685886cd6232b7714840265f80e7d77150fa33eaeabcbe08e. Computed pruning independently reviewed, not a full Lean certificate.
+TIMING total=34.57 subagents=6

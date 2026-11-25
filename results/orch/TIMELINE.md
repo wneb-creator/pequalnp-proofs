@@ -13,3 +13,6 @@
 2026-11-25T14:21:44.998713+00:00 — first orchestrator replan: concentrate on17/18 binary gates and compact signed SAT; retire disproved anti-diagonal and blocked FUSE routes.
 2026-11-25T14:25:56.022100+00:00 — EffectiveReads helper compiled and independently reviewed; latest lease expiry14:45:38.364UTC; checkpoint push starting.
 2026-11-25T14:28:29.272439+00:00 — named17binary bound lake build passed and standard-axiom audit passed; fullchecker FAULT cache; checkpoint push starting.
+
+2026-11-25T14:30:24.862320+00:00 — lower_bound_route18nonORfirstgate extension compiled exit0; rootnotified.
+2026-11-25T14:32:28.486924+00:00 —18nonOR extension compiled and independently reviewed; partial checkpoint.
