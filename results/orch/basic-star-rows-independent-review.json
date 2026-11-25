@@ -1,0 +1,10 @@
+{
+  "reviewer": "status_review",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/BasicStarRows.lean",
+  "sha256": "90042e4eec56934b03ecff679c57eb0681fe45905a56e828da741d77ffc600b2",
+  "lines": 23,
+  "verdict": "PASS",
+  "scope": "PASS: existing star-line constraints at parameter minus one force the lower-row difference square zero, then the two linear constraints give exactly the three stated equalities.",
+  "independent_rebuild": false,
+  "format": "Allowed namespace/import and tactics; no forbidden syntax. Component only, no posted theorem claim."
+}

@@ -1,0 +1,10 @@
+{
+  "reviewer": "status_review",
+  "source": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/DuplicateConstant.lean",
+  "sha256": "e0b1c90a61b1fbbe5e27e32b13e279e4499ed129b8bccad06a457fdcaeb028f0",
+  "lines": 157,
+  "verdict": "PASS",
+  "scope": "PASS: exact quartic and cubic coefficient extractions, global product-of-linear-functionals split, and three coordinate-injectivity branches prove finrank at most one when repeated block is constant.",
+  "independent_rebuild": false,
+  "format": "Allowed namespace/import and tactics; no forbidden syntax. Component only, no posted theorem claim."
+}

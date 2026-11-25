@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "sha256": "1b1fa64f992d20365621fb55e4c80a4cd344c39f9360d6c3ae0c9274ed2fe612",
+  "line_count": 65,
+  "direct_24_term_permanent_identity": true,
+  "matrix_map_coordinate_injection": true,
+  "quartic_coefficient_extraction": true,
+  "scope": "Independent source/math/format review; compilation by status_review"
+}
