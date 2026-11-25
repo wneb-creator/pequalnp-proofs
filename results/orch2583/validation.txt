@@ -7,3 +7,6 @@ No PR opened for either partial gap.
 Sub-agents: proof_strategy, counterexample, reduction_strategy, sat_strategy, status_review, toolchain_setup
 TIMING total=55 subagents=6
 SingleLevelChecked.lean:541lines, clean lake env lean exit0; conditional TopForm+emptyjunk implies read1. Independentreview APPROVED. Notfulltarget.
+Boundary.lean: clean lake env lean exit0; finite minimal-true/maximal-false verification lemma. Independentreview APPROVED.
+PrimeReplacement.lean: clean lake env lean exit0; lowering monotone intermediate signal preserves edge function when all prime-edge values agree. Independentreview APPROVED. No gate-count conclusion.
+FanoFinite.checked.lean:102lines, clean lake env lean exit0; explicitFanoaxioms and58rowtruth-boundary coverage proved; localoptionsfixedandindependentlyreviewed. No26gatecandidate.
