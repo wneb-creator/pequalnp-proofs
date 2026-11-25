@@ -40,3 +40,18 @@ Independent review: passed; necessary linear/quadratic conditions only.
 Local checker for target: not run; target remains unproved.
 Sub-agents: six.
 TIMING total=56.7 subagents=6
+
+Additional checked partial: explicit centered-chart polynomial obstruction.
+UTC: 2026-11-25T09:39:43.197564+00:00
+File: results/orch/lemmas/CenteredObstruction.lean
+Lines: 33
+SHA256: 2b529a8c22e7820b4223bf622739597710019137e5899d96fe4464c996f5fac2
+Command (cwd lean/): lake env lean ../results/orch/lemmas/CenteredObstruction.lean
+Build exit status: 0
+Complete build stdout and stderr follows:
+
+Independent review: passed; ten explicit polynomial conditions and h^2+2=0 imply False.
+Scope: no chart-coverage theorem or arbitrary-space refutation is claimed.
+Local checker for target: not run; target remains unproved.
+Sub-agents: six.
+TIMING total=64.0 subagents=6

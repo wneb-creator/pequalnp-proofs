@@ -79,3 +79,42 @@ Environment is ready: pinned Lean 4.36.0 and full prebuilt Mathlib cache, checkl
 - If p!=0 normalize p=-1,beta=1. Then q=3/8 or1/2. Let z0_i=u_i³−(4q/3)u_i²+3/4 and D=z0uᵀ+uz0ᵀ. Every candidate3-plane contains bB+dD+(b+Gd)E. For q=1/2, vanishing b³d and b²d coefficients requires G=7/6 and G=8/9. For q=3/8, they require G=1/2 but bd² coefficient is9(2G²−2G+1), nonzero. Thus no centered-isotropic common-kernel3-plane. p=0 is scaled/permuted earlier four-root case. This is exact CAS plus algebraic reasoning, NOT Lean checked.
 - Full computation common-kernel-ratios.py/log uses resultant P(X,Y,Z)=product_i(X/2+Y u_i+Z z0_i) and permanent Cauchy-Binet sum of alpha! times coefficients of P and P(KX). Each4D isotropic hyperplane has Groebner basis[1], but simple contradictions above suffice.
 - Does NOT exclude all common kernels: when u·u!=0, exceptional projection norms k=4−(sumu)²/(u·u) include k=1 (quadratic rank3/radical2) and k=0 (isotropic projection, possible rank4/radical1).
+
+## Exhaustive finite-field diagnostic / 2026-11-25T09:32:39.265307+00:00
+- Over F5: checked488281projective tangentdirections;3918constantdirections;2340compatiblepairs;156distinct2Dlevelspaces;ZERO3Dlevelspaces.
+- Over F7: checked6725601projective tangentdirections;17088constantdirections;6608compatiblepairs;236distinct2Dlevelspaces;ZERO3Dlevelspaces. F7containsprimitivecube roots, so covers thatsmall-fieldsymmetrycase.
+- Paircompatibility usesgradientpolarizations for homogeneousdegrees2,3,4 plus quartic(A+B); then a3plane existsiffa third direction iscompatiblewithall projectivedirections of a2plane. Degrees<fieldsize ensure finiteevaluation identifies polynomialrestrictions. Scripts/logs/data archived inresults/orch/lemmas/finite5-* andfinite7-*.
+- Every2Dlevelspace inbothcensuses hasinjectiverow-sum map(rank2). Mostlackcommonkernel: F5commonkernel0:148,1:8;F7commonkernel0:196,1:40.
+- These finite-fieldcomputations are not acomplexrefutation andnotLeanchecked. Complexpoints couldreduce onlyoverextensionfields.
+
+## Computational search / 2026-11-25T09:32:56.182679+00:00
+- All four rational Witt charts for the star-line extension quotient produced Groebner basis [1] over ZZ. This is a CAS result only; it has not been formalized in Lean. Script and full log: scratch star_line_groebner.py and star_line_groebner.log.
+- A 2-plane isotropic for H plus H plus <1> must have an invertible projection choosing one coordinate from each hyperbolic pair. If every such cross-pair minor vanished, either the hyperbolic projection would have rank at most1 (forcing a forbidden pure anisotropic vector) or it would lie in one hyperbolic pair, whose rank2 form cannot cancel one square. This explains the four-chart cover used by the CAS test.
+- The full 12-variable isotropic chart is being searched numerically with analytic Jacobians (verified by finite differences). A second run changes the chart by random orthogonal transformations, preserving the quadratic constraint. No exact 3-plane has been found.
+
+## Three-plane search follow-up / 2026-11-25T09:33:13.127189+00:00
+- Computed a degree2 Nullstellensatz certificate: ten centered OGr chart cubic-coefficient polynomials sum to1 with explicit polynomial multipliers modulo h²+2. Verified exactly in Sympy; not Lean checked. A symmetry-reduced certificate and generator scripts/logs are archived under results/orch/lemmas/three_plane_centered*.
+- C3 action: the nontrivial weight3-space has cubic3(4a³+12a²b+3c(a+b)²+2c³), a smooth plane cubic, so it contains no2D linearzero space. The trivial-weight tangent3-space has no good line; all three affine projective charts have coefficient GB=[1]. This excludes C3-invariant3planes, not arbitrary planes.
+- No explicit3-plane construction found. All computational exclusions are restricted-family evidence; none establishes the assigned statement false.
+
+### geometry_route global charts
+- Constructed exact isotropic OGr(3,9) bigcell with12parameters: p∈C³, w=M p=(c,f,z), D=diag(1,2,-6), r=A p-(1/4)MᵀD M p, A skew. a=p0+r0,b=i(p0-r0),d=p1+r1/2,e=i(p1-r1/2),x=p2-r2/6,y=i(p2+r2/6). q=4p·r+wᵀDw=0.
+- Retaining full3×3dualR gives18variables,31polynomialconstraints degree≤4 and5,409monomials; eliminating6qrelations gives12variables butdegree≤8 and70,772monomials. Inputs full-ogr18-mod97.{json,msolve}, exactQQ(i) encoding full-ogr18-rational.msolve (19variablesincludingii,ii²+1).
+- Global32chartcover possible overQQ(i): leftover(c,f,z)=p3*(2,1,1)+(r3/6)*(2,1,-1)+h*(1,-1,0), so q=4Σ_{0≤i<4}pi*ri+3h². Choose3distincthyperbolicpairs andonecoordinateeach:32chartflags. Cover follows independenttransversal/Rado plus isotropicdimensionbounds in3D and5D. Not yet formalized.
+- FastF4 modulo97 (i=22) running via compiledneogb; degree6round1s, degree7currentlylarge. Bounded4GiB180s. No globalverdict yet; finitefield inconsistency alone would not establishcharacteristic0refutation.
+
+## Exact row-sum graph chart / 2026-11-25 09:34 UTC
+- Parameterized symmetric C entries as independent linear forms in row coordinates(x,y,z),18parameters. Substitution into Hadamard permanent yields31constraints:6quadratic,10cubic,15quartic;2,071expandedterms after primitive normalization.
+- Inputs scratch rowsum-graph-mod97.msolve and rowsum-graph-rational.msolve; alternative DRLvariableorder groupsbydirectionin rowsum-graph-columnorder-{mod97,rational}.msolve. Exact sparseJSON and generator saved. Formula independently verified at5rational matrices.
+- rules_review coordinatingF4run. This is onlythechart where row-sum projectionhasrank3; globalcoveragewouldrequire provingrow-sum injectivity forlevel3spaces.
+
+## Computational searches completed / 2026-11-25T09:34:52.758967+00:00
+- 1,000 complex full-Grassmann starts: no solution, best residual6.56e-4.
+- 5,000 complex starts in the 12-variable exact-quadratic Witt chart: no solution, best residual9.78e-3.
+- 2,000 complex starts across100 generic orthogonal changes of the Witt chart: no solution, best residual3.18e-4. Changes used a compact real orthogonal group after complex diagonalization of the quadratic form, keeping conditioning bounded.
+- These numerical results are heuristic evidence only. Each chart fixes an injective projection, so an apparent solution could not merely collapse the three basis directions to dimension2. All complete stdout/stderr logs and source scripts are saved in job scratch.
+
+## Lean-checked centered chart obstruction / 2026-11-25T09:39:12.902644+00:00
+- `results/orch/lemmas/CenteredObstruction.lean` compiled successfully with exit0. It is34 lines and proves that h²+2=0 plus the ten exact centered-chart cubic coefficient equations implyFalse.
+- The certificate is an integer polynomial identity with right-hand side31578, verified by Lean linear_combination, followed by norm_num. This proves one algebraic chart obstruction only; it does not prove chart coverage or refute L-gct-231.
+- Full compile output is empty and preserved at scratch centered-obstruction-build.log; compilation command was lake env lean ../results/orch/lemmas/CenteredObstruction.lean with the documented environment.
