@@ -1,0 +1,26 @@
+Final independent research-handoff review: PASS
+Reviewer: checker_review
+UTC: 2026-11-25T02:33:06+00:00
+Branch: pnp/pilot-55
+Comparison baseline: 9c4fa2b
+
+Scope reviewed
+- Complete branch/worktree changes relative to the baseline are additions under results/orch only. No project proof, definition, dependency, or repository configuration file was changed.
+- The original L-meta-1031 theorem remains unproved and unrefuted. README.md, validation.txt, and MANIFEST.json state that no proof PR exists and that no named-file build or posted-statement checker acceptance is claimed.
+- The completed C5 result is accurately restricted to normalized five-input circuits: binary AND/OR gates reading earlier wires; repeated operands are allowed. It proves at least four OR gates, at least three binary AND gates, and an attained optimum of seven gates. It is not the general leased theorem.
+
+Source/output consistency
+- MANIFEST.json exactly covers all 131 Lean sources, totaling 13648 lines. Every recorded path, line count, and SHA256 matches the current source; no source is omitted or extra.
+- cycle_optimum_certificate.lean has 1816 lines and SHA256 f5c88b40932e2a25433c4b5818f16307752199cd40f4413668d7e43c3dc2efad. It is byte-identical to the source used for the successful combined check.
+- The combined metrics record exit 0, 1013.7360879749999 seconds, and 3368196 KB maximum RSS. The 102 distinct first-case theorem values exactly match the coverage manifest. All were checked in that combined run.
+- The eight final transitive axiom outputs contain only propext, Classical.choice, and Quot.sound. Archived combined stderr is empty. The complete stdout embedded in cycle-optimum-validation.txt is byte-identical to archived combined.stdout.
+- The current 970-line first_or_reduction.lean hash is 0b9e93d247249dc315c0e761df83eaf3e9c6b2a3bd0659adf5264caa29542225, matching its latest complete validation record and stated limited scope.
+- Earlier incomplete validation records are explicitly historical; current source hashes are centralized in MANIFEST.json. The rejected native-BV draft is absent from Lean sources and its saved failure logs are clearly labelled.
+
+Static checks
+- Across all 131 Lean sources, no forbidden root identifier text, sorry/admit, axiom/constant declaration, native_decide/bv_decide, string literal, or non-simp attribute was found. Only maxHeartbeats and maxRecDepth options occur.
+- Credential-pattern scans over the archived text, scripts, sources, JSON, and outputs found no matches. Public gap.json contains no lease or credential fields. Search scripts contain no environment-variable or credential inspection code.
+- The generated untracked Python bytecode cache was removed. Remaining pending changes at review completion are authorized handoff metadata.
+- git diff --check reports only two preserved trailing blank-line warnings: counterexample_semantic.lean:30 and or-potential-validation.txt:579. These do not affect proof content; exact checked source/output bytes were intentionally preserved.
+
+No expensive proof recompilation was performed for this final review. The verdict combines independent static/diff review, source-hash verification, complete saved output inspection, and the earlier independent component reviews. It approves this research archive for preservation, not submission as a proof of L-meta-1031.

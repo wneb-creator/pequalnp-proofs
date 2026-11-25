@@ -1,3 +1,5 @@
+Historical checkpoint: the later combined C5 certificate passed all102 cases; see cycle-optimum-validation.txt. The conditional statements below accurately describe their earlier snapshots.
+
 L-meta-1031 partial: semantic enumeration soundness, 113 lines.
 Build command: lake env lean ../results/orch/lemmas/semantic_soundness.lean
 Build exit0; complete stdout and stderr empty.

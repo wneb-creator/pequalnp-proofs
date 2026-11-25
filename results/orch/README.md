@@ -10,7 +10,7 @@ The principal remaining step is a global circuit transformation that gives every
 
 The strongest new structural component is `lemmas/signed_domination.lean`. It proves signed-test replacement constraints, operand witnesses, and exact binary backward-reading normalization for every minimum monotone graph circuit. Local exchange and private-context lemmas establish valid substitutions under their explicit sharing conditions. Boundary certificate lemmas justify checking edge inputs and maximal independent-set inputs.
 
-Each validation text records the command, exit code, complete diagnostics, scope, independent review, and timing for its snapshot. `axiom-validation.txt` reports the permitted-axiom audit. A Lean compilation or helper audit is not an acceptance verdict for the posted theorem.
+Validation texts record the checks and complete output for their snapshots. Exact hashes and line counts for all Lean sources are centralized in [MANIFEST.json](MANIFEST.json). Earlier validation checkpoints are historical; the completed C5 check is [cycle-optimum-validation.txt](cycle-optimum-validation.txt). A Lean compilation or helper audit is not an acceptance verdict for the posted theorem.
 
 `NOTES.md` and `TIMELINE.md` are a dated research log; later entries supersede earlier pending statuses. `REVIEW.md` is the initial static review, followed by later compilation and axiom evidence in the validation records.
 

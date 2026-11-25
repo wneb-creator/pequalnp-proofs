@@ -1,3 +1,5 @@
+Historical checkpoint: the later combined C5 certificate passed all102 cases; see cycle-optimum-validation.txt. The conditional statements below accurately describe their earlier snapshots.
+
 C5 exact-size conditional checkpoint, 1038 lines.
 Full L-meta-1031 is unproved. The combined standalone C5 certificate is still compiling.
 File: lemmas/cycle_optimum_conditional.lean

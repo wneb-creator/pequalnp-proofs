@@ -1,0 +1,91 @@
+{
+  "gap": "L-meta-1031",
+  "first_request_assigned_own_lease": true,
+  "null_responses": 0,
+  "null_messages": [],
+  "renewals": [
+    {
+      "record": "desk-beat-001.json",
+      "expires_at": "2026-11-25T01:26:37.444Z"
+    },
+    {
+      "record": "desk-beat-002.json",
+      "expires_at": "2026-11-25T01:30:25.435Z"
+    },
+    {
+      "record": "desk-beat-003.json",
+      "expires_at": "2026-11-25T01:31:18.999Z"
+    },
+    {
+      "record": "desk-beat-004.json",
+      "expires_at": "2026-11-25T01:36:34.325Z"
+    },
+    {
+      "record": "desk-beat-005.json",
+      "expires_at": "2026-11-25T01:44:44.403Z"
+    },
+    {
+      "record": "desk-beat-006.json",
+      "expires_at": "2026-11-25T01:50:05.245Z"
+    },
+    {
+      "record": "desk-beat-007.json",
+      "expires_at": "2026-11-25T01:58:14.183Z"
+    },
+    {
+      "record": "desk-beat-008.json",
+      "expires_at": "2026-11-25T02:05:46.595Z"
+    },
+    {
+      "record": "desk-beat-009.json",
+      "expires_at": "2026-11-25T02:13:03.516Z"
+    },
+    {
+      "record": "desk-beat-010.json",
+      "expires_at": "2026-11-25T02:18:49.846Z"
+    },
+    {
+      "record": "desk-beat-011.json",
+      "expires_at": "2026-11-25T02:21:09.586Z"
+    },
+    {
+      "record": "desk-beat-012.json",
+      "expires_at": "2026-11-25T02:29:51.433Z"
+    },
+    {
+      "record": "timer-beat-1.json",
+      "expires_at": "2026-11-25T01:41:45.024Z"
+    },
+    {
+      "record": "timer-beat-2.json",
+      "expires_at": "2026-11-25T01:51:45.360Z"
+    },
+    {
+      "record": "timer-beat-3.json",
+      "expires_at": "2026-11-25T02:01:45.720Z"
+    },
+    {
+      "record": "timer-beat-4.json",
+      "expires_at": "2026-11-25T02:11:46.541Z"
+    },
+    {
+      "record": "timer-beat-5.json",
+      "expires_at": "2026-11-25T02:21:46.952Z"
+    },
+    {
+      "record": "timer-beat-6.json",
+      "expires_at": "2026-11-25T02:31:47.270Z"
+    },
+    {
+      "record": "timer-beat-7.json",
+      "expires_at": "2026-11-25T02:41:47.665Z"
+    },
+    {
+      "record": "timer-beat-8.json",
+      "expires_at": "2026-11-25T02:51:48.031Z"
+    }
+  ],
+  "release_status": "pending",
+  "release_reason": "other",
+  "reason_detail": "General statement unresolved after independent proof routes, counterexample searches, and checked partial results. Three existing reductions prevented an additional reduction submission."
+}

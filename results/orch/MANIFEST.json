@@ -1,0 +1,692 @@
+{
+  "gap": "L-meta-1031",
+  "branch": "pnp/pilot-55",
+  "proof_checkpoint": "a74bb0daae7f65aa375292f7a2c318df743637ba",
+  "posted_statement_proved": false,
+  "posted_statement_refuted": false,
+  "pr": null,
+  "checker": "not run: posted statement remains unproved",
+  "subagents": [
+    "checker_review",
+    "lean_setup",
+    "normal_form",
+    "counterexample",
+    "graph_ownership",
+    "exchange"
+  ],
+  "desk_null_responses": 0,
+  "completed_finite_result": {
+    "file": "results/orch/lemmas/cycle_optimum_certificate.lean",
+    "scope": "Exact normalized C5 optimum7, OR count at least4, binary AND count at least3",
+    "lines_before": 1816,
+    "lines_after": 1816,
+    "compile_exit_code": 0,
+    "axiom_audits": 8,
+    "finite_cases": 102,
+    "permitted_axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "lean_sources": [
+    {
+      "path": "results/orch/lemmas/boundary_certificate.lean",
+      "lines": 55,
+      "sha256": "06f7da59e765f0c41c431963ab6702cfb3fa6c22ea77c6ac4f33cb2538a79c2b"
+    },
+    {
+      "path": "results/orch/lemmas/branch_budget.lean",
+      "lines": 48,
+      "sha256": "bf43cc6b2e02b4e64bada0c8ed21f0f313d298918fdef1a8e411566232cf1e30"
+    },
+    {
+      "path": "results/orch/lemmas/checker_review.lean",
+      "lines": 33,
+      "sha256": "a35d17f8743b866e7efd9645646ba25ae906f94a4a34df24d745a9a575ec2b7f"
+    },
+    {
+      "path": "results/orch/lemmas/circuit_monotone.lean",
+      "lines": 65,
+      "sha256": "dde4c7a0b040cd75007531ec20d23660a0603c6d1890df77865fb2ba6bae8168"
+    },
+    {
+      "path": "results/orch/lemmas/compact_or.lean",
+      "lines": 592,
+      "sha256": "a4560bc72b8eedac7b9323ebf845b74207b0798dc0f422556acb5dd63ca8d428"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample.lean",
+      "lines": 36,
+      "sha256": "214fa068b723f923e477bc5d18e3ba797370926ab66c9e9aafb046b4dfc52798"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample_semantic.lean",
+      "lines": 30,
+      "sha256": "f6179c5f3769f3ea77f06553de52d7bfb0d06ce77011d2721bafad9a0130f53a"
+    },
+    {
+      "path": "results/orch/lemmas/cycle_and_bound.lean",
+      "lines": 346,
+      "sha256": "66403284a082faf66974778b59b8e68bf40c07f6ef3826735e4e3ec27e2c5c56"
+    },
+    {
+      "path": "results/orch/lemmas/cycle_optimum_certificate.lean",
+      "lines": 1816,
+      "sha256": "f5c88b40932e2a25433c4b5818f16307752199cd40f4413668d7e43c3dc2efad"
+    },
+    {
+      "path": "results/orch/lemmas/cycle_optimum_conditional.lean",
+      "lines": 1038,
+      "sha256": "84dc45b74eb07faee64d7b3cc289cf4480eede05d25bc1e32fe605c795a5d05e"
+    },
+    {
+      "path": "results/orch/lemmas/exchange.lean",
+      "lines": 51,
+      "sha256": "c6d1cb1f58122a69b35de11ae1d947f71ba14eb36f87b73703a1d3dab61045b7"
+    },
+    {
+      "path": "results/orch/lemmas/exchange_circuit.lean",
+      "lines": 35,
+      "sha256": "c719e3a6c56dbac90cef3c45130d67e556762bfd3725858717fa7dced3dea861"
+    },
+    {
+      "path": "results/orch/lemmas/exchange_context.lean",
+      "lines": 177,
+      "sha256": "09a71bf5ce20a1b1476b14a329227efa3d05fe104577a1937b086f291c06a2d1"
+    },
+    {
+      "path": "results/orch/lemmas/exchange_family.lean",
+      "lines": 25,
+      "sha256": "de59e8ada19df940407035ee4741c09d77da034c27d807eb1b995aff94e52937"
+    },
+    {
+      "path": "results/orch/lemmas/exchange_residue.lean",
+      "lines": 55,
+      "sha256": "267f25807e164e012f0dcae09f90d2d45576cda21a1bd9540f23184357a33d7b"
+    },
+    {
+      "path": "results/orch/lemmas/finite_certificate.lean",
+      "lines": 166,
+      "sha256": "3c353cb017becfc8d04e520d02a61cf143ed8430cbdb060755f94883f1d9dabd"
+    },
+    {
+      "path": "results/orch/lemmas/first_or_delete.lean",
+      "lines": 300,
+      "sha256": "34a9bab244a3cf1369602b2d5ac99d587c2fb1bcafbfd64f48eafb8776c42e66"
+    },
+    {
+      "path": "results/orch/lemmas/first_or_reduction.lean",
+      "lines": 970,
+      "sha256": "0b9e93d247249dc315c0e761df83eaf3e9c6b2a3bd0659adf5264caa29542225"
+    },
+    {
+      "path": "results/orch/lemmas/general_or_lower.lean",
+      "lines": 792,
+      "sha256": "4bd32284dcdde14c354ae747d1d1cc7b058f876933016a02d5e993a9c1df57b1"
+    },
+    {
+      "path": "results/orch/lemmas/normal_form.lean",
+      "lines": 1474,
+      "sha256": "2b53479031c968b45e1d0e0c48fd2ff1525641757538e6e8da994ef654bb6bbe"
+    },
+    {
+      "path": "results/orch/lemmas/one_dirty_graph.lean",
+      "lines": 194,
+      "sha256": "9e24169e6ab63603ea5e881d7929b2c154c6aa2c621838be47f2cd203c6f8723"
+    },
+    {
+      "path": "results/orch/lemmas/or_elimination.lean",
+      "lines": 53,
+      "sha256": "a39e5c64cb8c53546543da21479bb9e519ab8a9b54817fdd8d1ace603683568b"
+    },
+    {
+      "path": "results/orch/lemmas/owner_inputs.lean",
+      "lines": 253,
+      "sha256": "3bcb8a8c78ce9e00bec4d81d55b39069acd8668ddf58aae9443da221c1cadb6b"
+    },
+    {
+      "path": "results/orch/lemmas/semantic_case_assembly.lean",
+      "lines": 238,
+      "sha256": "5f329291be60b4bdc97bb3a02cb9f0f6dede7e70af1bdddf21a2da1e1dfc6df7"
+    },
+    {
+      "path": "results/orch/lemmas/semantic_soundness.lean",
+      "lines": 113,
+      "sha256": "ead8d77e8a395d76635a241355db2fd223b1524c2a174e61d6c1a96468d50e5c"
+    },
+    {
+      "path": "results/orch/lemmas/signed_domination.lean",
+      "lines": 807,
+      "sha256": "4ed1404535f82c6e564d0a4dc577fa52e212734cb9a2e962f6f03c91dc83c556"
+    },
+    {
+      "path": "results/orch/lemmas/star_cover_dichotomy.lean",
+      "lines": 54,
+      "sha256": "4c48a0d2bd6fe16f422e3fa8157c127fe9c99ec5916d685db44e5af2ec901c0d"
+    },
+    {
+      "path": "results/orch/lemmas/two_choice_rectangle.lean",
+      "lines": 432,
+      "sha256": "56632a33ebc8795768b4d05531e772d9fcdfa55990aa84c0e3f6f79d5ca695dc"
+    },
+    {
+      "path": "results/orch/lemmas/unique_bare_cover.lean",
+      "lines": 238,
+      "sha256": "1eb4bc0a7e815528c000bfb2327a91764245b9a82a152263f54ba9a8f4fd875e"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_0.lean",
+      "lines": 31,
+      "sha256": "1e1dadc854feb274c546af880b474b56557511e16cbfff47cb3e617f3e9b192e"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_1.lean",
+      "lines": 31,
+      "sha256": "d592a0fc2cc1e751a84382edd81f17692e72d064933cd5b12525e3092a45c5c3"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_10.lean",
+      "lines": 31,
+      "sha256": "1d08e520ab5ebbddc85c24b13d41e924441fa045661389974d2e46ce280ee8f5"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_1023.lean",
+      "lines": 31,
+      "sha256": "729034610c03a178e9d09f61785755b77c6fb3eaa0d415e9813eae78ca5cadb3"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_113.lean",
+      "lines": 31,
+      "sha256": "ba61e56ff02b25f5afb7bc9649e0af21716730717700ec87472460141038b10e"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_115.lean",
+      "lines": 31,
+      "sha256": "4dffe2a037ac28b083da198a496d4cef1eec5225ba943a93ce2cb0d5bb952163"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_117.lean",
+      "lines": 31,
+      "sha256": "2ad0be5010d6a59cb6ea372b5c72c78b435f1680b8a53be436850f75c67b7b84"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_12.lean",
+      "lines": 31,
+      "sha256": "d6442289e83c91305a845d28ec1d652f882e7c16ef44f85ba11bd63df4d73a5c"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_121.lean",
+      "lines": 31,
+      "sha256": "8cde0ee4b0fdee90f3566f12a80fbb6171bd3a97e30b9db6311bac87ebb98c1d"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_128.lean",
+      "lines": 31,
+      "sha256": "972538f07ff12b8790c81593bd9657b7e9f080386e52e208c5e334be46454eda"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_129.lean",
+      "lines": 31,
+      "sha256": "a49a9a31825507c2cbea5eec5c1a6e65004eae481a244fd268dc6ed80d2f576b"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_130.lean",
+      "lines": 31,
+      "sha256": "d0d112031fd02cead687c39c606d797248661b776b772a2c406b8a972da08281"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_132.lean",
+      "lines": 31,
+      "sha256": "e999ca659572f036159edd161491b957b753347217654b97edd83090313fdc5e"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_136.lean",
+      "lines": 31,
+      "sha256": "6dc553e34fcdc2aef44306ba116970db44445aeac1ef4f2e83db97d4299980ce"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_144.lean",
+      "lines": 31,
+      "sha256": "5a24eeee80b21adfa6c514e05172fcd59ed0c9b1082d411647af32698b83baf4"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_16.lean",
+      "lines": 31,
+      "sha256": "3ad7683385e8685d78c21025de2733d1a140ab6b581b485429573fdfa34eaaa3"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_160.lean",
+      "lines": 31,
+      "sha256": "930dd35d3e8b3ad95b92ea6407766309c2a0180e9ee2d69936710d732a75467f"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_17.lean",
+      "lines": 31,
+      "sha256": "58372fe99d63acb30a8bc09fb84967bc152da6b73dab9ec6295cf30488e4c0cb"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_18.lean",
+      "lines": 31,
+      "sha256": "35a1ee2dce11180b4cb986ec459b0f21547fc72d473d799fa7556196d3e1a2cf"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_192.lean",
+      "lines": 31,
+      "sha256": "7a6ffb0bd5c3054e9db0319eea1e32130ae6291c3266dadd908907b8d970eccf"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_2.lean",
+      "lines": 31,
+      "sha256": "5bcb1312f2bd579eeda173c0036c5e177b62858525ae58a396d463dd5016a9e8"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_20.lean",
+      "lines": 31,
+      "sha256": "da7c18a44f4bdc78e7fe4b1fabdc7097aca80c23ed1b4aa7cfbe523dd1d1e703"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_204.lean",
+      "lines": 31,
+      "sha256": "381b32fe6fdad81b8a57041c639a422016024309a03c175e0f6fef9b9a547dd9"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_205.lean",
+      "lines": 31,
+      "sha256": "558351bf0c63011f265c0dd27bad5b48bdade42eb6964bab6361928a58ec7458"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_206.lean",
+      "lines": 31,
+      "sha256": "2ced9f919c13b965455cf5a4ff78e3bb017bec49a2575fa35229b0e63d83049e"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_220.lean",
+      "lines": 31,
+      "sha256": "1fe3ae0bde2c4bcd37aef766cf96c95fd5a03703c4bc34c74681fcdd3610b807"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_236.lean",
+      "lines": 31,
+      "sha256": "04d1fa49b0643f716026b8a1172aec94c9e472a79c607309b37419a80e963aa2"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_24.lean",
+      "lines": 31,
+      "sha256": "fe57a6da3437936a1c78a8db6621c7089e6edfdb3b615991d7c3ea482247832d"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_241.lean",
+      "lines": 31,
+      "sha256": "cc07a5cb5b91d813628535be9cbe7bdc93e5cb2604bcffa9b6ceff1caf68e89c"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_253.lean",
+      "lines": 31,
+      "sha256": "fd676dea77a05756cd5ee70a8d03ab570abc1aeb15cbfadcd4f63d825df5a08d"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_256.lean",
+      "lines": 31,
+      "sha256": "0ad640e35bf6a8b5320877d03fda9aa9579b84594e0a899a0e4ae0ff9a55fbc7"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_257.lean",
+      "lines": 31,
+      "sha256": "5c25bcf141b8bfc2646cc4981ea821b32a9614bc4217c081082cbca03ec4e852"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_258.lean",
+      "lines": 31,
+      "sha256": "98010ce327734d2f5b607bcdadc99457fd8b2682071fa81058c539cf52a5e48e"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_260.lean",
+      "lines": 31,
+      "sha256": "253232bc839fc93da89643874951462f83a1f2b9a9f56133b55e181baa4221a1"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_264.lean",
+      "lines": 31,
+      "sha256": "54687f265fc88a13a061d7ed8a9604c63cbe8908ae363c785b94d4ccd9aedc86"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_272.lean",
+      "lines": 31,
+      "sha256": "c390ae60c52b5be0913929bbcdc4ff6db6013e11f078bfaf59b2f30328f5b9d5"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_288.lean",
+      "lines": 31,
+      "sha256": "fde6bc694a1c9ec5e3d0153803a1fac74026b232838f43959c2cd34e0cc90bf5"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_3.lean",
+      "lines": 31,
+      "sha256": "1e5ee06c3655a08fe7ec553866df53555d36cafca56fa155827ab3af0d4ba58f"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_32.lean",
+      "lines": 31,
+      "sha256": "14c824eff6916010731eb167030e953c287aa3287299cecc197b494aa5af49af"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_320.lean",
+      "lines": 31,
+      "sha256": "56b79a455ad2dfa8fdc9842a803e706dfa64b4644e4874ab3867949b7caa6843"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_33.lean",
+      "lines": 31,
+      "sha256": "39689b18427a504b91c85d708c1155fa8e63041482bf3ca9cc1cfb803113150d"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_34.lean",
+      "lines": 31,
+      "sha256": "8a16f01b2102fdfebee51b4c0cda79fdf708008df6b53f43cb613a6195890c89"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_36.lean",
+      "lines": 31,
+      "sha256": "476a836858c15ed892e4f56d9ee0b4281513e22d5c6e3706d2a6e6ffdde3c9e0"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_369.lean",
+      "lines": 31,
+      "sha256": "a8ff0e6f2055cef60082b32d4d82b90b4651da0eea96aaff585b2a7b97c34e25"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_384.lean",
+      "lines": 31,
+      "sha256": "1eef0c89d1e8e364cd825702531656bd71ab612b87e3af670cc20f82c26ca526"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_387.lean",
+      "lines": 31,
+      "sha256": "255a2f069cc63ff48dffd62f8fa39bde84b89dccc7af9a176503e38b3d4be371"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_391.lean",
+      "lines": 31,
+      "sha256": "66d448ec3622630b33876302c0b4e51e5f8a9a8fb75ed273d978e46cb6321e32"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_395.lean",
+      "lines": 31,
+      "sha256": "54d32c49a04643386d3a0f645c5233351e081de0a40304260195cf0992bba232"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_4.lean",
+      "lines": 31,
+      "sha256": "a0c545a355a60c4763ef729e4339bf7e32b3fe8fffba169fc3f5431f98be5bce"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_40.lean",
+      "lines": 31,
+      "sha256": "f3eced25b3acfd0002077d0ea5d4b83b7b78395fd2e0d2a6191f39dbe4d9fbda"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_403.lean",
+      "lines": 31,
+      "sha256": "7ff1abc9027afa6b98f82658befcd4e9247ef64da1553604ce14b6ea35dada82"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_419.lean",
+      "lines": 31,
+      "sha256": "dc8ab8b88029b913cff3c47f8cab148e2f7e68609f109330375adefd5b7ebbd9"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_451.lean",
+      "lines": 31,
+      "sha256": "cac79ebf6efd29b53e9c50be1004c71afbe47ec684d196071ef224ee6c14f5ad"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_460.lean",
+      "lines": 31,
+      "sha256": "ef54b0ce526142ae7443896d242d35484b28d2714fa3bc2674dc445ec975b177"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_463.lean",
+      "lines": 31,
+      "sha256": "7e87f5d30b0f68b16feae897c19784d3ad2c6ad871918d758cf21b1a7380cc81"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_48.lean",
+      "lines": 31,
+      "sha256": "1e4e20b303f5d919a636323ea35fc4602cfd23baf1ad08e3a9bb41ae20197454"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_499.lean",
+      "lines": 31,
+      "sha256": "a81f599691ff72d9b2643ec08e585d9b7c5c3d601c8b697b02840535ff065874"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_5.lean",
+      "lines": 31,
+      "sha256": "b0601e1459e18c84182df2fbb9cbb1014e5d57b88489410b540c0bf21880f665"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_512.lean",
+      "lines": 31,
+      "sha256": "b725bf8e027ad621af6b4e0b4081b51a2d4dab85980cd8588617ff289f1f7c09"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_513.lean",
+      "lines": 31,
+      "sha256": "4302a7b9796379f2ecda788ac1bce2c4be5ff47072894e0d0514c4cf6320cc3d"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_514.lean",
+      "lines": 31,
+      "sha256": "f377d25d45b42ec7ab00dbac9324858f676be6387f5a7eab8241ec142918372d"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_516.lean",
+      "lines": 31,
+      "sha256": "3728de0a2b5bddf61e32d483de5b90a6bd96d26ed190055e4c8530fa38d5acef"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_520.lean",
+      "lines": 31,
+      "sha256": "0c72c225bd06ca8717b32cfe780a68b3acb8bda661490955cca8a7600f21e452"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_528.lean",
+      "lines": 31,
+      "sha256": "a906fc148f182ace8595348cda6dd93243e0c875893c7bf27eeddb7d258026e6"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_544.lean",
+      "lines": 31,
+      "sha256": "47551a7f25597bcad8bff1255e165f44436a12d0eaf5c94832531de45dc9f5c7"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_550.lean",
+      "lines": 31,
+      "sha256": "8548e473fc8c3e9afdae4efdd1d3f72a485dc0f095247a5ebc023cf485128ca1"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_551.lean",
+      "lines": 31,
+      "sha256": "4fa10683a4c70264dbfb21cd4568dc7ecaf0a6e5ed910e903087766b3904922d"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_558.lean",
+      "lines": 31,
+      "sha256": "2c6f8a74a92d5035b5b8a4b83174a264f7a88bee20ab9f58de8c759899734bed"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_566.lean",
+      "lines": 31,
+      "sha256": "eb8191b4684fd0b500dfb5e96241bf089ea1760aecc0cad98ca6023722ff06d4"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_576.lean",
+      "lines": 31,
+      "sha256": "bbdb3dd4c90753dd4674580f8e82ca2ce8e165a0147b17d4782e433b169fd4f4"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_6.lean",
+      "lines": 31,
+      "sha256": "f9f6a968867864972caafbe98402d61c6861c7f5b3e4936e1f8691be49cd386c"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_614.lean",
+      "lines": 31,
+      "sha256": "51f1e7a9ea5f9e7290c177639c820ce2e8a4d0bac474839fe37d0a7fddf4fc7e"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_625.lean",
+      "lines": 31,
+      "sha256": "a9a96b57eaa7aba5edfe1f7ecd54ca6186248b767e1c889e3d0e4a2ad7807d64"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_631.lean",
+      "lines": 31,
+      "sha256": "85f0ce6c1012db85f3cda663f355596e0e6e40b5c57c909beb9df2fcda601d2b"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_64.lean",
+      "lines": 31,
+      "sha256": "ec3eccdb5c56b980bbcecc3ca4875dfb87c4198a2aca4c82b8c33c512fe60995"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_640.lean",
+      "lines": 31,
+      "sha256": "5d69732ab4d51648d3d3eae81bc52ef8b297b8e5366edd8f9593f18a06a418fc"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_65.lean",
+      "lines": 31,
+      "sha256": "bcc865a6e407f76a9bc348bc00a8b3f039f8185ffd646b6a2ce64fe757b2b358"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_66.lean",
+      "lines": 31,
+      "sha256": "6d877e2b3b85956b062c2476fc13917e8a436120ca130956455ea2cbfe84a742"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_678.lean",
+      "lines": 31,
+      "sha256": "660b82d2158258bd27290c06bf15c4a1d0db833109345019c1524cb71c7863db"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_68.lean",
+      "lines": 31,
+      "sha256": "00d97651c0104a571d9a784da5185ab630d41708ea0b9ea0743c2dfd9aef5ca7"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_716.lean",
+      "lines": 31,
+      "sha256": "1e2aa2dd1c3ec7da8ea87d350e11c889cf14f93814d8581d5316b768a56e48b4"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_72.lean",
+      "lines": 31,
+      "sha256": "88429d7b3582a483b563484afc164dcc2d30833d0e1977495ced0599956c115b"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_750.lean",
+      "lines": 31,
+      "sha256": "fb406faa5d61605ca410dbd1783b40e60c5ab2d612e718f5f6ce6bc320868b71"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_768.lean",
+      "lines": 31,
+      "sha256": "11613bd90f0eff75f9194973099e74395e3152798872cebf3538f75898f83c94"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_792.lean",
+      "lines": 31,
+      "sha256": "99b3f540f6fd5af94e489c223c531146c44b96bb7aef764ea874e55e793ab888"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_793.lean",
+      "lines": 31,
+      "sha256": "e12339e65ff68f485737fface16edfeef07cf60cfcc64a3e8530926ffcf1538d"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_794.lean",
+      "lines": 31,
+      "sha256": "2e2fca3b389f13f3a27ba591b3b9f0b7984ff90e84df2e8853b85d3ea92b1b40"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_796.lean",
+      "lines": 31,
+      "sha256": "7c1a98580f76a27145981295e70ec102fa8291fe422a3efe787de10abe5f2f2f"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_8.lean",
+      "lines": 31,
+      "sha256": "ac67794ab6f4b053585d978b2d11885ae316b811d112fb1a83587848197aab6a"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_80.lean",
+      "lines": 31,
+      "sha256": "4342927d84c5ef70e5a3e3549a72633b7804e4505d6f894047c8e9a846615702"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_806.lean",
+      "lines": 31,
+      "sha256": "1ef797637a07695b6344523a978984baf5522ebff8155953cce43c111b273100"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_824.lean",
+      "lines": 31,
+      "sha256": "60a82466d42a7d73e4d18b070a8f1b0dbdea28f01e1c07ef8f9077e2f45c48b1"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_830.lean",
+      "lines": 31,
+      "sha256": "bf560818b726213434493676cb3140454c51140bf8ba0674347caf4b62f2057d"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_856.lean",
+      "lines": 31,
+      "sha256": "c74da8a9ed4a5c86730a90b3148842eec9dd7e251bee9c636111ce7f220fcc28"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_889.lean",
+      "lines": 31,
+      "sha256": "a69c901e5fc106baf4aecff0e6478c3179efbb59f454c4d178692146f86869e4"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_899.lean",
+      "lines": 31,
+      "sha256": "77aa21c1ebb5f803e6f54a0e6c4b81943337ea7b1644758bd8d1f8a931dbb893"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_9.lean",
+      "lines": 31,
+      "sha256": "4448ba6b0ba04ce9de51b23bf6e866fb93fed6950d2425bf8fddbe791ec32f37"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_920.lean",
+      "lines": 31,
+      "sha256": "14631b7c6a53a7abc7e30cc46077238a504ef83f337c6d771f7f318aad07c044"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_923.lean",
+      "lines": 31,
+      "sha256": "ac5fe17fe0b7f7dde3f98e531df1fa6e8d8f9f8416ad49a12dcae819e72ebcfb"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_935.lean",
+      "lines": 31,
+      "sha256": "90176561c992386d197eafe034eb3e52782f159ee97c4936c83d12dfe46a5710"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_96.lean",
+      "lines": 31,
+      "sha256": "9fbed1ed30507543ae28a4fa951685657cb47ae790d52dcbf8a3b756975875d0"
+    },
+    {
+      "path": "results/orch/search/semantic-cases/first_988.lean",
+      "lines": 31,
+      "sha256": "08b47e7bc98aeb94945929ccf1c0e1be7629a5ab43c008401e405f2f5c24abe4"
+    }
+  ],
+  "elapsed_minutes": 90.38,
+  "archive_review": "PASS",
+  "archive_review_file": "results/orch/final-review.txt"
+}
