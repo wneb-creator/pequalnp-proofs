@@ -1,0 +1,10 @@
+{
+  "sha256": "2b2a88adefcc2d298161aca7aff5be261127dd919118a9c548fa69e62b5da830",
+  "lines": 140,
+  "exit_code": 0,
+  "scope": "Generic bipartite no-C4 graph geometry: the exact L5869 center/cover promise forces the residual edge set to have cardinality at most one. Not a full L650 refutation.",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "log": "LowPenaltyGeometry.build.log"
+}
