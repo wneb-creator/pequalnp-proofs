@@ -1064,4 +1064,199 @@ lemma live_tight_no_opposite_edges {width : ℕ} {goal w : BitVec width} {k : �
   unate_no_opposite_edges (live_tight_unate h hcard) hw p q r t hp hq hr ht
     hwp hwq hwr hwt hpq hrt
 
+
+def bitVecOfFn {n : ℕ} (f : Fin n → Bool) : BitVec n :=
+  (BitVec.ofBoolListLE (List.ofFn f)).cast (by simp)
+
+lemma bitVecOfFn_bit {n : ℕ} (f : Fin n → Bool) (i : Fin n) :
+    (bitVecOfFn f).getLsbD i.val = f i := by
+  simp only [bitVecOfFn, BitVec.getLsbD_cast, BitVec.getLsbD_ofBoolListLE]
+  rw [List.getD_eq_getElem?_getD]
+  simp only [List.getElem?_ofFn, i.isLt, dite_eq_left, Option.getD_some]
+
+def orientationColumn (m i : ℕ) : BitVec (2 ^ m) :=
+  bitVecOfFn (fun j : Fin (2 ^ m) => j.val.testBit i)
+
+def orientationInputs {width : ℕ} (frontier : List (BitVec width)) :
+    List (BitVec width × BitVec (2 ^ frontier.length)) :=
+  List.ofFn fun i : Fin frontier.length => (frontier.get i, orientationColumn frontier.length i.val)
+
+lemma orientationInputs_words {width : ℕ} (frontier : List (BitVec width)) :
+    (orientationInputs frontier).map Prod.fst = frontier := by
+  simp only [orientationInputs, List.map_ofFn]
+  change List.ofFn (fun i : Fin frontier.length => frontier.get i) = frontier
+  exact List.ofFn_get frontier
+
+lemma orientationInputs_complete {width : ℕ} (frontier : List (BitVec width))
+    (direction : BitVec width → Bool) :
+    ∃ j : Fin (2 ^ frontier.length), ∀ wc ∈ orientationInputs frontier,
+      wc.2.getLsbD j.val = direction wc.1 := by
+  let dirs := bitVecOfFn (fun i : Fin frontier.length => direction (frontier.get i))
+  refine ⟨⟨dirs.toNat, dirs.isLt⟩, ?_⟩
+  intro wc hwc
+  obtain ⟨i, rfl⟩ := List.mem_ofFn.mp hwc
+  rw [show (orientationColumn frontier.length i.val).getLsbD dirs.toNat =
+      dirs.toNat.testBit i.val from bitVecOfFn_bit _ ⟨dirs.toNat, dirs.isLt⟩]
+  exact bitVecOfFn_bit _ i
+
+def orientationConstraint {width phases : ℕ}
+    (wc : BitVec width × BitVec phases) (p q : ℕ) : BitVec phases :=
+  if wc.1.getLsbD p = wc.1.getLsbD q then BitVec.allOnes phases
+  else if wc.1.getLsbD q then wc.2 else ~~~wc.2
+
+def dominationMask {width phases : ℕ} (inputs : List (BitVec width × BitVec phases))
+    (p q : ℕ) : BitVec phases :=
+  inputs.foldr (fun wc mask => orientationConstraint wc p q &&& mask) (BitVec.allOnes phases)
+
+def clearOrientationPair {width phases : ℕ} (goal : BitVec width)
+    (inputs : List (BitVec width × BitVec phases)) (p q : ℕ)
+    (valid : BitVec phases) : BitVec phases :=
+  if valid = 0 then 0
+  else if goal.getLsbD p && !(goal.getLsbD q) then valid &&& ~~~dominationMask inputs p q
+    else valid
+
+def orientationMaskInputs {width phases : ℕ} (goal : BitVec width)
+    (inputs : List (BitVec width × BitVec phases)) : BitVec phases :=
+  let rows := List.range width
+  let positiveRows := rows.filter (fun p => goal.getLsbD p)
+  let negativeRows := rows.filter (fun q => !(goal.getLsbD q))
+  positiveRows.foldl (fun valid p => negativeRows.foldl (fun valid q =>
+    clearOrientationPair goal inputs p q valid) valid) (BitVec.allOnes phases)
+
+def orientationMask {width : ℕ} (goal : BitVec width)
+    (frontier : List (BitVec width)) : BitVec (2 ^ frontier.length) :=
+  orientationMaskInputs goal (orientationInputs frontier)
+
+def orientationCheck {width : ℕ} (goal : BitVec width)
+    (frontier : List (BitVec width)) : Bool :=
+  decide (orientationMask goal frontier.eraseDups ≠ 0)
+
+lemma orientationConstraint_sound {width phases : ℕ} (wc : BitVec width × BitVec phases)
+    (p q : ℕ) (j : Fin phases) (d : Bool) (hc : wc.2.getLsbD j.val = d)
+    (h : (orientationConstraint wc p q).getLsbD j.val = true) :
+    signedValue d (wc.1.getLsbD p) = true → signedValue d (wc.1.getLsbD q) = true := by
+  cases hp : wc.1.getLsbD p <;> cases hq : wc.1.getLsbD q <;> cases d <;>
+    simp_all [orientationConstraint, signedValue, j.isLt]
+
+lemma dominationMask_sound {width phases : ℕ} (inputs : List (BitVec width × BitVec phases))
+    (p q : ℕ) (j : Fin phases) (direction : BitVec width → Bool)
+    (hc : ∀ wc ∈ inputs, wc.2.getLsbD j.val = direction wc.1)
+    (h : (dominationMask inputs p q).getLsbD j.val = true) :
+    ∀ w ∈ inputs.map Prod.fst,
+      signedValue (direction w) (w.getLsbD p) = true →
+      signedValue (direction w) (w.getLsbD q) = true := by
+  induction inputs with
+  | nil => simp
+  | cons wc ws ih =>
+    have hh : (orientationConstraint wc p q).getLsbD j.val = true ∧
+        (dominationMask ws p q).getLsbD j.val = true := by
+      simpa only [dominationMask, List.foldr_cons, BitVec.getLsbD_and, Bool.and_eq_true] using h
+    intro w hw
+    rcases List.mem_cons.mp hw with rfl | hw
+    · exact orientationConstraint_sound wc p q j _ (hc wc List.mem_cons_self) hh.1
+    · exact ih (fun x hx => hc x (List.mem_cons_of_mem _ hx)) hh.2 w hw
+
+lemma clearOrientationPair_preserves {width phases : ℕ} (goal : BitVec width)
+    (inputs : List (BitVec width × BitVec phases)) (direction : BitVec width → Bool)
+    (j : Fin phases) (hc : ∀ wc ∈ inputs, wc.2.getLsbD j.val = direction wc.1)
+    (hmono : ∀ p q : Fin width,
+      (∀ w ∈ inputs.map Prod.fst, signedValue (direction w) (w.getLsbD p.val) = true →
+        signedValue (direction w) (w.getLsbD q.val) = true) →
+      goal.getLsbD p.val = true → goal.getLsbD q.val = true)
+    (p q : ℕ) (hp : p < width) (hq : q < width)
+    (valid : BitVec phases) (hv : valid.getLsbD j.val = true) :
+    (clearOrientationPair goal inputs p q valid).getLsbD j.val = true := by
+  have hz : valid ≠ 0 := by
+    intro hz
+    rw [hz] at hv
+    simp at hv
+  unfold clearOrientationPair
+  rw [ite_eq_right hz]
+  split
+  next hg =>
+    have hgood : goal.getLsbD p = true ∧ goal.getLsbD q = false := by
+      simpa using hg
+    have hnot : (dominationMask inputs p q).getLsbD j.val = false := by
+      cases hd : (dominationMask inputs p q).getLsbD j.val with
+      | false => rfl
+      | true =>
+        have hh := hmono ⟨p, hp⟩ ⟨q, hq⟩ (dominationMask_sound inputs p q j direction hc hd) hgood.1
+        rw [hgood.2] at hh
+        cases hh
+    simp only [BitVec.getLsbD_and, BitVec.getLsbD_not, j.isLt, decide_true,
+      Bool.true_and, hv, hnot, Bool.not_false]
+  next hg => exact hv
+
+lemma foldl_preserves_phase {phases : ℕ} {β : Type} (xs : List β)
+    (f : BitVec phases → β → BitVec phases) (j : Fin phases)
+    (hf : ∀ a ∈ xs, ∀ v : BitVec phases, v.getLsbD j.val = true →
+      (f v a).getLsbD j.val = true) (v : BitVec phases) (hv : v.getLsbD j.val = true) :
+    (xs.foldl f v).getLsbD j.val = true := by
+  induction xs generalizing v with
+  | nil => exact hv
+  | cons a as ih =>
+    apply ih (fun a ha => hf a (List.mem_cons_of_mem _ ha))
+    exact hf a List.mem_cons_self v hv
+
+lemma orientationMaskInputs_preserves {width phases : ℕ} (goal : BitVec width)
+    (inputs : List (BitVec width × BitVec phases)) (direction : BitVec width → Bool)
+    (j : Fin phases) (hc : ∀ wc ∈ inputs, wc.2.getLsbD j.val = direction wc.1)
+    (hmono : ∀ p q : Fin width,
+      (∀ w ∈ inputs.map Prod.fst, signedValue (direction w) (w.getLsbD p.val) = true →
+        signedValue (direction w) (w.getLsbD q.val) = true) →
+      goal.getLsbD p.val = true → goal.getLsbD q.val = true) :
+    (orientationMaskInputs goal inputs).getLsbD j.val = true := by
+  apply foldl_preserves_phase
+  · intro p hp valid hv
+    apply foldl_preserves_phase
+    · intro q hq valid hv
+      exact clearOrientationPair_preserves goal inputs direction j hc hmono p q
+        (List.mem_range.mp (List.mem_filter.mp hp).1)
+        (List.mem_range.mp (List.mem_filter.mp hq).1) valid hv
+    · exact hv
+  · simp [j.isLt]
+
+lemma orientationMask_of_unate {width : ℕ} (goal : BitVec width)
+    (frontier : List (BitVec width)) (h : unateSeparator goal frontier.toFinset) :
+    orientationMask goal frontier ≠ 0 := by
+  obtain ⟨direction, hdir⟩ := h
+  obtain ⟨j, hj⟩ := orientationInputs_complete frontier direction
+  have hmono : ∀ p q : Fin width,
+      (∀ w ∈ (orientationInputs frontier).map Prod.fst,
+        signedValue (direction w) (w.getLsbD p.val) = true →
+        signedValue (direction w) (w.getLsbD q.val) = true) →
+      goal.getLsbD p.val = true → goal.getLsbD q.val = true := by
+    intro p q hpq
+    apply hdir p q
+    intro w hw
+    apply hpq w
+    rw [orientationInputs_words]
+    exact List.mem_toFinset.mp hw
+  have hh := orientationMaskInputs_preserves goal (orientationInputs frontier) direction j hj hmono
+  intro hz
+  change (orientationMask goal frontier).getLsbD j.val = true at hh
+  rw [hz] at hh
+  simp at hh
+
+lemma orientationCheck_of_unate {width : ℕ} (goal : BitVec width)
+    (frontier : List (BitVec width)) (h : unateSeparator goal frontier.toFinset) :
+    orientationCheck goal frontier = true := by
+  apply decide_eq_true
+  apply orientationMask_of_unate
+  have he : frontier.eraseDups.toFinset = frontier.toFinset := by
+    apply Finset.ext
+    intro w
+    simp only [List.mem_toFinset, List.mem_eraseDups]
+  rw [he]
+  exact h
+
+lemma not_live_of_orientationCheck {width k : ℕ} (goal : BitVec width)
+    (frontier : List (BitVec width)) (hcard : frontier.toFinset.card = k + 1)
+    (hcheck : orientationCheck goal frontier = false) :
+    ¬ live basicOps goal k frontier.toFinset := by
+  intro h
+  have hh := orientationCheck_of_unate goal frontier (live_tight_unate h hcard)
+  rw [hcheck] at hh
+  cases hh
+
 end PEqualNP.Outside.L_meta_10760
