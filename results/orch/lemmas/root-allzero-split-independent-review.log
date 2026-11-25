@@ -1,0 +1,14 @@
+{
+  "source_sha256": "5e98b2a46e91e12b4464b16d2d8655fa94ad879b6bbe8a69b2c2a948feb438fe",
+  "original_20_Horner_polynomials_exact": true,
+  "source_multiplier_support": 378,
+  "source_integer_constants": 378,
+  "subcertificate_identity_exact": true,
+  "F_terms": 1821,
+  "root_quotient_terms": 456,
+  "S3_sum_identity_exact": true,
+  "S3_preserves_original_equations": true,
+  "constant_bits": 421,
+  "scope": "exact arithmetic audit of generated Lean source; kernel compilation not asserted",
+  "seconds": 0.6177343439994729
+}

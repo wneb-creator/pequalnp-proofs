@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/TopAllZeroSplitNC.lean",
+  "sha256": "181bf20f6191d2a2047477dbeb1e6e9c0e5f485fe685a91cb528f99010ef9457",
+  "source_sha256_after": "181bf20f6191d2a2047477dbeb1e6e9c0e5f485fe685a91cb528f99010ef9457",
+  "started_utc": "2026-11-25T11:56:25.717312+00:00",
+  "finished_utc": "2026-11-25T12:01:07.457495+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 9894481920,
+  "seconds": 281.7402227069997,
+  "rss_limit_bytes": 11811160064,
+  "wall_limit_seconds": 300
+}

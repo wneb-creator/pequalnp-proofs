@@ -205,3 +205,7 @@ TIMING total=196.4 subagents=7
 2026-11-25T11:54:25.114051+00:00 Complete repeated-zero-row branch checked and independently reviewed. DoubleSingleComplete.lean SHA2569f321c64a4518f1b8ae6a18270a28ffdd32783b1a6168ce2ab02dc4a1e6bd472;1313lines/336626bytes; kernel exit0/193.42s/5.67GiB. Full profile log and all7 approved artifacts preserved. The final theorem exactly supplies RepeatedMatrixObstruction with all model/disjoint callbacks discharged. The remaining global full-row and frame inputs are unresolved. Target checker not run.
 Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
 TIMING total=198.7 subagents=7
+
+2026-11-25T12:06:47.986628+00:00 Preserved independently reviewed TopAllZeroObstruction.lean (838 lines,315430 bytes). Pinned Lean4.36.0 exit0,281.740s,peak9894481920 bytes. Exact20-polynomial obstruction only; geometric matrix bridge and global target remain open. No target local-checker result. Cleanup not yet applicable.
+Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
+TIMING total=211.1 subagents=7
