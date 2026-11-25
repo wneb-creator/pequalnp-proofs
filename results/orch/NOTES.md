@@ -16,3 +16,11 @@ Assigned statement and lease metadata are in /tmp/oec/pequalnp-pilot-143/desk-ne
 2026-11-25T14:58:52.417401+00:00 counterexample: no weak-incidence loophole found; complete critical assignment sets have 58 (q2) and 756 (q3) elements. Stochastic searches underway for 26-gate Fano / 63-gate q3 circuits. See counterexample.md.
 
 2026-11-25T14:59:21.440755+00:00 readk_strategy: readk_card.lean compiled cleanly (lake env lean, exit0). incidence_edge_card proven. Root notified immediately for reviewed partial push.
+
+2026-11-25T15:01:10.434112+00:00 normal_form: normal_prereq.lean compiles (107 lines): singleton rejection; no input below incidence output; output valid and a gate. Root notified for immediate push.
+
+2026-11-25T15:01:48.889029+00:00 readk_strategy: readk_semantics.lean compiles cleanly; exact prime-implicant characterization proven. Root notified for reviewed push. Pair-vector IsReadK criterion now being checked in separate readk_criterion.lean.
+
+2026-11-25T15:02:02.350511+00:00 readk_strategy: readk_criterion.lean compiled cleanly. IsReadK characterized exactly by per-incidence pair checks, for arbitrary k. Root notified for reviewed push; construction/cardinality and semantics assigned subtasks complete.
+
+2026-11-25T15:02:35.629858+00:00 library_route: 5-variable two-AND exhaustive search supports cover-count conjecture; existing L1006 refutation uses weaker boundary semantics and is not a counterexample to full incidence computation.

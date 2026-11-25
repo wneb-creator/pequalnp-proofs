@@ -12,3 +12,12 @@ TIMING total=6.77 subagents=6
 Additional compiled partials:
 results/orch/lemmas/normal_prereq.lean: lake env lean, exit 0, stdout/stderr empty; independent review PASS.
 results/orch/lemmas/readk_semantics.lean: lake env lean, exit 0, stdout/stderr empty; independent review PASS.
+
+Named partial: lean/PEqualNP/Outside/L_meta_2583.lean
+Command: lake build +PEqualNP.Outside.L_meta_2583
+Exit status: 0
+Build output: Build completed successfully (18423 jobs).
+Lines: 2276
+Claims: read1 upper N*(q+2)-1; unrestricted lower 3*N-1; failure size window.
+The posted theorem is not yet proved. Checker run pending.
+readk_criterion.lean: lake env lean, exit0, empty stdout/stderr, independent review PASS.

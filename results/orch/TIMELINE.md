@@ -5,3 +5,4 @@
 
 2026-11-25T15:02:02.350511+00:00 readk_strategy completed construction/cardinality preparation and checked exact ReadK pair criterion. Remaining full-theorem blocker is sharp unrestricted circuit lower bound.
 2026-11-25T15:02:05.013129+00:00 Compiled normal_prereq and readk_semantics; independent review PASS for both partials.
+2026-11-25T15:02:59.326725+00:00 Combined named partial lake build PASS (18423 jobs, 2276 lines); independent review PASS.
