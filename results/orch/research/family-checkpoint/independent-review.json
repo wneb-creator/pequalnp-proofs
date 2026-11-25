@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "reviewer": "root, independent of bundle producer",
+  "timestamp": "2026-11-25T11:34:15.166750+00:00",
+  "archive_sha256": "3e132758f5f9bd49d1ea2ebcf4f8ed78de5f4f3ddbf02f965353e619393cb937",
+  "verified_files": 188,
+  "scope": "Exact family computations, not a full proof; rank-two generic and rank-three branches remain open.",
+  "credential_pattern_scan": "PASS",
+  "size_and_hash_check": "PASS"
+}
