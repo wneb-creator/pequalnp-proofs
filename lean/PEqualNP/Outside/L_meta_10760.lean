@@ -3059,4 +3059,242 @@ lemma originalG_delete4_lower10 :
 
 end RestrictionSixProof
 
+namespace RestrictionSixProof
+
+def programCut (s : SliceD) (cs : List (Nat × Nat × Nat)) : CutV :=
+  (s.1, s.2.1, cs.length, mkPool (initPool s.1 s.2.2) cs)
+
+lemma programCut_sound {R T s} (hs : SliceN R T s)
+    (cs : List (Nat × Nat × Nat)) : CutP R T (programCut s cs) := by
+  obtain ⟨⟨f, roots, dom, base, nc, lo⟩, hv⟩ := hs
+  have ps : PS f (roots.map observe) (initPool s.1 s.2.2) := by
+    intro v hv'
+    obtain ⟨j, hj, rfl⟩ := List.mem_map.mp hv'
+    rw [rf_land dom]
+    exact base _ (List.mem_map_of_mem (hv j hj))
+  obtain ⟨bank, hb, hp⟩ :=
+    mkPool_ok cs (Reach.start (u := true) (roots := roots.map observe)) ps
+  refine ⟨f, roots, bank, dom, nc, ?_, hp, lo⟩
+  simpa [programCut] using hb
+
+lemma guessCut_sound {R T s k rest a b o ka kb}
+    (hs : SliceN R T s) (cs : List (Nat × Nat × Nat))
+    (nd : (kidW rest a b (nb o a b) ka kb).Nodup)
+    (h : cutEval k rest a b (nb o a b) ka kb (programCut s cs) = true) :
+    Impossible true (W T) k (kidW rest a b (nb o a b) ka kb).toFinset :=
+  cut_sound (programCut_sound hs cs) nd h
+
+def guessCuts (Z : List SliceD) (guess : SliceD → List (Nat × Nat × Nat))
+    (k : Nat) (rest : List Nat) (a b z : Nat) (ka kb : Bool) : Bool :=
+  Z.any fun s => cutEval k rest a b z ka kb (programCut s (guess s))
+
+lemma guessCuts_sound {R T Z k rest a b o ka kb}
+    (hZ : ∀ s ∈ Z, SliceN R T s)
+    (guess : SliceD → List (Nat × Nat × Nat))
+    (nd : (kidW rest a b (nb o a b) ka kb).Nodup)
+    (h : guessCuts Z guess k rest a b (nb o a b) ka kb = true) :
+    Impossible true (W T) k (kidW rest a b (nb o a b) ka kb).toFinset := by
+  obtain ⟨s, hs, hc⟩ := List.any_eq_true.mp h
+  exact guessCut_sound (hZ s hs) (guess s) nd hc
+
+end RestrictionSixProof
+
+variable {α : Type} [DecidableEq α]
+def build (ops : α → α → Finset α) (goal : α) : ℕ → Finset α → Prop
+  | 0, available => goal ∈ available
+  | k + 1, available => build ops goal k available ∨
+    ∃ a ∈ available, ∃ b ∈ available, a ≠ b ∧
+      ∃ z ∈ ops a b, build ops goal k (insert z available)
+
+variable {width : Nat}
+def ops (x y : BitVec width) : List (BitVec width) :=
+  [x &&& y, x ||| y, x &&& ~~~y, y &&& ~~~x]
+
+abbrev basicOps (a b : BitVec width) : Finset (BitVec width) := (ops a b).toFinset
+
+def holds (av : Finset (BitVec width)) (z : (BitVec width)) : Prop :=
+  z = 0 ∨ z = ~~~0 ∨ ∃ a ∈ av, z = a ∨ z = ~~~a
+
+lemma holds_insert {av : Finset (BitVec width)} {z a : (BitVec width)} (h : holds av z) : holds (insert a av) z := by
+  rcases h with h|h|⟨u,hu,he⟩
+  · exact .inl h
+  · exact .inr (.inl h)
+  · exact .inr (.inr ⟨u,Finset.mem_insert_of_mem hu,he⟩)
+
+lemma holds_not {av : Finset (BitVec width)} {z : (BitVec width)} (h : holds av z) : holds av (~~~z) := by
+  rcases h with rfl|rfl|⟨a,ha,he⟩
+  · exact .inr (.inl rfl)
+  · exact .inl BitVec.not_not
+  · rcases he with he|he <;> rw [he]
+    · exact .inr (.inr ⟨a, ha, .inr rfl⟩)
+    · exact .inr (.inr ⟨a, ha, .inl BitVec.not_not⟩)
+
+def reachable (av : Finset (BitVec width)) (z : (BitVec width)) : Prop :=
+  holds av z ∨ ∃ a ∈ av, ∃ b ∈ av, a ≠ b ∧ ∃ w ∈ basicOps a b, holds (insert w av) z
+
+lemma reachable_not {av : Finset (BitVec width)} {z : (BitVec width)} (h : reachable av z) : reachable av (~~~z) := by
+  rcases h with h|⟨a,ha,b,hb,ne,w,hop,hw⟩
+  · exact .inl (holds_not h)
+  · exact .inr ⟨a,ha,b,hb,ne,w,hop,holds_not hw⟩
+
+set_option maxRecDepth 5000 in
+lemma and_reach {av : Finset (BitVec width)} {x y : (BitVec width)} (hx : holds av x) (hy : holds av y) :
+    reachable av (x &&& y) := by
+  have const : holds av (0 : (BitVec width)) := .inl rfl
+  have oldx := hx
+  rcases hx with rfl|rfl|⟨a,ha,ea⟩
+  · rw [show (0 : (BitVec width)) &&& y = 0 from BitVec.zero_and]; exact .inl const
+  · have he : (~~~(0 : BitVec width)) &&& y = y := by
+      apply BitVec.eq_of_getLsbD_eq
+      intro i
+      simp
+    rw [he]
+    exact .inl hy
+  rcases hy with rfl|rfl|⟨b,hb,eb⟩
+  · rw [show x &&& (0 : (BitVec width)) = 0 from BitVec.and_zero]; exact .inl const
+  · have he : x &&& ~~~(0 : BitVec width) = x := by
+      apply BitVec.eq_of_getLsbD_eq
+      intro i
+      simp
+    rw [he]
+    exact .inl oldx
+  by_cases h : a = b
+  · subst b
+    rcases ea with ea|ea <;> rcases eb with eb|eb <;> rw [ea,eb] <;>
+      simp only [BitVec.and_self, BitVec.and_not_self, BitVec.not_and_self] <;>
+      first | exact .inl const | exact .inl (.inr (.inr ⟨a,ha,.inl rfl⟩)) |
+        exact .inl (.inr (.inr ⟨a,ha,.inr rfl⟩))
+  have add (w : (BitVec width)) (hw : w ∈ basicOps a b) (z : (BitVec width)) (hz : z = w ∨ z = ~~~w) :
+      reachable av z :=
+    .inr ⟨a,ha,b,hb,h,w,hw,.inr (.inr ⟨w,Finset.mem_insert_self ..,hz⟩)⟩
+  rcases ea with ea|ea <;> rcases eb with eb|eb <;> rw [ea,eb]
+  · exact add _ (by simp [basicOps,ops] : a &&& b ∈ basicOps a b) _ (.inl rfl)
+  · exact add _ (by simp [basicOps,ops] : a &&& ~~~b ∈ basicOps a b) _ (.inl rfl)
+  · exact add _ (by simp [basicOps,ops] : b &&& ~~~a ∈ basicOps a b) _ (.inl (BitVec.and_comm ..))
+  · exact add _ (by simp [basicOps,ops] : a ||| b ∈ basicOps a b) _ (.inr BitVec.not_or.symm)
+
+lemma or_reach {av : Finset (BitVec width)} {x y : (BitVec width)} (hx : holds av x) (hy : holds av y) :
+    reachable av (x ||| y) := by
+  simpa only [BitVec.not_and, BitVec.not_not] using reachable_not (and_reach (holds_not hx) (holds_not hy))
+
+
+def samplePack {R : Type} {width : Nat} (rows : Fin width → R) (f : R → Bool) : BitVec width :=
+  (BitVec.ofBoolListLE (List.ofFn (fun i => f (rows i)))).cast List.length_ofFn
+
+lemma samplePack_get {R : Type} {width : Nat} (rows : Fin width → R) (f : R → Bool)
+    (i : Nat) (hi : i < width) : (samplePack rows f).getLsbD i = f (rows ⟨i, hi⟩) := by
+  simp only [samplePack, BitVec.getLsbD_cast, BitVec.getLsbD_ofBoolListLE,
+    List.getD_eq_getElem?_getD, List.getElem?_ofFn]
+  simp [hi]
+
+lemma samplePack_getElem {R : Type} {width : Nat} (rows : Fin width → R) (f : R → Bool)
+    (i : Nat) (hi : i < width) : (samplePack rows f)[i] = f (rows ⟨i, hi⟩) :=
+  (BitVec.getLsbD_eq_getElem hi).symm.trans (samplePack_get rows f i hi)
+
+lemma samplePack_inv {R : Type} {width : Nat} (rows : Fin width → R) (f : R → Bool) :
+    samplePack rows (RestrictionSixProof.inv f) = ~~~samplePack rows f := by
+  apply BitVec.eq_of_getLsbD_eq
+  intro i hi
+  simp [samplePack_getElem, RestrictionSixProof.inv, hi]
+
+lemma samplePack_combine {R : Type} {width : Nat} (rows : Fin width → R)
+    (op : Bool) (f g : R → Bool) :
+    samplePack rows (RestrictionSixProof.combine op f g) =
+      if op then samplePack rows f ||| samplePack rows g
+      else samplePack rows f &&& samplePack rows g := by
+  cases op <;> apply BitVec.eq_of_getLsbD_eq <;> intro i hi <;>
+    simp [samplePack_getElem, RestrictionSixProof.combine, hi]
+
+lemma samplePack_constant {R : Type} {width : Nat} (rows : Fin width → R) (b : Bool) :
+    samplePack rows (fun _ => b) = if b then ~~~0 else 0 := by
+  cases b <;> apply BitVec.eq_of_getLsbD_eq <;> intro i hi <;> simp [samplePack_getElem, hi]
+
+lemma available_samplePack {R : Type} {width : Nat} (rows : Fin width → R)
+    {bank : List (R → Bool)} {a : R → Bool} {av : Finset (BitVec width)}
+    (h : RestrictionSixProof.Available true bank a)
+    (hb : ∀ f ∈ bank, holds av (samplePack rows f)) : holds av (samplePack rows a) := by
+  rcases h with hm | ⟨b, rfl⟩ | ⟨_, hm⟩
+  · exact hb a hm
+  · rw [samplePack_constant]
+    cases b
+    · exact Or.inl rfl
+    · exact Or.inr (Or.inl rfl)
+  · have hn := holds_not (hb _ hm)
+    simpa only [samplePack_inv, BitVec.not_not] using hn
+
+lemma reach_samplePack_cont {R : Type} {width : Nat} (rows : Fin width → R)
+    (goal : BitVec width) {roots bank : List (R → Bool)} {p : Nat}
+    (hr : RestrictionSixProof.Reach true roots p bank)
+    (n : Nat) (av : Finset (BitVec width))
+    (hroots : ∀ f ∈ roots, holds av (samplePack rows f))
+    (next : ∀ bv, (∀ f ∈ bank, holds bv (samplePack rows f)) →
+      ∃ g, (g = goal ∨ g = ~~~goal) ∧ build basicOps g n bv) :
+    ∃ g, (g = goal ∨ g = ~~~goal) ∧ build basicOps g (p + n) av := by
+  induction hr using RestrictionSixProof.Reach.ind generalizing n av with
+  | start => simpa using next av hroots
+  | @two p bank a b op hr ha hb ih =>
+    have cont : ∀ bv, (∀ f ∈ bank, holds bv (samplePack rows f)) →
+        ∃ g, (g = goal ∨ g = ~~~goal) ∧ build basicOps g (n + 1) bv := by
+      intro bv hbank
+      have ah := available_samplePack rows ha hbank
+      have bh := available_samplePack rows hb hbank
+      have rep : reachable bv (samplePack rows (RestrictionSixProof.combine op a b)) := by
+        rw [samplePack_combine]
+        cases op
+        · exact and_reach ah bh
+        · exact or_reach ah bh
+      have finish (cv) (hold : ∀ f ∈ bank, holds cv (samplePack rows f))
+          (new : holds cv (samplePack rows (RestrictionSixProof.combine op a b))) :=
+        next cv (by
+          intro f hf
+          rcases List.mem_cons.mp hf with rfl | hf
+          · exact new
+          · exact hold f hf)
+      rcases rep with existing | ⟨u, hu, v, hv, huv, z, hz, new⟩
+      · obtain ⟨g, hg, run⟩ := finish bv hbank existing
+        exact ⟨g, hg, Or.inl run⟩
+      · obtain ⟨g, hg, run⟩ := finish (insert z bv)
+          (fun f hf => holds_insert (hbank f hf)) new
+        exact ⟨g, hg, Or.inr ⟨u, hu, v, hv, huv, z, hz, run⟩⟩
+    obtain ⟨g, hg, run⟩ := ih (n + 1) av hroots cont
+    exact ⟨g, hg, by simpa [Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using run⟩
+
+lemma reach_samplePack_build {R : Type} {width : Nat} (rows : Fin width → R)
+    {roots bank : List (R → Bool)} {p : Nat} {target : R → Bool}
+    {av : Finset (BitVec width)} (hr : RestrictionSixProof.Reach true roots p bank)
+    (hroots : ∀ f ∈ roots, holds av (samplePack rows f))
+    (hit : RestrictionSixProof.Available true bank target)
+    (hzero : samplePack rows target ≠ 0) (hones : samplePack rows target ≠ ~~~0) :
+    ∃ g, (g = samplePack rows target ∨ g = ~~~samplePack rows target) ∧
+      build basicOps g p av := by
+  have result := reach_samplePack_cont rows (samplePack rows target) hr 0 av hroots (by
+    intro bv hb
+    have ht := available_samplePack rows hit hb
+    rcases ht with hz | ho | ⟨g, hg, eq | eq⟩
+    · exact False.elim (hzero hz)
+    · exact False.elim (hones ho)
+    · exact ⟨g, Or.inl eq.symm, hg⟩
+    · exact ⟨g, Or.inr (by rw [eq, BitVec.not_not]), hg⟩)
+  simpa only [Nat.add_zero] using result
+
+lemma lowN_of_signed_sample_rejection {width : Nat} (rows : Fin width → Fin 128)
+    (R : List Nat) (T k : Nat) (av : Finset (BitVec width))
+    (hroots : ∀ w ∈ RestrictionSixProof.rootsW R,
+      holds av (samplePack rows (RestrictionSixProof.observe w)))
+    (hzero : samplePack rows (RestrictionSixProof.observe (RestrictionSixProof.W T)) ≠ 0)
+    (hones : samplePack rows (RestrictionSixProof.observe (RestrictionSixProof.W T)) ≠ ~~~0)
+    (reject : ∀ p, p ≤ k → ∀ g,
+      (g = samplePack rows (RestrictionSixProof.observe (RestrictionSixProof.W T)) ∨
+       g = ~~~samplePack rows (RestrictionSixProof.observe (RestrictionSixProof.W T))) →
+      ¬build basicOps g p av) : RestrictionSixProof.LowN R T (k + 1) := by
+  intro p bank hr hit
+  by_contra! small
+  have rootsh : ∀ f ∈ (RestrictionSixProof.rootsW R).map RestrictionSixProof.observe,
+      holds av (samplePack rows f) := by
+    intro f hf
+    obtain ⟨w, hw, rfl⟩ := List.mem_map.mp hf
+    exact hroots w hw
+  obtain ⟨g, hg, run⟩ := reach_samplePack_build rows hr rootsh hit hzero hones
+  exact reject p (by omega) g hg run
+
 end PEqualNP.Outside.L_meta_10760
