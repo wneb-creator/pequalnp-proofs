@@ -1,0 +1,10 @@
+{
+  "pid": 33409,
+  "mode": "complete",
+  "exit": 0,
+  "timeout": false,
+  "over_memory": false,
+  "peak_rss_bytes": 6084292608,
+  "seconds": 193.41745305699988,
+  "memory_limit_bytes": 6442450944
+}

@@ -1,0 +1,12 @@
+lemma actual_repeated_matrix_obstruction (A B C : Matrix (Fin 4) (Fin 4) ℂ)
+    (hsA : ∀ r s, A r s=A s r) (hsB : ∀ r s, B r s=B s r)
+    (hsC : ∀ r s, C r s=C s r)
+    (hA0 : ∀ j, A 0 j=0) (hA1 : ∀ j, A 1 j=0)
+    (hB2 : ∀ j, B 2 j=0) (hC3 : ∀ j, C 3 j=0)
+    (hi : LinearIndependent ℂ ![A,B,C])
+    (hp : ∀ x y z, Matrix.permanent (Matrix.of fun r s =>
+      (1:ℂ)+x*A r s+y*B r s+z*C r s)=24) : False := by
+  exact repeated_rows_impossible
+    (model_impossible_from_scaled same_nonzero_matrix_obstruction cross_nonzero_matrix_obstruction)
+    PEqualNP.Outside.L_gct_231.TwoBlock.MatrixBridge.two_double_kernel_rows_maximal
+    A B C hsA hsB hsC hA0 hA1 hB2 hC3 hi hp
