@@ -1,6 +1,6 @@
 Job: pequalnp-pilot-166
 Gap: L-meta-13150
-Status: independently reviewed refutation; Lean build and kernel checker pending toolchain/cache setup.
+Status: lake build PEqualNP.Outside.L_meta_13150 PASS (exit 0); kernel checker pending.
 The target theorem negates the exact assigned statement.
 The existing V_meta_9933__k9 lower bound and nine-gate monotone witness establish the positive statement.
 Independent witness evaluation: all 64 inputs match.
