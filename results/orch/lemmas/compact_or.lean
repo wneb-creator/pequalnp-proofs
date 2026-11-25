@@ -350,4 +350,159 @@ lemma meet_eq_mask8 (values : List Bool) (atoms : List ℕ) (bound : ℕ)
     rw [mask8_get atoms i (by have := hbound i hi; omega)] at hv
     simpa [hi] using hv
 
+
+def vmeet (values : List (BitVec 10)) (atoms : List ℕ) : BitVec 10 :=
+  atoms.foldr (fun i rest => values.getD i 0 &&& rest) (BitVec.allOnes 10)
+
+def vstep (values : List (BitVec 10)) (g : List ℕ × List ℕ) : List (BitVec 10) :=
+  values ++ [vmeet values g.1 ||| vmeet values g.2]
+
+def vwires (program : List (List ℕ × List ℕ)) (x : List (BitVec 10)) : List (BitVec 10) :=
+  program.foldl vstep x
+
+def veval (program : List (List ℕ × List ℕ)) (output : List ℕ) (x : List (BitVec 10)) : BitVec 10 :=
+  vmeet (vwires program x) output
+
+lemma band_bits (atoms : List ℕ) (f : ℕ → BitVec 10) (i : ℕ) (hi : i < 10) :
+    (atoms.foldr (fun a rest => f a &&& rest) (BitVec.allOnes 10)).getLsbD i =
+      atoms.all (fun a => (f a).getLsbD i) := by
+  induction atoms with
+  | nil =>
+    change (BitVec.allOnes 10).getLsbD i = true
+    rw [BitVec.getLsbD_allOnes]
+    simp [hi]
+  | cons a atoms ih =>
+    simp only [List.foldr_cons, BitVec.getLsbD_and, List.all_cons]
+    rw [ih]
+
+lemma vmeet_bits (values : List (BitVec 10)) (atoms : List ℕ) (i : ℕ) (hi : i < 10) :
+    (vmeet values atoms).getLsbD i = meet (values.map (fun v => v.getLsbD i)) atoms := by
+  rw [vmeet, band_bits atoms _ i hi]
+  unfold meet
+  apply congrArg (fun f : ℕ → Bool => atoms.all f)
+  funext a
+  simpa using (List.getD_map values (0 : BitVec 10) (n := a) (fun v => v.getLsbD i)).symm
+
+lemma vwires_bits (program : List (List ℕ × List ℕ)) (values : List (BitVec 10))
+    (i : ℕ) (hi : i < 10) :
+    (vwires program values).map (fun v => v.getLsbD i) =
+      wires program (values.map (fun v => v.getLsbD i)) := by
+  induction program generalizing values with
+  | nil => rfl
+  | cons g gs ih =>
+    change (vwires gs (vstep values g)).map (fun v => v.getLsbD i) =
+      wires gs (step (values.map (fun v => v.getLsbD i)) g)
+    rw [ih]
+    apply congrArg (wires gs)
+    simp only [vstep, step, List.map_append, List.map_singleton,
+      BitVec.getLsbD_or, vmeet_bits values g.1 i hi, vmeet_bits values g.2 i hi]
+
+lemma veval_bits (program : List (List ℕ × List ℕ)) (output : List ℕ)
+    (values : List (BitVec 10)) (i : ℕ) (hi : i < 10) :
+    (veval program output values).getLsbD i =
+      eval program output (values.map (fun v => v.getLsbD i)) := by
+  rw [veval, vmeet_bits _ output i hi, vwires_bits program values i hi]
+  rfl
+
+def vselect (values : List (BitVec 10)) (bound : ℕ) (p : BitVec 8) : BitVec 10 :=
+  (List.range bound).foldr (fun i rest =>
+    (if p.getLsbD i then values.getD i 0 else BitVec.allOnes 10) &&& rest) (BitVec.allOnes 10)
+
+lemma vmeet_eq_mask8 (values : List (BitVec 10)) (atoms : List ℕ) (bound : ℕ)
+    (hbound : bounded bound atoms) (hsmall : bound ≤ 8) :
+    vmeet values atoms = vselect values bound (mask8 atoms) := by
+  apply BitVec.eq_of_getLsbD_eq
+  intro i hi
+  rw [vmeet_bits values atoms i hi, meet_eq_mask8 _ atoms bound hbound hsmall]
+  rw [vselect, band_bits _ _ i hi]
+  apply congrArg (fun f : ℕ → Bool => (List.range bound).all f)
+  funext a
+  cases hmask : (mask8 atoms).getLsbD a with
+  | false =>
+    change true = (BitVec.allOnes 10).getLsbD i
+    rw [BitVec.getLsbD_allOnes]
+    simp [hi]
+  | true =>
+    simpa [hmask] using List.getD_map values (0 : BitVec 10) (n := a) (fun v => v.getLsbD i)
+
+
+def cycleInputs : List (BitVec 10) := [113, 387, 550, 204, 792]
+
+def FiniteObstruction : Prop := ∀ a b c d e f o : BitVec 8,
+  let v := vselect cycleInputs 5 a ||| vselect cycleInputs 5 b
+  let w := vselect (cycleInputs ++ [v]) 6 c ||| vselect (cycleInputs ++ [v]) 6 d
+  let z := vselect (cycleInputs ++ [v] ++ [w]) 7 e ||| vselect (cycleInputs ++ [v] ++ [w]) 7 f
+  vselect (cycleInputs ++ [v] ++ [w] ++ [z]) 8 o ≠ 31
+
+lemma list_three {α : Type} (l : List α) (hlen : l.length = 3) :
+    ∃ a b c, l = [a, b, c] := by
+  cases l with
+  | nil => simp at hlen
+  | cons a l =>
+    cases l with
+    | nil => simp at hlen
+    | cons b l =>
+      cases l with
+      | nil => simp at hlen
+      | cons c l =>
+        have hempty : l = [] := by
+          cases l with
+          | nil => rfl
+          | cons d l => simp only [List.length_cons] at hlen; omega
+        subst l
+        exact ⟨a, b, c, rfl⟩
+
+theorem three_program_obstruction (hfinite : FiniteObstruction)
+    (program : List (List ℕ × List ℕ)) (output : List ℕ)
+    (hlen : program.length = 3) (hwf : wellFormed 5 program) (houtput : bounded 8 output) :
+    veval program output cycleInputs ≠ 31 := by
+  obtain ⟨g0, g1, g2, rfl⟩ := list_three program hlen
+  have h0 : bounded 5 g0.1 ∧ bounded 5 g0.2 := by simpa using hwf 0 (by simp)
+  have h1 : bounded 6 g1.1 ∧ bounded 6 g1.2 := by simpa using hwf 1 (by simp)
+  have h2 : bounded 7 g2.1 ∧ bounded 7 g2.2 := by simpa using hwf 2 (by simp)
+  let v := vselect cycleInputs 5 (mask8 g0.1) ||| vselect cycleInputs 5 (mask8 g0.2)
+  let w := vselect (cycleInputs ++ [v]) 6 (mask8 g1.1) ||| vselect (cycleInputs ++ [v]) 6 (mask8 g1.2)
+  let z := vselect (cycleInputs ++ [v] ++ [w]) 7 (mask8 g2.1) |||
+    vselect (cycleInputs ++ [v] ++ [w]) 7 (mask8 g2.2)
+  have heval : veval [g0, g1, g2] output cycleInputs =
+      vselect (cycleInputs ++ [v] ++ [w] ++ [z]) 8 (mask8 output) := by
+    simp only [veval, vwires, List.foldl_cons, List.foldl_nil, vstep]
+    rw [vmeet_eq_mask8 cycleInputs g0.1 5 h0.1 (by decide),
+      vmeet_eq_mask8 cycleInputs g0.2 5 h0.2 (by decide)]
+    change vmeet (cycleInputs ++ [v] ++
+      [vmeet (cycleInputs ++ [v]) g1.1 ||| vmeet (cycleInputs ++ [v]) g1.2] ++
+      [vmeet (cycleInputs ++ [v] ++
+        [vmeet (cycleInputs ++ [v]) g1.1 ||| vmeet (cycleInputs ++ [v]) g1.2]) g2.1 |||
+       vmeet (cycleInputs ++ [v] ++
+        [vmeet (cycleInputs ++ [v]) g1.1 ||| vmeet (cycleInputs ++ [v]) g1.2]) g2.2]) output = _
+    rw [vmeet_eq_mask8 (cycleInputs ++ [v]) g1.1 6 h1.1 (by decide),
+      vmeet_eq_mask8 (cycleInputs ++ [v]) g1.2 6 h1.2 (by decide)]
+    change vmeet (cycleInputs ++ [v] ++ [w] ++
+      [vmeet (cycleInputs ++ [v] ++ [w]) g2.1 ||| vmeet (cycleInputs ++ [v] ++ [w]) g2.2]) output = _
+    rw [vmeet_eq_mask8 (cycleInputs ++ [v] ++ [w]) g2.1 7 h2.1 (by decide),
+      vmeet_eq_mask8 (cycleInputs ++ [v] ++ [w]) g2.2 7 h2.2 (by decide)]
+    exact vmeet_eq_mask8 (cycleInputs ++ [v] ++ [w] ++ [z]) output 8 houtput le_rfl
+  rw [heval]
+  exact hfinite (mask8 g0.1) (mask8 g0.2) (mask8 g1.1) (mask8 g1.2)
+    (mask8 g2.1) (mask8 g2.2) (mask8 output)
+
+theorem circuit_four_ors (hfinite : FiniteObstruction) (C : Circuit)
+    (hnorm : normalized 5 C.gates) (hout : C.output < 5 + C.gates.length)
+    (hvalues : ∀ i : Fin 10,
+      C.eval (cycleInputs.map (fun v => v.getLsbD i.val)) = (31 : BitVec 10).getLsbD i.val) :
+    4 ≤ orCount C.gates := by
+  by_contra hlt
+  have hcount : orCount C.gates ≤ 3 := by omega
+  obtain ⟨program, output, hlen, hwf, hbound, heval⟩ := circuit_translation 5 C hnorm hout
+  obtain ⟨padded, hpadlen, hpadwf, hpadbound, hpadeval⟩ :=
+    pad_to 5 program output (by decide) hwf hbound 3 (by omega)
+  have hvec : veval padded output cycleInputs = 31 := by
+    apply BitVec.eq_of_getLsbD_eq
+    intro i hi
+    rw [veval_bits padded output cycleInputs i hi]
+    have hsize : (cycleInputs.map (fun v => v.getLsbD i)).length = 5 := by simp [cycleInputs]
+    rw [hpadeval _ hsize, heval _ hsize]
+    exact hvalues ⟨i, hi⟩
+  exact three_program_obstruction hfinite padded output hpadlen hpadwf hpadbound hvec
+
 end PEqualNP.Outside.L_meta_1031_aux.CompactOr

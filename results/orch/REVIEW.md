@@ -43,3 +43,7 @@ PASS. File 247 lines, SHA256 8bf11c21c3a292793a74e48bdb9c8fed3ebe1de94e3fe6aa227
 ### Independent compact padding and mask review by normal_form (2026-11-25T01:42:38.071725+00:00)
 
 PASS. Source353lines, SHA256 ea60538c38f94b174ad1b7282827bafac237c14689a60b8e49ca56585f59171e. Appending unused OR(x0,x0) preserves bounded outputs under n>0. Conjunction evaluation is insensitive to order and duplicate indices, and mask8 stores membership bits7through0 with matching getLsbD indexing. All bounds needed for reads and padding are explicit. No native/reflection trust escape appears.
+
+### Independent compact vector and conditional-bound review by normal_form (2026-11-25T01:46:31.971578+00:00)
+
+PASS. Source508lines, SHA256 93b666ef9bfd0eba9b6a7ee1655235ca341be2a1e626aff9be55409165def89a. Vector operations project to Boolean evaluation on each of ten bits, and bounded atom lists convert correctly to8-bit selection masks. cycleInputs columns0through4 are C5edges01,12,23,34,40; columns5through9 are nonedges02,03,13,14,24. circuit_four_ors assumes the explicit FiniteObstruction premise and the ten test values, pads to exactly3OR, and derives a contradiction. The finite obstruction is NOT proved in this file, and no unconditional lower-bound or full-gap result follows yet. No native verifier, added axiom, or reflective trust escape appears.
