@@ -23,3 +23,9 @@
 2026-11-25T03:22:08.580224+00:0065gate full-semantics core compiled and independently reviewed; checkpoint.
 
 2026-11-25T03:22:46.898029+00:00 Mixed-cover bound and full65gate double-reread witness compiled and independently reviewed.
+
+2026-11-25T03:22:54.801604+00:00 lemma_route completed full checked65-gate double-reread upperbound witness; root/reviewer notified for archival push.
+
+2026-11-25T03:26:42.244504+00:00 Phase2 replan: discarded standalone derivative-AND-count and local-nine-deletion claims after counterexamples. Continuing exact local resynthesis around65witness and combinedfour-profile charging. Checked construction+geometry preserved onfork.
+
+2026-11-25T03:26:54.978096+00:00475-line combined partial passed build and independentreview; checkpoint.

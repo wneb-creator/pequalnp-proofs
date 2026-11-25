@@ -98,3 +98,27 @@ The concurrently appended trace extension (230-line snapshot SHA256 391a42ec725c
 ## 2026-11-25T03:21:49.360136+00:00 mixed-cover formal lemma CHECKED
 
 results/orch/lemmas/mixed_cover.lean compiled exit 0 with no warnings/errors. Structural proof uses Mathlib ZMod.cauchy_davenport: neighborhood of S is S+{0,12,10,4} modulo13, so a nonempty S with nonfull neighborhood has neighborhood size at least |S|+3. Hence any incidence vertex cover P,L containing neither full side has |P|+|L|≥16. Only the 169 point-line shift identities are checked by kernel decide; the 8192-subset exhaustive approach was abandoned. All helper declarations use PEqualNP.Outside.L_meta_2602_aux; imports Mathlib and PEqualNP.Defs. Full compile log /tmp/oec/pequalnp-pilot-65/toolchain/mixed-cover-build-4.log (empty). This is geometric progress only, not the full circuit theorem.
+
+## 2026-11-25T03:22:47.824090+00:00 structure_proof — separate gate budgets
+
+Exact exhaustive free-OR normal-form enumeration tested all circuits with at most2 AND gates on6 variables against all120 C4-free bipartite3+3 graphs with cover3. No counterexample to AND-count≥cover;4,332,705 operand cases checked in1.2s. Script/log: /tmp/oec/pequalnp-pilot-65/structure/free_or_two_and.py and free-or-two-and.log. This is computational evidence only, not a proof or Lean certificate.
+
+Relevant existing checked results: L_meta_217 gives AND≥t for no-four-cycle graphs only t≤5, using finite classification (7353lines). L_meta_634 gives Fano AND≥7 by finite-model exclusion (4678lines). L_meta_1006 refutes a weaker boundary-only no4 cover-count assertion, with triangles; its circuit fails some positive edge-pair rows, so this is not a counterexample to the full bipartite function bound.
+
+Strict OR≥|E| for double reread also fails without an AND budget: replace a star S=p AND N by S1=S AND N and S2=S1 AND p and reroute its uses. Both derivative directions vanish while the Boolean star remains unchanged, adding2 AND gates and no OR gates. On the plane this is66 gates with13+2 AND and51 OR. The65-gate construction found by finite_search has13 AND and52 OR. Thus either separate type count can remain optimal with double reread; excluding AND13,OR51 must be a joint optimality argument.
+
+## 2026-11-25T03:22:54.801604+00:00 lemma_route: checked 65-gate upper witness
+
+results/orch/lemmas/upper65.lean (230 lines, sha256391a42ec725cd3eab9ef3fc16cb006c2c52d5e7931c17590c803b75c3ee1f153) compiles with lake env lean, exit0, no warnings/errors. Full log upper65-build-4.log is empty. Exact snapshot /tmp/oec/pequalnp-pilot-65/upper65-traces-checked.lean. Defines an explicit65-gate circuit and proves its size, every gate has two distinct earlier inputs and AND/OR operation, computes full13-by13 incidence function for all26 Boolean inputs, and supplies both explicitly initialized derivative recurrence traces with zero output. All proofs use simp/norm_num/decide on finite closed data, no native_decide, bv_decide, axioms, or sorry. This is an upperbound witness at65, NOT a refutation of the posted≤64 statement.
+
+Construction: F computes all12 line-stars except line1 (59 gates), B is OR of line1 points1,2,4,10. Output is (F OR B) AND (F OR y1), using6 more gates. Algebraically equals F OR (y1 AND B). Both factors vanish at the marked singleton inputs0 and13, forcing both formal derivativeszero.
+
+## 2026-11-25T03:24:53.248812+00:00 Independent review: 475-line merged checkpoint
+
+PASS for canonical SHA256 b84e02ea8843461492d9272d54c91873e51a5e7337a8b944d089fc1b9eb4fa19. Trace, mixed_cover and complete upper65 bodies are verbatim their checked source snapshots. Mixed-cover bound reviewed: Cauchy–Davenport gives neighborhood expansion by3 for a nonempty set with proper neighborhood, and complement-neighborhood containment yields cover size at least16. The 230-line upper65 trace extension now has reported build4 exit0 with empty log, confirming the previously inspected snapshot391a42. Namespace/import/options/banned-pattern checks pass. Main theorem remains absent; build005 pending at review.
+
+## 2026-11-25T03:26:34.389121+00:00 status_review: separate-count checks and seed search
+
+Exact free-AND C6 enumeration rules out ≤4 OR gates:113,456,790 candidate unions,584,971 closure states,20.17seconds, no timeout. Intersections are free and closed exhaustively; pruning functions false on all target edges is sound by replacing those wires by false. Full64-row equality is checked. File free_and_exact.cpp/logs in scratch. Fullplane65-seed mutation completed299,600,000 iterations with no64 witness. A6-AND free-OR Fano heuristic completed1,062,100,000 mutations with best3 mismatching rows; no witness, not a lower-bound proof.
+
+The proposed stronger OR≥|E| from double reread is false even for single edge xy: duplicate x AND y as two distinct gates, then AND their outputs. It has3 ANDs,0 ORs, and doublezero traces. Conversely the65-plane seed retains minimum13 ANDs but uses52 ORs. Any valid joint-optimality argument must address both counts together.

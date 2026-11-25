@@ -3,7 +3,7 @@ Gap: L-meta-2602
 Status: checked partial components only; exact gap theorem is NOT proved.
 
 Sub-agents: 6 (status/counterexample search, structural proof, lemma route, finite search, toolchain, independent review)
-TIMING total=10.78 subagents=6
+TIMING total=21.45 subagents=6
 
 Lean: v4.36.0; pinned Mathlib cache fetched successfully (9117 files).
 Command: source /tmp/oec/pequalnp-pilot-65/toolchain/enable.sh && lake env lean ../results/orch/lemmas/lemma_route.lean
@@ -34,3 +34,7 @@ Independent review: PASS semantics and trace arrays. Size65 is outside posted fo
 
 Mixed-cover partial: lake env lean exit0, stdout/stderr empty;75lines.
 Any cover with neither bipartition side full has size≥16. Independent review: PASS.
+
+475-line combined canonical partial: lake build exit0.
+Build completed successfully (18423 jobs).
+Independent merged-diff review PASS. Exact gap theorem remains absent.
