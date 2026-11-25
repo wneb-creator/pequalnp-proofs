@@ -10,3 +10,7 @@ All timestamps UTC.
 - 2026-11-25T21:12:30Z: Local setup agent completed pinned Lean installation, prebuilt Mathlib cache, and project definitions build.
 - 2026-11-25T21:13:49Z: Petersen graph facts compiled with kernel-checked finite decisions; no full gap proof yet. Existing lease renewed.
 - 2026-11-25T21:15:00Z: Independent local review passed for graph facts and partial timeline; full gap remains open.
+- 2026-11-25T21:20:19+00:00: Partial timeline push confirmed at 1cd23680. Root conditional lower bound and bad-AND obstruction kernel checks passed. No full proof yet.
+- 2026-11-25T21:20:12Z: helper-9 first status: independent adversarial review started.
+- 2026-11-25T21:20:16Z: helper-8 first status: finite certificate route started.
+- 2026-11-25T21:23:00Z: Root obstruction proof prepared as results/swarm/PetersenLower.lean; it proves only a necessary dirty-gate condition, not L-meta-2590.
