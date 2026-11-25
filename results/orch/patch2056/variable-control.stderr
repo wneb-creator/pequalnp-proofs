@@ -1,0 +1,3 @@
+PASS34 exact nonlinear seed controls
+PASS33-to-29 exact shrink control; rounds=1
+PASS100 exact CNF/DNF expansion controls

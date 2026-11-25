@@ -1,0 +1,1 @@
+PASS 9836 valid nets from 10000 randomized trials; twelve-word dominance checks: no lost positives, no new negatives, actual mutated nets match evaluator, backward reads preserved

@@ -1,0 +1,2 @@
+collinear6 {'inputs': 19, 'edges': 24, 'maxfalse': 59, 'baseline': 29, 'target': 28}
+core14 {'inputs': 14, 'edges': 19, 'maxfalse': 33, 'baseline': 24, 'target': 23}

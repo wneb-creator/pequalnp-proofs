@@ -26,3 +26,5 @@
 2026-11-25T15:40:49.261378+00:00 New live L-meta-2056 assignment after3null responses. Six strategies resumed; fresh lease expiry2026-11-25T16:00:49.611Z.
 
 2026-11-25T16:10:24.623963+00:00 L-meta-2056 re-plan: packed verifier and 64-gate control compiled; preferred sixteen-chunk implementation peaks at3,187,024KiB. No63-gate witness. Four-point classes, one five-point class and one six-point orbit excluded using existing checked bounds. Remaining search: longer symmetry-reduced six-point SAT, theta4 core SAT, five-point stochastic search, and a different six-point geometry. Partial verifier pushed at3b56d49a6aa72b8ca2820b09a1e5f8bced1ea0b0.
+
+2026-11-25T16:31:08.580403+00:00 L-meta-2056 strategy review: named partial build5149jobs passed and was pushed; directed dominance plus minimality corollary compiled/pushed. Fivepoint search and two theta4 SAT runs ended without a witness/verdict. Four-worker portfolio now covers full63CEGIS, six28SAT, eight38local, and exact33-slot shrinking. New P4/double-star seeds reduce nonlinear starting overhead from4 to2 gates over baseline. Full-plane66 seeds prepared. New456-file upstream census yielded no shortcut.

@@ -1,0 +1,14 @@
+{
+  "status": "prepared; independently approved; not launched",
+  "inputs": 26,
+  "target_gates": 63,
+  "words": 12,
+  "positive_rows": 52,
+  "negative_rows": 704,
+  "nonlinear_seed_count": 52,
+  "nonlinear_seed_gates": 66,
+  "differential_trials": 10000,
+  "source_sha256": "9e1f96cc68f1786ea1880ec77baf78893ff53dcf2585e903b79ea2d6b100f672",
+  "review_status": "approved",
+  "differential_valid_nets_checked": 9836
+}

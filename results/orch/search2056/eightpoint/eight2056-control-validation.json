@@ -1,0 +1,9 @@
+{
+  "inputs": 20,
+  "control_gates": 39,
+  "assignments_verified": 1048576,
+  "positive_rows": 32,
+  "maximal_false_rows": 136,
+  "critical_rows": 168,
+  "result": "PASS"
+}

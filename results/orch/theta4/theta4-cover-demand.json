@@ -1,0 +1,13 @@
+{
+  "scope": "conditional clique-multicover model only; branch-sharing link not established",
+  "count_by_cover_size": {
+    "6": 24,
+    "5": 2
+  },
+  "bound_histogram": {
+    "8": 24,
+    "7": 2
+  },
+  "failures": [],
+  "elapsed_seconds": 0.0018450520001351833
+}

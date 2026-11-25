@@ -1,0 +1,7 @@
+{
+  "positive": 52,
+  "maximal_false": 704,
+  "all_point_subsets_enumerated": 8192,
+  "duplicates": false,
+  "data_matches_exact_sum_incidence": true
+}

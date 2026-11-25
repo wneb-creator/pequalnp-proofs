@@ -1,0 +1,3687 @@
+{
+  "n": 13,
+  "neighbor_masks": [
+    523,
+    4357,
+    6274,
+    3137,
+    5664,
+    2832,
+    1416,
+    708,
+    354,
+    177,
+    4184,
+    2092,
+    1046
+  ],
+  "all_point_subsets": 8192,
+  "proper_both_sides_min": 16,
+  "proper_minimizers": [
+    {
+      "points": 177,
+      "lines": 7679,
+      "size": 16
+    },
+    {
+      "points": 354,
+      "lines": 7935,
+      "size": 16
+    },
+    {
+      "points": 523,
+      "lines": 8190,
+      "size": 16
+    },
+    {
+      "points": 708,
+      "lines": 8063,
+      "size": 16
+    },
+    {
+      "points": 1046,
+      "lines": 4095,
+      "size": 16
+    },
+    {
+      "points": 1416,
+      "lines": 8127,
+      "size": 16
+    },
+    {
+      "points": 2092,
+      "lines": 6143,
+      "size": 16
+    },
+    {
+      "points": 2832,
+      "lines": 8159,
+      "size": 16
+    },
+    {
+      "points": 3137,
+      "lines": 8183,
+      "size": 16
+    },
+    {
+      "points": 4095,
+      "lines": 1046,
+      "size": 16
+    },
+    {
+      "points": 4184,
+      "lines": 7167,
+      "size": 16
+    },
+    {
+      "points": 4357,
+      "lines": 8189,
+      "size": 16
+    },
+    {
+      "points": 5664,
+      "lines": 8175,
+      "size": 16
+    },
+    {
+      "points": 6143,
+      "lines": 2092,
+      "size": 16
+    },
+    {
+      "points": 6274,
+      "lines": 8187,
+      "size": 16
+    },
+    {
+      "points": 7167,
+      "lines": 4184,
+      "size": 16
+    },
+    {
+      "points": 7679,
+      "lines": 177,
+      "size": 16
+    },
+    {
+      "points": 7935,
+      "lines": 354,
+      "size": 16
+    },
+    {
+      "points": 8063,
+      "lines": 708,
+      "size": 16
+    },
+    {
+      "points": 8127,
+      "lines": 1416,
+      "size": 16
+    },
+    {
+      "points": 8159,
+      "lines": 2832,
+      "size": 16
+    },
+    {
+      "points": 8175,
+      "lines": 5664,
+      "size": 16
+    },
+    {
+      "points": 8183,
+      "lines": 3137,
+      "size": 16
+    },
+    {
+      "points": 8187,
+      "lines": 6274,
+      "size": 16
+    },
+    {
+      "points": 8189,
+      "lines": 4357,
+      "size": 16
+    },
+    {
+      "points": 8190,
+      "lines": 523,
+      "size": 16
+    }
+  ],
+  "minimal_cover_counts": {
+    "13": 2,
+    "16": 26,
+    "18": 156,
+    "19": 468,
+    "20": 52
+  },
+  "mixed_minimal_cover_counts": {
+    "16": 26,
+    "18": 156,
+    "19": 468,
+    "20": 52
+  },
+  "minimal_covers": [
+    {
+      "points": 0,
+      "lines": 8191,
+      "size": 13
+    },
+    {
+      "points": 177,
+      "lines": 7679,
+      "size": 16
+    },
+    {
+      "points": 354,
+      "lines": 7935,
+      "size": 16
+    },
+    {
+      "points": 499,
+      "lines": 7423,
+      "size": 18
+    },
+    {
+      "points": 523,
+      "lines": 8190,
+      "size": 16
+    },
+    {
+      "points": 699,
+      "lines": 7678,
+      "size": 18
+    },
+    {
+      "points": 708,
+      "lines": 8063,
+      "size": 16
+    },
+    {
+      "points": 719,
+      "lines": 8062,
+      "size": 18
+    },
+    {
+      "points": 757,
+      "lines": 7551,
+      "size": 18
+    },
+    {
+      "points": 767,
+      "lines": 7550,
+      "size": 19
+    },
+    {
+      "points": 875,
+      "lines": 7934,
+      "size": 18
+    },
+    {
+      "points": 998,
+      "lines": 7807,
+      "size": 18
+    },
+    {
+      "points": 1007,
+      "lines": 7806,
+      "size": 19
+    },
+    {
+      "points": 1015,
+      "lines": 7295,
+      "size": 19
+    },
+    {
+      "points": 1019,
+      "lines": 7422,
+      "size": 19
+    },
+    {
+      "points": 1023,
+      "lines": 7294,
+      "size": 19
+    },
+    {
+      "points": 1046,
+      "lines": 4095,
+      "size": 16
+    },
+    {
+      "points": 1207,
+      "lines": 3583,
+      "size": 18
+    },
+    {
+      "points": 1398,
+      "lines": 3839,
+      "size": 18
+    },
+    {
+      "points": 1416,
+      "lines": 8127,
+      "size": 16
+    },
+    {
+      "points": 1438,
+      "lines": 4031,
+      "size": 18
+    },
+    {
+      "points": 1465,
+      "lines": 7615,
+      "size": 18
+    },
+    {
+      "points": 1471,
+      "lines": 3519,
+      "size": 19
+    },
+    {
+      "points": 1514,
+      "lines": 7871,
+      "size": 18
+    },
+    {
+      "points": 1527,
+      "lines": 3327,
+      "size": 19
+    },
+    {
+      "points": 1531,
+      "lines": 7359,
+      "size": 19
+    },
+    {
+      "points": 1534,
+      "lines": 3775,
+      "size": 19
+    },
+    {
+      "points": 1535,
+      "lines": 3263,
+      "size": 19
+    },
+    {
+      "points": 1567,
+      "lines": 4094,
+      "size": 18
+    },
+    {
+      "points": 1727,
+      "lines": 3582,
+      "size": 19
+    },
+    {
+      "points": 1750,
+      "lines": 3967,
+      "size": 18
+    },
+    {
+      "points": 1759,
+      "lines": 3966,
+      "size": 19
+    },
+    {
+      "points": 1783,
+      "lines": 3455,
+      "size": 19
+    },
+    {
+      "points": 1791,
+      "lines": 3454,
+      "size": 19
+    },
+    {
+      "points": 1919,
+      "lines": 3838,
+      "size": 20
+    },
+    {
+      "points": 1931,
+      "lines": 8126,
+      "size": 18
+    },
+    {
+      "points": 1951,
+      "lines": 4030,
+      "size": 19
+    },
+    {
+      "points": 1979,
+      "lines": 7614,
+      "size": 19
+    },
+    {
+      "points": 1983,
+      "lines": 3518,
+      "size": 19
+    },
+    {
+      "points": 1996,
+      "lines": 7999,
+      "size": 18
+    },
+    {
+      "points": 1999,
+      "lines": 7998,
+      "size": 19
+    },
+    {
+      "points": 2014,
+      "lines": 3903,
+      "size": 19
+    },
+    {
+      "points": 2015,
+      "lines": 3902,
+      "size": 19
+    },
+    {
+      "points": 2027,
+      "lines": 7870,
+      "size": 19
+    },
+    {
+      "points": 2030,
+      "lines": 7743,
+      "size": 19
+    },
+    {
+      "points": 2031,
+      "lines": 7742,
+      "size": 19
+    },
+    {
+      "points": 2038,
+      "lines": 3711,
+      "size": 19
+    },
+    {
+      "points": 2039,
+      "lines": 3199,
+      "size": 19
+    },
+    {
+      "points": 2043,
+      "lines": 7358,
+      "size": 19
+    },
+    {
+      "points": 2045,
+      "lines": 7487,
+      "size": 20
+    },
+    {
+      "points": 2046,
+      "lines": 3647,
+      "size": 19
+    },
+    {
+      "points": 2047,
+      "lines": 3134,
+      "size": 18
+    },
+    {
+      "points": 2092,
+      "lines": 6143,
+      "size": 16
+    },
+    {
+      "points": 2237,
+      "lines": 5631,
+      "size": 18
+    },
+    {
+      "points": 2414,
+      "lines": 5887,
+      "size": 18
+    },
+    {
+      "points": 2559,
+      "lines": 5375,
+      "size": 20
+    },
+    {
+      "points": 2607,
+      "lines": 6142,
+      "size": 18
+    },
+    {
+      "points": 2751,
+      "lines": 5630,
+      "size": 19
+    },
+    {
+      "points": 2796,
+      "lines": 6015,
+      "size": 18
+    },
+    {
+      "points": 2799,
+      "lines": 6014,
+      "size": 19
+    },
+    {
+      "points": 2813,
+      "lines": 5503,
+      "size": 19
+    },
+    {
+      "points": 2815,
+      "lines": 5502,
+      "size": 19
+    },
+    {
+      "points": 2832,
+      "lines": 8159,
+      "size": 16
+    },
+    {
+      "points": 2843,
+      "lines": 8158,
+      "size": 18
+    },
+    {
+      "points": 2876,
+      "lines": 6111,
+      "size": 18
+    },
+    {
+      "points": 2879,
+      "lines": 6110,
+      "size": 19
+    },
+    {
+      "points": 2927,
+      "lines": 5886,
+      "size": 19
+    },
+    {
+      "points": 2930,
+      "lines": 7903,
+      "size": 18
+    },
+    {
+      "points": 2939,
+      "lines": 7902,
+      "size": 19
+    },
+    {
+      "points": 2942,
+      "lines": 5855,
+      "size": 19
+    },
+    {
+      "points": 2943,
+      "lines": 5854,
+      "size": 19
+    },
+    {
+      "points": 2993,
+      "lines": 7647,
+      "size": 18
+    },
+    {
+      "points": 3003,
+      "lines": 7646,
+      "size": 19
+    },
+    {
+      "points": 3005,
+      "lines": 5599,
+      "size": 19
+    },
+    {
+      "points": 3007,
+      "lines": 5598,
+      "size": 19
+    },
+    {
+      "points": 3028,
+      "lines": 8031,
+      "size": 18
+    },
+    {
+      "points": 3039,
+      "lines": 8030,
+      "size": 20
+    },
+    {
+      "points": 3054,
+      "lines": 5759,
+      "size": 19
+    },
+    {
+      "points": 3055,
+      "lines": 5758,
+      "size": 19
+    },
+    {
+      "points": 3059,
+      "lines": 7391,
+      "size": 19
+    },
+    {
+      "points": 3061,
+      "lines": 7519,
+      "size": 19
+    },
+    {
+      "points": 3062,
+      "lines": 7775,
+      "size": 19
+    },
+    {
+      "points": 3063,
+      "lines": 7263,
+      "size": 19
+    },
+    {
+      "points": 3067,
+      "lines": 7390,
+      "size": 19
+    },
+    {
+      "points": 3068,
+      "lines": 5983,
+      "size": 19
+    },
+    {
+      "points": 3069,
+      "lines": 5471,
+      "size": 19
+    },
+    {
+      "points": 3070,
+      "lines": 5727,
+      "size": 19
+    },
+    {
+      "points": 3071,
+      "lines": 5214,
+      "size": 18
+    },
+    {
+      "points": 3134,
+      "lines": 2047,
+      "size": 18
+    },
+    {
+      "points": 3137,
+      "lines": 8183,
+      "size": 16
+    },
+    {
+      "points": 3159,
+      "lines": 4087,
+      "size": 18
+    },
+    {
+      "points": 3181,
+      "lines": 6135,
+      "size": 18
+    },
+    {
+      "points": 3199,
+      "lines": 2039,
+      "size": 19
+    },
+    {
+      "points": 3263,
+      "lines": 1535,
+      "size": 19
+    },
+    {
+      "points": 3313,
+      "lines": 7671,
+      "size": 18
+    },
+    {
+      "points": 3319,
+      "lines": 3575,
+      "size": 19
+    },
+    {
+      "points": 3325,
+      "lines": 5623,
+      "size": 19
+    },
+    {
+      "points": 3327,
+      "lines": 1527,
+      "size": 19
+    },
+    {
+      "points": 3427,
+      "lines": 7927,
+      "size": 18
+    },
+    {
+      "points": 3439,
+      "lines": 5879,
+      "size": 19
+    },
+    {
+      "points": 3447,
+      "lines": 3831,
+      "size": 19
+    },
+    {
+      "points": 3454,
+      "lines": 1791,
+      "size": 19
+    },
+    {
+      "points": 3455,
+      "lines": 1783,
+      "size": 19
+    },
+    {
+      "points": 3500,
+      "lines": 6079,
+      "size": 18
+    },
+    {
+      "points": 3517,
+      "lines": 5567,
+      "size": 19
+    },
+    {
+      "points": 3518,
+      "lines": 1983,
+      "size": 19
+    },
+    {
+      "points": 3519,
+      "lines": 1471,
+      "size": 19
+    },
+    {
+      "points": 3529,
+      "lines": 8119,
+      "size": 18
+    },
+    {
+      "points": 3551,
+      "lines": 4023,
+      "size": 20
+    },
+    {
+      "points": 3563,
+      "lines": 7863,
+      "size": 19
+    },
+    {
+      "points": 3565,
+      "lines": 6071,
+      "size": 19
+    },
+    {
+      "points": 3566,
+      "lines": 5823,
+      "size": 19
+    },
+    {
+      "points": 3567,
+      "lines": 5815,
+      "size": 19
+    },
+    {
+      "points": 3571,
+      "lines": 7415,
+      "size": 19
+    },
+    {
+      "points": 3575,
+      "lines": 3319,
+      "size": 19
+    },
+    {
+      "points": 3577,
+      "lines": 7607,
+      "size": 19
+    },
+    {
+      "points": 3579,
+      "lines": 7351,
+      "size": 19
+    },
+    {
+      "points": 3581,
+      "lines": 5559,
+      "size": 19
+    },
+    {
+      "points": 3582,
+      "lines": 1727,
+      "size": 19
+    },
+    {
+      "points": 3583,
+      "lines": 1207,
+      "size": 18
+    },
+    {
+      "points": 3647,
+      "lines": 2046,
+      "size": 19
+    },
+    {
+      "points": 3659,
+      "lines": 8182,
+      "size": 18
+    },
+    {
+      "points": 3679,
+      "lines": 4086,
+      "size": 19
+    },
+    {
+      "points": 3695,
+      "lines": 6134,
+      "size": 19
+    },
+    {
+      "points": 3711,
+      "lines": 2038,
+      "size": 19
+    },
+    {
+      "points": 3775,
+      "lines": 1534,
+      "size": 19
+    },
+    {
+      "points": 3781,
+      "lines": 8055,
+      "size": 18
+    },
+    {
+      "points": 3791,
+      "lines": 8054,
+      "size": 19
+    },
+    {
+      "points": 3799,
+      "lines": 3959,
+      "size": 19
+    },
+    {
+      "points": 3807,
+      "lines": 3958,
+      "size": 19
+    },
+    {
+      "points": 3821,
+      "lines": 6007,
+      "size": 19
+    },
+    {
+      "points": 3823,
+      "lines": 6006,
+      "size": 19
+    },
+    {
+      "points": 3829,
+      "lines": 7543,
+      "size": 19
+    },
+    {
+      "points": 3831,
+      "lines": 3447,
+      "size": 19
+    },
+    {
+      "points": 3835,
+      "lines": 7670,
+      "size": 20
+    },
+    {
+      "points": 3837,
+      "lines": 5495,
+      "size": 19
+    },
+    {
+      "points": 3838,
+      "lines": 1919,
+      "size": 20
+    },
+    {
+      "points": 3839,
+      "lines": 1398,
+      "size": 18
+    },
+    {
+      "points": 3862,
+      "lines": 4063,
+      "size": 18
+    },
+    {
+      "points": 3871,
+      "lines": 4062,
+      "size": 19
+    },
+    {
+      "points": 3902,
+      "lines": 2015,
+      "size": 19
+    },
+    {
+      "points": 3903,
+      "lines": 2014,
+      "size": 19
+    },
+    {
+      "points": 3921,
+      "lines": 8151,
+      "size": 18
+    },
+    {
+      "points": 3927,
+      "lines": 4055,
+      "size": 19
+    },
+    {
+      "points": 3931,
+      "lines": 8150,
+      "size": 19
+    },
+    {
+      "points": 3935,
+      "lines": 4054,
+      "size": 19
+    },
+    {
+      "points": 3947,
+      "lines": 7926,
+      "size": 19
+    },
+    {
+      "points": 3951,
+      "lines": 5878,
+      "size": 19
+    },
+    {
+      "points": 3955,
+      "lines": 7895,
+      "size": 19
+    },
+    {
+      "points": 3958,
+      "lines": 3807,
+      "size": 19
+    },
+    {
+      "points": 3959,
+      "lines": 3799,
+      "size": 19
+    },
+    {
+      "points": 3963,
+      "lines": 7894,
+      "size": 19
+    },
+    {
+      "points": 3965,
+      "lines": 6103,
+      "size": 20
+    },
+    {
+      "points": 3966,
+      "lines": 1759,
+      "size": 19
+    },
+    {
+      "points": 3967,
+      "lines": 1750,
+      "size": 18
+    },
+    {
+      "points": 3992,
+      "lines": 8095,
+      "size": 18
+    },
+    {
+      "points": 3995,
+      "lines": 8094,
+      "size": 19
+    },
+    {
+      "points": 3998,
+      "lines": 3999,
+      "size": 19
+    },
+    {
+      "points": 3999,
+      "lines": 3998,
+      "size": 19
+    },
+    {
+      "points": 4015,
+      "lines": 6078,
+      "size": 20
+    },
+    {
+      "points": 4023,
+      "lines": 3551,
+      "size": 20
+    },
+    {
+      "points": 4025,
+      "lines": 7583,
+      "size": 19
+    },
+    {
+      "points": 4027,
+      "lines": 7582,
+      "size": 19
+    },
+    {
+      "points": 4028,
+      "lines": 6047,
+      "size": 19
+    },
+    {
+      "points": 4029,
+      "lines": 5535,
+      "size": 19
+    },
+    {
+      "points": 4030,
+      "lines": 1951,
+      "size": 19
+    },
+    {
+      "points": 4031,
+      "lines": 1438,
+      "size": 18
+    },
+    {
+      "points": 4043,
+      "lines": 8118,
+      "size": 19
+    },
+    {
+      "points": 4045,
+      "lines": 7991,
+      "size": 19
+    },
+    {
+      "points": 4047,
+      "lines": 7990,
+      "size": 19
+    },
+    {
+      "points": 4053,
+      "lines": 8023,
+      "size": 19
+    },
+    {
+      "points": 4054,
+      "lines": 3935,
+      "size": 19
+    },
+    {
+      "points": 4055,
+      "lines": 3927,
+      "size": 19
+    },
+    {
+      "points": 4057,
+      "lines": 8087,
+      "size": 19
+    },
+    {
+      "points": 4059,
+      "lines": 8086,
+      "size": 19
+    },
+    {
+      "points": 4060,
+      "lines": 7967,
+      "size": 19
+    },
+    {
+      "points": 4061,
+      "lines": 7959,
+      "size": 19
+    },
+    {
+      "points": 4062,
+      "lines": 3871,
+      "size": 19
+    },
+    {
+      "points": 4063,
+      "lines": 3862,
+      "size": 18
+    },
+    {
+      "points": 4071,
+      "lines": 7799,
+      "size": 20
+    },
+    {
+      "points": 4075,
+      "lines": 7862,
+      "size": 19
+    },
+    {
+      "points": 4076,
+      "lines": 5951,
+      "size": 19
+    },
+    {
+      "points": 4077,
+      "lines": 5943,
+      "size": 19
+    },
+    {
+      "points": 4078,
+      "lines": 5695,
+      "size": 19
+    },
+    {
+      "points": 4079,
+      "lines": 5686,
+      "size": 18
+    },
+    {
+      "points": 4081,
+      "lines": 7639,
+      "size": 19
+    },
+    {
+      "points": 4083,
+      "lines": 7383,
+      "size": 19
+    },
+    {
+      "points": 4085,
+      "lines": 7511,
+      "size": 19
+    },
+    {
+      "points": 4086,
+      "lines": 3679,
+      "size": 19
+    },
+    {
+      "points": 4087,
+      "lines": 3159,
+      "size": 18
+    },
+    {
+      "points": 4089,
+      "lines": 7575,
+      "size": 19
+    },
+    {
+      "points": 4090,
+      "lines": 7839,
+      "size": 20
+    },
+    {
+      "points": 4091,
+      "lines": 7318,
+      "size": 18
+    },
+    {
+      "points": 4092,
+      "lines": 5919,
+      "size": 19
+    },
+    {
+      "points": 4093,
+      "lines": 5399,
+      "size": 18
+    },
+    {
+      "points": 4094,
+      "lines": 1567,
+      "size": 18
+    },
+    {
+      "points": 4095,
+      "lines": 1046,
+      "size": 16
+    },
+    {
+      "points": 4184,
+      "lines": 7167,
+      "size": 16
+    },
+    {
+      "points": 4345,
+      "lines": 6655,
+      "size": 18
+    },
+    {
+      "points": 4357,
+      "lines": 8189,
+      "size": 16
+    },
+    {
+      "points": 4445,
+      "lines": 7165,
+      "size": 18
+    },
+    {
+      "points": 4455,
+      "lines": 7933,
+      "size": 18
+    },
+    {
+      "points": 4474,
+      "lines": 6911,
+      "size": 18
+    },
+    {
+      "points": 4479,
+      "lines": 6909,
+      "size": 19
+    },
+    {
+      "points": 4533,
+      "lines": 7677,
+      "size": 18
+    },
+    {
+      "points": 4599,
+      "lines": 7421,
+      "size": 19
+    },
+    {
+      "points": 4603,
+      "lines": 6399,
+      "size": 19
+    },
+    {
+      "points": 4605,
+      "lines": 6653,
+      "size": 19
+    },
+    {
+      "points": 4607,
+      "lines": 6397,
+      "size": 19
+    },
+    {
+      "points": 4699,
+      "lines": 7166,
+      "size": 18
+    },
+    {
+      "points": 4828,
+      "lines": 7039,
+      "size": 18
+    },
+    {
+      "points": 4831,
+      "lines": 7038,
+      "size": 19
+    },
+    {
+      "points": 4859,
+      "lines": 6654,
+      "size": 19
+    },
+    {
+      "points": 4861,
+      "lines": 6527,
+      "size": 19
+    },
+    {
+      "points": 4863,
+      "lines": 6526,
+      "size": 19
+    },
+    {
+      "points": 4879,
+      "lines": 8188,
+      "size": 18
+    },
+    {
+      "points": 4959,
+      "lines": 7164,
+      "size": 19
+    },
+    {
+      "points": 4975,
+      "lines": 7932,
+      "size": 19
+    },
+    {
+      "points": 4987,
+      "lines": 6910,
+      "size": 19
+    },
+    {
+      "points": 4991,
+      "lines": 6908,
+      "size": 19
+    },
+    {
+      "points": 5055,
+      "lines": 7676,
+      "size": 20
+    },
+    {
+      "points": 5061,
+      "lines": 8061,
+      "size": 18
+    },
+    {
+      "points": 5071,
+      "lines": 8060,
+      "size": 19
+    },
+    {
+      "points": 5085,
+      "lines": 7037,
+      "size": 19
+    },
+    {
+      "points": 5087,
+      "lines": 7036,
+      "size": 19
+    },
+    {
+      "points": 5095,
+      "lines": 7805,
+      "size": 19
+    },
+    {
+      "points": 5103,
+      "lines": 7804,
+      "size": 19
+    },
+    {
+      "points": 5109,
+      "lines": 7549,
+      "size": 19
+    },
+    {
+      "points": 5111,
+      "lines": 7293,
+      "size": 19
+    },
+    {
+      "points": 5115,
+      "lines": 6398,
+      "size": 19
+    },
+    {
+      "points": 5117,
+      "lines": 6525,
+      "size": 19
+    },
+    {
+      "points": 5118,
+      "lines": 6783,
+      "size": 20
+    },
+    {
+      "points": 5119,
+      "lines": 6268,
+      "size": 18
+    },
+    {
+      "points": 5214,
+      "lines": 3071,
+      "size": 18
+    },
+    {
+      "points": 5375,
+      "lines": 2559,
+      "size": 20
+    },
+    {
+      "points": 5399,
+      "lines": 4093,
+      "size": 18
+    },
+    {
+      "points": 5471,
+      "lines": 3069,
+      "size": 19
+    },
+    {
+      "points": 5495,
+      "lines": 3837,
+      "size": 19
+    },
+    {
+      "points": 5502,
+      "lines": 2815,
+      "size": 19
+    },
+    {
+      "points": 5503,
+      "lines": 2813,
+      "size": 19
+    },
+    {
+      "points": 5517,
+      "lines": 8125,
+      "size": 18
+    },
+    {
+      "points": 5535,
+      "lines": 4029,
+      "size": 19
+    },
+    {
+      "points": 5559,
+      "lines": 3581,
+      "size": 19
+    },
+    {
+      "points": 5565,
+      "lines": 7613,
+      "size": 19
+    },
+    {
+      "points": 5567,
+      "lines": 3517,
+      "size": 19
+    },
+    {
+      "points": 5592,
+      "lines": 7103,
+      "size": 18
+    },
+    {
+      "points": 5597,
+      "lines": 7101,
+      "size": 19
+    },
+    {
+      "points": 5598,
+      "lines": 3007,
+      "size": 19
+    },
+    {
+      "points": 5599,
+      "lines": 3005,
+      "size": 19
+    },
+    {
+      "points": 5615,
+      "lines": 7869,
+      "size": 20
+    },
+    {
+      "points": 5623,
+      "lines": 3325,
+      "size": 19
+    },
+    {
+      "points": 5625,
+      "lines": 6591,
+      "size": 19
+    },
+    {
+      "points": 5626,
+      "lines": 6847,
+      "size": 19
+    },
+    {
+      "points": 5627,
+      "lines": 6335,
+      "size": 19
+    },
+    {
+      "points": 5629,
+      "lines": 6589,
+      "size": 19
+    },
+    {
+      "points": 5630,
+      "lines": 2751,
+      "size": 19
+    },
+    {
+      "points": 5631,
+      "lines": 2237,
+      "size": 18
+    },
+    {
+      "points": 5664,
+      "lines": 8175,
+      "size": 16
+    },
+    {
+      "points": 5675,
+      "lines": 8174,
+      "size": 18
+    },
+    {
+      "points": 5686,
+      "lines": 4079,
+      "size": 18
+    },
+    {
+      "points": 5695,
+      "lines": 4078,
+      "size": 19
+    },
+    {
+      "points": 5727,
+      "lines": 3070,
+      "size": 19
+    },
+    {
+      "points": 5752,
+      "lines": 7151,
+      "size": 18
+    },
+    {
+      "points": 5755,
+      "lines": 7150,
+      "size": 19
+    },
+    {
+      "points": 5758,
+      "lines": 3055,
+      "size": 19
+    },
+    {
+      "points": 5759,
+      "lines": 3054,
+      "size": 19
+    },
+    {
+      "points": 5809,
+      "lines": 7663,
+      "size": 18
+    },
+    {
+      "points": 5815,
+      "lines": 3567,
+      "size": 19
+    },
+    {
+      "points": 5819,
+      "lines": 7662,
+      "size": 19
+    },
+    {
+      "points": 5823,
+      "lines": 3566,
+      "size": 19
+    },
+    {
+      "points": 5854,
+      "lines": 2943,
+      "size": 19
+    },
+    {
+      "points": 5855,
+      "lines": 2942,
+      "size": 19
+    },
+    {
+      "points": 5860,
+      "lines": 8047,
+      "size": 18
+    },
+    {
+      "points": 5871,
+      "lines": 8046,
+      "size": 20
+    },
+    {
+      "points": 5877,
+      "lines": 7535,
+      "size": 19
+    },
+    {
+      "points": 5878,
+      "lines": 3951,
+      "size": 19
+    },
+    {
+      "points": 5879,
+      "lines": 3439,
+      "size": 19
+    },
+    {
+      "points": 5881,
+      "lines": 6639,
+      "size": 19
+    },
+    {
+      "points": 5883,
+      "lines": 6638,
+      "size": 19
+    },
+    {
+      "points": 5884,
+      "lines": 7023,
+      "size": 19
+    },
+    {
+      "points": 5885,
+      "lines": 6511,
+      "size": 19
+    },
+    {
+      "points": 5886,
+      "lines": 2927,
+      "size": 19
+    },
+    {
+      "points": 5887,
+      "lines": 2414,
+      "size": 18
+    },
+    {
+      "points": 5919,
+      "lines": 4092,
+      "size": 19
+    },
+    {
+      "points": 5925,
+      "lines": 8173,
+      "size": 18
+    },
+    {
+      "points": 5935,
+      "lines": 8172,
+      "size": 19
+    },
+    {
+      "points": 5943,
+      "lines": 4077,
+      "size": 19
+    },
+    {
+      "points": 5951,
+      "lines": 4076,
+      "size": 19
+    },
+    {
+      "points": 5983,
+      "lines": 3068,
+      "size": 19
+    },
+    {
+      "points": 5986,
+      "lines": 7919,
+      "size": 18
+    },
+    {
+      "points": 5991,
+      "lines": 7917,
+      "size": 19
+    },
+    {
+      "points": 5995,
+      "lines": 7918,
+      "size": 19
+    },
+    {
+      "points": 5999,
+      "lines": 7916,
+      "size": 19
+    },
+    {
+      "points": 6006,
+      "lines": 3823,
+      "size": 19
+    },
+    {
+      "points": 6007,
+      "lines": 3821,
+      "size": 19
+    },
+    {
+      "points": 6010,
+      "lines": 6895,
+      "size": 19
+    },
+    {
+      "points": 6011,
+      "lines": 6894,
+      "size": 19
+    },
+    {
+      "points": 6013,
+      "lines": 7149,
+      "size": 20
+    },
+    {
+      "points": 6014,
+      "lines": 2799,
+      "size": 19
+    },
+    {
+      "points": 6015,
+      "lines": 2796,
+      "size": 18
+    },
+    {
+      "points": 6031,
+      "lines": 8124,
+      "size": 19
+    },
+    {
+      "points": 6047,
+      "lines": 4028,
+      "size": 19
+    },
+    {
+      "points": 6056,
+      "lines": 8111,
+      "size": 18
+    },
+    {
+      "points": 6059,
+      "lines": 8110,
+      "size": 19
+    },
+    {
+      "points": 6061,
+      "lines": 8109,
+      "size": 19
+    },
+    {
+      "points": 6063,
+      "lines": 8108,
+      "size": 19
+    },
+    {
+      "points": 6069,
+      "lines": 7661,
+      "size": 19
+    },
+    {
+      "points": 6071,
+      "lines": 3565,
+      "size": 19
+    },
+    {
+      "points": 6073,
+      "lines": 7599,
+      "size": 19
+    },
+    {
+      "points": 6075,
+      "lines": 7598,
+      "size": 19
+    },
+    {
+      "points": 6077,
+      "lines": 7597,
+      "size": 19
+    },
+    {
+      "points": 6078,
+      "lines": 4015,
+      "size": 20
+    },
+    {
+      "points": 6079,
+      "lines": 3500,
+      "size": 18
+    },
+    {
+      "points": 6093,
+      "lines": 7997,
+      "size": 19
+    },
+    {
+      "points": 6095,
+      "lines": 7996,
+      "size": 19
+    },
+    {
+      "points": 6103,
+      "lines": 3965,
+      "size": 20
+    },
+    {
+      "points": 6107,
+      "lines": 7102,
+      "size": 20
+    },
+    {
+      "points": 6108,
+      "lines": 6975,
+      "size": 19
+    },
+    {
+      "points": 6109,
+      "lines": 6973,
+      "size": 19
+    },
+    {
+      "points": 6110,
+      "lines": 2879,
+      "size": 19
+    },
+    {
+      "points": 6111,
+      "lines": 2876,
+      "size": 18
+    },
+    {
+      "points": 6117,
+      "lines": 8045,
+      "size": 19
+    },
+    {
+      "points": 6118,
+      "lines": 7791,
+      "size": 19
+    },
+    {
+      "points": 6119,
+      "lines": 7789,
+      "size": 19
+    },
+    {
+      "points": 6122,
+      "lines": 7855,
+      "size": 19
+    },
+    {
+      "points": 6123,
+      "lines": 7854,
+      "size": 19
+    },
+    {
+      "points": 6124,
+      "lines": 7983,
+      "size": 19
+    },
+    {
+      "points": 6125,
+      "lines": 7981,
+      "size": 19
+    },
+    {
+      "points": 6126,
+      "lines": 7727,
+      "size": 19
+    },
+    {
+      "points": 6127,
+      "lines": 7724,
+      "size": 18
+    },
+    {
+      "points": 6131,
+      "lines": 7407,
+      "size": 20
+    },
+    {
+      "points": 6133,
+      "lines": 7533,
+      "size": 19
+    },
+    {
+      "points": 6134,
+      "lines": 3695,
+      "size": 19
+    },
+    {
+      "points": 6135,
+      "lines": 3181,
+      "size": 18
+    },
+    {
+      "points": 6136,
+      "lines": 7087,
+      "size": 19
+    },
+    {
+      "points": 6137,
+      "lines": 6575,
+      "size": 19
+    },
+    {
+      "points": 6138,
+      "lines": 6831,
+      "size": 19
+    },
+    {
+      "points": 6139,
+      "lines": 6318,
+      "size": 18
+    },
+    {
+      "points": 6140,
+      "lines": 6959,
+      "size": 19
+    },
+    {
+      "points": 6141,
+      "lines": 6445,
+      "size": 18
+    },
+    {
+      "points": 6142,
+      "lines": 2607,
+      "size": 18
+    },
+    {
+      "points": 6143,
+      "lines": 2092,
+      "size": 16
+    },
+    {
+      "points": 6268,
+      "lines": 5119,
+      "size": 18
+    },
+    {
+      "points": 6274,
+      "lines": 8187,
+      "size": 16
+    },
+    {
+      "points": 6318,
+      "lines": 6139,
+      "size": 18
+    },
+    {
+      "points": 6323,
+      "lines": 7675,
+      "size": 18
+    },
+    {
+      "points": 6335,
+      "lines": 5627,
+      "size": 19
+    },
+    {
+      "points": 6362,
+      "lines": 7163,
+      "size": 18
+    },
+    {
+      "points": 6395,
+      "lines": 6651,
+      "size": 19
+    },
+    {
+      "points": 6397,
+      "lines": 4607,
+      "size": 19
+    },
+    {
+      "points": 6398,
+      "lines": 5115,
+      "size": 19
+    },
+    {
+      "points": 6399,
+      "lines": 4603,
+      "size": 19
+    },
+    {
+      "points": 6445,
+      "lines": 6141,
+      "size": 18
+    },
+    {
+      "points": 6511,
+      "lines": 5885,
+      "size": 19
+    },
+    {
+      "points": 6525,
+      "lines": 5117,
+      "size": 19
+    },
+    {
+      "points": 6526,
+      "lines": 4863,
+      "size": 19
+    },
+    {
+      "points": 6527,
+      "lines": 4861,
+      "size": 19
+    },
+    {
+      "points": 6535,
+      "lines": 8185,
+      "size": 18
+    },
+    {
+      "points": 6575,
+      "lines": 6137,
+      "size": 19
+    },
+    {
+      "points": 6583,
+      "lines": 7673,
+      "size": 19
+    },
+    {
+      "points": 6589,
+      "lines": 5629,
+      "size": 19
+    },
+    {
+      "points": 6591,
+      "lines": 5625,
+      "size": 19
+    },
+    {
+      "points": 6623,
+      "lines": 7161,
+      "size": 20
+    },
+    {
+      "points": 6626,
+      "lines": 7931,
+      "size": 18
+    },
+    {
+      "points": 6631,
+      "lines": 7929,
+      "size": 19
+    },
+    {
+      "points": 6638,
+      "lines": 5883,
+      "size": 19
+    },
+    {
+      "points": 6639,
+      "lines": 5881,
+      "size": 19
+    },
+    {
+      "points": 6643,
+      "lines": 7419,
+      "size": 19
+    },
+    {
+      "points": 6647,
+      "lines": 7417,
+      "size": 19
+    },
+    {
+      "points": 6650,
+      "lines": 6907,
+      "size": 19
+    },
+    {
+      "points": 6651,
+      "lines": 6395,
+      "size": 19
+    },
+    {
+      "points": 6653,
+      "lines": 4605,
+      "size": 19
+    },
+    {
+      "points": 6654,
+      "lines": 4859,
+      "size": 19
+    },
+    {
+      "points": 6655,
+      "lines": 4345,
+      "size": 18
+    },
+    {
+      "points": 6783,
+      "lines": 5118,
+      "size": 20
+    },
+    {
+      "points": 6795,
+      "lines": 8186,
+      "size": 18
+    },
+    {
+      "points": 6831,
+      "lines": 6138,
+      "size": 19
+    },
+    {
+      "points": 6843,
+      "lines": 7674,
+      "size": 19
+    },
+    {
+      "points": 6847,
+      "lines": 5626,
+      "size": 19
+    },
+    {
+      "points": 6854,
+      "lines": 8059,
+      "size": 18
+    },
+    {
+      "points": 6863,
+      "lines": 8058,
+      "size": 19
+    },
+    {
+      "points": 6875,
+      "lines": 7162,
+      "size": 19
+    },
+    {
+      "points": 6878,
+      "lines": 7035,
+      "size": 19
+    },
+    {
+      "points": 6879,
+      "lines": 7034,
+      "size": 19
+    },
+    {
+      "points": 6894,
+      "lines": 6011,
+      "size": 19
+    },
+    {
+      "points": 6895,
+      "lines": 6010,
+      "size": 19
+    },
+    {
+      "points": 6903,
+      "lines": 7547,
+      "size": 20
+    },
+    {
+      "points": 6907,
+      "lines": 6650,
+      "size": 19
+    },
+    {
+      "points": 6908,
+      "lines": 4991,
+      "size": 19
+    },
+    {
+      "points": 6909,
+      "lines": 4479,
+      "size": 19
+    },
+    {
+      "points": 6910,
+      "lines": 4987,
+      "size": 19
+    },
+    {
+      "points": 6911,
+      "lines": 4474,
+      "size": 18
+    },
+    {
+      "points": 6933,
+      "lines": 8157,
+      "size": 18
+    },
+    {
+      "points": 6943,
+      "lines": 8156,
+      "size": 19
+    },
+    {
+      "points": 6959,
+      "lines": 6140,
+      "size": 19
+    },
+    {
+      "points": 6973,
+      "lines": 6109,
+      "size": 19
+    },
+    {
+      "points": 6975,
+      "lines": 6108,
+      "size": 19
+    },
+    {
+      "points": 7000,
+      "lines": 7135,
+      "size": 18
+    },
+    {
+      "points": 7003,
+      "lines": 7134,
+      "size": 19
+    },
+    {
+      "points": 7005,
+      "lines": 7133,
+      "size": 19
+    },
+    {
+      "points": 7007,
+      "lines": 7132,
+      "size": 19
+    },
+    {
+      "points": 7023,
+      "lines": 5884,
+      "size": 19
+    },
+    {
+      "points": 7031,
+      "lines": 7901,
+      "size": 20
+    },
+    {
+      "points": 7034,
+      "lines": 6879,
+      "size": 19
+    },
+    {
+      "points": 7035,
+      "lines": 6878,
+      "size": 19
+    },
+    {
+      "points": 7036,
+      "lines": 5087,
+      "size": 19
+    },
+    {
+      "points": 7037,
+      "lines": 5085,
+      "size": 19
+    },
+    {
+      "points": 7038,
+      "lines": 4831,
+      "size": 19
+    },
+    {
+      "points": 7039,
+      "lines": 4828,
+      "size": 18
+    },
+    {
+      "points": 7055,
+      "lines": 8184,
+      "size": 19
+    },
+    {
+      "points": 7058,
+      "lines": 8155,
+      "size": 18
+    },
+    {
+      "points": 7063,
+      "lines": 8153,
+      "size": 19
+    },
+    {
+      "points": 7067,
+      "lines": 8154,
+      "size": 19
+    },
+    {
+      "points": 7071,
+      "lines": 8152,
+      "size": 19
+    },
+    {
+      "points": 7087,
+      "lines": 6136,
+      "size": 19
+    },
+    {
+      "points": 7091,
+      "lines": 7643,
+      "size": 19
+    },
+    {
+      "points": 7093,
+      "lines": 7645,
+      "size": 19
+    },
+    {
+      "points": 7095,
+      "lines": 7641,
+      "size": 19
+    },
+    {
+      "points": 7099,
+      "lines": 7642,
+      "size": 19
+    },
+    {
+      "points": 7101,
+      "lines": 5597,
+      "size": 19
+    },
+    {
+      "points": 7102,
+      "lines": 6107,
+      "size": 20
+    },
+    {
+      "points": 7103,
+      "lines": 5592,
+      "size": 18
+    },
+    {
+      "points": 7111,
+      "lines": 8057,
+      "size": 19
+    },
+    {
+      "points": 7119,
+      "lines": 8056,
+      "size": 19
+    },
+    {
+      "points": 7125,
+      "lines": 8029,
+      "size": 19
+    },
+    {
+      "points": 7126,
+      "lines": 8027,
+      "size": 19
+    },
+    {
+      "points": 7127,
+      "lines": 8025,
+      "size": 19
+    },
+    {
+      "points": 7130,
+      "lines": 7131,
+      "size": 19
+    },
+    {
+      "points": 7131,
+      "lines": 7130,
+      "size": 19
+    },
+    {
+      "points": 7132,
+      "lines": 7007,
+      "size": 19
+    },
+    {
+      "points": 7133,
+      "lines": 7005,
+      "size": 19
+    },
+    {
+      "points": 7134,
+      "lines": 7003,
+      "size": 19
+    },
+    {
+      "points": 7135,
+      "lines": 7000,
+      "size": 18
+    },
+    {
+      "points": 7142,
+      "lines": 7803,
+      "size": 19
+    },
+    {
+      "points": 7143,
+      "lines": 7801,
+      "size": 19
+    },
+    {
+      "points": 7147,
+      "lines": 7930,
+      "size": 20
+    },
+    {
+      "points": 7149,
+      "lines": 6013,
+      "size": 20
+    },
+    {
+      "points": 7150,
+      "lines": 5755,
+      "size": 19
+    },
+    {
+      "points": 7151,
+      "lines": 5752,
+      "size": 18
+    },
+    {
+      "points": 7154,
+      "lines": 7899,
+      "size": 19
+    },
+    {
+      "points": 7155,
+      "lines": 7387,
+      "size": 19
+    },
+    {
+      "points": 7157,
+      "lines": 7517,
+      "size": 19
+    },
+    {
+      "points": 7158,
+      "lines": 7771,
+      "size": 19
+    },
+    {
+      "points": 7159,
+      "lines": 7257,
+      "size": 18
+    },
+    {
+      "points": 7161,
+      "lines": 6623,
+      "size": 20
+    },
+    {
+      "points": 7162,
+      "lines": 6875,
+      "size": 19
+    },
+    {
+      "points": 7163,
+      "lines": 6362,
+      "size": 18
+    },
+    {
+      "points": 7164,
+      "lines": 4959,
+      "size": 19
+    },
+    {
+      "points": 7165,
+      "lines": 4445,
+      "size": 18
+    },
+    {
+      "points": 7166,
+      "lines": 4699,
+      "size": 18
+    },
+    {
+      "points": 7167,
+      "lines": 4184,
+      "size": 16
+    },
+    {
+      "points": 7257,
+      "lines": 7159,
+      "size": 18
+    },
+    {
+      "points": 7263,
+      "lines": 3063,
+      "size": 19
+    },
+    {
+      "points": 7293,
+      "lines": 5111,
+      "size": 19
+    },
+    {
+      "points": 7294,
+      "lines": 1023,
+      "size": 19
+    },
+    {
+      "points": 7295,
+      "lines": 1015,
+      "size": 19
+    },
+    {
+      "points": 7318,
+      "lines": 4091,
+      "size": 18
+    },
+    {
+      "points": 7351,
+      "lines": 3579,
+      "size": 19
+    },
+    {
+      "points": 7358,
+      "lines": 2043,
+      "size": 19
+    },
+    {
+      "points": 7359,
+      "lines": 1531,
+      "size": 19
+    },
+    {
+      "points": 7363,
+      "lines": 8179,
+      "size": 18
+    },
+    {
+      "points": 7383,
+      "lines": 4083,
+      "size": 19
+    },
+    {
+      "points": 7387,
+      "lines": 7155,
+      "size": 19
+    },
+    {
+      "points": 7390,
+      "lines": 3067,
+      "size": 19
+    },
+    {
+      "points": 7391,
+      "lines": 3059,
+      "size": 19
+    },
+    {
+      "points": 7407,
+      "lines": 6131,
+      "size": 20
+    },
+    {
+      "points": 7411,
+      "lines": 7667,
+      "size": 19
+    },
+    {
+      "points": 7415,
+      "lines": 3571,
+      "size": 19
+    },
+    {
+      "points": 7417,
+      "lines": 6647,
+      "size": 19
+    },
+    {
+      "points": 7419,
+      "lines": 6643,
+      "size": 19
+    },
+    {
+      "points": 7421,
+      "lines": 4599,
+      "size": 19
+    },
+    {
+      "points": 7422,
+      "lines": 1019,
+      "size": 19
+    },
+    {
+      "points": 7423,
+      "lines": 499,
+      "size": 18
+    },
+    {
+      "points": 7487,
+      "lines": 2045,
+      "size": 20
+    },
+    {
+      "points": 7493,
+      "lines": 8181,
+      "size": 18
+    },
+    {
+      "points": 7511,
+      "lines": 4085,
+      "size": 19
+    },
+    {
+      "points": 7517,
+      "lines": 7157,
+      "size": 19
+    },
+    {
+      "points": 7519,
+      "lines": 3061,
+      "size": 19
+    },
+    {
+      "points": 7527,
+      "lines": 7925,
+      "size": 19
+    },
+    {
+      "points": 7533,
+      "lines": 6133,
+      "size": 19
+    },
+    {
+      "points": 7535,
+      "lines": 5877,
+      "size": 19
+    },
+    {
+      "points": 7543,
+      "lines": 3829,
+      "size": 19
+    },
+    {
+      "points": 7547,
+      "lines": 6903,
+      "size": 20
+    },
+    {
+      "points": 7549,
+      "lines": 5109,
+      "size": 19
+    },
+    {
+      "points": 7550,
+      "lines": 767,
+      "size": 19
+    },
+    {
+      "points": 7551,
+      "lines": 757,
+      "size": 18
+    },
+    {
+      "points": 7562,
+      "lines": 8123,
+      "size": 18
+    },
+    {
+      "points": 7567,
+      "lines": 8121,
+      "size": 19
+    },
+    {
+      "points": 7575,
+      "lines": 4089,
+      "size": 19
+    },
+    {
+      "points": 7582,
+      "lines": 4027,
+      "size": 19
+    },
+    {
+      "points": 7583,
+      "lines": 4025,
+      "size": 19
+    },
+    {
+      "points": 7597,
+      "lines": 6077,
+      "size": 19
+    },
+    {
+      "points": 7598,
+      "lines": 6075,
+      "size": 19
+    },
+    {
+      "points": 7599,
+      "lines": 6073,
+      "size": 19
+    },
+    {
+      "points": 7607,
+      "lines": 3577,
+      "size": 19
+    },
+    {
+      "points": 7611,
+      "lines": 7611,
+      "size": 20
+    },
+    {
+      "points": 7613,
+      "lines": 5565,
+      "size": 19
+    },
+    {
+      "points": 7614,
+      "lines": 1979,
+      "size": 19
+    },
+    {
+      "points": 7615,
+      "lines": 1465,
+      "size": 18
+    },
+    {
+      "points": 7623,
+      "lines": 8177,
+      "size": 19
+    },
+    {
+      "points": 7627,
+      "lines": 8115,
+      "size": 19
+    },
+    {
+      "points": 7629,
+      "lines": 8117,
+      "size": 19
+    },
+    {
+      "points": 7631,
+      "lines": 8113,
+      "size": 19
+    },
+    {
+      "points": 7639,
+      "lines": 4081,
+      "size": 19
+    },
+    {
+      "points": 7641,
+      "lines": 7095,
+      "size": 19
+    },
+    {
+      "points": 7642,
+      "lines": 7099,
+      "size": 19
+    },
+    {
+      "points": 7643,
+      "lines": 7091,
+      "size": 19
+    },
+    {
+      "points": 7645,
+      "lines": 7093,
+      "size": 19
+    },
+    {
+      "points": 7646,
+      "lines": 3003,
+      "size": 19
+    },
+    {
+      "points": 7647,
+      "lines": 2993,
+      "size": 18
+    },
+    {
+      "points": 7651,
+      "lines": 7923,
+      "size": 19
+    },
+    {
+      "points": 7655,
+      "lines": 7921,
+      "size": 19
+    },
+    {
+      "points": 7658,
+      "lines": 7867,
+      "size": 19
+    },
+    {
+      "points": 7659,
+      "lines": 7859,
+      "size": 19
+    },
+    {
+      "points": 7661,
+      "lines": 6069,
+      "size": 19
+    },
+    {
+      "points": 7662,
+      "lines": 5819,
+      "size": 19
+    },
+    {
+      "points": 7663,
+      "lines": 5809,
+      "size": 18
+    },
+    {
+      "points": 7667,
+      "lines": 7411,
+      "size": 19
+    },
+    {
+      "points": 7669,
+      "lines": 7669,
+      "size": 20
+    },
+    {
+      "points": 7670,
+      "lines": 3835,
+      "size": 20
+    },
+    {
+      "points": 7671,
+      "lines": 3313,
+      "size": 18
+    },
+    {
+      "points": 7673,
+      "lines": 6583,
+      "size": 19
+    },
+    {
+      "points": 7674,
+      "lines": 6843,
+      "size": 19
+    },
+    {
+      "points": 7675,
+      "lines": 6323,
+      "size": 18
+    },
+    {
+      "points": 7676,
+      "lines": 5055,
+      "size": 20
+    },
+    {
+      "points": 7677,
+      "lines": 4533,
+      "size": 18
+    },
+    {
+      "points": 7678,
+      "lines": 699,
+      "size": 18
+    },
+    {
+      "points": 7679,
+      "lines": 177,
+      "size": 16
+    },
+    {
+      "points": 7724,
+      "lines": 6127,
+      "size": 18
+    },
+    {
+      "points": 7727,
+      "lines": 6126,
+      "size": 19
+    },
+    {
+      "points": 7742,
+      "lines": 2031,
+      "size": 19
+    },
+    {
+      "points": 7743,
+      "lines": 2030,
+      "size": 19
+    },
+    {
+      "points": 7771,
+      "lines": 7158,
+      "size": 19
+    },
+    {
+      "points": 7775,
+      "lines": 3062,
+      "size": 19
+    },
+    {
+      "points": 7777,
+      "lines": 8167,
+      "size": 18
+    },
+    {
+      "points": 7787,
+      "lines": 8166,
+      "size": 19
+    },
+    {
+      "points": 7789,
+      "lines": 6119,
+      "size": 19
+    },
+    {
+      "points": 7791,
+      "lines": 6118,
+      "size": 19
+    },
+    {
+      "points": 7799,
+      "lines": 4071,
+      "size": 20
+    },
+    {
+      "points": 7801,
+      "lines": 7143,
+      "size": 19
+    },
+    {
+      "points": 7803,
+      "lines": 7142,
+      "size": 19
+    },
+    {
+      "points": 7804,
+      "lines": 5103,
+      "size": 19
+    },
+    {
+      "points": 7805,
+      "lines": 5095,
+      "size": 19
+    },
+    {
+      "points": 7806,
+      "lines": 1007,
+      "size": 19
+    },
+    {
+      "points": 7807,
+      "lines": 998,
+      "size": 18
+    },
+    {
+      "points": 7839,
+      "lines": 4090,
+      "size": 20
+    },
+    {
+      "points": 7842,
+      "lines": 8171,
+      "size": 18
+    },
+    {
+      "points": 7851,
+      "lines": 8170,
+      "size": 19
+    },
+    {
+      "points": 7854,
+      "lines": 6123,
+      "size": 19
+    },
+    {
+      "points": 7855,
+      "lines": 6122,
+      "size": 19
+    },
+    {
+      "points": 7859,
+      "lines": 7659,
+      "size": 19
+    },
+    {
+      "points": 7862,
+      "lines": 4075,
+      "size": 19
+    },
+    {
+      "points": 7863,
+      "lines": 3563,
+      "size": 19
+    },
+    {
+      "points": 7867,
+      "lines": 7658,
+      "size": 19
+    },
+    {
+      "points": 7869,
+      "lines": 5615,
+      "size": 20
+    },
+    {
+      "points": 7870,
+      "lines": 2027,
+      "size": 19
+    },
+    {
+      "points": 7871,
+      "lines": 1514,
+      "size": 18
+    },
+    {
+      "points": 7879,
+      "lines": 8051,
+      "size": 19
+    },
+    {
+      "points": 7883,
+      "lines": 8178,
+      "size": 19
+    },
+    {
+      "points": 7887,
+      "lines": 8050,
+      "size": 19
+    },
+    {
+      "points": 7894,
+      "lines": 3963,
+      "size": 19
+    },
+    {
+      "points": 7895,
+      "lines": 3955,
+      "size": 19
+    },
+    {
+      "points": 7899,
+      "lines": 7154,
+      "size": 19
+    },
+    {
+      "points": 7901,
+      "lines": 7031,
+      "size": 20
+    },
+    {
+      "points": 7902,
+      "lines": 2939,
+      "size": 19
+    },
+    {
+      "points": 7903,
+      "lines": 2930,
+      "size": 18
+    },
+    {
+      "points": 7907,
+      "lines": 8163,
+      "size": 19
+    },
+    {
+      "points": 7909,
+      "lines": 8039,
+      "size": 19
+    },
+    {
+      "points": 7910,
+      "lines": 8043,
+      "size": 19
+    },
+    {
+      "points": 7911,
+      "lines": 8035,
+      "size": 19
+    },
+    {
+      "points": 7915,
+      "lines": 8162,
+      "size": 19
+    },
+    {
+      "points": 7916,
+      "lines": 5999,
+      "size": 19
+    },
+    {
+      "points": 7917,
+      "lines": 5991,
+      "size": 19
+    },
+    {
+      "points": 7918,
+      "lines": 5995,
+      "size": 19
+    },
+    {
+      "points": 7919,
+      "lines": 5986,
+      "size": 18
+    },
+    {
+      "points": 7921,
+      "lines": 7655,
+      "size": 19
+    },
+    {
+      "points": 7923,
+      "lines": 7651,
+      "size": 19
+    },
+    {
+      "points": 7925,
+      "lines": 7527,
+      "size": 19
+    },
+    {
+      "points": 7926,
+      "lines": 3947,
+      "size": 19
+    },
+    {
+      "points": 7927,
+      "lines": 3427,
+      "size": 18
+    },
+    {
+      "points": 7929,
+      "lines": 6631,
+      "size": 19
+    },
+    {
+      "points": 7930,
+      "lines": 7147,
+      "size": 20
+    },
+    {
+      "points": 7931,
+      "lines": 6626,
+      "size": 18
+    },
+    {
+      "points": 7932,
+      "lines": 4975,
+      "size": 19
+    },
+    {
+      "points": 7933,
+      "lines": 4455,
+      "size": 18
+    },
+    {
+      "points": 7934,
+      "lines": 875,
+      "size": 18
+    },
+    {
+      "points": 7935,
+      "lines": 354,
+      "size": 16
+    },
+    {
+      "points": 7959,
+      "lines": 4061,
+      "size": 19
+    },
+    {
+      "points": 7967,
+      "lines": 4060,
+      "size": 19
+    },
+    {
+      "points": 7981,
+      "lines": 6125,
+      "size": 19
+    },
+    {
+      "points": 7983,
+      "lines": 6124,
+      "size": 19
+    },
+    {
+      "points": 7984,
+      "lines": 8143,
+      "size": 18
+    },
+    {
+      "points": 7989,
+      "lines": 8141,
+      "size": 19
+    },
+    {
+      "points": 7990,
+      "lines": 4047,
+      "size": 19
+    },
+    {
+      "points": 7991,
+      "lines": 4045,
+      "size": 19
+    },
+    {
+      "points": 7995,
+      "lines": 8142,
+      "size": 20
+    },
+    {
+      "points": 7996,
+      "lines": 6095,
+      "size": 19
+    },
+    {
+      "points": 7997,
+      "lines": 6093,
+      "size": 19
+    },
+    {
+      "points": 7998,
+      "lines": 1999,
+      "size": 19
+    },
+    {
+      "points": 7999,
+      "lines": 1996,
+      "size": 18
+    },
+    {
+      "points": 8015,
+      "lines": 8180,
+      "size": 20
+    },
+    {
+      "points": 8021,
+      "lines": 8149,
+      "size": 19
+    },
+    {
+      "points": 8023,
+      "lines": 4053,
+      "size": 19
+    },
+    {
+      "points": 8025,
+      "lines": 7127,
+      "size": 19
+    },
+    {
+      "points": 8027,
+      "lines": 7126,
+      "size": 19
+    },
+    {
+      "points": 8029,
+      "lines": 7125,
+      "size": 19
+    },
+    {
+      "points": 8030,
+      "lines": 3039,
+      "size": 20
+    },
+    {
+      "points": 8031,
+      "lines": 3028,
+      "size": 18
+    },
+    {
+      "points": 8035,
+      "lines": 7911,
+      "size": 19
+    },
+    {
+      "points": 8037,
+      "lines": 8165,
+      "size": 19
+    },
+    {
+      "points": 8039,
+      "lines": 7909,
+      "size": 19
+    },
+    {
+      "points": 8043,
+      "lines": 7910,
+      "size": 19
+    },
+    {
+      "points": 8045,
+      "lines": 6117,
+      "size": 19
+    },
+    {
+      "points": 8046,
+      "lines": 5871,
+      "size": 20
+    },
+    {
+      "points": 8047,
+      "lines": 5860,
+      "size": 18
+    },
+    {
+      "points": 8049,
+      "lines": 8135,
+      "size": 19
+    },
+    {
+      "points": 8050,
+      "lines": 7887,
+      "size": 19
+    },
+    {
+      "points": 8051,
+      "lines": 7879,
+      "size": 19
+    },
+    {
+      "points": 8053,
+      "lines": 8133,
+      "size": 19
+    },
+    {
+      "points": 8054,
+      "lines": 3791,
+      "size": 19
+    },
+    {
+      "points": 8055,
+      "lines": 3781,
+      "size": 18
+    },
+    {
+      "points": 8056,
+      "lines": 7119,
+      "size": 19
+    },
+    {
+      "points": 8057,
+      "lines": 7111,
+      "size": 19
+    },
+    {
+      "points": 8058,
+      "lines": 6863,
+      "size": 19
+    },
+    {
+      "points": 8059,
+      "lines": 6854,
+      "size": 18
+    },
+    {
+      "points": 8060,
+      "lines": 5071,
+      "size": 19
+    },
+    {
+      "points": 8061,
+      "lines": 5061,
+      "size": 18
+    },
+    {
+      "points": 8062,
+      "lines": 719,
+      "size": 18
+    },
+    {
+      "points": 8063,
+      "lines": 708,
+      "size": 16
+    },
+    {
+      "points": 8075,
+      "lines": 8122,
+      "size": 19
+    },
+    {
+      "points": 8079,
+      "lines": 8120,
+      "size": 19
+    },
+    {
+      "points": 8086,
+      "lines": 4059,
+      "size": 19
+    },
+    {
+      "points": 8087,
+      "lines": 4057,
+      "size": 19
+    },
+    {
+      "points": 8090,
+      "lines": 8091,
+      "size": 19
+    },
+    {
+      "points": 8091,
+      "lines": 8090,
+      "size": 19
+    },
+    {
+      "points": 8093,
+      "lines": 8093,
+      "size": 20
+    },
+    {
+      "points": 8094,
+      "lines": 3995,
+      "size": 19
+    },
+    {
+      "points": 8095,
+      "lines": 3992,
+      "size": 18
+    },
+    {
+      "points": 8103,
+      "lines": 8169,
+      "size": 20
+    },
+    {
+      "points": 8106,
+      "lines": 8107,
+      "size": 19
+    },
+    {
+      "points": 8107,
+      "lines": 8106,
+      "size": 19
+    },
+    {
+      "points": 8108,
+      "lines": 6063,
+      "size": 19
+    },
+    {
+      "points": 8109,
+      "lines": 6061,
+      "size": 19
+    },
+    {
+      "points": 8110,
+      "lines": 6059,
+      "size": 19
+    },
+    {
+      "points": 8111,
+      "lines": 6056,
+      "size": 18
+    },
+    {
+      "points": 8113,
+      "lines": 7631,
+      "size": 19
+    },
+    {
+      "points": 8114,
+      "lines": 8139,
+      "size": 19
+    },
+    {
+      "points": 8115,
+      "lines": 7627,
+      "size": 19
+    },
+    {
+      "points": 8117,
+      "lines": 7629,
+      "size": 19
+    },
+    {
+      "points": 8118,
+      "lines": 4043,
+      "size": 19
+    },
+    {
+      "points": 8119,
+      "lines": 3529,
+      "size": 18
+    },
+    {
+      "points": 8120,
+      "lines": 8079,
+      "size": 19
+    },
+    {
+      "points": 8121,
+      "lines": 7567,
+      "size": 19
+    },
+    {
+      "points": 8122,
+      "lines": 8075,
+      "size": 19
+    },
+    {
+      "points": 8123,
+      "lines": 7562,
+      "size": 18
+    },
+    {
+      "points": 8124,
+      "lines": 6031,
+      "size": 19
+    },
+    {
+      "points": 8125,
+      "lines": 5517,
+      "size": 18
+    },
+    {
+      "points": 8126,
+      "lines": 1931,
+      "size": 18
+    },
+    {
+      "points": 8127,
+      "lines": 1416,
+      "size": 16
+    },
+    {
+      "points": 8133,
+      "lines": 8053,
+      "size": 19
+    },
+    {
+      "points": 8135,
+      "lines": 8049,
+      "size": 19
+    },
+    {
+      "points": 8139,
+      "lines": 8114,
+      "size": 19
+    },
+    {
+      "points": 8141,
+      "lines": 7989,
+      "size": 19
+    },
+    {
+      "points": 8142,
+      "lines": 7995,
+      "size": 20
+    },
+    {
+      "points": 8143,
+      "lines": 7984,
+      "size": 18
+    },
+    {
+      "points": 8147,
+      "lines": 8147,
+      "size": 20
+    },
+    {
+      "points": 8149,
+      "lines": 8021,
+      "size": 19
+    },
+    {
+      "points": 8150,
+      "lines": 3931,
+      "size": 19
+    },
+    {
+      "points": 8151,
+      "lines": 3921,
+      "size": 18
+    },
+    {
+      "points": 8152,
+      "lines": 7071,
+      "size": 19
+    },
+    {
+      "points": 8153,
+      "lines": 7063,
+      "size": 19
+    },
+    {
+      "points": 8154,
+      "lines": 7067,
+      "size": 19
+    },
+    {
+      "points": 8155,
+      "lines": 7058,
+      "size": 18
+    },
+    {
+      "points": 8156,
+      "lines": 6943,
+      "size": 19
+    },
+    {
+      "points": 8157,
+      "lines": 6933,
+      "size": 18
+    },
+    {
+      "points": 8158,
+      "lines": 2843,
+      "size": 18
+    },
+    {
+      "points": 8159,
+      "lines": 2832,
+      "size": 16
+    },
+    {
+      "points": 8162,
+      "lines": 7915,
+      "size": 19
+    },
+    {
+      "points": 8163,
+      "lines": 7907,
+      "size": 19
+    },
+    {
+      "points": 8165,
+      "lines": 8037,
+      "size": 19
+    },
+    {
+      "points": 8166,
+      "lines": 7787,
+      "size": 19
+    },
+    {
+      "points": 8167,
+      "lines": 7777,
+      "size": 18
+    },
+    {
+      "points": 8169,
+      "lines": 8103,
+      "size": 20
+    },
+    {
+      "points": 8170,
+      "lines": 7851,
+      "size": 19
+    },
+    {
+      "points": 8171,
+      "lines": 7842,
+      "size": 18
+    },
+    {
+      "points": 8172,
+      "lines": 5935,
+      "size": 19
+    },
+    {
+      "points": 8173,
+      "lines": 5925,
+      "size": 18
+    },
+    {
+      "points": 8174,
+      "lines": 5675,
+      "size": 18
+    },
+    {
+      "points": 8175,
+      "lines": 5664,
+      "size": 16
+    },
+    {
+      "points": 8177,
+      "lines": 7623,
+      "size": 19
+    },
+    {
+      "points": 8178,
+      "lines": 7883,
+      "size": 19
+    },
+    {
+      "points": 8179,
+      "lines": 7363,
+      "size": 18
+    },
+    {
+      "points": 8180,
+      "lines": 8015,
+      "size": 20
+    },
+    {
+      "points": 8181,
+      "lines": 7493,
+      "size": 18
+    },
+    {
+      "points": 8182,
+      "lines": 3659,
+      "size": 18
+    },
+    {
+      "points": 8183,
+      "lines": 3137,
+      "size": 16
+    },
+    {
+      "points": 8184,
+      "lines": 7055,
+      "size": 19
+    },
+    {
+      "points": 8185,
+      "lines": 6535,
+      "size": 18
+    },
+    {
+      "points": 8186,
+      "lines": 6795,
+      "size": 18
+    },
+    {
+      "points": 8187,
+      "lines": 6274,
+      "size": 16
+    },
+    {
+      "points": 8188,
+      "lines": 4879,
+      "size": 18
+    },
+    {
+      "points": 8189,
+      "lines": 4357,
+      "size": 16
+    },
+    {
+      "points": 8190,
+      "lines": 523,
+      "size": 16
+    },
+    {
+      "points": 8191,
+      "lines": 0,
+      "size": 13
+    }
+  ]
+}

@@ -89,3 +89,68 @@ A24-gate control patch passed all65,536 local assignments; its64-gate extension
 then passed all67,108,864 full assignments. This validates the witness pipeline
 without claiming a63-gate solution. The Lean packed checker prepared by
 gate_elimination is ready to check any actual63-gate candidate.
+
+
+The five-point alias phase completed its703-second cap without a witness.
+Cases1 and2 received414,344,605 and421,577,117 proposals, respectively;
+their best plain candidates still missed one edge, and dirty candidates
+missed three. These numerical plateaus provide no lower-bound evidence.
+All five-point workers are stopped and all full logs are archived.
+
+## Eight-point patch
+
+The next geometry selects points[4,5,6,7,8,10,11,12] and all lines except0.
+It has20 inputs,32 incidence edges,136 maximal false assignments and no
+private line inputs. Its standard star circuit uses39 gates; a38-gate patch
+would extend to the full63-gate target with the remaining five point stars
+and five OR gates. Independent enumeration confirmed all168 boundary rows.
+The39-gate control passed all1,048,576 inputs; its64-gate full extension
+passed all67,108,864 inputs.
+
+The three-word evaluator uses class-directed dominance: an earlier wire
+with more positive acceptances and fewer negative acceptances can replace
+a later wire. Every replacement is materialized by OR(a,a), including the
+final output, so emitted circuits match the values checked. A60000-case
+random differential check found no lost positive acceptance, new negative
+acceptance, emitted-net mismatch or backward-read violation. The initial
+normalization result is explicitly checked for zero errors before mutation.
+
+Twenty-eight43-gate nonlinear controls supply genuinely mixed AND/OR
+structure via the exact identity pR OR qS =
+((p OR q) AND (R OR S)) AND ((p OR S) AND (q OR R)).
+The independent reviewer checked every control on all1,048,576 inputs.
+The search mixes deleted nonlinear seeds with deleted randomized stars.
+Any candidate with zero actual errors is printed immediately, regardless
+of optional read-one scoring. The approved frozen source hash is
+1695373998f65f4a8f46599789fee94261d2c8bca63aa77b929888ae685872ae.
+
+The seed205608 run began after the parent's16:19:08UTC renewal, with a
+1200-second cap and one CPU. The source, exact data, full controls and
+verification logs are preserved in results/orch/search2056/eightpoint/.
+
+
+The first eight-point phase was stopped after the initial seed improvement
+became available; its full logs are preserved. No exact candidate appeared.
+The next approved source changes only the seed loader to accept41 or43 gates.
+Thirty-two41-gate double-star controls use the identity
+bA OR bc OR cD = (b OR D) AND (c OR A) AND (b OR c).
+All new controls were independently verified on every local assignment.
+The combined60 controls pass startup checks. Source hash:
+f5e8aa75c1388c87151cd46d461c99702f695df320152b00df660e1e93b36ab1.
+The new phase began after the16:22:09UTC renewal and has an absolute deadline
+of16:39:08UTC, within the original20-minute allowance. The earlier deletion
+heuristic protects the first two gates of41-gate seeds; this only restricts
+initial proposal choices, and later mutations can still edit those gates.
+
+The independent emitted-net analyzer records raw false positives/negatives,
+live gate count, copies, atomic edge gates, zero-positive profiles and
+number of distinct gate functions. Missing one edge is still a failed
+candidate and supplies no evidence of a lower bound or eventual success.
+
+
+Differential-test accounting was refined to distinguish proposals from
+valid nets actually checked: the eight-point evaluator checked59,097 valid
+nets among60,000 randomized trials; the full-plane adaptation checked9,836
+among10,000. Invalid forward-reference mutations were skipped. Repeating
+the deterministic tests with explicit counters passed with no discrepancy.
+The frozen search sources and their approved hashes did not change.
