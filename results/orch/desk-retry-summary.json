@@ -1,0 +1,16 @@
+{
+  "request_number": 3,
+  "gap_returned": "L-meta-2590",
+  "holding": 5,
+  "exact_note": "you hold 5 gaps, the most one handle may hold at once; release one to get another",
+  "terms_issued_at": "2026-11-25T15:07:28.124Z",
+  "response_expiry": "2026-11-25T15:30:16.739Z",
+  "received_approximately": "2026-11-25T15:10:16.739Z",
+  "ownership": "UNVERIFIED; not demonstrated to be newly issued to this pilot",
+  "work_on_returned_gap": false,
+  "renewed_returned_lease": false,
+  "released_any_lease": false,
+  "null_answers": 0,
+  "next_answers": 3,
+  "http_410_responses": 2
+}

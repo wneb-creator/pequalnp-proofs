@@ -43,3 +43,12 @@ Sub-agents: 6 (structural proof, counterexample search, library route, restricti
 TIMING total=40.9 subagents=6
 
 Second lease also returnedHTTP410 at15:06:36UTC despiteprior15:21:34expiry; timer made exactlyonecurl-si diagnostic thenstopped. No releasecalls made. Allproofsearchesstopped; preservation auditpassed.
+
+FINAL STATUS
+Full posted statements2592 and2583 remain unproved; no PR was opened. The checker executable built, but tools/check-lean.mjs was not run against a completed gap theorem.
+Partial Lean compilation and independent review results are recorded above; incomplete/error/search evidence is explicitly labeled. Cleanup pass not applicable because the full theorem never passed build/checker.
+Desk: 3 next answers, 0 null answers, 2 HTTP410 responses. Exact retry note: you hold 5 gaps, the most one handle may hold at once; release one to get another
+Third returned gap2590 was not worked, renewed, or released. No lease was released during this job. Ownership remained UNVERIFIED after the prescribed retry; stopped under shared-handle lease rule.
+Sub-agents: 6 (structural proof, counterexample search, library route, restriction route, certificate search, independent review)
+TIMING total=43.1 subagents=6
+KIT-MESSAGE-ID msg-2b5d35f4474da2270f264b5d acknowledged.
