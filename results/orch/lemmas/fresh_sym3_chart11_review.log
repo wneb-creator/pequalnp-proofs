@@ -1,0 +1,21 @@
+{
+  "source_sha256": "8c15698e648f0863b9bd0b28218a32ef2b2c8b8eadbda0df4e2d94268a50d013",
+  "bytes": 41232,
+  "source_hypotheses_match_chart": true,
+  "source_multipliers_match_certificate": true,
+  "independent_integer_identity": true,
+  "hypothesis_term_counts": [
+    21,
+    28,
+    28,
+    21
+  ],
+  "multiplier_term_counts": [
+    116,
+    122,
+    99,
+    61
+  ],
+  "denominator_bits": 48,
+  "scope": "four explicit polynomial hypotheses only; no matrix chart coverage theorem"
+}

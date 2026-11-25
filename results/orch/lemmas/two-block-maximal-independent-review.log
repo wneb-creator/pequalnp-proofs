@@ -1,0 +1,6 @@
+All previously approved compact matrix and scalar helpers copied verbatim
+Independent24-permutation expansion verifies exact first-order interpolation plus h²−2 correction
+All four extracted linear constraints and every entry of the explicit normalized-extension parametrization independently verified
+Format PASS SHA256 d7b17cc3f1fde44d9ff87472ce942a321fa869c9b69f8a125ff1834a7d7022e1
+Final arbitrary-symmetric-C decomposition subtracts C01*A+C23*B, preserving the family by parameter shift. Gaugezero then yields C in span(A,B); no coefficient assumptions remain. Scope remains the two canonical supported block directions, not every candidate3plane.
+Recorded status {'exit_code': 0, 'seconds': 11.076144688000568, 'peak_rss_bytes': 3718299648, 'reason': None}

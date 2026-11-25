@@ -132,3 +132,14 @@ Scope: fouradaptedquadricsplusordinarycubicwithh²=2 forcefourquotientparameters
 TwoBlockMatrixCompact.lean compiledexit0 in10.05s,onlyunusedU/Vwarnings. Independentrules_reviewapprovedactualnormalizedmatrixexpansionandcoefficientextraction; arbitrary-Cnormalizationstillpending.
 Sym3Chart00.lean SHA256 1d85631c86f8bfe591ebc051aa5c8f65a0b84dc77e925b549595890cfd3ffdab
 TwoBlockMatrixCompact.lean SHA256 d03d7681c001dd21814517aa24b68174c0f27b0a4884c72505bbf72961c387ae
+
+2026-11-25T11:14:16.008218+00:00 Six additional checked and independently reviewed partials.
+Sym3Chart01.lean: SHA256 ea73f6395faf53badd6261965bdde5acc6864a6003e865362c9d64993a51ff08; 27 lines; exit0 in 21.72s. Full build output: lemmas/geometry-sym3chart01-lean.log; independent review: lemmas/fresh_sym3_chart01_review.log.
+Sym3Chart10.lean: SHA256 9355f9b5095bc294ae1b1bba5fe649b044508afd7616cb6f6fabd997ee65d6c1; 27 lines; exit0 in 22.84s. Full build output: lemmas/geometry-sym3chart10-lean.log; independent review: lemmas/fresh_sym3_chart10_review.log.
+Sym3Chart11.lean: SHA256 8c15698e648f0863b9bd0b28218a32ef2b2c8b8eadbda0df4e2d94268a50d013; 27 lines; exit0 in 23.25s. Full build output: lemmas/geometry-sym3chart11-lean.log; independent review: lemmas/fresh_sym3_chart11_review.log.
+TwoBlockMaximal.lean: SHA256 d7b17cc3f1fde44d9ff87472ce942a321fa869c9b69f8a125ff1834a7d7022e1; 243 lines; exit0 in 11.08s. Full build output: lemmas/two-block-maximal-lean.log; independent review: lemmas/two-block-maximal-independent-review.log.
+TwoDoubleKernel.lean: SHA256 50430f238679327c36ee22065b6917b30bc8252722520d80c17c41e4f4d1bb41; 396 lines; exit0 in 10.04s. Full build output: lemmas/two-double-kernel-lean.log; independent review: lemmas/two-double-kernel-independent-review.log.
+OverlapBlocks.lean: SHA256 62d349fd3b7138ea7e5e7f68c53a70bfd4dfde9822fe978c172ae1173f8c0a4a; 143 lines; exit0 in 4.02s. Full build output: lemmas/overlap-blocks-lean.log; independent review: lemmas/overlap-blocks-independent-review.log.
+Scope: Sym3 files exclude four explicit polynomial charts; TwoDoubleKernel and OverlapBlocks exclude the stated actual zero-row configurations. Global chart coverage and the posted target remain unresolved. Local target checker not run.
+Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
+TIMING total=158.6 subagents=7

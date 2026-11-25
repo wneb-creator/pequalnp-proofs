@@ -1,0 +1,8 @@
+APPROVED exact SHA256 50430f238679327c36ee22065b6917b30bc8252722520d80c17c41e4f4d1bb41
+Previously approved TwoBlockMaximal body copied verbatim.
+Independent SymPy expansion over all24 permutations verified block linear/quadratic extraction and every scalar block_root classification identity.
+Both square-root signs covered by simultaneous row/column swap23; scaling uses proved nonzero divisors.
+Final wrapper uses symmetry and four zero rows to identify actual matrices, derives nonzero coefficient alternatives from A/B nonzero, and applies the reviewed classification. No coefficient or canonical-shape hypotheses remain.
+Scope: two disjoint supported nonzero directions inside a constant-permanent family force every compatible C into their span. No global candidate-coverage claim.
+Format audit passes: no forbidden proof tokens, literals, attributes; limit options scoped.
+Recorded Lean status exit0,10.039s,peak3791265792bytes.

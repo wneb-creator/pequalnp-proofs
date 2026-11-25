@@ -1,0 +1,5 @@
+APPROVED exact SHA256 62d349fd3b7138ea7e5e7f68c53a70bfd4dfde9822fe978c172ae1173f8c0a4a
+block_root copied verbatim from reviewed TwoDoubleKernel. All three scalar root-obstruction polynomial identities independently checked, concluding7=0.
+Independent24-permutation expansion verifies exact four-evaluation quadratic-polar extraction. Both block coefficient extractions and nonzero scaling match reviewed disjoint-block logic.
+Final wrapper derives supported block shapes only from stated symmetry and zero rows, nonzero coefficient alternatives from actual nonzero matrices. Scope precisely excludes two overlapping supported nonzero directions; no global coverage assumption or claim.
+Format PASS. Recorded compile status: {'source': '/workspace/pequalnp-proofs/results/orch/lemmas/OverlapBlocks.lean', 'exit_code': 0, 'seconds': 4.018175211000198, 'peak_rss_bytes': 3259867136, 'reason': None}
