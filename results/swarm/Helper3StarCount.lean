@@ -1359,3 +1359,184 @@ lemma component_star_family_or_count {ι : Type*} [DecidableEq ι]
   simpa only [J, V, Finset.sum_sigma, Finset.card_sigma, parts_sum_card] using hh
 
 end PEqualNP.Outside.L_meta_4970_aux
+
+namespace PEqualNP.Outside.L_meta_4970_aux
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_4970.SemanticSafe
+open PEqualNP.Outside.L_meta_4970.Connectivity
+open PEqualNP.Outside.L_meta_4970.ComponentPartition
+
+/-- A support may be carried for free by any earlier safe wire containing it. -/
+def HasSafeCarrier (n : ℕ) (C : Circuit) (Q : Finset (Fin n)) (w : ℕ) : Prop :=
+  ∃ a, a < w ∧ (a < n + C.gates.length ∧ Safe Q (wireFn n C a)) ∧
+    singletonSupport n C w ⊆ singletonSupport n C a
+
+noncomputable def productiveOr (n : ℕ) (C : Circuit) (Q : Finset (Fin n)) : Finset ℕ := by
+  classical
+  exact (chargedOr n C Q).filter fun w => ¬ HasSafeCarrier n C Q w
+
+lemma productiveOr_subset (n : ℕ) (C : Circuit) (Q : Finset (Fin n)) :
+    productiveOr n C Q ⊆ chargedOr n C Q := by
+  classical
+  exact Finset.filter_subset _ _
+
+lemma productiveOr_disjoint (n : ℕ) (C : Circuit) (Q R : Finset (Fin n))
+    (h : (Q ∩ R).card ≤ 1) :
+    Disjoint (productiveOr n C Q) (productiveOr n C R) :=
+  Finset.disjoint_of_subset_left (productiveOr_subset n C Q)
+    (Finset.disjoint_of_subset_right (productiveOr_subset n C R)
+      (chargedOr_disjoint n C Q R h))
+
+lemma productiveOr_no_carrier (n : ℕ) (C : Circuit) (Q : Finset (Fin n))
+    (w : ℕ) (hw : w ∈ productiveOr n C Q)
+    (a : ℕ) (ha : a < w) (ha' : a < n + C.gates.length)
+    (hs : Safe Q (wireFn n C a)) :
+    ¬ singletonSupport n C w ⊆ singletonSupport n C a := by
+  classical
+  intro hsub
+  exact (Finset.mem_filter.mp hw).2 ⟨a, ha, ⟨ha', hs⟩, hsub⟩
+
+lemma productive_singleton_structure (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : Finset (Fin n)) :
+    ∀ w, (w < n + C.gates.length ∧ Safe Q (wireFn n C w)) →
+      (singletonSupport n C w).card ≤ 1 ∨
+      (∃ a, a < w ∧ (a < n + C.gates.length ∧ Safe Q (wireFn n C a)) ∧
+        singletonSupport n C w ⊆ singletonSupport n C a) ∨
+      (((n ≤ w ∧ (gateAt C (w - n)).op = GateOp.or) ∧
+          ¬ HasSafeCarrier n C Q w) ∧
+        ∃ a b, a < w ∧ b < w ∧
+          (a < n + C.gates.length ∧ Safe Q (wireFn n C a)) ∧
+          (b < n + C.gates.length ∧ Safe Q (wireFn n C b)) ∧
+          singletonSupport n C w ⊆ singletonSupport n C a ∪ singletonSupport n C b) := by
+  classical
+  intro w hw
+  by_cases hcarry : HasSafeCarrier n C Q w
+  · exact Or.inr (Or.inl hcarry)
+  · rcases safe_singleton_structure n C hC Q w hw with hsmall | hfree | ⟨hop, hsplit⟩
+    · exact Or.inl hsmall
+    · exact False.elim (hcarry hfree)
+    · exact Or.inr (Or.inr ⟨⟨hop, hcarry⟩, hsplit⟩)
+
+lemma productive_star_or_count (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : Finset (Fin n)) (W : Finset ℕ)
+    (hW : ∀ w ∈ W, w < n + C.gates.length ∧ Safe Q (wireFn n C w))
+    (hc : ∀ u v : Q, Relation.ReflTransGen
+      (fun a b : Q => ∃ w ∈ W,
+        (a : Fin n) ∈ singletonSupport n C w ∧ (b : Fin n) ∈ singletonSupport n C w) u v) :
+    Q.card ≤ 1 + (productiveOr n C Q).card := by
+  classical
+  have hh := connected_subset_frontier_count
+    (fun k => k < n + C.gates.length ∧ Safe Q (wireFn n C k))
+    (fun k => (n ≤ k ∧ (gateAt C (k - n)).op = GateOp.or) ∧
+      ¬ HasSafeCarrier n C Q k)
+    (singletonSupport n C) (productive_singleton_structure n C hC Q)
+    (n + C.gates.length) W (fun w hw => ⟨(hW w hw).1, hW w hw⟩) Q hc
+  have he : ((Finset.range (n + C.gates.length)).filter
+      (fun k => (k < n + C.gates.length ∧ Safe Q (wireFn n C k)) ∧
+        ((n ≤ k ∧ (gateAt C (k - n)).op = GateOp.or) ∧
+          ¬ HasSafeCarrier n C Q k) ∧ 2 ≤ (singletonSupport n C k).card)) =
+      productiveOr n C Q := by
+    ext k
+    simp only [productiveOr, chargedOr, Finset.mem_filter]
+    tauto
+  rwa [he] at hh
+
+lemma productive_star_family_count {ι : Type*} [DecidableEq ι]
+    (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (I : Finset ι) (Q : ι → Finset (Fin n)) (W : ι → Finset ℕ)
+    (hW : ∀ i ∈ I, ∀ w ∈ W i,
+      w < n + C.gates.length ∧ Safe (Q i) (wireFn n C w))
+    (hc : ∀ i ∈ I, ∀ u v : Q i, Relation.ReflTransGen
+      (fun a b : Q i => ∃ w ∈ W i,
+        (a : Fin n) ∈ singletonSupport n C w ∧ (b : Fin n) ∈ singletonSupport n C w) u v)
+    (hinter : ∀ i ∈ I, ∀ j ∈ I, i ≠ j → (Q i ∩ Q j).card ≤ 1) :
+    (∑ i ∈ I, (Q i).card) ≤
+      I.card + (I.biUnion fun i => productiveOr n C (Q i)).card := by
+  classical
+  have hlocal : ∑ i ∈ I, (Q i).card ≤
+      ∑ i ∈ I, (1 + (productiveOr n C (Q i)).card) := by
+    apply Finset.sum_le_sum
+    intro i hi
+    exact productive_star_or_count n C hC (Q i) (W i) (hW i hi) (hc i hi)
+  have hd : (I : Set ι).PairwiseDisjoint (fun i => productiveOr n C (Q i)) := by
+    intro i hi j hj hij
+    exact productiveOr_disjoint n C (Q i) (Q j) (hinter i hi j hj hij)
+  rw [Finset.card_biUnion hd]
+  simpa only [Finset.sum_add_distrib, Finset.sum_const, smul_eq_mul, mul_one] using hlocal
+
+lemma productive_family_subset_allOr {ι : Type*} (n : ℕ) (C : Circuit)
+    (I : Finset ι) (Q : ι → Finset (Fin n)) :
+    (I.biUnion fun i => productiveOr n C (Q i)) ⊆ allOrWires n C := by
+  classical
+  intro w hw
+  obtain ⟨i, hi, hw⟩ := Finset.mem_biUnion.mp hw
+  have hm := productiveOr_subset n C (Q i) hw
+  simp only [chargedOr, Finset.mem_filter, Finset.mem_range] at hm
+  exact Finset.mem_filter.mpr ⟨Finset.mem_Ico.mpr ⟨hm.2.2.1.1, hm.1⟩, hm.2.2.1.2⟩
+
+end PEqualNP.Outside.L_meta_4970_aux
+
+namespace PEqualNP.Outside.L_meta_4970_aux
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_4970.SemanticSafe
+open PEqualNP.Outside.L_meta_4970.ComponentPartition
+
+noncomputable def componentProductive {ι : Type*} [DecidableEq ι]
+    (n : ℕ) (C : Circuit) (I : Finset ι) (W : ι → Finset ℕ) : Finset ℕ := by
+  classical
+  exact (I.sigma fun i => parts (W i) (singletonSupport n C)).biUnion
+    fun j => productiveOr n C j.2
+
+lemma component_productive_or_count {ι : Type*} [DecidableEq ι]
+    (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (I : Finset ι) (W : ι → Finset ℕ)
+    (hW : ∀ i ∈ I, ∀ w ∈ W i, w < n + C.gates.length ∧
+      PureOr (singletonSupport n C w) (wireFn n C w))
+    (hinter : ∀ i ∈ I, ∀ j ∈ I, i ≠ j →
+      ((W i).biUnion (singletonSupport n C) ∩
+        (W j).biUnion (singletonSupport n C)).card ≤ 1) :
+    (∑ i ∈ I, ((W i).biUnion (singletonSupport n C)).card) ≤
+      (∑ i ∈ I, (parts (W i) (singletonSupport n C)).card) +
+        (componentProductive n C I W).card := by
+  classical
+  let J := I.sigma fun i => parts (W i) (singletonSupport n C)
+  let V : (Σ _ : ι, Finset (Fin n)) → Finset (Fin n) := fun j => j.2
+  let R : (Σ _ : ι, Finset (Fin n)) → Finset ℕ := fun j =>
+    rootsInPart (W j.1) (singletonSupport n C) j.2
+  have hr : ∀ j ∈ J, ∀ w ∈ R j,
+      w < n + C.gates.length ∧ Safe (V j) (wireFn n C w) := by
+    intro j hj w hw
+    obtain ⟨hi, hP⟩ := Finset.mem_sigma.mp hj
+    obtain ⟨hwW, hwP⟩ := Finset.mem_filter.mp hw
+    refine ⟨(hW j.1 hi w hwW).1, ?_⟩
+    intro x hx
+    obtain ⟨a, ha, hxa⟩ := (hW j.1 hi w hwW).2 x |>.mp hx
+    exact ⟨a, hwP ha, hxa⟩
+  have hc : ∀ j ∈ J, ∀ u v : V j, Relation.ReflTransGen
+      (fun a b : V j => ∃ w ∈ R j,
+        (a : Fin n) ∈ singletonSupport n C w ∧
+          (b : Fin n) ∈ singletonSupport n C w) u v := by
+    intro j hj
+    exact part_roots_connected (W j.1) (singletonSupport n C) j.2
+      (Finset.mem_sigma.mp hj).2
+  have hi : ∀ j ∈ J, ∀ k ∈ J, j ≠ k → (V j ∩ V k).card ≤ 1 := by
+    intro j hj k hk hne
+    have hp : (j.1, j.2) ≠ (k.1, k.2) := by
+      intro he
+      cases j with
+      | mk a P =>
+        cases k with
+        | mk b Q =>
+          simp only [Prod.mk.injEq] at he
+          obtain ⟨rfl, rfl⟩ := he
+          exact hne rfl
+    exact parts_inter_card_le_one I W (fun _ => singletonSupport n C) hinter
+      j.1 (Finset.mem_sigma.mp hj).1 j.2 (Finset.mem_sigma.mp hj).2
+      k.1 (Finset.mem_sigma.mp hk).1 k.2 (Finset.mem_sigma.mp hk).2 hp
+  have hh := productive_star_family_count n C hC J V R hr hc hi
+  simpa only [componentProductive, J, V, Finset.sum_sigma, Finset.card_sigma, parts_sum_card] using hh
+
+
+end PEqualNP.Outside.L_meta_4970_aux
