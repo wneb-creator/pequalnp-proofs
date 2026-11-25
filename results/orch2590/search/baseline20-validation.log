@@ -1,0 +1,5 @@
+START 2026-11-25T15:13:11.840752+00:00 gates 20 first None rows 30 variables 4700 clauses 83789 cnf_sha256 8563ace3f381a32ffa5832f9f132d52f8674fd67be779b3a2675263198fb6f92
+RESULT {"all_gates_used": true, "clauses": 83789, "cnf_sha256": "8563ace3f381a32ffa5832f9f132d52f8674fd67be779b3a2675263198fb6f92", "elapsed_seconds": 0.14851244300007238, "exit": 10, "finished_at": "2026-11-25T15:13:11.989260+00:00", "first": null, "gates": 20, "nonread1_required": false, "ordered_sources": false, "productive_on_edge": true, "rows": 30, "started_at": "2026-11-25T15:13:11.840752+00:00", "status": "SAT", "variables": 4700}
+SQUAREFREE_MISSING_EDGES []
+CANDIDATE [[1, 1, 4], [1, 5, 10], [0, 0, 11], [1, 2, 6], [0, 1, 13], [1, 2, 4], [1, 8, 15], [0, 3, 16], [1, 2, 5], [1, 9, 18], [0, 7, 19], [1, 5, 6], [0, 8, 21], [1, 4, 6], [0, 9, 23], [1, 12, 14], [1, 17, 25], [1, 20, 26], [1, 22, 27], [1, 24, 28]] bad_rows 0
+WITNESS [[1, 1, 4], [1, 5, 10], [0, 0, 11], [1, 2, 6], [0, 1, 13], [1, 2, 4], [1, 8, 15], [0, 3, 16], [1, 2, 5], [1, 9, 18], [0, 7, 19], [1, 5, 6], [0, 8, 21], [1, 4, 6], [0, 9, 23], [1, 12, 14], [1, 17, 25], [1, 20, 26], [1, 22, 27], [1, 24, 28]]

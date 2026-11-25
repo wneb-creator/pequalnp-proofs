@@ -1,0 +1,14 @@
+{
+  "ands": 13,
+  "rows": 30,
+  "variables": 6709,
+  "clauses": 28230,
+  "seconds": 109.88678193092346,
+  "exit_code": -2,
+  "source_sha256": "2de52936bbd57f6ca3d2c767b5c8f82308e671bca7d2162e162c22a93f5e7e1d",
+  "cnf_sha256": "7ef78fbe5f1183a2292d6a89a9bccc8ae5d17fad06b0dff1baf8344ec9106f36",
+  "productive": false,
+  "dual": true,
+  "pin": null,
+  "status": "UNKNOWN"
+}

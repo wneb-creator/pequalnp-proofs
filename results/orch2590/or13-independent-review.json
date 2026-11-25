@@ -1,0 +1,24 @@
+{
+  "reviewed_at": "2026-11-25T15:21:52.305957+00:00",
+  "method": "independent1024-bittruthvectors",
+  "cases": [
+    {
+      "file": "or13-witness.json",
+      "sha256": "255ee110039ca6081354b4dfa700947f96be3f4cdd5d3cf217371092d41b9a0b",
+      "size": 24,
+      "and_count": 11,
+      "or_count": 13,
+      "all_gates_live": true,
+      "errors": []
+    },
+    {
+      "file": "or13-simplified.json",
+      "sha256": "5c44e97be3ade5de68f819c77acce23120caee9825c3075d874bc8a28e1127ec",
+      "size": 23,
+      "and_count": 10,
+      "or_count": 13,
+      "all_gates_live": true,
+      "errors": []
+    }
+  ]
+}

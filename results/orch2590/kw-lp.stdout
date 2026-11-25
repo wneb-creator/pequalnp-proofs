@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-25T15:17:32.340789+00:00",
+  "scope": "formula partition lower-bound exploration only",
+  "variables": 925,
+  "constraints": 770,
+  "status": 0,
+  "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+  "numerical_optimum": 20.0,
+  "exact_feasible_weight": "20",
+  "integer_leaf_lower_bound": 20,
+  "maximum_rectangle_weight": "1"
+}

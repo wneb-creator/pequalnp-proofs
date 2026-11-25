@@ -1,0 +1,5 @@
+# KW formula experiment
+
+This is an exploratory formula-size route, not a proved circuit lower bound. The15edge inputs and15maximal independent inputs form a15-by-15 monotone Karchmer-Wigderson matrix. A leaf rectangle labelled by vertexv has rows consisting of edges incident tov and columns whose independent set omitsv. The LP finds exact rational cell weights of total20 with every such subrectangle of weight at most1. Symmetrizing over120verified automorphisms preserves feasibility; all constraints are rechecked exactly by integer arithmetic. Thus the standard rectangle-partition argument suggests a20-leaf lower bound. No Lean proof of that argument was written here.
+
+There are1400tight rectangles for the symmetric certificate. HiGHS reported no integral exact partition using these tight rectangles. This infeasibility claim is UNVERIFIED as a formal result: no independently checked UNSAT certificate was produced, and no lower bound21should be claimed from the solver alone. All source, input JSON, stdout/stderr and numerical reports are preserved for follow-up. Root stopped this experiment upon HTTP410 without further computation.

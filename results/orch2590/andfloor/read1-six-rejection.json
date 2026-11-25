@@ -1,0 +1,15 @@
+{
+  "ands": 6,
+  "rows": 30,
+  "variables": 2191,
+  "clauses": 7672,
+  "seconds": 0.006886482238769531,
+  "exit_code": 20,
+  "source_sha256": "1320b4dac442d5e08cb7fea2dffd944c187d4a6fa1ba23d9cd7848a6fc0f6956",
+  "cnf_sha256": "9b94b683b8c240f781f16bd3f6ac71192944daa8dbacfb0deecea0a24cdf9627",
+  "productive": false,
+  "dual": false,
+  "require_non_read1": true,
+  "pin": "results/orch2590/andfloor/baseline-six.json",
+  "status": "UNSAT-external-only"
+}

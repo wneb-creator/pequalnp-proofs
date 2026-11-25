@@ -1,0 +1,93 @@
+[
+  {
+    "file": "baseline-dual-fourteen.json",
+    "status": "SAT",
+    "ands": 14,
+    "dual": true,
+    "seconds": 0.013479948043823242,
+    "exit_code": 10,
+    "expanded_size": 29,
+    "missing_squarefree_edges": null
+  },
+  {
+    "file": "baseline-six.json",
+    "status": "SAT",
+    "ands": 6,
+    "dual": null,
+    "seconds": 0.006087303161621094,
+    "exit_code": 10,
+    "expanded_size": 23,
+    "missing_squarefree_edges": null
+  },
+  {
+    "file": "dual-thirteen-free.json",
+    "status": "UNKNOWN",
+    "ands": 13,
+    "dual": true,
+    "seconds": 109.88678193092346,
+    "exit_code": -2,
+    "expanded_size": null,
+    "missing_squarefree_edges": null
+  },
+  {
+    "file": "five-free.json",
+    "status": "UNKNOWN",
+    "ands": 5,
+    "dual": null,
+    "seconds": 60.008450746536255,
+    "exit_code": 0,
+    "expanded_size": null,
+    "missing_squarefree_edges": null
+  },
+  {
+    "file": "impossible-zero.json",
+    "status": "UNSAT-external-only",
+    "ands": 0,
+    "dual": null,
+    "seconds": 0.0035936832427978516,
+    "exit_code": 20,
+    "expanded_size": null,
+    "missing_squarefree_edges": null
+  },
+  {
+    "file": "nonread1-ten-validation.json",
+    "status": "SAT",
+    "ands": 10,
+    "dual": false,
+    "seconds": 0.011300802230834961,
+    "exit_code": 10,
+    "expanded_size": 29,
+    "missing_squarefree_edges": [
+      [
+        3,
+        4
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        6
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        5,
+        7
+      ]
+    ]
+  },
+  {
+    "file": "read1-six-rejection.json",
+    "status": "UNSAT-external-only",
+    "ands": 6,
+    "dual": false,
+    "seconds": 0.006886482238769531,
+    "exit_code": 20,
+    "expanded_size": null,
+    "missing_squarefree_edges": null
+  }
+]

@@ -1,0 +1,1 @@
+{"ands": 0, "rows": 30, "variables": 40, "clauses": 140, "seconds": 0.0035936832427978516, "exit_code": 20, "source_sha256": "61bc98c403b6e389b3aa5f2f9cc75eda8ab096308b37131ca6ec2b1cc4eb7470", "cnf_sha256": "9ec54b35854dd2d7573abd251312cffeb66a2b12d9388e97cb352b098eee4a64", "productive": false, "pin": null, "status": "UNSAT-external-only"}

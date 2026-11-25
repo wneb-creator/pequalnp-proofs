@@ -1,0 +1,1 @@
+{"ands": 5, "rows": 30, "variables": 1365, "clauses": 4690, "seconds": 60.008450746536255, "exit_code": 0, "source_sha256": "61bc98c403b6e389b3aa5f2f9cc75eda8ab096308b37131ca6ec2b1cc4eb7470", "cnf_sha256": "2a1826c94c443df1c3d0445661c8947ca908ff09a5f5d0d55c8c59328be4db1c", "productive": false, "pin": null, "status": "UNKNOWN"}
