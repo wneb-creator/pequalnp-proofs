@@ -24,3 +24,7 @@ FiniteVerification.lean: first attempt failed on a let binder; corrected attempt
 SubgraphLift.lean: exit0, empty output; generic input map preserves circuit size, monotonicity and evaluation.
 StarLift.lean and RowLift.lean: exit0, only unused-argument warnings; generic append costs5 per remaining row and preserves semantics.
 All four independently reviewed before push. No63-gate witness or exact-target checker acceptance.
+
+First20min search snapshot: 68 source/data/log files,397474bytes, independently audited. No target witness. Original sat57-run.log explicitly invalid; corrected search logs retained separately.
+Sub-agents: six (status_review, circuit_search, algebra_strategy, lean_baseline, reduction_analysis, lower_bound)
+TIMING total=37.1 subagents=6

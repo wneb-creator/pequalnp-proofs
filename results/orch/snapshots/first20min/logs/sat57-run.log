@@ -1,0 +1,7 @@
+input errors [(1048580, 1)]
+focus [12, 13, 14, 15, 24, 26, 27, 29, 30, 31, 50, 55, 56, 57, 58, 59, 60, 61, 62]
+window-000 mutable [57, 58, 59, 60, 61, 62] vars 15649 clauses 820279
+window-000 exit 20 seconds 2.49
+window-001 mutable [53, 54, 55, 56, 57, 58, 59, 60, 61, 62] vars 26011 clauses 1381627
+window-001 exit 0 seconds 25.05
+window-002 mutable [49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62] vars 36289 clauses 1912639

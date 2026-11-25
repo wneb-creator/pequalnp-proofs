@@ -1,0 +1,53 @@
+seconds 1.0366e-05 iterations 0 restarts 0 best 100000 current 64 miss 4 false 0
+BEST 273 miss 8 false 145 at 1.0366e-05
+BEST 150 miss 5 false 70 at 0.000153387
+BEST 112 miss 7 false 0 at 0.000226746
+BEST 80 miss 5 false 0 at 0.000704722
+BEST 64 miss 4 false 0 at 0.000956404
+BEST 48 miss 3 false 0 at 0.0168074
+seconds 10 iterations 25360086 restarts 25 best 48 current 80 miss 5 false 0
+seconds 20 iterations 51714631 restarts 51 best 48 current 96 miss 6 false 0
+seconds 30 iterations 78318410 restarts 78 best 48 current 656 miss 41 false 0
+seconds 40 iterations 104488252 restarts 104 best 48 current 96 miss 6 false 0
+seconds 50 iterations 131603646 restarts 131 best 48 current 400 miss 25 false 0
+seconds 60 iterations 158383429 restarts 158 best 48 current 144 miss 9 false 0
+seconds 70 iterations 185256456 restarts 185 best 48 current 64 miss 4 false 0
+seconds 80 iterations 210636243 restarts 210 best 48 current 432 miss 27 false 0
+seconds 90 iterations 237368055 restarts 237 best 48 current 128 miss 8 false 0
+seconds 100 iterations 262888009 restarts 262 best 48 current 288 miss 18 false 0
+seconds 110 iterations 289537808 restarts 289 best 48 current 48 miss 3 false 0
+seconds 120 iterations 316156799 restarts 316 best 48 current 96 miss 6 false 0
+seconds 130.008 iterations 339223997 restarts 339 best 48 current 80 miss 5 false 0
+seconds 140 iterations 360292985 restarts 360 best 48 current 64 miss 4 false 0
+seconds 150 iterations 386570821 restarts 386 best 48 current 208 miss 13 false 0
+seconds 160 iterations 412288245 restarts 412 best 48 current 96 miss 6 false 0
+BEST 32 miss 2 false 0 at 165.181
+seconds 170.008 iterations 436342011 restarts 436 best 32 current 96 miss 6 false 0
+seconds 180 iterations 460649505 restarts 460 best 32 current 80 miss 5 false 0
+seconds 190.008 iterations 485061497 restarts 485 best 32 current 96 miss 6 false 0
+seconds 200.008 iterations 505259608 restarts 505 best 32 current 96 miss 6 false 0
+seconds 210.008 iterations 521760784 restarts 521 best 32 current 64 miss 4 false 0
+seconds 220.013 iterations 535254667 restarts 535 best 32 current 48 miss 3 false 0
+seconds 230.013 iterations 545727913 restarts 545 best 32 current 336 miss 21 false 0
+seconds 240.008 iterations 557842829 restarts 557 best 32 current 80 miss 5 false 0
+seconds 250.008 iterations 573005334 restarts 573 best 32 current 64 miss 4 false 0
+seconds 260.008 iterations 592566605 restarts 592 best 32 current 112 miss 7 false 0
+seconds 270.008 iterations 612242469 restarts 612 best 32 current 48 miss 3 false 0
+seconds 280.013 iterations 629632574 restarts 629 best 32 current 64 miss 4 false 0
+seconds 290.013 iterations 646116843 restarts 646 best 32 current 576 miss 36 false 0
+seconds 300.008 iterations 664219857 restarts 664 best 32 current 64 miss 4 false 0
+seconds 310.009 iterations 679720707 restarts 679 best 32 current 320 miss 20 false 0
+seconds 320.013 iterations 689249867 restarts 689 best 32 current 112 miss 7 false 0
+seconds 330.013 iterations 699055689 restarts 699 best 32 current 528 miss 33 false 0
+seconds 340.008 iterations 711159453 restarts 711 best 32 current 96 miss 6 false 0
+seconds 350.013 iterations 721157032 restarts 721 best 32 current 80 miss 5 false 0
+seconds 360.008 iterations 730596025 restarts 730 best 32 current 144 miss 9 false 0
+seconds 370.008 iterations 742677527 restarts 742 best 32 current 96 miss 6 false 0
+seconds 380.008 iterations 752960269 restarts 752 best 32 current 80 miss 5 false 0
+seconds 390.008 iterations 764356493 restarts 764 best 32 current 64 miss 4 false 0
+seconds 400.013 iterations 773917435 restarts 773 best 32 current 112 miss 7 false 0
+seconds 410.017 iterations 781259232 restarts 781 best 32 current 64 miss 4 false 0
+seconds 420.008 iterations 791180895 restarts 791 best 32 current 80 miss 5 false 0
+seconds 430.008 iterations 809435350 restarts 809 best 32 current 448 miss 28 false 0
+seconds 440.008 iterations 822490180 restarts 822 best 32 current 96 miss 6 false 0
+seconds 450.013 iterations 839960811 restarts 839 best 32 current 64 miss 4 false 0

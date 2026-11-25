@@ -12,3 +12,7 @@
 2026-11-25T02:28:25.876796+00:00 reduction_analysis genericinputrenamecompiled.
 2026-11-25T02:30:11.576927+00:00 reduction_analysis fivegatestarattachmentcompiled.
 2026-11-25T02:31:09.475322+00:00 Finite verification and full subset-lifting infrastructure compiled and independently reviewed.
+2026-11-25T02:31:16.673813+00:00 reduction_analysis generalrowliftingcompiled.
+2026-11-25T02:34:46.519530+00:00 Renewed lease; expiry 2026-11-25T02:54:46.748Z.
+2026-11-25T02:35:30.640870+00:00 First20-minute strategy review; retired stalled searches and prioritized smaller cores with dominance pruning.
+2026-11-25T02:37:22.854221+00:00 reduction_analysis exact conditional k4/k6 lifting bridges compiled.

@@ -1,0 +1,342 @@
+[
+  {
+    "file": "lemmas/circuit_search/run57-best.json",
+    "sha256": "fb2a069282dc9e9f7ebf5f7708faab10bd700a1ba4ff4e3fc796e2f5da651888",
+    "bytes": 783
+  },
+  {
+    "file": "lemmas/circuit_search/run650-pruned.json",
+    "sha256": "4373658ccb6b6810d55cfef1d4abe00834ca6e9eb2168016e63b9771900264d4",
+    "bytes": 1914
+  },
+  {
+    "file": "lemmas/circuit_search/geometry.json",
+    "sha256": "f36a95a996e80e31c0e0bd5b2118d1cfaf46e511e3b26597c0edd0acddf1bb9f",
+    "bytes": 9806
+  },
+  {
+    "file": "lemmas/circuit_search/run57-pruned.json",
+    "sha256": "2be461f5a5835932703b5c32e27b11b1e2d3b72c98cfaab894a24e9bc40d8e03",
+    "bytes": 1916
+  },
+  {
+    "file": "lemmas/circuit_search/circuit-search-k6.log",
+    "sha256": "01acdba93d58de44a2131bc00dea2f45afc4a65aa2b5c3a680a6315a73e8b71d",
+    "bytes": 2647
+  },
+  {
+    "file": "lemmas/circuit_search/two517-best.json",
+    "sha256": "876e17a43b5dd266620bc2af95114fd532e6319cdd1ab7ceb83aeac1c1473f74",
+    "bytes": 846
+  },
+  {
+    "file": "lemmas/circuit_search/search.cpp",
+    "sha256": "017e4488bb0d819e3d92ed69f75b613374e75b6666ad355dacd458a3786d1695",
+    "bytes": 4287
+  },
+  {
+    "file": "lemmas/circuit_search/k6and-best.json",
+    "sha256": "437a3438e8fead654b2b6d8b00f3f5c014dcb6274a423f1430fe3a17a4ef3652",
+    "bytes": 378
+  },
+  {
+    "file": "lemmas/circuit_search/generate_cases.py",
+    "sha256": "4e2a3b15bb5485b10064cc3b9afae7d92b3574374b0e01240680b4236f7b8fa0",
+    "bytes": 2505
+  },
+  {
+    "file": "lemmas/circuit_search/subsets/k6_p3.json",
+    "sha256": "24862892b7e189052d713ee8b562a029fac4604ca56130937a0ed92c1a21233a",
+    "bytes": 5164
+  },
+  {
+    "file": "lemmas/circuit_search/subsets/k6_p1.json",
+    "sha256": "f3b7515e5364d0fba51d684b6fa031a5047969bb5a32b2038191c06ad331d792",
+    "bytes": 5615
+  },
+  {
+    "file": "lemmas/circuit_search/subsets/k4_p2.json",
+    "sha256": "7a3ab163035da5dfcf44d0a70f55d05e5e3bff8bb664b5fe13aef404d18f81df",
+    "bytes": 2876
+  },
+  {
+    "file": "lemmas/circuit_search/subsets/k3_p0.json",
+    "sha256": "7537ddaeaf02dfe69d2a6fa6d60bef2c3de4914a788dfa24a5084d6ce9ac04ef",
+    "bytes": 2086
+  },
+  {
+    "file": "lemmas/circuit_search/subsets/k6_p3_orbits.json",
+    "sha256": "c0ea1fd720c615c5977563226a62c2a58b5a6a0e7a498ac9f9eb591cf6847751",
+    "bytes": 8313
+  },
+  {
+    "file": "lemmas/circuit_search/subsets/index.json",
+    "sha256": "f931f75aef431908ad067380f9065de4a58be8d70570f281965903743624ee1a",
+    "bytes": 3909
+  },
+  {
+    "file": "lemmas/circuit_search/subsets/k5_p1.json",
+    "sha256": "4de38e6718a0b9334d60c35fc9c8c451613d73dcff4e12f079910edda6716ddd",
+    "bytes": 3972
+  },
+  {
+    "file": "lemmas/circuit_search/subsets/k6_p0.json",
+    "sha256": "fb5101a64ae2f415d0186305ebaa91c2cab34a171cd6fe6dc2151898b0dc6fd1",
+    "bytes": 5457
+  },
+  {
+    "file": "lemmas/circuit_search/subsets/k6_p2.json",
+    "sha256": "1613a789614f80742c33f6fc29bc4ab80a8e24f1dc422172c79d0357ef21f391",
+    "bytes": 5289
+  },
+  {
+    "file": "lemmas/circuit_search/subsets/k7_p0.json",
+    "sha256": "5d67f8a631655afbbaeb0bf18c55e10fb672437a9151fcc533d2681576cdbdb6",
+    "bytes": 7495
+  },
+  {
+    "file": "lemmas/circuit_search/subsets/k5_p0.json",
+    "sha256": "fe1fbf5557fd57fffb73e372ac43d7d7047fcd9a8a0512f3d4b9a1aaa2c0669e",
+    "bytes": 3966
+  },
+  {
+    "file": "lemmas/circuit_search/subsets/k7_p2.json",
+    "sha256": "0e65876634b8d4d13d6284528349ba122fac7cf615abbceb3a2d82e364139d76",
+    "bytes": 7433
+  },
+  {
+    "file": "lemmas/circuit_search/subsets/k4_p0.json",
+    "sha256": "6a1cf0e6ce33f58fe48087b77da46987c00ac384e33f5f1a4c63c889e4fff142",
+    "bytes": 2922
+  },
+  {
+    "file": "lemmas/circuit_search/subsets/k7_p3.json",
+    "sha256": "23a861ce23e29361f50556c1f98ac6fd390196fce6a2cf23244c1385688caaa8",
+    "bytes": 7009
+  },
+  {
+    "file": "lemmas/circuit_search/subsets/k7_p1.json",
+    "sha256": "efec4ea1ce15309f999c321e3856def5a1c1e269197d1d0be9e6f5b6686a6dac",
+    "bytes": 7373
+  },
+  {
+    "file": "lemmas/circuit_search/subsets/k4_p1.json",
+    "sha256": "b6114570abfad8a087a458fc68f9d877c04649095cb6d6c06cc646fa1b9d0f9a",
+    "bytes": 2892
+  },
+  {
+    "file": "lemmas/circuit_search/subsets/k5_p2.json",
+    "sha256": "f1e0c90469096670fdb458e1ca898e825207b9bb3165fd740115c876f4858a97",
+    "bytes": 3888
+  },
+  {
+    "file": "lemmas/circuit_search/subsets/k3_p1.json",
+    "sha256": "915b02237b02e1b09ea5d6c78b48404764585d3110849f90706df5703bdb33c0",
+    "bytes": 2076
+  },
+  {
+    "file": "lemmas/circuit_search/active650-best.json",
+    "sha256": "a39f7efc8b25ba1206e303b01d0c42b7c629bd00f251d3bde74da8994a2d81d3",
+    "bytes": 811
+  },
+  {
+    "file": "lemmas/circuit_search/k6internal-pruned.json",
+    "sha256": "342535325f7add6d98b8d9958618be65b4e64cb0dbcc7a2db76f7e57cfaf07f3",
+    "bytes": 917
+  },
+  {
+    "file": "lemmas/circuit_search/k6and-pruned.json",
+    "sha256": "cce147d904e2ebea57c7d033c298bad1fa9bc7ab705007311f539c23c97f4290",
+    "bytes": 917
+  },
+  {
+    "file": "lemmas/circuit_search/run650-best.json",
+    "sha256": "689c7065dd0837cad4dd4e4cbbd81c319b3eab88ba7db08a85b051b905a8f7dd",
+    "bytes": 812
+  },
+  {
+    "file": "lemmas/circuit_search/search_two.cpp",
+    "sha256": "f6cb60786e1339886af9d4f65a9f34cb654b9313b1ea426a175ef8bd0a1ffb17",
+    "bytes": 4095
+  },
+  {
+    "file": "lemmas/circuit_search/circuit-search-active.log",
+    "sha256": "e41d9a00c23c43145fc082ce6d76b363a5d24d496908fd3128e03093d52eec66",
+    "bytes": 2716
+  },
+  {
+    "file": "lemmas/circuit_search/search_star_original.cpp",
+    "sha256": "8f176fb7d0bda6295ee4266663062be8d5d2a815a1760ac023a4eb4e3d80a39e",
+    "bytes": 4291
+  },
+  {
+    "file": "lemmas/circuit_search/prune.py",
+    "sha256": "62a0137987d7d9b5914e2884b8784101741d3ae42aa34b1dbadf8e7183232fda",
+    "bytes": 2706
+  },
+  {
+    "file": "lemmas/circuit_search/circuit-search-57.log",
+    "sha256": "d6f49b18f51ca4d38090ff9c0b432d20f247eccfae5a26dce2c6aebb4baf30a3",
+    "bytes": 5064
+  },
+  {
+    "file": "lemmas/circuit_search/search_active.cpp",
+    "sha256": "827fcd3b0909b58561b15cee90fee9fca533b930ba96f24ba44c35fd73810d77",
+    "bytes": 4773
+  },
+  {
+    "file": "lemmas/circuit_search/k6internal-best.json",
+    "sha256": "c3ed9db82c88e85bc6437bc2b2ed9ad69728ec5d1aaa0649634cc31c57c0043c",
+    "bytes": 378
+  },
+  {
+    "file": "lemmas/circuit_search/circuit-search-650.log",
+    "sha256": "265113e319e7d0ec866771a89a0f209fc309722616e5dbfc6496aa2d0cf07a9e",
+    "bytes": 4073
+  },
+  {
+    "file": "lemmas/reduction_analysis/residual-tests.json",
+    "sha256": "cc148d8d9a732016b63602d1def0b05c8d48d51a906c116e9cff1dfa8a136434",
+    "bytes": 64252
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/candidate-650.json",
+    "sha256": "b2e6616d9bf7ba4f4414b41adfaa7dd905c9e3ba4eeb856f8ec9de3525a4ac70",
+    "bytes": 808
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/resynthesize.py",
+    "sha256": "8e19dd7f8b759dde4049c02010b3416a6f47eae0f1eef93e8fb60c7ce6df6037",
+    "bytes": 13214
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/candidate-57.json",
+    "sha256": "fb2a069282dc9e9f7ebf5f7708faab10bd700a1ba4ff4e3fc796e2f5da651888",
+    "bytes": 783
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/fixed_profiles.py",
+    "sha256": "ad5688b5e447b08373b98734e475e6e1b50a10433257663969f5f23295eb03bc",
+    "bytes": 2020
+  },
+  {
+    "file": "lemmas/lean_baseline/sat/subset_search.py",
+    "sha256": "17899dc746e90c3961ced06bd5f4a40b3b38c00d42c549d7eba2554aabcb12f6",
+    "bytes": 3689
+  },
+  {
+    "file": "lemmas/algebra_strategy/k6_p3_internal_and_seeds.json",
+    "sha256": "cbf40556f77deb4e39835df37c11a00a2370794955cccb4d182bfa73b443be9e",
+    "bytes": 79470
+  },
+  {
+    "file": "lemmas/algebra_strategy/k6_p3_nested_and_seeds.json",
+    "sha256": "aca8e98e97687349edea90b7107c5e39555742c96c138b35bc887d75f9d773de",
+    "bytes": 7471
+  },
+  {
+    "file": "lemmas/algebra_strategy/subset_profiles.json",
+    "sha256": "d95f03c465cb6cc7386c4c6a4d428e423bf28d5b0a614cb61cf247c0303079e5",
+    "bytes": 3352
+  },
+  {
+    "file": "lemmas/algebra_strategy/nested_and_seeds.json",
+    "sha256": "a3fffe13cd35e7dac6ff613626681fc011578c7f99bc57dfdbe370bbf267cf85",
+    "bytes": 22704
+  },
+  {
+    "file": "lemmas/circuit_search/full-case.json",
+    "sha256": "f7e1172aa4deb2d798be4df164826f3980b561232f230a0f7dd14a0938df278e",
+    "bytes": 10875
+  },
+  {
+    "file": "lemmas/lower_bound/sat/subset_synthesis.py",
+    "sha256": "7f712ad0085e6ae1a34ccdd319cc77d4efee5bffb354372a5eaaaacc6a13d71f",
+    "bytes": 3263
+  },
+  {
+    "file": "lemmas/lower_bound/sat/triangle_private_core.json",
+    "sha256": "30040be3e50fa2eb8e72bb08ed184374478c8bbae393d738cc21bab720f1c5c0",
+    "bytes": 1557
+  },
+  {
+    "file": "lemmas/lower_bound/sat/global_synthesis.py",
+    "sha256": "a440ffea4620d2197db0116e6b543c881f5b2ba25e5977961b276dfcbeea8c86",
+    "bytes": 12160
+  },
+  {
+    "file": "logs/global-sat-63.log",
+    "sha256": "a3d198d76d75c0e0ca203cb6b88dccf8102242287f3117212a30871c6c75a26a",
+    "bytes": 225
+  },
+  {
+    "file": "logs/global-sat-or-same.log",
+    "sha256": "3064e6a1977d91d31a51593b7fb8477e56129aca35ab87414773f261b40975e5",
+    "bytes": 224
+  },
+  {
+    "file": "logs/sat57-run.log",
+    "sha256": "e81e0f65af7dcf820cb1eaa6a28241b4f6250256cdab9b73048fadf73b464710",
+    "bytes": 435
+  },
+  {
+    "file": "logs/sat57-correct-run.log",
+    "sha256": "c6032bf3153a24d747a87fbbf0cc5a360a5c1d400b054b58dda70d44f8fab27d",
+    "bytes": 3431
+  },
+  {
+    "file": "logs/sat650-cegis-run.log",
+    "sha256": "f5de1bc86ded48f4cc03662af10bfe3e06468cea935b3be6da1ce09ee732722c",
+    "bytes": 2525
+  },
+  {
+    "file": "logs/sat-subsets-run.log",
+    "sha256": "731fa5be19336cde4ac8c67ef36d58fd664b0654c074ae1e7ba2d0842a2193ac",
+    "bytes": 338
+  },
+  {
+    "file": "logs/sat-subsets-ordered-run.log",
+    "sha256": "2b09f8c01c55bc61cee121430eb7b93a4f43915023662359cd312dbbf23f8708",
+    "bytes": 716
+  },
+  {
+    "file": "logs/sat-k6p3.log",
+    "sha256": "1f7bbcc9e9c8d1d110ee52b73f40f79a99c4ef220a99db904fa31a7d43e942cf",
+    "bytes": 123
+  },
+  {
+    "file": "logs/sat-k6p3-seven-and.log",
+    "sha256": "3a9cf0fd0bd92c33b6fb7ad5c485d29067e621f5dcf45e5e504dd8c07a3dd0ee",
+    "bytes": 124
+  },
+  {
+    "file": "logs/circuit-search-57.log",
+    "sha256": "d6f49b18f51ca4d38090ff9c0b432d20f247eccfae5a26dce2c6aebb4baf30a3",
+    "bytes": 5064
+  },
+  {
+    "file": "logs/circuit-search-650.log",
+    "sha256": "265113e319e7d0ec866771a89a0f209fc309722616e5dbfc6496aa2d0cf07a9e",
+    "bytes": 4073
+  },
+  {
+    "file": "logs/circuit-search-active.log",
+    "sha256": "e41d9a00c23c43145fc082ce6d76b363a5d24d496908fd3128e03093d52eec66",
+    "bytes": 2716
+  },
+  {
+    "file": "logs/circuit-search-two.log",
+    "sha256": "f30c0bd6f5e10cb713aa267380ed0259be7c9787ef8912ac431d6eb58f2225bd",
+    "bytes": 3909
+  },
+  {
+    "file": "logs/circuit-search-k6.log",
+    "sha256": "01acdba93d58de44a2131bc00dea2f45afc4a65aa2b5c3a680a6315a73e8b71d",
+    "bytes": 2647
+  },
+  {
+    "file": "logs/circuit-search-k6-internal.log",
+    "sha256": "6784f72c6f5d787ed88f81c42fa1643e9b7fa73138e347762afe8547248d2867",
+    "bytes": 936
+  }
+]

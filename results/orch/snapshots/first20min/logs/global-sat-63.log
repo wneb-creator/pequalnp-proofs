@@ -1,0 +1,3 @@
+2026-11-25T02:23:19.147079+00:00 ROUND 0 samples 105 vars 34147 clauses 1228820 generation_seconds 4.27
+2026-11-25T02:26:19.244664+00:00 SOLVER 0 seconds 184.37
+No candidate: solver limit or error; no lower bound established
