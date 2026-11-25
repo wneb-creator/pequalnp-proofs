@@ -1,0 +1,456 @@
+{
+  "action": "Inventory only; root may delete only after independent approval.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-permissive-base.cnf",
+      "bytes": 3506154,
+      "sha256": "b767cd3f28b3ba8f9b15e738aff0a1bc72e0b1dcd3f6727cb04891ea323cf8f6",
+      "recipe": "unique",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-permissive-base.map.json",
+        "bytes": 37372,
+        "sha256": "e104ffc2ea609e84b36f9abc184b3fa7cc8a9472a12d44fe509a5b3acbdb74ff"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-permissive-critical.cnf",
+      "bytes": 3551016,
+      "sha256": "08883f4d469c8121fb17afc7c1417918361fc79d98b120a97509efb6a5f5a01d",
+      "recipe": "unique",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-permissive-critical.map.json",
+        "bytes": 31965,
+        "sha256": "90506cba1bbb7158c31557a591f139251c204a80bca16ff100264b097dfed3fe"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-original-equivalence.cnf",
+      "bytes": 3506154,
+      "sha256": "b767cd3f28b3ba8f9b15e738aff0a1bc72e0b1dcd3f6727cb04891ea323cf8f6",
+      "recipe": "unique",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-original-equivalence.map.json",
+        "bytes": 18875,
+        "sha256": "bc0fc879a311f05d4805ab0a4bc4c348b671776d336150f5af7b106174f58595"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-27-smoke-base.cnf",
+      "bytes": 3727788,
+      "sha256": "6f10d98003179ff65e0520a9f674997fd14df23bb52b3c08e3afef8dc823d92b",
+      "recipe": "unique",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-27-smoke-base.map.json",
+        "bytes": 38975,
+        "sha256": "974fbcfcd2005337eb997dc9c8cab6b6dbe83b3c5bea23057065f3b54d2f05f9"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-27-smoke-critical.cnf",
+      "bytes": 3775168,
+      "sha256": "ba9546ece47a8b72ec3238e7ae8a0e1aec745a7e5a99c4d27510c2cc3ecb390d",
+      "recipe": "unique",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-27-smoke-critical.map.json",
+        "bytes": 33307,
+        "sha256": "a1a84757ce337b0be67a75e8ab6c191c9a43aba40fecadb687e61599c42d44ec"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-27-smoke-fanout.cnf",
+      "bytes": 5059780,
+      "sha256": "5b3680587847d57cb5f4cdb0d804515a1793c2d1a84045e8732034e3d2bd141c",
+      "recipe": "unique",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-27-smoke-fanout.map.json",
+        "bytes": 33524,
+        "sha256": "4741c3a533d5ea9c5da4e1d347cc4aa6f469735ea581f147a615f24a6865a8f7"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-27-smoke.cnf",
+      "bytes": 5060335,
+      "sha256": "fcf843318cf7f888a819599277ab78204ecd7e7ce03f7be28d34214dcdd634da",
+      "recipe": "unique",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-27-smoke.map.json",
+        "bytes": 40528,
+        "sha256": "991be1cfdcc5d80774e72fd3968defead0dc01bb21da471da8f1cbeedf523766"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-28-pad-base.cnf",
+      "bytes": 3956244,
+      "sha256": "9b322edde7ad2f04bb8dc27fd50eb5bd7ca5d51b828a36fa157674570ef3fc99",
+      "recipe": "unique",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-28-pad-base.map.json",
+        "bytes": 40590,
+        "sha256": "810ea2614ea5922d0d6fe65845f73cd6301686072a01b3c8f076a946b538e9db"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-28-pad-critical.cnf",
+      "bytes": 4006198,
+      "sha256": "eb078dda1a331c09330ec911ba5092a806778b6671fca60d750c18cf86be9de7",
+      "recipe": "unique",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-28-pad-critical.map.json",
+        "bytes": 34659,
+        "sha256": "53e917c120e3abef44a9334b65cc8fe1c50c028345bfcb77bdff764192e99187"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-28-pad-fanout.cnf",
+      "bytes": 5389350,
+      "sha256": "ff723ef37c984ee3037e327797df7ff1e2a899b1d07058f16465fc612680f5e7",
+      "recipe": "unique",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-28-pad-fanout.map.json",
+        "bytes": 34876,
+        "sha256": "3beb5500fa3c145adece50a9d99b9fdaa4a5280b780231e41a9143c6264e8425"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-28-pad.cnf",
+      "bytes": 5389926,
+      "sha256": "b94564ce452ac1eecec4f2891ae8f0274ec852162ab365bfb96a33bffa1f93c5",
+      "recipe": "unique",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-28-pad.map.json",
+        "bytes": 42159,
+        "sha256": "7b614fc6ec778ea1fd2941945d84c7897541a1cd9a618621f1d52cf4246ff93f"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-near26-k0-smoke.cnf",
+      "bytes": 3096125,
+      "sha256": "acf6319a000eac89b437f09b62817400c33eb6ce015c418e72686402e20ef612",
+      "recipe": "repair",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-near26-k0-smoke.map.json",
+        "bytes": 17113,
+        "sha256": "01a0337bf6a68136b96b919d58240aa1d18853a7e1d09fb7eebab7f9e39a0d5c"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-star27-k0-smoke.cnf",
+      "bytes": 3283410,
+      "sha256": "513aa34a38deea5012c803368f48c94bcabdb8919102c46381073651fb83c5cf",
+      "recipe": "repair",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-star27-k0-smoke.map.json",
+        "bytes": 17877,
+        "sha256": "d294af34ddab1bfe7e91883434617204d1b62a57ff6d0cff2de77e95b9ab3fb1"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-star27-k1-smoke.cnf",
+      "bytes": 3285898,
+      "sha256": "5b040c0844d895639194ae55c56d2269a23b512e1e28194ffe1593424a536f18",
+      "recipe": "repair",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-star27-k1-smoke.map.json",
+        "bytes": 18443,
+        "sha256": "0b84aa28ca9292e1037a84c981e86d4263db84c42a22636a06e8e7122c59e92f"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-base27-smoke.cnf",
+      "bytes": 3278898,
+      "sha256": "64733f0aff9fb4e7091582384b80c8c26032be42a8647674d30c55353cd43558",
+      "recipe": "repair",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-base27-smoke.map.json",
+        "bytes": 19749,
+        "sha256": "14ef46e5500dac9ba857adeb66390a613c69792b26947419c4a97c0ffd9ed0d7"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-near26-k2.cnf",
+      "bytes": 3100906,
+      "sha256": "7c655524b72a37ddf55d37dd6aff2ba6a169f4908b3bb38e7c3978d8f7c5442d",
+      "recipe": "repair",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-near26-k2.map.json",
+        "bytes": 18048,
+        "sha256": "4eb8075cc286f67f967bee8111bc6d608b68184986271948d64acdc10742f8e9"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-near26-k3.cnf",
+      "bytes": 3103294,
+      "sha256": "298ce1d8a8066795fdf777c347abb2acee02ee5ee02b5dc1e9505aa40b5a200d",
+      "recipe": "repair",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-near26-k3.map.json",
+        "bytes": 18438,
+        "sha256": "7db56a8685cec733ca716bea56cb72f2d0bbfac23b52ae4cbd70ea8d60019c28"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-near26-k4.cnf",
+      "bytes": 3105682,
+      "sha256": "b92a428b321ebddff9cc93a2c80c7208b1e9ed641ce7deca5bae5fd144e10b2f",
+      "recipe": "repair",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-near26-k4.map.json",
+        "bytes": 18828,
+        "sha256": "1c791dd7248ddda27e1d2c90c0baa9c12eeb420250ed3cfe72aa8bf5763c1de0"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-cegis26-k2.cnf",
+      "bytes": 3100903,
+      "sha256": "d82b53bac3e6f404a100df24882a1a708b0cdfdad7890f50bf0e379798b11a91",
+      "recipe": "repair",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-cegis26-k2.map.json",
+        "bytes": 18051,
+        "sha256": "c4ced635aa0b81410c590191d4d1668afe207816927a324779a90461bb2ae4e8"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-cegis26-k3.cnf",
+      "bytes": 3103290,
+      "sha256": "ecd668970d3245459f8312d00d351ed7c2b579a4b60b40dc034d593a3ceabf5b",
+      "recipe": "repair",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-cegis26-k3.map.json",
+        "bytes": 18441,
+        "sha256": "1f71b0ad3ae88fe8f8305b833ef2e8c3ecf0a78d5bd440643cdfc20d4fc26e92"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-cegis26-k4.cnf",
+      "bytes": 3105677,
+      "sha256": "54bdc16177bab041707fc96c8d371d3708b0d44f2faee0f021e9df2c6ec5dee1",
+      "recipe": "repair",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-cegis26-k4.map.json",
+        "bytes": 18831,
+        "sha256": "0fc4e8905f4c97158bd502ed5bc37c3f7de674bff7aaa91d1873055cc1fac550"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/raw-fanout26.cnf",
+      "bytes": 4281494,
+      "sha256": "d27f1b2845948949998af6f58fe2848025382afaa3feb144ecfe147735dc662f",
+      "recipe": "fanout",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/raw-fanout26.map.json",
+        "bytes": 15947,
+        "sha256": "1d2c9b4b70cd814f86780c92e228b4b06033c8910a59c29e3d361834ddbb4094"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/raw-fanout27-smoke.cnf",
+      "bytes": 4568022,
+      "sha256": "785b44ee1402415c4a3f603032446766a3912604b71a96cc53b07b7b9adaa079",
+      "recipe": "fanout",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/raw-fanout27-smoke.map.json",
+        "bytes": 18094,
+        "sha256": "401c5c7f21d317d0b65d13d2f806cbffb357dec9f7780f7374ca1180c1feded8"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/f0-available-a24-base.cnf",
+      "bytes": 2206913,
+      "sha256": "c3ae35e9f9c2371b8eb9a4eca54acd5e454d12a83fe6e1d8c5c759f0427340ad",
+      "recipe": "f0",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/f0-available-a24-base.map.json",
+        "bytes": 15197,
+        "sha256": "406256fe2817b7da02132a56ec4d82b106de83c193c592f36895b77311eecd99"
+      }
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/f0-available-a24.cnf",
+      "bytes": 2206945,
+      "sha256": "c44a631233dabbf3bca1831f0e5d1ff409ea81fc82085bf0230c9eae39e8c83f",
+      "recipe": "f0",
+      "retained_map": {
+        "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/f0-available-a24.map.json",
+        "bytes": 12794,
+        "sha256": "a5d9ae0ba8f137e46827376eb8bdc49f47202668d56b6fad8a68f4dae6cdcb55"
+      }
+    }
+  ],
+  "total_bytes": 91755570,
+  "regeneration": "Use a fresh scratch directory and retained source/map/seed data; never remove retained maps to satisfy generator no-overwrite guards. Regenerated DIMACS bytes are independent of output path.",
+  "recipes": {
+    "unique": {
+      "generator": "unique_input_base.py (metadata-only copy of repair_base.py)",
+      "base_flags": [
+        "--gates",
+        "N",
+        "--no-canon",
+        "--allow-initial-repeats",
+        "--allow-trivial"
+      ],
+      "stages": [
+        "Generate base (N26/27/28 from preserved map).",
+        "Apply add_unique_input.py to base for critical stage.",
+        "Apply add_raw_fanout.py to critical stage for fanout stage.",
+        "For fixed27/28, fix_correlated_smoke.py --toposort using unique0-star27.json or unique0-star28-padded.json."
+      ],
+      "special": "original-equivalence uses repair_base.py with the same26 flags; its CNF is byte-identical to unique0-26-permissive-base.",
+      "provenance": [
+        "unique0-preparation.json",
+        "unique-input-source.diff",
+        "unique0-27-smoke-result.json",
+        "unique0-27-smoke-solve.log",
+        "unique0-28-pad-result.json",
+        "unique0-28-pad-solve.log"
+      ]
+    },
+    "repair": {
+      "generator": "repair_base.py",
+      "base_flags": [
+        "--gates",
+        "N",
+        "--no-canon",
+        "--allow-initial-repeats",
+        "--allow-trivial",
+        "--no-liveness",
+        "--no-lex-order"
+      ],
+      "stages": [
+        "Generate base (N26/27 from preserved map; repair-base26.cnf is kept).",
+        "Apply repair_neighborhood.py --cnf BASE --seed SEED --budget K --output OUT, with K and exact normalized seed retained in map.repair."
+      ],
+      "seeds": [
+        "near26.json",
+        "star27.json",
+        "repair-star27-op-error-seed.json",
+        "/tmp/oec/pequalnp-pilot-70/lower-bound/cegis26-hints.iteration-7.json"
+      ],
+      "provenance": [
+        "repair-review.json",
+        "repair-properties.log",
+        "repair-k4-preparation.json",
+        "stable-repair-k4-artifacts.json"
+      ]
+    },
+    "fanout": {
+      "stages": [
+        "raw-fanout26: add_raw_fanout.py repair-base26.cnf OUT.",
+        "raw-fanout27-smoke: add_raw_fanout.py repair-star27-k0-smoke.cnf OUT."
+      ],
+      "provenance": [
+        "raw-fanout27-smoke-validation.log",
+        "raw-fanout27-smoke-generation.log",
+        "/tmp/oec/pequalnp-pilot-70/lower-bound/raw-fanout27-independent-review.log"
+      ]
+    },
+    "f0": {
+      "generator": "synthesize.py",
+      "base_flags": [
+        "--gates",
+        "24",
+        "--edge-file",
+        "f0-available-a-graph.json",
+        "--no-canon",
+        "--no-liveness",
+        "--no-lex-order"
+      ],
+      "stages": [
+        "Generate f0-available-a24-base.cnf.",
+        "Apply f0_available_a.py fix-prefix BASE OUT."
+      ],
+      "provenance": [
+        "f0-available-a24-run.json",
+        "f0-available-a24-result.json",
+        "f0-available-a24-solve.log"
+      ]
+    }
+  },
+  "retained_sources_and_seeds": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique_input_base.py",
+      "bytes": 7663,
+      "sha256": "1f00b614240f448ca0c89a62eb3880dfa8d8df5eff8a91402b7988ab143f6422"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair_base.py",
+      "bytes": 7628,
+      "sha256": "3cb9a0dd85d8e68ab3412545a572db1c519c68fb3569865b5e3eed8eb9c388d7"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/add_unique_input.py",
+      "bytes": 4310,
+      "sha256": "2b5243f5f7e475d407112e406e8dc681c308be1d4ba562089d11638b67c1ad65"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/add_raw_fanout.py",
+      "bytes": 2180,
+      "sha256": "d50aa52f37814cdb2c07ee7c3015497f0d28c53b63be589a3314a75fafe2af22"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/fix_correlated_smoke.py",
+      "bytes": 2174,
+      "sha256": "7fef32653955f50b8e07de943f671c15ddab00241589b6bf36be81d049e8dbd8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair_neighborhood.py",
+      "bytes": 5463,
+      "sha256": "5590d94344a5290fd83970b442ad49eecaad228f7d70319e7a29e0d622048457"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/synthesize.py",
+      "bytes": 7165,
+      "sha256": "d98b7e44a4f662c5875ee9701edcaac095c75ce83549e22461eaf205b235061d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/f0_available_a.py",
+      "bytes": 4284,
+      "sha256": "ecc2ba6736568545e3fc3940e9898af55e8fe788e87a610c5850cbeac7b16574"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-star27.json",
+      "bytes": 912,
+      "sha256": "056c4d0cc16b6904e9e1977842aa86ede682f20154effff3c46b8b726346117c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-star28-padded.json",
+      "bytes": 946,
+      "sha256": "f63ca775668b5374b1e2eef5dca634adc932d99e3c8eae03c060f3f4eed38881"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/near26.json",
+      "bytes": 400,
+      "sha256": "9ed7fd6cfcb63eeeead6e1b3f162574bbb5a64ba6bbab9aba5e111b8edd5f13c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/star27.json",
+      "bytes": 415,
+      "sha256": "7710c19212e6412b4d13cc4ef81d0bc5d1ad001dc4dbde43507bfb4ee78e12aa"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-star27-op-error-seed.json",
+      "bytes": 417,
+      "sha256": "a3ccb0ffa88cad4549fe21d6dfc8e7196eb935568408765f0faa31a1458ea183"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/f0-available-a-graph.json",
+      "bytes": 673,
+      "sha256": "dd17941df3fedb05249829d3c9b04fb89e95e7b47eba11619aec831aff63916e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/lower-bound/cegis26-hints.iteration-7.json",
+      "bytes": 482,
+      "sha256": "df7b3bde56a8c0ae6fda31082d0c33cb1170c4ed0dd2f68fcce993636eba28ab"
+    }
+  ],
+  "exclusions": [
+    "unique0-26-permissive-final.cnf (active)",
+    "/tmp/oec/pequalnp-pilot-70/constructive/joint-ten10.cnf (active)",
+    "joint-ten10-live.cnf (future)",
+    "joint-noncollinear14-live.cnf (future)",
+    "/tmp/oec/pequalnp-pilot-70/constructive/anchored-tail26.cnf (future)",
+    "repair-base26.cnf (retained for future probe preparation)",
+    "matching-cut14-pairs-live.cnf (optional future)",
+    "All constructive/ CNFs, all unreviewed tail-lex inputs, all sources/maps/models/logs/results."
+  ]
+}

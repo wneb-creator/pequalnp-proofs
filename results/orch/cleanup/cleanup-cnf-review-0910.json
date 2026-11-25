@@ -1,0 +1,237 @@
+{
+  "reviewed_at": "2026-11-25T09:11:49.023610+00:00",
+  "verdict": "PASS for root applying the exact named manifest after immediate size/hash revalidation",
+  "manifest": "/tmp/oec/pequalnp-pilot-70/circuit-search/cleanup-cnf-inventory-0910.json",
+  "manifest_sha256": "92ecd4429442ae54971c1f647546260d15b8f2aa9b54b3ebe203cb1c3ba4dc79",
+  "count": 25,
+  "bytes": 91755570,
+  "published_commit": "fb68c5fd5eefe19974da57ac2ade57c6397aba37",
+  "published_commit_confirmation": "Root confirmed successful origin/pnp/pilot-70 push; full push log retained at push-unique-tail.log.",
+  "checks": [
+    "Every candidate is a regular nonsymlink .cnf with an exact literal parent /tmp/oec/pequalnp-pilot-70/circuit-search;25distinct names and all current sizes/SHA256 match.",
+    "All25 corresponding maps are retained and byte-identical to the published commit. All15 named reproduction sources/seeds are retained and byte-identical to the published commit.",
+    "All16 recipe-provenance records exist. The15 substantive evidence files match the published commit; the auxiliary owner inventory stable-repair-k4-artifacts.json remains scratch-only, with the same actual k4 evidence already published through the independent addendum.",
+    "Active unique0/TEN finalCNFs and future TEN-live/noncollinear-live/anchored/matching-live inputs are present and excluded, as is repair-base26.cnf.",
+    "Regeneration recipes retain the exact seeds, gate budgets, flags and stage order. Raw fanout27 provenance corrected to existing validation/generation/independent-review logs.",
+    "No sources, maps, models, logs, results, Lean/cache files or constructive-directory CNFs are selected."
+  ],
+  "deletion_performed": false,
+  "retained_map_checks": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-permissive-base.map.json",
+      "sha256": "e104ffc2ea609e84b36f9abc184b3fa7cc8a9472a12d44fe509a5b3acbdb74ff",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-permissive-critical.map.json",
+      "sha256": "90506cba1bbb7158c31557a591f139251c204a80bca16ff100264b097dfed3fe",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-original-equivalence.map.json",
+      "sha256": "bc0fc879a311f05d4805ab0a4bc4c348b671776d336150f5af7b106174f58595",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-27-smoke-base.map.json",
+      "sha256": "974fbcfcd2005337eb997dc9c8cab6b6dbe83b3c5bea23057065f3b54d2f05f9",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-27-smoke-critical.map.json",
+      "sha256": "a1a84757ce337b0be67a75e8ab6c191c9a43aba40fecadb687e61599c42d44ec",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-27-smoke-fanout.map.json",
+      "sha256": "4741c3a533d5ea9c5da4e1d347cc4aa6f469735ea581f147a615f24a6865a8f7",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-27-smoke.map.json",
+      "sha256": "991be1cfdcc5d80774e72fd3968defead0dc01bb21da471da8f1cbeedf523766",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-28-pad-base.map.json",
+      "sha256": "810ea2614ea5922d0d6fe65845f73cd6301686072a01b3c8f076a946b538e9db",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-28-pad-critical.map.json",
+      "sha256": "53e917c120e3abef44a9334b65cc8fe1c50c028345bfcb77bdff764192e99187",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-28-pad-fanout.map.json",
+      "sha256": "3beb5500fa3c145adece50a9d99b9fdaa4a5280b780231e41a9143c6264e8425",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-28-pad.map.json",
+      "sha256": "7b614fc6ec778ea1fd2941945d84c7897541a1cd9a618621f1d52cf4246ff93f",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-near26-k0-smoke.map.json",
+      "sha256": "01a0337bf6a68136b96b919d58240aa1d18853a7e1d09fb7eebab7f9e39a0d5c",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-star27-k0-smoke.map.json",
+      "sha256": "d294af34ddab1bfe7e91883434617204d1b62a57ff6d0cff2de77e95b9ab3fb1",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-star27-k1-smoke.map.json",
+      "sha256": "0b84aa28ca9292e1037a84c981e86d4263db84c42a22636a06e8e7122c59e92f",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-base27-smoke.map.json",
+      "sha256": "14ef46e5500dac9ba857adeb66390a613c69792b26947419c4a97c0ffd9ed0d7",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-near26-k2.map.json",
+      "sha256": "4eb8075cc286f67f967bee8111bc6d608b68184986271948d64acdc10742f8e9",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-near26-k3.map.json",
+      "sha256": "7db56a8685cec733ca716bea56cb72f2d0bbfac23b52ae4cbd70ea8d60019c28",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-near26-k4.map.json",
+      "sha256": "1c791dd7248ddda27e1d2c90c0baa9c12eeb420250ed3cfe72aa8bf5763c1de0",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-cegis26-k2.map.json",
+      "sha256": "c4ced635aa0b81410c590191d4d1668afe207816927a324779a90461bb2ae4e8",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-cegis26-k3.map.json",
+      "sha256": "1f71b0ad3ae88fe8f8305b833ef2e8c3ecf0a78d5bd440643cdfc20d4fc26e92",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-cegis26-k4.map.json",
+      "sha256": "0fc4e8905f4c97158bd502ed5bc37c3f7de674bff7aaa91d1873055cc1fac550",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/raw-fanout26.map.json",
+      "sha256": "1d2c9b4b70cd814f86780c92e228b4b06033c8910a59c29e3d361834ddbb4094",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/raw-fanout27-smoke.map.json",
+      "sha256": "401c5c7f21d317d0b65d13d2f806cbffb357dec9f7780f7374ca1180c1feded8",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/f0-available-a24-base.map.json",
+      "sha256": "406256fe2817b7da02132a56ec4d82b106de83c193c592f36895b77311eecd99",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/f0-available-a24.map.json",
+      "sha256": "a5d9ae0ba8f137e46827376eb8bdc49f47202668d56b6fad8a68f4dae6cdcb55",
+      "published_identically": true
+    }
+  ],
+  "retained_source_checks": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique_input_base.py",
+      "sha256": "1f00b614240f448ca0c89a62eb3880dfa8d8df5eff8a91402b7988ab143f6422",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair_base.py",
+      "sha256": "3cb9a0dd85d8e68ab3412545a572db1c519c68fb3569865b5e3eed8eb9c388d7",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/add_unique_input.py",
+      "sha256": "2b5243f5f7e475d407112e406e8dc681c308be1d4ba562089d11638b67c1ad65",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/add_raw_fanout.py",
+      "sha256": "d50aa52f37814cdb2c07ee7c3015497f0d28c53b63be589a3314a75fafe2af22",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/fix_correlated_smoke.py",
+      "sha256": "7fef32653955f50b8e07de943f671c15ddab00241589b6bf36be81d049e8dbd8",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair_neighborhood.py",
+      "sha256": "5590d94344a5290fd83970b442ad49eecaad228f7d70319e7a29e0d622048457",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/synthesize.py",
+      "sha256": "d98b7e44a4f662c5875ee9701edcaac095c75ce83549e22461eaf205b235061d",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/f0_available_a.py",
+      "sha256": "ecc2ba6736568545e3fc3940e9898af55e8fe788e87a610c5850cbeac7b16574",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-star27.json",
+      "sha256": "056c4d0cc16b6904e9e1977842aa86ede682f20154effff3c46b8b726346117c",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-star28-padded.json",
+      "sha256": "f63ca775668b5374b1e2eef5dca634adc932d99e3c8eae03c060f3f4eed38881",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/near26.json",
+      "sha256": "9ed7fd6cfcb63eeeead6e1b3f162574bbb5a64ba6bbab9aba5e111b8edd5f13c",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/star27.json",
+      "sha256": "7710c19212e6412b4d13cc4ef81d0bc5d1ad001dc4dbde43507bfb4ee78e12aa",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-star27-op-error-seed.json",
+      "sha256": "a3ccb0ffa88cad4549fe21d6dfc8e7196eb935568408765f0faa31a1458ea183",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/f0-available-a-graph.json",
+      "sha256": "dd17941df3fedb05249829d3c9b04fb89e95e7b47eba11619aec831aff63916e",
+      "published_identically": true
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/lower-bound/cegis26-hints.iteration-7.json",
+      "sha256": "df7b3bde56a8c0ae6fda31082d0c33cb1170c4ed0dd2f68fcce993636eba28ab",
+      "published_identically": true
+    }
+  ],
+  "active_and_future_inputs_kept": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-26-permissive-final.cnf",
+    "/tmp/oec/pequalnp-pilot-70/constructive/joint-ten10.cnf",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/joint-ten10-live.cnf",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/joint-noncollinear14-live.cnf",
+    "/tmp/oec/pequalnp-pilot-70/constructive/anchored-tail26.cnf",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/repair-base26.cnf",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/matching-cut14-pairs-live.cnf"
+  ],
+  "application_conditions": [
+    "Use only these exact25paths; do not expand globs.",
+    "Recheck manifestSHA, each current file size/SHA and nonsymlink/path conditions immediately before unlinking.",
+    "Preserve the manifest and full per-file deletion log; do not delete any retained evidence."
+  ]
+}

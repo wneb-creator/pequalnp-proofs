@@ -1,0 +1,12 @@
+{
+  "recorded_utc": "2026-11-25T09:06:00.631436+00:00",
+  "command": "lake build --no-build PEqualNP.Outside.L_meta_2732",
+  "cwd": "/workspace/pequalnp-proofs/lean",
+  "exit_code": 0,
+  "result": "All targets up-to-date (5149 jobs).",
+  "source_sha256": "aaeb9e91385f2cb04fb7232630d4dd565c26ae3f0523e930f5ea07dd3d1c0143",
+  "source_lines": 518,
+  "log_bytes": 61219,
+  "log_sha256": "b119947bce5d7636f2e75f7fc25158ebd4f459f2d37cdd180d94ddbb299f1538",
+  "scope": "Post-recovery artifact validation for unchanged partial module; not a proof of the posted theorem and not an official checker verdict."
+}

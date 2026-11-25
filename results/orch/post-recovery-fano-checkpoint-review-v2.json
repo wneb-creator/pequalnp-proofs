@@ -1,0 +1,50 @@
+{
+  "reviewed_at": "2026-11-25T09:12:31.953425+00:00",
+  "verdict": "PASS for artifact consistency and stated scope",
+  "files": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-70/named-module-post-recovery-result.json",
+      "destination": "results/orch/named-module-post-recovery-result.json",
+      "bytes": 602,
+      "sha256": "c34b8e1bb0aa408b27bced3a7dc590f72958c2c411f39119a6409e07b8014898"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-70/named-module-post-recovery-no-build.log",
+      "destination": "results/orch/named-module-post-recovery-no-build.log",
+      "bytes": 61219,
+      "sha256": "b119947bce5d7636f2e75f7fc25158ebd4f459f2d37cdd180d94ddbb299f1538"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-70/lower-bound/fano_line_probe.py",
+      "destination": "results/orch/search/lower-bound/fano_line_probe.py",
+      "bytes": 2005,
+      "sha256": "ae96ab8d0d8a98beecee8f68ff5206d55fb3b4d0d124045e3223547dec22c7dc"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-70/lower-bound/fano-line-probe.log",
+      "destination": "results/orch/search/lower-bound/fano-line-probe.log",
+      "bytes": 1427,
+      "sha256": "5ff3f70c6e75bbfc3bbc1f8dfc11cad5288f65d70f2d21f5d99403573be7eaf7"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/fano-partner-assessment.md",
+      "destination": "results/orch/lemmas/fano-partner-assessment.md",
+      "bytes": 4275,
+      "sha256": "4c886c8ea26c1dc8f26e4aec5ea13426091cad37ac16b224c284cd4a065a4c24"
+    }
+  ],
+  "safe_stage_paths": [
+    "results/orch/named-module-post-recovery-result.json",
+    "results/orch/named-module-post-recovery-no-build.log",
+    "results/orch/search/lower-bound/fano_line_probe.py",
+    "results/orch/search/lower-bound/fano-line-probe.log",
+    "results/orch/lemmas/fano-partner-assessment.md"
+  ],
+  "scope": [
+    "Named-module no-build passed for unchanged518line partial,5149jobs; complete61219byte log contains268warning lines and noerror lines. It is not a new theorem or official checker verdict.",
+    "Fano probe checks16gate upper bound,self-duality,CNF/DNF identities on128inputs and small antichain sizes. No optimum is proved.",
+    "Root independently reviewed the mathematical pure-left-interface/deletion implication. It remains unformalized and applies only to the exact maximal partner B=G OR D. It does not establish C(D)>=15, an arbitrary-partner obstruction, or a new target lower bound."
+  ],
+  "credential_pattern_flags": [],
+  "supersedes_manifest_sha256": "fa5020f7f283ff40ebfb43360307965d2ca6df0824b5b62713d3fde93a8ada78"
+}

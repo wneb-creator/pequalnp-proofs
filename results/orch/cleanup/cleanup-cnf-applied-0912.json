@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-25T09:12:42.133670+00:00",
+  "manifest_sha256": "92ecd4429442ae54971c1f647546260d15b8f2aa9b54b3ebe203cb1c3ba4dc79",
+  "review_sha256": "b8775e6c4f751fcda7ee287ce875a6b2e3074dfa8c48553bf10a8ff6b596444a",
+  "removed_count": 25,
+  "removed_bytes": 91755570,
+  "all_active_future_present": true,
+  "free_bytes_after": 643047424
+}

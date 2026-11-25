@@ -4034,6 +4034,18 @@
       "captured_utc": "2026-11-25T08:22:04.118620+00:00"
     },
     {
+      "path": "lower-bound/fano-line-probe.log",
+      "bytes": 1427,
+      "sha256": "5ff3f70c6e75bbfc3bbc1f8dfc11cad5288f65d70f2d21f5d99403573be7eaf7",
+      "captured_utc": "2026-11-25T09:13:29.153303+00:00"
+    },
+    {
+      "path": "lower-bound/fano_line_probe.py",
+      "bytes": 2005,
+      "sha256": "ae96ab8d0d8a98beecee8f68ff5206d55fb3b4d0d124045e3223547dec22c7dc",
+      "captured_utc": "2026-11-25T09:13:29.153303+00:00"
+    },
+    {
       "path": "lower-bound/final-accept.log",
       "bytes": 3049,
       "sha256": "d2573cabf9cfb95f3cf0c6dc1e044fb20c69d43554f22a00485112164d6442de",
@@ -4455,5 +4467,5 @@
       "captured_utc": "2026-11-25T07:59:53.613898+00:00"
     }
   ],
-  "updated_utc": "2026-11-25T09:01:39.914289+00:00"
+  "updated_utc": "2026-11-25T09:14:54.142766+00:00"
 }
