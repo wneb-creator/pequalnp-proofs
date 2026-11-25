@@ -8233,4 +8233,56 @@ lemma saturated_family_and_below_output {α : Type} [Fintype α]
 
 end AndChoiceRigidity
 
+namespace AndStrictCharge
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.TopForm
+  PEqualNP.MetaComplexity.NestedCover
+open SingleUse AndSignature AndChoiceKraft AndChoiceRigidity
+
+lemma false_family_card_le {α : Type} [Fintype α]
+    (n : ℕ) (C : Circuit) (hAO : IsAO2 n C) (f : α → Fin n → Bool)
+    (hfalse : ∀ a, C.eval (List.ofFn (f a)) = false)
+    (hjoin : ∀ a b, a ≠ b → C.eval (List.ofFn (fun i => f a i || f b i)) = true) :
+    Fintype.card α ≤ 2 ^ (andPrefix C C.gates.length).card := by
+  calc
+    Fintype.card α = ∑ a : α, (1 : ℕ) := by simp
+    _ ≤ ∑ a : α, 2 ^ ((andPrefix C C.gates.length).card -
+        (oppositeAnds n C (f a)).card) := by
+      apply Finset.sum_le_sum
+      intro a ha
+      exact Nat.succ_le_of_lt (pow_pos (by decide : 0 < (2 : ℕ)) _)
+    _ ≤ 2 ^ (andPrefix C C.gates.length).card :=
+      false_family_capacity n C hAO f hfalse hjoin
+
+lemma false_family_card_lt_of_dirty_and {α : Type} [Fintype α]
+    (n : ℕ) (C : Circuit) (hAO : IsAO2 n C) (f : α → Fin n → Bool)
+    (hfalse : ∀ a, C.eval (List.ofFn (f a)) = false)
+    (hjoin : ∀ a b, a ≠ b → C.eval (List.ofFn (fun i => f a i || f b i)) = true)
+    (g : ℕ) (hg : g < C.gates.length) (hop : (gateAt C g).op = GateOp.and)
+    (z : Fin n → Bool) (hgz : wv n C z (n + g) = true)
+    (hz : C.eval (List.ofFn z) = false) :
+    Fintype.card α < 2 ^ (andPrefix C C.gates.length).card := by
+  have hle := false_family_card_le n C hAO f hfalse hjoin
+  have hne : Fintype.card α ≠ 2 ^ (andPrefix C C.gates.length).card := by
+    intro heq
+    have ht := saturated_family_and_below_output n C hAO f hfalse hjoin heq g hg hop z hgz
+    rw [hz] at ht
+    cases ht
+  omega
+
+lemma false_cube_lt_and_count_of_dirty_and
+    (n : ℕ) (C : Circuit) (hAO : IsAO2 n C) (d : ℕ)
+    (f : (Fin d → Bool) → Fin n → Bool)
+    (hfalse : ∀ a, C.eval (List.ofFn (f a)) = false)
+    (hjoin : ∀ a b, a ≠ b → C.eval (List.ofFn (fun i => f a i || f b i)) = true)
+    (g : ℕ) (hg : g < C.gates.length) (hop : (gateAt C g).op = GateOp.and)
+    (z : Fin n → Bool) (hgz : wv n C z (n + g) = true)
+    (hz : C.eval (List.ofFn z) = false) :
+    d < (andPrefix C C.gates.length).card := by
+  have h := false_family_card_lt_of_dirty_and n C hAO f hfalse hjoin g hg hop z hgz hz
+  simp only [Fintype.card_fun, Fintype.card_bool, Fintype.card_fin] at h
+  exact (Nat.pow_lt_pow_iff_right (by decide : 1 < 2)).mp h
+
+end AndStrictCharge
+
 end PEqualNP.Outside.L_meta_2583
