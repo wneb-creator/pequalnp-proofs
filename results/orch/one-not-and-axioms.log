@@ -1,0 +1,4 @@
+'PEqualNP.Outside.L_meta_2592_aux.and_tail_irrelevant' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.one_not_and_suffix_constant' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

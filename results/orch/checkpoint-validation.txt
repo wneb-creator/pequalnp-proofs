@@ -15,3 +15,7 @@ Main posted statement still unsolved.
 Third checkpoint: expanded LibraryRoute (191 lines), Structural (213 lines), and OneNotAnd (151 lines) compile with exit 0 and pass independent toolchain-agent source review.
 A concurrent edit entered LibraryRoute before checkpoint two staging; the full191-line version has now been independently reviewed and its successful compilation confirmed.
 Main theorem remains unsolved; no exact-statement checker acceptance.
+
+Fourth checkpoint: LibraryOrReduction compiled, exit 0. Independent one_not_route review PASS for source SHA adb68b061f82307cd55ff8acc1c7e10b380249853cecbdc9fa45a583b04588ca.
+Additional independent source and axiom logs archived for earlier structural partials.
+Main theorem remains unsolved.

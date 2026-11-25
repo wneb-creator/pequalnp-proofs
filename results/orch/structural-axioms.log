@@ -1,0 +1,2 @@
+'PEqualNP.Outside.L_meta_2592.double_negation_context' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2592.two_not_output_redundant' depends on axioms: [propext, Classical.choice, Quot.sound]

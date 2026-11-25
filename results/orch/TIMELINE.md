@@ -8,3 +8,5 @@
 2026-11-25T13:55:11.474620+00:00: three structural partial modules compiled and independently reviewed; preparing second archival push.
 2026-11-25T13:58:00.220288+00:00: capped computational search to3 CPUs for Lean workers. Stopped second stochastic pass and redundant CEGIS retry; retained full logs. Currentjobs: full1024rows exactly4NOT (600s), essential1NOT firstorbit69 (300s), and sequentialessential1NOT orbits521,276,773,116 (300s each).
 2026-11-25T13:58:52.690755+00:00: third partial checkpoint independently reviewed; immutable source hashes verified.
+2026-11-25T13:58:58.964689+00:00: firstessential1NOT SAT orbit69 ended UNKNOWN; launched fullrow2NOT case.
+2026-11-25T14:00:48.320086+00:00: constant-false input deletion infrastructure compiled and independently reviewed.
