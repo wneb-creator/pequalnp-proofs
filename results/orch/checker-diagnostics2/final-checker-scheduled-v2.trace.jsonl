@@ -1,0 +1,12 @@
+{"at": "2026-11-25T21:18:16.726803+00:00", "elapsed": 2.243252133999704, "event": "preflight_ok", "count": 5000, "bytes": 331159566, "keeper": 85027, "backup_sha256": "ab3facc3dcc26f4d7a6ad00d527d5df51c770e5560e4e3f6ff874251f72dfb7b", "success_stdout_bound": 5980}
+{"at": "2026-11-25T21:18:16.728115+00:00", "elapsed": 2.2445507049997104, "event": "checker_started", "node": 91110}
+{"at": "2026-11-25T21:18:26.315372+00:00", "elapsed": 11.831811253999149, "event": "verifier_found", "pid": 91404}
+{"at": "2026-11-25T21:18:26.578000+00:00", "elapsed": 12.094444911999744, "event": "compilation_storage_released", "node": 91110, "verifier": 91404}
+{"at": "2026-11-25T21:18:26.578219+00:00", "elapsed": 12.094649378999748, "event": "verifier_progress", "pid": 91404, "memory": {"VmHWM": "243208 kB", "VmRSS": "243208 kB"}}
+{"at": "2026-11-25T21:18:56.584504+00:00", "elapsed": 42.1009451129994, "event": "verifier_progress", "pid": 91404, "memory": {"VmHWM": "5587292 kB", "VmRSS": "4952648 kB"}}
+{"at": "2026-11-25T21:19:26.346505+00:00", "elapsed": 71.86319261599965, "event": "verifier_wait_finished", "alive": false, "state": null}
+{"at": "2026-11-25T21:19:26.654199+00:00", "elapsed": 72.17064243999994, "event": "restore_start"}
+{"at": "2026-11-25T21:19:35.990061+00:00", "elapsed": 81.50650869299989, "event": "restore_complete", "keeper": 91422, "files": 5000}
+{"at": "2026-11-25T21:19:35.990578+00:00", "elapsed": 81.50701089799986, "event": "checker_resumed"}
+{"at": "2026-11-25T21:19:36.591165+00:00", "elapsed": 82.10761816599916, "event": "checker_finished", "exit": 3}
+{"at": "2026-11-25T21:19:36.591740+00:00", "elapsed": 82.10817050599962, "event": "metrics", "started_at": "2026-11-25T21:18:14.483560+00:00", "finished_at": "2026-11-25T21:19:36.591394+00:00", "exit": 3, "wall_seconds": 82.10782519699933, "user_seconds": 18.666948, "system_seconds": 26.663944, "max_rss_kib": 7410496, "node_pid": 91110, "verifier_pid": 91404, "compilation_cache_released": true, "compilation_cache_restored": true, "cache_absent": false, "node_left_stopped": false, "error": null, "allocator_environment": {"MIMALLOC_PURGE_DELAY": "0", "MIMALLOC_PURGE_DECOMMITS": "1", "MIMALLOC_ALLOW_THP": "0"}}

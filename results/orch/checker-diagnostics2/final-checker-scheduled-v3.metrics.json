@@ -1,0 +1,21 @@
+{
+  "started_at": "2026-11-25T21:26:41.527819+00:00",
+  "finished_at": "2026-11-25T21:29:05.375457+00:00",
+  "exit": 3,
+  "wall_seconds": 143.84763161199953,
+  "user_seconds": 19.696583,
+  "system_seconds": 71.312801,
+  "max_rss_kib": 7502076,
+  "node_pid": 96624,
+  "verifier_pid": 96915,
+  "compilation_cache_released": true,
+  "compilation_cache_restored": true,
+  "cache_absent": false,
+  "node_left_stopped": false,
+  "error": null,
+  "allocator_environment": {
+    "MIMALLOC_PURGE_DELAY": "0",
+    "MIMALLOC_PURGE_DECOMMITS": "1",
+    "MIMALLOC_ALLOW_THP": "0"
+  }
+}

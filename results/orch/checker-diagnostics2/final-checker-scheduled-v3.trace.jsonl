@@ -1,0 +1,15 @@
+{"at": "2026-11-25T21:26:43.370036+00:00", "elapsed": 1.8422292400000515, "event": "preflight_ok", "count": 5000, "bytes": 331159566, "keeper": 91422, "backup_sha256": "ab3facc3dcc26f4d7a6ad00d527d5df51c770e5560e4e3f6ff874251f72dfb7b", "success_stdout_bound": 5980}
+{"at": "2026-11-25T21:26:43.371407+00:00", "elapsed": 1.8435891019998962, "event": "checker_started", "node": 96624}
+{"at": "2026-11-25T21:26:54.653418+00:00", "elapsed": 13.125599942000008, "event": "verifier_found", "pid": 96915}
+{"at": "2026-11-25T21:26:54.928128+00:00", "elapsed": 13.400315580000097, "event": "compilation_storage_released", "node": 96624, "verifier": 96915}
+{"at": "2026-11-25T21:26:54.928376+00:00", "elapsed": 13.400550452000061, "event": "verifier_progress", "pid": 96915, "memory": {"VmHWM": "206640 kB", "VmRSS": "206640 kB"}}
+{"at": "2026-11-25T21:27:25.009434+00:00", "elapsed": 43.48162201099967, "event": "verifier_progress", "pid": 96915, "memory": {"VmHWM": "5931688 kB", "VmRSS": "5774460 kB"}}
+{"at": "2026-11-25T21:27:55.103367+00:00", "elapsed": 73.57555165399936, "event": "verifier_progress", "pid": 96915, "memory": {"VmHWM": "6130300 kB", "VmRSS": "6130300 kB"}}
+{"at": "2026-11-25T21:28:25.191980+00:00", "elapsed": 103.66491076300008, "event": "verifier_progress", "pid": 96915, "memory": {"VmHWM": "7502076 kB", "VmRSS": "7501504 kB"}}
+{"at": "2026-11-25T21:28:55.204905+00:00", "elapsed": 133.6775821299998, "event": "verifier_progress", "pid": 96915, "memory": {"VmHWM": "7502076 kB", "VmRSS": "7500900 kB"}}
+{"at": "2026-11-25T21:28:55.732859+00:00", "elapsed": 134.2051251389994, "event": "verifier_wait_finished", "alive": false, "state": {"pid": 96915, "state": "Z", "start": 774208}}
+{"at": "2026-11-25T21:28:56.050745+00:00", "elapsed": 134.52293233199998, "event": "restore_start"}
+{"at": "2026-11-25T21:29:04.972571+00:00", "elapsed": 143.4447635639999, "event": "restore_complete", "keeper": 96933, "files": 5000}
+{"at": "2026-11-25T21:29:04.974862+00:00", "elapsed": 143.44704253500004, "event": "checker_resumed"}
+{"at": "2026-11-25T21:29:05.375237+00:00", "elapsed": 143.8474581119999, "event": "checker_finished", "exit": 3}
+{"at": "2026-11-25T21:29:05.375789+00:00", "elapsed": 143.84796432199983, "event": "metrics", "started_at": "2026-11-25T21:26:41.527819+00:00", "finished_at": "2026-11-25T21:29:05.375457+00:00", "exit": 3, "wall_seconds": 143.84763161199953, "user_seconds": 19.696583, "system_seconds": 71.312801, "max_rss_kib": 7502076, "node_pid": 96624, "verifier_pid": 96915, "compilation_cache_released": true, "compilation_cache_restored": true, "cache_absent": false, "node_left_stopped": false, "error": null, "allocator_environment": {"MIMALLOC_PURGE_DELAY": "0", "MIMALLOC_PURGE_DECOMMITS": "1", "MIMALLOC_ALLOW_THP": "0"}}
