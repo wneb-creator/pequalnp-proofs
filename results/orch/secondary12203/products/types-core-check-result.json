@@ -1,5 +1,0 @@
-{
-  "exit": 0,
-  "seconds": 0.324,
-  "limitation": "Core analogue uses Nat/List instead of BitVec/Finset; type/projection check only."
-}

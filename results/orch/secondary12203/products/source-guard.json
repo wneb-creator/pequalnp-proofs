@@ -1,9 +1,0 @@
-{
-  "imports": [
-    "PEqualNP.Defs"
-  ],
-  "plain": "PASS",
-  "own_namespace": "PASS",
-  "bytes": 520939,
-  "custom_structures": 0
-}

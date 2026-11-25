@@ -1,6 +1,0 @@
-/tmp/oec/pequalnp-pilot-67/case-secondary-products/ProductTypesCoreCheck.lean:53:6: warning: Variable name `pair` is not explicitly referenced.
-
-Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
-  [apply] _pair
-
-Note: This linter can be disabled with `set_option linter.unusedVariables false`

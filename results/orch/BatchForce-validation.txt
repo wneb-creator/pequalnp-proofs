@@ -1,7 +1,0 @@
-UTC 2026-11-25T04:42:33.532365+00:00
-Lean 4.36.0
-Command: lean results/orch/lemmas/BatchForce.lean
-Exit status: 0
-Elapsed process time: 0.057 seconds
-Complete stdout/stderr: empty
-Four semantic equality theorems checked by Lean. This is a helper component, not a proof of L-meta-670.

@@ -1,5 +1,0 @@
-Cleanup reviewed the shorter pruning candidate and the final two-line theorem proof. The checked source is retained unchanged because the shorter candidate has not passed full validation. Source guard and exact-statement/hash checks pass.
-Lines before: 5221
-Lines after: 5221
-Shorter unvalidated candidate: 5098 lines
-No Lean source changes during cleanup.

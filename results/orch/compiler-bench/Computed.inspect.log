@@ -1,3 +1,0 @@
-module=Computed import_ms=5057 constants=699 safe=680 unsafe_or_partial=19 axiom_decls=0 theorem_decls=11 def_decls=688
-replay_ms=4939
-bench_axioms=[propext, Classical.choice, Quot.sound]

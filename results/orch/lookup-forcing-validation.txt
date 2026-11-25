@@ -1,6 +1,0 @@
-Checked component: results/orch/lemmas/LookupForcing.lean
-Command: Lean 4.36.0 -j1 LookupForcing.lean
-Exit code: 0
-Elapsed tool wall time: 0.146475451 seconds
-Complete stdout/stderr: results/orch/lookup-forcing-build.txt (empty)
-Verdict: lookupFast preserves lookupBase for every parameter. This is a checked helper only, not the L-meta-670 lower bound.

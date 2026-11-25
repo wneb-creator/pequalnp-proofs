@@ -1,9 +1,0 @@
-FastCostGuard.lean validation
-Command: lake env lean -j1 results/orch/lemmas/FastCostGuard.lean (run from lean/ with absolute input path)
-Exit code: 0
-Includes both guardedFastCost_eq and dynamicFastCost_eq.
-Completed source SHA256: 42f4037a58035b17e2bd9e5863789090a529485bea5c36ba4c8ff7e66febf8df
-Recorded UTC: 2026-11-25T04:50:31.384902+00:00
-Benchmark: ten isolated runs, all exit0; complete logs and summary in fastcost-benchmark/. Static/dynamic guards not convincingly faster. Availability caching regressed; no optimization integrated.
-
-Update 2026-11-25T04:50:33.040322+00:00: static and dynamic guard equalities both compile with exit0. Completed benchmark runs01-08 show no clear speedup; baseline proof unchanged.

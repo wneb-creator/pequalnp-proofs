@@ -1,6 +1,0 @@
-{
-  "status": "interrupted",
-  "cause": "environment refresh; root observed SIGKILL exit_code9 and no completed olean",
-  "completed": false,
-  "recorded_at": "2026-11-25T05:03:14.916497+00:00"
-}
