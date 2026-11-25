@@ -12,8 +12,11 @@ Cleanup pass: not started, because the target checker has not passed. Line count
 Preserved components: false-OR certificate quota; exact behavior on thin inputs; one operand has at most twelve nonincident pairs and at most one singleton; a merged-pair pattern forces the other bad family into one column with at most nine entries.
 Experimental scripts and outputs are computational research artifacts, not Lean certificates. No valid counterexample was found in completed searches.
 
-Sub-agents: status_review, toolchain_setup, structural_proof, library_route, counterexample, normal_form
-TIMING total=53 subagents=6
+Sub-agents: status_review, toolchain_setup, structural_proof, library_route, counterexample, normal_form, fresh_attack
+TIMING total=65 subagents=7
 
 Desk nulls: 1
 Exact null message: no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes
+
+Additional checked limitation artifact: lemmas/OperandWitness.lean (148 lines), exact posted orientation. Its 62-gate circuit has all52 positive pairs, exactly12 bad pairs, and no singleton; it has only one hot wire and is NOT a refutation ofL-meta-2089.
+Completed20-minute search: strict15140404 mutations; relaxed181506495 mutations; no valid witness. Best strict candidate misses2 positive pairs and has0 false positives. Full logs/configurations/validators preserved.

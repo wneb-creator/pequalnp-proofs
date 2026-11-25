@@ -1,0 +1,10 @@
+{
+  "checked_utc": "2026-11-25T07:31:01.957693+00:00",
+  "definition": "(point-line) mod13 in {0,1,3,9}, equivalent to posted point=line+d",
+  "positive_rows_match_posted": true,
+  "negative_rows_match_posted": true,
+  "positive_count": 52,
+  "negative_count": 236,
+  "point1_line0_incident": true,
+  "point0_line1_nonincident": true
+}

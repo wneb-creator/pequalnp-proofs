@@ -1,0 +1,22 @@
+[
+  {
+    "folder": "evolution",
+    "best_files_checked": 7,
+    "computational_witnesses": 0
+  },
+  {
+    "folder": "evolution-hot",
+    "best_files_checked": 8,
+    "computational_witnesses": 0
+  },
+  {
+    "folder": "evolution-singletons",
+    "best_files_checked": 9,
+    "computational_witnesses": 0
+  },
+  {
+    "folder": "evolution-strict",
+    "best_files_checked": 7,
+    "computational_witnesses": 0
+  }
+]

@@ -1,0 +1,151 @@
+{
+  "start_utc": "2026-11-25T07:12:28.584388+00:00",
+  "deadline_utc": "2026-11-25T07:32:28.584388+00:00",
+  "wall_minutes": 20,
+  "finished_utc": "2026-11-25T07:32:56.813203+00:00",
+  "posted_orientation_verified": {
+    "checked_utc": "2026-11-25T07:31:01.957693+00:00",
+    "definition": "(point-line) mod13 in {0,1,3,9}, equivalent to posted point=line+d",
+    "positive_rows_match_posted": true,
+    "negative_rows_match_posted": true,
+    "positive_count": 52,
+    "negative_count": 236,
+    "point1_line0_incident": true,
+    "point0_line1_nonincident": true
+  },
+  "populations": [
+    {
+      "directory": "evolution",
+      "rng_seed": 208973,
+      "final_wire_constraint": "RELAXED",
+      "iterations": 77455544,
+      "script": "evolve-cold.py",
+      "script_sha256": "a3f8cd0a7ed8a6dc962b1d2b80c651bdbad1213ffafdbd3a72194e1a2820b3b2",
+      "done_line": "DONE seconds 1200.0000114199997 iterations 77455544 best_total 2 best_clean_fn 2 best_full_fp 235",
+      "saved_best_files_validated": 7,
+      "best_structurally_valid_saved_candidate": {
+        "source": "best-3.json",
+        "prior_gate_count": 62,
+        "size_bound_62": true,
+        "basis_only_AND_OR": true,
+        "fanin_at_most_two": true,
+        "natural_references": true,
+        "sequential_default_false_semantics": true,
+        "distinct_final_operands": true,
+        "selected_wires_in_Fin_26_plus_size": true,
+        "positive_tests": 52,
+        "negative_tests": 236,
+        "missing_positive_count": 2,
+        "false_positive_count": 0,
+        "missing_positive_masks": [
+          524352,
+          8390656
+        ],
+        "false_positive_masks": [],
+        "verdict": "NOT A WITNESS"
+      }
+    },
+    {
+      "directory": "evolution-hot",
+      "rng_seed": 208974,
+      "final_wire_constraint": "RELAXED",
+      "iterations": 59680333,
+      "script": "evolve-hot.py",
+      "script_sha256": "9c53f5f6a902b0059259ca5d5de31cf8fc3bdc54379d69a8f17703dd68fc0d80",
+      "done_line": "DONE seconds 976.000110164 iterations 59680333 best_total 2 best_clean_fn 2 best_full_fp 117",
+      "saved_best_files_validated": 8,
+      "best_structurally_valid_saved_candidate": {
+        "source": "best-4.json",
+        "prior_gate_count": 62,
+        "size_bound_62": true,
+        "basis_only_AND_OR": true,
+        "fanin_at_most_two": true,
+        "natural_references": true,
+        "sequential_default_false_semantics": true,
+        "distinct_final_operands": true,
+        "selected_wires_in_Fin_26_plus_size": true,
+        "positive_tests": 52,
+        "negative_tests": 236,
+        "missing_positive_count": 2,
+        "false_positive_count": 0,
+        "missing_positive_masks": [
+          524800,
+          34816
+        ],
+        "false_positive_masks": [],
+        "verdict": "NOT A WITNESS"
+      }
+    },
+    {
+      "directory": "evolution-singletons",
+      "rng_seed": 208975,
+      "final_wire_constraint": "RELAXED",
+      "iterations": 44370618,
+      "script": "evolve-singletons.py",
+      "script_sha256": "81136665d1bef7c77a91a7d2b1fdb80209e48ebc813bfe850c847f2baee7ca41",
+      "done_line": "DONE seconds 776.0000013670001 iterations 44370618 best_total 7 best_clean_fn 7 best_full_fp 71",
+      "saved_best_files_validated": 9,
+      "best_structurally_valid_saved_candidate": {
+        "source": "best-7218612.json",
+        "prior_gate_count": 62,
+        "size_bound_62": true,
+        "basis_only_AND_OR": true,
+        "fanin_at_most_two": true,
+        "natural_references": true,
+        "sequential_default_false_semantics": true,
+        "distinct_final_operands": true,
+        "selected_wires_in_Fin_26_plus_size": true,
+        "positive_tests": 52,
+        "negative_tests": 236,
+        "missing_positive_count": 7,
+        "false_positive_count": 0,
+        "missing_positive_masks": [
+          33554433,
+          33554436,
+          1048704,
+          33554688,
+          524800,
+          16781312,
+          33558528
+        ],
+        "false_positive_masks": [],
+        "verdict": "NOT A WITNESS"
+      }
+    },
+    {
+      "directory": "evolution-strict",
+      "rng_seed": 208976,
+      "final_wire_constraint": "STRICT",
+      "iterations": 15140404,
+      "script": "evolve-strict.py",
+      "script_sha256": "89653d90f26634b29d3e13b8e1102be9a93f83f74a2923fff085c8364b713c62",
+      "done_line": "DONE seconds 298.00000677900016 iterations 15140404 best_total 2 best_clean_fn 2 best_full_fp 120",
+      "saved_best_files_validated": 7,
+      "best_structurally_valid_saved_candidate": {
+        "source": "best-4.json",
+        "prior_gate_count": 62,
+        "size_bound_62": true,
+        "basis_only_AND_OR": true,
+        "fanin_at_most_two": true,
+        "natural_references": true,
+        "sequential_default_false_semantics": true,
+        "distinct_final_operands": true,
+        "selected_wires_in_Fin_26_plus_size": true,
+        "positive_tests": 52,
+        "negative_tests": 236,
+        "missing_positive_count": 2,
+        "false_positive_count": 0,
+        "missing_positive_masks": [
+          65552,
+          4194816
+        ],
+        "false_positive_masks": [],
+        "verdict": "NOT A WITNESS"
+      }
+    }
+  ],
+  "verdict": "NO COMPUTATIONAL WITNESS FOUND; NOT A LOWER-BOUND PROOF",
+  "relaxed_iterations": 181506495,
+  "strict_iterations": 15140404,
+  "total_iterations": 196646899
+}

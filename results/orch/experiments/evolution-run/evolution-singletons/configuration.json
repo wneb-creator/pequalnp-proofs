@@ -1,0 +1,15 @@
+{
+  "rng_seed": 208975,
+  "duration_s": 776,
+  "walkers": 24,
+  "positive_rows": 52,
+  "negative_rows": 236,
+  "initial_families": [
+    "distributed star65",
+    "mixed incident67",
+    "mixed starcover66+",
+    "singleton hot overapproximations"
+  ],
+  "final_operand_constraint": "RELAXED",
+  "owned_statement_witness_claim": false
+}

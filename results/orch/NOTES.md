@@ -172,3 +172,13 @@ PASS for partial preservation. MergedPair.checked.lean uses finite projective-pl
 Axiom audit reports only propext, Classical.choice, Quot.sound for or_quota, few_bad_posted, spurious_input_large, and small_bad_singleton_support. Format checkpoint correctly refuses the absent main theorem. Checker checkpoint currently ends at verifier reading and has no final verdict yet. Full target unproved.
 
 Refreshed public desk JSON at 07:14:59.216Z still lists core L-meta-5867 open with no PRs or reductions; no checked-descendant route is available.
+
+## 2026-11-25 07:32:22 UTC — compiled single-factor limitation witness
+
+restriction-route/OperandWitness.checked.lean passed Lean with ordinary `decide +kernel` (148 lines; SHA256 9d762b2bde2f3c30fc74ef44c204e82824d760830f80af4f810dc28d969af13a). Full log operand-witness-build-2.log is empty, exit 0. The existing Circuit is Monotone2, has 62 gates and valid output, accepts all incident pairs, accepts exactly 12 nonincident pairs, and rejects all 26 singleton inputs. It refutes ONLY the overstrong single-operand ≥63 shortcut, NOT the owned L-meta-2089 statement, which requires two jointly constrained factors.
+
+Kernel checking caught that the earlier exploratory rectangularized-62.json used the transposed incidence orientation. The JSON has now been regenerated against the posted p = l + d, d ∈ {0,1,3,9}; SHA256 e89505eba67be6338e829ae992f5a19a541c279e83807b4f937620d5fec8bbd7. Correct bad pairs are (0,1),(0,5),(0,11),(1,4),(1,10),(1,12),(2,0),(2,3),(2,7),(3,1),(3,6),(3,12). Earlier concrete bad-pair lists in these notes are superseded. Generic graph-isomorphism invariant cost/count conclusions are unchanged.
+
+Optional uniqueness of the only hot wire is being checked separately; preserve the already compiled snapshot immediately.
+
+- 2026-11-25T07:32:56.817271+00:00 counterexample:20minute broad evolutionary phase completed07:12:28–07:32:28UTC. 181506495 mutations in3populations withRELAXED finalwireinequality, 15140404 inSTRICTpopulation. No computationalwitness. Beststrictcandidate misses2positiveedges andrejectsall236promisednegativecuts. Earlierrelaxedstatusisexplicitinconfigs; independentvalidatorchecks62priorgates,AND/ORbinarybasis,sequentialdefault-falsereads,distinct/in-rangefinaloperands,andall288tests. Canonicalorientationp=l+d independentlyregeneratedandmatchedallrows. Fullsummary,scripts,hashes,RNGseeds,logs,validatedcandidatesunder scratchcounterexample/.
