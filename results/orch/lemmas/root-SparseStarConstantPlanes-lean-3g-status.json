@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/SparseStarConstantPlanes.lean",
+  "sha256": "3cf0858c18dcc6908881fbeb21a45189e6bf6f002f5bf8dd55fb25794c7bb951",
+  "source_sha256_after": "3cf0858c18dcc6908881fbeb21a45189e6bf6f002f5bf8dd55fb25794c7bb951",
+  "started_utc": "2026-11-25T12:17:38.528933+00:00",
+  "finished_utc": "2026-11-25T12:17:43.564571+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 1940529152,
+  "seconds": 5.035670662000484,
+  "rss_limit_bytes": 3221225472,
+  "wall_limit_seconds": 90
+}

@@ -1,0 +1,853 @@
+import took 1.57s
+parsing took 109ms
+parsing took 136ms
+simp took 114ms
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:113:28: warning: Variable name `U` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _U
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:113:30: warning: Variable name `V` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _V
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+simp took 532ms
+ring took 872ms
+interpretation of Mathlib.Tactic.LinearCombination._aux_Mathlib_Tactic_LinearCombination___elabRules_Mathlib_Tactic_LinearCombination_linearCombination_1._boxed took 193ms
+share common exprs took 907ms
+process pre-definitions took 333ms
+elaboration took 418ms
+type checking took 1.22s
+linting took 917ms
+simp took 106ms
+simp took 151ms
+simp took 138ms
+ring took 501ms
+share common exprs took 378ms
+process pre-definitions took 114ms
+elaboration took 176ms
+type checking took 438ms
+linting took 382ms
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+share common exprs took 132ms
+type checking took 191ms
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:191:65: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+linting took 193ms
+tactic execution of Lean.Parser.Tactic.change took 236ms
+type checking took 109ms
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:287:96: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:287:100: warning: Unused tactic linter: `ring` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:303:78: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:303:82: warning: Unused tactic linter: `ring` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:287:100: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:303:82: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+type checking took 163ms
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:409:24: warning: Variable name `rr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _rr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:424:24: warning: Variable name `rr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _rr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:430:24: warning: Variable name `rr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _rr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:433:12: warning: Variable name `a` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _a
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:433:14: warning: Variable name `b` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:433:16: warning: Variable name `c` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _c
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:433:18: warning: Variable name `d` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _d
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:433:20: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:433:22: warning: Variable name `j` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _j
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:433:24: warning: Variable name `rr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _rr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:448:25: warning: Variable name `rr` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _rr
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+elaboration took 114ms
+interpretation of Mathlib.Tactic.RingNF._aux_Mathlib_Tactic_Ring_RingNF___elabRules_Mathlib_Tactic_RingNF_ringNF_1._boxed took 2.06s
+ring took 268ms
+instantiate metavars took 277ms
+share common exprs took 2.18s
+fix level params took 102ms
+process pre-definitions took 2.13s
+elaboration took 991ms
+type checking took 5.23s
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:464:5: warning: Variable name `e7` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e7
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:469:5: warning: Variable name `e12` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _e12
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:477:18: warning: This simp argument is unused:
+  cm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cp, cz] at e17
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+linting took 1.44s
+elaboration took 161ms
+ring took 151ms
+ring took 146ms
+ring took 173ms
+ring took 267ms
+ring took 108ms
+instantiate metavars took 219ms
+share common exprs took 1.11s
+process pre-definitions took 401ms
+elaboration took 605ms
+type checking took 1.12s
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:520:23: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:526:23: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:532:23: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:535:23: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:538:23: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:542:25: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:547:23: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:550:23: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:560:25: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:569:25: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:574:23: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 117ms
+linting took 1.22s
+simp took 111ms
+elaboration took 225ms
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 118ms
+interpretation of Lean.Elab.Tactic._aux_Mathlib_Tactic_FinCases___elabRules_Lean_Elab_Tactic_finCases_1._boxed took 193ms
+ring took 158ms
+ring took 156ms
+ring took 189ms
+ring took 103ms
+ring took 124ms
+ring took 114ms
+share common exprs took 296ms
+process pre-definitions took 103ms
+elaboration took 160ms
+type checking took 163ms
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:657:37: warning: This simp argument is unused:
+  cz
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [polynomial, ca, cm, cp] at h0 h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 h17 h18
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+linting took 256ms
+simp took 1.19s
+ring took 961ms
+share common exprs took 849ms
+process pre-definitions took 294ms
+elaboration took 431ms
+type checking took 1.3s
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:705:26: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [perm4, Matrix.of_apply, model, polynomial, coefficients, ca, cm, cp, cz, Matrix.cons_val_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+linting took 821ms
+simp took 1.17s
+simp took 1.15s
+simp took 1.17s
+simp took 1.2s
+simp took 1.37s
+simp took 1.14s
+simp took 1.38s
+simp took 1.18s
+simp took 1.39s
+simp took 1.31s
+simp took 1.21s
+simp took 1.07s
+ring took 118ms
+simp took 1.16s
+simp took 1.12s
+simp took 1.19s
+simp took 1.18s
+simp took 1.17s
+simp took 1.18s
+simp took 1.11s
+instantiate metavars took 145ms
+share common exprs took 773ms
+process pre-definitions took 237ms
+elaboration took 439ms
+type checking took 583ms
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:731:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:736:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:740:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:741:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:742:157: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cm,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:745:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:746:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:750:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:751:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:752:157: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cm,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:755:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:756:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:757:157: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cm,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:760:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:761:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:765:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:766:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:767:157: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cm,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:770:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:771:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:772:157: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cm,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:775:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:776:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:780:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:781:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:785:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:786:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:787:157: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cm,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:790:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:791:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:792:157: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cm,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:795:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:796:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:797:157: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cm,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:800:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:801:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:805:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:806:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:807:157: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cm,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:810:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:811:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:812:157: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cm,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:815:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:816:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:820:40: warning: This simp argument is unused:
+  Matrix.cons_val_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_succ] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:821:6: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coefficients, ca, cm, cp, cz, Matrix.cons_val_zero] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:822:157: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cm,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:824:86: warning: This simp argument is unused:
+  PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.ca,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cp,
+    PEqualNP.Outside.L_gct_231_aux.DoubleSingleSameQuotientCertificate.cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+linting took 807ms
+simp took 201ms
+simp took 150ms
+simp took 174ms
+simp took 169ms
+simp took 179ms
+simp took 227ms
+simp took 144ms
+simp took 182ms
+simp took 147ms
+simp took 176ms
+simp took 147ms
+simp took 163ms
+simp took 161ms
+simp took 163ms
+simp took 141ms
+simp took 175ms
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:832:55: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [model, ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+simp took 1.02s
+simp took 1.03s
+simp took 1.25s
+simp took 1.29s
+simp took 1.22s
+share common exprs took 219ms
+elaboration took 148ms
+type checking took 287ms
+linting took 231ms
+ring took 427ms
+share common exprs took 310ms
+process pre-definitions took 101ms
+elaboration took 180ms
+type checking took 353ms
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:916:27: warning: This simp argument is unused:
+  Fin.sum_univ_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Fin.sum_univ_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+linting took 247ms
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:992:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:1011:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+simp took 145ms
+simp took 144ms
+simp took 142ms
+simp took 121ms
+simp took 134ms
+simp took 117ms
+simp took 106ms
+simp took 106ms
+tactic execution of Lean.Parser.Tactic.refine took 150ms
+tactic execution of Lean.Parser.Tactic.refine took 115ms
+simp took 949ms
+tactic execution of Lean.Parser.Tactic.obtain took 170ms
+simp took 1.02s
+tactic execution of Lean.Parser.Tactic.obtain took 189ms
+instantiate metavars took 124ms
+share common exprs took 115ms
+type checking took 254ms
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:964:29: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [model, base, ca, cm, cz, Matrix.of_apply, hB2, hC3, hsB 0 2, hsB 1 2, hsB 3 2, hsB 1 0, hsB 3 0,
+    hsB 3 1, hsC 0 3, hsC 1 3, hsC 2 3, hsC 1 0, hsC 2 0, hsC 2 1, hB33, hC22]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:1065:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:1083:79: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:1083:83: warning: Unused tactic linter: `ring` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:1083:83: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+simp took 118ms
+simp took 116ms
+simp took 113ms
+simp took 115ms
+simp took 117ms
+simp took 151ms
+simp took 119ms
+simp took 124ms
+simp took 119ms
+simp took 122ms
+simp took 131ms
+simp took 129ms
+simp took 124ms
+simp took 141ms
+simp took 127ms
+simp took 139ms
+/tmp/oec/pequalnp-pilot-79/DoubleSingleCompactComplete.lean:1115:88: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [M, σ, Matrix.submatrix_apply, Matrix.of_apply, Equiv.swap_apply_def, model, ca, cm, cz]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+cumulative profiling times:
+	attribute application 1.88ms
+	compilation (IR) 13.2ms
+	compilation (LCNF base) 142ms
+	compilation (LCNF impure) 68.9ms
+	compilation (LCNF mono) 128ms
+	congr simp thm 96.6ms
+	declTypeLinter 51.4ms
+	elaboration 5.03s
+	fix level params 307ms
+	import 1.57s
+	initialization 34.1ms
+	instantiate metavars 1.4s
+	interpretation 9.04s
+	let-to-have transformation 2.84ms
+	linting 7.02s
+	module linting 0.0481ms
+	norm_num 1.06s
+	parsing 395ms
+	process pre-definitions 4.27s
+	ring 8.06s
+	share common exprs 7.72s
+	simp 46s
+	tactic execution 2.48s
+	tacticAnalysis 61.1ms
+	type checking 12.1s
+	typeclass inference 8.58s

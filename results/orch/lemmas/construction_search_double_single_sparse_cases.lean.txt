@@ -1,0 +1,49 @@
+lemma model_swap_level (a b c d e f g k i j rr : ℂ)
+    (hp : ∀ x y z, Matrix.permanent (Matrix.of fun r s => (1:ℂ)+
+      model a b c d e f g k i j rr x y z r s)=24) :
+    ∀ x y z, Matrix.permanent (Matrix.of fun r s => (1:ℂ)+
+      model g k c d i j a b e f rr x y z r s)=24 := by
+  intro x y z
+  let σ : Equiv.Perm (Fin 4) := Equiv.swap 0 1
+  let M : Matrix (Fin 4) (Fin 4) ℂ := Matrix.of fun r s => (1:ℂ)+
+    model a b c d e f g k i j rr x y z r s
+  have heq : M.submatrix σ σ=Matrix.of (fun r s => (1:ℂ)+
+      model g k c d i j a b e f rr x y z r s) := by
+    ext r s
+    fin_cases r <;> fin_cases s <;>
+      simp [M,σ,Matrix.submatrix_apply,Matrix.of_apply,Equiv.swap_apply_def,model,ca,cm,cp,cz] <;> ring
+  have hinv : Matrix.permanent (M.submatrix σ σ)=Matrix.permanent M := by
+    change Matrix.permanent ((M.submatrix σ id).submatrix id σ)=Matrix.permanent M
+    rw [Matrix.permanent_permute_rows,Matrix.permanent_permute_cols]
+  rw [←heq]
+  exact hinv.trans (hp x y z)
+
+lemma model_impossible_from_same_sparse
+    (hsame : ∀ a b c d e f g k i j rr : ℂ, rr^2=2 → e≠0 → f≠0 →
+      (∀ x y z, Matrix.permanent (Matrix.of fun r s => (1:ℂ)+
+        model a b c d e f g k i j rr x y z r s)=24) → False)
+    (hsparse : ∀ a b c d f g k i rr : ℂ, rr^2=2 → i≠0 → f≠0 →
+      (∀ x y z, Matrix.permanent (Matrix.of fun r s => (1:ℂ)+
+        model a b c d 0 f g k i 0 rr x y z r s)=24) → False) : ModelImpossible := by
+  intro a b c d e f g k i j rr hr hB hC hp
+  have hswap := model_swap_level a b c d e f g k i j rr hp
+  by_cases hf : f≠0
+  · by_cases he : e≠0
+    · exact hsame a b c d e f g k i j rr hr he hf hp
+    · have he0 : e=0 := not_ne_iff.mp he
+      have hi : i≠0 := hC.resolve_left he
+      by_cases hj : j≠0
+      · exact hsame g k c d i j a b e f rr hr hi hj hswap
+      · have hj0 : j=0 := not_ne_iff.mp hj
+        subst e
+        subst j
+        exact hsparse a b c d f g k i rr hr hi hf hp
+  · have hf0 : f=0 := not_ne_iff.mp hf
+    have hj : j≠0 := hB.resolve_left hf
+    by_cases hi : i≠0
+    · exact hsame g k c d i j a b e f rr hr hi hj hswap
+    · have hi0 : i=0 := not_ne_iff.mp hi
+      have he : e≠0 := hC.resolve_right hi
+      subst f
+      subst i
+      exact hsparse g k c d j a b e rr hr he hj hswap

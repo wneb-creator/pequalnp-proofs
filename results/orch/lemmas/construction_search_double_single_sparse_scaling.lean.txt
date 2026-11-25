@@ -1,0 +1,13 @@
+lemma sparse_cross_nonzero_matrix_obstruction (a b c d f g k i rr : ℂ)
+    (hr : rr^2=2) (hi : i≠0) (hf : f≠0)
+    (hp : ∀ x y z, Matrix.permanent (Matrix.of fun r s => (1:ℂ)+
+      model a b c d 0 f g k i 0 rr x y z r s)=24) : False := by
+  apply sparse_cross_matrix_obstruction (a*f⁻¹) (b*i⁻¹) (c*f⁻¹) (d*i⁻¹)
+    (g*f⁻¹) (k*i⁻¹) rr hr
+  intro x y z
+  have hi1 : i*i⁻¹=1 := mul_inv_cancel₀ hi
+  have hf1 : f*f⁻¹=1 := mul_inv_cancel₀ hf
+  have hm := model_rescale a b c d 0 f g k i 0 rr f⁻¹ i⁻¹ x y z
+  simp only [zero_mul,hi1,hf1] at hm
+  rw [hm]
+  exact hp x (f⁻¹*y) (i⁻¹*z)

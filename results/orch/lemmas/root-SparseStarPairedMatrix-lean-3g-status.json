@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/SparseStarPairedMatrix.lean",
+  "sha256": "c2aa3a2ba75232a880027dabcc0d8b3a4ea901dc4e5cd327d1341fb14f6749c9",
+  "source_sha256_after": "c2aa3a2ba75232a880027dabcc0d8b3a4ea901dc4e5cd327d1341fb14f6749c9",
+  "started_utc": "2026-11-25T12:19:29.518271+00:00",
+  "finished_utc": "2026-11-25T12:19:34.355488+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 2412044288,
+  "seconds": 4.837238522000916,
+  "rss_limit_bytes": 3221225472,
+  "wall_limit_seconds": 90
+}
