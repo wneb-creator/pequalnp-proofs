@@ -8,3 +8,4 @@
 - 2026-11-25T05:35:40.621732+00:00: named module build passed for nonedge-filter helper; independent red-team review passed. Partial checkpoint prepared.
 - 2026-11-25T05:38:32.154532+00:00: combined filtering and input-renaming helpers built successfully (5149 jobs); independent review passed. Official checker reports missing full Mathlib cache.
 - 2026-11-25T05:41:05.529245+00:00: full prefix normalization and transport integrated; named-module build passed, independent review passed.
+- 2026-11-25T05:43:47.373789+00:00: overlapping-support filter helper integrated; named-module build and independent review passed.
