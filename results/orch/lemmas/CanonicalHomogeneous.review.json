@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "scope": "Exact wrapper/prefix and mathematical scope audit. The homogeneous formulas, radial extraction and canonical-family normalization were independently audited previously. The31 generator lemmas are not included and no infeasibility or final posted theorem is asserted.",
+  "wrapper_sha256": "2a9abbab85d300566a3f97a66d2ce6bcd13051930e5533ce094294a1f00291a3",
+  "wrapper_lines": 162,
+  "body_sha256": "83c2eed3b39555098d9e363feefdfe70c3aa7ff16b8975a53cf5c4fdb4f2f02f",
+  "body_lines": 156,
+  "exact_prefix_of_previously_audited_body": true,
+  "exact_import_namespace_wrapper": true,
+  "format_scan": "PASS",
+  "rebuild_performed": false
+}

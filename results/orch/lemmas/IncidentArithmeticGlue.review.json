@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-25T12:55:33.305009+00:00",
+  "verdict": "PASS independent proof-scope and interface review",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/IncidentArithmeticGlue.lean",
+  "source_sha256": "6dabc2112f73a9de77a3d5bfe1b7d5a3d346f0846b4b31759357fc26825cb9c4",
+  "lines": 48,
+  "checks": [
+    "Arithmetic premise lists precisely the12 ordered coefficient equations plus zz*(-1-x3-x5-x7-x9)-1=0.",
+    "Normalized inverse witness uses the reconstruction H23=-1-H02-H03-H12-H13 and the contradiction assumption H23!=0.",
+    "All12 checked generator-zero hypotheses are supplied in the correct natural variable order.",
+    "Final wrapper exactly yields the previously defined NormalizedIncidentOppositeEdge proposition.",
+    "Unproved arithmetic remains an explicit hypothesis throughout; no unconditional nonexistence claimed.",
+    "Format scan clean."
+  ],
+  "compile": "Child reports explicit exit0; no independent rebuild during coordinated slots."
+}

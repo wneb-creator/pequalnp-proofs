@@ -1,0 +1,28 @@
+{
+  "created_utc": "2026-11-25T12:55:03.632302+00:00",
+  "status": "Lean build PASS; frozen pending independent review",
+  "scope": "Conditional inverse-guard wrapper: the explicit twelve-generator arithmetic inconsistency premise implies NormalizedIncidentOppositeEdge. The arithmetic premise remains unproved here.",
+  "source_lines": 48,
+  "files": [
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/IncidentArithmeticGlue.lean",
+      "bytes": 2168,
+      "sha256": "6dabc2112f73a9de77a3d5bfe1b7d5a3d346f0846b4b31759357fc26825cb9c4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/incident-arithmetic-glue-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/incident-arithmetic-glue-build.stderr",
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/incident-arithmetic-glue-build.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    }
+  ]
+}

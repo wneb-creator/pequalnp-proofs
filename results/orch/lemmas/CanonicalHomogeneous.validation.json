@@ -1,0 +1,17 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-78/canonical_coefficients/CanonicalHomogeneous.lean",
+  "utc_started": "2026-11-25T12:55:07.964872+00:00",
+  "exit_code": 0,
+  "seconds": 43.778860385998996,
+  "peak_rss_kib": 4232632,
+  "user_seconds": 37.878199,
+  "system_seconds": 1.548874,
+  "stdout_bytes": 0,
+  "stderr_bytes": 105,
+  "sha256": "2a9abbab85d300566a3f97a66d2ce6bcd13051930e5533ce094294a1f00291a3",
+  "lines": 162,
+  "body_sha256": "83c2eed3b39555098d9e363feefdfe70c3aa7ff16b8975a53cf5c4fdb4f2f02f",
+  "scope": "Exact radial permanent identity and unconditional necessary canonical-coordinate parameterization for dimension-three valid flats with diagonal rank three. No infeasibility, final theorem or checker verdict.",
+  "independent_review": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/canonical-coefficients-independent-audit.json",
+  "main_import_sha256": "b55fd4b239beee330a11821866d1be204f7c405502eddf617c02d1f13bc5c30e"
+}
