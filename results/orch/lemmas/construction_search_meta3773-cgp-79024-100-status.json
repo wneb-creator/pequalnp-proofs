@@ -1,0 +1,10 @@
+{
+  "seed": 79024,
+  "genotype": 100,
+  "warm_seed": "meta3773-warm-unproductive67.txt",
+  "exit": 1,
+  "seconds": 112.03720655600046,
+  "timeout": false,
+  "peak_rss_bytes": 2048000,
+  "source_sha": "bd20c7404b720ddfa07b89ff080256fcfd1e7c2a0d0c5abf5ce79ca181dc775f"
+}

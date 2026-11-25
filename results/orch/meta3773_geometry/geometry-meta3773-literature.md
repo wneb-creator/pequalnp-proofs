@@ -1,0 +1,9 @@
+# Scope of the lower-bound route for L-meta-3773
+
+Read on 2026-11-25 (public read-only web tools): Stasys Jukna, *Disproving the Single Level Conjecture*, https://web.vu.lt/mif/s.jukna/ftp/single1.pdf . The paper distinguishes unrestricted monotone circuits from circuits with one AND level. Its concluding Problem 8.2 asks for a superlinear lower bound for an explicit quadratic graph function. The paper's counterexamples use saturated, nonbipartite extensions; they do not directly embed in this bipartite projective incidence graph.
+
+The earlier report https://eccc.weizmann.ac.il//report/2005/021/download/ explicitly discusses bipartite graphs with no K2,2 and many edges: strong formula bounds are available, whereas unrestricted circuit bounds remain the difficult case. I found no established theorem giving the exact 64-gate lower bound required here. This is a search finding, not a proof that no such theorem exists.
+
+The ordinary star cover gives 52 + 13 - 1 = 64 gates. Treating that upper bound as an unrestricted lower bound would be unjustified. The repository's L_meta_3771 already proves that every empty rectangle has a side of size at most three; R_meta_650_1 already proves that the posted finite tests force the complete incidence function for monotone circuits. Those parts should not be reproved.
+
+For the R_meta_3773_1 two-reserve core, deleting point 9 and line 0 removes seven incidences, leaving 45 edges on 24 inputs. The ordinary twelve-star core has 56 gates. The two reserve ORs each need two more gates in that direct construction, giving a 60-gate baseline against the requested 58. The reserve triples form an empty three-by-three rectangle, and the three vertices in either reserve triple have disjoint remaining neighborhoods. Ordinary sharing of an OR of two same-side inputs therefore does not supply the two missing gates. Search must exploit intermediate functions that are unconstrained when the core already accepts.

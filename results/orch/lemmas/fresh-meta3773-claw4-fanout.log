@@ -1,0 +1,16 @@
+no-extra-feature by_size {}
+dup-point by_size {2: 17, 3: 2, 8: 2, 9: 2}
+dup-common by_size {2: 17, 3: 8, 5: 12, 7: 8, 9: 2}
+dup-private by_size {2: 17, 9: 2}
+free-pair by_size {2: 9, 9: 1}
+free-triple by_size {2: 9, 9: 1}
+free-quad by_size {2: 9, 9: 1}
+{'zero_shared': {'extra_leaf_orbits': 32, 'solutions': []}}
+no-extra-feature {'allowed_partitions': 0, 'tested_tables': 0, 'solution': None, 'seconds': 0.008528033999027684}
+dup-point {'allowed_partitions': 23, 'tested_tables': 11, 'solution': None, 'seconds': 0.07205001300098957}
+dup-common {'allowed_partitions': 47, 'tested_tables': 51, 'solution': None, 'seconds': 0.15100511300261132}
+dup-private {'allowed_partitions': 19, 'tested_tables': 3, 'solution': None, 'seconds': 0.026570286998321535}
+free-pair {'allowed_partitions': 10, 'tested_tables': 3, 'solution': None, 'seconds': 0.03375788000266766}
+free-triple {'allowed_partitions': 10, 'tested_tables': 4, 'solution': None, 'seconds': 0.03803429500112543}
+free-quad {'allowed_partitions': 10, 'tested_tables': 5, 'solution': None, 'seconds': 0.03340849199958029}
+done 1.511468695000076

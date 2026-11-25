@@ -1,0 +1,29 @@
+# Four points in general position
+
+Consider the bipartite graph with four point inputs and six line inputs, one line for every unordered pair of points. Its 12 edges join each line to its two endpoints. Permit three additional free inputs. Each is the OR of the lines belonging to a pair of disjoint edges of K₄. The following finite diagnostic gives a minimum of 15 working binary AND/OR gates, including circuits that use any subset of those three additional inputs. The direct point stars realize 15. The result without free inputs was already checked by Lean in `lean/PEqualNP/Outside/L_meta_723.lean`, final theorem `PEqualNP.Outside.L_meta_723`.
+
+In the order-three projective plane, four points in general position have six pair lines and four private lines. An outside point can lie on at most two retained pair lines, and such lines must represent disjoint edges of K₄. Thus the three free OR inputs cover all useful exterior line subexpressions after restriction. Deleting the four private lines costs at least four working gates by the separating-literal argument in `fresh_meta3773_LOCAL_STAR_REPAIR.md`. The diagnostic therefore excludes an 18-gate circuit replacing these four complete point stars from the usual 64-gate construction. The direct four-star patch uses 19. This final restriction argument and the augmented-input finite diagnostic have not been transferred to Lean. General circuits sharing work across further point stars or the global output remain open.
+
+## Search space
+
+Use the 12 minimal accepting pairs and 16 rejecting assignments indexed by point subsets. On each rejecting assignment, precisely those lines with no selected endpoint are active. Every point and line literal is required as a primitive input. A positive pair and the matching negative assignment for that point force its single line literal, since a matching OR contains one incident and one nonincident line. Dually, a positive pair and the assignment with just its line and all nonincident points force its point literal. The group of permutations of the four points preserves the labels of all test rows. It acts transitively on the subsets of the three optional ORs of each fixed cardinality.
+
+Fix `k` actually used matching ORs. With ten mandatory raw inputs, a connected circuit using at most 14 binary gates has at most `5−k` excess fanout occurrences. Each extra read of a primitive input or of an internal gate costs one. Enumerate all multisets of `j` repeated primitive occurrences, modulo point permutations, for `0≤j≤5−k`. Treat repeated occurrences as distinct leaf tokens with equal truth tables. It remains to search circuits with internal excess at most `h=5−k−j`.
+
+The base case asks whether a read-once formula over the available tokens can pass every required row. An AND of two subformulas must accept every required positive on both children and can assign each negative obligation to one child. An OR has the dual rule. A proposed child cannot separate a required positive-negative pair if no available feature is true on that positive and false on that negative. Enumerating both root gates, all leaf partitions and the possible distributions of the row obligations is an exact recursion. It also permits constant branches and unused tokens.
+
+If an internal result is shared, choose its earliest occurrence in gate order. Its input cone is a read-once subformula on a subset `S` of the tokens. Every token of `S` reaches the output through its result `v`. Consider pairs consisting of one positive and one negative that the complement of `S` fails to distinguish in the required direction. The value of `v` must be 1 on all their positive endpoints and 0 on all their negative endpoints. Reject `S` if its own features cannot satisfy these requirements. A proper input subset suffices for a minimum circuit, because gates downstream from a single source with no remaining input compute constants or copies.
+
+The forward recursion enumerates every AND/OR tree truth table for `S` and passes `d` copies of its value to the remaining circuit, for each `2≤d≤h+1`. The new internal excess budget is `h−(d−1)`. Where the complement is smaller, the reverse recursion sets all copies of `v` symbolically to 0 and 1, enumerates the remaining circuit's pairs of truth tables and checks whether a read-once formula on `S` meets the induced row obligations. An arbitrary-monotone-function relaxation first excludes some cases with at most three outside tokens. A surviving relaxation is followed by the bounded exact search. Equal truth tables and equivalent point permutations only reduce duplicate states.
+
+## Results and reproduction
+
+| Actually used ORs | Orbits by number of repeated primitive occurrences | Total | Passing circuits |
+| --- | --- | --- | --- |
+| 1 | 1, 4, 17, 57, 175 | 254 | 0 |
+| 2 | 1, 4, 19, 68 | 92 | 0 |
+| 3 | 1, 3, 12 | 16 | 0 |
+
+Together the 12 runs examined 362 initial orbits. The longest finished in about 20.4 seconds. A separate two-excess implementation reproduces the three-OR result. The validation program checks 105 independent Python/C++ read-once comparisons, the complete symmetry quotient for every initial cone split, the ordinary 15-gate upper construction, and a synthetic positive example that needs an internally shared feature in the test model.
+
+Copy the listed source files into a scratch directory. Compile `fresh_meta3773_readonce.cpp` as `fresh-meta3773-readonce.so` using `g++ -std=c++17 -O3 -shared -fPIC`. Run `python fresh_meta3773_k4_validate.py`, then `python fresh_meta3773_k4_recursive.py k j` for the twelve pairs above. Each run emits a JSON report and complete progress to standard output. The separate implementation uses `python fresh_meta3773_k4_lowfan_fast.py`. No network or external SAT solver is needed for these diagnostics.

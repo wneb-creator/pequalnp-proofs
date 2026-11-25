@@ -313,3 +313,7 @@ TIMING total=295.0 subagents=7
 2026-11-25T13:35:54.327619+00:00 Preserved three independently reviewed Lean positive-control components for L-meta-3773: exact808-row input word0, the four-word probe0/1/13/25, and literal64-gate replay on all26 predicted808-bit words. Word0 exit0/14.55s/3.787GiB; four-word probe exit0/40.96s/4.480GiB; literal64 replay exit0/1.425s/1.10GB. All26 input-column equalities are still checking separately. None of these components asserts a63gate witness; target remains unresolved.
 Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
 TIMING total=300.2 subagents=7
+
+2026-11-25T13:48:18.846595+00:00 Preserved independently reviewed L-meta-3773 research checkpoints: eight finished whole-circuit CGP batches, three-output core stochastic runs, finite local-repair analyses through four-point patches, exact sources/full logs/invalid near-miss candidates. Best validated whole circuit in this packet has66gates with an unproductive AND; no63witness. The local exclusion computations are explicitly restricted CAS/semantic diagnostics, not a Lean refutation of the posted existential. Sources and all hashes reverified before publication.
+Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
+TIMING total=312.6 subagents=7

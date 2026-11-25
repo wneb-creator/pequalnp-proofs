@@ -1,0 +1,10 @@
+{
+  "free_count": 3,
+  "repeated_primitive_count": 1,
+  "internal_excess_budget": 1,
+  "cases": 3,
+  "tested": 3,
+  "hits": [],
+  "states": 101,
+  "seconds": 0.18682178699964425
+}

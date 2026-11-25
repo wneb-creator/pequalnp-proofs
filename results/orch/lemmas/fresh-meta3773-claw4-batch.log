@@ -1,0 +1,11 @@
+{'index': 0, 'free': (3, 5), 'code': 20, 'seconds': 2.04253296999741, 'hash': '274d4855c43839c63b33352a224cd89a1871f8b658023335a2f4cd5ce2c5b10f', 'variables': 1040, 'clauses': 24789, 'num_orbits': 11}
+{'index': 1, 'free': (3, 7), 'code': 20, 'seconds': 2.0468264010014536, 'hash': 'f32346e96651edd9af7d87530d725a63b39f678cd5fbec8485ad9f62d49a93fa', 'variables': 1040, 'clauses': 24789, 'num_orbits': 11}
+{'index': 2, 'free': (3, 12), 'code': 20, 'seconds': 2.158159026002977, 'hash': '1a91b93e6c854041d5c4b09bd1859e5b22128abd44c761aff724d73dbcd01e22', 'variables': 1040, 'clauses': 24789, 'num_orbits': 11}
+{'index': 3, 'free': (3, 13), 'code': 20, 'seconds': 1.9726586260003387, 'hash': '032405075a86917cd84aa68495ed3acdbeefc55e42d4667a92e9ad42dfc5659f', 'variables': 1040, 'clauses': 24789, 'num_orbits': 11}
+{'index': 4, 'free': (3, 15), 'code': 20, 'seconds': 1.7192232679990411, 'hash': '0c93e98b6f93e02994c9455a9a713c3354091fc8720e0429d0b6cb1d496a7fab', 'variables': 1040, 'clauses': 24789, 'num_orbits': 11}
+{'index': 5, 'free': (7, 11), 'code': 20, 'seconds': 2.3561418399985996, 'hash': 'f068b29dc389fdbdccd955be9fe23e023c23bfa507b36fa8d718e65e44b3aa98', 'variables': 1040, 'clauses': 24789, 'num_orbits': 11}
+{'index': 6, 'free': (7, 15), 'code': 20, 'seconds': 1.5986978330001875, 'hash': '4a2a3e138fee6142b3dac09a8b50aafe5483458b1de79a3f35b1bc99be3efdce', 'variables': 1040, 'clauses': 24789, 'num_orbits': 11}
+{'index': 7, 'free': (3,), 'code': 0, 'seconds': 7.008434125000349, 'hash': '8a22833b2cced8e4922bab916bc5a90bca7707cac56becd5ea0ae3e2a4e4577d', 'variables': 1020, 'clauses': 20022, 'num_orbits': 11}
+{'index': 8, 'free': (7,), 'code': 0, 'seconds': 7.00817790000292, 'hash': 'aa4963f659c9773d29b8fe2740df5b775de47b751f74857222712c50ea8688bb', 'variables': 1020, 'clauses': 20022, 'num_orbits': 11}
+{'index': 9, 'free': (15,), 'code': 0, 'seconds': 7.055520496000099, 'hash': 'e548bb6e20fe88ba35de97a8f7075a28a718ba8e098ea2453c40a1ab9e31e458', 'variables': 1020, 'clauses': 20022, 'num_orbits': 11}
+{'index': 10, 'free': (), 'code': 0, 'seconds': 7.015753981999296, 'hash': '580d45cd9228ccc57d1f172cd1c5991a7a199079141257aa02700e47505a4df3', 'variables': 1000, 'clauses': 18044, 'num_orbits': 11}

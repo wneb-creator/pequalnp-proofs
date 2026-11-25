@@ -1,0 +1,2 @@
+case 2 0 1 of 1 result False states 46 seconds 0.018
+{'free_count': 2, 'repeated_primitive_count': 0, 'internal_excess_budget': 3, 'cases': 1, 'tested': 1, 'hits': [], 'states': 46, 'seconds': 0.018199024998466484}

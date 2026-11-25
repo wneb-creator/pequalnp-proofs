@@ -1,0 +1,88 @@
+initial err=0 cost=60 score=20.06
+curriculum_stage=0 full_errors=0
+curriculum_stage=1 full_errors=689
+time=10 evals=1508428 best=689,23 current=689,23
+improved evals=2950158 err=37 cost=14 score=148.014
+curriculum_stage=2 full_errors=37
+time=20.0001 evals=3370949 best=37,16 current=37,16
+improved evals=4814664 err=37 cost=15 score=148.015
+improved evals=4847254 err=49 cost=22 score=147.022
+improved evals=4847305 err=36 cost=21 score=144.021
+improved evals=4847380 err=36 cost=20 score=144.02
+improved evals=4847386 err=36 cost=18 score=144.018
+improved evals=4850301 err=36 cost=17 score=144.017
+improved evals=4850422 err=36 cost=15 score=144.015
+improved evals=4866870 err=35 cost=30 score=140.03
+improved evals=4866946 err=35 cost=29 score=140.029
+improved evals=4866955 err=35 cost=27 score=140.027
+improved evals=4866976 err=35 cost=26 score=140.026
+improved evals=4867110 err=35 cost=23 score=140.023
+improved evals=4869147 err=35 cost=22 score=140.022
+improved evals=4871008 err=35 cost=21 score=140.021
+improved evals=4882526 err=35 cost=20 score=140.02
+improved evals=4882760 err=35 cost=18 score=140.018
+improved evals=4907890 err=34 cost=21 score=136.021
+improved evals=4908295 err=34 cost=20 score=136.02
+improved evals=4919654 err=34 cost=19 score=136.019
+improved evals=5011274 err=33 cost=20 score=132.02
+improved evals=5110735 err=32 cost=22 score=128.022
+improved evals=5120484 err=31 cost=28 score=124.028
+improved evals=5120563 err=31 cost=27 score=124.027
+improved evals=5123597 err=31 cost=26 score=124.026
+improved evals=5125251 err=31 cost=25 score=124.025
+improved evals=5125261 err=31 cost=23 score=124.023
+improved evals=5128413 err=31 cost=22 score=124.022
+curriculum_stage=3 full_errors=31
+time=30.0001 evals=5171527 best=31,25 current=0,60
+improved evals=5171528 err=0 cost=60 score=20.06
+full_improved err=4 cost=59 score=14.059
+full_improved err=6 cost=57 score=6.057
+curriculum_stage=4 full_errors=22
+time=40.0001 evals=6938724 best=22,35 current=22,35
+curriculum_stage=5 full_errors=33
+time=50.0002 evals=8843550 best=33,23 current=33,23
+improved evals=10520784 err=33 cost=21 score=132.021
+improved evals=10530840 err=33 cost=20 score=132.02
+curriculum_stage=6 full_errors=33
+time=60.0004 evals=10714710 best=33,24 current=0,60
+improved evals=10714711 err=0 cost=60 score=20.06
+curriculum_stage=7 full_errors=37
+time=70.0004 evals=12589848 best=37,16 current=37,16
+improved evals=13951749 err=36 cost=17 score=144.017
+improved evals=13960505 err=36 cost=16 score=144.016
+improved evals=13986458 err=36 cost=15 score=144.015
+improved evals=14018140 err=35 cost=21 score=140.021
+improved evals=14018171 err=35 cost=20 score=140.02
+improved evals=14018829 err=35 cost=19 score=140.019
+improved evals=14029331 err=34 cost=22 score=136.022
+improved evals=14059388 err=34 cost=21 score=136.021
+improved evals=14070352 err=34 cost=20 score=136.02
+improved evals=14093426 err=33 cost=25 score=132.025
+improved evals=14093428 err=33 cost=23 score=132.023
+improved evals=14097274 err=32 cost=24 score=128.024
+improved evals=14134336 err=31 cost=26 score=124.026
+curriculum_stage=8 full_errors=31
+time=80.0004 evals=14164250 best=31,26 current=31,26
+curriculum_stage=9 full_errors=34
+time=90.0008 evals=15600192 best=34,24 current=0,60
+improved evals=15600193 err=0 cost=60 score=20.06
+improved evals=15600254 err=4 cost=57 score=16.057
+full_improved err=4 cost=57 score=4.057
+curriculum_stage=10 full_errors=35
+time=100.001 evals=17127562 best=35,19 current=35,19
+improved evals=18184065 err=35 cost=18 score=140.018
+improved evals=18266852 err=34 cost=19 score=136.019
+improved evals=18303397 err=33 cost=21 score=132.021
+improved evals=18305438 err=32 cost=23 score=128.023
+improved evals=18313304 err=32 cost=22 score=128.022
+improved evals=18357301 err=31 cost=24 score=124.024
+improved evals=18358962 err=31 cost=23 score=124.023
+improved evals=18417493 err=30 cost=26 score=120.026
+improved evals=18417734 err=30 cost=25 score=120.025
+improved evals=18421381 err=29 cost=30 score=116.03
+improved evals=18421832 err=29 cost=27 score=116.027
+improved evals=18496223 err=28 cost=29 score=112.029
+improved evals=18497399 err=28 cost=28 score=112.028
+improved evals=18518166 err=28 cost=27 score=112.027
+time=110.001 evals=18549882 best=28,27 current=28,27
+finished evals=20205445 best_err=28 best_cost=27 restarts=11

@@ -1,0 +1,107 @@
+{
+  "no_shared_internal": {
+    "repeat_leaf_pair_orbits": 12,
+    "solutions": []
+  },
+  "None": {
+    "solution": null,
+    "partitions": 13,
+    "candidates": 15
+  },
+  "0": {
+    "solution": null,
+    "partitions": 74,
+    "candidates": 145
+  },
+  "4": {
+    "solution": null,
+    "partitions": 110,
+    "candidates": 126
+  },
+  "10": {
+    "solution": null,
+    "partitions": 56,
+    "candidates": 61
+  },
+  "two_shared": [
+    {
+      "inside": 1023,
+      "size": 10,
+      "checked": 2,
+      "relaxed_solutions": []
+    },
+    {
+      "inside": 1025,
+      "size": 2,
+      "checked": 0,
+      "relaxed_solutions": []
+    },
+    {
+      "inside": 1040,
+      "size": 2,
+      "checked": 1,
+      "relaxed_solutions": []
+    },
+    {
+      "inside": 1056,
+      "size": 2,
+      "checked": 0,
+      "relaxed_solutions": []
+    },
+    {
+      "inside": 2047,
+      "size": 11,
+      "checked": 1,
+      "relaxed_solutions": []
+    },
+    {
+      "inside": 3072,
+      "size": 2,
+      "checked": 2,
+      "relaxed_solutions": []
+    },
+    {
+      "inside": 3073,
+      "size": 3,
+      "checked": 0,
+      "relaxed_solutions": []
+    },
+    {
+      "inside": 3088,
+      "size": 3,
+      "checked": 1,
+      "relaxed_solutions": []
+    },
+    {
+      "inside": 3136,
+      "size": 3,
+      "checked": 0,
+      "relaxed_solutions": []
+    },
+    {
+      "inside": 4095,
+      "size": 12,
+      "checked": 1,
+      "relaxed_solutions": []
+    },
+    {
+      "inside": 7168,
+      "size": 3,
+      "checked": 5,
+      "relaxed_solutions": []
+    },
+    {
+      "inside": 7169,
+      "size": 4,
+      "checked": 1,
+      "relaxed_solutions": []
+    },
+    {
+      "inside": 7184,
+      "size": 4,
+      "checked": 1,
+      "relaxed_solutions": []
+    }
+  ],
+  "seconds": 2.3948434480007563
+}

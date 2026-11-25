@@ -1,0 +1,296 @@
+initial err=682 cost=23 score=682.023
+stage=0 full=682 cost=23 score=0.023
+full_improved=682,23
+full_improved=573,7
+full_improved=549,8
+full_improved=531,4
+full_improved=453,10
+full_improved=449,7
+full_improved=445,5
+full_improved=434,9
+full_improved=410,9
+full_improved=379,10
+full_improved=377,10
+full_improved=375,7
+full_improved=353,7
+full_improved=339,12
+full_improved=338,12
+stage=1 full=1233 cost=17 score=112.017
+time=10.0001 evals=1508285 best=1233,17 current=1233,17
+improved evals=1508312 err=884 cost=2 score=112.002
+improved evals=1508322 err=747 cost=1 score=94.001
+improved evals=1508372 err=497 cost=3 score=91.003
+improved evals=1508788 err=541 cost=10 score=89.01
+improved evals=1508805 err=516 cost=12 score=87.012
+improved evals=1508905 err=460 cost=9 score=85.009
+improved evals=1508943 err=460 cost=6 score=84.006
+improved evals=1509125 err=501 cost=4 score=84.004
+improved evals=1509433 err=450 cost=13 score=72.013
+improved evals=1509440 err=450 cost=12 score=72.012
+full_improved=332,12
+improved evals=1509950 err=364 cost=9 score=71.009
+improved evals=1514641 err=249 cost=6 score=65.006
+full_improved=249,6
+improved evals=1514647 err=248 cost=10 score=64.01
+full_improved=248,10
+improved evals=1514718 err=248 cost=7 score=64.007
+full_improved=248,7
+full_improved=228,12
+full_improved=222,13
+improved evals=1515112 err=224 cost=10 score=56.01
+full_improved=198,16
+full_improved=176,15
+full_improved=176,11
+improved evals=1570551 err=171 cost=8 score=56.008
+full_improved=171,8
+improved evals=1572001 err=173 cost=5 score=56.005
+improved evals=1588272 err=146 cost=7 score=54.007
+full_improved=146,7
+improved evals=1618321 err=145 cost=6 score=53.006
+full_improved=145,6
+improved evals=1650143 err=173 cost=12 score=51.012
+improved evals=1650151 err=173 cost=11 score=51.011
+improved evals=1686804 err=43 cost=8 score=43.008
+full_improved=43,8
+improved evals=1771201 err=43 cost=6 score=43.006
+full_improved=43,6
+improved evals=2075601 err=42 cost=11 score=42.011
+full_improved=42,11
+improved evals=2075620 err=42 cost=8 score=42.008
+full_improved=42,8
+improved evals=2166641 err=41 cost=12 score=41.012
+full_improved=41,12
+improved evals=2166698 err=41 cost=10 score=41.01
+full_improved=41,10
+improved evals=2303904 err=41 cost=8 score=41.008
+full_improved=41,8
+improved evals=2598840 err=40 cost=12 score=40.012
+full_improved=40,12
+improved evals=2604081 err=39 cost=16 score=39.016
+full_improved=39,16
+improved evals=2604612 err=39 cost=15 score=39.015
+full_improved=39,15
+improved evals=2604868 err=39 cost=14 score=39.014
+full_improved=39,14
+improved evals=2702721 err=39 cost=13 score=39.013
+full_improved=39,13
+improved evals=2703201 err=38 cost=15 score=38.015
+full_improved=38,15
+improved evals=2714161 err=37 cost=17 score=37.017
+full_improved=37,17
+improved evals=2717552 err=37 cost=16 score=37.016
+full_improved=37,16
+improved evals=2719521 err=37 cost=15 score=37.015
+full_improved=37,15
+improved evals=2728472 err=36 cost=19 score=36.019
+full_improved=36,19
+improved evals=2729121 err=35 cost=20 score=35.02
+full_improved=35,20
+improved evals=2732550 err=35 cost=19 score=35.019
+full_improved=35,19
+improved evals=2732641 err=34 cost=20 score=34.02
+full_improved=34,20
+improved evals=2868697 err=34 cost=19 score=34.019
+full_improved=34,19
+improved evals=2869681 err=34 cost=18 score=34.018
+full_improved=34,18
+improved evals=2870161 err=33 cost=19 score=33.019
+full_improved=33,19
+improved evals=2873921 err=32 cost=23 score=32.023
+full_improved=32,23
+improved evals=2874357 err=32 cost=21 score=32.021
+full_improved=32,21
+improved evals=2901121 err=31 cost=23 score=31.023
+full_improved=31,23
+improved evals=2913521 err=30 cost=28 score=30.028
+full_improved=30,28
+improved evals=2916530 err=29 cost=29 score=29.029
+full_improved=29,29
+improved evals=2917867 err=29 cost=28 score=29.028
+full_improved=29,28
+improved evals=2918201 err=29 cost=27 score=29.027
+full_improved=29,27
+improved evals=2919957 err=29 cost=25 score=29.025
+full_improved=29,25
+improved evals=2923361 err=29 cost=24 score=29.024
+full_improved=29,24
+improved evals=3025193 err=28 cost=26 score=28.026
+full_improved=28,26
+improved evals=3039761 err=27 cost=32 score=27.032
+full_improved=27,32
+improved evals=3040414 err=27 cost=30 score=27.03
+full_improved=27,30
+improved evals=3046494 err=27 cost=29 score=27.029
+full_improved=27,29
+improved evals=3046789 err=27 cost=28 score=27.028
+full_improved=27,28
+improved evals=3083201 err=26 cost=29 score=26.029
+full_improved=26,29
+improved evals=3101281 err=104 cost=33 score=25.033
+full_improved=25,33
+improved evals=3103388 err=25 cost=32 score=25.032
+full_improved=25,32
+improved evals=3103624 err=25 cost=31 score=25.031
+full_improved=25,31
+improved evals=3105761 err=24 cost=32 score=24.032
+full_improved=24,32
+improved evals=3114526 err=24 cost=31 score=24.031
+full_improved=24,31
+improved evals=3175601 err=102 cost=38 score=23.038
+improved evals=3177020 err=23 cost=37 score=23.037
+full_improved=23,37
+improved evals=3179521 err=23 cost=35 score=23.035
+full_improved=23,35
+improved evals=3179624 err=23 cost=34 score=23.034
+full_improved=23,34
+improved evals=3191291 err=22 cost=40 score=22.04
+full_improved=22,40
+stage=2 full=22 cost=40 score=22.04
+time=20.0001 evals=3191348 best=22,40 current=22,40
+stage=3 full=31 cost=22 score=31.022
+time=30.0001 evals=4504390 best=31,22 current=31,22
+improved evals=5604001 err=30 cost=25 score=30.025
+improved evals=5605761 err=30 cost=24 score=30.024
+improved evals=5648246 err=29 cost=28 score=29.028
+improved evals=5648398 err=29 cost=27 score=29.027
+improved evals=5648401 err=29 cost=26 score=29.026
+improved evals=5658401 err=28 cost=28 score=28.028
+improved evals=5660721 err=28 cost=27 score=28.027
+improved evals=5666641 err=27 cost=30 score=27.03
+improved evals=5666953 err=27 cost=29 score=27.029
+stage=4 full=27 cost=31 score=27.031
+time=40.0001 evals=5670397 best=27,31 current=27,31
+improved evals=6754881 err=26 cost=31 score=26.031
+improved evals=6756978 err=26 cost=30 score=26.03
+improved evals=6760001 err=26 cost=29 score=26.029
+improved evals=6764881 err=25 cost=33 score=25.033
+improved evals=6767994 err=25 cost=32 score=25.032
+improved evals=6768133 err=25 cost=31 score=25.031
+improved evals=6768321 err=25 cost=30 score=25.03
+improved evals=6768872 err=25 cost=29 score=25.029
+improved evals=6797281 err=24 cost=33 score=24.033
+improved evals=6797601 err=24 cost=32 score=24.032
+improved evals=6797841 err=24 cost=31 score=24.031
+improved evals=6799116 err=24 cost=30 score=24.03
+improved evals=6831681 err=23 cost=32 score=23.032
+improved evals=6832368 err=23 cost=31 score=23.031
+stage=5 full=23 cost=33 score=23.033
+time=50.0001 evals=6880392 best=23,33 current=23,33
+improved evals=7844961 err=22 cost=37 score=22.037
+full_improved=22,37
+improved evals=7845361 err=21 cost=38 score=21.038
+full_improved=21,38
+improved evals=7846481 err=21 cost=37 score=21.037
+full_improved=21,37
+improved evals=7850641 err=20 cost=38 score=20.038
+full_improved=20,38
+improved evals=7853999 err=19 cost=39 score=19.039
+full_improved=19,39
+improved evals=7856161 err=18 cost=40 score=18.04
+full_improved=18,40
+improved evals=7860286 err=17 cost=45 score=17.045
+full_improved=17,45
+improved evals=7861248 err=17 cost=44 score=17.044
+full_improved=17,44
+improved evals=7861298 err=17 cost=43 score=17.043
+full_improved=17,43
+improved evals=7863575 err=17 cost=42 score=17.042
+full_improved=17,42
+improved evals=7863833 err=16 cost=43 score=16.043
+full_improved=16,43
+improved evals=7865121 err=16 cost=42 score=16.042
+full_improved=16,42
+improved evals=7936161 err=15 cost=46 score=15.046
+full_improved=15,46
+improved evals=7936961 err=15 cost=45 score=15.045
+full_improved=15,45
+improved evals=7945829 err=15 cost=44 score=15.044
+full_improved=15,44
+improved evals=7954321 err=14 cost=46 score=14.046
+full_improved=14,46
+improved evals=7955696 err=14 cost=45 score=14.045
+full_improved=14,45
+improved evals=7965521 err=13 cost=47 score=13.047
+full_improved=13,47
+improved evals=7966040 err=13 cost=46 score=13.046
+full_improved=13,46
+improved evals=7972081 err=13 cost=45 score=13.045
+full_improved=13,45
+stage=6 full=13 cost=46 score=13.046
+time=60.0001 evals=7976162 best=13,46 current=13,46
+stage=7 full=22 cost=34 score=22.034
+time=70.0003 evals=9159671 best=22,34 current=22,34
+stage=8 full=27 cost=31 score=27.031
+time=80.0003 evals=10280589 best=27,31 current=27,31
+improved evals=11126961 err=26 cost=34 score=26.034
+improved evals=11127795 err=26 cost=33 score=26.033
+improved evals=11128241 err=26 cost=31 score=26.031
+improved evals=11129281 err=25 cost=32 score=25.032
+improved evals=11130801 err=25 cost=31 score=25.031
+improved evals=11140801 err=24 cost=38 score=24.038
+improved evals=11140841 err=24 cost=37 score=24.037
+improved evals=11141782 err=24 cost=36 score=24.036
+improved evals=11142313 err=24 cost=35 score=24.035
+improved evals=11171521 err=23 cost=37 score=23.037
+improved evals=11172641 err=23 cost=36 score=23.036
+improved evals=11174300 err=23 cost=35 score=23.035
+improved evals=11182721 err=23 cost=34 score=23.034
+improved evals=11190892 err=22 cost=36 score=22.036
+improved evals=11191318 err=22 cost=35 score=22.035
+improved evals=11192186 err=21 cost=39 score=21.039
+improved evals=11192287 err=21 cost=37 score=21.037
+improved evals=11192659 err=21 cost=36 score=21.036
+improved evals=11196161 err=20 cost=38 score=20.038
+improved evals=11197921 err=20 cost=37 score=20.037
+improved evals=11209841 err=19 cost=42 score=19.042
+improved evals=11210458 err=19 cost=40 score=19.04
+improved evals=11220784 err=18 cost=42 score=18.042
+improved evals=11223281 err=18 cost=41 score=18.041
+improved evals=11225991 err=18 cost=40 score=18.04
+improved evals=11229959 err=17 cost=48 score=17.048
+improved evals=11230082 err=17 cost=46 score=17.046
+improved evals=11230279 err=17 cost=45 score=17.045
+improved evals=11230395 err=17 cost=44 score=17.044
+improved evals=11236961 err=16 cost=46 score=16.046
+improved evals=11237221 err=16 cost=45 score=16.045
+improved evals=11245644 err=16 cost=44 score=16.044
+improved evals=11246561 err=16 cost=43 score=16.043
+improved evals=11252721 err=15 cost=47 score=15.047
+improved evals=11253730 err=15 cost=44 score=15.044
+improved evals=11257681 err=15 cost=43 score=15.043
+improved evals=11275573 err=14 cost=47 score=14.047
+improved evals=11281361 err=14 cost=46 score=14.046
+improved evals=11295201 err=13 cost=48 score=13.048
+improved evals=11303201 err=12 cost=49 score=12.049
+full_improved=12,49
+improved evals=11305094 err=12 cost=48 score=12.048
+full_improved=12,48
+improved evals=11320241 err=11 cost=50 score=11.05
+full_improved=11,50
+improved evals=11320656 err=11 cost=49 score=11.049
+full_improved=11,49
+improved evals=11321067 err=11 cost=48 score=11.048
+full_improved=11,48
+stage=9 full=11 cost=49 score=11.049
+time=90.0003 evals=11335274 best=11,49 current=11,49
+stage=10 full=32 cost=22 score=32.022
+time=100.001 evals=12411504 best=32,22 current=32,22
+improved evals=12411511 err=32 cost=21 score=32.021
+improved evals=13487281 err=31 cost=23 score=31.023
+improved evals=13561041 err=30 cost=26 score=30.026
+improved evals=13561601 err=30 cost=25 score=30.025
+improved evals=13565361 err=29 cost=26 score=29.026
+improved evals=13578321 err=28 cost=30 score=28.03
+improved evals=13578330 err=28 cost=28 score=28.028
+improved evals=13580721 err=28 cost=27 score=28.027
+improved evals=13583121 err=27 cost=28 score=27.028
+improved evals=13602721 err=26 cost=32 score=26.032
+improved evals=13603502 err=26 cost=31 score=26.031
+improved evals=13606161 err=26 cost=30 score=26.03
+improved evals=13607818 err=26 cost=29 score=26.029
+improved evals=13620081 err=25 cost=30 score=25.03
+improved evals=13660769 err=24 cost=34 score=24.034
+improved evals=13662319 err=24 cost=32 score=24.032
+stage=11 full=24 cost=35 score=24.035
+time=110.001 evals=13732759 best=24,35 current=24,35
+finished evals=15077225 best_err=24 best_cost=35 restarts=11

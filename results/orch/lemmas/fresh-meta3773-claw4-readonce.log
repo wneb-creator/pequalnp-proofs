@@ -1,0 +1,95 @@
+[
+  {
+    "free": [
+      3,
+      5
+    ],
+    "readonce": false,
+    "seconds": 0.019658488999994006,
+    "states": 6
+  },
+  {
+    "free": [
+      3,
+      7
+    ],
+    "readonce": false,
+    "seconds": 0.01924719100134098,
+    "states": 6
+  },
+  {
+    "free": [
+      3,
+      12
+    ],
+    "readonce": false,
+    "seconds": 0.05574373100171215,
+    "states": 6
+  },
+  {
+    "free": [
+      3,
+      13
+    ],
+    "readonce": false,
+    "seconds": 0.021212781000940595,
+    "states": 6
+  },
+  {
+    "free": [
+      3,
+      15
+    ],
+    "readonce": false,
+    "seconds": 0.01925113700053771,
+    "states": 6
+  },
+  {
+    "free": [
+      7,
+      11
+    ],
+    "readonce": false,
+    "seconds": 0.053167443998972885,
+    "states": 6
+  },
+  {
+    "free": [
+      7,
+      15
+    ],
+    "readonce": false,
+    "seconds": 0.01836748299683677,
+    "states": 6
+  },
+  {
+    "free": [
+      3
+    ],
+    "readonce": false,
+    "seconds": 0.010314536000805674,
+    "states": 2
+  },
+  {
+    "free": [
+      7
+    ],
+    "readonce": false,
+    "seconds": 0.007852456001273822,
+    "states": 2
+  },
+  {
+    "free": [
+      15
+    ],
+    "readonce": false,
+    "seconds": 0.00930569599950104,
+    "states": 2
+  },
+  {
+    "free": [],
+    "readonce": false,
+    "seconds": 0.0052278490002208855,
+    "states": 1
+  }
+]

@@ -1,0 +1,9 @@
+{"restart":1,"iterations":150000,"fn":0,"fp":0,"active":64,"best_correct":64,"best_wrong":0}
+{"event":"unproductive","active":68,"count":2}
+{"event":"near_unproductive","errors":4,"active":63}
+{"event":"near","errors":4,"nested":2,"active":63}
+{"restart":2,"iterations":300000,"fn":9,"fp":0,"active":58,"best_correct":64,"best_wrong":0}
+{"restart":3,"iterations":450000,"fn":1,"fp":0,"active":67,"best_correct":64,"best_wrong":0}
+{"restart":4,"iterations":600000,"fn":4,"fp":0,"active":63,"best_correct":64,"best_wrong":0}
+{"restart":5,"iterations":681920,"fn":8,"fp":0,"active":55,"best_correct":64,"best_wrong":0}
+{"done":true,"iterations":681920,"best_correct":64,"best_wrong":0}

@@ -1,0 +1,6 @@
+Python/C++ read-once semantic recurrence comparisons 105
+all Python cone split candidates represented by C++/S4 1 11 4
+all Python cone split candidates represented by C++/S4 2 34 10
+all Python cone split candidates represented by C++/S4 3 81 13
+positive control: ordinary 15-gate star cover is a 16-leaf read-once formula after its six repeated edge-line slots are added
+positive control: six-variable function (st+u)v+(st+w)z requires a repeated occurrence and is recognized via shared cone search

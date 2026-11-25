@@ -1,0 +1,20 @@
+case 2 2 1 of 19 result False states 30 seconds 0.029
+case 2 2 2 of 19 result False states 54 seconds 0.08
+case 2 2 3 of 19 result False states 94 seconds 0.132
+case 2 2 4 of 19 result False states 104 seconds 0.169
+case 2 2 5 of 19 result False states 117 seconds 0.181
+case 2 2 6 of 19 result False states 126 seconds 0.192
+case 2 2 7 of 19 result False states 143 seconds 0.224
+case 2 2 8 of 19 result False states 213 seconds 0.293
+case 2 2 9 of 19 result False states 275 seconds 0.358
+case 2 2 10 of 19 result False states 285 seconds 0.373
+case 2 2 11 of 19 result False states 291 seconds 0.382
+case 2 2 12 of 19 result False states 348 seconds 0.435
+case 2 2 13 of 19 result False states 415 seconds 0.524
+case 2 2 14 of 19 result False states 419 seconds 0.53
+case 2 2 15 of 19 result False states 422 seconds 0.534
+case 2 2 16 of 19 result False states 443 seconds 0.575
+case 2 2 17 of 19 result False states 464 seconds 0.599
+case 2 2 18 of 19 result False states 513 seconds 0.682
+case 2 2 19 of 19 result False states 580 seconds 0.786
+{'free_count': 2, 'repeated_primitive_count': 2, 'internal_excess_budget': 1, 'cases': 19, 'tested': 19, 'hits': [], 'states': 580, 'seconds': 0.7858164040007978}

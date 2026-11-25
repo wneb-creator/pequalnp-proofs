@@ -1,0 +1,19 @@
+no shared {'repeat_leaf_pair_orbits': 12, 'solutions': []} 0.18541096600165474
+one shared None {'solution': None, 'partitions': 13, 'candidates': 15} 0.39212607800072874
+one shared 0 {'solution': None, 'partitions': 74, 'candidates': 145} 0.8073832759982906
+one shared 4 {'solution': None, 'partitions': 110, 'candidates': 126} 1.12447816400163
+one shared 10 {'solution': None, 'partitions': 56, 'candidates': 61} 1.3855395979990135
+2 shared {'inside': 1023, 'size': 10, 'checked': 2, 'relaxed_solutions': []} 1.400399717000255
+2 shared {'inside': 1025, 'size': 2, 'checked': 0, 'relaxed_solutions': []} 1.4004737979994388
+2 shared {'inside': 1040, 'size': 2, 'checked': 1, 'relaxed_solutions': []} 1.5763876320015697
+2 shared {'inside': 1056, 'size': 2, 'checked': 0, 'relaxed_solutions': []} 1.576810779999505
+2 shared {'inside': 2047, 'size': 11, 'checked': 1, 'relaxed_solutions': []} 1.5921450540008664
+2 shared {'inside': 3072, 'size': 2, 'checked': 2, 'relaxed_solutions': []} 1.864681222999934
+2 shared {'inside': 3073, 'size': 3, 'checked': 0, 'relaxed_solutions': []} 1.8647893660017871
+2 shared {'inside': 3088, 'size': 3, 'checked': 1, 'relaxed_solutions': []} 1.9430050420014595
+2 shared {'inside': 3136, 'size': 3, 'checked': 0, 'relaxed_solutions': []} 1.9437174859995139
+2 shared {'inside': 4095, 'size': 12, 'checked': 1, 'relaxed_solutions': []} 1.9568931159992644
+2 shared {'inside': 7168, 'size': 3, 'checked': 5, 'relaxed_solutions': []} 2.3127178879985877
+2 shared {'inside': 7169, 'size': 4, 'checked': 1, 'relaxed_solutions': []} 2.3464797980013827
+2 shared {'inside': 7184, 'size': 4, 'checked': 1, 'relaxed_solutions': []} 2.3799161770002684
+DONE 2.3948434480007563
