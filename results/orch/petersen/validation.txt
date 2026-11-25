@@ -1,0 +1,8 @@
+L-meta-2590 PARTIAL ONLY
+Compiled reusable component: library_rup.lean (463lines)
+Command: lake env lean ../results/orch/petersen/library_rup.lean
+Exit status:0; stdout/stderr empty.
+Independent review:PASS for component preservation.
+No Petersen theorem or checker acceptance yet.
+Sub-agents:7 total; status review, ReadK, library route, counterexample, normal forms, toolchain, delegated gate-count theory.
+TIMING total=26.57 subagents=7

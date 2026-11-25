@@ -12,3 +12,5 @@
 2026-11-25T15:07:57.402284+00:00 library_route stopped after root lease-loss instruction; child gate_count_theory told to stop.
 2026-11-25T15:07:58.143104+00:00 Latest named partial compiled (2524 lines), independent review PASS. Lease renewal rejected despite previously announced future expiry; stopping searches and preserving results.
 2026-11-25T15:09:26.675164+00:00 HTTP410 confirmed by one diagnostic repeat. All searches stopped; archive being pushed before one same-gap recovery request.
+2026-11-25T15:11:47.134499+00:00 Recovery assigned new gap L-meta-2590; expiry 2026-11-25T15:30:16.739Z.
+2026-11-25T15:19:39.933576+00:00 L-meta-2590: kernel RUP checker using BinaryTree compiled; independent review PASS. OR-count≥14 route disproved computationally by20gate13OR+7AND witness.
