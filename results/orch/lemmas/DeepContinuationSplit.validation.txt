@@ -1,0 +1,11 @@
+Source: results/orch/lemmas/DeepContinuationSplit.lean
+SHA256: 46e56898e8057b9329a7592f095c8e944cee62d73d70f83601ec129750365219
+Validation: exit 0; complete stdout and stderr both empty.
+Command cwd: /workspace/pequalnp-proofs/lean
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-180/toolchain/elan LEAN_PATH=/workspace/pequalnp-proofs/results/orch/lemmas PATH=/tmp/oec/pequalnp-pilot-180/toolchain/elan/bin:$PATH lake env lean -M5000 -j3 -R ../results/orch/lemmas -o ../results/orch/lemmas/DeepContinuationSplit.olean ../results/orch/lemmas/DeepContinuationSplit.lean
+Full stdout: /tmp/oec/pequalnp-pilot-180/proof_routes/deep-continuation-002.stdout.txt
+Full stderr: /tmp/oec/pequalnp-pilot-180/proof_routes/deep-continuation-002.stderr.txt
+
+Complete stdout:
+
+Complete stderr:

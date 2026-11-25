@@ -1,0 +1,11 @@
+Source: results/orch/lemmas/MvContinuationSplit.lean
+SHA256: bf6a1f557367aebbfece81e13e9166200ef6699549012ceb1bfba47fc11ac84b
+Validation: exit 0; complete stdout and stderr both empty.
+Command cwd: /workspace/pequalnp-proofs/lean
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-180/toolchain/elan LEAN_PATH=/workspace/pequalnp-proofs/results/orch/lemmas PATH=/tmp/oec/pequalnp-pilot-180/toolchain/elan/bin:$PATH lake env lean -M5000 -j3 -R ../results/orch/lemmas -o ../results/orch/lemmas/MvContinuationSplit.olean ../results/orch/lemmas/MvContinuationSplit.lean
+Full stdout: /tmp/oec/pequalnp-pilot-180/proof_routes/mv-continuation-003.stdout.txt
+Full stderr: /tmp/oec/pequalnp-pilot-180/proof_routes/mv-continuation-003.stderr.txt
+
+Complete stdout:
+
+Complete stderr:

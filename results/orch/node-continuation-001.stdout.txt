@@ -1,0 +1,3 @@
+../results/orch/lemmas/NodeContinuationSplit.lean:64:20: warning: Unused tactic linter: `rfl` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

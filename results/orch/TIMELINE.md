@@ -28,3 +28,5 @@ Pilot pequalnp-pilot-180
 - 2026-11-25 20:29 UTC: ContinuationSplit247lines compiled, empty logs; independent exact-SHA auditGO. Eight-way first-NOT coverage/recombination now kernel checked. Checkpointing before next certificate experiments.
 
 - 2026-11-25 20:31 UTC:48 additional mixed-assignment restriction bounds compiled and independently reviewed; checkpointing for search optimization.
+
+- 2026-11-25 20:33:49 UTC: status_review completed kernel compilation of NodeContinuationSplit.lean, exit 0, then handed compile slot to proof_routes. Independent checkpoint audit requested.

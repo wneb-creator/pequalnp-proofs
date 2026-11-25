@@ -1,0 +1,16 @@
+NodeContinuationSplit validation
+
+Source: results/orch/lemmas/NodeContinuationSplit.lean
+SHA256: d635a83d92ef176c68859802f5f32489f802c8c01e8be3dc347a6b3c23f29877
+Lines: 155
+Command (workdir lean/): ELAN_HOME=/tmp/oec/pequalnp-pilot-180/toolchain/elan LEAN_PATH=/workspace/pequalnp-proofs/results/orch/lemmas PATH=/tmp/oec/pequalnp-pilot-180/toolchain/elan/bin:$PATH lake env lean -M5000 -j3 -R ../results/orch/lemmas -o ../results/orch/lemmas/NodeContinuationSplit.olean ../results/orch/lemmas/NodeContinuationSplit.lean
+Exit: 0
+
+Full stdout:
+../results/orch/lemmas/NodeContinuationSplit.lean:64:20: warning: Unused tactic linter: `rfl` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+
+Full stderr:
+
+Partial result only: generic OR distribution for continuation functions; no claim of final gap checker acceptance. Imports are exploratory and must be inlined in the single final proof file.
