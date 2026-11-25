@@ -1,0 +1,75 @@
+/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean:172:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean:174:26: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean:176:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean:172:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean:174:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean:176:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean:222:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean:222:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean:228:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean:228:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean:465:49: warning: This simp argument is unused:
+  wiresFrom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [initAt, hi, hiz, statValid, statVal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean:466:60: warning: This simp argument is unused:
+  Function.update_of_ne hiz
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [initAt, hi, hiz, statValid, statVal, wiresFrom]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean:467:42: warning: This simp argument is unused:
+  wiresFrom
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [initAt, hi, statValid, statVal]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean:475:37: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean:477:36: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean:475:37: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean:477:36: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean:577:14: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [initAt]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean:583:57: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [initAt]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

@@ -95,3 +95,14 @@ Reviewed `/tmp/oec/pequalnp-pilot-178/root_helpers/FinalCutCandidate.lean`, SHA2
 - Candidate has16492 bytes of margin under the512KiB cap; recheck after further data representation changes.
 
 No Lean process was started during this review.
+
+
+## Gap L-meta-3566: restriction partial, 2026-11-25 20:54 UTC
+
+Compiled `/tmp/oec/pequalnp-pilot-178/gap3566/gate_elimination/Restrict.lean` with the pinned Lean toolchain; exit 0. Complete output is `restrict-build-04.log` in the same directory (linter warnings only). SHA256: `63bee7161700d44108ca262d1938927c77568ee9cbdaa295930f60f6db72e9cc`.
+
+The endpoint `PEqualNP.Outside.L_meta_3566.Restriction.graph_restrict_one_gate` proves that every positive-degree graph vertex whose incident-edge deletion leaves an edge admits a restricted circuit preserving the exact `IsAO2` model and saving at least one gate. The result needs neither bipartiteness nor the no-four-cycle assumption. Its deleted-graph Boolean function is spelled exactly as in the posted statement. It does not prove the degree-sized savings or the cover-drop bonus.
+
+The generic `restrict_one_gate` also handles either Boolean restriction of any essential input whenever the restricted circuit function is nonconstant. The construction is the checked L-meta-927 simplifier, specialized to preserve AND/OR operators and exact fan-in two; temporary constant flags are `Sum Bool Nat` values only, and no constants or NOT gates enter the output circuit. A direct reader of the essential input must exist, otherwise input-support agreement contradicts dependence. That reader is omitted after constant propagation, yielding one gate of savings.
+
+Independent red-team review of proof_route `Converse.lean` SHA256 `9841665b2baa990911687565525db2e7d9acd3eed7ce81c55a4cd14586a28a96` and root `PeelGlue.leanfrag` SHA256 `c299c0ea46fb84986d9b015c3722ab0ff51abcbc5ff71f96f3825fe3c17c8767`: PASS for the stated conditional implications, subject to the combined build. The graph-only witness is selected before the arbitrary circuit, deletion loses exactly degree many edges, and both directions account for the vertex-cover drop explicitly. The converse handles the empty residual graph by the singleton cover and the one-edge base by positive circuit size. Neither implication proves the posted assertion on its own; the exact monotone edge-plus-cover lower bound remains an explicit assumption. No custom graph semantics or hidden circuit-model relaxation found.

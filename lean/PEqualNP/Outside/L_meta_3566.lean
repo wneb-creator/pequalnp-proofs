@@ -465,3 +465,155 @@ theorem peel_of_cover_bound (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.
     omega
 
 end PEqualNP.Outside.L_meta_3566
+
+namespace PEqualNP.Outside.L_meta_3566
+
+open PEqualNP.MetaComplexity.CoverPromise
+
+def PeelStatement : Prop :=
+∀ (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj], (∃ c : Fin n → Bool, ∀ u v : Fin n, G.Adj u v → c u ≠ c v) → PEqualNP.TopForm.NoFourCycle G → 2 ≤ G.edgeFinset.card → ∃ z : Fin n, 0 < G.degree z ∧ ∀ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.TopForm.IsAO2 n C → PEqualNP.MetaComplexity.circuitFun n C = PEqualNP.MetaComplexity.NestedCover.graphFun G ∅ → ∃ D : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.TopForm.IsAO2 n D ∧ PEqualNP.MetaComplexity.circuitFun n D = (fun y : Fin n → Bool => @decide (∃ a b : Fin n, (G.deleteEdges (G.incidenceSet z)).Adj a b ∧ y a = true ∧ y b = true) (Classical.propDecidable _)) ∧ D.size + G.degree z ≤ C.size ∧ ((∃ S : Finset (Fin n), PEqualNP.MetaComplexity.CoverPromise.IsVertexCover (G.deleteEdges (G.incidenceSet z)) S ∧ ∀ T : Finset (Fin n), PEqualNP.MetaComplexity.CoverPromise.IsVertexCover G T → S.card < T.card) → D.size + G.degree z + 1 ≤ C.size)
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+
+theorem graph_singleton_false {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (i : Fin n) :
+    graphFun G ∅ (fun j => decide (j = i)) = false := by
+  simp [graphFun]
+
+theorem graph_circuit_size_pos {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (hne : G.edgeFinset.Nonempty) (C : Circuit)
+    (hfun : circuitFun n C = graphFun G ∅) : 0 < C.size := by
+  classical
+  by_contra hsize
+  have hnil : C.gates = [] := by
+    have hh : C.size = 0 := Nat.eq_zero_of_not_pos hsize
+    cases he : C.gates with
+    | nil => rfl
+    | cons a l => simp [Circuit.size, he] at hh
+  have hval (x : Fin n → Bool) : circuitFun n C x = (List.ofFn x).getD C.output false := by
+    simp [circuitFun, Circuit.eval, Circuit.wires, hnil]
+  by_cases ho : C.output < n
+  · let i : Fin n := ⟨C.output, ho⟩
+    have hh := congrFun hfun (fun j => decide (j = i))
+    rw [hval, graph_singleton_false G i] at hh
+    simp [List.getD_eq_getElem?_getD, ho, i] at hh
+  · obtain ⟨e, he⟩ := hne
+    induction e using Sym2.inductionOn with
+    | hf a b =>
+      have hab : G.Adj a b := by simpa using he
+      have hg : graphFun G ∅ (fun _ => true) = true := by
+        simpa [graphFun] using (show ∃ u v, G.Adj u v from ⟨a, b, hab⟩)
+      have hh := congrFun hfun (fun _ => true)
+      rw [hval, hg] at hh
+      simp [List.getD_eq_getElem?_getD, ho] at hh
+
+theorem one_edge_cover {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hcard : G.edgeFinset.card = 1) :
+    ∃ T : Finset (Fin n), IsVertexCover G T ∧ T.card = 1 := by
+  classical
+  obtain ⟨e, he⟩ := Finset.card_eq_one.mp hcard
+  induction e using Sym2.inductionOn with
+  | hf a b =>
+    refine ⟨{a}, ?_, by simp⟩
+    intro u v huv
+    have hm : s(u, v) ∈ G.edgeFinset := by simpa using huv
+    have heq : s(u, v) = s(a, b) := by simpa [he] using hm
+    rcases Sym2.eq_iff.mp heq with ⟨hu, hv⟩ | ⟨hu, hv⟩
+    · exact Or.inl (by simp [hu])
+    · exact Or.inr (by simp [hv])
+
+theorem cut_bipartite {n : ℕ} (G : SimpleGraph (Fin n)) (z : Fin n)
+    (hb : ∃ c : Fin n → Bool, ∀ u v : Fin n, G.Adj u v → c u ≠ c v) :
+    ∃ c : Fin n → Bool, ∀ u v : Fin n,
+      (G.deleteEdges (G.incidenceSet z)).Adj u v → c u ≠ c v := by
+  obtain ⟨c, hc⟩ := hb
+  exact ⟨c, fun u v h => hc u v ((cut_adj G z u v).mp h).1⟩
+
+theorem cut_no_four_cycle {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (z : Fin n) (h4 : PEqualNP.TopForm.NoFourCycle G) :
+    PEqualNP.TopForm.NoFourCycle (G.deleteEdges (G.incidenceSet z)) := by
+  classical
+  intro a b hab
+  apply le_trans (Finset.card_le_card ?_) (h4 a b hab)
+  intro w hw
+  simp only [Finset.mem_filter, Finset.mem_univ, true_and] at hw ⊢
+  exact ⟨((cut_adj G z a w).mp hw.1).1, ((cut_adj G z b w).mp hw.2).1⟩
+
+theorem lower_bound_of_peeling (hp : PeelStatement) (n : ℕ) :
+    ∀ (G : SimpleGraph (Fin n)) [DecidableRel G.Adj],
+      (∃ c : Fin n → Bool, ∀ u v : Fin n, G.Adj u v → c u ≠ c v) →
+      PEqualNP.TopForm.NoFourCycle G → G.edgeFinset.Nonempty →
+      ∀ C : Circuit, PEqualNP.TopForm.IsAO2 n C → circuitFun n C = graphFun G ∅ →
+      ∃ T : Finset (Fin n), IsVertexCover G T ∧ G.edgeFinset.card + T.card ≤ C.size + 1 := by
+  classical
+  suffices h : ∀ m : ℕ, ∀ (G : SimpleGraph (Fin n)) [DecidableRel G.Adj],
+      G.edgeFinset.card = m →
+      (∃ c : Fin n → Bool, ∀ u v : Fin n, G.Adj u v → c u ≠ c v) →
+      PEqualNP.TopForm.NoFourCycle G → G.edgeFinset.Nonempty →
+      ∀ C : Circuit, PEqualNP.TopForm.IsAO2 n C → circuitFun n C = graphFun G ∅ →
+      ∃ T : Finset (Fin n), IsVertexCover G T ∧ G.edgeFinset.card + T.card ≤ C.size + 1 by
+    intro G _ hb h4 hne C hC hfun
+    exact h G.edgeFinset.card G rfl hb h4 hne C hC hfun
+  intro m
+  induction m using Nat.strong_induction_on with
+  | ind m ih =>
+    intro G _ hm hb h4 hne C hC hfun
+    by_cases htwo : 2 ≤ G.edgeFinset.card
+    · obtain ⟨z, hz, hpeel⟩ := hp n G hb h4 htwo
+      obtain ⟨D, hD, hDfun, hsave, hbonus⟩ := hpeel C hC hfun
+      let H := G.deleteEdges (G.incidenceSet z)
+      have hDfun' : circuitFun n D = graphFun H ∅ := by
+        funext x
+        simpa [graphFun, H] using congrFun hDfun x
+      have heq : H.edgeFinset.card + G.degree z = G.edgeFinset.card := cut_edge_card n G z
+      by_cases hH : H.edgeFinset.Nonempty
+      · have hlt : H.edgeFinset.card < m := by omega
+        obtain ⟨S, hS, hScost⟩ := ih H.edgeFinset.card hlt H rfl
+          (cut_bipartite G z hb) (cut_no_four_cycle G z h4) hH D hD hDfun'
+        by_cases hex : ∃ T : Finset (Fin n), IsVertexCover G T ∧ T.card ≤ S.card
+        · obtain ⟨T, hT, hTS⟩ := hex
+          exact ⟨T, hT, by omega⟩
+        · have hdrop : ∀ T : Finset (Fin n), IsVertexCover G T → S.card < T.card := by
+            intro T hT
+            by_contra hn
+            exact hex ⟨T, hT, by omega⟩
+          have hmore := hbonus ⟨S, hS, hdrop⟩
+          refine ⟨insert z S, cover_insert_of_cut_cover G z S hS, ?_⟩
+          have := Finset.card_insert_le z S
+          omega
+      · have hHe : H.edgeFinset = ∅ := Finset.not_nonempty_iff_eq_empty.mp hH
+        have hcover : IsVertexCover G {z} := by
+          intro u v huv
+          by_cases hu : u = z
+          · exact Or.inl (by simp [hu])
+          by_cases hv : v = z
+          · exact Or.inr (by simp [hv])
+          have hh : H.Adj u v := (cut_adj G z u v).mpr ⟨huv, hu, hv⟩
+          have hm : s(u, v) ∈ H.edgeFinset := by simpa using hh
+          simp [hHe] at hm
+        refine ⟨{z}, hcover, ?_⟩
+        have hzero : H.edgeFinset.card = 0 := by simp [hHe]
+        simp only [Finset.card_singleton]
+        omega
+    · have hm1 : G.edgeFinset.card = 1 := by
+        have := Finset.card_pos.mpr hne
+        omega
+      obtain ⟨T, hT, hTc⟩ := one_edge_cover G hm1
+      have := graph_circuit_size_pos G hne C hfun
+      exact ⟨T, hT, by omega⟩
+
+
+theorem not_peeling_of_small_circuit (n : ℕ) (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj]
+    (hb : ∃ c : Fin n → Bool, ∀ u v : Fin n, G.Adj u v → c u ≠ c v)
+    (h4 : PEqualNP.TopForm.NoFourCycle G) (hne : G.edgeFinset.Nonempty)
+    (C : Circuit) (hC : PEqualNP.TopForm.IsAO2 n C)
+    (hfun : circuitFun n C = graphFun G ∅)
+    (k : ℕ) (hcover : ∀ T : Finset (Fin n), IsVertexCover G T → k ≤ T.card)
+    (hsmall : C.size + 1 < G.edgeFinset.card + k) : ¬ PeelStatement := by
+  intro hp
+  obtain ⟨T, hT, hsize⟩ := lower_bound_of_peeling hp n G hb h4 hne C hC hfun
+  have := hcover T hT
+  omega
+
+end PEqualNP.Outside.L_meta_3566

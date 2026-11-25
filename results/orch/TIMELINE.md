@@ -62,3 +62,4 @@
 - 2026-11-25 20:42:18 UTC: new lease renewed, expiry21:02:18 UTC; five-minute timer restarted.
 - 2026-11-25 20:46 UTC: graph-only deletion/minimum-cover partial passedLean; independentred-teamreviewPASS.
 - 2026-11-25 20:48 UTC: exactAO2upper plus conditionalpeel combined namedfile lakebuildPASS, independentreviewPASS. General lowerbound remainsopen.
+- 2026-11-25T20:53:44.850291+00:00: preservedcheckedConverseandRestrictpartials afterindependentreview; targetfullstatementstillopen.

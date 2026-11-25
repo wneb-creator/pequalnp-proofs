@@ -1,0 +1,26 @@
+import took 1.62s
+typeclass inference of Nonempty took 106ms
+typeclass inference of Nonempty took 184ms
+typeclass inference of Nonempty took 111ms
+cumulative profiling times:
+	attribute application 0.213ms
+	blocked (unaccounted) 4.28ms
+	congr simp thm 52.7ms
+	declTypeLinter 28.1ms
+	elaboration 285ms
+	fix level params 1.91ms
+	import 1.62s
+	initialization 44.1ms
+	instantiate metavars 5.6ms
+	interpretation 619ms
+	let-to-have transformation 9.62ms
+	linting 75.7ms
+	module linting 0.0418ms
+	parsing 50.7ms
+	process pre-definitions 98.6ms
+	share common exprs 38.7ms
+	simp 1.45s
+	tactic execution 619ms
+	tacticAnalysis 47.8ms
+	type checking 290ms
+	typeclass inference 981ms
