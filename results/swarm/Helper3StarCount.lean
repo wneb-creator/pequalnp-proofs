@@ -1925,3 +1925,217 @@ lemma family_labelled_spanning_forest (I : Finset ι)
   exact ⟨owner ⟨e, he⟩, (howner ⟨e, he⟩).1, (howner ⟨e, he⟩).2, by simp [label, he]⟩
 
 end PEqualNP.Outside.L_meta_4970.ForestLabels
+
+
+namespace PEqualNP.Outside.L_meta_4970.MappedLabels
+
+lemma embedding_label_transport {α β : Type*} (F : SimpleGraph α) (f : α ↪ β)
+    (label : Sym2 α → ℕ) (K : Finset ℕ)
+    (hinj : Set.InjOn label F.edgeSet)
+    (hlabels : ∀ e ∈ F.edgeSet, label e ∈ K) :
+    ∃ mappedLabel : Sym2 β → ℕ,
+      Set.InjOn mappedLabel (F.map f).edgeSet ∧
+      (∀ e ∈ (F.map f).edgeSet, mappedLabel e ∈ K) ∧
+      (∀ e ∈ F.edgeSet, mappedLabel (f.sym2Map e) = label e) ∧
+      ∀ e ∈ (F.map f).edgeSet, ∃ d ∈ F.edgeSet,
+        f.sym2Map d = e ∧ mappedLabel e = label d := by
+  classical
+  let mappedLabel : Sym2 β → ℕ := fun e =>
+    if h : ∃ d ∈ F.edgeSet, f.sym2Map d = e then label (Classical.choose h) else 0
+  have hsource : ∀ e ∈ F.edgeSet, mappedLabel (f.sym2Map e) = label e := by
+    intro e he
+    have hx : ∃ d ∈ F.edgeSet, f.sym2Map d = f.sym2Map e := ⟨e, he, rfl⟩
+    dsimp [mappedLabel]
+    rw [dite_eq_left hx]
+    have heq : Classical.choose hx = e := f.sym2Map.injective (Classical.choose_spec hx).2
+    rw [heq]
+  have hpre : ∀ e ∈ (F.map f).edgeSet, ∃ d ∈ F.edgeSet, f.sym2Map d = e := by
+    intro e he
+    rw [SimpleGraph.edgeSet_map] at he
+    exact he
+  refine ⟨mappedLabel, ?_, ?_, hsource, ?_⟩
+  · intro e he d hd heq
+    obtain ⟨e₀, he₀, rfl⟩ := hpre e he
+    obtain ⟨d₀, hd₀, rfl⟩ := hpre d hd
+    rw [hsource e₀ he₀, hsource d₀ hd₀] at heq
+    exact congrArg f.sym2Map (hinj he₀ hd₀ heq)
+  · intro e he
+    obtain ⟨d, hd, rfl⟩ := hpre e he
+    rw [hsource d hd]
+    exact hlabels d hd
+  · intro e he
+    obtain ⟨d, hd, rfl⟩ := hpre e he
+    exact ⟨d, hd, rfl, hsource d hd⟩
+
+end PEqualNP.Outside.L_meta_4970.MappedLabels
+
+namespace PEqualNP.Outside.L_meta_4970_aux
+
+open Classical
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_4970.SemanticSafe
+open PEqualNP.Outside.L_meta_4970.ForestLabels
+open PEqualNP.Outside.L_meta_4970.MappedLabels
+
+lemma chosen_productive_family_forest {ι α : Type*} [Fintype ι] [DecidableEq ι]
+    [Fintype α] (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : ι → Finset (Fin n)) (hQ : ∀ i, (Q i).Nonempty)
+    (W : ι → Finset ℕ)
+    (hW : ∀ i, ∀ w ∈ W i, w < n + C.gates.length ∧ Safe (Q i) (wireFn n C w))
+    (hc : ∀ i, ∀ u v : Q i, Relation.ReflTransGen
+      (fun a b : Q i => ∃ w ∈ W i,
+        (a : Fin n) ∈ singletonSupport n C w ∧ (b : Fin n) ∈ singletonSupport n C w) u v)
+    (hinter : ∀ i j, i ≠ j → (Q i ∩ Q j).card ≤ 1)
+    (embed : ∀ i, Q i ↪ α) :
+    ∃ (H : SimpleGraph α) (L : Finset ℕ) (label : Sym2 α → ℕ),
+      H.IsAcyclic ∧ Set.InjOn label H.edgeSet ∧ L = H.edgeFinset.image label ∧
+      L ⊆ allOrWires n C ∧
+      L.card + Nat.card H.ConnectedComponent = Fintype.card α ∧
+      (∀ i, ∀ u v : Q i, H.Reachable (embed i u) (embed i v)) ∧
+      ∀ e ∈ H.edgeSet, ∃ i,
+        label e ∈ productiveOr n C (Q i) ∧
+        ∃ u : Q i, (u : Fin n) ∈ singletonSupport n C (label e) ∧
+          ∃ v : Q i, (v : Fin n) ∈ singletonSupport n C (label e) ∧
+            e = s(embed i u, embed i v) := by
+  classical
+  choose F K labels htree hinj hK hsub hsize hends using
+    fun i => chosen_productive_star_tree n C hC (Q i) (hQ i) (W i) (hW i) (hc i)
+  have hrange : ∀ i, ∀ e ∈ (F i).edgeSet, labels i e ∈ K i := by
+    intro i e he
+    rw [hK i]
+    exact Finset.mem_image.mpr ⟨e, by simpa using he, rfl⟩
+  choose mapped hinjMap hrangeMap hsourceMap hpreMap using
+    fun i => embedding_label_transport (F i) (embed i) (labels i) (K i) (hinj i) (hrange i)
+  let J : ι → SimpleGraph α := fun i => (F i).map (embed i)
+  let G : SimpleGraph α := ⨆ i, J i
+  have hcover : ∀ e ∈ G.edgeSet, ∃ i ∈ (Finset.univ : Finset ι), e ∈ (J i).edgeSet := by
+    intro e he
+    rw [SimpleGraph.edgeSet_iSup] at he
+    obtain ⟨i, hi⟩ := Set.mem_iUnion.mp he
+    exact ⟨i, Finset.mem_univ i, hi⟩
+  have hdis : ((Finset.univ : Finset ι) : Set ι).PairwiseDisjoint K := by
+    intro i hi j hj hij
+    exact Finset.disjoint_of_subset_left (hsub i)
+      (Finset.disjoint_of_subset_right (hsub j) (productiveOr_disjoint n C (Q i) (Q j) (hinter i j hij)))
+  obtain ⟨H, L, label, hHG, hH, hreach, hlabel, hL, hLsub, hcount, horigin⟩ :=
+    family_labelled_spanning_forest Finset.univ G J mapped K hcover
+      (fun i _ => hinjMap i) (fun i _ => hrangeMap i) hdis
+  have hcomponents : Nat.card H.ConnectedComponent = Nat.card G.ConnectedComponent := by
+    unfold SimpleGraph.ConnectedComponent
+    rw [hreach]
+  have hLall : L ⊆ allOrWires n C := by
+    intro k hk
+    obtain ⟨i, hi, hki⟩ := Finset.mem_biUnion.mp (hLsub hk)
+    exact productive_family_subset_allOr n C Finset.univ Q
+      (Finset.mem_biUnion.mpr ⟨i, hi, hsub i hki⟩)
+  refine ⟨H, L, label, hH, ?_, hL, hLall, ?_, ?_, ?_⟩
+  · intro e he f hf hef
+    exact hlabel (SimpleGraph.edgeSet_mono hHG he) (SimpleGraph.edgeSet_mono hHG hf) hef
+  · rw [hcomponents]
+    exact hcount
+  · intro i u v
+    have hFi := (htree i).connected.preconnected u v
+    have hJi : (J i).Reachable (embed i u) (embed i v) :=
+      hFi.map (SimpleGraph.Embedding.map (embed i) (F i)).toHom
+    rw [hreach]
+    exact hJi.mono (le_iSup J i)
+  · intro e he
+    obtain ⟨i, _, hei, heiLabel⟩ := horigin e (SimpleGraph.edgeSet_mono hHG he)
+    obtain ⟨d, hd, hde, hLabel⟩ := hpreMap i e hei
+    have hfinal : label e = labels i d := heiLabel.trans hLabel
+    have hprod : label e ∈ productiveOr n C (Q i) := by
+      rw [hfinal]
+      exact hsub i (hrange i d hd)
+    obtain ⟨u, hu, v, hv, huv⟩ := hends i d hd
+    refine ⟨i, hprod, u, ?_, v, ?_, ?_⟩
+    · simpa only [hfinal] using hu
+    · simpa only [hfinal] using hv
+    · rw [← hde, huv]
+      rfl
+
+end PEqualNP.Outside.L_meta_4970_aux
+
+
+namespace PEqualNP.Outside.L_meta_4970.OverlapReachability
+
+def CoOccurs {ι α : Type*} {V : ι → Type*} (embed : ∀ i, V i → α)
+    (x y : α) : Prop := ∃ i, ∃ u v : V i, x = embed i u ∧ y = embed i v
+
+lemma reachable_eq_cooccurrence {ι α : Type*} {V : ι → Type*}
+    (H : SimpleGraph α) (embed : ∀ i, V i → α)
+    (hconn : ∀ i, ∀ u v : V i, H.Reachable (embed i u) (embed i v))
+    (hedges : ∀ e ∈ H.edgeSet, ∃ i, ∃ u v : V i, e = s(embed i u, embed i v)) :
+    H.Reachable = Relation.ReflTransGen (CoOccurs embed) := by
+  have hrel : ∀ x y, H.Adj x y → CoOccurs embed x y := by
+    intro x y hxy
+    obtain ⟨i, u, v, he⟩ := hedges s(x, y) (by simpa using hxy)
+    rcases Sym2.eq_iff.mp he with ⟨hx, hy⟩ | ⟨hx, hy⟩
+    · exact ⟨i, u, v, hx, hy⟩
+    · exact ⟨i, v, u, hx, hy⟩
+  funext x y
+  apply propext
+  constructor
+  · intro hxy
+    have ht := (H.reachable_iff_reflTransGen x y).mp hxy
+    clear hxy
+    induction ht with
+    | refl => exact Relation.ReflTransGen.refl
+    | @tail v z hvz hz ih => exact Relation.ReflTransGen.tail ih (hrel v z hz)
+  · intro hxy
+    induction hxy with
+    | refl => exact SimpleGraph.Reachable.rfl
+    | @tail v z hvz hz ih =>
+      obtain ⟨i, a, b, rfl, rfl⟩ := hz
+      exact ih.trans (hconn i a b)
+
+lemma component_count_eq_overlap_quotient {ι α : Type*} {V : ι → Type*}
+    (H : SimpleGraph α) (embed : ∀ i, V i → α)
+    (hconn : ∀ i, ∀ u v : V i, H.Reachable (embed i u) (embed i v))
+    (hedges : ∀ e ∈ H.edgeSet, ∃ i, ∃ u v : V i, e = s(embed i u, embed i v)) :
+    Nat.card H.ConnectedComponent =
+      Nat.card (Quot (Relation.ReflTransGen (CoOccurs embed))) := by
+  unfold SimpleGraph.ConnectedComponent
+  rw [reachable_eq_cooccurrence H embed hconn hedges]
+
+end PEqualNP.Outside.L_meta_4970.OverlapReachability
+
+namespace PEqualNP.Outside.L_meta_4970_aux
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_4970.SemanticSafe
+open PEqualNP.Outside.L_meta_4970.OverlapReachability
+
+lemma chosen_productive_family_overlap_budget {ι α : Type*} [Fintype ι] [DecidableEq ι]
+    [Fintype α] (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : ι → Finset (Fin n)) (hQ : ∀ i, (Q i).Nonempty)
+    (W : ι → Finset ℕ)
+    (hW : ∀ i, ∀ w ∈ W i, w < n + C.gates.length ∧ Safe (Q i) (wireFn n C w))
+    (hc : ∀ i, ∀ u v : Q i, Relation.ReflTransGen
+      (fun a b : Q i => ∃ w ∈ W i,
+        (a : Fin n) ∈ singletonSupport n C w ∧ (b : Fin n) ∈ singletonSupport n C w) u v)
+    (hinter : ∀ i j, i ≠ j → (Q i ∩ Q j).card ≤ 1)
+    (embed : ∀ i, Q i ↪ α) :
+    ∃ L : Finset ℕ, L ⊆ allOrWires n C ∧
+      L.card + Nat.card (Quot (Relation.ReflTransGen
+        (CoOccurs (fun i => (embed i : Q i → α))))) = Fintype.card α ∧
+      ∀ w ∈ L, ∃ i, w ∈ productiveOr n C (Q i) := by
+  classical
+  obtain ⟨H, L, label, _, _, hL, hsub, hcount, hconn, hends⟩ :=
+    chosen_productive_family_forest n C hC Q hQ W hW hc hinter embed
+  have hedges : ∀ e ∈ H.edgeSet, ∃ i, ∃ u v : Q i,
+      e = s(embed i u, embed i v) := by
+    intro e he
+    obtain ⟨i, _, u, _, v, _, huv⟩ := hends e he
+    exact ⟨i, u, v, huv⟩
+  have hcc := component_count_eq_overlap_quotient H
+    (fun i => (embed i : Q i → α)) hconn hedges
+  refine ⟨L, hsub, ?_, ?_⟩
+  · rw [← hcc]
+    exact hcount
+  · intro w hw
+    rw [hL] at hw
+    obtain ⟨e, he, rfl⟩ := Finset.mem_image.mp hw
+    obtain ⟨i, hi, _⟩ := hends e (by simpa using he)
+    exact ⟨i, hi⟩
+
+end PEqualNP.Outside.L_meta_4970_aux
