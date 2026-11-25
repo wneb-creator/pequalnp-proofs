@@ -17,3 +17,6 @@ L1677 checker: INTENTIONALLY STOPPED after deskHTTP410; verifier exit143, checke
 L2585 partial EdgeCases/StarRectangles/CleanBlockBridge and conditional ReductionDraft: producer Leanexit0, independent source/logreviewPASS. No full theorem or eligible reduction claim.
 Sub-agents:6 (same team reassigned to L-meta-2585)
 TIMING total=78.8 subagents=6
+R_meta_2585_46 source056667dc93e7ada5f7c31a34f55d2b2c085284a48bbf5e99fd4cf4c8825bf146: named lake buildPASS3.0s, localcheckerACCEPTED(reduce),1648constants, standardaxioms only; importguardPASS. PUBLICATION ELIGIBILITY REFUSED: current gap row has no reductions:true. FullL2585theorem not proved.
+NormalizeLeast/SharedOrBudget/NormalFormWitness standalonepartials compileexit0; independent source/logreviewPASS.
+Synthesize2585: closed read1 star-cover construction (third reduction child), standalone Leanexit0, producerlogempty; independent source review in progress at this copy.
