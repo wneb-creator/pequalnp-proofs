@@ -1,0 +1,18 @@
+{
+  "profile": "global",
+  "started_utc": "2026-11-25T07:39:01.429900+00:00",
+  "duration_seconds": 648,
+  "planned_stop_utc": "2026-11-25T07:49:49.429900+00:00",
+  "binary": "/tmp/oec/pequalnp-pilot-57/circuit-search-global-three-champions",
+  "arguments": [
+    "--polish",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/circuit_search/full-singleton-tests.txt",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/circuit_search/global-three-champion-seeds.txt",
+    "648",
+    "713",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/circuit_search/globalthreefinal"
+  ],
+  "log": "/tmp/oec/pequalnp-pilot-57/circuit-search-global-three-final.log",
+  "exit_code": 0,
+  "ended_utc": "2026-11-25T07:49:49.553447+00:00"
+}

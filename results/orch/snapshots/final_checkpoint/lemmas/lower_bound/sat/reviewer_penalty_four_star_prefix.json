@@ -1,0 +1,20 @@
+{
+  "status": "APPROVED_PROVENANCE_AND_BUILD_RECEIPT",
+  "utc": "2026-11-25T07:47:03.029984+00:00",
+  "source_sha256": "97010bac6ae6cfe2f83d7b3a8b676366d76def2962de8c2ddf99ee5ae777be80",
+  "plane_residual_prefix_sha256": "9d3e3a7b928e308cfc723d9ce1a58204f4107f6f858d0697bb67dcb40b810da7",
+  "exact_prefix_bytes": 476691,
+  "tight_cover_star_sha256": "9edcada690568843994b271a66c0841eacc759f37173b2c25c014a74b460793d",
+  "tight_body_exact_after_removing_import": true,
+  "build_log_bytes": 22042,
+  "build_log_sha256": "7bdee25d9a5a46eb836c855fdbdbcf0f1ce6789d8613e025aca6868170a49568",
+  "warning_diagnostics": 86,
+  "errors": 0,
+  "exit_trace_sha256": "6c8a1628ced899877a20fa8a63e72ebe5f5f9bc218fbb020d622244295e34af9",
+  "exit_trace_records_zero": true,
+  "receipt_exit_code": 0,
+  "receipt_completed_utc": "2026-11-25T07:46:11.528555+00:00",
+  "pid_binding": "The plain trace contains no PID; linkage to lake52625/lean52691 is recorded in the author receipt.",
+  "new_build_run_by_reviewer": false,
+  "scope": "Exact approved-prefix/body composition and complete build-record verification; theorem-tail review delegated to status_review."
+}

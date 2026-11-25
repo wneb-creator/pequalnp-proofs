@@ -1,0 +1,26 @@
+[
+  {
+    "case": "punctured",
+    "models": 512,
+    "repaired": 374,
+    "best_errors": 7,
+    "best_gates": 15,
+    "exact": 0
+  },
+  {
+    "case": "five",
+    "models": 512,
+    "repaired": 391,
+    "best_errors": 11,
+    "best_gates": 23,
+    "exact": 0
+  },
+  {
+    "case": "global",
+    "models": 512,
+    "repaired": 171,
+    "best_errors": 234,
+    "best_gates": 63,
+    "exact": 0
+  }
+]

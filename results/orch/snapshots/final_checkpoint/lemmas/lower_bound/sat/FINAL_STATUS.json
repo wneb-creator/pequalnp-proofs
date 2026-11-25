@@ -1,0 +1,30 @@
+{
+  "status": "SEARCH_STOPPED_NO_EXACT_WITNESS",
+  "completed_utc": "2026-11-25T07:49:15.898794+00:00",
+  "ordinary_search_stop_utc": "2026-11-25T07:50:00+00:00",
+  "active_owned_solver_processes": 0,
+  "final_profiles": [
+    {
+      "profile": "punctured15/exact5",
+      "status": "INTERRUPTED_BY_WORKSPACE_RESTART",
+      "completed_unknown_rounds": 3,
+      "completed_seconds": 900.01,
+      "interrupted_round": 4,
+      "archive": "physical_punctured_four"
+    },
+    {
+      "profile": "punctured15/exact6",
+      "status": "COMPLETED_UNKNOWN",
+      "completed_unknown_rounds": 2,
+      "completed_seconds": 600.02,
+      "archive": "physical_punctured_four_exact6"
+    }
+  ],
+  "latest_phase_audit": "reviewer_punctured_essential7.json",
+  "new_independent_reviews": [
+    "reviewer_three_champions_cpp.json",
+    "reviewer_singleton_mixing_prefix.json",
+    "reviewer_penalty_four_star_prefix.json"
+  ],
+  "scope": "No exact L650 witness or refutation from this lane; research artifacts and complete diagnostics preserved."
+}

@@ -1,0 +1,18 @@
+{
+  "profile": "punctured",
+  "started_utc": "2026-11-25T07:35:32.418153+00:00",
+  "duration_seconds": 857,
+  "planned_stop_utc": "2026-11-25T07:49:49.418153+00:00",
+  "binary": "/tmp/oec/pequalnp-pilot-57/circuit-search-punctured-essential",
+  "arguments": [
+    "--feature-costs",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/circuit_search/punctured-four-compatibility-tables.txt",
+    "--polish",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/circuit_search/punctured-four-tests.txt",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/circuit_search/punctured-four-stochastic-seeds.txt",
+    "857",
+    "712",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/circuit_search/puncturedfinal"
+  ],
+  "log": "/tmp/oec/pequalnp-pilot-57/circuit-search-punctured-final.log"
+}

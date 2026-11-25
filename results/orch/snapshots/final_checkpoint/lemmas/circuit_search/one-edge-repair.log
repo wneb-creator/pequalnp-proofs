@@ -1,0 +1,3 @@
+{'case': 'punctured', 'models': 512, 'eligible_deletions': 917, 'improvements': 340, 'best_errors': 8, 'best_cost': 14, 'exact_models': 0}
+{'case': 'five', 'models': 512, 'eligible_deletions': 1403, 'improvements': 488, 'best_errors': 12, 'best_cost': 22, 'exact_models': 0}
+{'case': 'global', 'models': 503, 'eligible_deletions': 770, 'improvements': 183, 'best_errors': 384, 'best_cost': 61, 'exact_models': 0}

@@ -1,0 +1,28 @@
+ALLPOS initial false 12
+POLISH seconds 9.3549e-05 sweeps 1 evaluations 29980 best 12 current 12 archive 1
+ESSENTIAL SUPPRESSED BEST false 11 sweep 91
+POLISH BEST false 11 sweep 91 evaluations 3669378
+POLISH BEST false 8 sweep 101 evaluations 4099690
+ESSENTIAL SUPPRESSED BEST false 9 sweep 550
+ESSENTIAL SUPPRESSED BEST false 8 sweep 3005
+POLISH BEST false 7 sweep 87173 evaluations 3528826588
+POLISH seconds 10 sweeps 114520 evaluations 4635847470 best 7 current 11 archive 179
+POLISH seconds 20.0022 sweeps 173577 evaluations 7026144618 best 7 current 12 archive 205
+POLISH seconds 30.0021 sweeps 231502 evaluations 9370532626 best 7 current 7 archive 228
+POLISH seconds 40.0021 sweeps 292113 evaluations 11823778552 best 7 current 12 archive 247
+POLISH seconds 50.0022 sweeps 352726 evaluations 14276831540 best 7 current 9 archive 268
+POLISH seconds 60.0001 sweeps 413198 evaluations 16724107358 best 7 current 10 archive 285
+POLISH seconds 70 sweeps 502913 evaluations 20354934818 best 7 current 7 archive 301
+POLISH seconds 80 sweeps 623684 evaluations 25242796118 best 7 current 9 archive 319
+POLISH seconds 90 sweeps 744177 evaluations 30119536380 best 7 current 12 archive 345
+POLISH seconds 100.003 sweeps 869361 evaluations 35185094584 best 7 current 10 archive 357
+POLISH seconds 110 sweeps 988888 evaluations 40023276092 best 7 current 10 archive 378
+ESSENTIAL SUPPRESSED BEST false 7 sweep 1089814
+POLISH seconds 120 sweeps 1098849 evaluations 44472793548 best 7 current 7 archive 389
+POLISH seconds 130 sweeps 1220422 evaluations 49394522774 best 7 current 7 archive 407
+POLISH seconds 140 sweeps 1340918 evaluations 54273075122 best 7 current 7 archive 414
+POLISH seconds 150 sweeps 1456821 evaluations 58966700006 best 7 current 8 archive 426
+POLISH seconds 160 sweeps 1576088 evaluations 63796623322 best 7 current 7 archive 433
+POLISH seconds 170 sweeps 1696551 evaluations 68674574468 best 7 current 7 archive 443
+POLISH seconds 180 sweeps 1817241 evaluations 73560744540 best 7 current 7 archive 452
+POLISH seconds 190 sweeps 1936561 evaluations 78391536102 best 7 current 10 archive 463

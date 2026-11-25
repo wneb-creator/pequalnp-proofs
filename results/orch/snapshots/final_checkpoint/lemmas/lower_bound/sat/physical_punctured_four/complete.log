@@ -1,0 +1,9 @@
+2026-11-25T07:20:00.865128+00:00 PUNCTURED FOUR VERIFIED raw13 available37 positives14 negatives16 outside47 target15; baseline17/full65 phase {'raw_assignments': 8192, 'false_positives': 214, 'false_negatives': 0}
+2026-11-25T07:20:01.539856+00:00 FEATURE GADGET punctured_four_arc 18 gates variables 24395 clauses 153358 raw 13 features 24 excess 6 minimum_ands 5 join_crossings True
+2026-11-25T07:20:01.540707+00:00 SOLVE CHECKPOINT punctured_four_arc {'round': 1, 'result': 10, 'seconds': 0.0, 'total_seconds': 0.0}
+2026-11-25T07:20:01.540727+00:00 RESULT punctured_four_arc 18 10 seconds 0.0
+2026-11-25T07:20:01.541665+00:00 VERIFIED ALL RAW INPUTS punctured_four_arc 8192
+2026-11-25T07:20:02.122998+00:00 FEATURE GADGET punctured_four_arc 15 gates variables 18044 clauses 118580 raw 13 features 24 excess 3 minimum_ands 5 join_crossings True
+2026-11-25T07:25:02.126347+00:00 SOLVE CHECKPOINT punctured_four_arc {'round': 1, 'result': 0, 'seconds': 300.0, 'total_seconds': 300.0}
+2026-11-25T07:30:02.134564+00:00 SOLVE CHECKPOINT punctured_four_arc {'round': 2, 'result': 0, 'seconds': 300.0, 'total_seconds': 600.0}
+2026-11-25T07:35:02.138200+00:00 SOLVE CHECKPOINT punctured_four_arc {'round': 3, 'result': 0, 'seconds': 300.0, 'total_seconds': 900.01}

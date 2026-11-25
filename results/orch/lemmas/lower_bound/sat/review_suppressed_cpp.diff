@@ -1,0 +1,112 @@
+--- search_feature_costtable_archive.cpp
++++ search_feature_suppressed_archive.cpp
+@@ -44,9 +44,13 @@
+ #define RAW_INPUTS INPUTS
+ #endif
+ constexpr int N=INPUTS,G=GATES,W=WORDS;
++constexpr int SMALL_WORDS=(1+RAW_INPUTS+RAW_INPUTS*(RAW_INPUTS-1)/2+63)/64;
+ struct Gate {int op,a,b;};
+ using Circuit=array<Gate,G>;
+ using Bits=array<uint64_t,W>;
++using SmallBits=array<uint64_t,SMALL_WORDS>;
++array<SmallBits,N> small_inputs;
++vector<uint64_t> small_masks,positive_small_masks;
+ using PoolKey=array<uint64_t,W+1>;
+ struct KeyHash {size_t operator()(const PoolKey& b)const{size_t h=0;for(auto x:b)h=(h^x)*0x9e3779b97f4a7c15ULL;return h;}};
+ array<Bits,N> inputs;Bits target{},singleton_mask{};
+@@ -68,6 +72,18 @@
+  array<Bits,N+G> v;copy(inputs.begin(),inputs.end(),v.begin());
+  for(int k=0;k<G;k++){auto g=c[k];for(int j=0;j<W;j++)v[N+k][j]=g.op?(v[g.a][j]|v[g.b][j]):(v[g.a][j]&v[g.b][j]);}
+  return v;
++}
++pair<bool,uint64_t> suppressed_dirty_witness(const Circuit& c){
++ array<SmallBits,N+G> v;copy(small_inputs.begin(),small_inputs.end(),v.begin());
++ array<bool,N+G> used{};used[N+G-1]=true;
++ for(int k=G-1;k>=0;k--)if(used[N+k])used[c[k].a]=used[c[k].b]=true;
++ SmallBits dirty{};
++ for(int k=0;k<G;k++){auto g=c[k];for(int w=0;w<SMALL_WORDS;w++){
++  v[N+k][w]=g.op?(v[g.a][w]|v[g.b][w]):(v[g.a][w]&v[g.b][w]);
++  if(used[N+k]&&g.op==0&&g.a!=g.b)dirty[w]|=v[N+k][w];
++ }}
++ for(int w=0;w<SMALL_WORDS;w++){uint64_t found=dirty[w]&~v[N+G-1][w];if(found){size_t i=64*w+countr_zero(found);assert(i<small_masks.size());return{true,small_masks[i]};}}
++ return{false,0};
+ }
+ pair<int,int> errors(Bits b){int miss=0,wrong=0;for(int j=0;j<W;j++){miss+=popcount(target[j]&~b[j]);wrong+=popcount(~target[j]&b[j]);}return{miss,wrong};}
+ int singletons(Bits b){int out=0;for(int j=0;j<W;j++)out+=popcount(b[j]&singleton_mask[j]);return out;}
+@@ -317,7 +333,8 @@
+  uint64_t singleton_inputs=0;bool saw_point_side=false,saw_line_side=false;
+  for(int j=0;j<m;j++){uint64_t x;int y;f>>x>>y;for(int i=0;i<N;i++)if(x>>i&1)inputs[i][j/64]|=uint64_t(1)<<(j%64);if(y)target[j/64]|=uint64_t(1)<<(j%64);
+   uint64_t raw=x&rawmask;
+-  if(y)for(int p=0;p<POINTS;p++)if(raw>>p&1)owner_positive[p][j/64]|=uint64_t(1)<<(j%64);
++  if(y){assert(popcount(raw)==2&&popcount(raw&pmask)==1);positive_small_masks.push_back(raw);}
++   if(y)for(int p=0;p<POINTS;p++)if(raw>>p&1)owner_positive[p][j/64]|=uint64_t(1)<<(j%64);
+   if(popcount(raw)==1&&raw<(uint64_t(1)<<POINTS))point_singleton[countr_zero(raw)]=j;
+   assert(x<(uint64_t(1)<<N)&&(y==0||y==1));if(popcount(raw)==1)singleton_inputs|=raw;saw_point_side|=raw==pmask;saw_line_side|=raw==lmask;
+   if(popcount(raw)==1||raw==pmask||raw==lmask){assert(y==0);singleton_mask[j/64]|=uint64_t(1)<<(j%64);}
+@@ -334,8 +351,16 @@
+   assert(expected==inputs[i]);
+   for(int a=0;a<N;a++)for(int b=a+1;b<N;b++)if(raw_support[a]&&raw_support[b]&&raw_support[a]!=raw_support[i]&&raw_support[b]!=raw_support[i]&&(raw_support[a]|raw_support[b])==raw_support[i])feature_splits[i].push_back({a,b});
+  }
++ small_masks.push_back(0);for(int i=0;i<RAW_INPUTS;i++)small_masks.push_back(uint64_t(1)<<i);
++ for(int a=0;a<RAW_INPUTS;a++)for(int b=a+1;b<RAW_INPUTS;b++){uint64_t mask=(uint64_t(1)<<a)|(uint64_t(1)<<b);if(find(positive_small_masks.begin(),positive_small_masks.end(),mask)==positive_small_masks.end())small_masks.push_back(mask);}
++ assert(small_masks.size()<=64*SMALL_WORDS);
++ for(size_t j=0;j<small_masks.size();j++)for(int i=0;i<N;i++)if(raw_support[i]&small_masks[j])small_inputs[i][j/64]|=uint64_t(1)<<(j%64);
+  reload_seeds(argv[2]);
+  int duration=stoi(argv[3]);rng.seed(stoull(argv[4]));string prefix=argv[5];
++ if(duration==-4){ofstream out(prefix+"-suppressed-fixtures.json");out<<"[\n";for(size_t i=0;i<seeds.size();i++){
++  assert(seeds[i].size()<=G);Circuit c;int count=0;for(auto g:seeds[i])c[count++]=g;while(count<G){int previous=N+count-1;c[count++]={1,previous,previous};}
++  auto witness=suppressed_dirty_witness(c);out<<"{\"index\":"<<i<<",\"suppressed\":"<<(witness.first?"true":"false")<<",\"raw_mask\":";if(witness.first)out<<witness.second;else out<<"null";out<<"}"<<(i+1<seeds.size()?",":"")<<"\n";
++ }out<<"]\n";cout<<"Wrote suppressed-dirtiness fixtures "<<seeds.size()<<" masks "<<small_masks.size()<<endl;return 0;}
+  if(duration==-3){
+   int best=100000;long long checked=0;
+   for(int index=0;index<(int)seeds.size();index++){
+@@ -388,27 +413,31 @@
+   cout<<"PASS 5000 correlated-feature/Boolean rewrites; unfold attempts "<<unfold_attempts<<" accepted "<<unfold_success<<endl;return 0;
+  }
+  assert(prefix_groups.empty()||polish_mode);
+- vector<Circuit> pool;vector<Bits> keys;vector<int> kinds;array<int,256> populations{};unordered_map<PoolKey,int,KeyHash> index;
++ vector<Circuit> pool;vector<Bits> keys;vector<int> kinds;array<int,512> populations{};unordered_map<PoolKey,int,KeyHash> index;
+  auto tag=[](Bits b,int kind){PoolKey key;copy(b.begin(),b.end(),key.begin());key[W]=kind;return key;};
+  auto remember=[&](const Circuit& c,Bits b){
+-  auto [mi,wr]=errors(b);if(mi>MAX_MISS||wr>MAX_WRONG||singletons(b))return;auto [ac,mixed]=features(c);int kind=8*min(ac,31)+4*(mixed>0)+2*(wr>0)+(mi==0);PoolKey key=tag(b,kind);
++  auto [mi,wr]=errors(b);if(mi>MAX_MISS||wr>MAX_WRONG||singletons(b))return;auto [ac,mixed]=features(c);int kind=16*min(ac,31)+8*suppressed_dirty_witness(c).first+4*(mixed>0)+2*(wr>0)+(mi==0);PoolKey key=tag(b,kind);
+   auto it=index.find(key);if(it!=index.end()){if(ri(4)==0)pool[it->second]=c;return;}
+   if(pool.size()<512){index[key]=pool.size();pool.push_back(c);keys.push_back(b);kinds.push_back(kind);populations[kind]++;}
+   else{int q=ri(pool.size());auto old=errors(keys[q]);if(populations[kind]<populations[kinds[q]]||(kind==kinds[q]&&mi*3+wr<=old.first*3+old.second)){
+    index.erase(tag(keys[q],kinds[q]));populations[kinds[q]]--;index[key]=q;pool[q]=c;keys[q]=b;kinds[q]=kind;populations[kind]++;
+   }}
+  };
+- auto savepool=[&](){ofstream f(prefix+"-pool.next.json");f<<"[\n";for(int i=0;i<(int)pool.size();i++){auto [mi,wr]=errors(keys[i]);auto [ac,mx]=features(pool[i]);f<<"{\"miss\":"<<mi<<",\"false\":"<<wr<<",\"active_and\":"<<ac<<",\"mixed_and\":"<<mx<<",\"gates\":[";for(int k=0;k<G;k++){auto g=pool[i][k];f<<"["<<g.op<<","<<g.a<<","<<g.b<<"]"<<(k+1<G?",":"");}f<<"]}"<<(i+1<(int)pool.size()?",":"")<<"\n";}f<<"]\n";f.close();assert(f);int archive_rename=std::rename((prefix+"-pool.next.json").c_str(),(prefix+"-pool.json").c_str());assert(archive_rename==0);};
++ auto savepool=[&](){ofstream f(prefix+"-pool.next.json");f<<"[\n";for(int i=0;i<(int)pool.size();i++){auto [mi,wr]=errors(keys[i]);auto [ac,mx]=features(pool[i]);auto suppressed=suppressed_dirty_witness(pool[i]);f<<"{\"miss\":"<<mi<<",\"false\":"<<wr<<",\"active_and\":"<<ac<<",\"mixed_and\":"<<mx<<",\"suppressed_dirty\":"<<(suppressed.first?"true":"false")<<",\"suppressed_raw_mask\":";if(suppressed.first)f<<suppressed.second;else f<<"null";f<<",\"gates\":[";for(int k=0;k<G;k++){auto g=pool[i][k];f<<"["<<g.op<<","<<g.a<<","<<g.b<<"]"<<(k+1<G?",":"");}f<<"]}"<<(i+1<(int)pool.size()?",":"")<<"\n";}f<<"]\n";f.close();assert(f);int archive_rename=std::rename((prefix+"-pool.next.json").c_str(),(prefix+"-pool.json").c_str());assert(archive_rename==0);};
+  Circuit current=seed(0);Bits sig=values(current)[N+G-1];auto [miss,wrong]=errors(sig);int best=100000,best_all_positive=100000;
+  if(miss==0&&singletons(sig)==0){best_all_positive=wrong;dump(current,prefix+"-all-positive.json");cout<<"ALLPOS initial false "<<wrong<<endl;}
+  remember(current,sig);
+  if(polish_mode){
+   assert(miss==0&&singletons(sig)==0&&accept_shape(current));int global_best=wrong;long long evaluations=0,sweeps=0;
+   auto start=chrono::steady_clock::now();int report=-1;Circuit champion=current;
++  bool have_suppressed=suppressed_dirty_witness(current).first;int best_suppressed=have_suppressed?wrong:100000;Circuit suppressed_champion=current;
++  if(have_suppressed)dump(current,prefix+"-suppressed-best.json");
+   while(chrono::duration<double>(chrono::steady_clock::now()-start).count()<duration){
+    for(int i=0,count=1+ri(12);i<count;i++){auto changed=rewrite(current);if(accept_shape(changed))current=changed;}
+    auto initial_values=values(current);Bits initial_sig=initial_values[N+G-1];
+    auto initial_errors=errors(initial_sig);assert(initial_errors.first==0&&singletons(initial_sig)==0);
++   remember(current,initial_sig);
++   if(suppressed_dirty_witness(current).first&&initial_errors.second<best_suppressed){have_suppressed=true;best_suppressed=initial_errors.second;suppressed_champion=current;dump(current,prefix+"-suppressed-best.json");cout<<"SUPPRESSED BEST false "<<best_suppressed<<" sweep "<<sweeps<<endl;}
+    int optimum=initial_errors.second,ties=0,neutral_ties=0;Circuit winner=current;Bits winning_sig=initial_sig;
+    auto resynthesize=[&](const Circuit& base,int gate,const array<Bits,N+G>& v){
+     auto context=gate_context(base,gate,v);
+@@ -443,12 +472,13 @@
+    assert(values(winner)[N+G-1]==winning_sig);
+    current=winner;sig=winning_sig;wrong=optimum;sweeps++;
+    if(sig!=initial_sig||sweeps%1024==0)remember(current,sig);
++   if(suppressed_dirty_witness(current).first&&wrong<best_suppressed){have_suppressed=true;best_suppressed=wrong;suppressed_champion=current;dump(current,prefix+"-suppressed-best.json");cout<<"SUPPRESSED BEST false "<<wrong<<" sweep "<<sweeps<<endl;}
+    if(wrong<global_best){global_best=wrong;champion=current;dump(current,prefix+"-all-positive.json");cout<<"POLISH BEST false "<<wrong<<" sweep "<<sweeps<<" evaluations "<<evaluations<<endl;}
+    if(wrong==0){dump(current,prefix+"-solution.json");cout<<"SOLUTION after exhaustive gate resynthesis"<<endl;return 0;}
+    double elapsed=chrono::duration<double>(chrono::steady_clock::now()-start).count();
+    if((int)elapsed/10>report){report=(int)elapsed/10;cout<<"POLISH seconds "<<elapsed<<" sweeps "<<sweeps<<" evaluations "<<evaluations<<" best "<<global_best<<" current "<<wrong<<" archive "<<pool.size()<<endl;if(report%3==0)savepool();}
+    if(sweeps%100==0){
+-    if(ri(2))current=champion;
++    if(ri(2))current=have_suppressed&&ri(2)?suppressed_champion:champion;
+     else if(!pool.empty()&&ri(2))current=pool[ri(pool.size())];
+     else{reload_seeds(argv[2]);auto candidate=seed();auto out=values(candidate)[N+G-1];auto e=errors(out);if(e.first==0&&singletons(out)==0&&accept_shape(candidate))current=candidate;}
+    }

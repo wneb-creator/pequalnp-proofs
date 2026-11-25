@@ -172,3 +172,15 @@ Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduct
 TIMING total=334.2 subagents=6
 
 2026-11-25T07:36:03+00:00 Workspace restart observed. Git HEAD02a94e6227e71c028a69184a82c27bc256ce8ab7, source files and completed twelfth snapshot survived. Old renewal session was absent; fresh manual renewal succeeded and a new timer was started. Running searches/builds are checking their exact completion or interruption boundaries; no interrupted interval is counted as a completed UNKNOWN.
+
+- 2026-11-25T07:38:54.474118+00:00 circuit_search: Workspace restart interrupted old global essential run after its1130s report (not a completed1200s profile) and newly launched punctured run after essential8 appeared. Verified old processes are zombies, preserved complete available logs/champions and launch metadata separately. Restarting approved final profiles under manual045, both capped07:50.
+2026-11-25T07:47:01.825067+00:00 Renewed lease; expiry 2026-11-25T08:07:02.088Z.
+
+- 2026-11-25T07:48:54Z: Final after2/pair all-live/Kraft profile completed600s UNKNOWN, exit0; no target witness.
+- 2026-11-25T07:48:59Z: Final after0/hub all-live/Kraft profile completed600s UNKNOWN, exit0; no target witness.
+
+- 2026-11-25T07:50:12.369218+00:00 circuit_search: Both final capped profiles completed exit0 before07:50. Punctured final best7 (ordinary and essential); global final ordinary140, essential234, two-critical411. No exact≤63 target witness. Complete logs, pools, champions, launch/completion metadata and FINAL_SEARCH_STATUS.json frozen; no sustained stochastic process remains.
+
+2026-11-25T07:51:07.351046+00:00 FINAL research preservation: 137 delta artifacts/13320239 original bytes/8258334 stored bytes; storage index covers1912 current research paths with exact hashes. All final Lean components compiled and independently passed review. Complete final search outcomes and interruption records are frozen. No exact63-gate witness, full refutation, target file, proof PR, or exact-target repository-checker verdict. All ordinary search processes stopped before07:50. Lease release follows the preservation push and is recorded in FINAL_STATUS.json.
+Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review.
+TIMING total=350.0 subagents=6

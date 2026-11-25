@@ -1,0 +1,15 @@
+{
+  "lease_receipt": "beat-manual-045.json",
+  "ordinary_search_deadline": "2026-11-25T07:50:00Z",
+  "source_hashes": {
+    "and_skeleton_shared_or_position.py": "e3970eacb34e9faeb0997519b6795f86c794603e232cb94a22e09ee67b8e7aa9",
+    "and_skeleton_kraft.py": "e8dff40ac587d9b4303dc3651c0324cf72f20ebfd0b7d3344c6fd9fb9a460bdc"
+  },
+  "phase": "and_skeleton_six_exact_dirty7_pair_phase.json",
+  "shared_after": 2,
+  "all_live": true,
+  "maximum_weight_sum": 128,
+  "maximum_slack_charge": 76,
+  "seconds_per_interval": 300,
+  "maximum_intervals": 2
+}

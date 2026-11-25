@@ -1,0 +1,17 @@
+{
+  "status": "INTERRUPTED_BY_WORKSPACE_RESTART",
+  "observed_utc": "2026-11-25T07:38:50.353960+00:00",
+  "scope": "Punctured-four15 paid gates, exactly5 ANDs, compatible free OR prefixes; no broader lower-bound claim.",
+  "completed_rounds": 3,
+  "completed_seconds": 900.01,
+  "completed_results": [
+    "UNKNOWN",
+    "UNKNOWN",
+    "UNKNOWN"
+  ],
+  "interrupted_round": 4,
+  "interrupted_round_result": null,
+  "result_file_present": false,
+  "live_process_present": false,
+  "full_witness_found": false
+}

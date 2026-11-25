@@ -1,0 +1,32 @@
+{
+  "checked_utc": "2026-11-25T07:50:12.369218+00:00",
+  "exact_target_found": false,
+  "profiles": [
+    {
+      "profile": "punctured",
+      "started": "2026-11-25T07:38:54.510052+00:00",
+      "ended": "2026-11-25T07:49:49.525832+00:00",
+      "duration": 655,
+      "final_log_line": "POLISH DONE sweeps 6674408 evaluations 270224819174 best 7",
+      "exit_code": 0
+    },
+    {
+      "profile": "global",
+      "started": "2026-11-25T07:39:01.429900+00:00",
+      "ended": "2026-11-25T07:49:49.553447+00:00",
+      "duration": 648,
+      "final_log_line": "POLISH DONE sweeps 57067 evaluations 12022018452 best 140",
+      "exit_code": 0
+    }
+  ],
+  "global_best": {
+    "ordinary_negative_errors": 140,
+    "essential_suppressed_negative_errors": 234,
+    "two_critical_junk_negative_errors": 411
+  },
+  "punctured_best": {
+    "ordinary_negative_errors": 7,
+    "essential_suppressed_negative_errors": 7
+  },
+  "sustained_processes_remaining": 0
+}

@@ -1,0 +1,18 @@
+{
+  "state": "completed",
+  "snapshot_utc": "2026-11-25T07:49:24.651280+00:00",
+  "ordinary_search_deadline": "2026-11-25T07:50:00Z",
+  "maximum_intervals": 2,
+  "seconds_per_interval": 300,
+  "source_model_hashes": {
+    "and_skeleton_kraft.py": "e8dff40ac587d9b4303dc3651c0324cf72f20ebfd0b7d3344c6fd9fb9a460bdc",
+    "model.cnf": "45b986e90e3a66b109e1cae0a1c4089a1fe12655fa6cf7d80c049e668369ef4e",
+    "and_skeleton_shared_or_position.py": "e3970eacb34e9faeb0997519b6795f86c794603e232cb94a22e09ee67b8e7aa9"
+  },
+  "scope": "Sufficient construction with an explicit all-live profile; no global impossibility claim",
+  "result": "UNKNOWN",
+  "completed_UNKNOWN_intervals": 2,
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T07:48:54.055652+00:00",
+  "target_witness_found": false
+}

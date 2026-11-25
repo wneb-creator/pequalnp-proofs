@@ -1,0 +1,56 @@
+{
+  "case": "punctured_four_review_adapter",
+  "raw_assignments": 8192,
+  "gates": 15,
+  "active_gates": 15,
+  "active_ands": 5,
+  "omitted_raw_inputs": [
+    0,
+    4,
+    5,
+    9,
+    12
+  ],
+  "false_positives": 154,
+  "false_negatives": 0,
+  "boundary_false": 8,
+  "boundary_misses": 0,
+  "one_owner_boundary_errors": 3,
+  "maximum_extra_degree": 3,
+  "minimum_extra_point_count": 1,
+  "extra_monomials": [
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      0,
+      8
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      1,
+      9
+    ],
+    [
+      0,
+      5,
+      11
+    ],
+    [
+      0,
+      12
+    ]
+  ]
+}

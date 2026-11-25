@@ -1,0 +1,366 @@
+{
+  "raw_inputs": 17,
+  "available_inputs": 42,
+  "paid_shared_OR_nodes": 1,
+  "shared_OR_after_AND_nodes": 0,
+  "AND_nodes": 7,
+  "cost": "all source occurrences minus AND nodes minus shared OR nodes minus one",
+  "maximum_core_gates": 28,
+  "outside_cost": 35,
+  "feature_correlations": [
+    {
+      "original_lines": [
+        22,
+        23,
+        25
+      ],
+      "raw_indices": [
+        13,
+        14,
+        16
+      ],
+      "kind": "triple",
+      "outside_owner": 4
+    },
+    {
+      "original_lines": [
+        22,
+        23
+      ],
+      "raw_indices": [
+        13,
+        14
+      ],
+      "kind": "optional_pair",
+      "outside_owner": 4
+    },
+    {
+      "original_lines": [
+        22,
+        25
+      ],
+      "raw_indices": [
+        13,
+        16
+      ],
+      "kind": "optional_pair",
+      "outside_owner": 4
+    },
+    {
+      "original_lines": [
+        23,
+        25
+      ],
+      "raw_indices": [
+        14,
+        16
+      ],
+      "kind": "optional_pair",
+      "outside_owner": 4
+    },
+    {
+      "original_lines": [
+        21,
+        22,
+        24
+      ],
+      "raw_indices": [
+        12,
+        13,
+        15
+      ],
+      "kind": "triple",
+      "outside_owner": 5
+    },
+    {
+      "original_lines": [
+        21,
+        22
+      ],
+      "raw_indices": [
+        12,
+        13
+      ],
+      "kind": "optional_pair",
+      "outside_owner": 5
+    },
+    {
+      "original_lines": [
+        21,
+        24
+      ],
+      "raw_indices": [
+        12,
+        15
+      ],
+      "kind": "optional_pair",
+      "outside_owner": 5
+    },
+    {
+      "original_lines": [
+        22,
+        24
+      ],
+      "raw_indices": [
+        13,
+        15
+      ],
+      "kind": "optional_pair",
+      "outside_owner": 5
+    },
+    {
+      "original_lines": [
+        14,
+        19,
+        21
+      ],
+      "raw_indices": [
+        7,
+        10,
+        12
+      ],
+      "kind": "triple",
+      "outside_owner": 8
+    },
+    {
+      "original_lines": [
+        14,
+        19
+      ],
+      "raw_indices": [
+        7,
+        10
+      ],
+      "kind": "optional_pair",
+      "outside_owner": 8
+    },
+    {
+      "original_lines": [
+        14,
+        21
+      ],
+      "raw_indices": [
+        7,
+        12
+      ],
+      "kind": "optional_pair",
+      "outside_owner": 8
+    },
+    {
+      "original_lines": [
+        19,
+        21
+      ],
+      "raw_indices": [
+        10,
+        12
+      ],
+      "kind": "optional_pair",
+      "outside_owner": 8
+    },
+    {
+      "original_lines": [
+        13,
+        20
+      ],
+      "raw_indices": [
+        6,
+        11
+      ],
+      "kind": "fixed_pair",
+      "outside_owner": 9
+    },
+    {
+      "original_lines": [
+        16,
+        19,
+        25
+      ],
+      "raw_indices": [
+        9,
+        10,
+        16
+      ],
+      "kind": "triple",
+      "outside_owner": 10
+    },
+    {
+      "original_lines": [
+        16,
+        19
+      ],
+      "raw_indices": [
+        9,
+        10
+      ],
+      "kind": "optional_pair",
+      "outside_owner": 10
+    },
+    {
+      "original_lines": [
+        16,
+        25
+      ],
+      "raw_indices": [
+        9,
+        16
+      ],
+      "kind": "optional_pair",
+      "outside_owner": 10
+    },
+    {
+      "original_lines": [
+        19,
+        25
+      ],
+      "raw_indices": [
+        10,
+        16
+      ],
+      "kind": "optional_pair",
+      "outside_owner": 10
+    },
+    {
+      "original_lines": [
+        15,
+        16,
+        24
+      ],
+      "raw_indices": [
+        8,
+        9,
+        15
+      ],
+      "kind": "triple",
+      "outside_owner": 11
+    },
+    {
+      "original_lines": [
+        15,
+        16
+      ],
+      "raw_indices": [
+        8,
+        9
+      ],
+      "kind": "optional_pair",
+      "outside_owner": 11
+    },
+    {
+      "original_lines": [
+        15,
+        24
+      ],
+      "raw_indices": [
+        8,
+        15
+      ],
+      "kind": "optional_pair",
+      "outside_owner": 11
+    },
+    {
+      "original_lines": [
+        16,
+        24
+      ],
+      "raw_indices": [
+        9,
+        15
+      ],
+      "kind": "optional_pair",
+      "outside_owner": 11
+    },
+    {
+      "original_lines": [
+        14,
+        15,
+        23
+      ],
+      "raw_indices": [
+        7,
+        8,
+        14
+      ],
+      "kind": "triple",
+      "outside_owner": 12
+    },
+    {
+      "original_lines": [
+        14,
+        15
+      ],
+      "raw_indices": [
+        7,
+        8
+      ],
+      "kind": "optional_pair",
+      "outside_owner": 12
+    },
+    {
+      "original_lines": [
+        14,
+        23
+      ],
+      "raw_indices": [
+        7,
+        14
+      ],
+      "kind": "optional_pair",
+      "outside_owner": 12
+    },
+    {
+      "original_lines": [
+        15,
+        23
+      ],
+      "raw_indices": [
+        8,
+        14
+      ],
+      "kind": "optional_pair",
+      "outside_owner": 12
+    }
+  ],
+  "at_most_one_used_optional_prefix_per_group": [
+    [
+      18,
+      19,
+      20
+    ],
+    [
+      22,
+      23,
+      24
+    ],
+    [
+      26,
+      27,
+      28
+    ],
+    [
+      31,
+      32,
+      33
+    ],
+    [
+      35,
+      36,
+      37
+    ],
+    [
+      39,
+      40,
+      41
+    ]
+  ],
+  "all_OR_cones_nonempty": true,
+  "positive_live_and_child_incomparability": "construction-profile restrictions",
+  "dirty_required": true,
+  "fixed_phase_calibration": false,
+  "equal_child_kraft_enabled": true,
+  "maximum_kraft_weight_sum": 128,
+  "maximum_kraft_slack_charge": 76,
+  "all_nodes_in_output_cone": true,
+  "output_cone_scope": "explicit construction restriction; minimum-count necessity not claimed",
+  "scope": "sufficient construction with one paid shared OR over inputs and earlier ANDs, separate remaining cones and compatible zero-extra outside prefixes; no completeness claim"
+}

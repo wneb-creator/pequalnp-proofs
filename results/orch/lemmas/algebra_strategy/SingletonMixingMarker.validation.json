@@ -8,7 +8,7 @@
   "build_log": "results/orch/lemmas/algebra_strategy/SingletonMixingMarker.build.log",
   "build_log_bytes": 2834,
   "completed_utc": "2026-11-25T07:41:13.614053+00:00",
-  "status": "compiled_frozen_pending_independent_review",
+  "status": "compiled_frozen_independently_approved",
   "scope": "Research only. An AND reached through an OR-only path from a singleton-raw-support wing yields a nonlam OR marker of the same singleton support. Distinct singleton labels require distinct markers. No full L650 construction or exclusion.",
   "imports": [
     "PEqualNP.Defs",
@@ -16,5 +16,6 @@
   ],
   "restart_note": "Pre-restart check was interrupted; this receipt records the successful fresh post-restart run, tool session59431 exit0.",
   "final_gap_ready": false,
-  "scope_note": "Research-only scope and copied public declarations; no claim this artifact proves or refutes the posted L650 statement."
+  "scope_note": "Research-only scope and copied public declarations; no claim this artifact proves or refutes the posted L650 statement.",
+  "independent_review": "status_review checked tail/scope/format/log/receipt; lower_bound independently checked exact accepted L6240 prefix."
 }

@@ -1,0 +1,87 @@
+--- search_feature_suppressed_archive.cpp
++++ search_feature_essential_suppressed_archive.cpp
+@@ -73,15 +73,28 @@
+  for(int k=0;k<G;k++){auto g=c[k];for(int j=0;j<W;j++)v[N+k][j]=g.op?(v[g.a][j]|v[g.b][j]):(v[g.a][j]&v[g.b][j]);}
+  return v;
+ }
+-pair<bool,uint64_t> suppressed_dirty_witness(const Circuit& c){
++pair<bool,uint64_t> essential_suppressed_dirty_witness(const Circuit& c){
+  array<SmallBits,N+G> v;copy(small_inputs.begin(),small_inputs.end(),v.begin());
+  array<bool,N+G> used{};used[N+G-1]=true;
+  for(int k=G-1;k>=0;k--)if(used[N+k])used[c[k].a]=used[c[k].b]=true;
+- SmallBits dirty{};
+- for(int k=0;k<G;k++){auto g=c[k];for(int w=0;w<SMALL_WORDS;w++){
++ for(int k=0;k<G;k++){auto g=c[k];for(int w=0;w<SMALL_WORDS;w++)
+   v[N+k][w]=g.op?(v[g.a][w]|v[g.b][w]):(v[g.a][w]&v[g.b][w]);
+-  if(used[N+k]&&g.op==0&&g.a!=g.b)dirty[w]|=v[N+k][w];
+- }}
++ }
++ auto full=values(c);SmallBits dirty{};
++ for(int k=0;k<G;k++){
++  auto g=c[k];if(!used[N+k]||g.op!=0||g.a==g.b)continue;
++  bool suppressed=false,positive_live=false;
++  for(int w=0;w<SMALL_WORDS;w++)suppressed|=(v[N+k][w]&~v[N+G-1][w])!=0;
++  if(!suppressed)continue;
++  for(int w=0;w<W;w++)positive_live|=(full[N+k][w]&target[w])!=0;
++  if(!positive_live)continue;
++  Circuit left=c,right=c;left[k]={1,g.a,g.a};right[k]={1,g.b,g.b};
++  if(values(left)[N+G-1]==full[N+G-1]||values(right)[N+G-1]==full[N+G-1])continue;
++  auto zero=full;zero[N+k]={};
++  for(int j=k+1;j<G;j++){auto h=c[j];for(int w=0;w<W;w++)zero[N+j][w]=h.op?(zero[h.a][w]|zero[h.b][w]):(zero[h.a][w]&zero[h.b][w]);}
++  if(zero[N+G-1]==full[N+G-1])continue;
++  for(int w=0;w<SMALL_WORDS;w++)dirty[w]|=v[N+k][w];
++ }
+  for(int w=0;w<SMALL_WORDS;w++){uint64_t found=dirty[w]&~v[N+G-1][w];if(found){size_t i=64*w+countr_zero(found);assert(i<small_masks.size());return{true,small_masks[i]};}}
+  return{false,0};
+ }
+@@ -359,7 +372,7 @@
+  int duration=stoi(argv[3]);rng.seed(stoull(argv[4]));string prefix=argv[5];
+  if(duration==-4){ofstream out(prefix+"-suppressed-fixtures.json");out<<"[\n";for(size_t i=0;i<seeds.size();i++){
+   assert(seeds[i].size()<=G);Circuit c;int count=0;for(auto g:seeds[i])c[count++]=g;while(count<G){int previous=N+count-1;c[count++]={1,previous,previous};}
+-  auto witness=suppressed_dirty_witness(c);out<<"{\"index\":"<<i<<",\"suppressed\":"<<(witness.first?"true":"false")<<",\"raw_mask\":";if(witness.first)out<<witness.second;else out<<"null";out<<"}"<<(i+1<seeds.size()?",":"")<<"\n";
++  auto witness=essential_suppressed_dirty_witness(c);out<<"{\"index\":"<<i<<",\"essential_suppressed\":"<<(witness.first?"true":"false")<<",\"raw_mask\":";if(witness.first)out<<witness.second;else out<<"null";out<<"}"<<(i+1<seeds.size()?",":"")<<"\n";
+  }out<<"]\n";cout<<"Wrote suppressed-dirtiness fixtures "<<seeds.size()<<" masks "<<small_masks.size()<<endl;return 0;}
+  if(duration==-3){
+   int best=100000;long long checked=0;
+@@ -416,28 +429,28 @@
+  vector<Circuit> pool;vector<Bits> keys;vector<int> kinds;array<int,512> populations{};unordered_map<PoolKey,int,KeyHash> index;
+  auto tag=[](Bits b,int kind){PoolKey key;copy(b.begin(),b.end(),key.begin());key[W]=kind;return key;};
+  auto remember=[&](const Circuit& c,Bits b){
+-  auto [mi,wr]=errors(b);if(mi>MAX_MISS||wr>MAX_WRONG||singletons(b))return;auto [ac,mixed]=features(c);int kind=16*min(ac,31)+8*suppressed_dirty_witness(c).first+4*(mixed>0)+2*(wr>0)+(mi==0);PoolKey key=tag(b,kind);
++  auto [mi,wr]=errors(b);if(mi>MAX_MISS||wr>MAX_WRONG||singletons(b))return;auto [ac,mixed]=features(c);int kind=16*min(ac,31)+8*essential_suppressed_dirty_witness(c).first+4*(mixed>0)+2*(wr>0)+(mi==0);PoolKey key=tag(b,kind);
+   auto it=index.find(key);if(it!=index.end()){if(ri(4)==0)pool[it->second]=c;return;}
+   if(pool.size()<512){index[key]=pool.size();pool.push_back(c);keys.push_back(b);kinds.push_back(kind);populations[kind]++;}
+   else{int q=ri(pool.size());auto old=errors(keys[q]);if(populations[kind]<populations[kinds[q]]||(kind==kinds[q]&&mi*3+wr<=old.first*3+old.second)){
+    index.erase(tag(keys[q],kinds[q]));populations[kinds[q]]--;index[key]=q;pool[q]=c;keys[q]=b;kinds[q]=kind;populations[kind]++;
+   }}
+  };
+- auto savepool=[&](){ofstream f(prefix+"-pool.next.json");f<<"[\n";for(int i=0;i<(int)pool.size();i++){auto [mi,wr]=errors(keys[i]);auto [ac,mx]=features(pool[i]);auto suppressed=suppressed_dirty_witness(pool[i]);f<<"{\"miss\":"<<mi<<",\"false\":"<<wr<<",\"active_and\":"<<ac<<",\"mixed_and\":"<<mx<<",\"suppressed_dirty\":"<<(suppressed.first?"true":"false")<<",\"suppressed_raw_mask\":";if(suppressed.first)f<<suppressed.second;else f<<"null";f<<",\"gates\":[";for(int k=0;k<G;k++){auto g=pool[i][k];f<<"["<<g.op<<","<<g.a<<","<<g.b<<"]"<<(k+1<G?",":"");}f<<"]}"<<(i+1<(int)pool.size()?",":"")<<"\n";}f<<"]\n";f.close();assert(f);int archive_rename=std::rename((prefix+"-pool.next.json").c_str(),(prefix+"-pool.json").c_str());assert(archive_rename==0);};
++ auto savepool=[&](){ofstream f(prefix+"-pool.next.json");f<<"[\n";for(int i=0;i<(int)pool.size();i++){auto [mi,wr]=errors(keys[i]);auto [ac,mx]=features(pool[i]);auto suppressed=essential_suppressed_dirty_witness(pool[i]);f<<"{\"miss\":"<<mi<<",\"false\":"<<wr<<",\"active_and\":"<<ac<<",\"mixed_and\":"<<mx<<",\"essential_suppressed_dirty\":"<<(suppressed.first?"true":"false")<<",\"essential_suppressed_raw_mask\":";if(suppressed.first)f<<suppressed.second;else f<<"null";f<<",\"gates\":[";for(int k=0;k<G;k++){auto g=pool[i][k];f<<"["<<g.op<<","<<g.a<<","<<g.b<<"]"<<(k+1<G?",":"");}f<<"]}"<<(i+1<(int)pool.size()?",":"")<<"\n";}f<<"]\n";f.close();assert(f);int archive_rename=std::rename((prefix+"-pool.next.json").c_str(),(prefix+"-pool.json").c_str());assert(archive_rename==0);};
+  Circuit current=seed(0);Bits sig=values(current)[N+G-1];auto [miss,wrong]=errors(sig);int best=100000,best_all_positive=100000;
+  if(miss==0&&singletons(sig)==0){best_all_positive=wrong;dump(current,prefix+"-all-positive.json");cout<<"ALLPOS initial false "<<wrong<<endl;}
+  remember(current,sig);
+  if(polish_mode){
+   assert(miss==0&&singletons(sig)==0&&accept_shape(current));int global_best=wrong;long long evaluations=0,sweeps=0;
+   auto start=chrono::steady_clock::now();int report=-1;Circuit champion=current;
+-  bool have_suppressed=suppressed_dirty_witness(current).first;int best_suppressed=have_suppressed?wrong:100000;Circuit suppressed_champion=current;
++  bool have_suppressed=essential_suppressed_dirty_witness(current).first;int best_suppressed=have_suppressed?wrong:100000;Circuit suppressed_champion=current;
+   if(have_suppressed)dump(current,prefix+"-suppressed-best.json");
+   while(chrono::duration<double>(chrono::steady_clock::now()-start).count()<duration){
+    for(int i=0,count=1+ri(12);i<count;i++){auto changed=rewrite(current);if(accept_shape(changed))current=changed;}
+    auto initial_values=values(current);Bits initial_sig=initial_values[N+G-1];
+    auto initial_errors=errors(initial_sig);assert(initial_errors.first==0&&singletons(initial_sig)==0);
+    remember(current,initial_sig);
+-   if(suppressed_dirty_witness(current).first&&initial_errors.second<best_suppressed){have_suppressed=true;best_suppressed=initial_errors.second;suppressed_champion=current;dump(current,prefix+"-suppressed-best.json");cout<<"SUPPRESSED BEST false "<<best_suppressed<<" sweep "<<sweeps<<endl;}
++   if(essential_suppressed_dirty_witness(current).first&&initial_errors.second<best_suppressed){have_suppressed=true;best_suppressed=initial_errors.second;suppressed_champion=current;dump(current,prefix+"-suppressed-best.json");cout<<"ESSENTIAL SUPPRESSED BEST false "<<best_suppressed<<" sweep "<<sweeps<<endl;}
+    int optimum=initial_errors.second,ties=0,neutral_ties=0;Circuit winner=current;Bits winning_sig=initial_sig;
+    auto resynthesize=[&](const Circuit& base,int gate,const array<Bits,N+G>& v){
+     auto context=gate_context(base,gate,v);
+@@ -472,7 +485,7 @@
+    assert(values(winner)[N+G-1]==winning_sig);
+    current=winner;sig=winning_sig;wrong=optimum;sweeps++;
+    if(sig!=initial_sig||sweeps%1024==0)remember(current,sig);
+-   if(suppressed_dirty_witness(current).first&&wrong<best_suppressed){have_suppressed=true;best_suppressed=wrong;suppressed_champion=current;dump(current,prefix+"-suppressed-best.json");cout<<"SUPPRESSED BEST false "<<wrong<<" sweep "<<sweeps<<endl;}
++   if(essential_suppressed_dirty_witness(current).first&&wrong<best_suppressed){have_suppressed=true;best_suppressed=wrong;suppressed_champion=current;dump(current,prefix+"-suppressed-best.json");cout<<"ESSENTIAL SUPPRESSED BEST false "<<wrong<<" sweep "<<sweeps<<endl;}
+    if(wrong<global_best){global_best=wrong;champion=current;dump(current,prefix+"-all-positive.json");cout<<"POLISH BEST false "<<wrong<<" sweep "<<sweeps<<" evaluations "<<evaluations<<endl;}
+    if(wrong==0){dump(current,prefix+"-solution.json");cout<<"SOLUTION after exhaustive gate resynthesis"<<endl;return 0;}
+    double elapsed=chrono::duration<double>(chrono::steady_clock::now()-start).count();

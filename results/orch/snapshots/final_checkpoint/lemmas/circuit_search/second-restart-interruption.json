@@ -1,0 +1,6 @@
+{
+  "checked_utc": "2026-11-25T07:38:54.474118+00:00",
+  "reason": "Workspace restart around07:36; identified old global and punctured processes as zombies; no sustained stochastic process remains.",
+  "global_last_report": "1130 seconds,95622 sweeps,20148254744 evaluations,best140",
+  "punctured_initial_launch": "Started07:35:32, reached essential8 before interruption; no completion marker."
+}

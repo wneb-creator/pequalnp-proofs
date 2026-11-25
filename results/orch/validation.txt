@@ -95,3 +95,7 @@ Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduct
 TIMING total=334.2 subagents=6
 
 2026-11-25T07:36:03+00:00 Workspace restart observed. Git HEAD02a94e6227e71c028a69184a82c27bc256ce8ab7, source files and completed twelfth snapshot survived. Old renewal session was absent; fresh manual renewal succeeded and a new timer was started. Running searches/builds are checking their exact completion or interruption boundaries; no interrupted interval is counted as a completed UNKNOWN.
+
+2026-11-25T07:51:07.351046+00:00 FINAL research preservation: 137 delta artifacts/13320239 original bytes/8258334 stored bytes; storage index covers1912 current research paths with exact hashes. All final Lean components compiled and independently passed review. Complete final search outcomes and interruption records are frozen. No exact63-gate witness, full refutation, target file, proof PR, or exact-target repository-checker verdict. All ordinary search processes stopped before07:50. Lease release follows the preservation push and is recorded in FINAL_STATUS.json.
+Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review.
+TIMING total=350.0 subagents=6

@@ -1,0 +1,33 @@
+{
+  "status": "LAUNCHING",
+  "started_utc": "2026-11-25T07:38:50.355638+00:00",
+  "argv": [
+    "python3",
+    "results/orch/lemmas/lower_bound/sat/punctured_four_sat.py",
+    "results/orch/lemmas/status_review/punctured-four-arc.json",
+    "/tmp/oec/pequalnp-pilot-57/punctured-four-exact6",
+    "--phase-file",
+    "results/orch/lemmas/lower_bound/sat/punctured_four_ready_phase.json",
+    "--seconds",
+    "300",
+    "--rounds",
+    "2",
+    "--seed",
+    "57916",
+    "--and-count",
+    "6",
+    "--symbolic-dirty"
+  ],
+  "source_hashes": {
+    "punctured_four_sat.py": "bfddd9f16f2b08b1e90b144a5a770122309c5fb7263d2e43f3ed779112b483a0",
+    "feature_gadget_sat.py": "fab1bca90ffcbc65faa6fae022e33017689beaec25ad8cf1c0d783c5b8fb761e",
+    "global_synthesis.py": "700f106db9b7301f9a7f8e3483e2d76e666d53a745f0e22135ee077e9503deb0",
+    "symbolic_dirty_pair.py": "aeb1240d0ae78f2beef3ae9b914353d1a3d92deeeecf86a13b3729f5394a1f46",
+    "joint_feature_compatibility.py": "c677a9d31300ba618ad750ad7d0f350e78d68c475c735d834e40d3576ead2a9a",
+    "punctured_four_ready_phase.json": "6b44e8b10e5ce3e8e07502418413c8664779b5fa1c5ea8029949ad222b1c2261"
+  },
+  "profile": "Punctured-four raw13/available37/core15/exact6AND/outside47+finalOR1; Kraft64/N16; symbolic dirty; hints may have5AND.",
+  "ordinary_stop_utc": "2026-11-25T07:50:00+00:00",
+  "five_owner_only_cuts": false,
+  "extension_count_cut": false
+}

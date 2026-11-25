@@ -1,0 +1,106 @@
+{
+  "index": 8,
+  "gates": [
+    [
+      1,
+      17,
+      26
+    ],
+    [
+      1,
+      31,
+      37
+    ],
+    [
+      1,
+      7,
+      38
+    ],
+    [
+      1,
+      36,
+      39
+    ],
+    [
+      1,
+      22,
+      37
+    ],
+    [
+      1,
+      6,
+      41
+    ],
+    [
+      1,
+      2,
+      42
+    ],
+    [
+      1,
+      11,
+      42
+    ],
+    [
+      0,
+      3,
+      44
+    ],
+    [
+      0,
+      2,
+      44
+    ],
+    [
+      0,
+      36,
+      44
+    ],
+    [
+      1,
+      46,
+      47
+    ],
+    [
+      1,
+      45,
+      48
+    ],
+    [
+      0,
+      40,
+      49
+    ],
+    [
+      0,
+      43,
+      50
+    ]
+  ],
+  "truth": {
+    "raw_assignments": 8192,
+    "false_positives": 214,
+    "false_negatives": 0
+  },
+  "and_operand_bypass_redundant": [],
+  "missing_raw": [
+    0,
+    1,
+    4,
+    5,
+    8,
+    9,
+    10,
+    12
+  ],
+  "suppressed_witness": {
+    "raw_mask": 2049,
+    "active_and_gates": [
+      10,
+      13
+    ]
+  },
+  "boundary_errors": 12,
+  "full_size": 63,
+  "label": "APPROXIMATE-PHASE"
+}

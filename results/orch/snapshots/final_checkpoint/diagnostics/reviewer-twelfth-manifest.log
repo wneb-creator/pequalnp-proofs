@@ -1,0 +1,117 @@
+PASS exact233path inventory,227 manifestentries, raw39136127/stored12039496bytes, everyoriginal/storedhash and credential-pattern scan.
+Experimental labels: [["lemmas/algebra_strategy/PlanePenaltyFourStar.lean", "untracked experimental source; no compilation claim from this snapshot"], ["lemmas/algebra_strategy/SingletonMixingMarker.lean", "untracked experimental source; no compilation claim from this snapshot"]]
+Source capability lines: [
+  [
+    "lemmas/circuit_search/prepare_three_champions_source.py",
+    [
+      [
+        23,
+        "helper=helper.replace('if(values(left)[N+G-1]==full[N+G-1][w]){};','if(values(left)[N+G-1]==full[N+G-1]||values(right)[N+G-1]==full[N+G-1])continue;\\n  count++;')"
+      ],
+      [
+        24,
+        "s=s.replace('\\npair<int,int> errors(',helper+'\\npair<int,int> errors(',1)"
+      ],
+      [
+        25,
+        "s=s.replace('4*(mixed>0)+2*(wr>0)','4*(critical_junk_count(c)>=2)+2*(wr>0)')"
+      ],
+      [
+        26,
+        "s=s.replace('auto suppressed=essential_suppressed_dirty_witness(pool[i]);f<<','auto suppressed=essential_suppressed_dirty_witness(pool[i]);int critical_count=critical_junk_count(pool[i]);f<<')"
+      ],
+      [
+        27,
+        "s=s.replace('<<mx<<\",\\\\\\\"essential_suppressed_dirty','<<mx<<\",\\\\\\\"critical_junk_count\\\\\\\":\"<<critical_count<<\",\\\\\\\"essential_suppressed_dirty')"
+      ],
+      [
+        42,
+        "assert needle in s;s=s.replace(needle,needle+warm)"
+      ],
+      [
+        46,
+        "assert needle in s;s=s.replace(needle,insert+needle)"
+      ],
+      [
+        50,
+        "assert needle in s;s=s.replace(needle,insert+needle)"
+      ],
+      [
+        51,
+        "s=s.replace('if(ri(2))current=have_suppressed&&ri(2)?suppressed_champion:champion;','if(ri(2))current=have_critical&&ri(3)==0?critical_champion:(have_suppressed&&ri(2)?suppressed_champion:champion);')"
+      ],
+      [
+        58,
+        "assert needle in s;s=s.replace(needle,insert+needle)"
+      ]
+    ]
+  ],
+  [
+    "lemmas/circuit_search/search_feature_three_champions.cpp",
+    [
+      [
+        462,
+        " auto savepool=[&](){ofstream f(prefix+\"-pool.next.json\");f<<\"[\\n\";for(int i=0;i<(int)pool.size();i++){auto [mi,wr]=errors(keys[i]);auto [ac,mx]=features(pool[i]);auto suppressed=essential_suppressed_dirty_witness(pool[i]);int critical_count=critical_junk_count(pool[i]);f<<\"{\\\"miss\\\":\"<<mi<<\",\\\"false\\\":\"<<wr<<\",\\\"active_and\\\":\"<<ac<<\",\\\"mixed_and\\\":\"<<mx<<\",\\\"critical_junk_count\\\":\"<<critical_count<<\",\\\"essential_suppressed_dirty\\\":\"<<(suppressed.first?\"true\":\"false\")<<\",\\\"essential_suppressed_raw_mask\\\":\";if(suppressed.first)f<<suppressed.second;else f<<\"null\";f<<\",\\\"gates\\\":[\";for(int k=0;k<G;k++){auto g=pool[i][k];f<<\"[\"<<g.op<<\",\"<<g.a<<\",\"<<g.b<<\"]\"<<(k+1<G?\",\":\"\");}f<<\"]}\"<<(i+1<(int)pool.size()?\",\":\"\")<<\"\\n\";}f<<\"]\\n\";f.close();assert(f);int archive_rename=std::rename((prefix+\"-pool.next.json\").c_str(),(prefix+\"-pool.json\").c_str());assert(archive_rename==0);};"
+      ]
+    ]
+  ],
+  [
+    "lemmas/lower_bound/sat/physical_punctured_four/launch_sources/global_synthesis.py",
+    [
+      [
+        5,
+        "import subprocess"
+      ],
+      [
+        84,
+        "        self.body.unlink()"
+      ],
+      [
+        111,
+        "        remaining.remove(i)"
+      ],
+      [
+        456,
+        "            run = subprocess.run([CADICAL, '-t', str(args.seconds), '--seed=' + str(args.seed),"
+      ],
+      [
+        458,
+        "                                 stdout=log, stderr=subprocess.STDOUT)"
+      ]
+    ]
+  ],
+  [
+    "lemmas/reduction_analysis/punctured_kernel_restriction.py",
+    [
+      [
+        5,
+        "keep=[i for i in range(c['raw_inputs']) if i not in private];rename={v:i for i,v in enumerate(keep)}"
+      ],
+      [
+        8,
+        "    out=sorted(rename[v] for v in support if v in rename)"
+      ],
+      [
+        14,
+        "edges=[[rename[u],rename[v]] for u,v in c['edges'] if u in rename and v in rename]"
+      ]
+    ]
+  ],
+  [
+    "lemmas/verification/upstream-refresh-006-review/extract.py",
+    [
+      [
+        2,
+        "import subprocess,json,re,datetime"
+      ],
+      [
+        5,
+        " p=subprocess.run(args,cwd=root,capture_output=True,text=True)"
+      ],
+      [
+        19,
+        " if dest.exists(): dest=out/path.replace('/','__')"
+      ]
+    ]
+  ]
+]

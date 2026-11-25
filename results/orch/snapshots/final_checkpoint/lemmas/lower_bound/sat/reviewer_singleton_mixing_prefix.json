@@ -1,0 +1,16 @@
+{
+  "status": "APPROVED_PROVENANCE_AND_BUILD_RECEIPT",
+  "utc": "2026-11-25T07:41:53.039500+00:00",
+  "source_sha256": "ad73a1e0ff845a04c8f076af4d6284c2cfdf8f7a3ee58040b4b20d86898cd652",
+  "accepted_source_sha256": "c8f3aa7d0f550fd0134ba2ebcaa75faa021335363b153f2832c820def8862e25",
+  "prefix_exact_lines": "3-786 equal accepted L6240 lines3-786 byte-for-byte",
+  "import_change": "import Mathlib replaced by Mathlib.Combinatorics.Enumerative.DoubleCounting; PEqualNP.Defs retained",
+  "build_log_sha256": "0387ca4ea9ab2e4a9124cd76fa5306f620fe3dd7f7eb7d8e12f3327f1dd4edfe",
+  "build_log_bytes": 2834,
+  "warnings": 11,
+  "errors": 0,
+  "receipt_exit_code": 0,
+  "receipt_completed_utc": "2026-11-25T07:41:13.614053+00:00",
+  "new_build_run_by_reviewer": false,
+  "scope": "Independent provenance, source hash, complete log and receipt checks only; theorem-tail review remains with status_review."
+}

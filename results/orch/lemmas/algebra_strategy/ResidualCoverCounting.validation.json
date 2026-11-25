@@ -3,5 +3,7 @@
   "lines": 78,
   "exit_code": 0,
   "log": "ResidualCoverCounting.build.log",
-  "scope": "Generic graph cover extension and bounded-degree counting, with all premises explicit."
+  "scope": "Generic graph cover extension and bounded-degree counting, with all premises explicit.",
+  "status": "COMPILED and independently APPROVED",
+  "review": "APPROVED by status_review"
 }

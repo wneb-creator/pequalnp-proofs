@@ -1,6 +1,6 @@
-# L-meta-650 research checkpoint
+# L-meta-650 final research results
 
-The posted claim is not proved or refuted. No proof PR has been opened, and the repository checker has not accepted the target. This branch preserves independently reviewed Lean components, research programs, complete diagnostics and explicitly incorrect candidates.
+The posted claim was not proved or refuted within this job. All final searches stopped before07:50 UTC; no exact target file or proof PR was produced. No proof PR has been opened, and the repository checker has not accepted the target. This branch preserves independently reviewed Lean components, research programs, complete diagnostics and explicitly incorrect candidates.
 
 ## Checked components
 
@@ -36,6 +36,8 @@ The posted claim is not proved or refuted. No proof PR has been opened, and the 
 | algebra_strategy/AtLeastTwoJunkLeastAO.lean | Any size-at-most63 IsLeastAO circuit for the exact plane has at least two junk gates. No public Monotone2 normalization is included in this file. Research imports. |
 | algebra_strategy/JunkMinimalResidual.lean | Generic normalization to a no-larger least TopForm representative minimizing junk, where each junk deletion loses at least two distinct residual edges. Includes the checked binary-repair and lost-edge/Ustar bridges; no full gate lower bound. |
 | algebra_strategy/PlaneResidualCounting.lean | Under leastAO, TopForm and size at most63, proves P+1≤2|U| and4P+4≤5|U| plus conditional penalty-four equality consequences. |
+| algebra_strategy/PlanePenaltyFourStar.lean | For the actual plane, leastAO+TopForm+size≤63+penalty4+four residual edges imply that the residual set is exactly one full vertex star. This identifies the case and does not exclude it. |
+| algebra_strategy/SingletonMixingMarker.lean and SharedLineMarker.lean | Distinct polluted singleton wings have distinct mixing markers; a marker shared between distinct line wings has support at most one. Dynamic singleton sharing remains unresolved. |
 | algebra_strategy/TightCoverGeometry.lean and TightCoverStar.lean | Generic tight-cover independence, purity of independent12-sets in13+13 parts, and residual-star identification under explicit equality assumptions. |
 | algebra_strategy/ResidualCoverCounting.lean | Generic residual-cover extension and bounded-degree edge counting; no circuit lower bound alone. |
 | algebra_strategy/NormalizedPenaltyFour.lean | Any exact full-graph Monotone2 circuit of size at most63 has a no-larger least TopForm representative with penalty at least four and at least two junk gates. The larger-penalty alternatives remain open. Research imports. |
@@ -61,7 +63,7 @@ The posted claim is not proved or refuted. No proof PR has been opened, and the 
 | reduction_analysis/PairDirtyNecessary.lean | Every exact circuit with at most 63 gates has an AND true on an independent input with at most two active bits. Research imports. |
 | reduction_analysis/ResidualPairDirtyNoncopy.lean | Every qualifying binary joint61 residual/tap circuit has such a dirty AND with distinct operand indices. No H-cone relevance is asserted. Research imports. |
 
-Further checked monotonicity, geometry, lifting and normalization lemmas are recorded in NOTES.md and validation.txt. Research imports are not eligible for the final file without permitted inlining. The fixed-feature lower bound does not automatically exclude the more general interleaved multioutput completion theorem.
+Further checked monotonicity, geometry, lifting and normalization lemmas are recorded in NOTES.md and validation.txt. Extra project imports must be inlined as required before a final single-file submission; permitted Mathlib imports are distinct from that restriction. All files here remain partial research artifacts. The fixed-feature lower bound does not automatically exclude the more general interleaved multioutput completion theorem.
 
 ## Current search and verification status
 
@@ -77,7 +79,7 @@ All four-, five- and six-owner prefix packets retain reviewed exact full-plane a
 
 The direct ordinary-Circuit weighted packing theorem and its tight30-negative/five-AND corollary are Lean-checked, as are generic forced-active and saturation lemmas. The complete local five-owner cleanliness theorem now compiles and has passed independent review. Its finite geometry, weighted budget and propagation argument are included in one Defs-only file. It excludes dirty ANDs in the exact raw16 AndCountCircuit model with at most five ANDs; a tight-count conversion now also proves the ordinary-Circuit version, including constants and unary gates. The fixed-star completion corollary is also checked: any exact raw core with at most five AND opcodes has size at least24. A shared-feature paid-budget claim and global exclusion do not follow automatically.
 
-The final construction profiles include a punctured four-owner decomposition with13raw inputs/24optional OR features,15paid core gates and47outside+1final gates; this is a focused subclass of the earlier four-owner18 model. Its243 compatible prefix configurations and exact65-gate calibration are checked. Shared-OR seven-AND profiles now allow one expression after earlier ANDs, with exact cost and topological checks; optional Kraft and output-cone conditions retain their documented scopes. All active searches still lack an exact target witness.
+The final construction profiles include a punctured four-owner decomposition with13raw inputs/24optional OR features,15paid core gates and47outside+1final gates; this is a focused subclass of the earlier four-owner18 model. Its243 compatible prefix configurations and exact65-gate calibration are checked. Shared-OR seven-AND profiles now allow one expression after earlier ANDs, with exact cost and topological checks; optional Kraft and output-cone conditions retain their documented scopes. All searches ended without an exact target witness. The final physical exact6 and both all-live/Kraft profiles each completed two300-second UNKNOWN intervals; both final stochastic profiles exited normally. Restart interruptions are recorded separately.
 
 The final DNF proof body and assembler were calibrated on the exact64-gate circuit. A new63-gate candidate still must match exactly the52 required prime terms, compile in the named target file, and pass the repository checker. No target file or exact-target checker acceptance exists.
 
@@ -91,10 +93,16 @@ Special check L-meta-1035 returned not_open; the response did not say whether it
 
 > no step is free that you have not already looked at and handed back in the last hour (2); new steps are posted through the day, ask again in a few minutes
 
-L-meta-650 was assigned on 2026-11-25 at 02:14:27 UTC. Only this job's lease is renewed. An optional authenticated GitHub API read returned 401; VENDOR-LIMITATION git-auth-401 was reported, and no alternate credentials were used. Git fetch and preservation pushes succeeded.
+L-meta-650 was assigned on 2026-11-25 at 02:14:27 UTC. Only this job's lease was renewed. The final release outcome is recorded separately in FINAL_STATUS.json after the preservation push. An optional authenticated GitHub API read returned 401; VENDOR-LIMITATION git-auth-401 was reported, and no alternate credentials were used. Git fetch and preservation pushes succeeded.
 
 Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review (6 distinct agents).
 
-TIMING total=334.2 subagents=6 (checkpoint at 2026-11-25T07:35:22.723094+00:00; work continues).
+TIMING total=350.0 subagents=6 (final research freeze at 2026-11-25T07:51:07.351046+00:00; final administration is recorded in FINAL_STATUS.json).
 
 Job ID: msg-e98796d0d0ad050188abca1f.
+
+## Recovering artifacts
+
+ARTIFACT_INDEX.json maps 1,912 indexed research source/data/log paths to its exact committed direct file or versioned snapshot, with SHA256 hashes and any gzip encoding. It is a storage index, not a compilation claim. Reviewed Lean validation receipts and complete logs establish the listed checked results. The unresolved target has no repository-checker acceptance.
+
+Three additional C++ review diffs are committed directly under lemmas/lower_bound/sat; the tiny LRAT proof fixture is also directly committed. These extra diagnostic extensions are outside the storage index selection.
