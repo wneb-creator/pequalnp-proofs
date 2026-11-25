@@ -11,3 +11,8 @@ Pilot pequalnp-pilot-180
 2026-11-25T19:28:27.367489+00:00 sat_synthesis: all initial300s globalSAT runs UNKNOWN; known14 witness validated. Strongerone-NOT13 read-once/critical run active; monotone13 read-once/critical plus2730 monotonicity clauses started600s inSAT-focused mode. Formula13 SAT also active; graph_search independently computed formula minimum14.
 2026-11-25T19:29:28.959393+00:00 Generalized single-use counting lemmas compiled and independently reviewed; checkpointing.
 2026-11-25T19:36:34.659116+00:00 Seed engine with91 proved restriction bounds and actual-circuit raw-partner exclusion checked and independently audited; preparing checkpoint push.
+
+2026-11-25T19:38:30.791337+00:00 status_review structural route reached checked raw-partner and sole-NOT circuit exclusions; paused pending native-search bounds.
+
+2026-11-25T19:38:34.658868+00:00 Computational: 91 zero-restriction facts checked in full soundness engine (checkpoint444e348). Additional98 true-restriction Boolean certificates plus7 six-input Boolean certificates checked; soundness extension compiling. Graph_search independently reproduced zero/six candidates with repaired native evaluator and is scouting root bounds.
+2026-11-25T19:54:30.195780+00:00 Checkpointing extended restrictions and NOT-aware bridge after independent audit.

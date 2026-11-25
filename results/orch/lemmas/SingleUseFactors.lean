@@ -1,4 +1,6 @@
 import Mathlib.Data.List.Count
+import Mathlib.Data.Fintype.Fin
+import Mathlib.Tactic.FinCases
 
 namespace PEqualNP.Outside.L_meta_10760_aux.SingleUseFactors
 
@@ -42,5 +44,35 @@ lemma no_raw_partner (i j : Fin 7) (ne : i ≠ j) (d : Bool)
     rw [factor, factor, same, blind]
   rw [high, low] at eq
   contradiction
+
+def changes (i : Fin 7) (b : Fin 128) : Prop :=
+  point b i = false ∧ target (point b) = false ∧
+    target (force i (point b)) = true
+
+lemma negative_partner (i j : Fin 7) (ne : i ≠ j) (d : Bool) :
+    ∃ b : Fin 128, changes i b ∧ !(point b j) = d := by
+  obtain ⟨b, hi, low, high, hj⟩ := critical_exists i j (!d) ne
+  refine ⟨b, ⟨hi, low, high⟩, ?_⟩
+  cases d <;> simp [hj]
+
+set_option maxRecDepth 16000 in
+set_option maxHeartbeats 0 in
+lemma and_partner_not_binary : ∀ (i p q : Fin 7) (d : Bool),
+    i ≠ p → i ≠ q → ∃ b : Fin 128, changes i b ∧
+      binary d (point b p) (point b q) = false := by
+  intro i
+  fin_cases i <;> unfold changes <;> decide +kernel
+
+def edge (p q : Fin 7) : Prop :=
+  target (fun k => decide (k = p ∨ k = q)) = true
+
+set_option maxRecDepth 16000 in
+set_option maxHeartbeats 0 in
+lemma or_partner_binary_class : ∀ (i p q : Fin 7) (d : Bool),
+    i ≠ p → i ≠ q →
+    (∀ b : Fin 128, changes i b → binary d (point b p) (point b q) = false) →
+      d = false ∧ edge p q := by
+  intro i
+  fin_cases i <;> unfold changes edge <;> decide +kernel
 
 end PEqualNP.Outside.L_meta_10760_aux.SingleUseFactors

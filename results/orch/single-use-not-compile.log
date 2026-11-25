@@ -1,0 +1,6 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/SingleUseNot.lean:277:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [j, eq]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

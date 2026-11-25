@@ -1,0 +1,41 @@
+Structural partials for L-meta-10760
+2026-11-25T19:38:30.791337+00:00
+All listed files checked with Lean 4.36.0; exit status 0.
+These are partial lemmas, not the posted final theorem. The local gap checker was not run on them.
+Standalone Bridge embeds earlier Factors/Circuit namespaces; Not embeds Bridge. Do not import these standalone files together.
+
+SingleUse.lean
+SHA256 79ab78af0e966bae33ae7ad893f359fa30288eb433e55f8eab9d7ee774fb0888
+Lines 158
+Complete stdout and stderr:
+(empty)
+
+SingleUseFactors.lean
+SHA256 cd3885b188951edda0039fa5ad6ba4f83023dc1f67f8057901e4c840d4f5e00a
+Lines 78
+Complete stdout and stderr:
+(empty)
+
+SingleUseCircuit.lean
+SHA256 2f0fc975627d4c4123824efecef5905be102379902a80bc8ca9c584714eceb60
+Lines 80
+Complete stdout and stderr:
+(empty)
+
+SingleUseBridge.lean
+SHA256 147dfdf5f5fba6a8b1fa12b72e18336d11d906addba7b679ce1b2a835cd52eb0
+Lines 197
+Complete stdout and stderr:
+(empty)
+
+SingleUseNot.lean
+SHA256 fd28f006a14219008f9ec2735a9300119e96ba9d8d5bae3d18d4ea7d59e681e1
+Lines 305
+Complete stdout and stderr:
+/workspace/pequalnp-proofs/results/orch/lemmas/SingleUseNot.lean:277:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [j, eq]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+
