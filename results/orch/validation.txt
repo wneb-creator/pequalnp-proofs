@@ -16,3 +16,8 @@ audit_last_not.lean: Lean exit0; last-output NOT and sole-primary reader partial
 routes_normalized_live.lean: Lean exit0; normalization and dead-gate deletion partials.
 elimination_live_retain.lean: Lean exit0; retained-operand partial.
 All compiler outputs retained in adjacent named logs. Posted statement remains unproved.
+
+Updated compiled partials: audit_last_not (404 lines), routes_normalized_live (637 lines), root_row_witness (68 lines), elimination_live_retain_each (148 lines).
+Each Lean exit0, no warnings/errors. Independent reviewer: PASS for partial preservation.
+Root row witness table independently recomputed on all 360 applicable cases and all 1024 target rows.
+The posted L-meta-2592 statement remains unproved; no proof PR opened.

@@ -37,12 +37,12 @@ theorem fixG_eval (w : List Bool) (g : Gate) :
     | cons a t =>
       by_cases ha : a < w.length
       · simp [fixG, GateOp.eval, ha]
-      · simp [fixG, GateOp.eval, ha, List.getD_eq_default _ _ (Nat.le_of_not_lt ha)]
+      · simp [fixG, GateOp.eval, ha]
   | and =>
     by_cases hall : ins.all (fun i => decide (i < w.length)) = true
-    · simp only [fixG, hall, if_true]
+    · simp only [fixG, hall, ite_true]
     · simp only [fixG, hall]
-      simp only [Bool.false_eq_true, if_false]
+      simp only [Bool.false_eq_true, ite_false]
       simp only [List.all_eq_true, decide_eq_true_eq, not_forall] at hall
       obtain ⟨i, hi, hlt⟩ := hall
       symm
@@ -78,10 +78,10 @@ theorem fixG_ok (k : ℕ) (g : Gate) (hop : g.op ∈ S) (hl : g.inputs.length �
   simp only [S, Set.mem_insert_iff, Set.mem_singleton_iff] at hop
   rcases hop with rfl | rfl | rfl
   · by_cases hall : ins.all (fun i => decide (i < k)) = true
-    · simp only [fixG, hall, if_true]
+    · simp only [fixG, hall, ite_true]
       simp only [List.all_eq_true, decide_eq_true_eq] at hall
       exact ⟨hall, by simp [S], hl, by simp, by simp⟩
-    · simp only [fixG, hall, Bool.false_eq_true, if_false]
+    · simp only [fixG, hall, Bool.false_eq_true, ite_false]
       exact ⟨by simp, by simp [S], by simp, by simp, by simp⟩
   · simp only [fixG]
     refine ⟨?_, by simp [S], ?_, by simp, by simp⟩
@@ -263,8 +263,10 @@ theorem main (f : (Fin 10 → Bool) → Bool)
 
 end PEqualNP.Outside.L_meta_2592_aux.Norm
 
-open PEqualNP.CircuitLowerBounds PEqualNP.Outside.L_meta_2592_aux.Norm in
-lemma PEqualNP.Outside.L_meta_2592_aux.Norm.normalize : have x1 : PEqualNP.CircuitLowerBounds.Circuit → Prop := fun (x1 : PEqualNP.CircuitLowerBounds.Circuit) => ∀ (x2 : Fin (10 : ℕ) → Bool), x1.eval (List.ofFn x2) = (x2 (0 : Fin (10 : ℕ)) && x2 (1 : Fin (10 : ℕ)) || x2 (1 : Fin (10 : ℕ)) && x2 (2 : Fin (10 : ℕ)) || x2 (2 : Fin (10 : ℕ)) && x2 (3 : Fin (10 : ℕ)) || x2 (3 : Fin (10 : ℕ)) && x2 (4 : Fin (10 : ℕ)) || x2 (4 : Fin (10 : ℕ)) && x2 (0 : Fin (10 : ℕ)) || x2 (0 : Fin (10 : ℕ)) && x2 (5 : Fin (10 : ℕ)) || x2 (1 : Fin (10 : ℕ)) && x2 (6 : Fin (10 : ℕ)) || x2 (2 : Fin (10 : ℕ)) && x2 (7 : Fin (10 : ℕ)) || x2 (3 : Fin (10 : ℕ)) && x2 (8 : Fin (10 : ℕ)) || x2 (4 : Fin (10 : ℕ)) && x2 (9 : Fin (10 : ℕ)) || x2 (5 : Fin (10 : ℕ)) && x2 (7 : Fin (10 : ℕ)) || x2 (7 : Fin (10 : ℕ)) && x2 (9 : Fin (10 : ℕ)) || x2 (9 : Fin (10 : ℕ)) && x2 (6 : Fin (10 : ℕ)) || x2 (6 : Fin (10 : ℕ)) && x2 (8 : Fin (10 : ℕ)) || x2 (8 : Fin (10 : ℕ)) && x2 (5 : Fin (10 : ℕ))); have x2 : PEqualNP.CircuitLowerBounds.Circuit → Prop := fun (x2 : PEqualNP.CircuitLowerBounds.Circuit) =>   ∀ (x3 : ℕ),     have x4 : PEqualNP.CircuitLowerBounds.Gate := x2.gates.getD x3 { op := PEqualNP.CircuitLowerBounds.GateOp.or, inputs := [] : PEqualNP.CircuitLowerBounds.Gate };     (∀ x5 ∈ x4.inputs, x5 < (10 : ℕ) + x3) ∧ (x4.op = PEqualNP.CircuitLowerBounds.GateOp.not → x4.inputs.length ≤ (1 : ℕ)); ∀ (x3 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x3 → (∃ x5 ∈ x3.gates, x5.op = PEqualNP.CircuitLowerBounds.GateOp.not) → x1 x3 → ∃ (x7 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x7 ∧ x7.size ≤ x3.size ∧ x7.output + (1 : ℕ) = (10 : ℕ) + x7.size ∧ x2 x7 ∧ ((∃ x8 ∈ x7.gates, x8.op = PEqualNP.CircuitLowerBounds.GateOp.not) ∨ x7.size < x3.size) ∧ x1 x7 := by
+namespace PEqualNP.Outside.L_meta_2592_aux.Norm
+
+open PEqualNP.CircuitLowerBounds in
+lemma normalize : have x1 : PEqualNP.CircuitLowerBounds.Circuit → Prop := fun (x1 : PEqualNP.CircuitLowerBounds.Circuit) => ∀ (x2 : Fin (10 : ℕ) → Bool), x1.eval (List.ofFn x2) = (x2 (0 : Fin (10 : ℕ)) && x2 (1 : Fin (10 : ℕ)) || x2 (1 : Fin (10 : ℕ)) && x2 (2 : Fin (10 : ℕ)) || x2 (2 : Fin (10 : ℕ)) && x2 (3 : Fin (10 : ℕ)) || x2 (3 : Fin (10 : ℕ)) && x2 (4 : Fin (10 : ℕ)) || x2 (4 : Fin (10 : ℕ)) && x2 (0 : Fin (10 : ℕ)) || x2 (0 : Fin (10 : ℕ)) && x2 (5 : Fin (10 : ℕ)) || x2 (1 : Fin (10 : ℕ)) && x2 (6 : Fin (10 : ℕ)) || x2 (2 : Fin (10 : ℕ)) && x2 (7 : Fin (10 : ℕ)) || x2 (3 : Fin (10 : ℕ)) && x2 (8 : Fin (10 : ℕ)) || x2 (4 : Fin (10 : ℕ)) && x2 (9 : Fin (10 : ℕ)) || x2 (5 : Fin (10 : ℕ)) && x2 (7 : Fin (10 : ℕ)) || x2 (7 : Fin (10 : ℕ)) && x2 (9 : Fin (10 : ℕ)) || x2 (9 : Fin (10 : ℕ)) && x2 (6 : Fin (10 : ℕ)) || x2 (6 : Fin (10 : ℕ)) && x2 (8 : Fin (10 : ℕ)) || x2 (8 : Fin (10 : ℕ)) && x2 (5 : Fin (10 : ℕ))); have x2 : PEqualNP.CircuitLowerBounds.Circuit → Prop := fun (x2 : PEqualNP.CircuitLowerBounds.Circuit) =>   ∀ (x3 : ℕ),     have x4 : PEqualNP.CircuitLowerBounds.Gate := x2.gates.getD x3 { op := PEqualNP.CircuitLowerBounds.GateOp.or, inputs := [] : PEqualNP.CircuitLowerBounds.Gate };     (∀ x5 ∈ x4.inputs, x5 < (10 : ℕ) + x3) ∧ (x4.op = PEqualNP.CircuitLowerBounds.GateOp.not → x4.inputs.length ≤ (1 : ℕ)); ∀ (x3 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x3 → (∃ x5 ∈ x3.gates, x5.op = PEqualNP.CircuitLowerBounds.GateOp.not) → x1 x3 → ∃ (x7 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x7 ∧ x7.size ≤ x3.size ∧ x7.output + (1 : ℕ) = (10 : ℕ) + x7.size ∧ x2 x7 ∧ ((∃ x8 ∈ x7.gates, x8.op = PEqualNP.CircuitLowerBounds.GateOp.not) ∨ x7.size < x3.size) ∧ x1 x7 := by
   dsimp only
   intro C hF hNot hC
   have hS : ∀ g ∈ C.gates, g.op ∈ S ∧ g.inputs.length ≤ 2 := by
@@ -303,6 +305,8 @@ lemma PEqualNP.Outside.L_meta_2592_aux.Norm.normalize : have x1 : PEqualNP.Circu
     exact ⟨_, hk', (fixG_ok k' g (hS g hg).1 (hS g hg).2).2.2.2.2 hn⟩
   · right
     omega
+
+end PEqualNP.Outside.L_meta_2592_aux.Norm
 
 namespace PEqualNP.Outside.L_meta_2592_aux.Dead
 
@@ -517,3 +521,117 @@ private lemma deleteDeadGate {m : ℕ} (C : Circuit) (hok : ∀ g ∈ C.gates, O
     rw [List.getD_eq_default _ _ (by omega), List.getD_eq_default _ _ (by omega)]
 
 end PEqualNP.Outside.L_meta_2592_aux.Dead
+
+namespace PEqualNP.Outside.L_meta_2592_aux.Norm
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def target (x : Fin 10 → Bool) : Bool :=
+  x 0 && x 1 || x 1 && x 2 || x 2 && x 3 || x 3 && x 4 || x 4 && x 0 ||
+  x 0 && x 5 || x 1 && x 6 || x 2 && x 7 || x 3 && x 8 || x 4 && x 9 ||
+  x 5 && x 7 || x 7 && x 9 || x 9 && x 6 || x 6 && x 8 || x 8 && x 5
+
+def HasNot (C : Circuit) : Prop := ∃ g ∈ C.gates, g.op = GateOp.not
+
+def Computes (C : Circuit) : Prop := ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = target x
+
+lemma normalize_any (C : Circuit) (hF : FanInTwo C) (hC : Computes C) :
+    ∃ D : Circuit, FanInTwo D ∧ D.size ≤ C.size ∧
+      D.output + 1 = 10 + D.size ∧ WF D ∧ Computes D ∧
+      (HasNot C → HasNot D ∨ D.size < C.size) := by
+  have hS : ∀ g ∈ C.gates, g.op ∈ S ∧ g.inputs.length ≤ 2 := by
+    intro g hg
+    exact ⟨by simpa [S] using (hF g hg).1, (hF g hg).2⟩
+  let C0 : Circuit := ⟨fixL 10 C.gates, C.output⟩
+  have hC0F : FanInTwo C0 := by
+    intro g' hg'
+    obtain ⟨k', g, hg, rfl⟩ := fixL_mem C.gates 10 g' hg'
+    have h := fixG_ok k' g (hS g hg).1 (hS g hg).2
+    exact ⟨by simpa [S] using h.2.1, h.2.2.1⟩
+  have hC0W : WF C0 := by
+    intro j
+    refine ⟨fixL_getD C.gates 10 j hS, ?_⟩
+    rcases getD_mem_or (fixL 10 C.gates) j with h | h
+    · obtain ⟨k', g, hg, e⟩ := fixL_mem C.gates 10 _ h
+      show ((fixL 10 C.gates).getD j ⟨GateOp.or, []⟩).op = GateOp.not → _
+      rw [e]
+      exact (fixG_ok k' g (hS g hg).1 (hS g hg).2).2.2.2.1
+    · show ((fixL 10 C.gates).getD j ⟨GateOp.or, []⟩).op = GateOp.not → _
+      rw [h]
+      simp
+  have hC0C : ∀ x : Fin 10 → Bool, C0.eval (List.ofFn x) = C.eval (List.ofFn x) := by
+    intro x
+    show (List.foldl stp (List.ofFn x) (fixL 10 C.gates)).getD C.output false
+      = (C.gates.foldl stp (List.ofFn x)).getD C.output false
+    rw [fixL_foldl _ _ _ (by simp)]
+  obtain ⟨D, h1, h2, h3, h4, h5, h6⟩ := main target
+    (by intro o ho; interval_cases o <;> decide)
+    (by decide) C0.gates.length C0 rfl hC0F hC0W (fun x => (hC0C x).trans (hC x))
+  have hsz : C0.size = C.size := fixL_len C.gates 10
+  refine ⟨D, h1, by omega, h3, h4, h6, ?_⟩
+  intro hNot
+  rcases h5 with rfl | h5
+  · left
+    obtain ⟨g, hg, hn⟩ := hNot
+    obtain ⟨k', hk'⟩ := mem_fixL C.gates 10 g hg
+    exact ⟨_, hk', (fixG_ok k' g (hS g hg).1 (hS g hg).2).2.2.2.2 hn⟩
+  · right
+    omega
+
+lemma minimum_choice (C : Circuit) (fan : FanInTwo C) (correct : Computes C)
+    (hasNot : HasNot C) :
+    ∃ B : Circuit, FanInTwo B ∧ Computes B ∧ B.size ≤ C.size ∧
+      (HasNot B ∨ B.size < C.size) ∧
+      ∀ E : Circuit, FanInTwo E → Computes E → B.size ≤ E.size := by
+  classical
+  let P (s : ℕ) : Prop := ∃ D : Circuit, FanInTwo D ∧ Computes D ∧ D.size = s
+  have hex : ∃ s, P s := ⟨C.size, C, fan, correct, rfl⟩
+  obtain ⟨D, hfan, hcorrect, hsize⟩ := Nat.find_spec hex
+  have hsmall : D.size ≤ C.size := by
+    rw [hsize]
+    exact Nat.find_min' hex ⟨C, fan, correct, rfl⟩
+  have hmin (E : Circuit) (hE : FanInTwo E) (hEc : Computes E) : D.size ≤ E.size := by
+    rw [hsize]
+    exact Nat.find_min' hex ⟨E, hE, hEc, rfl⟩
+  by_cases small : D.size < C.size
+  · exact ⟨D, hfan, hcorrect, hsmall, Or.inr small, hmin⟩
+  · refine ⟨C, fan, correct, le_rfl, Or.inl hasNot, ?_⟩
+    intro E hE hEc
+    have := hmin E hE hEc
+    omega
+
+lemma normalized_live (C : Circuit) (fan : FanInTwo C) (correct : Computes C)
+    (hasNot : HasNot C) :
+    ∃ D : Circuit, FanInTwo D ∧ Computes D ∧ D.size ≤ C.size ∧
+      D.output + 1 = 10 + D.size ∧ WF D ∧
+      (HasNot D ∨ D.size < C.size) ∧
+      (∀ E : Circuit, FanInTwo E → Computes E → D.size ≤ E.size) ∧
+      ∀ j : ℕ, j + 1 < D.size →
+        ∃ k : ℕ, ∃ hk : k < D.gates.length, j < k ∧ 10 + j ∈ D.gates[k].inputs := by
+  classical
+  obtain ⟨B, hB, hBc, hsize, hn, hmin⟩ := minimum_choice C fan correct hasNot
+  obtain ⟨D, hD, hDB, hout, hwf, hDc, hnot⟩ := normalize_any B hB hBc
+  have sizeEq : D.size = B.size := Nat.le_antisymm hDB (hmin D hD hDc)
+  have minD (E : Circuit) (hE : FanInTwo E) (hEc : Computes E) : D.size ≤ E.size := by
+    rw [sizeEq]
+    exact hmin E hE hEc
+  refine ⟨D, hD, hDc, hDB.trans hsize, hout, hwf, ?_, minD, ?_⟩
+  · rcases hn with hn | hn
+    · rcases hnot hn with hd | hd
+      · exact Or.inl hd
+      · omega
+    · exact Or.inr (hDB.trans_lt hn)
+  · intro j hj
+    by_contra! dead
+    have hj' : j < D.gates.length := by change j < D.size; omega
+    have hout' : D.output ≠ 10 + j := by omega
+    obtain ⟨E, hE, hEs, hEc⟩ :=
+      PEqualNP.Outside.L_meta_2592_aux.Dead.deleteDeadGate D hD j hj' hout' dead
+    have hEc' : Computes E := by
+      intro x
+      exact (hEc x).trans (hDc x)
+    have hmin' := minD E hE hEc'
+    change E.size ≤ D.size - 1 at hEs
+    omega
+
+end PEqualNP.Outside.L_meta_2592_aux.Norm

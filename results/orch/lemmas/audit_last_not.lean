@@ -262,4 +262,143 @@ lemma primary_funnel (n : ℕ) (pre post : List Gate) (op : GateOp) (v w : Fin n
     (by simp [hlen]) (snoc_except _ _ v.val _ _ hlen hbefore hg) out hout
   simpa only [eval_eq, wf, List.foldl_append, List.foldl_cons, List.foldl_nil] using hh
 
+lemma petersen_singleton : ∀ v : Fin 10, petersen (fun i => decide (i = v)) = false := by
+  decide
+
+lemma petersen_output_not_primary (C : Circuit)
+    (correct : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = petersen x) (v : Fin 10) :
+    C.output ≠ v.val := by
+  intro hout
+  have hc := correct (fun i => decide (i = v))
+  rw [petersen_singleton] at hc
+  change (wf C.gates (List.ofFn fun i => decide (i = v))).getD C.output false = false at hc
+  rw [hout, wf_keep C.gates _ v.val (by simp)] at hc
+  have hget : (List.ofFn fun i : Fin 10 => decide (i = v)).getD v.val false = true := by
+    rw [List.getD_eq_getElem?_getD, List.getElem?_ofFn]
+    simp only [v.isLt, dite_true, Option.getD_some]
+    rfl
+  rw [hget] at hc
+  contradiction
+
+lemma petersen_no_primary_and_once (pre post : List Gate) (v w : Fin 10) (out : ℕ)
+    (hvw : v ≠ w) (hpre : ∀ g ∈ pre, v.val ∉ g.inputs)
+    (hpost : ∀ g ∈ post, v.val ∉ g.inputs) :
+    ¬ ∀ x : Fin 10 → Bool,
+      Circuit.eval ⟨pre ++ [⟨GateOp.and, [v.val, w.val]⟩] ++ post, out⟩ (List.ofFn x) = petersen x := by
+  intro correct
+  have hout := petersen_output_not_primary _ correct v
+  apply no_primary_and_funnel v w hvw
+  intro x y hxy hgate
+  have hh := primary_funnel 10 pre post GateOp.and v w out hout hpre hpost x y hxy
+    (by simpa [GateOp.eval] using hgate)
+  rw [correct x, correct y] at hh
+  exact hh
+
+lemma petersen_no_primary_or_once (pre post : List Gate) (v w : Fin 10) (out : ℕ)
+    (hvw : v ≠ w) (hpre : ∀ g ∈ pre, v.val ∉ g.inputs)
+    (hpost : ∀ g ∈ post, v.val ∉ g.inputs) :
+    ¬ ∀ x : Fin 10 → Bool,
+      Circuit.eval ⟨pre ++ [⟨GateOp.or, [v.val, w.val]⟩] ++ post, out⟩ (List.ofFn x) = petersen x := by
+  intro correct
+  have hout := petersen_output_not_primary _ correct v
+  apply no_primary_or_funnel v w hvw
+  intro x y hxy hgate
+  have hh := primary_funnel 10 pre post GateOp.or v w out hout hpre hpost x y hxy
+    (by simpa [GateOp.eval] using hgate)
+  rw [correct x, correct y] at hh
+  exact hh
+
+lemma snoc_mono_except (U V : List Bool) (v : ℕ) (a b : Bool)
+    (hlen : U.length = V.length)
+    (h : ∀ i : ℕ, i ≠ v → U.getD i false = true → V.getD i false = true)
+    (hab : a = true → b = true) :
+    ∀ i : ℕ, i ≠ v → (U ++ [a]).getD i false = true → (V ++ [b]).getD i false = true := by
+  intro i hi
+  rcases Nat.lt_trichotomy i U.length with hlt | heq | hgt
+  · rw [getD_snoc_lt _ _ _ hlt, getD_snoc_lt _ _ _ (by omega)]
+    exact h i hi
+  · subst i
+    rw [getD_snoc_eq, hlen, getD_snoc_eq]
+    exact hab
+  · rw [getD_snoc_gt _ _ _ hgt]
+    simp
+
+lemma wf_mono_except (gs : List Gate) (v : ℕ)
+    (hops : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (hread : ∀ g ∈ gs, v ∉ g.inputs) :
+    ∀ U V : List Bool, U.length = V.length →
+      (∀ i : ℕ, i ≠ v → U.getD i false = true → V.getD i false = true) →
+      ∀ i : ℕ, i ≠ v → (wf gs U).getD i false = true → (wf gs V).getD i false = true := by
+  induction gs with
+  | nil => intro U V _ h i hi; exact h i hi
+  | cons g gs ih =>
+    intro U V hlen h i hi
+    have hgate : g.op.eval (g.inputs.map fun j => U.getD j false) = true →
+        g.op.eval (g.inputs.map fun j => V.getD j false) = true := by
+      have hread' : ∀ j ∈ g.inputs, j ≠ v := by
+        intro j hj hjv
+        exact hread g (by simp) (hjv ▸ hj)
+      rcases hops g (by simp) with hop | hop <;> rw [hop]
+      · simp only [GateOp.eval, List.all_map, List.all_eq_true, Function.comp, id]
+        exact fun hall j hj => h j (hread' j hj) (hall j hj)
+      · simp only [GateOp.eval, List.any_map, List.any_eq_true, Function.comp, id]
+        exact fun ⟨j, hj, hv⟩ => ⟨j, hj, h j (hread' j hj) hv⟩
+    exact ih (fun g' hg' => hops g' (by simp [hg']))
+      (fun g' hg' => hread g' (by simp [hg']))
+      (U ++ [g.op.eval (g.inputs.map fun j => U.getD j false)])
+      (V ++ [g.op.eval (g.inputs.map fun j => V.getD j false)])
+      (by simp [hlen]) (snoc_mono_except U V v _ _ hlen h hgate) i hi
+
+lemma wf_append (pre post : List Gate) (U : List Bool) :
+    wf (pre ++ post) U = wf post (wf pre U) := by
+  simp [wf, List.foldl_append]
+
+lemma eval_split_primary_not (n : ℕ) (pre post : List Gate) (v : Fin n)
+    (out : ℕ) (x : Fin n → Bool) :
+    Circuit.eval ⟨pre ++ [⟨GateOp.not, [v.val]⟩] ++ post, out⟩ (List.ofFn x) =
+      (wf post (wf pre (List.ofFn x) ++ [!x v])).getD out false := by
+  rw [eval_eq, wf_append, wf_snoc]
+  simp only [List.map_cons, List.map_nil, GateOp.eval, List.headD_cons]
+  rw [wf_keep pre _ v.val (by simp)]
+  simp [List.getD_eq_getElem?_getD]
+
+lemma primary_last_not_antitone (n : ℕ) (pre post : List Gate) (v : Fin n)
+    (out : ℕ) (hout : out ≠ v.val)
+    (hpre : ∀ g ∈ pre, v.val ∉ g.inputs) (hpost : ∀ g ∈ post, v.val ∉ g.inputs)
+    (hops : ∀ g ∈ post, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (x y : Fin n → Bool) (hxy : ∀ i : Fin n, i ≠ v → x i = y i) (hxv : x v = false) :
+    Circuit.eval ⟨pre ++ [⟨GateOp.not, [v.val]⟩] ++ post, out⟩ (List.ofFn y) = true →
+      Circuit.eval ⟨pre ++ [⟨GateOp.not, [v.val]⟩] ++ post, out⟩ (List.ofFn x) = true := by
+  rw [eval_split_primary_not, eval_split_primary_not]
+  have hlen : (wf pre (List.ofFn y)).length = (wf pre (List.ofFn x)).length := by
+    simp [wf_len]
+  have hbefore := wf_except pre v.val hpre (List.ofFn x) (List.ofFn y)
+    (by simp) (ofFn_except n v x y hxy)
+  apply wf_mono_except post v.val hops hpost _ _ (by simp [hlen])
+  · apply snoc_mono_except _ _ v.val _ _ hlen
+    · intro i hi hb
+      rw [hbefore i hi]
+      exact hb
+    · simp [hxv]
+  · exact hout
+
+lemma petersen_neighbor_witness : ∀ v : Fin 10, ∃ u : Fin 10, u ≠ v ∧
+    petersen (fun i => decide (i = u)) = false ∧
+    petersen (fun i => decide (i = u ∨ i = v)) = true := by
+  decide
+
+lemma petersen_no_primary_last_not_once (pre post : List Gate) (v : Fin 10) (out : ℕ)
+    (hpre : ∀ g ∈ pre, v.val ∉ g.inputs) (hpost : ∀ g ∈ post, v.val ∉ g.inputs)
+    (hops : ∀ g ∈ post, g.op = GateOp.and ∨ g.op = GateOp.or) :
+    ¬ ∀ x : Fin 10 → Bool,
+      Circuit.eval ⟨pre ++ [⟨GateOp.not, [v.val]⟩] ++ post, out⟩ (List.ofFn x) = petersen x := by
+  intro correct
+  have hout := petersen_output_not_primary _ correct v
+  obtain ⟨u, huv, hzero, hone⟩ := petersen_neighbor_witness v
+  have hdown := primary_last_not_antitone 10 pre post v out hout hpre hpost hops
+    (fun i => decide (i = u)) (fun i => decide (i = u ∨ i = v))
+    (by intro i hi; simp [hi]) (by simp [Ne.symm huv])
+  rw [correct _, correct _, hzero, hone] at hdown
+  exact Bool.false_ne_true (hdown rfl)
+
 end PEqualNP.Outside.L_meta_2592_aux

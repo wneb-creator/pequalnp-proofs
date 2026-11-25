@@ -54,3 +54,19 @@ Suggested focused counterexample search: minimum vertex-cover implementation use
 - Search source: results/orch/lemmas/search_sat.py, search_star.py, search_cgp.cpp; all logs /tmp/oec/pequalnp-pilot-117/search/.
 
 - Star-family search complete: all8orientations UNSAT (CaDiCaL exit20). Exact backtracking found120 Petersen automorphisms, min-cover orbit size5 and the orientation0 family orbit size20. All8orientations were tested directly, so cover transitivity covers all40 formulations (there are at least2orientation orbits). This remains restricted computational evidence, not a Lean proof or proof of the gap.
+
+## 2026-11-25T14:27:04.504891+00:00 elimination checked components
+- elimination_fanout.lean and stronger elimination_raw_fanout.lean both compiled with Lean4.36.0 (lake env lean, exit0, empty output). Prove single-use primary from binary fanin, unarygate, live nonoutput gates and size<2*inputs. Raw version accepts arbitrary Nat wires.
+- elimination_live_retain.lean and stronger elimination_live_retain_each.lean compiled exit0. Prove first Live-step retains either / each / both operands when target row separation contradicts losing them. Paste-ready snippets in /tmp/oec/pequalnp-pilot-117/elimination/retain-snippet.txt and retain-each-snippet.txt; lower_bound informed.
+- Caveat for signed binary lower18: pinzero after first AND or ANDNOT can produce two constant frontier terms. After first OR it produces one constant and a duplicate nonconstant input; current mass counts constants only. Generic duplicate surcharge is unsound (repeated-input XOR formula). OR needs special target reasoning or extra search, not a free duplicate charge.
+
+## 2026-11-25T14:27:25.198823+00:00 definitions_audit checked funnel consequences
+`audit_last_not.lean` now compiled with exact full Defs, exit0 and empty output. Checked wrappers exclude a sole-reader AND/OR gate combining two distinct primaries, independent of other gates or malformed wire references. Checked `petersen_no_primary_last_not_once`: a sole-reader primary cannot feed the last NOT (the suffix is AND/OR); no restriction on operations in the independent prefix. Combined with a quantitative count of t single-use primaries for t NOTs, at least one single-use primary must feed a binary gate with an internal partner, after degenerate normalization.
+
+## Normalized live representative (2026-11-25T14:27:42.595753+00:00; lemma_routes)
+
+New checked partial results/orch/lemmas/routes_normalized_live.lean: 637 lines, 29255 bytes, exact file compiled with lake env lean, exit 0 and no warnings. Complete log /tmp/oec/pequalnp-pilot-117/routes-normalized-live-final-build.log is empty. Baseline uses L7389 normalization and selected L551 dead-gate deletion lemmas; new wrapper proves a size-minimal equivalent Petersen representative D with backward reads, unary NOTs, output last, and every earlier gate read later. Crucially D retains a NOT or has strictly fewer gates than the original C. This closes the normalization/liveness hypotheses needed by the incidence argument, without assuming arbitrary circuits are well formed.
+
+The wrapper chooses a minimum equivalent circuit and prefers the original if it is already minimum; normalization then cannot reduce its size, and the generic deletion argument proves liveness. If pruning erases NOT from a <=19 circuit, D has <=18 gates; a version of the incidence argument with s+1<2n still obtains a primary read at most once without needing a monotone lower bound.
+
+No direct checked full-Petersen monotone >=19 or >=20 theorem was found in the current repository. Existing 2590 reductions still retain lower-bound children.
