@@ -1,0 +1,8 @@
+L-meta-3457 partial: complete conclusion for N <= 3
+2026-11-25T02:23:51.045248+00:00
+SHA256 cb6366057897292a3a1a828788459e7e4f3b9d44e057aca74cf85658b3fc2897
+Lines 7308
+Central lake env lean SmallCase3457.lean: exit 0, warnings only, no sorry warnings. Complete stdout/stderr preserved. Independent source review approved this exact hash.
+Combines the acyclic case, relabeled six-cycle case and finite incidence classification. The final normalization theorem proves the exact requested conclusion under the additional hypothesis N <= 3, assuming C4-free incidence, Monotone2 and exact circuit semantics. It does not need the supplied-circuit ReadsBack or singleton-clean premises. The unrestricted posted statement remains unproved.
+Retains copied custom data/proposition types, so manual format review would be required for a proof submission. This partial was not submitted to tools/check-lean.mjs as the unrestricted gap.
+Cleanup lines before: 7308; after: 7308. No full-gap cleanup pass applies because the full posted statement and its checker have not passed.
