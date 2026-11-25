@@ -1,0 +1,17 @@
+/tmp/oec/pequalnp-pilot-144/structural2590/CircuitDichotomy.lean:107:4: error: `simp` made no progress
+/tmp/oec/pequalnp-pilot-144/structural2590/CircuitDichotomy.lean:122:4: error: `simp` made no progress
+/tmp/oec/pequalnp-pilot-144/structural2590/CircuitDichotomy.lean:98:91: error: unsolved goals
+C : Circuit
+ao : TopForm.IsAO2 10 C
+budget : C.size ≤ 19
+o : Fin C.size
+hout : C.output = 10 + ↑o
+live : ∀ (j : Fin C.size), j ≠ o → 1 ≤ List.count (10 + ↑j) (List.flatMap Gate.inputs C.gates)
+twice : ∀ (i : Fin 10), 2 ≤ List.count (↑i) (List.flatMap Gate.inputs C.gates)
+dich :
+  C.size = 19 ∧
+    (∀ (i : Fin 10), List.count (↑i) (List.flatMap Gate.inputs C.gates) = 2) ∧
+      List.count (10 + ↑o) (List.flatMap Gate.inputs C.gates) = 0 ∧
+        ∀ (j : Fin C.size), j ≠ o → List.count (10 + ↑j) (List.flatMap Gate.inputs C.gates) = 1
+i : ℕ
+⊢ decide (10 ≤ i) = true

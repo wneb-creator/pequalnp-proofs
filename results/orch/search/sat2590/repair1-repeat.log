@@ -1,0 +1,2 @@
+started 2026-11-25T15:18:43.942996+00:00 z3 4.13.3.0 edits 1 free all
+{"status": "unsat", "seconds": 2.4534862559999056, "edits": 1, "free": null, "gate_count": 19, "allow_repeat": true, "canonical": false, "connected": false, "first": null, "positive_live": false, "forbid_or": "none", "single_input": null, "single_op": null, "engine": "qfbv", "single_or_helper": false}

@@ -1,0 +1,13 @@
+/tmp/oec/pequalnp-pilot-144/structural2590/CircuitDichotomy.lean:52:8: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/tmp/oec/pequalnp-pilot-144/structural2590/CircuitDichotomy.lean:65:23: error: `simp` made no progress
+/tmp/oec/pequalnp-pilot-144/structural2590/CircuitDichotomy.lean:66:67: error: `simp` made no progress
+/tmp/oec/pequalnp-pilot-144/structural2590/CircuitDichotomy.lean:68:12: error: Function expected at
+  ih
+but this term has type
+  (List.flatMap Gate.inputs gs).length = 2 * gs.length
+
+Note: Expected a function because this term is being applied to the argument
+  ht

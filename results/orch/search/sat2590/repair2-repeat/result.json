@@ -1,0 +1,17 @@
+{
+  "status": "unsat",
+  "seconds": 6.86237499899994,
+  "edits": 2,
+  "free": null,
+  "gate_count": 19,
+  "allow_repeat": true,
+  "canonical": false,
+  "connected": false,
+  "first": null,
+  "positive_live": false,
+  "forbid_or": "none",
+  "single_input": null,
+  "single_op": null,
+  "engine": "qfbv",
+  "single_or_helper": false
+}

@@ -1,0 +1,7 @@
+{
+  "inputs": 1024,
+  "maximal_false": 15,
+  "total_false": 76,
+  "maximum_independent": 4,
+  "alpha_deleted_edge": 4
+}

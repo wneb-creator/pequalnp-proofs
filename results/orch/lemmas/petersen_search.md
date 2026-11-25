@@ -16,6 +16,16 @@ Statuses checked in the public content-addressed data feed on2026-11-25, using m
 
 Structural agent observed: a live minimal binary circuit with19gates has at most20 input occurrences. If each of the10 variables has at least2, all20 occurrences are inputs and each nonoutput gate has exactly1 reader: the circuit is a formula with at most20leaves.
 
-L_meta_531.lean gives exactly the needed formula lower bound: for every triangle-free,C4-free graphG and monotone DMFormula computing its edge function, there exists a vertex coverT with |E|+|T|<=leaves. Petersen has15edges and minimum cover6, so needs at least21leaves. The checked proof is only454lines/24KB and imports narrow Mathlib modules plus Defs. I am transplanting and specializing it in PetersenFormula.lean; structural agent owns converting circuits to formulas and the complementary single-read-input case.
+L_meta_531.lean gives exactly the needed formula lower bound: for every triangle-free,C4-free graphG and monotone DMFormula computing its edge function, there exists a vertex coverT with |E|+|T|<=leaves. Petersen has15edges and minimum cover6, so needs at least21leaves. The checked proof is only454lines/24KB and imports narrow Mathlib modules plus Defs. The complete transplant and Petersen specialization now compile in PetersenFormula.lean (exit 0, empty /tmp/oec/pequalnp-pilot-144/petersen-formula-compile-3.log). Main interface: PEqualNP.Outside.L_meta_2590_aux.Formula.leaves_ge_twentyone, with DMFormula monotonicity and correctness against Formula.target as hypotheses. Structural agent owns converting circuits to formulas and the complementary single-read-input case.
 
 No direct unrestricted Petersen monotone20-gate lower bound was found in the repository. Many checked descendants instead concern the9-vertex deleted graph or circuits with free derived inputs and restricted NOT counts.
+
+## Search coverage
+
+All 712 locally checked L_meta files associated with Petersen by the public search index were inspected at the final-theorem level (scratch all-petersen-finals.json). No unrestricted lower bound of 18 for the 14-edge Petersen-minus-edge graph was found. The deleted/removed indexed candidates L1664, L2496, L5120, L2509, L2191, L2036 and L2040 concern smaller 8- and 9-input cofactors. This is absence from the inspected corpus, not a mathematical impossibility claim.
+
+## Essential input helper (compiled)
+
+PetersenEssential.lean imports only PEqualNP.Defs and compiles with exit 0 and an empty essential-compile-3.log. The generic fold induction proves changing an unread input cannot change circuit evaluation when that input is not the output wire. The Petersen specialization proves output is not an input wire, using singleton false rows; every input is essential, using the three spoke-edge witnesses. The result Essential.petersen_input_count_pos requires only correctness and gives 1 <= (C.gates.flatMap Gate.inputs).count i.val for every i : Fin 10. Essential.target is definitionally equal to Formula.target.
+
+Public child L-meta-7889 exact formal statement is saved in scratch statement-7889.txt; full metadata lemma-7889-public.json. Public record has no imports field; its parent reduction imports only PEqualNP.Defs. No child lease requested.

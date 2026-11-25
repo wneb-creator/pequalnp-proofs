@@ -1,0 +1,127 @@
+{
+  "status": "sat",
+  "seconds": 0.06884648100003687,
+  "edits": 0,
+  "free": null,
+  "gate_count": 20,
+  "allow_repeat": true,
+  "canonical": true,
+  "connected": true,
+  "first": [
+    1,
+    0,
+    2
+  ],
+  "positive_live": true,
+  "forbid_or": "edges",
+  "single_input": null,
+  "single_op": null,
+  "engine": "qfbv",
+  "single_or_helper": false,
+  "essential": true,
+  "monotone_rows": true,
+  "gates": [
+    [
+      1,
+      0,
+      2
+    ],
+    [
+      1,
+      2,
+      4
+    ],
+    [
+      1,
+      2,
+      5
+    ],
+    [
+      1,
+      4,
+      5
+    ],
+    [
+      1,
+      4,
+      6
+    ],
+    [
+      1,
+      5,
+      6
+    ],
+    [
+      1,
+      6,
+      10
+    ],
+    [
+      1,
+      8,
+      11
+    ],
+    [
+      0,
+      7,
+      12
+    ],
+    [
+      0,
+      0,
+      13
+    ],
+    [
+      1,
+      7,
+      14
+    ],
+    [
+      0,
+      8,
+      15
+    ],
+    [
+      0,
+      1,
+      16
+    ],
+    [
+      0,
+      3,
+      17
+    ],
+    [
+      0,
+      9,
+      20
+    ],
+    [
+      1,
+      19,
+      22
+    ],
+    [
+      1,
+      23,
+      25
+    ],
+    [
+      1,
+      24,
+      26
+    ],
+    [
+      1,
+      21,
+      27
+    ],
+    [
+      1,
+      18,
+      28
+    ]
+  ],
+  "exhaustive_errors": [],
+  "verified_assignments": 1024
+}

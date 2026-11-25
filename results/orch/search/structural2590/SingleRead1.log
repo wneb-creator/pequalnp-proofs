@@ -1,0 +1,4 @@
+/tmp/oec/pequalnp-pilot-144/structural2590/SingleRead.lean:912:16: error(lean.unknownIdentifier): Unknown constant `Bool.and_eq_true.mp`
+/tmp/oec/pequalnp-pilot-144/structural2590/SingleRead.lean:912:49: error(lean.unknownIdentifier): Unknown constant `Bool.and_eq_true.mp`
+/tmp/oec/pequalnp-pilot-144/structural2590/SingleRead.lean:916:16: error(lean.unknownIdentifier): Unknown constant `Bool.and_eq_true.mp`
+/tmp/oec/pequalnp-pilot-144/structural2590/SingleRead.lean:916:49: error(lean.unknownIdentifier): Unknown constant `Bool.and_eq_true.mp`

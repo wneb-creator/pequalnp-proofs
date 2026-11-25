@@ -1,0 +1,67 @@
+/tmp/oec/pequalnp-pilot-144/structural2590/Compression.lean:150:38: warning: This simp argument is unused:
+  List.getElem?_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, bound]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-144/structural2590/Compression.lean:171:85: error: unsolved goals
+before after : List Gate
+g : Gate
+out : ℕ
+unread : ∀ h ∈ before ++ after, 0 ∉ h.inputs
+outne : out ≠ 0
+x : Fin 10 → Bool
+a : List Bool := List.foldl step (List.ofFn x) before
+bit : Bool := g.op.eval (List.map (fun j => a.getD j false) g.inputs)
+y : Fin 10 → Bool := Function.update x 0 bit
+b : List Bool := List.foldl step (List.ofFn y) before
+hlen : a.length = b.length
+same : ∀ (j : ℕ), j ≠ 0 → a.getD j false = b.getD j false
+bzero : b.getD 0 false = bit
+⊢ b[0]?.getD false = bit
+/tmp/oec/pequalnp-pilot-144/structural2590/Compression.lean:188:2: error: Type mismatch: After simplification, term
+  tail
+ has type
+  @Eq Bool ((List.foldl step (step a g) after).getD out false)
+    ((List.foldl step (step b { op := GateOp.or, inputs := [0] }) after).getD out false)
+but is expected to have type
+  @Eq Bool
+    ((List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)])
+          (List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)]) (List.ofFn x)
+              before ++
+            [g.op.eval
+                (List.map
+                  (fun i =>
+                    (List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)])
+                          (List.ofFn x) before).getD
+                      i false)
+                  g.inputs)])
+          after).getD
+      out false)
+    ((List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)])
+          (List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)])
+              (List.ofFn
+                (Function.update x 0
+                  (g.op.eval (List.map (fun j => (List.foldl step (List.ofFn x) before).getD j false) g.inputs))))
+              before ++
+            [GateOp.or.eval
+                (List.map
+                  (fun i =>
+                    (List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)])
+                          (List.ofFn
+                            (Function.update x 0
+                              (g.op.eval
+                                (List.map (fun j => (List.foldl step (List.ofFn x) before).getD j false) g.inputs))))
+                          before).getD
+                      i false)
+                  [0])])
+          after).getD
+      out false)
+/tmp/oec/pequalnp-pilot-144/structural2590/Compression.lean:172:23: warning: This simp argument is unused:
+  bzero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GateOp.eval]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

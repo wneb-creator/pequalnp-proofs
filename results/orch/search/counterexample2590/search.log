@@ -1,0 +1,22 @@
+{"seed": 2590, "elapsed": 5.89289998060849e-05, "iterations": 1, "errors": 2, "gates": [[1, 4, 2], [1, 10, 8], [0, 3, 11], [1, 2, 6], [1, 13, 0], [0, 1, 14], [1, 4, 5], [0, 0, 16], [1, 5, 6], [0, 8, 18], [1, 2, 9], [0, 7, 5], [1, 4, 6], [0, 9, 22], [1, 15, 17], [1, 12, 21], [1, 19, 24], [1, 23, 26], [1, 27, 25]]}
+{"seed": 2590, "elapsed": 0.08684734399980698, "iterations": 28673, "errors": 1, "gates": [[1, 6, 3], [1, 4, 2], [0, 3, 11], [1, 2, 6], [1, 13, 0], [0, 1, 14], [1, 4, 5], [0, 0, 16], [1, 2, 5], [1, 10, 5], [0, 9, 6], [0, 8, 19], [1, 9, 18], [0, 22, 7], [1, 15, 20], [1, 23, 12], [1, 21, 24], [1, 17, 26], [1, 27, 25]]}
+{"elapsed": 30.00000165099982, "iterations": 9474581, "restarts": 190, "best": 1}
+{"elapsed": 60.000003317999926, "iterations": 18320850, "restarts": 367, "best": 1}
+{"elapsed": 90.00000383199995, "iterations": 23974183, "restarts": 480, "best": 1}
+{"elapsed": 120.00000472499983, "iterations": 29282905, "restarts": 586, "best": 1}
+{"elapsed": 150.00000510199993, "iterations": 33121965, "restarts": 663, "best": 1}
+{"elapsed": 180.00000675299998, "iterations": 38090359, "restarts": 762, "best": 1}
+{"elapsed": 210.00000836899994, "iterations": 41968649, "restarts": 840, "best": 1}
+{"elapsed": 240.0000085759998, "iterations": 44459648, "restarts": 890, "best": 1}
+{"elapsed": 270.00016474899985, "iterations": 47310446, "restarts": 947, "best": 1}
+{"elapsed": 300.0041289449998, "iterations": 49982698, "restarts": 1000, "best": 1}
+{"elapsed": 330.00815056299984, "iterations": 53040330, "restarts": 1061, "best": 1}
+{"elapsed": 360.00815865999994, "iterations": 55338213, "restarts": 1107, "best": 1}
+{"elapsed": 390.00816190699993, "iterations": 59115464, "restarts": 1183, "best": 1}
+{"elapsed": 420.012131596, "iterations": 62952453, "restarts": 1260, "best": 1}
+{"elapsed": 450.04669928299995, "iterations": 65445240, "restarts": 1309, "best": 1}
+{"elapsed": 480.0468276089998, "iterations": 68123581, "restarts": 1363, "best": 1}
+{"elapsed": 510.046829031, "iterations": 71770148, "restarts": 1436, "best": 1}
+{"elapsed": 540.0514897629998, "iterations": 76909434, "restarts": 1539, "best": 1}
+{"elapsed": 570.0514903459998, "iterations": 80056630, "restarts": 1602, "best": 1}
+{"finished": true, "elapsed": 600.0000107619999, "iterations": 84130827, "restarts": 1683, "best": 1}

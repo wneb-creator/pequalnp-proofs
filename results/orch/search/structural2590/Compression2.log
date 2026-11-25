@@ -1,0 +1,65 @@
+/tmp/oec/pequalnp-pilot-144/structural2590/Compression.lean:172:4: error: 'change' tactic failed, pattern
+  (b.getD 0 false || decide (false = bit)) = true
+is not definitionally equal to target
+  GateOp.or.eval (List.map (fun j => b.getD j false) [0]) = bit
+/tmp/oec/pequalnp-pilot-144/structural2590/Compression.lean:190:2: error: Type mismatch: After simplification, term
+  tail
+ has type
+  @Eq Bool
+    ((List.foldl step
+          (List.foldl step (List.ofFn x) before ++
+            [g.op.eval (List.map (fun i => (List.foldl step (List.ofFn x) before).getD i false) g.inputs)])
+          after).getD
+      out false)
+    ((List.foldl step
+          (List.foldl step
+              (List.ofFn
+                (Function.update x 0
+                  (g.op.eval (List.map (fun j => (List.foldl step (List.ofFn x) before).getD j false) g.inputs))))
+              before ++
+            [GateOp.or.eval
+                (List.map
+                  (fun i =>
+                    (List.foldl step
+                          (List.ofFn
+                            (Function.update x 0
+                              (g.op.eval
+                                (List.map (fun j => (List.foldl step (List.ofFn x) before).getD j false) g.inputs))))
+                          before).getD
+                      i false)
+                  [0])])
+          after).getD
+      out false)
+but is expected to have type
+  @Eq Bool
+    ((List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)])
+          (List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)]) (List.ofFn x)
+              before ++
+            [g.op.eval
+                (List.map
+                  (fun i =>
+                    (List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)])
+                          (List.ofFn x) before).getD
+                      i false)
+                  g.inputs)])
+          after).getD
+      out false)
+    ((List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)])
+          (List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)])
+              (List.ofFn
+                (Function.update x 0
+                  (g.op.eval (List.map (fun j => (List.foldl step (List.ofFn x) before).getD j false) g.inputs))))
+              before ++
+            [GateOp.or.eval
+                (List.map
+                  (fun i =>
+                    (List.foldl (fun w g => w ++ [g.op.eval (List.map (fun i => w.getD i false) g.inputs)])
+                          (List.ofFn
+                            (Function.update x 0
+                              (g.op.eval
+                                (List.map (fun j => (List.foldl step (List.ofFn x) before).getD j false) g.inputs))))
+                          before).getD
+                      i false)
+                  [0])])
+          after).getD
+      out false)

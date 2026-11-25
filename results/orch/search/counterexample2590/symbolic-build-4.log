@@ -1,0 +1,88 @@
+/tmp/oec/pequalnp-pilot-144/counterexample2590/PetersenSymbolic.lean:63:38: error: Tactic `rfl` failed: The left-hand side
+  false && decide ((false || false) = (false && false)) || false && false
+is not definitionally equal to the right-hand side
+  true
+
+case false.false.false
+⊢ (false && decide ((false || false) = (false && false)) || false && false) = true
+/tmp/oec/pequalnp-pilot-144/counterexample2590/PetersenSymbolic.lean:63:38: error: Tactic `rfl` failed: The left-hand side
+  false && decide ((false || true) = (false && false)) || false && true
+is not definitionally equal to the right-hand side
+  true
+
+case false.false.true
+⊢ (false && decide ((false || true) = (false && false)) || false && true) = true
+/tmp/oec/pequalnp-pilot-144/counterexample2590/PetersenSymbolic.lean:63:38: error: Tactic `rfl` failed: The left-hand side
+  false && decide ((true || false) = (false && true)) || false && false
+is not definitionally equal to the right-hand side
+  true
+
+case false.true.false
+⊢ (false && decide ((true || false) = (false && true)) || false && false) = true
+/tmp/oec/pequalnp-pilot-144/counterexample2590/PetersenSymbolic.lean:63:38: error: Tactic `rfl` failed: The left-hand side
+  false && decide ((true || true) = (false && true)) || false && true
+is not definitionally equal to the right-hand side
+  true
+
+case false.true.true
+⊢ (false && decide ((true || true) = (false && true)) || false && true) = true
+/tmp/oec/pequalnp-pilot-144/counterexample2590/PetersenSymbolic.lean:66:38: error: Tactic `rfl` failed: The left-hand side
+  (false || false) && decide (false = (false && false)) || false && false
+is not definitionally equal to the right-hand side
+  true
+
+case false.false.false
+⊢ ((false || false) && decide (false = (false && false)) || false && false) = true
+/tmp/oec/pequalnp-pilot-144/counterexample2590/PetersenSymbolic.lean:66:38: error: Tactic `rfl` failed: The left-hand side
+  (false || false) && decide (true = (false && true)) || false && true
+is not definitionally equal to the right-hand side
+  true
+
+case false.false.true
+⊢ ((false || false) && decide (true = (false && true)) || false && true) = true
+/tmp/oec/pequalnp-pilot-144/counterexample2590/PetersenSymbolic.lean:72:2: error: Tactic `rfl` failed: equality lhs
+  x 0 && (x 1 || (x 4 || x 5)) ||
+    (x 1 && (x 2 || x 6) ||
+      (x 3 && (x 2 || (x 4 || x 8)) || (x 7 && (x 2 || (x 5 || x 9)) || (x 8 && (x 5 || x 6) || x 9 && (x 4 || x 6)))))
+is not definitionally equal to rhs
+  x 0 && x 1 ||
+    (x 0 && x 4 ||
+      (x 0 && x 5 ||
+        (x 1 && x 2 ||
+          (x 1 && x 6 ||
+            (x 2 && x 3 ||
+              (x 2 && x 7 ||
+                (x 3 && x 4 ||
+                  (x 3 && x 8 ||
+                    (x 4 && x 9 || (x 5 && x 7 || (x 5 && x 8 || (x 6 && x 8 || (x 6 && x 9 || x 7 && x 9)))))))))))))
+
+x : Fin 10 → Bool
+⊢ (x 0 && (x 1 || (x 4 || x 5)) ||
+      (x 1 && (x 2 || x 6) ||
+        (x 3 && (x 2 || (x 4 || x 8)) ||
+          (x 7 && (x 2 || (x 5 || x 9)) || (x 8 && (x 5 || x 6) || x 9 && (x 4 || x 6)))))) =
+    (x 0 && x 1 ||
+      (x 0 && x 4 ||
+        (x 0 && x 5 ||
+          (x 1 && x 2 ||
+            (x 1 && x 6 ||
+              (x 2 && x 3 ||
+                (x 2 && x 7 ||
+                  (x 3 && x 4 ||
+                    (x 3 && x 8 ||
+                      (x 4 && x 9 ||
+                        (x 5 && x 7 || (x 5 && x 8 || (x 6 && x 8 || (x 6 && x 9 || x 7 && x 9))))))))))))))
+/tmp/oec/pequalnp-pilot-144/counterexample2590/PetersenSymbolic.lean:71:41: warning: This simp argument is unused:
+  bandOr
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [petersenValue, petersenFun, borAnd]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-144/counterexample2590/PetersenSymbolic.lean:71:49: warning: This simp argument is unused:
+  borAnd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [petersenValue, petersenFun, bandOr]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

@@ -1,0 +1,24 @@
+{
+  "gate_count": 19,
+  "false_positive_count": 0,
+  "false_negative_count": 9,
+  "missing_edges": [
+    [
+      4,
+      9
+    ]
+  ],
+  "false_positives": [],
+  "false_negatives": [
+    528,
+    530,
+    532,
+    560,
+    562,
+    564,
+    784,
+    786,
+    788
+  ],
+  "valid_counterexample": false
+}

@@ -125,3 +125,29 @@
  "next_beat_s": 300
 }
 
+
+2026-11-25T15:20:39.390433+00:00
+{
+ "lease": {
+  "id": "a1cdb295-f879-4902-baa7-ce60a1f1590b",
+  "expires_at": "2026-11-25T15:40:39.155Z",
+  "renew": "POST /desk/beat?lease=a1cdb295-f879-4902-baa7-ce60a1f1590b",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=a1cdb295-f879-4902-baa7-ce60a1f1590b&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 149,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T15:07:28.124Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+
+2026-11-25T15:24:31.468431+00:00
+{
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+

@@ -1,0 +1,21 @@
+/tmp/oec/pequalnp-pilot-144/structural2590/CircuitDichotomy.lean:112:14: warning: This simp argument is unused:
+  List.count_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hout, dich.2.2.1]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-144/structural2590/CircuitDichotomy.lean:120:12: warning: This simp argument is unused:
+  List.count_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.count_eq_zero.mpr absent, beq_iff_eq, ne]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-144/structural2590/CircuitDichotomy.lean:120:60: warning: This simp argument is unused:
+  beq_iff_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.count_cons, List.count_eq_zero.mpr absent, ne]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

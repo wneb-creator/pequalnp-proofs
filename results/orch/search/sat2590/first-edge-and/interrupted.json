@@ -1,0 +1,6 @@
+{
+  "status": "interrupted",
+  "at": "2026-11-25T15:25:32.902641+00:00",
+  "reason": "Root reported lease no longer live; all search stopped immediately",
+  "no_verdict": true
+}

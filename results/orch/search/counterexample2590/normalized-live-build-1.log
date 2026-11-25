@@ -1,0 +1,20 @@
+/tmp/oec/pequalnp-pilot-144/counterexample2590/NormalizedLive.lean:637:56: warning: This simp argument is unused:
+  List.getElem?_set
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hh]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-144/counterexample2590/NormalizedLive.lean:669:16: warning: This simp argument is unused:
+  List.getElem?_set
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E, X, hk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-144/counterexample2590/NormalizedLive.lean:734:61: error: Type mismatch: After simplification, term
+  hz
+ has type
+  List.count (n + ↑j) (List.flatMap Gate.inputs D.gates) = 0
+but is expected to have type
+  ∀ x ∈ D.gates, n + ↑j ∉ x.inputs

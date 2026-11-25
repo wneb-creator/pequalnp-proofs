@@ -1,0 +1,7 @@
+/tmp/oec/pequalnp-pilot-144/counterexample2590/PetersenSymbolic.lean:71:49: warning: This simp argument is unused:
+  borAnd
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [petersenValue, petersenFun, bandOr]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

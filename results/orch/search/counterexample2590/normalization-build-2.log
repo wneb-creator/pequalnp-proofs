@@ -1,0 +1,60 @@
+/tmp/oec/pequalnp-pilot-144/counterexample2590/Normalization.lean:48:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-144/counterexample2590/Normalization.lean:49:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-144/counterexample2590/Normalization.lean:78:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-144/counterexample2590/Normalization.lean:107:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  f x
+in the target expression
+  (W new x).getD j false = (fun x => f x && g x) x
+
+case pos
+n : ℕ
+new : List Gate
+f g : (Fin n → Bool) → Bool
+j : ℕ
+hj : j < n + new.length
+hjv : ∀ (x : Fin n → Bool), (W new x).getD j false = f x
+hk : j < n + new.length
+hkv : ∀ (x : Fin n → Bool), (W new x).getD j false = g x
+x : Fin n → Bool
+⊢ (W new x).getD j false = (fun x => f x && g x) x
+/tmp/oec/pequalnp-pilot-144/counterexample2590/Normalization.lean:113:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-144/counterexample2590/Normalization.lean:144:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  f x
+in the target expression
+  (W new x).getD j false = (fun x => f x || g x) x
+
+case pos
+n : ℕ
+new : List Gate
+f g : (Fin n → Bool) → Bool
+j : ℕ
+hj : j < n + new.length
+hjv : ∀ (x : Fin n → Bool), (W new x).getD j false = f x
+hk : j < n + new.length
+hkv : ∀ (x : Fin n → Bool), (W new x).getD j false = g x
+x : Fin n → Bool
+⊢ (W new x).getD j false = (fun x => f x || g x) x
+/tmp/oec/pequalnp-pilot-144/counterexample2590/Normalization.lean:150:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-144/counterexample2590/Normalization.lean:243:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-144/counterexample2590/Normalization.lean:246:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲

@@ -1,0 +1,5 @@
+/tmp/oec/pequalnp-pilot-144/counterexample2590/Normalization.lean:1:0: error: unknown module prefix 'PEqualNP'
+
+No directory 'PEqualNP' or file 'PEqualNP.olean' in the search path entries:
+/tmp/oec/pequalnp-pilot-144/toolchain/lean-4.36.0-linux/lib/lean
+/tmp/oec/pequalnp-pilot-144/toolchain/lean-4.36.0-linux/lib/lean

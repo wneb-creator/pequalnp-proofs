@@ -31,3 +31,9 @@ Correction to local-repair UNSAT scope: Fano one/two-edit repair exclusions used
 
 Current2590 local checker attempt: CHECKER FAULT: the prebuilt Mathlib cache is missing. Exit3.
 Kernel axiom audit of formula bound/count dichotomy/sample circuit uses only propext, Classical.choice, Quot.sound.
+
+Checkpoint4: reviewed and compiled live normalization, single-read input theorem, unique-reader split, full20-gate upper witness, essential-input lemma. No full2590 proof or7889 proof.
+Second lease loss:2590 beat returned410 before lastreportedexpiry15:40:39; exactmessage and fullheaders/body archived. All proof/search work paused. No release request made.
+Draft Compression and Rename sources are archived but NOT claimed compiled; interrupted solver runs have no verdict.
+Sub-agents: 6 — repo_recon, structural_proof, dirty_blocks, counterexample, lemma_search, sat_search.
+TIMING total=33.4 subagents=6

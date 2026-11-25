@@ -1,0 +1,17 @@
+{
+  "at": "2026-11-25T15:25:32.902641+00:00",
+  "reason": "lease lost; awaiting explicit root confirmation",
+  "stopped_pids": [
+    5805,
+    5808,
+    8581,
+    9823
+  ],
+  "interrupted_trials": [
+    "full19-canonical",
+    "first-edge-and",
+    "single0-or-helper",
+    "repair4-repeat"
+  ],
+  "counterexample_found": false
+}

@@ -1,0 +1,34 @@
+/tmp/oec/pequalnp-pilot-144/counterexample2590/PetersenSymbolic.lean:63:41: error(lean.unknownIdentifier): Unknown constant `Bool.and_or`
+/tmp/oec/pequalnp-pilot-144/counterexample2590/PetersenSymbolic.lean:63:54: error(lean.unknownIdentifier): Unknown constant `Bool.or_and`
+/tmp/oec/pequalnp-pilot-144/counterexample2590/PetersenSymbolic.lean:64:2: error: Tactic `rfl` failed: equality lhs
+  x 0 && (x 1 || (x 4 || x 5)) ||
+    (x 1 && (x 2 || x 6) ||
+      (x 3 && (x 2 || (x 4 || x 8)) || (x 7 && (x 2 || (x 5 || x 9)) || (x 8 && (x 5 || x 6) || x 9 && (x 4 || x 6)))))
+is not definitionally equal to rhs
+  x 0 && x 1 ||
+    (x 0 && x 4 ||
+      (x 0 && x 5 ||
+        (x 1 && x 2 ||
+          (x 1 && x 6 ||
+            (x 2 && x 3 ||
+              (x 2 && x 7 ||
+                (x 3 && x 4 ||
+                  (x 3 && x 8 ||
+                    (x 4 && x 9 || (x 5 && x 7 || (x 5 && x 8 || (x 6 && x 8 || (x 6 && x 9 || x 7 && x 9)))))))))))))
+
+x : Fin 10 → Bool
+⊢ (x 0 && (x 1 || (x 4 || x 5)) ||
+      (x 1 && (x 2 || x 6) ||
+        (x 3 && (x 2 || (x 4 || x 8)) ||
+          (x 7 && (x 2 || (x 5 || x 9)) || (x 8 && (x 5 || x 6) || x 9 && (x 4 || x 6)))))) =
+    (x 0 && x 1 ||
+      (x 0 && x 4 ||
+        (x 0 && x 5 ||
+          (x 1 && x 2 ||
+            (x 1 && x 6 ||
+              (x 2 && x 3 ||
+                (x 2 && x 7 ||
+                  (x 3 && x 4 ||
+                    (x 3 && x 8 ||
+                      (x 4 && x 9 ||
+                        (x 5 && x 7 || (x 5 && x 8 || (x 6 && x 8 || (x 6 && x 9 || x 7 && x 9))))))))))))))
