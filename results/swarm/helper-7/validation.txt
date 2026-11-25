@@ -1,0 +1,73 @@
+Helper-7 research record for L-meta-3566
+Snapshot recorded 2026-11-25 21:21 UTC. This directory is a computational research artifact, not a proof submission.
+No Lean certificate, no final theorem, and no counterexample to L-meta-3566 were produced.
+No PR is intended for this helper record. The posted gap remains unresolved by this work.
+
+Observed bounded-synthesis results (external solver, not certified lower-bound proofs):
+  Graph       SAT gate count   UNSAT at most   SAT assignments checked
+  C4          3                2              16
+  C6          8                7              64
+  C6leaf      9                8              128
+  C8          11               10             256
+C4 is a deliberate control: it violates the no-four-cycle hypothesis.
+C6leaf is a six-cycle with one pendant leaf.
+The C8 UNSAT run used symmetry, undominated, and oriented pruning and took 171.02 seconds.
+The C8 11-gate SAT witness was constructed from a minimum vertex cover, then explicitly
+pinned in the strongest CNF; it was also checked against all 256 Boolean inputs.
+These paired results indicate the listed optima subject to the SAT encoding and solver.
+They are not Lean-checked results, and no independent UNSAT certificate is included.
+
+Searches on theta333 at 11 gates, Heawood at 26 gates, and C10chords0 at 15 gates
+have UNKNOWN status in the saved summaries. Those runs were interrupted to change
+search strategies. UNKNOWN is neither a counterexample nor a lower bound. Other
+searches may still have been running when this snapshot was prepared; they are not
+represented as completed results here. The full theta333 queries remain running at this snapshot. A Heawood CEGAR run
+ended UNKNOWN after 606 seconds: three relaxed witnesses failed exhaustive evaluation
+with 186, 181, and 173 false-positive inputs; the fourth query timed out at 300 seconds.
+
+Encoding and validation:
+- Positive rows are graph edges. Negative rows are maximal independent sets.
+  For monotone circuits these boundary rows determine the complete graph function.
+- Every gate selects two earlier wires and AND or OR. A real prefix followed by
+  repeated-input copy gates represents at most k gates, not only exactly k.
+- Normalization removes redundant gates on the boundary rows, enforces useful gates,
+  retains all live gates, and orders gates by maximum predecessor index.
+- Optional symmetry uses explicitly verified graph automorphisms and colexicographic
+  pair representatives compatible with that gate order.
+- Optional dominance and oriented-operand pruning follow from replacing a gate by
+  an earlier wire that improves every specified row toward the required output.
+- optimization_review independently audited the base encoding, padding, boundary
+  completeness, symmetry, usefulness, dominance, and oriented clauses. No bug was found.
+- Root separately reviewed the Boolean clauses and padding.
+- optimization_review independently reviewed the complete portable artifact and all
+  stored evidence before publication; four SAT witnesses and all thirteen fixtures passed.
+- sat_setup independently reviewed the CEGAR refinement code. No bug was found.
+  Its graph symmetry is disabled because partial negative samples need not be invariant.
+- Every saved SAT witness was evaluated on every Boolean input. C8 and C6leaf known
+  cover circuits also passed pinned strongest-CNF checks. optimization_review
+  independently checked a second C8 witness and its strongest CNF.
+
+Solver: Kissat 4.0.4, official source commit
+8af8e56f174b778aef3aa45af9f739b2a5f492c2.
+Source: https://github.com/arminbiere/kissat
+SAT and UNSAT DIMACS smoke checks returned the expected exit codes 10 and 20.
+The portable copies were tested from a different directory: all CLI help commands,
+stored-witness verification, C4 strongest synthesis, C8/C6leaf planted checks, and
+C4 CEGAR passed. The artifact contains no job-specific filesystem paths.
+The solver executable is not bundled. No network access or credentials are required
+by these scripts. Supply --solver PATH or put kissat on PATH.
+
+Portable reproduction (run from this directory):
+  python3 verify_evidence.py
+  python3 synthesize.py --graph C6 --k 7 --plain --seconds 60 --solver PATH
+  python3 synthesize.py --graph C8 --k 10 --symmetry --undominated --oriented --seconds 600 --solver PATH
+  python3 planted_check.py --solver PATH
+  python3 cegar.py --graph Heawood --k 26 --undominated --oriented --solver PATH
+Here PATH means the local Kissat executable. New CNFs and complete solver stdout/stderr
+are retained under synthesis/ and excluded from version control. evidence.json contains
+only small result summaries and SAT witnesses; full original diagnostics remain with
+the live job and are not bundled. Exponential graph enumeration limits practical input size.
+
+Sub-agents: toolchain, sat_setup, optimization_review
+TIMING total=20.0 subagents=3
+Timing is cumulative at this research snapshot; work continues toward the full target.

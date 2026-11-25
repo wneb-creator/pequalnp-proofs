@@ -1,0 +1,1 @@
+{"name":"C8","n":8,"edges":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,0]],"bipartite_checked":true,"no_four_cycle_checked":true,"tau":4,"standard_bound":11}

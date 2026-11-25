@@ -1,0 +1,1 @@
+{"name":"C6","n":6,"edges":[[0,1],[1,2],[2,3],[3,4],[4,5],[5,0]],"bipartite_checked":true,"no_four_cycle_checked":true,"tau":3,"standard_bound":8}

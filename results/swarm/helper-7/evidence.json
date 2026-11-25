@@ -1,0 +1,400 @@
+{
+  "kind": "uncertified computational research evidence",
+  "gap": "L-meta-3566",
+  "solver": "Kissat 4.0.4",
+  "solver_source_commit": "8af8e56f174b778aef3aa45af9f739b2a5f492c2",
+  "results": [
+    {
+      "graph": "C4",
+      "k": 2,
+      "normalized": false,
+      "exit": 20,
+      "seconds": 0.002239689999953498,
+      "vars": 58,
+      "clauses": 263,
+      "status": "UNSAT",
+      "source_run": "C4-k2-plain-s0",
+      "flags": {
+        "normalized": false,
+        "distinct": false,
+        "undominated": false,
+        "oriented": false,
+        "symmetry": false
+      }
+    },
+    {
+      "graph": "C4",
+      "k": 3,
+      "normalized": true,
+      "exit": 10,
+      "seconds": 0.005988162999983615,
+      "vars": 126,
+      "clauses": 547,
+      "status": "SAT",
+      "gates": [
+        {
+          "op": "or",
+          "left": 0,
+          "right": 2,
+          "pad": false
+        },
+        {
+          "op": "or",
+          "left": 1,
+          "right": 3,
+          "pad": false
+        },
+        {
+          "op": "and",
+          "left": 4,
+          "right": 5,
+          "pad": false
+        }
+      ],
+      "truth_rows_checked": 16,
+      "actual_gates": 3,
+      "source_run": "C4-k3-norm-s0",
+      "flags": {
+        "normalized": true,
+        "distinct": false,
+        "undominated": false,
+        "oriented": false,
+        "symmetry": false
+      }
+    },
+    {
+      "graph": "C6",
+      "k": 7,
+      "normalized": false,
+      "exit": 20,
+      "seconds": 3.8308856950000063,
+      "vars": 371,
+      "clauses": 3215,
+      "status": "UNSAT",
+      "source_run": "C6-k7-plain-s0",
+      "flags": {
+        "normalized": false,
+        "distinct": false,
+        "undominated": false,
+        "oriented": false,
+        "symmetry": false
+      }
+    },
+    {
+      "graph": "C6",
+      "k": 8,
+      "normalized": true,
+      "exit": 10,
+      "seconds": 2.6658114610000325,
+      "vars": 608,
+      "clauses": 4614,
+      "status": "SAT",
+      "gates": [
+        {
+          "op": "or",
+          "left": 1,
+          "right": 3,
+          "pad": false
+        },
+        {
+          "op": "or",
+          "left": 3,
+          "right": 5,
+          "pad": false
+        },
+        {
+          "op": "or",
+          "left": 1,
+          "right": 5,
+          "pad": false
+        },
+        {
+          "op": "and",
+          "left": 2,
+          "right": 6,
+          "pad": false
+        },
+        {
+          "op": "and",
+          "left": 4,
+          "right": 7,
+          "pad": false
+        },
+        {
+          "op": "and",
+          "left": 0,
+          "right": 8,
+          "pad": false
+        },
+        {
+          "op": "or",
+          "left": 9,
+          "right": 10,
+          "pad": false
+        },
+        {
+          "op": "or",
+          "left": 11,
+          "right": 12,
+          "pad": false
+        }
+      ],
+      "truth_rows_checked": 64,
+      "actual_gates": 8,
+      "source_run": "C6-k8-norm-s0",
+      "flags": {
+        "normalized": true,
+        "distinct": false,
+        "undominated": false,
+        "oriented": false,
+        "symmetry": false
+      }
+    },
+    {
+      "graph": "C6leaf",
+      "k": 8,
+      "normalized": true,
+      "exit": 20,
+      "seconds": 14.695878195999967,
+      "vars": 704,
+      "clauses": 5699,
+      "status": "UNSAT",
+      "source_run": "C6leaf-k8-norm-s0-1795640757272334593",
+      "flags": {
+        "normalized": true,
+        "distinct": false,
+        "undominated": false,
+        "oriented": false,
+        "symmetry": false
+      }
+    },
+    {
+      "graph": "C6leaf",
+      "k": 9,
+      "normalized": true,
+      "exit": 10,
+      "seconds": 14.772838097000033,
+      "vars": 801,
+      "clauses": 6856,
+      "status": "SAT",
+      "gates": [
+        {
+          "op": "or",
+          "left": 1,
+          "right": 3,
+          "pad": false
+        },
+        {
+          "op": "or",
+          "left": 1,
+          "right": 5,
+          "pad": false
+        },
+        {
+          "op": "or",
+          "left": 3,
+          "right": 5,
+          "pad": false
+        },
+        {
+          "op": "and",
+          "left": 2,
+          "right": 7,
+          "pad": false
+        },
+        {
+          "op": "or",
+          "left": 6,
+          "right": 8,
+          "pad": false
+        },
+        {
+          "op": "and",
+          "left": 4,
+          "right": 9,
+          "pad": false
+        },
+        {
+          "op": "and",
+          "left": 0,
+          "right": 11,
+          "pad": false
+        },
+        {
+          "op": "or",
+          "left": 12,
+          "right": 13,
+          "pad": false
+        },
+        {
+          "op": "or",
+          "left": 10,
+          "right": 14,
+          "pad": false
+        }
+      ],
+      "truth_rows_checked": 128,
+      "actual_gates": 9,
+      "source_run": "C6leaf-k9-norm-s0",
+      "flags": {
+        "normalized": true,
+        "distinct": false,
+        "undominated": false,
+        "oriented": false,
+        "symmetry": false
+      }
+    },
+    {
+      "graph": "C8",
+      "k": 10,
+      "normalized": true,
+      "exit": 20,
+      "seconds": 171.02138735999995,
+      "vars": 1980,
+      "clauses": 13221,
+      "status": "UNSAT",
+      "source_run": "C8-k10-norm-sym-undominated-oriented-s0-1795641067743037930",
+      "flags": {
+        "normalized": true,
+        "distinct": false,
+        "undominated": true,
+        "oriented": true,
+        "symmetry": true
+      }
+    },
+    {
+      "graph": "C8",
+      "status": "SAT",
+      "gates": [
+        {
+          "op": "or",
+          "left": 0,
+          "right": 2,
+          "pad": false
+        },
+        {
+          "op": "or",
+          "left": 2,
+          "right": 4,
+          "pad": false
+        },
+        {
+          "op": "or",
+          "left": 0,
+          "right": 6,
+          "pad": false
+        },
+        {
+          "op": "or",
+          "left": 4,
+          "right": 6,
+          "pad": false
+        },
+        {
+          "op": "and",
+          "left": 1,
+          "right": 8,
+          "pad": false
+        },
+        {
+          "op": "and",
+          "left": 3,
+          "right": 9,
+          "pad": false
+        },
+        {
+          "op": "and",
+          "left": 7,
+          "right": 10,
+          "pad": false
+        },
+        {
+          "op": "and",
+          "left": 5,
+          "right": 11,
+          "pad": false
+        },
+        {
+          "op": "or",
+          "left": 12,
+          "right": 13,
+          "pad": false
+        },
+        {
+          "op": "or",
+          "left": 14,
+          "right": 16,
+          "pad": false
+        },
+        {
+          "op": "or",
+          "left": 15,
+          "right": 17,
+          "pad": false
+        }
+      ],
+      "source_run": "C8-planted-1795641061114832298",
+      "k": 11,
+      "planted": true,
+      "truth_rows_checked": 256,
+      "actual_gates": 11
+    },
+    {
+      "graph": "theta333",
+      "k": 11,
+      "normalized": true,
+      "exit": -2,
+      "seconds": 156.42943981999997,
+      "vars": 1298,
+      "clauses": 12853,
+      "status": "UNKNOWN",
+      "source_run": "theta333-k11-norm-s0-1795640757989866743",
+      "flags": {
+        "normalized": true,
+        "distinct": false,
+        "undominated": false,
+        "oriented": false,
+        "symmetry": false
+      },
+      "limitation": "Interrupted search; no SAT or UNSAT conclusion."
+    },
+    {
+      "graph": "Heawood",
+      "k": 26,
+      "normalized": true,
+      "exit": -2,
+      "seconds": 104.78942849099997,
+      "vars": 8970,
+      "clauses": 170979,
+      "status": "UNKNOWN",
+      "source_run": "Heawood-k26-norm-s0-1795640758152445897",
+      "flags": {
+        "normalized": true,
+        "distinct": false,
+        "undominated": false,
+        "oriented": false,
+        "symmetry": false
+      },
+      "limitation": "Interrupted search; no SAT or UNSAT conclusion."
+    },
+    {
+      "graph": "C10chords0",
+      "k": 15,
+      "normalized": true,
+      "exit": -2,
+      "seconds": 105.44283779300002,
+      "vars": 2490,
+      "clauses": 31462,
+      "status": "UNKNOWN",
+      "source_run": "C10chords0-k15-norm-s0-1795640758042679662",
+      "flags": {
+        "normalized": true,
+        "distinct": false,
+        "undominated": false,
+        "oriented": false,
+        "symmetry": false
+      },
+      "limitation": "Interrupted search; no SAT or UNSAT conclusion."
+    }
+  ]
+}
