@@ -1,0 +1,8 @@
+File: results/orch/lemmas/SatBase.lean
+Build command (from lean/): /tmp/oec/pequalnp-pilot-100/lean-env.sh lake env lean ../results/orch/lemmas/SatBase.lean
+Build exit status: 0
+Full stdout: SatBase.stdout.txt
+Full stderr: SatBase.stderr.txt (empty)
+Result: checked encoding/kernel component and conditional bridge to L-meta-2592.
+Limitation: UNSAT hypothesis is not proved. This is not a proof of the posted gap.
+Local checker: not run as a submitted proof, because only a conditional helper is present.

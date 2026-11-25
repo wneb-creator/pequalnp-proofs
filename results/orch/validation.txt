@@ -11,3 +11,11 @@ Lines after cleanup: 76 (cleanup not attempted; full theorem incomplete).
 
 Sub-agents: 6 (status/toolchain review, structural proof, lemma routes, counterexample search, SAT/reduction strategy, independent restriction/review).
 TIMING total=16 subagents=6
+
+Checkpoint2 at 2026-11-25T14:08:22.644629+00:00
+Named module:317lines, lake build exit0. Added arbitrary terminalNOT exclusion, read-once AND factorization obstruction, and K4 summary obstruction. Independent integration review:lemma_routes PASS.
+SatBase.lean:2332lines/102025bytes, direct Lean exit0. Conditional LRAT bridge has exactpostedconclusion but an unprovedUNSATpremise; notafullproof. Independent review:lemma_routes PASS forpartialpreservation; customtypes/instancewouldrequiremanualreviewifsubmitted.
+Localchecker attempt: CHECKER FAULT — missing Batteries.olean while importing fullMathlib. Fullstatementlibrarycacheinvestigationongoing; noACCEPTEDverdictclaimed.
+Cleanup notattempted: fulltheoremincomplete.
+Sub-agents:6 (status/toolchain review, structural proof, lemma routes, counterexample search, SAT/reduction strategy, independent restriction/review).
+TIMING total=22 subagents=6
