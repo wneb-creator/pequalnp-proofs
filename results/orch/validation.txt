@@ -16,9 +16,11 @@ The 164-line OperandWitness artifact is a checked limitation of a proposed short
 Experiments are computational research, not Lean certificates. Completed strict search: 15,140,404 mutations; relaxed search: 181,506,495 mutations. No valid witness; best strict candidate misses 2 positive pairs. A further reduced-domain search ran 11,000,315 mutations without a witness; all 52 saved candidates fail the full posted tests. The compatibility census and finite six-set calculation are preserved as computational evidence only.
 
 Sub-agents: status_review, toolchain_setup, structural_proof, library_route, counterexample, normal_form, fresh_attack, fresh_count, final_audit, linear_bound
-TIMING total=90.4 subagents=10
+TIMING total=91.7 subagents=10
 
 Desk nulls: 1
 Exact null message: no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes
 
 Final main-source independent review: PASS for supporting-result preservation only. SHA256 ffe9f1760138102c465e0b5dabb635d7a631eae98e76d1f5e8f8dbf7747ba3dd. Consolidated audit of eight principal lemmas reports only the three permitted axioms.
+
+Own lease released at 2026-11-25T08:01:23.530743+00:00 with reason=other. Desk confirmed released=L-meta-2089. No other lease was modified.

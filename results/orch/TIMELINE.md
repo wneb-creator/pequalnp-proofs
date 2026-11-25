@@ -23,3 +23,5 @@
 - 2026-11-25T07:58:06.160500+00:00: Fresh-count phase completed after20minutes (started07:37:50). Checked106line cofactor-selector bridge succeeded and independent review passed; no full63-gate obstruction. Shared-charge counterexample and reduced-domain search saved; the latter tested11,000,315 mutations with no witness.
 
 - 2026-11-25T08:00:34.186890+00:00: Final 2002-line checker rejected no-theorem, as expected. Consolidated axiom audit and independent source/experiment/handoff reviews passed for supporting results only. The target remains unproved; no PR was opened.
+
+- 2026-11-25T08:01:23.530743+00:00: Desk confirmed release of this pilot's L-meta-2089 lease with reason other. All compiled partials and validation records had already been pushed. No proof accepted and no PR opened.
