@@ -1,0 +1,8 @@
+Partial result: explicit 14-gate monotone circuit for L-meta-10760.
+Build: lake build PEqualNP.Outside.L_meta_10760 passed (5149 jobs).
+Independent review: witness and format passed; target theorem is not yet present.
+Checker: not run on this partial; it is not a full proof of the posted statement.
+Python: all 128 input assignments matched.
+Lean source: 35 lines.
+Sub-agents: status_review, replacement_proof, circuit_search, lower_bound, lean_setup
+TIMING total=11.8 subagents=5
