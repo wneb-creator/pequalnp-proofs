@@ -86,3 +86,10 @@ The endpoint OR-only equality discussion is conditional: seed may be unused, and
 ## structural_proof CHECKED 2026-11-25T14:56:14.864102+00:00
 
 `results/orch/lemmas/structural/SeedErase.lean` (125lines) passed `lake env lean` exit0; fullstdout/stderr in `/tmp/oec/pequalnp-pilot-134/seed-erase-check-003.log` (empty). It proves `circuit_erase_seed`: anyMonotone2 circuit computing Petersen from arbitrarymappedinputs plus x0 ANDx2 also computes it with that extra input fixedfalse. This is partialprogress only; it doesnotprove the18gate lowerbound or ruleoutNOT circuits. Removed duplicated pure-only scratchfile after fullproofpassed.
+
+### Independent partial review 2026-11-25T14:56:55+00:00
+- Status reviewer independently checked structural/SeedErase.lean: PASS as partial, not a full gap proof. Joint monotonicity plus minimal Petersen edge witnesses validates erasure of the nonedge seed0 AND2. Arbitrary input permutation function is handled pointwise. Imports and namespace satisfy format; no forbidden tokens, no executable/link, valid UTF8. 125 lines,5053 bytes. Agent reports Lean exit0 with empty diagnostics.
+- L4093 core4 at661 is graph-free and needs no normalization or all-input counts; girth is discarded by final wrapper. Minimality is global, so applying to seed-prepended circuit needs a separate justification.
+
+### Raw-raw lemma checked 2026-11-25T14:57:57+00:00
+- RawRaw.lean compiled exit0; complete output in same folder RawRaw.validation.txt. Structural agent independently reviewed semantics and format PASS. Ready early partial push. No minimality assumption: every raw-raw AND/OR gate computing Petersen forces each distinct raw endpoint to have at least2 effective readers.

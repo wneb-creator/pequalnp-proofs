@@ -13,3 +13,8 @@ Additional checked partial: results/orch/lemmas/structural/SeedErase.lean (125 l
 Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/structural/SeedErase.lean
 Result: exit 0, empty stdout/stderr. Root independently reviewed the argument and plain-file rules.
 Meaning: for an AND/OR circuit computing Petersen, fixing the supplied nonedge conjunction to false preserves its output. This does not cover circuits containing NOT.
+
+Additional checked partial: results/orch/lemmas/status_review/RawRaw.lean (208 lines).
+Command: lake env lean -R /workspace/pequalnp-proofs results/orch/lemmas/status_review/RawRaw.lean
+Result: exit 0. Full stdout/stderr preserved separately. Independent structural_proof review passed.
+Meaning: in a Petersen circuit, a binary AND/OR gate using distinct raw vertices forces each endpoint to be read at least twice. No global-minimality assumption.
