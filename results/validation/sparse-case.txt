@@ -1,0 +1,7 @@
+L-meta-3457 partial: sparse cyclic incidence graphs
+2026-11-25T01:54:57.456610+00:00
+SHA256 bbfe1c6235b75163605ed4ecf489b35ac2c7bc7f41e3dfbf47a37e5c0e64c49e
+Lines 9139; bytes 459157
+Central lake env lean: exit 0, warnings only, no sorry warnings. Complete stdout/stderr preserved. Independent review verified the entire37-file L204 closure and this exact corrected hash.
+Proves the desired clean replacement under explicit assumptions that every cycle has length at least7 and any walk between distinct vertices of degree at least3 has length at least7. This includes cyclic cases but does not cover arbitrary C4-free incidence graphs.
+Artifact-format limitation: copied source retains one inductive type and proposition structures; this is not presented as an automated proof-PR-ready file. No internal project imports remain beyond PEqualNP.Defs.
