@@ -14,3 +14,4 @@ Supporting partial: results/orch/lemmas/dirty_obstruction.lean
 Supporting partial build: lake env lean, exit0; independent finite semantics/source review PASS.
 Supporting partial: results/orch/lemmas/semantic_frontier.lean, lake env lean exit0, independent review PASS.
 Actual checker verdict: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2583.
+Supporting partial: results/orch/lemmas/semantic_frontier_dual.lean, lake env lean exit0, independent review PASS.

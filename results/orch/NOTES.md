@@ -25,3 +25,5 @@ A five-gate AO2 circuit for a three-edge path is a lift fixed point but fails re
 ## Semantic frontier
 
 New compiled helpers show that every true circuit input contains a prime implicant, and that a monotone function below the circuit function agrees everywhere if it accepts every prime. This proves the semantic half of deleting a gate that contributes to no minimal true input; constant propagation remains separate.
+
+The dual compiled helpers show every false input extends to a maximal false set, and agreement there determines any monotone upper function. Together these give the semantic justification for forcing a gate to zero or one when it is irrelevant on the corresponding boundary.
