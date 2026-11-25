@@ -96,3 +96,9 @@ MonoNine standalone extracted8367 closure independently reviewed PASS;478528byte
 New local1886 archive independently audited PASS:12textfiles,177766bytes;120automorphisms/templates, care-domain controls and stabilizer/orbits verified. Prepared heuristic is unlaunched. No fullproof/refutation.
 Sub-agents:6
 TIMING total=77 subagents=6
+
+V2 named1886 partial frozen421238bytes7652lines. All15appendices independently reconstructed/reviewedPASS; format scansclean. V2 fullbuild pending; v1 hadpassed. Includes dual guard consequences and all stated finite firstcomputedgate cases. Exact posted theorem absent.
+MonoNine firstbuild failed on10missing field-notation dependencies; full failure logs preserved. Exact copied declarations restored and independently reviewed; secondbuild RUNNING. No compilation success claimed yet.
+Initial1886 search archive independently reviewedPASS:34textfiles,32manifesthashes, completeUNKNOWN600secondlogs and full1024-row oversized controls; no counterexample/proof claim.
+Sub-agents:6
+TIMING total=83 subagents=6

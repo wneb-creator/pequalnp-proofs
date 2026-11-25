@@ -1,0 +1,237 @@
+{
+  "created_at_utc": "2026-11-25T15:04:32.755132+00:00",
+  "status": "frozen integrated partial v2; exact gap theorem absent",
+  "target": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_1886.lean",
+  "target_sha256": "cf29bddc7ae40dc8aa007917066eb6d8905c95704c12fc895312bec5adf18e97",
+  "target_bytes": 421238,
+  "target_lines": 7652,
+  "base_snapshot": "/tmp/oec/pequalnp-pilot-92/integration1886-v1-source.lean",
+  "base_sha256": "1f9bd3a5be89159673b04fabbe85f3feb44ecc0a7e7db7e37d79397f50e810e0",
+  "entries": [
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/seed_not_operands.lean",
+      "source_sha256": "a6ef3d7dc958d00f6929e1f30c503507cb06bc871db761bdf02157fccfc4483e",
+      "body_sha256": "72d2d3f1be3f8094ebfcc7dc205d3b28d422fed285b98bd3e3efd9b1039f99aa",
+      "body_bytes": 2628,
+      "body_lines": 51,
+      "start_line": 6438,
+      "transforms": [
+        "strip import lines",
+        "L_meta_2592\u2192L_meta_1886"
+      ],
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/dominated_source.lean",
+      "source_sha256": "238f7d5c814e714ef6cc58b5ecfbd59e865e48724b4989be21541436f404bed8",
+      "body_sha256": "b35e6d91620a4a7a968049724a49977db25bcf18d17f1b4b57ce117ad28ca604",
+      "body_bytes": 5228,
+      "body_lines": 103,
+      "start_line": 6490,
+      "transforms": [
+        "strip import lines",
+        "L_meta_2592\u2192L_meta_1886"
+      ],
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/dominated_source_witness.lean",
+      "source_sha256": "fddd09f0a170f0469728c8e0f1fe0ae1407ac05eecc9886fad8c868d6ccffd36",
+      "body_sha256": "e6dc69632aaadc26d8f35dac23f62de7a9ede595268b8e15608fdfa5e1b3f1b6",
+      "body_bytes": 2927,
+      "body_lines": 54,
+      "start_line": 6594,
+      "transforms": [
+        "strip import lines",
+        "L_meta_2592\u2192L_meta_1886"
+      ],
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/independent_guard.fragment.lean",
+      "source_sha256": "b16f4a714de1cf309b034c7703f2b81460d5f01822413b9da29fe57c4a3eae60",
+      "body_sha256": "b16f4a714de1cf309b034c7703f2b81460d5f01822413b9da29fe57c4a3eae60",
+      "body_bytes": 1913,
+      "body_lines": 50,
+      "start_line": 6649,
+      "transforms": [
+        "strip import lines",
+        "L_meta_2592\u2192L_meta_1886"
+      ],
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/prefix_monotone.lean",
+      "source_sha256": "08ecf046c124964315bef2bee81e6f2108adda5aa31454606f22be92de2ab73d",
+      "body_sha256": "daa5ad3110750695c90512f32b16f46ea39fadd83240d6beaee5d4442afc9b38",
+      "body_bytes": 1511,
+      "body_lines": 34,
+      "start_line": 6700,
+      "transforms": [
+        "strip import lines",
+        "L_meta_2592\u2192L_meta_1886"
+      ],
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/source_guard.lean",
+      "source_sha256": "4ebd006c467a5d5ca63cded5831516378c2ac691cfbce8dd2efb84717110fcae",
+      "body_sha256": "e07ad9c25d9e703c9328f5bd4bb24842e21b7569ed3e1a89315b07e0cd754d93",
+      "body_bytes": 1553,
+      "body_lines": 31,
+      "start_line": 6735,
+      "transforms": [
+        "strip import lines",
+        "L_meta_2592\u2192L_meta_1886"
+      ],
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/or_seed_conjunction.lean",
+      "source_sha256": "94874cc81433838355ab5a6031c2f1b307e14d39440243cd3b967830cfe7e05f",
+      "body_sha256": "1dd792ea2a2d874c4e3b12ede5afff2c33a1ab2203158c5f60c01764f14ff146",
+      "body_bytes": 6246,
+      "body_lines": 121,
+      "start_line": 6767,
+      "transforms": [
+        "strip import lines",
+        "L_meta_2592\u2192L_meta_1886"
+      ],
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/or_seed_conjunction_used.lean",
+      "source_sha256": "315c42009a465e4cd733a537193c7910b6c0fb782e94f524245827daddbae00c",
+      "body_sha256": "a48b37ed7994fab6848460df5ef0e2721f2df19103e099dd1bc18e3d39fda7be",
+      "body_bytes": 3930,
+      "body_lines": 66,
+      "start_line": 6889,
+      "transforms": [
+        "strip import lines",
+        "L_meta_2592\u2192L_meta_1886"
+      ],
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/negative_seed_paid.lean",
+      "source_sha256": "93810691a274f56a819267fe8cee7df566168dfc150df93becfa18d78f4f139b",
+      "body_sha256": "cd0c796393005a3937aab645bc6b2b3aa27bd92642bc6cb609b0bda5e8834309",
+      "body_bytes": 4693,
+      "body_lines": 99,
+      "start_line": 6956,
+      "transforms": [
+        "strip import lines",
+        "L_meta_2592\u2192L_meta_1886"
+      ],
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/dominating_source.lean",
+      "source_sha256": "84c41868ae20aad8266f1976efde1bc89a4ff583b184e18f14ce566751ea8644",
+      "body_sha256": "3fc7341d0faae0092ac47a023391eddf9f25634c18da83a397d5ca0a00ecbba4",
+      "body_bytes": 7210,
+      "body_lines": 147,
+      "start_line": 7056,
+      "transforms": [
+        "strip import lines",
+        "L_meta_2592\u2192L_meta_1886"
+      ],
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/dominating_source_witness.lean",
+      "source_sha256": "0c82ed90896102cc3ced0edf63651f5375c22c85374115b7be46f854ab98a889",
+      "body_sha256": "39ad3393be0fbaec0fcf779e645908a29f2cef8f41b984a5b4d5c559311f0f71",
+      "body_bytes": 2923,
+      "body_lines": 54,
+      "start_line": 7204,
+      "transforms": [
+        "strip import lines",
+        "L_meta_2592\u2192L_meta_1886"
+      ],
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/negative_seed_transport.lean",
+      "source_sha256": "f657be9bfbbeb5856b718ed2c64872a347449cd1dd4c744f9b6f40047c1351a5",
+      "body_sha256": "0b4904c5d33f1f17f37e353c792848ca10dbe173ab877fe92ae414c995a9b1d4",
+      "body_bytes": 3808,
+      "body_lines": 76,
+      "start_line": 7259,
+      "transforms": [
+        "strip import lines",
+        "L_meta_2592\u2192L_meta_1886"
+      ],
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/overlapping_or.fragment.lean",
+      "source_sha256": "456a6dc432f6c2dbf715dcd66d1a9e8466926c9f62e95e485102bd0b2f599ed8",
+      "body_sha256": "536bdad12b8bf14125bf4c0e24723dfced3c7e3c996fc3a7850de681852126fc",
+      "body_bytes": 5508,
+      "body_lines": 114,
+      "start_line": 7336,
+      "transforms": [
+        "strip import lines",
+        "L_meta_2592\u2192L_meta_1886"
+      ],
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/edge_guard.fragment.lean",
+      "source_sha256": "6320fd2465324e79869259b5bb75564dff88f1e8e536fd811e200315a1af9a66",
+      "body_sha256": "6320fd2465324e79869259b5bb75564dff88f1e8e536fd811e200315a1af9a66",
+      "body_bytes": 6005,
+      "body_lines": 170,
+      "start_line": 7451,
+      "transforms": [
+        "strip import lines",
+        "L_meta_2592\u2192L_meta_1886"
+      ],
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/source_edge_guard.lean",
+      "source_sha256": "95ab8fccd6feafd60d87a5e04ce4d77e51a8e296929ff9b0cbe8064a4328962c",
+      "body_sha256": "a278f3e78cc70eb3cc0a28a2df020cd5e31f3714bb540a4ba84d6c650db86a2f",
+      "body_bytes": 1561,
+      "body_lines": 31,
+      "start_line": 7622,
+      "transforms": [
+        "strip import lines",
+        "L_meta_2592\u2192L_meta_1886"
+      ],
+      "compiled": "PASS",
+      "independent_review": "PASS"
+    }
+  ],
+  "checks": {
+    "under_512KiB": true,
+    "no_old_namespace": true,
+    "no_root_marker": true,
+    "no_quotes": true,
+    "no_sorry": true,
+    "no_axiom": true,
+    "no_native_decide": true,
+    "no_private_bridge": true,
+    "target_theorem_absent": true
+  },
+  "separate": [
+    "mono_nine",
+    "mono_nine_bridge"
+  ]
+}

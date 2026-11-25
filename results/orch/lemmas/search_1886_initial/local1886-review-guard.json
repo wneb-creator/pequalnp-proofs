@@ -1,0 +1,24 @@
+{
+  "utc": "2026-11-25T14:54:19.550772+00:00",
+  "core_verdict": "PASS",
+  "files": {
+    "search-1886-guard.py": "f3da1b146d732a7ccc2fc299f4e1a9a6ef9fcf49a9a542ea9561257f89f9797e",
+    "search-1886-guard-decode.py": "64a58ce64aa43e0fec6e6d2fc3d16ec845945d7eac140cababb562610c666997"
+  },
+  "dependency_checks": 225280,
+  "prefix_wires": {
+    "free_edge": 10,
+    "guard": 11,
+    "negated_guard": 12,
+    "first_unknown": 13,
+    "sixteenth_unknown": 28
+  },
+  "count": "Two fixed counted gates plus16 unknown gates equals18; output wire28.",
+  "remarks": [
+    "Dependency sets cover all guard parents, including supplied-edge dependencies0,1.",
+    "Unknown monotone suffix remains monotone under the fixed dependency cofactor, so previously reviewed critical-row theorem applies.",
+    "Live clauses require each unknown except last to feed a later unknown; this is sound after pruning and identity padding.",
+    "Review fixes applied: default budget16 unknown gates; inherited --not-input and --final-or-edge CLI options removed and internal modes fixed inert. Only intended guard-plus-NOT prefix template remains."
+  ],
+  "final_verdict": "PASS"
+}

@@ -1,0 +1,48 @@
+{
+  "utc": "2026-11-25T15:03:13.462730+00:00",
+  "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/search_1886_initial",
+  "verdict": "PASS",
+  "manifest_files": 32,
+  "total_files": 34,
+  "manifest_hashes_all_match": true,
+  "all_text_no_detected_credentials": true,
+  "completed_runs": {
+    "search-1886-or-not0": {
+      "result": "c UNKNOWN",
+      "real_seconds": 600.0,
+      "rows": 38,
+      "gates_unknown": 17,
+      "NOT_prefix": true,
+      "full_log_lines": 605
+    },
+    "search-1886-or-monotone": {
+      "result": "c UNKNOWN",
+      "real_seconds": 600.01,
+      "rows": 30,
+      "gates_unknown": 18,
+      "NOT_prefix": false,
+      "full_log_lines": 530
+    }
+  },
+  "positive_controls": {
+    "search-1886-control-witness.json": {
+      "size": 21,
+      "rows_checked": 1024,
+      "errors": 0,
+      "not_counterexample": true
+    },
+    "search-1886-monotone-control-witness.json": {
+      "size": 20,
+      "rows_checked": 1024,
+      "errors": 0,
+      "not_counterexample": true
+    },
+    "search-1886-cegis-control-candidate1.json": {
+      "size": 22,
+      "rows_checked": 1024,
+      "errors": 0,
+      "not_counterexample": true
+    }
+  },
+  "scope": "README clearly labels both completed searches UNKNOWN and all controls oversized; no Lean proof, general UNSAT result, or counterexample is claimed. The initial review hashes refer to their historical versions; later reviewed ordering/liveness extensions are explicit. Current active searches are not archived here."
+}

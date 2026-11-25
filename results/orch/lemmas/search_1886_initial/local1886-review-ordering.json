@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-25T14:48:35.194092+00:00",
+  "verdict": "PASS",
+  "files": {
+    "search-1886-firstnot.py": "8ff08cddf16a25394008ae430448548ea29414dfef96af60b574637389251230",
+    "search-1886-canonicalize.py": "f2f82d228e83c5e8c386b9910e30ea096ebe79cc5df802a584f979285de71887"
+  },
+  "all_three_gate_two_input_circuits": 4608,
+  "ordered_selector_cases": 600,
+  "argument": "After unused-gate removal, every gate is an ancestor of the output. Greedy smallest (maximum parent,minimum parent,op) among ready gates is topological. Each newly ready gate references the newest output, whose index exceeds every previously ready parent index, so new keys exceed all previously ready keys. Thus chosen keys are nondecreasing and the output stays last. Idempotent output padding preserves this order and reaches the chosen gate budget. The emitted clauses enforce precisely this lexicographic ordering. The standalone canonicalizer assumes its supplied control already has the output last after reordering; it asserts this and does not itself remove unused gates."
+}

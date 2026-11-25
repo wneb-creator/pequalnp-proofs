@@ -1,0 +1,11 @@
+{
+  "signature": "cadical-2.1.2",
+  "first": 10,
+  "model": [
+    1,
+    2
+  ],
+  "second": 20,
+  "source_read": "https://github.com/arminbiere/cadical/blob/master/src/ccadical.h",
+  "source_read_date": "2026-11-25"
+}

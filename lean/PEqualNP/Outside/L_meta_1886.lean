@@ -6434,3 +6434,1219 @@ lemma consumed_seed_not_exclusion (p : Fin 10 → Fin 10) (pre suffix : List Gat
   omega
 
 end PEqualNP.Outside.L_meta_1886_aux.ArbitraryMapSeedNot
+
+namespace PEqualNP.Outside.L_meta_1886_aux.SeedNotOperands
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_1886_aux.Stronger.Extended
+
+lemma ignore_not_tail (pre suffix : List Gate) (source outIdx : ℕ) (rest : List ℕ) (w : List Bool) :
+    (Circuit.mk (pre ++ ⟨.not,[source]⟩ :: suffix) outIdx).eval w =
+      (Circuit.mk (pre ++ ⟨.not,source :: rest⟩ :: suffix) outIdx).eval w := by
+  simp only [Circuit.eval,Circuit.wires,List.foldl_append,List.foldl_cons]
+  rfl
+
+lemma consumed_seed_not_lower (p : Fin 10 → Fin 10) (pre suffix : List Gate)
+    (outIdx : ℕ) (rest : List ℕ)
+    (legal : FanInTwo (Circuit.mk (pre ++ ⟨.not,10 :: rest⟩ :: suffix) outIdx))
+    (mono : Monotone2 (Circuit.mk suffix outIdx))
+    (used : ∃ q ∈ suffix, 11 + pre.length ∈ q.inputs)
+    (correct : ∀ x : Fin 10 → Bool,
+      (Circuit.mk (pre ++ ⟨.not,10 :: rest⟩ :: suffix) outIdx).eval
+        (List.ofFn (x ∘ p) ++ [x 0 && x 1]) = f10 x) :
+    19 ≤ (Circuit.mk (pre ++ ⟨.not,10 :: rest⟩ :: suffix) outIdx).size := by
+  have legalNormalized : FanInTwo (Circuit.mk (pre ++ ⟨.not,[10]⟩ :: suffix) outIdx) := by
+    intro q hq
+    rcases List.mem_append.mp hq with hp | ht
+    · exact legal q (List.mem_append_left _ hp)
+    · rcases List.mem_cons.mp ht with rfl | hs
+      · simp
+      · exact legal q (List.mem_append_right _ (List.mem_cons_of_mem _ hs))
+  have correctNormalized : ∀ x : Fin 10 → Bool,
+      (Circuit.mk (pre ++ ⟨.not,[10]⟩ :: suffix) outIdx).eval
+        (List.ofFn (x ∘ p) ++ [x 0 && x 1]) = f10 x := by
+    intro x
+    rw [ignore_not_tail pre suffix 10 outIdx rest]
+    exact correct x
+  have lower := ArbitraryMapSeedNot.consumed_seed_not_lower p pre suffix outIdx
+    legalNormalized mono used correctNormalized
+  simpa only [Circuit.size,List.length_append,List.length_cons] using lower
+
+lemma consumed_seed_not_exclusion (p : Fin 10 → Fin 10) (pre suffix : List Gate)
+    (outIdx : ℕ) (rest : List ℕ)
+    (legal : FanInTwo (Circuit.mk (pre ++ ⟨.not,10 :: rest⟩ :: suffix) outIdx))
+    (mono : Monotone2 (Circuit.mk suffix outIdx))
+    (used : ∃ q ∈ suffix, 11 + pre.length ∈ q.inputs)
+    (budget : (Circuit.mk (pre ++ ⟨.not,10 :: rest⟩ :: suffix) outIdx).size ≤ 18) :
+    ∃ x : Fin 10 → Bool,
+      (Circuit.mk (pre ++ ⟨.not,10 :: rest⟩ :: suffix) outIdx).eval
+        (List.ofFn (x ∘ p) ++ [x 0 && x 1]) ≠ f10 x := by
+  by_contra! correct
+  have lower := consumed_seed_not_lower p pre suffix outIdx rest legal mono used correct
+  omega
+
+end PEqualNP.Outside.L_meta_1886_aux.SeedNotOperands
+
+namespace PEqualNP.Outside.L_meta_1886_aux.DominatedSource
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_1886_aux
+open Stronger.Extended
+
+lemma supplied_and_head (x : Fin 10 → Bool) :
+    GateOp.and.eval ([0,1].map (fun i => (List.ofFn x).getD i false)) = (x 0 && x 1) := by
+  simp [GateOp.eval]
+
+lemma identity_lower (pre suffix : List Gate) (source outIdx : ℕ)
+    (legal : FanInTwo (Circuit.mk (pre ++ ⟨.not,[source]⟩ :: suffix) outIdx))
+    (mono : Monotone2 (Circuit.mk suffix outIdx))
+    (used : ∃ q ∈ suffix, 11 + pre.length ∈ q.inputs)
+    (below : ∀ x : Fin 10 → Bool,
+      (Circuit.mk pre source).eval (List.ofFn x ++ [x 0 && x 1]) ≤ f10 x)
+    (correct : ∀ x : Fin 10 → Bool,
+      (Circuit.mk (pre ++ ⟨.not,[source]⟩ :: suffix) outIdx).eval
+        (List.ofFn x ++ [x 0 && x 1]) = f10 x) :
+    19 ≤ (Circuit.mk (pre ++ ⟨.not,[source]⟩ :: suffix) outIdx).size := by
+  have hp : ∀ q ∈ (⟨GateOp.and,[0,1]⟩ :: pre), ConstantSweep.good q := by
+    intro q hq
+    rcases List.mem_cons.mp hq with rfl | hq
+    · simp [ConstantSweep.good]
+    · exact legal q (List.mem_append_left _ hq)
+  have whole : ∀ x : Fin 10 → Bool,
+      (Circuit.mk ((⟨.and,[0,1]⟩ :: pre) ++ ⟨.not,[source]⟩ :: suffix) outIdx).eval
+        (List.ofFn x) = f10 x := by
+    intro x
+    simpa only [Circuit.eval,Circuit.wires,List.cons_append,List.foldl_cons,supplied_and_head]
+      using correct x
+  have physicalBelow : ∀ x : Fin 10 → Bool,
+      (ConstantSweep.run (⟨.and,[0,1]⟩ :: pre) (List.ofFn x)).getD source false ≤ f10 x := by
+    intro x
+    change (ConstantSweep.run pre (List.ofFn x ++ [_])).getD source false ≤ f10 x
+    rw [supplied_and_head]
+    exact below x
+  have nonconstant : ∃ x y : Fin 10 → Bool, f10 x ≠ f10 y := by
+    exact ⟨fun _ => false,fun _ => true,by decide +kernel⟩
+  have consumed : ∃ q ∈ suffix, 10 + (⟨GateOp.and,[0,1]⟩ :: pre).length ∈ q.inputs := by
+    have h : 10 + (⟨GateOp.and,[0,1]⟩ :: pre).length = 11 + pre.length := by
+      simp only [List.length_cons]
+      omega
+    rw [h]
+    exact used
+  obtain ⟨out,j,legalNew,saved,correctNew⟩ :=
+    OneNotEliminate.eliminate_consumed_dominated_not f10 (⟨.and,[0,1]⟩ :: pre)
+      suffix source outIdx hp mono whole physicalBelow consumed nonconstant
+  have lower := first_and_size_lower
+    (Circuit.mk ((⟨.and,[0,1]⟩ :: pre) ++ out) j) 0 1 (by decide)
+    ⟨pre ++ out,rfl⟩ legalNew correctNew
+  simp only [Circuit.size,List.length_append,List.length_cons] at lower saved ⊢
+  omega
+
+lemma arbitrary_map_lower (p : Fin 10 → Fin 10) (pre suffix : List Gate) (source outIdx : ℕ)
+    (legal : FanInTwo (Circuit.mk (pre ++ ⟨.not,[source]⟩ :: suffix) outIdx))
+    (mono : Monotone2 (Circuit.mk suffix outIdx))
+    (used : ∃ q ∈ suffix, 11 + pre.length ∈ q.inputs)
+    (below : ∀ x : Fin 10 → Bool,
+      (Circuit.mk pre source).eval (List.ofFn (x ∘ p) ++ [x 0 && x 1]) ≤ f10 x)
+    (correct : ∀ x : Fin 10 → Bool,
+      (Circuit.mk (pre ++ ⟨.not,[source]⟩ :: suffix) outIdx).eval
+        (List.ofFn (x ∘ p) ++ [x 0 && x 1]) = f10 x) :
+    19 ≤ (Circuit.mk (pre ++ ⟨.not,[source]⟩ :: suffix) outIdx).size := by
+  let C := Circuit.mk (pre ++ ⟨GateOp.not,[source]⟩ :: suffix) outIdx
+  let D := Circuit.mk (pre.map (InputRelabel.gate p) ++
+    ⟨GateOp.not,[InputRelabel.wire p source]⟩ :: suffix.map (InputRelabel.gate p))
+    (InputRelabel.wire p outIdx)
+  have shape : InputRelabel.circuit p C = D := by
+    simp [InputRelabel.circuit,C,D,InputRelabel.gate]
+  have legalD : FanInTwo D := by
+    rw [← shape]
+    exact InputRelabel.circuit_legal p C legal
+  have monoD : Monotone2 (Circuit.mk (suffix.map (InputRelabel.gate p))
+      (InputRelabel.wire p outIdx)) :=
+    InputRelabel.circuit_mono p (Circuit.mk suffix outIdx) mono
+  have usedD : ∃ q ∈ suffix.map (InputRelabel.gate p),
+      11 + (pre.map (InputRelabel.gate p)).length ∈ q.inputs := by
+    obtain ⟨q,hq,hi⟩ := used
+    refine ⟨InputRelabel.gate p q,List.mem_map.mpr ⟨q,hq,rfl⟩,?_⟩
+    change 11 + (pre.map (InputRelabel.gate p)).length ∈ q.inputs.map (InputRelabel.wire p)
+    rw [List.length_map]
+    exact List.mem_map.mpr ⟨11 + pre.length,hi,InputRelabel.wire_fixed p _ (by omega)⟩
+  have belowD : ∀ x : Fin 10 → Bool,
+      (Circuit.mk (pre.map (InputRelabel.gate p)) (InputRelabel.wire p source)).eval
+        (List.ofFn x ++ [x 0 && x 1]) ≤ f10 x := by
+    intro x
+    change (InputRelabel.circuit p (Circuit.mk pre source)).eval _ ≤ _
+    rw [InputRelabel.circuit_eval]
+    exact below x
+  have correctD : ∀ x : Fin 10 → Bool, D.eval (List.ofFn x ++ [x 0 && x 1]) = f10 x := by
+    intro x
+    rw [← shape,InputRelabel.circuit_eval]
+    exact correct x
+  have lower := identity_lower (pre.map (InputRelabel.gate p))
+    (suffix.map (InputRelabel.gate p)) (InputRelabel.wire p source)
+    (InputRelabel.wire p outIdx) legalD monoD usedD belowD correctD
+  have sameSize : D.size = C.size := by rw [← shape,InputRelabel.circuit_size]
+  change 19 ≤ D.size at lower
+  rw [sameSize] at lower
+  exact lower
+
+end PEqualNP.Outside.L_meta_1886_aux.DominatedSource
+
+namespace PEqualNP.Outside.L_meta_1886_aux.DominatedSourceWitness
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_1886_aux.Stronger.Extended
+
+lemma lower (p : Fin 10 → Fin 10) (pre suffix : List Gate) (source outIdx : ℕ) (rest : List ℕ)
+    (legal : FanInTwo (Circuit.mk (pre ++ ⟨.not,source :: rest⟩ :: suffix) outIdx))
+    (mono : Monotone2 (Circuit.mk suffix outIdx))
+    (used : ∃ q ∈ suffix, 11 + pre.length ∈ q.inputs)
+    (below : ∀ x : Fin 10 → Bool,
+      (Circuit.mk pre source).eval (List.ofFn (x ∘ p) ++ [x 0 && x 1]) ≤ f10 x)
+    (correct : ∀ x : Fin 10 → Bool,
+      (Circuit.mk (pre ++ ⟨.not,source :: rest⟩ :: suffix) outIdx).eval
+        (List.ofFn (x ∘ p) ++ [x 0 && x 1]) = f10 x) :
+    19 ≤ (Circuit.mk (pre ++ ⟨.not,source :: rest⟩ :: suffix) outIdx).size := by
+  have legalNormalized : FanInTwo (Circuit.mk (pre ++ ⟨.not,[source]⟩ :: suffix) outIdx) := by
+    intro q hq
+    rcases List.mem_append.mp hq with hp | ht
+    · exact legal q (List.mem_append_left _ hp)
+    · rcases List.mem_cons.mp ht with rfl | hs
+      · simp
+      · exact legal q (List.mem_append_right _ (List.mem_cons_of_mem _ hs))
+  have correctNormalized : ∀ x : Fin 10 → Bool,
+      (Circuit.mk (pre ++ ⟨.not,[source]⟩ :: suffix) outIdx).eval
+        (List.ofFn (x ∘ p) ++ [x 0 && x 1]) = f10 x := by
+    intro x
+    rw [SeedNotOperands.ignore_not_tail pre suffix source outIdx rest]
+    exact correct x
+  have bound := DominatedSource.arbitrary_map_lower p pre suffix source outIdx
+    legalNormalized mono used below correctNormalized
+  simpa only [Circuit.size,List.length_append,List.length_cons] using bound
+
+lemma independent_input (p : Fin 10 → Fin 10) (pre suffix : List Gate)
+    (source outIdx : ℕ) (rest : List ℕ)
+    (legal : FanInTwo (Circuit.mk (pre ++ ⟨.not,source :: rest⟩ :: suffix) outIdx))
+    (mono : Monotone2 (Circuit.mk suffix outIdx))
+    (used : ∃ q ∈ suffix, 11 + pre.length ∈ q.inputs)
+    (budget : (Circuit.mk (pre ++ ⟨.not,source :: rest⟩ :: suffix) outIdx).size ≤ 18)
+    (correct : ∀ x : Fin 10 → Bool,
+      (Circuit.mk (pre ++ ⟨.not,source :: rest⟩ :: suffix) outIdx).eval
+        (List.ofFn (x ∘ p) ++ [x 0 && x 1]) = f10 x) :
+    ∃ x : Fin 10 → Bool,
+      (Circuit.mk pre source).eval (List.ofFn (x ∘ p) ++ [x 0 && x 1]) = true ∧ f10 x = false := by
+  have bad : ¬ ∀ x : Fin 10 → Bool,
+      (Circuit.mk pre source).eval (List.ofFn (x ∘ p) ++ [x 0 && x 1]) ≤ f10 x := by
+    intro below
+    have bound := lower p pre suffix source outIdx rest legal mono used below correct
+    omega
+  obtain ⟨x,hx⟩ := not_forall.mp bad
+  refine ⟨x,?_,?_⟩ <;>
+    cases hg : (Circuit.mk pre source).eval (List.ofFn (x ∘ p) ++ [x 0 && x 1]) <;>
+    cases hf : f10 x <;> simp_all [Bool.le_iff_imp]
+
+end PEqualNP.Outside.L_meta_1886_aux.DominatedSourceWitness
+
+namespace PEqualNP.Outside.L_meta_1886_aux.IndependentGuard
+
+open MapRigidity
+
+def maximalMasks : List (Fin 1024) :=
+  [50,69,104,116,138,201,208,276,385,402,521,548,554,770,773]
+
+def row (m : Fin 1024) (i : Fin 10) : Bool := m.val.testBit i.val
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma maximal_masks_false : ∀ m ∈ maximalMasks, edge10 (row m) = false := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma independent_extension : ∀ x : Fin 10 → Bool, edge10 x = false →
+    ∃ m ∈ maximalMasks, ∀ i : Fin 10, x i ≤ row m i := by
+  decide +kernel
+
+lemma maximal_guard_witness (g : (Fin 10 → Bool) → Bool)
+    (mono : ∀ x y, (∀ i, x i ≤ y i) → g x ≤ g y)
+    (notDominated : ¬ ∀ x, g x ≤ edge10 x) :
+    ∃ m ∈ maximalMasks, g (row m) = true ∧ edge10 (row m) = false := by
+  obtain ⟨x,hx⟩ := not_forall.mp notDominated
+  have gx : g x = true := by
+    cases h : g x <;> simp_all [Bool.le_iff_imp]
+  have fx : edge10 x = false := by
+    cases h : edge10 x <;> simp_all [Bool.le_iff_imp]
+  obtain ⟨m,hm,extension⟩ := independent_extension x fx
+  have lower := mono x (row m) extension
+  have gm : g (row m) = true := by
+    cases h : g (row m) <;> simp_all [Bool.le_iff_imp]
+  exact ⟨m,hm,gm,maximal_masks_false m hm⟩
+
+lemma dominated_iff_maximal_false (g : (Fin 10 → Bool) → Bool)
+    (mono : ∀ x y, (∀ i, x i ≤ y i) → g x ≤ g y) :
+    (∀ x, g x ≤ edge10 x) ↔ ∀ m ∈ maximalMasks, g (row m) = false := by
+  constructor
+  · intro dominated m hm
+    have h := dominated (row m)
+    rw [maximal_masks_false m hm] at h
+    cases hgm : g (row m) <;> simp_all [Bool.le_iff_imp]
+  · intro noWitness
+    by_contra hn
+    obtain ⟨m,hm,yes,_⟩ := maximal_guard_witness g mono hn
+    rw [noWitness m hm] at yes
+    cases yes
+
+end PEqualNP.Outside.L_meta_1886_aux.IndependentGuard
+
+namespace PEqualNP.Outside.L_meta_1886_aux.PrefixMonotone
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_1886_aux
+
+lemma ofFn_le {n : ℕ} (x y : Fin n → Bool) (h : ∀ i, x i ≤ y i) :
+    List.Forall₂ (· ≤ ·) (List.ofFn x) (List.ofFn y) := by
+  induction n with
+  | zero => simp
+  | succ n ih =>
+    rw [List.ofFn_succ,List.ofFn_succ]
+    exact List.Forall₂.cons (h 0) (ih (fun i => x i.succ) (fun i => y i.succ) (fun i => h i.succ))
+
+lemma supplied_inputs_le (p : Fin 10 → Fin 10) (x y : Fin 10 → Bool)
+    (h : ∀ i, x i ≤ y i) :
+    List.Forall₂ (· ≤ ·) (List.ofFn (x ∘ p) ++ [x 0 && x 1])
+      (List.ofFn (y ∘ p) ++ [y 0 && y 1]) := by
+  have hp := ofFn_le (x ∘ p) (y ∘ p) (fun i => h (p i))
+  have hb : (x 0 && x 1) ≤ (y 0 && y 1) := by
+    have h0 := h 0
+    have h1 := h 1
+    cases hx0 : x 0 <;> cases hx1 : x 1 <;>
+      cases hy0 : y 0 <;> cases hy1 : y 1 <;> simp_all [Bool.le_iff_imp]
+  exact List.rel_append hp (.cons hb .nil)
+
+lemma source_monotone (p : Fin 10 → Fin 10) (pre : List Gate) (source : ℕ)
+    (mono : Monotone2 (Circuit.mk pre source)) :
+    ∀ x y : Fin 10 → Bool, (∀ i, x i ≤ y i) →
+      (Circuit.mk pre source).eval (List.ofFn (x ∘ p) ++ [x 0 && x 1]) ≤
+        (Circuit.mk pre source).eval (List.ofFn (y ∘ p) ++ [y 0 && y 1]) := by
+  intro x y h
+  exact OneNot.circuit_le (Circuit.mk pre source) mono (supplied_inputs_le p x y h)
+
+end PEqualNP.Outside.L_meta_1886_aux.PrefixMonotone
+
+namespace PEqualNP.Outside.L_meta_1886_aux.SourceGuard
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_1886_aux.Stronger.Extended
+open IndependentGuard
+
+lemma maximal_independent_input (p : Fin 10 → Fin 10) (pre suffix : List Gate)
+    (source outIdx : ℕ) (rest : List ℕ)
+    (legal : FanInTwo (Circuit.mk (pre ++ ⟨.not,source :: rest⟩ :: suffix) outIdx))
+    (prefixMono : Monotone2 (Circuit.mk pre source))
+    (suffixMono : Monotone2 (Circuit.mk suffix outIdx))
+    (used : ∃ q ∈ suffix, 11 + pre.length ∈ q.inputs)
+    (budget : (Circuit.mk (pre ++ ⟨.not,source :: rest⟩ :: suffix) outIdx).size ≤ 18)
+    (correct : ∀ x : Fin 10 → Bool,
+      (Circuit.mk (pre ++ ⟨.not,source :: rest⟩ :: suffix) outIdx).eval
+        (List.ofFn (x ∘ p) ++ [x 0 && x 1]) = f10 x) :
+    ∃ m ∈ maximalMasks,
+      (Circuit.mk pre source).eval (List.ofFn (row m ∘ p) ++ [row m 0 && row m 1]) = true ∧
+        f10 (row m) = false := by
+  let g : (Fin 10 → Bool) → Bool := fun x =>
+    (Circuit.mk pre source).eval (List.ofFn (x ∘ p) ++ [x 0 && x 1])
+  have mono : ∀ x y, (∀ i, x i ≤ y i) → g x ≤ g y :=
+    PrefixMonotone.source_monotone p pre source prefixMono
+  have notDominated : ¬ ∀ x, g x ≤ MapRigidity.edge10 x := by
+    intro below
+    have bound := DominatedSourceWitness.lower p pre suffix source outIdx rest
+      legal suffixMono used below correct
+    omega
+  exact maximal_guard_witness g mono notDominated
+
+end PEqualNP.Outside.L_meta_1886_aux.SourceGuard
+
+namespace PEqualNP.Outside.L_meta_1886_aux.Stronger.SeedConjunction
+
+open Extended
+
+def seed : Extended.Sig := Extended.bin 1 (Extended.pins.getD 0 Extended.zero)
+  (Extended.pins.getD 1 Extended.zero)
+
+def extra (q : Bool) (p : Fin 10) : Extended.Sig :=
+  Extended.bin (if q then 0 else 2) seed (Extended.pins.getD p.val Extended.zero)
+
+def bank (q : Bool) (p : Fin 10) := Extended.pins ++ [seed,extra q p]
+
+def slice01 (r : Stronger.Row) : Extended.Row := Fin.ofNat 1024 (r.val &&& 383)
+
+def projected01 (a : Extended.Sig) : Stronger.Sig :=
+  Stronger.table fun r => Extended.bit (slice01 r) a
+
+lemma observe_projected01 (a : Extended.Sig) :
+    restrictRows slice01 (Extended.observe a) = Stronger.observe (projected01 a) := by
+  funext r
+  exact (Stronger.bit_table _ _).symm
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma projected_target : projected01 Extended.target = graphGoal 383 := by decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma projected_bank : ∀ (q : Bool) (p : Fin 10),
+    (bank q p).all (fun a => (projected01 a == Stronger.zero) ||
+      (vars 383).contains (projected01 a)) = true := by decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma projected_extra : ∀ (q : Bool) (p : Fin 10),
+    projected01 (extra q p) = Stronger.zero := by decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma endpoint_witnesses : ∀ (q : Bool) (p : Fin 10), p ≠ 0 → p ≠ 1 →
+    (bank q p).all (fun a => (Extended.bit 128 a == Extended.bit 640 a) ||
+      (a == Extended.pins.getD 0 Extended.zero)) = true ∧
+    (bank q p).all (fun a => (Extended.bit 512 a == Extended.bit 640 a) ||
+      (a == Extended.pins.getD 1 Extended.zero)) = true := by decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma extra_distinct : ∀ (q : Bool) (p : Fin 10), p ≠ 0 → p ≠ 1 →
+    extra q p ≠ Extended.pins.getD 0 Extended.zero ∧
+      extra q p ≠ Extended.pins.getD 1 Extended.zero := by decide +kernel
+
+lemma endpoints_needed (q : Bool) (p : Fin 10) (h0 : p ≠ 0) (h1 : p ≠ 1) {k S}
+    (run : Extended.Live true Extended.target k S)
+    (raw : ∀ a ∈ S, a ∈ bank q p) :
+    Extended.pins.getD 0 Extended.zero ∈ S ∧ Extended.pins.getD 1 Extended.zero ∈ S := by
+  have tests := endpoint_witnesses q p h0 h1
+  have firstDiff : Extended.bit 128 Extended.target ≠ Extended.bit 640 Extended.target := by decide +kernel
+  have secondDiff : Extended.bit 512 Extended.target ≠ Extended.bit 640 Extended.target := by decide +kernel
+  constructor
+  · obtain ⟨a,ha,hd⟩ := Extended.live_row_difference run firstDiff
+    have hh := List.all_eq_true.mp tests.1 a (raw a ha)
+    simp only [Bool.or_eq_true,beq_iff_eq] at hh
+    exact hh.resolve_left hd ▸ ha
+  · obtain ⟨a,ha,hd⟩ := Extended.live_row_difference run secondDiff
+    have hh := List.all_eq_true.mp tests.2 a (raw a ha)
+    simp only [Bool.or_eq_true,beq_iff_eq] at hh
+    exact hh.resolve_left hd ▸ ha
+
+lemma lower (q : Bool) (p : Fin 10) (h0 : p ≠ 0) (h1 : p ≠ 1) {k S}
+    (run : Extended.Live true Extended.target k S)
+    (raw : ∀ a ∈ S, a ∈ bank q p) (used : extra q p ∈ S) : 16 ≤ k := by
+  classical
+  obtain ⟨needed0,needed1⟩ := endpoints_needed q p h0 h1 run raw
+  obtain ⟨ne0,ne1⟩ := extra_distinct q p h0 h1
+  have different : Extended.pins.getD 0 Extended.zero ≠ Extended.pins.getD 1 Extended.zero := by decide +kernel
+  let front := Extended.pins.getD 0 Extended.zero :: Extended.pins.getD 1 Extended.zero :: extra q p ::
+    (((S.erase (Extended.pins.getD 0 Extended.zero)).erase
+      (Extended.pins.getD 1 Extended.zero)).erase (extra q p)).toList
+  have nd : front.Nodup := by
+    simp [front,different,different.symm,ne0,ne0.symm,ne1,ne1.symm,Finset.nodup_toList,-List.getD_eq_getElem?_getD]
+  have eqS : front.toFinset = S := by
+    ext a
+    by_cases ha : a = Extended.pins.getD 0 Extended.zero <;>
+      by_cases hb : a = Extended.pins.getD 1 Extended.zero <;>
+      by_cases hc : a = extra q p <;> simp [front,ha,hb,hc,needed0,needed1,used,-List.getD_eq_getElem?_getD]
+  have hrun := Extended.list_run run front nd eqS
+  have same : restrictRows slice01 (Extended.observe Extended.target) = Stronger.observe (graphGoal 383) := by
+    rw [observe_projected01,projected_target]
+  have properGoal : Stronger.proper (graphGoal 383) := by unfold Stronger.proper; decide +kernel
+  have isZero : Stronger.observe Stronger.zero = fun _ => false := by
+    funext r
+    simp [Stronger.observe,Stronger.bit,Stronger.zero]
+  have roots : supply true ((vars 383).map Stronger.observe)
+      ((front.map Extended.observe).map (restrictRows slice01)) := by
+    intro v hv
+    obtain ⟨_,hin,rfl⟩ := List.mem_map.mp hv
+    obtain ⟨a,hm,rfl⟩ := List.mem_map.mp hin
+    rw [observe_projected01]
+    have hh := List.all_eq_true.mp (projected_bank q p) a
+      (raw a (eqS ▸ List.mem_toFinset.mpr hm))
+    simp only [Bool.or_eq_true,beq_iff_eq] at hh
+    rcases hh with hz | hm
+    · exact Or.inr (Or.inl ⟨false,hz ▸ isZero⟩)
+    · exact Or.inl (List.mem_map.mpr ⟨_,by simpa using hm,rfl⟩)
+  have need := projected_bound slice01 hrun (same ▸ Stronger.observe_proper properGoal)
+    Reach.start roots (L:=13) (same ▸ low383)
+  have charge : 3 ≤ mass ((front.map Extended.observe).map (restrictRows slice01)) := by
+    have c0 : Constant (restrictRows slice01 (Extended.observe (Extended.pins.getD 0 Extended.zero))) := by
+      rw [observe_projected01,show projected01 (Extended.pins.getD 0 Extended.zero)=Stronger.zero by decide +kernel]
+      exact ⟨false,isZero⟩
+    have c1 : Constant (restrictRows slice01 (Extended.observe (Extended.pins.getD 1 Extended.zero))) := by
+      rw [observe_projected01,show projected01 (Extended.pins.getD 1 Extended.zero)=Stronger.zero by decide +kernel]
+      exact ⟨false,isZero⟩
+    have ce : Constant (restrictRows slice01 (Extended.observe (extra q p))) := by
+      rw [observe_projected01,projected_extra]
+      exact ⟨false,isZero⟩
+    simp only [front,List.map_cons,List.map_map,mass_cons,cost,c0,c1,ce,ite_true]
+    omega
+  omega
+
+end PEqualNP.Outside.L_meta_1886_aux.Stronger.SeedConjunction
+
+namespace PEqualNP.Outside.L_meta_1886_aux.Stronger.SeedConjunction
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma seed_distinct : ∀ (q : Bool) (p : Fin 10), p ≠ 0 → p ≠ 1 →
+    seed ≠ Extended.pins.getD 0 Extended.zero ∧
+    seed ≠ Extended.pins.getD 1 Extended.zero ∧ seed ≠ extra q p := by decide +kernel
+
+lemma lower_seed_used (q : Bool) (p : Fin 10) (h0 : p ≠ 0) (h1 : p ≠ 1) {k S}
+    (run : Extended.Live true Extended.target k S)
+    (raw : ∀ a ∈ S, a ∈ bank q p) (used : extra q p ∈ S) (seedUsed : seed ∈ S) : 17 ≤ k := by
+  classical
+  obtain ⟨needed0,needed1⟩ := endpoints_needed q p h0 h1 run raw
+  obtain ⟨ne0,ne1⟩ := extra_distinct q p h0 h1
+  obtain ⟨s0,s1,se⟩ := seed_distinct q p h0 h1
+  have different : Extended.pins.getD 0 Extended.zero ≠ Extended.pins.getD 1 Extended.zero := by decide +kernel
+  let front := Extended.pins.getD 0 Extended.zero :: Extended.pins.getD 1 Extended.zero :: seed :: extra q p ::
+    ((((S.erase (Extended.pins.getD 0 Extended.zero)).erase
+      (Extended.pins.getD 1 Extended.zero)).erase seed).erase (extra q p)).toList
+  have nd : front.Nodup := by
+    simp [front,different,different.symm,ne0,ne0.symm,ne1,ne1.symm,s0,s0.symm,s1,s1.symm,se,se.symm,Finset.nodup_toList,-List.getD_eq_getElem?_getD]
+  have eqS : front.toFinset = S := by
+    ext a
+    by_cases ha : a = Extended.pins.getD 0 Extended.zero <;>
+      by_cases hb : a = Extended.pins.getD 1 Extended.zero <;>
+      by_cases hc : a = extra q p <;> by_cases hs : a = seed <;>
+        simp [front,ha,hb,hc,hs,needed0,needed1,used,seedUsed,-List.getD_eq_getElem?_getD]
+  have hrun := Extended.list_run run front nd eqS
+  have same : restrictRows slice01 (Extended.observe Extended.target) = Stronger.observe (graphGoal 383) := by
+    rw [observe_projected01,projected_target]
+  have properGoal : Stronger.proper (graphGoal 383) := by unfold Stronger.proper; decide +kernel
+  have isZero : Stronger.observe Stronger.zero = fun _ => false := by
+    funext r
+    simp [Stronger.observe,Stronger.bit,Stronger.zero]
+  have roots : supply true ((vars 383).map Stronger.observe)
+      ((front.map Extended.observe).map (restrictRows slice01)) := by
+    intro v hv
+    obtain ⟨_,hin,rfl⟩ := List.mem_map.mp hv
+    obtain ⟨a,hm,rfl⟩ := List.mem_map.mp hin
+    rw [observe_projected01]
+    have hh := List.all_eq_true.mp (projected_bank q p) a
+      (raw a (eqS ▸ List.mem_toFinset.mpr hm))
+    simp only [Bool.or_eq_true,beq_iff_eq] at hh
+    rcases hh with hz | hm
+    · exact Or.inr (Or.inl ⟨false,hz ▸ isZero⟩)
+    · exact Or.inl (List.mem_map.mpr ⟨_,by simpa using hm,rfl⟩)
+  have need := projected_bound slice01 hrun (same ▸ Stronger.observe_proper properGoal)
+    Reach.start roots (L:=13) (same ▸ low383)
+  have charge : 4 ≤ mass ((front.map Extended.observe).map (restrictRows slice01)) := by
+    have c0 : Constant (restrictRows slice01 (Extended.observe (Extended.pins.getD 0 Extended.zero))) := by
+      rw [observe_projected01,show projected01 (Extended.pins.getD 0 Extended.zero)=Stronger.zero by decide +kernel]
+      exact ⟨false,isZero⟩
+    have c1 : Constant (restrictRows slice01 (Extended.observe (Extended.pins.getD 1 Extended.zero))) := by
+      rw [observe_projected01,show projected01 (Extended.pins.getD 1 Extended.zero)=Stronger.zero by decide +kernel]
+      exact ⟨false,isZero⟩
+    have cs : Constant (restrictRows slice01 (Extended.observe seed)) := by
+      rw [observe_projected01,show projected01 seed=Stronger.zero by decide +kernel]
+      exact ⟨false,isZero⟩
+    have ce : Constant (restrictRows slice01 (Extended.observe (extra q p))) := by
+      rw [observe_projected01,projected_extra]
+      exact ⟨false,isZero⟩
+    simp only [front,List.map_cons,List.map_map,mass_cons,cost,c0,c1,cs,ce,ite_true]
+    omega
+  omega
+
+end PEqualNP.Outside.L_meta_1886_aux.Stronger.SeedConjunction
+
+namespace PEqualNP.Outside.L_meta_1886_aux.Stronger.NegativeSeed
+
+def seed (i j : Fin 10) : Extended.Sig :=
+  Extended.bin 1 (Extended.pins.getD i.val Extended.zero) (Extended.pins.getD j.val Extended.zero)
+
+def extra (i j : Fin 10) : Extended.Sig :=
+  Extended.bin 2 (Extended.pins.getD 0 Extended.zero) (seed i j)
+
+def bank (i j : Fin 10) := Extended.pins ++ [seed i j,extra i j]
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma projected_pin_available : ∀ i : Fin 10,
+    ((projected (Extended.pins.getD i.val Extended.zero) == zero) ||
+      inputs.contains (projected (Extended.pins.getD i.val Extended.zero))) = true := by
+  decide +kernel
+
+lemma pin_available (i : Fin 10) : Available true (inputs.map observe)
+    (restrictRows embed (Extended.observe (Extended.pins.getD i.val Extended.zero))) := by
+  rw [observe_projected]
+  have check := projected_pin_available i
+  simp only [Bool.or_eq_true,beq_iff_eq] at check
+  rcases check with hz | hm
+  · right; left
+    refine ⟨false,?_⟩
+    rw [hz]
+    funext r
+    simp [observe,bit,zero]
+  · exact Or.inl (List.mem_map.mpr ⟨_,by simpa using hm,rfl⟩)
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma extra_projects_zero : ∀ i j : Fin 10, projected (extra i j) = zero := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma extra_ne_first : ∀ i j : Fin 10,
+    extra i j ≠ Extended.pins.getD 0 Extended.zero := by decide +kernel
+
+lemma lower (i j : Fin 10) {k S} (run : Extended.Live true Extended.target k S)
+    (raw : ∀ a ∈ S, a ∈ bank i j)
+    (needed : Extended.pins.getD 0 Extended.zero ∈ S) (used : extra i j ∈ S) : 16 ≤ k := by
+  classical
+  have ne := extra_ne_first i j
+  let front := Extended.pins.getD 0 Extended.zero :: extra i j ::
+    ((S.erase (Extended.pins.getD 0 Extended.zero)).erase (extra i j)).toList
+  have nd : front.Nodup := by
+    simp [front,ne,ne.symm,Finset.nodup_toList,-List.getD_eq_getElem?_getD]
+  have eqS : front.toFinset = S := by
+    ext a
+    by_cases ha : a = Extended.pins.getD 0 Extended.zero <;>
+      by_cases hb : a = extra i j <;> simp [front,ha,hb,needed,used,-List.getD_eq_getElem?_getD]
+  have hrun := Extended.list_run run front nd eqS
+  have same : restrictRows embed (Extended.observe Extended.target) = observe graph := by
+    rw [observe_projected]
+    exact congrArg observe (by decide +kernel)
+  have isZero : observe zero = fun _ => false := by funext r; simp [observe,bit,zero]
+  let seedWire := restrictRows embed (Extended.observe (seed i j))
+  have seedEq : seedWire = combine true
+      (restrictRows embed (Extended.observe (Extended.pins.getD i.val Extended.zero)))
+      (restrictRows embed (Extended.observe (Extended.pins.getD j.val Extended.zero))) := by
+    dsimp only [seedWire,seed]
+    rw [Extended.obs_bin,restrict_comb]
+    rfl
+  have reachSeed : Reach true (inputs.map observe) 1 (seedWire :: inputs.map observe) := by
+    rw [seedEq]
+    exact Reach.two true Reach.start (pin_available i) (pin_available j)
+  have supplyRoots : supply true (seedWire :: inputs.map observe)
+      ((front.map Extended.observe).map (restrictRows embed)) := by
+    intro v hv
+    obtain ⟨_,hin,rfl⟩ := List.mem_map.mp hv
+    obtain ⟨a,hm,rfl⟩ := List.mem_map.mp hin
+    have hr := raw a (eqS ▸ List.mem_toFinset.mpr hm)
+    simp only [bank,List.mem_append,List.mem_cons,List.not_mem_nil,or_false] at hr
+    rcases hr with hp | hs | he
+    · have hlist : List.ofFn (fun t : Fin 10 => Extended.pins.getD t.val Extended.zero) = Extended.pins := rfl
+      rw [← hlist] at hp
+      obtain ⟨t,rfl⟩ := List.mem_ofFn.mp hp
+      exact available_cons _ (pin_available t)
+    · subst a
+      exact Or.inl (by simp [seedWire])
+    · subst a
+      rw [observe_projected,extra_projects_zero]
+      exact Or.inr (Or.inl ⟨false,isZero⟩)
+  have bound := projected_bound embed hrun (same ▸ observe_proper graph_proper)
+    reachSeed supplyRoots (L:=15) (same ▸ nineFloor)
+  have charge : 2 ≤ mass ((front.map Extended.observe).map (restrictRows embed)) := by
+    have firstConstant : Constant (restrictRows embed (Extended.observe (Extended.pins.getD 0 Extended.zero))) := by
+      rw [observe_projected,show projected (Extended.pins.getD 0 Extended.zero) = zero by decide +kernel]
+      exact ⟨false,isZero⟩
+    have extraConstant : Constant (restrictRows embed (Extended.observe (extra i j))) := by
+      rw [observe_projected,extra_projects_zero]
+      exact ⟨false,isZero⟩
+    simp only [front,List.map_cons,List.map_map,mass_cons,cost,firstConstant,extraConstant,ite_true]
+    omega
+  omega
+
+end PEqualNP.Outside.L_meta_1886_aux.Stronger.NegativeSeed
+
+namespace PEqualNP.Outside.L_meta_1886_aux.DominatingSource
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_1886_aux
+open Stronger.Extended
+
+open ConstantSweep
+
+lemma eliminate_consumed_dominating_not {n : ℕ} (F : (Fin n → Bool) → Bool)
+    (pre suffix : List Gate) (source outIdx : ℕ)
+    (hp : ∀ q ∈ pre, good q)
+    (hs : Monotone2 (Circuit.mk suffix outIdx))
+    (correct : ∀ x, (Circuit.mk (pre ++ ⟨.not,[source]⟩ :: suffix) outIdx).eval
+      (List.ofFn x) = F x)
+    (above : ∀ x, F x ≤ (run pre (List.ofFn x)).getD source false)
+    (used : ∃ q ∈ suffix, n + pre.length ∈ q.inputs)
+    (nonconstant : ∃ x y, F x ≠ F y) :
+    ∃ (out : List Gate) (j : ℕ),
+      FanInTwo (Circuit.mk (pre ++ out) j) ∧
+      (Circuit.mk (pre ++ out) j).size + 2 ≤
+        (Circuit.mk (pre ++ ⟨.not,[source]⟩ :: suffix) outIdx).size ∧
+      ∀ x, (Circuit.mk (pre ++ out) j).eval (List.ofFn x) = F x := by
+  have split : ∀ x, F x = (Circuit.mk suffix outIdx).eval
+      (run pre (List.ofFn x) ++ [!((run pre (List.ofFn x)).getD source false)]) := by
+    intro x
+    have hc := (correct x).symm
+    change F x = (run (pre ++ ⟨.not,[source]⟩ :: suffix) (List.ofFn x)).getD outIdx false at hc
+    rw [run_append] at hc
+    exact hc
+  have hg : ∀ q ∈ suffix, good q := by
+    intro q hq
+    have h := hs q hq
+    constructor
+    · rcases h.1 with h | h
+      · exact Or.inl h
+      · exact Or.inr (Or.inl h)
+    · exact h.2
+  have constantCorrect : ∀ x, (Circuit.mk suffix outIdx).eval
+      (run pre (List.ofFn x) ++ [false]) = F x :=
+    OneNot.replace_not_from_above F (fun x => (run pre (List.ofFn x)).getD source false)
+      (fun x => run pre (List.ofFn x)) (Circuit.mk suffix outIdx) hs split above
+  obtain ⟨out,j,hout,hsize,hcorrect⟩ :=
+    OneNotCompile.compile_constant_suffix F pre suffix outIdx false hg constantCorrect nonconstant
+  refine ⟨out,j,?_,?_,hcorrect⟩
+  · intro q hq
+    exact (List.mem_append.mp hq).elim (hp q) (hout q)
+  · have hcount := OneNotEliminate.touched_count hs used
+    simp only [Circuit.size,List.length_append,List.length_cons]
+    omega
+
+lemma supplied_and_head (x : Fin 10 → Bool) :
+    GateOp.and.eval ([0,1].map (fun i => (List.ofFn x).getD i false)) = (x 0 && x 1) := by
+  simp [GateOp.eval]
+
+lemma identity_lower (pre suffix : List Gate) (source outIdx : ℕ)
+    (legal : FanInTwo (Circuit.mk (pre ++ ⟨.not,[source]⟩ :: suffix) outIdx))
+    (mono : Monotone2 (Circuit.mk suffix outIdx))
+    (used : ∃ q ∈ suffix, 11 + pre.length ∈ q.inputs)
+    (above : ∀ x : Fin 10 → Bool,
+      f10 x ≤ (Circuit.mk pre source).eval (List.ofFn x ++ [x 0 && x 1]))
+    (correct : ∀ x : Fin 10 → Bool,
+      (Circuit.mk (pre ++ ⟨.not,[source]⟩ :: suffix) outIdx).eval
+        (List.ofFn x ++ [x 0 && x 1]) = f10 x) :
+    19 ≤ (Circuit.mk (pre ++ ⟨.not,[source]⟩ :: suffix) outIdx).size := by
+  have hp : ∀ q ∈ (⟨GateOp.and,[0,1]⟩ :: pre), ConstantSweep.good q := by
+    intro q hq
+    rcases List.mem_cons.mp hq with rfl | hq
+    · simp [ConstantSweep.good]
+    · exact legal q (List.mem_append_left _ hq)
+  have whole : ∀ x : Fin 10 → Bool,
+      (Circuit.mk ((⟨.and,[0,1]⟩ :: pre) ++ ⟨.not,[source]⟩ :: suffix) outIdx).eval
+        (List.ofFn x) = f10 x := by
+    intro x
+    simpa only [Circuit.eval,Circuit.wires,List.cons_append,List.foldl_cons,supplied_and_head]
+      using correct x
+  have physicalAbove : ∀ x : Fin 10 → Bool,
+      f10 x ≤ (ConstantSweep.run (⟨.and,[0,1]⟩ :: pre) (List.ofFn x)).getD source false := by
+    intro x
+    change f10 x ≤ (ConstantSweep.run pre (List.ofFn x ++ [_])).getD source false
+    rw [supplied_and_head]
+    exact above x
+  have nonconstant : ∃ x y : Fin 10 → Bool, f10 x ≠ f10 y := by
+    exact ⟨fun _ => false,fun _ => true,by decide +kernel⟩
+  have consumed : ∃ q ∈ suffix, 10 + (⟨GateOp.and,[0,1]⟩ :: pre).length ∈ q.inputs := by
+    have h : 10 + (⟨GateOp.and,[0,1]⟩ :: pre).length = 11 + pre.length := by
+      simp only [List.length_cons]
+      omega
+    rw [h]
+    exact used
+  obtain ⟨out,j,legalNew,saved,correctNew⟩ :=
+    eliminate_consumed_dominating_not f10 (⟨.and,[0,1]⟩ :: pre)
+      suffix source outIdx hp mono whole physicalAbove consumed nonconstant
+  have lower := first_and_size_lower
+    (Circuit.mk ((⟨.and,[0,1]⟩ :: pre) ++ out) j) 0 1 (by decide)
+    ⟨pre ++ out,rfl⟩ legalNew correctNew
+  simp only [Circuit.size,List.length_append,List.length_cons] at lower saved ⊢
+  omega
+
+lemma arbitrary_map_lower (p : Fin 10 → Fin 10) (pre suffix : List Gate) (source outIdx : ℕ)
+    (legal : FanInTwo (Circuit.mk (pre ++ ⟨.not,[source]⟩ :: suffix) outIdx))
+    (mono : Monotone2 (Circuit.mk suffix outIdx))
+    (used : ∃ q ∈ suffix, 11 + pre.length ∈ q.inputs)
+    (above : ∀ x : Fin 10 → Bool,
+      f10 x ≤ (Circuit.mk pre source).eval (List.ofFn (x ∘ p) ++ [x 0 && x 1]))
+    (correct : ∀ x : Fin 10 → Bool,
+      (Circuit.mk (pre ++ ⟨.not,[source]⟩ :: suffix) outIdx).eval
+        (List.ofFn (x ∘ p) ++ [x 0 && x 1]) = f10 x) :
+    19 ≤ (Circuit.mk (pre ++ ⟨.not,[source]⟩ :: suffix) outIdx).size := by
+  let C := Circuit.mk (pre ++ ⟨GateOp.not,[source]⟩ :: suffix) outIdx
+  let D := Circuit.mk (pre.map (InputRelabel.gate p) ++
+    ⟨GateOp.not,[InputRelabel.wire p source]⟩ :: suffix.map (InputRelabel.gate p))
+    (InputRelabel.wire p outIdx)
+  have shape : InputRelabel.circuit p C = D := by
+    simp [InputRelabel.circuit,C,D,InputRelabel.gate]
+  have legalD : FanInTwo D := by
+    rw [← shape]
+    exact InputRelabel.circuit_legal p C legal
+  have monoD : Monotone2 (Circuit.mk (suffix.map (InputRelabel.gate p))
+      (InputRelabel.wire p outIdx)) :=
+    InputRelabel.circuit_mono p (Circuit.mk suffix outIdx) mono
+  have usedD : ∃ q ∈ suffix.map (InputRelabel.gate p),
+      11 + (pre.map (InputRelabel.gate p)).length ∈ q.inputs := by
+    obtain ⟨q,hq,hi⟩ := used
+    refine ⟨InputRelabel.gate p q,List.mem_map.mpr ⟨q,hq,rfl⟩,?_⟩
+    change 11 + (pre.map (InputRelabel.gate p)).length ∈ q.inputs.map (InputRelabel.wire p)
+    rw [List.length_map]
+    exact List.mem_map.mpr ⟨11 + pre.length,hi,InputRelabel.wire_fixed p _ (by omega)⟩
+  have aboveD : ∀ x : Fin 10 → Bool,
+      f10 x ≤ (Circuit.mk (pre.map (InputRelabel.gate p)) (InputRelabel.wire p source)).eval
+        (List.ofFn x ++ [x 0 && x 1]) := by
+    intro x
+    change _ ≤ (InputRelabel.circuit p (Circuit.mk pre source)).eval _
+    rw [InputRelabel.circuit_eval]
+    exact above x
+  have correctD : ∀ x : Fin 10 → Bool, D.eval (List.ofFn x ++ [x 0 && x 1]) = f10 x := by
+    intro x
+    rw [← shape,InputRelabel.circuit_eval]
+    exact correct x
+  have lower := identity_lower (pre.map (InputRelabel.gate p))
+    (suffix.map (InputRelabel.gate p)) (InputRelabel.wire p source)
+    (InputRelabel.wire p outIdx) legalD monoD usedD aboveD correctD
+  have sameSize : D.size = C.size := by rw [← shape,InputRelabel.circuit_size]
+  change 19 ≤ D.size at lower
+  rw [sameSize] at lower
+  exact lower
+
+end PEqualNP.Outside.L_meta_1886_aux.DominatingSource
+
+namespace PEqualNP.Outside.L_meta_1886_aux.DominatingSourceWitness
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_1886_aux.Stronger.Extended
+
+lemma lower (p : Fin 10 → Fin 10) (pre suffix : List Gate) (source outIdx : ℕ) (rest : List ℕ)
+    (legal : FanInTwo (Circuit.mk (pre ++ ⟨.not,source :: rest⟩ :: suffix) outIdx))
+    (mono : Monotone2 (Circuit.mk suffix outIdx))
+    (used : ∃ q ∈ suffix, 11 + pre.length ∈ q.inputs)
+    (above : ∀ x : Fin 10 → Bool,
+      f10 x ≤ (Circuit.mk pre source).eval (List.ofFn (x ∘ p) ++ [x 0 && x 1]))
+    (correct : ∀ x : Fin 10 → Bool,
+      (Circuit.mk (pre ++ ⟨.not,source :: rest⟩ :: suffix) outIdx).eval
+        (List.ofFn (x ∘ p) ++ [x 0 && x 1]) = f10 x) :
+    19 ≤ (Circuit.mk (pre ++ ⟨.not,source :: rest⟩ :: suffix) outIdx).size := by
+  have legalNormalized : FanInTwo (Circuit.mk (pre ++ ⟨.not,[source]⟩ :: suffix) outIdx) := by
+    intro q hq
+    rcases List.mem_append.mp hq with hp | ht
+    · exact legal q (List.mem_append_left _ hp)
+    · rcases List.mem_cons.mp ht with rfl | hs
+      · simp
+      · exact legal q (List.mem_append_right _ (List.mem_cons_of_mem _ hs))
+  have correctNormalized : ∀ x : Fin 10 → Bool,
+      (Circuit.mk (pre ++ ⟨.not,[source]⟩ :: suffix) outIdx).eval
+        (List.ofFn (x ∘ p) ++ [x 0 && x 1]) = f10 x := by
+    intro x
+    rw [SeedNotOperands.ignore_not_tail pre suffix source outIdx rest]
+    exact correct x
+  have bound := DominatingSource.arbitrary_map_lower p pre suffix source outIdx
+    legalNormalized mono used above correctNormalized
+  simpa only [Circuit.size,List.length_append,List.length_cons] using bound
+
+lemma edge_input (p : Fin 10 → Fin 10) (pre suffix : List Gate)
+    (source outIdx : ℕ) (rest : List ℕ)
+    (legal : FanInTwo (Circuit.mk (pre ++ ⟨.not,source :: rest⟩ :: suffix) outIdx))
+    (mono : Monotone2 (Circuit.mk suffix outIdx))
+    (used : ∃ q ∈ suffix, 11 + pre.length ∈ q.inputs)
+    (budget : (Circuit.mk (pre ++ ⟨.not,source :: rest⟩ :: suffix) outIdx).size ≤ 18)
+    (correct : ∀ x : Fin 10 → Bool,
+      (Circuit.mk (pre ++ ⟨.not,source :: rest⟩ :: suffix) outIdx).eval
+        (List.ofFn (x ∘ p) ++ [x 0 && x 1]) = f10 x) :
+    ∃ x : Fin 10 → Bool,
+      (Circuit.mk pre source).eval (List.ofFn (x ∘ p) ++ [x 0 && x 1]) = false ∧ f10 x = true := by
+  have bad : ¬ ∀ x : Fin 10 → Bool,
+      f10 x ≤ (Circuit.mk pre source).eval (List.ofFn (x ∘ p) ++ [x 0 && x 1]) := by
+    intro above
+    have bound := lower p pre suffix source outIdx rest legal mono used above correct
+    omega
+  obtain ⟨x,hx⟩ := not_forall.mp bad
+  refine ⟨x,?_,?_⟩ <;>
+    cases hg : (Circuit.mk pre source).eval (List.ofFn (x ∘ p) ++ [x 0 && x 1]) <;>
+    cases hf : f10 x <;> simp_all [Bool.le_iff_imp]
+
+end PEqualNP.Outside.L_meta_1886_aux.DominatingSourceWitness
+
+namespace PEqualNP.Outside.L_meta_1886_aux.Stronger.NegativeSeedTransport
+
+open Extended PEqualNP.Outside.L_meta_1886_aux.Subgraphs
+
+def originalSeed : Extended.Sig := Extended.bin 1 (Extended.pins.getD 0 Extended.zero)
+  (Extended.pins.getD 1 Extended.zero)
+
+def originalExtra (p : Fin 10) := Extended.bin 2 (Extended.pins.getD p.val Extended.zero) originalSeed
+
+def originalBank (p : Fin 10) := Extended.pins ++ [originalSeed,originalExtra p]
+
+def witness (p : Fin 10) : Extended.Row := ![128,512,128,136,130,129,128,130,144,129] p
+
+def other (p : Fin 10) : Extended.Row := Fin.ofNat 1024 ((witness p).val + 2 ^ vertexPositions p)
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma witness_diff : ∀ p : Fin 10,
+    Extended.bit (witness p) Extended.target ≠ Extended.bit (other p) Extended.target := by decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma witness_stable : ∀ p : Fin 10,
+    (originalBank p).all (fun a => (Extended.bit (witness p) a == Extended.bit (other p) a) ||
+      (a == Extended.pins.getD p.val Extended.zero)) = true := by decide +kernel
+
+lemma pin_needed (p : Fin 10) {k S} (run : Extended.Live true Extended.target k S)
+    (raw : ∀ a ∈ S, a ∈ originalBank p) : Extended.pins.getD p.val Extended.zero ∈ S := by
+  obtain ⟨a,ha,hd⟩ := Extended.live_row_difference run (witness_diff p)
+  have hh := List.all_eq_true.mp (witness_stable p) a (raw a ha)
+  simp only [Bool.or_eq_true,beq_iff_eq] at hh
+  exact hh.resolve_left hd ▸ ha
+
+lemma lower (p : Fin 10) {k S} (run : Extended.Live true Extended.target k S)
+    (raw : ∀ a ∈ S, a ∈ originalBank p) (used : originalExtra p ∈ S) : 16 ≤ k := by
+  classical
+  have needed := pin_needed p run raw
+  let t := pairPerm p p
+  let q := t.symm
+  have tzero : t 0 = p := pairMap_zero p p
+  have ht : ∀ a b, adjacent (t a) (t b) = adjacent a b := pairMap_adjacent p p
+  have hqp : q p = 0 := by
+    dsimp only [q]
+    rw [←tzero,Equiv.symm_apply_apply]
+  have hq : ∀ a b, adjacent (q a) (q b) = adjacent a b := by
+    intro a b
+    simpa only [q,Equiv.apply_symm_apply] using (ht (t.symm a) (t.symm b)).symm
+  have seedRename : renameVertices q originalSeed = NegativeSeed.seed (q 0) (q 1) := by
+    unfold originalSeed NegativeSeed.seed
+    rw [renameVertices_bin]
+    exact congrArg₂ (Extended.bin 1) (renameVertices_pin q 0) (renameVertices_pin q 1)
+  have extraRename : renameVertices q (originalExtra p) = NegativeSeed.extra (q 0) (q 1) := by
+    unfold originalExtra NegativeSeed.extra
+    rw [renameVertices_bin,renameVertices_pin q p,seedRename,hqp]
+    rfl
+  have run' : Extended.Live true Extended.target k (S.image (renameVertices q)) := by
+    simpa only [renameVertices_target q hq] using live_renameVertices run q
+  have raw' : ∀ a ∈ S.image (renameVertices q), a ∈ NegativeSeed.bank (q 0) (q 1) := by
+    intro a ha
+    obtain ⟨v,hv,rfl⟩ := Finset.mem_image.mp ha
+    have hh := raw v hv
+    simp only [originalBank,List.mem_append,List.mem_cons,List.not_mem_nil,or_false] at hh
+    simp only [NegativeSeed.bank,List.mem_append,List.mem_cons,List.not_mem_nil,or_false]
+    rcases hh with hp | rfl | rfl
+    · exact Or.inl (renameVertices_mem_pins q hp)
+    · exact Or.inr (Or.inl seedRename)
+    · exact Or.inr (Or.inr extraRename)
+  have needed' : Extended.pins.getD 0 Extended.zero ∈ S.image (renameVertices q) := by
+    refine Finset.mem_image.mpr ⟨Extended.pins.getD p.val Extended.zero,needed,?_⟩
+    rw [renameVertices_pin q p,hqp]
+    rfl
+  have used' : NegativeSeed.extra (q 0) (q 1) ∈ S.image (renameVertices q) :=
+    Finset.mem_image.mpr ⟨originalExtra p,used,extraRename⟩
+  exact NegativeSeed.lower (q 0) (q 1) run' raw' needed' used'
+
+end PEqualNP.Outside.L_meta_1886_aux.Stronger.NegativeSeedTransport
+
+namespace PEqualNP.Outside.L_meta_1886_aux.OverlappingOr
+
+open PEqualNP.Outside.L_meta_1886_aux.Stronger
+open PEqualNP.Outside.L_meta_1886_aux.Subgraphs
+
+def seed : Extended.Sig := Extended.bin 1 (Extended.pins.getD 0 Extended.zero)
+  (Extended.pins.getD 1 Extended.zero)
+
+def bank (a p : Fin 10) : List Extended.Sig := Extended.pins ++
+  [seed,Extended.bin 1 (Extended.pins.getD a.val Extended.zero) (Extended.pins.getD p.val Extended.zero)]
+
+def low (p : Fin 10) : Extended.Row :=
+  Extended.rowOfAssignment fun i => decide (i = 1 ∨ i = p)
+
+def high (p : Fin 10) : Extended.Row :=
+  Extended.rowOfAssignment fun i => decide (i = 0 ∨ i = 1 ∨ i = p)
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma witness_checked : ∀ p : Fin 10, adjacent 1 p = false →
+    Extended.bit (low p) Extended.target ≠ Extended.bit (high p) Extended.target ∧
+      (bank 0 p).all (fun a => (Extended.bit (low p) a == Extended.bit (high p) a) ||
+        (a == Extended.first)) = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma projected_bank : ∀ p : Fin 10,
+    (bank 0 p).all (fun a => (projected a == zero) || inputs.contains (projected a)) = true := by
+  decide +kernel
+
+lemma shared_zero_needed (p : Fin 10) (hp : adjacent 1 p = false) {k S}
+    (run : Extended.Live true Extended.target k S)
+    (raw : ∀ a ∈ S, a ∈ bank 0 p) : Extended.first ∈ S := by
+  obtain ⟨diff,stable⟩ := witness_checked p hp
+  obtain ⟨a,ha,change⟩ := Extended.live_row_difference run diff
+  have checked := List.all_eq_true.mp stable a (raw a ha)
+  simp only [Bool.or_eq_true,beq_iff_eq] at checked
+  exact checked.resolve_left change ▸ ha
+
+lemma lower_zero (p : Fin 10) (hp : adjacent 1 p = false) {k S}
+    (run : Extended.Live true Extended.target k S)
+    (raw : ∀ a ∈ S, a ∈ bank 0 p) : 16 ≤ k := by
+  classical
+  have needed := shared_zero_needed p hp run raw
+  let front := Extended.first :: (S.erase Extended.first).toList
+  have nd : front.Nodup := by
+    apply List.nodup_cons.mpr
+    exact ⟨by simp,Finset.nodup_toList _⟩
+  have eqS : front.toFinset = S := by
+    ext a
+    by_cases ha : a = Extended.first <;> simp [front,ha,needed]
+  have hrun := Extended.list_run run front nd eqS
+  have same : restrictRows embed (Extended.observe Extended.target) = observe graph := by
+    rw [observe_projected]
+    exact congrArg observe (by decide +kernel)
+  have isZero : observe zero = fun _ => false := by funext r; simp [observe,bit,zero]
+  have supplyRoots : supply true (inputs.map observe) ((front.map Extended.observe).map (restrictRows embed)) := by
+    intro v hv
+    obtain ⟨_,hin,rfl⟩ := List.mem_map.mp hv
+    obtain ⟨a,hmFront,rfl⟩ := List.mem_map.mp hin
+    rw [observe_projected]
+    have hh := List.all_eq_true.mp (projected_bank p) a (raw a (eqS ▸ List.mem_toFinset.mpr hmFront))
+    simp only [Bool.or_eq_true,beq_iff_eq] at hh
+    rcases hh with hz|hm
+    · exact Or.inr (Or.inl ⟨false,hz ▸ isZero⟩)
+    · exact Or.inl (List.mem_map.mpr ⟨_,by simpa using hm,rfl⟩)
+  have need := projected_bound embed hrun (same ▸ observe_proper graph_proper)
+    Reach.start supplyRoots (L:=15) (same ▸ nineFloor)
+  have charge : 1 ≤ mass ((front.map Extended.observe).map (restrictRows embed)) := by
+    have ac : Constant (restrictRows embed (Extended.observe Extended.first)) := by
+      rw [observe_projected, show projected Extended.first=zero by decide +kernel]
+      exact ⟨false,isZero⟩
+    simp [front,mass_cons,cost,ac]
+  omega
+
+lemma lower_one (p : Fin 10) (hp : adjacent 0 p = false) {k S}
+    (run : Extended.Live true Extended.target k S)
+    (raw : ∀ a ∈ S, a ∈ bank 1 p) : 16 ≤ k := by
+  classical
+  let q := pairPerm 1 0
+  have q0 : q 0 = 1 := pairMap_zero 1 0
+  have q1 : q 1 = 0 := by change pairMap 1 0 1 = 0; decide +kernel
+  have qa : ∀ a b, adjacent (q a) (q b) = adjacent a b := pairMap_adjacent 1 0
+  have hq : adjacent 1 (q p) = false := by
+    rw [←q0,qa]
+    exact hp
+  have pin0 : Extended.renameVertices q (Extended.pins.getD 0 Extended.zero) =
+      Extended.pins.getD 1 Extended.zero := by
+    simpa [q0] using (Extended.renameVertices_pin q (0 : Fin 10))
+  have pin1 : Extended.renameVertices q (Extended.pins.getD 1 Extended.zero) =
+      Extended.pins.getD 0 Extended.zero := by
+    simpa [q1] using (Extended.renameVertices_pin q (1 : Fin 10))
+  have seedSame : Extended.renameVertices q seed = seed := by
+    unfold seed
+    rw [Extended.renameVertices_bin,pin0,pin1]
+    simp [Extended.bin,BitVec.or_comm]
+  have extraSame : Extended.renameVertices q
+      (Extended.bin 1 (Extended.pins.getD 1 Extended.zero) (Extended.pins.getD p.val Extended.zero)) =
+      Extended.bin 1 (Extended.pins.getD 0 Extended.zero) (Extended.pins.getD (q p).val Extended.zero) := by
+    rw [Extended.renameVertices_bin,pin1,Extended.renameVertices_pin q p]
+  have tail : Extended.Live true Extended.target k (S.image (Extended.renameVertices q)) := by
+    simpa only [Extended.renameVertices_target q qa] using Extended.live_renameVertices run q
+  apply lower_zero (q p) hq tail
+  intro v hv
+  obtain ⟨w,hw,rfl⟩ := Finset.mem_image.mp hv
+  have hm := raw w hw
+  simp only [bank,List.mem_append,List.mem_cons,List.not_mem_nil,or_false] at hm ⊢
+  rcases hm with hpin | rfl | rfl
+  · exact Or.inl (Extended.renameVertices_mem_pins q hpin)
+  · exact Or.inr (Or.inl seedSame)
+  · exact Or.inr (Or.inr extraSame)
+
+end PEqualNP.Outside.L_meta_1886_aux.OverlappingOr
+
+namespace PEqualNP.Outside.L_meta_1886_aux.EdgeGuard
+
+open MapRigidity IndependentGuard
+
+def edgeMasks : List (Fin 1024) :=
+  [3,6,12,24,17,33,66,132,264,528,160,640,576,320,288]
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma edge_masks_true : ∀ m ∈ edgeMasks, edge10 (row m) = true := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma edge_restriction : ∀ x : Fin 10 → Bool, edge10 x = true →
+    ∃ m ∈ edgeMasks, ∀ i : Fin 10, row m i ≤ x i := by
+  intro x hx
+  simp only [edge10, Bool.or_eq_true, Bool.and_eq_true, or_assoc] at hx
+  rcases hx with h | h | h | h | h | h | h | h | h | h | h | h | h | h | h
+  · refine ⟨3,by decide +kernel,?_⟩
+    intro i
+    rw [Bool.le_iff_imp]
+    intro hi
+    have support : ∀ j : Fin 10, row (3 : Fin 1024) j = true → j = 0 ∨ j = 1 := by decide +kernel
+    rcases support i hi with rfl | rfl
+    · exact h.1
+    · exact h.2
+  · refine ⟨6,by decide +kernel,?_⟩
+    intro i
+    rw [Bool.le_iff_imp]
+    intro hi
+    have support : ∀ j : Fin 10, row (6 : Fin 1024) j = true → j = 1 ∨ j = 2 := by decide +kernel
+    rcases support i hi with rfl | rfl
+    · exact h.1
+    · exact h.2
+  · refine ⟨12,by decide +kernel,?_⟩
+    intro i
+    rw [Bool.le_iff_imp]
+    intro hi
+    have support : ∀ j : Fin 10, row (12 : Fin 1024) j = true → j = 2 ∨ j = 3 := by decide +kernel
+    rcases support i hi with rfl | rfl
+    · exact h.1
+    · exact h.2
+  · refine ⟨24,by decide +kernel,?_⟩
+    intro i
+    rw [Bool.le_iff_imp]
+    intro hi
+    have support : ∀ j : Fin 10, row (24 : Fin 1024) j = true → j = 3 ∨ j = 4 := by decide +kernel
+    rcases support i hi with rfl | rfl
+    · exact h.1
+    · exact h.2
+  · refine ⟨17,by decide +kernel,?_⟩
+    intro i
+    rw [Bool.le_iff_imp]
+    intro hi
+    have support : ∀ j : Fin 10, row (17 : Fin 1024) j = true → j = 4 ∨ j = 0 := by decide +kernel
+    rcases support i hi with rfl | rfl
+    · exact h.1
+    · exact h.2
+  · refine ⟨33,by decide +kernel,?_⟩
+    intro i
+    rw [Bool.le_iff_imp]
+    intro hi
+    have support : ∀ j : Fin 10, row (33 : Fin 1024) j = true → j = 0 ∨ j = 5 := by decide +kernel
+    rcases support i hi with rfl | rfl
+    · exact h.1
+    · exact h.2
+  · refine ⟨66,by decide +kernel,?_⟩
+    intro i
+    rw [Bool.le_iff_imp]
+    intro hi
+    have support : ∀ j : Fin 10, row (66 : Fin 1024) j = true → j = 1 ∨ j = 6 := by decide +kernel
+    rcases support i hi with rfl | rfl
+    · exact h.1
+    · exact h.2
+  · refine ⟨132,by decide +kernel,?_⟩
+    intro i
+    rw [Bool.le_iff_imp]
+    intro hi
+    have support : ∀ j : Fin 10, row (132 : Fin 1024) j = true → j = 2 ∨ j = 7 := by decide +kernel
+    rcases support i hi with rfl | rfl
+    · exact h.1
+    · exact h.2
+  · refine ⟨264,by decide +kernel,?_⟩
+    intro i
+    rw [Bool.le_iff_imp]
+    intro hi
+    have support : ∀ j : Fin 10, row (264 : Fin 1024) j = true → j = 3 ∨ j = 8 := by decide +kernel
+    rcases support i hi with rfl | rfl
+    · exact h.1
+    · exact h.2
+  · refine ⟨528,by decide +kernel,?_⟩
+    intro i
+    rw [Bool.le_iff_imp]
+    intro hi
+    have support : ∀ j : Fin 10, row (528 : Fin 1024) j = true → j = 4 ∨ j = 9 := by decide +kernel
+    rcases support i hi with rfl | rfl
+    · exact h.1
+    · exact h.2
+  · refine ⟨160,by decide +kernel,?_⟩
+    intro i
+    rw [Bool.le_iff_imp]
+    intro hi
+    have support : ∀ j : Fin 10, row (160 : Fin 1024) j = true → j = 5 ∨ j = 7 := by decide +kernel
+    rcases support i hi with rfl | rfl
+    · exact h.1
+    · exact h.2
+  · refine ⟨640,by decide +kernel,?_⟩
+    intro i
+    rw [Bool.le_iff_imp]
+    intro hi
+    have support : ∀ j : Fin 10, row (640 : Fin 1024) j = true → j = 7 ∨ j = 9 := by decide +kernel
+    rcases support i hi with rfl | rfl
+    · exact h.1
+    · exact h.2
+  · refine ⟨576,by decide +kernel,?_⟩
+    intro i
+    rw [Bool.le_iff_imp]
+    intro hi
+    have support : ∀ j : Fin 10, row (576 : Fin 1024) j = true → j = 9 ∨ j = 6 := by decide +kernel
+    rcases support i hi with rfl | rfl
+    · exact h.1
+    · exact h.2
+  · refine ⟨320,by decide +kernel,?_⟩
+    intro i
+    rw [Bool.le_iff_imp]
+    intro hi
+    have support : ∀ j : Fin 10, row (320 : Fin 1024) j = true → j = 6 ∨ j = 8 := by decide +kernel
+    rcases support i hi with rfl | rfl
+    · exact h.1
+    · exact h.2
+  · refine ⟨288,by decide +kernel,?_⟩
+    intro i
+    rw [Bool.le_iff_imp]
+    intro hi
+    have support : ∀ j : Fin 10, row (288 : Fin 1024) j = true → j = 8 ∨ j = 5 := by decide +kernel
+    rcases support i hi with rfl | rfl
+    · exact h.1
+    · exact h.2
+
+lemma edge_guard_witness (g : (Fin 10 → Bool) → Bool)
+    (mono : ∀ x y, (∀ i, x i ≤ y i) → g x ≤ g y)
+    (notDominating : ¬ ∀ x, edge10 x ≤ g x) :
+    ∃ m ∈ edgeMasks, g (row m) = false ∧ edge10 (row m) = true := by
+  obtain ⟨x,hx⟩ := not_forall.mp notDominating
+  have gx : g x = false := by
+    cases h : g x <;> simp_all [Bool.le_iff_imp]
+  have fx : edge10 x = true := by
+    cases h : edge10 x <;> simp_all [Bool.le_iff_imp]
+  obtain ⟨m,hm,restriction⟩ := edge_restriction x fx
+  have lower := mono (row m) x restriction
+  have gm : g (row m) = false := by
+    cases h : g (row m) <;> simp_all [Bool.le_iff_imp]
+  exact ⟨m,hm,gm,edge_masks_true m hm⟩
+
+lemma dominating_iff_edges_true (g : (Fin 10 → Bool) → Bool)
+    (mono : ∀ x y, (∀ i, x i ≤ y i) → g x ≤ g y) :
+    (∀ x, edge10 x ≤ g x) ↔ ∀ m ∈ edgeMasks, g (row m) = true := by
+  constructor
+  · intro dominating m hm
+    have h := dominating (row m)
+    rw [edge_masks_true m hm] at h
+    cases hgm : g (row m) <;> simp_all [Bool.le_iff_imp]
+  · intro noWitness
+    by_contra hn
+    obtain ⟨m,hm,no,_⟩ := edge_guard_witness g mono hn
+    rw [noWitness m hm] at no
+    cases no
+
+end PEqualNP.Outside.L_meta_1886_aux.EdgeGuard
+
+namespace PEqualNP.Outside.L_meta_1886_aux.SourceEdgeGuard
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_1886_aux.Stronger.Extended
+open IndependentGuard EdgeGuard
+
+lemma minimal_edge_input (p : Fin 10 → Fin 10) (pre suffix : List Gate)
+    (source outIdx : ℕ) (rest : List ℕ)
+    (legal : FanInTwo (Circuit.mk (pre ++ ⟨.not,source :: rest⟩ :: suffix) outIdx))
+    (prefixMono : Monotone2 (Circuit.mk pre source))
+    (suffixMono : Monotone2 (Circuit.mk suffix outIdx))
+    (used : ∃ q ∈ suffix, 11 + pre.length ∈ q.inputs)
+    (budget : (Circuit.mk (pre ++ ⟨.not,source :: rest⟩ :: suffix) outIdx).size ≤ 18)
+    (correct : ∀ x : Fin 10 → Bool,
+      (Circuit.mk (pre ++ ⟨.not,source :: rest⟩ :: suffix) outIdx).eval
+        (List.ofFn (x ∘ p) ++ [x 0 && x 1]) = f10 x) :
+    ∃ m ∈ edgeMasks,
+      (Circuit.mk pre source).eval (List.ofFn (row m ∘ p) ++ [row m 0 && row m 1]) = false ∧
+        f10 (row m) = true := by
+  let g : (Fin 10 → Bool) → Bool := fun x =>
+    (Circuit.mk pre source).eval (List.ofFn (x ∘ p) ++ [x 0 && x 1])
+  have mono : ∀ x y, (∀ i, x i ≤ y i) → g x ≤ g y :=
+    PrefixMonotone.source_monotone p pre source prefixMono
+  have notDominating : ¬ ∀ x, MapRigidity.edge10 x ≤ g x := by
+    intro above
+    have bound := DominatingSourceWitness.lower p pre suffix source outIdx rest
+      legal suffixMono used above correct
+    omega
+  exact edge_guard_witness g mono notDominating
+
+end PEqualNP.Outside.L_meta_1886_aux.SourceEdgeGuard

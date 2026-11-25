@@ -1,14 +1,10 @@
 {
   "sourceHash": "PASS",
   "outputHash": "PASS",
-  "unchangedNormalizedDeclarationBodies": 1326,
-  "lexicalMissingDependencies": [],
+  "unchangedNormalizedDeclarationBodies": 1336,
   "format": "PASS",
-  "options": [
-    "maxHeartbeats",
-    "maxRecDepth"
-  ],
-  "newLower16": "Reviewed sound via essential input rows and monoRoot15; compile pending",
-  "bytes": 478528,
-  "sha256": "0aec2e94438aab6a1228cc80c1d9c38b259ba41da9cbf91f08f495e8d7f25f31"
+  "dependencyStatus": "Compile pending; prior direct-token lexical scan missed10 field-accessor declarations, now added exactly from source. Name-resolution closure still requires Lean compile.",
+  "newLower16": "Reviewed sound via essential input rows and monoRoot15",
+  "bytes": 479128,
+  "sha256": "4a7328fdffef563b29e5966d6936fcdde1932264f64a4398346b76411ddeff21"
 }

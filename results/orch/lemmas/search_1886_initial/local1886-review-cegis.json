@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-25T15:01:00.465450+00:00",
+  "verdict": "PASS for intended CEGIS templates",
+  "files": {
+    "search-1886-cegis.py": "c209c8db42868be20d7836623c2e97e8a05712e7eff99d55d3012c31686ecfdd",
+    "search-cadical-wrapper.cpp": "a4039a81978d9d4c3f4a025ef0c99e486a9c805bc3561e3ca1896efac5a8055b"
+  },
+  "mixed_operator_truth_cases": 24,
+  "NOT_bound_cases": 1152,
+  "mixed_three_gate_two_input_normalizations": 7560,
+  "review": [
+    "Binary selectors are sorted; unary NOT ignores b and fixes it to raw input0. Liveness cannot count this dummy b as a later-produced wire.",
+    "Four guarded ordering clauses correctly choose effective maximum parent a for NOT and b for binary gates. Greedy ready ordering with output-cone removal and idempotent padding is sound.",
+    "All initial structural variables are frozen. New row values are fresh and never referenced by later row additions; structural choices remain shared across incremental solves.",
+    "NOT minimum and maximum clauses enforce the configured cardinality. Removing unused gates preserves a maximum NOT bound but may lower a positive minimum; hence an UNSAT run with min-not>0 does not by itself exclude circuits whose only NOTs are unused. The monotone branch must cover those separately.",
+    "Each SAT model is replayed on all1024 rows. Up to64 independently failing rows are added, and learned clauses persist in the same solver. Any repeated constrained failing row triggers an assertion.",
+    "Timeout callback returns1 after the monotonic deadline; its CFUNCTYPE object remains live globally, and CDLL calls permit Python callback reacquisition of the GIL. Cooperative callback polling may exceed the nominal deadline slightly.",
+    "C wrapper is thin and opaque-pointer ABI matches the prototypes stated by the SAT agent from the official C header. No independent full header fetch performed in this review."
+  ]
+}

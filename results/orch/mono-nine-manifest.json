@@ -2,9 +2,9 @@
   "source": "lean/PEqualNP/Outside/L_meta_8367.lean",
   "source_sha256": "b26d2630f3efe4d2ebe91a0df3763f525e82cefe2f4df449271cc4e54f29feae",
   "output": "results/orch/lemmas/mono_nine.lean",
-  "output_sha256": "0aec2e94438aab6a1228cc80c1d9c38b259ba41da9cbf91f08f495e8d7f25f31",
-  "bytes": 478528,
-  "lines": 6442,
+  "output_sha256": "4a7328fdffef563b29e5966d6936fcdde1932264f64a4398346b76411ddeff21",
+  "bytes": 479128,
+  "lines": 6454,
   "declarations": [
     {
       "declaration": "Sig",
@@ -1261,10 +1261,28 @@
       "result_sha256": "fd623cf754003f80a52dc20ef32e3204694a6264400a1c019d0eb74ba73c58dc"
     },
     {
+      "declaration": "BoundPool.domain",
+      "source_line": 1441,
+      "source_sha256": "c5bc2bf4fd9a786dc8c0f5cfe3c67c87b3d2905721f19e72a60be32f0f1082c5",
+      "result_sha256": "c5bc2bf4fd9a786dc8c0f5cfe3c67c87b3d2905721f19e72a60be32f0f1082c5"
+    },
+    {
+      "declaration": "BoundPool.bound",
+      "source_line": 1442,
+      "source_sha256": "fa5c51707e19a11a96307b183839e07b93423af5b2b49d9bb86250afd7e86c12",
+      "result_sha256": "fa5c51707e19a11a96307b183839e07b93423af5b2b49d9bb86250afd7e86c12"
+    },
+    {
       "declaration": "BoundPool.paid",
       "source_line": 1443,
       "source_sha256": "7726c03dfd2f11d48a5cb3e7a522123c846fb5b0ece78f9fd728eb04920bea98",
       "result_sha256": "7726c03dfd2f11d48a5cb3e7a522123c846fb5b0ece78f9fd728eb04920bea98"
+    },
+    {
+      "declaration": "BoundPool.wires",
+      "source_line": 1444,
+      "source_sha256": "db985f18c9b5b123b5e3230c54c32b14247f87f4bcaf5a9aa4cb74d4d33e1ec5",
+      "result_sha256": "db985f18c9b5b123b5e3230c54c32b14247f87f4bcaf5a9aa4cb74d4d33e1ec5"
     },
     {
       "declaration": "ValidPool",
@@ -1871,6 +1889,48 @@
       "source_line": 2066,
       "source_sha256": "7e1c09203513e65802f6a6158e2d0cf4da59c7d13d875442032e5826c5765f1e",
       "result_sha256": "7e1c09203513e65802f6a6158e2d0cf4da59c7d13d875442032e5826c5765f1e"
+    },
+    {
+      "declaration": "Forest.mask",
+      "source_line": 2068,
+      "source_sha256": "390c048e6512454d26678d37b02a440422272e3cb5ed952f9b70b185436cea09",
+      "result_sha256": "390c048e6512454d26678d37b02a440422272e3cb5ed952f9b70b185436cea09"
+    },
+    {
+      "declaration": "Forest.mode",
+      "source_line": 2069,
+      "source_sha256": "02b10ec41cfe9a7bea791c3ce13928d8fd53ea3b7935475b56a4cfe91903f797",
+      "result_sha256": "02b10ec41cfe9a7bea791c3ce13928d8fd53ea3b7935475b56a4cfe91903f797"
+    },
+    {
+      "declaration": "Forest.samples",
+      "source_line": 2071,
+      "source_sha256": "680fec649d78887acee74244c2b95ace5f79c302807e01d4c4e92e644e9bf5ea",
+      "result_sha256": "680fec649d78887acee74244c2b95ace5f79c302807e01d4c4e92e644e9bf5ea"
+    },
+    {
+      "declaration": "Forest.cols",
+      "source_line": 2072,
+      "source_sha256": "e82992f90188bed833fc219805a6f69d246cbe7c748b98d249a3352240b1bf3a",
+      "result_sha256": "e82992f90188bed833fc219805a6f69d246cbe7c748b98d249a3352240b1bf3a"
+    },
+    {
+      "declaration": "Forest.autos",
+      "source_line": 2073,
+      "source_sha256": "0521a609a44b82747cc82d7c9dd28e78d26a34701b91ae7a6386de634efc4842",
+      "result_sha256": "0521a609a44b82747cc82d7c9dd28e78d26a34701b91ae7a6386de634efc4842"
+    },
+    {
+      "declaration": "Forest.levels",
+      "source_line": 2074,
+      "source_sha256": "2225483e0aba03bc2777a178bd7ced002ac425399c618bca345703b8e86ef7da",
+      "result_sha256": "2225483e0aba03bc2777a178bd7ced002ac425399c618bca345703b8e86ef7da"
+    },
+    {
+      "declaration": "Forest.index",
+      "source_line": 2075,
+      "source_sha256": "c2b4fb2cdb2ae6f3e0e9a30641b8e112857c8429c6c2cfc10436b46b80f5f808",
+      "result_sha256": "c2b4fb2cdb2ae6f3e0e9a30641b8e112857c8429c6c2cfc10436b46b80f5f808"
     },
     {
       "declaration": "wiresOf",
@@ -7962,5 +8022,6 @@
       "source_sha256": "78c239048e8c3457b437bd7d2399ba4e785da3a4bffbfbd2fa5505066f61ff67",
       "result_sha256": "2c50b658b11da10597bd49cd8066ed90e2c018bde16fca068c9a1be7cff0664c"
     }
-  ]
+  ],
+  "dependency_analysis": "qualified field suffixes resolved against declared methods, including Forest and BoundPool accessors"
 }

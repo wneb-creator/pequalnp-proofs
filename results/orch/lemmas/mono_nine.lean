@@ -1300,7 +1300,11 @@ lemma before_sound {u} (entries : List (Nat × Nat))
 
 
 abbrev BoundPool := Sig × Nat × Nat × List Sig
+def BoundPool.domain (c : BoundPool) : Sig := c.1
+def BoundPool.bound (c : BoundPool) : Nat := c.2.1
 def BoundPool.paid (c : BoundPool) : Nat := c.2.2.1
+def BoundPool.wires (c : BoundPool) : List Sig := c.2.2.2
+
 def ValidPool (u : Bool) (raw : List Sig) (T : Sig) (c : BoundPool) :=
   ∃ (f : Row → Row) (roots : List Sig) (bank : List (Wire Row)),
     (∀ r, bit (f r) c.domain = true) ∧ ¬Constant (restrictRows f (observe T)) ∧
@@ -1923,6 +1927,14 @@ def lookupShort (nb slots sw vw iw pw : Nat) (data : Nat → Nat) (h : Nat) : Op
 
 abbrev Forest := Nat × Nat × (Nat → Bits × Bits) × List ColumnInfo × List (List Nat) ×
   (Nat → Packing) × (Nat → Nat → Option (Nat × Nat))
+def Forest.mask (g : Forest) : Nat := g.1
+def Forest.mode (g : Forest) : Bool := !(g.1.testBit 10)
+def Forest.samples (g : Forest) : Nat → Bits × Bits := g.2.2.1
+def Forest.cols (g : Forest) : List ColumnInfo := g.2.2.2.1
+def Forest.autos (g : Forest) : List (List Nat) := g.2.2.2.2.1
+def Forest.levels (g : Forest) : Nat → Packing := g.2.2.2.2.2.1
+def Forest.index (g : Forest) : Nat → Nat → Option (Nat × Nat) := g.2.2.2.2.2.2
+
 def wiresOf (g : Forest) :=
   let ws := rawDecor g.mask (fun j => (g.samples j).1) (fun j => (g.samples j).2)
   ws

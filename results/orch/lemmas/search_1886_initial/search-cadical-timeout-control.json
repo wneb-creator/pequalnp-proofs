@@ -1,0 +1,7 @@
+{
+  "verdict": "UNKNOWN",
+  "elapsed": 0.05804264400012471,
+  "limit": 0.05,
+  "instance": "20 pigeons,19 holes",
+  "callback_pass": true
+}

@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-25T15:04:57.087666+00:00",
+  "verdict": "PASS independent exact splice and format review; compiled components individually, integrated build pending; exact target absent",
+  "bytes": 421238,
+  "lines": 7652,
+  "sha256": "cf29bddc7ae40dc8aa007917066eb6d8905c95704c12fc895312bec5adf18e97",
+  "appendices": 15
+}

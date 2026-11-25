@@ -1,0 +1,463 @@
+{
+  "utc": "2026-11-25T14:52:07.932094+00:00",
+  "stabilizer_size": 8,
+  "stabilizer": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    [
+      0,
+      1,
+      2,
+      7,
+      5,
+      4,
+      6,
+      3,
+      9,
+      8
+    ],
+    [
+      0,
+      1,
+      6,
+      8,
+      5,
+      4,
+      2,
+      9,
+      3,
+      7
+    ],
+    [
+      0,
+      1,
+      6,
+      9,
+      4,
+      5,
+      2,
+      8,
+      7,
+      3
+    ],
+    [
+      1,
+      0,
+      4,
+      3,
+      2,
+      6,
+      5,
+      9,
+      8,
+      7
+    ],
+    [
+      1,
+      0,
+      4,
+      9,
+      6,
+      2,
+      5,
+      3,
+      7,
+      8
+    ],
+    [
+      1,
+      0,
+      5,
+      7,
+      2,
+      6,
+      4,
+      8,
+      9,
+      3
+    ],
+    [
+      1,
+      0,
+      5,
+      8,
+      6,
+      2,
+      4,
+      7,
+      3,
+      9
+    ]
+  ],
+  "raw_pair_orbits": [
+    {
+      "representative": [
+        0,
+        1
+      ],
+      "adjacent": true,
+      "size": 1,
+      "pairs": [
+        [
+          0,
+          1
+        ]
+      ],
+      "critical_rows": 46
+    },
+    {
+      "representative": [
+        0,
+        2
+      ],
+      "adjacent": false,
+      "size": 4,
+      "pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ]
+      ],
+      "critical_rows": 49
+    },
+    {
+      "representative": [
+        0,
+        3
+      ],
+      "adjacent": false,
+      "size": 8,
+      "pairs": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          7
+        ],
+        [
+          0,
+          8
+        ],
+        [
+          0,
+          9
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ]
+      ],
+      "critical_rows": 49
+    },
+    {
+      "representative": [
+        0,
+        4
+      ],
+      "adjacent": true,
+      "size": 4,
+      "pairs": [
+        [
+          0,
+          4
+        ],
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "critical_rows": 46
+    },
+    {
+      "representative": [
+        2,
+        3
+      ],
+      "adjacent": true,
+      "size": 8,
+      "pairs": [
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          4,
+          9
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          6,
+          8
+        ],
+        [
+          6,
+          9
+        ]
+      ],
+      "critical_rows": 46
+    },
+    {
+      "representative": [
+        2,
+        4
+      ],
+      "adjacent": false,
+      "size": 4,
+      "pairs": [
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      "critical_rows": 49
+    },
+    {
+      "representative": [
+        2,
+        6
+      ],
+      "adjacent": false,
+      "size": 2,
+      "pairs": [
+        [
+          2,
+          6
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "critical_rows": 49
+    },
+    {
+      "representative": [
+        2,
+        8
+      ],
+      "adjacent": false,
+      "size": 8,
+      "pairs": [
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "critical_rows": 49
+    },
+    {
+      "representative": [
+        3,
+        7
+      ],
+      "adjacent": false,
+      "size": 4,
+      "pairs": [
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          9
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          9
+        ]
+      ],
+      "critical_rows": 49
+    },
+    {
+      "representative": [
+        3,
+        8
+      ],
+      "adjacent": true,
+      "size": 2,
+      "pairs": [
+        [
+          3,
+          8
+        ],
+        [
+          7,
+          9
+        ]
+      ],
+      "critical_rows": 46
+    }
+  ],
+  "nonedge_AND_representatives": [
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      3,
+      7
+    ]
+  ],
+  "OR_representatives": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      3,
+      8
+    ]
+  ],
+  "special": "OR(0,1) is the free bank itself in the OR-bank branch, so NOT of that source needs only one counted gate and should be searched without an extra guard gate. Equal-input guards reduce to raw-input NOT templates."
+}
