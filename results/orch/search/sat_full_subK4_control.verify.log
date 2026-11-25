@@ -1,2 +1,0 @@
-{"full_truth": true, "T": 0, "star_covered": 12, "edges": 12, "tau": 4, "gates": 15, "claimed_bound": 15, "violates_bound": false, "C4free": true, "AND": 4, "OR": 11, "uncovered": []}
-/tmp/oec/pequalnp-pilot-157/sat_full_subK4_control.witness.json

@@ -1,3 +1,0 @@
-p=1 l=2 targets=1 max_gates=1 states=11 target_hits=0 no counterexample
-p=2 l=2 targets=8 max_gates=3 states=10041 target_hits=0 no counterexample
-p=2 l=3 targets=35 max_gates=4 states=1490485 target_hits=0 no counterexample
