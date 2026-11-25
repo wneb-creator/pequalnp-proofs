@@ -1151,4 +1151,56 @@ lemma incidence_normalize_of_budget (N : ℕ) (I : Fin N → Fin N → Prop) [De
   obtain ⟨D, hao, correct, size, read⟩ := incidence_read1_upper N I
   exact ⟨D, hao, correct, size.trans budget, read⟩
 
+
+lemma incidence_card (N q : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hl : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1) :
+    (Finset.univ.filter (fun e : Fin N × Fin N => I e.1 e.2)).card = N * (q + 1) := by
+  calc
+    (Finset.univ.filter (fun e : Fin N × Fin N => I e.1 e.2)).card =
+        ∑ l : Fin N, (Finset.univ.filter (fun p => I p l)).card := by
+      simp only [Finset.card_eq_sum_ones, Finset.sum_filter,
+        Fintype.sum_prod_type]
+      exact Finset.sum_comm
+    _ = ∑ _l : Fin N, (q + 1) := Finset.sum_congr rfl (fun l _ => hl l)
+    _ = N * (q + 1) := by simp
+
+lemma lines_unique_intersection (N : ℕ) (I : Fin N → Fin N → Prop)
+    (hu : ∀ p p' : Fin N, p ≠ p' → ∃! l : Fin N, I p l ∧ I p' l)
+    (l l' : Fin N) (hne : l ≠ l') :
+    ∀ p p' : Fin N, I p l → I p l' → I p' l → I p' l' → p = p' := by
+  intro p p' hpl hpl' hp'l hp'l'
+  by_contra hpp
+  obtain ⟨m, _, hm⟩ := hu p p' hpp
+  exact hne ((hm l ⟨hpl, hp'l⟩).trans (hm l' ⟨hpl', hp'l'⟩).symm)
+
+
+lemma incidence_plane_budget (N q : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hl : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1) :
+    (incidenceEdges N I).card + N - 1 = N * (q + 2) - 1 := by
+  have hc : (incidenceEdges N I).card = N * (q + 1) := incidence_card N q I hl
+  rw [hc]
+  simp only [Nat.mul_add, Nat.mul_one, Nat.mul_two]
+  omega
+
+lemma plane_read1_upper (N q : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hl : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1) :
+    ∃ D : Circuit, IsAO2 (N + N) D ∧
+      (∀ z : Fin (N + N) → Bool, circuitFun (N + N) D z =
+        decide (∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧
+          z (Fin.natAdd N l) = true)) ∧
+      D.size ≤ N * (q + 2) - 1 ∧ IsReadK (N + N) D 1 := by
+  obtain ⟨D, hao, correct, budget, read⟩ := incidence_read1_upper N I
+  exact ⟨D, hao, correct, (incidence_plane_budget N q I hl) ▸ budget, read⟩
+
+lemma plane_normalize_of_gate_budget (N q : ℕ) (I : Fin N → Fin N → Prop)
+    [DecidableRel I] (C : Circuit)
+    (hl : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (budget : N * (q + 2) - 1 ≤ C.size) :
+    ∃ D : Circuit, IsAO2 (N + N) D ∧
+      (∀ z : Fin (N + N) → Bool, circuitFun (N + N) D z =
+        decide (∃ p l : Fin N, I p l ∧ z (Fin.castAdd N p) = true ∧
+          z (Fin.natAdd N l) = true)) ∧ D.size ≤ C.size ∧ IsReadK (N + N) D 1 := by
+  obtain ⟨D, hao, correct, size, read⟩ := plane_read1_upper N q I hl
+  exact ⟨D, hao, correct, size.trans budget, read⟩
+
 end PEqualNP.Outside.L_meta_2583

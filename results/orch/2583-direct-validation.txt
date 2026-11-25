@@ -1,0 +1,9 @@
+UTC: 2026-11-25T14:49:48.891900+00:00
+Source: results/orch/lemmas/2583_direct.lean
+SHA256: 6284d8b08eacbdf8fe1534093c807d09bac6c15890e500313442f42d7b58ed43
+Lines: 102
+Lean exit: 0
+Command: PATH=/tmp/oec/pequalnp-pilot-98/toolchain/bin:$PATH PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-98/toolchain/bin/lake PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-98/build-home MATHLIB_CACHE_DIR=/tmp/oec/pequalnp-pilot-98/mathlib-cache LAKE_ARTIFACT_CACHE=false ../tools/bin/lake env lean -j 1 -M 2048 /workspace/pequalnp-proofs/results/orch/lemmas/2583_direct.lean
+Stdout: empty
+Stderr: empty
+Scope: singleton rectangle/star semantics and nonlinear operand dichotomy only; no non-increasing Circuit conversion.

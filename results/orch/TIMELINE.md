@@ -13,3 +13,5 @@
 
 - 2026-11-25 14:42:44 UTC: desk assigned L-meta-2583 after L-meta-2592 returned HTTP 410; new lease active, reductions unavailable.
 - 2026-11-25 14:44:44 UTC: renewed L-meta-2583; expiry 15:04:44.551 UTC. Root restarted five-minute heartbeat; six agents assigned distinct strategies.
+
+- 2026-11-25 14:50 UTC: named 1206-line L-meta-2583 partial builds; independent review passes. Separate clean-AND semantic lemmas also kernel checked. Sharp unrestricted size bound still open.

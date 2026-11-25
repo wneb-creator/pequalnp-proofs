@@ -1,0 +1,9 @@
+L-meta-2583 partial checkpoint 02
+Named module lake build: PASS (5149 jobs).
+1206 Lean lines. Only Defs import.
+Added checked incidence count, unique intersection, upper budget N*(q+2)-1, and normalization conditional on that lower budget.
+Separate 102-line semantic helper: Lean PASS with small Mathlib imports; local rectangle and nonlinear-operand lemmas only.
+Independent review: PASS for partial preservation. The final posted theorem remains absent.
+Cleanup of final proof: not applicable; no checker acceptance or complete proof.
+Sub-agents: six (structure, direct lower bound, exact synthesis, counterexample search, reductions mapping, independent review)
+TIMING total=66 subagents=6
