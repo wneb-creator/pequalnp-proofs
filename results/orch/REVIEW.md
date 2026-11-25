@@ -145,3 +145,83 @@ status. The verifier's expected result for this theorem-free partial is
 The format guard separately refuses the absent theorem. Neither result may be
 reported as acceptance, even when every helper compiles. Any checker fault
 must be recorded as a fault rather than replaced with the expected rejection.
+
+## Cycle witness, filtering obstruction, and pair-clause helpers
+
+Reviewed the following namespace blocks. All source guards report only the
+expected absence of the final theorem; their owners report successful standalone
+Lean compiles. Approval is for merging these helpers into a partial checkpoint,
+conditional on the combined named build succeeding.
+
+| Block | SHA256 |
+| --- | --- |
+| C5 witness in `L_meta_1031_aux` | `a67cb1d8aa90666e00893cf643934b7802a159915f9c83ef4118cc9aee2f1ee0` |
+| `L_meta_1031_aux.TwoDirty` | `8f83385b024a82cd3413c10c5ac23dff3e27cc213554f8e90edd18996bd49ed6` |
+| `L_meta_1031.PairThreeCNF` | `510d0481c271da86fa5b324bdbf7e2eff13fe9a1542e14f7aa0800f129523fc7` |
+| Pair-owner extraction in `L_meta_1031_aux` | `35990fbf2fd0b9428111c761400bb75c9024cc559fbde27e190851700d8a01a4` |
+
+The C5 block proves an explicit seven-gate circuit computes the five-cycle
+edge function, with allowed gates, no graph triangles/four-cycles, a star
+profile, and nonempty edge ownership at every AND. The block does not prove
+the lower bound seven; report it as a witness, not a new optimum theorem.
+
+The TwoDirty block computes the two-edge matching through two overlapping
+rectangle filters and a final AND. Both intermediate ANDs own disjoint graph
+edges, so their ownership has no common center; the final AND owns no edge.
+The circuit nevertheless computes the correct graph function. Every gate is
+essential under false deletion, and replacing any gate by any earlier wire
+changes the function. An explicit three-gate circuit computes the same function
+as this seven-gate circuit. Consequently these are obstructions to naive local
+rewrites or to dropping the minimum-size hypothesis, not a refutation of the
+posted gap. The source uses ordinary kernel-checked finite decision proofs.
+
+PairThreeCNF first proves that a triangle-free graph represented exactly by
+three pair-hitting clauses has two disjoint clause sets and is bipartite. Its
+extension adds the four-cycle restriction and derives a vertex cover of size
+at most two: unless one side already has size at most one, each side intersects
+the third clause in at most one vertex, since two such vertices and two opposite
+vertices would yield a forbidden four-cycle. This checks the represented-graph
+contract; it makes no assertion that an arbitrary circuit has this form.
+
+The pair-owner extraction block chooses the globally earliest active AND, so
+it owns the given pair and has index at most the original gate. It does not
+claim this owner lies in the original gate's dependency cone. The subsequent
+soundness argument only needs some owner, so the weaker ancestry conclusion is
+sufficient. Unsoundness on any input consequently yields an owned nonedge,
+possibly a repeated-endpoint pair, when the input count is positive. This is a
+necessary obstruction, not its elimination.
+
+At this review's staging inspection the Git index was empty, so no credentials
+or generated artifacts were staged. The untracked Python `__pycache__` directory
+still exists and must remain excluded from named staging. No credential-bearing
+files were opened or copied during review.
+
+## Emergency preservation after lease loss
+
+The root reports a desk HTTP 410 at 02:36 UTC. No build, checker, or proof
+research was started by this reviewer after that report.
+
+The 4,260-line target was independently compared with its 3,977-line committed
+predecessor. The old source is an exact byte prefix; the appended source is
+only the four reviewed C5, TwoDirty, PairThreeCNF, and pair-owner blocks. The
+target's PairThreeCNF is exactly the previously reviewed 120-line namespace,
+SHA256 `510d0481c271da86fa5b324bdbf7e2eff13fe9a1542e14f7aa0800f129523fc7`.
+The complete target SHA256 is
+`8a412529ff2014b5250528c4ed71e1843ec5694e56a8682ecff35f6671460038`.
+Approved for immediate preservation as individually compiled components on a
+previously built baseline. The assembled target has not had a combined build
+at this point; no full-theorem or checker-acceptance claim is warranted.
+
+The already-running standalone PairThreeCNF check subsequently completed with
+exit zero, according to its owner. Its 221-line source SHA256 is
+`fd56c716626ae3e6ebfb187c68659ce372cfe965dc64a0e006a6b8fc3934ec88`,
+and its 219-line namespace SHA256 is
+`62fddeba2440d7e470303d1974895812e254699295c7848e2dc9ed023e4871b4`.
+The new declarations were reviewed without starting another compile: the
+nonempty graph's size-two cover can be chosen as the endpoints of an actual
+edge. When both clause intersections are nonempty, their unique vertices are
+adjacent by the representation; otherwise a singleton cover and any edge
+suffice. The contract keeps all triangle/four-cycle, exact-representation, and
+nonempty hypotheses. No format concern found. Approved to preserve this
+standalone compiled component as well; it is not yet part of the 4,260-line
+assembled target reviewed above.

@@ -1,0 +1,51 @@
+{"variables": 791, "constraints": 8580}
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e+00, 1e+01]
+  Cost   [0e+00, 0e+00]
+  Bound  [1e+00, 1e+00]
+  RHS    [1e+00, 2e+00]
+Presolving model
+6299 rows, 750 cols, 15983 nonzeros  0s
+3216 rows, 432 cols, 7620 nonzeros  0s
+2560 rows, 341 cols, 5555 nonzeros  0s
+1636 rows, 339 cols, 4383 nonzeros  0s
+1544 rows, 331 cols, 4213 nonzeros  0s
+Objective function is integral with scale 1
+
+Solving MIP model with:
+   1544 rows
+   331 cols (331 binary, 0 integer, 0 implied int., 0 continuous)
+   4213 nonzeros
+MIP-Timing:       0.052 - starting analytic centre calculation
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.1s
+         0       0         0   0.00%   0               inf                  inf        0      0      5       269     0.1s
+       209       0        82 100.00%   inf             inf                  inf     3260     49   1298     18519     2.2s
+
+Solving report
+  Status            Infeasible
+  Primal bound      inf
+  Dual bound        inf
+  Gap               inf
+  P-D integral      0
+  Solution status   -
+  Timing            2.18 (total)
+                    0.00 (presolve)
+                    0.00 (solve)
+                    0.00 (postsolve)
+  Max sub-MIP depth 2
+  Nodes             209
+  Repair LPs        0 (0 feasible; 0 iterations)
+  LP iterations     18519 (total)
+                    0 (strong br.)
+                    1099 (separation)
+                    6890 (heuristics)
+{"n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]], "gates": 7, "status": 2, "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)", "elapsed": 2.2072827910000115}

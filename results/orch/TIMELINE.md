@@ -13,3 +13,11 @@
 2026-11-25T02:31:22.292043+00:00 — constructive matching component compiled; cleanup from 685 to 514 lines also compiled.
 2026-11-25T02:31:37.775331+00:00 — combined matching/maximal partial build PASS; independent review complete.
 2026-11-25T02:33:32.415888+00:00 — expanded partial build PASS; third checkpoint.
+2026-11-25T02:33:55.585021+00:00 — pair_normalization compiled three-positive-clause triangle-free implies bipartite lemma.
+2026-11-25T02:34:10.897878+00:00 — C5 concrete ownership witness Lean-compiled; redundant solved lower-bound searches stopped; theta233 search prepared.
+2026-11-25T02:35:20.349060+00:00 — minimal_existence: exact two-dirty local-surgery obstruction compiled; root/reviewer notified.
+2026-11-25T02:37:01.985952+00:00 — Counterexample strategy stopped on root notice of lease410; theta233 solver terminated; checked C5 component preserved.
+2026-11-25T02:37:06.497429+00:00 — minimal_existence stopped after root HTTP410 instruction; all compiled source saved.
+2026-11-25T02:37:10.211211+00:00 — constructive strategy stopped on root HTTP410 lease notification; checked matching parts preserved by root.
+2026-11-25T02:37:10.215280+00:00 — pair_normalization stopped on root HTTP410 notice.
+2026-11-25T02:37:51.736024+00:00 — HTTP410 confirmed; all searches stopped; preserving checked results before recovery.

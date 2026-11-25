@@ -1,0 +1,135 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 30 seconds real time (due to '-t 30')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-59/counterexample-sat-smoke-c5.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-59/counterexample-sat-smoke-c5.cnf'
+c found 'p cnf 330 3476' header
+c parsed 3476 clauses in 0.00 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant irredundant
+c         MB    restarts       trail    variables
+c          level   conflicts       glue     remaining
+c 
+c *  0.00  3  0 0   0    0    0  0% 0 2765 319 97%
+c {  0.00  3  0 0   0    0    0  0% 0 2765 319 97%
+c -  0.00  3 23 1   8  300  265 69% 5 2735 319 97%
+c i  0.00  3 20 1  15  417  369 70% 5 2735 318 96%
+c i  0.00  3 20 1  22  455  400 69% 5 2735 308 93%
+c -  0.01  3 19 2  58  900  757 68% 5 2428 308 93%
+c }  0.01  3 18 2  59 1001  843 68% 5 2428 308 93%
+c [  0.01  3  0 2  59 1001  843  0% 0 2428 308 93%
+c O  0.01  3 15 2  59 1002  844 82% 6 2428 308 93%
+c -  0.02  4 14 3  59 1801 1388 77% 8 2428 308 93%
+c ]  0.03  4 13 3  60 3001 2450 73% 8 2428 308 93%
+c {  0.03  4 18 3  60 3001 2450 68% 5 2428 308 93%
+c -  0.03  4 18 4  60 3001 1957 68% 5 2428 308 93%
+c F  0.03  4 18 4  60 3003 1959 68% 5 2428 308 93%
+c i  0.05  4 17 4 167 3955 2841 67% 6 2428 307 93%
+c i  0.05  4 17 4 175 4137 2990 65% 6 2428 306 93%
+c i  0.05  4 17 4 192 4226 3069 65% 6 2428 305 92%
+c -  0.05  4 17 5 229 4501 2533 65% 6 2371 305 92%
+c i  0.05  4 17 5 230 4506 2537 65% 6 2371 304 92%
+c d  0.06  4 17 5 309 5001 2986 65% 6 2334 294 89%
+c 
+c  seconds  reductions  redundant irredundant
+c         MB    restarts       trail    variables
+c          level   conflicts       glue     remaining
+c 
+c p  0.06  4 17 5 309 5001 3271 65% 6 2334 291 88%
+c #  0.08  4 16 5 454 6005 4137 64% 6 2334 291 88%
+c s  0.08  4 16 5 491 6236 4201 64% 6 2327 291 88%
+c w  0.09  4 16 5 491 6236 4187 64% 6 2327 291 88%
+c t  0.09  4 16 5 491 6236 4180 64% 6 2214 291 88%
+c e  0.09  4 16 5 491 6236 2446 64% 6 2083 266 81%
+c s  0.09  4 16 5 491 6236 2412 64% 6 2081 266 81%
+c -  0.09  4 16 6 504 6301 1764 64% 6 2081 266 81%
+c }  0.10  4 16 6 537 7002 2323 63% 6 2081 266 81%
+c [  0.10  4 13 6 537 7002 2323 73% 8 2081 266 81%
+c -  0.12  4 12 7 538 8403 2814 66% 8 2081 266 81%
+c ]  0.12  4 12 7 538 8731 3069 66% 8 2081 266 81%
+c 1  0.12  4 12 7 538 8731 3069 66% 8 2081 266 81%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to '/tmp/oec/pequalnp-pilot-59/counterexample-sat-smoke-c5.solution'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.11   89.98% search
+c         0.06   50.66% unstable
+c         0.05   39.16% stable
+c         0.01    9.92% simplify
+c         0.00    3.76% subsume
+c         0.00    2.17% vivify
+c         0.00    1.72% elim
+c         0.00    0.78% ternary
+c         0.00    0.68% probe
+c         0.00    0.64% parse
+c         0.00    0.12% lucky
+c   =================================
+c         0.12   98.95% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:              2081        23.83 %  of conflicts
+c conflicts:                  8731     71097.03    per second
+c decisions:                 18168    147943.06    per second
+c eliminated:                   25         7.58 %  of all variables
+c fixed:                        29         8.79 %  of all variables
+c learned:                    8403        96.24 %  per conflict
+c learned_lits:             151826       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                  23019        15.16 %  learned literals
+c minishrunken:              14597         9.61 %  learned literals
+c otfs:                        114         1.31 %  of conflict
+c propagations:             482775         3.93 M  per second
+c reduced:                    2502        28.66 %  per conflict
+c rephased:                      3      2910.33    interval
+c restarts:                    538        16.23    interval
+c stabilizing:                   2        42.71 %  of conflicts
+c substituted:                  10         3.03 %  of all variables
+c subsumed:                   1199        10.07 %  of all clauses
+c strengthened:               1655        13.90 %  of all clauses
+c ternary:                     110         0.48 %  of resolved
+c vivified:                     14         0.12 %  of all clauses
+c weakened:                    330         2.49    average size
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.12    seconds
+c total real time since initialization:            0.12    seconds
+c maximum resident set size of process:           11.00    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 10

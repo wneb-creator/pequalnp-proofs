@@ -1,0 +1,104 @@
+2026-11-25T02:24:04.353127+00:00
+{
+ "gap": {
+  "id": "L-meta-1031",
+  "title": "On graphs with no triangle and no 4-cycle, some least AND/OR circuit of fan-in two for the edge function has every AND gate owning a star of edges",
+  "statement": "∀ (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj], (∀ a b c : Fin n, G.Adj a b → G.Adj b c → ¬ G.Adj c a) → (∀ a b c d : Fin n, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a → a = c ∨ b = d) → ∃ C : PEqualNP.CircuitLowerBounds.Circuit, (∀ g ∈ C.gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) ∧ (∀ x : Fin n → Bool, C.eval (List.ofFn x) = decide (∃ i j : Fin n, G.Adj i j ∧ x i = true ∧ x j = true)) ∧ (∀ D : PEqualNP.CircuitLowerBounds.Circuit, (∀ g ∈ D.gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and ∨ g.op = PEqualNP.CircuitLowerBounds.GateOp.or) ∧ g.inputs.length ≤ 2) → (∀ x : Fin n → Bool, D.eval (List.ofFn x) = decide (∃ i j : Fin n, G.Adj i j ∧ x i = true ∧ x j = true)) → C.size ≤ D.size) ∧ ∀ (t : ℕ) (g : PEqualNP.CircuitLowerBounds.Gate), C.gates[t]? = some g → g.op = PEqualNP.CircuitLowerBounds.GateOp.and → ∃ c : Fin n, (∃ u v : Fin n, G.Adj u v ∧ ((C.wires (List.ofFn (fun k : Fin n => decide (k = u ∨ k = v)))).getD (n + t) false = true ∧ ∀ (t' : ℕ) (g' : PEqualNP.CircuitLowerBounds.Gate), C.gates[t']? = some g' → g'.op = PEqualNP.CircuitLowerBounds.GateOp.and → Relation.TransGen (fun a b : ℕ => a < b ∧ ∃ (k : ℕ) (h : PEqualNP.CircuitLowerBounds.Gate), b = n + k ∧ C.gates[k]? = some h ∧ a ∈ h.inputs) (n + t') (n + t) → (C.wires (List.ofFn (fun k : Fin n => decide (k = u ∨ k = v)))).getD (n + t') false = false)) ∧ ∀ u v : Fin n, G.Adj u v → ((C.wires (List.ofFn (fun k : Fin n => decide (k = u ∨ k = v)))).getD (n + t) false = true ∧ ∀ (t' : ℕ) (g' : PEqualNP.CircuitLowerBounds.Gate), C.gates[t']? = some g' → g'.op = PEqualNP.CircuitLowerBounds.GateOp.and → Relation.TransGen (fun a b : ℕ => a < b ∧ ∃ (k : ℕ) (h : PEqualNP.CircuitLowerBounds.Gate), b = n + k ∧ C.gates[k]? = some h ∧ a ∈ h.inputs) (n + t') (n + t) → (C.wires (List.ofFn (fun k : Fin n => decide (k = u ∨ k = v)))).getD (n + t') false = false) → u = c ∨ v = c",
+  "file": "lean/PEqualNP/Outside/L_meta_1031.lean",
+  "module": "PEqualNP.Outside.L_meta_1031",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "A structure statement for least circuits of graphs with no triangle and no 4-cycle: every AND gate owns edges at one vertex; it would turn the last-gate count into a star count.",
+  "context": "SKETCH: no proof is expected here: propose a reduction (a cut into smaller statements that together give this one). exhaust the least circuits of small graphs with no triangle and no 4-cycle and test ownership; then an exchange argument moving an AND gate's owned edges to one vertex without growing the circuit. Computed on small graphs, not checked. Namespace: PEqualNP.MetaComplexity. No sorry, no new axiom. Own namespace for every declaration.",
+  "dead": [],
+  "weight": 5,
+  "parallel": 6,
+  "lane": "main",
+  "depth": 0,
+  "reductions": true,
+  "reductions_live": 3,
+  "sketch": "no proof is expected here: propose a reduction (a cut into smaller statements that together give this one). exhaust the least circuits of small graphs with no triangle and no 4-cycle and test ownership; then an exchange argument moving an AND gate's owned edges to one vertex without growing the circuit. Computed on small graphs, not checked. Namespace: PEqualNP.MetaComplexity. No sorry, no new axiom. Own namespace for every declaration.",
+  "pr_open": 1,
+  "pr_numbers": [
+   11479
+  ]
+ },
+ "lease": {
+  "id": "c7439590-804c-43ee-862b-dfb34d23af49",
+  "expires_at": "2026-11-25T02:41:47.665Z",
+  "renew": "POST /desk/beat?lease=c7439590-804c-43ee-862b-dfb34d23af49",
+  "release": "POST /desk/release?lease=c7439590-804c-43ee-862b-dfb34d23af49&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ },
+ "holding": 5,
+ "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another"
+}
+
+2026-11-25T02:26:17.758861+00:00 renewal
+{
+ "lease": {
+  "id": "c7439590-804c-43ee-862b-dfb34d23af49",
+  "expires_at": "2026-11-25T02:46:17.634Z",
+  "renew": "POST /desk/beat?lease=c7439590-804c-43ee-862b-dfb34d23af49",
+  "release": "POST /desk/release?lease=c7439590-804c-43ee-862b-dfb34d23af49&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T02:27:33.768996+00:00 beat-002.json
+{
+ "lease": {
+  "id": "c7439590-804c-43ee-862b-dfb34d23af49",
+  "expires_at": "2026-11-25T02:47:33.690Z",
+  "renew": "POST /desk/beat?lease=c7439590-804c-43ee-862b-dfb34d23af49",
+  "release": "POST /desk/release?lease=c7439590-804c-43ee-862b-dfb34d23af49&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T02:30:09.046486+00:00 beat-003.json
+{
+ "lease": {
+  "id": "c7439590-804c-43ee-862b-dfb34d23af49",
+  "expires_at": "2026-11-25T02:50:08.929Z",
+  "renew": "POST /desk/beat?lease=c7439590-804c-43ee-862b-dfb34d23af49",
+  "release": "POST /desk/release?lease=c7439590-804c-43ee-862b-dfb34d23af49&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T02:32:13.204447+00:00 beat-004.json
+{
+ "lease": {
+  "id": "c7439590-804c-43ee-862b-dfb34d23af49",
+  "expires_at": "2026-11-25T02:52:13.030Z",
+  "renew": "POST /desk/beat?lease=c7439590-804c-43ee-862b-dfb34d23af49",
+  "release": "POST /desk/release?lease=c7439590-804c-43ee-862b-dfb34d23af49&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T02:36:14.704511+00:00 beat-005.json
+{
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+
+2026-11-25T02:36:27.328307+00:00 beat-005-full.txt
+HTTP/1.1 200 OK
+date: Wed, 25 Nov 2026 02:36:26 GMT
+server: envoy
+
+HTTP/2 410 
+date: Wed, 25 Nov 2026 02:36:27 GMT
+content-type: application/json; charset=utf-8
+content-length: 86
+access-control-allow-origin: *
+cache-control: no-store
+x-content-type-options: nosniff
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=vPQdNq3qE9SPESfcfzopZiiB5wYL04qoHN7F1oYhOjkafIzM8LigP2erwwJYRqetlCNkUOAOH%2FApH2C%2Fj7%2Bhwsn2IU05VO9M%2Br83BqsLzP7yB6C3Frbz9jzWExuUHNA%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: envoy
+cf-ray: a5fd440deb546170-ORD
+alt-svc: h3=":443"; ma=86400
+x-envoy-upstream-service-time: 177
+
+{
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+

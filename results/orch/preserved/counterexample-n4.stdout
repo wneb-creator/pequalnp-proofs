@@ -1,0 +1,43 @@
+{"utc": "2026-11-25T02:25:59.079451+00:00", "n": 4, "targets": 37}
+{"edges": [[0, 1]], "minimum": 1, "program": [["and", 0, 1]], "star": true, "owned": [{"gate": 0, "edges": [[0, 1]], "star": true}]}
+{"edges": [[0, 2]], "minimum": 1, "program": [["and", 0, 2]], "star": true, "owned": [{"gate": 0, "edges": [[0, 2]], "star": true}]}
+{"edges": [[0, 3]], "minimum": 1, "program": [["and", 0, 3]], "star": true, "owned": [{"gate": 0, "edges": [[0, 3]], "star": true}]}
+{"edges": [[1, 2]], "minimum": 1, "program": [["and", 1, 2]], "star": true, "owned": [{"gate": 0, "edges": [[1, 2]], "star": true}]}
+{"edges": [[1, 3]], "minimum": 1, "program": [["and", 1, 3]], "star": true, "owned": [{"gate": 0, "edges": [[1, 3]], "star": true}]}
+{"edges": [[2, 3]], "minimum": 1, "program": [["and", 2, 3]], "star": true, "owned": [{"gate": 0, "edges": [[2, 3]], "star": true}]}
+{"depth": 1, "states": 12, "total_states": 13, "found": 6}
+{"edges": [[0, 2], [1, 2]], "minimum": 2, "program": [["or", 0, 1], ["and", 4, 2]], "star": true, "owned": [{"gate": 1, "edges": [[0, 2], [1, 2]], "star": true}]}
+{"edges": [[0, 3], [1, 3]], "minimum": 2, "program": [["or", 0, 1], ["and", 4, 3]], "star": true, "owned": [{"gate": 1, "edges": [[0, 3], [1, 3]], "star": true}]}
+{"edges": [[0, 1], [1, 2]], "minimum": 2, "program": [["or", 0, 2], ["and", 1, 4]], "star": true, "owned": [{"gate": 1, "edges": [[0, 1], [1, 2]], "star": true}]}
+{"edges": [[0, 3], [2, 3]], "minimum": 2, "program": [["or", 0, 2], ["and", 4, 3]], "star": true, "owned": [{"gate": 1, "edges": [[0, 3], [2, 3]], "star": true}]}
+{"edges": [[0, 1], [1, 3]], "minimum": 2, "program": [["or", 0, 3], ["and", 1, 4]], "star": true, "owned": [{"gate": 1, "edges": [[0, 1], [1, 3]], "star": true}]}
+{"edges": [[0, 2], [2, 3]], "minimum": 2, "program": [["or", 0, 3], ["and", 2, 4]], "star": true, "owned": [{"gate": 1, "edges": [[0, 2], [2, 3]], "star": true}]}
+{"edges": [[0, 1], [0, 2]], "minimum": 2, "program": [["or", 1, 2], ["and", 0, 4]], "star": true, "owned": [{"gate": 1, "edges": [[0, 1], [0, 2]], "star": true}]}
+{"edges": [[1, 3], [2, 3]], "minimum": 2, "program": [["or", 1, 2], ["and", 4, 3]], "star": true, "owned": [{"gate": 1, "edges": [[1, 3], [2, 3]], "star": true}]}
+{"edges": [[0, 1], [0, 3]], "minimum": 2, "program": [["or", 1, 3], ["and", 0, 4]], "star": true, "owned": [{"gate": 1, "edges": [[0, 1], [0, 3]], "star": true}]}
+{"edges": [[1, 2], [2, 3]], "minimum": 2, "program": [["or", 1, 3], ["and", 2, 4]], "star": true, "owned": [{"gate": 1, "edges": [[1, 2], [2, 3]], "star": true}]}
+{"edges": [[0, 2], [0, 3]], "minimum": 2, "program": [["or", 2, 3], ["and", 0, 4]], "star": true, "owned": [{"gate": 1, "edges": [[0, 2], [0, 3]], "star": true}]}
+{"edges": [[1, 2], [1, 3]], "minimum": 2, "program": [["or", 2, 3], ["and", 1, 4]], "star": true, "owned": [{"gate": 1, "edges": [[1, 2], [1, 3]], "star": true}]}
+{"depth": 2, "states": 114, "total_states": 127, "found": 18}
+{"edges": [[0, 1], [2, 3]], "minimum": 3, "program": [["and", 0, 1], ["and", 2, 3], ["or", 4, 5]], "star": true, "owned": [{"gate": 0, "edges": [[0, 1]], "star": true}, {"gate": 1, "edges": [[2, 3]], "star": true}]}
+{"edges": [[0, 3], [1, 3], [2, 3]], "minimum": 3, "program": [["or", 0, 1], ["or", 4, 2], ["and", 5, 3]], "star": true, "owned": [{"gate": 2, "edges": [[0, 3], [1, 3], [2, 3]], "star": true}]}
+{"edges": [[0, 2], [1, 2], [2, 3]], "minimum": 3, "program": [["or", 0, 1], ["or", 4, 3], ["and", 2, 5]], "star": true, "owned": [{"gate": 2, "edges": [[0, 2], [1, 2], [2, 3]], "star": true}]}
+{"edges": [[0, 2], [1, 3]], "minimum": 3, "program": [["and", 0, 2], ["and", 1, 3], ["or", 4, 5]], "star": true, "owned": [{"gate": 0, "edges": [[0, 2]], "star": true}, {"gate": 1, "edges": [[1, 3]], "star": true}]}
+{"edges": [[0, 1], [1, 2], [1, 3]], "minimum": 3, "program": [["or", 0, 2], ["or", 4, 3], ["and", 1, 5]], "star": true, "owned": [{"gate": 2, "edges": [[0, 1], [1, 2], [1, 3]], "star": true}]}
+{"edges": [[0, 3], [1, 2]], "minimum": 3, "program": [["and", 0, 3], ["and", 1, 2], ["or", 4, 5]], "star": true, "owned": [{"gate": 0, "edges": [[0, 3]], "star": true}, {"gate": 1, "edges": [[1, 2]], "star": true}]}
+{"edges": [[0, 1], [0, 2], [0, 3]], "minimum": 3, "program": [["or", 1, 2], ["or", 4, 3], ["and", 0, 5]], "star": true, "owned": [{"gate": 2, "edges": [[0, 1], [0, 2], [0, 3]], "star": true}]}
+{"depth": 3, "states": 988, "total_states": 1115, "found": 25}
+{"edges": [[0, 1], [0, 2], [2, 3]], "minimum": 4, "program": [["and", 0, 1], ["or", 4, 2], ["or", 0, 3], ["and", 5, 6]], "star": true, "owned": [{"gate": 0, "edges": [[0, 1]], "star": true}, {"gate": 3, "edges": [[0, 2], [2, 3]], "star": true}]}
+{"edges": [[0, 1], [1, 2], [2, 3]], "minimum": 4, "program": [["and", 0, 1], ["or", 4, 2], ["or", 1, 3], ["and", 5, 6]], "star": true, "owned": [{"gate": 0, "edges": [[0, 1]], "star": true}, {"gate": 3, "edges": [[1, 2], [2, 3]], "star": true}]}
+{"edges": [[0, 1], [0, 3], [2, 3]], "minimum": 4, "program": [["and", 0, 1], ["or", 4, 3], ["or", 0, 2], ["and", 6, 5]], "star": true, "owned": [{"gate": 0, "edges": [[0, 1]], "star": true}, {"gate": 3, "edges": [[0, 3], [2, 3]], "star": true}]}
+{"edges": [[0, 1], [1, 3], [2, 3]], "minimum": 4, "program": [["and", 0, 1], ["or", 4, 3], ["or", 1, 2], ["and", 6, 5]], "star": true, "owned": [{"gate": 0, "edges": [[0, 1]], "star": true}, {"gate": 3, "edges": [[1, 3], [2, 3]], "star": true}]}
+{"edges": [[0, 2], [0, 3], [1, 3]], "minimum": 4, "program": [["or", 0, 1], ["and", 0, 2], ["or", 5, 3], ["and", 4, 6]], "star": true, "owned": [{"gate": 1, "edges": [[0, 2]], "star": true}, {"gate": 3, "edges": [[0, 3], [1, 3]], "star": true}]}
+{"edges": [[0, 2], [0, 3], [1, 2]], "minimum": 4, "program": [["or", 0, 1], ["and", 0, 3], ["or", 5, 2], ["and", 4, 6]], "star": true, "owned": [{"gate": 1, "edges": [[0, 3]], "star": true}, {"gate": 3, "edges": [[0, 2], [1, 2]], "star": true}]}
+{"edges": [[0, 3], [1, 2], [1, 3]], "minimum": 4, "program": [["or", 0, 1], ["and", 1, 2], ["or", 5, 3], ["and", 4, 6]], "star": true, "owned": [{"gate": 1, "edges": [[1, 2]], "star": true}, {"gate": 3, "edges": [[0, 3], [1, 3]], "star": true}]}
+{"edges": [[0, 2], [1, 2], [1, 3]], "minimum": 4, "program": [["or", 0, 1], ["and", 1, 3], ["or", 5, 2], ["and", 4, 6]], "star": true, "owned": [{"gate": 1, "edges": [[1, 3]], "star": true}, {"gate": 3, "edges": [[0, 2], [1, 2]], "star": true}]}
+{"edges": [[0, 1], [0, 2], [1, 3]], "minimum": 4, "program": [["and", 0, 2], ["or", 4, 1], ["or", 0, 3], ["and", 5, 6]], "star": true, "owned": [{"gate": 0, "edges": [[0, 2]], "star": true}, {"gate": 3, "edges": [[0, 1], [1, 3]], "star": true}]}
+{"edges": [[0, 2], [1, 3], [2, 3]], "minimum": 4, "program": [["and", 0, 2], ["or", 4, 3], ["or", 1, 2], ["and", 6, 5]], "star": true, "owned": [{"gate": 0, "edges": [[0, 2]], "star": true}, {"gate": 3, "edges": [[1, 3], [2, 3]], "star": true}]}
+{"edges": [[0, 1], [0, 3], [1, 2]], "minimum": 4, "program": [["or", 0, 2], ["and", 0, 3], ["or", 5, 1], ["and", 6, 4]], "star": true, "owned": [{"gate": 1, "edges": [[0, 3]], "star": true}, {"gate": 3, "edges": [[0, 1], [1, 2]], "star": true}]}
+{"edges": [[0, 3], [1, 2], [2, 3]], "minimum": 4, "program": [["or", 0, 2], ["and", 1, 2], ["or", 5, 3], ["and", 4, 6]], "star": true, "owned": [{"gate": 1, "edges": [[1, 2]], "star": true}, {"gate": 3, "edges": [[0, 3], [2, 3]], "star": true}]}
+{"depth": 4, "states": 8291, "total_states": 9406, "found": 37}
+{"unfound": []}

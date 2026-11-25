@@ -3975,3 +3975,286 @@ lemma compact_formula_minimum (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel 
   omega
 
 end PEqualNP.Outside.L_meta_1031.ReadOnce
+
+namespace PEqualNP.Outside.L_meta_1031_aux
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.EdgeOwnership
+
+abbrev c5Graph : SimpleGraph (Fin 5) :=
+  edgeGraph 5 [(0, 1), (1, 2), (2, 3), (3, 4), (4, 0)]
+
+def c5Circuit : Circuit :=
+  ⟨[⟨.or, [1, 4]⟩, ⟨.and, [0, 5]⟩,
+    ⟨.or, [1, 3]⟩, ⟨.and, [2, 7]⟩,
+    ⟨.and, [3, 4]⟩, ⟨.or, [6, 8]⟩, ⟨.or, [9, 10]⟩], 11⟩
+
+lemma c5_size : c5Circuit.size = 7 := rfl
+
+lemma c5_no_triangle : ∀ a b c : Fin 5,
+    c5Graph.Adj a b → c5Graph.Adj b c → ¬ c5Graph.Adj c a := by
+  decide
+
+lemma c5_no_four : ∀ a b c d : Fin 5,
+    c5Graph.Adj a b → c5Graph.Adj b c → c5Graph.Adj c d → c5Graph.Adj d a →
+      a = c ∨ b = d := by
+  decide
+
+lemma c5_monotone : Monotone2 c5Circuit := by
+  simp [Monotone2, c5Circuit]
+
+lemma c5_computes : ∀ x : Fin 5 → Bool,
+    c5Circuit.eval (List.ofFn x) =
+      decide (∃ u v : Fin 5, c5Graph.Adj u v ∧ x u = true ∧ x v = true) := by
+  decide
+
+lemma c5_star : HasStarProfile 5 c5Graph c5Circuit := by
+  decide
+
+lemma c5_nonempty : ∀ j < c5Circuit.gates.length,
+    (PEqualNP.MetaComplexity.NestedCover.gateAt c5Circuit j).op = GateOp.and →
+      ∃ u v : Fin 5, c5Graph.Adj u v ∧ Owns 5 c5Circuit j u v := by
+  letI := PEqualNP.MetaComplexity.NestedCover.gateOpDecEq
+  decide
+
+end PEqualNP.Outside.L_meta_1031_aux
+
+namespace PEqualNP.Outside.L_meta_1031_aux.TwoDirty
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.EdgeOwnership
+open PEqualNP.MetaComplexity.NestedCover
+
+abbrev graph : SimpleGraph (Fin 4) := edgeGraph 4 [(0, 1), (2, 3)]
+
+def circuit : Circuit :=
+  ⟨[⟨GateOp.or, [0, 2]⟩, ⟨GateOp.or, [1, 3]⟩, ⟨GateOp.and, [4, 5]⟩,
+    ⟨GateOp.or, [0, 3]⟩, ⟨GateOp.or, [1, 2]⟩, ⟨GateOp.and, [7, 8]⟩,
+    ⟨GateOp.and, [6, 9]⟩], 10⟩
+
+def direct : Circuit :=
+  ⟨[⟨GateOp.and, [0, 1]⟩, ⟨GateOp.and, [2, 3]⟩, ⟨GateOp.or, [4, 5]⟩], 6⟩
+
+lemma legal : Monotone2 circuit := by
+  simp [Monotone2, circuit]
+
+lemma computes : ∀ x : Fin 4 → Bool,
+    circuitFun 4 circuit x = ((x 0 && x 1) || (x 2 && x 3)) := by
+  decide +kernel
+
+lemma computes_graph : ∀ x : Fin 4 → Bool,
+    circuitFun 4 circuit x = decide (∃ u v : Fin 4, graph.Adj u v ∧ x u = true ∧ x v = true) := by
+  decide +kernel
+
+lemma no_triangles : ∀ a b c : Fin 4,
+    graph.Adj a b → graph.Adj b c → ¬ graph.Adj c a := by
+  decide +kernel
+
+lemma no_four_cycles : ∀ a b c d : Fin 4,
+    graph.Adj a b → graph.Adj b c → graph.Adj c d → graph.Adj d a → a = c ∨ b = d := by
+  decide +kernel
+
+lemma both_own : Owns 4 circuit 2 0 1 ∧ Owns 4 circuit 2 2 3 ∧
+    Owns 4 circuit 5 0 1 ∧ Owns 4 circuit 5 2 3 := by
+  decide +kernel
+
+lemma no_common_center : ¬ ∃ c : Fin 4, (0 = c ∨ 1 = c) ∧ (2 = c ∨ 3 = c) := by
+  decide +kernel
+
+lemma not_star : ¬ HasStarProfile 4 graph circuit := by
+  decide +kernel
+
+lemma final_owns_none : ∀ u v : Fin 4, graph.Adj u v → ¬ Owns 4 circuit 6 u v := by
+  decide +kernel
+
+lemma dirty_witnesses : gateVal 4 circuit 2 (pairInput 0 3) = true ∧ ¬ graph.Adj 0 3 ∧
+    gateVal 4 circuit 5 (pairInput 0 2) = true ∧ ¬ graph.Adj 0 2 := by
+  decide +kernel
+
+lemma final_sound : ∀ x : Fin 4 → Bool,
+    gateVal 4 circuit 6 x = true → (x 0 && x 1) || (x 2 && x 3) = true := by
+  decide +kernel
+
+lemma every_gate_essential : ∀ t : Fin 7,
+    gateVal 4 circuit t (pairInput 0 1) = true ∧
+      circuitFun 4 (PEqualNP.CircuitMoves.eraseGate 4 circuit t 11) (pairInput 0 1) = false := by
+  decide +kernel
+
+lemma no_earlier_bypass : ∀ t : Fin 7, ∀ r : Fin (4 + t.val), ∃ x : Fin 4 → Bool,
+    circuitFun 4 (PEqualNP.CircuitMoves.eraseGate 4 circuit t r) x ≠ circuitFun 4 circuit x := by
+  decide +kernel
+
+lemma cheaper : direct.size < circuit.size ∧
+    ∀ x : Fin 4 → Bool, circuitFun 4 direct x = circuitFun 4 circuit x := by
+  decide +kernel
+
+end PEqualNP.Outside.L_meta_1031_aux.TwoDirty
+
+namespace PEqualNP.Outside.L_meta_1031.PairThreeCNF
+
+lemma disjoint_hits_bipartite {n : ℕ} (G : SimpleGraph (Fin n))
+    (A B : Finset (Fin n)) (hd : Disjoint A B)
+    (hA : ∀ u v, G.Adj u v → u ∈ A ∨ v ∈ A)
+    (hB : ∀ u v, G.Adj u v → u ∈ B ∨ v ∈ B) :
+    ∃ s : Fin n → Bool, ∀ u v, G.Adj u v → s u ≠ s v := by
+  classical
+  refine ⟨fun v => decide (v ∈ A), ?_⟩
+  intro u v huv
+  rcases hA u v huv with hu | hv <;> rcases hB u v huv with hu' | hv'
+  · exact (Finset.disjoint_left.mp hd hu hu').elim
+  · have hn : v ∉ A := fun h => Finset.disjoint_left.mp hd h hv'
+    simp [hu, hn]
+  · have hn : u ∉ A := fun h => Finset.disjoint_left.mp hd h hu'
+    simp [hv, hn]
+  · exact (Finset.disjoint_left.mp hd hv hv').elim
+
+lemma three_clause_disjoint {n : ℕ} (G : SimpleGraph (Fin n))
+    (A B C : Finset (Fin n))
+    (htri : ∀ a b c, G.Adj a b → G.Adj b c → ¬ G.Adj c a)
+    (hpair : ∀ u v, (u ∈ A ∨ v ∈ A) → (u ∈ B ∨ v ∈ B) →
+      (u ∈ C ∨ v ∈ C) → G.Adj u v) :
+    Disjoint A B ∨ Disjoint A C ∨ Disjoint B C := by
+  classical
+  by_contra h
+  push Not at h
+  obtain ⟨a, haA, haB⟩ := Finset.not_disjoint_iff.mp h.1
+  obtain ⟨b, hbA, hbC⟩ := Finset.not_disjoint_iff.mp h.2.1
+  obtain ⟨c, hcB, hcC⟩ := Finset.not_disjoint_iff.mp h.2.2
+  exact htri a b c
+    (hpair a b (Or.inl haA) (Or.inl haB) (Or.inr hbC))
+    (hpair b c (Or.inl hbA) (Or.inr hcB) (Or.inl hbC))
+    (hpair c a (Or.inr haA) (Or.inl hcB) (Or.inl hcC))
+
+lemma three_clause_bipartite {n : ℕ} (G : SimpleGraph (Fin n))
+    (A B C : Finset (Fin n))
+    (htri : ∀ a b c, G.Adj a b → G.Adj b c → ¬ G.Adj c a)
+    (hrep : ∀ u v, G.Adj u v ↔
+      (u ∈ A ∨ v ∈ A) ∧ (u ∈ B ∨ v ∈ B) ∧ (u ∈ C ∨ v ∈ C)) :
+    ∃ s : Fin n → Bool, ∀ u v, G.Adj u v → s u ≠ s v := by
+  have hdis := three_clause_disjoint G A B C htri
+    (fun u v ha hb hc => (hrep u v).mpr ⟨ha, hb, hc⟩)
+  rcases hdis with hAB | hAC | hBC
+  · exact disjoint_hits_bipartite G A B hAB
+      (fun u v h => ((hrep u v).mp h).1)
+      (fun u v h => ((hrep u v).mp h).2.1)
+  · exact disjoint_hits_bipartite G A C hAC
+      (fun u v h => ((hrep u v).mp h).1)
+      (fun u v h => ((hrep u v).mp h).2.2)
+  · exact disjoint_hits_bipartite G B C hBC
+      (fun u v h => ((hrep u v).mp h).2.1)
+      (fun u v h => ((hrep u v).mp h).2.2)
+
+lemma disjoint_three_clause_cover {n : ℕ} (G : SimpleGraph (Fin n))
+    (A B C : Finset (Fin n)) (hd : Disjoint A B)
+    (hfour : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d →
+      G.Adj d a → a = c ∨ b = d)
+    (hrep : ∀ u v, G.Adj u v ↔
+      (u ∈ A ∨ v ∈ A) ∧ (u ∈ B ∨ v ∈ B) ∧ (u ∈ C ∨ v ∈ C)) :
+    ∃ T : Finset (Fin n), T.card ≤ 2 ∧ ∀ u v, G.Adj u v → u ∈ T ∨ v ∈ T := by
+  classical
+  by_cases hA : A.card ≤ 1
+  · exact ⟨A, by omega, fun u v h => ((hrep u v).mp h).1⟩
+  by_cases hB : B.card ≤ 1
+  · exact ⟨B, by omega, fun u v h => ((hrep u v).mp h).2.1⟩
+  obtain ⟨a, ha, a', ha', haa'⟩ := Finset.one_lt_card.mp (by omega : 1 < A.card)
+  obtain ⟨b, hb, b', hb', hbb'⟩ := Finset.one_lt_card.mp (by omega : 1 < B.card)
+  have hAC : (A ∩ C).card ≤ 1 := by
+    apply Finset.card_le_one.mpr
+    intro u hu v hv
+    obtain ⟨huA, huC⟩ := Finset.mem_inter.mp hu
+    obtain ⟨hvA, hvC⟩ := Finset.mem_inter.mp hv
+    apply Or.resolve_right (hfour u b v b' ?_ ?_ ?_ ?_) hbb'
+    · exact (hrep u b).mpr ⟨Or.inl huA, Or.inr hb, Or.inl huC⟩
+    · exact (hrep b v).mpr ⟨Or.inr hvA, Or.inl hb, Or.inr hvC⟩
+    · exact (hrep v b').mpr ⟨Or.inl hvA, Or.inr hb', Or.inl hvC⟩
+    · exact (hrep b' u).mpr ⟨Or.inr huA, Or.inl hb', Or.inr huC⟩
+  have hBC : (B ∩ C).card ≤ 1 := by
+    apply Finset.card_le_one.mpr
+    intro u hu v hv
+    obtain ⟨huB, huC⟩ := Finset.mem_inter.mp hu
+    obtain ⟨hvB, hvC⟩ := Finset.mem_inter.mp hv
+    apply Or.resolve_right (hfour u a v a' ?_ ?_ ?_ ?_) haa'
+    · exact (hrep u a).mpr ⟨Or.inr ha, Or.inl huB, Or.inl huC⟩
+    · exact (hrep a v).mpr ⟨Or.inl ha, Or.inr hvB, Or.inr hvC⟩
+    · exact (hrep v a').mpr ⟨Or.inr ha', Or.inl hvB, Or.inl hvC⟩
+    · exact (hrep a' u).mpr ⟨Or.inl ha', Or.inr huB, Or.inr huC⟩
+  refine ⟨(A ∩ C) ∪ (B ∩ C), ?_, ?_⟩
+  · have := Finset.card_union_le (A ∩ C) (B ∩ C)
+    omega
+  · intro u v huv
+    have h := (hrep u v).mp huv
+    have hnu : ¬ (u ∈ A ∧ u ∈ B) := fun h => Finset.disjoint_left.mp hd h.1 h.2
+    have hnv : ¬ (v ∈ A ∧ v ∈ B) := fun h => Finset.disjoint_left.mp hd h.1 h.2
+    simp only [Finset.mem_union, Finset.mem_inter]
+    tauto
+
+lemma three_clause_cover {n : ℕ} (G : SimpleGraph (Fin n))
+    (A B C : Finset (Fin n))
+    (htri : ∀ a b c, G.Adj a b → G.Adj b c → ¬ G.Adj c a)
+    (hfour : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d →
+      G.Adj d a → a = c ∨ b = d)
+    (hrep : ∀ u v, G.Adj u v ↔
+      (u ∈ A ∨ v ∈ A) ∧ (u ∈ B ∨ v ∈ B) ∧ (u ∈ C ∨ v ∈ C)) :
+    ∃ T : Finset (Fin n), T.card ≤ 2 ∧ ∀ u v, G.Adj u v → u ∈ T ∨ v ∈ T := by
+  have hdis := three_clause_disjoint G A B C htri
+    (fun u v ha hb hc => (hrep u v).mpr ⟨ha, hb, hc⟩)
+  rcases hdis with hAB | hAC | hBC
+  · exact disjoint_three_clause_cover G A B C hAB hfour hrep
+  · apply disjoint_three_clause_cover G A C B hAC hfour
+    intro u v
+    rw [hrep]
+    tauto
+  · apply disjoint_three_clause_cover G B C A hBC hfour
+    intro u v
+    rw [hrep]
+    tauto
+
+end PEqualNP.Outside.L_meta_1031.PairThreeCNF
+
+namespace PEqualNP.Outside.L_meta_1031_aux
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.EdgeOwnership
+open PEqualNP.MetaComplexity.NestedCover
+
+lemma pair_owned_before {n : ℕ} (C : Circuit) (j : ℕ)
+    (hj : j < C.gates.length) (hop : (gateAt C j).op = GateOp.and)
+    (u v : Fin n) (hv : gateVal n C j (pairInput u v) = true) :
+    ∃ k, k ≤ j ∧ Owns n C k u v := by
+  classical
+  have hex : ∃ k, k < C.gates.length ∧ (gateAt C k).op = GateOp.and ∧
+      gateVal n C k (pairInput u v) = true := ⟨j, hj, hop, hv⟩
+  let k := Nat.find hex
+  obtain ⟨hk, hkop, hkv⟩ := Nat.find_spec hex
+  refine ⟨k, Nat.find_min' hex ⟨hj, hop, hv⟩, hk, hkop, hkv, ?_⟩
+  intro i hik _ hio
+  cases hi : gateVal n C i (pairInput u v) with
+  | false => rfl
+  | true =>
+    have hn := Nat.find_min hex hik
+    exact False.elim (hn ⟨hik.trans hk, hio, hi⟩)
+
+lemma owned_pairs_sound_global {n : ℕ} (hn : 0 < n) (G : SimpleGraph (Fin n))
+    (C : Circuit) (hC : Monotone2 C)
+    (howned : ∀ j u v, Owns n C j u v → G.Adj u v) :
+    ∀ j, j < C.gates.length → (gateAt C j).op = GateOp.and →
+      ∀ x : Fin n → Bool, gateVal n C j x = true →
+        ∃ u v : Fin n, G.Adj u v ∧ x u = true ∧ x v = true := by
+  apply pair_sound_global hn G C hC
+  intro j hj hop u v hv
+  obtain ⟨k, _, hk⟩ := pair_owned_before C j hj hop u v hv
+  exact howned k u v hk
+
+lemma unsound_owned_nonedge {n : ℕ} (hn : 0 < n) (G : SimpleGraph (Fin n))
+    (C : Circuit) (hC : Monotone2 C)
+    (hbad : ∃ j, j < C.gates.length ∧ (gateAt C j).op = GateOp.and ∧
+      ∃ x : Fin n → Bool, gateVal n C j x = true ∧
+        ¬ ∃ u v : Fin n, G.Adj u v ∧ x u = true ∧ x v = true) :
+    ∃ j u v, Owns n C j u v ∧ ¬ G.Adj u v := by
+  classical
+  by_contra h
+  have ho : ∀ j u v, Owns n C j u v → G.Adj u v := by
+    intro j u v hj
+    by_contra huv
+    exact h ⟨j, u, v, hj, huv⟩
+  obtain ⟨j, hj, hop, x, hx, hneg⟩ := hbad
+  exact hneg (owned_pairs_sound_global hn G C hC ho j hj hop x hx)
+
+end PEqualNP.Outside.L_meta_1031_aux
