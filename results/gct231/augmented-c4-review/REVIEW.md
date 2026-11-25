@@ -1,0 +1,13 @@
+# Independent augmented C4 cases 2 and 3 review
+
+Verdict: PASS for the appended necessary square-pencil condition and the four actual QQ/F1009 inputs. This is an exact input/transformation audit, not a solver verdict or a Lean proof.
+
+Both augmented JSON files preserve all six previously reviewed reduced equation strings, variables, substitutions, squared-variable conventions and determinant data exactly. The seventh equation comes from source index 4, explicitly labeled `square_cubic`. I independently recomputed the determinant of `G_R - lambda*G_W` by its 24 signed permutation products and verified the source expression `8*d1*d4^2 - 4*d3*d2*d4 + d3^3` in both cases.
+
+The square-pencil condition is necessary: both symmetric Gram forms vanish on the same isotropic two-plane K. In a basis starting with K, the upper-left 2×2 blocks are zero, so the determinant of their pencil is the square of the off-diagonal 2×2 determinant. Expansion of a squared quadratic gives the displayed coefficient identity. This only uses the previously stated geometric premises and remains a weaker necessary condition than asking that the entire determinant be a square.
+
+Rather than duplicating the generator's even-power conversion algorithm, the checker substitutes B=beta² or A=alpha² back into the appended polynomial and verifies exact equality as a rational function to the original square condition after the recorded substitutions. The cleared denominators are precisely `216*beta^8` for case 2 and `27*alpha^2` for case 3. Both are nonzero in the stated nonzero-product branch, so clearing them preserves necessity. Each appended polynomial has positive primitive content 1 and total degree 14, with respectively 258 and 292 terms. Its nonzero value at the previously isolated rational candidate is consistent with that candidate failing this extra condition; it is not by itself a full system exclusion.
+
+The normalized JSON copies preserve the same seven ordered equations. Independent parsing verifies all coefficients and exponent vectors of the four actual sparse inputs against the primitive QQ equations. QQ and F1009 versions contain respectively 392 terms for case 2 and 424 for case 3. Primitive contents are invertible modulo 1009. Modular inconsistency, if later found, would remain a finite-field diagnostic.
+
+Evidence: `check.py`, complete successful `check.log`, and `source-hashes.json`. Frozen augmented hashes are cf02c5b9870535161dedc46e1b37d718fa0f00c2ccdf6595036ba87152ed4434 and f07f2ddc460ce88d9959dbc6c56b5f5538ec2c60733c6db641b987529f55df05. No reviewed source/input was changed.

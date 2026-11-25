@@ -1,0 +1,3 @@
+PASS exact QQ input roundtrip: 6 polynomials, 134 terms
+Source SHA256: c46ad6eba365bf1f186ad97ff40b2039e0b52c405f05f6bd568f4ab2bcff71f7
+Input SHA256: cda0401a38a12f08194094309f677b7f3da8b48beceae8fac5ecfac71e9a41d0

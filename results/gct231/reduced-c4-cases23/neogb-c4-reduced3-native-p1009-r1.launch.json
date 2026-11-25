@@ -1,0 +1,37 @@
+{
+  "prepared_utc": "2026-11-25T11:17:00.738476+00:00",
+  "case": 3,
+  "files": {
+    "source": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/fresh/c4-nonzero-reduced-3.json",
+      "sha256": "72b12e2f543766e57aec78a88717f5133442553a207566956022363aa89a867f"
+    },
+    "normalized": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/c4-nonzero-reduced-3-normalized.json",
+      "sha256": "83bf15a97e877771f45d8ebfb80240ed6d6363f96cb5eb561b565870d54bc502"
+    },
+    "input": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/neogb-c4-reduced3-p1009.in",
+      "sha256": "1eea1307d52ae6b4c5dace5445421f912d7807e497a1548a1f74bf8717dc8359"
+    },
+    "wrapper": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native/run_neogb_native.py",
+      "sha256": "c401c7783498b87691d6427570158b4ff9fc3d462b87c027dc40dfe15c7e5b40"
+    },
+    "binary": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native/neogb_cli_native",
+      "sha256": "5b2450117bea1df00d2f6fadaca11666588fd9cb76fb2ec943fa939f724b7441"
+    },
+    "library": {
+      "path": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/native/libneogb_native.so",
+      "sha256": "557a320ab8d064e7c57ae7798b8574b1ffd70728390ae98fcbc4e378bd726711"
+    }
+  },
+  "wall_seconds": 120,
+  "memory_mib": 1024,
+  "threads": 1,
+  "pairs": 32,
+  "lease_renewed_utc": "2026-11-25T11:16:38+00:00",
+  "lease_expiry_utc": "2026-11-25T11:36:38.339+00:00",
+  "scope": "Finite-field diagnostic of reviewed reduced necessary system; no characteristic-zero verdict."
+}

@@ -1,0 +1,54 @@
+NEOGB nvars=5 ngens=6 characteristic=0 terms=132 exact_sparse=2 pairs=32 threads=1
+
+--------------- INPUT DATA ---------------
+#variables                       5
+#equations                       6
+#invalid equations               0
+field characteristic             0
+homogeneous input?               0
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            2
+initial hash table size     131072 (2^17)
+max pair selection              32
+reduce gb                        1
+#threads                         1
+info level                       2
+generate pbm files               0
+------------------------------------------
+
+Legend for f4 information
+--------------------------------------------------------
+deg       current degree of pairs selected in this round
+sel       number of pairs selected in this round
+pairs     total number of pairs in pair list
+mat       matrix dimensions (# rows x # columns)
+density   density of the matrix
+new data  # new elements for basis in this round
+          # zero reductions during linear algebra
+time(rd)  time of the current f4 round in seconds given
+          for real and cpu time
+--------------------------------------------------------
+
+deg     sel   pairs        mat          density            new data         time(rd) in sec (real|cpu)
+------------------------------------------------------------------------------------------------------
+  5       1       6       3 x 14         57.14%      1 new       0 zero         0.00 | 0.00         
+  7       1       8       3 x 14         59.52%      1 new       0 zero         0.00 | 0.00         
+  7       1       9       4 x 17         50.00%      1 new       0 zero         0.00 | 0.00         
+  7       1      11       4 x 21         47.62%      1 new       0 zero         0.00 | 0.00         
+  6       1      11       4 x 22         53.41%      1 new       0 zero         0.00 | 0.00         
+  6       2      11       7 x 31         45.62%      2 new       0 zero         0.00 | 0.00         
+  6       2      13       9 x 43         41.09%      1 new       1 zero         0.00 | 0.00         
+  7       6      14      28 x 97         15.17%      4 new       2 zero         0.00 | 0.00         
+  7       1      19      12 x 42         42.06%      0 new       1 zero         0.00 | 0.00         
+  8      12      18     104 x 331         4.41%     10 new       2 zero         0.00 | 0.00         
+  8      28      39     172 x 526         6.14%     23 new       5 zero         0.00 | 0.00         
+  7      10      67      77 x 311        14.90%      9 new       1 zero         0.00 | 0.00         
+  7      15      81      85 x 308        19.51%     12 new       3 zero         0.00 | 0.00         
+  7      32      97     151 x 410        17.76%     29 new       3 zero         0.02 | 0.02         
+  7      33     122     132 x 359        27.89%     33 new       1 zero         0.07 | 0.07         
+  7      32     181     164 x 424        28.70%     32 new       1 zero         0.31 | 0.31         
+  6      32     232     142 x 313        38.75%     32 new       0 zero         3.86 | 3.83         
+  6      32     275     149 x 335        39.97%     32 new       0 zero        27.05 | 26.93        
+  6      32     284     128 x 282        51.85%

@@ -65,3 +65,27 @@ All research archives are under results/gct231; current frozen manifests include
 ## L-gct-231 replan 2026-11-25T10:51:04.724353+00:00
 
 Named partial624lines builds and audits successfully; checker06 rejects no-theorem. Compact neogb rowzero certificate46lines is checked, standardaxioms only. Fullstar nativeALL-pairsF1009 completed moredegree6 reductions but timedout600s withoutbasis. Active newstrategies: nativefullstarF1009pairs32/2threads600s6GiB and distinctdirect-C4tracedQQpairs32/1thread600s4GiB. Keep exactQQ/Lean requirement; modularunit alone isnotproof. A proposed diagonalrank1-pencil impossibility was disproved by a concrete2Dfamily; do notuse diagonal-injectivityshortcut. Everyknown3Dextension remainsexcluded onlywithin explicitlyscopedfamilies. Lastmanualrenewal10:48:46UTC expiry11:08:46UTC; timer renews every8minutes. Deadline13:03UTC. Eightdistinctsubagents.
+
+## L-gct-231 replan at 2026-11-25T11:11:45.479992+00:00
+
+All 31 individual full-star coefficient lemmas now compile (916 lines, 73,248 bytes, source d7bf606d..., 84.875s, 4,051,760 KiB). Independent mapping, source-delta and prefix reviews pass. Checkpoint f40c484d... preserves them. The named file is still the 624-line partial; checker06 says REJECTED (no-theorem). Root is integrating the interface with the existing canonical normalization, using narrower imports where possible.
+
+The C4 quadratic+cubic system returns unit basis over F1009 (16 equations, 12 variables, 17.229s). This is not a characteristic-zero proof. Two rational runs are active: original compact trace (900s/4GiB/2GiB raw trace) and independently reviewed primitive-row trace (600s/4GiB/512MiB). Both must produce an exact replayed certificate before any Lean contradiction claim. Primitive normalization and dependency slicing have independent source/control reviews.
+
+The full-star batch32 modular search timed out after 600s/126 rounds without a basis. Finite is developing reviewed per-round snapshots and grouped variable ordering before a longer run. Pure-pencil and first-variation-only subsystems have exact solutions; do not retry them as unit ideals. A proposed rank-one diagonal restriction for zero-edge pencils now has robust numerical rank-two counterexamples awaiting exact reconstruction; do not assume it.
+
+The C4 hand route has independently checked whole-e=0 and all nine product-zero pencil branches. Nonzero-product pencils remain. These are scoped algebraic reductions, not a full result. Fresh and its reviewer pursue the remaining small branches while structural handles rational certificates. Library audits the 31 checked lemmas and prepares the small block-determinant square identity.
+
+Last manual renewal at 11:08:17 UTC expires 11:28:17 UTC; heartbeat renews every eight minutes and currently has no error flag. Whole-job target deadline remains about 13:03 UTC. Eight distinct subagents have been used. No proof/refutation PR exists.
+
+## L-gct-231 replan at 2026-11-25T11:35:50.798426+00:00
+
+The named file is now1528lines/101116bytes, SHA42c23a47.... Lake build07 passed (module53s), audit07 checked35 standard-axiom sets, and checker07 returned REJECTED(no-theorem). There is still no theorem named PEqualNP.Outside.L_gct_231. Checkpoint1b74cb35 preserves the named integration plus new checked components.
+
+Checked C4 components now include the full binary-linear-factor matching theorem, a complete common-isotropic-plane determinant-square theorem (including adapted-basis existence), and the first exact two-variable open-case contradiction. The compressed nonzero scalar contradiction also compiles and has independent exact source review, awaiting immediate archive/push. Combined case1 wrappers had one stale h2 proof bullet; this was caught independently and is being fixed before publication. The other two augmented open-case systems are unit overF1009 after adding the omitted square condition; exactQQ traces are pending. The C4 boundary and zero-product classifications remain reviewed mathematics rather than complete Lean coverage.
+
+Fresh is formalizing the C4 coordinate/permanent-coefficient interface. Library completed the generic determinant bridge and a nonsquare coefficient criterion. Structural owns exact scalar certificates and wrappers. Finite owns the full-star computational search and checkpoint tooling. Global and c3 provide independent reviews.
+
+The grouped full-star search restarted at11:31:53UTC for1800s,4GiB,1thread,pairs32. Export-only checkpoints now retain all original generators plus at most1million derived terms, with explicit omission counts; the active solver basis is unchanged. The first useful snapshot is preserved compressed as a partialF1009 restart set, never a basis or characteristic-zero proof. Previous snapshot-cap failure remains UNKNOWN with full logs.
+
+The desk now requests renewals every5minutes. Root changed its heartbeat from8 to4minutes; active heartbeat session1622. Last manual renewal37 at11:34:28UTC expires11:54:28UTC. Only our L-gct-231 lease is held/renewed. Whole-job target deadline remains about13:03UTC. Eight distinct subagents; no proof/refutation PR exists. Latest complete GitHub title searches found no231/232 PRs.

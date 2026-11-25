@@ -1,0 +1,21 @@
+{
+  "prepared_utc": "2026-11-25T11:16:14.217881+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint/neogb_cli_checkpoint",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint/controls-v2/nonunit-p101-stop1.checkpoint.s000002.in",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint/controls-v2/nonunit-p101-resumed.basis.json",
+    "32",
+    "1",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint/controls-v2/nonunit-p101-resumed.checkpoint",
+    "0.0",
+    "0",
+    "2"
+  ],
+  "input_sha256": "40910b82cb95b3ee43b02aed304c4cd7e28b2a40a3d8fa761263858fce2f41c1",
+  "base_input": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint/controls-v2/nonunit-p101.in",
+  "base_input_sha256": "fe22237ee760e0cc35a0c5b8a2b1bc3739edaf1edfd1dd872ac4676795233c13",
+  "base_generators": 2,
+  "binary_sha256": "6f9fe3f31a370074a9876a5e221706994ec1afe7e4c72027ec4a85effeadb4c5",
+  "library_sha256": "75d9940c556faff2a160ac14b0732b41422b8cc5290acbad450926f1ab8a8525",
+  "scope": "Finite-field research computation; checkpoints are partial polynomial consequences."
+}

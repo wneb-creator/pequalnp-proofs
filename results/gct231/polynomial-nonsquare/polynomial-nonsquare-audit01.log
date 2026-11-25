@@ -1,0 +1,26 @@
+import took 1.45s
+'PEqualNP.Outside.L_gct_231_aux.polynomial_not_square_of_coefficients' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+cumulative profiling times:
+	attribute application 0.0166ms
+	blocked (unaccounted) 197ms
+	congr simp thm 3.64ms
+	declTypeLinter 5.3ms
+	elaboration 11ms
+	fix level params 0.255ms
+	import 1.45s
+	initialization 41.3ms
+	instantiate metavars 0.296ms
+	interpretation 209ms
+	let-to-have transformation 0.0317ms
+	linting 4.97ms
+	module linting 0.0409ms
+	parsing 1.28ms
+	process pre-definitions 1.42ms
+	share common exprs 0.758ms
+	simp 112ms
+	tactic execution 11.4ms
+	tacticAnalysis 0.963ms
+	type checking 4.36ms
+	typeclass inference 66.3ms

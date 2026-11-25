@@ -1,0 +1,46 @@
+{
+  "source": "c4-nonzero-augmented-2-normalized.json",
+  "source_sha256": "e6f31a62701fb3942d49a16350d37aa2ec5e57daec94717f4a59ce15433111ec",
+  "characteristic": 0,
+  "variables": [
+    "P",
+    "B",
+    "U",
+    "V",
+    "sat"
+  ],
+  "generator_count": 7,
+  "term_count": 392,
+  "dropped_modular_zero_terms": 0,
+  "equation_scalings": [
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    }
+  ],
+  "input_sha256": "6c751e1ccf451d4c6f956793c965ece02c130d7bc6adf588fadfb2516621c7ab"
+}

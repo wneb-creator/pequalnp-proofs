@@ -1,0 +1,30 @@
+{
+  "recorded_utc": "2026-11-25T11:29:14.286575+00:00",
+  "parent_provenance_sha256": "5a64162804cb078cd91bb294f2ed56cd1ddccdaa53e24688d098635bb4be8c59",
+  "scope": "Export-only bounded subset, original generators retained, live basis unchanged; not a Groebner verdict.",
+  "production_budget": 1000000,
+  "control_compile_define": "PNP_CHECKPOINT_DERIVED_TERMS=2",
+  "files": {
+    "make_checkpoint_subset.py": "03611b31c9861ff81499889f199aef649314fe082a37d5422917b0ce126c99ae",
+    "checkpoint_basis_subset.c": "4db8c9399ca63eac4987293135bdd8153919d1ecb686d8e9bec49700c89fd6e1",
+    "make_checkpoint_subset_engine.py": "41b5249f06a0b4e45a0598d512dd0e207938315b01a8d8c01f16209db4742d53",
+    "run_neogb_checkpoint_subset.py": "a5675fa283804192a30c3d8a46ac6e35e87893f30dd99c3d6e4083f47245e2ae",
+    "checkpoint_subset_controls.py": "a0aaf25fd6dbc5d2b1cc78e15d0cee55f2513a83e8d3b3f379287c440f283934",
+    "run_neogb_checkpoint_subset_budget2.py": "792f09746d42e993b73da64f7a865b0e77b0b7b5b40ebbb7e36ebd2ab18ac568",
+    "checkpoint_subset_budget2_controls.py": "82f783d39accfed74f17d846e39c0a667022bbc83feac85ddb1e20377d10f878",
+    "checkpoint-subset/neogb_cli_checkpoint.c": "7a31fafed505c2aa716cce5d8df3789acd1c8d3530dafccb88a64228316af60a",
+    "checkpoint-subset/engine/gb.c": "3dd079299970001b503c195131da14c8391083553bacea82966e4288287515d8",
+    "checkpoint-subset/engine/f4.c": "3e8712d70ed93a33d851ec09ad47e83379893a29e5f28f2f1bf9aa18d031129a",
+    "checkpoint-subset/engine/checkpoint_basis.c": "4db8c9399ca63eac4987293135bdd8153919d1ecb686d8e9bec49700c89fd6e1",
+    "checkpoint-subset/engine/la_qq.c": "f1b5a21fdd480d461adebae90b3cffacb588ec3737bccccc6315ea8ce6519dd5",
+    "checkpoint-subset/engine/convert.c": "dacbe1c3f7a851e2b48ed6155b0f53013a306e3fbfaccdec129407094db84758",
+    "checkpoint-subset/libneogb_checkpoint.so": "dcf664df8036b637aae4b064662017b4fe20983b0c71be74f4c0b7474270e12f",
+    "checkpoint-subset/neogb_cli_checkpoint": "d6f8f11dd46e613bf7b0cb3f357cb5128d60a440d221749dae67575abe734246",
+    "checkpoint-subset/controls.log": "59d75c2c5ff36cf2be8cf6c7f3d7ba73aeba705b0169708c209958544905a9d0",
+    "checkpoint-subset/controls/summary.json": "e1dd5aaeace13d823a00f9cdf992273effd9dfc9a497926d5d17760e419ddb3a",
+    "checkpoint-subset-budget2/libneogb_checkpoint.so": "9a474eccf46b7995fb9efd466b3b1eb52197d5032a21dd5f69006b2dad995e9d",
+    "checkpoint-subset-budget2/neogb_cli_checkpoint": "0f607aae134cc40d7795052867634fd9f0656f40a04230c72c5f79cac1bada76",
+    "checkpoint-subset-budget2/controls.log": "2f7ec9c5ee5ecb98edb04d71c3ace57c30f6339fdbdab17a80136472bcc7e10c",
+    "checkpoint-subset-budget2/controls/summary.json": "22e22ed1a7e8813a426b7f24872e9fa5ad61c42aa0c25d8999146620cade5e66"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "source": "PolynomialNonsquare.lean",
+  "sha256": "a00e214f4f3390128431db17af70a7211ac730b705d3e92bc193563f8cd95451",
+  "status": "PASS",
+  "build_log": "polynomial-nonsquare-build03.log",
+  "build_status": "polynomial-nonsquare-build03.run.json",
+  "axiom_log": "polynomial-nonsquare-audit01.log",
+  "axioms": {
+    "PEqualNP.Outside.L_gct_231_aux.polynomial_not_square_of_coefficients": [
+      "propext,",
+      "Classical.choice,",
+      "Quot.sound"
+    ]
+  },
+  "scope": "Coefficient criterion in a commutative ring without zero divisors, independent of matrix and polynomial degree."
+}

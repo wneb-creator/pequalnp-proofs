@@ -1,0 +1,47 @@
+--- 
++++ 
+@@ -5,12 +5,14 @@
+ #include <gmp.h>
+ #include <omp.h>
+ #include "f4.h"
++#include <math.h>
++void pnp_checkpoint_configure(const char*,int,int,int,int,const int32_t*,const int32_t*,const int32_t*,double,uint64_t);
+ 
+ static void fail(const char *s) { fprintf(stderr, "%s\n", s); exit(2); }
+ 
+ int main(int argc, char **argv) {
+-    if (argc < 3 || argc > 5) {
+-        fprintf(stderr, "usage: neogb_cli INPUT OUTPUT_JSON [MAX_PAIRS] [THREADS]\n");
++    if (argc != 9) {
++        fprintf(stderr, "usage: neogb_cli INPUT OUTPUT_JSON MAX_PAIRS THREADS CHECKPOINT_PREFIX INTERVAL_SECONDS STOP_ROUND BASE_GENERATORS\n");
+         return 2;
+     }
+     FILE *in = fopen(argv[1], "r");
+@@ -29,7 +31,7 @@
+         pairs = (int)v;
+     }
+     int threads = 2;
+-    if (argc == 5) {
++    if (argc >= 5) {
+         char *end;
+         long v = strtol(argv[4], &end, 10);
+         if (*end || v < 1 || v > 3) fail("threads must be between 1 and 3");
+@@ -84,6 +86,18 @@
+     do ch = fgetc(in); while (ch == ' ' || ch == '\n' || ch == '\r' || ch == '\t');
+     if (ch != EOF) fail("extra input data");
+     fclose(in);
++    if (!p) fail("checkpoint adapter supports finite fields only");
++    char *interval_end, *stop_end, *base_end;
++    double interval=strtod(argv[6],&interval_end);
++    unsigned long long stop=strtoull(argv[7],&stop_end,10);
++    long base_generators=strtol(argv[8],&base_end,10);
++    if (*interval_end || !isfinite(interval) || interval<0 || interval>3600 ||
++        *stop_end || stop>INT_MAX || *base_end || base_generators<1 ||
++        base_generators>m) fail("bad checkpoint interval, stop round, or base prefix");
++    int base_terms=0;
++    for (int j=0;j<base_generators;j++) base_terms+=lens[j];
++    pnp_checkpoint_configure(argv[5],n,(int)base_generators,p,base_terms,
++        lens,exps,finite,interval,stop);
+     int32_t bld = 0, *blen = NULL, *bexp = NULL;
+     void *bcf = NULL;
+     fprintf(stderr, "NEOGB nvars=%d ngens=%d characteristic=%d terms=%d exact_sparse=2 pairs=%d threads=%d native_simd=AVX512\n",

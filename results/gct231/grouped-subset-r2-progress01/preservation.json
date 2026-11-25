@@ -1,0 +1,24 @@
+{
+  "preserved_utc": "2026-11-25T11:33:55.221137+00:00",
+  "snapshot_sha256_uncompressed": "d83300ce7665a4682540dd47844d560a3999fc53457fac7e6a6f8b48eaa84075",
+  "snapshot_bytes_uncompressed": 41935656,
+  "original_snapshot": "/tmp/oec/pequalnp-pilot-75/gct231/neogb-star-grouped-subset-r2.checkpoint.s000002.in",
+  "metadata": {
+    "sequence": 2,
+    "round": 82,
+    "characteristic": 1009,
+    "nvars": 18,
+    "original_generators": 31,
+    "original_terms": 2450,
+    "appended_basis_rows": 419,
+    "appended_basis_terms": 998940,
+    "available_basis_rows": 1673,
+    "available_basis_terms": 25540955,
+    "omitted_basis_rows": 1254,
+    "omitted_basis_terms": 24542015,
+    "derived_term_budget": 1000000,
+    "selection": "Increasing leading degree, then term count, then active-basis index; greedy budget.",
+    "scope": "Original generators plus a bounded subset of active polynomial consequences; partial restart generating set, not a Groebner verdict."
+  },
+  "scope": "Partial finite-field restart generating set, not a final basis or mathematical verdict. Log is the entire prefix captured during an ongoing run."
+}

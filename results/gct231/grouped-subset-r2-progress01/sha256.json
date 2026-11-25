@@ -1,0 +1,7 @@
+{
+  "launch.json": "a129f37072819f57a4a7dbbf1ce8c0e8393a8642acb22f0d97c345aff091fc91",
+  "preservation.json": "5563e1f4bbcea1e63b35ded4eadc1b4b1c01b69834c4eac1f3803f7fbfbf4e58",
+  "snapshot-metadata.json": "9ab3ff4c4a30b23e2d4611e69f52da986ee5168ec00667fe9a69ca7c7396e1d0",
+  "snapshot.in.gz": "93a38540cd63aee5f2f048484558a1ec21277c237cc55f41c104ec5e5cfc8352",
+  "stdout-stderr-through-snapshot.log": "efa85e52bba16fab08f0e7efe3bd713a9d151cd90453c1435ee63c764d48f91b"
+}

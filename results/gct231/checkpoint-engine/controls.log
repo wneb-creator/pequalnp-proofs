@@ -1,0 +1,14 @@
+PASS {'name': 'unit', 'prime': 101, 'expected_basis_size': 1, 'interruption': 'STOPPED_AFTER_CHECKPOINT', 'verified_checkpoint_rows': 4, 'resumed_matches_original': True}
+PASS {'name': 'unit', 'prime': 1009, 'expected_basis_size': 1, 'interruption': 'STOPPED_AFTER_CHECKPOINT', 'verified_checkpoint_rows': 4, 'resumed_matches_original': True}
+PASS {'name': 'unit', 'prime': 65537, 'expected_basis_size': 1, 'interruption': 'STOPPED_AFTER_CHECKPOINT', 'verified_checkpoint_rows': 4, 'resumed_matches_original': True}
+PASS {'name': 'nonunit', 'prime': 101, 'expected_basis_size': 2, 'interruption': 'COMPLETED', 'verified_checkpoint_rows': 2, 'resumed_matches_original': True}
+PASS {'name': 'nonunit', 'prime': 1009, 'expected_basis_size': 2, 'interruption': 'COMPLETED', 'verified_checkpoint_rows': 2, 'resumed_matches_original': True}
+PASS {'name': 'nonunit', 'prime': 65537, 'expected_basis_size': 2, 'interruption': 'COMPLETED', 'verified_checkpoint_rows': 2, 'resumed_matches_original': True}
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint_controls.py", line 60, in <module>
+    variables,p,generators=read_input(input_path)
+                           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint_controls.py", line 26, in read_input
+    assert coefficient
+           ^^^^^^^^^^^
+AssertionError

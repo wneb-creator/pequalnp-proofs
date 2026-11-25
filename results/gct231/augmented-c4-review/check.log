@@ -1,0 +1,7 @@
+PASS original pencil identity and augmented pullback 2 258 14 216*beta**8
+PASS actual sparse input 2 qq 392
+PASS actual sparse input 2 p1009 392
+PASS original pencil identity and augmented pullback 3 292 14 27*alpha**2
+PASS actual sparse input 3 qq 424
+PASS actual sparse input 3 p1009 424
+PASS augmented constraints and all four actual inputs

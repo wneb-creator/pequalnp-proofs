@@ -1,0 +1,131 @@
+NEOGB nvars=5 ngens=7 characteristic=1009 terms=392 exact_sparse=2 pairs=32 threads=1 native_simd=AVX512
+
+--------------- INPUT DATA ---------------
+#variables                       5
+#equations                       7
+#invalid equations               0
+field characteristic          1009
+homogeneous input?               0
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            2
+initial hash table size     131072 (2^17)
+max pair selection              32
+reduce gb                        1
+#threads                         1
+info level                       2
+generate pbm files               0
+------------------------------------------
+
+Legend for f4 information
+--------------------------------------------------------
+deg       current degree of pairs selected in this round
+sel       number of pairs selected in this round
+pairs     total number of pairs in pair list
+mat       matrix dimensions (# rows x # columns)
+density   density of the matrix
+new data  # new elements for basis in this round
+          # zero reductions during linear algebra
+time(rd)  time of the current f4 round in seconds given
+          for real and cpu time
+--------------------------------------------------------
+
+deg     sel   pairs        mat          density            new data         time(rd) in sec (real|cpu)
+------------------------------------------------------------------------------------------------------
+  5       1       7       3 x 14         50.00%        1 new       0 zero         0.00 | 0.00         
+  6       1       7       5 x 27         31.11%        1 new       0 zero         0.00 | 0.00         
+  7       4       9      21 x 103         9.11%        4 new       0 zero         0.00 | 0.00         
+  7       9      15      44 x 184         9.05%        8 new       1 zero         0.00 | 0.00         
+  7       4      26      41 x 187        14.99%        4 new       0 zero         0.00 | 0.00         
+  8      28      34     145 x 389         8.92%       20 new       8 zero         0.00 | 0.00         
+  7       9      54      89 x 351        11.80%        7 new       2 zero         0.00 | 0.00         
+  7       9      66      90 x 342        14.52%        9 new       0 zero         0.00 | 0.00         
+  7       5      84      91 x 344        16.22%        5 new       0 zero         0.00 | 0.00         
+  8      32      96     127 x 264        21.19%       19 new      13 zero         0.00 | 0.00         
+  8      33     130     126 x 269        27.13%       33 new       0 zero         0.00 | 0.00         
+  7      32     202     120 x 282        30.03%       32 new       0 zero         0.00 | 0.00         
+  6      31     238     145 x 361        25.52%       31 new       0 zero         0.00 | 0.00         
+  6      32     253     146 x 330        33.47%       32 new       0 zero         0.00 | 0.00         
+  6      34     295     162 x 312        37.81%       34 new       0 zero         0.00 | 0.00         
+  6      32     303     158 x 297        42.25%       32 new       0 zero         0.00 | 0.00         
+  5      24     295     119 x 229        44.72%       24 new       0 zero         0.00 | 0.00         
+  5      33     279     121 x 198        47.61%       33 new       0 zero         0.00 | 0.00         
+  5      33     300     123 x 182        44.16%       20 new      13 zero         0.00 | 0.00         
+  5      33     299     118 x 154        45.70%       10 new      24 zero         0.00 | 0.00         
+  5      33     295     127 x 159        42.76%        5 new      28 zero         0.00 | 0.00         
+  5      32     277     147 x 176        39.16%        1 new      31 zero         0.00 | 0.00         
+  5      32     249     165 x 193        37.38%        0 new      32 zero         0.00 | 0.00         
+  5      32     217     181 x 209        36.64%        0 new      32 zero         0.00 | 0.00         
+  5      33     185     198 x 225        33.58%        0 new      33 zero         0.00 | 0.00         
+  5      31     152     215 x 244        30.53%        0 new      31 zero         0.00 | 0.00         
+  6      32     121     199 x 227        33.29%        0 new      32 zero         0.00 | 0.00         
+  6      34      89     384 x 410        19.85%        0 new      34 zero         0.00 | 0.00         
+  6       1      55     343 x 402        18.37%        0 new       1 zero         0.00 | 0.00         
+  7      32      54     569 x 597        13.04%        0 new      32 zero         0.00 | 0.00         
+  7       9      22     634 x 685        10.67%        0 new       9 zero         0.00 | 0.00         
+  8      11      13     972 x 1021        7.00%        0 new      11 zero         0.00 | 0.00         
+  9       1       2    1684 x 1743        3.82%        1 new       0 zero         0.00 | 0.00         
+  5       5       6      86 x 140        49.73%        5 new       0 zero         0.00 | 0.00         
+  4      10      26      82 x 126        54.66%        9 new       1 zero         0.00 | 0.00         
+  4      32      61     104 x 117        49.93%       31 new       1 zero         0.00 | 0.00         
+  3      33     121      74 x 55         35.09%       13 new      20 zero         0.00 | 0.00         
+  2      15      85      35 x 21         21.09%        0 new      15 zero         0.00 | 0.00         
+  3      25      70      79 x 55         12.06%        0 new      25 zero         0.00 | 0.00         
+  4      32      45     122 x 91         23.84%        0 new      32 zero         0.00 | 0.00         
+  4       5      13     120 x 116         5.81%        0 new       5 zero         0.00 | 0.00         
+  5       7       8     136 x 130         5.83%        0 new       7 zero         0.00 | 0.00         
+ 14       1       1     389 x 389         0.68%        1 new       0 zero         0.00 | 0.00         
+------------------------------------------------------------------------------------------------------
+reduce final basis        1 x 1         100.00%        1 new       0 zero         0.00 | 0.00         
+------------------------------------------------------------------------------------------------------
+
+---------------- TIMINGS ----------------
+overall(elapsed)        0.03 sec
+overall(cpu)            0.03 sec
+select                  0.00 sec   7.5%
+symbolic prep.          0.01 sec  21.7%
+update                  0.02 sec  47.7%
+convert                 0.00 sec   4.1%
+linear algebra          0.01 sec  17.0%
+reduce gb               0.00 sec   0.0%
+-----------------------------------------
+
+---------- COMPUTATIONAL DATA -----------
+size of basis                     1
+#terms in basis                   1
+#pairs reduced                  897
+#GM criterion                 92199
+#redundant elements             431
+#rows reduced                  1797
+#zero reductions                473
+max. matrix data               1684 x 1743 (3.816%)
+max. symbolic hash table size  2^11
+max. basis hash table size     2^16
+-----------------------------------------
+
+
+---------------- TIMINGS ----------------
+overall(elapsed)        0.03 sec
+overall(cpu)            0.03 sec
+select                  0.00 sec   0.0%
+symbolic prep.          0.00 sec   0.0%
+update                  0.00 sec   0.0%
+convert                 0.00 sec   0.0%
+linear algebra          0.00 sec   0.0%
+reduce gb               0.00 sec   0.0%
+-----------------------------------------
+
+---------- COMPUTATIONAL DATA -----------
+size of basis                     1
+#terms in basis                   1
+#pairs reduced                    0
+#GM criterion                     0
+#redundant elements               0
+#rows reduced                     0
+#zero reductions                  0
+max. matrix data                  0 x 0 (0.000%)
+max. symbolic hash table size  2^-2147483648
+max. basis hash table size     2^16
+-----------------------------------------
+

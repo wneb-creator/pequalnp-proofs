@@ -1,0 +1,11 @@
+{
+  "sparse-engine/checkpoint_basis.c": "bdf8114247d8aa090c7261f8aeba92e9df71485dff84b678cac769ef640a1678",
+  "sparse-engine/make_checkpoint_engine.py": "98481707c2ba5e8f1245cb077e88a9aff764c3a85ba56c1f872983bcc7ff2c25",
+  "sparse-engine/run_neogb_checkpoint.py": "8437b79e5f46f2bd5cac3a7b45a9b4e3763a82dbaaa2b917abd2366358c3e867",
+  "sparse-engine/checkpoint_controls.py": "7afda505621ff9af76a7928d9e3871847eba58cd13165f9311527e395bde2d7d",
+  "sparse-engine/checkpoint/provenance.json": "5a64162804cb078cd91bb294f2ed56cd1ddccdaa53e24688d098635bb4be8c59",
+  "group_full_star_variables.py": "3c1abfaa72885cb7fe5287807de53d4780f573f9fad465c55ac42820df6e35c0",
+  "star-full-grouped-equations.json": "a6a49ab3dab78f0c32da78838e91b0e1d3e722406d0607ee1bcc265d62790722",
+  "neogb-star-full-grouped-p1009.in": "3d0ded7cb3402ebaa683e68821ae6d73bcd063085b932e393b8879012a3075d1",
+  "star-full-generate-equations.json": "805790ef29f0a42c6a57f50e05ef991bd0c2bce219fcd951a4b0965cafcfa1af"
+}

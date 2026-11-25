@@ -1,0 +1,14 @@
+{
+  "fresh/c4-nonzero-square-2.json": "a04e12050ab4eed1235869d81b1107ef6ba5b1f7ec51839d766767ee11398467",
+  "fresh/c4-nonzero-reduced-2.json": "0ab9ffa48a2b21f637556a635ff1f835fd59836ad48c77cec594a1751f7dc87b",
+  "c4-nonzero-augmented-2.json": "cf02c5b9870535161dedc46e1b37d718fa0f00c2ccdf6595036ba87152ed4434",
+  "c4-nonzero-augmented-2-normalized.json": "e6f31a62701fb3942d49a16350d37aa2ec5e57daec94717f4a59ce15433111ec",
+  "neogb-c4-augmented2-qq.in": "6c751e1ccf451d4c6f956793c965ece02c130d7bc6adf588fadfb2516621c7ab",
+  "neogb-c4-augmented2-p1009.in": "e6077487a0f8fbc706c1296f1efaed92d7fe5ad8dca7022c8e1677644582c65a",
+  "fresh/c4-nonzero-square-3.json": "d82ea8e4d1e006e9e71ecc49fbfe535d5c41b9b938e1118748d03aea455f01c0",
+  "fresh/c4-nonzero-reduced-3.json": "72b12e2f543766e57aec78a88717f5133442553a207566956022363aa89a867f",
+  "c4-nonzero-augmented-3.json": "f07f2ddc460ce88d9959dbc6c56b5f5538ec2c60733c6db641b987529f55df05",
+  "c4-nonzero-augmented-3-normalized.json": "de346df73988f9ae8c0c023a1fd5a90c6866e63c5f51a3b4f17a492e0ec67e5f",
+  "neogb-c4-augmented3-qq.in": "f16c9ea59e351c0ac63bcde68e3318a155f9228b00b9df00b939d5e35aa9c25e",
+  "neogb-c4-augmented3-p1009.in": "a0418411e5f8ab102610efd387ca9d2a7a0fd396458ba46912309705032016be"
+}

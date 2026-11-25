@@ -1,0 +1,115 @@
+--- 
++++ 
+@@ -1,11 +1,30 @@
+ /* Finite-field research checkpoints. Included after io.c, before f4.c.
+  * Every file retains the original generators and appends the current active
+- * basis rows. It is a restart input, never a Groebner-basis certificate. */
++ * basis rows up to a derived-term budget. It is only a partial restart input. */
+ #include <stdint.h>
+ #include <inttypes.h>
+ #include <string.h>
+ #include <unistd.h>
+ #include <errno.h>
++
++#ifndef PNP_CHECKPOINT_DERIVED_TERMS
++#define PNP_CHECKPOINT_DERIVED_TERMS 1000000
++#endif
++#if PNP_CHECKPOINT_DERIVED_TERMS < 1 || PNP_CHECKPOINT_DERIVED_TERMS > 1000000
++#error Invalid checkpoint derived-term budget
++#endif
++typedef struct {
++    len_t index;
++    int64_t length, leading_degree;
++} pc_row_choice;
++
++static int pc_compare_rows(const void *left, const void *right) {
++    const pc_row_choice *a=left, *b=right;
++    if (a->leading_degree != b->leading_degree)
++        return a->leading_degree < b->leading_degree ? -1 : 1;
++    if (a->length != b->length) return a->length < b->length ? -1 : 1;
++    return a->index < b->index ? -1 : a->index > b->index;
++}
+ 
+ static char *pc_prefix = NULL;
+ static int pc_n, pc_m, pc_field, pc_terms;
+@@ -80,10 +99,27 @@
+     if (!force && !stopping && realtime()-pc_last < pc_interval) return;
+     if ((int)md->fc != pc_field || (int)bs->ht->nv != pc_n)
+         pc_fail("field or variable mismatch");
++    int64_t available_rows=0, available_terms=0;
++    pc_row_choice *choices=malloc((size_t)(bs->lml ? bs->lml : 1)*sizeof(*choices));
++    if (!choices) pc_fail("row selection allocation");
++    for (len_t i=0;i<bs->lml;i++) {
++        hm_t *row=bs->hm[bs->lmps[i]];
++        int64_t length=pc_row_length(bs,row,md);
++        if (!length) continue;
++        int64_t degree=0;
++        const exp_t *exponent=bs->ht->ev[row[OFFSET]];
++        for (len_t k=1;k<bs->ht->evl;k++)
++            if (k!=bs->ht->ebl) degree+=exponent[k];
++        choices[available_rows++]=(pc_row_choice){i,length,degree};
++        available_terms+=length;
++    }
++    qsort(choices,(size_t)available_rows,sizeof(*choices),pc_compare_rows);
+     int64_t basis_rows=0, basis_terms=0;
+-    for (len_t i=0;i<bs->lml;i++) {
+-        int64_t length=pc_row_length(bs,bs->hm[bs->lmps[i]],md);
+-        if (length) { basis_rows++; basis_terms+=length; }
++    for (int64_t i=0;i<available_rows;i++) {
++        if (choices[i].length > PNP_CHECKPOINT_DERIVED_TERMS-basis_terms) continue;
++        if (basis_rows+pc_m >= 100000) continue;
++        choices[basis_rows++]=choices[i];
++        basis_terms+=choices[i].length;
+     }
+     if (basis_rows+pc_m > 100000 || basis_terms+pc_terms > 10000000)
+         pc_fail("restart input would exceed validated wrapper bounds");
+@@ -95,10 +131,8 @@
+     fprintf(file,"%d %" PRId64 " %d %" PRId64 "\n",pc_n,
+         (int64_t)pc_m+basis_rows,pc_field,(int64_t)pc_terms+basis_terms);
+     for (int i=0;i<pc_m;i++) fprintf(file,i ? " %d" : "%d",pc_lengths[i]);
+-    for (len_t i=0;i<bs->lml;i++) {
+-        int64_t length=pc_row_length(bs,bs->hm[bs->lmps[i]],md);
+-        if (length) fprintf(file," %" PRId64,length);
+-    }
++    for (int64_t i=0;i<basis_rows;i++)
++        fprintf(file," %" PRId64,choices[i].length);
+     fputc('\n',file);
+     for (int t=0;t<pc_terms;t++) {
+         fprintf(file,"%d 1",pc_coefficients[t]);
+@@ -106,9 +140,8 @@
+         fputc('\n',file);
+     }
+     const ht_t *ht=bs->ht;
+-    for (len_t i=0;i<bs->lml;i++) {
+-        hm_t *row=bs->hm[bs->lmps[i]];
+-        if (!row) continue;
++    for (int64_t i=0;i<basis_rows;i++) {
++        hm_t *row=bs->hm[bs->lmps[choices[i].index]];
+         for (len_t j=0;j<row[LENGTH];j++) {
+             int32_t coefficient=pc_coefficient(bs,row,md,j);
+             if (!coefficient) continue;
+@@ -134,8 +167,14 @@
+         ",\"characteristic\":%d,\"nvars\":%d,\"original_generators\":%d,"
+         "\"original_terms\":%d,\"appended_basis_rows\":%" PRId64
+         ",\"appended_basis_terms\":%" PRId64 ","
+-        "\"scope\":\"Original generators plus current active polynomial consequences; not a Groebner verdict.\"}\n",
+-        sequence,round,pc_field,pc_n,pc_m,pc_terms,basis_rows,basis_terms);
++        "\"available_basis_rows\":%" PRId64 ",\"available_basis_terms\":%" PRId64 ","
++        "\"omitted_basis_rows\":%" PRId64 ",\"omitted_basis_terms\":%" PRId64 ","
++        "\"derived_term_budget\":%d,"
++        "\"selection\":\"Increasing leading degree, then term count, then active-basis index; greedy budget.\","
++        "\"scope\":\"Original generators plus a bounded subset of active polynomial consequences; partial restart generating set, not a Groebner verdict.\"}\n",
++        sequence,round,pc_field,pc_n,pc_m,pc_terms,basis_rows,basis_terms,
++        available_rows,available_terms,available_rows-basis_rows,
++        available_terms-basis_terms,PNP_CHECKPOINT_DERIVED_TERMS);
+     pc_close(file);
+     if (rename(meta_tmp,meta)) pc_fail("publish snapshot metadata");
+     if (pc_previous) {
+@@ -148,6 +187,6 @@
+         " appended_rows=%" PRId64 " appended_terms=%" PRId64 "\n",
+         sequence,round,basis_rows,basis_terms);
+     fflush(stderr);
+-    free(temporary);free(complete);free(meta_tmp);free(meta);
++    free(choices);free(temporary);free(complete);free(meta_tmp);free(meta);
+     if (stopping) exit(75);
+ }

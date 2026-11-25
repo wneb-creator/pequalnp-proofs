@@ -1,0 +1,7 @@
+PASS archive exact coverage and all hashes checkpoint-engine 240 54b11bbfccf1ec1f07f078380a03a3515c7656e44249a4cc18b79cf4a1176416
+PASS archive exact coverage and all hashes augmented-c4-cases23 36 09cd9d5f24add2ecf33d398794cc37ef1f6e19d9a673a9f12a0cabf3fbb18b8f
+PASS archive exact coverage and all hashes grouped-subset-r2-progress01 5 9d8dd0f1a3bbdd5337e8fc0e1451912db4814194965115828c803eb2c704e703
+PASS finite-field unit diagnostic 2 0.06600099700153805
+PASS finite-field unit diagnostic 3 0.06541911699969205
+PASS partial snapshot gzip identity, complete line/header counts, exact original prefix, and omission metadata 41935656 d83300ce7665a4682540dd47844d560a3999fc53457fac7e6a6f8b48eaa84075
+SCOPE: snapshot is a partial finite-field restart generating set; no final basis or proof claim.

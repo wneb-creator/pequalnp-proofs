@@ -1,0 +1,13 @@
+/tmp/oec/pequalnp-pilot-75/gct231/c4-small-certificates/C4Case0NonzeroAudit.lean:51:26: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/c4-small-certificates/C4Case0NonzeroAudit.lean:55:26: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/c4-small-certificates/C4Case0NonzeroAudit.lean:51:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-75/gct231/c4-small-certificates/C4Case0NonzeroAudit.lean:55:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+'PEqualNP.Outside.L_gct_231.trace.c4_open_0_v_nonzero' depends on axioms: [propext, Classical.choice, Quot.sound]

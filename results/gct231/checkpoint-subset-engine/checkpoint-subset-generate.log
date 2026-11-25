@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/make_checkpoint_subset.py", line 69, in <module>
+    text=once(text,'''        "\\\"appended_basis_terms\\\":%" PRId64 ","
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/make_checkpoint_subset.py", line 6, in once
+    assert text.count(old)==1,(old,text.count(old))
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: ('        "\\"appended_basis_terms\\":%" PRId64 ","\n        "\\"scope\\":\\"Original generators plus current active polynomial consequences; not a Groebner verdict.\\"}\\n",\n        sequence,round,pc_field,pc_n,pc_m,pc_terms,basis_rows,basis_terms);', 0)

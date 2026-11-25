@@ -1,0 +1,14 @@
+PASS all 14 frozen provenance hashes
+PASS core modifications exactly four snapshot/include hooks; arithmetic core unchanged
+PASS CONTROL unit 101
+PASS CONTROL unit 1009
+PASS CONTROL unit 65537
+PASS CONTROL nonunit 101
+PASS CONTROL nonunit 1009
+PASS CONTROL nonunit 65537
+PASS CONTROL rational 101
+PASS CONTROL rational 1009
+PASS CONTROL rational 65537
+PASS independent all retained control snapshots/results {'snapshots': 54, 'rows': 126, 'bases': 21}
+PASS grouped full31 source unchanged, exact 18-variable permutation and all 2450 modular terms
+PASS independent review checks.

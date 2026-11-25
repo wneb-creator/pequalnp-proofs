@@ -1,0 +1,5 @@
+PASS exact variable permutation; all31 coefficient strings unchanged.
+Groups: [['d0', 'd3', 'd6', 'o0', 'o3', 'o6'], ['d1', 'd4', 'd7', 'o1', 'o4', 'o7'], ['d2', 'd5', 'd8', 'o2', 'o5', 'o8']]
+z-degree0/1/at-least2 equation counts: [12, 9, 10]
+Source SHA256: 805790ef29f0a42c6a57f50e05ef991bd0c2bce219fcd951a4b0965cafcfa1af
+Reordered SHA256: a6a49ab3dab78f0c32da78838e91b0e1d3e722406d0607ee1bcc265d62790722

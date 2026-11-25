@@ -1,0 +1,48 @@
+{
+  "prepared_utc": "2026-11-25T11:23:54.448717+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint/neogb_cli_checkpoint",
+    "/tmp/oec/pequalnp-pilot-75/gct231/neogb-star-full-grouped-p1009.in",
+    "/tmp/oec/pequalnp-pilot-75/gct231/neogb-star-grouped-checkpoint-r1-basis.json",
+    "32",
+    "1",
+    "/tmp/oec/pequalnp-pilot-75/gct231/neogb-star-grouped-checkpoint-r1.checkpoint",
+    "60.0",
+    "0",
+    "31"
+  ],
+  "input_sha256": "3d0ded7cb3402ebaa683e68821ae6d73bcd063085b932e393b8879012a3075d1",
+  "base_input": "/tmp/oec/pequalnp-pilot-75/gct231/neogb-star-full-grouped-p1009.in",
+  "base_input_sha256": "3d0ded7cb3402ebaa683e68821ae6d73bcd063085b932e393b8879012a3075d1",
+  "base_generators": 31,
+  "binary_sha256": "6f9fe3f31a370074a9876a5e221706994ec1afe7e4c72027ec4a85effeadb4c5",
+  "library_sha256": "75d9940c556faff2a160ac14b0732b41422b8cc5290acbad450926f1ab8a8525",
+  "scope": "Finite-field research computation; checkpoints are partial polynomial consequences.",
+  "status": "UNKNOWN_CHECKPOINT_FAILURE",
+  "returncode": 76,
+  "seconds": 61.40353488300025,
+  "wall_limit_seconds": 1800,
+  "memory_mib": 4096,
+  "output_mib": 2048,
+  "threads": 1,
+  "pairs": 32,
+  "checkpoint_seconds": 60.0,
+  "stop_after_round": 0,
+  "child_maxrss_kib": 409428,
+  "checkpoint": {
+    "path": "/tmp/oec/pequalnp-pilot-75/gct231/neogb-star-grouped-checkpoint-r1.checkpoint.s000001.in",
+    "sha256": "4ca52af7079b14c0f82fa2fb0b16cce202b249e866eda98ecaab8179168ad6ab",
+    "bytes": 203772,
+    "metadata": {
+      "sequence": 1,
+      "round": 0,
+      "characteristic": 1009,
+      "nvars": 18,
+      "original_generators": 31,
+      "original_terms": 2450,
+      "appended_basis_rows": 31,
+      "appended_basis_terms": 2450,
+      "scope": "Original generators plus current active polynomial consequences; not a Groebner verdict."
+    }
+  }
+}

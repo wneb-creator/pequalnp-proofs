@@ -1,0 +1,30 @@
+PASS 21 provenance hashes and parent provenance
+PASS solver core, wrapper, runner unchanged except isolated path; export delta saved
+PASS controls checkpoint-subset unit 101
+PASS controls checkpoint-subset unit 1009
+PASS controls checkpoint-subset unit 65537
+PASS controls checkpoint-subset nonunit 101
+PASS controls checkpoint-subset nonunit 1009
+PASS controls checkpoint-subset nonunit 65537
+PASS controls checkpoint-subset rational 101
+PASS controls checkpoint-subset rational 1009
+PASS controls checkpoint-subset rational 65537
+PASS controls checkpoint-subset-budget2 unit 101
+PASS controls checkpoint-subset-budget2 unit 1009
+PASS controls checkpoint-subset-budget2 unit 65537
+PASS controls checkpoint-subset-budget2 nonunit 101
+PASS controls checkpoint-subset-budget2 nonunit 1009
+PASS controls checkpoint-subset-budget2 nonunit 65537
+PASS controls checkpoint-subset-budget2 rational 101
+PASS controls checkpoint-subset-budget2 rational 1009
+PASS controls checkpoint-subset-budget2 rational 65537
+PASS exact budget2 selection unit 101 1 3
+PASS exact budget2 selection unit 1009 1 3
+PASS exact budget2 selection unit 65537 1 3
+PASS exact budget2 selection nonunit 101 1 1
+PASS exact budget2 selection nonunit 1009 1 1
+PASS exact budget2 selection nonunit 65537 1 1
+PASS exact budget2 selection rational 101 1 2
+PASS exact budget2 selection rational 1009 1 2
+PASS exact budget2 selection rational 65537 1 2
+PASS {'snapshots': 108, 'consequences': 186, 'completed_bases': 42, 'omitting_latest': 15}

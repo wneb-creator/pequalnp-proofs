@@ -1,0 +1,40 @@
+[
+  {
+    "case": 2,
+    "variables": [
+      "P",
+      "B",
+      "U",
+      "V",
+      "sat"
+    ],
+    "exact_values": [
+      "-2",
+      "1",
+      "0",
+      "6",
+      "-1/26"
+    ],
+    "verified_equations": 6,
+    "scope": "Exact root of the reduced necessary system only; not a full plane witness."
+  },
+  {
+    "case": 3,
+    "variables": [
+      "A",
+      "beta",
+      "U",
+      "V",
+      "sat"
+    ],
+    "exact_values": [
+      "4",
+      "1/2",
+      "0",
+      "-12",
+      "1/13"
+    ],
+    "verified_equations": 6,
+    "scope": "Exact root of the reduced necessary system only; not a full plane witness."
+  }
+]

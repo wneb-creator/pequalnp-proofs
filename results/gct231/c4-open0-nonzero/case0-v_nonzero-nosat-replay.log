@@ -1,0 +1,2 @@
+{"input": "/tmp/oec/pequalnp-pilot-75/gct231/c4-small-certificates/case0-v_nonzero-nosat-run.f4.in", "trace": "/tmp/oec/pequalnp-pilot-75/gct231/c4-small-certificates/case0-v_nonzero-nosat-run.trace", "variables": ["x0", "x1"], "record_counts": {"G": 4, "I": 4, "O": 26, "M": 390, "A": 488, "S": 145}, "verified_output_count": 26, "proved_nonzero_constant": false, "constant_step": null}
+needed_steps 0 all_steps 26

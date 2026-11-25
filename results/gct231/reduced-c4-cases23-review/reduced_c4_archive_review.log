@@ -1,0 +1,17 @@
+Start UTC 2026-11-25T11:30:04.254230+00:00
+Exact46-file manifest coverage, all hashes, regularUTF8/nonbinary: PASS
+CASE 2 exact rational root of all6 original equations: PASS
+CASE 2 qq all6 input rows independently match source primitive polynomials
+CASE 2 p1009 all6 input rows independently match source primitive polynomials
+CASE 2 completed nonunit linearFF basis/root and QQ120s UNKNOWN interpretation: PASS
+CASE 2 square-condition obstruction at lift sign -1 -1
+CASE 2 square-condition obstruction at lift sign 1 -1
+CASE 3 exact rational root of all6 original equations: PASS
+CASE 3 qq all6 input rows independently match source primitive polynomials
+CASE 3 p1009 all6 input rows independently match source primitive polynomials
+CASE 3 completed nonunit linearFF basis/root and QQ120s UNKNOWN interpretation: PASS
+CASE 3 square-condition obstruction at lift sign -1 -1
+CASE 3 square-condition obstruction at lift sign 1 -1
+No solver rerun; rational roots do not classify all complex solutions
+Finish UTC 2026-11-25T11:30:05.444359+00:00
+PASS

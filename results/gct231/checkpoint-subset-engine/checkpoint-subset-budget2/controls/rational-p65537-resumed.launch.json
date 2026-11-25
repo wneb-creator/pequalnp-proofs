@@ -1,0 +1,21 @@
+{
+  "prepared_utc": "2026-11-25T11:28:57.880594+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint-subset-budget2/neogb_cli_checkpoint",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint-subset-budget2/controls/rational-p65537-stop1.checkpoint.s000002.in",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint-subset-budget2/controls/rational-p65537-resumed.basis.json",
+    "32",
+    "1",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint-subset-budget2/controls/rational-p65537-resumed.checkpoint",
+    "0.0",
+    "0",
+    "2"
+  ],
+  "input_sha256": "16a2265085cabe1f8ae6f6c263617d4458c561dd7bdba890c9e6d38c50d1cfa9",
+  "base_input": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint-subset-budget2/controls/rational-p65537.in",
+  "base_input_sha256": "789aea248f90b2731379c68b92c2b467ae8a73290f7fd36a3b9ec83360130cdf",
+  "base_generators": 2,
+  "binary_sha256": "0f607aae134cc40d7795052867634fd9f0656f40a04230c72c5f79cac1bada76",
+  "library_sha256": "9a474eccf46b7995fb9efd466b3b1eb52197d5032a21dd5f69006b2dad995e9d",
+  "scope": "Finite-field research computation; checkpoints are partial polynomial consequences."
+}

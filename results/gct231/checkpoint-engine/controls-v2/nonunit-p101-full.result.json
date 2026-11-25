@@ -1,0 +1,51 @@
+{
+  "prepared_utc": "2026-11-25T11:16:14.099069+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint/neogb_cli_checkpoint",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint/controls-v2/nonunit-p101.in",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint/controls-v2/nonunit-p101-full.basis.json",
+    "32",
+    "1",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint/controls-v2/nonunit-p101-full.checkpoint",
+    "0.0",
+    "0",
+    "2"
+  ],
+  "input_sha256": "fe22237ee760e0cc35a0c5b8a2b1bc3739edaf1edfd1dd872ac4676795233c13",
+  "base_input": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint/controls-v2/nonunit-p101.in",
+  "base_input_sha256": "fe22237ee760e0cc35a0c5b8a2b1bc3739edaf1edfd1dd872ac4676795233c13",
+  "base_generators": 2,
+  "binary_sha256": "6f9fe3f31a370074a9876a5e221706994ec1afe7e4c72027ec4a85effeadb4c5",
+  "library_sha256": "75d9940c556faff2a160ac14b0732b41422b8cc5290acbad450926f1ab8a8525",
+  "scope": "Finite-field research computation; checkpoints are partial polynomial consequences.",
+  "status": "COMPLETED",
+  "returncode": 0,
+  "seconds": 0.008861962000082713,
+  "wall_limit_seconds": 20,
+  "memory_mib": 1024,
+  "output_mib": 64,
+  "threads": 1,
+  "pairs": 32,
+  "checkpoint_seconds": 0.0,
+  "stop_after_round": 0,
+  "child_maxrss_kib": 8152,
+  "unit_basis": false,
+  "basis_size": 2,
+  "output_sha256": "b876a162aa40639f8da5e8ba27148aaa2611d6d59a8f98acb30b28f63f03d815",
+  "checkpoint": {
+    "path": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint/controls-v2/nonunit-p101-full.checkpoint.s000002.in",
+    "sha256": "40910b82cb95b3ee43b02aed304c4cd7e28b2a40a3d8fa761263858fce2f41c1",
+    "bytes": 90,
+    "metadata": {
+      "sequence": 2,
+      "round": 0,
+      "characteristic": 101,
+      "nvars": 2,
+      "original_generators": 2,
+      "original_terms": 4,
+      "appended_basis_rows": 2,
+      "appended_basis_terms": 4,
+      "scope": "Original generators plus current active polynomial consequences; not a Groebner verdict."
+    }
+  }
+}

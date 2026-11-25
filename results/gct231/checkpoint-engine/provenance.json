@@ -1,0 +1,24 @@
+{
+  "recorded_utc": "2026-11-25T11:19:40.894078+00:00",
+  "upstream": "msolve v0.11.0 cc044551f8e202d00691990fd3fd0b1226a88ea2 plus previously reviewed native QQ bookkeeping and serial conversion fixes",
+  "core_compile": "gcc -std=gnu11 -O3 -march=native -fopenmp -DHAVE_AVX2 -DHAVE_AVX512_F -fPIC -shared -Imsolve/src/neogb checkpoint/engine/gb.c -o checkpoint/libneogb_checkpoint.so -lgmp -lm",
+  "wrapper_compile": "gcc -std=gnu11 -O3 -march=native -fopenmp -Imsolve/src/neogb checkpoint/neogb_cli_checkpoint.c -Lcheckpoint -Wl,-rpath,/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/checkpoint -lneogb_checkpoint -lgmp -lm -o checkpoint/neogb_cli_checkpoint",
+  "controls": "Nine combinations: unit/nonunit/rational x primes101/1009/65537; exact SymPy basis and snapshot consequence checks; interruption/resume; incorrect-base rejection.",
+  "scope": "Finite-field partial restart inputs only. Retained base generators plus active polynomial consequences; no claim that a checkpoint is a Groebner basis.",
+  "files": {
+    "checkpoint_basis.c": "bdf8114247d8aa090c7261f8aeba92e9df71485dff84b678cac769ef640a1678",
+    "make_checkpoint_engine.py": "98481707c2ba5e8f1245cb077e88a9aff764c3a85ba56c1f872983bcc7ff2c25",
+    "run_neogb_checkpoint.py": "8437b79e5f46f2bd5cac3a7b45a9b4e3763a82dbaaa2b917abd2366358c3e867",
+    "checkpoint_controls.py": "7afda505621ff9af76a7928d9e3871847eba58cd13165f9311527e395bde2d7d",
+    "checkpoint/engine/gb.c": "3dd079299970001b503c195131da14c8391083553bacea82966e4288287515d8",
+    "checkpoint/engine/f4.c": "3e8712d70ed93a33d851ec09ad47e83379893a29e5f28f2f1bf9aa18d031129a",
+    "checkpoint/engine/la_qq.c": "f1b5a21fdd480d461adebae90b3cffacb588ec3737bccccc6315ea8ce6519dd5",
+    "checkpoint/engine/convert.c": "dacbe1c3f7a851e2b48ed6155b0f53013a306e3fbfaccdec129407094db84758",
+    "checkpoint/engine/checkpoint_basis.c": "bdf8114247d8aa090c7261f8aeba92e9df71485dff84b678cac769ef640a1678",
+    "checkpoint/neogb_cli_checkpoint.c": "7a31fafed505c2aa716cce5d8df3789acd1c8d3530dafccb88a64228316af60a",
+    "checkpoint/libneogb_checkpoint.so": "75d9940c556faff2a160ac14b0732b41422b8cc5290acbad450926f1ab8a8525",
+    "checkpoint/neogb_cli_checkpoint": "6f9fe3f31a370074a9876a5e221706994ec1afe7e4c72027ec4a85effeadb4c5",
+    "checkpoint/controls-v2.log": "59d75c2c5ff36cf2be8cf6c7f3d7ba73aeba705b0169708c209958544905a9d0",
+    "checkpoint/controls-v2/summary.json": "e1dd5aaeace13d823a00f9cdf992273effd9dfc9a497926d5d17760e419ddb3a"
+  }
+}
