@@ -708,4 +708,303 @@ lemma opposite_inputs_in_bounds {n : ℕ} (pre : List Gate) (a b : ℕ) (u v : F
   · exact ⟨true_wire_in_bounds pre (rootsPoint v) a ha,
       true_wire_in_bounds pre (rootsPoint u) b hb⟩
 
+lemma live_merge_binary_inputs {n : ℕ} (pre : List Gate) (g : Gate) (u v : Fin n)
+    (prior : ∀ i ∈ g.inputs, rootsWire pre (Pair u v) i = true →
+      rootsWire pre (rootsPoint u) i = true ∨ rootsWire pre (rootsPoint v) i = true)
+    (ops : g.op = GateOp.and ∨ g.op = GateOp.or) (arity : g.inputs.length ≤ 2)
+    (merge : PairMerge pre g u v) :
+    g.op = GateOp.and ∧ ∃ a b, g.inputs = [a, b] ∧ OppositeInputs pre a b u v := by
+  rcases merge with ⟨hp, hu, hv⟩
+  rcases ops with ha | ho
+  · refine ⟨ha, ?_⟩
+    cases ei : g.inputs with
+    | nil => simp [rootsVal, ha, GateOp.eval, ei] at hu
+    | cons a tail =>
+      cases et : tail with
+      | nil =>
+        have hp' : rootsWire pre (Pair u v) a = true := by
+          simpa [rootsVal, ha, GateOp.eval, ei, et] using hp
+        rcases prior a (by simp [ei, et]) hp' with hau | hav
+        · simp [rootsVal, ha, GateOp.eval, ei, et, hau] at hu
+        · simp [rootsVal, ha, GateOp.eval, ei, et, hav] at hv
+      | cons b rest =>
+        have hr : rest = [] := by simpa [ei, et] using arity
+        subst rest
+        refine ⟨a, b, rfl, ?_⟩
+        have hp' : rootsWire pre (Pair u v) a = true ∧ rootsWire pre (Pair u v) b = true := by
+          simpa [rootsVal, ha, GateOp.eval, ei, et] using hp
+        have hA := prior a (by simp [ei, et]) hp'.1
+        have hB := prior b (by simp [ei, et]) hp'.2
+        simp only [rootsVal, ha, GateOp.eval, ei, et, List.map_cons, List.map_nil,
+          List.all_cons, List.all_nil, id_eq, Bool.and_true] at hu hv
+        unfold OppositeInputs
+        cases au : rootsWire pre (rootsPoint u) a <;>
+          cases av : rootsWire pre (rootsPoint v) a <;>
+          cases bu : rootsWire pre (rootsPoint u) b <;>
+          cases bv : rootsWire pre (rootsPoint v) b <;> simp_all
+  · have someInput : ∃ i ∈ g.inputs, rootsWire pre (Pair u v) i = true := by
+      simpa [rootsVal, ho, GateOp.eval] using hp
+    obtain ⟨i, hi, hpi⟩ := someInput
+    rcases prior i hi hpi with hui | hvi
+    · have hgu : rootsVal pre g (rootsPoint u) = true := by
+        simpa [rootsVal, ho, GateOp.eval] using
+          (show ∃ k ∈ g.inputs, rootsWire pre (rootsPoint u) k = true from ⟨i, hi, hui⟩)
+      rw [hu] at hgu
+      contradiction
+    · have hgv : rootsVal pre g (rootsPoint v) = true := by
+        simpa [rootsVal, ho, GateOp.eval] using
+          (show ∃ k ∈ g.inputs, rootsWire pre (rootsPoint v) k = true from ⟨i, hi, hvi⟩)
+      rw [hv] at hgv
+      contradiction
+
+
+lemma live_gate_predecessor_or_merge {n : ℕ} (pre : List Gate) (g : Gate) (u v : Fin n)
+    (ops : g.op = GateOp.and ∨ g.op = GateOp.or) (arity : g.inputs.length ≤ 2)
+    (merge : PairMerge pre g u v) :
+    (∃ i ∈ g.inputs, rootsWire pre (Pair u v) i = true ∧
+      rootsWire pre (rootsPoint u) i = false ∧ rootsWire pre (rootsPoint v) i = false) ∨
+    (g.op = GateOp.and ∧ ∃ a b, g.inputs = [a, b] ∧ OppositeInputs pre a b u v) := by
+  classical
+  by_cases h : ∃ i ∈ g.inputs, rootsWire pre (Pair u v) i = true ∧
+      rootsWire pre (rootsPoint u) i = false ∧ rootsWire pre (rootsPoint v) i = false
+  · exact Or.inl h
+  · right
+    apply live_merge_binary_inputs pre g u v _ ops arity merge
+    intro i hi hp
+    cases hu : rootsWire pre (rootsPoint u) i <;>
+      cases hv : rootsWire pre (rootsPoint v) i <;> simp_all
+
+lemma live_append_wire {n : ℕ} (pre rest : List Gate) (x : Fin n → Bool) (k : ℕ)
+    (hk : k < n + pre.length) : rootsWire (pre ++ rest) x k = rootsWire pre x k := by
+  obtain ⟨t, ht⟩ := roots_prefix_tail (rootsTrace pre x) rest
+  have he : rootsTrace (pre ++ rest) x = rootsTrace pre x ++ t := by
+    simpa only [rootsTrace, List.foldl_append] using ht
+  simp only [rootsWire, he]
+  exact List.getD_append _ _ _ _ (by rwa [roots_trace_length])
+
+def LivePairWire {n : ℕ} (C : Circuit) (u v : Fin n) (k : ℕ) : Prop :=
+  rootsWire C.gates (Pair u v) k = true ∧
+    rootsWire C.gates (rootsPoint u) k = false ∧ rootsWire C.gates (rootsPoint v) k = false
+
+def ValidRead (n : ℕ) (C : Circuit) (a b : ℕ) : Prop :=
+  ∃ j g, b = n + j ∧ C.gates[j]? = some g ∧ a ∈ g.inputs ∧ a < b
+
+def LiveRead {n : ℕ} (C : Circuit) (u v : Fin n) (a b : ℕ) : Prop :=
+  ValidRead n C a b ∧ LivePairWire C u v a ∧ LivePairWire C u v b
+
+def LiveMergeWitness {n : ℕ} (C : Circuit) (u v : Fin n) (k : ℕ) : Prop :=
+  ∃ pre g rest, C.gates = pre ++ g :: rest ∧ PairMerge pre g u v ∧
+    g.op = GateOp.and ∧
+    (∃ a b, g.inputs = [a, b] ∧ OppositeInputs pre a b u v) ∧
+    Relation.ReflTransGen (LiveRead C u v) (n + pre.length) k
+
+lemma live_merge_backtrace {n : ℕ} (C : Circuit) (mono : Monotone2 C)
+    (u v : Fin n) (k : ℕ) (active : LivePairWire C u v k) : LiveMergeWitness C u v k := by
+  classical
+  induction k using Nat.strong_induction_on with
+  | ind k ih =>
+    by_cases input : k < n
+    · have keep (x : Fin n → Bool) : rootsWire C.gates x k = rootsWire [] x k := by
+        simpa using live_append_wire [] C.gates x k (by simpa using input)
+      obtain ⟨hp, hu, hv⟩ := active
+      rw [keep] at hp hu hv
+      have hp' : (⟨k, input⟩ : Fin n) = u ∨ (⟨k, input⟩ : Fin n) = v := by
+        simpa [rootsWire, rootsTrace, List.getD, input, Pair] using hp
+      rcases hp' with hku | hkv
+      · simp [rootsWire, rootsTrace, List.getD, input, rootsPoint, hku] at hu
+      · simp [rootsWire, rootsTrace, List.getD, input, rootsPoint, hkv] at hv
+    · have bounded := true_wire_in_bounds C.gates (Pair u v) k active.1
+      let j := k - n
+      have hj : j < C.gates.length := by dsimp [j]; omega
+      let g := C.gates[j]
+      let pre := C.gates.take j
+      let rest := C.gates.drop (j + 1)
+      have split : C.gates = pre ++ g :: rest := by
+        exact (List.take_append_drop j C.gates).symm.trans (by rw [List.drop_eq_getElem_cons hj])
+      have plen : pre.length = j := by simp [pre, Nat.min_eq_left (Nat.le_of_lt hj)]
+      have kgate : k = n + pre.length := by rw [plen]; dsimp [j]; omega
+      have value (x : Fin n → Bool) : rootsWire C.gates x k = rootsVal pre g x := by
+        rw [kgate, split, roots_gate_value]
+      have merge : PairMerge pre g u v := by
+        simpa only [LivePairWire, PairMerge, value] using active
+      have member : g ∈ C.gates := by simp [split]
+      have ops : g.op = GateOp.and ∨ g.op = GateOp.or := by simpa using (mono g member).1
+      rcases live_gate_predecessor_or_merge pre g u v ops (mono g member).2 merge with
+        ⟨i, hi, hpi, hui, hvi⟩ | ⟨op, a, b, inputs, opposite⟩
+      · have ilt : i < n + pre.length := true_wire_in_bounds pre (Pair u v) i hpi
+        have keep (x : Fin n → Bool) : rootsWire C.gates x i = rootsWire pre x i := by
+          rw [split]
+          exact live_append_wire pre (g :: rest) x i ilt
+        have alive : LivePairWire C u v i := by
+          simpa only [LivePairWire, keep] using And.intro hpi (And.intro hui hvi)
+        have read : LiveRead C u v i k := by
+          refine ⟨⟨pre.length, g, kgate, ?_, hi, ?_⟩, alive, active⟩
+          · simp [split]
+          · omega
+        obtain ⟨pre', g', rest', split', merge', op', inputs', path⟩ := ih i (by omega) alive
+        exact ⟨pre', g', rest', split', merge', op', inputs', path.tail read⟩
+      · refine ⟨pre, g, rest, split, merge, op, ⟨a, b, inputs, opposite⟩, ?_⟩
+        rw [kgate]
+
+lemma exists_live_pair_merge {n : ℕ} (C : Circuit) (mono : Monotone2 C)
+    (u v : Fin n)
+    (positive : C.eval (List.ofFn (Pair u v)) = true)
+    (singleU : C.eval (List.ofFn (rootsPoint u)) = false)
+    (singleV : C.eval (List.ofFn (rootsPoint v)) = false) :
+    LiveMergeWitness C u v C.output :=
+  live_merge_backtrace C mono u v C.output ⟨positive, singleU, singleV⟩
+
+lemma matching_cross_forces_side {k : ℕ} (hk : 2 ≤ k) (A B : Fin k → Bool)
+    (independent : ∀ i, ¬ (A i = true ∧ B i = true))
+    (cross : ∀ i j, i ≠ j → B i = true ∨ A j = true) :
+    (∀ i, A i = true) ∨ (∀ i, B i = true) := by
+  by_cases active : ∃ i, A i = true
+  · obtain ⟨i, hi⟩ := active
+    left
+    intro j
+    by_cases hij : i = j
+    · simpa only [← hij] using hi
+    · exact (cross i j hij).resolve_left (fun hbi => independent i ⟨hi, hbi⟩)
+  · right
+    intro i
+    obtain ⟨j, hij⟩ : ∃ j : Fin k, i ≠ j := by
+      by_cases hi : i.val = 0
+      · refine ⟨⟨1, by omega⟩, ?_⟩
+        intro hij
+        have hv := congrArg Fin.val hij
+        simp only at hv
+        omega
+      · refine ⟨⟨0, by omega⟩, ?_⟩
+        intro hij
+        exact hi (congrArg Fin.val hij)
+    exact (cross i j hij).resolve_right (fun haj => active ⟨j, haj⟩)
+
+lemma matching_context_independent {k n : ℕ} (hk : 2 ≤ k)
+    (G : SimpleGraph (Fin n)) (a b : Fin k → Fin n)
+    (aa : ∀ i j, ¬ G.Adj (a i) (a j))
+    (bb : ∀ i j, ¬ G.Adj (b i) (b j))
+    (ab : ∀ i j, G.Adj (a i) (b j) ↔ i = j)
+    (f h : (Fin n → Bool) → Bool) (hf : Increasing f) (hh : Increasing h)
+    (lower : ∀ y, (∃ i, y (a i) = true) → (∃ j, y (b j) = true) → f y = true)
+    (safe : ∀ y, f y = true → h y = true → rootsHit G y)
+    (x : Fin n → Bool)
+    (supported : ∀ v, x v = true → (∃ i, v = a i) ∨ ∃ j, v = b j)
+    (independent : ¬ rootsHit G x) (active : h x = true) :
+    (∀ i, x (a i) = true) ∨ (∀ i, x (b i) = true) := by
+  apply matching_cross_forces_side hk (fun i => x (a i)) (fun i => x (b i))
+  · intro i ⟨ha, hb⟩
+    exact independent ⟨a i, b i, (ab i i).mpr rfl, ha, hb⟩
+  · intro i j hij
+    have hnon : ¬ G.Adj (a i) (b j) := fun e => hij ((ab i j).mp e)
+    have hpair : f (Pair (a i) (b j)) = true :=
+      lower _ ⟨i, by simp [Pair]⟩ ⟨j, by simp [Pair]⟩
+    obtain ⟨w, hw, haw | hbw⟩ :=
+      independent_blocker_bound G f h hf hh safe (a i) (b j) hnon hpair x independent active
+    · rcases supported w hw with ⟨l, rfl⟩ | ⟨l, rfl⟩
+      · exact (aa i l haw).elim
+      · have hil : i = l := (ab i l).mp haw
+        exact Or.inl (by simpa only [hil] using hw)
+    · rcases supported w hw with ⟨l, rfl⟩ | ⟨l, rfl⟩
+      · have hlj : l = j := (ab l j).mp hbw.symm
+        exact Or.inr (by simpa only [hlj] using hw)
+      · exact (bb j l hbw).elim
+
+lemma matching_context_supported {k n : ℕ} (hk : 2 ≤ k)
+    (G : SimpleGraph (Fin n)) (a b : Fin k → Fin n)
+    (aa : ∀ i j, ¬ G.Adj (a i) (a j))
+    (bb : ∀ i j, ¬ G.Adj (b i) (b j))
+    (ab : ∀ i j, G.Adj (a i) (b j) ↔ i = j)
+    (f h : (Fin n → Bool) → Bool) (hf : Increasing f) (hh : Increasing h)
+    (lower : ∀ y, (∃ i, y (a i) = true) → (∃ j, y (b j) = true) → f y = true)
+    (safe : ∀ y, f y = true → h y = true → rootsHit G y)
+    (x : Fin n → Bool)
+    (supported : ∀ v, x v = true → (∃ i, v = a i) ∨ ∃ j, v = b j)
+    (active : h x = true) :
+    rootsHit G x ∨ (∀ i, x (a i) = true) ∨ (∀ i, x (b i) = true) := by
+  by_cases hit : rootsHit G x
+  · exact Or.inl hit
+  · exact Or.inr (matching_context_independent hk G a b aa bb ab f h hf hh lower safe
+      x supported hit active)
+
+def matchingSide {k n : ℕ} (a : Fin k → Fin n) : Fin n → Bool :=
+  fun v => decide (∃ i, v = a i)
+
+lemma matching_side_le {k n : ℕ} (a : Fin k → Fin n) (x : Fin n → Bool)
+    (all : ∀ i, x (a i) = true) : InputLE (matchingSide a) x := by
+  intro v hv
+  obtain ⟨i, rfl⟩ := of_decide_eq_true hv
+  exact all i
+
+lemma matching_independent_side_eq {k n : ℕ} (G : SimpleGraph (Fin n))
+    (a b : Fin k → Fin n) (edges : ∀ i, G.Adj (a i) (b i))
+    (x : Fin n → Bool)
+    (supported : ∀ v, x v = true → (∃ i, v = a i) ∨ ∃ j, v = b j)
+    (independent : ¬ rootsHit G x) (all : ∀ i, x (a i) = true) :
+    x = matchingSide a := by
+  funext v
+  apply Bool.eq_iff_iff.mpr
+  constructor
+  · intro hv
+    rcases supported v hv with ⟨i, rfl⟩ | ⟨j, rfl⟩
+    · exact decide_eq_true ⟨i, rfl⟩
+    · exact (independent ⟨a j, b j, edges j, all j, hv⟩).elim
+  · exact matching_side_le a x all v
+
+lemma matching_hit_iff {k n : ℕ} (G : SimpleGraph (Fin n)) (a b : Fin k → Fin n)
+    (aa : ∀ i j, ¬ G.Adj (a i) (a j))
+    (bb : ∀ i j, ¬ G.Adj (b i) (b j))
+    (ab : ∀ i j, G.Adj (a i) (b j) ↔ i = j)
+    (x : Fin n → Bool)
+    (supported : ∀ v, x v = true → (∃ i, v = a i) ∨ ∃ j, v = b j) :
+    rootsHit G x ↔ ∃ i, x (a i) = true ∧ x (b i) = true := by
+  constructor
+  · rintro ⟨u, v, huv, hu, hv⟩
+    rcases supported u hu with ⟨i, rfl⟩ | ⟨i, rfl⟩ <;>
+      rcases supported v hv with ⟨j, rfl⟩ | ⟨j, rfl⟩
+    · exact (aa i j huv).elim
+    · have hij := (ab i j).mp huv
+      exact ⟨i, hu, by simpa only [hij] using hv⟩
+    · have hji := (ab j i).mp huv.symm
+      exact ⟨i, by simpa only [hji] using hv, hu⟩
+    · exact (bb i j huv).elim
+  · rintro ⟨i, ha, hb⟩
+    exact ⟨a i, b i, (ab i i).mpr rfl, ha, hb⟩
+
+lemma matching_context_exact {k n : ℕ} (hk : 2 ≤ k)
+    (G : SimpleGraph (Fin n)) (a b : Fin k → Fin n)
+    (aa : ∀ i j, ¬ G.Adj (a i) (a j))
+    (bb : ∀ i j, ¬ G.Adj (b i) (b j))
+    (ab : ∀ i j, G.Adj (a i) (b j) ↔ i = j)
+    (f h : (Fin n → Bool) → Bool) (hf : Increasing f) (hh : Increasing h)
+    (lower : ∀ y, (∃ i, y (a i) = true) → (∃ j, y (b j) = true) → f y = true)
+    (safe : ∀ y, f y = true → h y = true → rootsHit G y)
+    (edges : ∀ i, h (Pair (a i) (b i)) = true)
+    (x : Fin n → Bool)
+    (supported : ∀ v, x v = true → (∃ i, v = a i) ∨ ∃ j, v = b j) :
+    h x = true ↔ rootsHit G x ∨
+      (h (matchingSide a) = true ∧ ∀ i, x (a i) = true) ∨
+      (h (matchingSide b) = true ∧ ∀ i, x (b i) = true) := by
+  constructor
+  · intro hx
+    by_cases hit : rootsHit G x
+    · exact Or.inl hit
+    · rcases matching_context_independent hk G a b aa bb ab f h hf hh lower safe
+          x supported hit hx with allA | allB
+      · have heq := matching_independent_side_eq G a b (fun i => (ab i i).mpr rfl)
+          x supported hit allA
+        exact Or.inr (Or.inl ⟨by simpa only [← heq] using hx, allA⟩)
+      · have heq := matching_independent_side_eq G b a (fun i => ((ab i i).mpr rfl).symm)
+          x (fun v hv => (supported v hv).symm) hit allB
+        exact Or.inr (Or.inr ⟨by simpa only [← heq] using hx, allB⟩)
+  · rintro (hit | ⟨ha, allA⟩ | ⟨hb, allB⟩)
+    · obtain ⟨i, hai, hbi⟩ := (matching_hit_iff G a b aa bb ab x supported).mp hit
+      apply hh (Pair (a i) (b i)) x _ (edges i)
+      intro v hv
+      simp only [Pair, decide_eq_true_eq] at hv
+      rcases hv with rfl | rfl
+      · exact hai
+      · exact hbi
+    · exact hh (matchingSide a) x (matching_side_le a x allA) ha
+    · exact hh (matchingSide b) x (matching_side_le b x allB) hb
+
 end PEqualNP.Outside.L_meta_1904
