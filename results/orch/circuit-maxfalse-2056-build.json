@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-121/toolchain/lean-4.36.0-linux/bin/lake",
+    "env",
+    "lean",
+    "../results/orch/lemmas/CircuitMaxFalse2056.lean"
+  ],
+  "workdir": "/workspace/pequalnp-proofs/lean",
+  "observed_completion_utc": "2026-11-25T17:27:39.605055+00:00",
+  "exit_code": 0,
+  "source_sha256": "347774df11a21029aad5586859c032546f24acbcfb71168c3b98b74d373ba6f6",
+  "source_lines": 662,
+  "scope": "For an ordinary Monotone2 Circuit having a false input, the number of maximal false input sets is at most two to the actual AND-gate count. Generic partial lemma only; no plane census, ten-AND specialization, 63-gate witness, refutation, or local checker result.",
+  "stdout_sha256": "33ef1935ccc43ac4554edfeb28966161be6619c02ce3381d0fe80b237fabe4a7",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

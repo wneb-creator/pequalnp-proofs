@@ -1,0 +1,10 @@
+{
+  "observed_at_utc": "2026-11-25T17:27:18.734196+00:00",
+  "command": "lake env lean ../results/orch/lemmas/PlaneFalseCount2056.lean",
+  "workdir": "lean",
+  "exit_code": 0,
+  "source_sha256": "afdfe6dcda9549b52cd9bff0a97f0fba065636e2bb105643cae15f06abb2587c",
+  "lines": 221,
+  "scope": "Kernel-certified513 distinct26-bit masks. Each is false on the literal52-edge incidence function and becomes true after adding any absent bit. The finite-mask to Finset cardinal bridge is separate. Not a63-gate witness or refutation.",
+  "checker": "Not submitted as a proof of L-meta-2056."
+}

@@ -1,0 +1,10 @@
+{
+  "observed_at_utc": "2026-11-25T17:27:45.643877+00:00",
+  "command": "lake env lean ../results/orch/lemmas/MaskFalseRows2056.lean",
+  "workdir": "lean",
+  "exit_code": 0,
+  "source_sha256": "17d8623136cf4d3c021731a0a6d19c094a4e737118d436da106e0b7856c540a8",
+  "lines": 93,
+  "scope": "Distinct bounded bit masks satisfying the finite maximal-false test inject into maximal-false Finset inputs of the corresponding edge function. Generic library bridge; not the posted target.",
+  "checker": "Not submitted as a proof of L-meta-2056."
+}
