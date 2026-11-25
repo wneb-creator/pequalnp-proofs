@@ -1,0 +1,20 @@
+{
+  "verdict": "PASS exact comment-only correction; builds pending",
+  "reviewer": "constructive_search",
+  "utc": "2026-11-25T14:15:25.483198+00:00",
+  "files": [
+    {
+      "source": "algebraic-p9-mixed-pruned-clean.lean",
+      "sha256": "6daa6d81793b1592215d6248a339c05be6acfacabedad02a253746d790ea7fc1",
+      "removed_documentation_comments": 9,
+      "bytes": 423599
+    },
+    {
+      "source": "algebraic-p9-mixed-pruned-clean-cache.lean",
+      "sha256": "5bd3bc89791b227585e87cf676b02181bd068e15bf6c447965ef5e556de7c1f8",
+      "removed_documentation_comments": 9,
+      "bytes": 377269
+    }
+  ],
+  "scope": "All nine removed spans per file are complete documentation comments at the exact recorded original lines. Removing precisely those spans reproduces corrected files byte for byte. No declaration, proof, statement, namespace, option or other context command changes. Earlier complete declaration/dependency review carries forward; corrected cached and standalone compilation remain required."
+}

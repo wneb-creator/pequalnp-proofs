@@ -1,0 +1,18 @@
+{
+  "verdict": "PASS corrected pruned companion cached build",
+  "reviewer": "constructive_search",
+  "utc": "2026-11-25T14:26:29.061978+00:00",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/algebraic-p9-mixed-pruned-clean-cache.lean",
+  "sha256": "5bd3bc89791b227585e87cf676b02181bd068e15bf6c447965ef5e556de7c1f8",
+  "receipt": "algebraic-p9-mixed-pruned-clean-cache-build.json",
+  "exit_code": 0,
+  "warnings": 8,
+  "stdout_sha256": "2e8dde37dd424ddb2a161f10c50654f8cb5e37eca999b0972cf278b063fe2b42",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "source_reviews": [
+    "constructive-review-m9-pruning.json",
+    "constructive-review-m9-pruning-clean.json"
+  ],
+  "scope": "The dependency-pruned clean companion compiles with cached finite certificate dependencies; prior source/declaration/context and exact nine-comment-only reviews apply. Permitted-import fullstandalone6daa6d81 remains pending. Entire canonical mixedp9 ordinary impossibility only, not full assignedgap.",
+  "receipt_sha256": "4446c7a1fb8c872cfd58794f3a7b9c332efb64070bf9d9be8a0377838d41ec81"
+}

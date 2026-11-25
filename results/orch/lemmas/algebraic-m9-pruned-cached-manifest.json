@@ -1,0 +1,91 @@
+{
+  "created_utc": "2026-11-25T14:27:15.204288+00:00",
+  "scope": "Frozen dependency-pruned full canonical mixed-p9 proof candidate and successful finite-import companion. The Defs-only clean standalone is reviewed but not yet compiled. Preclean sources retained only to reproduce exact declaration/comment pruning; no success claimed for them.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/algebraic-p9-mixed-pruned-clean.lean",
+      "sha256": "6daa6d81793b1592215d6248a339c05be6acfacabedad02a253746d790ea7fc1",
+      "bytes": 423599
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p9-mixed-pruned-clean-cache.lean",
+      "sha256": "5bd3bc89791b227585e87cf676b02181bd068e15bf6c447965ef5e556de7c1f8",
+      "bytes": 377269
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p9-mixed-pruned-clean-cache-build.json",
+      "sha256": "4446c7a1fb8c872cfd58794f3a7b9c332efb64070bf9d9be8a0377838d41ec81",
+      "bytes": 800
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p9-mixed-pruned-clean-cache-build.stdout",
+      "sha256": "2e8dde37dd424ddb2a161f10c50654f8cb5e37eca999b0972cf278b063fe2b42",
+      "bytes": 2419
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p9-mixed-pruned-clean-cache-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p9-mixed-pruned.lean",
+      "sha256": "28af39cc585693e886298ff18e064c9f777625ccead1fc6e460f501441cc312f",
+      "bytes": 425001
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p9-mixed-pruned-cache.lean",
+      "sha256": "1563bc4f690b853bb698545d8c46069f0518068d7e4841fe820556caca4ccc02",
+      "bytes": 378671
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p9-mixed-pruning.json",
+      "sha256": "2f6b8d270f210af3627d9d2b5d1a50447594459389a7a34b7a82493ce4ffd5ea",
+      "bytes": 26302
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-pruning-comment-cleanup.json",
+      "sha256": "d4b803d39b1f1c5ffbd0d1df372e29ae3e8d734f0857fcdd518f93f3b409d79c",
+      "bytes": 5098
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-dependency-audit.lean",
+      "sha256": "0a97b8b0bc97eba228e0efde35ec3e75117c50bcca91b7eb73070a93c0170c0a",
+      "bytes": 683
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-dependency-audit.stdout",
+      "sha256": "8a99884da28e6e0536a752566d46c6df265c205e255cbd2f0932465d11739664",
+      "bytes": 85870
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-dependency-audit.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-dependency-audit-build.json",
+      "sha256": "a5b82208bd414148f394b8943267191fb4ce13c0e57a86de8a90fe6aa4709d55",
+      "bytes": 322
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-m9-prune.py",
+      "sha256": "49df587e8af5edb90ed3fa668fe6b02cb1754366e5fa6c06a91b742ce2e183d5",
+      "bytes": 5117
+    },
+    {
+      "path": "results/orch/lemmas/constructive-review-m9-pruning.json",
+      "sha256": "17a6cea5d75983dba8418ee71c86b705763aba224e2983bb01a2d6c78314ede8",
+      "bytes": 1851
+    },
+    {
+      "path": "results/orch/lemmas/constructive-review-m9-pruning-clean.json",
+      "sha256": "1349db4d4c446aad1fba097749eed8c74c0fc9fcf3a808cfa11b10228251727a",
+      "bytes": 1015
+    },
+    {
+      "path": "results/orch/lemmas/constructive-review-m9-pruning-clean-cache.json",
+      "sha256": "3adbfcab8310bfa0cb2cd40011f1181872862028bd8db394bbb70ba28f8a39d3",
+      "bytes": 1126
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "exit_code": 1,
+  "elapsed_seconds": 21.114251136779785,
+  "started_utc": "2026-11-25T14:27:57.033079+00:00",
+  "completed_utc": "2026-11-25T14:28:18.147227+00:00",
+  "source": "/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveOverride.lean",
+  "sha256": "6b0f642433041f3b7877c6b496a2c31a77162c517b7b93b7cfe74dcf3dfbd327",
+  "lines": 537
+}

@@ -1,0 +1,98 @@
+{
+  "created_utc": "2026-11-25T14:14:49.582680+00:00",
+  "scope": "Remove nine orphan documentation comments before section/end, without changing declarations or context commands. Corrected sources require checking.",
+  "files": [
+    {
+      "original": "algebraic-p9-mixed-pruned.lean",
+      "original_sha256": "28af39cc585693e886298ff18e064c9f777625ccead1fc6e460f501441cc312f",
+      "corrected": "algebraic-p9-mixed-pruned-clean.lean",
+      "corrected_sha256": "6daa6d81793b1592215d6248a339c05be6acfacabedad02a253746d790ea7fc1",
+      "corrected_bytes": 423599,
+      "corrected_lines": 8977,
+      "removed_comments": [
+        {
+          "line": 1707,
+          "text": "/-- Antichain property in operand form. -/\n"
+        },
+        {
+          "line": 1726,
+          "text": "/-- The private-position lemma: if the code of `x` has at most two positions and contains\nthe position opposite the pure operand of an ineligible `i`, then it is that position\ntogether with one position `Z` consuming no other label, at a gate assigned to no\nineligible label. -/\n"
+        },
+        {
+          "line": 1759,
+          "text": "/-- Descent along single-reader carriers: from a wire `c` carrying all of `X`, when the\ncarriers of the labels of `X` have no merge and no branching from `c` on, an arm leads to\nthe source of a position consuming every label of `X`. -/\n"
+        },
+        {
+          "line": 3079,
+          "text": "/-- Flow for an arbitrary wire set below the output: exits plus merges equal roots plus\nsurplus, a root being an input or a gate without an operand in the set. -/\n"
+        },
+        {
+          "line": 4082,
+          "text": "/-- Gates of `D` that are live on the cofactor and have two non-constant operands. -/\n"
+        },
+        {
+          "line": 4086,
+          "text": "/-- Fix the side opposite to `i` to true and leave the side of `i` free. -/\n"
+        },
+        {
+          "line": 4366,
+          "text": "/-- The mixed case `p = 9`: four cap points and their line. -/\n"
+        },
+        {
+          "line": 4435,
+          "text": "/-- Triangle count with occurring masks: `J` assigned exits, one private exit per label of\n`T`, and one merge per occurring mask of `F`. -/\n"
+        },
+        {
+          "line": 4443,
+          "text": "/-- Equality case of the triangle count. When the budget is exhausted by `J` assigned exits,\nthree private exits and the pair masks `F`: no wire carries all of `T`, the labels of `T`\nhave no carrier merge, each has at most one consumption outside the assigned positions of\n`J`, and every residual unit meets `T`. -/\n"
+        }
+      ]
+    },
+    {
+      "original": "algebraic-p9-mixed-pruned-cache.lean",
+      "original_sha256": "1563bc4f690b853bb698545d8c46069f0518068d7e4841fe820556caca4ccc02",
+      "corrected": "algebraic-p9-mixed-pruned-clean-cache.lean",
+      "corrected_sha256": "5bd3bc89791b227585e87cf676b02181bd068e15bf6c447965ef5e556de7c1f8",
+      "corrected_bytes": 377269,
+      "corrected_lines": 7727,
+      "removed_comments": [
+        {
+          "line": 1708,
+          "text": "/-- Antichain property in operand form. -/\n"
+        },
+        {
+          "line": 1727,
+          "text": "/-- The private-position lemma: if the code of `x` has at most two positions and contains\nthe position opposite the pure operand of an ineligible `i`, then it is that position\ntogether with one position `Z` consuming no other label, at a gate assigned to no\nineligible label. -/\n"
+        },
+        {
+          "line": 1760,
+          "text": "/-- Descent along single-reader carriers: from a wire `c` carrying all of `X`, when the\ncarriers of the labels of `X` have no merge and no branching from `c` on, an arm leads to\nthe source of a position consuming every label of `X`. -/\n"
+        },
+        {
+          "line": 3080,
+          "text": "/-- Flow for an arbitrary wire set below the output: exits plus merges equal roots plus\nsurplus, a root being an input or a gate without an operand in the set. -/\n"
+        },
+        {
+          "line": 4083,
+          "text": "/-- Gates of `D` that are live on the cofactor and have two non-constant operands. -/\n"
+        },
+        {
+          "line": 4087,
+          "text": "/-- Fix the side opposite to `i` to true and leave the side of `i` free. -/\n"
+        },
+        {
+          "line": 4367,
+          "text": "/-- The mixed case `p = 9`: four cap points and their line. -/\n"
+        },
+        {
+          "line": 4436,
+          "text": "/-- Triangle count with occurring masks: `J` assigned exits, one private exit per label of\n`T`, and one merge per occurring mask of `F`. -/\n"
+        },
+        {
+          "line": 4444,
+          "text": "/-- Equality case of the triangle count. When the budget is exhausted by `J` assigned exits,\nthree private exits and the pair masks `F`: no wire carries all of `T`, the labels of `T`\nhave no carrier merge, each has at most one consumption outside the assigned positions of\n`J`, and every residual unit meets `T`. -/\n"
+        }
+      ]
+    }
+  ]
+}

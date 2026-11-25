@@ -1,0 +1,36 @@
+{
+  "created_utc": "2026-11-25T14:28:36.399579+00:00",
+  "result": "PASS permitted-import standalone and independent exact composition review",
+  "scope": "Local C6 plus3private leaves,9inputs,\u226411gates,all3pointlabels eligible impliesFalse. No globalFano deletion bridge or assigned-gap result claimed.",
+  "prior_cached_manifest": "results/orch/lemmas/constructive-c6leaf-cache-manifest.json",
+  "prior_cached_manifest_sha256": "24d2e07dc1d489bce3af8ce0a792b1f6665bd9e40fb73df8716d5c467a6214f2",
+  "count": 5,
+  "bytes": 133612,
+  "files": [
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf.lean",
+      "sha256": "0a6a9fa9db878e59dbb14b77fff39fd84d9c98a6a1e82b186b260f2a9bf634ab",
+      "bytes": 132121
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-build.json",
+      "sha256": "09a6f4a2deb3fc83754b45bac92793347b74cc1530fe0ba0e9a0e0745f78737f",
+      "bytes": 327
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-build.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/constructive-c6leaf-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/formalization-review-c6leaf-standalone.json",
+      "sha256": "6cc849c40530e0775546e406b083f945a351063852f7d122d4f6ff1d58e9837b",
+      "bytes": 1164
+    }
+  ]
+}

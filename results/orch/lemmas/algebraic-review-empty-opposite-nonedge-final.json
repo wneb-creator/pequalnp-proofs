@@ -1,0 +1,25 @@
+{
+  "reviewed_utc": "2026-11-25T14:32:02.375116+00:00",
+  "reviewer": "algebraic_route",
+  "verdict": "PASS corrected source and matching cached build",
+  "source": "results/orch/lemmas/structural-empty-opposite-nonedge.lean",
+  "source_sha256": "8837c674848a41b436a15051becb60c941513dc0b3939b90e08188b7f603bb44",
+  "receipt": "results/orch/lemmas/structural-empty-opposite-nonedge-build.json",
+  "receipt_sha256": "d0a7a8cf2f11ae2559c7ac23a4bbd196cbd0cfbbe1359c3607e589ec26382cce",
+  "tails": [
+    {
+      "path": "structural-empty-opposite-nonedge-tail.lean",
+      "sha256": "a1ee7d375ba1614ddc761e31c4069bf4772606815be20f6a278379ba677fd1bb",
+      "prior_review": "algebraic-review-empty-opposite-nonedge.json",
+      "only_change": "Explicit n:=14 at sem_step_src to resolve inference."
+    },
+    {
+      "path": "structural-fullstar-enters-empty-tail.lean",
+      "sha256": "ca24f63b868d9398c536d1f9326eaadd599d802601d22339a8f7939668f25c30",
+      "prior_review": "algebraic-review-fullstar-enters-empty.json",
+      "only_change": "Named Bool projection equation while case splitting, retaining the same exhaustive argument."
+    }
+  ],
+  "verification": "Reverse these exact single-line elaboration repairs to recover the previously independently reviewed tail hashes byte-for-byte. Both exact corrected tails occur in the passed combined source. Complete stdout/stderr are empty.",
+  "scope": "Conditional nonedge rejection and empty-side entry structural identities only. No rewrite, maximal-negative result, or complete p14/posted-gap proof. Standalone not yet claimed."
+}

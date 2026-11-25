@@ -1,0 +1,18 @@
+{
+  "reviewer": "lean_setup",
+  "utc": "2026-11-25T14:28:20.801398+00:00",
+  "verdict": "PASS exact standalone composition/build addendum; frozen cached review unchanged",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/constructive-c6leaf.lean",
+  "sha256": "0a6a9fa9db878e59dbb14b77fff39fd84d9c98a6a1e82b186b260f2a9bf634ab",
+  "line_count": 2855,
+  "receipt_sha256": "09a6f4a2deb3fc83754b45bac92793347b74cc1530fe0ba0e9a0e0745f78737f",
+  "exit_code": 0,
+  "complete_logs": "stdout and stderr empty",
+  "composition": "Exact accepted first2534lines, explicit close SemCodes/namespace, and exact reviewed tail. Only uniform namespace rename to L_meta_1479.C6Leaf and separator whitespace.",
+  "math_review": {
+    "path": "results/orch/lemmas/formalization-review-c6leaf.json",
+    "sha256": "14b59f111b5009cd6eb64298c2703004bc219cfeb01d627363c24ab82c02647e"
+  },
+  "scope": "C6 plus three private leaves, ordinary size\u226411 impossible when all three point inputs are eligible. Local label separation only; no cofactor transfer, derivative preservation or full1479 conclusion.",
+  "format": "Single PEqualNP.Defs import; trust/format scans clean."
+}

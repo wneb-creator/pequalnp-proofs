@@ -1,0 +1,29 @@
+{
+  "reviewer": "lean_setup",
+  "utc": "2026-11-25T14:31:14.053995+00:00",
+  "verdict": "PASS source/mathematics and exact cached build binding; standalone pending",
+  "source": "results/orch/lemmas/constructive-override-cache.lean",
+  "sha256": "97aeac658ed230cc96c6dbae54ae899fe6982eaf2ffbd152bbfff468b9d874b9",
+  "lines": 538,
+  "receipt_sha256": "c51d505761f0d0482e18281535bae4467becc4b091382c8ab98a2da1c8787a31",
+  "exit_code": 0,
+  "complete_logs": "stdout/stderr empty",
+  "components": {
+    "results/orch/lemmas/constructive-override-evaluation-tail.lean": "a4152d35a22726409da335f29dc7dfc73208013889d4d7e3b64f2dd70757a1c0",
+    "results/orch/lemmas/constructive-override-concrete-tail.lean": "b7e2bd1b88721f2d53cb0c7869a16dd11714dce7344a15d722635e88694293d4",
+    "results/orch/lemmas/constructive-override-normalization-tail.lean": "cd5be1e8fc9c5b6c999d777217cd9aed82d691f141cebea6e847a276a820151e",
+    "results/orch/lemmas/constructive-override-official-tail.lean": "01de26b470aeaf32aeb7231821a797a48b4100842d081adf3842b028062f064a",
+    "results/orch/lemmas/constructive-override-surgery-tail.lean": "b0cb4ac18c437bc55b8a674e033742b845492d44b191c77803ac4c57dceb0385"
+  },
+  "composition": "Every one of five reviewed owned tails occurs exactly once, as do the previously reviewed surgery-count tail and four-lemma single-reader prefix.",
+  "findings": [
+    "GateOverride preserves all original input/outside values and all unedited recurrences. Any change is localized to the edited output along a path of changed wires. Before/unreachable/initial/chain-barrier agreement follows with explicit hypotheses.",
+    "The concrete overrideAlias replaces the edited row by OR(B,B), preserving row count/indices. The new bounded recurrence uses only backward operand bounds and does not wrongly assume distinct inputs for this temporary Dag.",
+    "Replacing an AND by its right operand increases ordinary truth values; if the original left is true, it preserves every wire. A false unreachable operand at a downstream AND barrier makes both evaluations agree there and beyond its single-reader chain.",
+    "A duplicate input row emits zero gates in the accepted normalization fold. The ordinary normalized Dag is strictly smaller, or the function is constant/an input projection; all three alternatives remain explicit.",
+    "Official Circuit conversion preserves the entire wire fold and output evaluation for arbitrary inputs. The normalized result computes the concrete alias function, not silently the original function.",
+    "The final surgery theorem proves equivalence to the ORIGINAL function only under its stated safety condition for EVERY false-output assignment. It then composes with normalization. No Fano-specific safety, derivative preservation or full-gap result is claimed."
+  ],
+  "scope": "Generic actual gate alias, ordinary normalization and conditional size-reducing surgery. All Fano preservation obligations remain explicit.",
+  "standalone": "pending"
+}

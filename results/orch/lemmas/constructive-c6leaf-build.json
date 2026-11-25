@@ -1,0 +1,9 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 121.53715467453003,
+  "started_utc": "2026-11-25T14:25:19.391680+00:00",
+  "completed_utc": "2026-11-25T14:27:20.928918+00:00",
+  "source": "results/orch/lemmas/constructive-c6leaf.lean",
+  "sha256": "0a6a9fa9db878e59dbb14b77fff39fd84d9c98a6a1e82b186b260f2a9bf634ab",
+  "lines": 2855
+}

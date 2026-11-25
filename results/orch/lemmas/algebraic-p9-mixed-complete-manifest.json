@@ -1,0 +1,36 @@
+{
+  "created_utc": "2026-11-25T14:30:21.252127+00:00",
+  "scope": "Unconditional full standalone canonical mixed-p9 ordinary impossibility, exact ineligible set0125+11, StrictLive/correct/totalSurplus\u226414. Both missing-cardinality cases closed. Explicitexit0 and independent source/composition/build reviews. Archival582084byte source exceeds512KiB; smaller reviewed candidate is checking separately. This is not the full posted L-meta-1479 theorem.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/algebraic-p9-mixed.lean",
+      "sha256": "c9a1cd77e7b7296a5537a1ec7e66f808e7502622b73a01da81186af7ca5e61be",
+      "bytes": 582084
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p9-mixed-build.json",
+      "sha256": "df67c45b3788194c73c634068b587a21a5d2178787679fa178b3d37832f600a2",
+      "bytes": 974
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p9-mixed-build.stdout",
+      "sha256": "134a91e392ef395e2396313b0b294ce6ea2888d329b9980c199be8ce28af24a7",
+      "bytes": 2967
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-p9-mixed-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/constructive-review-p9-mixed.json",
+      "sha256": "453cb48bb426ecb5afc5c07b39fa31903d8c46135c75e80e8648f729daa0dbc3",
+      "bytes": 3895
+    },
+    {
+      "path": "results/orch/lemmas/constructive-review-p9-mixed-standalone.json",
+      "sha256": "1d79b12bdc0be6ca37b27ce6376bd90c0f048a349f5859baa2333d00215b7fab",
+      "bytes": 1267
+    }
+  ]
+}

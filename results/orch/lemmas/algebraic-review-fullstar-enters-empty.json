@@ -1,0 +1,15 @@
+{
+  "reviewed_utc": "2026-11-25T14:24:27.494445+00:00",
+  "reviewer": "algebraic_route",
+  "verdict": "PASS source and mathematics; compilation pending",
+  "tail": "results/orch/lemmas/structural-fullstar-enters-empty-tail.lean",
+  "tail_sha256": "fcde70df1418d8872e5e2a0a72db2965cbef0b9d4c0680cb0585914c8ce5d55a",
+  "checks": [
+    "Boolean case analysis reduces a wrong-side entry to the x-carrying operand of e.",
+    "Strict single-reader separation makes the empty opposite operand unreachable from f output.",
+    "For any actual neighbor u of x, the consumer barrier forces e true on the positive x/u pair. The opposite operand is thus true there.",
+    "Off-route agreement equates that opposite value with its singleton-u value, contradicting its explicit empty singleton support.",
+    "No assumption about all W sizes, global empty AND outputs, maximal independent assignments, or a circuit rewrite is introduced. Only the exact two-consumer code and stated chain/fanout conditions are used."
+  ],
+  "scope": "52-line structural composition. Cached compilation pending; no standalone success claimed."
+}

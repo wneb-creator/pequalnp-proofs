@@ -1,0 +1,15 @@
+{
+  "source": "results/orch/lemmas/algebraic-p9-mixed-pruned-clean-cache.lean",
+  "sha256": "5bd3bc89791b227585e87cf676b02181bd068e15bf6c447965ef5e556de7c1f8",
+  "source_bytes": 377269,
+  "source_lines": 7727,
+  "exit_code": 0,
+  "session_id": 69466,
+  "observed_utc": "2026-11-25T14:26:10.100335+00:00",
+  "stdout": "results/orch/lemmas/algebraic-p9-mixed-pruned-clean-cache-build.stdout",
+  "stderr": "results/orch/lemmas/algebraic-p9-mixed-pruned-clean-cache-build.stderr",
+  "warning_count": 8,
+  "stderr_bytes": 0,
+  "scope": "Checked entire dependency-pruned canonical mixed-p9 proof with only the already checked finite M9/cap packages imported. Full standalone still pending.",
+  "warning_count_method": "Anchored Lean source-location diagnostic lines, excluding explanatory linter hints."
+}

@@ -1,0 +1,73 @@
+{
+  "created_utc": "2026-11-25T14:32:27.555744+00:00",
+  "scope": "Cached checked and independently reviewed nonedge rejection at an empty-opposite consumer and entry through its empty operand. All tight-budget/consumption/support hypotheses explicit. No maximal-negative carrier identity, circuit rewrite, target theorem or standalone success claimed. Complete first failed elaboration attempt retained.",
+  "file_count": 13,
+  "bytes": 86059,
+  "files": [
+    {
+      "path": "results/orch/lemmas/structural-empty-opposite-nonedge.lean",
+      "bytes": 35902,
+      "sha256": "8837c674848a41b436a15051becb60c941513dc0b3939b90e08188b7f603bb44"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-opposite-nonedge-tail.lean",
+      "bytes": 1671,
+      "sha256": "a1ee7d375ba1614ddc761e31c4069bf4772606815be20f6a278379ba677fd1bb"
+    },
+    {
+      "path": "results/orch/lemmas/structural-fullstar-enters-empty-tail.lean",
+      "bytes": 2353,
+      "sha256": "ca24f63b868d9398c536d1f9326eaadd599d802601d22339a8f7939668f25c30"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-opposite-nonedge-build.json",
+      "bytes": 358,
+      "sha256": "d0a7a8cf2f11ae2559c7ac23a4bbd196cbd0cfbbe1359c3607e589ec26382cce"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-opposite-nonedge-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-opposite-nonedge-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-empty-opposite-nonedge-final.json",
+      "bytes": 1586,
+      "sha256": "c32e4788f4c752dbdd54c057069e0f7c5a3017a605246f9142c933deb7e41f1c"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-empty-opposite-nonedge.json",
+      "bytes": 1386,
+      "sha256": "3ad7b3dbc17263fe9c92a3464b15d405bdcd10d72d71a9c17f5085c89e17930a"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-fullstar-enters-empty.json",
+      "bytes": 1115,
+      "sha256": "01dae5ff4f5908d0885f12ec8e74d2cc966dc1ddf1b9315e8aa768b1010b5184"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-opposite-nonedge-attempt1.lean",
+      "bytes": 35885,
+      "sha256": "da3d84b9e5bc99dd837cd469c2607bfddf1a767aa4239ab10aadf8bf068dbc31"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-opposite-nonedge-attempt1.json",
+      "bytes": 358,
+      "sha256": "2bd0e6a96b49227e3b87b8643a29abdb5ed1728dfa8c654a7cb02fa4411fb697"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-opposite-nonedge-attempt1.stdout",
+      "bytes": 5445,
+      "sha256": "030dca1cf0d7279ca51bfdd47aeac2bf7c928c002dac617d21478b687fc28d38"
+    },
+    {
+      "path": "results/orch/lemmas/structural-empty-opposite-nonedge-attempt1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

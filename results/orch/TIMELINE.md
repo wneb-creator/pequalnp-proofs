@@ -88,3 +88,5 @@
 - 2026-11-25T14:17:28.180078+00:00: 14:07:07 Fano first-filter standalone exit0;14:07:31 q2pruned preliminary exit1 only10orphancomments;14:10:17 corrected fullq2 launch;14:15:32 unordered consumer-chaincut cached exit0.
 
 - 2026-11-25T14:26:31.450653+00:00: 14:24:01.162 localminimalSAT UNKNOWN;14:24 final1200SATlaunch;14:24:55.727 unorderedconsumerchaincut standalone exit0. Checkpoint1425 preserves these exact statuses.
+
+- 2026-11-25T14:33:43.655113+00:00: 14:27:20 C6standaloneexit0;14:29:10 mixedp9fullstandaloneexit0;14:29:57 compactmixedp9fullrechecklaunch;14:30:29.948 sharedSATUNKNOWN;14:31 discoveryofexternalPR15206 submittingnamedpartial/intakerefusal.

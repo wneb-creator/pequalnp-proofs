@@ -7,7 +7,7 @@ Updated 2026-11-25 13:42 UTC. All sets use the accepted edgeList labeling; point
 | 7 | {0,1,2,3,4,5,6} | Standalone compiled | Unique-reader chains |
 | 8 | {0,1,2,3,4,5} | Standalone compiled | Saturated carrier count and linearity |
 | 9 | {0,1,2,3,4} | Standalone compiled ordinary impossibility | Finite residual masks, protected inputs, and sharp cofactor count |
-| 9 | {0,1,2,5,11} | Unconditional cached ordinary impossibility; full standalone pending | All one- and two-missing patterns excluded; no extra certificate premise |
+| 9 | {0,1,2,5,11} | Standalone compiled ordinary impossibility | All one- and two-missing patterns excluded; compact standalone recheck pending |
 | 10 | {0,1,2,3} | Open; three missing-mask subcases excluded standalone | Missing neighborhoods{4,5,6}+q impossible for q in{0,1,3}; q2 missing{2,4,5,6}/Bplus≤13 excluded in unconditional cached composition; full standalone assembly pending. Bplus14/Bzero0 remains; Bplus at least13; Bzero at most1 |
 | 10 | {0,1,2,5} | Standalone compiled ordinary impossibility | Seven-mask family obstruction and sharp support counting |
 | 10 | {0,1,2,11} | Open | Standalone Bplus at least13; Bzero at most1 by analytic cofactor bound |
@@ -45,3 +45,5 @@ Checkpoint1403 (2026-11-25T14:03:19.293067+00:00): full mixed-p9 case closed in 
 Checkpoint1416 (2026-11-25T14:17:28.180078+00:00): actual Fano nonedge first-filter is standalone checked. Generic unordered consumer-chain cut/edge-survival is cached checked; explicit hypotheses remain. Corrected q2 standalone is active after a parser-only failed preliminary run. No further canonical row or posted target is newly closed.
 
 Checkpoint1425 (2026-11-25T14:26:31.450653+00:00): unordered consumer-chain cut is now standalone checked; full-star chain identity and separate11-gate C6 obstruction are cached checked with explicit hypotheses. The global Fano restriction bridge and remaining canonical cases are still open. The second local witness search endedUNKNOWN; final strengthened search is active.
+
+Checkpoint1430 (2026-11-25T14:33:43.655113+00:00): full mixed-p9 ordinary impossibility standalone passed; compact variant active. SeparateC6 obstruction is standalone checked. No further whole Fano case or target conclusion follows from the conditional surgery/filter packages. External PR15206 contains the unfinished namedpartial and was refused by intake; correction/withdrawal is prepared.

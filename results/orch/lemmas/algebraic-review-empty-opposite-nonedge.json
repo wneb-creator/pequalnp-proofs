@@ -1,0 +1,21 @@
+{
+  "reviewed_utc": "2026-11-25T14:23:43.244373+00:00",
+  "reviewer": "algebraic_route",
+  "verdict": "PASS source and mathematics; compilation pending",
+  "tail": "results/orch/lemmas/structural-empty-opposite-nonedge-tail.lean",
+  "tail_sha256": "e962131dde7725d5042c9fc79816a75f901d6360302ebb0db6e704d7273a7f3d",
+  "checks": [
+    "The existing other-exit lemma supplies a distinct productive consumer and its complete two-position code/full-neighborhood opposite support.",
+    "A true nonedge signal at that productive AND has empty singleton support by the explicit all-AND-empty premise. The checked first-filter theorem supplies a later AND, a single-reader prefix, and a false filter output.",
+    "The checked true-cone bound and the actual final reader give fanout exactly one at the final prefix wire. All hypotheses of and_on_fullstar_chain_is_other therefore hold, identifying the first filter with the empty-opposite consumer.",
+    "The conclusion is only a conditional nonedge rejection property at that consumer; it asserts neither global gate correctness nor a circuit rewrite or complete p14 exclusion."
+  ],
+  "scope": "New35-line composition tail only. Cached check pending; no standalone success claimed.",
+  "trust_format": {
+    "forbidden_root_marker": false,
+    "strings": false,
+    "sorry": false,
+    "new_axioms": false,
+    "native_decide": false
+  }
+}

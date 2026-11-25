@@ -1,0 +1,18 @@
+{
+  "verdict": "PASS full permitted-import standalone",
+  "reviewer": "constructive_search",
+  "utc": "2026-11-25T14:30:00.649444+00:00",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/algebraic-p9-mixed.lean",
+  "sha256": "c9a1cd77e7b7296a5537a1ec7e66f808e7502622b73a01da81186af7ca5e61be",
+  "lines": 12107,
+  "bytes": 582084,
+  "receipt": "algebraic-p9-mixed-build.json",
+  "receipt_sha256": "df67c45b3788194c73c634068b587a21a5d2178787679fa178b3d37832f600a2",
+  "exit_code": 0,
+  "anchored_warning_count": 10,
+  "stdout_sha256": "134a91e392ef395e2396313b0b294ce6ea2888d329b9980c199be8ce28af24a7",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "prior_source_math_composition_review": "constructive-review-p9-mixed.json",
+  "prior_review_sha256": "453cb48bb426ecb5afc5c07b39fa31903d8c46135c75e80e8648f729daa0dbc3",
+  "scope": "Unconditional canonical mixedp9 ordinary impossibility: StrictLive14, CorrectFano,totalSurplus\u226414,ineligible0125+11 impliesFalse. Both missing-mask cases discharged. This is not the complete postedgap theorem. Archival source582084bytes exceeds512KiB; independently reviewed423599byte pruned counterpart has cached success but its permitted-import standalone remains pending."
+}

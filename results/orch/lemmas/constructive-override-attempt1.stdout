@@ -1,0 +1,40 @@
+/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveOverride.lean:345:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveOverride.lean:356:13: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveOverride.lean:356:13: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only at facts
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveOverride.lean:383:48: error(lean.unknownIdentifier): Unknown identifier `g`
+/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveOverride.lean:384:58: error(lean.unknownIdentifier): Unknown identifier `g`
+/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveOverride.lean:523:95: error: Application type mismatch: The argument
+  Eq.symm original
+has type
+  true = val D x output
+but is expected to have type
+  true = true
+in the application
+  Eq.trans (override_alias_increases hS x edit (val (overrideAlias D edit) x) trace andGate aliasEq output original)
+    (Eq.symm original)
+/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveOverride.lean:526:8: error: Type mismatch
+  Eq.symm (override_alias_left_true hS x edit (val (overrideAlias D edit) x) trace he andGate aliasEq leftTrue output)
+has type
+  val (overrideAlias D edit) x output = val D x output
+but is expected to have type
+  val (overrideAlias D edit) x output = false
+/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveOverride.lean:527:8: error: Type mismatch
+  Eq.symm
+    (override_and_barrier hS x edit (val (overrideAlias D edit) x) trace j hj different operation side unreachable zero
+      chain output after)
+has type
+  val (overrideAlias D edit) x output = val D x output
+but is expected to have type
+  val (overrideAlias D edit) x output = false

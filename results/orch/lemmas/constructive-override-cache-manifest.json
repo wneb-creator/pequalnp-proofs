@@ -1,0 +1,84 @@
+{
+  "created_utc": "2026-11-25T14:31:49.679145+00:00",
+  "scope": "Cached generic conditional ordinary gate-alias surgery and strict normalization. Safety for every negative assignment explicit; fullFano safety not discharged. No derivative preservation or assigned-gap proof.",
+  "result": "PASS cached Lean exit0 and independent source/math review",
+  "count": 15,
+  "bytes": 75929,
+  "files": [
+    {
+      "path": "results/orch/lemmas/constructive-override-evaluation-tail.lean",
+      "sha256": "a4152d35a22726409da335f29dc7dfc73208013889d4d7e3b64f2dd70757a1c0",
+      "bytes": 6557
+    },
+    {
+      "path": "results/orch/lemmas/constructive-override-concrete-tail.lean",
+      "sha256": "b7e2bd1b88721f2d53cb0c7869a16dd11714dce7344a15d722635e88694293d4",
+      "bytes": 2585
+    },
+    {
+      "path": "results/orch/lemmas/constructive-override-normalization-tail.lean",
+      "sha256": "cd5be1e8fc9c5b6c999d777217cd9aed82d691f141cebea6e847a276a820151e",
+      "bytes": 3277
+    },
+    {
+      "path": "results/orch/lemmas/constructive-override-official-tail.lean",
+      "sha256": "01de26b470aeaf32aeb7231821a797a48b4100842d081adf3842b028062f064a",
+      "bytes": 3150
+    },
+    {
+      "path": "results/orch/lemmas/constructive-override-surgery-tail.lean",
+      "sha256": "b0cb4ac18c437bc55b8a674e033742b845492d44b191c77803ac4c57dceb0385",
+      "bytes": 2053
+    },
+    {
+      "path": "results/orch/lemmas/constructive-override-cache.lean",
+      "sha256": "97aeac658ed230cc96c6dbae54ae899fe6982eaf2ffbd152bbfff468b9d874b9",
+      "bytes": 24903
+    },
+    {
+      "path": "results/orch/lemmas/constructive-override-cache-build.json",
+      "sha256": "c51d505761f0d0482e18281535bae4467becc4b091382c8ab98a2da1c8787a31",
+      "bytes": 569
+    },
+    {
+      "path": "results/orch/lemmas/constructive-override-cache-build.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/constructive-override-cache-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/constructive-override-attempt1.lean",
+      "sha256": "6b0f642433041f3b7877c6b496a2c31a77162c517b7b93b7cfe74dcf3dfbd327",
+      "bytes": 24878
+    },
+    {
+      "path": "results/orch/lemmas/constructive-override-attempt1.json",
+      "sha256": "c4142ca80a7965c95d6cfd171cc7c75ecbd730f6b4426ded0af73604bdde067a",
+      "bytes": 345
+    },
+    {
+      "path": "results/orch/lemmas/constructive-override-attempt1.stdout",
+      "sha256": "92ead8e0f5ef3129f6dbe2e515b62a2c50101c84eae675d61f451f2a65511006",
+      "bytes": 2098
+    },
+    {
+      "path": "results/orch/lemmas/constructive-override-attempt1.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/formalization-review-override-surgery.json",
+      "sha256": "21b266a98f3acce604d38cf6baf5c0af0b86dada3d6d4344094c560a6eae8b51",
+      "bytes": 2992
+    },
+    {
+      "path": "results/orch/lemmas/constructive-override-notes.md",
+      "sha256": "47fec2fe5239d7ab5f8811e9c62fa99b69f2c791f2ce9f3a3e87c1e7d75957c1",
+      "bytes": 2522
+    }
+  ]
+}

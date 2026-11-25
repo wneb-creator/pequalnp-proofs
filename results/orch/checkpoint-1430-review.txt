@@ -1,0 +1,18 @@
+PASS — independent preservation audit
+Reviewer: constructive_search
+UTC: 2026-11-25T14:34:37.377768+00:00
+Manifest: checkpoint-1430-files.json
+SHA256: c36df1e8e66b7ad71c55f6f8c42cb6cbf347e0a27263670320eea2614e000cda
+Exact files:71; exact bytes:2714521. Repo copy is byte-identical to frozen scratch manifest.
+
+Verified every named file hash/size, uniqueness, repository containment and ordinary-file status; all JSON parses, all compressed artifacts fully decompress. New nested manifest hashes are consistent. Sensitive credential/private-key markers absent; no credential values were inspected or printed.
+
+Full original mixed-p9 and local C6 source hashes match explicit exit0 standalone receipts and independently reviewed compositions. Mixed-p9 logs contain10 anchored style/deprecation warnings; C6 logs empty. The423599-byte pruned mixed-p9 companion has cached exit0 with8 warnings and empty stderr; its full standalone is still pending. The582084-byte original mixed-p9 file exceeds the PR limit and is correctly archival only.
+
+The override package and consumer/filter package bind explicit cached exit0 receipts and independent reviews. Their premises remain explicit; no Fano preservation or complete target conclusion is claimed. Failed historical attempts retain their full sources/logs/receipts and are not labeled successful. The dependency-audit Lean program is research tooling, not a proposed proof file.
+
+Shared-slot SAT receipt is UNKNOWN after1802.214 seconds; complete logs are preserved and its status is not treated as UNSAT, a refutation or a witness. Active final-search and long-build diagnostics are excluded from this freeze.
+
+Global metadata consistently distinguishes historical checkpoints, current standalone/cached/pending scopes, the unfinished named target and the external refused partial PR. The external correction/withdrawal is expressly prepared, not yet sent; this audit performs no GitHub write. Named1301-line partial remains exactly SHAe28847ec5358fd33ed13b84cabc628af63538adfb2e02e9101dac2a336632325, checker REJECTED(no-theorem); no accepted proof claim or target cleanup claim. Measurement records six agents and336.5 minutes.
+
+Preservation push is ready for the exact manifest union and this review. No staging, commit, push, desk request or external write performed by reviewer.

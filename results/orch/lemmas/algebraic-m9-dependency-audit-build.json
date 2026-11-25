@@ -1,0 +1,7 @@
+{
+  "source_sha256": "0a97b8b0bc97eba228e0efde35ec3e75117c50bcca91b7eb73070a93c0170c0a",
+  "exit_code": 0,
+  "tool_session": 36712,
+  "observed_utc": "2026-11-25T14:06:24.067825+00:00",
+  "scope": "Read-only dependency census over the cached full canonical mixed-p9 exclusion; developer tooling, not submission source."
+}

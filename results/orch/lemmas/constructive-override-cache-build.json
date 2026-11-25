@@ -1,0 +1,11 @@
+{
+  "exit_code": 0,
+  "elapsed_seconds": 15.34537124633789,
+  "started_utc": "2026-11-25T14:29:47.091917+00:00",
+  "completed_utc": "2026-11-25T14:30:02.437374+00:00",
+  "source": "/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveOverride.lean",
+  "sha256": "97aeac658ed230cc96c6dbae54ae899fe6982eaf2ffbd152bbfff468b9d874b9",
+  "lines": 538,
+  "archived_source": "results/orch/lemmas/constructive-override-cache.lean",
+  "scope": "Cached generic actual gate-alias semantics, duplicate normalization and conditional one-gate surgery. FullFano safety not discharged."
+}

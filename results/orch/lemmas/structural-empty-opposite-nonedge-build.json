@@ -1,0 +1,9 @@
+{
+  "source": "results/orch/lemmas/structural-empty-opposite-nonedge.lean",
+  "sha256": "8837c674848a41b436a15051becb60c941513dc0b3939b90e08188b7f603bb44",
+  "lines": 782,
+  "exit_code": 0,
+  "started_utc": "2026-11-25T14:30:23.469019+00:00",
+  "completed_utc": "2026-11-25T14:31:03.213627+00:00",
+  "command_scope": "Cached accepted foundation, lean -j1"
+}

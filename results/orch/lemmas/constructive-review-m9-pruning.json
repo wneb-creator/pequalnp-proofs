@@ -1,0 +1,19 @@
+{
+  "verdict": "PASS independent corrected pruning source/context/dependency review; new cached and full builds pending",
+  "reviewer": "constructive_search",
+  "reviewed_utc": "2026-11-25T14:10:40.248768+00:00",
+  "original_sha256": "c9a1cd77e7b7296a5537a1ec7e66f808e7502622b73a01da81186af7ca5e61be",
+  "pruned_sha256": "28af39cc585693e886298ff18e064c9f777625ccead1fc6e460f501441cc312f",
+  "pruned_lines": 8996,
+  "pruned_bytes": 425001,
+  "cached_sha256": "1563bc4f690b853bb698545d8c46069f0518068d7e4841fe820556caca4ccc02",
+  "checks": [
+    "All739 retained top-level declaration/proof blocks are byte-token-equivalent to originals after comments/whitespace and intended namespace rename are removed.",
+    "The complete namespace/section/end/open/variable command sequence and each retained declaration limit-option prefix are unchanged, preserving ambient binder contexts.",
+    "All734 transitive namespace dependency parents from the Lean constant walker are retained, plus5 conservative syntactic references.",
+    "Independent name parsing caught omitted required tr_liftP_inv' in the first pruned version. Corrected source restores its exact142byte/3line declaration and fixes metadata; no known dependency is omitted.",
+    "The final equality_p9_mixed_impossible declaration, proof body and ambient context are exact originals. This source therefore targets the same entire canonical mixedp9 ordinary exclusion, with no new hypothesis.",
+    "Defs-only source now425001bytes within512KiB, with clean root/string/admission scans. Developer dependency-audit commands remain separate from the candidate plain source."
+  ],
+  "scope": "Source pruning only. Original full canonical class has successful cached composition; corrected pruned source still requires its own successful cached/full build. No whole posted target proof is claimed."
+}

@@ -1,0 +1,164 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/structural-empty-opposite-nonedge.lean:724:27: error: don't know how to synthesize implicit argument `c`
+  @sem_step_fanout ?m.305 D (src D (j, s)) (?m.305 + j) (sem_step_src hj s)
+context:
+D : Dag
+h : StrictLive 14 D
+hD : Correct D
+budget : totalSurplus 14 D ≤ (eligSet 14 D).card
+twoW : ∀ (x : Fin 14), (sem_W 14 D x).card ≤ 2
+andEmpty : ∀ j < List.length D, tag D j = true → supp 14 D (14 + j) = ∅
+x : Fin 14
+e : ℕ × Bool
+he : e ∈ sem_W 14 D x
+empty : supp 14 D (src D (sem_bar e)) = ∅
+ev : e.1 < List.length D
+f : ℕ × Bool
+different : f ≠ e
+code : sem_W 14 D x = {e, f}
+neighbors : ∀ (y : Fin 14), Adj x y → sem_bar f ∈ sem_W 14 D y
+u v : Fin 14
+nonedge : ¬Adj u v
+signal : val D (sem_ind {u, v}) (14 + f.1) = true
+hf : f ∈ sem_W 14 D x
+fv : f.1 < List.length D
+fEmpty : supp 14 D (14 + f.1) = ∅
+j : ℕ
+s : Bool
+hj : j < List.length D
+chain : sem_Chain 14 D (14 + f.1) (src D (j, s))
+value : val D (sem_ind {u, v}) (src D (j, s)) = true
+hand : tag D j = true
+left✝ : val D (sem_ind {u, v}) (src D (j, !s)) = false
+last : val D (sem_ind {u, v}) (14 + j) = false
+upper : fanout D (src D (j, s)) ≤ 1
+⊢ ℕ
+/workspace/pequalnp-proofs/results/orch/lemmas/structural-empty-opposite-nonedge.lean:724:27: error: don't know how to synthesize implicit argument `n`
+  @sem_step_fanout ?m.305 D (src D (j, s)) (?m.305 + j) (sem_step_src hj s)
+context:
+D : Dag
+h : StrictLive 14 D
+hD : Correct D
+budget : totalSurplus 14 D ≤ (eligSet 14 D).card
+twoW : ∀ (x : Fin 14), (sem_W 14 D x).card ≤ 2
+andEmpty : ∀ j < List.length D, tag D j = true → supp 14 D (14 + j) = ∅
+x : Fin 14
+e : ℕ × Bool
+he : e ∈ sem_W 14 D x
+empty : supp 14 D (src D (sem_bar e)) = ∅
+ev : e.1 < List.length D
+f : ℕ × Bool
+different : f ≠ e
+code : sem_W 14 D x = {e, f}
+neighbors : ∀ (y : Fin 14), Adj x y → sem_bar f ∈ sem_W 14 D y
+u v : Fin 14
+nonedge : ¬Adj u v
+signal : val D (sem_ind {u, v}) (14 + f.1) = true
+hf : f ∈ sem_W 14 D x
+fv : f.1 < List.length D
+fEmpty : supp 14 D (14 + f.1) = ∅
+j : ℕ
+s : Bool
+hj : j < List.length D
+chain : sem_Chain 14 D (14 + f.1) (src D (j, s))
+value : val D (sem_ind {u, v}) (src D (j, s)) = true
+hand : tag D j = true
+left✝ : val D (sem_ind {u, v}) (src D (j, !s)) = false
+last : val D (sem_ind {u, v}) (14 + j) = false
+upper : fanout D (src D (j, s)) ≤ 1
+⊢ ℕ
+/workspace/pequalnp-proofs/results/orch/lemmas/structural-empty-opposite-nonedge.lean:724:44: error: don't know how to synthesize implicit argument `n`
+  @sem_step_src ?m.305 D j hj s
+context:
+D : Dag
+h : StrictLive 14 D
+hD : Correct D
+budget : totalSurplus 14 D ≤ (eligSet 14 D).card
+twoW : ∀ (x : Fin 14), (sem_W 14 D x).card ≤ 2
+andEmpty : ∀ j < List.length D, tag D j = true → supp 14 D (14 + j) = ∅
+x : Fin 14
+e : ℕ × Bool
+he : e ∈ sem_W 14 D x
+empty : supp 14 D (src D (sem_bar e)) = ∅
+ev : e.1 < List.length D
+f : ℕ × Bool
+different : f ≠ e
+code : sem_W 14 D x = {e, f}
+neighbors : ∀ (y : Fin 14), Adj x y → sem_bar f ∈ sem_W 14 D y
+u v : Fin 14
+nonedge : ¬Adj u v
+signal : val D (sem_ind {u, v}) (14 + f.1) = true
+hf : f ∈ sem_W 14 D x
+fv : f.1 < List.length D
+fEmpty : supp 14 D (14 + f.1) = ∅
+j : ℕ
+s : Bool
+hj : j < List.length D
+chain : sem_Chain 14 D (14 + f.1) (src D (j, s))
+value : val D (sem_ind {u, v}) (src D (j, s)) = true
+hand : tag D j = true
+left✝ : val D (sem_ind {u, v}) (src D (j, !s)) = false
+last : val D (sem_ind {u, v}) (14 + j) = false
+upper : fanout D (src D (j, s)) ≤ 1
+⊢ ℕ
+/workspace/pequalnp-proofs/results/orch/lemmas/structural-empty-opposite-nonedge.lean:708:70: error: unsolved goals
+D : Dag
+h : StrictLive 14 D
+hD : Correct D
+budget : totalSurplus 14 D ≤ (eligSet 14 D).card
+twoW : ∀ (x : Fin 14), (sem_W 14 D x).card ≤ 2
+andEmpty : ∀ j < List.length D, tag D j = true → supp 14 D (14 + j) = ∅
+x : Fin 14
+e : ℕ × Bool
+he : e ∈ sem_W 14 D x
+empty : supp 14 D (src D (sem_bar e)) = ∅
+ev : e.1 < List.length D
+f : ℕ × Bool
+different : f ≠ e
+code : sem_W 14 D x = {e, f}
+neighbors : ∀ (y : Fin 14), Adj x y → sem_bar f ∈ sem_W 14 D y
+u v : Fin 14
+nonedge : ¬Adj u v
+signal : val D (sem_ind {u, v}) (14 + f.1) = true
+hf : f ∈ sem_W 14 D x
+fv : f.1 < List.length D
+fEmpty : supp 14 D (14 + f.1) = ∅
+j : ℕ
+s : Bool
+hj : j < List.length D
+chain : sem_Chain 14 D (14 + f.1) (src D (j, s))
+value : val D (sem_ind {u, v}) (src D (j, s)) = true
+hand : tag D j = true
+left✝ : val D (sem_ind {u, v}) (src D (j, !s)) = false
+last : val D (sem_ind {u, v}) (14 + j) = false
+upper : fanout D (src D (j, s)) ≤ 1
+⊢ val D (sem_ind {u, v}) (14 + e.1) = false
+/workspace/pequalnp-proofs/results/orch/lemmas/structural-empty-opposite-nonedge.lean:749:25: error: unsolved goals
+case false.true
+D : Dag
+h : StrictLive 14 D
+hD : Correct D
+x : Fin 14
+e f : ℕ × Bool
+empty : supp 14 D (src D (sem_bar e)) = ∅
+code : sem_W 14 D x = {e, f}
+hj : e.1 < List.length D
+hand : tag D e.1 = true
+chain : sem_Chain 14 D (14 + f.1) (src D (e.1, false))
+one : fanout D (src D (e.1, false)) = 1
+unequal : e.2 = false
+⊢ False
+
+case true.false
+D : Dag
+h : StrictLive 14 D
+hD : Correct D
+x : Fin 14
+e f : ℕ × Bool
+empty : supp 14 D (src D (sem_bar e)) = ∅
+code : sem_W 14 D x = {e, f}
+hj : e.1 < List.length D
+hand : tag D e.1 = true
+chain : sem_Chain 14 D (14 + f.1) (src D (e.1, true))
+one : fanout D (src D (e.1, true)) = 1
+unequal : e.2 = true
+⊢ False
