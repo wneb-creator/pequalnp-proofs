@@ -7,3 +7,7 @@
 - 2026-11-25T14:05:16.992815+00:00: installed missing Lean 4.36.0 toolchain under job scratch; pinned Mathlib cache acquisition running.
 - 2026-11-25T14:05:42Z: renewed lease; expires 2026-11-25T14:25:42.728Z.
 - 2026-11-25T14:08:34.405652+00:00: finite-normalization partial compiled successfully (lake env lean); preparing immediate checkpoint push.
+- 2026-11-25T14:10:12.185205+00:00: semantics strategy checked finite normalization and finite circuit-code equivalence; sent to primary for checkpoint.
+- 2026-11-25T14:09:30Z: lease renewed through 14:29:30.039Z.
+- 2026-11-25T14:09:35Z: pushed checked partial checkpoint 6d6d309ff6899671db1d8d41e2d4ee8da3295170.
+- 2026-11-25T14:10:46.656232+00:00: finite-code equivalence partial compiled; independent review passed.

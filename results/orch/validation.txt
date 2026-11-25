@@ -14,3 +14,8 @@ lake build PEqualNP.Outside.L_meta_2592: exit 0.
 Build completed successfully (6655 jobs).
 Warnings: existing module-system advisory warnings only; no errors.
 Independent staged six-file checkpoint review: PASS (status_1035 agent).
+
+Second checkpoint: finite-code equivalence compiled (lake env lean, exit 0, empty output).
+Independent source review PASS (226 lines, SHA-256 98470941f67a8b9361bbcc13f69caf79e5e096d1d8efc3550bcdc2c1ed2dabc0).
+Full posted theorem still unproved; finite nonexistence remains.
+Complete normalization build and finite compile logs are in results/orch/logs/.

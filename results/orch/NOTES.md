@@ -37,3 +37,9 @@ Timestamp: 2026-11-25T14:07:17.621387+00:00
 - L_meta_7493 gives ≥14 binary/non-NOT gates for Petersen-minus-vertex. L_meta_8039 excludes exactly15 gates and2NOT for that graph.
 - Explicit20-gate monotone Petersen construction: L_meta_1755 (29lines). Counterexample agent notified.
 - Full final-statement censuses retained in /tmp/oec/pequalnp-pilot-107/existing-fin9-size16-statements.txt and existing-petersen-equality-statements.txt.
+
+## Checked finite semantics (2026-11-25T14:10:12.185205+00:00)
+
+- `semantics_normalize.lean` (106 lines) compiled with exit 0 and empty stdout/stderr.
+- `semantics_finite.lean` (226 lines) compiled with exit 0 and empty stdout/stderr. It contains normalization plus finite gate/circuit codes built from Fin, products and a sigma type; no new datatype or instance. Decoder soundness and completeness imply `finite_lower_bound`, an equivalence from the generic infinite-Circuit lower-bound statement to finite codes. This does not establish the Petersen bound: the finite nonexistence statement remains open.
+- Complete compile logs are `/tmp/oec/pequalnp-pilot-107/semantics-normalize.stdout`, `.stderr`, and `semantics-finite.stdout`, `.stderr`.
