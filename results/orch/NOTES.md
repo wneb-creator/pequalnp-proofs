@@ -79,3 +79,22 @@ Analogous plane circuit has65 gates, proving that any attempted bound≥66 is fa
 Ordinary zero propagation plus dead-gate deletion at inputs0and13 leaves57gates fromthis65-gate circuit: only8 erased. Thus any unconditional claim that double-reread forces9 syntactically erased gates is false. A9-gate reduction would need Boolean restructuring, or a hypothesis size≤64.
 
 All3770 one-gate deletions fromthe65-gate seed, replacingthatwirewithanearlierwire, were checked against all756 critical rows andthetwo derivatives. Nonegave a64-gate witness. Best candidatesmiss exactlyone positiveedge, retainingbothzeroderivatives. Data: finite-search/drop-one-results.json. status_review agent now explores multiwire mutations fromthisseed; finite_search analyzes fixedouterfactor options.
+
+## 2026-11-25T03:21:17.443902+00:00 status_review: exact local search results
+
+Exhaustive 4-variable DAG search for xy+xA+yB with zero directional traces found minimum6 gates; no witness through5 gates (13,724,932 states), first6-gate witness U=x OR B,V=y OR A,W=x OR y,T=U AND V,Z=W AND T,out=T AND Z. Exact unrestricted-OR enumeration found no2-AND implementation of any of120 C4free3x3 graphs with matching number3 (5,439,892 operand pairs). Fullplane756-critical-row mutation from66-gate seed completed228,100,000 iterations without improving66. Switched to finite_search agent65-gate seed and continuing.
+
+2026-11-25T03:21:33.063181+00:00
+## Fixed final factorization exhausted
+
+For every one of 26 star centers and every nonempty subset S of its four incident edges (390 cases), the graph after removing S has matching number 13 when |S| is 1, 2, or 3, and matching number 12 when |S| is 4. Thus a star-built common core F followed by (F∨OR(S))∧(F∨center) costs at least 66 gates for a proper subset and 65 for a full star. C4-freeness blocks sharing a preexisting OR of two S variables from another star: every other opposite-side star meets S in at most one variable. Artifact: /tmp/oec/pequalnp-pilot-65/finite-search/fixed-factor-covers.json. This rules out the particular template, not all circuits.
+
+## 2026-11-25T03:21:41.990142+00:00 Independent review: 65-gate construction
+
+PASS for exact compiled 157-line core snapshot upper65-checked.lean, SHA256 4e6824bd767d81fb3436f8d667de1c28523f80fb6a792f51ad82a38205640c84. Independent parser checks all 65 gates have two distinct earlier wires. Independent symbolic minimal-monomial evaluation gives exactly the 52 incidence edges, proving full Boolean semantics computationally as a separate cross-check. Lean size, evaluation, absorption, star expansion, semantics and validity proof bodies reviewed; plain-file constraints pass. Build3 log is empty, consistent with reported exit 0. This gives a 65-gate upper construction, not a counterexample to the target bound of at most64.
+
+The concurrently appended trace extension (230-line snapshot SHA256 391a42ec725cd3eab9ef3fc16cb006c2c52d5e7931c17590c803b75c3ee1f153) also passes mathematical inspection: both explicit singleton base arrays and recurrence traces match independent simulation, with both output traces false. Build4 is still pending, so only the 157-line core may currently be called Lean-checked.
+
+## 2026-11-25T03:21:49.360136+00:00 mixed-cover formal lemma CHECKED
+
+results/orch/lemmas/mixed_cover.lean compiled exit 0 with no warnings/errors. Structural proof uses Mathlib ZMod.cauchy_davenport: neighborhood of S is S+{0,12,10,4} modulo13, so a nonempty S with nonfull neighborhood has neighborhood size at least |S|+3. Hence any incidence vertex cover P,L containing neither full side has |P|+|L|≥16. Only the 169 point-line shift identities are checked by kernel decide; the 8192-subset exhaustive approach was abandoned. All helper declarations use PEqualNP.Outside.L_meta_2602_aux; imports Mathlib and PEqualNP.Defs. Full compile log /tmp/oec/pequalnp-pilot-65/toolchain/mixed-cover-build-4.log (empty). This is geometric progress only, not the full circuit theorem.

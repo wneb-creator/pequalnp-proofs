@@ -21,3 +21,9 @@ Merged partial: lake build PEqualNP.Outside.L_meta_2602 exit0.
 Build completed successfully (18423 jobs).
 Canonical partial line count: 179. Independent merged-diff review: PASS.
 Exact posted theorem remains unproved; checker not run on this partial.
+
+65-gate core upper bound partial: lake env lean exit0; stdout/stderr empty.
+Snapshot: results/orch/lemmas/upper65_core.lean,157lines.
+Proves size65, full incidence semantics, valid distinct earlier binary AND/OR inputs.
+Independent review PASS, including symbolic52-edge monomial enumeration.
+Double derivative proofs still pending in live upper65.lean; no64-gate lowerbound claimed.

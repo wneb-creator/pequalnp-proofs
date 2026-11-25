@@ -17,3 +17,7 @@
 2026-11-25T03:17:04.503810+00:00 Geometry partial lake build passed; saving immediate second checkpoint.
 
 2026-11-25T03:20:35.623422+00:00 Merged geometry and trace lemmas passed lake build; immediate checkpoint.
+
+2026-11-25T03:21:49.360136+00:00 Mixed-cover ≥16 lemma checked using Cauchy-Davenport; reported immediately for checkpoint push.
+
+2026-11-25T03:22:08.580224+00:0065gate full-semantics core compiled and independently reviewed; checkpoint.
