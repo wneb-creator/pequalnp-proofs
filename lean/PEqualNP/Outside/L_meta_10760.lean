@@ -1321,4 +1321,183 @@ lemma criticalWitnessCheck_sound {width : Nat} {target : BitVec width}
     uniqueSepCheck_sound u₁, uniqueSepCheck_sound u₂,
     uniqueSepCheck_sound u₃, uniqueSepCheck_sound u₄, pa, pb⟩
 
+lemma patternKey_map {k l m : ℕ} (front : Fin k → BitVec m)
+    (front' : Fin l → BitVec m) (goal : BitVec m) (value : Bool)
+    (step : BitVec k → BitVec l)
+    (rows : ∀ i : Fin m, rowPattern front' i = step (rowPattern front i)) :
+    patternKey front' goal value = (patternKey front goal value).image step := by
+  unfold patternKey
+  rw [Finset.image_image]
+  congr 1
+  funext i
+  exact rows i
+
+def transitionOp {width : ℕ} (o : Fin 4) (a b : BitVec width) : BitVec width :=
+  (ops a b).getD o.val 0
+
+def transitionBit (o : Fin 4) (a b : Bool) : Bool :=
+  ([a && b, a || b, a && !b, b && !a] : List Bool).getD o.val false
+
+lemma transitionOp_bit {width : ℕ} (o : Fin 4) (a b : BitVec width) (i : Fin width) :
+    (transitionOp o a b)[i.val] = transitionBit o a[i.val] b[i.val] := by
+  fin_cases o <;> simp [transitionOp, transitionBit, ops]
+
+def stepFront {k l m : ℕ} (front : Fin k → BitVec m) (a b : Fin k) (o : Fin 4)
+    (select : Fin l → Option (Fin k)) (q : Fin l) : BitVec m :=
+  match select q with
+  | some t => front t
+  | none => transitionOp o (front a) (front b)
+
+def stepPattern {k l : ℕ} (a b : Fin k) (o : Fin 4)
+    (select : Fin l → Option (Fin k)) (p : BitVec k) : BitVec l :=
+  (BitVec.ofBoolListLE (List.ofFn (fun q : Fin l =>
+    match select q with
+    | some t => p[t.val]
+    | none => transitionBit o p[a.val] p[b.val]))).cast (by simp)
+
+lemma stepPattern_bit {k l : ℕ} (a b : Fin k) (o : Fin 4)
+    (select : Fin l → Option (Fin k)) (p : BitVec k) (q : Fin l) :
+    (stepPattern a b o select p)[q.val] =
+      match select q with
+      | some t => p[t.val]
+      | none => transitionBit o p[a.val] p[b.val] := by
+  simp [stepPattern, ← BitVec.getLsbD_eq_getElem]
+
+lemma rowPattern_stepFront {k l m : ℕ} (front : Fin k → BitVec m)
+    (a b : Fin k) (o : Fin 4) (select : Fin l → Option (Fin k)) (i : Fin m) :
+    rowPattern (stepFront front a b o select) i =
+      stepPattern a b o select (rowPattern front i) := by
+  apply BitVec.eq_of_getElem_eq
+  intro q hq
+  rw [rowPattern_bit _ i ⟨q, hq⟩, stepPattern_bit a b o select _ ⟨q, hq⟩]
+  cases hs : select ⟨q, hq⟩ <;>
+    simp only [stepFront, hs, transitionOp_bit, rowPattern_bit]
+
+lemma patternKey_stepFront {k l m : ℕ} (front : Fin k → BitVec m)
+    (a b : Fin k) (o : Fin 4) (select : Fin l → Option (Fin k))
+    (goal : BitVec m) (value : Bool) :
+    patternKey (stepFront front a b o select) goal value =
+      (patternKey front goal value).image (stepPattern a b o select) :=
+  patternKey_map front (stepFront front a b o select) goal value
+    (stepPattern a b o select) (rowPattern_stepFront front a b o select)
+
+lemma positivePatterns_stepFront {k l m : ℕ} (front : Fin k → BitVec m)
+    (a b : Fin k) (o : Fin 4) (select : Fin l → Option (Fin k)) (goal : BitVec m) :
+    positivePatterns (stepFront front a b o select) goal =
+      (positivePatterns front goal).image (stepPattern a b o select) :=
+  patternKey_stepFront front a b o select goal true
+
+lemma negativePatterns_stepFront {k l m : ℕ} (front : Fin k → BitVec m)
+    (a b : Fin k) (o : Fin 4) (select : Fin l → Option (Fin k)) (goal : BitVec m) :
+    negativePatterns (stepFront front a b o select) goal =
+      (negativePatterns front goal).image (stepPattern a b o select) :=
+  patternKey_stepFront front a b o select goal false
+
+lemma transitionOp_zeroAt {width : ℕ} (o : Fin 4) (a b : BitVec width) (ref : Fin width)
+    (ha : a[ref.val] = false) (hb : b[ref.val] = false) :
+    (transitionOp o a b)[ref.val] = false := by
+  rw [transitionOp_bit, ha, hb]
+  fin_cases o <;> rfl
+
+lemma stepFront_zeroAt {k l m : ℕ} (front : Fin k → BitVec m)
+    (a b : Fin k) (o : Fin 4) (select : Fin l → Option (Fin k)) (ref : Fin m)
+    (zero : ∀ t : Fin k, (front t)[ref.val] = false) :
+    ∀ q : Fin l, (stepFront front a b o select q)[ref.val] = false := by
+  intro q
+  cases hs : select q with
+  | none => simpa only [stepFront, hs] using
+      transitionOp_zeroAt o (front a) (front b) ref (zero a) (zero b)
+  | some t => simpa only [stepFront, hs] using zero t
+
+def bitmapOfPatterns {k : ℕ} (key : Finset (BitVec k)) : BitVec (2 ^ k) :=
+  (BitVec.ofBoolListLE (List.ofFn (fun i : Fin (2 ^ k) =>
+    decide (BitVec.ofNat k i.val ∈ key)))).cast (by simp)
+
+lemma bitmapOfPatterns_bit {k : ℕ} (key : Finset (BitVec k)) (p : BitVec k) :
+    (bitmapOfPatterns key).getLsbD p.toNat = true ↔ p ∈ key := by
+  simp [bitmapOfPatterns, -BitVec.getLsbD_eq_getElem, p.isLt]
+
+lemma bitmapOfPatterns_eq_iff {k : ℕ} (key key' : Finset (BitVec k)) :
+    bitmapOfPatterns key = bitmapOfPatterns key' ↔ key = key' := by
+  constructor
+  · intro h
+    apply Finset.ext
+    intro p
+    rw [← bitmapOfPatterns_bit, ← bitmapOfPatterns_bit, h]
+  · rintro rfl
+    rfl
+
+def patternBitmap {k m : ℕ} (front : Fin k → BitVec m) (goal : BitVec m)
+    (value : Bool) : BitVec (2 ^ k) :=
+  bitmapOfPatterns (patternKey front goal value)
+
+lemma patternBitmap_bit {k m : ℕ} (front : Fin k → BitVec m) (goal : BitVec m)
+    (value : Bool) (p : BitVec k) :
+    (patternBitmap front goal value).getLsbD p.toNat = true ↔
+      p ∈ patternKey front goal value :=
+  bitmapOfPatterns_bit _ _
+
+lemma patternBitmap_getElem {k m : ℕ} (front : Fin k → BitVec m) (goal : BitVec m)
+    (value : Bool) (p : BitVec k) :
+    (patternBitmap front goal value)[p.toNat]'p.isLt = true ↔
+      p ∈ patternKey front goal value := by
+  rw [← BitVec.getLsbD_eq_getElem]
+  exact patternBitmap_bit _ _ _ _
+
+lemma patternBitmap_testBit {k m : ℕ} (front : Fin k → BitVec m) (goal : BitVec m)
+    (value : Bool) (p : BitVec k) :
+    (patternBitmap front goal value).toNat.testBit p.toNat = true ↔
+      p ∈ patternKey front goal value := by
+  rw [← BitVec.getElem_eq_testBit_toNat _ _ p.isLt]
+  exact patternBitmap_getElem _ _ _ _
+
+lemma patternBitmap_eq_iff {k m n : ℕ} (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n) (value value' : Bool) :
+    patternBitmap front goal value = patternBitmap front' goal' value' ↔
+      patternKey front goal value = patternKey front' goal' value' :=
+  bitmapOfPatterns_eq_iff _ _
+
+lemma bitmapOfPatterns_image_bit {k l : ℕ} (key : Finset (BitVec k))
+    (step : BitVec k → BitVec l) (p : BitVec l) :
+    (bitmapOfPatterns (key.image step)).getLsbD p.toNat = true ↔
+      ∃ q ∈ key, step q = p := by
+  rw [bitmapOfPatterns_bit, Finset.mem_image]
+
+lemma patternBitmap_stepFront {k l m : ℕ} (front : Fin k → BitVec m)
+    (a b : Fin k) (o : Fin 4) (select : Fin l → Option (Fin k))
+    (goal : BitVec m) (value : Bool) :
+    patternBitmap (stepFront front a b o select) goal value =
+      bitmapOfPatterns ((patternKey front goal value).image (stepPattern a b o select)) := by
+  unfold patternBitmap
+  rw [patternKey_stepFront]
+
+lemma patternBitmap_stepFront_bit {k l m : ℕ} (front : Fin k → BitVec m)
+    (a b : Fin k) (o : Fin 4) (select : Fin l → Option (Fin k))
+    (goal : BitVec m) (value : Bool) (p : BitVec l) :
+    (patternBitmap (stepFront front a b o select) goal value).getLsbD p.toNat = true ↔
+      ∃ q ∈ patternKey front goal value, stepPattern a b o select q = p := by
+  rw [patternBitmap_stepFront, bitmapOfPatterns_image_bit]
+
+lemma live_iff_patternBitmaps {k m n budget : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (positive : patternBitmap front goal true = patternBitmap front' goal' true)
+    (negative : patternBitmap front goal false = patternBitmap front' goal' false) :
+    live basicOps goal budget (frontierRoots front) ↔
+      live basicOps goal' budget (frontierRoots front') :=
+  live_iff_patternKeys front goal front' goal'
+    ((patternBitmap_eq_iff _ _ _ _ true true).mp positive)
+    ((patternBitmap_eq_iff _ _ _ _ false false).mp negative)
+
+lemma build_iff_patternBitmaps {k m n budget : ℕ}
+    (front : Fin k → BitVec m) (goal : BitVec m)
+    (front' : Fin k → BitVec n) (goal' : BitVec n)
+    (positive : patternBitmap front goal true = patternBitmap front' goal' true)
+    (negative : patternBitmap front goal false = patternBitmap front' goal' false) :
+    build basicOps goal budget (frontierRoots front) ↔
+      build basicOps goal' budget (frontierRoots front') :=
+  build_iff_patternKeys front goal front' goal'
+    ((patternBitmap_eq_iff _ _ _ _ true true).mp positive)
+    ((patternBitmap_eq_iff _ _ _ _ false false).mp negative)
+
 end PEqualNP.Outside.L_meta_10760
