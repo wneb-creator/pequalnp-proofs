@@ -1,0 +1,2 @@
+{'verdict': 'PASS', 'decoder_sha256': 'aa30d04d050bab40f52e50928599876d94042f1be3011754a785c34ec2bdf6a0', 'decoder_bytes': 3483, 'total_facts': 4651, 'total_schemes': 6379, 'scope': 'Independent bitfield decoder and actual emitted Nat arrays checked against original semantic constructor JSON; kernel certificate checks still required.'}
+files 28

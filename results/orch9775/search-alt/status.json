@@ -1,0 +1,31 @@
+{
+  "started": "2026-11-25T17:21:06.843044+00:00",
+  "command": "/tmp/oec/pequalnp-pilot-103/search9775 977507 1200 1",
+  "last_root_renewal": "2026-11-25T17:26:51.549Z",
+  "expiry_last_report": "2026-11-25T17:46:51.549Z",
+  "active_search": null,
+  "fixed24_control": "diagnostic only",
+  "exact_target_witness": false,
+  "nonlinear_started": "2026-11-25T17:27:10.615105+00:00",
+  "nonlinear_command": "/tmp/oec/pequalnp-pilot-103/search9775-nonlinear 977513 600 1",
+  "nonlinear_cap_seconds": 600,
+  "nonlinear_diagnostic": "passed all16384 for all archived correct candidates; includes redundant26gate structures, no24witness",
+  "stopped_utc": "2026-11-25T17:37:25.497357+00:00",
+  "stop_reason": "Root reports complete computational lower-bound coverage; redirect to independent certificate review.",
+  "elastic_exit": 0,
+  "elastic_stop": "SIGINT requested by root",
+  "nonlinear_exit": 0,
+  "nonlinear_stop": "Natural600-second cap; already exited when stop requested",
+  "active_pids": [],
+  "prepared_not_long_run": [
+    "search_reduced.cpp",
+    "search_pivotal.cpp",
+    "search_architecture.cpp"
+  ],
+  "elastic_final_lines": [
+    "done 24594000 best 25"
+  ],
+  "nonlinear_final_lines": [
+    "done 2888000 best 800"
+  ]
+}

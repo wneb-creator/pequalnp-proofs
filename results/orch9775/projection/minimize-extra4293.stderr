@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/pequalnp-proofs/results/orch9775/projection/minimize_extra4293.py", line 20, in <module>
+    assert solve(rs)==20
+           ^^^^^^^^^^^^^
+AssertionError

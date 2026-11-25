@@ -1,0 +1,18 @@
+{
+  "started_at": "2026-11-25T17:27:02.268616+00:00",
+  "finished_at": "2026-11-25T17:27:02.466805+00:00",
+  "elapsed_seconds": 0.1981933659990318,
+  "first": null,
+  "gates": 27,
+  "rows": 55,
+  "variables": 9639,
+  "clauses": 237790,
+  "cnf_sha256": "dd2ecbdd1062a04c0cad9d970e20c5ffca1d9101593667d1bc2af779533e5d35",
+  "exit": 20,
+  "status": "UNSAT",
+  "all_gates_used": true,
+  "ordered_sources": false,
+  "productive_on_edge": true,
+  "nonread1_required": false,
+  "missing_edge_required": 2
+}

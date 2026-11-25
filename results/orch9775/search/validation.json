@@ -1,0 +1,17 @@
+[
+  {
+    "tag": "baseline25-valid",
+    "wrapper_exit": 0,
+    "status": "SAT"
+  },
+  {
+    "tag": "baseline25-invalid",
+    "wrapper_exit": 0,
+    "status": "UNSAT"
+  },
+  {
+    "tag": "baseline25-read1-reject",
+    "wrapper_exit": 0,
+    "status": "UNSAT"
+  }
+]

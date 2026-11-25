@@ -1,0 +1,12 @@
+{
+  "live_size": 26,
+  "strict_distinct_operands": true,
+  "all_inputs_live": true,
+  "all_inner_live": true,
+  "Bplus": 13,
+  "Bzero": 0,
+  "ineligible_mask": 95,
+  "empty_support_branches": [],
+  "singleton_assignments_checked": 14,
+  "full_assignments_checked": 16384
+}

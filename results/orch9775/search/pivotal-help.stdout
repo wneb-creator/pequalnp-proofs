@@ -1,0 +1,8 @@
+usage: pivotal_rewrite.py [-h] candidate output_prefix
+
+positional arguments:
+  candidate
+  output_prefix
+
+options:
+  -h, --help     show this help message and exit

@@ -1,0 +1,8 @@
+/workspace/pequalnp-proofs/results/orch9775/lemmas/CompleteRefutation.lean:57:2: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  b ≥ 0
+  0 ≤ a ≤ 10
+  -13 ≤ a + b ≤ 11
+where
+ a := ↑(Bplus 14 D)
+ b := ↑(Bzero 14 D)

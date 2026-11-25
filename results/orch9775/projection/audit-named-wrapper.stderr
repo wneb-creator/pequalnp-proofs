@@ -1,0 +1,4 @@
+  File "/workspace/pequalnp-proofs/results/orch9775/projection/audit_named_wrapper.py", line 21
+    got=[m for m in range(16384)if all(not(m>>a&1 and m>>c&1)for a,c in edges)and14<=m.bit_count()+cap and all(k&m!=k or 14+w<=m.bit_count()+cap for k,w in weights)];assert got==expected
+                                                                              ^^^^^
+SyntaxError: invalid syntax

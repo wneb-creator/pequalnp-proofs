@@ -1,0 +1,13 @@
+{
+  "rows": 16384,
+  "reports": [
+    {
+      "trial": 0,
+      "advertised_score": 18,
+      "correct_full_cube": true,
+      "live_gates": 25,
+      "live_or_gates": 18
+    }
+  ],
+  "all_correct_cost_claims_verified": true
+}

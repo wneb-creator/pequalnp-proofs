@@ -1,0 +1,39 @@
+{
+  "group_order": 4,
+  "side_preserving": 2,
+  "side_swapping": 2,
+  "complete_by": "connected bipartite graph; all 7! permutations of one side, for each bipartition orientation; distinct neighborhoods force the other side",
+  "all_pairs_checked": 91,
+  "group_closure_checked": true
+}
+same_side (0, 1) 4
+same_side (0, 2) 2
+same_side (0, 3) 4
+same_side (0, 4) 4
+same_side (0, 5) 4
+same_side (0, 6) 4
+cross_nonedge (0, 7) 2
+edge (0, 8) 4
+cross_nonedge (0, 9) 4
+edge (0, 10) 4
+cross_nonedge (0, 11) 4
+cross_nonedge (0, 12) 2
+cross_nonedge (0, 13) 4
+same_side (1, 3) 4
+same_side (1, 4) 4
+same_side (1, 5) 2
+same_side (1, 6) 4
+cross_nonedge (1, 8) 4
+edge (1, 9) 4
+cross_nonedge (1, 10) 2
+cross_nonedge (1, 11) 4
+edge (1, 13) 2
+same_side (3, 4) 2
+same_side (3, 6) 2
+cross_nonedge (3, 8) 1
+cross_nonedge (3, 9) 2
+edge (3, 11) 2
+same_side (4, 6) 2
+cross_nonedge (4, 9) 1
+edge (4, 11) 2
+edge (6, 11) 1

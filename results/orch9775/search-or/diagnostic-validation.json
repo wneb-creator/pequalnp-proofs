@@ -1,0 +1,8 @@
+{
+  "full_cube_rows": 16384,
+  "correct": true,
+  "live_gates": 25,
+  "live_or_gates": 18,
+  "advertised_cost": 18,
+  "source": "diagnostic.stdout"
+}

@@ -1,0 +1,15 @@
+usage: graph_cnf.py [-h] [--gates GATES] [--seconds SECONDS] [--first FIRST]
+                    [--pin PIN] [--mutable MUTABLE] [--allow-unused]
+                    [--ordered] [--tag TAG] [--require-non-read1]
+
+options:
+  -h, --help           show this help message and exit
+  --gates GATES
+  --seconds SECONDS
+  --first FIRST
+  --pin PIN
+  --mutable MUTABLE
+  --allow-unused
+  --ordered
+  --tag TAG
+  --require-non-read1

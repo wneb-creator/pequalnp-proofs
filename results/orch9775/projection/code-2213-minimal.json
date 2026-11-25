@@ -1,0 +1,92 @@
+{
+  "I": 2213,
+  "k": 2,
+  "relations": [
+    {
+      "x": 3,
+      "c": 6,
+      "strict": true,
+      "common_center": 11,
+      "witness": [
+        "exposed",
+        127,
+        4183,
+        7,
+        3,
+        6,
+        1
+      ]
+    },
+    {
+      "x": 8,
+      "c": 3,
+      "strict": false,
+      "common_center": null,
+      "witness": [
+        "two",
+        1290,
+        0,
+        2,
+        8,
+        3,
+        10
+      ]
+    },
+    {
+      "x": 8,
+      "c": 10,
+      "strict": true,
+      "common_center": 0,
+      "witness": [
+        "exposed",
+        9992,
+        9288,
+        2,
+        8,
+        10,
+        13
+      ]
+    },
+    {
+      "x": 10,
+      "c": 3,
+      "strict": false,
+      "common_center": null,
+      "witness": [
+        "two",
+        1290,
+        0,
+        5,
+        10,
+        3,
+        8
+      ]
+    },
+    {
+      "x": 10,
+      "c": 8,
+      "strict": true,
+      "common_center": 0,
+      "witness": [
+        "exposed",
+        7426,
+        4370,
+        5,
+        10,
+        8,
+        12
+      ]
+    }
+  ],
+  "exit_code": 20,
+  "clauses": 594,
+  "vars": 176,
+  "scope": "Necessary residualsetrelations; noactualcircuit/noLeanproof yet",
+  "calls": 20,
+  "variables": [
+    3,
+    6,
+    8,
+    10
+  ]
+}

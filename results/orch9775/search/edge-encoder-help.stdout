@@ -1,0 +1,17 @@
+usage: graph_cnf_edge.py [-h] [--gates GATES] [--seconds SECONDS]
+                         [--first FIRST] [--pin PIN] [--mutable MUTABLE]
+                         [--allow-unused] [--ordered] [--tag TAG]
+                         [--require-non-read1] [--missing-edge MISSING_EDGE]
+
+options:
+  -h, --help            show this help message and exit
+  --gates GATES
+  --seconds SECONDS
+  --first FIRST
+  --pin PIN
+  --mutable MUTABLE
+  --allow-unused
+  --ordered
+  --tag TAG
+  --require-non-read1
+  --missing-edge MISSING_EDGE

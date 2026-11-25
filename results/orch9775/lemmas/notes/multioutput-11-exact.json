@@ -1,0 +1,8 @@
+{
+  "gates": 11,
+  "pinned": false,
+  "variables": 3453,
+  "clauses": 71462,
+  "exit": 0,
+  "semantics": "exact14row OR functions"
+}

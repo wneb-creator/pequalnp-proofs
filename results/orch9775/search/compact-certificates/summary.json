@@ -1,0 +1,326 @@
+[
+  {
+    "I": 11,
+    "k": 0,
+    "base": 59,
+    "learned": 24,
+    "facts": 46,
+    "bytes": 5114,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-11"
+  },
+  {
+    "I": 47,
+    "k": 2,
+    "base": 207,
+    "learned": 126,
+    "facts": 153,
+    "bytes": 18628,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-47"
+  },
+  {
+    "I": 55,
+    "k": 2,
+    "base": 169,
+    "learned": 120,
+    "facts": 124,
+    "bytes": 15362,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-55"
+  },
+  {
+    "I": 63,
+    "k": 3,
+    "base": 531,
+    "learned": 314,
+    "facts": 336,
+    "bytes": 47744,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-63"
+  },
+  {
+    "I": 95,
+    "k": 3,
+    "base": 481,
+    "learned": 337,
+    "facts": 321,
+    "bytes": 45848,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-95"
+  },
+  {
+    "I": 103,
+    "k": 2,
+    "base": 180,
+    "learned": 104,
+    "facts": 131,
+    "bytes": 15250,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-103"
+  },
+  {
+    "I": 111,
+    "k": 3,
+    "base": 555,
+    "learned": 330,
+    "facts": 364,
+    "bytes": 50856,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-111"
+  },
+  {
+    "I": 119,
+    "k": 3,
+    "base": 522,
+    "learned": 349,
+    "facts": 312,
+    "bytes": 51652,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-119"
+  },
+  {
+    "I": 123,
+    "k": 3,
+    "base": 493,
+    "learned": 363,
+    "facts": 340,
+    "bytes": 49260,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-123"
+  },
+  {
+    "I": 164,
+    "k": 0,
+    "base": 94,
+    "learned": 38,
+    "facts": 80,
+    "bytes": 7797,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-164"
+  },
+  {
+    "I": 177,
+    "k": 1,
+    "base": 225,
+    "learned": 107,
+    "facts": 177,
+    "bytes": 17804,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-177"
+  },
+  {
+    "I": 181,
+    "k": 2,
+    "base": 222,
+    "learned": 132,
+    "facts": 166,
+    "bytes": 19199,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-181"
+  },
+  {
+    "I": 197,
+    "k": 1,
+    "base": 198,
+    "learned": 115,
+    "facts": 165,
+    "bytes": 16365,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-197"
+  },
+  {
+    "I": 229,
+    "k": 2,
+    "base": 240,
+    "learned": 151,
+    "facts": 181,
+    "bytes": 22758,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-229"
+  },
+  {
+    "I": 245,
+    "k": 3,
+    "base": 487,
+    "learned": 279,
+    "facts": 316,
+    "bytes": 42613,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-245"
+  },
+  {
+    "I": 266,
+    "k": 0,
+    "base": 40,
+    "learned": 24,
+    "facts": 34,
+    "bytes": 4024,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-266"
+  },
+  {
+    "I": 298,
+    "k": 1,
+    "base": 213,
+    "learned": 116,
+    "facts": 163,
+    "bytes": 17302,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-298"
+  },
+  {
+    "I": 400,
+    "k": 0,
+    "base": 41,
+    "learned": 24,
+    "facts": 35,
+    "bytes": 4232,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-400"
+  },
+  {
+    "I": 416,
+    "k": 0,
+    "base": 53,
+    "learned": 27,
+    "facts": 44,
+    "bytes": 5116,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-416"
+  },
+  {
+    "I": 432,
+    "k": 1,
+    "base": 147,
+    "learned": 67,
+    "facts": 120,
+    "bytes": 11666,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-432"
+  },
+  {
+    "I": 525,
+    "k": 1,
+    "base": 258,
+    "learned": 141,
+    "facts": 212,
+    "bytes": 20827,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-525"
+  },
+  {
+    "I": 645,
+    "k": 1,
+    "base": 142,
+    "learned": 78,
+    "facts": 119,
+    "bytes": 11901,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-645"
+  },
+  {
+    "I": 661,
+    "k": 2,
+    "base": 229,
+    "learned": 115,
+    "facts": 175,
+    "bytes": 18910,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-661"
+  },
+  {
+    "I": 1034,
+    "k": 0,
+    "base": 97,
+    "learned": 43,
+    "facts": 74,
+    "bytes": 7933,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-1034"
+  },
+  {
+    "I": 1038,
+    "k": 1,
+    "base": 205,
+    "learned": 113,
+    "facts": 163,
+    "bytes": 16665,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-1038"
+  },
+  {
+    "I": 1216,
+    "k": 0,
+    "base": 40,
+    "learned": 24,
+    "facts": 34,
+    "bytes": 4074,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-1216"
+  },
+  {
+    "I": 1220,
+    "k": 1,
+    "base": 129,
+    "learned": 58,
+    "facts": 100,
+    "bytes": 10288,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-1220"
+  },
+  {
+    "I": 1290,
+    "k": 1,
+    "base": 248,
+    "learned": 109,
+    "facts": 203,
+    "bytes": 19163,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-1290"
+  },
+  {
+    "I": 2087,
+    "k": 2,
+    "base": 194,
+    "learned": 121,
+    "facts": 144,
+    "bytes": 18592,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-2087"
+  },
+  {
+    "I": 2213,
+    "k": 2,
+    "base": 431,
+    "learned": 179,
+    "facts": 310,
+    "bytes": 34896,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-2213"
+  },
+  {
+    "I": 2693,
+    "k": 2,
+    "base": 490,
+    "learned": 217,
+    "facts": 370,
+    "bytes": 39675,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-2693"
+  },
+  {
+    "I": 4245,
+    "k": 2,
+    "base": 229,
+    "learned": 115,
+    "facts": 175,
+    "bytes": 19009,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-4245"
+  },
+  {
+    "I": 4293,
+    "k": 2,
+    "base": 459,
+    "learned": 238,
+    "facts": 344,
+    "bytes": 38208,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-4293"
+  },
+  {
+    "I": 4309,
+    "k": 3,
+    "base": 394,
+    "learned": 342,
+    "facts": 231,
+    "bytes": 42970,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-4309"
+  },
+  {
+    "I": 4757,
+    "k": 3,
+    "base": 625,
+    "learned": 393,
+    "facts": 393,
+    "bytes": 59299,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-4757"
+  },
+  {
+    "I": 5190,
+    "k": 2,
+    "base": 229,
+    "learned": 131,
+    "facts": 183,
+    "bytes": 19312,
+    "source": "/tmp/oec/pequalnp-pilot-103/orch9775/compact-trim2/case-5190"
+  }
+]

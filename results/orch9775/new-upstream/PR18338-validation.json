@@ -1,0 +1,37 @@
+{
+  "public_prior_source": "https://github.com/brilliant-hq/pequalnp-proofs/pull/18338",
+  "source": "PR18338_L_meta_9777.lean",
+  "source_sha256": "5a772e3c8ed68fee29dbf8dbd2f723b45b9bbb7240f03dd28ebe9fb5c9740554",
+  "bytes": 380727,
+  "lines": 7611,
+  "compile": "Unchanged source copied byte-identically into unique scratch module PublicPR18338; Lean export exit0",
+  "axiom_and_exact_statement_audit": "exit0; exact9775statementnegationtypechecks usingpublicL_meta_9777theorem; allowedthreeaxiomsonly",
+  "provenance": "This is a public prior proof from PR18338, not authored by this pilot. Verification is independent local compilation of unchangedsource. No official checker verdict claimed.",
+  "records": [
+    {
+      "path": "results/orch9775/new-upstream/PR18338-compile.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/new-upstream/PR18338-compile.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/new-upstream/PR18338-axioms.stdout",
+      "sha256": "1c98727de051cb04c049f62ccd6b175b029ccb13d7fccfb1a2044c35736ec5a6",
+      "bytes": 90
+    },
+    {
+      "path": "results/orch9775/new-upstream/PR18338-axioms.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/new-upstream/PR18338-AxiomAudit.lean",
+      "sha256": "6cbc9ca6577dcd099f9eeb6bf8696343e477b768e84e061d86c23d2bdf8b13eb",
+      "bytes": 531
+    }
+  ]
+}

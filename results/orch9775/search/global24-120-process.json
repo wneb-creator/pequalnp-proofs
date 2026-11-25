@@ -1,0 +1,19 @@
+{
+  "started_at": "2026-11-25T17:21:06.581031+00:00",
+  "pid": 59472,
+  "process_group": 59472,
+  "command": [
+    "python3",
+    "results/orch9775/search/graph_cnf.py",
+    "--gates",
+    "24",
+    "--seconds",
+    "120",
+    "--tag",
+    "global24-120"
+  ],
+  "source_sha256": "65631db998f8b8f033016e008b429b3a332115af0f9a38008bab2d6d97725d9b",
+  "status": "FINISHED",
+  "exit": 0,
+  "finished_at": "2026-11-25T17:23:06.943497+00:00"
+}

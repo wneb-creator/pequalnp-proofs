@@ -1,0 +1,30 @@
+[
+  {
+    "id": "L-meta-9775",
+    "requested_kind": "check",
+    "result": "passes gap routing guard",
+    "returned_kind": "check",
+    "file": "lean/PEqualNP/Outside/L_meta_9775.lean"
+  },
+  {
+    "id": "L-meta-9775",
+    "requested_kind": "refute",
+    "result": "REFUSED",
+    "reason": "the run's kind is refute, and the desk posts gap L-meta-9775 as kind check",
+    "file": "lean/PEqualNP/Outside/L_meta_9775.lean"
+  },
+  {
+    "id": "L-meta-9777",
+    "requested_kind": "check",
+    "result": "passes gap routing guard",
+    "returned_kind": "check",
+    "file": "lean/PEqualNP/Outside/L_meta_9777.lean"
+  },
+  {
+    "id": "L-meta-9777",
+    "requested_kind": "refute",
+    "result": "REFUSED",
+    "reason": "the run's kind is refute, and the desk posts gap L-meta-9777 as kind check",
+    "file": "lean/PEqualNP/Outside/L_meta_9777.lean"
+  }
+]

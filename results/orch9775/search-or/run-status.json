@@ -1,0 +1,8 @@
+{
+  "exit_code": 0,
+  "duration_limit_seconds": 600,
+  "last_line": "done 8050000 best 18",
+  "result": "No17-OR witness; heuristic search, not exhaustive",
+  "source_sha256": "fad6280d4adf44a141b9d5c360e6e8c077ac1d997eea13196c91b0d555b372d2",
+  "stderr_bytes": 0
+}

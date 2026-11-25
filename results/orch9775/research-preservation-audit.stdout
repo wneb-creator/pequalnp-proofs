@@ -1,0 +1,44 @@
+{
+  "utc": "2026-11-25T17:56:43.474589+00:00",
+  "input_path_list_sha256": "464940012b17ba944e2986cd50a5c4479d6d5c548789a043e4df328c4ae2a103",
+  "input_count": 641,
+  "selected_count": 632,
+  "excluded": [
+    "results/orch9775/lemmas/notes/__pycache__/core_analysis.cpython-312.pyc",
+    "results/orch9775/lemmas/notes/__pycache__/private_weights.cpython-312.pyc",
+    "results/orch9775/review-rup/__pycache__/replay_core.cpython-312.pyc",
+    "results/orch9775/search-alt/__pycache__/classify.cpython-312.pyc",
+    "results/orch9775/search-alt/__pycache__/simplify.cpython-312.pyc",
+    "results/orch9775/search/__pycache__/compact_certificate.cpython-312.pyc",
+    "results/orch9775/search/__pycache__/compact_cnf.cpython-312.pyc",
+    "results/orch9775/standalone-build-first.stderr",
+    "results/orch9775/standalone-build-first.stdout"
+  ],
+  "selected_bytes": 58061901,
+  "json_files_parsed": 247,
+  "credential_pattern_findings": [],
+  "unexpected_binary_files": [],
+  "archives": [
+    {
+      "archive": "results/orch9775/search/compact-artifacts.tar.gz",
+      "archive_sha256": "a1b8c1ed839040e0411b9786ffdd731765ea31d9279282ed67547cf8c20ff849",
+      "manifest": "results/orch9775/search/compact-artifacts.manifest.json",
+      "members_verified": 1525,
+      "uncompressed_bytes_verified": 213776573,
+      "nested_gzip_text_bytes_scanned": 1699418,
+      "unsafe_members": [],
+      "hash_errors": []
+    },
+    {
+      "archive": "results/orch9775/search/compact-extra-diagnostics.tar.gz",
+      "archive_sha256": "d84673022df06568e0d365e27f2a59a0f8455e334e84127f4e352c67e3922516",
+      "manifest": "results/orch9775/search/compact-extra-diagnostics.manifest.json",
+      "members_verified": 103,
+      "uncompressed_bytes_verified": 33956615,
+      "nested_gzip_text_bytes_scanned": 601415,
+      "unsafe_members": [],
+      "hash_errors": []
+    }
+  ],
+  "scope": "Preservation only; research and superseded drafts are not asserted to be final proof sources. Active standalone streams and compiled caches excluded."
+}

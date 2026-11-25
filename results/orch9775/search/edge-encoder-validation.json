@@ -1,0 +1,12 @@
+[
+  {
+    "tag": "edge-fixture-0",
+    "status": "SAT",
+    "wrapper_exit": 0
+  },
+  {
+    "tag": "edge-fixture-2",
+    "status": "UNSAT",
+    "wrapper_exit": 0
+  }
+]

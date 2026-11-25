@@ -1,0 +1,4 @@
+  File "/workspace/pequalnp-proofs/results/orch9775/projection/audit_coverage.py", line 34
+    assert r['exit_code']==(10 if m in[127,16256]else20);checked.append(r)
+                            ^^^^^^^^^^^^^^^^^^^^^
+SyntaxError: expected 'else' after 'if' expression

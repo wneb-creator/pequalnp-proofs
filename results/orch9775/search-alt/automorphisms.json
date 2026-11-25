@@ -1,0 +1,750 @@
+{
+  "group_order": 4,
+  "side_preserving": 2,
+  "side_swapping": 2,
+  "complete_by": "connected bipartite graph; all 7! permutations of one side, for each bipartition orientation; distinct neighborhoods force the other side",
+  "automorphisms": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    [
+      2,
+      5,
+      0,
+      3,
+      4,
+      1,
+      6,
+      12,
+      8,
+      9,
+      13,
+      11,
+      7,
+      10
+    ],
+    [
+      7,
+      10,
+      12,
+      8,
+      9,
+      13,
+      11,
+      0,
+      3,
+      4,
+      1,
+      6,
+      2,
+      5
+    ],
+    [
+      12,
+      13,
+      7,
+      8,
+      9,
+      10,
+      11,
+      2,
+      3,
+      4,
+      5,
+      6,
+      0,
+      1
+    ]
+  ],
+  "pair_orbits": [
+    {
+      "representative": [
+        0,
+        1
+      ],
+      "kind": "same_side",
+      "size": 4,
+      "pairs": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          12,
+          13
+        ]
+      ]
+    },
+    {
+      "representative": [
+        0,
+        2
+      ],
+      "kind": "same_side",
+      "size": 2,
+      "pairs": [
+        [
+          0,
+          2
+        ],
+        [
+          7,
+          12
+        ]
+      ]
+    },
+    {
+      "representative": [
+        0,
+        3
+      ],
+      "kind": "same_side",
+      "size": 4,
+      "pairs": [
+        [
+          0,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          12
+        ]
+      ]
+    },
+    {
+      "representative": [
+        0,
+        4
+      ],
+      "kind": "same_side",
+      "size": 4,
+      "pairs": [
+        [
+          0,
+          4
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          7,
+          9
+        ],
+        [
+          9,
+          12
+        ]
+      ]
+    },
+    {
+      "representative": [
+        0,
+        5
+      ],
+      "kind": "same_side",
+      "size": 4,
+      "pairs": [
+        [
+          0,
+          5
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          7,
+          13
+        ],
+        [
+          10,
+          12
+        ]
+      ]
+    },
+    {
+      "representative": [
+        0,
+        6
+      ],
+      "kind": "same_side",
+      "size": 4,
+      "pairs": [
+        [
+          0,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          7,
+          11
+        ],
+        [
+          11,
+          12
+        ]
+      ]
+    },
+    {
+      "representative": [
+        0,
+        7
+      ],
+      "kind": "cross_nonedge",
+      "size": 2,
+      "pairs": [
+        [
+          0,
+          7
+        ],
+        [
+          2,
+          12
+        ]
+      ]
+    },
+    {
+      "representative": [
+        0,
+        8
+      ],
+      "kind": "edge",
+      "size": 4,
+      "pairs": [
+        [
+          0,
+          8
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          12
+        ]
+      ]
+    },
+    {
+      "representative": [
+        0,
+        9
+      ],
+      "kind": "cross_nonedge",
+      "size": 4,
+      "pairs": [
+        [
+          0,
+          9
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          4,
+          12
+        ]
+      ]
+    },
+    {
+      "representative": [
+        0,
+        10
+      ],
+      "kind": "edge",
+      "size": 4,
+      "pairs": [
+        [
+          0,
+          10
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          5,
+          12
+        ]
+      ]
+    },
+    {
+      "representative": [
+        0,
+        11
+      ],
+      "kind": "cross_nonedge",
+      "size": 4,
+      "pairs": [
+        [
+          0,
+          11
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          6,
+          12
+        ]
+      ]
+    },
+    {
+      "representative": [
+        0,
+        12
+      ],
+      "kind": "cross_nonedge",
+      "size": 2,
+      "pairs": [
+        [
+          0,
+          12
+        ],
+        [
+          2,
+          7
+        ]
+      ]
+    },
+    {
+      "representative": [
+        0,
+        13
+      ],
+      "kind": "cross_nonedge",
+      "size": 4,
+      "pairs": [
+        [
+          0,
+          13
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          5,
+          7
+        ]
+      ]
+    },
+    {
+      "representative": [
+        1,
+        3
+      ],
+      "kind": "same_side",
+      "size": 4,
+      "pairs": [
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          8,
+          10
+        ],
+        [
+          8,
+          13
+        ]
+      ]
+    },
+    {
+      "representative": [
+        1,
+        4
+      ],
+      "kind": "same_side",
+      "size": 4,
+      "pairs": [
+        [
+          1,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          9,
+          10
+        ],
+        [
+          9,
+          13
+        ]
+      ]
+    },
+    {
+      "representative": [
+        1,
+        5
+      ],
+      "kind": "same_side",
+      "size": 2,
+      "pairs": [
+        [
+          1,
+          5
+        ],
+        [
+          10,
+          13
+        ]
+      ]
+    },
+    {
+      "representative": [
+        1,
+        6
+      ],
+      "kind": "same_side",
+      "size": 4,
+      "pairs": [
+        [
+          1,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          10,
+          11
+        ],
+        [
+          11,
+          13
+        ]
+      ]
+    },
+    {
+      "representative": [
+        1,
+        8
+      ],
+      "kind": "cross_nonedge",
+      "size": 4,
+      "pairs": [
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          3,
+          13
+        ],
+        [
+          5,
+          8
+        ]
+      ]
+    },
+    {
+      "representative": [
+        1,
+        9
+      ],
+      "kind": "edge",
+      "size": 4,
+      "pairs": [
+        [
+          1,
+          9
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          4,
+          13
+        ],
+        [
+          5,
+          9
+        ]
+      ]
+    },
+    {
+      "representative": [
+        1,
+        10
+      ],
+      "kind": "cross_nonedge",
+      "size": 2,
+      "pairs": [
+        [
+          1,
+          10
+        ],
+        [
+          5,
+          13
+        ]
+      ]
+    },
+    {
+      "representative": [
+        1,
+        11
+      ],
+      "kind": "cross_nonedge",
+      "size": 4,
+      "pairs": [
+        [
+          1,
+          11
+        ],
+        [
+          5,
+          11
+        ],
+        [
+          6,
+          10
+        ],
+        [
+          6,
+          13
+        ]
+      ]
+    },
+    {
+      "representative": [
+        1,
+        13
+      ],
+      "kind": "edge",
+      "size": 2,
+      "pairs": [
+        [
+          1,
+          13
+        ],
+        [
+          5,
+          10
+        ]
+      ]
+    },
+    {
+      "representative": [
+        3,
+        4
+      ],
+      "kind": "same_side",
+      "size": 2,
+      "pairs": [
+        [
+          3,
+          4
+        ],
+        [
+          8,
+          9
+        ]
+      ]
+    },
+    {
+      "representative": [
+        3,
+        6
+      ],
+      "kind": "same_side",
+      "size": 2,
+      "pairs": [
+        [
+          3,
+          6
+        ],
+        [
+          8,
+          11
+        ]
+      ]
+    },
+    {
+      "representative": [
+        3,
+        8
+      ],
+      "kind": "cross_nonedge",
+      "size": 1,
+      "pairs": [
+        [
+          3,
+          8
+        ]
+      ]
+    },
+    {
+      "representative": [
+        3,
+        9
+      ],
+      "kind": "cross_nonedge",
+      "size": 2,
+      "pairs": [
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          8
+        ]
+      ]
+    },
+    {
+      "representative": [
+        3,
+        11
+      ],
+      "kind": "edge",
+      "size": 2,
+      "pairs": [
+        [
+          3,
+          11
+        ],
+        [
+          6,
+          8
+        ]
+      ]
+    },
+    {
+      "representative": [
+        4,
+        6
+      ],
+      "kind": "same_side",
+      "size": 2,
+      "pairs": [
+        [
+          4,
+          6
+        ],
+        [
+          9,
+          11
+        ]
+      ]
+    },
+    {
+      "representative": [
+        4,
+        9
+      ],
+      "kind": "cross_nonedge",
+      "size": 1,
+      "pairs": [
+        [
+          4,
+          9
+        ]
+      ]
+    },
+    {
+      "representative": [
+        4,
+        11
+      ],
+      "kind": "edge",
+      "size": 2,
+      "pairs": [
+        [
+          4,
+          11
+        ],
+        [
+          6,
+          9
+        ]
+      ]
+    },
+    {
+      "representative": [
+        6,
+        11
+      ],
+      "kind": "edge",
+      "size": 1,
+      "pairs": [
+        [
+          6,
+          11
+        ]
+      ]
+    }
+  ],
+  "all_pairs_checked": 91,
+  "group_closure_checked": true
+}

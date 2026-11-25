@@ -1,0 +1,36 @@
+{
+  "records": [
+    {
+      "path": "results/orch9775/tooling/DependencyCollector.lean",
+      "sha256": "c9c4f2b8cda10416c15c8c5ee04a1c4a36f2ce24a30dd0d95b61307a326f16d3",
+      "bytes": 1528
+    },
+    {
+      "path": "results/orch9775/tooling/DependencySmoke.lean",
+      "sha256": "b5c8a739cf508154f6bae8519d2af0d8f5115ad958c99d57b64296ad27b54b2e",
+      "bytes": 431
+    },
+    {
+      "path": "results/orch9775/tooling/9775-dependency-tool-second.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/tooling/9775-dependency-tool-second.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/tooling/9775-dependency-smoke.stdout",
+      "sha256": "8e46723e322c63e85627c5a116e17beb2da5d47aa009a82c989bec1a23142e82",
+      "bytes": 5528
+    },
+    {
+      "path": "results/orch9775/tooling/9775-dependency-smoke.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "status": "Collector export andsmoke driver both exit0; fixture includesuseddependencies andexcludesunuseddeclaration; realrelabel_Bplus yields74ownconstants",
+  "scope": "Meta tooling only, never part of finalproofsource. Source pruning still requires recompilation and retention of neededinstances/attributes/namespace structure."
+}

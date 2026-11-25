@@ -1,0 +1,167 @@
+{
+  "I": 4757,
+  "k": 3,
+  "relations": [
+    {
+      "x": 3,
+      "c": 5,
+      "strict": true,
+      "common_center": 12,
+      "witness": [
+        "exposed",
+        127,
+        2087,
+        7,
+        3,
+        5,
+        1
+      ]
+    },
+    {
+      "x": 3,
+      "c": 13,
+      "strict": false,
+      "common_center": null,
+      "witness": [
+        "two",
+        8297,
+        12,
+        7,
+        3,
+        13,
+        5
+      ]
+    },
+    {
+      "x": 5,
+      "c": 3,
+      "strict": true,
+      "common_center": 12,
+      "witness": [
+        "exposed",
+        127,
+        1102,
+        9,
+        5,
+        3,
+        1
+      ]
+    },
+    {
+      "x": 5,
+      "c": 8,
+      "strict": false,
+      "common_center": null,
+      "witness": [
+        "two",
+        314,
+        9,
+        12,
+        5,
+        8,
+        1
+      ]
+    },
+    {
+      "x": 5,
+      "c": 13,
+      "strict": false,
+      "common_center": null,
+      "witness": [
+        "two",
+        8297,
+        9,
+        12,
+        5,
+        13,
+        6
+      ]
+    },
+    {
+      "x": 8,
+      "c": 3,
+      "strict": false,
+      "common_center": null,
+      "witness": [
+        "two",
+        1290,
+        0,
+        2,
+        8,
+        3,
+        10
+      ]
+    },
+    {
+      "x": 8,
+      "c": 13,
+      "strict": true,
+      "common_center": 2,
+      "witness": [
+        "exposed",
+        9992,
+        9288,
+        0,
+        8,
+        13,
+        10
+      ]
+    },
+    {
+      "x": 13,
+      "c": 3,
+      "strict": false,
+      "common_center": null,
+      "witness": [
+        "two",
+        8488,
+        2,
+        4,
+        13,
+        3,
+        8
+      ]
+    },
+    {
+      "x": 13,
+      "c": 5,
+      "strict": false,
+      "common_center": null,
+      "witness": [
+        "two",
+        8488,
+        2,
+        4,
+        13,
+        5,
+        8
+      ]
+    },
+    {
+      "x": 13,
+      "c": 8,
+      "strict": true,
+      "common_center": 2,
+      "witness": [
+        "exposed",
+        9992,
+        1290,
+        4,
+        13,
+        8,
+        10
+      ]
+    }
+  ],
+  "exit_code": 20,
+  "clauses": 874,
+  "vars": 264,
+  "scope": "Necessary residualsetrelations; noactualcircuit/noLeanproof yet",
+  "calls": 22,
+  "variables": [
+    3,
+    5,
+    8,
+    13
+  ]
+}

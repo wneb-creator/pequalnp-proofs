@@ -1,0 +1,39 @@
+{
+  "matching": [
+    [
+      0,
+      8
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      2,
+      13
+    ],
+    [
+      3,
+      11
+    ],
+    [
+      4,
+      10
+    ],
+    [
+      5,
+      12
+    ],
+    [
+      6,
+      9
+    ]
+  ],
+  "size": 7,
+  "checked_edges": true,
+  "c4_free_bipartite_common_neighbor_check": true,
+  "edge_count": 19,
+  "read1_bound_source": "L_meta_2237",
+  "derived_minimum_read1_gate_count": 25,
+  "formal_finite_premise_wrapper_built": false
+}

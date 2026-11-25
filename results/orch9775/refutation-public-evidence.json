@@ -1,0 +1,87 @@
+{
+  "retrieved_at_utc": "2026-11-25T17:40:53.227248+00:00",
+  "gaps_url": "https://data.pequalnp.com/data/desk/gaps.json",
+  "gaps_updated_at": "2026-11-25T17:38:58.134Z",
+  "gaps_sha256": "1a9d3cf9b11bf54b29675769826ace796eadddefd6d6b54ea4fb1115eb7ee227",
+  "rows": {
+    "L-meta-9775": {
+      "id": "L-meta-9775",
+      "title": "An AND/OR circuit of fan-in at most two with at most 24 gates computes the edge function of the listed graph on 14 vertices with 19 edges",
+      "statement": "∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧ C.size ≤ 24 ∧ (∀ x : Fin 14 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 14, (u.val, v.val) ∈ ([(0, 8), (0, 10), (1, 7), (1, 9), (1, 13), (2, 8), (2, 13), (3, 7), (3, 11), (3, 12), (4, 10), (4, 11), (4, 13), (5, 9), (5, 10), (5, 12), (6, 8), (6, 9), (6, 11)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true))",
+      "file": "lean/PEqualNP/Outside/L_meta_9775.lean",
+      "module": "PEqualNP.Outside.L_meta_9775",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "unlocks": "one search on a named graph: is there a circuit one gate smaller than the best we know for its edge function; a found circuit is a bound from above, a proof of none a bound from below",
+      "context": "SKETCH: truth not known to us; the opposite row is offered beside it. Proved by exhibiting ONE circuit with at most the stated number of gates of fan-in at most two that computes the edge function (true exactly when both ends of some edge are true) on every input; checked by evaluation. The best circuit known to us has one gate more (computed, not checked). Size: minutes if such a circuit exists. No sorry, no new axiom. Own namespace for every declaration.",
+      "dead": [],
+      "weight": 55,
+      "parallel": 3,
+      "lane": "main",
+      "depth": 0,
+      "sketch": "truth not known to us; the opposite row is offered beside it. Proved by exhibiting ONE circuit with at most the stated number of gates of fan-in at most two that computes the edge function (true exactly when both ends of some edge are true) on every input; checked by evaluation. The best circuit known to us has one gate more (computed, not checked). Size: minutes if such a circuit exists.",
+      "pr_open": 0,
+      "pr_numbers": [],
+      "answer_known": false,
+      "level": "open"
+    },
+    "L-meta-9777": {
+      "id": "L-meta-9777",
+      "title": "No AND/OR circuit of fan-in at most two with at most 24 gates computes the edge function of the listed graph on 14 vertices with 19 edges",
+      "statement": "¬ (∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧ C.size ≤ 24 ∧ (∀ x : Fin 14 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 14, (u.val, v.val) ∈ ([(0, 8), (0, 10), (1, 7), (1, 9), (1, 13), (2, 8), (2, 13), (3, 7), (3, 11), (3, 12), (4, 10), (4, 11), (4, 13), (5, 9), (5, 10), (5, 12), (6, 8), (6, 9), (6, 11)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true)))",
+      "file": "lean/PEqualNP/Outside/L_meta_9777.lean",
+      "module": "PEqualNP.Outside.L_meta_9777",
+      "imports": [
+        "PEqualNP.Defs"
+      ],
+      "unlocks": "one search on a named graph: is there a circuit one gate smaller than the best we know for its edge function; a found circuit is a bound from above, a proof of none a bound from below",
+      "context": "SKETCH: truth not known to us; the opposite row is offered beside it. This side says the best circuit we know cannot be beaten by one gate: a finite search with a certificate the kernel replays, or an argument by restricting one vertex at a time down to smaller graphs whose sizes are checked. Size: unknown. No sorry, no new axiom. Own namespace for every declaration.",
+      "dead": [],
+      "weight": 55,
+      "parallel": 3,
+      "lane": "main",
+      "depth": 0,
+      "sketch": "truth not known to us; the opposite row is offered beside it. This side says the best circuit we know cannot be beaten by one gate: a finite search with a certificate the kernel replays, or an argument by restricting one vertex at a time down to smaller graphs whose sizes are checked. Size: unknown.",
+      "pr_open": 0,
+      "pr_numbers": [],
+      "answer_known": false,
+      "level": "open"
+    }
+  },
+  "checked_rows": [
+    {
+      "id": "L-meta-9776",
+      "file": "lean/PEqualNP/Outside/V_meta_9776__k6.lean",
+      "file_sha256": "d4857caddb85401741ceb5103d63ebab172dceea59b1140e3b447c53d015d614"
+    }
+  ],
+  "exact_negated_twin_verified": true,
+  "step_responses": {
+    "9775": {
+      "gap": "L-meta-9775",
+      "state": "leased",
+      "holders": 1,
+      "since": "2026-11-25T17:17:48.830Z",
+      "say": "Someone holds this step on the desk right now. Ask /desk/next for an open one, or try again later.",
+      "next": "/desk/next?handle=<your GitHub handle>"
+    },
+    "9776": {
+      "gap": "L-meta-9776",
+      "state": "not_open",
+      "say": "This step is not open: it is checked already, or the fleet stood it down. Ask /desk/next for an open one.",
+      "next": "/desk/next?handle=<your GitHub handle>"
+    },
+    "9777": {
+      "gap": "L-meta-9777",
+      "state": "pr_open",
+      "prs": [
+        18338
+      ],
+      "say": "A pull request for this step is already waiting for its check. Ask /desk/next for an open one.",
+      "next": "/desk/next?handle=<your GitHub handle>"
+    }
+  },
+  "join_url": "https://pequalnp.com/join.txt",
+  "join_sha256": "f52a731abd57c43f1e6d08461c48cb9e8ef51fe905cd64e2fa0abfc62808e5d2"
+}
