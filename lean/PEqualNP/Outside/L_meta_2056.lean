@@ -258,6 +258,77 @@ lemma addRow_output (n : ℕ) (D : Circuit) (p a b c d : ℕ) :
   change n + D.size + 4 < n + (D.size + 5)
   omega
 
+def addRowReuse (n : ℕ) (D : Circuit) (p q c d : ℕ) : Circuit :=
+  let k := n + D.size
+  ⟨D.gates ++ [⟨GateOp.or, [c,d]⟩, ⟨GateOp.or, [q,k]⟩,
+    ⟨GateOp.and, [p,k+1]⟩, ⟨GateOp.or, [D.output,k+2]⟩], k+3⟩
+
+lemma addRowReuse_size (n : ℕ) (D : Circuit) (p q c d : ℕ) :
+    (addRowReuse n D p q c d).size = D.size + 4 := by
+  simp [addRowReuse, Circuit.size]
+
+lemma addRowReuse_monotone (n : ℕ) (D : Circuit) (p q c d : ℕ)
+    (hD : Monotone2 D) : Monotone2 (addRowReuse n D p q c d) := by
+  intro g hg
+  simp only [addRowReuse, List.mem_append, List.mem_cons, List.not_mem_nil, or_false] at hg
+  rcases hg with h | rfl | rfl | rfl | rfl
+  · exact hD g h
+  all_goals simp
+
+set_option maxHeartbeats 800000 in
+lemma row_reuse_run (w : List Bool) (p q c d out : ℕ)
+    (hp : p < w.length) (hq : q < w.length) (hout : out < w.length) :
+    let k := w.length
+    let gs : List Gate := [⟨GateOp.or, [c,d]⟩, ⟨GateOp.or, [q,k]⟩,
+      ⟨GateOp.and, [p,k+1]⟩, ⟨GateOp.or, [out,k+2]⟩]
+    (gs.foldl (fun v g => v ++ [g.op.eval (g.inputs.map fun i => v.getD i false)])
+      w).getD (k+3) false =
+      (w.getD out false || (w.getD p false &&
+        (w.getD q false || (w.getD c false || w.getD d false)))) := by
+  simp only [List.foldl_cons, List.foldl_nil, List.map_cons, List.map_nil,
+    GateOp.eval, List.any_cons, List.any_nil, List.all_cons, List.all_nil,
+    id_eq, Bool.or_false, Bool.and_true]
+  simp only [List.append_assoc, List.cons_append, List.nil_append,
+    row_getD_append _ _ _ hq, row_getD_append _ _ _ hp,
+    row_getD_append _ _ _ hout, row_getD_new, row_getD_at]
+  simp
+
+lemma addRowReuse_eval (n : ℕ) (D : Circuit) (p q c d : ℕ)
+    (x : List Bool) (hx : x.length = n)
+    (hp : p < n) (hq : q < n + D.size) (hc : c < n) (hd : d < n)
+    (hout : D.output < n + D.size) :
+    (addRowReuse n D p q c d).eval x =
+      (D.eval x || (x.getD p false &&
+        ((D.wires x).getD q false || (x.getD c false || x.getD d false)))) := by
+  have hw : (D.wires x).length = n + D.size := by simp [row_wires_length, hx]
+  have hi (i : ℕ) (h : i < n) : (D.wires x).getD i false = x.getD i false :=
+    row_input D x i (by omega)
+  have hh := row_reuse_run (D.wires x) p q c d D.output
+    (by omega) (by omega) (by omega)
+  simp only [hw, hi p hp, hi c hc, hi d hd] at hh
+  simpa only [addRowReuse, Circuit.eval, Circuit.wires, List.foldl_append] using hh
+
+lemma addRowReuse_conditional (n : ℕ) (D : Circuit) (p q a b c d : ℕ)
+    (x : List Bool) (hx : x.length = n)
+    (hp : p < n) (hq : q < n + D.size) (hc : c < n) (hd : d < n)
+    (hout : D.output < n + D.size)
+    (hreuse : D.eval x = false →
+      (D.wires x).getD q false = (x.getD a false || x.getD b false)) :
+    (addRowReuse n D p q c d).eval x =
+      (D.eval x || (x.getD p false &&
+        ((x.getD a false || x.getD b false) ||
+          (x.getD c false || x.getD d false)))) := by
+  rw [addRowReuse_eval n D p q c d x hx hp hq hc hd hout]
+  cases he : D.eval x with
+  | false => rw [hreuse he]
+  | true => simp
+
+lemma addRowReuse_output (n : ℕ) (D : Circuit) (p q c d : ℕ) :
+    (addRowReuse n D p q c d).output < n + (addRowReuse n D p q c d).size := by
+  rw [addRowReuse_size]
+  change n + D.size + 3 < n + (D.size + 4)
+  omega
+
 def pgLine (p : Fin 13) (t : ℕ) : ℕ := 13 + ((t + 13 - p.val) % 13)
 
 def pgAddRow (D : Circuit) (p : Fin 13) : Circuit :=
