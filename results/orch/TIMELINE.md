@@ -14,3 +14,5 @@
 - 2026-11-25T19:06:29.170814+00:00: four more helper files compiled and passed independent review; preserving checkpoint2.
 - 2026-11-25T19:06:56.370212+00:00: restriction abstraction counterexample compiled; proof-route obstruction,not gap refutation.
 - 2026-11-25T19:07:10.375524+00:00: two concrete examples compiled and passed independent review; preserving checkpoint3.
+- 2026-11-25T19:08:37.796981+00:00: lease renewed; expires 2026-11-25T19:28:37.405Z.
+- 2026-11-25T19:08:42.848222+00:00: normalization, ordered two-junk normal form and nonempty-edge bridge checked/reviewed; checkpoint4.

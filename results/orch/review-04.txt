@@ -1,0 +1,5 @@
+Independent reviews:
+- pilot176_status cleared target new junk_card_le_size and edge_exists_of_nonempty_junk; target54 lines builds.
+- structural cleared inventory_normalize.lean1435 lines; base helper extraction matches L_meta_1501 after namespace change, wrapper preserves size and junk.
+- proof_inventory cleared structural_normal_form.lean608 lines; ordered two-junk gate semantics proved without extra flag assumptions.
+All are partial proofs, not the posted theorem.
