@@ -48,3 +48,6 @@ CHECKED: `results/orch/lemmas/exchange_readonce.lean` passed Lean (exit 0). New 
 Matching exact optimum compiled (original 685 lines; first cleanup 514 lines). Full logs: /tmp/oec/pequalnp-pilot-59/constructive_matching_compact.stdout and .stderr. Now extending from explicit edge list to intrinsic max-degree-at-most-one hypothesis, via oriented edge enumeration and endpoint-disjointness.
 
 Research read 2026-11-25: Jukna, Disproving the Single Level Conjecture, https://web.vu.lt/mif/s.jukna/ftp/single1.pdf. It proves large general gaps between single-level and unrestricted quadratic monotone circuits, using saturated graph constructions; these have triangles and do not directly settle the leased triangle/C4-free problem. Exact single-level normalization must not be assumed merely because the target function is quadratic.
+
+## Constructive strategy 2026-11-25T02:32:06.945500+00:00
+Intrinsic maximum-degree-one result now compiles too. `Matching.degree_one_optimal` proves the entire posted ownership/minimality conclusion from `∀ u v w, G.Adj u v → G.Adj u w → v = w`, via a fully proved oriented-edge enumeration. File: results/orch/lemmas/constructive_matching_compact.lean; Lean exit 0. This is only a matching-graph subclass, not the unrestricted L-meta-1031 theorem.

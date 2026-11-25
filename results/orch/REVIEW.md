@@ -94,3 +94,54 @@ computes its claimed graph function and every AND owns a nonempty star. Twelve
 five-input graphs remained unfound at depth six. Full independent evaluator
 output is saved in `/tmp/oec/pequalnp-pilot-59/independent-finite-review.stdout`
 and `.stderr`.
+
+## Positive-formula and intrinsic matching extensions
+
+Reviewed the 159-line `PEqualNP.Outside.L_meta_1031.ReadOnce` namespace from
+`results/orch/lemmas/exchange_readonce.lean`, SHA256
+`593215adc411a3f1ce41e6d8fda5cf39e3250998095b195651da2929ec401002`.
+The compiler recursively emits a fan-in-two monotone circuit with exactly one
+fewer gate than the formula's leaf count, preserving all original input wires
+while combining the two compiled subformulas. `compact_formula_minimum`
+assumes a positive formula representing the graph function whose leaf count
+does not exceed the number of nonisolated vertices. The essential-input lower
+bound then proves its compiled circuit globally minimum among the posted
+monotone competitors. This is a conditional minimality result; it does not
+establish such a formula for arbitrary graphs or assert the ownership property.
+No mathematical-contract issue found.
+
+Reviewed `degree_one_edge_list` and `degree_one_optimal` added to the Matching
+namespace in the 591-line version of
+`results/orch/lemmas/constructive_matching_compact.lean`. The full Matching
+block has SHA256
+`fb7a0f70ef6d73999fdf2ed10c890e2821a252f9b07ed73cb088ff02a03a2829`;
+the added declarations through the closing namespace have SHA256
+`31e74108a0c7590fbba805b504c21d00d931585e13fbf305014bd4e0e580dade`.
+The prior Matching declarations are byte-identical to the earlier reviewed
+block. Orienting edges by the strict vertex order gives one representative per
+edge; the intrinsic at-most-one-neighbor hypothesis implies distinct edges
+have disjoint endpoints. The previously reviewed matching theorem therefore
+supplies full minimality and ownership under that intrinsic hypothesis.
+
+Both namespaces pass the updated source guard except for the expected absent
+final theorem. Review passes for a partial checkpoint after the combined named
+Lean build succeeds. The owning agent confirmed its latest successful compile
+covers the exact 591-line compact source; the earlier 599-line count was stale.
+
+## Recording the actual local-checker verdict for a partial
+
+After renewing the lease, the root can run the normal checker on the exact
+posted statement and the partial target. Set `PEQUALNP_REAL_LAKE` to the
+task-local Lean 4.36.0 `bin/lake`, `PEQUALNP_HOME` to the task-local build queue,
+and prepend that toolchain's `bin` to `PATH`. From the repository root run:
+
+```sh
+node tools/check-lean.mjs lean/PEqualNP/Outside/L_meta_1031.lean /tmp/oec/pequalnp-pilot-59/statement.txt check
+```
+
+Capture complete stdout and stderr separately and preserve the actual exit
+status. The verifier's expected result for this theorem-free partial is
+`REJECTED (no-theorem)`, exit 1; that remains an expectation until observed.
+The format guard separately refuses the absent theorem. Neither result may be
+reported as acceptance, even when every helper compiles. Any checker fault
+must be recorded as a fault rather than replaced with the expected rejection.

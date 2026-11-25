@@ -3229,6 +3229,83 @@ lemma matching_optimal (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
       (fun g hg => (hD g hg).2) hDeval
     omega
 
+lemma degree_one_edge_list (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hdegree : ∀ u v w, G.Adj u v → G.Adj u w → v = w) :
+    ∃ es : List (Fin n × Fin n),
+      (∀ u v, G.Adj u v ↔ (u, v) ∈ es ∨ (v, u) ∈ es) ∧
+      (es.flatMap (fun p => [p.1, p.2])).Nodup := by
+  classical
+  let E := Finset.univ.filter (fun p : Fin n × Fin n => G.Adj p.1 p.2 ∧ p.1.val < p.2.val)
+  let es := E.toList
+  have hmem (p : Fin n × Fin n) : p ∈ es ↔ G.Adj p.1 p.2 ∧ p.1.val < p.2.val := by
+    simp [es, E]
+  refine ⟨es, ?_, ?_⟩
+  · intro u v
+    constructor
+    · intro huv
+      have hne : u.val ≠ v.val := fun h => G.ne_of_adj huv (Fin.ext h)
+      rcases Nat.lt_or_gt_of_ne hne with h | h
+      · exact Or.inl ((hmem _).mpr ⟨huv, h⟩)
+      · exact Or.inr ((hmem _).mpr ⟨huv.symm, h⟩)
+    · rintro (h | h)
+      · exact ((hmem _).mp h).1
+      · exact ((hmem _).mp h).1.symm
+  · apply List.nodup_flatMap.mpr
+    constructor
+    · intro p hp
+      have hne : p.1 ≠ p.2 := fun h => by
+        have hlt := ((hmem p).mp hp).2
+        rw [h] at hlt
+        omega
+      simp [hne]
+    · apply E.nodup_toList.pairwise_of_forall_ne
+      intro p hp q hq hpq
+      change List.Disjoint [p.1, p.2] [q.1, q.2]
+      apply List.disjoint_left.mpr
+      intro x hx hy
+      obtain ⟨hpedge, hplt⟩ := (hmem p).mp hp
+      obtain ⟨hqedge, hqlt⟩ := (hmem q).mp hq
+      rcases p with ⟨a, b⟩
+      rcases q with ⟨c, d⟩
+      simp only [Prod.fst, Prod.snd] at *
+      simp only [List.mem_cons, List.not_mem_nil, or_false] at hx hy
+      rcases hx with hxa | hxb
+      · subst x
+        rcases hy with h | h
+        · subst c
+          have hbd := hdegree a b d hpedge hqedge
+          exact hpq (Prod.ext rfl hbd)
+        · subst d
+          have hbc := hdegree a b c hpedge hqedge.symm
+          subst c
+          omega
+      · subst x
+        rcases hy with h | h
+        · subst c
+          have had := hdegree b a d hpedge.symm hqedge
+          subst d
+          omega
+        · subst d
+          have hac := hdegree b a c hpedge.symm hqedge.symm
+          exact hpq (Prod.ext hac rfl)
+
+lemma degree_one_optimal (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hdegree : ∀ u v w, G.Adj u v → G.Adj u w → v = w) :
+    ∃ C : Circuit,
+      (∀ g ∈ C.gates, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
+      (∀ x : Fin n → Bool, C.eval (List.ofFn x) =
+        decide (∃ i j : Fin n, G.Adj i j ∧ x i = true ∧ x j = true)) ∧
+      (∀ D : Circuit,
+        (∀ g ∈ D.gates, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) →
+        (∀ x : Fin n → Bool, D.eval (List.ofFn x) =
+          decide (∃ i j : Fin n, G.Adj i j ∧ x i = true ∧ x j = true)) → C.size ≤ D.size) ∧
+      ∀ t g, C.gates[t]? = some g → g.op = GateOp.and →
+        ∃ c : Fin n, (∃ u v : Fin n, G.Adj u v ∧ OwnsPair n C t u v) ∧
+          ∀ u v : Fin n, G.Adj u v → OwnsPair n C t u v → u = c ∨ v = c := by
+  obtain ⟨es, he, hd⟩ := degree_one_edge_list n G hdegree
+  obtain ⟨C, _, hC⟩ := matching_optimal n G es he hd
+  exact ⟨C, hC⟩
+
 end PEqualNP.Outside.L_meta_1031.Matching
 
 namespace PEqualNP.Outside.L_meta_1031_aux.Maximal
@@ -3738,3 +3815,163 @@ lemma minimum_top_gate_sound (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G
   exact hout
 
 end PEqualNP.Outside.L_meta_1031_aux.Maximal
+
+namespace PEqualNP.Outside.L_meta_1031.ReadOnce
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_1031.StarLower
+
+def positive {n : ℕ} : DMFormula n → Prop
+  | .lit _ b => b = true
+  | .and a b => positive a ∧ positive b
+  | .or a b => positive a ∧ positive b
+
+lemma leaves_pos {n : ℕ} (f : DMFormula n) : 0 < f.leaves := by
+  induction f with
+  | lit i b => simp [DMFormula.leaves]
+  | and a b ha hb => simp only [DMFormula.leaves]; omega
+  | or a b ha hb => simp only [DMFormula.leaves]; omega
+
+lemma compile {n : ℕ} (f : DMFormula n) (hf : positive f) :
+    ∀ m : ℕ, n ≤ m → ∃ (gs : List Gate) (o : ℕ),
+      gs.length + 1 = f.leaves ∧
+      (∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
+      o < m + gs.length ∧
+      ∀ w : List Bool, w.length = m →
+        (run gs w).getD o false = f.eval (fun i => w.getD i.val false) := by
+  induction f with
+  | lit i b =>
+    intro m hnm
+    have hb : b = true := hf
+    subst b
+    refine ⟨[], i.val, rfl, by simp, by have := i.isLt; simp; omega, ?_⟩
+    intro w hw
+    rfl
+  | and a b ia ib =>
+    intro m hnm
+    obtain ⟨ga, oa, hla, hga, hoa, hea⟩ := ia hf.1 m hnm
+    obtain ⟨gb, ob, hlb, hgb, hob, heb⟩ := ib hf.2 (m + ga.length) (by omega)
+    let g : Gate := ⟨GateOp.and, [oa, ob]⟩
+    refine ⟨ga ++ gb ++ [g], m + ga.length + gb.length, ?_, ?_, ?_, ?_⟩
+    · simp only [List.length_append, List.length_singleton, DMFormula.leaves]
+      omega
+    · intro h hh
+      rcases List.mem_append.mp hh with hh | hh
+      · rcases List.mem_append.mp hh with hh | hh
+        · exact hga h hh
+        · exact hgb h hh
+      · have he : h = g := by simpa using hh
+        subst h
+        simp [g]
+    · simp only [List.length_append, List.length_singleton]
+      omega
+    · intro w hw
+      let wa := run ga w
+      let wb := run gb wa
+      have hwa : wa.length = m + ga.length := by simp [wa, run_length, hw]
+      have hwb : wb.length = m + ga.length + gb.length := by simp [wb, run_length, hwa]
+      have hgetA : wb.getD oa false = a.eval (fun i => w.getD i.val false) := by
+        rw [run_read gb wa oa (by omega)]
+        exact hea w hw
+      have hgetB : wb.getD ob false = b.eval (fun i => w.getD i.val false) := by
+        rw [heb wa hwa]
+        congr 1
+        funext i
+        exact run_read ga w i.val (by have := i.isLt; omega)
+      rw [run_append, run_append]
+      change (wb ++ [g.op.eval (g.inputs.map fun i => wb.getD i false)]).getD
+        (m + ga.length + gb.length) false = _
+      rw [← hwb, getD_snoc]
+      simp only [lt_self_iff_false, ↓reduceIte, g, GateOp.eval,
+        List.map_cons, List.map_nil, List.all_cons, List.all_nil, id_eq,
+        Bool.and_true, DMFormula.eval]
+      exact congrArg₂ Bool.and hgetA hgetB
+  | or a b ia ib =>
+    intro m hnm
+    obtain ⟨ga, oa, hla, hga, hoa, hea⟩ := ia hf.1 m hnm
+    obtain ⟨gb, ob, hlb, hgb, hob, heb⟩ := ib hf.2 (m + ga.length) (by omega)
+    let g : Gate := ⟨GateOp.or, [oa, ob]⟩
+    refine ⟨ga ++ gb ++ [g], m + ga.length + gb.length, ?_, ?_, ?_, ?_⟩
+    · simp only [List.length_append, List.length_singleton, DMFormula.leaves]
+      omega
+    · intro h hh
+      rcases List.mem_append.mp hh with hh | hh
+      · rcases List.mem_append.mp hh with hh | hh
+        · exact hga h hh
+        · exact hgb h hh
+      · have he : h = g := by simpa using hh
+        subst h
+        simp [g]
+    · simp only [List.length_append, List.length_singleton]
+      omega
+    · intro w hw
+      let wa := run ga w
+      let wb := run gb wa
+      have hwa : wa.length = m + ga.length := by simp [wa, run_length, hw]
+      have hwb : wb.length = m + ga.length + gb.length := by simp [wb, run_length, hwa]
+      have hgetA : wb.getD oa false = a.eval (fun i => w.getD i.val false) := by
+        rw [run_read gb wa oa (by omega)]
+        exact hea w hw
+      have hgetB : wb.getD ob false = b.eval (fun i => w.getD i.val false) := by
+        rw [heb wa hwa]
+        congr 1
+        funext i
+        exact run_read ga w i.val (by have := i.isLt; omega)
+      rw [run_append, run_append]
+      change (wb ++ [g.op.eval (g.inputs.map fun i => wb.getD i false)]).getD
+        (m + ga.length + gb.length) false = _
+      rw [← hwb, getD_snoc]
+      simp only [lt_self_iff_false, ↓reduceIte, g, GateOp.eval,
+        List.map_cons, List.map_nil, List.any_cons, List.any_nil, id_eq,
+        Bool.or_false, DMFormula.eval]
+      exact congrArg₂ Bool.or hgetA hgetB
+
+lemma active_lower (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hfan : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (hc : ∀ x : Fin n → Bool, C.eval (List.ofFn x) =
+      decide (∃ u v : Fin n, G.Adj u v ∧ x u = true ∧ x v = true)) :
+    (Finset.univ.filter (fun v => ∃ u, G.Adj v u)).card ≤ C.size + 1 := by
+  classical
+  let V := Finset.univ.filter (fun v => ∃ u, G.Adj v u)
+  let T := V.image Fin.val
+  have hb := essential_subset_bound n C T hfan (by
+    intro i hi
+    obtain ⟨v, hv, rfl⟩ := Finset.mem_image.mp hi
+    obtain ⟨u, hu⟩ := (Finset.mem_filter.mp hv).2
+    exact adjacent_vertex_essential n G C hc v u hu)
+  have he : T.card = V.card := Finset.card_image_of_injective _ Fin.val_injective
+  rwa [he] at hb
+
+lemma compact_formula_minimum (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (f : DMFormula n) (hf : positive f)
+    (heval : ∀ x : Fin n → Bool, f.eval x =
+      decide (∃ u v : Fin n, G.Adj u v ∧ x u = true ∧ x v = true))
+    (hleaves : f.leaves ≤ (Finset.univ.filter (fun v => ∃ u, G.Adj v u)).card) :
+    ∃ C : Circuit, Monotone2 C ∧
+      (∀ x : Fin n → Bool, C.eval (List.ofFn x) =
+        decide (∃ u v : Fin n, G.Adj u v ∧ x u = true ∧ x v = true)) ∧
+      (∀ D : Circuit, Monotone2 D →
+        (∀ x : Fin n → Bool, D.eval (List.ofFn x) =
+          decide (∃ u v : Fin n, G.Adj u v ∧ x u = true ∧ x v = true)) →
+        C.size ≤ D.size) ∧ C.size + 1 = f.leaves := by
+  classical
+  obtain ⟨gs, o, hlen, hgs, ho, he⟩ := compile f hf n le_rfl
+  let C : Circuit := ⟨gs, o⟩
+  have hm : Monotone2 C := by
+    intro g hg
+    obtain ⟨hop, hfan⟩ := hgs g hg
+    refine ⟨?_, hfan⟩
+    simpa using hop
+  have hc : ∀ x : Fin n → Bool, C.eval (List.ofFn x) =
+      decide (∃ u v : Fin n, G.Adj u v ∧ x u = true ∧ x v = true) := by
+    intro x
+    change (run gs (List.ofFn x)).getD o false = _
+    rw [he _ (by simp)]
+    simpa using heval x
+  refine ⟨C, hm, hc, ?_, hlen⟩
+  intro D hD hDe
+  have hb := active_lower n G D (fun g hg => (hD g hg).2) hDe
+  change gs.length ≤ D.size
+  omega
+
+end PEqualNP.Outside.L_meta_1031.ReadOnce

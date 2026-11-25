@@ -12,3 +12,4 @@
 2026-11-25T02:31:00.747575+00:00 — ownership_exchange checked positive-formula compiler and incident-vertex optimality criterion.
 2026-11-25T02:31:22.292043+00:00 — constructive matching component compiled; cleanup from 685 to 514 lines also compiled.
 2026-11-25T02:31:37.775331+00:00 — combined matching/maximal partial build PASS; independent review complete.
+2026-11-25T02:33:32.415888+00:00 — expanded partial build PASS; third checkpoint.

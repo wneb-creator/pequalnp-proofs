@@ -14,3 +14,8 @@ New minimum_top_gate_sound: soundness of gates with only OR descendants.
 Both independently reviewed in REVIEW.md. Full posted theorem still unproved.
 Matching standalone cleanup: 685 -> 514 lines, both compile; extension unchanged.
 TIMING total=9.1 subagents=6
+
+2026-11-25 02:33 UTC checkpoint: expanded target 3977 lines, named build PASS.
+New intrinsic degree-one matching theorem; positive formula compiler/minimality criterion.
+Independent review in REVIEW.md. No final posted theorem.
+TIMING total=11 subagents=6
