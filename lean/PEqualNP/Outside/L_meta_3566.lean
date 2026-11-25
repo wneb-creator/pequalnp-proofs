@@ -4196,3 +4196,104 @@ lemma and_and_restriction {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Ad
     hjop hz hkop hkread hlread
 
 end PEqualNP.Outside.L_meta_3566.AndFrontier
+
+namespace PEqualNP.Outside.L_meta_3566.Absorption
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge
+open PEqualNP.Outside.L_meta_3566.LeafStep.Pruning
+
+lemma erase_alias_family (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (J : Finset ℕ) (hJ : J ⊆ Finset.range C.size) (s : ℕ)
+    (hs : ∀ j ∈ J, s < n + j)
+    (heq : ∀ j ∈ J, ∀ x : Fin n → Bool,
+      wireVal n C (n + j) x = wireVal n C s x) :
+    ∃ D : Circuit, IsAO2 n D ∧ circuitFun n D = circuitFun n C ∧
+      D.size + J.card ≤ C.size := by
+  classical
+  by_cases ho : C.output < n + C.size
+  · let K := Finset.range C.size \ J
+    let red : ℕ → Src n ℕ := fun w =>
+      if n ≤ w ∧ w - n ∈ J then srcOf n s else srcOf n w
+    let P : Prog n ℕ := progOf C fun i b => red (opnd C i b)
+    let v : ℕ → (Fin n → Bool) → Bool := fun i x => gateVal n C i x
+    have hmem (i : ℕ) (hi : i < C.size) (b : Fin 2) :
+        opnd C i b ∈ (gateAt C i).inputs := by
+      have hg : gateAt C i ∈ C.gates :=
+        FalseRestrict.list_getD_mem C.gates i _ hi
+      have hlen := hC.2.2 _ hg
+      obtain ⟨a, d, h⟩ := List.length_eq_two.mp hlen
+      fin_cases b <;> simp [opnd, h]
+    have hred (w j : ℕ) (hw : w < n + C.size)
+        (h : red w = some (Sum.inr j)) : j ∈ K := by
+      dsimp [red] at h
+      split_ifs at h with hcase
+      · have hj := srcOf_inr s j h
+        have hsj := hs (w - n) hcase.2
+        have hwj : w - n < C.size := Finset.mem_range.mp (hJ hcase.2)
+        apply Finset.mem_sdiff.mpr
+        refine ⟨Finset.mem_range.mpr (by omega), ?_⟩
+        intro hjJ
+        have hlt := hs j hjJ
+        omega
+      · have hj := srcOf_inr w j h
+        apply Finset.mem_sdiff.mpr
+        refine ⟨Finset.mem_range.mpr (by omega), ?_⟩
+        intro hjJ
+        apply hcase
+        refine ⟨by omega, ?_⟩
+        have hsub : w - n = j := by omega
+        simpa only [hsub] using hjJ
+    have hcl : Closed P id K := by
+      intro i hi b j h
+      have hi' : i < C.size := Finset.mem_range.mp (Finset.mem_sdiff.mp hi).1
+      have hb := hC.2.1 i hi' (opnd C i b) (hmem i hi' b)
+      change red (opnd C i b) = some (Sum.inr j) at h
+      refine ⟨hred _ j (by omega) h, ?_⟩
+      dsimp [red] at h
+      split_ifs at h with hcase
+      · have hj := srcOf_inr s j h
+        have hsj := hs (opnd C i b - n) hcase.2
+        change j < i
+        omega
+      · have hj := srcOf_inr (opnd C i b) j h
+        change j < i
+        omega
+    have hval (w : ℕ) (x : Fin n → Bool) :
+        srcAt x (fun j => v j x) (red w) = wireVal n C w x := by
+      dsimp [red, v]
+      split_ifs with hcase
+      · rw [srcAt_srcOf]
+        have hw : n + (w - n) = w := by omega
+        simpa only [hw] using (heq (w - n) hcase.2 x).symm
+      · exact srcAt_srcOf C w x
+    have hsol : Sol P K v := by
+      intro x i hi
+      have hi' : i < C.size := Finset.mem_range.mp (Finset.mem_sdiff.mp hi).1
+      change gateVal n C i x = opv (isA (gateAt C i).op)
+        (srcAt x (fun j => v j x) (red (opnd C i 0)))
+        (srcAt x (fun j => v j x) (red (opnd C i 1)))
+      rw [hval, hval]
+      exact gate_eq C hC i hi' x
+    have hout : ∀ j, red C.output = some (Sum.inr j) → j ∈ K :=
+      fun j h => hred C.output j ho h
+    obtain ⟨D, hD, hsize, hfun⟩ := fold_total P id v K hcl hsol (red C.output) hout
+    have hcard : K.card + J.card = C.size := by
+      simpa [K] using Finset.card_sdiff_add_card_eq_card hJ
+    have hkept : (kept P v K).card ≤ K.card := Finset.card_filter_le _ _
+    refine ⟨D, hD, ?_, by omega⟩
+    funext x
+    rw [hfun x, hval]
+    rfl
+  · refine ⟨⟨[], n⟩, zero_ao n, ?_, ?_⟩
+    · funext x
+      rw [zero_fun]
+      have hlen : (C.wires (List.ofFn x)).length = n + C.size := by
+        rw [SharedRewrite.wires_eq_foldl, SharedRewrite.foldl_stepWire_length]
+        simp [Circuit.size]
+      change false = (C.wires (List.ofFn x)).getD C.output false
+      rw [List.getD_eq_default _ _ (by omega)]
+    · have hcard := Finset.card_le_card hJ
+      simpa [Circuit.size] using hcard
+
+end PEqualNP.Outside.L_meta_3566.Absorption
