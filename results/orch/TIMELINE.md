@@ -43,3 +43,5 @@
 2026-11-25T01:31:51.113761+00:00 — Brief environment restart preserved files but lost process sessions. Root restarted the timer and renewed1342 through01:48:20UTC.22-gate baseline has exhaustive Python truth-table validation; Lean proof method under verification. No21-gate witness or full result yet.
 
 2026-11-25T01:35:08.732278+00:00 — L1342 composition partial named build passed in2.3s; immediate independent review requested before push. Full21-gate goal remains unresolved.
+
+2026-11-25T01:44:32.804504+00:00 — Full22-gate baseline correctness passed the named Lean build in4.6s. The successful proof expands the Boolean formula, distributes conjunction, then uses associativity/commutativity; no exhaustive native computation.21-gate target remains open.

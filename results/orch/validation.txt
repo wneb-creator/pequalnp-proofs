@@ -46,3 +46,5 @@ TIMING total=126.4 subagents=7
 L1342 PARTIAL ONLY: named lake build PEqualNP.Outside.L_meta_1342 PASS2.3s,5147jobs. Source SHA256 f440326c90438da288b8d485016264fc1ed5546c4b7eba3e6ac02760dde58eb7,56lines. Proves circuit concatenation semantics/monotonicity/size, and the22-gate baseline shape/size only. Baseline functional correctness and required21-gate existence are not claimed. Full local checker is not applicable to this partial.
 Sub-agents: 7 (same delegates reassigned to1342)
 TIMING total=144.3 subagents=7
+
+Baseline22_1342: full correctness on every Fin11→Bool input is now proved in Lean. Named build PASS4.6s,5147jobs; source SHA25636264be6c60143d7c684c91d141c5438f134c2ebea84c5767daaebc9e312f82f,69lines. This is only a22-gate upper bound; the required21-gate existence is still unresolved.

@@ -53,4 +53,17 @@ theorem baseline_monotone : Monotone2 baseline := by
 theorem baseline_size : baseline.size = 22 := by
   rfl
 
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+theorem baseline_correct : ∀ x : Fin 11 → Bool,
+    (baseline.eval (List.ofFn x) = true ↔ ∃ u v : Fin 11,
+      (u.val, v.val) ∈ ([(0,9),(0,10),(1,4),(1,8),(2,5),(2,10),
+        (3,6),(3,7),(4,8),(4,10),(5,8),(5,9),(6,7),(6,10),(7,9),(8,9)] : List (ℕ × ℕ)) ∧
+      x u = true ∧ x v = true) := by
+  intro x
+  simp [baseline, Circuit.eval, Circuit.wires, GateOp.eval, List.ofFn_succ, Fin.exists_fin_succ]
+  <;> simp only [and_or_left, or_and_right]
+  apply Iff.of_eq
+  ac_rfl
+
 end PEqualNP.Outside.L_meta_1342
