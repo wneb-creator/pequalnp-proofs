@@ -1,0 +1,10 @@
+Gap: L-meta-2592
+Status: CHECKED PARTIALS ONLY; posted theorem is not proved.
+Named file: lean/PEqualNP/Outside/L_meta_2592.lean
+lake build PEqualNP.Outside.L_meta_2592: exit 0
+TrimNot.lean, CutLast.lean, UpperBound.lean: lake env lean exit 0.
+Local exact-statement checker: not yet run; posted theorem absent, so this is not PR-ready.
+Independent source review: PASS for partial preservation only.
+Sub-agents: status/review, toolchain setup, proof strategy, counterexample search, reductions, SAT search
+TIMING total=10 subagents=6
+Cleanup: not started; full proof not complete.
