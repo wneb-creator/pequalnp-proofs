@@ -1,0 +1,13 @@
+Independent mathematical review of the masking-plus-unused-pair reduction for L-meta-4970.
+
+Let E be a balanced bipartite d-regular graph with N vertices per side, d>=2, and let C be any AO2 circuit of size s computing its edge function. The no-C4 property is needed to invoke4970, not for the transformation.
+
+Prepend N gates AND(x_(N+b),x_(N+b)), one per line input. Their output wire is2N+b. Remap each old point input a to a, each old line input N+b to2N+b, and each old gate wire2N+j to3N+j. Shift the old output by this same mapping. Every transformed old gate reads earlier wires and computes its original Boolean value. Every old OR cone can now reach only raw point inputs: a line-input path stops at its AND wrapper. Hence T=0, despite unchanged semantic singleton supports.
+
+For each point, pair its d neighboring line inputs. If d is even, use d/2 disjoint pairs. If d is odd, pair d-1 neighbors and pair the last with one previously used neighbor, requiring(d+1)/2 pairs. Append these raw-input OR gates after the entire transformed old circuit, leaving the mapped old output unchanged. They are unused monochromatic OR gates, each exactly OR of two actual neighbors. Every edge is served by one such gate. New size is exactly s+N+N*ceil(d/2).
+
+Applying4970 gives a cover S with Nd+|S|<=s+N+N*ceil(d/2)+1. Any vertex covers at most d edges, so Nd<=d*|S| and |S|>=N; no matching/Hall theorem is needed. Therefore s>=N*floor(d/2)-1. For even d this is s>=|E|/2-1. For projective-plane incidence d=q+1, this is already a superlinear lower bound in input count.
+
+This is a sound mathematical reduction, independently checked against circuit indexing and the stated syntactic tCount definition; it has NOT been formalized in Lean in this job. It neither proves nor refutes4970. Its significance is that apparently weak masking and unused witness permissions make4970 imply a substantial unrestricted lower bound, so a trivial top-form/read-one normalization argument is insufficient.
+
+Optional stronger masking observation, mathematical only: process original gates in order and, whenever an OR still has operands of opposite nonempty raw colors, insert one AND(w,w) wrapper on one operand. Earlier processed wires have homogeneous/empty OR reach, and all reaches only shrink, so only originally mixed OR gates trigger repairs. This suggests an overhead at most the original tCount, independent of N; no resulting full size theorem is claimed.

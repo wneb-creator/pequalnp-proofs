@@ -1,0 +1,13 @@
+## 4970 targeted ledger census
+
+Only L_meta_4791 among existing Outside files mentions TwoColour/tCount. It transforms a singleton-rejecting AO2 circuit into T=0 at cost D.size+4<=6*C.size; it is not a sharp zero-T ledger.
+
+Closest exact conclusion: L_meta_4990:936 proves E.card+cover.card<=C.size+1, but requires two wire sets P,L closed under OR gates from point/line inputs and EVERY AND gate taking its first operand in L and its second in P. The new star witnesses concern arbitrary circuit gates and do not imply this hypothesis.
+
+L_meta_2234:545 is a useful structural partial ledger. Inputs: NoFourCycle G, AO2 C, output false on every singleton, finite F of indices, maps ctr and lf, and each OR-reach orIn(lf j) lies in neighbors of ctr j. Conclusions: (1) every nontrivial OR gate OR-reachable from these wires is outside the output OR cone; (2) sum over centers of the number of distinct witnessed neighbors is at most the number of those nontrivial OR gates plus F.card. L_meta_2233:215 additionally bounds the number of AND gates OR-reachable from output by output-OR-count+1. Joining these needs top AND ownership/center data absent from the new hypothesis.
+
+L_meta_278:297 is the stronger SEMANTIC support ledger: a wire o has singleton support S, rejects all weight<=k inputs outside S, c<=k, c+1<=S.card; then c is at most the number of gates j whose semantic singleton support is a subset of S and has at least two vertices. Pure OR-of-S witnesses meet these assumptions with c=S.card-1. The counted gates may be AND or OR, so idempotent AND barriers do not defeat the lemma. L_meta_270:307 sums such charges for a family with pairwise support intersections<=1. L_meta_529:251 gives the full multiple-output OR-family bound sum(|S_i|-1)<=gates.length under pairwise intersections<=1 and fanin<=2, with no read condition.
+
+Caution: witnesses from DIFFERENT centers on the same side have support intersection<=1 by no-C4; opposite sides are disjoint. Several witnesses for the SAME center can overlap arbitrarily, and the hypothesis need not supply one circuit wire representing their whole union. Thus simply applying L270 to all witnesses is invalid; a grouped component ledger is still needed. Also semantic pure OR witnesses need not have identical syntactic OR-reach: (b AND b) OR c computes b OR c but has orIn={c}. T=0 does not prevent this masking.
+
+Other exact ledgers L2235/L2237 assume joint read1, and L4183/L1491 require minimum AO circuit plus TopForm and include the unresolved Ustar surcharge. They do not directly apply. No checked theorem assembling the new hypotheses into the exact conclusion was located. Exact selected statements retained in 4970-ledger-exact-statements.json.

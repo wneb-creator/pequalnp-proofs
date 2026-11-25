@@ -1,0 +1,46 @@
+{
+  "p": 4,
+  "l": 4,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      3,
+      0
+    ]
+  ],
+  "cover_number": 3,
+  "gates": 8,
+  "tests": 30,
+  "star_options": 10,
+  "variables": 1223,
+  "clauses": 10804,
+  "started_utc": "2026-11-25T15:41:01.567210+00:00",
+  "output_before_last": false,
+  "bound_counterexample_threshold": 8,
+  "seconds": 10.006749801999831,
+  "returncode": 0,
+  "status": "UNKNOWN"
+}

@@ -62,3 +62,9 @@
 2026-11-25T15:34:18.052168+00:00: named797-line partial builds with independently reviewed OR-only partition invariant; immediate preservation checkpoint.
 
 2026-11-25T15:41:07.497904+00:00: selected OR-merge rank component reviewed and integrated; named1148-line file builds successfully, checkpointpush.
+
+- 2026-11-25T15:42:02.817258+00:00 structure: investigated fresh L11159; found independently confirmed 9-gate star circuit whose formal derivative vanishes at every negative baseline, despite satisfying L4970 hypotheses. Full finite truth/direction check passed; no Lean refutation claimed.
+
+2026-11-25T15:42:53.206616+00:00 — L-meta-4970: controlled3×3 and bounded4×4 search completed; no witness (4×4:28UNSAT,14UNKNOWN). Operator-count split checks underway; K4-incidence14 CNF prepared, waiting fresh lease before600-second solve.
+
+2026-11-25T15:44:53.841857+00:00 — K4-incidence14 SAT process verified running, started at15:43:02 UTC (ps and file timestamps),600-second cap and512MiB address-space cap. Earlier message giving15:45:44 was an inference error; completed driver timestamp/duration are authoritative.

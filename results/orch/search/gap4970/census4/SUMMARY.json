@@ -1,0 +1,549 @@
+{
+  "results": [
+    {
+      "mask": 13726,
+      "gates": 11,
+      "status": "UNKNOWN",
+      "seconds": 10.054321690999132,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 323856,
+        "sha256": "29b2b16082dd8cca1f2fd3346a1190be9bea6131fc89f73a9b62840c521ec5c8",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 4958,
+      "gates": 10,
+      "status": "UNKNOWN",
+      "seconds": 10.00892227300028,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 243516,
+        "sha256": "c228267e6a4fd8c64a9e6c34704675d17978b667a8d31d4fb83620cd8aae78b8",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 4973,
+      "gates": 10,
+      "status": "UNKNOWN",
+      "seconds": 10.013748735998888,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 243516,
+        "sha256": "a3102c83295866cb3edcd032ba55a31f7f6d6ce408ad3d25390826cb77ccc79d",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 5805,
+      "gates": 10,
+      "status": "UNKNOWN",
+      "seconds": 10.011300295998808,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 242364,
+        "sha256": "38c40dfd7863d83fae593ef00cbea294da098609d56ec13dbaac17836530323d",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 13740,
+      "gates": 10,
+      "status": "UNKNOWN",
+      "seconds": 30.030895154999598,
+      "reused": true,
+      "counterexample": false
+    },
+    {
+      "mask": 4687,
+      "gates": 9,
+      "status": "UNKNOWN",
+      "seconds": 10.047132460000284,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 216172,
+        "sha256": "7ec7ead2ec3308affd3281911b692de7c31a0869830dda79d8bbbdb96f36efe5",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 4699,
+      "gates": 9,
+      "status": "UNKNOWN",
+      "seconds": 10.010123273999852,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 191819,
+        "sha256": "d58d4e5b73a94084dcba782e54a4970cb6d7d2eb118cdbd990c47c055babf319",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 4702,
+      "gates": 9,
+      "status": "UNKNOWN",
+      "seconds": 10.009836654000537,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 179756,
+        "sha256": "2dc9797314231043443e0118cbfe39fa412e72f157c19a8043292202ea9ab299",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 4732,
+      "gates": 9,
+      "status": "UNKNOWN",
+      "seconds": 10.007997654000064,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 185279,
+        "sha256": "f9c3c5d646405c4eb6de38c90d98da65cd195c80390620233f90eaf54cb7073b",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 4972,
+      "gates": 9,
+      "status": "UNKNOWN",
+      "seconds": 10.008693318999576,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 173168,
+        "sha256": "f49807036aa001540816fe75f6fe29ff9bab08009edbce2965c98d0eef0867b1",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 862,
+      "gates": 8,
+      "status": "UNKNOWN",
+      "seconds": 10.013878068999475,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 143411,
+        "sha256": "4d3ad15a53755b7065f45497f279e03dc19e3a1bd2ab417da59e06e499ac6064",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 4399,
+      "gates": 8,
+      "status": "UNKNOWN",
+      "seconds": 10.014891291999447,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 169194,
+        "sha256": "9ba85238af0c0e1413b4ebab17208eaad1c8bfc1b82e101a158626bc2558e75d",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 4414,
+      "gates": 8,
+      "status": "UNKNOWN",
+      "seconds": 10.006749801999831,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 143979,
+        "sha256": "ff88479f206c6a8206235dc859ccbe5ebe0ca568a214504e17a3fdc92a0a44f2",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 4459,
+      "gates": 8,
+      "status": "UNSAT",
+      "seconds": 9.544483101999504,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 148040,
+        "sha256": "5ab7c110f83066591e70b0e4d7939c9594e86e6c7238100c801b9d8b3c64efee",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 4698,
+      "gates": 8,
+      "status": "UNKNOWN",
+      "seconds": 10.005408972001533,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 128962,
+        "sha256": "25b3ddcc658f515533a075d1b2af903e891e33284d2a65dc4441e7eb7f95e4b8",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 303,
+      "gates": 7,
+      "status": "UNSAT",
+      "seconds": 1.5736443850000796,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 121782,
+        "sha256": "e6806a18c9a6b9e1b09eb771ab12a2b640aff3dda1ca757eedcf230acb568623",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 317,
+      "gates": 7,
+      "status": "UNSAT",
+      "seconds": 1.470701829999598,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 106440,
+        "sha256": "9b59cfd1340a122e26e1a2286f5d9a7440da3e16323ce7da32da570075906170",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 318,
+      "gates": 7,
+      "status": "UNSAT",
+      "seconds": 1.6171105949997582,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 102434,
+        "sha256": "9141888064d6cf1680ecda1ef1b111ed823967dbbe6a80e2f649b27853b89b96",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 363,
+      "gates": 7,
+      "status": "UNSAT",
+      "seconds": 2.062353654000617,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 105670,
+        "sha256": "fc550afd41dea4149d893c4436a74db8bf0c325d7772dcc7e31ca09a1271508b",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 854,
+      "gates": 7,
+      "status": "UNSAT",
+      "seconds": 2.742238400000133,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 98757,
+        "sha256": "776e85ddf7c050f02d9ddfa0386ecbc52104bdca49c5019a948e1562f6fb8b1b",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 857,
+      "gates": 7,
+      "status": "UNSAT",
+      "seconds": 0.9017515200011985,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 108941,
+        "sha256": "165355b9f2bafb778b1019b6f1cbfeaf799f03e69d8f39415a10b39d4b672d10",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 858,
+      "gates": 7,
+      "status": "UNSAT",
+      "seconds": 1.2270580700005667,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 101685,
+        "sha256": "f588429f957a9c667acaf94c4f981817e7bd4519893737c07480f5d49b7bf617",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 4383,
+      "gates": 7,
+      "status": "UNSAT",
+      "seconds": 2.132696159000261,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 149419,
+        "sha256": "07d2ec9b2396738a5cc08b10eabbe06cfb634ea56408915d40590beb981adda5",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 4398,
+      "gates": 7,
+      "status": "UNSAT",
+      "seconds": 1.5492716230000951,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 102126,
+        "sha256": "8cfc86cd7e7132c48c02665d3b24d652dbe48b4f29b701d924f4dd77f27ed276",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 4458,
+      "gates": 7,
+      "status": "UNSAT",
+      "seconds": 1.1088013999997202,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 101405,
+        "sha256": "1a8117fbb8c6b88c60ed574a6d6295125ff4792fa91c195899bc3e30c2f8acf5",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 287,
+      "gates": 6,
+      "status": "UNSAT",
+      "seconds": 0.46251740899970173,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 94264,
+        "sha256": "ab542371a6b217672edd95854ec49f1bc76433c4f027398a5aab2759f99c27e2",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 295,
+      "gates": 6,
+      "status": "UNSAT",
+      "seconds": 0.24071497400109365,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 73170,
+        "sha256": "dc5f21d089df030b8dabb24831c1e0f598c108ef421f74a39411e5e9d268f0cb",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 310,
+      "gates": 6,
+      "status": "UNSAT",
+      "seconds": 0.25685133099977975,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 69946,
+        "sha256": "1502c9aae7b8b9de7b5ea9997a39c139e5a65ce9dcde6a5617cc3827ff7a84bb",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 316,
+      "gates": 6,
+      "status": "UNSAT",
+      "seconds": 0.2178822099995159,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 69682,
+        "sha256": "021c7182c1c75e22341e90436febfc8884bdcdd22d50a0333dfd00549db6c704",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 4382,
+      "gates": 6,
+      "status": "UNSAT",
+      "seconds": 0.2794134819996543,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 81578,
+        "sha256": "2470bafbb4df65e1f8dda097d205a29b22d8bc0dabf9be3837dace14703b24b9",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 31,
+      "gates": 5,
+      "status": "UNSAT",
+      "seconds": 0.05980094599908625,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 63510,
+        "sha256": "fe7f396d1237cb24aa85cd4b3b4de2eba2c28b646cb2f9e3582111eea53392f1",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 61,
+      "gates": 5,
+      "status": "UNSAT",
+      "seconds": 0.0361297139988892,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 53886,
+        "sha256": "21345cfad82a7933ddc48b17569dfdaa655f376e3c9de3d3cae46d7bdf8db2cc",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 279,
+      "gates": 5,
+      "status": "UNSAT",
+      "seconds": 0.045008675999270054,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 54426,
+        "sha256": "84aeeb54f1648d2522e8f12f03ec959668ff38cb44db92129a3c568b6848c08c",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 286,
+      "gates": 5,
+      "status": "UNSAT",
+      "seconds": 0.04998984899975767,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 53641,
+        "sha256": "9e64bbc77b16a8ed5e358900f88befc111d916aa488eb2a2c4104e9435276846",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 23,
+      "gates": 4,
+      "status": "UNSAT",
+      "seconds": 0.01089430799947877,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 33298,
+        "sha256": "5449f089540fa9aa99efce08af543d6f39147be82525312fdeccf995becdaef3",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 53,
+      "gates": 4,
+      "status": "UNSAT",
+      "seconds": 0.0055893789995025145,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 32857,
+        "sha256": "d560b0df7cfa84798a9d0cc46353050d08fa32cdf9b5351534654ffc0a529ac2",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 60,
+      "gates": 4,
+      "status": "UNSAT",
+      "seconds": 0.006092554000133532,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 32665,
+        "sha256": "5d3bced83bf652629ce725fde083ad5fe0afa296c824ad07231c437e4a57dd7f",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 278,
+      "gates": 4,
+      "status": "UNSAT",
+      "seconds": 0.004661140999814961,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 32665,
+        "sha256": "cfaed2c1158d3bed4f4ec3caf014258c9c53b5cd5a0530eeaafceafb09726206",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 15,
+      "gates": 3,
+      "status": "UNSAT",
+      "seconds": 0.006220658000529511,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 29491,
+        "sha256": "287223e61cc9214c5be2b080f294f3cd2b23970e96c4b7d1003f5b2ed611639d",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 19,
+      "gates": 3,
+      "status": "UNSAT",
+      "seconds": 0.003760724999665399,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 18253,
+        "sha256": "31abe80dad574044f53fb74ad61d359045f61a640f72296a0df5a1dbac1f4c90",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 7,
+      "gates": 2,
+      "status": "UNSAT",
+      "seconds": 0.0026259789992764127,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 12009,
+        "sha256": "f5d4ea2521ef32b51ad3c92c0016434bb3dacffc917a5aac6c99473328fd8592",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    },
+    {
+      "mask": 3,
+      "gates": 1,
+      "status": "UNSAT",
+      "seconds": 0.0018034460008493625,
+      "reused": false,
+      "counterexample": false,
+      "regenerable_cnf": {
+        "bytes": 3916,
+        "sha256": "47a5380f0ac8e863664795f848492d7dbc0a8536320d1f4bc11408b7d4574814",
+        "disposition": "deleted after solving; regenerate from case and frozen encoder"
+      }
+    }
+  ],
+  "classes_completed": 42,
+  "classes_total": 42,
+  "labeled_cases_in_scope": 14088,
+  "claim": "Finite SAT experiments only; UNSAT is solver evidence, not a Lean certificate."
+}

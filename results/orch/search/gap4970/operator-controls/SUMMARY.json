@@ -1,0 +1,67 @@
+{
+  "results": [
+    {
+      "name": "cycle6_12_and2.result",
+      "status": "UNKNOWN",
+      "seconds": 10.01312053500078,
+      "restriction": {
+        "operator": "AND",
+        "maximum": 2,
+        "all_posted_hypotheses_enforced": true,
+        "memory_limit_mib": 512,
+        "base_encoder_sha256": "617e74a731ee5fa13bfcc3ccc14e034fe5636ef89de2fdc734fe7b36a1f741a9"
+      },
+      "operation_counts": null,
+      "violates_proposed_count_bound": null
+    },
+    {
+      "name": "cycle6_12_or4.result",
+      "status": "UNKNOWN",
+      "seconds": 30.01190587199926,
+      "restriction": {
+        "operator": "OR",
+        "maximum": 4,
+        "all_posted_hypotheses_enforced": true,
+        "memory_limit_mib": 512,
+        "base_encoder_sha256": "617e74a731ee5fa13bfcc3ccc14e034fe5636ef89de2fdc734fe7b36a1f741a9"
+      },
+      "operation_counts": null,
+      "violates_proposed_count_bound": null
+    },
+    {
+      "name": "path4_5_and2.result",
+      "status": "SAT",
+      "seconds": 0.005515556998943794,
+      "restriction": {
+        "operator": "AND",
+        "maximum": 2,
+        "all_posted_hypotheses_enforced": true,
+        "memory_limit_mib": 512,
+        "base_encoder_sha256": "617e74a731ee5fa13bfcc3ccc14e034fe5636ef89de2fdc734fe7b36a1f741a9"
+      },
+      "operation_counts": {
+        "AND": 2,
+        "OR": 3
+      },
+      "violates_proposed_count_bound": false
+    },
+    {
+      "name": "path4_5_or3.result",
+      "status": "SAT",
+      "seconds": 0.005491209998581326,
+      "restriction": {
+        "operator": "OR",
+        "maximum": 3,
+        "all_posted_hypotheses_enforced": true,
+        "memory_limit_mib": 512,
+        "base_encoder_sha256": "617e74a731ee5fa13bfcc3ccc14e034fe5636ef89de2fdc734fe7b36a1f741a9"
+      },
+      "operation_counts": {
+        "AND": 2,
+        "OR": 3
+      },
+      "violates_proposed_count_bound": false
+    }
+  ],
+  "claim": "Tests of proposed separate count bounds with all4970 hypotheses; UNKNOWN is inconclusive."
+}

@@ -1,0 +1,22 @@
+{
+  "p": 4,
+  "l": 4,
+  "edges": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ]
+  ],
+  "mask": 7,
+  "cover_number": 1,
+  "counterexample_gates": 2,
+  "labeled_cases": 32
+}

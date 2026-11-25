@@ -239,3 +239,71 @@ Frozen hashes:
 Audit outputs retained at /tmp/oec/pequalnp-pilot-94/plane-research/4970-review-audit.stdout and .stderr; static data in 4970-review-static.json.
 
 Named integration review APPROVED: lean/PEqualNP/Outside/L_meta_4970.lean, 484 lines, sha256 3b38a082914478f3fd4cce85e6885ca03b47750ca9bb6ee7d2f08101ba83a79e. All three declaration/proof bodies match the independently reviewed frozen sources verbatim after only namespace/import/open relocation. Imports first, one allowed outer namespace, no prohibited keywords, _root_ text, quotes, attributes, options, or claimed final target. Approval is for a compiled partial checkpoint, not completion of the gap.
+
+2026-11-25T15:33:55.995126+00:00
+
+### Structure: consequence of syntactic colour masking and unused witnesses
+
+Mathematical reduction, not Lean formalized: take any d-regular balanced bipartite C4-free graph on N+N inputs, with d positive and even, and any AO2 circuit of size s for its edge function. Prepend N idempotent AND gates, one b AND b for each line variable, and redirect every original line input occurrence through its mask. Original OR-only input reaches then contain only point inputs, hence no original OR is two-colour. Append one unused pure line-pair OR for each disjoint pair in a partition of each point neighbourhood. These E/2 gates cover every edge by an allowed star witness and themselves have monochrome OR reach. The augmented circuit has size s+N+E/2, satisfies the posted assumptions, and computes the same function. Regular bipartite matching gives minimum cover N. Therefore L4970 would imply s >= E/2-1 for the original unrestricted monotone circuit. Projective planes of odd order supply an explicit superlinear family.
+
+This is not a refutation. It shows that the joint counting step has a substantial consequence absent from the desk sketch. Web search retrieval of https://pequalnp.com/papers/note-1 on 2026-11-25 supplied its section 7 text, distinguishing the E/2 bound known for multilinear/tropical/arithmetic circuits from unrestricted monotone circuits. Direct open of that page returned a tool Internal Error; the local older `notes/note-1-edge-function-exact-size.md` section 5 independently confirms the single-level/unrestricted distinction but lacks the E/2 paragraph. The reduction above is independently reasoned here, not a quotation.
+
+Further caution from the lemma agent: OrPartition.D counts eligible OR gates, including nonlinear functions such as (b OR c) OR (a AND d) with T={b,c,d}. Such a gate can carry real edge contributions while qualifying for the singleton partition. The joint argument should reserve actual label-merge gates, not automatically remove every eligible D gate from its remaining budget.
+
+### 2026-11-25 — research independent SAT review
+
+Independent SAT search review: APPROVED for computational counterexample search.
+
+serve_sat.py sha256 617e74a731ee5fa13bfcc3ccc14e034fe5636ef89de2fdc734fe7b36a1f741a9
+make_cases.py sha256 0bf5d16b532ecbb738f1784c32ca613231dc9c09fec374427b302c7065499309
+
+Reviewed op/selector/value/color encoding and model extraction. Exactly-one auxiliary logic independently exhaustively validated for input sizes 0 through 8. Each gate is AND/OR with two earlier operands, equality allowed; ordered operands are only commutativity symmetry. Syntactic OR reach is the union at OR and empty at AND, so T=0 is modeled faithfully even with AND(x,x) barriers. Any gate can be the output; later unused witnesses are allowed.
+
+Output testing on all edge minterms and maximal independent negative assignments is complete by monotonicity. A monotone wire is exactly OR(Q) iff it is true on each singleton in Q and false on the assignment with every variable outside Q true. Thus the service flags enforce the full semantic pure-star condition, including an actual OR gate, and no restriction stronger than the target. All neighbor subsets of size at least two are offered.
+
+Nonempty edge functions cannot output an input or an out-of-range wire, so gate-only output selection loses no relevant case. Exact-size SAT also covers smaller circuits by appending unused AND(output,output) gates; existing witnesses and T=0 are preserved. Empty graphs are trivial. An edge with both endpoint degrees one cannot have a serving star, so excluding isolated K2 components is sound.
+
+Independently recomputed the 3-by-3 graph census without importing generator code: 10 bipartition-preserving/whole-side-swap isomorphism orbits and 228 labeled graphs, matching all canonical masks and orbit sizes. This is not a claim that every ordinary unlabeled graph representation has a unique fixed bipartition.
+
+Independently replayed P4 5-gate output-before-last control on all 16 assignments and C6 8-gate control on all 64 assignments using integer truth tables, recomputing T=0 and semantic serving coverage. Also read the complete solver assignments and checked every DIMACS clause independently: P4 314 variables / 1641 clauses; C6 959 variables / 7531 clauses. Both passed.
+
+Limit: UNSAT outcomes are trusted computational solver evidence only; no DRAT/LRAT certificate or Lean proof was checked. They must not be reported as machine-checked Lean lower bounds or as proof of the general gap.
+
+Named 797-line integration independently APPROVED at sha256 57f1c6ea089da6f5026435bc7326f68968acc54dd08b61d8e601883a852c4bf4; all four proof bodies match frozen reviewed helpers after namespace/import/open relocation; source rules clean. OrPartition source sha256 30d82ea23a5c2bb10a8e19d243d7bdfff656b4a410d350f3442e463b4429a7b9. This remains a partial checkpoint.
+
+## 2026-11-25 15:37:26 UTC — selected OR merges exact rank refinement checked
+
+Frozen `gap4970_selected_merges.lean`,353 lines,SHA256 `714eb99beb4e542e1ef9f10e31e62d26b76aea8a35bd1dbae35a77792291c321`, strengthens the copied OrPartition invariant to select M⊆D with exact equality `T.card = (T.image labels).card + M.card`. A gate enters M only when its accepted singleton inputs occupy two distinct prior label classes; AND gates cannot do this, and the selected OR step erases exactly one old label from the image. `roots_bound` returns such a selected subset sufficient for the connected-output component bound. `counted_or_disjoint` proves D sets (and hence selected subsets) disjoint when support sets overlap in at most one input. Compiler exit0; full logs plane-lemmas/gap4970_selected_merges.* contain only1794 bytes deprecation warnings. Status agent reviewing. This avoids automatically charging all qualified OR gates, including ones merely carrying extra cross-edge terms. Remaining requirement is a global output/centre gate budget; if stars overlap on graph edges, its needed lower bound subtracts overlap: remaining gates≥Σcomponent-label counts+numbercentres−edge-overlap−1.
+
+### 2026-11-25 — research fresh-upstream census
+
+Fresh upstream theorem census at 59fd6819 relative to ecce0276.
+
+Read git objects only, leaving working tree unchanged. 596 changed paths: 592 Outside Lean files (473 L, 117 V, two R) and four scripts. Extracted all 592 final declarations into refresh-final-statements.json, approximately 880 KB, without checking out the roughly 1.5 million new source lines. Git-show stderr is retained and empty.
+
+No changed source file contains TwoColour or the whole word tCount, including helper declarations. No new final statement uses IsAO2, NoFourCycle, IsReadK, orIn, AndCountCircuit, edgeFinset/edgeSet, BelowF, or general plane q-square hypotheses. Most new files are fixed small-graph circuit constructions/normalizations/refutations.
+
+Closest examined candidates:
+- L_meta_11159: general-n Boolean derivative propagation. Requires exact AND/OR two-input gates, distinct inputs, backwards reads; a weight map is zero on the base true inputs, <=1 on direction true inputs, and subadditive at AND / min-bounded at OR. Produces a Boolean directional-derivative wire assignment and proves each derivative-true wire has weight<=1. No cardinality or size lower bound.
+- L_meta_6098: fixed Petersen graph on ten vertices; from an at-most-18-gate circuit and two selected wires agreeing with the target on negative and weight-two inputs, obtains a nine-variable restriction of bounded size. Not a general bipartite theorem.
+- L_meta_7465: a fixed eleven-vertex graph; IsLeastAO + TopForm, size<=21, at least three junk gates, one of four prescribed Ustar sets, and explicit partition-cardinality hypotheses imply False. No applicability to arbitrary4970 data.
+- R_meta_11157_58: fixed Fano synthesis reduction. One hypothesis is existence of a <=27-gate circuit passing all incident pairs, seven rotated negative-test orbits, and a two-sided weight certificate. Another hypothesis says those negative tests cover all independent assignments. Conclusion gives the corresponding fully correct Fano circuit and certificate. It is conditional synthesis, not a lower bound or normalization result.
+- R_meta_8133_11: fixed nine-variable graph lower-bound/relabeling glue.
+
+No stronger applicable exact gate ledger or main4970 proof route found among the refreshed files. No new Lean proof was assembled from this census.
+
+2026-11-25T15:42:02.817258+00:00
+
+### Fresh upstream derivative theorem L11159: exact obstruction
+
+Read-only source at FETCH_HEAD59fd6819, `lean/PEqualNP/Outside/L_meta_11159.lean`, extracted to scratch `L_meta_11159-upstream.lean`. Its weights satisfy zero on baseline-true inputs, at most one on direction-true inputs, AND subadditivity, and OR minimum. It constructs the syntactic first derivative and proves derivative-true implies weight at most one. It does not establish that a Boolean-sensitive edge yields a positive derivative, and has no additive per-gate cost term.
+
+Concrete full-hypothesis obstruction, independently checked mathematically by theory child and exhaustively in Python (not Lean): inputs (p,r,s | b,c), with r,s isolated. Circuit u=p OR r; v=p AND u; u'=p OR s; v'=p AND u'; P=v AND v'; U=b OR c; V=b OR c; W=U AND V; out=P AND W. It has 9 gates, every gate has distinct earlier wire parents, all ORs have homogeneous raw reach, and U is the required pure star OR for the two edges pb,pc. The output computes p AND (b OR c). For every negative baseline and every direction, its formal derivative output is false. If p=0, both operands of P are zero, hence P and its derivative are zero. If b=c=0, both operands of W are zero, hence W and its derivative are zero. Either condition holds at every negative baseline and kills the output derivative. Exhaustive report: scratch `gap4970-derivative-obstruction.json`, 32 truth rows and 1024 baseline/direction combinations.
+
+Thus L11159 alone cannot provide the positive derivative obligations needed for matching/star weights, even under the posted hypotheses and its distinct-parent restriction. The missing bridge must repair/redirect repeated-variable absorptions with a global gate budget, or use a stronger semantic derivative invariant that charges higher-order responses. This is a counterexample to derivative completeness, not to L4970 or L11159.
+
+2026-11-25T15:42:53.206616+00:00 — Counterexample agent: L-meta-4970 finite SAT encoder independently reviewed, including duplicate operands, post-output unused serving-star gates, exact syntactic T=0, and full semantic star conditions. All 10 C4-free 3×3 classes (228 labeled graphs) were solver-UNSAT at |E|+tau−2. Expanded independently verified 4×4 census:42 classes/14,088 labeled graphs,28 solver-UNSAT and14 UNKNOWN under10-second caps (C8 used30 seconds). No counterexample. These are uncertified solver experiments, not Lean lower bounds. Complete source and logs:results/orch/search/gap4970/.
+
+### Independent frozen search archive review
+
+Frozen archive review completed: all 42 census4 cases have complete result, solver stdout and solver stderr files; every summary status matches the result and raw logs. Reported totals are 28 UNSAT and 14 UNKNOWN, with no SAT. Operation-count wrapper sha256 bec5de97249b6e928b652da8daa6e2348aca8095aa9baee0d57dc7fdc31c429b reviewed: exact at-most subset encoding independently tested on8194 assignments across sizes0..8 and both signs. Both P4 operator positive controls independently replayed on all inputs, recomputing full function, syntactic T0 and exact star wires; AND=2, OR=3. Both C6 count experiments are UNKNOWN and establish no bound. Review approval covers this frozen archive as computational evidence only.

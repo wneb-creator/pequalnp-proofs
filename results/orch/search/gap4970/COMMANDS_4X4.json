@@ -1,0 +1,37 @@
+{
+  "workdir": "/workspace/pequalnp-proofs",
+  "frozen_encoder_sha256": "617e74a731ee5fa13bfcc3ccc14e034fe5636ef89de2fdc734fe7b36a1f741a9",
+  "generator": [
+    "python3",
+    "results/orch/search/gap4970/make_cases_4x4.py"
+  ],
+  "cycle8": [
+    "python3",
+    "results/orch/search/gap4970/serve_sat.py",
+    "--graph",
+    "results/orch/search/gap4970/cycle8.json",
+    "--gates",
+    "10",
+    "--seconds",
+    "30",
+    "--output",
+    "/tmp/oec/pequalnp-pilot-94/gap4970/cycle8_10"
+  ],
+  "census": [
+    "python3",
+    "results/orch/search/gap4970/run_cases_4x4.py",
+    "--output-dir",
+    "/tmp/oec/pequalnp-pilot-94/gap4970/census4",
+    "--cycle8-base",
+    "/tmp/oec/pequalnp-pilot-94/gap4970/cycle8_10",
+    "--seconds",
+    "10"
+  ],
+  "completed": true,
+  "counts": {
+    "SAT": 0,
+    "UNSAT": 28,
+    "UNKNOWN": 14
+  },
+  "cnf_policy": "Each fresh census CNF is hashed and deleted after its solve; full logs and results retained."
+}

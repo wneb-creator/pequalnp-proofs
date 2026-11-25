@@ -1,0 +1,42 @@
+{
+  "p": 4,
+  "l": 4,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      2,
+      0
+    ]
+  ],
+  "cover_number": 3,
+  "gates": 7,
+  "tests": 26,
+  "star_options": 7,
+  "variables": 951,
+  "clauses": 7871,
+  "started_utc": "2026-11-25T15:41:34.247926+00:00",
+  "output_before_last": false,
+  "bound_counterexample_threshold": 7,
+  "seconds": 1.6171105949997582,
+  "returncode": 20,
+  "status": "UNSAT"
+}

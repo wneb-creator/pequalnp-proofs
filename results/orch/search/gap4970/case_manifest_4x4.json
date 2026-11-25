@@ -1,0 +1,1412 @@
+{
+  "classes": [
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "mask": 3,
+      "cover_number": 1,
+      "counterexample_gates": 1,
+      "labeled_cases": 48
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "mask": 7,
+      "cover_number": 1,
+      "counterexample_gates": 2,
+      "labeled_cases": 32
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "mask": 15,
+      "cover_number": 1,
+      "counterexample_gates": 3,
+      "labeled_cases": 8
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "mask": 19,
+      "cover_number": 2,
+      "counterexample_gates": 3,
+      "labeled_cases": 144
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "mask": 23,
+      "cover_number": 2,
+      "counterexample_gates": 4,
+      "labeled_cases": 288
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "mask": 31,
+      "cover_number": 2,
+      "counterexample_gates": 5,
+      "labeled_cases": 96
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "mask": 53,
+      "cover_number": 2,
+      "counterexample_gates": 4,
+      "labeled_cases": 288
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "mask": 60,
+      "cover_number": 2,
+      "counterexample_gates": 4,
+      "labeled_cases": 72
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "mask": 61,
+      "cover_number": 2,
+      "counterexample_gates": 5,
+      "labeled_cases": 288
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "mask": 278,
+      "cover_number": 2,
+      "counterexample_gates": 4,
+      "labeled_cases": 144
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "mask": 279,
+      "cover_number": 2,
+      "counterexample_gates": 5,
+      "labeled_cases": 144
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "mask": 286,
+      "cover_number": 2,
+      "counterexample_gates": 5,
+      "labeled_cases": 96
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "mask": 287,
+      "cover_number": 2,
+      "counterexample_gates": 6,
+      "labeled_cases": 96
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "mask": 295,
+      "cover_number": 3,
+      "counterexample_gates": 6,
+      "labeled_cases": 576
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "mask": 303,
+      "cover_number": 3,
+      "counterexample_gates": 7,
+      "labeled_cases": 288
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "mask": 310,
+      "cover_number": 3,
+      "counterexample_gates": 6,
+      "labeled_cases": 576
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "mask": 316,
+      "cover_number": 3,
+      "counterexample_gates": 6,
+      "labeled_cases": 576
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "mask": 317,
+      "cover_number": 3,
+      "counterexample_gates": 7,
+      "labeled_cases": 576
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "mask": 318,
+      "cover_number": 3,
+      "counterexample_gates": 7,
+      "labeled_cases": 576
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ]
+      ],
+      "mask": 363,
+      "cover_number": 3,
+      "counterexample_gates": 7,
+      "labeled_cases": 1152
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "mask": 854,
+      "cover_number": 3,
+      "counterexample_gates": 7,
+      "labeled_cases": 96
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "mask": 857,
+      "cover_number": 3,
+      "counterexample_gates": 7,
+      "labeled_cases": 192
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "mask": 858,
+      "cover_number": 3,
+      "counterexample_gates": 7,
+      "labeled_cases": 576
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "mask": 862,
+      "cover_number": 3,
+      "counterexample_gates": 8,
+      "labeled_cases": 576
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "mask": 4382,
+      "cover_number": 2,
+      "counterexample_gates": 6,
+      "labeled_cases": 16
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "mask": 4383,
+      "cover_number": 2,
+      "counterexample_gates": 7,
+      "labeled_cases": 16
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "mask": 4398,
+      "cover_number": 3,
+      "counterexample_gates": 7,
+      "labeled_cases": 288
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "mask": 4399,
+      "cover_number": 3,
+      "counterexample_gates": 8,
+      "labeled_cases": 288
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "mask": 4414,
+      "cover_number": 3,
+      "counterexample_gates": 8,
+      "labeled_cases": 144
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "mask": 4458,
+      "cover_number": 3,
+      "counterexample_gates": 7,
+      "labeled_cases": 288
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "mask": 4459,
+      "cover_number": 3,
+      "counterexample_gates": 8,
+      "labeled_cases": 576
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "mask": 4687,
+      "cover_number": 4,
+      "counterexample_gates": 9,
+      "labeled_cases": 192
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "mask": 4698,
+      "cover_number": 4,
+      "counterexample_gates": 8,
+      "labeled_cases": 288
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "mask": 4699,
+      "cover_number": 4,
+      "counterexample_gates": 9,
+      "labeled_cases": 576
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "mask": 4702,
+      "cover_number": 4,
+      "counterexample_gates": 9,
+      "labeled_cases": 1152
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "mask": 4732,
+      "cover_number": 4,
+      "counterexample_gates": 9,
+      "labeled_cases": 576
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "mask": 4958,
+      "cover_number": 4,
+      "counterexample_gates": 10,
+      "labeled_cases": 288
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "mask": 4972,
+      "cover_number": 4,
+      "counterexample_gates": 9,
+      "labeled_cases": 576
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "mask": 4973,
+      "cover_number": 4,
+      "counterexample_gates": 10,
+      "labeled_cases": 576
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          0
+        ]
+      ],
+      "mask": 5805,
+      "cover_number": 4,
+      "counterexample_gates": 10,
+      "labeled_cases": 576
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "mask": 13726,
+      "cover_number": 4,
+      "counterexample_gates": 11,
+      "labeled_cases": 96
+    },
+    {
+      "p": 4,
+      "l": 4,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "mask": 13740,
+      "cover_number": 4,
+      "counterexample_gates": 10,
+      "labeled_cases": 72
+    }
+  ],
+  "class_count": 42,
+  "labeled_count": 14088,
+  "cycle8_mask": 13740,
+  "validation": "Every canonical representative was cross-checked against all 1152 side permutations/swaps."
+}

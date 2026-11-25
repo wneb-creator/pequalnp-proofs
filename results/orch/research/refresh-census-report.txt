@@ -1,0 +1,14 @@
+Fresh upstream theorem census at 59fd6819 relative to ecce0276.
+
+Read git objects only, leaving working tree unchanged. 596 changed paths: 592 Outside Lean files (473 L, 117 V, two R) and four scripts. Extracted all 592 final declarations into refresh-final-statements.json, approximately 880 KB, without checking out the roughly 1.5 million new source lines. Git-show stderr is retained and empty.
+
+No changed source file contains TwoColour or the whole word tCount, including helper declarations. No new final statement uses IsAO2, NoFourCycle, IsReadK, orIn, AndCountCircuit, edgeFinset/edgeSet, BelowF, or general plane q-square hypotheses. Most new files are fixed small-graph circuit constructions/normalizations/refutations.
+
+Closest examined candidates:
+- L_meta_11159: general-n Boolean derivative propagation. Requires exact AND/OR two-input gates, distinct inputs, backwards reads; a weight map is zero on the base true inputs, <=1 on direction true inputs, and subadditive at AND / min-bounded at OR. Produces a Boolean directional-derivative wire assignment and proves each derivative-true wire has weight<=1. No cardinality or size lower bound.
+- L_meta_6098: fixed Petersen graph on ten vertices; from an at-most-18-gate circuit and two selected wires agreeing with the target on negative and weight-two inputs, obtains a nine-variable restriction of bounded size. Not a general bipartite theorem.
+- L_meta_7465: a fixed eleven-vertex graph; IsLeastAO + TopForm, size<=21, at least three junk gates, one of four prescribed Ustar sets, and explicit partition-cardinality hypotheses imply False. No applicability to arbitrary4970 data.
+- R_meta_11157_58: fixed Fano synthesis reduction. One hypothesis is existence of a <=27-gate circuit passing all incident pairs, seven rotated negative-test orbits, and a two-sided weight certificate. Another hypothesis says those negative tests cover all independent assignments. Conclusion gives the corresponding fully correct Fano circuit and certificate. It is conditional synthesis, not a lower bound or normalization result.
+- R_meta_8133_11: fixed nine-variable graph lower-bound/relabeling glue.
+
+No stronger applicable exact gate ledger or main4970 proof route found among the refreshed files. No new Lean proof was assembled from this census.
