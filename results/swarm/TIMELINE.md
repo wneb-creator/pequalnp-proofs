@@ -31,4 +31,13 @@ Sub-agents: 9 external bus helpers; 1 local toolchain agent.
 - 2026-11-25 21:30 UTC: Root began formalizing OR-gate removal from an essential input, based on helper-2 paper argument.
 - 2026-11-25 21:35 UTC: Generic OR-removal and graph specialization compiled; local independent reviewer rebuilt and confirmed standard axioms. Merged named-file build passed (5149 jobs). No final theorem.
 
-TIMING total=34.5 subagents=10
+
+- 2026-11-25 21:36 UTC: Pushed reviewed OR-removal checkpoint 7808e70ea826e15ae0bc768a488347e0cf725fcf; remote SHA verified; bus 2362 marked PARTIAL.
+- 2026-11-25 21:41 UTC: Second full-route re-plan posted (bus 2491).
+- 2026-11-25 21:43–21:53 UTC: Existing unconditional Heawood and incident-pair deletion bounds independently compiled; redundant total-size searches retired. New graph families and shared-gate proof routes remain active.
+- 2026-11-25 21:49 UTC: Root exhausted 1,048,576 gauge-fixed two-copy Petersen circuit lifts; none computed the Desargues edge function. Independent source, boundary, scalar-evaluation and exhaustive-run audit passed. This is a finite-family search result only.
+- 2026-11-25 21:54:42 UTC: Alias-removal strengthening compiled: nonzero essential restriction saves all false internal gates plus at least one additional gate. Actual wire-value count proved; independent review and merged build underway.
+
+- 2026-11-25 21:56:40 UTC: Merged AliasRemoval named build passed (5149 jobs); independent canonical-source, exact-diff, hygiene and four-axiom review passed. No full target theorem.
+
+TIMING total=55.4 subagents=10
