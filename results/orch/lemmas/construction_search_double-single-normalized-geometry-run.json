@@ -1,0 +1,10 @@
+{
+  "pid": 32656,
+  "mode": "geometry",
+  "exit": 0,
+  "timeout": false,
+  "over_memory": false,
+  "peak_rss_bytes": 2789224448,
+  "seconds": 23.405100314001174,
+  "memory_limit_bytes": 4294967296
+}

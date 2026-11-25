@@ -1,0 +1,70 @@
+lemma independent_coefficients (A B C : Matrix (Fin 4) (Fin 4) ℂ)
+    (hi : LinearIndependent ℂ ![A,B,C]) (u v w : ℂ)
+    (hrel : ∀ r s, u*A r s+v*B r s+w*C r s=0) : u=0 ∧ v=0 ∧ w=0 := by
+  have hz : ∑ n : Fin 3, (![u,v,w] : Fin 3 → ℂ) n • (![A,B,C] : Fin 3 → Matrix (Fin 4) (Fin 4) ℂ) n=0 := by
+    ext r s
+    simpa [Fin.sum_univ_succ,Matrix.smul_apply,add_assoc] using hrel r s
+  have h := Fintype.linearIndependent_iff.mp hi (![u,v,w] : Fin 3 → ℂ) hz
+  exact ⟨h 0,h 1,h 2⟩
+
+def bottom (a b c : ℂ) : Matrix (Fin 4) (Fin 4) ℂ :=
+  ![![0,0,0,0],![0,0,0,0],![0,0,a,b],![0,0,b,c]]
+
+set_option maxHeartbeats 100000000 in
+set_option maxRecDepth 100000 in
+lemma repeated_rows_impossible (hm : ModelImpossible) (hd : DisjointMaximal)
+    (A B C : Matrix (Fin 4) (Fin 4) ℂ)
+    (hsA : ∀ r s, A r s=A s r) (hsB : ∀ r s, B r s=B s r)
+    (hsC : ∀ r s, C r s=C s r)
+    (hA0 : ∀ j, A 0 j=0) (hA1 : ∀ j, A 1 j=0)
+    (hB2 : ∀ j, B 2 j=0) (hC3 : ∀ j, C 3 j=0)
+    (hi : LinearIndependent ℂ ![A,B,C])
+    (hp : ∀ x y z, Matrix.permanent (Matrix.of fun r s =>
+      (1:ℂ)+x*A r s+y*B r s+z*C r s)=24) : False := by
+  have hc := independent_coefficients A B C hi
+  have hAne : A≠0 := by
+    intro ha
+    have he := (hc 1 0 0 (by intro r s; simp [ha])).1
+    norm_num at he
+  have hAeq : A=bottom (A 2 2) (A 2 3) (A 3 3) := by
+    ext r s
+    fin_cases r <;> fin_cases s <;>
+      simp [bottom,hA0,hA1,hsA 2 0,hsA 2 1,hsA 3 0,hsA 3 1,hsA 3 2]
+  have hnonzero : A 2 2≠0 ∨ A 2 3≠0 ∨ A 3 3≠0 := by
+    by_contra hn
+    push_neg at hn
+    obtain ⟨h22,h23,h33⟩ := hn
+    apply hAne
+    rw [hAeq,h22,h23,h33]
+    ext r s
+    fin_cases r <;> fin_cases s <;> simp [bottom]
+  have hplus := hp 1 0 0
+  have hminus := hp (-1) 0 0
+  rw [hAeq] at hplus hminus
+  simp [perm4,Matrix.of_apply,bottom] at hplus hminus
+  have hS : A 2 2+A 3 3+2*A 2 3=0 := by
+    linear_combination (1/12:ℂ)*(hplus-hminus)
+  have hQ : A 2 2*A 3 3+(A 2 3)^2=0 := by
+    linear_combination (1/4:ℂ)*(hplus+hminus)
+  obtain ⟨ha,h,hh,h22,h33⟩ := normalized_block (A 2 2) (A 2 3) (A 3 3) hS hQ hnonzero
+  have hAscale : A=Matrix.of (fun r s => A 2 3*base h r s) := by
+    apply hAeq.trans
+    ext r s
+    fin_cases r <;> fin_cases s <;> simp [bottom,base,Matrix.of_apply,h22,h33] <;> ring
+  have hentry (r s : Fin 4) : A r s=A 2 3*base h r s :=
+    congrArg (fun M : Matrix (Fin 4) (Fin 4) ℂ => M r s) hAscale
+  apply normalized_independent_impossible hm hd h hh B C hsB hsC hB2 hC3
+  · intro u v w hzero
+    have hrel (r s : Fin 4) : (u/A 2 3)*A r s+v*B r s+w*C r s=0 := by
+      rw [hentry r s]
+      simpa only [←mul_assoc,div_mul_cancel₀ u ha] using hzero r s
+    obtain ⟨hu,hv,hw⟩ := hc (u/A 2 3) v w hrel
+    refine ⟨?_,hv,hw⟩
+    exact (div_eq_zero_iff).mp hu |>.resolve_right ha
+  · intro x y z
+    convert hp (x/A 2 3) y z using 1
+    congr 1
+    ext r s
+    simp only [Matrix.of_apply]
+    rw [hentry r s]
+    simp only [←mul_assoc,div_mul_cancel₀ x ha]

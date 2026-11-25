@@ -1,0 +1,43 @@
+/tmp/oec/pequalnp-pilot-79/DoubleSingleGeometric.lean:81:37: warning: This simp argument is unused:
+  cz
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [polynomial, ca, cm, cp] at h0 h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 h17 h18
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleGeometric.lean:129:26: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [perm4, Matrix.of_apply, model, polynomial, coefficients, ca, cm, cp, cz, Matrix.cons_val_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleGeometric.lean:173:27: warning: This simp argument is unused:
+  Fin.sum_univ_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Fin.sum_univ_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleGeometric.lean:249:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-79/DoubleSingleGeometric.lean:268:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-79/DoubleSingleGeometric.lean:221:29: warning: This simp argument is unused:
+  cp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [model, base, ca, cm, cz, Matrix.of_apply, hB2, hC3, hsB 0 2, hsB 1 2, hsB 3 2, hsB 1 0, hsB 3 0,
+    hsB 3 1, hsC 0 3, hsC 1 3, hsC 2 3, hsC 1 0, hsC 2 0, hsC 2 1, hB33, hC22]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

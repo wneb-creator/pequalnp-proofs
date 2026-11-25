@@ -1,0 +1,14 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/MatrixChartAdapters.lean:228:28: warning: This simp argument is unused:
+  not_imp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [not_forall] at hf
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/MatrixChartAdapters.lean:234:35: warning: This simp argument is unused:
+  not_imp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pairwise, not_forall, not_not] at hp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

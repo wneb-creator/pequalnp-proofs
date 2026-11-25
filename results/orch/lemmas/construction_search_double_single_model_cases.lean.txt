@@ -1,0 +1,31 @@
+lemma model_impossible_from_scaled
+    (hsame : ∀ a b c d e f g k i j rr : ℂ, rr^2=2 → e≠0 → f≠0 →
+      (∀ x y z, Matrix.permanent (Matrix.of fun r s => (1:ℂ)+
+        model a b c d e f g k i j rr x y z r s)=24) → False)
+    (hcross : ∀ a b c d e f g k i j rr : ℂ, rr^2=2 → i≠0 → f≠0 →
+      (∀ x y z, Matrix.permanent (Matrix.of fun r s => (1:ℂ)+
+        model a b c d e f g k i j rr x y z r s)=24) → False) : ModelImpossible := by
+  intro a b c d e f g k i j rr hr hB hC hp
+  by_cases hf : f≠0
+  · rcases hC with he | hi
+    · exact hsame a b c d e f g k i j rr hr he hf hp
+    · exact hcross a b c d e f g k i j rr hr hi hf hp
+  · have hj : j≠0 := hB.resolve_left hf
+    let σ : Equiv.Perm (Fin 4) := Equiv.swap 0 1
+    have hp' (x y z : ℂ) : Matrix.permanent (Matrix.of fun r s => (1:ℂ)+
+        model g k c d i j a b e f rr x y z r s)=24 := by
+      let M : Matrix (Fin 4) (Fin 4) ℂ := Matrix.of fun r s => (1:ℂ)+
+        model a b c d e f g k i j rr x y z r s
+      have heq : M.submatrix σ σ=Matrix.of (fun r s => (1:ℂ)+
+          model g k c d i j a b e f rr x y z r s) := by
+        ext r s
+        fin_cases r <;> fin_cases s <;>
+          simp [M,σ,Matrix.submatrix_apply,Matrix.of_apply,Equiv.swap_apply_def,model,ca,cm,cp,cz] <;> ring
+      have hinv : Matrix.permanent (M.submatrix σ σ)=Matrix.permanent M := by
+        change Matrix.permanent ((M.submatrix σ id).submatrix id σ)=Matrix.permanent M
+        rw [Matrix.permanent_permute_rows,Matrix.permanent_permute_cols]
+      rw [←heq]
+      exact hinv.trans (hp x y z)
+    rcases hC with he | hi
+    · exact hcross g k c d i j a b e f rr hr he hj hp'
+    · exact hsame g k c d i j a b e f rr hr hi hj hp'

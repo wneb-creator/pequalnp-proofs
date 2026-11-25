@@ -1,0 +1,145 @@
+namespace PEqualNP.Outside.L_gct_231_aux.DoubleSingleGeometry
+
+open PEqualNP.Outside.L_gct_231_aux.DoubleSingleMatrixBridge
+
+def base (h : ℂ) : Matrix (Fin 4) (Fin 4) ℂ :=
+  ![![0,0,0,0],![0,0,0,0],![0,0,h-1,1],![0,0,1,-h-1]]
+
+def ModelImpossible : Prop := ∀ a b c d e f g k i j rr : ℂ,
+  rr^2=2 → (f≠0 ∨ j≠0) → (e≠0 ∨ i≠0) →
+  (∀ x y z, Matrix.permanent (Matrix.of fun r s => (1:ℂ)+
+    model a b c d e f g k i j rr x y z r s)=24) → False
+
+def DisjointMaximal : Prop := ∀ A B C : Matrix (Fin 4) (Fin 4) ℂ,
+  (∀ r s, A r s=A s r) → (∀ r s, B r s=B s r) → (∀ r s, C r s=C s r) →
+  (∀ j, A 2 j=0) → (∀ j, A 3 j=0) → (∀ j, B 0 j=0) → (∀ j, B 1 j=0) →
+  A≠0 → B≠0 →
+  (∀ x y z, Matrix.permanent (Matrix.of fun r s => (1:ℂ)+x*A r s+y*B r s+z*C r s)=24) →
+  ∃ p q : ℂ, C=Matrix.of fun r s => p*A r s+q*B r s
+
+set_option maxHeartbeats 100000000 in
+set_option maxRecDepth 100000 in
+lemma total_entries_zero (M : Matrix (Fin 4) (Fin 4) ℂ)
+    (hp : ∀ w, Matrix.permanent (Matrix.of fun r s => (1:ℂ)+w*M r s)=24) :
+    ∑ r, ∑ s, M r s=0 := by
+  have h1 := hp 1
+  have hn1 := hp (-1)
+  have h2 := hp 2
+  have hn2 := hp (-2)
+  simp [perm4, Matrix.of_apply] at h1 hn1 h2 hn2
+  simp [Fin.sum_univ_succ, Fin.sum_univ_zero]
+  linear_combination (1/9:ℂ)*h1-(1/9:ℂ)*hn1-(1/72:ℂ)*h2+(1/72:ℂ)*hn2
+
+lemma normalized_block (a b c : ℂ) (hS : a+c+2*b=0) (hQ : a*c+b^2=0)
+    (hne : a≠0 ∨ b≠0 ∨ c≠0) :
+    b≠0 ∧ ∃ h : ℂ, h^2=2 ∧ a=b*(h-1) ∧ c=b*(-h-1) := by
+  have hb : b≠0 := by
+    intro hb
+    have ha2 : a^2=0 := by linear_combination a*hS-hQ+(b-2*a)*hb
+    have ha := eq_zero_of_pow_eq_zero ha2
+    have hc : c=0 := by linear_combination hS-ha-2*hb
+    exact hne.elim (fun hn => hn ha) (fun hn => hn.elim (fun hn => hn hb) (fun hn => hn hc))
+  have hmul : (a/b)*b=a := div_mul_cancel₀ a hb
+  have haq : a^2+2*a*b-b^2=0 := by linear_combination a*hS-hQ
+  refine ⟨hb,a/b+1,?_,?_,?_⟩
+  · apply mul_right_cancel₀ (pow_ne_zero 2 hb)
+    linear_combination (a/b*b+a+2*b)*hmul+haq
+  · linear_combination -hmul
+  · linear_combination hS+hmul
+
+lemma normalized_independent_impossible (hm : ModelImpossible) (hd : DisjointMaximal)
+    (h : ℂ) (hh : h^2=2) (B C : Matrix (Fin 4) (Fin 4) ℂ)
+    (hsB : ∀ r s, B r s=B s r) (hsC : ∀ r s, C r s=C s r)
+    (hB2 : ∀ j, B 2 j=0) (hC3 : ∀ j, C 3 j=0)
+    (hind : ∀ u v w : ℂ, (∀ r s, u*base h r s+v*B r s+w*C r s=0) →
+      u=0 ∧ v=0 ∧ w=0)
+    (hp : ∀ x y z, Matrix.permanent (Matrix.of fun r s =>
+      (1:ℂ)+x*base h r s+y*B r s+z*C r s)=24) : False := by
+  have hsumB : ∑ r, ∑ s, B r s=0 := by
+    apply total_entries_zero
+    intro w
+    simpa only [zero_mul,add_zero,zero_add] using hp 0 w 0
+  have hsumC : ∑ r, ∑ s, C r s=0 := by
+    apply total_entries_zero
+    intro w
+    simpa only [zero_mul,add_zero,zero_add] using hp 0 0 w
+  have hB33 : B 3 3= -B 0 0-B 1 1-2*B 0 1-2*B 0 3-2*B 1 3 := by
+    simp [Fin.sum_univ_succ,hB2,hsB 0 2,hsB 1 2,hsB 3 2,hsB 1 0,hsB 3 0,hsB 3 1] at hsumB
+    linear_combination hsumB
+  have hC22 : C 2 2= -C 0 0-C 1 1-2*C 0 1-2*C 0 2-2*C 1 2 := by
+    simp [Fin.sum_univ_succ,hC3,hsC 0 3,hsC 1 3,hsC 2 3,hsC 1 0,hsC 2 0,hsC 2 1] at hsumC
+    linear_combination hsumC
+  have heq (x y z : ℂ) :
+      model (B 0 0) (C 0 0) (B 0 1) (C 0 1) (C 0 2) (B 0 3)
+        (B 1 1) (C 1 1) (C 1 2) (B 1 3) h x y z =
+      Matrix.of (fun r s => x*base h r s+y*B r s+z*C r s) := by
+    ext r s
+    fin_cases r <;> fin_cases s <;>
+      simp [model,base,ca,cm,cp,cz,Matrix.of_apply,hB2,hC3,
+        hsB 0 2,hsB 1 2,hsB 3 2,hsB 1 0,hsB 3 0,hsB 3 1,
+        hsC 0 3,hsC 1 3,hsC 2 3,hsC 1 0,hsC 2 0,hsC 2 1,hB33,hC22] <;> ring
+  have hpmodel (x y z : ℂ) : Matrix.permanent (Matrix.of fun r s => (1:ℂ)+
+      model (B 0 0) (C 0 0) (B 0 1) (C 0 1) (C 0 2) (B 0 3)
+        (B 1 1) (C 1 1) (C 1 2) (B 1 3) h x y z r s)=24 := by
+    rw [heq]
+    simpa only [Matrix.of_apply,add_assoc] using hp x y z
+  have hz := coefficients_zero (B 0 0) (C 0 0) (B 0 1) (C 0 1) (C 0 2) (B 0 3)
+    (B 1 1) (C 1 1) (C 1 2) (B 1 3) h hh hpmodel
+  have hsA (r s : Fin 4) : base h r s=base h s r := by
+    fin_cases r <;> fin_cases s <;> simp [base]
+  have hA0 (j : Fin 4) : base h 0 j=0 := by fin_cases j <;> simp [base]
+  have hA1 (j : Fin 4) : base h 1 j=0 := by fin_cases j <;> simp [base]
+  have hAne : base h≠0 := by
+    intro he
+    have ht := congrArg (fun M : Matrix (Fin 4) (Fin 4) ℂ => M 2 3) he
+    norm_num [base] at ht
+  have hBne : B≠0 := by
+    intro he
+    have hc := (hind 0 1 0 (by intro r s; simp [he])).2.1
+    norm_num at hc
+  have hCne : C≠0 := by
+    intro he
+    have hc := (hind 0 0 1 (by intro r s; simp [he])).2.2
+    norm_num at hc
+  have hcrossB : B 0 3≠0 ∨ B 1 3≠0 := by
+    by_contra hn
+    push_neg at hn
+    obtain ⟨hb03,hb13⟩ := hn
+    have hp5 := hz 5
+    simp [coefficients,ca,cm,cp,cz,hb03,hb13] at hp5
+    have hdiag : B 0 0+B 1 1+2*B 0 1=0 := by
+      linear_combination (-(h+1)/2)*hp5-(B 0 0+B 1 1+2*B 0 1)*hh
+    have hB3 (j : Fin 4) : B 3 j=0 := by
+      fin_cases j <;> simp [hsB 3 0,hsB 3 1,hB2,hsB 3 2,hb03,hb13,hB33]
+      linear_combination -hdiag
+    obtain ⟨p,q,hC⟩ := hd B (base h) C hsB hsA hsC hB2 hB3 hA0 hA1 hBne hAne
+      (by intro x y z; simpa only [add_assoc,add_left_comm,add_comm] using hp y x z)
+    have hrel (r s : Fin 4) : (-q)*base h r s+(-p)*B r s+1*C r s=0 := by
+      rw [hC]
+      simp only [Matrix.of_apply]
+      ring
+    have hc := (hind (-q) (-p) 1 hrel).2.2
+    norm_num at hc
+  have hcrossC : C 0 2≠0 ∨ C 1 2≠0 := by
+    by_contra hn
+    push_neg at hn
+    obtain ⟨hc02,hc12⟩ := hn
+    have hp8 := hz 8
+    simp [coefficients,ca,cm,cp,cz,hc02,hc12] at hp8
+    have hdiag : C 0 0+C 1 1+2*C 0 1=0 := by
+      linear_combination ((h-1)/2)*hp8-(C 0 0+C 1 1+2*C 0 1)*hh
+    have hC2 (j : Fin 4) : C 2 j=0 := by
+      fin_cases j <;> simp [hsC 2 0,hsC 2 1,hC3,hsC 2 3,hc02,hc12,hC22]
+      linear_combination -hdiag
+    obtain ⟨p,q,hB⟩ := hd C (base h) B hsC hsA hsB hC2 hC3 hA0 hA1 hCne hAne
+      (by intro x y z; simpa only [add_assoc,add_left_comm,add_comm] using hp y z x)
+    have hrel (r s : Fin 4) : (-q)*base h r s+1*B r s+(-p)*C r s=0 := by
+      rw [hB]
+      simp only [Matrix.of_apply]
+      ring
+    have hc := (hind (-q) 1 (-p) hrel).2.1
+    norm_num at hc
+  exact hm (B 0 0) (C 0 0) (B 0 1) (C 0 1) (C 0 2) (B 0 3)
+    (B 1 1) (C 1 1) (C 1 2) (B 1 3) h hh hcrossB hcrossC hpmodel
+
+end PEqualNP.Outside.L_gct_231_aux.DoubleSingleGeometry
