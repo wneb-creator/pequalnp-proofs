@@ -34,3 +34,6 @@ TIMING total=26.63 subagents=7
 
 SignedCore.lean andComparableNot.lean: compileexit0; independentreviewsPASS. Full logs retained.
 TIMING total=28.90 subagents=7
+
+OperandRetention.lean: 653 lines, compile exit 0; independent review PASS. Abstract Run model only; no full circuit lower bound asserted.
+TIMING total=30.05 subagents=7

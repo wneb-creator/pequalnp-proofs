@@ -1,0 +1,59 @@
+Independent red-team review: PASS for preservation as a checked partial.
+Reviewer: lean_environment (independent of structural source author).
+Reviewed UTC: 2026-11-25T14:29:22.465375+00:00
+Source: results/orch/lemmas/OperandRetention.lean
+Source SHA-256: fa292884b618a46c9f40592c65189783cf11ae0c5bd872ed627f90ca1c3e293c
+Source size: 653 lines, 29726 bytes; regular UTF-8 file, not executable or a symlink.
+New fragment: results/orch/lemmas/operand_retention_fragment.txt, 70 lines.
+Fragment SHA-256: 8fa8424bb7866a397b3edb3532846f9c2ae0f772205160b369b73df939a94f28
+
+The new result is FullRun.first_keeps_left. It assumes distinct input indices p and q,
+that every wire in rest is invariant under changing either input, and an abstract Run
+continuation computing structuralEdge from the initial combined wire and optionally
+retained original operands. Its conclusion is exactly ka = true: the original left
+input must have been retained. There is no missing operation restriction: comb d
+has four semantic branches, and every natural d outside 0, 1, 2 uses the fourth.
+The proof explicitly handles that complete case split.
+
+I reviewed the semantic chain. kept_mem correctly identifies every surviving wire as
+an original operand or a member of the previous list. comb_apply_eq is pointwise
+congruence of the four Boolean operations. run_agree uses the proved Run induction
+principle: the terminal goal, permutations, a new combined wire, and retained old
+wires all preserve agreement between two assignments.
+
+For first_keeps_left, assume ka is false and set the right input to an absorbing
+value z: false for AND, true for OR, true for left AND NOT-right, and false for
+NOT-left AND right. The combined wire then agrees when the left input is false or
+true. A retained right input agrees because both assignments set it to z. Every
+rest wire agrees by the explicit invariance hypothesis. run_agree therefore says
+the final edge function agrees, contradicting the existing pair-cofactor separation
+lemma for the distinct pairs (false,z) and (true,z). The p != q premise is used by
+the update evaluation lemma. No circular dependency or implicit circuit assumption
+was found. An independent Python check confirmed the absorbing identities and all
+360 combinations of ordered distinct input indices and the four operation branches
+have the required separating cofactor witness among the eleven structural points.
+
+Provenance: the SignedFloor namespace body through Run.ind is an unchanged prefix
+of results/orch/lemmas/SignedFloor.lean. The copied structural namespace body matches
+results/orch/lemmas/structural.lean exactly. The final FullRun namespace block matches
+the 70-line fragment exactly. No substantive copied-helper changes were found.
+SignedFloor copied-body SHA-256: 9682d9f7bfc3998d4d9cc7a01d4a2f5681cac93e19ac87172fe856e80d7370b0
+Structural copied-body SHA-256: 13204161ff72aeebf100d26a1dfad58ecec9d03597e0970d8200d3f277c991b2
+
+Static checks: imports are PEqualNP.Defs and allowed Mathlib modules, only at the
+start. All three helper namespace blocks are within the L_meta_2592 namespace
+family and have explicit balanced closures. No sorry, axioms, native_decide,
+unsafe declarations, forbidden commands, string literals, _root_ text, attributes,
+custom data types or instances. The only options are inherited maxRecDepth and
+maxHeartbeats limits directly above their declarations. Whitespace checks passed.
+
+Validation evidence: author/root reported compilation exit 0. I read the complete
+operand-retention-build.stdout and .stderr. Stdout contains unused-simp-argument
+warnings only; stderr is empty; neither contains errors. Both logs are newer than
+the reviewed source. No additional heavy build was run for this review.
+
+Scope limit: this is a conditional semantic obstruction for the abstract Run model.
+It does not itself derive that model from every circuit, establish right-operand
+retention, or prove the posted 19-gate lower bound. The harness has multiple helper
+blocks and no final exact target theorem; it is a preservation artifact, not a
+submission-ready single-file proof PR or an ACCEPTED checker verdict.
