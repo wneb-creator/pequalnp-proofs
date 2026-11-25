@@ -1,0 +1,13 @@
+L-meta-2592 preservation checkpoint
+
+PARTIAL ONLY: the posted theorem is not yet proved. No proof PR has been opened.
+Compiled supporting lemma: cut_last_not (general last-NOT factorization).
+Command: lake env lean ../results/orch/lemmas/LastNot.lean
+Exit: 0
+Complete stdout: empty
+Complete stderr: empty
+Named-file build: lake build PEqualNP.Outside.L_meta_2592; exit0. Full output: results/orch/build.stdout and build.stderr.
+Local checker on posted statement: not run; target theorem is absent.
+
+Sub-agents: status_check (proof map, independent review, geometry), counterexample (SAT), lower_bound (structural bounds), lean_setup (bootstrap and review), partial_lean (finite facts), circuit_search (stochastic search)
+TIMING total=10 subagents=6
