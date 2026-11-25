@@ -1,0 +1,10 @@
+UNCOMPILED RESEARCH SNAPSHOT; no proof PR.
+Gap: L-meta-12087.
+Candidate is a refutation of posted negative statement, adapted with attribution from odinfree PR16697.
+Lean target build: not run; toolchain/cache setup still incomplete.
+Checker: not run.
+Independent review: passed snapshot-only format, exact negation wrapper, attribution, credential checks.
+Circuit synthesis: 12-gate monotone witness verified over all64 assignments; no SAT lower bound established.
+Desk renewal: HTTP410; exact body: {"error":"no such live lease: it expired or was released. Ask /desk/next again."}
+Sub-agents: status_review, circuit_search, lower_bound, alternative_proof, toolchain_setup
+TIMING total=8.1 subagents=5
