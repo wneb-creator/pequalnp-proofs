@@ -1,0 +1,13 @@
+{
+  "verdict": "PASS",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-p10-standalone.lean",
+  "sha256": "6581dc8b211f1596bd2cc08f402bb6ec62946d28ae3fba37e04594dba7de3894",
+  "lines": 8170,
+  "bytes": 395323,
+  "assembly": "Exact accepted prefix 7327 followed by exact compiled finite/Finset body and exact reviewed protected/transfer/consequence tails, with only whitespace and namespace closure.",
+  "new_consequence": "Bplus\u226513 follows from the actual-circuit constraints and their finite impossibility; totalSurplus\u226414 then gives Bzero\u22641 by surplus splitting. No no-quiet conclusion.",
+  "forbidden_markers": [],
+  "build_exit_code": 0,
+  "build_receipt": "pilot-p10-standalone-build.json",
+  "build_logs": "Complete stdout and stderr are empty."
+}

@@ -1,0 +1,554 @@
+{
+  "verdict": "PASS (independent mathematical/source and finite checks; frozen combined standalone build exit0)",
+  "reviewed_utc": "2026-11-25T12:13:32.494841+00:00",
+  "source": "results/orch/lemmas/structural-k4-residual-one-tail.lean",
+  "sha256": "6d1829325306f1d9eea3b1c1e50308b10c3587012171c392188c1f64697e27f5",
+  "finite_checks": {
+    "neighbor_separation": 36,
+    "free_edge": 36,
+    "third_neighbor": 24,
+    "p6_geometry": 19,
+    "p7_geometry": 32
+  },
+  "geometry_cases": [
+    {
+      "ineligible": [
+        3,
+        4,
+        5,
+        7
+      ],
+      "witness": [
+        0,
+        1,
+        5
+      ]
+    },
+    {
+      "ineligible": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "witness": [
+        0,
+        1,
+        5
+      ]
+    },
+    {
+      "ineligible": [
+        2,
+        4,
+        6,
+        8
+      ],
+      "witness": [
+        0,
+        1,
+        6
+      ]
+    },
+    {
+      "ineligible": [
+        4,
+        5,
+        6,
+        8
+      ],
+      "witness": [
+        0,
+        1,
+        5
+      ]
+    },
+    {
+      "ineligible": [
+        4,
+        5,
+        7,
+        8
+      ],
+      "witness": [
+        0,
+        1,
+        5
+      ]
+    },
+    {
+      "ineligible": [
+        4,
+        6,
+        7,
+        8
+      ],
+      "witness": [
+        0,
+        1,
+        6
+      ]
+    },
+    {
+      "ineligible": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "witness": [
+        0,
+        1,
+        5
+      ]
+    },
+    {
+      "ineligible": [
+        1,
+        5,
+        6,
+        9
+      ],
+      "witness": [
+        0,
+        2,
+        6
+      ]
+    },
+    {
+      "ineligible": [
+        4,
+        5,
+        6,
+        9
+      ],
+      "witness": [
+        0,
+        2,
+        4
+      ]
+    },
+    {
+      "ineligible": [
+        4,
+        5,
+        7,
+        9
+      ],
+      "witness": [
+        0,
+        1,
+        5
+      ]
+    },
+    {
+      "ineligible": [
+        4,
+        6,
+        7,
+        9
+      ],
+      "witness": [
+        0,
+        1,
+        6
+      ]
+    },
+    {
+      "ineligible": [
+        5,
+        6,
+        7,
+        9
+      ],
+      "witness": [
+        0,
+        2,
+        6
+      ]
+    },
+    {
+      "ineligible": [
+        4,
+        5,
+        8,
+        9
+      ],
+      "witness": [
+        0,
+        1,
+        5
+      ]
+    },
+    {
+      "ineligible": [
+        4,
+        6,
+        8,
+        9
+      ],
+      "witness": [
+        0,
+        1,
+        6
+      ]
+    },
+    {
+      "ineligible": [
+        5,
+        6,
+        8,
+        9
+      ],
+      "witness": [
+        0,
+        2,
+        6
+      ]
+    },
+    {
+      "ineligible": [
+        0,
+        7,
+        8,
+        9
+      ],
+      "witness": [
+        1,
+        2,
+        8
+      ]
+    },
+    {
+      "ineligible": [
+        4,
+        7,
+        8,
+        9
+      ],
+      "witness": [
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "ineligible": [
+        5,
+        7,
+        8,
+        9
+      ],
+      "witness": [
+        1,
+        2,
+        8
+      ]
+    },
+    {
+      "ineligible": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "witness": [
+        1,
+        2,
+        8
+      ]
+    }
+  ],
+  "checks": [
+    "K4 adjacency was copied from the accepted explicit ten-row bitmask table and all finite geometry claims were independently enumerated.",
+    "The co-label lemma is the reviewed residual inclusion argument specialized to two eligible original K4 vertices. Separation/free-edge hypotheses are explicitly restricted to originals; no false general degree assumption is made.",
+    "Two ineligible neighbors and the third distinct incident leaf give three distinct consumption positions. With residual budget at most1, these exhaust the carrier exits and invoke full_gen to give exact assigned support.",
+    "Under total surplus at most7 and exactly6 eligible labels, the two required carrier counts force at least one residual unit. card_residual and totalSurplus_split then force exactly one residual unit and Bzero=0; zero surplus is derived rather than assumed.",
+    "The same unique residual unit carries x and t, so the co-label theorem forces t into the assigned operand for i. The exact-neighborhood theorem contradicts the explicitly chosen nonadjacency i,t.",
+    "The final theorem uses ineligible-set independence and its exact size4 to find an obstructing triple when at least3 originals are eligible. Its conclusion is conditional on eligible-count exactly6, not an unconditional K4 size16 classification.",
+    "The new p7 case independently passes all32 finite geometry masks. Surplus at most7 and exactly7 eligible inputs force residualcard0, contradicting the selected original carrier having at least3 exits and at most2.",
+    "The final standalone matches the frozen7125-line foundation prefix and all four reviewed tails after namespace-only renaming, including the independently enumerated finite masks. Source hash matches the successful standalone build receipt."
+  ],
+  "issues": [],
+  "limits": [
+    "The complete result is the K4 structural bound; its transfer to the full Fano gap is separate."
+  ],
+  "build": {
+    "source": "results/orch/lemmas/structural-k4-residual-one.lean",
+    "sha256": "7e052ea2dc60d7eb79f1f6f9e786aabd9371dbb5fb029d69e1c5b7111bef4511",
+    "tail_sha256": "6d1829325306f1d9eea3b1c1e50308b10c3587012171c392188c1f64697e27f5",
+    "exit_code": 0,
+    "compiled_at_utc": "2026-11-25T11:54:05.706389+00:00",
+    "scope": "K4 total surplus\u22647 with eligible card6 or7 has at most two eligible original vertices; cached import accepted6659 only. Two unused-variable warnings, no errors."
+  },
+  "p7_geometry_cases": [
+    {
+      "ineligible": [
+        3,
+        4,
+        5
+      ],
+      "witness": 0
+    },
+    {
+      "ineligible": [
+        2,
+        4,
+        6
+      ],
+      "witness": 0
+    },
+    {
+      "ineligible": [
+        1,
+        5,
+        6
+      ],
+      "witness": 0
+    },
+    {
+      "ineligible": [
+        4,
+        5,
+        6
+      ],
+      "witness": 0
+    },
+    {
+      "ineligible": [
+        3,
+        4,
+        7
+      ],
+      "witness": 1
+    },
+    {
+      "ineligible": [
+        3,
+        5,
+        7
+      ],
+      "witness": 2
+    },
+    {
+      "ineligible": [
+        4,
+        5,
+        7
+      ],
+      "witness": 0
+    },
+    {
+      "ineligible": [
+        4,
+        6,
+        7
+      ],
+      "witness": 0
+    },
+    {
+      "ineligible": [
+        5,
+        6,
+        7
+      ],
+      "witness": 0
+    },
+    {
+      "ineligible": [
+        2,
+        4,
+        8
+      ],
+      "witness": 1
+    },
+    {
+      "ineligible": [
+        4,
+        5,
+        8
+      ],
+      "witness": 0
+    },
+    {
+      "ineligible": [
+        2,
+        6,
+        8
+      ],
+      "witness": 3
+    },
+    {
+      "ineligible": [
+        4,
+        6,
+        8
+      ],
+      "witness": 0
+    },
+    {
+      "ineligible": [
+        5,
+        6,
+        8
+      ],
+      "witness": 0
+    },
+    {
+      "ineligible": [
+        0,
+        7,
+        8
+      ],
+      "witness": 1
+    },
+    {
+      "ineligible": [
+        4,
+        7,
+        8
+      ],
+      "witness": 1
+    },
+    {
+      "ineligible": [
+        5,
+        7,
+        8
+      ],
+      "witness": 1
+    },
+    {
+      "ineligible": [
+        6,
+        7,
+        8
+      ],
+      "witness": 1
+    },
+    {
+      "ineligible": [
+        1,
+        5,
+        9
+      ],
+      "witness": 2
+    },
+    {
+      "ineligible": [
+        4,
+        5,
+        9
+      ],
+      "witness": 0
+    },
+    {
+      "ineligible": [
+        1,
+        6,
+        9
+      ],
+      "witness": 3
+    },
+    {
+      "ineligible": [
+        4,
+        6,
+        9
+      ],
+      "witness": 0
+    },
+    {
+      "ineligible": [
+        5,
+        6,
+        9
+      ],
+      "witness": 0
+    },
+    {
+      "ineligible": [
+        0,
+        7,
+        9
+      ],
+      "witness": 2
+    },
+    {
+      "ineligible": [
+        4,
+        7,
+        9
+      ],
+      "witness": 1
+    },
+    {
+      "ineligible": [
+        5,
+        7,
+        9
+      ],
+      "witness": 2
+    },
+    {
+      "ineligible": [
+        6,
+        7,
+        9
+      ],
+      "witness": 2
+    },
+    {
+      "ineligible": [
+        0,
+        8,
+        9
+      ],
+      "witness": 3
+    },
+    {
+      "ineligible": [
+        4,
+        8,
+        9
+      ],
+      "witness": 1
+    },
+    {
+      "ineligible": [
+        5,
+        8,
+        9
+      ],
+      "witness": 2
+    },
+    {
+      "ineligible": [
+        6,
+        8,
+        9
+      ],
+      "witness": 3
+    },
+    {
+      "ineligible": [
+        7,
+        8,
+        9
+      ],
+      "witness": 1
+    }
+  ],
+  "standalone_build": {
+    "source": "results/orch/lemmas/structural-k4-at-most-two-standalone.lean",
+    "sha256": "d06018184ac43442001366197fddb1a6e68d3032cfcd62cfad50cc62d70828ba",
+    "lines": 7570,
+    "exit_code": 0,
+    "compiled_at_utc": "2026-11-25T12:13:03.290225+00:00",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "accepted_prefix_lines": 7125,
+    "scope": "Every strict live K4 subdivision circuit with totalSurplus\u22647 has at most2 eligible original vertices. No Fano no-quiet conclusion."
+  }
+}

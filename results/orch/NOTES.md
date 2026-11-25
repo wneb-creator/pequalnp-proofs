@@ -80,3 +80,7 @@ The exact posted-to-canonical bridge now has a successful standalone build and i
 2026-11-25T11:56:17.197695+00:00: Preserving completed p10 finite obstruction and cached circuit transfer separately, compact q5 core, and multi-unit cofactor slack. Full p9 and strengthened K4 standalone builds are pending; main target remains absent.
 
 2026-11-25T12:03:14.846860+00:00: Full compact q5 certificate passed; original slow job stopped with exit143 after valid alternative completed. P9 standalone composition and p10 standalone bound are running. P14 targeted SAT ended UNKNOWN; structural and smaller semantic models continue.
+
+2026-11-25T12:12:12.875241+00:00: P9 one-sided canonical case fully excluded by standalone checked theorem. P10 I0123 bound and generic maximal-negative branch-value invariant also pass standalone checks. Stronger K4 cached theorem passed; full standalone pending. Compact p14 SAT running with reviewed flattening and negative-proxy cut; no result yet.
+
+K4 update: the full7570-line permitted-import standalone also completed exit0 and independent composition review before this checkpoint was pushed.

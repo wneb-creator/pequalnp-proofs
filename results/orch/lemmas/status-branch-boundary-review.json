@@ -1,0 +1,15 @@
+{
+  "status": "PASS independent final source/math/standalone composition review",
+  "source": "results/orch/lemmas/formalization-branch-boundary-tail.lean",
+  "sha256": "88dfedc1e6bd55f5e69baaed57bafbfe7d046a201dfedae239603a62534e4b98",
+  "reviewed_utc": "2026-11-25T12:10:31.451266+00:00",
+  "reason": "Reserved units exhaust all surplus units under explicit budget. Every branch therefore is a chosen pure first branch, with single-reader chain and semantic domination. sem_dom_split proves zero on maximal negative rows omitting its label; singleton support proves one when present. No live or ordinary-minimality assumption is silently added.",
+  "changes_since_first_review": "Explicit sigma projection goal and removal of redundant Bool-case rewrites only.",
+  "standalone_source": "results/orch/lemmas/formalization-branch-boundary-standalone.lean",
+  "standalone_sha256": "99b285c9740e52d6a646472707b4790c9f57e0b682e88bc431e2d6163676c003",
+  "standalone_exit_code": 0,
+  "standalone_stdout_bytes": 0,
+  "standalone_stderr_bytes": 0,
+  "accepted_prefix_lines": 3239,
+  "accepted_attributes": "Only two inherited local simp declarations; no new attributes."
+}

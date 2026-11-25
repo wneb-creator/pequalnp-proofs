@@ -1,0 +1,71 @@
+{
+  "verdict": "PASS preservation readiness: cached and Defs-only standalone compiled exit0",
+  "manifest": "results/orch/lemmas/structural-k4-at-most-two-manifest.json",
+  "manifest_file_count": 13,
+  "manifest_bytes": 420191,
+  "manifest_hashes": "all exact",
+  "cached_chain": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPAccepted6659.lean",
+      "sha256": "e856158208c582f389897b6941fd0cd675fe6e590fb09b4299b35b9c91a76a20",
+      "bytes": 479741
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPAccepted6659.olean",
+      "sha256": "5db8ee2d6fa87fdbf8776e7885897108390569b839c0633eeb2c98f48eac5411",
+      "bytes": 19275096
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPK4Base.lean",
+      "sha256": "a1f2e7d82187553bb7bad6000d690102d58b652ab18311909bd13b330eebec7a",
+      "bytes": 12950
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPK4Base.olean",
+      "sha256": "85140e0349951699c60d320e62a369d57b5cebbae996d8279b8ffb898f52c167",
+      "bytes": 509896
+    }
+  ],
+  "review_bindings": [
+    {
+      "path": "results/orch/lemmas/sat-k4-residual-one-review.json",
+      "sha256": "b75339eae73879231f6a890f795b7e1a3ea5ac3d4a50e3ec7e86f239f3c6c1da",
+      "reviewed_source_sha256": "6d1829325306f1d9eea3b1c1e50308b10c3587012171c392188c1f64697e27f5"
+    },
+    {
+      "path": "results/orch/lemmas/sat-k4-coordinate-review.json",
+      "sha256": "adb3f4d9ee00c86671dab27c56b97f7f912c4b326c74877dc22ff890a654c065",
+      "reviewed_source_sha256": "7074fb8266a0f775c680b0ec1fd6e279bc0e6c8ae3b25c9e541d6e86a424f3b6"
+    },
+    {
+      "path": "results/orch/lemmas/sat-k4-close-review.json",
+      "sha256": "7c54cf7145a30a1bd818f06285fd9da0c2da5c007b453acf88e2de0a8fab7f8d",
+      "reviewed_source_sha256": "2e90297498e825083051d2126b5c2c1be8112943c0001617c9ed858147c5b47f"
+    }
+  ],
+  "standalone_source_sha256": "d06018184ac43442001366197fddb1a6e68d3032cfcd62cfad50cc62d70828ba",
+  "standalone_status": "Defs-only7570-line source d0601818... now has matching exit0 receipt; fullstdout contains only the two known unused-variable warnings, stderr empty.",
+  "checks": [
+    "Accepted full cache source equals original accepted6659 SHA e8561582...; frozen base source equals PNPK4Base cache source.",
+    "Base and combined cached source hashes match exit0 receipts; base full log contains only two unused-variable warnings; combined logs empty.",
+    "Standalone first7125 accepted lines match under namespace-only renaming; remainder matches frozen base plus combined bodies under namespace/limit wrapper changes.",
+    "Finite and p6/p7/coordinate/final theorem components have independent exact-hash review bindings; coordinate review was updated after final membership-coercion repairs.",
+    "The theorem assumes StrictLive10 and sem_Comp10 k4_Adj plus totalSurplus\u22647 and concludes at most two eligible original vertices. It does not conclude a Fano/quiet result or a formalized +9 cofactor wrapper.",
+    "Cached modules and global limit options are development artifacts, not a claimed ready-to-submit one-file proof.",
+    "Final standalone receipt independently read and matched to frozen source; latest component review reports retain the same frozen hashes and now include standalone success. No full Fano or +9-wrapper claim was added."
+  ],
+  "issues": [],
+  "standalone_build": {
+    "source": "results/orch/lemmas/structural-k4-at-most-two-standalone.lean",
+    "sha256": "d06018184ac43442001366197fddb1a6e68d3032cfcd62cfad50cc62d70828ba",
+    "lines": 7570,
+    "exit_code": 0,
+    "compiled_at_utc": "2026-11-25T12:13:03.290225+00:00",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "accepted_prefix_lines": 7125,
+    "scope": "Every strict live K4 subdivision circuit with totalSurplus\u22647 has at most2 eligible original vertices. No Fano no-quiet conclusion."
+  },
+  "updated_utc": "2026-11-25T12:13:56.759373+00:00"
+}

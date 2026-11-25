@@ -1,0 +1,8 @@
+{
+  "source": "results/orch/lemmas/structural-k4-base.lean",
+  "sha256": "a1f2e7d82187553bb7bad6000d690102d58b652ab18311909bd13b330eebec7a",
+  "exit_code": 0,
+  "compiled_at_utc": "2026-11-25T12:05:23.972091+00:00",
+  "cache": "PNPK4Base.olean",
+  "scope": "K4 p6/p7 eligibility bound plus both finite p4/p5 residual-mask certificates; final coordinate composition separate."
+}

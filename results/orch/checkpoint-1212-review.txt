@@ -1,0 +1,11 @@
+PASS — independent checkpoint audit, 2026-11-25 12:12 bundle.
+
+All40 manifest files exist and match their recorded SHA256 and byte counts; aggregate1483793bytes. Every receipt with a source hash matches that exact source. Successful logs contain no Lean errors; reported warnings are accurately described. Independent review receipts match the preserved p9, p10, branch-boundary, and K4 components.
+
+Scope is accurate: p9 one-sided ordinary impossibility, p10 I0123 Bplus/Bzero bound, and generic branch-boundary theorem have complete Defs-only standalone exit0 receipts. The stronger K4 theorem has cached exit0 and a preserved standalone assembly, explicitly still pending. No metadata claims full Fano no-quiet or full posted-gap success. Historical pending entries are followed by explicit later completion entries. CASE_LEDGER and validation distinguish the open cases.
+
+Format/security scan: no forbidden root marker, string literals, admissions, new axioms, native_decide, or bv_decide in listed Lean files; only limit options and simp attributes occur. No credential-shaped literal or private-key marker detected. Measurement lines Sub-agents and TIMING are present. All new work remains under results/orch; this checkpoint is a partial-results preservation bundle, not a proof PR.
+
+Push-ready within the already-authorized own-branch preservation scope. This audit does not upgrade pending standalone K4 compilation or any SAT result.
+
+ADDENDUM — refreshed43-file manifest,1489207bytes: PASS. Reverified every hash and every source-bound receipt. The K4 standalone receipt now explicitly reports exit0 for unchanged sourced06018184...,7570lines, Defs-only. Its fullstdout has only two unused-variable warnings and stderr is empty. Updated component reviews and all four metadata documents accurately upgrade K4 to full standalone success while leaving the Fano target open. Source bodies are unchanged. The refreshed checkpoint is push-ready.

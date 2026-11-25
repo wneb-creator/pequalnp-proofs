@@ -1,0 +1,41 @@
+{
+  "verdict": "PASS (independent mathematical/source and finite checks; frozen combined standalone build exit0)",
+  "reviewed_utc": "2026-11-25T12:13:32.496137+00:00",
+  "source": "results/orch/lemmas/structural-k4-low-elig-tail.lean",
+  "sha256": "7074fb8266a0f775c680b0ec1fd6e279bc0e6c8ae3b25c9e541d6e86a424f3b6",
+  "checks": [
+    "Actual residual units inject into Fin3 using their finite cardinality bound. The arbitrary default outside R is irrelevant because every coordinate mask is the image of a subset of R.",
+    "Assigned leaf positions are injective on J by k4_Pos and injectivity of Fin.natAdd; their image lies in the target carrier exits, giving the exact residual-label budget.",
+    "Each original carrier having at least3 exits forces a nonempty residual-label set by ke_cc_le. Images preserve its exact cardinality and the union of all masks lies inside the injective image of R.",
+    "Coordinate subset Mx subset Mt reflects to actual residual-label inclusion because f is injective on R. Nonempty Ax supplies a shared original residual unit carrying x and t.",
+    "The co-label theorem then forces t into every assigned leaf selected by the finite predicate. The edge is correctly flipped using graph symmetry, and both original labels are eligible by the shared residual unit.",
+    "The conclusion exactly supplies the nonempty masks, ambient cardinal bound and every forced-position budget used by the prepared p4/p5 finite certificates. No duplicated padding or unproved eligible-label assumption is used.",
+    "The only subsequent proof repairs expand the dependent-if images into explicit fu/fv equalities and derive the positive residual-filter cardinality before converting it to Nonempty. The injection and cardinality argument are unchanged.",
+    "The final two added change commands only convert hu/hv from set-coercion membership to Finset membership before the reviewed dependent-if equalities. The exact final tail is present unchanged in the successful frozen combined build.",
+    "The final standalone matches the frozen7125-line foundation prefix and all four reviewed tails after namespace-only renaming, including the independently enumerated finite masks. Source hash matches the successful standalone build receipt."
+  ],
+  "issues": [],
+  "limits": [
+    "The complete result is the K4 structural bound; its transfer to the full Fano gap is separate."
+  ],
+  "build": {
+    "source": "results/orch/lemmas/structural-k4-at-most-two.lean",
+    "sha256": "6cb690326bca2a97974f14c3696c535cba173bf7c190d5a383e57b966efff9fc",
+    "exit_code": 0,
+    "compiled_at_utc": "2026-11-25T12:06:33.867727+00:00",
+    "cache": "PNPK4Base.olean (itself checked against accepted6659)",
+    "scope": "Every strict live K4 subdivision circuit with totalSurplus\u22647 has at most2 eligible original vertices. Full p4/p5/p6/p7 composition."
+  },
+  "standalone_build": {
+    "source": "results/orch/lemmas/structural-k4-at-most-two-standalone.lean",
+    "sha256": "d06018184ac43442001366197fddb1a6e68d3032cfcd62cfad50cc62d70828ba",
+    "lines": 7570,
+    "exit_code": 0,
+    "compiled_at_utc": "2026-11-25T12:13:03.290225+00:00",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "accepted_prefix_lines": 7125,
+    "scope": "Every strict live K4 subdivision circuit with totalSurplus\u22647 has at most2 eligible original vertices. No Fano no-quiet conclusion."
+  }
+}

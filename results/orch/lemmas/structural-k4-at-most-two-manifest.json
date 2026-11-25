@@ -1,0 +1,90 @@
+{
+  "created_utc": "2026-11-25T12:07:09.728818+00:00",
+  "status": "cached source, finite certificate base, and Defs-only standalone all compiled exit0",
+  "accepted_prefix_lines": 7125,
+  "accepted_original_sha256": "e856158208c582f389897b6941fd0cd675fe6e590fb09b4299b35b9c91a76a20",
+  "standalone_lines": 7570,
+  "files": [
+    {
+      "path": "results/orch/lemmas/structural-k4-base.lean",
+      "sha256": "a1f2e7d82187553bb7bad6000d690102d58b652ab18311909bd13b330eebec7a",
+      "bytes": 12950
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-base-build.json",
+      "sha256": "a33d2f773c6945de971902dacf6bf1450df5c16aed10a4554c6f344bd064692d",
+      "bytes": 378
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-base-build.stdout",
+      "sha256": "813de19926a0866f169f6c73e0c0d4d43ae4443631280dbf98429d3b7a3a5b1e",
+      "bytes": 724
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-base-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-at-most-two.lean",
+      "sha256": "6cb690326bca2a97974f14c3696c535cba173bf7c190d5a383e57b966efff9fc",
+      "bytes": 9485
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-at-most-two-build.json",
+      "sha256": "c49770b54a062dbdf1e75d68d9eaf9bbfd824fa44ec52b167561af18844f1855",
+      "bytes": 443
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-at-most-two-build.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-at-most-two-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-at-most-two-standalone.lean",
+      "sha256": "d06018184ac43442001366197fddb1a6e68d3032cfcd62cfad50cc62d70828ba",
+      "bytes": 373930
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-residual-one-tail.lean",
+      "sha256": "6d1829325306f1d9eea3b1c1e50308b10c3587012171c392188c1f64697e27f5",
+      "bytes": 12041
+    },
+    {
+      "path": "results/orch/lemmas/sat-k4-mask-certificates.lean",
+      "sha256": "537d9988d70e808a3bac680a1762023f076e3703243bbede65eadb79fa16b2fd",
+      "bytes": 829
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-low-elig-tail.lean",
+      "sha256": "7074fb8266a0f775c680b0ec1fd6e279bc0e6c8ae3b25c9e541d6e86a424f3b6",
+      "bytes": 4744
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-close-tail.lean",
+      "sha256": "2e90297498e825083051d2126b5c2c1be8112943c0001617c9ed858147c5b47f",
+      "bytes": 4667
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-at-most-two-standalone-build.json",
+      "sha256": "23e72c635a7c6027b25373f0278fe1b55cd764f0b44f05f16439182b62ecfda3",
+      "bytes": 475
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-at-most-two-standalone-build.stdout",
+      "sha256": "a17f8d2c4c4a657f2dc2346c4d414a6cb1b34a6025dec9e7ecd93e750db48530",
+      "bytes": 798
+    },
+    {
+      "path": "results/orch/lemmas/structural-k4-at-most-two-standalone-build.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "standalone_exit_code": 0
+}

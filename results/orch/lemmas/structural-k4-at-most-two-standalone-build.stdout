@@ -1,0 +1,12 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/structural-k4-at-most-two-standalone.lean:7246:24: warning: Variable name `hi` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hi
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/structural-k4-at-most-two-standalone.lean:7246:37: warning: Variable name `hix` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hix
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

@@ -1,0 +1,47 @@
+{
+  "reviewer": "constructive_search",
+  "verdict": "PASS full source composition and matching permitted-import standalone exit0",
+  "utc": "2026-11-25T11:56:14.197063+00:00",
+  "source": "results/orch/lemmas/algebraic-p9-onesided.lean",
+  "sha256": "ab03e0491cb6f2a27b9b041608d24efd62c169391a0e2642bf9471d403c412d3",
+  "lines": 9514,
+  "accepted_prefix_lines": 7507,
+  "assembly": [
+    "compact",
+    "protected",
+    "algebraic-saturated-tail.lean",
+    "algebraic-protected-full-tail.lean",
+    "algebraic-q5-coordinate-tail.lean",
+    "algebraic-q5-transfer-tail.lean",
+    "algebraic-q5-shape-tail.lean",
+    "algebraic-q5-close-tail.lean",
+    "algebraic-q5-endgame-tail.lean"
+  ],
+  "checks": [
+    "Accepted prefix byte-identical.",
+    "Every inserted dependency exactly matches its specified frozen source, in order; nothing else inserted beyond namespace closure and whitespace.",
+    "Core finite table and certificates, residual coordinate/transfer, sharp masks, cofactor closures, and final two-orbit proof independently reviewed.",
+    "Forbidden-marker scan clean.",
+    "Final theorem excludes all StrictLive exact-Fano circuits with totalSurplus\u226414 and canonical ineligible set{0,1,2,3,4}; it is stronger than no-double-quiet for this one orbit."
+  ],
+  "scope": "Canonical p9 one-sided orbit fully excluded. This does not alone prove the full posted statement.",
+  "build_receipt": "results/orch/lemmas/algebraic-p9-onesided-build.json",
+  "build": {
+    "source": "results/orch/lemmas/algebraic-p9-onesided.lean",
+    "sha256": "ab03e0491cb6f2a27b9b041608d24efd62c169391a0e2642bf9471d403c412d3",
+    "lines": 9514,
+    "bytes": 458640,
+    "exit_code": 0,
+    "completed_utc": "2026-11-25T12:09:21.719987+00:00",
+    "command": "PATH=pinned-Lean-4.36.0:$PATH lake env lean -j1 -M10000 /workspace/pequalnp-proofs/results/orch/lemmas/algebraic-p9-onesided.lean",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "logs": {
+      "stdout": "algebraic-p9-onesided-build.stdout",
+      "stderr": "algebraic-p9-onesided-build.stderr"
+    },
+    "diagnostics": "Four unused-simp warnings from the reviewed finite predicate bridge; no errors.",
+    "scope": "Ordinary impossibility of a strict-live correct Heawood circuit with totalSurplus\u226414 and ineligible set exactly {0,1,2,3,4}; no derivative premise. This is one canonical case, not the complete posted gap."
+  }
+}

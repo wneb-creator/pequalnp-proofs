@@ -1,0 +1,8 @@
+{
+  "source": "results/orch/lemmas/structural-k4-at-most-two.lean",
+  "sha256": "6cb690326bca2a97974f14c3696c535cba173bf7c190d5a383e57b966efff9fc",
+  "exit_code": 0,
+  "compiled_at_utc": "2026-11-25T12:06:33.867727+00:00",
+  "cache": "PNPK4Base.olean (itself checked against accepted6659)",
+  "scope": "Every strict live K4 subdivision circuit with totalSurplus\u22647 has at most2 eligible original vertices. Full p4/p5/p6/p7 composition."
+}

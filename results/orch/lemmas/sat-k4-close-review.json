@@ -1,0 +1,90 @@
+{
+  "verdict": "PASS (independent mathematical/source and finite checks; frozen combined standalone build exit0)",
+  "reviewed_utc": "2026-11-25T12:13:32.496736+00:00",
+  "source": "results/orch/lemmas/structural-k4-close-tail.lean",
+  "sha256": "2e90297498e825083051d2126b5c2c1be8112943c0001617c9ed858147c5b47f",
+  "low_covers": [
+    [
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      5
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      6
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      7
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      8
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      9
+    ]
+  ],
+  "large_family_original_checks": 28,
+  "checks": [
+    "Exhaustive enumeration of the accepted K4 adjacency gives exactly7 vertex covers of size at most5: all4 originals, or those plus one leaf. There are no omitted low-eligibility cases.",
+    "Every five- or six-leaf family has at least2 incident leaves at each original; all28 family/original cases were independently checked. The assigned-neighbor theorem therefore gives at least3 carrier exits at every original.",
+    "For eligible-card4, residualcard\u22643; the coordinate-budget masks contradict the p4 certificate on all6 ineligible leaves. For eligible-card5, residualcard\u22642; deleting the unique eligible leaf produces exactly the p5 certificate predicate.",
+    "The p5 filter equality retains precisely the omitted-leaf inequality and the same incidence/subset predicate; the coordinate union bound supplies the finite certificate ambient-size premise.",
+    "The final theorem bounds total eligible cardinality by Bplus\u2264total\u22647, excludes\u22645, and invokes the separately reviewed p6/p7 cases. It concludes at most2 eligible original vertices for arbitrary StrictLive K4-correct D with surplus\u22647.",
+    "No Bzero0 assumption, ordinary minimality, unproved full-mask premise or finite-search UNSAT is used. All remaining dependencies are the supplied coordinate budget, finite certificates and reviewed p6/p7 results.",
+    "The final standalone matches the frozen7125-line foundation prefix and all four reviewed tails after namespace-only renaming, including the independently enumerated finite masks. Source hash matches the successful standalone build receipt."
+  ],
+  "issues": [],
+  "limits": [
+    "The complete result is the K4 structural bound; its transfer to the full Fano gap is separate."
+  ],
+  "build": {
+    "source": "results/orch/lemmas/structural-k4-at-most-two.lean",
+    "sha256": "6cb690326bca2a97974f14c3696c535cba173bf7c190d5a383e57b966efff9fc",
+    "exit_code": 0,
+    "compiled_at_utc": "2026-11-25T12:06:33.867727+00:00",
+    "cache": "PNPK4Base.olean (itself checked against accepted6659)",
+    "scope": "Every strict live K4 subdivision circuit with totalSurplus\u22647 has at most2 eligible original vertices. Full p4/p5/p6/p7 composition."
+  },
+  "standalone_build": {
+    "source": "results/orch/lemmas/structural-k4-at-most-two-standalone.lean",
+    "sha256": "d06018184ac43442001366197fddb1a6e68d3032cfcd62cfad50cc62d70828ba",
+    "lines": 7570,
+    "exit_code": 0,
+    "compiled_at_utc": "2026-11-25T12:13:03.290225+00:00",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "accepted_prefix_lines": 7125,
+    "scope": "Every strict live K4 subdivision circuit with totalSurplus\u22647 has at most2 eligible original vertices. No Fano no-quiet conclusion."
+  }
+}

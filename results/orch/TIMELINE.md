@@ -41,3 +41,9 @@
 
 2026-11-25T12:02:05Z: Compact q5 certificate completed exit0; complete p9 circuit theorem still awaiting standalone build.
 2026-11-25T11:58:10Z: Targeted p14 SAT timed out UNKNOWN; worker handed to p9 proof build.
+
+2026-11-25T12:07:07Z: P10 I0123 bound finished standalone exit0.
+2026-11-25T12:09:21Z: P9 one-sided ordinary-impossibility theorem finished standalone exit0.
+2026-11-25T12:09:53Z: Branch-boundary invariant finished standalone exit0.
+
+2026-11-25T12:13Z: K4 surplus≤7 eligibility bound completed standalone compilation and independent composition review.

@@ -1,0 +1,12 @@
+{
+  "source": "results/orch/lemmas/structural-k4-at-most-two-standalone.lean",
+  "sha256": "d06018184ac43442001366197fddb1a6e68d3032cfcd62cfad50cc62d70828ba",
+  "lines": 7570,
+  "exit_code": 0,
+  "compiled_at_utc": "2026-11-25T12:13:03.290225+00:00",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "accepted_prefix_lines": 7125,
+  "scope": "Every strict live K4 subdivision circuit with totalSurplus\u22647 has at most2 eligible original vertices. No Fano no-quiet conclusion."
+}

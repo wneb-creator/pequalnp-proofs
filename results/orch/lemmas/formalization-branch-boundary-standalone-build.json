@@ -1,0 +1,12 @@
+{
+  "source": "results/orch/lemmas/formalization-branch-boundary-standalone.lean",
+  "sha256": "99b285c9740e52d6a646472707b4790c9f57e0b682e88bc431e2d6163676c003",
+  "tail_sha256": "88dfedc1e6bd55f5e69baaed57bafbfe7d046a201dfedae239603a62534e4b98",
+  "lines": 3280,
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T12:09:53.616475+00:00",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "scope": "Every branching wire agrees with its singleton label on maximal-negative assignments, assuming graph correctness and totalSurplus\u2264eligible.card. No no-quiet conclusion."
+}
