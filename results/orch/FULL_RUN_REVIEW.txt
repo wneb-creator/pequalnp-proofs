@@ -1,0 +1,89 @@
+Independent red-team review: PASS for preservation as a checked partial.
+Reviewer: lean_environment (independent of finite source author).
+Reviewed UTC: 2026-11-25T14:35:04.022265+00:00
+Source: results/orch/lemmas/FullRun.lean
+Source SHA-256: 08f30a5ebef4608de130aa9fefa70acf93027f1c52046d2f3e5dac38c326631b
+Source size: 534 lines, 27105 bytes; regular UTF-8 file, not executable or a symlink.
+Local dependency: results/orch/lemmas/SignedCore.lean
+Dependency SHA-256: 3256f14c3bd9e075f4c510f64877b72a555599e9d9eb8f6052eb900afa0cfe58
+
+Important format exception: the first line is import SignedCore, a temporary local
+development module outside the gap's permitted import list. This file is NOT ready
+for a proof PR. Final assembly must inline the required SignedCore declarations,
+remove this temporary import, use only permitted imports, and be built and checked
+again as the single named target file. This review authorizes preservation of the
+checked partial only; it is not an ACCEPTED checker verdict.
+
+Exact result
+FullRun.circuit_run assumes FanInTwo C and that C computes the stated Petersen edge
+function on every ten-bit input. It yields a natural k bounded by the number of gates
+whose operation is not NOT, together with SignedFloor.Run true petersenF k starting
+from exactly the ten original input projections. Under FanInTwo, the counted gates
+are AND/OR gates, including permitted zero- and one-input gates. This is a translation
+to the abstract free-NOT Run model, not itself a lower bound or a reconstructed
+ordinary circuit with the same total gate count. No additional unproved hypothesis
+is hidden in the final statement.
+
+Semantic review
+The 1024-bit signatures represent all ten-input assignments. table_eval relates the
+signature evaluator to the project's exact circuit evaluator, including missing-wire
+reads as false and NOT's first-input semantics. edge_table identifies the target
+signature with the posted edge list. sample_row establishes that observation covers
+every assignment, so observe_graph and observe_inputs recover the actual target
+function and all original projections.
+
+Normalization complements a signature exactly when its zero-row bit is true. NOT
+therefore has zero cost after normalization. Each legal AND/OR gate either has an
+already represented or constant normalized value, or introduces one of the four
+signed binary operations. The backwards extraction lemma counts at most one such
+step per non-NOT gate and removes unused gates. Its Live states track proper,
+distinct signatures and fresh results; retained operands are represented by their
+membership in the residual set U.
+
+list_run correctly converts those finite-set states to lists with explicit retention
+flags. Erasing the two operands builds a duplicate-free rest list, membership in U
+determines whether each operand is retained, freshness keeps the next list nodup,
+and finite-set equality yields the required permutations. Mapping through observe
+preserves the four signed operations; no injectivity of observation is assumed by
+the Run construction.
+
+The extracted initial set is initially only a subset of the input signatures. The
+live_row_difference and raw_required lemmas show that any target difference between
+two rows must be witnessed by some root signature. requiredInputs supplies, for each
+input, a pair of rows where only that input changes and the Petersen output changes.
+Thus every original input signature is required, proving equality with the full input
+set. The final list is nodup, and observing it gives exactly the ten projections.
+I found no missing premise, circular use of the target lower bound, or altered
+project circuit semantics.
+
+Independent data checks
+I parsed the ten hexadecimal input signatures and checked every one against the
+expected bit column over all 1024 rows. I independently recomputed the Petersen
+edge function on all 1024 assignments and obtained the exact graph signature.
+The graph is nonconstant and its zero-row bit is false. Large numerals occur in the
+definitions of these tables, not as additional hypotheses or changed target data.
+
+Provenance
+The generic signature/extraction prefix matches the corresponding prefix of
+results/orch/lemmas/SignedFloor.lean after replacing bit width 512 by 1024, removing
+the additional open directive, and ignoring whitespace. I also read SignedCore's
+243-line dependency source, including Wire, comb, kept, Run and its induction,
+permutation and step lemmas, map_kept, and kept_nd. The temporary dependency contains
+no forbidden axioms or unchecked placeholders.
+
+Static checks and validation
+Aside from the explicit temporary import exception, all declarations are in the
+FullRun child of the intended helper namespace, with an explicit matching end.
+No sorry, axioms, native_decide, unsafe declarations, forbidden commands, strings,
+_root_ text, attributes, custom data types or instances. The only local options are
+permitted maxRecDepth and maxHeartbeats limits directly above their declarations.
+Whitespace checks passed.
+
+Author/root reported local compilation exit 0. I read the complete retained logs
+results/orch/finite/full-run-build-002.stdout and .stderr. Stdout contains only
+unused-simp and unnecessary-simpa style warnings; stderr is empty; neither contains
+errors. Both logs are newer than the reviewed source. I did not repeat the heavy
+build while the nine-input certificate was running.
+
+Verdict: preserve the checked translation partial and its logs on the pilot branch.
+The full L-meta-2592 lower bound and final single-file checker acceptance remain open.

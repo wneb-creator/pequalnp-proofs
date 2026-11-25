@@ -14,3 +14,4 @@
 - 2026-11-25T14:26:47.733503+00:00: Petersen specialization of strict binary restriction compiled and independently reviewed.
 - 2026-11-25T14:29:03.721828+00:00: SignedCore and ComparableNot partials compiled and independently reviewed.
 - 2026-11-25T14:30:13.017904+00:00: first signed gate operand-retention partial compiled and independently reviewed.
+- 2026-11-25T14:36:23.936362+00:00: FullRun, ReachRestriction, and MiniNine adapters compiled and independently reviewed; temporary development imports require final assembly.

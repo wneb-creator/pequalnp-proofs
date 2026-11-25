@@ -1,0 +1,10 @@
+Reviewed by status_and_review at 2026-11-25T14:33:47.043121+00:00
+Verdict: PASS as a checked development partial; NOT PR-ready in this standalone form.
+Source: results/orch/lemmas/ReachRestriction.lean
+SHA256: 1b80bd194a6973cebd8c194583b29a386685f2fb8f1f0fff5669caab120078a9
+Size: 24 lines, 1024 bytes. Scratch source named by build matches byte-for-byte.
+The two lemmas transport Available and Reach along an arbitrary row map. Membership transports through List.map, constants remain constant, inversion commutes definitionally with restriction, and binary AND/OR computation commutes with restriction. Reach gate count is preserved, so no unjustified gate savings are asserted. The same u flag and free-NOT permissions are preserved.
+Reported compile exit 0, complete stdout and stderr both empty. No heavy rebuild performed.
+No sorry, axioms, native_decide, unsafe commands, forbidden text, strings, attributes, options, or new data types. All helper names lie under the target namespace.
+Required final integration change: temporary `import SignedCore` is a development-only local import and violates the final proof import allowlist. Remove it when concatenating these lemmas after the SignedFloor/SignedCore declarations; final imports must be permitted project/Mathlib modules only. This is expected integration work, not evidence of a false proof.
+No target lower bound is proved here; preservation as a partial is appropriate.

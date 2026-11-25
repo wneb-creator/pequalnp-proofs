@@ -37,3 +37,6 @@ TIMING total=28.90 subagents=7
 
 OperandRetention.lean: 653 lines, compile exit 0; independent review PASS. Abstract Run model only; no full circuit lower bound asserted.
 TIMING total=30.05 subagents=7
+
+FullRun.lean, ReachRestriction.lean, MiniNine.lean: compile exit0 and independent reviews PASS as development partials. Temporary helper imports must be removed by final assembly.
+TIMING total=36.23 subagents=7

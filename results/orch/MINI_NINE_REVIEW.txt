@@ -1,0 +1,5 @@
+Independent root review: PASS as checked development partial.
+SHA256: 27b79ad70daae78dc00421fee5dd1e669417f685fce76cc2a90733bce066e2ac
+Verified all9 input columns over512 rows, and all512 graph rows. The row-map transport instantiates Reach/Available at sample rows and uses the exact table hypothesis. No missing semantic assumption.
+Temporary imports ReachRestriction and Structural require inlining before final PR; duplicate table definitions must be deduplicated with SignedFloor.
+Lean compile exit0; complete logs retained. Not a full gap proof.
