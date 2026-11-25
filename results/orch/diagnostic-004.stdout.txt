@@ -1,0 +1,1235 @@
+type checking took 2.45s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:31:0: warning: Definition `witness_eval` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:473:46: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:473:46: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:495:36: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:495:36: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 154ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 157ms
+simp took 158ms
+simp took 181ms
+grind took 133ms
+grind took 152ms
+simp took 162ms
+simp took 171ms
+grind took 244ms
+grind took 201ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:813:31: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+simp took 333ms
+simp took 340ms
+simp took 142ms
+simp took 187ms
+grind took 212ms
+grind took 172ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:881:26: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:888:29: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:888:38: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:891:31: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:891:40: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:892:31: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:954:31: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:954:40: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:956:33: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:956:42: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:959:43: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:959:52: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:959:67: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:961:45: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:961:54: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:961:69: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:962:45: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:964:54: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:973:28: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:978:31: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:978:40: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:980:33: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:980:42: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:982:33: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:999:28: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1004:31: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1004:40: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1006:33: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1006:42: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1008:33: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 578ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 748ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 342ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 712ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:959:27: warning: This simp argument is unused:
+  q1
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q2, q3, q4, if_true, if_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:961:33: warning: This simp argument is unused:
+  q2
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [q1, q3, q4, if_true, if_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1154:30: warning: This simp argument is unused:
+  nl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sp, sepb, nx, nsr, Nat.testBit_shiftRight]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1154:34: warning: This simp argument is unused:
+  nx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sp, sepb, nl, nsr, Nat.testBit_shiftRight]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1154:38: warning: This simp argument is unused:
+  nsr
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sp, sepb, nl, nx, Nat.testBit_shiftRight]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1161:10: warning: This simp argument is unused:
+  no
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ih]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1187:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1196:0: warning: Definition `segX_ok` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1199:0: warning: Definition `segY_ok` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1203:0: warning: Definition `HX_eq` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1206:0: warning: Definition `HY_eq` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1266:37: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1269:43: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1269:54: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1438:52: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1438:20: warning: This simp argument is unused:
+  bR
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [child, st_eq, guard_ok X hr hm hk, cond_true, hmk] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1438:52: warning: This simp argument is unused:
+  cond_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [child, bR, st_eq, guard_ok X hr hm hk, hmk] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1483:33: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1518:31: warning: Variable name `hac` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hac
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+simp took 261ms
+simp took 220ms
+simp took 181ms
+simp took 216ms
+simp took 261ms
+simp took 330ms
+simp took 180ms
+simp took 187ms
+simp took 165ms
+simp took 131ms
+simp took 221ms
+simp took 148ms
+simp took 152ms
+simp took 138ms
+simp took 132ms
+simp took 187ms
+tactic execution of Lean.Parser.Tactic.omega took 110ms
+tactic execution of Lean.Parser.Tactic.omega took 131ms
+type checking took 102ms
+type checking took 103ms
+type checking took 192ms
+type checking took 170ms
+type checking took 135ms
+simp took 107ms
+simp took 137ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1924:32: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1999:19: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:1999:30: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:2013:19: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:2013:30: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:2024:19: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:2080:37: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:2122:21: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:2124:12: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:2241:25: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 104ms
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 148ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:2300:27: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:2300:27: warning: This simp argument is unused:
+  cond_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [cv, bR, hcov] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+simp took 137ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:2547:4: warning: Unused tactic linter: `change a.s ^^^ m ∈ _` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:2656:12: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+simp took 213ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:2807:14: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 1.15s
+interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed took 545ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:2986:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_10760_aux.or_false'`:
+  X
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit X in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3003:14: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+process pre-definitions took 244ms
+elaboration took 3.29s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3031:0: warning: Definition `AA_TG` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3034:0: warning: Definition `TG_lt` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3037:0: warning: Definition `AA_lt` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3046:52: warning: This simp argument is unused:
+  no
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mz, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3048:39: warning: This simp argument is unused:
+  Nat.shiftLeft_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mz, no, Nat.testBit_or, Bool.or_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3058:0: warning: Definition `raw_good` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+tactic execution of Lean.Parser.Tactic.congr took 157ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3350:14: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3359:17: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3401:24: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3522:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3567:23: warning: This simp argument is unused:
+  bR
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [startv, hhas, hble, Bool.cond_true] at h3
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3567:39: warning: This simp argument is unused:
+  Bool.cond_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [startv, bR, hhas, hble] at h3
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3578:0: warning: Definition `ffull` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3610:0: warning: Definition `seed3` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 329ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3616:0: warning: Definition `seed4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 647ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3622:0: warning: Definition `seed5` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3754:0: warning: Definition `EF_ok` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+simp took 151ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3814:0: warning: Definition `tcheck4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 125ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3819:0: warning: Definition `tcheck3` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 333ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3824:0: warning: Definition `tcheck2` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 662ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3829:0: warning: Definition `tcheck1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 265ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3834:0: warning: Definition `tcheck0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 410ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3838:0: warning: Definition `six1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 484ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3841:0: warning: Definition `six2` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 731ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3844:0: warning: Definition `six4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 707ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3847:0: warning: Definition `six8` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 446ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3850:0: warning: Definition `six16` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 463ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3853:0: warning: Definition `six32` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 171ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3856:0: warning: Definition `six64` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3885:0: warning: Definition `splitMasks_full` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3889:0: warning: Definition `r13t0_0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3893:0: warning: Definition `r13t0_1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 5.83s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3897:0: warning: Definition `r13t0_2` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 7.04s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3901:0: warning: Definition `r13t0_3` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 5.74s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3905:0: warning: Definition `r13t0_4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 4.9s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3909:0: warning: Definition `r13t0_5` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 2.64s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3913:0: warning: Definition `r13t0_6` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 3.53s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3917:0: warning: Definition `r13t0_7` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 3.6s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3921:0: warning: Definition `r13t0_8` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 2.31s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3925:0: warning: Definition `r13t0_9` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 5.31s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3929:0: warning: Definition `r13t0_10` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 3.31s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3933:0: warning: Definition `r13t0_11` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 4.67s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3937:0: warning: Definition `r13t0_12` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 2.91s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3941:0: warning: Definition `r13t0_13` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 3.19s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3945:0: warning: Definition `r13t0_14` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 2.87s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3949:0: warning: Definition `r13t0_15` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 9.82s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3953:0: warning: Definition `r13t0_16` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 8.43s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3957:0: warning: Definition `r13t0_17` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3984:0: warning: Definition `r13t1_0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3988:0: warning: Definition `r13t1_1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 1.48s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3992:0: warning: Definition `r13t1_2` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 1.52s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:3996:0: warning: Definition `r13t1_3` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 1.42s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4000:0: warning: Definition `r13t1_4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 1.01s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4004:0: warning: Definition `r13t1_5` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 921ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4008:0: warning: Definition `r13t1_6` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 1.14s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4012:0: warning: Definition `r13t1_7` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 1.12s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4016:0: warning: Definition `r13t1_8` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 752ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4020:0: warning: Definition `r13t1_9` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 2.1s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4024:0: warning: Definition `r13t1_10` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 1.02s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4028:0: warning: Definition `r13t1_11` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 933ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4032:0: warning: Definition `r13t1_12` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 630ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4036:0: warning: Definition `r13t1_13` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 907ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4040:0: warning: Definition `r13t1_14` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 624ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4044:0: warning: Definition `r13t1_15` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 3.06s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4048:0: warning: Definition `r13t1_16` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 3.41s
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4052:0: warning: Definition `r13t1_17` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4079:0: warning: Definition `r13t2_0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4083:0: warning: Definition `r13t2_1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 321ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4087:0: warning: Definition `r13t2_2` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 248ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4091:0: warning: Definition `r13t2_3` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 379ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4095:0: warning: Definition `r13t2_4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 189ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4099:0: warning: Definition `r13t2_5` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 137ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4103:0: warning: Definition `r13t2_6` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 153ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4107:0: warning: Definition `r13t2_7` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 130ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4111:0: warning: Definition `r13t2_8` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 144ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4115:0: warning: Definition `r13t2_9` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 280ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4119:0: warning: Definition `r13t2_10` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 196ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4123:0: warning: Definition `r13t2_11` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 155ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4127:0: warning: Definition `r13t2_12` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 152ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4131:0: warning: Definition `r13t2_13` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 133ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4135:0: warning: Definition `r13t2_14` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 183ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4139:0: warning: Definition `r13t2_15` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 525ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4143:0: warning: Definition `r13t2_16` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 461ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4147:0: warning: Definition `r13t2_17` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4174:0: warning: Definition `r13t3_0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4178:0: warning: Definition `r13t3_1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4182:0: warning: Definition `r13t3_2` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4186:0: warning: Definition `r13t3_3` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4190:0: warning: Definition `r13t3_4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4194:0: warning: Definition `r13t3_5` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4198:0: warning: Definition `r13t3_6` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4202:0: warning: Definition `r13t3_7` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4206:0: warning: Definition `r13t3_8` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4210:0: warning: Definition `r13t3_9` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4214:0: warning: Definition `r13t3_10` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4218:0: warning: Definition `r13t3_11` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4222:0: warning: Definition `r13t3_12` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4226:0: warning: Definition `r13t3_13` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4230:0: warning: Definition `r13t3_14` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4234:0: warning: Definition `r13t3_15` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4238:0: warning: Definition `r13t3_16` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4242:0: warning: Definition `r13t3_17` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 156ms
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4269:0: warning: Definition `r13t4_0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4273:0: warning: Definition `r13t4_1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4277:0: warning: Definition `r13t4_2` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4281:0: warning: Definition `r13t4_3` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4285:0: warning: Definition `r13t4_4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4289:0: warning: Definition `r13t4_5` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4293:0: warning: Definition `r13t4_6` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4297:0: warning: Definition `r13t4_7` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4301:0: warning: Definition `r13t4_8` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4305:0: warning: Definition `r13t4_9` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4309:0: warning: Definition `r13t4_10` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4313:0: warning: Definition `r13t4_11` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4317:0: warning: Definition `r13t4_12` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4321:0: warning: Definition `r13t4_13` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4325:0: warning: Definition `r13t4_14` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4329:0: warning: Definition `r13t4_15` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4333:0: warning: Definition `r13t4_16` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4337:0: warning: Definition `r13t4_17` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4364:0: warning: Definition `r13t5_0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4368:0: warning: Definition `r13t5_1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4372:0: warning: Definition `r13t5_2` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4376:0: warning: Definition `r13t5_3` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4380:0: warning: Definition `r13t5_4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4384:0: warning: Definition `r13t5_5` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4388:0: warning: Definition `r13t5_6` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4392:0: warning: Definition `r13t5_7` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4396:0: warning: Definition `r13t5_8` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4400:0: warning: Definition `r13t5_9` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4404:0: warning: Definition `r13t5_10` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4408:0: warning: Definition `r13t5_11` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4412:0: warning: Definition `r13t5_12` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4416:0: warning: Definition `r13t5_13` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4420:0: warning: Definition `r13t5_14` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4424:0: warning: Definition `r13t5_15` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4428:0: warning: Definition `r13t5_16` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4432:0: warning: Definition `r13t5_17` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4459:0: warning: Definition `r13t6_0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4463:0: warning: Definition `r13t6_1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4467:0: warning: Definition `r13t6_2` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4471:0: warning: Definition `r13t6_3` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4475:0: warning: Definition `r13t6_4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4479:0: warning: Definition `r13t6_5` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4483:0: warning: Definition `r13t6_6` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4487:0: warning: Definition `r13t6_7` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4491:0: warning: Definition `r13t6_8` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4495:0: warning: Definition `r13t6_9` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4499:0: warning: Definition `r13t6_10` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4503:0: warning: Definition `r13t6_11` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4507:0: warning: Definition `r13t6_12` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4511:0: warning: Definition `r13t6_13` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4515:0: warning: Definition `r13t6_14` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4519:0: warning: Definition `r13t6_15` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4523:0: warning: Definition `r13t6_16` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4527:0: warning: Definition `r13t6_17` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4554:0: warning: Definition `r13t7_0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4558:0: warning: Definition `r13t7_1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4562:0: warning: Definition `r13t7_2` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4566:0: warning: Definition `r13t7_3` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4570:0: warning: Definition `r13t7_4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4574:0: warning: Definition `r13t7_5` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4578:0: warning: Definition `r13t7_6` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4582:0: warning: Definition `r13t7_7` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4586:0: warning: Definition `r13t7_8` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4590:0: warning: Definition `r13t7_9` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4594:0: warning: Definition `r13t7_10` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4598:0: warning: Definition `r13t7_11` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4602:0: warning: Definition `r13t7_12` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4606:0: warning: Definition `r13t7_13` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4610:0: warning: Definition `r13t7_14` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4614:0: warning: Definition `r13t7_15` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4618:0: warning: Definition `r13t7_16` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4622:0: warning: Definition `r13t7_17` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4649:0: warning: Definition `r13t8_0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4653:0: warning: Definition `r13t8_1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4657:0: warning: Definition `r13t8_2` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4661:0: warning: Definition `r13t8_3` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4665:0: warning: Definition `r13t8_4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4669:0: warning: Definition `r13t8_5` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4673:0: warning: Definition `r13t8_6` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4677:0: warning: Definition `r13t8_7` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4681:0: warning: Definition `r13t8_8` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4685:0: warning: Definition `r13t8_9` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4689:0: warning: Definition `r13t8_10` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4693:0: warning: Definition `r13t8_11` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4697:0: warning: Definition `r13t8_12` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4701:0: warning: Definition `r13t8_13` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4705:0: warning: Definition `r13t8_14` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4709:0: warning: Definition `r13t8_15` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4713:0: warning: Definition `r13t8_16` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4717:0: warning: Definition `r13t8_17` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4744:0: warning: Definition `r13t9_0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4748:0: warning: Definition `r13t9_1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4752:0: warning: Definition `r13t9_2` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4756:0: warning: Definition `r13t9_3` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4760:0: warning: Definition `r13t9_4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4764:0: warning: Definition `r13t9_5` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4768:0: warning: Definition `r13t9_6` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4772:0: warning: Definition `r13t9_7` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4776:0: warning: Definition `r13t9_8` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4780:0: warning: Definition `r13t9_9` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4784:0: warning: Definition `r13t9_10` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4788:0: warning: Definition `r13t9_11` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4792:0: warning: Definition `r13t9_12` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4796:0: warning: Definition `r13t9_13` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4800:0: warning: Definition `r13t9_14` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4804:0: warning: Definition `r13t9_15` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4808:0: warning: Definition `r13t9_16` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4812:0: warning: Definition `r13t9_17` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4839:0: warning: Definition `r13t10_0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4843:0: warning: Definition `r13t10_1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4847:0: warning: Definition `r13t10_2` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4851:0: warning: Definition `r13t10_3` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4855:0: warning: Definition `r13t10_4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4859:0: warning: Definition `r13t10_5` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4863:0: warning: Definition `r13t10_6` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4867:0: warning: Definition `r13t10_7` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4871:0: warning: Definition `r13t10_8` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4875:0: warning: Definition `r13t10_9` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4879:0: warning: Definition `r13t10_10` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4883:0: warning: Definition `r13t10_11` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4887:0: warning: Definition `r13t10_12` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4891:0: warning: Definition `r13t10_13` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4895:0: warning: Definition `r13t10_14` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4899:0: warning: Definition `r13t10_15` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4903:0: warning: Definition `r13t10_16` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4907:0: warning: Definition `r13t10_17` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4934:0: warning: Definition `r13t11_0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4938:0: warning: Definition `r13t11_1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4942:0: warning: Definition `r13t11_2` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4946:0: warning: Definition `r13t11_3` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4950:0: warning: Definition `r13t11_4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4954:0: warning: Definition `r13t11_5` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4958:0: warning: Definition `r13t11_6` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4962:0: warning: Definition `r13t11_7` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4966:0: warning: Definition `r13t11_8` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4970:0: warning: Definition `r13t11_9` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4974:0: warning: Definition `r13t11_10` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4978:0: warning: Definition `r13t11_11` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4982:0: warning: Definition `r13t11_12` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4986:0: warning: Definition `r13t11_13` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4990:0: warning: Definition `r13t11_14` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4994:0: warning: Definition `r13t11_15` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:4998:0: warning: Definition `r13t11_16` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:5002:0: warning: Definition `r13t11_17` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:5029:0: warning: Definition `r13t12_0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:5033:0: warning: Definition `r13t12_1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:5037:0: warning: Definition `r13t12_2` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:5041:0: warning: Definition `r13t12_3` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:5045:0: warning: Definition `r13t12_4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:5049:0: warning: Definition `r13t12_5` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:5053:0: warning: Definition `r13t12_6` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:5057:0: warning: Definition `r13t12_7` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:5061:0: warning: Definition `r13t12_8` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:5065:0: warning: Definition `r13t12_9` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:5069:0: warning: Definition `r13t12_10` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:5073:0: warning: Definition `r13t12_11` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:5077:0: warning: Definition `r13t12_12` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:5081:0: warning: Definition `r13t12_13` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:5085:0: warning: Definition `r13t12_14` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-180/FinalSync35.lean:5089:0: warning: Definition `

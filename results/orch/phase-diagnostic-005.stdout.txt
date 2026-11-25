@@ -1,0 +1,6 @@
+BEFORE one-NOT Q35 phase
+/tmp/oec/pequalnp-pilot-180/computational/OneNot35PhaseDiagnostic.lean:10:54: error: Tactic `decide` failed. The elaborator is able to reduce the `Decidable` instance, but the kernel fails with:
+
+  (kernel) excessive memory consumption detected
+type checking took 25.2s
+AFTER one-NOT Q35 phase

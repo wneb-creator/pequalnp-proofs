@@ -18,3 +18,11 @@ Pilot pequalnp-pilot-180
 2026-11-25T19:54:30.195780+00:00 Checkpointing extended restrictions and NOT-aware bridge after independent audit.
 2026-11-25T19:58:33.547953+00:00 Checkpointing lower13 and complete checked semantic chain; finite one-NOT13 certificate passed native scout, kernel splitting underway.
 2026-11-25T20:11:30.976421+00:00 Preserving independently reviewed complete candidate while serialized named-module build runs.
+
+- 2026-11-25 20:15 UTC: Full FinalSync build stopped with exit137 after memory reached about7.4GiB despite7threads. No Lean error diagnosis. Investigating declaration-level memory; full candidate already preserved on origin.
+
+- 2026-11-25 20:19 UTC: Memory-capped direct FinalSync35 diagnostic stopped at6GB with memory_exception after root13 split checks. Output buffering prevented exact next-declaration diagnosis; preparing explicit stage markers and isolated certificates.
+
+- 2026-11-25 20:22 UTC: Exact memory bottleneck localized to first-NOT phase certificate. New parallel roles: proof_routes verifies Boolean decomposition; graph_search constructs filtered first-NOT checker; computational integrates; toolchain audits.
+
+- 2026-11-25 20:29 UTC: ContinuationSplit247lines compiled, empty logs; independent exact-SHA auditGO. Eight-way first-NOT coverage/recombination now kernel checked. Checkpointing before next certificate experiments.
