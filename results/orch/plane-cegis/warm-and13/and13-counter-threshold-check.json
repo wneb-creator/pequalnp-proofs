@@ -1,0 +1,48 @@
+{
+  "source_sha256": "07a2518da34378cdba0775406c384990515969c393932e748ab9f42fe26c9a53",
+  "exact_counter_fragment_sha256": "eb77453fb21d9e0cff4e858b51d926e269658a2b42da0c742d9fc5021c9926e8",
+  "results": [
+    {
+      "name": "twelve_AND_one_OR",
+      "AND_flags": 12,
+      "OR_flags": 1,
+      "variables": 182,
+      "clauses": 639,
+      "phase_unsatisfied_clauses": [
+        639
+      ],
+      "unit_propagation_conflict": true,
+      "accepted": false
+    },
+    {
+      "name": "thirteen_AND",
+      "AND_flags": 13,
+      "OR_flags": 0,
+      "variables": 182,
+      "clauses": 639,
+      "phase_unsatisfied_clauses": [],
+      "unit_propagation_conflict": false,
+      "accepted": true
+    },
+    {
+      "name": "thirteen_AND_one_OR",
+      "AND_flags": 13,
+      "OR_flags": 1,
+      "variables": 196,
+      "clauses": 690,
+      "phase_unsatisfied_clauses": [],
+      "unit_propagation_conflict": false,
+      "accepted": true
+    },
+    {
+      "name": "fourteen_AND",
+      "AND_flags": 14,
+      "OR_flags": 0,
+      "variables": 196,
+      "clauses": 690,
+      "phase_unsatisfied_clauses": [],
+      "unit_propagation_conflict": false,
+      "accepted": true
+    }
+  ]
+}

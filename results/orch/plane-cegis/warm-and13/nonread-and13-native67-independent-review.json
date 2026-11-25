@@ -1,0 +1,17 @@
+{
+  "scope": "Future full-SAT AND13+nonread preparation positive control only; no63 witness.",
+  "source_sha256": "07a2518da34378cdba0775406c384990515969c393932e748ab9f42fe26c9a53",
+  "native_clauses_checked": 9833407,
+  "native_variables": 175723,
+  "decoded_gates": 67,
+  "decoded_ANDs": 15,
+  "fixed_prefix_verified": 64,
+  "native_model_sha256": "ca2ee93312a3774291813861638de073bb024337a1feba6c8f4f78f589c2fbfb",
+  "native_cnf_sha256": "e9ae05ebac7e6c904afe1967cec9649488dea5d1195eed75ce256456e16522c9",
+  "selected_edge": [
+    0,
+    13
+  ],
+  "independent_capped_read_counts_match_every_wire": true,
+  "full_geometry_rows_verified": 756
+}

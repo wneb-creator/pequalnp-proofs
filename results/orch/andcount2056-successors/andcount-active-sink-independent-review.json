@@ -1,0 +1,46 @@
+{
+  "scope": "Independent sink source/control artifact audit. K12 target is known impossible by existing L1898; infrastructure only, not a launch recommendation or target witness.",
+  "source_sha256": "bb3b0516e580a16b05affe97603f71d99e8c9afe8c4c88efe4948553641f6cd5",
+  "controls": [
+    {
+      "prefix": "active-sink-native13-free1",
+      "variables": 148954,
+      "clauses_checked": 671047,
+      "active_records": 13,
+      "ordinary_gates": 64,
+      "ordinary_ANDs": 13,
+      "boundary_errors": 0,
+      "model_sha256": "17e782dd0755191479cc946b247b0f4bb1cb497070258b2e32fff722c2387b6f"
+    },
+    {
+      "prefix": "active-sink-control13-forced-swap",
+      "variables": 148954,
+      "clauses_checked": 671048,
+      "active_records": 13,
+      "ordinary_gates": 64,
+      "ordinary_ANDs": 13,
+      "boundary_errors": 0,
+      "model_sha256": "2eb4c3c4b7418b4d59e12937142c7cd6ab9e40631ec92f18d7ed6c38d868068f"
+    },
+    {
+      "prefix": "active-sink-control16-padded",
+      "variables": 219664,
+      "clauses_checked": 971351,
+      "active_records": 13,
+      "ordinary_gates": 64,
+      "ordinary_ANDs": 13,
+      "boundary_errors": 0,
+      "model_sha256": "76f7d0b69ae06451e3ea94cd7e1b65726393c7a8ae4634acb45b9c8d4d5f806e"
+    }
+  ],
+  "padded16_model_origin": "Replay of existing actual anchor native16 model against new sink clauses; no native rerun",
+  "target_added_clauses": 132,
+  "target_old_clauses_preserved": 582261,
+  "target_phase_violations": [
+    572143,
+    572180,
+    572217,
+    572254
+  ],
+  "target_sha256": "f3bcd93948d133fbaba7ab84b1e4cdfae1492920d15d894d73d1616d35fad631"
+}

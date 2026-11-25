@@ -1,0 +1,23 @@
+{"processed_record": 0, "missing": 4, "best_exact_size": 68}
+{"processed_record": 20, "missing": 47, "best_exact_size": 65}
+{"processed_record": 40, "missing": 40, "best_exact_size": 65}
+{"processed_record": 60, "missing": 43, "best_exact_size": 65}
+{"processed_record": 80, "missing": 42, "best_exact_size": 65}
+{"processed_record": 100, "missing": 41, "best_exact_size": 65}
+{"processed_record": 120, "missing": 43, "best_exact_size": 65}
+{"processed_record": 140, "missing": 43, "best_exact_size": 65}
+{
+  "utc": "2026-11-25T18:44:12.296935+00:00",
+  "status": "finite repair pass complete; no target witness",
+  "input_records": 152,
+  "unique_records": 152,
+  "processed": 152,
+  "skipped_primary_outputs": 0,
+  "records_with_output_references": 14,
+  "records_with_reduced_accounting_bound": 18,
+  "exact_repairs_checked": 152,
+  "minimum_exact_repair_size": 65,
+  "witness_count": 0,
+  "input_pool_sha256": "9584881347ed60e6edd710f73e74763871d00e70451984ba1c5db0ba0063f691",
+  "source_sha256": "6bd86f391c3cc00deb5fab4e25ae4b022e7f459f77f0f19194f9fdf0e541c5a0"
+}

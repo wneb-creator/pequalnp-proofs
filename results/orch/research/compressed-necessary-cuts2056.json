@@ -1,0 +1,32 @@
+{
+  "scope": "Independent mathematical/source review of necessary cuts for the bounded AND-record construction model; not a new Lean theorem or target proof",
+  "L8141_source": "lean/PEqualNP/Outside/L_meta_8141.lean",
+  "L8141_sha256": "a3f85ed7c85e682c88d763b63ea5d9e1c7d7e1c9b8197d00594de9e1f7b647bf",
+  "L8141_final_statement": "theorem PEqualNP.Outside.L_meta_8141 :\n    have x1 : Finset (Fin (13 : \u2115)) := {(0 : Fin (13 : \u2115)), (1 : Fin (13 : \u2115)), (3 : Fin (13 : \u2115)), (9 : Fin (13 : \u2115))}; have x2 : (Fin (26 : \u2115) \u2192 Bool) \u2192 Prop := fun (x2 : Fin (26 : \u2115) \u2192 Bool) => \u2203 (x3 : Fin (13 : \u2115)) (x4 : Fin (13 : \u2115)), x3 - x4 \u2208 x1 \u2227 x2 (Fin.castAdd (13 : \u2115) x3) = Bool.true \u2227 x2 (Fin.natAdd (13 : \u2115) x4) = Bool.true; have x3 : PEqualNP.CircuitLowerBounds.Circuit \u2192 Prop := fun (x3 : PEqualNP.CircuitLowerBounds.Circuit) => PEqualNP.MetaComplexity.Monotone2 x3 \u2227 PEqualNP.MetaComplexity.NestedCover.ReadsBack (26 : \u2115) x3 \u2227 \u2200 (x4 : Fin (26 : \u2115) \u2192 Bool), x3.eval (List.ofFn x4) = Bool.true \u2194 x2 x4; have x4 : Fin (26 : \u2115) \u2192 Fin (26 : \u2115) \u2192 Fin (26 : \u2115) \u2192 Bool := fun (x4 x5 x6 : Fin (26 : \u2115)) => Decidable.decide (x6 = x4 \u2228 x6 = x5); have x5 : PEqualNP.CircuitLowerBounds.Circuit \u2192 Fin (26 : \u2115) \u2192 Fin (26 : \u2115) \u2192 Prop := fun (x5 : PEqualNP.CircuitLowerBounds.Circuit) (x6 x7 : Fin (26 : \u2115)) => \u2203 (x8 : Fin x5.gates.length), (x5.gates.get x8).op = PEqualNP.CircuitLowerBounds.GateOp.and \u2227 (x5.wires (List.ofFn (x4 x6 x7))).getD ((26 : \u2115) + \u2191x8) Bool.false = Bool.true; \u2200 (x6 : PEqualNP.CircuitLowerBounds.Circuit), x3 x6 \u2192 x6.size \u2264 (63 : \u2115) \u2192 \u2203 (x9 : Fin (26 : \u2115)) (x10 : Fin (26 : \u2115)), \u00acx2 (x4 x9 x10) \u2227 x5 x6 x9 x10",
+  "literal_model": [
+    "Each operand is an OR-subset of primaries and earlier binary AND-record outputs.",
+    "Inactive false sources are propagated away. Each remaining binary AND is retained, including equal-operand ANDs.",
+    "The unshared ordinary expansion has size at most M-A-1; the cap63 model satisfies all full-plane boundary rows."
+  ],
+  "nonread_cut": {
+    "statement": "There is an incident edge (p,l) such that no final-output-selected AND record has direct primary p/l memberships on opposite operands.",
+    "reason": "Every binary AND output has at least two leaves in any successful proof tree, so operand singleton proof traces come only from direct primaries. This crossing test exactly detects joint(1,1) traces in the literal expansion. Compiled sum-incidence Read1>=64 makes a missing edge necessary under literal size<=63.",
+    "witness_encoding": "At least one existential edge flag; each selected flag guards two four-literal clauses per output record. No at-most-one assumption.",
+    "caveat": "Equal-operand AND folding in the optimized decoder can create singleton/joint traces; optimized Read1 is evaluated and reported separately."
+  },
+  "dirty_pair_cut": {
+    "statement": "Some record has left primary a and right primary b whose unordered pair is not an incidence edge; a=b is allowed.",
+    "ordered_pairs": 572,
+    "reason": "First transport L8141 from difference to sum incidence by negating only primary line indices; this preserves Monotone2, ReadsBack, gate operations and all false-pair assignments. L8141 requires an ordinary AND to accept a false pair. In the literal expansion choose the earliest record true on that pair; earlier AND records are false, so its two operands must use primaries from that pair. Their selected pair is still false. Conversely the direct memberships force that record true on that false pair.",
+    "encoding": "One equivalence flag per ordered nonedge/diagonal pair and record, three clauses for flag iff both memberships, and one disjunction over all flags."
+  },
+  "AND_floor": {
+    "statement": "At least13 active records.",
+    "reason": "Existing L1898 applies after line-negation transport and the literal ordinary expansion has at mostA AND gates. An active-prefix model enforces this with active[12]."
+  },
+  "not_claimed": [
+    "No unrestricted total-gate lower bound",
+    "No completeness of the independent-OR membership budget among all ordinary circuits",
+    "No target witness or formalization of these compressed cuts in Lean"
+  ]
+}

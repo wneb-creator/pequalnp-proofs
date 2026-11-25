@@ -1,0 +1,9 @@
+{
+  "started_utc": "2026-11-25T19:03:49.251576+00:00",
+  "ended_utc": "2026-11-25T19:04:51.576103+00:00",
+  "returncode": 0,
+  "wall_seconds": 62.324709996999445,
+  "max_rss_kib": 3167736,
+  "lean_num_threads": 1,
+  "scope": "Generated64-gate control only; no<=63theorem"
+}

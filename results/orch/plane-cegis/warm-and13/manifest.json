@@ -1,0 +1,300 @@
+{
+  "utc": "2026-11-25T18:59:07.095098+00:00",
+  "files": [
+    {
+      "name": "README.md",
+      "bytes": 3325,
+      "sha256": "1ec8b425a74f0e6d74a2932d0d2aef0e4064857fd46dc1c0bab3a5925b0c84b4"
+    },
+    {
+      "name": "and13-and-budget-nonread-phases-independent-review.json",
+      "bytes": 3457,
+      "sha256": "296fbd15dce482a8e48af8e75fef873a826f415b00a1829b51c3b4472f4f77f7"
+    },
+    {
+      "name": "and13-and-budget-nonread-phases-independent-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "and13-and-budget-nonread-phases-independent-review.stdout",
+      "bytes": 3458,
+      "sha256": "97bbcded1c968b651ef2db69b440116bfb81daa920d8e064a9a621f0656ffde9"
+    },
+    {
+      "name": "and13-counter-fourteen_AND.json",
+      "bytes": 31877,
+      "sha256": "defed562fd39b7485ed5a97bd31c2bbd12126649da2dbb8fb23b7c705db09c56"
+    },
+    {
+      "name": "and13-counter-independent-review.json",
+      "bytes": 792,
+      "sha256": "55ad1e31d77e7a7461ed88189b4ca55a0a7a7ead5ce43253dd1ea41d5f8d9c72"
+    },
+    {
+      "name": "and13-counter-thirteen_AND.json",
+      "bytes": 29444,
+      "sha256": "d93e9b0e50402d2d6ebb932d4b4cb0112ca5456e939aff0ae0de29bf97e0d2d2"
+    },
+    {
+      "name": "and13-counter-thirteen_AND_one_OR.json",
+      "bytes": 31883,
+      "sha256": "ec6bb14ef9228c380706833d50bc77648d84032ed22e0716b606362353e812d8"
+    },
+    {
+      "name": "and13-counter-threshold-check.json",
+      "bytes": 1191,
+      "sha256": "ec9716a2385969f8b86367bc0ac12e38135be3c48e44dcf0e45fd35054c0b2e4"
+    },
+    {
+      "name": "and13-counter-threshold-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "and13-counter-threshold-check.stdout",
+      "bytes": 931,
+      "sha256": "7418ef40e8033666bd12f1a74ec5fc093b76cde8fda650df621c0b8309295b1e"
+    },
+    {
+      "name": "and13-counter-twelve_AND_one_OR.json",
+      "bytes": 29464,
+      "sha256": "22fca2880a31fa67d0959867d900c704729cc720849020aacdd92c16b0a44350"
+    },
+    {
+      "name": "and13-native64-independent-review.json",
+      "bytes": 620,
+      "sha256": "8566f7042612d32f1fbdc3de41e916a51f5c9166ff6604ecbfe233f14101b2fa"
+    },
+    {
+      "name": "and13-native64-independent-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "and13-native64-independent-review.stdout",
+      "bytes": 620,
+      "sha256": "8566f7042612d32f1fbdc3de41e916a51f5c9166ff6604ecbfe233f14101b2fa"
+    },
+    {
+      "name": "audit_and13_and_budget_nonread_phases.py",
+      "bytes": 2960,
+      "sha256": "2939990319f75b310eb1f279daa5fc88b4f3cd0ee4e42f68bfd7239988311ea6"
+    },
+    {
+      "name": "audit_and13_native64.py",
+      "bytes": 3332,
+      "sha256": "4ff65774739530e84a564c4148fe92aba87fbc25c9a1987f967775587c9d399b"
+    },
+    {
+      "name": "audit_false_phase.py",
+      "bytes": 1465,
+      "sha256": "008b1e08dce3d57393f35e1da7496d73f950a732ff73570fb182317bce751a66"
+    },
+    {
+      "name": "audit_nonread_and13_native67.py",
+      "bytes": 3801,
+      "sha256": "4c3a9e5e267affc59e5050a25558eaea5883ee824c41180b6bf8c53c53f2eb2d"
+    },
+    {
+      "name": "check_and13_counter.py",
+      "bytes": 2277,
+      "sha256": "89e3e5b08d69809bba207fa44edecf7a0ef7e005cf698b1766afd64797843d13"
+    },
+    {
+      "name": "direct_cnf_warm_first_and13.py",
+      "bytes": 12702,
+      "sha256": "83df60d535fd134e399bd4916301a3ce6510d0cf1b508015b0846695606e547e"
+    },
+    {
+      "name": "direct_cnf_warm_nonread_and13.py",
+      "bytes": 15768,
+      "sha256": "07a2518da34378cdba0775406c384990515969c393932e748ab9f42fe26c9a53"
+    },
+    {
+      "name": "first-control64-gates.json",
+      "bytes": 793,
+      "sha256": "6fb45c50a846e9ff5c4408d4fbff8e9922d2d9a01745ec982b95116225867231"
+    },
+    {
+      "name": "first-near63-gates.json",
+      "bytes": 806,
+      "sha256": "931ea96b38f4a2be9a95b39b791d7f2086204dc0019f5195b40201edb91d40be"
+    },
+    {
+      "name": "nonread-and13-native67-independent-review.json",
+      "bytes": 647,
+      "sha256": "1d446cdd058f06daafc867e2060f1b761647769a0cf1e1cef8b3e5cb45af1dbd"
+    },
+    {
+      "name": "nonread-and13-native67-independent-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "nonread-and13-native67-independent-review.stdout",
+      "bytes": 647,
+      "sha256": "1d446cdd058f06daafc867e2060f1b761647769a0cf1e1cef8b3e5cb45af1dbd"
+    },
+    {
+      "name": "read1-control67-gates.json",
+      "bytes": 858,
+      "sha256": "1113558eb5a40836a278560b9ff6084a9cb480550f40e4efcaf55106467bc088"
+    },
+    {
+      "name": "warm-and13-control64-free3-v2-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "warm-and13-control64-free3-v2-wrapper.stdout",
+      "bytes": 1267,
+      "sha256": "3f76c0285e1c74c37dc54bbfe9da227c437a9fb0763ba4c9060743485e1e7642"
+    },
+    {
+      "name": "warm-and13-control64-free3-v2.json",
+      "bytes": 3531,
+      "sha256": "04eb7a2755f19042afb0934c94431d050fa0d53186cde936fef3735a9d361ac3"
+    },
+    {
+      "name": "warm-and13-control64-free3-v2.mapping.json",
+      "bytes": 725965,
+      "sha256": "760fdd9ac2a0ff3097f39d05d3c2bab7fcd4fbdce8d73fede6742bb984e6f632"
+    },
+    {
+      "name": "warm-and13-control64-free3-v2.process.json",
+      "bytes": 95,
+      "sha256": "b1aedda1c93b3916eb03d1931abc1ce1be0748e5540e2b9864633ec02680be26"
+    },
+    {
+      "name": "warm-and13-control64-free3-v2.sol",
+      "bytes": 1253281,
+      "sha256": "1d0ab2e910b1d2bf4b0023f9b0a464cc84b71545ddb7993104d3531937d9a701"
+    },
+    {
+      "name": "warm-and13-control64-free3-v2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "warm-and13-control64-free3-v2.stdout",
+      "bytes": 2988,
+      "sha256": "ebcafa742800ea1841fd3f2ae280ea444a4eb5e7c5c25c53defa53fba995b5b5"
+    },
+    {
+      "name": "warm-and13-control64-free3-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "warm-and13-control64-free3-wrapper.stdout",
+      "bytes": 1184,
+      "sha256": "0502f980e1c260b65ea2d0849f746b9d4dd11a18dc56a7cf20af5ffb1f87dddb"
+    },
+    {
+      "name": "warm-and13-control64-free3.json",
+      "bytes": 809,
+      "sha256": "b8b790c87df26f3d53ea591dc63cfab63115a3b8ad454513d6ae340c319d6064"
+    },
+    {
+      "name": "warm-and13-control64-free3.mapping.json",
+      "bytes": 725965,
+      "sha256": "760fdd9ac2a0ff3097f39d05d3c2bab7fcd4fbdce8d73fede6742bb984e6f632"
+    },
+    {
+      "name": "warm-and13-control64-free3.process.json",
+      "bytes": 92,
+      "sha256": "ec8f865954528cf1cf7cda017f829e7abb6207e259e0310c566e6e575506b5e1"
+    },
+    {
+      "name": "warm-and13-control64-free3.sol",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "name": "warm-and13-control64-free3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "warm-and13-control64-free3.stdout",
+      "bytes": 3007,
+      "sha256": "8f93e83856a8b3911a5b757fb2a0ee4611d5db23a2a28c6a7ca91aa9a8fc31a8"
+    },
+    {
+      "name": "warm-nonread-and13-control67-free3-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "warm-nonread-and13-control67-free3-wrapper.stdout",
+      "bytes": 1661,
+      "sha256": "c4a4bcd2323b6e69db1010de956320616f29e2f697f13ed1f18e7a4348a8a9b8"
+    },
+    {
+      "name": "warm-nonread-and13-control67-free3.json",
+      "bytes": 4068,
+      "sha256": "eb437178b5cb48a5925c8ce4494518e29f63ed10a801103bba3f2ba66781c62d"
+    },
+    {
+      "name": "warm-nonread-and13-control67-free3.mapping.json",
+      "bytes": 734922,
+      "sha256": "b37bd77a787e9497382de2e665a2bff6d55421909720fc7053980dd744c84238"
+    },
+    {
+      "name": "warm-nonread-and13-control67-free3.process.json",
+      "bytes": 100,
+      "sha256": "1633d0109e7b8ae007bb510e5c8278ee1575e131b294896ab8ea4d28939cd50a"
+    },
+    {
+      "name": "warm-nonread-and13-control67-free3.sol",
+      "bytes": 1329517,
+      "sha256": "ca2ee93312a3774291813861638de073bb024337a1feba6c8f4f78f589c2fbfb"
+    },
+    {
+      "name": "warm-nonread-and13-control67-free3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "warm-nonread-and13-control67-free3.stdout",
+      "bytes": 3003,
+      "sha256": "ffd98e3901038fb9a4e52e25b13d7fa1e726f89c09a579254e34cac33e8cec0f"
+    },
+    {
+      "name": "warm-nonread-and13-near63-phase-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "warm-nonread-and13-near63-phase-audit.stdout",
+      "bytes": 492,
+      "sha256": "a925ce51c6918ff1078a923c81cddf419946e8c1f035d7248244779d673cc41b"
+    },
+    {
+      "name": "warm-nonread-and13-near63-query-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "warm-nonread-and13-near63-query-wrapper.stdout",
+      "bytes": 812,
+      "sha256": "e12cbd2fadeb669833a6cbe18d4cdffbec643c994b77140dad260afcf751435d"
+    },
+    {
+      "name": "warm-nonread-and13-near63-query.json",
+      "bytes": 1405,
+      "sha256": "fdb17fb473f73ecb289aa904136d6ae6363aebde3612b96f1bc2389f4c1dbf92"
+    },
+    {
+      "name": "warm-nonread-and13-near63-query.mapping.json",
+      "bytes": 700967,
+      "sha256": "57b66ad5448aed0d36d11f45af8b2caa80724f3a3abc2a690f4df2f36aa63965"
+    },
+    {
+      "name": "warm-nonread-and13-near63-query.phase-check.json",
+      "bytes": 610,
+      "sha256": "4860982f2fc1e8be84ef029db72d99952423389e11561db2df6fac512ecb29c8"
+    }
+  ]
+}

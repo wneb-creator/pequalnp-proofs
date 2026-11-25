@@ -1,0 +1,1119 @@
+{
+  "gates": [
+    [
+      1,
+      14,
+      18
+    ],
+    [
+      1,
+      19,
+      26
+    ],
+    [
+      1,
+      21,
+      27
+    ],
+    [
+      0,
+      8,
+      28
+    ],
+    [
+      1,
+      13,
+      17
+    ],
+    [
+      1,
+      18,
+      30
+    ],
+    [
+      1,
+      20,
+      31
+    ],
+    [
+      0,
+      9,
+      32
+    ],
+    [
+      1,
+      29,
+      33
+    ],
+    [
+      1,
+      16,
+      17
+    ],
+    [
+      1,
+      19,
+      35
+    ],
+    [
+      1,
+      25,
+      36
+    ],
+    [
+      0,
+      10,
+      37
+    ],
+    [
+      1,
+      15,
+      16
+    ],
+    [
+      1,
+      18,
+      39
+    ],
+    [
+      1,
+      24,
+      40
+    ],
+    [
+      0,
+      11,
+      41
+    ],
+    [
+      1,
+      38,
+      42
+    ],
+    [
+      1,
+      34,
+      43
+    ],
+    [
+      1,
+      13,
+      14
+    ],
+    [
+      1,
+      16,
+      45
+    ],
+    [
+      1,
+      22,
+      46
+    ],
+    [
+      0,
+      0,
+      47
+    ],
+    [
+      1,
+      13,
+      15
+    ],
+    [
+      1,
+      21,
+      49
+    ],
+    [
+      1,
+      25,
+      50
+    ],
+    [
+      0,
+      1,
+      51
+    ],
+    [
+      1,
+      48,
+      52
+    ],
+    [
+      1,
+      14,
+      20
+    ],
+    [
+      1,
+      24,
+      54
+    ],
+    [
+      1,
+      25,
+      55
+    ],
+    [
+      0,
+      2,
+      56
+    ],
+    [
+      1,
+      13,
+      19
+    ],
+    [
+      1,
+      23,
+      58
+    ],
+    [
+      1,
+      24,
+      59
+    ],
+    [
+      0,
+      3,
+      60
+    ],
+    [
+      1,
+      57,
+      61
+    ],
+    [
+      1,
+      53,
+      62
+    ],
+    [
+      1,
+      18,
+      22
+    ],
+    [
+      1,
+      23,
+      64
+    ],
+    [
+      1,
+      25,
+      65
+    ],
+    [
+      0,
+      4,
+      66
+    ],
+    [
+      1,
+      17,
+      21
+    ],
+    [
+      1,
+      22,
+      68
+    ],
+    [
+      1,
+      24,
+      69
+    ],
+    [
+      0,
+      5,
+      70
+    ],
+    [
+      1,
+      67,
+      71
+    ],
+    [
+      1,
+      16,
+      20
+    ],
+    [
+      1,
+      21,
+      73
+    ],
+    [
+      1,
+      23,
+      74
+    ],
+    [
+      0,
+      6,
+      75
+    ],
+    [
+      1,
+      15,
+      19
+    ],
+    [
+      1,
+      20,
+      77
+    ],
+    [
+      1,
+      22,
+      78
+    ],
+    [
+      0,
+      7,
+      79
+    ],
+    [
+      1,
+      76,
+      80
+    ],
+    [
+      1,
+      72,
+      81
+    ],
+    [
+      1,
+      63,
+      82
+    ],
+    [
+      1,
+      44,
+      83
+    ],
+    [
+      1,
+      14,
+      15
+    ],
+    [
+      1,
+      17,
+      85
+    ],
+    [
+      1,
+      23,
+      86
+    ],
+    [
+      1,
+      84,
+      87
+    ],
+    [
+      0,
+      12,
+      88
+    ],
+    [
+      1,
+      84,
+      89
+    ]
+  ],
+  "output": 90,
+  "constant_false": false,
+  "size": 65,
+  "shared_pair_helpers": 11,
+  "seed": 0,
+  "ordinary_ands": 13,
+  "boundary_mismatches": [],
+  "status": "complete_boundary_valid",
+  "within_63_gate_bound": false,
+  "model_sha256": "d10073aeedd2d0f64097eadf033361074fd404164c20938c9cb3763d183e1494",
+  "method_trials": [
+    {
+      "method": "base",
+      "size": 76
+    },
+    {
+      "method": "shared_pair",
+      "trial": 0,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 1,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 2,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 3,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 4,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 5,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 6,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 7,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 8,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 9,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 10,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 11,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 12,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 13,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 14,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 15,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 16,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 17,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 18,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 19,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 20,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 21,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 22,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 23,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 24,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 25,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 26,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 27,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 28,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 29,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 30,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 31,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 32,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 33,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 34,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 35,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 36,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 37,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 38,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 39,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 40,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 41,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 42,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 43,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 44,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 45,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 46,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 47,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 48,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 49,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 50,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 51,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 52,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 53,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 54,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 55,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 56,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 57,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 58,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 59,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 60,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 61,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 62,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 63,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 64,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 65,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 66,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 67,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 68,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 69,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 70,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 71,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 72,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 73,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 74,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 75,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 76,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 77,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 78,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 79,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 80,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 81,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 82,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 83,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 84,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 85,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 86,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 87,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 88,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 89,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 90,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 91,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 92,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 93,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 94,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 95,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 96,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 97,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 98,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 99,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 100,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 101,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 102,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 103,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 104,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 105,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 106,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 107,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 108,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 109,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 110,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 111,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 112,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 113,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 114,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 115,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 116,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 117,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 118,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 119,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 120,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 121,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 122,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 123,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 124,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 125,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 126,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 127,
+      "size": 65,
+      "helpers": 11
+    },
+    {
+      "method": "shared_pair",
+      "trial": 128,
+      "size": 65,
+      "helpers": 11
+    }
+  ]
+}

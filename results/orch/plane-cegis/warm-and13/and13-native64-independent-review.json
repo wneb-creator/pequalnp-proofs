@@ -1,0 +1,14 @@
+{
+  "scope": "Future full-SAT AND13 first-layer positive control only; no63 witness.",
+  "source_sha256": "83df60d535fd134e399bd4916301a3ce6510d0cf1b508015b0846695606e547e",
+  "native_clauses_checked": 9059552,
+  "native_variables": 166451,
+  "decoded_gates": 64,
+  "decoded_ANDs": 13,
+  "fixed_prefix_verified": 61,
+  "native_model_sha256": "1d0ab2e910b1d2bf4b0023f9b0a464cc84b71545ddb7993104d3531937d9a701",
+  "native_cnf_sha256": "188b17eda8b8a9ca18c011d2954dd0d7f58446116885a2fa3fbb334a7c585404",
+  "full_geometry_rows_verified": 756,
+  "native_model_all_false": true,
+  "first_UNKNOWN_query_byte_identical": true
+}

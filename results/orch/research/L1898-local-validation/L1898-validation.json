@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-121/toolchain/lean-4.36.0-linux/bin/lake",
+    "env",
+    "/tmp/oec/pequalnp-pilot-121/toolchain/lean-4.36.0-linux/bin/lean",
+    "PEqualNP/Outside/L_meta_1898.lean"
+  ],
+  "workdir": "/workspace/pequalnp-proofs/lean",
+  "started_utc": "2026-11-25T18:49:33.227942+00:00",
+  "ended_utc": "2026-11-25T19:03:18.417174+00:00",
+  "wall_seconds": 825.1892806989999,
+  "exit_code": 0,
+  "source_sha256": "d44d58c30bc802ab764e63cac4a19218e353c38f91dc036a767367ea9ac60762",
+  "lines": 7334,
+  "scope": "Existing theorem:Monotone2 plus all difference-incidence positive rows and selected independent negative rows imply>=13 actualAND gates. Full correctness supplies these row hypotheses; sum geometry needs input relabeling. Not a total64-gate bound or2056 result."
+}

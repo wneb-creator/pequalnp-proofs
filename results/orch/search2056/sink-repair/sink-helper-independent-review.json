@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-25T18:55:52.987067+00:00",
+  "verdict": "APPROVED",
+  "source_sha256": "0e2db06c541fa3d78405ed5bf26a5ac8b8226dfe2f3eb4f5a0c57fd8e1ce9579",
+  "source_scope": "Selected-output sink deletion and forward false propagation; delegates previously approved prefix normalization and checks its permutation direction. No solver mutation.",
+  "independent_controls": {
+    "random_ordered_models": 500,
+    "changed": 454,
+    "rows_per_model": 756,
+    "full_output_equality": true,
+    "membership_bound_nonincrease": true,
+    "remaining_sink_references": 0
+  },
+  "dependency": "Prefix normalizer independently approved by status_review; random controls used identity prefix normalizer to isolate new sink code."
+}

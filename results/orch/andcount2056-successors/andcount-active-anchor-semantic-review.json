@@ -1,0 +1,57 @@
+{
+  "scope": "APPROVED future free-OR active/edge-anchor successor and complete controls; no63-gate witness.",
+  "controls": [
+    {
+      "prefix": "active-anchor-native13-fixed",
+      "variables": 148954,
+      "clauses_checked": 670967,
+      "active_records": 13,
+      "ordinary_gates": 64,
+      "ordinary_ANDs": 13,
+      "boundary_errors": 0,
+      "model_sha256": "17e782dd0755191479cc946b247b0f4bb1cb497070258b2e32fff722c2387b6f"
+    },
+    {
+      "prefix": "active-anchor-native13-free1",
+      "variables": 148954,
+      "clauses_checked": 670891,
+      "active_records": 13,
+      "ordinary_gates": 64,
+      "ordinary_ANDs": 13,
+      "boundary_errors": 0,
+      "model_sha256": "17e782dd0755191479cc946b247b0f4bb1cb497070258b2e32fff722c2387b6f"
+    },
+    {
+      "prefix": "active-anchor-native16-padded",
+      "variables": 219664,
+      "clauses_checked": 971111,
+      "active_records": 13,
+      "ordinary_gates": 64,
+      "ordinary_ANDs": 13,
+      "boundary_errors": 0,
+      "model_sha256": "76f7d0b69ae06451e3ea94cd7e1b65726393c7a8ae4634acb45b9c8d4d5f806e"
+    },
+    {
+      "prefix": "active-anchor-control13-forced-swap",
+      "variables": 148954,
+      "clauses_checked": 670892,
+      "active_records": 13,
+      "ordinary_gates": 76,
+      "ordinary_ANDs": 13,
+      "boundary_errors": 0,
+      "model_sha256": "31792160580c7b74a2ba6b9147fdc14c03acd9123a336059021b4cbb5d1c0198"
+    }
+  ],
+  "target_old_clauses_byte_identical": 580702,
+  "target_added_clauses": 1559,
+  "target_new_phase_failures": 0,
+  "target_old_phases_unchanged": true,
+  "target_sha256": "5a31f40c7655e7c27065a8b0bfbc003b19b1d91274acbb7a044198aa492de1bf",
+  "invalid_fixed12": "external UNSAT as expected",
+  "forced_swap_base_cnf_byte_identical": true,
+  "forced_swap_original_extra_literal": -127777,
+  "approved_source_sha256": "6464a30cc951ccfebd34e7b5fe820fd7212186e9846d5c4871dda218195fcc6e",
+  "original_control_encoder_sha256": "eabd0a15d5b5a11c897b12346d462245b575afa5775c700d0cc5efbe01e57ca1",
+  "reporting_fix": "Decoder loop variable renamed; original incomplete reports retained, corrected reports distinguish old encoder/new decoder, unrecoverable timestamps null and filesystem marker times explicitly estimates.",
+  "corrected_target_emission_byte_identical": true
+}

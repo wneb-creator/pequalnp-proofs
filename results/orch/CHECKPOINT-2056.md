@@ -1,6 +1,6 @@
 # L-meta-2056 checkpoint
 
-As of 2026-11-25T18:48:29.106960+00:00. This is research in progress, not a submitted proof.
+As of 2026-11-25T19:04:45.225605+00:00. This is research in progress, not a submitted proof.
 
 The posted goal is a monotone circuit with at most 63 two-input gates for the order-three projective-plane incidence function. No 63-gate witness or full refutation has been found. No PR has been opened. The local target checker has not accepted a proof, and the final cleanup pass has not started.
 
@@ -22,9 +22,9 @@ The corrected optimizer that rejects earlier-live dominance completed at 18:03:1
 
 New independently verified seed circuits include 104 full-plane 69-gate networks with two nested dirty ANDs. Every seed passes all 756 boundary rows and an independent symbolic DNF reduction to exactly the 52 target edges. One dirty intermediate admits a false pair; the second admits a false triple. These are starting circuits above the target, not solutions. Single-intermediate seeds frequently normalize back to conventional star circuits; the new strata explicitly retain the more complicated structure while leaving zero-error reporting unconditional.
 
-The earlier upstream refresh was ed419030b2f93e3f357003611f865f28e436bd9a. Independent final-statement and selected-helper censuses of its 353 new Outside files found no applicable plane construction or generic circuit shortcut. The new 14-vertex/19-edge lower bound has different bipartition and degree data from the current collinear-six core. Existing checked library lemmas supply the generic circuit-to-AND-count and selector machinery used above. This older census missed L_meta_1898, whose unrestricted ordinary-AND lower bound of13 has now been independently confirmed from its exact statement; local rebuilding is pending. The twelve-AND search and its successors were stopped as mathematically ruled out, without claiming a solver UNSAT verdict.
+The earlier upstream refresh was ed419030b2f93e3f357003611f865f28e436bd9a. Independent final-statement and selected-helper censuses of its 353 new Outside files found no applicable plane construction or generic circuit shortcut. The new 14-vertex/19-edge lower bound has different bipartition and degree data from the current collinear-six core. Existing checked library lemmas supply the generic circuit-to-AND-count and selector machinery used above. This older census missed L_meta_1898, whose unrestricted ordinary-AND lower bound of13 has now been independently confirmed from its exact statement; the unchanged7334-line file locally recompiled successfully at19:03:18.417174 UTC, exit0 in825.189seconds (full logs in research/L1898-local-validation). The twelve-AND search and its successors were stopped as mathematically ruled out, without claiming a solver UNSAT verdict.
 
-There were 3 null desk replies before this assignment; their exact messages are in null-polls-2056.json. The root alone holds and renews the lease on a five-minute timer, with additional renewals before long work. The latest explicit renewal at this checkpoint was2026-11-25T18:47:38.634999+00:00, expiry2026-11-25T19:07:38.684Z. Lease control values are not included here.
+There were 3 null desk replies before this assignment; their exact messages are in null-polls-2056.json. The root alone holds and renews the lease on a five-minute timer, with additional renewals before long work. The latest explicit renewal at this checkpoint was2026-11-25T19:03:35.144414+00:00, expiry2026-11-25T19:23:35.188Z. Lease control values are not included here.
 
 Sub-agents: circuit_search, gate_elimination, not_elimination, proof_route, status_review, toolchain_setup
-TIMING total=273.34 subagents=6
+TIMING total=289.60 subagents=6

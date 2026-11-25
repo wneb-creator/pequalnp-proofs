@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-25T18:47:35.453429+00:00",
+  "requested_by": "root",
+  "reason": "Existing checked L_meta_1898 proves at least13 ordinary ANDs; any decodedK12 model has at most12. Known-impossible search stopped; not a solver UNSAT result.",
+  "wrapper_pid": 33998,
+  "solver_pid": 34000,
+  "raw_solver_status_before_stop": [],
+  "requested_signal": "SIGTERM",
+  "source_or_query_changed": false,
+  "signal_sent": true
+}

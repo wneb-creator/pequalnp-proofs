@@ -1,0 +1,17 @@
+usage: andcount_budget_final2056.py [-h] [--ands ANDS]
+                                    [--ordinary-limit ORDINARY_LIMIT]
+                                    [--warm-model WARM_MODEL] --prefix PREFIX
+                                    [--seconds SECONDS]
+                                    [--fixed-star-prefix FIXED_STAR_PREFIX]
+                                    [--fix-output] [--emit-only]
+
+options:
+  -h, --help            show this help message and exit
+  --ands ANDS
+  --ordinary-limit ORDINARY_LIMIT
+  --warm-model WARM_MODEL
+  --prefix PREFIX
+  --seconds SECONDS
+  --fixed-star-prefix FIXED_STAR_PREFIX
+  --fix-output
+  --emit-only

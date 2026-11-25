@@ -1,0 +1,118 @@
+{
+  "utc": "2026-11-25T19:03:57.688728+00:00",
+  "status": "APPROVED publication038 provenance and corrected research/PR scope",
+  "publication": {
+    "old": "2dcffd2e6f9e339e9ca81f51d7f4cac22dad3b11",
+    "new": "c7ec74ea054c1b0e3671e33e1010b256975efefa",
+    "direct_parent_verified": true,
+    "exact_manifest_path_count": 437,
+    "manifest_sha256": "935c8b6270c3fb60b0b8a63a913449fe30aad4f646843e467af006192768b6f1",
+    "command_started_utc": "2026-11-25T18:51:34.446550+00:00",
+    "push_succeeded_utc": "2026-11-25T18:51:50.257698+00:00",
+    "same_origin_branch_expected_SHA_fence": true,
+    "credential_pattern_scan": "No common token patterns or URL userinfo in reviewed files; no credential material accessed",
+    "provenance_limit": "Command/result records and actual Git objects were independently checked. This is not an independent OS syscall trace; credential continuity is the recorded execution policy, and no credential data was inspected."
+  },
+  "K12_stop_scope": "Exact18:47:35.453429 timestamp is the stop request; termination metadata separately confirms worker reaped/native-15. No exact reap timestamp inferred.",
+  "research_scope": {
+    "historical_AND13_status_corrected": true,
+    "new_L1898_claim": "Conditional on its explicit monotonicity/correctness tests; no total64 bound inferred; local rebuild remains separately pending in the reviewed snapshot.",
+    "nonread_and_dirty_cuts": "Literal unaliased AND expansion and accounting scope stated; no target proof claimed.",
+    "literature": "New scope JSON marks inaccessible full-page content UNVERIFIED and imports no finite plane bound. Independent note1 re-open failed, so this review does not independently reconfirm its paper text.",
+    "PR16265_live_recheck": {
+      "url": "https://github.com/open-goat/pequalnp-proofs/pull/16265",
+      "files_url": "https://github.com/open-goat/pequalnp-proofs/pull/16265/files",
+      "read_date": "2026-11-25",
+      "status": "Open; intake bot reports ACCEPTED checker exit0 for a2ae6bdab2",
+      "conditional_scope": "Explicit28-gate first-six-point and34-gate remaining-seven-point hypotheses imply63 via one OR; no subcircuit witnesses provided;153 additions/0 deletions."
+    },
+    "public_PR_censuses": [
+      {
+        "source": "pr-2056-canonical-1840.json",
+        "query": "repo:open-goat/pequalnp-proofs is:pr is:open 2056",
+        "total_count": 0,
+        "pages": 1
+      },
+      {
+        "source": "pr-3773-canonical-1842.json",
+        "query": "repo:open-goat/pequalnp-proofs is:pr is:open 3773",
+        "total_count": 0,
+        "pages": 1
+      },
+      {
+        "source": "pr-650-canonical-1842.json",
+        "query": "repo:open-goat/pequalnp-proofs is:pr is:open 650",
+        "total_count": 1,
+        "pages": 1
+      }
+    ],
+    "upstream_census_scope": "Verified latest export metadata head6050bcb669b3391d673876601ea117e3d59075f3/count358; did not rerun all358 theorem scans."
+  },
+  "reviewed_files": [
+    {
+      "path": "results/orch/publication038/push038-command.json",
+      "bytes": 529,
+      "sha256": "2a8fb8b97d981027b41bc8db22aada26cf349d35364569d8a0b6b5aa67b1c792"
+    },
+    {
+      "path": "results/orch/publication038/archive2056-review-006-scan.json",
+      "bytes": 22964,
+      "sha256": "99463e785bad392599cf920523d48ff3dd9d90ad2c46a6002226fee13043c94b"
+    },
+    {
+      "path": "results/orch/publication038/README.md",
+      "bytes": 458,
+      "sha256": "d47d2627fc830b1cc594edad1dcab20ccfb524d37309ca468d76dd9b08ff1329"
+    },
+    {
+      "path": "results/orch/publication038/commit038.json",
+      "bytes": 247,
+      "sha256": "24dabbd11b49368b6c68001ef2bd341c61f39c484ac069f75235a90be93b286d"
+    },
+    {
+      "path": "results/orch/publication038/push038.stderr",
+      "bytes": 136,
+      "sha256": "daa6cde936b00d292f44a9f6981f1b5c0bab498cdb4b012d084838f0a1371ac2"
+    },
+    {
+      "path": "results/orch/publication038/push038.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/publication038/push038-result.json",
+      "bytes": 599,
+      "sha256": "701757ac4c17a312f7de33d9107b05059640ef19eb16600d501c61ad43026eec"
+    },
+    {
+      "path": "results/orch/NOTES.md",
+      "bytes": 12124,
+      "sha256": "95b02465b0788a9edd60509c31071fbfab503ac7178d0ff4c08e880b9ce08a95"
+    },
+    {
+      "path": "results/orch/TIMELINE.md",
+      "bytes": 10117,
+      "sha256": "d068532aa581f9a7ed1a65536c0175c7f9dc71512ce612d8c742c57bebcee142"
+    },
+    {
+      "path": "results/orch/research-2056-multilevel.md",
+      "bytes": 4194,
+      "sha256": "009c82f840bb399095e6dc3744e528c94f86da804e63bd01fba83a59cc38d382"
+    },
+    {
+      "path": "results/orch/research/quadratic-literature-scope-1851.json",
+      "bytes": 1040,
+      "sha256": "0f376235810ca0d647ae2c6de4f30bc03c4c471e32d561958b00aa6af9520650"
+    },
+    {
+      "path": "results/orch/research/upstream-650-reduction-read.json",
+      "bytes": 728,
+      "sha256": "2e28bff38ce19d491c328dddbc2cdf91085ad85cf49c863ef1414c20bb76c3bf"
+    },
+    {
+      "path": "results/orch/research/compressed-necessary-cuts2056.json",
+      "bytes": 4417,
+      "sha256": "d82467680a4e648f4afefd55137b3fbe94d5061ab4f9124c1b7f7dc1c5363c1d"
+    }
+  ]
+}

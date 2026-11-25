@@ -1,0 +1,10 @@
+{
+  "read_at": "2026-11-25T18:48:55+00:00",
+  "url": "https://github.com/open-goat/pequalnp-proofs/pull/16265",
+  "scope": "Read-only open reduction PR; not a merged full construction. It splits the plane into first-six-point size28 and remaining-seven-point size34 witnesses, then combines by one OR. Supplies no witness. This is the same full-point patch route already searched.",
+  "file": "lean/PEqualNP/Outside/R_meta_650_43.lean",
+  "additions": 153,
+  "deletions": 0,
+  "rechecked_at": "2026-11-25T19:01:43.921961+00:00",
+  "checker_report": "Independent reviewer read the public intake-bot comment: ACCEPTED, checker exit0, for a2ae6bdab2. This accepts the conditional reduction, not its unproved witness hypotheses."
+}

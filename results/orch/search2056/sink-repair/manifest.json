@@ -1,0 +1,137 @@
+{
+  "utc": "2026-11-25T18:56:39.684124+00:00",
+  "status": "completed finite pass; no target witness",
+  "input_pool_sha256": "9584881347ed60e6edd710f73e74763871d00e70451984ba1c5db0ba0063f691",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 2404,
+      "sha256": "149bf1a8724cf78deea20a82780bdfe2463e950bdae3d5b364e8139eae9391bf"
+    },
+    {
+      "file": "andbudget-sinks-help.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "andbudget-sinks-help.stdout",
+      "bytes": 393,
+      "sha256": "11c696a8a5319b4a7b5662d7ab743faeac92d0ad1f16f37f754382b74ff97250"
+    },
+    {
+      "file": "andcount_budget_profile_sink2056.py",
+      "bytes": 17895,
+      "sha256": "768caadb4ab3b945462a6a0f0d00e41a2f0b586a248bf11740284b5b043b473c"
+    },
+    {
+      "file": "normalize_andbudget_model.py",
+      "bytes": 5213,
+      "sha256": "1e86181d49bdba96bb8be90bcef06f55cd76add5e1c37632cd776353ae9165f1"
+    },
+    {
+      "file": "normalize_andbudget_sinks.py",
+      "bytes": 3340,
+      "sha256": "0e2db06c541fa3d78405ed5bf26a5ac8b8226dfe2f3eb4f5a0c57fd8e1ce9579"
+    },
+    {
+      "file": "sink-helper-independent-review.json",
+      "bytes": 728,
+      "sha256": "fcf455046150091a10e4522e27da266007332c72f0f4d0a4e463edb3a9a90625"
+    },
+    {
+      "file": "sink-pool-best-exact.json",
+      "bytes": 6166,
+      "sha256": "3ed164da793e5230209d7a5a92f48ad38597d4b0bdfe469e8f40c9694af76ff8"
+    },
+    {
+      "file": "sink-pool-pass.json",
+      "bytes": 359854,
+      "sha256": "f4ebd3048575c04539ef41ee1ef022e4fc90c979fb8d676623b98ff2a3ca0bf3"
+    },
+    {
+      "file": "sink-pool-pass.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "sink-pool-pass.stderr.before-relabel-fix",
+      "bytes": 967,
+      "sha256": "1d72afe5bdd6d3440529cde5f76444565bd10c04ae8b30533f37248f10505d82"
+    },
+    {
+      "file": "sink-pool-pass.stderr.unbounded-cover-stopped",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "sink-pool-pass.stdout",
+      "bytes": 1070,
+      "sha256": "e29b8602481c52e86e50c49cbafbb14abcd6342aa3ceee887f869f1d0261bcc2"
+    },
+    {
+      "file": "sink-pool-pass.stdout.before-relabel-fix",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "sink-pool-pass.stdout.unbounded-cover-stopped",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "sink-pool-stop.json",
+      "bytes": 249,
+      "sha256": "1ce7e6d56724fe7b8a6c527c9059256b9c6745f4b772a3b698387ed8e827e83f"
+    },
+    {
+      "file": "sink-star-pool-best-exact.json",
+      "bytes": 6417,
+      "sha256": "2062034a331c0f05ed1a3195ac51fe6d0a27210e3f2f0b6f9e523a98e997ad3d"
+    },
+    {
+      "file": "sink-star-pool-best-nonlinear.json",
+      "bytes": 6029,
+      "sha256": "3f1278d8a52f92d934ba567a19756f15eeabeb7e7c9974e12bc0c0f52919aec6"
+    },
+    {
+      "file": "sink-star-pool-independent-review.json",
+      "bytes": 1370,
+      "sha256": "aa3c036d4ba2adcad0bc0774c9cc7bd420895f46ebd4c4aaf7d7286823e47257"
+    },
+    {
+      "file": "sink-star-pool-pass.json",
+      "bytes": 436823,
+      "sha256": "e07126941808cb26d7d2fae640e3c971ba0bbc46f766c2ada3775334485a8a36"
+    },
+    {
+      "file": "sink-star-pool-pass.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "sink-star-pool-pass.stderr.before-fixed-center",
+      "bytes": 352,
+      "sha256": "28376b20be9d272094b9b963a0ef47a9a515ee7f640d280b7567a2cccc32bb12"
+    },
+    {
+      "file": "sink-star-pool-pass.stdout",
+      "bytes": 1108,
+      "sha256": "7533c292f274ecebc03be455ec07f42e349b573d8f9d9d397cc881c5e20aa9d9"
+    },
+    {
+      "file": "sink-star-pool-pass.stdout.before-fixed-center",
+      "bytes": 124,
+      "sha256": "5c282b9021929dab5ce51af6382d7a64e337187eaf4665b7b415a5533ea7e7fa"
+    },
+    {
+      "file": "sink_pool_pass.py",
+      "bytes": 5269,
+      "sha256": "6bd86f391c3cc00deb5fab4e25ae4b022e7f459f77f0f19194f9fdf0e541c5a0"
+    },
+    {
+      "file": "sink_pool_star_pass.py",
+      "bytes": 7135,
+      "sha256": "6f4ba9a8cae94820d1340a4990568e987c5efc7d7bedd71a32aa344142ab3b5d"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+usage: normalize_andbudget_sinks.py [-h] --encoder ENCODER --normalizer
+                                    NORMALIZER --input INPUT --output OUTPUT
+                                    --report REPORT [--ands ANDS]
+
+options:
+  -h, --help            show this help message and exit
+  --encoder ENCODER
+  --normalizer NORMALIZER
+  --input INPUT
+  --output OUTPUT
+  --report REPORT
+  --ands ANDS

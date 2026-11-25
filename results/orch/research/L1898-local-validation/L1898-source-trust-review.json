@@ -1,0 +1,28 @@
+{
+  "status": "APPROVED source/trusted-import and local-build-record preservation review",
+  "source": "lean/PEqualNP/Outside/L_meta_1898.lean",
+  "source_sha256": "d44d58c30bc802ab764e63cac4a19218e353c38f91dc036a767367ea9ac60762",
+  "source_lines": 7334,
+  "proof_bypass_pattern": "\\b(sorry|admit|axiom|sorryAx|native_decide|unsafe|initialize|macro|syntax|elab|run_tac|extern|implemented_by)\\b|#(eval|check|print|reduce|synth)|debug\\.skipKernelTC",
+  "matches": [],
+  "rg_exit_status": 1,
+  "rg_status_meaning": "No matches, not an execution failure",
+  "imports": [
+    "import Mathlib",
+    "import PEqualNP.Defs"
+  ],
+  "options": [
+    "maxHeartbeats",
+    "maxRecDepth",
+    "synthInstance.maxSize"
+  ],
+  "attributes": [
+    "simp"
+  ],
+  "local_build_exit": 0,
+  "local_build_metadata_sha256": "aaaa05fdbc91d24ec6ff44af6e3aaf0655524200458a9da1739caee672c0ada9",
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "print_axioms_rerun": false,
+  "scope": "Existing ordinary AND-count theorem locally compiled; no new proof, no target checker/PR result, no unrestricted total64 bound. Source and approved imports show no suspect proof-bypass construct."
+}

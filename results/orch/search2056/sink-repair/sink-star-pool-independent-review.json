@@ -1,0 +1,26 @@
+{
+  "utc": "2026-11-25T18:53:28.380603+00:00",
+  "verdict": "APPROVED source and saved best-control data",
+  "source_sha256": "6f4ba9a8cae94820d1340a4990568e987c5efc7d7bedd71a32aa344142ab3b5d",
+  "report_sha256": "e07126941808cb26d7d2fae640e3c971ba0bbc46f766c2ada3775334485a8a36",
+  "scope": "Finite constructive repair, not exhaustive circuit search; normalizer dependency reviewed separately by status_review",
+  "records_summary_consistent": true,
+  "fixed_center_extension_math": "Each output star keeps one primary center; only opposite operand grows, so simultaneous extensions add only intended incident edges. Materialized repaired outputs are checked on complete boundary rows.",
+  "independent_saved_controls": [
+    {
+      "file": "sink-star-pool-best-exact.json",
+      "sha256": "2062034a331c0f05ed1a3195ac51fe6d0a27210e3f2f0b6f9e523a98e997ad3d",
+      "size": 64,
+      "all_756_rows_pass": true,
+      "independent_capped_ReadK_missing_edges": 0
+    },
+    {
+      "file": "sink-star-pool-best-nonlinear.json",
+      "sha256": "3f1278d8a52f92d934ba567a19756f15eeabeb7e7c9974e12bc0c0f52919aec6",
+      "size": 66,
+      "all_756_rows_pass": true,
+      "independent_capped_ReadK_missing_edges": 7
+    }
+  ],
+  "limitations": "Did not rerun the 152-case author pass; independently replayed the saved best exact and nonlinear networks and report census."
+}

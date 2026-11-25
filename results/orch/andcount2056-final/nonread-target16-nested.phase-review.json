@@ -1,0 +1,33 @@
+{
+  "status": "PASS; phase has exactly6 known positive-row failures",
+  "clauses": 1426373,
+  "variables": 309972,
+  "internal_values_checked": 12096,
+  "failed_clauses": [
+    {
+      "clause": 953864,
+      "width": 16
+    },
+    {
+      "clause": 954060,
+      "width": 16
+    },
+    {
+      "clause": 955040,
+      "width": 16
+    },
+    {
+      "clause": 955089,
+      "width": 16
+    },
+    {
+      "clause": 955775,
+      "width": 16
+    },
+    {
+      "clause": 956020,
+      "width": 16
+    }
+  ],
+  "cnf_sha256": "0498aa1065492af27694f025f111928a8af9d76026cbb194b74e8ccc69239429"
+}

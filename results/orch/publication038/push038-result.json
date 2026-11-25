@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "git",
+    "push",
+    "--force-with-lease=refs/heads/pnp/pilot-121:2dcffd2e6f9e339e9ca81f51d7f4cac22dad3b11",
+    "origin",
+    "c7ec74ea054c1b0e3671e33e1010b256975efefa:refs/heads/pnp/pilot-121"
+  ],
+  "old": "2dcffd2e6f9e339e9ca81f51d7f4cac22dad3b11",
+  "new": "c7ec74ea054c1b0e3671e33e1010b256975efefa",
+  "started_utc": "2026-11-25T18:51:34.446550+00:00",
+  "scope": "Same-branch ancestor-preserving push, expected-old-SHA fenced; exact argv persisted before execution. No credential or origin changes.",
+  "ended_utc": "2026-11-25T18:51:50.257698+00:00",
+  "returncode": 0
+}

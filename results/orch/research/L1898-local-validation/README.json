@@ -1,0 +1,11 @@
+{
+  "source": "lean/PEqualNP/Outside/L_meta_1898.lean",
+  "source_sha256": "d44d58c30bc802ab764e63cac4a19218e353c38f91dc036a767367ea9ac60762",
+  "source_lines": 7334,
+  "existing_file_changed": false,
+  "read_only_local_lean_exit_code": 0,
+  "checker_run": false,
+  "observed_high_water_rss_kib": 10071376,
+  "resource_threshold_triggered": false,
+  "scope": "Existing difference-incidence >=13 ordinary AND count theorem locally recompiled. Full-function correctness supplies its tests. Sum-incidence line-negation transport is separately reviewed. No unrestricted >=64 total-gate bound and no L2056 witness/refutation."
+}

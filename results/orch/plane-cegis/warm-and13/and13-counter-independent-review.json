@@ -1,0 +1,35 @@
+{
+  "status": "PASS independent threshold fixtures and exact 16-case DP-cell truth table",
+  "sources": [
+    "07a2518da34378cdba0775406c384990515969c393932e748ab9f42fe26c9a53",
+    "83df60d535fd134e399bd4916301a3ce6510d0cf1b508015b0846695606e547e"
+  ],
+  "results": [
+    {
+      "name": "twelve_AND_one_OR",
+      "clauses": 639,
+      "phase_failures": [
+        639
+      ],
+      "unit_conflict": true
+    },
+    {
+      "name": "thirteen_AND",
+      "clauses": 639,
+      "phase_failures": [],
+      "unit_conflict": false
+    },
+    {
+      "name": "thirteen_AND_one_OR",
+      "clauses": 690,
+      "phase_failures": [],
+      "unit_conflict": false
+    },
+    {
+      "name": "fourteen_AND",
+      "clauses": 690,
+      "phase_failures": [],
+      "unit_conflict": false
+    }
+  ]
+}

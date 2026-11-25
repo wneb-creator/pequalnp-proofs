@@ -1,0 +1,15 @@
+{
+  "source_sha256": "eabd0a15d5b5a11c897b12346d462245b575afa5775c700d0cc5efbe01e57ca1",
+  "old_clauses_preserved_exactly": 580702,
+  "added_variables": 12,
+  "added_clauses": 1559,
+  "all_added_clauses_satisfied_by_warm": true,
+  "warm_violated_clauses": [
+    572143,
+    572180,
+    572217,
+    572254
+  ],
+  "target_cnf_sha256": "5a31f40c7655e7c27065a8b0bfbc003b19b1d91274acbb7a044198aa492de1bf",
+  "target_mapping_sha256": "a5accb43923542b0ac8e02067e312d1189118497df3d1513cec424fcd6c85aa8"
+}

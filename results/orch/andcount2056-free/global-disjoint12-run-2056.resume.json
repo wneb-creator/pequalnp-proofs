@@ -1,0 +1,14 @@
+{
+  "utc": "2026-11-25T18:24:46.677455+00:00",
+  "requested_by": "root",
+  "reason": "same-credential fenced publication recovered; fresh lease18:24:33UTC",
+  "solver_pid": 34000,
+  "wrapper_pid": 33998,
+  "signal": "SIGCONT",
+  "pause_seconds": 74.539993,
+  "native_restart": false,
+  "source_changed": false,
+  "native_deadline_marker_unchanged": "2026-11-25T19:05:41.211224+00:00",
+  "timeout_note": "CaDiCaL alarm and Python wall timeout may include the stopped interval; preserve actual final elapsed/status.",
+  "signal_sent": true
+}

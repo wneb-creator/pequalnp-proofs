@@ -1,0 +1,12 @@
+{
+  "prefix": "active-anchor-native16-padded",
+  "original_encoder_sha256": "eabd0a15d5b5a11c897b12346d462245b575afa5775c700d0cc5efbe01e57ca1",
+  "corrected_decoder_sha256": "6464a30cc951ccfebd34e7b5fe820fd7212186e9846d5c4871dda218195fcc6e",
+  "all_clauses_rechecked": 971111,
+  "decoded_model_unchanged": true,
+  "ordinary_circuit_unchanged": true,
+  "active_count": 13,
+  "complete_boundary_passed": true,
+  "ordinary_size": 64,
+  "missing_original_timestamps_not_fabricated": true
+}

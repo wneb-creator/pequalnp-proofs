@@ -1,0 +1,6 @@
+{
+  "utc": "2026-11-25T18:43:21.789568+00:00",
+  "pid": 37521,
+  "action": "SIGTERM finite postprocessor only",
+  "reason": "bound exponential cover DP before processing old retained candidates with many missing edges; native SAT query unchanged"
+}

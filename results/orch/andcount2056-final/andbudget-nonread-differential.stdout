@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-25T18:50:21.236289+00:00",
+  "status": "PASS",
+  "random_models": 500,
+  "rows_each": 756,
+  "edges_each": 52,
+  "independent_reference": "full capped leaf-multiplicity pair sets per edge",
+  "alias_example": {
+    "literal_read1_edges": [],
+    "optimized_read1_edges": [
+      0
+    ]
+  },
+  "source_sha256": "4cd6d7789276a67250f6e01bd13df4eb13f738675008af7bf8fcf77959027085",
+  "test_sha256": "913f16f2ed99b14196b39d3af7ea5c0c6aa02ccdbf71d15369dd6c99a4a6ae20"
+}

@@ -1,0 +1,56 @@
+{
+  "utc": "2026-11-25T19:06:05.726902+00:00",
+  "files": [
+    {
+      "name": "PackedHandoffControl2056.handoff.json",
+      "bytes": 619,
+      "sha256": "5e1949632128764926f76514c67f8a48f01f2151a568a023841cbf1486ef2fd1"
+    },
+    {
+      "name": "README.md",
+      "bytes": 3085,
+      "sha256": "a2a2f75d064a6f8204628bdde024c9f03525682eb2be15936e3448b61de928dd"
+    },
+    {
+      "name": "handoff-control64-build2.metrics.json",
+      "bytes": 274,
+      "sha256": "048dacbb7ec98cba49ab1cc1c83bee494fe5a01f4fd0e49ff73eb07b58519fdb"
+    },
+    {
+      "name": "handoff-control64-build2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "handoff-control64-build2.stdout",
+      "bytes": 3446,
+      "sha256": "bbedf51642a0fba7b350b6d4252e26cb7d71ca3a4a332189d1596856679f6b31"
+    },
+    {
+      "name": "handoff-control64-generate.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "handoff-control64-generate.stdout",
+      "bytes": 593,
+      "sha256": "83bce88c3cdb104f784f1fbfb407c57328b2a4223ced0b31d77e59efaee93936"
+    },
+    {
+      "name": "handoff-control64-launch1.json",
+      "bytes": 154,
+      "sha256": "1ecbec3b431691e6302dc72fc8a90fa48d3d4bad6d3b707f7df0711c6d69aa47"
+    },
+    {
+      "name": "handoff-control64-launch1.tool-output.txt",
+      "bytes": 927,
+      "sha256": "2a1aa41bf0c2bd79c8f4107d68a61e49cf9403a963bf42d0391f694988dab293"
+    },
+    {
+      "name": "integrate_candidate2056.py",
+      "bytes": 4952,
+      "sha256": "a03b9aec532961ddef699931c85f3989b3a37609830968f6baf6831439c8d79f"
+    }
+  ],
+  "compiled_module_sha256": "31c5d93ce67c7b3acebe8e2293271277c4778cbc209c378511e698341d699e0c"
+}

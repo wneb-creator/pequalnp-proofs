@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-121/not-elimination/sink_pool_pass.py", line 19, in <module>
+    new,report=make_sinks(module,norm,model,max(16,len(ands)));vals,value=module.evaluate(new,rows);missing=[k for k in range(52) if not(value>>k&1)];fp=(value&~P).bit_count();entry={'record':ri,'mode':r['mode'],'original_raw':(original^P).bit_count(),'before_bound':norm.cost(model)[0],'after_bound':norm.cost(new)[0],'missing':len(missing),'false_positives':fp,'removed_output_references':report['deleted_output_reference_occurrences']}
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/oec/pequalnp-pilot-121/not-elimination/normalize_andbudget_sinks.py", line 27, in make_sinks
+    _,final=module.evaluate(normalized,rows);P=(1<<52)-1;assert before&P==final&P and not(final&~P&~before)
+                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

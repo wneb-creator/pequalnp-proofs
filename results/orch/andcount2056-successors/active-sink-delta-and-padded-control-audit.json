@@ -1,0 +1,19 @@
+{
+  "source_sha256": "bb3b0516e580a16b05affe97603f71d99e8c9afe8c4c88efe4948553641f6cd5",
+  "target_old_clauses_preserved_exactly": 582261,
+  "target_added_binary_clauses": 132,
+  "target_added_variables": 0,
+  "new_clauses_match_selected_output_sink_rule": true,
+  "all_new_clauses_warm_satisfied": true,
+  "target_warm_failures": [
+    572143,
+    572180,
+    572217,
+    572254
+  ],
+  "target_cnf_sha256": "f3bcd93948d133fbaba7ab84b1e4cdfae1492920d15d894d73d1616d35fad631",
+  "padded16_actual_saved_assignment_replayed": "/tmp/oec/pequalnp-pilot-121/andcount2056/active-anchor-native16-padded.sol",
+  "padded16_all_new_query_clauses_verified": 971351,
+  "padded16_mapping_identical": true,
+  "padded16_native_solver_rerun": false
+}

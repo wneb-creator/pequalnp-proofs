@@ -1,0 +1,33 @@
+--- andcount_active_anchor2056.py
++++ andcount_active_sink2056.py
+@@ -224,6 +224,10 @@
+         add(active[j])
+     if args.ands < 10:
+         add()
++    for j, output_selector in enumerate(output):
++        for later in range(j + 1, args.ands):
++            add(-output_selector, -left[later][26 + j])
++            add(-output_selector, -right[later][26 + j])
+     add(left[0][0])
+     add(right[0][13])
+     for j in range(args.fixed_star_prefix):
+@@ -259,7 +263,8 @@
+               'scope': 'AND-count synthesis with free OR subsets; ordinary gate cost measured after decoding',
+               'disjoint_source_subsets': True, 'active_records_form_prefix': True,
+                'minimum_active_records': 10, 'first_and_anchor': {'left': 0, 'right': 13},
+-               'inactive_records_empty_unreferenced': True, 'Lean_verified': False}
++               'inactive_records_empty_unreferenced': True,
++               'output_selected_ands_are_sinks': True, 'Lean_verified': False}
+     if args.emit_only:
+         record['status'] = 'CNF emitted; solver not run'
+         base.with_suffix('.json').write_text(json.dumps(record, indent=2) + '\n')
+@@ -320,6 +325,9 @@
+                 assert node['left'] == node['right'] == [] and j not in model['output']
+             for i in node['left'] + node['right']:
+                 assert i < 26 or actual_active[i - 26]
++            if j in model['output']:
++                assert all(26 + j not in later_node['left'] + later_node['right']
++                           for later_node in model['ands'][j + 1:])
+         circuit = materialize(model)
+         base.with_suffix('.ordinary.json').write_text(json.dumps(circuit, indent=2) + '\n')
+         actual = ordinary_eval(circuit, rows)

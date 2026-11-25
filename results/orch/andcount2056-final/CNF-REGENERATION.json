@@ -1,0 +1,154 @@
+{
+  "working_directory": "this archive directory",
+  "records": [
+    {
+      "prefix": "nonread-target16-nested",
+      "raw_cnf_omitted": true,
+      "cnf_bytes": 28645044,
+      "cnf_sha256": "0498aa1065492af27694f025f111928a8af9d76026cbb194b74e8ccc69239429",
+      "source_sha256": "4cd6d7789276a67250f6e01bd13df4eb13f738675008af7bf8fcf77959027085",
+      "regenerate_argv": [
+        "python3",
+        "andcount_budget_profile_nonread2056.py",
+        "--ands",
+        "16",
+        "--ordinary-limit",
+        "63",
+        "--warm-model",
+        "andbudget-prefix-nested63-model.json",
+        "--prefix",
+        "regenerated/nonread-target16-nested",
+        "--emit-only"
+      ],
+      "native_control_seconds": null
+    },
+    {
+      "prefix": "dirty-native16-control67",
+      "raw_cnf_omitted": true,
+      "cnf_bytes": 29600864,
+      "cnf_sha256": "888bd0804771d1932e32655f32aeb15f840aab3a2556e34580d25da8851cc639",
+      "source_sha256": "6836637459f253d02fd8d885a364aa68b73a7d62e15caa767cff8653e72a795e",
+      "regenerate_argv": [
+        "python3",
+        "andcount_budget_profile_nonread_dirty2056.py",
+        "--ands",
+        "16",
+        "--ordinary-limit",
+        "67",
+        "--warm-model",
+        "andbudget-nonread-control67-model.json",
+        "--prefix",
+        "regenerated/dirty-native16-control67",
+        "--emit-only"
+      ],
+      "native_control_seconds": 10
+    },
+    {
+      "prefix": "dirty-native16-star64-negative",
+      "raw_cnf_omitted": true,
+      "cnf_bytes": 29293795,
+      "cnf_sha256": "5170256e99e39e6e45ec43fb252dccc73383ae0a3c952829c1117126093ee402",
+      "source_sha256": "6836637459f253d02fd8d885a364aa68b73a7d62e15caa767cff8653e72a795e",
+      "regenerate_argv": [
+        "python3",
+        "andcount_budget_profile_nonread_dirty2056.py",
+        "--ands",
+        "16",
+        "--ordinary-limit",
+        "64",
+        "--fixed-star-prefix",
+        "16",
+        "--fix-output",
+        "--prefix",
+        "regenerated/dirty-native16-star64-negative",
+        "--emit-only"
+      ],
+      "native_control_seconds": 10
+    },
+    {
+      "prefix": "dirty-target16-nested",
+      "raw_cnf_omitted": true,
+      "cnf_bytes": 29212074,
+      "cnf_sha256": "0f46eb9ff931e255fbadc605ae425401f694eaa983b76aa6adde56e07e4ceda4",
+      "source_sha256": "6836637459f253d02fd8d885a364aa68b73a7d62e15caa767cff8653e72a795e",
+      "regenerate_argv": [
+        "python3",
+        "andcount_budget_profile_nonread_dirty2056.py",
+        "--ands",
+        "16",
+        "--ordinary-limit",
+        "63",
+        "--warm-model",
+        "andbudget-prefix-nested63-model.json",
+        "--prefix",
+        "regenerated/dirty-target16-nested",
+        "--emit-only"
+      ],
+      "native_control_seconds": null
+    },
+    {
+      "prefix": "final-native16-control67",
+      "raw_cnf_omitted": true,
+      "cnf_bytes": 29600874,
+      "cnf_sha256": "643c806f667b5a4f7a571fca486219c84358a1261068c425cb88249decfcc8d6",
+      "source_sha256": "7bc8492ef53299193408b0d9b29fb3b1bd755b6c403852591d56fb3a7f3b12e4",
+      "regenerate_argv": [
+        "python3",
+        "andcount_budget_final2056.py",
+        "--ands",
+        "16",
+        "--ordinary-limit",
+        "67",
+        "--warm-model",
+        "andbudget-nonread-control67-model.json",
+        "--prefix",
+        "regenerated/final-native16-control67",
+        "--emit-only"
+      ],
+      "native_control_seconds": 10
+    },
+    {
+      "prefix": "final-native16-star64-negative",
+      "raw_cnf_omitted": true,
+      "cnf_bytes": 29293805,
+      "cnf_sha256": "50a3b543f3291f3f391cab6561c3fe02e93b21f0fd79e3a1dffaa84739c53f59",
+      "source_sha256": "7bc8492ef53299193408b0d9b29fb3b1bd755b6c403852591d56fb3a7f3b12e4",
+      "regenerate_argv": [
+        "python3",
+        "andcount_budget_final2056.py",
+        "--ands",
+        "16",
+        "--ordinary-limit",
+        "64",
+        "--fixed-star-prefix",
+        "16",
+        "--fix-output",
+        "--prefix",
+        "regenerated/final-native16-star64-negative",
+        "--emit-only"
+      ],
+      "native_control_seconds": 10
+    },
+    {
+      "prefix": "final-target16-nested",
+      "raw_cnf_omitted": true,
+      "cnf_bytes": 29212084,
+      "cnf_sha256": "e42404f6305da9ecf29c910da15f6efae829737ba5a91cb799929172f130d41d",
+      "source_sha256": "7bc8492ef53299193408b0d9b29fb3b1bd755b6c403852591d56fb3a7f3b12e4",
+      "regenerate_argv": [
+        "python3",
+        "andcount_budget_final2056.py",
+        "--ands",
+        "16",
+        "--ordinary-limit",
+        "63",
+        "--warm-model",
+        "andbudget-prefix-nested63-model.json",
+        "--prefix",
+        "regenerated/final-target16-nested",
+        "--emit-only"
+      ],
+      "native_control_seconds": null
+    }
+  ]
+}

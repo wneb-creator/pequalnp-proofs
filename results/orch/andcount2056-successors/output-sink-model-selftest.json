@@ -1,0 +1,8 @@
+{
+  "models": 1000,
+  "changed_models": 736,
+  "all_relevant_assignments_per_model": 64,
+  "output_preserved": true,
+  "unshared_expansion_bound_never_increased": true,
+  "source_sha256": "22ffe11a5b131e8190e38c729d666723cd45307895d93b84c386e1b49c2a31be"
+}

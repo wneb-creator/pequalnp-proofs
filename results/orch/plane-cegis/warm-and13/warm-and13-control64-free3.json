@@ -1,0 +1,42 @@
+{
+  "utc": "2026-11-25T18:50:04.190659+00:00",
+  "n": 26,
+  "size": 64,
+  "sampled_rows": 756,
+  "variables": 166451,
+  "clauses": 9059552,
+  "conversion_seconds": 44.06783771299888,
+  "seconds_limit": 20,
+  "fixed_prefix": 61,
+  "warm_true_variables": 54032,
+  "complete_negative_rows": 704,
+  "minimum_and_gates": 13,
+  "first_gate_orbit_representatives": [
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      13
+    ],
+    [
+      1,
+      0,
+      15
+    ],
+    [
+      0,
+      0,
+      13
+    ]
+  ],
+  "primary_input_dominance_excluded": true,
+  "encoder": "full-boundary polarity-warm AO2 with lex, clean rules, AND>=13 and primary dominance exclusion",
+  "exit_code": 0,
+  "status": "UNKNOWN; time or resource limit",
+  "elapsed_seconds": 66.02451353399738,
+  "max_rss_kb": 1533036
+}

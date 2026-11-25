@@ -1,0 +1,20 @@
+{
+  "scope": "Narrow existing-proof OR-count census; no unrestricted numerical lower bound established",
+  "first_exact51_literal_candidates": [
+    "L_meta_5599",
+    "L_meta_4471"
+  ],
+  "or_count_related_files": 324,
+  "or_ncard_statement_files": 22,
+  "proof_files_with_explicit_or_ncard_statements": [
+    "L_meta_4053",
+    "L_meta_4651",
+    "L_meta_8043",
+    "L_meta_8265",
+    "L_meta_6408",
+    "L_meta_6983",
+    "L_meta_4680"
+  ],
+  "findings": "These provide compression, duality, union-game or gate-deletion statements rather than an immediate unrestrictedOR>=51 bound. L_meta_5809 has an internal51 count for a51-edge graph under andPairs=0; finaltheorem63 is conditional, not a refutation of2056.",
+  "no_refutation_claim": true
+}

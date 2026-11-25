@@ -1,0 +1,1388 @@
+[
+  {
+    "source": "active-anchor-control13-forced-swap.cnf",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-forced-swap.cnf.gz",
+    "source_sha256": "85e16aa968fdc201f45c17b2a33f25c347e2437a355a7a525770743dc653e2df",
+    "source_bytes": 12615283,
+    "archive_bytes": 3712516
+  },
+  {
+    "source": "active-sink-native13-free1.cnf",
+    "archive": "results/orch/andcount2056-successors/active-sink-native13-free1.cnf.gz",
+    "source_sha256": "4e121b7d03eac3ad77ed44e902aca8769a173d268ae1563f99cc68d22a6b5053",
+    "source_bytes": 12617810,
+    "archive_bytes": 3713268
+  },
+  {
+    "source": "output-sink-swapped76-control.stderr",
+    "archive": "results/orch/andcount2056-successors/output-sink-swapped76-control.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-anchor-control16-padded-emit.stderr",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control16-padded-emit.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "cleanup-swapped76-control.stdout",
+    "archive": "results/orch/andcount2056-successors/cleanup-swapped76-control.stdout",
+    "source_sha256": "9d50426dafd9f023fd1833fd6b826d85f4280a746b0dc5f1b70b86f687b21f4a",
+    "source_bytes": 123,
+    "archive_bytes": 123
+  },
+  {
+    "source": "active-anchor-target12-v2.cnf",
+    "archive": "results/orch/andcount2056-successors/active-anchor-target12-v2.cnf.gz",
+    "source_sha256": "5a31f40c7655e7c27065a8b0bfbc003b19b1d91274acbb7a044198aa492de1bf",
+    "source_bytes": 10800942,
+    "archive_bytes": 3180118
+  },
+  {
+    "source": "active-sink-control13-forced-swap.and-model.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-control13-forced-swap.and-model.json",
+    "source_sha256": "86fe7639c7ffa6b599a1bf061e4e5915c75639fe920c829d4f4d581ff632bde6",
+    "source_bytes": 1694,
+    "archive_bytes": 1694
+  },
+  {
+    "source": "active-sink-native13-free1.mapping.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-native13-free1.mapping.json",
+    "source_sha256": "96d4b898dcded1630dce25ed989f2f96c28f00485c65eaf622d98ce3a9c60190",
+    "source_bytes": 254311,
+    "archive_bytes": 254311
+  },
+  {
+    "source": "active_anchor_swapped_control2056.py",
+    "archive": "results/orch/andcount2056-successors/active_anchor_swapped_control2056.py",
+    "source_sha256": "3b2d955edbc4eeae9889552a445b2f6fed7230c38734885104e107a7d5393d2d",
+    "source_bytes": 3994,
+    "archive_bytes": 3994
+  },
+  {
+    "source": "active-anchor-native12-invalid.stderr",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native12-invalid.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-anchor-native13-fixed.decoder-recovery-audit.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-fixed.decoder-recovery-audit.json",
+    "source_sha256": "def476f1f988b9cab45c672b34ad9565f12846a48cd0180b1513a7fe00d10ebb",
+    "source_bytes": 485,
+    "archive_bytes": 485
+  },
+  {
+    "source": "active-sink-control13-forced-swap-wrapper.stderr",
+    "archive": "results/orch/andcount2056-successors/active-sink-control13-forced-swap-wrapper.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-anchor-native12-invalid.warm.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native12-invalid.warm.json",
+    "source_sha256": "c40d49fc9ceea53098923169f6a6c13dab77da55aed023de382c9190a3015d90",
+    "source_bytes": 1565,
+    "archive_bytes": 1565
+  },
+  {
+    "source": "active-sink-native13-free1.ordinary.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-native13-free1.ordinary.json",
+    "source_sha256": "d5da17e2617b220d13a7b40e6d67f06a53ba527e80224ca542082bb6a833aaba",
+    "source_bytes": 2691,
+    "archive_bytes": 2691
+  },
+  {
+    "source": "active-anchor-control13-forced-swap.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-forced-swap.json",
+    "source_sha256": "2cfbc79b9413c15bd235ec9dcb80d4d836d757307de84c7d5187bb1dd722b036",
+    "source_bytes": 301,
+    "archive_bytes": 301
+  },
+  {
+    "source": "active-anchor-native13-free1.ordinary.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-free1.ordinary.json",
+    "source_sha256": "d5da17e2617b220d13a7b40e6d67f06a53ba527e80224ca542082bb6a833aaba",
+    "source_bytes": 2691,
+    "archive_bytes": 2691
+  },
+  {
+    "source": "active-anchor-native12-invalid.mapping.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native12-invalid.mapping.json",
+    "source_sha256": "a5accb43923542b0ac8e02067e312d1189118497df3d1513cec424fcd6c85aa8",
+    "source_bytes": 233735,
+    "archive_bytes": 233735
+  },
+  {
+    "source": "active-anchor-control13-fixed.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-fixed.json",
+    "source_sha256": "7fe2798cd7bf6c487a921a216604d8a5b21b7188e2097d65c576a11f6f6c2a02",
+    "source_bytes": 737,
+    "archive_bytes": 737
+  },
+  {
+    "source": "active-sink-native13-free1-wrapper.stdout",
+    "archive": "results/orch/andcount2056-successors/active-sink-native13-free1-wrapper.stdout",
+    "source_sha256": "3fd73fc91f6fbf053b0a995966aacfee089f3621524fc8a805fb0568232b02a5",
+    "source_bytes": 953,
+    "archive_bytes": 953
+  },
+  {
+    "source": "active-anchor-control13-forced-swap.stderr",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-forced-swap.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-anchor-control13-forced-swap.ordinary.txt",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-forced-swap.ordinary.txt",
+    "source_sha256": "c551cbc65c64ace23703e1f6e99e4ce65e6e08b0ea070ea1fccc0811bc89c1f4",
+    "source_bytes": 599,
+    "archive_bytes": 599
+  },
+  {
+    "source": "output-sink-swapped76-control.ordinary.json",
+    "archive": "results/orch/andcount2056-successors/output-sink-swapped76-control.ordinary.json",
+    "source_sha256": "4651e93ef054eb0ffac228279a964456e4cfe5fc3c190dc94891eb0da30b1c08",
+    "source_bytes": 2691,
+    "archive_bytes": 2691
+  },
+  {
+    "source": "active-anchor-native13-free1-wrapper.stdout",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-free1-wrapper.stdout",
+    "source_sha256": "8446421e36ce9dd4c0dcc73d55d931a3e4605c13fb5a2ed6b9188676cf3466db",
+    "source_bytes": 293,
+    "archive_bytes": 293
+  },
+  {
+    "source": "active-sink-delta-and-padded-control-audit.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-delta-and-padded-control-audit.json",
+    "source_sha256": "ef26fd57c87b71267848e1dceb5945b889feda56b9fd1921047f88bf349d13e5",
+    "source_bytes": 734,
+    "archive_bytes": 734
+  },
+  {
+    "source": "active-sink-control12-invalid-emit.stdout",
+    "archive": "results/orch/andcount2056-successors/active-sink-control12-invalid-emit.stdout",
+    "source_sha256": "5bd8c45dc7511a64b26fb8bf5db218975418412f0a4fd3fecf153226d85ea37e",
+    "source_bytes": 726,
+    "archive_bytes": 726
+  },
+  {
+    "source": "active-anchor-control16-padded-emit.stdout",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control16-padded-emit.stdout",
+    "source_sha256": "342b6fdc6bf81cb85bbb5e1531999f25338a65d97d4b57911ee171850d65e62a",
+    "source_bytes": 685,
+    "archive_bytes": 685
+  },
+  {
+    "source": "active-anchor-native13-fixed-wrapper.stdout",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-fixed-wrapper.stdout",
+    "source_sha256": "56ea9f0a558db94f4d95f89f7be677b0231ca000ee8ec5c9e9937aaf276a7490",
+    "source_bytes": 294,
+    "archive_bytes": 294
+  },
+  {
+    "source": "active-sink-source-delta.diff",
+    "archive": "results/orch/andcount2056-successors/active-sink-source-delta.diff",
+    "source_sha256": "2bea121ef6d6fce15191208ff231ec1f4e9abbe6d8aa541c7e6683fdc576ac3c",
+    "source_bytes": 1735,
+    "archive_bytes": 1735
+  },
+  {
+    "source": "active-anchor-control13-forced-swap-wrapper.stderr",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-forced-swap-wrapper.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-anchor-control13-free1-emit.stderr",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-free1-emit.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-anchor-native16-padded-wrapper.stdout",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native16-padded-wrapper.stdout",
+    "source_sha256": "dfebab41eea86cd319914970ae119b099fed410c2f956812e51b5dbdf28b1369",
+    "source_bytes": 277,
+    "archive_bytes": 277
+  },
+  {
+    "source": "active-sink-control16-padded.cnf",
+    "archive": "results/orch/andcount2056-successors/active-sink-control16-padded.cnf.gz",
+    "source_sha256": "b0c399131b9b19b00d43f8825340f4756f2b10d25f3156c1dbb912dfba237f25",
+    "source_bytes": 18761125,
+    "archive_bytes": 5486064
+  },
+  {
+    "source": "active-sink-control13-forced-swap.exhaustive.stderr",
+    "archive": "results/orch/andcount2056-successors/active-sink-control13-forced-swap.exhaustive.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "output_sink_model2056.py",
+    "archive": "results/orch/andcount2056-successors/output_sink_model2056.py",
+    "source_sha256": "22ffe11a5b131e8190e38c729d666723cd45307895d93b84c386e1b49c2a31be",
+    "source_bytes": 2953,
+    "archive_bytes": 2953
+  },
+  {
+    "source": "active-anchor-native13-free1.warm.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-free1.warm.json",
+    "source_sha256": "2be2558b6110924729d715b101596627f99e6334ed60fb795817745803745acb",
+    "source_bytes": 1694,
+    "archive_bytes": 1694
+  },
+  {
+    "source": "active-sink-target12.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-target12.json",
+    "source_sha256": "3e99dfdeaa1b511982519de35863b67f65898a9743c10ab6c64784e7b984e627",
+    "source_bytes": 780,
+    "archive_bytes": 780
+  },
+  {
+    "source": "active-sink-control16-padded-emit.stderr",
+    "archive": "results/orch/andcount2056-successors/active-sink-control16-padded-emit.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "output-sink-swapped76-control.best.ordinary.json",
+    "archive": "results/orch/andcount2056-successors/output-sink-swapped76-control.best.ordinary.json",
+    "source_sha256": "4651e93ef054eb0ffac228279a964456e4cfe5fc3c190dc94891eb0da30b1c08",
+    "source_bytes": 2691,
+    "archive_bytes": 2691
+  },
+  {
+    "source": "active-anchor-control13-fixed.cnf",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-fixed.cnf.gz",
+    "source_sha256": "de3abdcc7c3451b0e429eed82cc3c99895562103c905591b0faa507b6f458183",
+    "source_bytes": 12616034,
+    "archive_bytes": 3712711
+  },
+  {
+    "source": "active-anchor-native16-padded.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native16-padded.json",
+    "source_sha256": "f1c390a6fe47bdc4817dad3f54445ec241fc8ecb7eb6ca44c90ae23e673220be",
+    "source_bytes": 1617,
+    "archive_bytes": 1617
+  },
+  {
+    "source": "active-anchor-native12-invalid.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native12-invalid.json",
+    "source_sha256": "38b6cd3160ff1de4d0ed94c79fb19730cfcd125d6c9f35f47b1f8ae0005fe374",
+    "source_bytes": 840,
+    "archive_bytes": 840
+  },
+  {
+    "source": "active-anchor-target12-emit.stdout",
+    "archive": "results/orch/andcount2056-successors/active-anchor-target12-emit.stdout",
+    "source_sha256": "c58dad22a0bcb75d364e24012c06212ea9dffca98b38128e26900d5a93ff7ad1",
+    "source_bytes": 686,
+    "archive_bytes": 686
+  },
+  {
+    "source": "active-anchor-control13-free1-emit.stdout",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-free1-emit.stdout",
+    "source_sha256": "e1d44a3505b89ce6778614f51dd850a32c01dd6e1b22c2b18b84c0dd3c3cb669",
+    "source_bytes": 686,
+    "archive_bytes": 686
+  },
+  {
+    "source": "shared-or-swapped76-control.json",
+    "archive": "results/orch/andcount2056-successors/shared-or-swapped76-control.json",
+    "source_sha256": "587c1fa838ec248ac495b2c85226f68e9ea72f69d525d1f56a860f58b73df325",
+    "source_bytes": 16111,
+    "archive_bytes": 16111
+  },
+  {
+    "source": "active-anchor-native16-padded.cnf",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native16-padded.cnf.gz",
+    "source_sha256": "40527bd3278de83863266c8743fe89cad06ee6e68289bac93d61ab6e79de5db1",
+    "source_bytes": 18757155,
+    "archive_bytes": 5484917
+  },
+  {
+    "source": "active-sink-control16-padded.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-control16-padded.json",
+    "source_sha256": "5439af4dc4206401868a11c6a6120605df8f3bed20245fdb087c34a186bf024c",
+    "source_bytes": 779,
+    "archive_bytes": 779
+  },
+  {
+    "source": "active-sink-control13-free1.mapping.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-control13-free1.mapping.json",
+    "source_sha256": "96d4b898dcded1630dce25ed989f2f96c28f00485c65eaf622d98ce3a9c60190",
+    "source_bytes": 254311,
+    "archive_bytes": 254311
+  },
+  {
+    "source": "active-anchor-native13-fixed.warm.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-fixed.warm.json",
+    "source_sha256": "2be2558b6110924729d715b101596627f99e6334ed60fb795817745803745acb",
+    "source_bytes": 1694,
+    "archive_bytes": 1694
+  },
+  {
+    "source": "active-anchor-control16-padded.warm.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control16-padded.warm.json",
+    "source_sha256": "5df77e5655049ff441bd64c8738d3a5448e2fdff9e5c2352443d9de4e9793458",
+    "source_bytes": 1841,
+    "archive_bytes": 1841
+  },
+  {
+    "source": "active-anchor-native13-free1.decoder-recovery-audit.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-free1.decoder-recovery-audit.json",
+    "source_sha256": "4901647ee405f66c337e1ab6fda727fa28d79d3bfdd48e7f2e15df037364b858",
+    "source_bytes": 485,
+    "archive_bytes": 485
+  },
+  {
+    "source": "active-anchor-target12.mapping.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-target12.mapping.json",
+    "source_sha256": "a5accb43923542b0ac8e02067e312d1189118497df3d1513cec424fcd6c85aa8",
+    "source_bytes": 233735,
+    "archive_bytes": 233735
+  },
+  {
+    "source": "active-anchor-native12-invalid-wrapper.stdout",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native12-invalid-wrapper.stdout",
+    "source_sha256": "5930341a4d42eb44326dec8dad6eb02a47bba0e4f2319ad2703c22471a2ab757",
+    "source_bytes": 782,
+    "archive_bytes": 782
+  },
+  {
+    "source": "output-sink-swapped76-control.and-model.json",
+    "archive": "results/orch/andcount2056-successors/output-sink-swapped76-control.and-model.json",
+    "source_sha256": "86fe7639c7ffa6b599a1bf061e4e5915c75639fe920c829d4f4d581ff632bde6",
+    "source_bytes": 1694,
+    "archive_bytes": 1694
+  },
+  {
+    "source": "active-anchor-native13-free1.sol",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-free1.sol",
+    "source_sha256": "17e782dd0755191479cc946b247b0f4bb1cb497070258b2e32fff722c2387b6f",
+    "source_bytes": 1109417,
+    "archive_bytes": 1109417
+  },
+  {
+    "source": "active-sink-control12-invalid.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-control12-invalid.json",
+    "source_sha256": "7d5c3ddceb0a58a810d14145460d66e3d622105e2ce77bb0919e4ccf4fdbb126",
+    "source_bytes": 780,
+    "archive_bytes": 780
+  },
+  {
+    "source": "output-sink-swapped76-control.stdout",
+    "archive": "results/orch/andcount2056-successors/output-sink-swapped76-control.stdout",
+    "source_sha256": "a4e6578b66eab3e6c2d8c3694bca1eb44c18badaef99cd07c43f72623e3eb199",
+    "source_bytes": 560,
+    "archive_bytes": 560
+  },
+  {
+    "source": "active-anchor-native16-padded.decoder-recovery-audit.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native16-padded.decoder-recovery-audit.json",
+    "source_sha256": "1680c269646fba437ab9878a1970cd3db7fa4d731bb3ba42e1ee76db4d8b5166",
+    "source_bytes": 486,
+    "archive_bytes": 486
+  },
+  {
+    "source": "active-anchor-native13-free1.stderr",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-free1.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "swapped65-structural-analysis.json",
+    "archive": "results/orch/andcount2056-successors/swapped65-structural-analysis.json",
+    "source_sha256": "9e5f1791b2314c7ee8e60c12063b176ce37a1e03e4602a44507669348e3dae47",
+    "source_bytes": 569,
+    "archive_bytes": 569
+  },
+  {
+    "source": "active-sink-native13-free1.and-model.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-native13-free1.and-model.json",
+    "source_sha256": "2be2558b6110924729d715b101596627f99e6334ed60fb795817745803745acb",
+    "source_bytes": 1694,
+    "archive_bytes": 1694
+  },
+  {
+    "source": "active-anchor-control12-invalid.warm.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control12-invalid.warm.json",
+    "source_sha256": "c40d49fc9ceea53098923169f6a6c13dab77da55aed023de382c9190a3015d90",
+    "source_bytes": 1565,
+    "archive_bytes": 1565
+  },
+  {
+    "source": "active-anchor-native13-fixed.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-fixed.json",
+    "source_sha256": "22e1091ab08508b027edb81b8db4b85b00ff244a6a6d793d7c0a7e2f741b7247",
+    "source_bytes": 1617,
+    "archive_bytes": 1617
+  },
+  {
+    "source": "active-anchor-control13-forced-swap.exhaustive.stdout",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-forced-swap.exhaustive.stdout",
+    "source_sha256": "21ea292c82f69f564fcf223a910f39af357abb9e5839fa0d2c980615919abcf7",
+    "source_bytes": 40,
+    "archive_bytes": 40
+  },
+  {
+    "source": "active-anchor-native13-fixed.and-model.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-fixed.and-model.json",
+    "source_sha256": "2be2558b6110924729d715b101596627f99e6334ed60fb795817745803745acb",
+    "source_bytes": 1694,
+    "archive_bytes": 1694
+  },
+  {
+    "source": "active-anchor-target12.warm.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-target12.warm.json",
+    "source_sha256": "c40d49fc9ceea53098923169f6a6c13dab77da55aed023de382c9190a3015d90",
+    "source_bytes": 1565,
+    "archive_bytes": 1565
+  },
+  {
+    "source": "active-sink-control13-forced-swap.sol",
+    "archive": "results/orch/andcount2056-successors/active-sink-control13-forced-swap.sol",
+    "source_sha256": "2eb4c3c4b7418b4d59e12937142c7cd6ab9e40631ec92f18d7ed6c38d868068f",
+    "source_bytes": 1107975,
+    "archive_bytes": 1107975
+  },
+  {
+    "source": "active-anchor-native13-fixed.cnf",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-fixed.cnf.gz",
+    "source_sha256": "de3abdcc7c3451b0e429eed82cc3c99895562103c905591b0faa507b6f458183",
+    "source_bytes": 12616034,
+    "archive_bytes": 3712710
+  },
+  {
+    "source": "active-anchor-source-delta.diff",
+    "archive": "results/orch/andcount2056-successors/active-anchor-source-delta.diff",
+    "source_sha256": "2e42d6346c7aa4a818f63c842ae2f3debba8390d4bf00f585b46e57d36f51c24",
+    "source_bytes": 3674,
+    "archive_bytes": 3674
+  },
+  {
+    "source": "active-sink-target12.warm.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-target12.warm.json",
+    "source_sha256": "c40d49fc9ceea53098923169f6a6c13dab77da55aed023de382c9190a3015d90",
+    "source_bytes": 1565,
+    "archive_bytes": 1565
+  },
+  {
+    "source": "active-sink-control13-forced-swap.exhaustive.stdout",
+    "archive": "results/orch/andcount2056-successors/active-sink-control13-forced-swap.exhaustive.stdout",
+    "source_sha256": "21b42ed632beb15fca5a247dc3767db34d8270ff7b1d29470b5fcff18f9a6338",
+    "source_bytes": 40,
+    "archive_bytes": 40
+  },
+  {
+    "source": "active-sink-target12-emit.stdout",
+    "archive": "results/orch/andcount2056-successors/active-sink-target12-emit.stdout",
+    "source_sha256": "b43fccfdb81281ce431fb2dd7b772729a0a9dbbbf530dad717c88d510d80343f",
+    "source_bytes": 726,
+    "archive_bytes": 726
+  },
+  {
+    "source": "active-anchor-native16-padded.warm.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native16-padded.warm.json",
+    "source_sha256": "5df77e5655049ff441bd64c8738d3a5448e2fdff9e5c2352443d9de4e9793458",
+    "source_bytes": 1841,
+    "archive_bytes": 1841
+  },
+  {
+    "source": "active-sink-control16-padded.warm.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-control16-padded.warm.json",
+    "source_sha256": "5df77e5655049ff441bd64c8738d3a5448e2fdff9e5c2352443d9de4e9793458",
+    "source_bytes": 1841,
+    "archive_bytes": 1841
+  },
+  {
+    "source": "cleanup-swapped76-control.json",
+    "archive": "results/orch/andcount2056-successors/cleanup-swapped76-control.json",
+    "source_sha256": "07e4b5c68d71f14ae13bb3667bdb254976ebccaa39865f16ffdd0d6add4f80bb",
+    "source_bytes": 2872,
+    "archive_bytes": 2872
+  },
+  {
+    "source": "active-anchor-native13-fixed.stderr",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-fixed.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-anchor-native13-free1.mapping.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-free1.mapping.json",
+    "source_sha256": "96d4b898dcded1630dce25ed989f2f96c28f00485c65eaf622d98ce3a9c60190",
+    "source_bytes": 254311,
+    "archive_bytes": 254311
+  },
+  {
+    "source": "active-anchor-control13-forced-swap.exhaustive.stderr",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-forced-swap.exhaustive.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "cleanup-swapped76-control-exhaustive.stdout",
+    "archive": "results/orch/andcount2056-successors/cleanup-swapped76-control-exhaustive.stdout",
+    "source_sha256": "eacf34dcb7cfc163daf9338dfbb5ea0a69e42096b7371694093232fed32b38c7",
+    "source_bytes": 40,
+    "archive_bytes": 40
+  },
+  {
+    "source": "active-anchor-control13-forced-swap.mapping.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-forced-swap.mapping.json",
+    "source_sha256": "064c39f1cd95a90708a2554024daf2c5dd98fa5ec627c74a8fb7a9cc4c365f68",
+    "source_bytes": 254356,
+    "archive_bytes": 254356
+  },
+  {
+    "source": "active-anchor-native12-invalid.process.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native12-invalid.process.json",
+    "source_sha256": "38468d51b7bdfdc94f2561a93086240a9a60e101ae142cb99f26b51e13296db0",
+    "source_bytes": 137,
+    "archive_bytes": 137
+  },
+  {
+    "source": "active-anchor-target12-v2.warm.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-target12-v2.warm.json",
+    "source_sha256": "c40d49fc9ceea53098923169f6a6c13dab77da55aed023de382c9190a3015d90",
+    "source_bytes": 1565,
+    "archive_bytes": 1565
+  },
+  {
+    "source": "active-anchor-target12-emit.stderr",
+    "archive": "results/orch/andcount2056-successors/active-anchor-target12-emit.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "output-sink-swapped76-control.ordinary.txt",
+    "archive": "results/orch/andcount2056-successors/output-sink-swapped76-control.ordinary.txt",
+    "source_sha256": "fd5c4c2d1fd4e33cc2c1b70e65f358e7dd12d7cbb98b814e8bc72b804ac7f6f1",
+    "source_bytes": 502,
+    "archive_bytes": 502
+  },
+  {
+    "source": "active_sink_swapped_control2056.py",
+    "archive": "results/orch/andcount2056-successors/active_sink_swapped_control2056.py",
+    "source_sha256": "a6849aaef9c5e2b0f19e5ed40171119f1041e0e415431db26534a1b950675581",
+    "source_bytes": 3990,
+    "archive_bytes": 3990
+  },
+  {
+    "source": "active-sink-control13-forced-swap.ordinary.txt",
+    "archive": "results/orch/andcount2056-successors/active-sink-control13-forced-swap.ordinary.txt",
+    "source_sha256": "fd5c4c2d1fd4e33cc2c1b70e65f358e7dd12d7cbb98b814e8bc72b804ac7f6f1",
+    "source_bytes": 502,
+    "archive_bytes": 502
+  },
+  {
+    "source": "active-anchor-native13-free1-wrapper.stderr",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-free1-wrapper.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-sink-native13-free1.stderr",
+    "archive": "results/orch/andcount2056-successors/active-sink-native13-free1.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-anchor-native16-padded.stdout",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native16-padded.stdout",
+    "source_sha256": "86d8fba5da1cd06823f8a695e357e714afc263d1a3d601fc7d12d3f0fa25b615",
+    "source_bytes": 3099,
+    "archive_bytes": 3099
+  },
+  {
+    "source": "active-sink-control13-forced-swap.stderr",
+    "archive": "results/orch/andcount2056-successors/active-sink-control13-forced-swap.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-anchor-target12-v2-emit.stdout",
+    "archive": "results/orch/andcount2056-successors/active-anchor-target12-v2-emit.stdout",
+    "source_sha256": "3762a28e5a6c0730a85043e013b2c9ef46b6dd6b272126e8f85efcaba4936aac",
+    "source_bytes": 686,
+    "archive_bytes": 686
+  },
+  {
+    "source": "active-sink-control13-free1.warm.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-control13-free1.warm.json",
+    "source_sha256": "2be2558b6110924729d715b101596627f99e6334ed60fb795817745803745acb",
+    "source_bytes": 1694,
+    "archive_bytes": 1694
+  },
+  {
+    "source": "active-anchor-native13-fixed.mapping.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-fixed.mapping.json",
+    "source_sha256": "96d4b898dcded1630dce25ed989f2f96c28f00485c65eaf622d98ce3a9c60190",
+    "source_bytes": 254311,
+    "archive_bytes": 254311
+  },
+  {
+    "source": "active-sink-control13-forced-swap.stdout",
+    "archive": "results/orch/andcount2056-successors/active-sink-control13-forced-swap.stdout",
+    "source_sha256": "e5afe4c102e36d43a60122f8beab0f63c9de4f69a694dde5b26ea69d1d4183b1",
+    "source_bytes": 3105,
+    "archive_bytes": 3105
+  },
+  {
+    "source": "active-anchor-target12.cnf",
+    "archive": "results/orch/andcount2056-successors/active-anchor-target12.cnf.gz",
+    "source_sha256": "5a31f40c7655e7c27065a8b0bfbc003b19b1d91274acbb7a044198aa492de1bf",
+    "source_bytes": 10800942,
+    "archive_bytes": 3180115
+  },
+  {
+    "source": "active-anchor-target-delta-audit.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-target-delta-audit.json",
+    "source_sha256": "76c8e1cc053f8e636eb381dde21907fab1ceff39f49c2388382498b0bf37a13c",
+    "source_bytes": 497,
+    "archive_bytes": 497
+  },
+  {
+    "source": "active-anchor-native12-invalid.sol",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native12-invalid.sol",
+    "source_sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162",
+    "source_bytes": 16,
+    "archive_bytes": 16
+  },
+  {
+    "source": "active-anchor-target12-v2.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-target12-v2.json",
+    "source_sha256": "5b08eeff91dba5b085492f21ff891556c572b2251688fa08aa305c7c32bde412",
+    "source_bytes": 738,
+    "archive_bytes": 738
+  },
+  {
+    "source": "active-anchor-control16-padded.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control16-padded.json",
+    "source_sha256": "5b794f7b9375d4c6b08faa28453e228cc15c63952693f6a25a4208770f0a155e",
+    "source_bytes": 737,
+    "archive_bytes": 737
+  },
+  {
+    "source": "active-anchor-control13-forced-swap.ordinary.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-forced-swap.ordinary.json",
+    "source_sha256": "358ce3263b00b42ee9bb61582ea0c9ed0cbddd0b52d4d7ef26892e35e62fc577",
+    "source_bytes": 3185,
+    "archive_bytes": 3185
+  },
+  {
+    "source": "active-anchor-native13-fixed.ordinary.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-fixed.ordinary.json",
+    "source_sha256": "d5da17e2617b220d13a7b40e6d67f06a53ba527e80224ca542082bb6a833aaba",
+    "source_bytes": 2691,
+    "archive_bytes": 2691
+  },
+  {
+    "source": "active-anchor-decoder-recovery-audit.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-decoder-recovery-audit.json",
+    "source_sha256": "ff8119fa90b34106ab2faf05e35045eb2313fff1f1e49a04bc0c2802d37dccd3",
+    "source_bytes": 1534,
+    "archive_bytes": 1534
+  },
+  {
+    "source": "active-sink-native13-free1.sol",
+    "archive": "results/orch/andcount2056-successors/active-sink-native13-free1.sol",
+    "source_sha256": "17e782dd0755191479cc946b247b0f4bb1cb497070258b2e32fff722c2387b6f",
+    "source_bytes": 1109417,
+    "archive_bytes": 1109417
+  },
+  {
+    "source": "active-anchor-native16-padded.mapping.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native16-padded.mapping.json",
+    "source_sha256": "2f2b9dc7dbd25b840f75eb98a60fdfb1b1bd8b8353251787075321ff8c5fa2c3",
+    "source_bytes": 289603,
+    "archive_bytes": 289603
+  },
+  {
+    "source": "active-anchor-control12-invalid-emit.stdout",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control12-invalid-emit.stdout",
+    "source_sha256": "7a5ab251cea6c2d9c5501c5ca9a170fdda76aae1176b74f848f52b8be0e4bfe1",
+    "source_bytes": 686,
+    "archive_bytes": 686
+  },
+  {
+    "source": "cleanup-swapped76-control-exhaustive.stderr",
+    "archive": "results/orch/andcount2056-successors/cleanup-swapped76-control-exhaustive.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-anchor-control12-invalid.mapping.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control12-invalid.mapping.json",
+    "source_sha256": "a5accb43923542b0ac8e02067e312d1189118497df3d1513cec424fcd6c85aa8",
+    "source_bytes": 233735,
+    "archive_bytes": 233735
+  },
+  {
+    "source": "output-sink-swapped76-control.json",
+    "archive": "results/orch/andcount2056-successors/output-sink-swapped76-control.json",
+    "source_sha256": "2e46b8cf2a21a11d777023d19f4530195abb4191453290b75c4422602d6f0d98",
+    "source_bytes": 922,
+    "archive_bytes": 922
+  },
+  {
+    "source": "active-anchor-native16-padded.sol",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native16-padded.sol",
+    "source_sha256": "76f7d0b69ae06451e3ea94cd7e1b65726393c7a8ae4634acb45b9c8d4d5f806e",
+    "source_bytes": 1690811,
+    "archive_bytes": 1690811
+  },
+  {
+    "source": "active-anchor-control12-invalid.cnf",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control12-invalid.cnf.gz",
+    "source_sha256": "37ad8113d99c676f7e32592217335e1e59c67cff10034d516279a01cc5a135c8",
+    "source_bytes": 10807665,
+    "archive_bytes": 3182302
+  },
+  {
+    "source": "active-sink-control13-free1-emit.stdout",
+    "archive": "results/orch/andcount2056-successors/active-sink-control13-free1-emit.stdout",
+    "source_sha256": "e69e2b42218c07e3c6ce4ba0376cae1326f6a9e95a0e6f59560f9a5bfa0f88b6",
+    "source_bytes": 726,
+    "archive_bytes": 726
+  },
+  {
+    "source": "active-sink-target12-emit.stderr",
+    "archive": "results/orch/andcount2056-successors/active-sink-target12-emit.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-anchor-native13-free1.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-free1.json",
+    "source_sha256": "f12594897cd72de508a9a1b447caf70b5828dfe37c4d38d1a23c5017714be97b",
+    "source_bytes": 1616,
+    "archive_bytes": 1616
+  },
+  {
+    "source": "active-sink-control16-padded.mapping.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-control16-padded.mapping.json",
+    "source_sha256": "2f2b9dc7dbd25b840f75eb98a60fdfb1b1bd8b8353251787075321ff8c5fa2c3",
+    "source_bytes": 289603,
+    "archive_bytes": 289603
+  },
+  {
+    "source": "active-anchor-target12-v2.mapping.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-target12-v2.mapping.json",
+    "source_sha256": "a5accb43923542b0ac8e02067e312d1189118497df3d1513cec424fcd6c85aa8",
+    "source_bytes": 233735,
+    "archive_bytes": 233735
+  },
+  {
+    "source": "cleanup-swapped76-control.txt",
+    "archive": "results/orch/andcount2056-successors/cleanup-swapped76-control.txt",
+    "source_sha256": "c63d9c829f67f514b288521d4d4f8be9569d2ea7e0db972e881d55b22627ca2d",
+    "source_bytes": 510,
+    "archive_bytes": 510
+  },
+  {
+    "source": "active-anchor-native13-fixed-wrapper.stderr",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-fixed-wrapper.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-sink-native13-free1.warm.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-native13-free1.warm.json",
+    "source_sha256": "2be2558b6110924729d715b101596627f99e6334ed60fb795817745803745acb",
+    "source_bytes": 1694,
+    "archive_bytes": 1694
+  },
+  {
+    "source": "active-anchor-control13-free1.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-free1.json",
+    "source_sha256": "d997b1964e019484cee7add762e1581b9b0c688f295aeab4dcbe4aa0630ce76b",
+    "source_bytes": 738,
+    "archive_bytes": 738
+  },
+  {
+    "source": "andcount_active_anchor2056_reporting_bug.py",
+    "archive": "results/orch/andcount2056-successors/andcount_active_anchor2056_reporting_bug.py",
+    "source_sha256": "eabd0a15d5b5a11c897b12346d462245b575afa5775c700d0cc5efbe01e57ca1",
+    "source_bytes": 15061,
+    "archive_bytes": 15061
+  },
+  {
+    "source": "active-anchor-control16-padded.mapping.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control16-padded.mapping.json",
+    "source_sha256": "2f2b9dc7dbd25b840f75eb98a60fdfb1b1bd8b8353251787075321ff8c5fa2c3",
+    "source_bytes": 289603,
+    "archive_bytes": 289603
+  },
+  {
+    "source": "active-sink-control16-padded-emit.stdout",
+    "archive": "results/orch/andcount2056-successors/active-sink-control16-padded-emit.stdout",
+    "source_sha256": "c446f22b86d42d500fd169edf77d1b1322e7ec721f1d9fa6cda6f67720800015",
+    "source_bytes": 725,
+    "archive_bytes": 725
+  },
+  {
+    "source": "active-sink-control13-forced-swap.ordinary.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-control13-forced-swap.ordinary.json",
+    "source_sha256": "4651e93ef054eb0ffac228279a964456e4cfe5fc3c190dc94891eb0da30b1c08",
+    "source_bytes": 2691,
+    "archive_bytes": 2691
+  },
+  {
+    "source": "shared-or-swapped76-control.stdout",
+    "archive": "results/orch/andcount2056-successors/shared-or-swapped76-control.stdout",
+    "source_sha256": "891b0577e1514b114c67b37d4e93c53ab9e65d186482cbd1138c1c1d837bfdbd",
+    "source_bytes": 129,
+    "archive_bytes": 129
+  },
+  {
+    "source": "shared-or-swapped76-control.txt",
+    "archive": "results/orch/andcount2056-successors/shared-or-swapped76-control.txt",
+    "source_sha256": "c63d9c829f67f514b288521d4d4f8be9569d2ea7e0db972e881d55b22627ca2d",
+    "source_bytes": 510,
+    "archive_bytes": 510
+  },
+  {
+    "source": "active-sink-control12-invalid.cnf",
+    "archive": "results/orch/andcount2056-successors/active-sink-control12-invalid.cnf.gz",
+    "source_sha256": "d818ba102396f0114612aebdd11322790ef6af24f36923cc12bb3dcc188a9658",
+    "source_bytes": 10809793,
+    "archive_bytes": 3182929
+  },
+  {
+    "source": "active-anchor-native16-padded.ordinary.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native16-padded.ordinary.json",
+    "source_sha256": "d5da17e2617b220d13a7b40e6d67f06a53ba527e80224ca542082bb6a833aaba",
+    "source_bytes": 2691,
+    "archive_bytes": 2691
+  },
+  {
+    "source": "active-anchor-native12-invalid-wrapper.stderr",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native12-invalid-wrapper.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-sink-control13-forced-swap-wrapper.stdout",
+    "archive": "results/orch/andcount2056-successors/active-sink-control13-forced-swap-wrapper.stdout",
+    "source_sha256": "7ba6a0997014255b69b0c25b67e21286254c0bfd095e537c7eac8375df9bde58",
+    "source_bytes": 285,
+    "archive_bytes": 285
+  },
+  {
+    "source": "active-sink-native13-free1.process.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-native13-free1.process.json",
+    "source_sha256": "b8fa035f75cf9ad126ffbbec052c8ad65f35673c6d99d9d32154ecc0878ac5ad",
+    "source_bytes": 133,
+    "archive_bytes": 133
+  },
+  {
+    "source": "andcount_active_anchor2056.py",
+    "archive": "results/orch/andcount2056-successors/andcount_active_anchor2056.py",
+    "source_sha256": "6464a30cc951ccfebd34e7b5fe820fd7212186e9846d5c4871dda218195fcc6e",
+    "source_bytes": 15047,
+    "archive_bytes": 15047
+  },
+  {
+    "source": "active-sink-control13-forced-swap.mapping.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-control13-forced-swap.mapping.json",
+    "source_sha256": "064c39f1cd95a90708a2554024daf2c5dd98fa5ec627c74a8fb7a9cc4c365f68",
+    "source_bytes": 254356,
+    "archive_bytes": 254356
+  },
+  {
+    "source": "andcount_active_sink2056.py",
+    "archive": "results/orch/andcount2056-successors/andcount_active_sink2056.py",
+    "source_sha256": "bb3b0516e580a16b05affe97603f71d99e8c9afe8c4c88efe4948553641f6cd5",
+    "source_bytes": 15497,
+    "archive_bytes": 15497
+  },
+  {
+    "source": "output-sink-swapped76-control-exhaustive.stderr",
+    "archive": "results/orch/andcount2056-successors/output-sink-swapped76-control-exhaustive.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-anchor-native16-padded.stderr",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native16-padded.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "shared-or-swapped76-control.stderr",
+    "archive": "results/orch/andcount2056-successors/shared-or-swapped76-control.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-anchor-native13-fixed.sol",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-fixed.sol",
+    "source_sha256": "17e782dd0755191479cc946b247b0f4bb1cb497070258b2e32fff722c2387b6f",
+    "source_bytes": 1109417,
+    "archive_bytes": 1109417
+  },
+  {
+    "source": "active-anchor-native16-padded.and-model.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native16-padded.and-model.json",
+    "source_sha256": "5df77e5655049ff441bd64c8738d3a5448e2fdff9e5c2352443d9de4e9793458",
+    "source_bytes": 1841,
+    "archive_bytes": 1841
+  },
+  {
+    "source": "cleanup-swapped76-control.stderr",
+    "archive": "results/orch/andcount2056-successors/cleanup-swapped76-control.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-sink-native13-free1.stdout",
+    "archive": "results/orch/andcount2056-successors/active-sink-native13-free1.stdout",
+    "source_sha256": "9be556e8a1093779faccb7544c4453bdc032e652dfdc1a388cb7379f3b28d16e",
+    "source_bytes": 3089,
+    "archive_bytes": 3089
+  },
+  {
+    "source": "active-anchor-native13-fixed.stdout",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-fixed.stdout",
+    "source_sha256": "b162a0ad5aba8fb9171c92a4f01fd9dac626fba63c176f7414f769d0dfa06cab",
+    "source_bytes": 3090,
+    "archive_bytes": 3090
+  },
+  {
+    "source": "active-anchor-control13-free1.warm.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-free1.warm.json",
+    "source_sha256": "2be2558b6110924729d715b101596627f99e6334ed60fb795817745803745acb",
+    "source_bytes": 1694,
+    "archive_bytes": 1694
+  },
+  {
+    "source": "active-anchor-native16-padded-wrapper.stderr",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native16-padded-wrapper.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-anchor-native13-free1.process.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-free1.process.json",
+    "source_sha256": "fe92f57cf747c723a8dd6ed2753dccadd73ab41d47a09f89e35c474b2aaafc4c",
+    "source_bytes": 135,
+    "archive_bytes": 135
+  },
+  {
+    "source": "active-anchor-native12-invalid.stdout",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native12-invalid.stdout",
+    "source_sha256": "1afa495f108992ebacc7b1afa07fb6ae776743cf0593a4583b46f12cad7552f3",
+    "source_bytes": 3091,
+    "archive_bytes": 3091
+  },
+  {
+    "source": "active-anchor-control13-fixed-emit.stderr",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-fixed-emit.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "output-sink-model-selftest.json",
+    "archive": "results/orch/andcount2056-successors/output-sink-model-selftest.json",
+    "source_sha256": "ba02d597cfd8eea8fcf88b2a1232d90b85257dba38414bb2573e196edea7f55d",
+    "source_bytes": 257,
+    "archive_bytes": 257
+  },
+  {
+    "source": "output-sink-swapped76-control-exhaustive.stdout",
+    "archive": "results/orch/andcount2056-successors/output-sink-swapped76-control-exhaustive.stdout",
+    "source_sha256": "21b42ed632beb15fca5a247dc3767db34d8270ff7b1d29470b5fcff18f9a6338",
+    "source_bytes": 40,
+    "archive_bytes": 40
+  },
+  {
+    "source": "active-anchor-control13-forced-swap.and-model.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-forced-swap.and-model.json",
+    "source_sha256": "d10073aeedd2d0f64097eadf033361074fd404164c20938c9cb3763d183e1494",
+    "source_bytes": 1838,
+    "archive_bytes": 1838
+  },
+  {
+    "source": "active-anchor-native12-invalid.cnf",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native12-invalid.cnf.gz",
+    "source_sha256": "37ad8113d99c676f7e32592217335e1e59c67cff10034d516279a01cc5a135c8",
+    "source_bytes": 10807665,
+    "archive_bytes": 3182301
+  },
+  {
+    "source": "active-anchor-control16-padded.cnf",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control16-padded.cnf.gz",
+    "source_sha256": "40527bd3278de83863266c8743fe89cad06ee6e68289bac93d61ab6e79de5db1",
+    "source_bytes": 18757155,
+    "archive_bytes": 5484918
+  },
+  {
+    "source": "active-sink-target12.cnf",
+    "archive": "results/orch/andcount2056-successors/active-sink-target12.cnf.gz",
+    "source_sha256": "f3bcd93948d133fbaba7ab84b1e4cdfae1492920d15d894d73d1616d35fad631",
+    "source_bytes": 10803070,
+    "archive_bytes": 3180732
+  },
+  {
+    "source": "active-anchor-control12-invalid.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control12-invalid.json",
+    "source_sha256": "d9a23b53657df0ef857fe32cecfe6245c3b384896846fadad1ea4c65943f77a6",
+    "source_bytes": 738,
+    "archive_bytes": 738
+  },
+  {
+    "source": "active-anchor-control13-free1.cnf",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-free1.cnf.gz",
+    "source_sha256": "d5b378a2d53fb495a2e09349fc6388b9b26d073396601a54a10bcbe4cf1671ff",
+    "source_bytes": 12615274,
+    "archive_bytes": 3712505
+  },
+  {
+    "source": "active-sink-control13-free1.cnf",
+    "archive": "results/orch/andcount2056-successors/active-sink-control13-free1.cnf.gz",
+    "source_sha256": "4e121b7d03eac3ad77ed44e902aca8769a173d268ae1563f99cc68d22a6b5053",
+    "source_bytes": 12617810,
+    "archive_bytes": 3713269
+  },
+  {
+    "source": "active-sink-control13-forced-swap.cnf",
+    "archive": "results/orch/andcount2056-successors/active-sink-control13-forced-swap.cnf.gz",
+    "source_sha256": "c78857bf9151c9af451f02c98c2f8214ab42d07bf23efddab3a8a1ef4e6831fd",
+    "source_bytes": 12617819,
+    "archive_bytes": 3713285
+  },
+  {
+    "source": "active-anchor-native13-free1.and-model.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-free1.and-model.json",
+    "source_sha256": "2be2558b6110924729d715b101596627f99e6334ed60fb795817745803745acb",
+    "source_bytes": 1694,
+    "archive_bytes": 1694
+  },
+  {
+    "source": "active-anchor-native13-fixed.reporting-bug.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-fixed.reporting-bug.json",
+    "source_sha256": "7956b1159a7375ab0a509cf920b846219602ce04d3266f3f7f2a2618fd90135f",
+    "source_bytes": 344,
+    "archive_bytes": 344
+  },
+  {
+    "source": "active-anchor-control13-forced-swap.sol",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-forced-swap.sol",
+    "source_sha256": "31792160580c7b74a2ba6b9147fdc14c03acd9123a336059021b4cbb5d1c0198",
+    "source_bytes": 1107877,
+    "archive_bytes": 1107877
+  },
+  {
+    "source": "active-anchor-native13-free1.reporting-bug.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-free1.reporting-bug.json",
+    "source_sha256": "b092fde8ca200ea1df66c2d42ca8a0aa0b1e899185070d483eac9793554c3335",
+    "source_bytes": 343,
+    "archive_bytes": 343
+  },
+  {
+    "source": "active-anchor-native16-padded.process.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native16-padded.process.json",
+    "source_sha256": "6fb7288a5d10d613d4a71aac3da0d4e76fce67e92c98cad1249cf9de6d3e6357",
+    "source_bytes": 136,
+    "archive_bytes": 136
+  },
+  {
+    "source": "active-sink-target12.mapping.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-target12.mapping.json",
+    "source_sha256": "a5accb43923542b0ac8e02067e312d1189118497df3d1513cec424fcd6c85aa8",
+    "source_bytes": 233735,
+    "archive_bytes": 233735
+  },
+  {
+    "source": "active-sink-native13-free1.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-native13-free1.json",
+    "source_sha256": "b95f1f4a08d2fef9edb507ba2b77cb31c36940c30d389b2b59e5f0e7a4fb0fa6",
+    "source_bytes": 1023,
+    "archive_bytes": 1023
+  },
+  {
+    "source": "active-anchor-decoder-reporting-fix.diff",
+    "archive": "results/orch/andcount2056-successors/active-anchor-decoder-reporting-fix.diff",
+    "source_sha256": "85dc03120fcf66313c1e57f3d4b011878a3a0df8ed66755ebe02305947d34907",
+    "source_bytes": 1026,
+    "archive_bytes": 1026
+  },
+  {
+    "source": "active-anchor-control13-forced-swap-wrapper.stdout",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-forced-swap-wrapper.stdout",
+    "source_sha256": "f6a6ff814be8cfbf2e604d821223f21770f5f28f8a7fd3a2d384ac646b090c24",
+    "source_bytes": 285,
+    "archive_bytes": 285
+  },
+  {
+    "source": "active-anchor-target12.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-target12.json",
+    "source_sha256": "904daa32d66fcd36492e91326e3db06ba5aebc93171494e9cae90c75c64a9cf7",
+    "source_bytes": 738,
+    "archive_bytes": 738
+  },
+  {
+    "source": "active-anchor-control13-fixed.mapping.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-fixed.mapping.json",
+    "source_sha256": "96d4b898dcded1630dce25ed989f2f96c28f00485c65eaf622d98ce3a9c60190",
+    "source_bytes": 254311,
+    "archive_bytes": 254311
+  },
+  {
+    "source": "active-anchor-control13-forced-swap.stdout",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-forced-swap.stdout",
+    "source_sha256": "dd87bde6c22345613a76a02060f05a17428174a45c2eb0d82a2154e70e3192b6",
+    "source_bytes": 3111,
+    "archive_bytes": 3111
+  },
+  {
+    "source": "active-anchor-control13-fixed-emit.stdout",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-fixed-emit.stdout",
+    "source_sha256": "5e92f4d4ad7b32cf0d74fae00ddf0aa616d3b4198ca89c37ff480ec46df1f0b9",
+    "source_bytes": 685,
+    "archive_bytes": 685
+  },
+  {
+    "source": "active-anchor-target12-v2-emit.stderr",
+    "archive": "results/orch/andcount2056-successors/active-anchor-target12-v2-emit.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-sink-native13-free1-wrapper.stderr",
+    "archive": "results/orch/andcount2056-successors/active-sink-native13-free1-wrapper.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-sink-control13-free1.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-control13-free1.json",
+    "source_sha256": "9d89575fdb3d864309768c84d61533f37eb7155f67ee18d90abad5b4629cfe44",
+    "source_bytes": 780,
+    "archive_bytes": 780
+  },
+  {
+    "source": "active-anchor-native16-padded.reporting-bug.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native16-padded.reporting-bug.json",
+    "source_sha256": "892e990dff293d7e9d77cc66ca88d5004048d2ed2470657ec90259520fc13e96",
+    "source_bytes": 299,
+    "archive_bytes": 299
+  },
+  {
+    "source": "active-anchor-native13-free1.stdout",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-free1.stdout",
+    "source_sha256": "d8c7ddfbe26052750e79c5332ccbf22ac4e4fd04737a74e2aab46b68a129bd0a",
+    "source_bytes": 3094,
+    "archive_bytes": 3094
+  },
+  {
+    "source": "active-sink-control12-invalid.mapping.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-control12-invalid.mapping.json",
+    "source_sha256": "a5accb43923542b0ac8e02067e312d1189118497df3d1513cec424fcd6c85aa8",
+    "source_bytes": 233735,
+    "archive_bytes": 233735
+  },
+  {
+    "source": "active-sink-control12-invalid-emit.stderr",
+    "archive": "results/orch/andcount2056-successors/active-sink-control12-invalid-emit.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-sink-control13-free1-emit.stderr",
+    "archive": "results/orch/andcount2056-successors/active-sink-control13-free1-emit.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-anchor-control13-fixed.warm.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-fixed.warm.json",
+    "source_sha256": "2be2558b6110924729d715b101596627f99e6334ed60fb795817745803745acb",
+    "source_bytes": 1694,
+    "archive_bytes": 1694
+  },
+  {
+    "source": "active-anchor-control13-free1.mapping.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control13-free1.mapping.json",
+    "source_sha256": "96d4b898dcded1630dce25ed989f2f96c28f00485c65eaf622d98ce3a9c60190",
+    "source_bytes": 254311,
+    "archive_bytes": 254311
+  },
+  {
+    "source": "active-anchor-native13-free1.cnf",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-free1.cnf.gz",
+    "source_sha256": "d5b378a2d53fb495a2e09349fc6388b9b26d073396601a54a10bcbe4cf1671ff",
+    "source_bytes": 12615274,
+    "archive_bytes": 3712504
+  },
+  {
+    "source": "active-anchor-native13-fixed.process.json",
+    "archive": "results/orch/andcount2056-successors/active-anchor-native13-fixed.process.json",
+    "source_sha256": "2bf3e6646ee903f6ab856fb90e7ee372cd30b10d67c925f1733c62ed78e39360",
+    "source_bytes": 135,
+    "archive_bytes": 135
+  },
+  {
+    "source": "active-sink-control12-invalid.warm.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-control12-invalid.warm.json",
+    "source_sha256": "c40d49fc9ceea53098923169f6a6c13dab77da55aed023de382c9190a3015d90",
+    "source_bytes": 1565,
+    "archive_bytes": 1565
+  },
+  {
+    "source": "active-anchor-control12-invalid-emit.stderr",
+    "archive": "results/orch/andcount2056-successors/active-anchor-control12-invalid-emit.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "active-sink-control13-forced-swap.json",
+    "archive": "results/orch/andcount2056-successors/active-sink-control13-forced-swap.json",
+    "source_sha256": "5b2d81e7beb1e3e95d5410c8072439214330656c77f4641c0ca0788f8fcff34f",
+    "source_bytes": 301,
+    "archive_bytes": 301
+  },
+  {
+    "source": "global-disjoint12-run-2056.warm.json",
+    "archive": "results/orch/andcount2056-free/global-disjoint12-run-2056.warm.json",
+    "source_sha256": "c40d49fc9ceea53098923169f6a6c13dab77da55aed023de382c9190a3015d90",
+    "source_bytes": 1565,
+    "archive_bytes": 1565
+  },
+  {
+    "source": "global-disjoint12-run-2056.phase.json",
+    "archive": "results/orch/andcount2056-free/global-disjoint12-run-2056.phase.json",
+    "source_sha256": "5e254e9688e602fa8138ff5a6755969e50b5431490db956a035b1764b5536c2e",
+    "source_bytes": 96392,
+    "archive_bytes": 96392
+  },
+  {
+    "source": "global-disjoint12-run-2056-wrapper.stderr",
+    "archive": "results/orch/andcount2056-free/global-disjoint12-run-2056-wrapper.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "global-disjoint12-run-2056.launch.json",
+    "archive": "results/orch/andcount2056-free/global-disjoint12-run-2056.launch.json",
+    "source_sha256": "e7bc096b99cae26eee03048f05afc89c8bde64c7d507ffa71189149e95e00eec",
+    "source_bytes": 711,
+    "archive_bytes": 711
+  },
+  {
+    "source": "global-disjoint12-run-2056.stdout",
+    "archive": "results/orch/andcount2056-free/global-disjoint12-run-2056.stdout",
+    "source_sha256": "110a5aebddc5279b3e043ea96d2ee5cf1423f55daccb7af697c6e70ef79ec628",
+    "source_bytes": 18061,
+    "archive_bytes": 18061
+  },
+  {
+    "source": "global-disjoint12-run-2056.pause.json",
+    "archive": "results/orch/andcount2056-free/global-disjoint12-run-2056.pause.json",
+    "source_sha256": "2ec1f4afd8476e50ae9069950b33fe79b974a589f56b858345a452fa75c1a262",
+    "source_bytes": 327,
+    "archive_bytes": 327
+  },
+  {
+    "source": "global-disjoint12-run-2056.resume.json",
+    "archive": "results/orch/andcount2056-free/global-disjoint12-run-2056.resume.json",
+    "source_sha256": "20975d5877416b419c1f1ddb78677b2b6c94708c83d888dd3d09b05881261ee4",
+    "source_bytes": 540,
+    "archive_bytes": 540
+  },
+  {
+    "source": "global-disjoint12-run-2056.mapping.json",
+    "archive": "results/orch/andcount2056-free/global-disjoint12-run-2056.mapping.json",
+    "source_sha256": "944c30264417d04af4083c979de2ddc336339027311ce80926903e4009b64d54",
+    "source_bytes": 233429,
+    "archive_bytes": 233429
+  },
+  {
+    "source": "global-disjoint12-run-2056.cnf",
+    "archive": "results/orch/andcount2056-free/global-disjoint12-run-2056.cnf.gz",
+    "source_sha256": "3693167af4c845f74b2a416a83e780d4915369e675289a003253d581e09a3e50",
+    "source_bytes": 10771471,
+    "archive_bytes": 3172065
+  },
+  {
+    "source": "global-disjoint12-run-2056.stderr",
+    "archive": "results/orch/andcount2056-free/global-disjoint12-run-2056.stderr",
+    "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "source_bytes": 0,
+    "archive_bytes": 0
+  },
+  {
+    "source": "global-disjoint12-run-2056.process.json",
+    "archive": "results/orch/andcount2056-free/global-disjoint12-run-2056.process.json",
+    "source_sha256": "bb18bcf6786eaeb922b11ee8b94a819f461ad1d2235092a185df9a9af5b81f82",
+    "source_bytes": 133,
+    "archive_bytes": 133
+  },
+  {
+    "source": "global-disjoint12-run-2056.stop-request.json",
+    "archive": "results/orch/andcount2056-free/global-disjoint12-run-2056.stop-request.json",
+    "source_sha256": "af140141a33e3a44553339d1951ffa874efaba7c4369560f904073fbe6c86b42",
+    "source_bytes": 425,
+    "archive_bytes": 425
+  },
+  {
+    "source": "global-disjoint12-run-2056.json",
+    "archive": "results/orch/andcount2056-free/global-disjoint12-run-2056.json",
+    "source_sha256": "51331d9cf3f1562491a6bacfbaf27d99f80c1be4f6a0ddb5f5043b75b1e3e2d7",
+    "source_bytes": 646,
+    "archive_bytes": 646
+  },
+  {
+    "source": "global-disjoint12-run-2056.termination-summary.json",
+    "archive": "results/orch/andcount2056-free/global-disjoint12-run-2056.termination-summary.json",
+    "source_sha256": "aaa8893c03f86c3d034a1854d8f62177adda9293cf8ca931b1c5349160775639",
+    "source_bytes": 930,
+    "archive_bytes": 930
+  },
+  {
+    "source": "global-disjoint12-run-2056-wrapper.stdout",
+    "archive": "results/orch/andcount2056-free/global-disjoint12-run-2056-wrapper.stdout",
+    "source_sha256": "f2e023e152272727a39e50aa7ea3d842b5062e2a20675726a9c9cefb94b27b63",
+    "source_bytes": 606,
+    "archive_bytes": 606
+  }
+]

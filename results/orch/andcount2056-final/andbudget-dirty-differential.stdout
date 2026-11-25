@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-25T18:53:57.785477+00:00",
+  "status": "PASS",
+  "models": 600,
+  "false_pair_rows": 299,
+  "earliest_record_checks": 41682,
+  "models_without_bad_crossings": 5,
+  "ordered_pair_count": 572,
+  "source_sha256": "6836637459f253d02fd8d885a364aa68b73a7d62e15caa767cff8653e72a795e",
+  "test_sha256": "9a09ce38e5cb5c0885e8d94f15edec1a5a5f62ffb5452d68af5ca54f4289924c"
+}

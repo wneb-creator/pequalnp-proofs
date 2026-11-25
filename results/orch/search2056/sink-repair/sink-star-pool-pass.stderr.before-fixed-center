@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-121/not-elimination/sink_pool_star_pass.py", line 58, in <module>
+    repaired['output']=sorted(set(repaired['output']));_,v=module.evaluate(repaired,rows);assert v==P
+                                                                                                 ^^^^
+AssertionError

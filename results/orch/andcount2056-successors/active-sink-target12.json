@@ -1,0 +1,25 @@
+{
+  "utc": "2026-11-25T18:37:13.290961+00:00",
+  "source_sha256": "bb3b0516e580a16b05affe97603f71d99e8c9afe8c4c88efe4948553641f6cd5",
+  "and_bound": 12,
+  "rows": 756,
+  "variables": 128412,
+  "clauses": 582393,
+  "fixed_star_prefix": 0,
+  "fix_output": false,
+  "seconds_limit": 10,
+  "warm_boundary_errors": 4,
+  "conversion_seconds": 1.8608964340000966,
+  "scope": "AND-count synthesis with free OR subsets; ordinary gate cost measured after decoding",
+  "disjoint_source_subsets": true,
+  "active_records_form_prefix": true,
+  "minimum_active_records": 10,
+  "first_and_anchor": {
+    "left": 0,
+    "right": 13
+  },
+  "inactive_records_empty_unreferenced": true,
+  "output_selected_ands_are_sinks": true,
+  "Lean_verified": false,
+  "status": "CNF emitted; solver not run"
+}

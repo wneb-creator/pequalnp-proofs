@@ -1,0 +1,160 @@
+{
+  "status": "APPROVED final source7bc8492e actual native positive, fixed negative and K16 target phase; no target witness",
+  "source_sha256": "7bc8492ef53299193408b0d9b29fb3b1bd755b6c403852591d56fb3a7f3b12e4",
+  "reports": [
+    {
+      "prefix": "final-native16-control67",
+      "mode": "native",
+      "variables": 323540,
+      "clauses_checked": 1471487,
+      "unsatisfied_phase_clauses": [],
+      "active_AND_records": 15,
+      "memberships": 83,
+      "literal_cost_bound": 67,
+      "missing_positive_indices": [],
+      "false_positives": 0,
+      "selected_nonread_witnesses": [
+        0
+      ],
+      "literal_split_missing_read1": [
+        0,
+        1,
+        4
+      ],
+      "circuits": {
+        "bad_primary_crossings": [
+          [
+            0,
+            1,
+            14
+          ]
+        ],
+        ".ordinary.json": {
+          "gates": 67,
+          "ANDs": 15,
+          "missing_read1": [
+            0,
+            1,
+            4
+          ]
+        },
+        ".literal.json": {
+          "gates": 67,
+          "ANDs": 15,
+          "missing_read1": [
+            0,
+            1,
+            4
+          ]
+        }
+      },
+      "cnf_sha256": "643c806f667b5a4f7a571fca486219c84358a1261068c425cb88249decfcc8d6"
+    },
+    {
+      "prefix": "final-native16-star64-negative",
+      "mode": "negative_phase",
+      "variables": 320228,
+      "clauses_checked": 1459333,
+      "unsatisfied_phase_clauses": [
+        {
+          "index": 1069366,
+          "width": 52,
+          "clause_sha256": "213868d33036dde8a7eb72bc5b8196ec6cf6c71b99f2192dd80a18278569aa6f"
+        },
+        {
+          "index": 1098487,
+          "width": 9152,
+          "clause_sha256": "506c516ada35f5d978fbeebb10e6a151d73bb513a21aa595bc2e89768756a193"
+        }
+      ],
+      "active_AND_records": 13,
+      "memberships": 78,
+      "literal_cost_bound": 64,
+      "missing_positive_indices": [],
+      "false_positives": 0,
+      "selected_nonread_witnesses": [],
+      "literal_split_missing_read1": [],
+      "circuits": {
+        "bad_primary_crossings": []
+      },
+      "cnf_sha256": "50a3b543f3291f3f391cab6561c3fe02e93b21f0fd79e3a1dffaa84739c53f59"
+    },
+    {
+      "prefix": "final-target16-nested",
+      "mode": "target_phase",
+      "variables": 319124,
+      "clauses_checked": 1453831,
+      "unsatisfied_phase_clauses": [
+        {
+          "index": 953864,
+          "width": 16,
+          "clause_sha256": "279b2d9476888de835a5552183c881c04a804ad0a79bf2fcadb4f66d363b0069"
+        },
+        {
+          "index": 954060,
+          "width": 16,
+          "clause_sha256": "1e9499f4f66022d45207d986ab333095fa5a9d453034dceb2c2f310e890e347f"
+        },
+        {
+          "index": 955040,
+          "width": 16,
+          "clause_sha256": "5bbd633be4bf63e619aca2f0e645f55b33101d7d59a3cbe6771d496852b5543a"
+        },
+        {
+          "index": 955089,
+          "width": 16,
+          "clause_sha256": "f32033e127b36765b5287b23c231cde994da67e94e0c2edc2715d572e289a94b"
+        },
+        {
+          "index": 955775,
+          "width": 16,
+          "clause_sha256": "273a3082cd9a436b7ec384acb3040bd40a75ee5ff0cfbf20e8de37b3afdb19d4"
+        },
+        {
+          "index": 956020,
+          "width": 16,
+          "clause_sha256": "f96cfa7a604cf715544e92c5106e37e17dc84ca1a2c271672a7bef9e81787e15"
+        }
+      ],
+      "active_AND_records": 16,
+      "memberships": 80,
+      "literal_cost_bound": 63,
+      "missing_positive_indices": [
+        7,
+        11,
+        31,
+        32,
+        46,
+        51
+      ],
+      "false_positives": 0,
+      "selected_nonread_witnesses": [
+        0
+      ],
+      "literal_split_missing_read1": [
+        0,
+        2,
+        7,
+        11,
+        24,
+        25,
+        31,
+        32,
+        40,
+        46,
+        51
+      ],
+      "circuits": {
+        "bad_primary_crossings": [
+          [
+            0,
+            10,
+            13
+          ]
+        ]
+      },
+      "cnf_sha256": "e42404f6305da9ecf29c910da15f6efae829737ba5a91cb799929172f130d41d"
+    }
+  ]
+}
+

@@ -1,0 +1,23 @@
+{
+  "circuit_sha256": "07e4b5c68d71f14ae13bb3667bdb254976ebccaa39865f16ffdd0d6add4f80bb",
+  "size": 65,
+  "and_count": 13,
+  "accepted_edges": 52,
+  "accepted_without_joint_read1": [],
+  "dirty_and_gate_indices": [],
+  "dirty_and_next_and_frontiers": {},
+  "dirty_shared_and_indices": [],
+  "nested_dirty_and_pairs": [],
+  "normalization_violations": {
+    "and_clean_operand": [],
+    "mixed_or": [
+      62
+    ],
+    "clean_gate_fanout_more_than_one": [
+      58
+    ]
+  },
+  "earlier_wire_dominance": [],
+  "all_gates_live": true,
+  "complete_boundary_errors": 0
+}

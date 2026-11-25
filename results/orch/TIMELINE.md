@@ -73,4 +73,10 @@
 
 2026-11-25T18:25:02.514+00:00: all four native processes resumed by SIGCONT after successful publication and18:24:33 lease renewal. Pauses48–75seconds, no restarts or query changes; original timeout configuration retained.
 
-2026-11-25T18:47:35.453429+00:00: global≤12-AND native query stopped and reaped after independent identification of existing L_meta_1898≥13 ordinary-AND theorem. No solver SAT/UNSAT verdict; full diagnostics retained. All≤12 successors canceled. Three other native searches continue.
+2026-11-25T18:47:35.453429+00:00: stop requested for global≤12-AND native query after independent identification of existing L_meta_1898≥13 ordinary-AND theorem. The worker was subsequently confirmed reaped; no separate reap timestamp was recorded. No solver SAT/UNSAT verdict; full diagnostics retained. All≤12 successors canceled. Three other native searches continue.
+
+2026-11-25T18:51:50.257698+00:00: preservation checkpointc7ec74ea054c1b0e3671e33e1010b256975efefa successfully pushed to origin/pnp/pilot-121.437 explicit paths independently reviewed and each staged blob hash checked; expected-old-SHA-fenced push. Exact timestamps/full output in publication038. No target proof or PR.
+
+2026-11-25T18:49:33.227942+00:00: read-only local Lean recheck of existing L_meta_1898 started with pinned Lean4.36.0.
+
+2026-11-25T19:03:18.417174+00:00: L_meta_1898 local recheck finished exit0 after825.189seconds; unchanged7334-line source. All logs and resource samples preserved. No new total-size theorem.

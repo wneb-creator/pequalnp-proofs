@@ -1,0 +1,28 @@
+{
+  "clauses": 8859647,
+  "cnf_sha256": "87f29c4e0498819c10e64f6ade005a46399eac3b434cbd39a075d474aef613e8",
+  "expected_mismatch_rows": [
+    16385,
+    1048580,
+    2097408
+  ],
+  "phase_failures": [
+    {
+      "clause_index": 8752281,
+      "row": 16385,
+      "literal": 154919
+    },
+    {
+      "clause_index": 8752289,
+      "row": 1048580,
+      "literal": 154927
+    },
+    {
+      "clause_index": 8752315,
+      "row": 2097408,
+      "literal": 154953
+    }
+  ],
+  "unexpected_added_constraint_failures": 0,
+  "status": "replayed hint satisfies every clause except its exact expected output units"
+}

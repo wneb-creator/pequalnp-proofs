@@ -1,0 +1,12 @@
+{
+  "utc": "2026-11-25T18:23:32.137462+00:00",
+  "requested_by": "root",
+  "reason": "publication authentication block; reversible pause",
+  "solver_pid": 34000,
+  "wrapper_pid": 33998,
+  "signal": "SIGSTOP",
+  "signal_sent": true,
+  "final_json_exists": false,
+  "complete_stdout_bytes": 11837,
+  "complete_stderr_bytes": 0
+}

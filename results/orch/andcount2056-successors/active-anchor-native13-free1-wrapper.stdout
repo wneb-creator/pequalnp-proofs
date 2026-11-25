@@ -1,0 +1,1 @@
+{"left": [12], "right": [14, 15, 17, 23], "status": "SAT; complete boundary passed; Lean verification required", "clauses_verified": 670891, "boundary_errors": 0, "ordinary_size": 64, "ordinary_ands": 13, "ordinary_within63": false, "elapsed_seconds": 4.005278539998471, "max_rss_kb": 138160}

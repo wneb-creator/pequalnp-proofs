@@ -1,0 +1,18 @@
+--- original_encoder_reporting_bug
++++ corrected_encoder_decoder
+@@ -314,11 +314,11 @@
+         assert sum(actual_active) >= 10
+         assert actual_active == sorted(actual_active, reverse=True)
+         assert 0 in model['ands'][0]['left'] and 13 in model['ands'][0]['right']
+-        for j, record in enumerate(model['ands']):
+-            assert not set(record['left']) & set(record['right'])
++        for j, node in enumerate(model['ands']):
++            assert not set(node['left']) & set(node['right'])
+             if not actual_active[j]:
+-                assert record['left'] == record['right'] == [] and j not in model['output']
+-            for i in record['left'] + record['right']:
++                assert node['left'] == node['right'] == [] and j not in model['output']
++            for i in node['left'] + node['right']:
+                 assert i < 26 or actual_active[i - 26]
+         circuit = materialize(model)
+         base.with_suffix('.ordinary.json').write_text(json.dumps(circuit, indent=2) + '\n')

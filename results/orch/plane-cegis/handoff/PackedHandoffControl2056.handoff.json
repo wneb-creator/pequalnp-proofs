@@ -1,0 +1,14 @@
+{
+  "scope": "CONTROL ONLY: explicit64-gate circuit; no posted<=63 theorem is declared",
+  "input_sha256": "04eb7a2755f19042afb0934c94431d050fa0d53186cde936fef3735a9d361ac3",
+  "template_sha256": "19c0e60b53f255ed800c96b51539473d84a44c65da699e1838c61542a85fd38d",
+  "output": "/tmp/oec/pequalnp-pilot-121/gate-elimination/PackedHandoffControl2056.lean",
+  "output_sha256": "31c5d93ce67c7b3acebe8e2293271277c4778cbc209c378511e698341d699e0c",
+  "size": 64,
+  "circuit_output": 89,
+  "boundary_rows_checked": 756,
+  "negative_kernel_certificates": 32,
+  "chunk_width": 512,
+  "lines": 728,
+  "named_file_written": false
+}

@@ -1,6 +1,6 @@
 # Existing 13-AND lower bound: scope audit
 
-The existing theorem [L_meta_1898](../../../../lean/PEqualNP/Outside/L_meta_1898.lean) at line 7314 proves that an ordinary monotone circuit passing the stated difference-incidence positive and independent negative tests has at least 13 actual AND gates. Its explicit hypotheses contain no ReadK restriction. The fully qualified final theorem stands outside the closed helper namespaces.
+The existing theorem [L_meta_1898](../../../lean/PEqualNP/Outside/L_meta_1898.lean) at line 7314 proves that an ordinary monotone circuit passing the stated difference-incidence positive and independent negative tests has at least 13 actual AND gates. Its explicit hypotheses contain no ReadK restriction. The fully qualified final theorem stands outside the closed helper namespaces.
 
 For a fully correct incidence circuit, every required positive test is an incident pair. Every required negative assignment selects a point subset and only lines adjacent to none of those points, so it is independent even without the theorem's additional closure qualifiers. The independent audit checked this for all 8,192 point subsets.
 

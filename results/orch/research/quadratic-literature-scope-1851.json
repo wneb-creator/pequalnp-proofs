@@ -1,0 +1,16 @@
+{
+  "read_date": "2026-11-25",
+  "primary_sources": [
+    {
+      "url": "https://doi.org/10.1007/s00453-006-0073-0",
+      "read_scope": "Publisher abstract text returned by web search; direct DOI open failed500 after redirect to inaccessible Springer page",
+      "finding": "Search-returned abstract describes separations between single-level and unrestricted circuits. Full-page confirmation is UNVERIFIED because direct open failed; no finite projective-plane bound inferred."
+    },
+    {
+      "url": "https://web.vu.lt/mif/s.jukna/ftp/single1.pdf",
+      "read_scope": "Author-hosted paper opened2026-11-25; inspected introduction and single-level K2,2-free discussion around page10",
+      "finding": "The K2,2-free edge-count bound cited here is explicitly a single-level bound. The paper disproves general single-level normalization and supplies no applicable unrestricted51-OR bound for this finite plane."
+    }
+  ],
+  "scope": "No numerical bound for L-meta-2056 inferred. All uninspected full-paper claims are UNVERIFIED."
+}

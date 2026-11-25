@@ -1,0 +1,4 @@
+{
+  "result": "No Lean process started",
+  "error": "FileNotFoundError: lake is not on this shell PATH; verified explicit toolchain paths before retry"
+}
