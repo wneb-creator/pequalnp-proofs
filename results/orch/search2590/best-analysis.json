@@ -1,0 +1,15 @@
+{
+  "critical_errors": 2,
+  "full_assignment_errors": 22,
+  "missed_edge_masks": [
+    24,
+    264
+  ],
+  "semantically_duplicate_wires": [
+    [
+      11,
+      0
+    ]
+  ],
+  "status": "near hit only; search terminated on DESK_ERROR; no witness"
+}

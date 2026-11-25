@@ -1,0 +1,11 @@
+{
+  "last_logged_seconds": 192.307,
+  "last_logged_iterations": 1001837447,
+  "best_score": 2,
+  "critical_errors": 2,
+  "false_positives": 0,
+  "canonical_accepted": 1,
+  "canonical_joint_read1": 0,
+  "status": "terminated on parent DESK_ERROR notice; no witness",
+  "normalized_phase": "C++ compiled, never launched"
+}

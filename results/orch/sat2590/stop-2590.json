@@ -1,0 +1,9 @@
+{
+  "utc": "2026-11-25T15:22:07.819688+00:00",
+  "reason": "Parent requested stop after DESK_ERROR",
+  "pids_terminated": [
+    16202
+  ],
+  "query": "petersen2590-259019.smt2",
+  "verdict": "interrupted; no SAT or UNSAT result"
+}

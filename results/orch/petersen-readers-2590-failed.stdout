@@ -1,0 +1,28 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/PetersenReaders2590.lean:18:24: warning: This simp argument is unused:
+  Finset.sum_ite_eq'
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [beq_iff_eq, Finset.mem_range]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PetersenReaders2590.lean:47:6: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  d ≥ 0
+  c ≥ 0
+  c + d ≤ 1
+  b ≥ 2
+  0 ≤ a ≤ 19
+where
+ a := ↑C.size
+ b := ↑(List.count (↑⟨i, ⋯⟩) (List.flatMap Gate.inputs C.gates))
+ c := ↑(List.count i (List.flatMap Gate.inputs C.gates))
+ d := ↑(if (C.output == i) = true then 1 else 0)
+/workspace/pequalnp-proofs/results/orch/lemmas/PetersenReaders2590.lean:53:23: error(lean.unknownIdentifier): Unknown constant `Bool.not_decide`
+/workspace/pequalnp-proofs/results/orch/lemmas/PetersenReaders2590.lean:53:4: error: Type mismatch: After simplification, term
+  List.length_eq_length_filter_add fun i => decide (i < 10)
+ has type
+  reads.length =
+    (List.filter (fun i => decide (i < 10)) reads).length + (List.filter (fun x => !decide (x < 10)) reads).length
+but is expected to have type
+  reads.length =
+    (List.filter (fun i => decide (i < 10)) reads).length + (List.filter (fun i => decide (10 ≤ i)) reads).length

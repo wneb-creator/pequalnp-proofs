@@ -147,3 +147,7 @@ TIMING total=58.35 subagents=6
 2026-11-25T15:19:29.236889+00:00 ReadOnePetersen2590.lean compiled (1447 lines), independent status_review approval; proves20 gates with explicit IsAO2 and joint read1 hypotheses, not the whole posted Monotone2 statement. SHA256 3da4d332bd36fd1350557771ebdeaf4cc1e56bee717c70f25bf9df69094508eb. Full empty Lean stdout/stderr preserved.
 Sub-agents: six parallel proof, search, library and review agents
 TIMING total=65 subagents=6
+
+2026-11-25T15:24:23.764473+00:00 Checkpoint after third410. Full target unproved, local checker not run, cleanup not started. New2590 drafts explicitly uncompiled. Null responses=0.
+Sub-agents: circuit_search, gate_elimination, not_elimination, proof_route, status_review, toolchain_setup
+TIMING total=69.2 subagents=6

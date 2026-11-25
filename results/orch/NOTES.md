@@ -27,3 +27,9 @@ The retry requesting2592 returned L-meta-2583 instead. Active exact assignment i
 ## L-meta-2583 exact star construction checked
 
 2026-11-25T14:51:48.595420+00:00: PlaneStarExact2583.lean compiles (664 lines) and gives correct read-1 circuit of exact size N(q+2)−1. normalize_from_bound finishes the target from N(q+2)≤C.size+1. Existing sharp lower bounds require read-1 and cannot be used circularly. Full details in strategy-2583-construct.md.
+
+## L-meta-2590 current assignment
+
+2026-11-25T15:20:25.601367+00:00 Valid desk assignment followed by successful renewals; prove unrestricted monotone Petersen circuit size at least20. Exactstatement: /tmp/oec/pequalnp-pilot-121/statement-2590.txt. Reductions are enabled but allthree slots are occupied.
+
+ReadOnePetersen2590 is compiled, independently reviewed and pushed at816be3f7; its IsAO2 and jointread1 hypotheses remain essential. SAT and stochastic searches use all15 minimaltrue edge rows and15 maximalfalse independentset rows;20gatecontrols passall1024assignments. Generic Heawood surplus-flow helpers may transfer; no unrestricted Petersen20 theorem found in bounded repository census. Two priorleases returned410 before statedexpiry; no reason established and no releasecalls made.
