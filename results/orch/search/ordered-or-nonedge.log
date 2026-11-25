@@ -1,0 +1,35 @@
+start 1795615960.0801728 case or_nonedge gates 19
+
+stage 0 examples 82 time 1795616260.1351526 result unknown
+
+(:reason-unknown "timeout")
+(:added-eqs           157906190
+ :binary-propagations 344232702
+ :bv-bit2core         166591498
+ :bv-diseqs           8528
+ :bv-dynamic-diseqs   17490208
+ :bv-dynamic-eqs      24486
+ :bv->core-eq         6333808
+ :conflicts           1429664
+ :decisions           10254380
+ :del-clause          90222240
+ :max-memory          60.07
+ :memory              23.80
+ :minimized-lits      22453706
+ :mk-bool-var         36410390
+ :mk-clause           90496622
+ :mk-clause-binary    38898
+ :num-allocs          337715814998.00
+ :num-checks          2
+ :pb-conflicts        52
+ :pb-predicates       38
+ :pb-propagations     164770
+ :pb-resolves         52
+ :propagations        1444594198
+ :restarts            1950
+ :rlimit-count        1224901088
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 22
+ :solve-eqs-steps     3143
+ :time                300.04)
+

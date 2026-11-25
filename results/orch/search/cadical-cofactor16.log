@@ -1,0 +1,3 @@
+start 1795616963.9346519 cofactor True gates 16
+stage 0 examples 68 variables 3888 clauses 74752 time 1795616964.0374207
+result UNKNOWN exit 0 time 1795617264.0957851

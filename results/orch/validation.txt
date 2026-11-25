@@ -1,20 +1,26 @@
-L-meta-2592 preservation checkpoint
+L-meta-2592 preservation report
 
-PARTIAL ONLY: the exact posted theorem is not proved; no proof PR is open.
+PARTIAL ONLY. The exact posted statement remains unproved. No proof PR is open.
 
-Additional checked extension: a normalizedbinarycomputation whosefirstoperation isANDoroneofsignedANDvariants requiresatleast18binarygates. OR isexcludedfromthisclaim. Binary18testimportedthecheckedBinary17olean; exit0,one deprecationwarning. Completeoutput:binary18-build.stdout/binary18-build.stderr. Namedfileinlinesbothsourcesandhasnopartialmoduleimports; fullinlinedLakebuildpending.
+Checked results:
+- Every fan-in-two Petersen circuit satisfies 17 + notCount C ≤ C.size.
+- A normalized signed computation starting with a non-OR binary operation requires at least18 binary gates.
+- A normalized computation with at most17 binary gates must start with OR (separate FirstOr snippet).
+- Additional archived results include finite graph invariants, an explicit20-gate monotone construction, projection identities, and NOT-elimination identities.
 
-New checked result: every fan-in-two circuit computing the postedPetersenfunction satisfies17 + notCount C ≤ C.size. Hence a size≤19 counterexample containingNOT has1or2NOT gates.
-Command: lake env lean -R ../results/orch/lemmas -o ../results/orch/lemmas/Binary17.olean ../results/orch/lemmas/Binary17.lean
-Exit:0. Complete output: binary17-build.stdout and binary17-build.stderr.
-Namedfile contains thischeckedsource plusBinary18 extension; inlinednamedfileLakebuild ispending. Previous smaller namedpartial passedLakebuild; itscompleteoutput remainsbuild.stdout/build.stderr.
+Named file: lean/PEqualNP/Outside/L_meta_2592.lean
+SHA256: d2a765c0f1182b8070436fa5ff8e4d09fb64298b4f395f2db45254d983d91f8f
+Lines: 4870; bytes: 298747.
+Command: lake build PEqualNP.Outside.L_meta_2592
+Exit:0. Complete output: build.stdout and build.stderr.
 
-Checker attempted onpreviouspartial: CHECKER FAULT: the verifier ended without a verdict (exit137). Cgroupmemory.events confirmedoneOOMkill. Completecheckeroutput: checker.stdout/checker.stderr. RetryplannedwithheavyparallelLeanpaused.
+Checker: no verdict. Initial attempt faulted with verifier exit137 (confirmed OOM). The isolated retry was deliberately terminated after the desk returned410; its full output is checker-isolated.stdout/.stderr. The exact target theorem is absent, so these partials must not be submitted as a proof of the gap.
 
-Earlier checked components remain inresults/orch/lemmas andcommit history: Petersenfiniteinvariants,20gateupperbound,lastNOTfactorization,singleNOToutputexclusions,projectionidentities,semanticNOTreplacements,MassTwo.
-Independentreview: REVIEW-binary17.md; exactsourceSHA256824549cea61a489c8821209214cf8d631ef13ac9741611f3c21caf9135c72bcd.
+Cleanup: not performed because the target theorem is unproved. Line counts before/after cleanup: 4870/4870.
 
-Sub-agents: status_check, counterexample, lower_bound, lean_setup, partial_lean, circuit_search
-TIMING total=32 subagents=6
+Lease: last successful renewal at14:35:42 UTC gave expiry14:55:42 UTC. Renewal at14:38 returned no live lease. The required curl -si repeat confirmed HTTP410. Complete response: desk-410-response.txt. Work and searches were paused. No other pilot lease was released. Null gap answers:0.
 
-Further checked archive: FirstOr forces OR as the first operation of a normalized signed Live derivation with binary cost at most17 (not a claim about the original syntactic first gate). Its scratch test exited0; complete logs first-or-build.stdout/.stderr. Partial.lean now includes checked edge-deletion robustness and the twenty-gate upper bound; final full compile exited0, logs finite-final.stdout/.stderr. CountCheck verifies the conditional counting wrapper independently.
+Searches found no counterexample. The2,229 UNSAT local neighborhoods are restricted exclusions, not a global lower bound. Exact sources, hashes, reference data and full logs are under search/.
+
+Sub-agents: status_check (proof map, geometry and review); counterexample (SAT searches); lower_bound (Binary17 and structural analysis); lean_setup (toolchain setup and independent reviews); partial_lean (finite and supporting proofs); circuit_search (stochastic searches).
+TIMING total=42.9 subagents=6

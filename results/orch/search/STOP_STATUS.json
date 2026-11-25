@@ -1,0 +1,10 @@
+{
+  "stopped_at": "2026-11-25T14:40:13.827710+00:00",
+  "reason": "Root reported lease renewal HTTP410; all search and proof work stopped.",
+  "active_owned_processes": 0,
+  "systematic_split": "Planned14cases; none started before stop.",
+  "counterexamples_found": 0,
+  "global_verdict": "All completed broad searches inconclusive/timeouts.",
+  "restricted_neighborhoods_unsat": 2229,
+  "top_level_diagnostic_files": 33
+}

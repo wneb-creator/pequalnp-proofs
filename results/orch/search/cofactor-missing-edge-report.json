@@ -1,0 +1,98 @@
+[
+  {
+    "edge": [
+      0,
+      1
+    ],
+    "false_negatives": 9,
+    "file": "cofactor-missing-edge-0.json"
+  },
+  {
+    "edge": [
+      1,
+      2
+    ],
+    "false_negatives": 6,
+    "file": "cofactor-missing-edge-1.json"
+  },
+  {
+    "edge": [
+      2,
+      3
+    ],
+    "false_negatives": 9,
+    "file": "cofactor-missing-edge-2.json"
+  },
+  {
+    "edge": [
+      0,
+      5
+    ],
+    "false_negatives": 9,
+    "file": "cofactor-missing-edge-3.json"
+  },
+  {
+    "edge": [
+      1,
+      6
+    ],
+    "false_negatives": 6,
+    "file": "cofactor-missing-edge-4.json"
+  },
+  {
+    "edge": [
+      2,
+      7
+    ],
+    "false_negatives": 6,
+    "file": "cofactor-missing-edge-5.json"
+  },
+  {
+    "edge": [
+      3,
+      8
+    ],
+    "false_negatives": 9,
+    "file": "cofactor-missing-edge-6.json"
+  },
+  {
+    "edge": [
+      4,
+      6
+    ],
+    "false_negatives": 9,
+    "file": "cofactor-missing-edge-7.json"
+  },
+  {
+    "edge": [
+      6,
+      8
+    ],
+    "false_negatives": 6,
+    "file": "cofactor-missing-edge-8.json"
+  },
+  {
+    "edge": [
+      8,
+      5
+    ],
+    "false_negatives": 6,
+    "file": "cofactor-missing-edge-9.json"
+  },
+  {
+    "edge": [
+      5,
+      7
+    ],
+    "false_negatives": 6,
+    "file": "cofactor-missing-edge-10.json"
+  },
+  {
+    "edge": [
+      7,
+      4
+    ],
+    "false_negatives": 9,
+    "file": "cofactor-missing-edge-11.json"
+  }
+]

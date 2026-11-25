@@ -1,0 +1,3 @@
+start 1795616805.33003 cofactor False gates 19
+stage 0 examples 82 variables 5510 clauses 118149 time 1795616805.4933054
+result UNSAT exit 20 time 1795616805.5258398

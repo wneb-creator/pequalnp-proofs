@@ -1,0 +1,39 @@
+start 1795616649.5060453 case any gates 16
+
+stage 0 examples 68 time 1795616949.553569 result unknown
+
+(:reason-unknown "canceled")
+(:max-memory              100.87
+ :memory                  27.70
+ :num-allocs              28835060996.00
+ :rlimit-count            1731607074
+ :sat-ate                 13598
+ :sat-backjumps           1070333
+ :sat-bce                 63
+ :sat-conflicts           1070333
+ :sat-decisions           2072619
+ :sat-del-clause          1142133
+ :sat-elim-bool-vars-res  16464
+ :sat-elim-clauses        5049
+ :sat-elim-literals       247458
+ :sat-gc-clause           957677
+ :sat-minimized-lits      40387771
+ :sat-mk-clause-2ary      106438
+ :sat-mk-clause-3ary      35988
+ :sat-mk-clause-nary      1237955
+ :sat-mk-var              33568
+ :sat-probing-assigned    1040
+ :sat-propagations-2ary   413142444
+ :sat-propagations-nary   1396943715
+ :sat-restarts            85073
+ :sat-scc-elim-binary     933
+ :sat-scc-elim-vars       1720
+ :sat-subs-resolution     76395
+ :sat-subs-resolution-dyn 1567127
+ :sat-subsumed            23312
+ :sat-tr                  1313
+ :sat-units               1727
+ :solve-eqs-elim-vars     16
+ :solve-eqs-steps         2632
+ :time                    300.04)
+

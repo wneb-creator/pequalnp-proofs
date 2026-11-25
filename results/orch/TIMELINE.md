@@ -15,3 +15,6 @@ UTC timeline
 2026-11-25T14:25:55.414635+00:00 Binary17 fullLeanexportpassed; independentreviewpassed; preserving17+NOT bound.
 2026-11-25T14:29:50.218416+00:00 Binary18snippetcompiledagainstcheckedBinary17; reviewpassed; inliningandpreserving.
 2026-11-25T14:33:47.265219+00:00 FirstOr, final finite partial, and counting wrapper compiled and reviewed; preserving.
+2026-11-25 14:38:12 Named Binary17+Binary18 build passed.
+2026-11-25 14:38:50 Renewal diagnostic confirmedHTTP410 despite previousfutureexpiry; all workpaused.
+2026-11-25T14:41:30.096227+00:00 Search processes stopped; isolated checker terminated; preservingalloutputs.

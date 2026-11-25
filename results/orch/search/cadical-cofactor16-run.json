@@ -1,0 +1,17 @@
+{
+  "argv": [
+    "cnf_search.py",
+    "--cofactor",
+    "--gates",
+    "16",
+    "--max-nots",
+    "1",
+    "--ordered",
+    "--seconds",
+    "300",
+    "--tag",
+    "cadical-cofactor16"
+  ],
+  "cnf_sha256": "8f48ed3c99d338f29a54a585fa66cc120debc9589a818642065674f9b58a5806",
+  "verdict": "UNKNOWN at 300 seconds"
+}
