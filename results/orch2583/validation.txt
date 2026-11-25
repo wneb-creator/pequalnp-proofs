@@ -10,7 +10,7 @@ No full-target checker run or proof PR. Conditional component is not a submitted
 Cleanup not attempted; lines before/after unchanged636 and678.
 
 Sub-agents:6 (status review, semantic proof, counterexample search, combinatorial bound, toolchain research, star construction)
-TIMING total=66.45 subagents=6
+TIMING total=69.91 subagents=6
 
 PlaneGeometry.lean:155lines; point regularity, edge count, Hall condition, C4 exclusion, and cover lower bound. Lean exit0; stdout/stderr empty. Independent audit PASS.
 SHA256 ba2df371d6d92b69d37c3fc019e7e594b424e19c33cd6d3d5111397ef85d10b0.
@@ -39,3 +39,12 @@ SemanticReplacement.lean: constructs actual AO2 READ1 pair-core circuit within a
 SemanticPairReplacement.lean: replacing an OR-top block by a below-target monotone function agreeing on target pairs preserves the whole graph function. Lean exit0; logs empty; root independent source audit PASS.
 CommonFilterSharing.lean: two common heavy points in a filtered C4-free rectangle union must coincide. Lean exit0; inherited warnings only; independent audit PASS. SHA256b85fe7131f016bdcfe4763c95e4b772eb4e739cb4212700a2b40008bbb91819e.
 Actual indexed-gate splicing and globally exclusive budget allocation remain unproved.
+
+CommonFilterPruning.lean and CommonFilterSharedBound.lean: checked two-sided deletion accounting and complete shared point/line OR-credit bound for the common-filter class. Explicit W cover; no unrestricted circuit normalization claim. Lean exit0; inherited warnings only; independent audit PASS. SharedBound SHA25644fcd155695ea7b14b17197daadfd06200598cf1c9a80e22921c3aebfe790e0c; Pruning SHA256a03c4bbab0d30549c4120569f5c81cf1df0c9b61426bd7aef3ff1885385890d5.
+
+2026-11-25T15:06: renewal returned no livelease despite prior expiry15:21:36.356Z. All proof/search work paused immediately.
+2026-11-25T15:07:35Z: mandatory curl-si repeat confirmedHTTP410. Complete response headers/body and stderr are saved in2583-beat-006-diagnostic files.
+No counterexample or full-target UNSAT result found. SAT search restrictions and complete captured outputs are in counterexample_checkpoint.txt. Annealing ended after220.125seconds/1,721,040,896mutations with one incorrect extremal row; it did not find a witness. Its final saved auxiliary-OR variant is uncompiled and unrun.
+Full OR-DAG finite tests are experimental only; SharedJunk-plan.md is an unimplemented mathematical plan.
+Desk null replies:0. Recovery request will follow preservation push under the explicit410 rule.
+The full posted theorem remains unproved; no full-target checker, cleanup pass, or proof PR.

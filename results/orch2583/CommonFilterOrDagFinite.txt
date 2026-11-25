@@ -1,0 +1,2 @@
+{"n": 3, "kind": "exhaustive", "counts": [151263, 46755], "best": {"n": 3, "ps": [1, 2], "ls": [1, 3], "wp": 0, "wl": 3, "rows": [1, 3, 0], "E": [1, 3, 0], "edges": 3, "tau": 2, "cost": 7, "slack": 2, "physical": 5, "physical_slack": 1}}
+{"n": 4, "kind": "random", "counts": [1000000, 112808], "best": {"n": 4, "ps": [4, 1], "ls": [1, 5], "wp": 0, "wl": 5, "rows": [5, 0, 1, 0], "E": [5, 0, 1, 0], "edges": 3, "tau": 2, "cost": 7, "slack": 2, "physical": 5, "physical_slack": 1}}

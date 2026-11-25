@@ -1,0 +1,5 @@
+{"kind": "exhaustive3", "counts": [151263, 46755], "best": {"n": 3, "ps": [1, 1], "ls": [1, 2], "wp": 1, "wl": 0, "rows": [3, 0, 0], "E": [3, 0, 0], "edges": 2, "tau": 1, "cost": 5, "slack": 2, "sharing": 0, "shared_slack": 2}}
+{"kind": "random4", "counts": [1000000, 112642], "best": {"n": 4, "ps": [15, 15], "ls": [1, 2], "wp": 1, "wl": 1, "rows": [3, 3, 3, 3], "E": [3, 1, 1, 1], "edges": 5, "tau": 2, "cost": 12, "slack": 5, "sharing": 3, "shared_slack": 2}}
+{"n": 3, "kind": "exhaustive", "counts": [151263, 99711], "best": {"n": 3, "ps": [1, 1], "ls": [1, 2], "wp": 1, "wl": 0, "E": [3, 0, 0], "edges": 2, "sides": 4, "sharing": 0, "slack": 0}}
+{"n": 4, "kind": "random", "counts": [1000000, 433724], "best": {"n": 4, "ps": [8, 9], "ls": [1, 8], "wp": 13, "wl": 10, "E": [8, 0, 0, 9], "edges": 3, "sides": 5, "sharing": 0, "slack": 0}}
+{"n": 6, "kind": "random", "counts": [1000000, 138481], "best": {"n": 6, "ps": [20, 1], "ls": [6, 17], "wp": 26, "wl": 21, "E": [17, 0, 4, 0, 6, 0], "edges": 5, "sides": 7, "sharing": 0, "slack": 0}}

@@ -1,0 +1,24 @@
+seed=2583104 inputs=10 gates=14 rows=24 baseline_all_assignments=PASS
+best elapsed=9.3087e-05 errors=1 iterations=0 restarts=0
+progress elapsed=10.0054 iterations=53936128 restarts=1798 best=1 neutral=29292655 archive=128
+progress elapsed=20.0099 iterations=133955584 restarts=4466 best=1 neutral=72620387 archive=128
+progress elapsed=30.0136 iterations=212860928 restarts=7096 best=1 neutral=115124883 archive=128
+progress elapsed=40.0146 iterations=285605888 restarts=9521 best=1 neutral=154633015 archive=128
+progress elapsed=50.0232 iterations=370409472 restarts=12347 best=1 neutral=200135108 archive=128
+progress elapsed=60.0274 iterations=457048064 restarts=15235 best=1 neutral=246482542 archive=128
+progress elapsed=70.0287 iterations=509476864 restarts=16983 best=1 neutral=274276071 archive=128
+progress elapsed=80.036 iterations=589561856 restarts=19653 best=1 neutral=317558518 archive=128
+progress elapsed=90.0713 iterations=639827968 restarts=21328 best=1 neutral=344710296 archive=128
+progress elapsed=100.078 iterations=723451904 restarts=24116 best=1 neutral=389526381 archive=128
+progress elapsed=110.079 iterations=808386560 restarts=26947 best=1 neutral=435266237 archive=128
+progress elapsed=120.08 iterations=894042112 restarts=29802 best=1 neutral=481326003 archive=128
+progress elapsed=130.083 iterations=981663744 restarts=32723 best=1 neutral=528649551 archive=128
+progress elapsed=140.088 iterations=1062600704 restarts=35421 best=1 neutral=572419010 archive=128
+progress elapsed=150.097 iterations=1151533056 restarts=38385 best=1 neutral=620021491 archive=128
+progress elapsed=160.098 iterations=1241776128 restarts=41393 best=1 neutral=668942521 archive=128
+progress elapsed=170.1 iterations=1313996800 restarts=43800 best=1 neutral=708324303 archive=128
+progress elapsed=180.102 iterations=1388838912 restarts=46295 best=1 neutral=748938679 archive=128
+progress elapsed=190.107 iterations=1473314816 restarts=49111 best=1 neutral=793423845 archive=128
+progress elapsed=200.108 iterations=1560543232 restarts=52019 best=1 neutral=840412937 archive=128
+progress elapsed=210.116 iterations=1643446272 restarts=54782 best=1 neutral=885566793 archive=128
+progress elapsed=220.125 iterations=1721040896 restarts=57369 best=1 neutral=926999723 archive=128
