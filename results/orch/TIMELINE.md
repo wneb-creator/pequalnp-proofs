@@ -21,3 +21,4 @@
 2026-11-25T00:13:39.457166+00:00 — full L_meta_1677 named lake build PASSED (1730s target compile); exact source SHA5439dbcaa6f90064037f257c999c1cb3cc19233ab9dd2deddf75d6821ec08f54. Local checker launched after selecting the installed pinned Lake via supported PEQUALNP_REAL_LAKE; kernel replay pending. Lease renewed to00:32:03.169Z.
 2026-11-25T00:15:49.649958+00:00 — cube monotonicity check omission proved in standalone Lean helper and independently source-reviewed; preserved before full optimized proof validation.
 2026-11-25T00:18:44.177058+00:00 — decoder corner-sharing invariant compiled with Init and512MB cap, source independently reviewed; potential runtime scan removal not integrated into final file.
+2026-11-25T00:21:41.929679+00:00 — best optimized full candidate frozen and independently source/guard reviewed (523865bytes6483lines). Its bridge semantics compile under Init. Full optimized build/checker not started; baseline checker still running.
