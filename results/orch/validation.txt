@@ -6,7 +6,7 @@ Named file: lean/PEqualNP/Outside/L_meta_2583.lean (6743 lines, 325031 bytes).
 SHA256: 8a03feeb873579241a25cb2a6d24b3d1cda1496d770dee51240153028e731046.
 Named lake build passed. Full stdout/stderr: validation/2583-build-combined-01.*.
 Independent review verified the exact four-component composition and all mathematical premises. The plain-file guard reports only the missing final theorem.
-Local checker on the earlier block checkpoint: REJECTED (no-theorem). The combined file still has no full posted theorem; checker rerun pending.
+Local checker on the combined file: REJECTED (no-theorem). The file has no full posted theorem. Full stdout/stderr: validation/2583-checker-combined.*.
 
 Checked components: size-preserving lift/block decomposition; exact equivalence of a read-one replacement with the cost bound N*(q+2) <= C.size+1; canonical read-one construction; plane regularity and cover counting; removal of gates false on every edge; earlier-wire replacement preserving all edge inputs; and the N+q bound for proper mixed vertex covers. The unrestricted circuit lower bound remains unproved. Conditional cost-debt assumptions remain explicit.
 
@@ -18,3 +18,5 @@ Cleanup: not started because the posted theorem has not passed the checker. Inte
 Desk null responses: 0. Own old lease ended with 410; own new lease is being renewed. No other pilot lease has been released.
 Sub-agents: status_review, lower_bound, counterexample, library_route, reduction_strategy, sat_encoding (6).
 TIMING total=70.9 subagents=6
+
+92 frozen search/control files and three hash manifests were independently reviewed and archived under search_artifacts/. Fano27 controls pass all16384 truth rows and joint read-one checks; the incomplete26 candidate fails47 rows. No completed UNSAT certificate or counterexample is claimed. RectangleLayer compiled and passed independent review as semantic identities only, with no shared-DAG gate-cost claim.

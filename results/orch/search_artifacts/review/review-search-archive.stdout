@@ -1,0 +1,26 @@
+PASS immutable manifest: 72 files, 2491340 bytes
+PASS fano27-control : all 159608 CNF clauses, one-hot sources, independent model decode
+PASS fano27-visible-control : all 161525 CNF clauses, one-hot sources, independent model decode
+PASS canonical21-sanity-decoded.json : 1024 full rows, 1 NOT gates, arbitrary-output/default-false semantics
+PASS canonical22-exact2-sanity-decoded.json : 1024 full rows, 2 NOT gates, arbitrary-output/default-false semantics
+SOLVER STATUS fano27-control.stdout ['s SATISFIABLE']
+SOLVER STATUS fano27-visible-control.stdout ['s SATISFIABLE']
+SOLVER STATUS fano26-probe.stdout ['c UNKNOWN']
+SOLVER STATUS dirty-path3.stdout ['s UNSATISFIABLE']
+SOLVER STATUS dirty-path4.stdout ['s UNSATISFIABLE']
+SOLVER STATUS dirty-path5.stdout ['s UNSATISFIABLE']
+SOLVER STATUS dirty-path6.stdout ['s UNSATISFIABLE']
+SOLVER STATUS dirty-cycle6.stdout ['s UNSATISFIABLE']
+SOLVER STATUS dirty-cycle8.stdout ['c UNKNOWN']
+SOLVER STATUS long-canonical.stdout ['c UNKNOWN']
+SOLVER STATUS long-colex.stdout ['c UNKNOWN']
+SOLVER STATUS long-canonical-le3.stdout ['c UNKNOWN']
+SOLVER STATUS long-canonical-le3-binary.stdout ['c UNKNOWN']
+SOLVER STATUS long-exact2-binary.stdout ['c UNKNOWN']
+SOLVER STATUS canonical21-sanity.stdout ['s SATISFIABLE']
+SOLVER STATUS canonical22-exact2-sanity.stdout ['s SATISFIABLE']
+PASS archive-review-supplement.json : 11 immutable files
+PASS archive-review-completed.json : 9 immutable files
+PASS incomplete candidate rejected: 47 full truth errors, one minimal-edge error
+TOTAL IMMUTABLE ARCHIVE FILES 92
+ALL ARCHIVE CONTROLS PASSED

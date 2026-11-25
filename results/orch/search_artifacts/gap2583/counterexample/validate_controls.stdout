@@ -1,0 +1,4 @@
+Independent sets 458 maximal 37 edges 21 rows 58
+upper27.json AO2 checked; all16384 truth rows correct; joint read1 vectors on all21 prime edges
+fano27-control.circuit.json AO2 checked; all16384 truth rows correct; joint read1 vectors on all21 prime edges
+fano27-visible-control.circuit.json AO2 checked; all16384 truth rows correct; joint read1 vectors on all21 prime edges

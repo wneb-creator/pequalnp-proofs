@@ -1,0 +1,2 @@
+triangle-minlower inputs 3 gates 3 edges [(0, 1), (0, 2), (1, 2)] rows 6 exit 20
+triangle-mindirty inputs 3 gates 4 edges [(0, 1), (0, 2), (1, 2)] rows 6 exit 20

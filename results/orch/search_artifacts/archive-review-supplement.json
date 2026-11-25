@@ -1,0 +1,61 @@
+{
+  "frozen_utc": "2026-11-25T14:57:56.184089+00:00",
+  "notes": "Supplemental solver variable/row metadata; no running logs or proof traces. Original archive-review-manifest.json remains unchanged.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/fano27-control.meta.json",
+      "size": 8452,
+      "sha256": "afc6297e9a14430d09cf21e0d4fb1092abcfdaa1df460f17b832c5f4e08b5c78"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/fano27-visible-control.meta.json",
+      "size": 8452,
+      "sha256": "afc6297e9a14430d09cf21e0d4fb1092abcfdaa1df460f17b832c5f4e08b5c78"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/fano26-probe.meta.json",
+      "size": 7962,
+      "sha256": "86775a4eddd719f292a8b4fdab71a8cf9b96ace7742342d8a0f48c35ed40a705"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/fano26-visible.meta.json",
+      "size": 7962,
+      "sha256": "86775a4eddd719f292a8b4fdab71a8cf9b96ace7742342d8a0f48c35ed40a705"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/counterexample/canonical19.meta.json",
+      "size": 871,
+      "sha256": "3e9e57645193a53b7da6b6d6e74216e145b665f73fb4ae2b99c96236fdc4b920"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/counterexample/canonical19-all.meta.json",
+      "size": 9227,
+      "sha256": "24f4ce20b1ad6da7c62f98954e3f9dba1410e72e5957c5a6df0c5aa34ce78353"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/counterexample/canonical19-le3.meta.json",
+      "size": 890,
+      "sha256": "5686271dd8995f043d4e536e759722d5033078eea1046ccda7abfc2b0c7cd482"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/counterexample/canonical19-exact1.meta.json",
+      "size": 932,
+      "sha256": "30dc82903afa377fb38f0359da6278f27edb5a7a6bc90a4b9cb7923d7f141612"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/counterexample/canonical19-exact2.meta.json",
+      "size": 932,
+      "sha256": "3b1a4f0b87cb7cc60f42ce28f032386e3bd53ba92696399051ffcb4cb26c1c95"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/counterexample/canonical21-sanity.meta.json",
+      "size": 871,
+      "sha256": "0301d5ff6b7846cfaf3b80abb6abb3f6f3db06317302680bfbbcbc57c8fb0ce0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/counterexample/canonical22-exact2-sanity.meta.json",
+      "size": 932,
+      "sha256": "d2beb87177dfa540e2d33975966afe8aef5b6bb2710eac9146855fd31c182e10"
+    }
+  ]
+}

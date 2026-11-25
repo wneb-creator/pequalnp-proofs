@@ -25,3 +25,5 @@
 2026-11-25T14:52:25.170505+00:00 — Standalone exact cost equivalence and finite Fano construction compiled and independently reviewed. The general lower bound remains open.
 
 2026-11-25T14:57:24.349702+00:00 — Combined 6743-line named partial passed lake build and independent composition/semantic review. Preparing immediate preservation push.
+
+2026-11-25T15:01:10.686776+00:00 — Re-plan: exact-cost characterization complete; unrestricted gate count and shared dirty-core accounting remain open. Continue focused Fano search and new two-rectangle/point-restriction lemmas. Combined checker rejected missing theorem. Archived92 reviewed computational files.

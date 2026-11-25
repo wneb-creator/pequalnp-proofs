@@ -1,0 +1,15 @@
+PASS incidence: 7 lines, 3 points each, unique common line, 21 edges
+PASS full enumeration: 458 independent sets, 37 maximal, 58 complete monotone rows
+PASS prime implicants are exactly the 21 incident pairs
+PASS upper27.json : 27 strict AO2 gates, 16384 truth rows, 21 joint READ1 pairs, all gates edge-visible
+PASS fano27-control.circuit.json : 27 strict AO2 gates, 16384 truth rows, 21 joint READ1 pairs, all gates edge-visible
+PASS fano27-visible-control.circuit.json : 27 strict AO2 gates, 16384 truth rows, 21 joint READ1 pairs, all gates edge-visible
+{
+  "reviewed_sha256": {
+    "fano.json": "045fd3ef0433daf2544d7532dc373cf6829b586fffb9da3a5558aa22a011a035",
+    "upper27.json": "1b00ddbfc60af4607ff9fa30332319967748edf3f25c1ec7c689cbfedf379a67",
+    "fano27-control.circuit.json": "234870f8d61fb98dc044d990a2047f21a63cd178cae82f9f095311d40d9163be",
+    "fano27-visible-control.circuit.json": "234870f8d61fb98dc044d990a2047f21a63cd178cae82f9f095311d40d9163be"
+  }
+}
+ALL INDEPENDENT FANO CONTROLS PASSED

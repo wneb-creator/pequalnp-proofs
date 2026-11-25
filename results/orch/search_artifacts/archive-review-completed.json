@@ -1,0 +1,51 @@
+{
+  "frozen_utc": "2026-11-25T14:58:39.149174+00:00",
+  "notes": "Completed search and structural controls. Fano candidate remains incorrect on47 full truth rows; no counterexample.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/fano_search.log",
+      "size": 1541,
+      "sha256": "eed5ab123e6f0a4d72a07f58f33f8e1ef85979766aff8939d703a1c670774ba9"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/fano_search.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/fano26-best-incomplete.json",
+      "size": 1635,
+      "sha256": "70bd7c40e1d2a77bb1a54e25bc00311b7aafd43b9b8729a484085efcfa539f0d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/dirty_minimum_controls.log",
+      "size": 1777,
+      "sha256": "4bbb70cbb1ef769331c325d2bf8a32ce7f462827a9e99ca891a17e6abebf84de"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/dirty_minimum_controls.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/triangle_control.log",
+      "size": 464,
+      "sha256": "e456ea901fcbb2b4fb76ba7daf2f889f24693e37fa969c7103fea8a8b8663705"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/triangle_control.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/triangle_minimum.log",
+      "size": 162,
+      "sha256": "ae4e8a64244e3c434a0c0379d6a2c95f7861609531500314584252f632c0366d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/triangle_minimum.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

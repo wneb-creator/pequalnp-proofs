@@ -1,0 +1,6 @@
+dirty-path3 inputs 3 gates 2 edges [(0, 1), (1, 2)] rows 4 exit 20
+dirty-path4 inputs 4 gates 4 edges [(0, 1), (1, 2), (2, 3)] rows 6 exit 20
+dirty-path5 inputs 5 gates 5 edges [(0, 1), (1, 2), (2, 3), (3, 4)] rows 8 exit 20
+dirty-path6 inputs 6 gates 7 edges [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5)] rows 10 exit 20
+dirty-cycle6 inputs 6 gates 8 edges [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 0)] rows 11 exit 20
+dirty-cycle8 inputs 8 gates 11 edges [(0, 1), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6), (6, 7), (7, 0)] rows 18 exit 0

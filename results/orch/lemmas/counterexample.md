@@ -64,6 +64,20 @@ A separate all-1024-row canonical probe, containing 1,328,735 clauses, timed out
 
 At the structural agents' request, `aig.py` searches seventeen binary gates with free wire and output complements. This is a different model from a nineteen-total-gate counterexample: a found witness would still need its NOT cost evaluated. A positive twenty-gate control passed SAT and all 1024 truth-table rows. The unrestricted seventeen-gate probe and two probes fixing the first signed gate to the edge/nonedge OR cases all timed out after 60 seconds. A ten-minute bit-parallel stochastic search in this model is running as `aig_search.cpp`; no exact witness has been found.
 
+The seventeen-AIG stochastic run finished after 1,116,798,976 mutations. Its best candidate has seventeen wrong rows, independently confirmed and saved as `aig17-best.json`.
+
+## Later solver runs
+
+The unrestricted canonical baseline completed 1,500 seconds with `UNKNOWN`, exit 0. Its 7.04 GB incomplete text LRAT prefix was compressed to `long-canonical.lrat.gz`; it contains no final empty-clause certificate. The binary-LRAT at-most-three run continued. At 14:34 UTC, following a fresh renewal, started the separate exactly-two-NOT run, also capped at 1,500 seconds. Its clause extension has compiled completeness from the exact NOT count. A twenty-two-gate positive control, with two unused NOTs, passed SAT and all 1024 rows.
+
+## Restart validation fixture
+
+Prepared a genuine pigeonhole fixture at `counterexample/restart-fixture/php8-7.cnf`: 56 variables and 204 clauses. Cadical with a 100-conflict limit produced 100 nonempty LRAT additions and 28 deletion records, ending UNKNOWN. The SAT-encoding agent validated the prefix and retained 27 active learned clauses. A restarted solver on the 231-clause checkpoint returned UNSAT; its binary proof was stitched and independently packed against the original 204-clause formula. Learned clauses were not treated as axioms. Original prefixes, inputs, resumed proof, and complete solver logs remain saved.
+
+## Lease interruption
+
+Root reported a desk HTTP 410 renewal at 14:40:48 UTC. New searches and checkpoint scans were paused pending resolution. At 14:41:43 UTC, the at-most-three and exactly-two solvers were still running without a verdict, with binary proof prefixes of about 3.30 GB and 1.67 GB respectively. All CNFs, scripts, complete stdout/stderr, and proof prefixes remain available under `/tmp/oec/pequalnp-pilot-99/counterexample`.
+
 ## Existing reductions
 
 All three reductions are already in the repository: `R_meta_2592_408` normalizes wires and output; `R_meta_2592_271` separates the 15-binary-gate floor from the one-to-four-NOT case; `R_meta_2592_318` cuts at the last NOT. A fourth reduction should not be assumed available.
