@@ -9,8 +9,18 @@
   ],
   "started_utc": "2026-11-25T13:36:04.275826+00:00",
   "wall_cap_seconds": 1800,
-  "status": "paused_checkpoint",
+  "status": "INTERRUPTED_DUE_TO_LEASE_LOSS",
   "nice": 10,
   "pid": 15831,
-  "paused_utc": "2026-11-25T13:46:43.550424+00:00"
+  "exit_code": -15,
+  "finished_utc": "2026-11-25T13:53:57.926192+00:00",
+  "elapsed_wall_seconds": 1073.6507942130002,
+  "solver_result": "UNKNOWN",
+  "termination_signal": 15,
+  "observed_exit_code": -15,
+  "cpu_seconds": 370.03,
+  "wall_seconds_including_pause": 1073.57,
+  "solution_file_emitted": false,
+  "termination_observed_utc": "2026-11-25T13:54:56.896130+00:00",
+  "interpretation": "Search was paused on HTTP410 and terminated after lease recovery failed. No SAT/UNSAT result or model."
 }

@@ -46,3 +46,9 @@
 - 2026-11-25T13:41:47.748326+00:00: final independent radical-ideal/absorption route stalled on shared dirty operands; no full proof/refutation. Remaining work is the bounded SAT search.
 
 - 2026-11-25T13:47:03.402999+00:00: desk returnedHTTP410 despite last successful expiry14:00:39; renew loop stopped, active searches paused, current state preserved before recovery request.
+
+- 2026-11-25T13:49:40.616543+00:00: recovery request returned a pre-existing other-pilot lease and shared-handle limit5; it was left untouched. One allowed retry pending.
+
+- 2026-11-25T13:53:38.668052+00:00: allowed recovery retry returned the same pre-existing other-pilot lease and limit5; stopping under user rule. No proof accepted, no PR opened, other leases untouched.
+
+- 2026-11-25T13:56:20.660139+00:00: all owned solver processes terminated, final logs/metadata audited; no accepted proof or PR. Final preservation push prepared.

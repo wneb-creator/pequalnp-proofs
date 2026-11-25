@@ -44,3 +44,12 @@ and independent reviews are recorded in `NOTES.md` and per-search READMEs.
 `TIMELINE.md` records strategy and build milestones. The root held the only lease
 used by this team and renewed it every five minutes. Sub-agents never submitted
 or released a lease.
+
+## Final stop
+
+The desk invalidated this job's lease with HTTP410 despite its last returned expiry.
+Both permitted recovery requests returned the same pre-existing lease belonging
+to another pilot, with the shared-handle five-gap limit. Work stopped under the
+user's explicit rule; that other lease was neither worked nor released. No live
+lease belonging to this job remained to release. See `desk-recovery.json` and the
+full diagnostic headers/body in `logs/desk-beat-error.txt`. Desk null count:0.

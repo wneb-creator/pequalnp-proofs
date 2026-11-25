@@ -565,3 +565,68 @@ c - 1427.06 156 109 133 159240 4322123 237758 31% 15 408695 10379 86%
 c B 1448.32 156 112 133 163743 4371203 282738 31% 15 408695 10379 86%
 c - 1459.11 158 114 134 165838 4386902 243984 32% 15 408695 10379 86%
 c - 1485.07 158 113 135 172184 4452163 249878 32% 15 408695 10379 86%
+c 
+c caught signal 15 (SIGTERM)
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c UNKNOWN
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c      1432.36   96.19% search
+c       690.67   46.38% stable
+c       588.98   39.55% unstable
+c       152.69   10.25% walk
+c        56.77    3.81% simplify
+c        23.64    1.59% subsume
+c        14.24    0.96% vivify
+c         6.57    0.44% probe
+c         5.10    0.34% ternary
+c         2.15    0.14% elim
+c         0.44    0.03% parse
+c         0.01    0.00% lucky
+c   =================================
+c      1489.13   99.97% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:           1418410        31.77 %  of conflicts
+c conflicts:               4465203      2998.54    per second
+c decisions:              30323113     20363.02    per second
+c eliminated:                 1063         8.79 %  of all variables
+c fixed:                       517         4.28 %  of all variables
+c learned:                 4295978        96.21 %  per conflict
+c learned_lits:          510390231       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:               89908081        17.62 %  learned literals
+c minishrunken:           66671497        13.06 %  learned literals
+c otfs:                      25744         0.58 %  of conflict
+c propagations:         2255559787         1.51 M  per second
+c reduced:                 3790611        84.89 %  per conflict
+c rephased:                     94     47502.16    interval
+c restarts:                 173233        25.78    interval
+c stabilizing:                   6        61.14 %  of conflicts
+c substituted:                 131         1.08 %  of all variables
+c subsumed:                 251571         4.73 %  of all clauses
+c strengthened:             193418         3.63 %  of all clauses
+c ternary:                  124695         0.18 %  of resolved
+c vivified:                   8581         0.16 %  of all clauses
+c walked:                       30    148840.10    interval
+c weakened:                   5003         2.23    average size
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:      1489.57    seconds
+c total real time since initialization:         3961.96    seconds
+c maximum resident set size of process:          254.72    MB
+c 
+c raising signal 15 (SIGTERM)

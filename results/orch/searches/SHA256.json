@@ -1,5 +1,5 @@
 {
-  "at": "2026-11-25T13:48:22.452979+00:00",
+  "at": "2026-11-25T13:56:20.660139+00:00",
   "files": {
     "ClosedIncidenceTests-fixed.stderr": {
       "bytes": 0,
@@ -34,20 +34,20 @@
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "README.md": {
-      "bytes": 6309,
-      "sha256": "21aa97361e8591bf6912e0e9f78b37beff2995df936ca8ff6c888af270c88dce"
+      "bytes": 6845,
+      "sha256": "3c6a48ea0b9b56899cd95dd73179495ddcf996a274f096002b53cb42adff9c5d"
     },
     "SEARCH-BUILD.json": {
       "bytes": 579,
       "sha256": "3eb92a15687648d897f9615077e0c18fe582c660803d360dd57550ccd7e209c1"
     },
     "SEARCH-OUTCOMES.json": {
-      "bytes": 1631,
-      "sha256": "cc2de995a0b7ced82b08a65c49f8f43cc9105fc6f19842df0b5f9e170efc0ea9"
+      "bytes": 1957,
+      "sha256": "d3d1dd58101cf28ed7feff04aa716eba951f20e1c645a630c5ec8e298c727cfb"
     },
     "SEARCH-PAUSE.json": {
-      "bytes": 618,
-      "sha256": "92bdd316a94234fb6d05b75c4287a358a5d4b6497c52ee419f19c8f31f73a27b"
+      "bytes": 874,
+      "sha256": "5d2eb0af0fa033da231ce4f90ef72f25c45de516e5be58b88a642d6f9adbedef"
     },
     "c6-15-active.generate.stderr": {
       "bytes": 0,
@@ -638,16 +638,16 @@
       "sha256": "a30cfc100384df1a8466e499e54b8303b14b24615f6274da71b9ae07ddfbb38a"
     },
     "k5-23-sym-orbit-semantic-edge-active-edge-essential.run.json": {
-      "bytes": 442,
-      "sha256": "1ea33af0f730b3072a509183edcc7601d29927a09be9ecf1a070b3c8df69c68e"
+      "bytes": 903,
+      "sha256": "d04eaf54e11f44d004f709e4c46bf8e4d68edd6fcd46eba89977cc3e084cce98"
     },
     "k5-23-sym-orbit-semantic-edge-active-edge-essential.solver.stderr": {
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "k5-23-sym-orbit-semantic-edge-active-edge-essential.solver.stdout": {
-      "bytes": 23208,
-      "sha256": "080596d9db541e4d3aea3c4231f6ac5617e6dfa95613dad11dcee22527e8b5be"
+      "bytes": 25999,
+      "sha256": "edbbbe3692344e586cc5ba3d4f9953d94a631d650263d3e50951b6488eb952a6"
     },
     "k5-23-sym-orbit-semantic-edge-active.generate.stderr": {
       "bytes": 0,
@@ -937,13 +937,17 @@
       "bytes": 29606,
       "sha256": "d6e2c7f63afaec18f71549efc6865d0e10bd362c0c9a641fe67ea30f482708c9"
     },
+    "mk-30-sym-orbit.run.json": {
+      "bytes": 474,
+      "sha256": "94c88c9b2109124b3881744444552c4cc87df947c8ead83583217d4f49c8a3d1"
+    },
     "mk-30-sym-orbit.solver.stderr": {
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "mk-30-sym-orbit.solver.stdout": {
-      "bytes": 33077,
-      "sha256": "51db4f909c22f234e2ab27dc1472d0383013bb6b0104c7ea8090e54ad6682521"
+      "bytes": 35868,
+      "sha256": "88014961e78ed7e622c050175629386a1d8e6c0a4a26fffd2ff67a57d8c1f5aa"
     },
     "mk-31-canonical-control.json": {
       "bytes": 378,

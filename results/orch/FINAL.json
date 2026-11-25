@@ -1,0 +1,45 @@
+{
+  "job": "pequalnp-pilot-86",
+  "kit_message_id": "msg-5d6ade18c405cd817773a6ee",
+  "started_at": "2026-11-25T12:21:04+00:00",
+  "recorded_at": "2026-11-25T13:57:28.831293+00:00",
+  "branch": "pnp/pilot-86",
+  "tested_upstream_base": "edbdb24c2f4ed9f914875c9e234f6ae5cbefc047",
+  "gap": "L-meta-2585",
+  "outcome": "partial_results_preserved; full statement unproved; no PR",
+  "named_file": "lean/PEqualNP/Outside/L_meta_2585.lean",
+  "source_sha256": "531e373e4f1294d246ae74facb8840e3e1c3f32c18dde7ad98da848b6bf9df95",
+  "source_lines": 4752,
+  "build": {
+    "exit": 0,
+    "message": "Build completed successfully (5149 jobs).",
+    "scope": "partial module only"
+  },
+  "checker": {
+    "exit": 3,
+    "verdict": "FAULT",
+    "message": "CHECKER FAULT: the prebuilt Mathlib cache is missing. Run `lake exe cache get` in lean/ (RUNBOOK.md, section 2)."
+  },
+  "cleanup": {
+    "attempted": false,
+    "reason": "official checker could not start",
+    "before_lines": 4752,
+    "after_lines": 4752
+  },
+  "subagents": 7,
+  "subagent_roles": [
+    "toolchain and independent review",
+    "proof routes",
+    "independent cost bounds",
+    "counterexample searches",
+    "read1 construction",
+    "normalization",
+    "fresh cost review"
+  ],
+  "elapsed_minutes": 96.4,
+  "desk_null_count": 0,
+  "null_messages": [],
+  "stop_reason": "HTTP410 invalidated sole owned lease; both recovery requests returned another pilot pre-existing lease at shared-handle limit5; stopped per user rule",
+  "other_pilot_leases": "not worked or released",
+  "pr_url": null
+}

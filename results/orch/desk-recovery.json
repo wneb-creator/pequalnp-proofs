@@ -1,0 +1,18 @@
+{
+  "at": "2026-11-25T13:53:38.668052+00:00",
+  "job": "pequalnp-pilot-86",
+  "requested_gap": "L-meta-2585",
+  "owned_lease_status": "invalidated_HTTP410",
+  "last_successful_renewal": "2026-11-25T13:40:39.162544+00:00",
+  "last_successful_expiry": "2026-11-25T14:00:39.278Z",
+  "error": "no such live lease: it expired or was released. Ask /desk/next again.",
+  "recovery_attempts": 2,
+  "returned_gap": "L-meta-2592",
+  "returned_lease_issued_at": "2026-11-25T13:44:05.796Z",
+  "holding": 5,
+  "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another",
+  "classification": "same pre-existing other-pilot lease on both recovery replies; never worked, explicitly renewed or released by this job",
+  "desk_null_count": 0,
+  "null_messages": [],
+  "final_action": "stopped under user existing-lease retry rule; no live own lease remained to release"
+}

@@ -27,21 +27,27 @@
     "interpretation": "No SAT or UNSAT result; pruning is justified for minimum circuits at the requested size only."
   },
   "mk-30-sym-orbit": {
-    "stem": "mk-30-sym-orbit",
+    "status": "INTERRUPTED_DUE_TO_LEASE_LOSS",
+    "solver_result": "UNKNOWN",
+    "termination_signal": 15,
+    "observed_exit_code": 143,
+    "cpu_seconds": 1489.57,
+    "wall_seconds_including_pause": 3961.96,
+    "solution_file_emitted": false,
     "pid": 10391,
-    "status": "PAUSED_PENDING",
-    "paused_utc": "2026-11-25T13:46:43.550424+00:00",
-    "process_state": "T",
-    "cpu_at_pause": "24m49s",
-    "reason": "Root lease renewal returned HTTP410; waiting for explicit lease recovery."
+    "termination_observed_utc": "2026-11-25T13:54:56.896130+00:00",
+    "interpretation": "Search was paused on HTTP410 and terminated after lease recovery failed. No SAT/UNSAT result or model."
   },
   "k5-23-sym-orbit-semantic-edge-active-edge-essential": {
-    "stem": "k5-23-sym-orbit-semantic-edge-active-edge-essential",
+    "status": "INTERRUPTED_DUE_TO_LEASE_LOSS",
+    "solver_result": "UNKNOWN",
+    "termination_signal": 15,
+    "observed_exit_code": -15,
+    "cpu_seconds": 370.03,
+    "wall_seconds_including_pause": 1073.57,
+    "solution_file_emitted": false,
     "pid": 15831,
-    "status": "PAUSED_PENDING",
-    "paused_utc": "2026-11-25T13:46:43.550424+00:00",
-    "process_state": "T",
-    "cpu_at_pause": "6m10s",
-    "reason": "Root lease renewal returned HTTP410; waiting for explicit lease recovery."
+    "termination_observed_utc": "2026-11-25T13:54:56.896130+00:00",
+    "interpretation": "Search was paused on HTTP410 and terminated after lease recovery failed. No SAT/UNSAT result or model."
   }
 }

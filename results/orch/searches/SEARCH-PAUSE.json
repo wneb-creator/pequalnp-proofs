@@ -2,19 +2,23 @@
   {
     "stem": "mk-30-sym-orbit",
     "pid": 10391,
-    "status": "PAUSED_PENDING",
+    "status": "TERMINATED_DUE_TO_LEASE_LOSS",
     "paused_utc": "2026-11-25T13:46:43.550424+00:00",
-    "process_state": "T",
+    "process_state": "absent",
     "cpu_at_pause": "24m49s",
-    "reason": "Root lease renewal returned HTTP410; waiting for explicit lease recovery."
+    "reason": "Root lease renewal returned HTTP410; waiting for explicit lease recovery.",
+    "previous_status": "PAUSED_PENDING",
+    "termination_observed_utc": "2026-11-25T13:54:56.896130+00:00"
   },
   {
     "stem": "k5-23-sym-orbit-semantic-edge-active-edge-essential",
     "pid": 15831,
-    "status": "PAUSED_PENDING",
+    "status": "TERMINATED_DUE_TO_LEASE_LOSS",
     "paused_utc": "2026-11-25T13:46:43.550424+00:00",
-    "process_state": "T",
+    "process_state": "absent",
     "cpu_at_pause": "6m10s",
-    "reason": "Root lease renewal returned HTTP410; waiting for explicit lease recovery."
+    "reason": "Root lease renewal returned HTTP410; waiting for explicit lease recovery.",
+    "previous_status": "PAUSED_PENDING",
+    "termination_observed_utc": "2026-11-25T13:54:56.896130+00:00"
   }
 ]
