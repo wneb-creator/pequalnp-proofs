@@ -1,0 +1,1 @@
+{"n": 7, "edges": [[0, 1], [0, 5], [1, 6], [2, 3], [2, 5], [3, 6], [4, 5], [4, 6]], "gates": 10, "clean": false, "dirty_required": false, "nonstar_required": false, "status": "UNKNOWN", "seconds": 300.019, "variables": 2720, "clauses": 115503, "samples": 15}

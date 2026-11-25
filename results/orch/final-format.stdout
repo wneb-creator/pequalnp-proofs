@@ -1,0 +1,4 @@
+REFUSED: line 3746: "extern" is not allowed in a proof file, in code or in a comment (no code that runs at build time, no new syntax, no string literals, no attributes but simp, no options but the four limits)
+REFUSED: line 4299: "extern" is not allowed in a proof file, in code or in a comment (no code that runs at build time, no new syntax, no string literals, no attributes but simp, no options but the four limits)
+REFUSED: the file holds no theorem
+REFUSED: the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_2448 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_2448` ... `end PEqualNP.Outside.L_meta_2448`; only the imports and the theorem stay outside

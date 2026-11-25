@@ -227,7 +227,7 @@ lemma binary_gate_value (n : ℕ) (C : Circuit) (j : ℕ) (hj : j < C.gates.leng
   rfl
 
 set_option maxHeartbeats 800000 in
-lemma external_reader_repair (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+lemma outside_reader_repair (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     (C D : Circuit) (hmC : Monotone2 C) (hmD : Monotone2 D)
     (hC : circuitFun n C = graphFun G ∅)
     (hlen : D.gates.length = C.gates.length) (hout : D.output = C.output)
@@ -673,7 +673,7 @@ lemma two_rectangle_component (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel 
     intro x hx
     exact hcleanR x ((evalh x).symm.trans hx)
   refine ⟨D, hDm, ?_, by simp [D, repairCircuit, Circuit.size], hcleang, hcleanh⟩
-  apply external_reader_repair n G C D hmC hDm hC hlen rfl g h t (by omega) hht ht hCt
+  apply outside_reader_repair n G C D hmC hDm hC hlen rfl g h t (by omega) hht ht hCt
   · simp [D, repairCircuit]
   · intro i hi hig hih hit
     simp [D, repairCircuit, Ne.symm hig, Ne.symm hih, Ne.symm hit]

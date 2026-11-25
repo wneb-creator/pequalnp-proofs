@@ -1,0 +1,3 @@
+{"n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]], "gates": 7, "clean": false, "dirty_required": false, "nonstar_required": true, "status": "UNSAT", "seconds": 2.131, "variables": 966, "clauses": 21868, "samples": 10}
+{"n": 6, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0]], "gates": 8, "clean": false, "dirty_required": false, "nonstar_required": true, "status": "UNSAT", "seconds": 29.934, "variables": 1564, "clauses": 46201, "samples": 11}
+{"n": 7, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 0]], "gates": 10, "clean": false, "dirty_required": false, "nonstar_required": true, "status": "UNKNOWN", "seconds": 60.017, "variables": 2905, "clauses": 126743, "samples": 14}

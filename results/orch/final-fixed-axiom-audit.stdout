@@ -1,0 +1,55 @@
+'PEqualNP.Outside.L_meta_2448.least_exists' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448.common_center_of_pairwise_meeting' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448.hasStarProfile_of_pair_sound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.StarNormal.bypass_and' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.StarNormal.CopyDeletion.least_no_and_operand_below' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.StarSandwich.graph_rewrite' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448.CoverConstruction.star_upper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448.CoverConstruction.posted_of_cover_lower' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.CriticalRestriction.restrict_at_pivotal_star' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.cycleFive_correct' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.cycleFive_profile' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PivotalNecessary.every_gate_has_pivotal_edge' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PivotalUnique.replace_by_pivotal_pair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PrivateSupportExample.correct' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.PrivateSupportExample.or_count_below_edges_minus_one' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.BackwardNormalize.normalize_minimal' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.TwoLeafRepair.replace_by_two_singletons' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.MatchingExchange.closed_pair_exchange' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.ExternalRepair.outside_reader_repair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.FourVertexGeometry.repair_choice' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.DoubleStarGeometry.clean_context_repair' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.RectangleRepair.repair_model' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2448_aux.RectangleRepair.two_rectangle_component' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,5 @@
+Command: /tmp/oec/pequalnp-pilot-74/toolchain/bin/lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/StarSandwich.lean
+Working directory: /workspace/pequalnp-proofs/lean
+Exit code: 0
+Complete stdout/stderr: empty
+This is a compiled helper file, not a proof of L-meta-2448.

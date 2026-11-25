@@ -1,0 +1,8 @@
+Pinned Lean 4.36.0
+Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/PivotalStarLimitation.lean
+Working directory: /workspace/pequalnp-proofs/lean
+Exit status: 0
+stdout: empty
+stderr: empty
+Source SHA256: ea8ab63d22c9a8f1220dbeb72b1e7cdaef73d1bf490ed2963cd051f65c937948
+Scope: a finite C5 circuit with star ownership but nonstar pivotal edges. This does not refute L-meta-2448 and does not prove minimum size in Lean.

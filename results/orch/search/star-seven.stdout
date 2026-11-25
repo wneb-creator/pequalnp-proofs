@@ -1,0 +1,52 @@
+classes 2 2
+classes 3 3
+classes 4 6
+classes 5 11
+classes 6 23
+classes 7 48
+{"n": 7, "edges": [[0, 1], [0, 2], [1, 3], [2, 4], [3, 5], [4, 6], [5, 6]], "gates": 9, "clean": false, "status": "UNKNOWN", "seconds": 20.024, "variables": 3243, "clauses": 257275, "cover_bound": 10}
+{"n": 7, "edges": [[0, 1], [0, 5], [1, 6], [2, 3], [2, 5], [3, 6], [4, 5], [4, 6]], "gates": 10, "clean": false, "status": "UNKNOWN", "seconds": 20.03, "variables": 3850, "clauses": 324617, "cover_bound": 11}
+{"n": 7, "edges": [[0, 1], [1, 6], [2, 3], [2, 4], [3, 5], [4, 6], [5, 6]], "gates": 9, "clean": false, "status": "UNKNOWN", "seconds": 20.023, "variables": 3243, "clauses": 257275, "cover_bound": 10}
+{"n": 7, "edges": [[0, 1], [2, 3], [2, 4], [3, 5], [4, 6], [5, 6]], "gates": 8, "clean": false, "status": "UNKNOWN", "seconds": 20.014, "variables": 2696, "clauses": 199751, "cover_bound": 9}
+{"n": 7, "edges": [[0, 1], [2, 3], [4, 6], [5, 6]], "gates": 5, "clean": false, "status": "UNSAT", "seconds": 0.047, "variables": 1375, "clauses": 78347, "cover_bound": 6}
+{"n": 7, "edges": [[0, 1], [2, 4], [3, 5], [4, 6], [5, 6]], "gates": 6, "clean": false, "status": "UNSAT", "seconds": 0.57, "variables": 1766, "clauses": 111061, "cover_bound": 7}
+{"n": 7, "edges": [[0, 1], [2, 5], [3, 6], [4, 6], [5, 6]], "gates": 6, "clean": false, "status": "UNSAT", "seconds": 0.483, "variables": 1766, "clauses": 111061, "cover_bound": 7}
+{"n": 7, "edges": [[0, 1], [2, 6], [3, 6], [4, 6], [5, 6]], "gates": 5, "clean": false, "status": "UNSAT", "seconds": 0.089, "variables": 1375, "clauses": 78347, "cover_bound": 6}
+{"n": 7, "edges": [[0, 2], [1, 3], [2, 4], [3, 5], [4, 6], [5, 6]], "gates": 7, "clean": false, "status": "UNSAT", "seconds": 5.055, "variables": 2205, "clauses": 151271, "cover_bound": 8}
+{"n": 7, "edges": [[0, 3], [1, 4], [2, 5], [3, 6], [4, 6], [5, 6]], "gates": 7, "clean": false, "status": "UNSAT", "seconds": 5.78, "variables": 2205, "clauses": 151271, "cover_bound": 8}
+{"n": 7, "edges": [[0, 3], [1, 4], [2, 6], [3, 5], [4, 6], [5, 6]], "gates": 7, "clean": false, "status": "UNSAT", "seconds": 4.858, "variables": 2205, "clauses": 151271, "cover_bound": 8}
+{"n": 7, "edges": [[0, 3], [1, 6], [2, 6], [3, 4], [4, 5], [5, 6]], "gates": 7, "clean": false, "status": "UNSAT", "seconds": 8.373, "variables": 2205, "clauses": 151271, "cover_bound": 8}
+{"n": 7, "edges": [[0, 4], [1, 4], [2, 5], [3, 6], [5, 6]], "gates": 6, "clean": false, "status": "UNSAT", "seconds": 0.704, "variables": 1766, "clauses": 111061, "cover_bound": 7}
+{"n": 7, "edges": [[0, 4], [1, 5], [2, 5], [3, 6], [4, 6], [5, 6]], "gates": 7, "clean": false, "status": "UNSAT", "seconds": 7.745, "variables": 2205, "clauses": 151271, "cover_bound": 8}
+{"n": 7, "edges": [[0, 4], [1, 5], [2, 6], [3, 6], [4, 6], [5, 6]], "gates": 7, "clean": false, "status": "UNSAT", "seconds": 8.308, "variables": 2205, "clauses": 151271, "cover_bound": 8}
+{"n": 7, "edges": [[0, 4], [1, 6], [2, 6], [3, 6], [4, 5], [5, 6]], "gates": 6, "clean": false, "status": "UNSAT", "seconds": 0.975, "variables": 1766, "clauses": 111061, "cover_bound": 7}
+{"n": 7, "edges": [[0, 5], [1, 5], [2, 6], [3, 6], [4, 5], [4, 6]], "gates": 6, "clean": false, "status": "UNSAT", "seconds": 1.087, "variables": 1766, "clauses": 111061, "cover_bound": 7}
+{"n": 7, "edges": [[0, 5], [1, 5], [2, 6], [3, 6], [4, 6]], "gates": 5, "clean": false, "status": "UNSAT", "seconds": 0.09, "variables": 1375, "clauses": 78347, "cover_bound": 6}
+{"n": 7, "edges": [[0, 5], [1, 5], [2, 6], [3, 6], [4, 6], [5, 6]], "gates": 6, "clean": false, "status": "UNSAT", "seconds": 0.956, "variables": 1766, "clauses": 111061, "cover_bound": 7}
+{"n": 7, "edges": [[0, 5], [1, 6], [2, 3], [2, 4], [3, 5], [4, 6], [5, 6]], "gates": 8, "clean": false, "status": "UNKNOWN", "seconds": 20.055, "variables": 2696, "clauses": 199751, "cover_bound": 9}
+{"n": 7, "edges": [[0, 5], [1, 6], [2, 3], [2, 5], [3, 6], [4, 5], [4, 6]], "gates": 8, "clean": false, "status": "UNKNOWN", "seconds": 20.008, "variables": 2696, "clauses": 199751, "cover_bound": 9}
+{"n": 7, "edges": [[0, 5], [1, 6], [2, 6], [3, 6], [4, 6], [5, 6]], "gates": 6, "clean": false, "status": "UNSAT", "seconds": 1.913, "variables": 1766, "clauses": 111061, "cover_bound": 7}
+{"n": 7, "edges": [[0, 6], [1, 2], [1, 3], [2, 4], [3, 5], [4, 6], [5, 6]], "gates": 8, "clean": false, "status": "UNKNOWN", "seconds": 20.009, "variables": 2696, "clauses": 199751, "cover_bound": 9}
+{"n": 7, "edges": [[0, 6], [1, 6], [2, 3], [2, 4], [3, 5], [4, 6], [5, 6]], "gates": 8, "clean": false, "status": "UNKNOWN", "seconds": 20.027, "variables": 2696, "clauses": 199751, "cover_bound": 9}
+{"n": 7, "edges": [[0, 6], [1, 6], [2, 6], [3, 6], [4, 6], [5, 6]], "gates": 5, "clean": false, "status": "UNSAT", "seconds": 0.378, "variables": 1375, "clauses": 78347, "cover_bound": 6}
+{"n": 7, "edges": [[1, 2], [1, 3], [2, 4], [3, 5], [4, 6], [5, 6]], "gates": 7, "clean": false, "status": "UNSAT", "seconds": 9.899, "variables": 2205, "clauses": 151271, "cover_bound": 8}
+{"n": 7, "edges": [[1, 2], [3, 4], [5, 6]], "gates": 4, "clean": false, "status": "UNSAT", "seconds": 0.014, "variables": 1028, "clauses": 52355, "cover_bound": 5}
+{"n": 7, "edges": [[1, 2], [3, 5], [4, 6], [5, 6]], "gates": 5, "clean": false, "status": "UNSAT", "seconds": 0.075, "variables": 1375, "clauses": 78347, "cover_bound": 6}
+{"n": 7, "edges": [[1, 2], [3, 6], [4, 6], [5, 6]], "gates": 4, "clean": false, "status": "UNSAT", "seconds": 0.014, "variables": 1028, "clauses": 52355, "cover_bound": 5}
+{"n": 7, "edges": [[1, 3], [2, 4], [3, 5], [4, 6], [5, 6]], "gates": 6, "clean": false, "status": "UNSAT", "seconds": 0.984, "variables": 1766, "clauses": 111061, "cover_bound": 7}
+{"n": 7, "edges": [[1, 4], [2, 5], [3, 6], [4, 6], [5, 6]], "gates": 6, "clean": false, "status": "UNSAT", "seconds": 1.081, "variables": 1766, "clauses": 111061, "cover_bound": 7}
+{"n": 7, "edges": [[1, 4], [2, 6], [3, 6], [4, 5], [5, 6]], "gates": 5, "clean": false, "status": "UNSAT", "seconds": 0.107, "variables": 1375, "clauses": 78347, "cover_bound": 6}
+{"n": 7, "edges": [[1, 5], [2, 5], [3, 6], [4, 6]], "gates": 4, "clean": false, "status": "UNSAT", "seconds": 0.057, "variables": 1028, "clauses": 52355, "cover_bound": 5}
+{"n": 7, "edges": [[1, 5], [2, 5], [3, 6], [4, 6], [5, 6]], "gates": 5, "clean": false, "status": "UNSAT", "seconds": 0.106, "variables": 1375, "clauses": 78347, "cover_bound": 6}
+{"n": 7, "edges": [[1, 5], [2, 6], [3, 6], [4, 6], [5, 6]], "gates": 5, "clean": false, "status": "UNSAT", "seconds": 0.115, "variables": 1375, "clauses": 78347, "cover_bound": 6}
+{"n": 7, "edges": [[1, 6], [2, 3], [2, 4], [3, 5], [4, 6], [5, 6]], "gates": 7, "clean": false, "status": "UNSAT", "seconds": 11.179, "variables": 2205, "clauses": 151271, "cover_bound": 8}
+{"n": 7, "edges": [[1, 6], [2, 6], [3, 6], [4, 6], [5, 6]], "gates": 4, "clean": false, "status": "UNSAT", "seconds": 0.025, "variables": 1028, "clauses": 52355, "cover_bound": 5}
+{"n": 7, "edges": [[2, 3], [2, 4], [3, 5], [4, 6], [5, 6]], "gates": 6, "clean": false, "status": "UNSAT", "seconds": 1.143, "variables": 1766, "clauses": 111061, "cover_bound": 7}
+{"n": 7, "edges": [[2, 3], [4, 6], [5, 6]], "gates": 3, "clean": false, "status": "UNSAT", "seconds": 0.008, "variables": 721, "clauses": 32311, "cover_bound": 4}
+{"n": 7, "edges": [[2, 4], [3, 5], [4, 6], [5, 6]], "gates": 4, "clean": false, "status": "UNSAT", "seconds": 0.014, "variables": 1028, "clauses": 52355, "cover_bound": 5}
+{"n": 7, "edges": [[2, 5], [3, 6], [4, 6], [5, 6]], "gates": 4, "clean": false, "status": "UNSAT", "seconds": 0.046, "variables": 1028, "clauses": 52355, "cover_bound": 5}
+{"n": 7, "edges": [[2, 6], [3, 6], [4, 6], [5, 6]], "gates": 3, "clean": false, "status": "UNSAT", "seconds": 0.014, "variables": 721, "clauses": 32311, "cover_bound": 4}
+{"n": 7, "edges": [[3, 4], [5, 6]], "gates": 2, "clean": false, "status": "UNSAT", "seconds": 0.005, "variables": 450, "clauses": 17441, "cover_bound": 3}
+{"n": 7, "edges": [[3, 5], [4, 6], [5, 6]], "gates": 3, "clean": false, "status": "UNSAT", "seconds": 0.012, "variables": 721, "clauses": 32311, "cover_bound": 4}
+{"n": 7, "edges": [[3, 6], [4, 6], [5, 6]], "gates": 2, "clean": false, "status": "UNSAT", "seconds": 0.042, "variables": 450, "clauses": 17441, "cover_bound": 3}
+{"n": 7, "edges": [[4, 6], [5, 6]], "gates": 1, "clean": false, "status": "UNSAT", "seconds": 0.005, "variables": 211, "clauses": 6971, "cover_bound": 2}

@@ -1,0 +1,4 @@
+{"n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]], "and_budget": 2, "status": "UNSAT", "seconds": 0.01, "variables": 134, "clauses": 364, "samples": 10}
+{"n": 6, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0]], "and_budget": 2, "status": "UNSAT", "seconds": 0.002, "variables": 149, "clauses": 408, "samples": 11}
+{"n": 11, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7], [7, 8], [8, 9], [9, 10], [10, 0]], "and_budget": 5, "status": "UNKNOWN", "seconds": 60.008, "variables": 1488, "clauses": 5411, "samples": 33}
+{"n": 10, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0], [0, 5], [1, 6], [2, 7], [3, 8], [4, 9], [5, 7], [6, 8], [7, 9], [8, 5], [9, 6]], "and_budget": 5, "status": "UNKNOWN", "seconds": 60.012, "variables": 1355, "clauses": 4620, "samples": 30}

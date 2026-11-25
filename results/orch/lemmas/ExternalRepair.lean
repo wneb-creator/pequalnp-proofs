@@ -227,7 +227,7 @@ lemma binary_gate_value (n : ℕ) (C : Circuit) (j : ℕ) (hj : j < C.gates.leng
   rfl
 
 set_option maxHeartbeats 800000 in
-lemma external_reader_repair (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+lemma outside_reader_repair (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     (C D : Circuit) (hmC : Monotone2 C) (hmD : Monotone2 D)
     (hC : circuitFun n C = graphFun G ∅)
     (hlen : D.gates.length = C.gates.length) (hout : D.output = C.output)

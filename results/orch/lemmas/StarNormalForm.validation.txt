@@ -1,0 +1,16 @@
+Command: /tmp/oec/pequalnp-pilot-74/toolchain/bin/lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/StarNormalForm.lean
+Working directory: /workspace/pequalnp-proofs/lean
+Exit code: 0
+This is a compiled helper file, not a proof of L-meta-2448.
+Complete stdout/stderr follows:
+/workspace/pequalnp-proofs/results/orch/lemmas/StarNormalForm.lean:387:57: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/StarNormalForm.lean:434:13: warning: This simp argument is unused:
+  List.getElem?_set
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [E, hj]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

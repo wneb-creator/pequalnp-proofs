@@ -1,0 +1,8 @@
+targets 38
+level 1 states 12 targets found 7
+level 2 states 114 targets found 19
+level 3 states 988 targets found 26
+level 4 states 8291 targets found 38
+minimum counts {0: 1, 1: 6, 2: 12, 3: 7, 4: 12}
+nonstar witnesses []
+cover mismatch []

@@ -1,0 +1,24 @@
+import PEqualNP.Outside.L_meta_2448
+#print axioms PEqualNP.Outside.L_meta_2448.least_exists
+#print axioms PEqualNP.Outside.L_meta_2448.common_center_of_pairwise_meeting
+#print axioms PEqualNP.Outside.L_meta_2448.hasStarProfile_of_pair_sound
+#print axioms PEqualNP.Outside.L_meta_2448_aux.StarNormal.bypass_and
+#print axioms PEqualNP.Outside.L_meta_2448_aux.StarNormal.CopyDeletion.least_no_and_operand_below
+#print axioms PEqualNP.Outside.L_meta_2448_aux.StarSandwich.graph_rewrite
+#print axioms PEqualNP.Outside.L_meta_2448.CoverConstruction.star_upper
+#print axioms PEqualNP.Outside.L_meta_2448.CoverConstruction.posted_of_cover_lower
+#print axioms PEqualNP.Outside.L_meta_2448_aux.CriticalRestriction.restrict_at_pivotal_star
+#print axioms PEqualNP.Outside.L_meta_2448_aux.cycleFive_correct
+#print axioms PEqualNP.Outside.L_meta_2448_aux.cycleFive_profile
+#print axioms PEqualNP.Outside.L_meta_2448_aux.PivotalNecessary.every_gate_has_pivotal_edge
+#print axioms PEqualNP.Outside.L_meta_2448_aux.PivotalUnique.replace_by_pivotal_pair
+#print axioms PEqualNP.Outside.L_meta_2448_aux.PrivateSupportExample.correct
+#print axioms PEqualNP.Outside.L_meta_2448_aux.PrivateSupportExample.or_count_below_edges_minus_one
+#print axioms PEqualNP.Outside.L_meta_2448_aux.BackwardNormalize.normalize_minimal
+#print axioms PEqualNP.Outside.L_meta_2448_aux.TwoLeafRepair.replace_by_two_singletons
+#print axioms PEqualNP.Outside.L_meta_2448_aux.MatchingExchange.closed_pair_exchange
+#print axioms PEqualNP.Outside.L_meta_2448_aux.ExternalRepair.outside_reader_repair
+#print axioms PEqualNP.Outside.L_meta_2448_aux.FourVertexGeometry.repair_choice
+#print axioms PEqualNP.Outside.L_meta_2448_aux.DoubleStarGeometry.clean_context_repair
+#print axioms PEqualNP.Outside.L_meta_2448_aux.RectangleRepair.repair_model
+#print axioms PEqualNP.Outside.L_meta_2448_aux.RectangleRepair.two_rectangle_component

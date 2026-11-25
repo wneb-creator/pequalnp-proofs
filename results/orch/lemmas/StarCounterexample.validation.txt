@@ -1,0 +1,8 @@
+Pinned Lean 4.36.0
+Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/StarCounterexample.lean
+Working directory: /workspace/pequalnp-proofs/lean
+Exit status: 0
+stdout: empty
+stderr: empty
+Source SHA256: 2732532e22ee293880d76f42968183e30eef28e4c5fcc6c51a26bd8253d8605a
+Scope: C5 finite witness only; no least-size proof and no full L-meta-2448 proof.

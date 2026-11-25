@@ -1,0 +1,7 @@
+{
+  "removed_experiment_paths": 35025,
+  "restored_preexisting_private_files": 1167,
+  "restored_hardlinks": 1167,
+  "main_daemon_stopped": 43908,
+  "native_editor_archive_restored_and_compared": true
+}

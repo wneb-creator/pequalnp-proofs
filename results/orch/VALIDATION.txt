@@ -1,45 +1,33 @@
-L-meta-2448 partial Lean checkpoint; posted theorem remains unproved.
-File: lean/PEqualNP/Outside/L_meta_2448.lean
-Lines: 1044. Cleanup pass not applicable: full theorem/checker not complete.
-Build: lake build PEqualNP.Outside.L_meta_2448, exit 0; Build completed successfully (5149 jobs).
-Warnings only: unused binder, unused simp arguments, deprecated if_pos. Full stdout/stderr are partial-2448-build.stdout/stderr.
-Checker: not run against incomplete theorem; full Mathlib cache preparation ongoing.
-Independent review: PASS for partial fork checkpoint; real format guard reports expected missing final theorem only. No proof PR ready.
-Checked components: least monotone circuit existence; common-center and star-profile conditions; disjoint ownership false positive; safe AND bypass; copy deletion and minimal-circuit operand property.
-Earlier L-meta-1896 lease failed with HTTP 410 before proof work; full diagnostic preserved in DESK_DIAGNOSTIC.txt.
-Desk null responses: 2.
+L-meta-2448: PARTIAL RESEARCH CHECKPOINT ONLY
+The posted theorem is unproved and unrefuted. No proof PR is ready or has been opened.
+
+Final file: lean/PEqualNP/Outside/L_meta_2448.lean
+Lines: 4450
+SHA256: 8a991769ac9ad2c61ed2d42d4b418772f96b5534ecd902af9794f010d8e85742
+Build: lake build PEqualNP.Outside.L_meta_2448, exit0.
+Exact result: Build completed successfully (5149 jobs).
+Complete outputs: final-fixed-build.stdout and final-fixed-build.stderr.
+
+Axiom audit:23 key declarations, exit0. Only propext, Classical.choice, Quot.sound.
+Complete outputs: final-fixed-axiom-audit.stdout and final-fixed-axiom-audit.stderr.
+
+Actual tools/check-lean.mjs on final file and original posted statement: exit3.
+CHECKER FAULT: the prebuilt Mathlib cache is missing. Run `lake exe cache get` in lean/ (RUNBOOK.md, section 2).
+Complete outputs: final-fixed-checker.stdout and final-fixed-checker.stderr.
+A bounded full-cache experiment earlier reached the verifier but faulted on missing Batteries.olean. Full Mathlib import never completed. The original targeted cache/toolchain were restored and byte-verified; ordinary targeted builds work. See infrastructure/README.md and complete evidence there.
+
+Actual repository format guard: exit1, with only the expected missing-final-theorem refusals. The named file contains helper lemmas, not the posted theorem. An earlier guard run rejected the extern prefix in a helper identifier; this was renamed to outside_reader_repair, rebuilt, re-audited and independently reviewed. No other format refusals remain.
+
+Independent final review: PASS FOR PARTIAL PRESERVATION ONLY. All18 component bodies match the assembled named source. See FINAL_REVIEW.md and individual reviews. This is not checker acceptance or PR-format acceptance.
+Cleanup pass: skipped because no full theorem or passing local checker exists. Lines before/after cleanup:4450/4450.
+
+Preserved results include minimum-circuit normalization, pivotal-edge necessity and restricted repairs, a star-cover upper construction, matching/P4 multigate exchanges, and finite counterexamples to stronger proposed routes. None refutes or proves the target. The structural OR-path wrapper was planned only; RectangleRepair retains an explicit uniform reachability assumption. General component decomposition and replacement-cost accounting remain unresolved.
+
+L-meta-1035 was checked first and was still conjectural in the public map; it was never assigned to this pilot. Initial L-meta-1896 lease failed with HTTP410; full diagnostic is preserved in DESK_DIAGNOSTIC.txt. Only the later L-meta-2448 lease is held by this task.
+Desk null responses:2.
 Exact null message: no step is free that you have not already looked at and handed back in the last hour (2); new steps are posted through the day, ask again in a few minutes
-Sub-agents: 6 (preflight review, Lean setup, OR-gate bound, counterexample search, library route, geometry route)
-TIMING total=24.2 subagents=6
 
-Additional compiled artifacts: StarCounterexample.lean checks a seven-gate C5 circuit and its star profile (not minimality); StarSandwich.lean checks preservation under downward monotone rewrites retaining edge positives. Both lake env lean exit 0, empty output. Root independently reviewed agent-authored sources; ordinary decide only, own namespaces, no forbidden constructs. These are research artifacts; named partial remains 1044 lines.
-Full checker environment: exact cache inventory shows approximately 3.47 GiB disk shortfall before optional cleanup; targeted Lean compilation works.
-
-Additional checked artifact StarCover.lean (441 lines): constructs star-profile circuit at vertex-cover cost and assembles exact posted conclusion CONDITIONALLY on the matching universal circuit lower bound. That lower bound is UNPROVED. Compiled exit 0, one unused-binder warning. Independent review passed first412-line snapshot; root reviewed29-line min-cover/conditional extension.
-Actual local checker invocation: exit 3; CHECKER FAULT: the prebuilt Mathlib cache is missing. Run `lake exe cache get` in lean/ (RUNBOOK.md, section 2).
-This is an infrastructure fault, not acceptance. The named partial also lacks the full posted theorem.
-
-Consolidated named partial: 1937 lines; lake build PEqualNP.Outside.L_meta_2448 exit0, Build completed successfully (5149 jobs).
-Added pivotal-star gate restriction, graph-rewrite, cover construction and checked C5 witness to the named file. Full posted theorem STILL ABSENT.
-Independent counterexample-agent review PASS for partial checkpoint. Axiom audit of11 key lemmas: only propext, Classical.choice, Quot.sound. Complete build, format and audit outputs preserved. Format guard refuses expected missing final theorem; this is not PR-ready.
-Cleanup not performed because full checker could not run. Line counts before/after cleanup:1937/1937.
-
-PivotalStarLimitation.lean compiled exit0 with empty stdout/stderr. Root independently reviewed41-line finite proof: a computingC5 circuit has starprofile yet gate5 pivotaledges have no commoncenter. This refutes an OVERSTRONG ROUTE assumption, not the posted statement; no minimumclaim.
-Sub-agents used so far:7 total (six direct agents plus preflight_review/critical_structure).
-
-Named partial now2715 lines: combined lake build exit0, Build completed successfully (5149 jobs). Added every-gate pivotal necessity, unique-pivotal-edge replacement, and a finite private-support counterexample to an overstrong OR-count route. Full posted theorem remains ABSENT. Independent reviews for Necessary and Unique passed; root reviewed finite witness. Full stdout/stderr saved alongside this validation. Cleanup not performed: no full proof or passing checker. Lines before/after cleanup2715/2715.
-Sub-agents: 7 total (six direct agents plus one reviewer child).
-TIMING total=58.5 subagents=7
-
-TwoLeafRepair.lean additionally compiled exit0 (empty log) and independently reviewed PASS: replaces a singleton-positive gate by OR of two inputs if their endpoints cover all pivotal edges. Preserves size/function/monotonicity; not a global normalization theorem. Artifact preserved separately from2715-line named module.
-Before commit, helper trailing blank EOF lines removed only; compiled named-module bytes unchanged. Complete compiler logs intentionally retain original whitespace. Independent reviewer confirmed named source SHA256c703581200c4c2beb6714c9175db1ba2bda4bf933fd3934f466285447f47ae09 and all new source bodies match reviewed components.
-
-MatchingExchange.lean310 lines compiled exit0; independent preflight review PASS, SHA256eede9dcae816833ebc2b948ae5e5fcf455b561d628afed348b0598c7dc288dd4. Three-gate rewrite preserves full function, size, Monotone2 and establishes two local star guarantees under explicit closed-block hypotheses. This is not the posted general existence theorem. Complete compiler log preserved. Extended15-key-lemma axiom audit exit0: only propext, Classical.choice, Quot.sound.
-
-BackwardNormalize.lean345 lines compiled exit0 and independently reviewed PASS, SHA25627d55004ff7669044079c1f5bcec95a66782f4d02ecad832fce2e12f41d6de2d. Any minimum exact graph circuit has an equal-size IsAO2 minimum replacement, including ReadsBack and exact binary fanin. No graph-girth assumptions; edgeless/n=0 case included. This closes wire normalization, not the star-profile theorem. Full compiler outputs preserved.
-
-Consolidated named partial now3655 lines, lake build exit0: Build completed successfully (5149 jobs). Added previously reviewed TwoLeafRepair, MatchingExchange, and BackwardNormalize bodies unchanged after import/blank-EOF normalization. Main theorem remains absent. Cleanup not applicable without full proof and passing checker; lines before/after cleanup3655/3655.
-
-ExternalRepair302lines compiled exit0 (one cosmetic warning), independent counterexample review PASS. FourVertexGeometry195lines compiled exit0 with empty logs, root independently reviewed PASS. Together they establish semantic repair conditions for a matching/P4 rectangle block, allowing arbitrary external readers; no proof every obstruction has that form. Not yet merged into3655line namedpartial.
-
-DoubleStarGeometry compiled exit0 with emptylogs, independentreviewPASS. It supplies conditional two-star coverage of graph pairs hitting both supports; it does not automatically supply ExternalRepair coverage for arbitrary old branches. RectangleRepair fullmodulecompiledexit0; independent192linebodyreviewPASS. Its actual3gate mutation preserves exactfunction andsize under an explicit uniform output-reach hypothesis; separate repair_model preservesIsAO2. Neither provesglobalstarprofileexistence. Fullsource/body andcompilerlogs preserved.
+Sub-agents:7 total; six direct agents (preflight review, Lean setup, OR-gate bound, counterexample search, library route, geometry route) and one structural-review child.
+TIMING total=92.0 subagents=7
+Updated UTC:2026-11-25T08:23:42.587104+00:00
+Lease status: held pending final checkpoint push and release.

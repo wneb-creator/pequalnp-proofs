@@ -1,0 +1,10 @@
+Compiled source snapshot of MatchingExchange.lean before wrapper addition.
+Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/MatchingExchange.lean
+Exit status: 0
+Full stdout/stderr:
+/workspace/pequalnp-proofs/results/orch/lemmas/MatchingExchange.lean:121:33: warning: Variable name `hgh` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hgh
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
