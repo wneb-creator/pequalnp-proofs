@@ -1,0 +1,11 @@
+L-meta-11929 REFUTATION of the posted negative statement.
+Named module build: PASS (5149 jobs).
+Result: exact seven-input graph has a nine-gate monotone circuit; every allowed circuit containing a NOT gate needs at least ten gates.
+Final theorem type: negation of the exact posted statement, checked independently.
+File format/import guard: PASS. Independent review: PASS.
+Official checker: CHECKER FAULT, full prebuilt Mathlib cache missing; no ACCEPTED verdict.
+Submission guard: REFUSED because the public gap expects check, not refute. No valid automatic PR route for this opposite statement. No PR opened.
+Cleanup skipped because official checker cannot run offline. Lines before/after: 1191/1191.
+Desk null responses: 0. Previous4970 lease returned410; compiled partials preserved in earlier commits.
+Sub-agents: 9 (six direct proof/search/review agents, plus finite audit, reach bridge, and tagged review)
+TIMING total=48.5 subagents=9

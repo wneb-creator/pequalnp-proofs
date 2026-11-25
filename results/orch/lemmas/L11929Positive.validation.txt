@@ -1,0 +1,14 @@
+2026-11-25 16:33:25 UTC
+File: results/orch/lemmas/L11929Positive.lean
+Lines: 1191
+SHA256: 4c801c7501e70798365916512ffd04fc6420aaeeade035b1acc17407f216d43d
+Command: lake env lean ../results/orch/lemmas/L11929Positive.lean
+Exit: 0
+Imports: PEqualNP.Defs only
+Result: the exact posted L-meta-11929 negative statement is false. Nine-gate monotone witness; every legal circuit containing a NOT gate has at least ten gates. Auxiliary final theorem proves negation of the exact desk statement.
+No sorry, axioms, native_decide, unsafe, _root_, string literals, or attributes.
+Full compiler output follows:
+../results/orch/lemmas/L11929Positive.lean:1062:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲

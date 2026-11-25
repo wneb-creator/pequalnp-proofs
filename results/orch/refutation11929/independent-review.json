@@ -1,0 +1,21 @@
+{
+  "reviewer": "pilot158_global_argument",
+  "time_utc": "2026-11-25T16:33:22.026108+00:00",
+  "file": "results/orch/lemmas/L11929Positive.lean",
+  "sha256": "4c801c7501e70798365916512ffd04fc6420aaeeade035b1acc17407f216d43d",
+  "generic_prefix_unchanged": true,
+  "final_type_exact_negation_of_desk_statement": true,
+  "all_16_projected_core_inputs_preserve_K4": true,
+  "monotone_9_gate_witness_independently_checked_all_128_inputs": true,
+  "witness_module_kernel_build": "exit 0, empty log",
+  "forbidden_patterns": [],
+  "attributes": [],
+  "options": [
+    "maxHeartbeats",
+    "maxRecDepth"
+  ],
+  "imports": [
+    "import PEqualNP.Defs"
+  ],
+  "verdict": "PASS source review; full adaptation build pending from toolchain agent"
+}
