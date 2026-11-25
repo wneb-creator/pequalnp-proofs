@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "generator_sha256": "32523ab1c80d8d0361d6df7ec091ba3c0e37b5581980feefb74ef96c5150afad",
+  "relaxed_main_write_rejected": true,
+  "main_file_sha256_unchanged": "aaeb9e91385f2cb04fb7232630d4dd565c26ae3f0523e930f5ea07dd3d1c0143",
+  "normalization_test_original_gates": 30,
+  "normalized_gates": 27,
+  "truth_rows_checked_before_and_after": 16384,
+  "helper_source_hashes_verified": true,
+  "scope": "Assembly infrastructure; actual26-gate witness absent. Relaxed27 proof is not the posted statement."
+}

@@ -31,3 +31,4 @@
 - 2026-11-25T07:51:40.365771+00:00: live-localized RootCover (514lines) compiled and independently reviewed; preserving conditional root-pair coverage, without any claimed circuit-size conclusion.
 - 2026-11-25T07:54:59.232127+00:00: SelectedLabels recursion (76lines) compiled and independently reviewed; explicit label assumptions for the conditional cover bridge are discharged.
 - 2026-11-25T07:57:16.729442+00:00: coherent ForkCover endpoint (797lines) compiled and independently reviewed. Conditional coverage and cover cardinality are proved; exceptional-edge budget and multiple-dirty cases are unresolved. One-dirty development stopped ahead of08:05cap.
+- 2026-11-25T08:12:21.234533+00:00: complete inline witness-generator smoke (541lines,27gates/tail25 only) passed Lean and independent review. Strict exact-statement26-gate mode, full truth validation, normalization and relaxed-to-main guard independently passed. Assigned module remains unchanged.

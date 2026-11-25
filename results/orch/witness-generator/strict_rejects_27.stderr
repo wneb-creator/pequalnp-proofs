@@ -1,0 +1,2 @@
+usage: generate_witness.py [-h] --output OUTPUT [--relaxed-27-test] gates
+generate_witness.py: error: Normalized circuit exceeds the permitted tail bound

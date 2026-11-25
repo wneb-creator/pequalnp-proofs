@@ -1,0 +1,19 @@
+# Witness generator: independent review
+
+PASS for the stable bundle under `/tmp/oec/pequalnp-pilot-70/formalization/witness-generator/`. Reviewed by repo_review on 2026-11-25. No Lean compilation was started by this reviewer.
+
+The generator SHA256 is `32523ab1c80d8d0361d6df7ec091ba3c0e37b5581980feefb74ef96c5150afad`. The template SHA256 is `eba85a57e943710f9c541af603736b91c8af590dd5cdc141b6f78411c7b2ac6f`. The posted-statement file matches the recorded assignment statement and has SHA256 `170149ad7d498f69b6694d78815b54d87a11c0d698f0197b33689b9637587edf`. Original helper-source hashes and every validation-bundle hash were independently checked.
+
+Strict mode accepts only binary AND/OR gate lists with valid earlier fanins. It checks all 16,384 assignments before normalization and again afterward. Normalization sorts commutative fanins, removes idempotent and duplicate gates, and compacts the reachable output cone. It preserves a final-gate output and distinct first-two fanins. The normalized gate count must be at most 26, leaving at most 24 tail gates. An independent regression added an unused gate, a duplicate gate, and an idempotent output to the 27-gate baseline; all assignments were checked before and after its reduction from 30 gates back to 27.
+
+The packed boundary check uses the reviewed 58-row constants and checks the exact packed target. With at most 26 normalized gates, every fanin fits the six-bit decoder fields. The first two gates become the typed prefix; the remaining gate list becomes the tail. The generated Lean proof itself checks the finite packed equality through kernel reduction. Python validation alone is never presented as Lean acceptance.
+
+The template uses only `PEqualNP.Defs`, places helpers inside one outer auxiliary namespace, and leaves exactly one fully qualified theorem last. Its strict conclusion is the posted statement without any bound replacement. Final scans found no strings, root escapes, helper instances, added axioms, unsafe proof commands, unsupported attributes or options. The canonical-prefix argument quantifies over actual witnesses and uses the checked transport theorem; it does not assume a fixed initial prefix.
+
+Relaxed mode is explicitly restricted to the job scratch directory and exactly 27 normalized gates. It changes the four helper tail bounds and the single conclusion tail bound from 24 to 25. I independently invoked relaxed mode with the assigned main-file output path: it rejected the call with exit 2 before writing, and the existing main-file SHA256 remained unchanged. Path resolution also precedes the scratch check, so a scratch alias resolving into the repository is rejected by the same condition.
+
+The relaxed standalone file has 541 lines and SHA256 `87afdb03d65be33cdf5698ada77d82a02b3f6672aa4e2d23b729595c85871453`. Its recorded Lean run exited 0 with 16 deprecation/style warnings and no errors. Its conclusion matches the posted text except for tail bound 25. README, validation metadata, output scope and directory name clearly label this as a weaker smoke fixture. It is not a proof of the posted 26-gate statement and must not be submitted as one.
+
+Recorded strict guard tests reject both the 27-gate baseline and an incorrect truncated circuit, with exit 2 and no output file. Full stdout/stderr are preserved. The independent main-path guard test and normalization results are under `/tmp/oec/pequalnp-pilot-70/witness-review/`.
+
+The README contains the strict generation/build command for a genuine full 14-input candidate. A successful F0-only search must first use its direct two-gate extension to produce that full candidate; correlated runners already save their full embedded witness separately from the residual cone. An actual candidate still requires its own Lean build, the official checker and independent final diff review. No actual 26-gate witness was available for this review.

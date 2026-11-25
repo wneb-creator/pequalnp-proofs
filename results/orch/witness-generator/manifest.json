@@ -1,0 +1,14 @@
+{
+  "gap": "L-meta-2732",
+  "module": "PEqualNP.Outside.L_meta_2732",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "statement_sha256": "170149ad7d498f69b6694d78815b54d87a11c0d698f0197b33689b9637587edf",
+  "template_sha256": "eba85a57e943710f9c541af603736b91c8af590dd5cdc141b6f78411c7b2ac6f",
+  "helper_sources": {
+    "PrefixNormalize.lean": "b53fe2f50394bd59e1e14130b6092ca551294d845687878d76743ba249f046d4",
+    "PackedDecoder.lean": "81824cae648213d4df2aa5e29d4ef098705a73fcce5beafd54f62229972b31b3",
+    "PackedWitness.fragment": "05d9bd9d3ee2e930f655ff9368dc605863339b1f244062460cc88c15b7397e44"
+  }
+}

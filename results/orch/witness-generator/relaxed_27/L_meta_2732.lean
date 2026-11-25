@@ -1,0 +1,541 @@
+import PEqualNP.Defs
+
+namespace PEqualNP.Outside.L_meta_2732_aux
+
+namespace Rename
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def wire {n : ℕ} (f : Fin n → Fin n) (i : ℕ) : ℕ :=
+  if hi : i < n then (f ⟨i, hi⟩).val else i
+
+def gate {n : ℕ} (f : Fin n → Fin n) (g : Gate) : Gate :=
+  ⟨g.op, g.inputs.map (wire f)⟩
+
+def circuit {n : ℕ} (f : Fin n → Fin n) (C : Circuit) : Circuit :=
+  ⟨C.gates.map (gate f), wire f C.output⟩
+
+def run (gs : List Gate) (w : List Bool) : List Bool :=
+  gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) w
+
+lemma wire_eq_above {n : ℕ} (f : Fin n → Fin n) (i m : ℕ) (hm : n ≤ m) :
+    wire f i = m ↔ i = m := by
+  by_cases hi : i < n
+  · have hf := (f ⟨i, hi⟩).isLt
+    simp only [wire, dif_pos hi]
+    omega
+  · simp only [wire, dif_neg hi]
+
+lemma wire_input {n : ℕ} (f : Fin n → Fin n) (i : Fin n) :
+    wire f i.val = (f i).val := by
+  simp [wire, i.isLt]
+
+lemma wire_past {n : ℕ} (f : Fin n → Fin n) (i : ℕ) (hi : n ≤ i) :
+    wire f i = i := by
+  simp [wire, Nat.not_lt_of_ge hi]
+
+lemma wire_lt {n m : ℕ} (f : Fin n → Fin n) (i : ℕ) (hn : n ≤ m) (hi : i < m) :
+    wire f i < m := by
+  by_cases h : i < n
+  · rw [wire, dif_pos h]
+    exact lt_of_lt_of_le (f ⟨i, h⟩).isLt hn
+  · simpa [wire, h] using hi
+
+lemma wire_injective {n : ℕ} (f : Fin n → Fin n) (hf : Function.Injective f) :
+    Function.Injective (wire f) := by
+  intro i j hij
+  by_cases hi : i < n <;> by_cases hj : j < n
+  · have h : f ⟨i, hi⟩ = f ⟨j, hj⟩ := by
+      apply Fin.ext
+      simpa [wire, hi, hj] using hij
+    exact congrArg Fin.val (hf h)
+  · have h := (f ⟨i, hi⟩).isLt
+    simp only [wire, dif_pos hi, dif_neg hj] at hij
+    omega
+  · have h := (f ⟨j, hj⟩).isLt
+    simp only [wire, dif_neg hi, dif_pos hj] at hij
+    omega
+  · simpa [wire, hi, hj] using hij
+
+lemma append_get (w : List Bool) (b : Bool) (i : ℕ) :
+    (w ++ [b]).getD i false = if i = w.length then b else w.getD i false := by
+  rcases Nat.lt_trichotomy i w.length with h | h | h
+  · rw [List.getD_append _ _ _ _ h, if_neg (by omega)]
+  · subst i
+    simp
+  · rw [List.getD_eq_default _ _ (by simp; omega), if_neg (by omega),
+      List.getD_eq_default _ _ (by omega)]
+
+lemma initial {n : ℕ} (f : Fin n → Fin n) (x : Fin n → Bool) (s : List Bool) (i : ℕ) :
+    (List.ofFn x ++ s).getD (wire f i) false =
+      (List.ofFn (x ∘ f) ++ s).getD i false := by
+  by_cases hi : i < n
+  · simp only [wire, dif_pos hi]
+    rw [List.getD_append _ _ _ _ (by simpa using (f ⟨i, hi⟩).isLt),
+      List.getD_append _ _ _ _ (by simpa using hi)]
+    rw [List.getD_eq_getElem _ _ (by simpa using (f ⟨i, hi⟩).isLt),
+      List.getD_eq_getElem _ _ (by simpa using hi)]
+    simp only [List.getElem_ofFn, Function.comp_apply]
+  · simp only [wire, dif_neg hi]
+    rw [List.getD_append_right _ _ _ _ (by simpa using Nat.le_of_not_gt hi),
+      List.getD_append_right _ _ _ _ (by simpa using Nat.le_of_not_gt hi)]
+    simp only [List.length_ofFn]
+
+lemma fold {n : ℕ} (f : Fin n → Fin n) (gs : List Gate) :
+    ∀ old new : List Bool, n ≤ old.length → new.length = old.length →
+      (∀ i, new.getD (wire f i) false = old.getD i false) →
+      ∀ i, (run (gs.map (gate f)) new).getD (wire f i) false =
+        (run gs old).getD i false := by
+  induction gs with
+  | nil => intro old new hn hl hr; exact hr
+  | cons g gs ih =>
+    intro old new hn hl hr
+    let b := g.op.eval (g.inputs.map fun i => old.getD i false)
+    have hb : (gate f g).op.eval ((gate f g).inputs.map fun i => new.getD i false) = b := by
+      simp only [gate, List.map_map]
+      congr 1
+      apply List.map_congr_left
+      intro i _
+      exact hr i
+    have step : ∀ i, (new ++ [b]).getD (wire f i) false = (old ++ [b]).getD i false := by
+      intro i
+      rw [append_get, append_get, hl]
+      simp only [wire_eq_above f i old.length hn, hr i]
+    have hh := ih (old ++ [b]) (new ++ [b]) (by simp; omega) (by simp [hl]) step
+    simpa only [run, List.map_cons, List.foldl_cons, hb] using hh
+
+lemma eval {n : ℕ} (f : Fin n → Fin n) (C : Circuit) (x : Fin n → Bool) (s : List Bool) :
+    (circuit f C).eval (List.ofFn x ++ s) = C.eval (List.ofFn (x ∘ f) ++ s) := by
+  exact fold f C.gates (List.ofFn (x ∘ f) ++ s) (List.ofFn x ++ s)
+    (by simp) (by simp) (initial f x s) C.output
+
+lemma size {n : ℕ} (f : Fin n → Fin n) (C : Circuit) : (circuit f C).size = C.size := by
+  simp [circuit, Circuit.size]
+
+lemma monotone {n : ℕ} (f : Fin n → Fin n) {C : Circuit} (h : Monotone2 C) :
+    Monotone2 (circuit f C) := by
+  intro g hg
+  obtain ⟨a, ha, rfl⟩ := List.mem_map.mp hg
+  obtain ⟨ho, hi⟩ := h a ha
+  exact ⟨ho, by simpa [gate] using hi⟩
+
+end Rename
+
+
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def prefixScore (a b c d : ℕ) : ℕ :=
+  (15 * min a b + max a b) * 225 + (15 * min c d + max c d)
+
+def prefixRename (σ : Equiv.Perm (Fin 14)) (i : Fin 15) : ℕ :=
+  if i.val < 14 then (σ (Fin.ofNat 14 i.val)).val else 14
+
+def prefixWitness (F : (Fin 14 → Bool) → Bool)
+    (a b : Fin 14) (c d : Fin 15) (op₁ op₂ : GateOp) (D : Circuit) : Prop :=
+  a < b ∧ c < d ∧
+  (op₁ = GateOp.and ∨ op₁ = GateOp.or) ∧
+  (op₂ = GateOp.and ∨ op₂ = GateOp.or) ∧
+  Monotone2 D ∧ D.size ≤ 25 ∧
+  ∀ x : Fin 14 → Bool,
+    let w := List.ofFn x ++ [op₁.eval [x a, x b]]
+    D.eval (w ++ [op₂.eval [w.getD c.val false, w.getD d.val false]]) = F x
+
+lemma minimum_prefix (F : (Fin 14 → Bool) → Bool)
+    (h : ∃ a b c d op₁ op₂ D, prefixWitness F a b c d op₁ op₂ D) :
+    ∃ a b c d op₁ op₂ D, prefixWitness F a b c d op₁ op₂ D ∧
+      ∀ a' b' c' d' op₁' op₂' D', prefixWitness F a' b' c' d' op₁' op₂' D' →
+        prefixScore a.val b.val c.val d.val ≤ prefixScore a'.val b'.val c'.val d'.val := by
+  classical
+  let P : ℕ → Prop := fun n =>
+    ∃ a b c d op₁ op₂ D, prefixWitness F a b c d op₁ op₂ D ∧
+      prefixScore a.val b.val c.val d.val = n
+  have hex : ∃ n, P n := by
+    obtain ⟨a, b, c, d, op₁, op₂, D, hD⟩ := h
+    exact ⟨_, a, b, c, d, op₁, op₂, D, hD, rfl⟩
+  obtain ⟨a, b, c, d, op₁, op₂, D, hD, hs⟩ := Nat.find_spec hex
+  refine ⟨a, b, c, d, op₁, op₂, D, hD, ?_⟩
+  intro a' b' c' d' op₁' op₂' D' hD'
+  rw [hs]
+  exact Nat.find_min' hex ⟨a', b', c', d', op₁', op₂', D', hD', rfl⟩
+
+lemma canonical_prefix (F : (Fin 14 → Bool) → Bool)
+    (h : ∃ a b c d op₁ op₂ D, prefixWitness F a b c d op₁ op₂ D)
+    (transport : ∀ a b c d op₁ op₂ D,
+      prefixWitness F a b c d op₁ op₂ D →
+      ∀ σ : Equiv.Perm (Fin 14), (∀ x, F (x ∘ σ) = F x) →
+        ∃ a' b' c' d' op₁' op₂' D', prefixWitness F a' b' c' d' op₁' op₂' D' ∧
+          prefixScore a'.val b'.val c'.val d'.val =
+            prefixScore (σ a).val (σ b).val (prefixRename σ c) (prefixRename σ d)) :
+    ∃ a b c d op₁ op₂ D,
+      a < b ∧ c < d ∧
+      (op₁ = GateOp.and ∨ op₁ = GateOp.or) ∧
+      (op₂ = GateOp.and ∨ op₂ = GateOp.or) ∧
+      (∀ σ : Equiv.Perm (Fin 14), (∀ x, F (x ∘ σ) = F x) →
+        prefixScore a.val b.val c.val d.val ≤
+          prefixScore (σ a).val (σ b).val (prefixRename σ c) (prefixRename σ d)) ∧
+      Monotone2 D ∧ D.size ≤ 25 ∧
+      ∀ x : Fin 14 → Bool,
+        let w := List.ofFn x ++ [op₁.eval [x a, x b]]
+        D.eval (w ++ [op₂.eval [w.getD c.val false, w.getD d.val false]]) = F x := by
+  obtain ⟨a, b, c, d, op₁, op₂, D, hD, hmin⟩ := minimum_prefix F h
+  obtain ⟨hab, hcd, ho₁, ho₂, hm, hs, he⟩ := hD
+  refine ⟨a, b, c, d, op₁, op₂, D, hab, hcd, ho₁, ho₂, ?_, hm, hs, he⟩
+  intro σ hσ
+  obtain ⟨a', b', c', d', op₁', op₂', D', hD', hs'⟩ :=
+    transport a b c d op₁ op₂ D ⟨hab, hcd, ho₁, ho₂, hm, hs, he⟩ σ hσ
+  rw [← hs']
+  exact hmin a' b' c' d' op₁' op₂' D' hD'
+
+
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def prefixIndex (σ : Equiv.Perm (Fin 14)) (i : Fin 15) : Fin 15 :=
+  ⟨Rename.wire σ i.val, Rename.wire_lt σ i.val (by decide) i.isLt⟩
+
+lemma prefixIndex_injective (σ : Equiv.Perm (Fin 14)) :
+    Function.Injective (prefixIndex σ) := by
+  intro i j h
+  apply Fin.ext
+  exact Rename.wire_injective σ σ.injective (congrArg Fin.val h)
+
+lemma prefixIndex_val (σ : Equiv.Perm (Fin 14)) (i : Fin 15) :
+    (prefixIndex σ i).val = prefixRename σ i := by
+  unfold prefixIndex prefixRename Rename.wire
+  by_cases h : i.val < 14
+  · simp only [dif_pos h, if_pos h]
+    congr 1
+    apply Fin.ext
+    simp [Fin.ofNat, Nat.mod_eq_of_lt h]
+  · have hi : i.val = 14 := by omega
+    simp [h, hi]
+
+lemma op_comm (op : GateOp) (h : op = GateOp.and ∨ op = GateOp.or) (a b : Bool) :
+    op.eval [a, b] = op.eval [b, a] := by
+  rcases h with rfl | rfl <;> simp [GateOp.eval, Bool.and_comm, Bool.or_comm]
+
+lemma op_min_max {n : ℕ} (op : GateOp) (h : op = GateOp.and ∨ op = GateOp.or)
+    (x : Fin n → Bool) (a b : Fin n) :
+    op.eval [x (min a b), x (max a b)] = op.eval [x a, x b] := by
+  by_cases hab : a ≤ b
+  · simp [min_eq_left hab, max_eq_right hab]
+  · simp only [min_eq_right (le_of_not_ge hab), max_eq_left (le_of_not_ge hab)]
+    exact op_comm op h _ _
+
+lemma score_sorted (a b : Fin 14) (c d : Fin 15) :
+    prefixScore (min a b).val (max a b).val (min c d).val (max c d).val =
+      prefixScore a.val b.val c.val d.val := by
+  simp [prefixScore, Fin.val_min, Fin.val_max]
+
+lemma transport_prefix (F : (Fin 14 → Bool) → Bool)
+    (a b : Fin 14) (c d : Fin 15) (op₁ op₂ : GateOp) (D : Circuit)
+    (hD : prefixWitness F a b c d op₁ op₂ D)
+    (σ : Equiv.Perm (Fin 14)) (hσ : ∀ x, F (x ∘ σ) = F x) :
+    ∃ a' b' c' d' op₁' op₂' D', prefixWitness F a' b' c' d' op₁' op₂' D' ∧
+      prefixScore a'.val b'.val c'.val d'.val =
+        prefixScore (σ a).val (σ b).val (prefixRename σ c) (prefixRename σ d) := by
+  obtain ⟨hab, hcd, ho₁, ho₂, hm, hs, he⟩ := hD
+  let ca := σ a
+  let cb := σ b
+  let cc := prefixIndex σ c
+  let cd := prefixIndex σ d
+  have hab' : ca ≠ cb := fun h => ne_of_lt hab (σ.injective h)
+  have hcd' : cc ≠ cd := fun h => ne_of_lt hcd (prefixIndex_injective σ h)
+  refine ⟨min ca cb, max ca cb, min cc cd, max cc cd, op₁, op₂, Rename.circuit σ D, ?_, ?_⟩
+  · refine ⟨min_lt_max.mpr hab', min_lt_max.mpr hcd', ho₁, ho₂,
+      Rename.monotone σ hm, ?_, ?_⟩
+    · simpa only [Rename.size] using hs
+    · intro x
+      simp only [op_min_max op₁ ho₁]
+      let u := op₁.eval [x ca, x cb]
+      let w := List.ofFn x ++ [u]
+      let v := List.ofFn (x ∘ σ) ++ [u]
+      have hget (i : Fin 15) : w.getD (prefixIndex σ i).val false = v.getD i.val false :=
+        Rename.initial σ x [u] i.val
+      have hsecond : op₂.eval [w.getD (min cc cd).val false, w.getD (max cc cd).val false] =
+          op₂.eval [v.getD c.val false, v.getD d.val false] := by
+        rw [op_min_max op₂ ho₂ (fun i : Fin 15 => w.getD i.val false)]
+        rw [hget c, hget d]
+      change (Rename.circuit σ D).eval
+        (w ++ [op₂.eval [w.getD (min cc cd).val false, w.getD (max cc cd).val false]]) = F x
+      rw [hsecond]
+      have hEval := Rename.eval σ D x [u, op₂.eval [v.getD c.val false, v.getD d.val false]]
+      have hOriginal := he (x ∘ σ)
+      change D.eval (v ++ [op₂.eval [v.getD c.val false, v.getD d.val false]]) = F (x ∘ σ) at hOriginal
+      simpa only [w, v, List.append_assoc, List.cons_append, List.nil_append] using
+        hEval.trans (hOriginal.trans (hσ x))
+  · rw [score_sorted]
+    simp only [cc, cd, ca, cb, prefixIndex_val]
+
+namespace Packed
+
+open PEqualNP.CircuitLowerBounds
+
+def step (w : List Bool) (g : Gate) : List Bool :=
+  w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]
+
+lemma getD_le {w v : List Bool} (h : List.Forall₂ (fun a b => a ≤ b) w v) (i : ℕ) :
+    w.getD i false ≤ v.getD i false := by
+  induction h generalizing i with
+  | nil => simp
+  | cons hab _ ih =>
+    cases i with
+    | zero => simpa using hab
+    | succ i => simpa using ih i
+
+lemma bool_le {a b : Bool} : a ≤ b ↔ (a = true → b = true) := by
+  cases a <;> cases b <;> decide
+
+lemma gate_le (g : Gate) (hg : g.op = GateOp.and ∨ g.op = GateOp.or) {w v : List Bool}
+    (h : List.Forall₂ (fun a b => a ≤ b) w v) :
+    g.op.eval (g.inputs.map fun i => w.getD i false) ≤
+      g.op.eval (g.inputs.map fun i => v.getD i false) := by
+  rw [bool_le]
+  rcases hg with hg | hg
+  · rw [hg]
+    simp only [GateOp.eval, List.all_eq_true, List.mem_map, id]
+    intro hx x hx2
+    obtain ⟨i, hi, rfl⟩ := hx2
+    exact bool_le.mp (getD_le h i) (hx _ ⟨i, hi, rfl⟩)
+  · rw [hg]
+    simp only [GateOp.eval, List.any_eq_true, List.mem_map, id]
+    rintro ⟨x, ⟨i, hi, rfl⟩, hx⟩
+    exact ⟨_, ⟨i, hi, rfl⟩, bool_le.mp (getD_le h i) hx⟩
+
+lemma fold_le (gs : List Gate) (hgs : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or) :
+    ∀ w v : List Bool, List.Forall₂ (fun a b => a ≤ b) w v →
+      List.Forall₂ (fun a b => a ≤ b) (gs.foldl step w) (gs.foldl step v) := by
+  induction gs with
+  | nil => intro w v h; simpa using h
+  | cons g gs ih =>
+    intro w v h
+    simp only [List.foldl_cons]
+    apply ih (fun g2 hg2 => hgs g2 (List.mem_cons_of_mem _ hg2))
+    exact List.rel_append h (List.Forall₂.cons (gate_le g (hgs g List.mem_cons_self) h) List.Forall₂.nil)
+
+lemma mono (n : ℕ) (gs : List Gate) (hgs : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (x y : Fin n → Bool) (hxy : ∀ i, x i = true → y i = true) (o : ℕ) :
+    (gs.foldl step (List.ofFn x)).getD o false ≤ (gs.foldl step (List.ofFn y)).getD o false := by
+  have h0 : List.Forall₂ (fun a b => a ≤ b) (List.ofFn x) (List.ofFn y) := by
+    rw [List.forall₂_iff_get]
+    refine ⟨by simp only [List.length_ofFn], fun i h1 h2 => ?_⟩
+    simp only [List.get_eq_getElem, List.getElem_ofFn]
+    exact bool_le.mpr (hxy _)
+  exact getD_le (fold_le gs hgs _ _ h0) o
+
+
+def nums : List ℕ := [95229015649943559, 63038587666488, 256462815680, 4292497062759936, 8521481482240, 14003410187812864, 55389823207997440, 189297016294081033, 155696362464477250, 218994303132270608, 183565875465490436, 229736628138025984, 270286071508633728, 288160007407550752]
+
+def edges : List (ℕ × ℕ) := [(0, 7), (0, 8), (0, 10), (1, 7), (1, 9), (1, 13), (2, 8), (2, 12), (2, 13), (3, 7), (3, 11), (3, 12), (4, 10), (4, 11), (4, 13), (5, 9), (5, 10), (5, 12), (6, 8), (6, 9), (6, 11)]
+
+def cols : List ℕ := [127, 244, 314, 432, 541, 660, 792, 1102, 1220, 1290, 1548, 2087, 2212, 2338, 2565, 3078, 3716, 4179, 4304, 4370, 4625, 5008, 5186, 6147, 7426, 8297, 8416, 8488, 8713, 9288, 9992, 10273, 10656, 12353, 13504, 14849, 16256]
+
+def chk (m : ℕ) : Bool :=
+  edges.any (fun e => m.testBit e.1 && m.testBit e.2) ||
+    (List.range 37).any (fun j => m &&& cols.getD j 0 == m)
+
+lemma chk_all2 : ∀ a < 128, ∀ b < 128, chk (a * 128 + b) = true := by decide +kernel
+
+lemma chk_all : ∀ m < 16384, chk m = true := by
+  intro m hm
+  have h := chk_all2 (m / 128) (by omega) (m % 128) (by omega)
+  rwa [Nat.div_add_mod' m 128] at h
+
+lemma edges_lt : ∀ e ∈ edges, e.1 < 14 ∧ e.2 < 14 := by decide
+
+lemma col_eq : ∀ j < 37, List.ofFn (fun i : Fin 14 => (cols.getD j 0).testBit i.val) =
+    nums.map (fun n => n.testBit (21 + j)) ∧ Nat.testBit 2097151 (21 + j) = false := by
+  decide +kernel
+
+lemma edge_eq : ∀ u v : Fin 14, (u.val, v.val) ∈ edges → ∃ k : ℕ, k < 21 ∧
+    nums.map (fun n => n.testBit k) = List.ofFn (fun i : Fin 14 => decide (i = u ∨ i = v)) ∧
+      Nat.testBit 2097151 k = true := by
+  decide +kernel
+
+
+def X2 : List ℕ → ℕ → List ℕ := fun L x => L ++ [if x < 4096 then L.getD (x % 64) 0 &&& L.getD (x / 64 % 64) 0 else L.getD (x % 64) 0 ||| L.getD (x / 64 % 64) 0]
+
+def X3 : ℕ → Gate := fun x => { op := if x < 4096 then GateOp.and else GateOp.or, inputs := [x % 64, x / 64 % 64] }
+
+lemma getD_tb (L : List ℕ) (k i : ℕ) :
+    (L.map (fun n => n.testBit k)).getD i false = (L.getD i 0).testBit k := by
+  rw [show false = (0 : ℕ).testBit k from (Nat.zero_testBit k).symm, List.getD_map]
+
+lemma sim (k : ℕ) : ∀ (xs L : List ℕ),
+    (xs.foldl X2 L).map (fun n => n.testBit k) = (xs.map X3).foldl step (L.map (fun n => n.testBit k)) := by
+  intro xs
+  induction xs with
+  | nil => intro L; rfl
+  | cons x xs ih =>
+    intro L
+    simp only [List.foldl_cons, List.map_cons]
+    rw [ih]
+    congr 1
+    unfold X2 step X3
+    rw [List.map_append]
+    congr 1
+    simp only [List.map_cons, List.map_nil, List.cons.injEq, and_true, getD_tb]
+    by_cases h : x < 4096 <;> simp [h, GateOp.eval, Nat.testBit_and, Nat.testBit_or]
+
+lemma ev (xs : List ℕ) (k : ℕ) :
+    Circuit.eval ⟨xs.map X3, 13 + xs.length⟩ (nums.map (fun n => n.testBit k)) =
+      ((xs.foldl X2 nums).getD (13 + xs.length) 0).testBit k := by
+  show ((xs.map X3).foldl step (nums.map (fun n => n.testBit k))).getD (13 + xs.length) false = _
+  rw [← sim k xs nums, getD_tb]
+
+lemma key (gs : List Gate) (out : ℕ) (hgs : ∀ g ∈ gs, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (hk : ∀ (x3 : ℕ), Circuit.eval ⟨gs, out⟩ (nums.map (fun n => n.testBit x3)) = Nat.testBit 2097151 x3)
+    (x : Fin 14 → Bool) :
+    Circuit.eval ⟨gs, out⟩ (List.ofFn x) = true ↔
+      ∃ (u v : Fin 14), (u.val, v.val) ∈ edges ∧ x u = true ∧ x v = true := by
+  have hm : ∀ y z : Fin 14 → Bool, (∀ i, y i = true → z i = true) →
+      Circuit.eval ⟨gs, out⟩ (List.ofFn y) = true →
+      Circuit.eval ⟨gs, out⟩ (List.ofFn z) = true := by
+    intro y z h hy
+    exact bool_le.mp (mono 14 gs hgs y z h out) hy
+  constructor
+  · intro hx
+    have hlt : Nat.ofBits x < 16384 := Nat.ofBits_lt_two_pow x
+    have hc := chk_all _ hlt
+    have hb : ∀ (i : ℕ) (h : i < 14), (Nat.ofBits x).testBit i = x ⟨i, h⟩ :=
+      fun i h => Nat.testBit_ofBits_lt x i h
+    simp only [chk, Bool.or_eq_true, List.any_eq_true, Bool.and_eq_true, List.mem_range,
+      beq_iff_eq] at hc
+    rcases hc with ⟨e, he, h1, h2⟩ | ⟨j, hj, hjm⟩
+    · obtain ⟨l1, l2⟩ := edges_lt e he
+      refine ⟨⟨e.1, l1⟩, ⟨e.2, l2⟩, he, ?_, ?_⟩
+      · rw [← hb e.1 l1]; exact h1
+      · rw [← hb e.2 l2]; exact h2
+    · exfalso
+      obtain ⟨c1, c2⟩ := col_eq j hj
+      have h3 := hm x (fun i : Fin 14 => (cols.getD j 0).testBit i.val) (by
+        intro i hi
+        have h4 : (Nat.ofBits x &&& cols.getD j 0).testBit i.val = true := by
+          rw [hjm, hb i.val i.isLt]; exact hi
+        rw [Nat.testBit_and] at h4
+        simp only [Bool.and_eq_true] at h4
+        exact h4.2) hx
+      rw [c1] at h3
+      have h5 : Circuit.eval ⟨gs, out⟩ (nums.map (fun n => n.testBit (21 + j))) =
+          Nat.testBit 2097151 (21 + j) := hk (21 + j)
+      rw [h3, c2] at h5
+      exact Bool.false_ne_true h5.symm
+  · rintro ⟨u, v, huv, hu, hv⟩
+    obtain ⟨k, _, e1, e2⟩ := edge_eq u v huv
+    have h5 : Circuit.eval ⟨gs, out⟩ (nums.map (fun n => n.testBit k)) =
+        Nat.testBit 2097151 k := hk k
+    rw [e1, e2] at h5
+    refine hm _ x ?_ h5
+    intro i hi
+    simp only [decide_eq_true_eq] at hi
+    rcases hi with rfl | rfl
+    · exact hu
+    · exact hv
+
+
+lemma decode (xs : List ℕ)
+    (hout : (xs.foldl X2 nums).getD (13 + xs.length) 0 = 2097151)
+    (x : Fin 14 → Bool) :
+    Circuit.eval ⟨xs.map X3, 13 + xs.length⟩ (List.ofFn x) =
+      decide (∃ u v : Fin 14, (u.val, v.val) ∈ edges ∧ x u = true ∧ x v = true) := by
+  have hgs : ∀ g ∈ xs.map X3, g.op = GateOp.and ∨ g.op = GateOp.or := by
+    intro g hg
+    obtain ⟨a, _, rfl⟩ := List.mem_map.mp hg
+    by_cases h : a < 4096 <;> simp [X3, h]
+  have hk : ∀ k : ℕ, Circuit.eval ⟨xs.map X3, 13 + xs.length⟩ (nums.map (fun n => n.testBit k)) =
+      Nat.testBit 2097151 k := by
+    intro k
+    rw [ev, hout]
+  rw [Bool.eq_iff_iff, key _ _ hgs hk x, decide_eq_true_iff]
+
+end Packed
+
+namespace PackedWitness
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def op (b : Bool) : GateOp := if b then GateOp.or else GateOp.and
+
+def code (a b : ℕ) (o : Bool) : ℕ := a + 64 * b + if o then 4096 else 0
+
+def program (a b : Fin 14) (c d : Fin 15) (u v : Bool) (tail : List ℕ) : List ℕ :=
+  code a.val b.val u :: code c.val d.val v :: tail
+
+def tailCircuit (tail : List ℕ) : Circuit := ⟨tail.map Packed.X3, 15 + tail.length⟩
+
+def target (x : Fin 14 → Bool) : Bool :=
+  decide (∃ u v : Fin 14, (u.val, v.val) ∈ Packed.edges ∧ x u = true ∧ x v = true)
+
+lemma op_ok (b : Bool) : op b = GateOp.and ∨ op b = GateOp.or := by
+  cases b <;> simp [op]
+
+lemma code_gate (a b : ℕ) (o : Bool) (ha : a < 64) (hb : b < 64) :
+    Packed.X3 (code a b o) = ⟨op o, [a, b]⟩ := by
+  cases o
+  · have h : a + 64 * b < 4096 := by omega
+    have h1 : (a + 64 * b) % 64 = a := by omega
+    have h2 : (a + 64 * b) / 64 % 64 = b := by omega
+    simp [Packed.X3, code, op, h, h1, h2]
+  · have h : ¬ a + 64 * b + 4096 < 4096 := by omega
+    have h1 : (a + 64 * b + 4096) % 64 = a := by omega
+    have h2 : (a + 64 * b + 4096) / 64 % 64 = b := by omega
+    simp [Packed.X3, code, op, h, h1, h2]
+
+lemma raw (a b : Fin 14) (c d : Fin 15) (u v : Bool) (tail : List ℕ)
+    (hab : a < b) (hcd : c < d) (hlen : tail.length ≤ 25)
+    (hcheck : ((program a b c d u v tail).foldl Packed.X2 Packed.nums).getD
+      (15 + tail.length) 0 = 2097151) :
+    prefixWitness target a b c d (op u) (op v) (tailCircuit tail) := by
+  refine ⟨hab, hcd, op_ok u, op_ok v, ?_, ?_, ?_⟩
+  · intro g hg
+    obtain ⟨t, _, rfl⟩ := List.mem_map.mp hg
+    by_cases ht : t < 4096 <;> simp [Packed.X3, ht]
+  · change (tail.map Packed.X3).length ≤ 25
+    simpa using hlen
+  · intro x
+    let P := program a b c d u v tail
+    have el : 13 + P.length = 15 + tail.length := by simp [P, program]; omega
+    have hp : (P.foldl Packed.X2 Packed.nums).getD (13 + P.length) 0 = 2097151 := by
+      rw [el]
+      exact hcheck
+    have ev := Packed.decode P hp x
+    rw [el] at ev
+    change (Circuit.mk
+      (Packed.X3 (code a.val b.val u) :: Packed.X3 (code c.val d.val v) :: tail.map Packed.X3)
+      (15 + tail.length)).eval (List.ofFn x) = target x at ev
+    rw [code_gate a.val b.val u (by have := a.isLt; omega) (by have := b.isLt; omega),
+      code_gate c.val d.val v (by have := c.isLt; omega) (by have := d.isLt; omega)] at ev
+    let w := List.ofFn x
+    let pref := w ++ [(op u).eval [w.getD a.val false, w.getD b.val false]]
+    change (tailCircuit tail).eval
+      (pref ++ [(op v).eval [pref.getD c.val false, pref.getD d.val false]]) = target x at ev
+    have get (i : Fin 14) : w.getD i.val false = x i := by
+      rw [List.getD_eq_getElem _ _ (by simp [w]), List.getElem_ofFn]
+    have eq : pref = w ++ [(op u).eval [x a, x b]] := by
+      rw [← get a, ← get b]
+    rw [eq] at ev
+    exact ev
+
+end PackedWitness
+
+def candidateTail : List ℕ := [4352, 4225, 4417, 4290, 4355, 4995, 5188, 5125, 5317, 5062, 5254, 5382, 1351, 1608, 1673, 1482, 1739, 1548, 1421, 5980, 6366, 6431, 6496, 6561, 6626]
+
+set_option maxRecDepth 100000 in
+lemma candidate_raw :
+    ∃ a b c d op₁ op₂ D, prefixWitness PackedWitness.target a b c d op₁ op₂ D := by
+  refine ⟨(0 : Fin 14), (1 : Fin 14), (0 : Fin 15), (2 : Fin 15),
+    PackedWitness.op true, PackedWitness.op true, PackedWitness.tailCircuit candidateTail, ?_⟩
+  apply PackedWitness.raw (0 : Fin 14) (1 : Fin 14) (0 : Fin 15) (2 : Fin 15)
+    true true candidateTail
+  · decide
+  · decide
+  · decide
+  · decide +kernel
+
+end PEqualNP.Outside.L_meta_2732_aux
+
+theorem PEqualNP.Outside.L_meta_2732 :
+  have x1 : List (ℕ × ℕ) := [((0 : ℕ), (7 : ℕ)), ((0 : ℕ), (8 : ℕ)), ((0 : ℕ), (10 : ℕ)), ((1 : ℕ), (7 : ℕ)), ((1 : ℕ), (9 : ℕ)), ((1 : ℕ), (13 : ℕ)), ((2 : ℕ), (8 : ℕ)), ((2 : ℕ), (12 : ℕ)), ((2 : ℕ), (13 : ℕ)), ((3 : ℕ), (7 : ℕ)), ((3 : ℕ), (11 : ℕ)), ((3 : ℕ), (12 : ℕ)), ((4 : ℕ), (10 : ℕ)), ((4 : ℕ), (11 : ℕ)), ((4 : ℕ), (13 : ℕ)), ((5 : ℕ), (9 : ℕ)), ((5 : ℕ), (10 : ℕ)), ((5 : ℕ), (12 : ℕ)), ((6 : ℕ), (8 : ℕ)), ((6 : ℕ), (9 : ℕ)), ((6 : ℕ), (11 : ℕ))]; have x2 : (Fin (14 : ℕ) → Bool) → Bool := fun (x2 : Fin (14 : ℕ) → Bool) => Decidable.decide (∃ (x3 : Fin (14 : ℕ)) (x4 : Fin (14 : ℕ)), (↑x3, ↑x4) ∈ x1 ∧ x2 x3 = Bool.true ∧ x2 x4 = Bool.true); have x3 : ℕ → ℕ → ℕ → ℕ → ℕ := fun (x3 x4 x5 x6 : ℕ) => ((15 : ℕ) * Min.min x3 x4 + Max.max x3 x4) * (225 : ℕ) + ((15 : ℕ) * Min.min x5 x6 + Max.max x5 x6); have x4 : Equiv.Perm (Fin (14 : ℕ)) → Fin (15 : ℕ) → ℕ := fun (x4 : Equiv.Perm (Fin (14 : ℕ))) (x5 : Fin (15 : ℕ)) => if ↑x5 < (14 : ℕ) then ↑(x4 (Fin.ofNat (14 : ℕ) ↑x5)) else (14 : ℕ); ∃ (x5 : Fin (14 : ℕ)) (x6 : Fin (14 : ℕ)) (x7 : Fin (15 : ℕ)) (x8 : Fin (15 : ℕ)) (x9 : PEqualNP.CircuitLowerBounds.GateOp) (x10 : PEqualNP.CircuitLowerBounds.GateOp) (x11 : PEqualNP.CircuitLowerBounds.Circuit),   x5 < x6 ∧     x7 < x8 ∧       (x9 = PEqualNP.CircuitLowerBounds.GateOp.and ∨ x9 = PEqualNP.CircuitLowerBounds.GateOp.or) ∧         (x10 = PEqualNP.CircuitLowerBounds.GateOp.and ∨ x10 = PEqualNP.CircuitLowerBounds.GateOp.or) ∧           (∀ (x12 : Equiv.Perm (Fin (14 : ℕ))), (∀ (x13 : Fin (14 : ℕ) → Bool), x2 (x13 ∘ ⇑x12) = x2 x13) → x3 ↑x5 ↑x6 ↑x7 ↑x8 ≤ x3 (↑(x12 x5)) (↑(x12 x6)) (x4 x12 x7) (x4 x12 x8)) ∧             PEqualNP.MetaComplexity.Monotone2 x11 ∧               x11.size ≤ (25 : ℕ) ∧                 ∀ (x12 : Fin (14 : ℕ) → Bool),                   have x13 : List Bool := List.ofFn x12 ++ [x9.eval [x12 x5, x12 x6]];                   x11.eval (x13 ++ [x10.eval [x13.getD (↑x7) Bool.false, x13.getD (↑x8) Bool.false]]) = x2 x12 := by
+  exact PEqualNP.Outside.L_meta_2732_aux.canonical_prefix PEqualNP.Outside.L_meta_2732_aux.PackedWitness.target
+    PEqualNP.Outside.L_meta_2732_aux.candidate_raw (PEqualNP.Outside.L_meta_2732_aux.transport_prefix PEqualNP.Outside.L_meta_2732_aux.PackedWitness.target)

@@ -1,0 +1,12 @@
+[
+  {
+    "case": "strict_rejects_27",
+    "exit": 2,
+    "output_created": false
+  },
+  {
+    "case": "rejects_wrong_truth_table",
+    "exit": 2,
+    "output_created": false
+  }
+]

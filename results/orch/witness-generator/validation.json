@@ -1,0 +1,29 @@
+{
+  "gap": "L-meta-2732",
+  "scope": "RELAXED 27-GATE SMOKE TEST; NOT A PROOF OF THE POSTED 26-GATE STATEMENT",
+  "lean_exit": 0,
+  "lean_log": "relaxed27-lean-1.log",
+  "lean_warnings": 16,
+  "lean_errors": 0,
+  "strict_guards": [
+    {
+      "case": "strict_rejects_27",
+      "exit": 2,
+      "output_created": false
+    },
+    {
+      "case": "rejects_wrong_truth_table",
+      "exit": 2,
+      "output_created": false
+    }
+  ],
+  "hashes": {
+    "generate_witness.py": "32523ab1c80d8d0361d6df7ec091ba3c0e37b5581980feefb74ef96c5150afad",
+    "WitnessTemplate.lean.in": "eba85a57e943710f9c541af603736b91c8af590dd5cdc141b6f78411c7b2ac6f",
+    "posted-statement.txt": "170149ad7d498f69b6694d78815b54d87a11c0d698f0197b33689b9637587edf",
+    "manifest.json": "bca06a9b23ffa210acb50c39b8e60878f8d0c6d24f26a59edc5aa2bb168a0c73",
+    "relaxed_27/L_meta_2732.lean": "87afdb03d65be33cdf5698ada77d82a02b3f6672aa4e2d23b729595c85871453",
+    "relaxed27-lean-1.log": "3e134154f58d5fd497211af099d9e89aadb3c93ff60e30eb460fc61f5ac93580",
+    "README.md": "b27992563f458e58f4cffc691c00768d8076f4b022b7024d60f8f8e982519c29"
+  }
+}
