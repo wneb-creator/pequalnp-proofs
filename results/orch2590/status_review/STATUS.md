@@ -1,0 +1,28 @@
+# L-meta-2590 independent status and preservation review
+
+Read at 2026-11-25 15:11–15:18 UTC. Public snapshot generated 15:11:20.237 UTC.
+
+The exact gap remains a conjecture: no Monotone2 circuit of size at most 19 computes the ten-input Petersen edge function. The node has no checked attempts or recorded refutation. Source: https://data.pequalnp.com/data/lemma/L-meta-2590.e52ef820c846.json . The current desk advertises three live reductions, so a fourth reduction is not available to this job.
+
+GitHub search was completely paginated and JSON shapes checked. There are eleven historical PRs with 2590 in the title, including one open PR, https://github.com/open-goat/pequalnp-proofs/pull/16055 . It adds only R_meta_2590_2.lean, a conditional reduction through TopForm counting and an unresolved case with at least two uncovered edges. It is not a proof or refutation of the gap. No checker comment was present when read. PR16055.lean here is EXTERNAL PARTIAL SOURCE, fetched at blob f07d00e53a09806e2dc9c789996d7d3b559e00f5; not locally compiled or submitted by this agent.
+
+The three checked reduction files currently on main are R_meta_2590_1, R_meta_2590_491 and R_meta_2590_932. The first splits AND/OR first-gate residual searches. The second cuts a unique vertex reader and asks for AND/OR reconstruction obstructions. The third normalizes by edge-OR, nonedge-OR, or edge-AND first operation and excludes redundant raw operations. Their hypotheses are not themselves proved by these reductions.
+
+PR8191, which merged R_meta_2590_491, says its author checked the compression child and used a separate 17-gate bound. Those statements are author descriptions only; the public source is a conditional reduction, and no public stronger full ten-input lower bound was identified in this review. Source: https://github.com/open-goat/pequalnp-proofs/pull/8191 . PR12169 is another reduction accepted by the checker but not recorded because its author had five live reductions: https://github.com/open-goat/pequalnp-proofs/pull/12169#issuecomment-7153648084 . PR4786 merged the first reduction: https://github.com/open-goat/pequalnp-proofs/pull/4786#issuecomment-7139619466 .
+
+A fresh public-index census has 1884 Petersen entries, of which 712 are checked. This is the same checked set as the earlier L2592 audit; the two absent from the local theorem inventory, L994 and L1697, had already been checked separately from public records. No newly checked Petersen descendant appeared. In the checked full ten-input Monotone2 size18/19 row-obstruction statements, L9083 and L9123 both additionally require C.gates=[] and only establish empty-suffix cases. No full ten-input monotone floor18/19 was located.
+
+Useful existing certificate: lean/PEqualNP/Outside/L_meta_8035.lean, final theorem at line6631, rules out exact size15, zeroNOT circuits for the ordinary nine-input vertex9-deleted Petersen graph. Its internal monoTwoRoots plus monoRoot at line6626 handles size at most15, so the certificate can be wrapped as a monotone nine-input floor16. The output graph has exactly the twelve original edges avoiding vertex9 and no additional seed input.
+
+## Independent preservation approvals
+
+These are partial source approvals, not a full-gap proof or checker acceptance. Reported successful compilation belongs to each producing agent; this reviewer independently inspected source and hashes without redundant builds.
+
+- MonoDropChecked.lean:1178 lines, SHA256 324ea8f31b4430f9b924ed1f80f2ef2246effde23fae2d9db6a7abb601e9a74d. First1056 lines exactly match previously reviewed FirstBinary. New deletion preserves AND/OR basis and requires a valid fixed semantic replacement plus nonconstant output. APPROVED. Old L2592 namespaces need renaming before named-file integration.
+- MonoFirstChecked.lean:1280 lines, SHA256 e40091e655fb4e1ed2362282a601b97bb45338695477775de323a44b8c2e99b1. Extends MonoDrop without changes to its body. LeastMono minimizes over clean monotone circuits, and a nonconstant nonprojection target forces a first binary gate on distinct primary inputs. APPROVED.
+- PetersenBoundary.checked.lean:58 lines, SHA256 8ca960bc9c2e3b2c59ffc6696d612d105e696354584498c086c706c1d05837c8. Independently enumerated all1024 inputs: exactly15 listed maximal false masks, ten of size3 and five of size4, and complete false-boundary coverage. Evidence in boundary-independent.json. APPROVED.
+- PetersenBoundary.v2.checked.lean:63 lines, SHA256 d02605286f5232e2e3c5215258ca64fb6d3f3f2164cbe5ecd5311863e370c159. Only adds the direct kernel certificate that the union of any two distinct listed maximal false masks is true. APPROVED.
+- PetersenSymmetry.checked.lean:147 lines, SHA256 80d400b3e152353565937689fd5dbbadd47db41329663839a3a0905267d51cf3. Exact namespace rename of the earlier reviewed SatSymmetry, preserving ordered-pair orbit classification and bijective graph automorphisms. APPROVED.
+- MonotoneResidualChecked.lean:1198 lines, SHA256 98029eebd0d1a2da625f275ad4d9944dc3aed3dcef6c33620c6f71dae79a9abb. Exact renamed copies of TwoDrop and symmetry infrastructure. New zeroNOT preservation converts count bounds into size bounds. Restriction retains the original control, sensitivity, and nonconstancy premises. Arbitrary-vertex restriction renames to the exact ordinary vertex9 deletion with nine inputs and nonincreasing size. APPROVED.
+
+Raw source guards pass on the theorem-containing artifacts. Symmetry is lemma-only, so the guard reports the expected file-holds-no-theorem condition; it is a branch artifact, not a submission. No exact L2590 theorem has been claimed or reviewed.
