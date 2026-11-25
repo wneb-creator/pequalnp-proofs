@@ -1,0 +1,13 @@
+L-meta-2590 stopped partial validation
+2026-11-25T15:24:53.395424+00:00
+Named file is byte-identical to checked FirstNonbelow.lean: standalone Lean exit0, empty complete stdout/stderr preserved. No new named lake build was started after lease loss.
+FirstNonbelow: earliest non-below-function gate is a raw OR of distinct inputs, under explicit AO2, lift-fixed, live, productive, fresh hypotheses. EdgeAnd.lean and NineMonoFloorSnippet.lean also checked; the latter is a conditional bridge requiring the cofactor certificate.
+Mono18 source includes general18 and first-AND19 claims. Its extractor and conditional extension checked separately; the actual pruned MonoBase export was interrupted with exit130, so the complete unconditional concatenation is UNVERIFIED.
+Or13.lean compile was interrupted with exit130. The23-gate13OR10AND circuit has independent exhaustive1024-row Python validation, but not a completed Lean check. It refutes only an auxiliaryOR-count claim, not the posted20total-gate claim.
+KW rectangle LP has exact rational feasible weight20 checked in Python. Solver-reported infeasibility of a20-tight-rectangle partition is exploratory, UNVERIFIED as a formal theorem; it is not a circuit lower bound.
+Original target theorem absent. Local checker not run on incomplete target; no acceptance claimed. Cleanup not performed. Named source lines before/after cleanup: 208/208.
+Named SHA256 467f08e4ac241a1d89271814490138f2f48573d41af36e8017d113f366b1fd83
+Desk HTTP410 at15:22:00 despite renewal15:16:59 with expiry15:36:59.783Z. Automatic timer performed the one curl-si diagnostic retry and exited. All agents and jobs stopped. Complete response in desk-410-response.txt.
+Sub-agents: status_check, counterexample, circuit_search, lower_bound, partial_lean, lean_setup, fresh_proof
+TIMING total=86.3 subagents=7
+Desk null count:0. Exact desk error: no such live lease: it expired or was released. Ask /desk/next again.
