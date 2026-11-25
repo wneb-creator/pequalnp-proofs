@@ -48,3 +48,10 @@ UTC 2026-11-25T14:22:32.296547+00:00
 - `reads_le_two` specializes to excluded Fin9 size15 and tail size<=18, conditional on that Fin9 bound. This is not a full NOT-input exclusion.
 - Compiled with Lean4.36.0, exit0, empty full log `/tmp/oec/pequalnp-pilot-102/effective-reads-check.log`. Independent review requested.
 - Exhaustively checked all16 rows of a caution example: d=ab OR e, p=v OR a, q=(NOT v) AND b, output=(p AND q) OR (d AND (p OR q)) equals monotone ab OR ae OR be OR ve, with each literal read once. Neither replacing NOT v by false nor by true preserves the output. Thus the residual two-reader argument needs a real circuit rewrite or stronger target structure.
+
+UTC 2026-11-25T14:26:09.586326+00:00 proof_route sensitivity extension
+- New `results/orch/lemmas/SensitivityExtension.lean` (47 lines, 1805 bytes) compiles successfully; full empty log `/tmp/oec/pequalnp-pilot-102/sensitivity-extension-check.log`.
+- Every Fin9 assignment outside the edge function and exceptional independent triples135/028 extends upward at one of4/6/7 to a sensitive assignment.
+- Consequently any monotone mask vanishing on all sensitive assignments implies edge OR triple135 OR triple028. This is a finite graph-specific bound, not a circuit lower bound.
+- Independent protocol review PASS: all512 assignments checked,56 unobstructed cases all extend. EffectiveReads review also PASS and root notified.
+- Structural application remains theoretical: for hard two-literal-read form p=v OR A,q=(NOT v) AND B with monotone downstream circuit, at every sensitive assignment the v=0 cofactor of A must be false. Otherwise the v=0 signals dominate the v=1 signals, contradicting output sensitivity. No complete19-gate exclusion follows yet.
