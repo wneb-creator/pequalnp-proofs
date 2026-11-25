@@ -1,8 +1,8 @@
 Gap: L-gct-231
 Status: PARTIAL ONLY; no proof/refutation and no PR.
 Named file: lean/PEqualNP/Outside/L_gct_231.lean
-Source: 506 lines, 23810 bytes, SHA256 449df515d9a915699114a3680c21d9de5b4cbcf8e823143374ad52724ff48227
-Named lake build05: exit0, module10s (prior283-line implementation94s). Complete build-partial-05.log preserved.
+Source: 624 lines, 28689 bytes, SHA256 ad7a60b2d369921dde6ee77592c01d528e6e22dbcc22fc9b063d37fa6dc03572
+Named lake build06: exit0, module24s; complete build-partial-06.log preserved.
 Independent source, integration and component recompilation reviews: PASS.
 Axiom audit: all audited lemmas use only propext, Classical.choice, Quot.sound.
 Checked scope: permanent expansion; diagonal rigidity; six-coordinate injectivity; total-entry sum zero and symmetric diagonal elimination; explicit finite star/triangle/path orbit witnesses; normalization of every hypothetical3D solution to one of those canonical charts; formal polynomial identity for a linear family. No candidate existence or nonexistence is proved.
@@ -13,7 +13,7 @@ The main theorem named PEqualNP.Outside.L_gct_231 remains absent. These are chec
 Rowzero archive: two explicit polynomial contradictions compile with standard axioms. Exact CAS certificates for eight restricted charts verified. Global chart coverage and full nonexistence are not formalized.
 Cleanup: not reached; final proof/checker acceptance absent. Partial source grew283→506 lines while finite proof was optimized.
 Sub-agents: 8 (status_review, structural_proof, library_route, finite_cases, lean_setup, global_normal_form, fresh_main_proof, fresh_main_proof/c3_review)
-TIMING total=211.7 subagents=8
+TIMING total=221.8 subagents=8
 Message ID: msg-8f0f42bb760e4ee78f16c6cd
 F4TraceRowzero.lean:128lines71633bytes,SHA25683e92fab3fbcd7e2d8f6911457652926b97fa2102e209fec0b2e87ae61780483; full buildPASS exit0 in58.933s. Independent exact arithmetic/source reviewPASS. Scoped rowzero_even_trace contradiction only, no full231 theorem. Frozen81-file archive underf4-trace includes sources, certificates, full logs and independent verifier.
 CoefficientCore.lean:34lines, SHA2567e6861ee445e8591a13f5dae87c5f37631b83bd6d1dc5d1cde644b86f1fd8d43; author buildexit0 and independent root source/math/format reviewPASS. Generic mixed-coefficient extraction only. Complete buildlog preserved.
@@ -21,3 +21,5 @@ FullStarCoefficient.lean:80lines4754bytes,SHA2564deb2bc9e8e6747c515336f607194f8a
 Sparse engine/patch/control and converter reviewsPASS for research use; fullstar exactQQ andF1009 trials both UNKNOWN_TIME_LIMIT at120s, no basis/verdict/certificate. Complete frozen archives preserved.
 FullStarHigherCoefficients.lean:167lines20273bytes,SHA25673002c5f10b0087f85d3bc176b439e2243a8b54a2cca3992de54b78fdfcc9b62; buildexit0/emptylog, independent source/CASmatch reviewPASS. Proves exact xyz andx²yz coefficients, factorial2 normalization andvanishing; no chart contradiction.
 Delivery: push31 initially failedauthentication; sharedhelper read recovered and samecommit was successfully pushed with expected-old-SHA fence. Safe full failure/recovery outputs preserved.
+Checker06: exit1, REJECTED(no-theorem), complete log preserved. No main proof/refutation theorem exists.
+New named bridge: normalized star family produces exact18-parameter fullStarMatrix formalidentity; proof and independentreviewPASS. Conditional path-minor dichotomy and block-scalar rigidity also checked; their extra hypotheses are explicit. Named partial624lines, no finalcleanup pass reached.

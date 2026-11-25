@@ -1,0 +1,6 @@
+SHA256 ad7a60b2d369921dde6ee77592c01d528e6e22dbcc22fc9b063d37fa6dc03572
+PASS exact prior506 prefix from git0730f662
+PASS appended driver bodies modulo only the three declared identifier substitutions and whitespace
+PASS exact PathMinorStrata and BlockScalarRigidity bodies modulo namespace wrapper/whitespace
+PASS allowed imports, single auxiliary namespace, permitted options, no banned constructs, no duplicate declarations
+SCOPE conditional normalized star identity and scalar consequences; no main gap theorem

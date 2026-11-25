@@ -1,0 +1,6 @@
+'PEqualNP.Outside.L_gct_231_aux.normalized_star_formal_identity' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.linear_entry_expansion' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.path_minor_strata' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.block_scalar_rigidity' depends on axioms: [propext, Classical.choice, Quot.sound]
