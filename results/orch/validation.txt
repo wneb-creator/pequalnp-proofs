@@ -1,7 +1,12 @@
-R_meta_3178_52: lake build exit 0.
-Format/import guard: PASS. Independent red-team review: PASS.
-Local checker: ACCEPTED (reduce); standard axioms propext, Quot.sound, Classical.choice;1653constants kernel rechecked.
-Complete output: checker-before-cleanup.log.
-Supporting indispensability certificate and exact binaryBound child each compiled with Lean4.36.0, exit0.
-Cleanup begins at107lines.
+Final file: lean/PEqualNP/Outside/R_meta_3178_52.lean
+Final lake build: exit0; Build completed successfully (5147 jobs).
+Final format/import guard: PASS.
+Independent red-team review: PASS; exact theorem type unchanged.
+Final local checker: ACCEPTED (reduce): PEqualNP.Outside.R_meta_3178_52; axioms [propext, Quot.sound, Classical.choice];1653constants kernel rechecked.
+Complete checker output: checker-final.log
+Cleanup lines:107before,99after (initial draft109before generated-equation repair).
+Cleanup duration:under3minutes.
+Supporting proofs: indispensability certificate and exact binaryBound child compiled exit0.
+Null desk answers:0. First desk answer assigned L-meta-3178 with task=cut.
 Sub-agents: 5 (checker review, parent proof analysis, reduction draft, finite validation, Lean setup)
+TIMING total=12.2 subagents=5
