@@ -96,3 +96,50 @@ Lease initial expiry: 2026-11-25T14:04:05.796Z
 
 - 2026-11-25T14:10:02.466402+00:00: structural transport (row permutation, Live preservation, canonical first-pair normalization) compiled PASS. Root and independent reviewer notified.
 2026-11-25T14:10:55.558218+00:00 transport compiled/reviewed; preserving snapshot. Replan: retain17binary firstgate route, one-NOT analysis, exact15template SAT; drop generic duplicate-charge route (counterexamples).
+2026-11-25T14:11:37.243155+00:00 deterministic two-edit neighborhood finished: all390 deletion/rewire seeds,1078288780 score evaluations, no witness.
+
+- 2026-11-25T14:11:42.435120+00:00: canonical transport with used-extra membership compiled PASS; notified root, reviewer, integration agent.
+2026-11-25T14:11:54.378058+00:00 beat5 before neutral-network search
+{
+ "lease": {
+  "id": "d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "expires_at": "2026-11-25T14:31:53.751Z",
+  "renew": "POST /desk/beat?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 250,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T13:44:05.796Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T14:12:08.035171+00:00 started900second neutral-network CGP search; exact20gate seed,32 internal slots, objective active gate count plus unusedNOT padding if needed.
+2026-11-25T14:13:12.024210+00:00 renewed; expiry 2026-11-25T14:33:11.968Z
+
+- 2026-11-25T14:14:15.490600+00:00 reduction_design: exact canonical residual-bank component compiled; independently reviewed PASS.
+2026-11-25T14:15:02.955702+00:00 beat6 before integrated17bound build
+{
+ "lease": {
+  "id": "d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "expires_at": "2026-11-25T14:35:02.366Z",
+  "renew": "POST /desk/beat?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=d30cd9f5-2ff3-41d8-b031-e33b731294ac&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 250,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T13:44:05.796Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T14:13:13Z Completed15prefix18monotonegatecensus:15UNSAT,0unknown,0witness; restrictedcomputedresult.
+2026-11-25T14:15:59.153297+00:00 preserving reviewed17integration and three checked components; full named rebuild running.

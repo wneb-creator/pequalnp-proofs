@@ -89,3 +89,18 @@ local_near.lean compiles under pinned Lean with no diagnostics. Independent SAT 
 
 ### 2026-11-25T14:10:02.466402+00:00 — structural agent: canonical transport checked
 `results/orch/lemmas/structural_transport.lean` compiled successfully (exit 0; empty complete log `/tmp/oec/pequalnp-pilot-92/structural-transport-build.txt`). Finite row encoding inverses are kernel checked. `canonicalize_first` maps any distinct first input pair to `(0,1)` or `(0,2)`, preserving Petersen target and every signed-binary Live derivation. Canonical bank is exactly `pins ++ [bin d.val (pins.getD 0 zero) (pins.getD (j.val + 1) zero)]`. Final splice body: `/tmp/oec/pequalnp-pilot-92/structural_transport_body.txt`; scratch imports are harness only. Independent audit requested from reduction_design.
+
+2026-11-25T14:11:37.243155+00:00 [deterministic local neighborhood]
+Exhausted every one-gate deletion/rewire of the explicit20gate witness (390 seeds), then one mandatory NOT replacement and one arbitrary AND/OR/NOT gate replacement at a different position. Complete run made1,078,288,780 score evaluations (including initialization) and found no witness. This finite neighborhood result is not a global lower bound. Full log local-twoedit-all.log; source local-twoedit.cpp.
+
+### 2026-11-25T14:11:42.435120+00:00 — structural transport membership extension checked
+`transport_used.lean` compiled successfully, exit0 with empty complete log `/tmp/oec/pequalnp-pilot-92/transport-used-build.txt`; object `/tmp/oec/pequalnp-pilot-92/transport_used.olean`. `canonicalize_first_used` retains canonical extra membership, enabling the conjunction bank 17-tail bound. Original `structural_transport.lean` is frozen unchanged and independently reviewed PASS by reduction_design. New extension independent review requested.
+
+## 2026-11-25T14:14:15.490600+00:00 — reduction_design exact residual bank
+- `bank_all_pins.lean` compiled (empty complete log `bank-all-pins-build.txt`). Its 80 kernel-checked row witnesses prove every raw pin is required in all eight canonical first-gate banks. `exact_bank` forces residual S exactly equal to the eleven-word bank when the new gate is used. Structural agent independently rechecked all witnesses in Python and reviewed the proof: PASS.
+- Independently reviewed plain live extraction, row transport, used-extra transport, and seventeen-floor integration: all PASS; scratch meta harness excluded from final source.
+- Remaining hard case: first proper gate OR, one or two NOT gates. Generic duplicate projection charge is false.
+
+2026-11-25T14:14:32.366869+00:00 audit: Cached 17-binary floor and >=3-NOT exclusion compiled; strict raw-pins realization and floor axioms exactly propext, Classical.choice, Quot.sound. Independent reduction_design review PASS. Plain fragments integrated into named source; awaiting full build.
+
+2026-11-25T14:15:46.461236+00:00 [petersen_search completed templatecensus] All15OR-pairingorbits UNSAT for11fixedprefixgates +<=7additionalANDORgates (18total). ComputedZ3only, notLeanchecked andnotageneral lowerbound. Completecode,data,stdout/stderrlogs archived results/orch/lemmas/search_archive/. AIGcofactorencoderpreparedandvalidated20gatefixedcircuit onall512rows; next targetsx0=notx1andx0=notx2with<=15signedbinarygates.

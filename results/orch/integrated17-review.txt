@@ -1,0 +1,1 @@
+Integrated17-bound source independently reviewed by reduction_design:643insertions, original16proof unchanged except2permitted cached Mathlib imports; all plain inserted bodies match individually checked components. No forbidden syntax or added axioms. Named integrated build pending; exact posted theorem still absent.

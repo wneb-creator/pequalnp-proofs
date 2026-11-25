@@ -1,3 +1,5 @@
+import Mathlib.Data.Fintype.EquivFin
+import Mathlib.Data.Fin.VecNotation
 import PEqualNP.Defs
 
 -- This proof reuses the signed circuit certificate from L_meta_7306.
@@ -4598,6 +4600,647 @@ lemma four_not_exclusion (C : Circuit) (fan : PEqualNP.MetaComplexity.FanInTwo C
        x 5 && x 7 || x 7 && x 9 || x 9 && x 6 || x 6 && x 8 || x 8 && x 5) := by
   intro correct
   have lower := sixteen_binary_floor C fan correct
+  omega
+
+end PEqualNP.Outside.L_meta_2592_aux.Stronger
+
+
+namespace PEqualNP.Outside.L_meta_2592_aux.Subgraphs
+
+def adjacent (a b : Fin 10) : Bool :=
+  ([(0,1),(1,2),(2,3),(3,4),(4,0),(0,5),(1,6),(2,7),(3,8),(4,9),(5,7),(7,9),(9,6),(6,8),(8,5)] : List (Fin 10 × Fin 10)).any fun e =>
+    decide ((a = e.1 ∧ b = e.2) ∨ (a = e.2 ∧ b = e.1))
+
+def pairMap : Fin 10 → Fin 10 → Fin 10 → Fin 10 :=
+  ![![![0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      ![0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+      ![0, 4, 3, 8, 5, 1, 9, 2, 6, 7],
+      ![0, 4, 9, 7, 5, 1, 3, 6, 2, 8],
+      ![0, 5, 8, 3, 4, 1, 7, 6, 2, 9],
+      ![0, 1, 6, 9, 4, 5, 2, 8, 7, 3],
+      ![0, 5, 7, 9, 4, 1, 8, 2, 6, 3],
+      ![0, 5, 8, 3, 4, 1, 7, 6, 2, 9],
+      ![0, 4, 9, 7, 5, 1, 3, 6, 2, 8]],
+    ![![1, 0, 5, 8, 6, 2, 4, 7, 3, 9],
+      ![1, 0, 5, 8, 6, 2, 4, 7, 3, 9],
+      ![1, 2, 3, 8, 6, 0, 7, 4, 5, 9],
+      ![1, 2, 3, 8, 6, 0, 7, 4, 5, 9],
+      ![1, 0, 4, 9, 6, 2, 5, 3, 7, 8],
+      ![1, 0, 5, 8, 6, 2, 4, 7, 3, 9],
+      ![1, 6, 9, 7, 2, 0, 8, 4, 5, 3],
+      ![1, 2, 7, 9, 6, 0, 3, 5, 4, 8],
+      ![1, 6, 8, 3, 2, 0, 9, 5, 4, 7],
+      ![1, 6, 9, 7, 2, 0, 8, 4, 5, 3]],
+    ![![2, 1, 0, 5, 7, 3, 6, 4, 8, 9],
+      ![2, 1, 0, 5, 7, 3, 6, 4, 8, 9],
+      ![2, 3, 8, 6, 1, 7, 4, 5, 9, 0],
+      ![2, 3, 8, 6, 1, 7, 4, 5, 9, 0],
+      ![2, 3, 4, 0, 1, 7, 8, 9, 5, 6],
+      ![2, 7, 5, 0, 1, 3, 9, 8, 4, 6],
+      ![2, 1, 6, 9, 7, 3, 0, 8, 4, 5],
+      ![2, 7, 9, 6, 1, 3, 5, 4, 8, 0],
+      ![2, 3, 8, 6, 1, 7, 4, 5, 9, 0],
+      ![2, 7, 9, 6, 1, 3, 5, 4, 8, 0]],
+    ![![3, 4, 0, 1, 2, 8, 9, 5, 6, 7],
+      ![3, 2, 1, 0, 4, 8, 7, 6, 5, 9],
+      ![3, 2, 7, 9, 4, 8, 1, 5, 6, 0],
+      ![3, 8, 6, 9, 4, 2, 5, 1, 7, 0],
+      ![3, 4, 0, 1, 2, 8, 9, 5, 6, 7],
+      ![3, 8, 5, 0, 4, 2, 6, 7, 1, 9],
+      ![3, 8, 6, 9, 4, 2, 5, 1, 7, 0],
+      ![3, 2, 7, 9, 4, 8, 1, 5, 6, 0],
+      ![3, 8, 6, 9, 4, 2, 5, 1, 7, 0],
+      ![3, 4, 9, 7, 2, 8, 0, 6, 5, 1]],
+    ![![4, 0, 1, 2, 3, 9, 5, 6, 7, 8],
+      ![4, 0, 1, 2, 3, 9, 5, 6, 7, 8],
+      ![4, 3, 2, 7, 9, 0, 8, 1, 5, 6],
+      ![4, 3, 8, 6, 9, 0, 2, 5, 1, 7],
+      ![4, 0, 1, 2, 3, 9, 5, 6, 7, 8],
+      ![4, 0, 5, 8, 3, 9, 1, 7, 6, 2],
+      ![4, 9, 6, 8, 3, 0, 7, 1, 5, 2],
+      ![4, 9, 7, 2, 3, 0, 6, 5, 1, 8],
+      ![4, 3, 8, 6, 9, 0, 2, 5, 1, 7],
+      ![4, 9, 7, 2, 3, 0, 6, 5, 1, 8]],
+    ![![5, 0, 1, 2, 7, 8, 4, 6, 3, 9],
+      ![5, 0, 1, 2, 7, 8, 4, 6, 3, 9],
+      ![5, 7, 2, 3, 8, 0, 9, 1, 4, 6],
+      ![5, 8, 3, 2, 7, 0, 6, 4, 1, 9],
+      ![5, 0, 4, 9, 7, 8, 1, 3, 6, 2],
+      ![5, 0, 1, 2, 7, 8, 4, 6, 3, 9],
+      ![5, 8, 6, 9, 7, 0, 3, 1, 4, 2],
+      ![5, 7, 9, 6, 8, 0, 2, 4, 1, 3],
+      ![5, 8, 3, 2, 7, 0, 6, 4, 1, 9],
+      ![5, 7, 9, 6, 8, 0, 2, 4, 1, 3]],
+    ![![6, 1, 0, 5, 8, 9, 2, 4, 7, 3],
+      ![6, 1, 0, 5, 8, 9, 2, 4, 7, 3],
+      ![6, 1, 2, 3, 8, 9, 0, 7, 4, 5],
+      ![6, 8, 3, 2, 1, 9, 5, 4, 7, 0],
+      ![6, 9, 4, 0, 1, 8, 7, 3, 5, 2],
+      ![6, 8, 5, 0, 1, 9, 3, 7, 4, 2],
+      ![6, 9, 7, 2, 1, 8, 4, 5, 3, 0],
+      ![6, 9, 7, 2, 1, 8, 4, 5, 3, 0],
+      ![6, 8, 3, 2, 1, 9, 5, 4, 7, 0],
+      ![6, 9, 7, 2, 1, 8, 4, 5, 3, 0]],
+    ![![7, 5, 0, 1, 2, 9, 8, 4, 6, 3],
+      ![7, 2, 1, 0, 5, 9, 3, 6, 4, 8],
+      ![7, 2, 3, 8, 5, 9, 1, 4, 6, 0],
+      ![7, 2, 3, 8, 5, 9, 1, 4, 6, 0],
+      ![7, 9, 4, 0, 5, 2, 6, 3, 1, 8],
+      ![7, 5, 0, 1, 2, 9, 8, 4, 6, 3],
+      ![7, 9, 6, 8, 5, 2, 4, 1, 3, 0],
+      ![7, 9, 6, 8, 5, 2, 4, 1, 3, 0],
+      ![7, 5, 8, 3, 2, 9, 0, 6, 4, 1],
+      ![7, 9, 6, 8, 5, 2, 4, 1, 3, 0]],
+    ![![8, 5, 0, 1, 6, 3, 7, 4, 2, 9],
+      ![8, 6, 1, 0, 5, 3, 9, 2, 4, 7],
+      ![8, 3, 2, 7, 5, 6, 4, 1, 9, 0],
+      ![8, 3, 2, 7, 5, 6, 4, 1, 9, 0],
+      ![8, 3, 4, 0, 5, 6, 2, 9, 1, 7],
+      ![8, 5, 0, 1, 6, 3, 7, 4, 2, 9],
+      ![8, 6, 9, 7, 5, 3, 1, 4, 2, 0],
+      ![8, 5, 7, 9, 6, 3, 0, 2, 4, 1],
+      ![8, 3, 2, 7, 5, 6, 4, 1, 9, 0],
+      ![8, 6, 9, 7, 5, 3, 1, 4, 2, 0]],
+    ![![9, 4, 0, 1, 6, 7, 3, 5, 2, 8],
+      ![9, 6, 1, 0, 4, 7, 8, 2, 5, 3],
+      ![9, 7, 2, 3, 4, 6, 5, 1, 8, 0],
+      ![9, 4, 3, 8, 6, 7, 0, 2, 5, 1],
+      ![9, 4, 0, 1, 6, 7, 3, 5, 2, 8],
+      ![9, 7, 5, 0, 4, 6, 2, 8, 1, 3],
+      ![9, 6, 8, 3, 4, 7, 1, 5, 2, 0],
+      ![9, 7, 2, 3, 4, 6, 5, 1, 8, 0],
+      ![9, 6, 8, 3, 4, 7, 1, 5, 2, 0],
+      ![9, 7, 2, 3, 4, 6, 5, 1, 8, 0]]]
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma pairMap_injective : ∀ a b : Fin 10, Function.Injective (pairMap a b) := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma pairMap_adjacent : ∀ a b u v : Fin 10,
+    adjacent (pairMap a b u) (pairMap a b v) = adjacent u v := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma pairMap_zero : ∀ a b : Fin 10, pairMap a b 0 = a := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma pairMap_second : ∀ a b : Fin 10, a ≠ b →
+    pairMap a b (if adjacent a b then 1 else 2) = b := by
+  decide +kernel
+
+noncomputable def pairPerm (a b : Fin 10) : Equiv.Perm (Fin 10) :=
+  Equiv.ofBijective (pairMap a b)
+    (Finite.injective_iff_bijective.mp (pairMap_injective a b))
+
+lemma normalize_pair (a b : Fin 10) (h : a ≠ b) :
+    ∃ p : Equiv.Perm (Fin 10), p 0 = a ∧
+      p (if adjacent a b then 1 else 2) = b ∧
+      ∀ u v : Fin 10, adjacent (p u) (p v) = adjacent u v := by
+  exact ⟨pairPerm a b, pairMap_zero a b, pairMap_second a b h, pairMap_adjacent a b⟩
+
+def edgeFun (x : Fin 10 → Bool) : Bool :=
+  decide (∃ a b : Fin 10, adjacent a b = true ∧ x a = true ∧ x b = true)
+
+lemma edgeFun_permute (p : Equiv.Perm (Fin 10))
+    (hp : ∀ a b, adjacent (p a) (p b) = adjacent a b) (x : Fin 10 → Bool) :
+    edgeFun (x ∘ p) = edgeFun x := by
+  unfold edgeFun
+  congr 1
+  apply propext
+  constructor
+  · rintro ⟨a, b, hab, ha, hb⟩
+    exact ⟨p a, p b, (hp a b).trans hab, ha, hb⟩
+  · rintro ⟨a, b, hab, ha, hb⟩
+    refine ⟨p.symm a, p.symm b, ?_, ?_, ?_⟩
+    · calc
+        adjacent (p.symm a) (p.symm b) = adjacent a b := by
+          simpa only [Equiv.apply_symm_apply] using (hp (p.symm a) (p.symm b)).symm
+        _ = true := hab
+    · simpa only [Function.comp_apply, Equiv.apply_symm_apply] using ha
+    · simpa only [Function.comp_apply, Equiv.apply_symm_apply] using hb
+
+def falseNeighbor : Fin 10 → Fin 10 → Fin 10 :=
+  ![![1, 2, 1, 2, 3, 7, 1, 2, 3, 4],
+    ![4, 0, 3, 2, 0, 0, 8, 2, 3, 4],
+    ![1, 0, 1, 4, 0, 0, 1, 5, 3, 4],
+    ![1, 0, 1, 2, 0, 0, 1, 2, 5, 4],
+    ![1, 0, 1, 2, 0, 0, 1, 2, 3, 6],
+    ![1, 0, 1, 2, 0, 0, 1, 2, 3, 4],
+    ![1, 0, 1, 2, 0, 0, 1, 2, 3, 4],
+    ![1, 0, 1, 2, 0, 0, 1, 2, 3, 4],
+    ![1, 0, 1, 2, 0, 0, 1, 2, 3, 4],
+    ![1, 0, 1, 2, 0, 0, 1, 2, 3, 4]]
+
+def trueNeighbor : Fin 10 → Fin 10 → Fin 10 :=
+  ![![0, 0, 3, 2, 0, 0, 8, 2, 3, 6],
+    ![1, 0, 1, 4, 3, 7, 1, 5, 3, 4],
+    ![4, 2, 0, 2, 0, 0, 8, 2, 5, 4],
+    ![1, 0, 3, 0, 3, 0, 1, 5, 3, 6],
+    ![4, 2, 1, 4, 0, 7, 1, 2, 5, 4],
+    ![5, 2, 1, 2, 3, 0, 1, 5, 5, 4],
+    ![4, 6, 3, 2, 0, 0, 0, 2, 6, 6],
+    ![1, 0, 7, 4, 0, 7, 1, 0, 3, 7],
+    ![1, 0, 1, 8, 0, 8, 8, 2, 0, 4],
+    ![1, 0, 1, 2, 9, 0, 9, 9, 3, 0]]
+
+def lowerInput (a b : Fin 10) (fixed : Bool) (j : Fin 10) : Bool :=
+  decide (j = (if fixed then trueNeighbor a b else falseNeighbor a b)) ||
+    (decide (j = a) && fixed)
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma lowerInput_fixed : ∀ a b : Fin 10, a ≠ b → ∀ fixed : Bool,
+    lowerInput a b fixed a = fixed ∧ lowerInput a b fixed b = false := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma lowerInput_rejects : ∀ a b : Fin 10, a ≠ b → ∀ fixed : Bool,
+    edgeFun (lowerInput a b fixed) = false := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma lowerInput_accepts : ∀ a b : Fin 10, a ≠ b → ∀ fixed : Bool,
+    edgeFun (Function.update (lowerInput a b fixed) b true) = true := by
+  decide +kernel
+
+lemma remains_essential (a b : Fin 10) (hab : a ≠ b) (fixed : Bool) :
+    ∃ x y : Fin 10 → Bool, x a = fixed ∧ y a = fixed ∧
+      (∀ j, j ≠ b → x j = y j) ∧ edgeFun x ≠ edgeFun y := by
+  refine ⟨lowerInput a b fixed, Function.update (lowerInput a b fixed) b true,
+    (lowerInput_fixed a b hab fixed).1, ?_, ?_, ?_⟩
+  · simpa only [Function.update_of_ne hab] using (lowerInput_fixed a b hab fixed).1
+  · intro j hj
+    simp only [Function.update_of_ne hj]
+  · rw [lowerInput_rejects a b hab fixed, lowerInput_accepts a b hab fixed]
+    decide
+
+end PEqualNP.Outside.L_meta_2592_aux.Subgraphs
+
+namespace PEqualNP.Outside.L_meta_2592_aux.Stronger.Extended
+
+lemma realizeRawPins (C : PEqualNP.CircuitLowerBounds.Circuit)
+    (legal : PEqualNP.MetaComplexity.FanInTwo C)
+    (computes : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = f10 x) :
+    ∃ k S, k ≤ C.gates.countP (fun g => !isNot g) ∧ Live true target k S ∧
+      ∀ a ∈ S, a ∈ pins := by
+  have he : (execute C.gates pins).getD C.output zero = target := by
+    apply bit_ext
+    intro r
+    rw [←b_read,execute_bits _ _ _ (fun g hg => (legal g hg).1)]
+    change (C.wires (pins.map (bit r))).getD C.output false = _
+    rw [rowPins]
+    exact (computes _).trans (rowTarget r).symm
+  have hp : proper target := by unfold proper; decide +kernel
+  have out := get_rep (u:=true) (execute C.gates pins) C.output
+  rw [he] at out
+  unfold Repr at out
+  rw [nrm_id (show bit 0 target=false by decide +kernel)] at out
+  obtain ⟨k,S,hk,run,hs⟩ := extract C.gates pins legal (u:=true) (by simp) hp
+    (out.resolve_right (fun h => h hp))
+  have ns : pins.all plainWord = true := by decide +kernel
+  rw [nrm_map ns] at hs
+  exact ⟨k,S,hk,run,hs⟩
+
+lemma first_proper_binary {k S} (run : Live true target k S)
+    (raw : ∀ a ∈ S, a ∈ pins) :
+    ∃ j a b d T, k = j + 1 ∧ a ∈ pins ∧ b ∈ pins ∧ a ≠ b ∧ d < 4 ∧
+      Live true target j T ∧ ∀ c ∈ T, c ∈ pins ++ [bin d a b] := by
+  cases k with
+  | zero =>
+    obtain ⟨rfl, _⟩ := run
+    have hm := raw target (by simp)
+    have hn : target ∉ pins := by decide +kernel
+    exact (hn hm).elim
+  | succ j =>
+    obtain ⟨U,a,b,d,hd,rfl,_,_,hab,_,tail⟩ := run
+    refine ⟨j,a,b,d,insert (bin d a b) U,rfl,raw a (by simp),raw b (by simp),hab,?_,tail,?_⟩
+    · rcases hd with h | ⟨_,h⟩ <;> omega
+    · intro c hc
+      rcases Finset.mem_insert.mp hc with rfl | hc
+      · exact List.mem_append_right _ (by simp)
+      · exact List.mem_append_left _ (raw c (by simp [hc]))
+
+end PEqualNP.Outside.L_meta_2592_aux.Stronger.Extended
+
+
+namespace PEqualNP.Outside.L_meta_2592_aux.Stronger.Extended
+
+open PEqualNP.Outside.L_meta_2592_aux.Subgraphs
+
+def vertexPositions : Fin 10 → Nat := ![9, 7, 5, 8, 6, 4, 2, 0, 3, 1]
+
+def rowOfAssignment (x : Fin 10 → Bool) : Row :=
+  Fin.ofNat 1024 (∑ i : Fin 10, if x i then 2 ^ vertexPositions i else 0)
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma assign_rowOfAssignment : ∀ x : Fin 10 → Bool, assign (rowOfAssignment x) = x := by
+  decide +kernel
+
+set_option maxRecDepth 32768 in
+set_option maxHeartbeats 0 in
+lemma rowOfAssignment_assign : ∀ r : Row, rowOfAssignment (assign r) = r := by
+  decide +kernel
+
+def permuteRows (p : Equiv.Perm (Fin 10)) : Equiv.Perm Row where
+  toFun r := rowOfAssignment (assign r ∘ p)
+  invFun r := rowOfAssignment (assign r ∘ p.symm)
+  left_inv r := by
+    change rowOfAssignment (assign (rowOfAssignment (assign r ∘ p)) ∘ p.symm) = r
+    rw [assign_rowOfAssignment]
+    have h : (assign r ∘ p) ∘ p.symm = assign r := by funext i; simp
+    rw [h, rowOfAssignment_assign]
+  right_inv r := by
+    change rowOfAssignment (assign (rowOfAssignment (assign r ∘ p.symm)) ∘ p) = r
+    rw [assign_rowOfAssignment]
+    have h : (assign r ∘ p.symm) ∘ p = assign r := by funext i; simp
+    rw [h, rowOfAssignment_assign]
+
+def renameVertices (p : Equiv.Perm (Fin 10)) (a : Sig) : Sig :=
+  table fun r => bit (permuteRows p r) a
+
+lemma bit_renameVertices (p : Equiv.Perm (Fin 10)) (a : Sig) (r : Row) :
+    bit r (renameVertices p a) = bit (permuteRows p r) a := bit_table _ _
+
+lemma renameVertices_injective (p : Equiv.Perm (Fin 10)) :
+    Function.Injective (renameVertices p) := by
+  intro a b h
+  apply BitVec.eq_of_getLsbD_eq
+  intro j hj
+  obtain ⟨r, hr⟩ := (permuteRows p).surjective ⟨j, hj⟩
+  have he := congrArg (bit r) h
+  change bit ⟨j, hj⟩ a = bit ⟨j, hj⟩ b
+  rw [bit_renameVertices, bit_renameVertices, hr] at he
+  exact he
+
+lemma renameVertices_zero (p : Equiv.Perm (Fin 10)) : renameVertices p zero = zero := by
+  apply bit_ext
+  intro r
+  rw [bit_renameVertices]
+  simp [bit, zero]
+
+lemma renameVertices_one (p : Equiv.Perm (Fin 10)) : renameVertices p one = one := by
+  apply bit_ext
+  intro r
+  rw [bit_renameVertices]
+  unfold bit one
+  simp only [BitVec.getLsbD_allOnes]
+  simp
+
+lemma transport_bit_bin (r : Row) (d : Nat) (a b : Sig) : bit r (bin d a b) =
+    (if d = 0 then bit r a && bit r b else if d = 1 then bit r a || bit r b else
+      if d = 2 then bit r a && !(bit r b) else !(bit r a) && bit r b) := by
+  unfold bin
+  split_ifs <;> simp [bit]
+
+lemma renameVertices_bin (p : Equiv.Perm (Fin 10)) (d : Nat) (a b : Sig) :
+    renameVertices p (bin d a b) = bin d (renameVertices p a) (renameVertices p b) := by
+  apply bit_ext
+  intro r
+  simp only [bit_renameVertices, transport_bit_bin]
+
+lemma renameVertices_pin (p : Equiv.Perm (Fin 10)) (i : Fin 10) :
+    renameVertices p (pins.getD i.val zero) = pins.getD (p i).val zero := by
+  apply BitVec.eq_of_getLsbD_eq
+  intro j hj
+  change bit ⟨j, hj⟩ (renameVertices p (pins.getD i.val zero)) = bit ⟨j, hj⟩ _
+  rw [bit_renameVertices]
+  change assign (rowOfAssignment (assign ⟨j, hj⟩ ∘ p)) i = assign ⟨j, hj⟩ (p i)
+  rw [assign_rowOfAssignment]
+  rfl
+
+lemma f10_eq_edgeFun (x : Fin 10 → Bool) : f10 x = edgeFun x := by
+  let es : List (Fin 10 × Fin 10) :=
+    [(0,1),(1,2),(2,3),(3,4),(4,0),(0,5),(1,6),(2,7),(3,8),(4,9),
+      (5,7),(7,9),(9,6),(6,8),(8,5)]
+  have h : (∃ a b : Fin 10, adjacent a b = true ∧ x a = true ∧ x b = true) ↔
+      ∃ e ∈ es, x e.1 = true ∧ x e.2 = true := by
+    constructor
+    · rintro ⟨a, b, hab, ha, hb⟩
+      change es.any (fun e => decide ((a = e.1 ∧ b = e.2) ∨ (a = e.2 ∧ b = e.1))) = true at hab
+      obtain ⟨e, he, hcase⟩ := List.any_eq_true.mp hab
+      simp only [decide_eq_true_eq] at hcase
+      rcases hcase with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩
+      · exact ⟨e, he, ha, hb⟩
+      · exact ⟨e, he, hb, ha⟩
+    · rintro ⟨e, he, ha, hb⟩
+      refine ⟨e.1, e.2, ?_, ha, hb⟩
+      change es.any (fun t => decide ((e.1 = t.1 ∧ e.2 = t.2) ∨ (e.1 = t.2 ∧ e.2 = t.1))) = true
+      exact List.any_eq_true.mpr ⟨e, he, by simp⟩
+  apply Bool.eq_iff_iff.mpr
+  rw [edgeFun, decide_eq_true_eq, h]
+  simp [f10, es, Bool.or_eq_true, Bool.and_eq_true, or_assoc]
+
+lemma renameVertices_target (p : Equiv.Perm (Fin 10))
+    (hp : ∀ a b, adjacent (p a) (p b) = adjacent a b) :
+    renameVertices p target = target := by
+  apply BitVec.eq_of_getLsbD_eq
+  intro j hj
+  change bit ⟨j, hj⟩ (renameVertices p target) = bit ⟨j, hj⟩ target
+  rw [bit_renameVertices, rowTarget, rowTarget]
+  change f10 (assign (rowOfAssignment (assign ⟨j, hj⟩ ∘ p))) = f10 (assign ⟨j, hj⟩)
+  rw [assign_rowOfAssignment, f10_eq_edgeFun, f10_eq_edgeFun]
+  exact edgeFun_permute p hp _
+
+lemma live_renameVertices {u T k S} (h : Live u T k S) (p : Equiv.Perm (Fin 10)) :
+    Live u (renameVertices p T) k (S.image (renameVertices p)) := by
+  have inj := renameVertices_injective p
+  have pp (v) (h : proper v) : proper (renameVertices p v) :=
+    ⟨fun e => h.1 (inj (e.trans (renameVertices_zero p).symm)),
+      fun e => h.2 (inj (e.trans (renameVertices_one p).symm))⟩
+  induction h using Live.ind with
+  | stop hp => simpa using Live.stop (pp _ hp)
+  | @binary k U a b d hd ha hb hab hf _ ih =>
+    have fresh : renameVertices p (bin d a b) ∉
+        (insert a (insert b U)).image (renameVertices p) := by
+      intro hm
+      obtain ⟨v, hv, eq⟩ := Finset.mem_image.mp hm
+      exact hf (inj eq ▸ hv)
+    simp only [Finset.image_insert, renameVertices_bin] at fresh ih ⊢
+    exact Live.binary hd (pp _ ha) (pp _ hb) (fun hh => hab (inj hh)) fresh ih
+
+lemma renameVertices_mem_pins (p : Equiv.Perm (Fin 10)) {v : Sig} (hv : v ∈ pins) :
+    renameVertices p v ∈ pins := by
+  have hlist : List.ofFn (fun i : Fin 10 => pins.getD i.val zero) = pins := rfl
+  have hv' : v ∈ List.ofFn (fun i : Fin 10 => pins.getD i.val zero) := hlist.symm ▸ hv
+  obtain ⟨i, rfl⟩ := List.mem_ofFn.mp hv'
+  rw [renameVertices_pin]
+  exact hlist ▸ List.mem_ofFn.mpr ⟨p i, rfl⟩
+
+lemma canonicalize_first (d : Fin 4) (a b : Fin 10) (hab : a ≠ b) {k S}
+    (run : Live true target k S)
+    (raw : ∀ v ∈ S, v ∈ pins ++ [bin d.val (pins.getD a.val zero) (pins.getD b.val zero)]) :
+    ∃ (j : Fin 2) (U : Finset Sig), Live true target k U ∧
+      ∀ v ∈ U, v ∈ pins ++ [bin d.val (pins.getD 0 zero) (pins.getD (j.val + 1) zero)] := by
+  classical
+  obtain ⟨p, hzero, hsecond, hp⟩ := normalize_pair a b hab
+  let j : Fin 2 := if adjacent a b then 0 else 1
+  let q := p.symm
+  have hqa : q a = 0 := by
+    dsimp [q]
+    rw [← hzero, Equiv.symm_apply_apply]
+  have hqb : (q b).val = j.val + 1 := by
+    dsimp [q]
+    rw [← hsecond, Equiv.symm_apply_apply]
+    cases h : adjacent a b <;> simp [j, h]
+  have hq : ∀ u v, adjacent (q u) (q v) = adjacent u v := by
+    intro u v
+    simpa only [q, Equiv.apply_symm_apply] using (hp (p.symm u) (p.symm v)).symm
+  refine ⟨j, S.image (renameVertices q), ?_, ?_⟩
+  · simpa only [renameVertices_target q hq] using live_renameVertices run q
+  · intro v hv
+    obtain ⟨w, hw, rfl⟩ := Finset.mem_image.mp hv
+    have hw' := raw w hw
+    simp only [List.mem_append, List.mem_singleton] at hw' ⊢
+    rcases hw' with hpin | rfl
+    · exact Or.inl (renameVertices_mem_pins q hpin)
+    · right
+      rw [renameVertices_bin, renameVertices_pin, renameVertices_pin, hqa, hqb]
+      rfl
+
+end PEqualNP.Outside.L_meta_2592_aux.Stronger.Extended
+
+
+namespace PEqualNP.Outside.L_meta_2592_aux.Stronger
+
+namespace CanonicalBank
+
+def extra (d : Fin 4) (j : Fin 2) : Extended.Sig :=
+  Extended.bin d.val (Extended.pins.getD 0 Extended.zero)
+    (Extended.pins.getD (j.val + 1) Extended.zero)
+
+def bank (d : Fin 4) (j : Fin 2) : List Extended.Sig :=
+  Extended.pins ++ [extra d j]
+
+def witness (d : Fin 4) (j : Fin 2) : Fin 512 :=
+  if d = 0 ∨ d = 3 then 16 else if j = 0 then 128 else 48
+
+def lo (d : Fin 4) (j : Fin 2) : Extended.Row :=
+  ⟨(witness d j).val, by have := (witness d j).isLt; omega⟩
+
+def hi (d : Fin 4) (j : Fin 2) : Extended.Row :=
+  ⟨(witness d j).val + 512, by have := (witness d j).isLt; omega⟩
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 0 in
+lemma target_diff : ∀ d : Fin 4, ∀ j : Fin 2,
+    Extended.bit (lo d j) Extended.target ≠ Extended.bit (hi d j) Extended.target := by
+  decide +kernel
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 0 in
+lemma other_stable : ∀ d : Fin 4, ∀ j : Fin 2,
+    (bank d j).all (fun a =>
+      (Extended.bit (lo d j) a == Extended.bit (hi d j) a) ||
+      (a == Extended.first)) = true := by
+  decide +kernel
+
+lemma first_needed (d : Fin 4) (j : Fin 2) {k S}
+    (run : Extended.Live true Extended.target k S)
+    (raw : ∀ a ∈ S, a ∈ bank d j) : Extended.first ∈ S := by
+  obtain ⟨a,ha,hchange⟩ := Extended.live_row_difference run (target_diff d j)
+  have chk := List.all_eq_true.mp (other_stable d j) a (raw a ha)
+  simp only [Bool.or_eq_true,beq_iff_eq] at chk
+  exact chk.resolve_left hchange ▸ ha
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 0 in
+lemma projected_bank : ∀ d : Fin 4, ∀ j : Fin 2,
+    (bank d j).all (fun a => (projected a == zero) || inputs.contains (projected a)) = true := by
+  decide +kernel
+
+lemma lower (d : Fin 4) (j : Fin 2) {k S}
+    (run : Extended.Live true Extended.target k S)
+    (raw : ∀ a ∈ S, a ∈ bank d j) : 16 ≤ k := by
+  classical
+  have hfirst := first_needed d j run raw
+  let front := Extended.first :: (S.erase Extended.first).toList
+  have nd : front.Nodup := by
+    apply List.nodup_cons.mpr
+    exact ⟨by simp,Finset.nodup_toList _⟩
+  have eqS : front.toFinset = S := by
+    ext a
+    by_cases ha : a = Extended.first <;> simp [front,ha,hfirst]
+  have hrun := Extended.list_run run front nd eqS
+  have same : restrictRows embed (Extended.observe Extended.target) = observe graph := by
+    rw [observe_projected]
+    exact congrArg observe (by decide +kernel)
+  have isZero : observe zero = fun _ => false := by funext r; simp [observe,bit,zero]
+  have supplyRoots : supply true (inputs.map observe) ((front.map Extended.observe).map (restrictRows embed)) := by
+    intro v hv
+    obtain ⟨_,hin,rfl⟩ := List.mem_map.mp hv
+    obtain ⟨a,hmFront,rfl⟩ := List.mem_map.mp hin
+    rw [observe_projected]
+    have hh := List.all_eq_true.mp (projected_bank d j) a (raw a (eqS ▸ List.mem_toFinset.mpr hmFront))
+    simp only [Bool.or_eq_true,beq_iff_eq] at hh
+    rcases hh with hz|hm
+    · exact Or.inr (Or.inl ⟨false,hz ▸ isZero⟩)
+    · exact Or.inl (List.mem_map.mpr ⟨_,by simpa using hm,rfl⟩)
+  have need := projected_bound embed hrun (same ▸ observe_proper graph_proper)
+    Reach.start supplyRoots (L:=15) (same ▸ nineFloor)
+  have charge : 1 ≤ mass ((front.map Extended.observe).map (restrictRows embed)) := by
+    have ac : Constant (restrictRows embed (Extended.observe Extended.first)) := by
+      rw [observe_projected, show projected Extended.first=zero by decide +kernel]
+      exact ⟨false,isZero⟩
+    simp [front,mass_cons,cost,ac]
+  omega
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 0 in
+lemma extra_ne_first : ∀ d : Fin 4, ∀ j : Fin 2, extra d j ≠ Extended.first := by
+  decide +kernel
+
+set_option maxRecDepth 16384 in
+set_option maxHeartbeats 0 in
+lemma extra_projects_zero : ∀ d : Fin 4, d = 0 ∨ d = 2 → ∀ j : Fin 2,
+    projected (extra d j) = zero := by
+  decide +kernel
+
+lemma conjunction_lower (d : Fin 4) (j : Fin 2) (hd : d = 0 ∨ d = 2) {k S}
+    (run : Extended.Live true Extended.target k S)
+    (raw : ∀ a ∈ S, a ∈ bank d j) (used : extra d j ∈ S) : 17 ≤ k := by
+  classical
+  have hfirst := first_needed d j run raw
+  have hne := extra_ne_first d j
+  let front := Extended.first :: extra d j :: ((S.erase Extended.first).erase (extra d j)).toList
+  have nd : front.Nodup := by
+    simp [front, hne, hne.symm, Finset.nodup_toList]
+  have eqS : front.toFinset = S := by
+    ext a
+    by_cases ha : a = Extended.first <;> by_cases hb : a = extra d j <;>
+      simp [front,ha,hb,hfirst,used]
+  have hrun := Extended.list_run run front nd eqS
+  have same : restrictRows embed (Extended.observe Extended.target) = observe graph := by
+    rw [observe_projected]
+    exact congrArg observe (by decide +kernel)
+  have isZero : observe zero = fun _ => false := by funext r; simp [observe,bit,zero]
+  have supplyRoots : supply true (inputs.map observe) ((front.map Extended.observe).map (restrictRows embed)) := by
+    intro v hv
+    obtain ⟨_,hin,rfl⟩ := List.mem_map.mp hv
+    obtain ⟨a,hmFront,rfl⟩ := List.mem_map.mp hin
+    rw [observe_projected]
+    have hh := List.all_eq_true.mp (projected_bank d j) a (raw a (eqS ▸ List.mem_toFinset.mpr hmFront))
+    simp only [Bool.or_eq_true,beq_iff_eq] at hh
+    rcases hh with hz|hm
+    · exact Or.inr (Or.inl ⟨false,hz ▸ isZero⟩)
+    · exact Or.inl (List.mem_map.mpr ⟨_,by simpa using hm,rfl⟩)
+  have need := projected_bound embed hrun (same ▸ observe_proper graph_proper)
+    Reach.start supplyRoots (L:=15) (same ▸ nineFloor)
+  have charge : 2 ≤ mass ((front.map Extended.observe).map (restrictRows embed)) := by
+    have ac : Constant (restrictRows embed (Extended.observe Extended.first)) := by
+      rw [observe_projected, show projected Extended.first=zero by decide +kernel]
+      exact ⟨false,isZero⟩
+    have bc : Constant (restrictRows embed (Extended.observe (extra d j))) := by
+      rw [observe_projected, extra_projects_zero d hd j]
+      exact ⟨false,isZero⟩
+    simp only [front,List.map_cons,List.map_map,mass_cons,cost,ac,bc,ite_true]
+    omega
+  omega
+
+end CanonicalBank
+
+end PEqualNP.Outside.L_meta_2592_aux.Stronger
+
+namespace PEqualNP.Outside.L_meta_2592_aux.Stronger
+
+lemma seventeen_of_raw_pins {k S} (run : Extended.Live true Extended.target k S)
+    (raw : ∀ a ∈ S, a ∈ Extended.pins) : 17 ≤ k := by
+  obtain ⟨n,a,b,d,T,eqk,ha,hb,hab,hd,tail,bank⟩ := Extended.first_proper_binary run raw
+  have hlist : List.ofFn (fun i : Fin 10 => Extended.pins.getD i.val Extended.zero) =
+      Extended.pins := rfl
+  rw [← hlist] at ha hb
+  obtain ⟨i,rfl⟩ := List.mem_ofFn.mp ha
+  obtain ⟨j,rfl⟩ := List.mem_ofFn.mp hb
+  have hij : i ≠ j := by
+    intro eqij
+    exact hab (congrArg (fun v : Fin 10 => Extended.pins.getD v.val Extended.zero) eqij)
+  obtain ⟨v,U,tail',bank'⟩ := Extended.canonicalize_first ⟨d,hd⟩ i j hij tail bank
+  have lower := CanonicalBank.lower ⟨d,hd⟩ v tail' bank'
+  omega
+
+lemma seventeen_binary_floor (C : PEqualNP.CircuitLowerBounds.Circuit)
+    (fan : PEqualNP.MetaComplexity.FanInTwo C)
+    (correct : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = Extended.f10 x) :
+    17 + PEqualNP.NotBracket.notCount C ≤ C.size := by
+  obtain ⟨k,S,hk,run,raw⟩ := Extended.realizeRawPins C fan correct
+  have floor := seventeen_of_raw_pins run raw
+  have sameNot :
+      (fun g : PEqualNP.CircuitLowerBounds.Gate => @decide
+        (g.op = PEqualNP.CircuitLowerBounds.GateOp.not)
+        (PEqualNP.CircuitLowerBounds.lineDegreeGateOpDecEq g.op PEqualNP.CircuitLowerBounds.GateOp.not)) = Extended.isNot := by
+    funext g
+    obtain ⟨op, operands⟩ := g
+    cases op <;> rfl
+  have negSame : (fun g : PEqualNP.CircuitLowerBounds.Gate => decide (¬ Extended.isNot g = true)) =
+      (fun g => !Extended.isNot g) := by
+    funext g
+    cases Extended.isNot g <;> rfl
+  have count := List.length_eq_countP_add_countP Extended.isNot (l := C.gates)
+  rw [negSame] at count
+  change 17 + (C.gates.filter (fun g => @decide
+    (g.op = PEqualNP.CircuitLowerBounds.GateOp.not)
+    (PEqualNP.CircuitLowerBounds.lineDegreeGateOpDecEq g.op PEqualNP.CircuitLowerBounds.GateOp.not))).length ≤ C.gates.length
+  rw [sameNot, ← List.countP_eq_length_filter]
+  omega
+
+lemma three_not_exclusion (C : PEqualNP.CircuitLowerBounds.Circuit)
+    (fan : PEqualNP.MetaComplexity.FanInTwo C)
+    (budget : C.size ≤ 19) (many : 3 ≤ PEqualNP.NotBracket.notCount C) :
+    ¬ ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) =
+      (x 0 && x 1 || x 1 && x 2 || x 2 && x 3 || x 3 && x 4 || x 4 && x 0 ||
+       x 0 && x 5 || x 1 && x 6 || x 2 && x 7 || x 3 && x 8 || x 4 && x 9 ||
+       x 5 && x 7 || x 7 && x 9 || x 9 && x 6 || x 6 && x 8 || x 8 && x 5) := by
+  intro correct
+  have lower := seventeen_binary_floor C fan correct
   omega
 
 end PEqualNP.Outside.L_meta_2592_aux.Stronger

@@ -30,3 +30,10 @@ This18gate circuit is an overapproximation with exactly4false positives, NOT a c
 
 structural_transport.lean compiled exit0 with empty output.
 Independent review by reduction_design PASS: vertex permutation and row encoding directions are correct; target invariance preserves Petersen function; bijective row maps preserve Live properness, freshness, distinct inputs and exact binary-gate cost. Arbitrary first pair becomes edge(0,1) or nonedge(0,2). Scratch import structural is only a harness and will be removed in final single-file integration.
+
+Integrated17-bound source independently reviewed by reduction_design:643insertions, original16proof unchanged except2permitted cached Mathlib imports; all plain inserted bodies match individually checked components. No forbidden syntax or added axioms. Named integrated build pending; exact posted theorem still absent.
+Cached17-floor and>=3NOT-exclusion test passed; realizeRawPins/seventeen_binary_floor axioms only propext,Classical.choice,Quot.sound.
+first_extractor_checked.lean, transport_used.lean, bank_all_pins.lean also compiled with empty diagnostics and independent review PASS.
+Named source now5246lines312347bytes; full rebuild running.
+Sub-agents:6
+TIMING total=33 subagents=6

@@ -1,0 +1,6 @@
+'PEqualNP.Outside.L_meta_2592_aux.Stronger.Extended.realizeRawPins' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.Stronger.seventeen_binary_floor' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
