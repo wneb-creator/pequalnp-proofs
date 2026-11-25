@@ -1,0 +1,4 @@
+Independent closure enumeration: 37 maximal independent sets; all 16384 assignments covered exactly.
+Fano graph: 21 edges; C4-free; exhaustive minimum vertex-cover size 7; target bound 27.
+All 16384 input truth values match; binary AO reads back; every active OR is monochromatic.
+Active gates 27 AND 7 OR 20

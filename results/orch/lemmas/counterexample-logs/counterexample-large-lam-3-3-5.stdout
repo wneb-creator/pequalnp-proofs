@@ -1,0 +1,12 @@
+largeLam raw enumeration p=3 l=3 depth=5 seconds_limit=300
+depth 0 raw_states 1
+depth 1 raw_states 33
+depth 2 raw_states 1515
+depth 3 raw_states 92079
+depth 4 raw_states 7146315
+depth 5 raw_states 688980681
+graph_outputs=151674165 top_form=113455197 top_form_all_active=379755
+maximum_U=3 maximum_all_active_U=3
+largeLam incidences=14481288 near_minimum_all_active=49707 minimum_active_total_slack=0 minimum_near_total_slack=0
+elapsed_seconds=24.0049
+EXHAUSTIVE COMPLETE; ALL THREE LARGE-LAM RESIDUAL INEQUALITIES PASS

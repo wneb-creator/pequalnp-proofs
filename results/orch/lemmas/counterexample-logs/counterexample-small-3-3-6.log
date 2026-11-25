@@ -1,0 +1,13 @@
+p=3 l=3 maxdepth=6 targets=333
+depth 0 visited 1
+depth 1 visited 27
+depth 2 visited 138
+depth 3 visited 1452
+depth 4 visited 17714
+depth 5 visited 1091872
+depth 6 visited 79477938
+depth 0 symmetry classes 1
+depth 1 symmetry classes 4
+depth 2 symmetry classes 34
+depth 3 symmetry classes 344
+NO COUNTEREXAMPLE

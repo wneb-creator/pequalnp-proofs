@@ -1,0 +1,8 @@
+depth 0 raw_states 1
+depth 1 raw_states 16
+depth 2 raw_states 404
+depth 3 raw_states 14738
+depth 4 raw_states 732280
+depth 5 raw_states 47503164
+graph_outputs=11292096 top_form=6857860 top_form_all_active=67652
+ALL THREE RESIDUAL INEQUALITIES PASS

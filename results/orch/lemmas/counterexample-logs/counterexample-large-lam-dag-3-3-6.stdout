@@ -1,0 +1,17 @@
+largeLam full-DAG symmetry enumeration p=3 l=3 depth=6 seconds_limit=300
+depth 0 visited_states 1
+depth 1 visited_states 33
+depth 2 visited_states 229
+depth 3 visited_states 4662
+depth 4 visited_states 121215
+depth 5 visited_states 11662683
+depth 6 visited_states 1364456661
+depth 0 full_DAG_classes 1
+depth 1 full_DAG_classes 5
+depth 2 full_DAG_classes 77
+depth 3 full_DAG_classes 1566
+graph_outputs=275364893 top_form=203323318 top_form_all_active=458592
+maximum_U=3 maximum_all_active_U=3
+largeLam incidences=31554084 near_minimum_all_active=11279 minimum_active_total_slack=0 minimum_near_total_slack=0
+elapsed_seconds=44.1316
+EXHAUSTIVE COMPLETE; ALL THREE LARGE-LAM RESIDUAL INEQUALITIES PASS

@@ -13,3 +13,5 @@
 - 2026-11-25T18:02:12.426127+00:00: Combined 8308-line helper file builds, including constrained residual closure and larger lambda budget. Exact residual certificate remains unproved.
 
 - 2026-11-25T18:05:41.110120+00:00: Retired false split residual-cover bound and unrestricted per-centre bank factoring; redirected effort to paid semantic-mixing ORs and minimum-preserving buffer/absorption transformations.
+
+- 2026-11-25T18:11:08.075586+00:00: 8777-line aggregate builds; exact private-buffer merge and paid singleton-mixed OR charge integrated. Separate masked-region strict simplification and explicit13-gate shortcut regression also compile.

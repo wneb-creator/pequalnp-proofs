@@ -76,3 +76,11 @@ Critical seven-lemma axiom audit exit0: only propext, Classical.choice, Quot.sou
 
 Snapshot11 2026-11-25T18:07:56.551777+00:00
 results/orch/lemmas/structural-semantic-mixed-paid.lean SHA256 21aaf382f79fc25165e3dc3a9225c70cf207a17136aee4cbebcbd30092c05f5f, compiled exit0, independent review passed. Semantic mixing means true singleton witnesses of both colours, not arbitrary semantic dependency.
+
+Snapshot12 2026-11-25T18:10:49.843351+00:00
+results/orch/lemmas/library-mask-merge.lean SHA256 b6c2c73040344aff45e5fc0641b0731676d733b29b6d4e1881f7d6894878253e, compiled exit0; complete library-mask-merge-build.stdout/.stderr.
+results/orch/lemmas/semantic-bank-obstruction-scoped.lean SHA256 9a3b5640f9284913526fa0baa99340b10ff8338e212e7ea9e8b892af84eb9d48, compiled exit0; complete semantic-bank-obstruction-scoped.stdout/.stderr.
+results/orch/lemmas/semantic-masked-region.lean SHA256 73650448692abd15d37f77350ce48dee4c9290751c2356e97729bdabb8760813, compiled exit0; complete semantic-masked-region.stdout/.stderr.
+results/orch/lemmas/algebraic-centres.lean SHA256 a9d0c47a18b64fe2adb203c0cc2a8e75dea0d9e706b4e8f0c56be966ee204fcc, compiled exit0; complete algebraic-centres-2.stdout/.stderr.
+Computational manifest SHA256 52af8cd77906d3181a840442313a0a8f1900b3af1ae05923a929fec8a9510d21; all61 hash/size records verified. Finite searches are evidence only; UNKNOWN is inconclusive.
+Named aggregate8777lines398014bytes SHA256 e5dc2fc72ec0678b366dda909efc11c3b4cf916710167591a6aef6ac7a72b697, lake build exit0; guard only missing target. Added MaskMerge and paid singleton-mixing declarations without duplicated prefixes.

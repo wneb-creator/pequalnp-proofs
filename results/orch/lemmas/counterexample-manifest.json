@@ -1,0 +1,818 @@
+{
+  "gap": "L-meta-4675",
+  "created_utc": "2026-11-25T18:05:32.009819+00:00",
+  "lean_status": "NO_LEAN_PROOF_OR_REFUTATION_FROM_THESE_COMPUTATIONAL_SEARCHES",
+  "dependencies": {
+    "cpp": "g++ with -std=c++17 -O3",
+    "python": "Python3 standard library",
+    "solver": "/usr/lib/x86_64-linux-gnu/libz3.so.4 (Z3 4.13.3), ctypes public C API"
+  },
+  "interpretation": [
+    "Only the stated finite exhaustive scopes are excluded computationally.",
+    "Heuristic NO_WITNESS and solver UNKNOWN do not imply UNSAT or a lower bound.",
+    "Some source files evolved during experiments; archived generated SMT is the exact solver input for recorded runs.",
+    "All logs are copied whole; no executable binaries or Python cache files are included.",
+    "External structural/semantic agent experiments are outside this manifest and remain with their owners."
+  ],
+  "experiments": [
+    {
+      "id": "total-2-3",
+      "source": "counterexample-small.cpp",
+      "logs": [
+        "counterexample-small-2-3.log"
+      ],
+      "status": "NO_COUNTEREXAMPLE",
+      "scope": "All nonempty C4-free bipartite graph edge functions on 2+3 inputs, circuits through 4 gates",
+      "completeness": "EXHAUSTIVE_WITH_SOUND_DOMINATION_AND_STATE_SYMMETRY",
+      "command": [
+        "2",
+        "3",
+        "4"
+      ],
+      "note": "Older runs predate symmetry and OR-count instrumentation; current source preserves the mathematical search scope, but visited counts can differ."
+    },
+    {
+      "id": "total-3-3-5",
+      "source": "counterexample-small.cpp",
+      "logs": [
+        "counterexample-small-3-3-5.log"
+      ],
+      "status": "NO_COUNTEREXAMPLE",
+      "scope": "All nonempty C4-free bipartite graph edge functions on 3+3 inputs, circuits through 5 gates",
+      "completeness": "EXHAUSTIVE_WITH_SOUND_DOMINATION_AND_STATE_SYMMETRY",
+      "command": [
+        "3",
+        "3",
+        "5"
+      ],
+      "note": "Older runs predate symmetry and OR-count instrumentation; current source preserves the mathematical search scope, but visited counts can differ."
+    },
+    {
+      "id": "total-3-3-6",
+      "source": "counterexample-small.cpp",
+      "logs": [
+        "counterexample-small-3-3-6.log"
+      ],
+      "status": "NO_COUNTEREXAMPLE",
+      "scope": "All nonempty C4-free bipartite graph edge functions on 3+3 inputs, circuits through 6 gates",
+      "completeness": "EXHAUSTIVE_WITH_SOUND_DOMINATION_AND_STATE_SYMMETRY",
+      "command": [
+        "3",
+        "3",
+        "6"
+      ],
+      "note": "Older runs predate symmetry and OR-count instrumentation; current source preserves the mathematical search scope, but visited counts can differ."
+    },
+    {
+      "id": "total-3-3-7",
+      "source": "counterexample-small.cpp",
+      "logs": [
+        "counterexample-small-3-3-7.log"
+      ],
+      "status": "NO_COUNTEREXAMPLE",
+      "scope": "All nonempty C4-free bipartite graph edge functions on 3+3 inputs, circuits through 7 gates",
+      "completeness": "EXHAUSTIVE_WITH_SOUND_DOMINATION_AND_STATE_SYMMETRY",
+      "command": [
+        "3",
+        "3",
+        "7"
+      ],
+      "note": "Older runs predate symmetry and OR-count instrumentation; current source preserves the mathematical search scope, but visited counts can differ."
+    },
+    {
+      "id": "total-2-4-5",
+      "source": "counterexample-small.cpp",
+      "logs": [
+        "counterexample-small-2-4-5.log"
+      ],
+      "status": "NO_COUNTEREXAMPLE",
+      "scope": "All nonempty C4-free bipartite graph edge functions on 2+4 inputs, circuits through 5 gates",
+      "completeness": "EXHAUSTIVE_WITH_SOUND_DOMINATION_AND_STATE_SYMMETRY",
+      "command": [
+        "2",
+        "4",
+        "5"
+      ],
+      "note": "Older runs predate symmetry and OR-count instrumentation; current source preserves the mathematical search scope, but visited counts can differ."
+    },
+    {
+      "id": "total-1-5-4",
+      "source": "counterexample-small.cpp",
+      "logs": [
+        "counterexample-small-1-5-4.log"
+      ],
+      "status": "NO_COUNTEREXAMPLE",
+      "scope": "All nonempty C4-free bipartite graph edge functions on 1+5 inputs, circuits through 4 gates",
+      "completeness": "EXHAUSTIVE_WITH_SOUND_DOMINATION_AND_STATE_SYMMETRY",
+      "command": [
+        "1",
+        "5",
+        "4"
+      ],
+      "note": "Older runs predate symmetry and OR-count instrumentation; current source preserves the mathematical search scope, but visited counts can differ."
+    },
+    {
+      "id": "separate-3-3-6",
+      "source": "counterexample-small.cpp",
+      "logs": [
+        "counterexample-separate-v2-3-3-6.log"
+      ],
+      "status": "NO_COUNTEREXAMPLE",
+      "scope": "OR count >= |E|-1 and AND count >= tau(E), 3+3 inputs through six gates",
+      "completeness": "EXHAUSTIVE_WITH_SOUND_DOMINATION_AND_COUNT_PRESERVING_STATE_SYMMETRY",
+      "command": [
+        "3",
+        "3",
+        "6"
+      ],
+      "note": null
+    },
+    {
+      "id": "raw-crosscheck",
+      "source": "counterexample-crosscheck.py",
+      "logs": [
+        "counterexample-crosscheck.log"
+      ],
+      "status": "ALL_TARGET_MINIMA_MATCH",
+      "scope": "2+2 inputs through four gates; independent set-of-assignments implementation",
+      "completeness": "EXHAUSTIVE_RAW_HISTORIES",
+      "command": [],
+      "note": null
+    },
+    {
+      "id": "fano-exact-certificate",
+      "source": "counterexample-certificate.py",
+      "logs": [
+        "counterexample-certificate-validation.log"
+      ],
+      "status": "VALIDATED",
+      "scope": "21 edges; 37 maximal independent sets; C4-freeness; minimum cover seven; known27-gate circuit on all16384 assignments",
+      "completeness": "EXHAUSTIVE_INSTANCE_CERTIFICATE",
+      "command": [],
+      "note": null
+    },
+    {
+      "id": "fano-initial",
+      "source": "counterexample-fano.cpp",
+      "logs": [
+        "counterexample-fano.log"
+      ],
+      "status": "NO_WITNESS",
+      "scope": "26 total gates, Fano graph",
+      "completeness": "HEURISTIC_NOT_EXHAUSTIVE",
+      "command": [
+        "300"
+      ],
+      "note": "3,017,100,000 mutations /30,171 restarts; no lower bound follows."
+    },
+    {
+      "id": "fano-diverse-26",
+      "source": "counterexample-fano-diverse.cpp",
+      "logs": [
+        "counterexample-fano-diverse-26.log"
+      ],
+      "status": "NO_WITNESS",
+      "scope": "26 total gates, Fano graph",
+      "completeness": "HEURISTIC_NOT_EXHAUSTIVE",
+      "command": [
+        "600",
+        "26",
+        "100"
+      ],
+      "note": "2,790,600,000 mutations /27,906 restarts; no lower bound follows."
+    },
+    {
+      "id": "fano-diverse-or19",
+      "source": "counterexample-fano-diverse.cpp",
+      "logs": [
+        "counterexample-fano-diverse-or19.log"
+      ],
+      "status": "NO_WITNESS",
+      "scope": "40 total gates, at most19 active OR gates, Fano graph",
+      "completeness": "HEURISTIC_NOT_EXHAUSTIVE",
+      "command": [
+        "600",
+        "40",
+        "19"
+      ],
+      "note": "1,949,000,000 mutations /19,490 restarts; does not test unbounded-AND circuits."
+    },
+    {
+      "id": "fifty-five-graphs",
+      "source": "counterexample-graphs.cpp",
+      "logs": [
+        "counterexample-graphs.log"
+      ],
+      "status": "NO_WITNESS",
+      "scope": "55 specified/generated C4-free graphs, each one gate below |E|+tau(E)-1",
+      "completeness": "HEURISTIC_NOT_EXHAUSTIVE",
+      "command": [
+        "600"
+      ],
+      "note": "3,550,000,000 mutations /35,500 restarts; exact signatures validate any witness, failed search proves no lower bound."
+    },
+    {
+      "id": "fano-bv-known27",
+      "source": "counterexample-fano-smt.py",
+      "logs": [
+        "counterexample-smt-validation-v2.log"
+      ],
+      "status": "SAT",
+      "scope": "Pinned known27-gate Fano circuit in corrected bitvector encoding",
+      "completeness": "ENCODING_POSITIVE_CONTROL",
+      "command": null,
+      "note": "Original ad-hoc pin driver is not separately archived; generated pinned SMT input is archived."
+    },
+    {
+      "id": "fano-bv-26",
+      "source": "counterexample-fano-smt.py",
+      "logs": [
+        "counterexample-fano-smt-26-v2.log"
+      ],
+      "status": "UNKNOWN_TIMEOUT",
+      "scope": "26 total gates, at most19 OR gates, exact Fano signature, T=0; every nonoutput gate used; no repeated-input OR gate",
+      "completeness": "INCONCLUSIVE",
+      "command": [
+        "26",
+        "300000",
+        "19",
+        "/tmp/oec/pequalnp-pilot-163/fano-26-or19-v2.smt2"
+      ],
+      "note": "Solver timeout300s; elapsed300.210792343s. No model or lower bound. These additional normal-form restrictions are stated explicitly; UNKNOWN remains inconclusive regardless."
+    },
+    {
+      "id": "fano-onehot-known27",
+      "source": "counterexample-fano-onehot.py",
+      "logs": [
+        "counterexample-fano-onehot-validation.log"
+      ],
+      "status": "SAT",
+      "scope": "Pinned known27-gate Fano circuit in one-hot encoding",
+      "completeness": "ENCODING_POSITIVE_CONTROL",
+      "command": [
+        "validate"
+      ],
+      "note": null
+    },
+    {
+      "id": "fano-onehot-26",
+      "source": "counterexample-fano-onehot.py",
+      "logs": [
+        "counterexample-fano-onehot26.log"
+      ],
+      "status": "UNKNOWN_TIMEOUT",
+      "scope": "26 total gates, exact Fano signature, T=0, at least one dirty AND; at most19 OR gates; every nonoutput gate used; no repeated-input OR gate",
+      "completeness": "INCONCLUSIVE",
+      "command": [],
+      "note": "Solver timeout600s; elapsed600.125799067s. No model or lower bound. These restrictions define the encoded scope; no unrestricted completeness claim follows from this run."
+    },
+    {
+      "id": "residual-minimum-2-2",
+      "source": "counterexample-residual.py",
+      "logs": [
+        "counterexample-residual.log"
+      ],
+      "status": "ALL_THREE_BOUNDS_PASS",
+      "scope": "60 histories whose size equals |E|+tau(E)-1, including36 TopForm histories, on2+2 inputs; every residual tuple zero",
+      "completeness": "EXHAUSTIVE_WITHIN_SPECIFIED_BOUND_SIZED_SCOPE",
+      "command": [],
+      "note": "Historical source/log says Optimal circuits; locally it checks equality to |E|+tau(E)-1, not an independent minimum proof. Separate crosscheck excludes smaller circuits for this input split. The residual tuples are all zero."
+    },
+    {
+      "id": "residual-raw-2-2-5",
+      "source": "counterexample-residual.cpp",
+      "logs": [
+        "counterexample-residual-2-2-5.log"
+      ],
+      "status": "ALL_THREE_BOUNDS_PASS",
+      "scope": "TopForm T0 graph outputs on2+2 inputs through5 gates, raw histories",
+      "completeness": "EXHAUSTIVE_RAW_HISTORIES",
+      "command": [
+        "2",
+        "2",
+        "5"
+      ],
+      "note": "The two separate inequalities are false in some larger nonminimum circuits; scope must not be extended."
+    },
+    {
+      "id": "residual-raw-2-3-5",
+      "source": "counterexample-residual.cpp",
+      "logs": [
+        "counterexample-residual-2-3-5.log"
+      ],
+      "status": "ALL_THREE_BOUNDS_PASS",
+      "scope": "TopForm T0 graph outputs on2+3 inputs through5 gates, raw histories",
+      "completeness": "EXHAUSTIVE_RAW_HISTORIES",
+      "command": [
+        "2",
+        "3",
+        "5"
+      ],
+      "note": "The two separate inequalities are false in some larger nonminimum circuits; scope must not be extended."
+    },
+    {
+      "id": "large-lam-raw-3-3-5",
+      "source": "counterexample-large-lam.cpp",
+      "logs": [
+        "counterexample-large-lam-3-3-5.stdout",
+        "counterexample-large-lam-3-3-5.stderr"
+      ],
+      "status": "ALL_THREE_BOUNDS_PASS",
+      "scope": "3+3 inputs through5 gates;696220624 histories;113455197 TopForm hits;379755 output-cone-active hits",
+      "completeness": "EXHAUSTIVE_RAW_HISTORIES",
+      "command": [
+        "3",
+        "3",
+        "5",
+        "300"
+      ],
+      "note": "All-active means structural output-cone inclusion, not edge-pair activity.49707 active hits have size <= |E|+tau(E)-1+2; no minimum hypothesis imposed. Completed24.0049s."
+    },
+    {
+      "id": "large-lam-double-star",
+      "source": "counterexample-large-lam-smt.py",
+      "logs": [
+        "counterexample-large-lam-pinned.stdout",
+        "counterexample-large-lam-pinned.stderr"
+      ],
+      "status": "SAT_SEPARATE_BOUND_COUNTEREXAMPLE",
+      "scope": "Pinned8-gate double-star: U3,tauU2,c0,j1,o4",
+      "completeness": "EXACT_FINITE_INSTANCE",
+      "command": [
+        "--gates",
+        "8",
+        "--timeout",
+        "10000",
+        "--near",
+        "2",
+        "--violation",
+        "and",
+        "--pin",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-large-lam-pinned.smt2"
+      ],
+      "note": "Refutes tau(U)<=c+j without minimum. SUM is equality5; does not refute L-meta-4675."
+    },
+    {
+      "id": "large-lam-double-star-sum",
+      "source": "counterexample-large-lam-smt.py",
+      "logs": [
+        "counterexample-large-lam-pinned-sum.stdout",
+        "counterexample-large-lam-pinned-sum.stderr"
+      ],
+      "status": "UNSAT_PINNED_CONTROL",
+      "scope": "Same pinned double-star; asks for a SUM violation",
+      "completeness": "EXACT_FINITE_INSTANCE",
+      "command": [
+        "--gates",
+        "8",
+        "--timeout",
+        "10000",
+        "--near",
+        "2",
+        "--violation",
+        "sum",
+        "--pin",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-large-lam-pinned-sum.smt2"
+      ],
+      "note": "UNSAT only for this pinned circuit, not the general target."
+    },
+    {
+      "id": "large-lam-eight-sum",
+      "source": "counterexample-large-lam-smt.py",
+      "logs": [
+        "counterexample-large-lam-eight.stdout",
+        "counterexample-large-lam-eight.stderr"
+      ],
+      "status": "UNKNOWN_TIMEOUT",
+      "scope": "Unknown nonempty C4-free3+3 graph; exactly8 gates;T0;TopForm;every gate in output cone;size<=|E|+tau(E)-1+2;SUM violation",
+      "completeness": "INCONCLUSIVE",
+      "command": [
+        "--gates",
+        "8",
+        "--timeout",
+        "300000",
+        "--near",
+        "2",
+        "--violation",
+        "sum",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-large-lam-eight.smt2"
+      ],
+      "note": "No global minimum hypothesis; includes only structurally all-active circuits. UNKNOWN establishes no bound. Solver returned UNKNOWN at300.230553444s, timeout300s."
+    },
+    {
+      "id": "large-lam-dag-3-3-6",
+      "source": "counterexample-large-lam-dag.cpp",
+      "logs": [
+        "counterexample-large-lam-dag-3-3-6.stdout",
+        "counterexample-large-lam-dag-3-3-6.stderr"
+      ],
+      "status": "ALL_THREE_BOUNDS_PASS",
+      "scope": "All TopForm T0 graph outputs on3+3 inputs through6 gates; complete prefix-DAG input/topological symmetries;1376245484 visited representative-prefix states",
+      "completeness": "EXHAUSTIVE_WITH_FULL_WIRING_DAG_SYMMETRY",
+      "command": [
+        "3",
+        "3",
+        "6",
+        "300"
+      ],
+      "note": "Every gate instance and operand retained; no semantic pruning.203323318 TopForm hits;458592 structural output-cone-active hits;11279 active hits size<=|E|+tau(E)-1+2. Maximum residual U cardinality3; minimum sum slack0. Elapsed44.1316s. Symmetry independently reviewed. Counts are not raw histories."
+    }
+  ],
+  "discarded_or_superseded": [
+    {
+      "logs": [
+        "counterexample-fano-smt-26.log",
+        "counterexample-smt-validation.log"
+      ],
+      "status": "DISCARDED_INVALID_ENCODING",
+      "reason": "Preliminary bitvector SMT referenced undeclared future selectors. Solver output invalid; corrected versions are recorded above."
+    },
+    {
+      "logs": [
+        "counterexample-separate-3-3-6.log"
+      ],
+      "status": "SUPERSEDED",
+      "reason": "Initial separate-count run did not include OR count in state key. Corrected v2 run is the basis for the reported separate-count result."
+    },
+    {
+      "logs": [
+        "counterexample-support.log"
+      ],
+      "status": "FAILED_NO_LEAN_RESULT",
+      "reason": "Exploratory Lean command referenced a file that was not created. No source or proof result resulted; not a compilation success."
+    }
+  ],
+  "files": [
+    {
+      "path": "results/orch/lemmas/counterexample-certificate.py",
+      "bytes": 3597,
+      "sha256": "665c952452465211e0d6624e9a6f7e1801e43cbd27306d4e645225f1e233268e",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-crosscheck.py",
+      "bytes": 2438,
+      "sha256": "19671d4abd2e055425a9727863763fdede87745dd09b860eefa09932edb65958",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-fano-diverse.cpp",
+      "bytes": 5774,
+      "sha256": "93780536d56bd34b642f2710d2e4b334a55551c9937da35e14ca25687dfcbedd",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-fano-onehot.py",
+      "bytes": 5272,
+      "sha256": "a495aad95f9bcfcaa1e6979f3a2d1e1fb2722e9611d491869eb36bb0e0b3aad5",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-fano-smt.py",
+      "bytes": 4551,
+      "sha256": "cdf1c8dace0cbde4ed2856144a72deb1d3b6a24cb4d229f6454299ed7b146326",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-fano.cpp",
+      "bytes": 4189,
+      "sha256": "20ce064ae80c250045240ebf1e00e53708860cb4236a100b6d21ebbada062e76",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-graphs.cpp",
+      "bytes": 7487,
+      "sha256": "cffee373b6b0ab20aeda81023ed4dc3922771f24debe68c274838f0c64e321e1",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-large-lam-dag.cpp",
+      "bytes": 8648,
+      "sha256": "87b8bf1a36e3c65382796791480c19829cf9de3994c2ad05ef4753fa67e31bc6",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-large-lam-smt.py",
+      "bytes": 8702,
+      "sha256": "ed27298f890c9b46a1833de83cb772178101d8927eccfa3600effdd795a600b9",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-large-lam.cpp",
+      "bytes": 6321,
+      "sha256": "d2f7b20c76f7dd26d8c99f9f5e116cc2ab24821d038f66b32612876810389f98",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-certificate-validation.log",
+      "bytes": 309,
+      "sha256": "1a5c5d5195e9ec549a4407ac58f5ed142e7cbcf84c72b22059e0a7acb2d52d5c",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-crosscheck.log",
+      "bytes": 293,
+      "sha256": "aa69e2ac8962221615845daafdaa071e54fe65f046c9f81439d99b26303af7a7",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-fano-diverse-26.log",
+      "bytes": 16152,
+      "sha256": "539228e40975db517ae0ec9f2d62e6d15b0a7f8c21d82128b595973966cde4d7",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-fano-diverse-or19.log",
+      "bytes": 10997,
+      "sha256": "91050e8144474b05452ebe01f53c70cdcc7f44081900280d6ddedfea9c8f5305",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-fano-onehot-validation.log",
+      "bytes": 1305,
+      "sha256": "a6c8ea23e8b2b47681e7a8b2dbd655e4244a17792773a0104905a5e4d60c6a43",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-fano-onehot26.log",
+      "bytes": 80,
+      "sha256": "93aae95890d57f964c1c733ebaaaa51aba6c063001eedd848774aafc0f9167b2",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-fano-smt-26-v2.log",
+      "bytes": 91,
+      "sha256": "aa0ec467b25e2cefb7a1197b088e56dacdbe45789420a32bcb8eb1bb2f055407",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-fano-smt-26.log",
+      "bytes": 1327,
+      "sha256": "4eaeaf1263df342735ebe9da3686d599a77981d32f74d9c29f3b4c213abb5dce",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-fano.log",
+      "bytes": 182,
+      "sha256": "1bf589d8d686f4a9655b4576df32944b740a458cb2c3e2bdea0b1c67671bef22",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-graphs.log",
+      "bytes": 20436,
+      "sha256": "376f7f6d545e6cf7a5d1473915e1d155246e7a8c3252efb9049dfabe6dbbb138",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-large-lam-3-3-5.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-large-lam-3-3-5.stdout",
+      "bytes": 519,
+      "sha256": "7d5541a4403c2e3ad83c7679335c164019eebdf56f4c11a4549ccaffcab2497b",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-large-lam-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-large-lam-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-large-lam-dag-3-3-6.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-large-lam-dag-3-3-6.stdout",
+      "bytes": 699,
+      "sha256": "505d4b269bd0217339004afca3658f5edeaf4ef51e1a807ec86b3c7cba544b7d",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-large-lam-dag-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-large-lam-dag-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-large-lam-eight.smt2",
+      "bytes": 59172,
+      "sha256": "669a6d7ed60a88cf63042aa8b87c4b13481e119084b247dafc7d2165dc26cd2c",
+      "kind": "generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-large-lam-eight.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-large-lam-eight.stdout",
+      "bytes": 213,
+      "sha256": "55d8dbdefe3ee2790346fff047f75b32a9023a93cfe494044d0fa2a00930743e",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-large-lam-pinned-sum.smt2",
+      "bytes": 59761,
+      "sha256": "629f292aa7741f4da8dc130141843f0de9c3fbe433ec90d4b74436715d656a9c",
+      "kind": "generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-large-lam-pinned-sum.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-large-lam-pinned-sum.stdout",
+      "bytes": 217,
+      "sha256": "fc7c4705e709b9288ec431a8c75890ce918067ccfa65b3fe2bc41a90a1b3fca1",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-large-lam-pinned.smt2",
+      "bytes": 59780,
+      "sha256": "466a6cddc357ea5ab814d325ecb23e5174b5f15d1341aef213e4d1088f7e51d5",
+      "kind": "generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-large-lam-pinned.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-large-lam-pinned.stdout",
+      "bytes": 717,
+      "sha256": "706b3586d7b720486149ba19bfa77434b316e201ebe30ab26e7a0813f89138c3",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-residual-2-2-5.log",
+      "bytes": 248,
+      "sha256": "ded3e8f51c41593887c26a06916db26dc24292484b83c054df94021f82da432c",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-residual-2-3-5.log",
+      "bytes": 287,
+      "sha256": "2481a3c80f7b8f2adccb3e2e0247334fd29e874e24f0791fe11496dc2955930e",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-residual.log",
+      "bytes": 166,
+      "sha256": "8ada45cdc8813552da836afc652dde596417738b9931b85151e87841678ae6df",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-separate-3-3-6.log",
+      "bytes": 346,
+      "sha256": "f3f7aeed3ba42c0e0fd612afeb0d553ea0b3e73efcda4111b0ed4b996026d015",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-separate-v2-3-3-6.log",
+      "bytes": 346,
+      "sha256": "f3f7aeed3ba42c0e0fd612afeb0d553ea0b3e73efcda4111b0ed4b996026d015",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-small-1-5-4.log",
+      "bytes": 259,
+      "sha256": "2a505f20a44221b2ce9ad9e06d64336aa34111169e6fca217ae9f42510afb598",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-small-2-3.log",
+      "bytes": 150,
+      "sha256": "69b5fcf5b0e025333a96d39ee11ce36825286015e16fa35ce24bd2b67a58d1ee",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-small-2-4-5.log",
+      "bytes": 284,
+      "sha256": "c2437d2154d318ee8f36f4e1434dbfa8d8bf96d63420407694183602539b130b",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-small-3-3-5.log",
+      "bytes": 178,
+      "sha256": "fff5d71627321ab5c7d8de320d01c172bf3156fd5aef361d1f3433830c4743c7",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-small-3-3-6.log",
+      "bytes": 309,
+      "sha256": "1b94a0b5955bf61419c269baf4638255429b475109c48ba7c8f92e718e1cc8ca",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-small-3-3-7.log",
+      "bytes": 336,
+      "sha256": "75c336bc5e7edef7bd1b0fe0b2ff08f77a21ebd10f7bab2ccb89a92ecf551330",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-smt-validation-v2.log",
+      "bytes": 39,
+      "sha256": "bc2993a5ada9f864602b12d781b802794947ce775bf77482669ac865f23a66f2",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-smt-validation.log",
+      "bytes": 1326,
+      "sha256": "170e6f0e239a483b82b65466feb0b4557205fcb462700898f2cd4a39de4e4941",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/counterexample-support.log",
+      "bytes": 101,
+      "sha256": "e63f95322fad1146ba72dccb44dfa138a168ee76f74525d9bf6f8c922824c1db",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/fano-26-or19-v2.smt2",
+      "bytes": 104205,
+      "sha256": "571469465f3962adb843dc6829e050c8e7cb2362cf40d7a051002135da84bd3b",
+      "kind": "generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/fano-known27-v2.smt2",
+      "bytes": 111498,
+      "sha256": "048df55680927c54b7dd577c40ce50a698cbb6aa62ba289d7a1d89b55a643b4e",
+      "kind": "generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/fano-onehot-known27.smt2",
+      "bytes": 185282,
+      "sha256": "9de5d2130d1b60660c5c8aa74a08cd25346364cbc2174599ced514090f2c59fa",
+      "kind": "generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-logs/fano-onehot26.smt2",
+      "bytes": 175987,
+      "sha256": "334c59d094b5ea0ddfbb3d1e89d89e0ba593102eea279836bf2d8a9b4a49aadd",
+      "kind": "generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-manifest.md",
+      "bytes": 4137,
+      "sha256": "45d1acee5609629200a7b817f82271f2ba6fde542d2e741afd4b5873dcef9a2f",
+      "kind": "human_readable_manifest"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-notes.md",
+      "bytes": 14056,
+      "sha256": "59d4a7e47116b8dde931a4e05004bc156b909a011790bb2807878e3d98c7b8e3",
+      "kind": "existing_notes_or_full_log_bundle"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-residual.cpp",
+      "bytes": 4784,
+      "sha256": "7fab35249551d7837e283508473922e41329298a1883cdde33b0509c402b40d7",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-residual.py",
+      "bytes": 4290,
+      "sha256": "7b8bf8dcdcf7f16b62ed8ca40d85458d208b226b91f7cbbe5e3b86acdcd4610a",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-small.cpp",
+      "bytes": 5427,
+      "sha256": "bc45795ed9e31bb2507dedb44f62244de481b74260cfcdc8a835fff1444b388f",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-validation.txt",
+      "bytes": 56259,
+      "sha256": "c70711889fd8620996b178872d022a8d0c52714a0521fb57dfd940ecfff71b40",
+      "kind": "existing_notes_or_full_log_bundle"
+    }
+  ],
+  "frozen_utc": "2026-11-25T18:09:05.559230+00:00",
+  "all_runs_terminated_by_utc": "2026-11-25T18:08:28Z"
+}

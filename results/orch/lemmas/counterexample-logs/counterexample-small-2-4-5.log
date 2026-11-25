@@ -1,0 +1,12 @@
+p=2 l=4 maxdepth=5 targets=188
+depth 0 visited 1
+depth 1 visited 28
+depth 2 visited 249
+depth 3 visited 2458
+depth 4 visited 30466
+depth 5 visited 1929777
+depth 0 symmetry classes 1
+depth 1 symmetry classes 7
+depth 2 symmetry classes 56
+depth 3 symmetry classes 575
+NO COUNTEREXAMPLE

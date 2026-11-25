@@ -1,0 +1,1179 @@
+Finite counterexample search; not Lean verification
+UTC 2026-11-25T17:15:15.510614+00:00
+
+counterexample-small-2-3.log
+p=2 l=3 maxdepth=4 targets=53
+depth 0 visited 1
+depth 1 visited 19
+depth 2 visited 469
+depth 3 visited 14551
+depth 4 visited 554957
+NO COUNTEREXAMPLE
+
+counterexample-small-3-3-5.log
+p=3 l=3 maxdepth=5 targets=333
+depth 0 visited 1
+depth 1 visited 27
+depth 2 visited 930
+depth 3 visited 39714
+depth 4 visited 2060178
+depth 5 visited 127767588
+NO COUNTEREXAMPLE
+
+counterexample-small-3-3-6.log
+p=3 l=3 maxdepth=6 targets=333
+depth 0 visited 1
+depth 1 visited 27
+depth 2 visited 138
+depth 3 visited 1452
+depth 4 visited 17714
+depth 5 visited 1091872
+depth 6 visited 79477938
+depth 0 symmetry classes 1
+depth 1 symmetry classes 4
+depth 2 symmetry classes 34
+depth 3 symmetry classes 344
+NO COUNTEREXAMPLE
+
+counterexample-small-3-3-7.log
+p=3 l=3 maxdepth=7 targets=333
+depth 0 visited 1
+depth 1 visited 27
+depth 2 visited 138
+depth 3 visited 1452
+depth 4 visited 17714
+depth 5 visited 1091872
+depth 6 visited 79477938
+depth 7 visited 6754248074
+depth 0 symmetry classes 1
+depth 1 symmetry classes 4
+depth 2 symmetry classes 34
+depth 3 symmetry classes 344
+NO COUNTEREXAMPLE
+
+counterexample-small-2-4-5.log
+p=2 l=4 maxdepth=5 targets=188
+depth 0 visited 1
+depth 1 visited 28
+depth 2 visited 249
+depth 3 visited 2458
+depth 4 visited 30466
+depth 5 visited 1929777
+depth 0 symmetry classes 1
+depth 1 symmetry classes 7
+depth 2 symmetry classes 56
+depth 3 symmetry classes 575
+NO COUNTEREXAMPLE
+
+counterexample-small-1-5-4.log
+p=1 l=5 maxdepth=4 targets=31
+depth 0 visited 1
+depth 1 visited 31
+depth 2 visited 196
+depth 3 visited 1671
+depth 4 visited 19486
+depth 0 symmetry classes 1
+depth 1 symmetry classes 5
+depth 2 symmetry classes 35
+depth 3 symmetry classes 340
+NO COUNTEREXAMPLE
+
+counterexample-separate-v2-3-3-6.log
+p=3 l=3 maxdepth=6 targets=333
+depth 0 visited 1
+depth 1 visited 27
+depth 2 visited 138
+depth 3 visited 1452
+depth 4 visited 17714
+depth 5 visited 1091872
+depth 6 visited 79477938
+depth 0 symmetry classes 1
+depth 1 symmetry classes 4
+depth 2 symmetry classes 34
+depth 3 symmetry classes 344
+NO COUNTEREXAMPLE
+Separate bounds violated: OR=0 AND=0
+
+
+Initial Fano heuristic (not an exhaustive check)
+best=39 iterations=1 restarts=1
+best=3 iterations=3 restarts=1
+best=2 iterations=28 restarts=1
+best=1 iterations=38 restarts=1
+NO WITNESS iterations=3017100000 restarts=30171 best=1
+
+counterexample-crosscheck.log
+Split 2 2 depth 4 targets 14 raw counts [1, 16, 404, 14738, 732280]
+Observed minima [(1, 1), (2, 1), (3, 2), (4, 1), (5, 2), (6, 3), (7, 4), (8, 1), (9, 3), (10, 2), (11, 4), (12, 2), (13, 4), (14, 4)]
+No counterexample; elapsed seconds 2.5599946400000135
+All minima equal the asserted bound.
+
+counterexample-certificate-validation.log
+Independent closure enumeration: 37 maximal independent sets; all 16384 assignments covered exactly.
+Fano graph: 21 edges; C4-free; exhaustive minimum vertex-cover size 7; target bound 27.
+All 16384 input truth values match; binary AO reads back; every active OR is monochromatic.
+Active gates 27 AND 7 OR 20
+
+counterexample-smt-validation-v2.log
+Known 27-gate exact star circuit: sat
+
+
+counterexample-fano-diverse-26.log
+best_exact_errors=7 positive=2 negative=5 mixed=0 active_OR=19 active_gates=26 iterations=1 restarts=1
+best_exact_errors=4 positive=4 negative=0 mixed=0 active_OR=18 active_gates=26 iterations=2 restarts=1
+best_exact_errors=2 positive=2 negative=0 mixed=0 active_OR=18 active_gates=25 iterations=4 restarts=1
+best_exact_errors=1 positive=1 negative=0 mixed=0 active_OR=19 active_gates=26 iterations=16 restarts=1
+restarts=100 iterations=9900000 best_exact_errors=1
+restarts=200 iterations=19900000 best_exact_errors=1
+restarts=300 iterations=29900000 best_exact_errors=1
+restarts=400 iterations=39900000 best_exact_errors=1
+restarts=500 iterations=49900000 best_exact_errors=1
+restarts=600 iterations=59900000 best_exact_errors=1
+restarts=700 iterations=69900000 best_exact_errors=1
+restarts=800 iterations=79900000 best_exact_errors=1
+restarts=900 iterations=89900000 best_exact_errors=1
+restarts=1000 iterations=99900000 best_exact_errors=1
+restarts=1100 iterations=109900000 best_exact_errors=1
+restarts=1200 iterations=119900000 best_exact_errors=1
+restarts=1300 iterations=129900000 best_exact_errors=1
+restarts=1400 iterations=139900000 best_exact_errors=1
+restarts=1500 iterations=149900000 best_exact_errors=1
+restarts=1600 iterations=159900000 best_exact_errors=1
+restarts=1700 iterations=169900000 best_exact_errors=1
+restarts=1800 iterations=179900000 best_exact_errors=1
+restarts=1900 iterations=189900000 best_exact_errors=1
+restarts=2000 iterations=199900000 best_exact_errors=1
+restarts=2100 iterations=209900000 best_exact_errors=1
+restarts=2200 iterations=219900000 best_exact_errors=1
+restarts=2300 iterations=229900000 best_exact_errors=1
+restarts=2400 iterations=239900000 best_exact_errors=1
+restarts=2500 iterations=249900000 best_exact_errors=1
+restarts=2600 iterations=259900000 best_exact_errors=1
+restarts=2700 iterations=269900000 best_exact_errors=1
+restarts=2800 iterations=279900000 best_exact_errors=1
+restarts=2900 iterations=289900000 best_exact_errors=1
+restarts=3000 iterations=299900000 best_exact_errors=1
+restarts=3100 iterations=309900000 best_exact_errors=1
+restarts=3200 iterations=319900000 best_exact_errors=1
+restarts=3300 iterations=329900000 best_exact_errors=1
+restarts=3400 iterations=339900000 best_exact_errors=1
+restarts=3500 iterations=349900000 best_exact_errors=1
+restarts=3600 iterations=359900000 best_exact_errors=1
+restarts=3700 iterations=369900000 best_exact_errors=1
+restarts=3800 iterations=379900000 best_exact_errors=1
+restarts=3900 iterations=389900000 best_exact_errors=1
+restarts=4000 iterations=399900000 best_exact_errors=1
+restarts=4100 iterations=409900000 best_exact_errors=1
+restarts=4200 iterations=419900000 best_exact_errors=1
+restarts=4300 iterations=429900000 best_exact_errors=1
+restarts=4400 iterations=439900000 best_exact_errors=1
+restarts=4500 iterations=449900000 best_exact_errors=1
+restarts=4600 iterations=459900000 best_exact_errors=1
+restarts=4700 iterations=469900000 best_exact_errors=1
+restarts=4800 iterations=479900000 best_exact_errors=1
+restarts=4900 iterations=489900000 best_exact_errors=1
+restarts=5000 iterations=499900000 best_exact_errors=1
+restarts=5100 iterations=509900000 best_exact_errors=1
+restarts=5200 iterations=519900000 best_exact_errors=1
+restarts=5300 iterations=529900000 best_exact_errors=1
+restarts=5400 iterations=539900000 best_exact_errors=1
+restarts=5500 iterations=549900000 best_exact_errors=1
+restarts=5600 iterations=559900000 best_exact_errors=1
+restarts=5700 iterations=569900000 best_exact_errors=1
+restarts=5800 iterations=579900000 best_exact_errors=1
+restarts=5900 iterations=589900000 best_exact_errors=1
+restarts=6000 iterations=599900000 best_exact_errors=1
+restarts=6100 iterations=609900000 best_exact_errors=1
+restarts=6200 iterations=619900000 best_exact_errors=1
+restarts=6300 iterations=629900000 best_exact_errors=1
+restarts=6400 iterations=639900000 best_exact_errors=1
+restarts=6500 iterations=649900000 best_exact_errors=1
+restarts=6600 iterations=659900000 best_exact_errors=1
+restarts=6700 iterations=669900000 best_exact_errors=1
+restarts=6800 iterations=679900000 best_exact_errors=1
+restarts=6900 iterations=689900000 best_exact_errors=1
+restarts=7000 iterations=699900000 best_exact_errors=1
+restarts=7100 iterations=709900000 best_exact_errors=1
+restarts=7200 iterations=719900000 best_exact_errors=1
+restarts=7300 iterations=729900000 best_exact_errors=1
+restarts=7400 iterations=739900000 best_exact_errors=1
+restarts=7500 iterations=749900000 best_exact_errors=1
+restarts=7600 iterations=759900000 best_exact_errors=1
+restarts=7700 iterations=769900000 best_exact_errors=1
+restarts=7800 iterations=779900000 best_exact_errors=1
+restarts=7900 iterations=789900000 best_exact_errors=1
+restarts=8000 iterations=799900000 best_exact_errors=1
+restarts=8100 iterations=809900000 best_exact_errors=1
+restarts=8200 iterations=819900000 best_exact_errors=1
+restarts=8300 iterations=829900000 best_exact_errors=1
+restarts=8400 iterations=839900000 best_exact_errors=1
+restarts=8500 iterations=849900000 best_exact_errors=1
+restarts=8600 iterations=859900000 best_exact_errors=1
+restarts=8700 iterations=869900000 best_exact_errors=1
+restarts=8800 iterations=879900000 best_exact_errors=1
+restarts=8900 iterations=889900000 best_exact_errors=1
+restarts=9000 iterations=899900000 best_exact_errors=1
+restarts=9100 iterations=909900000 best_exact_errors=1
+restarts=9200 iterations=919900000 best_exact_errors=1
+restarts=9300 iterations=929900000 best_exact_errors=1
+restarts=9400 iterations=939900000 best_exact_errors=1
+restarts=9500 iterations=949900000 best_exact_errors=1
+restarts=9600 iterations=959900000 best_exact_errors=1
+restarts=9700 iterations=969900000 best_exact_errors=1
+restarts=9800 iterations=979900000 best_exact_errors=1
+restarts=9900 iterations=989900000 best_exact_errors=1
+restarts=10000 iterations=999900000 best_exact_errors=1
+restarts=10100 iterations=1009900000 best_exact_errors=1
+restarts=10200 iterations=1019900000 best_exact_errors=1
+restarts=10300 iterations=1029900000 best_exact_errors=1
+restarts=10400 iterations=1039900000 best_exact_errors=1
+restarts=10500 iterations=1049900000 best_exact_errors=1
+restarts=10600 iterations=1059900000 best_exact_errors=1
+restarts=10700 iterations=1069900000 best_exact_errors=1
+restarts=10800 iterations=1079900000 best_exact_errors=1
+restarts=10900 iterations=1089900000 best_exact_errors=1
+restarts=11000 iterations=1099900000 best_exact_errors=1
+restarts=11100 iterations=1109900000 best_exact_errors=1
+restarts=11200 iterations=1119900000 best_exact_errors=1
+restarts=11300 iterations=1129900000 best_exact_errors=1
+restarts=11400 iterations=1139900000 best_exact_errors=1
+restarts=11500 iterations=1149900000 best_exact_errors=1
+restarts=11600 iterations=1159900000 best_exact_errors=1
+restarts=11700 iterations=1169900000 best_exact_errors=1
+restarts=11800 iterations=1179900000 best_exact_errors=1
+restarts=11900 iterations=1189900000 best_exact_errors=1
+restarts=12000 iterations=1199900000 best_exact_errors=1
+restarts=12100 iterations=1209900000 best_exact_errors=1
+restarts=12200 iterations=1219900000 best_exact_errors=1
+restarts=12300 iterations=1229900000 best_exact_errors=1
+restarts=12400 iterations=1239900000 best_exact_errors=1
+restarts=12500 iterations=1249900000 best_exact_errors=1
+restarts=12600 iterations=1259900000 best_exact_errors=1
+restarts=12700 iterations=1269900000 best_exact_errors=1
+restarts=12800 iterations=1279900000 best_exact_errors=1
+restarts=12900 iterations=1289900000 best_exact_errors=1
+restarts=13000 iterations=1299900000 best_exact_errors=1
+restarts=13100 iterations=1309900000 best_exact_errors=1
+restarts=13200 iterations=1319900000 best_exact_errors=1
+restarts=13300 iterations=1329900000 best_exact_errors=1
+restarts=13400 iterations=1339900000 best_exact_errors=1
+restarts=13500 iterations=1349900000 best_exact_errors=1
+restarts=13600 iterations=1359900000 best_exact_errors=1
+restarts=13700 iterations=1369900000 best_exact_errors=1
+restarts=13800 iterations=1379900000 best_exact_errors=1
+restarts=13900 iterations=1389900000 best_exact_errors=1
+restarts=14000 iterations=1399900000 best_exact_errors=1
+restarts=14100 iterations=1409900000 best_exact_errors=1
+restarts=14200 iterations=1419900000 best_exact_errors=1
+restarts=14300 iterations=1429900000 best_exact_errors=1
+restarts=14400 iterations=1439900000 best_exact_errors=1
+restarts=14500 iterations=1449900000 best_exact_errors=1
+restarts=14600 iterations=1459900000 best_exact_errors=1
+restarts=14700 iterations=1469900000 best_exact_errors=1
+restarts=14800 iterations=1479900000 best_exact_errors=1
+restarts=14900 iterations=1489900000 best_exact_errors=1
+restarts=15000 iterations=1499900000 best_exact_errors=1
+restarts=15100 iterations=1509900000 best_exact_errors=1
+restarts=15200 iterations=1519900000 best_exact_errors=1
+restarts=15300 iterations=1529900000 best_exact_errors=1
+restarts=15400 iterations=1539900000 best_exact_errors=1
+restarts=15500 iterations=1549900000 best_exact_errors=1
+restarts=15600 iterations=1559900000 best_exact_errors=1
+restarts=15700 iterations=1569900000 best_exact_errors=1
+restarts=15800 iterations=1579900000 best_exact_errors=1
+restarts=15900 iterations=1589900000 best_exact_errors=1
+restarts=16000 iterations=1599900000 best_exact_errors=1
+restarts=16100 iterations=1609900000 best_exact_errors=1
+restarts=16200 iterations=1619900000 best_exact_errors=1
+restarts=16300 iterations=1629900000 best_exact_errors=1
+restarts=16400 iterations=1639900000 best_exact_errors=1
+restarts=16500 iterations=1649900000 best_exact_errors=1
+restarts=16600 iterations=1659900000 best_exact_errors=1
+restarts=16700 iterations=1669900000 best_exact_errors=1
+restarts=16800 iterations=1679900000 best_exact_errors=1
+restarts=16900 iterations=1689900000 best_exact_errors=1
+restarts=17000 iterations=1699900000 best_exact_errors=1
+restarts=17100 iterations=1709900000 best_exact_errors=1
+restarts=17200 iterations=1719900000 best_exact_errors=1
+restarts=17300 iterations=1729900000 best_exact_errors=1
+restarts=17400 iterations=1739900000 best_exact_errors=1
+restarts=17500 iterations=1749900000 best_exact_errors=1
+restarts=17600 iterations=1759900000 best_exact_errors=1
+restarts=17700 iterations=1769900000 best_exact_errors=1
+restarts=17800 iterations=1779900000 best_exact_errors=1
+restarts=17900 iterations=1789900000 best_exact_errors=1
+restarts=18000 iterations=1799900000 best_exact_errors=1
+restarts=18100 iterations=1809900000 best_exact_errors=1
+restarts=18200 iterations=1819900000 best_exact_errors=1
+restarts=18300 iterations=1829900000 best_exact_errors=1
+restarts=18400 iterations=1839900000 best_exact_errors=1
+restarts=18500 iterations=1849900000 best_exact_errors=1
+restarts=18600 iterations=1859900000 best_exact_errors=1
+restarts=18700 iterations=1869900000 best_exact_errors=1
+restarts=18800 iterations=1879900000 best_exact_errors=1
+restarts=18900 iterations=1889900000 best_exact_errors=1
+restarts=19000 iterations=1899900000 best_exact_errors=1
+restarts=19100 iterations=1909900000 best_exact_errors=1
+restarts=19200 iterations=1919900000 best_exact_errors=1
+restarts=19300 iterations=1929900000 best_exact_errors=1
+restarts=19400 iterations=1939900000 best_exact_errors=1
+restarts=19500 iterations=1949900000 best_exact_errors=1
+restarts=19600 iterations=1959900000 best_exact_errors=1
+restarts=19700 iterations=1969900000 best_exact_errors=1
+restarts=19800 iterations=1979900000 best_exact_errors=1
+restarts=19900 iterations=1989900000 best_exact_errors=1
+restarts=20000 iterations=1999900000 best_exact_errors=1
+restarts=20100 iterations=2009900000 best_exact_errors=1
+restarts=20200 iterations=2019900000 best_exact_errors=1
+restarts=20300 iterations=2029900000 best_exact_errors=1
+restarts=20400 iterations=2039900000 best_exact_errors=1
+restarts=20500 iterations=2049900000 best_exact_errors=1
+restarts=20600 iterations=2059900000 best_exact_errors=1
+restarts=20700 iterations=2069900000 best_exact_errors=1
+restarts=20800 iterations=2079900000 best_exact_errors=1
+restarts=20900 iterations=2089900000 best_exact_errors=1
+restarts=21000 iterations=2099900000 best_exact_errors=1
+restarts=21100 iterations=2109900000 best_exact_errors=1
+restarts=21200 iterations=2119900000 best_exact_errors=1
+restarts=21300 iterations=2129900000 best_exact_errors=1
+restarts=21400 iterations=2139900000 best_exact_errors=1
+restarts=21500 iterations=2149900000 best_exact_errors=1
+restarts=21600 iterations=2159900000 best_exact_errors=1
+restarts=21700 iterations=2169900000 best_exact_errors=1
+restarts=21800 iterations=2179900000 best_exact_errors=1
+restarts=21900 iterations=2189900000 best_exact_errors=1
+restarts=22000 iterations=2199900000 best_exact_errors=1
+restarts=22100 iterations=2209900000 best_exact_errors=1
+restarts=22200 iterations=2219900000 best_exact_errors=1
+restarts=22300 iterations=2229900000 best_exact_errors=1
+restarts=22400 iterations=2239900000 best_exact_errors=1
+restarts=22500 iterations=2249900000 best_exact_errors=1
+restarts=22600 iterations=2259900000 best_exact_errors=1
+restarts=22700 iterations=2269900000 best_exact_errors=1
+restarts=22800 iterations=2279900000 best_exact_errors=1
+restarts=22900 iterations=2289900000 best_exact_errors=1
+restarts=23000 iterations=2299900000 best_exact_errors=1
+restarts=23100 iterations=2309900000 best_exact_errors=1
+restarts=23200 iterations=2319900000 best_exact_errors=1
+restarts=23300 iterations=2329900000 best_exact_errors=1
+restarts=23400 iterations=2339900000 best_exact_errors=1
+restarts=23500 iterations=2349900000 best_exact_errors=1
+restarts=23600 iterations=2359900000 best_exact_errors=1
+restarts=23700 iterations=2369900000 best_exact_errors=1
+restarts=23800 iterations=2379900000 best_exact_errors=1
+restarts=23900 iterations=2389900000 best_exact_errors=1
+restarts=24000 iterations=2399900000 best_exact_errors=1
+restarts=24100 iterations=2409900000 best_exact_errors=1
+restarts=24200 iterations=2419900000 best_exact_errors=1
+restarts=24300 iterations=2429900000 best_exact_errors=1
+restarts=24400 iterations=2439900000 best_exact_errors=1
+restarts=24500 iterations=2449900000 best_exact_errors=1
+restarts=24600 iterations=2459900000 best_exact_errors=1
+restarts=24700 iterations=2469900000 best_exact_errors=1
+restarts=24800 iterations=2479900000 best_exact_errors=1
+restarts=24900 iterations=2489900000 best_exact_errors=1
+restarts=25000 iterations=2499900000 best_exact_errors=1
+restarts=25100 iterations=2509900000 best_exact_errors=1
+restarts=25200 iterations=2519900000 best_exact_errors=1
+restarts=25300 iterations=2529900000 best_exact_errors=1
+restarts=25400 iterations=2539900000 best_exact_errors=1
+restarts=25500 iterations=2549900000 best_exact_errors=1
+restarts=25600 iterations=2559900000 best_exact_errors=1
+restarts=25700 iterations=2569900000 best_exact_errors=1
+restarts=25800 iterations=2579900000 best_exact_errors=1
+restarts=25900 iterations=2589900000 best_exact_errors=1
+restarts=26000 iterations=2599900000 best_exact_errors=1
+restarts=26100 iterations=2609900000 best_exact_errors=1
+restarts=26200 iterations=2619900000 best_exact_errors=1
+restarts=26300 iterations=2629900000 best_exact_errors=1
+restarts=26400 iterations=2639900000 best_exact_errors=1
+restarts=26500 iterations=2649900000 best_exact_errors=1
+restarts=26600 iterations=2659900000 best_exact_errors=1
+restarts=26700 iterations=2669900000 best_exact_errors=1
+restarts=26800 iterations=2679900000 best_exact_errors=1
+restarts=26900 iterations=2689900000 best_exact_errors=1
+restarts=27000 iterations=2699900000 best_exact_errors=1
+restarts=27100 iterations=2709900000 best_exact_errors=1
+restarts=27200 iterations=2719900000 best_exact_errors=1
+restarts=27300 iterations=2729900000 best_exact_errors=1
+restarts=27400 iterations=2739900000 best_exact_errors=1
+restarts=27500 iterations=2749900000 best_exact_errors=1
+restarts=27600 iterations=2759900000 best_exact_errors=1
+restarts=27700 iterations=2769900000 best_exact_errors=1
+restarts=27800 iterations=2779900000 best_exact_errors=1
+restarts=27900 iterations=2789900000 best_exact_errors=1
+NO WITNESS iterations=2790600000 restarts=27906 best=1
+
+counterexample-fano-diverse-or19.log
+best_exact_errors=1 positive=1 negative=0 mixed=0 active_OR=19 active_gates=26 iterations=1 restarts=1
+restarts=100 iterations=9900000 best_exact_errors=1
+restarts=200 iterations=19900000 best_exact_errors=1
+restarts=300 iterations=29900000 best_exact_errors=1
+restarts=400 iterations=39900000 best_exact_errors=1
+restarts=500 iterations=49900000 best_exact_errors=1
+restarts=600 iterations=59900000 best_exact_errors=1
+restarts=700 iterations=69900000 best_exact_errors=1
+restarts=800 iterations=79900000 best_exact_errors=1
+restarts=900 iterations=89900000 best_exact_errors=1
+restarts=1000 iterations=99900000 best_exact_errors=1
+restarts=1100 iterations=109900000 best_exact_errors=1
+restarts=1200 iterations=119900000 best_exact_errors=1
+restarts=1300 iterations=129900000 best_exact_errors=1
+restarts=1400 iterations=139900000 best_exact_errors=1
+restarts=1500 iterations=149900000 best_exact_errors=1
+restarts=1600 iterations=159900000 best_exact_errors=1
+restarts=1700 iterations=169900000 best_exact_errors=1
+restarts=1800 iterations=179900000 best_exact_errors=1
+restarts=1900 iterations=189900000 best_exact_errors=1
+restarts=2000 iterations=199900000 best_exact_errors=1
+restarts=2100 iterations=209900000 best_exact_errors=1
+restarts=2200 iterations=219900000 best_exact_errors=1
+restarts=2300 iterations=229900000 best_exact_errors=1
+restarts=2400 iterations=239900000 best_exact_errors=1
+restarts=2500 iterations=249900000 best_exact_errors=1
+restarts=2600 iterations=259900000 best_exact_errors=1
+restarts=2700 iterations=269900000 best_exact_errors=1
+restarts=2800 iterations=279900000 best_exact_errors=1
+restarts=2900 iterations=289900000 best_exact_errors=1
+restarts=3000 iterations=299900000 best_exact_errors=1
+restarts=3100 iterations=309900000 best_exact_errors=1
+restarts=3200 iterations=319900000 best_exact_errors=1
+restarts=3300 iterations=329900000 best_exact_errors=1
+restarts=3400 iterations=339900000 best_exact_errors=1
+restarts=3500 iterations=349900000 best_exact_errors=1
+restarts=3600 iterations=359900000 best_exact_errors=1
+restarts=3700 iterations=369900000 best_exact_errors=1
+restarts=3800 iterations=379900000 best_exact_errors=1
+restarts=3900 iterations=389900000 best_exact_errors=1
+restarts=4000 iterations=399900000 best_exact_errors=1
+restarts=4100 iterations=409900000 best_exact_errors=1
+restarts=4200 iterations=419900000 best_exact_errors=1
+restarts=4300 iterations=429900000 best_exact_errors=1
+restarts=4400 iterations=439900000 best_exact_errors=1
+restarts=4500 iterations=449900000 best_exact_errors=1
+restarts=4600 iterations=459900000 best_exact_errors=1
+restarts=4700 iterations=469900000 best_exact_errors=1
+restarts=4800 iterations=479900000 best_exact_errors=1
+restarts=4900 iterations=489900000 best_exact_errors=1
+restarts=5000 iterations=499900000 best_exact_errors=1
+restarts=5100 iterations=509900000 best_exact_errors=1
+restarts=5200 iterations=519900000 best_exact_errors=1
+restarts=5300 iterations=529900000 best_exact_errors=1
+restarts=5400 iterations=539900000 best_exact_errors=1
+restarts=5500 iterations=549900000 best_exact_errors=1
+restarts=5600 iterations=559900000 best_exact_errors=1
+restarts=5700 iterations=569900000 best_exact_errors=1
+restarts=5800 iterations=579900000 best_exact_errors=1
+restarts=5900 iterations=589900000 best_exact_errors=1
+restarts=6000 iterations=599900000 best_exact_errors=1
+restarts=6100 iterations=609900000 best_exact_errors=1
+restarts=6200 iterations=619900000 best_exact_errors=1
+restarts=6300 iterations=629900000 best_exact_errors=1
+restarts=6400 iterations=639900000 best_exact_errors=1
+restarts=6500 iterations=649900000 best_exact_errors=1
+restarts=6600 iterations=659900000 best_exact_errors=1
+restarts=6700 iterations=669900000 best_exact_errors=1
+restarts=6800 iterations=679900000 best_exact_errors=1
+restarts=6900 iterations=689900000 best_exact_errors=1
+restarts=7000 iterations=699900000 best_exact_errors=1
+restarts=7100 iterations=709900000 best_exact_errors=1
+restarts=7200 iterations=719900000 best_exact_errors=1
+restarts=7300 iterations=729900000 best_exact_errors=1
+restarts=7400 iterations=739900000 best_exact_errors=1
+restarts=7500 iterations=749900000 best_exact_errors=1
+restarts=7600 iterations=759900000 best_exact_errors=1
+restarts=7700 iterations=769900000 best_exact_errors=1
+restarts=7800 iterations=779900000 best_exact_errors=1
+restarts=7900 iterations=789900000 best_exact_errors=1
+restarts=8000 iterations=799900000 best_exact_errors=1
+restarts=8100 iterations=809900000 best_exact_errors=1
+restarts=8200 iterations=819900000 best_exact_errors=1
+restarts=8300 iterations=829900000 best_exact_errors=1
+restarts=8400 iterations=839900000 best_exact_errors=1
+restarts=8500 iterations=849900000 best_exact_errors=1
+restarts=8600 iterations=859900000 best_exact_errors=1
+restarts=8700 iterations=869900000 best_exact_errors=1
+restarts=8800 iterations=879900000 best_exact_errors=1
+restarts=8900 iterations=889900000 best_exact_errors=1
+restarts=9000 iterations=899900000 best_exact_errors=1
+restarts=9100 iterations=909900000 best_exact_errors=1
+restarts=9200 iterations=919900000 best_exact_errors=1
+restarts=9300 iterations=929900000 best_exact_errors=1
+restarts=9400 iterations=939900000 best_exact_errors=1
+restarts=9500 iterations=949900000 best_exact_errors=1
+restarts=9600 iterations=959900000 best_exact_errors=1
+restarts=9700 iterations=969900000 best_exact_errors=1
+restarts=9800 iterations=979900000 best_exact_errors=1
+restarts=9900 iterations=989900000 best_exact_errors=1
+restarts=10000 iterations=999900000 best_exact_errors=1
+restarts=10100 iterations=1009900000 best_exact_errors=1
+restarts=10200 iterations=1019900000 best_exact_errors=1
+restarts=10300 iterations=1029900000 best_exact_errors=1
+restarts=10400 iterations=1039900000 best_exact_errors=1
+restarts=10500 iterations=1049900000 best_exact_errors=1
+restarts=10600 iterations=1059900000 best_exact_errors=1
+restarts=10700 iterations=1069900000 best_exact_errors=1
+restarts=10800 iterations=1079900000 best_exact_errors=1
+restarts=10900 iterations=1089900000 best_exact_errors=1
+restarts=11000 iterations=1099900000 best_exact_errors=1
+restarts=11100 iterations=1109900000 best_exact_errors=1
+restarts=11200 iterations=1119900000 best_exact_errors=1
+restarts=11300 iterations=1129900000 best_exact_errors=1
+restarts=11400 iterations=1139900000 best_exact_errors=1
+restarts=11500 iterations=1149900000 best_exact_errors=1
+restarts=11600 iterations=1159900000 best_exact_errors=1
+restarts=11700 iterations=1169900000 best_exact_errors=1
+restarts=11800 iterations=1179900000 best_exact_errors=1
+restarts=11900 iterations=1189900000 best_exact_errors=1
+restarts=12000 iterations=1199900000 best_exact_errors=1
+restarts=12100 iterations=1209900000 best_exact_errors=1
+restarts=12200 iterations=1219900000 best_exact_errors=1
+restarts=12300 iterations=1229900000 best_exact_errors=1
+restarts=12400 iterations=1239900000 best_exact_errors=1
+restarts=12500 iterations=1249900000 best_exact_errors=1
+restarts=12600 iterations=1259900000 best_exact_errors=1
+restarts=12700 iterations=1269900000 best_exact_errors=1
+restarts=12800 iterations=1279900000 best_exact_errors=1
+restarts=12900 iterations=1289900000 best_exact_errors=1
+restarts=13000 iterations=1299900000 best_exact_errors=1
+restarts=13100 iterations=1309900000 best_exact_errors=1
+restarts=13200 iterations=1319900000 best_exact_errors=1
+restarts=13300 iterations=1329900000 best_exact_errors=1
+restarts=13400 iterations=1339900000 best_exact_errors=1
+restarts=13500 iterations=1349900000 best_exact_errors=1
+restarts=13600 iterations=1359900000 best_exact_errors=1
+restarts=13700 iterations=1369900000 best_exact_errors=1
+restarts=13800 iterations=1379900000 best_exact_errors=1
+restarts=13900 iterations=1389900000 best_exact_errors=1
+restarts=14000 iterations=1399900000 best_exact_errors=1
+restarts=14100 iterations=1409900000 best_exact_errors=1
+restarts=14200 iterations=1419900000 best_exact_errors=1
+restarts=14300 iterations=1429900000 best_exact_errors=1
+restarts=14400 iterations=1439900000 best_exact_errors=1
+restarts=14500 iterations=1449900000 best_exact_errors=1
+restarts=14600 iterations=1459900000 best_exact_errors=1
+restarts=14700 iterations=1469900000 best_exact_errors=1
+restarts=14800 iterations=1479900000 best_exact_errors=1
+restarts=14900 iterations=1489900000 best_exact_errors=1
+restarts=15000 iterations=1499900000 best_exact_errors=1
+restarts=15100 iterations=1509900000 best_exact_errors=1
+restarts=15200 iterations=1519900000 best_exact_errors=1
+restarts=15300 iterations=1529900000 best_exact_errors=1
+restarts=15400 iterations=1539900000 best_exact_errors=1
+restarts=15500 iterations=1549900000 best_exact_errors=1
+restarts=15600 iterations=1559900000 best_exact_errors=1
+restarts=15700 iterations=1569900000 best_exact_errors=1
+restarts=15800 iterations=1579900000 best_exact_errors=1
+restarts=15900 iterations=1589900000 best_exact_errors=1
+restarts=16000 iterations=1599900000 best_exact_errors=1
+restarts=16100 iterations=1609900000 best_exact_errors=1
+restarts=16200 iterations=1619900000 best_exact_errors=1
+restarts=16300 iterations=1629900000 best_exact_errors=1
+restarts=16400 iterations=1639900000 best_exact_errors=1
+restarts=16500 iterations=1649900000 best_exact_errors=1
+restarts=16600 iterations=1659900000 best_exact_errors=1
+restarts=16700 iterations=1669900000 best_exact_errors=1
+restarts=16800 iterations=1679900000 best_exact_errors=1
+restarts=16900 iterations=1689900000 best_exact_errors=1
+restarts=17000 iterations=1699900000 best_exact_errors=1
+restarts=17100 iterations=1709900000 best_exact_errors=1
+restarts=17200 iterations=1719900000 best_exact_errors=1
+restarts=17300 iterations=1729900000 best_exact_errors=1
+restarts=17400 iterations=1739900000 best_exact_errors=1
+restarts=17500 iterations=1749900000 best_exact_errors=1
+restarts=17600 iterations=1759900000 best_exact_errors=1
+restarts=17700 iterations=1769900000 best_exact_errors=1
+restarts=17800 iterations=1779900000 best_exact_errors=1
+restarts=17900 iterations=1789900000 best_exact_errors=1
+restarts=18000 iterations=1799900000 best_exact_errors=1
+restarts=18100 iterations=1809900000 best_exact_errors=1
+restarts=18200 iterations=1819900000 best_exact_errors=1
+restarts=18300 iterations=1829900000 best_exact_errors=1
+restarts=18400 iterations=1839900000 best_exact_errors=1
+restarts=18500 iterations=1849900000 best_exact_errors=1
+restarts=18600 iterations=1859900000 best_exact_errors=1
+restarts=18700 iterations=1869900000 best_exact_errors=1
+restarts=18800 iterations=1879900000 best_exact_errors=1
+restarts=18900 iterations=1889900000 best_exact_errors=1
+restarts=19000 iterations=1899900000 best_exact_errors=1
+restarts=19100 iterations=1909900000 best_exact_errors=1
+restarts=19200 iterations=1919900000 best_exact_errors=1
+restarts=19300 iterations=1929900000 best_exact_errors=1
+restarts=19400 iterations=1939900000 best_exact_errors=1
+NO WITNESS iterations=1949000000 restarts=19490 best=1
+
+counterexample-fano-smt-26-v2.log
+Generated 26 gates; 104204 SMT bytes; OR cap 19
+unknown
+
+Elapsed seconds 300.2107923430001
+
+counterexample-fano-onehot-validation.log
+Generated fano-onehot-known27 185281 bytes
+sat
+
+Elapsed seconds 0.05332814099983807
+((a0i #b000111)
+ (b0i #b001000)
+ (a1i #b001001)
+ (b1i #b001110)
+ (a2i #b000000)
+ (b2i #b001111)
+ (a3i #b000111)
+ (b3i #b001010)
+ (a4i #b001011)
+ (b4i #b010001)
+ (a5i #b000001)
+ (b5i #b010010)
+ (a6i #b000111)
+ (b6i #b001100)
+ (a7i #b001101)
+ (b7i #b010100)
+ (a8i #b000010)
+ (b8i #b010101)
+ (a9i #b001000)
+ (b9i #b001010)
+ (a10i #b001100)
+ (b10i #b010111)
+ (a11i #b000011)
+ (b11i #b011000)
+ (a12i #b001000)
+ (b12i #b001011)
+ (a13i #b001101)
+ (b13i #b011010)
+ (a14i #b000100)
+ (b14i #b011011)
+ (a15i #b001001)
+ (b15i #b001010)
+ (a16i #b001101)
+ (b16i #b011101)
+ (a17i #b000101)
+ (b17i #b011110)
+ (a18i #b001001)
+ (b18i #b001011)
+ (a19i #b001100)
+ (b19i #b100000)
+ (a20i #b000110)
+ (b20i #b100001)
+ (a21i #b011111)
+ (b21i #b100010)
+ (a22i #b011100)
+ (b22i #b100011)
+ (a23i #b011001)
+ (b23i #b100100)
+ (a24i #b010110)
+ (b24i #b100101)
+ (a25i #b010011)
+ (b25i #b100110)
+ (a26i #b010000)
+ (b26i #b100111)
+ (o0 true)
+ (o1 true)
+ (o2 false)
+ (o3 true)
+ (o4 true)
+ (o5 false)
+ (o6 true)
+ (o7 true)
+ (o8 false)
+ (o9 true)
+ (o10 true)
+ (o11 false)
+ (o12 true)
+ (o13 true)
+ (o14 false)
+ (o15 true)
+ (o16 true)
+ (o17 false)
+ (o18 true)
+ (o19 true)
+ (o20 false)
+ (o21 true)
+ (o22 true)
+ (o23 true)
+ (o24 true)
+ (o25 true)
+ (o26 true))
+
+
+counterexample-graphs.log
+GRAPH cycle6 p=3 l=3 E=6 tau=3 budget=7 cases=11
+GRAPH cycle8 p=4 l=4 E=8 tau=4 budget=10 cases=18
+GRAPH cycle10 p=5 l=5 E=10 tau=5 budget=13 cases=27
+GRAPH cycle12 p=6 l=6 E=12 tau=6 budget=16 cases=41
+GRAPH theta333 p=4 l=4 E=9 tau=4 budget=11 cases=18
+GRAPH subdivisionK4_5 p=4 l=5 E=10 tau=4 budget=12 cases=21
+GRAPH subdivisionK4_6 p=4 l=6 E=12 tau=4 budget=14 cases=24
+GRAPH random5x5_0 p=5 l=5 E=11 tau=5 budget=14 cases=27
+GRAPH random5x5_1 p=5 l=5 E=12 tau=5 budget=15 cases=29
+GRAPH random5x5_2 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_3 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_4 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_5 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_6 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_7 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_8 p=5 l=5 E=12 tau=5 budget=15 cases=29
+GRAPH random5x5_9 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_10 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_11 p=5 l=5 E=12 tau=5 budget=15 cases=29
+GRAPH random5x5_12 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_13 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_14 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_15 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x6_0 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random5x6_1 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random5x6_2 p=5 l=6 E=13 tau=5 budget=16 cases=32
+GRAPH random5x6_3 p=5 l=6 E=13 tau=5 budget=16 cases=31
+GRAPH random5x6_4 p=5 l=6 E=13 tau=5 budget=16 cases=32
+GRAPH random5x6_5 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random5x6_6 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random5x6_7 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random5x6_8 p=5 l=6 E=13 tau=5 budget=16 cases=31
+GRAPH random5x6_9 p=5 l=6 E=13 tau=5 budget=16 cases=32
+GRAPH random5x6_10 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random5x6_11 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random5x6_12 p=5 l=6 E=13 tau=5 budget=16 cases=31
+GRAPH random5x6_13 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random5x6_14 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random5x6_15 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random6x6_0 p=6 l=6 E=15 tau=6 budget=19 cases=38
+GRAPH random6x6_1 p=6 l=6 E=15 tau=6 budget=19 cases=39
+GRAPH random6x6_2 p=6 l=6 E=15 tau=6 budget=19 cases=38
+GRAPH random6x6_3 p=6 l=6 E=15 tau=6 budget=19 cases=38
+GRAPH random6x6_4 p=6 l=6 E=16 tau=6 budget=20 cases=39
+GRAPH random6x6_5 p=6 l=6 E=16 tau=6 budget=20 cases=39
+GRAPH random6x6_6 p=6 l=6 E=16 tau=6 budget=20 cases=39
+GRAPH random6x6_7 p=6 l=6 E=15 tau=6 budget=19 cases=38
+GRAPH random6x6_8 p=6 l=6 E=15 tau=6 budget=19 cases=38
+GRAPH random6x6_9 p=6 l=6 E=15 tau=6 budget=19 cases=38
+GRAPH random6x6_10 p=6 l=6 E=15 tau=6 budget=19 cases=38
+GRAPH random6x6_11 p=6 l=6 E=15 tau=6 budget=19 cases=39
+GRAPH random6x6_12 p=6 l=6 E=15 tau=6 budget=19 cases=39
+GRAPH random6x6_13 p=6 l=6 E=15 tau=6 budget=19 cases=38
+GRAPH random6x6_14 p=6 l=6 E=15 tau=6 budget=19 cases=39
+GRAPH random6x6_15 p=6 l=6 E=15 tau=6 budget=19 cases=38
+BEST cycle6 errors=306 positive=1 negative=5 mixed=3 active=7
+BEST cycle6 errors=4 positive=3 negative=1 mixed=0 active=6
+BEST cycle6 errors=3 positive=3 negative=0 mixed=0 active=7
+BEST cycle6 errors=1 positive=1 negative=0 mixed=0 active=7
+BEST cycle8 errors=5 positive=5 negative=0 mixed=0 active=10
+BEST cycle8 errors=4 positive=2 negative=2 mixed=0 active=10
+BEST cycle8 errors=3 positive=3 negative=0 mixed=0 active=8
+BEST cycle8 errors=1 positive=1 negative=0 mixed=0 active=10
+BEST cycle10 errors=12 positive=10 negative=2 mixed=0 active=13
+BEST cycle10 errors=7 positive=0 negative=7 mixed=0 active=12
+BEST cycle10 errors=2 positive=2 negative=0 mixed=0 active=13
+BEST cycle10 errors=1 positive=1 negative=0 mixed=0 active=13
+BEST cycle12 errors=5 positive=5 negative=0 mixed=0 active=10
+BEST cycle12 errors=3 positive=3 negative=0 mixed=0 active=15
+BEST cycle12 errors=2 positive=2 negative=0 mixed=0 active=16
+BEST cycle12 errors=1 positive=1 negative=0 mixed=0 active=16
+BEST theta333 errors=510 positive=2 negative=8 mixed=5 active=9
+BEST theta333 errors=409 positive=0 negative=9 mixed=4 active=11
+BEST theta333 errors=5 positive=3 negative=2 mixed=0 active=10
+BEST theta333 errors=3 positive=3 negative=0 mixed=0 active=9
+BEST theta333 errors=2 positive=2 negative=0 mixed=0 active=10
+BEST theta333 errors=1 positive=1 negative=0 mixed=0 active=11
+BEST subdivisionK4_5 errors=410 positive=0 negative=10 mixed=4 active=12
+BEST subdivisionK4_5 errors=10 positive=10 negative=0 mixed=0 active=12
+BEST subdivisionK4_5 errors=4 positive=2 negative=2 mixed=0 active=12
+BEST subdivisionK4_5 errors=3 positive=3 negative=0 mixed=0 active=12
+BEST subdivisionK4_5 errors=2 positive=2 negative=0 mixed=0 active=11
+BEST subdivisionK4_5 errors=1 positive=1 negative=0 mixed=0 active=12
+BEST subdivisionK4_6 errors=5 positive=3 negative=2 mixed=0 active=14
+BEST subdivisionK4_6 errors=2 positive=2 negative=0 mixed=0 active=14
+BEST subdivisionK4_6 errors=1 positive=1 negative=0 mixed=0 active=14
+BEST random5x5_0 errors=517 positive=1 negative=16 mixed=5 active=14
+BEST random5x5_0 errors=203 positive=2 negative=1 mixed=2 active=14
+BEST random5x5_0 errors=10 positive=2 negative=8 mixed=0 active=12
+BEST random5x5_0 errors=8 positive=3 negative=5 mixed=0 active=13
+BEST random5x5_0 errors=5 positive=2 negative=3 mixed=0 active=14
+BEST random5x5_0 errors=1 positive=1 negative=0 mixed=0 active=14
+BEST random5x5_1 errors=2 positive=2 negative=0 mixed=0 active=15
+BEST random5x5_2 errors=8 positive=4 negative=4 mixed=0 active=11
+BEST random5x5_2 errors=3 positive=3 negative=0 mixed=0 active=15
+BEST random5x5_2 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_3 errors=5 positive=3 negative=2 mixed=0 active=14
+BEST random5x5_3 errors=4 positive=0 negative=4 mixed=0 active=13
+BEST random5x5_3 errors=2 positive=2 negative=0 mixed=0 active=15
+BEST random5x5_3 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_4 errors=11 positive=11 negative=0 mixed=0 active=15
+BEST random5x5_4 errors=3 positive=3 negative=0 mixed=0 active=14
+BEST random5x5_4 errors=2 positive=2 negative=0 mixed=0 active=15
+BEST random5x5_4 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_5 errors=3 positive=3 negative=0 mixed=0 active=13
+BEST random5x5_5 errors=2 positive=2 negative=0 mixed=0 active=14
+BEST random5x5_6 errors=8 positive=0 negative=8 mixed=0 active=15
+BEST random5x5_6 errors=3 positive=3 negative=0 mixed=0 active=15
+BEST random5x5_6 errors=2 positive=2 negative=0 mixed=0 active=15
+BEST random5x5_6 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_7 errors=104 positive=3 negative=1 mixed=1 active=14
+BEST random5x5_7 errors=13 positive=6 negative=7 mixed=0 active=9
+BEST random5x5_7 errors=4 positive=2 negative=2 mixed=0 active=15
+BEST random5x5_7 errors=3 positive=3 negative=0 mixed=0 active=15
+BEST random5x5_7 errors=2 positive=2 negative=0 mixed=0 active=14
+BEST random5x5_7 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_8 errors=6 positive=1 negative=5 mixed=0 active=15
+BEST random5x5_8 errors=5 positive=1 negative=4 mixed=0 active=15
+BEST random5x5_8 errors=3 positive=3 negative=0 mixed=0 active=15
+BEST random5x5_9 errors=315 positive=1 negative=14 mixed=3 active=14
+BEST random5x5_9 errors=4 positive=4 negative=0 mixed=0 active=14
+BEST random5x5_9 errors=2 positive=2 negative=0 mixed=0 active=14
+BEST random5x5_10 errors=216 positive=2 negative=14 mixed=2 active=15
+BEST random5x5_10 errors=104 positive=2 negative=2 mixed=1 active=15
+BEST random5x5_10 errors=3 positive=3 negative=0 mixed=0 active=15
+BEST random5x5_10 errors=2 positive=2 negative=0 mixed=0 active=14
+BEST random5x5_10 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_11 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_12 errors=8 positive=4 negative=4 mixed=0 active=10
+BEST random5x5_12 errors=2 positive=2 negative=0 mixed=0 active=15
+BEST random5x5_12 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_13 errors=3 positive=3 negative=0 mixed=0 active=13
+BEST random5x5_13 errors=2 positive=2 negative=0 mixed=0 active=14
+BEST random5x5_14 errors=6 positive=4 negative=2 mixed=0 active=13
+BEST random5x5_14 errors=5 positive=3 negative=2 mixed=0 active=13
+BEST random5x5_14 errors=3 positive=3 negative=0 mixed=0 active=14
+BEST random5x5_14 errors=2 positive=2 negative=0 mixed=0 active=14
+BEST random5x5_15 errors=10 positive=4 negative=6 mixed=0 active=10
+BEST random5x5_15 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x6_0 errors=104 positive=2 negative=2 mixed=1 active=17
+BEST random5x6_0 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random5x6_1 errors=417 positive=0 negative=17 mixed=4 active=17
+BEST random5x6_1 errors=218 positive=1 negative=17 mixed=2 active=17
+BEST random5x6_1 errors=9 positive=3 negative=6 mixed=0 active=17
+BEST random5x6_1 errors=6 positive=6 negative=0 mixed=0 active=17
+BEST random5x6_1 errors=5 positive=2 negative=3 mixed=0 active=17
+BEST random5x6_1 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random5x6_2 errors=321 positive=2 negative=19 mixed=3 active=15
+BEST random5x6_2 errors=5 positive=3 negative=2 mixed=0 active=15
+BEST random5x6_2 errors=2 positive=2 negative=0 mixed=0 active=15
+BEST random5x6_3 errors=2 positive=2 negative=0 mixed=0 active=15
+BEST random5x6_3 errors=1 positive=1 negative=0 mixed=0 active=16
+BEST random5x6_4 errors=10 positive=2 negative=8 mixed=0 active=14
+BEST random5x6_4 errors=3 positive=3 negative=0 mixed=0 active=16
+BEST random5x6_4 errors=2 positive=2 negative=0 mixed=0 active=16
+BEST random5x6_4 errors=1 positive=1 negative=0 mixed=0 active=16
+BEST random5x6_5 errors=417 positive=0 negative=17 mixed=4 active=17
+BEST random5x6_5 errors=14 positive=14 negative=0 mixed=0 active=17
+BEST random5x6_5 errors=3 positive=3 negative=0 mixed=0 active=17
+BEST random5x6_5 errors=2 positive=2 negative=0 mixed=0 active=17
+BEST random5x6_5 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random5x6_6 errors=2 positive=2 negative=0 mixed=0 active=16
+BEST random5x6_6 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random5x6_7 errors=6 positive=2 negative=4 mixed=0 active=17
+BEST random5x6_7 errors=3 positive=3 negative=0 mixed=0 active=17
+BEST random5x6_7 errors=2 positive=2 negative=0 mixed=0 active=16
+BEST random5x6_7 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random5x6_8 errors=3 positive=3 negative=0 mixed=0 active=16
+BEST random5x6_8 errors=1 positive=1 negative=0 mixed=0 active=16
+BEST random5x6_9 errors=3 positive=3 negative=0 mixed=0 active=16
+BEST random5x6_9 errors=2 positive=2 negative=0 mixed=0 active=16
+BEST random5x6_9 errors=1 positive=1 negative=0 mixed=0 active=16
+BEST random5x6_10 errors=12 positive=5 negative=7 mixed=0 active=11
+BEST random5x6_10 errors=4 positive=4 negative=0 mixed=0 active=17
+BEST random5x6_10 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random5x6_11 errors=12 positive=1 negative=11 mixed=0 active=17
+BEST random5x6_11 errors=2 positive=2 negative=0 mixed=0 active=17
+BEST random5x6_11 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random5x6_12 errors=319 positive=1 negative=18 mixed=3 active=15
+BEST random5x6_12 errors=7 positive=7 negative=0 mixed=0 active=15
+BEST random5x6_12 errors=2 positive=2 negative=0 mixed=0 active=15
+BEST random5x6_13 errors=5 positive=5 negative=0 mixed=0 active=16
+BEST random5x6_13 errors=4 positive=2 negative=2 mixed=0 active=17
+BEST random5x6_13 errors=2 positive=2 negative=0 mixed=0 active=17
+BEST random5x6_13 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random5x6_14 errors=7 positive=1 negative=6 mixed=0 active=14
+BEST random5x6_14 errors=3 positive=3 negative=0 mixed=0 active=17
+BEST random5x6_14 errors=2 positive=2 negative=0 mixed=0 active=17
+BEST random5x6_14 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random5x6_15 errors=3 positive=3 negative=0 mixed=0 active=16
+BEST random5x6_15 errors=2 positive=2 negative=0 mixed=0 active=17
+BEST random5x6_15 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random6x6_0 errors=8 positive=3 negative=5 mixed=0 active=19
+BEST random6x6_0 errors=5 positive=2 negative=3 mixed=0 active=19
+BEST random6x6_0 errors=4 positive=4 negative=0 mixed=0 active=15
+BEST random6x6_0 errors=2 positive=2 negative=0 mixed=0 active=19
+BEST random6x6_0 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_1 errors=13 positive=5 negative=8 mixed=0 active=14
+BEST random6x6_1 errors=12 positive=5 negative=7 mixed=0 active=16
+BEST random6x6_1 errors=10 positive=5 negative=5 mixed=0 active=17
+BEST random6x6_1 errors=9 positive=3 negative=6 mixed=0 active=17
+BEST random6x6_1 errors=3 positive=3 negative=0 mixed=0 active=17
+BEST random6x6_2 errors=13 positive=3 negative=10 mixed=0 active=19
+BEST random6x6_2 errors=6 positive=3 negative=3 mixed=0 active=19
+BEST random6x6_2 errors=3 positive=3 negative=0 mixed=0 active=18
+BEST random6x6_2 errors=2 positive=2 negative=0 mixed=0 active=19
+BEST random6x6_2 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_3 errors=4 positive=1 negative=3 mixed=0 active=19
+BEST random6x6_3 errors=2 positive=2 negative=0 mixed=0 active=19
+BEST random6x6_3 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_4 errors=424 positive=1 negative=23 mixed=4 active=20
+BEST random6x6_4 errors=20 positive=4 negative=16 mixed=0 active=15
+BEST random6x6_4 errors=2 positive=2 negative=0 mixed=0 active=20
+BEST random6x6_4 errors=1 positive=1 negative=0 mixed=0 active=20
+BEST random6x6_5 errors=6 positive=3 negative=3 mixed=0 active=19
+BEST random6x6_5 errors=2 positive=2 negative=0 mixed=0 active=19
+BEST random6x6_5 errors=1 positive=1 negative=0 mixed=0 active=20
+BEST random6x6_6 errors=225 positive=2 negative=23 mixed=2 active=19
+BEST random6x6_6 errors=9 positive=4 negative=5 mixed=0 active=18
+BEST random6x6_6 errors=3 positive=3 negative=0 mixed=0 active=19
+BEST random6x6_6 errors=2 positive=2 negative=0 mixed=0 active=19
+BEST random6x6_7 errors=104 positive=2 negative=2 mixed=1 active=19
+BEST random6x6_7 errors=4 positive=4 negative=0 mixed=0 active=19
+BEST random6x6_7 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_8 errors=6 positive=1 negative=5 mixed=0 active=19
+BEST random6x6_8 errors=4 positive=4 negative=0 mixed=0 active=16
+BEST random6x6_8 errors=2 positive=2 negative=0 mixed=0 active=18
+BEST random6x6_8 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_9 errors=4 positive=4 negative=0 mixed=0 active=18
+BEST random6x6_9 errors=2 positive=2 negative=0 mixed=0 active=18
+BEST random6x6_9 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_10 errors=15 positive=15 negative=0 mixed=0 active=19
+BEST random6x6_10 errors=10 positive=3 negative=7 mixed=0 active=19
+BEST random6x6_10 errors=8 positive=8 negative=0 mixed=0 active=19
+BEST random6x6_10 errors=3 positive=3 negative=0 mixed=0 active=19
+BEST random6x6_10 errors=2 positive=2 negative=0 mixed=0 active=18
+BEST random6x6_10 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_11 errors=6 positive=2 negative=4 mixed=0 active=19
+BEST random6x6_11 errors=2 positive=2 negative=0 mixed=0 active=18
+BEST random6x6_11 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_12 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_13 errors=18 positive=6 negative=12 mixed=0 active=5
+BEST random6x6_13 errors=15 positive=3 negative=12 mixed=0 active=17
+BEST random6x6_13 errors=7 positive=3 negative=4 mixed=0 active=18
+BEST random6x6_13 errors=2 positive=2 negative=0 mixed=0 active=18
+BEST random6x6_13 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_14 errors=6 positive=2 negative=4 mixed=0 active=19
+BEST random6x6_14 errors=4 positive=2 negative=2 mixed=0 active=19
+BEST random6x6_14 errors=3 positive=3 negative=0 mixed=0 active=19
+BEST random6x6_14 errors=2 positive=2 negative=0 mixed=0 active=19
+BEST random6x6_14 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_15 errors=5 positive=2 negative=3 mixed=0 active=19
+BEST random6x6_15 errors=4 positive=4 negative=0 mixed=0 active=19
+BEST random6x6_15 errors=2 positive=2 negative=0 mixed=0 active=19
+BEST random6x6_15 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random5x5_1 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_5 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_8 errors=2 positive=2 negative=0 mixed=0 active=15
+BEST random5x5_8 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_9 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_13 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_14 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x6_2 errors=1 positive=1 negative=0 mixed=0 active=16
+BEST random5x6_12 errors=1 positive=1 negative=0 mixed=0 active=16
+BEST random6x6_1 errors=2 positive=2 negative=0 mixed=0 active=19
+BEST random6x6_1 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_6 errors=1 positive=1 negative=0 mixed=0 active=20
+PROGRESS restarts=500 iterations=50000000
+PROGRESS restarts=1000 iterations=100000000
+PROGRESS restarts=1500 iterations=150000000
+PROGRESS restarts=2000 iterations=200000000
+PROGRESS restarts=2500 iterations=250000000
+PROGRESS restarts=3000 iterations=300000000
+PROGRESS restarts=3500 iterations=350000000
+PROGRESS restarts=4000 iterations=400000000
+PROGRESS restarts=4500 iterations=450000000
+PROGRESS restarts=5000 iterations=500000000
+PROGRESS restarts=5500 iterations=550000000
+PROGRESS restarts=6000 iterations=600000000
+PROGRESS restarts=6500 iterations=650000000
+PROGRESS restarts=7000 iterations=700000000
+PROGRESS restarts=7500 iterations=750000000
+PROGRESS restarts=8000 iterations=800000000
+PROGRESS restarts=8500 iterations=850000000
+PROGRESS restarts=9000 iterations=900000000
+PROGRESS restarts=9500 iterations=950000000
+PROGRESS restarts=10000 iterations=1000000000
+PROGRESS restarts=10500 iterations=1050000000
+PROGRESS restarts=11000 iterations=1100000000
+PROGRESS restarts=11500 iterations=1150000000
+PROGRESS restarts=12000 iterations=1200000000
+PROGRESS restarts=12500 iterations=1250000000
+PROGRESS restarts=13000 iterations=1300000000
+PROGRESS restarts=13500 iterations=1350000000
+PROGRESS restarts=14000 iterations=1400000000
+PROGRESS restarts=14500 iterations=1450000000
+PROGRESS restarts=15000 iterations=1500000000
+PROGRESS restarts=15500 iterations=1550000000
+PROGRESS restarts=16000 iterations=1600000000
+PROGRESS restarts=16500 iterations=1650000000
+PROGRESS restarts=17000 iterations=1700000000
+PROGRESS restarts=17500 iterations=1750000000
+PROGRESS restarts=18000 iterations=1800000000
+PROGRESS restarts=18500 iterations=1850000000
+PROGRESS restarts=19000 iterations=1900000000
+PROGRESS restarts=19500 iterations=1950000000
+PROGRESS restarts=20000 iterations=2000000000
+PROGRESS restarts=20500 iterations=2050000000
+PROGRESS restarts=21000 iterations=2100000000
+PROGRESS restarts=21500 iterations=2150000000
+PROGRESS restarts=22000 iterations=2200000000
+PROGRESS restarts=22500 iterations=2250000000
+PROGRESS restarts=23000 iterations=2300000000
+PROGRESS restarts=23500 iterations=2350000000
+PROGRESS restarts=24000 iterations=2400000000
+PROGRESS restarts=24500 iterations=2450000000
+PROGRESS restarts=25000 iterations=2500000000
+PROGRESS restarts=25500 iterations=2550000000
+PROGRESS restarts=26000 iterations=2600000000
+PROGRESS restarts=26500 iterations=2650000000
+PROGRESS restarts=27000 iterations=2700000000
+PROGRESS restarts=27500 iterations=2750000000
+PROGRESS restarts=28000 iterations=2800000000
+PROGRESS restarts=28500 iterations=2850000000
+PROGRESS restarts=29000 iterations=2900000000
+PROGRESS restarts=29500 iterations=2950000000
+PROGRESS restarts=30000 iterations=3000000000
+PROGRESS restarts=30500 iterations=3050000000
+PROGRESS restarts=31000 iterations=3100000000
+PROGRESS restarts=31500 iterations=3150000000
+PROGRESS restarts=32000 iterations=3200000000
+PROGRESS restarts=32500 iterations=3250000000
+PROGRESS restarts=33000 iterations=3300000000
+PROGRESS restarts=33500 iterations=3350000000
+PROGRESS restarts=34000 iterations=3400000000
+PROGRESS restarts=34500 iterations=3450000000
+PROGRESS restarts=35000 iterations=3500000000
+PROGRESS restarts=35500 iterations=3550000000
+NO WITNESS restarts=35500 iterations=3550000000 graphs=55
+
+counterexample-residual.log
+Optimal circuits 60 TopForm circuits checked 36
+Observed (U,tau_U,c,j,o) [(0, 0, 0, 0, 0)]
+All three residual inequalities passed; elapsed seconds 1.2929424409999228
+
+counterexample-residual-2-2-5.log
+depth 0 raw_states 1
+depth 1 raw_states 16
+depth 2 raw_states 404
+depth 3 raw_states 14738
+depth 4 raw_states 732280
+depth 5 raw_states 47503164
+graph_outputs=11292096 top_form=6857860 top_form_all_active=67652
+ALL THREE RESIDUAL INEQUALITIES PASS
+
+counterexample-residual-2-3-5.log
+depth 0 raw_states 1
+depth 1 raw_states 24
+depth 2 raw_states 843
+depth 3 raw_states 40650
+depth 4 raw_states 2572644
+depth 5 raw_states 206657886
+graph_outputs=44117211 top_form=30435054 top_form_all_active=167730
+maximum_U=3 maximum_all_active_U=3
+ALL THREE RESIDUAL INEQUALITIES PASS
+
+counterexample-fano-onehot26.log
+Generated fano-onehot26 175986 bytes
+unknown
+
+Elapsed seconds 600.1257990670001
+
+Follow-up completed2026-11-25 18:08:28UTC. All-active below means structural output-cone inclusion. The pinned SAT is a counterexample only to the separate residual cover inequality, not the sum or the posted gap. UNKNOWN remains inconclusive.
+
+counterexample-large-lam-3-3-5.stdout
+largeLam raw enumeration p=3 l=3 depth=5 seconds_limit=300
+depth 0 raw_states 1
+depth 1 raw_states 33
+depth 2 raw_states 1515
+depth 3 raw_states 92079
+depth 4 raw_states 7146315
+depth 5 raw_states 688980681
+graph_outputs=151674165 top_form=113455197 top_form_all_active=379755
+maximum_U=3 maximum_all_active_U=3
+largeLam incidences=14481288 near_minimum_all_active=49707 minimum_active_total_slack=0 minimum_near_total_slack=0
+elapsed_seconds=24.0049
+EXHAUSTIVE COMPLETE; ALL THREE LARGE-LAM RESIDUAL INEQUALITIES PASS
+
+counterexample-large-lam-3-3-5.stderr
+
+counterexample-large-lam-pinned.stdout
+{"gates": 8, "timeout": 10000, "near": 2, "violation": "and", "pin": true, "output": "/tmp/oec/pequalnp-pilot-163/counterexample-large-lam-pinned.smt2"}
+smt_bytes 59779
+sat
+
+elapsed_seconds 0.05060626799968304
+((a0 #x0)
+ (b0 #x1)
+ (o0 true)
+ (a1 #x3)
+ (b1 #x4)
+ (o1 true)
+ (a2 #x6)
+ (b2 #x7)
+ (o2 false)
+ (a3 #x2)
+ (b3 #x8)
+ (o3 true)
+ (a4 #x3)
+ (b4 #x9)
+ (o4 false)
+ (a5 #x5)
+ (b5 #x8)
+ (o5 true)
+ (a6 #x0)
+ (b6 #xb)
+ (o6 false)
+ (a7 #xa)
+ (b7 #xc)
+ (o7 true)
+ (e0 true)
+ (e1 true)
+ (e2 true)
+ (e3 true)
+ (e4 false)
+ (e5 false)
+ (e6 true)
+ (e7 false)
+ (e8 false)
+ (edges #b00101)
+ (tauE #b00010)
+ (uCount #b00011)
+ (tauU #b00010)
+ (cCount #b00000)
+ (jCount #b00001)
+ (oCount #b00100)
+ (lhs #b00101)
+ (rhs #b00101))
+
+
+counterexample-large-lam-pinned.stderr
+
+counterexample-large-lam-pinned-sum.stdout
+{"gates": 8, "timeout": 10000, "near": 2, "violation": "sum", "pin": true, "output": "/tmp/oec/pequalnp-pilot-163/counterexample-large-lam-pinned-sum.smt2"}
+smt_bytes 59760
+unsat
+
+elapsed_seconds 0.031942980000167154
+
+counterexample-large-lam-pinned-sum.stderr
+
+counterexample-large-lam-eight.stdout
+{"gates": 8, "timeout": 300000, "near": 2, "violation": "sum", "pin": false, "output": "/tmp/oec/pequalnp-pilot-163/counterexample-large-lam-eight.smt2"}
+smt_bytes 59171
+unknown
+
+elapsed_seconds 300.2305534440002
+
+counterexample-large-lam-eight.stderr
+
+counterexample-large-lam-dag-3-3-6.stdout
+largeLam full-DAG symmetry enumeration p=3 l=3 depth=6 seconds_limit=300
+depth 0 visited_states 1
+depth 1 visited_states 33
+depth 2 visited_states 229
+depth 3 visited_states 4662
+depth 4 visited_states 121215
+depth 5 visited_states 11662683
+depth 6 visited_states 1364456661
+depth 0 full_DAG_classes 1
+depth 1 full_DAG_classes 5
+depth 2 full_DAG_classes 77
+depth 3 full_DAG_classes 1566
+graph_outputs=275364893 top_form=203323318 top_form_all_active=458592
+maximum_U=3 maximum_all_active_U=3
+largeLam incidences=31554084 near_minimum_all_active=11279 minimum_active_total_slack=0 minimum_near_total_slack=0
+elapsed_seconds=44.1316
+EXHAUSTIVE COMPLETE; ALL THREE LARGE-LAM RESIDUAL INEQUALITIES PASS
+
+counterexample-large-lam-dag-3-3-6.stderr

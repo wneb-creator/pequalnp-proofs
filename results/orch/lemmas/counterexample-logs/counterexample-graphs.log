@@ -1,0 +1,339 @@
+GRAPH cycle6 p=3 l=3 E=6 tau=3 budget=7 cases=11
+GRAPH cycle8 p=4 l=4 E=8 tau=4 budget=10 cases=18
+GRAPH cycle10 p=5 l=5 E=10 tau=5 budget=13 cases=27
+GRAPH cycle12 p=6 l=6 E=12 tau=6 budget=16 cases=41
+GRAPH theta333 p=4 l=4 E=9 tau=4 budget=11 cases=18
+GRAPH subdivisionK4_5 p=4 l=5 E=10 tau=4 budget=12 cases=21
+GRAPH subdivisionK4_6 p=4 l=6 E=12 tau=4 budget=14 cases=24
+GRAPH random5x5_0 p=5 l=5 E=11 tau=5 budget=14 cases=27
+GRAPH random5x5_1 p=5 l=5 E=12 tau=5 budget=15 cases=29
+GRAPH random5x5_2 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_3 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_4 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_5 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_6 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_7 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_8 p=5 l=5 E=12 tau=5 budget=15 cases=29
+GRAPH random5x5_9 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_10 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_11 p=5 l=5 E=12 tau=5 budget=15 cases=29
+GRAPH random5x5_12 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_13 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_14 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x5_15 p=5 l=5 E=12 tau=5 budget=15 cases=26
+GRAPH random5x6_0 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random5x6_1 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random5x6_2 p=5 l=6 E=13 tau=5 budget=16 cases=32
+GRAPH random5x6_3 p=5 l=6 E=13 tau=5 budget=16 cases=31
+GRAPH random5x6_4 p=5 l=6 E=13 tau=5 budget=16 cases=32
+GRAPH random5x6_5 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random5x6_6 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random5x6_7 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random5x6_8 p=5 l=6 E=13 tau=5 budget=16 cases=31
+GRAPH random5x6_9 p=5 l=6 E=13 tau=5 budget=16 cases=32
+GRAPH random5x6_10 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random5x6_11 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random5x6_12 p=5 l=6 E=13 tau=5 budget=16 cases=31
+GRAPH random5x6_13 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random5x6_14 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random5x6_15 p=5 l=6 E=14 tau=5 budget=17 cases=31
+GRAPH random6x6_0 p=6 l=6 E=15 tau=6 budget=19 cases=38
+GRAPH random6x6_1 p=6 l=6 E=15 tau=6 budget=19 cases=39
+GRAPH random6x6_2 p=6 l=6 E=15 tau=6 budget=19 cases=38
+GRAPH random6x6_3 p=6 l=6 E=15 tau=6 budget=19 cases=38
+GRAPH random6x6_4 p=6 l=6 E=16 tau=6 budget=20 cases=39
+GRAPH random6x6_5 p=6 l=6 E=16 tau=6 budget=20 cases=39
+GRAPH random6x6_6 p=6 l=6 E=16 tau=6 budget=20 cases=39
+GRAPH random6x6_7 p=6 l=6 E=15 tau=6 budget=19 cases=38
+GRAPH random6x6_8 p=6 l=6 E=15 tau=6 budget=19 cases=38
+GRAPH random6x6_9 p=6 l=6 E=15 tau=6 budget=19 cases=38
+GRAPH random6x6_10 p=6 l=6 E=15 tau=6 budget=19 cases=38
+GRAPH random6x6_11 p=6 l=6 E=15 tau=6 budget=19 cases=39
+GRAPH random6x6_12 p=6 l=6 E=15 tau=6 budget=19 cases=39
+GRAPH random6x6_13 p=6 l=6 E=15 tau=6 budget=19 cases=38
+GRAPH random6x6_14 p=6 l=6 E=15 tau=6 budget=19 cases=39
+GRAPH random6x6_15 p=6 l=6 E=15 tau=6 budget=19 cases=38
+BEST cycle6 errors=306 positive=1 negative=5 mixed=3 active=7
+BEST cycle6 errors=4 positive=3 negative=1 mixed=0 active=6
+BEST cycle6 errors=3 positive=3 negative=0 mixed=0 active=7
+BEST cycle6 errors=1 positive=1 negative=0 mixed=0 active=7
+BEST cycle8 errors=5 positive=5 negative=0 mixed=0 active=10
+BEST cycle8 errors=4 positive=2 negative=2 mixed=0 active=10
+BEST cycle8 errors=3 positive=3 negative=0 mixed=0 active=8
+BEST cycle8 errors=1 positive=1 negative=0 mixed=0 active=10
+BEST cycle10 errors=12 positive=10 negative=2 mixed=0 active=13
+BEST cycle10 errors=7 positive=0 negative=7 mixed=0 active=12
+BEST cycle10 errors=2 positive=2 negative=0 mixed=0 active=13
+BEST cycle10 errors=1 positive=1 negative=0 mixed=0 active=13
+BEST cycle12 errors=5 positive=5 negative=0 mixed=0 active=10
+BEST cycle12 errors=3 positive=3 negative=0 mixed=0 active=15
+BEST cycle12 errors=2 positive=2 negative=0 mixed=0 active=16
+BEST cycle12 errors=1 positive=1 negative=0 mixed=0 active=16
+BEST theta333 errors=510 positive=2 negative=8 mixed=5 active=9
+BEST theta333 errors=409 positive=0 negative=9 mixed=4 active=11
+BEST theta333 errors=5 positive=3 negative=2 mixed=0 active=10
+BEST theta333 errors=3 positive=3 negative=0 mixed=0 active=9
+BEST theta333 errors=2 positive=2 negative=0 mixed=0 active=10
+BEST theta333 errors=1 positive=1 negative=0 mixed=0 active=11
+BEST subdivisionK4_5 errors=410 positive=0 negative=10 mixed=4 active=12
+BEST subdivisionK4_5 errors=10 positive=10 negative=0 mixed=0 active=12
+BEST subdivisionK4_5 errors=4 positive=2 negative=2 mixed=0 active=12
+BEST subdivisionK4_5 errors=3 positive=3 negative=0 mixed=0 active=12
+BEST subdivisionK4_5 errors=2 positive=2 negative=0 mixed=0 active=11
+BEST subdivisionK4_5 errors=1 positive=1 negative=0 mixed=0 active=12
+BEST subdivisionK4_6 errors=5 positive=3 negative=2 mixed=0 active=14
+BEST subdivisionK4_6 errors=2 positive=2 negative=0 mixed=0 active=14
+BEST subdivisionK4_6 errors=1 positive=1 negative=0 mixed=0 active=14
+BEST random5x5_0 errors=517 positive=1 negative=16 mixed=5 active=14
+BEST random5x5_0 errors=203 positive=2 negative=1 mixed=2 active=14
+BEST random5x5_0 errors=10 positive=2 negative=8 mixed=0 active=12
+BEST random5x5_0 errors=8 positive=3 negative=5 mixed=0 active=13
+BEST random5x5_0 errors=5 positive=2 negative=3 mixed=0 active=14
+BEST random5x5_0 errors=1 positive=1 negative=0 mixed=0 active=14
+BEST random5x5_1 errors=2 positive=2 negative=0 mixed=0 active=15
+BEST random5x5_2 errors=8 positive=4 negative=4 mixed=0 active=11
+BEST random5x5_2 errors=3 positive=3 negative=0 mixed=0 active=15
+BEST random5x5_2 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_3 errors=5 positive=3 negative=2 mixed=0 active=14
+BEST random5x5_3 errors=4 positive=0 negative=4 mixed=0 active=13
+BEST random5x5_3 errors=2 positive=2 negative=0 mixed=0 active=15
+BEST random5x5_3 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_4 errors=11 positive=11 negative=0 mixed=0 active=15
+BEST random5x5_4 errors=3 positive=3 negative=0 mixed=0 active=14
+BEST random5x5_4 errors=2 positive=2 negative=0 mixed=0 active=15
+BEST random5x5_4 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_5 errors=3 positive=3 negative=0 mixed=0 active=13
+BEST random5x5_5 errors=2 positive=2 negative=0 mixed=0 active=14
+BEST random5x5_6 errors=8 positive=0 negative=8 mixed=0 active=15
+BEST random5x5_6 errors=3 positive=3 negative=0 mixed=0 active=15
+BEST random5x5_6 errors=2 positive=2 negative=0 mixed=0 active=15
+BEST random5x5_6 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_7 errors=104 positive=3 negative=1 mixed=1 active=14
+BEST random5x5_7 errors=13 positive=6 negative=7 mixed=0 active=9
+BEST random5x5_7 errors=4 positive=2 negative=2 mixed=0 active=15
+BEST random5x5_7 errors=3 positive=3 negative=0 mixed=0 active=15
+BEST random5x5_7 errors=2 positive=2 negative=0 mixed=0 active=14
+BEST random5x5_7 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_8 errors=6 positive=1 negative=5 mixed=0 active=15
+BEST random5x5_8 errors=5 positive=1 negative=4 mixed=0 active=15
+BEST random5x5_8 errors=3 positive=3 negative=0 mixed=0 active=15
+BEST random5x5_9 errors=315 positive=1 negative=14 mixed=3 active=14
+BEST random5x5_9 errors=4 positive=4 negative=0 mixed=0 active=14
+BEST random5x5_9 errors=2 positive=2 negative=0 mixed=0 active=14
+BEST random5x5_10 errors=216 positive=2 negative=14 mixed=2 active=15
+BEST random5x5_10 errors=104 positive=2 negative=2 mixed=1 active=15
+BEST random5x5_10 errors=3 positive=3 negative=0 mixed=0 active=15
+BEST random5x5_10 errors=2 positive=2 negative=0 mixed=0 active=14
+BEST random5x5_10 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_11 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_12 errors=8 positive=4 negative=4 mixed=0 active=10
+BEST random5x5_12 errors=2 positive=2 negative=0 mixed=0 active=15
+BEST random5x5_12 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_13 errors=3 positive=3 negative=0 mixed=0 active=13
+BEST random5x5_13 errors=2 positive=2 negative=0 mixed=0 active=14
+BEST random5x5_14 errors=6 positive=4 negative=2 mixed=0 active=13
+BEST random5x5_14 errors=5 positive=3 negative=2 mixed=0 active=13
+BEST random5x5_14 errors=3 positive=3 negative=0 mixed=0 active=14
+BEST random5x5_14 errors=2 positive=2 negative=0 mixed=0 active=14
+BEST random5x5_15 errors=10 positive=4 negative=6 mixed=0 active=10
+BEST random5x5_15 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x6_0 errors=104 positive=2 negative=2 mixed=1 active=17
+BEST random5x6_0 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random5x6_1 errors=417 positive=0 negative=17 mixed=4 active=17
+BEST random5x6_1 errors=218 positive=1 negative=17 mixed=2 active=17
+BEST random5x6_1 errors=9 positive=3 negative=6 mixed=0 active=17
+BEST random5x6_1 errors=6 positive=6 negative=0 mixed=0 active=17
+BEST random5x6_1 errors=5 positive=2 negative=3 mixed=0 active=17
+BEST random5x6_1 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random5x6_2 errors=321 positive=2 negative=19 mixed=3 active=15
+BEST random5x6_2 errors=5 positive=3 negative=2 mixed=0 active=15
+BEST random5x6_2 errors=2 positive=2 negative=0 mixed=0 active=15
+BEST random5x6_3 errors=2 positive=2 negative=0 mixed=0 active=15
+BEST random5x6_3 errors=1 positive=1 negative=0 mixed=0 active=16
+BEST random5x6_4 errors=10 positive=2 negative=8 mixed=0 active=14
+BEST random5x6_4 errors=3 positive=3 negative=0 mixed=0 active=16
+BEST random5x6_4 errors=2 positive=2 negative=0 mixed=0 active=16
+BEST random5x6_4 errors=1 positive=1 negative=0 mixed=0 active=16
+BEST random5x6_5 errors=417 positive=0 negative=17 mixed=4 active=17
+BEST random5x6_5 errors=14 positive=14 negative=0 mixed=0 active=17
+BEST random5x6_5 errors=3 positive=3 negative=0 mixed=0 active=17
+BEST random5x6_5 errors=2 positive=2 negative=0 mixed=0 active=17
+BEST random5x6_5 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random5x6_6 errors=2 positive=2 negative=0 mixed=0 active=16
+BEST random5x6_6 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random5x6_7 errors=6 positive=2 negative=4 mixed=0 active=17
+BEST random5x6_7 errors=3 positive=3 negative=0 mixed=0 active=17
+BEST random5x6_7 errors=2 positive=2 negative=0 mixed=0 active=16
+BEST random5x6_7 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random5x6_8 errors=3 positive=3 negative=0 mixed=0 active=16
+BEST random5x6_8 errors=1 positive=1 negative=0 mixed=0 active=16
+BEST random5x6_9 errors=3 positive=3 negative=0 mixed=0 active=16
+BEST random5x6_9 errors=2 positive=2 negative=0 mixed=0 active=16
+BEST random5x6_9 errors=1 positive=1 negative=0 mixed=0 active=16
+BEST random5x6_10 errors=12 positive=5 negative=7 mixed=0 active=11
+BEST random5x6_10 errors=4 positive=4 negative=0 mixed=0 active=17
+BEST random5x6_10 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random5x6_11 errors=12 positive=1 negative=11 mixed=0 active=17
+BEST random5x6_11 errors=2 positive=2 negative=0 mixed=0 active=17
+BEST random5x6_11 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random5x6_12 errors=319 positive=1 negative=18 mixed=3 active=15
+BEST random5x6_12 errors=7 positive=7 negative=0 mixed=0 active=15
+BEST random5x6_12 errors=2 positive=2 negative=0 mixed=0 active=15
+BEST random5x6_13 errors=5 positive=5 negative=0 mixed=0 active=16
+BEST random5x6_13 errors=4 positive=2 negative=2 mixed=0 active=17
+BEST random5x6_13 errors=2 positive=2 negative=0 mixed=0 active=17
+BEST random5x6_13 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random5x6_14 errors=7 positive=1 negative=6 mixed=0 active=14
+BEST random5x6_14 errors=3 positive=3 negative=0 mixed=0 active=17
+BEST random5x6_14 errors=2 positive=2 negative=0 mixed=0 active=17
+BEST random5x6_14 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random5x6_15 errors=3 positive=3 negative=0 mixed=0 active=16
+BEST random5x6_15 errors=2 positive=2 negative=0 mixed=0 active=17
+BEST random5x6_15 errors=1 positive=1 negative=0 mixed=0 active=17
+BEST random6x6_0 errors=8 positive=3 negative=5 mixed=0 active=19
+BEST random6x6_0 errors=5 positive=2 negative=3 mixed=0 active=19
+BEST random6x6_0 errors=4 positive=4 negative=0 mixed=0 active=15
+BEST random6x6_0 errors=2 positive=2 negative=0 mixed=0 active=19
+BEST random6x6_0 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_1 errors=13 positive=5 negative=8 mixed=0 active=14
+BEST random6x6_1 errors=12 positive=5 negative=7 mixed=0 active=16
+BEST random6x6_1 errors=10 positive=5 negative=5 mixed=0 active=17
+BEST random6x6_1 errors=9 positive=3 negative=6 mixed=0 active=17
+BEST random6x6_1 errors=3 positive=3 negative=0 mixed=0 active=17
+BEST random6x6_2 errors=13 positive=3 negative=10 mixed=0 active=19
+BEST random6x6_2 errors=6 positive=3 negative=3 mixed=0 active=19
+BEST random6x6_2 errors=3 positive=3 negative=0 mixed=0 active=18
+BEST random6x6_2 errors=2 positive=2 negative=0 mixed=0 active=19
+BEST random6x6_2 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_3 errors=4 positive=1 negative=3 mixed=0 active=19
+BEST random6x6_3 errors=2 positive=2 negative=0 mixed=0 active=19
+BEST random6x6_3 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_4 errors=424 positive=1 negative=23 mixed=4 active=20
+BEST random6x6_4 errors=20 positive=4 negative=16 mixed=0 active=15
+BEST random6x6_4 errors=2 positive=2 negative=0 mixed=0 active=20
+BEST random6x6_4 errors=1 positive=1 negative=0 mixed=0 active=20
+BEST random6x6_5 errors=6 positive=3 negative=3 mixed=0 active=19
+BEST random6x6_5 errors=2 positive=2 negative=0 mixed=0 active=19
+BEST random6x6_5 errors=1 positive=1 negative=0 mixed=0 active=20
+BEST random6x6_6 errors=225 positive=2 negative=23 mixed=2 active=19
+BEST random6x6_6 errors=9 positive=4 negative=5 mixed=0 active=18
+BEST random6x6_6 errors=3 positive=3 negative=0 mixed=0 active=19
+BEST random6x6_6 errors=2 positive=2 negative=0 mixed=0 active=19
+BEST random6x6_7 errors=104 positive=2 negative=2 mixed=1 active=19
+BEST random6x6_7 errors=4 positive=4 negative=0 mixed=0 active=19
+BEST random6x6_7 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_8 errors=6 positive=1 negative=5 mixed=0 active=19
+BEST random6x6_8 errors=4 positive=4 negative=0 mixed=0 active=16
+BEST random6x6_8 errors=2 positive=2 negative=0 mixed=0 active=18
+BEST random6x6_8 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_9 errors=4 positive=4 negative=0 mixed=0 active=18
+BEST random6x6_9 errors=2 positive=2 negative=0 mixed=0 active=18
+BEST random6x6_9 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_10 errors=15 positive=15 negative=0 mixed=0 active=19
+BEST random6x6_10 errors=10 positive=3 negative=7 mixed=0 active=19
+BEST random6x6_10 errors=8 positive=8 negative=0 mixed=0 active=19
+BEST random6x6_10 errors=3 positive=3 negative=0 mixed=0 active=19
+BEST random6x6_10 errors=2 positive=2 negative=0 mixed=0 active=18
+BEST random6x6_10 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_11 errors=6 positive=2 negative=4 mixed=0 active=19
+BEST random6x6_11 errors=2 positive=2 negative=0 mixed=0 active=18
+BEST random6x6_11 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_12 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_13 errors=18 positive=6 negative=12 mixed=0 active=5
+BEST random6x6_13 errors=15 positive=3 negative=12 mixed=0 active=17
+BEST random6x6_13 errors=7 positive=3 negative=4 mixed=0 active=18
+BEST random6x6_13 errors=2 positive=2 negative=0 mixed=0 active=18
+BEST random6x6_13 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_14 errors=6 positive=2 negative=4 mixed=0 active=19
+BEST random6x6_14 errors=4 positive=2 negative=2 mixed=0 active=19
+BEST random6x6_14 errors=3 positive=3 negative=0 mixed=0 active=19
+BEST random6x6_14 errors=2 positive=2 negative=0 mixed=0 active=19
+BEST random6x6_14 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_15 errors=5 positive=2 negative=3 mixed=0 active=19
+BEST random6x6_15 errors=4 positive=4 negative=0 mixed=0 active=19
+BEST random6x6_15 errors=2 positive=2 negative=0 mixed=0 active=19
+BEST random6x6_15 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random5x5_1 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_5 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_8 errors=2 positive=2 negative=0 mixed=0 active=15
+BEST random5x5_8 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_9 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_13 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x5_14 errors=1 positive=1 negative=0 mixed=0 active=15
+BEST random5x6_2 errors=1 positive=1 negative=0 mixed=0 active=16
+BEST random5x6_12 errors=1 positive=1 negative=0 mixed=0 active=16
+BEST random6x6_1 errors=2 positive=2 negative=0 mixed=0 active=19
+BEST random6x6_1 errors=1 positive=1 negative=0 mixed=0 active=19
+BEST random6x6_6 errors=1 positive=1 negative=0 mixed=0 active=20
+PROGRESS restarts=500 iterations=50000000
+PROGRESS restarts=1000 iterations=100000000
+PROGRESS restarts=1500 iterations=150000000
+PROGRESS restarts=2000 iterations=200000000
+PROGRESS restarts=2500 iterations=250000000
+PROGRESS restarts=3000 iterations=300000000
+PROGRESS restarts=3500 iterations=350000000
+PROGRESS restarts=4000 iterations=400000000
+PROGRESS restarts=4500 iterations=450000000
+PROGRESS restarts=5000 iterations=500000000
+PROGRESS restarts=5500 iterations=550000000
+PROGRESS restarts=6000 iterations=600000000
+PROGRESS restarts=6500 iterations=650000000
+PROGRESS restarts=7000 iterations=700000000
+PROGRESS restarts=7500 iterations=750000000
+PROGRESS restarts=8000 iterations=800000000
+PROGRESS restarts=8500 iterations=850000000
+PROGRESS restarts=9000 iterations=900000000
+PROGRESS restarts=9500 iterations=950000000
+PROGRESS restarts=10000 iterations=1000000000
+PROGRESS restarts=10500 iterations=1050000000
+PROGRESS restarts=11000 iterations=1100000000
+PROGRESS restarts=11500 iterations=1150000000
+PROGRESS restarts=12000 iterations=1200000000
+PROGRESS restarts=12500 iterations=1250000000
+PROGRESS restarts=13000 iterations=1300000000
+PROGRESS restarts=13500 iterations=1350000000
+PROGRESS restarts=14000 iterations=1400000000
+PROGRESS restarts=14500 iterations=1450000000
+PROGRESS restarts=15000 iterations=1500000000
+PROGRESS restarts=15500 iterations=1550000000
+PROGRESS restarts=16000 iterations=1600000000
+PROGRESS restarts=16500 iterations=1650000000
+PROGRESS restarts=17000 iterations=1700000000
+PROGRESS restarts=17500 iterations=1750000000
+PROGRESS restarts=18000 iterations=1800000000
+PROGRESS restarts=18500 iterations=1850000000
+PROGRESS restarts=19000 iterations=1900000000
+PROGRESS restarts=19500 iterations=1950000000
+PROGRESS restarts=20000 iterations=2000000000
+PROGRESS restarts=20500 iterations=2050000000
+PROGRESS restarts=21000 iterations=2100000000
+PROGRESS restarts=21500 iterations=2150000000
+PROGRESS restarts=22000 iterations=2200000000
+PROGRESS restarts=22500 iterations=2250000000
+PROGRESS restarts=23000 iterations=2300000000
+PROGRESS restarts=23500 iterations=2350000000
+PROGRESS restarts=24000 iterations=2400000000
+PROGRESS restarts=24500 iterations=2450000000
+PROGRESS restarts=25000 iterations=2500000000
+PROGRESS restarts=25500 iterations=2550000000
+PROGRESS restarts=26000 iterations=2600000000
+PROGRESS restarts=26500 iterations=2650000000
+PROGRESS restarts=27000 iterations=2700000000
+PROGRESS restarts=27500 iterations=2750000000
+PROGRESS restarts=28000 iterations=2800000000
+PROGRESS restarts=28500 iterations=2850000000
+PROGRESS restarts=29000 iterations=2900000000
+PROGRESS restarts=29500 iterations=2950000000
+PROGRESS restarts=30000 iterations=3000000000
+PROGRESS restarts=30500 iterations=3050000000
+PROGRESS restarts=31000 iterations=3100000000
+PROGRESS restarts=31500 iterations=3150000000
+PROGRESS restarts=32000 iterations=3200000000
+PROGRESS restarts=32500 iterations=3250000000
+PROGRESS restarts=33000 iterations=3300000000
+PROGRESS restarts=33500 iterations=3350000000
+PROGRESS restarts=34000 iterations=3400000000
+PROGRESS restarts=34500 iterations=3450000000
+PROGRESS restarts=35000 iterations=3500000000
+PROGRESS restarts=35500 iterations=3550000000
+NO WITNESS restarts=35500 iterations=3550000000 graphs=55

@@ -1,0 +1,5 @@
+{"gates": 8, "timeout": 10000, "near": 2, "violation": "sum", "pin": true, "output": "/tmp/oec/pequalnp-pilot-163/counterexample-large-lam-pinned-sum.smt2"}
+smt_bytes 59760
+unsat
+
+elapsed_seconds 0.031942980000167154

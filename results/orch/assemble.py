@@ -59,11 +59,21 @@ sections = [
     ('algebraic-bipartite-reduction', 'namespace PEqualNP.Outside.L_meta_4675.Residual', True),
     ('algebraic-residual-large', 'namespace PEqualNP.Outside.L_meta_4675.Residual', True),
     ('algebraic-bipartite-large', 'namespace PEqualNP.Outside.L_meta_4675.Residual', True),
+    ('library-mask-merge', 'namespace PEqualNP.Outside.L_meta_4675.MaskMerge', False),
 ]
 for name, marker, last in sections:
     source = (src / (name + '.lean')).read_text()
     pos = source.rindex(marker) if last else source.index(marker)
     content += '\n' + source[pos:].rstrip() + '\n'
+paid = (src / 'structural-semantic-mixed-paid.lean').read_text().splitlines()
+assert paid[280].startswith('lemma clean_and_unit_adj ')
+assert paid[800].startswith('lemma mixed_left_forces_empty_right_orIn ')
+assert paid[938] == 'end PEqualNP.Outside.L_meta_4675.StructuralPrefix'
+content += '\nnamespace PEqualNP.Outside.L_meta_4675.StructuralPrefix\n\n'
+content += '\n'.join(paid[797:799]) + '\n\n'
+content += '\n'.join(paid[280:335]) + '\n\n'
+content += '\n'.join(paid[800:938]) + '\n\n'
+content += 'end PEqualNP.Outside.L_meta_4675.StructuralPrefix\n'
 # Research snapshots allow helper theorems; the submission uses helper lemmas.
 content = content.replace('\ntheorem ', '\nlemma ')
 target.write_text(content)

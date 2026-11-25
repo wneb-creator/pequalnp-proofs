@@ -1,0 +1,8 @@
+p=3 l=3 maxdepth=5 targets=333
+depth 0 visited 1
+depth 1 visited 27
+depth 2 visited 930
+depth 3 visited 39714
+depth 4 visited 2060178
+depth 5 visited 127767588
+NO COUNTEREXAMPLE

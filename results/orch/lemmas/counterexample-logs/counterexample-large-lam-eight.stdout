@@ -1,0 +1,5 @@
+{"gates": 8, "timeout": 300000, "near": 2, "violation": "sum", "pin": false, "output": "/tmp/oec/pequalnp-pilot-163/counterexample-large-lam-eight.smt2"}
+smt_bytes 59171
+unknown
+
+elapsed_seconds 300.2305534440002
