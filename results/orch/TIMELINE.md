@@ -56,3 +56,6 @@
 
 2026-11-25T01:31:16.102124+00:00 global_strategy: checked minimum-size positive-edge sensitivity; global_sensitive_min_fragment.lean, exit0 global-sensitive-min-001; independent review requested.
 2026-11-25T01:31:27.699418+00:00 named-file build passed: search-evidence, 3540 lines
+
+- 2026-11-25T01:32:10.791123+00:00: renewed own lease; expiry 2026-11-25T01:52:10.581Z.
+2026-11-25T01:33:32.697400+00:00 named-file build passed: edge-sensitivity, 3662 lines

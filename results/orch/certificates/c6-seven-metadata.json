@@ -1,0 +1,55 @@
+{
+  "status": "CaDiCaL UNSAT; certificate pair retained as external evidence, not Lean checked",
+  "case": {
+    "N": 3,
+    "incidence_mask": 427,
+    "gate_bound": 7,
+    "clean": false
+  },
+  "solver": "CaDiCaL2.1.2",
+  "solver_path": "/tmp/oec/pequalnp-pilot-51/lean-4.36.0-linux/bin/cadical",
+  "solver_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647",
+  "cnf_generation": [
+    "python3",
+    "results/orch/lemmas/counterexample_cnf.py",
+    "--N",
+    "3",
+    "--mask",
+    "427",
+    "--gates",
+    "7",
+    "--output",
+    "c6-seven.cnf"
+  ],
+  "solver_command": [
+    "cadical",
+    "--lrat=true",
+    "-t",
+    "30",
+    "c6-seven.cnf",
+    "c6-seven.lrat"
+  ],
+  "binary_proof_default": true,
+  "return_code": 20,
+  "encoding_scope": "Exact monotone boundary tests, bounded binary AND/OR selectors, essential-input and later-consumer normalization, input automorphism and adjacent independent gate lex leaders. External preprocessing/symmetry correctness is independently reviewed but not formally bridged to Lean.",
+  "files": [
+    {
+      "file": "results/orch/certificates/c6-seven.cnf.xz",
+      "compression": "xz",
+      "bytes": 116344,
+      "sha256": "cd6200448307093977ee2825e0cfd3f46eae4a30a0077af2b7729c9dd40c5ec9",
+      "uncompressed_name": "c6-seven.cnf",
+      "uncompressed_bytes": 935887,
+      "uncompressed_sha256": "56c41b184795411d49abb37c69011a9c3fa77570e5c619f171ee6fa3b562dfcf"
+    },
+    {
+      "file": "results/orch/certificates/c6-seven.lrat.xz",
+      "compression": "xz",
+      "bytes": 1983428,
+      "sha256": "aff3e92cda056b0be4ca6619eb504233e1412d896dd9449ee5079e3c1c4619ec",
+      "uncompressed_name": "c6-seven.lrat",
+      "uncompressed_bytes": 4840472,
+      "uncompressed_sha256": "a06ed2d393d473c7189f3c55d0e96bf2bf0610dda2f11ee524cbb0e3f94613bf"
+    }
+  ]
+}
