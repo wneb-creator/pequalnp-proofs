@@ -1,0 +1,6 @@
+Independent review PASS — algebraic_route, 2026-11-25 UTC.
+Source: results/orch/lemmas/formalization-essential.lean
+SHA256: ed990b64f98ae075877e9f573ee4a206a26917c3b4a158534bfa98a034975707
+New tail reviewed: essential_unread_input_mono through essential_fixed_prefix_direct_reads.
+The omitted-input induction covers every valid wire and handles invalid output indices. The finite certificate concerns nine physical inputs and two fixed OR-prefix features. H is precisely the three stars for points0,1,4 on line ordering0,1,3,4,5,6; the prefix ORs the private lines3,5,6. Every physical input must still be directly read by a normalized monotone circuit computing H from these features. This is not a circuit-size lower bound and does not claim the unresolved cap15 theorem.
+Forbidden-token scan clean. Recorded Lean stdout and stderr are empty. Metadata correctly marks this as an archival partial and distinguishes the external joint-output refutation. Credential-pattern scan found no matches in the selected metadata and logs.
