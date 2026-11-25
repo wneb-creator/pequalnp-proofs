@@ -91,4 +91,37 @@ lemma branchingTwoJunk_not_least : ¬ PEqualNP.TopForm.IsLeastAO pathFour branch
   have hs := h.2.2 pathFourSmall pathFourSmall_legal pathFourSmall_correct
   norm_num [Circuit.size, branchingTwoJunk, pathFourSmall] at hs
 
+lemma branchingTwoJunk_lift_fixed :
+    PEqualNP.Core.IsLiftFixedPoint pathFour branchingTwoJunk := by
+  decide
+
+lemma branchingTwoJunk_all_used : ∀ j < branchingTwoJunk.gates.length,
+    PEqualNP.Core.InOutputCone 4 branchingTwoJunk j := by
+  decide
+
+lemma branchingTwoJunk_no_sound_operand : ∀ j < branchingTwoJunk.gates.length,
+    (gateAt branchingTwoJunk j).op = GateOp.and →
+      ∀ w ∈ (gateAt branchingTwoJunk j).inputs,
+        ¬ (∀ x : Fin 4 → Bool,
+          Circuit.eval ⟨branchingTwoJunk.gates, w⟩ (List.ofFn x) = true →
+            graphFun pathFour ∅ x = true) := by
+  intro j hj
+  have hj8 : j < 8 := hj
+  interval_cases j <;> norm_num [branchingTwoJunk, gateAt] <;> decide
+
+lemma branchingTwoJunk_second_readers_literal : ∀ k < branchingTwoJunk.gates.length,
+    k ≠ 4 → (gateAt branchingTwoJunk k).op = GateOp.and → ∀ i : Fin 2,
+      PEqualNP.CleanedNonEdge.OrReaches 4 branchingTwoJunk
+        (PEqualNP.TopForm.opnd branchingTwoJunk k i) 4 →
+      PEqualNP.TopForm.BelowF pathFour branchingTwoJunk k ∧
+        PEqualNP.TopForm.opnd branchingTwoJunk k (1 - i) < 4 := by
+  intro k hk hne hop i hr
+  have hk8 : k < 8 := hk
+  interval_cases k <;> fin_cases i
+  all_goals first
+    | exact ⟨by decide, by decide⟩
+    | (exfalso; revert hr; decide)
+    | (exfalso; revert hop; decide)
+    | (exfalso; exact hne rfl)
+
 end PEqualNP.Outside.L_meta_1031.TwoJunk

@@ -1,0 +1,15 @@
+'PEqualNP.Outside.L_meta_1031.FreshBudget.FanoutBudget.compile_zero' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshBudget.FanoutBudget.fanout_exchange' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshBudget.FanoutBudget.circuit_fanout_exchange' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshBudget.FanoutBudget.least_fanout_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshBudget.FanoutBudget.junk_min_fanout_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

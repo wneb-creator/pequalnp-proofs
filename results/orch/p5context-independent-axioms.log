@@ -1,0 +1,6 @@
+'PEqualNP.Outside.L_meta_1031.P5Context.substitute_in_context' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.P5Context.substitute_size' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.P5Context.substitute_monotone' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.P5Context.no_minimal_context' depends on axioms: [propext, Classical.choice, Quot.sound]

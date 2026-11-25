@@ -1,0 +1,8 @@
+Independent review by prior_gap_check
+Verdict: PASS for a partial-result checkpoint, not a proof of L-meta-1031.
+P5Context.lean: 220 lines, 9644 bytes; SHA256 82050baa739d9fd9006fdf4e9db4c50cd274ff8f9b57cdf2be9d26e51f3819e2.
+Independent source-plus-axiom-print compilation exited 0. substitute_in_context, substitute_size, substitute_monotone, no_minimal_context use only the standard propext/Classical.choice/Quot.sound axioms (substitute_size uses propext only). Complete log: results/orch/p5context-independent-axioms.log.
+
+The first namespace repeats the checked P5Exchange example. The new context wrapper preserves exactly the three declared shared core ports, the core output, original inputs, and all subsequent gates under the offset renaming. The explicit allowed-input/output hypotheses exclude reads of removed private core wires. The fold induction handles all later wires and out-of-range reads; no hidden acyclicity assumption is needed for that equality. The replacement drops two gates and preserves Monotone2, yielding the correctly scoped no_minimal_context theorem. It does not establish that all relevant graph circuits contain such a replaceable core or that unrestricted sharing can be rewritten.
+
+Format red-team: imports only Mathlib and PEqualNP.Defs; no sorry, new axioms, native_decide, forbidden namespace marker, strings, directives, attributes, options, or bv_decide. All concrete certificates use ordinary decide.

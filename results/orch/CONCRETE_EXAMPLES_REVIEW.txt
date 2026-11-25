@@ -1,0 +1,12 @@
+Independent root review of concrete shared-output examples
+Verdict: PASS for compiled partial artifacts; none proves or refutes L-meta-1031.
+
+TwoJunk: reviewed the 33 added lines. The known nonleast branching example additionally satisfies lift-fixedness, output-cone use, absence of sound AND operands, and the explicitly quantified second-reader literal condition. No single-reader or leastness conclusion is added.
+ProfileVersusSound: reviewed all 58 lines. The five-gate star-function circuit has a dirty AND but every AND owns a nonempty star; TopForm, pivotality, and girth are checked. The file explicitly proves it is not least using a three-gate competitor.
+P5Exchange: reviewed all 86 lines. The generic common-center and sharing restrictions use explicit no-triangle/no-four-cycle assumptions and path adjacencies. Exact finite evaluation verifies the ten-gate old block and eight-gate replacement, preserving three named shared OR ports and the output. New AND ownership and two-gate saving are explicit; the file does not claim preservation of all seven old OR outputs or arbitrary suffix substitution.
+
+All files use ordinary decide and allowed proof tactics, with no new axioms, native_decide, meta declarations, strings, forbidden root spelling, or disallowed attributes/options. Full author compile logs copied alongside artifacts.
+TwoJunk.lean SHA256 96cfa7df02fb568f103b6ade6b37a67ce6bf467db7cab0d2e6c03891ea4d1ad0
+ProfileVersusSound.lean SHA256 1ed4ad36839b11ff1918b04e8ef873a1a409a0d0a18d3dcc845cd8587f2dfe5e
+P5Exchange.lean SHA256 ef05c6e53a9f52b6dd00ef2a4b7f06694598c640b3ce6e10b5b81ba518b0e99b
+UTC 2026-11-25T02:01:13.249635+00:00

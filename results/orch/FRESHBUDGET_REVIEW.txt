@@ -1,0 +1,16 @@
+Independent review by prior_gap_check
+Verdict: PASS for a partial-result checkpoint; this is not the full posted L-meta-1031 theorem.
+Source: results/orch/lemmas/FreshBudget.lean
+SHA256: 316411f1c381fc85eb9754da742509a9c4f35ccf1bb846748ce0410016950a4d
+Size: 1144 lines, 53454 bytes.
+Independent Lean compilation: exit 0; complete stdout/stderr in /tmp/oec/pequalnp-pilot-54/freshbudget-independent-review.log (empty).
+
+I reviewed the generic compiler, zero-cut semantics, dirty-gate count, safe-star repair construction, and final exchange/minimality statements. Zeroing a gate deletes that gate and each immediate AND reader, aliases each immediate OR reader, and preserves the forced-zero function. The generic compiler represents constant false with no wire; its cost accounting charges each deleted or aliased gate once. Surviving dirty AND gates inject into the original dirty gates excluding the cut gate. Appended stars are assumed to consist of actual graph edges and therefore add no dirty ANDs. The pivotal-edge cover hypothesis gives exact function preservation on all Boolean inputs through the cofactor decomposition, not merely on pair inputs.
+
+The final exchange saves readers.card+1 gates before adding the explicitly budgeted star circuits. least_fanout_bound and junk_min_fanout_bound correctly apply total-size leastness and secondary minimum junk count. The latter strict inequality requires its stated global secondary-minimality hypothesis. There is no claim that every pivotal-edge set automatically has a cheap star cover; that remaining mathematical obligation prevents this partial from proving the posted gap.
+
+Red-team format checks: only Mathlib and PEqualNP.Defs imports; no extra axioms, sorry, native_decide, forbidden namespace marker, string literals, command directives, attributes, or options. No assumption smuggles in the full target or False. Circuit semantics and size use the library definitions.
+
+Additional reviewed owner artifacts: TwoJunk.lean 127 lines, SHA256 96cfa7df02fb568f103b6ade6b37a67ce6bf467db7cab0d2e6c03891ea4d1ad0; ProfileVersusSound.lean 58 lines, SHA256 1ed4ad36839b11ff1918b04e8ef873a1a409a0d0a18d3dcc845cd8587f2dfe5e. Their explicit examples have smaller witness circuits and are expressly not least, so they do not refute the posted theorem. Their finite certificates and scope were read independently; complete independent compiler logs contain warnings only for TwoJunk and no output for ProfileVersusSound.
+
+Axiom audit: independent source-plus-#print compilation exited 0. compile_zero, fanout_exchange, circuit_fanout_exchange, least_fanout_bound, and junk_min_fanout_bound each depend only on [propext, Classical.choice, Quot.sound]. Complete output copied to results/orch/freshbudget-independent-axioms.log.

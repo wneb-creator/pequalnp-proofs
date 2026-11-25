@@ -1,6 +1,18 @@
-../results/orch/lemmas/TwoJunk.lean:12:32: warning: Variable name `ha` is not explicitly referenced.
+/tmp/oec/pequalnp-pilot-54/twojunk-next.lean:12:32: warning: Variable name `ha` is not explicitly referenced.
 
 Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
   [apply] _ha
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-54/twojunk-next.lean:124:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-54/twojunk-next.lean:125:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-54/twojunk-next.lean:124:6: warning: Unused tactic linter: `(exfalso; revert hop; decide)` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-54/twojunk-next.lean:125:6: warning: Unused tactic linter: `(exfalso; exact hne rfl)` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

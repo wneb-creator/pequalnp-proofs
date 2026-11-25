@@ -1,0 +1,15 @@
+Independent compact-source review: PASS for partial checkpoint.
+SHA256: dd5e95e0747207c188593b931ad99582f3a6a2fc10acbae8cd58a5a8b8ea4215
+Original: 10255 lines, 519732 bytes.
+Compacted: 9791 lines, 497881 bytes.
+Deleted lines: 464. All 17 edit blocks are deletions; no additions/replacements.
+Deleted declarations (25): rho_ne, card_filter_rho, foldl_length, eval_eq_val, val_ge, OpMono, opMono_eq, opMono_imp, biclique_star, or_trace, operand_trace, edge_trace, below_of_reach, cones_len, cones_char, inCone_iff, orStep_le, orStep_cone, operand_cone, off_star, wires_length, orIn_bridge, orIn_bridge, orR_leaf, single_star_data
+Deleted opens: ['open PEqualNP.EdgeOwnership in', 'open PEqualNP.EdgeOwnership in', 'open PEqualNP.TopForm in']
+Deleted namespace/section boundaries: []
+Imports: ['import Mathlib', 'import PEqualNP.Defs']
+Forbidden-pattern results: {'_root_': False, '"': False, '\\bsorry\\b': False, '\\baxiom\\b': False, '\\bnative_decide\\b': False, '\\binitialize\\b': False, '^\\s*#': False, '^\\s*(macro|syntax|notation|elab)\\b': False, '^\\s*instance\\b': False}
+Attributes: []
+Invalid limit options: []
+Existing complete compile log: /tmp/oec/pequalnp-pilot-54/profile-compact-check-002.log (reported exit0; log contains warnings but no errors).
+Retained source text is byte-for-byte unchanged apart from deletions. Deleted helpers are unused by the compiled remainder.
+This remains a partial checkpoint; it does not prove the exact posted L-meta-1031 theorem and is not an accepted proof PR.

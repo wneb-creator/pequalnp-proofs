@@ -1,5 +1,5 @@
 L-meta-1031: PARTIAL RESULTS ONLY; posted theorem not proved.
-Named file: 10,255 lines, 519,732 bytes; independently reviewed OneJunkProfile.lean.
+Named file: 9,791 lines, 497,881 bytes; independently reviewed OneJunkProfile.lean.
 Lean 4.36.0: lake build PEqualNP.Outside.L_meta_1031 passed (exit 0).
 Strongest partial: exact posted existential conclusion follows if a globally least public circuit is AO2 and has exactly one unsound AND. The extra premise remains unproved in general.
 Independent review: PASS for conditional partial scope; prior core axiom audit uses only propext, Classical.choice, Quot.sound.
@@ -7,6 +7,9 @@ Latest checker run on the current namespace-normalized OneJunkProfile target: RE
 Other checked partials, numerical evidence, source reviews and full outputs are under results/orch/. Numerical UNSAT claims have no Lean certificate; timeouts are inconclusive.
 No full-proof PR opened. Cleanup requiring a full checker pass has not been triggered.
 Sub-agents: 9 across proof strategies, counterexample search and independent reviews; two fresh-core agents use gpt-6.2-astra at ultra effort.
-TIMING total=46.0 subagents=9
+TIMING total=62.0 subagents=9
 
 Checkpoint: namespace normalization independently reviewed; full named-file lake build passed. FreshCore concrete repair extension (914 lines) independently recompiled and reviewed. Numerical tools and finite claims independently reviewed; native RUP evidence is not Lean certification.
+
+Partial simplification: removed25 unused declarations and attached scoped opens; 10,255 to9,791lines,519,732 to497,881bytes. Independent deletion-only review PASS; named lake build exit0. Full-proof cleanup remains untriggered because the main theorem is absent.
+FreshBudget1144 independently compiled and axiom-audited: generic fanout exchange and strict minimum-junk budget, standard three axioms only. P5Context220 independent audit also standard three only.
