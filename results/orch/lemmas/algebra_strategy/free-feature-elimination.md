@@ -1,0 +1,11 @@
+# Noncollinear three-owner fixed-feature gadget: checked lower bound
+
+`FreeFeatureElimination.lean` proves `ThreeOwner.no_thirteen`: the three-owner function cannot be computed in 13 paid fan-in-two gates, even with all 22 possible outside-row pair/triple OR features and a false constant supplied for free. NOT gates are allowed by the theorem. This is a lower bound for a fixed-feature subproblem, not a refutation of L-meta-650, and gives no lower bound on arbitrary joint computation with outside rows.
+
+The 12 raw inputs correspond to full inputs `[0,1,2,13,14,25,16,15,20,22,21,24]`. The first three are point variables, the next three pairwise shared lines, and the last six private lines. Inputs 12 and 13–34 are respectively a false constant and all 22 free ORs listed in `free-feature-three-owner-data.json`.
+
+The proof removes the six private raw line inputs in reverse order. Before every restriction it relabels any free feature that has become a singleton to that raw input, and any empty feature to the constant coordinate. The relabeling is checked to preserve every valid encoded assignment. Each next private input then has two valid encoded witnesses differing only in its direct raw coordinate after normalization; this certifies that at least one paid gate disappears. The remaining target is C6, whose checked theorem L106 requires eight gates, whereas 13 minus six gives seven.
+
+The generic `encoded_elim` helper proves exactly that paid-gate step for an arbitrary encoded source function. Its separate frozen copy is `FreeFeatureEliminationCore.lean`. All four noncollinear packets from `circuit_search/three-owner-gadgets.json` are subsets of the 22-feature theorem, with explicit maps in `free-feature-three-owner-coverage.json`; those maps and target values were checked on all 4096 raw assignments per packet.
+
+Validation: building Helpers.Hardwire exited 0; the generic core and full theorem each compiled with `lake env lean`, exit 0. Full stdout/stderr is preserved in adjacent validation logs. These research artifacts import checked project helpers and L106, outside the final gap's allowed import list. They contain no sorry, new axiom, native_decide, or new options.
