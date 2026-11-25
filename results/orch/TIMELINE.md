@@ -34,3 +34,5 @@
 - 2026-11-25T09:22:37.790668+00:00: protected edge/product patches and four-corner semantic patch independently reviewed; partial preservation continues.
 
 - 2026-11-25T09:30:45.562737+00:00: batch12 pushed b1bed96ffef94f013f4ffbfcf8f0fa4496c752f9; reviewed statement/finite archive and hybrid/girth checkpoints preserved.
+
+- 2026-11-25T09:38:45.395378+00:00: batch13 pushed 4e7fd8d275faad8cdeb42905fd826ea8f0c11020; forest subcase, local rectangle exchanges, and native-free augmented certificate reviewed.

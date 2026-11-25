@@ -2286,3 +2286,926 @@ cumulative profiling times:
 	type checking 2.09s
 	typeclass inference 610ms
 
+
+Fourteenth partial review: PASS for full forest subcase, generic prefix repair, concrete rectangle exchange, shared-side geometry, and kernel-safe augmented exchange. General cyclic target unproved. Augmented minimum19 unverified. No full-statement checker verdict.
+
+prefix_patch_route.lean
+Command: lake env lean ../results/orch/lemmas/prefix_patch_route.lean
+Exit: 0
+Complete stdout/stderr:
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:57:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:59:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:120:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:121:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:123:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:134:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:135:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:137:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:155:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:155:23: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:156:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:156:23: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:184:32: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:189:24: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:189:43: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:192:24: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:192:43: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:216:36: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:223:30: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:226:18: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:227:18: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:231:38: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:231:57: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:237:48: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:237:59: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:239:48: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:239:59: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:322:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:332:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:334:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:326:10: warning: This simp argument is unused:
+  bypass
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:330:15: warning: This simp argument is unused:
+  bypass
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.getElem_map, List.getElem_range]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:365:14: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:365:26: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:367:14: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:367:26: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:701:13: warning: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:773:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:773:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:784:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:784:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:873:36: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:1016:26: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:1018:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:1041:66: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:1053:30: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:1057:38: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:1057:50: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/prefix_patch_route.lean:1026:5: warning: Variable name `hidx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hidx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+
+
+rectangle_prefix_route.lean
+Command: lake env lean ../results/orch/lemmas/rectangle_prefix_route.lean
+Exit: 0
+Complete stdout/stderr:
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_prefix_route.lean:276:8: warning: This simp argument is unused:
+  List.getD_append
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_prefix_route.lean:283:8: warning: This simp argument is unused:
+  List.getD_append
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+
+shared_hybrid_topform_route.lean
+Command: lake env lean ../results/orch/lemmas/shared_hybrid_topform_route.lean
+Exit: 0
+Complete stdout/stderr:
+../results/orch/lemmas/shared_hybrid_topform_route.lean:57:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:59:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:120:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:121:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:123:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:134:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:135:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:137:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:155:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:155:23: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:156:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:156:23: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:184:32: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:189:24: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:189:43: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:192:24: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:192:43: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:216:36: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:223:30: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:226:18: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:227:18: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:231:38: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:231:57: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:237:48: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:237:59: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:239:48: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:239:59: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:322:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:332:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:334:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:326:10: warning: This simp argument is unused:
+  bypass
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/shared_hybrid_topform_route.lean:330:15: warning: This simp argument is unused:
+  bypass
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.getElem_map, List.getElem_range]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/shared_hybrid_topform_route.lean:365:14: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:365:26: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:367:14: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:367:26: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:701:13: warning: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+../results/orch/lemmas/shared_hybrid_topform_route.lean:773:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:773:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:784:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:784:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:873:36: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:963:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:963:17: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:975:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:975:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:1054:36: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+../results/orch/lemmas/shared_hybrid_topform_route.lean:1159:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+
+
+forest_route.lean
+Command: lake env lean ../results/orch/lemmas/forest_route.lean
+Exit: 0
+Complete stdout/stderr:
+../results/orch/lemmas/forest_route.lean:290:76: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+../results/orch/lemmas/forest_route.lean:290:72: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/forest_route.lean:290:76: warning: Unused tactic linter: `omega` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/forest_route.lean:351:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../results/orch/lemmas/forest_route.lean:353:26: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../results/orch/lemmas/forest_route.lean:355:27: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+../results/orch/lemmas/forest_route.lean:351:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/forest_route.lean:353:26: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/forest_route.lean:355:27: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/forest_route.lean:382:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/forest_route.lean:382:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/forest_route.lean:388:31: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/forest_route.lean:388:63: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/forest_route.lean:1234:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+../results/orch/lemmas/forest_route.lean:1256:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+../results/orch/lemmas/forest_route.lean:1403:12: warning: This simp argument is unused:
+  Sym2.eq_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hil, hjl]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/forest_route.lean:1458:12: warning: This simp argument is unused:
+  Sym2.eq_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hip, hjp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/forest_route.lean:1502:16: warning: This simp argument is unused:
+  Sym2.eq_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hll', hpl'.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/forest_route.lean:1512:43: warning: This simp argument is unused:
+  Sym2.eq_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hip, hjp]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/forest_route.lean:1581:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+../results/orch/lemmas/forest_route.lean:1665:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+../results/orch/lemmas/forest_route.lean:1675:8: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+../results/orch/lemmas/forest_route.lean:1687:12: warning: This simp argument is unused:
+  Sym2.eq_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hl'l, hpl'.ne.symm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/forest_route.lean:2127:56: warning: Variable name `x3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _x3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+
+
+rectangle_exchange_route.lean
+Command: lake env lean ../results/orch/lemmas/rectangle_exchange_route.lean
+Exit: 0
+Complete stdout/stderr:
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:57:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:59:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:120:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:121:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:123:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:134:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:135:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:137:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:155:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:155:23: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:156:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:156:23: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:184:32: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:189:24: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:189:43: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:192:24: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:192:43: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:216:36: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:223:30: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:226:18: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:227:18: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:231:38: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:231:57: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:237:48: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:237:59: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:239:48: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:239:59: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:322:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:332:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:334:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:326:10: warning: This simp argument is unused:
+  bypass
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:330:15: warning: This simp argument is unused:
+  bypass
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.getElem_map, List.getElem_range]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:365:14: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:365:26: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:367:14: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:367:26: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:701:13: warning: Variable name `hk` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hk
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:773:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:773:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:784:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:784:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:873:36: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:1016:26: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:1018:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:1041:66: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:1053:30: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:1057:38: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:1057:50: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:1026:5: warning: Variable name `hidx` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hidx
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:1492:8: warning: This simp argument is unused:
+  List.getD_append
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:1499:8: warning: This simp argument is unused:
+  List.getD_append
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:1643:22: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:1650:22: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/workspace/pequalnp-proofs/results/orch/lemmas/rectangle_exchange_route.lean:1738:10: warning: This simp argument is unused:
+  List.getD_append
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+
+shared_side_route.lean
+Command: lake env lean ../results/orch/lemmas/shared_side_route.lean
+Exit: 0
+Complete stdout/stderr:
+
+
+shared_side_patch_route.lean
+Command: lake env lean ../results/orch/lemmas/shared_side_patch_route.lean
+Exit: 0
+Complete stdout/stderr:
+/workspace/pequalnp-proofs/results/orch/lemmas/shared_side_patch_route.lean:276:8: warning: This simp argument is unused:
+  List.getD_append
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/shared_side_patch_route.lean:283:8: warning: This simp argument is unused:
+  List.getD_append
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+
+augmented_exchange_route.lean
+Command: lake env lean ../results/orch/lemmas/augmented_exchange_route.lean
+Exit: 0
+Complete stdout/stderr:
+import took 4.82s
+simp took 376ms
+simp took 393ms
+simp took 112ms
+simp took 103ms
+simp took 109ms
+simp took 108ms
+simp took 109ms
+simp took 101ms
+simp took 102ms
+simp took 101ms
+simp took 103ms
+simp took 102ms
+simp took 113ms
+simp took 108ms
+simp took 110ms
+simp took 105ms
+simp took 102ms
+simp took 109ms
+simp took 152ms
+simp took 117ms
+simp took 107ms
+simp took 112ms
+simp took 130ms
+simp took 111ms
+simp took 110ms
+simp took 110ms
+simp took 111ms
+simp took 122ms
+simp took 244ms
+simp took 104ms
+simp took 109ms
+simp took 124ms
+simp took 122ms
+instantiate metavars took 174ms
+simp took 1.21s
+type checking took 197ms
+type checking took 225ms
+simp took 1.38s
+simp took 1.65s
+simp took 1.23s
+type checking took 141ms
+simp took 1.22s
+type checking took 139ms
+cumulative profiling times:
+	attribute application 4.99ms
+	blocked (unaccounted) 28.9s
+	compilation (IR) 0.882ms
+	compilation (LCNF base) 20.5ms
+	compilation (LCNF impure) 5.67ms
+	compilation (LCNF mono) 12.7ms
+	congr simp thm 55.2ms
+	declTypeLinter 10.2ms
+	elaboration 181ms
+	fix level params 12.2ms
+	import 4.82s
+	initialization 50.9ms
+	instantiate metavars 309ms
+	interpretation 1.42s
+	let-to-have transformation 0.303ms
+	linting 36.3ms
+	module linting 0.063ms
+	norm_num 0.247ms
+	parsing 12.1ms
+	process pre-definitions 200ms
+	share common exprs 132ms
+	simp 12.2s
+	tactic execution 1.58s
+	tacticAnalysis 13.2ms
+	type checking 2.63s
+	typeclass inference 937ms
+
+
+Independent augmented axiom closure audit, exit0; complete stdout/stderr:
+'PEqualNP.Outside.L_meta_1772_aux.augmented.triangle_free' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1772_aux.augmented.no_four' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1772_aux.augmented.graph_formula' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1772_aux.augmented.hybrid_computes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1772_aux.augmented.repaired_computes' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1772_aux.augmented.hybrid_unowned' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1772_aux.augmented.repaired_ownership' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
