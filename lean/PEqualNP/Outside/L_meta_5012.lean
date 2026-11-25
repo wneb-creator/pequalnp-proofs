@@ -11127,4 +11127,105 @@ lemma no_pure_independent_pair_of_flag_exclusion {n : ℕ} (G : SimpleGraph (Fin
 
 end PureIndependent
 
+namespace SemanticPureEndpoint
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm
+
+lemma opposite_product_rejects_colors {n : ℕ} (s : Fin n → Bool) (A B : Finset (Fin n))
+    (hA : ∀a∈A,s a=false) (hB : ∀b∈B,s b=true) :
+    setProduct A B (fun v => !(s v))=false ∧ setProduct A B s=false := by
+  have hAN : setOr A s=false := by
+    apply Bool.eq_false_iff.mpr
+    intro ht
+    simp only [setOr,decide_eq_true_eq] at ht
+    obtain ⟨a,ha,hs⟩ := ht
+    rw [hA a ha] at hs
+    cases hs
+  have hBN : setOr B (fun v => !(s v))=false := by
+    apply Bool.eq_false_iff.mpr
+    intro ht
+    simp only [setOr,decide_eq_true_eq] at ht
+    obtain ⟨b,hb,hs⟩ := ht
+    simp only [hB b hb,Bool.not_true] at hs
+    cases hs
+  simp only [setProduct,hAN,hBN,Bool.and_false,Bool.false_and,and_self]
+
+lemma product_rejects_colors {n : ℕ} (s : Fin n → Bool) (A B : Finset (Fin n))
+    (hA : A.Nonempty) (hB : B.Nonempty)
+    (h0 : setProduct A B (fun v => !(s v)) = false)
+    (h1 : setProduct A B s = false) :
+    ((∀a∈A,s a=false) ∧ (∀b∈B,s b=true)) ∨
+    ((∀b∈B,s b=false) ∧ (∀a∈A,s a=true)) := by
+  have hp (x : Fin n → Bool) {a b : Fin n} (ha : a∈A) (hb : b∈B)
+      (hxa : x a=true) (hxb : x b=true) : setProduct A B x=true := by
+    simp only [setProduct, Bool.and_eq_true, setOr, decide_eq_true_eq]
+    exact ⟨⟨a,ha,hxa⟩,⟨b,hb,hxb⟩⟩
+  by_cases hAL : ∀a∈A,s a=false
+  · left
+    refine ⟨hAL,?_⟩
+    intro b hb
+    cases hs : s b with
+    | false =>
+      obtain ⟨a,ha⟩ := hA
+      have ht := hp (fun v => !(s v)) ha hb (by simp [hAL a ha]) (by simp [hs])
+      rw [h0] at ht
+      cases ht
+    | true => rfl
+  · push Not at hAL
+    obtain ⟨a,ha,hs⟩ := hAL
+    have hsA : s a=true := Bool.eq_true_of_not_eq_false hs
+    have hBL : ∀b∈B,s b=false := by
+      intro b hb
+      cases hsB : s b with
+      | false => rfl
+      | true =>
+        have ht := hp s ha hb hsA hsB
+        rw [h1] at ht
+        cases ht
+    right
+    refine ⟨hBL,?_⟩
+    intro a' ha'
+    cases hsA' : s a' with
+    | true => rfl
+    | false =>
+      obtain ⟨b,hb⟩ := hB
+      have ht := hp (fun v => !(s v)) ha' hb (by simp [hsA']) (by simp [hBL b hb])
+      rw [h0] at ht
+      cases ht
+
+lemma pure_of_rejects_colors {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {K : Circuit} (s : Fin n → Bool) (hAO : IsAO2 n K) (hT : TopForm G K)
+    {g h : ℕ} (hJ : junk G K={g,h}) (hgh : ¬InCone n K g h) (hhg : ¬InCone n K h g)
+    (hreject : ∀j∈junk G K, gateVal n K j (fun v => !(s v))=false ∧ gateVal n K j s=false) :
+    ∀j∈junk G K,∃b:Fin 2,
+      (∀a∈side (n := n) K j b,s a=false)∧(∀a∈side (n := n) K j (1-b),s a=true) := by
+  intro j hj
+  have hj' : j=g∨j=h := by simpa [hJ] using hj
+  have hval := LargePureCase.product_value hAO hT hJ hgh hhg hj' (0 : Fin 2)
+  obtain ⟨_,_,_,x,hx,_⟩ := Finset.mem_filter.mp hj
+  have hp : setProduct (side (n := n) K j 0) (side (n := n) K j 1) x=true := by
+    simpa only [hval x,sub_zero] using hx
+  simp only [setProduct, Bool.and_eq_true, setOr, decide_eq_true_eq] at hp
+  obtain ⟨⟨a,ha,_⟩,b,hb,_⟩ := hp
+  have h0 : setProduct (side (n := n) K j 0) (side (n := n) K j 1)
+      (fun v => !(s v))=false := by simpa only [hval,sub_zero] using (hreject j hj).1
+  have h1 : setProduct (side (n := n) K j 0) (side (n := n) K j 1) s=false := by
+    simpa only [hval,sub_zero] using (hreject j hj).2
+  rcases product_rejects_colors s _ _ ⟨a,ha⟩ ⟨b,hb⟩ h0 h1 with hLR | hRL
+  · exact ⟨0,hLR⟩
+  · exact ⟨1,hRL⟩
+
+lemma no_rejecting_independent_pair {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (K : Circuit) (s : Fin n → Bool)
+    (hbip : ∀a b,G.Adj a b→s a≠s b) (h4 : NoFourCycle G) (hFlags : FlagExclusion G)
+    (hL : IsLeastAO G K) (hOne : ∀E : Circuit,IsLeastAO G E→(junk G E).card≠1)
+    (hT : TopForm G K) {g h : ℕ} (hne : g≠h) (hJ : junk G K={g,h})
+    (hgh : ¬InCone n K g h) (hhg : ¬InCone n K h g)
+    (hreject : ∀j∈junk G K, gateVal n K j (fun v => !(s v))=false ∧ gateVal n K j s=false) : False :=
+  PureIndependent.no_pure_independent_pair_of_flag_exclusion G K s hbip h4 hFlags hL hOne hT
+    hne hJ hgh hhg (pure_of_rejects_colors s hL.1 hT hJ hgh hhg hreject)
+
+end SemanticPureEndpoint
+
 end PEqualNP.Outside.L_meta_5012
