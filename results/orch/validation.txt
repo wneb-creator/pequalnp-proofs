@@ -53,3 +53,6 @@ CofactorProductive.lean: lake env lean passed, exit0;819lines, three unnecessary
 
 ClassificationObstruction.lean: lake env lean passed, exit0;44lines, empty build output. Concrete counterexample to a proposed type-classification shortcut; not to the posted gap. Independent review PASS.
 Cycle6 OR-count audit: unrestricted-AND normalized model with4OR nodes computationally UNSAT and5OR nodes SAT; all64rows of positive control independently checked. No Lean encoding bridge claimed. Independent archive review PASS.
+
+SharedSupport.lean: lake env lean passed, exit0;56lines, empty output. A multiply charged cofactor has a singleton-line input where enabling its point changes the wire value; no physical gate-count bound claimed. Independent review PASS.
+ClassificationObstruction.lean v2: lake env lean passed, exit0;81lines, empty output. Added matching example with no earlier zero-type gate yet a nonrectangular edge set at the final zero-type gate. Independent review PASS.

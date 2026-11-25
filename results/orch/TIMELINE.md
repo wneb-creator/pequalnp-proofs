@@ -47,3 +47,5 @@
 2026-11-25T03:59:24.029516+00:00 Actual-circuit cofactor39weighted-charge specialization compiled and independently reviewed; preserving partial. Broad12gate near-miss repair SAT started with1800second budget.
 
 2026-11-25T04:01:17.178344+00:00 Classification shortcut obstruction compiled/reviewed, and completeC6 computational audit independently reviewed. Both preserved as partials.
+
+2026-11-25T04:03:47.805464+00:00 Cofactor influence partial and stronger classification obstruction compiled/reviewed; preserved.
