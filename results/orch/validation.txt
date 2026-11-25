@@ -22,5 +22,12 @@ Further Lean checks, all exit0 and independently reviewed:
 - Structural16.lean: copies the checked L5236 core to prove 16+notCount<=size, excluding >=4NOT under budget19.
 The full L-meta-2592 statement remains unproved; one through three NOT gates remain after the checked numeric bound.
 
+Checkpoint5:
+- OrFirst.lean / OrFirstAlgebra.lean: compiled research companions for second-gate retention and algebraic commutation; they import scratch Structural16 and must be flattened before a single-file PR.
+- finite/SeededCaseZero.lean: one first-signal case checked; the complete seeded matching certificate is still pending.
+- search/: reviewed computational experiments only. Twenty-one restricted SAT repair windows were UNSAT, and heuristic searches found no full counterexample; these do not establish the unrestricted lower bound. Live two-NOT search output is explicitly marked ongoing.
+Complete logs, source hashes, candidates, and per-window manifests are preserved.
+Repository full-statement checker has not run; the posted theorem remains unproved.
+
 Sub-agents: special_status, structural_proof, counterexample_search, reduction_routes, finite_certificate, or_first_bound
-TIMING total=21.6 subagents=6
+TIMING total=31.4 subagents=6

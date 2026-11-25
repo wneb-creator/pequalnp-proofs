@@ -9,3 +9,8 @@
 2026-11-25T14:02:49.155616+00:00 Third reviewed partial checkpoint prepared; new OR-first strategy active
 2026-11-25T14:03:07.617393+00:00 first-binary-gate retention certificate Lean-checked (RetentionStandalone, exit0)
 2026-11-25T14:06:03.020728+00:00 Fourth reviewed partial checkpoint: sixteen-binary bound and restriction components
+2026-11-25T14:08:24.172535+00:00 Replan: preserve completed search windows; focus structural17/18 and exactlytwo active NOT search; small seeded obstruction secondary
+2026-11-25T14:09:54.949757+00:00 semantic binary floor17 and non-OR-first floor18 Lean checked
+2026-11-25T14:11:28.394655+00:00 secondgate OR-prefix retention packed certificate compiled
+2026-11-25T14:14:46.130980+00:00 OR/difference commutation and conditional18/19 binary floors compiled
+2026-11-25T14:15:56.572009+00:00 Fifth reviewed checkpoint: research search archive and OR/finite partials

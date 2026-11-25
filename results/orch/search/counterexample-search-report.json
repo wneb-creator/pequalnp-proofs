@@ -1,0 +1,85 @@
+{
+  "at": "2026-11-25T14:05:47.740611+00:00",
+  "gap": "L-meta-2592",
+  "counterexample_found": false,
+  "exact_upper_bound": {
+    "gates": 20,
+    "rows_checked": 1024,
+    "file": "petersen_upper20.json"
+  },
+  "near_candidate": {
+    "gates_after_deduplication": 18,
+    "errors": [
+      [
+        1,
+        3,
+        7
+      ],
+      [
+        0,
+        7,
+        8
+      ],
+      [
+        0,
+        3,
+        9
+      ],
+      [
+        1,
+        8,
+        9
+      ]
+    ],
+    "type": "monotone overapproximation"
+  },
+  "forced_not_search": {
+    "seconds": 600,
+    "mutations": 1483600000,
+    "best_errors": 8
+  },
+  "sat_windows": {
+    "cases": 21,
+    "scope": "13 fixed gates, six free gates, 1024 input rows, at least one NOT",
+    "verdict": "all UNSATISFIABLE (computational, not Lean-checked)",
+    "initial_manifest": "window-initial.json, recovered from the original saved CNF and verified against the complete saved base."
+  },
+  "not_insert_single_rewire": {
+    "cases": 1393536,
+    "best_errors": 4
+  },
+  "not_insert_two_rewire_beam": {
+    "cases": 8275134,
+    "best_errors": 4
+  },
+  "sources": {
+    "search_cgp.cpp": "22f35b3e4bc34fb733806eaf257131702059c2384796d8caaba5ea2d27e7fefa",
+    "search_cgp_not.cpp": "eaf397dd7279e20316461eb01b3d98d5d4bfb40477821580f3bc6664eeb84f6b",
+    "search_sat_windows.py": "64151385bba982d9d9e0805c37ef09e286eb6e697455ee0ca81ac9d7401bfaa3",
+    "search_insert.cpp": "dbc8f65f4420138c486221df6cb7bc47f30ca2eb8739d5796acb168eed7bef29",
+    "search_insert_beam.cpp": "f0ade81be8b30ee1bb305253011c9197cfe2571b65dff1e2babd9a199872002b",
+    "search_cgp_two_not.cpp": "51cea8c00920238a9a4f0abf9536e4ed85ed6158fdde110e7bb532050e845f56",
+    "search_windows.cpp": "a7f54c6a904f50a7ed318072bbacdcd9924faee946d0a412483e441bf162e36c"
+  },
+  "unconstrained_search": {
+    "seconds": 1200,
+    "summary": "END best=4 iterations=4065730000"
+  },
+  "new_search": "Exactly two active NOT gates, 1200 seconds, started 2026-11-25T14:08:23 UTC; pending.",
+  "sat_base": {
+    "header": "p cnf 211000 1429441",
+    "bytes": 31987949,
+    "sha256": "37c6fb1b52e450779d9a091c5298324156f03de69c82a2bd0818adeb0a4a431e",
+    "generator": "notes/data/lrat-link/gennot.py",
+    "generator_sha256": "718b075acc793c2d59f0d3a02b500a20fcca865a2f3b677518f8c7a342a84254",
+    "argv": [
+      "10",
+      "19",
+      "01,12,23,34,40,05,16,27,38,49,57,79,96,68,85",
+      "OUT"
+    ],
+    "extra_constraints": false
+  },
+  "archive_snapshot_at": "2026-11-25T14:13:31.357650+00:00",
+  "ongoing_log": "search_cgp_two_not.log is live; best_two_not.json is a verified earlier candidate snapshot, not the eventual final result."
+}

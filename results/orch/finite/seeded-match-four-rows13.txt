@@ -1,0 +1,19 @@
+goal 30
+base 0 0
+base 1 8191
+base 2 2726
+base 3 5446
+base 4 1642
+base 5 6538
+base 6 498
+base 7 7698
+base 8 6142
+base 9 7166
+base 10 7934
+base 11 8158
+base 12 7630
+base 13 2042
+base 14 7802
+base 15 6650
+first 98
+EXHAUSTED depth 4 pairs 5753 triples 264193

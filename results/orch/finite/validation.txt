@@ -1,0 +1,4 @@
+SeededCaseZero.lean checked: lake env lean -j 1 -M 6500; exit 0, stdout/stderr empty.
+This checks only the case in which the first additional signal is constant false, NOT the full seeded three-gate bound.
+C++ exhaustive searches are unverified computations: no <=4 additional gates for the matching function from all supplied seeds, including intermediate pair ORs and constants.
+Full SeededMatch.lean (114 cases) checking in progress.
