@@ -448,10 +448,10 @@ open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
 open PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership
 open PEqualNP.Outside.L_meta_1031.SignedDomination
 
-theorem PEqualNP.Outside.L_meta_1031.signed_domination_impossible
+theorem PEqualNP.Outside.L_meta_1031.signed_domination_impossible_with_false
     (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
     (hmin : IsMinimalMonoCircuit n C) (hfun : circuitFun n C = graphFun G ∅)
-    (j i : ℕ) (hj : j < C.gates.length) (hi : i < n + j)
+    (j i : ℕ) (hj : j < C.gates.length) (hi : i < n + j ∨ n + C.gates.length ≤ i)
     (hpos : ∀ u v : Fin n, G.Adj u v →
       (C.wires (List.ofFn (pairInput u v))).getD (n + j) false = true →
       (C.wires (List.ofFn (pairInput u v))).getD i false = true)
@@ -467,7 +467,7 @@ theorem PEqualNP.Outside.L_meta_1031.signed_domination_impossible
       D.eval (List.ofFn (pairInput u v)) = true := by
     have transfer := bypass_eval_rel (R := fun a b => a = true → b = true)
       (fun _ => id) opMono_imp (n := n) (C := C) (by simp) (mono_ops hmin.1)
-      hj (Or.inl hi) (hpos u v huv)
+      hj hi (hpos u v huv)
     apply transfer
     change circuitFun n C (pairInput u v) = true
     rw [hfun]
@@ -477,7 +477,7 @@ theorem PEqualNP.Outside.L_meta_1031.signed_domination_impossible
       D.eval (List.ofFn (fun k : Fin n => decide (k ∈ S))) = false := by
     have transfer := bypass_eval_rel (R := fun a b => b = true → a = true)
       (fun _ => id) opMono_reverse (n := n) (C := C) (by simp) (mono_ops hmin.1)
-      hj (Or.inl hi) (hneg S hS hmax)
+      hj hi (hneg S hS hmax)
     cases heval : D.eval (List.ofFn (fun k : Fin n => decide (k ∈ S))) with
     | false => rfl
     | true =>
@@ -497,6 +497,21 @@ theorem PEqualNP.Outside.L_meta_1031.signed_domination_impossible
   have hsize : D.size = C.gates.length - 1 := bypass_length n C j i
   change C.gates.length ≤ D.size at smaller
   omega
+
+theorem PEqualNP.Outside.L_meta_1031.signed_domination_impossible
+    (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hmin : IsMinimalMonoCircuit n C) (hfun : circuitFun n C = graphFun G ∅)
+    (j i : ℕ) (hj : j < C.gates.length) (hi : i < n + j)
+    (hpos : ∀ u v : Fin n, G.Adj u v →
+      (C.wires (List.ofFn (pairInput u v))).getD (n + j) false = true →
+      (C.wires (List.ofFn (pairInput u v))).getD i false = true)
+    (hneg : ∀ S : Finset (Fin n), independent G S →
+      (∀ T : Finset (Fin n), independent G T → S ⊆ T → T ⊆ S) →
+      (C.wires (List.ofFn (fun k : Fin n => decide (k ∈ S)))).getD i false = true →
+      (C.wires (List.ofFn (fun k : Fin n => decide (k ∈ S)))).getD (n + j) false = true) :
+    False := by
+  exact PEqualNP.Outside.L_meta_1031.signed_domination_impossible_with_false
+    n G C hmin hfun j i hj (Or.inl hi) hpos hneg
 
 lemma PEqualNP.Outside.L_meta_1031.and_operand_negative_witness
     (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
@@ -535,3 +550,138 @@ lemma PEqualNP.Outside.L_meta_1031.or_operand_positive_witness
     | true => rfl
   · intro S _ _ hinput
     exact (val_or (n := n) (by simp) hj hor).mpr ⟨i, hin, hi, hinput⟩
+
+lemma PEqualNP.Outside.L_meta_1031.sound_wire_not_and_input
+    (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hmin : IsMinimalMonoCircuit n C) (hfun : circuitFun n C = graphFun G ∅)
+    (j i : ℕ) (hj : j < C.gates.length) (hi : i < n + j)
+    (hand : (gateAt C j).op = GateOp.and)
+    (hsound : ∀ x : Fin n → Bool,
+      (C.wires (List.ofFn x)).getD i false = true → graphFun G ∅ x = true) :
+    i ∉ (gateAt C j).inputs := by
+  intro hin
+  obtain ⟨S, hS, _, hinput, _⟩ :=
+    PEqualNP.Outside.L_meta_1031.and_operand_negative_witness n G C hmin hfun j i hj hi hand hin
+  have hhit := hsound (fun k : Fin n => decide (k ∈ S)) hinput
+  obtain ⟨u, v, huv, hu, hv⟩ := (graph_true G _).mp hhit
+  exact hS u (of_decide_eq_true hu) v (of_decide_eq_true hv) huv
+
+lemma PEqualNP.Outside.L_meta_1031.gate_positive_edge_witness
+    (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hmin : IsMinimalMonoCircuit n C) (hfun : circuitFun n C = graphFun G ∅)
+    (j : ℕ) (hj : j < C.gates.length) :
+    ∃ u v : Fin n, G.Adj u v ∧
+      (C.wires (List.ofFn (pairInput u v))).getD (n + j) false = true := by
+  classical
+  by_contra hnone
+  apply PEqualNP.Outside.L_meta_1031.signed_domination_impossible_with_false
+    n G C hmin hfun j (n + C.gates.length) hj (Or.inr le_rfl)
+  · intro u v huv hgate
+    exact (hnone ⟨u, v, huv, hgate⟩).elim
+  · intro S _ _ hfalse
+    change val C (List.ofFn (fun k : Fin n => decide (k ∈ S))) (n + C.gates.length) = true at hfalse
+    rw [val_ge (n := n) (by simp) le_rfl] at hfalse
+    cases hfalse
+
+lemma PEqualNP.Outside.L_meta_1031.and_inputs_earlier
+    (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hmin : IsMinimalMonoCircuit n C) (hfun : circuitFun n C = graphFun G ∅)
+    (j : ℕ) (hj : j < C.gates.length) (hand : (gateAt C j).op = GateOp.and) :
+    ∀ i ∈ (gateAt C j).inputs, i < n + j := by
+  obtain ⟨u, v, _, hgate⟩ :=
+    PEqualNP.Outside.L_meta_1031.gate_positive_edge_witness n G C hmin hfun j hj
+  exact fun i hi => ((val_and (n := n) (by simp) hj hand).mp hgate i hi).1
+
+lemma PEqualNP.Outside.L_meta_1031.and_has_another_operand
+    (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hmin : IsMinimalMonoCircuit n C) (hfun : circuitFun n C = graphFun G ∅)
+    (j i : ℕ) (hj : j < C.gates.length)
+    (hand : (gateAt C j).op = GateOp.and) (hin : i ∈ (gateAt C j).inputs) :
+    ∃ k ∈ (gateAt C j).inputs, k ≠ i := by
+  classical
+  have hearly := PEqualNP.Outside.L_meta_1031.and_inputs_earlier n G C hmin hfun j hj hand
+  obtain ⟨S, _, _, hinput, hgate⟩ :=
+    PEqualNP.Outside.L_meta_1031.and_operand_negative_witness n G C hmin hfun j i hj
+      (hearly i hin) hand hin
+  by_contra hnone
+  have htrue : val C (List.ofFn (fun k : Fin n => decide (k ∈ S))) (n + j) = true := by
+    apply (val_and (n := n) (by simp) hj hand).mpr
+    intro k hk
+    have hki : k = i := by
+      by_contra hne
+      exact hnone ⟨k, hk, hne⟩
+    exact ⟨hearly k hk, hki ▸ hinput⟩
+  exact Bool.noConfusion (hgate.symm.trans htrue)
+
+lemma PEqualNP.Outside.L_meta_1031.or_has_another_earlier_operand
+    (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hmin : IsMinimalMonoCircuit n C) (hfun : circuitFun n C = graphFun G ∅)
+    (j i : ℕ) (hj : j < C.gates.length) (hi : i < n + j)
+    (hor : (gateAt C j).op = GateOp.or) (hin : i ∈ (gateAt C j).inputs) :
+    ∃ k ∈ (gateAt C j).inputs, k < n + j ∧ k ≠ i := by
+  obtain ⟨u, v, _, hgate, hinput⟩ :=
+    PEqualNP.Outside.L_meta_1031.or_operand_positive_witness n G C hmin hfun j i hj hi hor hin
+  obtain ⟨k, hk, hkearly, hktrue⟩ := (val_or (n := n) (by simp) hj hor).mp hgate
+  refine ⟨k, hk, hkearly, ?_⟩
+  intro hki
+  subst k
+  exact Bool.noConfusion (hinput.symm.trans hktrue)
+
+lemma PEqualNP.Outside.L_meta_1031.SignedDomination.list_eq_pair_of_distinct_mem
+    {l : List ℕ} {i k : ℕ} (hlen : l.length ≤ 2) (hi : i ∈ l) (hk : k ∈ l)
+    (hne : k ≠ i) : l = [i, k] ∨ l = [k, i] := by
+  cases l with
+  | nil => simp at hi
+  | cons a l =>
+    cases l with
+    | nil =>
+      simp only [List.mem_singleton] at hi hk
+      exact (hne (hk.trans hi.symm)).elim
+    | cons b l =>
+      have hempty : l = [] := by
+        cases l with
+        | nil => rfl
+        | cons c cs => simp only [List.length_cons] at hlen; omega
+      subst l
+      simp at hi hk
+      rcases hi with rfl | rfl
+      · rcases hk with hka | rfl
+        · exact (hne hka).elim
+        · exact Or.inl rfl
+      · rcases hk with rfl | hkb
+        · exact Or.inr rfl
+        · exact (hne hkb).elim
+
+lemma PEqualNP.Outside.L_meta_1031.or_inputs_pair
+    (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hmin : IsMinimalMonoCircuit n C) (hfun : circuitFun n C = graphFun G ∅)
+    (j : ℕ) (hj : j < C.gates.length) (hor : (gateAt C j).op = GateOp.or) :
+    ∃ a b : ℕ, (gateAt C j).inputs = [a, b] ∧ a ≠ b ∧ a < n + j ∧ b < n + j := by
+  obtain ⟨u, v, _, hgate⟩ :=
+    PEqualNP.Outside.L_meta_1031.gate_positive_edge_witness n G C hmin hfun j hj
+  obtain ⟨i, hi, hiearly, _⟩ := (val_or (n := n) (by simp) hj hor).mp hgate
+  obtain ⟨k, hk, hkearly, hne⟩ :=
+    PEqualNP.Outside.L_meta_1031.or_has_another_earlier_operand n G C hmin hfun j i hj hiearly hor hi
+  have hlen := (hmin.1 _ (gateAt_mem hj)).2
+  rcases list_eq_pair_of_distinct_mem hlen hi hk hne with hp | hp
+  · exact ⟨i, k, hp, Ne.symm hne, hiearly, hkearly⟩
+  · exact ⟨k, i, hp, hne, hkearly, hiearly⟩
+
+lemma PEqualNP.Outside.L_meta_1031.and_inputs_nil_or_pair
+    (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (C : Circuit)
+    (hmin : IsMinimalMonoCircuit n C) (hfun : circuitFun n C = graphFun G ∅)
+    (j : ℕ) (hj : j < C.gates.length) (hand : (gateAt C j).op = GateOp.and) :
+    (gateAt C j).inputs = [] ∨
+      ∃ a b : ℕ, (gateAt C j).inputs = [a, b] ∧ a ≠ b ∧ a < n + j ∧ b < n + j := by
+  cases hinputs : (gateAt C j).inputs with
+  | nil => exact Or.inl rfl
+  | cons i l =>
+    have hi : i ∈ (gateAt C j).inputs := by simp [hinputs]
+    obtain ⟨k, hk, hne⟩ :=
+      PEqualNP.Outside.L_meta_1031.and_has_another_operand n G C hmin hfun j i hj hand hi
+    have hearly := PEqualNP.Outside.L_meta_1031.and_inputs_earlier n G C hmin hfun j hj hand
+    have hlen := (hmin.1 _ (gateAt_mem hj)).2
+    apply Or.inr
+    rcases list_eq_pair_of_distinct_mem hlen hi hk hne with hp | hp
+    · exact ⟨i, k, hinputs ▸ hp, Ne.symm hne, hearly i hi, hearly k hk⟩
+    · exact ⟨k, i, hinputs ▸ hp, hne, hearly k hk, hearly i hi⟩
