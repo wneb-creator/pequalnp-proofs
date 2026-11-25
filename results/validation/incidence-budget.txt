@@ -1,0 +1,6 @@
+L-meta-3457 partial: explicit vertex-cover budget
+2026-11-25T01:48:31.082420+00:00
+SHA256 adf3c0dbd0f29dcb44cc9d03d2088376a232493234f940619d3493f03fb48cc0
+Lines 626
+Central lake env lean: exit 0, empty stdout/stderr.
+Proves the desired clean-circuit conjunction from an explicit incidence vertex cover S satisfying incidenceCount+S.card <= C.size+1. The missing general counting bound is an explicit additional hypothesis; it has not been proved for the posted arbitrary C4-free circuit. This is not a completed proof or a submitted reduction.

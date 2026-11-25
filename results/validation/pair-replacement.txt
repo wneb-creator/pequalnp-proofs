@@ -1,0 +1,6 @@
+L-meta-3457 partial: repair one-edge AND
+2026-11-25T01:49:24.991527+00:00
+SHA256 858d332f83fb6266f21edc632596158586215a93945fabf6e71c3817ea678ff7
+Lines 765
+Central lake env lean PairReplacementV4.lean: exit 0, warnings only; complete stdout/stderr preserved. Independent source review approved this exact hash.
+An AND true on exactly one incident pair can be replaced in place by that direct pair AND. The function, gate count, ReadsBack, Monotone2, singleton-cleanliness and every previous zero wire value are preserved. The selected AND is now clean on every nonincident pair. Gates serving multiple incident pairs are not handled by this theorem.
