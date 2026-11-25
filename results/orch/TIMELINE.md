@@ -60,3 +60,5 @@
 - 2026-11-25T15:33:55.995126+00:00 structure: derived unformalized reduction from L4970 to unrestricted regular C4-free lower bound E/2-1 using N masking ANDs and E/2 unused pair-star ORs; no full ledger or refutation.
 
 2026-11-25T15:34:18.052168+00:00: named797-line partial builds with independently reviewed OR-only partition invariant; immediate preservation checkpoint.
+
+2026-11-25T15:41:07.497904+00:00: selected OR-merge rank component reviewed and integrated; named1148-line file builds successfully, checkpointpush.
