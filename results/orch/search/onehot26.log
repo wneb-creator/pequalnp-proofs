@@ -1,0 +1,6 @@
+gates=26 tests=58 timeout_s=300 bytes=2150140
+unknown
+
+(:reason-unknown "canceled")
+
+elapsed_s=301.024

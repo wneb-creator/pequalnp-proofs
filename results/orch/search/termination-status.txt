@@ -1,0 +1,6 @@
+2026-11-25T15:06:24.269831+00:00 STOP: root reported desk HTTP410; terminate own searches.
+pattern=^python3 /tmp/oec/pequalnp-pilot-138/semantic/fano_cnf.py 26 1800$ pgrep_exit=0
+sent SIGTERM pid=7471
+pattern=^/tmp/oec/pequalnp-pilot-138/semantic/fano_block_soft 600  pgrep_exit=0
+sent SIGTERM pid=5494
+CNF26 session exit143; soft-block session exit143. Both tool sessions reported Terminated. No solver verdict or counterexample was produced.

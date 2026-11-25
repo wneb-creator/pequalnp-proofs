@@ -1,0 +1,1 @@
+Unrestricted CNF27 model independently parsed and validated: 27 earlier-wire AND/OR gates; all 16384 Boolean assignments passed.

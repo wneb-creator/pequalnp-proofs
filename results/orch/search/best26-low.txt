@@ -1,0 +1,27 @@
+score 1
+or 0 4
+or 14 5
+and 15 11
+or 2 1
+or 17 4
+and 18 8
+or 0 2
+or 20 6
+and 21 13
+or 3 0
+or 23 1
+and 24 7
+or 6 5
+or 26 1
+and 27 12
+or 2 5
+or 29 3
+and 30 9
+or 3 4
+and 32 10
+or 25 16
+or 22 34
+or 19 35
+or 28 31
+or 36 37
+or 38 33

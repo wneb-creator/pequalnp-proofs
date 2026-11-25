@@ -1,9 +1,12 @@
-L-meta-2583 PARTIAL CHECKPOINT — not a proof of the posted statement.
-File: lean/PEqualNP/Outside/L_meta_2583.lean (2430 lines).
-lake build +PEqualNP.Outside.L_meta_2583: Build completed successfully (5151 jobs).
-Combined geometry, explicit read1 upper bound, no-junk top-form lower bound, conditional normalization.
-Independent red-team review: PASS for partial preservation only.
-Posted-statement checker pending; no exact theorem declared; no proof PR.
-Cleanup pass not triggered (no complete checker-accepted proof).
-Sub-agents: 6 (status/review, toolchain/order3 search, construction, semantic/search, lower-bound/geometry, read-once obstruction).
-TIMING total=22 subagents=6
+L-meta-2583 PARTIAL RESULTS — exact posted statement remains unproved.
+Named file: lean/PEqualNP/Outside/L_meta_2583.lean, 2430 lines.
+lake build +PEqualNP.Outside.L_meta_2583: exit0; Build completed successfully (5151 jobs).
+Local checker: exit3; CHECKER FAULT: verifier could not load missing Batteries.olean required by full Mathlib. No acceptance verdict.
+Axiom audit for conditional normalization and construction: propext, Classical.choice, Quot.sound only.
+Independent red-team review: PASS for partial preservation; no proof PR.
+Final-file cleanup not run because the full statement/checker did not pass; 2430 lines before/after. Supporting ReadOnceSupport cleanup:1019→747 lines, recompiles.
+Desk: initial next returned one gap/lease; null count0. Renewal failed HTTP410 at15:05UTC after successful15:02:27 renewal had promised15:22:27 expiry. Complete response and desk log preserved.
+All searches stopped; no counterexample or UNSAT certificate.
+Sub-agents:6 (status/review, toolchain/order3 search, construction, semantic/search, lower-bound/geometry, delegated read-once obstruction).
+TIMING total=28.0 subagents=6
+KIT-MESSAGE-ID msg-015d6a72296b37de400fc5b9

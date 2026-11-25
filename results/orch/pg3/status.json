@@ -1,0 +1,54 @@
+{
+  "archived_at": "2026-11-25T15:07:31.676275+00:00",
+  "reason": "Root ordered stop after confirmed HTTP410 no such live lease; no search continued after stop.",
+  "runs": [
+    {
+      "log": "anneal.log",
+      "budget": "300s",
+      "status": "exit1, completed time budget",
+      "last_logged_progress": "STOP time_budget elapsed=300 iterations=320995328 best=1 restarts=1284"
+    },
+    {
+      "log": "greedy.log",
+      "budget": "300s",
+      "status": "exit1, completed time budget",
+      "last_logged_progress": "STOP time_budget elapsed=300 iterations=312672256 best=1 restarts=1251"
+    },
+    {
+      "log": "multi.log",
+      "budget": "300s",
+      "status": "exit1, completed time budget",
+      "last_logged_progress": "STOP time_budget elapsed=300 iterations=275709952 best=1 restarts=1103"
+    },
+    {
+      "log": "block-hard.log",
+      "budget": "900s planned",
+      "status": "exit143, controlled replacement by audited v2",
+      "last_logged_progress": "elapsed=28 iterations=58720256 matching_calls=58721182 matching_misses=925726 restarts=588 best=12,12,12,12,12,12,12,12,12,12,12,"
+    },
+    {
+      "log": "block-hard-v2.log",
+      "budget": "900s planned",
+      "status": "exit143, stopped on lease loss",
+      "last_logged_progress": "elapsed=249 iterations=390070272 matching_calls=390074511 matching_misses=5133801 restarts=3901 best=12,12,12,12,12,12,12,12,12,12,12,"
+    },
+    {
+      "log": "block-soft.log",
+      "budget": "900s planned",
+      "status": "exit143, stopped on lease loss",
+      "last_logged_progress": "elapsed=256 iterations=381681664 matching_calls=381685819 matching_misses=5158409 restarts=3817 best=12,12,12,12,12,12,12,12,12,12,12,"
+    },
+    {
+      "log": "weighted.log",
+      "budget": "900s planned",
+      "status": "exit143, stopped on lease loss",
+      "last_logged_progress": "elapsed=230 iterations=273678336 best=8 current=8 restarts=1095"
+    },
+    {
+      "log": "triples.log",
+      "budget": "600s planned",
+      "status": "exit143, stopped on lease loss",
+      "last_logged_progress": "elapsed=116 iterations=128974848 best=19 current=19 restarts=516"
+    }
+  ]
+}

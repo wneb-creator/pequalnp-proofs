@@ -1,0 +1,14 @@
+Toolchain setup: pinned Lean 4.36.0 installed in job scratch using pinned elan v4.4.0.
+The prepared cache and toolchain described in the brief were absent from the actual runtime.
+Elan installer SHA256: 0e8250aa2be86c7af929ade68db617af9edc8b9ccf6eaf5ece228250d0d032e2.
+Lean commit: 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9.
+Mathlib commit: fc4f59e577feb1a4956671bc04ac18aaaf8cd842 (repository pin unchanged).
+Initial full lake exe cache get downloaded all 9117 cache artifacts but full extraction exhausted the 7.9GB filesystem. Its disposable Mathlib extraction was removed and genuine cached narrow dependencies were restored.
+The needed LowerBound and PEqualNP.Defs Mathlib dependencies (2480 modules) were fetched from the pinned Mathlib cache, not compiled from source.
+All 67 direct Mathlib targets needed transitively by PEqualNP.Defs verified with lake build --no-build: All targets up-to-date (4974 jobs).
+Genuine Mathlib root artifact restored from cache archive 79da901f0eeeaa4a.ltar, with embedded pinned commit comment. No fake artifact and no checker change.
+Downloaded compressed Mathlib cache archives removed using official cache clean! after extraction to free disk.
+Checker executable built successfully: Build completed successfully (5 jobs).
+Commands should source /tmp/oec/pequalnp-pilot-138/lean-env.sh and run in lean/.
+Complete logs: install-elan.log, cache-get.log, cache-get-02.log, cache-lower-bound.log, cache-defs.log, cache-defs-verify.log, cache-lookup-root.log, cache-root-extract.log, build-checklemma.log, build-defs.log.
+PEqualNP.Defs built successfully: Build completed successfully (5147 jobs).

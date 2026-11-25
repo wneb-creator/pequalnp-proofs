@@ -354,3 +354,57 @@ warning: PEqualNP/Defs/Represents.lean:56:4: The namespace `Represents` is dupli
 Note: This linter can be disabled with `set_option linter.dupNamespace false`
 ⚠ [5147/5151] Ran PEqualNP.Defs.Represents:irArts
 warning: PEqualNP/Defs/Represents.lean: imports `Mathlib.Data.ENat.Lattice` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [5150/5151] Built PEqualNP.Outside.L_meta_2583 (77s)
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Combinatorics.Hall.Finite` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Sigma` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Piecewise` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Data.Fintype.EquivFin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Tactic.Choose` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Tactic.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean:977:6: Unused tactic linter: `(unfold readVectors; congr 1; funext R g; rcases g with ⟨op, ins⟩;
+  cases op <;> rfl)` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:977:6: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:1079:6: Unused tactic linter: `simp [capAdd]` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:1079:6: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:1086:6: Unused tactic linter: `(unfold leafVectors; simp)` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:1086:6: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+warning: PEqualNP/Outside/L_meta_2583.lean:1180:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:1209:10: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+warning: PEqualNP/Outside/L_meta_2583.lean:1532:17: `dite_cond_eq_true` has been deprecated: Use `dite_eq_left_of_eq_true` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵t̵e̵_̵c̵o̵n̵d̵_̵e̵q̵_̵t̵r̵u̵e̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲_̲o̲f̲_̲e̲q̲_̲t̲r̲u̲e̲
+warning: PEqualNP/Outside/L_meta_2583.lean:1535:17: `dite_cond_eq_true` has been deprecated: Use `dite_eq_left_of_eq_true` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵t̵e̵_̵c̵o̵n̵d̵_̵e̵q̵_̵t̵r̵u̵e̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲_̲o̲f̲_̲e̲q̲_̲t̲r̲u̲e̲
+warning: PEqualNP/Outside/L_meta_2583.lean:1951:18: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+⚠ [5151/5151] Ran PEqualNP.Outside.L_meta_2583:irArts
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Combinatorics.Hall.Finite` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Sigma` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Algebra.BigOperators.Group.Finset.Piecewise` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Data.Fintype.EquivFin` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Tactic.Choose` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2583.lean: imports `Mathlib.Tactic.Ring` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+Build completed successfully (5151 jobs).

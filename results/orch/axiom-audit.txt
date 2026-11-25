@@ -1,0 +1,4 @@
+'PEqualNP.Outside.L_meta_2583.normalization_of_topForm_noJunk' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2583.plane_read1_upper' depends on axioms: [propext, Classical.choice, Quot.sound]

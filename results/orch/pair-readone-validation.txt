@@ -1,0 +1,35 @@
+PairReadOne partial validation
+2026-11-25T15:06:57.791799+00:00
+Command: lake env lean ../results/orch/lemmas/PairReadOne.lean
+Working directory: /workspace/pequalnp-proofs/lean
+First attempt: exit1, four local elaboration errors. Complete output:
+../results/orch/lemmas/PairReadOne.lean:1005:6: error: Type mismatch: After simplification, term
+  hcomp p p
+ has type
+  circuitFun n C (pairInput p p) = false
+but is expected to have type
+  (circuitFun n C fun i => decide (i = p)) = false
+../results/orch/lemmas/PairReadOne.lean:1013:6: error: Type mismatch: After simplification, term
+  hcomp q q
+ has type
+  circuitFun n C (pairInput q q) = false
+but is expected to have type
+  (circuitFun n C fun i => decide (i = q)) = false
+../results/orch/lemmas/PairReadOne.lean:1306:44: error: Type mismatch: After simplification, term
+  hval
+ has type
+  (wireVal n C (n + g) fun i => decide (i = u)) = true
+but is expected to have type
+  wireVal n C (n + g) (pairInput u u) = true
+../results/orch/lemmas/PairReadOne.lean:1307:12: error: Function expected at
+  G.loopless
+but this term has type
+  Std.Irrefl G.Adj
+
+Note: Expected a function because this term is being applied to the argument
+  u
+
+Second attempt: exit0. The compiler finished naturally before the requested termination. A process check saw PID8453, but kill -TERM8453 returned No such process, and the original tool session returned exit0. No build was started after the stop instruction.
+Current source lines: 1351
+Scope: generalized pair-only read1 size helper; not the posted L-meta-2583 theorem.
+Complete stdout and stderr from successful second attempt:

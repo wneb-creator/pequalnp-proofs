@@ -1,0 +1,5 @@
+Independent root review PASS for partial preservation, 2026-11-25T15:08:25.673638+00:00
+FanoSmall: Fin7 degree/common-neighbor checks plus symbolic 3-by-3 and degree bounds correctly imply at most six edges on at most six endpoints.
+BlockSupport: reverse gate-dependency induction bounds relevant input support by output count plus number of binary gates; every essential incidence endpoint belongs to this support. No read-back assumption needed because unavailable wires evaluate to false.
+Both sources compiled exit0, complete stdout/stderr empty. Structural agent independently reviewed these too.
+These are supporting lemmas only, not the full gap statement.

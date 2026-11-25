@@ -1,0 +1,27 @@
+ReadOnceSupport partial validation
+2026-11-25T15:01:54.490765+00:00
+Command: lake env lean ../results/orch/lemmas/ReadOnceSupport.lean
+Working directory: /workspace/pequalnp-proofs/lean
+Exit: 0
+Pinned Lean: 4.36.0
+Lines: 1019
+Scope: strengthened helper only; not the posted L-meta-2583 theorem.
+Full stdout and stderr:
+../results/orch/lemmas/ReadOnceSupport.lean:753:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+
+Cleanup: removed unused Bridge tree layer, including custom inductive.
+Lines before cleanup: 1019
+Lines after cleanup: 747
+2026-11-25T15:05:10.066987+00:00
+Command: lake env lean ../results/orch/lemmas/ReadOnceSupport.lean
+Exit: 0
+Full stdout and stderr:
+../results/orch/lemmas/ReadOnceSupport.lean:481:6: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+
+Archival formatting: removed one trailing space from a tactic-bullet line; no Lean tokens or proof changed.

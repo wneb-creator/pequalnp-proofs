@@ -1,0 +1,26 @@
+star_baselines=PASS matching_empty=13 matching_full=0 weight=128 seed=138258304
+gates=19 best=12 edges=16 matching_remaining=9 iterations=1
+gates=44 best=12 edges=36 matching_remaining=4 iterations=100001
+gates=9 best=12 edges=8 matching_remaining=11 iterations=200001
+gates=29 best=12 edges=24 matching_remaining=7 iterations=600001
+gates=34 best=12 edges=28 matching_remaining=6 iterations=700001
+gates=14 best=12 edges=12 matching_remaining=10 iterations=1100001
+gates=49 best=12 edges=40 matching_remaining=3 iterations=1400001
+gates=39 best=12 edges=32 matching_remaining=5 iterations=1500001
+gates=24 best=12 edges=20 matching_remaining=8 iterations=1600001
+gates=54 best=12 edges=44 matching_remaining=2 iterations=2600001
+elapsed=3 iterations=4194304 matching_calls=4194683 matching_misses=93387 restarts=42 best=12,12,12,12,12,12,12,12,12,12,10000,
+gates=59 best=12 edges=48 matching_remaining=1 iterations=6800001
+elapsed=5 iterations=8388608 matching_calls=8389030 matching_misses=155008 restarts=84 best=12,12,12,12,12,12,12,12,12,12,12,
+elapsed=8 iterations=12582912 matching_calls=12583376 matching_misses=212454 restarts=126 best=12,12,12,12,12,12,12,12,12,12,12,
+elapsed=9 iterations=16777216 matching_calls=16777722 matching_misses=272072 restarts=168 best=12,12,12,12,12,12,12,12,12,12,12,
+elapsed=10 iterations=20971520 matching_calls=20972068 matching_misses=341099 restarts=210 best=12,12,12,12,12,12,12,12,12,12,12,
+elapsed=11 iterations=25165824 matching_calls=25166414 matching_misses=415495 restarts=252 best=12,12,12,12,12,12,12,12,12,12,12,
+elapsed=12 iterations=29360128 matching_calls=29360760 matching_misses=488504 restarts=294 best=12,12,12,12,12,12,12,12,12,12,12,
+elapsed=14 iterations=33554432 matching_calls=33555106 matching_misses=564710 restarts=336 best=12,12,12,12,12,12,12,12,12,12,12,
+elapsed=15 iterations=37748736 matching_calls=37749452 matching_misses=637568 restarts=378 best=12,12,12,12,12,12,12,12,12,12,12,
+elapsed=17 iterations=41943040 matching_calls=41943798 matching_misses=705511 restarts=420 best=12,12,12,12,12,12,12,12,12,12,12,
+elapsed=20 iterations=46137344 matching_calls=46138144 matching_misses=748491 restarts=462 best=12,12,12,12,12,12,12,12,12,12,12,
+elapsed=23 iterations=50331648 matching_calls=50332490 matching_misses=804446 restarts=504 best=12,12,12,12,12,12,12,12,12,12,12,
+elapsed=26 iterations=54525952 matching_calls=54526836 matching_misses=869194 restarts=546 best=12,12,12,12,12,12,12,12,12,12,12,
+elapsed=28 iterations=58720256 matching_calls=58721182 matching_misses=925726 restarts=588 best=12,12,12,12,12,12,12,12,12,12,12,
