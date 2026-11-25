@@ -37,7 +37,7 @@ Checkpoint6:
 Independent review passed all frozen sources. One-NOT and two-NOT cases of the posted theorem remain open.
 
 Sub-agents: special_status, structural_proof, counterexample_search, reduction_routes, finite_certificate, or_first_bound
-TIMING total=49.5 subagents=6
+TIMING total=55.8 subagents=6
 
 Checkpoint7:
 - OneNotPetersen/OneUseInput: Lean exit0; sole-reader obstructions, under explicit structural hypotheses.
@@ -58,3 +58,17 @@ Checkpoint8:
 InputSlots and Prune contain local instances, and OrUses/Core introduces a datatype; these are valid research artifacts but need reformulation for automatic PR merging under CONTRIBUTING. No original-gap claim is made.
 The heuristic searches have now all ended: general two-NOT best18 errors after3,349,810,000 mutations; adjacent-prefix best22 errors after1,425,600,000; nonadjacent-prefix best22 errors after1,487,580,000. Frozen manifests and candidates were independently verified. These are computational observations, not lower-bound proofs.
 All listed frozen sources and search evidence passed independent review. Full L-meta-2592 remains unproved, and its checker has not run.
+
+Checkpoint9, preservation after unexpected lease HTTP410:
+- InputStructureClean: standalone checked normalization from the original gap hypotheses to an equivalent circuit with weight=size+indicator(noNOT)<=19 and an input having exactly one reader. No extra liveness/essentiality hypotheses remain. If normalized circuit has noNOT, its size is at most18. No forbidden datatype or instance declarations, named namespace ends.
+- WeightedLive/WeightedPetersen and MinimumInput: checked companion decomposition and exported minimum-size property for transformations.
+- AliasPrune/Standalone: checked removal of a gate equal to an earlier wire, exact size and NOT-count accounting.
+- NandDeletion: checked composition yielding an equivalent circuit with one fewer gate and unchanged NOT count, under its explicit mask/monotone-tail assumptions.
+- BypassOr: checked arbitrary-suffix OR-mask relocation; this artifact adds one gate before alias deletion.
+- InputNegations and LastNotReader: checked sole-NOT-reader exclusions. LastNotReader permits arbitrary earlier gates and requires only the suffix after the chosen NOT to be monotone.
+- RawUses: checked Petersen bound15+nonNOTreaderCount(j)<=binaryCount; with at least2NOT and size<=19 each input has at most2 nonNOT readers. Count is gates containing j, not input-slot multiplicity. RawUsesCore contains the generic actual-circuit bound only.
+- FastSeededMatch: full114-case kernel certificate passed,231.93seconds, empty stdout/stderr. This proves choices_noThree for the fixed13-row,16-seed matching problem. It does not prove arbitrary Petersen circuits reduce to that problem.
+All listed sources compiled with exit0 and passed independent review. CompleteSeededMatch and PackedBaseline are not yet fully compiled and are excluded from this compiled-results checkpoint.
+At14:39UTC the desk returned HTTP410 despite the prior renewal reporting expiry14:56:15.946UTC. The identical curl-si diagnostic also returned410. Checked work is being pushed before any new lease request, as instructed.
+The posted theorem remains unproved; full-statement lake build/checker have not run. No PR has been opened.
+- OrRelocation also checked and independently reviewed: composition of OR-mask relocation and copy deletion preserves evaluation, exact size, and exact NOT count under its stated mask hypotheses.

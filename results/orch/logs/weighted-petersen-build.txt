@@ -1,0 +1,14 @@
+../results/orch/lemmas/WeightedPetersen.lean:39:10: warning: This simp argument is unused:
+  List.getD_eq_getElem (List.ofFn x) false (by simpa using h)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/WeightedPetersen.lean:40:10: warning: This simp argument is unused:
+  List.getD_eq_default (List.ofFn x) false (by simpa using Nat.le_of_not_gt h)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

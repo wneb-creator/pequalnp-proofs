@@ -30,3 +30,13 @@
 2026-11-25T14:29:11.146686+00:00 completion observed for general two-NOT and both fixed-prefix NOT searches; no witness
 
 2026-11-25T14:34:02.971896+00:00 Checkpoint8: checked pruning, slot counts, restricted mask classification, and final heuristic-search snapshots. Lease expires14:52:30UTC. Full theorem still open.
+
+- 2026-11-25 14:35:08 UTC: Started native signed9 Live-forest cap14 baseline,120s cap; lease renewed14:34:53 expiry14:54:53.
+
+2026-11-25T14:36:19.927796+00:00 or_first_bound: Actual Circuit raw-read lower bound and two-NOT specialization compiled.
+
+- 2026-11-25 14:36:28 UTC: Native cap14 baseline UNSAT in5.63s (1530states, maxdepth7, max18rules/node); started cap15 with300s cap after14:36:15 renewal.
+
+2026-11-25T14:37:33.657182+00:00 Strategy re-plan: unconstrained heuristic searches closed; effort moved to weighted sole-reader normalization and the reconstructed cap15 forest. Full seeded certificate checked, full Petersen theorem still open.
+
+2026-11-25T14:40:18.958221+00:00 Unexpected deskHTTP410 confirmed with curl-si. Paused new builds/searches; preserving all reviewed compiled partials before re-requesting as user instructed. No full proof.
