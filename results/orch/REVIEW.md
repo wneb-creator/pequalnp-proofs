@@ -39,3 +39,7 @@ PASS. The public gap metadata has no lease/token/authorization fields, and the p
 ### Independent complete compact translation review by normal_form (2026-11-25T01:37:48.820913+00:00)
 
 PASS. File 247 lines, SHA256 8bf11c21c3a292793a74e48bdb9c8fed3ebe1de94e3fe6aa2274f50b78b76b46. The representation invariant equates every original wire with a bounded conjunction of compact atoms on every input of length n. AND concatenates representation lists; OR introduces exactly one atom and preserves all prior bounded reads. The final theorem explicitly requires normalized binary backward-reading gates and a valid output, then preserves evaluation and exact OR count. No lower bound or full-gap result is claimed. No BV/native/reflection escape, forbidden declaration, or additional axiom appears in the source.
+
+### Independent compact padding and mask review by normal_form (2026-11-25T01:42:38.071725+00:00)
+
+PASS. Source353lines, SHA256 ea60538c38f94b174ad1b7282827bafac237c14689a60b8e49ca56585f59171e. Appending unused OR(x0,x0) preserves bounded outputs under n>0. Conjunction evaluation is insensitive to order and duplicate indices, and mask8 stores membership bits7through0 with matching getLsbD indexing. All bounds needed for reads and padding are explicit. No native/reflection trust escape appears.

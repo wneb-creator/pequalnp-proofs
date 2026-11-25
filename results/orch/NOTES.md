@@ -166,3 +166,7 @@ Reverse-route observation (not yet formalized here): signed domination rules out
 ### checker_review — compact OR translation 2026-11-25T01:37:08+00:00
 
 compact_or.lean proves a full generic representation theorem: every binary AND/OR circuit with backward references and valid output has an equivalent compact program in which every step ORs two conjunctions of earlier atoms, initial atoms are input variables, and final output is a conjunction. Program length equals the original number of OR gates exactly; all conjunction atom indices are bounded. Proof maintains an exact list equality representing every old wire, concatenates representations for AND, and appends one atom for OR. No Boolean solver or certificate assumptions. This matches counterexample agent's 5-input/3-OR finite mask model exactly; padding, list-to-mask encoding and an axiom-free finite obstruction remain needed for the C5 lower-bound bridge. Full source compiled with empty diagnostics; parent notified for independent review/push.
+
+### normal_form compact finite checks (2026-11-25T01:42:38.071725+00:00)
+
+The exact unlimited-AND model additionally returned external UNSAT for C6<=4OR, friendship2<=4OR, C7<=5OR, with no additional pruning. Four complete search files and SHA256 manifest were copied to search/. These support the OR-count conjecture on these examples only. No Lean lower-bound claim follows.

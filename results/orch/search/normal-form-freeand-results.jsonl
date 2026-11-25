@@ -1,0 +1,3 @@
+{"n": 6, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0]], "max_or": 4, "tests": 11, "unlimited_and": true, "result": "unsat", "seconds": 0.22337307399993733, "name": "C6"}
+{"n": 5, "edges": [[0, 1], [1, 2], [2, 0], [0, 3], [3, 4], [4, 0]], "max_or": 4, "tests": 11, "unlimited_and": true, "result": "unsat", "seconds": 0.15699006000022564, "name": "friendship2"}
+{"n": 7, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 0]], "max_or": 5, "tests": 14, "unlimited_and": true, "result": "unsat", "seconds": 4.751844584000082, "name": "C7"}

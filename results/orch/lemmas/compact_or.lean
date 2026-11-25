@@ -244,4 +244,110 @@ theorem circuit_translation (n : ℕ) (C : Circuit) (hnorm : normalized n C.gate
   intro x hx
   exact rep_value (hrep.2.2.2 x hx) ho
 
+
+lemma meet_wires (program : List (List ℕ × List ℕ)) (x : List Bool) (atoms : List ℕ)
+    (hbound : bounded x.length atoms) : meet (wires program x) atoms = meet x atoms := by
+  induction program generalizing x with
+  | nil => rfl
+  | cons g gs ih =>
+    change meet (wires gs (step x g)) atoms = meet x atoms
+    rw [ih]
+    · exact meet_extend x _ atoms hbound
+    · intro i hi
+      have hb := hbound i hi
+      simp only [step, List.length_append, List.length_singleton]
+      omega
+
+lemma eval_append (n : ℕ) (program suffix : List (List ℕ × List ℕ)) (output : List ℕ)
+    (hbound : bounded (n + program.length) output) (x : List Bool) (hx : x.length = n) :
+    eval (program ++ suffix) output x = eval program output x := by
+  unfold eval
+  have heq : wires (program ++ suffix) x = wires suffix (wires program x) := by
+    simp [wires, List.foldl_append]
+  rw [heq]
+  apply meet_wires
+  simpa [wires_length, hx] using hbound
+
+theorem pad_by (n : ℕ) (program : List (List ℕ × List ℕ)) (output : List ℕ)
+    (hn : 0 < n) (hwf : wellFormed n program)
+    (hbound : bounded (n + program.length) output) (extra : ℕ) :
+    ∃ padded, padded.length = program.length + extra ∧ wellFormed n padded ∧
+      bounded (n + padded.length) output ∧
+      ∀ x : List Bool, x.length = n → eval padded output x = eval program output x := by
+  induction extra generalizing program with
+  | zero => exact ⟨program, by simp, hwf, hbound, fun _ _ => rfl⟩
+  | succ extra ih =>
+    let next := program ++ [([0], [0])]
+    have hzero : bounded (n + program.length) [0] := by
+      intro i hi
+      have : i = 0 := by simpa using hi
+      omega
+    have hnext : wellFormed n next := wellFormed_append hwf [0] [0] hzero hzero
+    have hbnext : bounded (n + next.length) output := by
+      intro i hi
+      have hb := hbound i hi
+      simp only [next, List.length_append, List.length_singleton]
+      omega
+    obtain ⟨padded, hlen, hpwf, hpbound, hpeval⟩ := ih next hnext hbnext
+    refine ⟨padded, ?_, hpwf, hpbound, ?_⟩
+    · simp only [next, List.length_append, List.length_singleton] at hlen
+      omega
+    · intro x hx
+      exact (hpeval x hx).trans (eval_append n program [([0], [0])] output hbound x hx)
+
+theorem pad_to (n : ℕ) (program : List (List ℕ × List ℕ)) (output : List ℕ)
+    (hn : 0 < n) (hwf : wellFormed n program)
+    (hbound : bounded (n + program.length) output) (k : ℕ) (hk : program.length ≤ k) :
+    ∃ padded, padded.length = k ∧ wellFormed n padded ∧ bounded (n + k) output ∧
+      ∀ x : List Bool, x.length = n → eval padded output x = eval program output x := by
+  obtain ⟨padded, hlen, hpwf, hpbound, hpeval⟩ := pad_by n program output hn hwf hbound (k - program.length)
+  have heq : padded.length = k := by omega
+  exact ⟨padded, heq, hpwf, heq ▸ hpbound, hpeval⟩
+
+
+lemma meet_eq_selection (values : List Bool) (atoms : List ℕ) (bound : ℕ)
+    (hbound : bounded bound atoms) :
+    meet values atoms = (List.range bound).all
+      (fun i => if i ∈ atoms then values.getD i false else true) := by
+  apply Bool.eq_iff_iff.mpr
+  simp only [meet, List.all_eq_true]
+  constructor
+  · intro h i hi
+    by_cases hm : i ∈ atoms
+    · simpa [hm] using h i hm
+    · simp [hm]
+  · intro h i hi
+    have hv := h i (List.mem_range.mpr (hbound i hi))
+    simpa [hi] using hv
+
+
+def mask8 (atoms : List ℕ) : BitVec 8 :=
+  BitVec.ofBool (decide (7 ∈ atoms)) ++ BitVec.ofBool (decide (6 ∈ atoms)) ++
+  BitVec.ofBool (decide (5 ∈ atoms)) ++ BitVec.ofBool (decide (4 ∈ atoms)) ++
+  BitVec.ofBool (decide (3 ∈ atoms)) ++ BitVec.ofBool (decide (2 ∈ atoms)) ++
+  BitVec.ofBool (decide (1 ∈ atoms)) ++ BitVec.ofBool (decide (0 ∈ atoms))
+
+lemma mask8_get (atoms : List ℕ) (i : ℕ) (hi : i < 8) :
+    (mask8 atoms).getLsbD i = decide (i ∈ atoms) := by
+  have hcases : i = 0 ∨ i = 1 ∨ i = 2 ∨ i = 3 ∨ i = 4 ∨ i = 5 ∨ i = 6 ∨ i = 7 := by omega
+  rcases hcases with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;>
+    simp only [mask8, BitVec.getLsbD_append] <;> simp
+
+lemma meet_eq_mask8 (values : List Bool) (atoms : List ℕ) (bound : ℕ)
+    (hbound : bounded bound atoms) (hsmall : bound ≤ 8) :
+    meet values atoms = (List.range bound).all
+      (fun i => if (mask8 atoms).getLsbD i then values.getD i false else true) := by
+  apply Bool.eq_iff_iff.mpr
+  simp only [meet, List.all_eq_true]
+  constructor
+  · intro h i hi
+    rw [mask8_get atoms i (by have := List.mem_range.mp hi; omega)]
+    by_cases hm : i ∈ atoms
+    · simpa [hm] using h i hm
+    · simp [hm]
+  · intro h i hi
+    have hv := h i (List.mem_range.mpr (hbound i hi))
+    rw [mask8_get atoms i (by have := hbound i hi; omega)] at hv
+    simpa [hi] using hv
+
 end PEqualNP.Outside.L_meta_1031_aux.CompactOr

@@ -16,3 +16,14 @@ Included file count: 63
 
 Refresh UTC: 2026-11-25T01:39:07.338879+00:00
 The freeAND/freeOR portfolios now have all recorded verdicts in their JSONL files. Every timedout query remains unknown.
+
+Additional normal_form search snapshot UTC: 2026-11-25T01:42:38.071725+00:00
+
+C6 with at most4OR, friendship graph of two triangles with at most4OR, and C7 with at most5OR were externally UNSAT in the unrestricted-AND compact model (0.22s,0.16s,4.75s respectively). No extra pruning constraints were used; all four complete process files below were saved after exit0. These are external SAT results, not Lean proofs. The friendship graph is C4-free but has triangles, so its result is only an auxiliary comparison. The one process was capped at256MB and each query at120s.
+
+Additional file manifest (4 files; SHA256):
+
+- normal-form-freeand.py 964f1556689a8c65d3d50302eb0afc063fd13c1c427e87fe9b4f18a1719db723
+- normal-form-freeand-results.jsonl 8d794cad23f21ce2094e7e294e03dc04e1fb45a51c1223d11d473a7608fe8274
+- normal-form-freeand.stdout 41417c5da98a0c7f67d662a92bea238353ccffe49873d5ec70c2b4a608190b18
+- normal-form-freeand.stderr e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
