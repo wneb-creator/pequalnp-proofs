@@ -5852,3 +5852,815 @@ lemma one_sided_induced_matching_le_dirty_cone {n d : Nat} (G : SimpleGraph (Fin
     omega
 
 end PEqualNP.Outside.L_meta_2583.OneSidedMatching
+
+namespace PEqualNP.Outside.L_meta_2583.SingletonGuardMatching
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.ReadK PEqualNP.CleanedNonEdge
+  PEqualNP.Outside.L_meta_2583.SingleUse PEqualNP.Outside.L_meta_2583.ProductivePair
+
+lemma singleton_acceptance_guards_adjacent {n : Nat} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hAO : IsAO2 n C) (g : Nat)
+    (x : Fin n) (hx : gateVal n C g (pairInput x x) = true) :
+    ∀ v ∈ wmax G C g, G.Adj x v := by
+  have heq : setInput ({x, x} : Finset (Fin n)) = pairInput x x := by
+    funext v
+    simp [setInput, pairInput]
+  have hh := safe_guards_hit_pair G (gateVal n C g)
+    (fun u v huv hu => wv_mono n C hAO.1 hAO.2.1 u v huv (n + g) hu)
+    (wmax G C g) (fun v hv => (Finset.mem_filter.mp hv).2) x x G.irrefl
+    (by rw [heq]; exact hx)
+  intro v hv
+  exact (hh v hv).elim id id
+
+lemma adjacent_guards_matching_induced {n d : Nat} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (color : Fin n → Bool)
+    (hbip : ∀ u v, G.Adj u v → color u ≠ color v) (h4 : NoFourCycle G)
+    (x : Fin n) (endpt : Fin d → Bool → Fin n)
+    (hinj : Function.Injective (fun ib : Fin d × Bool => endpt ib.1 ib.2))
+    (hstar : ∀ i, G.Adj x (endpt i true))
+    (hedge : ∀ i, G.Adj (endpt i true) (endpt i false))
+    (hleaf : ∀ i, endpt i false ≠ x) :
+    ∀ i j, i ≠ j → ∀ b c, ¬G.Adj (endpt i b) (endpt j c) := by
+  have hgc : ∀ i, color (endpt i true) = !(color x) := by
+    intro i
+    have hn := hbip x (endpt i true) (hstar i)
+    cases hx : color x <;> cases hi : color (endpt i true) <;> simp_all
+  have hlc : ∀ i, color (endpt i false) = color x := by
+    intro i
+    have hn := hbip _ _ (hedge i)
+    rw [hgc i] at hn
+    cases hx : color x <;> cases hi : color (endpt i false) <;> simp_all
+  have hcross : ∀ i j, i ≠ j → ¬G.Adj (endpt i true) (endpt j false) := by
+    intro i j hij hadj
+    have heq := Finset.card_le_one.mp (h4 x (endpt j false) (hleaf j).symm)
+      (endpt i true) (Finset.mem_filter.mpr ⟨Finset.mem_univ _, hstar i, hadj.symm⟩)
+      (endpt j true) (Finset.mem_filter.mpr ⟨Finset.mem_univ _, hstar j, (hedge j).symm⟩)
+    have hp : (i, true) = (j, true) := hinj heq
+    exact hij (congrArg Prod.fst hp)
+  intro i j hij b c
+  cases b <;> cases c
+  · intro hadj
+    exact hbip _ _ hadj (by rw [hlc i, hlc j])
+  · intro hadj
+    exact hcross j i (Ne.symm hij) hadj.symm
+  · exact hcross i j hij
+  · intro hadj
+    exact hbip _ _ hadj (by rw [hgc i, hgc j])
+
+lemma singleton_guard_matching_le_dirty_cone {n d : Nat} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (color : Fin n → Bool)
+    (hbip : ∀ u v, G.Adj u v → color u ≠ color v) (h4 : NoFourCycle G)
+    (C : Circuit) (hAO : IsAO2 n C) (hTop : TopForm G C)
+    (g : Nat) (hg : IsDirtyAnd n G C g) (x : Fin n)
+    (hx : gateVal n C g (pairInput x x) = true)
+    (endpt : Fin d → Bool → Fin n)
+    (hinj : Function.Injective (fun ib : Fin d × Bool => endpt ib.1 ib.2))
+    (hguard : ∀ i, endpt i true ∈ wmax G C g)
+    (hedge : ∀ i, G.Adj (endpt i true) (endpt i false))
+    (hleaf : ∀ i, endpt i false ≠ x)
+    (haccept : ∀ i, gateVal n C g (setInput {endpt i true, endpt i false}) = true) :
+    d ≤ (AncestorJunk.gateCone n C g ∩ junk G C).card := by
+  apply OneSidedMatching.one_sided_induced_matching_le_dirty_cone G C hAO hTop g hg
+    endpt hguard ?_ haccept
+  exact adjacent_guards_matching_induced G color hbip h4 x endpt hinj
+    (fun i => singleton_acceptance_guards_adjacent G C hAO g x hx _ (hguard i)) hedge hleaf
+
+end PEqualNP.Outside.L_meta_2583.SingletonGuardMatching
+
+namespace PEqualNP.Outside.L_meta_2583.TightMinterm
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.ReadK
+  PEqualNP.Outside.L_meta_2583.SingleUse PEqualNP.Outside.L_meta_2583.Minterm
+  PEqualNP.Outside.L_meta_2583.MintermCircuit
+
+lemma minimal_support_restriction {n : Nat} (C : Circuit) (hAO : IsAO2 n C)
+    (T : Finset (Fin n)) (w : Nat) (htrue : wv n C (setInput T) w = true)
+    (hmin : ∀ S ⊆ T, wv n C (setInput S) w = true → T ⊆ S)
+    (x : Fin n → Bool) (hx : ∀ v, x v = true → v ∈ T) :
+    wv n C x w = true ↔ ∀ v ∈ T, x v = true := by
+  classical
+  constructor
+  · intro hf
+    let S : Finset (Fin n) := Finset.univ.filter (fun v => x v = true)
+    have hS : S ⊆ T := by
+      intro v hv
+      exact hx v (Finset.mem_filter.mp hv).2
+    have hSx : setInput S = x := by
+      funext v
+      cases hv : x v <;> simp [setInput, S, hv]
+    have hTS := hmin S hS (by rw [hSx]; exact hf)
+    intro v hv
+    exact (Finset.mem_filter.mp (hTS hv)).2
+  · intro hall
+    exact wv_mono n C hAO.1 hAO.2.1 (setInput T) x
+      (fun v hv => hall v (of_decide_eq_true hv)) w htrue
+
+lemma picked_true_ands_subset (n : Nat) (C : Circuit) (x : Fin n → Bool) :
+    ((Finset.range C.gates.length).filter (fun k => pickedBoth n C x k = true)) ⊆
+      AndSignature.andPrefix C C.gates.length := by
+  intro k hk
+  obtain ⟨hkr, hb⟩ := Finset.mem_filter.mp hk
+  apply Finset.mem_filter.mpr
+  refine ⟨hkr, ?_⟩
+  cases hop : (gateAt C k).op <;> simp [pickedBoth, AndSignature.isAnd, hop] at hb ⊢
+
+lemma tight_true_ands_eq_all (n : Nat) (C : Circuit) (hAO : IsAO2 n C)
+    (T : Finset (Fin n)) (w : Nat) (htrue : wv n C (setInput T) w = true)
+    (hmin : ∀ S ⊆ T, wv n C (setInput S) w = true → T ⊆ S)
+    (htight : T.card = (AndSignature.andPrefix C C.gates.length).card + 1) :
+    ((Finset.range C.gates.length).filter (fun k => pickedBoth n C (setInput T) k = true)) =
+      AndSignature.andPrefix C C.gates.length := by
+  have hbound := minimal_support_card_le_true_ands n C hAO T w htrue hmin
+  apply Finset.eq_of_subset_of_card_le (picked_true_ands_subset n C (setInput T))
+  omega
+
+lemma tight_all_ands_true (n : Nat) (C : Circuit) (hAO : IsAO2 n C)
+    (T : Finset (Fin n)) (w : Nat) (htrue : wv n C (setInput T) w = true)
+    (hmin : ∀ S ⊆ T, wv n C (setInput S) w = true → T ⊆ S)
+    (htight : T.card = (AndSignature.andPrefix C C.gates.length).card + 1) :
+    ∀ k < C.gates.length, (gateAt C k).op = GateOp.and →
+      wv n C (setInput T) (n + k) = true := by
+  intro k hk hop
+  have hm : k ∈ AndSignature.andPrefix C C.gates.length := by
+    exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hk, by simp [AndSignature.isAnd, hop]⟩
+  rw [← tight_true_ands_eq_all n C hAO T w htrue hmin htight] at hm
+  have hb := (Finset.mem_filter.mp hm).2
+  simpa [pickedBoth, hop] using hb
+
+lemma tight_all_ands_in_closed (n : Nat) (C : Circuit) (hAO : IsAO2 n C)
+    (T : Finset (Fin n)) (w : Nat) (htrue : wv n C (setInput T) w = true)
+    (hmin : ∀ S ⊆ T, wv n C (setInput S) w = true → T ⊆ S)
+    (htight : T.card = (AndSignature.andPrefix C C.gates.length).card + 1)
+    (R : Finset Nat)
+    (hR : ∀ k ∈ R, k < C.gates.length → ∀ b : Fin 2,
+      opnd C k b < n ∨ opnd C k b - n ∈ R)
+    (hwR : w < n ∨ w - n ∈ R) :
+    AndSignature.andPrefix C C.gates.length ⊆ R := by
+  classical
+  have hvalid : w < n + C.gates.length := by
+    by_contra h
+    rw [wv_missing n C (setInput T) w (by omega)] at htrue
+    contradiction
+  have hs := support_sound n C hAO T w htrue
+  have hTeq : T = circuitSupport n C hAO (setInput T) w :=
+    Finset.Subset.antisymm (hmin _ hs.1 hs.2) hs.1
+  let B : Finset Nat := (Finset.range C.gates.length).filter
+    (fun k => k ∈ R ∧ pickedBoth n C (setInput T) k = true)
+  have hbound : T.card ≤ B.card + 1 := by
+    rw [hTeq]
+    exact pickedSupport_bound_closed n C.gates.length (fun k => opnd C k 0)
+      (fun k => opnd C k 1) (pickedBoth n C (setInput T))
+      (fun k => wv n C (setInput T) (opnd C k 0))
+      (fun k hk => opnd_back n C hAO k hk 0)
+      (fun k hk => opnd_back n C hAO k hk 1) R
+      (fun k hk hkl => hR k hk hkl 0) (fun k hk hkl => hR k hk hkl 1) w hvalid hwR
+  have hsub : B ⊆ AndSignature.andPrefix C C.gates.length := by
+    intro k hk
+    obtain ⟨hkr, _, hboth⟩ := Finset.mem_filter.mp hk
+    exact picked_true_ands_subset n C (setInput T) (Finset.mem_filter.mpr ⟨hkr, hboth⟩)
+  have hBeq : B = AndSignature.andPrefix C C.gates.length :=
+    Finset.eq_of_subset_of_card_le hsub (by omega)
+  intro k hk
+  rw [← hBeq] at hk
+  exact (Finset.mem_filter.mp hk).2.1
+
+lemma tight_all_ands_in_gateCone (n : Nat) (C : Circuit) (hAO : IsAO2 n C)
+    (T : Finset (Fin n)) (g : Nat) (hg : g < C.gates.length)
+    (htrue : wv n C (setInput T) (n + g) = true)
+    (hmin : ∀ S ⊆ T, wv n C (setInput S) (n + g) = true → T ⊆ S)
+    (htight : T.card = (AndSignature.andPrefix C C.gates.length).card + 1) :
+    AndSignature.andPrefix C C.gates.length ⊆ AncestorJunk.gateCone n C g := by
+  apply tight_all_ands_in_closed n C hAO T (n + g) htrue hmin htight
+    (AncestorJunk.gateCone n C g)
+  · intro k hk _ b
+    exact AncestorJunk.gateCone_closed n C hAO g hg k hk b
+  · exact Or.inr (by simpa using AncestorJunk.gateCone_self n C g)
+
+end PEqualNP.Outside.L_meta_2583.TightMinterm
+
+namespace PEqualNP.Outside.L_meta_2583.TightMinterm
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.ReadK
+  PEqualNP.Outside.L_meta_2583.SingleUse PEqualNP.Outside.L_meta_2583.MintermCircuit
+
+lemma true_ands_false_wire_is_outside_or
+    (n : Nat) (C : Circuit) (hAO : IsAO2 n C) (T : Finset (Fin n))
+    (hactive : ∀ k < C.gates.length, (gateAt C k).op = GateOp.and →
+      wv n C (setInput T) (n + k) = true) :
+    ∀ w, wv n C (setInput T) w = false →
+      ∃ S : Finset (Fin n), (∀ i ∈ S, i ∉ T) ∧
+        ∀ x, wv n C x w = true ↔ ∃ i ∈ S, x i = true := by
+  classical
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw
+    by_cases hwn : w < n
+    · have hnot : (⟨w, hwn⟩ : Fin n) ∉ T := by
+        rw [wv_input n C (setInput T) w hwn] at hw
+        simpa [setInput] using hw
+      refine ⟨{⟨w, hwn⟩}, ?_, ?_⟩
+      · intro i hi
+        have heq : i = ⟨w, hwn⟩ := Finset.mem_singleton.mp hi
+        simpa [heq] using hnot
+      · intro x
+        rw [wv_input n C x w hwn]
+        simp
+    by_cases hwg : n + C.gates.length ≤ w
+    · refine ⟨∅, by simp, ?_⟩
+      intro x
+      rw [wv_missing n C x w hwg]
+      simp
+    · obtain ⟨k, rfl⟩ : ∃ k, w = n + k := ⟨w - n, by omega⟩
+      have hk : k < C.gates.length := by omega
+      have ha := opnd_back n C hAO k hk 0
+      have hb := opnd_back n C hAO k hk 1
+      rcases hAO.1 _ (gate_mem C k hk) with hop | hop
+      · have ht := hactive k hk hop
+        rw [hw] at ht
+        contradiction
+      · have hgate := wv_rec n C (setInput T) hAO.2.1 k hk
+        rw [inputs_two n C hAO k hk] at hgate
+        have hbits : wv n C (setInput T) (opnd C k 0) = false ∧
+            wv n C (setInput T) (opnd C k 1) = false := by
+          simpa [hop, GateOp.eval] using hgate.symm.trans hw
+        obtain ⟨A, hAT, hA⟩ := ih _ ha hbits.1
+        obtain ⟨B, hBT, hB⟩ := ih _ hb hbits.2
+        refine ⟨A ∪ B, ?_, ?_⟩
+        · intro i hi
+          rcases Finset.mem_union.mp hi with hi | hi
+          · exact hAT i hi
+          · exact hBT i hi
+        · intro x
+          rw [wv_rec n C x hAO.2.1 k hk, inputs_two n C hAO k hk]
+          simp [hop, GateOp.eval, hA x, hB x, Finset.mem_union, or_and_right, exists_or]
+
+lemma tight_false_wire_is_outside_or
+    (n : Nat) (C : Circuit) (hAO : IsAO2 n C)
+    (T : Finset (Fin n)) (w : Nat) (htrue : wv n C (setInput T) w = true)
+    (hmin : ∀ S ⊆ T, wv n C (setInput S) w = true → T ⊆ S)
+    (htight : T.card = (AndSignature.andPrefix C C.gates.length).card + 1) :
+    ∀ v, wv n C (setInput T) v = false →
+      ∃ S : Finset (Fin n), (∀ i ∈ S, i ∉ T) ∧
+        ∀ x, wv n C x v = true ↔ ∃ i ∈ S, x i = true :=
+  true_ands_false_wire_is_outside_or n C hAO T
+    (tight_all_ands_true n C hAO T w htrue hmin htight)
+
+lemma tight_implying_and_is_last
+    (n : Nat) (C : Circuit) (hAO : IsAO2 n C)
+    (T : Finset (Fin n)) (w : Nat) (htrue : wv n C (setInput T) w = true)
+    (hmin : ∀ S ⊆ T, wv n C (setInput S) w = true → T ⊆ S)
+    (htight : T.card = (AndSignature.andPrefix C C.gates.length).card + 1)
+    (j : Nat) (hj : j < C.gates.length) (hja : (gateAt C j).op = GateOp.and)
+    (himplies : ∀ S ⊆ T, wv n C (setInput S) (n + j) = true → wv n C (setInput S) w = true) :
+    ∀ k < C.gates.length, (gateAt C k).op = GateOp.and → k ≤ j := by
+  have hjtrue := tight_all_ands_true n C hAO T w htrue hmin htight j hj hja
+  have hjmin : ∀ S ⊆ T, wv n C (setInput S) (n + j) = true → T ⊆ S := by
+    intro S hS hSj
+    exact hmin S hS (himplies S hS hSj)
+  have hcone := tight_all_ands_in_gateCone n C hAO T j hj hjtrue hjmin htight
+  intro k hk hka
+  have hkA : k ∈ AndSignature.andPrefix C C.gates.length :=
+    Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hk, by simp [AndSignature.isAnd, hka]⟩
+  have hkle := Finset.mem_range.mp (AncestorJunk.gateCone_prefix n C j (hcone hkA))
+  omega
+
+lemma tight_implying_and_unique
+    (n : Nat) (C : Circuit) (hAO : IsAO2 n C)
+    (T : Finset (Fin n)) (w : Nat) (htrue : wv n C (setInput T) w = true)
+    (hmin : ∀ S ⊆ T, wv n C (setInput S) w = true → T ⊆ S)
+    (htight : T.card = (AndSignature.andPrefix C C.gates.length).card + 1)
+    (i j : Nat) (hi : i < C.gates.length) (hj : j < C.gates.length)
+    (hia : (gateAt C i).op = GateOp.and) (hja : (gateAt C j).op = GateOp.and)
+    (himplies : ∀ S ⊆ T, wv n C (setInput S) (n + i) = true → wv n C (setInput S) w = true)
+    (hjimplies : ∀ S ⊆ T, wv n C (setInput S) (n + j) = true → wv n C (setInput S) w = true) :
+    i = j := by
+  have hji := tight_implying_and_is_last n C hAO T w htrue hmin htight i hi hia himplies j hj hja
+  have hij := tight_implying_and_is_last n C hAO T w htrue hmin htight j hj hja hjimplies i hi hia
+  omega
+
+end PEqualNP.Outside.L_meta_2583.TightMinterm
+
+namespace PEqualNP.Outside.L_meta_2583.OneSidedMatching
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.ReadK PEqualNP.CleanedNonEdge
+  PEqualNP.Outside.L_meta_2583.SingleUse PEqualNP.Outside.L_meta_2583.ProductivePair
+  PEqualNP.Outside.L_meta_2583.AncestorJunk
+
+lemma matchingChoiceInput_join_some {n d : Nat} (C : Circuit) (hAO : IsAO2 n C)
+    (U : Finset Nat) (endpt : Fin d → Bool → Fin n)
+    (haccept : ∀ i, ∃ w ∈ U,
+      wv n C (setInput {endpt i true, endpt i false}) w = true)
+    (choice other : Fin d → Bool) (hne : choice ≠ other) :
+    ∃ w ∈ U, wv n C (fun v => matchingChoiceInput endpt choice v ||
+      matchingChoiceInput endpt other v) w = true := by
+  classical
+  have hex : ∃ i, choice i ≠ other i := by
+    by_contra hn
+    push Not at hn
+    exact hne (funext hn)
+  obtain ⟨i, hi⟩ := hex
+  obtain ⟨w, hw, hwt⟩ := haccept i
+  refine ⟨w, hw, ?_⟩
+  have hboth (b : Bool) :
+      (matchingChoiceInput endpt choice (endpt i b) ||
+        matchingChoiceInput endpt other (endpt i b)) = true := by
+    have hc : choice i = b ∨ other i = b := by
+      cases h1 : choice i <;> cases h2 : other i <;> cases b <;> simp_all
+    rcases hc with hc | hc
+    · have hv : matchingChoiceInput endpt choice (endpt i b) = true :=
+        decide_eq_true ⟨i, by rw [hc]⟩
+      simp [hv]
+    · have hv : matchingChoiceInput endpt other (endpt i b) = true :=
+        decide_eq_true ⟨i, by rw [hc]⟩
+      simp [hv]
+  apply wv_mono n C hAO.1 hAO.2.1 (setInput {endpt i true, endpt i false}) _ ?_ w hwt
+  intro v hv
+  have hm : v ∈ ({endpt i true, endpt i false} : Finset (Fin n)) := of_decide_eq_true hv
+  simp only [Finset.mem_insert, Finset.mem_singleton] at hm
+  rcases hm with rfl | rfl
+  · exact hboth true
+  · exact hboth false
+
+lemma one_sided_induced_matching_le_cone_ands_multi {n d : Nat} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hAO : IsAO2 n C)
+    (R : Finset Nat) (hRreal : R ⊆ Finset.range C.gates.length)
+    (hRclosed : ∀ k ∈ R, ∀ b : Fin 2, opnd C k b < n ∨ opnd C k b - n ∈ R)
+    (U : Finset Nat) (hU : ∀ w ∈ U, w < n ∨ w - n ∈ R) (hd : 2 ≤ d)
+    (endpt : Fin d → Bool → Fin n)
+    (hguard : ∀ w ∈ U, ∀ i, ∀ x,
+      wv n C x w = true → x (endpt i true) = true → graphFun G ∅ x = true)
+    (hcross : ∀ i j, i ≠ j → ∀ b c, ¬G.Adj (endpt i b) (endpt j c))
+    (haccept : ∀ i, ∃ w ∈ U,
+      wv n C (setInput {endpt i true, endpt i false}) w = true) :
+    d ≤ (R.filter (fun k => AndSignature.isAnd C k = true)).card := by
+  classical
+  let choices : Finset (Fin d → Bool) := Finset.univ.erase (fun _ => false)
+  have hcount := AndSignature.family_card_le_cone_signatures_multi n C hAO R hRreal hRclosed
+    U hU (fun choice : choices => matchingChoiceInput endpt choice.val)
+    (fun choice w hw => matchingChoiceInput_false_of_guard G (fun x => wv n C x w) endpt
+      (hguard w hw) hcross choice.val (Finset.mem_erase.mp choice.property).1)
+    (fun choice other hne => matchingChoiceInput_join_some C hAO U endpt haccept
+      choice.val other.val (fun heq => hne (Subtype.ext heq)))
+  have hchoices : choices.card + 1 = 2 ^ d := by
+    have heq := Finset.card_erase_add_one (Finset.mem_univ (fun _ : Fin d => false))
+    simpa only [choices, Finset.card_univ, Fintype.card_fun, Fintype.card_bool,
+      Fintype.card_fin] using heq
+  simp only [Fintype.card_coe] at hcount
+  apply exponent_le_of_two_pow_sub_one_le d _ hd
+  omega
+
+lemma one_sided_induced_matching_le_union_dirty_cones {n d : Nat} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hAO : IsAO2 n C) (hTop : TopForm G C)
+    (Roots : Finset Nat) (hRoots : ∀ g ∈ Roots, IsDirtyAnd n G C g)
+    (endpt : Fin d → Bool → Fin n)
+    (hguard : ∀ g ∈ Roots, ∀ i, endpt i true ∈ wmax G C g)
+    (hcross : ∀ i j, i ≠ j → ∀ b c, ¬G.Adj (endpt i b) (endpt j c))
+    (haccept : ∀ i, ∃ g ∈ Roots,
+      gateVal n C g (setInput {endpt i true, endpt i false}) = true) :
+    d ≤ (unionGateCone n C Roots ∩ junk G C).card := by
+  classical
+  by_cases hd : 2 ≤ d
+  · have hreal : ∀ g ∈ Roots, g < C.gates.length := fun g hg => (hRoots g hg).2.1
+    have hcount := one_sided_induced_matching_le_cone_ands_multi G C hAO
+      (unionGateCone n C Roots) (unionGateCone_real n C Roots hreal)
+      (unionGateCone_closed n C hAO Roots hreal) (Roots.image (fun g => n + g))
+      (by
+        intro w hw
+        obtain ⟨g, hg, rfl⟩ := Finset.mem_image.mp hw
+        right
+        simp only [Nat.add_sub_cancel_left]
+        exact Finset.mem_biUnion.mpr ⟨g, hg, gateCone_self n C g⟩) hd endpt
+      (by
+        intro w hw i x hx hxv
+        obtain ⟨g, hg, rfl⟩ := Finset.mem_image.mp hw
+        exact (Finset.mem_filter.mp (hguard g hg i)).2 x hx hxv) hcross
+      (by
+        intro i
+        obtain ⟨g, hg, hgt⟩ := haccept i
+        exact ⟨n + g, Finset.mem_image.mpr ⟨g, hg, rfl⟩, hgt⟩)
+    apply hcount.trans
+    apply Finset.card_le_card
+    intro k hk
+    obtain ⟨hkR, hkA⟩ := Finset.mem_filter.mp hk
+    exact Finset.mem_inter.mpr ⟨hkR, unionGateCone_ands_junk n G C hTop Roots hRoots k hkR hkA⟩
+  · by_cases hz : d = 0
+    · simp [hz]
+    · obtain ⟨g, hg, _⟩ := haccept ⟨0, by omega⟩
+      have hmem : g ∈ unionGateCone n C Roots ∩ junk G C :=
+        Finset.mem_inter.mpr ⟨Finset.mem_biUnion.mpr ⟨g, hg, gateCone_self n C g⟩,
+          Finset.mem_filter.mpr ⟨Finset.mem_range.mpr (hRoots g hg).2.1, hRoots g hg⟩⟩
+      have hc := Finset.card_pos.mpr ⟨g, hmem⟩
+      omega
+
+end PEqualNP.Outside.L_meta_2583.OneSidedMatching
+
+namespace PEqualNP.Outside.L_meta_2583.SafeProductCapacity
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.ReadK
+  PEqualNP.Outside.L_meta_2583.SingleUse PEqualNP.Outside.L_meta_2583.ProductivePair
+
+lemma family_card_le_sum_cone_signatures {α : Type} [Fintype α]
+    (n : Nat) (C : Circuit) (hAO : IsAO2 n C)
+    (R S : Finset Nat)
+    (hRreal : R ⊆ Finset.range C.gates.length)
+    (hSreal : S ⊆ Finset.range C.gates.length)
+    (hRclosed : ∀ k ∈ R, ∀ b : Fin 2, opnd C k b < n ∨ opnd C k b - n ∈ R)
+    (hSclosed : ∀ k ∈ S, ∀ b : Fin 2, opnd C k b < n ∨ opnd C k b - n ∈ S)
+    (u v : Nat) (hu : u < n ∨ u - n ∈ R) (hv : v < n ∨ v - n ∈ S)
+    (f : α → Fin n → Bool)
+    (hfalse : ∀ a, wv n C (f a) u = false ∨ wv n C (f a) v = false)
+    (hjoin : ∀ a b, a ≠ b →
+      wv n C (fun i => f a i || f b i) u = true ∧
+      wv n C (fun i => f a i || f b i) v = true) :
+    Fintype.card α ≤ 2 ^ (R.filter (fun k => AndSignature.isAnd C k = true)).card +
+      2 ^ (S.filter (fun k => AndSignature.isAnd C k = true)).card := by
+  classical
+  let U : Finset α := Finset.univ.filter (fun a => wv n C (f a) u = false)
+  let V : Finset α := Finset.univ.filter (fun a => wv n C (f a) v = false)
+  have hU := AndSignature.false_family_card_le_cone_signatures n C hAO R hRreal hRclosed
+    u hu (fun a : U => f a.val)
+    (fun a => (Finset.mem_filter.mp a.property).2)
+    (fun a b hne => (hjoin a.val b.val (fun heq => hne (Subtype.ext heq))).1)
+  have hV := AndSignature.false_family_card_le_cone_signatures n C hAO S hSreal hSclosed
+    v hv (fun a : V => f a.val)
+    (fun a => (Finset.mem_filter.mp a.property).2)
+    (fun a b hne => (hjoin a.val b.val (fun heq => hne (Subtype.ext heq))).2)
+  have hcover : Finset.univ ⊆ U ∪ V := by
+    intro a _
+    rcases hfalse a with ha | ha
+    · exact Finset.mem_union_left V (Finset.mem_filter.mpr ⟨Finset.mem_univ a, ha⟩)
+    · exact Finset.mem_union_right U (Finset.mem_filter.mpr ⟨Finset.mem_univ a, ha⟩)
+  have hc := (Finset.card_le_card hcover).trans (Finset.card_union_le U V)
+  simp only [Finset.card_univ] at hc
+  simp only [Fintype.card_coe] at hU hV
+  omega
+
+lemma induced_matching_product_capacity {n d : Nat} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hAO : IsAO2 n C)
+    (R S : Finset Nat)
+    (hRreal : R ⊆ Finset.range C.gates.length)
+    (hSreal : S ⊆ Finset.range C.gates.length)
+    (hRclosed : ∀ k ∈ R, ∀ b : Fin 2, opnd C k b < n ∨ opnd C k b - n ∈ R)
+    (hSclosed : ∀ k ∈ S, ∀ b : Fin 2, opnd C k b < n ∨ opnd C k b - n ∈ S)
+    (u v : Nat) (hu : u < n ∨ u - n ∈ R) (hv : v < n ∨ v - n ∈ S)
+    (hsafe : ∀ x, wv n C x u = true → wv n C x v = true → graphFun G ∅ x = true)
+    (endpt : Fin d → Bool → Fin n)
+    (hcross : ∀ i j, i ≠ j → ∀ b c, ¬G.Adj (endpt i b) (endpt j c))
+    (haccept : ∀ i, wv n C (setInput {endpt i true, endpt i false}) u = true ∧
+      wv n C (setInput {endpt i true, endpt i false}) v = true) :
+    2 ^ d ≤ 2 ^ (R.filter (fun k => AndSignature.isAnd C k = true)).card +
+      2 ^ (S.filter (fun k => AndSignature.isAnd C k = true)).card := by
+  have hc := family_card_le_sum_cone_signatures n C hAO R S hRreal hSreal hRclosed hSclosed
+    u v hu hv (matchingChoiceInput endpt) ?_ ?_
+  · simpa only [Fintype.card_fun, Fintype.card_bool, Fintype.card_fin] using hc
+  · intro choice
+    by_cases hleft : wv n C (matchingChoiceInput endpt choice) u = false
+    · exact Or.inl hleft
+    · right
+      apply Bool.eq_false_iff.mpr
+      intro hright
+      have htrue : wv n C (matchingChoiceInput endpt choice) u = true := by
+        cases hval : wv n C (matchingChoiceInput endpt choice) u <;> simp_all
+      have hg := hsafe _ htrue hright
+      have hgraph : ∃ a b, G.Adj a b ∧ matchingChoiceInput endpt choice a = true ∧
+          matchingChoiceInput endpt choice b = true := by simpa [graphFun] using hg
+      obtain ⟨a, b, hab, ha, hb⟩ := hgraph
+      obtain ⟨i, rfl⟩ := of_decide_eq_true ha
+      obtain ⟨j, rfl⟩ := of_decide_eq_true hb
+      by_cases hij : i = j
+      · subst j
+        exact G.irrefl hab
+      · exact hcross i j hij _ _ hab
+  · intro choice other hne
+    constructor
+    · exact matchingChoiceInput_join_true (fun x => wv n C x u)
+        (fun x y hxy hx => wv_mono n C hAO.1 hAO.2.1 x y hxy u hx)
+        endpt (fun i => (haccept i).1) choice other hne
+    · exact matchingChoiceInput_join_true (fun x => wv n C x v)
+        (fun x y hxy hx => wv_mono n C hAO.1 hAO.2.1 x y hxy v hx)
+        endpt (fun i => (haccept i).2) choice other hne
+
+lemma exponent_le_of_sum_capacity (d a b A : Nat)
+    (ha : a ≤ A) (hb : b < A) (h : 2 ^ d ≤ 2 ^ a + 2 ^ b) : d ≤ A := by
+  by_contra hd
+  have hlo : 2 ^ (A + 1) ≤ 2 ^ d :=
+    (Nat.pow_le_pow_iff_right (by decide : 1 < 2)).mpr (by omega)
+  have hpa : 2 ^ a ≤ 2 ^ A :=
+    (Nat.pow_le_pow_iff_right (by decide : 1 < 2)).mpr ha
+  have hpb : 2 ^ b < 2 ^ A :=
+    (Nat.pow_lt_pow_iff_right (by decide : 1 < 2)).mpr hb
+  rw [Nat.pow_succ] at hlo
+  omega
+
+lemma induced_matching_le_union_and_count {n d : Nat} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hAO : IsAO2 n C)
+    (R S : Finset Nat)
+    (hRreal : R ⊆ Finset.range C.gates.length)
+    (hSreal : S ⊆ Finset.range C.gates.length)
+    (hRclosed : ∀ k ∈ R, ∀ b : Fin 2, opnd C k b < n ∨ opnd C k b - n ∈ R)
+    (hSclosed : ∀ k ∈ S, ∀ b : Fin 2, opnd C k b < n ∨ opnd C k b - n ∈ S)
+    (u v : Nat) (hu : u < n ∨ u - n ∈ R) (hv : v < n ∨ v - n ∈ S)
+    (hsafe : ∀ x, wv n C x u = true → wv n C x v = true → graphFun G ∅ x = true)
+    (endpt : Fin d → Bool → Fin n)
+    (hcross : ∀ i j, i ≠ j → ∀ b c, ¬G.Adj (endpt i b) (endpt j c))
+    (haccept : ∀ i, wv n C (setInput {endpt i true, endpt i false}) u = true ∧
+      wv n C (setInput {endpt i true, endpt i false}) v = true)
+    (hexclusive : ∃ k ∈ R ∪ S, AndSignature.isAnd C k = true ∧ (k ∉ R ∨ k ∉ S)) :
+    d ≤ ((R ∪ S).filter (fun k => AndSignature.isAnd C k = true)).card := by
+  classical
+  let A := (R ∪ S).filter (fun k => AndSignature.isAnd C k = true)
+  let RA := R.filter (fun k => AndSignature.isAnd C k = true)
+  let SA := S.filter (fun k => AndSignature.isAnd C k = true)
+  have hRsub : RA ⊆ A := by
+    intro k hk
+    exact Finset.mem_filter.mpr ⟨Finset.mem_union_left S (Finset.mem_filter.mp hk).1,
+      (Finset.mem_filter.mp hk).2⟩
+  have hSsub : SA ⊆ A := by
+    intro k hk
+    exact Finset.mem_filter.mpr ⟨Finset.mem_union_right R (Finset.mem_filter.mp hk).1,
+      (Finset.mem_filter.mp hk).2⟩
+  have hcap := induced_matching_product_capacity G C hAO R S hRreal hSreal hRclosed hSclosed
+    u v hu hv hsafe endpt hcross haccept
+  obtain ⟨k, hk, hkAnd, hmiss⟩ := hexclusive
+  have hkA : k ∈ A := Finset.mem_filter.mpr ⟨hk, hkAnd⟩
+  rcases hmiss with hmiss | hmiss
+  · have hstrict : RA ⊂ A := by
+      apply Finset.ssubset_iff_subset_ne.mpr
+      refine ⟨hRsub, ?_⟩
+      intro heq
+      have hmem : k ∈ RA := heq.symm ▸ hkA
+      exact hmiss (Finset.mem_filter.mp hmem).1
+    apply exponent_le_of_sum_capacity d SA.card RA.card A.card (Finset.card_le_card hSsub)
+      (Finset.card_lt_card hstrict)
+    simpa only [Nat.add_comm] using hcap
+  · have hstrict : SA ⊂ A := by
+      apply Finset.ssubset_iff_subset_ne.mpr
+      refine ⟨hSsub, ?_⟩
+      intro heq
+      have hmem : k ∈ SA := heq.symm ▸ hkA
+      exact hmiss (Finset.mem_filter.mp hmem).1
+    exact exponent_le_of_sum_capacity d RA.card SA.card A.card (Finset.card_le_card hRsub)
+      (Finset.card_lt_card hstrict) hcap
+
+lemma induced_matching_le_one_of_no_cone_ands {n d : Nat} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hAO : IsAO2 n C)
+    (R S : Finset Nat)
+    (hRreal : R ⊆ Finset.range C.gates.length)
+    (hSreal : S ⊆ Finset.range C.gates.length)
+    (hRclosed : ∀ k ∈ R, ∀ b : Fin 2, opnd C k b < n ∨ opnd C k b - n ∈ R)
+    (hSclosed : ∀ k ∈ S, ∀ b : Fin 2, opnd C k b < n ∨ opnd C k b - n ∈ S)
+    (u v : Nat) (hu : u < n ∨ u - n ∈ R) (hv : v < n ∨ v - n ∈ S)
+    (hsafe : ∀ x, wv n C x u = true → wv n C x v = true → graphFun G ∅ x = true)
+    (endpt : Fin d → Bool → Fin n)
+    (hcross : ∀ i j, i ≠ j → ∀ b c, ¬G.Adj (endpt i b) (endpt j c))
+    (haccept : ∀ i, wv n C (setInput {endpt i true, endpt i false}) u = true ∧
+      wv n C (setInput {endpt i true, endpt i false}) v = true)
+    (hno : ∀ k ∈ R ∪ S, AndSignature.isAnd C k = false) : d ≤ 1 := by
+  classical
+  have hcap := induced_matching_product_capacity G C hAO R S hRreal hSreal hRclosed hSclosed
+    u v hu hv hsafe endpt hcross haccept
+  have hR : R.filter (fun k => AndSignature.isAnd C k = true) = ∅ := by
+    apply Finset.eq_empty_iff_forall_notMem.mpr
+    intro k hk
+    have hm := Finset.mem_filter.mp hk
+    have hf := hno k (Finset.mem_union_left S hm.1)
+    simp [hf] at hm
+  have hS : S.filter (fun k => AndSignature.isAnd C k = true) = ∅ := by
+    apply Finset.eq_empty_iff_forall_notMem.mpr
+    intro k hk
+    have hm := Finset.mem_filter.mp hk
+    have hf := hno k (Finset.mem_union_right R hm.1)
+    simp [hf] at hm
+  rw [hR, hS] at hcap
+  have hh : 2 ^ d ≤ 2 ^ 1 := by simpa using hcap
+  exact (Nat.pow_le_pow_iff_right (by decide : 1 < 2)).mp hh
+
+end PEqualNP.Outside.L_meta_2583.SafeProductCapacity
+
+namespace PEqualNP.Outside.L_meta_2583.SafeProductTopology
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.CleanedNonEdge
+  PEqualNP.Outside.L_meta_2583.SingleUse PEqualNP.Outside.L_meta_2583.MintermCircuit
+  PEqualNP.Outside.L_meta_2583.AncestorJunk
+
+lemma gateCone_mono (n : Nat) (C : Circuit) (k j : Nat) (hk : k ∈ gateCone n C j) :
+    gateCone n C k ⊆ gateCone n C j := by
+  intro i hi
+  rcases (mem_gateCone n C j k).mp hk with rfl | hkj
+  · exact hi
+  · apply (mem_gateCone n C j i).mpr
+    right
+    rcases (mem_gateCone n C k i).mp hi with rfl | hik
+    · exact hkj
+    · exact TopNormal.inCone_trans n C i k hik j hkj
+
+lemma max_and_forces_gate (n : Nat) (C : Circuit) (hAO : IsAO2 n C) (g : Nat) :
+    ∀ k, k < C.gates.length → g ∈ gateCone n C k →
+      (∀ j ∈ gateCone n C k, (gateAt C j).op = GateOp.and → j ≤ g) →
+      ∀ x, gateVal n C g x = true → gateVal n C k x = true := by
+  intro k
+  induction k using Nat.strong_induction_on with
+  | ind k ih =>
+    intro hk hg hmax x hx
+    rcases (mem_gateCone n C k g).mp hg with heq | hanc
+    · simpa only [heq] using hx
+    · have hgk := (TopNormal.inCone_lt n C g k hanc).1
+      rcases hAO.1 _ (gate_mem C k hk) with hand | hor
+      · have := hmax k (gateCone_self n C k) hand
+        omega
+      · obtain ⟨_, j, hjk, hjin, hgj⟩ := (TopNormal.inCone_iff n C g k).mp hanc
+        have hjcone : j ∈ gateCone n C k := by
+          apply (mem_gateCone n C k j).mpr
+          right
+          exact (TopNormal.inCone_iff n C j k).mpr ⟨hk, j, hjk, hjin, Or.inl rfl⟩
+        have hchild : gateVal n C j x = true :=
+          ih j hjk (lt_trans hjk hk) ((mem_gateCone n C j g).mpr hgj)
+            (fun l hl => hmax l (gateCone_mono n C j k hjcone hl)) x hx
+        change wv n C x (n + k) = true
+        rw [wv_rec n C x hAO.2.1 k hk, hor]
+        change ((gateAt C k).inputs.map (wv n C x)).any id = true
+        exact List.any_eq_true.mpr
+          ⟨wv n C x (n + j), List.mem_map_of_mem hjin, hchild⟩
+
+def wireCone (n : Nat) (C : Circuit) (w : Nat) : Finset Nat :=
+  if w < n then ∅ else gateCone n C (w - n)
+
+lemma wireCone_real (n : Nat) (C : Circuit) (w : Nat) (hw : w < n + C.gates.length) :
+    wireCone n C w ⊆ Finset.range C.gates.length := by
+  by_cases hwn : w < n
+  · simp [wireCone, hwn]
+  · simpa only [wireCone, ite_eq_right hwn] using
+      gateCone_real n C (w - n) (by omega)
+
+lemma wireCone_closed (n : Nat) (C : Circuit) (hAO : IsAO2 n C)
+    (w : Nat) (hw : w < n + C.gates.length) :
+    ∀ k ∈ wireCone n C w, ∀ b : Fin 2,
+      opnd C k b < n ∨ opnd C k b - n ∈ wireCone n C w := by
+  by_cases hwn : w < n
+  · simp [wireCone, hwn]
+  · simpa only [wireCone, ite_eq_right hwn] using
+      gateCone_closed n C hAO (w - n) (by omega)
+
+lemma wireCone_root (n : Nat) (C : Circuit) (w : Nat) :
+    w < n ∨ w - n ∈ wireCone n C w := by
+  by_cases hwn : w < n
+  · exact Or.inl hwn
+  · exact Or.inr (by simpa only [wireCone, ite_eq_right hwn] using gateCone_self n C (w - n))
+
+lemma max_and_forces_wire (n : Nat) (C : Circuit) (hAO : IsAO2 n C)
+    (g w : Nat) (hw : w < n + C.gates.length) (hg : g ∈ wireCone n C w)
+    (hmax : ∀ j ∈ wireCone n C w, (gateAt C j).op = GateOp.and → j ≤ g)
+    (x : Fin n → Bool) (hx : gateVal n C g x = true) : wv n C x w = true := by
+  by_cases hwn : w < n
+  · simp [wireCone, hwn] at hg
+  · have heq : n + (w - n) = w := by omega
+    have ht := max_and_forces_gate n C hAO g (w - n) (by omega)
+      (by simpa only [wireCone, ite_eq_right hwn] using hg)
+      (by simpa only [wireCone, ite_eq_right hwn] using hmax) x hx
+    change wv n C x (n + (w - n)) = true at ht
+    exact heq ▸ ht
+
+lemma maximal_dirty_and_not_shared {n : Nat} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hAO : IsAO2 n C)
+    (u v : Nat) (hu : u < n + C.gates.length) (hv : v < n + C.gates.length)
+    (hsafe : ∀ x, wv n C x u = true → wv n C x v = true → graphFun G ∅ x = true)
+    (g : Nat) (hg : IsDirtyAnd n G C g)
+    (hmax : ∀ j ∈ wireCone n C u ∪ wireCone n C v,
+      (gateAt C j).op = GateOp.and → j ≤ g) :
+    ¬(g ∈ wireCone n C u ∧ g ∈ wireCone n C v) := by
+  rintro ⟨hgu, hgv⟩
+  obtain ⟨x, hx, hfalse⟩ := hg.2.2
+  have hxu := max_and_forces_wire n C hAO g u hu hgu
+    (fun j hj => hmax j (Finset.mem_union_left _ hj)) x hx
+  have hxv := max_and_forces_wire n C hAO g v hv hgv
+    (fun j hj => hmax j (Finset.mem_union_right _ hj)) x hx
+  have ht := hsafe x hxu hxv
+  rw [hfalse] at ht
+  cases ht
+
+
+lemma exists_exclusive_and_of_nonempty {n : Nat} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hAO : IsAO2 n C)
+    (u v : Nat) (hu : u < n + C.gates.length) (hv : v < n + C.gates.length)
+    (hsafe : ∀ x, wv n C x u = true → wv n C x v = true → graphFun G ∅ x = true)
+    (hdirty : ∀ k ∈ wireCone n C u ∪ wireCone n C v,
+      AndSignature.isAnd C k = true → IsDirtyAnd n G C k)
+    (hA : ((wireCone n C u ∪ wireCone n C v).filter
+      (fun k => AndSignature.isAnd C k = true)).Nonempty) :
+    ∃ k ∈ wireCone n C u ∪ wireCone n C v,
+      AndSignature.isAnd C k = true ∧ (k ∉ wireCone n C u ∨ k ∉ wireCone n C v) := by
+  classical
+  let A := (wireCone n C u ∪ wireCone n C v).filter (fun k => AndSignature.isAnd C k = true)
+  let g := A.max' hA
+  have hgA : g ∈ A := Finset.max'_mem A hA
+  obtain ⟨hgR, hgAnd⟩ := Finset.mem_filter.mp hgA
+  refine ⟨g, hgR, hgAnd, ?_⟩
+  have hnot := maximal_dirty_and_not_shared G C hAO u v hu hv hsafe g
+    (hdirty g hgR hgAnd) (fun j hj hop => by
+      apply Finset.le_max' A j
+      exact Finset.mem_filter.mpr ⟨hj, by simp [AndSignature.isAnd, hop]⟩)
+  tauto
+
+end PEqualNP.Outside.L_meta_2583.SafeProductTopology
+
+namespace PEqualNP.Outside.L_meta_2583.SafeProductCircuit
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.ReadK PEqualNP.CleanedNonEdge
+  PEqualNP.Outside.L_meta_2583.SingleUse PEqualNP.Outside.L_meta_2583.ProductivePair
+  PEqualNP.Outside.L_meta_2583.AncestorJunk PEqualNP.Outside.L_meta_2583.SafeProductCapacity
+  PEqualNP.Outside.L_meta_2583.SafeProductTopology
+
+lemma safe_product_induced_matching_le_union_junk {n d : Nat} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hAO : IsAO2 n C)
+    (u v : Nat) (hu : u < n + C.gates.length) (hv : v < n + C.gates.length)
+    (hsafe : ∀ x, wv n C x u = true → wv n C x v = true → graphFun G ∅ x = true)
+    (hdirty : ∀ k ∈ wireCone n C u ∪ wireCone n C v,
+      AndSignature.isAnd C k = true → IsDirtyAnd n G C k)
+    (hA : ((wireCone n C u ∪ wireCone n C v).filter
+      (fun k => AndSignature.isAnd C k = true)).Nonempty)
+    (endpt : Fin d → Bool → Fin n)
+    (hcross : ∀ i j, i ≠ j → ∀ b c, ¬G.Adj (endpt i b) (endpt j c))
+    (haccept : ∀ i, wv n C (setInput {endpt i true, endpt i false}) u = true ∧
+      wv n C (setInput {endpt i true, endpt i false}) v = true) :
+    d ≤ ((wireCone n C u ∪ wireCone n C v) ∩ junk G C).card := by
+  have hcount := induced_matching_le_union_and_count G C hAO
+    (wireCone n C u) (wireCone n C v) (wireCone_real n C u hu) (wireCone_real n C v hv)
+    (wireCone_closed n C hAO u hu) (wireCone_closed n C hAO v hv)
+    u v (wireCone_root n C u) (wireCone_root n C v) hsafe endpt hcross haccept
+    (exists_exclusive_and_of_nonempty G C hAO u v hu hv hsafe hdirty hA)
+  apply hcount.trans
+  apply Finset.card_le_card
+  intro k hk
+  obtain ⟨hkR, hkA⟩ := Finset.mem_filter.mp hk
+  have hd := hdirty k hkR hkA
+  exact Finset.mem_inter.mpr ⟨hkR, Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hd.2.1, hd⟩⟩
+
+lemma safe_product_induced_matching_le_max_union_junk {n d : Nat} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hAO : IsAO2 n C)
+    (u v : Nat) (hu : u < n + C.gates.length) (hv : v < n + C.gates.length)
+    (hsafe : ∀ x, wv n C x u = true → wv n C x v = true → graphFun G ∅ x = true)
+    (hdirty : ∀ k ∈ wireCone n C u ∪ wireCone n C v,
+      AndSignature.isAnd C k = true → IsDirtyAnd n G C k)
+    (endpt : Fin d → Bool → Fin n)
+    (hcross : ∀ i j, i ≠ j → ∀ b c, ¬G.Adj (endpt i b) (endpt j c))
+    (haccept : ∀ i, wv n C (setInput {endpt i true, endpt i false}) u = true ∧
+      wv n C (setInput {endpt i true, endpt i false}) v = true) :
+    d ≤ max 1 ((wireCone n C u ∪ wireCone n C v) ∩ junk G C).card := by
+  classical
+  by_cases hA : ((wireCone n C u ∪ wireCone n C v).filter
+      (fun k => AndSignature.isAnd C k = true)).Nonempty
+  · exact (safe_product_induced_matching_le_union_junk G C hAO u v hu hv hsafe hdirty hA
+      endpt hcross haccept).trans (Nat.le_max_right _ _)
+  · have hno : ∀ k ∈ wireCone n C u ∪ wireCone n C v, AndSignature.isAnd C k = false := by
+      intro k hk
+      apply Bool.eq_false_iff.mpr
+      intro hkt
+      exact hA ⟨k, Finset.mem_filter.mpr ⟨hk, hkt⟩⟩
+    have hc := induced_matching_le_one_of_no_cone_ands G C hAO
+      (wireCone n C u) (wireCone n C v) (wireCone_real n C u hu) (wireCone_real n C v hv)
+      (wireCone_closed n C hAO u hu) (wireCone_closed n C hAO v hv)
+      u v (wireCone_root n C u) (wireCone_root n C v) hsafe endpt hcross haccept hno
+    exact hc.trans (Nat.le_max_left _ _)
+
+lemma dirty_gate_safe_product_induced_matching_le_union_junk {n d : Nat}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hTop : TopForm G C)
+    (g : Nat) (hg : IsDirtyAnd n G C g) (v : Nat) (hv : v < n + C.gates.length)
+    (hvdirty : ∀ k ∈ wireCone n C v, AndSignature.isAnd C k = true → IsDirtyAnd n G C k)
+    (hsafe : ∀ x, gateVal n C g x = true → wv n C x v = true → graphFun G ∅ x = true)
+    (endpt : Fin d → Bool → Fin n)
+    (hcross : ∀ i j, i ≠ j → ∀ b c, ¬G.Adj (endpt i b) (endpt j c))
+    (haccept : ∀ i, gateVal n C g (setInput {endpt i true, endpt i false}) = true ∧
+      wv n C (setInput {endpt i true, endpt i false}) v = true) :
+    d ≤ ((gateCone n C g ∪ wireCone n C v) ∩ junk G C).card := by
+  have hcone : wireCone n C (n + g) = gateCone n C g := by
+    simp [wireCone]
+  have hdirty : ∀ k ∈ wireCone n C (n + g) ∪ wireCone n C v,
+      AndSignature.isAnd C k = true → IsDirtyAnd n G C k := by
+    intro k hk hkA
+    rcases Finset.mem_union.mp hk with hk | hk
+    · rw [hcone] at hk
+      have hm := gateCone_ands_subset_junk_prefix n G C hTop g hg
+        (Finset.mem_filter.mpr ⟨hk, hkA⟩)
+      exact (Finset.mem_filter.mp (Finset.mem_inter.mp hm).1).2
+    · exact hvdirty k hk hkA
+  have hA : ((wireCone n C (n + g) ∪ wireCone n C v).filter
+      (fun k => AndSignature.isAnd C k = true)).Nonempty := by
+    refine ⟨g, Finset.mem_filter.mpr ⟨?_, ?_⟩⟩
+    · apply Finset.mem_union_left
+      rw [hcone]
+      exact gateCone_self n C g
+    · simp [AndSignature.isAnd, hg.1]
+  have hc := safe_product_induced_matching_le_union_junk G C hAO (n + g) v
+    (by have hreal := hg.2.1; omega) hv hsafe hdirty hA endpt hcross haccept
+  simpa only [hcone] using hc
+
+end PEqualNP.Outside.L_meta_2583.SafeProductCircuit
