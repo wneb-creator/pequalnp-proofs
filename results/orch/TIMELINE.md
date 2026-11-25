@@ -12,3 +12,9 @@
 - 2026-11-25T17:16:00.819329+00:00: independently reviewed compiled clean-circuit bound, rectangle-cover bound, and nonlinear P4 sanity example; preparing second partial archival push.
 - 2026-11-25T17:17:04.338477+00:00: structural strategy exclusions checked in StructuralExamples.lean; rectangle helpers checked in Algebraic.lean. Main normalization strategy still open.
 - 2026-11-25T17:17:42.685682+00:00: root independently reviewed compiled P4 strategy-exclusion examples; preserving them.
+- 2026-11-25T17:17:46.931012+00:00: began Fano/Heawood counterexample SMT search, 26 gates, timeout3600s, Z3 memory cap2048MiB.
+- 2026-11-25T17:18:27.985362+00:00: C6 k7 SMT returned UNSAT in26.13s; stopped redundant MILP processes to conserve3 CPUs.
+- 2026-11-25T17:18:30.484739+00:00: lemma_search restricted clean normalization and same-colour fragment lemmas compiled, both exit 0.
+- 2026-11-25T17:20:43.494340+00:00: lemma_search OR-reach/count invariance compiled, exit 0.
+- 2026-11-25T17:21:08.596806+00:00: C6 optimal forced-dirty search UNSAT; started optimized Fano26 and theta8k11 searches, stopped superseded Fano run.
+- 2026-11-25T17:21:26.699217+00:00: integrated 1,606-line named partial passed lake build; official checker gave cache infrastructure fault; independent archival review passed.

@@ -15,3 +15,10 @@ Additional checked partials (direct lake env lean, exit 0):
 Independent review: status_review accepted all three for archival, with explicit assumptions and incomplete overall gap.
 
 StructuralExamples.lean: direct Lean exit0, empty diagnostics. Root independently reviewed all finite decide proofs and exact claims. These exclude read-once and dirty-gate-capacity shortcuts; they do not refute L-meta-4675.
+
+Integrated named partial: 1,606 lines; lake build PEqualNP.Outside.L_meta_4675 exit 0, Build completed successfully (5149 jobs).
+Independent integration review: exact helper bodies and original partial preserved; archival approved.
+Official checker attempted: exit 3, CHECKER FAULT: the prebuilt Mathlib cache is missing.
+Selective Mathlib closure is installed and builds succeed; full Mathlib.olean is required by checker and full closure exceeds available storage. Compressed-filesystem test failed with Operation not permitted; no workaround attempted.
+Main theorem remains absent; no claim of accepted proof and no PR opened.
+TIMING total=15.04 subagents=6

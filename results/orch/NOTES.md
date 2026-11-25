@@ -70,3 +70,32 @@ Algebraic update 2026-11-25T17:14:37.415792+00:00: `Algebraic.lean` compiled suc
 - All five rectangle helpers compiled unchanged as part of Algebraic.lean (Defs-only imports).
 - StructuralExamples.lean compiled with exit 0, no diagnostics at 17:16 UTC. It records the C4-free P4 function on points a,b and lines x,y, computed as `(a OR (b AND y)) AND (x OR y)`. It has tCount zero but is not READ-1 (edge by repeats y). The buffered version additionally has a dirty AND accepting two distinct output edges without READ-1 proofs. These are counterexamples to attempted bridge hypotheses, not to the posted statement.
 - First-dirty-gate analysis: before the first dirty AND, each operand has a one-colour singleton support equal to OR-reach, plus clean edge terms. Disjoint same-colour pure supports give a gate false on all edge inputs and can be removed. Hard cases are overlapping same-colour supports (intersection) and opposite-colour rectangles containing nonedges (downstream filtering).
+
+### Counterexample search programs
+
+- `results/orch/lemmas/CircuitSearchZ3.py`: ctypes interface to already installed Z3 4.13.3, no downloaded dependencies. Exact bounded AO2 synthesis with two-bit syntactic OR-reach state; samples are all edge assignments and all maximal independent sets. Every found witness is rechecked on the complete Boolean truth table and syntactic OR reach by independent Python evaluation.
+- `results/orch/lemmas/CircuitSearchMILP.py`: independent SciPy/HiGHS Boolean MILP encoding, same target semantics. Numerical infeasibility is exploratory evidence only, never a Lean claim.
+- Z3 sanity: P4 at3 gates UNSAT (0.12s), at4 gates SAT (0.09s) with full truth-table validation.
+- Running C6 at7 gates and forced-dirty C6 at8 gates, both600s; Fano at26 gates,3600s and2048MiB cap. Fano has21 edges, cover number7,58 truth samples (21 edge minterms,37 maximal independent inputs), and the posted conclusion would require27 gates.
+
+C6 at7 gates: Z3 returned UNSAT in26.13s. This is an untrusted solver result, not Lean-checked. Original MILP C6 searches were stopped after the Z3 backend demonstrated much better performance; only3 CPUs are available, so continuing duplicate MILP searches would compete with the Fano search. Complete logs retained.
+
+### Restricted normalization (lemma_search)
+
+Two new checked partials:
+- `Normalize.lean`, namespace `L_meta_4675.Normalize`, proves `erase_edge_inactive_dirty`: if every dirty AND is false on every actual graph-edge pair input, all dirty ANDs can be replaced by a fixed actual edge conjunction. The resulting AO2 circuit has exactly the same size, computes the same graph function, and every AND is below the graph function. Edge minterms retain acceptance because replacement only increases values there; graph-false assignments stay rejected because replacement only decreases values there. Proof includes monotonicity needed to lift minterm acceptance to arbitrary assignments.
+- `Fragment.lean`, namespace `L_meta_4675.Fragment`, proves that two disjoint input sets of the same colour cannot both hit an opposite-colour pair. Consequently `(A-hit or X) and (B-hit or Y)` implies `X or Y` on every such pair. This is the semantic step for removing same-colour-disjoint earliest dirty gates with earlier clean fragments. The equal-cost rewiring of shared OR regions remains unproved.
+
+Both compile with pinned Lean, exit 0, empty stdout/stderr on 2026-11-25T17:18:30.484739+00:00. Complete logs `normalize-build-002.stdout/.stderr` and `fragment-build-002.stdout/.stderr` under job scratch. These are restricted partial results, not the full gap.
+
+### OR-reach invariance (lemma_search)
+
+`OrInvariant.lean` proves that identical gate operations and identical OR input lists, expressed by `List.Forall₂ SameOr`, preserve `orSets`, `OrReaches`, `orIn`, `IsTwoColour`, and `tCount`. Therefore arbitrary rewiring of AND operands leaves the tCount hypothesis unchanged. Compiled 2026-11-25T17:20:43.494340+00:00, exit 0, empty diagnostics. Full logs `or-invariant-build-002.stdout/.stderr` in scratch.
+
+### Counterexample search update (2026-11-25 17:20 UTC)
+
+- C6 at8 gates with a required dirty AND: original Z3 encoding UNSAT in157.60s; optimized encoding UNSAT in9.58s. Together with C6 k7 UNSAT, this is numerical evidence that an optimal C6 circuit in the restricted class has no dirty AND. Not a Lean proof.
+- Optimized encoding adds adjacent-independent-gate ordering, excludes duplicate gates and identity ORs, and normalizes the first gate by graph automorphisms for C6/Fano. Any SAT witness still undergoes unrestricted full truth-table and reach validation.
+- All scripts now validate graph dimensions and C4-freeness, gate indices/operations, full truth table, syntactic coloring, and the required dirty AND on a full independent input.
+- Exhaustive Python graph census: the12 labelled C4-free4x4 graphs with9 edges containing the fixed diagonal matching form exactly one bipartition-preserving isomorphism class: theta8. Therefore fixed theta8 at11 gates is the same counterexample family as an unknown graph search under those conditions.
+- Original Fano search stopped after roughly3min to reserve one of3 CPUs for Lean work. Optimized Fano26 now runs with3600s/2048MiB limits; theta8k11 runs with600s/2048MiB.
