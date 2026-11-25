@@ -36,3 +36,5 @@
 - 2026-11-25T03:58:45+00:00: generic function equality strategy completed: 151 kernel-checked rfl identities; 43 deliberate nonidentities dropped; alias pass handed to structural integration.
 
 - 2026-11-25T04:03:49.801975+00:00: Independently reviewed generic equalities and cofactor argument preserved for early push.
+
+- 2026-11-25T04:07:34.519026+00:00: Checked fastState codec repair independently reviewed for preservation.

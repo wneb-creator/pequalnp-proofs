@@ -1,0 +1,28 @@
+noncomputable def fastState (g : Forest) (k i : Nat) (perm : List Nat) : List Nat :=
+  let raw := (selected g.mask).map fun e => (inputs.getD (idxOf perm e.1) zero).toNat
+  let (_,depth,_,pw,_,_,_,_,_) := g.levels k
+  let len := if depth=0 then 0 else pw+10
+  force (cmpNode g k i) fun rec =>
+  selectLive (rec >>> len) (decodeN depth (cmpOps g depth k i) raw)
+theorem fastState_eq (g : Forest) (k i : Nat) {perm : List Nat} (ok : perm.all validSwap=true) :
+    fastState g k i perm = ((stateSet g k i).map (movedWord (perm.map swapRows).reverse)).map BitVec.toNat := by
+  let ms := (perm.map swapRows).reverse
+  let F (a : Sig) : Nat := (movedWord ms a).toNat
+  have F0 : F zero=0 := by
+    change (movedWord ms zero).toNat=0
+    rw [moved_eq_rename,(rename_constants _).1]
+    simp [zero]
+  have Fb (op a b) : F (bin op a b)=zN op (F a) (F b) := by
+    change (movedWord ms (bin op a b)).toNat = zN op (movedWord ms a).toNat (movedWord ms b).toNat
+    rw [zN_full,moved_eq_rename,rename_bin,moved_eq_rename,moved_eq_rename]
+  have raw : (wiresOf g).map (fun w => F w.1) = (selected g.mask).map fun e => (inputs.getD (idxOf perm e.1) zero).toNat := by
+    simp only [wiresOf,rawDecor,List.map_map]
+    apply List.map_congr_left
+    rintro ⟨j,a⟩ hm
+    obtain ⟨hj,rfl⟩ := selected_entry hm
+    exact congrArg BitVec.toNat (idx_move ok hj)
+  unfold fastState stateSet readNode
+  rcases g.levels k with ⟨a,depth,b,pw,d,e,f,ex,data⟩
+  simp only [force_eq]
+  rw [List.map_map,List.map_map,selectLive_map,←raw,←decodeN_eq F F0 Fb]
+  rfl
