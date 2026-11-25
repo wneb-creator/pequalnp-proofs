@@ -1,23 +1,21 @@
 # Geometric completeness for counterexample verification
 
-Goal: every posted admissible point set X equals AllRows.points r for some r : Fin36 × Fin13. Combined with AllRows.row_eq, this reduces all posted negative inputs to the 468 literal rows. The row order is exactly geometry-data.json.generic; flat index13*r.1+r.2 agrees with the counterexample model.
+The full classification is now Lean kernel checked. For every posted admissible point set X, GeometryComplete.admissible_complete proves that X equals AllRows.points r for some r : Fin36 × Fin13. The64 independent128-mask checks cover all8192 point subsets. They are split into eight cached modules, each containing eight consecutive chunks, and combined symbolically by GeometryCompleteness.
 
-Checked and cached in /tmp/oec/pequalnp-pilot-62/lean-modules:
+Checked module order:
 
-- GeometryRowsDefs: exact AllRows definitions, SHA256 3b206cf10d7acd0196a5ad5dd32df658d448cad6d99861469e60a2f5ee6978cf.
-- GeometryMaskCore: decode Fin8192 into point sets; symbolic injectivity via bits and surjectivity via equal finite cardinalities. SHA256 32c1da597f6d84f77b41d63dc70e4ee7dee96938e96483b1e55d6d77c5fec15b.
+1. GeometryRowsDefs: exact AllRows definitions.
+2. GeometryMaskCore: bitmask decoding, injectivity and surjectivity.
+3. GeometryMaskData: the explicit packed row-index lookup.
+4. GeometryCompletenessProofs: symbolic chunk/classification assembly.
+5. GeometryCompletenessGroup0 through GeometryCompletenessGroup7: all64 closed kernel certificates.
+6. GeometryCompleteness: masks_classified and admissible_complete.
+7. GeometryFlags: exact52 positive flag inputs, explicit incident-pair index and coverage.
 
-Additional checked modules:
+GeometryRowsAgreement also passed, in42.04seconds wall and39.3seconds kernel time. Its checked AllRows.row_eq theorem transports each literal AllRows.row to the posted AllRows.rowInput(AllRows.points r). This completes the geometric coverage and input-transport pipeline.
 
-- GeometryCompletenessProofs: symbolic assembly from chunk/classification hypotheses, exit0.
-- GeometryFlags: exact52 flag inputs and explicit incident-pair coverage, exit0.
-- GeometryMaskData: a66825-bit packed lookup table, exit0 in4.01seconds.
-- GeometryCompletenessBench: masks0 through127, including40 admissible masks, exit0 in9.02seconds wall and5.86seconds kernel. PeakRSS3,826,584KiB; peakcgroup5,406,539,776bytes.
+The eight completeness groups took255.94 seconds total wall time; the aggregate took3.01seconds. Maximum group peakRSS was3,839,360KiB and peakcgroup5,251,825,664bytes. There were no proof failures or resource stops in this sequence. Complete logs, immutable source snapshots and SHA256 files are under results/orch/checked/modules; status.json records exact module hashes. Olean caches are in the task scratch lean-modules directory.
 
-Prepared only, not yet checked:
-- GeometryCompleteness:64 chunks of 128masks, followed by masks_classified and admissible_complete. No existential 468-row search is used.
-- GeometryRowsAgreement: only the 36row_eq chunks and aggregate, extracted from the already checked standalone AllRows source for a new cached module.
+For reproduction, build the modules in the order above with PEqualNP.Defs available and the olean output directory prepended to LEAN_PATH. The guarded runner uses explicit Lean -R/-o, records complete output plus peakRSS/cgroup use, and stops only its own process group at7.3GiB. Root coordinates slots and renews the desk lease.
 
-Use LEAN_PATH with both the lean-modules directory and its parent. The guarded runner emits .olean using explicit -R and -o, profiles declarations, records complete output and peakRSS/cgroup use, and interrupts only its own process group at 7.3 GiB cgroup usage. Parent coordinates resource slots and renews the desk lease before builds. Only the first128-mask classification benchmark has run; the full64-chunk certificate remains unchecked.
-
-The earlier capacity-three 22 route is paused. Its checked chunk0 covers 252 recursive states; the maximum 582-state chunk1 remains untested. Do not describe the 236-chunk certificate, action preservation or orbit descent as proved. The capacity 4 point-partition obstruction shows that merely increasing packing capacity cannot reach the posted 51 bound.
+This is geometric completeness for future circuit verification, not a proof or refutation of the posted51-OR statement. The earlier capacity-three route remains paused: only its documented partial components and chunk0 are checked; the236-chunk packing certificate and orbit/action closure are not proved.

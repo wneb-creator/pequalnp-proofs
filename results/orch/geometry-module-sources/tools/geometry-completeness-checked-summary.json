@@ -1,0 +1,102 @@
+[
+  {
+    "module": "GeometryCompletenessGroup0",
+    "sha256": "d2aeed71ddd7a781c374f48a13cc8cb8726101352b494052a22aa66286d71eb7",
+    "lines": 78,
+    "WALL_SECONDS": 38.59594355000081,
+    "USER_SECONDS": 35.967323,
+    "SYS_SECONDS": 2.690162,
+    "PEAK_RSS_KIB": 3839360.0,
+    "PEAK_CGROUP_BYTES": 5251825664.0
+  },
+  {
+    "module": "GeometryCompletenessGroup1",
+    "sha256": "8ad76dfe80bd417040fa97953e12cf518539b7a097bac8df2f9b0fc47ef70905",
+    "lines": 78,
+    "WALL_SECONDS": 30.53956357399875,
+    "USER_SECONDS": 28.339187,
+    "SYS_SECONDS": 2.064494,
+    "PEAK_RSS_KIB": 3719040.0,
+    "PEAK_CGROUP_BYTES": 5087297536.0
+  },
+  {
+    "module": "GeometryCompletenessGroup2",
+    "sha256": "4cda2207b4964e17e3b7dde8495abd18ddebf70b0308becbccbd34f0a91abf50",
+    "lines": 78,
+    "WALL_SECONDS": 29.53900872700069,
+    "USER_SECONDS": 27.425128,
+    "SYS_SECONDS": 2.199628,
+    "PEAK_RSS_KIB": 3698432.0,
+    "PEAK_CGROUP_BYTES": 5067620352.0
+  },
+  {
+    "module": "GeometryCompletenessGroup3",
+    "sha256": "1f14a6518c6cf7d1e47a733466ace40456b032f9c356f5ea9266c5ff958fafe0",
+    "lines": 78,
+    "WALL_SECONDS": 27.55070858199906,
+    "USER_SECONDS": 25.401445,
+    "SYS_SECONDS": 2.035088,
+    "PEAK_RSS_KIB": 3524392.0,
+    "PEAK_CGROUP_BYTES": 4885393408.0
+  },
+  {
+    "module": "GeometryCompletenessGroup4",
+    "sha256": "7ec515b425a1025edb60c1bd76b6a13261a7a34371aa29ac69d810879f5bedc9",
+    "lines": 78,
+    "WALL_SECONDS": 35.082880985000884,
+    "USER_SECONDS": 31.081163,
+    "SYS_SECONDS": 3.829477,
+    "PEAK_RSS_KIB": 3683452.0,
+    "PEAK_CGROUP_BYTES": 5017264128.0
+  },
+  {
+    "module": "GeometryCompletenessGroup5",
+    "sha256": "d7b941c786a0f62249229bf3b849403524d0f87525f476453216bb3ed7bbdc32",
+    "lines": 78,
+    "WALL_SECONDS": 30.53056264100087,
+    "USER_SECONDS": 26.672664,
+    "SYS_SECONDS": 3.842176,
+    "PEAK_RSS_KIB": 3550320.0,
+    "PEAK_CGROUP_BYTES": 4932255744.0
+  },
+  {
+    "module": "GeometryCompletenessGroup6",
+    "sha256": "2dbf354f53d00d68afaae9e51a4ba4430a47967391a020c1ec1e64db92aa55fb",
+    "lines": 78,
+    "WALL_SECONDS": 33.04144178200113,
+    "USER_SECONDS": 29.468506,
+    "SYS_SECONDS": 3.559532,
+    "PEAK_RSS_KIB": 3538764.0,
+    "PEAK_CGROUP_BYTES": 4937830400.0
+  },
+  {
+    "module": "GeometryCompletenessGroup7",
+    "sha256": "bb27a21ed732069e7ca4067160f3d803639c6fba969e8997865bdcd0efb517b0",
+    "lines": 78,
+    "WALL_SECONDS": 31.05807076400015,
+    "USER_SECONDS": 27.35783,
+    "SYS_SECONDS": 3.667187,
+    "PEAK_RSS_KIB": 3468580.0,
+    "PEAK_CGROUP_BYTES": 4948774912.0
+  },
+  {
+    "module": "GeometryCompleteness",
+    "sha256": "8ad88867adc97696fc914e4a71e435417e17332e4bda466e0969ed8320f5363f",
+    "lines": 23,
+    "WALL_SECONDS": 3.006810676000896,
+    "USER_SECONDS": 1.74216,
+    "SYS_SECONDS": 1.142567,
+    "PEAK_RSS_KIB": 2908908.0,
+    "PEAK_CGROUP_BYTES": 4277620736.0
+  },
+  {
+    "module": "GeometryRowsAgreement",
+    "sha256": "82005c44353bcd3d2ee344530df3638f92a7610c75401363f141511bbb9d4326",
+    "lines": 227,
+    "WALL_SECONDS": 42.043633046998366,
+    "USER_SECONDS": 39.666224,
+    "SYS_SECONDS": 2.597512,
+    "PEAK_RSS_KIB": 3151360.0,
+    "PEAK_CGROUP_BYTES": 4608004096.0
+  }
+]

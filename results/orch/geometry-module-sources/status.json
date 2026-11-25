@@ -52,8 +52,8 @@
     "kernel_checked": true
   },
   "GeometryCompleteness": {
-    "sha256": "a443739b9b96d2b40c78d65e05c72e3cd0d1f7191571b0db4a58d66541825fad",
-    "kernel_checked": false
+    "sha256": "8ad88867adc97696fc914e4a71e435417e17332e4bda466e0969ed8320f5363f",
+    "kernel_checked": true
   },
   "GeometryCompletenessBench": {
     "sha256": "7235ddd085920862eb1cc5412af14479cd80992e75531f12f05756454b6d7d10",
@@ -69,6 +69,38 @@
   },
   "GeometryRowsAgreement": {
     "sha256": "82005c44353bcd3d2ee344530df3638f92a7610c75401363f141511bbb9d4326",
-    "kernel_checked": false
+    "kernel_checked": true
+  },
+  "GeometryCompletenessGroup0": {
+    "sha256": "d2aeed71ddd7a781c374f48a13cc8cb8726101352b494052a22aa66286d71eb7",
+    "kernel_checked": true
+  },
+  "GeometryCompletenessGroup1": {
+    "sha256": "8ad76dfe80bd417040fa97953e12cf518539b7a097bac8df2f9b0fc47ef70905",
+    "kernel_checked": true
+  },
+  "GeometryCompletenessGroup2": {
+    "sha256": "4cda2207b4964e17e3b7dde8495abd18ddebf70b0308becbccbd34f0a91abf50",
+    "kernel_checked": true
+  },
+  "GeometryCompletenessGroup3": {
+    "sha256": "1f14a6518c6cf7d1e47a733466ace40456b032f9c356f5ea9266c5ff958fafe0",
+    "kernel_checked": true
+  },
+  "GeometryCompletenessGroup4": {
+    "sha256": "7ec515b425a1025edb60c1bd76b6a13261a7a34371aa29ac69d810879f5bedc9",
+    "kernel_checked": true
+  },
+  "GeometryCompletenessGroup5": {
+    "sha256": "d7b941c786a0f62249229bf3b849403524d0f87525f476453216bb3ed7bbdc32",
+    "kernel_checked": true
+  },
+  "GeometryCompletenessGroup6": {
+    "sha256": "2dbf354f53d00d68afaae9e51a4ba4430a47967391a020c1ec1e64db92aa55fb",
+    "kernel_checked": true
+  },
+  "GeometryCompletenessGroup7": {
+    "sha256": "bb27a21ed732069e7ca4067160f3d803639c6fba969e8997865bdcd0efb517b0",
+    "kernel_checked": true
   }
 }

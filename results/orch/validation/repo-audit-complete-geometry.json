@@ -1,0 +1,426 @@
+{
+  "reviewer": "repo_audit",
+  "reviewed_at": "2026-11-25T05:33:07.746673+00:00",
+  "verdict": "APPROVED complete geometric classification and literal-row input transport for preservation; not a proof/refutation of the51OR statement",
+  "checks": [
+    "All8192 masks covered once by64 checked128-mask statements.",
+    "decode_surjective covers every Finset(Fin13), without a hidden genericity assumption.",
+    "admissible, incidence, and rowInput definitions exactly match the posted-premise proof.",
+    "AllRows.row_eq proves each literal negative row equals the posted input for its point set.",
+    "All15 dependency/source snapshots match archive copies, successful logs, sidecar hashes and kernel_checked metadata.",
+    "No forbidden proof mechanisms or credential-like content found; local-module imports still require final single-file flattening."
+  ],
+  "grouped_wall_seconds": 255.93818060500234,
+  "files": [
+    {
+      "path": "results/orch/checked/modules/GeometryCompleteness.lean",
+      "sha256": "8ad88867adc97696fc914e4a71e435417e17332e4bda466e0969ed8320f5363f",
+      "bytes": 2486
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompleteness.log",
+      "sha256": "30397438275cab4fb92a38bdd514cd60852bc8ec3361952b37ce92b9940251f2",
+      "bytes": 725
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompleteness.sha256",
+      "sha256": "0a0977ce430a4ef55eec88864b9383bf8a726f0bc38c1575af64869c5265d613",
+      "bytes": 92
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup0.lean",
+      "sha256": "d2aeed71ddd7a781c374f48a13cc8cb8726101352b494052a22aa66286d71eb7",
+      "bytes": 2790
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup0.log",
+      "sha256": "bdfcad35566c0ee2c48d98f99becd526afc9321f745b2fe4125418a6ad36a1ee",
+      "bytes": 892
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup0.sha256",
+      "sha256": "6dfbbf8ac2edf243718acb863892a2522fb6425819d8460855069f333806cfc6",
+      "bytes": 98
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup1.lean",
+      "sha256": "8ad76dfe80bd417040fa97953e12cf518539b7a097bac8df2f9b0fc47ef70905",
+      "bytes": 2802
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup1.log",
+      "sha256": "45c92a872da83e2171aaa5fcdb491ed8130168af48a3a2c8135578fe5f2dee95",
+      "bytes": 894
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup1.sha256",
+      "sha256": "479bcc020cefded93375598b41e689ea304d2e896f6e05429fb3aa2c4d61c1a9",
+      "bytes": 98
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup2.lean",
+      "sha256": "4cda2207b4964e17e3b7dde8495abd18ddebf70b0308becbccbd34f0a91abf50",
+      "bytes": 2806
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup2.log",
+      "sha256": "cea2921adffabb695306f8516a2d28f47375748140c2f32c55b3d4aeec69058b",
+      "bytes": 893
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup2.sha256",
+      "sha256": "adadba937fa9c6b73c44d7d356cf14dd744541d851ccacc87e0426679349d4ea",
+      "bytes": 98
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup3.lean",
+      "sha256": "1f14a6518c6cf7d1e47a733466ace40456b032f9c356f5ea9266c5ff958fafe0",
+      "bytes": 2806
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup3.log",
+      "sha256": "cb8c73bd9d05a90ea3ddb807edc8b7127e39aaa5ab3540467d128b1c28c72f0e",
+      "bytes": 894
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup3.sha256",
+      "sha256": "314a41e80d17d6e324c82eef5cc0ee843f438b3bef2983e19643923e95e79a28",
+      "bytes": 98
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup4.lean",
+      "sha256": "7ec515b425a1025edb60c1bd76b6a13261a7a34371aa29ac69d810879f5bedc9",
+      "bytes": 2806
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup4.log",
+      "sha256": "328f0751a2e0a40f9de836e4c5bc25dab531a7297dafde7287eb7cef9c2e5ebe",
+      "bytes": 896
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup4.sha256",
+      "sha256": "5dadf069d5596c560a19aee96f4336370f402392af8a0b719ae99c744227cd99",
+      "bytes": 98
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup5.lean",
+      "sha256": "d7b941c786a0f62249229bf3b849403524d0f87525f476453216bb3ed7bbdc32",
+      "bytes": 2806
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup5.log",
+      "sha256": "88f5e865f01b758b6ae32c52a70152920bab2ea0c8b51a45a2c4dcc2927aeb21",
+      "bytes": 896
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup5.sha256",
+      "sha256": "4a912faface781f4ed3bc07ce0f5840d55256da9fb8e5a5d1a210231a7977d62",
+      "bytes": 98
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup6.lean",
+      "sha256": "2dbf354f53d00d68afaae9e51a4ba4430a47967391a020c1ec1e64db92aa55fb",
+      "bytes": 2806
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup6.log",
+      "sha256": "38f86d41ef5781d5524d7d9ddad1d775960882249dad6a972198d9a4291f5285",
+      "bytes": 896
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup6.sha256",
+      "sha256": "d4e1ac1d7b1512d8b1cf685f8aa006dd16dd7245c7287a92abc7930a326a7ee1",
+      "bytes": 98
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup7.lean",
+      "sha256": "bb27a21ed732069e7ca4067160f3d803639c6fba969e8997865bdcd0efb517b0",
+      "bytes": 2806
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup7.log",
+      "sha256": "b5d6f436bf4667eb875b2e0faa9616924b83e0eb22609b6ae1aa23442a3dc6e9",
+      "bytes": 891
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessGroup7.sha256",
+      "sha256": "e4c72c6cd889a85847040c94936098100a7746fa849539f5bac4f7714a7233b0",
+      "bytes": 98
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessProofs.lean",
+      "sha256": "37ef17454196bb0dba72d8c863bffd5f4fdbbe7501b3f52796738136e28f1548",
+      "bytes": 1202
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessProofs.log",
+      "sha256": "95e92a4a5752460db3ba56d53bcf550f496e5ef110e0a33fa5f6180866f73bd1",
+      "bytes": 706
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessProofs.sha256",
+      "sha256": "4ca366f7020ab704da075aa2083583b3b0bbc836ba51101f9261788c97c97401",
+      "bytes": 98
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryFlags.lean",
+      "sha256": "bb3238203ab15b0a624fcfda174e36dd731a181d08837bf66ad72ed80200b075",
+      "bytes": 1724
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryFlags.log",
+      "sha256": "c45a3c9c3f9062fd138b60f46778916583f25f58b54496c3a757d4a74e629b8a",
+      "bytes": 820
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryFlags.sha256",
+      "sha256": "2e5ff03af26bf5dd557d2a69af3b279106fb8fecc1841db48fbde7003e9269a5",
+      "bytes": 85
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryMaskCore.lean",
+      "sha256": "32c1da597f6d84f77b41d63dc70e4ee7dee96938e96483b1e55d6d77c5fec15b",
+      "bytes": 1449
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryMaskCore.log",
+      "sha256": "6a967c5d6529d8122a109903cad2a4f8bc895d32ad8eede12e26b23940199424",
+      "bytes": 858
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryMaskCore.sha256",
+      "sha256": "5f186c2369279393abaf38a53e449bd68515d34c6666bf940519f62263ef02ef",
+      "bytes": 88
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryMaskData.lean",
+      "sha256": "5060b51121e0814b30a4481f802f4d5bc00898e9cfd2428ca5a3565265d84b86",
+      "bytes": 17094
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryMaskData.log",
+      "sha256": "04ce7f0864352a05e09afe8911f0ffe171b32c3d03b1c01230281360b39449b3",
+      "bytes": 818
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryMaskData.sha256",
+      "sha256": "0d023c221214c0970ef802dc9d8eeda14163f5abf57d2cda4f06d8eb55eec683",
+      "bytes": 88
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryRowsAgreement.lean",
+      "sha256": "82005c44353bcd3d2ee344530df3638f92a7610c75401363f141511bbb9d4326",
+      "bytes": 8433
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryRowsAgreement.log",
+      "sha256": "1f34a94aa3404861980a92acc7e8fe95e06341b0725b0adfd622e09916bcf10c",
+      "bytes": 1588
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryRowsAgreement.sha256",
+      "sha256": "bf5f044e54f32baa0811c76cca087710379df4597ca5117d78d2f49015957f68",
+      "bytes": 93
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryRowsDefs.lean",
+      "sha256": "3b206cf10d7acd0196a5ad5dd32df658d448cad6d99861469e60a2f5ee6978cf",
+      "bytes": 20461
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryRowsDefs.log",
+      "sha256": "6e410f0874393037ab26e5264a1f854120ece77dd26337db5e2d5089c1a10d4c",
+      "bytes": 1249
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryRowsDefs.sha256",
+      "sha256": "b52a411de221b7cb3aa590e42301827cd48f5935f62910cc97ee47d0e08906fb",
+      "bytes": 88
+    },
+    {
+      "path": "results/orch/geometry-module-sources/COMPLETENESS_STATUS.md",
+      "sha256": "c093ef931740e481a1dbf710be8149361f3a8fc286ae80499e1bc60e98bc9f09",
+      "bytes": 2328
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryCompleteness.lean",
+      "sha256": "8ad88867adc97696fc914e4a71e435417e17332e4bda466e0969ed8320f5363f",
+      "bytes": 2486
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryCompletenessGroup0.lean",
+      "sha256": "d2aeed71ddd7a781c374f48a13cc8cb8726101352b494052a22aa66286d71eb7",
+      "bytes": 2790
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryCompletenessGroup1.lean",
+      "sha256": "8ad76dfe80bd417040fa97953e12cf518539b7a097bac8df2f9b0fc47ef70905",
+      "bytes": 2802
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryCompletenessGroup2.lean",
+      "sha256": "4cda2207b4964e17e3b7dde8495abd18ddebf70b0308becbccbd34f0a91abf50",
+      "bytes": 2806
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryCompletenessGroup3.lean",
+      "sha256": "1f14a6518c6cf7d1e47a733466ace40456b032f9c356f5ea9266c5ff958fafe0",
+      "bytes": 2806
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryCompletenessGroup4.lean",
+      "sha256": "7ec515b425a1025edb60c1bd76b6a13261a7a34371aa29ac69d810879f5bedc9",
+      "bytes": 2806
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryCompletenessGroup5.lean",
+      "sha256": "d7b941c786a0f62249229bf3b849403524d0f87525f476453216bb3ed7bbdc32",
+      "bytes": 2806
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryCompletenessGroup6.lean",
+      "sha256": "2dbf354f53d00d68afaae9e51a4ba4430a47967391a020c1ec1e64db92aa55fb",
+      "bytes": 2806
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryCompletenessGroup7.lean",
+      "sha256": "bb27a21ed732069e7ca4067160f3d803639c6fba969e8997865bdcd0efb517b0",
+      "bytes": 2806
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryCompletenessProofs.lean",
+      "sha256": "37ef17454196bb0dba72d8c863bffd5f4fdbbe7501b3f52796738136e28f1548",
+      "bytes": 1202
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryFlags.lean",
+      "sha256": "bb3238203ab15b0a624fcfda174e36dd731a181d08837bf66ad72ed80200b075",
+      "bytes": 1724
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryMaskCore.lean",
+      "sha256": "32c1da597f6d84f77b41d63dc70e4ee7dee96938e96483b1e55d6d77c5fec15b",
+      "bytes": 1449
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryMaskData.lean",
+      "sha256": "5060b51121e0814b30a4481f802f4d5bc00898e9cfd2428ca5a3565265d84b86",
+      "bytes": 17094
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryRowsAgreement.lean",
+      "sha256": "82005c44353bcd3d2ee344530df3638f92a7610c75401363f141511bbb9d4326",
+      "bytes": 8433
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryRowsDefs.lean",
+      "sha256": "3b206cf10d7acd0196a5ad5dd32df658d448cad6d99861469e60a2f5ee6978cf",
+      "bytes": 20461
+    },
+    {
+      "path": "results/orch/geometry-module-sources/README.md",
+      "sha256": "202ef0ce2884f6bb7ada2d4f824557d2fdafc296b2cd8ee278cd1b8ea9d7c97f",
+      "bytes": 954
+    },
+    {
+      "path": "results/orch/geometry-module-sources/status.json",
+      "sha256": "b511ebfc1200b29f254aaba8f0f33ad3fb818127235875c83576d2aa11891c60",
+      "bytes": 3729
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/freeze-geometry-completeness.py",
+      "sha256": "754d0ad991b38a488092404420fe313c2330fb75d941c859e9d74731203e01a3",
+      "bytes": 1673
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-completeness-aggregate-001.log",
+      "sha256": "30397438275cab4fb92a38bdd514cd60852bc8ec3361952b37ce92b9940251f2",
+      "bytes": 725
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-completeness-bench-001.log",
+      "sha256": "16b976fccfd1f400062f7205fdef7f5436b1b57facae4df015a3110ab69ca9ce",
+      "bytes": 695
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-completeness-checked-summary.json",
+      "sha256": "587d22c4214d4928e19a941d6f8539af2703893a188bc391bcd772dfb8dc7d4d",
+      "bytes": 3192
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-completeness-group0-001.log",
+      "sha256": "bdfcad35566c0ee2c48d98f99becd526afc9321f745b2fe4125418a6ad36a1ee",
+      "bytes": 892
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-completeness-group1-001.log",
+      "sha256": "45c92a872da83e2171aaa5fcdb491ed8130168af48a3a2c8135578fe5f2dee95",
+      "bytes": 894
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-completeness-group2-001.log",
+      "sha256": "cea2921adffabb695306f8516a2d28f47375748140c2f32c55b3d4aeec69058b",
+      "bytes": 893
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-completeness-group3-001.log",
+      "sha256": "cb8c73bd9d05a90ea3ddb807edc8b7127e39aaa5ab3540467d128b1c28c72f0e",
+      "bytes": 894
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-completeness-group4-001.log",
+      "sha256": "328f0751a2e0a40f9de836e4c5bc25dab531a7297dafde7287eb7cef9c2e5ebe",
+      "bytes": 896
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-completeness-group5-001.log",
+      "sha256": "88f5e865f01b758b6ae32c52a70152920bab2ea0c8b51a45a2c4dcc2927aeb21",
+      "bytes": 896
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-completeness-group6-001.log",
+      "sha256": "38f86d41ef5781d5524d7d9ddad1d775960882249dad6a972198d9a4291f5285",
+      "bytes": 896
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-completeness-group7-001.log",
+      "sha256": "b5d6f436bf4667eb875b2e0faa9616924b83e0eb22609b6ae1aa23442a3dc6e9",
+      "bytes": 891
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-completeness-index.json",
+      "sha256": "ee85bd84f34dfee649c8515190b3d2aa9ef1ff02f0b17e470deacc9fddab0c12",
+      "bytes": 5821
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-completeness-proofs-001.log",
+      "sha256": "48c88636fa22482a6df128b3e945fe97c9e06399aa79b3d2290705f63104725b",
+      "bytes": 974
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-completeness-proofs-002.log",
+      "sha256": "d267897e6c0d35bf5e103537d79e57ebb53bdc8f17d606414e0ffe6a5b4753a6",
+      "bytes": 195
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-rows-agreement-001.log",
+      "sha256": "1f34a94aa3404861980a92acc7e8fe95e06341b0725b0adfd622e09916bcf10c",
+      "bytes": 1588
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/make-geometry-completeness.py",
+      "sha256": "d9db8f7510d2a92b362fa8a047fd56e87f00946667f31a19538bf990ff6ffecc",
+      "bytes": 2443
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/split-geometry-completeness.py",
+      "sha256": "2f44656f95fa7829f3c9c6a32501a174c2ee3a181f3ea06cd30f1eda7a4e8bd6",
+      "bytes": 1143
+    },
+    {
+      "path": "results/orch/geometry.md",
+      "sha256": "48aa476c7a77d8d8715f92a6f32568b0ba4df0befdd63bd72996ebaf499b3eb7",
+      "bytes": 19151
+    }
+  ]
+}
