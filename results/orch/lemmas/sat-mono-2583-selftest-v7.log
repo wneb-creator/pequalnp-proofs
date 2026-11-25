@@ -1,0 +1,5 @@
+selftest gates=64 rows=756 corrupt=0 status=10
+selftest gates=64 rows=756 corrupt=1 status=20
+selftest forced_nonread1 reread=0 status=20
+selftest forced_nonread1 reread=1 status=10
+SELFTEST PASS

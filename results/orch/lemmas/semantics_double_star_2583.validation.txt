@@ -1,0 +1,36 @@
+Artifact: semantics_double_star_2583.lean
+Status: FAILED DRAFT, NOT CHECKED.
+The compile was started before the lease-loss stop notification and had already exited when its status was polled.
+Command: lake env lean ../results/orch/lemmas/semantics_double_star_2583.lean
+Exit code: 1
+Reason: Boolean equality/and precedence caused malformed intended statements and consequent proof failures.
+No fixes or further proof work were performed after the lease-loss stop notification.
+Complete stdout follows:
+../results/orch/lemmas/semantics_double_star_2583.lean:10:51: error: unsolved goals
+case false.false.false.false
+⊢ False
+
+case false.true.false.false
+⊢ False
+
+case false.true.false.true
+⊢ False
+
+case true.false.false.false
+⊢ False
+
+case true.false.true.false
+⊢ False
+../results/orch/lemmas/semantics_double_star_2583.lean:26:69: error: Tactic `decide` proved that the proposition
+  ∀ (x : Fin 4 → Bool), (decide (original.eval (List.ofFn x) = (x 0 && x 1)) && (x 2 || x 3)) = true
+is false
+../results/orch/lemmas/semantics_double_star_2583.lean:34:6: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  decide (original.eval (List.ofFn ?x) = (?x 0 && ?x 1)) && (?x 2 || ?x 3)
+in the target expression
+  original.eval (List.ofFn x) = replacement.eval (List.ofFn x)
+
+x : Fin 4 → Bool
+hu : x 2 = true → x 0 = true
+hv : x 3 = true → x 1 = true
+⊢ original.eval (List.ofFn x) = replacement.eval (List.ofFn x)
+Complete stderr: empty.

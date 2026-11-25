@@ -1,0 +1,3 @@
+selftest gates=64 rows=756 corrupt=0 status=10
+selftest gates=64 rows=756 corrupt=1 status=20
+SELFTEST PASS

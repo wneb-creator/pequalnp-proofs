@@ -39,3 +39,17 @@ Additional compiled independent-reviewed helpers: PG(2,3) finiteaxioms; monotone
 Cleanup not started: fullposted theorem absent and localchecker FAULT. Linecount3390before/after no-cleanup.
 Sub-agents: checker_audit, theory, counterexample, reductions, semantics, sat_search
 TIMING total=32 subagents=6
+
+Conditional refutation bridge:2150lines108589bytes, Leanexit0; independentsemanticreviewPASS.
+Assumes a correct≤63gate PG3 circuit; nonefound, so this is NOT a refutation. Exact postedstatement retained undernegation.
+Searches: firstglobalSAT600sUNKNOWN; stochasticbestone missingedge. Focusingcoresearchnext.
+Sub-agents: checker_audit, theory, counterexample, reductions, semantics, sat_search
+TIMING total=38 subagents=6
+
+Second lease lost: L-meta-2583 renewal15:06:52UTC returnedHTTP410; curl-si diagnostic15:07:20UTC confirmed. Lastsuccessfulauto renewal15:02:24UTC promisedexpiry15:22:24UTC.
+Exactmessage: no such live lease: it expired or was released. Ask /desk/next again.
+All2583 searches/proofwork stopped; no coretrial began. Fullplane900s stochasticbest1 missingedge, no witness; twoSATrunsUNKNOWN.
+Desk nullcount0. Publicfeed15:07:48UTC stilllistedboth2583and2592 asopen; loss reason notdetermined. No leasewasreleasedbythispilot.
+Unvalidated archival draft semantics_double_star_2583.lean failedcompilation; NOT a checkedresult. Compiledone-dirtysemantichelper isonlysupportclassification, notcostnormalization.
+Sub-agents: checker_audit, theory, counterexample, reductions, semantics, sat_search
+TIMING total=43 subagents=6

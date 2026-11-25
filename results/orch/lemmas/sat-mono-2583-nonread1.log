@@ -1,0 +1,3 @@
+forced nonread1 edge 3 17
+loaded structural phase hint
+solve round=0 rows=140 vars=34398 clauses=2083715

@@ -1,0 +1,7 @@
+results/orch/lemmas/counterexample_2583_lift.cpp: In function ‘int main(int, char**)’:
+results/orch/lemmas/counterexample_2583_lift.cpp:24:5: warning: this ‘for’ clause does not guard... [-Wmisleading-indentation]
+   24 |     for(auto &p:points)mapFile>>p;for(auto &p:mapping)mapFile>>p;
+      |     ^~~
+results/orch/lemmas/counterexample_2583_lift.cpp:24:35: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘for’
+   24 |     for(auto &p:points)mapFile>>p;for(auto &p:mapping)mapFile>>p;
+      |                                   ^~~
