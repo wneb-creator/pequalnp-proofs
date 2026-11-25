@@ -1,5 +1,5 @@
-Final named-file lake build PASS: Build completed successfully (5149 jobs).
-Repository checker pending. Source2936lines,328476bytes,sha256850f99a46ae6297423188e19802af7f10561d88ba353e7d987ca87e3e30fc2d5.
-Independent fullproof review and formatguard PASS.
+Namedfile lakebuild PASS (5149jobs,204.89s).
+Repositorychecker ACCEPTED (check): PEqualNP.Outside.L_meta_6349; axioms propext,Quot.sound,Classical.choice;3197constants rechecked in234.57s.
+Precleanup2936lines328476bytes,sha256850f99a46ae6297423188e19802af7f10561d88ba353e7d987ca87e3e30fc2d5.
 Sub-agents: status_review, toolchain_setup, upper_bound, lower_certificate, finite_search, structural_lower
-TIMING total=59.48 subagents=6
+TIMING total=65.72 subagents=6
