@@ -1,0 +1,180 @@
+{
+  "graph": "path4",
+  "input_count": 4,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "positive_samples": [
+    3,
+    6,
+    12
+  ],
+  "negative_samples": [
+    5,
+    9,
+    10
+  ],
+  "gate_count": 5,
+  "profile": "nonstar",
+  "operations": [
+    1,
+    45,
+    103,
+    199,
+    311
+  ],
+  "selectors": [
+    [
+      [
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        6,
+        7,
+        8,
+        9
+      ]
+    ],
+    [
+      [
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      [
+        51,
+        52,
+        53,
+        54,
+        55
+      ]
+    ],
+    [
+      [
+        104,
+        105,
+        106,
+        107,
+        108,
+        109
+      ],
+      [
+        110,
+        111,
+        112,
+        113,
+        114,
+        115
+      ]
+    ],
+    [
+      [
+        200,
+        201,
+        202,
+        203,
+        204,
+        205,
+        206
+      ],
+      [
+        207,
+        208,
+        209,
+        210,
+        211,
+        212,
+        213
+      ]
+    ],
+    [
+      [
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319
+      ],
+      [
+        320,
+        321,
+        322,
+        323,
+        324,
+        325,
+        326,
+        327
+      ]
+    ]
+  ],
+  "baseline": [],
+  "variables": 1416,
+  "clauses": 8944,
+  "essential_gates": true,
+  "symmetry_first": true,
+  "automorphisms": [
+    [
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      3,
+      2,
+      1,
+      0
+    ]
+  ],
+  "first_pairs": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      1,
+      2
+    ]
+  ],
+  "ordered_independent": true,
+  "baseline_order_swaps": [],
+  "unique_signatures": false,
+  "undominated_signatures": true,
+  "at_most": true,
+  "padding_gates": 0,
+  "nonstar_prefix": true,
+  "bypass_sensitive": true,
+  "constant_sensitive": true,
+  "count_bounds": true,
+  "vertex_cover_number": 2,
+  "and_lower_bound": 2,
+  "or_lower_bound": 2,
+  "scope": "Proper binary AND/OR gates, final output and all gates used. Operand incomparability and optional uniqueness/dominance hold before and at the first target gate; in at-most mode later padding gates are exempt. Normalization requires proof for claims about arbitrary Lean circuits. Nonstar whole-circuit status need not hold for its earliest exact prefix."
+}

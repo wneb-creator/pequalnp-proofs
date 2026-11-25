@@ -1,0 +1,29 @@
+{
+  "review": "PASS detached guardian launcher and guardian leader-race fix",
+  "sources": [
+    {
+      "name": "launch_detached_guard.py",
+      "sha256": "8106699844f5340b9e03ae008b95367b1075fe7f81fc1772f0cea421ea04998c"
+    },
+    {
+      "name": "launch_detached_guard_v2.py",
+      "sha256": "a70e43c9995799516911d092844aae90bc6c7ed56813124cfc7b52335d2996bd"
+    },
+    {
+      "name": "guard_synthesis_v12.py",
+      "sha256": "3067a5e575ac1ec0000ce60ac134105e96833c4bde16c65645fadaa06c78296b"
+    },
+    {
+      "name": "guard_synthesis_v13.py",
+      "sha256": "2135408e2bdbcfebfa7cf4c904844831106ae369ad421689b336e546b678cf59"
+    }
+  ],
+  "findings": [
+    "Launcher restricts guardian and encoder names, validates a basename-only tag, requires a literal argument separator and creates a unique log with exclusive creation.",
+    "Popen uses an argv list and start_new_session=True, redirects full stdout/stderr to the owned log, and records PID/startticks plus exact source hashes.",
+    "Launch metadata explicitly does not imply a solver verdict or guardian completion.",
+    "Guardianv12 is encoder-allowlist-only; v13 fixes leader disappearance around stat read while retaining owned-group/starttick targeting and existing memory/escalation policy.",
+    "Launcher v2 only permits the corrected guardian v13."
+  ],
+  "scope": "Infrastructure source review only. Solver model review is separate; no query launched by reviewer."
+}

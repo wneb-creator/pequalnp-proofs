@@ -1,0 +1,25 @@
+{
+  "review": "PASS exact v13 one-line count strengthening and actual Petersen control",
+  "source_sha256": "43c38685272cab6f57e7c9d22bb80255b4c05211aea77dc8a2269e6f62619731",
+  "guardian_sha256": "a3e9b00d9c177ecb22c24cec1262635ace6e0eed29ad7cf006b6ee5be6a30c85",
+  "launcher_sha256": "02d0805c9cc48affeeff6d319f3f40b10088dd8ae78e46706aacf3bcc50363ea",
+  "source_delta": "Only raises Petersen AND threshold to at least6; the count remains guarded by earliest exact target. Six-AND mathematical transfer was independently reviewed by proof_routes. Guardian/launcher changes only expose source versions.",
+  "control": {
+    "witness_sha256": "1e7272f044340e1379eec3820d2284b40ac01bb6eb13d57d351c2beb7d7d205c",
+    "assignments": 1024,
+    "effective_prefix": 20,
+    "and_count": 6,
+    "or_count": 14,
+    "substitution_cases": 80,
+    "all_saved_row_lists_recomputed": true,
+    "ownership_and_star_recomputed": true,
+    "status": {
+      "result": "sat",
+      "solver_exit": 10,
+      "elapsed": 0.25196512899856316,
+      "peak_child_KiB": 310208
+    },
+    "guardian_empty": true
+  },
+  "scope": "Constructive20-gate control and necessary prefix count only; no20 total-size lower bound, minimum-profile theorem or refutation."
+}

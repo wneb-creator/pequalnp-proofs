@@ -1,0 +1,20 @@
+{
+  "status": "Independent deterministic replay PASS",
+  "reviewer": "/root/lean_setup",
+  "method": "Fresh scalar Boolean evaluation of every replacement on all1024 assignments; original bitset replay script was read but not executed.",
+  "original_exact_graph_verified": true,
+  "replacement_count": 430,
+  "assignments_per_replacement": 1024,
+  "all_per_replacement_counts_match": true,
+  "successful_deletions": 0,
+  "elapsed_seconds": 0.4809091490024002,
+  "input_hashes": {
+    "/workspace/pequalnp-proofs/results/meta2448/petersen-L584-exact20-independent-replay.json": "1efdd76094c1a00702d6a5730970e77f6d7d6e7fe2b94311bad20529f0ce9625",
+    "/tmp/oec/pequalnp-pilot-62/meta2448/L584-single-deletion-replay.json": "1d30016ee2bf32c84ea6b007a142e11d33f36d0ebcd7a2fe74931db19aacf225",
+    "/tmp/oec/pequalnp-pilot-62/meta2448/L584-single-deletion-replay.log": "afef0961fe12402feb4110d77072bd40e251dc0fa0b25862d325a932b11189ed",
+    "/tmp/oec/pequalnp-pilot-62/meta2448/repair_L584.py": "47a9bb4fb24e00d6820cb1a75b13cc59706a9f911627ae78ae3de6cf5afa4876"
+  },
+  "source_output_is_last_wire": true,
+  "scope": "No single-gate replacement by an earlier wire or Boolean constant preserves this fixed20-gate circuit function. This is neither a19-gate impossibility proof nor a Lean proof nor a full-gap result.",
+  "files_unchanged": true
+}

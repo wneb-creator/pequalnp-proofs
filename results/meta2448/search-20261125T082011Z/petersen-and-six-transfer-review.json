@@ -1,0 +1,97 @@
+{
+  "verdict": "PASS mathematical model-transfer review; no new Lean compilation",
+  "encoder": "/tmp/oec/pequalnp-pilot-62/meta2448/synthesize_v12.py",
+  "encoder_sha256": "adfb808e5d4ba0eafb8f7f6d2658526c555a16c8032637e84811a786098a4cec",
+  "sources": [
+    {
+      "path": "lean/PEqualNP/Outside/L_meta_635.lean",
+      "sha256": "98140d2dc568d455c4cc163e840b1f73a0d909640905de825ba863756815209b"
+    },
+    {
+      "path": "lean/PEqualNP/Outside/L_meta_217.lean",
+      "sha256": "3793bdfe21ec9aba91f5ad82c4eb211d6ee60970085a8213de7569a78a89790c"
+    },
+    {
+      "path": "lean/PEqualNP/Defs/AndCountCircuit.lean",
+      "sha256": "4e9aa467f041254025f1d29d39b5f21dcc4bf31adb64de2e7d3d7fd36bd02530"
+    }
+  ],
+  "exact_graph_edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      4,
+      9
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      5,
+      8
+    ],
+    [
+      6,
+      8
+    ],
+    [
+      6,
+      9
+    ],
+    [
+      7,
+      9
+    ]
+  ],
+  "scope": "Every exact proper backward binary monotone Petersen circuit, including the earliest exact target prefix of a padded encoder trace, has at least six AND gates. No ownership, star-profile, or minimality assumption is needed for this count cut.",
+  "derivation": [
+    "Encoder lines103-105 generate exactly the fifteen unordered Petersen edges in L_meta_635 lines2334-2336, with identical vertex labels; no graph isomorphism is needed.",
+    "A prefix ending at its first exact target is a CircuitLowerBounds.Circuit with the original ten inputs, binary AND/OR gates and backward references, hence satisfies Monotone2. Let A be exactly its AND gate indices; A.card is the encoder prefix AND count.",
+    "Positive edge pairs and all maximal independent-set negatives determine the whole monotone graph function: every true graph input contains a positive edge pair, and every false graph input extends to a maximal independent set. The encoder independently checks this maximal-set coverage at line112.",
+    "Accepted L_meta_217 private collapse_and_count (lines1422-1454) assumes Monotone2, exact graph-function equivalence, and inclusion of every AND index in A. It produces a well-formed AndCountCircuit D with D.size <= A.card and D.Computes G. Its statement has no t<=5, girth, cover, ownership, or minimality assumption. The t<=5 restriction belongs to the final L217 cover theorem, not this generic collapse.",
+    "For a proper binary circuit this collapse is also direct: express each input/OR wire as a disjunction of raw input variables and preceding AND outputs; each original AND becomes the AND of its two such sides; the final output is the corresponding disjunction. This retains exactly the original AND operations and satisfies the earlier-gate requirement.",
+    "By AndCountCircuit.Computes, D.eval I is false on every independent I. If I is maximal and u is outside I, maximality supplies v in I adjacent to u, so D.eval(insert u I) is true. This discharges precisely the MIS-boundary promise in L_meta_635 lines2340-2343.",
+    "The second conjunct of accepted L_meta_635 says every well-formed D satisfying that promise has not(D.size<=5). If A.card<=5, collapse gives D.size<=5, contradiction. Thus 6<=A.card.",
+    "The threshold belongs to the earliest exact prefix. Gates appended after that target cannot satisfy it. Existing v12 first_target_flags guards and count-DP replay enforce exactly this scope."
+  ],
+  "limits": [
+    "This is an AND-count lower bound only. OR collapse makes OR operations free; it supplies neither a total-gate lower bound of20 nor a star-profile normalization.",
+    "The accepted collapse helper is private; this review uses its inspected mathematical statement and proof, not a claim that a new public Lean specialization has been compiled.",
+    "Petersen-specific six-AND strengthening should be guarded by the Petersen graph case; retain the previously reviewed generic bounds for other catalog graphs."
+  ]
+}

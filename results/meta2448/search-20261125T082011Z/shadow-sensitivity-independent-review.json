@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS independent source/polarity review",
+  "source": "/tmp/oec/pequalnp-pilot-62/meta2448/synthesize_v11.py",
+  "source_sha256": "9cfb4f3c59a390fde3331fed02058cd3979da6ffb65227c4643eae181430819b",
+  "comparison": "synthesize_v10.py -> synthesize_v11.py",
+  "finite_gate_and_polarity_cases": 32,
+  "reviewed_facts": [
+    "Original input and gate-prefix values are reused only before the replaced gate. Every later gate is replayed with the original selectors and operation, including reconvergent uses.",
+    "Target flags are defined from the original trace: target_here AND NOT seen_target, so exactly the earliest exact target is tested. target_before_flags[g] exempts replacements after that target.",
+    "Replacing AND by either operand can only increase values; negative_gain is required. Replacing OR by an operand can only decrease values; positive_loss is required. Gate operation true means AND, matching the clauses.",
+    "Replacing a gate by false requires loss of a required positive; replacement by true requires gain of a required negative.",
+    "Changed-value tests use graph edge rows and all maximal-independent-set rows, so absence of change on every separating row implies exact graph correctness for the monotone replacement.",
+    "CNF bool literal handling uses type checks/identity before integer negation. Later replay operands are fresh variables; constant replacements are used through selected-wire equality constraints.",
+    "Post-model replay independently recomputes all later gates up to first_target_gate and checks the corresponding signed loss/gain for every replacement."
+  ],
+  "scope": "Necessary cuts for globally minimum nonconstant exact graph circuits, using separately reviewed constant/alias simplification. They are not justified for a minimum restricted nonstar subclass; a preserving simplification may change ownership/profile. No SAT or Lean run was performed."
+}

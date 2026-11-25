@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS independent bounded-source and normalization review",
+  "source": "/tmp/oec/pequalnp-pilot-62/meta2448/repair_L584_two_edits.py",
+  "source_sha256": "58428bcba11609c16f652e7af2e8c7dc0363824131b09c08b244f60fce169d2b",
+  "primitive_checks": 430,
+  "assignments_per_normalization": 1024,
+  "findings": [
+    "All430gate deletions to earlier wires or Boolean constants preserve the intended replaced-circuit function after normalization, independently tested bit-parallel on all1024inputs.",
+    "Boolean constants are distinguished from integer wires by exact type tests; Boolean propagation removes constants from every emitted gate, and aliases are remapped before dead-gate pruning.",
+    "Each one-gate rewrite uses only distinct earlier wires, recomputes every later surviving gate including reconvergence, and preserves a backward binary monotone circuit of at most19gates.",
+    "All15positive edges and15maximal independent sets are screened; any candidate is then independently reevaluated on all1024inputs before writing a witness.",
+    "Normalization intentionally removes gates before choosing the second edit; skipped constant/input-output bases and already-pruned gates are outside this restricted neighborhood. No exhaustion claim implies a global circuit lower bound.",
+    "The process sets a512MiB address-space limit. Every256rewrite checks it tests the120second monotonic deadline and6.5GiB shared cgroup threshold, then breaks allnestedloops. Reports retain all430deletion cases, deduplicatedbases and per-base tested counts.",
+    "No solver or neighborhood search was executed by this review; only the430normalization primitive checks were run."
+  ]
+}

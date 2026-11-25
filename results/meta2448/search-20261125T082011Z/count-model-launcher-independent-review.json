@@ -1,0 +1,14 @@
+{
+  "review": "PASS allowlist-only guardianv14 and detached-launcherv3 changes",
+  "sources": [
+    {
+      "name": "guard_synthesis_v14.py",
+      "sha256": "457a8723d093aef4cf1cfff780a415aaeb0f4369e37766688192203ffcf7fb21"
+    },
+    {
+      "name": "launch_detached_guard_v3.py",
+      "sha256": "a3f9a2641c3989194e6dd6567c7dac76e96862a27bd20318254e750c3c4db319"
+    }
+  ],
+  "scope": "Only exposes separately reviewed synthesize_v12. Memory limits, signals, process identity, session/log creation and metadata semantics unchanged. Model mathematical/source reviews are separately recorded by proof_routes."
+}

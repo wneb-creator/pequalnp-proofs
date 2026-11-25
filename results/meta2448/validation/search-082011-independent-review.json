@@ -1,0 +1,48 @@
+{
+  "review": "PASS completed082011 research archive, independently audited hashes/compression/scope",
+  "hash_audit": {
+    "status": "PASS",
+    "reviewer": "/root/lean_setup",
+    "archive": "results/meta2448/search-20261125T082011Z",
+    "sha256sums_entries_verified": 69,
+    "original_records_verified": 67,
+    "uncompressed_records": 64,
+    "gzip_records_verified": 3,
+    "stored_bytes": 8330518,
+    "original_record_bytes": 37689749,
+    "sha256sums_sha256": "e7a52564f49b7a723082225e4f7c41db53e484901fe090ceeddec6359daeabed",
+    "original_files_sha256": "dee75b80f8f176df94abdbc839d749d6081ad5664243cd289039cbc524e9bf7e",
+    "compressed_files": [
+      {
+        "stored_name": "p4-nonstar5-sensitive-v12-control.cnf.gz",
+        "original_name": "p4-nonstar5-sensitive-v12-control.cnf",
+        "archive_bytes": 31715,
+        "original_bytes": 128965,
+        "original_sha256": "1ad6081c2c6a0d5a1977844df7d6920ad8bcd6bdcc5fa89fd4d29e2ae5adf6a9",
+        "dimacs_header": "p cnf 1416 8944"
+      },
+      {
+        "stored_name": "c5-any8-padded-sensitive-v12-control.cnf.gz",
+        "original_name": "c5-any8-padded-sensitive-v12-control.cnf",
+        "archive_bytes": 167332,
+        "original_bytes": 756245,
+        "original_sha256": "173f248ef63c34f76edbf539d577637ebbd835c114128b38b113f457a40188c2",
+        "dimacs_header": "p cnf 5074 47809"
+      },
+      {
+        "stored_name": "petersen-star20-sensitive-v12-control.cnf.gz",
+        "original_name": "petersen-star20-sensitive-v12-control.cnf",
+        "archive_bytes": 6721029,
+        "original_bytes": 35435686,
+        "original_sha256": "d4a57675b48e1c9667a858648947f892d945067c11b96fc47223e4852b478050",
+        "dimacs_header": "p cnf 83747 1868984"
+      }
+    ],
+    "files_unchanged": true,
+    "scope": "Hash and compression correspondence only. Every gzip stream consumed through EOF with matching full decompressed SHA256 and byte count. DIMACS headers inspected; clauses not reparsed. No solver or Lean run."
+  },
+  "controls": "All3 SAT witness hashes match prior independent complete input/ownership/prefix/substitution replay; exact row witness lists and first-prefix counts checked.",
+  "single_deletion": "430\u00d71024 scalar replay by lean_setup independently matched every result; no successful local deletion.",
+  "two_edit": "All387 normalized-base loop cardinalities independently total2078136 rewires, matching exhausted output. Source normalization reviewed separately; scope explicitly excludes repairs to previously pruned gates.",
+  "scope": "Computational/source controls only. No new lower bound or full target proof/refutation. Live Petersen19 output excluded."
+}

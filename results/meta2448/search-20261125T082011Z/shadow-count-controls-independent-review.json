@@ -1,0 +1,35 @@
+{
+  "review": "PASS independent actual v12 shadow-sensitivity controls",
+  "method": "Full circuit truth table and cones/ownership reconstructed. Each gate before/at first target replaced by each operand/false/true and every later gate reevaluated. All saved row-witness lists and prefix AND/OR counts match independent computation.",
+  "controls": [
+    {
+      "stem": "p4-nonstar5-sensitive-v12-control",
+      "sha256": "25a0a5d0dad00efd0f53a59eab81b1fc53c127ca9f4c9f73b85a371cbec3b6f2",
+      "assignments": 16,
+      "slots": 5,
+      "effective_prefix": 5,
+      "sensitivity_cases": 20,
+      "and_count": 2,
+      "or_count": 3,
+      "and_bound": 2,
+      "or_bound": 2,
+      "prefix_star": false,
+      "guard_completed_empty": true
+    },
+    {
+      "stem": "c5-any8-padded-sensitive-v12-control",
+      "sha256": "cedb954a8f53927663621e36ef9f9a580e4301efbd641df8241fd28c932db003",
+      "assignments": 32,
+      "slots": 8,
+      "effective_prefix": 7,
+      "sensitivity_cases": 28,
+      "and_count": 3,
+      "or_count": 4,
+      "and_bound": 3,
+      "or_bound": 3,
+      "prefix_star": true,
+      "guard_completed_empty": true
+    }
+  ],
+  "scope": "Finite SAT positive controls only; no new lower-bound theorem, minimum-circuit proof or full held-gap result."
+}

@@ -1,0 +1,3451 @@
+{
+  "source_sha256": "1efdd76094c1a00702d6a5730970e77f6d7d6e7fe2b94311bad20529f0ce9625",
+  "checked_assignments_per_replacement": 1024,
+  "replacement_count": 430,
+  "successful_deletions": 0,
+  "elapsed_seconds": 0.0014164589993015397,
+  "records": [
+    {
+      "gate": 0,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 37,
+      "lost_true": 29,
+      "gained_false": 8
+    },
+    {
+      "gate": 0,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 54,
+      "lost_true": 49,
+      "gained_false": 5
+    },
+    {
+      "gate": 0,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 51,
+      "lost_true": 50,
+      "gained_false": 1
+    },
+    {
+      "gate": 0,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 41,
+      "lost_true": 35,
+      "gained_false": 6
+    },
+    {
+      "gate": 0,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 59,
+      "lost_true": 54,
+      "gained_false": 5
+    },
+    {
+      "gate": 0,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 19,
+      "lost_true": 19,
+      "gained_false": 0
+    },
+    {
+      "gate": 0,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 37,
+      "lost_true": 29,
+      "gained_false": 8
+    },
+    {
+      "gate": 0,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 39,
+      "lost_true": 21,
+      "gained_false": 18
+    },
+    {
+      "gate": 0,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 59,
+      "lost_true": 54,
+      "gained_false": 5
+    },
+    {
+      "gate": 0,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 19,
+      "lost_true": 19,
+      "gained_false": 0
+    },
+    {
+      "gate": 0,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 57,
+      "lost_true": 57,
+      "gained_false": 0
+    },
+    {
+      "gate": 0,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 21,
+      "lost_true": 0,
+      "gained_false": 21
+    },
+    {
+      "gate": 1,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 19,
+      "lost_true": 19,
+      "gained_false": 0
+    },
+    {
+      "gate": 1,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 59,
+      "lost_true": 54,
+      "gained_false": 5
+    },
+    {
+      "gate": 1,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 41,
+      "lost_true": 35,
+      "gained_false": 6
+    },
+    {
+      "gate": 1,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 51,
+      "lost_true": 50,
+      "gained_false": 1
+    },
+    {
+      "gate": 1,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 39,
+      "lost_true": 21,
+      "gained_false": 18
+    },
+    {
+      "gate": 1,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 37,
+      "lost_true": 29,
+      "gained_false": 8
+    },
+    {
+      "gate": 1,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 37,
+      "lost_true": 29,
+      "gained_false": 8
+    },
+    {
+      "gate": 1,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 59,
+      "lost_true": 54,
+      "gained_false": 5
+    },
+    {
+      "gate": 1,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 54,
+      "lost_true": 49,
+      "gained_false": 5
+    },
+    {
+      "gate": 1,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 19,
+      "lost_true": 19,
+      "gained_false": 0
+    },
+    {
+      "gate": 1,
+      "kind": "wire",
+      "replacement": 10,
+      "wrong_assignments": 17,
+      "lost_true": 9,
+      "gained_false": 8
+    },
+    {
+      "gate": 1,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 57,
+      "lost_true": 57,
+      "gained_false": 0
+    },
+    {
+      "gate": 1,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 21,
+      "lost_true": 0,
+      "gained_false": 21
+    },
+    {
+      "gate": 2,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 19,
+      "lost_true": 19,
+      "gained_false": 0
+    },
+    {
+      "gate": 2,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 39,
+      "lost_true": 21,
+      "gained_false": 18
+    },
+    {
+      "gate": 2,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 51,
+      "lost_true": 50,
+      "gained_false": 1
+    },
+    {
+      "gate": 2,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 41,
+      "lost_true": 35,
+      "gained_false": 6
+    },
+    {
+      "gate": 2,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 59,
+      "lost_true": 54,
+      "gained_false": 5
+    },
+    {
+      "gate": 2,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 37,
+      "lost_true": 29,
+      "gained_false": 8
+    },
+    {
+      "gate": 2,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 19,
+      "lost_true": 19,
+      "gained_false": 0
+    },
+    {
+      "gate": 2,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 54,
+      "lost_true": 49,
+      "gained_false": 5
+    },
+    {
+      "gate": 2,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 59,
+      "lost_true": 54,
+      "gained_false": 5
+    },
+    {
+      "gate": 2,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 37,
+      "lost_true": 29,
+      "gained_false": 8
+    },
+    {
+      "gate": 2,
+      "kind": "wire",
+      "replacement": 10,
+      "wrong_assignments": 27,
+      "lost_true": 16,
+      "gained_false": 11
+    },
+    {
+      "gate": 2,
+      "kind": "wire",
+      "replacement": 11,
+      "wrong_assignments": 17,
+      "lost_true": 9,
+      "gained_false": 8
+    },
+    {
+      "gate": 2,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 57,
+      "lost_true": 57,
+      "gained_false": 0
+    },
+    {
+      "gate": 2,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 21,
+      "lost_true": 0,
+      "gained_false": 21
+    },
+    {
+      "gate": 3,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 19,
+      "lost_true": 14,
+      "gained_false": 5
+    },
+    {
+      "gate": 3,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 22,
+      "lost_true": 22,
+      "gained_false": 0
+    },
+    {
+      "gate": 3,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 18,
+      "lost_true": 0,
+      "gained_false": 18
+    },
+    {
+      "gate": 3,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 9,
+      "lost_true": 9,
+      "gained_false": 0
+    },
+    {
+      "gate": 3,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 24,
+      "lost_true": 19,
+      "gained_false": 5
+    },
+    {
+      "gate": 3,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 24,
+      "lost_true": 19,
+      "gained_false": 5
+    },
+    {
+      "gate": 3,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 19,
+      "lost_true": 14,
+      "gained_false": 5
+    },
+    {
+      "gate": 3,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 9,
+      "lost_true": 9,
+      "gained_false": 0
+    },
+    {
+      "gate": 3,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 24,
+      "lost_true": 19,
+      "gained_false": 5
+    },
+    {
+      "gate": 3,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 24,
+      "lost_true": 19,
+      "gained_false": 5
+    },
+    {
+      "gate": 3,
+      "kind": "wire",
+      "replacement": 10,
+      "wrong_assignments": 26,
+      "lost_true": 17,
+      "gained_false": 9
+    },
+    {
+      "gate": 3,
+      "kind": "wire",
+      "replacement": 11,
+      "wrong_assignments": 20,
+      "lost_true": 12,
+      "gained_false": 8
+    },
+    {
+      "gate": 3,
+      "kind": "wire",
+      "replacement": 12,
+      "wrong_assignments": 18,
+      "lost_true": 9,
+      "gained_false": 9
+    },
+    {
+      "gate": 3,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 22,
+      "lost_true": 22,
+      "gained_false": 0
+    },
+    {
+      "gate": 3,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 18,
+      "lost_true": 0,
+      "gained_false": 18
+    },
+    {
+      "gate": 4,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 17,
+      "lost_true": 9,
+      "gained_false": 8
+    },
+    {
+      "gate": 4,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 18,
+      "lost_true": 0,
+      "gained_false": 18
+    },
+    {
+      "gate": 4,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 22,
+      "lost_true": 22,
+      "gained_false": 0
+    },
+    {
+      "gate": 4,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 32,
+      "lost_true": 14,
+      "gained_false": 18
+    },
+    {
+      "gate": 4,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 27,
+      "lost_true": 19,
+      "gained_false": 8
+    },
+    {
+      "gate": 4,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 27,
+      "lost_true": 19,
+      "gained_false": 8
+    },
+    {
+      "gate": 4,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 17,
+      "lost_true": 9,
+      "gained_false": 8
+    },
+    {
+      "gate": 4,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 32,
+      "lost_true": 14,
+      "gained_false": 18
+    },
+    {
+      "gate": 4,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 27,
+      "lost_true": 19,
+      "gained_false": 8
+    },
+    {
+      "gate": 4,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 27,
+      "lost_true": 19,
+      "gained_false": 8
+    },
+    {
+      "gate": 4,
+      "kind": "wire",
+      "replacement": 10,
+      "wrong_assignments": 29,
+      "lost_true": 16,
+      "gained_false": 13
+    },
+    {
+      "gate": 4,
+      "kind": "wire",
+      "replacement": 11,
+      "wrong_assignments": 24,
+      "lost_true": 9,
+      "gained_false": 15
+    },
+    {
+      "gate": 4,
+      "kind": "wire",
+      "replacement": 12,
+      "wrong_assignments": 13,
+      "lost_true": 0,
+      "gained_false": 13
+    },
+    {
+      "gate": 4,
+      "kind": "wire",
+      "replacement": 13,
+      "wrong_assignments": 40,
+      "lost_true": 9,
+      "gained_false": 31
+    },
+    {
+      "gate": 4,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 22,
+      "lost_true": 22,
+      "gained_false": 0
+    },
+    {
+      "gate": 4,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 40,
+      "lost_true": 0,
+      "gained_false": 40
+    },
+    {
+      "gate": 5,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 37,
+      "lost_true": 29,
+      "gained_false": 8
+    },
+    {
+      "gate": 5,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 59,
+      "lost_true": 54,
+      "gained_false": 5
+    },
+    {
+      "gate": 5,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 41,
+      "lost_true": 35,
+      "gained_false": 6
+    },
+    {
+      "gate": 5,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 51,
+      "lost_true": 50,
+      "gained_false": 1
+    },
+    {
+      "gate": 5,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 54,
+      "lost_true": 49,
+      "gained_false": 5
+    },
+    {
+      "gate": 5,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 19,
+      "lost_true": 19,
+      "gained_false": 0
+    },
+    {
+      "gate": 5,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 19,
+      "lost_true": 19,
+      "gained_false": 0
+    },
+    {
+      "gate": 5,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 59,
+      "lost_true": 54,
+      "gained_false": 5
+    },
+    {
+      "gate": 5,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 39,
+      "lost_true": 21,
+      "gained_false": 18
+    },
+    {
+      "gate": 5,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 37,
+      "lost_true": 29,
+      "gained_false": 8
+    },
+    {
+      "gate": 5,
+      "kind": "wire",
+      "replacement": 10,
+      "wrong_assignments": 17,
+      "lost_true": 9,
+      "gained_false": 8
+    },
+    {
+      "gate": 5,
+      "kind": "wire",
+      "replacement": 11,
+      "wrong_assignments": 27,
+      "lost_true": 16,
+      "gained_false": 11
+    },
+    {
+      "gate": 5,
+      "kind": "wire",
+      "replacement": 12,
+      "wrong_assignments": 17,
+      "lost_true": 9,
+      "gained_false": 8
+    },
+    {
+      "gate": 5,
+      "kind": "wire",
+      "replacement": 13,
+      "wrong_assignments": 53,
+      "lost_true": 47,
+      "gained_false": 6
+    },
+    {
+      "gate": 5,
+      "kind": "wire",
+      "replacement": 14,
+      "wrong_assignments": 57,
+      "lost_true": 57,
+      "gained_false": 0
+    },
+    {
+      "gate": 5,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 57,
+      "lost_true": 57,
+      "gained_false": 0
+    },
+    {
+      "gate": 5,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 21,
+      "lost_true": 0,
+      "gained_false": 21
+    },
+    {
+      "gate": 6,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 22,
+      "lost_true": 22,
+      "gained_false": 0
+    },
+    {
+      "gate": 6,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 37,
+      "lost_true": 32,
+      "gained_false": 5
+    },
+    {
+      "gate": 6,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 37,
+      "lost_true": 32,
+      "gained_false": 5
+    },
+    {
+      "gate": 6,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 22,
+      "lost_true": 22,
+      "gained_false": 0
+    },
+    {
+      "gate": 6,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 18,
+      "lost_true": 0,
+      "gained_false": 18
+    },
+    {
+      "gate": 6,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 37,
+      "lost_true": 32,
+      "gained_false": 5
+    },
+    {
+      "gate": 6,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 37,
+      "lost_true": 32,
+      "gained_false": 5
+    },
+    {
+      "gate": 6,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 37,
+      "lost_true": 32,
+      "gained_false": 5
+    },
+    {
+      "gate": 6,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 37,
+      "lost_true": 32,
+      "gained_false": 5
+    },
+    {
+      "gate": 6,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 22,
+      "lost_true": 22,
+      "gained_false": 0
+    },
+    {
+      "gate": 6,
+      "kind": "wire",
+      "replacement": 10,
+      "wrong_assignments": 24,
+      "lost_true": 19,
+      "gained_false": 5
+    },
+    {
+      "gate": 6,
+      "kind": "wire",
+      "replacement": 11,
+      "wrong_assignments": 9,
+      "lost_true": 9,
+      "gained_false": 0
+    },
+    {
+      "gate": 6,
+      "kind": "wire",
+      "replacement": 12,
+      "wrong_assignments": 24,
+      "lost_true": 19,
+      "gained_false": 5
+    },
+    {
+      "gate": 6,
+      "kind": "wire",
+      "replacement": 13,
+      "wrong_assignments": 24,
+      "lost_true": 19,
+      "gained_false": 5
+    },
+    {
+      "gate": 6,
+      "kind": "wire",
+      "replacement": 14,
+      "wrong_assignments": 40,
+      "lost_true": 40,
+      "gained_false": 0
+    },
+    {
+      "gate": 6,
+      "kind": "wire",
+      "replacement": 15,
+      "wrong_assignments": 33,
+      "lost_true": 25,
+      "gained_false": 8
+    },
+    {
+      "gate": 6,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 40,
+      "lost_true": 40,
+      "gained_false": 0
+    },
+    {
+      "gate": 6,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 18,
+      "lost_true": 0,
+      "gained_false": 18
+    },
+    {
+      "gate": 7,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 55,
+      "lost_true": 50,
+      "gained_false": 5
+    },
+    {
+      "gate": 7,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 22,
+      "lost_true": 22,
+      "gained_false": 0
+    },
+    {
+      "gate": 7,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 40,
+      "lost_true": 22,
+      "gained_false": 18
+    },
+    {
+      "gate": 7,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 50,
+      "lost_true": 50,
+      "gained_false": 0
+    },
+    {
+      "gate": 7,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 75,
+      "lost_true": 70,
+      "gained_false": 5
+    },
+    {
+      "gate": 7,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 75,
+      "lost_true": 70,
+      "gained_false": 5
+    },
+    {
+      "gate": 7,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 55,
+      "lost_true": 50,
+      "gained_false": 5
+    },
+    {
+      "gate": 7,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 50,
+      "lost_true": 50,
+      "gained_false": 0
+    },
+    {
+      "gate": 7,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 75,
+      "lost_true": 70,
+      "gained_false": 5
+    },
+    {
+      "gate": 7,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 75,
+      "lost_true": 70,
+      "gained_false": 5
+    },
+    {
+      "gate": 7,
+      "kind": "wire",
+      "replacement": 10,
+      "wrong_assignments": 68,
+      "lost_true": 59,
+      "gained_false": 9
+    },
+    {
+      "gate": 7,
+      "kind": "wire",
+      "replacement": 11,
+      "wrong_assignments": 51,
+      "lost_true": 43,
+      "gained_false": 8
+    },
+    {
+      "gate": 7,
+      "kind": "wire",
+      "replacement": 12,
+      "wrong_assignments": 36,
+      "lost_true": 27,
+      "gained_false": 9
+    },
+    {
+      "gate": 7,
+      "kind": "wire",
+      "replacement": 13,
+      "wrong_assignments": 27,
+      "lost_true": 27,
+      "gained_false": 0
+    },
+    {
+      "gate": 7,
+      "kind": "wire",
+      "replacement": 14,
+      "wrong_assignments": 40,
+      "lost_true": 40,
+      "gained_false": 0
+    },
+    {
+      "gate": 7,
+      "kind": "wire",
+      "replacement": 15,
+      "wrong_assignments": 51,
+      "lost_true": 43,
+      "gained_false": 8
+    },
+    {
+      "gate": 7,
+      "kind": "wire",
+      "replacement": 16,
+      "wrong_assignments": 36,
+      "lost_true": 28,
+      "gained_false": 8
+    },
+    {
+      "gate": 7,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 84,
+      "lost_true": 84,
+      "gained_false": 0
+    },
+    {
+      "gate": 7,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 18,
+      "lost_true": 0,
+      "gained_false": 18
+    },
+    {
+      "gate": 8,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 58,
+      "lost_true": 50,
+      "gained_false": 8
+    },
+    {
+      "gate": 8,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 40,
+      "lost_true": 22,
+      "gained_false": 18
+    },
+    {
+      "gate": 8,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 22,
+      "lost_true": 22,
+      "gained_false": 0
+    },
+    {
+      "gate": 8,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 68,
+      "lost_true": 50,
+      "gained_false": 18
+    },
+    {
+      "gate": 8,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 78,
+      "lost_true": 70,
+      "gained_false": 8
+    },
+    {
+      "gate": 8,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 78,
+      "lost_true": 70,
+      "gained_false": 8
+    },
+    {
+      "gate": 8,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 58,
+      "lost_true": 50,
+      "gained_false": 8
+    },
+    {
+      "gate": 8,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 68,
+      "lost_true": 50,
+      "gained_false": 18
+    },
+    {
+      "gate": 8,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 78,
+      "lost_true": 70,
+      "gained_false": 8
+    },
+    {
+      "gate": 8,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 78,
+      "lost_true": 70,
+      "gained_false": 8
+    },
+    {
+      "gate": 8,
+      "kind": "wire",
+      "replacement": 10,
+      "wrong_assignments": 72,
+      "lost_true": 59,
+      "gained_false": 13
+    },
+    {
+      "gate": 8,
+      "kind": "wire",
+      "replacement": 11,
+      "wrong_assignments": 58,
+      "lost_true": 43,
+      "gained_false": 15
+    },
+    {
+      "gate": 8,
+      "kind": "wire",
+      "replacement": 12,
+      "wrong_assignments": 40,
+      "lost_true": 27,
+      "gained_false": 13
+    },
+    {
+      "gate": 8,
+      "kind": "wire",
+      "replacement": 13,
+      "wrong_assignments": 58,
+      "lost_true": 27,
+      "gained_false": 31
+    },
+    {
+      "gate": 8,
+      "kind": "wire",
+      "replacement": 14,
+      "wrong_assignments": 40,
+      "lost_true": 40,
+      "gained_false": 0
+    },
+    {
+      "gate": 8,
+      "kind": "wire",
+      "replacement": 15,
+      "wrong_assignments": 58,
+      "lost_true": 43,
+      "gained_false": 15
+    },
+    {
+      "gate": 8,
+      "kind": "wire",
+      "replacement": 16,
+      "wrong_assignments": 52,
+      "lost_true": 28,
+      "gained_false": 24
+    },
+    {
+      "gate": 8,
+      "kind": "wire",
+      "replacement": 17,
+      "wrong_assignments": 40,
+      "lost_true": 0,
+      "gained_false": 40
+    },
+    {
+      "gate": 8,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 84,
+      "lost_true": 84,
+      "gained_false": 0
+    },
+    {
+      "gate": 8,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 40,
+      "lost_true": 0,
+      "gained_false": 40
+    },
+    {
+      "gate": 9,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 11,
+      "lost_true": 6,
+      "gained_false": 5
+    },
+    {
+      "gate": 9,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 26,
+      "lost_true": 21,
+      "gained_false": 5
+    },
+    {
+      "gate": 9,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 19,
+      "lost_true": 14,
+      "gained_false": 5
+    },
+    {
+      "gate": 9,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 19,
+      "lost_true": 14,
+      "gained_false": 5
+    },
+    {
+      "gate": 9,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 21,
+      "lost_true": 21,
+      "gained_false": 0
+    },
+    {
+      "gate": 9,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 11,
+      "lost_true": 6,
+      "gained_false": 5
+    },
+    {
+      "gate": 9,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 6,
+      "lost_true": 6,
+      "gained_false": 0
+    },
+    {
+      "gate": 9,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 21,
+      "lost_true": 21,
+      "gained_false": 0
+    },
+    {
+      "gate": 9,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 26,
+      "lost_true": 21,
+      "gained_false": 5
+    },
+    {
+      "gate": 9,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 24,
+      "lost_true": 6,
+      "gained_false": 18
+    },
+    {
+      "gate": 9,
+      "kind": "wire",
+      "replacement": 10,
+      "wrong_assignments": 18,
+      "lost_true": 0,
+      "gained_false": 18
+    },
+    {
+      "gate": 9,
+      "kind": "wire",
+      "replacement": 11,
+      "wrong_assignments": 18,
+      "lost_true": 0,
+      "gained_false": 18
+    },
+    {
+      "gate": 9,
+      "kind": "wire",
+      "replacement": 12,
+      "wrong_assignments": 5,
+      "lost_true": 0,
+      "gained_false": 5
+    },
+    {
+      "gate": 9,
+      "kind": "wire",
+      "replacement": 13,
+      "wrong_assignments": 19,
+      "lost_true": 14,
+      "gained_false": 5
+    },
+    {
+      "gate": 9,
+      "kind": "wire",
+      "replacement": 14,
+      "wrong_assignments": 21,
+      "lost_true": 21,
+      "gained_false": 0
+    },
+    {
+      "gate": 9,
+      "kind": "wire",
+      "replacement": 15,
+      "wrong_assignments": 5,
+      "lost_true": 0,
+      "gained_false": 5
+    },
+    {
+      "gate": 9,
+      "kind": "wire",
+      "replacement": 16,
+      "wrong_assignments": 18,
+      "lost_true": 0,
+      "gained_false": 18
+    },
+    {
+      "gate": 9,
+      "kind": "wire",
+      "replacement": 17,
+      "wrong_assignments": 22,
+      "lost_true": 14,
+      "gained_false": 8
+    },
+    {
+      "gate": 9,
+      "kind": "wire",
+      "replacement": 18,
+      "wrong_assignments": 19,
+      "lost_true": 14,
+      "gained_false": 5
+    },
+    {
+      "gate": 9,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 21,
+      "lost_true": 21,
+      "gained_false": 0
+    },
+    {
+      "gate": 9,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 18,
+      "lost_true": 0,
+      "gained_false": 18
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 40,
+      "lost_true": 22,
+      "gained_false": 18
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 50,
+      "lost_true": 32,
+      "gained_false": 18
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 50,
+      "lost_true": 32,
+      "gained_false": 18
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 40,
+      "lost_true": 22,
+      "gained_false": 18
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 18,
+      "lost_true": 0,
+      "gained_false": 18
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 50,
+      "lost_true": 32,
+      "gained_false": 18
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 50,
+      "lost_true": 32,
+      "gained_false": 18
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 50,
+      "lost_true": 32,
+      "gained_false": 18
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 50,
+      "lost_true": 32,
+      "gained_false": 18
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 40,
+      "lost_true": 22,
+      "gained_false": 18
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 10,
+      "wrong_assignments": 50,
+      "lost_true": 19,
+      "gained_false": 31
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 11,
+      "wrong_assignments": 40,
+      "lost_true": 9,
+      "gained_false": 31
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 12,
+      "wrong_assignments": 50,
+      "lost_true": 19,
+      "gained_false": 31
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 13,
+      "wrong_assignments": 50,
+      "lost_true": 19,
+      "gained_false": 31
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 14,
+      "wrong_assignments": 40,
+      "lost_true": 40,
+      "gained_false": 0
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 15,
+      "wrong_assignments": 56,
+      "lost_true": 25,
+      "gained_false": 31
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 16,
+      "wrong_assignments": 40,
+      "lost_true": 0,
+      "gained_false": 40
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 17,
+      "wrong_assignments": 56,
+      "lost_true": 16,
+      "gained_false": 40
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 18,
+      "wrong_assignments": 50,
+      "lost_true": 32,
+      "gained_false": 18
+    },
+    {
+      "gate": 10,
+      "kind": "wire",
+      "replacement": 19,
+      "wrong_assignments": 50,
+      "lost_true": 32,
+      "gained_false": 18
+    },
+    {
+      "gate": 10,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 40,
+      "lost_true": 40,
+      "gained_false": 0
+    },
+    {
+      "gate": 10,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 76,
+      "lost_true": 0,
+      "gained_false": 76
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 11,
+      "lost_true": 6,
+      "gained_false": 5
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 29,
+      "lost_true": 21,
+      "gained_false": 8
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 23,
+      "lost_true": 14,
+      "gained_false": 9
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 22,
+      "lost_true": 14,
+      "gained_false": 8
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 26,
+      "lost_true": 21,
+      "gained_false": 5
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 24,
+      "lost_true": 6,
+      "gained_false": 18
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 11,
+      "lost_true": 6,
+      "gained_false": 5
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 21,
+      "lost_true": 21,
+      "gained_false": 0
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 26,
+      "lost_true": 21,
+      "gained_false": 5
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 24,
+      "lost_true": 6,
+      "gained_false": 18
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 10,
+      "wrong_assignments": 31,
+      "lost_true": 0,
+      "gained_false": 31
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 11,
+      "wrong_assignments": 18,
+      "lost_true": 0,
+      "gained_false": 18
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 12,
+      "wrong_assignments": 10,
+      "lost_true": 0,
+      "gained_false": 10
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 13,
+      "wrong_assignments": 22,
+      "lost_true": 14,
+      "gained_false": 8
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 14,
+      "wrong_assignments": 21,
+      "lost_true": 21,
+      "gained_false": 0
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 15,
+      "wrong_assignments": 18,
+      "lost_true": 0,
+      "gained_false": 18
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 16,
+      "wrong_assignments": 21,
+      "lost_true": 0,
+      "gained_false": 21
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 17,
+      "wrong_assignments": 27,
+      "lost_true": 14,
+      "gained_false": 13
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 18,
+      "wrong_assignments": 23,
+      "lost_true": 14,
+      "gained_false": 9
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 19,
+      "wrong_assignments": 5,
+      "lost_true": 0,
+      "gained_false": 5
+    },
+    {
+      "gate": 11,
+      "kind": "wire",
+      "replacement": 20,
+      "wrong_assignments": 21,
+      "lost_true": 21,
+      "gained_false": 0
+    },
+    {
+      "gate": 11,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 21,
+      "lost_true": 21,
+      "gained_false": 0
+    },
+    {
+      "gate": 11,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 31,
+      "lost_true": 0,
+      "gained_false": 31
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 34,
+      "lost_true": 29,
+      "gained_false": 5
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 57,
+      "lost_true": 49,
+      "gained_false": 8
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 59,
+      "lost_true": 50,
+      "gained_false": 9
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 43,
+      "lost_true": 35,
+      "gained_false": 8
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 59,
+      "lost_true": 54,
+      "gained_false": 5
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 37,
+      "lost_true": 19,
+      "gained_false": 18
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 34,
+      "lost_true": 29,
+      "gained_false": 5
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 21,
+      "lost_true": 21,
+      "gained_false": 0
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 59,
+      "lost_true": 54,
+      "gained_false": 5
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 37,
+      "lost_true": 19,
+      "gained_false": 18
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 10,
+      "wrong_assignments": 31,
+      "lost_true": 0,
+      "gained_false": 31
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 11,
+      "wrong_assignments": 27,
+      "lost_true": 9,
+      "gained_false": 18
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 12,
+      "wrong_assignments": 26,
+      "lost_true": 16,
+      "gained_false": 10
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 13,
+      "wrong_assignments": 22,
+      "lost_true": 14,
+      "gained_false": 8
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 14,
+      "wrong_assignments": 57,
+      "lost_true": 57,
+      "gained_false": 0
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 15,
+      "wrong_assignments": 27,
+      "lost_true": 9,
+      "gained_false": 18
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 16,
+      "wrong_assignments": 27,
+      "lost_true": 6,
+      "gained_false": 21
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 17,
+      "wrong_assignments": 27,
+      "lost_true": 14,
+      "gained_false": 13
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 18,
+      "wrong_assignments": 59,
+      "lost_true": 50,
+      "gained_false": 9
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 19,
+      "wrong_assignments": 24,
+      "lost_true": 19,
+      "gained_false": 5
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 20,
+      "wrong_assignments": 57,
+      "lost_true": 57,
+      "gained_false": 0
+    },
+    {
+      "gate": 12,
+      "kind": "wire",
+      "replacement": 21,
+      "wrong_assignments": 22,
+      "lost_true": 22,
+      "gained_false": 0
+    },
+    {
+      "gate": 12,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 57,
+      "lost_true": 57,
+      "gained_false": 0
+    },
+    {
+      "gate": 12,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 31,
+      "lost_true": 0,
+      "gained_false": 31
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 68,
+      "lost_true": 50,
+      "gained_false": 18
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 40,
+      "lost_true": 22,
+      "gained_false": 18
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 40,
+      "lost_true": 22,
+      "gained_false": 18
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 68,
+      "lost_true": 50,
+      "gained_false": 18
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 88,
+      "lost_true": 70,
+      "gained_false": 18
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 88,
+      "lost_true": 70,
+      "gained_false": 18
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 68,
+      "lost_true": 50,
+      "gained_false": 18
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 68,
+      "lost_true": 50,
+      "gained_false": 18
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 88,
+      "lost_true": 70,
+      "gained_false": 18
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 88,
+      "lost_true": 70,
+      "gained_false": 18
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 10,
+      "wrong_assignments": 90,
+      "lost_true": 59,
+      "gained_false": 31
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 11,
+      "wrong_assignments": 74,
+      "lost_true": 43,
+      "gained_false": 31
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 12,
+      "wrong_assignments": 58,
+      "lost_true": 27,
+      "gained_false": 31
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 13,
+      "wrong_assignments": 58,
+      "lost_true": 27,
+      "gained_false": 31
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 14,
+      "wrong_assignments": 40,
+      "lost_true": 40,
+      "gained_false": 0
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 15,
+      "wrong_assignments": 74,
+      "lost_true": 43,
+      "gained_false": 31
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 16,
+      "wrong_assignments": 68,
+      "lost_true": 28,
+      "gained_false": 40
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 17,
+      "wrong_assignments": 40,
+      "lost_true": 0,
+      "gained_false": 40
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 18,
+      "wrong_assignments": 18,
+      "lost_true": 0,
+      "gained_false": 18
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 19,
+      "wrong_assignments": 68,
+      "lost_true": 50,
+      "gained_false": 18
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 20,
+      "wrong_assignments": 84,
+      "lost_true": 84,
+      "gained_false": 0
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 21,
+      "wrong_assignments": 78,
+      "lost_true": 73,
+      "gained_false": 5
+    },
+    {
+      "gate": 13,
+      "kind": "wire",
+      "replacement": 22,
+      "wrong_assignments": 66,
+      "lost_true": 45,
+      "gained_false": 21
+    },
+    {
+      "gate": 13,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 84,
+      "lost_true": 84,
+      "gained_false": 0
+    },
+    {
+      "gate": 13,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 76,
+      "lost_true": 0,
+      "gained_false": 76
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 112,
+      "lost_true": 94,
+      "gained_false": 18
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 88,
+      "lost_true": 70,
+      "gained_false": 18
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 88,
+      "lost_true": 70,
+      "gained_false": 18
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 112,
+      "lost_true": 94,
+      "gained_false": 18
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 88,
+      "lost_true": 70,
+      "gained_false": 18
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 168,
+      "lost_true": 150,
+      "gained_false": 18
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 136,
+      "lost_true": 118,
+      "gained_false": 18
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 136,
+      "lost_true": 118,
+      "gained_false": 18
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 168,
+      "lost_true": 150,
+      "gained_false": 18
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 152,
+      "lost_true": 134,
+      "gained_false": 18
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 10,
+      "wrong_assignments": 146,
+      "lost_true": 115,
+      "gained_false": 31
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 11,
+      "wrong_assignments": 98,
+      "lost_true": 67,
+      "gained_false": 31
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 12,
+      "wrong_assignments": 90,
+      "lost_true": 59,
+      "gained_false": 31
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 13,
+      "wrong_assignments": 90,
+      "lost_true": 59,
+      "gained_false": 31
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 14,
+      "wrong_assignments": 104,
+      "lost_true": 104,
+      "gained_false": 0
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 15,
+      "wrong_assignments": 130,
+      "lost_true": 99,
+      "gained_false": 31
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 16,
+      "wrong_assignments": 68,
+      "lost_true": 28,
+      "gained_false": 40
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 17,
+      "wrong_assignments": 56,
+      "lost_true": 16,
+      "gained_false": 40
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 18,
+      "wrong_assignments": 50,
+      "lost_true": 32,
+      "gained_false": 18
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 19,
+      "wrong_assignments": 136,
+      "lost_true": 118,
+      "gained_false": 18
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 20,
+      "wrong_assignments": 84,
+      "lost_true": 84,
+      "gained_false": 0
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 21,
+      "wrong_assignments": 158,
+      "lost_true": 153,
+      "gained_false": 5
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 22,
+      "wrong_assignments": 126,
+      "lost_true": 105,
+      "gained_false": 21
+    },
+    {
+      "gate": 14,
+      "kind": "wire",
+      "replacement": 23,
+      "wrong_assignments": 40,
+      "lost_true": 40,
+      "gained_false": 0
+    },
+    {
+      "gate": 14,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 180,
+      "lost_true": 180,
+      "gained_false": 0
+    },
+    {
+      "gate": 14,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 76,
+      "lost_true": 0,
+      "gained_false": 76
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 37,
+      "lost_true": 32,
+      "gained_false": 5
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 37,
+      "lost_true": 32,
+      "gained_false": 5
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 37,
+      "lost_true": 32,
+      "gained_false": 5
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 22,
+      "lost_true": 22,
+      "gained_false": 0
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 37,
+      "lost_true": 32,
+      "gained_false": 5
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 22,
+      "lost_true": 22,
+      "gained_false": 0
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 22,
+      "lost_true": 22,
+      "gained_false": 0
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 37,
+      "lost_true": 32,
+      "gained_false": 5
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 18,
+      "lost_true": 0,
+      "gained_false": 18
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 37,
+      "lost_true": 32,
+      "gained_false": 5
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 10,
+      "wrong_assignments": 24,
+      "lost_true": 19,
+      "gained_false": 5
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 11,
+      "wrong_assignments": 33,
+      "lost_true": 25,
+      "gained_false": 8
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 12,
+      "wrong_assignments": 24,
+      "lost_true": 19,
+      "gained_false": 5
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 13,
+      "wrong_assignments": 24,
+      "lost_true": 19,
+      "gained_false": 5
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 14,
+      "wrong_assignments": 40,
+      "lost_true": 40,
+      "gained_false": 0
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 15,
+      "wrong_assignments": 9,
+      "lost_true": 9,
+      "gained_false": 0
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 16,
+      "wrong_assignments": 24,
+      "lost_true": 16,
+      "gained_false": 8
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 17,
+      "wrong_assignments": 24,
+      "lost_true": 16,
+      "gained_false": 8
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 18,
+      "wrong_assignments": 37,
+      "lost_true": 32,
+      "gained_false": 5
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 19,
+      "wrong_assignments": 22,
+      "lost_true": 22,
+      "gained_false": 0
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 20,
+      "wrong_assignments": 40,
+      "lost_true": 40,
+      "gained_false": 0
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 21,
+      "wrong_assignments": 35,
+      "lost_true": 35,
+      "gained_false": 0
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 22,
+      "wrong_assignments": 34,
+      "lost_true": 29,
+      "gained_false": 5
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 23,
+      "wrong_assignments": 40,
+      "lost_true": 40,
+      "gained_false": 0
+    },
+    {
+      "gate": 15,
+      "kind": "wire",
+      "replacement": 24,
+      "wrong_assignments": 40,
+      "lost_true": 40,
+      "gained_false": 0
+    },
+    {
+      "gate": 15,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 40,
+      "lost_true": 40,
+      "gained_false": 0
+    },
+    {
+      "gate": 15,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 18,
+      "lost_true": 0,
+      "gained_false": 18
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 50,
+      "lost_true": 32,
+      "gained_false": 18
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 50,
+      "lost_true": 32,
+      "gained_false": 18
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 50,
+      "lost_true": 32,
+      "gained_false": 18
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 40,
+      "lost_true": 22,
+      "gained_false": 18
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 50,
+      "lost_true": 32,
+      "gained_false": 18
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 40,
+      "lost_true": 22,
+      "gained_false": 18
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 40,
+      "lost_true": 22,
+      "gained_false": 18
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 50,
+      "lost_true": 32,
+      "gained_false": 18
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 18,
+      "lost_true": 0,
+      "gained_false": 18
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 50,
+      "lost_true": 32,
+      "gained_false": 18
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 10,
+      "wrong_assignments": 50,
+      "lost_true": 19,
+      "gained_false": 31
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 11,
+      "wrong_assignments": 56,
+      "lost_true": 25,
+      "gained_false": 31
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 12,
+      "wrong_assignments": 50,
+      "lost_true": 19,
+      "gained_false": 31
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 13,
+      "wrong_assignments": 50,
+      "lost_true": 19,
+      "gained_false": 31
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 14,
+      "wrong_assignments": 40,
+      "lost_true": 40,
+      "gained_false": 0
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 15,
+      "wrong_assignments": 40,
+      "lost_true": 9,
+      "gained_false": 31
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 16,
+      "wrong_assignments": 56,
+      "lost_true": 16,
+      "gained_false": 40
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 17,
+      "wrong_assignments": 56,
+      "lost_true": 16,
+      "gained_false": 40
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 18,
+      "wrong_assignments": 50,
+      "lost_true": 32,
+      "gained_false": 18
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 19,
+      "wrong_assignments": 40,
+      "lost_true": 22,
+      "gained_false": 18
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 20,
+      "wrong_assignments": 40,
+      "lost_true": 40,
+      "gained_false": 0
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 21,
+      "wrong_assignments": 40,
+      "lost_true": 35,
+      "gained_false": 5
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 22,
+      "wrong_assignments": 50,
+      "lost_true": 29,
+      "gained_false": 21
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 23,
+      "wrong_assignments": 40,
+      "lost_true": 40,
+      "gained_false": 0
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 24,
+      "wrong_assignments": 40,
+      "lost_true": 40,
+      "gained_false": 0
+    },
+    {
+      "gate": 16,
+      "kind": "wire",
+      "replacement": 25,
+      "wrong_assignments": 40,
+      "lost_true": 0,
+      "gained_false": 40
+    },
+    {
+      "gate": 16,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 40,
+      "lost_true": 40,
+      "gained_false": 0
+    },
+    {
+      "gate": 16,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 76,
+      "lost_true": 0,
+      "gained_false": 76
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 47,
+      "lost_true": 29,
+      "gained_false": 18
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 67,
+      "lost_true": 49,
+      "gained_false": 18
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 68,
+      "lost_true": 50,
+      "gained_false": 18
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 53,
+      "lost_true": 35,
+      "gained_false": 18
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 72,
+      "lost_true": 54,
+      "gained_false": 18
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 37,
+      "lost_true": 19,
+      "gained_false": 18
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 47,
+      "lost_true": 29,
+      "gained_false": 18
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 39,
+      "lost_true": 21,
+      "gained_false": 18
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 72,
+      "lost_true": 54,
+      "gained_false": 18
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 37,
+      "lost_true": 19,
+      "gained_false": 18
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 10,
+      "wrong_assignments": 31,
+      "lost_true": 0,
+      "gained_false": 31
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 11,
+      "wrong_assignments": 40,
+      "lost_true": 9,
+      "gained_false": 31
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 12,
+      "wrong_assignments": 47,
+      "lost_true": 16,
+      "gained_false": 31
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 13,
+      "wrong_assignments": 45,
+      "lost_true": 14,
+      "gained_false": 31
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 14,
+      "wrong_assignments": 57,
+      "lost_true": 57,
+      "gained_false": 0
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 15,
+      "wrong_assignments": 40,
+      "lost_true": 9,
+      "gained_false": 31
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 16,
+      "wrong_assignments": 46,
+      "lost_true": 6,
+      "gained_false": 40
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 17,
+      "wrong_assignments": 54,
+      "lost_true": 14,
+      "gained_false": 40
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 18,
+      "wrong_assignments": 68,
+      "lost_true": 50,
+      "gained_false": 18
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 19,
+      "wrong_assignments": 37,
+      "lost_true": 19,
+      "gained_false": 18
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 20,
+      "wrong_assignments": 57,
+      "lost_true": 57,
+      "gained_false": 0
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 21,
+      "wrong_assignments": 27,
+      "lost_true": 22,
+      "gained_false": 5
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 22,
+      "wrong_assignments": 21,
+      "lost_true": 0,
+      "gained_false": 21
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 23,
+      "wrong_assignments": 57,
+      "lost_true": 57,
+      "gained_false": 0
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 24,
+      "wrong_assignments": 57,
+      "lost_true": 57,
+      "gained_false": 0
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 25,
+      "wrong_assignments": 46,
+      "lost_true": 6,
+      "gained_false": 40
+    },
+    {
+      "gate": 17,
+      "kind": "wire",
+      "replacement": 26,
+      "wrong_assignments": 57,
+      "lost_true": 57,
+      "gained_false": 0
+    },
+    {
+      "gate": 17,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 57,
+      "lost_true": 57,
+      "gained_false": 0
+    },
+    {
+      "gate": 17,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 76,
+      "lost_true": 0,
+      "gained_false": 76
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 104,
+      "lost_true": 86,
+      "gained_false": 18
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 144,
+      "lost_true": 126,
+      "gained_false": 18
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 144,
+      "lost_true": 126,
+      "gained_false": 18
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 104,
+      "lost_true": 86,
+      "gained_false": 18
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 152,
+      "lost_true": 134,
+      "gained_false": 18
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 72,
+      "lost_true": 54,
+      "gained_false": 18
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 92,
+      "lost_true": 74,
+      "gained_false": 18
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 92,
+      "lost_true": 74,
+      "gained_false": 18
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 72,
+      "lost_true": 54,
+      "gained_false": 18
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 88,
+      "lost_true": 70,
+      "gained_false": 18
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 10,
+      "wrong_assignments": 50,
+      "lost_true": 19,
+      "gained_false": 31
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 11,
+      "wrong_assignments": 74,
+      "lost_true": 43,
+      "gained_false": 31
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 12,
+      "wrong_assignments": 78,
+      "lost_true": 47,
+      "gained_false": 31
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 13,
+      "wrong_assignments": 78,
+      "lost_true": 47,
+      "gained_false": 31
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 14,
+      "wrong_assignments": 148,
+      "lost_true": 148,
+      "gained_false": 0
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 15,
+      "wrong_assignments": 52,
+      "lost_true": 21,
+      "gained_false": 31
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 16,
+      "wrong_assignments": 68,
+      "lost_true": 28,
+      "gained_false": 40
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 17,
+      "wrong_assignments": 84,
+      "lost_true": 44,
+      "gained_false": 40
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 18,
+      "wrong_assignments": 144,
+      "lost_true": 126,
+      "gained_false": 18
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 19,
+      "wrong_assignments": 72,
+      "lost_true": 54,
+      "gained_false": 18
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 20,
+      "wrong_assignments": 148,
+      "lost_true": 148,
+      "gained_false": 0
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 21,
+      "wrong_assignments": 78,
+      "lost_true": 73,
+      "gained_false": 5
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 22,
+      "wrong_assignments": 50,
+      "lost_true": 29,
+      "gained_false": 21
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 23,
+      "wrong_assignments": 148,
+      "lost_true": 148,
+      "gained_false": 0
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 24,
+      "wrong_assignments": 148,
+      "lost_true": 148,
+      "gained_false": 0
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 25,
+      "wrong_assignments": 46,
+      "lost_true": 6,
+      "gained_false": 40
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 26,
+      "wrong_assignments": 57,
+      "lost_true": 57,
+      "gained_false": 0
+    },
+    {
+      "gate": 18,
+      "kind": "wire",
+      "replacement": 27,
+      "wrong_assignments": 40,
+      "lost_true": 40,
+      "gained_false": 0
+    },
+    {
+      "gate": 18,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 148,
+      "lost_true": 148,
+      "gained_false": 0
+    },
+    {
+      "gate": 18,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 76,
+      "lost_true": 0,
+      "gained_false": 76
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 0,
+      "wrong_assignments": 472,
+      "lost_true": 454,
+      "gained_false": 18
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 1,
+      "wrong_assignments": 472,
+      "lost_true": 454,
+      "gained_false": 18
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 2,
+      "wrong_assignments": 472,
+      "lost_true": 454,
+      "gained_false": 18
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 3,
+      "wrong_assignments": 472,
+      "lost_true": 454,
+      "gained_false": 18
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 4,
+      "wrong_assignments": 472,
+      "lost_true": 454,
+      "gained_false": 18
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 5,
+      "wrong_assignments": 472,
+      "lost_true": 454,
+      "gained_false": 18
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 6,
+      "wrong_assignments": 472,
+      "lost_true": 454,
+      "gained_false": 18
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 7,
+      "wrong_assignments": 472,
+      "lost_true": 454,
+      "gained_false": 18
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 8,
+      "wrong_assignments": 472,
+      "lost_true": 454,
+      "gained_false": 18
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 9,
+      "wrong_assignments": 472,
+      "lost_true": 454,
+      "gained_false": 18
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 10,
+      "wrong_assignments": 242,
+      "lost_true": 211,
+      "gained_false": 31
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 11,
+      "wrong_assignments": 242,
+      "lost_true": 211,
+      "gained_false": 31
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 12,
+      "wrong_assignments": 242,
+      "lost_true": 211,
+      "gained_false": 31
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 13,
+      "wrong_assignments": 242,
+      "lost_true": 211,
+      "gained_false": 31
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 14,
+      "wrong_assignments": 564,
+      "lost_true": 564,
+      "gained_false": 0
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 15,
+      "wrong_assignments": 242,
+      "lost_true": 211,
+      "gained_false": 31
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 16,
+      "wrong_assignments": 132,
+      "lost_true": 92,
+      "gained_false": 40
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 17,
+      "wrong_assignments": 132,
+      "lost_true": 92,
+      "gained_false": 40
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 18,
+      "wrong_assignments": 280,
+      "lost_true": 262,
+      "gained_false": 18
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 19,
+      "wrong_assignments": 344,
+      "lost_true": 326,
+      "gained_false": 18
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 20,
+      "wrong_assignments": 500,
+      "lost_true": 500,
+      "gained_false": 0
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 21,
+      "wrong_assignments": 446,
+      "lost_true": 441,
+      "gained_false": 5
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 22,
+      "wrong_assignments": 222,
+      "lost_true": 201,
+      "gained_false": 21
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 23,
+      "wrong_assignments": 308,
+      "lost_true": 308,
+      "gained_false": 0
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 24,
+      "wrong_assignments": 148,
+      "lost_true": 148,
+      "gained_false": 0
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 25,
+      "wrong_assignments": 132,
+      "lost_true": 92,
+      "gained_false": 40
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 26,
+      "wrong_assignments": 500,
+      "lost_true": 500,
+      "gained_false": 0
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 27,
+      "wrong_assignments": 340,
+      "lost_true": 340,
+      "gained_false": 0
+    },
+    {
+      "gate": 19,
+      "kind": "wire",
+      "replacement": 28,
+      "wrong_assignments": 180,
+      "lost_true": 180,
+      "gained_false": 0
+    },
+    {
+      "gate": 19,
+      "kind": "constant",
+      "replacement": false,
+      "wrong_assignments": 948,
+      "lost_true": 948,
+      "gained_false": 0
+    },
+    {
+      "gate": 19,
+      "kind": "constant",
+      "replacement": true,
+      "wrong_assignments": 76,
+      "lost_true": 0,
+      "gained_false": 76
+    }
+  ],
+  "witnesses": [],
+  "scope": "All single-gate aliases to earlier wires and false/true constants, with exact full truth-table replay and constant/dead-gate cleanup. No broader optimality claim."
+}
