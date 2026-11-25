@@ -16,3 +16,11 @@ Helper4/5/6/9 v2 source rebuilds PASS. Selected helper4/5/6/9 exports standard-a
 q3core23 exact SAT: running, no candidate or UNSAT result. Canonical24 core and canonical64 extension sanity checks PASS; independent q3 geometry/encoding audit PASS.
 Sub-agents: 9 external bus helpers, 1 local support/review agent, 1 nested source auditor (11 known agents; external helper descendants not included).
 TIMING total=35.0 subagents=11
+
+2026-11-25T22:28:32Z progress update
+BlockingGuard.lean: root build PASS; independent rebuild, exact-premise review and standard-three-axiom audit PASS. Safety only, not gate savings.
+Helper8v2 incidence_or_budget and ao2_exact_certificate: root independent full-source build/type/axiom audit PASS. Linear multioutput39-OR lower bound has explicit exact-neighborhood outputs; it is not a full quadratic-circuit bound.
+Stripped-core encoder review PASS:13 inputs,17 edges,17 positive+24 maximal-false rows; canonical21 circuit and all79252 pinned relevance clauses checked independently. All-used completeness uses dead-gate trimming plus AND(output,output) padding.
+A stripped20 SAT candidate would not by itself extend to full63; extension code rejects stripped metadata. All three live searches still unresolved.
+Sub-agents: 9 external bus helpers, 1 local support/review agent, 1 nested source auditor (11 known agents; external helper descendants not included).
+TIMING total=50.1 subagents=11

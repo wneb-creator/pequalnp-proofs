@@ -36,3 +36,21 @@ First helper check-ins (bus timestamps; substantive findings are tracked separat
 - 2026-11-25T22:08:32Z: Helper updates: h4 single-use masking, h5 pure-CNF cost, h6 mixed partial covers, and h9 low-penalty residual lemma independently rebuilt by root. These remain conditional partial results.
 - 2026-11-25T22:13:21Z: Q3Geometry finite geometry checks and DirtyContext residual-rectangle lemmas built. Root reviewed DirtyContext independently. Context lemmas explicitly assume semantic cofactor conditions and do not establish a gate bound. Root retracted a paper inference from singleton-line contexts to all critical edge pairs, since downstream context may reread the point.
 - 2026-11-25T22:13:21Z: Bus writes intermittently unreachable; failed scope-correction message preserved with stable retry ID. Reads and local checks remain available.
+
+First substantive helper results (distinct from setup check-ins):
+
+- 2026-11-25T21:40:57.508765+00:00: helper-1, bus 2483: Canonical read-one size and read-one lower bound; arbitrary-AO2 lower bound still missing.
+- 2026-11-25T21:45:16.097236+00:00: helper-2, bus 2600: Exact Fano boundary model and counterexample-search setup.
+- 2026-11-25T21:41:35.787955+00:00: helper-3, bus 2496: OR-lifting source verified; residual cost bound remains open.
+- 2026-11-25T21:45:48.433894+00:00: helper-4, bus 2617: Negated twin audited; non-read-one does not imply a four-cycle.
+- 2026-11-25T21:44:04.588573+00:00: helper-5, bus 2571: Normal-form nonstar-block obstruction independently checked.
+- 2026-11-25T21:42:51.639573+00:00: helper-6, bus 2539: Naive terminal-gate induction fails on higher-degree subfunctions.
+- 2026-11-25T21:42:51.336564+00:00: helper-7, bus 2537: Read-one structural characterization located; it is conditional.
+- 2026-11-25T21:44:09.521866+00:00: helper-8, bus 2574: Conditional dirty-gate repair helper located; no full normalization.
+- 2026-11-25T21:44:42.810635+00:00: helper-9, bus 2583: Existing minimal-cleanliness counterexample is nonbipartite and does not refute the plane statement.
+
+- 2026-11-25T22:14:36.459894+00:00: Independently reviewed progress commit 98ab19f08 pushed to orchestrator branch; no final theorem.
+- 2026-11-25T22:17:28.692598+00:00: Second swarm replan posted (bus 3377), keeping all nine helpers on full proof/refutation routes. No reduction assigned.
+- 2026-11-25T22:21:35Z: Three root SAT runs active: original order-3 core23, stripped core20, and stripped core20 with every gate used. Independent encoding/stripping audit passed; no candidate or impossibility result.
+- 2026-11-25T22:27:06.665012+00:00: BlockingGuard.lean built and independently reviewed: exact posted plane premises imply any two lines meet and the whole-line conjunction guard is safe. No gate-saving construction follows.
+- 2026-11-25T22:28:32Z: Refreshed upstream main 7a1c8135e2be6a24df7c4062b7e4bffd0953d200; independent census of all 283 new/changed proof files found no unrestricted plane lower bound or normalization theorem. Worktree base unchanged.
