@@ -8,3 +8,5 @@
 - 2026-11-25T17:14:31.753179+00:00: lemma_search clean-circuit framework Reuse.lean compiled, exit 0 (976 lines).
 - 2026-11-25T17:14:37.415792+00:00: algebraic finite-rectangle cover extraction compiled (partial result).
 - 2026-11-25T17:14:41.218103+00:00: first named-file partial compiled successfully; preparing immediate archival push.
+- 2026-11-25T17:14:53.584406+00:00: counterexample strategy compiled concrete P4 sanity witness (all gap hypotheses, tight bound, nonlinear absorption).
+- 2026-11-25T17:16:00.819329+00:00: independently reviewed compiled clean-circuit bound, rectangle-cover bound, and nonlinear P4 sanity example; preparing second partial archival push.

@@ -60,3 +60,7 @@ Only root holds and renews the lease. Each agent appends findings in its own sec
 `Reuse.lean` compiled successfully with pinned Lean on 2026-11-25T17:14:31.753179+00:00. Exit code 0; only style warnings. Exact conclusion proved under the extra all-AND-below-output hypothesis. This is a checked partial lemma, not L-meta-4675 itself. Full diagnostics: `/tmp/oec/pequalnp-pilot-164/reuse-build-001.stdout` and `.stderr`.
 
 Algebraic update 2026-11-25T17:14:37.415792+00:00: `Algebraic.lean` compiled successfully (exit 0) with only `import PEqualNP.Defs`. Both finite rectangle-family lemmas and all five copied Structural helper lemmas are checked by Lean. Only warning is deprecated `push_neg` in the copied structural proof. Full diagnostic files: `/tmp/oec/pequalnp-pilot-164/algebraic-check.stdout` and `.stderr`.
+
+### Counterexample strategy: checked P4 sanity witness
+
+`results/orch/lemmas/Counterexample.lean` compiled with pinned Lean, exit 0, stdout/stderr empty. It proves the 4-gate absorption circuit `by; a OR by; x OR y; final AND` satisfies all concrete gap hypotheses and reaches the claimed bound. Thus a valid tight circuit can have AND output and a clean AND strictly beneath another AND. This is not a refutation. A 4-gate P4 circuit containing a dirty AND was numerically infeasible in the MILP. C6 7-gate and forced-dirty 8-gate searches are ongoing.

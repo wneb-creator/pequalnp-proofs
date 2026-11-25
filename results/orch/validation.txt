@@ -7,3 +7,9 @@ Checker: not run on this partial; required main theorem is absent.
 Independent review: status_review checked mathematics, format, scope, and absence of credentials; suitable for archival after compilation.
 Sub-agents: 6 (status_review, structural_proof, counterexample, lemma_search, lean_setup, algebraic_proof)
 TIMING total=8.29 subagents=6
+
+Additional checked partials (direct lake env lean, exit 0):
+- results/orch/lemmas/Reuse.lean: conditional clean-circuit bound.
+- results/orch/lemmas/Algebraic.lean: finite rectangle-cover bound.
+- results/orch/lemmas/Counterexample.lean: positive P4 sanity example, not a refutation.
+Independent review: status_review accepted all three for archival, with explicit assumptions and incomplete overall gap.
