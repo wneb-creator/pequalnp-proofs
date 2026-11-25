@@ -1,0 +1,2 @@
+PASS all65536 equality;22g5AND; SHA 206985fb28cd25d83d26fbc0ec608e7f2aa605d20708e649a7320749ec869085
+Guard enumeration scope inspected:3164 topologically valid insertions,202 positive survivors,0 exact, best10; no global exclusion.

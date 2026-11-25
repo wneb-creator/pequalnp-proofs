@@ -1,0 +1,11 @@
+{
+  "budget_fixtures": 1000,
+  "rejected": 433,
+  "accepted": 567,
+  "seeds": 12,
+  "assignments_per_seed": 8192,
+  "correlated_rewrite_assignments": 8192,
+  "minimum_boundary_errors": 8,
+  "source_sha256": "5ce310cc96d42b85f9372df681c34d7e90648629b59445cd24eb7ff88c075012",
+  "scope": "Compatible-prefix sufficient profile only; no exact witness."
+}

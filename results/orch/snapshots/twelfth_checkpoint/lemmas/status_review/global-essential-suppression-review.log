@@ -1,0 +1,20 @@
+{
+  "scope": "Soft diagnostic tag only, no candidate acceptance or lower-bound claim.",
+  "seeds": 5435,
+  "small_inputs": 300,
+  "complete_boundary_with_guards": 782,
+  "matched": 5435,
+  "essential_suppressed": 4414,
+  "ordinary140_first": {
+    "index": 0,
+    "essential_suppressed": false,
+    "raw_mask": null
+  },
+  "suppressed262_second": {
+    "index": 1,
+    "essential_suppressed": true,
+    "raw_mask": 1050624
+  },
+  "seeds_sha256": "13b23d44b6d8bec2d7f00a6c64cc1570429216b91d750135586325ff1f1f74f4",
+  "fixtures_sha256": "ffff5506d1d221ed2a960cbe712a2fbef6112fa748f213971276bd8523885c86"
+}

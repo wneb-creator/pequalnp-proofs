@@ -1,0 +1,8 @@
+{
+  "seeds": 5435,
+  "tests": 782,
+  "positive_and_guard_pass": true,
+  "maximum_gates": 63,
+  "minimum_boundary_errors": 140,
+  "sha256": "13b23d44b6d8bec2d7f00a6c64cc1570429216b91d750135586325ff1f1f74f4"
+}

@@ -1,0 +1,1 @@
+{"gates": [[1, 17, 26], [1, 22, 37], [1, 31, 37], [1, 6, 38], [1, 7, 39], [1, 2, 40], [1, 11, 40], [1, 36, 41], [0, 2, 43], [0, 3, 43], [0, 36, 43], [1, 45, 47], [1, 46, 48], [0, 44, 49], [0, 42, 50]], "truth": {"raw_assignments": 8192, "false_positives": 214, "false_negatives": 0}, "and_count": 5, "scope": "Hints only; target AND count may differ."}

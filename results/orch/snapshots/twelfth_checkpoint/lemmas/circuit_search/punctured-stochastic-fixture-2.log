@@ -1,0 +1,2 @@
+PASS 20000 exact gate-context comparisons
+PASS 5000 correlated-feature/Boolean rewrites; unfold attempts 880 accepted 4

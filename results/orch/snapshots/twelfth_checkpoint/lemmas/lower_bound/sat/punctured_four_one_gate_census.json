@@ -1,0 +1,8 @@
+{
+  "examined_pairs_ops": 134872,
+  "semantic_exact_candidates": 0,
+  "exact_budget_witnesses": [],
+  "positive_preserving_six_and_flips": [],
+  "elapsed_seconds": 0.06303992600078345,
+  "scope": "All single-gate replacements over prior raw/free/paid wires in12 frozen15gate phases; no broader impossibility claim."
+}

@@ -1,0 +1,442 @@
+[
+  {
+    "file": "L_meta_6111.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_6111.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_6111 :\n    have x1 : List \u2115 := [(130 : \u2115), (136 : \u2115), (257 : \u2115), (260 : \u2115), (320 : \u2115), (514 : \u2115), (544 : \u2115), (576 : \u2115), (1025 : \u2115), (1040 : \u2115), (1056 : \u2115), (2056 : \u2115), (2064 : \u2115), (2112 : \u2115), (4100 : \u2115), (4104 : \u2115), (4128 : \u2115), (8194 : \u2115), (8196 : \u2115), (8208 : \u2115)]; have x2 : List \u2115 :=   have x2 : List \u2115 :=     have x2 : List \u2115 :=       have x2 : List \u2115 := [(10656 : \u2115), (12353 : \u2115), (13504 : \u2115), (14849 : \u2115), (16256 : \u2115)];       (8488 : \u2115) :: (8713 : \u2115) :: (9288 : \u2115) :: (9992 : \u2115) :: (10273 : \u2115) :: x2;     have x3 : List \u2115 := (5186 : \u2115) :: (6147 : \u2115) :: (7426 : \u2115) :: (8297 : \u2115) :: (8416 : \u2115) :: x2;     (4304 : \u2115) :: (4370 : \u2115) :: (4625 : \u2115) :: (5008 : \u2115) :: x3;   have x3 : List \u2115 :=     have x3 : List \u2115 := (2338 : \u2115) :: (2565 : \u2115) :: (3078 : \u2115) :: (3716 : \u2115) :: (4179 : \u2115) :: x2;     (1220 : \u2115) :: (1290 : \u2115) :: (1548 : \u2115) :: (2087 : \u2115) :: (2212 : \u2115) :: x3;   have x4 : List \u2115 := (432 : \u2115) :: (541 : \u2115) :: (660 : \u2115) :: (792 : \u2115) :: (1102 : \u2115) :: x3;   (127 : \u2115) :: (129 : \u2115) :: (244 : \u2115) :: (314 : \u2115) :: x4; \u00acPEqualNP.Defs.LratEncoding.FormulaSat ([(755464 : \u2115)] :: PEqualNP.Defs.LratEncoding.enc (14 : \u2115) (24 : \u2115) (fun (x3 : \u2115) => x1.contains x3) (x1 ++ x2)) "
+  },
+  {
+    "file": "L_meta_7249.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_7249.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_7249 :\n    \u2200 (x1 : SimpleGraph (Fin (26 : \u2115))) [x2 : DecidableRel x1.Adj] (x3 : PEqualNP.CircuitLowerBounds.Circuit) (x4 : \u2115),   (x1 = SimpleGraph.fromRel fun (x5 x6 : Fin (26 : \u2115)) => \u2191x5 < (13 : \u2115) \u2227 (13 : \u2115) \u2264 \u2191x6 \u2227 (\u2191x5 + (26 : \u2115) - \u2191x6) % (13 : \u2115) \u2208 [(0 : \u2115), (1 : \u2115), (3 : \u2115), (9 : \u2115)]) \u2192     PEqualNP.TopForm.IsLeastAO x1 x3 \u2192       PEqualNP.TopForm.TopForm x1 x3 \u2192         x3.size \u2264 (64 : \u2115) \u2192           PEqualNP.TopForm.junk x1 x3 = {x4} \u2192             have x10 : Finset \u2115 := PEqualNP.TopForm.tops x1 x3;             have x11 : Finset \u2115 := PEqualNP.TopForm.centreless x1 x3;             have x12 : Finset (Sym2 (Fin (26 : \u2115))) := PEqualNP.TopForm.Ustar x1 x3;             (x10 \\ x11).card + (2 : \u2115) * x11.card + (PEqualNP.TopForm.orN x1 x3 \\ PEqualNP.TopForm.lam x1 x3).card \u2264 (12 : \u2115) + x12.card \u2192 (52 : \u2115) \u2264 (4 : \u2115) * (x10 \\ x11).card + x12.card \u2192 (2 : \u2115) \u2264 x12.card \u2192 False "
+  },
+  {
+    "file": "L_meta_8379.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8379.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8379 : \u2200 (x1 x2 : \u2115) (x3 : Fin x2 \u2192 Fin x2 \u2192 Prop) [x4 : DecidableRel x3] (x5 : PEqualNP.CircuitLowerBounds.Circuit), (199 : \u2115) \u2264 x1 \u2192 x2 = x1 ^ (2 : \u2115) + x1 + (1 : \u2115) \u2192 (\u2200 (x8 : Fin x2), Fintype.card { x9 : Fin x2 // x3 x9 x8 } = x1 + (1 : \u2115)) \u2192 (\u2200 (x9 x10 : Fin x2), x9 \u2260 x10 \u2192 \u2203! x12 : Fin x2, x3 x9 x12 \u2227 x3 x10 x12) \u2192 PEqualNP.MetaComplexity.Monotone2 x5 \u2192 (\u2200 (x11 x12 : Fin x2), x3 x11 x12 \u2192 (PEqualNP.MetaComplexity.circuitFun (x2 + x2) x5 fun (x14 : Fin (x2 + x2)) => Decidable.decide (x14 = Fin.castAdd x2 x11 \u2228 x14 = Fin.natAdd x2 x12)) = Bool.true) \u2192 (\u2200 (x12 : Fin (x2 + x2) \u2192 Bool), Fintype.card { x13 : Fin x2 // x12 (Fin.natAdd x2 x13) = Bool.true } \u2264 x1 \u2192 (\u00ac\u2203 (x14 : Fin x2) (x15 : Fin x2), x3 x14 x15 \u2227 x12 (Fin.castAdd x2 x14) = Bool.true \u2227 x12 (Fin.natAdd x2 x15) = Bool.true) \u2192 PEqualNP.MetaComplexity.circuitFun (x2 + x2) x5 x12 = Bool.false) \u2192 \u2200 (x13 : Fin (x2 + x2) \u2192 Bool), (\u00ac\u2203 (x14 : Fin x2) (x15 : Fin x2), x3 x14 x15 \u2227 x13 (Fin.castAdd x2 x14) = Bool.true \u2227 x13 (Fin.natAdd x2 x15) = Bool.true) \u2192 PEqualNP.MetaComplexity.circuitFun (x2 + x2) x5 x13 = Bool.true \u2192 x1 < Fintype.card { x16 : Fin x2 // x13 (Fin.natAdd x2 x16) = Bool.true } \u2192 (\u2200 (x17 : Fin x2), x13 (Fin.natAdd x2 x17) = Bool.true \u2192 PEqualNP.MetaComplexity.circuitFun (x2 + x2) x5 (Function.update x13 (Fin.natAdd x2 x17) Bool.false) = Bool.false) \u2192 x5.gates = [] \u2192 x2 * x1 \u2264 (100 : \u2115) * x5.size "
+  },
+  {
+    "file": "L_meta_8445.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8445.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8445 : \u2200 t : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 8 (fun x : Fin 8 \u2192 Bool => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 0 && x 5) || (x 1 && x 2) || (x 3 && x 4) || (x 5 && x 6) || (x 5 && x 7) || (x 6 && x 7)) t \u2192 14 \u2264 t "
+  },
+  {
+    "file": "L_meta_8507.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8507.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8507 : \u2200 t : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 8 (fun x : Fin 8 \u2192 Bool => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 1 && x 4) || (x 3 && x 5) || (x 3 && x 6) || (x 4 && x 7) || (x 5 && x 6)) t \u2192 13 \u2264 t :=\n  PEqualNP.Outside.L_meta_8507.final\n"
+  },
+  {
+    "file": "L_meta_8511.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8511.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8511 : \u2200 t : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 8 (fun x : Fin 8 \u2192 Bool => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 1 && x 2) || (x 3 && x 4) || (x 3 && x 5) || (x 4 && x 6) || (x 4 && x 7) || (x 6 && x 7)) t \u2192 13 \u2264 t "
+  },
+  {
+    "file": "L_meta_8515.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8515.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8515 : \u2200 t : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 8 (fun x : Fin 8 \u2192 Bool => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 0 && x 5) || (x 1 && x 2) || (x 1 && x 6) || (x 3 && x 4) || (x 5 && x 7) || (x 6 && x 7)) t \u2192 13 \u2264 t "
+  },
+  {
+    "file": "L_meta_8614.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8614.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8614 : \u2200 T \u2208 ({0x00000000, 0xaaaaaaaa, 0x88888888, 0xeeeeeeee, 0xffffffff, 0x80808080, 0xa8a8a8a8, 0xeaeaeaea, 0xfefefefe, 0x80008000} : Finset \u2115), \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8617.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8617.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8617 : \u2200 T \u2208 ({0xeaaaaaaa, 0xeaaac000, 0xeac8eac8, 0xeaeaea00, 0xeaeaeaaa, 0xeaeaeac0, 0xeeeaeaea, 0xeeeeeee0, 0xeeeeeeea, 0xfeeeeeee} : Finset \u2115), \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8618.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8618.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8618 : \u2200 T \u2208 ({0xfeeefaaa, 0xfefefeaa, 0xfefefeee, 0xfffefefe, 0xfffffffe, 0xa880a880, 0xa888a080, 0xe888e888, 0xe8a8e8a8, 0xeaaac080} : Finset \u2115), \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8619.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8619.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8619 : \u2200 T \u2208 ({0xeaaac888, 0xeac8e0c0, 0xeac8eac0, 0xeae8eae8, 0xeaeaeac8, 0xeee0eae0, 0xeee8eee8, 0xeeeaece0, 0xeeeaeee0, 0xfeeafeea} : Finset \u2115), \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8620.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8620.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8620 :\n    \u2200 T \u2208 ({0xfeeefaea, 0x88808000, 0xa8808080, 0xa8808880, 0xa888a880, 0xa8a8a880, 0xaaa8a888, 0xe8888888, 0xe888a000, 0xe888a888} : Finset \u2115), \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8621.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8621.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8621 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xa8808000 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xa8808000 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8622.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8622.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8622 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xa8888880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xa8888880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8623.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8623.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8623 :\n    \u2200 T \u2208 ({0xe888e000, 0xe8a8a8a8, 0xe8a8c800, 0xe8a8c888, 0xe8e8e800, 0xe8e8e888, 0xe8e8e8a8, 0xeaa8eaa8, 0xeaaae888, 0xeaaae8a8} : Finset \u2115), \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8625.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8625.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8625 : \u2200 T \u2208 ({0xeac0e8c0, 0xeac8e8c8, 0xeae8e8e8, 0xeae8ea00, 0xeae8eac0, 0xeae8eac8, 0xeaeaea80, 0xeaeaea88, 0xeaeaeae8, 0xeee0e8e0} : Finset \u2115), \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8627.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8627.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8627 :\n    \u2200 T \u2208 ({0xeee8e8e8, 0xeee8eee0, 0xeeeaeaaa, 0xeeeaeac0, 0xeeeaece8, 0xeeeaeee8, 0xeeeeeee8, 0xfeeaeaea, 0xfeeaeeea, 0xfeeafcc0} : Finset \u2115), \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8628.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8628.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8628 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xe8808880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xe8808880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8629.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8629.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8629 :\n    \u2200 T \u2208 ({0xfeeefac8, 0xfeeefee0, 0xfeeefeea, 0xfefefea8, 0xfefefeea, 0xfffefeee} : Finset \u2115), \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit T (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8630.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8630.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8630 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xe880a880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xe880a880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8631.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8631.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8631 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xe880e880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xe880e880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8633.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8633.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8633 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xe888a080 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xe888a080 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8634.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8634.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8634 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xe888a880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xe888a880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8635.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8635.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8635 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xe888e080 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xe888e080 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8636.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8636.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8636 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xe888e880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xe888e880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8637.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8637.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8637 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xe8a8a800 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xe8a8a800 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8638.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8638.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8638 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xe8a8a880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xe8a8a880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8639.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8639.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8639 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xe8a8a888 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xe8a8a888 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8640.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8640.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8640 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xe8a8c880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xe8a8c880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8641.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8641.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8641 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xe8a8e800 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xe8a8e800 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8642.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8642.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8642 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xe8a8e880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xe8a8e880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8643.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8643.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8643 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xe8a8e888 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xe8a8e888 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8644.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8644.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8644 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xe8e8e880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xe8e8e880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8645.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8645.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8645 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeaa8a880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeaa8a880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8647.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8647.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8647 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeaa8a8a8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeaa8a8a8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8648.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8648.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8648 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeaa8aaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeaa8aaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8649.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8649.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8649 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeaa8c000 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeaa8c000 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8650.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8650.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8650 :\n    \u2200 s : \u2115,\n    PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeaa8c080 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192\n    \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeaa8c080 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8652.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8652.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8652 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeaa8c888 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeaa8c888 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8654.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8654.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8654 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeaa8e888 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeaa8e888 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8655.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8655.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8655 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeaa8e8a8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeaa8e8a8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8656.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8656.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8656 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeaaaaaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeaaaaaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8657.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8657.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8657 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeaaac880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeaaac880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8658.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8658.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8658 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeaaae880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeaaae880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8659.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8659.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8659 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeaaaeaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeaaaeaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8660.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8660.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8660 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeee8e8a8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeee8e8a8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8661.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8661.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8661 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeac0e880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeac0e880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8662.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8662.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8662 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeac8e000 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeac8e000 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8663.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8663.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8663 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeee8e8e0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeee8e8e0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8664.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8664.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8664 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeac8e080 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeac8e080 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8665.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8665.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8665 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeee8eaa0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeee8eaa0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8666.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8666.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8666 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeee8eaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeee8eaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) := PEqualNP.Outside.L_meta_8666_aux.finalResult\n"
+  },
+  {
+    "file": "L_meta_8667.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8667.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8667 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeee8eac0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeee8eac0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8671.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8671.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8671 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeee8eae0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeee8eae0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8675.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8675.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8675 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeeeaeaa0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeeeaeaa0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8676.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8676.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8676 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeae8e888 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeae8e888 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8677.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8677.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8677 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeeeaeaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeeeaeaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8679.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8679.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8679 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeeeaeac8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeeeaeac8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) :=\n  R0.main\n"
+  },
+  {
+    "file": "L_meta_8681.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8681.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8681 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeeeaeae0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeeeaeae0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) :=\n  R0.main\n"
+  },
+  {
+    "file": "L_meta_8682.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8682.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8682 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeae8e8c8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeae8e8c8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) :=\n  PEqualNP.Outside.L_meta_8682_aux.result\n"
+  },
+  {
+    "file": "L_meta_8683.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8683.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8683 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeeeaeae8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeeeaeae8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8684.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8684.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8684 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeae8ea80 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeae8ea80 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8688.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8688.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8688 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeae8eaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeae8eaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) :=\n  R0.main\n"
+  },
+  {
+    "file": "L_meta_8690.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8690.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8690 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeaeaeaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeaeaeaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) :=\n  R0.main\n"
+  },
+  {
+    "file": "L_meta_8691.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8691.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8691 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xfee8e8e8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xfee8e8e8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) :=\n  R0.main\n"
+  },
+  {
+    "file": "L_meta_8692.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8692.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8692 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeee0e880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeee0e880 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) :=\n  R0.main\n"
+  },
+  {
+    "file": "L_meta_8694.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8694.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8694 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xfee8eaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xfee8eaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) :=\n  R0.main\n"
+  },
+  {
+    "file": "L_meta_8695.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8695.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8695 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeee0eac0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeee0eac0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) :=\n  R0.main\n"
+  },
+  {
+    "file": "L_meta_8696.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8696.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8696 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeee8e888 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeee8e888 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) :=\n  R0.main\n"
+  },
+  {
+    "file": "L_meta_8697.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8697.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8697 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xfee8eac0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xfee8eac0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) :=\n  R0.main\n"
+  },
+  {
+    "file": "L_meta_8698.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8698.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8698 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xeee8e8a0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xeee8e8a0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) :=\n  R0.main\n"
+  },
+  {
+    "file": "L_meta_8700.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8700.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8700 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xfee8eae8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xfee8eae8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) :=\n  R0.main\n"
+  },
+  {
+    "file": "L_meta_8701.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8701.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8701 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xfee8eee0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xfee8eee0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) :=\n  R0.main\n"
+  },
+  {
+    "file": "L_meta_8702.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8702.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8702 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xfee8eee8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xfee8eee8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) :=\n  R0.main\n"
+  },
+  {
+    "file": "L_meta_8703.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8703.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8703 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xfee8fee8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xfee8fee8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) :=\n  R0.main\n"
+  },
+  {
+    "file": "L_meta_8704.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8704.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8704 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xfeeaeaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xfeeaeaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) :=\n  R0.main\n"
+  },
+  {
+    "file": "L_meta_8705.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8705.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8705 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xfeeaeaaa (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xfeeaeaaa (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) :=\n  R0.main\n"
+  },
+  {
+    "file": "L_meta_8710.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8710.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8710 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xfeeaece8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xfeeaece8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8714.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8714.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8714 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xfeeafce8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xfeeafce8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8718.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8718.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8718 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xfeeeeeea (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xfeeeeeea (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8719.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8719.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8719 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xfeeefaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xfeeefaa8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8720.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8720.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8720 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xfeeefac0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xfeeefac0 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8721.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8721.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8721 : \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xfeeefae8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xfeeefae8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8723.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8723.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8723 :\n    \u2200 s : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 5 (fun x : Fin 5 \u2192 Bool => Nat.testBit 0xfefefee8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0)) s \u2192 \u2203 C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C \u2227 C.size \u2264 s \u2227 \u2200 x : Fin 5 \u2192 Bool, C.eval (List.ofFn x) = Nat.testBit 0xfefefee8 (\u2211 i : Fin 5, if x i then 2 ^ (i : \u2115) else 0) "
+  },
+  {
+    "file": "L_meta_8734.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8734.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8734 : \u2200 (x1 x2 : \u2115) (x3 : Fin x2 \u2192 Fin x2 \u2192 Prop) [x4 : DecidableRel x3] (x5 : PEqualNP.CircuitLowerBounds.Circuit), (2 : \u2115) \u2264 x1 \u2192 x1 \u2264 (130 : \u2115) \u2192 x2 = x1 ^ (2 : \u2115) + x1 + (1 : \u2115) \u2192 (\u2200 (x9 : Fin x2), Fintype.card { x10 : Fin x2 // x3 x10 x9 } = x1 + (1 : \u2115)) \u2192 (\u2200 (x10 x11 : Fin x2), x10 \u2260 x11 \u2192 \u2203! x13 : Fin x2, x3 x10 x13 \u2227 x3 x11 x13) \u2192 PEqualNP.MetaComplexity.Monotone2 x5 \u2192 (\u2200 (x12 : Fin (x2 + x2) \u2192 Bool), Fintype.card { x13 : Fin x2 // x12 (Fin.natAdd x2 x13) = Bool.true } \u2264 x1 \u2192 (\u00ac\u2203 (x14 : Fin x2) (x15 : Fin x2), x3 x14 x15 \u2227 x12 (Fin.castAdd x2 x14) = Bool.true \u2227 x12 (Fin.natAdd x2 x15) = Bool.true) \u2192 PEqualNP.MetaComplexity.circuitFun (x2 + x2) x5 x12 = Bool.false) \u2192 x5.gates = [] \u2192 Fintype.card { x14 : Fin x2 \u00d7 Fin x2 // x3 x14.1 x14.2 \u2227 (PEqualNP.MetaComplexity.circuitFun (x2 + x2) x5 fun (x15 : Fin (x2 + x2)) => Decidable.decide (x15 = Fin.castAdd x2 x14.1 \u2228 x15 = Fin.natAdd x2 x14.2)) = Bool.true } \u2264 (44 : \u2115) * x5.size "
+  },
+  {
+    "file": "L_meta_8744.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8744.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8744 : \u2200 (x1 : \u2115) (x2 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.TopForm.IsAO2 (x1 + x1) x2 \u2192     (\u2200 (x4 x5 : Finset (Fin x1)), x2.eval (PEqualNP.GenericRejection.incidenceInput x4 x5) = Bool.true \u2192 (\u2200 x7 \u2208 x4, x2.eval (PEqualNP.GenericRejection.incidenceInput (x4.erase x7) x5) = Bool.false) \u2192 (\u2200 x8 \u2208 x5, x2.eval (PEqualNP.GenericRejection.incidenceInput x4 (x5.erase x8)) = Bool.false) \u2192 x4.card = (1 : \u2115) \u2227 x5.card = (1 : \u2115)) \u2192       have x5 : Fin x1 \u2192 Finset (Fin x1) := fun (x5 : Fin x1) => {x6 : Fin x1 | x2.eval (PEqualNP.GenericRejection.incidenceInput {x6} {x5}) = Bool.true};       PEqualNP.GenericRejection.ComputesIncidence x5 x2 "
+  },
+  {
+    "file": "L_meta_8748.lean",
+    "path": "lean/PEqualNP/Outside/L_meta_8748.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8748 : \u2200 (x1 : \u2115) (x2 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x2 \u2192 \u2203 (x4 : List (Set (Fin x1 \u2192 Bool))), x4.length \u2264 {x5 : \u2115 | \u2203 (x6 : PEqualNP.CircuitLowerBounds.Gate), x2.gates[x5]? = Option.some x6 \u2227 x6.op = PEqualNP.CircuitLowerBounds.GateOp.and}.ncard \u2227 (\u2200 (x5 : Fin x4.length), \u2203 (x6 : Set (Set (Fin x1 \u2192 Bool))) (x7 : Set (Set (Fin x1 \u2192 Bool))), (\u2200 x8 \u2208 x6, x8 \u2208 List.take (\u2191x5) x4 \u2228 x8 = Set.univ \u2228 \u2203 (x10 : Fin x1), x8 = {x11 : Fin x1 \u2192 Bool | x11 x10 = Bool.true}) \u2227 (\u2200 x8 \u2208 x7, x8 \u2208 List.take (\u2191x5) x4 \u2228 x8 = Set.univ \u2228 \u2203 (x10 : Fin x1), x8 = {x11 : Fin x1 \u2192 Bool | x11 x10 = Bool.true}) \u2227 x4.get x5 = \u22c3\u2080 x6 \u2229 \u22c3\u2080 x7) \u2227 \u2200 (x5 : \u2115), \u2203 (x6 : Set (Set (Fin x1 \u2192 Bool))), (\u2200 x7 \u2208 x6, x7 \u2208 x4 \u2228 x7 = Set.univ \u2228 \u2203 (x9 : Fin x1), x7 = {x10 : Fin x1 \u2192 Bool | x10 x9 = Bool.true}) \u2227 {x7 : Fin x1 \u2192 Bool | (x2.wires (List.ofFn x7)).getD x5 Bool.false = Bool.true} = \u22c3\u2080 x6 "
+  },
+  {
+    "file": "R_meta_3231_1.lean",
+    "path": "lean/PEqualNP/Outside/R_meta_3231_1.lean",
+    "statement": "theorem PEqualNP.Outside.R_meta_3231_1\n    (hAnd : \u2200 (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x1 \u2192 (\u2200 (x3 : Fin (9 : \u2115) \u2192 Bool), (x1.wires (List.ofFn x3)).getD (9 : \u2115) Bool.false = (x3 (4 : Fin (9 : \u2115)) || x3 (6 : Fin (9 : \u2115)))) \u2192 (PEqualNP.MetaComplexity.circuitFun (9 : \u2115) x1 = fun (x4 : Fin (9 : \u2115) \u2192 Bool) => x4 (0 : Fin (9 : \u2115)) && x4 (1 : Fin (9 : \u2115)) || x4 (1 : Fin (9 : \u2115)) && x4 (2 : Fin (9 : \u2115)) || x4 (2 : Fin (9 : \u2115)) && x4 (3 : Fin (9 : \u2115)) || x4 (3 : Fin (9 : \u2115)) && x4 (4 : Fin (9 : \u2115)) || x4 (4 : Fin (9 : \u2115)) && x4 (0 : Fin (9 : \u2115)) || x4 (0 : Fin (9 : \u2115)) && x4 (5 : Fin (9 : \u2115)) || x4 (1 : Fin (9 : \u2115)) && x4 (6 : Fin (9 : \u2115)) || x4 (2 : Fin (9 : \u2115)) && x4 (7 : Fin (9 : \u2115)) || x4 (3 : Fin (9 : \u2115)) && x4 (8 : Fin (9 : \u2115)) || x4 (5 : Fin (9 : \u2115)) && x4 (7 : Fin (9 : \u2115)) || x4 (6 : Fin (9 : \u2115)) && x4 (8 : Fin (9 : \u2115)) || x4 (8 : Fin (9 : \u2115)) && x4 (5 : Fin (9 : \u2115))) \u2192 \u2200 (x5 : PEqualNP.CircuitLowerBounds.Gate), x1.gates[(1 : \u2115)]? = Option.some x5 \u2192 x5.op = PEqualNP.CircuitLowerBounds.GateOp.and \u2192 x5.inputs \u2264 List.map (fun (x8 : \u2115) => [(1 : \u2115), (0 : \u2115), (5 : \u2115), (8 : \u2115), (6 : \u2115), (2 : \u2115), (4 : \u2115), (7 : \u2115), (3 : \u2115)].getD x8 x8) x5.inputs \u2192 (\u2203 (g : PEqualNP.CircuitLowerBounds.Gate), x1.gates[1]? = Option.some g \u2227 g.op = PEqualNP.CircuitLowerBounds.GateOp.and) \u2192 (16 : \u2115) \u2264 x1.size)\n    (hOr : \u2200 (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x1 \u2192 (\u2200 (x3 : Fin (9 : \u2115) \u2192 Bool), (x1.wires (List.ofFn x3)).getD (9 : \u2115) Bool.false = (x3 (4 : Fin (9 : \u2115)) || x3 (6 : Fin (9 : \u2115)))) \u2192 (PEqualNP.MetaComplexity.circuitFun (9 : \u2115) x1 = fun (x4 : Fin (9 : \u2115) \u2192 Bool) => x4 (0 : Fin (9 : \u2115)) && x4 (1 : Fin (9 : \u2115)) || x4 (1 : Fin (9 : \u2115)) && x4 (2 : Fin (9 : \u2115)) || x4 (2 : Fin (9 : \u2115)) && x4 (3 : Fin (9 : \u2115)) || x4 (3 : Fin (9 : \u2115)) && x4 (4 : Fin (9 : \u2115)) || x4 (4 : Fin (9 : \u2115)) && x4 (0 : Fin (9 : \u2115)) || x4 (0 : Fin (9 : \u2115)) && x4 (5 : Fin (9 : \u2115)) || x4 (1 : Fin (9 : \u2115)) && x4 (6 : Fin (9 : \u2115)) || x4 (2 : Fin (9 : \u2115)) && x4 (7 : Fin (9 : \u2115)) || x4 (3 : Fin (9 : \u2115)) && x4 (8 : Fin (9 : \u2115)) || x4 (5 : Fin (9 : \u2115)) && x4 (7 : Fin (9 : \u2115)) || x4 (6 : Fin (9 : \u2115)) && x4 (8 : Fin (9 : \u2115)) || x4 (8 : Fin (9 : \u2115)) && x4 (5 : Fin (9 : \u2115))) \u2192 \u2200 (x5 : PEqualNP.CircuitLowerBounds.Gate), x1.gates[(1 : \u2115)]? = Option.some x5 \u2192 x5.op = PEqualNP.CircuitLowerBounds.GateOp.and \u2192 x5.inputs \u2264 List.map (fun (x8 : \u2115) => [(1 : \u2115), (0 : \u2115), (5 : \u2115), (8 : \u2115), (6 : \u2115), (2 : \u2115), (4 : \u2115), (7 : \u2115), (3 : \u2115)].getD x8 x8) x5.inputs \u2192 (\u2203 (g : PEqualNP.CircuitLowerBounds.Gate), x1.gates[1]? = Option.some g \u2227 g.op = PEqualNP.CircuitLowerBounds.GateOp.or) \u2192 (16 : \u2115) \u2264 x1.size)\n    (hNot : \u2200 (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x1 \u2192 (\u2200 (x3 : Fin (9 : \u2115) \u2192 Bool), (x1.wires (List.ofFn x3)).getD (9 : \u2115) Bool.false = (x3 (4 : Fin (9 : \u2115)) || x3 (6 : Fin (9 : \u2115)))) \u2192 (PEqualNP.MetaComplexity.circuitFun (9 : \u2115) x1 = fun (x4 : Fin (9 : \u2115) \u2192 Bool) => x4 (0 : Fin (9 : \u2115)) && x4 (1 : Fin (9 : \u2115)) || x4 (1 : Fin (9 : \u2115)) && x4 (2 : Fin (9 : \u2115)) || x4 (2 : Fin (9 : \u2115)) && x4 (3 : Fin (9 : \u2115)) || x4 (3 : Fin (9 : \u2115)) && x4 (4 : Fin (9 : \u2115)) || x4 (4 : Fin (9 : \u2115)) && x4 (0 : Fin (9 : \u2115)) || x4 (0 : Fin (9 : \u2115)) && x4 (5 : Fin (9 : \u2115)) || x4 (1 : Fin (9 : \u2115)) && x4 (6 : Fin (9 : \u2115)) || x4 (2 : Fin (9 : \u2115)) && x4 (7 : Fin (9 : \u2115)) || x4 (3 : Fin (9 : \u2115)) && x4 (8 : Fin (9 : \u2115)) || x4 (5 : Fin (9 : \u2115)) && x4 (7 : Fin (9 : \u2115)) || x4 (6 : Fin (9 : \u2115)) && x4 (8 : Fin (9 : \u2115)) || x4 (8 : Fin (9 : \u2115)) && x4 (5 : Fin (9 : \u2115))) \u2192 \u2200 (x5 : PEqualNP.CircuitLowerBounds.Gate), x1.gates[(1 : \u2115)]? = Option.some x5 \u2192 x5.op = PEqualNP.CircuitLowerBounds.GateOp.and \u2192 x5.inputs \u2264 List.map (fun (x8 : \u2115) => [(1 : \u2115), (0 : \u2115), (5 : \u2115), (8 : \u2115), (6 : \u2115), (2 : \u2115), (4 : \u2115), (7 : \u2115), (3 : \u2115)].getD x8 x8) x5.inputs \u2192 (\u2203 (g : PEqualNP.CircuitLowerBounds.Gate), x1.gates[1]? = Option.some g \u2227 g.op = PEqualNP.CircuitLowerBounds.GateOp.not) \u2192 (16 : \u2115) \u2264 x1.size)\n    (hNone : \u2200 (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x1 \u2192 (\u2200 (x3 : Fin (9 : \u2115) \u2192 Bool), (x1.wires (List.ofFn x3)).getD (9 : \u2115) Bool.false = (x3 (4 : Fin (9 : \u2115)) || x3 (6 : Fin (9 : \u2115)))) \u2192 (PEqualNP.MetaComplexity.circuitFun (9 : \u2115) x1 = fun (x4 : Fin (9 : \u2115) \u2192 Bool) => x4 (0 : Fin (9 : \u2115)) && x4 (1 : Fin (9 : \u2115)) || x4 (1 : Fin (9 : \u2115)) && x4 (2 : Fin (9 : \u2115)) || x4 (2 : Fin (9 : \u2115)) && x4 (3 : Fin (9 : \u2115)) || x4 (3 : Fin (9 : \u2115)) && x4 (4 : Fin (9 : \u2115)) || x4 (4 : Fin (9 : \u2115)) && x4 (0 : Fin (9 : \u2115)) || x4 (0 : Fin (9 : \u2115)) && x4 (5 : Fin (9 : \u2115)) || x4 (1 : Fin (9 : \u2115)) && x4 (6 : Fin (9 : \u2115)) || x4 (2 : Fin (9 : \u2115)) && x4 (7 : Fin (9 : \u2115)) || x4 (3 : Fin (9 : \u2115)) && x4 (8 : Fin (9 : \u2115)) || x4 (5 : Fin (9 : \u2115)) && x4 (7 : Fin (9 : \u2115)) || x4 (6 : Fin (9 : \u2115)) && x4 (8 : Fin (9 : \u2115)) || x4 (8 : Fin (9 : \u2115)) && x4 (5 : Fin (9 : \u2115))) \u2192 \u2200 (x5 : PEqualNP.CircuitLowerBounds.Gate), x1.gates[(1 : \u2115)]? = Option.some x5 \u2192 x5.op = PEqualNP.CircuitLowerBounds.GateOp.and \u2192 x5.inputs \u2264 List.map (fun (x8 : \u2115) => [(1 : \u2115), (0 : \u2115), (5 : \u2115), (8 : \u2115), (6 : \u2115), (2 : \u2115), (4 : \u2115), (7 : \u2115), (3 : \u2115)].getD x8 x8) x5.inputs \u2192 (x1.gates[1]? = Option.none) \u2192 (16 : \u2115) \u2264 x1.size) :\n    \u2200 (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x1 \u2192 (\u2200 (x3 : Fin (9 : \u2115) \u2192 Bool), (x1.wires (List.ofFn x3)).getD (9 : \u2115) Bool.false = (x3 (4 : Fin (9 : \u2115)) || x3 (6 : Fin (9 : \u2115)))) \u2192 (PEqualNP.MetaComplexity.circuitFun (9 : \u2115) x1 = fun (x4 : Fin (9 : \u2115) \u2192 Bool) => x4 (0 : Fin (9 : \u2115)) && x4 (1 : Fin (9 : \u2115)) || x4 (1 : Fin (9 : \u2115)) && x4 (2 : Fin (9 : \u2115)) || x4 (2 : Fin (9 : \u2115)) && x4 (3 : Fin (9 : \u2115)) || x4 (3 : Fin (9 : \u2115)) && x4 (4 : Fin (9 : \u2115)) || x4 (4 : Fin (9 : \u2115)) && x4 (0 : Fin (9 : \u2115)) || x4 (0 : Fin (9 : \u2115)) && x4 (5 : Fin (9 : \u2115)) || x4 (1 : Fin (9 : \u2115)) && x4 (6 : Fin (9 : \u2115)) || x4 (2 : Fin (9 : \u2115)) && x4 (7 : Fin (9 : \u2115)) || x4 (3 : Fin (9 : \u2115)) && x4 (8 : Fin (9 : \u2115)) || x4 (5 : Fin (9 : \u2115)) && x4 (7 : Fin (9 : \u2115)) || x4 (6 : Fin (9 : \u2115)) && x4 (8 : Fin (9 : \u2115)) || x4 (8 : Fin (9 : \u2115)) && x4 (5 : Fin (9 : \u2115))) \u2192 \u2200 (x5 : PEqualNP.CircuitLowerBounds.Gate), x1.gates[(1 : \u2115)]? = Option.some x5 \u2192 x5.op = PEqualNP.CircuitLowerBounds.GateOp.and \u2192 x5.inputs \u2264 List.map (fun (x8 : \u2115) => [(1 : \u2115), (0 : \u2115), (5 : \u2115), (8 : \u2115), (6 : \u2115), (2 : \u2115), (4 : \u2115), (7 : \u2115), (3 : \u2115)].getD x8 x8) x5.inputs \u2192 (16 : \u2115) \u2264 x1.size "
+  }
+]

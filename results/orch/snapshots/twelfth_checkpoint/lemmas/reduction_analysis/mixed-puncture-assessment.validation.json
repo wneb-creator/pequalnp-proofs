@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-25T07:18:05.283256+00:00",
+  "scope": "Constructive sufficient model/assembler calibration and bounded necessary-kernel data; no exacttarget15 orfull63 witness.",
+  "assembler_independently_approved": true,
+  "files": {
+    "punctured_mixed_assembler.py": "10b0c477180d55dcae2b4eeab307be8b8c47829d3ec8d6ef64da8c262ae3923d",
+    "punctured_mixed_assembler.log": "1fdf7508f354f65f4c3923abf80191c5ab21060bc7ad2985245bb5c7f0e1afc9",
+    "punctured-four-arc-audit.json": "1fdf7508f354f65f4c3923abf80191c5ab21060bc7ad2985245bb5c7f0e1afc9",
+    "punctured-four-arc-calibration65.json": "2b4ce366c32fc2edcb2bedb28ccc603b8a5fe2c2356bfbfcc9538e8fc6413115",
+    "punctured_kernel_restriction.py": "8f52a14bcbf8fe2b1d2736ec491dceb5b18c008fee9243f34624e2af1557799a",
+    "punctured_kernel_restriction.log": "8cf1992c7e99b28cdb38fdd04e57e01028d87cabda2a0478fba1587aa476e0a3",
+    "punctured-four-kernel.json": "17fe997613c670831b7b75ab3eec5bced84b83305175a5efc0cede64bd9d9dc6",
+    "mixed-puncture-assessment.md": "9d6ed8b284a9745dd3b331d63c5c8244a477337673b4837569a012cc8d706df7"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "started_utc": "2026-11-25 07:15:03 UTC",
+  "duration_seconds": 1200,
+  "source": "search_feature_essential_suppressed_archive.cpp",
+  "source_sha256": "5ce310cc96d42b85f9372df681c34d7e90648629b59445cd24eb7ff88c075012",
+  "seed_file": "joint-five-essential-warm-seeds.json",
+  "seeds": 1519,
+  "minimum_and_count": 6,
+  "require_raw": false,
+  "independent_review": "lower_bound reviewer_essential_suppressed_cpp.json",
+  "first_seed_errors": 14
+}

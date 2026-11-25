@@ -1,0 +1,16 @@
+{
+  "completed_utc": "2026-11-25T07:13:31Z",
+  "local_unsat_radii": [
+    4,
+    8
+  ],
+  "unknown_radii": [
+    12,
+    16,
+    20,
+    24,
+    28,
+    32
+  ],
+  "scope": "Only neighborhoods within the stated sufficient construction profile; no global exclusion"
+}

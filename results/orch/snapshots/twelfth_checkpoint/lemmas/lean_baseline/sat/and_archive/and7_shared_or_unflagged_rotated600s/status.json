@@ -1,0 +1,10 @@
+{
+  "result": "strategy rotation after600 seconds of completed UNKNOWN intervals",
+  "completed_intervals": 2,
+  "seconds_per_interval": 300,
+  "interrupted_remainder": true,
+  "interruption_signal": "SIGTERM",
+  "exit_code": 143,
+  "stopped_utc": "2026-11-25T07:24:19.974686+00:00",
+  "scope": "Restricted construction; interrupted remainder is not an UNKNOWN result"
+}

@@ -1,0 +1,14 @@
+{
+  "scope": "Local selector-distance neighborhoods; no global exclusion",
+  "lease_receipt": "beat-manual-037.json",
+  "fingerprints": {
+    "results/orch/lemmas/lean_baseline/sat/and_skeleton_correlated_edits.py": "de6d6d652ab21be8496df9d4aa9f9aa47635bb5b6370b29807898680ce601f8e",
+    "results/orch/lemmas/lean_baseline/sat/and_skeleton_correlated.py": "0ff9a84ad4fe692ba04e4854a7d1857e6938235a0a7c4bd86661380c741b976a",
+    "results/orch/lemmas/lean_baseline/sat/and_skeleton_sat.py": "6681edb4db00f63a5bbc871fcbe7f41549f64b3574e2dc9ce9459b9cb868d6c6",
+    "results/orch/lemmas/lean_baseline/sat/and_skeleton_six_exact_dirty7_pair_phase.json": "e4c0f931485d3599dabcf57859765058af95d84ee12bb9cd2640a1e03b980789",
+    "results/orch/lemmas/lean_baseline/sat/and_skeleton_full_data.json": "78af130a2959ebddb60b9bcadcbac9c1344ca32fd17d477b2ca661cba83356a9",
+    "results/orch/lemmas/circuit_search/joint-six-owner-packet.json": "6336ab490b4571f28375a166486612a02c73cc45018c31e2b3f489c6b21886f9",
+    "results/orch/lemmas/lean_baseline/sat/correlated-edits-calibration.log": "78d0cf4bcd2daf8cba4f39b7e30d9185a7254d6307b2831519e72a9d16f45fa5",
+    "results/orch/lemmas/lean_baseline/sat/correlated-edits-widen-calibration.log": "ae73487cd50512e6e907b1f5e8082e7a76b314d2f32bfa7d3935859ed8f9d6cd"
+  }
+}

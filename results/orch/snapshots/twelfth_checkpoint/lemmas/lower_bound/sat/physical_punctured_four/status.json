@@ -1,0 +1,10 @@
+{
+  "status": "RUNNING",
+  "utc": "2026-11-25T07:31:53.023574+00:00",
+  "scope": "Punctured-four15 paid gates, exactly5 ANDs, compatible free OR prefixes; no broader lower-bound claim.",
+  "completed_rounds": 2,
+  "completed_seconds": 600,
+  "scheduled_total_seconds": 1200,
+  "checkpoint_result": "UNKNOWN",
+  "full_witness_found": false
+}

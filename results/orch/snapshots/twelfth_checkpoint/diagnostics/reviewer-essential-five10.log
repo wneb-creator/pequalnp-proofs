@@ -1,0 +1,32 @@
+{
+  "core_gates": 23,
+  "core_ands": 6,
+  "raw_assignments_checked": 65536,
+  "core_false_positives": 267,
+  "core_false_negatives": 0,
+  "all_core_ands_positive_and_operand_false_essential": true,
+  "suppressed_singleton": 128,
+  "full_gates": 63,
+  "full_ands": 14,
+  "full_extra_terms": [
+    [
+      1,
+      22
+    ],
+    [
+      2,
+      15
+    ],
+    [
+      2,
+      22
+    ],
+    [
+      7,
+      25
+    ]
+  ],
+  "full_maxnegative_failures": 234,
+  "full_sha256": "2584f272a56d1a333407c1a9b956bc1cad89a079ee40226149d6c60cb0010978",
+  "scope": "Incorrect research phase; no target witness."
+}

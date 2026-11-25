@@ -1,0 +1,8 @@
+{
+  "independent_review": "approved",
+  "helper_sha256": "e8dff40ac587d9b4303dc3651c0324cf72f20ebfd0b7d3344c6fd9fb9a460bdc",
+  "driver_sha256": "84820f63215aee4b81f26e86b9f4943f86ff7a45b8cc2f63d31b747fef528362",
+  "maximum_weight_sum": 128,
+  "maximum_slack_charge": 76,
+  "scope": "Necessary equal-child Kraft constraint within the stated sufficient construction profile; calibration circuit has66 full gates, not a target witness"
+}

@@ -1,0 +1,9 @@
+{
+  "verdict": "APPROVED",
+  "source_sha256": "5ce310cc96d42b85f9372df681c34d7e90648629b59445cd24eb7ff88c075012",
+  "fixtures_checked": 1519,
+  "boundary_columns": 66,
+  "small_negative_masks": 117,
+  "essential_suppressed_seeds": 911,
+  "checks": "Independent Python integer boundary simulation for both operand bypasses/zero replacement/positive liveness; scalar small-input evaluation and exact first witness agreement; active noncopy ANDs only; no new acceptance restriction."
+}

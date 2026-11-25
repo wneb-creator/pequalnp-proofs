@@ -1,0 +1,15 @@
+{
+  "status": "APPROVED",
+  "source_sha256": "169357ba7f66f466a920056d2a85eaa6588c23993392e7020814a51f91d5419b",
+  "checked_seeds": 6025,
+  "boundary_cases": 782,
+  "positive_edges": 52,
+  "qualifying_two_or_more": 4276,
+  "first_three": [
+    0,
+    1,
+    2
+  ],
+  "seconds": 1.244483491002029,
+  "scope": "Soft archive/champion criterion only; independently replayed every fixture. No new hard acceptance restriction."
+}

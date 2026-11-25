@@ -1,0 +1,6 @@
+PASS: exact 43-test encoding, five compatibility tables, 1000 independent copy/duplicate/dead-cone budgets, all 12 seeds across all 8192 raw inputs, correlated rewrite equality.
+Scope: sufficient compatible-prefix profile; every seed remains incorrect; minimum boundary errors 8
+punctured-four-stochastic-profile.json 37ee537182d06648ebb216f8731ed6807f652da14059608ae381623afda72d77
+punctured-four-tests.txt 9e7ab51ac1c98c41bc82e375fa3dcdc499cd09e4f08aa6ba7716d00a13a6a78f
+punctured-four-compatibility-tables.txt ba3b63baa17326fd9ac233112dab437218fc91a96dd5fc8dfb63884513d4c5d2
+punctured-four-stochastic-seeds.json 66b88edda7b99455b0decd5bdf8ff235502e4ea410354877b874318af6350d46

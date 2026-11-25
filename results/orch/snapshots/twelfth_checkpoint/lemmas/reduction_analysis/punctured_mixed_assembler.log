@@ -1,0 +1,18 @@
+{
+  "scope": "Independent finite/data/assembler audit; no proof or15-gate witness.",
+  "core_edges": 14,
+  "outside_edges": 38,
+  "raw_inputs": 13,
+  "maximal_negatives": 16,
+  "pivotal_witnesses_checked": 13,
+  "compatible_prefix_choices_audited": 243,
+  "direct_optional_outputs_checked": 15,
+  "invalid_cases_rejected": 5,
+  "outside_gates": 47,
+  "exact_calibration_core_gates": 17,
+  "exact_calibration_full_gates": 65,
+  "target_core_gates": 15,
+  "necessary_distinct_features_at_target": 3,
+  "three_features_force_paid_cone_tree": true,
+  "relation_to_previous_model": "Subclass of full four-owner18 core by moving pointOR+partial-lineAND+combiningOR into thatcore."
+}

@@ -1,0 +1,56 @@
+{
+  "raw_inputs": 17,
+  "available_inputs": 42,
+  "AND_nodes": 7,
+  "maximum_core_gates": 28,
+  "outside_cost": 35,
+  "compatible_zero_extra_prefixes": [
+    [
+      18,
+      19,
+      20
+    ],
+    [
+      22,
+      23,
+      24
+    ],
+    [
+      26,
+      27,
+      28
+    ],
+    [
+      31,
+      32,
+      33
+    ],
+    [
+      35,
+      36,
+      37
+    ],
+    [
+      39,
+      40,
+      41
+    ]
+  ],
+  "selector_edit_metric": "Hamming distance over all left/right/output membership bits",
+  "radii": [
+    4,
+    8,
+    12,
+    16,
+    20,
+    24,
+    28,
+    32
+  ],
+  "seconds_per_radius": 60,
+  "same_solver_retained": true,
+  "radius_assumption_reapplied": true,
+  "positive_live_and_child_incomparability": "construction-profile restrictions",
+  "dirty_required": true,
+  "UNSAT_scope": "only this Hamming-radius neighborhood of the stated correlated construction profile"
+}

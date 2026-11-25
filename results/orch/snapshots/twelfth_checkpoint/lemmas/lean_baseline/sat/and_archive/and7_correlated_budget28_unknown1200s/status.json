@@ -1,0 +1,7 @@
+{
+  "result": "UNKNOWN",
+  "completed_utc": "2026-11-25T07:18:41Z",
+  "completed_intervals": 4,
+  "seconds_per_interval": 300,
+  "scope": "Sufficient correlated-prefix construction only; no impossibility claim"
+}

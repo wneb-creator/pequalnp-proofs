@@ -1,0 +1,42 @@
+[
+  {
+    "radius": 4,
+    "result": 20,
+    "scope": "local neighborhood only"
+  },
+  {
+    "radius": 8,
+    "result": 20,
+    "scope": "local neighborhood only"
+  },
+  {
+    "radius": 12,
+    "result": 0,
+    "scope": "local neighborhood only"
+  },
+  {
+    "radius": 16,
+    "result": 0,
+    "scope": "local neighborhood only"
+  },
+  {
+    "radius": 20,
+    "result": 0,
+    "scope": "local neighborhood only"
+  },
+  {
+    "radius": 24,
+    "result": 0,
+    "scope": "local neighborhood only"
+  },
+  {
+    "radius": 28,
+    "result": 0,
+    "scope": "local neighborhood only"
+  },
+  {
+    "radius": 32,
+    "result": 0,
+    "scope": "local neighborhood only"
+  }
+]

@@ -1,0 +1,40 @@
+{
+  "updated_utc": "2026-11-25T07:30:00Z",
+  "sustained_stochastic_cap": 2,
+  "profiles": [
+    {
+      "name": "five essential-suppression",
+      "session": 42557,
+      "started_utc": "2026-11-25T07:14:56Z",
+      "scheduled_seconds": 1200,
+      "ends_approximately": "07:35 UTC",
+      "raw_inputs": 16,
+      "logical_inputs": 52,
+      "gates": 23,
+      "minimum_ands": 6,
+      "ordinary_best": 9,
+      "essential_suppressed_best": 10,
+      "known_equivalent_flat22_for_strong_champion": true
+    },
+    {
+      "name": "global essential-suppression MIN13",
+      "session": 70837,
+      "started_utc": "2026-11-25T07:16:33Z",
+      "scheduled_seconds": 1200,
+      "ends_approximately": "07:36:33 UTC",
+      "raw_inputs": 26,
+      "logical_inputs": 26,
+      "gates": 63,
+      "minimum_ands": 13,
+      "ordinary_best": 140,
+      "essential_suppressed_best": 234
+    }
+  ],
+  "pending": {
+    "name": "punctured-four15",
+    "target_launch": "local slot completion~07:35",
+    "hard_stop": "07:50 UTC",
+    "independent_adapter_review": "pending",
+    "sufficient_restricted_profile": "At most one optional prefix per triple outside row"
+  }
+}

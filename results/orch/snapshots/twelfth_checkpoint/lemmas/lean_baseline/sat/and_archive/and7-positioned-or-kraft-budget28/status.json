@@ -1,0 +1,10 @@
+{
+  "state": "running",
+  "snapshot_utc": "2026-11-25T07:26:37.147612+00:00",
+  "scope": "Sufficient correlated construction; no proof or impossibility claim",
+  "source_model_hashes": {
+    "and_skeleton_kraft.py": "e8dff40ac587d9b4303dc3651c0324cf72f20ebfd0b7d3344c6fd9fb9a460bdc",
+    "model.cnf": "7dc893c98e3d319abaab49383fbc3ee3b5570e60ff52684a5ff32eb1890c066d",
+    "and_skeleton_shared_or_position.py": "b4e6c92e28fd149c258dabc80bc8596884863c84dbd963b748a456f6c2a9675d"
+  }
+}

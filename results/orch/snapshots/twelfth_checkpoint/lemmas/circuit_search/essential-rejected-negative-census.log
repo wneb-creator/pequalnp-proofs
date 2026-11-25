@@ -1,0 +1,2 @@
+{'case': 'five', 'models': 512, 'best_by_minimum_junk': {'0': 9, '1': 10, '2': 16, '3': 20}, 'best_two_critical_junk': 18}
+{'case': 'global', 'models': 512, 'best_by_minimum_junk': {'0': 140, '1': 234, '2': 435, '3': 443}, 'best_two_critical_junk': 435}

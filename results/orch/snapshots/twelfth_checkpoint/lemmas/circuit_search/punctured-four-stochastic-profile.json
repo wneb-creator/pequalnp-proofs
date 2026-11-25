@@ -1,0 +1,41 @@
+{
+  "inputs": 37,
+  "raw_inputs": 13,
+  "gates": 15,
+  "minimum_ands": 5,
+  "tests": 43,
+  "positive_edges": 14,
+  "maximal_negatives": 16,
+  "prefix_groups": [
+    [
+      15,
+      16,
+      17
+    ],
+    [
+      19,
+      20,
+      21
+    ],
+    [
+      23,
+      24,
+      25
+    ],
+    [
+      29,
+      30,
+      31
+    ],
+    [
+      33,
+      34,
+      35
+    ]
+  ],
+  "compatibility_scope": "At most one optional prefix per outside triple; table value16 forbids conflicts, not an asserted minimum synthesis cost.",
+  "outside_gates": 47,
+  "final_or": 1,
+  "seeds": 12,
+  "first_seed_errors": 12
+}

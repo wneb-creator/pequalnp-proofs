@@ -1,0 +1,15 @@
+{
+  "source_sha256": "169357ba7f66f466a920056d2a85eaa6588c23993392e7020814a51f91d5419b",
+  "seeds": 6025,
+  "tests": 782,
+  "qualifying_models": 4276,
+  "independent_reviewer": "lower_bound",
+  "review_report": "results/orch/lemmas/lower_bound/sat/reviewer_three_champions_cpp.json",
+  "champions": {
+    "ordinary": 140,
+    "essential_small_suppression": 234,
+    "two_critical_junk": 435
+  },
+  "soft_only": true,
+  "scope": "Critical means active noncopy AND true on a correctly rejected negative, both operand bypasses change boundary output, and false deletion loses at least two target edges."
+}

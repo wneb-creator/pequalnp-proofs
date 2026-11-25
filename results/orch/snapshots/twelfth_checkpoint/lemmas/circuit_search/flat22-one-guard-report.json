@@ -1,0 +1,9 @@
+{
+  "scope": "Every one-AND insertion over existing raw/free/paid wires, replacing any nonempty subset of one existing wire's operand/output uses with the guarded wire; topological order retained.",
+  "candidates": 3164,
+  "positive_survivors": 202,
+  "budget_checked_survivors": 202,
+  "best_boundary_errors": 10,
+  "exact_models": 0,
+  "elapsed_seconds": 0.2463399650005158
+}

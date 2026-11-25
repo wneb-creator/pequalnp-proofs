@@ -1,0 +1,7 @@
+PASS weighted exact SAT cases 2064
+PASS equality-weight actual SAT fixtures 720
+PASS disabled emission byte-identical 90b72953ea5480e5410959a886d6eb4132ff9897f7323029db2531f7812fc717
+2026-11-25T07:15:30.564341+00:00 CORRELATED-SHARED-OR-BUDGET raw17 available42 ANDnodes 7 core-gates 31 variables 45837 clauses 192347
+2026-11-25T07:15:30.566338+00:00 ATTEMPT 0 SOLVER 10 SECONDS 0.0018
+2026-11-25T07:15:34.630400+00:00 EXACT CORRELATED CIRCUIT full-gates 66 target-met False calibration True
+PASS7AND weight<=128/slack<=76 fixed31 exact/full66 calibration

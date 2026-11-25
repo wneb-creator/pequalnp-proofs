@@ -1,0 +1,2 @@
+{"scope": "All six-AND opcode assignments on the twelve frozen15-gate source topologies only.", "profiles_checked": 60060, "all_positive_profiles": 5192, "seconds": 0.7599734459981846}
+best {'source_index': 4, 'boundary_errors': 13, 'positive_live': False, 'all_gates_active': True, 'gates': [[1, 4, 6], [1, 9, 37], [0, 0, 38], [1, 2, 3], [1, 1, 40], [0, 1, 33], [1, 26, 42], [0, 3, 13], [0, 31, 44], [0, 7, 45], [1, 40, 46], [1, 43, 47], [1, 12, 48], [0, 41, 49], [1, 39, 50]]}

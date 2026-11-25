@@ -1,0 +1,59 @@
+{
+  "pool_index": 157,
+  "old_errors": 427,
+  "new_errors": 427,
+  "old_effective_cost": 63,
+  "new_effective_cost": 60,
+  "and_count": 14,
+  "inactive_gates_removed": [
+    4,
+    5
+  ],
+  "extra_monomials": [
+    [
+      6,
+      19
+    ],
+    [
+      6,
+      24
+    ],
+    [
+      1,
+      19
+    ],
+    [
+      1,
+      23
+    ],
+    [
+      2,
+      23
+    ],
+    [
+      2,
+      19
+    ],
+    [
+      2,
+      21
+    ],
+    [
+      1,
+      24
+    ],
+    [
+      3,
+      21
+    ],
+    [
+      3,
+      25
+    ],
+    [
+      6,
+      25
+    ]
+  ],
+  "same_prior_61_function": false
+}

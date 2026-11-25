@@ -1,0 +1,10 @@
+PASS shared phase exact on all131072 raw assignments,40occurrences,31 physical gates
+PASS400random shared-OR assemblies with exact occurrence cost and exhaustive input checks
+2026-11-25T07:09:04.819099+00:00 CORRELATED-SHARED-OR-BUDGET raw17 available42 ANDnodes 7 core-gates 31 variables 39445 clauses 169926
+2026-11-25T07:09:04.827769+00:00 ATTEMPT 0 SOLVER 10 SECONDS 0.0085
+2026-11-25T07:09:10.854428+00:00 EXACT CORRELATED CIRCUIT full-gates 66 target-met False calibration True
+2026-11-25T07:09:12.280518+00:00 CORRELATED-SHARED-OR-BUDGET raw17 available42 ANDnodes 7 core-gates 30 variables 38709 clauses 166984
+2026-11-25T07:09:12.284621+00:00 ATTEMPT 0 SOLVER 20 SECONDS 0.0
+2026-11-25T07:09:12.284636+00:00 UNSAT FOR STATED CORRELATED CONSTRUCTION PROFILE ONLY
+PASS fixed31/full66 calibration and fixed30 rejection; no target witness
+PASS genuine shared-OR fixture: one raw pair reused in twoANDs gives4 physical gates versus5 separate-cone gates; all16inputs checked.

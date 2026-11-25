@@ -1,0 +1,33 @@
+{
+  "status": "COMPLETED_UNKNOWN",
+  "exit_code": 0,
+  "seconds": 1200.23,
+  "checkpoints": [
+    {
+      "round": 1,
+      "result": 0,
+      "seconds": 300.0,
+      "total_seconds": 300.0
+    },
+    {
+      "round": 2,
+      "result": 0,
+      "seconds": 300.2,
+      "total_seconds": 600.21
+    },
+    {
+      "round": 3,
+      "result": 0,
+      "seconds": 300.0,
+      "total_seconds": 900.22
+    },
+    {
+      "round": 4,
+      "result": 0,
+      "seconds": 300.0,
+      "total_seconds": 1200.22
+    }
+  ],
+  "updated_utc": "2026-11-25T07:19:40.227262+00:00",
+  "note": "Four authorized UNKNOWN intervals retained the same solver. No exact witness or UNSAT claim."
+}
