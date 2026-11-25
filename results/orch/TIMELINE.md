@@ -15,3 +15,6 @@
 2026-11-25T15:59:08.438101+00:00 Second merged helper module built and independently reviewed; checkpointing.
 2026-11-25T16:00:02.644389+00:00 Renewed L-meta-4970; expiry 2026-11-25T16:20:03.041Z
 2026-11-25T16:00:52.081375+00:00 Preserving checked identity normalization and disjoint-support sum.
+2026-11-25T16:01:11.214274+00:00 counting_proof: OrOnlyCount checked and independently reviewed; root notified for checkpoint.
+2026-11-25T16:02:38.055025+00:00 Renewed before fourth checkpoint build; expiry 2026-11-25T16:22:25.458Z
+2026-11-25T16:04:18.868469+00:00 Fourth helper checkpoint built and independently reviewed.

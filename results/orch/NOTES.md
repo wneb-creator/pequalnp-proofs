@@ -91,3 +91,19 @@ Independent review: compiled CofactorStar, SemanticNoMixed, SemanticPureOr, Dema
 ## semantic_bound checked identity normalization
 
 2026-11-25T15:59:28.508554+00:00 SemanticIdentity.lean compiles: hideInputs prepends one AND identity per input and shifts the original circuit. Its size is n+C.size; it preserves all evaluations and IsAO2 and has tCount=0 for every colouring. Thus tCount0 alone is a weak syntactic restriction. Combined with appended same-colour pair OR witnesses at each degree-d left centre, the target would imply for balanced d-regular C4-free graphs on N+N vertices: C.size >= N*floor(d/2)-N-1. This is a general Omega(E) monotone lower bound, substantial beyond the preliminary ledger. PureOr and NoMixed helper files also compile cleanly.
+
+### status_review — compiled disjointness sum and new count review
+
+Authored and Lean-checked `results/orch/lemmas/SumOwned.lean` (exit 0, empty diagnostics at scratch sum-owned-build.log). Its two generic lemmas establish center-disjoint owned support gates and sum |Q_i|-1 bounded by their common gate universe. Counting agent independently reviewed this file PASS.
+
+Independently reviewed counting agent's 394-line `OrOnlyCount.lean` source PASS, including split_false, weighted frontier_cut, and count_or/count_or_one. The repaired bound is genuinely OR-only and supports multiple output roots F: S.card <= F.card + ownedOr(S).card, provided S singletons are covered by F and all F wires reject complement S. Latest compile verdict is counting agent's responsibility. The proof bypasses ANDs without increasing frontier cardinality and counts OR expansions only; terminal singleton supports cover S.
+
+Reviewed `SemanticIdentity.lean` source PASS for partial preservation: n input-copy ANDs and global index shift preserve evaluation/AO2 and force syntactic T=0. Size is n+C.size, expressly not size-preserving. Reviewed the unified 475-line named helper module PASS for namespace/import assembly and clean diff.
+
+### counting_proof OR-only count checked 2026-11-25T16:01:11.214274+00:00
+OrOnlyCount.lean checked with pinned Lean (exit0, empty diagnostics), independently reviewed by status_review. Namespace PEqualNP.Outside.L_meta_4970.OrCount. Final count_or: for output frontier F, all false on complement S and covering every singleton in S, S.card <= F.card + ownedOr(C,S).card. ownedOr contains only real OR gates with original singleton support card>=2 and subset S. count_or_one yields |S|-1. The weighted frontier proof expands AND through a single false child at zero cost and OR through both false operands at cost1. This handles redundant branches correctly.
+DemandPruning.lean also checked and independently reviewed: complement characterization, AND choice, singleton inclusion, disjoint demand splitting.
+
+## counterexample multicycle exploration
+
+Built anneal_graph.cpp under job tmp. Monotonicity gives a complete test set: positive edge pairs and negative maximal independent sets. Subdivision K4 needs 24 tests (12+12), Fano 58 (21+37), so all patterns fit one machine word. Canonical controls use (AND,OR)=(4,11) and (7,20) and have zero errors/T0. Four initial random-search runs of 30 million proposals each found no exact circuit: subK4 (3,15) best misses 3 edges; subK4 (8,10) misses1; Fano (6,24) misses3; Fano (11,19) misses1. Best cases reject all negative tests and have T0. These failures are heuristic evidence only, not exhaustive or Lean-checked. All complete stdout logs are anneal_*.log in job tmp.

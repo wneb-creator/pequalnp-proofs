@@ -39,3 +39,8 @@ But this is not relevant for proofs because of proof irrelevance.
 Note: This linter can be disabled with `set_option linter.style.haveILetI false`
 
 SumOwned.lean: Lean exit0; complete diagnostics empty. Independent source review by counting_proof: PASS. SemanticIdentity independent review by status_review: PASS.
+
+Fourth partial checkpoint:
+lake build PEqualNP.Outside.L_meta_4970 passed (exit0), 946 lines.
+Complete stdout/stderr: results/orch/build-004.txt.
+Added checked OR-only frontier count, disjoint-support sums, and actual-circuit witness cover specialization. Independent merged source review: PASS by status_review. Full posted theorem remains unproved.
