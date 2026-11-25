@@ -1,0 +1,252 @@
+{
+  "input": "/tmp/oec/pequalnp-pilot-61/PR12184_ForceBatch.lean",
+  "output": "/tmp/oec/pequalnp-pilot-61/PR12184_Width278ForceBatch.lean",
+  "input_sha256": "bf0a16701f2324834772b29ee33e0e926f125201a404b84c86eb43d59ee84aa7",
+  "output_sha256": "c0d3faac68bbbda5a51a6c588b23c24019d117cc44f88dc11981f8e263019016",
+  "certificate_suffix_sha256": "4be0b365f2dec53c38008840e38c19db64d72553bba52eff89f67d1789ce4da4",
+  "certificate_suffix_byte_identical": true,
+  "all_512_tokens_preserved": true,
+  "changed_lines": 40,
+  "changes": [
+    {
+      "line": 1589,
+      "declaration": "Bits",
+      "before": "abbrev Bits := BitVec 768",
+      "after": "abbrev Bits := BitVec 278"
+    },
+    {
+      "line": 1599,
+      "declaration": "pairSig",
+      "before": "def pairSig (r s : Fin 768 \u2192 Row) (a : Sig) : Signals := (ofRows r a,ofRows s a)",
+      "after": "def pairSig (r s : Fin 278 \u2192 Row) (a : Sig) : Signals := (ofRows r a,ofRows s a)"
+    },
+    {
+      "line": 1600,
+      "declaration": "properPairs",
+      "before": "def properPairs (T : Sig) (r s : Fin 768 \u2192 Row) :=",
+      "after": "def properPairs (T : Sig) (r s : Fin 278 \u2192 Row) :="
+    },
+    {
+      "line": 1602,
+      "declaration": "pair_sep",
+      "before": "theorem pair_sep {T r s} (h : properPairs T r s) : Sep T 768 r s (pairSig r s) := by",
+      "after": "theorem pair_sep {T r s} (h : properPairs T r s) : Sep T 278 r s (pairSig r s) := by"
+    },
+    {
+      "line": 1604,
+      "declaration": "faithful",
+      "before": "def faithful (r s : Fin 768 \u2192 Row) (x : Decor) := x.2 = pairSig r s x.1",
+      "after": "def faithful (r s : Fin 278 \u2192 Row) (x : Decor) := x.2 = pairSig r s x.1"
+    },
+    {
+      "line": 1658,
+      "declaration": "asRow",
+      "before": "def asRow (cols : Nat \u2192 Bits) (i : Fin 768) : Row :=",
+      "after": "def asRow (cols : Nat \u2192 Bits) (i : Fin 278) : Row :="
+    },
+    {
+      "line": 1683,
+      "declaration": "asRow_bit",
+      "before": "theorem asRow_bit (cols : Nat \u2192 Bits) (i : Fin 768) (j : Fin 9) :",
+      "after": "theorem asRow_bit (cols : Nat \u2192 Bits) (i : Fin 278) (j : Fin 9) :"
+    },
+    {
+      "line": 1714,
+      "declaration": "bit_vertex",
+      "before": "theorem bit_vertex (m : Nat) (v : Nat \u2192 Bits) (i : Fin 768) (j : Fin 9) :",
+      "after": "theorem bit_vertex (m : Nat) (v : Nat \u2192 Bits) (i : Fin 278) (j : Fin 9) :"
+    },
+    {
+      "line": 1720,
+      "declaration": "bit_liftGoal",
+      "before": "theorem bit_liftGoal (m : Nat) (v : Nat \u2192 Bits) (i : Fin 768) :",
+      "after": "theorem bit_liftGoal (m : Nat) (v : Nat \u2192 Bits) (i : Fin 278) :"
+    },
+    {
+      "line": 1870,
+      "declaration": "evalMove",
+      "before": "    if (rs ||| column d z.2) != BitVec.allOnes 768 then true else",
+      "after": "    if (rs ||| column d z.2) != BitVec.allOnes 278 then true else"
+    },
+    {
+      "line": 1919,
+      "declaration": "evalMove_sound",
+      "before": "  have be : ((restCov (coverage (!u) ws) (column (!u) a.2) (column (!u) b.2) ka kb ||| column (!u) z.2) != BitVec.allOnes 768) = false := by",
+      "after": "  have be : ((restCov (coverage (!u) ws) (column (!u) a.2) (column (!u) b.2) ka kb ||| column (!u) z.2) != BitVec.allOnes 278) = false := by"
+    },
+    {
+      "line": 1921,
+      "declaration": "evalMove_sound",
+      "before": "  change (if (restCov (coverage (!u) ws) (column (!u) a.2) (column (!u) b.2) ka kb ||| column (!u) z.2) != BitVec.allOnes 768 then true else if !properB z.1 || ws.any (fun v => v.1==z.1) then true else _) = true at test",
+      "after": "  change (if (restCov (coverage (!u) ws) (column (!u) a.2) (column (!u) b.2) ka kb ||| column (!u) z.2) != BitVec.allOnes 278 then true else if !properB z.1 || ws.any (fun v => v.1==z.1) then true else _) = true at test"
+    },
+    {
+      "line": 2137,
+      "declaration": "chart_bit",
+      "before": "theorem chart_bit (m : Nat) (v : Nat \u2192 Bits) (i : Fin 768) :",
+      "after": "theorem chart_bit (m : Nat) (v : Nat \u2192 Bits) (i : Fin 278) :"
+    },
+    {
+      "line": 2141,
+      "declaration": "chart_pairs",
+      "before": "    (hp : chartSamples m p = BitVec.allOnes 768) (hq : chartSamples m q = 0) :",
+      "after": "    (hp : chartSamples m p = BitVec.allOnes 278) (hq : chartSamples m q = 0) :"
+    },
+    {
+      "line": 2291,
+      "declaration": "graphValid",
+      "before": "  (chartSamples g.mask (fun j => (g.samples j).1) == BitVec.allOnes 768) &&",
+      "after": "  (chartSamples g.mask (fun j => (g.samples j).1) == BitVec.allOnes 278) &&"
+    },
+    {
+      "line": 2364,
+      "declaration": "lanePlace",
+      "before": "def lanePlace (v : Nat) (upper : Nat) := 2^769*upper+v",
+      "after": "def lanePlace (v : Nat) (upper : Nat) := 2^279*upper+v"
+    },
+    {
+      "line": 2371,
+      "declaration": "laneSmall",
+      "before": "theorem laneSmall (x : Bits) : x.toNat < 2^769 :=",
+      "after": "theorem laneSmall (x : Bits) : x.toNat < 2^279 :="
+    },
+    {
+      "line": 2378,
+      "declaration": "place_and",
+      "before": "  by_cases h : i<769 <;> simp only [h,ite_true,ite_false,BitVec.toNat_and,Nat.testBit_and]",
+      "after": "  by_cases h : i<279 <;> simp only [h,ite_true,ite_false,BitVec.toNat_and,Nat.testBit_and]"
+    },
+    {
+      "line": 2384,
+      "declaration": "place_or",
+      "before": "  by_cases h : i<769 <;> simp only [h,ite_true,ite_false,BitVec.toNat_or,Nat.testBit_or]",
+      "after": "  by_cases h : i<279 <;> simp only [h,ite_true,ite_false,BitVec.toNat_or,Nat.testBit_or]"
+    },
+    {
+      "line": 2390,
+      "declaration": "place_xor",
+      "before": "  by_cases h : i<769 <;> simp only [h,ite_true,ite_false,BitVec.toNat_xor,Nat.testBit_xor]",
+      "after": "  by_cases h : i<279 <;> simp only [h,ite_true,ite_false,BitVec.toNat_xor,Nat.testBit_xor]"
+    },
+    {
+      "line": 2412,
+      "declaration": "fullMarks",
+      "before": "def fullMarks (r packed : Nat) := ((packed+r) >>> 768) &&& r",
+      "after": "def fullMarks (r packed : Nat) := ((packed+r) >>> 278) &&& r"
+    },
+    {
+      "line": 2413,
+      "declaration": "unit_bit",
+      "before": "theorem unit_bit (n i : Nat) (hi : i<n) : (units n).testBit (769*i) = true := by",
+      "after": "theorem unit_bit (n i : Nat) (hi : i<n) : (units n).testBit (279*i) = true := by"
+    },
+    {
+      "line": 2417,
+      "declaration": "unit_bit",
+      "before": "    rw [units,lanePlace,Nat.testBit_two_pow_mul_add _ (by decide +kernel : 1 < 2^769)]",
+      "after": "    rw [units,lanePlace,Nat.testBit_two_pow_mul_add _ (by decide +kernel : 1 < 2^279)]"
+    },
+    {
+      "line": 2421,
+      "declaration": "unit_bit",
+      "before": "      have di : 769*(i+1)-769=769*i := by omega",
+      "after": "      have di : 279*(i+1)-279=279*i := by omega"
+    },
+    {
+      "line": 2422,
+      "declaration": "unit_bit",
+      "before": "      have ge : \u00ac769*(i+1)<769 := by omega",
+      "after": "      have ge : \u00ac279*(i+1)<279 := by omega"
+    },
+    {
+      "line": 2426,
+      "declaration": "guardBit",
+      "before": "theorem guardBit (a : Bits) : (a.toNat+1).testBit 768 = (a==BitVec.allOnes 768) := by",
+      "after": "theorem guardBit (a : Bits) : (a.toNat+1).testBit 278 = (a==BitVec.allOnes 278) := by"
+    },
+    {
+      "line": 2427,
+      "declaration": "guardBit",
+      "before": "  by_cases h : a=BitVec.allOnes 768",
+      "after": "  by_cases h : a=BitVec.allOnes 278"
+    },
+    {
+      "line": 2431,
+      "declaration": "guardBit",
+      "before": "    have ne : a.toNat \u2260 2^768-1 := by",
+      "after": "    have ne : a.toNat \u2260 2^278-1 := by"
+    },
+    {
+      "line": 2436,
+      "declaration": "guardBit",
+      "before": "    have lt : a.toNat+1<2^768 := by omega",
+      "after": "    have lt : a.toNat+1<2^278 := by omega"
+    },
+    {
+      "line": 2442,
+      "declaration": "mark_at",
+      "before": "    (fullMarks (units xs.length) (combineLanes f xs)).testBit (769*i) =",
+      "after": "    (fullMarks (units xs.length) (combineLanes f xs)).testBit (279*i) ="
+    },
+    {
+      "line": 2443,
+      "declaration": "mark_at",
+      "before": "      (f xs[i]==BitVec.allOnes 768) := by",
+      "after": "      (f xs[i]==BitVec.allOnes 278) := by"
+    },
+    {
+      "line": 2449,
+      "declaration": "mark_at",
+      "before": "    have sum (u v x : Nat) : 2^769*u+x+(2^769*v+1)=2^769*(u+v)+(x+1) := by omega",
+      "after": "    have sum (u v x : Nat) : 2^279*u+x+(2^279*v+1)=2^279*(u+v)+(x+1) := by omega"
+    },
+    {
+      "line": 2450,
+      "declaration": "mark_at",
+      "before": "    rw [sum,Nat.testBit_two_pow_mul_add _ (show (f a).toNat+1<2^769 from by have := (f a).isLt; omega)]",
+      "after": "    rw [sum,Nat.testBit_two_pow_mul_add _ (show (f a).toNat+1<2^279 from by have := (f a).isLt; omega)]"
+    },
+    {
+      "line": 2455,
+      "declaration": "mark_at",
+      "before": "      have ge : \u00ac769*(i+1)+768<769 := by omega",
+      "after": "      have ge : \u00ac279*(i+1)+278<279 := by omega"
+    },
+    {
+      "line": 2456,
+      "declaration": "mark_at",
+      "before": "      have di : 769*(i+1)+768-769=769*i+768 := by omega",
+      "after": "      have di : 279*(i+1)+278-279=279*i+278 := by omega"
+    },
+    {
+      "line": 2525,
+      "declaration": "onMarks",
+      "before": "    ((mask &&& 1 == 0) || f x) && onMarks f (mask >>> 769) xs",
+      "after": "    ((mask &&& 1 == 0) || f x) && onMarks f (mask >>> 279) xs"
+    },
+    {
+      "line": 2527,
+      "declaration": "marked_ok",
+      "before": "    (bitOn : mask.testBit (769*i)=true) (ok : onMarks f mask xs=true) : f xs[i]=true := by",
+      "after": "    (bitOn : mask.testBit (279*i)=true) (ok : onMarks f mask xs=true) : f xs[i]=true := by"
+    },
+    {
+      "line": 2543,
+      "declaration": "marked_ok",
+      "before": "      apply ih (mask:=mask >>> 769) (i:=i) (by simpa using hi) _ ok.2",
+      "after": "      apply ih (mask:=mask >>> 279) (i:=i) (by simpa using hi) _ ok.2"
+    },
+    {
+      "line": 3117,
+      "declaration": "batchMove_at",
+      "before": "      if len>k then true else if combField xs[q] (!u) ka kb op i j != BitVec.allOnes 768 then true",
+      "after": "      if len>k then true else if combField xs[q] (!u) ka kb op i j != BitVec.allOnes 278 then true"
+    },
+    {
+      "line": 3138,
+      "declaration": "batchMove_at",
+      "before": "    by_cases hit : combField xs[q] (!u) ka kb op i j = BitVec.allOnes 768",
+      "after": "    by_cases hit : combField xs[q] (!u) ka kb op i j = BitVec.allOnes 278"
+    }
+  ]
+}

@@ -64,3 +64,5 @@
 - 2026-11-25T04:45:48+00:00: RelativeNamespace1673Probe passed exit0: full OR01 source and outcome compile after exact relative-namespace rewrite. No olean requested for that run.
 
 - 2026-11-25T04:56:39.608512+00:00: Environment transition preserved files but ended active processes. Renewed lease and restarted timer; full original and forced replays restarted on separate CPU pairs. Eight successful components prepared for preservation.
+
+- 2026-11-25T04:57:50.205596+00:00: Width278 generic verifier compiled and independent exact-transform/sample audit passed; full numerical replay pending.
