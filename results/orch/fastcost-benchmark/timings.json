@@ -1,0 +1,242 @@
+[
+  {
+    "variant": "Base",
+    "seconds": 15.347702094000056,
+    "exit_code": 0,
+    "source_sha256": "d5e3b923bbca13275af0c57d5cc4f09747e8189a4625046497c373b028513cba",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "--profile",
+      "/tmp/oec/pequalnp-pilot-67/BenchFastCostBase.lean"
+    ],
+    "utc": "2026-11-25T04:47:14.041960+00:00"
+  },
+  {
+    "variant": "Guard",
+    "seconds": 14.452603346000046,
+    "exit_code": 0,
+    "source_sha256": "c95ef0d9f51571837194a2a97e8397dc528ea58a8e49610aeab5919e1a55f11c",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "--profile",
+      "/tmp/oec/pequalnp-pilot-67/BenchFastCostGuard.lean"
+    ],
+    "utc": "2026-11-25T04:47:28.495285+00:00"
+  },
+  {
+    "variant": "Guard",
+    "seconds": 14.74804843100003,
+    "exit_code": 0,
+    "source_sha256": "c95ef0d9f51571837194a2a97e8397dc528ea58a8e49610aeab5919e1a55f11c",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "--profile",
+      "/tmp/oec/pequalnp-pilot-67/BenchFastCostGuard.lean"
+    ],
+    "utc": "2026-11-25T04:47:43.243963+00:00"
+  },
+  {
+    "variant": "Base",
+    "seconds": 14.589261190999991,
+    "exit_code": 0,
+    "source_sha256": "d5e3b923bbca13275af0c57d5cc4f09747e8189a4625046497c373b028513cba",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "--profile",
+      "/tmp/oec/pequalnp-pilot-67/BenchFastCostBase.lean"
+    ],
+    "utc": "2026-11-25T04:47:57.833823+00:00"
+  },
+  {
+    "variant": "Dynamic",
+    "seconds": 15.550661565000041,
+    "exit_code": 0,
+    "source_sha256": "14e88e36de1a0828b7630f9d1ddf237d976047ddaa7973d7a47b3f4cb0418527",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "--profile",
+      "/tmp/oec/pequalnp-pilot-67/BenchFastCostDynamic.lean"
+    ],
+    "utc": "2026-11-25T04:48:24.557752+00:00"
+  },
+  {
+    "variant": "Dynamic",
+    "seconds": 14.524312454999972,
+    "exit_code": 0,
+    "source_sha256": "14e88e36de1a0828b7630f9d1ddf237d976047ddaa7973d7a47b3f4cb0418527",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "--profile",
+      "/tmp/oec/pequalnp-pilot-67/BenchFastCostDynamic.lean"
+    ],
+    "utc": "2026-11-25T04:48:39.083216+00:00"
+  },
+  {
+    "variant": "Base",
+    "seconds": 14.879751232999979,
+    "exit_code": 0,
+    "source_sha256": "d5e3b923bbca13275af0c57d5cc4f09747e8189a4625046497c373b028513cba",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "--profile",
+      "/tmp/oec/pequalnp-pilot-67/BenchFastCostBase.lean"
+    ],
+    "utc": "2026-11-25T04:48:53.963579+00:00"
+  },
+  {
+    "variant": "Cached",
+    "seconds": 18.556930734000048,
+    "exit_code": 0,
+    "source_sha256": "a78245b84f19b5063e68a30ba0074696a16aa43d40bc96a1f8f77f7b8bd3e09d",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "--profile",
+      "/tmp/oec/pequalnp-pilot-67/BenchFastCostCached.lean"
+    ],
+    "utc": "2026-11-25T04:49:40.364156+00:00"
+  },
+  {
+    "variant": "Base",
+    "seconds": 16.17897621999998,
+    "exit_code": 0,
+    "source_sha256": "d5e3b923bbca13275af0c57d5cc4f09747e8189a4625046497c373b028513cba",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "--profile",
+      "/tmp/oec/pequalnp-pilot-67/BenchFastCostBase.lean"
+    ],
+    "utc": "2026-11-25T04:49:56.544730+00:00"
+  },
+  {
+    "variant": "Cached",
+    "seconds": 16.530863932999978,
+    "exit_code": 0,
+    "source_sha256": "a78245b84f19b5063e68a30ba0074696a16aa43d40bc96a1f8f77f7b8bd3e09d",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "--profile",
+      "/tmp/oec/pequalnp-pilot-67/BenchFastCostCached.lean"
+    ],
+    "utc": "2026-11-25T04:50:13.076454+00:00"
+  },
+  {
+    "variant": "Width278",
+    "seconds": 16.27182760300002,
+    "exit_code": 0,
+    "source_sha256": "85e606484c6c55b57ea5448886f69e45aa643b2ecf74d2fcc8817b2e0270ed0a",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "--profile",
+      "/tmp/oec/pequalnp-pilot-67/BenchFastCostWidth278.lean"
+    ],
+    "utc": "2026-11-25T04:52:42.023371+00:00"
+  },
+  {
+    "variant": "Base",
+    "seconds": 15.072989389999975,
+    "exit_code": 0,
+    "source_sha256": "d5e3b923bbca13275af0c57d5cc4f09747e8189a4625046497c373b028513cba",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "--profile",
+      "/tmp/oec/pequalnp-pilot-67/BenchFastCostBase.lean"
+    ],
+    "utc": "2026-11-25T04:52:57.100464+00:00"
+  },
+  {
+    "variant": "Width278",
+    "seconds": 15.15337764800006,
+    "exit_code": 0,
+    "source_sha256": "85e606484c6c55b57ea5448886f69e45aa643b2ecf74d2fcc8817b2e0270ed0a",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "--profile",
+      "/tmp/oec/pequalnp-pilot-67/BenchFastCostWidth278.lean"
+    ],
+    "utc": "2026-11-25T04:53:12.254513+00:00"
+  },
+  {
+    "variant": "Width320",
+    "seconds": 15.82177365299981,
+    "exit_code": 0,
+    "source_sha256": "62d1b5f6398c8ac6f8b492eee69c60da690c19579ebb96cbe496d4b60883d138",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "--profile",
+      "/tmp/oec/pequalnp-pilot-67/BenchFastCostWidth320.lean"
+    ],
+    "utc": "2026-11-25T04:54:13.908207+00:00"
+  },
+  {
+    "variant": "Base",
+    "seconds": 16.737644185999898,
+    "exit_code": 0,
+    "source_sha256": "d5e3b923bbca13275af0c57d5cc4f09747e8189a4625046497c373b028513cba",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "--profile",
+      "/tmp/oec/pequalnp-pilot-67/BenchFastCostBase.lean"
+    ],
+    "utc": "2026-11-25T04:54:30.646818+00:00"
+  },
+  {
+    "variant": "Width320",
+    "seconds": 15.936154084000009,
+    "exit_code": 0,
+    "source_sha256": "62d1b5f6398c8ac6f8b492eee69c60da690c19579ebb96cbe496d4b60883d138",
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "--profile",
+      "/tmp/oec/pequalnp-pilot-67/BenchFastCostWidth320.lean"
+    ],
+    "utc": "2026-11-25T04:54:46.583687+00:00"
+  }
+]

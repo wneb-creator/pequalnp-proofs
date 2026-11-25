@@ -1,0 +1,1 @@
+UNREPRESENTATIVE HARNESS: List.all wrapped all96 rowCut checks in one kernel computation. Its kernel memory and wall times do not represent the separate declarations used in the revised benchmark. Stopped by parent instruction before completion; preserve diagnostics only.

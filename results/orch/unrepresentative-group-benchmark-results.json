@@ -1,0 +1,14 @@
+[
+  {
+    "batch_size": 16,
+    "exit": 1,
+    "seconds": 74.99577618400008,
+    "maxrss_kib": 6657036
+  },
+  {
+    "batch_size": 32,
+    "exit": 1,
+    "seconds": 80.93303072000003,
+    "maxrss_kib": 6657844
+  }
+]

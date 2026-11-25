@@ -1,0 +1,242 @@
+{
+  "reviewed_utc": "2026-11-25T04:54:34.788467+00:00",
+  "source_sha256": "1c31cfa39cea4936c1e20b0cfa430ec063d9f8cbfa5d443d9916947958146872",
+  "prefix_boundary": "first declaration def g15d3",
+  "prefix_width_occurrences": {
+    "768": 27,
+    "769": 25
+  },
+  "unchanged_sig512": true,
+  "unchanged_certificate_suffix_sha256": "4be0b365f2dec53c38008840e38c19db64d72553bba52eff89f67d1789ce4da4",
+  "changed_declarations": [
+    "Bits",
+    "asRow",
+    "asRow_bit",
+    "batchMove_at",
+    "bit_liftGoal",
+    "bit_vertex",
+    "chart_bit",
+    "chart_pairs",
+    "evalMove",
+    "evalMove_sound",
+    "faithful",
+    "fullMarks",
+    "graphValid",
+    "guardBit",
+    "lanePlace",
+    "laneSmall",
+    "mark_at",
+    "marked_ok",
+    "onMarks",
+    "pairSig",
+    "pair_sep",
+    "place_and",
+    "place_or",
+    "place_xor",
+    "properPairs",
+    "unit_bit"
+  ],
+  "records": [
+    {
+      "line": 1589,
+      "declaration": "Bits",
+      "text": "abbrev Bits := BitVec 768"
+    },
+    {
+      "line": 1599,
+      "declaration": "pairSig",
+      "text": "def pairSig (r s : Fin 768 \u2192 Row) (a : Sig) : Signals := (ofRows r a,ofRows s a)"
+    },
+    {
+      "line": 1600,
+      "declaration": "properPairs",
+      "text": "def properPairs (T : Sig) (r s : Fin 768 \u2192 Row) :="
+    },
+    {
+      "line": 1602,
+      "declaration": "pair_sep",
+      "text": "theorem pair_sep {T r s} (h : properPairs T r s) : Sep T 768 r s (pairSig r s) := by"
+    },
+    {
+      "line": 1604,
+      "declaration": "faithful",
+      "text": "def faithful (r s : Fin 768 \u2192 Row) (x : Decor) := x.2 = pairSig r s x.1"
+    },
+    {
+      "line": 1658,
+      "declaration": "asRow",
+      "text": "def asRow (cols : Nat \u2192 Bits) (i : Fin 768) : Row :="
+    },
+    {
+      "line": 1683,
+      "declaration": "asRow_bit",
+      "text": "theorem asRow_bit (cols : Nat \u2192 Bits) (i : Fin 768) (j : Fin 9) :"
+    },
+    {
+      "line": 1714,
+      "declaration": "bit_vertex",
+      "text": "theorem bit_vertex (m : Nat) (v : Nat \u2192 Bits) (i : Fin 768) (j : Fin 9) :"
+    },
+    {
+      "line": 1720,
+      "declaration": "bit_liftGoal",
+      "text": "theorem bit_liftGoal (m : Nat) (v : Nat \u2192 Bits) (i : Fin 768) :"
+    },
+    {
+      "line": 1870,
+      "declaration": "evalMove",
+      "text": "    if (rs ||| column d z.2) != BitVec.allOnes 768 then true else"
+    },
+    {
+      "line": 1919,
+      "declaration": "evalMove_sound",
+      "text": "  have be : ((restCov (coverage (!u) ws) (column (!u) a.2) (column (!u) b.2) ka kb ||| column (!u) z.2) != BitVec.allOnes 768) = false := by"
+    },
+    {
+      "line": 1921,
+      "declaration": "evalMove_sound",
+      "text": "  change (if (restCov (coverage (!u) ws) (column (!u) a.2) (column (!u) b.2) ka kb ||| column (!u) z.2) != BitVec.allOnes 768 then true else if !properB z.1 || ws.any (fun v => v.1==z.1) then true else _) = true at test"
+    },
+    {
+      "line": 2137,
+      "declaration": "chart_bit",
+      "text": "theorem chart_bit (m : Nat) (v : Nat \u2192 Bits) (i : Fin 768) :"
+    },
+    {
+      "line": 2141,
+      "declaration": "chart_pairs",
+      "text": "    (hp : chartSamples m p = BitVec.allOnes 768) (hq : chartSamples m q = 0) :"
+    },
+    {
+      "line": 2291,
+      "declaration": "graphValid",
+      "text": "  (chartSamples g.mask (fun j => (g.samples j).1) == BitVec.allOnes 768) &&"
+    },
+    {
+      "line": 2364,
+      "declaration": "lanePlace",
+      "text": "def lanePlace (v : Nat) (upper : Nat) := 2^769*upper+v"
+    },
+    {
+      "line": 2371,
+      "declaration": "laneSmall",
+      "text": "theorem laneSmall (x : Bits) : x.toNat < 2^769 :="
+    },
+    {
+      "line": 2378,
+      "declaration": "place_and",
+      "text": "  by_cases h : i<769 <;> simp only [h,ite_true,ite_false,BitVec.toNat_and,Nat.testBit_and]"
+    },
+    {
+      "line": 2384,
+      "declaration": "place_or",
+      "text": "  by_cases h : i<769 <;> simp only [h,ite_true,ite_false,BitVec.toNat_or,Nat.testBit_or]"
+    },
+    {
+      "line": 2390,
+      "declaration": "place_xor",
+      "text": "  by_cases h : i<769 <;> simp only [h,ite_true,ite_false,BitVec.toNat_xor,Nat.testBit_xor]"
+    },
+    {
+      "line": 2412,
+      "declaration": "fullMarks",
+      "text": "def fullMarks (r packed : Nat) := ((packed+r) >>> 768) &&& r"
+    },
+    {
+      "line": 2413,
+      "declaration": "unit_bit",
+      "text": "theorem unit_bit (n i : Nat) (hi : i<n) : (units n).testBit (769*i) = true := by"
+    },
+    {
+      "line": 2417,
+      "declaration": "unit_bit",
+      "text": "    rw [units,lanePlace,Nat.testBit_two_pow_mul_add _ (by decide +kernel : 1 < 2^769)]"
+    },
+    {
+      "line": 2421,
+      "declaration": "unit_bit",
+      "text": "      have di : 769*(i+1)-769=769*i := by omega"
+    },
+    {
+      "line": 2422,
+      "declaration": "unit_bit",
+      "text": "      have ge : \u00ac769*(i+1)<769 := by omega"
+    },
+    {
+      "line": 2426,
+      "declaration": "guardBit",
+      "text": "theorem guardBit (a : Bits) : (a.toNat+1).testBit 768 = (a==BitVec.allOnes 768) := by"
+    },
+    {
+      "line": 2427,
+      "declaration": "guardBit",
+      "text": "  by_cases h : a=BitVec.allOnes 768"
+    },
+    {
+      "line": 2431,
+      "declaration": "guardBit",
+      "text": "    have ne : a.toNat \u2260 2^768-1 := by"
+    },
+    {
+      "line": 2436,
+      "declaration": "guardBit",
+      "text": "    have lt : a.toNat+1<2^768 := by omega"
+    },
+    {
+      "line": 2442,
+      "declaration": "mark_at",
+      "text": "    (fullMarks (units xs.length) (combineLanes f xs)).testBit (769*i) ="
+    },
+    {
+      "line": 2443,
+      "declaration": "mark_at",
+      "text": "      (f xs[i]==BitVec.allOnes 768) := by"
+    },
+    {
+      "line": 2449,
+      "declaration": "mark_at",
+      "text": "    have sum (u v x : Nat) : 2^769*u+x+(2^769*v+1)=2^769*(u+v)+(x+1) := by omega"
+    },
+    {
+      "line": 2450,
+      "declaration": "mark_at",
+      "text": "    rw [sum,Nat.testBit_two_pow_mul_add _ (show (f a).toNat+1<2^769 from by have := (f a).isLt; omega)]"
+    },
+    {
+      "line": 2455,
+      "declaration": "mark_at",
+      "text": "      have ge : \u00ac769*(i+1)+768<769 := by omega"
+    },
+    {
+      "line": 2456,
+      "declaration": "mark_at",
+      "text": "      have di : 769*(i+1)+768-769=769*i+768 := by omega"
+    },
+    {
+      "line": 2525,
+      "declaration": "onMarks",
+      "text": "    ((mask &&& 1 == 0) || f x) && onMarks f (mask >>> 769) xs"
+    },
+    {
+      "line": 2527,
+      "declaration": "marked_ok",
+      "text": "    (bitOn : mask.testBit (769*i)=true) (ok : onMarks f mask xs=true) : f xs[i]=true := by"
+    },
+    {
+      "line": 2543,
+      "declaration": "marked_ok",
+      "text": "      apply ih (mask:=mask >>> 769) (i:=i) (by simpa using hi) _ ok.2"
+    },
+    {
+      "line": 3096,
+      "declaration": "batchMove_at",
+      "text": "      if len>k then true else if combField xs[q] (!u) ka kb op i j != BitVec.allOnes 768 then true"
+    },
+    {
+      "line": 3117,
+      "declaration": "batchMove_at",
+      "text": "    by_cases hit : combField xs[q] (!u) ka kb op i j = BitVec.allOnes 768"
+    }
+  ],
+  "source_assessment": "All matched numeric literals are sample/packed-lane widths, offsets, or dimension inequalities in corresponding generic helper statements/proofs. Sig512, graph inputs9, input Row coordinates, and certificate suffix untouched by prescribed transform. Full build remains necessary."
+}

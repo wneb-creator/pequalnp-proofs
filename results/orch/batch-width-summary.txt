@@ -1,0 +1,7 @@
+Batch size comparison, same96 certificate states (rootM, level12, start476, arity12), separate declarations, all12 rows. Lean4.36 -j1 -M6500.
+width16: PASS,46.587s process,35.8s kernel type checking, peak4185120KiB.
+width32: PASS,42.160s process,30.5s kernel type checking, peak4804900KiB.
+width48: PASS,39.918s process,29.9s kernel type checking, peak5402716KiB.
+width96: FAULT at6500MiB kernel memory cap,70.831s process, peak6657016KiB.
+Recommendation:48 is fastest measured,32 gives more memory margin.96 is unsuitable at6500MiB. These are local certificate checks, not the final theorem checker.
+The earlier single-List.all harness was unrepresentative and is labeled separately.

@@ -12,3 +12,6 @@
 2026-11-25T04:50:33.040502+00:00: batchmask benchmark and dynamic cost guard compiled; independent review passed.
 2026-11-25T04:54:14Z: lease renewed; expiry2026-11-25T05:14:14.371Z.
 2026-11-25T04:55:34.426940+00:00: reviewed compiler and batch16/32 benchmarks preserved; full-proof optimization chosen as primary strategy.
+2026-11-25T05:00:37Z: workspace ready after refresh; baseline Lean process found terminated by signal9, no olean produced. Full diagnostics retained.
+2026-11-25T05:01:51Z: lease renewed; expiry2026-11-25T05:21:51.729Z.
+2026-11-25T05:02:36.655214+00:00: remaining completed benchmark sources, failures and independent candidate reviews checkpointed.
