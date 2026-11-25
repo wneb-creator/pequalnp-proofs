@@ -3,3 +3,5 @@ TableFacts, FunctionStructure, UpperBound: Lean compilation exit 0, complete emp
 Independent review: status_review PASS for exact table, kernel decisions, allowed declarations, malformed-wire semantics.
 Sub-agents: status_review, counting_proof, counterexample, semantic_bound, toolchain, cofactor_route
 TIMING total=56 subagents=6
+
+Full assembled refutation: lake build PASS; local checker ACCEPTED (refute), 2347 constants. 3237 lines before cleanup. Format guard PASS. Final assembled file independently reviewed by status_review.
