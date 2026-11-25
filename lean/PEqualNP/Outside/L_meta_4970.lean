@@ -5142,4 +5142,127 @@ lemma top_form : @PEqualNP.TopForm.TopForm 8 graph graphDec circuit := by
 
 end H5ChargeCounter
 
+namespace H5DifferenceTrace
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm H5Pruning
+
+lemma difference_trace (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (x z : Fin n → Bool) (b : Fin n)
+    (hdiff : ∀ a, x a = true → z a = false → a = b) (w : ℕ)
+    (hx : wireFn n C w x = true) (hz : wireFn n C w z = false) :
+    b ∈ orIn n C w ∨
+      ∃ j < C.gates.length, (gateAt C j).op = GateOp.and ∧
+        ∃ v ∈ (gateAt C j).inputs,
+          b ∈ orIn n C v ∧ wireFn n C v x = true ∧ wireFn n C v z = false := by
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    by_cases hin : w < n
+    · have hxb := hx
+      have hzb := hz
+      rw [wireFn_input n C w hin] at hxb hzb
+      have he := hdiff ⟨w, hin⟩ hxb hzb
+      left
+      rw [H5Reach.orIn_input n C w hin]
+      exact Finset.mem_singleton.mpr he.symm
+    · have hvalid : w < n + C.gates.length := by
+        by_contra h
+        rw [wireFn_ge n C w (by omega)] at hx
+        cases hx
+      let j := w - n
+      have hj : j < C.gates.length := by omega
+      have hw : n + j = w := by omega
+      obtain ⟨u, v, hu, hv, hinp, hop, hval⟩ := binary_gate n C hC j hj
+      have hex := hval x
+      have hez := hval z
+      rw [hw, hx] at hex
+      rw [hw, hz] at hez
+      rcases hop with hop | hop
+      · have hxx : wireFn n C u x = true ∧ wireFn n C v x = true := by
+          simpa [hop, GateOp.eval] using hex.symm
+        have hzz : wireFn n C u z = false ∨ wireFn n C v z = false := by
+          cases huz : wireFn n C u z with
+          | false => exact Or.inl rfl
+          | true =>
+              right
+              simpa [hop, GateOp.eval, huz] using hez.symm
+        rcases hzz with hzu | hzv
+        · rcases ih u (by omega) hxx.1 hzu with hr | hr
+          · exact Or.inr ⟨j, hj, hop, u, by simp [hinp], hr, hxx.1, hzu⟩
+          · exact Or.inr hr
+        · rcases ih v (by omega) hxx.2 hzv with hr | hr
+          · exact Or.inr ⟨j, hj, hop, v, by simp [hinp], hr, hxx.2, hzv⟩
+          · exact Or.inr hr
+      · have hxx : wireFn n C u x = true ∨ wireFn n C v x = true := by
+          simpa [hop, GateOp.eval] using hex.symm
+        have hzz : wireFn n C u z = false ∧ wireFn n C v z = false := by
+          simpa [hop, GateOp.eval] using hez.symm
+        rcases hxx with hxu | hxv
+        · rcases ih u (by omega) hxu hzz.1 with hr | hr
+          · left
+            rw [← hw]
+            exact H5Reach.orIn_up n C j u b hj hop (by simp [hinp]) hu hr
+          · exact Or.inr hr
+        · rcases ih v (by omega) hxv hzz.2 with hr | hr
+          · left
+            rw [← hw]
+            exact H5Reach.orIn_up n C j v b hj hop (by simp [hinp]) hv hr
+          · exact Or.inr hr
+
+lemma difference_trace_and (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (x z : Fin n → Bool) (b : Fin n)
+    (hdiff : ∀ a, x a = true → z a = false → a = b) (w : ℕ)
+    (hx : wireFn n C w x = true) (hz : wireFn n C w z = false)
+    (hnoreach : b ∉ orIn n C w) :
+    ∃ j < C.gates.length, (gateAt C j).op = GateOp.and ∧
+      ∃ v ∈ (gateAt C j).inputs,
+        b ∈ orIn n C v ∧ wireFn n C v x = true ∧ wireFn n C v z = false := by
+  exact (difference_trace n C hC x z b hdiff w hx hz).resolve_left hnoreach
+
+lemma difference_trace_and_of_singleton_false (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (x z : Fin n → Bool) (b : Fin n)
+    (hdiff : ∀ a, x a = true → z a = false → a = b) (w : ℕ)
+    (hx : wireFn n C w x = true) (hz : wireFn n C w z = false)
+    (hsingle : wireFn n C w (singletonInput b) = false) :
+    ∃ j < C.gates.length, (gateAt C j).op = GateOp.and ∧
+      ∃ v ∈ (gateAt C j).inputs,
+        b ∈ orIn n C v ∧ wireFn n C v x = true ∧ wireFn n C v z = false := by
+  apply difference_trace_and n C hC x z b hdiff w hx hz
+  intro hr
+  have ht := H5LiftGlue.orIn_singleton_true n C hC.2.1 w b hr
+  rw [hsingle] at ht
+  cases ht
+
+lemma orIn_false (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (z : Fin n → Bool) (w : ℕ) (hz : wireFn n C w z = false)
+    (a : Fin n) (ha : a ∈ orIn n C w) : z a = false := by
+  cases hza : z a with
+  | false => rfl
+  | true =>
+      have hle : singletonInput a ≤ z := by
+        intro c
+        apply Bool.le_iff_imp.mpr
+        intro hc
+        have hca : c = a := by simpa [singletonInput] using hc
+        simpa [hca] using hza
+      have htrue := H5LiftGlue.orIn_singleton_true n C hC.2.1 w a ha
+      have ht := Bool.le_iff_imp.mp (wireFn_mono n C hC w hle) htrue
+      rw [hz] at ht
+      cases ht
+
+lemma difference_trace_confined (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (x z : Fin n → Bool) (b : Fin n)
+    (hdiff : ∀ a, x a = true → z a = false → a = b) (w : ℕ)
+    (hx : wireFn n C w x = true) (hz : wireFn n C w z = false)
+    (hsingle : wireFn n C w (singletonInput b) = false) :
+    ∃ j < C.gates.length, (gateAt C j).op = GateOp.and ∧
+      ∃ v ∈ (gateAt C j).inputs,
+        b ∈ orIn n C v ∧ wireFn n C v x = true ∧ wireFn n C v z = false ∧
+          ∀ a ∈ orIn n C v, z a = false := by
+  obtain ⟨j, hj, hop, v, hv, hb, hvx, hvz⟩ :=
+    difference_trace_and_of_singleton_false n C hC x z b hdiff w hx hz hsingle
+  exact ⟨j, hj, hop, v, hv, hb, hvx, hvz, orIn_false n C hC z v hvz⟩
+
+end H5DifferenceTrace
+
 end PEqualNP.Outside.L_meta_4970_aux
