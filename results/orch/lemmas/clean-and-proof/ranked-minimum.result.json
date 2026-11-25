@@ -1,0 +1,16 @@
+{
+  "exit_code": 0,
+  "elapsed_s": 10.91202240199982,
+  "max_child_rss_kib": 2877280,
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-M6500",
+    "-j1",
+    "--profile",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/clean-and-proof/RankedMinimum.lean"
+  ],
+  "source_sha256": "7301c9364c51cbb5abe948e91df78e77fc5c98f0d1a219dd4fea2dd28e4612cc",
+  "status": "General support theorem only; not the posted L1904 statement."
+}
