@@ -1,0 +1,7 @@
+L-meta-4970: PARTIAL preservation; no complete theorem and no proof PR yet.
+Named file: empty-edge base case, lake build passed.
+lemmas/stars.lean: five combinatorial ownership/star helpers; lake env lean passed.
+Independent review: approved for partial preservation only by status_review.
+Checker: not run against posted statement; full theorem absent.
+Sub-agents: 5 (status/library review, toolchain/star lemmas, ledger proof, semantic proof, counterexample audit)
+TIMING total=21.2 subagents=5
