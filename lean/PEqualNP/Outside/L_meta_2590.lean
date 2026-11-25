@@ -8261,3 +8261,985 @@ lemma gate_injective {D : Dag} (T : Finset V) (hT : T ∈ allowed)
     · exact hn hB
 
 end PEqualNP.Outside.L_meta_2590_aux.S50SplitDistinct
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S50ExtraSeed
+open DagTools Four SharedDom S50Meeting S50Private S50SplitT
+
+def color (x : V) : Finset V := if x ∈ ({3,6,7} : Finset V) then {3,6,7} else {2,8,9}
+
+def oppositeColor (x : V) : Finset V := if x ∈ ({3,6,7} : Finset V) then {2,8,9} else {3,6,7}
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma seed_geometry : ∀ u : V, u ≠ 0 → ¬ Adj 0 u →
+    ∃ x v w p : V, Adj 0 x ∧ Adj x u ∧ Adj u v ∧ Adj u w ∧ Adj x p ∧
+      v ≠ x ∧ w ≠ x ∧ p ≠ 0 ∧ p ≠ u ∧ v ≠ w ∧ v ≠ p ∧ w ≠ p ∧
+      ({v,w,p} : Finset V) = oppositeColor u := by
+  unfold Adj edgeList
+  decide +kernel
+
+lemma color_partition : ∀ u : V,
+    color u ∪ oppositeColor u = cycleSet ∧ Disjoint (color u) (oppositeColor u) ∧
+      (color u).card = 3 ∧ (oppositeColor u).card = 3 := by
+  decide +kernel
+
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma color_outside : ∀ u : V, ∀ v ∈ color u ∪ oppositeColor u, v ≠ 0 ∧ ¬ Adj 0 v := by
+  unfold Adj edgeList
+  decide +kernel
+
+lemma self_color : ∀ u ∈ cycleSet, u ∈ color u := by
+  decide +kernel
+
+lemma color_stable : ∀ u : V, ∀ v ∈ color u,
+    color v = color u ∧ oppositeColor v = oppositeColor u := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma color_two_neighbors : ∀ u : V, ∀ v ∈ color u,
+    ∃ w z : V, w ∈ oppositeColor u ∧ z ∈ oppositeColor u ∧ w ≠ z ∧ Adj v w ∧ Adj v z := by
+  unfold Adj edgeList
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma opposite_two_neighbors : ∀ u : V, ∀ v ∈ oppositeColor u,
+    ∃ w z : V, w ∈ color u ∧ z ∈ color u ∧ w ≠ z ∧ Adj v w ∧ Adj v z := by
+  unfold Adj edgeList
+  decide +kernel
+
+lemma extra_common_source_opposite_color {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hi : (0 : V) ∈ ineligSet 10 D)
+    {e q : Nat × Bool} (epure : supp 10 D (src D e) = {0})
+    (hq : ∀ x : V, Adj 0 x → q ∈ sem_W 10 D x)
+    (qout : supp 10 D (10 + q.1) = ∅)
+    (ports : ∀ x : V, Adj 0 x → ∃ f : Nat × Bool,
+      sem_W 10 D x = {sem_bar e,q,f} ∧ supp 10 D (src D f) = {x})
+    {u : V} (hu0 : u ≠ 0) (huN : ¬ Adj 0 u)
+    (small : (sem_W 10 D u).card ≤ 2) (huq : u ∈ supp 10 D (src D q)) :
+    oppositeColor u ⊆ supp 10 D (src D (sem_bar q)) := by
+  classical
+  obtain ⟨x,v,w,p,hxN,hxu,huv,huw,hxp,hvx,hwx,hp0,hpu,hvw,hvp,hwp,heq⟩ :=
+    seed_geometry u hu0 huN
+  obtain ⟨f,cover,fpure⟩ := ports x hxN
+  have fxmem : f ∈ sem_W 10 D x := by rw [cover]; simp
+  have qxu := hq x hxN
+  have qvalid := (sem_mem_W.mp qxu).1
+  have qumem : q ∈ sem_W 10 D u := by
+    apply sem_mem_W.mpr
+    exact ⟨qvalid,huq,by rw [qout]; simp⟩
+  have fumem : sem_bar f ∈ sem_W 10 D u := by
+    rcases case50_edge_coverage h hc hxu hu0 cover epure with hh | hh
+    · exact False.elim (hh.2.1 huq)
+    · exact hh.1
+  have fne : sem_bar f ≠ q := by
+    intro eq
+    have hm := (sem_mem_W.mp qxu).2.1
+    rw [← eq] at hm
+    exact exit_opposite_excludes h.1 fxmem hm
+  have fpureU : supp 10 D (src D (sem_bar f)) = {u} :=
+    other_exit_pure h hc hi hu0 small qumem
+      (fun a ha => (sem_mem_W.mp (hq a ha)).2.1) fumem fne
+  have other (z : V) (huz : Adj u z) (hzx : z ≠ x) :
+      z ∈ supp 10 D (src D (sem_bar q)) := by
+    obtain ⟨a,ha,hza,_⟩ := sem_edge_slots graph_ok h.1 hc huz
+    have hm := (sem_mem_W.mp hza).2.1
+    rcases mem_of_card_le_two (sem_W 10 D u) small qumem fumem ha (Ne.symm fne) with he | he
+    · exact he ▸ hm
+    · rw [he,bar_bar,fpure,Finset.mem_singleton] at hm
+      exact False.elim (hzx hm)
+  have hv := other v huv hvx
+  have hw := other w huw hwx
+  have hp : p ∈ supp 10 D (src D (sem_bar q)) := by
+    rcases case50_edge_coverage h hc hxp hp0 cover epure with hh | hh
+    · exact (sem_mem_W.mp hh.1).2.1
+    · have hm := (sem_mem_W.mp hh.1).2.1
+      rw [fpureU,Finset.mem_singleton] at hm
+      exact False.elim (hpu hm)
+  have sub : ({v,w,p} : Finset V) ⊆ supp 10 D (src D (sem_bar q)) := by
+    intro z hz
+    simp only [Finset.mem_insert,Finset.mem_singleton] at hz
+    rcases hz with rfl | rfl | rfl <;> assumption
+  rw [← heq]
+  exact sub
+
+end PEqualNP.Outside.L_meta_2590_aux.S50ExtraSeed
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S50ExtraClosure
+open DagTools Four S50Meeting S50Private S50SplitCycle
+
+lemma two_opposite_neighbors_force_source {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    {e q : Nat × Bool} (f : V → Nat × Bool)
+    (epure : supp 10 D (src D e) = {0})
+    (qout : supp 10 D (10+q.1) = ∅)
+    (cover : ∀ x : V, Adj 0 x → sem_W 10 D x = {sem_bar e,q,f x})
+    (pure : ∀ x : V, Adj 0 x → supp 10 D (src D (f x)) = {x})
+    (small : ∀ y : V, y ≠ 0 → ¬ Adj 0 y → (sem_W 10 D y).card ≤ 2)
+    {v b c : V} (hv0 : v ≠ 0) (hvN : ¬ Adj 0 v)
+    (hb0 : b ≠ 0) (hbN : ¬ Adj 0 b) (hc0 : c ≠ 0) (hcN : ¬ Adj 0 c)
+    (hvb : Adj v b) (hvc : Adj v c) (hbc : b ≠ c)
+    (hbT : b ∈ supp 10 D (src D (sem_bar q)))
+    (hcT : c ∈ supp 10 D (src D (sem_bar q))) :
+    v ∈ supp 10 D (src D q) := by
+  classical
+  by_contra hvq
+  have hq1 : q ∈ sem_W 10 D (1 : V) := by rw [cover 1 (by decide +kernel)]; simp
+  have qvalid := (sem_mem_W.mp hq1).1
+  have opposite_mem (x : V) (hx : x ∈ supp 10 D (src D (sem_bar q))) :
+      sem_bar q ∈ sem_W 10 D x := by
+    apply sem_mem_W.mpr
+    refine ⟨qvalid,hx,?_⟩
+    change x ∉ supp 10 D (10+q.1)
+    rw [qout]
+    simp
+  have hbq := opposite_mem b hbT
+  have hcq := opposite_mem c hcT
+  have first : ∃ p : Nat × Bool, p ∈ sem_W 10 D v ∧
+      b ∉ supp 10 D (src D (sem_bar p)) ∧ c ∉ supp 10 D (src D (sem_bar p)) := by
+    by_cases hvT : v ∈ supp 10 D (src D (sem_bar q))
+    · refine ⟨sem_bar q,opposite_mem v hvT,?_,?_⟩
+      · simpa only [bar_bar] using exit_opposite_excludes h.1 hbq
+      · simpa only [bar_bar] using exit_opposite_excludes h.1 hcq
+    · obtain ⟨x,_,hx,hxv,_,_,_⟩ := outside_neighbors v hv0 hvN
+      have hp : sem_bar (f x) ∈ sem_W 10 D v := by
+        rcases case50_edge_coverage h hc hxv hv0 (cover x hx) epure with hh | hh
+        · exact False.elim (hvT (sem_mem_W.mp hh.1).2.1)
+        · exact hh.1
+      refine ⟨sem_bar (f x),hp,?_,?_⟩
+      · simp only [bar_bar,pure x hx,Finset.mem_singleton]
+        exact fun eq => hbN (eq ▸ hx)
+      · simp only [bar_bar,pure x hx,Finset.mem_singleton]
+        exact fun eq => hcN (eq ▸ hx)
+  obtain ⟨p,hp,hbp,hcp⟩ := first
+  obtain ⟨d,hd,hbd,_,_,_⟩ := sem_edge_slots graph_ok h.1 hc hvb
+  obtain ⟨d',hd',hcd',_,_,_⟩ := sem_edge_slots graph_ok h.1 hc hvc
+  have hdp : d ≠ p := fun eq => hbp (by simpa only [eq] using (sem_mem_W.mp hbd).2.1)
+  have hd'p : d' ≠ p := fun eq => hcp (by simpa only [eq] using (sem_mem_W.mp hcd').2.1)
+  have heq := unique_away (sem_W 10 D v) (small v hv0 hvN) hp hd hd' hdp hd'p
+  have hcd : sem_bar d ∈ sem_W 10 D c := heq ▸ hcd'
+  have hne : sem_bar d ≠ sem_bar q := by
+    intro eq
+    have dq : d = q := by simpa only [bar_bar] using congrArg sem_bar eq
+    exact hvq (by simpa only [dq] using (sem_mem_W.mp hd).2.1)
+  obtain ⟨Z,hZ,hcZ,_,hitb⟩ := SharedDom.i1_exposure_omit_geometry b c hb0 hc0 (Ne.symm hbc)
+  obtain ⟨j,s,hj,_,hbs,hbo,free⟩ := sem_exposure graph_ok h.1 hc Z hZ b hitb
+  have hw : (j,s) ∈ sem_W 10 D b := sem_mem_W.mpr ⟨hj,hbs,hbo⟩
+  rcases mem_of_card_le_two (sem_W 10 D b) (small b hb0 hbN) hbd hbq hw hne with he | he
+  · rw [he] at free
+    exact Finset.disjoint_left.mp free (sem_mem_W.mp hcd).2.1 hcZ
+  · rw [he] at free
+    exact Finset.disjoint_left.mp free hcT hcZ
+
+end PEqualNP.Outside.L_meta_2590_aux.S50ExtraClosure
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S50ExtraActual
+open DagTools Four S50Meeting S50Private S50SplitT S50SplitPorts S50ExtraSeed S50ExtraClosure
+
+lemma extra_profile_colors {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hi : (0 : V) ∈ ineligSet 10 D)
+    {e q : Nat × Bool} (f : V → Nat × Bool)
+    (epure : supp 10 D (src D e) = {0})
+    (zero : sem_W 10 D 0 = {e}) (eqne : e.1 ≠ q.1)
+    (qout : supp 10 D (10+q.1) = ∅)
+    (cover : ∀ x : V, Adj 0 x → sem_W 10 D x = {sem_bar e,q,f x})
+    (pure : ∀ x : V, Adj 0 x → supp 10 D (src D (f x)) = {x})
+    (small : ∀ y : V, y ≠ 0 → ¬ Adj 0 y → (sem_W 10 D y).card ≤ 2)
+    {u : V} (hu0 : u ≠ 0) (huN : ¬ Adj 0 u) (huq : u ∈ supp 10 D (src D q)) :
+    supp 10 D (src D q) = ({1,4,5} : Finset V) ∪ color u ∧
+    supp 10 D (src D (sem_bar q)) = oppositeColor u := by
+  classical
+  have common (x : V) (hx : Adj 0 x) : q ∈ sem_W 10 D x := by rw [cover x hx]; simp
+  have ports (x : V) (hx : Adj 0 x) : ∃ a : Nat × Bool,
+      sem_W 10 D x = {sem_bar e,q,a} ∧ supp 10 D (src D a) = {x} :=
+    ⟨f x,cover x hx,pure x hx⟩
+  have seed := extra_common_source_opposite_color h hc hi epure common qout ports hu0 huN
+    (small u hu0 huN) huq
+  have colorSource : color u ⊆ supp 10 D (src D q) := by
+    intro v hv
+    have vv := color_outside u v (Finset.mem_union_left _ hv)
+    obtain ⟨b,c,hb,hc',hbc,hvb,hvc⟩ := color_two_neighbors u v hv
+    have bb := color_outside u b (Finset.mem_union_right _ hb)
+    have cc := color_outside u c (Finset.mem_union_right _ hc')
+    exact two_opposite_neighbors_force_source h hc f epure qout cover pure small
+      vv.1 vv.2 bb.1 bb.2 cc.1 cc.2 hvb hvc hbc (seed hb) (seed hc')
+  have nSource : ({1,4,5} : Finset V) ⊆ supp 10 D (src D q) := by
+    intro v hv
+    exact (sem_mem_W.mp (common v ((I1Exposure.zero_neighbors v).mpr hv))).2.1
+  have sourceZero : (0 : V) ∉ supp 10 D (src D q) := by
+    intro hz
+    have hp := sem_inelig_pure graph_ok h.1 hc hi hz
+    have hone := nSource (show (1 : V) ∈ ({1,4,5} : Finset V) by decide)
+    rw [hp,Finset.mem_singleton] at hone
+    exact (by decide : (1 : V) ≠ 0) hone
+  have qvalid := (sem_mem_W.mp (common 1 (by decide +kernel))).1
+  have opposite_mem (x : V) (hx : x ∈ supp 10 D (src D (sem_bar q))) : sem_bar q ∈ sem_W 10 D x := by
+    apply sem_mem_W.mpr
+    refine ⟨qvalid,hx,?_⟩
+    change x ∉ supp 10 D (10+q.1)
+    rw [qout]
+    simp
+  have noBoth (x : V) (hx : x ∈ supp 10 D (src D (sem_bar q))) : x ∉ supp 10 D (src D q) := by
+    simpa only [bar_bar] using exit_opposite_excludes h.1 (opposite_mem x hx)
+  constructor
+  · apply Finset.Subset.antisymm
+    · intro x hx
+      by_cases hxN : Adj 0 x
+      · exact Finset.mem_union_left _ ((I1Exposure.zero_neighbors x).mp hxN)
+      · have hx0 : x ≠ 0 := fun eq => sourceZero (eq ▸ hx)
+        have hcycle := (cycle_mem_iff x).mpr ⟨hx0,hxN⟩
+        rw [← (color_partition u).1] at hcycle
+        rcases Finset.mem_union.mp hcycle with ha | hb
+        · exact Finset.mem_union_right _ ha
+        · exact False.elim (noBoth x (seed hb) hx)
+    · exact Finset.union_subset nSource colorSource
+  · apply Finset.Subset.antisymm
+    · intro x hx
+      have hx0 : x ≠ 0 := by
+        intro eq
+        subst x
+        have hm := opposite_mem 0 hx
+        rw [zero,Finset.mem_singleton] at hm
+        exact eqne (congrArg Prod.fst hm).symm
+      have hxN : ¬ Adj 0 x := by
+        intro hn
+        exact noBoth x hx (nSource ((I1Exposure.zero_neighbors x).mp hn))
+      have hcycle := (cycle_mem_iff x).mpr ⟨hx0,hxN⟩
+      rw [← (color_partition u).1] at hcycle
+      rcases Finset.mem_union.mp hcycle with ha | hb
+      · exact False.elim (noBoth x hx (colorSource ha))
+      · exact hb
+    · exact seed
+
+end PEqualNP.Outside.L_meta_2590_aux.S50ExtraActual
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S50ExtraPrivate
+open DagTools Four SharedDom S50Meeting S50Private S50SplitT S50ExtraSeed
+
+def mate (u x : V) : V :=
+  if x = 1 then if u ∈ ({3,6,7} : Finset V) then 6 else 2
+  else if x = 4 then if u ∈ ({3,6,7} : Finset V) then 3 else 9
+  else if u ∈ ({3,6,7} : Finset V) then 7 else 8
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma mate_geometry : ∀ u x : V, Adj 0 x →
+    mate u x ∈ color u ∧ Adj x (mate u x) ∧ mate u x ≠ 0 ∧ ¬ Adj 0 (mate u x) := by
+  unfold Adj edgeList
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma owner_geometry : ∀ u : V, ∀ v ∈ color u,
+    Adj 0 (owner v) ∧ Adj (owner v) v ∧ mate u (owner v) = v ∧ v ≠ 0 ∧ ¬ Adj 0 v := by
+  unfold Adj edgeList
+  decide +kernel
+
+lemma private_mates_exact {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hi : (0 : V) ∈ ineligSet 10 D)
+    {e q : Nat × Bool} (f : V → Nat × Bool) (u : V)
+    (epure : supp 10 D (src D e) = {0})
+    (qsrc : supp 10 D (src D q) = ({1,4,5} : Finset V) ∪ color u)
+    (qout : supp 10 D (10+q.1) = ∅)
+    (cover : ∀ x : V, Adj 0 x → sem_W 10 D x = {sem_bar e,q,f x})
+    (small : ∀ y : V, y ≠ 0 → ¬ Adj 0 y → (sem_W 10 D y).card ≤ 2) :
+    ∀ x : V, Adj 0 x → supp 10 D (src D (sem_bar (f x))) = {mate u x} := by
+  intro x hx
+  obtain ⟨hcolor,hxv,hv0,hvN⟩ := mate_geometry u x hx
+  have qx : q ∈ sem_W 10 D x := by rw [cover x hx]; simp
+  have fx : f x ∈ sem_W 10 D x := by rw [cover x hx]; simp
+  have hvq : mate u x ∈ supp 10 D (src D q) := by
+    rw [qsrc]
+    exact Finset.mem_union_right _ hcolor
+  have qv : q ∈ sem_W 10 D (mate u x) :=
+    sem_mem_W.mpr ⟨(sem_mem_W.mp qx).1,hvq,by rw [qout]; simp⟩
+  have fv : sem_bar (f x) ∈ sem_W 10 D (mate u x) := by
+    rcases case50_edge_coverage h hc hxv hv0 (cover x hx) epure with hh | hh
+    · exact False.elim (hh.2.1 hvq)
+    · exact hh.1
+  have hne : sem_bar (f x) ≠ q := by
+    intro eq
+    have hxs := (sem_mem_W.mp qx).2.1
+    rw [← eq] at hxs
+    exact exit_opposite_excludes h.1 fx hxs
+  apply other_exit_pure h hc hi hv0 (small _ hv0 hvN) qv _ fv hne
+  intro a ha
+  rw [qsrc]
+  exact Finset.mem_union_left _ ((I1Exposure.zero_neighbors a).mp ha)
+
+lemma source_side_cover {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    {e q : Nat × Bool} (f : V → Nat × Bool) (u : V)
+    (epure : supp 10 D (src D e) = {0})
+    (qsrc : supp 10 D (src D q) = ({1,4,5} : Finset V) ∪ color u)
+    (qout : supp 10 D (10+q.1) = ∅)
+    (cover : ∀ x : V, Adj 0 x → sem_W 10 D x = {sem_bar e,q,f x})
+    (small : ∀ y : V, y ≠ 0 → ¬ Adj 0 y → (sem_W 10 D y).card ≤ 2) :
+    ∀ v ∈ color u, sem_W 10 D v = {q,sem_bar (f (owner v))} := by
+  classical
+  intro v hv
+  obtain ⟨hx,hxv,_,hv0,hvN⟩ := owner_geometry u v hv
+  have qx : q ∈ sem_W 10 D (owner v) := by rw [cover _ hx]; simp
+  have fx : f (owner v) ∈ sem_W 10 D (owner v) := by rw [cover _ hx]; simp
+  have hvq : v ∈ supp 10 D (src D q) := by
+    rw [qsrc]
+    exact Finset.mem_union_right _ hv
+  have qv : q ∈ sem_W 10 D v :=
+    sem_mem_W.mpr ⟨(sem_mem_W.mp qx).1,hvq,by rw [qout]; simp⟩
+  have fv : sem_bar (f (owner v)) ∈ sem_W 10 D v := by
+    rcases case50_edge_coverage h hc hxv hv0 (cover _ hx) epure with hh | hh
+    · exact False.elim (hh.2.1 hvq)
+    · exact hh.1
+  have hne : q ≠ sem_bar (f (owner v)) := by
+    intro eq
+    have hxs := (sem_mem_W.mp qx).2.1
+    rw [eq] at hxs
+    exact exit_opposite_excludes h.1 fx hxs
+  ext a
+  simp only [Finset.mem_insert,Finset.mem_singleton]
+  constructor
+  · intro ha
+    exact mem_of_card_le_two _ (small v hv0 hvN) qv fv ha hne
+  · rintro (rfl | rfl) <;> assumption
+
+end PEqualNP.Outside.L_meta_2590_aux.S50ExtraPrivate
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S50ExtraOpposite
+open DagTools Four SharedDom S50Meeting S50Private S50SplitT S50ExtraSeed S50ExtraPrivate
+
+lemma source_subset_opposite {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hi : (0 : V) ∈ ineligSet 10 D)
+    {e q : Nat × Bool} (f : V → Nat × Bool) (u : V)
+    (epure : supp 10 D (src D e) = {0})
+    (ebar : supp 10 D (src D (sem_bar e)) = ({1,4,5} : Finset V))
+    (zero : sem_W 10 D 0 = {e})
+    (qsrc : supp 10 D (src D q) = ({1,4,5} : Finset V) ∪ color u)
+    (qout : supp 10 D (10+q.1) = ∅)
+    (cover : ∀ x : V, Adj 0 x → sem_W 10 D x = {sem_bar e,q,f x})
+    (pure : ∀ x : V, Adj 0 x → supp 10 D (src D (f x)) = {x})
+    (small : ∀ y : V, y ≠ 0 → ¬ Adj 0 y → (sem_W 10 D y).card ≤ 2)
+    (empty : ∀ j : Nat, j < D.length → tag D j = true → supp 10 D (10+j) = ∅)
+    {b : V} (hb : b ∈ oppositeColor u) {r : Nat × Bool} (hr : r ∈ sem_W 10 D b) :
+    supp 10 D (src D r) ⊆ oppositeColor u := by
+  classical
+  have hbounds := color_outside u b (Finset.mem_union_right _ hb)
+  have hb0 := hbounds.1
+  have hbN := hbounds.2
+  have hbA : b ∉ color u := fun hba => Finset.disjoint_left.mp (color_partition u).2.1 hba hb
+  have hbq : b ∉ supp 10 D (src D q) := by
+    rw [qsrc]
+    intro hmem
+    rcases Finset.mem_union.mp hmem with hn | ha
+    · exact hbN ((I1Exposure.zero_neighbors b).mpr hn)
+    · exact hbA ha
+  have privateSides := private_mates_exact h hc hi f u epure qsrc qout cover small
+  have ac := source_side_cover h hc f u epure qsrc qout cover small
+  intro y hy
+  have hry : r ∈ sem_W 10 D y := sem_mem_W.mpr
+    ⟨(sem_mem_W.mp hr).1,hy,by rw [empty r.1 (sem_mem_W.mp hr).1 (sem_W_and h.1 hr)]; simp⟩
+  have hbr := (sem_mem_W.mp hr).2.1
+  by_contra hyB
+  by_cases hy0 : y = 0
+  · subst y
+    rw [zero,Finset.mem_singleton] at hry
+    rw [hry,epure,Finset.mem_singleton] at hbr
+    exact hb0 hbr
+  · by_cases hyN : Adj 0 y
+    · rw [cover y hyN] at hry
+      simp only [Finset.mem_insert,Finset.mem_singleton] at hry
+      rcases hry with hry | hry | hry
+      · rw [hry,ebar] at hbr
+        exact hbN ((I1Exposure.zero_neighbors b).mpr hbr)
+      · exact hbq (hry ▸ hbr)
+      · rw [hry,pure y hyN,Finset.mem_singleton] at hbr
+        exact hbN (hbr ▸ hyN)
+    · have hyC : y ∈ cycleSet := (S50SplitPorts.cycle_mem_iff y).mpr ⟨hy0,hyN⟩
+      have hyUnion : y ∈ color u ∪ oppositeColor u := by
+        rw [(color_partition u).1]
+        exact hyC
+      have hyA : y ∈ color u := (Finset.mem_union.mp hyUnion).resolve_right hyB
+      rw [ac y hyA] at hry
+      simp only [Finset.mem_insert,Finset.mem_singleton] at hry
+      rcases hry with hry | hry
+      · exact hbq (hry ▸ hbr)
+      · obtain ⟨ho,_,hm,_,_⟩ := S50ExtraPrivate.owner_geometry u y hyA
+        rw [hry,privateSides (owner y) ho,hm,Finset.mem_singleton] at hbr
+        exact hbA (hbr ▸ hyA)
+
+lemma other_pure_of_subset {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (u : V) (q r : Nat × Bool) {b : V} (hb : b ∈ oppositeColor u)
+    (qsrc : supp 10 D (src D (sem_bar q)) = oppositeColor u)
+    (hq : sem_bar q ∈ sem_W 10 D b) (hr : r ∈ sem_W 10 D b)
+    (hne : r ≠ sem_bar q) (small : (sem_W 10 D b).card ≤ 2)
+    (sub : supp 10 D (src D r) ⊆ oppositeColor u) :
+    supp 10 D (src D r) = {b} := by
+  classical
+  have hb0 := (color_outside u b (Finset.mem_union_right _ hb)).1
+  apply Finset.Subset.antisymm
+  · intro c hcsrc
+    apply Finset.mem_singleton.mpr
+    by_contra hcb
+    have hcB := sub hcsrc
+    have hc0 := (color_outside u c (Finset.mem_union_right _ hcB)).1
+    obtain ⟨Z,hZ,hcZ,_,hitb⟩ := SharedDom.i1_exposure_omit_geometry b c hb0 hc0 hcb
+    obtain ⟨j,s,hj,_,hbs,hbo,free⟩ := sem_exposure graph_ok h.1 hc Z hZ b hitb
+    have hw : (j,s) ∈ sem_W 10 D b := sem_mem_W.mpr ⟨hj,hbs,hbo⟩
+    rcases mem_of_card_le_two _ small hr hq hw hne with he | he
+    · rw [he] at free
+      exact Finset.disjoint_left.mp free hcsrc hcZ
+    · rw [he,qsrc] at free
+      exact Finset.disjoint_left.mp free hcB hcZ
+  · exact Finset.singleton_subset_iff.mpr (sem_mem_W.mp hr).2.1
+
+lemma opposite_ports_pure {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hi : (0 : V) ∈ ineligSet 10 D)
+    {e q : Nat × Bool} (f : V → Nat × Bool) (u : V)
+    (epure : supp 10 D (src D e) = {0})
+    (ebar : supp 10 D (src D (sem_bar e)) = ({1,4,5} : Finset V))
+    (zero : sem_W 10 D 0 = {e})
+    (qsrc : supp 10 D (src D q) = ({1,4,5} : Finset V) ∪ color u)
+    (qbar : supp 10 D (src D (sem_bar q)) = oppositeColor u)
+    (qout : supp 10 D (10+q.1) = ∅)
+    (cover : ∀ x : V, Adj 0 x → sem_W 10 D x = {sem_bar e,q,f x})
+    (pure : ∀ x : V, Adj 0 x → supp 10 D (src D (f x)) = {x})
+    (two : ∀ y : V, y ≠ 0 → ¬ Adj 0 y → (sem_W 10 D y).card = 2)
+    (empty : ∀ j : Nat, j < D.length → tag D j = true → supp 10 D (10+j) = ∅) :
+    ∀ b ∈ oppositeColor u, ∃ r : Nat × Bool,
+      r ≠ sem_bar q ∧ sem_W 10 D b = {sem_bar q,r} ∧ supp 10 D (src D r) = {b} := by
+  classical
+  intro b hb
+  obtain ⟨hb0,hbN⟩ := color_outside u b (Finset.mem_union_right _ hb)
+  have qx : q ∈ sem_W 10 D (1 : V) := by rw [cover 1 (by decide +kernel)]; simp
+  have hqb : sem_bar q ∈ sem_W 10 D b := by
+    apply sem_mem_W.mpr
+    refine ⟨(sem_mem_W.mp qx).1,?_,?_⟩
+    · rw [qbar]
+      exact hb
+    · change b ∉ supp 10 D (10+q.1)
+      rw [qout]
+      simp
+  have small (x : V) (hx0 : x ≠ 0) (hxN : ¬ Adj 0 x) : (sem_W 10 D x).card ≤ 2 :=
+    (two x hx0 hxN).le
+  have existsOther : ∃ r ∈ sem_W 10 D b, r ≠ sem_bar q := by
+    by_contra hn
+    push Not at hn
+    have sub : sem_W 10 D b ⊆ {sem_bar q} := by
+      intro r hr
+      exact Finset.mem_singleton.mpr (hn r hr)
+    have count := Finset.card_le_card sub
+    rw [two b hb0 hbN,Finset.card_singleton] at count
+    omega
+  obtain ⟨r,hr,hne⟩ := existsOther
+  have sub := source_subset_opposite h hc hi f u epure ebar zero qsrc qout cover pure small empty hb hr
+  have pureR := other_pure_of_subset h hc u q r hb qbar hqb hr hne (small b hb0 hbN) sub
+  refine ⟨r,hne,?_,pureR⟩
+  ext a
+  simp only [Finset.mem_insert,Finset.mem_singleton]
+  constructor
+  · intro ha
+    exact mem_of_card_le_two _ (small b hb0 hbN) hqb hr ha (Ne.symm hne)
+  · rintro (rfl | rfl) <;> assumption
+
+end PEqualNP.Outside.L_meta_2590_aux.S50ExtraOpposite
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S50ExtraCoverage
+open DagTools Four S50Private S50SplitT S50SplitPorts S50ExtraSeed
+
+def baseArcs (e q : Nat × Bool) (f : V → Nat × Bool) : Finset (Nat × Bool) :=
+  {e,sem_bar e,q,sem_bar q,f 1,sem_bar (f 1),f 4,sem_bar (f 4),f 5,sem_bar (f 5)}
+
+def allArcs (e q : Nat × Bool) (f r : V → Nat × Bool) (u : V) : Finset (Nat × Bool) :=
+  baseArcs e q f ∪ (oppositeColor u).image r
+
+def allGates (e q : Nat × Bool) (f r : V → Nat × Bool) (u : V) : Finset Nat :=
+  (allArcs e q f r u).image Prod.fst
+
+lemma base_bar_closed (e q : Nat × Bool) (f : V → Nat × Bool)
+    {a : Nat × Bool} (ha : a ∈ baseArcs e q f) : sem_bar a ∈ baseArcs e q f := by
+  simp only [baseArcs,Finset.mem_insert,Finset.mem_singleton] at ha
+  rcases ha with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl <;>
+    simp [baseArcs,bar_bar]
+
+lemma base_bar_iff (e q : Nat × Bool) (f : V → Nat × Bool) (a : Nat × Bool) :
+    sem_bar a ∈ baseArcs e q f ↔ a ∈ baseArcs e q f := by
+  constructor
+  · intro ha
+    simpa only [bar_bar] using base_bar_closed e q f ha
+  · exact base_bar_closed e q f
+
+lemma exit_arc_covered {D : Dag} (e q : Nat × Bool) (f r : V → Nat × Bool) (u : V)
+    (zero : sem_W 10 D 0 = {e})
+    (cover : ∀ x : V, Adj 0 x → sem_W 10 D x = {sem_bar e,q,f x})
+    (sourceSide : ∀ x ∈ color u, sem_W 10 D x = {q,sem_bar (f (owner x))})
+    (oppositeSide : ∀ x ∈ oppositeColor u, sem_W 10 D x = {sem_bar q,r x}) :
+    ∀ x : V, ∀ a ∈ sem_W 10 D x, a ∈ allArcs e q f r u := by
+  classical
+  have fx (x : V) (hx : Adj 0 x) : f x ∈ baseArcs e q f := by
+    have hn := (I1Exposure.zero_neighbors x).mp hx
+    simp only [Finset.mem_insert,Finset.mem_singleton] at hn
+    rcases hn with rfl | rfl | rfl <;> simp [baseArcs]
+  intro x a ha
+  by_cases hx0 : x = 0
+  · subst x
+    rw [zero,Finset.mem_singleton] at ha
+    rw [ha]
+    exact Finset.mem_union_left _ (by simp [baseArcs])
+  · by_cases hxN : Adj 0 x
+    · rw [cover x hxN] at ha
+      simp only [Finset.mem_insert,Finset.mem_singleton] at ha
+      apply Finset.mem_union_left
+      rcases ha with rfl | rfl | rfl
+      · simp [baseArcs]
+      · simp [baseArcs]
+      · exact fx x hxN
+    · have hxC := (cycle_mem_iff x).mpr ⟨hx0,hxN⟩
+      have hxAB : x ∈ color u ∪ oppositeColor u := by
+        rw [(color_partition u).1]
+        exact hxC
+      rcases Finset.mem_union.mp hxAB with hxA | hxB
+      · rw [sourceSide x hxA] at ha
+        simp only [Finset.mem_insert,Finset.mem_singleton] at ha
+        apply Finset.mem_union_left
+        rcases ha with rfl | rfl
+        · simp [baseArcs]
+        · exact base_bar_closed e q f (fx (owner x) (owner_geometry x hxC).2.2.1)
+      · rw [oppositeSide x hxB] at ha
+        simp only [Finset.mem_insert,Finset.mem_singleton] at ha
+        rcases ha with rfl | rfl
+        · exact Finset.mem_union_left _ (by simp [baseArcs])
+        · exact Finset.mem_union_right _ (Finset.mem_image.mpr ⟨x,hxB,rfl⟩)
+
+lemma noncanonical_and_empty {D : Dag} (e q : Nat × Bool) (f r : V → Nat × Bool) (u : V)
+    (zero : sem_W 10 D 0 = {e})
+    (cover : ∀ x : V, Adj 0 x → sem_W 10 D x = {sem_bar e,q,f x})
+    (sourceSide : ∀ x ∈ color u, sem_W 10 D x = {q,sem_bar (f (owner x))})
+    (oppositeSide : ∀ x ∈ oppositeColor u, sem_W 10 D x = {sem_bar q,r x})
+    (empty : ∀ j : Nat, j < D.length → tag D j = true → supp 10 D (10+j) = ∅)
+    {j : Nat} (hj : j < D.length) (ht : tag D j = true)
+    (hne : j ∉ allGates e q f r u) :
+    supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅ := by
+  have slots (s : Bool) : supp 10 D (src D (j,s)) = ∅ := by
+    apply Finset.eq_empty_of_forall_notMem
+    intro x hx
+    have hm : (j,s) ∈ sem_W 10 D x := sem_mem_W.mpr
+      ⟨hj,hx,by rw [empty j hj ht]; simp⟩
+    have hc := exit_arc_covered e q f r u zero cover sourceSide oppositeSide x (j,s) hm
+    exact hne (Finset.mem_image.mpr ⟨(j,s),hc,rfl⟩)
+  exact ⟨by simpa only [sb_src_false] using slots false,
+    by simpa only [sb_src_true] using slots true⟩
+
+end PEqualNP.Outside.L_meta_2590_aux.S50ExtraCoverage
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S50MateMatching
+open DagTools S50Private
+
+lemma pure_arcs_injective {n : Nat} {D : Dag} (B : Finset (Fin n))
+    (r : Fin n → Nat × Bool)
+    (pure : ∀ b ∈ B, supp n D (src D (r b)) = {b}) :
+    Set.InjOn r (↑B : Set (Fin n)) := by
+  intro b hb c hc eq
+  have hs : ({b} : Finset (Fin n)) = {c} := by rw [← pure b hb,eq,pure c hc]
+  exact Finset.singleton_inj.mp hs
+
+lemma mate_empty_or_paired {n : Nat} {D : Dag} (h : Strict n D)
+    (B : Finset (Fin n)) (r : Fin n → Nat × Bool) (K : Finset (Nat × Bool))
+    (closed : ∀ a ∈ K, sem_bar a ∈ K)
+    (nonbase : ∀ b ∈ B, r b ∉ K)
+    (member : ∀ b ∈ B, r b ∈ sem_W n D b)
+    (cover : ∀ x : Fin n, sem_W n D x ⊆ K ∪ B.image r)
+    (empty : ∀ j : Nat, j < D.length → tag D j = true → supp n D (n+j) = ∅) :
+    ∀ b ∈ B, supp n D (src D (sem_bar (r b))) = ∅ ∨
+      ∃ c ∈ B, c ≠ b ∧ r c = sem_bar (r b) := by
+  classical
+  intro b hb
+  by_cases zero : supp n D (src D (sem_bar (r b))) = ∅
+  · exact Or.inl zero
+  · right
+    obtain ⟨c,hc⟩ := Finset.nonempty_iff_ne_empty.mpr zero
+    have hr := member b hb
+    have hbar : sem_bar (r b) ∈ sem_W n D c := by
+      apply sem_mem_W.mpr
+      refine ⟨(sem_mem_W.mp hr).1,hc,?_⟩
+      change c ∉ supp n D (n+(r b).1)
+      rw [empty (r b).1 (sem_mem_W.mp hr).1 (sem_W_and h hr)]
+      simp
+    rcases Finset.mem_union.mp (cover c hbar) with hk | hi
+    · have bad := closed _ hk
+      rw [bar_bar] at bad
+      exact False.elim (nonbase b hb bad)
+    · obtain ⟨d,hd,heq⟩ := Finset.mem_image.mp hi
+      have hdb : d ≠ b := by
+        intro eq
+        subst d
+        have hx : b ∈ supp n D (src D (sem_bar (r b))) := by
+          rw [← heq]
+          exact (sem_mem_W.mp hr).2.1
+        exact exit_opposite_excludes h hr hx
+      exact ⟨d,hd,hdb,heq⟩
+
+end PEqualNP.Outside.L_meta_2590_aux.S50MateMatching
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S50ThreeMatching
+open DagTools S50Private
+
+lemma three_indices : ∀ i j k : Fin 3, i ≠ j → k ≠ i → k ≠ j →
+    ∀ l : Fin 3, l = i ∨ l = j ∨ l = k := by decide
+
+lemma three_pairings (r : Fin 3 → Nat × Bool) (inj : Function.Injective r)
+    (E : Fin 3 → Prop)
+    (cases : ∀ i : Fin 3, E i ∨ ∃ j : Fin 3, j ≠ i ∧ r j = sem_bar (r i)) :
+    (E 0 ∧ E 1 ∧ E 2) ∨ (r 1 = sem_bar (r 0) ∧ E 2) ∨
+      (r 2 = sem_bar (r 0) ∧ E 1) ∨ (r 2 = sem_bar (r 1) ∧ E 0) := by
+  classical
+  have remaining (i j k : Fin 3) (hij : i ≠ j) (hki : k ≠ i) (hkj : k ≠ j)
+      (pair : r j = sem_bar (r i)) : E k := by
+    rcases cases k with he | ⟨l,hlk,hl⟩
+    · exact he
+    rcases three_indices i j k hij hki hkj l with rfl | rfl | rfl
+    · have eq : r j = r k := by rw [pair,hl,bar_bar]
+      exact False.elim (hkj (inj eq).symm)
+    · have eq : r i = r k := by
+        have hh := congrArg sem_bar (pair.symm.trans hl)
+        simpa only [bar_bar] using hh
+      exact False.elim (hki (inj eq).symm)
+    · exact False.elim (hlk rfl)
+  by_cases p01 : r 1 = sem_bar (r 0)
+  · exact Or.inr (Or.inl ⟨p01,remaining 0 1 2 (by decide) (by decide) (by decide) p01⟩)
+  by_cases p02 : r 2 = sem_bar (r 0)
+  · exact Or.inr (Or.inr (Or.inl ⟨p02,remaining 0 2 1 (by decide) (by decide) (by decide) p02⟩))
+  by_cases p12 : r 2 = sem_bar (r 1)
+  · exact Or.inr (Or.inr (Or.inr ⟨p12,remaining 1 2 0 (by decide) (by decide) (by decide) p12⟩))
+  have flip (i j : Fin 3) (heq : r j = sem_bar (r i)) : r i = sem_bar (r j) := by
+    rw [heq,bar_bar]
+  have noPair (i j : Fin 3) (hne : j ≠ i) (heq : r j = sem_bar (r i)) : False := by
+    fin_cases i <;> fin_cases j
+    · exact hne rfl
+    · exact p01 heq
+    · exact p02 heq
+    · exact p01 (flip _ _ heq)
+    · exact hne rfl
+    · exact p12 heq
+    · exact p02 (flip _ _ heq)
+    · exact p12 (flip _ _ heq)
+    · exact hne rfl
+  have all (i : Fin 3) : E i := by
+    rcases cases i with he | ⟨j,hji,hj⟩
+    · exact he
+    · exact False.elim (noPair i j hji hj)
+  exact Or.inl ⟨all 0,all 1,all 2⟩
+
+lemma gate_eq_iff {a b : Nat × Bool} : a.1 = b.1 ↔ a = b ∨ a = sem_bar b := by
+  rcases a with ⟨i,s⟩
+  rcases b with ⟨j,t⟩
+  cases s <;> cases t <;> simp [sem_bar]
+
+lemma no_pair_gates_injective (r : Fin 3 → Nat × Bool) (inj : Function.Injective r)
+    (noPair : ∀ i j : Fin 3, i ≠ j → r i ≠ sem_bar (r j)) :
+    Function.Injective (fun i => (r i).1) := by
+  intro i j heq
+  rcases gate_eq_iff.mp heq with same | paired
+  · exact inj same
+  · by_contra hne
+    exact noPair i j hne paired
+
+lemma paired_gate_ne_third (r : Fin 3 → Nat × Bool) (inj : Function.Injective r)
+    {i j k : Fin 3} (hki : k ≠ i) (hkj : k ≠ j)
+    (pair : r j = sem_bar (r i)) : (r k).1 ≠ (r i).1 := by
+  intro heq
+  rcases gate_eq_iff.mp heq with same | paired
+  · exact hki (inj same)
+  · exact hkj (inj (paired.trans pair.symm))
+
+end PEqualNP.Outside.L_meta_2590_aux.S50ThreeMatching
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S50ExtraMatching
+open DagTools Four S50Private S50SplitT S50ExtraSeed S50ExtraPrivate S50ExtraCoverage
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma pure_side_geometry : ∀ u b : V, b ∈ oppositeColor u →
+    ({b} : Finset V) ≠ {0} ∧ ({b} : Finset V) ≠ {1,4,5} ∧
+    ({b} : Finset V) ≠ ({1,4,5} : Finset V) ∪ color u ∧
+    ({b} : Finset V) ≠ oppositeColor u ∧
+    ∀ x : V, Adj 0 x → ({b} : Finset V) ≠ {x} ∧ ({b} : Finset V) ≠ {mate u x} := by
+  unfold Adj edgeList
+  decide +kernel
+
+lemma pure_not_base {D : Dag} (e q : Nat × Bool) (f : V → Nat × Bool) (u : V)
+    (epure : supp 10 D (src D e) = {0})
+    (ebar : supp 10 D (src D (sem_bar e)) = ({1,4,5} : Finset V))
+    (qsrc : supp 10 D (src D q) = ({1,4,5} : Finset V) ∪ color u)
+    (qbar : supp 10 D (src D (sem_bar q)) = oppositeColor u)
+    (fpure : ∀ x : V, Adj 0 x → supp 10 D (src D (f x)) = {x})
+    (fbar : ∀ x : V, Adj 0 x → supp 10 D (src D (sem_bar (f x))) = {mate u x})
+    {b : V} (hb : b ∈ oppositeColor u) {r : Nat × Bool}
+    (rpure : supp 10 D (src D r) = {b}) : r ∉ baseArcs e q f := by
+  obtain ⟨hn0,hnN,hnq,hnB,hnf⟩ := pure_side_geometry u b hb
+  intro hm
+  simp only [baseArcs,Finset.mem_insert,Finset.mem_singleton] at hm
+  rcases hm with hm | hm | hm | hm | hm | hm | hm | hm | hm | hm
+  · exact hn0 (by rw [← rpure,hm,epure])
+  · exact hnN (by rw [← rpure,hm,ebar])
+  · exact hnq (by rw [← rpure,hm,qsrc])
+  · exact hnB (by rw [← rpure,hm,qbar])
+  · exact (hnf 1 (by decide +kernel)).1 (by rw [← rpure,hm,fpure 1 (by decide +kernel)])
+  · exact (hnf 1 (by decide +kernel)).2 (by rw [← rpure,hm,fbar 1 (by decide +kernel)])
+  · exact (hnf 4 (by decide +kernel)).1 (by rw [← rpure,hm,fpure 4 (by decide +kernel)])
+  · exact (hnf 4 (by decide +kernel)).2 (by rw [← rpure,hm,fbar 4 (by decide +kernel)])
+  · exact (hnf 5 (by decide +kernel)).1 (by rw [← rpure,hm,fpure 5 (by decide +kernel)])
+  · exact (hnf 5 (by decide +kernel)).2 (by rw [← rpure,hm,fbar 5 (by decide +kernel)])
+
+def vertex (u : V) (i : Fin 3) : V :=
+  if u ∈ ({3,6,7} : Finset V) then ([2,8,9] : List V).getD i.val 0
+  else ([3,6,7] : List V).getD i.val 0
+
+set_option maxRecDepth 100000 in
+lemma vertices_geometry : ∀ u : V,
+    Function.Injective (vertex u) ∧
+    (∀ i : Fin 3, vertex u i ∈ oppositeColor u) ∧
+    ∀ b ∈ oppositeColor u, ∃ i : Fin 3, vertex u i = b := by decide +kernel
+
+lemma four_pairing_layouts {D : Dag} (h : Strict 10 D)
+    (e q : Nat × Bool) (f r : V → Nat × Bool) (u : V)
+    (epure : supp 10 D (src D e) = {0})
+    (ebar : supp 10 D (src D (sem_bar e)) = ({1,4,5} : Finset V))
+    (qsrc : supp 10 D (src D q) = ({1,4,5} : Finset V) ∪ color u)
+    (qbar : supp 10 D (src D (sem_bar q)) = oppositeColor u)
+    (fpure : ∀ x : V, Adj 0 x → supp 10 D (src D (f x)) = {x})
+    (fbar : ∀ x : V, Adj 0 x → supp 10 D (src D (sem_bar (f x))) = {mate u x})
+    (rpure : ∀ b ∈ oppositeColor u, supp 10 D (src D (r b)) = {b})
+    (zero : sem_W 10 D 0 = {e})
+    (cover : ∀ x : V, Adj 0 x → sem_W 10 D x = {sem_bar e,q,f x})
+    (sourceSide : ∀ x ∈ color u, sem_W 10 D x = {q,sem_bar (f (owner x))})
+    (oppositeSide : ∀ x ∈ oppositeColor u, sem_W 10 D x = {sem_bar q,r x})
+    (empty : ∀ j : Nat, j < D.length → tag D j = true → supp 10 D (10+j) = ∅) :
+    let a := fun i : Fin 3 => r (vertex u i)
+    let E := fun i : Fin 3 => supp 10 D (src D (sem_bar (a i))) = ∅
+    (E 0 ∧ E 1 ∧ E 2) ∨ (a 1 = sem_bar (a 0) ∧ E 2) ∨
+      (a 2 = sem_bar (a 0) ∧ E 1) ∨ (a 2 = sem_bar (a 1) ∧ E 0) := by
+  classical
+  let B := oppositeColor u
+  have membership (b : V) (hb : b ∈ B) : r b ∈ sem_W 10 D b := by
+    rw [oppositeSide b hb]
+    simp
+  have matching := S50MateMatching.mate_empty_or_paired h B r (baseArcs e q f)
+    (fun a ha => base_bar_closed e q f ha)
+    (fun b hb => pure_not_base e q f u epure ebar qsrc qbar fpure fbar hb (rpure b hb))
+    membership (fun x a ha => exit_arc_covered e q f r u zero cover sourceSide oppositeSide x a ha) empty
+  obtain ⟨vinj,vmem,vsurj⟩ := vertices_geometry u
+  let a := fun i : Fin 3 => r (vertex u i)
+  have inj : Function.Injective a := by
+    intro i j eq
+    apply vinj
+    exact S50MateMatching.pure_arcs_injective B r rpure (vmem i) (vmem j) eq
+  apply S50ThreeMatching.three_pairings a inj (fun i => supp 10 D (src D (sem_bar (a i))) = ∅)
+  intro i
+  rcases matching (vertex u i) (vmem i) with he | ⟨b,hb,hne,hpair⟩
+  · exact Or.inl he
+  · obtain ⟨j,hj⟩ := vsurj b hb
+    refine Or.inr ⟨j,?_,?_⟩
+    · intro eq
+      subst j
+      exact hne hj.symm
+    · simpa only [a,hj] using hpair
+
+end PEqualNP.Outside.L_meta_2590_aux.S50ExtraMatching
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S50ExtraProfile
+open DagTools Four S50Private S50SplitT S50ExtraSeed S50ExtraPrivate S50ExtraCoverage S50ExtraMatching
+
+lemma extra_profile {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hi : (0 : V) ∈ ineligSet 10 D)
+    {e q : Nat × Bool} (f : V → Nat × Bool)
+    (epure : supp 10 D (src D e) = {0})
+    (ebar : supp 10 D (src D (sem_bar e)) = ({1,4,5} : Finset V))
+    (zero : sem_W 10 D 0 = {e}) (eqne : e.1 ≠ q.1)
+    (qout : supp 10 D (10+q.1) = ∅)
+    (cover : ∀ x : V, Adj 0 x → sem_W 10 D x = {sem_bar e,q,f x})
+    (pure : ∀ x : V, Adj 0 x → supp 10 D (src D (f x)) = {x})
+    (two : ∀ y : V, y ≠ 0 → ¬ Adj 0 y → (sem_W 10 D y).card = 2)
+    (empty : ∀ j : Nat, j < D.length → tag D j = true → supp 10 D (10+j) = ∅)
+    {u : V} (hu0 : u ≠ 0) (huN : ¬ Adj 0 u) (huq : u ∈ supp 10 D (src D q)) :
+    supp 10 D (src D q) = ({1,4,5} : Finset V) ∪ color u ∧
+    supp 10 D (src D (sem_bar q)) = oppositeColor u ∧
+    (∀ x : V, Adj 0 x → supp 10 D (src D (sem_bar (f x))) = {mate u x}) ∧
+    ∃ r : V → Nat × Bool,
+      (∀ b ∈ oppositeColor u, supp 10 D (src D (r b)) = {b}) ∧
+      (∀ x ∈ color u, sem_W 10 D x = {q,sem_bar (f (owner x))}) ∧
+      (∀ x ∈ oppositeColor u, sem_W 10 D x = {sem_bar q,r x}) ∧
+      (∀ j, j < D.length → tag D j = true → j ∉ allGates e q f r u →
+        supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅) ∧
+      (let a := fun i : Fin 3 => r (vertex u i)
+       let E := fun i : Fin 3 => supp 10 D (src D (sem_bar (a i))) = ∅
+       (E 0 ∧ E 1 ∧ E 2) ∨ (a 1 = sem_bar (a 0) ∧ E 2) ∨
+         (a 2 = sem_bar (a 0) ∧ E 1) ∨ (a 2 = sem_bar (a 1) ∧ E 0)) := by
+  classical
+  have small (y : V) (hy0 : y ≠ 0) (hyN : ¬ Adj 0 y) : (sem_W 10 D y).card ≤ 2 :=
+    (two y hy0 hyN).le
+  obtain ⟨qsrc,qbar⟩ := S50ExtraActual.extra_profile_colors h hc hi f epure zero eqne qout
+    cover pure small hu0 huN huq
+  have fbar := S50ExtraPrivate.private_mates_exact h hc hi f u epure qsrc qout cover small
+  have sourceSide := S50ExtraPrivate.source_side_cover h hc f u epure qsrc qout cover small
+  have opposite := S50ExtraOpposite.opposite_ports_pure h hc hi f u epure ebar zero qsrc qbar qout
+    cover pure two empty
+  let r : V → Nat × Bool := fun b =>
+    if hb : b ∈ oppositeColor u then Classical.choose (opposite b hb) else q
+  have chosen (b : V) (hb : b ∈ oppositeColor u) :
+      r b ≠ sem_bar q ∧ sem_W 10 D b = {sem_bar q,r b} ∧ supp 10 D (src D (r b)) = {b} := by
+    simpa only [r,dif_pos hb] using Classical.choose_spec (opposite b hb)
+  have rpure (b : V) (hb : b ∈ oppositeColor u) : supp 10 D (src D (r b)) = {b} := (chosen b hb).2.2
+  have oppositeSide (b : V) (hb : b ∈ oppositeColor u) : sem_W 10 D b = {sem_bar q,r b} := (chosen b hb).2.1
+  refine ⟨qsrc,qbar,fbar,r,rpure,sourceSide,oppositeSide,?_,?_⟩
+  · intro j hj ht hn
+    exact noncanonical_and_empty e q f r u zero cover sourceSide oppositeSide empty hj ht hn
+  · exact four_pairing_layouts h.1 e q f r u epure ebar qsrc qbar pure fbar rpure
+      zero cover sourceSide oppositeSide empty
+
+end PEqualNP.Outside.L_meta_2590_aux.S50ExtraProfile
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S50SplitTyped
+open DagTools Four S50Private S50SplitT S50SplitPorts S50SplitDistinct
+
+def arcs (e q a : Nat × Bool) (f : V → Nat × Bool) (i : Fin 6) : Nat × Bool :=
+  ([e,q,f 1,f 4,f 5,a] : List (Nat × Bool)).getD i.val e
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma private_geometry :
+    (∀ y : V, (y ≠ 0 ∧ ¬ Adj 0 y ∧ Adj 1 y) ↔ y ∈ ({2,6} : Finset V)) ∧
+    (∀ y : V, (y ≠ 0 ∧ ¬ Adj 0 y ∧ Adj 4 y) ↔ y ∈ ({3,9} : Finset V)) ∧
+    (∀ y : V, (y ≠ 0 ∧ ¬ Adj 0 y ∧ Adj 5 y) ↔ y ∈ ({7,8} : Finset V)) := by
+  unfold Adj edgeList
+  decide +kernel
+
+lemma canonical_iff (e q a : Nat × Bool) (f : V → Nat × Bool) (j : Nat) :
+    j ∈ S50SplitCoverage.canonical e q a f ↔ ∃ i : Fin 6, (arcs e q a f i).1 = j := by
+  constructor
+  · intro hj
+    simp only [S50SplitCoverage.canonical,Finset.mem_insert,Finset.mem_singleton] at hj
+    rcases hj with hj | hj | hj | hj | hj | hj
+    · exact ⟨0,by simpa [arcs] using hj.symm⟩
+    · exact ⟨1,by simpa [arcs] using hj.symm⟩
+    · exact ⟨2,by simpa [arcs] using hj.symm⟩
+    · exact ⟨3,by simpa [arcs] using hj.symm⟩
+    · exact ⟨4,by simpa [arcs] using hj.symm⟩
+    · exact ⟨5,by simpa [arcs] using hj.symm⟩
+  · rintro ⟨i,rfl⟩
+    fin_cases i <;> simp [arcs,S50SplitCoverage.canonical]
+
+lemma typed_six_gates {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    {e q : Nat × Bool} (f : V → Nat × Bool)
+    (epure : supp 10 D (src D e) = {0})
+    (ebar : supp 10 D (src D (sem_bar e)) = ({1,4,5} : Finset V))
+    (zero : sem_W 10 D 0 = {e}) (eqne : e.1 ≠ q.1)
+    (qsrc : supp 10 D (src D q) = ({1,4,5} : Finset V))
+    (qout : supp 10 D (10+q.1) = ∅)
+    (cover : ∀ x : V, Adj 0 x → sem_W 10 D x = {sem_bar e,q,f x})
+    (pure : ∀ x : V, Adj 0 x → supp 10 D (src D (f x)) = {x})
+    (ne : ∀ x : V, Adj 0 x → f x ≠ sem_bar e)
+    (small : ∀ y : V, y ≠ 0 → ¬ Adj 0 y → (sem_W 10 D y).card ≤ 2)
+    (empty : ∀ j : Nat, j < D.length → tag D j = true → supp 10 D (10+j) = ∅) :
+    ∃ T ∈ allowed, ∃ r : Fin 6 → Nat × Bool,
+      Function.Injective (fun i => (r i).1) ∧
+      (∀ i, (r i).1 < D.length ∧ tag D (r i).1 = true) ∧
+      (∀ i, supp 10 D (src D (r i)) = sideA i) ∧
+      (∀ i, supp 10 D (src D (sem_bar (r i))) = sideB T i) ∧
+      ∀ j : Nat, j < D.length → tag D j = true → (∀ i, (r i).1 ≠ j) →
+        supp 10 D (opA D j) = ∅ ∧ supp 10 D (opB D j) = ∅ := by
+  classical
+  let T := supp 10 D (src D (sem_bar q))
+  obtain ⟨allowedT,a,asrc,bsrc,outside,mates⟩ :=
+    S50SplitActual.split_profile h hc f epure ebar zero eqne qsrc qout cover pure ne small empty
+  change T ∈ allowed at allowedT
+  have pair1 : supp 10 D (src D (sem_bar (f 1))) = ({2,6} : Finset V) \ T := by
+    ext y
+    rw [mates 1 (by decide +kernel)]
+    simp only [Finset.mem_sdiff,← private_geometry.1 y]
+    tauto
+  have pair4 : supp 10 D (src D (sem_bar (f 4))) = ({3,9} : Finset V) \ T := by
+    ext y
+    rw [mates 4 (by decide +kernel)]
+    simp only [Finset.mem_sdiff,← private_geometry.2.1 y]
+    tauto
+  have pair5 : supp 10 D (src D (sem_bar (f 5))) = ({7,8} : Finset V) \ T := by
+    ext y
+    rw [mates 5 (by decide +kernel)]
+    simp only [Finset.mem_sdiff,← private_geometry.2.2 y]
+    tauto
+  let r := arcs e q a f
+  have left (i : Fin 6) : supp 10 D (src D (r i)) = sideA i := by
+    fin_cases i
+    · simpa [r,arcs,sideA] using epure
+    · simpa [r,arcs,sideA] using qsrc
+    · simpa [r,arcs,sideA] using pure 1 (by decide +kernel)
+    · simpa [r,arcs,sideA] using pure 4 (by decide +kernel)
+    · simpa [r,arcs,sideA] using pure 5 (by decide +kernel)
+    · simpa [r,arcs,sideA] using asrc
+  have right (i : Fin 6) : supp 10 D (src D (sem_bar (r i))) = sideB T i := by
+    fin_cases i
+    · simpa [r,arcs,sideB] using ebar
+    · rfl
+    · simpa [r,arcs,sideB] using pair1
+    · simpa [r,arcs,sideB] using pair4
+    · simpa [r,arcs,sideB] using pair5
+    · simpa [r,arcs,sideB] using bsrc
+  have member (i : Fin 6) : ∃ x : V, r i ∈ sem_W 10 D x := by
+    have he : e ∈ sem_W 10 D 0 := by rw [zero]; simp
+    have hq : q ∈ sem_W 10 D 1 := by rw [cover 1 (by decide +kernel)]; simp
+    have hf (x : V) (hx : Adj 0 x) : f x ∈ sem_W 10 D x := by rw [cover x hx]; simp
+    have ha : a ∈ sem_W 10 D 3 := by
+      rw [outside 3 (by decide +kernel)]
+      simp
+    fin_cases i
+    · exact ⟨0,by simpa [r,arcs] using he⟩
+    · exact ⟨1,by simpa [r,arcs] using hq⟩
+    · exact ⟨1,by simpa [r,arcs] using hf 1 (by decide +kernel)⟩
+    · exact ⟨4,by simpa [r,arcs] using hf 4 (by decide +kernel)⟩
+    · exact ⟨5,by simpa [r,arcs] using hf 5 (by decide +kernel)⟩
+    · exact ⟨3,by simpa [r,arcs] using ha⟩
+  refine ⟨T,allowedT,r,gate_injective T allowedT r left right,?_,left,right,?_⟩
+  · intro i
+    obtain ⟨x,hx⟩ := member i
+    exact ⟨(sem_mem_W.mp hx).1,sem_W_and h.1 hx⟩
+  · intro j hj ht hn
+    apply S50SplitCoverage.noncanonical_and_empty e q a f T zero cover outside empty hj ht
+    intro hm
+    obtain ⟨i,hi⟩ := (canonical_iff e q a f j).mp hm
+    exact hn i hi
+
+end PEqualNP.Outside.L_meta_2590_aux.S50SplitTyped
