@@ -7,3 +7,7 @@ Chosen strategy: h1 establishes >=13 non-NOT gates in any circuit for the 9-vert
 Strategies: parent proof mining; alternative finite encoding normalization; finite graph symmetry/testing; independent checker review; toolchain recovery. Symmetry-only strategy dropped because it duplicates existing cuts. Toolchain is missing despite kit description; setup agent downloads pinned Lean release and Mathlib cache.
 
 All agents must read this before further proof work. Root alone holds lease and submits.
+
+Final result:99-line reduction passed lake build, format guard, and local reduction checker. Child lengths915/1037characters. The first child has a self-contained checked supporting proof; the second-child extraction also compiled successfully at00:52:05UTC, before its validation cap. Both supporting proofs are archived separately from the reduction.
+
+Current public desk still posts the gap with reductions_live=2; full-proof PR10784 is open, consistent with the desk task=cut assignment.

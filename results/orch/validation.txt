@@ -6,7 +6,7 @@ Final local checker: ACCEPTED (reduce): PEqualNP.Outside.R_meta_3178_52; axioms 
 Complete checker output: checker-final.log
 Cleanup lines:107before,99after (initial draft109before generated-equation repair).
 Cleanup duration:under3minutes.
-Supporting proofs: indispensability certificate and exact binaryBound child compiled exit0.
+Supporting proofs: indispensability certificate, exact binaryBound child, and exact oneNotSearch child compiled exit0. All support source and complete logs are archived.
 Null desk answers:0. First desk answer assigned L-meta-3178 with task=cut.
 Sub-agents: 5 (checker review, parent proof analysis, reduction draft, finite validation, Lean setup)
-TIMING total=12.2 subagents=5
+TIMING total=21.0 subagents=5
