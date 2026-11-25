@@ -8,3 +8,5 @@
 2026-11-25T14:59:31.031579+00:00 — singleton-pruning minimality corollary compiled; both helper axiom audits passed.
 
 2026-11-25T15:03:22.994853+00:00 —64-gate baseline Lean build PASSED; root notified for immediate checkpoint.
+
+2026-11-25T15:06:22.296574+00:00 — Generic extremal-certificate wrapper Lean compilation PASSED; root notified for checkpoint.

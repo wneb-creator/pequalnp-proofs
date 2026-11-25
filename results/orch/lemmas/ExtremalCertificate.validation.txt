@@ -1,0 +1,20 @@
+Lean compilation: PASS (exit 0)
+Source SHA256: 58476bfe97b70632b11031ed18703191228dee34917887ad810708824172e404
+Lines:181
+Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/ExtremalCertificate.lean
+Only project import: PEqualNP.Defs
+This is a checked conditional helper, not a witness or a proof of L-meta-650. Its candidate hypothesis retains the exact63-gate budget.
+Exact statement text equals desk statement. The modular incidence rule reproduces all52listed edges in order. Geometry proves every independent pair of point/line sets has one side≤3. Tests cover52positive edge assignments and756small-side negative tests (704distinct maximal-independent rows).
+
+Complete stdout and stderr:
+/workspace/pequalnp-proofs/results/orch/lemmas/ExtremalCertificate.lean:17:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+
+Independent review: root checked the geometry, symmetric negative tests, monotonicity argument, and exact posted conclusion. PASS as conditional partial; no candidate witness is supplied.
+Sub-agents:6 (five strategy/proof agents and one search-audit child)
+TIMING total=29.4 subagents=6

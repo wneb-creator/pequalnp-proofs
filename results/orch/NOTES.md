@@ -98,3 +98,7 @@ CaDiCaL3.1.0 built locally fromGitHub release source; singlethread,nice10. Unpin
 ## 2026-11-25T15:03:22.994853+00:00 — Baseline64 checked
 
 Named Lean module build passed (5149 jobs). `L_meta_650.lean` contains a checked64-gate baseline, 478lines, SHA256`f37b93c9e99fc12fa2eb9c99c0b4cdc8830539cfa2dd58595bc2668c0eee91cd`. No claim of posted63-gate theorem. Direct all-circuit simplification and broad propositional tauto were replaced by explicit wire equations and targeted simp normalization. Full build output preserved in `results/orch/lemmas/Star64.validation.txt`. Source frozen for independent review/checkpoint push.
+
+## 2026-11-25T15:06:22.296574+00:00 — Extremal certificate wrapper checked
+
+`results/orch/lemmas/ExtremalCertificate.lean` compiled with onlyDefs. It assembles checked geometry (6424) and monotonicity/test sufficiency (R713) into a generic candidate verifier with exactposted63-gate conclusion. This is conditional on a candidate passing tests; none claimed. Edge labeling independently recomputed from modularsum rule and matches all52posted edges. SourceSHA256`58476bfe97b70632b11031ed18703191228dee34917887ad810708824172e404`.
