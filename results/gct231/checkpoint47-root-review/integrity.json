@@ -1,0 +1,17 @@
+[
+  {
+    "archive": "c4-case2-projective-norm-checked",
+    "files": 13,
+    "manifest_sha256": "aefd90e830a0be67eafa36c82f3ed8db3b1440a980f8f343594fff091e1d5ee4"
+  },
+  {
+    "archive": "resultant-common-root",
+    "files": 8,
+    "manifest_sha256": "8ca5ca9ad00f0cef5f39845ea243c49b72a91f5002978a47a64ad41dae4d8b1e"
+  },
+  {
+    "archive": "integration08-audit",
+    "files": 4,
+    "manifest_sha256": "45c8c0f844a99c89dc458779e767efd49ae9e0ddc8e958e27d43c10e74dd06e9"
+  }
+]

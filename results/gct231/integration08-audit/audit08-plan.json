@@ -1,0 +1,6 @@
+{
+  "declarations": 269,
+  "named_sha256": "c99884a7311d847e0b23c4b1147c4a30bb133630a07dace51a6129675c6feee2",
+  "source": "AxiomAudit08.lean",
+  "scope": "Audit every saved declaration after named build; no main theorem."
+}

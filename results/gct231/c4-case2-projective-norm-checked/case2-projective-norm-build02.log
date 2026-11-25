@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_gct_231.trace.case2_projective_norm_obstruction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

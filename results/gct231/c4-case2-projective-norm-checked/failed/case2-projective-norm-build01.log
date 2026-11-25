@@ -1,0 +1,6 @@
+/tmp/oec/pequalnp-pilot-75/gct231/C4Case2ProjectiveNormAudit.lean:16:18: error(lean.unknownIdentifier): Unknown identifier `pow_eq_zero`
+/tmp/oec/pequalnp-pilot-75/gct231/C4Case2ProjectiveNormAudit.lean:17:18: error(lean.unknownIdentifier): Unknown identifier `pow_eq_zero`
+'PEqualNP.Outside.L_gct_231.trace.case2_projective_norm_obstruction' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_gct_231_aux.resultant_zero_of_common_root' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
