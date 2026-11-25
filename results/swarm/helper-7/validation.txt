@@ -1,5 +1,5 @@
 Helper-7 research record for L-meta-3566
-Snapshot recorded 2026-11-25 21:31 UTC. This directory is a computational research artifact, not a proof submission.
+Snapshot recorded 2026-11-25 22:01 UTC. This directory is a computational research artifact, not a proof submission.
 No final theorem or counterexample to L-meta-3566 was produced.
 The bounded-synthesis lower results have no Lean certificate. A separate Lean diagnostic
 checks only the failed local double-cover construction described below.
@@ -23,9 +23,14 @@ Searches on theta333 at 11 gates, Heawood at 26 gates, and C10chords0 at 15 gate
 have UNKNOWN status in the saved summaries. Those runs were interrupted to change
 search strategies. UNKNOWN is neither a counterexample nor a lower bound. Other
 searches may still have been running when this snapshot was prepared; they are not
-represented as completed results here. The full theta333 queries remain running at this snapshot. A Heawood CEGAR run
+represented as completed results here. The theta and Heawood searches were retired
+after existing unconditional bounds were located; see research-notes.md. A Heawood CEGAR run
 ended UNKNOWN after 606 seconds: three relaxed witnesses failed exhaustive evaluation
 with 186, 181, and 173 false-positive inputs; the fourth query timed out at 300 seconds.
+Full-boundary searches on Heawood12noninc (19 gates), GP8del_inc (24),
+GP8del_noninc (23), and C6book3 (21) are running at this snapshot. None has produced
+a verified witness or a completed lower-bound result. Earlier variants were interrupted
+to add reviewed constraints and retain UNKNOWN status.
 
 Encoding and validation:
 - Positive rows are graph edges. Negative rows are maximal independent sets.
@@ -48,6 +53,14 @@ Encoding and validation:
 - Every saved SAT witness was evaluated on every Boolean input. C8 and C6leaf known
   cover circuits also passed pinned strongest-CNF checks. optimization_review
   independently checked a second C8 witness and its strongest CNF.
+- The extended count and single-reader scripts were independently reviewed in full.
+  The generic MIS bound, sequential counters, input-occurrence budget, lexicographic
+  gate order, single-reader case restrictions, and graph-stabilizer symmetry passed.
+  Eight additional fixtures passed exhaustive graph checks. Both new scripts were
+  tested from a different directory, including correctly labeled SAT/UNSAT controls
+  and missing-solver errors. Independent finite suites checked 10,238 counter cases,
+  760 selector cases, 4,608 minimum-counter cases, and 7,452 small-circuit identities.
+  These are implementation checks, not Lean certificates for the solver results.
 
 Solver: Kissat 4.0.4, official source commit
 8af8e56f174b778aef3aa45af9f739b2a5f492c2.
@@ -65,6 +78,9 @@ Portable reproduction (run from this directory):
   python3 synthesize.py --graph C8 --k 10 --symmetry --undominated --oriented --seconds 600 --solver PATH
   python3 planted_check.py --solver PATH
   python3 cegar.py --graph Heawood --k 26 --undominated --oriented --solver PATH
+  python3 count_query.py --graph C6 --k 7 --min-and 0 --mis-lower --lex --input-budget --seconds 60 --solver PATH
+  python3 test_input_budget.py
+  python3 test_mis_lower.py
 Here PATH means the local Kissat executable. New CNFs and complete solver stdout/stderr
 are retained under synthesis/ and excluded from version control. evidence.json contains
 only small result summaries and SAT witnesses; full original diagnostics remain with
@@ -84,5 +100,5 @@ Checked local-construction diagnostic:
   full source, freshly elaborated the file, and reran all twelve axiom checks: PASS.
 
 Sub-agents: toolchain, sat_setup, optimization_review
-TIMING total=30.0 subagents=3
+TIMING total=59.6 subagents=3
 Timing is cumulative at this research snapshot; work continues toward the full target.
