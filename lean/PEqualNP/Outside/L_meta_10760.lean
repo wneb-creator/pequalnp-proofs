@@ -4165,7 +4165,9 @@ def key (k : Nat) (ws : States width) : Nat :=
   PackedKeyWide.key k ws
 
 def forceNat {β : Type} (n : Nat) (f : Nat → β) : β :=
-  Nat.rec (f 0) (fun k _ => f (k+1)) n
+  match n with
+  | 0 => f 0
+  | k + 1 => f (k + 1)
 
 lemma forceNat_eq {β : Type} (n : Nat) (f : Nat → β) : forceNat n f = f n := by
   cases n <;> rfl
@@ -4524,7 +4526,9 @@ def key (k : Nat) (ws : States width) : Nat :=
   PackedKeyWide.key k ws
 
 def forceNat {β : Type} (n : Nat) (f : Nat → β) : β :=
-  Nat.rec (f 0) (fun k _ => f (k+1)) n
+  match n with
+  | 0 => f 0
+  | k + 1 => f (k + 1)
 
 lemma forceNat_eq {β : Type} (n : Nat) (f : Nat → β) : forceNat n f = f n := by
   cases n <;> rfl
