@@ -6,7 +6,7 @@ Status: checked helper diagnostics only; no proof or refutation of the posted st
 
 Pinned Lean: v4.36.0.
 Validation: lake env lean ../results/swarm/H9RedTeam.lean passed with PEqualNP.Defs.
-All 29 helper lemmas passed an independent compile and axiom audit.
+All 48 helper lemmas passed an independent compile and axiom audit.
 Axioms are restricted to propext, Classical.choice, and Quot.sound.
 Independent exhaustive circuit evaluation passed.
 Independent mathematical and plain-file review passed.
@@ -23,6 +23,19 @@ both bipartition colours has no singleton-accepting safe context; every survivin
 pair is accepted by that context with both singleton inputs rejected. This does
 not justify bypassing the signal: it may still filter nonedges.
 
+ProductiveOr proves an abstract binary-wire base case: if both children of each
+OR accept some singleton and each OR has monochromatic singleton support, then
+every nonempty-support wire depends on one colour and every cross-pair relation
+is rectangular. A safe rectangular product in a C4-free graph accepts a star.
+The wire recurrence and readback assumptions are explicit; this is not a proof
+that arbitrary circuits satisfy the extra OR conditions.
+
+The C6 CNF example satisfies AO2, exact output, T0, serving-star witnesses, and
+edge activity. Every AND operand is true on every co-singleton assignment, so
+fixing any one input false cannot erase an AND by constant-false propagation.
+Only the final gate is safe; every earlier gate accepts a forbidden diagonal.
+Independent evaluation also checks that every gate lies in the output cone.
+
 Independent review of peer h1 4348340c and h3 a7ec7e53: mathematical source audit,
 plain-file audit, and exact unchanged-source Lean compilation all passed.
 Both remain helper artifacts with additional hypotheses or an unresolved ledger.
@@ -30,7 +43,10 @@ Peer h5 87f88d39: exact compilation, source review and main-lemma axiom audit pa
 Peer h6 28291057: source review and main-lemma axiom audit passed; compilation
 passed after deleting only the redundant Mathlib umbrella line. Exact original
 compilation was blocked by the unavailable Mathlib.olean in the selective cache.
+Peer h8 5d19fdc7: source and main-lemma axiom audit passed; compilation passed
+after deleting only the redundant Mathlib umbrella line, with the same cache
+limitation. The exact posted hypotheses and actual OR witnesses are preserved.
 
 No PR opened; no desk lease requested or released.
 Sub-agents: 2 (toolchain restoration and independent diagnostic audit; peer lemma review and normalization analysis)
-TIMING total=16.0 subagents=2
+TIMING total=33.0 subagents=2

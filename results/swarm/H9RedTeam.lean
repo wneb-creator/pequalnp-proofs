@@ -1,4 +1,5 @@
 import PEqualNP.Defs
+import Mathlib.Tactic.FinCases
 
 namespace PEqualNP.Outside.L_meta_4970.H9RedTeam
 
@@ -136,6 +137,84 @@ lemma mixedFanout_three_and :
       | .and => true
       | _ => false).length = 3 := by decide +kernel
 
+def cycleSixCnf : Circuit :=
+  ⟨[⟨.or, [1, 2]⟩, ⟨.or, [0, 2]⟩, ⟨.or, [0, 1]⟩,
+    ⟨.or, [4, 5]⟩, ⟨.or, [3, 5]⟩, ⟨.or, [3, 4]⟩,
+    ⟨.or, [0, 6]⟩, ⟨.or, [3, 9]⟩,
+    ⟨.and, [6, 6]⟩, ⟨.and, [7, 7]⟩, ⟨.and, [8, 8]⟩,
+    ⟨.or, [14, 9]⟩, ⟨.or, [15, 10]⟩, ⟨.or, [16, 11]⟩,
+    ⟨.and, [12, 13]⟩, ⟨.and, [20, 17]⟩,
+    ⟨.and, [21, 18]⟩, ⟨.and, [22, 19]⟩], 23⟩
+
+lemma cycleSixCnf_model : IsAO2 6 cycleSixCnf := by decide +kernel
+
+lemma cycleSixCnf_tCount :
+    tCount 6 cycleSixCnf (fun i => decide (3 ≤ i)) = 0 := by decide +kernel
+
+lemma cycleSixCnf_function : ∀ x : Fin 6 → Bool,
+    circuitFun 6 cycleSixCnf x = decide (∃ (a b : Fin 3),
+      a ≠ b ∧ x (Fin.castAdd 3 a) = true ∧ x (Fin.natAdd 3 b) = true) := by
+  decide +kernel
+
+lemma cycleSixCnf_served :
+    ∀ (a b : Fin 3), a ≠ b →
+      ∃ (j : ℕ) (Q : Finset (Fin 3)),
+        j < cycleSixCnf.gates.length ∧ (gateAt cycleSixCnf j).op = .or ∧
+        2 ≤ Q.card ∧ b ∈ Q ∧ (∀ b' ∈ Q, a ≠ b') ∧
+        ∀ x : Fin 6 → Bool,
+          (cycleSixCnf.wires (List.ofFn x)).getD (6 + j) false =
+            decide (∃ b' ∈ Q, x (Fin.natAdd 3 b') = true) := by
+  intro a b hab
+  refine ⟨3 + a, Finset.univ.erase a, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · have ha := a.isLt
+    change 3 + a.val < 18
+    omega
+  · fin_cases a <;> rfl
+  · simp
+  · simp [Ne.symm hab]
+  · intro b' hb'
+    exact Ne.symm (Finset.mem_erase.mp hb').1
+  · fin_cases a <;> decide +kernel
+
+lemma cycleSixCnf_no_four_cycle :
+    ∀ (a a' b b' : Fin 3), a ≠ a' → b ≠ b' →
+      ¬ (a ≠ b ∧ a ≠ b' ∧ a' ≠ b ∧ a' ≠ b') := by decide +kernel
+
+lemma cycleSixCnf_all_gates_true_on_cosingletons :
+    ∀ (v : Fin 6) (j : Fin cycleSixCnf.gates.length),
+      (cycleSixCnf.wires (List.ofFn fun i : Fin 6 => decide (i ≠ v))).getD
+        (6 + j) false = true := by decide +kernel
+
+lemma cycleSixCnf_and_operands_true_on_cosingletons :
+    ∀ (v : Fin 6) (j : Fin cycleSixCnf.gates.length),
+      match (gateAt cycleSixCnf j).op with
+      | .and => ∀ w ∈ (gateAt cycleSixCnf j).inputs,
+          (cycleSixCnf.wires (List.ofFn fun i : Fin 6 => decide (i ≠ v))).getD
+            w false = true
+      | _ => True := by
+  intro v j
+  fin_cases j <;> simp [cycleSixCnf, gateAt] <;> revert v <;> decide +kernel
+
+lemma cycleSixCnf_edge_active :
+    ∀ j : Fin cycleSixCnf.gates.length, ∃ (a b : Fin 3), a ≠ b ∧
+      (cycleSixCnf.wires (List.ofFn fun i : Fin 6 =>
+        decide (i = Fin.castAdd 3 a ∨ i = Fin.natAdd 3 b))).getD
+          (6 + j) false = true := by decide +kernel
+
+lemma cycleSixCnf_safe_iff_final :
+    ∀ j : Fin cycleSixCnf.gates.length,
+      (∀ x : Fin 6 → Bool,
+        (cycleSixCnf.wires (List.ofFn x)).getD (6 + j) false = true →
+          decide (∃ (a b : Fin 3), a ≠ b ∧
+            x (Fin.castAdd 3 a) = true ∧ x (Fin.natAdd 3 b) = true) = true) ↔ j.val = 17 := by
+  decide +kernel
+
+lemma cycleSixCnf_previous_diagonal :
+    ∀ j : Fin 17, ∃ a : Fin 3,
+      (cycleSixCnf.wires (List.ofFn fun i : Fin 6 =>
+        decide (i = Fin.castAdd 3 a ∨ i = Fin.natAdd 3 a))).getD (6 + j) false = true := by
+  decide +kernel
+
 namespace MixedSupport
 
 variable {α : Type*} [DecidableEq α]
@@ -193,5 +272,197 @@ lemma mixed_context_pair_inherited
   exact ⟨(Bool.and_eq_true_iff.mp hp).2, hz u, hz v⟩
 
 end MixedSupport
+
+namespace ProductiveOr
+
+variable {n : ℕ}
+
+def single (i : Fin n) : Fin n → Bool := fun j => decide (j = i)
+
+def pair (a b : Fin n) : Fin n → Bool := fun j => decide (j = a ∨ j = b)
+
+def Depends (colour : Fin n → Bool) (g : (Fin n → Bool) → Bool) (c : Bool) : Prop :=
+  ∀ x y, (∀ i, colour i = c → x i = y i) → g x = g y
+
+def Rectangular (colour : Fin n → Bool) (g : (Fin n → Bool) → Bool) : Prop :=
+  ∀ a₁ a₂ b₁ b₂ : Fin n,
+    colour a₁ = false → colour a₂ = false → colour b₁ = true → colour b₂ = true →
+    g (pair a₁ b₁) = true → g (pair a₂ b₂) = true →
+    g (pair a₁ b₂) = true ∧ g (pair a₂ b₁) = true
+
+lemma pair_agrees_left (colour : Fin n → Bool) (a b₁ b₂ : Fin n)
+    (hb₁ : colour b₁ = true) (hb₂ : colour b₂ = true) :
+    ∀ j, colour j = false → pair a b₁ j = pair a b₂ j := by
+  intro j hj
+  have h₁ : j ≠ b₁ := by intro he; subst j; simp_all
+  have h₂ : j ≠ b₂ := by intro he; subst j; simp_all
+  simp [pair, h₁, h₂]
+
+lemma pair_agrees_right (colour : Fin n → Bool) (a₁ a₂ b : Fin n)
+    (ha₁ : colour a₁ = false) (ha₂ : colour a₂ = false) :
+    ∀ j, colour j = true → pair a₁ b j = pair a₂ b j := by
+  intro j hj
+  have h₁ : j ≠ a₁ := by intro he; subst j; simp_all
+  have h₂ : j ≠ a₂ := by intro he; subst j; simp_all
+  simp [pair, h₁, h₂]
+
+lemma depends_rectangular (colour : Fin n → Bool) (g : (Fin n → Bool) → Bool)
+    (c : Bool) (hdep : Depends colour g c) : Rectangular colour g := by
+  intro a₁ a₂ b₁ b₂ ha₁ ha₂ hb₁ hb₂ h₁ h₂
+  cases c with
+  | false =>
+    have e₁ := hdep (pair a₁ b₁) (pair a₁ b₂) (pair_agrees_left colour a₁ b₁ b₂ hb₁ hb₂)
+    have e₂ := hdep (pair a₂ b₂) (pair a₂ b₁) (pair_agrees_left colour a₂ b₂ b₁ hb₂ hb₁)
+    exact ⟨e₁.symm.trans h₁, e₂.symm.trans h₂⟩
+  | true =>
+    have e₁ := hdep (pair a₂ b₂) (pair a₁ b₂) (pair_agrees_right colour a₂ a₁ b₂ ha₂ ha₁)
+    have e₂ := hdep (pair a₁ b₁) (pair a₂ b₁) (pair_agrees_right colour a₁ a₂ b₁ ha₁ ha₂)
+    exact ⟨e₁.symm.trans h₂, e₂.symm.trans h₁⟩
+
+lemma singleton_colour_dependence
+    (N : ℕ) (f : ℕ → (Fin n → Bool) → Bool) (a b : ℕ → ℕ)
+    (isAnd : ℕ → Bool) (colour : Fin n → Bool)
+    (hinput : ∀ w (hw : w < n), f w = fun x => x ⟨w, hw⟩)
+    (hgate : ∀ w, n ≤ w → w < N → a w < w ∧ b w < w ∧
+      ∀ x, f w x = if isAnd w then f (a w) x && f (b w) x else f (a w) x || f (b w) x)
+    (hproductive : ∀ w, n ≤ w → w < N → isAnd w = false →
+      (∃ i, f (a w) (single i) = true) ∧ (∃ i, f (b w) (single i) = true))
+    (hmono : ∀ w, n ≤ w → w < N → isAnd w = false →
+      ∀ i j, f w (single i) = true → f w (single j) = true → colour i = colour j) :
+    ∀ w, w < N → ∀ i, f w (single i) = true → Depends colour (f w) (colour i) := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw i hi
+    by_cases hn : w < n
+    · have he : (⟨w, hn⟩ : Fin n) = i := by
+        simpa [hinput w hn, single] using hi
+      intro x y hxy
+      rw [hinput w hn]
+      exact hxy ⟨w, hn⟩ (by rw [he])
+    · have hng : n ≤ w := by omega
+      obtain ⟨ha, hb, heval⟩ := hgate w hng hw
+      cases hop : isAnd w with
+      | false =>
+        obtain ⟨⟨ia, hia⟩, ⟨ib, hib⟩⟩ := hproductive w hng hw hop
+        have hwa : f w (single ia) = true := by simp [heval, hop, hia]
+        have hwb : f w (single ib) = true := by simp [heval, hop, hib]
+        have hca : colour ia = colour i := hmono w hng hw hop ia i hwa hi
+        have hcb : colour ib = colour i := hmono w hng hw hop ib i hwb hi
+        have hda := ih (a w) ha (lt_trans ha hw) ia hia
+        have hdb := ih (b w) hb (lt_trans hb hw) ib hib
+        intro x y hxy
+        have ea := hda x y (fun j hj => hxy j (hj.trans hca))
+        have eb := hdb x y (fun j hj => hxy j (hj.trans hcb))
+        simp only [heval, hop, Bool.false_eq_true, ite_false, ea, eb]
+      | true =>
+        have hc : f (a w) (single i) = true ∧ f (b w) (single i) = true := by
+          simpa [heval, hop] using hi
+        have hda := ih (a w) ha (lt_trans ha hw) i hc.1
+        have hdb := ih (b w) hb (lt_trans hb hw) i hc.2
+        intro x y hxy
+        have ea := hda x y hxy
+        have eb := hdb x y hxy
+        simp [heval, hop, ea, eb]
+
+lemma all_wires_rectangular
+    (N : ℕ) (f : ℕ → (Fin n → Bool) → Bool) (a b : ℕ → ℕ)
+    (isAnd : ℕ → Bool) (colour : Fin n → Bool)
+    (hinput : ∀ w (hw : w < n), f w = fun x => x ⟨w, hw⟩)
+    (hgate : ∀ w, n ≤ w → w < N → a w < w ∧ b w < w ∧
+      ∀ x, f w x = if isAnd w then f (a w) x && f (b w) x else f (a w) x || f (b w) x)
+    (hproductive : ∀ w, n ≤ w → w < N → isAnd w = false →
+      (∃ i, f (a w) (single i) = true) ∧ (∃ i, f (b w) (single i) = true))
+    (hmono : ∀ w, n ≤ w → w < N → isAnd w = false →
+      ∀ i j, f w (single i) = true → f w (single j) = true → colour i = colour j) :
+    ∀ w, w < N → Rectangular colour (f w) := by
+  have hdepends := singleton_colour_dependence N f a b isAnd colour hinput hgate hproductive hmono
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw
+    by_cases hn : w < n
+    · have hs : f w (single ⟨w, hn⟩) = true := by simp [hinput w hn, single]
+      exact depends_rectangular colour (f w) (colour ⟨w, hn⟩) (hdepends w hw ⟨w, hn⟩ hs)
+    · have hng : n ≤ w := by omega
+      obtain ⟨ha, hb, heval⟩ := hgate w hng hw
+      cases hop : isAnd w with
+      | false =>
+        obtain ⟨⟨i, hi⟩, _⟩ := hproductive w hng hw hop
+        have hs : f w (single i) = true := by simp [heval, hop, hi]
+        exact depends_rectangular colour (f w) (colour i) (hdepends w hw i hs)
+      | true =>
+        have hra := ih (a w) ha (lt_trans ha hw)
+        have hrb := ih (b w) hb (lt_trans hb hw)
+        intro a₁ a₂ b₁ b₂ ha₁ ha₂ hb₁ hb₂ h₁ h₂
+        have h₁' : f (a w) (pair a₁ b₁) = true ∧ f (b w) (pair a₁ b₁) = true := by
+          simpa [heval, hop] using h₁
+        have h₂' : f (a w) (pair a₂ b₂) = true ∧ f (b w) (pair a₂ b₂) = true := by
+          simpa [heval, hop] using h₂
+        have ra := hra a₁ a₂ b₁ b₂ ha₁ ha₂ hb₁ hb₂ h₁'.1 h₂'.1
+        have rb := hrb a₁ a₂ b₁ b₂ ha₁ ha₂ hb₁ hb₂ h₁'.2 h₂'.2
+        constructor
+        · simp [heval, hop, ra.1, rb.1]
+        · simp [heval, hop, ra.2, rb.2]
+
+lemma rectangular_and (colour : Fin n → Bool) (f g : (Fin n → Bool) → Bool)
+    (hf : Rectangular colour f) (hg : Rectangular colour g) :
+    Rectangular colour (fun x => f x && g x) := by
+  intro a₁ a₂ b₁ b₂ ha₁ ha₂ hb₁ hb₂ h₁ h₂
+  obtain ⟨hf₁, hg₁⟩ := Bool.and_eq_true_iff.mp h₁
+  obtain ⟨hf₂, hg₂⟩ := Bool.and_eq_true_iff.mp h₂
+  obtain ⟨hf₃, hf₄⟩ := hf a₁ a₂ b₁ b₂ ha₁ ha₂ hb₁ hb₂ hf₁ hf₂
+  obtain ⟨hg₃, hg₄⟩ := hg a₁ a₂ b₁ b₂ ha₁ ha₂ hb₁ hb₂ hg₁ hg₂
+  exact ⟨Bool.and_eq_true_iff.mpr ⟨hf₃, hg₃⟩, Bool.and_eq_true_iff.mpr ⟨hf₄, hg₄⟩⟩
+
+def RelationRectangular {α β : Type*} (R : α → β → Prop) : Prop :=
+  ∀ a₁ a₂ b₁ b₂, R a₁ b₁ → R a₂ b₂ → R a₁ b₂ ∧ R a₂ b₁
+
+lemma rectangular_pullback {α β : Type*} (colour : Fin n → Bool)
+    (f : (Fin n → Bool) → Bool) (hf : Rectangular colour f)
+    (left : α → Fin n) (right : β → Fin n)
+    (hl : ∀ a, colour (left a) = false) (hr : ∀ b, colour (right b) = true) :
+    RelationRectangular (fun a b => f (pair (left a) (right b)) = true) := by
+  intro a₁ a₂ b₁ b₂ h₁ h₂
+  exact hf _ _ _ _ (hl a₁) (hl a₂) (hr b₁) (hr b₂) h₁ h₂
+
+lemma rectangular_relation_star {α β : Type*} (R : α → β → Prop)
+    (hrect : RelationRectangular R)
+    (hno : ∀ a a' b b', a ≠ a' → b ≠ b' →
+      ¬ (R a b ∧ R a b' ∧ R a' b ∧ R a' b'))
+    (a₀ : α) (b₀ : β) (h₀ : R a₀ b₀) :
+    (∀ a b, R a b → a = a₀) ∨ (∀ a b, R a b → b = b₀) := by
+  by_cases hleft : ∀ a b, R a b → a = a₀
+  · exact Or.inl hleft
+  · push Not at hleft
+    obtain ⟨a₁, b₁, h₁, ha₁⟩ := hleft
+    right
+    intro a b hab
+    by_contra hbb
+    have h₀b : R a₀ b := (hrect a₀ a b₀ b h₀ hab).1
+    have h₁₀ : R a₁ b₀ := (hrect a₁ a₀ b₁ b₀ h₁ h₀).1
+    have h₁b : R a₁ b := (hrect a₁ a b₁ b h₁ hab).1
+    exact hno a₀ a₁ b₀ b (Ne.symm ha₁) (Ne.symm hbb) ⟨h₀, h₀b, h₁₀, h₁b⟩
+
+lemma safe_rectangular_product_star {α β : Type*}
+    (colour : Fin n → Bool) (f g : (Fin n → Bool) → Bool)
+    (hf : Rectangular colour f) (hg : Rectangular colour g)
+    (left : α → Fin n) (right : β → Fin n)
+    (hl : ∀ a, colour (left a) = false) (hr : ∀ b, colour (right b) = true)
+    (E : α → β → Prop)
+    (hno : ∀ a a' b b', a ≠ a' → b ≠ b' →
+      ¬ (E a b ∧ E a b' ∧ E a' b ∧ E a' b'))
+    (hsafe : ∀ a b, (f (pair (left a) (right b)) && g (pair (left a) (right b))) = true → E a b)
+    (a₀ : α) (b₀ : β)
+    (h₀ : (f (pair (left a₀) (right b₀)) && g (pair (left a₀) (right b₀))) = true) :
+    (∀ a b, (f (pair (left a) (right b)) && g (pair (left a) (right b))) = true → a = a₀) ∨
+    (∀ a b, (f (pair (left a) (right b)) && g (pair (left a) (right b))) = true → b = b₀) := by
+  apply rectangular_relation_star _
+    (rectangular_pullback colour _ (rectangular_and colour f g hf hg) left right hl hr) _ a₀ b₀ h₀
+  intro a a' b b' haa hbb h
+  exact hno a a' b b' haa hbb
+    ⟨hsafe a b h.1, hsafe a b' h.2.1, hsafe a' b h.2.2.1, hsafe a' b' h.2.2.2⟩
+
+end ProductiveOr
 
 end PEqualNP.Outside.L_meta_4970.H9RedTeam
