@@ -36,3 +36,5 @@ Additional checked partial: results/orch/lemmas/counterexample/Upper20Symbolic.l
 Additional checked partial: results/orch/lemmas/structural/OneNot.lean (172 lines). lake env lean exited 0; full output in results/orch/one-not-check-002.log.
 Independent review: status_review approved FormulaLower; root reviewed Counts, Upper20Symbolic, and OneNot.
 Upper20Symbolic is only a 20-gate sanity upper bound, not a counterexample to the posted 18-gate claim. FormulaLower has explicit positive-formula or shaped/no-sharing hypotheses. OneNot concerns circuits computing the complement on a bracketed input family.
+
+Additional checked partial: OneNotSeeded.lean extends the unchanged checked OneNot proof with input-family bounds and seeded complement specialization. lake env lean exited 0 with empty output. Root independently reviewed the two added lemmas.
