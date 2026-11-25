@@ -28,3 +28,13 @@ The wrappers concern actual circuits. They do not claim that iterating the OR li
 ## Failed shortcuts
 
 Truncating every wire to its degree-two component is not a size-preserving operation. The singleton component of an AND can implement set intersection, e.g. (a OR b) AND (a OR c) accepts singleton a while also carrying a quadratic term bc. Removing repeated leaves independently in each parse would destroy circuit sharing.
+
+## Normalization progress
+
+- OrLift2583.lean compiled at SHA256 5d8f2c04974fba8e0753ba7dc6b57f2dff01c6144991d12b38a8ad167a132f2b; 477 lines, independently reviewed. The OR-lift theorem describes the explicit V2 circuit, so it carries actual structural content. Also proves that every reader of an implicant gate in a least circuit is an OR.
+- OrLiftFixed2583.lean compiled at SHA256 c6f9a8796832ba3038065e6b1e0db463a9dacb5299e846e84cb257daabc6a2e9; 585 lines, independently reviewed. Shows all retained wire values can only decrease under OR hoisting, then injects newly dirty OR gates into the old dirty OR gates excluding the deleted gate. Hence the dirty-OR count strictly decreases.
+- NormalForm2583.lean adds the finite-measure minimization: any correct IsAO2 circuit computing a nonzero graph function has a no-larger least circuit which is Core.IsLiftFixedPoint. Draft statically reviewed, first compile queued. This proves the sketch preprocessing for arbitrary graphs, without any four-cycle assumption. It does not prove read1 or a sharp lower bound for the terminal cores.
+
+The search agent can soundly restrict a size-optimal witness to have no below-target operand feeding AND and no mixed clean/dirty OR. Do not additionally assume internal AND gates reject singleton inputs; that stronger claim is unproved.
+
+The unrestricted Fano lower bound27 was located in helper ao27 of existing L_meta_7997. The lower-bound agent reports that it fundamentally relies on finite Fano adjacency cases and residual-unit rigidity, rather than an immediately reusable all-q argument.

@@ -1,0 +1,23 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/PackedCircuit2583.lean:107:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PackedCircuit2583.lean:132:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PackedCircuit2583.lean:134:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PackedCircuit2583.lean:202:52: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PackedCircuit2583.lean:215:2: error: Type mismatch: After simplification, term
+  Eq.symm h
+ has type
+  C.eval (List.ofFn (Fin.append s fun l => decide (∀ (p : Fin n), I p l → (↑r).testBit ↑p = false))) =
+    BitVec.getLsbD 0 ↑r
+but is expected to have type
+  C.eval (List.ofFn (Fin.append s fun l => decide (∀ (p : Fin n), I p l → s p = false))) = false

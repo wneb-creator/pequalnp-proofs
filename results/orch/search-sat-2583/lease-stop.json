@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-25T15:10:09.134962+00:00",
+  "pids_terminated": [
+    14583
+  ],
+  "reason": "root reported L-meta-2583 lease410 and ordered stop",
+  "seed": 258301
+}

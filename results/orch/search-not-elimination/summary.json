@@ -1,0 +1,27 @@
+{
+  "fano-local": {
+    "last_logged_seconds": 447.637,
+    "last_logged_iterations": 2216763154,
+    "best_raw": 1,
+    "best_score": 1,
+    "best_fp": 0,
+    "result": "no witness; process terminated after existing lower bound discovery"
+  },
+  "fano-dirty": {
+    "last_logged_seconds": 28.7182,
+    "last_logged_iterations": 46753818,
+    "best_raw": 1,
+    "best_score": 1,
+    "best_fp": 0,
+    "result": "no witness; process terminated after existing lower bound discovery"
+  },
+  "singer-local": {
+    "last_logged_seconds": 377.606,
+    "last_logged_iterations": 568056066,
+    "best_raw": 1,
+    "best_score": 40,
+    "best_fp": 0,
+    "result": "no witness; stopped on lease HTTP410"
+  },
+  "singer_dirtyseed": "Prepared and C++-compiled; never launched before HTTP410."
+}
