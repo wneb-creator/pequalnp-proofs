@@ -1,0 +1,7 @@
+Independent archival review: PASS
+Reviewer: status_review
+Manifest SHA256: d15b929dbc23af2bec3b0eb2d5cca77ea77397d3424161d9723c3cabb845d57f
+
+Verified all182 payload hashes/sizes and the exact183-path preservation list, totalling5,064,537 payload bytes. All34 checked-module records bind the exact source hash, complete compile-log hash, exit0 status record and existing substantive reviews; no Lean error diagnostics occur. The four draft paths are explicitly excluded from the checked-module census. The three previously reviewed dependencies have exact preserved source/log/review bindings. Scope correctly says the complete rectangle table and helpers are preserved, with no whole-DAG or posted-theorem claim.
+
+This is an integrity/status audit, not a repeated theorem review or new build. The historical9611 draft remains labelled uncompiled in this frozen snapshot; any later checked version should be a new snapshot rather than retroactively changing its status. Full machine-readable results are in review-mono18-rectangle-preservation.json.

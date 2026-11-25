@@ -1,0 +1,50 @@
+{
+  "verdict": "PASS_PARTIAL_ARCHIVE_ONLY",
+  "manifest_entries": 20,
+  "memos": {
+    "input-weak15.memo": {
+      "states": 61991,
+      "remaining": {
+        "16": 15272,
+        "18": 1413,
+        "17": 5913,
+        "15": 22793,
+        "14": 13932,
+        "12": 197,
+        "13": 2467,
+        "11": 4
+      },
+      "root_orbits_found": 0
+    },
+    "completed-weak15.memo": {
+      "states": 76286,
+      "remaining": {
+        "14": 17438,
+        "13": 3238,
+        "15": 28562,
+        "12": 238,
+        "16": 18392,
+        "17": 6822,
+        "18": 1580,
+        "11": 16
+      },
+      "root_orbits_found": 0
+    }
+  },
+  "rectangle_events": {
+    "header": 1,
+    "matrix_loaded": 49,
+    "rectangle": 403936
+  },
+  "unresolved_signal_ids": 47199,
+  "trailing_record": {
+    "bytes": 28,
+    "sha256": "9833c8e223bbc5d9089853d7c0b5e7346fdd392fdd4f03b125181f7791b3deaa",
+    "literal": "{\"event\":\"rectangle\",\"node\":"
+  },
+  "replayed_bank_histories": 109,
+  "child_exit_code": -6,
+  "wall_seconds": 422.2281929970013,
+  "full_case_complete": false,
+  "scope": "Integrity, checkpoint shape, available-record arithmetic and bank-history replay only. No search completeness or kernel proof."
+}

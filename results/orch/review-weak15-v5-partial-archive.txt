@@ -1,0 +1,9 @@
+Independent review: PASS — incomplete V5 search archive only.
+
+Bound to archive manifest SHA256 51c3386b2fe63e1ccfc32721b04729c2cdf309d5e5ac98f3584c8dedf1678faf (20 entries). All archived raw/gzip lengths and hashes verified by a streaming audit, without a solver or Lean run. The input and completed memo streams contain 61,991 and 76,286 unique well-formed states respectively; none contains the initial bank for any of the 15 edge-OR choices. The 109 saved bank histories were independently replayed on all 1,024 truth rows.
+
+The rectangle stream has one header, 49 loaded matrices, and 403,936 complete rectangle records. Their dimensions, signed sums and recorded strict margins are consistent. There is no final signal dictionary, leaving 47,199 referenced signal IDs unresolved: the record arithmetic is NOT a validation of their actual root costs. The final 28-byte incomplete JSON prefix is preserved exactly (SHA256 9833c8e223bbc5d9089853d7c0b5e7346fdd392fdd4f03b125181f7791b3deaa).
+
+The run metadata and full stderr accurately record child exit -6 with std::bad_alloc at 422.228 seconds, under a 1,000,000,000-byte address-space cap. The supervisor's successful exit is distinct from that child failure. There is no finished-case verdict or complete-root memo. README and summary retain those limitations and make no full UNSAT or kernel-proof claim. Existing partial memo records remain useful research artifacts, not a Lean certificate.
+
+Independent audit source and complete output: results/orch/verification/weak15-v5-partial-audit/.

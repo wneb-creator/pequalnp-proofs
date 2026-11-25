@@ -1,0 +1,24 @@
+{
+  "exit_code": -6,
+  "failure": "std::bad_alloc under configured1GB address-space limit",
+  "ordinary_limit": false,
+  "finished_verdicts": [],
+  "last_reported_nodes": 486675,
+  "last_reported_search_seconds": 417.975,
+  "wall_seconds": 422.2281929970013,
+  "max_rss_kib": 769052,
+  "last_reported_closures": 14575,
+  "last_reported_entries": 545779,
+  "last_reported_subchecks": 3409465,
+  "last_reported_subcuts": 3033702,
+  "checkpoint_weak_states": 76286,
+  "new_checkpoint_weak_states": 14295,
+  "all15_root_orbits_absent": true,
+  "missing_signal_footer": true,
+  "truncated_final_records": {
+    "rectangles.jsonl": {
+      "bytes": 28,
+      "sha256": "9833c8e223bbc5d9089853d7c0b5e7346fdd392fdd4f03b125181f7791b3deaa"
+    }
+  }
+}

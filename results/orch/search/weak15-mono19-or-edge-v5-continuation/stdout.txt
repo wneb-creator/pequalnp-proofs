@@ -1,0 +1,119 @@
+EXPERIMENTAL first-copy recurrence mode=0 group=120 first=oredge total_cap=19 remaining=18 prefix_formula_leaf_lower=20
+loaded completed memo states=61991 unique=61991
+loaded extra rectangle index=13 id=1001
+loaded extra rectangle index=14 id=1002
+loaded extra rectangle index=15 id=1003
+loaded extra rectangle index=16 id=1004
+loaded extra rectangle index=17 id=1005
+loaded extra rectangle index=18 id=1006
+loaded extra rectangle index=19 id=1007
+loaded extra rectangle index=20 id=1008
+loaded extra rectangle index=21 id=1009
+loaded extra rectangle index=22 id=1010
+loaded extra rectangle index=23 id=1011
+loaded extra rectangle index=24 id=1012
+loaded extra rectangle index=25 id=1013
+loaded extra rectangle index=26 id=1014
+loaded extra rectangle index=27 id=1015
+loaded extra rectangle index=28 id=1016
+loaded extra rectangle index=29 id=1017
+loaded extra rectangle index=30 id=1018
+loaded extra rectangle index=31 id=1019
+loaded extra rectangle index=32 id=1020
+loaded extra rectangle index=33 id=1021
+loaded extra rectangle index=34 id=1022
+loaded extra rectangle index=35 id=1023
+loaded extra rectangle index=36 id=1024
+loaded extra rectangle index=37 id=1025
+loaded extra rectangle index=38 id=1026
+loaded extra rectangle index=39 id=1027
+loaded extra rectangle index=40 id=1028
+loaded extra rectangle index=41 id=1029
+loaded extra rectangle index=42 id=1030
+loaded extra rectangle index=43 id=1031
+loaded extra rectangle index=44 id=1032
+loaded extra rectangle index=45 id=1033
+loaded extra rectangle index=46 id=1034
+loaded extra rectangle index=47 id=1035
+loaded extra rectangle index=48 id=1036
+loaded extra rectangle index=49 id=1037
+loaded extra rectangle index=50 id=1038
+loaded extra rectangle index=51 id=1039
+loaded extra rectangle index=52 id=1040
+loaded extra rectangle index=53 id=1041
+loaded extra rectangle index=54 id=1042
+loaded extra rectangle index=55 id=1043
+loaded extra rectangle index=56 id=1044
+loaded extra rectangle index=57 id=1045
+loaded extra rectangle index=58 id=1046
+loaded extra rectangle index=59 id=1047
+loaded extra rectangle index=60 id=1048
+loaded extra rectangle index=61 id=1049
+copy start deficit=8 entry=0 of=11 remaining=18 roots=12 visits=1
+copy excluded deficit=8 entry=0 visits=2
+copy start deficit=8 entry=1 of=11 remaining=18 roots=12 visits=2
+copy excluded deficit=8 entry=1 visits=3
+copy start deficit=8 entry=2 of=11 remaining=18 roots=12 visits=3
+copy start deficit=7 entry=0 of=15 remaining=18 roots=13 visits=4
+copy excluded deficit=7 entry=0 visits=5
+copy start deficit=7 entry=1 of=15 remaining=18 roots=13 visits=5
+copy excluded deficit=7 entry=1 visits=6
+copy start deficit=7 entry=2 of=15 remaining=18 roots=13 visits=6
+copy excluded deficit=7 entry=2 visits=7
+copy start deficit=7 entry=3 of=15 remaining=18 roots=13 visits=7
+nodes=11143 steps=0 card=0 cover=0 cof=464 formula=9 share1=0 fullcover=0 clips=816055 signals=129641 seconds=10.0242 levels=0:10420,1:692,2:8,3:6,4:5,5:4,6:4,7:3,8:1,
+copyclosures=122 entries=12558 subchecks=152013 subcuts=140856
+nodes=43083 steps=0 card=0 cover=0 cof=3022 formula=21 share1=0 fullcover=0 clips=1364137 signals=177932 seconds=20.0404 levels=0:38319,1:4492,2:247,3:8,4:5,5:4,6:4,7:3,8:1,
+copyclosures=908 entries=44567 subchecks=371036 subcuts=336910
+nodes=66244 steps=0 card=0 cover=0 cof=6484 formula=26 share1=0 fullcover=0 clips=580036 signals=225519 seconds=30.678 levels=0:55816,1:9208,2:1121,3:81,4:6,5:4,6:4,7:3,8:1,
+copyclosures=1665 entries=70109 subchecks=533669 subcuts=482714
+nodes=87278 steps=0 card=0 cover=0 cof=7318 formula=60 share1=0 fullcover=0 clips=1157966 signals=267156 seconds=41.1524 levels=0:75604,1:10452,2:1123,3:81,4:6,5:4,6:4,7:3,8:1,
+copyclosures=2055 entries=92034 subchecks=710102 subcuts=641689
+nodes=121567 steps=0 card=0 cover=0 cof=9922 formula=120 share1=0 fullcover=0 clips=413605 signals=295038 seconds=51.2023 levels=0:105398,1:14680,2:1389,3:82,4:6,5:4,6:4,7:3,8:1,
+copyclosures=3094 entries=128869 subchecks=899130 subcuts=806003
+memo checkpoint states=65924 seconds=1.16037
+nodes=150335 steps=0 card=0 cover=0 cof=12110 formula=167 share1=0 fullcover=0 clips=702592 signals=311066 seconds=61.2308 levels=0:130322,1:18274,2:1638,3:83,4:6,5:4,6:4,7:3,8:1,
+copyclosures=3941 entries=158331 subchecks=1044735 subcuts=931929
+nodes=195800 steps=0 card=0 cover=0 cof=17568 formula=224 share1=0 fullcover=0 clips=1160774 signals=337082 seconds=71.2617 levels=0:165963,1:26788,2:2872,3:158,4:7,5:4,6:4,7:3,8:1,
+copyclosures=5635 entries=205542 subchecks=1250965 subcuts=1110715
+nodes=253227 steps=0 card=0 cover=0 cof=24927 formula=287 share1=0 fullcover=0 clips=187467 signals=350696 seconds=81.2626 levels=0:210312,1:38223,2:4438,3:234,4:8,5:4,6:4,7:3,8:1,
+copyclosures=7895 entries=263549 subchecks=1445498 subcuts=1273462
+nodes=318985 steps=0 card=0 cover=0 cof=35178 formula=352 share1=0 fullcover=0 clips=482416 signals=361171 seconds=91.797 levels=0:256998,1:53146,2:8125,3:669,4:34,5:5,6:4,7:3,8:1,
+copyclosures=10804 entries=332000 subchecks=1647843 subcuts=1441105
+memo checkpoint states=72789 seconds=2.62698
+nodes=319002 steps=0 card=0 cover=0 cof=35178 formula=352 share1=0 fullcover=0 clips=182878 signals=561829 seconds=170.235 levels=0:256998,1:53155,2:8133,3:669,4:34,5:5,6:4,7:3,8:1,
+copyclosures=10806 entries=343711 subchecks=1932091 subcuts=1713664
+memo checkpoint states=72790 seconds=4.39914
+nodes=319047 steps=0 card=0 cover=0 cof=35178 formula=354 share1=0 fullcover=0 clips=504203 signals=607085 seconds=188.754 levels=0:257043,1:53155,2:8133,3:669,4:34,5:5,6:4,7:3,8:1,
+copyclosures=10808 entries=347906 subchecks=2035551 subcuts=1812953
+nodes=319525 steps=0 card=0 cover=0 cof=35179 formula=363 share1=0 fullcover=0 clips=308171 signals=634955 seconds=199.106 levels=0:257521,1:53155,2:8133,3:669,4:34,5:5,6:4,7:3,8:1,
+copyclosures=10817 entries=352786 subchecks=2085754 subcuts=1858381
+nodes=331339 steps=0 card=0 cover=0 cof=35240 formula=391 share1=0 fullcover=0 clips=69913 signals=660385 seconds=210.484 levels=0:269329,1:53161,2:8133,3:669,4:34,5:5,6:4,7:3,8:1,
+copyclosures=10850 entries=359581 subchecks=2160300 subcuts=1926514
+nodes=337037 steps=0 card=0 cover=0 cof=35271 formula=452 share1=0 fullcover=0 clips=810098 signals=681143 seconds=220.793 levels=0:275013,1:53175,2:8133,3:669,4:34,5:5,6:4,7:3,8:1,
+copyclosures=10922 entries=371240 subchecks=2245009 subcuts=2000433
+nodes=342735 steps=0 card=0 cover=0 cof=35298 formula=494 share1=0 fullcover=0 clips=496799 signals=698689 seconds=230.9 levels=0:280689,1:53197,2:8133,3:669,4:34,5:5,6:4,7:3,8:1,
+copyclosures=10973 entries=380856 subchecks=2319728 subcuts=2066160
+nodes=353473 steps=0 card=0 cover=0 cof=35443 formula=579 share1=0 fullcover=0 clips=359005 signals=722367 seconds=241.789 levels=0:291227,1:53397,2:8133,3:669,4:34,5:5,6:4,7:3,8:1,
+copyclosures=11157 entries=396318 subchecks=2406567 subcuts=2139698
+memo checkpoint states=73583 seconds=5.91525
+nodes=367352 steps=0 card=0 cover=0 cof=37946 formula=591 share1=0 fullcover=0 clips=854005 signals=728740 seconds=253.221 levels=0:301774,1:56728,2:8134,3:669,4:34,5:5,6:4,7:3,8:1,
+copyclosures=11599 entries=410160 subchecks=2469280 subcuts=2193715
+nodes=372241 steps=0 card=0 cover=0 cof=37965 formula=608 share1=0 fullcover=0 clips=666511 signals=753355 seconds=263.49 levels=0:306641,1:56750,2:8134,3:669,4:34,5:5,6:4,7:3,8:1,
+copyclosures=11624 entries=417131 subchecks=2557372 subcuts=2275139
+nodes=389188 steps=0 card=0 cover=0 cof=40364 formula=670 share1=0 fullcover=0 clips=557314 signals=771420 seconds=273.517 levels=0:320473,1:59863,2:8136,3:669,4:34,5:5,6:4,7:3,8:1,
+copyclosures=11922 entries=433745 subchecks=2651092 subcuts=2355707
+nodes=442303 steps=0 card=0 cover=0 cof=46213 formula=908 share1=0 fullcover=0 clips=916403 signals=797653 seconds=283.52 levels=0:363903,1:69007,2:8677,3:669,4:34,5:5,6:4,7:3,8:1,
+copyclosures=14201 entries=493418 subchecks=2792014 subcuts=2464287
+memo checkpoint states=76286 seconds=7.41902
+memo checkpoint states=76286 seconds=8.99927
+nodes=444440 steps=0 card=0 cover=0 cof=47531 formula=908 share1=0 fullcover=0 clips=528864 signals=962709 seconds=371.106 levels=0:364229,1:70055,2:9439,3:670,4:34,5:5,6:4,7:3,8:1,
+copyclosures=14303 entries=506890 subchecks=3079985 subcuts=2739951
+nodes=452287 steps=0 card=0 cover=0 cof=47579 formula=930 share1=0 fullcover=0 clips=116965 signals=995701 seconds=386.326 levels=0:372075,1:70056,2:9439,3:670,4:34,5:5,6:4,7:3,8:1,
+copyclosures=14326 entries=512282 subchecks=3165595 subcuts=2820434
+nodes=463962 steps=0 card=0 cover=0 cof=47592 formula=941 share1=0 fullcover=0 clips=110581 signals=1017112 seconds=396.706 levels=0:383729,1:70077,2:9439,3:670,4:34,5:5,6:4,7:3,8:1,
+copyclosures=14358 entries=522442 subchecks=3252278 subcuts=2897333
+nodes=471995 steps=0 card=0 cover=0 cof=47605 formula=948 share1=0 fullcover=0 clips=32146 signals=1035109 seconds=407.91 levels=0:391740,1:70099,2:9439,3:670,4:34,5:5,6:4,7:3,8:1,
+copyclosures=14381 entries=530940 subchecks=3332724 subcuts=2969556
+nodes=486675 steps=0 card=0 cover=0 cof=47724 formula=983 share1=0 fullcover=0 clips=31678 signals=1047839 seconds=417.975 levels=0:406161,1:70358,2:9439,3:670,4:34,5:5,6:4,7:3,8:1,
+copyclosures=14575 entries=545779 subchecks=3409465 subcuts=3033702

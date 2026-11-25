@@ -1,0 +1,13 @@
+{
+  "file": "lean/PEqualNP/Outside/L_meta_2373.lean",
+  "sha256": "c74bd69129237388a77bda176728dad78f13ff3a502f3f98c66075dbc5b8caec",
+  "bytes": 376638,
+  "lines": 8179,
+  "checker_exit": 1,
+  "verdict": "REJECTED (no-theorem)",
+  "started_utc": "2026-11-25T16:50:11Z",
+  "observed_finished_utc": "2026-11-25T16:57:44Z",
+  "full_output": "results/orch/check-twoand.txt",
+  "lake_build_exit": 0,
+  "lake_build_output": "results/orch/build-twoand.txt"
+}
