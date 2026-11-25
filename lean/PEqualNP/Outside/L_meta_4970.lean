@@ -2015,6 +2015,301 @@ lemma full_left_neighborhood_or_count {p l : ℕ}
   · have : E = ∅ := Finset.not_nonempty_iff_eq_empty.mp hE
     simp [this]
 
+lemma family_plus_residual_or_count_extra {ι : Type*} [DecidableEq ι]
+    (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (I : Finset ι) (Q : ι → Finset (Fin n))
+    (hwitness : ∀ i ∈ I, ∃ w < n + C.gates.length, PureOr (Q i) (wireFn n C w))
+    (hinter : ∀ i ∈ I, ∀ j ∈ I, i ≠ j → (Q i ∩ Q j).card ≤ 1)
+    (R : Finset ℕ) (hR : R ⊆ allOrWires n C)
+    (hdis : ∀ i ∈ I, Disjoint (chargedOr n C (Q i)) R)
+    (k : ℕ) (hcount : I.card + k ≤ R.card + 1) :
+    (∑ i ∈ I, (Q i).card) + k ≤ (allOrWires n C).card + 1 := by
+  classical
+  have hlocal : (∑ i ∈ I, (Q i).card) ≤
+      ∑ i ∈ I, (1 + (chargedOr n C (Q i)).card) := by
+    apply Finset.sum_le_sum
+    intro i hi
+    obtain ⟨w,hw,hpure⟩ := hwitness i hi
+    exact pure_disjunction_or_count n C hC (Q i) w hw hpure
+  have hd : (I : Set ι).PairwiseDisjoint (fun i => chargedOr n C (Q i)) := by
+    intro i hi j hj hij
+    exact chargedOr_disjoint n C (Q i) (Q j) (hinter i hi j hj hij)
+  have hsub : I.biUnion (fun i => chargedOr n C (Q i)) ⊆ allOrWires n C := by
+    intro k hk
+    obtain ⟨i,hi,hk⟩ := Finset.mem_biUnion.mp hk
+    simp only [chargedOr, Finset.mem_filter, Finset.mem_range] at hk
+    exact Finset.mem_filter.mpr ⟨Finset.mem_Ico.mpr ⟨hk.2.2.1.1,hk.1⟩,hk.2.2.1.2⟩
+  have hdR : Disjoint (I.biUnion (fun i => chargedOr n C (Q i))) R := by
+    apply Finset.disjoint_left.mpr
+    intro k hk hr
+    obtain ⟨i,hi,hk⟩ := Finset.mem_biUnion.mp hk
+    exact Finset.disjoint_left.mp (hdis i hi) hk hr
+  have hc : (I.biUnion (fun i => chargedOr n C (Q i))).card + R.card ≤
+      (allOrWires n C).card := by
+    rw [← Finset.card_union_of_disjoint hdR]
+    exact Finset.card_le_card (Finset.union_subset hsub hR)
+  rw [Finset.card_biUnion hd] at hc
+  simp only [Finset.sum_add_distrib, Finset.sum_const, smul_eq_mul, mul_one] at hlocal
+  omega
+
+
+lemma family_plus_false_residual_or_count_avoiding {ι : Type*} [DecidableEq ι]
+    (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (I : Finset ι) (Q : ι → Finset (Fin n))
+    (hwitness : ∀ i ∈ I, ∃ w < n + C.gates.length, PureOr (Q i) (wireFn n C w))
+    (hinter : ∀ i ∈ I, ∀ j ∈ I, i ≠ j → (Q i ∩ Q j).card ≤ 1)
+    (x : Fin n → Bool) (hQ : ∀ i ∈ I, ∀ q ∈ Q i, x q = true)
+    (R : Finset ℕ) (hR : R ⊆ allOrWires n C)
+    (hfalse : ∀ w ∈ R, wireFn n C w x = false)
+    (hcount : I.card ≤ R.card + 1)
+    (B : Finset ℕ) (hB : B ⊆ allOrWires n C)
+    (hBdis : ∀ i ∈ I, Disjoint B (chargedOr n C (Q i)))
+    (hBtrue : ∀ w ∈ B, wireFn n C w x = true) :
+    (∑ i ∈ I, (Q i).card) + B.card ≤ (allOrWires n C).card + 1 := by
+  classical
+  have hRB : Disjoint R B := by
+    apply Finset.disjoint_left.mpr
+    intro w hr hb
+    have hh := hBtrue w hb
+    rw [hfalse w hr] at hh
+    cases hh
+  apply family_plus_residual_or_count_extra n C hC I Q hwitness hinter
+    (R ∪ B) (Finset.union_subset hR hB) _ B.card _
+  · intro i hi
+    apply Finset.disjoint_left.mpr
+    intro w hw hwb
+    rcases Finset.mem_union.mp hwb with hr | hb
+    · have ht := chargedOr_true n C hC (Q i) x (hQ i hi) w hw
+      rw [hfalse w hr] at ht
+      cases ht
+    · exact Finset.disjoint_left.mp (hBdis i hi) hb hw
+  · rw [Finset.card_union_of_disjoint hRB]
+    omega
+
+lemma full_left_neighborhood_or_count_avoiding {p l : ℕ}
+    (E : Finset (Fin p × Fin l)) (C : Circuit)
+    (hno : ∀ (a a' : Fin p) (b b' : Fin l), a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (hC : IsAO2 (p+l) C)
+    (hF : ∀ x : Fin (p+l) → Bool,
+      PEqualNP.MetaComplexity.circuitFun (p+l) C x =
+        decide (∃ a b, (a,b) ∈ E ∧ x (Fin.castAdd l a) = true ∧
+          x (Fin.natAdd p b) = true))
+    (hfull : ∀ a : Fin p, (∃ b, (a,b) ∈ E) →
+      ∃ w < p+l+C.gates.length, ∀ x : Fin (p+l) → Bool,
+        (C.wires (List.ofFn x)).getD w false =
+          decide (∃ b, (a,b) ∈ E ∧ x (Fin.natAdd p b) = true))
+    (B : Finset ℕ) (hB : B ⊆ allOrWires (p+l) C)
+    (hBdis : ∀ a ∈ activeLeft E, Disjoint B (chargedOr (p+l) C (leftNeighbors E a)))
+    (hBtrue : ∀ w ∈ B, wireFn (p+l) C w
+      (Kernel.rightTrueInput (l := l) (fun _ => false)) = true) :
+    E.card + B.card ≤ (allOrWires (p+l) C).card + 1 := by
+  classical
+  by_cases hE : E.Nonempty
+  · have hout : C.output < p+l+C.gates.length := by
+      by_contra hn
+      obtain ⟨⟨a,b⟩,he⟩ := hE
+      have htrue : wireFn (p+l) C C.output (fun _ => true) = true := by
+        change PEqualNP.MetaComplexity.circuitFun (p+l) C (fun _ => true) = true
+        rw [hF,decide_eq_true_eq]
+        exact ⟨a,b,he,rfl,rfl⟩
+      rw [wireFn_out_of_range (p+l) C C.output (by omega)] at htrue
+      cases htrue
+    have hcofactor : ∀ x : Fin p → Bool,
+        (C.wires (List.ofFn (Kernel.rightTrueInput (l := l) x))).getD C.output false =
+          decide (∃ a ∈ activeLeft E, x a = true) := by
+      intro x
+      change PEqualNP.MetaComplexity.circuitFun (p+l) C (Kernel.rightTrueInput x) = _
+      rw [hF]
+      apply Bool.eq_iff_iff.mpr
+      simp only [decide_eq_true_eq]
+      simp only [Kernel.rightTrueInput, Fin.addCases_left, Fin.addCases_right, and_true]
+      constructor
+      · rintro ⟨a,b,he,hx⟩
+        exact ⟨a,(mem_activeLeft E a).mpr ⟨b,he⟩,hx⟩
+      · rintro ⟨a,ha,hx⟩
+        obtain ⟨b,he⟩ := (mem_activeLeft E a).mp ha
+        exact ⟨a,b,he,hx⟩
+    have hcount := Kernel.rightTrue_or_budget C hC (activeLeft E) C.output hout hcofactor
+    let R := Kernel.restrictedSafeOrWires C (Kernel.rightTrueInput (l := l)) (activeLeft E)
+    have hR : R ⊆ allOrWires (p+l) C := by
+      intro w hw
+      obtain ⟨j,hj,rfl,hop,hfalse,hcard⟩ :=
+        (Kernel.restrictedSafeOrWires_mem C (Kernel.rightTrueInput (l := l)) (activeLeft E) w).mp hw
+      apply Finset.mem_filter.mpr
+      exact ⟨Finset.mem_Ico.mpr ⟨by omega,by omega⟩,by simpa using hop⟩
+    have hfalse : ∀ w ∈ R, wireFn (p+l) C w
+        (Kernel.rightTrueInput (l := l) (Kernel.complementInput (activeLeft E))) = false := by
+      intro w hw
+      obtain ⟨j,hj,heq,hop,hfalse,hcard⟩ :=
+        (Kernel.restrictedSafeOrWires_mem C (Kernel.rightTrueInput (l := l)) (activeLeft E) w).mp hw
+      exact hfalse
+    have hbound := family_plus_false_residual_or_count_avoiding (p+l) C hC
+      (activeLeft E) (leftNeighbors E) ?_ ?_
+      (Kernel.rightTrueInput (l := l) (Kernel.complementInput (activeLeft E))) ?_
+      R hR hfalse (by simpa [R,Nat.add_comm] using hcount) B hB hBdis ?_
+    · simpa [sum_leftNeighbors_card] using hbound
+    · intro a ha
+      obtain ⟨w,hw,hsem⟩ := hfull a ((mem_activeLeft E a).mp ha)
+      refine ⟨w,hw,?_⟩
+      intro x
+      rw [show wireFn (p+l) C w x = _ from hsem x,decide_eq_true_eq]
+      constructor
+      · rintro ⟨b,he,hx⟩
+        exact ⟨Fin.natAdd p b,(mem_leftNeighbors E a _).mpr ⟨b,he,rfl⟩,hx⟩
+      · rintro ⟨q,hq,hx⟩
+        obtain ⟨b,he,rfl⟩ := (mem_leftNeighbors E a q).mp hq
+        exact ⟨b,he,hx⟩
+    · intro a ha a' ha' haa
+      exact leftNeighbors_inter_card_le_one E hno a a' haa
+    · intro a ha q hq
+      obtain ⟨b,he,rfl⟩ := (mem_leftNeighbors E a q).mp hq
+      simp [Kernel.rightTrueInput]
+    · intro w hw
+      have hmono := wireFn_mono (p+l) C hC w
+      apply Bool.le_iff_imp.mp (hmono ?_) (hBtrue w hw)
+      intro i
+      induction i using Fin.addCases with
+      | left i => simp [Kernel.rightTrueInput]
+      | right i => simp [Kernel.rightTrueInput]
+  · have : E = ∅ := Finset.not_nonempty_iff_eq_empty.mp hE
+    have hb := Finset.card_le_card hB
+    simpa [this] using Nat.le_trans hb (Nat.le_succ _)
+
 end OneSided
+
+namespace Collision
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+open OneSided OneSided.SemanticSafe
+
+def leftNonneighborInput {p l : ℕ} (E : Finset (Fin p × Fin l)) (c : Fin p) :
+    Fin (p+l) → Bool :=
+  Fin.addCases (fun a => decide (a = c)) (fun b => decide ((c,b) ∉ E))
+
+def edgePairInput {p l : ℕ} (a : Fin p) (b : Fin l) : Fin (p+l) → Bool :=
+  Fin.addCases (fun q => decide (q = a)) (fun q => decide (q = b))
+
+lemma singleton_le_input {n : ℕ} (x : Fin n → Bool) (i : Fin n) (hi : x i = true) :
+    (fun j => decide (j = i)) ≤ x := by
+  intro j
+  by_cases hj : j = i
+  · subst j
+    simp [hi]
+  · simp [hj]
+
+lemma singleton_neighbor {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : IsAO2 (p+l) C) (w : ℕ) (c : Fin p) (b : Fin l)
+    (hf : wireFn (p+l) C w (leftNonneighborInput E c) = false)
+    (hb : Fin.natAdd p b ∈ singletonSupport (p+l) C w) : (c,b) ∈ E := by
+  by_contra hne
+  have hle := singleton_le_input (leftNonneighborInput E c) (Fin.natAdd p b)
+    (by simp [leftNonneighborInput,hne])
+  have ht := Bool.le_iff_imp.mp (wireFn_mono (p+l) C hC w hle)
+    ((mem_singletonSupport (p+l) C w (Fin.natAdd p b)).mp hb)
+  rw [hf] at ht
+  cases ht
+
+lemma not_charged_right_star {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : IsAO2 (p+l) C)
+    (hno : ∀ (a a' : Fin p) (b b' : Fin l), a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (w : ℕ) (c a z : Fin p) (b : Fin l) (Q : Finset (Fin l))
+    (hQ : ∀ q ∈ Q, (z,q) ∈ E)
+    (hf : wireFn (p+l) C w (leftNonneighborInput E c) = false)
+    (he : wireFn (p+l) C w (edgePairInput a b) = true)
+    (hcb : (c,b) ∉ E) :
+    w ∉ chargedOr (p+l) C (Q.image (Fin.natAdd p)) := by
+  classical
+  intro hw
+  have hm := hw
+  simp only [chargedOr,Finset.mem_filter,Finset.mem_range] at hm
+  have hs := singletonSupport_safe_subset (p+l) C w _ hm.2.1.2
+  have hsc : singletonSupport (p+l) C w ⊆ leftNeighbors E c := by
+    intro i hi
+    obtain ⟨q,hq,rfl⟩ := Finset.mem_image.mp (hs hi)
+    exact (mem_leftNeighbors E c (Fin.natAdd p q)).mpr
+      ⟨q,singleton_neighbor E C hC w c q hf hi,rfl⟩
+  have hsz : singletonSupport (p+l) C w ⊆ leftNeighbors E z := by
+    intro i hi
+    obtain ⟨q,hq,rfl⟩ := Finset.mem_image.mp (hs hi)
+    exact (mem_leftNeighbors E z (Fin.natAdd p q)).mpr ⟨q,hQ q hq,rfl⟩
+  have hcz : c = z := by
+    by_contra hne
+    have hcard := (Finset.card_le_card (Finset.subset_inter hsc hsz)).trans
+      (leftNeighbors_inter_card_le_one E hno c z hne)
+    have hh := hm.2.2.2
+    omega
+  obtain ⟨i,hi,hval⟩ := hm.2.1.2 (edgePairInput a b) he
+  obtain ⟨q,hq,rfl⟩ := Finset.mem_image.mp hi
+  have hqb : q = b := by simpa [edgePairInput] using hval
+  exact hcb (hcz ▸ (hqb ▸ hQ q hq))
+
+lemma not_charged_left_palette {p l : ℕ} (C : Circuit) (w : ℕ)
+    (d : Fin l) (Q : Finset (Fin p))
+    (hd : wireFn (p+l) C w (fun i => decide (i = Fin.natAdd p d)) = true) :
+    w ∉ chargedOr (p+l) C (Q.image (Fin.castAdd l)) := by
+  classical
+  intro hw
+  have hm := hw
+  simp only [chargedOr,Finset.mem_filter,Finset.mem_range] at hm
+  have hd' : Fin.natAdd p d ∈ singletonSupport (p+l) C w :=
+    (mem_singletonSupport (p+l) C w (Fin.natAdd p d)).mpr hd
+  have hs := singletonSupport_safe_subset (p+l) C w _ hm.2.1.2 hd'
+  obtain ⟨q,hq,heq⟩ := Finset.mem_image.mp hs
+  have hv := congrArg Fin.val heq
+  simp only [Fin.val_castAdd,Fin.val_natAdd] at hv
+  omega
+
+lemma right_singleton_true_at_rightTrue {p l : ℕ} (C : Circuit)
+    (hC : IsAO2 (p+l) C) (w : ℕ) (d : Fin l)
+    (hd : wireFn (p+l) C w (fun i => decide (i = Fin.natAdd p d)) = true)
+    (x : Fin p → Bool) : wireFn (p+l) C w (Kernel.rightTrueInput x) = true := by
+  have hle := singleton_le_input (Kernel.rightTrueInput x) (Fin.natAdd p d)
+    (by simp [Kernel.rightTrueInput])
+  exact Bool.le_iff_imp.mp (wireFn_mono (p+l) C hC w hle) hd
+
+lemma not_restricted_rightTrue {p l : ℕ} (C : Circuit) (hC : IsAO2 (p+l) C)
+    (w : ℕ) (d : Fin l) (Q : Finset (Fin p))
+    (hd : wireFn (p+l) C w (fun i => decide (i = Fin.natAdd p d)) = true) :
+    w ∉ Kernel.restrictedSafeOrWires C (Kernel.rightTrueInput (l := l)) Q := by
+  intro hw
+  obtain ⟨j,hj,hjw,hop,hf,hcard⟩ :=
+    (Kernel.restrictedSafeOrWires_mem C (Kernel.rightTrueInput (l := l)) Q w).mp hw
+  have ht := right_singleton_true_at_rightTrue C hC w d hd (Kernel.complementInput Q)
+  change wireFn (p+l) C w (Kernel.rightTrueInput (Kernel.complementInput Q)) = false at hf
+  rw [hf] at ht
+  cases ht
+
+lemma collision_wire_injective {ι : Type*} {p l : ℕ}
+    (E : Finset (Fin p × Fin l)) (C : Circuit) (hC : IsAO2 (p+l) C)
+    (hno : ∀ (a a' : Fin p) (b b' : Fin l), a ≠ a' → b ≠ b' →
+      ¬ ((a,b) ∈ E ∧ (a,b') ∈ E ∧ (a',b) ∈ E ∧ (a',b') ∈ E))
+    (c : ι → Fin p) (d : ι → Fin l) (w : ι → ℕ)
+    (hc : Function.Injective c) (hd : Function.Injective d)
+    (hf : ∀ i, wireFn (p+l) C (w i) (leftNonneighborInput E (c i)) = false)
+    (hs : ∀ i, wireFn (p+l) C (w i)
+      (fun q => decide (q = Fin.natAdd p (d i))) = true) :
+    Function.Injective w := by
+  classical
+  intro i j hij
+  by_contra hne
+  have hci : c i ≠ c j := fun h => hne (hc h)
+  have hdj : d i ≠ d j := fun h => hne (hd h)
+  have hsi : Fin.natAdd p (d i) ∈ singletonSupport (p+l) C (w i) :=
+    (mem_singletonSupport (p+l) C (w i) (Fin.natAdd p (d i))).mpr (hs i)
+  have hsj : Fin.natAdd p (d j) ∈ singletonSupport (p+l) C (w i) := by
+    rw [hij]
+    exact (mem_singletonSupport (p+l) C (w j) (Fin.natAdd p (d j))).mpr (hs j)
+  have hfj : wireFn (p+l) C (w i) (leftNonneighborInput E (c j)) = false := by
+    rw [hij]
+    exact hf j
+  exact hno (c i) (c j) (d i) (d j) hci hdj
+    ⟨singleton_neighbor E C hC (w i) (c i) (d i) (hf i) hsi,
+      singleton_neighbor E C hC (w i) (c i) (d j) (hf i) hsj,
+      singleton_neighbor E C hC (w i) (c j) (d i) hfj hsi,
+      singleton_neighbor E C hC (w i) (c j) (d j) hfj hsj⟩
+
+end Collision
 
 end PEqualNP.Outside.L_meta_4970
