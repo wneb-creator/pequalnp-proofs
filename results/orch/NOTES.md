@@ -70,3 +70,41 @@ CaDiCaL 3.1.0 built in scratch. Existing LinkN/LinkN2 encodes normal-form arbitr
 ## counterexample — Lean-checked partial
 
 2026-11-25T14:09:59.685731+00:00: `UpperBound.lean` compiled successfully via `lake env lean`, exit 0, empty stdout/stderr. This checks the explicit 20-gate monotone construction, its FanInTwo condition and size, and all inputs using kernel decision. It does not prove the assigned 19-gate lower bound. Parent notified for immediate preservation.
+
+### status_review — last-NOT child IDs and staged review
+Public node JSON confirms R_meta_2592_318 child 1 is L-meta-8295, CHECKED at 2026-11-25 06:23:49 UTC; child 2 is L-meta-8297, still CONJECTURE. Their exact statements are saved under /tmp/oec/pequalnp-pilot-110/status-review/L-meta-8295.json and L-meta-8297.json. Public node URLs are data.pequalnp.com/data/lemma/<id>.<node hash>.json, with hashes from public map nodes. CutLast therefore reconstructs an already checked component; the separator remains unresolved.
+
+Independently reviewed initial staged 9-file partial-preservation diff, including source, validation, timeline, and full build logs. git diff --cached --check passed. Source forbidden-token scan and staged credential-shape scan were clear. Verdict: PASS FOR PARTIAL BRANCH PUSH only; not a proof PR, and validation accurately says posted theorem unproved and exact checker not run.
+
+## sat_strategy (2026-11-25 14:14 UTC)
+82-row base+<=4NOT+NOT-or-pad run reached300s limit with unknown. Full1024-row instance now running1200s:1,527,347clauses,249,912numberedvariables. Additional search-only normal-form restrictions: binary source functions incomparable across sampled rows; NOT input nonconstant; firstactive gate representative(0,0)NOT,(0,1)edgebinary,or(0,2)nonedgebinary under Petersen automorphisms. These need additional Lean normalization/count/aut proofs before UNSAT could establish target. All inputs remain fully checked for any SAT witness. Default bv_decide is NOT admissible: official Lean docs confirm native checking introduces a dedicated axiom, so use only repo kernel LRAT reflection if a certificate route succeeds.
+
+## counterexample — search summary at 2026-11-25T14:14:36.158091+00:00
+
+First unrestricted 19-gate heuristic: 1,173,839,213 candidate evaluations across 2,246,487 restarts in 300 seconds; closest has 5 false-positive rows and no NOT. Second heuristic requiring at least one NOT: 1,143,012,558 candidates, 1,879,556 restarts in 300 seconds; closest has 10 wrong rows and an unused NOT. Third run requires a NOT on the output dependency cone; running, currently 18 wrong rows. Exact local perturbation of the first near-solution checked all 2,641,950 choices of one NOT replacement plus one arbitrary binary gate replacement; closest has 11 wrong rows. These are search statistics only, with no global lower-bound claim. Complete sources and finished logs copied beside UpperBound.lean for preservation.
+
+The tempting seven-gate six-cycle replacement is ruled out by the already checked L-meta-106 cycle theorem, which counts NOT gates. Parent and SAT agent notified; that subroute is dead.
+
+Third heuristic complete (live NOT required): DONE restarts=1214970 evaluations=728956053 best=17. No counterexample. Source and complete log preserved beside the checked UpperBound.lean partial. All counterexample search processes have ended.
+
+## Root status, first replan
+
+- Baseline mathematical components now Lean-checked and pushed in c93f2f11. Posted theorem remains open; no PR.
+- All three parent reduction slots already occupied; do not submit duplicate reduction.
+- Full-row exact SAT search started/starting after renewal14:14:35UTC; sparse sampled rows yielded spurious models. Any finite search restriction must have separate soundness proof before a theorem claim.
+- C6 standalone7gate shortcut is already excluded by checked L106; only cross-component sharing can help near19.
+- New small target: remove sole terminal/penultimateNOT from endpoint-correct monotone output using prefix monotonicity; proof_strategy owns it.
+- Guard rule: bv_decide may add a forbidden axiom in current Lean; use explicit kernelchecking/decide+kernel only.
+- Do not delete any active cache artifacts; .c files are part of Lake artifact-validity checks. Restore cached modules before resuming builds.
+
+## sat_strategy (2026-11-25T14:17:55.499756+00:00)
+Checked partial: results/orch/lemmas/SatCofactor.lean compiles with pinnedLean/Defs usingkernel decide, exit0. It proves every variable ofPetersen remains essential after fixinganyother variable tofalseortrue, viaexplicit≤2vertex witnesses. Rootnotifiedforimmediatepush. Genericcircuitreaderbridge beingprovedbyproof_strategy.
+New82rowsearch adds firstbinarygate-inputs-read-again condition, firstOR(nonedge)NOT-count≤2−padding fromL5236, firstNOT combinedreader-count≤3−padding fromL5367, andNOT-count+padding≤4fromL4725. Thesearederivedproofideas, implementationnotyetLean-linked; onlysearchresults, notproof. Full1024row20minruncontinueswithouttheseextraconstraints.
+
+### status_review — second partial source review 2026-11-25T14:18:21.695677+00:00
+
+Reviewed current 190-line named file (6985 bytes) and 20-line SatCofactor source (707 bytes). PASS for partial preservation, conditional on successful named-file build. No forbidden tokens, unsupported imports/attributes/options, or namespace problems. New vertex-cover lower bound and dependency witness are meaningful finite lemmas; neither asserts the circuit lower bound. Independently enumerated all 1024 vertex subsets: minimum Petersen vertex cover is 6. Independently checked all 180 (u,v,b) dependency-witness cases: each has a valid w. git diff --check clean. Exact posted theorem remains absent; no proof PR approval.
+
+### status_review — Endpoint partial 2026-11-25T14:19:51.069616+00:00
+
+PASS for checked partial preservation of Endpoint.lean. Final NOT cannot realize a function with false/true endpoint values after a monotone prefix. A penultimate unary NOT feeding final AND/OR can be deleted, dropping only its final-gate occurrences, and the resulting monotone circuit has exactly one fewer gate. The proof handles out-of-range wire references through the existing false default; no hidden legal-wiring assumption is needed. Exact monotone-prefix and endpoint hypotheses prevent overclaiming general internal-NOT elimination. File source scan clear, only Defs import and no attrs/options/escapes. Scratch Pilot110Endpoint namespace needs own-file namespace adaptation before final submission. Full190-line named build review remains conditional after root stopped memory-heavy run.

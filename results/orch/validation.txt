@@ -8,3 +8,9 @@ Independent source review: PASS for partial preservation only.
 Sub-agents: status/review, toolchain setup, proof strategy, counterexample search, reductions, SAT search
 TIMING total=10 subagents=6
 Cleanup: not started; full proof not complete.
+
+Second preservation: SatCofactor.lean and Endpoint.lean each passed lake env lean, exit 0.
+Independent review: PASS for both partial sources. Endpoint removes a sole terminal or penultimate NOT under the stated monotone-prefix and endpoint hypotheses.
+The integrated 190-line named file is not yet checked: compilation was interrupted at 6.9 GB RSS; smaller algebraic proofs are being developed. The committed named-file baseline remains the initial 71-line checked partial.
+Sub-agents: status/review, toolchain setup, proof strategy, counterexample search, reductions, SAT search
+TIMING total=20 subagents=6
