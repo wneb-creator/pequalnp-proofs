@@ -1,0 +1,29 @@
+{
+  "started_at": "2026-11-25T08:38:16.089439+00:00",
+  "wall_limit_seconds": 2700,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=2700",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/constructive/joint-ten10.cnf"
+  ],
+  "cnf_sha256": "80fcc7fd598276ab66375282674e77f777dfc623e388f2d36ff5e48aa3cacb4d",
+  "map_sha256": "1c99f825a860a841577272e158a36777d8566370fbd37b3e1322a082349ec86d",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1",
+  "backend": "kissat",
+  "preset": "default",
+  "seed": 1,
+  "independent_review": "PASS by sat_review",
+  "review_file": "/tmp/oec/pequalnp-pilot-70/sat-review/joint-ten-review.json",
+  "source_sha256": {
+    "joint_correlated.py": "98d3ec9c9b9bc620419d8e20fd9eb49041ec4a1e46816c677dd57716d3f8fdb1",
+    "joint_decode.py": "ee90d20929df9de1d02825f8bdfe974472cb1b38ca754a17bf15b058b789f08e",
+    "joint_run.py": "90710efbcf80a9fc7f3d42ffc24cb299810729f7425b347987e4c8bf1c4559ef",
+    "joint_smoke.py": "f6777c9120ec0afcb1e69964b2537b33e3a2755c89ad2c7383eedcfb07200d97"
+  },
+  "scope": "All six reviewed fixed-four-star cut families with a shared ten-gate cone; not unrestricted 26-gate existence.",
+  "lease_renewed_at": "2026-11-25T08:36:56+00:00",
+  "lease_expiry_at_launch": "2026-11-25T08:56:56+00:00",
+  "verification_required": "Selected branch and all CNF clauses, 1024 underlying assignments, 16384 full assignments"
+}

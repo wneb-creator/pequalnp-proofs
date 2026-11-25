@@ -1,0 +1,8 @@
+{
+  "phase_variables": 1585,
+  "source_model_log": "/tmp/oec/pequalnp-pilot-70/constructive/joint-ten11-smoke-v1-branch-0.solve.log",
+  "source_model_sha256": "4912f695e24f5bafa04008460285439f22a74fa320fbcb316ba0c32a31d73548",
+  "cnf": "/tmp/oec/pequalnp-pilot-70/constructive/joint-ten11-smoke-v1-branch-0.cnf",
+  "cnf_sha256": "8e7b9d3d72da536634ac20fcb8983d6449bdf5c711e6231061534ee485903725",
+  "scope": "Complete satisfying model of the known fixed 27-gate baseline, converted to soft preferences."
+}

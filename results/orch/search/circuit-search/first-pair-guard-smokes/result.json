@@ -1,0 +1,42 @@
+{
+  "source_sha256": "466a2f1b7b3ff312b4766dd2ab4cbaa7f7b62a33ed42d43b5fdf710672c7326b",
+  "all_passed": true,
+  "cases": [
+    {
+      "case": "matching-cut14",
+      "exit_code": 0,
+      "identical_clauses": true
+    },
+    {
+      "case": "noncollinear-cut14-v0",
+      "exit_code": 0,
+      "identical_clauses": true
+    },
+    {
+      "case": "canonical_prefix",
+      "exit_code": 1,
+      "rejected_before_output": true
+    },
+    {
+      "case": "ordered_max",
+      "exit_code": 1,
+      "rejected_before_output": true
+    },
+    {
+      "case": "liveness",
+      "exit_code": 1,
+      "rejected_before_output": true
+    },
+    {
+      "case": "allow_initial_repeats",
+      "exit_code": 1,
+      "rejected_before_output": true
+    },
+    {
+      "case": "allow_trivial",
+      "exit_code": 1,
+      "rejected_before_output": true
+    }
+  ],
+  "complete_log": "/tmp/oec/pequalnp-pilot-70/circuit-search/first-pair-guard-smokes/complete.log"
+}

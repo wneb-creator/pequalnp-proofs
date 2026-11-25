@@ -1,0 +1,218 @@
+{
+  "commit": "034fdef",
+  "git_diff_check_exit": 2,
+  "diagnostic_count": 442,
+  "kinds": {
+    "trailing whitespace": 442
+  },
+  "files": [
+    {
+      "path": "results/orch/search/circuit-search/f0-available-a24-solve.log",
+      "bytes": 195425,
+      "sha256": "c363758a3b48d2f5539ee5630f68d4b67e0ae90d46a0fad51934f3b1a6c90be8",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-noncollinear15-smoke-v1-branch-0-wrong-cut.solve.log",
+      "bytes": 7980,
+      "sha256": "43ef75218325b31dcfc063f91a9073a5fbb1c0c066b0d3f3969896347776345b",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-noncollinear15-smoke-v1-branch-0.solve.log",
+      "bytes": 22755,
+      "sha256": "344330b3b9800ad7b44d32654ede98aaae7ddea8fb8b58caaa0124768ed61bad",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-noncollinear15-smoke-v1-branch-1-wrong-cut.solve.log",
+      "bytes": 7980,
+      "sha256": "0e80817302d315674328627c5d59f6f7a6ca35ec1c4a5efd33dea7a4ad335a10",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-noncollinear15-smoke-v1-branch-1.solve.log",
+      "bytes": 22756,
+      "sha256": "fd40421a115514a47a00f6900a9b076631db17214a4ec62bddeb95e2e06f93ad",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-noncollinear15-smoke-v1-branch-2-wrong-cut.solve.log",
+      "bytes": 7980,
+      "sha256": "d6753b033fb04bb68f3c6782844d621d6dfd8ea395d33896a18b8c17212758c6",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-noncollinear15-smoke-v1-branch-2.solve.log",
+      "bytes": 22758,
+      "sha256": "f8a18fdfb3305757c326b6b56b23cf79624dab9f309be95770c6af27fdb20bca",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-noncollinear15-smoke-v1-branch-3-wrong-cut.solve.log",
+      "bytes": 7980,
+      "sha256": "45ded5d5f58d29fca3225ac07dd19de8da1ebde19a57b8fe82807c90a6ab0967",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-noncollinear15-smoke-v1-branch-3.solve.log",
+      "bytes": 22759,
+      "sha256": "4d7e2cd382a6350a056d6b200119de8edf10567ad22474024a38c67323477776",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-noncollinear15-smoke-v1-branch-4-wrong-cut.solve.log",
+      "bytes": 7980,
+      "sha256": "da29986fcf084f29accf0272027a744aa72273d79e0820888bfd23f021855e97",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-noncollinear15-smoke-v1-branch-4.solve.log",
+      "bytes": 22760,
+      "sha256": "3e3837be1287b1116e53197ac64a1301222240d8b36c71ccd2c45bda212204e6",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-noncollinear15-smoke-v1-branch-5-wrong-cut.solve.log",
+      "bytes": 7980,
+      "sha256": "8bbf9c8eb29b7f690370bc5fa62ff6d429259a99e725e2c3792afd57d508134f",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-noncollinear15-smoke-v1-branch-5.solve.log",
+      "bytes": 22762,
+      "sha256": "b8373e1b25b462b4974e2bdc85972ffda33fae1ff2c7aa3db67cb99725528ba4",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-noncollinear15-smoke-v1-branch-6-wrong-cut.solve.log",
+      "bytes": 7980,
+      "sha256": "244bf91b2bbc4cd621227c3f71ac4537cf54ea1e94dcda193cf5da37666217f0",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-noncollinear15-smoke-v1-branch-6.solve.log",
+      "bytes": 22763,
+      "sha256": "8f3338023c8c7f3cb581f655164c6c096e136ef6d1159ed0eda1b53162ac02e8",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-noncollinear15-smoke-v1-free-selector.solve.log",
+      "bytes": 22768,
+      "sha256": "11a1b93247da66aadfa5a787dc51eeaf27f97383894ab9996ebe461b0a2970dd",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-noncollinear15-smoke-v1-no-selector.solve.log",
+      "bytes": 7973,
+      "sha256": "cac09194be37652bd253a34916d7f26de80a8ba7ff690ce3ff0f76c6528322c7",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-noncollinear15-smoke-v1-two-selectors.solve.log",
+      "bytes": 7975,
+      "sha256": "b78106c57e5594d778479e5d851de2bbb6a0c3bb1de4f3fba0d2bf5e995ab5a5",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-runner-smoke-v1-solve.log",
+      "bytes": 16291,
+      "sha256": "8c521e55e7a2fb8d20df2c981de5500fbfc5b9a2270df33eb59b59c34cd65afa",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-ten11-smoke-v1-branch-0-wrong-cut.solve.log",
+      "bytes": 7971,
+      "sha256": "13fba2379402c5685c549a5c59fdb08a64c016d772e717d8e6a658a08fd74cc2",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-ten11-smoke-v1-branch-0.solve.log",
+      "bytes": 16291,
+      "sha256": "4912f695e24f5bafa04008460285439f22a74fa320fbcb316ba0c32a31d73548",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-ten11-smoke-v1-branch-1-wrong-cut.solve.log",
+      "bytes": 7971,
+      "sha256": "09572a9bfae1f4a78ee61acb6a7f3594a9f3cee1d932ad79baef3381a5075c2c",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-ten11-smoke-v1-branch-1.solve.log",
+      "bytes": 16291,
+      "sha256": "9a17392c9ebacabad8f0a82d72e985a51091770b41d282074801733b8bbddaf7",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-ten11-smoke-v1-branch-2-wrong-cut.solve.log",
+      "bytes": 7971,
+      "sha256": "abf11622cd3ee57815ca2b842aed40d4b885b3d8b483f3a41a195dd8c5f0a62d",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-ten11-smoke-v1-branch-2.solve.log",
+      "bytes": 16292,
+      "sha256": "42397955fdd9a1795123aee8b10d9120341e2735056746590792a9120fdb0b2e",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-ten11-smoke-v1-branch-3-wrong-cut.solve.log",
+      "bytes": 7971,
+      "sha256": "96176de91f5ec2443632e07b41fef499dd751b3b3b19572858ee3cf0761994d9",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-ten11-smoke-v1-branch-3.solve.log",
+      "bytes": 16293,
+      "sha256": "bd5dfefda1af4508813ec61fb5d99c5f75b366d25afe897453f6ed78256b1d0e",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-ten11-smoke-v1-branch-4-wrong-cut.solve.log",
+      "bytes": 7971,
+      "sha256": "39d48edbce0b3cdaf0404d21fa603c3df26198b7b24d034e0d134a3a0678a0ff",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-ten11-smoke-v1-branch-4.solve.log",
+      "bytes": 16294,
+      "sha256": "68b0f4ded01f29ad12308657cfd64600f2c6176c2c4a05e61c24248ab2d91606",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-ten11-smoke-v1-branch-5-wrong-cut.solve.log",
+      "bytes": 7971,
+      "sha256": "050c858d4cbd6dc4f08108c367705c0e8163f306f7d0228600afb62b79f84157",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-ten11-smoke-v1-branch-5.solve.log",
+      "bytes": 16295,
+      "sha256": "23cda1ba145e3c8fb287054b526c789a307b82e30b14dd01bb33e04661e53cdf",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-ten11-smoke-v1-free-selector.solve.log",
+      "bytes": 16300,
+      "sha256": "f4b1e08142e6b06c5284b17fd9e5f199a88d966e9e40f4a024882a24614f83cc",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-ten11-smoke-v1-no-selector.solve.log",
+      "bytes": 7964,
+      "sha256": "f38abff1c9e5ca0b80665801cca5b5c95da05b6b879ea86d3550f304bcdbe4fd",
+      "diagnostics": 13
+    },
+    {
+      "path": "results/orch/search/constructive/joint-ten11-smoke-v1-two-selectors.solve.log",
+      "bytes": 7966,
+      "sha256": "c586df3b7feda4613fbea8d20c1960e68251b01c5df3923673782e12384a7369",
+      "diagnostics": 13
+    }
+  ],
+  "all_are_preserved_raw_logs": true,
+  "all_match_original_scratch_bytes": true,
+  "source_or_Lean_whitespace_diagnostics": 0,
+  "complete_diagnostics": "review-034fdef-diff-check.log"
+}

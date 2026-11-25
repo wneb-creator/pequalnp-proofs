@@ -1,0 +1,17 @@
+{
+  "name": "matching-cut15-pairs-smoke",
+  "started_at": "2026-11-25T08:31:08.423914+00:00",
+  "wall_limit_seconds": 30,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=30",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/matching-cut15-pairs-smoke.cnf"
+  ],
+  "backend": "kissat",
+  "preset": "default",
+  "verification": "all1024 correlated inputs and16384 full inputs",
+  "cnf_sha256": "0c30ccb92ea3c574c8a5196741c16bfbf503657898c21b7c8e10da366cc05ff8",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1"
+}

@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-70/constructive/joint_phased_run.py", line 97, in <module>
+    main()
+  File "/tmp/oec/pequalnp-pilot-70/constructive/joint_phased_run.py", line 42, in main
+    assert literal != 0, 'Zero phase literal'
+           ^^^^^^^^^^^^
+AssertionError: Zero phase literal

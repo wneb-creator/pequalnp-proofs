@@ -1,0 +1,27 @@
+{"automorphisms": 24, "all_pairs": 91, "representatives": [[0, 0], [0, 1], [0, 4], [0, 6], [0, 10], [4, 4], [4, 5], [4, 6], [4, 10], [4, 11], [10, 10], [10, 11]], "added_clauses": 79, "repeated_pairs_included": true, "scope": "global first-pair normal form under validated correlated-input automorphisms and topological reorderings", "base_sha256": "0dfce4c90b10097d92feb5ed997449648e84cc93861b2e10c64eef60b54fc2f1", "certificate_sha256": "b6449d15b8102e6fb3f5aa30e5d1f55acc19f2b4efba9be66349606fb5087664"}
+{"automorphisms": 6, "all_pairs": 153, "representatives": [[0, 0], [0, 1], [0, 2], [0, 4], [0, 5], [0, 6], [0, 8], [0, 9], [0, 11], [0, 12], [0, 15], [0, 16], [2, 2], [2, 4], [2, 6], [2, 8], [2, 11], [2, 12], [4, 4], [4, 5], [4, 6], [4, 8], [4, 9], [4, 11], [4, 12], [4, 15], [4, 16], [6, 6], [6, 7], [6, 8], [6, 11], [6, 12], [6, 13], [6, 14], [8, 8], [8, 11], [8, 12], [11, 11], [11, 12], [11, 13], [11, 14], [12, 12], [12, 14]], "added_clauses": 110, "repeated_pairs_included": true, "scope": "global first-pair normal form under validated correlated-input automorphisms and topological reorderings", "base_sha256": "e0cd6f075eedd44f8a1df3fc3c287d3728776de97acddc9972231c4265740ad9", "certificate_sha256": "10b48fce1314ef96afc35f109164384a328bea90cc94c4c15d7055e55210cc5a"}
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-70/circuit-search/add_cut_pair_symmetry.py", line 19, in <module>
+    assert metadata.get('canonical_prefix') is False, 'Canonical-prefix restrictions are not supported'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Canonical-prefix restrictions are not supported
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-70/circuit-search/add_cut_pair_symmetry.py", line 20, in <module>
+    assert metadata.get('ordered_max') is False, 'Maximum-fanin ordering is not supported'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Maximum-fanin ordering is not supported
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-70/circuit-search/add_cut_pair_symmetry.py", line 21, in <module>
+    assert metadata.get('liveness') is False, 'Correlated input liveness is not supported'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Correlated input liveness is not supported
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-70/circuit-search/add_cut_pair_symmetry.py", line 22, in <module>
+    assert metadata.get('allow_initial_repeats') is True, 'Repeated initial fanins must be allowed'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Repeated initial fanins must be allowed
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-70/circuit-search/add_cut_pair_symmetry.py", line 23, in <module>
+    assert metadata.get('allow_trivial') is True, 'Trivial gate signatures must be allowed for padding'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Trivial gate signatures must be allowed for padding

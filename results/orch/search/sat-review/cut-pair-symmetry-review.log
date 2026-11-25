@@ -1,0 +1,33 @@
+{
+  "status": "PASS",
+  "static_outputs": [
+    {
+      "name": "matching-cut14",
+      "automorphisms": 24,
+      "pairs_including_repeats": 91,
+      "orbits": 12,
+      "bans": 79,
+      "variables": 2085,
+      "clauses": 37628,
+      "sha256": "6c56695fb75e0db9a2a2ef2f4338dfc7dbba083950d0ab427cb84d7f9aad2c9d"
+    },
+    {
+      "name": "noncollinear-cut14-v0",
+      "automorphisms": 6,
+      "pairs_including_repeats": 153,
+      "orbits": 43,
+      "bans": 110,
+      "variables": 2435,
+      "clauses": 50986,
+      "sha256": "259d87fa67e1dc212abc5ca51f2981f1d329c9fa55112a0f291d8f3d89f09e3a"
+    }
+  ],
+  "smoke_clauses_verified": 41617,
+  "smoke_underlying_assignments": 1024,
+  "smoke_full_assignments": 16384,
+  "source_hashes": {
+    "add_cut_pair_symmetry.py": "466a2f1b7b3ff312b4766dd2ab4cbaa7f7b62a33ed42d43b5fdf710672c7326b",
+    "canonical_cut_seed.py": "6d515973fc832f51906254678e547f32461cf91c7151d7f806c6fc558cd20afc"
+  },
+  "scope": "Fixed correlated family only, output cone pruned and padded, global lex minimum over valid input actions and topological orders."
+}

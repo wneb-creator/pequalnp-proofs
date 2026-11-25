@@ -1,0 +1,1 @@
+{"all_passed": true, "cases": [{"case": "zero", "exit_code": 1, "solver_not_started": true, "expected_error": "Zero phase literal"}, {"case": "outside", "exit_code": 1, "solver_not_started": true, "expected_error": "Phase variable outside CNF range"}, {"case": "conflict", "exit_code": 1, "solver_not_started": true, "expected_error": "Conflicting phase duplicates"}]}

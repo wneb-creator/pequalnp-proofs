@@ -1,0 +1,23 @@
+{
+  "started_at": "2026-11-25T08:31:42.363384+00:00",
+  "wall_limit_seconds": 2,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/phased",
+    "/tmp/oec/pequalnp-pilot-70/constructive/joint-ten11-smoke-v1-branch-0.cnf",
+    "/tmp/oec/pequalnp-pilot-70/constructive/joint-ten11-baseline-model.phases",
+    "2"
+  ],
+  "backend": "cadical-phased",
+  "configuration": "sat",
+  "cnf_sha256": "8e7b9d3d72da536634ac20fcb8983d6449bdf5c711e6231061534ee485903725",
+  "map_sha256": "7fab8163925af4b731b131736b56fa1256b53e6e86aeb7622b02f330f82c4c02",
+  "phases_sha256": "28d0625f88c6792a907709fbd6c27993a3c7bf5d5c68dff8c38cd283822d6573",
+  "helper_sha256": "3ba1edbfbc745cca6f0d75a5f0772433a30b6c8feb2cc7f3211f40f3f27615ca",
+  "driver_source_sha256": "050e6463c4ba26c564d7834021ad75ee40bc16e222cca5aabbf761294b64fa51",
+  "wrapper_source_sha256": "9825bffc5951099409b55c12d5324b8559147cb34a9021b1ea1c16b2d9ac2cb9",
+  "decoder_source_sha256": "ee90d20929df9de1d02825f8bdfe974472cb1b38ca754a17bf15b058b789f08e",
+  "phase_literals": 1585,
+  "distinct_phase_variables": 1585,
+  "repeated_identical_phase_literals": 0,
+  "phase_semantics": "Soft solver.phase preferences only; no assumptions or added clauses."
+}
