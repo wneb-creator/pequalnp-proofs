@@ -66,3 +66,5 @@ UTC 2026-11-24T23:35:30+00:00
 
 UTC 2026-11-24T23:44:26+00:00
 Independent review: named K SHA256 b0dda0134cc46b4294732aed75e0eb8efbeaac5cc6c489657066b131950cfeba (518892 bytes, 6516 lines) differs from reviewed K only by two attribution comments and blank lines immediately after the import. Static approval carries over unchanged. Full named K build and checker remain pending; this records no acceptance.
+
+2026-11-24T23:53:24.595059+00:00 finite_search: Analysis-only fallback proof structures prepared while K build runs. L uses a balanced original joinBlock tree of57 chunks≤44, then existing J tactics on each chunk; SHA 1b37670710833f114ca9e63b3d78732bb879967be93061dd2c26d3ab92934c61, 520667 bytes. M uses a generic induction-proved hybridBlock_of_at helper, interval_cases per level, then existing J node/conjunct decisions; SHA 81121460b22c4618aa37b236e40f6a81517296570bf857bbe8b0c378a60adb49, 519013 bytes. Both guards pass, all certificate literals and exact target remain unchanged. Neither was compiled or benchmarked. No named-file edit or Lean process started; performance benefit is only a hypothesis.

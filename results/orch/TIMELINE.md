@@ -22,3 +22,5 @@
 - 2026-11-24T23:45:03.049411+00:00: Environment restart interrupted scratch K compilation. Files and pushed commits survived. Named K build restarted with source hash b0dda0134cc46b4294732aed75e0eb8efbeaac5cc6c489657066b131950cfeba, 6516 lines, 518892 bytes. Independent static review and guard pass. No full K compile claim yet.
 
 - 2026-11-24T23:55:19.943820+00:00: FULL NAMED K BUILD PASSED: 704.02 seconds, peak 6093164 KiB. Source b0dda0134cc46b4294732aed75e0eb8efbeaac5cc6c489657066b131950cfeba. Checker will run alone. L balanced-chunk and M pointwise alternatives are guarded but uncompiled and not adopted.
+
+- 2026-11-25T00:07:54.599065+00:00: LOCAL CHECKER ACCEPTED K. Replayed 12018 constants; allowed axioms propext, Quot.sound, Classical.choice. Checker wall time 741.53 seconds, peak 15033368 KiB. Capped cleanup review begins; validated source retained pending final diff review.
