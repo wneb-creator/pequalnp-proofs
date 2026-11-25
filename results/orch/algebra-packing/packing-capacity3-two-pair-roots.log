@@ -1,0 +1,45 @@
+INCUMBENT 14 REMOVED 16 BLOCKS 3 12
+INCUMBENT 17 REMOVED 20 BLOCKS 3 12 16
+INCUMBENT 18 REMOVED 23 BLOCKS 3 12 512 8192 2097152
+INCUMBENT 23 REMOVED 28 BLOCKS 3 12 512 8192 192
+INCUMBENT 24 REMOVED 28 BLOCKS 3 12 512 192
+ROOT 0 nodes=1409 prunes=1390 best=24
+INCUMBENT 28 REMOVED 32 BLOCKS 3 36 80 384
+ROOT 1 nodes=2012 prunes=1971 best=28
+ROOT 2 nodes=5110 prunes=4992 best=28
+ROOT 3 nodes=1629 prunes=1604 best=28
+ROOT 4 nodes=1029 prunes=1012 best=28
+ROOT 5 nodes=1692 prunes=1656 best=28
+ROOT 6 nodes=2491 prunes=2434 best=28
+ROOT 7 nodes=476 prunes=474 best=28
+ROOT 8 nodes=3545 prunes=3457 best=28
+ROOT 9 nodes=1322 prunes=1294 best=28
+ROOT 10 nodes=854 prunes=840 best=28
+ROOT 11 nodes=1935 prunes=1899 best=28
+ROOT 12 nodes=7137 prunes=7007 best=28
+ROOT 13 nodes=4096 prunes=4021 best=28
+ROOT 14 nodes=1846 prunes=1820 best=28
+ROOT 15 nodes=1880 prunes=1850 best=28
+ROOT 16 nodes=1622 prunes=1597 best=28
+ROOT 17 nodes=1514 prunes=1493 best=28
+ROOT 18 nodes=1554 prunes=1525 best=28
+ROOT 19 nodes=1938 prunes=1902 best=28
+ROOT 20 nodes=4461 prunes=4379 best=28
+ROOT 21 nodes=811 prunes=798 best=28
+ROOT 22 nodes=1003 prunes=982 best=28
+ROOT 23 nodes=3452 prunes=3372 best=28
+ROOT 24 nodes=2535 prunes=2469 best=28
+ROOT 25 nodes=2645 prunes=2592 best=28
+ROOT 26 nodes=1482 prunes=1445 best=28
+RESULT exhaustive=1 best=28 elapsed=0.036336 nodes=61480 upper_prunes=60275 incompatible=3358250 max_depth=5
+BEST_BLOCK_MASKS 3 36 80 384
+MAX_VERTICES 9 BLOCKS 3 8196 16384 1040 4352
+OPTIMUM_COUNT 9
+OPTIMUM_SHAPE 4 8 8 9
+DEEPEST_BLOCK_MASKS 3 12 512 8192 16384
+DEPTH 0 0
+DEPTH 1 0
+DEPTH 2 27
+DEPTH 3 6831
+DEPTH 4 46395
+DEPTH 5 8227

@@ -1,0 +1,19 @@
+{"points": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "line_inputs": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], "positive_count": 13, "negative_count": 234, "or_count": 38, "baseline": false}
+joint_false_OR_bounds [6]
+verified_symmetries 39 first_OR_representatives 2
+encoded 0.496 max_rss_KiB 52200
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-62/multi_output_synthesis.py", line 116, in <module>
+    converted=z3.Then('simplify','bit-blast','pb2bv','bit-blast','tseitin-cnf')(goal)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/oec/pequalnp-pilot-62/z3-python/z3/z3.py", line 9210, in __call__
+    return self.apply(goal, *arguments, **keywords)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/oec/pequalnp-pilot-62/z3-python/z3/z3.py", line 9200, in apply
+    return ApplyResult(Z3_tactic_apply(self.ctx.ref(), self.tactic, goal.goal), self.ctx)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/oec/pequalnp-pilot-62/z3-python/z3/z3core.py", line 4306, in Z3_tactic_apply
+    _elems.Check(a0)
+  File "/tmp/oec/pequalnp-pilot-62/z3-python/z3/z3core.py", line 1653, in Check
+    raise self.Exception(self.get_error_message(ctx, err))
+z3.z3types.Z3Exception: b'out of memory'

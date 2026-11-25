@@ -1,0 +1,602 @@
+{
+  "generators": [
+    [
+      2,
+      0,
+      1,
+      8,
+      3,
+      5,
+      7,
+      11,
+      4,
+      12,
+      9,
+      6,
+      10,
+      25,
+      13,
+      18,
+      20,
+      15,
+      17,
+      24,
+      21,
+      16,
+      22,
+      19,
+      23,
+      14
+    ],
+    [
+      0,
+      3,
+      2,
+      9,
+      5,
+      7,
+      10,
+      4,
+      8,
+      1,
+      11,
+      6,
+      12,
+      13,
+      15,
+      19,
+      22,
+      17,
+      20,
+      14,
+      21,
+      18,
+      24,
+      23,
+      16,
+      25
+    ],
+    [
+      0,
+      1,
+      2,
+      9,
+      4,
+      7,
+      11,
+      5,
+      12,
+      3,
+      10,
+      6,
+      8,
+      13,
+      14,
+      19,
+      21,
+      17,
+      24,
+      15,
+      22,
+      16,
+      20,
+      23,
+      18,
+      25
+    ],
+    [
+      13,
+      25,
+      24,
+      23,
+      22,
+      21,
+      20,
+      19,
+      18,
+      17,
+      16,
+      15,
+      14,
+      0,
+      12,
+      11,
+      10,
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ]
+  ],
+  "points": {
+    "0": [
+      1,
+      0,
+      0
+    ],
+    "1": [
+      0,
+      1,
+      0
+    ],
+    "2": [
+      0,
+      0,
+      1
+    ],
+    "5": [
+      1,
+      1,
+      1
+    ],
+    "3": [
+      1,
+      1,
+      0
+    ],
+    "4": [
+      0,
+      1,
+      1
+    ],
+    "8": [
+      1,
+      0,
+      1
+    ],
+    "6": [
+      1,
+      2,
+      1
+    ],
+    "7": [
+      1,
+      2,
+      2
+    ],
+    "9": [
+      1,
+      2,
+      0
+    ],
+    "10": [
+      0,
+      1,
+      2
+    ],
+    "11": [
+      1,
+      1,
+      2
+    ],
+    "12": [
+      1,
+      0,
+      2
+    ]
+  },
+  "lines": {
+    "0": [
+      0,
+      0,
+      1
+    ],
+    "1": [
+      1,
+      0,
+      0
+    ],
+    "2": [
+      1,
+      2,
+      0
+    ],
+    "4": [
+      0,
+      1,
+      2
+    ],
+    "5": [
+      1,
+      0,
+      2
+    ],
+    "12": [
+      0,
+      1,
+      0
+    ],
+    "3": [
+      1,
+      2,
+      1
+    ],
+    "7": [
+      1,
+      2,
+      2
+    ],
+    "8": [
+      1,
+      1,
+      2
+    ],
+    "6": [
+      1,
+      1,
+      0
+    ],
+    "9": [
+      1,
+      1,
+      1
+    ],
+    "10": [
+      0,
+      1,
+      1
+    ],
+    "11": [
+      1,
+      0,
+      1
+    ]
+  },
+  "two_pair_orbit_count": 27,
+  "two_pair_total": 44850,
+  "orbits": [
+    {
+      "pair_indices": [
+        0,
+        49
+      ],
+      "block_masks": [
+        3,
+        12
+      ],
+      "orbit_size": 2808,
+      "certificate_root": 0
+    },
+    {
+      "pair_indices": [
+        0,
+        51
+      ],
+      "block_masks": [
+        3,
+        36
+      ],
+      "orbit_size": 1404,
+      "certificate_root": 2808
+    },
+    {
+      "pair_indices": [
+        0,
+        59
+      ],
+      "block_masks": [
+        3,
+        8196
+      ],
+      "orbit_size": 1404,
+      "certificate_root": 4212
+    },
+    {
+      "pair_indices": [
+        0,
+        60
+      ],
+      "block_masks": [
+        3,
+        16388
+      ],
+      "orbit_size": 2808,
+      "certificate_root": 5616
+    },
+    {
+      "pair_indices": [
+        0,
+        61
+      ],
+      "block_masks": [
+        3,
+        32772
+      ],
+      "orbit_size": 2808,
+      "certificate_root": 8424
+    },
+    {
+      "pair_indices": [
+        0,
+        62
+      ],
+      "block_masks": [
+        3,
+        65540
+      ],
+      "orbit_size": 5616,
+      "certificate_root": 11232
+    },
+    {
+      "pair_indices": [
+        0,
+        63
+      ],
+      "block_masks": [
+        3,
+        131076
+      ],
+      "orbit_size": 5616,
+      "certificate_root": 16848
+    },
+    {
+      "pair_indices": [
+        0,
+        77
+      ],
+      "block_masks": [
+        3,
+        520
+      ],
+      "orbit_size": 78,
+      "certificate_root": 22464
+    },
+    {
+      "pair_indices": [
+        0,
+        81
+      ],
+      "block_masks": [
+        3,
+        8200
+      ],
+      "orbit_size": 312,
+      "certificate_root": 22542
+    },
+    {
+      "pair_indices": [
+        0,
+        82
+      ],
+      "block_masks": [
+        3,
+        16392
+      ],
+      "orbit_size": 1872,
+      "certificate_root": 22854
+    },
+    {
+      "pair_indices": [
+        0,
+        83
+      ],
+      "block_masks": [
+        3,
+        32776
+      ],
+      "orbit_size": 936,
+      "certificate_root": 24726
+    },
+    {
+      "pair_indices": [
+        0,
+        87
+      ],
+      "block_masks": [
+        3,
+        524296
+      ],
+      "orbit_size": 936,
+      "certificate_root": 25662
+    },
+    {
+      "pair_indices": [
+        0,
+        247
+      ],
+      "block_masks": [
+        3,
+        24576
+      ],
+      "orbit_size": 468,
+      "certificate_root": 26598
+    },
+    {
+      "pair_indices": [
+        0,
+        248
+      ],
+      "block_masks": [
+        3,
+        40960
+      ],
+      "orbit_size": 936,
+      "certificate_root": 27066
+    },
+    {
+      "pair_indices": [
+        0,
+        259
+      ],
+      "block_masks": [
+        3,
+        49152
+      ],
+      "orbit_size": 2808,
+      "certificate_root": 28002
+    },
+    {
+      "pair_indices": [
+        0,
+        261
+      ],
+      "block_masks": [
+        3,
+        147456
+      ],
+      "orbit_size": 702,
+      "certificate_root": 30810
+    },
+    {
+      "pair_indices": [
+        0,
+        270
+      ],
+      "block_masks": [
+        3,
+        98304
+      ],
+      "orbit_size": 468,
+      "certificate_root": 31512
+    },
+    {
+      "pair_indices": [
+        0,
+        273
+      ],
+      "block_masks": [
+        3,
+        557056
+      ],
+      "orbit_size": 702,
+      "certificate_root": 31980
+    },
+    {
+      "pair_indices": [
+        12,
+        37
+      ],
+      "block_masks": [
+        8193,
+        16386
+      ],
+      "orbit_size": 468,
+      "certificate_root": 32682
+    },
+    {
+      "pair_indices": [
+        12,
+        38
+      ],
+      "block_masks": [
+        8193,
+        32770
+      ],
+      "orbit_size": 1872,
+      "certificate_root": 33150
+    },
+    {
+      "pair_indices": [
+        12,
+        40
+      ],
+      "block_masks": [
+        8193,
+        131074
+      ],
+      "orbit_size": 468,
+      "certificate_root": 35022
+    },
+    {
+      "pair_indices": [
+        12,
+        60
+      ],
+      "block_masks": [
+        8193,
+        16388
+      ],
+      "orbit_size": 702,
+      "certificate_root": 35490
+    },
+    {
+      "pair_indices": [
+        12,
+        62
+      ],
+      "block_masks": [
+        8193,
+        65540
+      ],
+      "orbit_size": 2808,
+      "certificate_root": 36192
+    },
+    {
+      "pair_indices": [
+        13,
+        38
+      ],
+      "block_masks": [
+        16385,
+        32770
+      ],
+      "orbit_size": 2808,
+      "certificate_root": 39000
+    },
+    {
+      "pair_indices": [
+        13,
+        40
+      ],
+      "block_masks": [
+        16385,
+        131074
+      ],
+      "orbit_size": 702,
+      "certificate_root": 41808
+    },
+    {
+      "pair_indices": [
+        13,
+        86
+      ],
+      "block_masks": [
+        16385,
+        262152
+      ],
+      "orbit_size": 936,
+      "certificate_root": 42510
+    },
+    {
+      "pair_indices": [
+        13,
+        87
+      ],
+      "block_masks": [
+        16385,
+        524296
+      ],
+      "orbit_size": 1404,
+      "certificate_root": 43446
+    }
+  ],
+  "singletons_orbits": [
+    {
+      "block": 1,
+      "size": 26,
+      "certificate_root": 0
+    }
+  ],
+  "pairs_orbits": [
+    {
+      "block": 3,
+      "size": 156,
+      "certificate_root": 0
+    },
+    {
+      "block": 8193,
+      "size": 52,
+      "certificate_root": 156
+    },
+    {
+      "block": 8196,
+      "size": 117,
+      "certificate_root": 208
+    }
+  ]
+}

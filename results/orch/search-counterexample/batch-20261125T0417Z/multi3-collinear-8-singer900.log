@@ -1,0 +1,6 @@
+{"points": [0, 1, 3], "line_inputs": [0, 1, 2, 3, 4, 5, 7, 10, 11, 12], "positive_count": 10, "negative_count": 27, "or_count": 8, "baseline": false}
+joint_false_OR_bounds [3]
+verified_symmetries 1 first_OR_representatives 45
+encoded 0.074 max_rss_KiB 44912
+CNF_ready 0.229 bytes 1255476 max_rss_KiB 72956
+result unsat solver_exit 20 elapsed 12.758

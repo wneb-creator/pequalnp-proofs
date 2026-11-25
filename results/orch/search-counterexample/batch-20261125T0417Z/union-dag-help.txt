@@ -1,0 +1,1 @@
+usage: union_dag_search DATA SECONDS SEED BEST_JSON MODE(search|control)

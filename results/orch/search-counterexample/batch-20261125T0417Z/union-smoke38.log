@@ -1,0 +1,5 @@
+control39 deficit=0 uncovered=0 requirements=702
+best seconds=0.000114392 deficit=54 uncovered=54 evaluations=3
+progress seconds=0.36171 restarts=20 evaluations=160021 best_deficit=54
+progress seconds=0.727694 restarts=40 evaluations=320041 best_deficit=54
+finished seconds=1.0003 restarts=56 evaluations=440569 best_deficit=54 result=heuristic_no_witness

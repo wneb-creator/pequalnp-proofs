@@ -1,0 +1,33 @@
+{
+  "status": "All concrete generator and orbit-coverage checks passed; no Lean claim.",
+  "generator_count": 4,
+  "generic_rows_preserved": 468,
+  "incidence_edges_preserved": 52,
+  "two_pair_states": 44850,
+  "two_pair_roots": 27,
+  "maximum_word_length": 10,
+  "small_orbits": {
+    "singletons": {
+      "states": 26,
+      "roots": [
+        1
+      ]
+    },
+    "pairs": {
+      "states": 325,
+      "roots": [
+        3,
+        8193,
+        8196
+      ]
+    }
+  },
+  "simple_checker_nodes": {
+    "two_pairs": 71834,
+    "one_pair": 4393,
+    "singletons": 2455,
+    "total": 78682,
+    "largest_root": 7572
+  },
+  "certificate_sha256": "652203159cefc018260b8739af073c65e94325dca40f320801ecc07909347aba"
+}

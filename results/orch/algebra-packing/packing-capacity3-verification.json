@@ -1,0 +1,63 @@
+{
+  "scope": "Independent witness and same-color-maximizer checks; global upper bound is from C++ exhaustive DFS.",
+  "witness_blocks": [
+    3,
+    36,
+    80,
+    384
+  ],
+  "witness_vertices": [
+    0,
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "witness_removed_flags": 32,
+  "witness_objective": 28,
+  "witness_row_activity_histogram": {
+    "0": 12,
+    "1": 102,
+    "2": 264,
+    "3": 90
+  },
+  "same_color_independent_enumeration": [
+    {
+      "side": "points",
+      "all_four_pair_families": 135135,
+      "valid_four_pair_families": 1053,
+      "distinct_eight_coordinate_supports": 585,
+      "valid_partition_multiplicity_histogram": {
+        "2": 468,
+        "1": 117
+      }
+    },
+    {
+      "side": "lines",
+      "all_four_pair_families": 135135,
+      "valid_four_pair_families": 1053,
+      "distinct_eight_coordinate_supports": 585,
+      "valid_partition_multiplicity_histogram": {
+        "2": 468,
+        "1": 117
+      }
+    }
+  ],
+  "full_dfs_feasible_family_count": 56424915,
+  "full_dfs_depth_counts": [
+    1,
+    351,
+    52975,
+    4532450,
+    28911402,
+    20269808,
+    2608320,
+    49140,
+    468
+  ],
+  "source_sha256": "5e5ca82fcaee49a1d4cb1ae5985e20b7c09701e932834abf5cb3f112c0f136ba",
+  "input_sha256": "a22a1dbfb8e76df6c791969edcf8d15034690620de7b37220db9b4f7c781dcdd"
+}
