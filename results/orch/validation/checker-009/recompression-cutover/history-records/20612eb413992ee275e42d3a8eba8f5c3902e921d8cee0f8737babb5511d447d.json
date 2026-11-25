@@ -1,0 +1,15 @@
+{
+  "path": "/tmp/oec/pequalnp-pilot-45/sealed-core-pack/production/previous/transaction.json",
+  "identity": {
+    "dev": 27,
+    "ino": 276079,
+    "size": 506140,
+    "mode": 384,
+    "mtime_ns": 1795567178186450470
+  },
+  "sha256": "5559e442d37c10c34ad4cf85577482e32d0bf0e0d463b7432306ffc3d2d40571",
+  "archive": "/tmp/oec/pequalnp-pilot-45/sealed-core-pack/production/previous/transaction.json.gz",
+  "archive_bytes": 62009,
+  "archive_sha256": "0f72948784a4b94e05d498dddacc8ec7dfdb3ebb81bda2d2661bf592f2ddf717",
+  "recovery": "gzip-decompress archive to source; verify source SHA256/size; restore identity.mode and identity.mtime_ns"
+}

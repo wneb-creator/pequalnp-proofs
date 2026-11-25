@@ -1,0 +1,21 @@
+{
+  "status": "staged_only",
+  "source_pack": "/tmp/oec/pequalnp-pilot-45/core-phase/state/excluded.zstpack",
+  "source_pack_sha256": "7fcdf47496bd22445fc923c340eb0f816a51036bbba9b646ca4baff13eb2d295",
+  "source_prepared": "/tmp/oec/pequalnp-pilot-45/core-phase/state/prepared.json",
+  "source_prepared_sha256": "7872c605d4ce6309778504ee5cc0c78250fcd2ffb6a7362e17c7371cddaae230",
+  "source_bytes": 119486056,
+  "files": 2322,
+  "raw_bytes": 514785392,
+  "pack": "/tmp/oec/pequalnp-pilot-45/core-phase/disk-state-001/excluded.zstpack",
+  "pack_bytes": 107255813,
+  "pack_sha256": "e476d9a9b9e0297f33a1ccda3dcef52a6d4f1262c837c285fede51d6db803034",
+  "prepared": "/tmp/oec/pequalnp-pilot-45/core-phase/disk-state-001/prepared.json",
+  "prepared_sha256": "c20ec4926fae7eded48beeab2c2e92a202f54b69e1333c8d967f13b631f977b3",
+  "existing_frames_kept": 0,
+  "compression": "per-frame minimum of existing and level19",
+  "source_identity": {
+    "device": 1,
+    "inode": 24087
+  }
+}

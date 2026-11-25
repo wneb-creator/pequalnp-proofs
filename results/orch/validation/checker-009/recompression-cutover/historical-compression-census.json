@@ -1,0 +1,82 @@
+[
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/durable-ram/standby-holder.json",
+    "bytes": 6495830,
+    "gzip_bytes": 937089
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/durable-ram/core-index.jsonl",
+    "bytes": 3164869,
+    "gzip_bytes": 671441
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/sealed-core-pack/production/prepared.json",
+    "bytes": 1722507,
+    "gzip_bytes": 220197
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/sealed-core-pack/production/previous/transaction.json",
+    "bytes": 506140,
+    "gzip_bytes": 62009
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/sealed-core-pack/production/previous/prepared.json",
+    "bytes": 506116,
+    "gzip_bytes": 61990
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/eligible-discovery.txt",
+    "bytes": 1380866,
+    "gzip_bytes": 105175
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/durable-ram/toolchain-source-manifest.json",
+    "bytes": 1215168,
+    "gzip_bytes": 161984
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/toolchain/archive-files.txt",
+    "bytes": 1166656,
+    "gzip_bytes": 80532
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/runtime-closure-candidates-001.json",
+    "bytes": 794792,
+    "gzip_bytes": 123439
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/durable-ram/mathlib-recovery.jsonl",
+    "bytes": 592665,
+    "gzip_bytes": 110271
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/unused-core-native-closure-002.json",
+    "bytes": 437450,
+    "gzip_bytes": 52312
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/unused-core-native-closure.json",
+    "bytes": 436970,
+    "gzip_bytes": 51970
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/toolchain/restore-completed.json",
+    "bytes": 264459,
+    "gzip_bytes": 91410
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/core-import-selected-artifacts.txt",
+    "bytes": 255099,
+    "gzip_bytes": 15239
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/review-file-discovery.txt",
+    "bytes": 252908,
+    "gzip_bytes": 15409
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/lean-environment-source.json",
+    "bytes": 217392,
+    "gzip_bytes": 74807
+  }
+]

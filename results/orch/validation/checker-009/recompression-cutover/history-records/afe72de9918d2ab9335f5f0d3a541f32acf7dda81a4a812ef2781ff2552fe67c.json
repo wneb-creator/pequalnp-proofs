@@ -1,0 +1,15 @@
+{
+  "path": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/eligible-discovery.txt",
+  "identity": {
+    "dev": 27,
+    "ino": 274826,
+    "size": 1380866,
+    "mode": 384,
+    "mtime_ns": 1795559932778331556
+  },
+  "sha256": "3bafa3e0bf637094419a5e67da1ec444b7b35a71ea94ba341a990031c768cb94",
+  "archive": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/eligible-discovery.txt.gz",
+  "archive_bytes": 105175,
+  "archive_sha256": "b6b6654b7267ac9492f07cb86d2766590312f53b90be6271ed8c391218e7af31",
+  "recovery": "gzip-decompress archive to source; verify source SHA256/size; restore identity.mode and identity.mtime_ns"
+}

@@ -1,0 +1,2 @@
+{"target": "verifier", "exit_code": 0, "stdout": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/post-switch009-verifier.stdout", "stderr": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/post-switch009-verifier.stderr"}
+{"target": "proof", "exit_code": 0, "stdout": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/post-switch009-proof.stdout", "stderr": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/post-switch009-proof.stderr"}

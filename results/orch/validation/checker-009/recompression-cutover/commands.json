@@ -1,0 +1,51 @@
+{
+  "sequence_source": "/tmp/oec/pequalnp-pilot-45/core-phase/storage_sequence.py",
+  "base_command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/storage_phase.py",
+    "--config",
+    "/tmp/oec/pequalnp-pilot-45/recompression-cutover/base-config.json",
+    "--config-sha256",
+    "33b50682b9a64a8b557c0ab2a9742d3d148769452bac2bc1d31157fb7b342a64"
+  ],
+  "core_command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/tmp/oec/pequalnp-pilot-45/core-phase/core_phase.py",
+    "--config",
+    "/tmp/oec/pequalnp-pilot-45/recompression-cutover/core-config.json"
+  ],
+  "required_files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/core-phase/storage_sequence.py",
+      "sha256": "940eff8b930e95526e3bbd0828b333b6db107e05b2322abcdc27e3dc1eaaa9c1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/base-config.json",
+      "sha256": "33b50682b9a64a8b557c0ab2a9742d3d148769452bac2bc1d31157fb7b342a64"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/core-config.json",
+      "sha256": "cdbfef539f4df34963e3d2dd351721fc3841bd8ce0dfa460ee44b826b265d33e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/storage_phase.py",
+      "sha256": "3d21f96490c4a2e3c5a4d68c3c444a44496359fc3023754ec83b003eafd14cf8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/storage_phase_base.py",
+      "sha256": "a43b13fa9556910376ae08131bbc8228b8318be81ab986f74a9ddf4427f1feb2"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/core-phase/core_phase.py",
+      "sha256": "d91225cbfe02e7ab5b03f49daf89077cafdf14f327b1aa9d5dd7b0f1f22048f3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/sequence_launcher.py",
+      "sha256": "034a2628a985a62275bee37e4265a0415d6087ff7f8df5b4e5e7dec72e26b43d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/storage_phase.py",
+      "sha256": "a43b13fa9556910376ae08131bbc8228b8318be81ab986f74a9ddf4427f1feb2"
+    }
+  ]
+}

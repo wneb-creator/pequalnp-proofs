@@ -1,0 +1,132 @@
+[
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/toolchain/lean-4.36.0-linux/lib/lean/libleanshared.so",
+    "bytes": 238458224,
+    "allocated": 238465024
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-001/state/extra.zstpack",
+    "bytes": 80906864,
+    "allocated": 80932864
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-002/state/extra.zstpack",
+    "bytes": 61590129,
+    "allocated": 61599744
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/core-phase/disk-state-001/excluded.zstpack",
+    "bytes": 44309363,
+    "allocated": 44310528
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-001/editor/data.zstpack",
+    "bytes": 33101317,
+    "allocated": 33107968
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/native-archive/253379b9758269d38f80239d274ef0fc6d0595944e0fabae5a1741999c5e5758.zst",
+    "bytes": 26402943,
+    "allocated": 26406912
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-002/editor/data.zstpack",
+    "bytes": 24672940,
+    "allocated": 24678400
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-002/state/prepared.json",
+    "bytes": 14494099,
+    "allocated": 14499840
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-001/state/prepared.json",
+    "bytes": 14495296,
+    "allocated": 14495744
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/toolchain/lean-4.36.0-linux/lib/lean/libLake_shared.so",
+    "bytes": 14192864,
+    "allocated": 14196736
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/toolchain/lean-4.36.0-linux/lib/lean/Init/Data/BitVec/Lemmas.olean.private",
+    "bytes": 13057336,
+    "allocated": 13062144
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/journal-census/archive-001/completed-journals.outer.zst",
+    "bytes": 10191834,
+    "allocated": 10199040
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/toolchain/lean-4.36.0-linux/lib/lean/Std/Data/DTreeMap/Internal/Lemmas.olean.private",
+    "bytes": 8699224,
+    "allocated": 8704000
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/toolchain/lean-4.36.0-linux/lib/lean/Std/Data/Internal/List/Associative.olean.private",
+    "bytes": 7423160,
+    "allocated": 7430144
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/compressed-artifacts/editor-offloaded.jsonl",
+    "bytes": 6758120,
+    "allocated": 6762496
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/transaction-001/original-prepared.json.gz",
+    "bytes": 6594819,
+    "allocated": 6602752
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/durable-ram/standby-holder.json",
+    "bytes": 6495830,
+    "allocated": 6500352
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/durable-ram/toolchain-source.tar.zst",
+    "bytes": 6309153,
+    "allocated": 6316032
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/toolchain/lean-4.36.0-linux/bin/ld.lld",
+    "bytes": 6054672,
+    "allocated": 6057984
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/compiled-header-graph/build-cache-unused-candidates.jsonl.gz",
+    "bytes": 5460463,
+    "allocated": 5468160
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/recompression-study001.frames.jsonl.gz",
+    "bytes": 4641631,
+    "allocated": 4648960
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/transaction-001/plan.json.gz",
+    "bytes": 4593885,
+    "allocated": 4599808
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/toolchain/lean-4.36.0-linux/lib/lean/Lean/Compiler/LCNF/EmitC.olean.private",
+    "bytes": 4290408,
+    "allocated": 4296704
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/toolchain/ram_backing_manifest.json",
+    "bytes": 3773977,
+    "allocated": 3780608
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/durable-ram/core-index.jsonl",
+    "bytes": 3164869,
+    "allocated": 3166208
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/toolchain/lean-4.36.0-linux/bin/leantar",
+    "bytes": 2692960,
+    "allocated": 2695168
+  }
+]

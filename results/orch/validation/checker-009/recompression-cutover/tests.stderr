@@ -1,0 +1,36 @@
+test_changed_old_before_activation (__main__.Tests.test_changed_old_before_activation) ... ok
+test_changed_old_before_retirement (__main__.Tests.test_changed_old_before_retirement) ... ok
+test_changed_retained_pin (__main__.Tests.test_changed_retained_pin) ... ok
+test_changed_settings_pin (__main__.Tests.test_changed_settings_pin) ... ok
+test_entered_old_or_new_journal (__main__.Tests.test_entered_old_or_new_journal) ... ok
+test_interrupted_activation_retry (__main__.Tests.test_interrupted_activation_retry) ... ok
+test_interrupted_unlink_retry (__main__.Tests.test_interrupted_unlink_retry) ... ok
+test_normal_and_idempotent (__main__.Tests.test_normal_and_idempotent) ... ok
+test_owned_fake_holder_only (__main__.Tests.test_owned_fake_holder_only) ... ERROR
+test_raw_guardian_protected (__main__.Tests.test_raw_guardian_protected) ... ok
+test_retire_before_activation (__main__.Tests.test_retire_before_activation) ... ok
+test_shared_lock (__main__.Tests.test_shared_lock) ... ok
+test_tampered_active_handoff (__main__.Tests.test_tampered_active_handoff) ... ok
+test_tampered_archive (__main__.Tests.test_tampered_archive) ... ok
+
+======================================================================
+ERROR: test_owned_fake_holder_only (__main__.Tests.test_owned_fake_holder_only)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-45/recompression-cutover/test_cutover.py", line 187, in test_owned_fake_holder_only
+    h = json.loads(child.stdout.readline())
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/decoder.py", line 338, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/json/decoder.py", line 356, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.188s
+
+FAILED (errors=1)

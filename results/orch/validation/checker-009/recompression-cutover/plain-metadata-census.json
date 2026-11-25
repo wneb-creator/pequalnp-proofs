@@ -1,0 +1,142 @@
+[
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-002/state/prepared.json",
+    "bytes": 14494099,
+    "allocated": 14499840
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-001/state/prepared.json",
+    "bytes": 14495296,
+    "allocated": 14495744
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/durable-ram/standby-holder.json",
+    "bytes": 6495830,
+    "allocated": 6500352
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/toolchain/ram_backing_manifest.json",
+    "bytes": 3773977,
+    "allocated": 3780608
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/durable-ram/core-index.jsonl",
+    "bytes": 3164869,
+    "allocated": 3166208
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/sealed-core-pack/production/prepared.json",
+    "bytes": 1722507,
+    "allocated": 1728512
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/core-phase/disk-state-001/prepared.json",
+    "bytes": 1722164,
+    "allocated": 1728512
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/core-phase/state/prepared.json",
+    "bytes": 1722507,
+    "allocated": 1728512
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/core-phase/state/transaction.json",
+    "bytes": 1722531,
+    "allocated": 1724416
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-002/editor/manifest.jsonl",
+    "bytes": 1477565,
+    "allocated": 1482752
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-001/editor/manifest.jsonl",
+    "bytes": 1477565,
+    "allocated": 1478656
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/eligible-discovery.txt",
+    "bytes": 1380866,
+    "allocated": 1388544
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/durable-ram/toolchain-source-manifest.json",
+    "bytes": 1215168,
+    "allocated": 1216512
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/toolchain/archive-files.txt",
+    "bytes": 1166656,
+    "allocated": 1167360
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/unused-core-native-closure-003-pending.json",
+    "bytes": 1154118,
+    "allocated": 1155072
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/runtime-closure-candidates-001.json",
+    "bytes": 794792,
+    "allocated": 802816
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/toolchain/ram_mathlib_manifest.json",
+    "bytes": 669328,
+    "allocated": 671744
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/durable-ram/mathlib-recovery.jsonl",
+    "bytes": 592665,
+    "allocated": 593920
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-001/editor/index.tsv",
+    "bytes": 508354,
+    "allocated": 512000
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/sealed-core-pack/production/previous/transaction.json",
+    "bytes": 506140,
+    "allocated": 507904
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/sealed-core-pack/production/previous/prepared.json",
+    "bytes": 506116,
+    "allocated": 507904
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-002/editor/index.tsv",
+    "bytes": 507791,
+    "allocated": 507904
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/unused-core-native-closure-002.json",
+    "bytes": 437450,
+    "allocated": 438272
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/unused-core-native-closure.json",
+    "bytes": 436970,
+    "allocated": 438272
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/toolchain/restore-completed.json",
+    "bytes": 264459,
+    "allocated": 266240
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/core-import-selected-artifacts.txt",
+    "bytes": 255099,
+    "allocated": 258048
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/review-file-discovery.txt",
+    "bytes": 252908,
+    "allocated": 253952
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-45/lean-environment-source.json",
+    "bytes": 217392,
+    "allocated": 221184
+  }
+]

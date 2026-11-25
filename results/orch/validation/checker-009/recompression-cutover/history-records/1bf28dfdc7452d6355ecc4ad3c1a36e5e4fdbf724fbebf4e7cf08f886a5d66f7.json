@@ -1,0 +1,15 @@
+{
+  "path": "/tmp/oec/pequalnp-pilot-45/unused-core-native-closure-002.json",
+  "identity": {
+    "dev": 27,
+    "ino": 272382,
+    "size": 437450,
+    "mode": 384,
+    "mtime_ns": 1795564110688425326
+  },
+  "sha256": "48419f24c9769e6a4be4b95517b9de54707fb3d0e356af33011affbf6bf37179",
+  "archive": "/tmp/oec/pequalnp-pilot-45/unused-core-native-closure-002.json.gz",
+  "archive_bytes": 52312,
+  "archive_sha256": "00d58690656899bc197ae553b4990bb7292f1bf2b300cd3d742e658aff777923",
+  "recovery": "gzip-decompress archive to source; verify source SHA256/size; restore identity.mode and identity.mtime_ns"
+}

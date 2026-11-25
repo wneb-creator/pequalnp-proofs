@@ -1,0 +1,15 @@
+{
+  "path": "/tmp/oec/pequalnp-pilot-45/durable-ram/standby-holder.json",
+  "identity": {
+    "dev": 27,
+    "ino": 274879,
+    "size": 6495830,
+    "mode": 384,
+    "mtime_ns": 1795560213194501268
+  },
+  "sha256": "43f23f6b904dcd195384bf207055da6c520a3893217132fee4f162d861e03f05",
+  "archive": "/tmp/oec/pequalnp-pilot-45/durable-ram/standby-holder.json.gz",
+  "archive_bytes": 937089,
+  "archive_sha256": "59d0fea7825b78379ae0623e154b6a12311a995dbd3cca6be07579297d201670",
+  "recovery": "gzip-decompress archive to source; verify source SHA256/size; restore identity.mode and identity.mtime_ns"
+}

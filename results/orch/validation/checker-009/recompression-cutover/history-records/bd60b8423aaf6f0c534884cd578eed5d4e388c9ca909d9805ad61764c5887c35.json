@@ -1,0 +1,15 @@
+{
+  "path": "/tmp/oec/pequalnp-pilot-45/core-import-selected-artifacts.txt",
+  "identity": {
+    "dev": 27,
+    "ino": 272517,
+    "size": 255099,
+    "mode": 384,
+    "mtime_ns": 1795564022106849878
+  },
+  "sha256": "054a0aa30069a1404e8115ab9cb9a8b627c55e755caec59cba2222de03d0c30f",
+  "archive": "/tmp/oec/pequalnp-pilot-45/core-import-selected-artifacts.txt.gz",
+  "archive_bytes": 15239,
+  "archive_sha256": "43fcd26421bf43f78beecb0946765e7f1114c0859b677da1687bbbc5e5ed674f",
+  "recovery": "gzip-decompress archive to source; verify source SHA256/size; restore identity.mode and identity.mtime_ns"
+}

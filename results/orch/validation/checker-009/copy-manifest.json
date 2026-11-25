@@ -1,0 +1,1358 @@
+{
+  "recorded_utc": "2026-11-25T02:09:11.335249+00:00",
+  "files": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-002/allocation-budget.json",
+      "archive": "build-cache-compaction/generation-002/allocation-budget.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 200,
+      "sha256": "37c99521e0a620d2f270341af618c4a37ed3f774047e7821bb2decc0809e05b1",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-002/staging-report.json",
+      "archive": "build-cache-compaction/generation-002/staging-report.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 1905,
+      "sha256": "4b14e602b65f46f24a43d711d43cf506c65bb8f47b7e41851cf23052498fcfc8",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-002/state/transaction-checker009.json.zst.metadata.json",
+      "archive": "build-cache-compaction/generation-002/state/transaction-checker009.json.zst.metadata.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 543,
+      "sha256": "491c55551015a60ae6f76e13450bcdd3cc065f7a2d197557775f2b3f77b21f90",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-002/state/transaction-smoke002.json.zst.metadata.json",
+      "archive": "build-cache-compaction/generation-002/state/transaction-smoke002.json.zst.metadata.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 541,
+      "sha256": "01415a5fcb4e4d24d6d6bd1d8f7f1509a9f266336c17973b69795028b170854d",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-002/storage_config.json",
+      "archive": "build-cache-compaction/generation-002/storage_config.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 43047,
+      "sha256": "b7f1684808a55ff642003ded20f71aac1432a83f5bb79bf67616aefbcc9e8669",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/checker-009-monitor.stderr",
+      "archive": "checker-009-monitor.stderr",
+      "purpose": "Complete checker009 result or smoke002 usage-only diagnostic stream/status/resource evidence",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/checker-009-monitor.stdout",
+      "archive": "checker-009-monitor.stdout",
+      "purpose": "Complete checker009 result or smoke002 usage-only diagnostic stream/status/resource evidence",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/checker-009-resources.jsonl",
+      "archive": "checker-009-resources.jsonl",
+      "purpose": "Complete checker009 result or smoke002 usage-only diagnostic stream/status/resource evidence",
+      "bytes": 29919,
+      "sha256": "a7fd272c12c03bbce21bf7c026aa92f6a4efcb70731d532adad013ab1d4bb060",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/checker-009.exit",
+      "archive": "checker-009.exit",
+      "purpose": "Complete checker009 result or smoke002 usage-only diagnostic stream/status/resource evidence",
+      "bytes": 2,
+      "sha256": "1121cfccd5913f0a63fec40a6ffd44ea64f9dc135c66634ba001d10bcf4302a2",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/checker-009.pid",
+      "archive": "checker-009.pid",
+      "purpose": "Complete checker009 result or smoke002 usage-only diagnostic stream/status/resource evidence",
+      "bytes": 6,
+      "sha256": "87328f0271d8d4066164f729b6bd404854aec8f09c3fac2ce1fdd19a47891322",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/checker-009.stderr",
+      "archive": "checker-009.stderr",
+      "purpose": "Complete checker009 result or smoke002 usage-only diagnostic stream/status/resource evidence",
+      "bytes": 971,
+      "sha256": "5f23938e7082d16229a54aecc8205b99ad402b2c195af4b8ef52e6610114a544",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/checker-009.stdout",
+      "archive": "checker-009.stdout",
+      "purpose": "Complete checker009 result or smoke002 usage-only diagnostic stream/status/resource evidence",
+      "bytes": 1,
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/core-phase/core_phase.py",
+      "archive": "core-phase/core_phase.py",
+      "purpose": "Exact source/configuration pinned by active generation002 commands",
+      "bytes": 10220,
+      "sha256": "d91225cbfe02e7ab5b03f49daf89077cafdf14f327b1aa9d5dd7b0f1f22048f3",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/core-phase/disk-state-001/ready.json",
+      "archive": "core-phase/disk-state-001/ready.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 976,
+      "sha256": "e08e7db46bb27310e3d6dc0b023cca3b341ada54aea66bb3f9f2ff10f6c3c5de",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/core-phase/storage_sequence.py",
+      "archive": "core-phase/storage_sequence.py",
+      "purpose": "Exact source/configuration pinned by active generation002 commands",
+      "bytes": 2208,
+      "sha256": "940eff8b930e95526e3bbd0828b333b6db107e05b2322abcdc27e3dc1eaaa9c1",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/fallback-smoke-002-monitor.stderr",
+      "archive": "fallback-smoke-002-monitor.stderr",
+      "purpose": "Complete checker009 result or smoke002 usage-only diagnostic stream/status/resource evidence",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/fallback-smoke-002-monitor.stdout",
+      "archive": "fallback-smoke-002-monitor.stdout",
+      "purpose": "Complete checker009 result or smoke002 usage-only diagnostic stream/status/resource evidence",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/fallback-smoke-002-resources.jsonl",
+      "archive": "fallback-smoke-002-resources.jsonl",
+      "purpose": "Complete checker009 result or smoke002 usage-only diagnostic stream/status/resource evidence",
+      "bytes": 9289,
+      "sha256": "4e134cf65b6ed027345e5d800079178ac7a9a012aa59829c03c936fefa1906b6",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/fallback-smoke-002.exit",
+      "archive": "fallback-smoke-002.exit",
+      "purpose": "Complete checker009 result or smoke002 usage-only diagnostic stream/status/resource evidence",
+      "bytes": 2,
+      "sha256": "1121cfccd5913f0a63fec40a6ffd44ea64f9dc135c66634ba001d10bcf4302a2",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/fallback-smoke-002.stderr",
+      "archive": "fallback-smoke-002.stderr",
+      "purpose": "Complete checker009 result or smoke002 usage-only diagnostic stream/status/resource evidence",
+      "bytes": 750,
+      "sha256": "2d7e98f4d9218cc58ef04e55598b9f6bf420e71ebccfe4b7d3773f43e77d8dd0",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/fallback-smoke-002.stdout",
+      "archive": "fallback-smoke-002.stdout",
+      "purpose": "Complete checker009 result or smoke002 usage-only diagnostic stream/status/resource evidence",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/monitor-checker-loop.py",
+      "archive": "monitor-checker-loop.py",
+      "purpose": "Current helper/reserve-audit/monitor snapshot",
+      "bytes": 2651,
+      "sha256": "de884f66313685a31522cfd7a0a345f2b092b75f4f59afd043f8e4d5d1bbb3c9",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/activate.stderr",
+      "archive": "recompression-cutover/activate.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/activate.stdout",
+      "archive": "recompression-cutover/activate.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 45,
+      "sha256": "27c97e56f8ee6716919ad1b3beed7152e518e93b1a8ead5194ff5266d490bfb5",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/archive-batch.stderr",
+      "archive": "recompression-cutover/archive-batch.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/archive-batch.stdout",
+      "archive": "recompression-cutover/archive-batch.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 163,
+      "sha256": "2833557d11734d04c1d9c6a50110f5147c3c26ede9f9756b8f23887881e7143a",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/archive-checker009.stderr",
+      "archive": "recompression-cutover/archive-checker009.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/archive-checker009.stdout",
+      "archive": "recompression-cutover/archive-checker009.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 547,
+      "sha256": "fdabbaa11a17cedeb22529478c580a807ad611e0a39ce61f3288dadddb7b01c8",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/archive-history.stderr",
+      "archive": "recompression-cutover/archive-history.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/archive-history.stdout",
+      "archive": "recompression-cutover/archive-history.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 574,
+      "sha256": "1a4fd9ec02e42a779a720519c954281a493558f17388e9d21b57d6ee0368b74a",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/archive-old-core.stderr",
+      "archive": "recompression-cutover/archive-old-core.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/archive-old-core.stdout",
+      "archive": "recompression-cutover/archive-old-core.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 169,
+      "sha256": "2aae3c9931d86b2776e6f465900a1a5c2e837b7a9265324d901ff2c2da60f973",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/archive-smoke002.stderr",
+      "archive": "recompression-cutover/archive-smoke002.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/archive-smoke002.stdout",
+      "archive": "recompression-cutover/archive-smoke002.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 545,
+      "sha256": "60f54e65ef3036e5314ce80d565a5b810d4a4f8e709d832f716a6cad097e5d0b",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/archive_batch.py",
+      "archive": "recompression-cutover/archive_batch.py",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 5553,
+      "sha256": "43f321bdaf6a9442e9f32cefb6aa4c2a805c55fa37c4fd5bb79c0822d098f1a6",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/archive_history.py",
+      "archive": "recompression-cutover/archive_history.py",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 2482,
+      "sha256": "625087bccc311efeaed0a498875ab51fe8dd7a198a3b7dc5628209c97aa257d5",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/archive_restored_journal.py",
+      "archive": "recompression-cutover/archive_restored_journal.py",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 2318,
+      "sha256": "8424b1bdc6871529d7cc74baf8388dabc8af91b89810ebf31c7998492881a999",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/base-config.json",
+      "archive": "recompression-cutover/base-config.json",
+      "purpose": "Exact source/configuration pinned by active generation002 commands",
+      "bytes": 54264,
+      "sha256": "33b50682b9a64a8b557c0ab2a9742d3d148769452bac2bc1d31157fb7b342a64",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/budget-active.stderr",
+      "archive": "recompression-cutover/budget-active.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/budget-active.stdout",
+      "archive": "recompression-cutover/budget-active.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 830,
+      "sha256": "367e6c17e4f77ab3ff1efde8c226e333905e415de72bc9a893d9540a792a6bbf",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/budget-post-smoke.stderr",
+      "archive": "recompression-cutover/budget-post-smoke.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/budget-post-smoke.stdout",
+      "archive": "recompression-cutover/budget-post-smoke.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 824,
+      "sha256": "834bad9bada0adddb10e89893886c199a71b617d5079c65d5993f3269996e334",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/budget-preactivation.stderr",
+      "archive": "recompression-cutover/budget-preactivation.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/budget-preactivation.stdout",
+      "archive": "recompression-cutover/budget-preactivation.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 844,
+      "sha256": "f72e3f832cee81fa5b95f055c4f9ad839ce378c72c03e2ca80b530e7ac5d507f",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/budget-projected.stderr",
+      "archive": "recompression-cutover/budget-projected.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/budget-projected.stdout",
+      "archive": "recompression-cutover/budget-projected.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 721,
+      "sha256": "d02a8b6c3588b12d930f5a29123fcbf3064811bf40fa0ab0d2e07870816767f9",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/budget-with-core-history.json",
+      "archive": "recompression-cutover/budget-with-core-history.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 1498,
+      "sha256": "3b2756b16ca335c3949de221dcc859bfb38e6fc090680e853089569db217915b",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/budget.py",
+      "archive": "recompression-cutover/budget.py",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 3821,
+      "sha256": "45ff9abe581eb4d0624adebbaa23be373d355be751986be28cff9c45a8944d26",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/checker009-ready.json",
+      "archive": "recompression-cutover/checker009-ready.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 1894,
+      "sha256": "7aa61499a46c23942084aaa80be3906418781648833b2033a1099a9be45148c7",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/commands.json",
+      "archive": "recompression-cutover/commands.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 2216,
+      "sha256": "99e30f69909fa5618effd56135f362175c03aaa68f2fdecfa1df32a76cb0fc48",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/core-config.json",
+      "archive": "recompression-cutover/core-config.json",
+      "purpose": "Exact source/configuration pinned by active generation002 commands",
+      "bytes": 544,
+      "sha256": "cdbfef539f4df34963e3d2dd351721fc3841bd8ce0dfa460ee44b826b265d33e",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/cutover.py",
+      "archive": "recompression-cutover/cutover.py",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 18643,
+      "sha256": "32d4db92b13da7a551976166c1f3817c8726214b6b04995d7bef70d62ef1725e",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/editor-offloaded-archive.json",
+      "archive": "recompression-cutover/editor-offloaded-archive.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 598,
+      "sha256": "a15e1fc0a52fa712c557b1103b8f0bfaf97659c0f23b961fecbb6cbaf290b02c",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/handoff-config.json",
+      "archive": "recompression-cutover/handoff-config.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 961,
+      "sha256": "bc28221df4863d3a9a25500c6caa907b376a7232c4624231b5336f007b023cad",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/help.stderr",
+      "archive": "recompression-cutover/help.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/help.stdout",
+      "archive": "recompression-cutover/help.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 404,
+      "sha256": "9fc40596ccd2e3185aa6801efb4abe76cbd066613434d29f83eddceeda44ea9f",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/historical-compression-census.json",
+      "archive": "recompression-cutover/historical-compression-census.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 2132,
+      "sha256": "62443eebc33f805450744716c092383bc9e477d62147b165f951f67967571ce1",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/historical-plan.json",
+      "archive": "recompression-cutover/historical-plan.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 4974,
+      "sha256": "77d2cb9b5977d3801ec771fe4e15f9dfe0c27716b619e4a8f23dba789970428a",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/history-records/060c403bd0a3d41abb279c9c71d639aa6f55c613cd781a972fb53fbf294bfa38.json",
+      "archive": "recompression-cutover/history-records/060c403bd0a3d41abb279c9c71d639aa6f55c613cd781a972fb53fbf294bfa38.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 607,
+      "sha256": "953e54cce382713864c1eb613d3a799a6deedfca8b496bca8ef22055aa525586",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/history-records/1b723997a82fd09fbcac5267dada1b95a86c1cfd31e919aa1d92915a5f663f38.json",
+      "archive": "recompression-cutover/history-records/1b723997a82fd09fbcac5267dada1b95a86c1cfd31e919aa1d92915a5f663f38.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 594,
+      "sha256": "bd417666ff376100223e039d9bfebb91589f6eb5308d580e41b59e7f2841eb8d",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/history-records/1bf28dfdc7452d6355ecc4ad3c1a36e5e4fdbf724fbebf4e7cf08f886a5d66f7.json",
+      "archive": "recompression-cutover/history-records/1bf28dfdc7452d6355ecc4ad3c1a36e5e4fdbf724fbebf4e7cf08f886a5d66f7.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 606,
+      "sha256": "90b7a487c19eea42448d6acc844341fcc22324a7d948bf4727cd1b7d40124296",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/history-records/20612eb413992ee275e42d3a8eba8f5c3902e921d8cee0f8737babb5511d447d.json",
+      "archive": "recompression-cutover/history-records/20612eb413992ee275e42d3a8eba8f5c3902e921d8cee0f8737babb5511d447d.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 642,
+      "sha256": "64330277d0025a56af5ca52ca1494a0538df8de3bbcdcbe198602a9fd7ba7514",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/history-records/2f17dafad75cb555fbcb48caae26623d8b4e3a1b8e7fbfd5a875d7f0092f3420.json",
+      "archive": "recompression-cutover/history-records/2f17dafad75cb555fbcb48caae26623d8b4e3a1b8e7fbfd5a875d7f0092f3420.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 592,
+      "sha256": "716fd01b685fc47386dbd1dc49a6c5dcd1b286029126dee83369fe76e5b53423",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/history-records/32f2494845b7a7f7550179991e2e307cbc4f678d9ed012411a2a64cff159db5d.json",
+      "archive": "recompression-cutover/history-records/32f2494845b7a7f7550179991e2e307cbc4f678d9ed012411a2a64cff159db5d.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 636,
+      "sha256": "4bd45a4cbb108611fdd26ae2a89c6f7ac49bfa4ee9d57197cb30f6f6a7a7929c",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/history-records/50c1a34243d7271ff12212290e5d6d474db9501ae286a70e6d6d5fd906d1e93e.json",
+      "archive": "recompression-cutover/history-records/50c1a34243d7271ff12212290e5d6d474db9501ae286a70e6d6d5fd906d1e93e.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 598,
+      "sha256": "31a94d6ea9ed9417ca07893d45f40e667f42969e7bdc70710663f24ffc0522d0",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/history-records/62ffb3ce769cbc9b9b9790e15e04e7e78c1ec1411246e8ef98895d0c7ac98264.json",
+      "archive": "recompression-cutover/history-records/62ffb3ce769cbc9b9b9790e15e04e7e78c1ec1411246e8ef98895d0c7ac98264.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 605,
+      "sha256": "99f169fcb91fb36cf64de9a65ecfd460de8bec5e9b7e8e6ad8b0e398df9d3d64",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/history-records/8156fc80a2ba9d4864cac0a05d1b930e38d9d3e3935a34d1c62da969919b09aa.json",
+      "archive": "recompression-cutover/history-records/8156fc80a2ba9d4864cac0a05d1b930e38d9d3e3935a34d1c62da969919b09aa.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 591,
+      "sha256": "f20b5f85196d54828085abe1e3fd25e13afb6641febcb38d3d63900f626f1814",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/history-records/acad5bdfade5e64f9f32512f87d612445f0cc747f309e80fb084f4ad99b41fe0.json",
+      "archive": "recompression-cutover/history-records/acad5bdfade5e64f9f32512f87d612445f0cc747f309e80fb084f4ad99b41fe0.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 622,
+      "sha256": "307ca76081cae821ea9e5536f7523c3da0401eaf28e7f83e220642bc84d84cc7",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/history-records/afe72de9918d2ab9335f5f0d3a541f32acf7dda81a4a812ef2781ff2552fe67c.json",
+      "archive": "recompression-cutover/history-records/afe72de9918d2ab9335f5f0d3a541f32acf7dda81a4a812ef2781ff2552fe67c.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 616,
+      "sha256": "c40dee8c2aff8e24b2a04b6180dafeaab1d516a458dcc8a0da909996102b0c3a",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/history-records/bd60b8423aaf6f0c534884cd578eed5d4e388c9ca909d9805ad61764c5887c35.json",
+      "archive": "recompression-cutover/history-records/bd60b8423aaf6f0c534884cd578eed5d4e388c9ca909d9805ad61764c5887c35.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 604,
+      "sha256": "e50791f85669e356ce519d5a70ed868165ee09a57d73541da938d5923db47c3b",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/history-records/be55b9baa9d58aba3615ea7de05059e504db3d1c0fdc40bc9c4dd160576f9e13.json",
+      "archive": "recompression-cutover/history-records/be55b9baa9d58aba3615ea7de05059e504db3d1c0fdc40bc9c4dd160576f9e13.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 620,
+      "sha256": "e16d3edd8867c2a93dd7f9ae1993513ffdb15f148b46fd6ca2d930065896f28d",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/history-records/c6f7ce6c5fb6685cf702d6916123380dfb18ecaa18469582d47a2204cca64063.json",
+      "archive": "recompression-cutover/history-records/c6f7ce6c5fb6685cf702d6916123380dfb18ecaa18469582d47a2204cca64063.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 586,
+      "sha256": "0c27b5ccb9f00d36dd36de1b976cfbbda24b915924f100f02195acaed393763b",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/history-records/d2c5453bee2df5f89a53d15ebfb7e7dfbbdbaee80e2f92e5fb57d787116dca31.json",
+      "archive": "recompression-cutover/history-records/d2c5453bee2df5f89a53d15ebfb7e7dfbbdbaee80e2f92e5fb57d787116dca31.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 600,
+      "sha256": "4f4a732118f6f2f69ca600d06ef4221043ce4c74d7044af314ec0f06dae2b031",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/history-records/dd437337e5329a0c9b18d7b1e025dc31aad5757b1ac0df47013a43388e6e490c.json",
+      "archive": "recompression-cutover/history-records/dd437337e5329a0c9b18d7b1e025dc31aad5757b1ac0df47013a43388e6e490c.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 600,
+      "sha256": "f3ab7ffc9ade8c87a1b6e167946631d3c1a8bfe1027bb80acbac1b99de234241",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/make-settings.stderr",
+      "archive": "recompression-cutover/make-settings.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/make-settings.stdout",
+      "archive": "recompression-cutover/make-settings.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 232,
+      "sha256": "260e1222f872f70b3b3b505ea6230f6ada1c9c1aa282e9c9b057f1119cc802a1",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/make_settings.py",
+      "archive": "recompression-cutover/make_settings.py",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 3890,
+      "sha256": "ccd3efcae200d9717bbdfd04160e87b47de2688241f30a0a63e856ee28f3cd39",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/no-build-post-smoke.stderr",
+      "archive": "recompression-cutover/no-build-post-smoke.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/no-build-post-smoke.stdout",
+      "archive": "recompression-cutover/no-build-post-smoke.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 437,
+      "sha256": "f287301fe5bbdaebd9b1105009326674bd6894a8c3e5cce6390cad6a4fc5a6f9",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/no-build-post-switch.stderr",
+      "archive": "recompression-cutover/no-build-post-switch.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/no-build-post-switch.stdout",
+      "archive": "recompression-cutover/no-build-post-switch.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 441,
+      "sha256": "531d3b204bb8a36489909a330dcb9313957516f7ce8b47f1688adfecf4eff87c",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/old-core-history-plan.json",
+      "archive": "recompression-cutover/old-core-history-plan.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 618,
+      "sha256": "776c55aa07ec82f15f1c4f19bdb18d95cb1842196d99e9659c2a8bf83459a96a",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/old-core-history-records/3c021103037116ed6b46902bd0eef64acda92eec744af27d3c657646d0047685.json",
+      "archive": "recompression-cutover/old-core-history-records/3c021103037116ed6b46902bd0eef64acda92eec744af27d3c657646d0047685.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 598,
+      "sha256": "5bd717bfceb25d89057f72f39c4d2d55c57651624860f41c8462896b657a958f",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/old-core-history-records/cc02ea53e77a759b1c863e0e3b21c7ddcfc5569296cca696e0936c41c43bde39.json",
+      "archive": "recompression-cutover/old-core-history-records/cc02ea53e77a759b1c863e0e3b21c7ddcfc5569296cca696e0936c41c43bde39.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 604,
+      "sha256": "98bf2285daa927927b942b50e57b8c012c010727d141adbba84a84b7517f9173",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/plain-metadata-census.json",
+      "archive": "recompression-cutover/plain-metadata-census.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 3872,
+      "sha256": "3756d2a03da38093979abce5f0e6d0c10d907be7b5ae7f86f656eb60dd8fa116",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/post-smoke009-proof.stderr",
+      "archive": "recompression-cutover/post-smoke009-proof.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/post-smoke009-proof.stdout",
+      "archive": "recompression-cutover/post-smoke009-proof.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 57245,
+      "sha256": "5a7961cf37926b49cc9b6176f545ec9d108198d7dede9ae8f3f0ccf72c662791",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/post-smoke009-verifier.stderr",
+      "archive": "recompression-cutover/post-smoke009-verifier.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/post-smoke009-verifier.stdout",
+      "archive": "recompression-cutover/post-smoke009-verifier.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 33,
+      "sha256": "45c81825b2814df6cb63a693f65f14c535d6db30c92afc12c0ca8941e918fb52",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/post-switch009-proof.stderr",
+      "archive": "recompression-cutover/post-switch009-proof.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/post-switch009-proof.stdout",
+      "archive": "recompression-cutover/post-switch009-proof.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 57245,
+      "sha256": "26b6dd5ad7e330cf393e602c9225cc885693fdb5b45fcb5a8f9304e4aca38f5c",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/post-switch009-verifier.stderr",
+      "archive": "recompression-cutover/post-switch009-verifier.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/post-switch009-verifier.stdout",
+      "archive": "recompression-cutover/post-switch009-verifier.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 33,
+      "sha256": "45c81825b2814df6cb63a693f65f14c535d6db30c92afc12c0ca8941e918fb52",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/retire-files.stderr",
+      "archive": "recompression-cutover/retire-files.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/retire-files.stdout",
+      "archive": "recompression-cutover/retire-files.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 49,
+      "sha256": "fe337c44a8d39844f164b183718c3b989bfbbaaff98ffff8ebfaf7a77b71c715",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/retire-holder.stderr",
+      "archive": "recompression-cutover/retire-holder.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/retire-holder.stdout",
+      "archive": "recompression-cutover/retire-holder.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 50,
+      "sha256": "3b6d1f5ad77dd371250b7b8618c7e68a5763562357f5b4b4e7705a4c194dd0c3",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-checker009-base.stderr",
+      "archive": "recompression-cutover/review-checker009-base.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-checker009-base.stdout",
+      "archive": "recompression-cutover/review-checker009-base.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 399,
+      "sha256": "597d5984d416411a52d72bab3f087f413e8e80780011310d3ae6e65fc94dd828",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-checker009-core.stderr",
+      "archive": "recompression-cutover/review-checker009-core.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-checker009-core.stdout",
+      "archive": "recompression-cutover/review-checker009-core.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 237,
+      "sha256": "eddae4edb245e84d6c50a177c294c7ec384f6b691fd61ba813f5244b93a0421b",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-discovered-configs.stderr",
+      "archive": "recompression-cutover/review-discovered-configs.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-discovered-configs.stdout",
+      "archive": "recompression-cutover/review-discovered-configs.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 34787,
+      "sha256": "577a46fb38aea7c5bf24c43f366bf4054b4f29bb2b52cfe82d97c1b5fad5b373",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-disk-core-decoder.stderr",
+      "archive": "recompression-cutover/review-disk-core-decoder.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-disk-core.stderr",
+      "archive": "recompression-cutover/review-disk-core.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-disk-core.stdout",
+      "archive": "recompression-cutover/review-disk-core.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 538,
+      "sha256": "33640c66b468074de02af3c36a7962cab3606f89411a24d358f21bb1759c4b10",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-generation002-editor-decoder.stderr",
+      "archive": "recompression-cutover/review-generation002-editor-decoder.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-generation002-extra-decoder.stderr",
+      "archive": "recompression-cutover/review-generation002-extra-decoder.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-generation002.stderr",
+      "archive": "recompression-cutover/review-generation002.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-generation002.stdout",
+      "archive": "recompression-cutover/review-generation002.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 327,
+      "sha256": "71221e3014c966e5c66131f131fb49ee340b2412299ec19d0fd09408dd41ee85",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-post-cutover.stderr",
+      "archive": "recompression-cutover/review-post-cutover.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-post-cutover.stdout",
+      "archive": "recompression-cutover/review-post-cutover.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 385,
+      "sha256": "7ff6e5528c6adc15f7bec02d67a16f94379ff2af03c1619b1707c96c8d197af2",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-recovery.stderr",
+      "archive": "recompression-cutover/review-recovery.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 722,
+      "sha256": "1eab129f01fd79a665596d0ec5a48b1a5327bef17471c6a10550b33d631d6823",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-recovery.stdout",
+      "archive": "recompression-cutover/review-recovery.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-settings.stderr",
+      "archive": "recompression-cutover/review-settings.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-settings.stdout",
+      "archive": "recompression-cutover/review-settings.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 349,
+      "sha256": "f9524f8d360eb08d21db3ceca2e56561777ae2eb49660f9077b3ed4742b44ae5",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-smoke002-base.stderr",
+      "archive": "recompression-cutover/review-smoke002-base.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-smoke002-base.stdout",
+      "archive": "recompression-cutover/review-smoke002-base.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 399,
+      "sha256": "3ef8cd0260a42fec491c2586bc413b00ba12bfa4d7418bb2d116469cc39f7c96",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-smoke002-core.stderr",
+      "archive": "recompression-cutover/review-smoke002-core.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-smoke002-core.stdout",
+      "archive": "recompression-cutover/review-smoke002-core.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 237,
+      "sha256": "eddae4edb245e84d6c50a177c294c7ec384f6b691fd61ba813f5244b93a0421b",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-staged-configs.stderr",
+      "archive": "recompression-cutover/review-staged-configs.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-staged-configs.stdout",
+      "archive": "recompression-cutover/review-staged-configs.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 592,
+      "sha256": "8bc138faa7a5d59ff0920ec5bd297af774f420d4eb341a5307e4f2b62338e731",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-tests.stderr",
+      "archive": "recompression-cutover/review-tests.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 1433,
+      "sha256": "578ef058deeb53b25277f03a20255ac23d7eda82187e2fa66d42e09256f1e0cd",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review-tests.stdout",
+      "archive": "recompression-cutover/review-tests.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review_disk_core.py",
+      "archive": "recompression-cutover/review_disk_core.py",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 3682,
+      "sha256": "b06308a7abe82555df51f69e68f11c33c636ec98bce550567887db1563b44a5c",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review_generation002.py",
+      "archive": "recompression-cutover/review_generation002.py",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 4357,
+      "sha256": "28ab3e362a02958728a3b295d56e97916946810f00cf6a1827b0a9fdb804b45a",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review_recovery.py",
+      "archive": "recompression-cutover/review_recovery.py",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 4996,
+      "sha256": "da7239ff97b2f03a5c0e40452ba5c547ee714e01c0e6d37e8c02e47f1af7d594",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/review_restored_core.py",
+      "archive": "recompression-cutover/review_restored_core.py",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 1894,
+      "sha256": "bfdecd1ecdb02159e5aeecf3f11509a62370bf7c3f746b970c05374cb773a00c",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/run_no_build.py",
+      "archive": "recompression-cutover/run_no_build.py",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 1115,
+      "sha256": "42e6cd43a8ed0b4560d16fe636c3cb5875c425823f3eb2a27ff6eaa492cd15cf",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/scratch-allocation-census.json",
+      "archive": "recompression-cutover/scratch-allocation-census.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 4035,
+      "sha256": "54e826de3fad33c7897f653db1382fd1707a3f53332c55bae7b8624f5777ea3e",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/settings.json",
+      "archive": "recompression-cutover/settings.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 7512,
+      "sha256": "43d00fc4d961bb8ae614171072070a415dd6f24363a04ad7db17cf4d17e625ee",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/smoke002-ready.json",
+      "archive": "recompression-cutover/smoke002-ready.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 1675,
+      "sha256": "ee6189ce76629b89281f6113363d123ea15260365893e022835aecfdfbe56883",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/stage-configs.stderr",
+      "archive": "recompression-cutover/stage-configs.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/stage-configs.stdout",
+      "archive": "recompression-cutover/stage-configs.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 406,
+      "sha256": "67917ea6e0bd76b6fa840c0746cc4a758bf0451cfe6ea020bc6a6b17885bddcf",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/stage_configs.py",
+      "archive": "recompression-cutover/stage_configs.py",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 3821,
+      "sha256": "a791eb27208d948b7bc4768dde8d8d281119005371b5947b5b599e08b8af155f",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/test_cutover.py",
+      "archive": "recompression-cutover/test_cutover.py",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 11481,
+      "sha256": "1c5047a9b69a7530dd0c8d56caca098e21712f29a95f78fe9b3729d740eb5b95",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/tests-002.stderr",
+      "archive": "recompression-cutover/tests-002.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 1820,
+      "sha256": "a196006d37549dd3ddaeefb0a6b581625831efc21ecec897a84da8f276ca5cc3",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/tests-002.stdout",
+      "archive": "recompression-cutover/tests-002.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/tests-003.stderr",
+      "archive": "recompression-cutover/tests-003.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 1233,
+      "sha256": "4a3474d6f84ef4f5c0bb133d947d8392b5f1930d2f55d4e53c835c95aade9fb7",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/tests-003.stdout",
+      "archive": "recompression-cutover/tests-003.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/tests-004.stderr",
+      "archive": "recompression-cutover/tests-004.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 1433,
+      "sha256": "4d1a71951cbfba5838f74498f77ed45dee02de0bf96b909464715bcf568bfe9d",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/tests-004.stdout",
+      "archive": "recompression-cutover/tests-004.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/tests.stderr",
+      "archive": "recompression-cutover/tests.stderr",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 2411,
+      "sha256": "4ef89f960f0f566784e9701bad2a1fee7baac10a5a7df1e7b3aee4f01a9a67a3",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/tests.stdout",
+      "archive": "recompression-cutover/tests.stdout",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/transaction-001/original-handoff.json",
+      "archive": "recompression-cutover/transaction-001/original-handoff.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 1029,
+      "sha256": "02f1d5178a69e8bdf0f603d385a43b99a1fbb338b30f615950e4c67203834fa0",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/recompression-cutover/transaction-001/transaction.json",
+      "archive": "recompression-cutover/transaction-001/transaction.json",
+      "purpose": "Complete small cutover source/configuration/report/test/diagnostic or historical recovery metadata; large bodies excluded",
+      "bytes": 2425,
+      "sha256": "e85f3ab3cac2218c551254a23bb49a2a78ca5fc818338a942290959cfbd2294b",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/handoff-prototype/config.json",
+      "archive": "resource-wrapper/handoff-prototype/config.json",
+      "purpose": "Current helper/reserve-audit/monitor snapshot",
+      "bytes": 961,
+      "sha256": "bc28221df4863d3a9a25500c6caa907b376a7232c4624231b5336f007b023cad",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/handoff-prototype/helper.py",
+      "archive": "resource-wrapper/handoff-prototype/helper.py",
+      "purpose": "Current helper/reserve-audit/monitor snapshot",
+      "bytes": 4281,
+      "sha256": "6616481e8c862ee7d126e2c6d3556967df396a71259e2d395a294e67eaa393ee",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/handoff-prototype/lake",
+      "archive": "resource-wrapper/handoff-prototype/lake",
+      "purpose": "Current helper/reserve-audit/monitor snapshot",
+      "bytes": 8231,
+      "sha256": "dfcf223f529a93d2b886b9864bbcca53351d553381f8959fe4934936690142cc",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/handoff-prototype/real-lake-results.json",
+      "archive": "resource-wrapper/handoff-prototype/real-lake-results.json",
+      "purpose": "Current small handoff/helper source, configuration, test or complete diagnostic",
+      "bytes": 583,
+      "sha256": "e2491fbf3296a3adf7e9e4bd42be2ee52aea755f113f8f490c85190586ef8340",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/handoff-prototype/real-lake.stderr",
+      "archive": "resource-wrapper/handoff-prototype/real-lake.stderr",
+      "purpose": "Current small handoff/helper source, configuration, test or complete diagnostic",
+      "bytes": 22,
+      "sha256": "8f87c8f26a4494313489517800f0d2b179da1e4206c5806a45c51b0309ac9b2a",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/handoff-prototype/real-lake.stdout",
+      "archive": "resource-wrapper/handoff-prototype/real-lake.stdout",
+      "purpose": "Current small handoff/helper source, configuration, test or complete diagnostic",
+      "bytes": 22,
+      "sha256": "c573a9b0cbde8a6f2907285f0571681b4c71f102f86017ddfbf17d7c673e230f",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/handoff-prototype/review-tests.stderr",
+      "archive": "resource-wrapper/handoff-prototype/review-tests.stderr",
+      "purpose": "Current small handoff/helper source, configuration, test or complete diagnostic",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/handoff-prototype/review-tests.stdout",
+      "archive": "resource-wrapper/handoff-prototype/review-tests.stdout",
+      "purpose": "Current small handoff/helper source, configuration, test or complete diagnostic",
+      "bytes": 720,
+      "sha256": "ba36f4df89dae25f74e7df721044c211063a7343f3db748e1fdd11504e3b41ad",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/handoff-prototype/test_handoff.py",
+      "archive": "resource-wrapper/handoff-prototype/test_handoff.py",
+      "purpose": "Current small handoff/helper source, configuration, test or complete diagnostic",
+      "bytes": 8393,
+      "sha256": "37b7948902a3b18b923c1b361299977b979d49c10e51de10a28cdad0a61b8b48",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/handoff-prototype/tests.stderr",
+      "archive": "resource-wrapper/handoff-prototype/tests.stderr",
+      "purpose": "Current small handoff/helper source, configuration, test or complete diagnostic",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/handoff-prototype/tests.stdout",
+      "archive": "resource-wrapper/handoff-prototype/tests.stdout",
+      "purpose": "Current small handoff/helper source, configuration, test or complete diagnostic",
+      "bytes": 720,
+      "sha256": "ba36f4df89dae25f74e7df721044c211063a7343f3db748e1fdd11504e3b41ad",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/reserve-audit-24mib.md",
+      "archive": "resource-wrapper/shared-library-fallback/reserve-audit-24mib.md",
+      "purpose": "Current helper/reserve-audit/monitor snapshot",
+      "bytes": 6567,
+      "sha256": "d011b13c57c77314026366105dd039ad31ccc5fdd5e806e94d1eb9ba7a66ffa5",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/sequence_launcher.py",
+      "archive": "resource-wrapper/shared-library-fallback/sequence_launcher.py",
+      "purpose": "Exact source/configuration pinned by active generation002 commands",
+      "bytes": 1928,
+      "sha256": "034a2628a985a62275bee37e4265a0415d6087ff7f8df5b4e5e7dec72e26b43d",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/storage_phase.py",
+      "archive": "resource-wrapper/shared-library-fallback/storage_phase.py",
+      "purpose": "Exact source/configuration pinned by active generation002 commands",
+      "bytes": 16592,
+      "sha256": "3d21f96490c4a2e3c5a4d68c3c444a44496359fc3023754ec83b003eafd14cf8",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/storage_phase_base.py",
+      "archive": "resource-wrapper/shared-library-fallback/storage_phase_base.py",
+      "purpose": "Exact source/configuration pinned by active generation002 commands",
+      "bytes": 22308,
+      "sha256": "a43b13fa9556910376ae08131bbc8228b8318be81ab986f74a9ddf4427f1feb2",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/storage_phase.py",
+      "archive": "resource-wrapper/storage_phase.py",
+      "purpose": "Exact source/configuration pinned by active generation002 commands",
+      "bytes": 22308,
+      "sha256": "a43b13fa9556910376ae08131bbc8228b8318be81ab986f74a9ddf4427f1feb2",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/worker.py",
+      "archive": "resource-wrapper/worker.py",
+      "purpose": "Current helper/reserve-audit/monitor snapshot",
+      "bytes": 4004,
+      "sha256": "4331f1297e35e2592b8177b19768aa3affcc815ab0d96629613f6b65897fa236",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/lean/CheckLemma.lean",
+      "archive": "repo-source/lean/CheckLemma.lean",
+      "purpose": "Exact small checker/verifier/proof source snapshot; no compiled binary copied",
+      "bytes": 30349,
+      "sha256": "86997b026ef2b80d738df77f4c214166cf5b0b2ea8cc98d4bd3c8b5e420dbdd5",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/R_meta_1768_45.lean",
+      "archive": "repo-source/lean/PEqualNP/Outside/R_meta_1768_45.lean",
+      "purpose": "Exact small checker/verifier/proof source snapshot; no compiled binary copied",
+      "bytes": 5172,
+      "sha256": "191b2cda8c5f17e7b401f9a3b17a1678ba2c456ea294db429667d46d3b757983",
+      "credential_lease_scan": "PASS"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/tools/check-lean.mjs",
+      "archive": "repo-source/tools/check-lean.mjs",
+      "purpose": "Exact small checker/verifier/proof source snapshot; no compiled binary copied",
+      "bytes": 14865,
+      "sha256": "d3f8ca82be7a4aabcf5aba7727b715140c82fa575340c6a8f5d7b134bf4d23ad",
+      "credential_lease_scan": "PASS"
+    }
+  ],
+  "excluded_explicit_large_files": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/core-phase/disk-state-001/prepared.json",
+      "bytes": 1722164,
+      "reason": "Large prepared/runtime journal; no body copied"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/core-phase/disk-state-001/transaction.json",
+      "bytes": 1722188,
+      "reason": "Large prepared/runtime journal; no body copied"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-002/state/prepared.json",
+      "bytes": 14494099,
+      "reason": "Large prepared/runtime journal; no body copied"
+    }
+  ],
+  "excluded_categories": [
+    "All backup packs and compiled binaries",
+    "All large prepared/index/runtime journal bodies",
+    "All compressed historical-metadata bodies; small hash/metadata/recovery maps retained",
+    "All fixtures and __pycache__",
+    "All credential and lease artifacts"
+  ],
+  "copy_policy": "Exact complete small source/configuration/diagnostic bytes; all inputs scanned; no log streams truncated."
+}

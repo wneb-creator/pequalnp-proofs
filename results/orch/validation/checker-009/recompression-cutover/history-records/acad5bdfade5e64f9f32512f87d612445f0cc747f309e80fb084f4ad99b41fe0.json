@@ -1,0 +1,15 @@
+{
+  "path": "/tmp/oec/pequalnp-pilot-45/durable-ram/toolchain-source-manifest.json",
+  "identity": {
+    "dev": 27,
+    "ino": 273140,
+    "size": 1215168,
+    "mode": 384,
+    "mtime_ns": 1795562840449859547
+  },
+  "sha256": "5c3946566c18df82dd1478489e226f5a12db3802ae256510f4d01b633adea84a",
+  "archive": "/tmp/oec/pequalnp-pilot-45/durable-ram/toolchain-source-manifest.json.gz",
+  "archive_bytes": 161984,
+  "archive_sha256": "2157eb411d419e355fcf5d3b99cea4d49df624a7c716ac7efa3b5f3bac7e976b",
+  "recovery": "gzip-decompress archive to source; verify source SHA256/size; restore identity.mode and identity.mtime_ns"
+}

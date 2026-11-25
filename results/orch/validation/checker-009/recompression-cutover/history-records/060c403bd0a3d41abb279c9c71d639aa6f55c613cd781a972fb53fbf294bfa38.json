@@ -1,0 +1,15 @@
+{
+  "path": "/tmp/oec/pequalnp-pilot-45/runtime-closure-candidates-001.json",
+  "identity": {
+    "dev": 27,
+    "ino": 272046,
+    "size": 794792,
+    "mode": 384,
+    "mtime_ns": 1795565173071266557
+  },
+  "sha256": "e19ba706c67f0cc01a72f49bc71ac3973f70d995539f43c2b5792803dc94f8dd",
+  "archive": "/tmp/oec/pequalnp-pilot-45/runtime-closure-candidates-001.json.gz",
+  "archive_bytes": 123439,
+  "archive_sha256": "634c885cbed6046cc951fd0b11d9e54761bcdb26929251eafe4edba457df205e",
+  "recovery": "gzip-decompress archive to source; verify source SHA256/size; restore identity.mode and identity.mtime_ns"
+}

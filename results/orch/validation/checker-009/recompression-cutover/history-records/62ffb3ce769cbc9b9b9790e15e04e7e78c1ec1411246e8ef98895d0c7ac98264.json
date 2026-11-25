@@ -1,0 +1,15 @@
+{
+  "path": "/tmp/oec/pequalnp-pilot-45/durable-ram/mathlib-recovery.jsonl",
+  "identity": {
+    "dev": 27,
+    "ino": 270753,
+    "size": 592665,
+    "mode": 384,
+    "mtime_ns": 1795559964817786426
+  },
+  "sha256": "20d6d50375b93b06f228b3e08458ac4103faf7d2c7c1a327a7c842d05d8a5790",
+  "archive": "/tmp/oec/pequalnp-pilot-45/durable-ram/mathlib-recovery.jsonl.gz",
+  "archive_bytes": 110271,
+  "archive_sha256": "867a90d882eee2b5f9e1eb88e5b983fa12d6fc8e97d18869bf378976ae7ce1c8",
+  "recovery": "gzip-decompress archive to source; verify source SHA256/size; restore identity.mode and identity.mtime_ns"
+}

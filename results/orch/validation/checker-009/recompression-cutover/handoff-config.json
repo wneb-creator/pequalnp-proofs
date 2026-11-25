@@ -1,0 +1,22 @@
+{
+  "real_lake": "/tmp/oec/pequalnp-pilot-45/toolchain/lean-4.36.0-linux/bin/lake",
+  "phase_enter": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/sequence_launcher.py",
+    "--commands",
+    "/tmp/oec/pequalnp-pilot-45/recompression-cutover/commands.json",
+    "--commands-sha256",
+    "99e30f69909fa5618effd56135f362175c03aaa68f2fdecfa1df32a76cb0fc48",
+    "enter"
+  ],
+  "phase_restore": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+    "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/sequence_launcher.py",
+    "--commands",
+    "/tmp/oec/pequalnp-pilot-45/recompression-cutover/commands.json",
+    "--commands-sha256",
+    "99e30f69909fa5618effd56135f362175c03aaa68f2fdecfa1df32a76cb0fc48",
+    "restore"
+  ],
+  "worker_module": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/worker.py"
+}

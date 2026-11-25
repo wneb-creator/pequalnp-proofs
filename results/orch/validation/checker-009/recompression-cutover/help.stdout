@@ -1,0 +1,13 @@
+usage: cutover.py [-h] --settings SETTINGS --settings-sha256 SETTINGS_SHA256
+                  {activate,retire-files,retire-holder}
+
+Pinned, restartable activation and separately authorized obsolete-data
+retirement.
+
+positional arguments:
+  {activate,retire-files,retire-holder}
+
+options:
+  -h, --help            show this help message and exit
+  --settings SETTINGS
+  --settings-sha256 SETTINGS_SHA256
