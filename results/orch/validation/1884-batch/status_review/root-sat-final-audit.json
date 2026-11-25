@@ -1,0 +1,72 @@
+{
+  "status": "PASS archive hashes and statuses; exploratory exact-one-NOT solver is UNKNOWN, not UNSAT",
+  "manifest_sha256": "0709d03ccca538c0ae1b256b25c1224966e5ebc4fdcff98964dfd19c2fbf8722",
+  "files_checked": 35,
+  "generated_formula_hashes_checked": 5,
+  "records": [
+    {
+      "file": "control21bad-0.record.json",
+      "start": "2026-11-25T16:44:07.613286+00:00",
+      "gates": 21,
+      "at_most_one_not": true,
+      "variables": 139557,
+      "clauses": 1597854,
+      "exit_code": 20,
+      "end": "2026-11-25T16:44:09.146424+00:00",
+      "row_count": 1024
+    },
+    {
+      "file": "exact1-0.record.json",
+      "start": "2026-11-25T16:47:50.375319+00:00",
+      "gates": 18,
+      "at_most_one_not": true,
+      "zero_not": false,
+      "exact_one_not": true,
+      "global_seconds": 300,
+      "variables": 120186,
+      "clauses": 111969,
+      "exit_code": 0,
+      "end": "2026-11-25T16:52:49.558414+00:00",
+      "row_count": 91
+    },
+    {
+      "file": "control20-0.record.json",
+      "start": "2026-11-25T16:42:45.712228+00:00",
+      "gates": 20,
+      "at_most_one_not": true,
+      "variables": 133088,
+      "clauses": 1481092,
+      "exit_code": 10,
+      "end": "2026-11-25T16:42:47.215034+00:00",
+      "row_count": 1024
+    },
+    {
+      "file": "control21not-0.record.json",
+      "start": "2026-11-25T16:43:55.029550+00:00",
+      "gates": 21,
+      "at_most_one_not": true,
+      "variables": 139557,
+      "clauses": 1597854,
+      "exit_code": 10,
+      "end": "2026-11-25T16:43:57.038012+00:00",
+      "row_count": 1024
+    },
+    {
+      "file": "control21-0.record.json",
+      "start": "2026-11-25T16:43:29.635942+00:00",
+      "gates": 21,
+      "at_most_one_not": true,
+      "variables": 146509,
+      "clauses": 1597854,
+      "exit_code": 10,
+      "end": "2026-11-25T16:43:31.141063+00:00",
+      "row_count": 1024
+    }
+  ],
+  "source_version_hashes": {
+    "probe.py": "1a713e026aa7111491981d5e31cea8c6864892078baba765b1c52c587c0774ce",
+    "probe-reviewed-v2.py": "df81ec2a019bb08bb7ac3e5a32cd132e8e6349a6f262e5f6be68472979b232d6",
+    "probe-reviewed-v1.py": "295906bc2db10a39f59d9727018433ab03f2880a93e9be9662045b0f858c4ebe"
+  },
+  "scope": "Core encodings and positive/negative controls previously independently audited. No general UNSAT certificate or counterexample."
+}

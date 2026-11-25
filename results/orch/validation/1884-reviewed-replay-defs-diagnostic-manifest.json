@@ -1,0 +1,68 @@
+{
+  "created_utc": "2026-11-25T17:02:43.618107+00:00",
+  "status": "PASS reviewed proof variant and diagnostic only, not a complete proof",
+  "generated_cnf": {
+    "source": "/tmp/oec/pequalnp-pilot-99/gap1884/sat_encoding/mono18-defs.cnf",
+    "bytes": 5952884,
+    "sha256": "d70821d2b6c43b4a84fdda720013a11515d1d187ef8b89c97e61ba0d9eee49c4",
+    "retention": "Reproducible diagnostic output; not listed among small files to preserve"
+  },
+  "file_count": 9,
+  "total_bytes": 22002,
+  "files": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/sat_encoding/MonoReplayDefs.lean",
+      "relative_path": "sat_encoding/MonoReplayDefs.lean",
+      "bytes": 19909,
+      "sha256": "364711338b55db795291ae5ecb990dbf2e3cf31933adc49065421d6e8f460aba"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/sat_encoding/mono-replay-defs-01.stdout",
+      "relative_path": "sat_encoding/mono-replay-defs-01.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/sat_encoding/mono-replay-defs-01.stderr",
+      "relative_path": "sat_encoding/mono-replay-defs-01.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/status_review/MonoReplayDefs.guard.stdout",
+      "relative_path": "status_review/MonoReplayDefs.guard.stdout",
+      "bytes": 380,
+      "sha256": "92da25440d729d7664df895356b0b71c2b67579f604e1843a0599811b0472122"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/status_review/MonoReplayDefs.guard.stderr",
+      "relative_path": "status_review/MonoReplayDefs.guard.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/sat_encoding/DumpMonoDefs.lean",
+      "relative_path": "sat_encoding/DumpMonoDefs.lean",
+      "bytes": 539,
+      "sha256": "ed77750a0ad77539efeadd8df347a49c46bab0d2514159f1742c7dd07beeed1d"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/sat_encoding/mono-defs-byte-comparison.stdout",
+      "relative_path": "sat_encoding/mono-defs-byte-comparison.stdout",
+      "bytes": 241,
+      "sha256": "c1ebdf9ac86a3125054de66c4e8ecb535f17786dfb1dc0922776bf9434b0834c"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/sat_encoding/mono-defs-byte-comparison.stderr",
+      "relative_path": "sat_encoding/mono-defs-byte-comparison.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-99/gap1884/status_review/replay-defs-diagnostic-audit.json",
+      "relative_path": "status_review/replay-defs-diagnostic-audit.json",
+      "bytes": 933,
+      "sha256": "f9470a617df7772cc238ccb92683a21785678f5508542deae4a45804ab6440c1"
+    }
+  ]
+}

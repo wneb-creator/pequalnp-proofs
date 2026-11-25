@@ -1,0 +1,2 @@
+REFUSED: line 1: import MonoEncoding is not allowed (only Mathlib and the modules the gap lists)
+REFUSED: the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_1884 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_1884` ... `end PEqualNP.Outside.L_meta_1884`; only the imports and the theorem stay outside

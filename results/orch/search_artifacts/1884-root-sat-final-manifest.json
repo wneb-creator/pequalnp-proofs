@@ -1,0 +1,207 @@
+{
+  "utc": "2026-11-25T16:57:43.853584+00:00",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21bad-0.record.json",
+      "bytes": 9516,
+      "sha256": "ecac8d6e9ec69ecd69656ce75722ad8232292a5d8681f8515a83c2a80c74c1f1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control20-0.stdout",
+      "bytes": 943192,
+      "sha256": "63df36337894b5bc6ee19b04a802c0bd36cf12869321d762ca2b50517b3419f5"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/probe.py",
+      "bytes": 5696,
+      "sha256": "1a713e026aa7111491981d5e31cea8c6864892078baba765b1c52c587c0774ce"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control20-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21not-0.stdout",
+      "bytes": 994747,
+      "sha256": "b9995114ce52c6409d5e450526648db69147f5b15710615b422c0f0d5792f61b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/exact1-0.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21-driver.stdout",
+      "bytes": 308,
+      "sha256": "e7db284a2d9b5d3fb8314b0aede01cf018b27f211915ada04bb1a7bcafdea5df"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21-0.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/exact1-0.stdout",
+      "bytes": 20297,
+      "sha256": "9f310fbbf86bcc3ca925e4b8086eb4672c5cca1813a596f9b3373c8c1169ba3d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/exact1-driver.stdout",
+      "bytes": 345,
+      "sha256": "c7db6c96da355119770e24d89fb92c2f8a021088cfe940156c8deeaadf4e851f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21-bad.json",
+      "bytes": 1016,
+      "sha256": "7503946d390ca0d3fcf179da0ba872f51d373d09649ee4e6cbce472bda6e5dbf"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21-0.circuit.json",
+      "bytes": 950,
+      "sha256": "b1b10bc2901539a41634a9566bedb7519c9adf46f3a5b264a968506020662cbd"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/probe-reviewed-v2.py",
+      "bytes": 5451,
+      "sha256": "df81ec2a019bb08bb7ac3e5a32cd132e8e6349a6f262e5f6be68472979b232d6"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/exact1-0.record.json",
+      "bytes": 1225,
+      "sha256": "5513918b166c5621fd28a8924cbfc030650fea8936f562801a03b051f78c23cc"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21-0.stdout",
+      "bytes": 969544,
+      "sha256": "73673579c01dad211a83234145cb08284f41906195d68df9d874fe4c0485b37c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21-not.json",
+      "bytes": 1017,
+      "sha256": "c6fff330bc56d0a4e25cac89eaa3089d490131baa26965d3b0bdc1c361ab5684"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control20-driver.stdout",
+      "bytes": 308,
+      "sha256": "eb353ab39b45a9807ae9029cc1588029c038a06e1b28f8969ea82ab35057f9c8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control20-0.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21bad-0.stdout",
+      "bytes": 2783,
+      "sha256": "bd7e3eccd091199492368c11af78c5f08c4a77918ef76faa62cd84a11693ba73"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21not-driver.stdout",
+      "bytes": 311,
+      "sha256": "18f4328e581134e98967dc12845ac6769cdaeed418bda9946c87842868dffe5e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21not-0.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21bad-driver.stdout",
+      "bytes": 287,
+      "sha256": "81d325b1cfb7a0d664b9ecf1e711b8dbaf583e0f75ce713c133c5ce771c59b8e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control20-0.record.json",
+      "bytes": 9513,
+      "sha256": "583a15ea3a8a518f3d7d2082668086a5efcdaec9de2d2ccdf4b05dbd98e26859"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control20-0.circuit.json",
+      "bytes": 910,
+      "sha256": "095216d17e6b4bbf7c1c48ae2b50e4e10dd33cdbb1fc12e2b4050e94bd578ea5"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21bad-0.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21bad-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/exact1-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21not-0.record.json",
+      "bytes": 9516,
+      "sha256": "46ea93d084e70bf9097b40c42fc9655ec1c2a6f77210c545f336f66792b4c2da"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21not-0.circuit.json",
+      "bytes": 953,
+      "sha256": "cc722ebc5ba7b58668b34b59c8450bd96acf9a8b60c4ef78be93734b017a2a8e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/probe-reviewed-v1.py",
+      "bytes": 4637,
+      "sha256": "295906bc2db10a39f59d9727018433ab03f2880a93e9be9662045b0f858c4ebe"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21not-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21-0.record.json",
+      "bytes": 9513,
+      "sha256": "09425758b369bfe160035d310f52ef2f6633d268273a95b1f517c6073c96c4e6"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/formula-inventory.json",
+      "bytes": 945,
+      "sha256": "05da2692b5c9ec0eeaaf9abdc945e19beb03e07b3280f8be01e8ead3893aa9c4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/provenance.json",
+      "bytes": 896,
+      "sha256": "13992c25e2f2687b08f6efff225211774947ce89cf8d688a35df711b1deefc6b"
+    }
+  ],
+  "generated_formulas": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21not-0.cnf",
+      "bytes": 33060110,
+      "sha256": "14479be16449c4ff17816bc01b22eb8c634ceaff03abda4cdfe4b0d6d69a3b43"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21bad-0.cnf",
+      "bytes": 33060110,
+      "sha256": "ae6087911b356c2d1a6a85f0c6ccc0706818ca363f3b9836c407099e1a1e2715"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control21-0.cnf",
+      "bytes": 33060111,
+      "sha256": "50656044eed1ac94a38663b685ce1a7e45aea26a432c06e0fb2dfc523e97028d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/exact1-0.cnf",
+      "bytes": 2260503,
+      "sha256": "609ff28428c9049d02de552694542c26be6eb9f2fe34d16fa0c0b90886ea0f66"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/control20-0.cnf",
+      "bytes": 30389206,
+      "sha256": "d7ea4e3e83e7e5d4f4afddcb5a508847aaa921f2aee449a2986c84649d91dd8f"
+    }
+  ]
+}

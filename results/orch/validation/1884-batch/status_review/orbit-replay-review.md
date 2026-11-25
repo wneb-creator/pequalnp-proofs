@@ -1,0 +1,15 @@
+# Independent review: I4 closure, partial triple structure, and replay wrappers
+
+PASS for preservation at the frozen hashes in orbit-replay-audit.json. Successful compilation/export is author-reported and full logs have been inspected; no Lean rebuild was performed by this reviewer.
+
+I4FinishAnalytic closes the ordinary strict/live monotone Petersen orbit with ineligible set I={2,4,5,6} and at most 18 gates. The explicit center and vertex maps identify its six eligible vertices with the six edges of K4. center_code proves equality with the injective image of the dominated endpoint set, so cardinalities and both directions of profile inclusion are preserved. The already checked residual-three and nonempty-profile results supply every encoding hypothesis. The analytic crossing certificate supplies a genuinely saturated vertex and crossing inclusion, which are passed to I4Full.inclusion_conflict with Bzero=0 and an actual eligible neighbor. No conditional finite-certificate premise remains. This is a closed ordinary-monotone orbit, not a proof for arbitrary eleven-input circuits with a free complemented bit.
+
+ProfileEncodingDefs is byte-identical to the reviewed ProfileEncoding except that the first import Mathlib line is removed. MonoEncodingDefs likewise differs from reviewed MonoEncoding only by removing the first import Mathlib line. Both compiled with Defs alone. The latter has 266 inherited warning lines and no error lines; all other successful logs in this batch are empty.
+
+MaxTriplePrelude establishes that a code has at most one slot whose support omits vertex zero, either from an explicit supporting-slot count, from an empty profile in the exact {1,4,5} ineligible configuration, or from a nonempty profile included in vertex zero's profile. Its ri_gen application supplies a residual witness containing both coordinates. It does not assert that all profiles meet one of those alternatives, and it does not close the triple orbit.
+
+MonoReplay imports the checked normalized encoder and copies the entire LRAT namespace block byte-for-byte from previously reviewed NormalizedReplay. The wrapper assumes checkW returns true for the exact eleven-input, eighteen-slot, thirty-eight-row formula, and derives only the zero-internal-NOT canonical counterexample conclusion. No certificate data or true-check equality is supplied.
+
+Actual guards reject only the absent final posted theorem plus expected development imports in I4FinishAnalytic, MaxTriplePrelude and MonoReplay. The two Defs-only variants have no import refusal. No forbidden text, string literals, axioms, sorry, native_decide or bv_decide were found.
+
+The separate root-sat-final audit verifies all 35 archive-file hashes and five generated CNF hashes against the root manifest. Previously audited source versions are unchanged. Three positive controls return SAT, the deliberately incorrect fixed-output control returns UNSAT, and the eighteen-gate exact-one-NOT exploratory run explicitly reports UNKNOWN after its 299-second solver limit. No general lower bound, certificate or counterexample follows from that run.

@@ -1,0 +1,11 @@
+{
+  "status": "PASS partial replay variant and diagnostic provenance",
+  "replay_delta": "Only import MonoEncoding replaced with import MonoEncodingDefs; all proof bodies byte-identical",
+  "guard_exit": 1,
+  "guard_stdout": "REFUSED: line 1: import MonoEncodingDefs is not allowed (only Mathlib and the modules the gap lists)\nREFUSED: the theorem must stand at the top level, last, written with its full name: `theorem PEqualNP.Outside.L_meta_1884 ...`; put every helper inside `namespace PEqualNP.Outside.L_meta_1884` ... `end PEqualNP.Outside.L_meta_1884`; only the imports and the theorem stay outside\n",
+  "diagnostic": "Read-only IO/strings dump of actual checked enc2 11 18 rowValue freeRows. Diagnostic only; not permitted in proof PR.",
+  "cnf_sha256": "d70821d2b6c43b4a84fdda720013a11515d1d187ef8b89c97e61ba0d9eee49c4",
+  "cnf_bytes": 5952884,
+  "cnf_clauses": 144603,
+  "certificate": "No certificate or UNSAT claim."
+}

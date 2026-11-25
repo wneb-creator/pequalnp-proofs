@@ -1,0 +1,2 @@
+{"start": "2026-11-25T16:47:50.375319+00:00", "cmd": ["/tmp/oec/pequalnp-pilot-99/lean-4.36.0-linux/bin/cadical", "-t", "299", "/tmp/oec/pequalnp-pilot-99/gap1884/root_sat/exact1-0.cnf"], "gates": 18, "at_most_one_not": true, "zero_not": false, "exact_one_not": true, "global_seconds": 300, "variables": 120186, "clauses": 111969}
+SOLVER_EXIT 0

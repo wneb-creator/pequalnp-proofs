@@ -1,0 +1,8 @@
+{
+  "control20": "probe-reviewed-v1.py; --gates20 --full --fix ../counterexample/control.control0.json",
+  "control21": "probe-reviewed-v1.py; --gates21 --full --fix ../counterexample/control.control3.json",
+  "control21not": "probe-reviewed-v1.py; --gates21 --full --fix control21-not.json",
+  "control21bad": "probe-reviewed-v1.py; --gates21 --full --fix control21-bad.json",
+  "exact1": "probe.py version3; --gates18 --seconds300 --exact-one-not",
+  "scope": "Three positive controls SAT and all1024 truth rows correct; negative fixedoutput control UNSAT. Exact-oneNOT unrestricted91row probe ended UNKNOWN(exit0) at299-second solver limit. No concrete counterexample or proof. Generated CNF files remain scratch-only but their exact hashes and source/arguments are preserved. The current source fixes --fix constant/invalid-read mapping; original controls used only validAND/OR/NOT gates."
+}
