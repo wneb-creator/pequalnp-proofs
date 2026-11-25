@@ -631,4 +631,150 @@ lemma circuit_context_rectangle {n : ℕ} (G : SimpleGraph (Fin n))
   rw [← gateContext_orig pre post g out x, hp]
   exact hq
 
+
+namespace FreeClauses
+
+open PEqualNP.EdgeOwnership
+
+def Represents {n : ℕ} {I : Type*} (G : SimpleGraph (Fin n))
+    (S : I → Finset (Fin n)) : Prop :=
+  ∀ x : Fin n → Bool,
+    (∀ i, ∃ v ∈ S i, x v = true) ↔
+      ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true
+
+lemma clause_covers_edge {n : ℕ} {I : Type*} (G : SimpleGraph (Fin n))
+    (S : I → Finset (Fin n)) (hrep : Represents G S) (i : I)
+    {a b : Fin n} (hab : G.Adj a b) : a ∈ S i ∨ b ∈ S i := by
+  have he : ∃ u v, G.Adj u v ∧ pairInput a b u = true ∧ pairInput a b v = true :=
+    ⟨a, b, hab, by simp [pairInput], by simp [pairInput]⟩
+  obtain ⟨v, hv, hvab⟩ := (hrep (pairInput a b)).mpr he i
+  have hvab' : v = a ∨ v = b := by simpa [pairInput] using hvab
+  rcases hvab' with rfl | rfl
+  · exact Or.inl hv
+  · exact Or.inr hv
+
+lemma pair_edge_of_represents {n : ℕ} {I : Type*} (G : SimpleGraph (Fin n))
+    (S : I → Finset (Fin n)) (hrep : Represents G S) {a b : Fin n}
+    (hhit : ∀ i, a ∈ S i ∨ b ∈ S i) : G.Adj a b := by
+  have hsat : ∀ i, ∃ v ∈ S i, pairInput a b v = true := by
+    intro i
+    rcases hhit i with ha | hb
+    · exact ⟨a, ha, by simp [pairInput]⟩
+    · exact ⟨b, hb, by simp [pairInput]⟩
+  obtain ⟨u, v, huv, hu, hv⟩ := (hrep (pairInput a b)).mp hsat
+  have hu' : u = a ∨ u = b := by simpa [pairInput] using hu
+  have hv' : v = a ∨ v = b := by simpa [pairInput] using hv
+  rcases hu' with rfl | rfl <;> rcases hv' with rfl | rfl
+  · exact False.elim (G.irrefl huv)
+  · exact huv
+  · exact huv.symm
+  · exact False.elim (G.irrefl huv)
+
+lemma three_walk_closes {n : ℕ} {I : Type*} (G : SimpleGraph (Fin n))
+    (S : I → Finset (Fin n)) (hrep : Represents G S)
+    (hind : ∀ i u, u ∈ S i → ∀ v, v ∈ S i → ¬G.Adj u v)
+    {a b c d : Fin n} (hab : G.Adj a b) (hbc : G.Adj b c) (hcd : G.Adj c d) :
+    G.Adj a d := by
+  apply pair_edge_of_represents G S hrep
+  intro i
+  rcases clause_covers_edge G S hrep i hab with ha | hb
+  · exact Or.inl ha
+  · rcases clause_covers_edge G S hrep i hcd with hc | hd
+    · exact False.elim (hind i b hb c hc hbc)
+    · exact Or.inr hd
+
+lemma three_walk_repeats {n : ℕ} {I : Type*} (G : SimpleGraph (Fin n))
+    (S : I → Finset (Fin n)) (hrep : Represents G S)
+    (hind : ∀ i u, u ∈ S i → ∀ v, v ∈ S i → ¬G.Adj u v)
+    (hc4 : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a →
+      a = c ∨ b = d)
+    {a b c d : Fin n} (hab : G.Adj a b) (hbc : G.Adj b c) (hcd : G.Adj c d) :
+    a = c ∨ b = d := by
+  exact hc4 a b c d hab hbc hcd (three_walk_closes G S hrep hind hab hbc hcd).symm
+
+lemma every_edge_has_leaf_endpoint {n : ℕ} {I : Type*} (G : SimpleGraph (Fin n))
+    (S : I → Finset (Fin n)) (hrep : Represents G S)
+    (hind : ∀ i u, u ∈ S i → ∀ v, v ∈ S i → ¬G.Adj u v)
+    (hc4 : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a →
+      a = c ∨ b = d)
+    {a b : Fin n} (hab : G.Adj a b) :
+    (∀ c, G.Adj a c → c = b) ∨ (∀ c, G.Adj b c → c = a) := by
+  classical
+  by_cases ha : ∀ c, G.Adj a c → c = b
+  · exact Or.inl ha
+  · right
+    push Not at ha
+    obtain ⟨c, hac, hcb⟩ := ha
+    intro d hbd
+    rcases three_walk_repeats G S hrep hind hc4 hac.symm hab hbd with heq | heq
+    · exact False.elim (hcb heq)
+    · exact heq.symm
+
+def selection {n k : ℕ} (a b : Fin k → Fin n) (s : Fin k → Bool) : Fin n → Bool :=
+  fun v => decide (∃ j, v = if s j then a j else b j)
+
+lemma selection_selected {n k : ℕ} (a b : Fin k → Fin n) (s : Fin k → Bool)
+    (j : Fin k) : selection a b s (if s j then a j else b j) = true := by
+  simp only [selection, decide_eq_true_iff]
+  exact ⟨j, rfl⟩
+
+lemma clause_count_of_independent_selections {n k : ℕ} {I : Type*} [Fintype I]
+    (G : SimpleGraph (Fin n)) (S : I → Finset (Fin n)) (hrep : Represents G S)
+    (a b : Fin k → Fin n) (hedge : ∀ j, G.Adj (a j) (b j))
+    (hind : ∀ s : Fin k → Bool, ¬ ∃ u v,
+      G.Adj u v ∧ selection a b s u = true ∧ selection a b s v = true) :
+    2 ^ k ≤ Fintype.card I := by
+  classical
+  have hmiss : ∀ s : Fin k → Bool, ∃ i, ¬ ∃ v ∈ S i, selection a b s v = true := by
+    intro s
+    have h : ¬ ∀ i, ∃ v ∈ S i, selection a b s v = true := by
+      intro hsat
+      exact hind s ((hrep _).mp hsat)
+    exact not_forall.mp h
+  let miss : (Fin k → Bool) → I := fun s => Classical.choose (hmiss s)
+  have missing : ∀ s, ¬ ∃ v ∈ S (miss s), selection a b s v = true :=
+    fun s => Classical.choose_spec (hmiss s)
+  have hinj : Function.Injective miss := by
+    intro s t heq
+    funext j
+    have hcross := clause_covers_edge G S hrep (miss s) (hedge j)
+    have contradiction (hs : s j = false) (ht : t j = true) : False := by
+      rcases hcross with ha | hb
+      · have htmem : a j ∈ S (miss t) := by rw [← heq]; exact ha
+        exact missing t ⟨a j, htmem, by simpa [ht] using selection_selected a b t j⟩
+      · exact missing s ⟨b j, hb, by simpa [hs] using selection_selected a b s j⟩
+    have contradiction' (hs : s j = true) (ht : t j = false) : False := by
+      rcases hcross with ha | hb
+      · exact missing s ⟨a j, ha, by simpa [hs] using selection_selected a b s j⟩
+      · have htmem : b j ∈ S (miss t) := by rw [← heq]; exact hb
+        exact missing t ⟨b j, htmem, by simpa [ht] using selection_selected a b t j⟩
+    cases hs : s j <;> cases ht : t j
+    · rfl
+    · exact False.elim (contradiction hs ht)
+    · exact False.elim (contradiction' hs ht)
+    · rfl
+  have hc := Fintype.card_le_of_injective miss hinj
+  simpa only [Fintype.card_fun, Fintype.card_bool, Fintype.card_fin] using hc
+
+lemma clause_count_of_induced_matching {n k : ℕ} {I : Type*} [Fintype I]
+    (G : SimpleGraph (Fin n)) (S : I → Finset (Fin n)) (hrep : Represents G S)
+    (a b : Fin k → Fin n) (hedge : ∀ j, G.Adj (a j) (b j))
+    (hmatching : ∀ i j (s t : Bool),
+      G.Adj (if s then a i else b i) (if t then a j else b j) → i = j ∧ s ≠ t) :
+    2 ^ k ≤ Fintype.card I := by
+  apply clause_count_of_independent_selections G S hrep a b hedge
+  intro s hbad
+  obtain ⟨u, v, huv, hu, hv⟩ := hbad
+  have hu' : ∃ i, u = if s i then a i else b i := by
+    simpa only [selection, decide_eq_true_iff] using hu
+  have hv' : ∃ j, v = if s j then a j else b j := by
+    simpa only [selection, decide_eq_true_iff] using hv
+  obtain ⟨i, rfl⟩ := hu'
+  obtain ⟨j, rfl⟩ := hv'
+  obtain ⟨hij, hne⟩ := hmatching i j (s i) (s j) huv
+  subst j
+  exact hne rfl
+
+end FreeClauses
+
 end PEqualNP.Outside.L_meta_1904_aux
