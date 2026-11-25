@@ -1,0 +1,357 @@
+{
+  "created_utc": "2026-11-25T12:06:40.942158+00:00",
+  "scope": "Two additional degree7 Macaulay span probes modulo1000000007; all16 targets fail bounded membership. No characteristic-zero geometric conclusion.",
+  "runs": [
+    {
+      "chart": "rank1-incident",
+      "run": {
+        "chart": "rank1-incident",
+        "degree": 7,
+        "exit": 0,
+        "wall_seconds": 23.305736121001246,
+        "cpu_seconds": 22.078783,
+        "max_rss_kib": 51712
+      },
+      "targets": {
+        "chart": "rank1-incident",
+        "degree": 7,
+        "modulus": 1000000007,
+        "targets": [
+          {
+            "name": "opposite_edge",
+            "power": 1,
+            "in_degree_bounded_span": false,
+            "reduction_steps": 0,
+            "residual_terms": 5,
+            "first_unspanned_monomial": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "opposite_edge",
+            "power": 2,
+            "in_degree_bounded_span": false,
+            "reduction_steps": 0,
+            "residual_terms": 15,
+            "first_unspanned_monomial": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2
+            ]
+          },
+          {
+            "name": "opposite_edge",
+            "power": 3,
+            "in_degree_bounded_span": false,
+            "reduction_steps": 0,
+            "residual_terms": 35,
+            "first_unspanned_monomial": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3
+            ]
+          },
+          {
+            "name": "opposite_edge",
+            "power": 4,
+            "in_degree_bounded_span": false,
+            "reduction_steps": 0,
+            "residual_terms": 70,
+            "first_unspanned_monomial": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              4
+            ]
+          },
+          {
+            "name": "triangle1",
+            "power": 1,
+            "in_degree_bounded_span": false,
+            "reduction_steps": 0,
+            "residual_terms": 1,
+            "first_unspanned_monomial": [
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "triangle1",
+            "power": 2,
+            "in_degree_bounded_span": false,
+            "reduction_steps": 0,
+            "residual_terms": 1,
+            "first_unspanned_monomial": [
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "triangle2",
+            "power": 1,
+            "in_degree_bounded_span": false,
+            "reduction_steps": 0,
+            "residual_terms": 1,
+            "first_unspanned_monomial": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0,
+              0,
+              1
+            ]
+          },
+          {
+            "name": "triangle2",
+            "power": 2,
+            "in_degree_bounded_span": false,
+            "reduction_steps": 0,
+            "residual_terms": 1,
+            "first_unspanned_monomial": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0,
+              0,
+              2
+            ]
+          }
+        ],
+        "original_generator_controls": "PASS",
+        "generator_control_count": 12,
+        "scope": "Modular degree-bounded ideal-membership test only; negative results imply no global nonmembership or geometric conclusion."
+      },
+      "raw_input_sha256": "d77dd137b95ebab9a04b94db3db4273d80507ef7418fae60cec51e8830935570",
+      "compressed_bytes": 1180824
+    },
+    {
+      "chart": "rank1-disjoint",
+      "run": {
+        "chart": "rank1-disjoint",
+        "degree": 7,
+        "exit": 0,
+        "wall_seconds": 33.196372982001776,
+        "cpu_seconds": 31.371299999999998,
+        "max_rss_kib": 58240
+      },
+      "targets": {
+        "chart": "rank1-disjoint",
+        "degree": 7,
+        "modulus": 1000000007,
+        "targets": [
+          {
+            "name": "opposite_edge",
+            "power": 1,
+            "in_degree_bounded_span": false,
+            "reduction_steps": 0,
+            "residual_terms": 1,
+            "first_unspanned_monomial": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "opposite_edge",
+            "power": 2,
+            "in_degree_bounded_span": false,
+            "reduction_steps": 0,
+            "residual_terms": 1,
+            "first_unspanned_monomial": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "opposite_edge",
+            "power": 3,
+            "in_degree_bounded_span": false,
+            "reduction_steps": 0,
+            "residual_terms": 1,
+            "first_unspanned_monomial": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "opposite_edge",
+            "power": 4,
+            "in_degree_bounded_span": false,
+            "reduction_steps": 0,
+            "residual_terms": 1,
+            "first_unspanned_monomial": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              4,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "triangle1",
+            "power": 1,
+            "in_degree_bounded_span": false,
+            "reduction_steps": 0,
+            "residual_terms": 1,
+            "first_unspanned_monomial": [
+              0,
+              0,
+              0,
+              1,
+              0,
+              1,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "triangle1",
+            "power": 2,
+            "in_degree_bounded_span": false,
+            "reduction_steps": 0,
+            "residual_terms": 1,
+            "first_unspanned_monomial": [
+              0,
+              0,
+              0,
+              2,
+              0,
+              2,
+              0,
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "triangle2",
+            "power": 1,
+            "in_degree_bounded_span": false,
+            "reduction_steps": 0,
+            "residual_terms": 5,
+            "first_unspanned_monomial": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2
+            ]
+          },
+          {
+            "name": "triangle2",
+            "power": 2,
+            "in_degree_bounded_span": false,
+            "reduction_steps": 0,
+            "residual_terms": 15,
+            "first_unspanned_monomial": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              4
+            ]
+          }
+        ],
+        "original_generator_controls": "PASS",
+        "generator_control_count": 12,
+        "scope": "Modular degree-bounded ideal-membership test only; negative results imply no global nonmembership or geometric conclusion."
+      },
+      "raw_input_sha256": "c5cb7b63906a7877e5eca6cb4099c566ec0325b1ec5f9ed9807620cbed9c1aa2",
+      "compressed_bytes": 1257460
+    }
+  ],
+  "previous_frozen_manifest": "rankone-macaulay-manifest.json"
+}

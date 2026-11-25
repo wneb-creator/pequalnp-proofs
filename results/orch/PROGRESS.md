@@ -10,7 +10,7 @@ The source is `lean/PEqualNP/Outside/L_gct_231.lean`. All helper declarations ar
 
 - `star_two_dimensional` constructs a two-dimensional example. Its nonzero upper-triangular entries are `(T01,T02,T03) = (a,b,-a-b)`.
 - `hollow_flat_finrank_le_two` bounds every valid hollow subspace by dimension two. Here hollow means that every diagonal entry is zero.
-- `containing_generic_star_line_finrank_le_two` excludes a three-dimensional space containing a generic star direction; its nonzero-parameter hypotheses matter.
+- `containing_nonzero_starMatrix_finrank_le_two` excludes a three-dimensional space containing any nonzero star direction. The basic and exceptional parameter cases are now included, with no generic-parameter restriction.
 - `level_flat_constant_diagonal_zero` says that a valid direction whose diagonal entries are all the same scalar has that scalar zero.
 - The three canonical hollow planes have checked maximality results. The other two families have upper-triangular edge coordinates `(a,a,-2a,0,b,-b)` and `(a,b,-a-b,a-b,-2a-b,a+2b)`, in edge order `(01,02,03,12,13,23)`.
 - Triangle projection coverage, normalized coordinates, a seventeen-case algebraic chart classification, and exact coordinate permutations give a classification sufficient for the complete lower-rank result below.

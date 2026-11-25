@@ -1,0 +1,709 @@
+{
+  "created_utc": "2026-11-25T12:03:51.229578+00:00",
+  "scope": "All32 opposite-edge/triangle-power tests fail membership in their specified degree5/6 Macaulay spans modulo1000000007. These bounded modular negative results imply no global nonmembership or characteristic-zero geometric claim.",
+  "runs": [
+    {
+      "chart": "rank1-incident",
+      "degree": 5,
+      "rows": 1177,
+      "columns": 3003,
+      "run": {
+        "chart": "rank1-incident",
+        "degree": 5,
+        "exit": 0,
+        "wall_seconds": 0.0900722920014232,
+        "cpu_seconds": 0.027372,
+        "max_rss_kib": 42160
+      },
+      "targets": [
+        {
+          "name": "opposite_edge",
+          "power": 1,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 5,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "opposite_edge",
+          "power": 2,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 15,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2
+          ]
+        },
+        {
+          "name": "opposite_edge",
+          "power": 3,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 35,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3
+          ]
+        },
+        {
+          "name": "opposite_edge",
+          "power": 4,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 70,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4
+          ]
+        },
+        {
+          "name": "triangle1",
+          "power": 1,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "triangle1",
+          "power": 2,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "triangle2",
+          "power": 1,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "triangle2",
+          "power": 2,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+          ]
+        }
+      ],
+      "controls": "PASS"
+    },
+    {
+      "chart": "rank1-incident",
+      "degree": 6,
+      "rows": 4477,
+      "columns": 8008,
+      "run": {
+        "chart": "rank1-incident",
+        "degree": 6,
+        "exit": 0,
+        "wall_seconds": 0.7186809140002879,
+        "cpu_seconds": 0.6641469999999999,
+        "max_rss_kib": 43016
+      },
+      "targets": [
+        {
+          "name": "opposite_edge",
+          "power": 1,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 5,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "opposite_edge",
+          "power": 2,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 15,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2
+          ]
+        },
+        {
+          "name": "opposite_edge",
+          "power": 3,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 35,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3
+          ]
+        },
+        {
+          "name": "opposite_edge",
+          "power": 4,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 70,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4
+          ]
+        },
+        {
+          "name": "triangle1",
+          "power": 1,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "triangle1",
+          "power": 2,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "triangle2",
+          "power": 1,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "name": "triangle2",
+          "power": 2,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0,
+            0,
+            2
+          ]
+        }
+      ],
+      "controls": "PASS"
+    },
+    {
+      "chart": "rank1-disjoint",
+      "degree": 5,
+      "rows": 1177,
+      "columns": 3003,
+      "run": {
+        "chart": "rank1-disjoint",
+        "degree": 5,
+        "exit": 0,
+        "wall_seconds": 0.03460448400073801,
+        "cpu_seconds": 0.027590999999999997,
+        "max_rss_kib": 42172
+      },
+      "targets": [
+        {
+          "name": "opposite_edge",
+          "power": 1,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "opposite_edge",
+          "power": 2,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "opposite_edge",
+          "power": 3,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "opposite_edge",
+          "power": 4,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "triangle1",
+          "power": 1,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "triangle1",
+          "power": 2,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            2,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "triangle2",
+          "power": 1,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 5,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2
+          ]
+        },
+        {
+          "name": "triangle2",
+          "power": 2,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 15,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4
+          ]
+        }
+      ],
+      "controls": "PASS"
+    },
+    {
+      "chart": "rank1-disjoint",
+      "degree": 6,
+      "rows": 4477,
+      "columns": 8008,
+      "run": {
+        "chart": "rank1-disjoint",
+        "degree": 6,
+        "exit": 0,
+        "wall_seconds": 0.9198711280005227,
+        "cpu_seconds": 0.8902749999999999,
+        "max_rss_kib": 43004
+      },
+      "targets": [
+        {
+          "name": "opposite_edge",
+          "power": 1,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "opposite_edge",
+          "power": 2,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "opposite_edge",
+          "power": 3,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "opposite_edge",
+          "power": 4,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "triangle1",
+          "power": 1,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "triangle1",
+          "power": 2,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 1,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            2,
+            0,
+            2,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "triangle2",
+          "power": 1,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 5,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2
+          ]
+        },
+        {
+          "name": "triangle2",
+          "power": 2,
+          "in_degree_bounded_span": false,
+          "reduction_steps": 0,
+          "residual_terms": 15,
+          "first_unspanned_monomial": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            4
+          ]
+        }
+      ],
+      "controls": "PASS"
+    }
+  ],
+  "compressed_inputs": [
+    {
+      "file": "rank1-incident-D5.bin.gz",
+      "uncompressed_bytes": 429808,
+      "uncompressed_sha256": "2f26542dd9169bc2807e8f196516dc609c0c7405dfa600c65e74d434cc894dd7",
+      "compressed_bytes": 82236
+    },
+    {
+      "file": "rank1-incident-D6.bin.gz",
+      "uncompressed_bytes": 1770048,
+      "uncompressed_sha256": "84f37f36c2783bb81d52d0211309ac8546faa6ce3501061aea433e241452f192",
+      "compressed_bytes": 341998
+    },
+    {
+      "file": "rank1-disjoint-D5.bin.gz",
+      "uncompressed_bytes": 452512,
+      "uncompressed_sha256": "90f5af1eb07dc4d11617d760615fa59a6dd6b3bda56a54615e94d44dd36bf020",
+      "compressed_bytes": 87756
+    },
+    {
+      "file": "rank1-disjoint-D6.bin.gz",
+      "uncompressed_bytes": 1866672,
+      "uncompressed_sha256": "10cf07572c864dc4a90e5fbe5ca335470a8e890ad191de2f8e1fde7e38e2fc94",
+      "compressed_bytes": 363728
+    }
+  ],
+  "reproduction": "Run rankone_macaulay.py build CHART DEGREE to regenerate the raw matrix, then run mode. Gzip inputs contain every original byte and are hash-verified."
+}

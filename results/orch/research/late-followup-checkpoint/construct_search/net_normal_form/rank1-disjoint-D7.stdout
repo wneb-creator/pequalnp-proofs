@@ -1,0 +1,7 @@
+RANK 12316 CPU 31.360361 RSS_KIB 58240 STORED_NNZ 7133295 REDUCTIONS 1383095
+PIVOT degree=2 count=3
+PIVOT degree=3 count=34
+PIVOT degree=4 count=206
+PIVOT degree=5 count=882
+PIVOT degree=6 count=2973
+PIVOT degree=7 count=8218

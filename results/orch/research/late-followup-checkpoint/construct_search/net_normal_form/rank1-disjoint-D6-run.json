@@ -1,0 +1,8 @@
+{
+  "chart": "rank1-disjoint",
+  "degree": 6,
+  "exit": 0,
+  "wall_seconds": 0.9198711280005227,
+  "cpu_seconds": 0.8902749999999999,
+  "max_rss_kib": 43004
+}

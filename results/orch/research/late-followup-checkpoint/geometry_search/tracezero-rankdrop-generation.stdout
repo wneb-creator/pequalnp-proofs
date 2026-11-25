@@ -1,0 +1,10 @@
+{
+  "status": "GENERATED",
+  "shape": [
+    9,
+    7
+  ],
+  "matrix_terms": 962,
+  "seconds": 0.20654128500063962,
+  "scope": "Necessary first-variation equations for a third direction modulo the given trace-zero two-plane. No division or pivot assumptions: subtract D_W0*A+D_W1*B so D_W0=D_W1=0. The complementary seven coordinates are free. A nonzero extension forces rank(matrix)<=6. If the full three-plane has diagonal rank3, D_W2 is nonzero and may be normalized to1, giving six unknowns andnine affine linear equations. This is necessary, not sufficient, for a permanent-flat extension."
+}

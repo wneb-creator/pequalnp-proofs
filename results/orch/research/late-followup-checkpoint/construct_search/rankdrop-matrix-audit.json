@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS full symbolic direct24-term permanent derivative audit",
+  "entries": 63,
+  "basis_entries": 144,
+  "source_sha256": "9f0d96e48d992eac1df739c8d2f089ef0f76f90e33e4ed35bd2b61a26a97175f",
+  "seconds": 10.182922991998566,
+  "scope": "Exact quotient firstvariation matrix; no claim on its rank locus"
+}

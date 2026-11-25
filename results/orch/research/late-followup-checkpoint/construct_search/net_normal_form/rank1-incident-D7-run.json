@@ -1,0 +1,8 @@
+{
+  "chart": "rank1-incident",
+  "degree": 7,
+  "exit": 0,
+  "wall_seconds": 23.305736121001246,
+  "cpu_seconds": 22.078783,
+  "max_rss_kib": 51712
+}

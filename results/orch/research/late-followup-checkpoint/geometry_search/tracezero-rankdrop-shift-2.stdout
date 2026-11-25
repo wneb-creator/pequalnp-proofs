@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "variables": [
+    "p0",
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
+    "b0",
+    "b1",
+    "b2",
+    "b3",
+    "k",
+    "l"
+  ],
+  "base_coordinate_change": "Old P=New R+3D; variable identifiers p0..p5 now denote R coefficients. Inverse verified exactly.",
+  "extension_coordinate_change": "Old P_W2=New R_W2+3D_W2; D_W2 normalized1. Other extension P slots unchanged.",
+  "old_flat_terms": [
+    8,
+    8,
+    8,
+    9,
+    23,
+    23,
+    9,
+    56,
+    128,
+    180,
+    128,
+    56
+  ],
+  "new_flat_terms": [
+    10,
+    12,
+    10,
+    7,
+    17,
+    17,
+    7,
+    45,
+    100,
+    138,
+    100,
+    45
+  ],
+  "old_matrix_terms": 962,
+  "new_matrix_terms": 800,
+  "seconds": 2.5462537280000106
+}

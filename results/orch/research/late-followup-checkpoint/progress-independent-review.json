@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "reviewer": "status_review",
+  "reviewed_utc": "2026-11-25T12:08:47.498666+00:00",
+  "source": "/workspace/pequalnp-proofs/results/orch/PROGRESS.md",
+  "sha256": "0266ce41c51c1bea6641d3aaaa26748cf0c89e3bf491e6e3da81471e7c4cb2ed",
+  "scope": "Mathematical scope and fidelity to current checked Lean helper statements",
+  "findings": [
+    "Correctly states that the posted statement is neither proved nor refuted and no full checker verdict exists.",
+    "The all-star statement now matches containing_nonzero_starMatrix_finrank_le_two without generic parameter restrictions; the basic and exceptional cases are checked.",
+    "Both complete lower-rank theorem statements match checked Lean code; unresolved diagonal-image ranks remain two and three.",
+    "The degree-sixteen trace-zero nonhollow two-plane is supported by the independent permanent-residue audit and is explicitly limited to refuting an auxiliary shortcut, not the posted three-dimensional statement.",
+    "External exact CAS, bounded modular dual and numerical evidence remain distinguished from Lean theorems and global conclusions.",
+    "Branch-only research is clearly separated from the eventual single-file PR diff."
+  ],
+  "limitations": "This scope audit did not rerun every external CAS computation or the checker smoke.",
+  "previous_review_sha256": "a5363d77a59c0e042e1eb8c19fa36a2d7b44d58aaf391d4cbcdb9a49f2c8812b",
+  "auxiliary_reference": "geometry_search/rowzero/parent-star-tracezero-independent-audit.json"
+}

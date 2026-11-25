@@ -1,0 +1,1 @@
+{"verdict": "PASS independent full Ryser symbolic audit", "coefficients": 31, "linear_coefficients": 3, "source_sha256": "bace3d725a70b6b512b262dc2c8664519d75ab956adf24fad4d38038a54c6c52", "seconds": 16.77773154500028, "scope": "Exact shifted rank3 chart equations only; no feasibility verdict"}

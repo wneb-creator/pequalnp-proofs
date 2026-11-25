@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "exact_polynomial_coefficients_checked": 12,
+  "method": "Independent full24-term permanent expansion using sparse polynomial arithmetic overQQ, no reliance on source Hadamard permanent formulas",
+  "symmetry_trace_tangent": true,
+  "diagonal_map": "diag(T)=(D0+D1+D2,D0-D1-D2,-D0+D1-D2,-D0-D1+D2)/2",
+  "coverage": "Diagonal-image rank2 is equivalent toD-image rank2. Some pair ofDcoordinate restrictions is independent. TheS4 action contains permutations ofallthreeDaxes; sucha permutation andbasisnormalization giveD=(s,t,k*s+l*t). Thus thischart coversall diagonal-rank2tracezero2planes up tosimultaneousvertexpermutation.",
+  "seconds": 0.5501354099997116
+}

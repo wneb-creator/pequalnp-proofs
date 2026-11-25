@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "full_sha256": "defd6e8b45a442a4f20cce782ec639722c2ea94cf37b73786f3dd30df1f606a2",
+  "body_sha256": "9b392d78be0fbe27ca867aa483eae353b8ace3c80fede34060c9847f347640b1",
+  "scope": "From the displayed two-parameter permanent identity with v0=1,w0=0, proves w=0; no missing independence or nonzero assumptions.",
+  "checks": [
+    "Affine evaluation z=-1 kills actual a; suitable h kills b orc and gives0=24.",
+    "Pure kernel linear andquadratic coefficients independently expanded.",
+    "Case w4=0 forcesw3=w5=0 withoutdivision.",
+    "Case w4 nonzero givesr=w3/w4+1,r\u00b2=2 andnormalized coefficients; calls previously audited normalized contradiction.",
+    "No sourceformat orcircularity concerns."
+  ]
+}

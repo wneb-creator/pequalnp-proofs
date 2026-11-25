@@ -1,0 +1,7 @@
+{
+  "verdict": "PASS independent forward/inverse symbolic substitution",
+  "flat_generators": 12,
+  "matrix_entries": 63,
+  "source_sha256": "5a591213eff5d830ecaef80497310d9be0122e9060aa39909382276929e8bcf6",
+  "seconds": 2.106713076998858
+}

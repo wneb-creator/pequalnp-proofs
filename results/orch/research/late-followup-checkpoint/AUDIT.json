@@ -1,0 +1,9 @@
+{
+  "reviewer": "status_review",
+  "utc": "2026-11-25T12:07:57.816602+00:00",
+  "verdict": "PASS",
+  "hash_size_mismatches": 0,
+  "sensitive_values_detected": 0,
+  "scope": "Partial exact derivations plus bounded inconclusive/negative computational evidence; no global claim.",
+  "compressed_content": "Complete decompression validated and decoded byte hashes recorded; original compressed bytes retained."
+}

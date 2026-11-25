@@ -1,0 +1,361 @@
+{
+  "created_utc": "2026-11-25T12:04:01.078901+00:00",
+  "scope": "Frozen completed quotient-matrix and full31-generator derivations with independent audits; stopped classification output is explicitly INCONCLUSIVE. Pivot-open formulas are conditional, numerical nonzero checks are not coverage proofs. The active incidence slimgb logs and ongoing rank-deficient-stratum work are excluded. No full L-gct-231 result.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/audit_rankdrop_full31.py",
+      "relative_path": "construct_search/audit_rankdrop_full31.py",
+      "bytes": 2161,
+      "sha256": "3825d4bab431c8e399d3e56323495af551cc4b0e7601e859e78240506135d867"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/audit_rankdrop_matrix.py",
+      "relative_path": "construct_search/audit_rankdrop_matrix.py",
+      "bytes": 2352,
+      "sha256": "a867fa6e1b265137569bf8098d78627fed0d1ee4aba24507cb28161b52775fdb"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/audit_rankdrop_shift.py",
+      "relative_path": "construct_search/audit_rankdrop_shift.py",
+      "bytes": 1506,
+      "sha256": "a6c7b2645f8fc5fac3062c3bda1c43163662d3f32ac9c95d769de4d262bd8022"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/rankdrop-full31-audit.json",
+      "relative_path": "construct_search/rankdrop-full31-audit.json",
+      "bytes": 310,
+      "sha256": "77f1f6eb402b8d2afdfd077dedfb179b171d33274c8dc6207b7a8ba4bdb9ef99"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/rankdrop-full31-audit.stderr",
+      "relative_path": "construct_search/rankdrop-full31-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/rankdrop-full31-audit.stdout",
+      "relative_path": "construct_search/rankdrop-full31-audit.stdout",
+      "bytes": 296,
+      "sha256": "75d6fd21034e9665ccf853fae8825d4e85c3f875e9d42e48925ece0b46a7da3c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/rankdrop-matrix-audit.json",
+      "relative_path": "construct_search/rankdrop-matrix-audit.json",
+      "bytes": 319,
+      "sha256": "5b50579d9328afb601d69d8a34721fb8b751b6b718b9cff376bfc687c616a435"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/rankdrop-matrix-audit.stderr",
+      "relative_path": "construct_search/rankdrop-matrix-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/rankdrop-matrix-audit.stdout",
+      "relative_path": "construct_search/rankdrop-matrix-audit.stdout",
+      "bytes": 305,
+      "sha256": "7d5315a8c775e2442dbfa171079570cf2c97caa41631ff99c9b6eef260f65bc4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/rankdrop-shift-audit.json",
+      "relative_path": "construct_search/rankdrop-shift-audit.json",
+      "bytes": 242,
+      "sha256": "cf4b95ab940b49e7fdec267b35c40b641748a00471edfd851461fc35fe3630dd"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/rankdrop-shift-audit.stderr",
+      "relative_path": "construct_search/rankdrop-shift-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/rankdrop-shift-audit.stdout",
+      "relative_path": "construct_search/rankdrop-shift-audit.stdout",
+      "bytes": 230,
+      "sha256": "ad2c113019279a43161466edb649522894fe260b9160691bc69f56e852d63428"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/audit_basic_star_normalized.py",
+      "relative_path": "geometry_search/audit_basic_star_normalized.py",
+      "bytes": 2513,
+      "sha256": "b7694386ffb0c237cde5406bc63e817911c541c93be36a12e096d9e33511f182"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/audit_tracezero_hadamard.py",
+      "relative_path": "geometry_search/audit_tracezero_hadamard.py",
+      "bytes": 2785,
+      "sha256": "cc86185f79f10b9db31022c5989a8a726c1ef83103143615ac289dc0c6c25ff3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/basic-star-kernel-independent-audit.json",
+      "relative_path": "geometry_search/basic-star-kernel-independent-audit.json",
+      "bytes": 735,
+      "sha256": "56dfab61bc0e15dc2abe91ff8a1bb1daebe023f6f49e33d93f884130c0510f52"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/basic-star-normalized-independent-audit.json",
+      "relative_path": "geometry_search/basic-star-normalized-independent-audit.json",
+      "bytes": 748,
+      "sha256": "af00d9942464b09f8021f5e0ee6dbe30e1f30532d9a2838ba3cd758419e6e064"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/basic-star-normalized-independent-audit.stderr",
+      "relative_path": "geometry_search/basic-star-normalized-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/basic-star-normalized-independent-audit.stdout",
+      "relative_path": "geometry_search/basic-star-normalized-independent-audit.stdout",
+      "bytes": 748,
+      "sha256": "af00d9942464b09f8021f5e0ee6dbe30e1f30532d9a2838ba3cd758419e6e064"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/generate_tracezero_full31.py",
+      "relative_path": "geometry_search/generate_tracezero_full31.py",
+      "bytes": 3762,
+      "sha256": "cff34834fdf5d8b7a41d7691e816b6ce496a93f01adcae6169197141b60790cb"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/generate_tracezero_rankdrop.py",
+      "relative_path": "geometry_search/generate_tracezero_rankdrop.py",
+      "bytes": 3882,
+      "sha256": "1b9c5042df2314e3a82ef81bdb8f32547b2213c3b00a92beb5a2e90026f5e68c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/integration-2629-audit.json",
+      "relative_path": "geometry_search/integration-2629-audit.json",
+      "bytes": 635,
+      "sha256": "b3227128e666e5379b7cfb47d2e2706b8f8b7bf8d20251225db58fcbad96d9aa"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-rankdrop-delta-numeric.json",
+      "relative_path": "geometry_search/rowzero/trace-rankdrop-delta-numeric.json",
+      "bytes": 128842,
+      "sha256": "df9a3e6e4ab9ad8127daf50c40f30d024a7c50878c129e8d321e0a890c14a90a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-rankdrop-delta-numeric.stderr",
+      "relative_path": "geometry_search/rowzero/trace-rankdrop-delta-numeric.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-rankdrop-delta-numeric.stdout",
+      "relative_path": "geometry_search/rowzero/trace-rankdrop-delta-numeric.stdout",
+      "bytes": 4070,
+      "sha256": "c626f6fcdd7007e8d5e40af99c64664a8e76100240cb14929df3bcaf05b5e3c7"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-rankdrop-shifted-pivots.json",
+      "relative_path": "geometry_search/rowzero/trace-rankdrop-shifted-pivots.json",
+      "bytes": 359998,
+      "sha256": "f0fd8799956e1c38f682d36179456e184a70215eb3d633f3be10e9273185a679"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-rankdrop-shifted-pivots.stderr",
+      "relative_path": "geometry_search/rowzero/trace-rankdrop-shifted-pivots.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-rankdrop-shifted-pivots.stdout",
+      "relative_path": "geometry_search/rowzero/trace-rankdrop-shifted-pivots.stdout",
+      "bytes": 790,
+      "sha256": "960d0dd85237cac788635f679784c5f9742ca16e03c754a160db524028889fc2"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-rankdrop-small-pivots.json",
+      "relative_path": "geometry_search/rowzero/trace-rankdrop-small-pivots.json",
+      "bytes": 394689,
+      "sha256": "1e46e2efd5171d0c23341b4cf5d7df58bbbabf55fc20b116ee742d9ef9e9bf2e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-rankdrop-small-pivots.stderr",
+      "relative_path": "geometry_search/rowzero/trace-rankdrop-small-pivots.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-rankdrop-small-pivots.stdout",
+      "relative_path": "geometry_search/rowzero/trace-rankdrop-small-pivots.stdout",
+      "bytes": 789,
+      "sha256": "f19a86414f4ba05b3c2525091d962fb52ec01a7529f01760418a4a845cdb5d3c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-rankdrop-two-stage.md",
+      "relative_path": "geometry_search/rowzero/trace-rankdrop-two-stage.md",
+      "bytes": 2192,
+      "sha256": "df319bdd58fb39aa6c7851072049f708455e9e7e9d29d3eb89811ea16ed37a97"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace_rankdrop_delta_numeric.py",
+      "relative_path": "geometry_search/rowzero/trace_rankdrop_delta_numeric.py",
+      "bytes": 2432,
+      "sha256": "c9c6b8a1817d6ec83d1b107e917af68807d40bbc2aa9137f983eb275394e081b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace_rankdrop_small_pivots.py",
+      "relative_path": "geometry_search/rowzero/trace_rankdrop_small_pivots.py",
+      "bytes": 3631,
+      "sha256": "6787d636e85712f0e4b6fdd49fda23618858f45bcccdbc9ff79d2cf7e2140dd7"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/run_tracezero_hadamard_q.py",
+      "relative_path": "geometry_search/run_tracezero_hadamard_q.py",
+      "bytes": 2184,
+      "sha256": "7fa17631cdb2a0c86f3f2054c52cd2283209b3b368787e14b372fa8fa391c913"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/run_tracezero_rankdrop.py",
+      "relative_path": "geometry_search/run_tracezero_rankdrop.py",
+      "bytes": 2428,
+      "sha256": "a128ebf0a6ddc428e2f9c13ec173d974d9eec48ef276c5f43b205648c781aa96"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/shift_tracezero_rankdrop.py",
+      "relative_path": "geometry_search/shift_tracezero_rankdrop.py",
+      "bytes": 2446,
+      "sha256": "ab987536ddeb4961253bb94555ff7421c29737abdd5f8a3f0584e033f2e9fa60"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero-full31-generation.stderr",
+      "relative_path": "geometry_search/tracezero-full31-generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero-full31-generation.stdout",
+      "relative_path": "geometry_search/tracezero-full31-generation.stdout",
+      "bytes": 2568,
+      "sha256": "174ba027a6a01429d616382121e9839fe769d1d42ed858330884c0d051350e1c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero-rankdrop-generation.stderr",
+      "relative_path": "geometry_search/tracezero-rankdrop-generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero-rankdrop-generation.stdout",
+      "relative_path": "geometry_search/tracezero-rankdrop-generation.stdout",
+      "bytes": 597,
+      "sha256": "0d09604500bf4f0c163fa4214497721a6c2bd8695b0dcda945e617b6b00ec416"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero-rankdrop-shift-2.stderr",
+      "relative_path": "geometry_search/tracezero-rankdrop-shift-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero-rankdrop-shift-2.stdout",
+      "relative_path": "geometry_search/tracezero-rankdrop-shift-2.stdout",
+      "bytes": 734,
+      "sha256": "4e5866b5a0307b75e651802ea3ec971f212d3b4b0235f1d63d391459fc704bb3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero-rankdrop-shift.stderr",
+      "relative_path": "geometry_search/tracezero-rankdrop-shift.stderr",
+      "bytes": 1198,
+      "sha256": "c3b366158fa1ec4d5f4bfdb761970e7781b7df5af4254b1a36e7a234bfc3be12"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero-rankdrop-shift.stdout",
+      "relative_path": "geometry_search/tracezero-rankdrop-shift.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_hadamard_q/driver.stderr",
+      "relative_path": "geometry_search/tracezero_hadamard_q/driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_hadamard_q/driver.stdout",
+      "relative_path": "geometry_search/tracezero_hadamard_q/driver.stdout",
+      "bytes": 480,
+      "sha256": "4a3d111a04fe304c28ea03672f9ed69c0a7c226503bf1bcb8e28bb7b19b5eed4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_hadamard_q/hadamard-rank2-Q-std.result.json",
+      "relative_path": "geometry_search/tracezero_hadamard_q/hadamard-rank2-Q-std.result.json",
+      "bytes": 763,
+      "sha256": "73f70a0060e5b6b4f5ee5bb2e52c734dcebd4e533d80495fb4b6fb965adc2ce8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_hadamard_q/hadamard-rank2-Q-std.sing",
+      "relative_path": "geometry_search/tracezero_hadamard_q/hadamard-rank2-Q-std.sing",
+      "bytes": 8233,
+      "sha256": "121f7e766b4eaa1ffa74e95c15156c0fe7216a964f28f847787b903c371982f1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_hadamard_q/hadamard-rank2-Q-std.stderr",
+      "relative_path": "geometry_search/tracezero_hadamard_q/hadamard-rank2-Q-std.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_hadamard_q/hadamard-rank2-Q-std.stdout.zst",
+      "relative_path": "geometry_search/tracezero_hadamard_q/hadamard-rank2-Q-std.stdout.zst",
+      "bytes": 5181,
+      "sha256": "136a9a0a19470f6fd7e9db9de6b47c845498fd0ec23d5c48af0da482a701d10b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_hadamard_q/independent-chart-audit.json",
+      "relative_path": "geometry_search/tracezero_hadamard_q/independent-chart-audit.json",
+      "bytes": 687,
+      "sha256": "6fdd3a5a989bcc3336820f78613b5a5063c1935457c0af83efba2c393557d1d9"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_hadamard_q/independent-chart-audit.stderr",
+      "relative_path": "geometry_search/tracezero_hadamard_q/independent-chart-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_hadamard_q/independent-chart-audit.stdout",
+      "relative_path": "geometry_search/tracezero_hadamard_q/independent-chart-audit.stdout",
+      "bytes": 687,
+      "sha256": "6fdd3a5a989bcc3336820f78613b5a5063c1935457c0af83efba2c393557d1d9"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_rankdrop/full31-shifted.json",
+      "relative_path": "geometry_search/tracezero_rankdrop/full31-shifted.json",
+      "bytes": 32849,
+      "sha256": "bace3d725a70b6b512b262dc2c8664519d75ab956adf24fad4d38038a54c6c52"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_rankdrop/matrix.json",
+      "relative_path": "geometry_search/tracezero_rankdrop/matrix.json",
+      "bytes": 15903,
+      "sha256": "9f0d96e48d992eac1df739c8d2f089ef0f76f90e33e4ed35bd2b61a26a97175f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_rankdrop/rank3-full31-shifted-Q.sing",
+      "relative_path": "geometry_search/tracezero_rankdrop/rank3-full31-shifted-Q.sing",
+      "bytes": 29142,
+      "sha256": "bf8119510789e5e33bc7df9ff6fbcbb404ebd010ee7502a649749a1f13499a22"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_rankdrop/rank3-incidence-Q.sing",
+      "relative_path": "geometry_search/tracezero_rankdrop/rank3-incidence-Q.sing",
+      "bytes": 18033,
+      "sha256": "ca5f60822d2c55beb8d9f9e327558fe5cc66913e0309fc7dcea8b7cfe1d88570"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_rankdrop/rank3-incidence-shifted-Q.sing",
+      "relative_path": "geometry_search/tracezero_rankdrop/rank3-incidence-shifted-Q.sing",
+      "bytes": 14841,
+      "sha256": "85d52041912f9a77a4a940ddc26c3efc6d787d85506391eba8245090d181ca16"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_rankdrop/shifted-matrix.json",
+      "relative_path": "geometry_search/tracezero_rankdrop/shifted-matrix.json",
+      "bytes": 16539,
+      "sha256": "5a591213eff5d830ecaef80497310d9be0122e9060aa39909382276929e8bcf6"
+    }
+  ],
+  "total_bytes": 1076455
+}

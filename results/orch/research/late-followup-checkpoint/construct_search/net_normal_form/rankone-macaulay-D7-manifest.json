@@ -1,0 +1,96 @@
+{
+  "created_utc": "2026-11-25T12:06:40.942158+00:00",
+  "scope": "Two additional degree7 Macaulay span probes modulo1000000007; all16 targets fail bounded membership. No characteristic-zero geometric conclusion.",
+  "files": [
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D7-degrees.bin",
+      "bytes": 77792,
+      "sha256": "8f0693a5fff9af7ed33e8d7f943fb66c78e40d4dc23fce191603c77586980a02"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D7-echelon.jsonl",
+      "bytes": 117352,
+      "sha256": "49d0f1aa6570ba9c3bafe6d53efe8e644305c7f31f95986e9794b8c3d676a4db"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D7-metadata.json",
+      "bytes": 435461,
+      "sha256": "4b61db487053d882f75963cfa4a105cf407ed6f45dd0edc0c3c80ea968aeb24d"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D7-run.json",
+      "bytes": 159,
+      "sha256": "20d7dcc46da94ba9203f17f6ebc0468132ddd06ba1a64014caa5e7c2677c4a11"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D7-targets.json",
+      "bytes": 2759,
+      "sha256": "727d831ff146a77da8176aea61e7abee2bd18c91e4a06acdc9f2b7803a8614cc"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D7.bin.gz",
+      "bytes": 1257460,
+      "sha256": "9f4af3fe42072c75a0e52cb3367c96e80b3719c267c15e3cdbfa44ddb1e0fe49"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D7.stderr",
+      "bytes": 1501,
+      "sha256": "80d8efb4d55ce12429970165275b26243072d8e709094d3494bf0edbf0cf5467"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D7.stdout",
+      "bytes": 226,
+      "sha256": "84073ec3416d1e4c1309379e3a2a0ee9026551ecba5bfb0753e78703ace306b1"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D7-degrees.bin",
+      "bytes": 77792,
+      "sha256": "8f0693a5fff9af7ed33e8d7f943fb66c78e40d4dc23fce191603c77586980a02"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D7-echelon.jsonl",
+      "bytes": 96036,
+      "sha256": "31f9110a4fc5f007a469c8c7cc695022ce86c0e6212fc2bce83cf56f4577a706"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D7-metadata.json",
+      "bytes": 435258,
+      "sha256": "315537fd9c9b17b90dd2d9631b2ae93c51d76ee019c14759e5c3f47209ff2389"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D7-run.json",
+      "bytes": 150,
+      "sha256": "c9ef52807c127823956fe13903b1812d2253307970eeea3b2ad6bb36e4b4ec99"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D7-targets.json",
+      "bytes": 2761,
+      "sha256": "a51778b74a9e76dbedfa6d227de4775e43b5df7dfe54318a77dc6624d23283d7"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D7.bin.gz",
+      "bytes": 1180824,
+      "sha256": "6f2a717efd74b769aea6ab3f73c619efe0f53e512b26d84605bcfd7b1e135bde"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D7.stderr",
+      "bytes": 1495,
+      "sha256": "f87a42e9e362223e455eb970eb914689a6610771c6c566f6acac2a67c5471b1d"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D7.stdout",
+      "bytes": 226,
+      "sha256": "cc3114402115cf0a0b456448e400c55dfa27cf09b81a2b5561df3755a8324cab"
+    },
+    {
+      "path": "construct_search/net_normal_form/rankone-macaulay-D7-summary.json",
+      "bytes": 8553,
+      "sha256": "25c807cadac98bf2aa77434f37ed20a30d65b5d9ef530fe4fa5b535d7f73d96f"
+    },
+    {
+      "path": "construct_search/net_normal_form/rankone_macaulay.py",
+      "bytes": 6640,
+      "sha256": "f5c830333e824e5968b97a59f218d0e0c94eb7e9b71d55fbed64cbd168507197"
+    }
+  ]
+}

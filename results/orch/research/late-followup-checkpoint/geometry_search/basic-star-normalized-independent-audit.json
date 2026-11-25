@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "component_sha256": "7b71d0d3613dc24e136e596c6437da00025b2c9fa806b65b3733e6c0e85b4279",
+  "body_sha256": "2603aa184449f490e8a71cbd7f6538382e5a880e51c7a96192a8d7dec14511a1",
+  "checks": {
+    "q1": true,
+    "l1": true,
+    "q2": true,
+    "l2": true,
+    "q3": true,
+    "l3": true,
+    "linear_constraints_solve_D_F": true,
+    "split_identity": true,
+    "equal_bezout": true,
+    "other_bezout": true
+  },
+  "statement_scope": "Excludes only the displayed normalized duplicate-row pair with r^2=2. General subspace normalization is separate.",
+  "source_review": "No implicit extra hypotheses, circular target use, forbidden declarations or string literals; exact permanent formula independently verified from24terms."
+}

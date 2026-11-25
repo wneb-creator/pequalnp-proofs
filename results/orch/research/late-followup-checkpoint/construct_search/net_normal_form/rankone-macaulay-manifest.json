@@ -1,0 +1,226 @@
+{
+  "created_utc": "2026-11-25T12:03:51.229578+00:00",
+  "scope": "All32 opposite-edge/triangle-power tests fail membership in their specified degree5/6 Macaulay spans modulo1000000007. These bounded modular negative results imply no global nonmembership or characteristic-zero geometric claim.",
+  "files": [
+    {
+      "path": "construct_search/net_normal_form/rankone_macaulay.py",
+      "bytes": 6640,
+      "sha256": "f5c830333e824e5968b97a59f218d0e0c94eb7e9b71d55fbed64cbd168507197"
+    },
+    {
+      "path": "construct_search/net_normal_form/rankone-macaulay-summary.json",
+      "bytes": 15156,
+      "sha256": "1fd6ff3455a5cc69ea9d7f00cc0a583a2381e4bcae9f6572c84bf6039d84fef3"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D5-control.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D5-control.stdout",
+      "bytes": 1667,
+      "sha256": "c16585404fdcfd83005cdccc96a92bba4f276aa42d8dbec8b3a74dbfc5159245"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D5-degrees.bin",
+      "bytes": 12012,
+      "sha256": "4814bb97c0421cd7a21754bbcb66439c97b90562cc173ef9260ee19d0b60f3fa"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D5-echelon.jsonl",
+      "bytes": 117352,
+      "sha256": "49d0f1aa6570ba9c3bafe6d53efe8e644305c7f31f95986e9794b8c3d676a4db"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D5-metadata.json",
+      "bytes": 73667,
+      "sha256": "7667009a7af5be499982cdd8ffcb2c81da4264fcf60702a0e8c6f0dbd9e1c966"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D5-run.json",
+      "bytes": 162,
+      "sha256": "a7b2eb83d3c08d522fca636f87ac34d379bbd2d326ac6148081add4957447944"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D5-targets.json",
+      "bytes": 2759,
+      "sha256": "1857385a023a19de8249bf8d713fd4475347af188e593e24220b22609e99749d"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D5.bin.gz",
+      "bytes": 87756,
+      "sha256": "0047415e38d175a6d606380867de7eac6932d5b3857acde9db34009ba5332b84"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D5.stderr",
+      "bytes": 100,
+      "sha256": "d8d6bafc4e48ad2f03f40445deacc7cce037fa3f9d76c7e022cbaeab8b3832af"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D5.stdout",
+      "bytes": 167,
+      "sha256": "87e0d53aebc9890b9573d5b9bf64d3db96e3d4c1ddd21f56e84d79f07d33ae21"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D5-control.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D5-control.stdout",
+      "bytes": 1669,
+      "sha256": "e09f515feeb194403d671ccbc2e46e5e09f6d274dbdb08ce0cd37d0c154bee8d"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D5-degrees.bin",
+      "bytes": 12012,
+      "sha256": "4814bb97c0421cd7a21754bbcb66439c97b90562cc173ef9260ee19d0b60f3fa"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D5-echelon.jsonl",
+      "bytes": 96036,
+      "sha256": "31f9110a4fc5f007a469c8c7cc695022ce86c0e6212fc2bce83cf56f4577a706"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D5-metadata.json",
+      "bytes": 73464,
+      "sha256": "09acd6667c14577654dbcaab485465927f1f52422c61f5db333c869f2d21dfa3"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D5-run.json",
+      "bytes": 149,
+      "sha256": "b0cd21f277f847b93f42889694b626d365d5ee84668e4b8bfe92e17a141111d0"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D5-targets.json",
+      "bytes": 2761,
+      "sha256": "75f430b698353d27cd64140665a96136beb2ace83c8c89e86721821f12d02b2c"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D5.bin.gz",
+      "bytes": 82236,
+      "sha256": "20969d215e99a58522f1999074f81d27d20f9f31f1d7894095dcb95e06dd63b4"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D5.stderr",
+      "bytes": 100,
+      "sha256": "5fd3d16986c43fa8a34b101223222c8d7fc11315d31450edf50e59ff5ca84c50"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D5.stdout",
+      "bytes": 167,
+      "sha256": "15bfebd4b5d7d0f663d127eafe69afef84ee0db9b9b4b7dcacab9d03ad7105a6"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D6-control.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D6-control.stdout",
+      "bytes": 1667,
+      "sha256": "d47781e69667e484eefd37eb5c19042abb3b62be7903b628a54050a288a93c24"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D6-degrees.bin",
+      "bytes": 32032,
+      "sha256": "4ffa4871a90ea7845636d2ea92b36223ec9c15ffde461a96424f6928c3f74407"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D6-echelon.jsonl",
+      "bytes": 117352,
+      "sha256": "49d0f1aa6570ba9c3bafe6d53efe8e644305c7f31f95986e9794b8c3d676a4db"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D6-metadata.json",
+      "bytes": 183779,
+      "sha256": "b5d48967f738ff4ee5b194ee5d681d045ac4ba04557558a162477165fd07bee5"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D6-run.json",
+      "bytes": 159,
+      "sha256": "0e8946d072a2631e0ef47102ecdc0da26d6f9c4c0f761dfd6c3ff16c2697b073"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D6-targets.json",
+      "bytes": 2759,
+      "sha256": "7d6f711d2232b88dc993f04c91f0e263108cb40d607aaf5315ca28a27f61be81"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D6.bin.gz",
+      "bytes": 363728,
+      "sha256": "dc860df9532b1aefb73799cd459c4ec4335c44ee0d9e0efbc5c8d2769895015a"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D6.stderr",
+      "bytes": 415,
+      "sha256": "a22a1c4032f540bbf5ef5929377e9a78beeb03d7adc8c2f2974dac94e8370c9d"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-disjoint-D6.stdout",
+      "bytes": 195,
+      "sha256": "8fe651d46cffa0eae3b09a0166e5c181bcb2a248141a726356eeadbddc2daae8"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D6-control.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D6-control.stdout",
+      "bytes": 1669,
+      "sha256": "c65345bb1b4996bd59c0aab295e18ea5dec6d50818d50b7e9e727f469abe63b7"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D6-degrees.bin",
+      "bytes": 32032,
+      "sha256": "4ffa4871a90ea7845636d2ea92b36223ec9c15ffde461a96424f6928c3f74407"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D6-echelon.jsonl",
+      "bytes": 96036,
+      "sha256": "31f9110a4fc5f007a469c8c7cc695022ce86c0e6212fc2bce83cf56f4577a706"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D6-metadata.json",
+      "bytes": 183576,
+      "sha256": "a200cf25e81f534813ee638601d43bce9a1c275511062675002c5bdbf8beaa4f"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D6-run.json",
+      "bytes": 159,
+      "sha256": "07577f82486c5f328f4b9ff32b851ee9cb5e88c596388553e1f065bf34a3c42f"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D6-targets.json",
+      "bytes": 2761,
+      "sha256": "dfc7f9a05d44c0b404a0f743b33a4bd73399b26757aa058637dafa6897bcf433"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D6.bin.gz",
+      "bytes": 341998,
+      "sha256": "503e8f337ec25bfc512144dabe3537a4c148f7f802f6c844905deb8283efba5c"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D6.stderr",
+      "bytes": 415,
+      "sha256": "810da1e87599968ef392152eab00f78f913c828f08377d7ecd757ed258681c72"
+    },
+    {
+      "path": "construct_search/net_normal_form/rank1-incident-D6.stdout",
+      "bytes": 195,
+      "sha256": "8717fbe747afe95b787b7a7ee427f6a9d131e27c551086f3ff8a8a0e963ce2c8"
+    },
+    {
+      "path": "numeric/s4-structure/graded-sparse.cpp",
+      "bytes": 3162,
+      "sha256": "45f4bf6e7b327d900090fbb91d46f65389c5573ebd91ba9299d8ec9240f36ff1"
+    },
+    {
+      "path": "geometry_search/tracezero/charts-manifest.json",
+      "bytes": 33956,
+      "sha256": "9cf0dfb7f25731df21ccf339ce106bda41d1f38bfa48a3a159da4b1ccadbf296"
+    }
+  ]
+}

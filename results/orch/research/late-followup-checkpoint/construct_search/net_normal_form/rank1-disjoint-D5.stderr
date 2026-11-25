@@ -1,0 +1,2 @@
+input_row=500 rank=490 stored_nnz=7703 cpu=0.000
+input_row=1000 rank=961 stored_nnz=52096 cpu=0.008
