@@ -6,3 +6,7 @@ Independent review:PASS for component preservation.
 No Petersen theorem or checker acceptance yet.
 Sub-agents:7 total; status review, ReadK, library route, counterexample, normal forms, toolchain, delegated gate-count theory.
 TIMING total=26.57 subagents=7
+
+readk_bound.lean: compiled exit0; proves≥20 under extra AO2 and ReadK1 assumptions. Independent reviewPASS.
+Named L_meta_2590.lean:46lines; lake build passed18423jobs; only partition and conditional contradiction lemmas, no posted theorem.
+False route abandoned: unconditional OR≥14 disproved by computationally verified20gate13OR+7AND witness.
