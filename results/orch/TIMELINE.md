@@ -10,3 +10,7 @@
 2026-11-25T13:58:52.690755+00:00: third partial checkpoint independently reviewed; immutable source hashes verified.
 2026-11-25T13:58:58.964689+00:00: firstessential1NOT SAT orbit69 ended UNKNOWN; launched fullrow2NOT case.
 2026-11-25T14:00:48.320086+00:00: constant-false input deletion infrastructure compiled and independently reviewed.
+2026-11-25T14:02:14.770921+00:00: structural agent finished checked two-NOT output cancellation, Petersen pair automorphisms, and generic circuit relabeling.
+
+2026-11-25T14:03:21.879010+00:00: stopped fullrow4NOT SAT after root identified acceptedL_meta_6581 proving≥16nonNOTgates for Petersen. Thus4NOT+15binary already impossible by existing proof; solver interruption itself has no logical verdict. Focus now1NOT18binary and2NOT17binary signedsource encodings.
+2026-11-25T14:04:13.517097+00:00: first-binary bridge, symmetry, free-OR floor and strict OR-suffix reduction compiled and reviewed.

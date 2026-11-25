@@ -19,3 +19,7 @@ Main theorem remains unsolved; no exact-statement checker acceptance.
 Fourth checkpoint: LibraryOrReduction compiled, exit 0. Independent one_not_route review PASS for source SHA adb68b061f82307cd55ff8acc1c7e10b380249853cecbdc9fa45a583b04588ca.
 Additional independent source and axiom logs archived for earlier structural partials.
 Main theorem remains unsolved.
+
+Fifth checkpoint: all five new source snapshots compiled exit 0.
+FewNot independently reviewed by root and one_not_route; permutation files by library_route; FirstBinary by structural_proof; LibraryOrWitness by root (unchanged reviewed prefix plus final witness wrapper).
+FirstBinary is conditional on the remaining pair-support bound; no full-gap proof or exact-statement acceptance.
