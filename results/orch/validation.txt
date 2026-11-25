@@ -1,9 +1,13 @@
-L-meta-2592 partial checkpoint only; no proof of the posted statement yet.
-Lean 4.36.0 directly compiled finite_certificate_projection_core.lean with exit 0; warnings only.
-The projection identities preserve lower-half Boolean AND/OR/complement semantics.
-This checkpoint is branch-only and is not eligible as a proof PR.
-Full checker not run on this helper artifact.
-Sub-agents: status_review, not_elimination, circuit_search, gate_lower_bound, finite_certificate, checker_storage
-TIMING total=11 subagents=6
+L-meta-2592: PARTIAL ONLY. The posted theorem is not proved and no PR is eligible yet.
 
-Terminal-NOT helper: lake env lean ../results/orch/lemmas/not_elimination_last.lean exited0 with no warnings or errors. Root reviewed all92lines plus status_review semantic audit.
+Assigned file lean/PEqualNP/Outside/L_meta_2592.lean contains finite normalization and terminal-NOT helpers, no gap theorem.
+lake build PEqualNP.Outside.L_meta_2592: exit0, Build completed successfully (5149 jobs). Full output: build-partial.log.
+Local checker: exit3, CHECKER FAULT: the prebuilt Mathlib cache is missing. Full output: checker-partial.log.
+No cleanup pass: checker has not accepted the gap.
+
+Other directly Lean-checked partials: lower-half projection; first-OR witness rows; ten Petersen automorphisms; first-binary-gate input retention. Matching complete logs are in lemmas/.
+Independent reviews: status_review reviewed normalization, terminal-NOT helper and projection; root reviewed final compilation fixes, OR witnesses, automorphisms and retention. No forbidden proof constructs were found.
+No counterexample found so far. SAT timeouts/UNKNOWN are not proofs.
+
+Sub-agents: status_review, not_elimination, circuit_search, gate_lower_bound, finite_certificate, checker_storage
+TIMING total=17.1 subagents=6
