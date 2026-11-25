@@ -1542,6 +1542,176 @@ lemma pure_of_disjunction (n : ℕ) (C : Circuit) (w : ℕ) (T : Finset (Fin n))
   intro x
   rw [h, hS]
 
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open Classical
+
+/-- Turn off one input, leaving all other coordinates unchanged. -/
+def eraseInput {n : ℕ} (x : Fin n → Bool) (v : Fin n) : Fin n → Bool :=
+  fun i => if i = v then false else x i
+
+/-- Variables in `M` whose deletion makes a wire false. -/
+def essentialAt (n : ℕ) (C : Circuit) (x : Fin n → Bool)
+    (M : Finset (Fin n)) (w : ℕ) : Finset (Fin n) :=
+  M.filter (fun v => val C.gates (eraseInput x v) w = false)
+
+lemma essentialAt_input_card (n : ℕ) (C : Circuit) (x : Fin n → Bool)
+    (M : Finset (Fin n)) (w : ℕ) (hw : w < n)
+    (hx : val C.gates x w = true) :
+    (essentialAt n C x M w).card ≤ 1 := by
+  have hsub : essentialAt n C x M w ⊆ {⟨w, hw⟩} := by
+    intro v hv
+    have he := (Finset.mem_filter.mp hv).2
+    rw [val_lt C.gates _ w hw] at hx he
+    by_cases h : (⟨w, hw⟩ : Fin n) = v
+    · exact Finset.mem_singleton.mpr h.symm
+    · simp [eraseInput, h, hx] at he
+  simpa using Finset.card_le_card hsub
+
+lemma essentialAt_class (n : ℕ) (C : Circuit) (hC : PEqualNP.TopForm.IsAO2 n C)
+    (x : Fin n → Bool) (M : Finset (Fin n)) (w : ℕ)
+    (hw : w < n + C.gates.length ∧ val C.gates x w = true) :
+    (essentialAt n C x M w).card ≤ 1 ∨
+      ((n ≤ w ∧ (gateAt C (w - n)).op = GateOp.and) ∧
+        ∃ a b, a < w ∧ b < w ∧
+          (a < n + C.gates.length ∧ val C.gates x a = true) ∧
+          (b < n + C.gates.length ∧ val C.gates x b = true) ∧
+          essentialAt n C x M w = essentialAt n C x M a ∪ essentialAt n C x M b) ∨
+      ∃ a, a < w ∧ (a < n + C.gates.length ∧ val C.gates x a = true) ∧
+        essentialAt n C x M w ⊆ essentialAt n C x M a := by
+  by_cases hn : w < n
+  · exact Or.inl (essentialAt_input_card n C x M w hn hw.2)
+  · obtain ⟨a, b, _, ha, hb, hop, hv⟩ := gv n C hC w (by omega) hw.1
+    rcases hop with hop | hop
+    · right; left
+      have hab : val C.gates x a = true ∧ val C.gates x b = true := by
+        have hx := hw.2
+        simpa only [hv x, hop, ev_and, Bool.and_eq_true] using hx
+      refine ⟨⟨by omega, hop⟩, a, b, ha, hb,
+        ⟨by omega, hab.1⟩, ⟨by omega, hab.2⟩, ?_⟩
+      ext v
+      simp only [essentialAt, Finset.mem_filter, Finset.mem_union, hv, hop, ev_and,
+        Bool.and_eq_false_iff]
+      tauto
+    · right; right
+      have hab : val C.gates x a = true ∨ val C.gates x b = true := by
+        have hx := hw.2
+        simpa only [hv x, hop, ev_or, Bool.or_eq_true] using hx
+      have hsub (i : ℕ) (hi : i = a ∨ i = b) :
+          essentialAt n C x M w ⊆ essentialAt n C x M i := by
+        intro v hvM
+        obtain ⟨hvM, hfalse⟩ := Finset.mem_filter.mp hvM
+        have hfalse' : val C.gates (eraseInput x v) a = false ∧
+            val C.gates (eraseInput x v) b = false := by
+          simpa only [hv, hop, ev_or, Bool.or_eq_false_iff] using hfalse
+        refine Finset.mem_filter.mpr ⟨hvM, ?_⟩
+        rcases hi with rfl | rfl
+        · exact hfalse'.1
+        · exact hfalse'.2
+      rcases hab with hab | hab
+      · exact ⟨a, ha, ⟨by omega, hab⟩, hsub a (Or.inl rfl)⟩
+      · exact ⟨b, hb, ⟨by omega, hab⟩, hsub b (Or.inr rfl)⟩
+
+-- Any set of individually essential inputs at a true wire has size at most
+-- one more than the total number of AND gates.
+lemma essential_inputs_le_and_count (n : ℕ) (C : Circuit)
+    (hC : PEqualNP.TopForm.IsAO2 n C) (x : Fin n → Bool) (M : Finset (Fin n))
+    (w : ℕ) (hx : val C.gates x w = true)
+    (hM : ∀ v ∈ M, val C.gates (eraseInput x v) w = false) :
+    M.card ≤ 1 + ((Finset.range C.gates.length).filter
+      (fun k => (gateAt C k).op = GateOp.and)).card := by
+  classical
+  have hw : w < n + C.gates.length := by
+    by_contra hn
+    have := val_ge C.gates x w (by omega)
+    rw [hx] at this
+    cases this
+  let cls : ℕ → Prop := fun i => i < n + C.gates.length ∧ val C.gates x i = true
+  let branch : ℕ → Prop := fun i => n ≤ i ∧ (gateAt C (i - n)).op = GateOp.and
+  let T := essentialAt n C x M
+  have hleaf := leaf_count_bypass cls branch T
+    (essentialAt_class n C hC x M) (n + C.gates.length) {w} (by
+      intro i hi
+      have hiw : i = w := Finset.mem_singleton.mp hi
+      subst i
+      exact ⟨hw, hw, hx⟩)
+  rw [Finset.singleton_biUnion, Finset.card_singleton] at hleaf
+  have hT : T w = M := by
+    apply Finset.filter_eq_self.mpr
+    exact hM
+  rw [hT] at hleaf
+  have hcount : ((Finset.range (n + C.gates.length)).filter
+      (fun i => cls i ∧ branch i ∧ 2 ≤ (T i).card)).card ≤
+      ((Finset.range C.gates.length).filter
+        (fun k => (gateAt C k).op = GateOp.and)).card := by
+    apply Finset.card_le_card_of_injOn (fun i => i - n)
+    · intro i hi
+      have hi' := Finset.mem_filter.mp hi
+      have hib := hi'.2.2.1
+      have hir : i < n + C.gates.length := Finset.mem_range.mp hi'.1
+      change i - n ∈ (Finset.range C.gates.length).filter
+        (fun k => (gateAt C k).op = GateOp.and)
+      refine Finset.mem_filter.mpr ⟨Finset.mem_range.mpr (by dsimp [branch] at hib; omega), hib.2⟩
+    · intro i hi j hj he
+      dsimp only at he
+      have hin : n ≤ i := (Finset.mem_filter.mp hi).2.2.1.1
+      have hjn : n ≤ j := (Finset.mem_filter.mp hj).2.2.1.1
+      omega
+  rw [Finset.filter_congr_decidable] at hleaf
+  exact hleaf.trans (Nat.add_le_add_left hcount 1)
+
+/-- In particular, every Boolean minterm has at most AND-count plus one variables. -/
+lemma minterm_le_and_count (n : ℕ) (C : Circuit)
+    (hC : PEqualNP.TopForm.IsAO2 n C) (x : Fin n → Bool) (w : ℕ)
+    (hx : val C.gates x w = true)
+    (hmin : ∀ v, x v = true → val C.gates (eraseInput x v) w = false) :
+    (Finset.univ.filter (fun v => x v = true)).card ≤
+      1 + ((Finset.range C.gates.length).filter
+        (fun k => (gateAt C k).op = GateOp.and)).card := by
+  exact essential_inputs_le_and_count n C hC x _ w hx
+    (fun v hv => hmin v (Finset.mem_filter.mp hv).2)
+
+
 end SemanticNormal
+
+namespace Cofactor
+
+def forceTrue {α : Type*} [DecidableEq α] (c : α) (x : α → Bool) : α → Bool :=
+  fun i => decide (i = c) || x i
+
+lemma support_transfer {α : Type*} [DecidableEq α]
+    (f : (α → Bool) → Bool) (hm : MonotoneBool f)
+    (B Q : Finset α) (c d : α) (hc : c ∉ B)
+    (hb : BelowOr B (fun x => f (forceTrue d x)))
+    (hs : ∀ q ∈ Q, f (fun i => decide (i = c ∨ i = q)) = true) : Q ⊆ B := by
+  intro q hq
+  have hmono : f (forceTrue d (fun i => decide (i = c ∨ i = q))) = true := by
+    apply hm (fun i => decide (i = c ∨ i = q)) _ _ (hs q hq)
+    intro i hi
+    simp [forceTrue, hi]
+  obtain ⟨i, hi, hix⟩ := hb (fun i => decide (i = c ∨ i = q)) hmono
+  change decide (i = c ∨ i = q) = true at hix
+  rcases of_decide_eq_true hix with rfl | rfl
+  · exact False.elim (hc hi)
+  · exact hi
+
+lemma center_unique {α : Type*} [DecidableEq α]
+    (N : α → Finset α)
+    (hno : ∀ (c d q r : α), c ≠ d → q ≠ r →
+      ¬ (q ∈ N c ∧ r ∈ N c ∧ q ∈ N d ∧ r ∈ N d))
+    (f : (α → Bool) → Bool) (hm : MonotoneBool f)
+    (Q : Finset α) (hQ : 2 ≤ Q.card) (c d : α)
+    (hcc : c ∉ N c) (hcd : c ∉ N d)
+    (hc : BelowOr (N c) (fun x => f (forceTrue c x)))
+    (hd : BelowOr (N d) (fun x => f (forceTrue d x)))
+    (hs : ∀ q ∈ Q, f (fun i => decide (i = c ∨ i = q)) = true) : c = d := by
+  have hQc : Q ⊆ N c := support_transfer f hm (N c) Q c c hcc hc hs
+  have hQd : Q ⊆ N d := support_transfer f hm (N d) Q c d hcd hd hs
+  by_contra hne
+  obtain ⟨q, hq, r, hr, hqr⟩ :=
+    Finset.one_lt_card.mp (lt_of_lt_of_le (by decide : 1 < 2) hQ)
+  exact hno c d q r hne hqr ⟨hQc hq, hQc hr, hQd hq, hQd hr⟩
+
+end Cofactor
 
 end PEqualNP.Outside.L_meta_4970_aux
