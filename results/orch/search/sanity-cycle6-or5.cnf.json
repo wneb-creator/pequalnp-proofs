@@ -1,0 +1,14 @@
+{
+  "input": "/tmp/oec/pequalnp-pilot-161/free-sanity-cycle6-orderedprunedor5.smt2",
+  "input_sha256": "8055dcc9c16e7a18a972ce10c497cff661af59632d1ebfea17de52744c1d37fd",
+  "output": "/tmp/oec/pequalnp-pilot-161/sanity-cycle6-or5.cnf",
+  "cnf_sha256": "cb6cf1358d3ac65cf64ab69c7a86967c3992f8a0e7997f4929a4b60b1ccc0239",
+  "header": "p cnf 751 2866",
+  "bytes": 50135,
+  "seconds": 0.00916372700021384,
+  "tactics": [
+    "simplify",
+    "bit-blast",
+    "tseitin-cnf"
+  ]
+}

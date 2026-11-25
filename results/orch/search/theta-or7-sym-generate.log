@@ -1,0 +1,2 @@
+{"input": "/tmp/oec/pequalnp-pilot-161/free-theta333-orderedprunedor7.smt2", "input_sha256": "a343ca7a75afe38e2cc02a4930a326c8c2c1468c2fa95c038e2a4b59cac90e9c", "output": "/tmp/oec/pequalnp-pilot-161/theta-or7-sym.smt2", "output_sha256": "b9d621a0c41a368f4f61798a31d730f4dbeb10652d2857a4cbe1cf51a03e5efc", "p": 4, "l": 4, "first_or_candidates": 118}
+Verified graph automorphisms: 12 first-OR candidates: 118 canonical pairs: 18

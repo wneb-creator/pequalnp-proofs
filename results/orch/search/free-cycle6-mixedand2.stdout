@@ -1,0 +1,4 @@
+{"p": 3, "l": 3, "edges": "0,0;0,1;1,1;1,2;2,2;2,0", "gates": 2, "mixed": true, "kind": "and", "limit": 120, "out": "/tmp/oec/pequalnp-pilot-161/free-cycle6-mixedand2"}
+unsat
+Elapsed seconds: 0.027504052000040247
+

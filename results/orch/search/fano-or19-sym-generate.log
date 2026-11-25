@@ -1,0 +1,2 @@
+{"input": "/tmp/oec/pequalnp-pilot-161/free-fano-orderedprunedor19.smt2", "input_sha256": "daf4a194806adbf8b3e578d32af5a7063b29b27d088081f803b4d56ca1e080e1", "output": "/tmp/oec/pequalnp-pilot-161/fano-or19-sym.smt2", "output_sha256": "7fb90b6ec18e2dd110efa7d9150b7f75505b8ef883286602d67a38e42ab951e3", "p": 7, "l": 7, "first_or_candidates": 553}
+Verified graph automorphisms: 336 first-OR candidates: 553 canonical pairs: 8

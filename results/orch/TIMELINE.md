@@ -26,3 +26,4 @@
 - 2026-11-25T18:01:00.215794+00:00: consolidated4107linepartial, forced-evaluator semantics, and gate/cone embedding compiled and independently reviewed.
 - 2026-11-25T18:06:13.109205+00:00: strict dirty-gate descent for correct explicit restoration and productive-gate semantic identity compiled and independently reviewed.
 - 2026-11-25T18:07:14.665687+00:00: explicit nonstar restoration/raw-path bridge and min-andPairs existence compiled and independently reviewed.
+- 2026-11-25T18:11:19.469943+00:00: unconditional TopForm normalization, strict nonstar junk decrease, and shared-support classifier compiled and independently reviewed; complete reviewed finite-search archive preserved.

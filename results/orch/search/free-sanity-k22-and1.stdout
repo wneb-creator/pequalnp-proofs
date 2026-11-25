@@ -1,0 +1,13 @@
+{"p": 2, "l": 2, "edges": "0,0;0,1;1,0;1,1", "gates": 1, "seed": 0, "tactic": "auto", "mixed": false, "kind": "and", "limit": 30, "out": "/tmp/oec/pequalnp-pilot-161/free-sanity-k22-and1"}
+sat
+((a0s0 true)
+ (a0s1 true)
+ (a0s2 false)
+ (a0s3 false)
+ (b0s0 false)
+ (b0s1 false)
+ (b0s2 true)
+ (b0s3 true)
+ (outs4 true))
+Elapsed seconds: 0.03099909699994896
+

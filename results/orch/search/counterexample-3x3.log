@@ -1,0 +1,9 @@
+START p=3 l=3 gates<=7 targets=333
+enumerated gate count 1: 27
+enumerated gate count 2: 579
+enumerated gate count 3: 12591
+enumerated gate count 4: 303498
+enumerated gate count 5: 8334822
+enumerated gate count 6: 261221334
+enumerated gate count 7: 9281809818
+No counterexample. Full below-bound coverage for 333 targets; exact bound witnessed for 327 targets. Seconds=299.036

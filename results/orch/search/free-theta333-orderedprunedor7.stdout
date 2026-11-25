@@ -1,0 +1,5 @@
+{"order": true, "input": "/tmp/oec/pequalnp-pilot-161/free-theta333-prunedor7.smt2", "p": 4, "l": 4, "edges": "0,1;1,1;1,0;0,2;2,2;2,0;0,3;3,3;3,0", "gates": 7, "limit": 600, "seed": 73, "out": "/tmp/oec/pequalnp-pilot-161/free-theta333-orderedprunedor7"}
+unknown
+Elapsed seconds: 600.0363309869999
+Added redundant nonedge-pair clauses: 272
+

@@ -1,0 +1,28 @@
+{"p": 2, "l": 2, "edges": "0,0;0,1;1,0;1,1", "gates": 2, "seed": 0, "tactic": "auto", "mixed": false, "kind": "or", "limit": 30, "out": "/tmp/oec/pequalnp-pilot-161/free-sanity-k22-or2"}
+sat
+((a0s0 false)
+ (a0s1 false)
+ (a0s2 true)
+ (a0s3 false)
+ (b0s0 false)
+ (b0s1 false)
+ (b0s2 false)
+ (b0s3 true)
+ (a1s0 true)
+ (a1s1 false)
+ (a1s2 false)
+ (a1s3 false)
+ (a1s4 true)
+ (b1s0 false)
+ (b1s1 true)
+ (b1s2 false)
+ (b1s3 false)
+ (b1s4 true)
+ (outs0 false)
+ (outs1 false)
+ (outs2 false)
+ (outs3 false)
+ (outs4 true)
+ (outs5 true))
+Elapsed seconds: 0.019913034999945012
+

@@ -1,0 +1,4 @@
+{"p": 4, "l": 6, "edges": "0,0;1,0;0,1;2,1;0,2;3,2;1,3;2,3;1,4;3,4;2,5;3,5", "gates": 3, "kind": "and", "limit": 120, "out": "/tmp/oec/pequalnp-pilot-161/free-subdivk4-and3"}
+unsat
+Elapsed seconds: 0.04610283900001377
+

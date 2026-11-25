@@ -1,0 +1,26 @@
+/tmp/oec/pequalnp-pilot-161/LiftMeasureAssembly.lean:16:2: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp at hm
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-161/LiftMeasureAssembly.lean:2562:47: error: unsolved goals
+n : ℕ
+gs : List Gate
+u v : ℕ
+⊢ {p ∈ Finset.range gs.length ×ˢ Finset.range gs.length |
+        (gs.getD p.1 { op := GateOp.or, inputs := [] }).op = GateOp.and ∧
+          (gs.getD p.2 { op := GateOp.or, inputs := [] }).op = GateOp.and ∧
+            p.1 ∈ (List.foldl (coneStep n) [] gs).getD p.2 []}.card =
+    {p ∈ Finset.range gs.length ×ˢ Finset.range gs.length |
+        (gs.getD p.1 { op := GateOp.or, inputs := [] }).op = GateOp.and ∧
+          (gs.getD p.2 { op := GateOp.or, inputs := [] }).op = GateOp.and ∧
+            p.1 ∈ (List.foldl (coneStep n) [] gs).getD p.2 []}.card
+/tmp/oec/pequalnp-pilot-161/LiftMeasureAssembly.lean:2686:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`

@@ -1,0 +1,1 @@
+Theta canonical seed: 12 gates, 18 exact boundary rows, all256assignments valid=True

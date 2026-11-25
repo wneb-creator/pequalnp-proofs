@@ -81,3 +81,10 @@ TIMING total=61.0 subagents=7
 Checkpoint14: explicit nonstar circuit construction, raw-path bridge, and natural-number minimization compile and pass independent toolchain review.
 NonstarPaths exposes the exact restoreStar(pruned C) circuit and derives preservation from actual raw OR paths; graph/rectangle/factor hypotheses remain explicit. NonstarCircuit is retained as its older, weaker API and is not sufficient for induction on its own.
 TIMING total=62.0 subagents=7
+
+Checkpoint15: unconditional TopForm normalization compiles: AO2, graph function, zero count, and no size increase. It follows from strictly reducing andPairs for productive-gate lifting and natural-number minimization. No C4-free assumption is needed for this intermediate result.
+NonstarDecrease gives strict junk decrease for its explicit configured branch. SharedSupport proves the small common-support classifier for a prospective all-star compiler. All were independently reviewed by toolchain.
+Search archive:447exact artifacts,8,726,436bytes; hashes and byte equality independently checked. Final theta/Fano OR queries are UNKNOWN, not UNSAT. No counterexample to the target was found.
+The posted theorem remains unproved; latest actual gap checker rejected no-theorem.
+Sub-agents: seven total (status/review, combinatorial proof, normalization, counterexample search, lemma inventory, toolchain/review, AND-count/semantics child).
+TIMING total=66.1 subagents=7

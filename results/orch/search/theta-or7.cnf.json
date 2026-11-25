@@ -1,0 +1,14 @@
+{
+  "input": "/tmp/oec/pequalnp-pilot-161/free-theta333-orderedprunedor7.smt2",
+  "input_sha256": "a343ca7a75afe38e2cc02a4930a326c8c2c1468c2fa95c038e2a4b59cac90e9c",
+  "output": "/tmp/oec/pequalnp-pilot-161/theta-or7.cnf",
+  "cnf_sha256": "2c4035a35f956fcc4419478e8681914130ba45bddc55ab19a0d8fb21b264a20b",
+  "header": "p cnf 2214 8369",
+  "bytes": 161574,
+  "seconds": 0.019518992000030266,
+  "tactics": [
+    "simplify",
+    "bit-blast",
+    "tseitin-cnf"
+  ]
+}

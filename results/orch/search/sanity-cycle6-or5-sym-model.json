@@ -1,0 +1,92 @@
+{
+  "valid_all_assignments": true,
+  "assignments": 64,
+  "first_bad": null,
+  "p": 3,
+  "l": 3,
+  "edges": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      0
+    ]
+  ],
+  "kind": "or",
+  "gates": [
+    {
+      "a": [
+        0,
+        4
+      ],
+      "b": [
+        1
+      ]
+    },
+    {
+      "a": [
+        2,
+        5
+      ],
+      "b": [
+        3
+      ]
+    },
+    {
+      "a": [
+        4,
+        6
+      ],
+      "b": [
+        5
+      ]
+    },
+    {
+      "a": [
+        0,
+        7
+      ],
+      "b": [
+        6,
+        8
+      ]
+    },
+    {
+      "a": [
+        9
+      ],
+      "b": [
+        2,
+        7
+      ]
+    }
+  ],
+  "output": [
+    10
+  ],
+  "dirty_counted_gates": [
+    0,
+    1,
+    2
+  ],
+  "cnf": "/tmp/oec/pequalnp-pilot-161/sanity-cycle6-or5-sym.cnf",
+  "solver_log": "/tmp/oec/pequalnp-pilot-161/sanity-cycle6-or5-sym-cadical.log"
+}

@@ -1,0 +1,2 @@
+{"input": "/tmp/oec/pequalnp-pilot-161/free-sanity-cycle6-orderedprunedor5.smt2", "input_sha256": "8055dcc9c16e7a18a972ce10c497cff661af59632d1ebfea17de52744c1d37fd", "output": "/tmp/oec/pequalnp-pilot-161/sanity-cycle6-or5-sym.smt2", "output_sha256": "a01bf5ad90244816643c9b24aba81e73115c0036b7a2dce52aa9ccdeee2fb88b", "p": 3, "l": 3, "first_or_candidates": 54}
+Verified graph automorphisms: 12 first-OR candidates: 54 canonical pairs: 8

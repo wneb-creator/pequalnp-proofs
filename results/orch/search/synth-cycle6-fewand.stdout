@@ -1,0 +1,4 @@
+{"p": 3, "l": 3, "edges": "0,0;0,1;1,1;1,2;2,2;2,0", "gates": 8, "mode": "few_and", "limit": 120, "count": 3, "out": "/tmp/oec/pequalnp-pilot-161/synth-cycle6-fewand"}
+unsat
+Elapsed seconds: 3.375273940999989
+

@@ -1,0 +1,1 @@
+CaDiCaL positive control: 751 named CNF variables; selector model validates all64assignments: True

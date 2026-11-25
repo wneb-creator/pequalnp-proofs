@@ -1,0 +1,24 @@
+{"p": 2, "l": 2, "edges": "0,0;1,0;1,1", "gates": 2, "dirty": true, "prune_or": false, "seed": 0, "tactic": "auto", "mixed": true, "kind": "and", "limit": 30, "out": "/tmp/oec/pequalnp-pilot-161/free-path4-mixedand2dirty"}
+sat
+((a0s0 true)
+ (a0s1 true)
+ (a0s2 false)
+ (a0s3 false)
+ (b0s0 false)
+ (b0s1 true)
+ (b0s2 true)
+ (b0s3 false)
+ (a1s0 false)
+ (a1s1 false)
+ (a1s2 false)
+ (a1s3 false)
+ (a1s4 true)
+ (b1s0 false)
+ (b1s1 false)
+ (b1s2 true)
+ (b1s3 true)
+ (b1s4 false)
+ (outs4 false)
+ (outs5 true))
+Elapsed seconds: 0.0333583820001877
+

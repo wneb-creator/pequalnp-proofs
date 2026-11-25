@@ -1,0 +1,7 @@
+START p=2 l=4 gates<=5 targets=188
+enumerated gate count 1: 28
+enumerated gate count 2: 619
+enumerated gate count 3: 13865
+enumerated gate count 4: 343924
+enumerated gate count 5: 9704511
+No counterexample. Full below-bound coverage for 188 targets; exact bound witnessed for 156 targets. Seconds=0.890335

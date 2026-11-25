@@ -1,0 +1,7 @@
+2x3: 9 isomorphism classes; exact representative coverage; cover counts matched independent maximum-matching search.
+2x4: 14 isomorphism classes; exact representative coverage; cover counts matched independent maximum-matching search.
+3x3: 21 isomorphism classes; exact representative coverage; cover counts matched independent maximum-matching search.
+free-sanity-k22-and1: archived SAT model independently evaluated correctly on all 16 assignments.
+free-sanity-k22-or2: archived SAT model independently evaluated correctly on all 16 assignments.
+free-sanity-cycle6-and3: archived SAT model independently evaluated correctly on all 64 assignments.
+free-sanity-cycle6-or5: archived SAT model independently evaluated correctly on all 64 assignments.

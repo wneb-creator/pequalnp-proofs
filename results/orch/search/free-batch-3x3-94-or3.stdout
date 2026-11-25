@@ -1,0 +1,4 @@
+{"p": 3, "l": 3, "edges": "0,1;0,2;1,0;1,1;2,0", "gates": 3, "kind": "or", "limit": 30, "out": "/tmp/oec/pequalnp-pilot-161/free-batch-3x3-94-or3"}
+unsat
+Elapsed seconds: 0.012838159000011728
+

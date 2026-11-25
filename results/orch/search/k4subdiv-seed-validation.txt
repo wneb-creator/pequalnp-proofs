@@ -1,0 +1,1 @@
+K4 subdivision canonical seed: 15 gates, 24 exact boundary rows, all 1024 assignments valid=True

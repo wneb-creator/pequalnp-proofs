@@ -1,0 +1,1 @@
+Canonical Fano seed: 27 gates; 58 boundary rows; all16384assignments correct: True

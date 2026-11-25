@@ -1,0 +1,5 @@
+Expected argument rejection: returncode=2
+usage: freegate-synth.py [-h] --p P --l L --edges EDGES --gates GATES
+                         [--prune-or] [--seed SEED] [--tactic {auto,sat}]
+                         [--mixed] --kind {and,or} [--limit LIMIT] --out OUT
+freegate-synth.py: error: --prune-or requires OR mode and at least two distinct edges

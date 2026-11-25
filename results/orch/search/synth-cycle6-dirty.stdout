@@ -1,0 +1,4 @@
+{"p": 3, "l": 3, "edges": "0,0;0,1;1,1;1,2;2,2;2,0", "gates": 8, "mode": "dirty", "limit": 120, "count": 0, "out": "/tmp/oec/pequalnp-pilot-161/synth-cycle6-dirty"}
+unsat
+Elapsed seconds: 68.81721851799995
+

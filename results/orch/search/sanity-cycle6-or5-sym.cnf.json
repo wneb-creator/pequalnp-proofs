@@ -1,0 +1,14 @@
+{
+  "input": "/tmp/oec/pequalnp-pilot-161/sanity-cycle6-or5-sym.smt2",
+  "input_sha256": "a01bf5ad90244816643c9b24aba81e73115c0036b7a2dce52aa9ccdeee2fb88b",
+  "output": "/tmp/oec/pequalnp-pilot-161/sanity-cycle6-or5-sym.cnf",
+  "cnf_sha256": "155ef0b3289779f8c6b60ede8079f9b721a1d2bb4795ca1a0756a8c15901f83c",
+  "header": "p cnf 759 2963",
+  "bytes": 51249,
+  "seconds": 0.009496846000274672,
+  "tactics": [
+    "simplify",
+    "bit-blast",
+    "tseitin-cnf"
+  ]
+}

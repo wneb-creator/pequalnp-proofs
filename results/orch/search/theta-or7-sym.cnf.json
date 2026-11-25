@@ -1,0 +1,14 @@
+{
+  "input": "/tmp/oec/pequalnp-pilot-161/theta-or7-sym.smt2",
+  "input_sha256": "b9d621a0c41a368f4f61798a31d730f4dbeb10652d2857a4cbe1cf51a03e5efc",
+  "output": "/tmp/oec/pequalnp-pilot-161/theta-or7-sym.cnf",
+  "cnf_sha256": "36a5e9f2901c3676b296e35febf1ff29058cd180493056cfe4d839226fecf94a",
+  "header": "p cnf 2232 8658",
+  "bytes": 165202,
+  "seconds": 0.02329717199972947,
+  "tactics": [
+    "simplify",
+    "bit-blast",
+    "tseitin-cnf"
+  ]
+}

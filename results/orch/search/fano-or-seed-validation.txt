@@ -1,0 +1,1 @@
+Compressed Fano seed: 20 OR gates, arbitrary AND operands; all 16384 assignments correct: True

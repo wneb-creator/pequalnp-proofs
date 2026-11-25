@@ -1,0 +1,4 @@
+{"p": 3, "l": 3, "edges": "0,0;0,1;1,1;1,2;2,2;2,0", "gates": 4, "prune_or": true, "seed": 0, "tactic": "auto", "mixed": false, "kind": "or", "limit": 30, "out": "/tmp/oec/pequalnp-pilot-161/free-cycle6-prunedor4"}
+unsat
+Elapsed seconds: 0.1468549119999807
+

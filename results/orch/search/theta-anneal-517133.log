@@ -1,0 +1,14 @@
+BEST score=1 iterations=1 seconds=1.1257e-05 bypass=5
+0 1 5 6
+1 1 7 8
+2 0 0 9
+3 1 4 5
+4 0 1 11
+5 1 4 6
+6 0 2 13
+7 1 4 7
+8 0 3 15
+9 1 10 12
+10 1 14 16
+11 1 17 18
+DONE iterations=2345080000 restarts=58627 best=1 seconds=180.001

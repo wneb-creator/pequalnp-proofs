@@ -1,0 +1,4 @@
+{"p": 4, "l": 4, "edges": "0,1;1,1;1,0;0,2;2,2;2,0;0,3;3,3;3,0", "gates": 11, "mode": "any", "limit": 120, "count": 0, "out": "/tmp/oec/pequalnp-pilot-161/synth-theta333-below", "rows": "boundary"}
+unknown
+Elapsed seconds: 120.03297900899997
+

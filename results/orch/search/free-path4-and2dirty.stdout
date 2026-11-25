@@ -1,0 +1,4 @@
+{"p": 2, "l": 2, "edges": "0,0;1,0;1,1", "gates": 2, "dirty": true, "prune_or": false, "seed": 0, "tactic": "auto", "mixed": false, "kind": "and", "limit": 30, "out": "/tmp/oec/pequalnp-pilot-161/free-path4-and2dirty"}
+unsat
+Elapsed seconds: 0.03792927200038321
+
