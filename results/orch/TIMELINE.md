@@ -17,3 +17,5 @@
 2026-11-25T10:32:21.149511+00:00 construct_search: derived exact rank3 lowerblock obstruction excluding every starline from any3-flat, using existing StarMaximal and basicstarline duplicate-row obstruction. Not Lean formalized.
 
 2026-11-25 10:32 UTC: Research snapshot preserved locally for independent review. Exact finite-field censuses remain evidence only. Rank-one diagonal two-flat emptiness abandoned after explicit complex families. Full chart014 rational search timed out without verdict; next route is invariant certificate search.
+
+2026-11-25 10:40 UTC: Combined602-line partial file passed lake build. New checked star-direction linear constraints, quadratic normal form, coordinate kernel, and constant-lower-block obstruction. Full target unresolved; independent review pending.

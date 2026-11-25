@@ -37,3 +37,6 @@ Sensitive-data scan: no credential tokens, private keys, credential-bearing URLs
 Claims review: summaries distinguish compiled partial lemmas, exact finite-field computations, numerical searches, and symbolic restrictions from the still-unproved complex statement. No full checker verdict, complete proof, or global refutation is claimed.
 Research snapshot aggregate SHA256 (sorted repository paths and bytes, NUL-delimited): ed43d6395092d0a40b437081d4c8203c39052dfeeb799ef39130c66ed5331a58.
 This is branch-only preservation, not a proof PR. Research files must be absent from the final PR diff if a complete proof or refutation is later submitted.
+
+Star-line components: named-file lake build exit0,602lines. Full stdout/stderr in starline-build.stdout/.stderr. Main posted theorem still absent; no checker verdict claimed.
+Independent status_review audit PASS: frozen176-line component matches integration exactly; algebra, nonzero hypotheses, and plain-file format checked. Reviewed target SHA256 ca7abaed3338ff24cc18ade48bacba5ae81f7b1976205cd4686dc5551e1206b5.
