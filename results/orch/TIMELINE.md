@@ -9,3 +9,5 @@
 - 2026-11-25T03:16:19.837741+00:00: first partial committed as f31e84c4; assembled named build passed (5149 jobs), independent audit approved; push initiated.
 - 2026-11-25T03:18:05.631748+00:00: lease renewed; expires 2026-11-25T03:38:05.927Z.
 - 2026-11-25T03:18:41.722046+00:00: preserved second compiled milestone: pair/triple geometry, OR signature cardinality, unrestricted sensitivity bound.
+- 2026-11-25T03:25:20.073082+00:00: lease renewed; expires 2026-11-25T03:45:20.320Z.
+- 2026-11-25T03:25:20.486278+00:00: concrete18-OR lower bound compiled and independently approved; preparing third partial checkpoint.

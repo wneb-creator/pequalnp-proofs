@@ -10,3 +10,5 @@ Sub-agents: repo_audit, lean_setup (geometry), or_lower_bound, counterexample, p
 TIMING total=32.0 subagents=6
 
 Second checkpoint: immutable component sources and matching full compilation logs are under checked/. Each compiled successfully; independent repo_audit review found no blockers. They are partials, not a proof of51.
+
+Third checkpoint: checked/routes-eighteen-or-gates.lean proves18 OR gates from the posted tests (target remains51), kernel finite certificates, normalized invalid references. SHA256 be7de757cca3c807e52fbed428ee5faaf5e8f141785335862abe03d5994e3507; matching full log has no errors. Independent repo_audit review approved partial preservation. Cumulative sub-agents now7, including proof_routes/quadratic_shadow.
