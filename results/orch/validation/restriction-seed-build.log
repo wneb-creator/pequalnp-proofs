@@ -1,0 +1,17 @@
+../results/orch/lemmas/Restriction.lean:581:17: warning: This simp argument is unused:
+  hop
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hins, simplify, List.map_cons, List.getD, hb, simpNot]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/Restriction.lean:581:22: warning: This simp argument is unused:
+  hins
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hop, simplify, List.map_cons, List.getD, hb, simpNot]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/Restriction.lean:573:14: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

@@ -1,0 +1,13 @@
+Independent partial review and axiom diagnostics
+2026-11-25T14:01:24.205509+00:00
+
+PairCode.lean: 128 lines; 9 axiom checks passed; sha256 bc78ab13849d05f740c9344b565aaf81e8887cdd865b35aa8a10fea72eced879
+Restriction.lean: 693 lines; 9 axiom checks passed; sha256 ffc010c05f3da09fdcd7eb5cfbf6ce5860187f97e7be461014de330eb98ccc4f
+
+Both exact source snapshots compiled in scratch with appended #print axioms diagnostics. All checked declarations depend only on propext, Classical.choice and Quot.sound. PairCode checks every lemma; Restriction checks all nine new declarations including the final restriction theorem, which transitively includes its compiler dependencies. Its first 534 lines match checked L_meta_7493 verbatim except namespace. Complete logs preserved alongside this report.
+
+PairCode semantic review: two independent probes distinguish three assignments of two variables, ruling out replacement by one Boolean code; explicit automorphisms preserve the Petersen function and relocate the removed vertex. Namespace is suitable as a helper namespace for L_meta_2592.
+
+Restriction semantic review: provenance follows only NOT chains; every charged non-NOT gate has a known constant input and is eliminated by fan-in-two simplification. Counting is conservative, counting each removed gate once. The final theorem retains semantic correctness under its explicit initial-invariant and nonconstant-output hypotheses. Its current namespace is suitable for this backup only; relocate under L_meta_2592_aux before a proof PR. Three unused-tactic/simp warnings are harmless.
+
+These are partial helper results. Neither is a proof of the complete L-meta-2592 statement. Target checker acceptance is not claimed. No source file contains forbidden proof tokens; no credential material was introduced.

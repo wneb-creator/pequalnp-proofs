@@ -1,0 +1,39 @@
+Complete Lean stdout:
+/tmp/oec/pequalnp-pilot-101/RestrictionAxioms.lean:581:17: warning: This simp argument is unused:
+  hop
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hins, simplify, List.map_cons, List.getD, hb, simpNot]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-101/RestrictionAxioms.lean:581:22: warning: This simp argument is unused:
+  hins
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hop, simplify, List.map_cons, List.getD, hb, simpNot]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-101/RestrictionAxioms.lean:573:14: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+'PEqualNP.Outside.L_meta_2592_restrict.CircuitProof.originStep' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2592_restrict.CircuitProof.readsOrigin' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2592_restrict.CircuitProof.cutCharge' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2592_restrict.CircuitProof.cutCost' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2592_restrict.CircuitProof.OriginConstant' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2592_restrict.CircuitProof.originConstant_step' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_restrict.CircuitProof.charged_gate_disappears' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_restrict.CircuitProof.elim_cut_cost' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_restrict.CircuitProof.restriction_with_cutCost' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete Lean stderr:
+
+Exit status: 0

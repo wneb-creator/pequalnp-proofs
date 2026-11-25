@@ -7,3 +7,7 @@ Independent review: PASSED by repo_review; helper statements/proofs and forbidde
 LowerBound.lean: 101 lines, lake env lean exit 0, complete log empty; independent repo_review source review PASSED. Explicit conditional hypotheses remain unproved.
 PairCode.lean: 128 lines, lake env lean exit 0, independent source review PASSED; exact source sha256 bc78ab13849d05f740c9344b565aaf81e8887cdd865b35aa8a10fea72eced879.
 Restriction.lean: 693 lines, lake env lean exit 0 (three unused simp/tactic warnings), independent source review PASSED; exact source sha256 ffc010c05f3da09fdcd7eb5cfbf6ce5860187f97e7be461014de330eb98ccc4f. Namespace must be relocated under L_meta_2592_aux before any final proof submission.
+FirstMerge.lean: lake env lean exit 0; independently reviewed by root; 116 lines; sha256 ffc120cc86a34a55220c0241c80dd82e81e5d30e57d986d2b6a9fe5a9842641a.
+OneNotSamples.lean: lake env lean exit 0; independently reviewed by root; 136 lines; sha256 31ee2bc336f89cf94a5d04a3b5487eaf05f5df8a880a0d829f8c0311bb289673.
+Restriction.lean: lake env lean exit 0; independently reviewed by repo_review; 729 lines; sha256 6981b6dd252ad9205568e4972ff934dff07f68cd84b75e48da53c8d12ef81110.
+FirstMerge and OneNotSamples have no forbidden proof constructs; source proofs independently inspected in full. Restriction update adds proved input-seed invariants.

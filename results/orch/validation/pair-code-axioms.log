@@ -1,0 +1,16 @@
+Complete Lean stdout:
+'PEqualNP.Outside.L_meta_2592_aux.Restriction.left_probe' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.Restriction.right_probe' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.Restriction.no_pair_code' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.Restriction.perm_inverse' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2592_aux.Restriction.perm_right_inverse' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2592_aux.Restriction.perm_last' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2592_aux.Restriction.perm_preserves' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.Restriction.liftInput_removed' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.Restriction.liftInput_petersen' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete Lean stderr:
+
+Exit status: 0

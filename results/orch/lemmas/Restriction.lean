@@ -688,6 +688,42 @@ lemma restriction_with_cutCost (n k : ℕ) (C : Circuit) (fan : FanInTwo C)
       change (wiresFrom acc.2 (List.ofFn x)).getD j false = _
       simpa only [outputStat, Stat.val] using value x
 
+def initialOrigins (k : ℕ) : List (Option ℕ) :=
+  List.ofFn (fun i : Fin k => some i.val)
+
+lemma inv_seed (n k : ℕ) (seed : Fin k → Stat)
+    (valuation : (Fin n → Bool) → (Fin k → Bool))
+    (valid : ∀ i, (seed i).Valid n)
+    (evaluates : ∀ (x : Fin n → Bool) (i : Fin k),
+      (seed i).val (List.ofFn x) = valuation x i) (x : Fin n → Bool) :
+    Inv n (List.ofFn x) (List.ofFn (valuation x)) (List.ofFn seed, []) := by
+  refine ⟨by simp, ?_⟩
+  intro i
+  by_cases before : i < k
+  · let j : Fin k := ⟨i, before⟩
+    constructor
+    · simpa [before] using valid j
+    · simpa [before, wiresFrom] using evaluates x j
+  · rw [List.getD_eq_default _ _ (by simp; omega),
+      List.getD_eq_default _ _ (by simp; omega)]
+    exact ⟨trivial, rfl⟩
+
+lemma originConstant_seed (k : ℕ) (seed : Fin k → Stat) (v : Fin k) (b : Bool)
+    (fixed : seed v = Sum.inl b) :
+    OriginConstant (initialOrigins k) v.val (List.ofFn seed) := by
+  refine ⟨by simp [initialOrigins], ?_⟩
+  intro i hi
+  by_cases before : i < k
+  · have eq : i = v.val := by
+      simpa [initialOrigins, before] using hi
+    subst i
+    refine ⟨b, ?_⟩
+    simpa using fixed
+  · have outside : (initialOrigins k).getD i none = none :=
+      List.getD_eq_default _ _ (by simp [initialOrigins]; omega)
+    rw [outside] at hi
+    contradiction
+
 end CircuitProof
 
 end PEqualNP.Outside.L_meta_2592_restrict

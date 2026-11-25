@@ -9,3 +9,6 @@
 
 2026-11-25T13:59:33.326966+00:00 Counterexample route: restricted six-input hexagon construction ruled out computationally; switched local search to randomized gate ordering and stronger NOT penalty.
 2026-11-25T14:01:06.722845+00:00 PairCode and restriction compiler compiled and independently reviewed; preparing immediate backup.
+2026-11-25T14:02:26.655364+00:00 OneNotSamples.lean compiled; exact38-row single-input-negation sufficiency established.
+2026-11-25T14:02:51.124067+00:00 Lower-bound strategy: restriction compiler and seed invariants compiled; working toward16-binary partial floor.
+2026-11-25T14:04:00.639007+00:00 FirstMerge, OneNotSamples and restriction seed helpers compiled and independently reviewed; preparing backup.
