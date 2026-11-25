@@ -5,3 +5,5 @@
 2026-11-25T14:10:23.116372+00:00 Certificate support partial compiled and independently reviewed; preparing immediate checkpoint push. Full gap remains open.
 
 2026-11-25T14:11:18.540675+00:00 Negation and GateElimination partials compiled exit0 and independently reviewed. Preserving checkpoint; full gap remains open.
+
+2026-11-25T14:12:52.086887+00:00 RetentionWitness and CertificateCount partials compiled and independently reviewed.

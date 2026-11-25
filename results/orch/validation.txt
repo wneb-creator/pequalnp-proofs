@@ -8,3 +8,6 @@ TIMING total=10 subagents=6
 
 Negation.lean and GateElimination.lean: lake env lean exit0, empty stdout/stderr; independent research-checkpoint review PASS.
 TIMING total=11 subagents=6
+
+RetentionWitness.lean and CertificateCount.lean: lake env lean exit0; independent research review PASS.
+TIMING total=12 subagents=6
