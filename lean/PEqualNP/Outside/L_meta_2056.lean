@@ -1504,6 +1504,54 @@ theorem singleton_extensions_true_or_cut {n : ℕ}
   have hpart := orCount_partition C.gates (List.ofFn M)
   omega
 
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma eval_mono_of_pointwise {n : ℕ} (C : Circuit) (hC : Monotone2 C)
+    (x y : Fin n → Bool) (hxy : ∀ i, x i = true → y i = true) :
+    C.eval (List.ofFn x) = true → C.eval (List.ofFn y) = true := by
+  unfold Circuit.eval Circuit.wires
+  apply PrefixPrune.prefix_fold_mono C.gates (fun g hg => (hC g hg).1) _ _ _ (by simp)
+  intro i hi
+  by_cases hi' : i < n
+  · simp only [List.getD_eq_getElem?_getD, List.getElem?_ofFn, hi', dite_true,
+      Option.getD_some] at hi ⊢
+    exact hxy ⟨i, hi'⟩ hi
+  · simp only [List.getD_eq_getElem?_getD, List.getElem?_ofFn, hi', dite_false,
+      Option.getD_none] at hi
+    contradiction
+
+/-- Edge-pair positives and one negative with an outside-neighbor witness suffice.
+    Independence of M and full-function correctness are not required. -/
+theorem graph_false_or_cut {n : ℕ} (G : SimpleGraph (Fin n))
+    (C : Circuit) (hC : Monotone2 C) (M : Finset (Fin n))
+    (hedge : ∀ u v, G.Adj u v →
+      C.eval (List.ofFn fun j => decide (j = u ∨ j = v)) = true)
+    (hneg : C.eval (List.ofFn fun j => decide (j ∈ M)) = false)
+    (hcover : ∀ v, v ∉ M → ∃ u ∈ M, G.Adj u v) :
+    trueOrCount C.gates (List.ofFn fun j => decide (j ∈ M)) + n ≤
+      orCount C.gates + M.card + 1 := by
+  classical
+  let O : Finset (Fin n) := Finset.univ \ M
+  let e : Fin O.card ↪o Fin n := O.orderEmbOfFin rfl
+  have hout (i : Fin O.card) : e i ∉ M := by
+    have hi : e i ∈ O := O.orderEmbOfFin_mem rfl i
+    exact (Finset.mem_sdiff.mp hi).2
+  have hpos (i : Fin O.card) :
+      C.eval (List.ofFn (extension (fun j => decide (j ∈ M)) e i)) = true := by
+    obtain ⟨u, hu, huv⟩ := hcover (e i) (hout i)
+    apply eval_mono_of_pointwise C hC _ _ _ (hedge u (e i) huv)
+    intro j hj
+    have hj' : j = u ∨ j = e i := of_decide_eq_true hj
+    rcases hj' with rfl | rfl
+    · simp [extension, hu]
+    · simp [extension]
+  have hcut := singleton_extensions_true_or_cut C hC (fun j => decide (j ∈ M))
+    e e.injective hneg hpos
+  have hcard : O.card + M.card = n := by
+    have h := Finset.card_sdiff_add_card_eq_card (Finset.subset_univ M)
+    simpa [O] using h
+  omega
+
 end FalseOrCut
 
 end PEqualNP.Outside.L_meta_2056
