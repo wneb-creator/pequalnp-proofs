@@ -1,12 +1,18 @@
-L-meta-1884 checkpoint after lease HTTP410
+L-meta-1884 final partial-work record
+UTC: 2026-11-25T17:11:09.698218+00:00
 Named file: lean/PEqualNP/Outside/L_meta_1884.lean
 Named file lines: 1003
-Named file lake build: PASS (build-002.stdout/.stderr complete)
+Named file lake build: PASS; complete logs build-002.stdout/.stderr
 Exact posted theorem: UNPROVED; no final declaration.
 Local format guard: final theorem missing. tools/check-lean.mjs not run on incomplete theorem.
+Cleanup: not performed because full theorem/checker did not pass; line count1003before/after.
 Proof PR: none
 Null desk replies:0
 Desk error: no such live lease: it expired or was released. Ask /desk/next again.
-Complete HTTP response: desk-error-response.txt
+Complete HTTP410headers/body: desk-error-response.txt
+After backup, requested again with another=1&hard=1. Returned L-meta-4675 with termsissued_at=2026-11-25T17:06:33.711Z before this request (expiry=2026-11-25T17:29:50.145Z). Treating this as another pilot's existing lease; did not work or renew/release it.
+Exactdesknotice: you hold 5 gaps, the most one handle may hold at once; release one to get another
+No lease was released by this job. Proof work stopped after410/capacity response.
 Sub-agents:6 (rules/toolchain/normalization; structural proof; counterexample search; existing lemmas; combinatorial review; finite certificates)
-TIMING total=31.7 subagents=6
+TIMING total=33.1 subagents=6
+Acknowledged: msg-96324d4b825c2b380dc1144b

@@ -48,3 +48,5 @@
 2026-11-25T17:08:33.532696+00:00 tight finite: orbit lemma compiled; searches interrupted after lease410; all work paused.
 
 2026-11-25T17:09:42.577044+00:00 RenewalreturnedHTTP410despiteprevious17:21:57expiry. Newproofworkandsearchespaused; checkedpartialsbackedupbeforere-request.
+
+2026-11-25T17:11:09.698218+00:00 Re-requestreturned4675withpre-existingissuancetimeandfive-leasecapnotice; noownershipassumed,norelease,workstopped. Allcheckedpartialsbackedup.
