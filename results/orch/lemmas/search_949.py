@@ -125,12 +125,27 @@ class CNF:
                 f.write(' '.join(map(str, clause)) + ' 0\n')
 
 
-def synthesis(g, n, k, seconds):
+def synthesis(g, n, k, seconds, examples=None, symmetry=False, last_output=False, tag=''):
     cnf = CNF()
     # Each side selects a subset of the bare inputs and earlier AND gates.
     selectors = [[[cnf.variable() for _ in range(n + i)] for _ in range(2)] for i in range(k)]
     outputs = [cnf.variable() for _ in range(k)]
-    negative, positive = partial_examples(g, n)
+    if symmetry:
+        for left, right in selectors:
+            prefix = cnf.variable()
+            cnf.clause(prefix)
+            for a, b in zip(left, right):
+                cnf.clause(-prefix, -a, b)
+                following = cnf.variable()
+                cnf.clause(-following, prefix)
+                cnf.clause(-following, -a, b)
+                cnf.clause(-following, a, -b)
+                cnf.clause(-prefix, -a, -b, following)
+                cnf.clause(-prefix, a, b, following)
+                prefix = following
+    if last_output and k:
+        cnf.clause(outputs[-1])
+    negative, positive = partial_examples(g, n) if examples is None else examples
     for u in negative + positive:
         vals = []
         for i in range(k):
@@ -150,7 +165,7 @@ def synthesis(g, n, k, seconds):
     # every vertex belongs to a maximal independent set, which must evaluate false.
     if g:
         cnf.clause(*outputs)
-    name = f'n{n}-g{g}-k{k}'
+    name = f'n{n}-g{g}-k{k}{tag}'
     path = SCRATCH / (name + '.cnf')
     cnf.write(path)
     with (SCRATCH / (name + '.log')).open('w') as log:

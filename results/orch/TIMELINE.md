@@ -8,3 +8,4 @@
 - 2026-11-25T10:29:56.855308+00:00 lean_reduction: exact refutation of prior R_meta949_1 hLower compiled successfully; root notified for push.
 - 2026-11-25T10:32:33.224669+00:00: independent semantic census and graph/biclique audit completed; then independently confirmed upstream L-meta-950 is the exact opposite of assigned949. Certificate strategy stopped because existing structural proof supersedes it.
 - 2026-11-25T10:33:45.564879+00:00 lean_reduction: full exact L-meta949 refutation adapted from upstream L-meta950 compiled successfully; root notified for checker and push.
+- 2026-11-25T10:37:05.467689+00:00: exact-refutation named build passed; checker FAULT due missing full cache; preparing release because checked opposite was already upstream.

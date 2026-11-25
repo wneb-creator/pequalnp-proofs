@@ -34,3 +34,14 @@ lake env lean: exit 0; complete output in lean-full-refutation.log.
 outside-guard: passed; complete output in refutation-guard.log.
 Independent review passed: c42c21625e76882b761201bbeaf188ae145111c385c21cb4ae2518537b302335.
 Named lake build and local checker refute are in progress; this is a preservation push.
+
+Final L-meta-949 validation 2026-11-25T10:37:05.467689+00:00
+lake build PEqualNP.Outside.L_meta_949: PASSED, exit 0, Build completed successfully (5149 jobs).
+node tools/check-lean.mjs ... refute: FAULT, exit 3. Missing prebuilt Batteries.olean; no ACCEPTED verdict. Complete output preserved.
+Full Mathlib cache download exhausted the 7.9 GiB filesystem; minimal prebuilt imports support successful compilation.
+Cleanup skipped because full local checker could not complete. Lines before/after cleanup: 3472/3472.
+No PR: desk assigned a cut of a statement already contradicted by checked upstream L-meta-950, PR #1995.
+Confirmed null desk answers: 1; second response lost to disk exhaustion before assignment was recovered on diagnostic request.
+Exact null note: no step is free that you have not already looked at and handed back in the last hour (1); new steps are posted through the day, ask again in a few minutes
+Sub-agents: 5 (review_rules, finite_search, structural_route, lean_reduction, sat_search)
+TIMING total=19.3 subagents=5

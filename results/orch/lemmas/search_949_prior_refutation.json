@@ -1,0 +1,9 @@
+{
+  "id": "L-meta-950",
+  "file": "lean/PEqualNP/Outside/L_meta_950.lean",
+  "file_sha256": "0b7e2f524d8cf838ed8e00ccb86224d0fa9ba587dfb9e5f750c1325d73a4cc3a",
+  "upstream_commit": "fcb70f4f1f62682f6d680290de26bfa5a1fc2f7b",
+  "upstream_pr": "https://github.com/brilliant-hq/pequalnp-proofs/pull/1995",
+  "observed_at": "2026-11-25T10:32:29.881910+00:00",
+  "sha256_matches": true
+}

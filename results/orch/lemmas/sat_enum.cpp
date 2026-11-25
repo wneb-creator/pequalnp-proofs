@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <cassert>
 #include <chrono>
 #include <cstdint>
 #include <iostream>
@@ -39,6 +40,7 @@ struct Search {
   }
 
   Search(int n_, int graph_, int budget_): n(n_),graph(graph_),budget(budget_) {
+    assert(n==6 && 0<=budget && budget<=3);
     for(int s=0;s<(1<<n);s++) {
       if(!independent(s)) continue;
       bool ismax=true;
