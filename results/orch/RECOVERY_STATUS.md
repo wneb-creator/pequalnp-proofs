@@ -11,3 +11,9 @@ ConstantDropTwo and PetersenUpper are UNCHECKED candidates. Other fragments are 
 Search sources and complete logs are in search/ and finite/. Paused process state itself cannot survive container loss; reproducible scripts, seeds, and restart instructions are retained. No global UNSAT certificate for the posted gap exists.
 
 Null desk answers:0. Initial desk request assigned L-meta-2592.
+
+## Recovery outcome
+
+Both recovery requests returned the same pre-existing L-meta-2583 lease, issued at13:59:02.364Z, with the exact message: `you hold 5 gaps, the most one handle may hold at once; release one to get another`. No new lease of this job was obtained. No proof work, renewal POST, or release POST was performed for L-meta-2583. Stopped as explicitly required by the shared-handle rule after one retry.
+
+Total null desk answers:0. One renewal error:HTTP410. Full L-meta-2592 remains unproved. No PR was opened and the full statement checker was not run. No final cleanup pass applied because a complete proof/checker pass was not reached.

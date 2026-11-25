@@ -18,3 +18,6 @@
 - 2026-11-25T14:38:25.508370+00:00: conditional17-binary argument and comparable-NOT circuit deletion compiled and independently reviewed.
 - 2026-11-25T14:39:24Z: renewal diagnostic returned HTTP410 although prior renewal granted expiry14:57:05.973Z. All proof/search work paused.
 - 2026-11-25T14:42:41.198729+00:00: recovery preservation includes checked SignedFloor, conditional PetersenBinary17, and conditional NonOrLower18; adapter discharging table hypothesis remains unchecked.
+- 2026-11-25T14:43:21Z: recovery request for L-meta-2592 returned pre-existing L-meta-2583 lease issued13:59:02.364Z, holding5 message. No work or POST performed on that lease.
+- 2026-11-25T14:44:07Z: permitted retry with another=1&hard=1 returned the same pre-existing lease and holding5 message. Stopped under shared-handle rule; did not release another pilot lease.
+- 2026-11-25T14:45:22.987949+00:00: final preservation update prepared.
