@@ -2723,3 +2723,51 @@ lemma sliceSpecs_vars_lt7 : ∀ s ∈ sliceSpecs, ∀ v ∈ s.2.2, v < 7 := by
     ((List.all_eq_true.mp sliceSpecs_vars_check) s hs)) v hv)
 
 end PEqualNP.Outside.L_meta_10760.RestrictionSixProof.Restriction92
+
+namespace PEqualNP.Outside.L_meta_10760.RestrictionHints
+
+def hintFold {α σ : Type} (step : α → σ → Option σ) : List α → σ → Option σ
+  | [], s => some s
+  | x::xs, s => (step x s).bind (hintFold step xs)
+
+lemma hintFold_sound {α σ : Type} (step : α → σ → Option σ) (check : α → Bool) :
+    ∀ xs s t, hintFold step xs s = some t →
+      (∀ x ∈ xs, ∀ u v, step x u = some v → check x = true) → xs.all check = true := by
+  intro xs
+  induction xs with
+  | nil => intro s t h good; rfl
+  | cons x xs ih =>
+    intro s t h good
+    cases he : step x s with
+    | none => simp [hintFold,he] at h
+    | some u =>
+      have hx := good x (by simp) s u he
+      have ht := ih u t (by simpa [hintFold,he] using h)
+        (fun y hy => good y (by simp [hy]))
+      simpa only [List.all_cons,hx,Bool.true_and] using ht
+
+def hintStep {α β σ : Type} (free : α → Bool) (readHint : σ → Nat × σ)
+    (specs : List β) (fallback : β) (accept : α → β → Bool) (x : α) (s : σ) : Option σ :=
+  if free x then some s else
+    let p := readHint s
+    if decide (p.1 < specs.length) && accept x (specs.getD p.1 fallback) then some p.2 else none
+
+lemma hintStep_sound {α β σ : Type} (free : α → Bool) (readHint : σ → Nat × σ)
+    (specs : List β) (fallback : β) (accept : α → β → Bool) (x : α) (s t : σ)
+    (h : hintStep free readHint specs fallback accept x s = some t) :
+    (free x || specs.any (accept x)) = true := by
+  by_cases hf : free x = true
+  · simp [hf]
+  · have hf' := Bool.eq_false_iff.mpr hf
+    simp only [hintStep,hf',Bool.false_eq_true,ite_false] at h
+    split at h
+    · rename_i hc
+      simp only [Bool.and_eq_true,decide_eq_true_eq] at hc
+      obtain ⟨hb,ha⟩ := hc
+      simp only [hf',Bool.false_or,List.any_eq_true]
+      refine ⟨_,?_,ha⟩
+      simpa only [List.getD_eq_getElem?_getD,List.getElem?_eq_getElem hb,Option.getD_some]
+        using List.getElem_mem hb
+    · cases h
+
+end PEqualNP.Outside.L_meta_10760.RestrictionHints
