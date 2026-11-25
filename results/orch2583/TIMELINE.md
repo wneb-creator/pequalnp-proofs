@@ -8,3 +8,4 @@
 - 2026-11-25T14:46:56.924077+00:00: six parallel agents reassigned to new step.
 - 2026-11-25T14:50:10.803387+00:00: new named partial file built successfully; exact target still unproved.
 - 2026-11-25T14:53:58.467263+00:00: regular bipartite edge-deletion cover lower bound compiled in named file; independent review PASS.
+- 2026-11-25T14:57:53.489065+00:00: mixed-set and minimum-cover geometry built in named file; independent review PASS.

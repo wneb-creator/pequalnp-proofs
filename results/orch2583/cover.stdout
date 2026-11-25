@@ -1,0 +1,12 @@
+../results/orch2583/lemmas/CoverClassification.lean:239:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [h] at this
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch2583/lemmas/CoverClassification.lean:246:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [h] at this
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
