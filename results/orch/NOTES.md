@@ -79,3 +79,15 @@ Located accepted L_meta_8435, whose 245-line initial charging argument supplies 
 The proposed corollaries state: for S : Fin m -> Finset (Fin n) with distinct rows intersecting in at most one variable, an OR circuit serving each nonempty row at cost c has sum_p (|S p|-1) <= c. Equivalent active-row form is sum_p |S p| <= c + number of nonempty rows. The proof charges every nonminimum row member to the earliest gate whose support is inside that row and contains a smaller member. C4-freeness makes the row unique, and binary-merge earliestness makes the charged member unique. This does NOT handle dirty AND gates and does NOT prove L-meta-2585.
 
 - 2026-11-25T12:31:54.626898+00:00: StarBlock extended with `neighborhood_inter_card_le_one`, using Mathlib.Data.Fintype.Fin. All 56 lines compile with exit 0 and no warnings; complete logs proof-route/starblock5.stdout, starblock5.stderr.
+
+## 2026-11-25T12:36:06.722550+00:00 independent SinglePoint review by normalization
+
+Reviewed full SinglePoint composition, matching SinglePointBody suffix, Star read1-vector argument, and Support essential-input cardinality proof. The exact P=1 result is mathematically sound: degree d supplies d+1 essential variables, giving d≤C.size; the star circuit uses exactly d gates and is read1. Empty incidence has no prime implicants. No forbidden source features found. SinglePointBody is an assembly fragment and should not be built independently. This review does not certify compilation or extend the result to general star forests.
+
+## Counterexample searches replanned, 2026-11-25T12:36:09.622126+00:00
+
+Exact SAT synthesis independently found C6 seven-gate UNSAT (Cadical exit20); explicit eight-gate positive control SAT, including new symmetry constraints. A seven-gate exhaustive search for all333 3+3 targets remains running. Search artifacts in results/orch/searches are computational evidence only.
+
+Important upstream discoveries: L_meta_723 line3448 proves the subdivided K4 monotone bound15. L_meta_971 line9365 proves the Heawood/Fano monotone bound27, and L_meta_7995_aux.ao27 line9428 directly covers cyclic Fano. Hence K4 14-gate and Fano26 searches were stopped as mathematically settled. The cyclic Fano-to-L_meta_971 isomorphism is point image (0,1,2,6,5,3,4), line image (3,0,6,1,2,5,4).
+
+Active replacement: subdivision of K5, P=5,L=10,20 incidence edges, explicit star baseline24. Search budget23 gates. Exact SAT has60min cap; stochastic search30min. SAT uses all20 edge assignments plus all maximal independent assignments, sufficient for monotone equivalence. Symmetry constraints sort adjacent independent gates by operand indices/op and choose first-gate input-pair orbit representatives under120 explicitly verified graph automorphisms. Both reductions preserve a representative: globally lexicographically least circuit under topological orders and graph automorphisms satisfies both.
