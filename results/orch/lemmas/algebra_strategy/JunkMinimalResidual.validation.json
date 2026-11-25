@@ -1,0 +1,24 @@
+{
+  "status": "COMPILED; frozen for independent review",
+  "exit_code": 0,
+  "sha256": "6edd78b228398676966784f61aa9ee3e222d46aa4375ab2ece11fa50e20861d2",
+  "lines": 4535,
+  "log": "JunkMinimalResidual.build.log",
+  "log_bytes": 11120,
+  "imports": [
+    "PEqualNP.Defs",
+    "Mathlib.Combinatorics.Enumerative.DoubleCounting"
+  ],
+  "scope": "Every exactMonotone2 circuit for a nonempty finitegraph normalizes without size increase to a leastTopForm/junk-minimal circuit where everyjunk is essential on2 distinctUstar edges. This is a necessary condition, not a graph lowerbound.",
+  "copied_prefixes": [
+    "JunkMinimalTopForm",
+    "JunkLostUstar(with identical duplicateL8305namespace removed)"
+  ],
+  "format_scan": {
+    "sorry": false,
+    "native_decide": false,
+    "_root_": false,
+    "\"": false,
+    "axiom ": false
+  }
+}

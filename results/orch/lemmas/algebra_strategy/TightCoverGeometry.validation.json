@@ -1,0 +1,11 @@
+{
+  "status": "COMPILED; frozen for review",
+  "exit_code": 0,
+  "sha256": "0da2c55f2479dcb7da39db56d473ffb3decd5bb34282c34e000157a4fc63e981",
+  "lines": 197,
+  "log": "TightCoverGeometry.build.log",
+  "scope": "Generic tight degree-cover count implies independent cover; in a13+13 bipartite degree4 system with pairwise common-neighborcard\u22641, independent12sets lie in one part. Not a circuit exclusion.",
+  "imports": [
+    "PEqualNP.Defs"
+  ]
+}
