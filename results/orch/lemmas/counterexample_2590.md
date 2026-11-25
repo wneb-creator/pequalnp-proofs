@@ -13,3 +13,16 @@ The19-gate normalized baseline has138019 clauses and max DIMACS variable166533. 
 At15:12UTC a1200-second CaDiCaL run started on the exact baseline, writing binary LRAT and complete stdout/stderr. No result yet. Any UNSAT result will require verified LRAT replay against the original formula; the current files are not an UNSAT certificate.
 
 Scratch: `/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/`. Frozen inputs/control manifest: `frozen-manifest.json`. No target Lean file or Git state is modified by this agent.
+
+
+## Bounded code-model obstruction,15:17UTC
+
+The proposed abstract all-eligible code constraints alone are satisfiable. Let A={2,4,5,6}, an independent set; B={0,1,3,7,8,9} induces the matching(0,1),(3,8),(7,9). Give every A vertex a common position0 and a unique private position; every B vertex receives common position1 and a private position. Pair0 with1, pair B private positions along those three matching edges, and pair A private positions with empty positions.
+
+With opposite p xor1, the explicit codes are W0={1,2},W1={1,3},W2={0,8},W3={1,4},W4={0,10},W5={0,12},W6={0,14},W7={1,6},W8={1,5},W9={1,7}. There are12 nonempty positions,20 memberships,8 pair IDs. Every code is nonempty, has size≤2, and contains no opposite pair. Every Petersen edge has opposite-position witnesses. Because each vertex has a private position, no code is covered by the union of any two other codes, even without restricting those two labels to a nonedge.
+
+This is NOT a circuit counterexample. It permits12 false-positive pairs, which the proposed abstraction expressly allowed. It shows that additional temporal/circuit structure is necessary. `code_model.py` checks every stated finite condition and writes the exact model.
+
+The suggested two-C5 slot construction was also exhaustively checked: among945 slot perfect matchings,295 obey the no-opposites-inside-a-code rule, and the maximum Petersen edge coverage is11 of15. Full source and best models are in `code_cycles.py/.json`; this finite family is impossible but the general code abstraction is not.
+
+At15:21:53UTC the lease again returned410, confirmed by root at15:22:26. Exact enc2 solver was stopped with SIGINT at15:22:34UTC, exit130, after roughly10minutes. No SAT/UNSAT verdict. Full stdout/stderr and LRAT prefix remain preserved; this is not a completed certificate. The small AND-skeleton controls passed, but no free7–10-gate probes were launched. Final sources/logs are frozen in final-manifest.json.

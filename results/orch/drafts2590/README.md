@@ -1,0 +1,1 @@
+Unchecked draft preserved for continuity. FourOrbitLowSharing was never compiled and is not a checked proof result. Its safety/provenance was reviewed; its theorem and proof have not been semantically approved. Do not use it to claim the posted gap is solved.

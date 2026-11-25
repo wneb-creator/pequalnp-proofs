@@ -1,0 +1,71 @@
+{
+  "frozen_utc": "2026-11-25T15:12:44.087432+00:00",
+  "notes": "Canonical normalized enc2 baseline and weaker encM,20-gate positive control. Running19 search stdout/stderr/LRAT excluded.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/encode.py",
+      "size": 6164,
+      "sha256": "6c96af4eb803b7d58646eb55e4987b3f2f177a4da556e535dd02979fa89e7369"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/petersen19-enc2.cnf",
+      "size": 5609856,
+      "sha256": "c34d684c7fd7ee2a38a0e3f205639b7be8fe762771a72781ffca28c84810f96d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/petersen19-enc2.meta.json",
+      "size": 1295,
+      "sha256": "7fc90597114537e78731cbf2c246e3e9f8f6b6f011b06827704aa4a6b4d4d249"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/petersen19-encM.cnf",
+      "size": 778543,
+      "sha256": "5710eb5fc8935a286df6ef51e28c9eab3cc026167e54403e4d38adff692e3fb3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/petersen19-encM.meta.json",
+      "size": 1158,
+      "sha256": "070c602923041bfa9369d1935cd16a33f14bedb8eb64a186834d2383a4d6389f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/upper20-lex.json",
+      "size": 835,
+      "sha256": "26476435fcbe04c7c5c9c79ba2e5e07420ae163cf354b269d6a288c172132490"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/petersen20-control.cnf",
+      "size": 6381577,
+      "sha256": "75688a872b07446c167edb3fe5653a28e1401235ffb499eb05a3d0c7aaf54e92"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/petersen20-control.meta.json",
+      "size": 1295,
+      "sha256": "e1c64bb9eb9c1157881fb0355d6f0c322a9422c1e7da50d4742562f0296e5ce8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/petersen20-control.log",
+      "size": 57,
+      "sha256": "e32a3bf7b354684453ad72424f6c3d9a63066703d30bd9a6e5ed6103c957c8dc"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/petersen20-control.stdout",
+      "size": 1327586,
+      "sha256": "414d4a1752516629afc50caaadd666aed03609318a9549054cbb4d29adac031a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/petersen20-control.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/petersen20-control-driver.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2590/counterexample/petersen20-control.circuit.json",
+      "size": 848,
+      "sha256": "043c92bf7fa1115cf25331157591dd93254089ba2d790916287d7bc7048520ff"
+    }
+  ]
+}

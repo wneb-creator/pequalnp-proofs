@@ -1,0 +1,101 @@
+import FourOrbitCodes
+
+namespace PEqualNP.Outside.L_meta_2590_aux.Surplus
+
+ theorem private_slot_avoiding_label : ∀ i x c : Fin 10,
+    Adj i x → c ≠ i → c ≠ x →
+    ∃ a, Adj i a ∧ a ≠ x ∧ a ≠ c ∧ ¬ Adj a c := by decide +kernel
+
+ theorem four_orbit_three_assigned : ∀ x c : Fin 10,
+    x ∉ ({2, 4, 5, 6} : Finset (Fin 10)) →
+    c ∉ ({2, 4, 5, 6} : Finset (Fin 10)) → x ≠ c →
+    3 ≤ (({2, 4, 5, 6} : Finset (Fin 10)).filter (fun i => Adj i x ∨ Adj i c)).card := by
+  decide +kernel
+
+ theorem residual_singleton_dominance {D : Dag}
+    (h : StrictLive 10 D) (hD : Correct D)
+    (b : Fin 10 → Nat) (hb : PureBranch 10 D b)
+    {x c : Fin 10} (hxc : x ≠ c) (hx : x ∈ eligSet 10 D)
+    {u : Sigma (fun _ : Nat => Nat)} (hu : u ∈ residualUnits 10 D b)
+    (hxu : x ∈ supp 10 D u.1) (hcu : c ∈ supp 10 D u.1)
+    (hrx : ((residualUnits 10 D b).filter (fun u => x ∈ supp 10 D u.1)).card = 1) :
+    ∃ e0, ∀ e ∈ sem_W 10 D x, e ≠ e0 → c ∈ supp 10 D (src D e) := by
+  refine ri_gen sem_petersen_gr h hD b hb hxc hx ?_ ⟨hxu, hcu⟩
+  intro v hv hxv
+  have heq : (residualUnits 10 D b).filter (fun u => x ∈ supp 10 D u.1) = {u} :=
+    Finset.eq_singleton_iff_unique_mem.mpr ⟨Finset.mem_filter.mpr ⟨hu, hxu⟩,
+      fun w hw => (Finset.card_eq_one.mp hrx).choose_spec ▸ by
+        have hw' := hw
+        have hu' := Finset.mem_filter.mpr ⟨hu, hxu⟩
+        rw [(Finset.card_eq_one.mp hrx).choose_spec, Finset.mem_singleton] at hw' hu'
+        exact hw'.trans hu'.symm⟩
+  have hvu : v = u := by
+    have hv' := Finset.mem_filter.mpr ⟨hv, hxv⟩
+    rw [heq, Finset.mem_singleton] at hv'
+    exact hv'
+  simpa only [hvu] using hcu
+
+ theorem dominated_assigned_slot {D : Dag}
+    (h : StrictLive 10 D) (hD : Correct D)
+    {pos : Fin 10 → Nat × Bool} (hpos : k4_Pos 10 Adj D pos)
+    {i x c : Fin 10} (hi : i ∈ ineligSet 10 D) (hix : Adj i x)
+    (hc : c ∈ eligSet 10 D) (hcx : c ≠ x)
+    (hd : ∃ e0, ∀ e ∈ sem_W 10 D x, e ≠ e0 → c ∈ supp 10 D (src D e)) :
+    pos i ∈ sem_W 10 D c := by
+  obtain ⟨e0, hd⟩ := hd
+  obtain ⟨hp, hp0, hpn, _⟩ := hpos.1 i hi
+  have hpx : pos i ∈ sem_W 10 D x := sem_mem_W.mpr
+    ⟨hp, hpn x hix, by rw [hp0]; exact Finset.notMem_empty _⟩
+  have hci : c ≠ i := fun hh => (sem_mem_inelig.mp hi) (hh ▸ hc)
+  obtain ⟨a, hia, hax, hac, hnac⟩ := private_slot_avoiding_label i x c hix hci hcx
+  refine sem_mem_W.mpr ⟨hp, ?_, by rw [hp0]; exact Finset.notMem_empty _⟩
+  by_contra hcn
+  have hie : pos i = e0 := by
+    by_contra hn
+    exact hcn (hd _ hpx hn)
+  obtain ⟨f, hf, hfa, hfc⟩ := sem_pg_cover_free h hD (Ne.symm hax) (Ne.symm hcx) hnac
+  have hfe : f = e0 := by
+    by_contra hn
+    exact hfc (hd _ hf hn)
+  rw [hfe, ← hie] at hfa
+  exact hfa (hpn a hia)
+
+ theorem four_orbit_low_no_share {D : Dag}
+    (h : StrictLive 10 D) (hD : Correct D)
+    (hI : ineligSet 10 D = ({2, 4, 5, 6} : Finset (Fin 10)))
+    (b : Fin 10 → Nat) (hb : PureBranch 10 D b)
+    {x c : Fin 10} (hx : x ∈ eligSet 10 D) (hc : c ∈ eligSet 10 D) (hxc : x ≠ c)
+    (hrx : ((residualUnits 10 D b).filter (fun u => x ∈ supp 10 D u.1)).card = 1)
+    (hrc : ((residualUnits 10 D b).filter (fun u => c ∈ supp 10 D u.1)).card = 1)
+    {u : Sigma (fun _ : Nat => Nat)} (hu : u ∈ residualUnits 10 D b)
+    (hxu : x ∈ supp 10 D u.1) (hcu : c ∈ supp 10 D u.1) : False := by
+  obtain ⟨pos, hpos⟩ := k4_assigned sem_petersen_gr h hD
+  have hxd := residual_singleton_dominance h hD b hb hxc hx hu hxu hcu hrx
+  have hcd := residual_singleton_dominance h hD b hb hxc.symm hc hu hcu hxu hrc
+  let J := (ineligSet 10 D).filter (fun i => Adj i x ∨ Adj i c)
+  have hxnot : x ∉ ({2, 4, 5, 6} : Finset (Fin 10)) := by
+    rw [← hI]; exact fun hh => (sem_mem_inelig.mp hh) hx
+  have hcnot : c ∉ ({2, 4, 5, 6} : Finset (Fin 10)) := by
+    rw [← hI]; exact fun hh => (sem_mem_inelig.mp hh) hc
+  have hJ3 : 3 ≤ J.card := by
+    dsimp [J]; rw [hI]; exact four_orbit_three_assigned x c hxnot hcnot hxc
+  have himage : (J.image pos).card = J.card := Finset.card_image_of_injOn
+    (fun i hi j hj he => hpos.2 i (Finset.mem_filter.mp hi).1 j (Finset.mem_filter.mp hj).1 he)
+  have hsub : J.image pos ⊆ sem_W 10 D x ∩ sem_W 10 D c := by
+    intro e he
+    obtain ⟨i, hi, rfl⟩ := Finset.mem_image.mp he
+    obtain ⟨hi, hix | hic⟩ := Finset.mem_filter.mp hi
+    · exact Finset.mem_inter.mpr ⟨k4_pos_exit hpos hi hix (Finset.mem_singleton_self x),
+        dominated_assigned_slot h hD hpos hi hix hc hxc.symm hxd⟩
+    · exact Finset.mem_inter.mpr ⟨dominated_assigned_slot h hD hpos hi hic hx hxc hcd,
+        k4_pos_exit hpos hi hic (Finset.mem_singleton_self c)⟩
+  have hcount := sem_code_count sem_petersen_gr h hD b hb x
+  have hint : ({x} ∩ eligSet 10 D).card = 1 := by simp [hx]
+  rw [hint, hrx] at hcount
+  have hEq : J.image pos = sem_W 10 D x := Finset.eq_of_subset_of_card_le
+    (fun _ he => (Finset.mem_inter.mp (hsub he)).1) (by omega)
+  obtain ⟨e, he, hnc⟩ := sem_antichain sem_petersen_gr h.1 hD hxc
+  rw [← hEq] at he
+  exact hnc (sem_mem_W.mp (Finset.mem_inter.mp (hsub he)).2).2.1
+
+end PEqualNP.Outside.L_meta_2590_aux.Surplus
