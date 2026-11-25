@@ -1,0 +1,21 @@
+{
+  "literal": {
+    "results/orch/finite/literal-cluster-census.py": "bf1fcf429afe6b8fc54a4712e3e498a2d83da7c0dd3df5277175baf2792a2e92",
+    "results/orch/finite/literal-cluster-census.log": "1370f7130d16d0c47d0b9d936e65372a4906bf8c37ec8ee1600f6b3097128942",
+    "results/orch/finite/literal-clusters.json": "11cb68a1a202dccf2ef1b95f05d22f067d8a12ff596e86e1b66d4074e339e319",
+    "results/orch/finite/literal_six_local_budget.py": "2514c9c82308f94496115ff852c2c11a71a4de44b3c4298c31d52736bc2305c9",
+    "results/orch/finite/literal_six_local_budget.log": "7c899bd6e948b127c9f2eb70c3306a3b4167c84e2209fb9f925c315ab662730a",
+    "results/orch/finite/LITERAL_BUDGET_README.md": "21f21f0428c62baa81ec805a67a4aca202f8bb104eb17b1d9ae5559e97bb242d",
+    "results/orch/lemmas/literal_cover_route.lean": "03176e59b7eb1125cf3c957fbc140af597aba8a4af2966bc52c9aa0248a78663"
+  },
+  "axiom_logs": {
+    "results/orch/validation/audit-forest_route.log": "6cfad201658a08c4b074818a2416068473ac0eb00dd0b393bfebf45c2fc05f45",
+    "results/orch/validation/audit-canonical_bad_route.log": "9785aed9e9701413e44e36e90ed51f7d81d7466507d88e9c23ed4fdf86592856",
+    "results/orch/validation/audit-prefix_patch_route.log": "b43a170943c2a438142343bdd4a6166d0c6276366053541c82bc60833d160272",
+    "results/orch/validation/audit-single_edge_signature_route.log": "8f2111d8f5c71fd15ec9bf6288e054f557a79d67c7b13307536fe78cc3abd839",
+    "results/orch/validation/audit-rectangle_exchange_route.log": "e59ede118623af54cb67793bbd96c3c100224b24d31ff555c7924953d7001436",
+    "results/orch/validation/audit-shared_side_exchange_route.log": "d62d2b92f204dcd2a6c39af5a68659aaeb279e94459c9db2654d0e34b542915a",
+    "results/orch/validation/audit-shared_hybrid_topform_route.log": "7c036680dc8c58963d7e2b869d07094248b22e124955a44f163ab31f9cbdd5e9",
+    "results/orch/validation/axiom-audit-results.json": "f59b253bf52c97b5cbb097e53abf74967982f4bdcb50ea0ec207cdb1765ed2b7"
+  }
+}

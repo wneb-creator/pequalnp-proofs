@@ -39,4 +39,6 @@
 
 - 2026-11-25 09:42 UTC: preserved nested canonicality, TopForm-preserving single-edge repair, second-edge truth signature, and shared-copy adapter; independent review passed. Lease renewed 09:39:40, expiry 09:59:40 UTC.
 
-- 2026-11-25 09:46 UTC: second conditional cluster exchange compiled and independently reviewed, covering seven shared-side cases with arbitrary fanout. No global repair classification yet.
+- 2026-11-25 09:43 UTC: second conditional cluster exchange compiled and independently reviewed, covering seven shared-side cases with arbitrary fanout. No global repair classification yet.
+
+- 2026-11-25T09:53:02.896046+00:00: re-plan. Continue past the initial effort floor while two concrete extensions progress: anchored prefix repair for all literal clusters with two disjoint accepted pairs, and truth-weight canonical tightening for star signatures. Independent finite search rejects a simpler universal three-gate protector budget. Generic first-bad classification remains unproved. Seven main component declarations passed fresh axiom-closure audits.

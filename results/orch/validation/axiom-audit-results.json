@@ -1,0 +1,58 @@
+[
+  {
+    "file": "forest_route",
+    "declaration": "PEqualNP.Outside.L_meta_1772_aux.Forest.forest_case",
+    "exit": 0,
+    "started": "2026-11-25T09:50:15.412790+00:00",
+    "finished": "2026-11-25T09:50:35.340908+00:00",
+    "log": "/tmp/oec/pequalnp-pilot-77/audit-forest_route.log"
+  },
+  {
+    "file": "canonical_bad_route",
+    "declaration": "PEqualNP.Outside.L_meta_1772_aux.canonicalBad.witness",
+    "exit": 0,
+    "started": "2026-11-25T09:50:15.414612+00:00",
+    "finished": "2026-11-25T09:50:36.158444+00:00",
+    "log": "/tmp/oec/pequalnp-pilot-77/audit-canonical_bad_route.log"
+  },
+  {
+    "file": "prefix_patch_route",
+    "declaration": "PEqualNP.Outside.L_meta_1772_aux.prefixPatch.prefix_replacement",
+    "exit": 0,
+    "started": "2026-11-25T09:50:15.414693+00:00",
+    "finished": "2026-11-25T09:50:32.893849+00:00",
+    "log": "/tmp/oec/pequalnp-pilot-77/audit-prefix_patch_route.log"
+  },
+  {
+    "file": "single_edge_signature_route",
+    "declaration": "PEqualNP.Outside.L_meta_1772.SingleEdgeSignature.canonical_bad_has_second_edge",
+    "exit": 0,
+    "started": "2026-11-25T09:50:32.895170+00:00",
+    "finished": "2026-11-25T09:50:41.850521+00:00",
+    "log": "/tmp/oec/pequalnp-pilot-77/audit-single_edge_signature_route.log"
+  },
+  {
+    "file": "rectangle_exchange_route",
+    "declaration": "PEqualNP.Outside.L_meta_1772_aux.rectangleExchange.opposite_rectangle_repair",
+    "exit": 0,
+    "started": "2026-11-25T09:50:35.342169+00:00",
+    "finished": "2026-11-25T09:50:52.882690+00:00",
+    "log": "/tmp/oec/pequalnp-pilot-77/audit-rectangle_exchange_route.log"
+  },
+  {
+    "file": "shared_side_exchange_route",
+    "declaration": "PEqualNP.Outside.L_meta_1772_aux.sharedExchange.shared_side_repair",
+    "exit": 0,
+    "started": "2026-11-25T09:50:36.159894+00:00",
+    "finished": "2026-11-25T09:50:53.631344+00:00",
+    "log": "/tmp/oec/pequalnp-pilot-77/audit-shared_side_exchange_route.log"
+  },
+  {
+    "file": "shared_hybrid_topform_route",
+    "declaration": "PEqualNP.Outside.L_meta_1772_aux.sharedHybridTopform.canonical_topform_excludes_shared_hybrid",
+    "exit": 0,
+    "started": "2026-11-25T09:50:41.856887+00:00",
+    "finished": "2026-11-25T09:50:58.465841+00:00",
+    "log": "/tmp/oec/pequalnp-pilot-77/audit-shared_hybrid_topform_route.log"
+  }
+]

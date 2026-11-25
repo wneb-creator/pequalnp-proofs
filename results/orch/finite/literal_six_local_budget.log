@@ -1,0 +1,6 @@
+{"phase": "graph_extensions", "mandatory_edges": [[0, 4], [0, 5], [1, 2]], "total_extensions": 76, "right_extra_signatures": [{"edges": [], "count": 42}, {"edges": [[3, 4]], "count": 17}, {"edges": [[3, 5]], "count": 17}], "local_target_edges": [[0, 4], [0, 5], [1, 2], [3, 4]]}
+{"phase": "bfs", "depth": 1, "states": 64, "found": false, "seconds": 6.097499954194063e-05}
+{"phase": "bfs", "depth": 2, "states": 2682, "found": false, "seconds": 0.020603268999366264}
+{"phase": "bfs", "depth": 3, "states": 94747, "found": false, "seconds": 1.5732806649994018}
+{"phase": "final_gate_scan", "depth": 4, "prefix_states": 94747, "found": false, "seconds": 2.7504228719999446}
+{"phase": "result", "found_depth_through_four": null, "five_gate_witness_verified_on_all_assignments": true, "witness": ["p AND q", "a AND (z OR r)", "z AND b", "gate0 OR gate1", "gate3 OR gate2"], "minimum_new_gates": 5, "scope": "single safe repair signal over twelve free source tables", "seconds": 2.7505068599994047}
