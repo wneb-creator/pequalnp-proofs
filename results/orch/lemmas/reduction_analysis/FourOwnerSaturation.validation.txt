@@ -1,0 +1,6 @@
+UTC 2026-11-25T05:31:14.154087+00:00
+Lean build exit 0. Complete stdout/stderr empty.
+Defs-only research partial: every binary AND in a monotone circuit with at most four binary AND gates, computing the exact four-owner raw graph through any pure-OR input encoding, is false on every raw negative input.
+No complete assembly theorem or standalone core size lower bound is asserted here.
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env lean -j1 -M4096 ../results/orch/lemmas/reduction_analysis/FourOwnerSaturation.lean
+SHA256 5b278f52027bb29d5e4b66deb68a7889b1c28c4141aac8e4495dc4d6a9e580ae
