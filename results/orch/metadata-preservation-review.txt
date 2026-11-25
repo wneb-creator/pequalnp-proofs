@@ -1,0 +1,24 @@
+Independent final metadata/review preservation check
+Verdict: PASS for the three currently unstaged tracked-file diffs listed below. No Lean source or mathematical statement changed.
+
+NOTES.md adds only the frozen reduction-design status: both proposed local OR potentials have explicit C4-free obstructions, including the all-gate/OR-branch-essential double-zero example; the five small dual-CNF searches were computationally UNSAT; the two capped generic-plane attempts aborted UNKNOWN after13.2/15.0seconds. These claims agree with the separately reviewed complete logs, notes, and finite verification records. The note does not claim a proof or refutation of the plane target.
+
+TIMELINE.md adds the04:26:04 final assessment: original statement unproved, no refutation/no PR, compiled partial preservation, bounded continuation failure, and the remaining global dirty-computation count. This agrees with the exact reviewed validation and completed continuation.
+
+clamp-semantic-review.txt retains the original independent derivative review unchanged and appends the additional reduction_design integration and minimum review. The added explanation correctly distinguishes gate index c from absolute wire26+c, uses the fixed nonzero output representative to avoid the unread source, and combines downward semantics with edge coverage/monotonicity. The Nat.find minimum is explicitly within the proper, plane-correct, marked-zero class; inactive-gate removal preserves that class and no lower bound63 is assumed. Those components and their successful compilation were already reviewed separately. This merge preserves both reviewers' records rather than replacing either one.
+
+Credential-pattern screening of the exact three diffs found no presence; no secret value was printed or retained. No solver, Lean/checker, desk/network, commit or push was performed by this review. Later release/time additions must report actual confirmed outcomes and must refresh affected manifest hashes; this review does not assert a release has occurred.
+
+Reviewed pre-release file hashes:
+results/orch/NOTES.md SHA256 09ace420bc50ca9d8814e8814113c99a9fe4e7454c6330dcbad69b379089d14f bytes 17410
+results/orch/TIMELINE.md SHA256 f5317ee378c498764e0922f0bf2de8f29223e0db69ef6fc49ec245b3f5bf3d62 bytes 6039
+results/orch/clamp-semantic-review.txt SHA256 92313a33ebaa320962857b334c2502e6687fe554f920938a0a05ba2a63259f6d bytes 3388
+
+Post-release verification (metadata recorded2026-11-25T04:29:07.351671+00:00)
+PASS. Read the actual preserved release.json response and verified its complete parsed content is exactly released=L-meta-2602 and reason=other, with no other gap or lease field. validation.txt now records the release after preservation push f4e8af107132b4090818bf86da841e5b5939ea48; TIMELINE records the same confirmation. The final timing line is TIMING total=106.3 subagents=6. The mathematical status, build/checker outcomes, lack of PR, and exact named source remain unchanged.
+Verified every final-preservation-manifest.json payload entry against actual bytes and SHA256 with zero mismatches. Its validation_sha256 agrees with the updated validation file, and its named_source_sha256 agrees with the unchanged4982-line source39f5496ce1d2459e5bde0f2b113f1f4fbf4192aa8222ac81b011e562f132a984. No new proof, search, checker or desk action was performed by this reviewer.
+Observed post-release hashes before this review append:
+results/orch/release.json SHA256 176324b7166ced391431f50a55c3a8d1169ed4705addbc408943efee021d8322 bytes 51
+results/orch/validation.txt SHA256 0c3b468e0560c5b16c16009cb8a38b778cdfe5ff48fe7b1b3eee8b0617a0f951 bytes 3012
+results/orch/TIMELINE.md SHA256 af7fb4b4de00304d6d14b9fc9facbd60cdce01d8b55904a039f77ab5a9f4d0b1 bytes 6296
+results/orch/final-preservation-manifest.json SHA256 6c6bc600f2641d85cce0735450a2ae2dd5096a20c555c7edf2342d3ac3c69995 bytes 39116

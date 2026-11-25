@@ -1,7 +1,7 @@
 {
   "scope": "Reviewed compiled partial and research backup only; not a proof PR",
   "named_source_sha256": "39f5496ce1d2459e5bde0f2b113f1f4fbf4192aa8222ac81b011e562f132a984",
-  "validation_sha256": "cb1513eb85716cbdbd314e40af86047f7a05f2d7ee126da2936deedeaa8b49a8",
+  "validation_sha256": "0c3b468e0560c5b16c16009cb8a38b778cdfe5ff48fe7b1b3eee8b0617a0f951",
   "files": [
     {
       "path": "lean/PEqualNP/Outside/L_meta_2602.lean",
@@ -1035,8 +1035,29 @@
     },
     {
       "path": "results/orch/validation.txt",
-      "bytes": 2921,
-      "sha256": "cb1513eb85716cbdbd314e40af86047f7a05f2d7ee126da2936deedeaa8b49a8"
+      "bytes": 3012,
+      "sha256": "0c3b468e0560c5b16c16009cb8a38b778cdfe5ff48fe7b1b3eee8b0617a0f951"
+    },
+    {
+      "path": "results/orch/release.json",
+      "bytes": 51,
+      "sha256": "176324b7166ced391431f50a55c3a8d1169ed4705addbc408943efee021d8322"
+    },
+    {
+      "path": "results/orch/NOTES.md",
+      "bytes": 17410,
+      "sha256": "09ace420bc50ca9d8814e8814113c99a9fe4e7454c6330dcbad69b379089d14f"
+    },
+    {
+      "path": "results/orch/TIMELINE.md",
+      "bytes": 6296,
+      "sha256": "af7fb4b4de00304d6d14b9fc9facbd60cdce01d8b55904a039f77ab5a9f4d0b1"
+    },
+    {
+      "path": "results/orch/clamp-semantic-review.txt",
+      "bytes": 3388,
+      "sha256": "92313a33ebaa320962857b334c2502e6687fe554f920938a0a05ba2a63259f6d"
     }
-  ]
+  ],
+  "metadata_update": "Confirmed lease release and final timing only; prior independent review snapshot retained."
 }

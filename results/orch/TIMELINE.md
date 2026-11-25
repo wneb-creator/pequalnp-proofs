@@ -47,3 +47,6 @@
 
 2026-11-25T04:11:24.891594+00:00 stronger clamp/essential normalization compiled exit0; source signatures need not vanish.
 - 2026-11-25T04:14:34.079185+00:00: Partial 11 built and independently reviewed: Minimum marked-zero circuits can be made essential on minimal edges; unconditional residual gate removal with derivative domination; normalized dirty/nested-AND obstruction; checked 65-gate feasibility witness. Original 63-64 exclusion remains unproved.
+
+- 2026-11-25T04:26:04.213790+00:00: Final proof-search assessment: original statement unproved, no refutation, no PR. All compiled results preserved; final repair continuation found no64-gate witness in its bounded neighborhood. Global dirty-computation count remains missing.
+- 2026-11-25T04:29:07.351671+00:00: Final preservation push f4e8af107132b4090818bf86da841e5b5939ea48 confirmed. Stopped only the job heartbeat; desk confirmed release of L-meta-2602 with reason=other. No PR opened because original theorem remains unproved.

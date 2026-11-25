@@ -5,3 +5,47 @@ Lines: 514
 Verbatim reviewed FirstDirty prelude + 80-line ClampSemantic fragment confirmed.
 The generic minterm bridge uses explicit downward semantic implication and equality where the designated original wire is false, then monotonicity of the actual new proper circuit to lift a smaller positive assignment. The plane specialization uses exactly the cyclic incidence relation and two-input edge assignments, with edge positivity and coordinatewise domination explicitly proved. Thus unchanged edge assignments plus no new positives imply the full Boolean function, not only its restriction to pairs. Here c is an absolute wire index, not a gate index; callers must use n+c when appropriate.
 No hidden construction or source-inactivity theorem is asserted: properness, semantic comparison, and inactivity on every incidence edge remain explicit hypotheses. Only PEqualNP.Defs import and allowed helper namespaces; forbidden tokens/string literals/non-simp attributes absent. Parent reports exit0; no redundant Lean run performed.
+
+Additional independent integration review:
+
+Reviewed by reduction_design, 2026-11-25.
+
+Scope: ClampSemanticFragment.lean, ClampRealizeFragment.lean,
+ClampPlaneFragment.lean. This is a component review, not a verdict on
+the full posted L-meta-2602 theorem.
+
+Semantic bridge:
+- Properness of D provides monotonicity through the already checked
+  FirstDirty.wire_value_mono lemma.
+- D <= C prevents new positive inputs.
+- Acceptance of each true minimal edge and monotonicity cover every
+  positive input of the plane incidence function.
+- The clamp specialization requires source inactivity only on those
+  minimal inputs, rather than assuming it on arbitrary inputs.
+
+Compiler integration reviewed:
+- The compiler source parameter is a gate index; the semantic source
+  parameter is the absolute wire index26+c. The wrappers use that offset.
+- The final output is a fixed nonzero representative, not a padded alias.
+- The source has representative none and cannot equal that output.
+- Placeholder source gates are unread before dead-gate erasure.
+- Representative agreement on source-false inputs supplies the exact
+  minterm coverage hypothesis used by semantics_from_minterms.
+
+Validation:
+ClampSemantic.lean passed lake env lean, exit0, one thread, first run.
+Full output: /tmp/oec/pequalnp-pilot-60/clamp-semantic-check1.log.
+Forbidden-token scan of ClampSemanticFragment.lean returned no matches
+for _root_, sorry, native_decide, axiom, double quotes, or attributes.
+Full compiler integration is checked separately by lemma_search.
+
+Follow-up review: ClampMinimumFragment.lean.
+Verdict: PASS by independent source review.
+Nat.find minimizes Proper26 AND PlaneSpec AND MarkedZero. An inactive
+gate gives an exactly one-gate smaller circuit preserving that class;
+the returned two derivative witnesses are assembled into MarkedZero
+before minimality is invoked. Bool case splitting correctly converts
+the negation of activity into inactivity on every minimal edge.
+No lower bound63 is assumed or concluded. The minimum is within the
+marked-zero class, not among all circuits computing plane incidence.
+Standalone compilation PASS was reported by lemma_search.

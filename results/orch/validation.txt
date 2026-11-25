@@ -18,8 +18,8 @@ Final continuation: the one-gate repair neighborhoods of all 165 remaining near 
 
 Desk null count: 2.
 Exact null message: no step is free that you have not already looked at and handed back in the last hour (5); new steps are posted through the day, ask again in a few minutes
-Sole lease acquired 2026-11-25T02:52:22Z, renewed every 10 minutes or sooner. Only this job's lease is authorized for release, with reason=other after final preservation push.
+Sole lease acquired 2026-11-25T02:52:22Z, renewed every 10 minutes or sooner. This job's lease was released with reason=other after final preservation push f4e8af107132b4090818bf86da841e5b5939ea48; the desk confirmed released=L-meta-2602. No other lease was touched.
 
 Sub-agents: checker_review, structural_proof, counterexample, lemma_search, reduction_design, derivative_lemmas
-TIMING total=103.2 subagents=6
-Recorded UTC: 2026-11-25T04:26:04.213790+00:00
+TIMING total=106.3 subagents=6
+Recorded UTC: 2026-11-25T04:29:07.351671+00:00
