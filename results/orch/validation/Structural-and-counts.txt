@@ -1,0 +1,9 @@
+Checked partial components; no full gap proof.
+
+ReadCount.lean: Lean exit 0; independent mathematical and format review by reduction_strategy. The single-reader conclusion assumes explicit input usage, live internal wires, binary arity, and at least one unary gate.
+LeafCount.lean: Lean exit 0; independent review by root. It is a reusable list-count bound.
+StructuralClassification.lean: Lean exit 0; independent review by lemma_routes. Classifies two-input partners under explicit critical-input hypotheses.
+StructuralCircuit.lean: Lean exit 0; independent review by lemma_routes. The circuit factorization keeps its sole-reader and partner-function hypotheses explicit.
+
+Sub-agents: 6 (proof strategies, circuit search, setup and independent validation).
+TIMING total=29 subagents=6

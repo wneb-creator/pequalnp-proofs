@@ -19,3 +19,7 @@ Localchecker attempt: CHECKER FAULT — missing Batteries.olean while importing 
 Cleanup notattempted: fulltheoremincomplete.
 Sub-agents:6 (status/toolchain review, structural proof, lemma routes, counterexample search, SAT/reduction strategy, independent restriction/review).
 TIMING total=22 subagents=6
+
+Checkpoint 3: preserved four further checked components for input occurrence counting, critical-input classification, and an actual circuit factorization. They do not prove the full posted statement. See validation/Structural-and-counts.txt and complete logs.
+Sub-agents: 6 (proof strategies, circuit search, setup and independent validation).
+TIMING total=29 subagents=6
