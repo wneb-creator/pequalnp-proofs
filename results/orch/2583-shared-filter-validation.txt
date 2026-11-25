@@ -1,0 +1,9 @@
+UTC: 2026-11-25T15:02:39.824263+00:00
+Source: results/orch/lemmas/2583_shared_filter.lean
+SHA256: 0ed8fcd8f87710b3a98b3562ebfd4360c11806fb515605ff33bb3f3ba000fea1
+Lines: 59
+Lean exit: 0
+Command: PATH=/tmp/oec/pequalnp-pilot-98/toolchain/bin:$PATH PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-98/toolchain/bin/lake PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-98/build-home MATHLIB_CACHE_DIR=/tmp/oec/pequalnp-pilot-98/mathlib-cache LAKE_ARTIFACT_CACHE=false ../tools/bin/lake env lean -j 1 -M 2048 /workspace/pequalnp-proofs/results/orch/lemmas/2583_shared_filter.lean
+Stdout: empty
+Stderr: empty
+Scope: three incidence corners exclude the fourth, and edges between subsets of opposite neighborhoods of a nonincident pair form a matching (cardinality bound). No arbitrary Circuit gate-budget theorem.

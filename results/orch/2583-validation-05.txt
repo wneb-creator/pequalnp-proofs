@@ -1,0 +1,6 @@
+L-meta-2583 partial checkpoint 05
+New semantic helpers independently reviewed and Lean checked: incidence boundary completeness (59 lines) and opposite-neighborhood matching bound (59 lines).
+These are auxiliary lemmas, not a proof of the posted unrestricted circuit claim.
+The named 3507-line module remains unchanged and previously built successfully. Exact-statement checker was killed with exit137 before any verdict; its complete log and status are preserved.
+Sub-agents: six (structure, direct lower bound, exact synthesis, counterexample search, reductions mapping, independent review)
+TIMING total=79 subagents=6

@@ -1,0 +1,4 @@
+Unmodified tools/check-lean.mjs invoked against the exact posted L-meta-2583 statement.
+Process was killed with exit137 while verifier was reading the built file, before any verdict.
+No checker acceptance or proof rejection verdict was emitted.
+The final posted theorem is absent from this partial file in any case.

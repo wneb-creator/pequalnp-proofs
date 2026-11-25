@@ -1,0 +1,8 @@
+Checked 2026-11-25T15:01:43.689086+00:00
+Source: results/orch/lemmas/2583_boundary.lean
+SHA256: 8f0cf5c070c1648b1ad39eea6ca46e4f4ed377d93f1c2bc09dab7537cf88966b
+Exit: 0
+STDOUT: empty
+STDERR: empty
+Command: lake env lean -j1 -M3072 results/orch/lemmas/2583_boundary.lean
+Generic monotone boundary correctness; no circuit-size or normalization claim.

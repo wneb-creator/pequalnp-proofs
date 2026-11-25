@@ -15,3 +15,7 @@
 - 2026-11-25 14:44:44 UTC: renewed L-meta-2583; expiry 15:04:44.551 UTC. Root restarted five-minute heartbeat; six agents assigned distinct strategies.
 
 - 2026-11-25 14:50 UTC: named 1206-line L-meta-2583 partial builds; independent review passes. Separate clean-AND semantic lemmas also kernel checked. Sharp unrestricted size bound still open.
+
+- 2026-11-25 14:55 UTC: 3507-line combined L-meta-2583 partial named build passes, independently reviewed and pushed at bba953d40f2a6b2b4321dd67f566538bdd3acbe3.
+- 2026-11-25 14:59 UTC: unmodified checker against exact posted statement terminated with exit137 before any verdict. No checker acceptance. No remaining verifier process.
+- 2026-11-25 15:01 UTC: second research round targets all three five-line sub-incidence isomorphism classes; strict gate savings would lift to a full order-three counterexample.
