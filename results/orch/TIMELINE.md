@@ -21,3 +21,4 @@
 - 2026-11-25T06:32:45.637621+00:00: arbitrary-family filter-union adjacent-cover lemma compiled and independently reviewed.
 - 2026-11-25T06:35:49.969908+00:00: ambient-graph/subgraph counting bound and local mixed-support lemmas compiled and independently reviewed; preserving sources and complete logs.
 - 2026-11-25T06:41:49.916282+00:00: exact-target unconditional20gate lower bound and generic gate-erasure lemma compiled and independently reviewed; preserving sources and complete logs.
+- 2026-11-25T06:46:03.962923+00:00: useful-OR edge-count refinement and two-gate zero-forcing simplification compiled and independently reviewed; preserving checked components.
