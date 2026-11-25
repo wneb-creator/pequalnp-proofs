@@ -31,3 +31,5 @@
 - 2026-11-25 19:50 UTC: All54 unary leaves checked in29seconds of kernel time under6000MB. Root independently compared all normalized/child definitions with checkedcoverage; identical. Proof has no hypotheses beyond membership in exact54-row table. Complete source/log saved.
 
 - 2026-11-25 19:51 UTC: Largest binaryleaf4061states kernel-checked under6000MB,8.59seconds. Root independently reviewed forceLook1 identity and ordinary closedkernel proof, preserving source/log. Runtime now drives grouping relatedleaves to reuse computation.
+
+- 2026-11-25 19:53 UTC: Lower13-t0 full21-child cut proof checked under6000MB; kernel74.9seconds. Root independently reviewed closed low0Root, exact reusedcut glue, no dependence oniroot/lower13. Preserving worstleaf and fullcut source/logs.

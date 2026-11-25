@@ -1,0 +1,124 @@
+import took 1.82s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:19:58: warning: Variable name `K` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _K
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+type checking took 5.78s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:186:0: warning: Definition `low0OK0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 5.86s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:192:0: warning: Definition `low0OK1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 6.32s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:198:0: warning: Definition `low0OK2` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 3.43s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:204:0: warning: Definition `low0OK3` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 3.47s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:210:0: warning: Definition `low0OK4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 4.16s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:216:0: warning: Definition `low0OK5` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 1.65s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:222:0: warning: Definition `low0OK6` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 3.68s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:228:0: warning: Definition `low0OK7` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 1.8s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:234:0: warning: Definition `low0OK8` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 2.63s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:240:0: warning: Definition `low0OK9` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 2.37s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:246:0: warning: Definition `low0OK10` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 2.44s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:252:0: warning: Definition `low0OK11` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 2.64s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:258:0: warning: Definition `low0OK12` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 1.89s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:264:0: warning: Definition `low0OK13` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 3.86s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:270:0: warning: Definition `low0OK14` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 4.43s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:276:0: warning: Definition `low0OK15` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 2.8s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:282:0: warning: Definition `low0OK16` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 4.25s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:288:0: warning: Definition `low0OK17` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 3.79s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:294:0: warning: Definition `low0OK18` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 3.03s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:300:0: warning: Definition `low0OK19` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 4.42s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:306:0: warning: Definition `low0OK20` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:342:2: warning: exponent 501 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+tactic execution of Lean.Parser.Tactic.eqRefl took 188ms
+type checking took 161ms
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:338:0: warning: Definition `low0Coverage` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroChecks.lean:346:31: warning: exponent 501 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+cumulative profiling times:
+	attribute application 1.23ms
+	blocked (unaccounted) 4.34ms
+	compilation (IR) 4.8ms
+	compilation (LCNF base) 71.8ms
+	compilation (LCNF impure) 24.2ms
+	compilation (LCNF mono) 47.2ms
+	congr simp thm 3.57ms
+	declTypeLinter 55.6ms
+	elaboration 498ms
+	fix level params 1.58ms
+	import 1.82s
+	initialization 47.2ms
+	instantiate metavars 193ms
+	interpretation 673ms
+	let-to-have transformation 0.814ms
+	linting 89.8ms
+	module linting 0.1ms
+	parsing 50ms
+	process pre-definitions 50.7ms
+	share common exprs 7.64ms
+	simp 94.6ms
+	tactic execution 411ms
+	tacticAnalysis 22.7ms
+	type checking 74.9s
+	typeclass inference 130ms

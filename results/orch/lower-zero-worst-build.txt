@@ -1,0 +1,37 @@
+import took 1.79s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroWorst.lean:19:58: warning: Variable name `K` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _K
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+type checking took 5.02s
+/tmp/oec/pequalnp-pilot-178/proof_route/LowerZeroWorst.lean:186:0: warning: Definition `low0OK15` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+cumulative profiling times:
+	attribute application 1.45ms
+	blocked (unaccounted) 4.77ms
+	compilation (IR) 4.36ms
+	compilation (LCNF base) 93.6ms
+	compilation (LCNF impure) 21.8ms
+	compilation (LCNF mono) 47.2ms
+	congr simp thm 3.82ms
+	declTypeLinter 27.3ms
+	elaboration 378ms
+	fix level params 1.21ms
+	import 1.79s
+	initialization 38.4ms
+	instantiate metavars 14.6ms
+	interpretation 496ms
+	let-to-have transformation 0.61ms
+	linting 59ms
+	module linting 0.0295ms
+	parsing 38.8ms
+	process pre-definitions 58.6ms
+	share common exprs 6.27ms
+	simp 50.9ms
+	tactic execution 52.8ms
+	tacticAnalysis 16.1ms
+	type checking 5.06s
+	typeclass inference 137ms
