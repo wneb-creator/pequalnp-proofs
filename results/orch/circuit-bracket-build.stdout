@@ -1,0 +1,18 @@
+../results/orch/lemmas/CircuitBracket.lean:185:6: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+../results/orch/lemmas/CircuitBracket.lean:209:70: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+../results/orch/lemmas/CircuitBracket.lean:270:53: warning: This simp argument is unused:
+  List.getElem?_eq_none
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GateOp.eval, List.getD_eq_getElem?_getD, hl]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

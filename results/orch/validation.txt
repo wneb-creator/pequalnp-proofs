@@ -56,3 +56,9 @@ Command (from lean/): lake env lean ../results/orch/lemmas/ProfileFixtures.lean
 Exit status: 0. Complete logs: profile-fixtures-build.stdout and .stderr.
 Independent review: status_review and proof_route approved SHA256 115c27151a237f389dd99bbf4b0259d90e55db841b5d1595a87f16c0e2e4ea27.
 Scope: Petersen independent-set/core decomposition and sample signatures.
+
+Compiled partial: results/orch/lemmas/CircuitBracket.lean
+Command (from lean/): lake env lean ../results/orch/lemmas/CircuitBracket.lean
+Exit status: 0. Complete logs: circuit-bracket-build.stdout and .stderr.
+Independent review: status_review approved SHA256 514846d58cc061a13789493c4d06f7b5b88a7ce4f485f0ceeb569856a03bba60.
+Scope: essential exactly-one-NOT Petersen circuits yield explicit critical witnesses and a monotone prefix/suffix decomposition; full lower bound unproved.
