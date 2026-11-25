@@ -1,0 +1,9 @@
+L-meta-3457 PARTIAL ONLY
+File: results/lemmas/StarCover3457.lean
+SHA256: f699a7502015805a671fb9b6d5522c1cadb78eb697c37a87fec7f8af64d15398
+Command: lake env lean /workspace/pequalnp-proofs/results/lemmas/StarCover3457.lean
+Exit:0
+Stdout: empty
+Stderr: empty
+Independent source review: APPROVED by checker_review.
+Constructs a ReadsBack Monotone2 circuit from any graph vertex cover, with exact graph semantics, size at most edges+cover-1, and every true AND implying an edge. It does not compare this size with arbitrary input C.size and does not prove the full posted gap.
