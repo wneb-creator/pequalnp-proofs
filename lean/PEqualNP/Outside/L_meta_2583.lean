@@ -4477,3 +4477,297 @@ lemma productive_wmax_restriction_exact
     hlive x hx
 
 end PEqualNP.Outside.L_meta_2583.ProductiveCircuit
+
+namespace PEqualNP.Outside.L_meta_2583.ProductivePair
+
+open PEqualNP.EdgeOwnership PEqualNP.TopForm PEqualNP.ReadK
+  PEqualNP.MetaComplexity.NestedCover
+
+def matchingChoiceInput {n d : Nat} (endpt : Fin d → Bool → Fin n)
+    (choice : Fin d → Bool) : Fin n → Bool :=
+  fun v => decide (∃ i, v = endpt i (choice i))
+
+lemma matchingChoiceInput_chosen {n d : Nat} (endpt : Fin d → Bool → Fin n)
+    (choice : Fin d → Bool) (i : Fin d) :
+    matchingChoiceInput endpt choice (endpt i (choice i)) = true := by
+  exact decide_eq_true ⟨i, rfl⟩
+
+lemma matchingChoiceInput_false {n d : Nat} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (f : (Fin n → Bool) → Bool)
+    (hzero : f (fun _ => false) = false)
+    (W : Finset (Fin n))
+    (hsafe : ∀ v ∈ W, ∀ x, f x = true → x v = true → graphFun G ∅ x = true)
+    (hmatching : ∀ v ∈ W, ∀ u ∈ W, ∀ w ∈ W,
+      G.Adj v u → G.Adj v w → u = w)
+    (endpt : Fin d → Bool → Fin n)
+    (hinj : Function.Injective (fun ib : Fin d × Bool => endpt ib.1 ib.2))
+    (hW : ∀ i b, endpt i b ∈ W)
+    (hedge : ∀ i, G.Adj (endpt i true) (endpt i false))
+    (choice : Fin d → Bool) : f (matchingChoiceInput endpt choice) = false := by
+  classical
+  apply Bool.eq_false_iff.mpr
+  intro hf
+  have hex : ∃ v, matchingChoiceInput endpt choice v = true := by
+    by_contra hn
+    push Not at hn
+    have heq : matchingChoiceInput endpt choice = fun _ => false := by
+      funext v
+      exact Bool.eq_false_iff.mpr (hn v)
+    rw [heq, hzero] at hf
+    contradiction
+  obtain ⟨v, hv⟩ := hex
+  obtain ⟨i, hi⟩ := of_decide_eq_true hv
+  have hg := hsafe v (hi ▸ hW i (choice i)) _ hf hv
+  have hgraph : ∃ a b, G.Adj a b ∧ matchingChoiceInput endpt choice a = true ∧
+      matchingChoiceInput endpt choice b = true := by simpa [graphFun] using hg
+  obtain ⟨a, b, hab, ha, hb⟩ := hgraph
+  obtain ⟨i, rfl⟩ := of_decide_eq_true ha
+  obtain ⟨j, rfl⟩ := of_decide_eq_true hb
+  have hop : G.Adj (endpt i (choice i)) (endpt i (!(choice i))) := by
+    cases hc : choice i
+    · simpa [hc] using (hedge i).symm
+    · simpa [hc] using hedge i
+  have heq := hmatching (endpt i (choice i)) (hW i _) (endpt j (choice j)) (hW j _)
+    (endpt i (!(choice i))) (hW i _) hab hop
+  have hp : (j, choice j) = (i, !(choice i)) := hinj heq
+  have hij : j = i := congrArg Prod.fst hp
+  subst j
+  have hb : choice i = !(choice i) := congrArg Prod.snd hp
+  cases hc : choice i <;> simp [hc] at hb
+
+lemma matchingChoiceInput_join_true {n d : Nat}
+    (f : (Fin n → Bool) → Bool)
+    (hmono : ∀ x y, (∀ i, x i = true → y i = true) → f x = true → f y = true)
+    (endpt : Fin d → Bool → Fin n)
+    (haccept : ∀ i, f (setInput {endpt i true, endpt i false}) = true)
+    (choice other : Fin d → Bool) (hne : choice ≠ other) :
+    f (fun v => matchingChoiceInput endpt choice v || matchingChoiceInput endpt other v) = true := by
+  classical
+  have hex : ∃ i, choice i ≠ other i := by
+    by_contra hn
+    push Not at hn
+    exact hne (funext hn)
+  obtain ⟨i, hi⟩ := hex
+  have hboth (b : Bool) :
+      (matchingChoiceInput endpt choice (endpt i b) ||
+        matchingChoiceInput endpt other (endpt i b)) = true := by
+    have hc : choice i = b ∨ other i = b := by
+      cases h1 : choice i <;> cases h2 : other i <;> cases b <;> simp_all
+    rcases hc with hc | hc
+    · have hv : matchingChoiceInput endpt choice (endpt i b) = true :=
+        decide_eq_true ⟨i, by rw [hc]⟩
+      simp [hv]
+    · have hv : matchingChoiceInput endpt other (endpt i b) = true :=
+        decide_eq_true ⟨i, by rw [hc]⟩
+      simp [hv]
+  apply hmono (setInput {endpt i true, endpt i false}) _ ?_ (haccept i)
+  intro v hv
+  have hm : v ∈ ({endpt i true, endpt i false} : Finset (Fin n)) := of_decide_eq_true hv
+  simp only [Finset.mem_insert, Finset.mem_singleton] at hm
+  rcases hm with rfl | rfl
+  · exact hboth true
+  · exact hboth false
+
+end PEqualNP.Outside.L_meta_2583.ProductivePair
+
+namespace PEqualNP.Outside.L_meta_2583.ProductivePair
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+  PEqualNP.Outside.L_meta_2583.SingleUse
+
+lemma productive_matching_le_cone_ands {n d : Nat} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hAO : IsAO2 n C)
+    (R : Finset Nat) (hRreal : R ⊆ Finset.range C.gates.length)
+    (hRclosed : ∀ k ∈ R, ∀ b : Fin 2, opnd C k b < n ∨ opnd C k b - n ∈ R)
+    (w : Nat) (hw : w < n ∨ w - n ∈ R)
+    (hzero : wv n C (fun _ => false) w = false)
+    (W : Finset (Fin n))
+    (hsafe : ∀ v ∈ W, ∀ x, wv n C x w = true → x v = true → graphFun G ∅ x = true)
+    (hmatching : ∀ v ∈ W, ∀ u ∈ W, ∀ z ∈ W,
+      G.Adj v u → G.Adj v z → u = z)
+    (endpt : Fin d → Bool → Fin n)
+    (hinj : Function.Injective (fun ib : Fin d × Bool => endpt ib.1 ib.2))
+    (hW : ∀ i b, endpt i b ∈ W)
+    (hedge : ∀ i, G.Adj (endpt i true) (endpt i false))
+    (haccept : ∀ i, wv n C (ReadK.setInput {endpt i true, endpt i false}) w = true) :
+    d ≤ (R.filter (fun k => AndSignature.isAnd C k = true)).card := by
+  apply AndSignature.false_cube_le_cone_and_count n C hAO R hRreal hRclosed w hw d
+    (matchingChoiceInput endpt)
+  · exact matchingChoiceInput_false G (fun x => wv n C x w) hzero W hsafe hmatching
+      endpt hinj hW hedge
+  · intro choice other hne
+    exact matchingChoiceInput_join_true (fun x => wv n C x w)
+      (fun x y hxy hx => wv_mono n C hAO.1 hAO.2.1 x y hxy w hx)
+      endpt haccept choice other hne
+
+lemma productive_matching_le_cone_junk {n d : Nat} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hAO : IsAO2 n C)
+    (R : Finset Nat) (hRreal : R ⊆ Finset.range C.gates.length)
+    (hRclosed : ∀ k ∈ R, ∀ b : Fin 2, opnd C k b < n ∨ opnd C k b - n ∈ R)
+    (hRjunk : ∀ k ∈ R, AndSignature.isAnd C k = true → k ∈ junk G C)
+    (w : Nat) (hw : w < n ∨ w - n ∈ R)
+    (hzero : wv n C (fun _ => false) w = false)
+    (W : Finset (Fin n))
+    (hsafe : ∀ v ∈ W, ∀ x, wv n C x w = true → x v = true → graphFun G ∅ x = true)
+    (hmatching : ∀ v ∈ W, ∀ u ∈ W, ∀ z ∈ W,
+      G.Adj v u → G.Adj v z → u = z)
+    (endpt : Fin d → Bool → Fin n)
+    (hinj : Function.Injective (fun ib : Fin d × Bool => endpt ib.1 ib.2))
+    (hW : ∀ i b, endpt i b ∈ W)
+    (hedge : ∀ i, G.Adj (endpt i true) (endpt i false))
+    (haccept : ∀ i, wv n C (ReadK.setInput {endpt i true, endpt i false}) w = true) :
+    d ≤ (R ∩ junk G C).card := by
+  classical
+  have hcount := productive_matching_le_cone_ands G C hAO R hRreal hRclosed w hw
+    hzero W hsafe hmatching endpt hinj hW hedge haccept
+  apply hcount.trans
+  apply Finset.card_le_card
+  intro k hk
+  obtain ⟨hkR, hkA⟩ := Finset.mem_filter.mp hk
+  exact Finset.mem_inter.mpr ⟨hkR, hRjunk k hkR hkA⟩
+
+end PEqualNP.Outside.L_meta_2583.ProductivePair
+
+namespace PEqualNP.Outside.L_meta_2583.AncestorJunk
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.CleanedNonEdge
+  PEqualNP.Outside.L_meta_2583.MintermCircuit
+
+/-- The strict ancestor gates together with the selected gate itself. -/
+def gateCone (n : ℕ) (C : Circuit) (g : ℕ) : Finset ℕ :=
+  insert g ((Finset.range g).filter (fun k => InCone n C k g))
+
+lemma mem_gateCone (n : ℕ) (C : Circuit) (g k : ℕ) :
+    k ∈ gateCone n C g ↔ k = g ∨ InCone n C k g := by
+  constructor
+  · intro hk
+    rcases Finset.mem_insert.mp hk with h | h
+    · exact Or.inl h
+    · exact Or.inr (Finset.mem_filter.mp h).2
+  · intro hk
+    rcases hk with hk | hk
+    · exact Finset.mem_insert.mpr (Or.inl hk)
+    · exact Finset.mem_insert.mpr (Or.inr (Finset.mem_filter.mpr
+        ⟨Finset.mem_range.mpr (TopNormal.inCone_lt n C k g hk).1, hk⟩))
+
+lemma gateCone_self (n : ℕ) (C : Circuit) (g : ℕ) : g ∈ gateCone n C g :=
+  (mem_gateCone n C g g).mpr (Or.inl rfl)
+
+lemma gateCone_prefix (n : ℕ) (C : Circuit) (g : ℕ) :
+    gateCone n C g ⊆ Finset.range (g + 1) := by
+  intro k hk
+  rcases (mem_gateCone n C g k).mp hk with rfl | hk
+  · exact Finset.mem_range.mpr (by omega)
+  · exact Finset.mem_range.mpr (by have := (TopNormal.inCone_lt n C k g hk).1; omega)
+
+lemma gateCone_real (n : ℕ) (C : Circuit) (g : ℕ) (hg : g < C.gates.length) :
+    gateCone n C g ⊆ Finset.range C.gates.length := by
+  intro k hk
+  have hkg := Finset.mem_range.mp (gateCone_prefix n C g hk)
+  exact Finset.mem_range.mpr (by omega)
+
+lemma gateCone_closed (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (g : ℕ) (hg : g < C.gates.length) :
+    ∀ k ∈ gateCone n C g, ∀ b : Fin 2,
+      opnd C k b < n ∨ opnd C k b - n ∈ gateCone n C g := by
+  intro k hk b
+  have hklen := Finset.mem_range.mp (gateCone_real n C g hg hk)
+  by_cases hb : opnd C k b < n
+  · exact Or.inl hb
+  · right
+    have hback := opnd_back n C hAO k hklen b
+    have hread : opnd C k b ∈ (gateAt C k).inputs := by
+      rw [inputs_two n C hAO k hklen]
+      fin_cases b <;> simp
+    have hdirect : InCone n C (opnd C k b - n) k := by
+      apply (TopNormal.inCone_iff n C _ k).mpr
+      refine ⟨hklen, opnd C k b - n, by omega, ?_, Or.inl rfl⟩
+      have heq : n + (opnd C k b - n) = opnd C k b := by omega
+      exact heq.symm ▸ hread
+    apply (mem_gateCone n C g _).mpr
+    right
+    rcases (mem_gateCone n C g k).mp hk with rfl | hkg
+    · exact hdirect
+    · exact TopNormal.inCone_trans n C _ k hdirect g hkg
+
+lemma gateCone_ands_subset_junk_prefix
+    (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hTop : TopForm G C) (g : ℕ) (hg : IsDirtyAnd n G C g) :
+    (gateCone n C g).filter (fun k => AndSignature.isAnd C k = true) ⊆
+      junk G C ∩ Finset.range (g + 1) := by
+  classical
+  intro k hk
+  obtain ⟨hkR, hkAND⟩ := Finset.mem_filter.mp hk
+  have hop : (gateAt C k).op = GateOp.and := by
+    cases h : (gateAt C k).op <;> simp [AndSignature.isAnd, h] at hkAND ⊢
+  have hkreal := Finset.mem_range.mp (gateCone_real n C g hg.2.1 hkR)
+  have hkdirty : IsDirtyAnd n G C k := by
+    rcases (mem_gateCone n C g k).mp hkR with rfl | hkg
+    · exact hg
+    · have hnot : ¬BelowF G C k := fun hbelow =>
+        hTop k hkreal g hg.2.1 hop hbelow hg.1 hkg
+      unfold BelowF at hnot
+      push Not at hnot
+      obtain ⟨x, hx, hfalse⟩ := hnot
+      exact ⟨hop, hkreal, x, hx, Bool.eq_false_iff.mpr hfalse⟩
+  exact Finset.mem_inter.mpr ⟨Finset.mem_filter.mpr
+    ⟨Finset.mem_range.mpr hkreal, hkdirty⟩, gateCone_prefix n C g hkR⟩
+
+lemma gateCone_and_count_le_junk_prefix
+    (n : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hTop : TopForm G C) (g : ℕ) (hg : IsDirtyAnd n G C g) :
+    ((gateCone n C g).filter (fun k => AndSignature.isAnd C k = true)).card ≤
+      (junk G C ∩ Finset.range (g + 1)).card :=
+  Finset.card_le_card (gateCone_ands_subset_junk_prefix n G C hTop g hg)
+
+end PEqualNP.Outside.L_meta_2583.AncestorJunk
+
+namespace PEqualNP.Outside.L_meta_2583.ProductiveCircuit
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.ReadK
+  PEqualNP.CleanedNonEdge PEqualNP.Outside.L_meta_2583.SingleUse
+  PEqualNP.Outside.L_meta_2583.ProductivePair PEqualNP.Outside.L_meta_2583.AncestorJunk
+
+lemma dirty_productive_matching_le_junk_prefix
+    (n d : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hTop : TopForm G C)
+    (g : ℕ) (hg : IsDirtyAnd n G C g)
+    (W : Finset (Fin n)) (hWsub : W ⊆ wmax G C g)
+    (hmatching : ∀ v ∈ W, ∀ u ∈ W, ∀ z ∈ W,
+      G.Adj v u → G.Adj v z → u = z)
+    (endpt : Fin d → Bool → Fin n)
+    (hinj : Function.Injective (fun ib : Fin d × Bool => endpt ib.1 ib.2))
+    (hW : ∀ i b, endpt i b ∈ W)
+    (hedge : ∀ i, G.Adj (endpt i true) (endpt i false))
+    (haccept : ∀ i, gateVal n C g (setInput {endpt i true, endpt i false}) = true) :
+    d ≤ (junk G C ∩ Finset.range (g + 1)).card := by
+  have hcount := productive_matching_le_cone_ands G C hAO (gateCone n C g)
+    (gateCone_real n C g hg.2.1) (gateCone_closed n C hAO g hg.2.1)
+    (n + g) (Or.inr (by simpa using gateCone_self n C g))
+    (wv_zero n C hAO (n + g)) W
+    (fun v hv => (Finset.mem_filter.mp (hWsub hv)).2)
+    hmatching endpt hinj hW hedge haccept
+  exact hcount.trans (gateCone_and_count_le_junk_prefix n G C hTop g hg)
+
+lemma dirty_pair_productive_matching_le_junk_prefix
+    (n d : ℕ) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hbip : ∀ a b, G.Adj a b → color a ≠ color b)
+    (h4 : NoFourCycle G) (C : Circuit) (hAO : IsAO2 n C) (hTop : TopForm G C)
+    (g : ℕ) (hg : IsDirtyAnd n G C g)
+    (a b : Fin n) (hnon : ¬ G.Adj a b)
+    (hpair : gateVal n C g (setInput {a, b}) = true)
+    (endpt : Fin d → Bool → Fin n)
+    (hinj : Function.Injective (fun ib : Fin d × Bool => endpt ib.1 ib.2))
+    (hW : ∀ i c, endpt i c ∈ wmax G C g)
+    (hedge : ∀ i, G.Adj (endpt i true) (endpt i false))
+    (haccept : ∀ i, gateVal n C g (setInput {endpt i true, endpt i false}) = true) :
+    d ≤ (junk G C ∩ Finset.range (g + 1)).card := by
+  exact dirty_productive_matching_le_junk_prefix n d G C hAO hTop g hg
+    (wmax G C g) (fun _ h => h)
+    (wmax_matching_of_false_pair n G color hbip h4 C hAO g a b hnon hpair)
+    endpt hinj hW hedge haccept
+
+end PEqualNP.Outside.L_meta_2583.ProductiveCircuit
