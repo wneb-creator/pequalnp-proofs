@@ -10,3 +10,6 @@ Complete stdout and stderr: empty (no warnings or errors).
 Lines: 107
 Independent red-team review: PASS for partial artifact (not_elimination).
 Local checker: not run; this partial has no theorem claiming the posted statement.
+
+LastNot.lean:90lines; toolchain/run lake env lean /tmp/oec/pequalnp-pilot-114/last_not_cut.lean; exit0; complete stdout/stderr empty.
+Independent red-team review PASS (status_review). Partial duplicates checked upstream L_meta_8295; does not prove L-meta-2592.
