@@ -30,36 +30,28 @@ theorem PEqualNP.Outside.R_meta_3178_52
       GateOp.or.eval (pins.map fun i => (List.ofFn x ++ [!x 0]).getD i false) =
         (x 0 || x j) := by
     obtain ⟨hnotall, h0mem⟩ := hspec
-    cases pins with
-    | nil => cases hlen
-    | cons u rest =>
-      cases rest with
-      | nil => cases hlen
-      | cons w rest2 =>
-        cases rest2 with
-        | cons _ _ => cases hlen
-        | nil =>
-          by_cases hu : u = 0
-          · subst hu
-            have hw0 : w ≠ 0 := fun hw => hnotall (by subst hw; simp)
-            have hw9 : w ≠ 9 := fun hw => hnotall (by subst hw; simp)
-            have hw10 : w < 10 := hlt w (by simp)
-            have hwlt : w < 9 := by omega
-            refine ⟨⟨w, hwlt⟩, fun h => hw0 (congrArg Fin.val h), fun x => ?_⟩
-            change ((List.ofFn x ++ [!x 0]).getD 0 false ||
-              ((List.ofFn x ++ [!x 0]).getD w false || false)) =
-                (x 0 || x ⟨w, hwlt⟩)
-            rw [Bool.or_false, hget0 x, hget x ⟨w, hwlt⟩]
-          · have hw : w = 0 := by simp at h0mem; omega
-            subst hw
-            have hu9 : u ≠ 9 := fun hu9' => hnotall (by subst hu9'; simp)
-            have hu10 : u < 10 := hlt u (by simp)
-            have hult : u < 9 := by omega
-            refine ⟨⟨u, hult⟩, fun h => hu (congrArg Fin.val h), fun x => ?_⟩
-            change ((List.ofFn x ++ [!x 0]).getD u false ||
-              ((List.ofFn x ++ [!x 0]).getD 0 false || false)) =
-                (x 0 || x ⟨u, hult⟩)
-            rw [Bool.or_false, hget x ⟨u, hult⟩, hget0 x, Bool.or_comm]
+    obtain ⟨u, w, rfl⟩ := List.length_eq_two.mp hlen
+    by_cases hu : u = 0
+    · subst hu
+      have hw0 : w ≠ 0 := fun hw => hnotall (by subst hw; simp)
+      have hw9 : w ≠ 9 := fun hw => hnotall (by subst hw; simp)
+      have hw10 : w < 10 := hlt w (by simp)
+      have hwlt : w < 9 := by omega
+      refine ⟨⟨w, hwlt⟩, fun h => hw0 (congrArg Fin.val h), fun x => ?_⟩
+      change ((List.ofFn x ++ [!x 0]).getD 0 false ||
+        ((List.ofFn x ++ [!x 0]).getD w false || false)) =
+          (x 0 || x ⟨w, hwlt⟩)
+      rw [Bool.or_false, hget0 x, hget x ⟨w, hwlt⟩]
+    · have hw : w = 0 := by simp at h0mem; omega
+      subst hw
+      have hu9 : u ≠ 9 := fun hu9' => hnotall (by subst hu9'; simp)
+      have hu10 : u < 10 := hlt u (by simp)
+      have hult : u < 9 := by omega
+      refine ⟨⟨u, hult⟩, fun h => hu (congrArg Fin.val h), fun x => ?_⟩
+      change ((List.ofFn x ++ [!x 0]).getD u false ||
+        ((List.ofFn x ++ [!x 0]).getD 0 false || false)) =
+          (x 0 || x ⟨u, hult⟩)
+      rw [Bool.or_false, hget x ⟨u, hult⟩, hget0 x, Bool.or_comm]
   change ∃ x, C.eval ((List.ofFn x ++ [!x 0]) ++
     [GateOp.or.eval (pins.map fun i => (List.ofFn x ++ [!x 0]).getD i false)]) ≠ F x
   simp_rw [hpair, List.append_assoc, List.cons_append, List.nil_append]
@@ -89,7 +81,7 @@ theorem PEqualNP.Outside.R_meta_3178_52
   have lower := binaryBound full fullFan fullComputes
   have prefixCount : full.gates.countP (fun g => !isNot g) =
       1 + C.gates.countP (fun g => !isNot g) := by
-    simp [full, g0, g1, isNot, List.countP_cons, Nat.add_comm]
+    simp [full, g0, g1, isNot, Nat.add_comm]
   change 13 ≤ full.gates.countP (fun g => !isNot g) at lower
   rw [prefixCount] at lower
   have partition (gs : List Gate) :
@@ -98,7 +90,7 @@ theorem PEqualNP.Outside.R_meta_3178_52
     | nil => rfl
     | cons g gs ih =>
       simp only [List.countP_cons, List.length_cons]
-      cases h : isNot g <;> simp [h] <;> omega
+      cases h : isNot g <;> simp <;> omega
   have total := partition C.gates
   have notCount : C.gates.countP isNot ≤ 1 := by
     change C.gates.length ≤ 13 at hsize
