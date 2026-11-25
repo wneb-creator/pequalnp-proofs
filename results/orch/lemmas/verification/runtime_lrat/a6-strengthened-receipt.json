@@ -1,0 +1,27 @@
+{
+  "recorded_utc": "2026-11-25T06:33:14.741032+00:00",
+  "runner": "RuntimeLRATCheck.lean",
+  "runner_sha256": "6458e358f4739ac8ede381485ee32f651553b8421d0188549f4e2a8c9bf9a0b5",
+  "argv": [
+    "/tmp/oec/pequalnp-pilot-57/elan/toolchains/leanprover--lean4---v4.36.0/bin/lean",
+    "-j1",
+    "-M3000",
+    "--run",
+    "/tmp/oec/pequalnp-pilot-57/RuntimeLRATCheck.lean",
+    "/tmp/oec/pequalnp-pilot-57/and6-dirty-slack12-comparison/model.cnf",
+    "/tmp/oec/pequalnp-pilot-57/and6-dirty-slack12-comparison/proof.lrat"
+  ],
+  "exit_code": 0,
+  "checker_result": true,
+  "variables": 12127,
+  "clauses": 46509,
+  "actions": 840935,
+  "cnf_bytes": 750782,
+  "cnf_sha256": "5ea7d7ac22f537ce088f64064d1399b5c110ded72fabeca11fa39c4c61ed0efb",
+  "lrat_bytes": 468400626,
+  "lrat_sha256": "3941f1a3f78746202653b79a3b2e06fd5e90c261995b02aa2e690f97b305c7b9",
+  "complete_log": "reviewer-a6-strengthened-lrat-runtime.log",
+  "complete_log_sha256": "090538d82bacf7068dc0e3c46bade384ed8e6205a18562c1f409f6a9ca13a820",
+  "model_scope": "Six-owner17-input/six-AND arbitrary-OR-subset dirty model with positive-live ANDs, child incomparability on52 maximal negatives and exact equal-child exponential slack12. Uncut A6 is a separate model; no result for it is asserted here.",
+  "verification_scope": "Independent runtime execution of Std.Tactic.BVDecide.LRAT.check. No kernel proof of the concrete check result, circuit-to-CNF completeness, total-gate lower bound or full L-meta-650 refutation."
+}

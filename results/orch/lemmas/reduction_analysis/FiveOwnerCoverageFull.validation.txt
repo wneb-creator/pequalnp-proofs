@@ -1,0 +1,5 @@
+UTC 2026-11-25T06:37:43.208770+00:00
+Lean build exit0, complete log empty.
+FiveOwnerCoverage prefix unchanged. New twenty_cover_distinct proves no two of the five covering sets coincide under20-edge/≤4-per-cover assumptions: deleting a duplicate would leave4 covers and at most16 objects. Does not assert general pairwise disjointness.
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env lean -j1 -M4096 ../results/orch/lemmas/reduction_analysis/FiveOwnerCoverageFull.lean
+SHA256 c34b234497c99f022cc652c2a0b4b490fba826bb5e771a7c639fde47db868190

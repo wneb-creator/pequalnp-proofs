@@ -1,0 +1,16 @@
+{
+  "result": "UNSAT for documented six-AND abstraction with necessary cuts",
+  "solver_seconds": 65.5503,
+  "proof_checker": "LRAT independently accepted by bundled Lean LRAT.check at runtime; no kernel circuit theorem",
+  "cnf_sha256": "5ea7d7ac22f537ce088f64064d1399b5c110ded72fabeca11fa39c4c61ed0efb",
+  "no_total_gate_lower_bound_claim": true,
+  "standalone_solver_exit": 20,
+  "standalone_random_seed": 57189,
+  "lrat_bytes": 468400626,
+  "lrat_sha256": "3941f1a3f78746202653b79a3b2e06fd5e90c261995b02aa2e690f97b305c7b9",
+  "proof_format": "ASCII LRAT, gzip-compressed",
+  "lrat_checker_exit": 0,
+  "lrat_checker_actions": 840935,
+  "standalone_solver_seconds": 135.08,
+  "standalone_solver_process_seconds": 59.35
+}

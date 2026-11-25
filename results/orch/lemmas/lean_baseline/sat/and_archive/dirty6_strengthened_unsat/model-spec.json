@@ -1,0 +1,16 @@
+{
+  "inputs": 17,
+  "declared_binary_AND_nodes": 6,
+  "OR_subsets": "arbitrary raw and earlier AND subsets; empty means false",
+  "constants": "false via empty OR; no true constant",
+  "dirty_required": true,
+  "allowed_dirty_pairs": null,
+  "positive_live": true,
+  "negative_child_incomparability": true,
+  "negative_equal_child_weight_slack": 12,
+  "negative_weight_definition": "sum over maximal negatives of (2^(number of equal-child AND nodes) - 1)",
+  "minimality_cut_scope": "requires an independent lower bound equal to the declared AND count",
+  "dirty_cut_scope": "a necessary target-budget condition must be supplied separately",
+  "total_gate_bound_established": false,
+  "UNSAT_scope": "declared AND-count abstraction with stated constraints; no total gate lower bound"
+}
