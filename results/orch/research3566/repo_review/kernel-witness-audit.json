@@ -1,0 +1,21 @@
+{
+  "verdict": "PASS: exact upper witness; no minimality/refutation claim",
+  "source": "WitnessKernel.lean",
+  "strategy": "kernel",
+  "source_sha256": "89fb5a95efbd76a26055b883bc6ef4b56d0f7d70e9b754c6e0514890073964bf",
+  "json_sha256": "316661e2feb79702de07b89390f1291dab91be7f345ba09ff831a40cd66ce982",
+  "generator_sha256": "bcc1777daab9e81ffdcf7fd9baf0af9be40cd692783d0e25c82b5b86a515d912",
+  "source_bytes": 16969,
+  "source_lines": 258,
+  "n": 14,
+  "edges": 21,
+  "gates": 27,
+  "output": 40,
+  "all_truth_rows": 16384,
+  "exact_minimum_cover": 7,
+  "standard_upper": 27,
+  "refuting_size_at_most": 26,
+  "exact_generator_match": true,
+  "bipartite": true,
+  "no_four_cycle": true
+}

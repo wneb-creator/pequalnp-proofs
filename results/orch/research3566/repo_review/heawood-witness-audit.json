@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS: checked upper witness only",
+  "source_sha256": "14dc75574c92c3de05db48cedd8ab84e4ff623fffad10edd8e9afb7d1e1c0cba",
+  "json_sha256": "316661e2feb79702de07b89390f1291dab91be7f345ba09ff831a40cd66ce982",
+  "generator_sha256": "63f65f6c0681b6d65663e992d9e348a8c8c33d0d5155fd69264010c601f8868f",
+  "source_bytes": 17096,
+  "source_lines": 259,
+  "n": 14,
+  "edges": 21,
+  "gates": 27,
+  "output": 40,
+  "all_truth_rows": 16384,
+  "matching_size": 7,
+  "expected_upper": 27,
+  "refuting_size_at_most": 26,
+  "exact_generator_match": true
+}

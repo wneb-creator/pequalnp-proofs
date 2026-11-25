@@ -67,3 +67,4 @@
 - 2026-11-25T21:02:40.864696+00:00: 20minre-plan for3566: structuralhelperscomplete, prioritizefinitecounterexample searches andgenericLeanverification.
 - 2026-11-25T21:11:13.066412+00:00: Graph11 certificate compiled and passed independent preservation review.
 - 2026-11-25T21:15:07.491760+00:00: Graph10 extension certificate compiled and independently reviewed.
+- 2026-11-25T21:18:55.141853+00:00: Generic kernel-only witness pipeline and both graph sizes independently checked; preserving all successful artifacts.

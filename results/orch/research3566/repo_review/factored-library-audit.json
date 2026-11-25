@@ -1,0 +1,25 @@
+[
+  {
+    "file": "bip5x6-factored-library.json",
+    "sha256": "9fab5653779bdf908eb23debbe5e772b539683ae491e89805c60cb48ce4bce1e",
+    "n": 11,
+    "edges": 14,
+    "rows": 31,
+    "nodes": 9942,
+    "recipes": 28123,
+    "active": 4691,
+    "clean_outputs": 625,
+    "node_kinds": {
+      "input": 11,
+      "linear": 67,
+      "clean": 43,
+      "product": 1158,
+      "mixed": 5407,
+      "guarded": 582,
+      "sum": 2674
+    },
+    "backward_id_recipes": 1603,
+    "maximum_union_depth": 10,
+    "verdict": "PASS: exact boundary values, closed dependencies, union of recipes acyclic"
+  }
+]
