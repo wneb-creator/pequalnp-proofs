@@ -1,0 +1,5 @@
+lake env lean /tmp/oec/pequalnp-pilot-71/single-core/DuplicateGate.lean
+exit code: 0
+stdout: empty
+stderr: empty
+Counterexample only to the auxiliary conjecture that a tight one-reused-wire core has vertex cover at most two. NOT a refutation of L-meta-2962.
