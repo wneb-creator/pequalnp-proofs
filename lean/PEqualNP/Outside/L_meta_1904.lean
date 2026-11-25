@@ -626,4 +626,93 @@ lemma dirtyEvents_card_lt_of_pointwise_decrease {n : ℕ} (G : SimpleGraph (Fin 
     (dirtyEvents_subset_of_pointwise_decrease G C D hsize hops hval) j hj hop x hx hf hkill)
 
 
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership
+open PEqualNP.MetaComplexity.NestedCover
+
+def negativeEvents {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) : Finset (ℕ × (Fin n → Bool)) :=
+  ((Finset.range C.size).product Finset.univ).filter fun p =>
+    graphFun G ∅ p.2 = false ∧ gateVal n C p.1 p.2 = true
+
+lemma mem_negativeEvents {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} {j : ℕ} {x : Fin n → Bool} :
+    (j, x) ∈ negativeEvents G C ↔
+      j < C.size ∧ graphFun G ∅ x = false ∧ gateVal n C j x = true := by
+  simp [negativeEvents]
+
+lemma negativeEvents_reindex_injective {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] {D : Circuit} {rename : ℕ → ℕ}
+    (hinj : Set.InjOn rename (↑(Finset.range D.size) : Set ℕ)) :
+    Set.InjOn (fun p : ℕ × (Fin n → Bool) => (rename p.1, p.2))
+      (↑(negativeEvents G D) : Set (ℕ × (Fin n → Bool))) := by
+  intro p hp q hq heq
+  apply Prod.ext
+  · apply hinj
+    · exact Finset.mem_range.mpr (mem_negativeEvents.mp hp).1
+    · exact Finset.mem_range.mpr (mem_negativeEvents.mp hq).1
+    · exact congrArg Prod.fst heq
+  · exact (Prod.mk.inj heq).2
+
+lemma negativeEvents_card_le_of_injective_map {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] {C D : Circuit} (rename : ℕ → ℕ)
+    (hinj : Set.InjOn rename (↑(Finset.range D.size) : Set ℕ))
+    (hmap : ∀ j x, (j, x) ∈ negativeEvents G D →
+      (rename j, x) ∈ negativeEvents G C) :
+    (negativeEvents G D).card ≤ (negativeEvents G C).card := by
+  apply Finset.card_le_card_of_injOn (fun p => (rename p.1, p.2))
+  · intro p hp
+    exact hmap p.1 p.2 hp
+  · exact negativeEvents_reindex_injective hinj
+
+lemma negativeEvents_card_lt_of_injective_map {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] {C D : Circuit} (rename : ℕ → ℕ)
+    (hinj : Set.InjOn rename (↑(Finset.range D.size) : Set ℕ))
+    (hmap : ∀ j x, (j, x) ∈ negativeEvents G D →
+      (rename j, x) ∈ negativeEvents G C)
+    (j : ℕ) (x : Fin n → Bool) (hold : (j, x) ∈ negativeEvents G C)
+    (hmiss : ∀ k, k < D.size → rename k = j → gateVal n D k x = false) :
+    (negativeEvents G D).card < (negativeEvents G C).card := by
+  have hle : (negativeEvents G D).card ≤ ((negativeEvents G C).erase (j, x)).card := by
+    apply Finset.card_le_card_of_injOn (fun p => (rename p.1, p.2))
+    · intro p hp
+      refine Finset.mem_erase.mpr ⟨?_, hmap p.1 p.2 hp⟩
+      intro heq
+      have hsize := (mem_negativeEvents.mp hp).1
+      have hactive := (mem_negativeEvents.mp hp).2.2
+      have hfalse := hmiss p.1 hsize (congrArg Prod.fst heq)
+      rw [congrArg Prod.snd heq] at hactive
+      exact Bool.false_ne_true (hfalse.symm.trans hactive)
+    · exact negativeEvents_reindex_injective hinj
+  exact hle.trans_lt (Finset.card_erase_lt_of_mem hold)
+
+lemma negativeEvents_card_le_of_reindexing {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] {C D : Circuit} (rename : ℕ → ℕ)
+    (hinj : Set.InjOn rename (↑(Finset.range D.size) : Set ℕ))
+    (hindex : ∀ j, j < D.size → rename j < C.size)
+    (hactive : ∀ j, j < D.size → ∀ x : Fin n → Bool,
+      graphFun G ∅ x = false → gateVal n D j x = true → gateVal n C (rename j) x = true) :
+    (negativeEvents G D).card ≤ (negativeEvents G C).card := by
+  apply negativeEvents_card_le_of_injective_map rename hinj
+  intro j x hevent
+  obtain ⟨hj, hx, hv⟩ := mem_negativeEvents.mp hevent
+  exact mem_negativeEvents.mpr ⟨hindex j hj, hx, hactive j hj x hx hv⟩
+
+lemma negativeEvents_card_lt_of_reindexing {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] {C D : Circuit} (rename : ℕ → ℕ)
+    (hinj : Set.InjOn rename (↑(Finset.range D.size) : Set ℕ))
+    (hindex : ∀ j, j < D.size → rename j < C.size)
+    (hactive : ∀ j, j < D.size → ∀ x : Fin n → Bool,
+      graphFun G ∅ x = false → gateVal n D j x = true → gateVal n C (rename j) x = true)
+    (j : ℕ) (x : Fin n → Bool) (hj : j < C.size)
+    (hx : graphFun G ∅ x = false) (hv : gateVal n C j x = true)
+    (hmiss : ∀ k, k < D.size → rename k = j → gateVal n D k x = false) :
+    (negativeEvents G D).card < (negativeEvents G C).card := by
+  apply negativeEvents_card_lt_of_injective_map rename hinj ?_ j x
+    (mem_negativeEvents.mpr ⟨hj, hx, hv⟩) hmiss
+  intro k y hevent
+  obtain ⟨hk, hy, hw⟩ := mem_negativeEvents.mp hevent
+  exact mem_negativeEvents.mpr ⟨hindex k hk, hy, hactive k hk y hy hw⟩
+
+
 end PEqualNP.Outside.L_meta_1904_aux
