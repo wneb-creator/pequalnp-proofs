@@ -33,3 +33,10 @@
 - 2026-11-25T14:16:26.668277+00:00 SAT: Started seven-input vector, 13 gates and exactly two NOT gates, first OR(a,b).
 2026-11-25T14:18:05.366356+00:00 Lease renewed; expires 2026-11-25T14:38:04.644Z.
 2026-11-25T14:21:35.476342+00:00 Named Seventeen partial build passed; preparing preservation push.
+
+- 2026-11-25T14:22:35.751181+00:00 not_cases: three centered-OR prefix >=19 binary bound and actual supplied-OR circuit wrapper checked; OR/AND retention certificates checked, mass-two assembly in progress.
+2026-11-25T14:23:05.862586+00:00 Lease renewed; expires 2026-11-25T14:43:05.494Z.
+
+2026-11-25T14:24:28.730790+00:00 Signed18 search slice exhausted900seconds,no witness; signed17 slice begins.
+2026-11-25T14:27:47.103106+00:00 Second orchestration replan: mono18 +actualNOT elimination; counterexample search prioritizes common-t architecture.
+2026-11-25T14:28:06.427398+00:00 Lease renewed; expires 2026-11-25T14:48:05.851Z.

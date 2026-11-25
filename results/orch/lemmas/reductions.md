@@ -19,3 +19,9 @@ These checked results support a real partial proof (large NOT counts / selected 
 Exact normalization bridge R_meta_2592_408.normalize already appears as checked L_meta_7389 (305 lines). Repackaged helper-only scratch file is Normalization.lean.
 
 Compilation completed 2026-11-25T13:59:53.440308+00:00: `Sixteen.lean` exit0, noerrors, stderr empty; stdout contains ordinary linter warnings. Independent status_review audit passed. Root handles preservation/push and target-module build.
+
+## Terminal negations
+
+`TerminalNot.lean` compiled and independently reviewed: an output gate that is the sole NOT cannot compute any function satisfying f(bottom)=false and f(top)=true, irrespective of gate budget.
+
+`TerminalTwo.lean` compiled: if P,Q contain only AND/OR and `Bool.not (Q.eval (P.wires x ++ [!P.eval x])) = f x` with those endpoints, then P itself computes f. The proof compares the monotone suffix on bottom/x/top inputs, conditioning only on the prefix output bit. A concrete circuit decomposition using exactly two NOT gates is being tested in `TerminalStructural.lean`. Together with a monotone Petersen lower bound of18, this would exclude every≤19 circuit ending in NOT and containing at most twoNOTs.

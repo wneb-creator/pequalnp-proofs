@@ -40,3 +40,15 @@ Existing reductions occupy all three slots.
 2026-11-25T14:06:12.370156+00:00 status_review: naive monotone star-normalization route blocked. Checked L_meta_4849 has a minimum 11-gate circuit for an 8-vertex triangle/C4-free graph, with an AND producing nonedge {2,7} that later gates filter out. Independently verified all 256 assignments, tau=4, m+tau-1=11. Thus the desired bound is not refuted, but every-AND-biclique-inside-G is false even for minimum circuits. R_meta_5375_41 isolates a genuine missing repair hypothesis. Exhaustive monotone circuit enumeration through 4 gates found no violation for all 53 nonempty C4-free labeled graphs on 4 vertices; computational evidence only.
 
 Tool paths: PATH prefix /tmp/oec/pequalnp-pilot-95/toolchain/lean-4.36.0-linux/bin. Checker requires PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-95/toolchain/lean-4.36.0-linux/bin/lake and PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-95/toolchain/build-queue. Pinned cache complete; never lake update or source-build Mathlib.
+
+2026-11-25T14:16:00.347285+00:00 Counterexample sanity: Twenty.lean compiled successfully (known 20-gate upper bound). No 19-gate witness.
+
+- 2026-11-25T14:19:31.015131+00:00 reductions: TerminalNot (soleNOTatoutput impossible) andTerminalTwo (twoNOTterminal sandwich collapses to monotoneprefix) compiled. CorrectedExtensionsPublic.olean cache also compiled with17binary andnonOR18 hardlogic. ActualtwoNOTcircuitdecomposition inTerminalStructural under test; rootproof_route seekingmonotone18 toclosecase.
+
+- 2026-11-25T14:22:35.751181+00:00 not_cases: three centered-OR prefix >=19 binary bound and actual supplied-OR circuit wrapper checked; OR/AND retention certificates checked, mass-two assembly in progress.
+
+2026-11-25T14:24:28.730719+00:00 Signed18 stochastic search ended after3,593,000,000 mutations and17,965 restarts; best remains4false positives,no witness. Signed17 search started.
+
+2026-11-25T14:27:47.103106+00:00 40-minute replan: keep checked global17+NOT bound stable. Build shared signed/monotone nine-input core to obtain monoPetersen18; combine with checked arbitrary-outputNOT extraction (saves2gates) to close NOT-output cases. Pursue constantNOT feeding finalbinary with signature extraction, not a large rewiring compiler. Search priority shifts to common-t second independent-triple architecture; cap generic signed search and switch when new search ready. Remaining main cases1/2NOT with AND/OR output remain unresolved.
+
+2026-11-25T14:28:11+00:00 proof_route: MonoPublic checked: nine-variable monotone floor16 implies Petersen monotone18 by first-gate retention and restriction. Actual combined nine-variable certificate still compiling. ConstantNot checked: semantically constant NOT gates can be extracted in monotone mode at zero cost; compiler avoids physical circuit rewiring. Both scratch tests imported cached named Seventeen; flattened fragments rely on its source helpers. Logs empty.

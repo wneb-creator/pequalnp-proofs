@@ -1,0 +1,18 @@
+/tmp/oec/pequalnp-pilot-95/not-cases/DependentAndBoundLight.lean:48:5: warning: Variable name `ij` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ij
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/not-cases/DependentAndBoundLight.lean:48:18: warning: Variable name `ic` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ic
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-95/not-cases/DependentAndBoundLight.lean:48:31: warning: Variable name `jc` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _jc
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
