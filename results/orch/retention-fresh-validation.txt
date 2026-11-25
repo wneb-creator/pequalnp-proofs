@@ -1,0 +1,6 @@
+UTC: 2026-11-25T14:32:28.940871+00:00
+Command: lake env lean /tmp/oec/pequalnp-pilot-118/RetentionFresh.lean
+Exit status: 0
+Complete stdout and stderr: empty
+SHA256: fd1119437485f59593db267baac1117135207a1cc98793b90b234ece4c183942
+Includes retained-operands lemma and raw_bin_fresh for all signed first-gate shapes.

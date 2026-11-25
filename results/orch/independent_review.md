@@ -37,3 +37,9 @@ APPROVED for archival partial push, not a completed-proof PR.
 - FirstProjection.lean is uncompiled research at this review point. RetentionStandalone imports a narrower project definition module than the desk lists, acceptable only as an archival research component; the final named proof file still imports PEqualNP.Defs only. The final PR must contain only the named proof file with the exact posted theorem.
 
 Review timestamp: 2026-11-25T14:29:34.571656+00:00
+
+## RetentionFresh pre-push review
+
+PASS for archival partial push. The delta adds only the finite raw_bin_fresh_samples certificate and raw_bin_fresh theorem (16 lines). Independently checked all 360 ordered-distinct-input/signed-operation combinations produce a truth table different from every raw input. Reviewed the List.all elimination proof. Source exactly matches compiled scratch and recorded SHA256 fd1119437485f59593db267baac1117135207a1cc98793b90b234ece4c183942; 221 lines; complete archived build log empty, validation reports exit 0. No forbidden tokens. This remains a partial component, not the posted theorem.
+
+Review timestamp: 2026-11-25T14:33:16.328790+00:00
