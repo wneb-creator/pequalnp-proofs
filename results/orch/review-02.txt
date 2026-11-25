@@ -1,0 +1,5 @@
+Independent reviewer: pilot176_status
+Cleared inventory_lift_bridge.lean, restriction_graph.lean, structural_order.lean, structural_semantics.lean.
+All four passed Lean. Imports/namespace/plain-file/forbidden-text scans pass; no semantic findings.
+The structural semantics log has two unused simp argument warnings.
+These are partial helpers only; no proof of full posted L-meta-5012.

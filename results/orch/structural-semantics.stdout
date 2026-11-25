@@ -1,0 +1,14 @@
+../results/orch/lemmas/structural_semantics.lean:423:16: warning: This simp argument is unused:
+  Bool.or_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.or_left_comm, Bool.or_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/structural_semantics.lean:423:31: warning: This simp argument is unused:
+  Bool.or_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.or_assoc, Bool.or_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
