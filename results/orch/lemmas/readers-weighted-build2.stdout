@@ -1,0 +1,21 @@
+/tmp/oec/pequalnp-pilot-152/gap-1884/petersen-readers-work.lean:215:165: warning: This simp argument is unused:
+  hr
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hw]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-152/gap-1884/petersen-readers-work.lean:215:168: warning: This simp argument is unused:
+  hw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hr]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-152/gap-1884/petersen-readers-work.lean:397:48: warning: This simp argument is unused:
+  List.countP_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
