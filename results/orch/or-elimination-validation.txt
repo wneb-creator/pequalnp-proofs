@@ -1,0 +1,22 @@
+L-meta-1031 research obstruction, not a refutation of the posted statement.
+
+The checked C5 five-OR program refutes deletion of any OR with at most one lost edge for arbitrary nonminimum compact programs.
+Build command: lake env lean ../results/orch/lemmas/or_elimination.lean
+Build exit code: 0
+Complete stdout: empty
+Complete stderr: empty
+Four theorem axiom audit exit code: 0
+Complete audit stdout:
+'PEqualNP.Outside.L_meta_1031_aux.OrElimination.computes_cycle' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.OrElimination.each_replacement_loses_two' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.OrElimination.no_triangle' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031_aux.OrElimination.no_four_cycle' depends on axioms: [propext]
+
+Complete audit stderr:
+
+Independent normal_form review: PASS source and SAT search/replay.
+Checker: not run; this is not the posted theorem.
+Sub-agents: checker_review, lean_setup, normal_form, counterexample, graph_ownership, exchange
+TIMING total=46.61 subagents=6

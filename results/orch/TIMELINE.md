@@ -45,3 +45,7 @@
 - 2026-11-25T01:33:47.866541+00:00 normal_form: unrestricted OR-count investigation remains blocked by dirty-AND filtering; recorded exact boundary and finite-only biclique-cover census.
 
 - 2026-11-25T01:37:08+00:00 checker_review: generic compact OR circuit translation compiled with exact OR count and preserved evaluations; parent review/push requested.
+
+- 2026-11-25T01:47:51+00:00 checker_review: 508-line conditional arbitrary-circuit/C5-mask bridge compiled and all32 theorem axioms audited; finite obstruction remains the sole certificate premise.
+
+2026-11-25T01:51:06.872469+00:00 graph_ownership: rejected connectivity-rank and per-step safe-cover invariants with exact finite counterexamples; cumulative cover bound survived random tests. Independently reviewed compact_or.lean592line SHA a4560bc72b8eedac7b9323ebf845b74207b0798dc0f422556acb5dd63ca8d428 PASS (conditional finite obstruction remains).

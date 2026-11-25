@@ -1,0 +1,18 @@
+Source: results/orch/lemmas/branch_budget.lean
+SHA256: bf43cc6b2e02b4e64bada0c8ed21f0f313d298918fdef1a8e411566232cf1e30
+Compile exit: 0
+Axiom audit exit: 0
+
+Compile stdout (complete):
+
+Compile stderr (complete):
+
+Axiom audit stdout (complete):
+'PEqualNP.Outside.L_meta_1031_aux.BranchBudget.weighted_budget' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.BranchBudget.branch_count_le_surplus' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Axiom audit stderr (complete):

@@ -170,3 +170,19 @@ compact_or.lean proves a full generic representation theorem: every binary AND/O
 ### normal_form compact finite checks (2026-11-25T01:42:38.071725+00:00)
 
 The exact unlimited-AND model additionally returned external UNSAT for C6<=4OR, friendship2<=4OR, C7<=5OR, with no additional pruning. Four complete search files and SHA256 manifest were copied to search/. These support the OR-count conjecture on these examples only. No Lean lower-bound claim follows.
+
+### checker_review — conditional C5 OR lower bound 2026-11-25T01:47:51+00:00
+
+Tracked compact_or.lean (508 lines, SHA 93b666ef9bfd0eba9b6a7ee1655235ca341be2a1e626aff9be55409165def89a) now contains the complete arbitrary normalized circuit to finite-mask obstruction bridge. Vector semantics on BitVec10 commute with every test-bit projection. Three well-formed compact OR gates become seven BitVec8 conjunction masks. circuit_four_ors proves at least four OR gates for any normalized circuit matching the ten C5 edge/nonedge tests, conditional on the explicitly named FiniteObstruction. The finite predicate remains unproved: the default bv_decide result had an extra native checker axiom and was rejected; counterexample agent is attempting trusted closed certificate validation. All32 theorem declarations in our 508-line bridge passed the axiom audit with only propext, Classical.choice, Quot.sound. Independent normal_form review passed.
+
+2026-11-25T01:50:28.693369+00:00 ROOT: C5 nonminimum five-OR program disproves arbitrary-program one-edge-loss elimination. All32 truth assignments and all10 OR substitutions checked by Lean ordinary decide; no-triangle/no-four-cycle also checked. This is not a counterexample to L-meta-1031. Source or_elimination.lean, full search and validation retained.
+
+## graph_ownership: OR-count potential experiments 2026-11-25T01:51:06.872469+00:00
+
+Exact meet closures were computed on graph-edge assignments plus all maximal independent assignments; a meet-signal is safe exactly when its negative-mask bits vanish. This is finite experimentation, not a Lean theorem.
+
+- Safe-support connectivity rank fails cumulatively already on C5: r=(x0 AND x4) OR (x1 AND x2), s=x3 OR r. Safe r supports {04,12}, x2 AND s supports {12,23}, and x4 AND s supports {34,04}; their connectivity rank is3 with2 ORs.
+- Minimum-safe-cover savings (number of graph edges minus minimum number of safe meet supports covering them) can increase by2 at one OR on C5 and Petersen, so there is no per-step unit increment invariant.
+- Cumulative minimum-safe-cover savings <= number of ORs survived3,275,540 random C5 steps and1,196,480 Petersen steps (60seconds each); C4 control fails afterone OR. Single safe-support cardinality <= ORcount+1 separately survived3,883,040 C5 steps and1,094,380 Petersen steps. These are only negative searches.
+- Complete stdout/stderr and source scripts live under /tmp/oec/pequalnp-pilot-55/ with prefixes meet-rank-, meet-safe-support, meet-safe-cover. Root should preserve any logs needed before container loss.
+- Potential alternative certificate: expand all k OR gates by global Boolean branch selectors. Every choice yields a conjunction monomial M_b containing a graph edge if the output is sound, and every accepted graph edge occurs as an exact2-variable M_b. A sufficient missing combinatorial theorem is that C4-free output permits at most k+1 such minimal2-variable outcomes. No proof established.

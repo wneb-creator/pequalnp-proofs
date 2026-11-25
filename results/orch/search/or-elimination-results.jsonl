@@ -1,0 +1,4 @@
+{"n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]], "or_gates": 4, "result": "unsat", "seconds": 0.8186855920002927, "all_replacements_lose_at_least": 2, "name": "C5"}
+{"n": 5, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0]], "or_gates": 5, "result": "sat", "seconds": 0.6759632829998736, "all_replacements_lose_at_least": 2, "masks": [[4, 16], [2, 16], [40, 65], [36, 192], [160, 322]], "output": 768, "truth_errors": [], "losses": [[2, 2], [2, 2], [2, 2], [3, 2], [2, 3]], "name": "C5"}
+{"n": 6, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0]], "or_gates": 5, "result": "unsat", "seconds": 22.483647234000273, "all_replacements_lose_at_least": 2, "name": "C6"}
+{"n": 6, "edges": [[0, 1], [0, 2], [3, 4], [3, 5]], "or_gates": 3, "result": "unsat", "seconds": 0.09481876100016962, "all_replacements_lose_at_least": 2, "name": "two_stars"}

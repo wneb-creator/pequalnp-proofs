@@ -505,4 +505,88 @@ theorem circuit_four_ors (hfinite : FiniteObstruction) (C : Circuit)
     exact hvalues ⟨i, hi⟩
   exact three_program_obstruction hfinite padded output hpadlen hpadwf hpadbound hvec
 
+
+def select8 (p : BitVec 8) (i : Nat) (v : BitVec 10) : BitVec 10 :=
+  if p.getLsbD i then v else 1023
+
+def expr0 (p : BitVec 8) : BitVec 10 :=
+  select8 p 0 113 &&& select8 p 1 387 &&& select8 p 2 550 &&&
+    select8 p 3 204 &&& select8 p 4 792
+
+def expr1 (p : BitVec 8) (v : BitVec 10) : BitVec 10 := expr0 p &&& select8 p 5 v
+
+def expr2 (p : BitVec 8) (v w : BitVec 10) : BitVec 10 := expr1 p v &&& select8 p 6 w
+
+def expr3 (p : BitVec 8) (v w z : BitVec 10) : BitVec 10 := expr2 p v w &&& select8 p 7 z
+
+lemma and1023 (v : BitVec 10) : BitVec.and v (BitVec.ofNat 10 1023) = v := BitVec.and_allOnes
+
+lemma vselect_five (p : BitVec 8) : vselect cycleInputs 5 p = expr0 p := by
+  simp [vselect, cycleInputs, List.range_succ, expr0, select8, BitVec.and_assoc]
+  simp only [← BitVec.and_assoc]
+  exact BitVec.and_allOnes
+
+lemma vselect_six (p : BitVec 8) (v : BitVec 10) :
+    vselect (cycleInputs ++ [v]) 6 p = expr1 p v := by
+  simp [vselect, cycleInputs, List.range_succ, expr1, expr0, select8, BitVec.and_assoc]
+  simp only [← BitVec.and_assoc]
+  exact BitVec.and_allOnes
+
+lemma vselect_seven (p : BitVec 8) (v w : BitVec 10) :
+    vselect (cycleInputs ++ [v] ++ [w]) 7 p = expr2 p v w := by
+  simp [vselect, cycleInputs, List.range_succ, expr2, expr1, expr0, select8, BitVec.and_assoc]
+  simp only [← BitVec.and_assoc]
+  exact BitVec.and_allOnes
+
+lemma vselect_eight (p : BitVec 8) (v w z : BitVec 10) :
+    vselect (cycleInputs ++ [v] ++ [w] ++ [z]) 8 p = expr3 p v w z := by
+  simp [vselect, cycleInputs, List.range_succ, expr3, expr2, expr1, expr0, select8, BitVec.and_assoc]
+  simp only [← BitVec.and_assoc]
+  exact BitVec.and_allOnes
+
+lemma finiteObstruction_of_expanded
+    (h : ∀ a b c d e f o : BitVec 8,
+      let v := expr0 a ||| expr0 b
+      let w := expr1 c v ||| expr1 d v
+      let z := expr2 e v w ||| expr2 f v w
+      expr3 o v w z ≠ 31) : FiniteObstruction := by
+  intro a b c d e f o
+  simp only [vselect_five, vselect_six, vselect_seven, vselect_eight]
+  exact h a b c d e f o
+
+
+def cycleTruth (x : Fin 5 → Bool) : Bool :=
+  decide (∃ u v : Fin 5, (u + 1 = v ∨ v + 1 = u) ∧ x u = true ∧ x v = true)
+
+lemma cycle_columns : ∀ i : Fin 10,
+    cycleTruth (fun j : Fin 5 => (cycleInputs.getD j.val 0).getLsbD i.val) =
+      (31 : BitVec 10).getLsbD i.val := by decide
+
+lemma cycle_test_lists : ∀ i : Fin 10,
+    List.ofFn (fun j : Fin 5 => (cycleInputs.getD j.val 0).getLsbD i.val) =
+      cycleInputs.map (fun v => v.getLsbD i.val) := by decide
+
+theorem cycle_four_ors (hfinite : FiniteObstruction) (C : Circuit)
+    (hnorm : normalized 5 C.gates)
+    (hcomputes : ∀ x : Fin 5 → Bool, C.eval (List.ofFn x) = cycleTruth x) :
+    4 ≤ orCount C.gates := by
+  have hvalues : ∀ i : Fin 10,
+      C.eval (cycleInputs.map (fun v => v.getLsbD i.val)) = (31 : BitVec 10).getLsbD i.val := by
+    intro i
+    rw [← cycle_test_lists i, hcomputes]
+    exact cycle_columns i
+  have hout : C.output < 5 + C.gates.length := by
+    by_contra hbad
+    have htest := hvalues (0 : Fin 10)
+    have htrue : (31 : BitVec 10).getLsbD (0 : Fin 10).val = true := by decide
+    rw [htrue] at htest
+    have hfalse : C.eval (cycleInputs.map (fun v => v.getLsbD 0)) = false := by
+      apply List.getD_eq_default
+      change (Circuit.wires ⟨C.gates, 0⟩ (cycleInputs.map (fun v => v.getLsbD 0))).length ≤ C.output
+      rw [original_wires_length]
+      simp only [List.length_map, cycleInputs, List.length_cons, List.length_nil] at *
+      omega
+    exact Bool.noConfusion (hfalse.symm.trans htest)
+  exact circuit_four_ors hfinite C hnorm hout hvalues
+
 end PEqualNP.Outside.L_meta_1031_aux.CompactOr
