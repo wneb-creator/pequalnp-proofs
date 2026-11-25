@@ -50,3 +50,5 @@
 - 2026-11-25T10:00:44.318140+00:00: preserved copy-all-sources prefix budget, structural literal-operand normalization, and direct ownership-constrained finite synthesis. All artifacts independently reviewed; general theorem still open.
 
 - 2026-11-25T10:02:59.075429+00:00: four-corner support, accepted-pair containment and dirty-rectangle lemmas compiled and reviewed for the full literal family application.
+
+- 2026-11-25T10:05:13.941027+00:00: preserved exact source-copy plus3-gate quad constructor and kernel-checked nonminimal bad-star obstruction; full finite family application compiling.
