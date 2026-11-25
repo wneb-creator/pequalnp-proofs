@@ -1,0 +1,162 @@
+{
+  "recorded_at": "2026-11-25T04:40:22.626000+00:00",
+  "scope": "compiled research partials; no proof of L-meta-2602",
+  "files": [
+    {
+      "file": "results/orch/lemmas/PureClause.lean",
+      "lines": 45,
+      "bytes": 1754,
+      "sha256": "61ec39a79af9acf2943cef2f18fce50c5cb42b50bae9d504d4bd656bce95685a"
+    },
+    {
+      "file": "results/orch/lemmas/PlaneOrBound.lean",
+      "lines": 801,
+      "bytes": 34209,
+      "sha256": "32f53c901432992c0a7585001d359f4203c28ef873df4c9f063bfb1e1c4822ce"
+    },
+    {
+      "file": "results/orch/lemmas/Witness65.lean",
+      "lines": 496,
+      "bytes": 25286,
+      "sha256": "2d77ce67e2913b46eed59023f53df0151ebbf36110ac89a2caf855c9d187dda9"
+    },
+    {
+      "file": "results/orch/lemmas/OrFamilyBound.lean",
+      "lines": 320,
+      "bytes": 14630,
+      "sha256": "b6fad70d60dfda5fac9af0591c6e59a0e40fa8c04dbb0d7b480eea34507fb084"
+    },
+    {
+      "file": "results/orch/lemmas/ReductionsIR.lean",
+      "lines": 948,
+      "bytes": 79691,
+      "sha256": "c6017c154255c2e20a078365e9e47ff6448457134eba1e4fd3ac48777798a152"
+    },
+    {
+      "file": "results/orch/lemmas/CofactorProductive.lean",
+      "lines": 819,
+      "bytes": 34934,
+      "sha256": "b5eb4a789db0dacac3dd42f59610d4efbd236936ab4f7275a1f089a7f51b6f8a"
+    },
+    {
+      "file": "results/orch/lemmas/FirstAnd.lean",
+      "lines": 61,
+      "bytes": 2801,
+      "sha256": "cac7cccc32b5eeadc77955e46ed782ee610dccebe698f46efd4254ce9d8de588"
+    },
+    {
+      "file": "results/orch/lemmas/Reductions.lean",
+      "lines": 3706,
+      "bytes": 341095,
+      "sha256": "2d5892106342f43c4f211970c47351adf342440c1aeafdf341c540ecb8f21029"
+    },
+    {
+      "file": "results/orch/lemmas/ReductionsNoFive.lean",
+      "lines": 35,
+      "bytes": 1138,
+      "sha256": "0177de4d4c21142f0c4d939c28ab190e7144acc8df24d0d827419e4bfd28c582"
+    },
+    {
+      "file": "results/orch/lemmas/ProductiveBound.lean",
+      "lines": 276,
+      "bytes": 12741,
+      "sha256": "4bb95592e38b50db89c34133812ca3abf2a6eb9ab5e2e0269e0240dce2635664"
+    },
+    {
+      "file": "results/orch/lemmas/Distributed.lean",
+      "lines": 223,
+      "bytes": 11293,
+      "sha256": "c23bf65f0556718e2b3f154622593d5410369a32355e1d87ee6fe4bc402a287f"
+    },
+    {
+      "file": "results/orch/lemmas/Audit.lean",
+      "lines": 65,
+      "bytes": 2578,
+      "sha256": "ed8956695f0d45d723d8dd51cca0e1bc96d4325d3dba03e9e21a7203f3ff95c3"
+    },
+    {
+      "file": "results/orch/lemmas/P4SixWitness.lean",
+      "lines": 58,
+      "bytes": 1944,
+      "sha256": "6c688acd0613a915f3fcbddaa82e03ca18be45eb36f422c30ef68380714237c9"
+    },
+    {
+      "file": "results/orch/lemmas/Boundary.lean",
+      "lines": 77,
+      "bytes": 3444,
+      "sha256": "16cfaa60b765d5224c7a79efdf527df02cfef351bcc89d6088511246d08abc4c"
+    },
+    {
+      "file": "results/orch/lemmas/ClausePrune.lean",
+      "lines": 134,
+      "bytes": 5534,
+      "sha256": "d10cc93968ae3d8822e2695f3615c9e97a02c63f1d5a40040ac37464b16bb6f0"
+    },
+    {
+      "file": "results/orch/lemmas/ClassificationObstruction.lean",
+      "lines": 103,
+      "bytes": 4095,
+      "sha256": "1fbc53dd721f3a763733f9e784025287bfb74a6dfcedc8c113463174109bf48b"
+    },
+    {
+      "file": "results/orch/lemmas/Structural.lean",
+      "lines": 255,
+      "bytes": 9411,
+      "sha256": "bc79d899120908106fead994d7bc0b3e82186863c0873ccbfb88c17e8fd6c27d"
+    },
+    {
+      "file": "results/orch/lemmas/SharedSupport.lean",
+      "lines": 56,
+      "bytes": 2605,
+      "sha256": "6f7fb56c2b8db3bd9ab4aee7a45ba049c4d704ccf757156b5b01d7bb8711cc99"
+    },
+    {
+      "file": "results/orch/lemmas/SupportConnect.lean",
+      "lines": 106,
+      "bytes": 4603,
+      "sha256": "81f7acab54c24fd8b5907f1b909e1844338c23c7b04eba12d7356eca4c5d36f2"
+    },
+    {
+      "file": "results/orch/lemmas/Derivatives.lean",
+      "lines": 122,
+      "bytes": 5535,
+      "sha256": "dc1a06c154fce4f92dbfbd8abd7b628b22ed763e01e64c5e7eeff6547dd40ae9"
+    },
+    {
+      "file": "results/orch/lemmas/Counterexample.lean",
+      "lines": 39,
+      "bytes": 1337,
+      "sha256": "a9d16efcffad0cb7109406d92699d64730706e439a36c468edc315e45dd9d410"
+    },
+    {
+      "file": "results/orch/lemmas/CircuitAdapter.lean",
+      "lines": 195,
+      "bytes": 8564,
+      "sha256": "ea8a479f1466d196bfa9c7a15352e6bdce96171cdcebe29cf635b40da626c979"
+    },
+    {
+      "file": "results/orch/lemmas/ReductionsNormalizeFast.lean",
+      "lines": 108,
+      "bytes": 4462,
+      "sha256": "432a9b1ed8e0373334b7b265598a379e9e765c2cfb5f478f41db38e528175e7b"
+    },
+    {
+      "file": "results/orch/lemmas/BipartiteBoundary.lean",
+      "lines": 37,
+      "bytes": 1390,
+      "sha256": "2c4d48a16274d349e527846ed5ee362ae8c992a55e845df783cd769e95a17f3e"
+    },
+    {
+      "file": "results/orch/lemmas/ReductionsBridgeChunks.lean",
+      "lines": 8671,
+      "bytes": 673880,
+      "sha256": "8f26a21d1e12863d33159857ca8ab3354e23943d38385942ed5db26e0cf78ed0"
+    },
+    {
+      "file": "results/orch/lemmas/ReductionsSemantics.lean",
+      "lines": 185,
+      "bytes": 15161,
+      "sha256": "af76f3f045ce5c533bdfbb8b93dbb1d5c67ab800b8ca41843f6c686fb954433f"
+    }
+  ]
+}

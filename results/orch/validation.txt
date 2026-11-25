@@ -1,84 +1,75 @@
+FINAL — L-meta-2602 unresolved; checked local results preserved; stopped by explicit desk ownership guard.
+Finalized UTC: 2026-11-25T04:44:28.109676+00:00
 Job: pequalnp-pilot-64
 Message: msg-6ae156ac9a23ea0665793519
 Gap: L-meta-2602
-Status: checked partial lemmas only; posted statement remains unresolved; no proof PR opened.
+Branch: pnp/pilot-64
+Status: checked partial research only. No proof or refutation of the posted statement; no proof PR opened.
+Sub-agents: 6 (toolchain/status, structural argument, counterexample search, reductions/gate counts, derivatives, independent review)
+TIMING total=99.7 subagents=6
+Desk null answers: 1. Exact message: no step is free that you have not already looked at and handed back in the last hour (1); new steps are posted through the day, ask again in a few minutes
+Recovery returned L-meta-670 twice with the same lease and exact warning: you hold 5 gaps, the most one handle may hold at once; release one to get another
+No work, renewal or release was performed on L-meta-670. Old L-meta-2602 renewal returned HTTP410, so no release was attempted against that no-longer-live lease. Both timers are stopped.
 
-Sub-agents: 6 (toolchain/status, structural argument, counterexample search, reductions and gate counts, derivatives, independent review)
-TIMING total=56.5 subagents=6
+Checked partials (current source line counts; recorded successful compilations exited 0):
+- Witness65.lean: 496 lines. Complete legal 65-gate circuit computes incidence and has both derivative traces zero; 65 exceeds the posted 64-gate cap.
+- Structural.lean: 255 lines. Finite plane geometry, minimum rectangle-cover bound 13, and normalized-cover rigidity; no unrestricted circuit normalization.
+- PlaneOrBound.lean: 801 lines. A common 13-input circuit exposing all 13 neighborhood ORs requires at least 39 OR gates; multioutput result.
+- CofactorProductive.lean: 819 lines. Actual 26-input incidence semantics implies at least 39 weighted point/cofactor productive-OR charges; charges need not be distinct physical gates.
+- OrFamilyBound.lean: 320 lines. Common-wire linear OR-family lower bound m*(d-1).
+- ProductiveBound.lean: 276 lines. Weighted productive-OR counting across varying cofactors; no distinct-gate lower bound.
+- CircuitAdapter.lean: 195 lines. Topological Circuit wire equations, monotonicity and exact OR-count bridge.
+- FirstAnd.lean: 61 lines. A pair-accepting singleton-rejecting wire has an earlier AND joining opposite singleton supports; no injectivity claim.
+- ClassificationObstruction.lean: 103 lines. Legal size-7 countermodel to a proposed classification shortcut, not to L-meta-2602.
+- Reductions.lean: 3706 lines. Kernel-checked UNSAT of one explicitly listed 2537-clause formula using 1274 RUP steps; its exact-five typed circuit interpretation is now proved by ReductionsBridgeChunks and ReductionsNoFive.
+- ReductionsIR.lean: 948 lines. Typed five-gate symbolic trace and total CNF assignment definitions.
+- ReductionsSemantics.lean: 185 lines. Encoded Boolean output and both derivative outputs equal direct typed five-gate evaluation.
+- ReductionsNormalizeFast.lean: 108 lines. Sorting distinct operand pairs preserves direct evaluation and both derivative traces.
 
-Lean 4.36.0, Mathlib fc4f59e577feb1a4956671bc04ac18aaaf8cd842.
-Audit.lean: lake env lean passed, exit 0, stdout and stderr empty.
-Lemmas: derivative_unique, audit_wires_length, output_in_range.
-Line count: 65 before cleanup; cleanup not yet applicable to full proof.
-Checker: not run on partial lemmas; no theorem proves the posted statement.
-Full proof search continues.
+Additional compiled helper sources and exact current line counts:
+Audit.lean 65, BipartiteBoundary.lean 37, Boundary.lean 77, ClausePrune.lean 134, Counterexample.lean 39, Derivatives.lean 122, Distributed.lean 223, PureClause.lean 45, SharedSupport.lean 56, SupportConnect.lean 106.
+Final inventory: 26 files, 17941 lines; SHA256/byte counts in lemma-inventory.json.
 
-Structural.lean: lake env lean passed, exit0; 154 lines, one unnecessarySimpa warning. Exact finite geometry and minimum vertex-cover rigidity.
+Build environment and commands:
+Lean 4.36.0 (commit 611c117bfaf7b7ae1cfcf246ce6fba31e8f509e9); Mathlib fc4f59e577feb1a4956671bc04ac18aaaf8cd842.
+Pinned tool directory: /tmp/oec/pequalnp-pilot-64/toolchain/lean-4.36.0-linux/bin.
+Workdir for all Lake commands: /workspace/pequalnp-proofs/lean.
+Ordinary helper compilation form: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/<Name>.lean (pinned Lake on PATH). Exit 0 recorded in existing validation and individual build logs.
+Preserved ordinary build logs: results/orch/*-build.log (successful outputs include warnings where present). Audit logs are in job scratch audit-build-3.stdout.txt and audit-build-3.stderr.txt. Current archived log census: 18 logs, 0 error diagnostics, 41 warning diagnostics; individual archived log/source hashes are recorded in the corresponding research manifests. Exit codes are established by recorded completed runs, not by absence of log errors alone.
+Major theorem trust audit exact argv: lake env lean /tmp/oec/pequalnp-pilot-64/TrustAudit<Name>.lean; each copy is exact source + newline + #print axioms <theorem> + newline. All three exit 0; source/copy hashes and complete combined logs in results/orch/trust_audit/.
+Reductions module command: pinned lake env lean --root /workspace/pequalnp-proofs/results/orch/lemmas -o /tmp/oec/pequalnp-pilot-64/Reductions.olean /workspace/pequalnp-proofs/results/orch/lemmas/Reductions.lean; exit 0, scratch lrat-kernel-module-build.log.
+IR/semantics/normalization module command: pinned lake env bash -c 'LEAN_PATH="/tmp/oec/pequalnp-pilot-64:${LEAN_PATH}" exec /tmp/oec/pequalnp-pilot-64/toolchain/lean-4.36.0-linux/bin/lean --root /tmp/oec/pequalnp-pilot-64 -o /tmp/oec/pequalnp-pilot-64/<MODULE>.olean /tmp/oec/pequalnp-pilot-64/<MODULE>.lean'.
+MODULE = ReductionsIR, ReductionsSemantics, ReductionsNormalizeFast; each exited 0. Exact source-copy identity and complete successful/failure logs are archived under results/orch/search/p4_semantics and p4_normalization.
+Setup validation: lake exe cache get was attempted before first build. Full cache hit ENOSPC; targeted authentic cache fetch passed. lake build PEqualNP.Defs.ReadK PEqualNP.Defs.CircuitLowerBounds, lake build PEqualNP.Defs, and lake build checklemma all passed exit 0. No Mathlib source build or lake update.
 
-Derivatives.lean: lake env lean passed, exit0;122 lines, no output. Generic size+2 repeated-output wrapper: legal topology, semantic preservation, vanishing linear part.
+Audited axiom scopes:
+- Witness65.size65_double_read, PlaneOrBound.plane_or_lower_bound, CofactorProductive.cofactor_productive_lower_bound: only propext, Classical.choice, Quot.sound; all three exact source copies recompiled exit 0. Complete logs total 5468 bytes.
+- Pilot64KernelControl.cnfUnsat: only propext, Classical.choice, Quot.sound; repository LRAT soundness plus decide +kernel. This proves only the explicit formula UNSAT.
+- Pilot64Bridge.output_eq_evalCircuit, derivativeLeft_eq, derivativeRight_eq: only propext and Quot.sound.
+- P4 ordered_val, ordered_deriv, evalCircuit_normalizeFast, derivativeCircuit_normalizeFast: propext only; normalizeFast_valid additionally uses Quot.sound.
+These explicit dependency audits do not claim that every helper declaration received a separate #print axioms audit.
 
-Counterexample.lean: lake env lean passed, exit0;39 lines, no output. Monotone OR boundary criterion and Boolean identities.
-Distributed.lean: lake env lean passed, exit0;112 lines, no output. Distributive wrapper equivalence with +1 gate relative to ordinary form.
+Computational evidence and limitations:
+- Exact 65-gate witness and 64-gate one-edge near-miss were independently evaluated; the near-miss is not a counterexample.
+- Completed stochastic/neutral searches, small-graph SAT controls, full solver logs, inputs and source hashes are preserved in results/orch/search/. A timeout is UNKNOWN; computational UNSAT is not presented as a Lean theorem.
+- All archived restricted 12-AND incremental runs were UNKNOWN. Both forbid overlapping original inputs across each AND; reduced mode adds restrictions. Completeness for unrestricted circuits is unproved.
+- C4-free unknown bipartite 4x4 three-AND model: solver UNSAT; four-AND matching control SAT and independently checked on all 256 rows. No plane lower bound or general normalization theorem follows.
 
-Structural.lean v2: lake env lean passed, exit0;255 lines. Rectangle-cover bound13 and exact normalized minimum-cover classification; independent review passed.
+Final computations:
+- Broad 12-gate repair: UNKNOWN after1800-second limit, no SAT candidate/no UNSAT. Complete756-row CNF (30,583variables/1,224,855clauses) and full outputs are in search/repair12_audit; independent regeneration and archive review PASS.
+- All four neutral runs finished:88,777,735 proposals and5,613,331 accepted valid moves; no <=64 circuit found. Earlier interrupted prefixes are separately retained. Bounded-cache distinct counts are not a global census. Final saved states and complete archive independently reviewed PASS.
+- ReductionsBridgeChunks.lean:8671lines, successful build exit0. All2537 clauses are formally connected to the direct evaluator and both formal derivative traces.
+- ReductionsNoFive.lean:35lines, successful build exit0. Exact-five typed binary AND/OR P4 impossibility with distinct earlier operands, arbitrary operand order, and final wire8. Independent review PASS; explicit axiom audit onlypropext/Classical.choice/Quot.sound. This does not prove an actual-Circuit <=5 transport, an eight-input lower bound, or the plane gap.
+- P4SixWitness.lean:58lines, successful build exit0; actual six-gate P4 Circuit satisfies all16 truth rows, distinct/backward legality and both zero central formal derivatives. Independent review PASS; onlypropext in explicit axiom audits.
+- Complete successful, failed and terminated P4 builds are in search/p4_complete_bridge. Earlier pending/recovery archives are historical snapshots; their older RUNNING labels are superseded by this final record.
+- P4 prefix30 and sample49 checkpoints compile but conclude True; they are provenance, not lower-bound theorems.
 
-Boundary.lean: lake env lean passed, exit0;77 lines. Maximal-independent-set boundary completeness.
-BipartiteBoundary.lean: lake env lean passed, exit0;37 lines. Saturated point-subset boundary completeness.
-Distributed.lean v3: lake env lean passed, exit0;223 lines. Added legal topology and vanishing linear output; independent review passed.
-Computational65-gate witness and64-gate near-miss independently verified on all52 positive edges and8192 canonical negative inputs. Neither settles the posted64-gate gap.
-
-PureClause.lean: lake env lean passed, exit0;45 lines, no output. Pure disjunctions are meet-irreducible among monotone functions; independent review passed.
-
-Witness65.lean: lake env lean passed, exit0;86 lines. Explicit65-gate circuit, size and symbolic evaluation formula; independent review passed. This is not a refutation of64.
-ClausePrune.lean: lake env lean passed, exit0;134 lines. Semantic pure-clause AND bypass and singleton replacement; independent review passed.
-
-SupportConnect.lean: lake env lean passed, exit0;106 lines, no output. Singleton-support connectivity through abstract topological AND/OR wires; independent review passed.
-
-OrFamilyBound.lean initial: lake env lean passed, exit0;92 lines. Finite union-DAG count extended by uncharged unary redirects; independent review passed.
-Witness65.lean semantic extension: lake env lean passed, exit0;373 lines. Exact incidence specification for all26-bit inputs; legality and formal derivative traces not yet included. Independent review passed.
-
-CircuitAdapter.lean: lake env lean passed, exit0;164 lines. Actual topologicalCircuit wire equations and monotonicity; independent review passed.
-OrFamilyBound.lean clause extension: lake env lean passed, exit0;238 lines. Single-clause support requires card A minus1 chargedOR gates; independent review passed. This does not compare different point cofactors.
-
-Witness65.lean complete: lake env lean passed, exit0;496 lines. All posted gate legality, incidence semantics and two derivative trace clauses, with SIZE65. This does not refute SIZE≤64. Independent review passed.
-OrFamilyBound.lean complete: lake env lean passed, exit0;320 lines. Common-wire linear OR-family bound m*(d-1); independent review passed.
-CircuitAdapter.lean v2: lake env lean passed, exit0;195 lines. Exact OR-count bridge added.
-PlaneOrBound.lean: lake env lean passed, exit0;801 lines. Any legal13-input AND/OR circuit exposing all13 order3 neighborhood ORs has at least39 OR gates. This is a multioutput partial, not the posted single-output26-input lower bound. Independent review passed.
-
-ProductiveBound.lean: lake env lean passed, exit0;276lines, nine deprecated if_pos warnings. Varying-cofactor weighted productive-OR count, not distinct physical gate count. Independently reviewed.
-Reductions.lean: lake env lean passed, exit0; explicit2537-clause CNF UNSAT via1274RUP steps and decide +kernel. Axiom audit: propext, Classical.choice, Quot.sound only. Circuit-to-CNF bridge unproved; this is not the posted statement. Independently reviewed as research artifact, not Outside PR format.
-Double-star audit: complete computational nine-gate UNSAT coverage;37solver runs and10gate SAT control archived with hashes. No kernel bridge or global lower bound claimed. Independently reviewed.
-
-CofactorProductive.lean: lake env lean passed, exit0;819lines, three unnecessarySimpa and eleven deprecation warnings. Applies directly to posted26-input incidence semantics and proves39weighted(point,productive-OR) charges. Distinct physical gates are not counted; fullgap remains unresolved. Independent review PASS, SHA256b5eb4a789db0dacac3dd42f59610d4efbd236936ab4f7275a1f089a7f51b6f8a.
-
-ClassificationObstruction.lean: lake env lean passed, exit0;44lines, empty build output. Concrete counterexample to a proposed type-classification shortcut; not to the posted gap. Independent review PASS.
-Cycle6 OR-count audit: unrestricted-AND normalized model with4OR nodes computationally UNSAT and5OR nodes SAT; all64rows of positive control independently checked. No Lean encoding bridge claimed. Independent archive review PASS.
-
-SharedSupport.lean: lake env lean passed, exit0;56lines, empty output. A multiply charged cofactor has a singleton-line input where enabling its point changes the wire value; no physical gate-count bound claimed. Independent review PASS.
-ClassificationObstruction.lean v2: lake env lean passed, exit0;81lines, empty output. Added matching example with no earlier zero-type gate yet a nonrectangular edge set at the final zero-type gate. Independent review PASS.
-
-ClassificationObstruction.lean v3: lake env lean passed, exit0;103lines, empty output. Added explicit size7 and posted-style binary AND/OR distinct-earlier operand legality for the classification countermodel. Independent review PASS.
-Theta3 OR-count audit: three seven-OR searches timed out (UNKNOWN); eight-OR SAT control independently verified all256assignments and143532CNFclauses. Full outputs/hashes preserved; independent archive review PASS. No theorem for the posted gap.
-Alternative66 seed:14AND+52OR; exact52positive edges and704maximal-independent negatives plusbothformaltraces independently checked by scalar and bitset evaluators. Research seed only, not a64gate counterexample.
-
-FirstAnd.lean: lake env lean passed, exit0;61lines, empty output. A pair-accepting singleton-rejecting topological wire has an earlier AND combining opposite singleton supports. No injectivity or gate lower bound claimed. Independent review PASS.
-ReductionsIR.lean948lines andReductionsSemantics.lean185lines: lake env lean passed, exit0. Encoded16truth outputs andbothformalderivatives equal direct fivegateevaluation; axiom audit uses onlypropext/Quot.sound. Independent review PASS. FullCNFbridge remains in progress.
-P4prefix30: compiled checkpoint of30localclauseproofs; exported proposition isTrue. Preserved onlyascompilationprovenance, not a useful lower-bound theorem. Independent review PASS.
-Majorpartialtrustaudit: Witness65,PlaneOrBound,CofactorProductive compiled with explicit axiom audit; each depends only onpropext,Classical.choice,Quot.sound. Completeoutputs and source hashes independentlyreviewed.
-12ANDincrementaldiagnostics: both restricted encodings timedoutUNKNOWN; no candidate/noUNSAT. Both impose original-input disjointness, reducedadds earlier-AND disjointness; completenessunproved. Independent archive review PASS.
-
-ReductionsNormalizeFast.lean: lake env lean passed, exit0;108lines, empty buildlog. Sorting distinct operand pairs preserves all five-gate values and both formal derivative traces; standardaxiomsonly. Independent review PASS.
-Small-graph cost and unknown4x4 C4free archives: computationalUNSAT/SATcontrols andUNKNOWNtimeouts fully recorded, regenerated and independently reviewed. No plane lowerbound or Lean CNFbridge claimed for these experiments.
-H1/H2 routes: conditionalalgebra andsmallcontrols independently reviewed. No qualifyingplane H1 exists in these artifacts; one-sided≤50 target would already implyan ordinary≤63 circuit.
-
-Finalneutralcircuitsearches: fourcompletedruns,88777735proposals and5613331acceptedvalidmoves, no≤64gatewitness. Interruptedprefixes additionallyrecord5681362proposals. Distinctcache counts are not globally unique circuits. Independent finalscalarchecks pass52positive+704negativebasis, distinct-earlierlegality,andbothderivativetraces forallsaved65/66states. Completearchive independentlyreviewedPASS; computationalheuristics only.
-
-P4SixWitness.lean: lake env lean passed, exit0;58 lines, empty output. Actual six-gate four-input Circuit has exact path semantics, legal distinct earlier operands, and both central formal derivatives zero. Axiom audit uses only propext; independently reviewed. This is a local upper bound only.
-Pending full/chunked P4 clause bridge and NoFive composition sources are preserved as explicitly UNVERIFIED drafts, with incomplete snapshot logs. Their compilation status is RUNNING/NOT_STARTED, not PASS. Independent review covers archive integrity/scope only.
-
-Broad12-gate repair archive: UNKNOWN after1800-second solver limit, no candidate/no UNSAT. All756 boundary rows and both derivative constraints included;30,583variables/1,224,855clauses. Complete CNF/stdout/stderr compressed losslessly. Independent reviewer regenerated the entire CNF byte-for-byte and verified all source/seed/solver/artifact hashes.
-
-Desk renewal unexpectedly returned HTTP410 although the preceding renewal promised expiry04:47UTC. Required curl-si diagnostic retained in scratch; renewal timer stopped. Recovery request returned gapnull with no new lease. All checked results were pushed before recovery. No release was sent for another pilot.
-P4 recovery archive preserves the failed chunked assembly and stopped monolithic attempt, plus corrected unverified retry sources; independently reviewed for archive integrity only.
-
-COMPLETE LOCAL P4 RESULT: ReductionsBridgeChunks.lean8671lines andReductionsNoFive.lean35lines compiled with exit0. The2537-clause encoding is formally connected to the direct evaluator and derivatives; arbitrary operand order is normalized. noFiveDistinct excludes exact-five typed P4 circuits with distinct earlier operands and final wire8. Explicit axiom audits use only propext,Classical.choice,Quot.sound. Independent source and complete archive review PASS. This does not prove actual-Circuit≤5 transport, the eight-input double-star bound, or L-meta-2602. Successful/failure/stopped logs are all retained.
+Submission and cleanup:
+No final Outside/L_meta_2602.lean proof/refutation exists, so no named final-proof lake build, submission-checker verdict, or proof PR is claimed.
+The mathematical obstruction is unresolved global gate-cost coupling: weighted cofactor charges have not been converted into the required distinct-gate lower bound, and searches found no qualifying <=64-gate counterexample.
+Separately, the repository checker runtime imports all Mathlib. Its full artifact closure exceeded the 7.9GB filesystem; targeted authentic cache supports direct checks but not the complete verifier runtime. This infrastructure limitation is not the cause asserted for the unresolved mathematics.
+Cleanup pass: N/A; no full proof passed build plus submission checker. Full-proof line counts before/after cleanup: N/A. Counts above describe saved partial sources, not cleanup savings.
+Latest theorem-source checkpoint: 5afdab24379eca1238bf130465883317c8b83d36, pushed to origin/pnp/pilot-64. Final documentation is at the branch tip. No live lease is confirmed as belonging to this job; the ambiguous recovery lease was left untouched as instructed.
+Desk410 diagnostic headers and body: desk-410-response.txt (opaque reporting URL parameter omitted).
+PR: none.
+Checker: no final submission-checker verdict; checked partials only.
