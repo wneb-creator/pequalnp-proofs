@@ -1,0 +1,37 @@
+[
+  {
+    "n": 6,
+    "edges": 6,
+    "cover": 3,
+    "maximal_independent_sets": 5,
+    "and_count_lower_bound": 3
+  },
+  {
+    "n": 8,
+    "edges": 8,
+    "cover": 4,
+    "maximal_independent_sets": 10,
+    "and_count_lower_bound": 4
+  },
+  {
+    "n": 10,
+    "edges": 10,
+    "cover": 5,
+    "maximal_independent_sets": 17,
+    "and_count_lower_bound": 5
+  },
+  {
+    "n": 12,
+    "edges": 12,
+    "cover": 6,
+    "maximal_independent_sets": 29,
+    "and_count_lower_bound": 5
+  },
+  {
+    "n": 14,
+    "edges": 14,
+    "cover": 7,
+    "maximal_independent_sets": 51,
+    "and_count_lower_bound": 6
+  }
+]

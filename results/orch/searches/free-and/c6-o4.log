@@ -1,0 +1,33 @@
+valid_edges 2 evaluations 1
+valid_edges 3 evaluations 172
+valid_edges 4 evaluations 1200
+valid_edges 5 evaluations 17982
+{
+  "elapsed": 40.002959966659546,
+  "evaluations": 256475,
+  "best_score": 510,
+  "best_valid_edges": 5,
+  "largest_meet_closure": 352,
+  "best_program": [
+    [
+      32,
+      2
+    ],
+    [
+      65,
+      16
+    ],
+    [
+      4,
+      128
+    ],
+    [
+      8,
+      64
+    ]
+  ],
+  "witness": null,
+  "seed": 71,
+  "n": 6,
+  "ors": 4
+}

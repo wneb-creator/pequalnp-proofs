@@ -1,0 +1,22 @@
+{
+  "encoder_sha256": "ac2d32cf79ed61ec9193e1060e3dd3d13389fbdfc1562ed3f4983f3cc5f079eb",
+  "control_sha256": "ab3328d6c9fa68657db2a8d91eabbeab9744282531c6919095d96265265605d7",
+  "exhaustive_mask_order_cases": 1364,
+  "controls_replayed": [
+    {
+      "n": 4,
+      "or_count": 2,
+      "all_truth_rows": 16,
+      "all_cnf_clauses": 726,
+      "result": "PASS"
+    },
+    {
+      "n": 8,
+      "or_count": 7,
+      "all_truth_rows": 256,
+      "all_cnf_clauses": 13466,
+      "result": "PASS"
+    }
+  ],
+  "result": "Encoding review passed; computational controls only, no six-OR or posted-target theorem."
+}

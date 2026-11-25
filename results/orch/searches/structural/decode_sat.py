@@ -32,12 +32,15 @@ spec.loader.exec_module(mod)
 model = mod.Model(d['n'], 7, d['edges'], 'Fano SAT independent verification')
 analysis = model.analyze(gates)
 cover = [i for i, v in enumerate(d['cover']) if assignment[v]]
-accepted = [edge for edge, v in zip(d['edges'], d['vals'][-1][len(d['independent']):])
+accepted_vars = d.get('accepts', d['vals'][-1][len(d['independent']):])
+accepted = [edge for edge, v in zip(d['edges'], accepted_vars)
             if assignment[v]]
 assert all(a in cover or b in cover for a, b in d['edges'] if [a, b] not in accepted)
 if d['violation']:
-    assert len(accepted) + 7 > len(gates) + 1 + len(cover)
+    assert len(accepted) + 7 > len(gates) + d.get('roots', 1) + len(cover)
     assert analysis is not None and analysis[0] < 0, analysis
+if d.get('core', False):
+    assert analysis is not None and analysis[3] == d.get('roots', 1), analysis
 out = dict(status='SAT verified', gates=gates, accepted=accepted, cover=cover,
            independent_analysis=analysis)
 Path(stem + '-decoded.json').write_text(json.dumps(out, indent=2))

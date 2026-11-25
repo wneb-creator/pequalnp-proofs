@@ -1,0 +1,90 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 30 seconds real time (due to '-t 30')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-71/structural/fano-g4-calibration-projected.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-71/structural/fano-g4-calibration-projected.cnf'
+c found 'p cnf 549 7597' header
+c parsed 7597 clauses in 0.00 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant irredundant
+c         MB    restarts       trail    variables
+c          level   conflicts       glue     remaining
+c 
+c *  0.00  3  0 0   0    0    0  0% 0 3428 453 83%
+c {  0.00  3  0 0   0    0    0  0% 0 3428 453 83%
+c i  0.00  3 22 0   9  258  185 73% 4 3428 452 82%
+c i  0.00  3 22 0   9  265  191 73% 4 3428 451 82%
+c -  0.00  3 20 1  11  301  218 73% 4 2426 451 82%
+c }  0.01  3 16 1  35  444  323 70% 4 2426 451 82%
+c 1  0.01  3 16 1  35  444  323 70% 4 2426 451 82%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to '/tmp/oec/pequalnp-pilot-71/structural/fano-g4-calibration-projected.sol'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.00   95.94% search
+c         0.00   92.85% unstable
+c         0.00   20.47% parse
+c         0.00    2.57% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.01   75.87% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:               146        32.88 %  of conflicts
+c conflicts:                   444     87885.99    per second
+c decisions:                   786    155581.95    per second
+c fixed:                        98        17.85 %  of all variables
+c learned:                     420        94.59 %  per conflict
+c learned_lits:               4812       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                   1688        35.08 %  learned literals
+c minishrunken:                171         3.55 %  learned literals
+c otfs:                         12         2.70 %  of conflict
+c propagations:              42426         8.40 M  per second
+c restarts:                     35        12.69    interval
+c subsumed:                     95         2.47 %  of all clauses
+c strengthened:                 12         0.31 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.01    seconds
+c total real time since initialization:            0.01    seconds
+c maximum resident set size of process:            3.25    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 10

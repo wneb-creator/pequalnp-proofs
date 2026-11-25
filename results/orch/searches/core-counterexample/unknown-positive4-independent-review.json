@@ -1,0 +1,27 @@
+{
+  "encoder_sha256": "f66df66ac76a4208f4b1040d51cd3fc2db441da1e395f1d399bc744df17938f9",
+  "base_CNF_source_sha256": "13a91f4fc32c484bc61b5c69e6c7f3e6dacc50180d3996f7a2067330f19cc3e1",
+  "decoder_sha256": "e30d8996ad0506b6ec5210c723489e4eca013d206abe19fe1cf0aafe69b34e8c",
+  "all_clauses": 31085,
+  "full_truth_rows": 256,
+  "selected_edges": [
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      3,
+      7
+    ]
+  ],
+  "AND_count": 4,
+  "result": "Positive control verified; variable graph has no four-cycle and all required matching pairs accepted. No smaller-AND claim."
+}

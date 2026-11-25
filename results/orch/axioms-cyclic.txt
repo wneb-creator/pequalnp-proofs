@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_meta_2962_aux.CyclicCore.cyclic_core_near_tight' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

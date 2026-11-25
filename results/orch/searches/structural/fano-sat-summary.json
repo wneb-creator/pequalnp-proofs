@@ -1,0 +1,132 @@
+[
+  {
+    "name": "fano-g9-s959",
+    "gates": 9,
+    "support": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9
+    ],
+    "minimum": 9,
+    "status": [
+      "s UNSATISFIABLE"
+    ],
+    "exit": [
+      "c exit 20"
+    ],
+    "seconds": [
+      "c total real time since initialization:           48.88    seconds"
+    ],
+    "cnf_sha256": "da6c6733941a771d11e1bd9949ee06e50c878946d1dbb840b5cd8716c6776ae4"
+  },
+  {
+    "name": "fano-g9-s1951",
+    "gates": 9,
+    "support": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      7,
+      8,
+      9,
+      10
+    ],
+    "minimum": 8,
+    "status": [
+      "s UNSATISFIABLE"
+    ],
+    "exit": [
+      "c exit 20"
+    ],
+    "seconds": [
+      "c total real time since initialization:          154.08    seconds"
+    ],
+    "cnf_sha256": "cdf0a7ccbf0d9a6e9764951bbd713df7516aeb51f2fb06f8cf96b5e5cc429c9c"
+  },
+  {
+    "name": "fano-g9-s1967",
+    "gates": 9,
+    "support": [
+      0,
+      1,
+      2,
+      3,
+      5,
+      7,
+      8,
+      9,
+      10
+    ],
+    "minimum": 9,
+    "status": [
+      "s UNSATISFIABLE"
+    ],
+    "exit": [
+      "c exit 20"
+    ],
+    "seconds": [
+      "c total real time since initialization:           50.08    seconds"
+    ],
+    "cnf_sha256": "de5873bc051bd6f639b46eeb758b8a5b35bb88c0de6a3bfc08c117b38c5908f6"
+  },
+  {
+    "name": "fano-g9-s1979",
+    "gates": 9,
+    "support": [
+      0,
+      1,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      10
+    ],
+    "minimum": 9,
+    "status": [
+      "s UNSATISFIABLE"
+    ],
+    "exit": [
+      "c exit 20"
+    ],
+    "seconds": [
+      "c total real time since initialization:           58.59    seconds"
+    ],
+    "cnf_sha256": "cdbfa524d1e76409cb499861196a420fa91a3e0246f525771ce2c92acd940d93"
+  },
+  {
+    "name": "fano-g9-s2975",
+    "gates": 9,
+    "support": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      7,
+      8,
+      9,
+      11
+    ],
+    "minimum": 9,
+    "status": [
+      "s UNSATISFIABLE"
+    ],
+    "exit": [
+      "c exit 20"
+    ],
+    "seconds": [
+      "c total real time since initialization:          187.05    seconds"
+    ],
+    "cnf_sha256": "f1ac747e04d8428c46f819ba3589b32663a252c6a05274ccb3576c9becf827c2"
+  }
+]

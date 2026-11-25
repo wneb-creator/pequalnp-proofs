@@ -1,0 +1,5 @@
+Command: lake env lean ../results/orch/lemmas/CyclicCore.lean
+Exit status: 0
+Format: declaration-scoped maxRecDepth 100000 and maxHeartbeats 10000000
+Lean source lines: 132
+

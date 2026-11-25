@@ -1,0 +1,35 @@
+{
+  "encoder_sha256": "e8903efce3cb4553b942ebc8eaa5daf0f2c98886d02682ebb33a7b7b311201b2",
+  "decoder_sha256": "061b89624e83c456920539b1ccb13c8345351134854937c2775342d03ea68ed6",
+  "controls": [
+    {
+      "control": "target-positive-p4",
+      "clauses": 38252,
+      "truth_assignments": 256,
+      "maximal_cores": [
+        3
+      ],
+      "U": 4,
+      "D": 3,
+      "tauG": 4,
+      "tauResidual": 2,
+      "target_margin": 0,
+      "has_C4": false
+    },
+    {
+      "control": "target-positive-c4",
+      "clauses": 38303,
+      "truth_assignments": 256,
+      "maximal_cores": [
+        3
+      ],
+      "U": 4,
+      "D": 4,
+      "tauG": 4,
+      "tauResidual": 2,
+      "target_margin": -1,
+      "has_C4": true
+    }
+  ],
+  "result": "Controls passed; P4 has relaxed equality threshold, C4 intentionally violates graph hypothesis. Neither refutes posted gap."
+}

@@ -1,0 +1,16 @@
+[
+  {
+    "n": 4,
+    "or_count": 2,
+    "all_truth_rows": 16,
+    "all_cnf_clauses": 726,
+    "result": "PASS"
+  },
+  {
+    "n": 8,
+    "or_count": 7,
+    "all_truth_rows": 256,
+    "all_cnf_clauses": 13466,
+    "result": "PASS"
+  }
+]

@@ -1,0 +1,129 @@
+{
+  "encoder_sha256": "5d58de5c857b655fac4f5cdc1b24fd98bb35b098d699555fd4258ce678b64301",
+  "all_cnf_clauses_verified": 19572,
+  "base_clause_count": 19551,
+  "extra_pin_units": [
+    [
+      2
+    ],
+    [
+      9
+    ],
+    [
+      24
+    ],
+    [
+      -3
+    ],
+    [
+      38
+    ],
+    [
+      60
+    ],
+    [
+      4
+    ],
+    [
+      75
+    ],
+    [
+      92
+    ],
+    [
+      5
+    ],
+    [
+      101
+    ],
+    [
+      131
+    ],
+    [
+      6
+    ],
+    [
+      140
+    ],
+    [
+      166
+    ],
+    [
+      -7
+    ],
+    [
+      185
+    ],
+    [
+      205
+    ],
+    [
+      -8
+    ],
+    [
+      221
+    ],
+    [
+      245
+    ]
+  ],
+  "full_truth_assignments": 16384,
+  "exact_capped_read_vectors_checked": 147,
+  "cores": [
+    5,
+    6
+  ],
+  "maximal_cores": [
+    5,
+    6
+  ],
+  "U": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "D_edges": [
+    [
+      0,
+      7
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      2,
+      9
+    ]
+  ],
+  "read_twice_edges_per_root": {
+    "5": [
+      [
+        1,
+        8
+      ]
+    ],
+    "6": [
+      [
+        1,
+        8
+      ]
+    ]
+  },
+  "tau_residual": 7,
+  "target_lhs": 12,
+  "target_rhs": 16,
+  "result": "Positive control only; no target violation"
+}

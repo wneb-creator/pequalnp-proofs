@@ -15,3 +15,5 @@
 - 2026-11-25T07:01:48.897840+00:00: local checker completed with REJECTED (no-theorem); named partial build passed, full theorem remains unproved. Six sub-agents used by this point; combinatorial_bound joined the original five.
 
 - 2026-11-25T07:13:13.638377+00:00: CoreAndCharge compiled and independent review passed; separate axiom audit of three new results lists only propext, Classical.choice, Quot.sound. Preserving immediately.
+
+- 2026-11-25T07:21:38.714308+00:00: CyclicCore positive example compiled with scoped finite limits; independent review and standard-axiom audit passed. Full target remains unproved.

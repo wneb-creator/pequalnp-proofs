@@ -12,3 +12,5 @@ Axiom audit: the named singleton/matching/core-AND components and strict-leaf/st
 2026-11-25T07:01:48.897840+00:00: authoritative local checker run on current 856-line partial exited 1. Verdict: REJECTED (no-theorem), because PEqualNP.Outside.L_meta_2962 is absent. Full output preserved in checker-partial-output.txt. Partial compilation does not establish the posted statement.
 
 CoreAndCharge.lean: 1017 lines, compiled with linter/deprecation warnings; no errors. Checked AND(U) >= mc+1 for nonempty maximal cores, plus two ANDs per core cone. Axiom audit of the three new core results passed; full output in axioms-core-and.txt. This remains a structural partial, not the posted target.
+
+CyclicCore.lean: 132 lines, compiled exit 0, all posted hypotheses verified for the C6 example, and target margin exactly 1. It is a positive example, not a refutation. Axiom audit lists only propext, Classical.choice, Quot.sound; full output in axioms-cyclic.txt.

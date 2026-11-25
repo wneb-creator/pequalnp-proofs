@@ -1,0 +1,9 @@
+{
+  "encoder_sha256": "1cf9c30322ca23063b65ff548918bb5ee7bf33e7b3c6c48c01b6c46006a91b53",
+  "decoder_sha256": "012345b2d7af02cd36495a141f9012613908b76df9dd7b198a3cfd73e9c93bf5",
+  "verified_clauses": 16715,
+  "full_truth_assignments": 16384,
+  "AND_count": 7,
+  "OR_count": 20,
+  "result": "Pinned seven-AND exact-Fano positive control verified; no six-AND claim."
+}

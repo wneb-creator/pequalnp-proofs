@@ -1,0 +1,39 @@
+{
+  "encoder_sha256": "5d58de5c857b655fac4f5cdc1b24fd98bb35b098d699555fd4258ce678b64301",
+  "all_clauses": 35686,
+  "full_truth_rows": 16384,
+  "exact_read_vector_gate_edge_cases": 210,
+  "maximal_cores": [
+    9
+  ],
+  "accepted_edges": [
+    [
+      0,
+      7
+    ],
+    [
+      0,
+      13
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      2,
+      8
+    ],
+    [
+      2,
+      13
+    ]
+  ],
+  "U_card": 10,
+  "tau_D": 3,
+  "tau_residual": 6,
+  "result": "Cyclic positive control verified; not a target refutation."
+}

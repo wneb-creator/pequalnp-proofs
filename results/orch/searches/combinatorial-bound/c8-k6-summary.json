@@ -1,0 +1,8 @@
+{
+  "case": "exact C8 function with at most six OR gates, AND gates free",
+  "result": "UNSAT",
+  "solver_exit": 20,
+  "cnf_sha256": "e1968552f7a9d43b21e9c8757c9a3457659428b66a5d946a3610848bdcd0b0f2",
+  "source_sha256": "ac2d32cf79ed61ec9193e1060e3dd3d13389fbdfc1562ed3f4983f3cc5f079eb",
+  "conclusion": "Computational finite exclusion only; not a Lean proof and not the posted theorem."
+}
