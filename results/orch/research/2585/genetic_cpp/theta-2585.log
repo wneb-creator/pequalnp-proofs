@@ -1,0 +1,10 @@
+START theta seed=2585 mode=2 target_size=11 rows=18 covers=2
+BEST errors=9 active=11 attempts=1 elapsed=6.6685e-05
+BEST errors=6 active=11 attempts=2 elapsed=0.000410204
+BEST errors=4 active=8 attempts=3 elapsed=0.000509298
+BEST errors=3 active=10 attempts=4 elapsed=0.00188567
+BEST errors=2 active=11 attempts=6 elapsed=0.00225487
+BEST errors=1 active=11 attempts=14 elapsed=0.00259529
+PROGRESS seconds=10 attempts=48722804 accepted=4073313 best=1 restarts=17
+PROGRESS seconds=20 attempts=105946695 accepted=8972906 best=1 restarts=34
+FINISH seconds=30 attempts=156523615 best=1 restarts=51 rss_kib=1664 status=heuristic_no_witness

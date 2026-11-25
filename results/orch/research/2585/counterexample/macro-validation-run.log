@@ -1,0 +1,11 @@
+start validation-p4-macro-and1 rows 6 variables 48 clauses 131
+finish validation-p4-macro-and1 seconds 0.01 returncode 20
+start validation-p4-macro-and2 rows 6 variables 101 clauses 291
+finish validation-p4-macro-and2 seconds 0.005 returncode 10
+WITNESS {"P": 2, "L": 2, "edges": [[0, 0], [1, 0], [1, 1]], "gates": [["or", 1, 2], ["or", 2, 3], ["and", 4, 5], ["or", 0, 1], ["or", 2, 6], ["and", 7, 8]], "output": 9, "macro": [[[1, 2], [2, 3]], [[0, 1], [2, 4]]], "final": [5]}
+start validation-p4-macro-or1 rows 6 variables 48 clauses 131
+finish validation-p4-macro-or1 seconds 0.005 returncode 20
+start validation-p4-macro-or2 rows 6 variables 101 clauses 291
+finish validation-p4-macro-or2 seconds 0.005 returncode 10
+WITNESS {"P": 2, "L": 2, "edges": [[0, 0], [1, 0], [1, 1]], "gates": [["and", 0, 2], ["or", 1, 4], ["and", 2, 5], ["and", 1, 3], ["and", 7, 5], ["or", 6, 8], ["and", 5, 9]], "output": 10, "macro": [[[1], [0, 2]], [[2, 4], [1, 3, 4]]], "final": [4, 5]}
+PASS [{'name': 'validation-p4-macro-and1', 'P': 2, 'L': 2, 'edges': [(0, 0), (1, 0), (1, 1)], 'kind': 'and', 'count': 1, 'returncode': 20, 'seconds': 0.01, 'witness_gate_count': None}, {'name': 'validation-p4-macro-and2', 'P': 2, 'L': 2, 'edges': [(0, 0), (1, 0), (1, 1)], 'kind': 'and', 'count': 2, 'returncode': 10, 'seconds': 0.006, 'witness_gate_count': 6}, {'name': 'validation-p4-macro-or1', 'P': 2, 'L': 2, 'edges': [(0, 0), (1, 0), (1, 1)], 'kind': 'or', 'count': 1, 'returncode': 20, 'seconds': 0.005, 'witness_gate_count': None}, {'name': 'validation-p4-macro-or2', 'P': 2, 'L': 2, 'edges': [(0, 0), (1, 0), (1, 1)], 'kind': 'or', 'count': 2, 'returncode': 10, 'seconds': 0.006, 'witness_gate_count': 7}]

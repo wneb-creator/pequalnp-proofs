@@ -1,0 +1,44 @@
+{
+  "name": "cycle8-macro-private-or6",
+  "P": 4,
+  "L": 4,
+  "edges": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      0
+    ],
+    [
+      3,
+      3
+    ]
+  ],
+  "kind": "or",
+  "count": 6,
+  "returncode": 20,
+  "seconds": 76.503,
+  "witness_gate_count": null
+}

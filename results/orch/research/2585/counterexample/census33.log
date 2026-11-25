@@ -1,0 +1,32 @@
+zero-gate case excluded by direct truth-table comparison
+start census33-01 vars 31 clauses 115 inputs 3 gates 1
+finish census33-01 elapsed 0.007 return 20 status ['s UNSATISFIABLE']
+start census33-02 vars 116 clauses 581 inputs 4 gates 2
+finish census33-02 elapsed 0.003 return 20 status ['s UNSATISFIABLE']
+start census33-03 vars 116 clauses 581 inputs 4 gates 2
+finish census33-03 elapsed 0.003 return 20 status ['s UNSATISFIABLE']
+start census33-04 vars 177 clauses 981 inputs 4 gates 3
+finish census33-04 elapsed 0.004 return 20 status ['s UNSATISFIABLE']
+start census33-05 vars 327 clauses 2098 inputs 5 gates 3
+finish census33-05 elapsed 0.005 return 20 status ['s UNSATISFIABLE']
+start census33-06 vars 440 clauses 3081 inputs 5 gates 4
+finish census33-06 elapsed 0.01 return 20 status ['s UNSATISFIABLE']
+start census33-07 vars 440 clauses 3081 inputs 5 gates 4
+finish census33-07 elapsed 0.01 return 20 status ['s UNSATISFIABLE']
+start census33-08 vars 832 clauses 6519 inputs 6 gates 4
+finish census33-08 elapsed 0.016 return 20 status ['s UNSATISFIABLE']
+start census33-09 vars 832 clauses 6519 inputs 6 gates 4
+finish census33-09 elapsed 0.013 return 20 status ['s UNSATISFIABLE']
+start census33-10 vars 1045 clauses 8833 inputs 6 gates 5
+finish census33-10 elapsed 0.073 return 20 status ['s UNSATISFIABLE']
+start census33-11 vars 1045 clauses 8833 inputs 6 gates 5
+finish census33-11 elapsed 0.054 return 20 status ['s UNSATISFIABLE']
+start census33-12 vars 1260 clauses 11433 inputs 6 gates 6
+finish census33-12 elapsed 0.426 return 20 status ['s UNSATISFIABLE']
+start census33-13 vars 1260 clauses 11433 inputs 6 gates 6
+finish census33-13 elapsed 0.459 return 20 status ['s UNSATISFIABLE']
+start census33-14 vars 1260 clauses 11433 inputs 6 gates 6
+finish census33-14 elapsed 0.509 return 20 status ['s UNSATISFIABLE']
+start census33-15 vars 1477 clauses 14322 inputs 6 gates 7
+finish census33-15 elapsed 3.746 return 20 status ['s UNSATISFIABLE']
+CENSUS 16 UNSAT 16

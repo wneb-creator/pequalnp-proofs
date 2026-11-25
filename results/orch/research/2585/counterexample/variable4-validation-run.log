@@ -1,0 +1,15 @@
+ITERATION 0 rows 37 variables 851 clauses 2748 cap 59
+STATUS 10 elapsed 0.01
+MODEL edges 7 false_positives 7
+ADDED_CUTS 3
+ITERATION 1 rows 40 variables 911 clauses 3006 cap 59
+STATUS 10 elapsed 0.04
+MODEL edges 7 false_positives 7
+ADDED_CUTS 3
+ITERATION 2 rows 43 variables 971 clauses 3265 cap 59
+STATUS 10 elapsed 0.06
+MODEL edges 7 false_positives 6
+ADDED_CUTS 3
+ITERATION 3 rows 46 variables 1031 clauses 3524 cap 59
+STATUS 20 elapsed 0.38
+FINISH 0.38 iterations 4

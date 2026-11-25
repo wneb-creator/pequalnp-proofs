@@ -1,0 +1,16 @@
+[
+  {
+    "name": "theta-1",
+    "legal": true,
+    "boundary_rows": 18,
+    "boundary_errors": 1,
+    "full_assignment_mismatches": 9
+  },
+  {
+    "name": "fano-1",
+    "legal": true,
+    "boundary_rows": 58,
+    "boundary_errors": 1,
+    "full_assignment_mismatches": 47
+  }
+]

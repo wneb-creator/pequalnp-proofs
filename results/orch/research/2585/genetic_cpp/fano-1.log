@@ -1,0 +1,7 @@
+START fano seed=1 mode=2 target_size=26 rows=58 covers=2
+BEST errors=11 active=24 attempts=1 elapsed=0.000179189
+BEST errors=3 active=26 attempts=2 elapsed=0.000446144
+BEST errors=1 active=26 attempts=5 elapsed=0.000548509
+PROGRESS seconds=10 attempts=43395061 accepted=2072822 best=1 restarts=18
+PROGRESS seconds=20 attempts=88865260 accepted=4185148 best=1 restarts=35
+FINISH seconds=30 attempts=135960618 best=1 restarts=50 rss_kib=1664 status=heuristic_no_witness

@@ -34,3 +34,5 @@
 2026-11-25T01:09:56.705696+00:00 — ForestElimCounts2585 standalone compile passed: one selected-operation gate disappears when it receives a constant operand. This is a generic compiler count lemma, not the forest graph theorem.
 
 2026-11-25T01:11:05.112724+00:00 — ForestElimAO2585 standalone compile passed: AO2 gate-shape and reads-back preservation under the compiler invariant, including earlier budgets. No full restriction wrapper or forest induction is claimed. All counterexample searches finished without a witness.
+
+2026-11-25T01:13:44.602059+00:00 — All2585 searches finished. Independent Forest checkpoint review passed. Confirmed the locally accepted but publication-ineligible R46 is archived unchanged under results/orch/candidates; removed its active Outside copy. Preparing reviewed evidence push before releasing this lease and requesting another step.

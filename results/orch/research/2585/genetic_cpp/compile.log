@@ -1,0 +1,7 @@
+/tmp/oec/pequalnp-pilot-46/gap-2585/genetic_cpp/search.cpp: In function ‘int active(const Problem&, const Circuit&, std::array<int, 40>*)’:
+/tmp/oec/pequalnp-pilot-46/gap-2585/genetic_cpp/search.cpp:75:5: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+   75 |     if(list)(*list)[count]=i;count++;
+      |     ^~
+/tmp/oec/pequalnp-pilot-46/gap-2585/genetic_cpp/search.cpp:75:30: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+   75 |     if(list)(*list)[count]=i;count++;
+      |                              ^~~~~

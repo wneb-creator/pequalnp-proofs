@@ -1,0 +1,2 @@
+start c6-and-size10-count vars 2170 clauses 25366 inputs 6 gates 10
+finish c6-and-size10-count elapsed 6.963 return 20 status ['s UNSATISFIABLE']

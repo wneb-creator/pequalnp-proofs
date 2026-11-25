@@ -1,0 +1,12 @@
+start c6-macro-and2 rows 11 variables 170 clauses 515
+BYTE-IDENTICAL c6-macro-and2.cnf ec96b400d61af3e5a14992b16243f2652e94f04806a0e4a2430c41645fee6aec
+start c6-macro-or4 rows 11 variables 423 clauses 1521
+BYTE-IDENTICAL c6-macro-or4.cnf 69d565007507aaaa5fc03bc31c5db27fa50abefc0d90fa8a9eb497c95bc46e45
+start theta-macro-and3 rows 18 variables 437 clauses 1451
+BYTE-IDENTICAL theta-macro-and3.cnf 05466487eaf6bacfb060a345302feab98630791b7bda28f36ccb50dc20c8c1bb
+start cycle12-macro-topo-and5 rows 41 variables 1913 clauses 7604
+BYTE-IDENTICAL cycle12-macro-topo-and5.cnf 84e93cd434956ee2511906c52a486a4549d3bdef9ffea0199f0c51b73c5cdb97
+REPLAY GENERATOR VALIDATION PASS
+start cycle8-macro-private-or6 rows 18 variables 1301 clauses 5345
+BYTE-IDENTICAL cycle8-macro-private-or6.cnf 6a76c05a6f4cd256b2c9f39f0c0a060aee4fe5aee7cb9e22172cb7da768977c8
+C8 REPLAY GENERATOR VALIDATION PASS

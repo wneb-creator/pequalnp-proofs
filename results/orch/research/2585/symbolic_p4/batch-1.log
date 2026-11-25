@@ -1,0 +1,6 @@
+START k4-incidence P 4 L 6 edges 12 baseline 15 p4 24 actions 244 blocks 58
+RESULT {"name": "k4-incidence", "P": 4, "L": 6, "baseline": 15, "solver_status": 0, "solver_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)", "seconds": 1.821101971000644, "p4_templates": 24, "actions": 244, "blocks": 58, "lower_bound": 14.999999999999956, "size": 15, "output": 24, "full_truth_errors": 0, "full_truth_assignments": 1024, "improvement": 0}
+START fano-delete-0 P 6 L 6 edges 16 baseline 21 p4 48 actions 424 blocks 100
+RESULT {"name": "fano-delete-0", "P": 6, "L": 6, "baseline": 21, "solver_status": 1, "solver_message": "Time limit reached. (HiGHS Status 13: Time limit reached)", "seconds": 5.017335824000838, "p4_templates": 48, "actions": 424, "blocks": 100, "lower_bound": 16.0, "size": 26, "output": 37, "full_truth_errors": 0, "full_truth_assignments": 4096, "improvement": -5}
+START fano-delete-1 P 6 L 6 edges 15 baseline 20 p4 39 actions 354 blocks 84
+RESULT {"name": "fano-delete-1", "P": 6, "L": 6, "baseline": 20, "solver_status": 1, "solver_message": "Time limit reached. (HiGHS Status 13: Time limit reached)", "seconds": 5.0184226159999525, "p4_templates": 39, "actions": 354, "blocks": 84, "lower_bound": 16.0, "size": 23, "output": 34, "full_truth_errors": 0, "full_truth_assignments": 4096, "improvement": -3}

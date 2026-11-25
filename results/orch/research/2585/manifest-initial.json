@@ -1,0 +1,217 @@
+[
+  {
+    "file": "direct/FINDINGS.md",
+    "bytes": 5791,
+    "sha256": "819cee08b8e533c1ab3f09775a5fa3602a959c3507337cb44e30639898fadd43"
+  },
+  {
+    "file": "direct/FOREST_ROUTE.md",
+    "bytes": 3244,
+    "sha256": "ba4bb2d44558c64ed0f238c86c5cb50fbb91f777097db0194a8542b0d28defb6"
+  },
+  {
+    "file": "direct/dirty_nf_search.py",
+    "bytes": 4672,
+    "sha256": "3240c21996e40874546a808d47faf76eb3659e074e699c28e38f3857ec46de52"
+  },
+  {
+    "file": "sibling/FINDINGS.md",
+    "bytes": 8701,
+    "sha256": "56923a0ac238b5c6eedc38e33a93a24e969cf24910e014ec1a35a1f5b24c139e"
+  },
+  {
+    "file": "sibling/LITERATURE.md",
+    "bytes": 6851,
+    "sha256": "e30980eab8b7d221a84ccdac4fc96b15ad709dd9eeb32d145ce91d9d05e40c10"
+  },
+  {
+    "file": "sibling/OR_BOUND_REVIEW.md",
+    "bytes": 4589,
+    "sha256": "be49007ce70827d1370ed684868086c6acc8cbb64aefc3ace93739f736e27169"
+  },
+  {
+    "file": "structural/PR_CENSUS.md",
+    "bytes": 2835,
+    "sha256": "fd1a80c1b25d701870bc5bb944968a51756e258bce52c00fd5c471d650245ef6"
+  },
+  {
+    "file": "structural/BICLIQUE_AND_RESEARCH.md",
+    "bytes": 2284,
+    "sha256": "344bb517d6584fd461e13df0dfcafe141a043afb3d8147da42b9728d3cb6248f"
+  },
+  {
+    "file": "handoff-status.json",
+    "bytes": 2858,
+    "sha256": "db15e186a1901270c4441f1fd0f5e04177a8fbbce90ee98afaf664501c7faafa"
+  },
+  {
+    "file": "genetic_cpp/validation.json",
+    "bytes": 901,
+    "sha256": "7ce8f49f7f1725d37b09ce570c389ce6483dbc605b805bcb7c29447b9c232818"
+  },
+  {
+    "file": "genetic_cpp/search.cpp",
+    "bytes": 9130,
+    "sha256": "906c09aca2eef0abf17a10d4ebfe781d326fbe162b6345089c36b71b27b3657b"
+  },
+  {
+    "file": "genetic_cpp/compile.log",
+    "bytes": 603,
+    "sha256": "a36644d46d09db35935d5f9575e8c170cbb3299c1e7be08a6877db40e8950e42"
+  },
+  {
+    "file": "genetic_cpp/fano-1.json",
+    "bytes": 479,
+    "sha256": "5a09e05870afc304dfb5de51510ef1957f8e18c6f2388c86290864d04f0e64a9"
+  },
+  {
+    "file": "genetic_cpp/fano-1.log",
+    "bytes": 468,
+    "sha256": "7e948db1c3cc0e91d3f9033445bee60f0b052ddd38253f1204c6ace2be2b12a4"
+  },
+  {
+    "file": "genetic_cpp/independent-audit.json",
+    "bytes": 279,
+    "sha256": "7eecec740060e7fcfca4c48294be6e714b1047fb464e3ec3f1e44101dc5746b3"
+  },
+  {
+    "file": "genetic_cpp/fano-2585.json",
+    "bytes": 480,
+    "sha256": "a5017e6251e28b319f4844435af56777c9e132769d5b8e3fe5401e0400f1565c"
+  },
+  {
+    "file": "genetic_cpp/theta-1.log",
+    "bytes": 420,
+    "sha256": "bac1d488eb122ecaf716e92e6b523b6166caebcdf6b056ef4fea8f7b76c0c0c5"
+  },
+  {
+    "file": "genetic_cpp/fano-2585.log",
+    "bytes": 585,
+    "sha256": "e4edbb0363302dee514a493e08fb21a3de10974886cc2359eaf93c00bca9c263"
+  },
+  {
+    "file": "genetic_cpp/theta-1.json",
+    "bytes": 258,
+    "sha256": "129f406aed1d6c64579812dc8ddc587ca17fbb532274a3203e76fff8cf80f3e5"
+  },
+  {
+    "file": "genetic_cpp/theta-2585.json",
+    "bytes": 258,
+    "sha256": "52196f2051f592a4cd73da50c0e4a0decc8777607ec28f6202714c535e5c11c6"
+  },
+  {
+    "file": "genetic_cpp/theta-2585.log",
+    "bytes": 633,
+    "sha256": "4a60b375b69f5a6b480f33fc5ff4cd2545c9f1d822280f3d6d1770a6354e7283"
+  },
+  {
+    "file": "symbolic_p4/greedy66-9.json",
+    "bytes": 756,
+    "sha256": "4faa48dc5c55c0ebb4405889489a72ceec05f0c93598b97c0b662657de00e401"
+  },
+  {
+    "file": "symbolic_p4/greedy66-7.json",
+    "bytes": 785,
+    "sha256": "cb1ad2927d1b2aa82db355bd5ac345232424f1fa0f039caa4348eff78ebbe305"
+  },
+  {
+    "file": "symbolic_p4/greedy66-0.json",
+    "bytes": 786,
+    "sha256": "6a5720888f93286a4731659c1c7a7f3a78497fa96ee0091ec284aa9c777c4bc8"
+  },
+  {
+    "file": "symbolic_p4/validation.json",
+    "bytes": 5798,
+    "sha256": "91a56366413f0dd51301474242c9c7dfda16fc248c7481384fad1980cdbe5034"
+  },
+  {
+    "file": "symbolic_p4/greedy66-8.json",
+    "bytes": 756,
+    "sha256": "b49ad3cb2a1f061ae3027b6a1565c9657686b5387f26ebd50fb021ab92f958aa"
+  },
+  {
+    "file": "symbolic_p4/batch-3.log",
+    "bytes": 1875,
+    "sha256": "26d2192df8138308500ecb2a805b89539bf00d2028082b6c241be4642bf5a96b"
+  },
+  {
+    "file": "symbolic_p4/greedy66-10.json",
+    "bytes": 786,
+    "sha256": "a3c179753e97593bb78c3888faabad175a7c1635a8b953e47ee6f38b5697e859"
+  },
+  {
+    "file": "symbolic_p4/greedy66-1.json",
+    "bytes": 816,
+    "sha256": "946b97d030e6c2b46bc26ba13cd0729abf834a7c87e2050fbf517c055f185222"
+  },
+  {
+    "file": "symbolic_p4/search.py",
+    "bytes": 6939,
+    "sha256": "82ce47f6f9aed51315f8db0d4dbe87fa916029f15dc0287792b506838b4c16cf"
+  },
+  {
+    "file": "symbolic_p4/FINDINGS.md",
+    "bytes": 1859,
+    "sha256": "b691a3c2c7c6a13ff78267d679d9eb970914db5a2626a25daa263922a002266a"
+  },
+  {
+    "file": "symbolic_p4/batch-2.log",
+    "bytes": 1894,
+    "sha256": "c09653a860aea59962fd182649eaacd7f3da9e21387b1e5e264ad1f724b72dfe"
+  },
+  {
+    "file": "symbolic_p4/batch-1.log",
+    "bytes": 1349,
+    "sha256": "1f74558a711389f4f7ddd0d9a87039f4454423e2b6fb236e0b3ff948e018aea1"
+  },
+  {
+    "file": "symbolic_p4/greedy66-2.json",
+    "bytes": 785,
+    "sha256": "e88dea351f49f590601dd56720c2fcb12c8dc722f48d9205a732625114e95791"
+  },
+  {
+    "file": "symbolic_p4/k4-incidence.json",
+    "bytes": 695,
+    "sha256": "b8e9b3ed3d633840a4f6eab7e0afba17708d05f3ae70650a3ba3af341367dc41"
+  },
+  {
+    "file": "symbolic_p4/batch-4.log",
+    "bytes": 1881,
+    "sha256": "6e369e7104a7177dae1daa47937a14f73e9f39d30773241804941cc4195818d2"
+  },
+  {
+    "file": "symbolic_p4/greedy66-4.json",
+    "bytes": 725,
+    "sha256": "f1286357614a05b0c9d256a3a4da501fd28299125a58c44995c7867d3f76a533"
+  },
+  {
+    "file": "symbolic_p4/greedy66-11.json",
+    "bytes": 786,
+    "sha256": "2e1a17961f5a152b90921f24051bde5cdb3a02e0239d9347cc423ce9424d40bf"
+  },
+  {
+    "file": "symbolic_p4/greedy66-3.json",
+    "bytes": 785,
+    "sha256": "f0c58ae7ef2e8d6779cb9456aa2e4fd49856d47440af7ee92fca6f69f786294c"
+  },
+  {
+    "file": "symbolic_p4/greedy66-6.json",
+    "bytes": 785,
+    "sha256": "e8d2afe23a96406a6b011a78297bbaa20ceb1542d878c2eae282b46b0a5957fe"
+  },
+  {
+    "file": "symbolic_p4/greedy66-5.json",
+    "bytes": 755,
+    "sha256": "410383e1338d342fed834a50e191f5a5a293af07359d45a349caeee82b313312"
+  },
+  {
+    "file": "symbolic_p4/fano-delete-1.json",
+    "bytes": 788,
+    "sha256": "075c694bc1dc1d2ee8427a7a244430f369a68ef0f1af4d8087e201f9f9d61437"
+  },
+  {
+    "file": "symbolic_p4/fano-delete-0.json",
+    "bytes": 819,
+    "sha256": "98f66e3e4db06075d76b55b072c680884055b298ce0393893ab60881901aa61b"
+  }
+]

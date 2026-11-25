@@ -1,0 +1,10 @@
+START greedy66-2 P 6 L 6 edges 15 baseline 20 p4 37 actions 346 blocks 82
+RESULT {"name": "greedy66-2", "P": 6, "L": 6, "baseline": 20, "solver_status": 1, "solver_message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)", "seconds": 5.024973950000458, "p4_templates": 37, "actions": 346, "blocks": 82, "lower_bound": null}
+START greedy66-3 P 6 L 6 edges 15 baseline 20 p4 37 actions 346 blocks 82
+RESULT {"name": "greedy66-3", "P": 6, "L": 6, "baseline": 20, "solver_status": 1, "solver_message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)", "seconds": 5.017010298000059, "p4_templates": 37, "actions": 346, "blocks": 82, "lower_bound": null}
+START greedy66-4 P 6 L 6 edges 13 baseline 17 p4 31 actions 312 blocks 78
+RESULT {"name": "greedy66-4", "P": 6, "L": 6, "baseline": 17, "solver_status": 1, "solver_message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)", "seconds": 5.018776816000354, "p4_templates": 31, "actions": 312, "blocks": 78, "lower_bound": null}
+START greedy66-5 P 6 L 6 edges 14 baseline 19 p4 35 actions 334 blocks 81
+RESULT {"name": "greedy66-5", "P": 6, "L": 6, "baseline": 19, "solver_status": 1, "solver_message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)", "seconds": 5.021394112000053, "p4_templates": 35, "actions": 334, "blocks": 81, "lower_bound": null}
+START greedy66-6 P 6 L 6 edges 15 baseline 20 p4 39 actions 354 blocks 84
+RESULT {"name": "greedy66-6", "P": 6, "L": 6, "baseline": 20, "solver_status": 1, "solver_message": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)", "seconds": 5.023400152000249, "p4_templates": 39, "actions": 354, "blocks": 84, "lower_bound": null}
