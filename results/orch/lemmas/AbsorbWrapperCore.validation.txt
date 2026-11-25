@@ -1,0 +1,4 @@
+Lean validation: PASS (exit 0)
+Command: lake env lean ../results/orch/lemmas/AbsorbWrapperCore.lean
+Source lines: 1146
+Complete stdout and stderr:

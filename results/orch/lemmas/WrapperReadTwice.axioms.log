@@ -1,0 +1,4 @@
+'PEqualNP.Outside.L_meta_2962.AbsorbWrapper.isCore' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2962_aux.WrapperReadTwice.wrapper_readTwice' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
