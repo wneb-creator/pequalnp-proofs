@@ -7,3 +7,6 @@
 2026-11-25T03:17:10.809115+00:00 structural partial compiled successfully; root notified for immediate preservation.
 
 2026-11-25T03:17:11.383355+00:00 Structural.lean compiled; preserving154-line checkpoint.
+2026-11-25T03:18:24.677733+00:00 derivative repeatWrap lemmas compiled (exit0); notified root to preserve.
+
+2026-11-25T03:18:43.379682+00:00 Derivatives.lean compiled; preserving122-line checkpoint.

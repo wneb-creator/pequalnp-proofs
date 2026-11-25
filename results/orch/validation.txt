@@ -4,7 +4,7 @@ Gap: L-meta-2602
 Status: checked partial lemmas only; posted statement remains unresolved; no proof PR opened.
 
 Sub-agents: 6 (toolchain/status, structural argument, counterexample search, reductions and gate counts, derivatives, independent review)
-TIMING total=14 subagents=6
+TIMING total=13.9 subagents=6
 
 Lean 4.36.0, Mathlib fc4f59e577feb1a4956671bc04ac18aaaf8cd842.
 Audit.lean: lake env lean passed, exit 0, stdout and stderr empty.
@@ -14,3 +14,5 @@ Checker: not run on partial lemmas; no theorem proves the posted statement.
 Full proof search continues.
 
 Structural.lean: lake env lean passed, exit0; 154 lines, one unnecessarySimpa warning. Exact finite geometry and minimum vertex-cover rigidity.
+
+Derivatives.lean: lake env lean passed, exit0;122 lines, no output. Generic size+2 repeated-output wrapper: legal topology, semantic preservation, vanishing linear part.

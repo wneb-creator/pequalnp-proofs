@@ -60,3 +60,5 @@ Independent audit update 2026-11-25T03:15:27.411594+00:00: `Audit.lean` compiled
 ### Checked structural partial at 2026-11-25T03:17:10.809115+00:00
 
 `results/orch/lemmas/Structural.lean` passed direct `lake env lean` (exit 0). Proven: point/line degree 4, no rectangle, 52 incidences, 45 after deleting endpoints, vertex-cover bound 13, deleted-face cover bound 12, exactly two minimum covers (the full sides), all incidence bicliques are stars, all incidence bicliques have at most 4 edges. Log: `/tmp/oec/pequalnp-pilot-64/structural-build.log`. One harmless unnecessarySimpa warning. These are geometry/normal-form facts, not a lower bound for arbitrary circuits.
+
+- Derivatives.lean CHECKED by Lean (exit0, derivatives-check-4.log): wrapper size/topology/eval/linear-zero lemmas. Frozen for early push; developing stronger distributive wrapper in Distributed.lean.
