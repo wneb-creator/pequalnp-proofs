@@ -5599,4 +5599,964 @@ lemma matching_three_lines_not_neighborhood (I : Fin n → Fin n → Prop)
 
 end ThinBlock
 
+namespace ThinBlock
+
+open Finset
+
+variable {n : ℕ}
+
+lemma point_eq_of_two_matched_lines (I : Fin n → Fin n → Prop)
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (l : Fin 3 → Fin n) (hl : Function.Injective l)
+    (i j : Fin 3) (hij : i ≠ j) (u v : Fin n)
+    (hui : I u (l i)) (huj : I u (l j))
+    (hvi : I v (l i)) (hvj : I v (l j)) : u = v := by
+  by_contra huv
+  exact hfour u v (l i) (l j) huv (fun h => hij (hl h)) ⟨hui, huj, hvi, hvj⟩
+
+lemma cycle_one_same_lines (I : Fin n → Fin n → Prop)
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p q l : Fin 3 → Fin n) (hl : Function.Injective l)
+    (hp : ∀ i j, I (p i) (l j) ↔ i = j ∨ i = j + 1)
+    (hq : (∀ i j, I (q i) (l j) ↔ i = j ∨ i = j + 1) ∨
+      (∀ i j, I (q i) (l j) ↔ i = j ∨ i = j + 2)) :
+    (∀ i, q i = p i) ∨ (∀ i, q i = p (i + 1)) := by
+  have hne1 : ∀ i : Fin 3, i ≠ i + 1 := by decide
+  have hne2 : ∀ i : Fin 3, i ≠ i + 2 := by decide
+  have h12 : ∀ i : Fin 3, i = i + 1 + 2 := by decide
+  have h21 : ∀ i : Fin 3, i = i + 2 + 1 := by decide
+  rcases hq with hq | hq
+  · left
+    intro i
+    exact point_eq_of_two_matched_lines I hfour l hl i (i + 2) (hne2 i) (q i) (p i)
+      ((hq i i).mpr (Or.inl rfl))
+      ((hq i (i + 2)).mpr (Or.inr (h21 i)))
+      ((hp i i).mpr (Or.inl rfl))
+      ((hp i (i + 2)).mpr (Or.inr (h21 i)))
+  · right
+    intro i
+    exact point_eq_of_two_matched_lines I hfour l hl i (i + 1) (hne1 i) (q i) (p (i + 1))
+      ((hq i i).mpr (Or.inl rfl))
+      ((hq i (i + 1)).mpr (Or.inr (h12 i)))
+      ((hp (i + 1) i).mpr (Or.inr rfl))
+      ((hp (i + 1) (i + 1)).mpr (Or.inl rfl))
+
+lemma cycle_two_same_lines (I : Fin n → Fin n → Prop)
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p q l : Fin 3 → Fin n) (hl : Function.Injective l)
+    (hp : ∀ i j, I (p i) (l j) ↔ i = j ∨ i = j + 2)
+    (hq : (∀ i j, I (q i) (l j) ↔ i = j ∨ i = j + 1) ∨
+      (∀ i j, I (q i) (l j) ↔ i = j ∨ i = j + 2)) :
+    (∀ i, q i = p i) ∨ (∀ i, q i = p (i + 2)) := by
+  have hne1 : ∀ i : Fin 3, i ≠ i + 1 := by decide
+  have hne2 : ∀ i : Fin 3, i ≠ i + 2 := by decide
+  have h12 : ∀ i : Fin 3, i = i + 1 + 2 := by decide
+  have h21 : ∀ i : Fin 3, i = i + 2 + 1 := by decide
+  rcases hq with hq | hq
+  · right
+    intro i
+    exact point_eq_of_two_matched_lines I hfour l hl i (i + 2) (hne2 i) (q i) (p (i + 2))
+      ((hq i i).mpr (Or.inl rfl))
+      ((hq i (i + 2)).mpr (Or.inr (h21 i)))
+      ((hp (i + 2) i).mpr (Or.inr rfl))
+      ((hp (i + 2) (i + 2)).mpr (Or.inl rfl))
+  · left
+    intro i
+    exact point_eq_of_two_matched_lines I hfour l hl i (i + 1) (hne1 i) (q i) (p i)
+      ((hq i i).mpr (Or.inl rfl))
+      ((hq i (i + 1)).mpr (Or.inr (h12 i)))
+      ((hp i i).mpr (Or.inl rfl))
+      ((hp i (i + 1)).mpr (Or.inr (h12 i)))
+
+lemma line_triple_has_two_matchings (I : Fin n → Fin n → Prop)
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p l : Fin 3 → Fin n) (hl : Function.Injective l)
+    (hp : (∀ i j, I (p i) (l j) ↔ i = j ∨ i = j + 1) ∨
+      (∀ i j, I (p i) (l j) ↔ i = j ∨ i = j + 2)) :
+    ∃ other : Fin 3 → Fin n,
+      ((∀ i, other i = p (i + 1)) ∨ (∀ i, other i = p (i + 2))) ∧
+      ∀ q : Fin 3 → Fin n,
+        ((∀ i j, I (q i) (l j) ↔ i = j ∨ i = j + 1) ∨
+          (∀ i j, I (q i) (l j) ↔ i = j ∨ i = j + 2)) →
+        (∀ i, q i = p i) ∨ (∀ i, q i = other i) := by
+  rcases hp with hp | hp
+  · refine ⟨(fun i => p (i + 1)), Or.inl (fun _ => rfl), ?_⟩
+    intro q hq
+    exact cycle_one_same_lines I hfour p q l hl hp hq
+  · refine ⟨(fun i => p (i + 2)), Or.inr (fun _ => rfl), ?_⟩
+    intro q hq
+    exact cycle_two_same_lines I hfour p q l hl hp hq
+
+lemma thin_blocks_same_line_triple (I : Fin n → Fin n → Prop)
+    (F : Finset (Finset (Bool × Fin n))) (hthin : Thin F) (hsafe : Safe I F)
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p l : Fin 3 → Fin n) (hp : Function.Injective p) (hl : Function.Injective l)
+    (hacc : ∀ i, Accept F (p i) (l i)) :
+    ∃ other : Fin 3 → Fin n,
+      ∀ (K : Finset (Finset (Bool × Fin n))) (q : Fin 3 → Fin n),
+        Thin K → Safe I K → Function.Injective q →
+        (∀ i, Accept K (q i) (l i)) →
+        (∀ a v, Accept K a v ↔ ∃ i, a = p i ∧ v = l i) ∨
+          (∀ a v, Accept K a v ↔ ∃ i, a = other i ∧ v = l i) := by
+  have hshape := matching_three_patterns I F hthin hsafe hfour p l hp hl hacc
+  obtain ⟨other, _, hother⟩ := line_triple_has_two_matchings I hfour p l hl hshape
+  refine ⟨other, ?_⟩
+  intro K q hKthin hKsafe hq hKacc
+  have hqshape := matching_three_patterns I K hKthin hKsafe hfour q l hq hl hKacc
+  have hclass := matching_three_classification I K hKthin hKsafe hfour q l hq hl hKacc
+  rcases hother q hqshape with heq | heq
+  · left
+    intro a v
+    simpa only [heq] using hclass a v
+  · right
+    intro a v
+    simpa only [heq] using hclass a v
+
+end ThinBlock
+
+namespace H8Projected.ExceptionalBudget
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.H8Projected.PurePointBudget
+open PEqualNP.Outside.L_meta_2583.H8Projected.GroupedSandwichBudget
+open PEqualNP.Outside.L_meta_2583.H8Projected.LargeGroupedBudget
+
+lemma pure_orPool_disjoint {n : ℕ} {C : Circuit} (hm : Monotone2 C)
+    {S T : Finset (Fin n)} (hst : (S ∩ T).card ≤ 1) (m : ℕ) :
+    Disjoint (orPool C (complementInput S) m) (orPool C (complementInput T) m) := by
+  classical
+  apply Finset.disjoint_left.2
+  intro k hkS hkT
+  obtain ⟨_, _, hlarge, hS⟩ := mem_orPool.1 hkS
+  obtain ⟨_, _, _, hT⟩ := mem_orPool.1 hkT
+  have hsub : singletonSupport n C (n + k) ⊆ S ∩ T :=
+    Finset.subset_inter (support_subset_of_false hm hS) (support_subset_of_false hm hT)
+  have hcard := Finset.card_le_card hsub
+  omega
+
+lemma grouped_pure_exceptional_resource_budget {n : ℕ} {ι : Type*}
+    [Fintype ι] [DecidableEq ι] {C : Circuit}
+    (hm : Monotone2 C) (rb : ReadsBack n C)
+    (H S : ι → Finset (Fin n)) (roots : ι → Finset ℕ)
+    (hvalid : ∀ i, ∀ w ∈ roots i, w < n + C.gates.length)
+    (hpos : ∀ i, ∀ p ∈ H i, ∃ w ∈ roots i,
+      val C (List.ofFn (pairInput p p)) w = true)
+    (hfalse : ∀ i, ∀ w ∈ roots i,
+      val C (List.ofFn (complementInput (S i))) w = false)
+    (hpair : ∀ i j, i ≠ j → (S i ∩ S j).card ≤ 1)
+    (resources exceptional : Finset ℕ)
+    (hlarge : largeOrGates n C ⊆ resources)
+    (hexceptional : exceptional ⊆ resources)
+    (htrue : ∀ e ∈ exceptional, ∀ i,
+      val C (List.ofFn (complementInput (S i))) (n + e) = true) :
+    (∑ i, (H i).card) + exceptional.card ≤
+      resources.card + ∑ i, (roots i).card := by
+  classical
+  let pools := fun i => orPool C (complementInput (S i)) C.gates.length
+  let U := Finset.univ.biUnion pools
+  have hdis : ((Finset.univ : Finset ι) : Set ι).PairwiseDisjoint pools := by
+    intro i _ j _ hij
+    exact pure_orPool_disjoint hm (hpair i j hij) C.gates.length
+  have hsum : (∑ i, (H i).card) ≤ U.card + ∑ i, (roots i).card := by
+    calc
+      _ ≤ ∑ i, ((pools i).card + (roots i).card) := Finset.sum_le_sum fun i _ =>
+        pure_grouped_pool_of_positives hm rb (H i) (S i) (roots i)
+          (hvalid i) (hpos i) (hfalse i)
+      _ = _ := by rw [Finset.sum_add_distrib, ← Finset.card_biUnion hdis]
+  have hUE : Disjoint U exceptional := by
+    apply Finset.disjoint_left.2
+    intro k hkU hkE
+    obtain ⟨i, _, hki⟩ := Finset.mem_biUnion.1 hkU
+    have hf := (mem_orPool.1 hki).2.2.2
+    have ht := htrue k hkE i
+    rw [hf] at ht
+    cases ht
+  have hsub : U ∪ exceptional ⊆ resources := by
+    intro k hk
+    rcases Finset.mem_union.1 hk with hk | hk
+    · obtain ⟨i, _, hi⟩ := Finset.mem_biUnion.1 hk
+      obtain ⟨hk, hop, hlargek, _⟩ := mem_orPool.1 hi
+      exact hlarge (Finset.mem_filter.2 ⟨Finset.mem_range.2 hk, hop, hlargek⟩)
+    · exact hexceptional hk
+  have htotal : U.card + exceptional.card ≤ resources.card := by
+    rw [← Finset.card_union_of_disjoint hUE]
+    exact Finset.card_le_card hsub
+  omega
+
+lemma grouped_pure_exceptional_large_or_budget {n : ℕ} {ι : Type*}
+    [Fintype ι] [DecidableEq ι] {C : Circuit}
+    (hm : Monotone2 C) (rb : ReadsBack n C)
+    (H S : ι → Finset (Fin n)) (roots : ι → Finset ℕ)
+    (hvalid : ∀ i, ∀ w ∈ roots i, w < n + C.gates.length)
+    (hpos : ∀ i, ∀ p ∈ H i, ∃ w ∈ roots i,
+      val C (List.ofFn (pairInput p p)) w = true)
+    (hfalse : ∀ i, ∀ w ∈ roots i,
+      val C (List.ofFn (complementInput (S i))) w = false)
+    (hpair : ∀ i j, i ≠ j → (S i ∩ S j).card ≤ 1)
+    (exceptional : Finset ℕ) (hexceptional : exceptional ⊆ largeOrGates n C)
+    (htrue : ∀ e ∈ exceptional, ∀ i,
+      val C (List.ofFn (complementInput (S i))) (n + e) = true) :
+    (∑ i, (H i).card) + exceptional.card ≤
+      (largeOrGates n C).card + ∑ i, (roots i).card :=
+  grouped_pure_exceptional_resource_budget hm rb H S roots hvalid hpos hfalse hpair
+    (largeOrGates n C) exceptional (fun _ h => h) hexceptional htrue
+
+lemma grouped_pure_exceptional_or_budget {n : ℕ} {ι : Type*}
+    [Fintype ι] [DecidableEq ι] {C : Circuit}
+    (hm : Monotone2 C) (rb : ReadsBack n C)
+    (H S : ι → Finset (Fin n)) (roots : ι → Finset ℕ)
+    (hvalid : ∀ i, ∀ w ∈ roots i, w < n + C.gates.length)
+    (hpos : ∀ i, ∀ p ∈ H i, ∃ w ∈ roots i,
+      val C (List.ofFn (pairInput p p)) w = true)
+    (hfalse : ∀ i, ∀ w ∈ roots i,
+      val C (List.ofFn (complementInput (S i))) w = false)
+    (hpair : ∀ i j, i ≠ j → (S i ∩ S j).card ≤ 1)
+    (exceptional : Finset ℕ) (hexceptional : exceptional ⊆ orGates C)
+    (htrue : ∀ e ∈ exceptional, ∀ i,
+      val C (List.ofFn (complementInput (S i))) (n + e) = true) :
+    (∑ i, (H i).card) + exceptional.card ≤
+      (orGates C).card + ∑ i, (roots i).card :=
+  grouped_pure_exceptional_resource_budget hm rb H S roots hvalid hpos hfalse hpair
+    (orGates C) exceptional (largeOrGates_subset n C) hexceptional htrue
+
+end H8Projected.ExceptionalBudget
+
+namespace H8Projected.LinearRoot
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.H8Projected.PurePointBudget
+open PEqualNP.Outside.L_meta_2583.H8Projected.LargeGroupedBudget
+
+lemma linear_of_singletons_false {n : ℕ} {C : Circuit}
+    (hm : Monotone2 C) (S : Finset (Fin n)) (w : ℕ)
+    (hpos : ∀ p ∈ S, val C (List.ofFn (pairInput p p)) w = true)
+    (hfalse : val C (List.ofFn (complementInput S)) w = false) :
+    ∀ x : Fin n → Bool, val C (List.ofFn x) w = decide (∃ p ∈ S, x p = true) := by
+  classical
+  intro x
+  by_cases hx : ∃ p ∈ S, x p = true
+  · simp only [hx, decide_true]
+    obtain ⟨p, hp, hxp⟩ := hx
+    apply pair_mono hm (w := w) (fun i hi => ?_) (hpos p hp)
+    have hi' : i = p := by simpa [pairInput] using hi
+    simpa only [hi'] using hxp
+  · simp only [hx, decide_false]
+    have hle : ∀ i, x i = true → complementInput S i = true := by
+      intro i hi
+      have hnot : i ∉ S := fun hmem => hx ⟨i, hmem, hi⟩
+      simp [complementInput, hnot]
+    cases hv : val C (List.ofFn x) w with
+    | false => rfl
+    | true =>
+      have ht := pair_mono hm hle w hv
+      rw [hfalse] at ht
+      cases ht
+
+lemma linear_support {n : ℕ} {C : Circuit} {S : Finset (Fin n)} {w : ℕ}
+    (hcomp : ∀ x : Fin n → Bool,
+      val C (List.ofFn x) w = decide (∃ p ∈ S, x p = true)) :
+    singletonSupport n C w = S := by
+  classical
+  ext p
+  rw [mem_support, hcomp]
+  simp [pairInput, eq_comm]
+
+lemma linear_OR_root_extraction {n : ℕ} {C : Circuit}
+    (hm : Monotone2 C) (rb : ReadsBack n C)
+    (S : Finset (Fin n)) (hlarge : 1 < S.card) (w : ℕ)
+    (hvalid : w < n + C.gates.length)
+    (hcomp : ∀ x : Fin n → Bool,
+      val C (List.ofFn x) w = decide (∃ p ∈ S, x p = true)) :
+    ∃ j ∈ largeOrGates n C, n + j ≤ w ∧
+      ∀ x : Fin n → Bool,
+        val C (List.ofFn x) (n + j) = decide (∃ p ∈ S, x p = true) := by
+  classical
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    by_cases hinput : w < n
+    · have hs := linear_support hcomp
+      have hin := support_input (C := C) (⟨w, hinput⟩ : Fin n)
+      rw [hin] at hs
+      have hc := congrArg Finset.card hs
+      simp only [Finset.card_singleton] at hc
+      omega
+    · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
+      have hj : j < C.gates.length := by omega
+      rcases gate_op hm hj with hop | hop
+      · have hf : val C (List.ofFn (complementInput S)) (n + j) = false := by
+          rw [hcomp]
+          simp [complementInput]
+        obtain ⟨v, hv, hvf⟩ : ∃ v ∈ (gateAt C j).inputs,
+            val C (List.ofFn (complementInput S)) v = false := by
+          by_contra! hn
+          have ht : val C (List.ofFn (complementInput S)) (n + j) = true :=
+            (val_and (by simp) hj hop).2 fun v hv =>
+              ⟨rb j hj v hv, by simpa using hn v hv⟩
+          rw [hf] at ht
+          cases ht
+        have hvlt := rb j hj v hv
+        have hp : ∀ p ∈ S, val C (List.ofFn (pairInput p p)) v = true := by
+          intro p hp
+          have ht : val C (List.ofFn (pairInput p p)) (n + j) = true := by
+            rw [hcomp]
+            simp [pairInput, hp]
+          exact ((val_and (by simp) hj hop).1 ht v hv).2
+        have hvcomp := linear_of_singletons_false hm S v hp hvf
+        obtain ⟨k, hk, hkle, hkcomp⟩ := ih v hvlt (by omega) hvcomp
+        exact ⟨k, hk, by omega, hkcomp⟩
+      · have hs := linear_support hcomp
+        have hjmem : j ∈ largeOrGates n C := by
+          apply Finset.mem_filter.2
+          exact ⟨Finset.mem_range.2 hj, hop, by simpa only [hs] using hlarge⟩
+        exact ⟨j, hjmem, le_rfl, hcomp⟩
+
+end H8Projected.LinearRoot
+
+namespace H8Projected.LinearExceptional
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.H8Projected.PurePointBudget
+open PEqualNP.Outside.L_meta_2583.H8Projected.LargeGroupedBudget
+open PEqualNP.Outside.L_meta_2583.H8Projected.ExceptionalBudget
+open PEqualNP.Outside.L_meta_2583.H8Projected.LinearRoot
+
+lemma distinct_linear_exceptional_gates {n : ℕ} {ι κ : Type*}
+    [Fintype κ] [DecidableEq κ] {C : Circuit}
+    (hm : Monotone2 C) (rb : ReadsBack n C)
+    (S : ι → Finset (Fin n)) (T : κ → Finset (Fin n))
+    (hlarge : ∀ b, 1 < (T b).card) (hdistinct : Function.Injective T)
+    (hnot : ∀ b i, ¬ T b ⊆ S i)
+    (hwires : ∀ b, ∃ w, w < n + C.gates.length ∧
+      ∀ x : Fin n → Bool,
+        val C (List.ofFn x) w = decide (∃ p ∈ T b, x p = true)) :
+    ∃ exceptional : Finset ℕ, exceptional ⊆ largeOrGates n C ∧
+      exceptional.card = Fintype.card κ ∧
+      ∀ e ∈ exceptional, ∀ i,
+        val C (List.ofFn (complementInput (S i))) (n + e) = true := by
+  classical
+  have hex : ∀ b, ∃ j ∈ largeOrGates n C,
+      ∀ x : Fin n → Bool,
+        val C (List.ofFn x) (n + j) = decide (∃ p ∈ T b, x p = true) := by
+    intro b
+    obtain ⟨w, hw, hc⟩ := hwires b
+    obtain ⟨j, hj, _, hcomp⟩ := linear_OR_root_extraction hm rb (T b) (hlarge b) w hw hc
+    exact ⟨j, hj, hcomp⟩
+  choose roots hmem hcomp using hex
+  have hinj : Function.Injective roots := by
+    intro b c hbc
+    apply hdistinct
+    have hb := linear_support (hcomp b)
+    have hc := linear_support (hcomp c)
+    rw [hbc] at hb
+    exact hb.symm.trans hc
+  refine ⟨Finset.univ.image roots, ?_, ?_, ?_⟩
+  · intro j hj
+    obtain ⟨b, _, rfl⟩ := Finset.mem_image.1 hj
+    exact hmem b
+  · rw [Finset.card_image_of_injective _ hinj]
+    exact Finset.card_univ
+  · intro j hj i
+    obtain ⟨b, _, rfl⟩ := Finset.mem_image.1 hj
+    rw [hcomp b]
+    apply decide_eq_true
+    have hx : ∃ p ∈ T b, p ∉ S i := by
+      by_contra! h
+      exact hnot b i h
+    obtain ⟨p, hp, hpn⟩ := hx
+    exact ⟨p, hp, by simp [complementInput, hpn]⟩
+
+lemma grouped_pure_distinct_linear_bonus {n : ℕ} {ι κ : Type*}
+    [Fintype ι] [DecidableEq ι] [Fintype κ] [DecidableEq κ] {C : Circuit}
+    (hm : Monotone2 C) (rb : ReadsBack n C)
+    (H S : ι → Finset (Fin n)) (roots : ι → Finset ℕ)
+    (hvalid : ∀ i, ∀ w ∈ roots i, w < n + C.gates.length)
+    (hpos : ∀ i, ∀ p ∈ H i, ∃ w ∈ roots i,
+      val C (List.ofFn (pairInput p p)) w = true)
+    (hfalse : ∀ i, ∀ w ∈ roots i,
+      val C (List.ofFn (complementInput (S i))) w = false)
+    (hpair : ∀ i j, i ≠ j → (S i ∩ S j).card ≤ 1)
+    (T : κ → Finset (Fin n))
+    (hlarge : ∀ b, 1 < (T b).card) (hdistinct : Function.Injective T)
+    (hnot : ∀ b i, ¬ T b ⊆ S i)
+    (hwires : ∀ b, ∃ w, w < n + C.gates.length ∧
+      ∀ x : Fin n → Bool,
+        val C (List.ofFn x) w = decide (∃ p ∈ T b, x p = true)) :
+    (∑ i, (H i).card) + Fintype.card κ ≤
+      (largeOrGates n C).card + ∑ i, (roots i).card := by
+  obtain ⟨exceptional, he, hcard, htrue⟩ :=
+    distinct_linear_exceptional_gates hm rb S T hlarge hdistinct hnot hwires
+  have h := grouped_pure_exceptional_large_or_budget hm rb H S roots hvalid hpos
+    hfalse hpair exceptional he htrue
+  simpa only [hcard] using h
+
+end H8Projected.LinearExceptional
+
+namespace StarMatchingLedger
+
+open Finset
+
+lemma assigned_star_matching_cover {n B : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Finset (Fin n)) (L : Fin n → Finset (Fin n))
+    (p l : Fin B → Fin 3 → Fin n)
+    (hcover : ∀ u v, G.Adj u v →
+      (∃ c ∈ C, ∃ w ∈ L c, (u = c ∧ v = w) ∨ (u = w ∧ v = c)) ∨
+      (∃ b i, (u = p b i ∧ v = l b i) ∨ (u = l b i ∧ v = p b i))) :
+    ∃ T : Finset (Fin n), Cnf.Covers G T ∧ T.card ≤ C.card + 3 * B := by
+  classical
+  let U : Finset (Fin n) := univ.biUnion fun b : Fin B => univ.image (p b)
+  let T : Finset (Fin n) := C ∪ U
+  refine ⟨T, ?_, ?_⟩
+  · intro u v huv
+    rcases hcover u v huv with hstar | hmatching
+    · obtain ⟨c, hc, w, _, horient⟩ := hstar
+      have hcT : c ∈ T := mem_union_left U hc
+      rcases horient with ⟨huc, _⟩ | ⟨_, hvc⟩
+      · exact Or.inl (by simpa [huc] using hcT)
+      · exact Or.inr (by simpa [hvc] using hcT)
+    · obtain ⟨b, i, horient⟩ := hmatching
+      have hpT : p b i ∈ T := mem_union_right C
+        (mem_biUnion.mpr ⟨b, mem_univ _, mem_image.mpr ⟨i, mem_univ _, rfl⟩⟩)
+      rcases horient with ⟨hup, _⟩ | ⟨_, hvp⟩
+      · exact Or.inl (by simpa [hup] using hpT)
+      · exact Or.inr (by simpa [hvp] using hpT)
+  · have hU : U.card ≤ 3 * B := by
+      calc U.card ≤ ∑ b : Fin B, (univ.image (p b)).card := card_biUnion_le
+        _ ≤ ∑ _b : Fin B, 3 := sum_le_sum fun b _ => by
+          simpa using (card_image_le (s := (univ : Finset (Fin 3))) (f := p b))
+        _ = 3 * B := by simp [Nat.mul_comm]
+    exact le_trans (card_union_le C U) (Nat.add_le_add_left hU C.card)
+
+end StarMatchingLedger
+
+namespace StarMatchingLedger
+
+open Finset
+
+lemma assigned_star_matching_edge_bound {n B : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Finset (Fin n)) (L : Fin n → Finset (Fin n))
+    (p l : Fin B → Fin 3 → Fin n)
+    (hcover : ∀ u v, G.Adj u v →
+      (∃ c ∈ C, ∃ w ∈ L c, (u = c ∧ v = w) ∨ (u = w ∧ v = c)) ∨
+      (∃ b i, (u = p b i ∧ v = l b i) ∨ (u = l b i ∧ v = p b i))) :
+    G.edgeFinset.card ≤ (∑ c ∈ C, (L c).card) + 3 * B := by
+  classical
+  let E0 : Finset (Sym2 (Fin n)) := C.biUnion fun c => (L c).image fun v => s(c, v)
+  let E1 : Finset (Sym2 (Fin n)) := univ.biUnion fun b : Fin B =>
+    (univ : Finset (Fin 3)).image fun i => s(p b i, l b i)
+  have hsub : G.edgeFinset ⊆ E0 ∪ E1 := by
+    intro e he
+    induction e using Sym2.inductionOn with
+    | hf u v =>
+      have huv : G.Adj u v := by simpa using he
+      rcases hcover u v huv with hs | hm
+      · obtain ⟨c, hc, w, hw, heq⟩ := hs
+        apply mem_union_left
+        apply mem_biUnion.mpr
+        refine ⟨c, hc, mem_image.mpr ⟨w, hw, ?_⟩⟩
+        rcases heq with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩
+        · rfl
+        · exact Sym2.eq_swap
+      · obtain ⟨b, i, heq⟩ := hm
+        apply mem_union_right
+        apply mem_biUnion.mpr
+        refine ⟨b, mem_univ _, mem_image.mpr ⟨i, mem_univ _, ?_⟩⟩
+        rcases heq with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩
+        · rfl
+        · exact Sym2.eq_swap
+  have hE0 : E0.card ≤ ∑ c ∈ C, (L c).card := by
+    calc E0.card ≤ ∑ c ∈ C, ((L c).image fun v => s(c, v)).card := card_biUnion_le
+      _ ≤ ∑ c ∈ C, (L c).card := sum_le_sum fun _ _ => card_image_le
+  have hE1 : E1.card ≤ 3 * B := by
+    calc E1.card ≤ ∑ b : Fin B,
+        ((univ : Finset (Fin 3)).image fun i => s(p b i, l b i)).card := card_biUnion_le
+      _ ≤ ∑ _b : Fin B, 3 := sum_le_sum fun b _ => by
+        simpa using (card_image_le :
+          ((univ : Finset (Fin 3)).image fun i => s(p b i, l b i)).card ≤ univ.card)
+      _ = 3 * B := by simp [Nat.mul_comm]
+  have hE := le_trans (card_le_card hsub) (card_union_le E0 E1)
+  omega
+
+lemma fold_star_matching_budget {edges vertices leaves centers B O t cost : ℕ}
+    (hledger : edges + vertices ≤ leaves + centers + 6 * B)
+    (hor : leaves + B ≤ O + t) (hcenters : centers ≤ t)
+    (hcost : O + 2 * t + 5 * B ≤ cost + 1) : edges + vertices ≤ cost + 1 := by
+  omega
+
+lemma assigned_star_matching_cover_ledger {n B : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Finset (Fin n)) (L : Fin n → Finset (Fin n))
+    (p l : Fin B → Fin 3 → Fin n)
+    (hcover : ∀ u v, G.Adj u v →
+      (∃ c ∈ C, ∃ w ∈ L c, (u = c ∧ v = w) ∨ (u = w ∧ v = c)) ∨
+      (∃ b i, (u = p b i ∧ v = l b i) ∨ (u = l b i ∧ v = p b i))) :
+    ∃ T : Finset (Fin n), Cnf.Covers G T ∧
+      G.edgeFinset.card + T.card ≤ (∑ c ∈ C, (L c).card) + C.card + 6 * B := by
+  obtain ⟨T, hT, hTcard⟩ := assigned_star_matching_cover G C L p l hcover
+  have hE := assigned_star_matching_edge_bound G C L p l hcover
+  exact ⟨T, hT, by omega⟩
+
+lemma assigned_star_matching_source_cost {n B O t cost : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Finset (Fin n)) (L : Fin n → Finset (Fin n))
+    (p l : Fin B → Fin 3 → Fin n)
+    (hcover : ∀ u v, G.Adj u v →
+      (∃ c ∈ C, ∃ w ∈ L c, (u = c ∧ v = w) ∨ (u = w ∧ v = c)) ∨
+      (∃ b i, (u = p b i ∧ v = l b i) ∨ (u = l b i ∧ v = p b i)))
+    (hor : (∑ c ∈ C, (L c).card) + B ≤ O + t)
+    (hcenters : C.card ≤ t) (hcost : O + 2 * t + 5 * B ≤ cost + 1) :
+    ∃ T : Finset (Fin n), Cnf.Covers G T ∧ G.edgeFinset.card + T.card ≤ cost + 1 := by
+  obtain ⟨T, hT, hledger⟩ := assigned_star_matching_cover_ledger G C L p l hcover
+  exact ⟨T, hT, fold_star_matching_budget hledger hor hcenters hcost⟩
+
+end StarMatchingLedger
+
+namespace StarMatchingLedger
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.H8Projected.LargeGroupedBudget
+
+lemma indexed_gate_cost {n t B : ℕ} (C : Circuit)
+    (a : Fin (t + 4 * B) → Fin C.gates.length)
+    (z : Fin (t + B - 1) → Fin C.gates.length)
+    (ha : Function.Injective a) (hz : Function.Injective z)
+    (haop : ∀ i, (gateAt C (a i).val).op = GateOp.and)
+    (hzop : ∀ i, (gateAt C (z i).val).op = GateOp.or)
+    (hzsmall : ∀ i, (singletonSupport n C (n + (z i).val)).card ≤ 1)
+    (hne : 1 ≤ t + B) :
+    (largeOrGates n C).card + 2 * t + 5 * B ≤ C.size + 1 := by
+  classical
+  let A : Finset ℕ := univ.image fun i => (a i).val
+  let Z : Finset ℕ := univ.image fun i => (z i).val
+  let O := largeOrGates n C
+  have ha' : Function.Injective (fun i => (a i).val) := by
+    intro i j hij
+    exact ha (Fin.ext hij)
+  have hz' : Function.Injective (fun i => (z i).val) := by
+    intro i j hij
+    exact hz (Fin.ext hij)
+  have hAcard : A.card = t + 4 * B := by simp [A, card_image_of_injective _ ha']
+  have hZcard : Z.card = t + B - 1 := by simp [Z, card_image_of_injective _ hz']
+  have hAop : ∀ j ∈ A, (gateAt C j).op = GateOp.and := by
+    intro j hj
+    obtain ⟨i, _, heq⟩ := mem_image.mp hj
+    exact heq ▸ haop i
+  have hZop : ∀ j ∈ Z, (gateAt C j).op = GateOp.or := by
+    intro j hj
+    obtain ⟨i, _, heq⟩ := mem_image.mp hj
+    exact heq ▸ hzop i
+  have hZsmall : ∀ j ∈ Z, (singletonSupport n C (n + j)).card ≤ 1 := by
+    intro j hj
+    obtain ⟨i, _, heq⟩ := mem_image.mp hj
+    exact heq ▸ hzsmall i
+  have hOA : Disjoint O A := by
+    apply Finset.disjoint_left.mpr
+    intro j hjO hjA
+    have hop := (mem_filter.mp hjO).2.1
+    rw [hAop j hjA] at hop
+    cases hop
+  have hOZ : Disjoint O Z := by
+    apply Finset.disjoint_left.mpr
+    intro j hjO hjZ
+    have hlarge := (mem_filter.mp hjO).2.2
+    have hsmall := hZsmall j hjZ
+    omega
+  have hAZ : Disjoint A Z := by
+    apply Finset.disjoint_left.mpr
+    intro j hjA hjZ
+    have hop := hAop j hjA
+    rw [hZop j hjZ] at hop
+    cases hop
+  have hOAZ : Disjoint (O ∪ A) Z := by
+    apply Finset.disjoint_left.mpr
+    intro j hj hjZ
+    rcases mem_union.mp hj with hjO | hjA
+    · exact Finset.disjoint_left.mp hOZ hjO hjZ
+    · exact Finset.disjoint_left.mp hAZ hjA hjZ
+  have hsub : O ∪ A ∪ Z ⊆ range C.gates.length := by
+    intro j hj
+    rcases mem_union.mp hj with hj | hjZ
+    · rcases mem_union.mp hj with hjO | hjA
+      · exact (mem_filter.mp hjO).1
+      · obtain ⟨i, _, heq⟩ := mem_image.mp hjA
+        exact heq ▸ mem_range.mpr (a i).isLt
+    · obtain ⟨i, _, heq⟩ := mem_image.mp hjZ
+      exact heq ▸ mem_range.mpr (z i).isLt
+  have hcount : O.card + A.card + Z.card ≤ C.gates.length := by
+    rw [← card_union_of_disjoint hOA, ← card_union_of_disjoint hOAZ]
+    simpa using card_le_card hsub
+  change O.card + 2 * t + 5 * B ≤ C.gates.length + 1
+  omega
+
+lemma assigned_star_matching_gate_cost {n t B : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit)
+    (centers : Finset (Fin n)) (L : Fin n → Finset (Fin n))
+    (p l : Fin B → Fin 3 → Fin n)
+    (hcover : ∀ u v, G.Adj u v →
+      (∃ c ∈ centers, ∃ w ∈ L c, (u = c ∧ v = w) ∨ (u = w ∧ v = c)) ∨
+      (∃ b i, (u = p b i ∧ v = l b i) ∨ (u = l b i ∧ v = p b i)))
+    (hor : (∑ c ∈ centers, (L c).card) + B ≤ (largeOrGates n C).card + t)
+    (hcenters : centers.card ≤ t)
+    (a : Fin (t + 4 * B) → Fin C.gates.length)
+    (z : Fin (t + B - 1) → Fin C.gates.length)
+    (ha : Function.Injective a) (hz : Function.Injective z)
+    (haop : ∀ i, (gateAt C (a i).val).op = GateOp.and)
+    (hzop : ∀ i, (gateAt C (z i).val).op = GateOp.or)
+    (hzsmall : ∀ i, (singletonSupport n C (n + (z i).val)).card ≤ 1)
+    (hne : 1 ≤ t + B) :
+    ∃ T : Finset (Fin n), Cnf.Covers G T ∧ G.edgeFinset.card + T.card ≤ C.size + 1 := by
+  exact assigned_star_matching_source_cost G centers L p l hcover hor hcenters
+    (indexed_gate_cost C a z ha hz haop hzop hzsmall hne)
+
+end StarMatchingLedger
+
+namespace StarMatchingLedger
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.H8Projected.PurePointBudget
+open PEqualNP.Outside.L_meta_2583.H8Projected.LargeGroupedBudget
+open PEqualNP.Outside.L_meta_2583.H8Projected.LinearExceptional
+
+lemma assigned_star_matching_semantic_cost {n t B : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hm : Monotone2 C) (rb : ReadsBack n C)
+    (hfour : PEqualNP.TopForm.NoFourCycle G)
+    (centers : Finset (Fin n)) (L : Fin n → Finset (Fin n))
+    (p l : Fin B → Fin 3 → Fin n)
+    (hcover : ∀ u v, G.Adj u v →
+      (∃ c ∈ centers, ∃ w ∈ L c, (u = c ∧ v = w) ∨ (u = w ∧ v = c)) ∨
+      (∃ b i, (u = p b i ∧ v = l b i) ∨ (u = l b i ∧ v = p b i)))
+    (hcenters : centers.card ≤ t)
+    (roots : {c : Fin n // c ∈ centers} → Finset ℕ)
+    (hvalid : ∀ c, ∀ w ∈ roots c, w < n + C.gates.length)
+    (hpos : ∀ c, ∀ v ∈ L c.val, ∃ w ∈ roots c,
+      val C (List.ofFn (pairInput v v)) w = true)
+    (hfalse : ∀ c, ∀ w ∈ roots c,
+      val C (List.ofFn (complementInput (G.neighborFinset c.val))) w = false)
+    (hroots : (∑ c : {c : Fin n // c ∈ centers}, (roots c).card) ≤ t)
+    (exceptional : Fin B → Finset (Fin n))
+    (hlarge : ∀ b, 1 < (exceptional b).card)
+    (hdistinct : Function.Injective exceptional)
+    (hnot : ∀ b, ∀ c : {c : Fin n // c ∈ centers},
+      ¬ exceptional b ⊆ G.neighborFinset c.val)
+    (hwires : ∀ b, ∃ w, w < n + C.gates.length ∧
+      ∀ x : Fin n → Bool,
+        val C (List.ofFn x) w = decide (∃ v ∈ exceptional b, x v = true))
+    (a : Fin (t + 4 * B) → Fin C.gates.length)
+    (z : Fin (t + B - 1) → Fin C.gates.length)
+    (ha : Function.Injective a) (hz : Function.Injective z)
+    (haop : ∀ i, (gateAt C (a i).val).op = GateOp.and)
+    (hzop : ∀ i, (gateAt C (z i).val).op = GateOp.or)
+    (hzsmall : ∀ i, (singletonSupport n C (n + (z i).val)).card ≤ 1)
+    (hne : 1 ≤ t + B) :
+    ∃ T : Finset (Fin n), Cnf.Covers G T ∧ G.edgeFinset.card + T.card ≤ C.size + 1 := by
+  classical
+  have hpair : ∀ c d : {c : Fin n // c ∈ centers}, c ≠ d →
+      (G.neighborFinset c.val ∩ G.neighborFinset d.val).card ≤ 1 := by
+    intro c d hcd
+    have heq : G.neighborFinset c.val ∩ G.neighborFinset d.val =
+        univ.filter fun w => G.Adj c.val w ∧ G.Adj d.val w := by
+      ext w
+      simp
+    rw [heq]
+    exact hfour c.val d.val (fun h => hcd (Subtype.ext h))
+  have hbonus := grouped_pure_distinct_linear_bonus hm rb
+    (fun c : {c : Fin n // c ∈ centers} => L c.val)
+    (fun c : {c : Fin n // c ∈ centers} => G.neighborFinset c.val)
+    roots hvalid hpos hfalse hpair exceptional hlarge hdistinct hnot hwires
+  have hsum : (∑ c : {c : Fin n // c ∈ centers}, (L c.val).card) =
+      ∑ c ∈ centers, (L c).card := Finset.sum_coe_sort centers (fun c => (L c).card)
+  rw [hsum, Fintype.card_fin] at hbonus
+  have hor : (∑ c ∈ centers, (L c).card) + B ≤ (largeOrGates n C).card + t := by
+    omega
+  exact assigned_star_matching_gate_cost G C centers L p l hcover hor hcenters
+    a z ha hz haop hzop hzsmall hne
+
+end StarMatchingLedger
+
+namespace ThinBlock
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.H8Projected.PurePointBudget
+open PEqualNP.Outside.L_meta_2583.H8Projected.LargeGroupedBudget
+open PEqualNP.Outside.L_meta_2583.H8Projected.LinearRoot
+
+lemma five_matching_embedded_linear_root {r n : ℕ}
+    (I : Fin r → Fin r → Prop)
+    (F : Finset (Finset (Bool × Fin r))) (hthin : Thin F) (hsafe : Safe I F)
+    (hfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p l : Fin 3 → Fin r) (hp : Function.Injective p) (hl : Function.Injective l)
+    (hacc : ∀ i, Accept F (p i) (l i)) (hcard : F.card = 5)
+    (e : (Bool × Fin r) ≃ Fin n) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hcross : ∀ a b, G.Adj (e (false, a)) (e (true, b)) → I a b)
+    (hline : ∀ a b, ¬ G.Adj (e (true, a)) (e (true, b)))
+    (C : Circuit) (hm : Monotone2 C) (rb : ReadsBack n C)
+    (hwires : ∀ W ∈ F, ∃ w, w < n + C.gates.length ∧
+      ∀ x : Fin n → Bool,
+        val C (List.ofFn x) w = decide (∃ u ∈ W, x (e u) = true)) :
+    let S := (univ : Finset (Fin 3)).image (fun i => e (true, l i))
+    S.card = 3 ∧ (∀ v, ¬ S ⊆ G.neighborFinset v) ∧
+      ∃ j ∈ largeOrGates n C, ∀ x : Fin n → Bool,
+        val C (List.ofFn x) (n + j) = decide (∃ v ∈ S, x v = true) := by
+  classical
+  dsimp only
+  let S := (univ : Finset (Fin 3)).image (fun i => e (true, l i))
+  have hinj : Function.Injective (fun i : Fin 3 => e (true, l i)) := by
+    intro i j hij
+    exact hl (congrArg Prod.snd (e.injective hij))
+  have hScard : S.card = 3 := by
+    simp [S, card_image_of_injective _ hinj]
+  have houtside : ∀ v, ¬ S ⊆ G.neighborFinset v := by
+    intro v hv
+    obtain ⟨⟨tag, a⟩, rfl⟩ := e.surjective v
+    cases tag
+    · apply matching_three_lines_not_neighborhood I F hthin hsafe hfour p l hp hl hacc a
+      intro b hb
+      obtain ⟨i, _, rfl⟩ := mem_image.mp hb
+      apply hcross a (l i)
+      exact (G.mem_neighborFinset _ _).mp (hv (mem_image.mpr ⟨i, mem_univ _, rfl⟩))
+    · exact hline a (l 0) ((G.mem_neighborFinset _ _).mp
+        (hv (mem_image.mpr ⟨0, mem_univ _, rfl⟩)))
+  have hclause := five_contains_matching_line_clause I F hthin hsafe hfour p l hp hl hacc hcard
+  obtain ⟨w, hvalid, hw⟩ := hwires _ hclause
+  have hcomp : ∀ x : Fin n → Bool,
+      val C (List.ofFn x) w = decide (∃ v ∈ S, x v = true) := by
+    intro x
+    rw [hw]
+    congr 1
+    apply propext
+    simp only [S, mem_image, mem_univ, true_and]
+    constructor
+    · rintro ⟨u, ⟨i, rfl⟩, hi⟩
+      exact ⟨e (true, l i), ⟨i, rfl⟩, hi⟩
+    · rintro ⟨v, ⟨i, rfl⟩, hi⟩
+      exact ⟨(true, l i), ⟨i, rfl⟩, hi⟩
+  obtain ⟨j, hj, _, hjcomp⟩ := linear_OR_root_extraction hm rb S (by omega) w hvalid hcomp
+  exact ⟨hScard, houtside, j, hj, hjcomp⟩
+
+end ThinBlock
+
+namespace StarMatchingDedup
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.H8Projected.PurePointBudget
+open PEqualNP.Outside.L_meta_2583.H8Projected.LargeGroupedBudget
+open PEqualNP.Outside.L_meta_2583.H8Projected.LinearExceptional
+open PEqualNP.Outside.L_meta_2583.StarMatchingLedger
+
+def lineSupports {n B : ℕ} (l : Fin B → Fin 3 → Fin n) : Finset (Finset (Fin n)) :=
+  univ.image fun b => univ.image (l b)
+
+lemma lineSupports_card_le {n B : ℕ} (l : Fin B → Fin 3 → Fin n) :
+    (lineSupports l).card ≤ B := by
+  simpa [lineSupports] using
+    (card_image_le : (univ.image fun b => univ.image (l b)).card ≤ univ.card)
+
+lemma lineSupports_mem_card {n B : ℕ} (l : Fin B → Fin 3 → Fin n)
+    {S : Finset (Fin n)} (hS : S ∈ lineSupports l) : S.card ≤ 3 := by
+  obtain ⟨b, _, rfl⟩ := mem_image.1 hS
+  simpa using (card_image_le : (univ.image (l b)).card ≤ univ.card)
+
+lemma assigned_star_matching_dedup_cover {n B : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (centers : Finset (Fin n)) (L : Fin n → Finset (Fin n))
+    (p l : Fin B → Fin 3 → Fin n)
+    (hcover : ∀ u v, G.Adj u v →
+      (∃ c ∈ centers, ∃ w ∈ L c, (u = c ∧ v = w) ∨ (u = w ∧ v = c)) ∨
+      (∃ b i, (u = p b i ∧ v = l b i) ∨ (u = l b i ∧ v = p b i))) :
+    ∃ T : Finset (Fin n), Cnf.Covers G T ∧
+      T.card ≤ centers.card + 3 * (lineSupports l).card := by
+  classical
+  let U := (lineSupports l).biUnion id
+  refine ⟨centers ∪ U, ?_, ?_⟩
+  · intro u v huv
+    rcases hcover u v huv with hstar | hmatching
+    · obtain ⟨c, hc, w, _, horient⟩ := hstar
+      have hcT : c ∈ centers ∪ U := mem_union_left U hc
+      rcases horient with ⟨huc, _⟩ | ⟨_, hvc⟩
+      · exact Or.inl (by simpa [huc] using hcT)
+      · exact Or.inr (by simpa [hvc] using hcT)
+    · obtain ⟨b, i, horient⟩ := hmatching
+      have hlT : l b i ∈ centers ∪ U := mem_union_right centers
+        (mem_biUnion.2 ⟨univ.image (l b), mem_image.2 ⟨b, mem_univ _, rfl⟩,
+          mem_image.2 ⟨i, mem_univ _, rfl⟩⟩)
+      rcases horient with ⟨_, hvl⟩ | ⟨hul, _⟩
+      · exact Or.inr (by simpa [hvl] using hlT)
+      · exact Or.inl (by simpa [hul] using hlT)
+  · have hU : U.card ≤ 3 * (lineSupports l).card := by
+      calc
+        U.card ≤ ∑ S ∈ lineSupports l, S.card := card_biUnion_le
+        _ ≤ ∑ _S ∈ lineSupports l, 3 := sum_le_sum fun S hS => lineSupports_mem_card l hS
+        _ = 3 * (lineSupports l).card := by simp [Nat.mul_comm]
+    exact (card_union_le centers U).trans (Nat.add_le_add_left hU centers.card)
+
+lemma assigned_star_matching_dedup_ledger {n B : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (centers : Finset (Fin n)) (L : Fin n → Finset (Fin n))
+    (p l : Fin B → Fin 3 → Fin n)
+    (hcover : ∀ u v, G.Adj u v →
+      (∃ c ∈ centers, ∃ w ∈ L c, (u = c ∧ v = w) ∨ (u = w ∧ v = c)) ∨
+      (∃ b i, (u = p b i ∧ v = l b i) ∨ (u = l b i ∧ v = p b i))) :
+    ∃ T : Finset (Fin n), Cnf.Covers G T ∧
+      G.edgeFinset.card + T.card ≤
+        (∑ c ∈ centers, (L c).card) + centers.card + 3 * B + 3 * (lineSupports l).card := by
+  obtain ⟨T, hT, hc⟩ := assigned_star_matching_dedup_cover G centers L p l hcover
+  have he := assigned_star_matching_edge_bound G centers L p l hcover
+  exact ⟨T, hT, by omega⟩
+
+lemma fold_dedup_budget {edges vertices leaves centers B Q O t cost : ℕ}
+    (hledger : edges + vertices ≤ leaves + centers + 3 * B + 3 * Q)
+    (hor : leaves + Q ≤ O + t) (hcenters : centers ≤ t) (hQB : Q ≤ B)
+    (hcost : O + 2 * t + 5 * B ≤ cost + 1) : edges + vertices ≤ cost + 1 := by
+  omega
+
+lemma assigned_star_matching_dedup_semantic_cost {n t B : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hm : Monotone2 C) (rb : ReadsBack n C)
+    (hfour : PEqualNP.TopForm.NoFourCycle G)
+    (centers : Finset (Fin n)) (L : Fin n → Finset (Fin n))
+    (p l : Fin B → Fin 3 → Fin n)
+    (hcover : ∀ u v, G.Adj u v →
+      (∃ c ∈ centers, ∃ w ∈ L c, (u = c ∧ v = w) ∨ (u = w ∧ v = c)) ∨
+      (∃ b i, (u = p b i ∧ v = l b i) ∨ (u = l b i ∧ v = p b i)))
+    (hcenters : centers.card ≤ t)
+    (roots : {c : Fin n // c ∈ centers} → Finset ℕ)
+    (hvalid : ∀ c, ∀ w ∈ roots c, w < n + C.gates.length)
+    (hpos : ∀ c, ∀ v ∈ L c.val, ∃ w ∈ roots c,
+      val C (List.ofFn (pairInput v v)) w = true)
+    (hfalse : ∀ c, ∀ w ∈ roots c,
+      val C (List.ofFn (complementInput (G.neighborFinset c.val))) w = false)
+    (hroots : (∑ c : {c : Fin n // c ∈ centers}, (roots c).card) ≤ t)
+    (hlarge : ∀ b, 1 < (univ.image (l b)).card)
+    (hnot : ∀ b, ∀ c : {c : Fin n // c ∈ centers},
+      ¬ univ.image (l b) ⊆ G.neighborFinset c.val)
+    (hwires : ∀ b, ∃ w, w < n + C.gates.length ∧
+      ∀ x : Fin n → Bool,
+        val C (List.ofFn x) w = decide (∃ v ∈ univ.image (l b), x v = true))
+    (a : Fin (t + 4 * B) → Fin C.gates.length)
+    (z : Fin (t + B - 1) → Fin C.gates.length)
+    (ha : Function.Injective a) (hz : Function.Injective z)
+    (haop : ∀ i, (gateAt C (a i).val).op = GateOp.and)
+    (hzop : ∀ i, (gateAt C (z i).val).op = GateOp.or)
+    (hzsmall : ∀ i, (singletonSupport n C (n + (z i).val)).card ≤ 1)
+    (hne : 1 ≤ t + B) :
+    ∃ T : Finset (Fin n), Cnf.Covers G T ∧ G.edgeFinset.card + T.card ≤ C.size + 1 := by
+  classical
+  have hpair : ∀ c d : {c : Fin n // c ∈ centers}, c ≠ d →
+      (G.neighborFinset c.val ∩ G.neighborFinset d.val).card ≤ 1 := by
+    intro c d hcd
+    have heq : G.neighborFinset c.val ∩ G.neighborFinset d.val =
+        univ.filter fun w => G.Adj c.val w ∧ G.Adj d.val w := by
+      ext w
+      simp
+    rw [heq]
+    exact hfour c.val d.val (fun h => hcd (Subtype.ext h))
+  let Q := lineSupports l
+  have hQlarge : ∀ S : {S // S ∈ Q}, 1 < S.val.card := by
+    intro S
+    obtain ⟨b, _, hb⟩ := mem_image.1 S.property
+    simpa only [← hb] using hlarge b
+  have hQnot : ∀ S : {S // S ∈ Q}, ∀ c : {c : Fin n // c ∈ centers},
+      ¬ S.val ⊆ G.neighborFinset c.val := by
+    intro S c
+    obtain ⟨b, _, hb⟩ := mem_image.1 S.property
+    simpa only [← hb] using hnot b c
+  have hQwires : ∀ S : {S // S ∈ Q}, ∃ w, w < n + C.gates.length ∧
+      ∀ x : Fin n → Bool,
+        val C (List.ofFn x) w = decide (∃ v ∈ S.val, x v = true) := by
+    intro S
+    obtain ⟨b, _, hb⟩ := mem_image.1 S.property
+    simpa only [← hb] using hwires b
+  have hbonus := grouped_pure_distinct_linear_bonus hm rb
+    (fun c : {c : Fin n // c ∈ centers} => L c.val)
+    (fun c : {c : Fin n // c ∈ centers} => G.neighborFinset c.val)
+    roots hvalid hpos hfalse hpair (fun S : {S // S ∈ Q} => S.val)
+    hQlarge Subtype.val_injective hQnot hQwires
+  have hsum : (∑ c : {c : Fin n // c ∈ centers}, (L c.val).card) =
+      ∑ c ∈ centers, (L c).card := sum_coe_sort centers (fun c => (L c).card)
+  rw [hsum, Fintype.card_coe] at hbonus
+  have hor : (∑ c ∈ centers, (L c).card) + Q.card ≤ (largeOrGates n C).card + t := by
+    omega
+  obtain ⟨T, hT, hledger⟩ := assigned_star_matching_dedup_ledger G centers L p l hcover
+  exact ⟨T, hT, fold_dedup_budget hledger hor hcenters (lineSupports_card_le l)
+    (indexed_gate_cost C a z ha hz haop hzop hzsmall hne)⟩
+
+end StarMatchingDedup
+
+namespace ThinBlock
+
+open Finset
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_2583.H8Projected.Repair
+open PEqualNP.Outside.L_meta_2583.H8Projected.PurePointBudget
+open PEqualNP.Outside.L_meta_2583.H8Projected.LargeGroupedBudget
+open PEqualNP.Outside.L_meta_2583.StarMatchingDedup
+
+lemma thin_five_star_matching_cost {r n t B : ℕ}
+    (I : Fin r → Fin r → Prop)
+    (F : Fin B → Finset (Finset (Bool × Fin r)))
+    (hthin : ∀ b, Thin (F b)) (hsafe : ∀ b, Safe I (F b))
+    (hIfour : ∀ a b c d, a ≠ b → c ≠ d → ¬ (I a c ∧ I a d ∧ I b c ∧ I b d))
+    (p l : Fin B → Fin 3 → Fin r)
+    (hp : ∀ b, Function.Injective (p b)) (hl : ∀ b, Function.Injective (l b))
+    (hacc : ∀ b i, Accept (F b) (p b i) (l b i)) (hcard : ∀ b, (F b).card = 5)
+    (e : (Bool × Fin r) ≃ Fin n) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : PEqualNP.TopForm.NoFourCycle G)
+    (hcross : ∀ a b, G.Adj (e (false, a)) (e (true, b)) → I a b)
+    (hline : ∀ a b, ¬ G.Adj (e (true, a)) (e (true, b)))
+    (C : Circuit) (hm : Monotone2 C) (rb : ReadsBack n C)
+    (hwires : ∀ b W, W ∈ F b → ∃ w, w < n + C.gates.length ∧
+      ∀ x : Fin n → Bool,
+        val C (List.ofFn x) w = decide (∃ u ∈ W, x (e u) = true))
+    (centers : Finset (Fin n)) (L : Fin n → Finset (Fin n))
+    (hcover : ∀ u v, G.Adj u v →
+      (∃ c ∈ centers, ∃ w ∈ L c, (u = c ∧ v = w) ∨ (u = w ∧ v = c)) ∨
+      (∃ b i, (u = e (false, p b i) ∧ v = e (true, l b i)) ∨
+        (u = e (true, l b i) ∧ v = e (false, p b i))))
+    (hcenters : centers.card ≤ t)
+    (roots : {c : Fin n // c ∈ centers} → Finset ℕ)
+    (hvalid : ∀ c, ∀ w ∈ roots c, w < n + C.gates.length)
+    (hpos : ∀ c, ∀ v ∈ L c.val, ∃ w ∈ roots c,
+      val C (List.ofFn (pairInput v v)) w = true)
+    (hfalse : ∀ c, ∀ w ∈ roots c,
+      val C (List.ofFn (complementInput (G.neighborFinset c.val))) w = false)
+    (hroots : (∑ c : {c : Fin n // c ∈ centers}, (roots c).card) ≤ t)
+    (a : Fin (t + 4 * B) → Fin C.gates.length)
+    (z : Fin (t + B - 1) → Fin C.gates.length)
+    (ha : Function.Injective a) (hz : Function.Injective z)
+    (haop : ∀ i, (gateAt C (a i).val).op = GateOp.and)
+    (hzop : ∀ i, (gateAt C (z i).val).op = GateOp.or)
+    (hzsmall : ∀ i, (singletonSupport n C (n + (z i).val)).card ≤ 1)
+    (hne : 1 ≤ t + B) :
+    ∃ T : Finset (Fin n), Cnf.Covers G T ∧ G.edgeFinset.card + T.card ≤ C.size + 1 := by
+  classical
+  have hexceptional := fun b => five_matching_embedded_linear_root I (F b)
+    (hthin b) (hsafe b) hIfour (p b) (l b) (hp b) (hl b) (hacc b) (hcard b)
+    e G hcross hline C hm rb (hwires b)
+  apply assigned_star_matching_dedup_semantic_cost G C hm rb hfour centers L
+    (fun b i => e (false, p b i)) (fun b i => e (true, l b i)) hcover hcenters
+    roots hvalid hpos hfalse hroots ?_ ?_ ?_ a z ha hz haop hzop hzsmall hne
+  · intro b
+    have h := (hexceptional b).1
+    omega
+  · intro b c
+    exact (hexceptional b).2.1 c.val
+  · intro b
+    obtain ⟨j, hj, hcomp⟩ := (hexceptional b).2.2
+    have hjlt : j < C.gates.length := mem_range.mp (mem_filter.mp hj).1
+    exact ⟨n + j, by omega, hcomp⟩
+
+end ThinBlock
+
 end PEqualNP.Outside.L_meta_2583
