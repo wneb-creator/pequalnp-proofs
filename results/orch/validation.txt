@@ -1,3 +1,5 @@
+Current4970 namedfile updatedto593lines25839bytes SHA825fd5fc2fb26a97e1e0eef366df29bcc3d42c7d0d85ba0bfc0e00fa6b61377b. Exact3sourcecomposition independentlyreviewed; namedlakebuild passed18423jobs. Guardonlymissingmaintheorem. NewhelpersboundsemanticORsupportcost anduniquestarcenters; fullgatecountstillunproved.
+
 CURRENT ASSIGNMENT: L-meta-4970, assigned after three null responses. Live root lease renewed at15:46UTC; advertised expiry16:06:04. No proof PR yet.
 Updated 2026-11-25T15:46:54.216097+00:00
 Named partial lean/PEqualNP/Outside/L_meta_4970.lean:234 lines10368bytes, SHA25639024ed2f2f3056bff56dc112abba2d60f5c5f85e1cf378f5118a43523051752. Named lakebuild passed; fulloutput validation/4970-build-support-budget.*. Independentreview PASS; plain-fileguard only missingfinaltheorem. Officialchecker notyet rerun for this checkpoint.

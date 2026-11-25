@@ -1,0 +1,29 @@
+[
+  {
+    "source": "/tmp/oec/pequalnp-pilot-99/gap4970/sat_encoding/SupportSemantic.lean",
+    "sha256": "cd5d23bc1b6c4c804cb17584bc40a6d51ad59813fa6f5f9d893547a56e687e3c",
+    "bytes": 16379,
+    "lines": 363,
+    "transform": "Remove import lines only; trim outer blank lines; retain full namespace bodies"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-99/gap4970/library_route/SemanticSupport.lean",
+    "sha256": "382498a7ac184c9c633816973766263a4cd2b0eb9a7c4c73d8d485e4696ecacc",
+    "bytes": 6433,
+    "lines": 156,
+    "transform": "Remove import lines only; trim outer blank lines; retain full namespace bodies"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-99/gap4970/reduction_strategy/StarUniqueness.lean",
+    "sha256": "25ebaee138b5b21888ba5a96128682681ae21022a7f44b5368d8221dd140522a",
+    "bytes": 3084,
+    "lines": 77,
+    "transform": "Remove import lines only; trim outer blank lines; retain full namespace bodies"
+  },
+  {
+    "target": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_meta_4970.lean",
+    "sha256": "825fd5fc2fb26a97e1e0eef366df29bcc3d42c7d0d85ba0bfc0e00fa6b61377b",
+    "bytes": 25839,
+    "lines": 593
+  }
+]
