@@ -8,3 +8,7 @@ Full posted lower bound: NOT PROVED. No proof PR yet. Local full-statement check
 
 Sub-agents: five (repository/review, counterexample search, Lean environment, structural argument, finite lower-bound search)
 TIMING total=10.11 subagents=5
+
+BinaryFloor.lean: lake env lean ../results/orch/lemmas/BinaryFloor.lean exited 0. Linter warnings only; full logs retained.
+Sub-agents: six (repository/review, counterexample search, Lean environment, structural argument, finite lower-bound search, primary-NOT elimination)
+TIMING total=11.73 subagents=6

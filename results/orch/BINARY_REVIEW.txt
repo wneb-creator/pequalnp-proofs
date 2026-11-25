@@ -1,0 +1,5 @@
+Independent root review: PASS for partial preservation.
+SHA256: c148b85b798f8154c163c8ab566bca5f51e7760089a0604b52c846f42bcfe3df
+Compared the full file against checked upstream L_meta_4725 after mechanically normalizing namespace, narrow tactic imports, and theorem-to-lemma spelling. The only remaining changes are the final lemma name and two omega corollaries proving at most four NOTs and excluding at least five.
+Kernel compile exit 0; complete compiler warnings and empty stderr retained in logs/.
+Full posted theorem remains unproved. File shape will be normalized to one helper namespace block for final integration.

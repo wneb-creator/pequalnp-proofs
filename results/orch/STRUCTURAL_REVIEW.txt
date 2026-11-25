@@ -1,6 +1,7 @@
-Independent review: PASS (status_and_review agent)
+Reviewed by status_and_review at 2026-11-25T14:10:43.008349+00:00
 Source: results/orch/lemmas/structural.lean
 SHA256: d51581e266ea19a5df155a6986570512354b1aa61c4686c50e48c977ba628618
-Checked all 1024 assignments for both automorphisms and independence bound, all 512 inputs for both cofactors, and ten essential-input witnesses.
-Allowed imports, scoped permitted options, module namespace, no prohibited tokens or axioms.
-This is a supporting partial, not the posted lower-bound theorem.
+Independent review verdict: PASS as a partial baseline; not a proof of L-meta-2592.
+Independently reevaluated all 1024 assignments for both graph automorphisms and independence number at most 4, all 512 nine-variable assignments for both cofactors, and all 10 essential-input witnesses. All pass.
+Imports are allowed Mathlib modules. Helper namespace lies below the target module. Both local resource options are permitted. No forbidden _root_ text, double quotes, admitted proofs, added axioms, native_decide, code-executing commands, or attributes.
+Root received a clean Lean compilation report from the source author. This reviewer independently checked the source and finite claims, rather than rerunning that compiler invocation.
