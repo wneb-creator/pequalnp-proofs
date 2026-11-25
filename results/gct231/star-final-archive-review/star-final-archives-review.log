@@ -1,0 +1,7 @@
+Start UTC 2026-11-25T12:39:35.218251+00:00
+star-pencil-audit exactmanifest/source/driver/full standard3axiom logs/status/text-only PASS;entries 14 inclusivebytes 238870
+star-pencil-compact exactmanifest/source/driver/full standard3axiom logs/status/text-only PASS;entries 24 inclusivebytes 245053
+Omitted large intermediate input/basis hashes verified by streaming; neither included inarchive or used asLean premise. Historical111153-byte README comparison refers to preserved initialsnapshot; checked precompression source is111187bytes.
+Scope: compact proof checks the same explicit scalar hypotheses; no geometric coverage/main theorem added. No compiler/solver rerun. Frozen originals unchanged.
+Finish UTC 2026-11-25T12:39:35.465768+00:00
+PASS

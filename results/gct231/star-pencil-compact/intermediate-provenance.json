@@ -1,0 +1,8 @@
+{
+  "omitted_reconstructible_linear_solver_input": "star-linear-compress.in",
+  "input_sha256": "5211316c0a8552eb8aa5e6106d62422bc4e41e59915ccaf18aeaa30528d6627d",
+  "omitted_linear_solver_basis": "star-linear-compress.basis.json",
+  "basis_sha256": "298070de4c70b53c6741ab6ad8272f55ec769bde7dee8fd4610f5ff1856cffeb",
+  "basis_bytes": 152190159,
+  "reason": "The final small exact polynomial certificate is independently checked directly; large intermediate linear-system representation is not required by the Lean proof."
+}

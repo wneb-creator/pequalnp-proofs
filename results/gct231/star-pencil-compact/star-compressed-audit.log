@@ -1,0 +1,9 @@
+'PEqualNP.Outside.L_gct_231_aux.StarPencil.r_eq_zero_of_coefficients' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.StarPencil.coefficients_force_standard_star' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.StarPencil.standard_star_triangle_extension_impossible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

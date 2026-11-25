@@ -1,0 +1,8 @@
+Start UTC 2026-11-25T12:37:41.426421+00:00
+Actual Lean hypothesis and balanced linear_combination syntax parsed independently; all7used primitive generators and244 multiplier terms match exact certificate. Sparse Fraction multiplication gives r exactly: PASS
+Elementary second theorem: r=0 gives p=q=0, normalized quadratics give(a+1)^2=(b+1)^2=0; no additional assumptions or divisions: PASS
+All original seven hypotheses, theorem conclusions, options and elementary corollary byte-identical; only denominator and linear_combination certificate changed: PASS
+Scoped options, two explicit conditional scalar theorems, standard proof tactics; no geometry/whole-gap claim. Source review only, compilation owned separately.
+Hashes {"StarPencilClassificationCompressed.lean": "fc97915621bef10f7bab6d5f77eeb8d566786fadc27fcca5d7b5d00896ad6963", "emit_star_lean.py": "02ab4394ddb0f2f1786fa24b6d6ca1d5abf23684e0ab0498016e831c40b2c87a", "star-r-native-compressed-certificate.json": "835210b111d2c5f58b557e587d22f64d589763a3477fcaf1eec47d24e58536e2", "star-lowdegree.json": "6a9a0555b52ae2feaa87a5de76a2d135e506487554f055d29926790982b2d71c"}
+Finish UTC 2026-11-25T12:37:41.517701+00:00
+PASS

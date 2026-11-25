@@ -1,0 +1,7 @@
+{
+  "returncode": 1,
+  "verdict": "REJECTED (no-theorem)",
+  "source_sha256": "d2a724e6eb3c78592987233a86919f6d41e2acdcdee49b7b4c862c92b770026a",
+  "source_archive": "../integration09/L_gct_231.lean",
+  "scope": "File compiles and all322helpers use standard axioms; required main theorem absent."
+}
