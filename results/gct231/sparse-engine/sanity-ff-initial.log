@@ -1,0 +1,21 @@
+unit 1009 PASS 1 basis elements 0.014618948000133969 seconds
+nonunit 1009 PASS 2 basis elements 0.005905882999286405 seconds
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/sanity_ff.py", line 43, in <module>
+    expected=s.groebner(polys,x,y,order='grevlex',**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/polys/polytools.py", line 7535, in groebner
+    return GroebnerBasis(F, *gens, **args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/polys/polytools.py", line 7565, in __new__
+    polys, opt = parallel_poly_from_expr(F, *gens, **args)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/polys/polytools.py", line 4687, in parallel_poly_from_expr
+    return _parallel_poly_from_expr(exprs, opt)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/polys/polytools.py", line 4765, in _parallel_poly_from_expr
+    coeffs_list = list(map(domain.from_sympy, coeffs_list))
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/sympy/polys/domains/finitefield.py", line 273, in from_sympy
+    raise CoercionFailed("expected an integer, got %s" % a)
+sympy.polys.polyerrors.CoercionFailed: expected an integer, got 1/2

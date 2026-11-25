@@ -1,0 +1,53 @@
+NEOGB nvars=2 ngens=3 characteristic=0 terms=7 exact_sparse=2 pairs=0 threads=1
+
+--------------- INPUT DATA ---------------
+#variables                       2
+#equations                       3
+#invalid equations               0
+field characteristic             0
+homogeneous input?               0
+signature-based computation      0
+monomial order                 DRL
+basis hash table resetting     OFF
+linear algebra option            2
+initial hash table size     131072 (2^17)
+max pair selection             ALL
+reduce gb                        1
+#threads                         1
+info level                       2
+generate pbm files               0
+------------------------------------------
+
+Legend for f4 information
+--------------------------------------------------------
+deg       current degree of pairs selected in this round
+sel       number of pairs selected in this round
+pairs     total number of pairs in pair list
+mat       matrix dimensions (# rows x # columns)
+density   density of the matrix
+new data  # new elements for basis in this round
+          # zero reductions during linear algebra
+time(rd)  time of the current f4 round in seconds given
+          for real and cpu time
+--------------------------------------------------------
+
+deg     sel   pairs        mat          density            new data         time(rd) in sec (real|cpu)
+------------------------------------------------------------------------------------------------------
+  1       1       2       2 x 2         100.00%      1 new       0 zeroAddressSanitizer:DEADLYSIGNAL
+=================================================================
+==34920==ERROR: AddressSanitizer: SEGV on unknown address (pc 0x7f3f6d5f9315 bp 0x7ffe627afee0 sp 0x7ffe627afdb0 T0)
+==34920==The signal is caused by a READ memory access.
+==34920==Hint: this fault was caused by a dereference of a high value address (see register values below).  Disassemble the provided pc to learn which register was used.
+    #0 0x7f3f6d5f9315 in insert_and_update_spairs msolve/src/neogb/update.c:83
+    #1 0x7f3f6d5f9315 in update_basis_f4 msolve/src/neogb/update.c:270
+    #2 0x7f3f6d63d81c in update msolve/src/neogb/update.c:330
+    #3 0x7f3f6d63d81c in core_f4 msolve/src/neogb/f4.c:712
+    #4 0x7f3f6d640e31 in export_f4 msolve/src/neogb/f4.c:827
+    #5 0x55f098a9110b in main /tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/neogb_cli.c:80
+    #6 0x7f3f6d285ca7  (/lib/x86_64-linux-gnu/libc.so.6+0x29ca7) (BuildId: 5e5b51f4c39af9ac589408c1dc432ba390a273cc)
+    #7 0x7f3f6d285d64 in __libc_start_main (/lib/x86_64-linux-gnu/libc.so.6+0x29d64) (BuildId: 5e5b51f4c39af9ac589408c1dc432ba390a273cc)
+    #8 0x55f098a90280 in _start (/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/neogb_cli_asan+0x2280) (BuildId: 3a5577b68e4419609278275d20d9df70bd4b4a42)
+
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV msolve/src/neogb/update.c:83 in insert_and_update_spairs
+==34920==ABORTING

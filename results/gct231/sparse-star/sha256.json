@@ -1,0 +1,20 @@
+{
+  "matroid-strata-review.log": "1886eef8d2e90382f29e02fa44c2572786f6d49572e7e522450c1a09b0e217f9",
+  "neogb-star-full-p1009-convert.log": "494ff4bfd0d6a6f2656ca822552a17c5e761868d721b8048de4ea5d9b42ab368",
+  "neogb-star-full-p1009-wrapper.log": "0aaf263de01f4583de7a982f536c05332b632243660acad26732f0f72e5f628a",
+  "neogb-star-full-p1009.in": "202aaa5800a1c3bf5ad98a2ee245d8c746c739a12055cf9058cb622cc6a7e242",
+  "neogb-star-full-p1009.log": "02417e383d236806104b9310bef5ffe2d868f6861a66358955e3086cc5bf7e0d",
+  "neogb-star-full-p1009.provenance.json": "7ca370e5240bea7a4c68decb7811aadaf9b2757eec4c34c79b3eadc06c401592",
+  "neogb-star-full-p1009.result.json": "ecade0a90b9f8cb869f0d15b23533a73cc55eb474f79fa0877ee1ee1cf51b126",
+  "neogb-star-full-qq-convert.log": "65248045bf6a31fd068d7ba39d060a8fe7ef7ee7412d9eaffd30c0c473524295",
+  "neogb-star-full-qq-preflight.log": "65669d543a22381e8afd7e8a4ddd51b1533feae094b8617e06c3c82b02d36e00",
+  "neogb-star-full-qq-wrapper.log": "9b41ac14970f536261f6285589c6100cfa8f1add9d3c791c05e2bd2d4192dec0",
+  "neogb-star-full-qq.in": "847ab23aa202751ce7a84db49f4ef0daf7fd552db5dffddb15c70319324b4b1a",
+  "neogb-star-full-qq.log": "5b3d898b854f5602cabc19e0bcd337e2d41b0953e2688633d3dd843b384fa198",
+  "neogb-star-full-qq.provenance.json": "d4c0b1a0cd0c3021b2081e42e5651a79c8edfa2377bb6291a2d68d63b40026ac",
+  "neogb-star-full-qq.result.json": "8f3e2e106f1dda34f28d405519914b250bd4dee2fbae9584a4becd55bdf1b638",
+  "neogb_convert.py": "09b461db367df308982f51de66aa41535f0447b2a7e5e4d9b897b157e595b5d7",
+  "preserve_sparse_star.py": "f4c8dc7f82a7858348f735eafe2b5a9aee5c90eea1fd5fc57635c9accbaa5acd",
+  "review_matroid_strata.py": "9517b6bbfffae93d97e555ee71abba069269fff08ef47c7e2e36131d23622530",
+  "review_neogb_input.py": "5d5ade4f3aa8ca61f6c4c411745c557fef0d2ab56afc434a0f6a3917108b4f44"
+}

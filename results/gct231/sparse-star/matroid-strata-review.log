@@ -1,0 +1,7 @@
+Raw eight star/triangle minors: [b*f - c*e, j, a, d*h - e*g, -c, e*j - f*h, a*e - b*d, -g]
+Reduced lex basis: [a, c, g, j, b*d, d*h, b*f, f*h]
+PASS ideal equality over QQ. Over any field, the displayed explicit
+minors give the same equations: a=c=g=j=0 and bd=bf=hd=hf=0.
+Consequently either d=f=0, or b=h=0.
+This is a conditional minor-stratification calculation, not a proof
+that the star/triangle charts have no permanent-constant planes.

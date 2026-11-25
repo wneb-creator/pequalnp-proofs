@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/neogb_cli",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/sanity-unit-p1009.in",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/sanity-unit-p1009.basis.json",
+    "0"
+  ],
+  "status": "COMPLETED",
+  "returncode": 0,
+  "seconds": 0.0052769429985346505,
+  "wall_limit_seconds": 20,
+  "memory_mib": 512,
+  "child_maxrss_kib": 7456,
+  "binary_sha256": "2311202927369c0251d2b22e0b0773374e5edd7e464481e441e6f3ecf64c7deb",
+  "input_sha256": "e94d16bc2a3c95c5586d541d1bb18ff161313b28fa56955a955de716c579cbae",
+  "unit_basis": true,
+  "basis_size": 1,
+  "output_sha256": "60a05f05bf20d9d650ab9bea795b069fe5be5368fac00b5d888e9175d5315e3a"
+}

@@ -1,0 +1,17 @@
+Review start UTC 2026-11-25T10:25:41.606332+00:00
+All17 frozen source/library/binary/control hashes verified
+Patched core differs only by the three stated pivot-count assignments
+Patched binary links the expected library using the recorded runpath
+frozen-unit-p0 PASS basis_size 1 unit True
+frozen-nonunit-p0 PASS basis_size 2 unit False
+frozen-rational-p0 PASS basis_size 2 unit False
+frozen-unit-p1009 PASS basis_size 1 unit True
+frozen-nonunit-p1009 PASS basis_size 2 unit False
+frozen-rational-p1009 PASS basis_size 2 unit False
+threevar-rational PASS basis_size 3 unit False
+threevar-unit PASS basis_size 1 unit True
+redundant-zero-reductions PASS basis_size 3 unit False
+All9 independent QQ/FF reduced-basis comparisons passed; frozen hashes unchanged
+Scope: tested research engine, not an ideal-membership certificate or Lean proof
+Review finish UTC 2026-11-25T10:25:42.330157+00:00
+PASS

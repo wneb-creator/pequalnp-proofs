@@ -1,0 +1,7 @@
+unit 0 PASS 1 basis elements 0.005015875000026426 seconds
+nonunit 0 PASS 2 basis elements 0.004826364000109606 seconds
+rational 0 PASS 2 basis elements 0.005111612001201138 seconds
+unit 1009 PASS 1 basis elements 0.004889837000519037 seconds
+nonunit 1009 PASS 2 basis elements 0.004878813999312115 seconds
+rational 1009 PASS 2 basis elements 0.004914674000247032 seconds
+ALL_SIX_SANITY_CASES_PASS

@@ -1,0 +1,4 @@
+unit 1009 PASS 1 basis elements 0.0052769429985346505 seconds
+nonunit 1009 PASS 2 basis elements 0.004868791000262718 seconds
+rational 1009 PASS 2 basis elements 0.004785230999914347 seconds
+ALL_THREE_FINITE_FIELD_SANITY_CASES_PASS

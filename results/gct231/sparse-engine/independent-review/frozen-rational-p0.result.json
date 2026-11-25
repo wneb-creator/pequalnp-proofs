@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/neogb_cli_qqfix",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/qqfix-sanity-rational-p0.in",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/independent-review/frozen-rational-p0.basis.json",
+    "0"
+  ],
+  "status": "COMPLETED",
+  "returncode": 0,
+  "seconds": 0.005290858998705517,
+  "wall_limit_seconds": 20,
+  "memory_mib": 512,
+  "child_maxrss_kib": 7484,
+  "binary_sha256": "644e650682ead6ec3d8c4c7b55dc335fb6bb6d883553c2b7c4dddcc48572d1ca",
+  "input_sha256": "4a5520c71e1027da2f36bc4854e9f560907a67c288fb69a4373858874ea17dd9",
+  "unit_basis": false,
+  "basis_size": 2,
+  "output_sha256": "c156ff069aed7a1a5f116578e6b1e1ff187231774e227dba7b12712ef0a3c1c3"
+}

@@ -1,0 +1,14 @@
+usage: run_neogb.py [-h] [--seconds SECONDS] [--memory-mib MEMORY_MIB]
+                    [--pairs PAIRS]
+                    input output prefix
+
+positional arguments:
+  input
+  output
+  prefix
+
+options:
+  -h, --help            show this help message and exit
+  --seconds SECONDS
+  --memory-mib MEMORY_MIB
+  --pairs PAIRS

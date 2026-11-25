@@ -1,0 +1,65 @@
+[
+  {
+    "name": "frozen-unit-p0",
+    "characteristic": 0,
+    "pairs_per_round": 0,
+    "basis_size": 1,
+    "unit": true
+  },
+  {
+    "name": "frozen-nonunit-p0",
+    "characteristic": 0,
+    "pairs_per_round": 0,
+    "basis_size": 2,
+    "unit": false
+  },
+  {
+    "name": "frozen-rational-p0",
+    "characteristic": 0,
+    "pairs_per_round": 0,
+    "basis_size": 2,
+    "unit": false
+  },
+  {
+    "name": "frozen-unit-p1009",
+    "characteristic": 1009,
+    "pairs_per_round": 0,
+    "basis_size": 1,
+    "unit": true
+  },
+  {
+    "name": "frozen-nonunit-p1009",
+    "characteristic": 1009,
+    "pairs_per_round": 0,
+    "basis_size": 2,
+    "unit": false
+  },
+  {
+    "name": "frozen-rational-p1009",
+    "characteristic": 1009,
+    "pairs_per_round": 0,
+    "basis_size": 2,
+    "unit": false
+  },
+  {
+    "name": "threevar-rational",
+    "characteristic": 0,
+    "pairs_per_round": 1,
+    "basis_size": 3,
+    "unit": false
+  },
+  {
+    "name": "threevar-unit",
+    "characteristic": 0,
+    "pairs_per_round": 1,
+    "basis_size": 1,
+    "unit": true
+  },
+  {
+    "name": "redundant-zero-reductions",
+    "characteristic": 0,
+    "pairs_per_round": 1,
+    "basis_size": 3,
+    "unit": false
+  }
+]

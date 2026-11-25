@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/neogb_cli_qqfix",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/qqfix-sanity-rational-p1009.in",
+    "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/qqfix-sanity-rational-p1009.basis.json",
+    "0"
+  ],
+  "status": "COMPLETED",
+  "returncode": 0,
+  "seconds": 0.004914674000247032,
+  "wall_limit_seconds": 20,
+  "memory_mib": 512,
+  "child_maxrss_kib": 7472,
+  "binary_sha256": "644e650682ead6ec3d8c4c7b55dc335fb6bb6d883553c2b7c4dddcc48572d1ca",
+  "input_sha256": "c124692f28ab92d18f94c9575bbe901bde4e72767f723edfe98ca19a4a0fec30",
+  "unit_basis": false,
+  "basis_size": 2,
+  "output_sha256": "745a440e358b95a895646e6a06828f5838345ac34602f6365812d469f756cd77"
+}

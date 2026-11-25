@@ -1,0 +1,7 @@
+PASS frozen Lean source hash: 4deb2bc9e8e6747c515336f607194f8a07b965e540b40a7274d3e72d1cea2d35
+PASS exact 18-parameter order and all16 matrix entries against reviewed JSON.
+PASS literal XY polynomial occurs identically in coefficient theorem and zero corollary.
+Manual source check: affine3 adds the all-ones matrix; mixed is pderiv0 pderiv1 at0.
+The mixed derivative selects XY with factorial1. The zero corollary assumes the
+full polynomial identity and uses mixed_nat24. No algebraic inconsistency is claimed.
+Build status is independently supplied by library_route; this review does not rerun Lean.

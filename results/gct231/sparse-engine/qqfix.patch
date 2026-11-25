@@ -1,0 +1,27 @@
+--- msolve/src/neogb/la_qq.c
++++ qqfix/la_qq.c
+@@ -754,6 +754,7 @@
+     mat->cf_ab_qq  = realloc(mat->cf_ab_qq,
+             (unsigned long)mat->nru * sizeof(mpz_t *));
+     exact_sparse_reduced_echelon_form_ab_first_qq(mat, bs, st);
++    st->np = mat->np;
+ 
+     /* timings */
+     ct1 = cputime();
+@@ -784,6 +785,7 @@
+     mat->cf_qq  = realloc(mat->cf_qq,
+             (unsigned long)mat->nrl * sizeof(mpz_t *));
+     exact_sparse_reduced_echelon_form_qq(mat, bs, st);
++    st->np = mat->np;
+ 
+     /* timings */
+     ct1 = cputime();
+@@ -869,7 +871,7 @@
+     }
+     free(mat->rr);
+     mat->rr = NULL;
+-    mat->np = nrows;
++    st->np = mat->np = nrows;
+     free(pivs);
+     for (i = 0; i < ncols; ++i) {
+         mpz_clear(dr[i]);

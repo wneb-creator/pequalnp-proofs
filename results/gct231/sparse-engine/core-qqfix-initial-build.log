@@ -1,0 +1,9 @@
+In file included from qqfix/gb.c:41:
+qqfix/la_qq.c: In function ‘exact_sparse_reduced_echelon_form_ab_first_qq’:
+qqfix/la_qq.c:564:12: error: assignment of member ‘np’ in read-only object
+  564 |     st->np = mat->np = mat->nr = mat->sz = npivs;
+      |            ^
+qqfix/la_qq.c: In function ‘exact_sparse_reduced_echelon_form_qq’:
+qqfix/la_qq.c:735:12: error: assignment of member ‘np’ in read-only object
+  735 |     st->np = mat->np = mat->nr = mat->sz = npivs;
+      |            ^

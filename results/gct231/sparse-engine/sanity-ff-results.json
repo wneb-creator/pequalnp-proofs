@@ -1,0 +1,34 @@
+[
+  {
+    "case": "unit",
+    "characteristic": 1009,
+    "expected_basis": [
+      "Poly(1, x, y, modulus=1009)"
+    ],
+    "status": "PASS",
+    "input_sha256": "e94d16bc2a3c95c5586d541d1bb18ff161313b28fa56955a955de716c579cbae",
+    "output_sha256": "60a05f05bf20d9d650ab9bea795b069fe5be5368fac00b5d888e9175d5315e3a"
+  },
+  {
+    "case": "nonunit",
+    "characteristic": 1009,
+    "expected_basis": [
+      "Poly(x**2 - y, x, y, modulus=1009)",
+      "Poly(y**2 - 1, x, y, modulus=1009)"
+    ],
+    "status": "PASS",
+    "input_sha256": "69903df1a1b76b62d04ba608b17475d1be5b56be8fbfe8671d39d2fa0fa53b9f",
+    "output_sha256": "e2f9b8cfb7149e4fca51eb48fad6245be9b30d24b09d56c3bdcb6c0ef63d018b"
+  },
+  {
+    "case": "rational",
+    "characteristic": 1009,
+    "expected_basis": [
+      "Poly(x, x, y, modulus=1009)",
+      "Poly(y, x, y, modulus=1009)"
+    ],
+    "status": "PASS",
+    "input_sha256": "c124692f28ab92d18f94c9575bbe901bde4e72767f723edfe98ca19a4a0fec30",
+    "output_sha256": "745a440e358b95a895646e6a06828f5838345ac34602f6365812d469f756cd77"
+  }
+]
