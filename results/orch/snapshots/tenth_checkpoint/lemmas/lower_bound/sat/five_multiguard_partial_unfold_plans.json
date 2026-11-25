@@ -1,0 +1,4489 @@
+[
+  {
+    "index": 373,
+    "gates": 18,
+    "errors": 26,
+    "slots": 5,
+    "cost": 5,
+    "missing_before": 9,
+    "missing_after": 1,
+    "plan": [
+      [
+        19,
+        [
+          5,
+          10,
+          14
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ],
+      [
+        51,
+        [
+          6,
+          7,
+          9
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 374,
+    "gates": 18,
+    "errors": 26,
+    "slots": 5,
+    "cost": 5,
+    "missing_before": 9,
+    "missing_after": 1,
+    "plan": [
+      [
+        19,
+        [
+          5,
+          10,
+          14
+        ]
+      ],
+      [
+        24,
+        [
+          8,
+          11,
+          12
+        ]
+      ],
+      [
+        48,
+        [
+          6,
+          7
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 375,
+    "gates": 18,
+    "errors": 26,
+    "slots": 5,
+    "cost": 5,
+    "missing_before": 9,
+    "missing_after": 1,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        24,
+        [
+          8,
+          11,
+          12
+        ]
+      ],
+      [
+        51,
+        [
+          6,
+          7,
+          9
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 315,
+    "gates": 19,
+    "errors": 26,
+    "slots": 4,
+    "cost": 4,
+    "missing_before": 10,
+    "missing_after": 2,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ],
+      [
+        49,
+        [
+          6,
+          9
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 316,
+    "gates": 19,
+    "errors": 26,
+    "slots": 4,
+    "cost": 4,
+    "missing_before": 10,
+    "missing_after": 2,
+    "plan": [
+      [
+        16,
+        [
+          5,
+          10
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ],
+      [
+        48,
+        [
+          6,
+          7
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 318,
+    "gates": 19,
+    "errors": 26,
+    "slots": 4,
+    "cost": 4,
+    "missing_before": 10,
+    "missing_after": 2,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ],
+      [
+        48,
+        [
+          6,
+          7
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 325,
+    "gates": 19,
+    "errors": 26,
+    "slots": 4,
+    "cost": 4,
+    "missing_before": 10,
+    "missing_after": 2,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ],
+      [
+        50,
+        [
+          7,
+          9
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 326,
+    "gates": 19,
+    "errors": 26,
+    "slots": 4,
+    "cost": 4,
+    "missing_before": 10,
+    "missing_after": 2,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ],
+      [
+        48,
+        [
+          6,
+          7
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 327,
+    "gates": 19,
+    "errors": 26,
+    "slots": 4,
+    "cost": 4,
+    "missing_before": 10,
+    "missing_after": 2,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        21,
+        [
+          8,
+          11
+        ]
+      ],
+      [
+        48,
+        [
+          6,
+          7
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 0,
+    "gates": 22,
+    "errors": 22,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 5,
+    "missing_after": 3,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 1,
+    "gates": 22,
+    "errors": 22,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 5,
+    "missing_after": 3,
+    "plan": [
+      [
+        26,
+        [
+          6,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 10,
+    "gates": 22,
+    "errors": 22,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 5,
+    "missing_after": 3,
+    "plan": [
+      [
+        45,
+        [
+          7,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 11,
+    "gates": 22,
+    "errors": 22,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 5,
+    "missing_after": 3,
+    "plan": [
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 56,
+    "gates": 22,
+    "errors": 24,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 5,
+    "missing_after": 3,
+    "plan": [
+      [
+        16,
+        [
+          5,
+          10
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 57,
+    "gates": 22,
+    "errors": 24,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 5,
+    "missing_after": 3,
+    "plan": [
+      [
+        50,
+        [
+          7,
+          9
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 58,
+    "gates": 22,
+    "errors": 24,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 5,
+    "missing_after": 3,
+    "plan": [
+      [
+        22,
+        [
+          8,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 59,
+    "gates": 22,
+    "errors": 24,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 5,
+    "missing_after": 3,
+    "plan": [
+      [
+        18,
+        [
+          10,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 60,
+    "gates": 22,
+    "errors": 24,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 5,
+    "missing_after": 3,
+    "plan": [
+      [
+        49,
+        [
+          6,
+          9
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 61,
+    "gates": 22,
+    "errors": 24,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 5,
+    "missing_after": 3,
+    "plan": [
+      [
+        21,
+        [
+          8,
+          11
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 317,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 8,
+    "missing_after": 3,
+    "plan": [
+      [
+        19,
+        [
+          5,
+          10,
+          14
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 319,
+    "gates": 19,
+    "errors": 26,
+    "slots": 4,
+    "cost": 4,
+    "missing_before": 10,
+    "missing_after": 3,
+    "plan": [
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        24,
+        [
+          8,
+          11,
+          12
+        ]
+      ],
+      [
+        45,
+        [
+          7,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 321,
+    "gates": 19,
+    "errors": 26,
+    "slots": 4,
+    "cost": 4,
+    "missing_before": 10,
+    "missing_after": 3,
+    "plan": [
+      [
+        19,
+        [
+          5,
+          10,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        26,
+        [
+          6,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 323,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 8,
+    "missing_after": 3,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        24,
+        [
+          8,
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 324,
+    "gates": 19,
+    "errors": 26,
+    "slots": 4,
+    "cost": 4,
+    "missing_before": 10,
+    "missing_after": 3,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        24,
+        [
+          8,
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 347,
+    "gates": 19,
+    "errors": 26,
+    "slots": 4,
+    "cost": 4,
+    "missing_before": 10,
+    "missing_after": 3,
+    "plan": [
+      [
+        19,
+        [
+          5,
+          10,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 348,
+    "gates": 19,
+    "errors": 26,
+    "slots": 4,
+    "cost": 4,
+    "missing_before": 10,
+    "missing_after": 3,
+    "plan": [
+      [
+        19,
+        [
+          5,
+          10,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 349,
+    "gates": 19,
+    "errors": 26,
+    "slots": 4,
+    "cost": 4,
+    "missing_before": 10,
+    "missing_after": 3,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        24,
+        [
+          8,
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 376,
+    "gates": 19,
+    "errors": 26,
+    "slots": 4,
+    "cost": 4,
+    "missing_before": 9,
+    "missing_after": 3,
+    "plan": [
+      [
+        19,
+        [
+          5,
+          10,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 377,
+    "gates": 19,
+    "errors": 26,
+    "slots": 4,
+    "cost": 4,
+    "missing_before": 9,
+    "missing_after": 3,
+    "plan": [
+      [
+        19,
+        [
+          5,
+          10,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 12,
+    "gates": 22,
+    "errors": 22,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 6,
+    "missing_after": 4,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 17,
+    "gates": 22,
+    "errors": 22,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 6,
+    "missing_after": 4,
+    "plan": [
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 18,
+    "gates": 22,
+    "errors": 22,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 6,
+    "missing_after": 4,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 19,
+    "gates": 22,
+    "errors": 22,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 6,
+    "missing_after": 4,
+    "plan": [
+      [
+        48,
+        [
+          6,
+          7
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 20,
+    "gates": 22,
+    "errors": 22,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 6,
+    "missing_after": 4,
+    "plan": [
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 36,
+    "gates": 22,
+    "errors": 23,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 6,
+    "missing_after": 4,
+    "plan": [
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 37,
+    "gates": 22,
+    "errors": 23,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 6,
+    "missing_after": 4,
+    "plan": [
+      [
+        31,
+        [
+          9,
+          11
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 38,
+    "gates": 22,
+    "errors": 23,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 6,
+    "missing_after": 4,
+    "plan": [
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 49,
+    "gates": 22,
+    "errors": 23,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 6,
+    "missing_after": 4,
+    "plan": [
+      [
+        16,
+        [
+          5,
+          10
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 52,
+    "gates": 22,
+    "errors": 23,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 5,
+    "missing_after": 4,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 65,
+    "gates": 22,
+    "errors": 24,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 6,
+    "missing_after": 4,
+    "plan": [
+      [
+        50,
+        [
+          7,
+          9
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 66,
+    "gates": 22,
+    "errors": 24,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 6,
+    "missing_after": 4,
+    "plan": [
+      [
+        16,
+        [
+          5,
+          10
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 68,
+    "gates": 22,
+    "errors": 24,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 6,
+    "missing_after": 4,
+    "plan": [
+      [
+        31,
+        [
+          9,
+          11
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 69,
+    "gates": 22,
+    "errors": 24,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 6,
+    "missing_after": 4,
+    "plan": [
+      [
+        21,
+        [
+          8,
+          11
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 70,
+    "gates": 22,
+    "errors": 24,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 6,
+    "missing_after": 4,
+    "plan": [
+      [
+        49,
+        [
+          6,
+          9
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 259,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 8,
+    "missing_after": 4,
+    "plan": [
+      [
+        18,
+        [
+          10,
+          14
+        ]
+      ],
+      [
+        48,
+        [
+          6,
+          7
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 260,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 8,
+    "missing_after": 4,
+    "plan": [
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ],
+      [
+        49,
+        [
+          6,
+          9
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 261,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 8,
+    "missing_after": 4,
+    "plan": [
+      [
+        16,
+        [
+          5,
+          10
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 262,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 8,
+    "missing_after": 4,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        50,
+        [
+          7,
+          9
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 263,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 8,
+    "missing_after": 4,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        21,
+        [
+          8,
+          11
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 264,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 8,
+    "missing_after": 4,
+    "plan": [
+      [
+        22,
+        [
+          8,
+          12
+        ]
+      ],
+      [
+        48,
+        [
+          6,
+          7
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 267,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 8,
+    "missing_after": 4,
+    "plan": [
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        31,
+        [
+          9,
+          11
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 268,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 8,
+    "missing_after": 4,
+    "plan": [
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        31,
+        [
+          9,
+          11
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 291,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 7,
+    "missing_after": 4,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 330,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 10,
+    "missing_after": 4,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 331,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 10,
+    "missing_after": 4,
+    "plan": [
+      [
+        16,
+        [
+          5,
+          10
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 332,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 8,
+    "missing_after": 4,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 333,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 10,
+    "missing_after": 4,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 335,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 10,
+    "missing_after": 4,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 336,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 10,
+    "missing_after": 4,
+    "plan": [
+      [
+        16,
+        [
+          5,
+          10
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 337,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 8,
+    "missing_after": 4,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 338,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 10,
+    "missing_after": 4,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 350,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 10,
+    "missing_after": 4,
+    "plan": [
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ],
+      [
+        48,
+        [
+          6,
+          7
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 351,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 10,
+    "missing_after": 4,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 352,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 10,
+    "missing_after": 4,
+    "plan": [
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ],
+      [
+        48,
+        [
+          6,
+          7
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 353,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 10,
+    "missing_after": 4,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 356,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 9,
+    "missing_after": 4,
+    "plan": [
+      [
+        19,
+        [
+          5,
+          10,
+          14
+        ]
+      ],
+      [
+        31,
+        [
+          9,
+          11
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 357,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 9,
+    "missing_after": 4,
+    "plan": [
+      [
+        19,
+        [
+          5,
+          10,
+          14
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 358,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 9,
+    "missing_after": 4,
+    "plan": [
+      [
+        19,
+        [
+          5,
+          10,
+          14
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 359,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 9,
+    "missing_after": 4,
+    "plan": [
+      [
+        19,
+        [
+          5,
+          10,
+          14
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 360,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 9,
+    "missing_after": 4,
+    "plan": [
+      [
+        19,
+        [
+          5,
+          10,
+          14
+        ]
+      ],
+      [
+        26,
+        [
+          6,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 361,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 9,
+    "missing_after": 4,
+    "plan": [
+      [
+        19,
+        [
+          5,
+          10,
+          14
+        ]
+      ],
+      [
+        26,
+        [
+          6,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 362,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 9,
+    "missing_after": 4,
+    "plan": [
+      [
+        19,
+        [
+          5,
+          10,
+          14
+        ]
+      ],
+      [
+        21,
+        [
+          8,
+          11
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 363,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 9,
+    "missing_after": 4,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        24,
+        [
+          8,
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 364,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 9,
+    "missing_after": 4,
+    "plan": [
+      [
+        16,
+        [
+          5,
+          10
+        ]
+      ],
+      [
+        24,
+        [
+          8,
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 365,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 8,
+    "missing_after": 4,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        26,
+        [
+          6,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 366,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 9,
+    "missing_after": 4,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        24,
+        [
+          8,
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 21,
+    "gates": 23,
+    "errors": 23,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 5,
+    "missing_after": 5,
+    "plan": []
+  },
+  {
+    "index": 22,
+    "gates": 23,
+    "errors": 23,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 5,
+    "missing_after": 5,
+    "plan": []
+  },
+  {
+    "index": 23,
+    "gates": 23,
+    "errors": 23,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 5,
+    "missing_after": 5,
+    "plan": []
+  },
+  {
+    "index": 50,
+    "gates": 22,
+    "errors": 23,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 7,
+    "missing_after": 5,
+    "plan": [
+      [
+        21,
+        [
+          8,
+          11
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 53,
+    "gates": 22,
+    "errors": 23,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 7,
+    "missing_after": 5,
+    "plan": [
+      [
+        31,
+        [
+          9,
+          11
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 55,
+    "gates": 22,
+    "errors": 23,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 7,
+    "missing_after": 5,
+    "plan": [
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 63,
+    "gates": 22,
+    "errors": 24,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 7,
+    "missing_after": 5,
+    "plan": [
+      [
+        16,
+        [
+          5,
+          10
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 64,
+    "gates": 22,
+    "errors": 24,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 7,
+    "missing_after": 5,
+    "plan": [
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 67,
+    "gates": 23,
+    "errors": 24,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 5,
+    "missing_after": 5,
+    "plan": []
+  },
+  {
+    "index": 89,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 7,
+    "missing_after": 5,
+    "plan": [
+      [
+        48,
+        [
+          6,
+          7
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 90,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 7,
+    "missing_after": 5,
+    "plan": [
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 91,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 7,
+    "missing_after": 5,
+    "plan": [
+      [
+        26,
+        [
+          6,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 92,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 7,
+    "missing_after": 5,
+    "plan": [
+      [
+        45,
+        [
+          7,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 96,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 7,
+    "missing_after": 5,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 97,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 7,
+    "missing_after": 5,
+    "plan": [
+      [
+        48,
+        [
+          6,
+          7
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 265,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 9,
+    "missing_after": 5,
+    "plan": [
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        31,
+        [
+          9,
+          11
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 266,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 9,
+    "missing_after": 5,
+    "plan": [
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        31,
+        [
+          9,
+          11
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 269,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 7,
+    "missing_after": 5,
+    "plan": [
+      [
+        26,
+        [
+          6,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 270,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 9,
+    "missing_after": 5,
+    "plan": [
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        31,
+        [
+          9,
+          11
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 271,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 9,
+    "missing_after": 5,
+    "plan": [
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        31,
+        [
+          9,
+          11
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 276,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 7,
+    "missing_after": 5,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 280,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 9,
+    "missing_after": 5,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 281,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 9,
+    "missing_after": 5,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 282,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 11,
+    "missing_after": 5,
+    "plan": [
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        21,
+        [
+          8,
+          11
+        ]
+      ],
+      [
+        26,
+        [
+          6,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 283,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 11,
+    "missing_after": 5,
+    "plan": [
+      [
+        16,
+        [
+          5,
+          10
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        26,
+        [
+          6,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 285,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 7,
+    "missing_after": 5,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 290,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 9,
+    "missing_after": 5,
+    "plan": [
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 292,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 9,
+    "missing_after": 5,
+    "plan": [
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        26,
+        [
+          6,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 294,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 9,
+    "missing_after": 5,
+    "plan": [
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 295,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 11,
+    "missing_after": 5,
+    "plan": [
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ],
+      [
+        33,
+        [
+          8,
+          9
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 297,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 11,
+    "missing_after": 5,
+    "plan": [
+      [
+        16,
+        [
+          5,
+          10
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 298,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 11,
+    "missing_after": 5,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 301,
+    "gates": 20,
+    "errors": 26,
+    "slots": 3,
+    "cost": 3,
+    "missing_before": 11,
+    "missing_after": 5,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        26,
+        [
+          6,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 302,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 9,
+    "missing_after": 5,
+    "plan": [
+      [
+        16,
+        [
+          5,
+          10
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 303,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 9,
+    "missing_after": 5,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 307,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 7,
+    "missing_after": 5,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 27,
+    "gates": 23,
+    "errors": 23,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 28,
+    "gates": 23,
+    "errors": 23,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 29,
+    "gates": 23,
+    "errors": 23,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 42,
+    "gates": 23,
+    "errors": 23,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 43,
+    "gates": 23,
+    "errors": 23,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 45,
+    "gates": 23,
+    "errors": 23,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 74,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 75,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 76,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 77,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 78,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 79,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 183,
+    "gates": 22,
+    "errors": 25,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 8,
+    "missing_after": 6,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 184,
+    "gates": 22,
+    "errors": 25,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 8,
+    "missing_after": 6,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 80,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 81,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 82,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 83,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 84,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 85,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 86,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 87,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 88,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 93,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 94,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 95,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 200,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 8,
+    "missing_after": 6,
+    "plan": [
+      [
+        31,
+        [
+          9,
+          11
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 201,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 8,
+    "missing_after": 6,
+    "plan": [
+      [
+        31,
+        [
+          9,
+          11
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 202,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 8,
+    "missing_after": 6,
+    "plan": [
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 203,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 8,
+    "missing_after": 6,
+    "plan": [
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 204,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 8,
+    "missing_after": 6,
+    "plan": [
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 205,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 8,
+    "missing_after": 6,
+    "plan": [
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 215,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 10,
+    "missing_after": 6,
+    "plan": [
+      [
+        18,
+        [
+          10,
+          14
+        ]
+      ],
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 216,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 10,
+    "missing_after": 6,
+    "plan": [
+      [
+        18,
+        [
+          10,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 217,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 10,
+    "missing_after": 6,
+    "plan": [
+      [
+        16,
+        [
+          5,
+          10
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 218,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 10,
+    "missing_after": 6,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        22,
+        [
+          8,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 219,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 10,
+    "missing_after": 6,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ],
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 220,
+    "gates": 21,
+    "errors": 26,
+    "slots": 2,
+    "cost": 2,
+    "missing_before": 10,
+    "missing_after": 6,
+    "plan": [
+      [
+        20,
+        [
+          13,
+          15
+        ]
+      ],
+      [
+        22,
+        [
+          8,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 230,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 231,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 232,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 6,
+    "missing_after": 6,
+    "plan": []
+  },
+  {
+    "index": 304,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 8,
+    "missing_after": 6,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 47,
+    "gates": 23,
+    "errors": 23,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 7,
+    "missing_after": 7,
+    "plan": []
+  },
+  {
+    "index": 62,
+    "gates": 23,
+    "errors": 24,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 7,
+    "missing_after": 7,
+    "plan": []
+  },
+  {
+    "index": 71,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 7,
+    "missing_after": 7,
+    "plan": []
+  },
+  {
+    "index": 72,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 7,
+    "missing_after": 7,
+    "plan": []
+  },
+  {
+    "index": 73,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 7,
+    "missing_after": 7,
+    "plan": []
+  },
+  {
+    "index": 173,
+    "gates": 22,
+    "errors": 25,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 9,
+    "missing_after": 7,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 175,
+    "gates": 22,
+    "errors": 25,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 9,
+    "missing_after": 7,
+    "plan": [
+      [
+        26,
+        [
+          6,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 178,
+    "gates": 22,
+    "errors": 25,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 9,
+    "missing_after": 7,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 182,
+    "gates": 22,
+    "errors": 25,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 9,
+    "missing_after": 7,
+    "plan": [
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 187,
+    "gates": 22,
+    "errors": 25,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 9,
+    "missing_after": 7,
+    "plan": [
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 188,
+    "gates": 22,
+    "errors": 25,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 9,
+    "missing_after": 7,
+    "plan": [
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 189,
+    "gates": 22,
+    "errors": 25,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 9,
+    "missing_after": 7,
+    "plan": [
+      [
+        23,
+        [
+          11,
+          12
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 192,
+    "gates": 22,
+    "errors": 25,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 9,
+    "missing_after": 7,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 193,
+    "gates": 22,
+    "errors": 25,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 9,
+    "missing_after": 7,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 195,
+    "gates": 22,
+    "errors": 25,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 9,
+    "missing_after": 7,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 197,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 9,
+    "missing_after": 7,
+    "plan": [
+      [
+        16,
+        [
+          5,
+          10
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 198,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 9,
+    "missing_after": 7,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 199,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 9,
+    "missing_after": 7,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 379,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 9,
+    "missing_after": 7,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 381,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 9,
+    "missing_after": 7,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 112,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 8,
+    "missing_after": 8,
+    "plan": []
+  },
+  {
+    "index": 113,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 8,
+    "missing_after": 8,
+    "plan": []
+  },
+  {
+    "index": 114,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 8,
+    "missing_after": 8,
+    "plan": []
+  },
+  {
+    "index": 115,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 8,
+    "missing_after": 8,
+    "plan": []
+  },
+  {
+    "index": 116,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 8,
+    "missing_after": 8,
+    "plan": []
+  },
+  {
+    "index": 117,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 8,
+    "missing_after": 8,
+    "plan": []
+  },
+  {
+    "index": 121,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 8,
+    "missing_after": 8,
+    "plan": []
+  },
+  {
+    "index": 122,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 8,
+    "missing_after": 8,
+    "plan": []
+  },
+  {
+    "index": 123,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 8,
+    "missing_after": 8,
+    "plan": []
+  },
+  {
+    "index": 124,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 8,
+    "missing_after": 8,
+    "plan": []
+  },
+  {
+    "index": 126,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 8,
+    "missing_after": 8,
+    "plan": []
+  },
+  {
+    "index": 127,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 8,
+    "missing_after": 8,
+    "plan": []
+  },
+  {
+    "index": 129,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 8,
+    "missing_after": 8,
+    "plan": []
+  },
+  {
+    "index": 130,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 8,
+    "missing_after": 8,
+    "plan": []
+  },
+  {
+    "index": 131,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 8,
+    "missing_after": 8,
+    "plan": []
+  },
+  {
+    "index": 133,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 8,
+    "missing_after": 8,
+    "plan": []
+  },
+  {
+    "index": 134,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 8,
+    "missing_after": 8,
+    "plan": []
+  },
+  {
+    "index": 137,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 8,
+    "missing_after": 8,
+    "plan": []
+  },
+  {
+    "index": 146,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 8,
+    "missing_after": 8,
+    "plan": []
+  },
+  {
+    "index": 378,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 10,
+    "missing_after": 8,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 380,
+    "gates": 22,
+    "errors": 26,
+    "slots": 1,
+    "cost": 1,
+    "missing_before": 10,
+    "missing_after": 8,
+    "plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ]
+  },
+  {
+    "index": 102,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 103,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 104,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 105,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 106,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 107,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 108,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 109,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 110,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 171,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 172,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 174,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 176,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 177,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 180,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 185,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 186,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 190,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 191,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 194,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 196,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 9,
+    "missing_after": 9,
+    "plan": []
+  },
+  {
+    "index": 143,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 144,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 145,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 147,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 148,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 149,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 150,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 151,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 157,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 158,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 159,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 160,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 161,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 162,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 163,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 164,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 165,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 166,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 167,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 168,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 169,
+    "gates": 23,
+    "errors": 25,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 288,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 289,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 339,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 340,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 341,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 342,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 343,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 344,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 345,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 346,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 354,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 355,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 367,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 368,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 369,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 370,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 371,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  },
+  {
+    "index": 372,
+    "gates": 23,
+    "errors": 26,
+    "slots": 0,
+    "cost": 0,
+    "missing_before": 10,
+    "missing_after": 10,
+    "plan": []
+  }
+]

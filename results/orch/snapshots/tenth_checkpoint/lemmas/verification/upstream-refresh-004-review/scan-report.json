@@ -1,0 +1,66 @@
+{
+  "time_utc": "2026-11-25T06:39:22.621201+00:00",
+  "old": "2239e82d294e0253da98cc18db45925e77796b01",
+  "head": "343363ea3f4ee0bf646666b5d9f3f1fdff48fe39",
+  "counts": {
+    "L_": 348,
+    "R_": 19
+  },
+  "scope": "Read-only fetch/extraction/signature scan; no merge or project-source update; newly read source not locally rebuilt.",
+  "result": "No L650 proof/refutation, unconditional OR51 or global AND14+, or unconditional cost-preserving dirty-clean normalization located.",
+  "useful": [
+    {
+      "file": "L_meta_7541.lean",
+      "scope": "Monotone2 circuit with a false input converts to equivalent26-input AndCount using no more AND gates; individual operand/dirty-truth preservation is not asserted."
+    },
+    {
+      "file": "L_meta_8043.lean",
+      "scope": "Monotone2 circuit dual converts to27-input AndCount whose size is bounded by original OR count."
+    },
+    {
+      "file": "L_meta_7824.lean",
+      "scope": "52\u2264AndCount size+1 from52 rejected inputs,4 positive join witnesses, AND critically every gate active on every one of the4 positives. This activity premise is not discharged."
+    },
+    {
+      "file": "L_meta_8097.lean",
+      "scope": "Minimal vertex cover is a union of selected raw left/right wings from disjoint AND index sets under Computes/outVars empty."
+    },
+    {
+      "file": "L_meta_8265.lean",
+      "scope": "Every vertex cover yields a shared OR-step star-set derivation bounded by OR count; no edges-minus-one lower bound directly stated."
+    },
+    {
+      "file": "L_meta_7975.lean",
+      "scope": "OR-cone AND-source representation under explicit per-variable rejection witnesses."
+    }
+  ],
+  "nonapplicable": [
+    {
+      "file": "L_meta_7503.lean",
+      "reason": "Requires both a NOT gate and IsAO2, so its stated normalization has inconsistent premises."
+    },
+    {
+      "file": "L_meta_7255.lean",
+      "reason": "Requires zero vertices and a nonempty edge, so HasBlockCost conclusion is vacuous."
+    }
+  ],
+  "reduction_review": "status_review inspected all19; local-repair/singleton-cleaning/noC4 hard cases remain hypotheses. See reviewer-refresh004-reduction-statements.json.",
+  "additional_structural_tools": [
+    {
+      "file": "L_meta_5779.lean",
+      "scope": "LeastAO nonempty-graph circuit admits TopForm at same size and same junk count."
+    },
+    {
+      "file": "L_meta_5781.lean",
+      "scope": "Edge+cover/count inequality with Ustar deficit for leastAO TopForm; full exact hypotheses retained in final-statements-complete.json."
+    },
+    {
+      "file": "L_meta_8103.lean",
+      "scope": "NoC4 leastAO TopForm with nonemptyUstar and exactlyonejunk has cover charge sufficient to cancel Ustar deficit."
+    },
+    {
+      "file": "L_meta_7895.lean",
+      "scope": "Exactlytwojunk dichotomy leaves an explicit nested-chain exception; not unconditional cleaning."
+    }
+  ]
+}

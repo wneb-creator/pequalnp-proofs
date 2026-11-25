@@ -1,0 +1,12 @@
+{
+  "core_gates": 21,
+  "outside_gates": 39,
+  "prefix_extra_cost": 0,
+  "gates": 61,
+  "within_budget": true,
+  "used_features": [
+    20,
+    29,
+    36
+  ]
+}

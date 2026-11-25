@@ -1,0 +1,2 @@
+PASS all156 exact66/14AND double-star phases; every output DNF is exactly the52 target edges
+All ANDs positive-live and negative-child-incomparable; no63-gate witness claimed

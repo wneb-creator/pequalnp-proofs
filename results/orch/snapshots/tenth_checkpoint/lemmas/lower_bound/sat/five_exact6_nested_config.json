@@ -1,0 +1,116 @@
+{
+  "argv": [
+    "python3",
+    "results/orch/lemmas/lower_bound/sat/joint_five_owner_sat.py",
+    "results/orch/lemmas/algebra_strategy/five-owner-joint-packet.json",
+    "/tmp/oec/pequalnp-pilot-57/joint-five-exact6-nested",
+    "--phase-file",
+    "results/orch/lemmas/lower_bound/sat/five_exact6_nested_phase.json",
+    "--symmetry-data",
+    "results/orch/lemmas/lower_bound/sat/joint_five_owner_symmetry.json",
+    "--seconds",
+    "300",
+    "--rounds",
+    "4",
+    "--seed",
+    "57861",
+    "--and-count",
+    "6",
+    "--min-and-count",
+    "6",
+    "--crossings",
+    "--kraft",
+    "--kraft-exponential"
+  ],
+  "status": "LAUNCHING",
+  "prepared_utc": "2026-11-25T06:29:59.037189+00:00",
+  "phase_sha256": "3a8c4266c589c0dfc7bae5930d84cf64a6db21759a5883930aa07e59ff21e648",
+  "five_only_cuts": "disabled",
+  "kraft_capacity": 64,
+  "negative_family": 30,
+  "weighted_extra_capacity": 34,
+  "scope": "Exact6-AND physical five-owner23, not a7+AND exclusion",
+  "phase": {
+    "unfold_plan": [
+      [
+        17,
+        [
+          5,
+          14
+        ]
+      ]
+    ],
+    "rewrites": [],
+    "missing_raw": [
+      9,
+      12,
+      15
+    ],
+    "and_depth": 3,
+    "ands": 6,
+    "boundary_errors": 22,
+    "truth": {
+      "raw_assignments": 65536,
+      "false_positives": 602,
+      "false_negatives": 0
+    },
+    "assembly": {
+      "core_gates": 23,
+      "outside_gates": 39,
+      "prefix_extra_cost": 0,
+      "gates": 63,
+      "within_budget": true,
+      "used_features": [
+        20,
+        21,
+        26,
+        32,
+        45
+      ]
+    },
+    "label": "APPROXIMATE-GENUINELY-NESTED-PHASE",
+    "higher_degree_output_terms": [
+      388,
+      772,
+      4356
+    ],
+    "and_semantics": [
+      {
+        "gate": 11,
+        "equal_earlier": [],
+        "monomials": 10
+      },
+      {
+        "gate": 12,
+        "equal_earlier": [],
+        "monomials": 10
+      },
+      {
+        "gate": 13,
+        "equal_earlier": [],
+        "monomials": 20
+      },
+      {
+        "gate": 16,
+        "equal_earlier": [],
+        "monomials": 37
+      },
+      {
+        "gate": 17,
+        "equal_earlier": [],
+        "monomials": 34
+      },
+      {
+        "gate": 21,
+        "equal_earlier": [],
+        "monomials": 4
+      }
+    ],
+    "source_bank": "circuit_search/joint-five-multiguard-seeds.json",
+    "source_bank_index": 0,
+    "validation_note": "All65536 raw inputs checked; all20 desirededges accepted;22 maximalnegative failures. This is a phase hint, not an exact witness."
+  },
+  "started_utc": "2026-11-25T06:33:39.943259+00:00",
+  "nesting_cut": false,
+  "note": "Nesting integration not yet reviewed at launch; omitted as instructed. Signed phase itself remains genuinely nested."
+}

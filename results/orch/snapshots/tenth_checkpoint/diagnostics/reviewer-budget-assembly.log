@@ -1,0 +1,2 @@
+PASS 512 separateOR assemblies/all16 inputs/exactcost; both empty-side and empty-output inputs rejected
+SHA256 2aa31831dcc17f80b330674aa91b37b5f8def3f6c7d52698a71c77f7d1b1228e

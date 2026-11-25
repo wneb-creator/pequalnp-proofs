@@ -1,0 +1,1 @@
+{'source_circuits': 421, 'eligible_signature_size_classes': 366, 'selected_bases': 32, 'automorphisms': 78, 'seeds': 2496, 'minimum_boundary_errors': 234, 'sizes': [58, 59, 62, 63], 'heuristic': 'MIN_AND14 is a deliberate search profile, not a proved global lower bound.', 'data_sha256': 'f92e4d0dac5b22c026b64fd69199a8328795ae83335a4f20758949eb702720a2'}

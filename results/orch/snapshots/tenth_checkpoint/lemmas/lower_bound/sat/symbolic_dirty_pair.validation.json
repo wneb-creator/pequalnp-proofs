@@ -1,0 +1,8 @@
+{
+  "tests": 384,
+  "sat": 190,
+  "result": "PASS",
+  "baseline24_witness": null,
+  "approximate_phase_witness": null,
+  "sha256": "aeb1240d0ae78f2beef3ae9b914353d1a3d92deeeecf86a13b3729f5394a1f46"
+}

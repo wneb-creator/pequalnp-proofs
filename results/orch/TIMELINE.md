@@ -125,3 +125,13 @@
 
 2026-11-25T06:23:43.081927+00:00 Ninth checkpoint frozen. Computational A5 exclusion independently LRAT-validated; corresponding exact-five physical search retired, six-AND and full-plane alternatives continue. Analytic A5 geometry/origin proof components compile, full local theorem still unfinished.
 2026-11-25T06:28:55.067571+00:00 Renewed lease; expiry 2026-11-25T06:48:55.404Z.
+
+2026-11-25T06:32:35.881851+00:00 circuit_search: Both1200s profiles completed normally. Five MIN_AND6:1,228,786 sweeps/131,727,762,584 replacements,best12 (the already known formally linear circuit; no nonlinear improvement). Weighted four with multiguards:11,540,280 sweeps/661,988,582,450 replacements,best38 (six ordinary failures). Complete logs/final circuits preserved. Fresh root renewal06:32:11 permits replacing these with reviewed global26/63 MIN14 archive search and five-owner archive search from the genuinely nested382-seed bank.
+
+- 2026-11-25T06:32:43Z: full14 AND/total63 selector-budget search began; decoded physical assembly and exhaustive verification required.
+- 2026-11-25T06:32:56Z: full13 orbit/minimality comparison finished UNKNOWN after1200 seconds; CPU yielded to physical five-owner6.
+2026-11-25T06:38:55.564866+00:00 Renewed lease; expiry 2026-11-25T06:58:55.728Z.
+
+2026-11-25T06:45:51.023117+00:00 Tenth research checkpoint: 171 artifacts/12416870 original bytes/7271862 stored bytes. FiveOwnerClean is a complete standalone Defs-only theorem for the exact raw16 five-owner AndCountCircuit with at most5ANDs: all AND gates reject every independent input. Lean exited0 with empty diagnostics; independent review passed; pushed91ddaa71. Ordinary-Circuit transfer and paid23-gate exclusion remain separate. Strengthened six-owner SAT CNF/LRAT certificate independently accepted by Lean runtime checking and pushed1f05cd0b; no kernel instance/encoding/full-target claim. Global14AND selector-budget and genuinely nested local search profiles continue; no exact63 witness or target checker acceptance.
+Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review.
+TIMING total=284.7 subagents=6

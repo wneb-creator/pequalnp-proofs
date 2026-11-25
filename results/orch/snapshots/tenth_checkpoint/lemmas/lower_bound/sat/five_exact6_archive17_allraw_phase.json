@@ -1,0 +1,145 @@
+{
+  "gates": [
+    [
+      1,
+      5,
+      9
+    ],
+    [
+      1,
+      8,
+      15
+    ],
+    [
+      1,
+      5,
+      14
+    ],
+    [
+      1,
+      0,
+      2
+    ],
+    [
+      0,
+      1,
+      7
+    ],
+    [
+      0,
+      0,
+      53
+    ],
+    [
+      1,
+      56,
+      57
+    ],
+    [
+      1,
+      54,
+      58
+    ],
+    [
+      1,
+      11,
+      59
+    ],
+    [
+      1,
+      20,
+      60
+    ],
+    [
+      0,
+      3,
+      52
+    ],
+    [
+      1,
+      61,
+      62
+    ],
+    [
+      1,
+      6,
+      63
+    ],
+    [
+      0,
+      55,
+      64
+    ],
+    [
+      1,
+      1,
+      3
+    ],
+    [
+      1,
+      12,
+      63
+    ],
+    [
+      0,
+      66,
+      67
+    ],
+    [
+      1,
+      65,
+      68
+    ],
+    [
+      1,
+      11,
+      13
+    ],
+    [
+      1,
+      7,
+      70
+    ],
+    [
+      1,
+      10,
+      71
+    ],
+    [
+      0,
+      4,
+      72
+    ],
+    [
+      1,
+      69,
+      73
+    ]
+  ],
+  "truth": {
+    "raw_assignments": 65536,
+    "false_positives": 527,
+    "false_negatives": 0
+  },
+  "assembly": {
+    "core_gates": 23,
+    "outside_gates": 39,
+    "prefix_extra_cost": 0,
+    "gates": 63,
+    "within_budget": true,
+    "used_features": [
+      20
+    ]
+  },
+  "boundary_errors": 17,
+  "ands": 6,
+  "and_depth": 2,
+  "missing_raw": [],
+  "or_positive_dominance": [],
+  "and_negative_dominance": [],
+  "label": "APPROXIMATE-NESTED-ALL-RAW-PHASE",
+  "derivation": "two exact absorption identities simplify23to21; use two recoveredORgates to unfoldfreefeatures29 and36",
+  "full_equivalence_assignments": 65536,
+  "and_equal_earlier": [],
+  "and_opcode_redundant": []
+}

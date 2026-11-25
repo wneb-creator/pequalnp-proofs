@@ -1,0 +1,39 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FiveOwnerRectangles.lean:55:4: error: Tactic `decide` failed to reduce
+  @decide
+    ((points.powerset.toList.all fun P => decide ((owned P).card ≤ 4 ∧ (4 ≤ (owned P).card → ∃ p ∈ points, P = {p}))) =
+      true)
+    (instDecidableEqBool
+      (points.powerset.toList.all fun P => decide ((owned P).card ≤ 4 ∧ (4 ≤ (owned P).card → ∃ p ∈ points, P = {p})))
+      true)
+to `true` or `false`.
+
+Reduction got stuck at
+  points.powerset.toList.all fun P => decide ((owned P).card ≤ 4 ∧ (4 ≤ (owned P).card → ∃ p ∈ points, P = {p}))
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FiveOwnerRectangles.lean:81:4: error: Tactic `decide` failed to reduce
+  @decide
+    ((points.toList.all fun p =>
+        (leftCommon p).powerset.toList.all fun L =>
+          (rightAllowed p).powerset.toList.all fun R =>
+            decide (p ∈ L → neighbors p ⊆ R → AllAllowed L R → (L, R) ∈ shapes)) =
+      true)
+    (instDecidableEqBool
+      (points.toList.all fun p =>
+        (leftCommon p).powerset.toList.all fun L =>
+          (rightAllowed p).powerset.toList.all fun R =>
+            decide (p ∈ L → neighbors p ⊆ R → AllAllowed L R → (L, R) ∈ shapes))
+      true)
+to `true` or `false`.
+
+Reduction got stuck at
+  points.toList.all fun p =>
+    (leftCommon p).powerset.toList.all fun L =>
+      (rightAllowed p).powerset.toList.all fun R => decide (p ∈ L → neighbors p ⊆ R → AllAllowed L R → (L, R) ∈ shapes)
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FiveOwnerRectangles.lean:86:4: error: Tactic `decide` failed to reduce
+  @decide ((shapes.toList.all fun S => decide ((covered S.1 S.2).card = 4)) = true)
+    (instDecidableEqBool (shapes.toList.all fun S => decide ((covered S.1 S.2).card = 4)) true)
+to `true` or `false`.
+
+Reduction got stuck at
+  shapes.toList.all fun S => decide ((covered S.1 S.2).card = 4)
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FiveOwnerRectangles.lean:129:10: error(lean.unknownIdentifier): Unknown constant `Finset.eq_empty_iff_forall_not_mem.mpr`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FiveOwnerRectangles.lean:130:10: error: No goals to be solved

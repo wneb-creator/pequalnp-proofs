@@ -1,0 +1,6 @@
+{
+  "fixed_signed_circuit_tests": 256,
+  "result": "PASS",
+  "sha256": "a90554dd209f7923e8e7bcb9721ab2af0378582c815ab529eb55f7b5267bb36d",
+  "scope": "weak ANY-AND nesting, target-only, mandatory paid-gate liveness required"
+}

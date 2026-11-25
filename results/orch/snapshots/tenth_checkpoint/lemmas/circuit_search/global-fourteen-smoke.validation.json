@@ -1,0 +1,10 @@
+{
+  "pool_size": 1,
+  "entries": [
+    {
+      "ordinary_errors": 234,
+      "noncopy_active_and": 14
+    }
+  ],
+  "all_checks_pass": true
+}

@@ -1,0 +1,8 @@
+2026-11-25T06:38:51.459987+00:00 BUDGET-DESCENT ANDnodes 2 upper 5 start 5 target 4 variables 375 clauses 1305
+2026-11-25T06:38:51.460149+00:00 BUDGET 5 ATTEMPT 0 SOLVER 10 SECONDS 0.0001
+2026-11-25T06:38:51.460444+00:00 EXACT CIRCUIT actual-gates 5 target-met False calibration True
+2026-11-25T06:38:51.460747+00:00 BUDGET 4 ATTEMPT 0 SOLVER 20 SECONDS 0.0003
+2026-11-25T06:38:51.462690+00:00 BUDGET-DESCENT ANDnodes 1 upper 2 start 2 target 1 variables 60 clauses 193
+2026-11-25T06:38:51.462719+00:00 BUDGET 2 ATTEMPT 0 SOLVER 10 SECONDS 0.0
+2026-11-25T06:38:51.462859+00:00 EXACT CIRCUIT actual-gates 1 target-met True calibration True
+PASS retained-solver P4 cost5SAT then4UNSAT, and direct exact target publication in calibration mode

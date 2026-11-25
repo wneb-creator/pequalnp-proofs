@@ -1,0 +1,66 @@
+
+namespace PEqualNP.Outside.L_meta_650_aux.OneJunkLeastAO
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_650
+
+set_option maxRecDepth 100000
+set_option maxHeartbeats 0
+
+theorem exists_min_cover {n : ℕ} (G : SimpleGraph (Fin n)) :
+    ∃ K : Finset (Fin n), IsMinCover G K := by
+  classical
+  have hex : ∃ k : ℕ, ∃ K : Finset (Fin n),
+      G.IsVertexCover (K : Set (Fin n)) ∧ K.card = k := by
+    refine ⟨n, Finset.univ, ?_, by simp⟩
+    intro u v huv
+    exact Or.inl (Finset.mem_univ _)
+  obtain ⟨K, hK, hcard⟩ := Nat.find_spec hex
+  refine ⟨K, hK, ?_⟩
+  intro T hT
+  rw [hcard]
+  exact Nat.find_min' hex ⟨T, hT, rfl⟩
+
+theorem plane_edges_nonempty : incidenceGraph.edgeFinset.Nonempty := by
+  apply Finset.card_pos.mp
+  rw [incidenceGraph_edges]
+  omega
+
+theorem topform_one_junk_lower (C : Circuit)
+    (least : IsLeastAO incidenceGraph C) (top : TopForm incidenceGraph C)
+    (one : (junk incidenceGraph C).card = 1) : 64 ≤ C.size := by
+  have hcount := PEqualNP.Outside.L_meta_5781 26 incidenceGraph C
+    incidenceGraph_noFour plane_edges_nonempty least top
+  by_cases hu : (Ustar incidenceGraph C).Nonempty
+  · obtain ⟨K, hK, hbudget⟩ := PEqualNP.Outside.L_meta_8103 26 incidenceGraph C
+      incidenceGraph_noFour plane_edges_nonempty least top hu one
+    have hcover : 13 ≤ K.card := incidenceGraph_cover K hK
+    have hedges := incidenceGraph_edges
+    omega
+  · have hempty : Ustar incidenceGraph C = ∅ := Finset.not_nonempty_iff_eq_empty.mp hu
+    obtain ⟨K, hK⟩ := exists_min_cover incidenceGraph
+    have hdeleted : IsMinCover (incidenceGraph.deleteEdges ↑(Ustar incidenceGraph C)) K := by
+      simpa [hempty] using hK
+    have hkbound := hcount.2 K hdeleted
+    have hcover : 13 ≤ K.card := incidenceGraph_cover K (fun u v huv => hK.1 huv)
+    have hedges := incidenceGraph_edges
+    have hzero : (Ustar incidenceGraph C).card = 0 := by rw [hempty]; rfl
+    omega
+
+theorem one_junk_lower (C : Circuit) (least : IsLeastAO incidenceGraph C)
+    (one : (junk incidenceGraph C).card = 1) : 64 ≤ C.size := by
+  obtain ⟨D, hleast, hsize, hjunk, htop⟩ :=
+    PEqualNP.Outside.L_meta_5779 26 incidenceGraph C plane_edges_nonempty least
+  have hone : (junk incidenceGraph D).card = 1 := hjunk.trans one
+  have hlower := topform_one_junk_lower D hleast htop hone
+  omega
+
+theorem small_least_circuit_not_one_junk (C : Circuit)
+    (least : IsLeastAO incidenceGraph C) (small : C.size ≤ 63) :
+    (junk incidenceGraph C).card ≠ 1 := by
+  intro hone
+  have := one_junk_lower C least hone
+  omega
+
+end PEqualNP.Outside.L_meta_650_aux.OneJunkLeastAO

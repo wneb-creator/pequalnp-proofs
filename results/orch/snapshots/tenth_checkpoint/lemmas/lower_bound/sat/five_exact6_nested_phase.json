@@ -1,0 +1,197 @@
+{
+  "gates": [
+    [
+      1,
+      5,
+      14
+    ],
+    [
+      1,
+      20,
+      32
+    ],
+    [
+      1,
+      26,
+      53
+    ],
+    [
+      1,
+      45,
+      54
+    ],
+    [
+      1,
+      0,
+      55
+    ],
+    [
+      1,
+      1,
+      3
+    ],
+    [
+      1,
+      20,
+      52
+    ],
+    [
+      1,
+      21,
+      58
+    ],
+    [
+      1,
+      6,
+      59
+    ],
+    [
+      1,
+      57,
+      60
+    ],
+    [
+      1,
+      8,
+      55
+    ],
+    [
+      0,
+      2,
+      62
+    ],
+    [
+      0,
+      0,
+      62
+    ],
+    [
+      0,
+      57,
+      62
+    ],
+    [
+      1,
+      64,
+      65
+    ],
+    [
+      1,
+      63,
+      66
+    ],
+    [
+      0,
+      56,
+      67
+    ],
+    [
+      0,
+      61,
+      68
+    ],
+    [
+      1,
+      7,
+      10
+    ],
+    [
+      1,
+      11,
+      70
+    ],
+    [
+      1,
+      13,
+      71
+    ],
+    [
+      0,
+      4,
+      72
+    ],
+    [
+      1,
+      69,
+      73
+    ]
+  ],
+  "unfold_plan": [
+    [
+      17,
+      [
+        5,
+        14
+      ]
+    ]
+  ],
+  "rewrites": [],
+  "missing_raw": [
+    9,
+    12,
+    15
+  ],
+  "and_depth": 3,
+  "ands": 6,
+  "boundary_errors": 22,
+  "truth": {
+    "raw_assignments": 65536,
+    "false_positives": 602,
+    "false_negatives": 0
+  },
+  "assembly": {
+    "core_gates": 23,
+    "outside_gates": 39,
+    "prefix_extra_cost": 0,
+    "gates": 63,
+    "within_budget": true,
+    "used_features": [
+      20,
+      21,
+      26,
+      32,
+      45
+    ]
+  },
+  "label": "APPROXIMATE-GENUINELY-NESTED-PHASE",
+  "higher_degree_output_terms": [
+    388,
+    772,
+    4356
+  ],
+  "and_semantics": [
+    {
+      "gate": 11,
+      "equal_earlier": [],
+      "monomials": 10
+    },
+    {
+      "gate": 12,
+      "equal_earlier": [],
+      "monomials": 10
+    },
+    {
+      "gate": 13,
+      "equal_earlier": [],
+      "monomials": 20
+    },
+    {
+      "gate": 16,
+      "equal_earlier": [],
+      "monomials": 37
+    },
+    {
+      "gate": 17,
+      "equal_earlier": [],
+      "monomials": 34
+    },
+    {
+      "gate": 21,
+      "equal_earlier": [],
+      "monomials": 4
+    }
+  ],
+  "source_bank": "circuit_search/joint-five-multiguard-seeds.json",
+  "source_bank_index": 0,
+  "validation_note": "All65536 raw inputs checked; all20 desirededges accepted;22 maximalnegative failures. This is a phase hint, not an exact witness."
+}

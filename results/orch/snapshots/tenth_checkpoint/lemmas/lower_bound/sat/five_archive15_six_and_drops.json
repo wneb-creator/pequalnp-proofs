@@ -1,0 +1,1994 @@
+[
+  {
+    "gates": [
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        1,
+        7
+      ],
+      [
+        0,
+        0,
+        36
+      ],
+      [
+        1,
+        53,
+        54
+      ],
+      [
+        1,
+        17,
+        55
+      ],
+      [
+        1,
+        11,
+        56
+      ],
+      [
+        1,
+        20,
+        57
+      ],
+      [
+        0,
+        3,
+        29
+      ],
+      [
+        1,
+        58,
+        59
+      ],
+      [
+        1,
+        6,
+        60
+      ],
+      [
+        0,
+        52,
+        61
+      ],
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        62,
+        63
+      ],
+      [
+        1,
+        12,
+        62
+      ],
+      [
+        1,
+        60,
+        65
+      ],
+      [
+        0,
+        64,
+        66
+      ],
+      [
+        1,
+        4,
+        67
+      ],
+      [
+        1,
+        11,
+        67
+      ],
+      [
+        1,
+        13,
+        69
+      ],
+      [
+        1,
+        7,
+        70
+      ],
+      [
+        1,
+        10,
+        71
+      ],
+      [
+        0,
+        68,
+        72
+      ]
+    ],
+    "removed_and": 1,
+    "chosen_wire": 11,
+    "higher_terms": [],
+    "redundant_and": [],
+    "truth": {
+      "raw_assignments": 65536,
+      "false_positives": 527,
+      "false_negatives": 0
+    },
+    "boundary_errors": 17,
+    "assembly": {
+      "core_gates": 22,
+      "outside_gates": 39,
+      "prefix_extra_cost": 0,
+      "gates": 62,
+      "within_budget": true,
+      "used_features": [
+        17,
+        20,
+        29,
+        36
+      ]
+    },
+    "missing_raw": [
+      5,
+      8,
+      9,
+      14,
+      15
+    ],
+    "and_depth": 4,
+    "and_opcode_redundant": []
+  },
+  {
+    "gates": [
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        2,
+        11
+      ],
+      [
+        0,
+        0,
+        36
+      ],
+      [
+        1,
+        7,
+        54
+      ],
+      [
+        1,
+        17,
+        55
+      ],
+      [
+        1,
+        53,
+        56
+      ],
+      [
+        1,
+        20,
+        57
+      ],
+      [
+        0,
+        3,
+        29
+      ],
+      [
+        1,
+        58,
+        59
+      ],
+      [
+        1,
+        6,
+        60
+      ],
+      [
+        0,
+        52,
+        61
+      ],
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        62,
+        63
+      ],
+      [
+        1,
+        12,
+        62
+      ],
+      [
+        1,
+        60,
+        65
+      ],
+      [
+        0,
+        64,
+        66
+      ],
+      [
+        1,
+        4,
+        67
+      ],
+      [
+        1,
+        11,
+        67
+      ],
+      [
+        1,
+        13,
+        69
+      ],
+      [
+        1,
+        7,
+        70
+      ],
+      [
+        1,
+        10,
+        71
+      ],
+      [
+        0,
+        68,
+        72
+      ]
+    ],
+    "removed_and": 2,
+    "chosen_wire": 7,
+    "higher_terms": [],
+    "redundant_and": [],
+    "truth": {
+      "raw_assignments": 65536,
+      "false_positives": 527,
+      "false_negatives": 0
+    },
+    "boundary_errors": 17,
+    "assembly": {
+      "core_gates": 22,
+      "outside_gates": 39,
+      "prefix_extra_cost": 0,
+      "gates": 62,
+      "within_budget": true,
+      "used_features": [
+        17,
+        20,
+        29,
+        36
+      ]
+    },
+    "missing_raw": [
+      5,
+      8,
+      9,
+      14,
+      15
+    ],
+    "and_depth": 4,
+    "and_opcode_redundant": []
+  },
+  {
+    "gates": [
+      [
+        0,
+        2,
+        11
+      ],
+      [
+        0,
+        1,
+        7
+      ],
+      [
+        0,
+        0,
+        36
+      ],
+      [
+        1,
+        53,
+        54
+      ],
+      [
+        1,
+        17,
+        55
+      ],
+      [
+        1,
+        52,
+        56
+      ],
+      [
+        1,
+        20,
+        57
+      ],
+      [
+        0,
+        3,
+        29
+      ],
+      [
+        1,
+        58,
+        59
+      ],
+      [
+        1,
+        6,
+        60
+      ],
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        61,
+        62
+      ],
+      [
+        1,
+        12,
+        61
+      ],
+      [
+        1,
+        60,
+        64
+      ],
+      [
+        0,
+        63,
+        65
+      ],
+      [
+        1,
+        4,
+        66
+      ],
+      [
+        1,
+        11,
+        66
+      ],
+      [
+        1,
+        13,
+        68
+      ],
+      [
+        1,
+        7,
+        69
+      ],
+      [
+        1,
+        10,
+        70
+      ],
+      [
+        0,
+        67,
+        71
+      ]
+    ],
+    "removed_and": 11,
+    "chosen_wire": 62,
+    "higher_terms": [],
+    "redundant_and": [],
+    "truth": {
+      "raw_assignments": 65536,
+      "false_positives": 2613,
+      "false_negatives": 0
+    },
+    "boundary_errors": 19,
+    "assembly": {
+      "core_gates": 21,
+      "outside_gates": 39,
+      "prefix_extra_cost": 0,
+      "gates": 61,
+      "within_budget": true,
+      "used_features": [
+        17,
+        20,
+        29,
+        36
+      ]
+    },
+    "missing_raw": [
+      5,
+      8,
+      9,
+      14,
+      15
+    ],
+    "and_depth": 3,
+    "and_opcode_redundant": []
+  },
+  {
+    "gates": [
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        2,
+        11
+      ],
+      [
+        0,
+        1,
+        7
+      ],
+      [
+        0,
+        0,
+        36
+      ],
+      [
+        1,
+        54,
+        55
+      ],
+      [
+        1,
+        17,
+        56
+      ],
+      [
+        1,
+        53,
+        57
+      ],
+      [
+        1,
+        20,
+        58
+      ],
+      [
+        0,
+        3,
+        29
+      ],
+      [
+        1,
+        59,
+        60
+      ],
+      [
+        1,
+        6,
+        61
+      ],
+      [
+        0,
+        52,
+        62
+      ],
+      [
+        1,
+        12,
+        63
+      ],
+      [
+        1,
+        61,
+        64
+      ],
+      [
+        1,
+        4,
+        65
+      ],
+      [
+        1,
+        11,
+        65
+      ],
+      [
+        1,
+        13,
+        67
+      ],
+      [
+        1,
+        7,
+        68
+      ],
+      [
+        1,
+        10,
+        69
+      ],
+      [
+        0,
+        66,
+        70
+      ]
+    ],
+    "removed_and": 16,
+    "chosen_wire": 67,
+    "higher_terms": [],
+    "redundant_and": [],
+    "truth": {
+      "raw_assignments": 65536,
+      "false_positives": 2613,
+      "false_negatives": 0
+    },
+    "boundary_errors": 19,
+    "assembly": {
+      "core_gates": 20,
+      "outside_gates": 39,
+      "prefix_extra_cost": 0,
+      "gates": 60,
+      "within_budget": true,
+      "used_features": [
+        17,
+        20,
+        29,
+        36
+      ]
+    },
+    "missing_raw": [
+      5,
+      8,
+      9,
+      14,
+      15
+    ],
+    "and_depth": 3,
+    "and_opcode_redundant": []
+  },
+  {
+    "gates": [
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        2,
+        11
+      ],
+      [
+        0,
+        1,
+        7
+      ],
+      [
+        1,
+        36,
+        54
+      ],
+      [
+        1,
+        17,
+        55
+      ],
+      [
+        1,
+        53,
+        56
+      ],
+      [
+        1,
+        20,
+        57
+      ],
+      [
+        0,
+        3,
+        29
+      ],
+      [
+        1,
+        58,
+        59
+      ],
+      [
+        1,
+        6,
+        60
+      ],
+      [
+        0,
+        52,
+        61
+      ],
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        62,
+        63
+      ],
+      [
+        1,
+        12,
+        62
+      ],
+      [
+        1,
+        60,
+        65
+      ],
+      [
+        0,
+        64,
+        66
+      ],
+      [
+        1,
+        4,
+        67
+      ],
+      [
+        1,
+        11,
+        67
+      ],
+      [
+        1,
+        13,
+        69
+      ],
+      [
+        1,
+        7,
+        70
+      ],
+      [
+        1,
+        10,
+        71
+      ],
+      [
+        0,
+        68,
+        72
+      ]
+    ],
+    "removed_and": 3,
+    "chosen_wire": 36,
+    "higher_terms": [],
+    "redundant_and": [],
+    "truth": {
+      "raw_assignments": 65536,
+      "false_positives": 543,
+      "false_negatives": 0
+    },
+    "boundary_errors": 20,
+    "assembly": {
+      "core_gates": 22,
+      "outside_gates": 39,
+      "prefix_extra_cost": 0,
+      "gates": 62,
+      "within_budget": true,
+      "used_features": [
+        17,
+        20,
+        29,
+        36
+      ]
+    },
+    "missing_raw": [
+      5,
+      8,
+      9,
+      14,
+      15
+    ],
+    "and_depth": 4,
+    "and_opcode_redundant": []
+  },
+  {
+    "gates": [
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        2,
+        11
+      ],
+      [
+        0,
+        1,
+        7
+      ],
+      [
+        0,
+        0,
+        36
+      ],
+      [
+        1,
+        54,
+        55
+      ],
+      [
+        1,
+        17,
+        56
+      ],
+      [
+        1,
+        53,
+        57
+      ],
+      [
+        1,
+        20,
+        58
+      ],
+      [
+        1,
+        29,
+        59
+      ],
+      [
+        1,
+        6,
+        60
+      ],
+      [
+        0,
+        52,
+        61
+      ],
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        62,
+        63
+      ],
+      [
+        1,
+        12,
+        62
+      ],
+      [
+        1,
+        60,
+        65
+      ],
+      [
+        0,
+        64,
+        66
+      ],
+      [
+        1,
+        4,
+        67
+      ],
+      [
+        1,
+        11,
+        67
+      ],
+      [
+        1,
+        13,
+        69
+      ],
+      [
+        1,
+        7,
+        70
+      ],
+      [
+        1,
+        10,
+        71
+      ],
+      [
+        0,
+        68,
+        72
+      ]
+    ],
+    "removed_and": 8,
+    "chosen_wire": 29,
+    "higher_terms": [],
+    "redundant_and": [],
+    "truth": {
+      "raw_assignments": 65536,
+      "false_positives": 543,
+      "false_negatives": 0
+    },
+    "boundary_errors": 20,
+    "assembly": {
+      "core_gates": 22,
+      "outside_gates": 39,
+      "prefix_extra_cost": 0,
+      "gates": 62,
+      "within_budget": true,
+      "used_features": [
+        17,
+        20,
+        29,
+        36
+      ]
+    },
+    "missing_raw": [
+      5,
+      8,
+      9,
+      14,
+      15
+    ],
+    "and_depth": 4,
+    "and_opcode_redundant": []
+  },
+  {
+    "gates": [
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        2,
+        11
+      ],
+      [
+        0,
+        1,
+        7
+      ],
+      [
+        0,
+        0,
+        36
+      ],
+      [
+        1,
+        54,
+        55
+      ],
+      [
+        1,
+        17,
+        56
+      ],
+      [
+        1,
+        53,
+        57
+      ],
+      [
+        1,
+        20,
+        58
+      ],
+      [
+        0,
+        3,
+        29
+      ],
+      [
+        1,
+        59,
+        60
+      ],
+      [
+        1,
+        6,
+        61
+      ],
+      [
+        0,
+        52,
+        62
+      ],
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        63,
+        64
+      ],
+      [
+        1,
+        12,
+        63
+      ],
+      [
+        1,
+        61,
+        66
+      ],
+      [
+        0,
+        65,
+        67
+      ],
+      [
+        1,
+        4,
+        68
+      ]
+    ],
+    "removed_and": 22,
+    "chosen_wire": 69,
+    "higher_terms": [],
+    "redundant_and": [],
+    "truth": {
+      "raw_assignments": 65536,
+      "false_positives": 637,
+      "false_negatives": 0
+    },
+    "boundary_errors": 22,
+    "assembly": {
+      "core_gates": 18,
+      "outside_gates": 39,
+      "prefix_extra_cost": 0,
+      "gates": 58,
+      "within_budget": true,
+      "used_features": [
+        17,
+        20,
+        29,
+        36
+      ]
+    },
+    "missing_raw": [
+      5,
+      8,
+      9,
+      10,
+      13,
+      14,
+      15
+    ],
+    "and_depth": 3,
+    "and_opcode_redundant": []
+  },
+  {
+    "gates": [
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        2,
+        11
+      ],
+      [
+        0,
+        1,
+        7
+      ],
+      [
+        1,
+        0,
+        54
+      ],
+      [
+        1,
+        17,
+        55
+      ],
+      [
+        1,
+        53,
+        56
+      ],
+      [
+        1,
+        20,
+        57
+      ],
+      [
+        0,
+        3,
+        29
+      ],
+      [
+        1,
+        58,
+        59
+      ],
+      [
+        1,
+        6,
+        60
+      ],
+      [
+        0,
+        52,
+        61
+      ],
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        62,
+        63
+      ],
+      [
+        1,
+        12,
+        62
+      ],
+      [
+        1,
+        60,
+        65
+      ],
+      [
+        0,
+        64,
+        66
+      ],
+      [
+        1,
+        4,
+        67
+      ],
+      [
+        1,
+        11,
+        67
+      ],
+      [
+        1,
+        13,
+        69
+      ],
+      [
+        1,
+        7,
+        70
+      ],
+      [
+        1,
+        10,
+        71
+      ],
+      [
+        0,
+        68,
+        72
+      ]
+    ],
+    "removed_and": 3,
+    "chosen_wire": 0,
+    "higher_terms": [],
+    "redundant_and": [],
+    "truth": {
+      "raw_assignments": 65536,
+      "false_positives": 555,
+      "false_negatives": 0
+    },
+    "boundary_errors": 23,
+    "assembly": {
+      "core_gates": 22,
+      "outside_gates": 39,
+      "prefix_extra_cost": 0,
+      "gates": 62,
+      "within_budget": true,
+      "used_features": [
+        17,
+        20,
+        29
+      ]
+    },
+    "missing_raw": [
+      5,
+      8,
+      9,
+      14,
+      15
+    ],
+    "and_depth": 4,
+    "and_opcode_redundant": []
+  },
+  {
+    "gates": [
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        2,
+        11
+      ],
+      [
+        0,
+        1,
+        7
+      ],
+      [
+        0,
+        0,
+        36
+      ],
+      [
+        1,
+        54,
+        55
+      ],
+      [
+        1,
+        17,
+        56
+      ],
+      [
+        1,
+        53,
+        57
+      ],
+      [
+        1,
+        20,
+        58
+      ],
+      [
+        1,
+        3,
+        59
+      ],
+      [
+        1,
+        6,
+        60
+      ],
+      [
+        0,
+        52,
+        61
+      ],
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        62,
+        63
+      ],
+      [
+        1,
+        12,
+        62
+      ],
+      [
+        1,
+        60,
+        65
+      ],
+      [
+        0,
+        64,
+        66
+      ],
+      [
+        1,
+        4,
+        67
+      ],
+      [
+        1,
+        11,
+        67
+      ],
+      [
+        1,
+        13,
+        69
+      ],
+      [
+        1,
+        7,
+        70
+      ],
+      [
+        1,
+        10,
+        71
+      ],
+      [
+        0,
+        68,
+        72
+      ]
+    ],
+    "removed_and": 8,
+    "chosen_wire": 3,
+    "higher_terms": [],
+    "redundant_and": [],
+    "truth": {
+      "raw_assignments": 65536,
+      "false_positives": 555,
+      "false_negatives": 0
+    },
+    "boundary_errors": 23,
+    "assembly": {
+      "core_gates": 22,
+      "outside_gates": 39,
+      "prefix_extra_cost": 0,
+      "gates": 62,
+      "within_budget": true,
+      "used_features": [
+        17,
+        20,
+        36
+      ]
+    },
+    "missing_raw": [
+      5,
+      8,
+      9,
+      14,
+      15
+    ],
+    "and_depth": 4,
+    "and_opcode_redundant": []
+  },
+  {
+    "gates": [
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        2,
+        11
+      ],
+      [
+        0,
+        1,
+        7
+      ],
+      [
+        0,
+        0,
+        36
+      ],
+      [
+        1,
+        54,
+        55
+      ],
+      [
+        1,
+        17,
+        56
+      ],
+      [
+        1,
+        53,
+        57
+      ],
+      [
+        1,
+        20,
+        58
+      ],
+      [
+        0,
+        3,
+        29
+      ],
+      [
+        1,
+        59,
+        60
+      ],
+      [
+        1,
+        6,
+        61
+      ],
+      [
+        0,
+        52,
+        62
+      ],
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        63,
+        64
+      ],
+      [
+        1,
+        12,
+        63
+      ],
+      [
+        1,
+        61,
+        66
+      ],
+      [
+        0,
+        65,
+        67
+      ],
+      [
+        1,
+        11,
+        68
+      ],
+      [
+        1,
+        13,
+        69
+      ],
+      [
+        1,
+        7,
+        70
+      ],
+      [
+        1,
+        10,
+        71
+      ]
+    ],
+    "removed_and": 22,
+    "chosen_wire": 73,
+    "higher_terms": [],
+    "redundant_and": [],
+    "truth": {
+      "raw_assignments": 65536,
+      "false_positives": 2543,
+      "false_negatives": 0
+    },
+    "boundary_errors": 23,
+    "assembly": {
+      "core_gates": 21,
+      "outside_gates": 39,
+      "prefix_extra_cost": 0,
+      "gates": 61,
+      "within_budget": true,
+      "used_features": [
+        17,
+        20,
+        29,
+        36
+      ]
+    },
+    "missing_raw": [
+      4,
+      5,
+      8,
+      9,
+      14,
+      15
+    ],
+    "and_depth": 3,
+    "and_opcode_redundant": []
+  },
+  {
+    "gates": [
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        1,
+        7
+      ],
+      [
+        0,
+        0,
+        36
+      ],
+      [
+        1,
+        53,
+        54
+      ],
+      [
+        1,
+        17,
+        55
+      ],
+      [
+        1,
+        2,
+        56
+      ],
+      [
+        1,
+        20,
+        57
+      ],
+      [
+        0,
+        3,
+        29
+      ],
+      [
+        1,
+        58,
+        59
+      ],
+      [
+        1,
+        6,
+        60
+      ],
+      [
+        0,
+        52,
+        61
+      ],
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        62,
+        63
+      ],
+      [
+        1,
+        12,
+        62
+      ],
+      [
+        1,
+        60,
+        65
+      ],
+      [
+        0,
+        64,
+        66
+      ],
+      [
+        1,
+        4,
+        67
+      ],
+      [
+        1,
+        11,
+        67
+      ],
+      [
+        1,
+        13,
+        69
+      ],
+      [
+        1,
+        7,
+        70
+      ],
+      [
+        1,
+        10,
+        71
+      ],
+      [
+        0,
+        68,
+        72
+      ]
+    ],
+    "removed_and": 1,
+    "chosen_wire": 2,
+    "higher_terms": [],
+    "redundant_and": [],
+    "truth": {
+      "raw_assignments": 65536,
+      "false_positives": 563,
+      "false_negatives": 0
+    },
+    "boundary_errors": 25,
+    "assembly": {
+      "core_gates": 22,
+      "outside_gates": 39,
+      "prefix_extra_cost": 0,
+      "gates": 62,
+      "within_budget": true,
+      "used_features": [
+        17,
+        20,
+        29,
+        36
+      ]
+    },
+    "missing_raw": [
+      5,
+      8,
+      9,
+      14,
+      15
+    ],
+    "and_depth": 4,
+    "and_opcode_redundant": []
+  },
+  {
+    "gates": [
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        2,
+        11
+      ],
+      [
+        0,
+        0,
+        36
+      ],
+      [
+        1,
+        1,
+        54
+      ],
+      [
+        1,
+        17,
+        55
+      ],
+      [
+        1,
+        53,
+        56
+      ],
+      [
+        1,
+        20,
+        57
+      ],
+      [
+        0,
+        3,
+        29
+      ],
+      [
+        1,
+        58,
+        59
+      ],
+      [
+        1,
+        6,
+        60
+      ],
+      [
+        0,
+        52,
+        61
+      ],
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        62,
+        63
+      ],
+      [
+        1,
+        12,
+        62
+      ],
+      [
+        1,
+        60,
+        65
+      ],
+      [
+        0,
+        64,
+        66
+      ],
+      [
+        1,
+        4,
+        67
+      ],
+      [
+        1,
+        11,
+        67
+      ],
+      [
+        1,
+        13,
+        69
+      ],
+      [
+        1,
+        7,
+        70
+      ],
+      [
+        1,
+        10,
+        71
+      ],
+      [
+        0,
+        68,
+        72
+      ]
+    ],
+    "removed_and": 2,
+    "chosen_wire": 1,
+    "higher_terms": [],
+    "redundant_and": [],
+    "truth": {
+      "raw_assignments": 65536,
+      "false_positives": 563,
+      "false_negatives": 0
+    },
+    "boundary_errors": 25,
+    "assembly": {
+      "core_gates": 22,
+      "outside_gates": 39,
+      "prefix_extra_cost": 0,
+      "gates": 62,
+      "within_budget": true,
+      "used_features": [
+        17,
+        20,
+        29,
+        36
+      ]
+    },
+    "missing_raw": [
+      5,
+      8,
+      9,
+      14,
+      15
+    ],
+    "and_depth": 4,
+    "and_opcode_redundant": []
+  },
+  {
+    "gates": [
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        2,
+        11
+      ],
+      [
+        0,
+        1,
+        7
+      ],
+      [
+        0,
+        0,
+        36
+      ],
+      [
+        1,
+        54,
+        55
+      ],
+      [
+        1,
+        17,
+        56
+      ],
+      [
+        1,
+        53,
+        57
+      ],
+      [
+        1,
+        20,
+        58
+      ],
+      [
+        0,
+        3,
+        29
+      ],
+      [
+        1,
+        59,
+        60
+      ],
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        52,
+        62
+      ],
+      [
+        1,
+        12,
+        52
+      ],
+      [
+        1,
+        61,
+        64
+      ],
+      [
+        0,
+        63,
+        65
+      ],
+      [
+        1,
+        4,
+        66
+      ],
+      [
+        1,
+        11,
+        66
+      ],
+      [
+        1,
+        13,
+        68
+      ],
+      [
+        1,
+        7,
+        69
+      ],
+      [
+        1,
+        10,
+        70
+      ],
+      [
+        0,
+        67,
+        71
+      ]
+    ],
+    "removed_and": 11,
+    "chosen_wire": 52,
+    "higher_terms": [],
+    "redundant_and": [],
+    "truth": {
+      "raw_assignments": 65536,
+      "false_positives": 623,
+      "false_negatives": 0
+    },
+    "boundary_errors": 26,
+    "assembly": {
+      "core_gates": 21,
+      "outside_gates": 39,
+      "prefix_extra_cost": 0,
+      "gates": 61,
+      "within_budget": true,
+      "used_features": [
+        17,
+        20,
+        29,
+        36
+      ]
+    },
+    "missing_raw": [
+      5,
+      6,
+      8,
+      9,
+      14,
+      15
+    ],
+    "and_depth": 3,
+    "and_opcode_redundant": []
+  },
+  {
+    "gates": [
+      [
+        1,
+        0,
+        2
+      ],
+      [
+        0,
+        2,
+        11
+      ],
+      [
+        0,
+        1,
+        7
+      ],
+      [
+        0,
+        0,
+        36
+      ],
+      [
+        1,
+        54,
+        55
+      ],
+      [
+        1,
+        17,
+        56
+      ],
+      [
+        1,
+        53,
+        57
+      ],
+      [
+        1,
+        20,
+        58
+      ],
+      [
+        0,
+        3,
+        29
+      ],
+      [
+        1,
+        59,
+        60
+      ],
+      [
+        1,
+        6,
+        61
+      ],
+      [
+        0,
+        52,
+        62
+      ],
+      [
+        1,
+        1,
+        3
+      ],
+      [
+        1,
+        63,
+        64
+      ],
+      [
+        1,
+        4,
+        65
+      ],
+      [
+        1,
+        11,
+        65
+      ],
+      [
+        1,
+        13,
+        67
+      ],
+      [
+        1,
+        7,
+        68
+      ],
+      [
+        1,
+        10,
+        69
+      ],
+      [
+        0,
+        66,
+        70
+      ]
+    ],
+    "removed_and": 16,
+    "chosen_wire": 65,
+    "higher_terms": [],
+    "redundant_and": [],
+    "truth": {
+      "raw_assignments": 65536,
+      "false_positives": 623,
+      "false_negatives": 0
+    },
+    "boundary_errors": 26,
+    "assembly": {
+      "core_gates": 20,
+      "outside_gates": 39,
+      "prefix_extra_cost": 0,
+      "gates": 60,
+      "within_budget": true,
+      "used_features": [
+        17,
+        20,
+        29,
+        36
+      ]
+    },
+    "missing_raw": [
+      5,
+      8,
+      9,
+      12,
+      14,
+      15
+    ],
+    "and_depth": 3,
+    "and_opcode_redundant": []
+  }
+]

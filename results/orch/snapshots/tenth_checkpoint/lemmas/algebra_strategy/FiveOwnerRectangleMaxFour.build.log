@@ -1,0 +1,2 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FiveOwnerRectangleMaxFour.lean:106:10: error(lean.unknownIdentifier): Unknown constant `Finset.eq_empty_of_forall_not_mem`
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/FiveOwnerRectangleMaxFour.lean:107:10: error: No goals to be solved

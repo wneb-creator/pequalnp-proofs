@@ -1,0 +1,4 @@
+PASS2496 seeds,32base DNFs,78edge automorphisms, exactbank remapping,52positives/singleton+pureside guards, all14ANDpositive-live, nestedAND,<=63gates, allreportedboundaryscores
+Bases with gate whose replacement byfalse preserves output: []
+min errors 234 sizes [58, 59, 62, 63]
+SHA256 f92e4d0dac5b22c026b64fd69199a8328795ae83335a4f20758949eb702720a2

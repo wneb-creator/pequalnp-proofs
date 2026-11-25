@@ -1,0 +1,116 @@
+[
+  {
+    "source": "joint-five-simplified21-error17.full.json",
+    "gates": 61,
+    "ands": 14,
+    "and_depth": 2,
+    "boundary_errors": 427,
+    "dnf_terms": 63,
+    "extra_terms": [
+      [
+        2,
+        13
+      ],
+      [
+        5,
+        13
+      ],
+      [
+        0,
+        20
+      ],
+      [
+        1,
+        20
+      ],
+      [
+        5,
+        20
+      ],
+      [
+        1,
+        22
+      ],
+      [
+        2,
+        22
+      ],
+      [
+        0,
+        24
+      ],
+      [
+        1,
+        24
+      ],
+      [
+        0,
+        25
+      ],
+      [
+        5,
+        25
+      ]
+    ],
+    "all_ands_output_essential": true,
+    "all_ands_positive_live": true,
+    "target_met": false
+  },
+  {
+    "source": "joint-five-allraw23-error17.full.json",
+    "gates": 63,
+    "ands": 14,
+    "and_depth": 2,
+    "boundary_errors": 427,
+    "dnf_terms": 63,
+    "extra_terms": [
+      [
+        2,
+        13
+      ],
+      [
+        5,
+        13
+      ],
+      [
+        0,
+        20
+      ],
+      [
+        1,
+        20
+      ],
+      [
+        5,
+        20
+      ],
+      [
+        1,
+        22
+      ],
+      [
+        2,
+        22
+      ],
+      [
+        0,
+        24
+      ],
+      [
+        1,
+        24
+      ],
+      [
+        0,
+        25
+      ],
+      [
+        5,
+        25
+      ]
+    ],
+    "all_ands_output_essential": true,
+    "all_ands_positive_live": true,
+    "target_met": false
+  }
+]

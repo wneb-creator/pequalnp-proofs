@@ -1,0 +1,82 @@
+[
+  {
+    "file": "L_meta_5964.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_5964 :\n    \u2200 (x1 : \u2115) (x2 : SimpleGraph (Fin x1)) [x3 : DecidableRel x2.Adj]\n      (x4 : PEqualNP.CircuitLowerBounds.Circuit) (x5 x6 : \u2115),\n      PEqualNP.TopForm.IsAO2 x1 x4 \u2192\n      PEqualNP.TopForm.TopForm x2 x4 \u2192\n      PEqualNP.TopForm.junk x2 x4 = {x5, x6} \u2192\n      \u2200 (x10 x11 : Fin x1),\n        s(x10, x11) \u2208 x2.edgeFinset \u2192\n        \u2200 x13 \u2208 PEqualNP.TopForm.tops x2 x4,\n          \u2200 (x15 : Fin (2 : \u2115)) (x16 : \u2115),\n            x16 = x5 \u2228 x16 = x6 \u2192\n            PEqualNP.EdgeOwnership.gateVal x1 x4 x13 (PEqualNP.EdgeOwnership.pairInput x10 x11) = Bool.true \u2192\n            PEqualNP.CleanedNonEdge.OrReaches x1 x4 (PEqualNP.TopForm.opnd x4 x13 x15) x16 \u2192\n            PEqualNP.EdgeOwnership.gateVal x1 x4 x16 (PEqualNP.EdgeOwnership.pairInput x10 x11) = Bool.true \u2192\n            have x21 : \u2115 \u2192 Finset (Sym2 (Fin x1)) :="
+  },
+  {
+    "file": "L_meta_5971.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_5971 :\n    \u2200 (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x1 \u2192 (\u2200 (x3 : Fin (9 : \u2115) \u2192 Bool), x1.eval (List.ofFn x3) = [((0 : Fin (9 : \u2115)), (1 : Fin (9 : \u2115))), ((1 : Fin (9 : \u2115)), (2 : Fin (9 : \u2115))), ((2 : Fin (9 : \u2115)), (3 : Fin (9 : \u2115))), ((3 : Fin (9 : \u2115)), (4 : Fin (9 : \u2115))), ((4 : Fin (9 : \u2115)), (0 : Fin (9 : \u2115))), ((0 : Fin (9 : \u2115)), (5 : Fin (9 : \u2115))), ((1 : Fin (9 : \u2115)), (6 : Fin (9 : \u2115))), ((2 : Fin (9 : \u2115)), (7 : Fin (9 : \u2115))), ((3 : Fin (9 : \u2115)), (8 : Fin (9 : \u2115))), ((5 : Fin (9 : \u2115)), (7 : Fin (9 : \u2115))), ((6 : Fin (9 : \u2115)), (8 : Fin (9 : \u2115))), ((8 : Fin (9 : \u2115)), (5 : Fin (9 : \u2115)))].any fun (x4 : Fin (9 : \u2115) \u00d7 Fin (9 : \u2115)) => x3 x4.1 && x3 x4.2) \u2192 (13 : \u2115) \u2264 List.countP PEqualNP.MetaComplexity.SingleLevel.notNot x1.gates :="
+  },
+  {
+    "file": "L_meta_6151.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_6151 : \u2200 (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x1 \u2192 \u2203 (x3 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x3 \u2227 x3.size \u2264 x1.size + (5 : \u2115) \u2227 \u2200 (x4 : List Bool), x4.length = (70 : \u2115) \u2192 x3.eval x4 = (x1.eval x4 || x4.getD (25 : \u2115) Bool.false && (x4.getD (12 : \u2115) Bool.false || x4.getD (0 : \u2115) Bool.false || (x4.getD (2 : \u2115) Bool.false || x4.getD (8 : \u2115) Bool.false))) :="
+  },
+  {
+    "file": "L_meta_6194.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_6194 : \u2200 (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x1 \u2192 (PEqualNP.MetaComplexity.circuitFun (10 : \u2115) x1 = fun (x3 : Fin (10 : \u2115) \u2192 Bool) => x3 (0 : Fin (10 : \u2115)) && x3 (1 : Fin (10 : \u2115)) || x3 (1 : Fin (10 : \u2115)) && x3 (2 : Fin (10 : \u2115)) || x3 (2 : Fin (10 : \u2115)) && x3 (3 : Fin (10 : \u2115)) || x3 (3 : Fin (10 : \u2115)) && x3 (4 : Fin (10 : \u2115)) || x3 (4 : Fin (10 : \u2115)) && x3 (0 : Fin (10 : \u2115)) || x3 (0 : Fin (10 : \u2115)) && x3 (5 : Fin (10 : \u2115)) || x3 (1 : Fin (10 : \u2115)) && x3 (6 : Fin (10 : \u2115)) || x3 (2 : Fin (10 : \u2115)) && x3 (7 : Fin (10 : \u2115)) || x3 (3 : Fin (10 : \u2115)) && x3 (8 : Fin (10 : \u2115)) || x3 (4 : Fin (10 : \u2115)) && x3 (9 : Fin (10 : \u2115)) || x3 (5 : Fin (10 : \u2115)) && x3 (7 : Fin (10 : \u2115)) || x3 (7 : Fin (10 : \u2115)) && x3 (9 : Fin (10 : \u2115)) || x3 (9 : Fin (10 : \u2115)) && x3 (6 : Fin (10 : \u2115)) || x3 (6 : Fin (10 : \u2115)) && x3 (8 : Fin (10 : \u2115)) || x3 (8 : Fin (10 : \u2115)) && x3 (5 : Fin (10 : \u2115))) \u2192 (15 : \u2115) \u2264 List.countP (fun (x4 : PEqualNP.CircuitLowerBounds.Gate) => PEqualNP.CircuitLowerBounds.GateOp.rec Bool.true Bool.true Bool.false (fun (x5 : \u2115) => Bool.true) Bool.true x4.op) x1.gates :="
+  },
+  {
+    "file": "L_meta_6343.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_6343 : PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 4 => (5102 : \u2115).testBit (4 * u.val + v.val)) 9 \u2227\n  \u00ac PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 4 => (5102 : \u2115).testBit (4 * u.val + v.val)) 8 :="
+  },
+  {
+    "file": "L_meta_6344.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_6344 : PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 4 => (5103 : \u2115).testBit (4 * u.val + v.val)) 9 \u2227\n  \u00ac PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 4 => (5103 : \u2115).testBit (4 * u.val + v.val)) 8 :="
+  },
+  {
+    "file": "L_meta_6351.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_6351 : \u2200 (x1 : \u2115) (x2 : PEqualNP.CircuitLowerBounds.Circuit) (x3 : Fin x1) (x4 : Finset \u2115), PEqualNP.MetaComplexity.FanInTwo x2 \u2192 PEqualNP.MetaComplexity.NestedCover.ReadsBack x1 x2 \u2192 (\u2200 x7 \u2208 x2.gates, x7.op = PEqualNP.CircuitLowerBounds.GateOp.not \u2192 x7.inputs.length = (1 : \u2115)) \u2192 PEqualNP.MetaComplexity.circuitFun x1 x2 (Function.update (fun (x8 : Fin x1) => Bool.false) x3 Bool.false) = Bool.false \u2192 (\u2200 x9 \u2208 x4, x9 < x2.size \u2227 \u2203 x11 \u2208 (PEqualNP.MetaComplexity.NestedCover.gateAt x2 x9).inputs, \u2203 (x12 : Bool), \u2200 (x13 : Fin x1 \u2192 Bool), (x2.wires (List.ofFn (Function.update x13 x3 Bool.false))).getD x11 Bool.false = x12) \u2192 \u2203 (x10 : \u2115), x10 + x4.card \u2264 x2.size \u2227 PEqualNP.MetaComplexity.HasCircuitSize x1 (fun (x11 : Fin x1 \u2192 Bool) => PEqualNP.MetaComplexity.circuitFun x1 x2 (Function.update x11 x3 Bool.false)) x10 :="
+  },
+  {
+    "file": "L_meta_6490.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_6490 : \u2200 (x1 : \u2115) (x2 : PEqualNP.CircuitLowerBounds.Circuit) (x3 : (Fin x1 \u2192 Bool) \u2192 Bool) (x4 x5 : Fin x1), PEqualNP.MetaComplexity.FanInTwo x2 \u2192 PEqualNP.MetaComplexity.circuitFun x1 x2 = x3 \u2192 (\u2203 (x8 : Fin x1 \u2192 Bool) (x9 : Fin x1 \u2192 Bool), x3 (Function.update (Function.update x8 x4 Bool.false) x5 Bool.false) \u2260 x3 (Function.update (Function.update x9 x4 Bool.false) x5 Bool.false)) \u2192 (8 : \u2115) \u2264 List.countP (fun (x9 : PEqualNP.CircuitLowerBounds.Gate) => bif x9.op.eval [Bool.false] then (List.take (1 : \u2115) x9.inputs).contains \u2191x4 || (List.take (1 : \u2115) x9.inputs).contains \u2191x5 else x9.inputs.contains \u2191x4 || x9.inputs.contains \u2191x5) x2.gates \u2192 \u2203 (x10 : \u2115), x10 + (8 : \u2115) \u2264 x2.size \u2227 PEqualNP.MetaComplexity.HasCircuitSize x1 (fun (x11 : Fin x1 \u2192 Bool) => x3 (Function.update (Function.update x11 x4 Bool.false) x5 Bool.false)) x10 :="
+  },
+  {
+    "file": "L_meta_6510.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_6510 : \u2200 (x1 x2 : \u2115) (x3 : Finset (Fin x1 \u00d7 Fin x2)), \u2203 (x4 : Finset (Fin x1 \u00d7 Fin x2)) (x5 : Finset (Fin x1)) (x6 : Finset (Fin x2)), x4 \u2286 x3 \u2227 (\u2200 x7 \u2208 x4, \u2200 x9 \u2208 x4, x7.1 = x9.1 \u2192 x7 = x9) \u2227 (\u2200 x7 \u2208 x4, \u2200 x9 \u2208 x4, x7.2 = x9.2 \u2192 x7 = x9) \u2227 (\u2200 x7 \u2208 x3, x7.1 \u2208 x5 \u2228 x7.2 \u2208 x6) \u2227 x5.card + x6.card \u2264 x4.card :="
+  },
+  {
+    "file": "L_meta_7255.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_7255 : \u2200 (x1 : \u2115), x1 = (0 : \u2115) \u2192 \u2200 (x3 : SimpleGraph (Fin x1)) (x4 : PEqualNP.CircuitLowerBounds.Circuit), (\u2203 (x5 : Fin x1) (x6 : Fin x1), x3.Adj x5 x6) \u2192 (\u2200 (x6 x7 x8 x9 : Fin x1), x6 \u2260 x7 \u2192 x6 \u2260 x8 \u2192 x6 \u2260 x9 \u2192 x7 \u2260 x8 \u2192 x7 \u2260 x9 \u2192 x8 \u2260 x9 \u2192 x3.Adj x6 x7 \u2192 x3.Adj x7 x8 \u2192 x3.Adj x8 x9 \u2192 \u00acx3.Adj x9 x6) \u2192 PEqualNP.MetaComplexity.Monotone2 x4 \u2192 (\u2200 (x8 : Fin x1 \u2192 Bool), x4.eval (List.ofFn x8) = Bool.true \u2194 \u2203 (x9 : Fin x1) (x10 : Fin x1), x3.Adj x9 x10 \u2227 x8 x9 = Bool.true \u2227 x8 x10 = Bool.true) \u2192 PEqualNP.BicliqueBlockCost.HasBlockCost x3 x4.size :="
+  },
+  {
+    "file": "L_meta_7511.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_7511 : \u2200 (x1 x2 x3 : \u2115) (x4 : \u2115 \u2192 Set ((Fin x1 \u2192 Bool) \u00d7 (Fin x1 \u2192 Bool))),   let x5 : Type :="
+  },
+  {
+    "file": "L_meta_7517.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_7517 : \u2200 (x1 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.TopForm.IsAO2 (14 : \u2115) x1 \u2192     \u2200 (x3 : Bool) (x4 : \u2115 \u2192 Bool),       have x5 : List Bool :="
+  },
+  {
+    "file": "L_meta_7519.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_7519 : have x1 : List \u2115 \u2192 List \u2115 \u2192 Prop :="
+  },
+  {
+    "file": "L_meta_7551.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_7551 : have x1 : List Bool \u2192 Fin (32768 : \u2115) \u2192 List Bool :="
+  },
+  {
+    "file": "L_meta_7820.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_7820 :\n    \u2200 (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.FanInTwo x1 \u2192 (PEqualNP.MetaComplexity.circuitFun (9 : \u2115) x1 = fun (x3 : Fin (9 : \u2115) \u2192 Bool) => [(1 : \u2115), (12 : \u2115), (23 : \u2115), (34 : \u2115), (40 : \u2115), (5 : \u2115), (16 : \u2115), (27 : \u2115), (38 : \u2115), (57 : \u2115), (68 : \u2115), (85 : \u2115)].any fun (x4 : \u2115) => x3 (Fin.ofNat (9 : \u2115) (x4 / (10 : \u2115))) && x3 (Fin.ofNat (9 : \u2115) (x4 % (10 : \u2115)))) \u2192 (13 : \u2115) \u2264 List.countP (fun (x4 : PEqualNP.CircuitLowerBounds.Gate) => !PEqualNP.CircuitLowerBounds.GateOp.rec Bool.false Bool.false Bool.true (fun (x5 : \u2115) => Bool.false) Bool.false x4.op) x1.gates :="
+  },
+  {
+    "file": "L_meta_7975.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_7975 : \u2200 (x1 : \u2115) (x2 : PEqualNP.CircuitLowerBounds.Circuit) (x3 : \u2115), PEqualNP.MetaComplexity.Monotone2 x2 \u2192 (\u2200 (x5 : Fin x1), \u2203 (x6 : List Bool), x6.length = x1 \u2227 x6.getD (\u2191x5) Bool.false = Bool.true \u2227 PEqualNP.CircuitLowerBounds.wireValue x2 x6 x3 = Bool.false) \u2192 \u2200 (x6 : List Bool), x6.length = x1 \u2192 (PEqualNP.CircuitLowerBounds.wireValue x2 x6 x3 = Bool.true \u2194 \u2203 x8 < x2.size, PEqualNP.CleanedNonEdge.OrReaches x1 x2 x3 x8 \u2227 (PEqualNP.MetaComplexity.NestedCover.gateAt x2 x8).op = PEqualNP.CircuitLowerBounds.GateOp.and \u2227 PEqualNP.CircuitLowerBounds.wireValue x2 x6 (x1 + x8) = Bool.true) :="
+  },
+  {
+    "file": "L_meta_8083.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8083 : \u2200 (x1 : Fin (14 : \u2115) \u2192 Bool), (\u2203 (x2 : Fin (7 : \u2115)) (x3 : Fin (7 : \u2115)), x2 \u2260 (0 : Fin (7 : \u2115)) \u2227 (x2 = x3 \u2228 x2 = x3 + (1 : Fin (7 : \u2115)) \u2228 x2 = x3 + (3 : Fin (7 : \u2115))) \u2227 x1 (Fin.castAdd (7 : \u2115) x2) = Bool.true \u2227 x1 (Fin.natAdd (7 : \u2115) x3) = Bool.true) \u2194 \u2200 x2 \u2208 [(127 : \u2115), (245 : \u2115), (361 : \u2115), (481 : \u2115), (595 : \u2115), (721 : \u2115), (1063 : \u2115), (1189 : \u2115), (2127 : \u2115), (2245 : \u2115), (2377 : \u2115), (2627 : \u2115), (3009 : \u2115), (3079 : \u2115), (4125 : \u2115), (4245 : \u2115), (6157 : \u2115), (7301 : \u2115), (8251 : \u2115), (8369 : \u2115), (8489 : \u2115), (8723 : \u2115), (9251 : \u2115), (9633 : \u2115), (10251 : \u2115), (11779 : \u2115), (12313 : \u2115), (12945 : \u2115), (14601 : \u2115), (16257 : \u2115)], \u00acx1 \u2264 fun (x4 : Fin (14 : \u2115)) => x2.testBit \u2191x4 :="
+  },
+  {
+    "file": "L_meta_8197.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8197 : \u2203 (x1 : \u2115), \u2200 (x2 : \u2115) (x3 : SimpleGraph (Fin x2)) [x4 : DecidableRel x3.Adj], (\u2200 (x5 : Fin x2) (x6 : x3.Walk x5 x5), x6.IsCycle \u2192 (5 : \u2115) \u2264 x6.length) \u2192 \u2200 (x6 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.TopForm.IsLeastAO x3 x6 \u2192 PEqualNP.TopForm.TopForm x3 x6 \u2192 \u2200 x9 \u2286 PEqualNP.TopForm.Ustar x3 x6, (\u2200 x11 \u2208 x9, \u2203 (x13 : Fin x2) (x14 : Fin x2), x11 = s(x13, x14) \u2227 \u2203 x15 \u2208 PEqualNP.TopForm.tops x3 x6, \u2200 (x16 : Fin (2 : \u2115)), x13 \u2208 PEqualNP.TopForm.side x6 x15 x16 \u2228 x14 \u2208 PEqualNP.TopForm.side x6 x15 x16 \u2228 \u2203 x17 \u2208 PEqualNP.TopForm.junk x3 x6, PEqualNP.CleanedNonEdge.OrReaches x2 x6 (PEqualNP.TopForm.opnd x6 x15 x16) x17 \u2227 ((\u2200 (x18 : Fin (2 : \u2115)), x13 \u2208 PEqualNP.TopForm.side x6 x17 x18 \u2228 x14 \u2208 PEqualNP.TopForm.side x6 x17 x18) \u2228 \u2203 (x18 : Fin (2 : \u2115)), x13 \u2208 PEqualNP.TopForm.side x6 x15 ((1 : Fin (2 : \u2115)) - x16) \u2227 (x13 \u2208 PEqualNP.TopForm.side x6 x17 x18 \u2228 x14 \u2208 PEqualNP.TopForm.side x6 x17 x18) \u2227 \u2203 x19 \u2208 PEqualNP.TopForm.junk x3 x6, PEqualNP.CleanedNonEdge.OrReaches x2 x6 (PEqualNP.TopForm.opnd x6 x17 ((1 : Fin (2 : \u2115)) - x18)) x19 \u2227 \u2200 (x20 : Fin (2 : \u2115)), x13 \u2208 PEqualNP.TopForm.side x6 x19 x20 \u2228 x14 \u2208 PEqualNP.TopForm.side x6 x19 x20)) \u2192 x9.card \u2264 x1 * (x6.size + (1 : \u2115)) :="
+  },
+  {
+    "file": "L_meta_8201.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8201 : \u2200 (x1 : \u2115) (x2 : SimpleGraph (Fin x1)) [x3 : DecidableRel x2.Adj] (x4 : PEqualNP.CircuitLowerBounds.Circuit) (x5 x6 : \u2115), PEqualNP.TopForm.IsAO2 x1 x4 \u2192 PEqualNP.TopForm.TopForm x2 x4 \u2192 x5 \u2208 PEqualNP.TopForm.junk x2 x4 \u2192 x6 \u2208 PEqualNP.TopForm.junk x2 x4 \u2192 x5 < x6 \u2192 (\u2200 x12 \u2208 PEqualNP.TopForm.junk x2 x4, x12 < x6 \u2192 x12 = x5) \u2192 \u2200 x13 \u2208 [x5, x6], \u2200 (x15 : Fin x1 \u2192 Bool), PEqualNP.ReadTwo.wval x4 x15 (x1 + x13) = Bool.true \u2194 \u2200 (x16 : Fin (2 : \u2115)), (\u2203 x17 \u2208 PEqualNP.TopForm.side x4 x13 x16, x15 x17 = Bool.true) \u2228 x13 = x6 \u2227 PEqualNP.CleanedNonEdge.OrReaches x1 x4 (PEqualNP.TopForm.opnd x4 x13 x16) x5 \u2227 PEqualNP.ReadTwo.wval x4 x15 (x1 + x5) = Bool.true :="
+  },
+  {
+    "file": "L_meta_8451.lean",
+    "statement": "theorem PEqualNP.Outside.L_meta_8451 : \u2200 t : \u2115, PEqualNP.MetaComplexity.HasCircuitSize 8 (fun x : Fin 8 \u2192 Bool => (x 0 && x 1) || (x 0 && x 2) || (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 2) || (x 1 && x 5) || (x 3 && x 4) || (x 5 && x 6) || (x 5 && x 7) || (x 6 && x 7)) t \u2192 14 \u2264 t :="
+  }
+]

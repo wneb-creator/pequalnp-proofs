@@ -1,0 +1,53 @@
+
+namespace PEqualNP.Outside.L_meta_650_aux.FiveOwnerBridge
+
+theorem edges_agree : FiveOwnerRectangles.edgePairs = FiveOwnerNegatives.edgePairs := rfl
+
+theorem allowed_agree (u v : Fin 16) :
+    FiveOwnerRectangles.allowed u v ↔ FiveOwnerNegatives.allowed u v := Iff.rfl
+
+theorem dirty_index (L R : Finset (Fin 16))
+    (h : (L, R) ∈ FiveOwnerRectangles.dirtyShapes) :
+    ∃ t : Fin 4, L = FiveOwnerNegatives.badLeft t ∧ R = FiveOwnerNegatives.badRight t := by
+  simp only [FiveOwnerRectangles.dirtyShapes, Finset.mem_insert, Finset.mem_singleton] at h
+  rcases h with h | h | h | h
+  · exact ⟨0, congrArg Prod.fst h, congrArg Prod.snd h⟩
+  · exact ⟨1, congrArg Prod.fst h, congrArg Prod.snd h⟩
+  · exact ⟨2, congrArg Prod.fst h, congrArg Prod.snd h⟩
+  · exact ⟨3, congrArg Prod.fst h, congrArg Prod.snd h⟩
+
+theorem ordinary_covered : ∀ p ∈ FiveOwnerRectangles.points,
+    FiveOwnerRectangles.covered {p} (FiveOwnerRectangles.neighbors p) =
+      FiveOwnerRectangles.ownerEdges p := by
+  decide +kernel
+
+theorem dirty_covered : ∀ t : Fin 4,
+    FiveOwnerRectangles.covered (FiveOwnerNegatives.badLeft t) (FiveOwnerNegatives.badRight t) =
+      FiveOwnerRectangles.ownerEdges (FiveOwnerNegatives.badOwner t) := by
+  decide +kernel
+
+theorem point_index : ∀ p ∈ FiveOwnerRectangles.points,
+    ∃ j : Fin 5, Fin.castAdd 11 j = p := by
+  decide +kernel
+
+theorem dirty_owner_point : ∀ t : Fin 4,
+    FiveOwnerNegatives.badOwner t ∈ FiveOwnerRectangles.points := by
+  decide +kernel
+
+theorem dirty_has_edge : ∀ t : Fin 4,
+    ∃ l : Fin 16, (FiveOwnerNegatives.badOwner t, l) ∈ FiveOwnerNegatives.edgePairs := by
+  decide +kernel
+
+theorem ordinary_hit_edge (U L R : Finset (Fin 16))
+    (h : FiveOwnerRectangles.Ordinary L R)
+    (hL : ∃ u ∈ L, u ∈ U) (hR : ∃ v ∈ R, v ∈ U) :
+    FiveOwnerNegatives.hasEdge U := by
+  obtain ⟨p, hp, rfl, rfl⟩ := h
+  obtain ⟨u, hu, huU⟩ := hL
+  have hup : u = p := Finset.mem_singleton.mp hu
+  subst u
+  obtain ⟨v, hv, hvU⟩ := hR
+  refine ⟨(p, v), ?_, huU, hvU⟩
+  exact (Finset.mem_filter.mp hv).2
+
+end PEqualNP.Outside.L_meta_650_aux.FiveOwnerBridge

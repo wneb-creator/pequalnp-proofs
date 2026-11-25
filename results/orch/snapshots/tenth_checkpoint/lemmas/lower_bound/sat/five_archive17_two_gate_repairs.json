@@ -1,0 +1,8 @@
+{
+  "starting_gates": 21,
+  "distinct_available_plus_onegate_signatures": 2833,
+  "attempts": 413618,
+  "elapsed_seconds": 0.07212034799886169,
+  "found": [],
+  "scope": "all paid21+atmost2 appended binarygates usingraw/free/prior wires; actualoutsidecostchecked"
+}

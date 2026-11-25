@@ -1,0 +1,49 @@
+[
+  {
+    "name": "five_owner_min6",
+    "status": "completed",
+    "snapshot_utc": "2026-11-25T06:20:53.470335+00:00",
+    "source": "search_feature_costtable.cpp",
+    "source_sha256": "60e4629318a09ee2bd973b29b1345655c51d555d18561ff743fcd262d019bc87",
+    "defines": {
+      "INPUTS": 52,
+      "RAW_INPUTS": 16,
+      "POINTS": 5,
+      "GATES": 23,
+      "WORDS": 2,
+      "MIN_AND": 6,
+      "REQUIRE_NONLINEAR": 0
+    },
+    "tests": "joint-five-tests.txt",
+    "seeds": "joint-five-six-and-seeds.txt",
+    "random_seed": 688,
+    "duration_seconds": 1200,
+    "output_prefix": "joint5six",
+    "complete_log_snapshot": "circuit-search-joint-five-six-and.live.log",
+    "completion_utc": "2026-11-25T06:32:35.882133+00:00"
+  },
+  {
+    "name": "four_owner_priority",
+    "status": "completed",
+    "snapshot_utc": "2026-11-25T06:20:53.470335+00:00",
+    "source": "search_feature_joint_priority.cpp",
+    "source_sha256": "e4e56129be3d1c1cf4dfe9ee597d36fe3d41371ccf60cb6c2fbe9ebcd0a8cd77",
+    "defines": {
+      "INPUTS": 41,
+      "RAW_INPUTS": 14,
+      "POINTS": 4,
+      "GATES": 18,
+      "WORDS": 1,
+      "MIN_AND": 5,
+      "REQUIRE_NONLINEAR": 0,
+      "OWNER_PRIORITY_WEIGHT": 16
+    },
+    "tests": "joint-four-tests.txt",
+    "seeds": "joint-four-priority-multiguard-seeds.txt",
+    "random_seed": 689,
+    "duration_seconds": 1200,
+    "output_prefix": "joint4multiguard",
+    "complete_log_snapshot": "circuit-search-joint-four-multiguard-priority.live.log",
+    "completion_utc": "2026-11-25T06:32:35.882137+00:00"
+  }
+]
