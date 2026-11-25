@@ -1,0 +1,4 @@
+CHART star MODE support UNKNOWNS 9 METHOD buchberger
+EQUATIONS 31 GEN_SECONDS 2.3015038250014186
+GROEBNER_SECONDS 86.32688707000125
+BASIS GroebnerBasis([1], d0, d1, d2, d3, d4, d5, d6, d7, d8, domain='QQ', order='grevlex')

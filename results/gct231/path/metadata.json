@@ -1,0 +1,7 @@
+{
+  "fixed_support": "Exact QQ Groebner unit ideal, 31 equations in 9 unknowns, 99.64 seconds.",
+  "full_chart": "UNKNOWN at native 300-second time limit; no Groebner basis.",
+  "numeric": "1000 complex starts; no witness; best max coefficient residual 0.06530386596151683.",
+  "scope": "All results restricted or computational; no full-gap conclusion.",
+  "frozen_utc": "2026-11-25T09:55:35.447187+00:00"
+}

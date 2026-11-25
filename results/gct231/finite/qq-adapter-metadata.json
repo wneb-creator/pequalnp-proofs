@@ -1,0 +1,21 @@
+{
+  "gmp_version": "6.3.0",
+  "source_sha256": "60049877367d2104a81f82e625a696d12e6ac0da70601ca5b5d8a4a7fd82ea88",
+  "binary_sha256": "771631ed291816aebd53108b96880cef1d8de3b6c21079157999e6ab1b7d3e8a",
+  "compile_command": "g++ -O2 -std=c++17 -I/tmp/oec/pequalnp-pilot-75/gct231/openf4 openf4_qq.cpp -lgmpxx -lgmp -o openf4_qq",
+  "dependency": "OpenF4 clone and its minimal build patches are owned/preserved by /root/global_normal_form; this adapter does not modify that clone.",
+  "toy_results": {
+    "unit": "BASIS 1\n(1*1)\n",
+    "nonunit": "BASIS 1\n(1*x^2) + (-2*1)\n",
+    "rational": "BASIS 2\n(1*x^1) + (-4/3*1)\n(1*y^1) + (1/3*1)\n"
+  },
+  "known_support_run": {
+    "status": "UNKNOWN_TIME_LIMIT",
+    "wall_seconds": 120.01501409299999,
+    "seconds_limit": 120,
+    "memory_mib_limit": 2048,
+    "input": "/tmp/oec/pequalnp-pilot-75/gct231/qq-star-support.in",
+    "characteristic": 0
+  },
+  "scope": "Toy arithmetic controls pass. The nontrivial nine-variable QQ run timed out; no characteristic-zero conclusion from this adapter on that chart. No full chart run was attempted."
+}

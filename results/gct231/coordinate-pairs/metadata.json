@@ -1,0 +1,8 @@
+{
+  "exact_lines_checked": 72,
+  "constant_lines": 0,
+  "triples_tested": 0,
+  "scope": "Only the finite coordinate-pair ansatz, not general 3D spaces.",
+  "json_note": "No numeric triple was tested, so best_numeric_error is null; original complete stdout printed Python Infinity.",
+  "frozen_utc": "2026-11-25T09:55:35.448643+00:00"
+}

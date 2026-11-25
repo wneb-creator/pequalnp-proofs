@@ -1,0 +1,4 @@
+star-support-buchberger-equations.json SHA256 c822273c0662873783ae82e4b8b12d37a1711dc36ad75d9b538fa1957ade6609
+PASS matrix normalization, tangent elimination, all31 coefficients, exact Ryser reconstruction,24 direct samples
+star-full-generate-equations.json SHA256 805790ef29f0a42c6a57f50e05ef991bd0c2bce219fcd951a4b0965cafcfa1af
+PASS matrix normalization, tangent elimination, all31 coefficients, exact Ryser reconstruction,24 direct samples

@@ -1,0 +1,8 @@
+degree 1 6*(a + 2*b + c + 2*w + 2*x + 2*y + 2*z)
+degree 2 2*(a*c + 2*a*w + 2*a*z + b**2 + 2*b*w + 2*b*x + 2*b*y + 2*b*z + 2*c*x + 2*c*y + w**2 + 4*w*x + 2*w*y + 2*w*z + x**2 + 2*x*y + 2*x*z + y**2 + 4*y*z + z**2)
+degree 3 a*w**2 + 2*a*w*z + a*z**2 + 2*b*w*x + 2*b*w*y + 2*b*x*z + 2*b*y*z + c*x**2 + 2*c*x*y + c*y**2 + 2*w**2*x + 2*w*x**2 + 2*w*x*y + 2*w*x*z + 2*w*y*z + 2*x*y*z + 2*y**2*z + 2*y*z**2
+degree 4 (w*x + y*z)**2
+ruling_degree 1 6*(a + 2*b + c + 2*k*u - 2*k*v + 2*u + 2*v)
+ruling_degree 2 2*(a*c + 2*a*k*u - 2*a*k*v + b**2 + 2*b*k*u - 2*b*k*v + 2*b*u + 2*b*v + 2*c*u + 2*c*v + k**2*u**2 - 2*k**2*u*v + k**2*v**2 + 2*k*u**2 - 2*k*v**2 + u**2 + 2*u*v + v**2)
+ruling_degree 3 a*k**2*u**2 - 2*a*k**2*u*v + a*k**2*v**2 + 2*b*k*u**2 - 2*b*k*v**2 + c*u**2 + 2*c*u*v + c*v**2
+ruling_degree 4 0

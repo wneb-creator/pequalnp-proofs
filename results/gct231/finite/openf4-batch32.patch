@@ -1,0 +1,11 @@
+--- openf4/openf4/src/ideal.inl
++++ openf4-batch32/openf4/src/ideal.inl
+@@ -1027,7 +1027,7 @@
+             stat._nbCpDeg++;
+ 
+             /* Get the other critical pairs of degree d */
+-            while ( (itcp1 != 0) && (itcp1->_cp.getDegree()==d))
++            while ( (itcp1 != 0) && (itcp1->_cp.getDegree()==d) && stat._nbCpDeg < 32)
+             {
+                 cp1=itcp1->_cp;
+                 itcp1=_criticalPairSet.erase(itcp1);

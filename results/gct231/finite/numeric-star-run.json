@@ -1,0 +1,8 @@
+{
+  "status": "NO_WITNESS_FOUND",
+  "starts_completed": 1000,
+  "best_residual_infinity_norm": 0.04692456127144301,
+  "best_vector_norm": 4.877596709923893,
+  "scope": "Numerical candidate generation only; does not establish absence of exact solutions.",
+  "last_iteration_record": "999 err 0.27639007833997564 norm 2.9900191741558984 nfev 33 time 114.41379023399895"
+}

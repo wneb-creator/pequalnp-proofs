@@ -8,7 +8,7 @@ Axiom audit: all audited lemmas use only propext, Classical.choice, Quot.sound.
 Checked scope: permanent expansion; diagonal rigidity; six-coordinate injectivity; total-entry sum zero and symmetric diagonal elimination; explicit finite star/triangle/path orbit witnesses; normalization of every hypothetical3D solution to one of those canonical charts; formal polynomial identity for a linear family. No candidate existence or nonexistence is proved.
 Checker03: exit1, REJECTED (no-theorem).
 Checker04: exit3, CHECKER FAULT: verifier exited137 without verdict; cgroup OOM observed. Original exhaustive finite proof replaced by explicit witness table.
-Checker05: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_gct_231 (one lemma, one file: the theorem carries the module's name)
+Checker05: exit1, REJECTED (no-theorem); full log preserved. Checker memory fault no longer occurs with explicit witnesses.
 The main theorem named PEqualNP.Outside.L_gct_231 remains absent. These are checked partial helpers only.
 Rowzero archive: two explicit polynomial contradictions compile with standard axioms. Exact CAS certificates for eight restricted charts verified. Global chart coverage and full nonexistence are not formalized.
 Cleanup: not reached; final proof/checker acceptance absent. Partial source grew283→506 lines while finite proof was optimized.

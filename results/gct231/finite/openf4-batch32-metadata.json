@@ -1,0 +1,9 @@
+{
+  "original_ideal_sha256": "b6689e59e31148f651cc1a95c57ce5b41d09c8d90b2964e6e80c47367afd0f4a",
+  "modified_ideal_sha256": "90c584eba3a29fb27a6a621f3286c79d14f238e5c734fff121eb02257d630498",
+  "patch_sha256": "947f5ff48817be8da8a8e91f38ece7ea4a78fa1ddf091bf61628ffde4ccd8e10",
+  "driver_sha256": "556daf0f7677505ac1a9fbfe3ff8966abbc97656d3823796282e2bab797bd5f2",
+  "binary_sha256": "79c599c3ffc2293c8d3e28bf619b1e3bcd57926bf044844b6263e85bc1bc892d",
+  "compile_command": "g++ -O2 -std=c++17 -I/tmp/oec/pequalnp-pilot-75/gct231/openf4-batch32 openf4_batch32.cpp -o openf4_batch32",
+  "scope": "Isolated32-pair finite-field F4 trial. Original shared clone unchanged. Known support control returns unit; fullstar fails4GiB at degree6 with bad_alloc and no verdict."
+}

@@ -1,0 +1,4 @@
+derivatives [12*q*u*w - 6*q*v*w + 6*u*v + 6*v**2, -3*q**2*(w + 1) - 6*q*u*w + 3*u**2 + 12*u*v + 3*v**2, 6*q**2 - 6*q*v*(w + 1) + 6*u**2*w - 6*u*v*w]
+q=1 GroebnerBasis([1], u, v, w, domain='ZZ', order='grevlex')
+q=0,u=1 GroebnerBasis([1], v, w, domain='ZZ', order='grevlex')
+q=0,v=1 GroebnerBasis([1], u, w, domain='ZZ', order='grevlex')

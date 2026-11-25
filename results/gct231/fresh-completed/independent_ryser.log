@@ -1,0 +1,9 @@
+C3 invariant coefficients independently checked by Ryser
+C3 character permanent identity and eigenmatrix equation independently checked
+C3 symmetric representation characteristic polynomial (z - 1)**4*(z**2 + z + 1)**3
+Block seed full polynomial independently checked by Ryser
+Block seed linear substitution annihilates every linear coefficient
+Block seed residual variables [b11, b13, b22, b33]
+Block seed verified vanishing power remainders [('b11', 5), ('b13', 4), ('b22', 5), ('b33', 5)]
+Block seed residual origin makes every normalized B entry zero
+All independent checks passed; elapsed seconds 50.41934428000059

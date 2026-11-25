@@ -1,0 +1,12 @@
+{
+  "model": "star-full-generate",
+  "degree_bound": 4,
+  "prime": 1009,
+  "status": "NO_CERTIFICATE_AT_THIS_DEGREE",
+  "rows_processed": 1345,
+  "rank": 1330,
+  "columns": 7315,
+  "wall_seconds": 1.0428089930010174,
+  "basis_entries": 106432,
+  "scope": "Modular low-degree certificate search only; no characteristic-zero nonexistence conclusion."
+}

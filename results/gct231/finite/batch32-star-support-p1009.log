@@ -1,0 +1,439 @@
+
+---------------------------------------
+--------------- STEP 1 ---------------
+---------------------------------------
+Step degree: 3, Basis length: 6, Pairs queue length 55
+
+Construction of _matPols: 
+Number of selected pairs: 18
+Number of polynomials: 35
+Number of monomials: 207
+
+Preprocessing of _matPols: 
+Height: 67, Width :217, Number of pivots: 49
+
+Convert _matPols into a matrix: 
+Matrix size: 67x217
+Matrix density: 6.5823
+Construction time: 0 ms
+
+Update of _basis and queue of pairs done in 0 ms
+Basis length: 24 (18 new gen and 0 purged) 
+
+Total computation time of step 1: 0 ms
+
+
+---------------------------------------
+--------------- STEP 2 ---------------
+---------------------------------------
+Step degree: 4, Basis length: 24, Pairs queue length 100
+
+Construction of _matPols: 
+Number of selected pairs: 32
+Number of polynomials: 60
+Number of monomials: 432
+
+Preprocessing of _matPols: 
+Height: 170, Width :469, Number of pivots: 138
+
+Convert _matPols into a matrix: 
+Matrix size: 170x469
+Matrix density: 3.82917
+Construction time: 1 ms
+
+Update of _basis and queue of pairs done in 1 ms
+Basis length: 56 (32 new gen and 0 purged) 
+
+Total computation time of step 2: 2 ms
+
+
+---------------------------------------
+--------------- STEP 3 ---------------
+---------------------------------------
+Step degree: 4, Basis length: 56, Pairs queue length 245
+
+Construction of _matPols: 
+Number of selected pairs: 32
+Number of polynomials: 56
+Number of monomials: 450
+
+Preprocessing of _matPols: 
+Height: 258, Width :509, Number of pivots: 226
+
+Convert _matPols into a matrix: 
+Matrix size: 258x509
+Matrix density: 5.52611
+Construction time: 1 ms
+
+Update of _basis and queue of pairs done in 1 ms
+** 7 reductions to zero **
+
+Basis length: 81 (25 new gen and 0 purged) 
+
+Total computation time of step 3: 3 ms
+
+
+---------------------------------------
+--------------- STEP 4 ---------------
+---------------------------------------
+Step degree: 4, Basis length: 81, Pairs queue length 451
+
+Construction of _matPols: 
+Number of selected pairs: 24
+Number of polynomials: 45
+Number of monomials: 383
+
+Preprocessing of _matPols: 
+Height: 273, Width :498, Number of pivots: 249
+
+Convert _matPols into a matrix: 
+Matrix size: 273x498
+Matrix density: 7.4025
+Construction time: 1 ms
+
+Update of _basis and queue of pairs done in 0 ms
+** 21 reductions to zero **
+
+Basis length: 84 (3 new gen and 0 purged) 
+
+Total computation time of step 4: 2 ms
+
+
+---------------------------------------
+--------------- STEP 5 ---------------
+---------------------------------------
+Step degree: 5, Basis length: 84, Pairs queue length 453
+
+Construction of _matPols: 
+Number of selected pairs: 32
+Number of polynomials: 55
+Number of monomials: 308
+
+Preprocessing of _matPols: 
+Height: 195, Width :419, Number of pivots: 163
+
+Convert _matPols into a matrix: 
+Matrix size: 195x419
+Matrix density: 8.3263
+Construction time: 0 ms
+
+Update of _basis and queue of pairs done in 1 ms
+** 3 reductions to zero **
+
+Basis length: 113 (29 new gen and 0 purged) 
+
+Total computation time of step 5: 3 ms
+
+
+---------------------------------------
+--------------- STEP 6 ---------------
+---------------------------------------
+Step degree: 5, Basis length: 113, Pairs queue length 605
+
+Construction of _matPols: 
+Number of selected pairs: 32
+Number of polynomials: 57
+Number of monomials: 425
+
+Preprocessing of _matPols: 
+Height: 253, Width :439, Number of pivots: 221
+
+Convert _matPols into a matrix: 
+Matrix size: 253x439
+Matrix density: 10.7413
+Construction time: 1 ms
+
+Update of _basis and queue of pairs done in 2 ms
+** 1 reductions to zero **
+
+Basis length: 138 (31 new gen and 6 purged) 
+
+Total computation time of step 6: 4 ms
+
+
+---------------------------------------
+--------------- STEP 7 ---------------
+---------------------------------------
+Step degree: 5, Basis length: 138, Pairs queue length 773
+
+Construction of _matPols: 
+Number of selected pairs: 32
+Number of polynomials: 58
+Number of monomials: 339
+
+Preprocessing of _matPols: 
+Height: 209, Width :349, Number of pivots: 177
+
+Convert _matPols into a matrix: 
+Matrix size: 209x349
+Matrix density: 21.83
+Construction time: 1 ms
+
+Update of _basis and queue of pairs done in 3 ms
+** 1 reductions to zero **
+
+Basis length: 143 (31 new gen and 26 purged) 
+
+Total computation time of step 7: 5 ms
+
+
+---------------------------------------
+--------------- STEP 8 ---------------
+---------------------------------------
+Step degree: 4, Basis length: 143, Pairs queue length 850
+
+Construction of _matPols: 
+Number of selected pairs: 32
+Number of polynomials: 62
+Number of monomials: 374
+
+Preprocessing of _matPols: 
+Height: 228, Width :376, Number of pivots: 196
+
+Convert _matPols into a matrix: 
+Matrix size: 228x376
+Matrix density: 22.982
+Construction time: 1 ms
+
+Update of _basis and queue of pairs done in 3 ms
+** 6 reductions to zero **
+
+Basis length: 120 (26 new gen and 49 purged) 
+
+Total computation time of step 8: 5 ms
+
+
+---------------------------------------
+--------------- STEP 9 ---------------
+---------------------------------------
+Step degree: 4, Basis length: 120, Pairs queue length 831
+
+Construction of _matPols: 
+Number of selected pairs: 32
+Number of polynomials: 59
+Number of monomials: 204
+
+Preprocessing of _matPols: 
+Height: 119, Width :205, Number of pivots: 87
+
+Convert _matPols into a matrix: 
+Matrix size: 119x205
+Matrix density: 23.6278
+Construction time: 0 ms
+
+Update of _basis and queue of pairs done in 1 ms
+** 11 reductions to zero **
+
+Basis length: 99 (21 new gen and 42 purged) 
+
+Total computation time of step 9: 2 ms
+
+
+---------------------------------------
+--------------- STEP 10 ---------------
+---------------------------------------
+Step degree: 3, Basis length: 99, Pairs queue length 747
+
+Construction of _matPols: 
+Number of selected pairs: 6
+Number of polynomials: 12
+Number of monomials: 19
+
+Preprocessing of _matPols: 
+Height: 17, Width :19, Number of pivots: 11
+
+Convert _matPols into a matrix: 
+Matrix size: 17x19
+Matrix density: 16.7183
+Construction time: 0 ms
+
+Update of _basis and queue of pairs done in 0 ms
+** 3 reductions to zero **
+
+Basis length: 93 (3 new gen and 9 purged) 
+
+Total computation time of step 10: 0 ms
+
+
+---------------------------------------
+--------------- STEP 11 ---------------
+---------------------------------------
+Step degree: 4, Basis length: 93, Pairs queue length 704
+
+Construction of _matPols: 
+Number of selected pairs: 32
+Number of polynomials: 56
+Number of monomials: 135
+
+Preprocessing of _matPols: 
+Height: 93, Width :135, Number of pivots: 61
+
+Convert _matPols into a matrix: 
+Matrix size: 93x135
+Matrix density: 11.4616
+Construction time: 0 ms
+
+Update of _basis and queue of pairs done in 1 ms
+** 13 reductions to zero **
+
+Basis length: 42 (19 new gen and 70 purged) 
+
+Total computation time of step 11: 1 ms
+
+
+---------------------------------------
+--------------- STEP 12 ---------------
+---------------------------------------
+Step degree: 2, Basis length: 42, Pairs queue length 436
+
+Construction of _matPols: 
+Number of selected pairs: 3
+Number of polynomials: 6
+Number of monomials: 4
+
+Preprocessing of _matPols: 
+Height: 6, Width :4, Number of pivots: 3
+
+Convert _matPols into a matrix: 
+Matrix size: 6x4
+Matrix density: 29.1667
+Construction time: 0 ms
+
+Update of _basis and queue of pairs done in 0 ms
+** 2 reductions to zero **
+
+Basis length: 32 (1 new gen and 11 purged) 
+
+Total computation time of step 12: 0 ms
+
+
+---------------------------------------
+--------------- STEP 13 ---------------
+---------------------------------------
+Step degree: 2, Basis length: 32, Pairs queue length 351
+
+Construction of _matPols: 
+Number of selected pairs: 4
+Number of polynomials: 8
+Number of monomials: 9
+
+Preprocessing of _matPols: 
+Height: 13, Width :9, Number of pivots: 9
+
+Convert _matPols into a matrix: 
+Matrix size: 13x9
+Matrix density: 18.8034
+Construction time: 0 ms
+
+Update of _basis and queue of pairs done in 0 ms
+** 4 reductions to zero **
+
+Basis length: 32 (0 new gen and 0 purged) 
+
+Total computation time of step 13: 0 ms
+
+
+---------------------------------------
+--------------- STEP 14 ---------------
+---------------------------------------
+Step degree: 3, Basis length: 32, Pairs queue length 347
+
+Construction of _matPols: 
+Number of selected pairs: 32
+Number of polynomials: 62
+Number of monomials: 104
+
+Preprocessing of _matPols: 
+Height: 107, Width :104, Number of pivots: 75
+
+Convert _matPols into a matrix: 
+Matrix size: 107x104
+Matrix density: 8.92344
+Construction time: 0 ms
+
+Update of _basis and queue of pairs done in 0 ms
+** 25 reductions to zero **
+
+Basis length: 26 (7 new gen and 13 purged) 
+
+Total computation time of step 14: 0 ms
+
+
+---------------------------------------
+--------------- STEP 15 ---------------
+---------------------------------------
+Step degree: 3, Basis length: 26, Pairs queue length 282
+
+Construction of _matPols: 
+Number of selected pairs: 32
+Number of polynomials: 61
+Number of monomials: 154
+
+Preprocessing of _matPols: 
+Height: 153, Width :157, Number of pivots: 121
+
+Convert _matPols into a matrix: 
+Matrix size: 153x157
+Matrix density: 9.74148
+Construction time: 0 ms
+
+Update of _basis and queue of pairs done in 0 ms
+** 16 reductions to zero **
+
+Basis length: 12 (16 new gen and 30 purged) 
+
+Total computation time of step 15: 0 ms
+
+
+---------------------------------------
+--------------- STEP 16 ---------------
+---------------------------------------
+Step degree: 2, Basis length: 12, Pairs queue length 169
+
+Construction of _matPols: 
+Number of selected pairs: 18
+Number of polynomials: 36
+Number of monomials: 36
+
+Preprocessing of _matPols: 
+Height: 45, Width :36, Number of pivots: 27
+
+Convert _matPols into a matrix: 
+Matrix size: 45x36
+Matrix density: 13.5185
+Construction time: 0 ms
+
+Update of _basis and queue of pairs done in 0 ms
+** 10 reductions to zero **
+
+Basis length: 9 (8 new gen and 11 purged) 
+
+Total computation time of step 16: 0 ms
+
+
+---------------------------------------
+--------------- STEP 17 ---------------
+---------------------------------------
+Step degree: 2, Basis length: 9, Pairs queue length 115
+
+Construction of _matPols: 
+Number of selected pairs: 6
+Number of polynomials: 12
+Number of monomials: 10
+
+Preprocessing of _matPols: 
+Height: 15, Width :10, Number of pivots: 9
+
+Convert _matPols into a matrix: 
+Matrix size: 15x10
+Matrix density: 20
+Construction time: 0 ms
+
+
+
+GROEBNER BASIS : (1)
+---> 34 ms 
+
+
+BASIS 1
+(1*1)

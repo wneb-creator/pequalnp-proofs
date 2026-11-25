@@ -1,0 +1,2 @@
+{"stage": "lines", "checked": 72, "constant": 0, "seconds": 2.8402763539997977}
+{"names": ["b1", "b2", "b3", "a1", "a2", "a3", "a12", "a13", "a23"], "triples_tested": 0, "best_numeric_error": Infinity, "seconds": 2.8406806479997613, "scope": "Exact line checks; numeric triple rejection; exact survivor checks only."}

@@ -1,0 +1,13 @@
+minus_coefficients [(2, -2*(a**2 + 4*a*b + 4*a*c + 4*b*c)), (4, 4*b**2*c**2)]
+minus_quadratic_Gram_determinant 12
+mixed_line 0 linear 2*(-p + x) x_eliminated p quartic 0
+mixed_line -4 linear 2*(-p - 8*r + 8*v + 8*w + x - 8*y) x_eliminated p + 8*r - 8*v - 8*w + 8*y quartic -16*(r - w)*(4*p + 19*r - 12*v - 12*w + 17*y)
+p_zero_and v_zero quadratic -r**2 - 4*r*w + 2*r*y - 4*w**2 + y**2 Gram_det 4
+p_zero_and w_zero quadratic -r**2 + 4*r*v + 2*r*y + 12*v**2 + 8*v*y + y**2 Gram_det 4
+normalized_mixed0_equation (4, 0) -2*(8*A**3 - 2*A**2*B**2 + 8*A**2*B + 2*A**2*C + 8*A**2 + 4*A*C - 2*B**2*C + 4*B*C + C**2 + 4*C)
+normalized_mixed0_equation (3, 1) -4*(A**2*L + 2*A**2 - 2*A*B + 2*A*L - B**2*L + 2*B*L + C*L + C + 2*L)
+normalized_mixed0_equation (3, 0) -4*(4*A**3 + 2*A**2*B + A**2*C + 11*A**2 - 2*A*B**2 + 6*A*B + 6*A*C + 10*A - B**2*C - B**2 + 2*B*C + 2*B + C**2 + 4*C + 2)
+normalized_mixed0_equation (2, 1) -4*(A**2*L + 2*A**2 - 2*A*B + 6*A*L + 2*A - B**2*L + 2*B*L - 2*B + 2*C*L + 2*C + 4*L)
+normalized_mixed0_equation (2, 0) -2*(12*A**2 + 4*A*B + 8*A*C + 24*A - 4*B**2 + 8*B + C**2 + 4*C + 14)
+normalized_mixed0_equation (1, 1) -4*(4*A*L + 2*A - 2*B + C*L + C + 2*L)
+normalized_mixed0_Groebner GroebnerBasis([1], A, B, C, L, domain='ZZ', order='grevlex')

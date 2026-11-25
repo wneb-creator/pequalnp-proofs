@@ -1,0 +1,4 @@
+coefficient 1 6*(a + 2*b + c + 2*k*u - 2*k*v + 2*u + 2*v)
+coefficient 2 2*(a*c - 2*a*k*v + 2*a*v + b**2 + 2*b*k*u - 2*b*k*v + 2*b*u + 2*b*v + 2*c*k*u + 2*c*u + k**2*u**2 - 2*k**2*u*v + k**2*v**2 + 2*k*u**2 - 2*k*v**2 + u**2 + 2*u*v + v**2)
+coefficient 3 a*k**2*v**2 - 2*a*k*v**2 + a*v**2 - 2*b*k**2*u*v + 2*b*u*v + c*k**2*u**2 + 2*c*k*u**2 + c*u**2
+coefficient 4 0

@@ -1,0 +1,2 @@
+{"stage": "generated", "unknowns": 9, "equations": 31, "seconds": 0.6239407800003391}
+{"stage": "completed", "seconds": 99.63967267000044, "basis": ["1"], "unit_ideal": true}
