@@ -9,3 +9,5 @@
 - 2026-11-25T10:32:33.224669+00:00: independent semantic census and graph/biclique audit completed; then independently confirmed upstream L-meta-950 is the exact opposite of assigned949. Certificate strategy stopped because existing structural proof supersedes it.
 - 2026-11-25T10:33:45.564879+00:00 lean_reduction: full exact L-meta949 refutation adapted from upstream L-meta950 compiled successfully; root notified for checker and push.
 - 2026-11-25T10:37:05.467689+00:00: exact-refutation named build passed; checker FAULT due missing full cache; preparing release because checked opposite was already upstream.
+- 2026-11-25 10:37:14 UTC: desk confirmed release of own L-meta-949 lease, statement_seems_false.
+- 2026-11-25 10:37:21 UTC: follow-up request returned null; no follow-up lease held.
