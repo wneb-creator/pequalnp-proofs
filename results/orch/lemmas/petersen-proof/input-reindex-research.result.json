@@ -1,0 +1,18 @@
+{
+  "exit_code": 0,
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/petersen-proof/InputReindexResearch.lean",
+  "source_sha256": "1118844ca6ade0b2ef03e2345179c45bb1f97111f2e45a03f0392b1fe98e083e",
+  "validation": "Research-only narrow import PEqualNP.Defs.MetaComplexity; canonical InputReindex.lean retaining required aggregate PEqualNP.Defs has not yet been compiled.",
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-M2000",
+    "-j1",
+    "--profile",
+    "/tmp/oec/pequalnp-pilot-184/petersen-proof/InputReindexResearch.lean"
+  ],
+  "workdir": "/workspace/pequalnp-proofs/lean",
+  "reported_import_s": 1.87,
+  "reported_kernel_typechecking_s": 0.128
+}

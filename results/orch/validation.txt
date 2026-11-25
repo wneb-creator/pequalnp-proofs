@@ -6,3 +6,7 @@ Independent computational screen: all22grids and82primitive checks passed.
 Local checker pending completion of fullMathlib runtimecache; no ACCEPTED claim yet.
 Sub-agents: status_review, replacement_proof, circuit_search, lower_bound, lean_setup
 TIMING total=67.2 subagents=5
+
+Local checker attempt2026-11-25T20:47:17Z: FAULT, verifierexit137, cgroupOOMconfirmed;script exit3 after125.48s. Fullstdout/stderr/result saved. No claimofcheckeracceptance.
+Sub-agents: lean_setup,status_review,replacement_proof,lower_bound,circuit_search,petersen_counterexample
+TIMING total=78 subagents=6

@@ -1,0 +1,46 @@
+Partial research proof, not the complete statement of L-meta-1890.
+Command: lake env lean -j1 -M6500 --profile results/orch/lemmas/petersen-lower/FiniteGraph.lean
+SHA256: 86947eab4079809f74e045ce6e2a962ef0dcc49ee9f68835c45c5b74a9639f2e
+{
+  "exit_code": 0,
+  "elapsed_seconds": 25.535581067999374,
+  "peak_rss_kib": 3145820
+}
+
+Complete stdout:
+type checking took 127ms
+type checking took 388ms
+type checking took 3.76s
+type checking took 2.45s
+type checking took 2.72s
+simp took 139ms
+type checking took 187ms
+
+Complete stderr:
+import took 8.29s
+cumulative profiling times:
+	attribute application 4.88ms
+	blocked (unaccounted) 27.8s
+	compilation (IR) 0.959ms
+	compilation (LCNF base) 16.6ms
+	compilation (LCNF impure) 4.99ms
+	compilation (LCNF mono) 44ms
+	congr simp thm 6.73ms
+	declTypeLinter 49.3ms
+	elaboration 238ms
+	fix level params 0.992ms
+	import 8.29s
+	initialization 104ms
+	instantiate metavars 6.3ms
+	interpretation 978ms
+	let-to-have transformation 0.357ms
+	linting 30.2ms
+	module linting 33ms
+	parsing 18.6ms
+	process pre-definitions 15.6ms
+	share common exprs 6.07ms
+	simp 547ms
+	tactic execution 311ms
+	tacticAnalysis 41.2ms
+	type checking 9.7s
+	typeclass inference 244ms
