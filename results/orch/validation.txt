@@ -40,3 +40,6 @@ TIMING total=30.05 subagents=7
 
 FullRun.lean, ReachRestriction.lean, MiniNine.lean: compile exit0 and independent reviews PASS as development partials. Temporary helper imports must be removed by final assembly.
 TIMING total=36.23 subagents=7
+
+FullRunLower17.lean and ComparableDelete.lean: compile exit0; independent reviews PASS. The17-bound still assumes the nine-input signed lower bound. Comparable deletion needs global source/output comparability and a nonconstant output.
+TIMING total=38.26 subagents=7

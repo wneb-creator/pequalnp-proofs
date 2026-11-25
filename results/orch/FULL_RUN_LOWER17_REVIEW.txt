@@ -1,0 +1,92 @@
+Independent red-team review: PASS for preservation as a checked conditional partial.
+Reviewer: lean_environment (independent of source author).
+Reviewed UTC: 2026-11-25T14:37:32.239834+00:00
+Source: results/orch/lemmas/FullRunLower17.lean
+Source SHA-256: 11d504257c4434d36db9098df1aa2b216c372baa17c968d5384ca5bd0f13f0c0
+Source size: 1031 lines, 45653 bytes; regular UTF-8 file, not executable or a symlink.
+New lower-bound fragment: 179 lines.
+Fragment SHA-256: b1d2decc6e77508ce716c6f0e4cd9c53ea27a90994f2629dc747ef61ca8621a7
+
+Exact hypothesis and conclusion
+fullRun_lower17_of_deleted_lower assumes H: for every natural p and every bank of
+Boolean functions on nine inputs, Reach true (retRaw 9) p bank together with
+Available true bank structuralDeletedEdge implies 15 <= p. This is a lower bound
+in the free-NOT Reach model: constants and complements of stored wires are available
+without additional gates, and p counts constructed binary AND/OR operations.
+A monotone-only lower bound, or a lower bound charging NOT gates, would not establish
+this exact hypothesis. H is a genuine remaining assumption and is NOT proved here.
+
+Under H, the conclusion is that every Run true structuralEdge k (retRaw 10) has
+17 <= k. It is a conditional 17-operation bound, not the full posted statement
+excluding all circuits of at most 19 gates that contain a NOT.
+
+Projection review
+retMoveEquiv uses the already proved Petersen automorphism sending vertex 9 to the
+chosen first operand p. retProjection transports the vertex-9-false extension back
+along its inverse. Consequently input p is identically false, every other raw input
+is one of the nine remaining projections, and the restricted edge function is
+exactly structuralDeletedEdge. The inverse direction and the moved vertex are used
+consistently. ret_raw_available correctly treats the removed variable as a free
+constant and the other variables as original roots. ret_comb_constant shows that
+a signed combination with the removed variable is already Available true from those
+roots, including the cases needing a free complement.
+
+I independently checked all ten automorphisms and all 512 assignments for each:
+5120 projection cases preserved the exact deleted-edge function and fixed p false.
+The two assignments used to prove that the deleted function is nonconstant were
+also checked independently.
+
+Retention and budget review
+The raw-input list is nodup because distinct projections are separated by a basis
+assignment. The first Run decomposition therefore supplies distinct p and q and a
+rest list independent of both. first_keeps_left forces the original left operand
+to survive the first operation. The continuation state is thus the combined wire,
+the retained left input, and optional other original inputs.
+
+After restricting p false, the whole continuation state is available from the nine
+raw roots using zero preprocessing gates. The retained left input is a constant,
+so its cost is exactly 1 and the continuation state's mass is at least 1. The copied
+projected_bound lemma then gives
+
+  15 + mass(projected continuation state) <= continuation steps.
+
+Thus continuation steps >= 16, and restoring the initial operation gives at least
+17 steps. There is no double counting: the initial operation is outside the Run
+continuation to which projected_bound is applied; the one unit of mass belongs to
+the explicitly retained original input. The combined wire's possible additional
+constant cost is not needed for the stated 17 bound. The nonconstant projected goal
+is proved separately, as required by contraction/projected_bound.
+
+I also reviewed the included first_keeps_right and first_keeps_both lemmas. The right
+retention proof is the symmetric absorbing-input argument, with correct absorbing
+left values for all four comb branches, and the both-retained result simply pairs
+the two independently proved conclusions. No missing premise or circular use of H
+or the target lower bound was found.
+
+Provenance
+The complete SignedFloor block through projected_bound is an unchanged prefix of
+results/orch/lemmas/SignedFloor.lean. The structural block exactly matches the body
+of results/orch/lemmas/structural.lean. The previously reviewed 70-line left-operand
+retention fragment occurs unchanged. The new 179-line lower-bound fragment is the
+exact suffix of the standalone source. The additional right/both retention block
+was inspected directly rather than assumed to be covered by the earlier review.
+
+Static checks
+This standalone harness now uses only PEqualNP.Defs and permitted Mathlib modules;
+there is no temporary SignedCore import. Imports are contiguous at the beginning.
+All helper namespace blocks are within the intended L_meta_2592 family and have
+explicit balanced closures. No sorry, axioms, native_decide, unsafe declarations,
+forbidden commands, strings, _root_ text, attributes, custom data types or instances.
+Only inherited maxRecDepth and maxHeartbeats limits occur, directly above their
+proof declarations. Whitespace checks passed.
+
+Validation evidence and limits
+Author/root reported compilation exit 0. I read the complete retained logs
+fullrun-lower17-standalone.stdout and .stderr in the job scratch directory. Stdout
+contains only tactic-style and deprecated if_pos/if_neg warnings; stderr is empty;
+neither contains errors. Both logs are newer than the reviewed source. I did not
+repeat the heavy Lean build.
+
+Verdict: preserve the checked conditional partial. H still needs its own proof, the
+bound is only 17, and the file has no final theorem with the exact posted statement.
+It is not a completed proof PR or a checker ACCEPTED result for L-meta-2592.
