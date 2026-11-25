@@ -7,3 +7,5 @@
 2026-11-25T13:53:03.491248+00:00 reduction_routes cut_last_not Lean checked, 98 lines
 2026-11-25T13:56:19.826148+00:00 Second independently reviewed partial checkpoint prepared
 2026-11-25T14:02:49.155616+00:00 Third reviewed partial checkpoint prepared; new OR-first strategy active
+2026-11-25T14:03:07.617393+00:00 first-binary-gate retention certificate Lean-checked (RetentionStandalone, exit0)
+2026-11-25T14:06:03.020728+00:00 Fourth reviewed partial checkpoint: sixteen-binary bound and restriction components

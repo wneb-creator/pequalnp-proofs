@@ -16,5 +16,11 @@ Additional Lean 4.36.0 checks, all exit 0:
 These are standalone snapshots; Generic and GenericResult share declaration names.
 Complete logs preserved; independent review passed before push.
 
+Further Lean checks, all exit0 and independently reviewed:
+- RestrictionFinite.lean: ten concrete vertex-deletion table certificates and pin mappings.
+- RetentionStandalone.lean: circuit-to-signed-run extraction with a non-NOT gate budget, and retention of both operands of the first binary operation.
+- Structural16.lean: copies the checked L5236 core to prove 16+notCount<=size, excluding >=4NOT under budget19.
+The full L-meta-2592 statement remains unproved; one through three NOT gates remain after the checked numeric bound.
+
 Sub-agents: special_status, structural_proof, counterexample_search, reduction_routes, finite_certificate, or_first_bound
-TIMING total=18.3 subagents=6
+TIMING total=21.6 subagents=6
