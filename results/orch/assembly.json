@@ -35,8 +35,8 @@
     "remove_identical_star_body": false
   },
   {
-    "file": "results/orch/lemmas/CircuitMonotone.lean",
-    "sha256": "0e7ea608a2cda1ef727eaa3587198eaef3070ba4d99fdd3dc9e5ad9379f34155",
+    "file": "results/orch/lemmas/EdgeEssential.lean",
+    "sha256": "b6404f0ac73a359477058f01b873dc3d6c7375d0e5dcb2a0cc8573dbec0f2b00",
     "remove_identical_star_body": false
   },
   {
@@ -52,6 +52,11 @@
   {
     "file": "results/orch/lemmas/ClosedIncidenceTests.lean",
     "sha256": "5ab12db77015093f5394dea08b362e17f2b2ba34bbbde190875bc611d0accfb1",
+    "remove_identical_star_body": false
+  },
+  {
+    "file": "results/orch/lemmas/MixedLinear.lean",
+    "sha256": "e340f135e4aef3a17e093b1b8717497b951b72c463589f9acd86f89c5ad24fd8",
     "remove_identical_star_body": false
   }
 ]
