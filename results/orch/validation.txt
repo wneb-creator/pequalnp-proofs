@@ -1,0 +1,8 @@
+L-meta-6349
+Partial upper named lake build: passed.
+Circuit completeness and freshness frameworks: compiled.
+Full candidate: independent review PASS, named lake build still running when lease was lost.
+Full local checker: not run.
+Lease renewal returned HTTP 410 at 2026-11-25T06:29:24Z despite prior expiry2026-11-25T06:42:44.293Z.
+Sub-agents: 4 (toolchain and upper construction; finite-search completeness; certificate generation; independent review).
+TIMING total=32 subagents=4
