@@ -8,3 +8,4 @@
 - 2026-11-25T13:58:35.814976+00:00: preserving315-line checked partial plus helper sources after HTTP410; proof work paused for lease recovery.
 - 2026-11-25T13:59:02.364Z: recovery requestassignednewownL-meta-2583lease instead of1904, expiry14:19:02.364Z.
 - 2026-11-25T14:04:39.933765+00:00: L-meta-2583 named136-line partial and648-line upper construction compiled and independently reviewed; pushing checkpoint.
+- 2026-11-25T14:06:55.592161+00:00: assembled825-line L-meta-2583 partial, including exactread1upper and matching, builds and independentlypasses axiom/source review; checkpointpush.
