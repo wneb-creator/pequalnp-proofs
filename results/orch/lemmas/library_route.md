@@ -72,3 +72,50 @@ At19:12UTC the LRAT assembly compiled successfully with exit0, importing only PE
 ## Sequential kernel computations without forbidden options
 
 Pinned Lean4.36.0 source confirms that computational helpers should be written as `def oneNotCaseN : certificate = true := by decide +kernel` to serialize expensive checks under default compilation. `Lean/Elab/MutualDef.lean:1237` enters asynchronous body elaboration only if `view.kind.isTheorem`; definitions call `elabSync` and `finishElab`. `Lean/Elab/Tactic/Decide.lean:129` internally forces `Elab.async=false` when `mkAuxLemma` submits the computational proof to the kernel, then returns only a constant referencing that checked lemma. Ordinary definitions can still queue their final tiny declaration check (`Lean/AddDecl.lean:181`), but the costly computation is already complete. Thus changing the23 computational lemmas to definitions requires no forbidden user option and preserves proof semantics. Helpers remain inside own namespace; final posted theorem remains a theorem. Practical peak memory still requires measurement on the actual certificate.
+
+## Continuation cuts and bounded kernel checks
+
+Generic checked glue is in scratch `lrat_route/RootCut.leanfrag` and `PatchCut.leanfrag`. `chkCut` replaces only the two recursive continuations; `chkCut_eq` restores the original checker. `patchCut` returns false only on an exact full state key `(k,t,z,v.map (s,a,b,c,r))`; key injectivity and `patchCut_eq` are proved. Thus exported child lists remain untrusted: coverage is independently checked by Lean, and separately checked child equations justify replacing the patched continuation.
+
+The54-child unary root coverage compiled, and all54 individual unary children compiled. Generic one-step `lookCut`/`look1Cut` equations also compiled. Binaryfirst42states require a second cut to3199 leaves. Shared indexed data uses763 word records and2038 packed budgets. `BucketCut` chooses candidates by budget modulo2053/127, then retains full-key comparison; no hash-injectivity assumption is made. Parent and root restoration is in `BucketAssemble.leanfrag`, and the final endpoint uses only masks `(0,1)` and `(FF,0)`.
+
+The pinned Lean kernel represents arrays as lists. Flat lookups were expensive; the canonical data now uses64-entry chunks and a six-stage bit-spread counter decoder. All large data definitions are explicitly noncomputable to skip executable-code generation. Coverage has been specialized to actual closed `look` continuations so it can use `decide +kernel` instead of meta-level `rfl` computation. Generic cut and patch proofs remain unchanged.
+
+The first chunked generic coverage pilot verified unary root, binary root, and first binaryparent computations (5.19s,3.75s,3.6s kernel). Its only failure was the generic empty-array-all identity written with rfl; changed to simp. Closed-continuation pilot and full assembly remain pending. Full logs are retained in scratch.
+
+### Continuation assembly validated (2026-11-25 20:25 UTC)
+
+`lrat_route/AssemblyFromChecks.lean` compiled with exit 0 (complete log
+`AssemblyFromChecks-build.log`, kernel type checking 134 ms). This smoke test
+assumes the finite leaf/coverage checks explicitly, then proves all row-mode
+bridges, hash-bucket restoration, binary parent checks, root restoration, and
+both exact `chk` equalities. It establishes the interfaces without claiming
+the finite computations have all run.
+
+Current stable fragments: `BucketCut.leanfrag`, `BucketRows.leanfrag`,
+`BucketCoverage.leanfrag`, `BucketAssemble.leanfrag`, `CheckedEndpoint.leanfrag`.
+Coverage now specializes to real closed continuations, allowing `decide +kernel`
+and retaining a safe real-search fallback on every missing hash candidate.
+The full tuple comparison remains inside `patchCut`; hash injectivity is never
+assumed. Root unary/binary checks and parent 0 passed in `ClosedCoveragePilot`;
+parents 1–41 use the same generated shape and await the final combined build.
+
+`forceParentBucket` now uses the checked strict scalar normalizer and `frcAll`
+from `certificate_search/StrictNormalize.leanfrag`; the original checker is
+unchanged. Current backend is chunked Array tables. A conditional final
+endpoint smoke test is prepared as `lrat_route/EndpointFromChecks.lean`.
+
+### Final coverage layout frozen (2026-11-25 20:35 UTC)
+
+`EndpointFromChecks.lean` passed (279 ms kernel), checking the exact two-mask
+Live-impossibility endpoint against `iroot`, conditional only on the two root
+checker equalities. Both this and `AssemblyFromChecks` received independent
+source review from proof_route.
+
+A single kernel check for all 42 parent coverages was interrupted after 235.8 s
+at 6,307,408 KiB peak RSS; it was slower and used more memory than the separate
+checks. A six-by-seven fallback was stopped before checking at root request.
+Complete logs remain in scratch. Final canonical source is therefore
+`lrat_route/BucketCoverage.leanfrag` with 42 individual closed proof definitions
+and strict scalar normalization. Do not use `BucketCoverageAll.leanfrag` or
+`BucketCoverageBatched.leanfrag` in the first final build.

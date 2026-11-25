@@ -61,3 +61,5 @@ cumulative profiling times:
 	tacticAnalysis 4.32ms
 	type checking 15.2s
 	typeclass inference 13.2ms
+
+exit_code=0

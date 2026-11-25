@@ -1,0 +1,34 @@
+Independent static red-team review by repo_review
+Artifact: /tmp/oec/pequalnp-pilot-178/root_helpers/FinalCutCandidate.lean
+SHA256: 50f667bdf48813034b7ded2cc431705ba63b5a488a6da81ff1054e2ad134d5b4
+Size: 522784 bytes, 6037 lines
+Verdict: PASS TO PRESERVE; NOT FULLY CHECKED
+
+The final theorem type matches the leased desk statement byte-for-byte. The sole
+import is the permitted PEqualNP.Defs. The file is UTF-8 plain text, non-executable,
+not a symlink, and 1504 bytes below the 512 KiB limit. Helpers and named scopes are
+contained in the allowed namespace. The fully qualified posted theorem is last.
+Only scoped maxRecDepth/maxHeartbeats options occur. No prohibited terms, string
+literals, _root_, attributes, meta commands, instances, or extra imports occur.
+
+The generic engine prefix through Cm matches upstream L_meta_10762 modulo
+namespace/whitespace and the target-specific NN value (501 versus 500). Custom
+engine datatypes follow upstream precedent; join.txt says these can merge more
+slowly, rather than declaring them unsound or rejecting them locally.
+
+The tracked-NOT bridge accounts for dead NOT gates through k+(n-t)<=q; the final
+proof uses the 14-gate monotone witness for length>=14, returns a zero-NOT circuit
+unchanged, and otherwise combines the lower13 bound with tracked counts to obtain
+Live13,t1. The two masks cover unary-first and binary-first states. Full tuple
+comparisons remain in hash patches; restoration uses actual checked child
+falsity and does not assume hash injectivity. Mode/fuel parameters are correct.
+
+Conditional generic restoration and final endpoint tests compiled successfully.
+Individual witness/lower13/unary and representative binary components compiled.
+The combined final file and all finite leaf groups have NOT completed a build,
+and tools/check-lean.mjs has NOT accepted the final artifact. No final proof or PR
+acceptance is claimed. This review authorizes preservation only after lease410.
+
+At review time the only changed file under lean/ was the named L_meta_10760.lean;
+results/orch changes are intermediate preservation artifacts allowed by the user.
+The final PR must contain exactly the single named Lean file.

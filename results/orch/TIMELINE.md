@@ -55,3 +55,5 @@
 - 2026-11-25 20:29 UTC: Two independent3k kernel checks in async lemmas passed concurrently (9.94s/9.07s; main blocked9.97s; peak4,399,664KiB). Decode-only control789ms. Root reviewed closed assertions and unchanged strict normalization. Exact two-mask Live13/oneNOT endpoint passed from explicit root-check hypotheses (279ms); root reviewed use of actual iroot. Complete sources/logs saved.
 
 - 2026-11-25 20:31 UTC: Same18 concrete leaf cases checked individually in28.0s kernel, versus35.8s in one6k batch (22% less time); peak4,189,504KiB. Root independently reviewed exact membership cases and closed kernel calls; preserving source/log. Final small-batch/two-worker layout selected pending whole-file measurement.
+
+- 2026-11-25T20:38:47.693516+00:00: Desk beat returnedHTTP410 despite last recorded valid expiry20:51:05.980UTC. Repeated exactcurl-si request confirmed410 and message no such live lease. Following user410 rule: stop timer, preserve frozen6037-line522784-byte candidate and all checked components, push before re-request. Full named-file build and final checker have NOT run.

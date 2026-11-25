@@ -7,7 +7,7 @@ Checker: not run on partial; target theorem absent.
 Independent review: repo_review PASS for partial preservation.
 Line count before cleanup:28. After:28. Cleanup deferred until full proof.
 Sub-agents:6 (repository/LRAT review, structural reuse, finite search, Lean setup, certificate search, gate elimination)
-TIMING total=12.3 subagents=6
+TIMING total=102.8 subagents=6
 
 Lower13 partial: scratch Lean compile passed19:11:12 UTC, exit0.
 Source and complete compiler output preserved in results/orch.
@@ -25,3 +25,5 @@ Fixed-NOT endpoint and exact-statement wrapper conditional on finite certificate
 Continuation cut/patch glue and normalized initial-state identities passed Lean. Root independently reviewed exact F/G replacement, key injection, patch equality, and kernel-normalized identities. Preserved as development partials.
 
 As of2026-11-25 19:58UTC: generic continuation cuts and restoration checked; unarycoverage andall54unaryleaves checked; worstbinaryleaf(4061states) checked; lower13t0cut/all21leaves andt1..12checked under6000MB. Fullgapstillpending binarybatches, sourceassembly, ordinarylakebuild andlocalchecker. Everycheckedcomponent ispreserved withcompletecompilerlogs.
+
+410 PRESERVATION CHECKPOINT: frozen named source6037lines522784bytes SHA25650f667bdf48813034b7ded2cc431705ba63b5a488a6da81ff1054e2ad134d5b4. Static independent review PASS TO PRESERVE. Combined build NOT RUN; checker NOT RUN; all3199 concrete cases NOT yet checked. Many components and exact final interfaces passed, as recorded above and in logs. This is NOT a completed proof submission.

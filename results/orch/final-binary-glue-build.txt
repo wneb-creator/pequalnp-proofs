@@ -1,0 +1,52 @@
+import took 1.7s
+parsing took 224ms
+elaboration took 221ms
+elaboration took 2.3s
+process pre-definitions took 367ms
+elaboration took 12.4s
+declTypeLinter took 219ms
+interpretation of _private.Mathlib.Tactic.Linter.DocString.0.Mathlib.Linter.Style.docStringLinter._lam_0._boxed took 209ms
+interpretation of Mathlib.Tactic.Linter.internalConstructor._lam_0._boxed took 395ms
+interpretation of _private.Mathlib.Tactic.Linter.Lint.0.Mathlib.Linter.DupNamespaceLinter.dupNamespace._lam_1._boxed took 124ms
+interpretation of _private.Mathlib.Tactic.Linter.Style.0.Mathlib.Linter.Style.nameCheck.doubleUnderscore._lam_2._boxed took 156ms
+interpretation of _private.Mathlib.Tactic.Linter.SyntaxBased.0.Mathlib.Linter.syntaxBasedLinter._lam_0._boxed took 108ms
+interpretation of _private.Mathlib.Tactic.Linter.UnusedTactic.0.Mathlib.Linter.UnusedTactic.unusedTacticLinter._lam_0._boxed took 195ms
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 333ms
+interpretation of Batteries.Linter.UnnecessarySeqFocus.unnecessarySeqFocusLinter._lam_0._boxed took 177ms
+linting took 1.14s
+elaboration took 185ms
+elaboration took 171ms
+process pre-definitions took 170ms
+elaboration took 2.44s
+elaboration took 200ms
+elaboration took 157ms
+elaboration took 695ms
+elaboration took 683ms
+type checking took 745ms
+/tmp/oec/pequalnp-pilot-178/certificate_search/FinalBinaryGlue.lean:988:0: warning: Definition `binGroupsCover` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-178/certificate_search/FinalBinaryGlue.lean:992:0: warning: Definition `binGroupsChecked` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+cumulative profiling times:
+	attribute application 1.08ms
+	congr simp thm 1.74ms
+	declTypeLinter 279ms
+	elaboration 19.7s
+	fix level params 13.8ms
+	import 1.7s
+	initialization 52.7ms
+	instantiate metavars 83.8ms
+	interpretation 3.06s
+	let-to-have transformation 218ms
+	linting 1.47s
+	module linting 0.216ms
+	parsing 403ms
+	process pre-definitions 731ms
+	share common exprs 159ms
+	simp 79.9ms
+	tactic execution 57.9ms
+	tacticAnalysis 121ms
+	type checking 873ms
+	typeclass inference 7.43s
