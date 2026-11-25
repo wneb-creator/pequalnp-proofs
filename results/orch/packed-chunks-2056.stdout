@@ -1,0 +1,59 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/PackedChunks2056.lean:106:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PackedChunks2056.lean:131:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PackedChunks2056.lean:133:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PackedChunks2056.lean:163:52: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PackedChunks2056.lean:204:52: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PackedChunks2056.lean:216:27: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PackedChunks2056.lean:216:68: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PackedChunks2056.lean:217:27: warning: `dif_neg` has been deprecated: Use `dite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵n̵e̵g̵d̲i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PackedChunks2056.lean:217:49: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PackedChunks2056.lean:232:26: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PackedChunks2056.lean:236:26: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PackedChunks2056.lean:323:63: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PackedChunks2056.lean:329:63: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PackedChunks2056.lean:327:12: warning: This simp argument is unused:
+  Nat.add_mod
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Nat.mod_eq_of_lt l.isLt]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
