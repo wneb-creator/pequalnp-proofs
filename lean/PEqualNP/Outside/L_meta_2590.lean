@@ -6156,4 +6156,226 @@ lemma n0_compiled_length_add_six_center {D : Dag} (h : StrictLive 10 D)
   dsimp only [Z, C] at hb
   omega
 
+lemma n0_c6_output_prefix {D : Dag} (hc : sem_Comp 10 adj D) :
+    ∃ q, 1 ≤ q ∧ q ≤ (stage 6 n0Refs D D.length).2.length ∧
+      Strict 6 ((stage 6 n0Refs D D.length).2.take q) ∧
+      ((stage 6 n0Refs D D.length).2.take q).length = q ∧
+      (keptEmitted 6 n0Refs D D.length q).card = q ∧
+      (∀ x, val ((stage 6 n0Refs D D.length).2.take q) x
+        (outW 6 ((stage 6 n0Refs D D.length).2.take q)) = residualC6 x) ∧
+      (∀ j ∈ keptEmitted 6 n0Refs D D.length q, ∀ x,
+        val ((stage 6 n0Refs D D.length).2.take q) x (6 + (stage 6 n0Refs D j).2.length) =
+          val D (restrictN0 x) (10 + j)) := by
+  apply n0_output_prefix D (outW 10 D) (by unfold outW; omega) residualC6
+  · intro x
+    rw [restrictN0_eq_neighborhood]
+    exact neighborhood_residual_correct hc x
+  · rfl
+  · rfl
+  · intro i
+    fin_cases i <;> rfl
+
+lemma n0_c6_six_budget {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hi : neighborhoodI ⊆ ineligSet 10 D) :
+    ∃ q, 1 ≤ q ∧ q ≤ (stage 6 n0Refs D D.length).2.length ∧
+      Strict 6 ((stage 6 n0Refs D D.length).2.take q) ∧
+      ((stage 6 n0Refs D D.length).2.take q).length = q ∧
+      (keptEmitted 6 n0Refs D D.length q).card = q ∧
+      q + 6 ≤ D.length ∧
+      (∀ x, val ((stage 6 n0Refs D D.length).2.take q) x
+        (outW 6 ((stage 6 n0Refs D D.length).2.take q)) = residualC6 x) ∧
+      (∀ j ∈ keptEmitted 6 n0Refs D D.length q, ∀ x,
+        val ((stage 6 n0Refs D D.length).2.take q) x (6 + (stage 6 n0Refs D j).2.length) =
+          val D (restrictN0 x) (10 + j)) := by
+  obtain ⟨q, hq1, hqR, hS, hlen, hcard, hsem, hsrc⟩ := n0_c6_output_prefix hc
+  have hb := n0_compiled_length_add_six h hc hi
+  exact ⟨q, hq1, hqR, hS, hlen, hcard, by omega, hsem, hsrc⟩
+
+lemma n0_c6_six_center_budget {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hi : neighborhoodI ⊆ ineligSet 10 D)
+    (hzero : Bzero 10 D = 0) :
+    ∃ q, 1 ≤ q ∧ q ≤ (stage 6 n0Refs D D.length).2.length ∧
+      Strict 6 ((stage 6 n0Refs D D.length).2.take q) ∧
+      ((stage 6 n0Refs D D.length).2.take q).length = q ∧
+      (keptEmitted 6 n0Refs D D.length q).card = q ∧
+      q + 6 + (centerGates D (0 : Fin 10)).card ≤ D.length ∧
+      (∀ x, val ((stage 6 n0Refs D D.length).2.take q) x
+        (outW 6 ((stage 6 n0Refs D D.length).2.take q)) = residualC6 x) ∧
+      (∀ j ∈ keptEmitted 6 n0Refs D D.length q, ∀ x,
+        val ((stage 6 n0Refs D D.length).2.take q) x (6 + (stage 6 n0Refs D j).2.length) =
+          val D (restrictN0 x) (10 + j)) := by
+  obtain ⟨q, hq1, hqR, hS, hlen, hcard, hsem, hsrc⟩ := n0_c6_output_prefix hc
+  have hb := n0_compiled_length_add_six_center h hc hi hzero
+  exact ⟨q, hq1, hqR, hS, hlen, hcard, by omega, hsem, hsrc⟩
+
+noncomputable def seenSupports (n : ℕ) (D : Dag) (P : Finset (Finset (Fin n))) :
+    Finset (Finset (Fin n)) := by
+  classical
+  exact P.filter (fun S => ∃ w, w < n + D.length ∧ supp n D w = S)
+
+lemma n0_kept_marked_seen_card (D : Dag) (q : ℕ)
+    (hq : q ≤ (stage 6 n0Refs D D.length).2.length)
+    (M : Finset ℕ) (P : Finset (Finset (Fin 6))) (label : ℕ → Finset (Fin 6))
+    (hinj : Set.InjOn label (keptEmitted 6 n0Refs D D.length q ∩ M))
+    (hP : ∀ j ∈ keptEmitted 6 n0Refs D D.length q ∩ M, label j ∈ P)
+    (hl : ∀ j ∈ keptEmitted 6 n0Refs D D.length q ∩ M, ∀ v : Fin 6,
+      val D (restrictN0 (single v)) (10 + j) = true ↔ v ∈ label j) :
+    (keptEmitted 6 n0Refs D D.length q ∩ M).card ≤
+      (seenSupports 6 ((stage 6 n0Refs D D.length).2.take q) P).card := by
+  classical
+  let K := keptEmitted 6 n0Refs D D.length q ∩ M
+  have hsub : K.image label ⊆ seenSupports 6 ((stage 6 n0Refs D D.length).2.take q) P := by
+    intro S hS
+    obtain ⟨j, hj, rfl⟩ := Finset.mem_image.mp hS
+    apply Finset.mem_filter.mpr
+    refine ⟨hP j hj, 6 + (stage 6 n0Refs D j).2.length, ?_, ?_⟩
+    · have hjq := (Finset.mem_filter.mp (Finset.mem_inter.mp hj).1).2
+      rw [List.length_take, Nat.min_eq_left hq]
+      omega
+    · ext v
+      rw [mem_supp, keptEmitted_wire_sem n0Refs D n0Refs_good n0Refs_length
+        (single v) (restrictN0 (single v)) (n0Refs_sem _) le_rfl hq
+        (Finset.mem_inter.mp hj).1]
+      exact hl j hj v
+  have hcard := Finset.card_le_card hsub
+  have hinjK : Set.InjOn label (↑K : Set ℕ) := by simpa only [K, Finset.coe_inter] using hinj
+  rw [Finset.card_image_of_injOn hinjK] at hcard
+  exact hcard
+
+lemma n0_marked_prefix_impossible (D : Dag) (q : ℕ)
+    (hq : q ≤ (stage 6 n0Refs D D.length).2.length)
+    (Z M : Finset ℕ) (hZ : Z ⊆ Finset.range D.length) (hM : M ⊆ Finset.range D.length)
+    (hz : ∀ j ∈ Z, (stage 6 n0Refs D (j + 1)).2 = (stage 6 n0Refs D j).2)
+    (hdis : Disjoint Z M) (hZsix : 6 ≤ Z.card) (hMsix : 6 ≤ M.card)
+    (hlen : D.length ≤ 19)
+    (P : Finset (Finset (Fin 6))) (label : ℕ → Finset (Fin 6))
+    (hinj : Set.InjOn label (keptEmitted 6 n0Refs D D.length q ∩ M))
+    (hP : ∀ j ∈ keptEmitted 6 n0Refs D D.length q ∩ M, label j ∈ P)
+    (hl : ∀ j ∈ keptEmitted 6 n0Refs D D.length q ∩ M, ∀ v : Fin 6,
+      val D (restrictN0 (single v)) (10 + j) = true ↔ v ∈ label j)
+    (hlower : 8 + (seenSupports 6 ((stage 6 n0Refs D D.length).2.take q) P).card ≤ q) :
+    False := by
+  have hb := keptEmitted_marked_budget 6 n0Refs D D.length q hq Z M hZ hM hdis.symm hz
+  have hs := n0_kept_marked_seen_card D q hq M P label hinj hP hl
+  omega
+
+def n0ResidualVertex : Fin 6 → Fin 10 := ![2, 8, 9, 3, 7, 6]
+
+lemma restrictN0_embed (x : Fin 6 → Bool) (r : Fin 6) :
+    restrictN0 x (n0ResidualVertex r) = x r := by
+  fin_cases r <;> rfl
+
+lemma n0_singleton_embed_le (r : Fin 6) :
+    ∀ v : Fin 10, single (n0ResidualVertex r) v = true → restrictN0 (single r) v = true := by
+  intro v hv
+  have he : v = n0ResidualVertex r := by simpa [single] using hv
+  subst v
+  rw [restrictN0_embed]
+  simp [single]
+
+lemma n0_kept_support_member {D : Dag} (hS : Strict 10 D) (q : ℕ)
+    (hq : q ≤ (stage 6 n0Refs D D.length).2.length) (r : Fin 6) {j : ℕ}
+    (hj : j ∈ keptEmitted 6 n0Refs D D.length q)
+    (hr : n0ResidualVertex r ∈ supp 10 D (10 + j)) :
+    r ∈ supp 6 ((stage 6 n0Refs D D.length).2.take q)
+      (6 + (stage 6 n0Refs D j).2.length) := by
+  apply mem_supp.mpr
+  rw [keptEmitted_wire_sem n0Refs D n0Refs_good n0Refs_length (single r)
+    (restrictN0 (single r)) (n0Refs_sem _) le_rfl hq hj]
+  exact val_mono hS (single (n0ResidualVertex r)) (restrictN0 (single r))
+    (n0_singleton_embed_le r) (10 + j) (mem_supp.mp hr)
+
+lemma n0_kept_no_center_support {D : Dag} (hS : Strict 10 D) (q : ℕ) {j : ℕ}
+    (hj : j ∈ keptEmitted 6 n0Refs D D.length q) :
+    (0 : Fin 10) ∉ supp 10 D (10 + j) := by
+  intro hz
+  have he := (Finset.mem_filter.mp hj).1
+  have hjlt := ((emitted_mem 6 n0Refs D D.length j).mp he).1
+  have hno := n0_noemit_center_gate hS
+    (Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hjlt, hz⟩)
+  exact ((stage_noemit_iff 6 n0Refs D hjlt).mpr hno) he
+
+lemma n0_kept_joint_membership {D : Dag} (hS : Strict 10 D) (q : ℕ)
+    (hq : q ≤ (stage 6 n0Refs D D.length).2.length) (a b : Fin 6) {j : ℕ}
+    (hj : j ∈ keptEmitted 6 n0Refs D D.length q)
+    (ha : n0ResidualVertex a ∈ supp 10 D (10 + j))
+    (hb : n0ResidualVertex b ∈ supp 10 D (10 + j)) :
+    {a, b} ⊆ supp 6 ((stage 6 n0Refs D D.length).2.take q)
+      (6 + (stage 6 n0Refs D j).2.length) := by
+  intro r hr
+  simp only [Finset.mem_insert, Finset.mem_singleton] at hr
+  rcases hr with rfl | rfl
+  · exact n0_kept_support_member hS q hq _ hj ha
+  · exact n0_kept_support_member hS q hq _ hj hb
+
+lemma n0_kept_rank_injective (D : Dag) (q : ℕ) :
+    Set.InjOn (fun j => (stage 6 n0Refs D j).2.length)
+      (keptEmitted 6 n0Refs D D.length q) := by
+  intro i hi j hj he
+  exact emitted_rank_inj 6 n0Refs D D.length (Finset.mem_filter.mp hi).1
+    (Finset.mem_filter.mp hj).1 he
+
+lemma n0_first_marks_nonemit_set {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hi : neighborhoodI ⊆ ineligSet 10 D)
+    (M : Finset ℕ) (hM : M ⊆ Finset.range D.length)
+    (hcard : ∀ j ∈ M, 2 ≤ (supp 10 D (10 + j)).card)
+    (hfirst : ∀ j ∈ M, ∀ k < j, supp 10 D (10 + k) ≠ supp 10 D (10 + j)) :
+    ∃ Z : Finset ℕ, Z ⊆ Finset.range D.length ∧ 6 ≤ Z.card ∧ Disjoint Z M ∧
+      ∀ j ∈ Z, (stage 6 n0Refs D (j + 1)).2 = (stage 6 n0Refs D j).2 := by
+  classical
+  obtain ⟨A, hAc, hA, hZA, hZc, hz⟩ := n0_six_nonemitted h hc hi
+  let Z := copyBoundary 10 D (zeroWires D neighborhoodResidualRows)
+  have hZM : Disjoint Z M := by
+    apply Finset.disjoint_left.mpr
+    intro j hj hm
+    have htop : ∀ v, v ∉ neighborhoodI → neighborhoodResidualRows (fun _ => true) v = true := by
+      intro v hv
+      cases he : neighborhoodResidualRows (fun _ => true) v
+      · exact False.elim (hv ((neighborhood_rows_top v).mp he))
+      · rfl
+    have hdis : Disjoint (supp 10 D (10 + j)) neighborhoodI := by
+      apply Finset.disjoint_left.mpr
+      intro v hv hvi
+      have hp := sem_inelig_pure graph_ok h.1 hc (hi hvi) hv
+      have hh := hcard j hm
+      rw [hp, Finset.card_singleton] at hh
+      omega
+    exact first_support_gate_not_copyBoundary h.1 neighborhoodResidualRows neighborhoodI
+      (fun _ => true) htop (Finset.mem_range.mp (hM hm)) (hcard j hm) hdis
+      rfl (hfirst j hm) hj
+  have hAM : Disjoint A M := by
+    apply Finset.disjoint_left.mpr
+    intro j ha hm
+    have hh := hcard j hm
+    rw [(hA j ha).2, Finset.card_empty] at hh
+    omega
+  refine ⟨Z ∪ A, ?_, ?_, Finset.disjoint_union_left.mpr ⟨hZM, hAM⟩, hz⟩
+  · intro j hj
+    rcases Finset.mem_union.mp hj with hzj | haj
+    · exact (Finset.mem_filter.mp hzj).1
+    · exact Finset.mem_range.mpr (hA j haj).1
+  · rw [Finset.card_union_of_disjoint hZA, hAc]
+    omega
+
+lemma n0_first_marks_budget {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hi : neighborhoodI ⊆ ineligSet 10 D)
+    (M : Finset ℕ) (hM : M ⊆ Finset.range D.length)
+    (hcard : ∀ j ∈ M, 2 ≤ (supp 10 D (10 + j)).card)
+    (hfirst : ∀ j ∈ M, ∀ k < j, supp 10 D (10 + k) ≠ supp 10 D (10 + j))
+    (q : ℕ) (hq : q ≤ (stage 6 n0Refs D D.length).2.length) :
+    q + 6 + M.card ≤ D.length + (keptEmitted 6 n0Refs D D.length q ∩ M).card := by
+  obtain ⟨Z, hZ, hZsix, hdis, hz⟩ := n0_first_marks_nonemit_set h hc hi M hM hcard hfirst
+  have hh := keptEmitted_marked_budget 6 n0Refs D D.length q hq Z M hZ hM hdis.symm hz
+  omega
+
+lemma n0_first_six_marks_prefix_impossible {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hi : neighborhoodI ⊆ ineligSet 10 D)
+    (M : Finset ℕ) (hM : M ⊆ Finset.range D.length) (hsix : 6 ≤ M.card)
+    (hcard : ∀ j ∈ M, 2 ≤ (supp 10 D (10 + j)).card)
+    (hfirst : ∀ j ∈ M, ∀ k < j, supp 10 D (10 + k) ≠ supp 10 D (10 + j))
+    (q : ℕ) (hq : q ≤ (stage 6 n0Refs D D.length).2.length) (hlen : D.length ≤ 19)
+    (hlower : 8 + (keptEmitted 6 n0Refs D D.length q ∩ M).card ≤ q) : False := by
+  have hh := n0_first_marks_budget h hc hi M hM hcard hfirst q hq
+  omega
+
 end PEqualNP.Outside.L_meta_2590.EssentialPruning
