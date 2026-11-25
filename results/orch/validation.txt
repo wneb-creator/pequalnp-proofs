@@ -110,3 +110,14 @@ no proof PR, no new checker verdict; named file remains4978 lines.
 Sub-agents: status_1035, lean_setup, counterexample, structural,
 decomposition, lower_bound, fresh_math, gate_charge.
 TIMING total=118 subagents=8
+
+Checkpoint 10: compiled generic unrestricted circuit lower bound n+k<=size+1
+under separated degree-at-least-two graph neighborhoods and cover floor k.
+Independent reviewer matched generic source blocks exactly to accepted971
+and checked the new endpoint; no Fano hypotheses are hidden. Plane3N−1
+specialization is still being completed separately. Q5 geometry artifact
+now kernel-checks212 gates,AO2,plane axioms,and explicit false-positive triple;
+all-pair agreement is still only externally checked. Both complete logs
+are empty, compilation exit0. Source guards only lack the final theorem.
+No full proof, refutation, PR, or accepted checker verdict.
+TIMING total=128 subagents=8

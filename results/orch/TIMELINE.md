@@ -27,3 +27,5 @@
 - 2026-11-25 09:54:29 UTC: third strategy re-plan. New upstream checked L_meta_971 gives Fano27 via fanout-surplus plus finite cases; lower_bound studies degree-sensitive extension. Counterexample focuses calibrated q3 adaptive non-read1 CEGAR. Fresh_math uses exact live-frontier search on geometric modules. Gate_charge pursues full-independent-set/fanout count. Structural explores q4 Baer-subplane decomposition. Pair-only q5 shortcut diagnoses why truncated-semantic bounds fail; no gap refutation.
 
 - 2026-11-25 10:00:45 UTC: checkpoint9 preserves reviewed boundary-merger proof and computational search artifacts. Targeted q3 non-read1 search continues; no candidate passes full boundary validation.
+
+- 2026-11-25 10:11:15 UTC: checkpoint10 preserves generic unrestricted surplus lower bound and kernel-checked q5 geometry/control. Independent review passed; exact assigned theorem remains unproved.
