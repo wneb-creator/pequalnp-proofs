@@ -6110,4 +6110,149 @@ lemma family_residual_card_le (K : SimpleGraph V) (U : Finset (Sym2 V))
 end PureProvider
 
 
+
+
+namespace FirstMixing
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.EdgeOwnership
+open PEqualNP.CleanedNonEdge CircuitLedger CircuitLedger.Budget
+
+lemma residual_pencil_refined_budget
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hfour : NoFourCycle G) (p : Fin n) (X : Finset (Fin n))
+    (hX : ∀ l ∈ X, G.Adj p l)
+    (hstar : ∀ l ∈ X, s(p,l) ∈ Ustar G C) :
+    X.card ≤ (orN G C \ lam G C).card +
+      ((junk G C).filter fun j => gateVal n C j (pairInput p p) = false).card +
+        (centreless G C).card := by
+  classical
+  have hraw := false_or_centreless_served_budget G C hL.1 hT hfour p X hX hstar
+  have hrest := other_served_mixing_count G C hL hT hfour p X hX hstar
+  have hsubset : falseServed G C p X ∪ centrelessServed G C p X ⊆ X :=
+    Finset.union_subset (Finset.filter_subset _ _) (Finset.filter_subset _ _)
+  have hsplit := Finset.card_sdiff_add_card_eq_card hsubset
+  have hmixsplit := Finset.card_sdiff_add_card_eq_card (mixing_subset_extra G C)
+  omega
+
+lemma tight_residual_pencil_shape
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hfour : NoFourCycle G) (p : Fin n) (X : Finset (Fin n))
+    (hX : ∀ l ∈ X, G.Adj p l)
+    (hstar : ∀ l ∈ X, s(p,l) ∈ Ustar G C)
+    (htight : 2 * (centreless G C).card + (junk G C).card +
+      (orN G C \ lam G C).card = X.card + 1) :
+    (centreless G C).card +
+      ((junk G C).filter fun j => gateVal n C j (pairInput p p) = true).card ≤ 1 := by
+  classical
+  have href := residual_pencil_refined_budget G C hL hT hfour p X hX hstar
+  let J := (junk G C).filter fun j => gateVal n C j (pairInput p p) = false
+  have hsplit := Finset.card_sdiff_add_card_eq_card
+    (show J ⊆ junk G C from Finset.filter_subset _ _)
+  have heq : junk G C \ J =
+      (junk G C).filter (fun j => gateVal n C j (pairInput p p) = true) := by
+    ext j
+    simp only [J, Finset.mem_sdiff, Finset.mem_filter]
+    cases gateVal n C j (pairInput p p) <;> simp
+  rw [heq] at hsplit
+  change X.card ≤ (orN G C \ lam G C).card + J.card + (centreless G C).card at href
+  omega
+
+end FirstMixing
+
+
+namespace ActualTopCentres
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm
+open CircuitLedger CircuitLedger.Budget
+
+lemma singleton_side_of_top
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hfour : NoFourCycle G)
+    {a : ℕ} (ha : a ∈ tops G C \ centreless G C) :
+    ∃ c : Fin n, side (n := n) C a 0 = {c} ∨ side (n := n) C a 1 = {c} := by
+  classical
+  obtain ⟨hat,haz⟩ := Finset.mem_sdiff.mp ha
+  have hn : side (n := n) C a 0 ≠ ∅ ∧ side (n := n) C a 1 ≠ ∅ := by
+    simpa only [centreless, Finset.mem_filter, hat, true_and, not_or] using haz
+  have hsmall : (side (n := n) C a 0).card ≤ 1 ∨ (side (n := n) C a 1).card ≤ 1 := by
+    by_cases h0 : (side (n := n) C a 0).card ≤ 1
+    · exact Or.inl h0
+    · right
+      have hex : ∃ u ∈ side (n := n) C a 0, ∃ v ∈ side (n := n) C a 0, u ≠ v := by
+        by_contra he
+        push Not at he
+        exact h0 (Finset.card_le_one.mpr he)
+      obtain ⟨u,hu,v,hv,huv⟩ := hex
+      apply le_trans (Finset.card_le_card ?_) (hfour u v huv)
+      intro w hw
+      exact Finset.mem_filter.mpr ⟨Finset.mem_univ _,
+        topAdj hAO hat hu hw, topAdj hAO hat hv hw⟩
+  rcases hsmall with h0 | h1
+  · have hpos := Finset.card_pos.mpr (Finset.nonempty_iff_ne_empty.mpr hn.1)
+    obtain ⟨c,hc⟩ := Finset.card_eq_one.mp (show (side (n := n) C a 0).card = 1 by omega)
+    exact ⟨c,Or.inl hc⟩
+  · have hpos := Finset.card_pos.mpr (Finset.nonempty_iff_ne_empty.mpr hn.2)
+    obtain ⟨c,hc⟩ := Finset.card_eq_one.mp (show (side (n := n) C a 1).card = 1 by omega)
+    exact ⟨c,Or.inr hc⟩
+
+lemma selected_centres_cover
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit)
+    (c : {a // a ∈ tops G C \ centreless G C} → Fin n)
+    (hc : ∀ a, side (n := n) C a.val 0 = {c a} ∨ side (n := n) C a.val 1 = {c a}) :
+    (G.deleteEdges (Ustar G C : Set (Sym2 (Fin n)))).IsVertexCover
+      (((tops G C \ centreless G C).attach.image c) : Set (Fin n)) := by
+  classical
+  intro u v huv
+  rw [SimpleGraph.deleteEdges_adj] at huv
+  have he : s(u,v) ∈ starEdges G C := by
+    by_contra hn
+    exact huv.2 (Finset.mem_sdiff.mpr ⟨by simpa using huv.1,hn⟩)
+  simp only [starEdges, Finset.mem_biUnion, Finset.mem_image, Finset.mem_product] at he
+  obtain ⟨a,ha,⟨x,y⟩,⟨hx,hy⟩,he⟩ := he
+  have hat : a ∈ tops G C \ centreless G C := by
+    refine Finset.mem_sdiff.mpr ⟨ha,?_⟩
+    intro hz
+    have hz' := (Finset.mem_filter.mp hz).2
+    rcases hz' with hz' | hz'
+    · rw [hz'] at hx
+      exact Finset.notMem_empty _ hx
+    · rw [hz'] at hy
+      exact Finset.notMem_empty _ hy
+  let aa : {a // a ∈ tops G C \ centreless G C} := ⟨a,hat⟩
+  have hmem : c aa ∈ (tops G C \ centreless G C).attach.image c :=
+    Finset.mem_image.mpr ⟨aa,Finset.mem_attach _ _,rfl⟩
+  have hxy : x ∈ (tops G C \ centreless G C).attach.image c ∨
+      y ∈ (tops G C \ centreless G C).attach.image c := by
+    rcases hc aa with hs | hs
+    · have hx' : x = c aa := Finset.mem_singleton.mp (hs ▸ hx)
+      exact Or.inl (hx' ▸ hmem)
+    · have hy' : y = c aa := Finset.mem_singleton.mp (hs ▸ hy)
+      exact Or.inr (hy' ▸ hmem)
+  rcases Sym2.eq_iff.mp he with ⟨rfl,rfl⟩ | ⟨rfl,rfl⟩
+  · exact hxy
+  · exact hxy.symm
+
+lemma exists_selected_centres
+    {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) (hfour : NoFourCycle G) :
+    ∃ c : {a // a ∈ tops G C \ centreless G C} → Fin n,
+      (∀ a, side (n := n) C a.val 0 = {c a} ∨ side (n := n) C a.val 1 = {c a}) ∧
+      ((tops G C \ centreless G C).attach.image c).card ≤
+        (tops G C \ centreless G C).card ∧
+      (G.deleteEdges (Ustar G C : Set (Sym2 (Fin n)))).IsVertexCover
+        (((tops G C \ centreless G C).attach.image c) : Set (Fin n)) := by
+  classical
+  let c : {a // a ∈ tops G C \ centreless G C} → Fin n :=
+    fun a => Classical.choose (singleton_side_of_top G C hAO hfour a.property)
+  have hc : ∀ a, side (n := n) C a.val 0 = {c a} ∨ side (n := n) C a.val 1 = {c a} :=
+    fun a => Classical.choose_spec (singleton_side_of_top G C hAO hfour a.property)
+  refine ⟨c,hc,?_,selected_centres_cover G C c hc⟩
+  exact le_trans (Finset.card_image_le) (by simp)
+
+end ActualTopCentres
+
+
 end PEqualNP.Outside.L_meta_2583
