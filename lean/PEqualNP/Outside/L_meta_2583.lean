@@ -4248,9 +4248,9 @@ lemma graph_cnf_transport {n r m : ℕ} (I : Fin r → Fin r → Prop)
     · exact False.elim (hll ia ib hab)
   exact le_trans (hlower (F.image Q) hQcover hQsafe) card_image_le
 
-end PEqualNP.Outside.L_meta_2583.MatchingCertificate
+end MatchingCertificate
 
-namespace PEqualNP.Outside.L_meta_2583.MatchingCertificate
+namespace MatchingCertificate
 
 lemma graph_safe_matching_cnf_7_lower {n : ℕ}
     (G : SimpleGraph (Fin n)) (p l : Fin 7 → Fin n)
@@ -4358,7 +4358,7 @@ open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity
 open PEqualNP.EdgeOwnership
 open H8Projected.Repair H8Projected.PurePointBudget H8Projected.ProjectedBudget
 
-lemma active_root_sum {n B : ℕ} (A : Fin B → Finset (Fin n))
+lemma active_source_sum {n B : ℕ} (A : Fin B → Finset (Fin n))
     (wire : Fin B → Fin n → ℕ) :
     (∑ p : Fin n, ((univ.filter fun b : Fin B => p ∈ A b).image fun b => wire b p).card) ≤
       ∑ b : Fin B, (A b).card := by
@@ -4506,7 +4506,7 @@ lemma global_circuit_cnf_family_frontier {n B : ℕ}
     hm rb V E (fun p => G.neighborFinset p) R hrvalid hEV hrpos hrfalse hpair
     A P bases hPV hbvalid hbpos hbfalse
   have hroots : (∑ p : Fin n, (R p).card) ≤ ∑ b : Fin B, (Ab b).card :=
-    active_root_sum Ab kw
+    active_source_sum Ab kw
   have hbases : bases.card ≤ B := le_trans card_image_le (by simp)
   have hedge : H.edgeFinset.card ≤ ∑ p : Fin n, (E p).card := by
     have hh := Cnf.edges_le_cover_degrees H A (RelativeCnf.active_points_cover G H P hcover hHG)
@@ -4801,7 +4801,7 @@ lemma global_large_cnf_family_frontier {n B : ℕ}
     hm rb V E (fun p => G.neighborFinset p) R hrvalid hEV hrpos hrfalse hpair
     A P bases hPV hbvalid hbpos hbfalse
   have hroots : (∑ p : Fin n, (R p).card) ≤ ∑ b : Fin B, (Ab b).card :=
-    active_root_sum Ab kw
+    active_source_sum Ab kw
   have hbases : bases.card ≤ B := le_trans card_image_le (by simp)
   have hedge : H.edgeFinset.card ≤ ∑ p : Fin n, (E p).card := by
     have hh := Cnf.edges_le_cover_degrees H A (RelativeCnf.active_points_cover G H P hcover hHG)
@@ -5865,7 +5865,7 @@ lemma linear_support {n : ℕ} {C : Circuit} {S : Finset (Fin n)} {w : ℕ}
   rw [mem_support, hcomp]
   simp [pairInput, eq_comm]
 
-lemma linear_OR_root_extraction {n : ℕ} {C : Circuit}
+lemma linear_OR_extraction {n : ℕ} {C : Circuit}
     (hm : Monotone2 C) (rb : ReadsBack n C)
     (S : Finset (Fin n)) (hlarge : 1 < S.card) (w : ℕ)
     (hvalid : w < n + C.gates.length)
@@ -5945,7 +5945,7 @@ lemma distinct_linear_exceptional_gates {n : ℕ} {ι κ : Type*}
         val C (List.ofFn x) (n + j) = decide (∃ p ∈ T b, x p = true) := by
     intro b
     obtain ⟨w, hw, hc⟩ := hwires b
-    obtain ⟨j, hj, _, hcomp⟩ := linear_OR_root_extraction hm rb (T b) (hlarge b) w hw hc
+    obtain ⟨j, hj, _, hcomp⟩ := linear_OR_extraction hm rb (T b) (hlarge b) w hw hc
     exact ⟨j, hj, hcomp⟩
   choose roots hmem hcomp using hex
   have hinj : Function.Injective roots := by
@@ -6341,7 +6341,7 @@ lemma five_matching_embedded_linear_root {r n : ℕ}
       exact ⟨e (true, l i), ⟨i, rfl⟩, hi⟩
     · rintro ⟨v, ⟨i, rfl⟩, hi⟩
       exact ⟨(true, l i), ⟨i, rfl⟩, hi⟩
-  obtain ⟨j, hj, _, hjcomp⟩ := linear_OR_root_extraction hm rb S (by omega) w hvalid hcomp
+  obtain ⟨j, hj, _, hjcomp⟩ := linear_OR_extraction hm rb S (by omega) w hvalid hcomp
   exact ⟨hScard, houtside, j, hj, hjcomp⟩
 
 end ThinBlock
