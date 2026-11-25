@@ -1,3 +1,5 @@
+import Mathlib.Data.Fintype.Pi
+import Mathlib.Tactic.FinCases
 import Mathlib.Data.List.Basic
 import Mathlib.Data.Nat.Bitwise
 import Mathlib.Data.Fin.Basic
@@ -708,6 +710,291 @@ lemma two_incomparable_avoiding_nonempty_need_three {α : Type*} [DecidableEq α
         ⟨a, hA haA, b, hB hbB, c, hC hcC, hab, Ne.symm hca, Ne.symm hcb⟩
 
 end I4Codes
+
+
+namespace R2Profiles
+
+abbrev Code := Finset (Fin 2)
+abbrev CycleCodes := Fin 6 → Code
+
+abbrev Conditions (center : Code) (f : CycleCodes) : Prop :=
+  center.Nonempty ∧
+  (∀ i, ¬ center ⊆ f i) ∧
+  (∀ i, (f i).Nonempty ∨ (f (i + 1)).Nonempty) ∧
+  (∀ i j, i ≠ j → i.val % 2 = j.val % 2 → (f i).Nonempty → ¬ f i ⊆ f j)
+
+def code (n : Nat) : Code :=
+  if n = 0 then ∅ else if n = 1 then {0} else if n = 2 then {1} else Finset.univ
+
+def ofList (l : List Nat) : CycleCodes := fun i => code (l.getD i.val 0)
+
+def profiles : Finset CycleCodes :=
+  {ofList [0, 1, 1, 0, 2, 2],
+   ofList [0, 1, 2, 0, 1, 2],
+   ofList [0, 2, 1, 0, 2, 1],
+   ofList [0, 2, 2, 0, 1, 1],
+   ofList [1, 0, 2, 1, 0, 2],
+   ofList [1, 0, 2, 2, 0, 1],
+   ofList [1, 1, 0, 2, 2, 0],
+   ofList [1, 2, 0, 1, 2, 0],
+   ofList [2, 0, 1, 1, 0, 2],
+   ofList [2, 0, 1, 2, 0, 1],
+   ofList [2, 1, 0, 2, 1, 0],
+   ofList [2, 2, 0, 1, 1, 0]}
+
+def mk (a b c d e f : Code) : CycleCodes :=
+  fun i => [a, b, c, d, e, f].getD i.val ∅
+
+lemma mk_eta (f : CycleCodes) : mk (f 0) (f 1) (f 2) (f 3) (f 4) (f 5) = f := by
+  funext i
+  fin_cases i <;> rfl
+
+lemma code_cases (s : Code) : s = ∅ ∨ s = {0} ∨ s = {1} ∨ s = Finset.univ := by
+  have h : ∀ s : Code, s = ∅ ∨ s = {0} ∨ s = {1} ∨ s = Finset.univ := by decide +kernel
+  exact h s
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 10000 in
+lemma classify_0_0 : ∀ (b c d e f : Code),
+    Conditions (∅ : Code) (mk (∅ : Code) b c d e f) →
+      (∅ : Code) = Finset.univ ∧ mk (∅ : Code) b c d e f ∈ profiles := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 10000 in
+lemma classify_0_1 : ∀ (b c d e f : Code),
+    Conditions (∅ : Code) (mk ({0} : Code) b c d e f) →
+      (∅ : Code) = Finset.univ ∧ mk ({0} : Code) b c d e f ∈ profiles := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 10000 in
+lemma classify_0_2 : ∀ (b c d e f : Code),
+    Conditions (∅ : Code) (mk ({1} : Code) b c d e f) →
+      (∅ : Code) = Finset.univ ∧ mk ({1} : Code) b c d e f ∈ profiles := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 10000 in
+lemma classify_0_3 : ∀ (b c d e f : Code),
+    Conditions (∅ : Code) (mk (Finset.univ : Code) b c d e f) →
+      (∅ : Code) = Finset.univ ∧ mk (Finset.univ : Code) b c d e f ∈ profiles := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 10000 in
+lemma classify_1_0 : ∀ (b c d e f : Code),
+    Conditions ({0} : Code) (mk (∅ : Code) b c d e f) →
+      ({0} : Code) = Finset.univ ∧ mk (∅ : Code) b c d e f ∈ profiles := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 10000 in
+lemma classify_1_1 : ∀ (b c d e f : Code),
+    Conditions ({0} : Code) (mk ({0} : Code) b c d e f) →
+      ({0} : Code) = Finset.univ ∧ mk ({0} : Code) b c d e f ∈ profiles := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 10000 in
+lemma classify_1_2 : ∀ (b c d e f : Code),
+    Conditions ({0} : Code) (mk ({1} : Code) b c d e f) →
+      ({0} : Code) = Finset.univ ∧ mk ({1} : Code) b c d e f ∈ profiles := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 10000 in
+lemma classify_1_3 : ∀ (b c d e f : Code),
+    Conditions ({0} : Code) (mk (Finset.univ : Code) b c d e f) →
+      ({0} : Code) = Finset.univ ∧ mk (Finset.univ : Code) b c d e f ∈ profiles := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 10000 in
+lemma classify_2_0 : ∀ (b c d e f : Code),
+    Conditions ({1} : Code) (mk (∅ : Code) b c d e f) →
+      ({1} : Code) = Finset.univ ∧ mk (∅ : Code) b c d e f ∈ profiles := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 10000 in
+lemma classify_2_1 : ∀ (b c d e f : Code),
+    Conditions ({1} : Code) (mk ({0} : Code) b c d e f) →
+      ({1} : Code) = Finset.univ ∧ mk ({0} : Code) b c d e f ∈ profiles := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 10000 in
+lemma classify_2_2 : ∀ (b c d e f : Code),
+    Conditions ({1} : Code) (mk ({1} : Code) b c d e f) →
+      ({1} : Code) = Finset.univ ∧ mk ({1} : Code) b c d e f ∈ profiles := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 10000 in
+lemma classify_2_3 : ∀ (b c d e f : Code),
+    Conditions ({1} : Code) (mk (Finset.univ : Code) b c d e f) →
+      ({1} : Code) = Finset.univ ∧ mk (Finset.univ : Code) b c d e f ∈ profiles := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 10000 in
+lemma classify_3_0 : ∀ (b c d e f : Code),
+    Conditions (Finset.univ : Code) (mk (∅ : Code) b c d e f) →
+      (Finset.univ : Code) = Finset.univ ∧ mk (∅ : Code) b c d e f ∈ profiles := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 10000 in
+lemma classify_3_1 : ∀ (b c d e f : Code),
+    Conditions (Finset.univ : Code) (mk ({0} : Code) b c d e f) →
+      (Finset.univ : Code) = Finset.univ ∧ mk ({0} : Code) b c d e f ∈ profiles := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 10000 in
+lemma classify_3_2 : ∀ (b c d e f : Code),
+    Conditions (Finset.univ : Code) (mk ({1} : Code) b c d e f) →
+      (Finset.univ : Code) = Finset.univ ∧ mk ({1} : Code) b c d e f ∈ profiles := by
+  decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 10000 in
+lemma classify_3_3 : ∀ (b c d e f : Code),
+    Conditions (Finset.univ : Code) (mk (Finset.univ : Code) b c d e f) →
+      (Finset.univ : Code) = Finset.univ ∧ mk (Finset.univ : Code) b c d e f ∈ profiles := by
+  decide +kernel
+
+lemma classify_coordinates (center a b c d e f : Code)
+    (h : Conditions center (mk a b c d e f)) :
+    center = Finset.univ ∧ mk a b c d e f ∈ profiles := by
+  rcases code_cases center with rfl | rfl | rfl | rfl <;>
+    rcases code_cases a with rfl | rfl | rfl | rfl
+  · exact classify_0_0 b c d e f h
+  · exact classify_0_1 b c d e f h
+  · exact classify_0_2 b c d e f h
+  · exact classify_0_3 b c d e f h
+  · exact classify_1_0 b c d e f h
+  · exact classify_1_1 b c d e f h
+  · exact classify_1_2 b c d e f h
+  · exact classify_1_3 b c d e f h
+  · exact classify_2_0 b c d e f h
+  · exact classify_2_1 b c d e f h
+  · exact classify_2_2 b c d e f h
+  · exact classify_2_3 b c d e f h
+  · exact classify_3_0 b c d e f h
+  · exact classify_3_1 b c d e f h
+  · exact classify_3_2 b c d e f h
+  · exact classify_3_3 b c d e f h
+
+lemma classify (center : Code) (f : CycleCodes) (h : Conditions center f) :
+    center = Finset.univ ∧ f ∈ profiles := by
+  have hm := classify_coordinates center (f 0) (f 1) (f 2) (f 3) (f 4) (f 5)
+  rw [mk_eta] at hm
+  exact hm h
+
+lemma profiles_card : profiles.card = 12 := by decide +kernel
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma profiles_valid : ∀ f ∈ profiles, Conditions Finset.univ f := by
+  intro f hf
+  simp only [profiles, Finset.mem_insert, Finset.mem_singleton] at hf
+  rcases hf with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  all_goals decide +kernel
+
+abbrev OppositeEmpties (f : CycleCodes) : Prop :=
+  ∃ i : Fin 3, ∀ j : Fin 6,
+    f j = ∅ ↔ j.val = i.val ∨ j.val = i.val + 3
+
+abbrev SingletonNonempty (f : CycleCodes) : Prop :=
+  ∀ i, (f i).Nonempty → ∃ u, f i = {u}
+
+abbrev TwoEach (f : CycleCodes) : Prop :=
+  ∀ u : Fin 2, (Finset.univ.filter fun i => u ∈ f i).card = 2
+
+abbrev AdjacentUnits (f : CycleCodes) : Prop :=
+  ∀ u : Fin 2, ∃ i : Fin 6, ∀ j : Fin 6,
+    u ∈ f j ↔ j = i ∨ j = i + 1
+
+abbrev OppositeUnits (f : CycleCodes) : Prop :=
+  ∀ u : Fin 2, ∃ i : Fin 6, ∀ j : Fin 6,
+    u ∈ f j ↔ j = i ∨ j = i + 3
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+lemma profiles_shape : ∀ f ∈ profiles,
+    OppositeEmpties f ∧ SingletonNonempty f ∧ TwoEach f ∧
+      (AdjacentUnits f ∨ OppositeUnits f) := by
+  intro f hf
+  simp only [profiles, Finset.mem_insert, Finset.mem_singleton] at hf
+  rcases hf with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  all_goals decide +kernel
+
+lemma adjacent_count : (profiles.filter AdjacentUnits).card = 6 := by decide +kernel
+lemma opposite_count : (profiles.filter OppositeUnits).card = 6 := by decide +kernel
+
+lemma shape (center : Code) (f : CycleCodes) (h : Conditions center f) :
+    center = Finset.univ ∧ OppositeEmpties f ∧ SingletonNonempty f ∧ TwoEach f ∧
+      (AdjacentUnits f ∨ OppositeUnits f) := by
+  obtain ⟨hc, hf⟩ := classify center f h
+  exact ⟨hc, profiles_shape f hf⟩
+
+lemma classify_iff (center : Code) (f : CycleCodes) :
+    Conditions center f ↔ center = Finset.univ ∧ f ∈ profiles := by
+  constructor
+  · exact classify center f
+  · rintro ⟨rfl, hf⟩
+    exact profiles_valid f hf
+
+def vertex (i : Fin 6) : Fin 10 :=
+  ([2, 3, 8, 6, 9, 7] : List (Fin 10)).getD i.val 0
+
+def edgeBit (u v : Fin 10) : Bool :=
+  ([50, 69, 138, 276, 521, 385, 770, 548, 104, 208].getD u.val 0).testBit v.val
+
+abbrev IndependentTriple (k x y : Fin 10) : Prop :=
+  k ≠ x ∧ k ≠ y ∧ x ≠ y ∧
+  edgeBit k x = false ∧ edgeBit x k = false ∧
+  edgeBit k y = false ∧ edgeBit y k = false ∧
+  edgeBit x y = false ∧ edgeBit y x = false
+
+abbrev IndependentHit (f : CycleCodes) : Prop :=
+  ∃ k : Fin 10, ∃ i j : Fin 6,
+    k ∈ ({1, 4, 5} : Finset (Fin 10)) ∧ edgeBit 0 k = true ∧
+    f i = {0} ∧ f j = {1} ∧ IndependentTriple k (vertex i) (vertex j)
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 10000 in
+lemma profiles_hit : ∀ f ∈ profiles, IndependentHit f := by
+  intro f hf
+  simp only [profiles, Finset.mem_insert, Finset.mem_singleton] at hf
+  rcases hf with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  all_goals decide +kernel
+
+lemma independent_hit (center : Code) (f : CycleCodes) (h : Conditions center f) :
+    center = Finset.univ ∧ IndependentHit f := by
+  obtain ⟨hc, hf⟩ := classify center f h
+  exact ⟨hc, profiles_hit f hf⟩
+
+end R2Profiles
 
 namespace I3Branch
 
@@ -6442,6 +6729,770 @@ lemma code_subset_center_private_exit {D : Dag} (h : StrictLive 10 D)
     have hfe := huniq f hf hf0
     exact hfc (hfe ▸ hce)
 
+end NeighborCover
+
+namespace NeighborCover
+
+def extraCenterHit (i c : V) : Finset V :=
+  if i = 1 then
+    if c = 3 ∨ c = 7 then {1,3,7} else {1,8,9}
+  else if i = 4 then
+    if c = 2 ∨ c = 8 then {4,2,8} else {4,6,7}
+  else
+    if c = 2 ∨ c = 9 then {5,2,9} else {5,3,6}
+
+lemma extra_center_hit_geometry : ∀ i ∈ J, ∀ c ∈ C, ¬ adj i c →
+    (∀ a ∈ extraCenterHit i c, ∀ d ∈ extraCenterHit i c, ¬ adj a d) ∧
+    i ∈ extraCenterHit i c ∧ c ∈ extraCenterHit i c ∧
+    ∀ j ∈ J, j ≠ i → ∃ a ∈ extraCenterHit i c, adj j a := by
+  decide +kernel
+
+lemma three_center_exits_stars_exact_unrestricted {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hi : J ⊆ ineligSet 10 D)
+    (hW : (sem_W 10 D (0 : V)).card ≤ 3) :
+    ∃ pos : V → ℕ × Bool, k4_Pos 10 adj D pos ∧ sem_W 10 D (0 : V) = J.image pos ∧
+      ∀ i ∈ J, ∀ a, a ∈ supp 10 D (src D (pos i)) ↔ adj i a := by
+  obtain ⟨pos, hp, he⟩ := three_center_exits_data h hc hi hW
+  refine ⟨pos, hp, he, ?_⟩
+  intro i hiJ c
+  constructor
+  · intro hcs
+    by_contra hic
+    have hgeom : ∀ i ∈ J, adj i 0 ∧ i ≠ 0 ∧
+        ∀ c, ¬ adj i c → c ∈ J ∨ c ∈ C := by decide +kernel
+    have hi0 := (hgeom i hiJ).1
+    have h0s := (hp.1 i (hi hiJ)).2.2.1 0 hi0
+    have hcC : c ∈ C := by
+      rcases (hgeom i hiJ).2.2 c hic with hcJ | hcC
+      · have hs := sem_inelig_pure graph_ok h.1 hc (hi hcJ) hcs
+        rw [hs, Finset.mem_singleton] at h0s
+        exact False.elim ((hgeom c hcJ).2.1 h0s.symm)
+      · exact hcC
+    obtain ⟨hA, hiA, hcA, hother⟩ := extra_center_hit_geometry i hiJ c hcC hic
+    obtain ⟨g, s, hg, ht, h0g, h0out, hdis⟩ :=
+      sem_exposure graph_ok h.1 hc (extraCenterHit i c) hA (0 : V)
+        ⟨i, hiA, graph_ok.1 _ _ hi0⟩
+    have heW : (g,s) ∈ sem_W 10 D (0 : V) := sem_mem_W.mpr ⟨hg,h0g,h0out⟩
+    rw [he] at heW
+    obtain ⟨j, hjJ, heq⟩ := Finset.mem_image.mp heW
+    by_cases hji : j = i
+    · subst j
+      rw [heq] at hcs
+      exact Finset.disjoint_left.mp hdis hcs hcA
+    · obtain ⟨a, haA, hja⟩ := hother j hjJ hji
+      have has := (hp.1 j (hi hjJ)).2.2.1 a hja
+      rw [heq] at has
+      exact Finset.disjoint_left.mp hdis has haA
+  · exact (hp.1 i (hi hiJ)).2.2.1 c
+
+lemma three_center_exits_residual_ge_two {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hi : J ⊆ ineligSet 10 D)
+    (hW : (sem_W 10 D (0 : V)).card ≤ 3)
+    (b : V → ℕ) (hb : PureBranch 10 D b) :
+    2 ≤ (residualUnits 10 D b).card := by
+  obtain ⟨pos, hp, he, hexact⟩ := three_center_exits_stars_exact_unrestricted h hc hi hW
+  have h1J : (1 : V) ∈ J := by decide
+  have he1 : pos 1 ∈ sem_W 10 D (0 : V) := by
+    rw [he]
+    exact Finset.mem_image.mpr ⟨1,h1J,rfl⟩
+  exact at_least_two_residual_of_one_exact_star h hc hi b hb h1J he1 (hexact 1 h1J)
+
+lemma residual_at_least_two_unrestricted {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hi : J ⊆ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b) :
+    2 ≤ (residualUnits 10 D b).card := by
+  by_contra hsmall
+  have hR : (residualUnits 10 D b).card ≤ 1 := by omega
+  have hcode : (code D b 0).card ≤ 1 :=
+    (Finset.card_le_card (Finset.filter_subset _ _)).trans hR
+  obtain ⟨pos, hp, he, hm, hcard⟩ := one_center_code_data h hc hi b hb hcode
+  have hW : (sem_W 10 D (0 : V)).card ≤ 3 := by
+    rw [he]
+    exact (Finset.card_image_le).trans (by decide)
+  have ht := three_center_exits_residual_ge_two h hc hi hW b hb
+  omega
+
+lemma neighborhood_bzero_le_one {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hlen : D.length ≤ 19) (hi : ineligSet 10 D = J)
+    (b : V → ℕ) (hb : PureBranch 10 D b) : Bzero 10 D ≤ 1 := by
+  have budget := neighborhood_budget h hc hlen hi b hb
+  by_contra hnot
+  have hR : (residualUnits 10 D b).card ≤ 1 := by omega
+  have hcenter := sem_code_count graph_ok h hc b hb (0 : V)
+  change (sem_W 10 D (0 : V)).card + (merges 10 D (carrierT 10 D {0})).card =
+    1 + (({0} : Finset V) ∩ eligSet 10 D).card + (code D b 0).card at hcenter
+  have hbase : (({0} : Finset V) ∩ eligSet 10 D).card ≤ 1 :=
+    (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
+  have hW : (sem_W 10 D (0 : V)).card ≤ 3 := by omega
+  have ht := three_center_exits_residual_ge_two h hc (by rw [hi]) hW b hb
+  omega
+
+end NeighborCover
+
+lemma val_two_eq_single_of_exit_controls {n : ℕ} {D : Dag}
+    (hS : Strict n D) (z v : Fin n)
+    (hcontrol : ∀ e ∈ sem_W n D z,
+      z ∉ supp n D (src D (e.1, !e.2)) ∧ v ∉ supp n D (src D (e.1, !e.2))) :
+    ∀ w, z ∉ supp n D w → val D (sem_two z v) w = val D (single v) w := by
+  have hfalse (w : ℕ) (hy : val D (sem_two z v) w = false) :
+      val D (single v) w = false := by
+    by_contra hx
+    have hxtrue : val D (single v) w = true := by rwa [Bool.not_eq_false] at hx
+    have hytrue := val_mono hS (single v) (sem_two z v)
+      (fun i hi => by simp only [sem_two, Bool.or_eq_true]; exact Or.inr hi) w hxtrue
+    rw [hy] at hytrue
+    contradiction
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    intro hw
+    by_cases hn : w < n
+    · have hne : (⟨w, hn⟩ : Fin n) ≠ z := by
+        intro heq
+        apply hw
+        rw [← heq]
+        exact (supp_input D ⟨w, hn⟩).symm ▸ Finset.mem_singleton_self _
+      rw [val_input D (sem_two z v) w hn, val_input D (single v) w hn]
+      simp [single, sem_two, hne]
+    · by_cases hbound : w < n + D.length
+      · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
+        have hj : j < D.length := by omega
+        obtain ⟨ha, hb, _⟩ := hS j hj
+        have hexit_zero (s : Bool) (hs : z ∈ supp n D (src D (j, s))) :
+            val D (sem_two z v) (n + j) = val D (single v) (n + j) := by
+          have he : (j, s) ∈ sem_W n D z := sem_mem_W.mpr ⟨hj, hs, hw⟩
+          obtain ⟨hcz, hcv⟩ := hcontrol (j,s) he
+          have hcfalse : val D (single v) (src D (j,!s)) = false := by
+            apply Bool.eq_false_iff.mpr
+            intro hc
+            exact hcv (by simpa only [mem_supp] using hc)
+          have hyc : val D (sem_two z v) (src D (j,!s)) = false :=
+            (ih _ (sem_src_lt hS hj (!s)) hcz).trans hcfalse
+          have hy : val D (sem_two z v) (n+j) = false := by
+            rw [sem_val_gate_src hS (sem_two z v) hj (!s), sem_W_and hS he,
+              gop_true, hyc]
+            rfl
+          exact hy.trans (hfalse (n+j) hy).symm
+        by_cases hzA : z ∈ supp n D (opA D j)
+        · exact hexit_zero false (by simpa only [sb_src_false] using hzA)
+        · by_cases hzB : z ∈ supp n D (opB D j)
+          · exact hexit_zero true (by simpa only [sb_src_true] using hzB)
+          · rw [val_gate hS (sem_two z v) j hj, val_gate hS (single v) j hj,
+              ih _ ha hzA, ih _ hb hzB]
+      · rw [val_ge D (sem_two z v) w (by omega), val_ge D (single v) w (by omega)]
+
+namespace NeighborCover
+
+lemma three_center_exits_preserve_labels_unrestricted {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D) (hi : J ⊆ ineligSet 10 D)
+    (hW : (sem_W 10 D (0 : V)).card ≤ 3) (v : V) (hv : v ∈ C)
+    (w : ℕ) (hw : (0 : V) ∉ supp 10 D w) :
+    val D (sem_two 0 v) w = val D (single v) w := by
+  obtain ⟨pos, hp, he⟩ := three_center_exits_data h hc hi hW
+  have hgeom : ∀ i ∈ J, i ≠ (0 : V) ∧ ∀ v ∈ C, v ≠ i := by decide +kernel
+  apply val_two_eq_single_of_exit_controls h.1 0 v ?_ w hw
+  intro e heW
+  rw [he] at heW
+  obtain ⟨i, hiJ, rfl⟩ := Finset.mem_image.mp heW
+  rw [(hp.1 i (hi hiJ)).2.2.2]
+  simp only [Finset.mem_singleton]
+  exact ⟨Ne.symm (hgeom i hiJ).1, (hgeom i hiJ).2 v hv⟩
+
+lemma three_center_exits_C_labels_unrestricted {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 adj D) (hi : J ⊆ ineligSet 10 D)
+    (hW : (sem_W 10 D (0 : V)).card ≤ 3) (w : ℕ) :
+    C.filter (fun v => val D (sem_two 0 v) w = true) =
+      if (0 : V) ∈ supp 10 D w then C else supp 10 D w ∩ C := by
+  ext v
+  by_cases hv : v ∈ C
+  · simp only [Finset.mem_filter, hv, true_and]
+    by_cases hw : (0 : V) ∈ supp 10 D w
+    · have hval := sem_val_of_supp h.1 hw (by simp [sem_two] : sem_two (0 : V) v 0 = true)
+      simp [hw, hv, hval]
+    · rw [three_center_exits_preserve_labels_unrestricted h hc hi hW v hv w hw]
+      simp only [mem_supp, hw, ↓reduceIte, Finset.mem_inter, hv, and_true]
+  · by_cases hw : (0 : V) ∈ supp 10 D w <;> simp [hv, hw]
+
+end NeighborCover
+
+namespace NeighborCover
+
+open DagTools
+
+def avoidCarrier (n : ℕ) (D : Dag) (z x y : Fin n) : Finset ℕ :=
+  (inner n D).filter (fun w => z ∈ supp n D w ∧ x ∉ supp n D w ∧ y ∉ supp n D w)
+
+lemma first_joint_acquisition {n : ℕ} {D : Dag} (hS : Strict n D)
+    {z x y : Fin n} (hM : merges n D (carrierT n D {z}) = ∅) (hxz : x ≠ z) :
+    ∀ w, z ∈ supp n D w → x ∈ supp n D w → y ∉ supp n D w →
+      ∃ e ∈ exitArcs n D (avoidCarrier n D z x y),
+        z ∈ supp n D (n + e.1) ∧ x ∈ supp n D (n + e.1) ∧ y ∉ supp n D (n + e.1) := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    intro hzw hxw hyw
+    by_cases hwn : w < n
+    · have hs : supp n D w = {⟨w, hwn⟩} := supp_input D ⟨w, hwn⟩
+      rw [hs, Finset.mem_singleton] at hzw hxw
+      exact False.elim (hxz (hxw.trans hzw.symm))
+    · by_cases hwlen : w < n + D.length
+      · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
+        have hj : j < D.length := by omega
+        have hor := (sem_zm_gate hS hM hj hzw).1
+        have hparents : z ∈ supp n D (opA D j) ∨ z ∈ supp n D (opB D j) := by
+          rwa [sem_supp_or hS hj hor, Finset.mem_union] at hzw
+        have hex : ∃ s : Bool, z ∈ supp n D (src D (j, s)) := by
+          rcases hparents with ha | hb
+          · exact ⟨false, by simpa only [sb_src_false] using ha⟩
+          · exact ⟨true, by simpa only [sb_src_true] using hb⟩
+        obtain ⟨s, hzs⟩ := hex
+        have hless := sem_src_lt hS hj s
+        have hys : y ∉ supp n D (src D (j, s)) := by
+          intro hys
+          apply hyw
+          rw [sem_supp_or hS hj hor]
+          cases s
+          · exact Finset.mem_union_left _ (by simpa only [sb_src_false] using hys)
+          · exact Finset.mem_union_right _ (by simpa only [sb_src_true] using hys)
+        by_cases hxs : x ∈ supp n D (src D (j, s))
+        · exact ih _ hless hzs hxs hys
+        · refine ⟨(j, s), ?_, hzw, hxw, hyw⟩
+          rw [exitArcs, Finset.mem_filter]
+          refine ⟨Finset.mem_product.mpr ⟨Finset.mem_range.mpr hj, Finset.mem_univ s⟩, ?_, ?_⟩
+          · apply Finset.mem_filter.mpr
+            refine ⟨sb_mem_inner.mpr ?_, hzs, hxs, hys⟩
+            omega
+          · intro hout
+            exact (Finset.mem_filter.mp hout).2.2.1 hxw
+      · rw [supp_ge D w (by omega)] at hzw
+        exact False.elim (Finset.notMem_empty _ hzw)
+
+end NeighborCover
+
+namespace NeighborCover
+
+open DagTools
+
+lemma avoidCarrier_comm {n : ℕ} (D : Dag) (z x y : Fin n) :
+    avoidCarrier n D z x y = avoidCarrier n D z y x := by
+  ext w
+  simp only [avoidCarrier, Finset.mem_filter]
+  tauto
+
+lemma avoidCarrier_surplus_le_one {n : ℕ} {D : Dag}
+    (b : Fin n → ℕ) (hb : PureBranch n D b) (z x y : Fin n)
+    (hcover : ∀ u ∈ residualUnits n D b, z ∈ supp n D u.1 →
+      x ∈ supp n D u.1 ∨ y ∈ supp n D u.1) :
+    surplusOn D (avoidCarrier n D z x y) ≤ 1 := by
+  classical
+  unfold avoidCarrier
+  rw [← sb_card_units_filter]
+  have hsub : (units n D).filter (fun u => z ∈ supp n D u.1 ∧
+      x ∉ supp n D u.1 ∧ y ∉ supp n D u.1) ⊆ {(⟨b z, 0⟩ : Σ _ : ℕ, ℕ)} := by
+    intro u hu
+    obtain ⟨huunit, hzu, hxu, hyu⟩ := Finset.mem_filter.mp hu
+    by_cases hr : u ∈ reservedUnits n D b
+    · obtain ⟨v, hv, rfl⟩ := Finset.mem_image.mp hr
+      have hzv : z = v := by rwa [(hb v hv).2, Finset.mem_singleton] at hzu
+      subst v
+      exact Finset.mem_singleton_self _
+    · have hup : u ∈ unitsPlus n D := Finset.mem_filter.mpr ⟨huunit, ⟨z, hzu⟩⟩
+      have hur : u ∈ residualUnits n D b := Finset.mem_sdiff.mpr ⟨hup, hr⟩
+      exact False.elim ((hcover u hur hzu).elim hxu hyu)
+  exact (Finset.card_le_card hsub).trans (by simp)
+
+lemma avoidCarrier_sources_le_one {n : ℕ} (D : Dag) (z x y : Fin n) :
+    (sources n (avoidCarrier n D z x y)).card ≤ 1 := by
+  have hsub : sources n (avoidCarrier n D z x y) ⊆ {z.val} := by
+    intro w hw
+    obtain ⟨hwK, hwn⟩ := Finset.mem_filter.mp hw
+    have hzw := (Finset.mem_filter.mp hwK).2.1
+    have hs : supp n D w = {⟨w, hwn⟩} := supp_input D ⟨w, hwn⟩
+    rw [hs, Finset.mem_singleton] at hzw
+    exact Finset.mem_singleton.mpr (congrArg Fin.val hzw).symm
+  exact (Finset.card_le_card hsub).trans (by simp)
+
+lemma avoidCarrier_exits_le_two {n : ℕ} {D : Dag} (h : StrictLive n D)
+    (b : Fin n → ℕ) (hb : PureBranch n D b) (z x y : Fin n)
+    (hM : merges n D (carrierT n D {z}) = ∅)
+    (hcover : ∀ u ∈ residualUnits n D b, z ∈ supp n D u.1 →
+      x ∈ supp n D u.1 ∨ y ∈ supp n D u.1) :
+    (exitArcs n D (avoidCarrier n D z x y)).card ≤ 2 := by
+  have hpred : ∀ j, j < D.length → n + j ∈ avoidCarrier n D z x y →
+      opA D j ∈ avoidCarrier n D z x y ∨ opB D j ∈ avoidCarrier n D z x y := by
+    intro j hj hw
+    obtain ⟨_, hz, hx, hy⟩ := Finset.mem_filter.mp hw
+    have hor := (sem_zm_gate h.1 hM hj hz).1
+    have hsubA : supp n D (opA D j) ⊆ supp n D (n + j) := by
+      rw [sem_supp_or h.1 hj hor]
+      exact Finset.subset_union_left
+    have hsubB : supp n D (opB D j) ⊆ supp n D (n + j) := by
+      rw [sem_supp_or h.1 hj hor]
+      exact Finset.subset_union_right
+    rw [sem_supp_or h.1 hj hor, Finset.mem_union] at hz
+    obtain ⟨ha, hb, _⟩ := h.1 j hj
+    rcases hz with hzA | hzB
+    · exact Or.inl (Finset.mem_filter.mpr ⟨sb_mem_inner.mpr (by omega),
+        hzA, fun hxA => hx (hsubA hxA), fun hyA => hy (hsubA hyA)⟩)
+    · exact Or.inr (Finset.mem_filter.mpr ⟨sb_mem_inner.mpr (by omega),
+        hzB, fun hxB => hx (hsubB hxB), fun hyB => hy (hsubB hyB)⟩)
+  have hflow := carrier_flow h (avoidCarrier n D z x y) (Finset.filter_subset _ _) hpred
+  have hs := avoidCarrier_sources_le_one D z x y
+  have hu := avoidCarrier_surplus_le_one b hb z x y hcover
+  omega
+
+lemma center_exits_hit_two_codes {n : ℕ} {D : Dag} (h : StrictLive n D)
+    (b : Fin n → ℕ) (hb : PureBranch n D b) {z x y : Fin n}
+    (hM : merges n D (carrierT n D {z}) = ∅) (hxz : x ≠ z) (hyz : y ≠ z)
+    (hcover : ∀ u ∈ residualUnits n D b, z ∈ supp n D u.1 →
+      x ∈ supp n D u.1 ∨ y ∈ supp n D u.1)
+    {wx wy : ℕ} (hzx : z ∈ supp n D wx) (hxx : x ∈ supp n D wx) (hyx : y ∉ supp n D wx)
+    (hzy : z ∈ supp n D wy) (hyy : y ∈ supp n D wy) (hxy : x ∉ supp n D wy) :
+    ∀ e ∈ sem_W n D z, x ∈ supp n D (src D e) ∨ y ∈ supp n D (src D e) := by
+  obtain ⟨ex, hex, hzxout, hxxout, hyxout⟩ := first_joint_acquisition h.1 hM hxz wx hzx hxx hyx
+  obtain ⟨ey, hey, hzyout, hyyout, hxyout⟩ := first_joint_acquisition h.1 hM hyz wy hzy hyy hxy
+  rw [← avoidCarrier_comm D z x y] at hey
+  have hne : ex ≠ ey := by
+    intro heq
+    exact hxyout (heq ▸ hxxout)
+  intro e he
+  by_contra bad
+  have hxsrc : x ∉ supp n D (src D e) := fun hx => bad (Or.inl hx)
+  have hysrc : y ∉ supp n D (src D e) := fun hy => bad (Or.inr hy)
+  obtain ⟨hj, hzsrc, hzout⟩ := sem_mem_W.mp he
+  have heK : e ∈ exitArcs n D (avoidCarrier n D z x y) := by
+    rw [exitArcs, Finset.mem_filter]
+    refine ⟨Finset.mem_product.mpr ⟨Finset.mem_range.mpr hj, Finset.mem_univ e.2⟩, ?_, ?_⟩
+    · have hlt := sem_src_lt h.1 hj e.2
+      apply Finset.mem_filter.mpr
+      exact ⟨sb_mem_inner.mpr (by simpa only [Prod.mk.eta] using (show src D (e.1, e.2) + 1 < n + D.length by omega)),
+        hzsrc, hxsrc, hysrc⟩
+    · intro hout
+      exact hzout (Finset.mem_filter.mp hout).2.1
+  have hexne : e ≠ ex := by intro heq; exact hzout (heq.symm ▸ hzxout)
+  have heyne : e ≠ ey := by intro heq; exact hzout (heq.symm ▸ hzyout)
+  have hthree : 2 < (exitArcs n D (avoidCarrier n D z x y)).card :=
+    Finset.two_lt_card.mpr ⟨e, heK, ex, hex, ey, hey, hexne, heyne, hne⟩
+  have hbound := avoidCarrier_exits_le_two h b hb z x y hM hcover
+  omega
+
+lemma two_code_cover_no_center_merge_impossible {n : ℕ} {G : Fin n → Fin n → Prop}
+    {D : Dag} (hG : sem_Gr G) (h : StrictLive n D) (hc : sem_Comp n G D)
+    (b : Fin n → ℕ) (hb : PureBranch n D b) {z x y : Fin n}
+    (hM : merges n D (carrierT n D {z}) = ∅) (hxz : x ≠ z) (hyz : y ≠ z)
+    (hcover : ∀ u ∈ residualUnits n D b, z ∈ supp n D u.1 →
+      x ∈ supp n D u.1 ∨ y ∈ supp n D u.1)
+    {wx wy : ℕ} (hzx : z ∈ supp n D wx) (hxx : x ∈ supp n D wx) (hyx : y ∉ supp n D wx)
+    (hzy : z ∈ supp n D wy) (hyy : y ∈ supp n D wy) (hxy : x ∉ supp n D wy)
+    (A : Finset (Fin n)) (hA : ∀ a ∈ A, ∀ c ∈ A, ¬ G a c)
+    (hxA : x ∈ A) (hyA : y ∈ A) (hzA : ∃ a ∈ A, G z a) : False := by
+  obtain ⟨j, s, hj, _, hzs, hzout, hdis⟩ := sem_exposure hG h.1 hc A hA z hzA
+  have he : (j, s) ∈ sem_W n D z := sem_mem_W.mpr ⟨hj, hzs, hzout⟩
+  rcases center_exits_hit_two_codes h b hb hM hxz hyz hcover hzx hxx hyx hzy hyy hxy (j, s) he with hx | hy
+  · exact Finset.disjoint_left.mp hdis hx hxA
+  · exact Finset.disjoint_left.mp hdis hy hyA
+
+lemma center_code_not_two_covered {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (b : V → ℕ) (hb : PureBranch 10 D b)
+    (hM : merges 10 D (carrierT 10 D {(0 : V)}) = ∅) (x y : V)
+    (hnotx : ¬ code D b 0 ⊆ code D b x) (hnoty : ¬ code D b 0 ⊆ code D b y)
+    (A : Finset V) (hA : ∀ a ∈ A, ∀ c ∈ A, ¬ adj a c)
+    (hxA : x ∈ A) (hyA : y ∈ A) (h0A : ∃ a ∈ A, adj 0 a) :
+    ¬ code D b 0 ⊆ code D b x ∪ code D b y := by
+  intro hcover
+  obtain ⟨u, hu0, huy⟩ := Finset.not_subset.mp hnoty
+  obtain ⟨v, hv0, hvx⟩ := Finset.not_subset.mp hnotx
+  have hux : u ∈ code D b x := (Finset.mem_union.mp (hcover hu0)).resolve_right huy
+  have hvy : v ∈ code D b y := (Finset.mem_union.mp (hcover hv0)).resolve_left hvx
+  obtain ⟨huR, hu0s⟩ := Finset.mem_filter.mp hu0
+  obtain ⟨hvR, hv0s⟩ := Finset.mem_filter.mp hv0
+  have hxus := (Finset.mem_filter.mp hux).2
+  have hyvs := (Finset.mem_filter.mp hvy).2
+  have hyus : y ∉ supp 10 D u.1 := fun hy => huy (Finset.mem_filter.mpr ⟨huR, hy⟩)
+  have hxvs : x ∉ supp 10 D v.1 := fun hx => hvx (Finset.mem_filter.mpr ⟨hvR, hx⟩)
+  have h0not : (0 : V) ∉ A := by
+    intro h0
+    obtain ⟨a, ha, h0a⟩ := h0A
+    exact hA 0 h0 a ha h0a
+  have hx0 : x ≠ (0 : V) := fun he => h0not (he ▸ hxA)
+  have hy0 : y ≠ (0 : V) := fun he => h0not (he ▸ hyA)
+  apply two_code_cover_no_center_merge_impossible graph_ok h hc b hb hM hx0 hy0
+    ?_ hu0s hxus hyus hv0s hyvs hxvs A hA hxA hyA h0A
+  intro w hw hw0
+  have hm := Finset.mem_union.mp (hcover (Finset.mem_filter.mpr ⟨hw, hw0⟩))
+  exact hm.elim (fun hx => Or.inl (Finset.mem_filter.mp hx).2)
+    (fun hy => Or.inr (Finset.mem_filter.mp hy).2)
+
+end NeighborCover
+
+namespace NeighborCover
+
+open DagTools
+
+def avoidSetCarrier (n : ℕ) (D : Dag) (z : Fin n) (S : Finset (Fin n)) : Finset ℕ :=
+  (inner n D).filter (fun w => z ∈ supp n D w ∧ Disjoint (supp n D w) S)
+
+lemma first_set_acquisition {n : ℕ} {D : Dag} (hS : Strict n D)
+    {z x : Fin n} {S : Finset (Fin n)} (hM : merges n D (carrierT n D {z}) = ∅)
+    (hxz : x ≠ z) (hxS : x ∈ S) :
+    ∀ w, z ∈ supp n D w → x ∈ supp n D w →
+      (∀ a ∈ S, a ≠ x → a ∉ supp n D w) →
+      ∃ e ∈ exitArcs n D (avoidSetCarrier n D z S),
+        z ∈ supp n D (n + e.1) ∧ x ∈ supp n D (n + e.1) ∧
+          ∀ a ∈ S, a ≠ x → a ∉ supp n D (n + e.1) := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    intro hzw hxw hother
+    by_cases hwn : w < n
+    · have hs : supp n D w = {⟨w, hwn⟩} := supp_input D ⟨w, hwn⟩
+      rw [hs, Finset.mem_singleton] at hzw hxw
+      exact False.elim (hxz (hxw.trans hzw.symm))
+    · by_cases hwlen : w < n + D.length
+      · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
+        have hj : j < D.length := by omega
+        have hor := (sem_zm_gate hS hM hj hzw).1
+        have hparents : z ∈ supp n D (opA D j) ∨ z ∈ supp n D (opB D j) := by
+          rwa [sem_supp_or hS hj hor, Finset.mem_union] at hzw
+        have hex : ∃ s : Bool, z ∈ supp n D (src D (j, s)) := by
+          rcases hparents with ha | hb
+          · exact ⟨false, by simpa only [sb_src_false] using ha⟩
+          · exact ⟨true, by simpa only [sb_src_true] using hb⟩
+        obtain ⟨s, hzs⟩ := hex
+        have hless := sem_src_lt hS hj s
+        have hsub : supp n D (src D (j, s)) ⊆ supp n D (n + j) := by
+          rw [sem_supp_or hS hj hor]
+          cases s
+          · simpa only [sb_src_false] using (Finset.subset_union_left :
+              supp n D (opA D j) ⊆ supp n D (opA D j) ∪ supp n D (opB D j))
+          · simpa only [sb_src_true] using (Finset.subset_union_right :
+              supp n D (opB D j) ⊆ supp n D (opA D j) ∪ supp n D (opB D j))
+        have hothers : ∀ a ∈ S, a ≠ x → a ∉ supp n D (src D (j, s)) :=
+          fun a ha hax hm => hother a ha hax (hsub hm)
+        by_cases hxs : x ∈ supp n D (src D (j, s))
+        · exact ih _ hless hzs hxs hothers
+        · refine ⟨(j, s), ?_, hzw, hxw, hother⟩
+          rw [exitArcs, Finset.mem_filter]
+          refine ⟨Finset.mem_product.mpr ⟨Finset.mem_range.mpr hj, Finset.mem_univ s⟩, ?_, ?_⟩
+          · apply Finset.mem_filter.mpr
+            refine ⟨sb_mem_inner.mpr (by omega), hzs, Finset.disjoint_left.mpr ?_⟩
+            intro a has haS
+            by_cases hax : a = x
+            · exact hxs (hax ▸ has)
+            · exact hothers a haS hax has
+          · intro hout
+            exact Finset.disjoint_left.mp (Finset.mem_filter.mp hout).2.2 hxw hxS
+      · rw [supp_ge D w (by omega)] at hzw
+        exact False.elim (Finset.notMem_empty _ hzw)
+
+lemma avoidSet_surplus_le_one {n : ℕ} {D : Dag}
+    (b : Fin n → ℕ) (hb : PureBranch n D b) (z : Fin n) (S : Finset (Fin n))
+    (hcover : ∀ u ∈ residualUnits n D b, z ∈ supp n D u.1 →
+      ∃ a ∈ S, a ∈ supp n D u.1) :
+    surplusOn D (avoidSetCarrier n D z S) ≤ 1 := by
+  classical
+  unfold avoidSetCarrier
+  rw [← sb_card_units_filter]
+  have hsub : (units n D).filter (fun u => z ∈ supp n D u.1 ∧
+      Disjoint (supp n D u.1) S) ⊆ {(⟨b z, 0⟩ : Σ _ : ℕ, ℕ)} := by
+    intro u hu
+    obtain ⟨huunit, hzu, hdis⟩ := Finset.mem_filter.mp hu
+    by_cases hr : u ∈ reservedUnits n D b
+    · obtain ⟨v, hv, rfl⟩ := Finset.mem_image.mp hr
+      have hzv : z = v := by rwa [(hb v hv).2, Finset.mem_singleton] at hzu
+      subst v
+      exact Finset.mem_singleton_self _
+    · have hup : u ∈ unitsPlus n D := Finset.mem_filter.mpr ⟨huunit, ⟨z, hzu⟩⟩
+      have hur : u ∈ residualUnits n D b := Finset.mem_sdiff.mpr ⟨hup, hr⟩
+      obtain ⟨a, haS, hau⟩ := hcover u hur hzu
+      exact False.elim (Finset.disjoint_left.mp hdis hau haS)
+  exact (Finset.card_le_card hsub).trans (by simp)
+
+lemma avoidSet_sources_le_one {n : ℕ} (D : Dag) (z : Fin n) (S : Finset (Fin n)) :
+    (sources n (avoidSetCarrier n D z S)).card ≤ 1 := by
+  have hsub : sources n (avoidSetCarrier n D z S) ⊆ {z.val} := by
+    intro w hw
+    obtain ⟨hwK, hwn⟩ := Finset.mem_filter.mp hw
+    have hzw := (Finset.mem_filter.mp hwK).2.1
+    have hs : supp n D w = {⟨w, hwn⟩} := supp_input D ⟨w, hwn⟩
+    rw [hs, Finset.mem_singleton] at hzw
+    exact Finset.mem_singleton.mpr (congrArg Fin.val hzw).symm
+  exact (Finset.card_le_card hsub).trans (by simp)
+
+lemma avoidSet_exits_le_two {n : ℕ} {D : Dag} (h : StrictLive n D)
+    (b : Fin n → ℕ) (hb : PureBranch n D b) (z : Fin n) (S : Finset (Fin n))
+    (hM : merges n D (carrierT n D {z}) = ∅)
+    (hcover : ∀ u ∈ residualUnits n D b, z ∈ supp n D u.1 →
+      ∃ a ∈ S, a ∈ supp n D u.1) :
+    (exitArcs n D (avoidSetCarrier n D z S)).card ≤ 2 := by
+  have hpred : ∀ j, j < D.length → n + j ∈ avoidSetCarrier n D z S →
+      opA D j ∈ avoidSetCarrier n D z S ∨ opB D j ∈ avoidSetCarrier n D z S := by
+    intro j hj hw
+    obtain ⟨_, hz, hdis⟩ := Finset.mem_filter.mp hw
+    have hor := (sem_zm_gate h.1 hM hj hz).1
+    have hsubA : supp n D (opA D j) ⊆ supp n D (n + j) := by
+      rw [sem_supp_or h.1 hj hor]
+      exact Finset.subset_union_left
+    have hsubB : supp n D (opB D j) ⊆ supp n D (n + j) := by
+      rw [sem_supp_or h.1 hj hor]
+      exact Finset.subset_union_right
+    rw [sem_supp_or h.1 hj hor, Finset.mem_union] at hz
+    obtain ⟨ha, hb, _⟩ := h.1 j hj
+    rcases hz with hzA | hzB
+    · exact Or.inl (Finset.mem_filter.mpr ⟨sb_mem_inner.mpr (by omega), hzA,
+        Finset.disjoint_left.mpr (fun a haS ha => Finset.disjoint_left.mp hdis (hsubA haS) ha)⟩)
+    · exact Or.inr (Finset.mem_filter.mpr ⟨sb_mem_inner.mpr (by omega), hzB,
+        Finset.disjoint_left.mpr (fun a haS ha => Finset.disjoint_left.mp hdis (hsubB haS) ha)⟩)
+  have hflow := carrier_flow h (avoidSetCarrier n D z S) (Finset.filter_subset _ _) hpred
+  have hs := avoidSet_sources_le_one D z S
+  have hu := avoidSet_surplus_le_one b hb z S hcover
+  omega
+
+lemma directional_cover_card_le_two {n m : ℕ} {D : Dag} (h : StrictLive n D)
+    (b : Fin n → ℕ) (hb : PureBranch n D b) (z : Fin n) (label : Fin m → Fin n)
+    (hM : merges n D (carrierT n D {z}) = ∅) (hnotz : ∀ i, label i ≠ z)
+    (hcover : ∀ u ∈ residualUnits n D b, z ∈ supp n D u.1 →
+      ∃ i, label i ∈ supp n D u.1)
+    (w : Fin m → ℕ) (hw : ∀ i, z ∈ supp n D (w i) ∧ label i ∈ supp n D (w i) ∧
+      ∀ j, j ≠ i → label j ∉ supp n D (w i)) : m ≤ 2 := by
+  classical
+  let S : Finset (Fin n) := Finset.univ.image label
+  have hlabel : Function.Injective label := by
+    intro i j heq
+    by_contra hne
+    exact (hw i).2.2 j (Ne.symm hne) (heq ▸ (hw i).2.1)
+  have hmem (i : Fin m) : label i ∈ S := Finset.mem_image.mpr ⟨i, Finset.mem_univ _, rfl⟩
+  have hex : ∀ i, ∃ e ∈ exitArcs n D (avoidSetCarrier n D z S),
+      z ∈ supp n D (n + e.1) ∧ label i ∈ supp n D (n + e.1) ∧
+      ∀ a ∈ S, a ≠ label i → a ∉ supp n D (n + e.1) := by
+    intro i
+    apply first_set_acquisition h.1 hM (hnotz i) (hmem i) (w i) (hw i).1 (hw i).2.1
+    intro a ha hneq
+    obtain ⟨j, _, rfl⟩ := Finset.mem_image.mp ha
+    exact (hw i).2.2 j (fun he => hneq (congrArg label he))
+  choose e he hze hxe hother using hex
+  have hinj : Function.Injective e := by
+    intro i j heq
+    by_contra hne
+    have hlabels : label i ≠ label j := fun he => hne (hlabel he)
+    exact hother j (label i) (hmem i) hlabels (heq ▸ hxe i)
+  have hsub : Finset.univ.image e ⊆ exitArcs n D (avoidSetCarrier n D z S) := by
+    intro a ha
+    obtain ⟨i, _, rfl⟩ := Finset.mem_image.mp ha
+    exact he i
+  have hcard : m ≤ (exitArcs n D (avoidSetCarrier n D z S)).card := by
+    have hc := Finset.card_le_card hsub
+    simpa only [Finset.card_image_of_injective _ hinj, Finset.card_univ, Fintype.card_fin] using hc
+  have hbound := avoidSet_exits_le_two h b hb z S hM (by
+    intro u hu hzu
+    obtain ⟨i, hi⟩ := hcover u hu hzu
+    exact ⟨label i, hmem i, hi⟩)
+  omega
+
+end NeighborCover
+
+namespace NeighborCover
+namespace R2Actual
+
+open DagTools
+
+abbrev Unit := Σ _ : ℕ, ℕ
+
+def pick (u v : Unit) (q : Fin 2) : Unit := if q = 0 then u else v
+
+def pairCode (D : Dag) (u v : Unit) (x : V) : Finset (Fin 2) :=
+  Finset.univ.filter (fun q => x ∈ supp 10 D (pick u v q).1)
+
+lemma mem_pairCode (D : Dag) (u v : Unit) (x : V) (q : Fin 2) :
+    q ∈ pairCode D u v x ↔ x ∈ supp 10 D (pick u v q).1 := by
+  simp only [pairCode, Finset.mem_filter, Finset.mem_univ, true_and]
+
+lemma mem_pairCode_zero (D : Dag) (u v : Unit) (x : V) :
+    (0 : Fin 2) ∈ pairCode D u v x ↔ x ∈ supp 10 D u.1 := by
+  simp [mem_pairCode, pick]
+
+lemma mem_pairCode_one (D : Dag) (u v : Unit) (x : V) :
+    (1 : Fin 2) ∈ pairCode D u v x ↔ x ∈ supp 10 D v.1 := by
+  simp [mem_pairCode, pick]
+
+lemma pick_mem {D : Dag} {b : V → ℕ} {u v : Unit}
+    (hpair : residualUnits 10 D b = {u, v}) (q : Fin 2) :
+    pick u v q ∈ residualUnits 10 D b := by
+  rw [hpair]
+  unfold pick
+  split_ifs <;> simp
+
+lemma pairCode_nonempty_iff {D : Dag} {b : V → ℕ} {u v : Unit}
+    (hpair : residualUnits 10 D b = {u, v}) (x : V) :
+    (pairCode D u v x).Nonempty ↔ (code D b x).Nonempty := by
+  constructor
+  · rintro ⟨q, hq⟩
+    exact ⟨pick u v q, Finset.mem_filter.mpr ⟨pick_mem hpair q, (mem_pairCode D u v x q).mp hq⟩⟩
+  · rintro ⟨w, hw⟩
+    obtain ⟨hwR, hxw⟩ := Finset.mem_filter.mp hw
+    rw [hpair, Finset.mem_insert, Finset.mem_singleton] at hwR
+    rcases hwR with hwu | hwv
+    · subst w
+      exact ⟨0, (mem_pairCode_zero D u v x).mpr hxw⟩
+    · subst w
+      exact ⟨1, (mem_pairCode_one D u v x).mpr hxw⟩
+
+lemma pairCode_subset_iff {D : Dag} {b : V → ℕ} {u v : Unit}
+    (hpair : residualUnits 10 D b = {u, v}) (x y : V) :
+    pairCode D u v x ⊆ pairCode D u v y ↔
+      ∀ w ∈ residualUnits 10 D b, x ∈ supp 10 D w.1 → y ∈ supp 10 D w.1 := by
+  constructor
+  · intro hsub w hw hxw
+    rw [hpair, Finset.mem_insert, Finset.mem_singleton] at hw
+    rcases hw with hwu | hwv
+    · subst w
+      exact (mem_pairCode_zero D u v y).mp (hsub ((mem_pairCode_zero D u v x).mpr hxw))
+    · subst w
+      exact (mem_pairCode_one D u v y).mp (hsub ((mem_pairCode_one D u v x).mpr hxw))
+  · intro hsub q hqx
+    exact (mem_pairCode D u v y q).mpr
+      (hsub (pick u v q) (pick_mem hpair q) ((mem_pairCode D u v x q).mp hqx))
+
+def vertex (i : Fin 6) : V := ([2, 3, 8, 6, 9, 7] : List V).getD i.val 0
+
+abbrev Conditions (center : Finset (Fin 2)) (f : Fin 6 → Finset (Fin 2)) : Prop :=
+  center.Nonempty ∧
+  (∀ i, ¬ center ⊆ f i) ∧
+  (∀ i, (f i).Nonempty ∨ (f (i + 1)).Nonempty) ∧
+  (∀ i j, i ≠ j → i.val % 2 = j.val % 2 → (f i).Nonempty → ¬ f i ⊆ f j)
+
+lemma cycle_vertices : ∀ i : Fin 6,
+    vertex i ∈ C ∧ vertex i ≠ 0 ∧ adj (vertex i) (vertex (i + 1)) := by
+  decide +kernel
+
+lemma parity_separation_geometry : ∀ i j : Fin 6, i ≠ j → i.val % 2 = j.val % 2 →
+    vertex j ≠ vertex i ∧ ¬ adj (vertex i) (vertex j) ∧
+      ∃ k ∈ J, adj k (vertex i) ∧ ¬ adj k (vertex j) := by
+  decide +kernel
+
+lemma eligible_of_code_nonempty {D : Dag} {b : V → ℕ} {x : V}
+    (hx : (code D b x).Nonempty) : x ∈ eligSet 10 D := by
+  obtain ⟨w, hw⟩ := hx
+  obtain ⟨hwR, hxw⟩ := Finset.mem_filter.mp hw
+  have hwunit : w ∈ units 10 D :=
+    (Finset.mem_filter.mp (Finset.mem_sdiff.mp hwR).1).1
+  have hfan := (mem_units.mp hwunit).2
+  exact mem_eligSet.mpr ⟨w.1, by omega, hxw⟩
+
+lemma pair_conditions {D : Dag} (h : StrictLive 10 D) (hc : sem_Comp 10 adj D)
+    (hz : Bzero 10 D = 0) (hi : J ⊆ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b) {u v : Unit}
+    (hpair : residualUnits 10 D b = {u, v}) :
+    Conditions (pairCode D u v 0) (fun i => pairCode D u v (vertex i)) := by
+  have hcenter := center_code_positive h hc hi b hb
+  refine ⟨(pairCode_nonempty_iff hpair 0).mpr (Finset.card_pos.mp (by omega)), ?_, ?_, ?_⟩
+  · intro i hsub
+    apply center_code_separates h hc hz hi b hb (cycle_vertices i).1
+    intro w hw
+    obtain ⟨hwR, hw0⟩ := Finset.mem_filter.mp hw
+    exact Finset.mem_filter.mpr ⟨hwR, (pairCode_subset_iff hpair 0 (vertex i)).mp hsub w hwR hw0⟩
+  · intro i
+    by_cases hfirst : (pairCode D u v (vertex i)).Nonempty
+    · exact Or.inl hfirst
+    · by_cases hnext : (pairCode D u v (vertex (i + 1))).Nonempty
+      · exact Or.inr hnext
+      · have hi0 : code D b (vertex i) = ∅ := Finset.not_nonempty_iff_eq_empty.mp
+          (fun hn => hfirst ((pairCode_nonempty_iff hpair (vertex i)).mpr hn))
+        have hj0 : code D b (vertex (i + 1)) = ∅ := Finset.not_nonempty_iff_eq_empty.mp
+          (fun hn => hnext ((pairCode_nonempty_iff hpair (vertex (i + 1))).mpr hn))
+        exact False.elim (no_adjacent_empty_codes h hc hi b hb (cycle_vertices i).1
+          (cycle_vertices (i + 1)).1 (cycle_vertices i).2.2 hi0 hj0)
+  · intro i j hij hpar hn hsub
+    obtain ⟨hji, hnon, k, hkJ, hki, hkj⟩ := parity_separation_geometry i j hij hpar
+    have hiCode := (pairCode_nonempty_iff hpair (vertex i)).mp hn
+    exact one_co_star_separates h hc hz b hb (hi hkJ) hki hji hnon hkj
+      (eligible_of_code_nonempty hiCode) hiCode ((pairCode_subset_iff hpair (vertex i) (vertex j)).mp hsub)
+
+end R2Actual
+end NeighborCover
+
+namespace NeighborCover
+namespace R2Actual
+
+open DagTools
+
+lemma not_adj_of_bit_false {x y : V} (h : R2Profiles.edgeBit x y = false) : ¬ adj x y := by
+  change ¬ R2Profiles.edgeBit x y = true
+  rw [h]
+  exact Bool.false_ne_true
+
+lemma residual_two_no_center_merge_impossible {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hz : Bzero 10 D = 0) (hi : J ⊆ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b)
+    (hR : (residualUnits 10 D b).card ≤ 2)
+    (hM : merges 10 D (carrierT 10 D ({0} : Finset V)) = ∅) : False := by
+  classical
+  have htwo := at_least_two_residual_of_bzero h hc hz hi b hb
+  obtain ⟨u, v, _, hpair⟩ := Finset.card_eq_two.mp
+    (by omega : (residualUnits 10 D b).card = 2)
+  have hcond := pair_conditions h hc hz hi b hb hpair
+  obtain ⟨hcenter, k, i, j, _, h0k, hix, hjy, hind⟩ :=
+    R2Profiles.independent_hit (pairCode D u v 0)
+      (fun i => pairCode D u v (vertex i)) hcond
+  let x := vertex i
+  let y := vertex j
+  change pairCode D u v x = {0} at hix
+  change pairCode D u v y = {1} at hjy
+  have hu0 : (0 : V) ∈ supp 10 D u.1 :=
+    (mem_pairCode_zero D u v 0).mp (by rw [hcenter]; simp)
+  have hv0 : (0 : V) ∈ supp 10 D v.1 :=
+    (mem_pairCode_one D u v 0).mp (by rw [hcenter]; simp)
+  have hux : x ∈ supp 10 D u.1 :=
+    (mem_pairCode_zero D u v x).mp (by rw [hix]; simp)
+  have hvy : y ∈ supp 10 D v.1 :=
+    (mem_pairCode_one D u v y).mp (by rw [hjy]; simp)
+  have hnxv : x ∉ supp 10 D v.1 := by
+    intro hxv
+    have hm := (mem_pairCode_one D u v x).mpr hxv
+    rw [hix, Finset.mem_singleton] at hm
+    exact (by decide : (1 : Fin 2) ≠ 0) hm
+  have hnyu : y ∉ supp 10 D u.1 := by
+    intro hyu
+    have hm := (mem_pairCode_zero D u v y).mpr hyu
+    rw [hjy, Finset.mem_singleton] at hm
+    exact (by decide : (0 : Fin 2) ≠ 1) hm
+  have hcover : ∀ w ∈ residualUnits 10 D b, (0 : V) ∈ supp 10 D w.1 →
+      x ∈ supp 10 D w.1 ∨ y ∈ supp 10 D w.1 := by
+    intro w hw _
+    rw [hpair, Finset.mem_insert, Finset.mem_singleton] at hw
+    rcases hw with hwu | hwv
+    · subst w
+      exact Or.inl hux
+    · subst w
+      exact Or.inr hvy
+  have htriple : R2Profiles.IndependentTriple k x y := hind
+  obtain ⟨_, _, _, hkx, hxk, hky, hyk, hxy, hyx⟩ := htriple
+  have hA : ∀ a ∈ ({k, x, y} : Finset V), ∀ c ∈ ({k, x, y} : Finset V), ¬ adj a c := by
+    intro a ha c hca
+    simp only [Finset.mem_insert, Finset.mem_singleton] at ha hca
+    rcases ha with rfl | rfl | rfl <;> rcases hca with rfl | rfl | rfl
+    · exact graph_ok.2.1 _
+    · exact not_adj_of_bit_false hkx
+    · exact not_adj_of_bit_false hky
+    · exact not_adj_of_bit_false hxk
+    · exact graph_ok.2.1 _
+    · exact not_adj_of_bit_false hxy
+    · exact not_adj_of_bit_false hyk
+    · exact not_adj_of_bit_false hyx
+    · exact graph_ok.2.1 _
+  exact two_code_cover_no_center_merge_impossible graph_ok h hc b hb hM
+    (cycle_vertices i).2.1 (cycle_vertices j).2.1 hcover hu0 hux hnyu hv0 hvy hnxv
+    {k, x, y} hA (by simp [x, y]) (by simp [x, y]) ⟨k, by simp, h0k⟩
+
+lemma no_center_merge_residual_at_least_three {D : Dag} (h : StrictLive 10 D)
+    (hc : sem_Comp 10 adj D) (hz : Bzero 10 D = 0) (hi : J ⊆ ineligSet 10 D)
+    (b : V → ℕ) (hb : PureBranch 10 D b)
+    (hM : merges 10 D (carrierT 10 D ({0} : Finset V)) = ∅) :
+    3 ≤ (residualUnits 10 D b).card := by
+  by_contra hsmall
+  exact residual_two_no_center_merge_impossible h hc hz hi b hb (by omega) hM
+
+end R2Actual
 end NeighborCover
 
 end I3Branch
