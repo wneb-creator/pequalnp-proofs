@@ -2,12 +2,12 @@ import Mathlib.Data.Finset.Card
 import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.Algebra.Order.BigOperators.Group.Finset
 import Mathlib.Data.Nat.Find
+import Mathlib.Combinatorics.SimpleGraph.Acyclic
+import Mathlib.Combinatorics.SimpleGraph.Connectivity.Finite
 import PEqualNP.Defs
 import Mathlib.Combinatorics.SimpleGraph.Connectivity.Connected
 import Mathlib.Data.Finset.Basic
 import Mathlib.Data.Fintype.Pi
-import Mathlib.Combinatorics.SimpleGraph.Acyclic
-import Mathlib.Combinatorics.SimpleGraph.Connectivity.Finite
 
 namespace PEqualNP.Outside.L_meta_4970
 
@@ -259,6 +259,45 @@ lemma linear_family_aggregate_pool {α β ι γ δ : Type*} [DecidableEq α] [De
     exact hpool c hc hgc
   exact hsum.trans (Nat.add_le_add_left (Finset.card_le_card hsub) _)
 
+lemma linear_family_component_aggregate {α β ι γ : Type*} [DecidableEq α] [DecidableEq β]
+    [DecidableEq γ]
+    (E : Finset β) (I : Finset ι) (B : ι → Finset β) (U : ι → Finset α)
+    (K : ι → ℕ) (P : ι → Finset γ) (S : γ → Finset α)
+    (hcover : E ⊆ I.biUnion B)
+    (hlinear : ∀ c ∈ I, ∀ d ∈ I, c ≠ d → (U c ∩ U d).card ≤ 1)
+    (hpaid : ∀ c ∈ I, ∀ g ∈ P c, 1 < (S g).card ∧ S g ⊆ U c)
+    (hleaves : ∀ c ∈ I, (B c).card ≤ (U c).card)
+    (hcount : ∀ c ∈ I, (U c).card ≤ K c + (P c).card) :
+    E.card ≤ (∑ c ∈ I, K c) + (I.biUnion P).card := by
+  have hdisjoint := linear_family_paid_disjoint I U P S hlinear hpaid
+  calc
+    E.card ≤ ∑ c ∈ I, (B c).card :=
+      (Finset.card_le_card hcover).trans Finset.card_biUnion_le
+    _ ≤ ∑ c ∈ I, (K c + (P c).card) :=
+      Finset.sum_le_sum (fun c hc => (hleaves c hc).trans (hcount c hc))
+    _ = (∑ c ∈ I, K c) + (∑ c ∈ I, (P c).card) := Finset.sum_add_distrib
+    _ = (∑ c ∈ I, K c) + (I.biUnion P).card := by
+      rw [Finset.card_biUnion hdisjoint]
+
+lemma linear_family_component_aggregate_pool {α β ι γ : Type*}
+    [DecidableEq α] [DecidableEq β] [DecidableEq γ]
+    (E : Finset β) (I : Finset ι) (B : ι → Finset β) (U : ι → Finset α)
+    (K : ι → ℕ) (P : ι → Finset γ) (S : γ → Finset α) (G : Finset γ)
+    (hcover : E ⊆ I.biUnion B)
+    (hlinear : ∀ c ∈ I, ∀ d ∈ I, c ≠ d → (U c ∩ U d).card ≤ 1)
+    (hpaid : ∀ c ∈ I, ∀ g ∈ P c, 1 < (S g).card ∧ S g ⊆ U c)
+    (hpool : ∀ c ∈ I, P c ⊆ G)
+    (hleaves : ∀ c ∈ I, (B c).card ≤ (U c).card)
+    (hcount : ∀ c ∈ I, (U c).card ≤ K c + (P c).card) :
+    E.card ≤ (∑ c ∈ I, K c) + G.card := by
+  have hsum := linear_family_component_aggregate E I B U K P S
+    hcover hlinear hpaid hleaves hcount
+  have hsub : I.biUnion P ⊆ G := by
+    intro g hg
+    obtain ⟨c, hc, hgc⟩ := Finset.mem_biUnion.mp hg
+    exact hpool c hc hgc
+  exact hsum.trans (Nat.add_le_add_left (Finset.card_le_card hsub) _)
+
 lemma reverse_star_centre_unique {p l : ℕ} {E : Finset (Fin p × Fin l)}
     (hfour : ∀ (a a' : Fin p) (b b' : Fin l), a ≠ a' → b ≠ b' →
       ¬ ((a, b) ∈ E ∧ (a, b') ∈ E ∧ (a', b) ∈ E ∧ (a', b') ∈ E))
@@ -268,6 +307,134 @@ lemma reverse_star_centre_unique {p l : ℕ} {E : Finset (Fin p × Fin l)}
   obtain ⟨a, ha, a', ha', haa'⟩ := Finset.one_lt_card.mp
     (lt_of_lt_of_le (by decide : 1 < 2) hP)
   exact hfour a a' b b' haa' hne ⟨hb a ha, hb' a ha, hb a' ha', hb' a' ha'⟩
+
+end PEqualNP.Outside.L_meta_4970
+
+namespace PEqualNP.Outside.L_meta_4970
+
+lemma graph_card_le_edges_add_components {V : Type*} [Finite V] (G : SimpleGraph V) :
+    Nat.card V ≤ G.edgeSet.ncard + Nat.card G.ConnectedComponent := by
+  classical
+  let _ := Fintype.ofFinite V
+  let _ := Fintype.ofFinite G.ConnectedComponent
+  calc
+    Nat.card V = ∑ c : G.ConnectedComponent, c.supp.ncard :=
+      G.sum_connectedComponent_ncard_supp.symm
+    _ ≤ ∑ c : G.ConnectedComponent, (c.toSimpleGraph.edgeSet.ncard + 1) := by
+      apply Finset.sum_le_sum
+      intro c hc
+      exact c.connected_toSimpleGraph.card_vert_le_card_edgeSet_add_one
+    _ = G.edgeSet.ncard + Nat.card G.ConnectedComponent := by
+      rw [Finset.sum_add_distrib, G.sum_connectedComponent_ncard_edgeSet]
+      simp [Nat.card_eq_fintype_card]
+
+lemma component_card_le_of_reachable {V : Type*} [Finite V] (G H : SimpleGraph V)
+    (h : ∀ u v, H.Reachable u v → G.Reachable u v) :
+    Nat.card G.ConnectedComponent ≤ Nat.card H.ConnectedComponent := by
+  let f : H.ConnectedComponent → G.ConnectedComponent :=
+    Quot.map id (fun u v huv => h u v huv)
+  apply Nat.card_le_card_of_surjective f
+  intro c
+  induction c using SimpleGraph.ConnectedComponent.ind with
+  | h v => exact ⟨H.connectedComponentMk v, rfl⟩
+
+lemma graph_card_le_edges_add_larger_components {V : Type*} [Finite V]
+    (G H : SimpleGraph V) (h : ∀ u v, H.Reachable u v → G.Reachable u v) :
+    Nat.card V ≤ G.edgeSet.ncard + Nat.card H.ConnectedComponent := by
+  exact (graph_card_le_edges_add_components G).trans
+    (Nat.add_le_add_left (component_card_le_of_reachable G H h) _)
+
+lemma graph_from_pairs_edge_count {V : Type*} [DecidableEq V] (E : Finset (V × V)) :
+    (SimpleGraph.fromRel (fun a b => (a, b) ∈ E)).edgeSet.ncard ≤ E.card := by
+  classical
+  let F : Finset (Sym2 V) := E.image (fun p => s(p.1, p.2))
+  have hsub : (SimpleGraph.fromRel (fun a b => (a, b) ∈ E)).edgeSet ⊆ (F : Set (Sym2 V)) := by
+    intro e
+    induction e using Sym2.ind with
+    | h a b =>
+      intro he
+      change a ≠ b ∧ ((a, b) ∈ E ∨ (b, a) ∈ E) at he
+      rcases he.2 with hab | hba
+      · exact Finset.mem_image.mpr ⟨(a, b), hab, rfl⟩
+      · exact Finset.mem_image.mpr ⟨(b, a), hba, Sym2.eq_swap⟩
+  calc
+    (SimpleGraph.fromRel (fun a b => (a, b) ∈ E)).edgeSet.ncard ≤ (F : Set (Sym2 V)).ncard :=
+      Set.ncard_le_ncard hsub F.finite_toSet
+    _ = F.card := by simp
+    _ ≤ E.card := Finset.card_image_le
+
+lemma induced_edge_count_le {V : Type*} [Finite V] (G : SimpleGraph V) (U : Set V) :
+    (G.induce U).edgeSet.ncard ≤ G.edgeSet.ncard := by
+  apply Set.ncard_le_ncard_of_injOn (Sym2.map (fun v : U => v.val))
+  · intro e he
+    rw [G.edgeSet_induce] at he
+    exact he
+  · exact (Sym2.map.injective Subtype.val_injective).injOn
+
+lemma reachable_induce_of_closed {V : Type*} (G : SimpleGraph V) (U : Set V)
+    (hclosed : ∀ a b, G.Adj a b → a ∈ U → b ∈ U)
+    {a b : V} (ha : a ∈ U) (hb : b ∈ U) (h : G.Reachable a b) :
+    (G.induce U).Reachable ⟨a, ha⟩ ⟨b, hb⟩ := by
+  have hpath : ∀ {u v : V} (p : G.Walk u v), u ∈ U → ∀ w ∈ p.support, w ∈ U := by
+    intro u v p
+    induction p with
+    | nil =>
+      intro hu w hw
+      simpa using (show w ∈ U from (List.mem_singleton.mp hw) ▸ hu)
+    | @cons u v w huv p ih =>
+      intro hu z hz
+      rcases List.mem_cons.mp hz with hzu | hzp
+      · exact hzu ▸ hu
+      · exact ih (hclosed u v huv hu) z hzp
+  obtain ⟨p⟩ := h
+  exact ⟨p.induce U (hpath p ha)⟩
+
+lemma pair_graph_reachable_induce {V : Type*} [DecidableEq V]
+    (U : Finset V) (E : Finset (V × V)) (hE : E ⊆ U ×ˢ U)
+    {a b : V} (ha : a ∈ U) (hb : b ∈ U)
+    (h : (SimpleGraph.fromRel (fun a b => (a, b) ∈ E)).Reachable a b) :
+    ((SimpleGraph.fromRel (fun a b => (a, b) ∈ E)).induce (U : Set V)).Reachable
+      ⟨a, ha⟩ ⟨b, hb⟩ := by
+  apply reachable_induce_of_closed _ (U : Set V) ?_ ha hb h
+  intro x y hxy hx
+  rcases hxy.2 with hxy | hyx
+  · exact (Finset.mem_product.mp (hE hxy)).2
+  · exact (Finset.mem_product.mp (hE hyx)).1
+
+lemma pair_graph_card_bound {V : Type*} [DecidableEq V] [Finite V]
+    (U : Finset V) (E : Finset (V × V)) (hE : E ⊆ U ×ˢ U)
+    (H : SimpleGraph (U : Set V))
+    (hH : ∀ a b : (U : Set V), H.Reachable a b →
+      (SimpleGraph.fromRel (fun a b => (a, b) ∈ E)).Reachable a.val b.val) :
+    U.card ≤ E.card + Nat.card H.ConnectedComponent := by
+  let G := SimpleGraph.fromRel (fun a b => (a, b) ∈ E)
+  have hreach : ∀ a b : (U : Set V), H.Reachable a b →
+      (G.induce (U : Set V)).Reachable a b := by
+    intro a b hab
+    exact pair_graph_reachable_induce U E hE a.prop b.prop (hH a b hab)
+  have hcore := graph_card_le_edges_add_larger_components (G.induce (U : Set V)) H hreach
+  have hedges : (G.induce (U : Set V)).edgeSet.ncard ≤ E.card :=
+    (induced_edge_count_le G _).trans (graph_from_pairs_edge_count E)
+  have hfinal := hcore.trans (Nat.add_le_add_right hedges _)
+  simpa using hfinal
+
+lemma reachable_of_adj_reachable {V W : Type*} (H : SimpleGraph V) (G : SimpleGraph W)
+    (f : V → W) (h : ∀ a b, H.Adj a b → G.Reachable (f a) (f b)) :
+    ∀ a b, H.Reachable a b → G.Reachable (f a) (f b) := by
+  intro a b hab
+  obtain ⟨p⟩ := hab
+  induction p with
+  | nil => exact SimpleGraph.Reachable.refl _
+  | @cons u v w huv p ih => exact (h u v huv).trans ih
+
+lemma pair_graph_card_bound_of_adj {V : Type*} [DecidableEq V] [Finite V]
+    (U : Finset V) (E : Finset (V × V)) (hE : E ⊆ U ×ˢ U)
+    (H : SimpleGraph (U : Set V))
+    (hH : ∀ a b : (U : Set V), H.Adj a b →
+      (SimpleGraph.fromRel (fun a b => (a, b) ∈ E)).Reachable a.val b.val) :
+    U.card ≤ E.card + Nat.card H.ConnectedComponent := by
+  apply pair_graph_card_bound U E hE H
+  exact reachable_of_adj_reachable H _ Subtype.val hH
 
 end PEqualNP.Outside.L_meta_4970
 
@@ -939,6 +1106,106 @@ lemma support_connected_edges {α : Type*} [DecidableEq α]
       subst y
       exact SimpleGraph.Reachable.refl _
 
+lemma circuit_pure_or_graph (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (Q : Finset (Fin n)) :
+    ∃ E : Finset (Fin n × Fin n), E ⊆ Q ×ˢ Q ∧ E.card ≤ (pureOrPaid n C Q).card ∧
+      ∀ w < n + C.size, (∀ x, wireValue n C w x = true → ∃ i ∈ Q, x i = true) →
+        ∀ u ∈ wireSupport n C w, ∀ v ∈ wireSupport n C w, (edgeGraph E).Reachable u v := by
+  classical
+  let below (w : ℕ) := ∀ x, wireValue n C w x = true → ∃ i ∈ Q, x i = true
+  let F (w : ℕ) := if w < n + C.size ∧ below w then wireSupport n C w else ∅
+  have hFsub : ∀ w < n + C.size, F w ⊆ Q := by
+    intro w hw
+    by_cases hg : w < n + C.size ∧ below w
+    · simpa only [F, ite_eq_left hg] using wireSupport_below n C w Q hg.2
+    · simp [F, hg]
+  have step : ∀ w < n + C.size, 1 < (F w).card →
+      (∃ a < w, F w ⊆ F a) ∨
+        (w ∈ pureOrPaid n C Q ∧ ∃ a < w, ∃ b < w, F w ⊆ F a ∪ F b) := by
+    intro w hw hlarge
+    have hg : w < n + C.size ∧ below w := by
+      by_contra hn
+      simp [F, hn] at hlarge
+    have hF : F w = wireSupport n C w := ite_eq_left hg
+    have hn : n ≤ w := by
+      by_contra! hn
+      rw [hF, wireSupport_input n C w hn] at hlarge
+      simp at hlarge
+    have hp := wireModel_parents n C hC w hn hw
+    cases hop : wireAnd n C w with
+    | true =>
+      have hbound : ∀ x,
+          (wireValue n C (wireLeft n C w) x && wireValue n C (wireRight n C w) x) = true →
+            ∃ i ∈ Q, x i = true := by
+        intro x hx
+        apply hg.2 x
+        rw [wireModel_eval n C hC w hn hw, hop]
+        exact hx
+      have hchoice := and_below_or_child Q
+        (wireValue n C (wireLeft n C w)) (wireValue n C (wireRight n C w))
+        (wireValue_increasing n C hC _) (wireValue_increasing n C hC _) hbound
+      have hsub : wireSupport n C w ⊆ wireSupport n C (wireLeft n C w) ∩
+          wireSupport n C (wireRight n C w) := by
+        intro i hi
+        have ht := (wireSupport_mem n C w i).mp hi
+        rw [wireModel_eval n C hC w hn hw, hop] at ht
+        simp only [ite_true, Bool.and_eq_true] at ht
+        exact Finset.mem_inter.mpr ⟨(wireSupport_mem n C _ i).mpr ht.1,
+          (wireSupport_mem n C _ i).mpr ht.2⟩
+      left
+      rcases hchoice with hA | hB
+      · refine ⟨wireLeft n C w, hp.1, ?_⟩
+        have hFA : F (wireLeft n C w) = wireSupport n C (wireLeft n C w) :=
+          ite_eq_left ⟨hp.1.trans hw, hA⟩
+        rw [hF, hFA]
+        exact hsub.trans Finset.inter_subset_left
+      · refine ⟨wireRight n C w, hp.2, ?_⟩
+        have hFB : F (wireRight n C w) = wireSupport n C (wireRight n C w) :=
+          ite_eq_left ⟨hp.2.trans hw, hB⟩
+        rw [hF, hFB]
+        exact hsub.trans Finset.inter_subset_right
+    | false =>
+      have hA : below (wireLeft n C w) := by
+        intro x hx
+        apply hg.2 x
+        simp [wireModel_eval n C hC w hn hw, hop, hx]
+      have hB : below (wireRight n C w) := by
+        intro x hx
+        apply hg.2 x
+        simp [wireModel_eval n C hC w hn hw, hop, hx]
+      have hFA : F (wireLeft n C w) = wireSupport n C (wireLeft n C w) :=
+        ite_eq_left ⟨hp.1.trans hw, hA⟩
+      have hFB : F (wireRight n C w) = wireSupport n C (wireRight n C w) :=
+        ite_eq_left ⟨hp.2.trans hw, hB⟩
+      right
+      refine ⟨?_, wireLeft n C w, hp.1, wireRight n C w, hp.2, ?_⟩
+      · exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hw, hn, hop, hF ▸ hlarge, hg.2⟩
+      · rw [hF, hFA, hFB]
+        intro i hi
+        have ht := (wireSupport_mem n C w i).mp hi
+        rw [wireModel_eval n C hC w hn hw, hop] at ht
+        simp only [Bool.false_eq_true, ite_false, Bool.or_eq_true] at ht
+        rcases ht with ht | ht
+        · exact Finset.mem_union_left _ ((wireSupport_mem n C _ i).mpr ht)
+        · exact Finset.mem_union_right _ ((wireSupport_mem n C _ i).mpr ht)
+  obtain ⟨E, hEQ, hcard, hconn⟩ := support_connected_edges Q F (pureOrPaid n C Q)
+    (n + C.size) hFsub step
+  have hcard' : E.card ≤ (pureOrPaid n C Q).card := by
+    exact hcard.trans (Finset.card_le_card Finset.inter_subset_right)
+  refine ⟨E, hEQ, hcard', ?_⟩
+  intro w hw hbelow u hu v hv
+  have heq : F w = wireSupport n C w := ite_eq_left ⟨hw, hbelow⟩
+  apply hconn w hw u _ v _
+  · simpa only [heq] using hu
+  · simpa only [heq] using hv
+
+lemma wireSupport_eq_pure (n : ℕ) (C : Circuit) (w : ℕ) (Q : Finset (Fin n))
+    (heq : ∀ x, wireValue n C w x = decide (∃ i ∈ Q, x i = true)) :
+    wireSupport n C w = Q := by
+  ext i
+  rw [wireSupport_mem, heq]
+  simp
+
 end PEqualNP.Outside.L_meta_4970_aux.Structural
 
 namespace PEqualNP.Outside.L_meta_4970.Pruning
@@ -1465,39 +1732,3 @@ lemma bipartite_minimum_cover_pruning (p l : ℕ) (E : Finset (Fin p × Fin l))
     exact hc
 
 end PEqualNP.Outside.L_meta_4970.Pruning
-
-namespace PEqualNP.Outside.L_meta_4970
-
-lemma graph_card_le_edges_add_components {V : Type*} [Finite V] (G : SimpleGraph V) :
-    Nat.card V ≤ G.edgeSet.ncard + Nat.card G.ConnectedComponent := by
-  classical
-  letI := Fintype.ofFinite V
-  letI := Fintype.ofFinite G.ConnectedComponent
-  calc
-    Nat.card V = ∑ c : G.ConnectedComponent, c.supp.ncard :=
-      G.sum_connectedComponent_ncard_supp.symm
-    _ ≤ ∑ c : G.ConnectedComponent, (c.toSimpleGraph.edgeSet.ncard + 1) := by
-      apply Finset.sum_le_sum
-      intro c hc
-      exact c.connected_toSimpleGraph.card_vert_le_card_edgeSet_add_one
-    _ = G.edgeSet.ncard + Nat.card G.ConnectedComponent := by
-      rw [Finset.sum_add_distrib, G.sum_connectedComponent_ncard_edgeSet]
-      simp [Nat.card_eq_fintype_card]
-
-lemma component_card_le_of_reachable {V : Type*} [Finite V] (G H : SimpleGraph V)
-    (h : ∀ u v, H.Reachable u v → G.Reachable u v) :
-    Nat.card G.ConnectedComponent ≤ Nat.card H.ConnectedComponent := by
-  let f : H.ConnectedComponent → G.ConnectedComponent :=
-    Quot.map id (fun u v huv => h u v huv)
-  apply Nat.card_le_card_of_surjective f
-  intro c
-  induction c using SimpleGraph.ConnectedComponent.ind with
-  | h v => exact ⟨H.connectedComponentMk v, rfl⟩
-
-lemma graph_card_le_edges_add_larger_components {V : Type*} [Finite V]
-    (G H : SimpleGraph V) (h : ∀ u v, H.Reachable u v → G.Reachable u v) :
-    Nat.card V ≤ G.edgeSet.ncard + Nat.card H.ConnectedComponent := by
-  exact (graph_card_le_edges_add_components G).trans
-    (Nat.add_le_add_left (component_card_le_of_reachable G H h) _)
-
-end PEqualNP.Outside.L_meta_4970

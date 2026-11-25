@@ -18,3 +18,4 @@
 - 2026-11-25T16:03:42.260075+00:00: exact graph-function minimum-cover pruning built; partial checkpoint 5.
 - 2026-11-25T16:05:58.073727+00:00: component rank/core plus finite-edge and induced-connectivity adapters compiled; 30-helper ledger checkpoint published.
 - 2026-11-25T16:10:12.471936+00:00: generic support graph and component rank compiled; checkpoint 6. Structural agent delegated independent global-bridge review; total subagents now 7.
+- 2026-11-25T16:13:38.305793+00:00: component-rank actual-circuit construction and aggregation built; checkpoint 7. Duplicate helper insertion during assembly fixed before successful build.
