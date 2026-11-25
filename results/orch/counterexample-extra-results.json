@@ -1,0 +1,26 @@
+{
+  "at": "2026-11-25T01:35:05.543388+00:00",
+  "case": {
+    "N": 4,
+    "mask": 43365,
+    "gate_budget": 10
+  },
+  "status": "UNSAT",
+  "evidence": "External CaDiCaL solver report only; not Lean checked; no LRAT certificate generated for this case",
+  "solver": "CaDiCaL2.1.2",
+  "elapsed_s": 268.9565406849997,
+  "cnf_sha256": "9558abf6a9db0fe477b52ff1d670623f37fab3b1278bdb6d004aa3441d280e3c",
+  "cnf_bytes": 3538497,
+  "compressed_path": "results/orch/certificates/c8-ten.cnf.xz",
+  "compressed_sha256": "11d94a07d5ca0bc43b789d8cb09961a16a9011221b408ed56bbf07584a4e25bb",
+  "compressed_bytes": 342840,
+  "clean_upper": 11,
+  "new_computational_minimum": 11,
+  "source": "results/orch/lemmas/counterexample_cadical_trial.py",
+  "complete_logs": [
+    "results/orch/lemmas/c8-ten-1200-trial.stdout",
+    "results/orch/lemmas/c8-ten-1200-trial.stderr",
+    "results/orch/lemmas/c8-ten-1200-cadical.stdout",
+    "results/orch/lemmas/c8-ten-1200-cadical.stderr"
+  ]
+}

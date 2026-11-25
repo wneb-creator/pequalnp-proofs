@@ -193,3 +193,7 @@ C6 gate-count experiments at total budget10: with at most2AND gates, Z3 reports 
 ## Counterexample worker 2026-11-25T01:35:05.546087+00:00
 
 C8 (N4 mask43365) ≤10 binary monotone gates: CaDiCaL2.1.2 UNSAT exit20 after268.96s (allowance1200s). Verified clean11 upper bound already retained; hence reduced-model computational minimum11. This adds one settled class to the previous14/25 N4 classes, leaving10 unresolved after earlier90s timeouts. Complete solver/wrapper logs retained, exact CNF compressed in certificates/c8-ten.cnf.xz; no LRAT proof generated and no Lean-checked lower bound. N3-cycle CEGIS smoke found an initial falsepositive candidate, added maximal-negative tests7 and56, then produced a fulltruth-verified clean8 circuit. Starting N5-cycle≤13 CEGIS and nine-edge N4 mask51863≤11 CaDiCaL1200s concurrently.
+
+## Global strategy: L-meta-3760 audit
+
+See `results/orch/lemmas/global_3760_audit.md` for the inspected API and exact obstruction. Its general TopForm transform preserves strong-junk count; its general count retains an uncovered-edge defect; the stronger routing and budgets all assume a unique strong junk. Earliest strong junk in TopForm does have pure OR operands, but later junk filters remain uncontrolled. No large proof copy or import was made.
