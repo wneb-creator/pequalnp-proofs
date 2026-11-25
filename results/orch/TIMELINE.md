@@ -24,3 +24,5 @@
 2026-11-25T13:00:06.518863+00:00 MixedLinear sharp OR-count theorem compiled: 478 lines; independent review pending. Fixed C4-free family of genuine OR outputs, arbitrary fan-in-two AND/OR circuit.
 - 2026-11-25T13:03:39.084845+00:00: mixed-AO row counting and constant-cleanup components compiled and reviewed.
 - 2026-11-25T13:05:45.345485+00:00: second re-plan; fresh cost reviewer added,7total sub-agents, focus on repeated-read charging and four distinct searches.
+
+- 2026-11-25T13:10:16.035849+00:00: strengthened least-circuit edge-essentiality component compiled and independently reviewed.
