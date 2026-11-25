@@ -28,3 +28,4 @@
 - 2026-11-25T08:22:50.996031+00:00: lease renewed; expires 2026-11-25T08:42:51.121Z.
 - 2026-11-25T08:32:41.573290+00:00: renewal returned410 before the last advertised08:42:51 expiry; exactcurl-si diagnostic captured. Own renewal timer stopped; active search termination and preservation requested. Cause not inferred.
 - 2026-11-25T08:34:42.205227+00:00: final interruptedPetersen archive frozen; no active solver or renewal timer. Updating final preservation metadata before the user-required410 recovery request.
+- 2026-11-25T08:38:18.196185+00:00: post-preservation desk recovery returned gapnull/nolease; six totalnulls. No new lease or search started. Final closure records prepared.

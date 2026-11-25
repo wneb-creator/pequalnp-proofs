@@ -33,3 +33,6 @@
 - The08:31:28 renewal returned410; the exactcurl-si retry returned the same full error. Last successful expiry had been08:42:51, so the cause is unknown. Root stopped its timer; no invalid release request or other pilot lease was touched.
 - Main strengthened Petersen19 was stopped at08:32:44; wrapperexit-2 and explicit SIGINT evidence are preserved. It is interruptedUNKNOWN, not a completed20minute query and not a SAT/UNSAT verdict. Full final source/CNF/log archive is lossless and independently under review.
 - All mathematical work stopped. The2341-line partial and all174-declaration audits are already pushed; unrestricted2448 remains unproved, no valid refutation orPR.
+
+## Final desk recovery
+- After every checked/interrupted result was pushed, request008 at2026-11-25T08:36:38.756963+00:00 returned no gap and no lease. Its exact note is archived in validation/desk-recovery-record.json. Six null responses occurred over this job. No new step was taken near the whole-job deadline; no owned lease or worker remains.

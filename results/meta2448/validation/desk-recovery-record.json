@@ -1,0 +1,15 @@
+{
+  "request_utc": "2026-11-25T08:36:38.756963+00:00",
+  "request_number": 8,
+  "top_level_keys": [
+    "gap",
+    "note",
+    "retry_after_s"
+  ],
+  "gap_id": null,
+  "lease_received": false,
+  "lease_expires_at": null,
+  "note": "no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes",
+  "message": null,
+  "retry_after_s": 300
+}

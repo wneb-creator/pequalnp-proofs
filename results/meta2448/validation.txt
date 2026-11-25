@@ -1,5 +1,5 @@
 PARTIAL CHECKPOINT — L-meta-2448
-UTC: 2026-11-25T08:34:42.205227+00:00
+UTC: 2026-11-25T08:38:18.196185+00:00
 The posted theorem remains unproved. No full proof, valid refutation, or PR exists.
 Named file: lean/PEqualNP/Outside/L_meta_2448.lean
 SHA256: 511dbd91a7d713a368e5bcb3d09bbc30971dc12eeb0f1fbcd46f5cc04aeaf6a3
@@ -14,5 +14,10 @@ The concrete two-center exchange gives newsize+readerCount≤oldsize+3 and prese
 Finite search status: completed Petersen19/900s, core12/300s and core-nonstar13/300s queries ended UNKNOWN. The core12 impossibility was subsequently found already proved by accepted L_meta_1007 under an independently checked isomorphism; no new lower-bound result is claimed. Accepted L584 gives a20-gate Petersen circuit with13ORs, so the proposed OR-only lower bound14 is false; this does not refute L-meta-2448. The final strengthened Petersen19 query was interrupted on lease loss: root renewal and exact curl-si diagnostic returned410 at08:31:28UTC; SIGINT was sent only to the recorded owned model group at08:32:44, guardian completed08:32:45.876, wrapper exit-2. Solver log records944.34CPU seconds. No normal model status or candidate was produced; outcome is interruptedUNKNOWN, not a completed timeout, SAT or UNSAT. Complete interrupted archive: search-20261125T083344Z-final/.
 Research branch includes prior L-meta-1896 work archived before its lease returned410. It is not a one-file proof PR.
 Sub-agents: repo_audit, lean_setup, or_lower_bound, counterexample, proof_routes, algebraic_witness, proof_routes/quadratic_shadow
-TIMING total=351.2 subagents=7
-Lease status: desk reported no live lease before its previously advertised08:42:51 expiry. Cause not inferred. Own timer stopped; no release attempted on the already-dead lease. Full headers/body: validation/desk-http-410-response.txt. All work stopped pending preservation and the user-required desk recovery request.
+TIMING total=354.8 subagents=7
+Lease status: desk reported no live lease before its previously advertised08:42:51 expiry. Cause not inferred. Own timer stopped; no release attempted on the already-dead lease. Full headers/body: validation/desk-http-410-response.txt. All mathematical work stopped. All checked sources and completed/interrupted results were pushed before the user-required recovery request.
+Recovery: request008 at2026-11-25T08:36:38.756963+00:00 returned gapnull and nolease. No subsequent step was taken near the six-hour job budget. No owned lease remains.
+Desk nulls total=6: first3 used(5), next2 used(7), final1 used(4). Exact messages and timestamps are in validation/desk-null-history.json.
+Exact desk message: no step is free that you have not already looked at and handed back in the last hour (5); new steps are posted through the day, ask again in a few minutes
+Exact desk message: no step is free that you have not already looked at and handed back in the last hour (7); new steps are posted through the day, ask again in a few minutes
+Exact desk message: no step is free that you have not already looked at and handed back in the last hour (4); new steps are posted through the day, ask again in a few minutes
