@@ -1,0 +1,362 @@
+import Mathlib
+import PEqualNP.Defs
+
+namespace PEqualNP.Outside.L_meta_10760
+
+section Live
+
+variable {α : Type} [DecidableEq α]
+
+def build (ops : α → α → Finset α) (goal : α) : ℕ → Finset α → Prop
+  | 0, available => goal ∈ available
+  | k + 1, available => build ops goal k available ∨
+    ∃ a ∈ available, ∃ b ∈ available, a ≠ b ∧
+      ∃ z ∈ ops a b, build ops goal k (insert z available)
+
+def live (ops : α → α → Finset α) (goal : α) : ℕ → Finset α → Prop
+  | 0, s => s = {goal}
+  | k + 1, s => live ops goal k s ∨
+    ∃ a ∈ s, ∃ b ∈ s, a ≠ b ∧ ∃ z ∈ ops a b, z ∉ s ∧
+      ∃ rest : Finset α, s = insert a (insert b rest) ∧ live ops goal k (insert z rest)
+
+lemma compress {ops : α → α → Finset α} {goal : α} {k : ℕ} {available : Finset α}
+    (h : build ops goal k available) : ∃ s ⊆ available, live ops goal k s := by
+  induction k generalizing available with
+  | zero =>
+    exact ⟨{goal}, Finset.singleton_subset_iff.mpr h, rfl⟩
+  | succ k ih =>
+    rcases h with skip | ⟨a, ha, b, hb, hab, z, hz, tail⟩
+    · obtain ⟨s, hs, hrun⟩ := ih skip
+      exact ⟨s, hs, Or.inl hrun⟩
+    · obtain ⟨t, ht, hrun⟩ := ih tail
+      by_cases sub : t ⊆ available
+      · exact ⟨t, sub, Or.inl hrun⟩
+      · have hzmem : z ∈ t := by
+          by_contra hn
+          apply sub
+          intro u hu
+          rcases Finset.mem_insert.mp (ht hu) with rfl | ok
+          · exact False.elim (hn hu)
+          · exact ok
+        have hzout : z ∉ available := by
+          intro hh
+          exact sub ((Finset.insert_eq_of_mem hh) ▸ ht)
+        let rest := t.erase z
+        have hrest : rest ⊆ available := by
+          intro u hu
+          have hu' := Finset.mem_erase.mp hu
+          exact (Finset.mem_insert.mp (ht hu'.2)).resolve_left hu'.1
+        let s := insert a (insert b rest)
+        have hs : s ⊆ available := Finset.insert_subset ha (Finset.insert_subset hb hrest)
+        refine ⟨s, hs, Or.inr ⟨a, by simp [s], b, by simp [s], hab, z, hz,
+          fun h => hzout (hs h), rest, rfl, ?_⟩⟩
+        simpa [rest, Finset.insert_erase hzmem] using hrun
+
+lemma live_card {ops : α → α → Finset α} {goal : α} {k : ℕ} {s : Finset α}
+    (h : live ops goal k s) : s.card ≤ k + 1 := by
+  induction k generalizing s with
+  | zero => change s = {goal} at h; simp [h]
+  | succ k ih =>
+    rcases h with skip | ⟨a, ha, b, hb, hab, z, hz, hout, rest, rfl, tail⟩
+    · exact (ih skip).trans (by omega)
+    · have hzrest : z ∉ rest := fun hm => hout (by simp [hm])
+      have htail := ih tail
+      rw [Finset.card_insert_of_notMem hzrest] at htail
+      have h₁ := Finset.card_insert_le a (insert b rest)
+      have h₂ := Finset.card_insert_le b rest
+      omega
+
+lemma live_separates {ops : α → α → Finset α} {goal : α} (D : α → Prop)
+    (hd : D goal) (hops : ∀ a b, ∀ z ∈ ops a b, D z → D a ∨ D b)
+    {k : ℕ} {s : Finset α} (h : live ops goal k s) : ∃ w ∈ s, D w := by
+  induction k generalizing s with
+  | zero => change s = {goal} at h; exact ⟨goal, by simp [h], hd⟩
+  | succ k ih =>
+    rcases h with skip | ⟨a, ha, b, hb, hab, z, hz, hout, rest, rfl, tail⟩
+    · exact ih skip
+    · obtain ⟨w, hw, hD⟩ := ih tail
+      rcases Finset.mem_insert.mp hw with rfl | hw
+      · rcases hops a b w hz hD with h | h
+        · exact ⟨a, ha, h⟩
+        · exact ⟨b, hb, h⟩
+      · exact ⟨w, by simp [hw], hD⟩
+
+lemma first_live {ops : α → α → Finset α} {goal : α} {k : ℕ} {s : Finset α}
+    (h : live ops goal (k + 1) s) :
+    s = {goal} ∨
+    ∃ a ∈ s, ∃ b ∈ s, a ≠ b ∧ ∃ z ∈ ops a b, z ∉ s ∧
+      ∃ rest : Finset α, s = insert a (insert b rest) ∧ live ops goal k (insert z rest) := by
+  induction k with
+  | zero => exact h
+  | succ k ih =>
+    rcases h with skip | step
+    · rcases ih skip with done | ⟨a, ha, b, hb, hab, z, hz, hn, r, hs, tail⟩
+      · exact .inl done
+      · exact .inr ⟨a, ha, b, hb, hab, z, hz, hn, r, hs, Or.inl tail⟩
+    · exact .inr step
+
+end Live
+
+variable {width : Nat}
+
+def ops (x y : BitVec width) : List (BitVec width) :=
+  [x &&& y, x ||| y, x &&& ~~~y, y &&& ~~~x]
+
+abbrev basicOps (a b : BitVec width) : Finset (BitVec width) := (ops a b).toFinset
+
+open PEqualNP.CircuitLowerBounds
+
+def holds (av : Finset (BitVec width)) (z : (BitVec width)) : Prop :=
+  z = 0 ∨ z = ~~~0 ∨ ∃ a ∈ av, z = a ∨ z = ~~~a
+
+lemma holds_insert {av : Finset (BitVec width)} {z a : (BitVec width)} (h : holds av z) : holds (insert a av) z := by
+  rcases h with h|h|⟨u,hu,he⟩
+  · exact .inl h
+  · exact .inr (.inl h)
+  · exact .inr (.inr ⟨u,Finset.mem_insert_of_mem hu,he⟩)
+
+lemma holds_not {av : Finset (BitVec width)} {z : (BitVec width)} (h : holds av z) : holds av (~~~z) := by
+  rcases h with rfl|rfl|⟨a,ha,he⟩
+  · exact .inr (.inl rfl)
+  · exact .inl BitVec.not_not
+  · rcases he with he|he <;> rw [he]
+    · exact .inr (.inr ⟨a, ha, .inr rfl⟩)
+    · exact .inr (.inr ⟨a, ha, .inl BitVec.not_not⟩)
+
+def reachable (av : Finset (BitVec width)) (z : (BitVec width)) : Prop :=
+  holds av z ∨ ∃ a ∈ av, ∃ b ∈ av, a ≠ b ∧ ∃ w ∈ basicOps a b, holds (insert w av) z
+
+lemma reachable_not {av : Finset (BitVec width)} {z : (BitVec width)} (h : reachable av z) : reachable av (~~~z) := by
+  rcases h with h|⟨a,ha,b,hb,ne,w,hop,hw⟩
+  · exact .inl (holds_not h)
+  · exact .inr ⟨a,ha,b,hb,ne,w,hop,holds_not hw⟩
+
+set_option maxRecDepth 5000 in
+lemma and_reach {av : Finset (BitVec width)} {x y : (BitVec width)} (hx : holds av x) (hy : holds av y) :
+    reachable av (x &&& y) := by
+  have const : holds av (0 : (BitVec width)) := .inl rfl
+  have oldx := hx
+  rcases hx with rfl|rfl|⟨a,ha,ea⟩
+  · rw [show (0 : (BitVec width)) &&& y = 0 from BitVec.zero_and]; exact .inl const
+  · have he : (~~~(0 : BitVec width)) &&& y = y := by
+      apply BitVec.eq_of_getLsbD_eq
+      intro i
+      simp
+    rw [he]
+    exact .inl hy
+  rcases hy with rfl|rfl|⟨b,hb,eb⟩
+  · rw [show x &&& (0 : (BitVec width)) = 0 from BitVec.and_zero]; exact .inl const
+  · have he : x &&& ~~~(0 : BitVec width) = x := by
+      apply BitVec.eq_of_getLsbD_eq
+      intro i
+      simp
+    rw [he]
+    exact .inl oldx
+  by_cases h : a = b
+  · subst b
+    rcases ea with ea|ea <;> rcases eb with eb|eb <;> rw [ea,eb] <;>
+      simp only [BitVec.and_self, BitVec.and_not_self, BitVec.not_and_self] <;>
+      first | exact .inl const | exact .inl (.inr (.inr ⟨a,ha,.inl rfl⟩)) |
+        exact .inl (.inr (.inr ⟨a,ha,.inr rfl⟩))
+  have add (w : (BitVec width)) (hw : w ∈ basicOps a b) (z : (BitVec width)) (hz : z = w ∨ z = ~~~w) :
+      reachable av z :=
+    .inr ⟨a,ha,b,hb,h,w,hw,.inr (.inr ⟨w,Finset.mem_insert_self ..,hz⟩)⟩
+  rcases ea with ea|ea <;> rcases eb with eb|eb <;> rw [ea,eb]
+  · exact add _ (by simp [basicOps,ops] : a &&& b ∈ basicOps a b) _ (.inl rfl)
+  · exact add _ (by simp [basicOps,ops] : a &&& ~~~b ∈ basicOps a b) _ (.inl rfl)
+  · exact add _ (by simp [basicOps,ops] : b &&& ~~~a ∈ basicOps a b) _ (.inl (BitVec.and_comm ..))
+  · exact add _ (by simp [basicOps,ops] : a ||| b ∈ basicOps a b) _ (.inr BitVec.not_or.symm)
+
+lemma or_reach {av : Finset (BitVec width)} {x y : (BitVec width)} (hx : holds av x) (hy : holds av y) :
+    reachable av (x ||| y) := by
+  simpa only [BitVec.not_and, BitVec.not_not] using reachable_not (and_reach (holds_not hx) (holds_not hy))
+
+private def bit (k : Fin width) (z : (BitVec width)) : Bool := z[k.val]
+private def step (w : List Bool) (g : Gate) : List Bool :=
+  w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]
+
+private lemma read_bit (w : List (BitVec width)) (i : ℕ) (k : Fin width) :
+    (w.map (bit k)).getD i false = bit k (w.getD i 0) := by
+  by_cases h : i < w.length
+  · simp [List.getD_eq_getElem?_getD, List.getElem?_map, List.getElem?_eq_getElem h]
+  · simp [List.getD_eq_getElem?_getD, List.getElem?_map,
+      List.getElem?_eq_none (Nat.le_of_not_gt h), bit]
+
+def legal (g : Gate) : Prop := (g.op = .and ∨ g.op = .or ∨ g.op = .not) ∧ g.inputs.length ≤ 2
+
+def action (w : List (BitVec width)) (g : Gate) : (BitVec width) := match g.op with
+  | .not => ~~~(g.inputs.head?.map (fun i => w.getD i 0)).getD 0
+  | .and => (g.inputs.map fun i => w.getD i 0).foldr (· &&& ·) (~~~0)
+  | .or => (g.inputs.map fun i => w.getD i 0).foldr (· ||| ·) 0
+  | _ => 0
+
+lemma evalAnd (xs : List Bool) : GateOp.and.eval xs = xs.all id := rfl
+lemma evalOr (xs : List Bool) : GateOp.or.eval xs = xs.any id := rfl
+lemma evalNot (xs : List Bool) : GateOp.not.eval xs = !(xs.headD false) := rfl
+
+set_option maxRecDepth 5000 in
+lemma action_spec (w : List (BitVec width)) (g : Gate) (hg : legal g) (k : Fin width) :
+    step (w.map (bit k)) g = (w ++ [action w g]).map (bit k) := by
+  obtain ⟨op,args⟩ := g
+  obtain ⟨hop,cap⟩ := hg
+  change op = .and ∨ op = .or ∨ op = .not at hop
+  change args.length ≤ 2 at cap
+  rcases args with _|⟨i,_|⟨j,_|⟨u,tail⟩⟩⟩ <;> try simp at cap
+  all_goals have bit0 : (0 : (BitVec width))[k.val] = false := by change (0 : BitVec width)[k.val] = false; simp
+  all_goals rcases hop with rfl|rfl|rfl <;>
+    simp only [step, List.map_cons,List.map_nil,read_bit,List.map_append] <;>
+    simp only [action, evalAnd, evalOr, evalNot, List.foldr_cons,List.foldr_nil,List.head?_cons,List.head?_nil,
+      List.headD_cons,List.headD_nil,Option.map_some,Option.map_none,Option.getD_some,Option.getD_none,
+      List.all_cons,List.all_nil,List.any_cons,List.any_nil,List.map_cons,List.map_nil,id_eq,
+      Bool.and_true,Bool.or_false, bit,BitVec.getElem_and,BitVec.getElem_or,BitVec.getElem_not,
+      BitVec.getElem_zero,bit0,Bool.not_false] <;> rfl
+
+def isBinary (g : Gate) : Bool := match g.op with
+  | .not => false
+  | _ => true
+def binaryCost (gs : List Gate) := (gs.filter isBinary).length
+
+lemma available_read {av : Finset (BitVec width)} {w : List (BitVec width)} (hw : ∀ u ∈ w, holds av u) (i : ℕ) :
+    holds av (w.getD i 0) := by
+  by_cases h : i < w.length
+  · exact hw _ (by simp [List.getD_eq_getElem?_getD, List.getElem?_eq_getElem h])
+  · rw [List.getD_eq_default _ _ (Nat.le_of_not_gt h)]
+    exact .inl rfl
+
+set_option maxRecDepth 5000 in
+lemma gate_reach (w : List (BitVec width)) (av : Finset (BitVec width)) (hw : ∀ u ∈ w, holds av u)
+    (g : Gate) (hg : legal g) :
+    if isBinary g then reachable av (action w g) else holds av (action w g) := by
+  obtain ⟨op,args⟩ := g
+  obtain ⟨hop,cap⟩ := hg
+  change op = .and ∨ op = .or ∨ op = .not at hop
+  change args.length ≤ 2 at cap
+  rcases args with _|⟨i,_|⟨j,_|⟨u,tail⟩⟩⟩ <;> try simp at cap
+  all_goals rcases hop with rfl|rfl|rfl <;> simp only [isBinary,Bool.false_eq_true,ite_false,ite_true,
+    action,List.head?_nil,List.head?_cons,List.map_nil,List.map_cons,List.foldr_nil,List.foldr_cons,
+    Option.map_none,Option.map_some,Option.getD_none,Option.getD_some,
+    show ∀ x : (BitVec width), x ||| (0 : (BitVec width)) = x from fun x => BitVec.or_zero,
+    show ∀ x : (BitVec width), x &&& ~~~0 = x from fun x => by simp]
+  all_goals first
+    | exact .inl (.inl rfl)
+    | exact .inl (.inr (.inl rfl))
+    | exact .inr (.inl rfl)
+    | exact .inl (available_read hw _)
+    | exact holds_not (available_read hw _)
+    | exact and_reach (available_read hw _) (available_read hw _)
+    | exact or_reach (available_read hw _) (available_read hw _)
+
+set_option maxRecDepth 4000 in
+lemma compile {goal : BitVec width} (nonzero : goal ≠ 0) (nonones : goal ≠ ~~~0) (gs : List Gate) (out : ℕ) (hg : ∀ g ∈ gs, legal g)
+    (w : List (BitVec width)) (av : Finset (BitVec width)) (hw : ∀ u ∈ w, holds av u)
+    (he : ∀ k, (gs.foldl step (w.map (bit k))).getD out false = bit k goal) :
+    ∃ t, (t = goal ∨ t = ~~~goal) ∧ build basicOps t (binaryCost gs) av := by
+  induction gs generalizing w av with
+  | nil =>
+    have hv : w.getD out 0 = goal := by
+      apply BitVec.eq_of_getElem_eq
+      intro i hi
+      simpa only [List.foldl_nil, read_bit, bit] using he ⟨i,hi⟩
+    have h := hv ▸ available_read hw out
+    rcases h with zero|ones|⟨t,ht,eq|eq⟩
+    · exact False.elim (nonzero zero)
+    · exact False.elim (nonones ones)
+    · exact ⟨t, .inl eq.symm, ht⟩
+    · exact ⟨t, .inr (by rw [eq, BitVec.not_not]), ht⟩
+  | cons g gs ih =>
+    let z := action w g
+    have stepOK := action_spec w g (hg g (by simp))
+    have nextEval : ∀ k, (gs.foldl step ((w ++ [z]).map (bit k))).getD out false = bit k goal := by
+      intro k; simpa only [List.foldl_cons, stepOK] using he k
+    have tail := ih (fun t ht => hg t (by simp [ht])) (w ++ [z])
+    have cont (A : Finset (BitVec width)) (hold : ∀ u ∈ w, holds A u) (new : holds A z) :=
+      tail A (by
+        intro u hu
+        rcases List.mem_append.mp hu with hu|hu
+        · exact hold u hu
+        · exact (List.mem_singleton.mp hu) ▸ new) nextEval
+    have stepClass := gate_reach w av hw g (hg g (by simp))
+    cases neg : isBinary g
+    · simp only [neg,Bool.false_eq_true,ite_false] at stepClass
+      simpa [binaryCost,neg] using cont av hw stepClass
+    · simp only [neg,ite_true] at stepClass
+      have len : binaryCost (g::gs) = binaryCost gs+1 := by simp [binaryCost,neg]
+      rw [len]
+      rcases stepClass with existing|⟨a,ha,b,hb,ne,new,op,rep⟩
+      · obtain ⟨t,ht,run⟩ := cont av hw existing
+        exact ⟨t,ht,Or.inl run⟩
+      · obtain ⟨t,ht,run⟩ := cont (insert new av) (fun u hu => holds_insert (hw u hu)) rep
+        exact ⟨t,ht,Or.inr ⟨a,ha,b,hb,ne,new,op,run⟩⟩
+
+lemma bound_from_samples {inputCount budget : Nat} {goal : BitVec width}
+    (nonzero : goal ≠ 0) (nonones : goal ≠ ~~~0)
+    (target : (Fin inputCount → Bool) → Bool) (ins : List (BitVec width))
+    (inputLength : ins.length = inputCount)
+    (row : ∀ j : Fin width,
+      target (fun i => (ins.getD i.val 0)[j.val]) = goal[j.val])
+    (rejection : ∀ z, z = goal ∨ z = ~~~goal →
+      ¬ build basicOps z budget ins.toFinset)
+    (gs : List Gate) (out : Nat) (legalGates : ∀ g ∈ gs, legal g)
+    (computes : ∀ x : Fin inputCount → Bool,
+      Circuit.eval ⟨gs, out⟩ (List.ofFn x) = target x) :
+    budget < binaryCost gs := by
+  by_contra! low
+  have initial : ∀ u ∈ ins, holds ins.toFinset u := fun u hu =>
+    .inr (.inr ⟨u, List.mem_toFinset.mpr hu, .inl rfl⟩)
+  have evaluate (k : Fin width) :
+      (gs.foldl step (ins.map (bit k))).getD out false = bit k goal := by
+    let x (i : Fin inputCount) : Bool := bit k (ins.getD i.val 0)
+    have same : List.ofFn x = ins.map (bit k) := by
+      apply List.ext_getElem
+      · simp [inputLength]
+      · intro i hi hj
+        have hlt : i < ins.length := by simpa using hj
+        simp only [List.getElem_ofFn, List.getElem_map, x,
+          List.getD_eq_getElem?_getD, List.getElem?_eq_getElem hlt, Option.getD_some]
+    change Circuit.eval ⟨gs, out⟩ (ins.map (bit k)) = bit k goal
+    rw [← same, computes]
+    exact row k
+  obtain ⟨z, hz, run⟩ := compile nonzero nonones gs out legalGates ins ins.toFinset
+    initial evaluate
+  have lift {a b : Nat} (h : a ≤ b) (hr : build basicOps z a ins.toFinset) :
+      build basicOps z b ins.toFinset := by
+    induction h with
+    | refl => exact hr
+    | step _ ih => exact Or.inl ih
+  exact rejection z hz (lift low run)
+
+lemma replace_from_samples {inputCount replacementSize : Nat} {goal : BitVec width}
+    (nonzero : goal ≠ 0) (nonones : goal ≠ ~~~0)
+    (target : (Fin inputCount → Bool) → Bool) (ins : List (BitVec width))
+    (inputLength : ins.length = inputCount)
+    (row : ∀ j : Fin width,
+      target (fun i => (ins.getD i.val 0)[j.val]) = goal[j.val])
+    (rejection : ∀ z, z = goal ∨ z = ~~~goal →
+      ¬ build basicOps z (replacementSize - 2) ins.toFinset)
+    (upper : ∃ (gs : List Gate) (out : Nat),
+      (∀ g ∈ gs, (g.op = .and ∨ g.op = .or) ∧ g.inputs.length ≤ 2) ∧
+      gs.length = replacementSize ∧
+      ∀ x : Fin inputCount → Bool, Circuit.eval ⟨gs, out⟩ (List.ofFn x) = target x)
+    (gs : List Gate) (out : Nat) (legalGates : ∀ g ∈ gs, legal g)
+    (computes : ∀ x : Fin inputCount → Bool,
+      Circuit.eval ⟨gs, out⟩ (List.ofFn x) = target x) :
+    ∃ (ds : List Gate) (newOut : Nat),
+      (∀ g ∈ ds, (g.op = .and ∨ g.op = .or) ∧ g.inputs.length ≤ 2) ∧
+      ds.length ≤ gs.length ∧
+      ∀ x : Fin inputCount → Bool, Circuit.eval ⟨ds, newOut⟩ (List.ofFn x) = target x := by
+  by_cases present : ∃ g ∈ gs, g.op = .not
+  · obtain ⟨g, member, op⟩ := present
+    have cut : binaryCost gs < gs.length :=
+      (List.length_filter_lt_length_iff_exists (p := isBinary)).mpr
+        ⟨g, member, by simp [isBinary, op]⟩
+    have lower := bound_from_samples nonzero nonones target ins inputLength row rejection
+      gs out legalGates computes
+    obtain ⟨ds, newOut, ok, size, evaluates⟩ := upper
+    exact ⟨ds, newOut, ok, by omega, evaluates⟩
+  · refine ⟨gs, out, ?_, le_rfl, computes⟩
+    intro g member
+    obtain ⟨op, arity⟩ := legalGates g member
+    exact ⟨op.elim Or.inl (fun h => h.elim Or.inr
+      (fun eq => (present ⟨g, member, eq⟩).elim)), arity⟩
+
+end PEqualNP.Outside.L_meta_10760
