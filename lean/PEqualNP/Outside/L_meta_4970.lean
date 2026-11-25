@@ -1,7 +1,9 @@
 import Mathlib.Data.List.GetD
 import PEqualNP.Defs
 
-namespace PEqualNP.Outside.L_meta_4970.Interval
+namespace PEqualNP.Outside.L_meta_4970
+
+namespace Interval
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
   PEqualNP.MetaComplexity.NestedCover
@@ -322,9 +324,9 @@ lemma exists_zero_mixed_min (p l : ℕ) (C : Circuit)
     · intro j x
       exact transform_gate (p + l) p l (by omega) C x j
 
-end PEqualNP.Outside.L_meta_4970.Interval
+end Interval
 
-namespace PEqualNP.Outside.L_meta_4970.Degenerate
+namespace Degenerate
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
 
@@ -460,9 +462,9 @@ lemma empty_bound {p l : ℕ} (E : Finset (Fin p × Fin l)) (C : Circuit)
   · simp [he]
   · simp [he]
 
-end PEqualNP.Outside.L_meta_4970.Degenerate
+end Degenerate
 
-namespace PEqualNP.Outside.L_meta_4970.TinyKernel
+namespace TinyKernel
 
 open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
   PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.TwoColour
@@ -552,4 +554,6 @@ lemma cover_card_ge_two (S : Finset (Fin 5))
     · exact Finset.one_lt_card.mpr ⟨_, h3, _, h4, by decide +kernel⟩
   omega
 
-end PEqualNP.Outside.L_meta_4970.TinyKernel
+end TinyKernel
+
+end PEqualNP.Outside.L_meta_4970
