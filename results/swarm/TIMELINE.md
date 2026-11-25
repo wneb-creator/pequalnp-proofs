@@ -62,3 +62,7 @@ Sub-agents: nine external helper jobs (helper-1 through helper-9), plus local se
 
 - 2026-11-25T23:10:45Z: Eleventh partial push confirmed at c0fefdd69; three checked target/family artifacts and logs, no FINAL.
 - 2026-11-25T23:20:19Z: Combined FoundationI0I3I4 passed full kernel compilation and all six standard-axiom audits. Its actual-circuit endpoint leaves only ineligible cardinality 1, cardinality 2, or the canonical neighborhood {1,4,5}. Source is 681941 bytes, above the final cap; no full gap or checker acceptance is claimed.
+
+- 2026-11-25T23:34:44Z: Root independent full build and three endpoint type/standard-axiom audits passed for helper-2 f563fe03, the complete neighborhood case with at most three center exits. Actual guard reports only the expected missing final theorem.
+- 2026-11-25T23:36:00Z (approximately): Assembly agent delegated the final virtual-neighborhood glue to one nested local worker. Root measurement now counts nine external jobs plus four local workers, including this nested worker (13); external helpers own nested workers are excluded.
+- 2026-11-25T23:39:42Z: Root independent complete kernel check passed for helper-1 aaca3ef59, closing the entire two-ineligible case. Exact final type and standard-three-axiom audit passed; all 134 finite certificate trees were independently replayed. The neighborhood composition, one-ineligible case, and final source-size cap remain unfinished.

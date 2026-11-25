@@ -1,6 +1,6 @@
 Gap: L-meta-2590
 Branch: pnp/swarm-L-meta-2590-orch
-Status at 2026-11-25T23:20:19Z: partial research; full posted theorem not proved or refuted.
+Status at 2026-11-25T23:39:42Z: partial research; full posted theorem not proved or refuted.
 
 Root conditional Lean artifacts passed kernel compilation. Prior pushed artifacts
 also passed independent source and standard-axiom review. DeskDriver's new
@@ -28,6 +28,20 @@ partial file exceeds the 512 KiB final-file cap. Exact compiled dependency
 pruning and source-size experiments are ongoing; none is claimed validated
 as a final submission.
 
+TwoIneligible is the exact helper-1 aaca3ef59820d2cd959624599d9eb39113e516b4
+source (454286 bytes). Root full kernel, exact endpoint type, standard-three
+axioms, source review, and independent replay of all 134 certificate trees
+passed. Its endpoint excludes all actual strict live correct Petersen circuits
+of length at most 19 with exactly two ineligible vertices; no canonical-pair,
+residual-support, finite-profile, or merge assumption remains.
+CenterThreeExits is the exact helper-2 f563fe03 source (259650 bytes). Root
+independent full kernel, three endpoint type/axiom audits, and source review
+passed. It excludes the neighborhood case with at most three center exits.
+The actual outside guard finds only the two expected absent-final-theorem
+diagnostics for this helper library. This is not final checker acceptance.
+The complete neighborhood composition is still being assembled. The
+one-ineligible case and whole-file size cap remain unresolved.
+
 Earlier independently rebuilt helper snapshots (additional merged checks above):
 helper-1 72b88053; helper-9 5eb83c6b; helper-6 0f38695c;
 helper-5 f703ef1f; helper-7 47a045bb; helper-3 7a1cf165.
@@ -51,5 +65,5 @@ independent Std LRAT checking passed. Certificates remain too large for the
 single-file budget. These are computational results, not kernel-checked lower
 bounds, and the actual Petersen budget bridge is unfinished.
 
-Sub-agents: nine external helper jobs (helper-1 through helper-9), plus three local setup/review, assembly-review, and dead-gate pruning agents; 12 directly coordinated agents.
-TIMING total=132 subagents=12
+Sub-agents: nine external helper jobs (helper-1 through helper-9), plus four local workers (setup/review, assembly-review, dead-gate pruning, and one nested neighborhood-glue worker); 13 counted agents. External helpers own nested workers are excluded from this root-job count.
+TIMING total=152 subagents=13
