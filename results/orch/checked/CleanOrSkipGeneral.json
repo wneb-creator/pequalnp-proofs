@@ -1,0 +1,8 @@
+{
+  "file": "results/orch/checked/CleanOrSkipGeneral.lean",
+  "sha256": "10ef0b16cabbbd5e1ce5c28e2e388578be3b8e030f8d637f17a5f601ba44a5b0",
+  "utc": "2026-11-25T03:42:56.328432+00:00",
+  "exit_code": 0,
+  "log": "results/orch/checked/CleanOrSkipGeneral.log",
+  "lines": 767
+}

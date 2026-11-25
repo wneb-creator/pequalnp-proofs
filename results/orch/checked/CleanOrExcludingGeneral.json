@@ -1,0 +1,7 @@
+{
+  "sha256": "434a371ff00a4f1308afc039832fcd17e35d05b2d5307d94517ea8285a031b05",
+  "lines": 868,
+  "exit_code": 0,
+  "compiled_at_utc": "2026-11-25T03:58:30.375908+00:00",
+  "claim": "Clean survivor bound plus excluded OR cardinality; arbitrary forward refs, excluded ORs have one backward dead operand."
+}

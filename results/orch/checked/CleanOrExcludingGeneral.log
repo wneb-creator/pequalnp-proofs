@@ -1,0 +1,15 @@
+../results/orch/lemmas/CleanOrExcludingGeneral.lean:27:13: warning: This simp argument is unused:
+  List.getD_eq_default w false (Nat.le_of_not_gt h)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/CleanOrExcludingGeneral.lean:101:42: warning: `Set.toFinset_setOf` has been deprecated: Use `Set.toFinset_ofPred` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵t̵o̵F̵i̵n̵s̵e̵t̵_̵s̵e̵t̵O̵f̵S̲e̲t̲.̲t̲o̲F̲i̲n̲s̲e̲t̲_̲o̲f̲P̲r̲e̲d̲
+../results/orch/lemmas/CleanOrExcludingGeneral.lean:860:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲

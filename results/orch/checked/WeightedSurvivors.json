@@ -1,0 +1,7 @@
+{
+  "sha256": "5e8cdf9ad17244249847e3181b411b8d9b660b3c851e3832a1f76e990543891f",
+  "lines": 2701,
+  "exit_code": 0,
+  "compiled_at_utc": "2026-11-25T04:00:03.378175+00:00",
+  "claim": "For any accepted flag subset M avoiding badCoords, |M|-1+freshBlocks.card \u2264 ORcount; arbitrary circuits satisfying the posted incidence positives and25generic negatives."
+}

@@ -1,0 +1,47 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/GenericRows.lean:313:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/GenericRows.lean:345:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/GenericRows.lean:392:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/GenericRows.lean:527:42: warning: `Set.toFinset_setOf` has been deprecated: Use `Set.toFinset_ofPred` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵t̵o̵F̵i̵n̵s̵e̵t̵_̵s̵e̵t̵O̵f̵S̲e̲t̲.̲t̲o̲F̲i̲n̲s̲e̲t̲_̲o̲f̲P̲r̲e̲d̲
+/workspace/pequalnp-proofs/results/orch/lemmas/GenericRows.lean:562:13: warning: This simp argument is unused:
+  List.getD_eq_default w false (Nat.le_of_not_gt h)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/GenericRows.lean:636:42: warning: `Set.toFinset_setOf` has been deprecated: Use `Set.toFinset_ofPred` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵t̵o̵F̵i̵n̵s̵e̵t̵_̵s̵e̵t̵O̵f̵S̲e̲t̲.̲t̲o̲F̲i̲n̲s̲e̲t̲_̲o̲f̲P̲r̲e̲d̲
+/workspace/pequalnp-proofs/results/orch/lemmas/GenericRows.lean:702:56: warning: `Set.toFinset_setOf` has been deprecated: Use `Set.toFinset_ofPred` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵t̵o̵F̵i̵n̵s̵e̵t̵_̵s̵e̵t̵O̵f̵S̲e̲t̲.̲t̲o̲F̲i̲n̲s̲e̲t̲_̲o̲f̲P̲r̲e̲d̲
+/workspace/pequalnp-proofs/results/orch/lemmas/GenericRows.lean:723:56: warning: `Set.toFinset_setOf` has been deprecated: Use `Set.toFinset_ofPred` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵t̵o̵F̵i̵n̵s̵e̵t̵_̵s̵e̵t̵O̵f̵S̲e̲t̲.̲t̲o̲F̲i̲n̲s̲e̲t̲_̲o̲f̲P̲r̲e̲d̲
+/workspace/pequalnp-proofs/results/orch/lemmas/GenericRows.lean:1311:19: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/GenericRows.lean:1311:31: warning: `dif_pos` has been deprecated: Use `dite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  d̵i̵f̵_̵p̵o̵s̵d̲i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/GenericRows.lean:1378:58: warning: `Set.toFinset_setOf` has been deprecated: Use `Set.toFinset_ofPred` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵t̵o̵F̵i̵n̵s̵e̵t̵_̵s̵e̵t̵O̵f̵S̲e̲t̲.̲t̲o̲F̲i̲n̲s̲e̲t̲_̲o̲f̲P̲r̲e̲d̲
