@@ -6481,3 +6481,440 @@ lemma shared_reuse_ustar_no_larger {n : ℕ} (G : SimpleGraph (Fin n)) [Decidabl
 end SourcePool
 
 end PEqualNP.Outside.L_meta_2583
+
+/-! Target-relative clean-circuit bounds. Productive merge gates whose target support
+is too small are counted separately; old lambda-source clones give a geometric
+instance. These bounds do not prove the full normalization statement. -/
+
+namespace PEqualNP.Outside.L_meta_2583.CleanBudget
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+def restrictedSupport (n : ℕ) (C : Circuit) (W : Finset (Fin n)) (w : ℕ) : Finset (Fin n) :=
+  singletonSupport n C w ∩ W
+
+noncomputable def restrictedMergePool {n : ℕ} (C : Circuit) (G : SimpleGraph (Fin n))
+    (c : Fin n) (W : Finset (Fin n)) (m : ℕ) : Finset ℕ := by
+  classical
+  exact (mergePool C G c m).filter fun k => 1 < (restrictedSupport n C W (n + k)).card
+
+lemma mem_restrictedMergePool {n : ℕ} {C : Circuit} {G : SimpleGraph (Fin n)}
+    {c : Fin n} {W : Finset (Fin n)} {m k : ℕ} :
+    k ∈ restrictedMergePool C G c W m ↔ k ∈ mergePool C G c m ∧
+      1 < (restrictedSupport n C W (n + k)).card := by
+  classical
+  simp [restrictedMergePool]
+
+lemma restrictedSupport_card_le {n : ℕ} {C : Circuit} {W : Finset (Fin n)} {w : ℕ} :
+    (restrictedSupport n C W w).card ≤ (singletonSupport n C w).card :=
+  Finset.card_le_card Finset.inter_subset_left
+
+lemma restricted_leaf_budget {n : ℕ} {C : Circuit} {G : SimpleGraph (Fin n)} {c : Fin n}
+    (hm : Monotone2 C) (rb : ReadsBack n C)
+    (hclean : ∀ k, reachable n C k → (gateAt C k).op = GateOp.and →
+      singletonSupport n C (n + k) = ∅)
+    (W : Finset (Fin n)) (m : ℕ) (roots : Finset ℕ)
+    (hvalid : ∀ w ∈ roots, w < n ∨ reachable n C (w - n))
+    (hadj : ∀ w ∈ roots, ∀ v ∈ singletonSupport n C w, G.Adj c v)
+    (hbound : ∀ w ∈ roots, 1 < (restrictedSupport n C W w).card → w < n + m) :
+    (roots.biUnion (restrictedSupport n C W)).card ≤
+      roots.card + (restrictedMergePool C G c W m).card := by
+  classical
+  induction m generalizing roots with
+  | zero =>
+    have hsmall : ∀ w ∈ roots, (restrictedSupport n C W w).card ≤ 1 := by
+      intro w hw
+      by_contra! hb
+      have hw' := hbound w hw hb
+      have hs := support_input (C := C) (⟨w, by omega⟩ : Fin n)
+      have hc := restrictedSupport_card_le (C := C) (W := W) (w := w)
+      rw [hs] at hc
+      simpa using (Nat.lt_of_lt_of_le hb hc)
+    calc
+      _ ≤ ∑ w ∈ roots, (restrictedSupport n C W w).card := Finset.card_biUnion_le
+      _ ≤ ∑ _w ∈ roots, 1 := Finset.sum_le_sum hsmall
+      _ = _ := by simp [restrictedMergePool, mergePool]
+  | succ m ih =>
+    have hpool : restrictedMergePool C G c W m ⊆ restrictedMergePool C G c W (m + 1) := by
+      intro k hk
+      obtain ⟨hkpool, hklarge⟩ := mem_restrictedMergePool.mp hk
+      obtain ⟨hk, hh⟩ := mem_mergePool.mp hkpool
+      exact mem_restrictedMergePool.mpr ⟨mem_mergePool.mpr ⟨by omega, hh⟩, hklarge⟩
+    by_cases htop : n + m ∈ roots ∧ 1 < (restrictedSupport n C W (n + m)).card
+    · obtain ⟨hmem, hlarge⟩ := htop
+      have hfull : 1 < (singletonSupport n C (n + m)).card :=
+        lt_of_lt_of_le hlarge restrictedSupport_card_le
+      have hr : reachable n C m := by
+        rcases hvalid _ hmem with h | h
+        · omega
+        · simpa using h
+      have hor : (gateAt C m).op = GateOp.or := (gate_op hm hr.1).resolve_left fun h => by
+        simp [hclean m hr h] at hfull
+      let P := positiveInputs n C m
+      let T := roots.erase (n + m) ∪ P
+      have hback : ∀ w ∈ P, w < n + m :=
+        fun w hw => rb m hr.1 w (mem_positiveInputs.mp hw).1
+      have hup : ∀ w ∈ P, singletonSupport n C w ⊆ singletonSupport n C (n + m) := by
+        intro w hw u hu
+        exact (support_or rb hr.1 hor u).mpr ⟨w, (mem_positiveInputs.mp hw).1, hu⟩
+      have hTvalid : ∀ w ∈ T, w < n ∨ reachable n C (w - n) := by
+        intro w hw
+        rcases Finset.mem_union.mp hw with hw | hw
+        · exact hvalid _ (Finset.mem_of_mem_erase hw)
+        · by_cases hn : w < n
+          · exact Or.inl hn
+          · exact Or.inr (reachable_child rb hr (by
+              rw [show n + (w - n) = w by omega]
+              exact (mem_positiveInputs.mp hw).1))
+      have hTadj : ∀ w ∈ T, ∀ v ∈ singletonSupport n C w, G.Adj c v := by
+        intro w hw v hv
+        rcases Finset.mem_union.mp hw with hw | hw
+        · exact hadj _ (Finset.mem_of_mem_erase hw) v hv
+        · exact hadj _ hmem v (hup _ hw hv)
+      have hTbound : ∀ w ∈ T, 1 < (restrictedSupport n C W w).card → w < n + m := by
+        intro w hw hcard
+        rcases Finset.mem_union.mp hw with hw | hw
+        · have hlt := hbound w (Finset.mem_of_mem_erase hw) hcard
+          have hne := (Finset.mem_erase.mp hw).1
+          omega
+        · exact hback w hw
+      have hsub : roots.biUnion (restrictedSupport n C W) ⊆
+          T.biUnion (restrictedSupport n C W) := by
+        intro u hu
+        obtain ⟨w, hw, huw⟩ := Finset.mem_biUnion.mp hu
+        by_cases he : w = n + m
+        · subst w
+          obtain ⟨huold, huW⟩ := Finset.mem_inter.mp huw
+          obtain ⟨a, ha, hua⟩ := (support_or rb hr.1 hor u).mp huold
+          exact Finset.mem_biUnion.mpr ⟨a, Finset.mem_union_right _
+            (mem_positiveInputs.mpr ⟨ha, u, hua⟩), Finset.mem_inter.mpr ⟨hua, huW⟩⟩
+        · exact Finset.mem_biUnion.mpr ⟨w,
+            Finset.mem_union_left _ (Finset.mem_erase.mpr ⟨he, hw⟩), huw⟩
+      have hfirst := (Finset.card_le_card hsub).trans (ih T hTvalid hTadj hTbound)
+      have hTcard := Finset.card_union_le (roots.erase (n + m)) P
+      have herase := Finset.card_erase_add_one hmem
+      have hPc : P.card ≤ 2 := (Finset.card_filter_le _ _).trans (input_card hm hr.1)
+      by_cases hp : 1 < P.card
+      · have hnew : m ∈ restrictedMergePool C G c W (m + 1) :=
+          mem_restrictedMergePool.mpr ⟨mem_mergePool.mpr
+            ⟨by omega, mem_merges.mpr ⟨hr, hor, hfull, hp⟩, hadj _ hmem⟩, hlarge⟩
+        have hn : m ∉ restrictedMergePool C G c W m := fun h =>
+          (Nat.lt_irrefl m) (mem_mergePool.mp (mem_restrictedMergePool.mp h).1).1
+        have hsubpool : insert m (restrictedMergePool C G c W m) ⊆
+            restrictedMergePool C G c W (m + 1) := Finset.insert_subset_iff.mpr ⟨hnew, hpool⟩
+        have hinc := Finset.card_le_card hsubpool
+        rw [Finset.card_insert_of_notMem hn] at hinc
+        change T.card ≤ (roots.erase (n + m)).card + P.card at hTcard
+        omega
+      · have hinc := Finset.card_le_card hpool
+        change T.card ≤ (roots.erase (n + m)).card + P.card at hTcard
+        omega
+    · have hnew : ∀ w ∈ roots, 1 < (restrictedSupport n C W w).card → w < n + m := by
+        intro w hw hw'
+        have hlt := hbound w hw hw'
+        have hne : w ≠ n + m := fun he => htop ⟨he ▸ hw, he ▸ hw'⟩
+        omega
+      have hfirst := ih roots hvalid hadj hnew
+      have hinc := Finset.card_le_card hpool
+      omega
+
+end PEqualNP.Outside.L_meta_2583.CleanBudget
+
+namespace PEqualNP.Outside.L_meta_2583.CleanBudget
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+lemma graph_budget_excluded_merges {n : ℕ} {C : Circuit} (G H : SimpleGraph (Fin n)) [DecidableRel H.Adj] (seed : Fin n)
+    (hm : Monotone2 C) (rb : ReadsBack n C)
+    (hsafe : ∀ k, reachable n C k → (gateAt C k).op = GateOp.and →
+      ∀ u v, gateVal n C k (pairInput u v) = true → G.Adj u v)
+    (hempty : ∀ k, reachable n C k → (gateAt C k).op = GateOp.and →
+      gateVal n C k (fun _ => false) = false)
+    (hcommon : ∀ c d v w : Fin n, c ≠ d → v ≠ w →
+      G.Adj c v → G.Adj c w → G.Adj d v → G.Adj d w → False)
+    (hout : singletonSupport n C C.output = ∅)
+    (hpair : ∀ u v, H.Adj u v → C.eval (List.ofFn (pairInput u v)) = true)
+    (E : Finset (Fin n × Fin n))
+    (hE : ∀ p ∈ E, H.Adj p.1 p.2 ∧ p.1 ≤ p.2)
+    (S : Finset ℕ) (hS : S ⊆ merges n C)
+    (hskip : ∀ k ∈ S, ∀ c : Fin n,
+      (∀ v ∈ singletonSupport n C (n + k), G.Adj c v) →
+      (restrictedSupport n C (Finset.univ.filter (H.Adj c)) (n + k)).card ≤ 1) :
+    ∃ T : Finset (Fin n), (∀ u v, H.Adj u v → u ∈ T ∨ v ∈ T) ∧
+      T.card ≤ (births n C).card ∧ E.card + (births n C).card + S.card ≤ C.size + 1 := by
+  classical
+  have hclean (k) (hk : reachable n C k) (hop : (gateAt C k).op = GateOp.and) :
+      singletonSupport n C (n + k) = ∅ := by
+    apply Finset.eq_empty_iff_forall_notMem.2
+    intro u hu
+    exact G.irrefl (hsafe k hk hop u u (mem_support.1 hu))
+  let B := births n C
+  let star (k : ℕ) (hk : k ∈ B) := birth_star hm rb hsafe hcommon hk
+  let c (k : ℕ) := if hk : k ∈ B then (star k hk).choose else seed
+  let w (k : ℕ) := if hk : k ∈ B then (star k hk).choose_spec.choose else 0
+  have choose_spec (k) (hk : k ∈ B) :
+    w k ∈ (gateAt C k).inputs ∧
+      (∀ v ∈ singletonSupport n C (w k), G.Adj (c k) v) ∧
+      ∀ u v : Fin n, (∀ a ∈ (gateAt C k).inputs,
+        u ∈ singletonSupport n C a ∨ v ∈ singletonSupport n C a) →
+        (u = c k ∧ v ∈ singletonSupport n C (w k)) ∨ (v = c k ∧ u ∈ singletonSupport n C (w k)) := by
+    simpa only [c, w, dite_eq_left hk] using (star k hk).choose_spec.choose_spec
+  have cover (u v) (huv : H.Adj u v) :
+      ∃ k ∈ B, (u = c k ∧ v ∈ singletonSupport n C (w k)) ∨
+        (v = c k ∧ u ∈ singletonSupport n C (w k)) := by
+    have hv := hpair u v huv
+    rw [eval_eq_val] at hv
+    have hl : C.output < n + C.gates.length := by
+      by_contra! hh
+      rw [val_ge (by simp : (List.ofFn (pairInput u v)).length = n) hh] at hv
+      cases hv
+    have hn : n ≤ C.output := by
+      by_contra! hh
+      have he := support_input (C := C) (⟨C.output, hh⟩ : Fin n)
+      rw [hout] at he
+      exact (Finset.singleton_nonempty _).ne_empty he.symm
+    have hr : reachable n C (C.output - n) := ⟨by omega, Or.inl (by omega)⟩
+    rcases birth_route hm rb hclean hempty u v C.output (Or.inr hr) hv with h | h
+    · obtain ⟨k, hk, ha⟩ := h
+      exact ⟨k, hk, (choose_spec k hk).2.2 u v ha⟩
+    · simp [hout] at h
+  let T := B.image c
+  let fiber (u : Fin n) := B.filter fun k => c k = u
+  let roots (u : Fin n) := (fiber u).image w
+  let W (u : Fin n) := Finset.univ.filter (H.Adj u)
+  let leaves (u : Fin n) := (roots u).biUnion (restrictedSupport n C (W u))
+  have hcov : ∀ u v, H.Adj u v → u ∈ T ∨ v ∈ T := by
+    intro u v huv
+    obtain ⟨k, hk, ⟨rfl, _⟩ | ⟨rfl, _⟩⟩ := cover u v huv
+    · exact Or.inl (Finset.mem_image_of_mem c hk)
+    · exact Or.inr (Finset.mem_image_of_mem c hk)
+  have hEsub : E ⊆ T.biUnion (fun t => (leaves t).image (edgeKey t)) := by
+    rintro ⟨u, v⟩ hp
+    obtain ⟨huv, huv'⟩ := hE _ hp
+    obtain ⟨k, hk, h⟩ := cover u v huv
+    have hroot : w k ∈ roots (c k) := Finset.mem_image_of_mem w (Finset.mem_filter.2 ⟨hk, rfl⟩)
+    refine Finset.mem_biUnion.2 ⟨c k, Finset.mem_image_of_mem c hk, ?_⟩
+    have hkey : edgeKey u v = (u, v) := by simp [edgeKey, min_eq_left huv', max_eq_right huv']
+    rcases h with ⟨he, h⟩ | ⟨he, h⟩
+    · exact Finset.mem_image.2 ⟨v, Finset.mem_biUnion.2 ⟨w k, hroot, Finset.mem_inter.mpr ⟨h, by simpa [W, ← he] using huv⟩⟩, by rwa [← he]⟩
+    · exact Finset.mem_image.2 ⟨u, Finset.mem_biUnion.2 ⟨w k, hroot, Finset.mem_inter.mpr ⟨h, by simpa [W, ← he] using huv.symm⟩⟩, by rwa [← he, edgeKey_comm]⟩
+  have hleaf (t : Fin n) : (leaves t).card ≤ (fiber t).card +
+      (restrictedMergePool C G t (W t) C.gates.length).card := by
+    have hr (a) (ha : a ∈ roots t) : ∃ k ∈ B, c k = t ∧ w k = a := by
+      obtain ⟨k, hk, he⟩ := Finset.mem_image.1 ha
+      exact ⟨k, (Finset.mem_filter.1 hk).1, (Finset.mem_filter.1 hk).2, he⟩
+    have h := restricted_leaf_budget (G := G) (c := t) hm rb hclean (W t) C.gates.length (roots t) (by
+      intro a ha
+      obtain ⟨k, hk, _, rfl⟩ := hr a ha
+      by_cases hn : w k < n
+      · exact Or.inl hn
+      · apply Or.inr
+        exact reachable_child rb (mem_births.1 hk).1 (by
+          rw [show n + (w k - n) = w k by omega]
+          exact (choose_spec k hk).1)) (by
+      intro a ha v hv
+      obtain ⟨k, hk, rfl, rfl⟩ := hr a ha
+      exact (choose_spec k hk).2.1 v hv) (by
+      intro a ha _
+      obtain ⟨k, hk, _, rfl⟩ := hr a ha
+      have hk' := (mem_births.1 hk).1.1
+      have := rb k hk' (w k) (choose_spec k hk).1
+      omega)
+    exact h.trans (Nat.add_le_add_right Finset.card_image_le _)
+  have hdisjFib : (T : Set (Fin n)).PairwiseDisjoint fiber := by
+    intro a _ b _ hab
+    rw [Function.onFun, Finset.disjoint_left]
+    intro k hka hkb
+    exact hab ((Finset.mem_filter.1 hka).2.symm.trans (Finset.mem_filter.1 hkb).2)
+  have hsumB : (∑ t ∈ T, (fiber t).card) = B.card := by
+    rw [← Finset.card_biUnion hdisjFib]
+    congr 1
+    ext k
+    constructor
+    · intro hk
+      obtain ⟨_, _, hf⟩ := Finset.mem_biUnion.1 hk
+      exact (Finset.mem_filter.1 hf).1
+    · intro hk
+      exact Finset.mem_biUnion.2 ⟨c k, Finset.mem_image_of_mem c hk, Finset.mem_filter.2 ⟨hk, rfl⟩⟩
+  have hdisjPool : (T : Set (Fin n)).PairwiseDisjoint (fun t => restrictedMergePool C G t (W t) C.gates.length) := by
+    intro a _ b _ hab
+    rw [Function.onFun, Finset.disjoint_left]
+    intro k hka hkb
+    obtain ⟨_, hk, ha⟩ := mem_mergePool.1 (Finset.mem_filter.mp hka).1
+    have hb := (mem_mergePool.1 (Finset.mem_filter.mp hkb).1).2.2
+    obtain ⟨u, hu, v, hv, huv⟩ := Finset.one_lt_card.1 (mem_merges.1 hk).2.2.1
+    exact hcommon a b u v hab huv (ha u hu) (ha v hv) (hb u hu) (hb v hv)
+  have hsumL : (∑ t ∈ T, (restrictedMergePool C G t (W t) C.gates.length).card) + S.card ≤
+      (merges n C).card := by
+    rw [← Finset.card_biUnion hdisjPool]
+    have hdis : Disjoint (T.biUnion fun t => restrictedMergePool C G t (W t) C.gates.length) S := by
+      apply Finset.disjoint_left.mpr
+      intro k hk hkS
+      obtain ⟨t, _, ht⟩ := Finset.mem_biUnion.mp hk
+      obtain ⟨hp, hlarge⟩ := Finset.mem_filter.mp ht
+      have hsmall := hskip k hkS t (mem_mergePool.mp hp).2.2
+      change 1 < (restrictedSupport n C (Finset.univ.filter (H.Adj t)) (n + k)).card at hlarge
+      omega
+    rw [← Finset.card_union_of_disjoint hdis]
+    apply Finset.card_le_card
+    intro k hk
+    rcases Finset.mem_union.mp hk with hk | hk
+    · obtain ⟨t, _, ht⟩ := Finset.mem_biUnion.mp hk
+      exact (mem_mergePool.mp (Finset.mem_filter.mp ht).1).2.1
+    · exact hS hk
+  have hEL : E.card ≤ B.card + (∑ t ∈ T, (restrictedMergePool C G t (W t) C.gates.length).card) := by
+    calc
+      _ ≤ (T.biUnion fun t => (leaves t).image (edgeKey t)).card := Finset.card_le_card hEsub
+      _ ≤ ∑ t ∈ T, ((leaves t).image (edgeKey t)).card := Finset.card_biUnion_le
+      _ ≤ ∑ t ∈ T, (leaves t).card := Finset.sum_le_sum fun _ _ => Finset.card_image_le
+      _ ≤ ∑ t ∈ T, ((fiber t).card + (restrictedMergePool C G t (W t) C.gates.length).card) :=
+        Finset.sum_le_sum fun t _ => hleaf t
+      _ = _ := by rw [Finset.sum_add_distrib, hsumB]
+  have hgate := gate_budget hm rb hclean
+  change 2 * B.card + (merges n C).card ≤ C.size + 1 at hgate
+  exact ⟨T, hcov, Finset.card_image_le, by change E.card + B.card + S.card ≤ C.size + 1; omega⟩
+
+
+lemma relative_clean_graph_budget_excluding_merges {n : ℕ} (G H : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] [DecidableRel H.Adj] (C : Circuit)
+    (_hHG : H ≤ G) (hfour : NoFourCycle G) (hC : IsAO2 n C)
+    (hsafe : ∀ x, circuitFun n C x = true → graphFun G ∅ x = true)
+    (hclean : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and → BelowF G C j)
+    (hpair : ∀ u v, H.Adj u v → circuitFun n C (pairInput u v) = true)
+    (S : Finset ℕ) (hS : S ⊆ merges n C)
+    (hskip : ∀ k ∈ S, ∀ c : Fin n,
+      (∀ v ∈ singletonSupport n C (n + k), G.Adj c v) →
+      (restrictedSupport n C (Finset.univ.filter (H.Adj c)) (n + k)).card ≤ 1) :
+    ∃ T : Finset (Fin n), H.IsVertexCover ↑T ∧ H.edgeFinset.card + T.card + S.card ≤ C.size + 1 := by
+  classical
+  by_cases hne : H.edgeFinset.Nonempty
+  · obtain ⟨e, he⟩ := hne
+    induction e using Sym2.ind with
+    | _ u v =>
+      have hm : Monotone2 C := by
+        intro g hg
+        exact ⟨by simpa using hC.1 g hg, (hC.2.2 g hg).le⟩
+      obtain ⟨E, hcard, hE⟩ := sorted_edges H
+      obtain ⟨T, hcover, hT, hbound⟩ := graph_budget_excluded_merges (C := C) G H u hm hC.2.1
+        (fun j hj hop a b ht => edge_true_pair.1 (graph_true.1 (hclean j hj.1 hop _ ht)))
+        (by
+          intro j hj hop
+          cases h : gateVal n C j (fun _ => false)
+          · rfl
+          · obtain ⟨a, b, hab, ha, hb⟩ := graph_true.1 (hclean j hj.1 hop _ h)
+            cases ha)
+        (fun _ _ _ _ => no_four_cycle hfour)
+        (by
+          apply Finset.eq_empty_iff_forall_notMem.2
+          intro a ha
+          have hh : circuitFun n C (pairInput a a) = true := mem_support.1 ha
+          exact G.irrefl (edge_true_pair.1 (graph_true.1 (hsafe _ hh))))
+        hpair E hE S hS hskip
+      refine ⟨T, hcover, ?_⟩
+      omega
+  · have hempty : H.edgeFinset = ∅ := Finset.not_nonempty_iff_eq_empty.mp hne
+    refine ⟨∅, ?_, ?_⟩
+    · intro u v huv
+      have he : s(u, v) ∈ H.edgeFinset := SimpleGraph.mem_edgeFinset.mpr huv
+      rw [hempty] at he
+      exact False.elim (Finset.notMem_empty _ he)
+    · have hSrange : S ⊆ Finset.range C.gates.length := by
+        intro k hk
+        exact Finset.mem_range.mpr (mem_merges.mp (hS hk)).1.1
+      have hc : S.card ≤ C.size := by
+        change S.card ≤ C.gates.length
+        simpa only [Finset.card_range] using Finset.card_le_card hSrange
+      simpa only [hempty, Finset.card_empty, Nat.zero_add] using hc.trans (Nat.le_succ _)
+
+
+lemma relative_clean_graph_budget_anchored_merges {n : ℕ} (G H : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] [DecidableRel H.Adj] (C : Circuit)
+    (hHG : H ≤ G) (hfour : NoFourCycle G) (hC : IsAO2 n C)
+    (hsafe : ∀ x, circuitFun n C x = true → graphFun G ∅ x = true)
+    (hclean : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and → BelowF G C j)
+    (hpair : ∀ u v, H.Adj u v → circuitFun n C (pairInput u v) = true)
+    (S : Finset ℕ) (hS : S ⊆ merges n C)
+    (hanchor : ∀ k ∈ S, ∃ a : Fin n,
+      (∀ v ∈ singletonSupport n C (n + k), G.Adj a v) ∧
+      (∀ v ∈ singletonSupport n C (n + k), ¬ H.Adj a v)) :
+    ∃ T : Finset (Fin n), H.IsVertexCover ↑T ∧
+      H.edgeFinset.card + T.card + S.card ≤ C.size + 1 := by
+  classical
+  apply relative_clean_graph_budget_excluding_merges G H C hHG hfour hC hsafe hclean hpair S hS
+  intro k hk c hc
+  obtain ⟨a, ha, hnot⟩ := hanchor k hk
+  obtain ⟨u, hu, v, hv, huv⟩ := Finset.one_lt_card.mp (mem_merges.mp (hS hk)).2.2.1
+  have hca : c = a := by
+    by_contra hne
+    exact no_four_cycle hfour hne huv (hc u hu) (hc v hv) (ha u hu) (ha v hv)
+  subst c
+  have hz : restrictedSupport n C (Finset.univ.filter (H.Adj a)) (n + k) = ∅ := by
+    apply Finset.eq_empty_iff_forall_notMem.mpr
+    intro v hv
+    obtain ⟨hvs, hvn⟩ := Finset.mem_inter.mp hv
+    exact hnot v hvs (Finset.mem_filter.mp hvn).2
+  rw [hz]
+  simp
+
+end PEqualNP.Outside.L_meta_2583.CleanBudget
+
+namespace PEqualNP.Outside.L_meta_2583.CleanBudget
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+lemma lambda_raw_anchor {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hC : IsAO2 n C) {j : ℕ} (hj : j ∈ lam G C) :
+    ∃ a : Fin n, ∀ v ∈ orIn n C (n + j), G.Adj a v ∧ s(a, v) ∈ starEdges G C := by
+  classical
+  obtain ⟨_, _, _, t, ht, b, hother, hr⟩ := Finset.mem_filter.mp hj
+  have hne : (side (n := n) C t (1 - b)).Nonempty := Finset.card_pos.mp (by omega)
+  obtain ⟨a, ha⟩ := hne
+  refine ⟨a, ?_⟩
+  intro v hv
+  have hvs : v ∈ side (n := n) C t b := by
+    apply Frontier.reach_mem_orIn
+    exact (Frontier.orReaches_reach j _ hr).1.trans (Frontier.mem_orIn_reach v hv)
+  fin_cases b
+  · have ha1 : a ∈ side (n := n) C t 1 := by simpa using ha
+    have hv0 : v ∈ side (n := n) C t 0 := by simpa using hvs
+    refine ⟨(Frontier.topAdj hC ht hv0 ha1).symm, ?_⟩
+    exact Finset.mem_biUnion.mpr ⟨t, ht, Finset.mem_image.mpr
+      ⟨(v, a), Finset.mem_product.mpr ⟨hv0, ha1⟩, Sym2.eq_swap⟩⟩
+  · have ha0 : a ∈ side (n := n) C t 0 := by simpa using ha
+    have hv1 : v ∈ side (n := n) C t 1 := by simpa using hvs
+    refine ⟨Frontier.topAdj hC ht ha0 hv1, ?_⟩
+    exact Finset.mem_biUnion.mpr ⟨t, ht, Finset.mem_image.mpr
+      ⟨(a, v), Finset.mem_product.mpr ⟨ha0, hv1⟩, rfl⟩⟩
+
+lemma relative_clean_graph_budget_lambda_clones {n : ℕ} (G H : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] [DecidableRel H.Adj] (B C : Circuit)
+    (hfour : NoFourCycle G) (hB : IsAO2 n B) (hC : IsAO2 n C)
+    (hBsafe : ∀ x, circuitFun n B x = true → graphFun G ∅ x = true)
+    (hBclean : ∀ j < B.gates.length, (gateAt B j).op = GateOp.and → BelowF G B j)
+    (hpair : ∀ u v, H.Adj u v → circuitFun n B (pairInput u v) = true)
+    (hHU : ∀ u v, H.Adj u v → s(u, v) ∈ Ustar G C)
+    (S : Finset ℕ) (hS : S ⊆ merges n B)
+    (hcopy : ∀ k ∈ S, ∃ j ∈ lam G C,
+      singletonSupport n B (n + k) = orIn n C (n + j)) :
+    ∃ T : Finset (Fin n), H.IsVertexCover ↑T ∧
+      H.edgeFinset.card + T.card + S.card ≤ B.size + 1 := by
+  classical
+  have hHG : H ≤ G := by
+    intro u v huv
+    exact SimpleGraph.mem_edgeFinset.mp (Finset.mem_sdiff.mp (hHU u v huv)).1
+  apply relative_clean_graph_budget_anchored_merges G H B hHG hfour hB hBsafe hBclean hpair S hS
+  intro k hk
+  obtain ⟨j, hj, heq⟩ := hcopy k hk
+  obtain ⟨a, ha⟩ := lambda_raw_anchor hC hj
+  refine ⟨a, ?_, ?_⟩
+  · intro v hv
+    rw [heq] at hv
+    exact (ha v hv).1
+  · intro v hv hadj
+    rw [heq] at hv
+    exact (Finset.mem_sdiff.mp (hHU a v hadj)).2 (ha v hv).2
+
+end PEqualNP.Outside.L_meta_2583.CleanBudget
