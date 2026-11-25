@@ -1072,3 +1072,290 @@ lemma connected_star_family_or_count {ι : Type*} [DecidableEq ι]
   omega
 
 end PEqualNP.Outside.L_meta_4970_aux
+
+
+namespace PEqualNP.Outside.L_meta_4970.ComponentPartition
+
+open Classical
+
+variable {α ι : Type*} [DecidableEq α]
+
+def CoOccurs (I : Finset ι) (Q : ι → Finset α) (a b : α) : Prop :=
+  ∃ i ∈ I, a ∈ Q i ∧ b ∈ Q i
+
+def Reach (I : Finset ι) (Q : ι → Finset α) : α → α → Prop :=
+  Relation.ReflTransGen (CoOccurs I Q)
+
+omit [DecidableEq α] in
+lemma reach_symm {I : Finset ι} {Q : ι → Finset α} {a b : α}
+    (h : Reach I Q a b) : Reach I Q b a := by
+  induction h with
+  | refl => exact Relation.ReflTransGen.refl
+  | @tail b c hab hbc ih =>
+    obtain ⟨i, hi, hb, hc⟩ := hbc
+    exact (Relation.ReflTransGen.single ⟨i, hi, hc, hb⟩).trans ih
+
+lemma reach_in_union {I : Finset ι} {Q : ι → Finset α} {a b : α}
+    (h : Reach I Q a b) (ha : a ∈ I.biUnion Q) : b ∈ I.biUnion Q := by
+  induction h with
+  | refl => exact ha
+  | @tail b c hab hbc ih =>
+    obtain ⟨i, hi, hb, hc⟩ := hbc
+    exact Finset.mem_biUnion.mpr ⟨i, hi, hc⟩
+
+noncomputable def component (I : Finset ι) (Q : ι → Finset α) (a : α) : Finset α :=
+  (I.biUnion Q).filter (Reach I Q a)
+
+noncomputable def parts (I : Finset ι) (Q : ι → Finset α) : Finset (Finset α) :=
+  (I.biUnion Q).image (component I Q)
+
+noncomputable def rootsInPart (I : Finset ι) (Q : ι → Finset α)
+    (P : Finset α) : Finset ι := I.filter fun i => Q i ⊆ P
+
+lemma mem_component (I : Finset ι) (Q : ι → Finset α) (a b : α) :
+    b ∈ component I Q a ↔ b ∈ I.biUnion Q ∧ Reach I Q a b := by
+  simp [component]
+
+lemma component_subset_union (I : Finset ι) (Q : ι → Finset α) (a : α) :
+    component I Q a ⊆ I.biUnion Q := Finset.filter_subset _ _
+
+lemma mem_own_component (I : Finset ι) (Q : ι → Finset α) (a : α)
+    (ha : a ∈ I.biUnion Q) : a ∈ component I Q a :=
+  (mem_component I Q a a).mpr ⟨ha, Relation.ReflTransGen.refl⟩
+
+lemma component_eq_of_reach (I : Finset ι) (Q : ι → Finset α) (a b : α)
+    (hab : Reach I Q a b) : component I Q a = component I Q b := by
+  ext v
+  rw [mem_component, mem_component]
+  constructor
+  · rintro ⟨hv, hav⟩
+    exact ⟨hv, (reach_symm hab).trans hav⟩
+  · rintro ⟨hv, hbv⟩
+    exact ⟨hv, hab.trans hbv⟩
+
+lemma distinct_components_disjoint (I : Finset ι) (Q : ι → Finset α) (a b : α)
+    (hne : component I Q a ≠ component I Q b) :
+    Disjoint (component I Q a) (component I Q b) := by
+  apply Finset.disjoint_left.mpr
+  intro v hv₁ hv₂
+  have hav := ((mem_component I Q a v).mp hv₁).2
+  have hbv := ((mem_component I Q b v).mp hv₂).2
+  exact hne (component_eq_of_reach I Q a b (hav.trans (reach_symm hbv)))
+
+lemma parts_nonempty (I : Finset ι) (Q : ι → Finset α) :
+    ∀ P ∈ parts I Q, P.Nonempty := by
+  intro P hP
+  obtain ⟨a, ha, rfl⟩ := Finset.mem_image.mp hP
+  exact ⟨a, mem_own_component I Q a ha⟩
+
+lemma parts_pairwise_disjoint (I : Finset ι) (Q : ι → Finset α) :
+    ∀ P ∈ parts I Q, ∀ R ∈ parts I Q, P ≠ R → Disjoint P R := by
+  intro P hP R hR hne
+  obtain ⟨a, ha, rfl⟩ := Finset.mem_image.mp hP
+  obtain ⟨b, hb, rfl⟩ := Finset.mem_image.mp hR
+  exact distinct_components_disjoint I Q a b hne
+
+lemma parts_union (I : Finset ι) (Q : ι → Finset α) :
+    (parts I Q).biUnion id = I.biUnion Q := by
+  ext a
+  constructor
+  · intro ha
+    obtain ⟨P, hP, ha⟩ := Finset.mem_biUnion.mp ha
+    obtain ⟨b, hb, rfl⟩ := Finset.mem_image.mp hP
+    exact component_subset_union I Q b ha
+  · intro ha
+    exact Finset.mem_biUnion.mpr
+      ⟨component I Q a, Finset.mem_image.mpr ⟨a, ha, rfl⟩, mem_own_component I Q a ha⟩
+
+lemma root_subset_component (I : Finset ι) (Q : ι → Finset α)
+    (a : α) (i : ι) (hi : i ∈ I)
+    (hmeet : (Q i ∩ component I Q a).Nonempty) : Q i ⊆ component I Q a := by
+  obtain ⟨b, hb⟩ := hmeet
+  have hbi := (Finset.mem_inter.mp hb).1
+  have hab := ((mem_component I Q a b).mp (Finset.mem_inter.mp hb).2).2
+  intro v hv
+  exact (mem_component I Q a v).mpr
+    ⟨Finset.mem_biUnion.mpr ⟨i, hi, hv⟩,
+      hab.trans (Relation.ReflTransGen.single ⟨i, hi, hbi, hv⟩)⟩
+
+lemma component_connected (I : Finset ι) (Q : ι → Finset α) (a : α) :
+    ∀ u v : component I Q a, Relation.ReflTransGen
+      (fun x y : component I Q a => ∃ i ∈ I, Q i ⊆ component I Q a ∧
+        (x : α) ∈ Q i ∧ (y : α) ∈ Q i) u v := by
+  have lift : ∀ {x y : α}, Reach I Q x y → ∀ hx : x ∈ component I Q a,
+      ∀ hy : y ∈ component I Q a, Relation.ReflTransGen
+      (fun x y : component I Q a => ∃ i ∈ I, Q i ⊆ component I Q a ∧
+        (x : α) ∈ Q i ∧ (y : α) ∈ Q i) ⟨x, hx⟩ ⟨y, hy⟩ := by
+    intro x y hxy
+    induction hxy with
+    | refl =>
+      intro hx hy
+      exact Relation.ReflTransGen.refl
+    | @tail y z hxy hyz ih =>
+      intro hx hz
+      have hy : y ∈ component I Q a := by
+        have hax := (mem_component I Q a x).mp hx
+        exact (mem_component I Q a y).mpr
+          ⟨reach_in_union hxy hax.1, hax.2.trans hxy⟩
+      obtain ⟨i, hi, hyi, hzi⟩ := hyz
+      have hsub : Q i ⊆ component I Q a :=
+        root_subset_component I Q a i hi ⟨y, Finset.mem_inter.mpr ⟨hyi, hy⟩⟩
+      exact (ih hx hy).tail ⟨i, hi, hsub, hyi, hzi⟩
+  intro u v
+  have hau := ((mem_component I Q a u).mp u.property).2
+  have hav := ((mem_component I Q a v).mp v.property).2
+  exact lift ((reach_symm hau).trans hav) u.property v.property
+
+lemma partition_certificate (I : Finset ι) (Q : ι → Finset α) :
+    ∃ P : Finset (Finset α),
+      (∀ S ∈ P, S.Nonempty) ∧
+      P.biUnion id = I.biUnion Q ∧
+      (∀ S ∈ P, ∀ T ∈ P, S ≠ T → Disjoint S T) ∧
+      ∀ S ∈ P,
+        (∀ i ∈ I, (Q i ∩ S).Nonempty → Q i ⊆ S) ∧
+        ∀ u v : S, Relation.ReflTransGen
+          (fun a b : S => ∃ i ∈ I, Q i ⊆ S ∧ (a : α) ∈ Q i ∧ (b : α) ∈ Q i) u v := by
+  refine ⟨parts I Q, parts_nonempty I Q, parts_union I Q, parts_pairwise_disjoint I Q, ?_⟩
+  intro S hS
+  obtain ⟨a, ha, rfl⟩ := Finset.mem_image.mp hS
+  exact ⟨fun i hi => root_subset_component I Q a i hi, component_connected I Q a⟩
+
+lemma part_subset_union (I : Finset ι) (Q : ι → Finset α)
+    (P : Finset α) (hP : P ∈ parts I Q) : P ⊆ I.biUnion Q := by
+  obtain ⟨a, ha, rfl⟩ := Finset.mem_image.mp hP
+  exact component_subset_union I Q a
+
+lemma root_subset_part (I : Finset ι) (Q : ι → Finset α)
+    (P : Finset α) (hP : P ∈ parts I Q) (i : ι) (hi : i ∈ I)
+    (hmeet : (Q i ∩ P).Nonempty) : Q i ⊆ P := by
+  obtain ⟨a, ha, rfl⟩ := Finset.mem_image.mp hP
+  exact root_subset_component I Q a i hi hmeet
+
+lemma root_part_existsUnique (I : Finset ι) (Q : ι → Finset α)
+    (i : ι) (hi : i ∈ I) (hQi : (Q i).Nonempty) :
+    ∃! P : Finset α, P ∈ parts I Q ∧ Q i ⊆ P := by
+  obtain ⟨a, ha⟩ := hQi
+  have haU : a ∈ I.biUnion Q := Finset.mem_biUnion.mpr ⟨i, hi, ha⟩
+  have haP := mem_own_component I Q a haU
+  have hP : component I Q a ∈ parts I Q := Finset.mem_image.mpr ⟨a, haU, rfl⟩
+  refine ⟨component I Q a, ⟨hP, ?_⟩, ?_⟩
+  · exact root_subset_component I Q a i hi ⟨a, Finset.mem_inter.mpr ⟨ha, haP⟩⟩
+  · intro R hR
+    by_contra hne
+    have hd := parts_pairwise_disjoint I Q R hR.1 (component I Q a) hP hne
+    exact Finset.disjoint_left.mp hd (hR.2 ha) haP
+
+lemma part_roots_union (I : Finset ι) (Q : ι → Finset α)
+    (P : Finset α) (hP : P ∈ parts I Q) :
+    (rootsInPart I Q P).biUnion Q = P := by
+  ext a
+  constructor
+  · intro ha
+    obtain ⟨i, hi, hai⟩ := Finset.mem_biUnion.mp ha
+    exact (Finset.mem_filter.mp hi).2 hai
+  · intro ha
+    obtain ⟨i, hi, hai⟩ := Finset.mem_biUnion.mp (part_subset_union I Q P hP ha)
+    have hs := root_subset_part I Q P hP i hi ⟨a, Finset.mem_inter.mpr ⟨hai, ha⟩⟩
+    exact Finset.mem_biUnion.mpr ⟨i, Finset.mem_filter.mpr ⟨hi, hs⟩, hai⟩
+
+lemma part_roots_connected (I : Finset ι) (Q : ι → Finset α)
+    (P : Finset α) (hP : P ∈ parts I Q) :
+    ∀ u v : P, Relation.ReflTransGen
+      (fun a b : P => ∃ i ∈ rootsInPart I Q P, (a : α) ∈ Q i ∧ (b : α) ∈ Q i) u v := by
+  obtain ⟨a, ha, rfl⟩ := Finset.mem_image.mp hP
+  simpa only [rootsInPart, Finset.mem_filter, and_assoc] using component_connected I Q a
+
+lemma parts_sum_card (I : Finset ι) (Q : ι → Finset α) :
+    (∑ P ∈ parts I Q, P.card) = (I.biUnion Q).card := by
+  have hd : (parts I Q : Set (Finset α)).PairwiseDisjoint id := by
+    intro P hP R hR hne
+    exact parts_pairwise_disjoint I Q P hP R hR hne
+  change (∑ P ∈ parts I Q, (id P).card) = _
+  rw [← Finset.card_biUnion hd, parts_union]
+
+lemma parts_card_at_least_two (I : Finset ι) (Q : ι → Finset α)
+    (hQ : ∀ i ∈ I, 2 ≤ (Q i).card) :
+    ∀ P ∈ parts I Q, 2 ≤ P.card := by
+  intro P hP
+  obtain ⟨a, ha⟩ := parts_nonempty I Q P hP
+  obtain ⟨i, hi, hai⟩ := Finset.mem_biUnion.mp (part_subset_union I Q P hP ha)
+  have hs := root_subset_part I Q P hP i hi ⟨a, Finset.mem_inter.mpr ⟨hai, ha⟩⟩
+  exact (hQ i hi).trans (Finset.card_le_card hs)
+
+lemma parts_inter_card_le_one {κ : Type*}
+    (K : Finset κ) (I : κ → Finset ι) (Q : κ → ι → Finset α)
+    (hinter : ∀ c ∈ K, ∀ d ∈ K, c ≠ d →
+      ((I c).biUnion (Q c) ∩ (I d).biUnion (Q d)).card ≤ 1) :
+    ∀ c ∈ K, ∀ P ∈ parts (I c) (Q c),
+      ∀ d ∈ K, ∀ R ∈ parts (I d) (Q d),
+      (c, P) ≠ (d, R) → (P ∩ R).card ≤ 1 := by
+  intro c hc P hP d hd R hR hne
+  by_cases hcd : c = d
+  · subst d
+    have hPR : P ≠ R := fun he => hne (by rw [he])
+    have hdis := parts_pairwise_disjoint (I c) (Q c) P hP R hR hPR
+    rw [Finset.disjoint_iff_inter_eq_empty.mp hdis]
+    simp
+  · have hsub : P ∩ R ⊆ (I c).biUnion (Q c) ∩ (I d).biUnion (Q d) :=
+      Finset.inter_subset_inter (part_subset_union (I c) (Q c) P hP)
+        (part_subset_union (I d) (Q d) R hR)
+    exact (Finset.card_le_card hsub).trans (hinter c hc d hd hcd)
+
+end PEqualNP.Outside.L_meta_4970.ComponentPartition
+
+namespace PEqualNP.Outside.L_meta_4970_aux
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_4970.SemanticSafe
+open PEqualNP.Outside.L_meta_4970.ComponentPartition
+
+lemma component_star_family_or_count {ι : Type*} [DecidableEq ι]
+    (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (I : Finset ι) (W : ι → Finset ℕ)
+    (hW : ∀ i ∈ I, ∀ w ∈ W i, w < n + C.gates.length ∧
+      PureOr (singletonSupport n C w) (wireFn n C w))
+    (hinter : ∀ i ∈ I, ∀ j ∈ I, i ≠ j →
+      ((W i).biUnion (singletonSupport n C) ∩
+        (W j).biUnion (singletonSupport n C)).card ≤ 1) :
+    (∑ i ∈ I, ((W i).biUnion (singletonSupport n C)).card) ≤
+      (∑ i ∈ I, (parts (W i) (singletonSupport n C)).card) +
+        (allOrWires n C).card := by
+  classical
+  let J := I.sigma fun i => parts (W i) (singletonSupport n C)
+  let V : (Σ _ : ι, Finset (Fin n)) → Finset (Fin n) := fun j => j.2
+  let R : (Σ _ : ι, Finset (Fin n)) → Finset ℕ := fun j =>
+    rootsInPart (W j.1) (singletonSupport n C) j.2
+  have hr : ∀ j ∈ J, ∀ w ∈ R j,
+      w < n + C.gates.length ∧ Safe (V j) (wireFn n C w) := by
+    intro j hj w hw
+    obtain ⟨hi, hP⟩ := Finset.mem_sigma.mp hj
+    obtain ⟨hwW, hwP⟩ := Finset.mem_filter.mp hw
+    refine ⟨(hW j.1 hi w hwW).1, ?_⟩
+    intro x hx
+    obtain ⟨a, ha, hxa⟩ := (hW j.1 hi w hwW).2 x |>.mp hx
+    exact ⟨a, hwP ha, hxa⟩
+  have hc : ∀ j ∈ J, ∀ u v : V j, Relation.ReflTransGen
+      (fun a b : V j => ∃ w ∈ R j,
+        (a : Fin n) ∈ singletonSupport n C w ∧
+          (b : Fin n) ∈ singletonSupport n C w) u v := by
+    intro j hj
+    exact part_roots_connected (W j.1) (singletonSupport n C) j.2
+      (Finset.mem_sigma.mp hj).2
+  have hi : ∀ j ∈ J, ∀ k ∈ J, j ≠ k → (V j ∩ V k).card ≤ 1 := by
+    intro j hj k hk hne
+    have hp : (j.1, j.2) ≠ (k.1, k.2) := by
+      intro he
+      cases j with
+      | mk a P =>
+        cases k with
+        | mk b Q =>
+          simp only [Prod.mk.injEq] at he
+          obtain ⟨rfl, rfl⟩ := he
+          exact hne rfl
+    exact parts_inter_card_le_one I W (fun _ => singletonSupport n C) hinter
+      j.1 (Finset.mem_sigma.mp hj).1 j.2 (Finset.mem_sigma.mp hj).2
+      k.1 (Finset.mem_sigma.mp hk).1 k.2 (Finset.mem_sigma.mp hk).2 hp
+  have hh := connected_star_family_or_count n C hC J V R hr hc hi
+  simpa only [J, V, Finset.sum_sigma, Finset.card_sigma, parts_sum_card] using hh
+
+end PEqualNP.Outside.L_meta_4970_aux
