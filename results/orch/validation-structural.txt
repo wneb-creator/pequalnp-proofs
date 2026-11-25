@@ -25,3 +25,5 @@ Scope: checked omission/coverage/unary helpers only. Full gap remains unproved.
 Independent review: status_review and root.
 Sub-agents: 6 (rules/toolchain/normalization; structural proof; counterexample search; existing lemmas; combinatorial review; finite certificates)
 TIMING total=14 subagents=6
+
+Revision clarification: the first compiled source had120lines, SHA2567943e5aabe2c733559f494ffd54d4c46b87b7a44ed237a4c9ae5f79de41a02f5. Commit a263234b also included a new12line target_separation helper which was pending its followup compile. No full-gap acceptance is claimed.

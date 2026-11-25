@@ -1,0 +1,14 @@
+L-meta-1884 checked partial
+UTC: 2026-11-25T16:54:56.364482+00:00
+Source: results/orch/lemmas/combinatorial.lean
+SHA256: 2d3a6552608b1c26e7302938ef9891892b3a62f77b5bb3674fff465361464ecd
+Lines: 19
+Command: lake env lean ../results/orch/lemmas/combinatorial.lean
+Exit status: 0
+Complete stdout:
+
+Complete stderr:
+
+Independent review: root and structural/combinatorial agents. Full gap remains unproved.
+Sub-agents: 6 (rules/toolchain/normalization; structural proof; counterexample search; existing lemmas; combinatorial review; finite certificates)
+TIMING total=17 subagents=6
