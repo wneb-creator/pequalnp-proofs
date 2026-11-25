@@ -1,0 +1,13 @@
+L-meta-2583 PARTIAL ONLY; full target unproved and no refutation found.
+
+StarUpper.lean:636 lines,27540bytes; SHA25670c33f4a7120af93dc238e85d357c2e9b27e2b79e737406b8f0096ec97690ce5.
+Scope: constructs AO2 READ1 incidence circuit of exact size N*(q+2)-1 from N>0 and uniform line degreeq+1.
+StarReduction.lean:678 lines,29834bytes; SHA256903226af0a38465a2cc1274016dbc1bef05b02a6a543a5b11ba5b60bdf26145a.
+Scope: exact posted conclusion follows assuming N*(q+2)<=C.size+1; the numerical lower bound remains an explicit hypothesis.
+Both compiled with Lean4.36 via lake env lean, exit0. All four complete stdout/stderr logs are empty.
+Independent source review: PASS by status_review; detailed audits in status_review.md.
+No full-target checker run or proof PR. Conditional component is not a submitted reduction; reductions are closed.
+Cleanup not attempted; lines before/after unchanged636 and678.
+
+Sub-agents:6 (status review, semantic proof, counterexample search, combinatorial bound, toolchain research, star construction)
+TIMING total=53.96 subagents=6
