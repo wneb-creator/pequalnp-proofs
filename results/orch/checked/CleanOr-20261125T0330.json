@@ -1,0 +1,12 @@
+{
+  "source": "results/orch/checked/CleanOr-20261125T0330.lean",
+  "sha256": "8124e2b5657f69120f86971ecc2e72468316eabbfb8927893e35dc77e3ecfb00",
+  "lines": 553,
+  "checked_utc": "2026-11-25T03:33:57.521460+00:00",
+  "exit_code": 0,
+  "command": "source /tmp/oec/pequalnp-pilot-62/lean-env.sh && lake env lean /workspace/pequalnp-proofs/results/orch/checked/CleanOr-20261125T0330.lean",
+  "workdir": "/workspace/pequalnp-proofs/lean",
+  "log": "results/orch/checked/CleanOr-20261125T0330.log",
+  "pre_format_sha256": "64ef585f534a4790701a986e8acf7eff14df205d3fb44ad74bc00e55baca5bf0",
+  "format_change": "Removed trailing whitespace and stale copied comment; successful recompilation confirmed."
+}
