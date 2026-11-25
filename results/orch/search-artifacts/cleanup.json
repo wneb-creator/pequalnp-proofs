@@ -1,0 +1,28 @@
+{
+  "terminated_abc": [
+    [
+      6259,
+      "make"
+    ],
+    [
+      22600,
+      "g++"
+    ],
+    [
+      22601,
+      "cc1plus"
+    ],
+    [
+      24373,
+      "gcc"
+    ],
+    [
+      24374,
+      "cc1"
+    ]
+  ],
+  "already_gone": [],
+  "verified_at": "2026-11-25T14:47:23.424691+00:00",
+  "active_search_backends": [],
+  "abc_build_exit": 143
+}

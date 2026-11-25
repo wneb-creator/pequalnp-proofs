@@ -14,3 +14,4 @@
 - 2026-11-25T14:35:47.667768+00:00: finite-to-arbitrary row witness adapter checked and reviewed.
 - 2026-11-25T14:41:32.846426+00:00: elimination staroneaux finitecondition checked (exit0); proofworkpaused on rootlease410 instruction.
 - 2026-11-25T14:42:41.909355+00:00: stopped proof/search work after HTTP410; preserving all checked partials, uncompiled drafts, and full diagnostics before re-requesting a lease.
+- 2026-11-25T14:46:50.706004+00:00: ownership retry returned samepre-existing L-meta-2583 lease; stop under shared-lease rule. Nullcount0; no proof PR.

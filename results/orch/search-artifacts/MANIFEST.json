@@ -538,5 +538,17 @@
     "original_bytes": 23970,
     "stored_bytes": 23970,
     "sha256_uncompressed": "03c41c30a366a75e74f4e93b90afeca433d4cd6ae142c2bb80f44ef015c90054"
+  },
+  {
+    "path": "results/orch/search-artifacts/cleanup.json",
+    "original_bytes": 355,
+    "stored_bytes": 355,
+    "sha256_uncompressed": "e90b9613277f0619445171985404f0d422639d5c264713a544640e883232afa1"
+  },
+  {
+    "path": "results/orch/search-artifacts/abc-build-final.log",
+    "original_bytes": 90702,
+    "stored_bytes": 90702,
+    "sha256_uncompressed": "5b72e22c78fff8b018f307a5ae4ea309895f696e36a1b7eb700b2c7838ddabb1"
   }
 ]

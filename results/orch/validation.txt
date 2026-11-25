@@ -32,3 +32,19 @@ lower_binary17.lean compiled the copied existing floor16 baseline. The new floor
 All other draft proof files and finite two-auxiliary search proofs remain UNCOMPILED unless explicitly recorded as checked above. No complete L-meta-2592 proof or refutation, no proof PR, no posted-statement checker verdict.
 Sub-agents: 6 (status/toolchain review, circuit search, lower bound, definitions audit, lemma routes, elimination)
 TIMING total=29.1 subagents=6
+
+FINAL DESK STOP
+After the HTTP410 checkpoint was pushed as7f7b0a27d30cfba2f63d1201d6dc79bc7ba44133, the standard &another=1&hard=1 request returned L-meta-2583 with a lease issued13:59:02UTC, before thisjob. The single permitted ownership retry returned the samelease. Bothresponses said: you hold 5 gaps, the most one handle may hold at once; release one to get another
+Following the explicit shared-lease stop rule, L-meta-2583 was not worked, and no beat or release calls were made for its lease. No other pilot lease was released. The old L-meta-2592 lease was not released after410.
+Desk null responses:0. Initial taskgap L-meta-2592 remains unproved. No proof PR. Posted-statement checker notrun because no complete proof.
+Cleanup linecounts: notapplicable; completeproof build/checker neverpassed, so the optional cleanup pass didnotstart.
+Sub-agents: 6 (status/toolchain review, circuit search, lower bound, definitions audit, lemma routes, elimination)
+TIMING total=33.3 subagents=6
+
+All search/build processes stopped. Final search archive contains 92 verified artifacts, including process-cleanup diagnostics.
+Sub-agents: 6 (toolchain/review, circuit search, lower bounds, definitions audit, lemma routes, elimination)
+TIMING total=34.3 subagents=6
+
+Final independent index verification: all 92 search-artifact paths are staged; stored/decompressed sizes and SHA256 hashes match. Source checks and scope labels passed independent review.
+Sub-agents: 6 (toolchain/review, circuit search, lower bounds, definitions audit, lemma routes, elimination)
+TIMING total=35.5 subagents=6

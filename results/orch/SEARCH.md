@@ -101,3 +101,5 @@ Complete solver and compiler output is retained under
 ## Lease interruption
 
 At 2026-11-25T14:42:47.847408+00:00, root reported HTTP410 on the lease renewal and requested all work stop. The active paid19/exactly-one-NOT SAT run was terminated with SIGTERM; the subprocess returned -15 (SIGTERM), with no solver verdict and no witness. ABC compilation remains paused. No further searches or builds were started. Complete generated solver logs and models were copied into `results/orch/search-artifacts/`; CNFs are gzip-compressed without loss, with uncompressed SHA256 hashes in `MANIFEST.json`.
+
+At 2026-11-25T14:47:23.424691+00:00, the root requested final cleanup after the shared-lease retry. All five paused ABC build processes were verified by working directory and executable name, then terminated; the build exited143. No active search backends remain, and all search-driver sessions have ended. Final diagnostics are `search-artifacts/cleanup.json` and `search-artifacts/abc-build-final.log`.
