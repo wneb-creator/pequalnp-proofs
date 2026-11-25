@@ -19,3 +19,5 @@
 - 2026-11-25T16:05:58.073727+00:00: component rank/core plus finite-edge and induced-connectivity adapters compiled; 30-helper ledger checkpoint published.
 - 2026-11-25T16:10:12.471936+00:00: generic support graph and component rank compiled; checkpoint 6. Structural agent delegated independent global-bridge review; total subagents now 7.
 - 2026-11-25T16:13:38.305793+00:00: component-rank actual-circuit construction and aggregation built; checkpoint 7. Duplicate helper insertion during assembly fixed before successful build.
+- 2026-11-25T16:19:38.311474+00:00: re-plan: component rank established, but remaining-budget proof still open. TopForm leaves Ustar penalty; semantic cofactor route must handle reconvergence. Targeted C6 synthesis launched for 15 minutes after weak random coverage identified.
+- 2026-11-25T16:21:47.299038+00:00: actual circuit component-count integration built; checkpoint 8.

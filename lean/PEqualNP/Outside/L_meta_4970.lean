@@ -1732,3 +1732,22 @@ lemma bipartite_minimum_cover_pruning (p l : ℕ) (E : Finset (Fin p × Fin l))
     exact hc
 
 end PEqualNP.Outside.L_meta_4970.Pruning
+
+namespace PEqualNP.Outside.L_meta_4970_aux.Structural
+
+lemma circuit_pure_or_component_count (n : ℕ) (C : PEqualNP.CircuitLowerBounds.Circuit)
+    (hC : PEqualNP.TopForm.IsAO2 n C) (Q : Finset (Fin n))
+    (H : SimpleGraph (Q : Set (Fin n)))
+    (hH : ∀ a b : (Q : Set (Fin n)), H.Adj a b →
+      ∃ w < n + C.size,
+        (∀ x, wireValue n C w x = true → ∃ i ∈ Q, x i = true) ∧
+          a.val ∈ wireSupport n C w ∧ b.val ∈ wireSupport n C w) :
+    Q.card ≤ (pureOrPaid n C Q).card + Nat.card H.ConnectedComponent := by
+  obtain ⟨E, hEQ, hcard, hconn⟩ := circuit_pure_or_graph n C hC Q
+  have hc := PEqualNP.Outside.L_meta_4970.pair_graph_card_bound_of_adj Q E hEQ H
+    (fun a b hab => by
+      obtain ⟨w, hw, hbelow, ha, hb⟩ := hH a b hab
+      exact hconn w hw hbelow a.val ha b.val hb)
+  omega
+
+end PEqualNP.Outside.L_meta_4970_aux.Structural

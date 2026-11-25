@@ -27,3 +27,7 @@ TIMING total=47 subagents=7
 Checkpoint 7: 1734-line named module builds; component-rank actual-circuit graph and aggregate independently reviewed.
 Assembly duplicate declaration corrected; full failed and successful build logs retained.
 Full exact theorem still absent.
+
+Checkpoint 8: named module (1753 lines) builds with integrated circuit component count.
+Centreless example is a separately checked intermediate obstruction, not a refutation of the target.
+Posted statement and four exact null desk notes preserved for review.
