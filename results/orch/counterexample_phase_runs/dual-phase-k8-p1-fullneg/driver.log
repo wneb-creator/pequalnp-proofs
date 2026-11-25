@@ -1,0 +1,4 @@
+round 0 rows 571 selectors 333 budget 33 variables 80902 clauses 320762
+hint variables 80902 violated clauses 1
+solver exit 0 elapsed 300.04
+UNKNOWN

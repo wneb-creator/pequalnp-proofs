@@ -1,0 +1,8 @@
+{
+  "assigned_variables": 80902,
+  "passes": 2,
+  "violated_clause_indices": [
+    319643
+  ],
+  "warning": "Phase preferences only; no constraints or assumptions added"
+}

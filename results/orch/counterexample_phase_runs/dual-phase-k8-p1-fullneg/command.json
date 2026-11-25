@@ -1,0 +1,30 @@
+{
+  "started_utc": "2026-11-25T13:03:37.144063+00:00",
+  "command": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-85/counterexample/compact_hybrid.py",
+    "--ands",
+    "8",
+    "--position",
+    "1",
+    "--helper",
+    "dual",
+    "--seconds",
+    "300",
+    "--total-seconds",
+    "300",
+    "--samples",
+    "/tmp/oec/pequalnp-pilot-85/counterexample/all-negative.json",
+    "--hint",
+    "/tmp/oec/pequalnp-pilot-85/counterexample/masked27-input12-dual.json",
+    "--solver",
+    "/tmp/oec/pequalnp-pilot-85/sat-tool/cadical-phase",
+    "--profile",
+    "sat",
+    "--ordered",
+    "--side-lex",
+    "--cone",
+    "--out",
+    "/tmp/oec/pequalnp-pilot-85/counterexample/dual-phase-k8-p1-fullneg"
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "ands": 8,
+  "position": 1,
+  "selected": 36,
+  "size": 27,
+  "rows": 571,
+  "checks": [
+    {
+      "limit": 36,
+      "variables": 81796,
+      "clauses": 324335,
+      "assigned_variables": 81796,
+      "passes": 2,
+      "violated_clause_indices": [],
+      "warning": "Phase preferences only; no constraints or assumptions added"
+    },
+    {
+      "limit": 33,
+      "variables": 80902,
+      "clauses": 320762,
+      "assigned_variables": 80902,
+      "passes": 2,
+      "violated_clause_indices": [
+        319643
+      ],
+      "warning": "Phase preferences only; no constraints or assumptions added"
+    }
+  ]
+}

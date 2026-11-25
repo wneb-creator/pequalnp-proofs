@@ -1,0 +1,141 @@
+{
+  "created_utc": "2026-11-25T13:07:34.082126+00:00",
+  "files": {
+    "README.md": {
+      "bytes": 2676,
+      "sha256": "23ed6a0abbba920b9aaaba1c7bf5d489aeae63f3e6b3b4379557c5ba7840d864"
+    },
+    "abc27-masked-dual.json": {
+      "bytes": 2449,
+      "sha256": "4e6a048f174b8117f05ca3f9a1ac359fbaf3b9d55e83587216ae79e0f5c4f645"
+    },
+    "all-negative.json": {
+      "bytes": 3045,
+      "sha256": "7d1f1df6cbe310ca8f1fb6901d92f51c534a69af7c205cd55f48825c4151fbdc"
+    },
+    "andcount_sat.py": {
+      "bytes": 3406,
+      "sha256": "a3a00dfc0d5b4d30c39546ef69bc8dca221af02af9dc539711c79f998ebfb3c5"
+    },
+    "compact_budget.py": {
+      "bytes": 6578,
+      "sha256": "392434b473ce2c546293da89b77a84c2f18fb08dec54ef6137be756d9f0f935d"
+    },
+    "compact_hybrid.py": {
+      "bytes": 12014,
+      "sha256": "d61168855f7d7ff538ffb934e98b3ddd0c3865833b342a67cbed1f140b7d83d8"
+    },
+    "dual-phase-smoke27/andcount_sat-source.py": {
+      "bytes": 3406,
+      "sha256": "a3a00dfc0d5b4d30c39546ef69bc8dca221af02af9dc539711c79f998ebfb3c5"
+    },
+    "dual-phase-smoke27/command.json": {
+      "bytes": 592,
+      "sha256": "0845e10602d7048afd1781235e87e6e9537c04da01bd9e8277e5b630d9ad216b"
+    },
+    "dual-phase-smoke27/compact_budget-source.py": {
+      "bytes": 6578,
+      "sha256": "392434b473ce2c546293da89b77a84c2f18fb08dec54ef6137be756d9f0f935d"
+    },
+    "dual-phase-smoke27/compact_hybrid-source.py": {
+      "bytes": 12014,
+      "sha256": "d61168855f7d7ff538ffb934e98b3ddd0c3865833b342a67cbed1f140b7d83d8"
+    },
+    "dual-phase-smoke27/driver.log": {
+      "bytes": 187,
+      "sha256": "0b3047ab04ed97c7fbfcdb0d79afe11a3909e2b6a0cbfb519463f38f4328920f"
+    },
+    "dual-phase-smoke27/phase-seed.json": {
+      "bytes": 2448,
+      "sha256": "25e3fda045de68c2771d9ca79419a29668cd676aeceadb4a809e7aaac48d1a4b"
+    },
+    "dual-phase-smoke27/round-000-candidate.json": {
+      "bytes": 2411,
+      "sha256": "ac5043498896ba6445ca0de814ad4b2365740413a150ac8f1ee85675c2d43800"
+    },
+    "dual-phase-smoke27/round-000-phase-info.json": {
+      "bytes": 157,
+      "sha256": "742917151d9f2220df908aed3b8b42419d01e14dbb130dd1c0837f73f0c6309f"
+    },
+    "dual-phase-smoke27/round-000-rows.json": {
+      "bytes": 8272,
+      "sha256": "04fe5edee1da1fcddd36571ed1bd1535135ed8a557cfcb46f711858a432b7661"
+    },
+    "dual-phase-smoke27/round-000-schema.json": {
+      "bytes": 1717,
+      "sha256": "da5dd33308764bfc599178112869b2ffa247e29378dcdccc281dde7b3c5d0176"
+    },
+    "dual-phase-smoke27/round-000.solver.log": {
+      "bytes": 590703,
+      "sha256": "fd17266968b89ed710d27d602b5a61cbacc10f14b350e8f1eb8b9530b55b2d54"
+    },
+    "dual-screen-k7-p1-fullneg/andcount_sat-source.py": {
+      "bytes": 3406,
+      "sha256": "a3a00dfc0d5b4d30c39546ef69bc8dca221af02af9dc539711c79f998ebfb3c5"
+    },
+    "dual-screen-k7-p1-fullneg/compact_budget-source.py": {
+      "bytes": 6578,
+      "sha256": "392434b473ce2c546293da89b77a84c2f18fb08dec54ef6137be756d9f0f935d"
+    },
+    "dual-screen-k7-p1-fullneg/compact_hybrid-source.py": {
+      "bytes": 9505,
+      "sha256": "159aa09e9ca91c1bfcd3a357e4febc14b51cb816f67c347f87ad8dcb68bfb579"
+    },
+    "dual-screen-k7-p1-fullneg/round-000-rows.json": {
+      "bytes": 8272,
+      "sha256": "04fe5edee1da1fcddd36571ed1bd1535135ed8a557cfcb46f711858a432b7661"
+    },
+    "dual-screen-k7-p1-fullneg/round-000-schema.json": {
+      "bytes": 1469,
+      "sha256": "2da17b402596494a5a35843100d11a4b9de5ab288b9cce8e458f6e374618fcbe"
+    },
+    "dual-screen-k7-p1-fullneg/round-000.solver.log": {
+      "bytes": 34003,
+      "sha256": "fc663f7928e77691c461e65332ffb196dbe3b441ab5b74062a60de1c55bffd92"
+    },
+    "dual-screen-k7-p1-fullneg.log": {
+      "bytes": 109,
+      "sha256": "520717bfa8a787723b4566904d1f96aab963d969a1617cae4e8358e678688e63"
+    },
+    "hybrid-screen-k8-p4-fullneg/andcount_sat-source.py": {
+      "bytes": 3406,
+      "sha256": "a3a00dfc0d5b4d30c39546ef69bc8dca221af02af9dc539711c79f998ebfb3c5"
+    },
+    "hybrid-screen-k8-p4-fullneg/compact_budget-source.py": {
+      "bytes": 6578,
+      "sha256": "392434b473ce2c546293da89b77a84c2f18fb08dec54ef6137be756d9f0f935d"
+    },
+    "hybrid-screen-k8-p4-fullneg/compact_hybrid-source.py": {
+      "bytes": 9505,
+      "sha256": "159aa09e9ca91c1bfcd3a357e4febc14b51cb816f67c347f87ad8dcb68bfb579"
+    },
+    "hybrid-screen-k8-p4-fullneg/round-000-rows.json": {
+      "bytes": 8272,
+      "sha256": "04fe5edee1da1fcddd36571ed1bd1535135ed8a557cfcb46f711858a432b7661"
+    },
+    "hybrid-screen-k8-p4-fullneg/round-000-schema.json": {
+      "bytes": 1616,
+      "sha256": "bc5cb80650acdf90ee2a4a0a7c7b136d1b456b7c5f9a9196a71724908802460b"
+    },
+    "hybrid-screen-k8-p4-fullneg/round-000.solver.log": {
+      "bytes": 34101,
+      "sha256": "a4fba5a481cb26f76acc690d45442ff6f9c7e6eceee5951d1935022cd0f8876a"
+    },
+    "hybrid-screen-k8-p4-fullneg.log": {
+      "bytes": 109,
+      "sha256": "228fc4e02e2a0ffcc749a712fa33599e87010396b065d6224970a68c67a80bbe"
+    },
+    "masked27-input12-dual.json": {
+      "bytes": 2449,
+      "sha256": "1e38a0fb54f84d75e42d0b218a3d402bb29bec08e68ca0d5351fa91ec734c4a6"
+    },
+    "phase-hint-validation.json": {
+      "bytes": 626,
+      "sha256": "6d2efd1e2305a50ac6c6536f1eafb7693aedce28abad2fcf9104ff1e81791886"
+    },
+    "seed_to_hybrid.py": {
+      "bytes": 3248,
+      "sha256": "43f43e208f60b53ef4e0629cd8fc2c15b5f7e82d4ba50ac2c12da0b0ca21f9af"
+    }
+  }
+}

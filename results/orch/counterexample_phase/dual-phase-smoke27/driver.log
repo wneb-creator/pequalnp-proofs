@@ -1,0 +1,4 @@
+round 0 rows 571 selectors 333 budget 36 variables 81796 clauses 324335
+hint variables 81796 violated clauses 0
+solver exit 10 elapsed 1.25
+actual gate count 27 full truth-table errors 0

@@ -1,0 +1,4 @@
+round 0 rows 571 selectors 333 budget 35 variables 81499 clauses 323148
+hint variables 81499 violated clauses 1
+solver exit 0 elapsed 119.19
+UNKNOWN

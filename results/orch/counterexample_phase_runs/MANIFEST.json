@@ -1,0 +1,97 @@
+{
+  "created_utc": "2026-11-25T13:14:38.845653+00:00",
+  "files": {
+    "README.md": {
+      "bytes": 1505,
+      "sha256": "a28c3e737c75b93894bf68ccd182b090471b6288e58816c4f50d396f6736c247"
+    },
+    "best24-from-masked27.json": {
+      "bytes": 1333,
+      "sha256": "55bdb4fd773bbecf0167ef6020a07f59c006c7924bf743f3fbf3545ee99dd5b9"
+    },
+    "best24-masked-ordered.json": {
+      "bytes": 324,
+      "sha256": "fe9fe5b197636c88e796a6a270d4c0c3e37377acb279f7cb820720c8fe3b1adc"
+    },
+    "dual-phase-k8-p1-fullneg/andcount_sat-source.py": {
+      "bytes": 3406,
+      "sha256": "a3a00dfc0d5b4d30c39546ef69bc8dca221af02af9dc539711c79f998ebfb3c5"
+    },
+    "dual-phase-k8-p1-fullneg/command.json": {
+      "bytes": 708,
+      "sha256": "eca8e4e559b5fe0cfaae81f50df4dfb0dad0c7b7c1c5d5005e94339a784797ee"
+    },
+    "dual-phase-k8-p1-fullneg/compact_budget-source.py": {
+      "bytes": 6578,
+      "sha256": "392434b473ce2c546293da89b77a84c2f18fb08dec54ef6137be756d9f0f935d"
+    },
+    "dual-phase-k8-p1-fullneg/compact_hybrid-source.py": {
+      "bytes": 12014,
+      "sha256": "d61168855f7d7ff538ffb934e98b3ddd0c3865833b342a67cbed1f140b7d83d8"
+    },
+    "dual-phase-k8-p1-fullneg/driver.log": {
+      "bytes": 149,
+      "sha256": "682ddfedcc3ec70b89e31480ea3f53ee0395f22a0b972584362d57d3edf7d45e"
+    },
+    "dual-phase-k8-p1-fullneg/phase-seed.json": {
+      "bytes": 2448,
+      "sha256": "25e3fda045de68c2771d9ca79419a29668cd676aeceadb4a809e7aaac48d1a4b"
+    },
+    "dual-phase-k8-p1-fullneg/round-000-phase-info.json": {
+      "bytes": 171,
+      "sha256": "eb9ae406b65dd6277f51bc6f7bb52ffee18dfb6f89f8a496d583a03b4ebb9a13"
+    },
+    "dual-phase-k8-p1-fullneg/round-000-rows.json": {
+      "bytes": 8272,
+      "sha256": "04fe5edee1da1fcddd36571ed1bd1535135ed8a557cfcb46f711858a432b7661"
+    },
+    "dual-phase-k8-p1-fullneg/round-000-schema.json": {
+      "bytes": 1717,
+      "sha256": "da5dd33308764bfc599178112869b2ffa247e29378dcdccc281dde7b3c5d0176"
+    },
+    "dual-phase-k8-p1-fullneg/round-000.solver.log": {
+      "bytes": 32522,
+      "sha256": "aeea273b92a483b3013780e0ac57727cb6d4125dbe6868030138a8055b645620"
+    },
+    "dual-phase26-k8-p1-fullneg/andcount_sat-source.py": {
+      "bytes": 3406,
+      "sha256": "a3a00dfc0d5b4d30c39546ef69bc8dca221af02af9dc539711c79f998ebfb3c5"
+    },
+    "dual-phase26-k8-p1-fullneg/command.json": {
+      "bytes": 732,
+      "sha256": "8002417a4eb94f641bc3f8f7e15b05cc7a39d8f1bce419f76a5ad868c9358dab"
+    },
+    "dual-phase26-k8-p1-fullneg/compact_budget-source.py": {
+      "bytes": 6578,
+      "sha256": "392434b473ce2c546293da89b77a84c2f18fb08dec54ef6137be756d9f0f935d"
+    },
+    "dual-phase26-k8-p1-fullneg/compact_hybrid-source.py": {
+      "bytes": 12014,
+      "sha256": "d61168855f7d7ff538ffb934e98b3ddd0c3865833b342a67cbed1f140b7d83d8"
+    },
+    "dual-phase26-k8-p1-fullneg/driver.log": {
+      "bytes": 149,
+      "sha256": "6deda3bc5f0b79439d3a78baf2f415bed784a4190cfb283ecd0a5d1f30c908c6"
+    },
+    "dual-phase26-k8-p1-fullneg/phase-seed.json": {
+      "bytes": 2448,
+      "sha256": "1aa720131107945729162e0126eed53c0273acb2395f1399b85759c18431d75b"
+    },
+    "dual-phase26-k8-p1-fullneg/round-000-phase-info.json": {
+      "bytes": 171,
+      "sha256": "dcf92bf0772e0c7a1bb6cea7d56a26f277f741350066ee81d045f48e23ca6bfa"
+    },
+    "dual-phase26-k8-p1-fullneg/round-000-rows.json": {
+      "bytes": 8272,
+      "sha256": "04fe5edee1da1fcddd36571ed1bd1535135ed8a557cfcb46f711858a432b7661"
+    },
+    "dual-phase26-k8-p1-fullneg/round-000-schema.json": {
+      "bytes": 1717,
+      "sha256": "da5dd33308764bfc599178112869b2ffa247e29378dcdccc281dde7b3c5d0176"
+    },
+    "dual-phase26-k8-p1-fullneg/round-000.solver.log": {
+      "bytes": 32523,
+      "sha256": "80f405df9e3280997dcdb9e042cece0c6fc57ed96203536058eb459229ba08c6"
+    }
+  }
+}

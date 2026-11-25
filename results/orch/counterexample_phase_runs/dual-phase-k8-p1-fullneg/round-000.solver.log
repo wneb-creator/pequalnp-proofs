@@ -1,0 +1,463 @@
+c opening file to read '/tmp/oec/pequalnp-pilot-85/counterexample/dual-phase-k8-p1-fullneg/round-000.cnf'
+c found 'p cnf 80902 320762' header
+c parsed 320762 clauses in 0.18 seconds process time
+c phase hints 80902
+c profile sat
+s UNKNOWN
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time and ticks taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c       ticks  percent     rate         real   solve
+c 
+c     7.4e+09   92.56%  2.8e+07       266.27   93.63% search              
+c     6.9e+09   86.19%  2.8e+07       244.31   85.91% stable              
+c     5.1e+08    6.35%  2.3e+07        21.90    7.70% walk                
+c     5.9e+08    7.44%  3.3e+07        18.11    6.37% simplify            
+c     3.3e+08    4.17%  5.3e+07         6.32    2.22% vivify              
+c     1.1e+08    1.35%  3.9e+07         2.73    0.96% sweep               
+c     3.3e+07    0.41%  1.8e+07         1.79    0.63% elim                
+c     5.2e+07    0.66%  4.5e+07         1.17    0.41% ternary             
+c     7.4e+03    0.00%  6.4e+03         1.15    0.40% congruence          
+c     0.0e+00    0.00%  0.0e+00         1.15    0.40% subsume             
+c     5.3e+07    0.66%  8.9e+07         0.60    0.21% probe               
+c     1.5e+07    0.19%  3.8e+07         0.39    0.14% backbone            
+c     0.0e+00    0.00%  0.0e+00         0.18    0.06% parse               
+c     1.7e+06    0.02%  2.8e+07         0.06    0.02% lucky               
+c   ====================================================================
+c     8.0e+09  100.00%  2.8e+07       284.38   99.93% solve               
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c api_init:                                        1
+c api_reset:                                       0
+c api_vars:                                        0
+c api_val:                                         0
+c api_declare_var:                                 0
+c api_declare_vars:                                0
+c api_resize:                                      1
+c api_set:                                         2
+c api_set_long_option:                             0
+c api_optimize:                                    0
+c api_limit:                                       0
+c api_configure:                                   1
+c api_add:                                   1136747
+c api_constrain:                                   0
+c api_assume:                                      0
+c api_lookahead:                                   0
+c api_generate_cubes:                              0
+c api_reset_assumptions:                           0
+c api_propagate_assumptions:                       0
+c api_implied:                                     0
+c api_solve:                                       1
+c api_simplify:                                    0
+c api_flip:                                        0
+c api_flippable:                                   0
+c api_failed:                                      0
+c api_constraint_failed:                           0
+c api_fixed:                                       0
+c api_phase:                                   80902
+c api_unphase:                                     0
+c api_active:                                      0
+c api_redundant:                                   0
+c api_irredundant:                                 0
+c api_freeze:                                      0
+c api_melt:                                        0
+c api_frozen:                                      0
+c api_trace_proof:                                 0
+c api_flush_proof_trace:                           0
+c api_close_proof_trace:                           0
+c api_conclude:                                    0
+c api_stats:                                       1
+c api_resources:                                   0
+c api_dump:                                        0
+c api_observed:                                    0
+c api_is_decision:                                 0
+c api_connect_propagator:                          0
+c api_disconnect_propagator:                       0
+c api_connect_proof_tracer:                        0
+c api_disconnect_proof_tracer:                     0
+c api_connect_fixed_listener:                      0
+c api_disconnect_fixed_listener:                   0
+c api_connect_learner:                             0
+c api_disconnect_learner:                          0
+c api_connect_terminator:                          1
+c api_disconnect_terminator:                       0
+c api_observe:                                     0
+c api_unobserve:                                   0
+c api_reset_observed:                              0
+c api_force_backtrack:                             0
+c api_is_witness:                                  0
+c api_force_unassign:                              0
+c api_read_dimacs:                                 0
+c api_read_solution:                               0
+c api_write_dimacs:                                0
+c api_write_extension:                             0
+c api_copy:                                        0
+c api_traverse_clauses:                            0
+c api_traverse_constraint:                         0
+c api_traverse_witness_forward:                    0
+c api_traverse_witness_backward:                   0
+c backbone_phases:                    76     6119.37     interval             
+c backbone_probes:               4361233       53.91 per vars                 
+c backbone_rounds:                   194        2.55 per backbone_phases      
+c backbone_units:                      0        0.00 per backbone_phases      
+c backtracked:                    615303
+c blocked:                             0        0.00 %   clauses_irredundant  
+c blocked_candidates:                  0        0.00 per blockings            
+c blocked_pure_clauses:                0        0.00 %   blocked_pure_literals
+c blocked_pure_literals:               0        0.00 %   vars                 
+c blocked_resolutions:                 0        0.00 per blocked_candidates   
+c blockings:                           0        0.00     interval             
+c clause_improved_glue:           228111        0.41 per clauses_redundant    
+c clause_promoted_tier1:             939        0.00 per clause_improved_glue 
+c clause_promoted_tier2:            3649        0.02 per clause_improved_glue 
+c clause_recompute_glue:         5625540       10.17 per clauses_redundant    
+c clauses:                       1186050
+c clauses_irredundant:            632893       53.36 %   clauses              
+c clauses_now_irr:                259821
+c clauses_now_red:                 23517
+c clauses_now_total:              283338
+c clauses_redundant:              553157       46.64 %   clauses              
+c collected:                   116723064  2652796.91 per collections          
+c collections:                        44    10569.82     interval             
+c compacts:                            2   232536.00     interval             
+c condition_active:                    0        0.00 per conditionings        
+c condition_candidates:                0        0.00 per conditionings        
+c conditioned:                         0        0.00 %   clauses_irredundant  
+c conditioned_assign:                  0        0.00 per conditioned          
+c conditioned_autarky:                 0        0.00 per conditioned          
+c conditioned_cond:                    0        0.00 per conditioned          
+c conditioned_initial:                 0        0.00 per conditioned          
+c conditionings:                       0        0.00     interval             
+c condition_pre_assign:                0        0.00 per conditionings        
+c condition_pre_autarky:               0        0.00 per conditionings        
+c condition_pre_cond:                  0        0.00 per conditionings        
+c condition_propagated:                0        0.00 per conditionings        
+c conflicts:                      465072     1635.40 per second               
+c conflicts_chrono:                99238        0.21 per conflicts            
+c congruence_ands:                     1        0.50 per congruent            
+c congruence_dummy_ands:               0        0.00 per congruence_rounds    
+c congruence_gates:               222354    24706.00 per congruence_rounds    
+c congruence_gates_and:           222345      100.00 %   congruence_gates     
+c congruence_gates_ite:                0        0.00 %   congruence_gates     
+c congruence_gates_xor:                9        0.00 %   congruence_gates     
+c congruence_ites:                     0        0.00 per congruent            
+c congruence_rounds:                   9    51674.67     interval             
+c congruence_rw_ands:                 16        0.00 per congruence_gates     
+c congruence_rw_ites:                  0        0.00 per congruence_gates     
+c congruence_rw_xors:                  0        0.00 per congruence_gates     
+c congruence_simp_ands:                0        0.00 per congruence_rounds    
+c congruence_simp_ites:                0        0.00 per congruence_rounds    
+c congruence_simplified:               0        0.00 per congruence_rounds    
+c congruence_simp_xors:                0        0.00 per congruence_rounds    
+c congruence_subsumed:                 1        0.11 per congruence_rounds    
+c congruence_trite:                    0        0.00 per congruence_rounds    
+c congruence_unary:                    0        0.00 per congruence_rounds    
+c congruence_unary_and:                0        0.00 per congruence_rounds    
+c congruence_unary_ite:                0        0.00 per congruence_rounds    
+c congruence_units:                    0        0.00 per congruent            
+c congruence_xors:                     0        0.00 per congruent            
+c congruent:                           2        0.22 per congruence_rounds    
+c cover_asymmetric:                    0        0.00 %   cover_total          
+c cover_blocked:                       0        0.00 %   cover_total          
+c coverings:                           0        0.00     interval             
+c cover_total:                         0        0.00 %   clauses_irredundant  
+c decision_random:                     0        0.00 %   decisions            
+c decision_random_phase:               0        0.00     interval             
+c decisions:                      588834     2070.60 per second               
+c decision_searched:                   0        0.00 per decisions            
+c decompositions:                     49     9491.27     interval             
+c deduplicated:                      558        0.47 %   subsumed             
+c deduplicate_init:                    0        0.00 %   subsumed             
+c deduplicate_rounds:                  0        0.00 per searches             
+c deduplicate_unary:                   0        0.00 per deduplications       
+c deduplications:                    114     4079.58     interval             
+c eager_subsumed:                 112292       94.92 %   subsumed             
+c eager_subsumptions:           10042186       89.43 per eager_subsumed       
+c eliminate_and:                  127725       99.93 %   eliminate_gates      
+c eliminate_complete:                  3       14.29 %   eliminations         
+c eliminated:                      42642       52.71 %   vars                 
+c eliminated_and:                  42368       99.36 %   eliminated           
+c eliminated_defs:                     0        0.00 %   eliminated           
+c eliminate_def_check:                 0        0.00 per eliminated_defs      
+c eliminate_def_success:               0        0.00 %   eliminate_def_check  
+c eliminate_def_ticks:                 0        0.00 %   ticks                
+c eliminate_def_unit:                  0        0.00 per eliminate_def_check  
+c eliminated_equivalent:             102        0.24 %   eliminated           
+c eliminated_ite:                      0        0.00 %   eliminated           
+c eliminated_xor:                      0        0.00 %   eliminated           
+c eliminate_equivalence:              92        0.00 per eliminate_gates      
+c eliminate_fast_phases:               0        0.00 per eliminate_fast_rounds
+c eliminate_fast_rounds:               0        0.00 per searches             
+c eliminate_gates:                127817       59.46 %   eliminate_tried      
+c eliminate_ite:                       0        0.00 %   eliminate_gates      
+c eliminate_otf_str:                2291        1.07 %   eliminate_tried      
+c eliminate_otf_sub:                   0        0.00 %   eliminate_tried      
+c eliminate_phases:                   12        0.57 per eliminations         
+c eliminate_resolved:            5263536      123.44 per eliminated           
+c eliminate_strength_bw:              10        0.00 %   eliminate_tried      
+c eliminate_substituted:           36367       16.92 %   eliminate_tried      
+c eliminate_subsumed_bw:             699        0.33 %   eliminate_tried      
+c eliminate_tried:                214967    10236.52 per eliminations         
+c eliminate_tried_res:           4740479       22.05 per eliminate_tried      
+c eliminate_xor:                       0        0.00 %   eliminate_gates      
+c eliminations:                       21    22146.29     interval             
+c extensions:                          0        0.00 %   searches             
+c extended:                            0        0.00 per weakened             
+c extend_clause_blocked:               0        0.00 per weakened             
+c extend_clause_read:                  0        0.00 per weakened             
+c exttointchecked:                     1        1.00 per searches             
+c exttointswitched:                    1        1.00 per exttointchecked      
+c factor_added_clauses:                0        0.00 per factored             
+c factor_added_literals:               0        0.00 per factored             
+c factored:                            0        0.00 %   vars                 
+c factored_and:                        0        0.00 %   factored             
+c factored_eliminated:                 0        0.00 %   factored             
+c factored_ite:                        0        0.00 %   factored             
+c factored_xor:                        0        0.00 %   factored             
+c factorings:                          0        0.00     interval             
+c factor_removed_irr:                  0        0.00 per factored             
+c factor_removed_lits:                 0        0.00 per factored             
+c factor_removed_red:                  0        0.00 per factored             
+c failed_literals:                    13        0.02 %   vars                 
+c flush_hyper:                         0        0.00 %   flush_learned        
+c flushings:                           0        0.00     interval             
+c flush_learned:                       0        0.00 %   clauses_redundant    
+c garbage_bytes:                  993952
+c garbage_clauses:                  6088
+c garbage_literals:               208936
+c hbr_redundant:                   71868       97.89 %   hbrs                 
+c hbrs:                            73415        1.00 per probed               
+c hbr_sizes:                      246085        3.35 per hbrs                 
+c hbr_subsuming:                    1255        0.02 per hbrs                 
+c ilb_reuse_assumptions:               0        0.00 per ilb_success          
+c ilb_reuse_levels:                    0        0.00 per ilb_success          
+c ilb_reuse_literals:                  0        0.00 per ilb_success          
+c ilb_success:                         0        0.00 per ilb_triggers         
+c ilb_triggers:                        0        0.00 per searches             
+c incremental_decay:                   0        0.00 per searches             
+c inprobingphases:                    38    12238.74     interval             
+c inprobingsuccess:                    7       18.42 %   inprobingphases      
+c instantiated:                        0        0.00 per instantiate_tried    
+c instantiate_tried:                   0        0.00 per instantiations       
+c instantiations:                      0        0.00     interval             
+c irredundant_literals:          1360058
+c learned_binaries:                   82        0.02 %   learned_clauses      
+c learned_clauses:                456465       38.49 %   clauses              
+c learned_literals:             52247325      114.46 per learned_clauses      
+c learned_units:                       2        0.00 %   learned_clauses      
+c lucky:                               0        0.00 %   lucky_tried          
+c lucky_backward_one:                  1      100.00 %   lucky_tried          
+c lucky_backward_zero:                 1      100.00 %   lucky_tried          
+c lucky_constant_one:                  1      100.00 %   lucky_tried          
+c lucky_constant_zero:                 1      100.00 %   lucky_tried          
+c lucky_forward_one:                   1      100.00 %   lucky_tried          
+c lucky_forward_zero:                  1      100.00 %   lucky_tried          
+c lucky_random:                        0        0.00 %   lucky_tried          
+c lucky_tried:                         1        1.00 per searches             
+c lucky_units:                         0        0.00 %   lucky_tried          
+c mark_block:                          0
+c mark_elim:                      187280
+c mark_factor:                    161763
+c mark_subsume:                   160830
+c mark_ternary:                    32628
+c minimized:                           0        0.00 per learned_literals     
+c otfs_strengthened:                 525        0.11 %   conflicts            
+c otfs_subsumed:                      21        0.00 %   conflicts            
+c preprocessings:                      0        0.00 per searches             
+c probed:                          73336       90.65 %   vars                 
+c probe_failed_literals:              13        0.00 per probed               
+c probingrounds:                      38    12238.74     interval             
+c propagations:               1550693587        5.45 M   per second           
+c propagations_backbone:         5205975        0.34 %   propagations         
+c propagations_cover:                  0        0.00 %   propagations         
+c propagations_inst:                   0        0.00 %   propagations         
+c propagations_probe:            6532743        0.42 %   propagations         
+c propagations_search:        1401887013       90.40 %   propagations         
+c propagations_transred:        83683732        5.40 %   propagations         
+c propagations_vivify:          53384124        3.44 %   propagations         
+c recomputed_tiers:                   22    21139.64     interval             
+c reduced:                        311498       68.24 %   learned_clauses      
+c reductions:                         40    11626.80     interval             
+c rephased:                           30    15502.40     interval             
+c rephased_best:                      10       33.33 %   rephased             
+c rephased_flipped:                    3       10.00 %   rephased             
+c rephased_inverted:                   3       10.00 %   rephased             
+c rephased_original:                   2        6.67 %   rephased             
+c rephased_random:                     2        6.67 %   rephased             
+c rephased_walk:                      10       33.33 %   rephased             
+c restart:                           126     3691.05     interval             
+c restart_levels:                   4890       38.81 per restart              
+c restart_stable:                    126      100.00 %   restart              
+c restorations:                        0        0.00 per searches             
+c restored_clauses:                    0        0.00 per restorations         
+c restored_literals:                   0        0.00 per restored_clauses     
+c restore_defrags:                     0        0.00 %   restorations         
+c reused:                            125        0.99 per restart              
+c reused_levels:                    4320       34.56 per reused               
+c reused_stable:                     125        1.00 per reused               
+c scores_rescored:                    67        0.01 %   conflicts            
+c scores_shuffled:                     0        0.00 per rephased             
+c searches:                            1
+c sections:                            2
+c shrunken:                     24901438       47.66 %   learned_literals     
+c shrunken_minimize:             5048550        9.66 %   learned_literals     
+c stable_conflicts:               464680       99.92 %   conflicts            
+c stable_phases_current:               0        0.00     interval             
+c stable_phases_total:                 0        0.00     interval             
+c strengthened:                    14376        1.21 %   clauses              
+c subsume_checks:               39059813       19.83 per subsume_tried        
+c subsume_checks_binary:         1215724        3.11 %   subsume_checks       
+c subsumed:                       118301        9.97 %   clauses              
+c subsumed_irredundant:             3735        3.16 %   subsumed             
+c subsumed_redundant:                996        0.84 %   subsumed             
+c subsume_phases:                     12        0.50 per subsume_rounds       
+c subsume_rounds:                     24    19378.00     interval             
+c subsume_tried:                 1969822       16.65 per subsumed             
+c sweepings:                           8    58134.00     interval             
+c sweep_bb_fixed:                      0        0.00 per sweep_variables      
+c sweep_bb_flip:                 5620905      270.08 per sweep_variables      
+c sweep_bb_flipped:              5112929       90.96 %   sweep_bb_flip        
+c sweep_bb_solved:                 52872       29.48 %   sweep_solved         
+c sweep_bb_solved_sat:             52871      100.00 %   sweep_bb_solved      
+c sweep_bb_solved_to:                  1        0.00 %   sweep_bb_solved      
+c sweep_bb_solved_unsat:               0        0.00 %   sweep_bb_solved      
+c sweep_clauses:                 4845637      232.83 per sweep_variables      
+c sweep_completed:                     0        0.00 per sweepings            
+c sweep_depth:                     41624        2.00 per sweep_variables      
+c sweep_environment:             5321196      255.68 per sweep_variables      
+c sweep_eq:                            0        0.00 per sweep_variables      
+c sweep_eq_flip:                 8614116      413.90 per sweep_variables      
+c sweep_eq_flipped:              4991153       57.94 %   sweep_eq_flip        
+c sweep_eq_solved:                105665       58.92 %   sweep_solved         
+c sweep_eq_solved_sat:             88231       83.50 %   sweep_eq_solved      
+c sweep_eq_solved_to:                  0        0.00 %   sweep_eq_solved      
+c sweep_eq_solved_unsat:           17434       16.50 %   sweep_eq_solved      
+c sweep_solved:                   179349        8.62 per sweep_variables      
+c sweep_solved_sat:               161911       90.28 %   sweep_solved         
+c sweep_solved_to:                     4        0.00 %   sweep_solved         
+c sweep_solved_unsat:              17434        9.72 %   sweep_solved         
+c sweep_units:                         0        0.00 %   vars                 
+c sweep_variables:                 20812        0.26 per vars                 
+c ternary:                            50     9301.44     interval             
+c ternary_htrs:                    22109        1.99 %   ternary_resolutions  
+c ternary_htrs_binary:                 0        0.00 %   ternary_htrs         
+c ternary_htrs_ternary:            22109      100.00 %   ternary_htrs         
+c ternary_resolutions:           1113561    22271.22 per ternary              
+c ticks:                      7965769657       28.01 M   per second           
+c ticks_backbone:               14891724        0.19 %   ticks                
+c ticks_elim:                   32518667        0.41 %   ticks                
+c ticks_fastelim:                      0        0.00 %   ticks                
+c ticks_factor:                        0        0.00 %   ticks                
+c ticks_probe:                  52779627        0.66 %   ticks                
+c ticks_search_stable:        6865919064       86.19 %   ticks                
+c ticks_search_unstable:           35247        0.00 %   ticks                
+c ticks_sweep:                 107759163        1.35 %   ticks                
+c ticks_ternary:                52442681        0.66 %   ticks                
+c ticks_vivify:                332026022        4.17 %   ticks                
+c ticks_walk:                  505677080        6.35 %   ticks                
+c ticks_walk_break:                    0        0.00 %   ticks_walk           
+c ticks_walk_flip:              61028384       12.07 %   ticks_walk           
+c ticks_walk_flip_broke:        24616035        4.87 %   ticks_walk           
+c ticks_walk_flip_wl:           36412349        7.20 %   ticks_walk           
+c ticks_walk_pick:                     0        0.00 %   ticks_walk           
+c transitive_clauses:                258        0.22 %   subsumed             
+c transitive_rounds:                  50     9301.44     interval             
+c transitive_units:                    0        0.00 %   failed_literals      
+c up_cb:                               0        0.00 per searches             
+c up_cb_add:                           0        0.00 %   up_cb                
+c up_cb_check_model:                   0        0.00 %   up_cb                
+c up_cb_decide:                        0        0.00 %   up_cb                
+c up_cb_decided:                       0        0.00 %   up_cb_decide         
+c up_cb_decide_force_bt:               0        0.00 %   up_cb_decide         
+c up_cb_prop:                          0        0.00 %   up_cb                
+c up_cb_prop_assign:                   0        0.00 %   up_cb_prop           
+c up_cb_prop_clash:                    0        0.00 %   up_cb_prop           
+c up_cb_prop_explain:                  0        0.00 %   up_cb_prop           
+c up_learn:                            0        0.00 %   clauses              
+c up_learn_conflict:                   0        0.00 %   up_learn             
+c up_learn_elevating:                  0        0.00 %   up_learn             
+c up_learn_empty:                      0        0.00 %   up_learn             
+c up_learn_lazy_elevate:               0        0.00 %   up_learn             
+c up_learn_out_of_order:               0        0.00 %   up_learn             
+c up_learn_propagating:                0        0.00 %   up_learn             
+c up_learn_satisfied:                  0        0.00 %   up_learn             
+c up_learn_unit:                       0        0.00 %   up_learn             
+c variables_extension:                 0        0.00 %   vars                 
+c variables_original:              80902      100.00 %   vars                 
+c vars:                            80902
+c vars_active:                     30139       37.25 %   vars                 
+c vars_all_elim:                   42642       52.71 %   vars                 
+c vars_all_elim_fast:                  0        0.00 %   vars                 
+c vars_all_fixed:                   7342        9.08 %   vars                 
+c vars_all_pure:                       0        0.00 %   vars                 
+c vars_all_substituted:              779        0.96 %   vars                 
+c vars_bumped:                     80293       99.25 %   vars                 
+c vars_declared:                       0        0.00 %   vars                 
+c vars_inactive:                     221        0.27 %   vars                 
+c vars_now_eliminated:               168
+c vars_now_fixed:                     38
+c vars_now_pure:                       0
+c vars_now_substituted:               15
+c vars_reactivated:                    0        0.00 %   vars                 
+c vars_unused:                         0        0.00 %   vars                 
+c vivifications:                      32    14533.50     interval             
+c vivified:                         8293        0.70 %   clauses              
+c vivified_irr:                      910       10.97 %   vivified             
+c vivified_tier1:                   2066       24.91 %   vivified             
+c vivified_tier2:                   4048       48.81 %   vivified             
+c vivified_tier3:                   1269       15.30 %   vivified             
+c vivify_checks:                   26183       13.96 %   vivify_scheduled     
+c vivify_decisions:               149558        5.71 per vivify_checks        
+c vivify_demote:                       0        0.00 %   vivify_strength      
+c vivify_flushed:                     21       10.45 %   vivify_subsumed      
+c vivify_implied:                   4354       16.63 %   vivify_checks        
+c vivify_instantiated:                 0        0.00 %   vivify_checks        
+c vivify_reused:                   42631       28.50 %   vivify_decisions     
+c vivify_scheduled:               187559     5861.22 per vivifications        
+c vivify_strength:                  3939       27.40 %   strengthened         
+c vivify_strength_irr:               910       23.10 %   vivify_strength      
+c vivify_strength_tier1:            1004       25.49 %   vivify_strength      
+c vivify_strength_tier2:            1148       29.14 %   vivify_strength      
+c vivify_strength_tier3:             877       22.26 %   vivify_strength      
+c vivify_subsumed:                   201        0.17 %   subsumed             
+c vivify_subsumed_irr:                16        7.96 %   vivify_subsumed      
+c vivify_subsumed_red:               164       81.59 %   vivify_subsumed      
+c vivify_units:                        0        0.00 %   vivify_checks        
+c walk:                               10    46507.20     interval             
+c walk_broken:                 211590565       44.55 per walk_flips           
+c walk_flips:                    4749071        0.22 M   per second walk      
+c walk_flips_reducing:           4749071      100.00 %   walk_flips           
+c walk_flips_sideways:                 0        0.00 %   walk_flips           
+c walk_flips_transfer:            257701        5.43 %   walk_flips           
+c walk_improved:                      10        1.00 per walk                 
+c walk_warmup:                        10      100.00 %   walk                 
+c walk_warmup_conflicts:            2230      223.00 per walk_warmup          
+c walk_warmup_decision:             3754      375.40 per walk_warmup          
+c walk_warmup_dummy:                3142      314.20 per walk_warmup          
+c walk_warmup_propagate:          359118    35911.80 per walk_warmup          
+c weakened:                       193185       16.29 %   clauses              
+c weakened_cube_cls:                   0        0.00 %   weakened             
+c weakened_lengths:               622278        3.22 per weakened             
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ glue usage ] ---------------------------------------------------------
+c 
+c focused glue 2 used 0 clauses 0.000% accumulated 0.000% tier1
+c focused glue 3 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 4 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 5 used 0 clauses 0.000% accumulated 0.000%
+c focused glue 6 used 0 clauses 0.000% accumulated 0.000% tier2
+c 
+c stable glue 8 used 503505 clauses 8.831% accumulated 51.42% tier1
+c stable glue 9 used 332708 clauses 5.835% accumulated 57.26%
+c stable glue 10-18 used 1229439 clauses 21.56% accumulated 78.82%
+c stable glue 19 used 96054 clauses 1.684% accumulated 80.51%
+c stable glue 20 used 88364 clauses 1.549% accumulated 82.06% tier2
+c 
