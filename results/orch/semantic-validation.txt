@@ -1,0 +1,24 @@
+Semantic partial validation 2026-11-25T14:22:49.821669+00:00
+All files below compile with lake env lean. These are partial lemmas, not a proof of L-meta-2592. The posted-statement checker has not been run for these standalone helper files.
+
+SemanticClassification.lean
+SHA256 1d02eae0d23acca77a9a743a23725949de93f016fa46f5cd9afa5160d53d6c7e
+lines 60
+exit 0; stdout/stderr empty
+command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/SemanticClassification.lean
+
+SemanticAllInputs.lean
+SHA256 0326e48b00e98373d7ac917e29609b12d09d8756a21e97daf7583999ad7f61ff
+lines 68
+exit 0; stdout/stderr empty
+command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/SemanticAllInputs.lean
+
+SemanticFactorization.lean
+SHA256 9f60a598122c8062231d14764ec4170f90276d1b1a4c18d1e56626d36a9ec0d5
+lines 31
+exit 0; stdout/stderr empty
+command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/SemanticFactorization.lean
+
+
+SAT checkpoint 2026-11-25T14:24:54.299102+00:00
+187-row first-NOT batch: UNKNOWN after240seconds. Incremental first-NOT with<=4NOT: UNKNOWN after1200seconds. Incremental exactly1NOT first-input: UNKNOWN after1200seconds. Exactly1NOT plus neighbor single-use input: UNKNOWN after600seconds. No SAT model found in these runs. Fullstdout/stderr logs copied under results/orch/logs. All four cases impose exactly19 nonpadding normalized gates, and do not establish a lower bound. The OR-nonedge batch log was overwritten by a duplicate run; no verdict from that run is claimed.

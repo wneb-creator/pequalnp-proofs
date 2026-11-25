@@ -27,3 +27,7 @@ Standalone partial: 5781 lines before cleanup; 280866 bytes; SHA256 81d440f47787
 Official local checker ACCEPTED the explicit >=16 binary-gate PARTIAL statement: standard axioms only, kernel re-checked2734constants. The posted L-meta-2592 statement remains unproved. SixteenCorollaries additionally proves at most3NOTs if size<=19.
 Sub-agents: 7 total, including counterexample/two_vertex_catalog added for read-only supporting-bound lookup.
 TIMING total=36 subagents=7
+StrictRestriction.lean: Lean compile exit0; independently reviewed by root; 151 lines; sha256 02072f9070c33e6669a9752ba80644dd33fbb3f17b4cf246d076ba587d49081a. Explicit partial hypotheses only, no full-target claim.
+SemanticClassification.lean: Lean compile exit0; independently reviewed by few_negations; 60 lines; sha256 1d02eae0d23acca77a9a743a23725949de93f016fa46f5cd9afa5160d53d6c7e. Explicit partial hypotheses only, no full-target claim.
+SemanticAllInputs.lean: Lean compile exit0; independently reviewed by few_negations; 68 lines; sha256 0326e48b00e98373d7ac917e29609b12d09d8756a21e97daf7583999ad7f61ff. Explicit partial hypotheses only, no full-target claim.
+SemanticFactorization.lean: Lean compile exit0; independently reviewed by few_negations; 31 lines; sha256 9f60a598122c8062231d14764ec4170f90276d1b1a4c18d1e56626d36a9ec0d5. Explicit partial hypotheses only, no full-target claim.

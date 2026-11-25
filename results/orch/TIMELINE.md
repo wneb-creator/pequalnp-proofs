@@ -27,3 +27,4 @@
 2026-11-25T14:17:16.199210+00:00 Lease renewed; expires 2026-11-25T14:37:15.741Z
 2026-11-25T14:22:49.823120+00:00 Semantic route: three standalone helper files compiled; classification all-nine-input version and generic factorization lemmas complete, sent for independent review.
 2026-11-25T14:23:12.651823+00:00 Official local checker ACCEPTED standalone16binary partial,2734constants. Full target still open. Preserving complete source, exact partial statement and checker logs.
+2026-11-25T14:26:14.772361+00:00 Strict restriction and finite semantic classification partials compiled and independently reviewed; preserving.
