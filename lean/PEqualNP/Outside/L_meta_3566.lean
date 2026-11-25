@@ -10308,3 +10308,202 @@ lemma no_shared_operand {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
   omega
 
 end PEqualNP.Outside.L_meta_3566.CommonTopFactor
+
+namespace PEqualNP.Outside.L_meta_3566.MaxDirtyConsumer
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership ParallelRewrite
+
+lemma reader_top {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) {q : ℕ} (hdirty : ¬ BelowF G C q)
+    (hmax : ∀ k, q < k → k < C.gates.length → BelowF G C k)
+    {j : ℕ} (hj : j < C.gates.length) (hread : n+q ∈ (gateAt C j).inputs) :
+    q < j ∧ j ∈ tops G C := by
+  classical
+  have hqj : q < j := by have := hAO.2.1 j hj _ hread; omega
+  have hjc := hmax j hqj hj
+  have hja : (gateAt C j).op = .and := by
+    rcases hAO.1 _ (MixedColor.gateAt_mem hj) with ha | ho
+    · exact ha
+    · exfalso
+      apply hdirty
+      intro x hx
+      apply hjc x
+      exact (MixedColor.val_or (n := n) (C := C) (x := List.ofFn x) (by simp) hj ho).mpr
+        ⟨n+q,hread,hAO.2.1 j hj _ hread,hx⟩
+  refine ⟨hqj,?_⟩
+  simp only [tops,gatesWhere,Finset.mem_filter,Finset.mem_range]
+  exact ⟨hj,hja,hjc⟩
+
+lemma clean_reader_count {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hAO : IsAO2 n C) {q j : ℕ} (hdirty : ¬ BelowF G C q)
+    (hj : j < C.gates.length) (hjc : BelowF G C j) (hja : (gateAt C j).op = .and)
+    (hread : n+q ∈ (gateAt C j).inputs) : (gateAt C j).inputs.count (n+q) = 1 := by
+  obtain ⟨a,b,hab⟩ := MixedColor.binaryInputs hAO hj
+  have hmem : n+q = a ∨ n+q = b := by simpa [hab] using hread
+  have hne : a ≠ b := by
+    intro heq
+    subst b
+    have hqa : n+q = a := hmem.elim id id
+    apply hdirty
+    intro x hx
+    apply hjc x
+    change value C x (n+j) = true
+    rw [value_gate C hAO.2.1 x j hj,hja,hab,← hqa]
+    change value C x (n+q) = true at hx
+    simp [GateOp.eval,hx]
+  rw [hab]
+  rcases hmem with hqa | hqb
+  · rw [← hqa] at hne ⊢
+    simp [hne]
+  · rw [← hqb] at hne ⊢
+    simp [hne,hne.symm]
+
+lemma dirty_not_output {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hfun : circuitFun n C = graphFun G ∅)
+    {q : ℕ} (hdirty : ¬ BelowF G C q) : C.output ≠ n+q := by
+  intro hout
+  apply hdirty
+  intro x hx
+  have hc : circuitFun n C x = true := by
+    change value C x C.output = true
+    rw [hout]
+    exact hx
+  simpa only [hfun] using hc
+
+lemma unique_consumer {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hLeast : IsLeastAO G C) (hTF : TopForm G C)
+    {q : ℕ} (hq : q < C.gates.length) (hdirty : ¬ BelowF G C q)
+    (hmax : ∀ k, q < k → k < C.gates.length → BelowF G C k) :
+    ∃ j, q < j ∧ j < C.gates.length ∧ j ∈ tops G C ∧
+      (gateAt C j).inputs.count (n+q) = 1 ∧
+      ∀ k, k < C.gates.length → n+q ∈ (gateAt C k).inputs → k = j := by
+  classical
+  have hnotout := dirty_not_output G C hLeast.2.1 hdirty
+  obtain ⟨j,hqj,hj,hread⟩ := (LeastGateLive.output_or_later_reader G C hLeast q hq).resolve_left hnotout
+  have hjtop := (reader_top G C hLeast.1 hdirty hmax hj hread).2
+  have hj' := hjtop
+  simp only [tops,gatesWhere,Finset.mem_filter,Finset.mem_range] at hj'
+  refine ⟨j,hqj,hj,hjtop,clean_reader_count G C hLeast.1 hdirty hj hj'.2.2 hj'.2.1 hread,?_⟩
+  intro k hk hkr
+  by_contra hkj
+  have hktop := (reader_top G C hLeast.1 hdirty hmax hk hkr).2
+  exact CommonTopFactor.no_shared_operand G C hLeast hTF hktop hjtop hkj (n+q) hkr hread
+
+lemma single_outgoing_slot {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hLeast : IsLeastAO G C) (hTF : TopForm G C)
+    {q : ℕ} (hq : q < C.gates.length) (hdirty : ¬ BelowF G C q)
+    (hmax : ∀ k, q < k → k < C.gates.length → BelowF G C k) :
+    ∑ j ∈ Finset.range C.gates.length, (gateAt C j).inputs.count (n+q) = 1 := by
+  obtain ⟨j,_,hj,_,hcount,hunique⟩ := unique_consumer G C hLeast hTF hq hdirty hmax
+  rw [Finset.sum_eq_single j]
+  · exact hcount
+  · intro k hk hkj
+    apply List.count_eq_zero.mpr
+    intro hread
+    exact hkj (hunique k (Finset.mem_range.mp hk) hread)
+  · intro hjnot
+    exact (hjnot (Finset.mem_range.mpr hj)).elim
+
+lemma exists_max_dirty {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hdirty : ∃ q, q < C.gates.length ∧ ¬ BelowF G C q) :
+    ∃ q, q < C.gates.length ∧ ¬ BelowF G C q ∧
+      ∀ k, q < k → k < C.gates.length → BelowF G C k := by
+  classical
+  let S := (Finset.range C.gates.length).filter (fun q => ¬ BelowF G C q)
+  have hne : S.Nonempty := by
+    obtain ⟨q,hq,hd⟩ := hdirty
+    exact ⟨q,Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hq,hd⟩⟩
+  let q := S.max' hne
+  have hqS : q ∈ S := Finset.max'_mem S hne
+  obtain ⟨hq,hd⟩ := Finset.mem_filter.mp hqS
+  refine ⟨q,Finset.mem_range.mp hq,hd,?_⟩
+  intro k hqk hk
+  by_contra hkd
+  have hkS : k ∈ S := Finset.mem_filter.mpr ⟨Finset.mem_range.mpr hk,hkd⟩
+  have hle : k ≤ q := Finset.le_max' S k hkS
+  omega
+
+lemma exists_single_consumer {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hLeast : IsLeastAO G C) (hTF : TopForm G C)
+    (hdirty : ∃ q, q < C.gates.length ∧ ¬ BelowF G C q) :
+    ∃ q j, q < j ∧ j < C.gates.length ∧ ¬ BelowF G C q ∧ j ∈ tops G C ∧
+      (gateAt C j).inputs.count (n+q) = 1 ∧
+      (∀ k, k < C.gates.length → n+q ∈ (gateAt C k).inputs → k = j) ∧
+      (∑ k ∈ Finset.range C.gates.length, (gateAt C k).inputs.count (n+q)) = 1 := by
+  obtain ⟨q,hq,hd,hm⟩ := exists_max_dirty G C hdirty
+  obtain ⟨j,hqj,hj,hjt,hcount,hu⟩ := unique_consumer G C hLeast hTF hq hd hm
+  exact ⟨q,j,hqj,hj,hd,hjt,hcount,hu,single_outgoing_slot G C hLeast hTF hq hd hm⟩
+
+end PEqualNP.Outside.L_meta_3566.MaxDirtyConsumer
+
+namespace PEqualNP.Outside.L_meta_3566.MaxDirtyConsumerExtras
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership ParallelRewrite
+
+lemma earlier_partner {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hLeast : IsLeastAO G C) {q : ℕ} (hdirty : ¬ BelowF G C q)
+    (hmax : ∀ k, q < k → k < C.gates.length → BelowF G C k)
+    {j : ℕ} (hj : j < C.gates.length) (hread : n+q ∈ (gateAt C j).inputs) :
+    ∃ r, r < n+q ∧ r ≠ n+q ∧ r ∈ (gateAt C j).inputs ∧
+      ((gateAt C j).inputs = [n+q,r] ∨ (gateAt C j).inputs = [r,n+q]) ∧
+      ∀ x : Fin n → Bool, value C x (n+j) = (value C x (n+q) && value C x r) := by
+  classical
+  have hjtop := (MaxDirtyConsumer.reader_top G C hLeast.1 hdirty hmax hj hread).2
+  simp only [tops,gatesWhere,Finset.mem_filter,Finset.mem_range] at hjtop
+  have hcount := MaxDirtyConsumer.clean_reader_count G C hLeast.1 hdirty hj hjtop.2.2 hjtop.2.1 hread
+  obtain ⟨a,b,hab⟩ := MixedColor.binaryInputs hLeast.1 hj
+  have hmem : n+q = a ∨ n+q = b := by simpa [hab] using hread
+  obtain ⟨r,hshape⟩ : ∃ r, (gateAt C j).inputs = [n+q,r] ∨
+      (gateAt C j).inputs = [r,n+q] := by
+    rcases hmem with hqa | hqb
+    · exact ⟨b,Or.inl (hqa ▸ hab)⟩
+    · exact ⟨a,Or.inr (hqb ▸ hab)⟩
+  have hrmem : r ∈ (gateAt C j).inputs := by
+    rcases hshape with hs | hs <;> simp [hs]
+  have hrne : r ≠ n+q := by
+    intro heq
+    subst r
+    have hs : (gateAt C j).inputs = [n+q,n+q] := hshape.elim id id
+    simp [hs] at hcount
+  have hrl : r < n+q := by
+    by_contra hrl
+    have hnr : n ≤ r := by omega
+    have hqr : q < r-n := by omega
+    have hrback := hLeast.1.2.1 j hj r hrmem
+    have hrc := hmax (r-n) hqr (by omega)
+    apply AndChild.not_below G C hLeast j r hj hjtop.2.1 hrmem
+    intro x hx
+    apply hrc x
+    change value C x (n+(r-n)) = true
+    change value C x r = true at hx
+    have heq : n+(r-n) = r := by omega
+    simpa only [heq] using hx
+  refine ⟨r,hrl,hrne,hrmem,hshape,?_⟩
+  intro x
+  rw [value_gate C hLeast.1.2.1 x j hj,hjtop.2.1]
+  rcases hshape with hs | hs <;> simp [hs,GateOp.eval,Bool.and_comm]
+
+lemma private_top {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hLeast : IsLeastAO G C) (hTF : TopForm G C)
+    {q : ℕ} (hq : q < C.gates.length) (hdirty : ¬ BelowF G C q)
+    (hmax : ∀ k, q < k → k < C.gates.length → BelowF G C k) :
+    ∃ j r, q < j ∧ j < C.gates.length ∧ j ∈ tops G C ∧ r < n+q ∧ r ≠ n+q ∧
+      ((gateAt C j).inputs = [n+q,r] ∨ (gateAt C j).inputs = [r,n+q]) ∧
+      (∀ x : Fin n → Bool, value C x (n+j) = (value C x (n+q) && value C x r)) ∧
+      C.output ≠ n+q ∧
+      (∀ k, k < C.gates.length → k ≠ j → n+q ∉ (gateAt C k).inputs) ∧
+      (gateAt C j).inputs.count (n+q) = 1 := by
+  obtain ⟨j,hqj,hj,hjt,hcount,hu⟩ := MaxDirtyConsumer.unique_consumer G C hLeast hTF hq hdirty hmax
+  have hread : n+q ∈ (gateAt C j).inputs := by
+    by_contra hnot
+    have hz := List.count_eq_zero.mpr hnot
+    omega
+  obtain ⟨r,hr,hrne,_,hshape,hvalue⟩ := earlier_partner G C hLeast hdirty hmax hj hread
+  refine ⟨j,r,hqj,hj,hjt,hr,hrne,hshape,hvalue,
+    MaxDirtyConsumer.dirty_not_output G C hLeast.2.1 hdirty,?_,hcount⟩
+  intro k hk hkj hkr
+  exact hkj (hu k hk hkr)
+
+end PEqualNP.Outside.L_meta_3566.MaxDirtyConsumerExtras
