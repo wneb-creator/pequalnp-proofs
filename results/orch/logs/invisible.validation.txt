@@ -1,0 +1,13 @@
+Partial validation
+UTC: 2026-11-25T12:58:42.714916+00:00
+Source: results/orch/lemmas/EdgeInvisible.lean
+SHA256: 686853be4b57c2e68b7e2e7a2c3cdfd7aadc0bac5620125ffad88491460ff6ec
+Lines: 181
+Command: lake env lean ../results/orch/lemmas/EdgeInvisible.lean
+Working directory: lean/
+Exit status: 0
+stdout: empty
+stderr: empty
+Independent reviewer: read1_construction passed
+Limitation: empty-OR replacement preserves function but has fan-in zero; AO2 restoration and gate reduction not established here.
+Assembly note: includes CircuitMonotone and EdgeInvisibleBody.

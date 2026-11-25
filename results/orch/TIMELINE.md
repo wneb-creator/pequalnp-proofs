@@ -20,3 +20,6 @@
 - 2026-11-25T12:48:56.425146+00:00: construction strategy completed checked general star-cover-to-read1 bridge.
 - 2026-11-25T12:51:04.525464+00:00: general star-cover construction and clean-normal-form read1 endpoints compiled and reviewed; focus returns to cost argument.
 - 2026-11-25T12:58:51.679717+00:00: consolidated 3212-line partial built and independently reviewed.
+
+2026-11-25T13:00:06.518863+00:00 MixedLinear sharp OR-count theorem compiled: 478 lines; independent review pending. Fixed C4-free family of genuine OR outputs, arbitrary fan-in-two AND/OR circuit.
+- 2026-11-25T13:03:39.084845+00:00: mixed-AO row counting and constant-cleanup components compiled and reviewed.

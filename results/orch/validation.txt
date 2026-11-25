@@ -6,7 +6,7 @@ Independent red-team review: status_review passed semantics and format.
 The full posted statement has not been proved. No proof PR is ready.
 Local checker not yet applicable: final theorem absent.
 Sub-agents: six (toolchain/review, direct proof, independent bound, counterexample search, construction, normalization)
-TIMING total=38 subagents=6
+TIMING total=42.6 subagents=6
 
 RelCount.lean: lake env lean exit 0; empty complete logs saved. Independent review passed.
 
@@ -35,3 +35,5 @@ FamilyCombined.lean: lake env lean exit 0; independent exact-source review passe
 CleanReadOne.lean: lake env lean exit 0; independent exact-source review passed. TopForm plus no dirty AND gates suffices for read-1 and conditional replacement. Neither result establishes those hypotheses for every posted input circuit. Full logs retained in each validation artifact.
 
 LATEST assigned partial module: 3212 lines, 143385 bytes, SHA256 9b1d57b57cc02f0dbf799d7db08d378c2ee2d8385800590814df55ff186b177a. lake build PEqualNP.Outside.L_meta_2585 PASSED exit0; complete build-3212 logs saved. Independent assembly review passed. Full posted theorem still absent. Cleanup remains skipped, latest before/after cleanup 3212/3212.
+
+MixedLinear.lean (489 lines): Lean exit0, independent final-delta review passed; counts OR gates serving pure fixed row outputs. EdgeInvisible.lean (181 lines): Lean exit0, reviewed components combined exactly; suppresses an edge-invisible gate but alone retains a constant gate. ConstantCleanup.lean (543 lines): Lean exit0 and independent review passed; removes an empty OR and restores AO2 for nonconstant function with at least one gate saved. These are components, not the posted theorem.

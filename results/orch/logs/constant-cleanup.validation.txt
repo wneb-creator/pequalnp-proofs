@@ -1,0 +1,5 @@
+Standalone Lean compile: PASS (exit 0)
+Source SHA256: bc25dd754eeb53c0a3623a9d59631340d7c6f158c59b18a2b43a9747f468b887
+Source lines: 543
+Independent review: read1_construction PASS
+Stdout contains upstream tactic-style warnings; stderr empty.
