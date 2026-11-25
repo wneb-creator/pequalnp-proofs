@@ -9,3 +9,6 @@ Local gap checker: NOT RUN; this artifact is an auxiliary lemma, not the posted 
 
 Sub-agents: 5 (rules/review, assembly, structural/certificates, counterexample/SAT, first-gate/optimization)
 TIMING total=14.1 subagents=5
+
+Additional auxiliary lemma: BenchWords.lean. Independent raw Lean4.36 compilation exit0; stdout/stderr empty.
+SHA256: e37b8799a6f11e4a5a9975d79b85ca8ede8057bf32e506fa06c4c0fd1f207bbf
