@@ -1,0 +1,10 @@
+{
+  "recorded_at": "2026-11-25T08:21:09.926078+00:00",
+  "status": "UNKNOWN_TIME_LIMIT",
+  "exit": 0,
+  "solver_real_seconds": 600.0,
+  "solver_cpu_seconds": 544.27,
+  "native_limit_seconds": 600,
+  "source_sha256": "43821c638037f6f5d61a4986322b7414d52c59a0459e942206e681b428cfb6ac",
+  "note": "No SAT/UNSAT verdict and no witness. This does not establish cleanliness or a counterexample for C7."
+}

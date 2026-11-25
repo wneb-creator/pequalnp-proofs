@@ -119,5 +119,21 @@
   "two_junk_full_boundary.py": "a329dd50571f2e61be8489769cdec03e43e7006d7311fd4d44a934b9795c996f",
   "two-junk-full-boundary-result.json": "94235f57d38a0c4ccaa6cce4b810945240d92e04f0c7734785d7508b5c6692b5",
   "two-junk-full-boundary-search.log": "94235f57d38a0c4ccaa6cce4b810945240d92e04f0c7734785d7508b5c6692b5",
-  "dirty-context-reviews.json": "d582f943277ff3b5553de2eed9c22774d90e400daa4eb94bed6003db3d66479c"
+  "dirty-context-reviews.json": "d582f943277ff3b5553de2eed9c22774d90e400daa4eb94bed6003db3d66479c",
+  "theta233-k10-sat-ordered-r1.cnf": "ffc0ef5967ef4561a41de222b6f3d82aa93d83de92cd91ccaa9d08ae8aca2735",
+  "theta233-k10-sat-ordered-r1.json": "b8df92f1413ec16181ac69c849e5ee8707ea365b982c078591456fa5e4a03704",
+  "theta233-k10-sat-ordered-r1.solver.log": "3faabc7178a8913237b259d9e9463a158f11aaccd752315723c0683d0c88a290",
+  "theta233-k10-sat-ordered-r1.log": "7fc2a894559e1a4431d4f4455c69ab6d157b394b0b5375be9bcc599b7c66989e",
+  "theta333-k11-sat-ordered-r1.cnf": "0a5b24e0f87a287ad5c59c278ababf553b0eb45bf511de761aa171a9345687df",
+  "theta333-k11-sat-ordered-r1.json": "65e4c03e906400fbc83d61c554f49005c6178503e914ce22635a947c6b391936",
+  "theta333-k11-sat-ordered-r1.solver.log": "fcf808e5f87daffd83dec1ccd5ac9ead9e657dbb0d910bb7b131c62a0b6c1473",
+  "theta333-k11-sat-ordered-r1.log": "f6b2a6edf50d79f08a9396a8cb455a6a17f22d50c0e16d1734e2853ccf753df4",
+  "ordered-theta-outcomes.json": "4ad8ae53826bb3cc017dd5ec06e800d8a900a7688686511a0819df15c5f1f007",
+  "c7-k10-dirty-sat.cnf": "28d87fb2ade31b6ac07e7e10f87e3bfdde7cbca84232aff324f92e515876876d",
+  "c7-k10-dirty-sat.json": "d360d0043a7b1db2959b0d92c45e2101846462ff314a7b189bc83236e33c5b34",
+  "c7-k10-dirty-sat.solver.log": "e57caa2cbc0578e5bb9f1eb1ecd652a10d84c6fa61c73156553e2dac7e8799fc",
+  "c7-k10-dirty-sat.log": "7ed48579309b84b7dbc6dc8231322c6777ce35609b000551c34631b13aa80e24",
+  "c7.graph": "c6e66f008661f165fca4b443862062adf306732683c43f5b24fb01388350c45e",
+  "c7.rows": "a9178a97f4fbbed02ad63f125aa39702128d246e3dec80c7269d34367a850c46",
+  "c7-dirty-outcome.json": "2df2ffd6b8229d0b67b5973c496054655baffa030f6bb7ae4be2673da71395cf"
 }

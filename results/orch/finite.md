@@ -89,3 +89,11 @@ A fixed-prefix obstruction was independently checked in Python and C++ on all64 
 This blocks a naive three-gate repair with that entire OR prefix fixed. It does not refute L-meta-2448: the original prefix-plus-extension circuit has11 gates, while rebuilding the two star ORs gives an explicit5-gate circuit. The original circuit is therefore not globally minimum. Both complete programs/results and review hashes are preserved, with the dirty query files; manifest now121 artifacts. All evidence remains computational, not Lean-checked.
 
 Updated 2026-11-25T08:12:51.215163+00:00
+
+Both ordered theta attempts also returned UNKNOWN at their native900s limits, with exit0 and no SAT/UNSAT verdict. The independent completeness review of the ordering cut does not turn a timed-out search into a lower-bound result. All8 full model/log artifacts and ordered-theta-outcomes.json are preserved; the source is the already preserved/reviewed synth_sat.py. Manifest now130 artifacts. No further broad theta solver run is planned without a new concrete structural target. C7 dirty query remains in scratch until completion.
+
+Updated 2026-11-25T08:18:26.839507+00:00
+
+C7 dirty-AND query at the canonical10-gate cover size reached the native600s limit with exit0 and no SAT/UNSAT verdict. Outcome UNKNOWN/time-limit; neither a dirty witness nor a cleanliness theorem was obtained. Full model, all logs, exact graph/critical rows, and c7-dirty-outcome.json are preserved. Manifest now137 artifacts. All finite solver work is currently stopped. No targeted essential-star encoder was created: structural_proof found an explicit P4 counterexample to the AND-minimum essential-star hypothesis before that implementation began.
+
+Updated 2026-11-25T08:21:09.931163+00:00

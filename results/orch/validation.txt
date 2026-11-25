@@ -3,15 +3,17 @@ Status: PARTIAL ONLY; posted theorem is not proved. No PR.
 File: lean/PEqualNP/Outside/L_meta_2448.lean
 Source SHA256: 72c333a765a480d06fbae71d6afa211f788c15109a7f201eae70da7a1f798890
 Build12: lake build PEqualNP.Outside.L_meta_2448, exit 0; complete output build-partial-12.log.
-Local checker09: REJECTED (no-theorem); checker12 is running on the exact standalone replacement.
+Local checker12: REJECTED (no-theorem), exit1; exact standalone replacement checked. Complete output checker-partial-12.log.
 Strongest result: conditional minimum star-profile witness, assuming a supplied public minimum AO2 circuit has at most one junk AND. These extra hypotheses are not proved generally.
 Independent red-team review: declaration provenance, namespace rewrite, exact dependency closure, theorem scope, plain-file format, imports, byte limit, and standard axioms all PASS.
 Line counts: first partial142; repair collection2078; standalone replacement9440 (476959bytes).
 Cleanup: not reached because the full posted theorem is absent; no accepted-proof cleanup pass performed.
 Axiom audit: final conditional theorem uses only propext, Classical.choice, Quot.sound. All143 earlier integrated lemmas were audited too; full logs retained.
-Finite archive:121 reviewed artifacts at last checkpoint. Solver evidence and UNKNOWN timeouts do not constitute a Lean proof.
+Finite archive:137 independently reviewed artifacts. Solver evidence and UNKNOWN timeouts do not constitute a Lean proof.
 Free-OR archive:14 CNFs independently reconstructed; all5 SAT models fully checked;6 UNSAT/5 SAT/3 UNKNOWN.
 Desk next nulls:0. Only this job's lease renewed; sanitized desk-log.txt retained.
 Sub-agents: 7 (status_review, structural_proof, library_route, finite_cases, lean_setup, global_normal_form, fresh_main_proof)
-TIMING total=80.3 subagents=7
+TIMING total=85.1 subagents=7
 Message ID: msg-8f0f42bb760e4ee78f16c6cd
+Final red-team review: PASS FOR PARTIAL CHECKPOINT, not a proof PR. No full theorem/refutation found.
+EssentialP4.lean compiled; independent source and executable checks passed; no full-gap refutation claimed.

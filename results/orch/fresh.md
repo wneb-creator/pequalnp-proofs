@@ -42,3 +42,14 @@ Thus a genuinely global sufficient target is a vertex cover T satisfying
     |T| + |Ustar| <= #noncentre_tops + 2 #centreless_tops + #junk + #(orN minus lam).
 
 The earlier one-dirty theorem proves a specialized version using forced centers and penalties. I found no general weighted incidence/Hall proof for several interacting dirty cones. Constructing a smaller circuit for the residual Ustar graph would give a possible induction, but removing shared lambda factors is precisely the unresolved operation.
+
+## Lexicographic AND-count / total-size attempt
+
+The P4 obstruction to essential-star peeling is exact:
+
+    (a OR c) AND (b OR d) AND (b OR c)
+      = [b AND (a OR c)] OR [c AND d].
+
+The first implementation uses two ANDs and three ORs; the second uses two ANDs and two ORs. Thus minimizing total size among AND minima rejects the unshared five-gate witness. If both initial OR factors are shared externally, retaining them yields an equal-size local repair with two new star ANDs, provided the discarded intermediate AND and the third OR have no external users. This illustrates why another tie-break (e.g. dirty truth-table measure) could help after a global repair is found, but it does not supply the repair under arbitrary sharing.
+
+In canonical top form, a clean source AND immediately has a star essential-edge set: its two pure-OR operands produce a complete bipartite graph, and no four-cycle makes that graph a star. Therefore exposing one clean source AND in a suitable lexicographic minimum would be enough for the proposed vertex-deletion induction. I found neither a proof that one exists nor a counterexample. If all source ANDs are dirty, their shared pure-OR factors again lead to the unresolved component interface count. Minimizing OR count only supplies a contradiction after an OR-saving exchange has been constructed.

@@ -1,0 +1,22 @@
+{
+  "recorded_at": "2026-11-25T08:18:26.822567+00:00",
+  "source_sha256": "5d0e834ff59c4138e7a3feb6b0a163d80faf2817bbe5291908c8ebe42cab70c3",
+  "ordering_review": "PASS by /root/lean_setup: depth order then larger fanin; base normalized synthesis completeness",
+  "runs": {
+    "theta233-k10-sat-ordered-r1": {
+      "status": "UNKNOWN_TIME_LIMIT",
+      "exit": 0,
+      "solver_real_seconds": 900.0,
+      "solver_cpu_seconds": 867.46,
+      "native_limit_seconds": 900
+    },
+    "theta333-k11-sat-ordered-r1": {
+      "status": "UNKNOWN_TIME_LIMIT",
+      "exit": 0,
+      "solver_real_seconds": 900.0,
+      "solver_cpu_seconds": 867.27,
+      "native_limit_seconds": 900
+    }
+  },
+  "note": "No SAT/UNSAT verdict; these runs do not establish lower bounds."
+}

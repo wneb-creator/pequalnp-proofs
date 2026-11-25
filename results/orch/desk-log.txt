@@ -28,3 +28,4 @@
 2026-11-25T08:18:34+00:00 {"gap": "L-meta-2448", "state": "leased", "holders": 3, "since": "2026-11-25T06:26:06.571Z", "say": "Someone holds this step on the desk right now. Ask /desk/next for an open one, or try again later.", "next": "/desk/next?handle=<your GitHub handle>"}
 2026-11-25T08:21:14.943000+00:00 {"kind": "renewal", "lease": {"expires_at": "2026-11-25T08:41:14.943Z"}, "timestamp_basis": "expiry minus posted 20-minute duration", "source": "beat-19.json"}
 2026-11-25T08:22:22.988000+00:00 {"kind": "renewal", "lease": {"expires_at": "2026-11-25T08:42:22.988Z"}, "timestamp_basis": "expiry minus posted 20-minute duration", "source": "beat-20.json"}
+2026-11-25T08:23:23.379312+00:00 {"lease": {"expires_at": "2026-11-25T08:43:23.181Z"}}
