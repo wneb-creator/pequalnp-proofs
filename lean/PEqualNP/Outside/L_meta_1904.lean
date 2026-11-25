@@ -1004,4 +1004,159 @@ lemma deletion_family_two_forced_ands {ι : Type*} (n : ℕ) (input : ι → Lis
   · intro x
     exact (heD x).trans (by rw [← hshape]; exact he₁ x)
 
+lemma constant_snoc_agree (p : List Bool) (a b : Bool) (i : ℕ) (hi : i ≠ p.length) :
+    (p ++ [a]).getD i false = (p ++ [b]).getD i false := by
+  by_cases hl : i < p.length
+  · rw [List.getD_append _ _ _ _ hl, List.getD_append _ _ _ _ hl]
+  · rw [List.getD_eq_default _ _ (by simp; omega),
+      List.getD_eq_default _ _ (by simp; omega)]
+
+lemma constantRun_agree_except (gs : List Gate) (a b : List Bool) (k : ℕ)
+    (hlen : a.length = b.length) (hk : k < a.length)
+    (heq : ∀ i, i ≠ k → a.getD i false = b.getD i false)
+    (hno : ∀ g ∈ gs, k ∉ g.inputs) :
+    ∀ i, i ≠ k → (deletionRun gs a).getD i false = (deletionRun gs b).getD i false := by
+  induction gs generalizing a b with
+  | nil => exact heq
+  | cons g gs ih =>
+    have hval : g.op.eval (g.inputs.map fun i => a.getD i false) =
+        g.op.eval (g.inputs.map fun i => b.getD i false) := by
+      congr 1
+      apply List.map_congr_left
+      intro i hi
+      exact heq i (fun e => hno g List.mem_cons_self (e ▸ hi))
+    let va := g.op.eval (g.inputs.map fun i => a.getD i false)
+    let vb := g.op.eval (g.inputs.map fun i => b.getD i false)
+    have hlen' : (a ++ [va]).length = (b ++ [vb]).length := by simp [hlen]
+    have hk' : k < (a ++ [va]).length := by simp; omega
+    have heq' : ∀ i, i ≠ k → (a ++ [va]).getD i false = (b ++ [vb]).getD i false := by
+      intro i hi
+      by_cases hlt : i < a.length
+      · rw [List.getD_append _ _ _ _ hlt,
+          List.getD_append _ _ _ _ (by omega)]
+        exact heq i hi
+      · by_cases hsame : i = a.length
+        · subst i
+          rw [List.getD_eq_getElem?_getD, List.getElem?_append_right (by omega), Nat.sub_self]
+          rw [List.getD_eq_getElem?_getD, List.getElem?_append_right (by omega), hlen, Nat.sub_self]
+          exact hval
+        · rw [List.getD_eq_default _ _ (by simp; omega),
+            List.getD_eq_default _ _ (by simp; omega)]
+    exact ih (a ++ [va]) (b ++ [vb]) hlen' hk' heq'
+      (fun h hh => hno h (List.mem_cons_of_mem _ hh))
+
+lemma zeroing_unread_correct (n : ℕ) (pre post : List Gate) (g : Gate) (out : ℕ)
+    (hno : ∀ h ∈ post, n + pre.length ∉ h.inputs) (hout : out ≠ n + pre.length) :
+    ∀ x : Fin n → Bool,
+      Circuit.eval ⟨pre ++ g :: post, out⟩ (List.ofFn x) =
+        Circuit.eval ⟨pre ++ ⟨GateOp.or, []⟩ :: post, out⟩ (List.ofFn x) := by
+  intro x
+  let p := deletionRun pre (List.ofFn x)
+  let b := g.op.eval (g.inputs.map fun i => p.getD i false)
+  have hp : p.length = n + pre.length := by simp [p, deletionRun_length]
+  have heq := constantRun_agree_except post (p ++ [b]) (p ++ [false]) (n + pre.length)
+    (by simp) (by simp [hp])
+    (fun i hi => constant_snoc_agree p b false i (by rwa [hp])) hno out hout
+  change (deletionRun (pre ++ g :: post) (List.ofFn x)).getD out false =
+    (deletionRun (pre ++ ⟨GateOp.or, []⟩ :: post) (List.ofFn x)).getD out false
+  rw [deletionRun_append, deletionRun_append]
+  exact heq
+
+lemma minimal_reader_constant_true (n : ℕ) (pre post : List Gate) (g : Gate) (out r : ℕ)
+    (hm : IsMinimalMonoCircuit n ⟨pre ++ g :: post, out⟩)
+    (hmem : r ∈ g.inputs)
+    (htrue : ∀ x : Fin n → Bool, (deletionRun pre (List.ofFn x)).getD r false = true) : False := by
+  have hgm := hm.1 g (List.mem_append_right _ List.mem_cons_self)
+  have hop : g.op = GateOp.and ∨ g.op = GateOp.or := by simpa using hgm.1
+  have hlen := hgm.2
+  have ha := fun j => minimal_gate_not_alias_split n pre post g out j hm
+  rcases hop with hop | hop
+  · cases hins : g.inputs with
+    | nil => simp only [hins, List.not_mem_nil] at hmem
+    | cons a ins =>
+      cases ins with
+      | nil => exact ha a (fun x => by simp [hop, hins, GateOp.eval])
+      | cons b ins =>
+        cases ins with
+        | cons c tail => simp only [hins, List.length_cons] at hlen; omega
+        | nil =>
+          simp only [hins, List.mem_cons, List.not_mem_nil, or_false] at hmem
+          rcases hmem with rfl | rfl
+          · apply ha b
+            intro x
+            simp only [hins, hop, GateOp.eval, List.map_cons, List.map_nil,
+              List.all_cons, List.all_nil, id_eq]
+            rw [htrue x]
+            simp
+          · apply ha a
+            intro x
+            simp only [hins, hop, GateOp.eval, List.map_cons, List.map_nil,
+              List.all_cons, List.all_nil, id_eq]
+            rw [htrue x]
+            simp
+  · apply ha r
+    intro x
+    rw [htrue x]
+    simpa only [hop, GateOp.eval, List.any_map, List.any_eq_true, Function.comp_apply, id_eq]
+      using (show ∃ i ∈ g.inputs, (deletionRun pre (List.ofFn x)).getD i false = true from
+        ⟨r, hmem, htrue x⟩)
+
+lemma minimal_no_nullary_and_split (n : ℕ) (pre post : List Gate) (g : Gate) (out : ℕ)
+    (hm : IsMinimalMonoCircuit n ⟨pre ++ g :: post, out⟩)
+    (hfalse : Circuit.eval ⟨pre ++ g :: post, out⟩ (List.ofFn (fun _ : Fin n => false)) = false)
+    (hop : g.op = GateOp.and) (hins : g.inputs = []) : False := by
+  have hno : ∀ h ∈ post, n + pre.length ∉ h.inputs := by
+    intro h hh hread
+    obtain ⟨middle, tail, hs⟩ := List.mem_iff_append.mp hh
+    have he : (⟨pre ++ g :: post, out⟩ : Circuit) =
+        ⟨(pre ++ g :: middle) ++ h :: tail, out⟩ := by simp [hs, List.append_assoc]
+    apply minimal_reader_constant_true n (pre ++ g :: middle) tail h out (n + pre.length)
+      (he ▸ hm) hread
+    intro x
+    have hv := deletionRun_gate_value pre middle g (List.ofFn x)
+    simpa only [List.length_ofFn, hop, hins, List.map_nil, GateOp.eval, List.all_nil] using hv
+  have hout : out ≠ n + pre.length := by
+    intro he
+    have hv := deletionRun_gate_value pre post g (List.ofFn (fun _ : Fin n => false))
+    simp only [List.length_ofFn, hop, hins, List.map_nil, GateOp.eval, List.all_nil] at hv
+    change (deletionRun (pre ++ g :: post) (List.ofFn (fun _ : Fin n => false))).getD out false = false at hfalse
+    rw [he, hv] at hfalse
+    contradiction
+  obtain ⟨D, hD, hsD, heD⟩ := erase_gate_of_zeroed_correct n pre post g out
+    (fun x => Circuit.eval ⟨pre ++ g :: post, out⟩ (List.ofFn x)) hm.1
+    (fun x => (zeroing_unread_correct n pre post g out hno hout x).symm)
+  have hle := hm.2 D hD (funext heD)
+  omega
+
+lemma minimal_ao2_of_false_empty (n : ℕ) (C : Circuit)
+    (hm : IsMinimalMonoCircuit n C)
+    (hfalse : C.eval (List.ofFn (fun _ : Fin n => false)) = false) :
+    PEqualNP.TopForm.IsAO2 n C := by
+  apply minimal_ao2_of_no_nullary_and n C hm
+  intro g hg hop hins
+  obtain ⟨pre, post, hs⟩ := List.mem_iff_append.mp hg
+  have hc : C = ⟨pre ++ g :: post, C.output⟩ := by cases C; simp_all
+  exact minimal_no_nullary_and_split n pre post g C.output (hc ▸ hm) (hc ▸ hfalse) hop hins
+
+lemma minimal_binary_distinct_split (n : ℕ) (pre post : List Gate) (g : Gate)
+    (out a b : ℕ) (hm : IsMinimalMonoCircuit n ⟨pre ++ g :: post, out⟩)
+    (hins : g.inputs = [a, b]) : a ≠ b := by
+  intro hab
+  subst b
+  apply minimal_gate_not_alias_split n pre post g out a hm
+  intro x
+  have hop : g.op = GateOp.and ∨ g.op = GateOp.or := by
+    simpa using (hm.1 g (List.mem_append_right _ List.mem_cons_self)).1
+  rcases hop with hop | hop <;> simp [hins, hop, GateOp.eval]
+
+lemma minimal_last_gate_output (n : ℕ) (pre : List Gate) (g : Gate) (out : ℕ)
+    (hm : IsMinimalMonoCircuit n ⟨pre ++ [g], out⟩) : out = n + pre.length := by
+  by_contra hout
+  have hsame := zeroing_unread_correct n pre [] g out (by simp) hout
+  obtain ⟨D, hD, hs, he⟩ := erase_gate_of_zeroed_correct n pre [] g out
+    (fun x => Circuit.eval ⟨pre ++ [g], out⟩ (List.ofFn x)) hm.1
+    (fun x => (hsame x).symm)
+  have hle := hm.2 D hD (funext he)
+  omega
+
 end PEqualNP.Outside.L_meta_1904_aux
