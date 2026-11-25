@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/PlaneOperatorOverlap.lean",
+  "sha256": "dd47f4aec5a38e901715ec2897c22d88782ecd79ee9e8433997b2a662521d126",
+  "source_sha256_after": "dd47f4aec5a38e901715ec2897c22d88782ecd79ee9e8433997b2a662521d126",
+  "started_utc": "2026-11-25T13:04:18.407055+00:00",
+  "finished_utc": "2026-11-25T13:04:20.427916+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 2352017408,
+  "seconds": 2.020887679000225,
+  "rss_limit_bytes": 3221225472,
+  "wall_limit_seconds": 60
+}
