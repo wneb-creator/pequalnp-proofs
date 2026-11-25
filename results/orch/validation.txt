@@ -82,3 +82,7 @@ TIMING total=69 subagents=6
 Further compiled components independently reviewed PASS: dominated_source_witness (arbitrary ignored operands, independent-input consequence); independent_guard (15 maximal zero rows suffice for monotone source); or_seed_conjunction (16 residual signed binary gates for two explicit suppliedOR conjunction shapes). No full gap claim.
 Sub-agents:6
 TIMING total=72 subagents=6
+
+Compiled and independently reviewed PASS: prefix_monotone; source_guard (actual monotone-prefix source has a witness among15 maximal zero rows under explicit candidate assumptions); or_seed_conjunction_used (17 residual signed binary gates when the suppliedOR also remains live). Conditional partial results only.
+Sub-agents:6
+TIMING total=75 subagents=6
