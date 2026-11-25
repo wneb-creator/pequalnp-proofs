@@ -5,3 +5,5 @@ Independent review: status_review passed mathematical and plain-file review.
 Finite search: all 334 C4-free 3x3 incidence graphs validated computationally; not Lean proofs.
 Sub-agents: 6 (status_review, toolchain, normalization, counterexample, reduction, global_strategy)
 TIMING total=15 subagents=6
+Additional frozen sources compiled: restriction.lean and global_obstruction.lean; independently reviewed.
+Axiom audit of all 45 named-file declarations: only propext, Classical.choice, Quot.sound.

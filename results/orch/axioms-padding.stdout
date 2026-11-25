@@ -1,0 +1,45 @@
+'PEqualNP.Outside.L_meta_3451_aux.universal_row_other_unique' does not depend on any axioms
+'PEqualNP.Outside.L_meta_3451_aux.universal_column_other_unique' does not depend on any axioms
+'PEqualNP.Outside.L_meta_3451_aux.universal_row_column_edges' does not depend on any axioms
+'PEqualNP.Outside.L_meta_3451_aux.point_ne_line' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.incidence_point_false' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.incidence_line_false' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.incidence_nonedge_false' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.wireStep' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_3451_aux.wireLE' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_3451_aux.eval_mono' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.fold_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.wires_mono' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.nonedge_point_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.nonedge_line_false' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.singleton_clean_of_nonedge' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.no_incidence' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.positive_size' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.one_input_each' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.cast_point_ne_line' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.edgeCircuit' does not depend on any axioms
+'PEqualNP.Outside.L_meta_3451_aux.edgeCircuit_value' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.single_incidence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.Padding.padWire' does not depend on any axioms
+'PEqualNP.Outside.L_meta_3451_aux.Padding.padGate' does not depend on any axioms
+'PEqualNP.Outside.L_meta_3451_aux.Padding.padCircuit' does not depend on any axioms
+'PEqualNP.Outside.L_meta_3451_aux.Padding.padStep' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_3451_aux.Padding.padWire_lt' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.Padding.padWire_ge' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.Padding.append_agree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.Padding.step_agree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.Padding.fold_agree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.Padding.restrictInput' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.Padding.wires_agree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.Padding.circuitFun_agree' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.Padding.size_pad' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_3451_aux.Padding.monotone_pad' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.Padding.gateAt_pad' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_3451_aux.Padding.readsBack_pad' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.Padding.padIncidence' does not depend on any axioms
+'PEqualNP.Outside.L_meta_3451_aux.Padding.point_misses' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.Padding.line_misses' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.Padding.noFourCycle_pad' does not depend on any axioms
+'PEqualNP.Outside.L_meta_3451_aux.Padding.restrict_point' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.Padding.restrict_line' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_3451_aux.Padding.computes_pad' depends on axioms: [propext, Classical.choice, Quot.sound]

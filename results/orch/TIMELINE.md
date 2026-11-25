@@ -14,3 +14,4 @@
 
 2026-11-25T00:43:30.852568+00:00 generic monotone restriction strategy completed and Lean checked; shared with padding/bridge agent.
 2026-11-25T00:44:16.751391+00:00 named-file build passed: isolated-vertex padding included, 552 lines
+2026-11-25T00:46:19.116796+00:00 restriction and local rewrite obstruction compiled and independently reviewed
