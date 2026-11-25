@@ -1,0 +1,14 @@
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixBridge.lean:81:37: warning: This simp argument is unused:
+  cz
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [polynomial, ca, cm, cp] at h0 h1 h2 h3 h4 h5 h6 h7 h8 h9 h10 h11 h12 h13 h14 h15 h16 h17 h18
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DoubleSingleMatrixBridge.lean:129:26: warning: This simp argument is unused:
+  Matrix.cons_val_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [perm4, Matrix.of_apply, model, polynomial, coefficients, ca, cm, cp, cz, Matrix.cons_val_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

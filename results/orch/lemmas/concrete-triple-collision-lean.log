@@ -1,0 +1,14 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/ConcreteTripleCollision.lean:230:28: warning: This simp argument is unused:
+  not_imp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [not_forall] at hf
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/ConcreteTripleCollision.lean:236:35: warning: This simp argument is unused:
+  not_imp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Pairwise, not_forall, not_not] at hp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

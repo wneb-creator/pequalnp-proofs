@@ -1,0 +1,8 @@
+{
+  "exit": 0,
+  "timeout": false,
+  "over_memory": false,
+  "peak_rss_bytes": 862887936,
+  "seconds": 3.5208004640007857,
+  "memory_limit_bytes": 4294967296
+}
