@@ -27,3 +27,11 @@ A five-gate AO2 circuit for a three-edge path is a lift fixed point but fails re
 New compiled helpers show that every true circuit input contains a prime implicant, and that a monotone function below the circuit function agrees everywhere if it accepts every prime. This proves the semantic half of deleting a gate that contributes to no minimal true input; constant propagation remains separate.
 
 The dual compiled helpers show every false input extends to a maximal false set, and agreement there determines any monotone upper function. Together these give the semantic justification for forcing a gate to zero or one when it is irrelevant on the corresponding boundary.
+
+## Constant folding
+
+The generic constant-folding pass compiles with a standard Bool-sum-Nat wire status. Its invariant preserves each wire value and bounds emitted gates by old gates. This partial still permits NOT; preservation of the exact AO2 model and strict forced-gate deletion are separate pending lemmas.
+
+## First strategy review
+
+Broad source searches found no unrestricted sharp plane bound. Continue exact Fano synthesis with independent encodings and formalize the useful-gate/normal-form route. Do not assume all minimum circuits are read1: a minimum P4 circuit disproves that stronger claim. Reductions remain closed for this lease.
