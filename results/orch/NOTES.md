@@ -216,3 +216,11 @@ Theta10 15-gate MultiDirty search finished UNKNOWN after 600.138s with reason ti
 ### Counterexample search update: original Fano timeout
 
 Original optimized Fano26 search ended UNKNOWN after3603.386s, reason timeout. No model or infeasibility claim. Full stdout/stderr archived and added to log manifest. Refined Fano26 search now requires a dirty AND accepting at least two target edges (necessary by the team’s checked UniqueRepair theorem), limit900s, started18:20:44 UTC after root renewal.
+
+### Counterexample search update: fano66
+
+fano66 20-gate MultiDirty search completed UNKNOWN after600.182s, reason timeout. No counterexample found, and no infeasibility conclusion. Full stdout/stderr now archived in results/orch and listed in counterexample-log-manifest.json. Only Fano26 MultiDirty and theta8 optimal12 any-dirty are still active.
+
+### Counterexample search update: auxiliary theta8
+
+Theta8 12-gate any-dirty search finished UNKNOWN after600.044s, reason timeout. This did not decide whether an optimal-size theta8 circuit can contain a dirty AND. No counterexample to the all-optima-clean shortcut or to L-meta-4675 resulted. Full logs archived and listed in manifest. Fano26 MultiDirty is the only active search, due around18:35:44 UTC.

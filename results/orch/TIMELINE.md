@@ -55,3 +55,13 @@
 - 2026-11-25T18:20:53.296693+00:00: original optimized Fano26 SMT completed UNKNOWN (timeout3603.386s); after root renewal started refined Fano26 MultiDirty SMT with900s limit.
 
 - 2026-11-25T18:22:02.013915+00:00: Checkpoint14: allcompletedsearchlogs+reviewedhandoff+finalcheckerfault preserved; remainingsearchescontinue.
+
+- 2026-11-25T18:24:15.191441+00:00: fano66 20-gate MultiDirty SMT completed UNKNOWN (timeout); no model. Full logs archived and CPU slot freed.
+
+- 2026-11-25T18:25:30.486017+00:00: Strategyreview: unrestrictedglobalchargingremainsopen; allnewLeancomponentsarecheckedandpushed. Fano55,theta10,andFano66main-goalSMTsearchestimedout; finalFano26MultiDirtyandtheta8normalizationtestcontinue. No newunprovedhelperwillbeintroducedasagapresult. Ifremainingsearchesfinishwithoutawitness, preservecompleteprovenanceandhandbackonlythisleaseafterminimum90minuteeffort.
+
+- 2026-11-25T18:29:04.118310+00:00: theta8 auxiliary 12-gate any-dirty SMT completed UNKNOWN after600.044s (timeout), no model. Fano26 MultiDirty remains the only active search.
+
+- 2026-11-25T18:30:21.056227+00:00: Desk renewal returned410 unexpectedlybeforelastreportedexpiry; diagnosticcurl-si confirmed. Preservingallworkandpausingremainingsearchbefore user-requiredre-request.
+
+- 2026-11-25T18:30:23Z: root reported unexpected HTTP410 on lease renewal; counterexample agent paused Fano26 MultiDirty PID13269/session67841 with SIGSTOP and preserved full current stdout/stderr in INTERRUPTED snapshots. No solver result. Awaiting root desk recovery outcome.

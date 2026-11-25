@@ -358,5 +358,29 @@
     "archive": "results/orch/fano-k26-z3opt.stderr.log",
     "bytes": 0,
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/fano66-k20-z3multidirty.stdout",
+    "archive": "results/orch/fano66-k20-z3multidirty.stdout.log",
+    "bytes": 300,
+    "sha256": "7e209e5412d8b7a53f4e87d6a0dd453bfc3538f957de458ed811a9016f5c34f2"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/fano66-k20-z3multidirty.stderr",
+    "archive": "results/orch/fano66-k20-z3multidirty.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/theta8-k12-dirty-z3opt.stdout",
+    "archive": "results/orch/theta8-k12-dirty-z3opt.stdout.log",
+    "bytes": 217,
+    "sha256": "9de62b64a31f45b59b9a634e55d1ccd425b20cd75ef6ccf43143fae739a93b1b"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/theta8-k12-dirty-z3opt.stderr",
+    "archive": "results/orch/theta8-k12-dirty-z3opt.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   }
 ]

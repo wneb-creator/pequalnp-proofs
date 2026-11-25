@@ -55,3 +55,25 @@ Final official-checker diagnostics were also reviewed: empty stdout and stderr
 reporting CHECKER FAULT because the prebuilt Mathlib cache is missing. The
 reported exit code is 3; this is not acceptance or rejection of the statement.
 The named source hash remains unchanged from integration-003. No tests rerun.
+
+Checkpoint 15, 2026-11-25T18:29:24Z: APPROVED PARTIAL ARCHIVE.
+Independently verified all four newly mirrored fano66-k20 MultiDirty and
+theta8-k12 any-dirty stdout/stderr files: bytes, manifest hashes, lengths,
+and source/archive path scope match. Manifest now has 64 files, 54,788 bytes.
+Credential-pattern scan result for the new files: false.
+Results are UNKNOWN/timeouts after 600.1819725036621 and 600.0435888767242
+seconds respectively, consistent with the summary. The theta8 query tests a
+normalization shortcut, not a counterexample below the posted bound.
+Only the refined Fano26 MultiDirty run remains active and is not yet covered
+by this verdict. Named source remains 3,547 lines with the unchanged
+integration-003 SHA256. No tests or searches were rerun.
+
+Urgent preservation checkpoint, 2026-11-25T18:30:58Z: data-only extras approved
+for archival before desk recovery. The saved HTTP response records status 410
+and the desk's missing/expired-live-lease error. No GitHub credential values
+or credential patterns were found in the diagnostic or interrupted artifacts.
+The two interrupted solver snapshots match their sources and recorded hashes:
+278 bytes stdout, zero stderr. They contain problem metadata and no solver
+result. The JSON and summary explicitly say PAUSED/pending desk recovery.
+These snapshots are not evidence of timeout, infeasibility, or a counterexample.
+Named Lean source remains unchanged. No process or source was modified here.

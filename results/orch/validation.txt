@@ -58,3 +58,5 @@ Final-version official checker invocation: exit3, CHECKER FAULT: the prebuilt Ma
 All60completedsearch/sanitylogs mirrored and independently byte/hashchecked (54271bytes). Mathematical handoff and currentsearchsummary independentlyreviewed forscope. Three finalsolverrunsremainactive.
 Sub-agents: 6 (status_review, structural_proof, counterexample, lemma_search, lean_setup, algebraic_proof)
 TIMING total=75.63 subagents=6
+
+Unexpected desk410 at18:29:35UTC: no such live lease, expired or released. Previous successful beat021 said expiry18:44:57.297UTC. Exact diagnostic responseheaders/body saved desk-410-diagnostic.txt; no GitHub credential sent or captured. User-specific410recovery: preserve/push allworkbefore re-requesting. Main proofstillincomplete; partialsourceunchanged.

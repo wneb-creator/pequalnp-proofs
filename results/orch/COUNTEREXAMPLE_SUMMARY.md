@@ -1,6 +1,6 @@
 # Counterexample search for L-meta-4675
 
-No counterexample to the posted statement has been found. The SMT results below are external solver results, not Lean-checked lower bounds. The encoders include symmetry and normalization restrictions that have not all been formally verified; UNSAT describes the encoded search, not an unrestricted Lean lower bound. Timeouts give no infeasibility conclusion. The heuristic iteration counts include rejected, repeated, and unchanged mutations; they are not counts of distinct circuits.
+No counterexample to the posted statement has been found. The SMT results below are external solver results, not Lean-checked lower bounds. The encoders include symmetry and normalization restrictions that have not all been formally verified; UNSAT describes the encoded search, not an unrestricted Lean lower bound. Timeouts give no infeasibility conclusion. Elapsed times are wall times measured by the drivers. The heuristic iteration counts include rejected, repeated, and unchanged mutations; they are not counts of distinct circuits.
 
 ## Lean-checked baseline components
 
@@ -20,8 +20,10 @@ No counterexample to the posted statement has been found. The SMT results below 
 | C6 | 7 | `tCount = 0` | Z3 UNSAT in 26.13s |
 | C6 | 8 | Some dirty AND | Original Z3 encoding UNSAT in 157.60s; optimized encoding UNSAT in 9.58s |
 | theta8 | 11 | `tCount = 0` | UNKNOWN after 600.09s (timeout) |
+| theta8 | 12 | Some dirty AND; auxiliary normalization query | UNKNOWN after 600.04s (timeout) |
 | fano55 | 15 | Dirty AND accepting at least two edges | UNKNOWN after 600.12s (timeout) |
 | theta10 | 15 | Dirty AND accepting at least two edges | UNKNOWN after 600.14s (timeout) |
+| fano66 | 20 | Dirty AND accepting at least two edges | UNKNOWN after 600.18s (timeout) |
 | Fano | 26 | `tCount = 0` | UNKNOWN after 3,603.39s (timeout) |
 
 The independent MILP runs for C6 were stopped once the faster Z3 encoding was validated. An early unoptimized Fano SMT run was stopped when the optimized encoding was launched. These stopped runs give no infeasibility conclusion. A five-second trial of Z3's `qfbv-sls` backend did not solve the known satisfiable P4 sanity case, so it was not allocated a long run.
@@ -42,8 +44,6 @@ All proposed exact witnesses are independently checked on the complete Boolean t
 
 ## Remaining runs at this checkpoint
 
-- fano66: 20 gates and a multi-edge dirty AND, 600s limit.
-- theta8: 12 gates and some dirty AND, 600s limit. This tests a proposed normalization shortcut, not the gap itself.
-- Refined Fano search: 26 gates and a multi-edge dirty AND, 900s limit.
+- Refined Fano search: 26 gates and a multi-edge dirty AND, 900s limit. PAUSED after the desk returned HTTP 410 on renewal; pending desk recovery. Complete current output is preserved in the clearly labelled `fano-k26-z3multidirty.INTERRUPTED.*` snapshots. No result has been produced.
 
 Full completed and early-stopped logs are archived alongside this summary. `counterexample-log-manifest.json` records the source and archive paths, byte counts, and SHA256 hashes. Source programs are under `lemmas/`; active logs are preserved in the job scratch directory until their completion and archival.
