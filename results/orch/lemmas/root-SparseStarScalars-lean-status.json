@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/SparseStarScalars.lean",
+  "sha256": "7762ef1562eb8284e9664f8b823413ae6fd9382f1c0d71a6630692784895216f",
+  "source_sha256_after": "7762ef1562eb8284e9664f8b823413ae6fd9382f1c0d71a6630692784895216f",
+  "started_utc": "2026-11-25T12:07:06.256920+00:00",
+  "finished_utc": "2026-11-25T12:07:07.566838+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 1815113728,
+  "seconds": 1.309941722000076,
+  "rss_limit_bytes": 4294967296,
+  "wall_limit_seconds": 60
+}
