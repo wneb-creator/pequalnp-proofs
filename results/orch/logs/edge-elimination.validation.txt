@@ -1,0 +1,5 @@
+Standalone Lean compile: PASS (exit 0)
+Source SHA256: 2bacb6ce80ea4005993c4c96b4b54fdde545e4a9177e4725c30d31a101d07b72
+Source lines: 815
+Independent review: read1_construction PASS for EdgeEliminationBody plus reviewed components
+Only inherited tactic-style warnings; no errors.
