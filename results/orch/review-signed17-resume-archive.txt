@@ -1,0 +1,33 @@
+Independent archive/resume review by status_review, 2026-11-25.
+
+Scope: results/orch/search/signed17-or-edge, including exact trace/resume C++
+sources, exporter/replayer, complete logs, and compressed trace/resume data.
+Every manifest entry and both decompressed sizes/SHA256 values verified.
+The trace raw hash is 95ac0317b254cb8d0532bc6c730fae33e01bf28067d2e694a6ae1bc539b9c3fb.
+The resume raw hash is 28d28423d47a484af7940bf8dd46db8650a7c574e3b83bc1d0e33691b9c35721.
+Source syntax and safety scans passed; no credential material or access found.
+
+All 3,265 resume records match exactly the source nodes marked expand,
+formula0, or formula1. Their budgets, complete truth-function pools, and source
+IDs match the source trace. No open or memo-only node is selected. All 4,352
+memo references in the original trace have equal budgets and point to earlier,
+already completed nodes; every completed parent has completed child records.
+The original root remains open. This dependency audit does not turn its
+uncertified formula closures into Lean proofs.
+
+The loader parses fixed-size truth tables, rejects duplicate entries, zero
+functions, and functions true on row0, canonicalizes the exact pool/budget, and stores a
+negative ordinal referring to the preserved source record. New traces retain
+the original raw trace hash and source node association. Duplicate canonical
+states retain the first valid dependency. No new transition or pruning rule
+is introduced. IDs remain in the signed integer range under the stated caps.
+
+This specific source was a signed17 first-OR-edge run, and that mode/budget
+match the planned continuation. The resume text itself carries only a source
+hash, not a mode/target declaration; generic reuse with an unrelated source
+requires separately verifying those conditions. The loader checks the hash's
+syntax, while this independent audit verifies the actual hash and linkage.
+
+Verdict: PASS for backup preservation and continuation of this computational
+experiment. Its cache still depends on formula and successor certificates;
+no completed first-gate case or posted theorem is certified by this report.

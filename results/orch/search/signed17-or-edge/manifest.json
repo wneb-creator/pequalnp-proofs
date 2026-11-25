@@ -1,0 +1,60 @@
+{
+  "compressed": {
+    "signed17-oredge-trace.jsonl": {
+      "archive": "signed17-oredge-trace.jsonl.gz",
+      "raw_bytes": 59603065,
+      "raw_sha256": "95ac0317b254cb8d0532bc6c730fae33e01bf28067d2e694a6ae1bc539b9c3fb",
+      "gzip_bytes": 4284900,
+      "gzip_sha256": "ed2f9d1216a7a3a934575a6eb741afe63526994582d3872a4033f00b57903867"
+    },
+    "signed17-oredge-resume.txt": {
+      "archive": "signed17-oredge-resume.txt.gz",
+      "raw_bytes": 10567903,
+      "raw_sha256": "28d28423d47a484af7940bf8dd46db8650a7c574e3b83bc1d0e33691b9c35721",
+      "gzip_bytes": 101127,
+      "gzip_sha256": "4099fb8bee691033c5415286548f7810fb3c4e03b695f85347461639d0fc5612"
+    }
+  },
+  "files": {
+    "replay_trace.py": {
+      "bytes": 2966,
+      "sha256": "9f2096a0057b3e7c4e19a9a713038f9a27dfcf14bf227c41eca771e97fa7f750"
+    },
+    "live_search_trace.cpp": {
+      "bytes": 37596,
+      "sha256": "749dfeefdf9b9c22d92b4f41bf8aed95d21dbabbbbd94a0a193966c4dd42833d"
+    },
+    "live_search_resume.cpp": {
+      "bytes": 39289,
+      "sha256": "b4ef1668bcf6c8f6cbdfb71e7d8c99f317a9b6e27c5a2cae7112839e1b383314"
+    },
+    "make_resume.py": {
+      "bytes": 987,
+      "sha256": "4d056ecdacaa5881db9b77a541484ae822c02276d5eb8beb54d0b68c1ce28045"
+    },
+    "signed17-oredge-trace.log": {
+      "bytes": 4916,
+      "sha256": "59293e631f9580e7580d694484b3ac969573cdab4a911363cdfcd2b8398b70de"
+    },
+    "trace-smoke-replay.log": {
+      "bytes": 286,
+      "sha256": "dda2b414e5570fe2f048c794d9dc80febc89d7f80a4f7f9e8ad0e012a4205c6f"
+    },
+    "make-resume-report.txt": {
+      "bytes": 138,
+      "sha256": "bc2e5a7236872df40f755d7c465d212d0703f618b493ce2a4bef2e00951ae947"
+    },
+    "README.md": {
+      "bytes": 1485,
+      "sha256": "42c5f292720bef33992d31fa81f9ac4c0a1584cf6c3e9c036d757ef9f91f5b11"
+    },
+    "signed17-oredge-resume.txt.gz": {
+      "bytes": 101127,
+      "sha256": "4099fb8bee691033c5415286548f7810fb3c4e03b695f85347461639d0fc5612"
+    },
+    "signed17-oredge-trace.jsonl.gz": {
+      "bytes": 4284900,
+      "sha256": "ed2f9d1216a7a3a934575a6eb741afe63526994582d3872a4033f00b57903867"
+    }
+  }
+}

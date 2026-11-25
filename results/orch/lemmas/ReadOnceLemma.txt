@@ -1,0 +1,68 @@
+
+def ReadOnce {α : Type} [DecidableEq α] (raw : α → Sig) (u : Bool)
+    (A : Finset α) (v : Sig) : Prop :=
+  A.Nonempty ∧ Run u (observe v) (A.card - 1) (A.toList.map (fun r => observe (raw r)))
+
+theorem ReadOnce.leaf {α : Type} [DecidableEq α] (raw : α → Sig) (u : Bool) (r : α) :
+    ReadOnce raw u {r} (raw r) := by
+  have perm : [r].Perm ({r} : Finset α).toList := by
+    apply List.perm_of_nodup_nodup_toFinset_eq (by simp) (Finset.nodup_toList _)
+    simp
+  refine ⟨by simp, ?_⟩
+  simpa only [Finset.card_singleton, Nat.sub_self, List.map_cons, List.map_nil] using
+    Run.perm (perm.map (fun q => observe (raw q))) (Run.stop (u := u) (goal := observe (raw r)))
+
+theorem ReadOnce.combine {α : Type} [DecidableEq α] (raw : α → Sig) (u : Bool)
+    {A B : Finset α} {a b : Sig} (left : ReadOnce raw u A a) (right : ReadOnce raw u B b)
+    (disjoint : Disjoint A B) (d : Nat) (legal : allowed u d) :
+    ReadOnce raw u (A ∪ B) (bin d a b) := by
+  have nd : (A.toList ++ B.toList).Nodup := by
+    simp only [List.nodup_append]
+    refine ⟨Finset.nodup_toList _, Finset.nodup_toList _, ?_⟩
+    intro x hx y hy eq
+    subst y
+    exact Finset.disjoint_left.mp disjoint (Finset.mem_toList.mp hx) (Finset.mem_toList.mp hy)
+  have perm : (A.toList ++ B.toList).Perm (A ∪ B).toList := by
+    apply List.perm_of_nodup_nodup_toFinset_eq nd (Finset.nodup_toList _)
+    simp
+  have combined := Run.combine_traces left.2 right.2 d legal
+  have lifted : (A.toList.map (fun r => observe (raw r)) ++
+      B.toList.map (fun r => observe (raw r))).Perm
+      ((A ∪ B).toList.map (fun r => observe (raw r))) := by
+    simpa only [List.map_append] using perm.map (fun r => observe (raw r))
+  have ordered := Run.perm lifted combined
+  have count : (A ∪ B).card - 1 = A.card - 1 + (B.card - 1) + 1 := by
+    rw [Finset.card_union_of_disjoint disjoint]
+    have pa := Finset.card_pos.mpr left.1
+    have pb := Finset.card_pos.mpr right.1
+    omega
+  refine ⟨?_, ?_⟩
+  · obtain ⟨r, hr⟩ := left.1
+    exact ⟨r, Finset.mem_union_left _ hr⟩
+  · simpa only [count, obs_bin] using ordered
+
+theorem ReadOnce.map {α β : Type} [DecidableEq α] [DecidableEq β]
+    (raw : α → Sig) (nextRaw : β → Sig) (u : Bool)
+    (f : α → β) (injective : Function.Injective f)
+    (same : ∀ r, nextRaw (f r) = raw r)
+    {A : Finset α} {v : Sig} (trace : ReadOnce raw u A v) :
+    ReadOnce nextRaw u (A.image f) v := by
+  have nd : (A.toList.map f).Nodup := (Finset.nodup_toList A).map injective
+  have perm : (A.toList.map f).Perm (A.image f).toList := by
+    apply List.perm_of_nodup_nodup_toFinset_eq nd (Finset.nodup_toList _)
+    ext r
+    simp
+  have count : (A.image f).card = A.card := by
+    simpa using perm.length_eq.symm
+  have mapped : (A.toList.map f).map (fun r => observe (nextRaw r)) =
+      A.toList.map (fun r => observe (raw r)) := by
+    simp only [List.map_map, Function.comp_def, same]
+  have moved : Run u (observe v) (A.card - 1)
+      ((A.toList.map f).map (fun r => observe (nextRaw r))) := by
+    rw [mapped]
+    exact trace.2
+  refine ⟨?_, ?_⟩
+  · obtain ⟨r, hr⟩ := trace.1
+    exact ⟨f r, Finset.mem_image_of_mem f hr⟩
+  · rw [count]
+    exact Run.perm (perm.map (fun r => observe (nextRaw r))) moved

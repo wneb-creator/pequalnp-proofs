@@ -1,0 +1,18 @@
+Independent review by status_review, 2026-11-25.
+
+Artifact: results/orch/lemmas/MemoRename.lean
+SHA256: 5bc70bea8656b8a237d5ff615309a8609b6c09de3883e55568c75a3a21fa2739
+Reported compilation exited 0; preserved log has no errors.
+The Live1024Count base is unchanged and the preserved suffix matches exactly.
+Only PEqualNP.Defs is imported; trust/format checks found no forbidden forms.
+
+The five wrappers are direct consequences of checked live_rename. Their
+direction is correct: a hypothetical run from S transports to priorS, where
+the previously established exclusion contradicts it. Surjectivity preserves
+the needed truth-table semantics; target invariance and pool-image equality
+are explicit hypotheses. Right-inverse variants correctly derive surjectivity.
+The upper-budget wrappers preserve every k <= cap. No concrete automorphism,
+pool equality, or earlier exclusion is assumed without an explicit proof.
+
+Verdict: PASS for the checked memo-transport wrappers.
+Concrete trace permutation certificates remain a separate obligation.

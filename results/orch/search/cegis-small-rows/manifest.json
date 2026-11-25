@@ -1,0 +1,18 @@
+{
+  "README.md": {
+    "bytes": 1312,
+    "sha256": "e4ff33db45a51fdf0e084faf58a37f0dd7d794a8553e7f6a4f42bb1ef9186f63"
+  },
+  "control20.log": {
+    "bytes": 336,
+    "sha256": "b5c4c3a4c1893ce12d5e29b482baa0d9663336cfeb2166b2ab92d5621ca99563"
+  },
+  "one-not.log": {
+    "bytes": 336,
+    "sha256": "4ea803d3a4d66a88fd8cfa824bfe131e875588d124ec89ba7684e702804c5fcc"
+  },
+  "search.py": {
+    "bytes": 6448,
+    "sha256": "f10c05d2474a5da254a6647eca052f3b5ad90424951f8cf2381caa8968585a15"
+  }
+}

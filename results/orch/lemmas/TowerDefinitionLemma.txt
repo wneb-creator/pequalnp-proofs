@@ -1,0 +1,50 @@
+abbrev FreshClosure {α Ω : Type} [DecidableEq α]
+    (roots : Finset α) (raw : α → Sig) (col : Sig → Set Ω) (need : Set Ω)
+    (Cert : Finset α → Sig → Prop) (u : Bool) : Prop :=
+  ∀ A B a b d, Disjoint A B → allowed u d → a ≠ b → bin d a b ≠ a →
+    bin d a b ≠ b → proper (bin d a b) → Cert A a → Cert B b →
+    ColumnAdmissible roots raw col need (A ∪ B) (bin d a b) → Cert (A ∪ B) (bin d a b)
+
+def CertificateTower {Ω : Type} (col : Sig → Set Ω) (need : Set Ω) (u : Bool) (T : Sig)
+    (depth : Nat) (α : Type) [DecidableEq α] (roots : Finset α) (raw : α → Sig)
+    (Cert : Finset α → Sig → Prop) : Prop :=
+  FreshClosure roots raw col need Cert u ∧ ¬ Cert roots T ∧
+  match depth with
+  | 0 => True
+  | n + 1 =>
+    ∀ A w, A ⊆ roots → proper w → Cert A w →
+      ∃ Cert2 : Finset (Sum α Bool) → Sig → Prop,
+        (∀ t : Bool, Cert2 {Sum.inr t} w) ∧
+        (∀ B v, Cert B v → Disjoint A B →
+          ColumnAdmissible (duplicateRoots roots A) (duplicateRaw raw w) col need
+            (liftLabels B) v → Cert2 (liftLabels B) v) ∧
+        CertificateTower col need u T n (Sum α Bool)
+          (duplicateRoots roots A) (duplicateRaw raw w) Cert2
+
+theorem CertificateTower.closed {α Ω : Type} [DecidableEq α]
+    {col : Sig → Set Ω} {need : Set Ω} {u : Bool} {T : Sig} {depth : Nat}
+    {roots : Finset α} {raw : α → Sig} {Cert : Finset α → Sig → Prop}
+    (tower : CertificateTower col need u T depth α roots raw Cert) :
+    FreshClosure roots raw col need Cert u := by
+  cases depth <;> exact tower.1
+
+theorem CertificateTower.missing {α Ω : Type} [DecidableEq α]
+    {col : Sig → Set Ω} {need : Set Ω} {u : Bool} {T : Sig} {depth : Nat}
+    {roots : Finset α} {raw : α → Sig} {Cert : Finset α → Sig → Prop}
+    (tower : CertificateTower col need u T depth α roots raw Cert) :
+    ¬ Cert roots T := by
+  cases depth <;> exact tower.2.1
+
+theorem CertificateTower.copies {α Ω : Type} [DecidableEq α]
+    {col : Sig → Set Ω} {need : Set Ω} {u : Bool} {T : Sig} {depth : Nat}
+    {roots : Finset α} {raw : α → Sig} {Cert : Finset α → Sig → Prop}
+    (tower : CertificateTower col need u T (depth + 1) α roots raw Cert)
+    (A : Finset α) (w : Sig) (sub : A ⊆ roots) (properW : proper w) (entry : Cert A w) :
+    ∃ Cert2 : Finset (Sum α Bool) → Sig → Prop,
+      (∀ t : Bool, Cert2 {Sum.inr t} w) ∧
+      (∀ B v, Cert B v → Disjoint A B →
+        ColumnAdmissible (duplicateRoots roots A) (duplicateRaw raw w) col need
+          (liftLabels B) v → Cert2 (liftLabels B) v) ∧
+      CertificateTower col need u T depth (Sum α Bool)
+        (duplicateRoots roots A) (duplicateRaw raw w) Cert2 := by
+  exact tower.2.2 A w sub properW entry

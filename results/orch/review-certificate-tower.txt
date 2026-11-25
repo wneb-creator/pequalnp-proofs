@@ -1,0 +1,13 @@
+Independent source and mathematical review: PASS.
+Reviewer: finite_invariants, 2026-11-25 UTC.
+Artifact: results/orch/lemmas/Live1024CertificateTower.lean
+SHA256: 261401f9c324ac1991a2285df47063f2746cc18f5771f7012580712632098b66
+139048 bytes, 2742 lines. Author reports Lean exit0; complete compile log has no errors. No extra build was run for this review.
+
+The original checked FirstRetention base is an exact prefix after removing its namespace close. DoubleSharingSuffix, previously reviewed SharingState and TowerDefinition, and the two new DoubleCertStateLemma/TowerSoundLemma fragments occur verbatim in the final artifact. No forbidden axiom, sorry, native_decide, namespace escape text, or string literal appears.
+
+DoubleCertState: all current columns are supported by the new duplicated basis, so basis_column_cover obtains an actual basis separator for every needed pair. raw_singleton_admissible is valid even when its label is not a basis member: any other separator contradicts its outside premise. This licenses lifting both copies of a through the second duplication. The fresh gate receives one certified copy of each distinct operand, and retained a/b receive the remaining copies. Original other wires are lifted through two explicit disjoint bridges; first-stage admissibility uses the pre-step Live cover and final-stage admissibility uses the actual tail.
+
+TowerSound: strong induction is polymorphic in the label type, allowing one or two nested sum extensions. When current cardinality equals k+1, the existing tight closure proves the forbidden full certificate. Otherwise positive_deficit_first_retention locates the first retained operand without reordering gates. Single retention decreases the deficit by one and consumes one tower level; double retention decreases it by two and consumes two levels. The k+1<=card+depth premise is maintained exactly in each branch. The double branch certifies b in the first duplicated basis before invoking the second tower copy.
+
+The raw-pool corollary uses the previously checked injective initial certificate-state construction. Conclusion is conditional Impossible for any supplied CertificateTower; no concrete tower for Petersen, completed search exhaustion, or posted theorem is claimed. The proof introduces no generic circuit normalization, no invalid charge for duplicate nonconstant functions, and no schedule/freshness assumption.

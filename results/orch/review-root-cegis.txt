@@ -1,0 +1,50 @@
+Independent review by status_review, 2026-11-25.
+
+Source: scratch root_cegis/search.py
+SHA256: f10c05d2474a5da254a6647eca052f3b5ad90424951f8cf2381caa8968585a15
+Scope: incremental encoding, selector freezing/model extraction, and candidate
+validity. No additional solver job was started for this review.
+
+The row encoder uses the same gate semantics and source indexing as synth.py:
+source0 is false, sources1..10 are inputs, and later sources are prior gates.
+The guarded equivalences enforce AND, OR, and unary NOT correctly. Its runtime
+equality assertion compares all initial clauses and variable IDs with the
+original encoder. Independently, I checked exact equality across three clause
+installations and eight varied rows for both active configurations: 19 gates
+with at most one NOT and 20 monotone gates, with the same ordered/root settings.
+
+All operation and input selectors are frozen before solving. Incremental rows
+reuse only those frozen selectors and allocate fresh row-local variables;
+eliminated variables from earlier rows are not referenced again. Clearing the
+Python clause list preserves its variable counter and the solver's clauses.
+The shared callback remains alive for the solver lifetime and finally releases
+the solver. The model extraction reads one true selector from every one-hot
+group; chosen source indices agree with evaluate's list layout.
+
+Every SAT candidate is re-evaluated on all 1,024 inputs, including rows omitted
+from SAT. The assertion that existing rows have no mismatch detects encoding
+or extraction discrepancies. Every added counterexample is new, and a nonempty
+mismatch set adds at least one row. Learned clauses remain valid because rows
+are added monotonically. The NOT-count clauses are correct for the active0/1
+limits. Final OR and root selection are constrained by the original encoder.
+
+A FULL_FUNCTION record is a checked full truth function. The script separately
+records both exclusive-output witness sets; both must be nonempty before the
+record can refute this exact incomparable-output gap. Ordered, live,
+irredundant, fixed-first-gate, and roots-last restrictions remain heuristics;
+BOUNDED_SEARCH_UNSAT is correctly not presented as an unrestricted lower bound.
+
+Minor reporting limitation: if a SAT round finishes near the deadline and the
+subsequent Python checks exhaust the budget, the while loop can exit without a
+final UNKNOWN line. This affects terminal logging only. A final explicit
+budget-exhausted message would make the logs unambiguous in that path.
+
+Verdict: PASS for the reviewed encoder/model workflow and stated scope.
+No result of the two active solver jobs is certified by this source review.
+
+Archive confirmation: all four entries in search/cegis-small-rows/manifest.json
+verified by exact bytes and SHA256 (8432 bytes). The archived script has the
+reviewed hash unchanged; its encoder hash matches the archived parent synth.py.
+Both complete logs show 32 initial rows and UNKNOWN in round zero, after
+90 and 240 seconds respectively. No candidate was produced. The logging caveat
+did not trigger; both logs contain an explicit terminal UNKNOWN.

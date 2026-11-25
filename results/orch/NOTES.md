@@ -195,3 +195,43 @@ State0 initial13-entry fresh closure now kernel-checked with row-witness reflect
 The trimmed98-line target builds with PEqualNP.Defs only and the repository checker now completes: REJECTED (no-theorem), accurately identifying the unfinished goal. The checked20-gate control remains preserved in TargetPartial135.lean and history. Research builds can use two narrow-import slots; full checker runs get a quiet window.
 
 Prioritize concrete Petersen seventeen-binary-gate instantiation using the now-cached checked nine-input certificate. Finish its nineteen-gate/NOT-count consequence before expanding more variants. The generic delta-zero/delta-one terminal checker is checked; produce concrete frontier exclusions next. Favor conventional Live search with full functional-dependence, cofactor cuts, and these terminal rules; keep unproved first-sharing recurrence experiments secondary. All heuristic searches remain incomplete, and no exact counterexample has been found.
+
+### Counterexample / checked concrete terminal0 (2026-11-25 13:57:01 UTC)
+
+`lemmas/Live1024Terminal0.lean` now proves `Terminal0.terminal_excluded : Impossible false graph 12 (roots.image raw)` for the exported12-wire frontier. This is an actual terminal exclusion, using all13 checked copied bases (318 Cert2 entries), the old13-entry table, every bridge, correct graph signature, distinct raw inputs, and valid225 separation pairs. All checks are kernel `decide`; no native evaluation or unproved hypotheses. Declaration-local resource limits satisfy repository format. Final source245134bytes, SHA25644d4eeedc4fa48cd1f7d8b3048f3d4ddd4be435e6e0de44aa24e1e4633ce7b4a; localized standalone build EXIT0, complete log archived. General gap L-meta-2373 remains unproved. Independent exact-source review is `review-terminal0-complete.txt`; initial global-limit artifact remains historical only.
+
+### Counterexample / arbitrary positive deficit decomposition (2026-11-25 13:59:23 UTC)
+
+`positive_deficit_first_retention` is now Lean-checked. From any actual Live run with positive deficit δ = k+1−|S| and a closure/partition/support invariant, it finds the first retained operand after a no-retention prefix. A single-retention transition leaves deficit δ−1; a double-retention transition forces δ≥2 and leaves deficit δ−2. Actual tail run and every invariant are preserved. This is the cardinal/state decomposition, not yet full hierarchy soundness. Source `lemmas/Live1024FirstRetention.lean`, SHA256a2122aef06514264db749fbcd43187a07e942da0c6977bee78c4a7ba707866de; full compile output archived, EXIT0. New76-line fragment independently mathematically reviewed by lean_setup.
+
+## proof_structure concrete17 checkpoint (2026-11-25T13:59:40.738997+00:00)
+
+`results/orch/lemmas/PetersenSeventeenFull.lean` is self-contained, sole import `PEqualNP.Defs`,330182bytes7156lines, and compiled exit0. It preserves the previous target facts and proves `petersen_not_budget_seventeen`:17+NOTcount≤size for any legal circuit computing the exact Petersen edge function. Thus `petersen_three_not_exclusion` excludes size≤19 with at least3NOT gates. This remains a partial; the posted2373 theorem is intentionally absent. Independent review: `review-petersen-seventeen-full.txt`. All compiler output saved beside source.
+
+## proof_structure eighteen-first-step checkpoint (2026-11-25T14:00:29.038396+00:00)
+
+Checked `PetersenEighteenExtension.lean` imports the checked standalone17 module and adds: two distinct constant frontier entries cost2 after projection; every normalized first binary gate retains both original operands; every first gate other than OR requires at least18 binary gates. `signed_seventeen_or_roots` reduces any17-binary signed Petersen run to a16-gate continuation from all10 inputs plus one OR of two distinct inputs. `two_not_or_roots` gives the same conclusion from a size≤19 circuit with at least2NOT gates. This does not rule out the first-OR case or prove full20. Append-only source is `EighteenFullExtension.txt`, with full compiler output beside the tested module.
+
+### finite_invariants: double-sharing partition and support, 2026-11-25
+
+Checked `results/orch/lemmas/DoubleSharing.lean` (exit0; full log beside source). The suffix implements `doubleSharingLabels`, `double_sharing_partition`, and `double_sharing_support` for a first binary transition retaining both operands. The nested duplicate basis has two copies of each operand; one copy remains at each old operand and one copy of each labels the fresh output. Unaffected labels are lifted twice. No reordering or injectivity after projection is assumed. Source fragment: `DoubleSharingSuffix.txt`; intended for counterexample agent hierarchy induction.
+
+### Counterexample / hierarchy interface (2026-11-25 14:03:10 UTC)
+
+Checked `sharing_cert_state` preserves arbitrary-tail partition, certificate entries, and support after one retained operand, without δ0 tightness. Checked `CertificateTower` recursively requires fresh closure, missing full target, and single-copy successor certificates with finite bridges. This defines conditional hierarchy data; general soundness is still being proved. Source `lemmas/Live1024HierarchyDraft.lean`, SHA256bff332a4ffe4c0d095aaf6cd26e5226ab54c7e512f4accc415225e2f1682057b; EXIT0. Independent finite_invariants review PASS at `review-hierarchy-draft.txt`.
+
+### lean_setup generic Run composition, 2026-11-25T14:03:58.304677+00:00
+
+Compiled `results/orch/lemmas/Live1024RunCompose.lean`, SHA `4d5016fe2ea5cfd2bcddb347c53fc5cc9e981aca93d60179ba50736d8f7b1921`, 65362bytes/1331lines; exit0 with16linterwarnings. New36line fragment proves `Run.substitute`: compose a Run producing one wire with a continuation using that wire, retaining an arbitrary extra root list. `Run.combine_traces` composes two independently computed operands then one binary operation with exact additive gate count. Both are generic in row type and signed/monotone mode. This supports replacing most copied finite tables with ReadOnce predicates plus cofactor cuts.
+
+### finite_invariants: memo automorphism transport, 2026-11-25
+
+Checked `MemoRename.lean` (exit0, full log archived). Five thin lemmas transfer exact or bounded impossibility through the existing checked `live_rename`: row map is surjective, target is fixed, and current pool image equals the earlier pool. Explicit right-inverse variants support finite witness checking. This is only a conditional memo rule; no particular permutation or whole search certificate is asserted. The reusable fragment is `MemoRenameSuffix.txt`.
+
+### lean_setup ReadOnce support calculus, 2026-11-25T14:05:36.343673+00:00
+
+Compiled `results/orch/lemmas/Live1024ReadOnce.lean`: 68633bytes/1400lines, SHA `0203de82d93aed8b85fadc1d1b5d0c3b2f09b0a782b3bc5a09bae460d6690887`, exit0/16linterwarnings. ReadOnce(raw,u,A,v) means nonempty supportA and a Run computingv from its raw leaves with exactly|A|−1gates. The new68lines prove singleton leaves, binary closure under disjoint supports, and injective relabeling preserving raw signatures. Taking Cert0=tableCert∧ReadOnce establishes actual-prefix provenance automatically; taking Cert2=ReadOnce on duplicated roots gives the copied-basis bridge via Sum.inl. Cofactor cuts can then prove absence of full-target ReadOnce, replacing most large copied tables. Exact lower-bound source mapping for exported cuts is being checked with library_route.
+
+### Counterexample / general certificate hierarchy soundness (2026-11-25 14:07:26 UTC)
+
+`certificate_tower_exclusion_state` and raw-basis wrapper `certificate_tower_exclusion` now compile. A depth-d certificate tower excludes any actual Live run with k+1≤|S|+d under the label partition/certificate/support invariant. Zero deficit uses δ0 closure; positive deficit passes to the checked first-retention decomposition. One retained operand consumes one copied-basis successor; two retained operands consume two sequential successors. The double case uses fresh basis row cover to certify the consumed a-copy, avoiding any Run-reordering assumption. All transitions preserve the actual tail and its invariants. Final source `lemmas/Live1024CertificateTower.lean`, SHA256261401f9c324ac1991a2285df47063f2746cc18f5771f7012580712632098b66, 139048bytes; EXIT0 with full log archived. This is a conditional general certificate checker, not a complete certificate for the original gap. Arbitrary-depth cofactor terminal cuts still need a separate ReadOnce forest/Run composition bridge; depth0 closure leaves and existing δ1 finite tables are covered.

@@ -49,3 +49,9 @@
 - 2026-11-25T14:00:49.605388+00:00: Standalone 17-binary lower bound and general first-retention theorem compiled and independently reviewed. Exact 17-binary source installed in named target; lake build started.
 
 - 2026-11-25T14:05:10.120663+00:00: Checked and reviewed first-non-OR 18-binary restriction, certificate-hierarchy interface, and double-sharing state construction preserved.
+
+- 2026-11-25T14:07:23+00:00 finite_invariants: double-sharing partition/support and memo row-permutation impossibility wrappers have compiled successfully and are archived. General Petersen star normalization exploration paused because no sound normalization theorem was established; effort redirected to conditional finite-certificate infrastructure.
+
+- 2026-11-25 14:07:26 UTC — counterexample: full arbitrary-deficit single-copy certificate tower soundness compiled EXIT0; source/log archived for immediate independent review and push.
+
+- 2026-11-25T14:09:37.865947+00:00: Arbitrary-depth certificate-tower soundness and Run/ReadOnce/memo helpers compiled and reviewed; preserving full compressed search traces and both UNKNOWN SAT logs.

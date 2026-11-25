@@ -1,0 +1,36 @@
+
+theorem kept_append {α : Type} (save : Bool) (a : α) (xs ys : List α) :
+    kept save a xs ++ ys = kept save a (xs ++ ys) := by
+  cases save <;> rfl
+
+theorem Run.substitute {R : Type} {u : Bool} {goal target : Wire R}
+    {k l : Nat} {xs rest : List (Wire R)}
+    (trace : Run u goal k xs) (tail : Run u target l (goal :: rest)) :
+    Run u target (k + l) (xs ++ rest) := by
+  induction k generalizing xs with
+  | zero =>
+    have perm : [goal].Perm xs := trace
+    exact Run.perm (perm.append_right rest) (by simpa using tail)
+  | succ k ih =>
+    obtain ⟨op, ka, kb, a, b, mid, hd, perm, trace⟩ := trace
+    have next := ih trace
+    have next' : Run u target (k + l)
+        (comb op a b :: kept ka a (kept kb b (mid ++ rest))) := by
+      simpa only [List.cons_append, kept_append] using next
+    have step := Run.two op hd ka kb next'
+    have framed : Run u target (k + 1 + l) ((a :: b :: mid) ++ rest) := by
+      simpa only [List.cons_append, Nat.add_right_comm] using step
+    exact Run.perm (perm.append_right rest) framed
+
+theorem Run.combine_traces {R : Type} {u : Bool} {a b : Wire R}
+    {k l : Nat} {xs ys : List (Wire R)}
+    (left : Run u a k xs) (right : Run u b l ys) (d : Nat) (hd : allowed u d) :
+    Run u (comb d a b) (k + l + 1) (xs ++ ys) := by
+  have finish : Run u (comb d a b) 1 [a, b] :=
+    Run.two d hd false false (by simpa [kept] using (Run.stop (goal := comb d a b) (u := u)))
+  have swap : ([a, b] : List (Wire R)).Perm [b, a] := List.Perm.swap _ _ _
+  have reversed : Run u (comb d a b) 1 [b, a] := Run.perm swap finish
+  have first : Run u (comb d a b) (l + 1) (ys ++ [a]) := Run.substitute right reversed
+  have second : Run u (comb d a b) (l + 1) (a :: ys) :=
+    Run.perm List.perm_append_comm first
+  simpa only [Nat.add_assoc] using Run.substitute left second

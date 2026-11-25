@@ -1,0 +1,1 @@
+{"checked": 1000, "total_nodes": 1000, "signals": 259, "kinds": {"open": 5, "cofactor": 489, "row": 474, "expand": 1, "formula1": 15, "formula0": 12, "memo": 4}, "root_status": "open", "note": "Row/cofactor/transition checks only; closure and complete branch coverage remain separate"}

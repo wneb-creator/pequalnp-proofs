@@ -1,0 +1,6 @@
+Independent ReadOnce wrapper review
+Reviewer: /root/counterexample
+Full source SHA256: 0203de82d93aed8b85fadc1d1b5d0c3b2f09b0a782b3bc5a09bae460d6690887
+Verdict: PASS.
+
+Full module is unchanged reviewed RunCompose base plus the68-line ReadOnce fragment and restored namespace end. ReadOnce requires nonempty indexed leaf support and a Run using exactly |A|−1 gates, preserving duplicate raw signatures through distinct labels. Leaf uses singleton permutation and Run.stop. Combine uses disjoint label sets, establishes concatenation/union permutation without deleting duplicated signature values, adds exact gate counts using nonemptiness, and transports obs_bin. Map requires injective label mapping and equality of raw signatures, preserving cardinality, permutation and exact Run cost. Finset.toList is used only in logical Run propositions/proofs, not assumed to be computationally canonical. No new axiom, sorry, native_decide, unsafe/meta code, custom instance, option, import, or string occurs in the fragment. Complete archived log has0errors; author reported exit0.

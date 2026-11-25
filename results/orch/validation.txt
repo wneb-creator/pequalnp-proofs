@@ -19,3 +19,5 @@ Sub-agents: status_review, proof_structure, counterexample, library_route, lean_
 TIMING total=70 subagents=6
 
 Further checked partials: the extension proves that a first non-OR normalized binary gate requires at least 18 binary gates; it still leaves the first-OR case open. The generic certificate hierarchy interface and double-sharing partition/support construction compiled and passed independent review. Their archives include full logs.
+
+General certificate-tower soundness is now checked for arbitrary depth, including both retention cases. Exact Run composition, read-once support and relabeling, and memo symmetry transport are checked. The concrete tower for the full target is still absent. Full compressed signed17 traces and bounded small-row SAT logs are archived; neither experiment completed a whole target case.

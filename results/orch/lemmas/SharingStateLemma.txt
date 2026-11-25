@@ -1,0 +1,84 @@
+theorem sharing_cert_state {α Ω : Type} [DecidableEq α]
+    (roots : Finset α) (raw : α → Sig) (col : Sig → Set Ω) (need : Set Ω)
+    (Cert0 : Finset α → Sig → Prop) (Cert2 : Finset (Sum α Bool) → Sig → Prop)
+    (u : Bool) (T : Sig)
+    (gateCol : ∀ d a b, allowed u d → col (bin d a b) ⊆ col a ∪ col b)
+    (rowCover : ∀ k S, Live u T k S → ∀ o ∈ need, ∃ v ∈ S, o ∈ col v)
+    (U : Finset Sig) (a b : Sig) (d k : Nat) (label : Sig → Finset α)
+    (hd : allowed u d) (pa : proper a) (pb : proper b) (hab : a ≠ b)
+    (fresh : bin d a b ∉ insert a (insert b U)) (ha : a ∈ U) (hb : b ∉ U)
+    (tail : Live u T k (insert (bin d a b) U))
+    (part : LabelPartition roots (insert a (insert b U)) label)
+    (entries : ∀ v ∈ insert a (insert b U), Cert0 (label v) v)
+    (supports : ∀ v ∈ insert a (insert b U), ColumnSupport raw col (label v) v)
+    (leaves : ∀ t : Bool, Cert2 {Sum.inr t} a)
+    (closed : ∀ A B v w e, Disjoint A B → allowed u e → v ≠ w →
+      bin e v w ≠ v → bin e v w ≠ w → proper (bin e v w) →
+      Cert2 A v → Cert2 B w →
+      ColumnAdmissible (duplicateRoots roots (label a)) (duplicateRaw raw a) col need
+        (A ∪ B) (bin e v w) → Cert2 (A ∪ B) (bin e v w))
+    (bridge : ∀ B v, Cert0 B v → Disjoint (label a) B →
+      ColumnAdmissible (duplicateRoots roots (label a)) (duplicateRaw raw a) col need
+        (liftLabels B) v → Cert2 (liftLabels B) v) :
+    ∃ next : Sig → Finset (Sum α Bool),
+      LabelPartition (duplicateRoots roots (label a)) (insert (bin d a b) U) next ∧
+      (∀ v ∈ insert (bin d a b) U, Cert2 (next v) v) ∧
+      (∀ v ∈ insert (bin d a b) U, ColumnSupport (duplicateRaw raw a) col (next v) v) := by
+  classical
+  let z := bin d a b
+  let next := sharingLabels label a b z
+  have memA : a ∈ insert a (insert b U) := by simp
+  have memB : b ∈ insert a (insert b U) := by simp
+  have memU (v : Sig) (hv : v ∈ U) : v ∈ insert a (insert b U) := by simp [hv]
+  have notU : z ∉ U := fun hz => fresh (Finset.mem_insert_of_mem (Finset.mem_insert_of_mem hz))
+  have anz : a ≠ z := by
+    intro h
+    exact fresh (Finset.mem_insert.mpr (Or.inl h.symm))
+  have nextZ : next z = insert (Sum.inr true) (liftLabels (label b)) := by
+    simp [next, sharingLabels]
+  have nextA : next a = {Sum.inr false} := by simp [next, sharingLabels, anz]
+  have nextU (v : Sig) (hv : v ∈ U) (hne : v ≠ a) : next v = liftLabels (label v) := by
+    have hnz : v ≠ z := by rintro rfl; exact notU hv
+    simp [next, sharingLabels, hnz, hne]
+  have part2 := sharing_partition roots U a b z label hab fresh ha hb part
+  have supports2 := sharing_support raw col u gateCol U a b d hd fresh label supports
+  have admissible2 := partition_admissible (duplicateRoots roots (label a))
+    (duplicateRaw raw a) col need part2 supports2 (rowCover k _ tail)
+  have preRun : Live u T (k + 1) (insert a (insert b U)) :=
+    Live.binary hd pa pb hab fresh tail
+  have certB : Cert2 (liftLabels (label b)) b :=
+    bridge (label b) b (entries b memB) (part.2.1 a memA b memB hab)
+      (duplicate_admissible roots raw col need part supports
+        (rowCover (k + 1) _ preRun) a memA b memB hab.symm)
+  have certZ : Cert2 (next z) z := by
+    rw [nextZ]
+    have disjoint : Disjoint ({Sum.inr true} : Finset (Sum α Bool)) (liftLabels (label b)) := by
+      apply Finset.disjoint_left.mpr
+      intro q hq hqb
+      have eq := Finset.mem_singleton.mp hq
+      subst q
+      simpa [liftLabels] using hqb
+    have admissible := admissible2 z (Finset.mem_insert_self _ _)
+    change ColumnAdmissible (duplicateRoots roots (label a)) (duplicateRaw raw a) col need
+      (next z) z at admissible
+    rw [nextZ] at admissible
+    simpa only [Finset.singleton_union] using
+      closed {Sum.inr true} (liftLabels (label b)) a b d disjoint hd hab
+        (fun h => fresh (h.symm ▸ memA)) (fun h => fresh (h.symm ▸ memB))
+        (live_proper tail z (Finset.mem_insert_self _ _)) (leaves true) certB
+        (by simpa only [Finset.singleton_union] using admissible)
+  have entries2 : ∀ v ∈ insert z U, Cert2 (next v) v := by
+    intro v hv
+    rcases Finset.mem_insert.mp hv with rfl | hv
+    · exact certZ
+    · by_cases h : v = a
+      · subst v
+        simpa only [nextA] using leaves false
+      · rw [nextU v hv h]
+        apply bridge (label v) v (entries v (memU v hv))
+          (part.2.1 a memA v (memU v hv) (Ne.symm h))
+        have adm := admissible2 v (Finset.mem_insert_of_mem hv)
+        change ColumnAdmissible (duplicateRoots roots (label a)) (duplicateRaw raw a) col need
+          (next v) v at adm
+        simpa only [nextU v hv h] using adm
+  exact ⟨next, part2, entries2, supports2⟩

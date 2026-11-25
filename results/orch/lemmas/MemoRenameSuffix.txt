@@ -1,0 +1,33 @@
+
+lemma not_live_of_rename {u : Bool} {T : Sig} {k : Nat} {S priorS : Finset Sig}
+    (f : Row → Row) (onto : Function.Surjective f)
+    (targetFixed : rename f T = T) (poolImage : S.image (rename f) = priorS)
+    (prior : ¬ Live u T k priorS) : ¬ Live u T k S := by
+  intro run
+  exact prior (by simpa only [targetFixed, poolImage] using live_rename run f onto)
+
+lemma not_live_le_of_rename {u : Bool} {T : Sig} {bound : Nat} {S priorS : Finset Sig}
+    (f : Row → Row) (onto : Function.Surjective f)
+    (targetFixed : rename f T = T) (poolImage : S.image (rename f) = priorS)
+    (prior : ∀ k ≤ bound, ¬ Live u T k priorS) : ∀ k ≤ bound, ¬ Live u T k S := by
+  intro k hk
+  exact not_live_of_rename f onto targetFixed poolImage (prior k hk)
+
+lemma not_live_of_rename_inverse {u : Bool} {T : Sig} {k : Nat} {S priorS : Finset Sig}
+    (f inverse : Row → Row) (rightInverse : ∀ r, f (inverse r) = r)
+    (targetFixed : rename f T = T) (poolImage : S.image (rename f) = priorS)
+    (prior : ¬ Live u T k priorS) : ¬ Live u T k S :=
+  not_live_of_rename f (fun r => ⟨inverse r, rightInverse r⟩) targetFixed poolImage prior
+
+lemma impossible_of_rename {u : Bool} {T : Sig} {cap : Nat} {S priorS : Finset Sig}
+    (f : Row → Row) (onto : Function.Surjective f)
+    (targetFixed : rename f T = T) (poolImage : S.image (rename f) = priorS)
+    (prior : Impossible u T cap priorS) : Impossible u T cap S := by
+  intro k hk
+  exact not_live_of_rename f onto targetFixed poolImage (prior k hk)
+
+lemma impossible_of_rename_inverse {u : Bool} {T : Sig} {cap : Nat} {S priorS : Finset Sig}
+    (f inverse : Row → Row) (rightInverse : ∀ r, f (inverse r) = r)
+    (targetFixed : rename f T = T) (poolImage : S.image (rename f) = priorS)
+    (prior : Impossible u T cap priorS) : Impossible u T cap S :=
+  impossible_of_rename f (fun r => ⟨inverse r, rightInverse r⟩) targetFixed poolImage prior

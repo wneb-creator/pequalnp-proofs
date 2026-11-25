@@ -1,0 +1,6 @@
+Independent Run composition review
+Reviewer: /root/counterexample
+Full module SHA256: 4d5016fe2ea5cfd2bcddb347c53fc5cc9e981aca93d60179ba50736d8f7b1921
+Verdict: PASS.
+
+The full module is exactly checked Live1024Count base, reviewed36-line fragment, whitespace, and restored namespace end. Run.substitute inducts over the first actual Run, frames every gate with the untouched continuation roots, preserves saved operands via kept_append, and transports source permutations by append_right. The zero case uses the endpoint permutation. Gate costs add exactly k+l. Run.combine_traces first forms one final binary gate, runs the right derivation with a framed endpoint, permutes that endpoint first, then substitutes the left derivation, yielding k+l+1. Duplicated functional signatures in root lists are not incorrectly identified or erased. No new axiom, sorry, native_decide, unsafe/meta operation, custom instance, import, option, or string is added. Archived compiler output has0errors; lean_setup reported exit0.

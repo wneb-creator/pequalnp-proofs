@@ -1,0 +1,79 @@
+theorem certificate_tower_exclusion_state {Ω : Type}
+    (col : Sig → Set Ω) (need : Set Ω) (u : Bool) (T : Sig)
+    (gateCol : ∀ d a b, allowed u d → col (bin d a b) ⊆ col a ∪ col b)
+    (rowCover : ∀ k S, Live u T k S → ∀ o ∈ need, ∃ v ∈ S, o ∈ col v)
+    (depth : Nat) :
+    ∀ (α : Type) [DecidableEq α] (roots : Finset α) (raw : α → Sig)
+      (Cert : Finset α → Sig → Prop),
+      CertificateTower col need u T depth α roots raw Cert →
+      ∀ {k : Nat} {S : Finset Sig}, Live u T k S → k + 1 ≤ S.card + depth →
+      ∀ (label : Sig → Finset α), LabelPartition roots S label →
+      (∀ v ∈ S, Cert (label v) v) →
+      (∀ v ∈ S, ColumnSupport raw col (label v) v) → False := by
+  induction depth using Nat.strong_induction_on with
+  | ind depth ih =>
+    intro α inst roots raw Cert tower k S run cap label part entries supports
+    have bound := live_size run
+    by_cases tight : S.card = k + 1
+    · exact tower.missing
+        (tight_closure_fresh_state roots raw col need Cert u T gateCol rowCover tower.closed
+          run tight label part entries supports)
+    · let δ := k + 1 - S.card
+      have positive : 0 < δ := by omega
+      have deficit : k + 1 = S.card + δ := by omega
+      have depthBound : δ ≤ depth := by omega
+      obtain ⟨j, U, a, b, d, labels, hd, pa, pb, hab, fresh, ha, tail,
+        retention, part2, entries2, supports2⟩ :=
+        positive_deficit_first_retention roots raw col need Cert u T gateCol rowCover tower.closed
+          positive run deficit label part entries supports
+      cases depth with
+      | zero => omega
+      | succ n =>
+        have memA : a ∈ insert a (insert b U) := by simp
+        have memB : b ∈ insert a (insert b U) := by simp
+        obtain ⟨Cert2, leaves1, bridge1, tower2⟩ :=
+          tower.copies (labels a) a (part2.1 a memA) pa (entries2 a memA)
+        rcases retention with ⟨hb, tailDeficit⟩ | ⟨hb, two, tailDeficit⟩
+        · obtain ⟨next, nextPart, nextEntries, nextSupports⟩ :=
+            sharing_cert_state roots raw col need Cert Cert2 u T gateCol rowCover
+              U a b d j labels hd pa pb hab fresh ha hb tail part2 entries2 supports2
+              leaves1 tower2.closed bridge1
+          exact ih n (by omega) (Sum α Bool) (duplicateRoots roots (labels a))
+            (duplicateRaw raw a) Cert2 tower2 tail (by omega)
+            next nextPart nextEntries nextSupports
+        · cases n with
+          | zero => omega
+          | succ m =>
+            have preRun : Live u T (j + 1) (insert a (insert b U)) :=
+              Live.binary hd pa pb hab fresh tail
+            have certB : Cert2 (liftLabels (labels b)) b :=
+              bridge1 (labels b) b (entries2 b memB) (part2.2.1 a memA b memB hab)
+                (duplicate_admissible roots raw col need part2 supports2
+                  (rowCover (j + 1) _ preRun) a memA b memB hab.symm)
+            have subB : liftLabels (labels b) ⊆ duplicateRoots roots (labels a) :=
+              liftLabels_subset_duplicate (part2.1 b memB) (part2.2.1 a memA b memB hab)
+            obtain ⟨Cert3, leaves2, bridge2, tower3⟩ :=
+              tower2.copies (liftLabels (labels b)) b subB pb certB
+            obtain ⟨next, nextPart, nextEntries, nextSupports⟩ :=
+              double_sharing_cert_state roots raw col need Cert Cert2 Cert3 u T
+                gateCol rowCover U a b d j labels hd pa pb hab fresh ha hb tail
+                part2 entries2 supports2 leaves1 bridge1 leaves2 tower3.closed bridge2
+            exact ih m (by omega) (Sum (Sum α Bool) Bool)
+              (duplicateRoots (duplicateRoots roots (labels a)) (liftLabels (labels b)))
+              (duplicateRaw (duplicateRaw raw a) b) Cert3 tower3 tail (by omega)
+              next nextPart nextEntries nextSupports
+
+theorem certificate_tower_exclusion {α Ω : Type} [DecidableEq α]
+    (roots : Finset α) (raw : α → Sig) (col : Sig → Set Ω) (need : Set Ω)
+    (Cert : Finset α → Sig → Prop) (u : Bool) (T : Sig) (depth cap : Nat)
+    (distinct : Set.InjOn raw (↑roots : Set α))
+    (initial : ∀ r ∈ roots, Cert {r} (raw r))
+    (gateCol : ∀ d a b, allowed u d → col (bin d a b) ⊆ col a ∪ col b)
+    (rowCover : ∀ k S, Live u T k S → ∀ o ∈ need, ∃ v ∈ S, o ∈ col v)
+    (tower : CertificateTower col need u T depth α roots raw Cert)
+    (width : cap + 1 ≤ (roots.image raw).card + depth) :
+    Impossible u T cap (roots.image raw) := by
+  intro k hk run
+  obtain ⟨label, part, entries, supports⟩ := initial_cert_state roots raw col Cert distinct initial
+  exact certificate_tower_exclusion_state col need u T gateCol rowCover depth
+    α roots raw Cert tower run (by omega) label part entries supports
