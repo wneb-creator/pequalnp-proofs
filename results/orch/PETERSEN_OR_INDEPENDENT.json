@@ -1,0 +1,21 @@
+{
+  "verdict": "PASS",
+  "variables": 2016,
+  "clauses": 8361,
+  "full_inputs": 256,
+  "vertices": 8,
+  "edges": 10,
+  "girth_at_least_5": true,
+  "or_gates": 8,
+  "simplified_and_gates": 6,
+  "vertex_cover_number": 4,
+  "star_upper_bound": 13,
+  "minimum_covers": [
+    [
+      0,
+      1,
+      3,
+      4
+    ]
+  ]
+}

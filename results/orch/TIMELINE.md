@@ -17,3 +17,9 @@
 - 2026-11-25T01:42:48.501609+00:00: lease renewed; expiry 2026-11-25T02:02:48.642Z.
 
 2026-11-25T01:50:00Z: Namespace-normalized conditional target compiled; FreshCore914 concrete circuit repair and numerical research checkpoint prepared. No unconditional theorem.
+- 2026-11-25T01:51:48.765729+00:00: lease renewed; expiry 2026-11-25T02:11:48.979Z.
+- 2026-11-25T02:00:49.089874+00:00: lease renewed; expiry 2026-11-25T02:20:49.242Z.
+
+- 2026-11-25T02:01:43.119285+00:00: ownership_lemma: P5Exchange and P5Context checked;2gate-saving independent-two-junk rewrite with3sharedORports preserved, actual Circuit suffix renaming and nonminimality theorem.
+
+2026-11-25T02:04:56.496691+00:00: compact named target built successfully; generic fanout exchange and contextual P5 repair independently reviewed. Eight-OR counterexample found to separate OR lower bound, not assigned statement.

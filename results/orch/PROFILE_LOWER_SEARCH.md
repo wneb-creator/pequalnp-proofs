@@ -1,0 +1,9 @@
+# Profile lower-bound search
+
+Independent search by prior_gap_check, 2026-11-25.
+
+No existing theorem giving size >= edges + vertex-cover-number - 1 from HasStarProfile/nonempty ownership was found. I enumerated every Outside file mentioning HasStarProfile/StarProfile and every Outside file mentioning Owns (21 files), plus MetaComplexity/Defs helper files. HasStarProfile is defined only in Defs/EdgeOwnership and its outside uses are chiefly the unproved normal-form reductions R_meta_1031_1, R_meta_1031_3, R_meta_2448_17. L_meta_5355 gives the matching upper construction. L_meta_1906 assumes every AND is already semantically below the graph function and normalizes empty owners; it supplies no reverse implication from profile to soundness. L_meta_1762 and L_meta_2660 count locally sound owned edges with much weaker constants, not the exact bound. A raw/inlined formulation could evade these name-based searches, so this is not a proof of absence.
+
+The separate unconditional OR bound is false by the newly checked Petersen-minus2 witness. A profile-conditioned OR bound remains an unproved possibility. HasStarProfile allows empty owners; the posted target separately requires nonempty ownership, and neither condition implies semantic soundness of every AND (the checked ProfileVersusSound example establishes that distinction).
+
+The new eight-vertex witness graph has a known total-gate lower bound already in L_meta_3143, final theorem at line 4713. That theorem treats graph edges 01,12,23,04,15,26,37,46,57,74, and proves at least 13 gates even for arbitrary FanInTwo circuits with one free complemented input and constants. The witness-to-library isomorphism is [1,4,3,7,2,0,6,5], verified by exhaustive comparison of all ten edges. Combining this known lower bound with the constructed cover circuit gives a 13-gate optimum for this specific graph, so its 14-gate eight-OR circuit cannot refute the posted least-star-profile statement.

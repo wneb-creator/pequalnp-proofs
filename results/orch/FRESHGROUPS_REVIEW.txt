@@ -1,0 +1,8 @@
+Independent review by prior_gap_check
+Verdict: PASS for a partial-result checkpoint, not the full posted L-meta-1031 theorem.
+Source FreshGroups.lean: 412 lines; SHA256 22870fee7c1e6014ee895bae902978bbff4fe9f045457e06147db5afea445c30.
+Independent source-plus-axiom-print compilation exited 0. append_combine, collect_two_stars, common_bridge_group, collect_on_tests, collect_on_tests_or use only propext, Classical.choice, Quot.sound. Complete log: results/orch/freshgroups-independent-axioms.log.
+
+The implementation appends legal fan-in-two AND/OR gates, preserves existing wire semantics, and tracks dirty AND gates via explicit all-input safety assumptions. group_split is an exact Boolean identity under the two stated literal-implication hypotheses. collect_two_stars builds the shared two-star expression using exactly 2*k+1 gates for a nonempty list of k pairs. collect_on_tests and its OR extension correctly distinguish global safety from equality only on the supplied test predicate. The final three arithmetic lemmas merely express numeric budget comparisons; they do not establish that the corresponding old gates can always be deleted or that their wires are unshared.
+
+No full-girth structural or ownership normalization conclusion is claimed. Imports are Mathlib/Defs only. Text scan found no sorry, new axioms, native_decide, forbidden namespace marker, string literals, command directives, attributes, options, or bv_decide.

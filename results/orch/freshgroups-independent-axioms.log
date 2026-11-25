@@ -1,0 +1,15 @@
+'PEqualNP.Outside.L_meta_1031.FreshCore.Groups.append_combine' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshCore.Groups.collect_two_stars' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshCore.Groups.common_bridge_group' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshCore.Groups.collect_on_tests' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.FreshCore.Groups.collect_on_tests_or' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,29 @@
+/tmp/oec/pequalnp-pilot-54/OrPotentialBoundaryAxioms.lean:147:20: warning: This simp argument is unused:
+  Fin.ext_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Adj] at hab hbc hca
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-54/OrPotentialBoundaryAxioms.lean:152:20: warning: This simp argument is unused:
+  Fin.ext_iff
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Adj] at hab hbc
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'PEqualNP.Outside.L_meta_1031.OrPotentialBoundary.base_generated' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OrPotentialBoundary.old_closed' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OrPotentialBoundary.old_proper' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OrPotentialBoundary.new_witnesses' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OrPotentialBoundary.input_certificates' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.OrPotentialBoundary.signal_certificates' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OrPotentialBoundary.sound_witnesses' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OrPotentialBoundary.matching_girth' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031.OrPotentialBoundary.matching_function' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,20 @@
+'PEqualNP.Outside.L_meta_1031.PetersenOrCounterexample.triangle_free' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.PetersenOrCounterexample.four_cycle_free' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.PetersenOrCounterexample.computes_graph' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.PetersenOrCounterexample.binary_monotone' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.PetersenOrCounterexample.edge_count' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.PetersenOrCounterexample.or_count' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_1031.PetersenOrCounterexample.violates_separate_or_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031.PetersenOrCounterexample.disjoint_owned_edges' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
