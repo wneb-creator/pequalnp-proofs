@@ -1,0 +1,18 @@
+{
+  "task": "L-meta-1772",
+  "purpose": "Probe broader all-owned-minimum conjecture on all five-vertex graphs",
+  "graphs": 34,
+  "all_owned_witnesses": 34,
+  "normalized_optima_with_smaller_sizes_unsat": 33,
+  "unresolved_lower_bound": "K5: size10 witness, smaller search timeout",
+  "lean_checked": false,
+  "solver_driver_sha256": "46768beb0bc769aa732dcc7f66c8da4cabfd88f1076447aaa5f033d6b3cc6b42",
+  "census_sha256": "688772972f0a821c777ca51e9e2836e9499fbb8c073af98695a574c34427eb0a",
+  "normalization": [
+    "binary distinct earlier operands",
+    "every gate used",
+    "output last",
+    "sorted maximum/minimum operands and operation"
+  ],
+  "caveat": "UNSAT relies on SAT encoding and solver. These are not Lean lower-bound certificates."
+}

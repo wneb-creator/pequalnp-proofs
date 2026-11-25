@@ -1,0 +1,5 @@
+graph subdividedk4pruned n 8 edges [(0, 3), (0, 4), (0, 6), (1, 2), (1, 5), (1, 6), (2, 4), (2, 7), (3, 5), (3, 7)] alpha 4 star_bound 13
+tests 19 gates 12 dirty False
+variables 1626 clauses 18574
+returncode 0 elapsed 180.01646518707275
+

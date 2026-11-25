@@ -1,0 +1,5145 @@
+[
+  {
+    "mask": 0,
+    "edges": [],
+    "size": 0,
+    "all_owned": true,
+    "lower_unsat": true
+  },
+  {
+    "mask": 1,
+    "edges": [
+      [
+        0,
+        1
+      ]
+    ],
+    "runs": [
+      {
+        "k": 1,
+        "status": 10
+      }
+    ],
+    "size": 1,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_1_1",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "gate_count": 1,
+      "returncode": 10,
+      "elapsed": 0.0074503421783447266,
+      "star_bound": 1,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "and",
+          0,
+          1
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 0,
+          "edges": [
+            [
+              0,
+              1
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 0,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 3,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ]
+    ],
+    "runs": [
+      {
+        "k": 2,
+        "status": 10
+      }
+    ],
+    "size": 2,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_3_2",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "gate_count": 2,
+      "returncode": 10,
+      "elapsed": 0.003099203109741211,
+      "star_bound": 2,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "or",
+          1,
+          2
+        ],
+        [
+          "and",
+          0,
+          5
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 1,
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 1,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 7,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ]
+    ],
+    "runs": [
+      {
+        "k": 3,
+        "status": 10
+      }
+    ],
+    "size": 3,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_7_3",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ],
+      "gate_count": 3,
+      "returncode": 10,
+      "elapsed": 0.00396728515625,
+      "star_bound": 3,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "or",
+          2,
+          3
+        ],
+        [
+          "or",
+          1,
+          5
+        ],
+        [
+          "and",
+          0,
+          6
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 2,
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 2,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 15,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 10
+      }
+    ],
+    "size": 4,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_15_4",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ]
+      ],
+      "gate_count": 4,
+      "returncode": 10,
+      "elapsed": 0.0044553279876708984,
+      "star_bound": 4,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "or",
+          3,
+          4
+        ],
+        [
+          "or",
+          2,
+          5
+        ],
+        [
+          "or",
+          1,
+          6
+        ],
+        [
+          "and",
+          0,
+          7
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 3,
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 3,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 19,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "runs": [
+      {
+        "k": 2,
+        "status": 20
+      },
+      {
+        "k": 3,
+        "status": 20
+      },
+      {
+        "k": 4,
+        "status": 10
+      }
+    ],
+    "size": 4,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_19_4",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "gate_count": 4,
+      "returncode": 10,
+      "elapsed": 0.003496408462524414,
+      "star_bound": 4,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "and",
+          0,
+          1
+        ],
+        [
+          "or",
+          0,
+          1
+        ],
+        [
+          "and",
+          2,
+          6
+        ],
+        [
+          "or",
+          5,
+          7
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 0,
+          "edges": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "gate": 2,
+          "edges": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 0,
+          "vertices": []
+        },
+        {
+          "gate": 2,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 20,
+    "edges": [
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "runs": [
+      {
+        "k": 3,
+        "status": 10
+      }
+    ],
+    "size": 3,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_20_3",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "gate_count": 3,
+      "returncode": 10,
+      "elapsed": 0.003512859344482422,
+      "star_bound": 3,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "and",
+          1,
+          2
+        ],
+        [
+          "and",
+          0,
+          3
+        ],
+        [
+          "or",
+          5,
+          6
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 0,
+          "edges": [
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "gate": 1,
+          "edges": [
+            [
+              0,
+              3
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 0,
+          "vertices": []
+        },
+        {
+          "gate": 1,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 21,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "runs": [
+      {
+        "k": 3,
+        "status": 20
+      },
+      {
+        "k": 4,
+        "status": 10
+      }
+    ],
+    "size": 4,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_21_4",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "gate_count": 4,
+      "returncode": 10,
+      "elapsed": 0.0043337345123291016,
+      "star_bound": 4,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "and",
+          1,
+          2
+        ],
+        [
+          "or",
+          1,
+          3
+        ],
+        [
+          "or",
+          0,
+          5
+        ],
+        [
+          "and",
+          6,
+          7
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 0,
+          "edges": [
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "gate": 3,
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              3
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 0,
+          "vertices": []
+        },
+        {
+          "gate": 3,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 23,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "runs": [
+      {
+        "k": 3,
+        "status": 20
+      },
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 10
+      }
+    ],
+    "size": 5,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_23_5",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "gate_count": 5,
+      "returncode": 10,
+      "elapsed": 0.006824970245361328,
+      "star_bound": 5,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "or",
+          0,
+          1
+        ],
+        [
+          "or",
+          1,
+          3
+        ],
+        [
+          "and",
+          0,
+          6
+        ],
+        [
+          "or",
+          2,
+          7
+        ],
+        [
+          "and",
+          5,
+          8
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 2,
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "gate": 4,
+          "edges": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 2,
+          "vertices": []
+        },
+        {
+          "gate": 4,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 28,
+    "edges": [
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 10
+      }
+    ],
+    "size": 4,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_28_4",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "gate_count": 4,
+      "returncode": 10,
+      "elapsed": 0.004126548767089844,
+      "star_bound": 4,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "and",
+          1,
+          2
+        ],
+        [
+          "or",
+          3,
+          4
+        ],
+        [
+          "and",
+          0,
+          6
+        ],
+        [
+          "or",
+          5,
+          7
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 0,
+          "edges": [
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "gate": 2,
+          "edges": [
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 0,
+          "vertices": []
+        },
+        {
+          "gate": 2,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 29,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 10
+      }
+    ],
+    "size": 5,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_29_5",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "gate_count": 5,
+      "returncode": 10,
+      "elapsed": 0.03882861137390137,
+      "star_bound": 5,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "and",
+          1,
+          2
+        ],
+        [
+          "or",
+          1,
+          4
+        ],
+        [
+          "or",
+          0,
+          5
+        ],
+        [
+          "or",
+          3,
+          6
+        ],
+        [
+          "and",
+          7,
+          8
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 0,
+          "edges": [
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "gate": 4,
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 0,
+          "vertices": []
+        },
+        {
+          "gate": 4,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 31,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 20
+      },
+      {
+        "k": 6,
+        "status": 10
+      }
+    ],
+    "size": 6,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_31_6",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "gate_count": 6,
+      "returncode": 10,
+      "elapsed": 0.06112265586853027,
+      "star_bound": 6,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "and",
+          1,
+          2
+        ],
+        [
+          "or",
+          1,
+          2
+        ],
+        [
+          "or",
+          0,
+          5
+        ],
+        [
+          "or",
+          3,
+          6
+        ],
+        [
+          "or",
+          4,
+          8
+        ],
+        [
+          "and",
+          7,
+          9
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 0,
+          "edges": [
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "gate": 5,
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 0,
+          "vertices": []
+        },
+        {
+          "gate": 5,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 54,
+    "edges": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    "runs": [
+      {
+        "k": 3,
+        "status": 10
+      }
+    ],
+    "size": 3,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_54_3",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "gate_count": 3,
+      "returncode": 10,
+      "elapsed": 0.037276506423950195,
+      "star_bound": 5,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "or",
+          0,
+          1
+        ],
+        [
+          "or",
+          2,
+          3
+        ],
+        [
+          "and",
+          5,
+          6
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 2,
+          "edges": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 2,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 55,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    "runs": [
+      {
+        "k": 3,
+        "status": 20
+      },
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 10
+      }
+    ],
+    "size": 5,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_55_5",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "gate_count": 5,
+      "returncode": 10,
+      "elapsed": 0.003745555877685547,
+      "star_bound": 6,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "and",
+          0,
+          1
+        ],
+        [
+          "or",
+          0,
+          1
+        ],
+        [
+          "or",
+          2,
+          3
+        ],
+        [
+          "or",
+          5,
+          7
+        ],
+        [
+          "and",
+          6,
+          8
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 0,
+          "edges": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "gate": 4,
+          "edges": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 0,
+          "vertices": []
+        },
+        {
+          "gate": 4,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 58,
+    "edges": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 10
+      }
+    ],
+    "size": 5,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_58_5",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "gate_count": 5,
+      "returncode": 10,
+      "elapsed": 0.014504194259643555,
+      "star_bound": 5,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "or",
+          2,
+          3
+        ],
+        [
+          "or",
+          2,
+          4
+        ],
+        [
+          "and",
+          1,
+          5
+        ],
+        [
+          "and",
+          0,
+          6
+        ],
+        [
+          "or",
+          7,
+          8
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 2,
+          "edges": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        },
+        {
+          "gate": 3,
+          "edges": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              4
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 2,
+          "vertices": []
+        },
+        {
+          "gate": 3,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 59,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 20
+      },
+      {
+        "k": 6,
+        "status": 10
+      }
+    ],
+    "size": 6,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_59_6",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "gate_count": 6,
+      "returncode": 10,
+      "elapsed": 0.05668830871582031,
+      "star_bound": 6,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "or",
+          0,
+          2
+        ],
+        [
+          "or",
+          2,
+          4
+        ],
+        [
+          "or",
+          3,
+          5
+        ],
+        [
+          "and",
+          0,
+          6
+        ],
+        [
+          "and",
+          1,
+          7
+        ],
+        [
+          "or",
+          8,
+          9
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 3,
+          "edges": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              4
+            ]
+          ]
+        },
+        {
+          "gate": 4,
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 3,
+          "vertices": []
+        },
+        {
+          "gate": 4,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 62,
+    "edges": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 10
+      }
+    ],
+    "size": 5,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_62_5",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "gate_count": 5,
+      "returncode": 10,
+      "elapsed": 0.003715991973876953,
+      "star_bound": 6,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "or",
+          0,
+          1
+        ],
+        [
+          "or",
+          2,
+          3
+        ],
+        [
+          "and",
+          0,
+          4
+        ],
+        [
+          "and",
+          5,
+          6
+        ],
+        [
+          "or",
+          7,
+          8
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 2,
+          "edges": [
+            [
+              0,
+              4
+            ]
+          ]
+        },
+        {
+          "gate": 3,
+          "edges": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 2,
+          "vertices": []
+        },
+        {
+          "gate": 3,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 63,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 20
+      },
+      {
+        "k": 6,
+        "status": 10
+      }
+    ],
+    "size": 6,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_63_6",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "gate_count": 6,
+      "returncode": 10,
+      "elapsed": 0.008159160614013672,
+      "star_bound": 7,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "or",
+          2,
+          3
+        ],
+        [
+          "or",
+          0,
+          5
+        ],
+        [
+          "or",
+          4,
+          5
+        ],
+        [
+          "and",
+          0,
+          7
+        ],
+        [
+          "or",
+          1,
+          8
+        ],
+        [
+          "and",
+          6,
+          9
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 3,
+          "edges": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ]
+          ]
+        },
+        {
+          "gate": 5,
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 3,
+          "vertices": []
+        },
+        {
+          "gate": 5,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 126,
+    "edges": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 10
+      }
+    ],
+    "size": 4,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_126_4",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "gate_count": 4,
+      "returncode": 10,
+      "elapsed": 0.004254341125488281,
+      "star_bound": 7,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "or",
+          0,
+          1
+        ],
+        [
+          "or",
+          3,
+          4
+        ],
+        [
+          "or",
+          2,
+          6
+        ],
+        [
+          "and",
+          5,
+          7
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 3,
+          "edges": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 3,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 127,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 20
+      },
+      {
+        "k": 6,
+        "status": 10
+      }
+    ],
+    "size": 6,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_127_6",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "gate_count": 6,
+      "returncode": 10,
+      "elapsed": 0.019092321395874023,
+      "star_bound": 8,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "and",
+          0,
+          1
+        ],
+        [
+          "or",
+          0,
+          1
+        ],
+        [
+          "or",
+          2,
+          4
+        ],
+        [
+          "or",
+          3,
+          7
+        ],
+        [
+          "and",
+          6,
+          8
+        ],
+        [
+          "or",
+          5,
+          9
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 0,
+          "edges": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "gate": 4,
+          "edges": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 0,
+          "vertices": []
+        },
+        {
+          "gate": 4,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 183,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "runs": [
+      {
+        "k": 3,
+        "status": 20
+      },
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 20
+      },
+      {
+        "k": 6,
+        "status": 20
+      },
+      {
+        "k": 7,
+        "status": 10
+      }
+    ],
+    "size": 7,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_183_7",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "gate_count": 7,
+      "returncode": 10,
+      "elapsed": 0.009621858596801758,
+      "star_bound": 8,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "and",
+          1,
+          2
+        ],
+        [
+          "or",
+          1,
+          2
+        ],
+        [
+          "and",
+          0,
+          3
+        ],
+        [
+          "or",
+          0,
+          3
+        ],
+        [
+          "or",
+          5,
+          7
+        ],
+        [
+          "and",
+          6,
+          8
+        ],
+        [
+          "or",
+          9,
+          10
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 0,
+          "edges": [
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "gate": 2,
+          "edges": [
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "gate": 5,
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 0,
+          "vertices": []
+        },
+        {
+          "gate": 2,
+          "vertices": []
+        },
+        {
+          "gate": 5,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 184,
+    "edges": [
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 20
+      },
+      {
+        "k": 6,
+        "status": 10
+      }
+    ],
+    "size": 6,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_184_6",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "gate_count": 6,
+      "returncode": 10,
+      "elapsed": 0.010819196701049805,
+      "star_bound": 6,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "and",
+          2,
+          3
+        ],
+        [
+          "or",
+          2,
+          3
+        ],
+        [
+          "and",
+          0,
+          4
+        ],
+        [
+          "or",
+          1,
+          5
+        ],
+        [
+          "and",
+          6,
+          8
+        ],
+        [
+          "or",
+          7,
+          9
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 0,
+          "edges": [
+            [
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "gate": 2,
+          "edges": [
+            [
+              0,
+              4
+            ]
+          ]
+        },
+        {
+          "gate": 4,
+          "edges": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 0,
+          "vertices": []
+        },
+        {
+          "gate": 2,
+          "vertices": []
+        },
+        {
+          "gate": 4,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 185,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 20
+      },
+      {
+        "k": 6,
+        "status": 20
+      },
+      {
+        "k": 7,
+        "status": 10
+      }
+    ],
+    "size": 7,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_185_7",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "gate_count": 7,
+      "returncode": 10,
+      "elapsed": 0.05534625053405762,
+      "star_bound": 7,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "and",
+          1,
+          3
+        ],
+        [
+          "or",
+          1,
+          3
+        ],
+        [
+          "or",
+          1,
+          4
+        ],
+        [
+          "or",
+          2,
+          5
+        ],
+        [
+          "and",
+          0,
+          7
+        ],
+        [
+          "and",
+          6,
+          8
+        ],
+        [
+          "or",
+          9,
+          10
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 0,
+          "edges": [
+            [
+              1,
+              3
+            ]
+          ]
+        },
+        {
+          "gate": 4,
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              4
+            ]
+          ]
+        },
+        {
+          "gate": 5,
+          "edges": [
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 0,
+          "vertices": []
+        },
+        {
+          "gate": 4,
+          "vertices": []
+        },
+        {
+          "gate": 5,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 187,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 20
+      },
+      {
+        "k": 6,
+        "status": 20
+      },
+      {
+        "k": 7,
+        "status": 10
+      }
+    ],
+    "size": 7,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_187_7",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "gate_count": 7,
+      "returncode": 10,
+      "elapsed": 0.048158884048461914,
+      "star_bound": 8,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "and",
+          1,
+          2
+        ],
+        [
+          "or",
+          1,
+          2
+        ],
+        [
+          "and",
+          0,
+          4
+        ],
+        [
+          "or",
+          0,
+          5
+        ],
+        [
+          "or",
+          3,
+          8
+        ],
+        [
+          "and",
+          6,
+          9
+        ],
+        [
+          "or",
+          7,
+          10
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 0,
+          "edges": [
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "gate": 2,
+          "edges": [
+            [
+              0,
+              4
+            ]
+          ]
+        },
+        {
+          "gate": 5,
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 0,
+          "vertices": []
+        },
+        {
+          "gate": 2,
+          "vertices": []
+        },
+        {
+          "gate": 5,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 191,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 20
+      },
+      {
+        "k": 6,
+        "status": 20
+      },
+      {
+        "k": 7,
+        "status": 20
+      },
+      {
+        "k": 8,
+        "status": 10
+      }
+    ],
+    "size": 8,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_191_8",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "gate_count": 8,
+      "returncode": 10,
+      "elapsed": 0.2200775146484375,
+      "star_bound": 9,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "and",
+          2,
+          3
+        ],
+        [
+          "or",
+          2,
+          3
+        ],
+        [
+          "or",
+          1,
+          5
+        ],
+        [
+          "or",
+          0,
+          6
+        ],
+        [
+          "or",
+          4,
+          6
+        ],
+        [
+          "and",
+          7,
+          8
+        ],
+        [
+          "and",
+          0,
+          9
+        ],
+        [
+          "or",
+          10,
+          11
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 0,
+          "edges": [
+            [
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "gate": 5,
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ]
+          ]
+        },
+        {
+          "gate": 6,
+          "edges": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 0,
+          "vertices": []
+        },
+        {
+          "gate": 5,
+          "vertices": []
+        },
+        {
+          "gate": 6,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 207,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 20
+      },
+      {
+        "k": 6,
+        "status": 20
+      },
+      {
+        "k": 7,
+        "status": 20
+      },
+      {
+        "k": 8,
+        "status": 10
+      }
+    ],
+    "size": 8,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_207_8",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "gate_count": 8,
+      "returncode": 10,
+      "elapsed": 0.788776159286499,
+      "star_bound": 8,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "and",
+          2,
+          3
+        ],
+        [
+          "or",
+          0,
+          4
+        ],
+        [
+          "or",
+          2,
+          4
+        ],
+        [
+          "or",
+          0,
+          5
+        ],
+        [
+          "and",
+          1,
+          6
+        ],
+        [
+          "or",
+          3,
+          7
+        ],
+        [
+          "and",
+          8,
+          10
+        ],
+        [
+          "or",
+          9,
+          11
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 0,
+          "edges": [
+            [
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "gate": 4,
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              4
+            ]
+          ]
+        },
+        {
+          "gate": 6,
+          "edges": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 0,
+          "vertices": []
+        },
+        {
+          "gate": 4,
+          "vertices": []
+        },
+        {
+          "gate": 6,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 220,
+    "edges": [
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 20
+      },
+      {
+        "k": 6,
+        "status": 20
+      },
+      {
+        "k": 7,
+        "status": 10
+      }
+    ],
+    "size": 7,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_220_7",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "gate_count": 7,
+      "returncode": 10,
+      "elapsed": 0.033295631408691406,
+      "star_bound": 7,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "or",
+          0,
+          1
+        ],
+        [
+          "or",
+          0,
+          2
+        ],
+        [
+          "and",
+          1,
+          2
+        ],
+        [
+          "and",
+          4,
+          5
+        ],
+        [
+          "or",
+          3,
+          7
+        ],
+        [
+          "and",
+          6,
+          9
+        ],
+        [
+          "or",
+          8,
+          10
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 2,
+          "edges": [
+            [
+              1,
+              2
+            ]
+          ]
+        },
+        {
+          "gate": 3,
+          "edges": [
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              4
+            ]
+          ]
+        },
+        {
+          "gate": 5,
+          "edges": [
+            [
+              0,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 2,
+          "vertices": []
+        },
+        {
+          "gate": 3,
+          "vertices": []
+        },
+        {
+          "gate": 5,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 221,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 20
+      },
+      {
+        "k": 6,
+        "status": 10
+      }
+    ],
+    "size": 6,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_221_6",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "gate_count": 6,
+      "returncode": 10,
+      "elapsed": 0.008169412612915039,
+      "star_bound": 8,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "or",
+          0,
+          1
+        ],
+        [
+          "or",
+          0,
+          2
+        ],
+        [
+          "or",
+          1,
+          3
+        ],
+        [
+          "and",
+          4,
+          5
+        ],
+        [
+          "and",
+          6,
+          7
+        ],
+        [
+          "or",
+          8,
+          9
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 3,
+          "edges": [
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              4
+            ]
+          ]
+        },
+        {
+          "gate": 4,
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 3,
+          "vertices": []
+        },
+        {
+          "gate": 4,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 223,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 20
+      },
+      {
+        "k": 6,
+        "status": 20
+      },
+      {
+        "k": 7,
+        "status": 10
+      }
+    ],
+    "size": 7,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_223_7",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "gate_count": 7,
+      "returncode": 10,
+      "elapsed": 0.6263139247894287,
+      "star_bound": 9,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "or",
+          0,
+          1
+        ],
+        [
+          "or",
+          0,
+          2
+        ],
+        [
+          "or",
+          1,
+          3
+        ],
+        [
+          "or",
+          2,
+          4
+        ],
+        [
+          "and",
+          6,
+          7
+        ],
+        [
+          "and",
+          5,
+          8
+        ],
+        [
+          "or",
+          9,
+          10
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 4,
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "gate": 5,
+          "edges": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              4
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 4,
+          "vertices": []
+        },
+        {
+          "gate": 5,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 254,
+    "edges": [
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 20
+      },
+      {
+        "k": 6,
+        "status": 10
+      }
+    ],
+    "size": 6,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_254_6",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "gate_count": 6,
+      "returncode": 10,
+      "elapsed": 0.06346702575683594,
+      "star_bound": 9,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "or",
+          0,
+          1
+        ],
+        [
+          "and",
+          2,
+          3
+        ],
+        [
+          "or",
+          2,
+          4
+        ],
+        [
+          "or",
+          3,
+          7
+        ],
+        [
+          "and",
+          5,
+          8
+        ],
+        [
+          "or",
+          6,
+          9
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 1,
+          "edges": [
+            [
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "gate": 4,
+          "edges": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 1,
+          "vertices": []
+        },
+        {
+          "gate": 4,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 255,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 20
+      },
+      {
+        "k": 6,
+        "status": 20
+      },
+      {
+        "k": 7,
+        "status": 20
+      },
+      {
+        "k": 8,
+        "status": 10
+      }
+    ],
+    "size": 8,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_255_8",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "gate_count": 8,
+      "returncode": 10,
+      "elapsed": 0.1525416374206543,
+      "star_bound": 10,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "and",
+          0,
+          1
+        ],
+        [
+          "or",
+          0,
+          1
+        ],
+        [
+          "or",
+          4,
+          5
+        ],
+        [
+          "or",
+          3,
+          6
+        ],
+        [
+          "or",
+          3,
+          7
+        ],
+        [
+          "and",
+          6,
+          9
+        ],
+        [
+          "or",
+          2,
+          10
+        ],
+        [
+          "and",
+          8,
+          11
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 0,
+          "edges": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "gate": 5,
+          "edges": [
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ]
+          ]
+        },
+        {
+          "gate": 7,
+          "edges": [
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 0,
+          "vertices": []
+        },
+        {
+          "gate": 5,
+          "vertices": []
+        },
+        {
+          "gate": 7,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 495,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 20
+      },
+      {
+        "k": 6,
+        "status": 10
+      }
+    ],
+    "size": 6,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_495_6",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "gate_count": 6,
+      "returncode": 10,
+      "elapsed": 0.08163857460021973,
+      "star_bound": 10,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "or",
+          1,
+          2
+        ],
+        [
+          "or",
+          3,
+          4
+        ],
+        [
+          "and",
+          0,
+          6
+        ],
+        [
+          "or",
+          0,
+          6
+        ],
+        [
+          "or",
+          5,
+          7
+        ],
+        [
+          "and",
+          8,
+          9
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 2,
+          "edges": [
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ]
+          ]
+        },
+        {
+          "gate": 5,
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 2,
+          "vertices": []
+        },
+        {
+          "gate": 5,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 511,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 20
+      },
+      {
+        "k": 6,
+        "status": 20
+      },
+      {
+        "k": 7,
+        "status": 20
+      },
+      {
+        "k": 8,
+        "status": 10
+      }
+    ],
+    "size": 8,
+    "lower_unsat": true,
+    "normal": {
+      "graph": "alg5_511_8",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "gate_count": 8,
+      "returncode": 10,
+      "elapsed": 0.46157407760620117,
+      "star_bound": 11,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "and",
+          0,
+          1
+        ],
+        [
+          "or",
+          3,
+          4
+        ],
+        [
+          "and",
+          2,
+          6
+        ],
+        [
+          "or",
+          2,
+          6
+        ],
+        [
+          "or",
+          1,
+          7
+        ],
+        [
+          "or",
+          0,
+          9
+        ],
+        [
+          "and",
+          8,
+          10
+        ],
+        [
+          "or",
+          5,
+          11
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 0,
+          "edges": [
+            [
+              0,
+              1
+            ]
+          ]
+        },
+        {
+          "gate": 2,
+          "edges": [
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ]
+          ]
+        },
+        {
+          "gate": 6,
+          "edges": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 0,
+          "vertices": []
+        },
+        {
+          "gate": 2,
+          "vertices": []
+        },
+        {
+          "gate": 6,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  },
+  {
+    "mask": 1023,
+    "edges": [
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        1,
+        4
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    "runs": [
+      {
+        "k": 4,
+        "status": 20
+      },
+      {
+        "k": 5,
+        "status": 20
+      },
+      {
+        "k": 6,
+        "status": 20
+      },
+      {
+        "k": 7,
+        "status": 20
+      },
+      {
+        "k": 8,
+        "status": 20
+      },
+      {
+        "k": 9,
+        "status": 0
+      },
+      {
+        "k": 10,
+        "status": 10
+      }
+    ],
+    "size": 10,
+    "lower_unsat": false,
+    "normal": {
+      "graph": "alg5_1023_10",
+      "n": 5,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "gate_count": 10,
+      "returncode": 10,
+      "elapsed": 5.6799890995025635,
+      "star_bound": 13,
+      "forced_dirty": false,
+      "forced_unowned": false,
+      "all_owned": false,
+      "singleton_safe": false,
+      "sound_ands": false,
+      "unsound_and": false,
+      "encoding_version": 2,
+      "canonical_first": false,
+      "gates": [
+        [
+          "and",
+          2,
+          3
+        ],
+        [
+          "or",
+          2,
+          3
+        ],
+        [
+          "and",
+          1,
+          4
+        ],
+        [
+          "or",
+          1,
+          4
+        ],
+        [
+          "or",
+          0,
+          5
+        ],
+        [
+          "or",
+          0,
+          6
+        ],
+        [
+          "and",
+          6,
+          9
+        ],
+        [
+          "or",
+          7,
+          10
+        ],
+        [
+          "and",
+          8,
+          12
+        ],
+        [
+          "or",
+          11,
+          13
+        ]
+      ],
+      "all_inputs_validated": true,
+      "ownership": [
+        {
+          "gate": 0,
+          "edges": [
+            [
+              2,
+              3
+            ]
+          ]
+        },
+        {
+          "gate": 2,
+          "edges": [
+            [
+              1,
+              4
+            ]
+          ]
+        },
+        {
+          "gate": 6,
+          "edges": [
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ]
+          ]
+        },
+        {
+          "gate": 8,
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              3,
+              4
+            ]
+          ]
+        }
+      ],
+      "singletons": [
+        {
+          "gate": 0,
+          "vertices": []
+        },
+        {
+          "gate": 2,
+          "vertices": []
+        },
+        {
+          "gate": 6,
+          "vertices": []
+        },
+        {
+          "gate": 8,
+          "vertices": []
+        }
+      ]
+    },
+    "all_owned": true
+  }
+]

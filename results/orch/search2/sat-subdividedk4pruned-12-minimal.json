@@ -1,0 +1,59 @@
+{
+  "graph": "subdividedk4pruned",
+  "n": 8,
+  "edges": [
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      3,
+      7
+    ]
+  ],
+  "gate_count": 12,
+  "returncode": 0,
+  "elapsed": 180.01706290245056,
+  "star_bound": 13,
+  "forced_dirty": false,
+  "forced_unowned": false,
+  "all_owned": false,
+  "singleton_safe": false,
+  "sound_ands": false,
+  "unsound_and": false,
+  "encoding_version": 2,
+  "canonical_first": false,
+  "minimal_pruning": true
+}

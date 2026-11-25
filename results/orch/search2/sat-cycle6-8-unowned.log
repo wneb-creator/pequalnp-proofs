@@ -1,0 +1,5 @@
+graph cycle6 n 6 edges [(0, 1), (0, 5), (1, 2), (2, 3), (3, 4), (4, 5)] alpha 3 star_bound 8
+tests 11 gates 8 dirty False
+variables 644 clauses 6771
+returncode 20 elapsed 10.59949517250061
+s UNSATISFIABLE

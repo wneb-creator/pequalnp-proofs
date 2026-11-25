@@ -1,0 +1,5 @@
+graph cycle7canonical n 7 edges [(0, 1), (0, 6), (1, 2), (2, 3), (3, 4), (4, 5), (5, 6)] alpha 3 star_bound 10
+tests 14 gates 10 dirty False
+variables 985 clauses 12503
+returncode 0 elapsed 180.01431822776794
+
