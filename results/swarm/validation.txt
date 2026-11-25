@@ -1,6 +1,6 @@
 Gap: L-meta-2590
 Branch: pnp/swarm-L-meta-2590-orch
-Status at 2026-11-25T23:43:49Z: partial research; full posted theorem not proved or refuted.
+Status at 2026-11-25T23:50:11Z: partial research; full posted theorem not proved or refuted.
 
 Root conditional Lean artifacts passed kernel compilation. Prior pushed artifacts
 also passed independent source and standard-axiom review. DeskDriver's new
@@ -47,6 +47,18 @@ relocation reviews passed. The closed endpoint assumes only strict liveness,
 correct Petersen computation, exact ineligible set {1,4,5}, and length at most
 19. Its 355859-byte source is below the cap, but the whole-gap assembly remains
 above the cap. No Bzero, virtual, birth, or C6 assumption remains in this case.
+RemainingOne now composes the actual-circuit normalization and all completed
+cases: a hypothetical monotone circuit of size at most 19 computing the posted
+Petersen function yields a normalized correct strict-live DAG of length at most
+19 with exactly one ineligible vertex. Its imported
+kernel build, final exact type, and standard-three-axiom audit passed. The
+143-prefix I2 namespace relocation received a separate full kernel build and
+exact-inverse review. This uses research imports, not an allowed final file.
+OneIneligibleCensus is exact h3 f06c5b441 (474126 bytes), independently rebuilt
+with three exact-type/standard-axiom audits and semantic/source review. Its
+actual r1 assumptions yield precisely the three remaining saturated supports;
+it does not exclude those supports. The omitted old r0 adapter and arbitrary
+one-ineligible-to-0 relabel connection are being restored separately.
 The one-ineligible case and whole-file size cap remain unresolved.
 
 Earlier independently rebuilt helper snapshots (additional merged checks above):
@@ -73,4 +85,4 @@ single-file budget. These are computational results, not kernel-checked lower
 bounds, and the actual Petersen budget bridge is unfinished.
 
 Sub-agents: nine external helper jobs (helper-1 through helper-9), plus four local workers (setup/review, assembly-review, dead-gate pruning, and one nested neighborhood-glue worker); 13 counted agents. External helpers own nested workers are excluded from this root-job count.
-TIMING total=156 subagents=13
+TIMING total=162 subagents=13
