@@ -23,3 +23,7 @@
 2026-11-25T10:43:38.918680+00:00 construct_search: full genericstarline exclusion compiledexit0, emptydiagnostics; independentstatus_review sourcePASS.
 
 2026-11-25 10:45 UTC:799-line named partial file built successfully and independent review passed. New theorem bounds finrank by2 for spaces containing a generic hollow star direction; does not settle arbitrary3-flats. D6 invariant certificate search returned an independently verified modular dual witness, no bounded-degree certificate.
+
+2026-11-25T10:59:08.610285+00:00 construct_search: fixedgenericHnets ruledoutexactly; discoveredglobalconstantdiagonalexclusion; childderiveduniformradical/splitgraph, rank2uniformCASinprogress.
+
+2026-11-25T11:06:07.909221+00:00:1097-line combined partial build passed. Constant-diagonal exclusion separately compiled and reviewed; preserved before integration. Global rank2 andrank3 cases remain active.
