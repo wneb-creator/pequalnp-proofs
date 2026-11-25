@@ -1,0 +1,31 @@
+../results/orch/lemmas/CircuitAndCount2056.lean:235:12: warning: This simp argument is unused:
+  Fw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GateOp.eval, this]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/CircuitAndCount2056.lean:242:14: warning: This simp argument is unused:
+  Fw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GateOp.eval, fv] at ea eb ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/CircuitAndCount2056.lean:254:14: warning: This simp argument is unused:
+  Fw
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [GateOp.eval, ea, eb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/CircuitAndCount2056.lean:289:56: warning: This simp argument is unused:
+  step
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/CircuitAndCount2056.lean:288:43: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

@@ -1,0 +1,16 @@
+{
+  "command": [
+    "/tmp/oec/pequalnp-pilot-121/toolchain/lean-4.36.0-linux/bin/lake",
+    "env",
+    "lean",
+    "../results/orch/lemmas/CircuitAndCount2056.lean"
+  ],
+  "workdir": "/workspace/pequalnp-proofs/lean",
+  "observed_completion_utc": "2026-11-25T17:23:56.261375+00:00",
+  "exit_code": 0,
+  "source_sha256": "2b8b84711382ca0ab481208b36c57f8383a728c72af8b42501019f3bfdca02cd",
+  "source_lines": 453,
+  "scope": "Generic Circuit to AndCountCircuit conversion; evaluation preservation on all finite subsets, size at most ordinary AND-gate count, assuming a false assignment. Partial lemma only; no 63-gate witness, refutation, or local checker result.",
+  "stdout_sha256": "d051423dd00acc6fdb9a7b8a1916d95670497140917a697096b00abc06cc208b",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}
