@@ -29,3 +29,5 @@
 - 2026-11-25 14:43 UTC: research completed AND/OR separate-count census; no unconditional sharp general-plane count bounds located. Applicable OR lower bound is 2q²+1; precise candidate conditions saved in plane-research/count-census.md.
 
 2026-11-25T14:43:24.922355+00:00: padding helper integrated;3128-line named partial builds, independently reviewed. Cumulative subagents7.
+
+2026-11-25T14:48:27.027033+00:00: independently reviewed reproducible CGP and research archive checkpoint; full target still unproved.

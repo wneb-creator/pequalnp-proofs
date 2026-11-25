@@ -1,0 +1,262 @@
+{
+  "status": "independent verification passed",
+  "all_test_vectors": "21 minimal positives plus 37 maximal negatives verified",
+  "records": [
+    {
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        20
+      ]
+    },
+    {
+      "size": 28,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          3,
+          10
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          6,
+          10
+        ]
+      ],
+      "dirty_AND_gates": [
+        0
+      ]
+    },
+    {
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "file": "cgp-controls.stdout",
+      "kind": "control_honest",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "file": "cgp-controls.stdout",
+      "kind": "control_dirty",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        19
+      ]
+    },
+    {
+      "file": "cgp-readtrack-controls.stdout",
+      "kind": "control_honest",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "file": "cgp-readtrack-controls.stdout",
+      "kind": "control_dirty",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        19
+      ]
+    },
+    {
+      "file": "fano-cgp.stdout",
+      "kind": "control_honest",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "file": "fano-cgp.stdout",
+      "kind": "control_dirty",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        20
+      ]
+    },
+    {
+      "file": "fano-cgp.stdout",
+      "kind": "improvement",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        20
+      ]
+    },
+    {
+      "file": "fano-cgp.stdout",
+      "kind": "improvement",
+      "size": 28,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          3,
+          10
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          6,
+          10
+        ]
+      ],
+      "dirty_AND_gates": [
+        0
+      ]
+    },
+    {
+      "file": "fano-cgp.stdout",
+      "kind": "improvement",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "file": "fano-cgp.stdout",
+      "kind": "final",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    }
+  ]
+}

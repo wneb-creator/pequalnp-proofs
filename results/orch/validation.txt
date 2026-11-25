@@ -11,7 +11,7 @@ The posted theorem is not proved. Guard refuses the absent final theorem, as exp
 Cleanup line counts:3128/3128 for named file; full-proof cleanup not started.
 Prior L-meta-1904 named partial:315 lines, build and axiom audits passed.
 Sub-agents: 7 (status/setup/review, structure, counterexample search, lemmas, research, C4-free theory, nested-AND theory)
-TIMING total=59 subagents=7
+TIMING total=64 subagents=7
 
 Full local checker limitation: CheckLemma imports all Mathlib; smoke test fails at missing Batteries.olean. Thousands of further pinned Mathlib modules are not cached, with only about426MiB disk free. Named-file builds and direct axiom audits succeed. No full checker acceptance claimed.
 
@@ -23,3 +23,5 @@ ReadLower checkpoint: self-contained integration of checked L-meta-7639 helper p
 Fixed-edge 26gate SAT: UNKNOWN after900seconds, not UNSAT. Strengthened propagation search is ongoing.
 
 Padding checkpoint: append preserves AO2 under valid operand bounds, increases size by exactly1, and absorption preserves the function under its explicit output equation. Independent source/axiom review and named build pass. This is not a complete SAT normalization proof.
+
+CGP archive independently rebuilt/replayed:480s,3,997,351,680 mutations,1,999 restarts,best27,no26witness. The28intermediate has a redundant equal-input AND; no minimality claim. The3128-line partial passes forbidden-text scans, while source guard correctly refuses because it contains no final theorem. Full check-lean was not run: it would build missing Mathlib dependencies from source, which this job prohibits.

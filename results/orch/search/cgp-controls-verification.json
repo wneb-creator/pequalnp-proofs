@@ -1,0 +1,16 @@
+[
+  {
+    "kind": "control_honest",
+    "active_gates": 27,
+    "total_gates": 42,
+    "inputs_verified": 16384,
+    "wrong": 0
+  },
+  {
+    "kind": "control_dirty",
+    "active_gates": 29,
+    "total_gates": 42,
+    "inputs_verified": 16384,
+    "wrong": 0
+  }
+]

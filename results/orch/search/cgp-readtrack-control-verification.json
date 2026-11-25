@@ -1,0 +1,12 @@
+[
+  {
+    "kind": "control_honest",
+    "unread_mask": 0,
+    "unread_count": 0
+  },
+  {
+    "kind": "control_dirty",
+    "unread_mask": 32783,
+    "unread_count": 5
+  }
+]

@@ -1,0 +1,55 @@
+{
+  "workdir": "/workspace/pequalnp-proofs",
+  "compile_base": [
+    "g++",
+    "-O3",
+    "-std=c++17",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp.cpp",
+    "-o",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp"
+  ],
+  "compile_readtrack": [
+    "g++",
+    "-O3",
+    "-std=c++17",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp_readtrack.cpp",
+    "-o",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp_readtrack"
+  ],
+  "controls_base": [
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-sls.input",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-dirty29-sls.input",
+    "0",
+    "794",
+    "42",
+    "1"
+  ],
+  "controls_readtrack": [
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp_readtrack",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-sls.input",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-dirty29-sls.input",
+    "0",
+    "794",
+    "42",
+    "1"
+  ],
+  "search_2026_11_25_143623Z": [
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-sls.input",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-dirty29-sls.input",
+    "480",
+    "894",
+    "42",
+    "0"
+  ],
+  "stdout_stderr": "Complete stdout and stderr for the completed original CGP search are archived as fano-cgp.stdout and fano-cgp.stderr. Compile and control logs are also complete. The later weighted-OR phase is recorded separately.",
+  "status": "Original CGP phase completed: 480 seconds, 3997351680 mutations, 1999 restarts, best reachable size27. No circuit with at most26 gates was found; this heuristic result proves no lower bound.",
+  "reproduce_seeds": [
+    "python3",
+    "results/orch/search/make_cgp_seeds.py",
+    "results/orch/search/fano-sls-meta.json",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/reproduced-seeds"
+  ],
+  "seed_reproduction": "Both regenerated inputs are byte-identical to the original search seeds."
+}
