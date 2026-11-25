@@ -34,3 +34,26 @@ Main remaining obstacle: arbitrary circuit AND gates can have singleton support 
 Adapted L_meta_529 to count only OR gates. File results/orch/lemmas/semantic.lean proves `Semantic.or_outputs_bound`: for pairwise intersections at most one, monotone fan-in-two multi-output pure OR computation requires sum_i (|S_i|-1) OR gates. `Semantic.main_inv` gives per-family charge set D(Q): gate is OR, false on complement-of-Q assignment, and true on two distinct singleton inputs. Such charge gates are disjoint for distinct-center stars and disjoint from all gates below the final edge function (those have no true singletons). AND cannot merge the singleton classes. No reliance on syntactic OR reach.
 
 2026-11-25T15:46:33.453922+00:00 status_review: Independently reviewed revised stars, ledger, all341 lines semantic, and audit counterexample. Approved partial preservation after reported compilation; audit is not gap refutation. Pure OR semantic charges robust through AND wrappers. Main residual circuit ledger still needed.
+
+2026-11-25T15:47:35.883097+00:00 [stars] Third compiled version adds singleton_bilinear_false, singleton_not_below_bilinear for arbitrary Boolean functions, left/right nonempty-OR separation, and singleton_separates_gate_sets. Last lemma proves Disjoint A B where each A gate has a true one-hot witness and each B gate implies the target edge function pointwise. Interfaces match semantic eof/value by unfolding. 14 helper lemmas currently compile with PEqualNP.Defs only.
+
+## 2026-11-25T15:48:13.615837+00:00 AND/output budget strategy
+
+Compiled lemmas/and-bound.lean (213 lines): self-contained adaptation of L_meta_2235 s2233. output_or_bound proves any finite set F of AND gates in the output OR-closure has card F at most the number of OR gates in that closure plus one. Requires only AO2 and closure membership, not clean/monochromatic operands. Full logs scratch and-bound-build.stdout/stderr (exit0; deprecation warnings only). Parent notified for push-early.
+
+Primary research read 2026-11-25: Jukna, Disproving the Single Level Conjecture, https://web.vu.lt/mif/s.jukna/ftp/single1.pdf . Lemma3.12 equates AND count with biclique cover only for single-level circuits; Theorem2.4 gives asymptotic AND-count savings for saturated matching extensions, which are not bipartite. Thus general normalization/AND-count cover lower bounds cannot be assumed. No known C4free bipartite counterexample identified.
+
+2026-11-25T15:50:16.094728+00:00 [stars] Frozen compiled 292-line snapshot adds semantic StarWitness indexed by Fin p ⊕ Fin l and star_witness_center_unique for all color combinations. selected_star_cover converts per-edge endpoint owners with selected star-gate witnesses into a Fin(p+l) vertex cover whose cardinality is at most the number of distinct chosen gates. Generic image_card_le_of_fiber_refinement and injective centerEmbed support assembly. Root notified for independent review and preservation.
+
+### Ledger base cases — 2026-11-25T15:50:41.127778+00:00
+
+`lemmas/ledger.lean` now also compiles `circuit_dependencies` (fan-in-two support ≤ size+1), `edge_active`, `edge_inputs_bound`, and both `single_left_star_bound` / `single_right_star_bound`. The latter prove the required vertex-cover bound whenever all graph edges share one vertex, using only IsAO2 and exact edge-function computation. Full logs: `/tmp/oec/pequalnp-pilot-152/ledger-build.stdout` and `.stderr`.
+
+## Counterexample/AND audit 2026-11-25T15:51:10.212482+00:00
+
+- `results/orch/lemmas/counterexample.lean` compiles: explicit AO2/T0 semantic OR witness with empty orIn. Auxiliary caution only, not a refutation of L-meta-4970.
+- Exhaustive free-OR/2-AND enumeration: no C4-free 3x3 tau=3 counterexample among 4,465,825 second-AND candidates; no 3x4 tau=3 counterexample among 77,214,486. Scripts/logs in scratch counterexample-and-count*.
+- Official Z3 5.3.3 wheel verified/extracted under scratch z3-python. Exact truth-table synthesis allowing arbitrary free ORs confirms C8 needs >=4 ANDs (UNSAT 0.13s), C10 needs >=5 (UNSAT 9.56s). C12 in progress.
+- Primary literature read 2026-11-25: Jukna, Disproving the single level conjecture, https://web.vu.lt/mif/s.jukna/ftp/single1.pdf, Theorem 2.4 gives an exponential gap between arbitrary and single-level conjunctive complexity for saturated non-bipartite graphs. Generic AND-count=biclique-cover normalization is therefore false; bipartite/C4-free restrictions must be essential.
+
+2026-11-25T15:51:57.139151+00:00 [AND/output budget] Extended and-bound.lean compiles (build-5 exit0). boundary_true_witness decomposes any true wire into a true singleton input in its OR reach or a true AND root in its OR closure. boundary_output_and eliminates the singleton alternative when output rejects all singleton assignments. boundary_reach_up propagates root truth to output, making exposed ANDs automatically below the output. File frozen for root assembly/review.

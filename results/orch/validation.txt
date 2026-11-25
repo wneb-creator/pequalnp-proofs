@@ -1,10 +1,10 @@
 L-meta-4970: PARTIAL preservation; no complete theorem and no proof PR yet.
-Named file: empty-edge base case, lake build passed.
-lemmas/stars.lean: nine graph/semantic star helpers; lake env lean passed.
-lemmas/ledger.lean: two exact T=0 syntactic OR-reach helpers; lake env lean passed.
-lemmas/semantic.lean: semantic OR-family gate lowerbound; lake env lean passed.
-lemmas/counterexample.lean: checked audit of a tempting auxiliary claim, NOT refutation of the posted statement; lake env lean passed.
-Independent review: all approved for partial preservation only by status_review.
+Named file now contains 1313 lines of checked partial helpers, assembled from frozen stars, ledger, semantic, and AND-bound snapshots.
+Includes empty-edge and single-star cases, essential-input bound, star/ownership selection, OR-only output-family lowerbound, syntactic T0 reach, and output AND-frontier OR count/semantics.
+lake build PEqualNP.Outside.L_meta_4970 passed (5149 jobs).
+Independent review: assembled source approved for PARTIAL PRESERVATION ONLY by status_review.
+SHA256 fd2030ccee6ed1991d557104f301b7afd6b3ab43a9f615959f396a55ef44c56f
 Checker: not run against posted statement; full theorem absent.
+No claim that auxiliary audit counterexample refutes the gap.
 Sub-agents: 6 (status/library review, toolchain/star lemmas, ledger proof, semantic proof, counterexample audit, AND lowerbound)
-TIMING total=24.9 subagents=6
+TIMING total=30.9 subagents=6
