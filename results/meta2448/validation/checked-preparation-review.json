@@ -1,0 +1,96 @@
+{
+  "review": "PASS: independent source, theorem scope, allowed imports/format, complete compiled logs and sanitized metadata",
+  "scope": "L-meta-2448 partial components only: existence, intersecting-owner equivalence, pair-sound implies star; no minimum star normalization or full target/checker success.",
+  "files": [
+    {
+      "path": "results/meta2448/checked/Existence.lean",
+      "sha256": "9a9b9a3ce6d914eab83be6d4c215d8723d00b860424ac280aa64716a679abf36",
+      "bytes": 7535
+    },
+    {
+      "path": "results/meta2448/checked/Existence.log",
+      "sha256": "2cdabe7924f5920a3e8d9ae736d8376e7302eedd490207e34058460e3381bcc1",
+      "bytes": 1222
+    },
+    {
+      "path": "results/meta2448/checked/Existence.json",
+      "sha256": "ef5ba4ae6ac65b3df78ae86daceecf1629f38b38a7b2c850e416920a474fa924",
+      "bytes": 831
+    },
+    {
+      "path": "results/meta2448/checked/Existence.sha256",
+      "sha256": "db6a3d7579db0c042cd371f754a6529913338d1eaf0688ebab2e4d3dc2da2d24",
+      "bytes": 81
+    },
+    {
+      "path": "results/meta2448/checked/OwnershipCombinatorics.lean",
+      "sha256": "8fadf5bcd41aa843fc1e0a687efc6f7c6897ab036fcd4ff48f0dc6e8e949bd8c",
+      "bytes": 3509
+    },
+    {
+      "path": "results/meta2448/checked/OwnershipCombinatorics.log",
+      "sha256": "e58315a15fbd9074a1f829e02f26d5b21ec7f3e3d67a7e2e095861829b1c67bc",
+      "bytes": 2382
+    },
+    {
+      "path": "results/meta2448/checked/OwnershipCombinatorics.json",
+      "sha256": "675de6c91788ba17f298068337c1c39810f0f8ce0a6f1ae62bb08b524b70a446",
+      "bytes": 359
+    },
+    {
+      "path": "results/meta2448/checked/pair-sound.lean",
+      "sha256": "1a67c916b04fec82bf8b9e8f5bc0c7ccca1ef613ed995b611d41b9849a8aba9f",
+      "bytes": 18455
+    },
+    {
+      "path": "results/meta2448/checked/pair-sound.log",
+      "sha256": "57d6d67e7f5ad05fe245e7070b341ed92172c65f17d7932a89d8b43da8e3c0a5",
+      "bytes": 1651
+    },
+    {
+      "path": "results/meta2448/checked/pair-sound.runner.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/meta2448/checked/pair-sound.json",
+      "sha256": "e545b9b3f3601857572b7ed5471e55d444436e67653d846769ec5496960cd72b",
+      "bytes": 525
+    },
+    {
+      "path": "results/meta2448/setup/existence-provenance.json",
+      "sha256": "b5aa819ac1af73a3beeacd208ed8bca74569d32f1e87d6e16ce257dfaddb7848",
+      "bytes": 601
+    },
+    {
+      "path": "results/meta2448/setup/statement-environment.json",
+      "sha256": "3346f9f6d2e44423ee332b3f3fefd2bb0078983d729bef603c6e1ac7051c5f9d",
+      "bytes": 2051
+    },
+    {
+      "path": "results/meta2448/setup/definition-sources.json",
+      "sha256": "004dd69d4dede5f0e4d7abf47ca1c10806a7314135f22bbf69fef5df0776d13f",
+      "bytes": 744
+    },
+    {
+      "path": "results/meta2448/posted-imports.json",
+      "sha256": "dbe8d7f722c23b00484c2a082ad1bbdbf5ab7e410439d0f4338d7daaec89b950",
+      "bytes": 18
+    },
+    {
+      "path": "results/meta2448/TIMELINE.md",
+      "sha256": "d47eb09a2d503c369518c691bad7aee0a4acb2dbef1bf843baf8e73baecc146f",
+      "bytes": 413
+    },
+    {
+      "path": "results/meta2448/definition-and-library-audit.md",
+      "sha256": "0afb839aa39df72f7f624448e50b6c8056b4d0935a1688b1cde671884a9a614a",
+      "bytes": 3706
+    },
+    {
+      "path": "results/meta2448/synthesis-independent-review.json",
+      "sha256": "684a9b233bb10e15abfdb711b2f3ace5b8232d097c785e8388118c04932bdbc8",
+      "bytes": 772
+    }
+  ]
+}

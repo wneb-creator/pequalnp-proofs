@@ -1,0 +1,9 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/meta2448/PairSound.lean",
+  "sha256": "1a67c916b04fec82bf8b9e8f5bc0c7ccca1ef613ed995b611d41b9849a8aba9f",
+  "lines": 415,
+  "exit_code": 0,
+  "scope": "Pair-sound AND gates have owned-edge stars for a C4-free graph. If a monotone fan-in-two circuit lacks a star profile, some AND accepts a nonedge pair. No minimal-circuit normalization claimed.",
+  "adapted_from": "lean/PEqualNP/Outside/L_meta_1600.lean",
+  "olean": "/tmp/oec/pequalnp-pilot-62/meta2448/PairSound.olean"
+}

@@ -1,0 +1,13 @@
+{
+  "source": "results/meta2448/lemmas/Existence.lean",
+  "source_sha256": "9a9b9a3ce6d914eab83be6d4c215d8723d00b860424ac280aa64716a679abf36",
+  "adapted_from": "lean/PEqualNP/Outside/L_meta_2666.lean",
+  "adapted_source_sha256": "43583ce1c03602df9339bee067a24910f88d508de9a2025127cae24c3cbf10b7",
+  "changes": [
+    "OnlyPEqualNP.Defs is retained as the dependency.",
+    "All declarations are placed in the new2448 helper namespace.",
+    "Added minimum-size equality and size-nonincreasing transfer helpers."
+  ],
+  "kernel_checked": true,
+  "snapshot": "results/meta2448/checked/Existence.lean"
+}

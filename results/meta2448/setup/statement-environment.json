@@ -1,0 +1,22 @@
+{
+  "id": "L-meta-2448",
+  "title": "A step toward: On graphs with no triangle and no 4-cycle, some least AND/OR circuit of fan-in two for the edge function has every AND gate owning a star of edges (step 1 of 2)",
+  "statement": "\u2200 (x1 : \u2115) (x2 : SimpleGraph (Fin x1)) [x3 : DecidableRel x2.Adj], (\u2200 (x4 x5 x6 : Fin x1), x2.Adj x4 x5 \u2192 x2.Adj x5 x6 \u2192 \u00acx2.Adj x6 x4) \u2192 (\u2200 (x5 x6 x7 x8 : Fin x1), x2.Adj x5 x6 \u2192 x2.Adj x6 x7 \u2192 x2.Adj x7 x8 \u2192 x2.Adj x8 x5 \u2192 x5 = x7 \u2228 x6 = x8) \u2192 \u2203 (x6 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x6 \u2227 PEqualNP.MetaComplexity.circuitFun x1 x6 = PEqualNP.MetaComplexity.NestedCover.graphFun x2 \u2205 \u2227 (\u2200 (x7 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x7 \u2192 PEqualNP.MetaComplexity.circuitFun x1 x7 = PEqualNP.MetaComplexity.NestedCover.graphFun x2 \u2205 \u2192 x6.size \u2264 x7.size) \u2227 PEqualNP.EdgeOwnership.HasStarProfile x1 x2 x6",
+  "file": "lean/PEqualNP/Outside/L_meta_2448.lean",
+  "module": "PEqualNP.Outside.L_meta_2448",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "unlocks": "With its 1 sibling(s) it proves a posted step.",
+  "context": "A hypothesis of a checked reduction, as Lean printed it.",
+  "dead": [],
+  "weight": 5,
+  "parallel": 6,
+  "lane": "main",
+  "depth": 1,
+  "reductions": true,
+  "reductions_live": 3,
+  "sketch": "Step 1 of 2 of a checked cut of L-meta-1031. Its sibling steps: L-meta-2450. Together they give the parent; the parent's own sketch: no proof is expected here: propose a reduction (a cut into smaller statements that together give this one). exhaust the least circuits of small graphs with no triangle and no 4-cycle and test ownership; then an exchange argument moving an AND gate's owned edges to one vertex without growing the circuit. Computed on small graphs, not checked. Namespace: PEqualNP.MetaComplexity. No sorry, no new axiom. Own namespace for every declaration..",
+  "pr_open": 0,
+  "pr_numbers": []
+}

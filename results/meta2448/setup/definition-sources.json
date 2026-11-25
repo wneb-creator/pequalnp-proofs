@@ -1,0 +1,22 @@
+[
+  {
+    "path": "lean/PEqualNP/Defs/EdgeOwnership.lean",
+    "sha256": "0322df743719c32de60a30b67ae1b9eab7996392e6928581c1b4b25dcb083d97"
+  },
+  {
+    "path": "lean/PEqualNP/Defs/MetaComplexityLgpMono.lean",
+    "sha256": "dfecf7726cea5a2adbf2976c6e4aac2a4fe5c968713ba6ec84b267753b55c969"
+  },
+  {
+    "path": "lean/PEqualNP/Defs/MetaComplexityMinimal.lean",
+    "sha256": "d2d1cce5cd4a6b25815147cdf37d09436c2b50e6a528bb4b4bb687b6f4ffaabc"
+  },
+  {
+    "path": "lean/PEqualNP/Defs/NestedCoverCircuit.lean",
+    "sha256": "caee1d86e772be38b0354924e9ebb682285f602b4946b1592fd661fd2fe69571"
+  },
+  {
+    "path": "lean/PEqualNP/Defs/CircuitLowerBounds.lean",
+    "sha256": "695e454d3e424e2cae4fa4677741681eac11de0462d0d9bc087a0e6a6ba03f69"
+  }
+]
