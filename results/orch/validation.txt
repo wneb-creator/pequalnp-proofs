@@ -43,3 +43,29 @@ Complete audit stdout:
 Complete audit stderr:
 
 Independent review: graph_ownership PASS on exact SHA above. Scope: sound3OR compact program with≥5 accepted two-element supports in a C4-free graph has at most one distinct original variable per first operand. Does not yet exclude empty operands or equal literals. Does not prove L-meta-1031.
+
+## 2026-11-25T02:24:18.081194+00:00 first_or_reduction distinct-literal extension
+
+Source: results/orch/lemmas/first_or_reduction.lean
+Lines:970 (839-line reviewed prefix unchanged)
+SHA256:0b9e93d247249dc315c0e761df83eaf3e9c6b2a3bd0659adf5264caa29542225
+Command: lake env lean -M2000 /tmp/oec/pequalnp-pilot-55/first-or-literal.lean
+Exit:0
+Complete stdout:
+
+Complete stderr:
+
+Axiom audit command: lake env lean -M2000 /tmp/oec/pequalnp-pilot-55/first-or-literal-audit.lean
+Exit:0
+Complete audit stdout:
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrReduction.first_not_dominated' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrReduction.meet_of_unique' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.FirstOrReduction.first_distinct_literals' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+Complete audit stderr:
+
+Independent review: graph_ownership PASS exact SHA. Forbidden-text rg scan exit1/no matches for _root_, sorry, native_decide, axiom declarations, quotes, attributes, options. Scope: sound well-bounded3OR compact program accepting≥5 two-element supports in a C4-free graph must start with two distinct original-input literals, up to repeated occurrences inside either conjunction. General three-OR impossibility and L-meta-1031 remain unproved.

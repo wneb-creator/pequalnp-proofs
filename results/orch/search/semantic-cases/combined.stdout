@@ -1,0 +1,24 @@
+'PEqualNP.Outside.L_meta_1031_aux.SemanticCertificate.all_first_cases' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.SemanticCertificate.semantic_soundness' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CompactOr.certified_finite_obstruction' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CompactOr.certified_cycle_four_ors' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleAndBound.cycle_requires_three_binary_ands' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleOptimal.certified_cycle_size_ge_seven' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleOptimal.certified_cycle_optimum_seven' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_1031_aux.CycleWitness.every_and_sound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

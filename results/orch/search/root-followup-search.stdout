@@ -1,0 +1,5 @@
+Starting disjoint two-C5, at most8 OR with free AND
+{"starting": true, "n": 10, "max_or": 8, "tests": 35, "unlimited_and": true}
+{"n": 10, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 0], [5, 6], [6, 7], [7, 8], [8, 9], [9, 5]], "max_or": 8, "tests": 35, "unlimited_and": true, "result": "unknown", "seconds": 180.09570023300012, "reason": "timeout", "name": "two_C5"}
+Starting C7, size10, at leastone unsound AND
+{"n": 7, "edges": [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 0]], "size": 10, "sound": false, "unsound": true, "result": "unknown", "seconds": 180.0927940910001, "reason": "timeout", "name": "C7"}

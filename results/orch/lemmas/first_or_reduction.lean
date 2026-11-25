@@ -837,3 +837,134 @@ theorem first_right_unique (n : Nat) (G : SimpleGraph (Fin n)) [DecidableRel G.A
   · exact hj
 
 end PEqualNP.Outside.L_meta_1031_aux.FirstOrReduction
+
+namespace PEqualNP.Outside.L_meta_1031_aux.FirstOrReduction
+
+open FirstOrDeletion
+
+theorem first_not_dominated (n : Nat) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : ∀ i j k l, G.Adj i j → G.Adj j k → G.Adj k l → G.Adj l i →
+      i = k ∨ j = l)
+    (a b c d e f out : List Nat)
+    (hb : bounded n b) (hc : bounded (n + 1) c) (hd : bounded (n + 1) d)
+    (he : bounded (n + 2) e) (hf : bounded (n + 2) f) (ho : bounded (n + 3) out)
+    (E : Finset (Finset (Fin n))) (hsize : 5 ≤ E.card)
+    (hcard : ∀ S ∈ E, S.card = 2)
+    (haccept : ∀ S ∈ E,
+      eval [(a,b),(c,d),(e,f)] out (TwoOrBridge.input n S) = true)
+    (hsound : ∀ S : Finset (Fin n),
+      eval [(a,b),(c,d),(e,f)] out (TwoOrBridge.input n S) = true →
+        TwoChoiceRectangle.HasEdge G S)
+    (hdom : ∀ S : Finset (Fin n),
+      (meet (TwoOrBridge.input n S) a || meet (TwoOrBridge.input n S) b) =
+        meet (TwoOrBridge.input n S) b) : False := by
+  have heval (S : Finset (Fin n)) :
+      TwoOrBridge.evalTwo (rewrite n b c) (rewrite n b d)
+        (rewrite n b e) (rewrite n b f) (rewrite n b out) (TwoOrBridge.input n S) =
+      eval [(a,b),(c,d),(e,f)] out (TwoOrBridge.input n S) := by
+    have heq := delete_first_eval n b out [(c,d),(e,f)] (TwoOrBridge.input n S)
+      (by simp [TwoOrBridge.input]) hb
+    change eval ([(c,d),(e,f)].map (rewriteGate n b)) (rewrite n b out)
+      (TwoOrBridge.input n S) = _
+    rw [heq]
+    change meet (wires [(c,d),(e,f)]
+      (TwoOrBridge.input n S ++ [meet (TwoOrBridge.input n S) b])) out =
+      meet (wires [(c,d),(e,f)] (TwoOrBridge.input n S ++
+        [meet (TwoOrBridge.input n S) a || meet (TwoOrBridge.input n S) b])) out
+    rw [hdom S]
+  have hbound : E.card ≤ 3 := TwoOrBridge.two_or_program_at_most_three n G hfour
+    (rewrite n b c) (rewrite n b d) (rewrite n b e) (rewrite n b f) (rewrite n b out)
+    (rewrite_bounded (k := 0) hb (by simpa using hc))
+    (rewrite_bounded (k := 0) hb (by simpa using hd))
+    (rewrite_bounded (k := 1) hb (by simpa [Nat.add_assoc] using he))
+    (rewrite_bounded (k := 1) hb (by simpa [Nat.add_assoc] using hf))
+    (rewrite_bounded (k := 2) hb (by simpa [Nat.add_assoc] using ho)) E hcard
+    (fun S hS => by rw [heval]; exact haccept S hS)
+    (fun S hS => hsound S (by rw [← heval]; exact hS))
+  omega
+
+theorem meet_of_unique (xs : List Nat) (i : Nat) (hi : i ∈ xs)
+    (hunique : ∀ j ∈ xs, j = i) (x : List Bool) : meet x xs = x.getD i false := by
+  cases hv : x.getD i false with
+  | false =>
+    cases hm : meet x xs with
+    | false => rfl
+    | true =>
+      have := List.all_eq_true.mp hm i hi
+      rw [hv] at this
+      contradiction
+  | true =>
+    apply List.all_eq_true.mpr
+    intro j hj
+    rw [hunique j hj, hv]
+
+theorem first_distinct_literals (n : Nat) (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hfour : ∀ i j k l, G.Adj i j → G.Adj j k → G.Adj k l → G.Adj l i →
+      i = k ∨ j = l)
+    (a b c d e f out : List Nat)
+    (ha : bounded n a) (hb : bounded n b)
+    (hc : bounded (n + 1) c) (hd : bounded (n + 1) d)
+    (he : bounded (n + 2) e) (hf : bounded (n + 2) f) (ho : bounded (n + 3) out)
+    (E : Finset (Finset (Fin n))) (hsize : 5 ≤ E.card)
+    (hcard : ∀ S ∈ E, S.card = 2)
+    (haccept : ∀ S ∈ E,
+      eval [(a,b),(c,d),(e,f)] out (TwoOrBridge.input n S) = true)
+    (hsound : ∀ S : Finset (Fin n),
+      eval [(a,b),(c,d),(e,f)] out (TwoOrBridge.input n S) = true →
+        TwoChoiceRectangle.HasEdge G S) :
+    ∃ i j : Fin n, i ≠ j ∧
+      (∀ x, meet x a = x.getD i.val false) ∧
+      (∀ x, meet x b = x.getD j.val false) := by
+  have hbad := first_not_dominated n G hfour a b c d e f out hb hc hd he hf ho
+    E hsize hcard haccept hsound
+  have hbadSwap : ¬ (∀ S : Finset (Fin n),
+      (meet (TwoOrBridge.input n S) b || meet (TwoOrBridge.input n S) a) =
+        meet (TwoOrBridge.input n S) a) := by
+    intro hdom
+    apply first_not_dominated n G hfour b a c d e f out ha hc hd he hf ho
+      E hsize hcard
+    · intro S hS
+      rw [← first_swap a b out [(c,d),(e,f)] (TwoOrBridge.input n S)]
+      exact haccept S hS
+    · intro S hS
+      apply hsound S
+      rw [first_swap a b out [(c,d),(e,f)] (TwoOrBridge.input n S)]
+      exact hS
+    · exact hdom
+  cases a with
+  | nil =>
+    exfalso
+    apply hbadSwap
+    intro S
+    simp [meet]
+  | cons i as =>
+    cases b with
+    | nil =>
+      exfalso
+      apply hbad
+      intro S
+      simp [meet]
+    | cons j bs =>
+      let ii : Fin n := ⟨i, ha i (by simp)⟩
+      let jj : Fin n := ⟨j, hb j (by simp)⟩
+      have hua : ∀ k ∈ i :: as, k = i := by
+        intro k hk
+        have hv := first_left_unique n G hfour (i::as) (j::bs) c d e f out
+          hb hc hd he hf ho E hsize hcard haccept hsound ⟨k, ha k hk⟩ ii hk (by simp [ii])
+        exact congrArg Fin.val hv
+      have hub : ∀ k ∈ j :: bs, k = j := by
+        intro k hk
+        have hv := first_right_unique n G hfour (i::as) (j::bs) c d e f out
+          ha hc hd he hf ho E hsize hcard haccept hsound ⟨k, hb k hk⟩ jj hk (by simp [jj])
+        exact congrArg Fin.val hv
+      have hma := meet_of_unique (i::as) i (by simp) hua
+      have hmb := meet_of_unique (j::bs) j (by simp) hub
+      refine ⟨ii, jj, ?_, hma, hmb⟩
+      intro heq
+      have hij : i = j := congrArg Fin.val heq
+      apply hbad
+      intro S
+      rw [hma, hmb, hij]
+      exact Bool.or_self _
+
+end PEqualNP.Outside.L_meta_1031_aux.FirstOrReduction
