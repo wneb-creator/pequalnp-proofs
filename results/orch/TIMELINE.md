@@ -13,3 +13,6 @@
 2026-11-25T12:06:22.374438+00:00 preserved checked generic support helpers and completed independent SAT audit/local-search output; lower20 resource-limit repair pending.
 2026-11-25T12:07:53.712313+00:00 AND-count foundation compiled cleanly; parent independently reviewed source/graph/format and preserving exact bytes before finalAND7argument.
 2026-11-25T12:10:26.447416+00:00 full AND7 component compiled and independently audited; DNF helpers compiled/parent-reviewed. Posted unrestrictedtotal25claim still open.
+
+2026-11-25T12:10:50.518466+00:00 lemma_search: Lean checked lower bound 20 on original target graph; notified root for immediate push.
+2026-11-25T12:11:30.986513+00:00 lower20 for exacttarget compiled exit0; independentlyreviewed source plus onlyone permittedheartbeatlimit change. Preserving exactcheckedbytes beforemergednamedbuild.

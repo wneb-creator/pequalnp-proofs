@@ -1,8 +1,8 @@
 L-meta-9811 partial results.
-Named module: explicit25-gate upper-bound circuit, lake build PASS.
-Generic support helpers: Lean compile PASS.
-AND-count foundation: Lean compile PASS; finalAND7claim pending.
-Posted no24-gate theorem: NOT PROVED. No proof PR; local gap checker not run.
-Independent reviews: parent upper/support/foundation; status_review finite enumeration/lower20static; lower_bound andtoolchain SATencoding.
+Named module: explicit25-gate upperbound, lake buildPASS.
+Exacttarget lower20: Lean compilePASS; log lower20-heavy-build.log.
+AndCountCircuit restrictedmodel ANDcount≥7: Lean compilePASS; independentlyreviewed; logandseven-build.log.
+Support andDNFhelpers: Lean compilePASS.
+Posted no24-gate theorem: NOT PROVED. No proofPR; localgapchecker notrun.
 Sub-agents: 6 (lower_bound, lemma_search, counterexample, linear_network, status_review, toolchain)
-TIMING total=28 subagents=6
+TIMING total=31 subagents=6
