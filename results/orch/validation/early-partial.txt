@@ -1,0 +1,6 @@
+L-meta-2592: partial helper result only. The posted statement remains unproved.
+FewNegations.lean: lake env lean completed with exit 0; complete stdout/stderr log is empty.
+Local target checker: NOT RUN; this helper file is not a submission for the target theorem.
+Sub-agents: 6 (lower_bound, counterexample, existing_reductions, semantic_audit, few_negations, repo_review)
+TIMING total=8 subagents=6
+Independent review: PASSED by repo_review; helper statements/proofs and forbidden-token checklist reviewed.
