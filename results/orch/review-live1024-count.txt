@@ -1,0 +1,9 @@
+Independent review: PASS for checked conditional/extraction partial artifact.
+Reviewer: finite_invariants
+Artifact: results/orch/lemmas/Live1024Count.lean
+SHA256: 686e0602a87a99ee2fed49ec3809d8e99cff0227d6b5664eb6e42b7f620302f0
+UTC: 2026-11-25T13:12:31.024168+00:00
+
+Verified artifactbyte equality with compiledscratch and that all prior Live1024 source remains unchanged. The only addedblock contains circuit_live and its signed specialization. The former directly repeats the already-reviewed twoRoots extraction but preserves the extract theorem's exact countP(!isNot) upper bound instead of weakening it to19/18. The u=false hypothesis explicitly requires absence of NOT gates; signed u=true discharges that implication vacuously, as intended. Input-set equality still uses checked witnesses of allten essential coordinates. No size restriction is hidden and no lower bound is asserted.
+
+Author reports compilerexit0 with retained complete log. No additional forbidden constructs, new data types, instances, axioms, or proof shortcuts appear. The conclusions are extraction lemmas only: they require an arbitrary existing legal computing circuit and return a normalized Live run bounded by its non-NOT count. They do not establish either impossible-Live hypothesis of directSplit.

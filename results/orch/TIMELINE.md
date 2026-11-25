@@ -15,3 +15,5 @@
 - 2026-11-25T13:10:53.775842+00:00: counterexample agent completed two600-second stochastic runs (2,120,500,000 and1,671,250,000 evaluations). Best error6; no19-gate witness. FirstAND-edge and firstNOT-input globalSAT cases timed out600 seconds each; global20-gate positive-control search timed out120 seconds although fixed20 control passed. Switched emphasis to incremental localSAT and signed-basis stochastic search.
 
 - 2026-11-25T13:11:57.314895+00:00: Live1024Count exactbinarybudget extraction compiledexit0; preservedsource+fullcompileroutput.
+- 2026-11-25T13:13:07.310543+00:00: first strategy replan; full target still open; focus signed cofactor lift and certificate search, retire basic branch counting and broad SAT expansion.
+- 2026-11-25T13:16:49.877252+00:00: preserving expanded135-line target and exact-count/no-OR-identification helpers after independent review; original-statement checker still running.

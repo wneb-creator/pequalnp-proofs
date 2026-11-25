@@ -77,4 +77,59 @@ lemma petersen_cover_weight (w : Fin 10 → Nat)
   omega
 
 
+def petersenEdges : Finset (Fin 10 × Fin 10) :=
+  {(0, 1), (1, 2), (2, 3), (3, 4), (4, 0), (0, 5), (1, 6), (2, 7),
+    (3, 8), (4, 9), (5, 7), (7, 9), (9, 6), (6, 8), (8, 5)}
+
+lemma vertex_cover_size (s : Finset (Fin 10))
+    (h : ∀ e ∈ petersenEdges, e.1 ∈ s ∨ e.2 ∈ s) : 6 ≤ s.card := by
+  let w : Fin 10 → Nat := fun i => if i ∈ s then 1 else 0
+  have hw (a b : Fin 10) (hab : (a, b) ∈ petersenEdges) : 1 ≤ w a + w b := by
+    rcases h (a, b) hab with ha | hb
+    · simp [w, ha]
+    · simp [w, hb]
+  have hh := petersen_cover_weight w
+    (hw 0 1 (by decide)) (hw 1 2 (by decide)) (hw 2 3 (by decide))
+    (hw 3 4 (by decide)) (hw 4 0 (by decide)) (hw 5 7 (by decide))
+    (hw 7 9 (by decide)) (hw 9 6 (by decide)) (hw 6 8 (by decide))
+    (hw 8 5 (by decide))
+  have hsum : (∑ i : Fin 10, w i) = s.card := by
+    simp [w]
+  have hsum' : w 0 + w 1 + w 2 + w 3 + w 4 + w 5 + w 6 + w 7 + w 8 + w 9 =
+      s.card := by
+    simpa [Fin.sum_univ_succ, Nat.add_assoc] using hsum
+  omega
+
+lemma minimum_vertex_cover :
+    ∃ s : Finset (Fin 10), s.card = 6 ∧
+      ∀ e ∈ petersenEdges, e.1 ∈ s ∨ e.2 ∈ s := by
+  exact ⟨{1, 3, 4, 5, 6, 7}, by decide, by decide⟩
+
+lemma independent_set_size (s : Finset (Fin 10))
+    (h : ∀ e ∈ petersenEdges, ¬ (e.1 ∈ s ∧ e.2 ∈ s)) : s.card ≤ 4 := by
+  have hc : 6 ≤ sᶜ.card := vertex_cover_size sᶜ (by
+    intro e he
+    simpa only [Finset.mem_compl, not_and_or] using h e he)
+  have hsum : sᶜ.card + s.card = 10 := by
+    simpa only [Fintype.card_fin] using Finset.card_compl_add_card s
+  omega
+
+lemma edge_eq_false_iff (x : Fin 10 → Bool) :
+    edge x = false ↔ ∀ e ∈ petersenEdges, x e.1 = false ∨ x e.2 = false := by
+  simp only [edge, Bool.or_eq_false_iff, Bool.and_eq_false_iff]
+  simp only [petersenEdges, Finset.forall_mem_insert, Finset.mem_singleton, forall_eq]
+  simp only [and_assoc]
+
+lemma false_input_support_size (x : Fin 10 → Bool) (hx : edge x = false) :
+    (Finset.univ.filter fun i => x i = true).card ≤ 4 := by
+  apply independent_set_size
+  intro e he hab
+  have hz := (edge_eq_false_iff x).mp hx e he
+  rcases hz with hz | hz
+  · have ht := (Finset.mem_filter.mp hab.1).2
+    simp_all
+  · have ht := (Finset.mem_filter.mp hab.2).2
+    simp_all
+
+
 end PEqualNP.Outside.L_meta_2373

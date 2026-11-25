@@ -7,7 +7,12 @@ Build: lake build PEqualNP.Outside.L_meta_2373
 Build result: exit 0; Build completed successfully (18423 jobs).
 Complete output: build-partial-1.txt
 Local checker: not yet run; missing target theorem means no acceptance is claimed.
-Independent review: status_review PASS for partial snapshot (80 lines).
+Independent review: status_review PASS for partial snapshots (80 and 135 lines).
 
 Sub-agents: status_review, proof_structure, counterexample, library_route, lean_setup, finite_invariants
 TIMING total=11 subagents=6
+
+Expanded target partial: 135 lines, SHA256 035d745690cb8381247388ebd8989dd40bd8dd6db2e118e9b230be49a2a53db1.
+Second lake build: exit 0; Build completed successfully (18423 jobs).
+Complete second output: build-partial-2.txt.
+Repository checker against original statement is running; no acceptance claimed.
