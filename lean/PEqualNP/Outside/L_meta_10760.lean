@@ -1273,4 +1273,52 @@ lemma color_first_unused {α : Type} (D : α → Prop) (E : α → α → Prop)
     exact swapColor_fix_below fresh hx
   · simp only [swapColor, ite_true]
 
+def uniqueSep {width : Nat} (S : Finset (BitVec width)) (a : BitVec width)
+    (p q : Fin width) : Prop :=
+  a[p.val] ≠ a[q.val] ∧ ∀ w ∈ S, w ≠ a → w[p.val] = w[q.val]
+
+def criticalPair {width : Nat} (target : BitVec width) (S : Finset (BitVec width))
+    (a b : BitVec width) : Prop :=
+  a ∈ S ∧ b ∈ S ∧ a ≠ b ∧ ∃ p q ra rb sa sb : Fin width,
+    target[p.val] = true ∧ target[q.val] = false ∧
+    target[ra.val] = false ∧ target[rb.val] = false ∧
+    target[sa.val] = true ∧ target[sb.val] = true ∧
+    uniqueSep S a p ra ∧ uniqueSep S b p rb ∧
+    uniqueSep S a sa q ∧ uniqueSep S b sb q ∧
+    a[p.val] = a[sa.val] ∧ b[p.val] = b[sb.val]
+
+def uniqueSepCheck {width : Nat} (ws : List (BitVec width)) (a : BitVec width)
+    (p q : Fin width) : Bool :=
+  (a[p.val] != a[q.val]) && ws.all (fun w => w == a || w[p.val] == w[q.val])
+
+lemma uniqueSepCheck_sound {width : Nat} {ws : List (BitVec width)} {a : BitVec width}
+    {p q : Fin width} (h : uniqueSepCheck ws a p q = true) :
+    uniqueSep ws.toFinset a p q := by
+  simp only [uniqueSepCheck, Bool.and_eq_true, bne_iff_ne, List.all_eq_true,
+    Bool.or_eq_true, beq_iff_eq] at h
+  refine ⟨h.1, ?_⟩
+  intro w hw hne
+  exact (h.2 w (List.mem_toFinset.mp hw)).resolve_left hne
+
+def criticalWitnessCheck {width : Nat} (target : BitVec width)
+    (ws : List (BitVec width)) (a b : BitVec width) (p q ra rb sa sb : Fin width) : Bool :=
+  decide (a ∈ ws) && decide (b ∈ ws) && (a != b) &&
+  target[p.val] && !target[q.val] && !target[ra.val] && !target[rb.val] &&
+  target[sa.val] && target[sb.val] &&
+  uniqueSepCheck ws a p ra && uniqueSepCheck ws b p rb &&
+  uniqueSepCheck ws a sa q && uniqueSepCheck ws b sb q &&
+  (a[p.val] == a[sa.val]) && (b[p.val] == b[sb.val])
+
+lemma criticalWitnessCheck_sound {width : Nat} {target : BitVec width}
+    {ws : List (BitVec width)} {a b : BitVec width} {p q ra rb sa sb : Fin width}
+    (h : criticalWitnessCheck target ws a b p q ra rb sa sb = true) :
+    criticalPair target ws.toFinset a b := by
+  simp only [criticalWitnessCheck, Bool.and_eq_true, decide_eq_true_eq, bne_iff_ne,
+    Bool.not_eq_true', beq_iff_eq, and_assoc] at h
+  obtain ⟨ha, hb, hab, hp, hq, hra, hrb, hsa, hsb, u₁, u₂, u₃, u₄, pa, pb⟩ := h
+  exact ⟨List.mem_toFinset.mpr ha, List.mem_toFinset.mpr hb, hab,
+    p, q, ra, rb, sa, sb, hp, hq, hra, hrb, hsa, hsb,
+    uniqueSepCheck_sound u₁, uniqueSepCheck_sound u₂,
+    uniqueSepCheck_sound u₃, uniqueSepCheck_sound u₄, pa, pb⟩
+
 end PEqualNP.Outside.L_meta_10760
