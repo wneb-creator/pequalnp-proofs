@@ -1909,4 +1909,192 @@ lemma completedEdgeSamples_correct_iff (p : Fin 7 × Fin 7) (hp : p ∈ nonedgeP
     completedEdgeSamples (fun x _ => g x) (fun _ => hg)
     (fun _ _ _ _ => le_rfl) (completedEdgeSamples_cover p hp)
 
+lemma reader_append_agrees (u v : List Bool) (a b : Bool) (k : ℕ)
+    (hlen : u.length = v.length) (hab : a = b)
+    (heq : ∀ i, i ≠ k → u.getD i false = v.getD i false) :
+    ∀ i, i ≠ k → (u ++ [a]).getD i false = (v ++ [b]).getD i false := by
+  intro i hik
+  by_cases hi : i < u.length
+  · rw [List.getD_append _ _ _ _ hi,
+      List.getD_append _ _ _ _ (by omega)]
+    exact heq i hik
+  · by_cases hil : i = u.length
+    · subst i
+      rw [suffix_append_last, hlen, suffix_append_last, hab]
+    · rw [List.getD_eq_default _ _ (by simp; omega),
+        List.getD_eq_default _ _ (by simp; omega)]
+
+lemma reader_cutRun_agrees (gs : List Gate) (k : ℕ)
+    (hunread : ∀ g ∈ gs, k ∉ g.inputs)
+    (u v : List Bool) (hlen : u.length = v.length)
+    (heq : ∀ i, i ≠ k → u.getD i false = v.getD i false) :
+    ∀ i, i ≠ k → (cutRun gs u).getD i false = (cutRun gs v).getD i false := by
+  induction gs generalizing u v with
+  | nil => exact heq
+  | cons g gs ih =>
+    have hg : k ∉ g.inputs := hunread g List.mem_cons_self
+    have hgates : ∀ g' ∈ gs, k ∉ g'.inputs :=
+      fun g' hg' => hunread g' (List.mem_cons_of_mem g hg')
+    have hv : g.op.eval (g.inputs.map fun i => u.getD i false) =
+        g.op.eval (g.inputs.map fun i => v.getD i false) := by
+      apply congrArg g.op.eval
+      apply List.map_congr_left
+      intro i hi
+      apply heq i
+      intro hik
+      exact hg (hik ▸ hi)
+    exact ih hgates _ _ (by simpa using hlen)
+      (reader_append_agrees u v _ _ k hlen hv heq)
+
+lemma reader_cutOutput_unread (pre suffix : List Gate) (x : List Bool) (o : ℕ)
+    (a b : Bool) (hunread : ∀ g ∈ suffix, x.length + pre.length ∉ g.inputs)
+    (ho : o ≠ x.length + pre.length) :
+    cutOutput pre suffix o x a = cutOutput pre suffix o x b := by
+  apply reader_cutRun_agrees suffix (x.length + pre.length) hunread
+    (cutRun pre x ++ [a]) (cutRun pre x ++ [b]) (by simp)
+  · intro i hi
+    exact suffix_append_irrel _ _ _ i (by simpa only [suffix_cutRun_length] using hi)
+  · exact ho
+
+lemma reader_exists_of_cut_difference {n : ℕ} (pre suffix : List Gate) (o : ℕ)
+    (x : Fin n → Bool) (a b : Bool)
+    (ho : o ≠ n + pre.length)
+    (hdiff : cutOutput pre suffix o (List.ofFn x) a ≠
+      cutOutput pre suffix o (List.ofFn x) b) :
+    ∃ g ∈ suffix, n + pre.length ∈ g.inputs := by
+  by_contra hnone
+  have hunread : ∀ g ∈ suffix, n + pre.length ∉ g.inputs := by
+    simpa only [not_exists, not_and] using hnone
+  apply hdiff
+  exact reader_cutOutput_unread pre suffix (List.ofFn x) o a b
+    (by simpa only [List.length_ofFn] using hunread)
+    (by simpa only [List.length_ofFn] using ho)
+
+lemma reader_exists_of_cut_values {n : ℕ} (pre suffix : List Gate) (o : ℕ)
+    (x0 x : Fin n → Bool)
+    (hzero : cutOutput pre suffix o (List.ofFn x0) true = false)
+    (hfalse : cutOutput pre suffix o (List.ofFn x) false = false)
+    (htrue : cutOutput pre suffix o (List.ofFn x) true = true) :
+    ∃ g ∈ suffix, n + pre.length ∈ g.inputs := by
+  apply reader_exists_of_cut_difference pre suffix o x false true
+  · intro ho
+    subst o
+    rw [suffix_cutOutput_slot_fn] at hzero
+    cases hzero
+  · rw [hfalse, htrue]
+    decide
+
+lemma reader_fixedAnd_zero_agreement (pre suffix : List Gate) (inputs : List ℕ) (o : ℕ)
+    (p : Fin 7 × Fin 7) (hp : p ∈ nonedgePairs)
+    (hzero : ∀ x : Fin 7 → Bool, edgeFun x = false →
+      cutInput pre inputs (List.ofFn x) = pairAndInput p x)
+    (hf : ∀ x : Fin 7 → Bool,
+      Circuit.eval ⟨pre ++ ⟨GateOp.not, inputs⟩ :: suffix, o⟩ (List.ofFn x) = postedEdgeFun x)
+    (hBbad : Circuit.eval ⟨pre ++ ⟨GateOp.and, []⟩ :: suffix, o⟩
+      (List.ofFn (pairPoint p)) = true) :
+    ∃ g ∈ suffix, 7 + pre.length ∈ g.inputs := by
+  have hdiag : ∀ x : Fin 7 → Bool,
+      cutOutput pre suffix o (List.ofFn x) (!(cutInput pre inputs (List.ofFn x))) = edgeFun x := by
+    intro x
+    simpa only [cut_not_eval] using (hf x).trans (edgeFun_eq_posted x).symm
+  apply reader_exists_of_cut_values pre suffix o (fun _ : Fin 7 => false) (pairPoint p)
+  · have hd := hdiag (fun _ : Fin 7 => false)
+    have hb : edgeFun (fun _ : Fin 7 => false) = false := rfl
+    rw [hzero _ hb, hb] at hd
+    simpa only [pairAndInput, Bool.false_and, Bool.not_false] using hd
+  · have hpfalse := nonedgePoint_false p hp
+    have hpinput : pairAndInput p (pairPoint p) = true := by
+      simp [pairAndInput, pairPoint]
+    have hd := hdiag (pairPoint p)
+    rw [hzero _ hpfalse, hpinput, Bool.not_true] at hd
+    exact hd.trans hpfalse
+  · simpa only [cut_true_eval] using hBbad
+
+lemma fixedAnd_zero_agreement_eliminate_not
+    (pre suffix : List Gate) (inputs : List ℕ) (o : ℕ)
+    (p : Fin 7 × Fin 7) (hp : p ∈ nonedgePairs)
+    (hpre : ∀ g ∈ pre, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hsuf : ∀ g ∈ suffix, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hzero : ∀ x : Fin 7 → Bool, edgeFun x = false →
+      cutInput pre inputs (List.ofFn x) = pairAndInput p x)
+    (hf : ∀ x : Fin 7 → Bool,
+      Circuit.eval ⟨pre ++ ⟨GateOp.not, inputs⟩ :: suffix, o⟩ (List.ofFn x) = postedEdgeFun x)
+    (hBbad : Circuit.eval ⟨pre ++ ⟨GateOp.and, []⟩ :: suffix, o⟩
+      (List.ofFn (pairPoint p)) = true) :
+    ∃ (gs : List Gate) (out : ℕ),
+      (∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
+      gs.length + 2 ≤ (pre ++ ⟨GateOp.not, inputs⟩ :: suffix).length ∧
+      ∀ x : Fin 7 → Bool, Circuit.eval ⟨gs, out⟩ (List.ofFn x) =
+        (postedEdgeFun x || pairAndInput p x) :=
+  fixedAnd_zero_agreement_completion_saves_two pre suffix inputs o p hp hpre hsuf
+    hzero hf hBbad (reader_fixedAnd_zero_agreement pre suffix inputs o p hp hzero hf hBbad)
+
+lemma fixedAnd_zero_agreement_dichotomy
+    (pre suffix : List Gate) (inputs : List ℕ) (o : ℕ)
+    (p : Fin 7 × Fin 7) (hp : p ∈ nonedgePairs)
+    (hpre : ∀ g ∈ pre, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hsuf : ∀ g ∈ suffix, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hzero : ∀ x : Fin 7 → Bool, edgeFun x = false →
+      cutInput pre inputs (List.ofFn x) = pairAndInput p x)
+    (hf : ∀ x : Fin 7 → Bool,
+      Circuit.eval ⟨pre ++ ⟨GateOp.not, inputs⟩ :: suffix, o⟩ (List.ofFn x) = postedEdgeFun x) :
+    (∃ (gs : List Gate) (out : ℕ),
+      (∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
+      gs.length ≤ (pre ++ ⟨GateOp.not, inputs⟩ :: suffix).length ∧
+      ∀ x : Fin 7 → Bool, Circuit.eval ⟨gs, out⟩ (List.ofFn x) = postedEdgeFun x) ∨
+    (∃ (gs : List Gate) (out : ℕ),
+      (∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
+      gs.length + 2 ≤ (pre ++ ⟨GateOp.not, inputs⟩ :: suffix).length ∧
+      ∀ x : Fin 7 → Bool, Circuit.eval ⟨gs, out⟩ (List.ofFn x) =
+        (postedEdgeFun x || pairAndInput p x)) := by
+  cases hb : Circuit.eval ⟨pre ++ ⟨GateOp.and, []⟩ :: suffix, o⟩
+      (List.ofFn (pairPoint p)) with
+  | false =>
+    have hold : ∀ x : Fin 7 → Bool,
+        cutOutput pre suffix o (List.ofFn x) (!(cutInput pre inputs (List.ofFn x))) = edgeFun x := by
+      intro x
+      simpa only [cut_not_eval] using (hf x).trans (edgeFun_eq_posted x).symm
+    have hdiag := cut_reduce_pair_input p hp
+      (fun x => cutInput pre inputs (List.ofFn x))
+      (cutInput_fn_mono pre inputs (fun g hg => (hpre g hg).1))
+      (fun x => cutOutput pre suffix o (List.ofFn x))
+      (cutOutput_fn_z_mono pre suffix o (fun g hg => (hsuf g hg).1)) hold hzero
+    have hcompletion := cover_true_completion p hp
+      (fun x => cutOutput pre suffix o (List.ofFn x))
+      (cutOutput_fn_z_mono pre suffix o (fun g hg => (hsuf g hg).1)) hdiag
+    have hBfalse : cutOutput pre suffix o (List.ofFn (pairPoint p)) true = false := by
+      simpa only [cut_true_eval] using hb
+    refine Or.inl ⟨pre ++ ⟨GateOp.and, []⟩ :: suffix, o,
+      cut_replace_mono_basis pre suffix _ hpre hsuf ⟨Or.inl rfl, by simp⟩,
+      by simp, ?_⟩
+    intro x
+    rw [cut_true_eval, hcompletion, hBfalse, Bool.and_false, Bool.or_false, edgeFun_eq_posted]
+  | true =>
+    exact Or.inr (fixedAnd_zero_agreement_eliminate_not pre suffix inputs o p hp
+      hpre hsuf hzero hf hb)
+
+lemma fixedAnd_reduce_to_positive_bound
+    (pre suffix : List Gate) (inputs : List ℕ) (o : ℕ)
+    (p : Fin 7 × Fin 7) (hp : p ∈ nonedgePairs)
+    (hpre : ∀ g ∈ pre, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hsuf : ∀ g ∈ suffix, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (hzero : ∀ x : Fin 7 → Bool, edgeFun x = false →
+      cutInput pre inputs (List.ofFn x) = pairAndInput p x)
+    (hf : ∀ x : Fin 7 → Bool,
+      Circuit.eval ⟨pre ++ ⟨GateOp.not, inputs⟩ :: suffix, o⟩ (List.ofFn x) = postedEdgeFun x)
+    (hsmall : (pre ++ ⟨GateOp.not, inputs⟩ :: suffix).length ≤ 13)
+    (hbound : ∀ (gs : List Gate) (out : ℕ),
+      (∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) →
+      (∀ x : Fin 7 → Bool, Circuit.eval ⟨gs, out⟩ (List.ofFn x) =
+        (postedEdgeFun x || pairAndInput p x)) → 12 ≤ gs.length) :
+    ∃ (gs : List Gate) (out : ℕ),
+      (∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
+      gs.length ≤ (pre ++ ⟨GateOp.not, inputs⟩ :: suffix).length ∧
+      ∀ x : Fin 7 → Bool, Circuit.eval ⟨gs, out⟩ (List.ofFn x) = postedEdgeFun x := by
+  rcases fixedAnd_zero_agreement_dichotomy pre suffix inputs o p hp hpre hsuf hzero hf with
+    hmono | ⟨gs, out, hgs, hlen, heval⟩
+  · exact hmono
+  · have hlower := hbound gs out hgs heval
+    omega
+
 end PEqualNP.Outside.L_meta_10760
