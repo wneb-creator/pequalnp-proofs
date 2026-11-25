@@ -37,3 +37,11 @@ This rules out a sibling accepted false input using at most q other points. It d
 `SingleOrSparse.lean` compiled with empty stdout/stderr; independent reviewer found the logic sound. `SingleOrCertificates.lean` appends two checked corollaries: if each accepted sibling input has a point certificate of size at most q, the sibling is below incidence on p=false; it suffices that the sibling depends on at most q point inputs. These assumptions do not constrain its line dependence.
 
 The q+1 threshold cannot be strengthened merely from the semantic-cut hypotheses. Choose T avoiding p and meeting every line through p. Take h(A,B) to assert T is a subset of A and K(A,B,t) to be incidence(A,B) OR (t AND some line through p is true). Plugging p OR h into K computes incidence exactly: if h and a line through p are true, T provides an already accepted edge. Yet h accepts false input (T,empty). In a projective plane a line not through p is such a T of size q+1. This construction explains why arbitrary nonlinear siblings cannot simply be assumed below the function.
+
+## Fano refutation interface
+
+`FanoRefutationSuffix.lean` specializes the already checked read-1 lower bound to the order-two plane. Fin7 index i denotes nonzero binary vector i+1; incidence is dot product zero modulo two. Its line neighborhoods are `[1,3,5], [0,3,4], [2,3,6], [0,1,2], [1,4,6], [0,5,6], [2,4,5]`, matching the counterexample agent. The finite q=2 hypotheses and equality to these rows are proved by ordinary kernel `decide`.
+
+The conditional theorem `Fano.refutes_posted_of_twenty_six` accepts an explicit Circuit, IsAO2, equality to the fourteen-input Fano function, and size at most 26. It then negates the exact posted universal normalization statement, since every read-1 replacement needs at least 27 gates. It does not assert any such circuit exists. The complete harness is the unchanged `StarEquivalencePlain.lean` followed by this suffix.
+
+Compilation status: the complete `FanoRefutation.lean` harness passed with exit 0. Full logs are `/tmp/oec/pequalnp-pilot-104/fano-refutation-03.stdout` and `.stderr`; stdout contains only the existing base-file linter/deprecation warnings, stderr is empty. The independent geometry harness also passed with empty logs (`fano-geometry-01.*`). Root and reviewer were notified before any delivery.

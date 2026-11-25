@@ -8,3 +8,5 @@ validation.txt and status_review.md identify checked components and their limits
 combinatorial_edge_depth5.json.gz is a complete checkpoint of3202 edge-first-OR states through depth5. Depth6 was interrupted; its observed771 children are not a complete certificate and were not saved as a checkpoint. counterexample_checkpoint.txt preserves complete captured solver output. No valid full counterexample or full-target UNSAT certificate was obtained.
 
 beat-014-diagnostic.txt contains the full desk HTTP410 response. desk-log.txt records all requests through the failed renewal. Proof work paused at that error. Recovery is attempted only after this archive is pushed.
+
+Additional complete intermediate mixed depth4/depth5 search snapshots are preserved losslessly as combinatorial_mixed_depth4.json.gz and combinatorial_mixed_depth5.json.gz. Original SHA256 values: depth4 a861701b0c05cce5464beb0fe45206abcbf2e8addaacc5f0418a5219db1617e9; depth5 c48895ce7f8eb4c9e8383c5ab4caa6ce7ed33bdbcfa3a8d810724dac773ce138. They are research checkpoints, not formal certificates. Root verified decompression byte equality before removing the large scratch copies.

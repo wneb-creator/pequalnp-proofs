@@ -6,3 +6,4 @@
 - 2026-11-25T14:51: StarUpper and conditional StarReduction compiled and independently audited; preparing immediate partial push.
 - 2026-11-25T14:55:51.563558+00:00: geometry, exact READ1 equivalence, and three-factor pair-core partials compiled and independently audited; preserving.
 - 2026-11-25T14:58:51.383296+00:00: rectangle, sparse-OR, clause, and common-filter partials compiled and independently audited; preserving. Latest renewal14:58:14 expires15:18:13.963Z.
+- 2026-11-25T15:02:16.623251+00:00: block geometry, shared OR count, common-filter family, and conditional Fano refutation components checked/audited; preserving.
