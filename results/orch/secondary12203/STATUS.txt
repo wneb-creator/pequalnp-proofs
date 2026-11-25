@@ -1,0 +1,9 @@
+UNVALIDATED FULL PROOF CANDIDATE
+
+Prepared from PR12203; no full build or checker run has completed for this candidate.
+Repo source guard checkProofFile and checkPlain pass. Exact final theorem declaration and imports are unchanged.
+Only lower_forest removed;605plain definitions marked noncomputable;61own helper identifiers renamed through an exactly reversible map in manifest.json.
+Candidate bytes517971, headroom6317below512KiB.
+A definitions-only harness is not a validation of the full source. Its last run hit its imposed3GB Lean interpreter memory ceiling after8.536s. The harness initially omitted source structures; subsequent harness included them but omits theorem dependencies.
+Four custom structures are inherited from original source: KWRooms,FreeRooms,SingleFactor,PanelProof. CONTRIBUTING may require human review for these.
+No heavy builds running for this secondary candidate. Main proof file untouched by this agent.

@@ -9,3 +9,5 @@ Cases.lean: Lean exit0,14.261s (warnings only). Structural.lean: Lean exit0, che
 LookupForcing.lean: Lean4.36.0 exit0,0.147s; universal lookup preservation checked.
 Lookup benchmark and FastCostGuard.lean compile successfully; no measured material performance improvement yet.
 Verifier executable built successfully.
+
+Current status 2026-11-25T05:05:11.813160+00:00: optimized full candidate build running; no full checker verdict. Original baseline profiling process terminated by signal9 during workspace refresh; no olean produced. Source SHA25642bee598c028c21d1eeebcb40ff8435ce53b4bf5256c806ce0304c5721d581b6. Secondary candidate remains unvalidated.
