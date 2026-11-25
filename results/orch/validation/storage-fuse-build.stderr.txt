@@ -1,0 +1,7 @@
+/tmp/oec/pequalnp-pilot-100/compressed-fuse/cachefs.c: In function ‘cf_getattr’:
+/tmp/oec/pequalnp-pilot-100/compressed-fuse/cachefs.c:51:19: warning: ‘size’ may be used uninitialized [-Wmaybe-uninitialized]
+   51 |     st->st_size = (off_t) size;
+      |                   ^~~~~~~~~~~~
+/tmp/oec/pequalnp-pilot-100/compressed-fuse/cachefs.c:48:24: note: ‘size’ was declared here
+   48 |     unsigned long long size;
+      |                        ^~~~

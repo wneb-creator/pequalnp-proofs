@@ -1,0 +1,6 @@
+Current branch: HEAD
+Using cache from origin: (some leanprover-community/mathlib4)
+Decompressing 404 already-cached file(s) (2829 already decompressed)
+No files to download
+Decompressed 404 already-cached file(s)
+Completed successfully in 11084 ms!

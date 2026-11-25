@@ -77,4 +77,28 @@ lemma has_single_reader (gs : List Gate)
   have capacity := slots_with_unary gs arity unary
   omega
 
+lemma strict_has_single_reader (C : Circuit)
+    (strict : PEqualNP.MinimumComplex.Strict 10 C)
+    (has_not : ∃ g ∈ C.gates, g.op = GateOp.not)
+    (budget : C.size ≤ 19)
+    (inputs : ∀ i < 10, 1 ≤ (slots C.gates).count i)
+    (live : ∀ j < C.size - 1, 1 ≤ (slots C.gates).count (10 + j)) :
+    ∃ i < 10, (slots C.gates).count i = 1 := by
+  have gate_strict (g : Gate) (hg : g ∈ C.gates) :
+      ∃ w, PEqualNP.MinimumComplex.StrictGate w g := by
+    obtain ⟨i, hi, rfl⟩ := List.getElem_of_mem hg
+    exact ⟨10 + i, strict i hi⟩
+  have arity : ∀ g ∈ C.gates, g.inputs.length ≤ 2 := by
+    intro g hg
+    obtain ⟨w, hw⟩ := gate_strict g hg
+    rcases hw with ⟨_, hlen, _, _⟩ | ⟨_, hlen, _⟩ <;> omega
+  have unary : ∃ g ∈ C.gates, g.inputs.length ≤ 1 := by
+    obtain ⟨g, hg, hn⟩ := has_not
+    refine ⟨g, hg, ?_⟩
+    obtain ⟨w, hw⟩ := gate_strict g hg
+    rcases hw with ⟨ho, _, _, _⟩ | ⟨_, hlen, _⟩
+    · rcases ho with ho | ho <;> rw [hn] at ho <;> cases ho
+    · omega
+  exact has_single_reader C.gates arity unary budget inputs live
+
 end PEqualNP.Outside.L_meta_2592.ReadCount

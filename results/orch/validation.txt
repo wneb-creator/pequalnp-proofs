@@ -23,3 +23,7 @@ TIMING total=22 subagents=6
 Checkpoint 3: preserved four further checked components for input occurrence counting, critical-input classification, and an actual circuit factorization. They do not prove the full posted statement. See validation/Structural-and-counts.txt and complete logs.
 Sub-agents: 6 (proof strategies, circuit search, setup and independent validation).
 TIMING total=29 subagents=6
+
+Checkpoint 4: Strict-circuit single-reader corollary and sole NOT reader exclusion compiled with exit0. Independent reviews by reduction_strategy and lemma_routes passed. Hypotheses remain explicit; the complete gap is still unproved. Full checker remains a FAULT due unavailable full-Mathlib storage; see checker-limitations.md and full logs.
+Sub-agents: 6 (proof strategies, circuit search, setup and independent validation).
+TIMING total=35 subagents=6

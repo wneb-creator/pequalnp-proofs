@@ -1,0 +1,15 @@
+Setup completed successfully.
+Pinned elan v4.4.0 installer SHA-256 verified: 0e8250aa2be86c7af929ade68db617af9edc8b9ccf6eaf5ece228250d0d032e2.
+Lean v4.36.0 installed under scratch; no HOME modification.
+Wrapper: /tmp/oec/pequalnp-pilot-100/lean-env.sh
+Official targeted Mathlib cache fetched successfully. Cache utility built; no Mathlib source compiled.
+Actual Mathlib targets verified with lake build --no-build: All targets up-to-date (4974 jobs).
+PEqualNP.Defs build passed: Build completed successfully (5147 jobs).
+checklemma build passed: Build completed successfully (5 jobs).
+Pinned configuration diff check passed.
+Thin cache: complete actual dependency closure of Defs plus Endpoint List.GetD/OfFn, not all of Mathlib.
+Genuine Mathlib root artifact fetched separately from official pinned cache: 79da901f0eeeaa4a.ltar.
+Full import Mathlib or blanket import Mathlib.Tactic is not supported by the remaining sparse cache; use required specific modules.
+Removed only toolchain editor .ilean files, installer leftovers, redundant scratch cache hardlinks, downloaded archives after extraction, and unused Mathlib build artifacts.
+All runtime private/server .olean parts and static libraries preserved.
+Full stdout/stderr logs retained in this directory.

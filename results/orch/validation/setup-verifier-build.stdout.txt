@@ -1,0 +1,4 @@
+✔ [2/5] Built CheckLemma (22s)
+✔ [4/5] Built CheckLemma:c.o (21s)
+✔ [5/5] Built checklemma:exe (13s)
+Build completed successfully (5 jobs).
