@@ -11,3 +11,10 @@
 2026-11-25T15:59:35.198715+00:00 Counting: semantic-star OR gate lower bound and disjoint multioutput ledger compiled.
 2026-11-25T16:00:45.331766+00:00 Strategy C completed small-case counterexample search; no full-statement counterexample.
 2026-11-25T16:03:34.336921+00:00 Integrated1081line pure-OR familygate bound and outputORcone disjointness built and independentlyreviewed. Fullstatement unproved.
+2026-11-25T16:03:50.786527+00:00 CleanRoots actual-circuit singleton cross-pair/disjointness lemmas compiled.
+2026-11-25T16:06:04.480598+00:00 First20min replan: preserve pureORfamily bound; replace invalid all-components ledger by overlap-adjusted or selected-serving-family ledger. Continue componentgraph formalization, output-cone charging, finite adversarial tests and independent global argument.
+2026-11-25T16:06:42.821774+00:00 OutputCounting singleton-live OR/output AND budget compiled.
+2026-11-25T16:07:19.307114+00:00 Global.lean compiled: clean conjunction supports form a rectangle, no-C4 forces one support singleton.
+2026-11-25T16:08:13.424607+00:00 Counting: arbitrary-overlapping pure-OR family component ledger compiled.
+2026-11-25T16:10:35.368818+00:00 L5322 normalization strengthened with exact pure-OR witness preservation; compiled.
+2026-11-25T16:11:26.864429+00:00 Integrated 1725-line helper snapshot built and independently reviewed; overlap components, graph geometry and clean-output gate counts included.
