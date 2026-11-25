@@ -664,4 +664,28 @@ lemma refutation_of_small_circuit {n : ℕ} (G : SimpleGraph (Fin n))
   have hcard := hcover T hT
   omega
 
+lemma cover_lower_of_matching {n k : ℕ} (G : SimpleGraph (Fin n))
+    (ends : Fin k × Bool → Fin n) (hinj : Function.Injective ends)
+    (hadj : ∀ i : Fin k, G.Adj (ends (i, false)) (ends (i, true)))
+    (T : Finset (Fin n)) (hT : IsVertexCover G T) : k ≤ T.card := by
+  classical
+  let side : Fin k → Bool := fun i => if ends (i, false) ∈ T then false else true
+  let pick : Fin k → Fin n := fun i => ends (i, side i)
+  have hmem : ∀ i, pick i ∈ T := by
+    intro i
+    have h := hT _ _ (hadj i)
+    dsimp [pick, side]
+    split_ifs with hf
+    · exact hf
+    · exact h.resolve_left hf
+  have hpick : Function.Injective pick := by
+    intro i j heq
+    exact congrArg Prod.fst (hinj heq)
+  have hsub : Finset.univ.image pick ⊆ T := by
+    intro x hx
+    obtain ⟨i, _, rfl⟩ := Finset.mem_image.mp hx
+    exact hmem i
+  have hcard := Finset.card_le_card hsub
+  simpa [Finset.card_image_of_injective _ hpick] using hcard
+
 end PEqualNP.Outside.L_meta_3566
