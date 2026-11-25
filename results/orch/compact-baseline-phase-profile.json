@@ -1,0 +1,68 @@
+{
+  "status": "complete exit0",
+  "limitation": "Phase buckets use source-warning boundaries; anonymous profile timings are not exact declaration attribution and need not sum to total CPU or wall time.",
+  "phase_kernel_stages": {
+    "shared": {
+      "count": 560,
+      "seconds": 256.18,
+      "maximum_seconds": 2.58
+    },
+    "signed": {
+      "count": 171,
+      "seconds": 193.777,
+      "maximum_seconds": 16.8
+    },
+    "monotone_and_final": {
+      "count": 416,
+      "seconds": 832.176,
+      "maximum_seconds": 14.0
+    }
+  },
+  "all_profile_stages": {
+    "import": {
+      "count": 1,
+      "seconds": 1.46,
+      "maximum_seconds": 1.46
+    },
+    "type checking": {
+      "count": 1147,
+      "seconds": 1282.133,
+      "maximum_seconds": 16.8
+    },
+    "simp": {
+      "count": 68,
+      "seconds": 18.278,
+      "maximum_seconds": 1.32
+    },
+    "interpretation of Mathlib.Tactic.Tauto._aux_Mathlib_Tactic_Tauto___elabRules_Mathlib_Tactic_Tauto_tauto_1._boxed": {
+      "count": 1,
+      "seconds": 0.611,
+      "maximum_seconds": 0.611
+    },
+    "tactic execution of Lean.Parser.Tactic.apply": {
+      "count": 1,
+      "seconds": 0.771,
+      "maximum_seconds": 0.771
+    },
+    "tactic execution of Lean.Parser.Tactic.simp": {
+      "count": 1,
+      "seconds": 0.124,
+      "maximum_seconds": 0.124
+    },
+    "elaboration": {
+      "count": 8,
+      "seconds": 5.66,
+      "maximum_seconds": 2.94
+    },
+    "interpretation of _private.Mathlib.Tactic.Linter.Lint.0.Mathlib.Linter.DupNamespaceLinter.dupNamespace._lam_1._boxed": {
+      "count": 1,
+      "seconds": 0.107,
+      "maximum_seconds": 0.107
+    },
+    "type checking took 241.olean serialization": {
+      "count": 1,
+      "seconds": 2.17,
+      "maximum_seconds": 2.17
+    }
+  }
+}

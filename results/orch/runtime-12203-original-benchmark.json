@@ -1,0 +1,16 @@
+{
+  "variant": "Original",
+  "group": "PR12203-mo11-start7-count96-arity10",
+  "width": 152,
+  "cpuAffinity": [
+    4
+  ],
+  "started": "2026-11-25T05:13:20.504259+00:00",
+  "wallSeconds": 44.005417143998784,
+  "userSeconds": 41.080813,
+  "systemSeconds": 2.465583,
+  "maxRssKiB": 3242820,
+  "exitCode": 0,
+  "sourceSha256": "70c3ae05a682236aba52d9a953ef13c2cee2b69f29f939415d90590fa3a1f678",
+  "log": "/tmp/oec/pequalnp-pilot-61/runtime-12203-original-benchmark.log"
+}

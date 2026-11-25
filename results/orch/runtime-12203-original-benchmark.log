@@ -1,0 +1,149 @@
+import took 2.32s
+/tmp/oec/pequalnp-pilot-61/Runtime12203OriginalBenchmark.lean:274:25: warning: Variable name `data` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _data
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/Runtime12203OriginalBenchmark.lean:276:6: warning: Variable name `width` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _width
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/Runtime12203OriginalBenchmark.lean:450:25: warning: Variable name `data` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _data
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/Runtime12203OriginalBenchmark.lean:475:7: warning: Variable name `num` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _num
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/Runtime12203OriginalBenchmark.lean:475:17: warning: Variable name `cw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _cw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/Runtime12203OriginalBenchmark.lean:475:20: warning: Variable name `iw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _iw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/Runtime12203OriginalBenchmark.lean:475:23: warning: Variable name `pw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _pw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/Runtime12203OriginalBenchmark.lean:475:26: warning: Variable name `offw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _offw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/Runtime12203OriginalBenchmark.lean:475:31: warning: Variable name `lw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _lw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/Runtime12203OriginalBenchmark.lean:475:34: warning: Variable name `data` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _data
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+elaboration took 600ms
+/tmp/oec/pequalnp-pilot-61/Runtime12203OriginalBenchmark.lean:505:10: warning: Variable name `j` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _j
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/Runtime12203OriginalBenchmark.lean:507:11: warning: Variable name `j` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _j
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/Runtime12203OriginalBenchmark.lean:514:11: warning: Variable name `j` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _j
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/Runtime12203OriginalBenchmark.lean:515:11: warning: Variable name `j` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _j
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/Runtime12203OriginalBenchmark.lean:516:11: warning: Variable name `j` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _j
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/Runtime12203OriginalBenchmark.lean:517:11: warning: Variable name `j` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _j
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+type checking took 1.92s
+type checking took 2.13s
+type checking took 2.23s
+type checking took 101ms
+type checking took 1.99s
+type checking took 102ms
+type checking took 1.71s
+type checking took 1.6s
+type checking took 102ms
+type checking took 1.91s
+type checking took 2.21s
+type checking took 2.06s
+type checking took 112ms
+type checking took 2.06s
+type checking took 101ms
+type checking took 2.59s
+type checking took 2.47s
+type checking took 100ms
+type checking took 2.72s
+type checking took 109ms
+type checking took 2.6s
+type checking took 100ms
+type checking took 2.44s
+type checking took 141ms
+type checking took 2.66s
+cumulative profiling times:
+	attribute application 1.9ms
+	blocked (unaccounted) 1.21s
+	compilation (IR) 16.6ms
+	compilation (LCNF base) 186ms
+	compilation (LCNF impure) 66ms
+	compilation (LCNF mono) 120ms
+	congr simp thm 1.05ms
+	declTypeLinter 34ms
+	elaboration 1.15s
+	fix level params 1.93ms
+	import 2.32s
+	initialization 39.2ms
+	instantiate metavars 3.38ms
+	interpretation 580ms
+	let-to-have transformation 11.2ms
+	linting 108ms
+	module linting 0.0452ms
+	parsing 62.4ms
+	process pre-definitions 88.2ms
+	share common exprs 10.5ms
+	simp 16.2ms
+	tactic execution 70.8ms
+	tacticAnalysis 16.8ms
+	type checking 37s
+	typeclass inference 370ms

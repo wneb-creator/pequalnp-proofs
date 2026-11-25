@@ -1,0 +1,20 @@
+{
+  "verdict": "PASS for partial preservation",
+  "reviewed_at": "2026-11-25T05:15:21.654034+00:00",
+  "source": "results/orch/lemmas/LazyPoolsIntegrationPrefix.lean",
+  "source_sha256": "d26490f2344c20de91264bade5b9f56153381de38a38cd6697c003067bc20b9a",
+  "source_bytes": 174028,
+  "source_lines": 3448,
+  "candidate_sha256": "309ad9e815998efad64ac3c2fe862d7ac3c9db887fcf4b226f836612605738cc",
+  "input_sha256": "0ac02f72772d326dec5c9d361b14f57d3571f8937fdcb14830f7c00213c05faf",
+  "compiled_exit_code": 0,
+  "compile_seconds": 37.47733727500054,
+  "log_errors": 0,
+  "actual_plain_guard": "PASS",
+  "changed_declarations": [
+    "forceLanes",
+    "forceLanes_eq"
+  ],
+  "certificate_and_final_suffix_byte_identical": true,
+  "prefix_exact": true
+}

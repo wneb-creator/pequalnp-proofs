@@ -1,0 +1,50 @@
+{
+  "runs": [
+    {
+      "variant": "CachedNode",
+      "group": "rootM11-start186-count16-arity11",
+      "width": 278,
+      "cpuAffinity": [
+        4
+      ],
+      "started": "2026-11-25T05:05:40.443455+00:00",
+      "wallSeconds": 10.408235231001527,
+      "userSeconds": 8.925869,
+      "systemSeconds": 1.442422,
+      "maxRssKiB": 3344144,
+      "exitCode": 0,
+      "sourceSha256": "2c75fa639b85976889db08928dfa1acf96a77d547cdd897f8e03922aa62e39b3",
+      "log": "/tmp/oec/pequalnp-pilot-61/runtime-cachednode-mono16-profile.log",
+      "kernelTimes": [
+        2.69
+      ],
+      "importTimes": [
+        "2.48s"
+      ]
+    },
+    {
+      "variant": "Width278",
+      "group": "rootM11-start186-count16-arity11",
+      "width": 278,
+      "cpuAffinity": [
+        4
+      ],
+      "started": "2026-11-25T05:05:50.852958+00:00",
+      "wallSeconds": 8.721840594000241,
+      "userSeconds": 7.458093,
+      "systemSeconds": 1.2350539999999999,
+      "maxRssKiB": 3346228,
+      "exitCode": 0,
+      "sourceSha256": "406f30e0cffd9ab85adc691c4de8451d037ac685ced963e1b9c1399469f317f4",
+      "log": "/tmp/oec/pequalnp-pilot-61/runtime-width278-mono16-profile.log",
+      "kernelTimes": [
+        2.58
+      ],
+      "importTimes": [
+        "1.45s"
+      ]
+    }
+  ],
+  "cachedUserCpuIncreasePercent": 19.680312380121844,
+  "recommendation": "Do not integrate cached-node variant on current evidence; it is slower on this matched leaf."
+}

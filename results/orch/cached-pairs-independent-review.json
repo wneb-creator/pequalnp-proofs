@@ -1,0 +1,8 @@
+{
+  "sha256": "2da8679e1adeded67d95943c31fe571a026fe1ae27ec0599bc7e4231c0e31726",
+  "bytes": 518156,
+  "semantic_review": "PASS: getPairsCached_eq is an induction using force_eq; contextOf uses the same list through this equality, and from_context rewrites the exact equality. No new assumptions.",
+  "certificate_suffix_identical": true,
+  "final_theorem_identical": true,
+  "status": "generic integration prefix compiled; numerical benefit pending, not part of active candidate"
+}

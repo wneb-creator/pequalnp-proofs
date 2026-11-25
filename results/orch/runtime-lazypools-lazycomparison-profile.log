@@ -1,0 +1,106 @@
+import took 3.48s
+/tmp/oec/pequalnp-pilot-61/RuntimeLazyPoolsMono16Benchmark.lean:404:20: warning: Variable name `iw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _iw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/RuntimeLazyPoolsMono16Benchmark.lean:404:23: warning: Variable name `pw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _pw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/RuntimeLazyPoolsMono16Benchmark.lean:409:6: warning: Variable name `nl` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _nl
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+elaboration took 846ms
+/tmp/oec/pequalnp-pilot-61/RuntimeLazyPoolsMono16Benchmark.lean:438:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/RuntimeLazyPoolsMono16Benchmark.lean:439:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/RuntimeLazyPoolsMono16Benchmark.lean:440:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/RuntimeLazyPoolsMono16Benchmark.lean:441:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+elaboration took 125ms
+/tmp/oec/pequalnp-pilot-61/RuntimeLazyPoolsMono16Benchmark.lean:449:14: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/RuntimeLazyPoolsMono16Benchmark.lean:450:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/RuntimeLazyPoolsMono16Benchmark.lean:451:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/RuntimeLazyPoolsMono16Benchmark.lean:452:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/RuntimeLazyPoolsMono16Benchmark.lean:453:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-61/RuntimeLazyPoolsMono16Benchmark.lean:454:13: warning: Variable name `i` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _i
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+type checking took 2.93s
+cumulative profiling times:
+	attribute application 1.99ms
+	blocked (unaccounted) 1.25s
+	compilation (IR) 21.1ms
+	compilation (LCNF base) 200ms
+	compilation (LCNF impure) 78.4ms
+	compilation (LCNF mono) 150ms
+	declTypeLinter 33.3ms
+	elaboration 1.57s
+	fix level params 1.75ms
+	import 3.48s
+	initialization 38.2ms
+	instantiate metavars 4.65ms
+	interpretation 661ms
+	let-to-have transformation 12.4ms
+	linting 109ms
+	module linting 0.0912ms
+	parsing 77.5ms
+	process pre-definitions 95.5ms
+	share common exprs 9.92ms
+	tactic execution 12.8ms
+	tacticAnalysis 17ms
+	type checking 2.97s
+	typeclass inference 444ms

@@ -72,3 +72,5 @@
 - 2026-11-25T05:07:57.936885+00:00: Combined width278/root96/cofactor64 replay started after independent schedule reviews. Cached-node experiment is sound but excluded for slower performance. Successful numerical probes prepared for preservation.
 
 - 2026-11-25T05:16:05Z: Complete attributed public PR12184 baseline CompactProfileBaseline.lean passed Lean4.36 kernel compilation, exit0;1361.131s wall,1292.938s user,93.131s system,5,232,736KiB maxRSS, -j3 on CPUs0–1. This is a full mathematical baseline, not a local checker verdict or a runtime-compliant delivery. Full diagnostics preserved in results/orch/compact-baseline-profile-restart1.log/json.
+
+- 2026-11-25T05:22:00.798284+00:00: Original-depth attributed12203 replay runs onCPUs0-1 while12184 optimized replay continues onCPUs2-3. Full12184 baseline has been pushed; named module build/checker remains pending. More reviewed cache/lazy/fallback numerical probes preserved.

@@ -1,0 +1,16 @@
+{
+  "variant": "Grouped",
+  "group": "PR12203-g383-level9-start3-count36-arity9",
+  "width": 152,
+  "cpuAffinity": [
+    4
+  ],
+  "started": "2026-11-25T05:18:52.173425+00:00",
+  "wallSeconds": 8.524920320000092,
+  "userSeconds": 7.161513,
+  "systemSeconds": 1.3317649999999999,
+  "maxRssKiB": 3302628,
+  "exitCode": 0,
+  "sourceSha256": "5757fcd2740d4fa987c666de42939dd1f5f92891409af499fdf8b5973738daac",
+  "log": "/tmp/oec/pequalnp-pilot-61/runtime-12203-cofactor-grouped-benchmark.log"
+}

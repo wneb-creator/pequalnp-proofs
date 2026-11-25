@@ -1,0 +1,58 @@
+{
+  "runs": [
+    {
+      "variant": "Original",
+      "group": "PR12203-g383-level9-start3-count36-arity9",
+      "width": 152,
+      "cpuAffinity": [
+        4
+      ],
+      "started": "2026-11-25T05:18:40.927982+00:00",
+      "wallSeconds": 11.244887389999349,
+      "userSeconds": 9.504617,
+      "systemSeconds": 1.685776,
+      "maxRssKiB": 3007452,
+      "exitCode": 0,
+      "sourceSha256": "67be52656d03faef1dd8bec01a2501a7a19f6ad1fe7f548b6d1d9671e9cd84de",
+      "log": "/tmp/oec/pequalnp-pilot-61/runtime-12203-cofactor-original-benchmark.log",
+      "profileKernelSeconds": [
+        0.501,
+        0.47100000000000003,
+        0.445,
+        0.5670000000000001,
+        0.463,
+        0.47700000000000004,
+        0.376,
+        0.452
+      ],
+      "profileKernelTotalSeconds": 3.7520000000000002,
+      "profileImport": [
+        "2.8s"
+      ]
+    },
+    {
+      "variant": "Grouped",
+      "group": "PR12203-g383-level9-start3-count36-arity9",
+      "width": 152,
+      "cpuAffinity": [
+        4
+      ],
+      "started": "2026-11-25T05:18:52.173425+00:00",
+      "wallSeconds": 8.524920320000092,
+      "userSeconds": 7.161513,
+      "systemSeconds": 1.3317649999999999,
+      "maxRssKiB": 3302628,
+      "exitCode": 0,
+      "sourceSha256": "5757fcd2740d4fa987c666de42939dd1f5f92891409af499fdf8b5973738daac",
+      "log": "/tmp/oec/pequalnp-pilot-61/runtime-12203-cofactor-grouped-benchmark.log",
+      "profileKernelSeconds": [
+        0.448,
+        2.88
+      ],
+      "profileKernelTotalSeconds": 3.328,
+      "profileImport": [
+        "1.48s"
+      ]
+    }
+  ]
+}

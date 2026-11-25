@@ -1,0 +1,54 @@
+--- width278
++++ cachedpairs
+@@ -3191,7 +3191,18 @@
+       simp [contextWire,List.getD_eq_getElem?_getD,h2]
+   rwa [eq] at all
+ 
+-def contextOf (g : Forest) (k i : Nat) : NodeContext :=
++noncomputable def getPairsCached (data : Nat → Nat) (w v : Nat) : Nat → Nat → List (Nat × Nat)
++  | 0,_ => []
++  | n+1,pos => force (packedAt data pos (w+v)) fun x =>
++      (x &&& ((1 <<< w)-1),x >>> w) :: getPairsCached data w v n (pos+w+v)
++
++theorem getPairsCached_eq (data : Nat → Nat) (w v n pos : Nat) :
++    getPairsCached data w v n pos = getPairs data w v n pos := by
++  induction n generalizing pos with
++  | zero => rfl
++  | succ n ih => simp only [getPairsCached,force_eq,ih,getPairs]
++
++noncomputable def contextOf (g : Forest) (k i : Nat) : NodeContext :=
+   let raw := wiresOf g
+   let (num,depth,cw,iw,pw,offw,lw,data) := g.levels k
+   let (ops,bank,ws) := readNode g k i
+@@ -3200,7 +3211,7 @@
+   let nr := packedAt data pos 5
+   let nl := packedAt data (pos+5) lw
+   let st := pos+5+lw
+-  let rules := (getPairs data cw depth nr st).filterMap (fun (a,b) => buildRule g ops depth bank a b)
++  let rules := (getPairsCached data cw depth nr st).filterMap (fun (a,b) => buildRule g ops depth bank a b)
+   let ls := fun tag => ((g.index k tag).bind (linkedSet g (k-1))).toList
+   (k,ws.length,ws,preCov g.mode ws,rules,ls)
+ 
+@@ -3234,7 +3245,9 @@
+   decide ws.Nodup && !(ws.contains T)
+ theorem from_context (g : Forest) (k i : Nat) :
+     nodeVerified g k i = (prelim (targetOf g) (contextOf g k i) &&
+-      (if k=0 then true else testAll (contextOf g k i) (contextOf g k i).2.2.1)) := rfl
++      (if k=0 then true else testAll (contextOf g k i) (contextOf g k i).2.2.1)) := by
++  simp only [contextOf,getPairsCached_eq]
++  rfl
+ 
+ theorem makeBlock {g k start n} (h : ∀ (i : Nat), start ≤ i → i < start + n → nodeVerified g k i = true) :
+     block g k start n=true := by
+@@ -3244,9 +3257,9 @@
+     simp only [block,Bool.and_eq_true]
+     exact ⟨h _ (by omega) (by omega),ih (fun i le lt => h i le (by omega))⟩
+ 
+-def contexts (g : Forest) (k start n : Nat) :=
++noncomputable def contexts (g : Forest) (k start n : Nat) :=
+   ((List.range n).map (start+·)).map (contextOf g k)
+-def header (g : Forest) (k start n ar : Nat) :=
++noncomputable def header (g : Forest) (k start n ar : Nat) :=
+   (contexts g k start n).all (fun c => c.2.1==ar && prelim (targetOf g) c)
+ noncomputable def rowCut (g : Forest) (k start n ar lo len : Nat) :=
+   let xs := contexts g k start n

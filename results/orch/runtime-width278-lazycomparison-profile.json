@@ -1,0 +1,16 @@
+{
+  "variant": "Width278",
+  "group": "rootM11-start186-count16-arity11",
+  "width": 278,
+  "cpuAffinity": [
+    4
+  ],
+  "started": "2026-11-25T05:16:26.548149+00:00",
+  "wallSeconds": 9.948627966999993,
+  "userSeconds": 8.652373,
+  "systemSeconds": 1.247595,
+  "maxRssKiB": 3345712,
+  "exitCode": 0,
+  "sourceSha256": "406f30e0cffd9ab85adc691c4de8451d037ac685ced963e1b9c1399469f317f4",
+  "log": "/tmp/oec/pequalnp-pilot-61/runtime-width278-lazycomparison-profile.log"
+}

@@ -1,0 +1,2936 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-61/PR12203_L_meta_670.lean",
+  "output": "/workspace/pequalnp-proofs/results/orch/lemmas/Compact12203CofactorCandidate.lean",
+  "source_sha256": "5bc7f362c1cf08ca49a34dea07ed4ff386f2b393efb6261efa57a20c37f10348",
+  "output_sha256": "c1449223c5bbecca2b4a1f1c444bee095c3e7c9f0b01d1030cd52c140ed72c76",
+  "source_bytes": 523482,
+  "output_bytes": 523730,
+  "cap_margin": 558,
+  "author": "0xshuzo",
+  "pull_request": 12203,
+  "head_sha": "0d2bbcdeb511ffff33552e155db3526648d8575b",
+  "sample_width": 152,
+  "root_cap": "original",
+  "cofactor_cap": 64,
+  "changed_depths": 22,
+  "applications": 52,
+  "covered_nodes": 1624,
+  "old_leaves": 292,
+  "new_leaves": 194,
+  "numeric_data_exact": true,
+  "expanded_state_arity_coverage_exact": true,
+  "final_theorem_exact": true,
+  "inverse_depth_edits_recover_source": true,
+  "changes": [
+    {
+      "line": 4527,
+      "name": "sg191_9_0",
+      "before": "  apply cellsBlock (ar:=8) (rows:=0) (d:=2)",
+      "after": "  apply cellsBlock (ar:=8) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4538,
+      "name": "sg191_8_3",
+      "before": "  apply cellsBlock (ar:=8) (rows:=0) (d:=3)",
+      "after": "  apply cellsBlock (ar:=8) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4545,
+      "name": "sg191_8_39",
+      "before": "  apply cellsBlock (ar:=8) (rows:=0) (d:=3)",
+      "after": "  apply cellsBlock (ar:=8) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4552,
+      "name": "sg191_8_70",
+      "before": "  apply cellsBlock (ar:=9) (rows:=0) (d:=3)",
+      "after": "  apply cellsBlock (ar:=9) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4559,
+      "name": "sg191_8_106",
+      "before": "  apply cellsBlock (ar:=9) (rows:=0) (d:=1)",
+      "after": "  apply cellsBlock (ar:=9) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4567,
+      "name": "sg191_7_0",
+      "before": "  apply cellsBlock (ar:=7) (rows:=0) (d:=2)",
+      "after": "  apply cellsBlock (ar:=7) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4574,
+      "name": "sg191_7_13",
+      "before": "  apply cellsBlock (ar:=8) (rows:=0) (d:=3)",
+      "after": "  apply cellsBlock (ar:=8) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4581,
+      "name": "sg191_7_49",
+      "before": "  apply cellsBlock (ar:=8) (rows:=0) (d:=3)",
+      "after": "  apply cellsBlock (ar:=8) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4588,
+      "name": "sg191_7_85",
+      "before": "  apply cellsBlock (ar:=8) (rows:=0) (d:=3)",
+      "after": "  apply cellsBlock (ar:=8) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4596,
+      "name": "sg191_6_0",
+      "before": "  apply cellsBlock (ar:=7) (rows:=0) (d:=2)",
+      "after": "  apply cellsBlock (ar:=7) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4686,
+      "name": "sg383_11_0",
+      "before": "  apply cellsBlock (ar:=9) (rows:=0) (d:=1)",
+      "after": "  apply cellsBlock (ar:=9) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4694,
+      "name": "sg383_10_0",
+      "before": "  apply cellsBlock (ar:=8) (rows:=0) (d:=1)",
+      "after": "  apply cellsBlock (ar:=8) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4701,
+      "name": "sg383_10_6",
+      "before": "  apply cellsBlock (ar:=9) (rows:=0) (d:=2)",
+      "after": "  apply cellsBlock (ar:=9) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4708,
+      "name": "sg383_10_19",
+      "before": "  apply cellsBlock (ar:=10) (rows:=0) (d:=3)",
+      "after": "  apply cellsBlock (ar:=10) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4719,
+      "name": "sg383_9_3",
+      "before": "  apply cellsBlock (ar:=9) (rows:=0) (d:=3)",
+      "after": "  apply cellsBlock (ar:=9) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4726,
+      "name": "sg383_9_39",
+      "before": "  apply cellsBlock (ar:=9) (rows:=0) (d:=3)",
+      "after": "  apply cellsBlock (ar:=9) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4733,
+      "name": "sg383_9_75",
+      "before": "  apply cellsBlock (ar:=9) (rows:=0) (d:=3)",
+      "after": "  apply cellsBlock (ar:=9) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4740,
+      "name": "sg383_9_111",
+      "before": "  apply cellsBlock (ar:=9) (rows:=0) (d:=1)",
+      "after": "  apply cellsBlock (ar:=9) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4747,
+      "name": "sg383_9_119",
+      "before": "  apply cellsBlock (ar:=10) (rows:=0) (d:=2)",
+      "after": "  apply cellsBlock (ar:=10) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4755,
+      "name": "sg383_8_0",
+      "before": "  apply cellsBlock (ar:=8) (rows:=0) (d:=3)",
+      "after": "  apply cellsBlock (ar:=8) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4762,
+      "name": "sg383_8_36",
+      "before": "  apply cellsBlock (ar:=8) (rows:=0) (d:=1)",
+      "after": "  apply cellsBlock (ar:=8) (rows:=0) (d:=0)"
+    },
+    {
+      "line": 4769,
+      "name": "sg383_8_44",
+      "before": "  apply cellsBlock (ar:=9) (rows:=0) (d:=1)",
+      "after": "  apply cellsBlock (ar:=9) (rows:=0) (d:=0)"
+    }
+  ],
+  "coverage": [
+    {
+      "name": "sg191_9_0",
+      "kind": "block",
+      "forest": "g191",
+      "level": 9,
+      "start": 0,
+      "count": 12,
+      "arity": 8,
+      "old_depth": 2,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          9,
+          3
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          12
+        ]
+      ]
+    },
+    {
+      "name": "sg191_8_3",
+      "kind": "block",
+      "forest": "g191",
+      "level": 8,
+      "start": 3,
+      "count": 36,
+      "arity": 8,
+      "old_depth": 3,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          3,
+          4
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          16,
+          5
+        ],
+        [
+          21,
+          4
+        ],
+        [
+          25,
+          5
+        ],
+        [
+          30,
+          4
+        ],
+        [
+          34,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          3,
+          36
+        ]
+      ]
+    },
+    {
+      "name": "sg191_8_39",
+      "kind": "block",
+      "forest": "g191",
+      "level": 8,
+      "start": 39,
+      "count": 31,
+      "arity": 8,
+      "old_depth": 3,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          39,
+          3
+        ],
+        [
+          42,
+          4
+        ],
+        [
+          46,
+          4
+        ],
+        [
+          50,
+          4
+        ],
+        [
+          54,
+          4
+        ],
+        [
+          58,
+          4
+        ],
+        [
+          62,
+          4
+        ],
+        [
+          66,
+          4
+        ]
+      ],
+      "new_leaves": [
+        [
+          39,
+          31
+        ]
+      ]
+    },
+    {
+      "name": "sg191_8_70",
+      "kind": "block",
+      "forest": "g191",
+      "level": 8,
+      "start": 70,
+      "count": 36,
+      "arity": 9,
+      "old_depth": 3,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          70,
+          4
+        ],
+        [
+          74,
+          5
+        ],
+        [
+          79,
+          4
+        ],
+        [
+          83,
+          5
+        ],
+        [
+          88,
+          4
+        ],
+        [
+          92,
+          5
+        ],
+        [
+          97,
+          4
+        ],
+        [
+          101,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          70,
+          36
+        ]
+      ]
+    },
+    {
+      "name": "sg191_8_106",
+      "kind": "block",
+      "forest": "g191",
+      "level": 8,
+      "start": 106,
+      "count": 7,
+      "arity": 9,
+      "old_depth": 1,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          106,
+          3
+        ],
+        [
+          109,
+          4
+        ]
+      ],
+      "new_leaves": [
+        [
+          106,
+          7
+        ]
+      ]
+    },
+    {
+      "name": "sg191_7_0",
+      "kind": "block",
+      "forest": "g191",
+      "level": 7,
+      "start": 0,
+      "count": 13,
+      "arity": 7,
+      "old_depth": 2,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          9,
+          4
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          13
+        ]
+      ]
+    },
+    {
+      "name": "sg191_7_13",
+      "kind": "block",
+      "forest": "g191",
+      "level": 7,
+      "start": 13,
+      "count": 36,
+      "arity": 8,
+      "old_depth": 3,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          13,
+          4
+        ],
+        [
+          17,
+          5
+        ],
+        [
+          22,
+          4
+        ],
+        [
+          26,
+          5
+        ],
+        [
+          31,
+          4
+        ],
+        [
+          35,
+          5
+        ],
+        [
+          40,
+          4
+        ],
+        [
+          44,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          13,
+          36
+        ]
+      ]
+    },
+    {
+      "name": "sg191_7_49",
+      "kind": "block",
+      "forest": "g191",
+      "level": 7,
+      "start": 49,
+      "count": 36,
+      "arity": 8,
+      "old_depth": 3,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          49,
+          4
+        ],
+        [
+          53,
+          5
+        ],
+        [
+          58,
+          4
+        ],
+        [
+          62,
+          5
+        ],
+        [
+          67,
+          4
+        ],
+        [
+          71,
+          5
+        ],
+        [
+          76,
+          4
+        ],
+        [
+          80,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          49,
+          36
+        ]
+      ]
+    },
+    {
+      "name": "sg191_7_85",
+      "kind": "block",
+      "forest": "g191",
+      "level": 7,
+      "start": 85,
+      "count": 31,
+      "arity": 8,
+      "old_depth": 3,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          85,
+          3
+        ],
+        [
+          88,
+          4
+        ],
+        [
+          92,
+          4
+        ],
+        [
+          96,
+          4
+        ],
+        [
+          100,
+          4
+        ],
+        [
+          104,
+          4
+        ],
+        [
+          108,
+          4
+        ],
+        [
+          112,
+          4
+        ]
+      ],
+      "new_leaves": [
+        [
+          85,
+          31
+        ]
+      ]
+    },
+    {
+      "name": "sg191_6_0",
+      "kind": "block",
+      "forest": "g191",
+      "level": 6,
+      "start": 0,
+      "count": 12,
+      "arity": 7,
+      "old_depth": 2,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          6,
+          3
+        ],
+        [
+          9,
+          3
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          12
+        ]
+      ]
+    },
+    {
+      "name": "sg383_11_0",
+      "kind": "block",
+      "forest": "g383",
+      "level": 11,
+      "start": 0,
+      "count": 6,
+      "arity": 9,
+      "old_depth": 1,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "name": "sg383_10_0",
+      "kind": "block",
+      "forest": "g383",
+      "level": 10,
+      "start": 0,
+      "count": 6,
+      "arity": 8,
+      "old_depth": 1,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          0,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "name": "sg383_10_6",
+      "kind": "block",
+      "forest": "g383",
+      "level": 10,
+      "start": 6,
+      "count": 13,
+      "arity": 9,
+      "old_depth": 2,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          6,
+          3
+        ],
+        [
+          9,
+          3
+        ],
+        [
+          12,
+          3
+        ],
+        [
+          15,
+          4
+        ]
+      ],
+      "new_leaves": [
+        [
+          6,
+          13
+        ]
+      ]
+    },
+    {
+      "name": "sg383_10_19",
+      "kind": "block",
+      "forest": "g383",
+      "level": 10,
+      "start": 19,
+      "count": 28,
+      "arity": 10,
+      "old_depth": 3,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          19,
+          3
+        ],
+        [
+          22,
+          4
+        ],
+        [
+          26,
+          3
+        ],
+        [
+          29,
+          4
+        ],
+        [
+          33,
+          3
+        ],
+        [
+          36,
+          4
+        ],
+        [
+          40,
+          3
+        ],
+        [
+          43,
+          4
+        ]
+      ],
+      "new_leaves": [
+        [
+          19,
+          28
+        ]
+      ]
+    },
+    {
+      "name": "sg383_9_3",
+      "kind": "block",
+      "forest": "g383",
+      "level": 9,
+      "start": 3,
+      "count": 36,
+      "arity": 9,
+      "old_depth": 3,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          3,
+          4
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          12,
+          4
+        ],
+        [
+          16,
+          5
+        ],
+        [
+          21,
+          4
+        ],
+        [
+          25,
+          5
+        ],
+        [
+          30,
+          4
+        ],
+        [
+          34,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          3,
+          36
+        ]
+      ]
+    },
+    {
+      "name": "sg383_9_39",
+      "kind": "block",
+      "forest": "g383",
+      "level": 9,
+      "start": 39,
+      "count": 36,
+      "arity": 9,
+      "old_depth": 3,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          39,
+          4
+        ],
+        [
+          43,
+          5
+        ],
+        [
+          48,
+          4
+        ],
+        [
+          52,
+          5
+        ],
+        [
+          57,
+          4
+        ],
+        [
+          61,
+          5
+        ],
+        [
+          66,
+          4
+        ],
+        [
+          70,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          39,
+          36
+        ]
+      ]
+    },
+    {
+      "name": "sg383_9_75",
+      "kind": "block",
+      "forest": "g383",
+      "level": 9,
+      "start": 75,
+      "count": 36,
+      "arity": 9,
+      "old_depth": 3,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          75,
+          4
+        ],
+        [
+          79,
+          5
+        ],
+        [
+          84,
+          4
+        ],
+        [
+          88,
+          5
+        ],
+        [
+          93,
+          4
+        ],
+        [
+          97,
+          5
+        ],
+        [
+          102,
+          4
+        ],
+        [
+          106,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          75,
+          36
+        ]
+      ]
+    },
+    {
+      "name": "sg383_9_111",
+      "kind": "block",
+      "forest": "g383",
+      "level": 9,
+      "start": 111,
+      "count": 8,
+      "arity": 9,
+      "old_depth": 1,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          111,
+          4
+        ],
+        [
+          115,
+          4
+        ]
+      ],
+      "new_leaves": [
+        [
+          111,
+          8
+        ]
+      ]
+    },
+    {
+      "name": "sg383_9_119",
+      "kind": "block",
+      "forest": "g383",
+      "level": 9,
+      "start": 119,
+      "count": 17,
+      "arity": 10,
+      "old_depth": 2,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          119,
+          4
+        ],
+        [
+          123,
+          4
+        ],
+        [
+          127,
+          4
+        ],
+        [
+          131,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          119,
+          17
+        ]
+      ]
+    },
+    {
+      "name": "sg383_8_0",
+      "kind": "block",
+      "forest": "g383",
+      "level": 8,
+      "start": 0,
+      "count": 36,
+      "arity": 8,
+      "old_depth": 3,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          0,
+          4
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          9,
+          4
+        ],
+        [
+          13,
+          5
+        ],
+        [
+          18,
+          4
+        ],
+        [
+          22,
+          5
+        ],
+        [
+          27,
+          4
+        ],
+        [
+          31,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          36
+        ]
+      ]
+    },
+    {
+      "name": "sg383_8_36",
+      "kind": "block",
+      "forest": "g383",
+      "level": 8,
+      "start": 36,
+      "count": 8,
+      "arity": 8,
+      "old_depth": 1,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          36,
+          4
+        ],
+        [
+          40,
+          4
+        ]
+      ],
+      "new_leaves": [
+        [
+          36,
+          8
+        ]
+      ]
+    },
+    {
+      "name": "sg383_8_44",
+      "kind": "block",
+      "forest": "g383",
+      "level": 8,
+      "start": 44,
+      "count": 9,
+      "arity": 9,
+      "old_depth": 1,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          44,
+          4
+        ],
+        [
+          48,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          44,
+          9
+        ]
+      ]
+    },
+    {
+      "name": "krx189_7_0",
+      "kind": "CutRow",
+      "forest": "x189",
+      "level": 7,
+      "start": 0,
+      "count": 5,
+      "arity": 7,
+      "old_depth": 0,
+      "new_depth": 0,
+      "cap": 64,
+      "old_leaves": [
+        [
+          0,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          5
+        ]
+      ]
+    },
+    {
+      "name": "hb10_0",
+      "kind": "CutRow",
+      "forest": "mo",
+      "level": 10,
+      "start": 0,
+      "count": 5,
+      "arity": 9,
+      "old_depth": 0,
+      "new_depth": 0,
+      "cap": null,
+      "old_leaves": [
+        [
+          0,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          5
+        ]
+      ]
+    },
+    {
+      "name": "hb11_0",
+      "kind": "CutRow",
+      "forest": "mo",
+      "level": 11,
+      "start": 0,
+      "count": 7,
+      "arity": 9,
+      "old_depth": 0,
+      "new_depth": 0,
+      "cap": null,
+      "old_leaves": [
+        [
+          0,
+          7
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          7
+        ]
+      ]
+    },
+    {
+      "name": "hb11_7",
+      "kind": "CutRow",
+      "forest": "mo",
+      "level": 11,
+      "start": 7,
+      "count": 96,
+      "arity": 10,
+      "old_depth": 4,
+      "new_depth": 4,
+      "cap": null,
+      "old_leaves": [
+        [
+          7,
+          6
+        ],
+        [
+          13,
+          6
+        ],
+        [
+          19,
+          6
+        ],
+        [
+          25,
+          6
+        ],
+        [
+          31,
+          6
+        ],
+        [
+          37,
+          6
+        ],
+        [
+          43,
+          6
+        ],
+        [
+          49,
+          6
+        ],
+        [
+          55,
+          6
+        ],
+        [
+          61,
+          6
+        ],
+        [
+          67,
+          6
+        ],
+        [
+          73,
+          6
+        ],
+        [
+          79,
+          6
+        ],
+        [
+          85,
+          6
+        ],
+        [
+          91,
+          6
+        ],
+        [
+          97,
+          6
+        ]
+      ],
+      "new_leaves": [
+        [
+          7,
+          6
+        ],
+        [
+          13,
+          6
+        ],
+        [
+          19,
+          6
+        ],
+        [
+          25,
+          6
+        ],
+        [
+          31,
+          6
+        ],
+        [
+          37,
+          6
+        ],
+        [
+          43,
+          6
+        ],
+        [
+          49,
+          6
+        ],
+        [
+          55,
+          6
+        ],
+        [
+          61,
+          6
+        ],
+        [
+          67,
+          6
+        ],
+        [
+          73,
+          6
+        ],
+        [
+          79,
+          6
+        ],
+        [
+          85,
+          6
+        ],
+        [
+          91,
+          6
+        ],
+        [
+          97,
+          6
+        ]
+      ]
+    },
+    {
+      "name": "hb11_103",
+      "kind": "CutRow",
+      "forest": "mo",
+      "level": 11,
+      "start": 103,
+      "count": 9,
+      "arity": 10,
+      "old_depth": 0,
+      "new_depth": 0,
+      "cap": null,
+      "old_leaves": [
+        [
+          103,
+          9
+        ]
+      ],
+      "new_leaves": [
+        [
+          103,
+          9
+        ]
+      ]
+    },
+    {
+      "name": "hb12_0",
+      "kind": "CutRow",
+      "forest": "mo",
+      "level": 12,
+      "start": 0,
+      "count": 62,
+      "arity": 10,
+      "old_depth": 3,
+      "new_depth": 3,
+      "cap": null,
+      "old_leaves": [
+        [
+          0,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          8
+        ],
+        [
+          23,
+          8
+        ],
+        [
+          31,
+          7
+        ],
+        [
+          38,
+          8
+        ],
+        [
+          46,
+          8
+        ],
+        [
+          54,
+          8
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          7
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          15,
+          8
+        ],
+        [
+          23,
+          8
+        ],
+        [
+          31,
+          7
+        ],
+        [
+          38,
+          8
+        ],
+        [
+          46,
+          8
+        ],
+        [
+          54,
+          8
+        ]
+      ]
+    },
+    {
+      "name": "hb12_62",
+      "kind": "CutRow",
+      "forest": "mo",
+      "level": 12,
+      "start": 62,
+      "count": 96,
+      "arity": 11,
+      "old_depth": 4,
+      "new_depth": 4,
+      "cap": null,
+      "old_leaves": [
+        [
+          62,
+          6
+        ],
+        [
+          68,
+          6
+        ],
+        [
+          74,
+          6
+        ],
+        [
+          80,
+          6
+        ],
+        [
+          86,
+          6
+        ],
+        [
+          92,
+          6
+        ],
+        [
+          98,
+          6
+        ],
+        [
+          104,
+          6
+        ],
+        [
+          110,
+          6
+        ],
+        [
+          116,
+          6
+        ],
+        [
+          122,
+          6
+        ],
+        [
+          128,
+          6
+        ],
+        [
+          134,
+          6
+        ],
+        [
+          140,
+          6
+        ],
+        [
+          146,
+          6
+        ],
+        [
+          152,
+          6
+        ]
+      ],
+      "new_leaves": [
+        [
+          62,
+          6
+        ],
+        [
+          68,
+          6
+        ],
+        [
+          74,
+          6
+        ],
+        [
+          80,
+          6
+        ],
+        [
+          86,
+          6
+        ],
+        [
+          92,
+          6
+        ],
+        [
+          98,
+          6
+        ],
+        [
+          104,
+          6
+        ],
+        [
+          110,
+          6
+        ],
+        [
+          116,
+          6
+        ],
+        [
+          122,
+          6
+        ],
+        [
+          128,
+          6
+        ],
+        [
+          134,
+          6
+        ],
+        [
+          140,
+          6
+        ],
+        [
+          146,
+          6
+        ],
+        [
+          152,
+          6
+        ]
+      ]
+    },
+    {
+      "name": "hb12_158",
+      "kind": "CutRow",
+      "forest": "mo",
+      "level": 12,
+      "start": 158,
+      "count": 75,
+      "arity": 11,
+      "old_depth": 4,
+      "new_depth": 4,
+      "cap": null,
+      "old_leaves": [
+        [
+          158,
+          4
+        ],
+        [
+          162,
+          5
+        ],
+        [
+          167,
+          4
+        ],
+        [
+          171,
+          5
+        ],
+        [
+          176,
+          4
+        ],
+        [
+          180,
+          5
+        ],
+        [
+          185,
+          5
+        ],
+        [
+          190,
+          5
+        ],
+        [
+          195,
+          4
+        ],
+        [
+          199,
+          5
+        ],
+        [
+          204,
+          5
+        ],
+        [
+          209,
+          5
+        ],
+        [
+          214,
+          4
+        ],
+        [
+          218,
+          5
+        ],
+        [
+          223,
+          5
+        ],
+        [
+          228,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          158,
+          4
+        ],
+        [
+          162,
+          5
+        ],
+        [
+          167,
+          4
+        ],
+        [
+          171,
+          5
+        ],
+        [
+          176,
+          4
+        ],
+        [
+          180,
+          5
+        ],
+        [
+          185,
+          5
+        ],
+        [
+          190,
+          5
+        ],
+        [
+          195,
+          4
+        ],
+        [
+          199,
+          5
+        ],
+        [
+          204,
+          5
+        ],
+        [
+          209,
+          5
+        ],
+        [
+          214,
+          4
+        ],
+        [
+          218,
+          5
+        ],
+        [
+          223,
+          5
+        ],
+        [
+          228,
+          5
+        ]
+      ]
+    },
+    {
+      "name": "hb12_318",
+      "kind": "CutRow",
+      "forest": "mo",
+      "level": 12,
+      "start": 318,
+      "count": 7,
+      "arity": 12,
+      "old_depth": 0,
+      "new_depth": 0,
+      "cap": null,
+      "old_leaves": [
+        [
+          318,
+          7
+        ]
+      ],
+      "new_leaves": [
+        [
+          318,
+          7
+        ]
+      ]
+    },
+    {
+      "name": "hb13_0",
+      "kind": "CutRow",
+      "forest": "mo",
+      "level": 13,
+      "start": 0,
+      "count": 5,
+      "arity": 9,
+      "old_depth": 0,
+      "new_depth": 0,
+      "cap": null,
+      "old_leaves": [
+        [
+          0,
+          5
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          5
+        ]
+      ]
+    },
+    {
+      "name": "hb13_5",
+      "kind": "CutRow",
+      "forest": "mo",
+      "level": 13,
+      "start": 5,
+      "count": 18,
+      "arity": 10,
+      "old_depth": 1,
+      "new_depth": 1,
+      "cap": null,
+      "old_leaves": [
+        [
+          5,
+          9
+        ],
+        [
+          14,
+          9
+        ]
+      ],
+      "new_leaves": [
+        [
+          5,
+          9
+        ],
+        [
+          14,
+          9
+        ]
+      ]
+    },
+    {
+      "name": "hb13_23",
+      "kind": "CutRow",
+      "forest": "mo",
+      "level": 13,
+      "start": 23,
+      "count": 43,
+      "arity": 11,
+      "old_depth": 3,
+      "new_depth": 3,
+      "cap": null,
+      "old_leaves": [
+        [
+          23,
+          5
+        ],
+        [
+          28,
+          5
+        ],
+        [
+          33,
+          5
+        ],
+        [
+          38,
+          6
+        ],
+        [
+          44,
+          5
+        ],
+        [
+          49,
+          6
+        ],
+        [
+          55,
+          5
+        ],
+        [
+          60,
+          6
+        ]
+      ],
+      "new_leaves": [
+        [
+          23,
+          5
+        ],
+        [
+          28,
+          5
+        ],
+        [
+          33,
+          5
+        ],
+        [
+          38,
+          6
+        ],
+        [
+          44,
+          5
+        ],
+        [
+          49,
+          6
+        ],
+        [
+          55,
+          5
+        ],
+        [
+          60,
+          6
+        ]
+      ]
+    },
+    {
+      "name": "hb14_0",
+      "kind": "CutRow",
+      "forest": "mo",
+      "level": 14,
+      "start": 0,
+      "count": 9,
+      "arity": 10,
+      "old_depth": 0,
+      "new_depth": 0,
+      "cap": null,
+      "old_leaves": [
+        [
+          0,
+          9
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          9
+        ]
+      ]
+    },
+    {
+      "name": "sgPart8_0",
+      "kind": "block",
+      "forest": "sg",
+      "level": 8,
+      "start": 0,
+      "count": 6,
+      "arity": 9,
+      "old_depth": 0,
+      "new_depth": 0,
+      "cap": null,
+      "old_leaves": [
+        [
+          0,
+          6
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          6
+        ]
+      ]
+    },
+    {
+      "name": "sgPart9_0",
+      "kind": "block",
+      "forest": "sg",
+      "level": 9,
+      "start": 0,
+      "count": 21,
+      "arity": 9,
+      "old_depth": 2,
+      "new_depth": 2,
+      "cap": null,
+      "old_leaves": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          15,
+          6
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          5
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          10,
+          5
+        ],
+        [
+          15,
+          6
+        ]
+      ]
+    },
+    {
+      "name": "sgPart9_21",
+      "kind": "block",
+      "forest": "sg",
+      "level": 9,
+      "start": 21,
+      "count": 48,
+      "arity": 10,
+      "old_depth": 3,
+      "new_depth": 3,
+      "cap": null,
+      "old_leaves": [
+        [
+          21,
+          6
+        ],
+        [
+          27,
+          6
+        ],
+        [
+          33,
+          6
+        ],
+        [
+          39,
+          6
+        ],
+        [
+          45,
+          6
+        ],
+        [
+          51,
+          6
+        ],
+        [
+          57,
+          6
+        ],
+        [
+          63,
+          6
+        ]
+      ],
+      "new_leaves": [
+        [
+          21,
+          6
+        ],
+        [
+          27,
+          6
+        ],
+        [
+          33,
+          6
+        ],
+        [
+          39,
+          6
+        ],
+        [
+          45,
+          6
+        ],
+        [
+          51,
+          6
+        ],
+        [
+          57,
+          6
+        ],
+        [
+          63,
+          6
+        ]
+      ]
+    },
+    {
+      "name": "sgPart10_0",
+      "kind": "block",
+      "forest": "sg",
+      "level": 10,
+      "start": 0,
+      "count": 3,
+      "arity": 9,
+      "old_depth": 0,
+      "new_depth": 0,
+      "cap": null,
+      "old_leaves": [
+        [
+          0,
+          3
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "name": "sgPart10_3",
+      "kind": "block",
+      "forest": "sg",
+      "level": 10,
+      "start": 3,
+      "count": 128,
+      "arity": 10,
+      "old_depth": 4,
+      "new_depth": 4,
+      "cap": null,
+      "old_leaves": [
+        [
+          3,
+          8
+        ],
+        [
+          11,
+          8
+        ],
+        [
+          19,
+          8
+        ],
+        [
+          27,
+          8
+        ],
+        [
+          35,
+          8
+        ],
+        [
+          43,
+          8
+        ],
+        [
+          51,
+          8
+        ],
+        [
+          59,
+          8
+        ],
+        [
+          67,
+          8
+        ],
+        [
+          75,
+          8
+        ],
+        [
+          83,
+          8
+        ],
+        [
+          91,
+          8
+        ],
+        [
+          99,
+          8
+        ],
+        [
+          107,
+          8
+        ],
+        [
+          115,
+          8
+        ],
+        [
+          123,
+          8
+        ]
+      ],
+      "new_leaves": [
+        [
+          3,
+          8
+        ],
+        [
+          11,
+          8
+        ],
+        [
+          19,
+          8
+        ],
+        [
+          27,
+          8
+        ],
+        [
+          35,
+          8
+        ],
+        [
+          43,
+          8
+        ],
+        [
+          51,
+          8
+        ],
+        [
+          59,
+          8
+        ],
+        [
+          67,
+          8
+        ],
+        [
+          75,
+          8
+        ],
+        [
+          83,
+          8
+        ],
+        [
+          91,
+          8
+        ],
+        [
+          99,
+          8
+        ],
+        [
+          107,
+          8
+        ],
+        [
+          115,
+          8
+        ],
+        [
+          123,
+          8
+        ]
+      ]
+    },
+    {
+      "name": "sgPart10_131",
+      "kind": "block",
+      "forest": "sg",
+      "level": 10,
+      "start": 131,
+      "count": 111,
+      "arity": 10,
+      "old_depth": 4,
+      "new_depth": 4,
+      "cap": null,
+      "old_leaves": [
+        [
+          131,
+          6
+        ],
+        [
+          137,
+          7
+        ],
+        [
+          144,
+          7
+        ],
+        [
+          151,
+          7
+        ],
+        [
+          158,
+          7
+        ],
+        [
+          165,
+          7
+        ],
+        [
+          172,
+          7
+        ],
+        [
+          179,
+          7
+        ],
+        [
+          186,
+          7
+        ],
+        [
+          193,
+          7
+        ],
+        [
+          200,
+          7
+        ],
+        [
+          207,
+          7
+        ],
+        [
+          214,
+          7
+        ],
+        [
+          221,
+          7
+        ],
+        [
+          228,
+          7
+        ],
+        [
+          235,
+          7
+        ]
+      ],
+      "new_leaves": [
+        [
+          131,
+          6
+        ],
+        [
+          137,
+          7
+        ],
+        [
+          144,
+          7
+        ],
+        [
+          151,
+          7
+        ],
+        [
+          158,
+          7
+        ],
+        [
+          165,
+          7
+        ],
+        [
+          172,
+          7
+        ],
+        [
+          179,
+          7
+        ],
+        [
+          186,
+          7
+        ],
+        [
+          193,
+          7
+        ],
+        [
+          200,
+          7
+        ],
+        [
+          207,
+          7
+        ],
+        [
+          214,
+          7
+        ],
+        [
+          221,
+          7
+        ],
+        [
+          228,
+          7
+        ],
+        [
+          235,
+          7
+        ]
+      ]
+    },
+    {
+      "name": "sgPart10_242",
+      "kind": "block",
+      "forest": "sg",
+      "level": 10,
+      "start": 242,
+      "count": 128,
+      "arity": 11,
+      "old_depth": 4,
+      "new_depth": 4,
+      "cap": null,
+      "old_leaves": [
+        [
+          242,
+          8
+        ],
+        [
+          250,
+          8
+        ],
+        [
+          258,
+          8
+        ],
+        [
+          266,
+          8
+        ],
+        [
+          274,
+          8
+        ],
+        [
+          282,
+          8
+        ],
+        [
+          290,
+          8
+        ],
+        [
+          298,
+          8
+        ],
+        [
+          306,
+          8
+        ],
+        [
+          314,
+          8
+        ],
+        [
+          322,
+          8
+        ],
+        [
+          330,
+          8
+        ],
+        [
+          338,
+          8
+        ],
+        [
+          346,
+          8
+        ],
+        [
+          354,
+          8
+        ],
+        [
+          362,
+          8
+        ]
+      ],
+      "new_leaves": [
+        [
+          242,
+          8
+        ],
+        [
+          250,
+          8
+        ],
+        [
+          258,
+          8
+        ],
+        [
+          266,
+          8
+        ],
+        [
+          274,
+          8
+        ],
+        [
+          282,
+          8
+        ],
+        [
+          290,
+          8
+        ],
+        [
+          298,
+          8
+        ],
+        [
+          306,
+          8
+        ],
+        [
+          314,
+          8
+        ],
+        [
+          322,
+          8
+        ],
+        [
+          330,
+          8
+        ],
+        [
+          338,
+          8
+        ],
+        [
+          346,
+          8
+        ],
+        [
+          354,
+          8
+        ],
+        [
+          362,
+          8
+        ]
+      ]
+    },
+    {
+      "name": "sgPart10_370",
+      "kind": "block",
+      "forest": "sg",
+      "level": 10,
+      "start": 370,
+      "count": 3,
+      "arity": 11,
+      "old_depth": 0,
+      "new_depth": 0,
+      "cap": null,
+      "old_leaves": [
+        [
+          370,
+          3
+        ]
+      ],
+      "new_leaves": [
+        [
+          370,
+          3
+        ]
+      ]
+    },
+    {
+      "name": "sgPart11_0",
+      "kind": "block",
+      "forest": "sg",
+      "level": 11,
+      "start": 0,
+      "count": 2,
+      "arity": 9,
+      "old_depth": 0,
+      "new_depth": 0,
+      "cap": null,
+      "old_leaves": [
+        [
+          0,
+          2
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "sgPart11_2",
+      "kind": "block",
+      "forest": "sg",
+      "level": 11,
+      "start": 2,
+      "count": 62,
+      "arity": 10,
+      "old_depth": 3,
+      "new_depth": 3,
+      "cap": null,
+      "old_leaves": [
+        [
+          2,
+          7
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          17,
+          8
+        ],
+        [
+          25,
+          8
+        ],
+        [
+          33,
+          7
+        ],
+        [
+          40,
+          8
+        ],
+        [
+          48,
+          8
+        ],
+        [
+          56,
+          8
+        ]
+      ],
+      "new_leaves": [
+        [
+          2,
+          7
+        ],
+        [
+          9,
+          8
+        ],
+        [
+          17,
+          8
+        ],
+        [
+          25,
+          8
+        ],
+        [
+          33,
+          7
+        ],
+        [
+          40,
+          8
+        ],
+        [
+          48,
+          8
+        ],
+        [
+          56,
+          8
+        ]
+      ]
+    },
+    {
+      "name": "sgPart11_64",
+      "kind": "block",
+      "forest": "sg",
+      "level": 11,
+      "start": 64,
+      "count": 123,
+      "arity": 11,
+      "old_depth": 4,
+      "new_depth": 4,
+      "cap": null,
+      "old_leaves": [
+        [
+          64,
+          7
+        ],
+        [
+          71,
+          8
+        ],
+        [
+          79,
+          7
+        ],
+        [
+          86,
+          8
+        ],
+        [
+          94,
+          7
+        ],
+        [
+          101,
+          8
+        ],
+        [
+          109,
+          8
+        ],
+        [
+          117,
+          8
+        ],
+        [
+          125,
+          7
+        ],
+        [
+          132,
+          8
+        ],
+        [
+          140,
+          8
+        ],
+        [
+          148,
+          8
+        ],
+        [
+          156,
+          7
+        ],
+        [
+          163,
+          8
+        ],
+        [
+          171,
+          8
+        ],
+        [
+          179,
+          8
+        ]
+      ],
+      "new_leaves": [
+        [
+          64,
+          7
+        ],
+        [
+          71,
+          8
+        ],
+        [
+          79,
+          7
+        ],
+        [
+          86,
+          8
+        ],
+        [
+          94,
+          7
+        ],
+        [
+          101,
+          8
+        ],
+        [
+          109,
+          8
+        ],
+        [
+          117,
+          8
+        ],
+        [
+          125,
+          7
+        ],
+        [
+          132,
+          8
+        ],
+        [
+          140,
+          8
+        ],
+        [
+          148,
+          8
+        ],
+        [
+          156,
+          7
+        ],
+        [
+          163,
+          8
+        ],
+        [
+          171,
+          8
+        ],
+        [
+          179,
+          8
+        ]
+      ]
+    },
+    {
+      "name": "sgPart11_187",
+      "kind": "block",
+      "forest": "sg",
+      "level": 11,
+      "start": 187,
+      "count": 29,
+      "arity": 12,
+      "old_depth": 2,
+      "new_depth": 2,
+      "cap": null,
+      "old_leaves": [
+        [
+          187,
+          7
+        ],
+        [
+          194,
+          7
+        ],
+        [
+          201,
+          7
+        ],
+        [
+          208,
+          8
+        ]
+      ],
+      "new_leaves": [
+        [
+          187,
+          7
+        ],
+        [
+          194,
+          7
+        ],
+        [
+          201,
+          7
+        ],
+        [
+          208,
+          8
+        ]
+      ]
+    },
+    {
+      "name": "sgPart12_0",
+      "kind": "block",
+      "forest": "sg",
+      "level": 12,
+      "start": 0,
+      "count": 1,
+      "arity": 9,
+      "old_depth": 0,
+      "new_depth": 0,
+      "cap": null,
+      "old_leaves": [
+        [
+          0,
+          1
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "sgPart12_1",
+      "kind": "block",
+      "forest": "sg",
+      "level": 12,
+      "start": 1,
+      "count": 12,
+      "arity": 10,
+      "old_depth": 1,
+      "new_depth": 1,
+      "cap": null,
+      "old_leaves": [
+        [
+          1,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ],
+      "new_leaves": [
+        [
+          1,
+          6
+        ],
+        [
+          7,
+          6
+        ]
+      ]
+    },
+    {
+      "name": "sgPart12_13",
+      "kind": "block",
+      "forest": "sg",
+      "level": 12,
+      "start": 13,
+      "count": 17,
+      "arity": 11,
+      "old_depth": 1,
+      "new_depth": 1,
+      "cap": null,
+      "old_leaves": [
+        [
+          13,
+          8
+        ],
+        [
+          21,
+          9
+        ]
+      ],
+      "new_leaves": [
+        [
+          13,
+          8
+        ],
+        [
+          21,
+          9
+        ]
+      ]
+    },
+    {
+      "name": "sgPart13_0",
+      "kind": "block",
+      "forest": "sg",
+      "level": 13,
+      "start": 0,
+      "count": 3,
+      "arity": 10,
+      "old_depth": 0,
+      "new_depth": 0,
+      "cap": null,
+      "old_leaves": [
+        [
+          0,
+          3
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "name": "sgPart14_0",
+      "kind": "block",
+      "forest": "sg",
+      "level": 14,
+      "start": 0,
+      "count": 1,
+      "arity": 9,
+      "old_depth": 0,
+      "new_depth": 0,
+      "cap": null,
+      "old_leaves": [
+        [
+          0,
+          1
+        ]
+      ],
+      "new_leaves": [
+        [
+          0,
+          1
+        ]
+      ]
+    }
+  ]
+}

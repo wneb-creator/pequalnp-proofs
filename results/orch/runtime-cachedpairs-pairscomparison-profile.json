@@ -1,0 +1,16 @@
+{
+  "variant": "CachedPairs",
+  "group": "rootM11-start186-count16-arity11",
+  "width": 278,
+  "cpuAffinity": [
+    4
+  ],
+  "started": "2026-11-25T05:09:09.744363+00:00",
+  "wallSeconds": 12.115537467001559,
+  "userSeconds": 10.162936,
+  "systemSeconds": 1.88618,
+  "maxRssKiB": 3345428,
+  "exitCode": 0,
+  "sourceSha256": "c3d18a6caddd182854334ac2869d7d555cb13ace25c7638138201958f0699d0f",
+  "log": "/tmp/oec/pequalnp-pilot-61/runtime-cachedpairs-pairscomparison-profile.log"
+}
