@@ -1,0 +1,26 @@
+Job: pequalnp-pilot-53
+KIT-MESSAGE-ID: msg-4e2ffa03417d4c37dcb234be
+Gap: L-meta-3178
+File: lean/PEqualNP/Outside/L_meta_3178.lean
+SHA256: 322321d487932678ad756383a9e6c12d72f106823cee391ba4bd3f7496c87d8c
+Initial pushed commit: d1d2227316b981ff0124230cf51d257ff1d3bc11
+Build: lake build PEqualNP.Outside.L_meta_3178
+Build verdict: Build completed successfully (18421 jobs).
+Mathlib source modules built: 0 (all pinned prebuilt cache artifacts).
+Local guard: imports allowed: Mathlib PEqualNP.Defs
+Local checker: tools/check-lean.mjs invoked three times on the exact posted statement.
+Local checker verdict: CHECKER FAULT: the verifier ended without a verdict (exit 137).
+Container cgroup memory limit: 8589934592 bytes; OOM kills confirmed.
+The source, checker, and pinned build configuration were not modified to work around this fault.
+Cleanup: reviewed a 8083-line candidate removing nine unused helpers, but retained the built 8103-line baseline because full revalidation could not fit the capped cleanup pass and the checker could not complete locally.
+Lines before cleanup: 8103
+Lines after cleanup: 8103
+Desk null responses: 0
+Original lease returned HTTP410 after an earlier successful renewal. Full diagnostic response is in beat-error-full.txt.
+Authoritative public feed still posted L-meta-3178 with identical statement at00:58:13UTC; no merged full proof found. The completed proof remains eligible.
+Recovery request allocated live L-meta-3457. Work continues on that assignment. No reduction is authorized for3457.
+Independent source reviews and strategy timestamps: orch/NOTES.md and orch/TIMELINE.md.
+Sub-agents: 5 (checker_review, counterexample_search, lower_bound, reduction_design, lean_route)
+TIMING total=39.8 subagents=5
+
+At2026-11-25T01:11:26.450Z the authoritative feed withdrew L-meta-3178: The statement this step was cut from has been proved and checked, so a proof of this step can no longer count. Ask the desk for another step. No PR was opened for the withdrawn step.
