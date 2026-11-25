@@ -1,0 +1,28 @@
+L-meta-2590 PARTIAL ONLY. Exact posted statement unproved; no counterexample found.
+
+Boundary.lean: Exact30row boundary verification and semantic dominance replacement; monotonicity and context assumptions explicit.
+Lean exit0. Independent source audit PASS bystatus_review.
+SHA256 3d2aa6c6ccc0b03ff55da539ce96b93d314f3fd0d827fd702a4a59ccb063237d
+Lines 79, bytes 2636. Before/after cleanup unchanged; no full-goal cleanup attempted.
+
+PetersenGraph.lean: Exact target graph,15edges,no4cycle,and vertexcover number6.
+Lean exit0. Independent source audit PASS bystatus_review.
+SHA256 728d616dff660527a804524eae9d40279b37f18eed7ddffe2de512e217c6a403
+Lines 69, bytes 2645. Before/after cleanup unchanged; no full-goal cleanup attempted.
+
+SemanticRestriction.lean: Ordinary Monotone2 constant-propagation restriction with exact finite dropped-gate charge count.
+Lean exit0. Independent source audit PASS bystatus_review.
+SHA256 56f56bb81172d62d7601917f358bbf41f227bade8bf3014c30e8dbf028368e8e
+Lines 461, bytes 20777. Before/after cleanup unchanged; no full-goal cleanup attempted.
+
+ReadOneLower.lean: IsAO2 exact Petersen circuit that is READ1 must have size>=20. Does not cover arbitrary Monotone2 without extra normalization.
+Lean exit0. Independent source audit PASS bystatus_review.
+SHA256 fa6d0a4cad3e42981eefe5203a398adc9a4d32a22248f59c678425df0e18b207
+Lines 1970, bytes 97386. Before/after cleanup unchanged; no full-goal cleanup attempted.
+
+Complete stdout/stderr logs saved beside thisvalidation. Boundary logs empty; other sources have harmless inherited or style warnings, noerrors.
+Checker: no full-target run or acceptance claimed. Official syntax guards were reviewed with an in-memory parser sentinel only; this is not a proof of the assigned theorem.
+No proof PR. Three reduction slots alreadyfull.
+
+Sub-agents:6 (status review, semantic restriction, SATcounterexample, combinatorial search, annealing, READ1 bound)
+TIMING total=81.00 subagents=6

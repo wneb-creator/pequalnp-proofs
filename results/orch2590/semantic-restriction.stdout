@@ -1,0 +1,21 @@
+/workspace/pequalnp-proofs/results/orch2590/lemmas/SemanticRestriction.lean:356:53: warning: This simp argument is unused:
+  Bool.true_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [droppedSet, hp, Option.isNone_none, ↓reduceIte, Finset.card_insert_of_notMem zeroMissing,
+    cardImage]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch2590/lemmas/SemanticRestriction.lean:376:42: warning: This simp argument is unused:
+  hp
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch2590/lemmas/SemanticRestriction.lean:407:45: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [initial_length]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
