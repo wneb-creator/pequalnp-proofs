@@ -1,0 +1,186 @@
+{
+  "scope": "Frozen completed diagnostics. Original93-generator incidence module modStd memory-failed exit14/72.3wall seconds before any membership verdict. Rank1D7 first run hit60CPU; one longer run completed126.42CPU/rank20747 with no constant overF1000000007. This excludes that bounded modular row span only, not a Q or global result. No process is active on these files. Active slimgb replacement and augmented-quartic work excluded. Raw regenerable binary matrices/native executables omitted.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/incidence-module-probe.py",
+      "relative_path": "numeric/incidence-module-probe.py",
+      "bytes": 2792,
+      "sha256": "07ba509b7bc16b5a75303716a2c28dac9752f102c50662d6f7ae344aac86f017"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/incidence-module-driver.stdout",
+      "relative_path": "numeric/incidence-module-driver.stdout",
+      "bytes": 504,
+      "sha256": "ef501fdf57c95317cb3cc778b3495e8be3031a7e52afa15711d5bdab68412540"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/incidence-module-driver.stderr",
+      "relative_path": "numeric/incidence-module-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/incidence-module/probe.sing",
+      "relative_path": "numeric/incidence-module/probe.sing",
+      "bytes": 53954,
+      "sha256": "874f442e4c8c4d31718b7a2c3a71a2e23fce22df633a431cdefad4a603725482"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/incidence-module/probe.stdout",
+      "relative_path": "numeric/incidence-module/probe.stdout",
+      "bytes": 14733,
+      "sha256": "6cb62b51b47fd63163caa5a75e68ed39a2d39ed97166281d08adf3c61967ba21"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/incidence-module/probe.stderr",
+      "relative_path": "numeric/incidence-module/probe.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/incidence-module/result.json",
+      "relative_path": "numeric/incidence-module/result.json",
+      "bytes": 523,
+      "sha256": "7879a7e80d3a3e3c303f35805bcc3947fc6d270f59baa50cc122140abd08b063"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/incidence-module-independent-audit.json",
+      "relative_path": "geometry_search/incidence-module-independent-audit.json",
+      "bytes": 725,
+      "sha256": "3a2b6f2bffc8a478ea1dfcd581b95f1cc54dd36a37b9040f2300b5b3b3cff8ca"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/rank1-macaulay.py",
+      "relative_path": "numeric/rank1-macaulay.py",
+      "bytes": 3502,
+      "sha256": "937fe89e45b1126070a47f3693d5dd8d2de65f08a2673870c67da64f9d1f0264"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/rank1-macaulay-driver.stdout",
+      "relative_path": "numeric/rank1-macaulay-driver.stdout",
+      "bytes": 313,
+      "sha256": "b5e379e8f67d5e2a60d13a192cbe165f12e54c1e7d89c74ce9cca82a1777fe4b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/rank1-macaulay-driver.stderr",
+      "relative_path": "numeric/rank1-macaulay-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/rank1-macaulay/graded-constant-mod.cpp",
+      "relative_path": "numeric/rank1-macaulay/graded-constant-mod.cpp",
+      "bytes": 3162,
+      "sha256": "64329d6a4aa4272d9e579fa324876ba572f8dcbe6063ebabc3c3d0455c29330e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/rank1-macaulay/compile.stdout",
+      "relative_path": "numeric/rank1-macaulay/compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/rank1-macaulay/compile.stderr",
+      "relative_path": "numeric/rank1-macaulay/compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/rank1-macaulay/generators.json",
+      "relative_path": "numeric/rank1-macaulay/generators.json",
+      "bytes": 5889,
+      "sha256": "b2cb3bd4d0d142ec99593e46876c7f8b44f191dfaec592e3dea31773b4283c77"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/rank1-macaulay/D7-rowmap.json.zst",
+      "relative_path": "numeric/rank1-macaulay/D7-rowmap.json.zst",
+      "bytes": 45040,
+      "sha256": "16cecd68c34cce5b0f4aaa1aa5e903a77dd0af8a7ed0b35dad9bfbd10131427d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/rank1-macaulay/compression.json",
+      "relative_path": "numeric/rank1-macaulay/compression.json",
+      "bytes": 528,
+      "sha256": "e277aadd4de0f343221a9f3efd4abad66e30f77427fe315ab9a7f76b3933df01"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/rank1-macaulay/D7-mod.stdout",
+      "relative_path": "numeric/rank1-macaulay/D7-mod.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/rank1-macaulay/D7-mod.stderr",
+      "relative_path": "numeric/rank1-macaulay/D7-mod.stderr",
+      "bytes": 2245,
+      "sha256": "4dd66c6851e4021af75359168b39c2c9516f526939cc88e07ff39b3003cdd43b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/rank1-macaulay/D7-mod-result.json",
+      "relative_path": "numeric/rank1-macaulay/D7-mod-result.json",
+      "bytes": 330,
+      "sha256": "bd76ceb124b9ec02f2e7ad6e2a7398ee5e0019cd79a3fe47efd9a96961ea9d36"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/rank1-macaulay/retry-long.py",
+      "relative_path": "numeric/rank1-macaulay/retry-long.py",
+      "bytes": 1725,
+      "sha256": "f90b12e7fb4b0aa9846d2d21271f236e5d26337dc214002b127c114b350e22d3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/rank1-macaulay/retry-long-driver.stdout",
+      "relative_path": "numeric/rank1-macaulay/retry-long-driver.stdout",
+      "bytes": 289,
+      "sha256": "a40a1ed84dc8fcce68f002ec147d19dae5ff238eeaed3557a6fd26fa8b9c62a4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/rank1-macaulay/retry-long-driver.stderr",
+      "relative_path": "numeric/rank1-macaulay/retry-long-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/rank1-macaulay/D7-mod-long.stdout",
+      "relative_path": "numeric/rank1-macaulay/D7-mod-long.stdout",
+      "bytes": 231,
+      "sha256": "b3a43df7a8fbf00bbbb296163a48d62275bb486c95cd55a2f053ffa28d3979ee"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/rank1-macaulay/D7-mod-long.stderr",
+      "relative_path": "numeric/rank1-macaulay/D7-mod-long.stderr",
+      "bytes": 2713,
+      "sha256": "de4228af3040956eb3059b76f70f0ff18158d86af4b5120645633ae9791b5c7c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/rank1-macaulay/D7-mod-long-result.json",
+      "relative_path": "numeric/rank1-macaulay/D7-mod-long-result.json",
+      "bytes": 304,
+      "sha256": "d8caafd8e78516d58b7fe08516c3cea401d2e8f41e74c82decf74021fbcf3fd1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/rank1-macaulay/D7-mod-long-constant.jsonl",
+      "relative_path": "numeric/rank1-macaulay/D7-mod-long-constant.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/rank1-incident-opposite-nonzero-Q.ms",
+      "relative_path": "construct_search/rank1-incident-opposite-nonzero-Q.ms",
+      "bytes": 5633,
+      "sha256": "db969d69315964f6524155b9afa6fe8e1fe7d8a72a65ed376bee34e487a85e3a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/incidence-module-independent-audit.stderr",
+      "relative_path": "geometry_search/incidence-module-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/incidence-module-independent-audit.stdout",
+      "relative_path": "geometry_search/incidence-module-independent-audit.stdout",
+      "bytes": 725,
+      "sha256": "3a2b6f2bffc8a478ea1dfcd581b95f1cc54dd36a37b9040f2300b5b3b3cff8ca"
+    }
+  ],
+  "total_bytes": 145860
+}

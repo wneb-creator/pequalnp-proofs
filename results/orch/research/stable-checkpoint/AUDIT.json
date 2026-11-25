@@ -1,0 +1,11 @@
+{
+  "reviewer": "status_review",
+  "utc": "2026-11-25T12:42:13.570018+00:00",
+  "verdict": "PASS",
+  "source_manifests": 11,
+  "hash_size_mismatches": 0,
+  "sensitive_values_detected": 0,
+  "scope_review": "Exact restricted algebra, modular candidates, bounded diagnostics, no-build environment validation and Lean results are distinguished. Filtration erratum and withdrawn C3 explicitly recorded.",
+  "excluded": "Active/growing logs, provisional charts, invalid C3 degree20, incomplete C3 power output.",
+  "mathematical_reexecution": false
+}

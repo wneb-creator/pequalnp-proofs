@@ -1,0 +1,25 @@
+{
+  "reviewer": "status_review",
+  "utc": "2026-11-25T12:26:30.296738+00:00",
+  "verdict": "PASS",
+  "manifest": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation-manifest.json",
+  "manifest_sha256": "d5e927588fb0fbcbd93b0b1e88c8bf63b51d8b56243ea481881ad37927502935",
+  "files": 33,
+  "bytes": 520720,
+  "checks": {
+    "all_hashes_and_sizes_match": true,
+    "all_paths_within_named_toolchain_directory": true,
+    "all_payloads_utf8_text": true,
+    "credential_lease_envdump_scan_clean": true,
+    "full_stdout_stderr_preserved": true
+  },
+  "scope": "Successful recent checks are no-build artifact freshness only. The full checker runtime was NOT retested after the432790536-byte migration; earlier smoke was stopped under memory pressure with no verdict. No proof/refutation acceptance claimed.",
+  "reviewed_scope_documents": [
+    "environment-validation/SETUP.md",
+    "environment-validation/STATUS.txt",
+    "environment-validation/private-migration-validation.json",
+    "environment-validation/optional-metadata-validation.json",
+    "environment-validation/root-sparse-checkout-validation.json"
+  ],
+  "limitations": "This independent preservation audit checks frozen text integrity, boundaries and scope; it does not rerun runtime migration, complete Lean imports or the full checker."
+}

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/HadamardRankThreeComplete.lean",
+  "source_sha256": "61dcf9391cf85a98b130ac5ac5155fff2526e1635c2abdaa40fa9dd5259feb84",
+  "line_count": 366,
+  "review": [
+    "B/P/D and Hadamard reconstruction agree with independently audited full31 system",
+    "D injectivity correctly uses full diagonal rank plus constant-diagonal obstruction",
+    "Trace-pivot coordinate permutations cover zero/nonzero trace without unproved guards",
+    "Normalized family has D=(s,t,ks+lt+u), tracezero BA/BB and arbitrary BW",
+    "Shift R=P-3D is globally invertible, including R_W2=P_W2-3",
+    "No new axioms, sorry, native_decide, forbidden attributes, strings or _root_ text"
+  ],
+  "scope": "Independent source/scope review, no rebuild. Gives complete incidence-chart coverage; does not prove infeasibility."
+}

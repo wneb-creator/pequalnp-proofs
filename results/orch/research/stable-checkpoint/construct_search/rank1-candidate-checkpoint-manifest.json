@@ -1,0 +1,308 @@
+{
+  "utc": "2026-11-25T12:25:07.960625+00:00",
+  "status": "FROZEN_COMPLETED_RESEARCH",
+  "scope": "Single-prime unit candidate only; exact certificate not yet recovered. Complete global rank2 chart coefficient audit PASS. Graph module interrupted inconclusively and superseded by active direct modular lift; active files excluded.",
+  "files": [
+    {
+      "path": "construct_search/rank1-incident-opposite-nonzero-Q.ms",
+      "bytes": 5633,
+      "sha256": "db969d69315964f6524155b9afa6fe8e1fe7d8a72a65ed376bee34e487a85e3a"
+    },
+    {
+      "path": "construct_search/run_rank1_msolve_big.py",
+      "bytes": 1311,
+      "sha256": "23f7890d5919ec91e48dc3d0e1f18c7879912015a0b9687abaec7c33e54c24a3"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-msolve-Q1280.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-msolve-Q1280.stderr",
+      "bytes": 6492,
+      "sha256": "74073ed03874ff6409c1ebb5139eae39cd0bc2a0f9dbac738ba8d433ffe0b7db"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-msolve-Q1280.out",
+      "bytes": 6,
+      "sha256": "0333251e6ebb3890ef547f522ec55f27f0cef9a860998757e31f3e1b819e7490"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-msolve-Q1280.result.json",
+      "bytes": 184,
+      "sha256": "d38ca6fa52132ad4a998a3d0ea098111a562f585f01d8ee95a733948fd5398ba"
+    },
+    {
+      "path": "construct_search/rank1-msolve-big-run.stdout",
+      "bytes": 184,
+      "sha256": "d38ca6fa52132ad4a998a3d0ea098111a562f585f01d8ee95a733948fd5398ba"
+    },
+    {
+      "path": "construct_search/rank1-msolve-big-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/run_rank1_graph.py",
+      "bytes": 1289,
+      "sha256": "2d39956b131a3d0521bdfdf3c341f84cf2eb8d83fbf5d495868d16eef675fd2e"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-graph-Q.sing",
+      "bytes": 6264,
+      "sha256": "1bf4bbebd3d2d7c69b6670120470c4d1dd30f0f53645a2fb113f322ae1405cc4"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-graph-Q.stdout",
+      "bytes": 19,
+      "sha256": "0adf1af274833db7566a62f383a1cf51ae8fc41189c1301c58b10c8935c9d8cc"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-graph-Q.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-graph-Q.result.json",
+      "bytes": 197,
+      "sha256": "e1d986bbec831e04180fbeee18d516d1b73b00eef959077f6ef10d64facb5eb5"
+    },
+    {
+      "path": "construct_search/rank1-graph-interruption.json",
+      "bytes": 277,
+      "sha256": "5c2ea749f35a21105147466c509fca3642b712cf4e41b4a5e4ded15417cb0c3b"
+    },
+    {
+      "path": "construct_search/rank1-graph-run.stdout",
+      "bytes": 197,
+      "sha256": "e1d986bbec831e04180fbeee18d516d1b73b00eef959077f6ef10d64facb5eb5"
+    },
+    {
+      "path": "construct_search/rank1-graph-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/audit_global_rank2.py",
+      "bytes": 3427,
+      "sha256": "4bf82b17704cb537d7c63042421cf9eec9faf78e54349def0981335865d21859"
+    },
+    {
+      "path": "construct_search/global-rank2-independent-audit.json",
+      "bytes": 709,
+      "sha256": "a3d08cc1748ef4675c2abddc5899ee58b8cfe50ed538c0b95e2e3068d733aefe"
+    },
+    {
+      "path": "construct_search/global-rank2-independent-audit.stdout",
+      "bytes": 860,
+      "sha256": "42f64fbfa879f54c13e0214ddaa46a13e00e4da3cee807b41f29a84443e5271c"
+    },
+    {
+      "path": "construct_search/global-rank2-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/global_rank2_3flat_charts.py",
+      "bytes": 9561,
+      "sha256": "7fefa092ee8cb7801f90ca9973e5422843522d91978d65260075713741730975"
+    },
+    {
+      "path": "construct_search/net_normal_form/GLOBAL-RANK2-CHARTS.md",
+      "bytes": 3150,
+      "sha256": "6dfec5b01da511a963fa636cd16c881d7398e0cb6bbd4e845e3ab01dbc7ceb2d"
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-charts.json",
+      "bytes": 426280,
+      "sha256": "3df17486ea8c45ffb20db0bafe1e8803ebd3518974107f494ee865043f93ffdb"
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-cross02.ms",
+      "bytes": 33678,
+      "sha256": "12d466e29835ec3cc16fdd04e8aba3610d2dd9f33890aa6a422b73a902a996e8"
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-generation-summary.json",
+      "bytes": 208,
+      "sha256": "cba67847208e8abc51135c53ebb4e6fbae48f0e9464812141b1a9b94da9efa94"
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-generation.stdout",
+      "bytes": 616,
+      "sha256": "ec332fe9cfca20d2225228217f7c076d0e6ac25d13f799f4b6d16129f594ac34"
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-within01.ms",
+      "bytes": 20528,
+      "sha256": "17cabda62c12ede0393598d0b82231f3a28f7134eebfbab1de6fad847b3037b7"
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-within23.ms",
+      "bytes": 38789,
+      "sha256": "29620e7294f41a5e193efa82dc7e11f410718e7254ac82589ae80cde338b807d"
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-manifest.json",
+      "bytes": 2053,
+      "sha256": "192879f1b202c898b77b7e719b27f9a82aaae93b47e12965c0098945c2c5ff1e"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280-trace.json",
+      "bytes": 322,
+      "sha256": "10674ef4a29712d8436120c94d15941d5ee43331208e5bb22f137f669a3798cd"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280-trace.memory-trace",
+      "bytes": 6716,
+      "sha256": "00f19ae305585c03e6569c32dc955a9c078a543602cf41a40e21961596bb6d9c"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280-trace.out",
+      "bytes": 6,
+      "sha256": "0333251e6ebb3890ef547f522ec55f27f0cef9a860998757e31f3e1b819e7490"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280-trace.stderr",
+      "bytes": 3191,
+      "sha256": "426f7702acf68c15663730bf1e2a81803c21cb982d2ee30e8a4527151aa04f07"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280-trace.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280.json",
+      "bytes": 323,
+      "sha256": "3275ce2c47d7c00290cda73708861936d465e1d873c07af4b8f8ee34d4286cde"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280.out",
+      "bytes": 6,
+      "sha256": "0333251e6ebb3890ef547f522ec55f27f0cef9a860998757e31f3e1b819e7490"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280.stderr",
+      "bytes": 3191,
+      "sha256": "30f4f47a0db29461d223a35af8d15800084f95efd8c74cdb7e5c9db306d7b153"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-512-trace.json",
+      "bytes": 322,
+      "sha256": "ab534a906673ce562191bee4dda4eb47b7c183f5a1c0f9fda0f796d553d2aa47"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-512-trace.memory-trace",
+      "bytes": 6946,
+      "sha256": "e98912bd7576448e2b5f593d6e834c2e728234cb07494abe09418e296ea4d1c0"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-512-trace.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-512-trace.stderr",
+      "bytes": 62,
+      "sha256": "a0292477916683cd530a0a530c4a5d9f76f1b311e9fdcd2e8868c5f9dc811bea"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-512-trace.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-inherited-512.json",
+      "bytes": 325,
+      "sha256": "dfbf2ebc327a109c4f10efe848ac7bc14931d02285f90c8eeb682795f358aeab"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-inherited-512.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-inherited-512.stderr",
+      "bytes": 62,
+      "sha256": "9a63362fd1b8c04b0d8c63159b5cb03061796106966e9eac8c3c052565a5668a"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-inherited-512.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-baseline-fixed-512.json",
+      "bytes": 326,
+      "sha256": "c80118be256423f8c2c16891edf275b5b6c40aefa9d8bfbcacbf5473bfa6412b"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-baseline-fixed-512.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-baseline-fixed-512.stderr",
+      "bytes": 62,
+      "sha256": "9a63362fd1b8c04b0d8c63159b5cb03061796106966e9eac8c3c052565a5668a"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-baseline-fixed-512.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-help.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-help.stdout",
+      "bytes": 7778,
+      "sha256": "4bd2218f9e4f152576f7f775578d4fb8593cf3729868d9656e51c545df7b0970"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-strace-help.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-strace-help.stdout",
+      "bytes": 9814,
+      "sha256": "683a562c1d4a0e0abd681a1b678d14b685bc4b89428d0fbb1425c36d3d5b2a90"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-summary.json",
+      "bytes": 2819,
+      "sha256": "ef5f77e41ff92e2ff799db88bc103cb7a72b69eef92034b03cddf0195736dc47"
+    },
+    {
+      "path": "construct_search/net_normal_form/diagnose_msolve.py",
+      "bytes": 2168,
+      "sha256": "fd5cba118d27345da6f049aedac1556c8be72d8dbe762f75ad462a51db7af229"
+    },
+    {
+      "path": "construct_search/msolve-smoke.ms",
+      "bytes": 18,
+      "sha256": "5af1419f335c00bd6e7b6177a71a736595cac7bdb1c25d74bc09a4d381f0792d"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-manifest.json",
+      "bytes": 6202,
+      "sha256": "eef8ec67003e7f4c714b66b1046b7a6e48801c39ab84984655fc1ae65ab59f52"
+    }
+  ],
+  "total_bytes": 612571
+}

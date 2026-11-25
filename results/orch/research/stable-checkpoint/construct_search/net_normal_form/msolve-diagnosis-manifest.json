@@ -1,0 +1,151 @@
+{
+  "created_utc": "2026-11-25T12:10:03.507981+00:00",
+  "scope": "A startup anonymous mapping of1073745920 bytes fails under512MiB RLIMIT_AS; a second allocation fails and the process dereferencesNULL. At1280MiB the mapping succeeds and is immediately unmapped.",
+  "files": [
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280-trace.json",
+      "bytes": 322,
+      "sha256": "10674ef4a29712d8436120c94d15941d5ee43331208e5bb22f137f669a3798cd"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280-trace.memory-trace",
+      "bytes": 6716,
+      "sha256": "00f19ae305585c03e6569c32dc955a9c078a543602cf41a40e21961596bb6d9c"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280-trace.out",
+      "bytes": 6,
+      "sha256": "0333251e6ebb3890ef547f522ec55f27f0cef9a860998757e31f3e1b819e7490"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280-trace.stderr",
+      "bytes": 3191,
+      "sha256": "426f7702acf68c15663730bf1e2a81803c21cb982d2ee30e8a4527151aa04f07"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280-trace.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280.json",
+      "bytes": 323,
+      "sha256": "3275ce2c47d7c00290cda73708861936d465e1d873c07af4b8f8ee34d4286cde"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280.out",
+      "bytes": 6,
+      "sha256": "0333251e6ebb3890ef547f522ec55f27f0cef9a860998757e31f3e1b819e7490"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280.stderr",
+      "bytes": 3191,
+      "sha256": "30f4f47a0db29461d223a35af8d15800084f95efd8c74cdb7e5c9db306d7b153"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-512-trace.json",
+      "bytes": 322,
+      "sha256": "ab534a906673ce562191bee4dda4eb47b7c183f5a1c0f9fda0f796d553d2aa47"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-512-trace.memory-trace",
+      "bytes": 6946,
+      "sha256": "e98912bd7576448e2b5f593d6e834c2e728234cb07494abe09418e296ea4d1c0"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-512-trace.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-512-trace.stderr",
+      "bytes": 62,
+      "sha256": "a0292477916683cd530a0a530c4a5d9f76f1b311e9fdcd2e8868c5f9dc811bea"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-512-trace.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-inherited-512.json",
+      "bytes": 325,
+      "sha256": "dfbf2ebc327a109c4f10efe848ac7bc14931d02285f90c8eeb682795f358aeab"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-inherited-512.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-inherited-512.stderr",
+      "bytes": 62,
+      "sha256": "9a63362fd1b8c04b0d8c63159b5cb03061796106966e9eac8c3c052565a5668a"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-inherited-512.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-baseline-fixed-512.json",
+      "bytes": 326,
+      "sha256": "c80118be256423f8c2c16891edf275b5b6c40aefa9d8bfbcacbf5473bfa6412b"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-baseline-fixed-512.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-baseline-fixed-512.stderr",
+      "bytes": 62,
+      "sha256": "9a63362fd1b8c04b0d8c63159b5cb03061796106966e9eac8c3c052565a5668a"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-baseline-fixed-512.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-help.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-help.stdout",
+      "bytes": 7778,
+      "sha256": "4bd2218f9e4f152576f7f775578d4fb8593cf3729868d9656e51c545df7b0970"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-strace-help.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-strace-help.stdout",
+      "bytes": 9814,
+      "sha256": "683a562c1d4a0e0abd681a1b678d14b685bc4b89428d0fbb1425c36d3d5b2a90"
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-summary.json",
+      "bytes": 2819,
+      "sha256": "ef5f77e41ff92e2ff799db88bc103cb7a72b69eef92034b03cddf0195736dc47"
+    },
+    {
+      "path": "construct_search/net_normal_form/diagnose_msolve.py",
+      "bytes": 2168,
+      "sha256": "fd5cba118d27345da6f049aedac1556c8be72d8dbe762f75ad462a51db7af229"
+    },
+    {
+      "path": "construct_search/msolve-smoke.ms",
+      "bytes": 18,
+      "sha256": "5af1419f335c00bd6e7b6177a71a736595cac7bdb1c25d74bc09a4d381f0792d"
+    }
+  ]
+}

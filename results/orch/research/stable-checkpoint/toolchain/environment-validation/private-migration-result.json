@@ -1,0 +1,21 @@
+{
+  "pass": true,
+  "files": 272,
+  "bytes_recovered_from_memfd": 432790536,
+  "holder_before": {
+    "ok": true,
+    "count": 8912,
+    "bytes": 3312690600,
+    "pid": 4303
+  },
+  "holder_after": {
+    "ok": true,
+    "count": 8640,
+    "bytes": 2879900064,
+    "pid": 4303
+  },
+  "free_bytes": 114495488,
+  "seconds": 2.170726091000688,
+  "plan_sha256": "5c8a209e0d5480572bb1ecc6302f4a073e9c3383191b395f0a496916e6d248a6",
+  "rollback": "If required, existing memfd-control.py store accepts these regular .olean.private paths and authenticates bytes before atomic replacement; original holder4GiB cap has room for the entire pre-migration state. No rollback needed."
+}

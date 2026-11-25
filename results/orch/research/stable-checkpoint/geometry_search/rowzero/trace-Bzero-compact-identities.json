@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scope": "Exact identities on B=0, with new r=P_original-2D. No assertion of absence of two-planes.",
+  "q": "-D0**2 - 4*D0*r0 - D1**2 - 4*D1*r1 - D2**2 - 4*D2*r2 - r0**2 - r1**2 - r2**2",
+  "C": "-2*r0*r1*r2 + (D0 + r0)*(D1 + r1)*(D2 + r2)",
+  "P_mod_q": "-D0**2*D1**2/4 - D0**2*D2**2/4 + D0**2*r0**2/4 - D1**2*D2**2/4 + D1**2*r1**2/4 + D2**2*r2**2/4 + (D0**2/2 + D0*r0 + D1**2/2 + D1*r1 + D2**2/2 + D2*r2)**2",
+  "P_identity": "P=P_mod_q+q^2/16+q*(dot(D,r)/2+dot(D,D)/4)"
+}

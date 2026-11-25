@@ -1,0 +1,48 @@
+{
+  "utc": "2026-11-25T12:36:52.991582+00:00",
+  "status": "INTERRUPTED_INCONCLUSIVE",
+  "scope": "Full slimgb graph module recovery stopped after134CPU seconds to switch to focused unit-cofactor reconstruction. No unit or rational certificate produced. Active bounded callback excluded.",
+  "files": [
+    {
+      "path": "construct_search/run_rank1_slimgb_graph.py",
+      "bytes": 1302,
+      "sha256": "3d3b2b300a60b7f85479ed2e8f254d83b31c1eea6b0be1e1b50a2bf05147b3f0"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-slimgb-graph-Q.sing",
+      "bytes": 6286,
+      "sha256": "6012d4ea311462baa87031ddec04ba8732792fe22702ec7c859d0fb1e9e94e19"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-slimgb-graph-Q.stdout",
+      "bytes": 25,
+      "sha256": "f00a4fa32148aaceab5d9d4b55b64b55d9fb52759160d8c8759856db42e4baba"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-slimgb-graph-Q.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-slimgb-graph-Q.result.json",
+      "bytes": 202,
+      "sha256": "a68721353b99467cc285d569ece497c9024c0818a302f30f960b5fac663597b8"
+    },
+    {
+      "path": "construct_search/rank1-slimgb-graph-run.stdout",
+      "bytes": 202,
+      "sha256": "a68721353b99467cc285d569ece497c9024c0818a302f30f960b5fac663597b8"
+    },
+    {
+      "path": "construct_search/rank1-slimgb-graph-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/rank1-slimgb-graph-interruption.json",
+      "bytes": 323,
+      "sha256": "f8fb9e357c1d2d7042f72a21fa6af18745dd558861da4f01a649ed3c0dd70467"
+    }
+  ],
+  "total_bytes": 8340
+}

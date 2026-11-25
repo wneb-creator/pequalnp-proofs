@@ -1,0 +1,13 @@
+Exact degree-five consequences in the rank-three S4 chart
+
+The chart has 18 rational coefficient variables and 31 coefficient equations. The complete unaveraged Macaulay matrix using products of total degree at most five has 10165 rows and 33649 columns. Exact rational row elimination produces 24 new consequences of degree four beyond the span of all products of degree at most four. Each consequence includes a rational identity in the original 31 generators. The independent audit reconstructs all 24 identities directly from those raw generators, checks every coefficient, and checks cancellation of degree five.
+
+Certificate format: graded-rational-id-certificates.jsonl has one object per consequence. A polynomial entry [c,a] means coefficient a at monomial columns[c] in rational-id-rowmap.json. A certificate entry [i,a] refers to rows[order[i]], where that row is [generator_index,multiplier_monomial]. Monomials are sorted lists of variable indices; the original generators and variable order are in the previously preserved numeric/s4-hadamard/chart.json. Coefficients are exact rational strings.
+
+The native solver source is graded-rational.cpp. It uses FLINT fmpq arithmetic and an exact elimination-operation trace. projected_matrix.py and prepare_rational.py regenerate the matrix and row maps. Native build requires the previously documented pinned FLINT installation. No native executable is treated as proof evidence: independently re-expanded rational identities are the evidence.
+
+Projected exact rational computations give multiplicities 1,1,2,3,3 for the irreducibles of dimensions 1,1,2,3,3: this 24-dimensional quotient is the regular S4 module. The corresponding exact certificates and block metadata are included. Adding all 24 quartics as generators and repeating the degree-five closure produces no additional consequence of degree at most four. This is a bounded algebraic computation, not a proof that the ideal is nonunit or that a complex flat exists.
+
+The smallest recorded new quartic is irreducible over Q under the exact Singular factorization test. Its coordinate trace-zero specialization is a diagnostic only, not a global trace-zero-plane parametrization.
+
+No Lean proof of these identities and no proof/refutation of the full posted statement is claimed here. All included files are frozen, complete, and contain no lease data or credentials. Regenerable large binary matrices and native executables are excluded.

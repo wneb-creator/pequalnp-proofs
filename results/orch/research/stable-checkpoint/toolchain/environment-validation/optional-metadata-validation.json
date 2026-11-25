@@ -1,0 +1,77 @@
+{
+  "utc": "2026-11-25T12:06:23.195559+00:00",
+  "archive": {
+    "pass": true,
+    "files": 53262,
+    "original_allocated_bytes": 218161152,
+    "backup_allocated_bytes": 4927488,
+    "elapsed_seconds": 17.3289055740006,
+    "scope": "Only hash/trace build metadata outside current selective build closure; all runtime artifacts and current closure metadata unchanged."
+  },
+  "first_no_build_exit": 3,
+  "first_no_build_failure": "LeanSearchClient.Basic metadata was outside the static source-import plan. No source build was executed because --no-build was used.",
+  "corrective_restore_modules": [
+    "LeanSearchClient.Basic",
+    "LeanSearchClient.Syntax",
+    "LeanSearchClient.LoogleSyntax"
+  ],
+  "corrective_restore": {
+    "restored_or_verified_files": 24,
+    "requested": [
+      "LeanSearchClient.Basic",
+      "LeanSearchClient.LoogleSyntax",
+      "LeanSearchClient.Syntax"
+    ]
+  },
+  "smoke_restore": {
+    "restored_or_verified_files": 8,
+    "requested": [
+      "ProofWidgets.Component.PenroseDiagram"
+    ]
+  },
+  "final_no_build_exit": 0,
+  "final_command": "lake build --no-build checklemma +PEqualNP.Defs +PEqualNP.Outside.L_gct_231",
+  "runtime_artifacts_unchanged": true,
+  "logs": {
+    "archive-optional-metadata.stdout": {
+      "bytes": 7439,
+      "sha256": "cf3a1ab1acfbbffed273a09a8f0e62e84677c99d6fd271a6708b029edeb79291"
+    },
+    "archive-optional-metadata.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "restore-optional-metadata-smoke.stdout": {
+      "bytes": 90,
+      "sha256": "42fba35b3dabf17566c778eca3e51dc59e1700ebdb9260380397629589ca690e"
+    },
+    "restore-optional-metadata-smoke.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "restore-leansearch-metadata.stdout": {
+      "bytes": 136,
+      "sha256": "9c74fb3846069ecdddaca749250d39a4397f430f472458e1d9f4c08ae8b95afd"
+    },
+    "restore-leansearch-metadata.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "metadata-archive-no-build.stdout": {
+      "bytes": 30270,
+      "sha256": "791fedbf4f096f3349ba415f9f7b809b8751a67abbcc73eb4dde8a4c0bd782ff"
+    },
+    "metadata-archive-no-build.stderr": {
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98"
+    },
+    "metadata-archive-no-build-2.stdout": {
+      "bytes": 65058,
+      "sha256": "babf6c1464a62c6fa8d640ef8ca12fe84d83fd304235cdb9cbb7079cb0067b7b"
+    },
+    "metadata-archive-no-build-2.stderr": {
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98"
+    }
+  }
+}

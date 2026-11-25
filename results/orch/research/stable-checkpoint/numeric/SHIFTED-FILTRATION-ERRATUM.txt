@@ -1,0 +1,5 @@
+Erratum: canonical versus shifted degree-five filtrations.
+
+The earlier informal claim that the shifted normalization already had23 extra degree-at-most-four pivots is withdrawn. Both original degree-at-most-four row spaces have rank1330. The canonical degree-five row space adds24 quartic consequences, giving low-degree rank1354; the shifted degree-five row space adds one quartic consequence, giving rank1331. Both full degree-five ranks are9820. Their coordinate change alters the degree filtration, so equal full rank does not imply that one low-degree row space already contains the other consequences.
+
+All exact matrix ranks, rational certificates, independent coefficient audits and preserved source files remain valid. The error was the informal interpretation communicated to root/geometry; no matrix or certificate data changed. Existing frozen files are unchanged. This erratum must accompany the next checkpoint README if it repeats that interpretation.

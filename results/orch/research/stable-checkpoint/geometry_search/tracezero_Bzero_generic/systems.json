@@ -1,0 +1,369 @@
+{
+  "variables": [
+    "a",
+    "b",
+    "x",
+    "y",
+    "z"
+  ],
+  "cases": [
+    {
+      "name": "identity",
+      "permutation": [
+        0,
+        1,
+        2
+      ],
+      "independent_r_coordinate_pair": [
+        0,
+        1
+      ],
+      "r": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "U": [
+        [
+          "x",
+          "0"
+        ],
+        [
+          "0",
+          "y"
+        ],
+        [
+          "a*z",
+          "b*z"
+        ]
+      ],
+      "D": [
+        [
+          "x - 1",
+          "0"
+        ],
+        [
+          "0",
+          "y - 1"
+        ],
+        [
+          "a*z - a",
+          "b*z - b"
+        ]
+      ],
+      "generators": [
+        "x*y*z - 2",
+        "-a**2*z**2 - 2*a**2*z + 2*a**2 - x**2 - 2*x + 2",
+        "-a*b*z**2 - 2*a*b*z + 2*a*b",
+        "-b**2*z**2 - 2*b**2*z + 2*b**2 - y**2 - 2*y + 2",
+        "a**4*z**4 - 4*a**4*z**3 + 8*a**4*z**2 - 8*a**4*z + 4*a**4 - 2*a**2*x**2*z**2 + 4*a**2*x**2*z - 4*a**2*x**2 + 4*a**2*x*z**2 - 8*a**2*x*z + 8*a**2*x - 4*a**2*z**2 + 8*a**2*z - 4*a**2 + x**4 - 4*x**3 + 8*x**2 - 8*x + 4",
+        "a**3*b*z**4 - 4*a**3*b*z**3 + 8*a**3*b*z**2 - 8*a**3*b*z + 4*a**3*b - a*b*x**2*z**2 + 2*a*b*x**2*z - 2*a*b*x**2 + 2*a*b*x*z**2 - 4*a*b*x*z + 4*a*b*x - 2*a*b*z**2 + 4*a*b*z - 2*a*b",
+        "3*a**2*b**2*z**4 - 12*a**2*b**2*z**3 + 24*a**2*b**2*z**2 - 24*a**2*b**2*z + 12*a**2*b**2 - a**2*y**2*z**2 + 2*a**2*y**2*z - 2*a**2*y**2 + 2*a**2*y*z**2 - 4*a**2*y*z + 4*a**2*y - 2*a**2*z**2 + 4*a**2*z - 2*a**2 - b**2*x**2*z**2 + 2*b**2*x**2*z - 2*b**2*x**2 + 2*b**2*x*z**2 - 4*b**2*x*z + 4*b**2*x - 2*b**2*z**2 + 4*b**2*z - 2*b**2 - x**2*y**2 + 2*x**2*y - 2*x**2 + 2*x*y**2 - 4*x*y + 4*x - 2*y**2 + 4*y - 2",
+        "a*b**3*z**4 - 4*a*b**3*z**3 + 8*a*b**3*z**2 - 8*a*b**3*z + 4*a*b**3 - a*b*y**2*z**2 + 2*a*b*y**2*z - 2*a*b*y**2 + 2*a*b*y*z**2 - 4*a*b*y*z + 4*a*b*y - 2*a*b*z**2 + 4*a*b*z - 2*a*b",
+        "b**4*z**4 - 4*b**4*z**3 + 8*b**4*z**2 - 8*b**4*z + 4*b**4 - 2*b**2*y**2*z**2 + 4*b**2*y**2*z - 4*b**2*y**2 + 4*b**2*y*z**2 - 8*b**2*y*z + 8*b**2*y - 4*b**2*z**2 + 8*b**2*z - 4*b**2 + y**4 - 4*y**3 + 8*y**2 - 8*y + 4"
+      ],
+      "scales_to_permanent_coefficients": [
+        "1",
+        "1",
+        "2",
+        "1",
+        "1/16",
+        "1/4",
+        "1/8",
+        "1/4",
+        "1/16"
+      ],
+      "term_counts": [
+        2,
+        6,
+        3,
+        6,
+        19,
+        14,
+        32,
+        14,
+        19
+      ],
+      "cubic_identity_exact": true,
+      "scope": "Generic UFD branch. Allr_i are assumed nonzero asbinaryforms incoverage, but thispolynomialsystem deliberately doesnotexclude(a,b)=(0,0); any extra boundary component mustbehandled separately. No D-rank guard imposed; a unit ideal wouldprove the stronger emptiness."
+    },
+    {
+      "name": "swap-pair",
+      "permutation": [
+        1,
+        0,
+        2
+      ],
+      "independent_r_coordinate_pair": [
+        0,
+        1
+      ],
+      "r": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "U": [
+        [
+          "0",
+          "x"
+        ],
+        [
+          "y",
+          "0"
+        ],
+        [
+          "a*z",
+          "b*z"
+        ]
+      ],
+      "D": [
+        [
+          "-1",
+          "x"
+        ],
+        [
+          "y",
+          "-1"
+        ],
+        [
+          "a*z - a",
+          "b*z - b"
+        ]
+      ],
+      "generators": [
+        "x*y*z - 2",
+        "-a**2*z**2 - 2*a**2*z + 2*a**2 - y**2 + 2",
+        "-a*b*z**2 - 2*a*b*z + 2*a*b - x - y",
+        "-b**2*z**2 - 2*b**2*z + 2*b**2 - x**2 + 2",
+        "a**4*z**4 - 4*a**4*z**3 + 8*a**4*z**2 - 8*a**4*z + 4*a**4 - 2*a**2*y**2*z**2 + 4*a**2*y**2*z - 4*a**2*y**2 - 4*a**2*z**2 + 8*a**2*z - 4*a**2 + y**4 - 4*y**2 + 4",
+        "a**3*b*z**4 - 4*a**3*b*z**3 + 8*a**3*b*z**2 - 8*a**3*b*z + 4*a**3*b + a**2*x*z**2 - 2*a**2*x*z + 2*a**2*x + a**2*y*z**2 - 2*a**2*y*z + 2*a**2*y - a*b*y**2*z**2 + 2*a*b*y**2*z - 2*a*b*y**2 - 2*a*b*z**2 + 4*a*b*z - 2*a*b + x*y**2 - 2*x - y**3 + 2*y",
+        "3*a**2*b**2*z**4 - 12*a**2*b**2*z**3 + 24*a**2*b**2*z**2 - 24*a**2*b**2*z + 12*a**2*b**2 - a**2*x**2*z**2 + 2*a**2*x**2*z - 2*a**2*x**2 - 2*a**2*z**2 + 4*a**2*z - 2*a**2 + 4*a*b*x*z**2 - 8*a*b*x*z + 8*a*b*x + 4*a*b*y*z**2 - 8*a*b*y*z + 8*a*b*y - b**2*y**2*z**2 + 2*b**2*y**2*z - 2*b**2*y**2 - 2*b**2*z**2 + 4*b**2*z - 2*b**2 - x**2*y**2 + 4*x**2 - 4*x*y + 4*y**2 - 2",
+        "a*b**3*z**4 - 4*a*b**3*z**3 + 8*a*b**3*z**2 - 8*a*b**3*z + 4*a*b**3 - a*b*x**2*z**2 + 2*a*b*x**2*z - 2*a*b*x**2 - 2*a*b*z**2 + 4*a*b*z - 2*a*b + b**2*x*z**2 - 2*b**2*x*z + 2*b**2*x + b**2*y*z**2 - 2*b**2*y*z + 2*b**2*y - x**3 + x**2*y + 2*x - 2*y",
+        "b**4*z**4 - 4*b**4*z**3 + 8*b**4*z**2 - 8*b**4*z + 4*b**4 - 2*b**2*x**2*z**2 + 4*b**2*x**2*z - 4*b**2*x**2 - 4*b**2*z**2 + 8*b**2*z - 4*b**2 + x**4 - 4*x**2 + 4"
+      ],
+      "scales_to_permanent_coefficients": [
+        "1",
+        "1",
+        "2",
+        "1",
+        "1/16",
+        "1/4",
+        "1/8",
+        "1/4",
+        "1/16"
+      ],
+      "term_counts": [
+        2,
+        5,
+        5,
+        5,
+        14,
+        21,
+        28,
+        21,
+        14
+      ],
+      "cubic_identity_exact": true,
+      "scope": "Generic UFD branch. Allr_i are assumed nonzero asbinaryforms incoverage, but thispolynomialsystem deliberately doesnotexclude(a,b)=(0,0); any extra boundary component mustbehandled separately. No D-rank guard imposed; a unit ideal wouldprove the stronger emptiness."
+    },
+    {
+      "name": "swap-cross",
+      "permutation": [
+        1,
+        0,
+        2
+      ],
+      "independent_r_coordinate_pair": [
+        0,
+        2
+      ],
+      "r": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "a",
+          "b"
+        ],
+        [
+          "0",
+          "1"
+        ]
+      ],
+      "U": [
+        [
+          "a*x",
+          "b*x"
+        ],
+        [
+          "y",
+          "0"
+        ],
+        [
+          "0",
+          "z"
+        ]
+      ],
+      "D": [
+        [
+          "a*x - 1",
+          "b*x"
+        ],
+        [
+          "-a + y",
+          "-b"
+        ],
+        [
+          "0",
+          "z - 1"
+        ]
+      ],
+      "generators": [
+        "x*y*z - 2",
+        "-a**2*x**2 + 2*a**2 - 2*a*x - 2*a*y - y**2 + 2",
+        "-a*b*x**2 + 2*a*b - b*x - b*y",
+        "-b**2*x**2 + 2*b**2 - z**2 - 2*z + 2",
+        "a**4*x**4 - 4*a**4*x**2 + 4*a**4 - 4*a**3*x**3 + 4*a**3*x**2*y + 8*a**3*x - 8*a**3*y - 2*a**2*x**2*y**2 + 8*a**2*x**2 - 8*a**2*x*y + 8*a**2*y**2 - 4*a**2 + 4*a*x*y**2 - 8*a*x - 4*a*y**3 + 8*a*y + y**4 - 4*y**2 + 4",
+        "a**3*b*x**4 - 4*a**3*b*x**2 + 4*a**3*b - 3*a**2*b*x**3 + 3*a**2*b*x**2*y + 6*a**2*b*x - 6*a**2*b*y - a*b*x**2*y**2 + 4*a*b*x**2 - 4*a*b*x*y + 4*a*b*y**2 - 2*a*b + b*x*y**2 - 2*b*x - b*y**3 + 2*b*y",
+        "3*a**2*b**2*x**4 - 12*a**2*b**2*x**2 + 12*a**2*b**2 - a**2*x**2*z**2 + 2*a**2*x**2*z - 2*a**2*x**2 - 2*a**2*z**2 + 4*a**2*z - 2*a**2 - 6*a*b**2*x**3 + 6*a*b**2*x**2*y + 12*a*b**2*x - 12*a*b**2*y + 2*a*x*z**2 - 4*a*x*z + 4*a*x + 2*a*y*z**2 - 4*a*y*z + 4*a*y - b**2*x**2*y**2 + 4*b**2*x**2 - 4*b**2*x*y + 4*b**2*y**2 - 2*b**2 - y**2*z**2 + 2*y**2*z - 2*y**2 - 2*z**2 + 4*z - 2",
+        "a*b**3*x**4 - 4*a*b**3*x**2 + 4*a*b**3 - a*b*x**2*z**2 + 2*a*b*x**2*z - 2*a*b*x**2 - 2*a*b*z**2 + 4*a*b*z - 2*a*b - b**3*x**3 + b**3*x**2*y + 2*b**3*x - 2*b**3*y + b*x*z**2 - 2*b*x*z + 2*b*x + b*y*z**2 - 2*b*y*z + 2*b*y",
+        "b**4*x**4 - 4*b**4*x**2 + 4*b**4 - 2*b**2*x**2*z**2 + 4*b**2*x**2*z - 4*b**2*x**2 - 4*b**2*z**2 + 8*b**2*z - 4*b**2 + z**4 - 4*z**3 + 8*z**2 - 8*z + 4"
+      ],
+      "scales_to_permanent_coefficients": [
+        "1",
+        "1",
+        "2",
+        "1",
+        "1/16",
+        "1/4",
+        "1/8",
+        "1/4",
+        "1/16"
+      ],
+      "term_counts": [
+        2,
+        6,
+        4,
+        5,
+        19,
+        16,
+        30,
+        19,
+        14
+      ],
+      "cubic_identity_exact": true,
+      "scope": "Generic UFD branch. Allr_i are assumed nonzero asbinaryforms incoverage, but thispolynomialsystem deliberately doesnotexclude(a,b)=(0,0); any extra boundary component mustbehandled separately. No D-rank guard imposed; a unit ideal wouldprove the stronger emptiness."
+    },
+    {
+      "name": "cycle",
+      "permutation": [
+        1,
+        2,
+        0
+      ],
+      "independent_r_coordinate_pair": [
+        0,
+        1
+      ],
+      "r": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1"
+        ],
+        [
+          "a",
+          "b"
+        ]
+      ],
+      "U": [
+        [
+          "0",
+          "x"
+        ],
+        [
+          "a*y",
+          "b*y"
+        ],
+        [
+          "z",
+          "0"
+        ]
+      ],
+      "D": [
+        [
+          "-1",
+          "x"
+        ],
+        [
+          "a*y",
+          "b*y - 1"
+        ],
+        [
+          "-a + z",
+          "-b"
+        ]
+      ],
+      "generators": [
+        "x*y*z - 2",
+        "-a**2*y**2 + 2*a**2 - 2*a*z - z**2 + 2",
+        "-a*b*y**2 + 2*a*b - a*y - b*z - x",
+        "-b**2*y**2 + 2*b**2 - 2*b*y - x**2 + 2",
+        "a**4*y**4 - 4*a**4*y**2 + 4*a**4 + 4*a**3*y**2*z - 8*a**3*z - 2*a**2*y**2*z**2 - 4*a**2*y**2 + 8*a**2*z**2 - 4*a**2 - 4*a*z**3 + 8*a*z + z**4 - 4*z**2 + 4",
+        "a**3*b*y**4 - 4*a**3*b*y**2 + 4*a**3*b - a**3*y**3 + 2*a**3*y + 3*a**2*b*y**2*z - 6*a**2*b*z + a**2*x*y**2 + 2*a**2*x - 2*a**2*y*z - a*b*y**2*z**2 - 2*a*b*y**2 + 4*a*b*z**2 - 2*a*b - 2*a*x*z + a*y*z**2 + 2*a*y - b*z**3 + 2*b*z + x*z**2 - 2*x",
+        "3*a**2*b**2*y**4 - 12*a**2*b**2*y**2 + 12*a**2*b**2 - 6*a**2*b*y**3 + 12*a**2*b*y - a**2*x**2*y**2 - 2*a**2*x**2 + 4*a**2*y**2 - 2*a**2 + 6*a*b**2*y**2*z - 12*a*b**2*z + 4*a*b*x*y**2 + 8*a*b*x - 8*a*b*y*z + 2*a*x**2*z - 4*a*x*y + 4*a*z - b**2*y**2*z**2 - 2*b**2*y**2 + 4*b**2*z**2 - 2*b**2 - 4*b*x*z + 2*b*y*z**2 + 4*b*y - x**2*z**2 + 4*x**2 - 2*z**2 - 2",
+        "a*b**3*y**4 - 4*a*b**3*y**2 + 4*a*b**3 - 3*a*b**2*y**3 + 6*a*b**2*y - a*b*x**2*y**2 - 2*a*b*x**2 + 4*a*b*y**2 - 2*a*b + a*x**2*y - 2*a*y + b**3*y**2*z - 2*b**3*z + b**2*x*y**2 + 2*b**2*x - 2*b**2*y*z + b*x**2*z - 2*b*x*y + 2*b*z - x**3 + 2*x",
+        "b**4*y**4 - 4*b**4*y**2 + 4*b**4 - 4*b**3*y**3 + 8*b**3*y - 2*b**2*x**2*y**2 - 4*b**2*x**2 + 8*b**2*y**2 - 4*b**2 + 4*b*x**2*y - 8*b*y + x**4 - 4*x**2 + 4"
+      ],
+      "scales_to_permanent_coefficients": [
+        "1",
+        "1",
+        "2",
+        "1",
+        "1/16",
+        "1/4",
+        "1/8",
+        "1/4",
+        "1/16"
+      ],
+      "term_counts": [
+        2,
+        5,
+        5,
+        5,
+        14,
+        21,
+        28,
+        21,
+        14
+      ],
+      "cubic_identity_exact": true,
+      "scope": "Generic UFD branch. Allr_i are assumed nonzero asbinaryforms incoverage, but thispolynomialsystem deliberately doesnotexclude(a,b)=(0,0); any extra boundary component mustbehandled separately. No D-rank guard imposed; a unit ideal wouldprove the stronger emptiness."
+    }
+  ],
+  "coverage": "Nonzero binary factors pair underUFD: U_i=lam_i*r_perm(i), productlam=2. D-rank2forcesr-rank2. SimultaneousS3conjugacy leavesidentity,transposition,3cycle; centralizers actoncoordinatepairs withorbitcounts1,2,1. Zero-factor boundaries areseparate.",
+  "seconds": 0.12453961700157379
+}

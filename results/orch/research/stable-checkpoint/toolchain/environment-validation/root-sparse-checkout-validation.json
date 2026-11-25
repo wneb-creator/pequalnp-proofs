@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scope": "Sparse checkout omits unrelated historical Outside source only; Git tracked diff unchanged.",
+  "excluded_historical_files": 4109,
+  "allocated_bytes_recovered_estimate": 318234624,
+  "named_file_sha256": "25c914faaaf9345342a0060c0e9e093002e7eba1086e5df9f25d7b9b27a3a367",
+  "restore": "git sparse-checkout disable after sufficient disk is available"
+}

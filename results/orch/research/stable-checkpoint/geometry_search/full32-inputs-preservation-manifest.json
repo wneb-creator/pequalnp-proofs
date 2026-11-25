@@ -1,0 +1,170 @@
+{
+  "created_utc": "2026-11-25T12:36:00.372207+00:00",
+  "scope": "Frozen full32 modular CAS inputs and exact extra-quartic audit; completed inconclusive weaker21-equation baseline; completed inconclusive original module probe and exact encoding audit. The full32 native run is active and its growing logs are deliberately excluded. No global infeasibility or Lean checker verdict is claimed.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/audit_incidence_module.py",
+      "relative_path": "geometry_search/audit_incidence_module.py",
+      "bytes": 1888,
+      "sha256": "ee620843f2d6441abea7d982329c9bbeb3237087c760d13c19a4614d4321bf04"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/audit_shifted_new_quartic.py",
+      "relative_path": "geometry_search/audit_shifted_new_quartic.py",
+      "bytes": 2195,
+      "sha256": "9787d127c0c20705cb4116c3da1327d62d5e53df3408875ea2ca6d1f8bbcb379"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/hadamard-rank-three-source-audit.json",
+      "relative_path": "geometry_search/hadamard-rank-three-source-audit.json",
+      "bytes": 876,
+      "sha256": "7d43d7939da35a19501d5e68fb5497963ee64b3a2166bff698e7ff90539933ec"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/incidence-module-independent-audit.json",
+      "relative_path": "geometry_search/incidence-module-independent-audit.json",
+      "bytes": 725,
+      "sha256": "3a2b6f2bffc8a478ea1dfcd581b95f1cc54dd36a37b9040f2300b5b3b3cff8ca"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/incidence-module-independent-audit.stderr",
+      "relative_path": "geometry_search/incidence-module-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/incidence-module-independent-audit.stdout",
+      "relative_path": "geometry_search/incidence-module-independent-audit.stdout",
+      "bytes": 725,
+      "sha256": "3a2b6f2bffc8a478ea1dfcd581b95f1cc54dd36a37b9040f2300b5b3b3cff8ca"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/run_tracezero_full32_modular.py",
+      "relative_path": "geometry_search/run_tracezero_full32_modular.py",
+      "bytes": 2145,
+      "sha256": "0c7cf0d30b2d432186c7920df46f20d73bd0b4c6c0ad272e825e9cf07ec8536b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/shifted-new-quartic-independent-audit.json",
+      "relative_path": "geometry_search/shifted-new-quartic-independent-audit.json",
+      "bytes": 578,
+      "sha256": "09fd0fb08590fba4042dc1ea59974f6e4c6fc2ddfc7598bf3b14d1d349e1d742"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/shifted-new-quartic-independent-audit.stderr",
+      "relative_path": "geometry_search/shifted-new-quartic-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/shifted-new-quartic-independent-audit.stdout",
+      "relative_path": "geometry_search/shifted-new-quartic-independent-audit.stdout",
+      "bytes": 578,
+      "sha256": "09fd0fb08590fba4042dc1ea59974f6e4c6fc2ddfc7598bf3b14d1d349e1d742"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_rankdrop/full31-shifted.json",
+      "relative_path": "geometry_search/tracezero_rankdrop/full31-shifted.json",
+      "bytes": 32849,
+      "sha256": "bace3d725a70b6b512b262dc2c8664519d75ab956adf24fad4d38038a54c6c52"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_rankdrop/full32-input.json",
+      "relative_path": "geometry_search/tracezero_rankdrop/full32-input.json",
+      "bytes": 565,
+      "sha256": "c274ca65323ebf11e7efedf81e1b1b4c957be2c73b3247ccd8d172340689d515"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_rankdrop/rank3-full32-shifted-modGB.sing",
+      "relative_path": "geometry_search/tracezero_rankdrop/rank3-full32-shifted-modGB.sing",
+      "bytes": 32925,
+      "sha256": "d5c5d4e1c99c7a9c6861b94b5977fd0f20f54d0ba79c9acec15ccc56fee6c94e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_rankdrop/rank3-incidence-shifted-Q-slimgb.result.json",
+      "relative_path": "geometry_search/tracezero_rankdrop/rank3-incidence-shifted-Q-slimgb.result.json",
+      "bytes": 779,
+      "sha256": "7358f3de0f3948ee71fc8628f727735d76045678145151782f13079e0ab88b94"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_rankdrop/rank3-incidence-shifted-Q-slimgb.sing",
+      "relative_path": "geometry_search/tracezero_rankdrop/rank3-incidence-shifted-Q-slimgb.sing",
+      "bytes": 14881,
+      "sha256": "acdaffddce8c78df4b56982c7f7da3b4082af7f804e7827af3c5eaebe7c8952c"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_rankdrop/rank3-incidence-shifted-Q-slimgb.stderr",
+      "relative_path": "geometry_search/tracezero_rankdrop/rank3-incidence-shifted-Q-slimgb.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_rankdrop/rank3-incidence-shifted-Q-slimgb.stdout.zst",
+      "relative_path": "geometry_search/tracezero_rankdrop/rank3-incidence-shifted-Q-slimgb.stdout.zst",
+      "bytes": 524,
+      "sha256": "7c099791bc843f754339bb889c34efc31c9a06810e4d141676619b69ecfed786"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_rankdrop/shifted-matrix.json",
+      "relative_path": "geometry_search/tracezero_rankdrop/shifted-matrix.json",
+      "bytes": 16539,
+      "sha256": "5a591213eff5d830ecaef80497310d9be0122e9060aa39909382276929e8bcf6"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/incidence-module/probe.sing",
+      "relative_path": "numeric/incidence-module/probe.sing",
+      "bytes": 53954,
+      "sha256": "874f442e4c8c4d31718b7a2c3a71a2e23fce22df633a431cdefad4a603725482"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/incidence-module/probe.stderr",
+      "relative_path": "numeric/incidence-module/probe.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/incidence-module/probe.stdout",
+      "relative_path": "numeric/incidence-module/probe.stdout",
+      "bytes": 14733,
+      "sha256": "6cb62b51b47fd63163caa5a75e68ed39a2d39ed97166281d08adf3c61967ba21"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/incidence-module/result.json",
+      "relative_path": "numeric/incidence-module/result.json",
+      "bytes": 523,
+      "sha256": "7879a7e80d3a3e3c303f35805bcc3947fc6d270f59baa50cc122140abd08b063"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/shifted-full31/D5-certificates.jsonl",
+      "relative_path": "numeric/shifted-full31/D5-certificates.jsonl",
+      "bytes": 4194,
+      "sha256": "865290c7fddef8a0e748f5718e697c14f7a8cc519dfcef3d3a3c25c80d0f93b5"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/shifted-full31/D5-rowmap.json.zst",
+      "relative_path": "numeric/shifted-full31/D5-rowmap.json.zst",
+      "bytes": 34809,
+      "sha256": "f54583e793f8affa9db8a54cb907f21089f0d0e0f449be9a0a6fc196be394b7f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/shifted-full31/generators.json",
+      "relative_path": "numeric/shifted-full31/generators.json",
+      "bytes": 33597,
+      "sha256": "2f58453d6548bf5227baf35e8ee996c3e5493a022aedaf2d5f819c4918b7520a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/shifted-full31/new-quartic.json",
+      "relative_path": "numeric/shifted-full31/new-quartic.json",
+      "bytes": 5932,
+      "sha256": "b917ebbdc820c85ab7f45e09518068f8e479cb26bb15e096ca4c5fc725a6b8cd"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/shifted-full31/new-quartic.txt",
+      "relative_path": "numeric/shifted-full31/new-quartic.txt",
+      "bytes": 3556,
+      "sha256": "7486f9c94f39e3a36833647772968214bd0ee4ca83027ad0f4d52750d0a3b6c3"
+    }
+  ],
+  "file_count": 27,
+  "total_bytes": 260070
+}

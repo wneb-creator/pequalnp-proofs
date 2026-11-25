@@ -1,0 +1,9 @@
+{
+  "name": "swap-pair",
+  "exit": 0,
+  "seconds": 0.052737169000465656,
+  "memory_mib": 256,
+  "cpu_seconds": 60,
+  "completed": true,
+  "scope": "ExactQ standard basis attempt; incomplete output gives no conclusion."
+}

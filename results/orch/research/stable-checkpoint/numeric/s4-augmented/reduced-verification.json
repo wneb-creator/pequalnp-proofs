@@ -1,0 +1,125 @@
+{
+  "pass": true,
+  "certificates": [
+    {
+      "target": 0,
+      "terms": 100,
+      "certificate_rows": 82
+    },
+    {
+      "target": 1,
+      "terms": 188,
+      "certificate_rows": 135
+    },
+    {
+      "target": 2,
+      "terms": 188,
+      "certificate_rows": 130
+    },
+    {
+      "target": 3,
+      "terms": 100,
+      "certificate_rows": 82
+    },
+    {
+      "target": 4,
+      "terms": 170,
+      "certificate_rows": 118
+    },
+    {
+      "target": 5,
+      "terms": 100,
+      "certificate_rows": 82
+    },
+    {
+      "target": 6,
+      "terms": 393,
+      "certificate_rows": 238
+    },
+    {
+      "target": 7,
+      "terms": 293,
+      "certificate_rows": 176
+    },
+    {
+      "target": 8,
+      "terms": 316,
+      "certificate_rows": 187
+    },
+    {
+      "target": 9,
+      "terms": 363,
+      "certificate_rows": 221
+    },
+    {
+      "target": 10,
+      "terms": 100,
+      "certificate_rows": 82
+    },
+    {
+      "target": 11,
+      "terms": 242,
+      "certificate_rows": 130
+    },
+    {
+      "target": 12,
+      "terms": 409,
+      "certificate_rows": 237
+    },
+    {
+      "target": 13,
+      "terms": 189,
+      "certificate_rows": 135
+    },
+    {
+      "target": 14,
+      "terms": 442,
+      "certificate_rows": 262
+    },
+    {
+      "target": 15,
+      "terms": 439,
+      "certificate_rows": 261
+    },
+    {
+      "target": 16,
+      "terms": 191,
+      "certificate_rows": 135
+    },
+    {
+      "target": 17,
+      "terms": 408,
+      "certificate_rows": 237
+    },
+    {
+      "target": 18,
+      "terms": 293,
+      "certificate_rows": 179
+    },
+    {
+      "target": 19,
+      "terms": 186,
+      "certificate_rows": 128
+    },
+    {
+      "target": 20,
+      "terms": 186,
+      "certificate_rows": 128
+    },
+    {
+      "target": 21,
+      "terms": 281,
+      "certificate_rows": 181
+    },
+    {
+      "target": 22,
+      "terms": 108,
+      "certificate_rows": 82
+    },
+    {
+      "target": 23,
+      "terms": 108,
+      "certificate_rows": 82
+    }
+  ]
+}

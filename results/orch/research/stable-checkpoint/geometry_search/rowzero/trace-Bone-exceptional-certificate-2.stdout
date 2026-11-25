@@ -1,0 +1,1 @@
+{"status": "PASS", "seconds": 0.6318984310000815, "determinant_mod_F": "136*alpha/25 + 48/5", "residual_certificate_terms": 7, "scope": "Exact exclusion of the exceptional disjoint-support B-rank-one chart. The same-index B-rank-one chart is not excluded here. This is an algebraic certificate, not a Lean theorem."}

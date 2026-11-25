@@ -1,0 +1,63 @@
+{
+  "utc": "2026-11-25T12:31:24.292380+00:00",
+  "status": "INCONCLUSIVE_MEMORY_CAP",
+  "scope": "Direct modular lift did not produce a certificate. Small linear reduction is exact algebra modulo hollow constraints only, no nonexistence conclusion.",
+  "files": [
+    {
+      "path": "construct_search/run_rank1_lift.py",
+      "bytes": 1288,
+      "sha256": "cbad3e0ecda116eabddebd2f45271a0136cf175a0840f3062170549adfa79452"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-lift-Q.sing",
+      "bytes": 6341,
+      "sha256": "520dd326e3d18ace5f623c896a4a1d9b722b2a301661cab28e82b2fc358631a8"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-lift-Q.stdout",
+      "bytes": 202,
+      "sha256": "ee0a385fedd6941a22766a1a32f25a613adcdd2fbd04bccf023f9a44285597b2"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-lift-Q.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-lift-Q.result.json",
+      "bytes": 193,
+      "sha256": "c67b2e14e147176d6fe4917f4e61a4dcc0c36f3419ec39fb05baa7c5bfa0df36"
+    },
+    {
+      "path": "construct_search/rank1-lift-run.stdout",
+      "bytes": 193,
+      "sha256": "c67b2e14e147176d6fe4917f4e61a4dcc0c36f3419ec39fb05baa7c5bfa0df36"
+    },
+    {
+      "path": "construct_search/rank1-lift-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/rank1_linear_reduction.py",
+      "bytes": 1416,
+      "sha256": "44f7d14d7f8255bfd155e6a75b5abffe0b8185243c780f9f0f7b303f0c3d0ea1"
+    },
+    {
+      "path": "construct_search/rank1-linear-reduction.json",
+      "bytes": 1120,
+      "sha256": "967f4790840fe2e9ba128dc1a10b0993b6fce37fcc82c50db4f5e09e5bf08584"
+    },
+    {
+      "path": "construct_search/rank1-linear-reduction.stdout",
+      "bytes": 1881,
+      "sha256": "8cd327b5c32652a18157ea6b632f421e2e75b04938892160e6c1493c9f8741f6"
+    },
+    {
+      "path": "construct_search/rank1-linear-reduction.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "total_bytes": 12634
+}

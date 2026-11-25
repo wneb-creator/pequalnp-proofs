@@ -1,0 +1,205 @@
+{
+  "scope": "Frozen text-only environment validation. Full checker runtime NOT retested after432,790,536-byte migration; successful checks are no-build artifact freshness checks only. No acceptance/refutation verdict.",
+  "created_utc": "2026-11-25T12:24:48.416096+00:00",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/SETUP.md",
+      "relative_path": "toolchain/environment-validation/SETUP.md",
+      "bytes": 8138,
+      "sha256": "8eb54641f874420a9078fd5dc0fb21425466f29072d6a333c2de6acf49f2a9e0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/STATUS.txt",
+      "relative_path": "toolchain/environment-validation/STATUS.txt",
+      "bytes": 1664,
+      "sha256": "1afa7cd1518f7f5719dff5c1ef73a4e376a9d33018835724ddd48ef539704ccb"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/archive-optional-metadata.py",
+      "relative_path": "toolchain/environment-validation/archive-optional-metadata.py",
+      "bytes": 4299,
+      "sha256": "63c4ee88ef0b81b2f2a7180b2ad903271cdc83204f88168512ae5be4f66a130b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/archive-optional-metadata.stderr",
+      "relative_path": "toolchain/environment-validation/archive-optional-metadata.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/archive-optional-metadata.stdout",
+      "relative_path": "toolchain/environment-validation/archive-optional-metadata.stdout",
+      "bytes": 7439,
+      "sha256": "cf3a1ab1acfbbffed273a09a8f0e62e84677c99d6fd271a6708b029edeb79291"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/checker-smoke-retry.memory.jsonl",
+      "relative_path": "toolchain/environment-validation/checker-smoke-retry.memory.jsonl",
+      "bytes": 10053,
+      "sha256": "fd0b0e40787a6b997c6f4be46a6761eb62ca370c2e0cfe6d124a4138ab0a8647"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/checker-smoke-retry.result.json",
+      "relative_path": "toolchain/environment-validation/checker-smoke-retry.result.json",
+      "bytes": 96,
+      "sha256": "9a00c50864f7894b63e195489ab97761d5478d721040fd10448d4b393b950a50"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/checker-smoke-retry.stderr",
+      "relative_path": "toolchain/environment-validation/checker-smoke-retry.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/checker-smoke-retry.stdout",
+      "relative_path": "toolchain/environment-validation/checker-smoke-retry.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/checker-smoke.stderr",
+      "relative_path": "toolchain/environment-validation/checker-smoke.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/checker-smoke.stdout",
+      "relative_path": "toolchain/environment-validation/checker-smoke.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/memfd-disk-migration-plan.json",
+      "relative_path": "toolchain/environment-validation/memfd-disk-migration-plan.json",
+      "bytes": 115133,
+      "sha256": "5c8a209e0d5480572bb1ecc6302f4a073e9c3383191b395f0a496916e6d248a6"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/metadata-archival-plan-summary.json",
+      "relative_path": "toolchain/environment-validation/metadata-archival-plan-summary.json",
+      "bytes": 108946,
+      "sha256": "5d54a3060d8b1f0bd611dd0ba3900f0443cd89a5246fa7b6b3e5974ebed89641"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/metadata-archive-no-build-2.stderr",
+      "relative_path": "toolchain/environment-validation/metadata-archive-no-build-2.stderr",
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/metadata-archive-no-build-2.stdout",
+      "relative_path": "toolchain/environment-validation/metadata-archive-no-build-2.stdout",
+      "bytes": 65058,
+      "sha256": "babf6c1464a62c6fa8d640ef8ca12fe84d83fd304235cdb9cbb7079cb0067b7b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/metadata-archive-no-build.stderr",
+      "relative_path": "toolchain/environment-validation/metadata-archive-no-build.stderr",
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/metadata-archive-no-build.stdout",
+      "relative_path": "toolchain/environment-validation/metadata-archive-no-build.stdout",
+      "bytes": 30270,
+      "sha256": "791fedbf4f096f3349ba415f9f7b809b8751a67abbcc73eb4dde8a4c0bd782ff"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/optional-metadata-validation.json",
+      "relative_path": "toolchain/environment-validation/optional-metadata-validation.json",
+      "bytes": 2755,
+      "sha256": "a10eae5686d58cd7b522a0ee08345be7cee7b482ad04aa7928860b5d7d95b9b0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/private-migration-events.jsonl",
+      "relative_path": "toolchain/environment-validation/private-migration-events.jsonl",
+      "bytes": 91810,
+      "sha256": "363a74a7b2ece65da7547dca0fd00eae0651df510c69a6dd632f9cef8ba8ecf3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/private-migration-no-build.stderr",
+      "relative_path": "toolchain/environment-validation/private-migration-no-build.stderr",
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/private-migration-no-build.stdout",
+      "relative_path": "toolchain/environment-validation/private-migration-no-build.stdout",
+      "bytes": 65058,
+      "sha256": "524950be23947345ae3780c035005ee07018044c6ded001b3a37e0b0fbf29ac8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/private-migration-result.json",
+      "relative_path": "toolchain/environment-validation/private-migration-result.json",
+      "bytes": 669,
+      "sha256": "b2af70e198bb4ddb1a777d67c838dbb48d1eb135525c726b8ab0a862c7022920"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/private-migration-validation.json",
+      "relative_path": "toolchain/environment-validation/private-migration-validation.json",
+      "bytes": 982,
+      "sha256": "40a2238955e9ae3e129e83bcbdaf3ada30a5fe13ae7b25bc4505f25965e4c0fd"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/private-migration.stderr",
+      "relative_path": "toolchain/environment-validation/private-migration.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/private-migration.stdout",
+      "relative_path": "toolchain/environment-validation/private-migration.stdout",
+      "bytes": 1245,
+      "sha256": "b5d55a5088152c092032ba0b96fbc76171a3987ccaa5aea3ef65f2ce0dd0bfe7"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/restore-leansearch-metadata.stderr",
+      "relative_path": "toolchain/environment-validation/restore-leansearch-metadata.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/restore-leansearch-metadata.stdout",
+      "relative_path": "toolchain/environment-validation/restore-leansearch-metadata.stdout",
+      "bytes": 136,
+      "sha256": "9c74fb3846069ecdddaca749250d39a4397f430f472458e1d9f4c08ae8b95afd"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/restore-optional-metadata-smoke.stderr",
+      "relative_path": "toolchain/environment-validation/restore-optional-metadata-smoke.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/restore-optional-metadata-smoke.stdout",
+      "relative_path": "toolchain/environment-validation/restore-optional-metadata-smoke.stdout",
+      "bytes": 90,
+      "sha256": "42fba35b3dabf17566c778eca3e51dc59e1700ebdb9260380397629589ca690e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/restore-optional-metadata.py",
+      "relative_path": "toolchain/environment-validation/restore-optional-metadata.py",
+      "bytes": 1825,
+      "sha256": "957142f8337f2ba6773c0b37bcf3ed1c3ed6602ba1f6379eb7e8ab5e78009d18"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/root-sparse-checkout-validation.json",
+      "relative_path": "toolchain/environment-validation/root-sparse-checkout-validation.json",
+      "bytes": 387,
+      "sha256": "0eacd84f6f1fea8351bf21802037d6d73e6929cddb56596fe3a137d223f639aa"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/run-private-migration.py",
+      "relative_path": "toolchain/environment-validation/run-private-migration.py",
+      "bytes": 2917,
+      "sha256": "cbcff72737bc7a6bef237b1e567a3278c7fbd49a833314b6d88d8aebd6c0c8eb"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/toolchain/environment-validation/smoke-retry.py",
+      "relative_path": "toolchain/environment-validation/smoke-retry.py",
+      "bytes": 1435,
+      "sha256": "224f7b5a86998c9c4b8188c3f2cbfa8cf7bdaaec4efa16eba595110f357f6413"
+    }
+  ],
+  "total_bytes": 520720
+}

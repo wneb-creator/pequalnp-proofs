@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "source": "trace-Bone-systems.json other-index, tau=d1=d3=0",
+  "kernel_q": "-p1**2 - p3**2 - 6*p3 - p5**2 - 6",
+  "kernel_cubic": "-p1*p3*p5",
+  "kernel_quartic": "p1**4/16 + p1**2*p3**2/8 + p1**2*p3/4 + p1**2*p5**2/8 + p3**4/16 + p3**3/4 + p3**2*p5**2/8 + p3**2/2 + p3*p5**2/4 + p3/2 + p5**4/16 + 1/4",
+  "quadratic_field_polynomial": "5*p3**2 + 14*p3 + 10",
+  "quartic_identity": "5p3^2+14p3+10 = 4P-q^2/4-q*(2p3+3)",
+  "norm_identity": "p1^2+p5^2-4*(p3+1)^2=-q-(5p3^2+14p3+10)",
+  "nonzero_p3_and_p3_plus_one": "F(0)=10,F(-1)=1",
+  "symmetry_reduction": "Swap axes0 and2 and negate companion A if needed to set p5=0. Even sign flip axes0 and2 then sets p1=-2*(p3+1). These transformations preserve D_B=(0,1,0) and normalized B_A=(1,0,-1).",
+  "scope": "Exact kernel classification inside the refined exceptional B-rank-one chart; companion infeasibility not yet proved."
+}

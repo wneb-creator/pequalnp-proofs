@@ -1,0 +1,39 @@
+{
+  "status": "PASS",
+  "cases": {
+    "same": {
+      "status": "PASS",
+      "exact_Ryser_coefficients": 12,
+      "quartic_mod_quadratic_identity": true,
+      "input_generators_regenerated": 8,
+      "certificate_residual": "0",
+      "nonzero_constant": "14120524"
+    },
+    "different01": {
+      "status": "PASS",
+      "exact_Ryser_coefficients": 12,
+      "quartic_mod_quadratic_identity": true,
+      "input_generators_regenerated": 8,
+      "certificate_residual": "0",
+      "nonzero_constant": "8626"
+    },
+    "different02": {
+      "status": "PASS",
+      "exact_Ryser_coefficients": 12,
+      "quartic_mod_quadratic_identity": true,
+      "input_generators_regenerated": 8,
+      "certificate_residual": "0",
+      "nonzero_constant": "887"
+    },
+    "different12": {
+      "status": "PASS",
+      "exact_Ryser_coefficients": 12,
+      "quartic_mod_quadratic_identity": true,
+      "input_generators_regenerated": 8,
+      "certificate_residual": "0",
+      "nonzero_constant": "210"
+    }
+  },
+  "coverage_review": "Zero product ofthreebinarylinearforms hasazero factor. Cubic productidentity gives both anr_i andanU_j zero. SimultaneousS3 reduces i=j tosamecase, whereD0=0 andD-rank2normalizes remainingpair. Fori!=j choose(r0,U1)zero, hence r1=-D1; someDcoordinatepair isindependent, givingthree listedcharts. All lower-rank additionalfactorzeros remaincovered. ScopeassumesD-image rank2.",
+  "manifest_sha256": "f451c081da43bcbd44df71361b7ce0ea66fbd75d067707e9e0aa8a8170d445ba"
+}

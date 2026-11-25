@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-78/construct_search/audit_Bone_single_D.py", line 33, in <module>
+    assert S.rem(k[2],k[0],p3)==8*F
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

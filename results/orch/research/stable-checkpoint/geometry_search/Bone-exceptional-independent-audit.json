@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "certificate_sha256": "0622e96dbd17a09f22e673e3db149cd80c7960faf90b774915afaf49522a6261",
+  "source_sha256": "d91739a9f1ef62c6387be2983df45bf04a5f103372a811e2d880e587403fc8af",
+  "direct_Ryser_coefficient_comparisons": 12,
+  "kernel_identities": true,
+  "linear_inverse_and_solution": true,
+  "reduced_and_original_certificate_identities": true,
+  "vertex_symmetries": true,
+  "scope": "Only the exceptional disjoint-support B-rank-one tracezero two-plane chart. Same-index chart remains open. Algebraic certificate, not a Lean theorem.",
+  "seconds": 1.457486413000879
+}

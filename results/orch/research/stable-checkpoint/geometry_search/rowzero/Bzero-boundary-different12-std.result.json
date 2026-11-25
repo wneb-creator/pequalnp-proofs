@@ -1,0 +1,9 @@
+{
+  "case": "different12",
+  "algorithm": "std",
+  "exit_code": 0,
+  "seconds": 0.03522248999979638,
+  "input_sha256": "1e58cbd87b05746db308f8e0b6648112e5f945ef922562f82bed41518913fe76",
+  "memory_limit_mib": 256,
+  "cpu_limit_seconds": 60
+}

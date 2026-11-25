@@ -1,0 +1,6 @@
+START_DIRECT_MODULAR_LIFT
+
+Singular error: no more memory
+System 1107436k:1107436k Appl 1085450k/18761k Malloc 1343k/0k Valloc 1102868k/18761k Pages 275717/0 Regions 1310:1310 Internal: 108096
+
+halt 14

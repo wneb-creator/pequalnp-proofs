@@ -1,0 +1,7 @@
+RANK 20747 CPU 126.424404 RSS_KIB 103936 STORED_NNZ 12926941 REDUCTIONS 3620763
+PIVOT degree=2 count=4
+PIVOT degree=3 count=49
+PIVOT degree=4 count=317
+PIVOT degree=5 count=1437
+PIVOT degree=6 count=5018
+PIVOT degree=7 count=13922

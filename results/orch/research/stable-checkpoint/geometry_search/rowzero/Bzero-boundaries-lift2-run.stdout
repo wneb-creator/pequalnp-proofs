@@ -1,0 +1,4 @@
+{"case": "same", "algorithm": "lift2", "exit_code": 0, "seconds": 0.017214940000485512, "input_sha256": "35bf4e18ba5efb039bc6915418692f9b19ffc233decc3a515d2840912fe38042", "memory_limit_mib": 256, "cpu_limit_seconds": 60}
+{"case": "different01", "algorithm": "lift2", "exit_code": 0, "seconds": 0.016547244998946553, "input_sha256": "8b5105b8bbaa1fa3d9922ca29410c847e9666739a0dad8578838636f08b7a460", "memory_limit_mib": 256, "cpu_limit_seconds": 60}
+{"case": "different02", "algorithm": "lift2", "exit_code": 0, "seconds": 0.016819655000290368, "input_sha256": "9a751b237244574d6ccbf42ee7deb2dfcf7be217115fe910d529649046f11c23", "memory_limit_mib": 256, "cpu_limit_seconds": 60}
+{"case": "different12", "algorithm": "lift2", "exit_code": 0, "seconds": 0.016867468000782537, "input_sha256": "6a0dd7a3c01400cfb0c2d1d618442cee0fe236855151ecb6cde87cfcccce3f93", "memory_limit_mib": 256, "cpu_limit_seconds": 60}

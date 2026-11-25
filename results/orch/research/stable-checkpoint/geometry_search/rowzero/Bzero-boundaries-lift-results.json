@@ -1,0 +1,38 @@
+[
+  {
+    "case": "same",
+    "algorithm": "lift",
+    "exit_code": 0,
+    "seconds": 0.036318316000688355,
+    "input_sha256": "8f132c244790aedf111fc3367361fc8dd4d0bbfe1af2cfe84aaeeec389927535",
+    "memory_limit_mib": 256,
+    "cpu_limit_seconds": 60
+  },
+  {
+    "case": "different01",
+    "algorithm": "lift",
+    "exit_code": 0,
+    "seconds": 0.061462355999537976,
+    "input_sha256": "9d02c33ef932b1e1d54ccb235457aadb74d9999a03d4fd91388bf9e712c94e1c",
+    "memory_limit_mib": 256,
+    "cpu_limit_seconds": 60
+  },
+  {
+    "case": "different02",
+    "algorithm": "lift",
+    "exit_code": 0,
+    "seconds": 0.024154470000212314,
+    "input_sha256": "bbb63a6e0d42ffee45d2f0c19505f808b0b96bba022edb2255d4c018e1d98996",
+    "memory_limit_mib": 256,
+    "cpu_limit_seconds": 60
+  },
+  {
+    "case": "different12",
+    "algorithm": "lift",
+    "exit_code": 0,
+    "seconds": 0.03678613400006725,
+    "input_sha256": "821816914ec83a1478d60e0227032f6c30bd33c148728d0e1c01e117ba16a933",
+    "memory_limit_mib": 256,
+    "cpu_limit_seconds": 60
+  }
+]

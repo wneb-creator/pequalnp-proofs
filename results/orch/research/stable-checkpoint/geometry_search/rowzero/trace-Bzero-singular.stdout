@@ -1,0 +1,5 @@
+
+Singular error: no more memory
+System 58868k:58868k Appl 44521k/14327k Malloc 36321k/0k Valloc 22528k/14327k Pages 2241/3391 Regions 11:11 Internal: 1336
+
+halt 14

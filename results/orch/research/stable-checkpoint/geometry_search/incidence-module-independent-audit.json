@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "source_sha256": "5a591213eff5d830ecaef80497310d9be0122e9060aa39909382276929e8bcf6",
+  "probe_sha256": "874f442e4c8c4d31718b7a2c3a71a2e23fce22df633a431cdefad4a603725482",
+  "matrix_shape": [
+    7,
+    93
+  ],
+  "all651_entries_verified": true,
+  "first9_columns": "Transpose of audited shifted9x7 incidence matrix",
+  "last84_columns": "Each of12flat generators times each of7basis vectors, correct column10+7*generator_index+coordinate_index",
+  "target": "e7, the constant-coordinate vector",
+  "scope": "Encoding and exact-lift residual formula audit only. Modular candidate or zero remainder is not itself an exact polynomial certificate; raw lifted identity must be independently multiplied."
+}

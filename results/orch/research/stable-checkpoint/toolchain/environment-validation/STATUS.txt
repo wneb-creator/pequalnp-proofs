@@ -1,0 +1,9 @@
+Environment validation snapshot, 2026-11-25.
+
+The full checker runtime has NOT been retested after the additional432,790,536-byte private-artifact migration. The earlier unchanged-checker smoke saturated the8GiB memory limit, was deliberately stopped, and returned no verdict. Its complete stdout, stderr, memory samples and stop result are included.
+
+All272 migrated private artifacts were individually authenticated against the original cache hashes and seals, copied by the existing holder protocol to regular files, atomically substituted, and checked for exact bytes/modes/nanosecond mtimes. Holder4303 remains alive with8,640 files /2,879,900,064 bytes. No checker, runtime artifact content or permission barrier was modified.
+
+Successful no-build smoke checks cover the existing verifier, the named proof and PEqualNP.Defs. They establish that required build artifacts remain present; they do not establish full checker runtime capacity or acceptance of the posted statement. The initial metadata smoke detected omitted LeanSearchClient metadata; restoring all three child modules fixed that specific fault before migration. Both failed and successful complete logs are included.
+
+This text-only validation bundle excludes toolchain/cache binary archives, credentials, environment dumps and lease data. The full metadata-selection plan is represented by its exact hashes, selection rule, counts and required-module list; actual restore archives remain in task scratch. The migration plan and per-artifact authenticated event log are included in full. Root's sparse-checkout validation is included; no Git operation was performed by the toolchain sub-agent.

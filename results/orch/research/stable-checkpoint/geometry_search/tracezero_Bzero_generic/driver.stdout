@@ -1,0 +1,4 @@
+{"name": "identity", "exit": 0, "seconds": 0.037150849999306956, "memory_mib": 256, "cpu_seconds": 60, "completed": true, "scope": "ExactQ standard basis attempt; incomplete output gives no conclusion."}
+{"name": "swap-pair", "exit": 0, "seconds": 0.052737169000465656, "memory_mib": 256, "cpu_seconds": 60, "completed": true, "scope": "ExactQ standard basis attempt; incomplete output gives no conclusion."}
+{"name": "swap-cross", "exit": 0, "seconds": 0.03589128199928382, "memory_mib": 256, "cpu_seconds": 60, "completed": true, "scope": "ExactQ standard basis attempt; incomplete output gives no conclusion."}
+{"name": "cycle", "exit": 0, "seconds": 0.055127419998825644, "memory_mib": 256, "cpu_seconds": 60, "completed": true, "scope": "ExactQ standard basis attempt; incomplete output gives no conclusion."}

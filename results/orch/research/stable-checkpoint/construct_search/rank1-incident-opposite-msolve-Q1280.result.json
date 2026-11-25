@@ -1,0 +1,1 @@
+{"engine": "msolve_AVX2_exact_sparse_Q", "cpu_budget": 1200, "memory_mib": 1280, "wall_seconds": 140.42567651299942, "exit": 0, "scope": "Saturated opposite-edge nonzero branch only"}

@@ -1,0 +1,11 @@
+{"files": 25, "bytes_recovered": 45973784, "free": 502444032}
+{"files": 50, "bytes_recovered": 90333760, "free": 457998336}
+{"files": 75, "bytes_recovered": 133206624, "free": 415064064}
+{"files": 100, "bytes_recovered": 174944928, "free": 373268480}
+{"files": 125, "bytes_recovered": 215757264, "free": 332398592}
+{"files": 150, "bytes_recovered": 255272648, "free": 292773888}
+{"files": 175, "bytes_recovered": 293554592, "free": 254337024}
+{"files": 200, "bytes_recovered": 330726824, "free": 217006080}
+{"files": 225, "bytes_recovered": 367267256, "free": 180301824}
+{"files": 250, "bytes_recovered": 403087896, "free": 144330752}
+{"pass": true, "files": 272, "bytes_recovered_from_memfd": 432790536, "holder_before": {"ok": true, "count": 8912, "bytes": 3312690600, "pid": 4303}, "holder_after": {"ok": true, "count": 8640, "bytes": 2879900064, "pid": 4303}, "free_bytes": 114495488, "seconds": 2.170726091000688, "plan_sha256": "5c8a209e0d5480572bb1ecc6302f4a073e9c3383191b395f0a496916e6d248a6", "rollback": "If required, existing memfd-control.py store accepts these regular .olean.private paths and authenticates bytes before atomic replacement; original holder4GiB cap has room for the entire pre-migration state. No rollback needed."}

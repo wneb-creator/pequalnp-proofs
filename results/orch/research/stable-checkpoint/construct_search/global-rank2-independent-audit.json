@@ -1,0 +1,26 @@
+{
+  "verdict": "PASS independent exact symbolic Ryser audit",
+  "source_sha256": "3df17486ea8c45ffb20db0bafe1e8803ebd3518974107f494ee865043f93ffdb",
+  "charts": [
+    {
+      "name": "within01",
+      "coefficients": 31,
+      "affine_coordinate_rank": 16,
+      "verdict": "PASS"
+    },
+    {
+      "name": "within23",
+      "coefficients": 31,
+      "affine_coordinate_rank": 16,
+      "verdict": "PASS"
+    },
+    {
+      "name": "cross02",
+      "coefficients": 31,
+      "affine_coordinate_rank": 16,
+      "verdict": "PASS"
+    }
+  ],
+  "seconds": 19.41940280900053,
+  "scope": "Complete normalized diagonal-rank-two three-flat chart equations and affine parameterizations; no feasibility conclusion"
+}

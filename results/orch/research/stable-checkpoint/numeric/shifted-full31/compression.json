@@ -1,0 +1,20 @@
+[
+  {
+    "path": "D5-input.bin",
+    "raw_bytes": 2602864,
+    "sha256": "7121b15c4b72a2380673f91a6e0ae6fa0ca872a7358e52e972bdc2bdfdecea6a",
+    "compressed_bytes": 578180
+  },
+  {
+    "path": "D5-degrees.bin",
+    "raw_bytes": 175256,
+    "sha256": "313e956926cd6517a7a010306130ec008687f46ad875b3df29f481a6a6cbcceb",
+    "compressed_bytes": 67
+  },
+  {
+    "path": "D5-rowmap.json",
+    "raw_bytes": 584287,
+    "sha256": "89951396762963c3d33f5c6a035d36769929fcaaef02072e2bf2d27dcdadd6c7",
+    "compressed_bytes": 34809
+  }
+]

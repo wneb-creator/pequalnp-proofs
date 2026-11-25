@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "scope": "Independent sparse Fraction polynomial arithmetic; all12 generators checked by direct24-permutation permanent, inverse guard and redundant generator identity checked. No inconsistency certificate unless explicitly reported below.",
+  "conventions_sha256": "ec0dc37b0d4861cf17632d62571f9c278344f037f73cb985530b7a6def935ebd",
+  "generators": 13,
+  "generator_terms": [
+    7,
+    20,
+    18,
+    12,
+    50,
+    66,
+    39,
+    24,
+    58,
+    94,
+    66,
+    28,
+    6
+  ],
+  "certificate": null,
+  "seconds": 0.025644335000833962
+}

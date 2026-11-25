@@ -1,0 +1,140 @@
+{
+  "created_utc": "2026-11-25T12:33:27.074703+00:00",
+  "scope": "Exact algebraic exclusion of only the disjoint-support B-rank-one tracezero two-plane chart. Same-index B-rank-one remains open. Includes complete chart inputs, sources, failed and successful diagnostics, and an independent Ryser/certificate/symmetry audit. No Lean theorem or global L-gct-231 result is claimed.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/Bone-exceptional-independent-audit.json",
+      "relative_path": "geometry_search/Bone-exceptional-independent-audit.json",
+      "bytes": 596,
+      "sha256": "73ffcc31ccd8122e00d8018b5f62226dbd03ceb75b55059f51602a3bc12499c2"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/Bone-exceptional-independent-audit.stderr",
+      "relative_path": "geometry_search/Bone-exceptional-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/Bone-exceptional-independent-audit.stdout",
+      "relative_path": "geometry_search/Bone-exceptional-independent-audit.stdout",
+      "bytes": 574,
+      "sha256": "4296db2c4dd40fa2fba0a1d1f76c39375514edc64ba12c46e886f6b15f887fd5"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/audit_Bone_exceptional.py",
+      "relative_path": "geometry_search/audit_Bone_exceptional.py",
+      "bytes": 5170,
+      "sha256": "1bb3737231264a989d3b07ffa9cd25cf7f1734c76998b31797e01bf86260a371"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/TRACE_BONE_EXCEPTIONAL.md",
+      "relative_path": "geometry_search/rowzero/TRACE_BONE_EXCEPTIONAL.md",
+      "bytes": 2559,
+      "sha256": "8543eab32ee9f70acf1dc08efbb1014232bd5658750814315e13c4f87b596286"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/generate_trace_Bone.py",
+      "relative_path": "geometry_search/rowzero/generate_trace_Bone.py",
+      "bytes": 4796,
+      "sha256": "6c9680945ccaaca43988c11581602976920f63f1da26e3039cec07df254cd9af"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-exceptional-certificate-2.stderr",
+      "relative_path": "geometry_search/rowzero/trace-Bone-exceptional-certificate-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-exceptional-certificate-2.stdout",
+      "relative_path": "geometry_search/rowzero/trace-Bone-exceptional-certificate-2.stdout",
+      "bytes": 317,
+      "sha256": "d27b7d821950cd49060828a21ac48894142d54cac6f5dd47730cf6a74d07fd87"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-exceptional-certificate.json",
+      "relative_path": "geometry_search/rowzero/trace-Bone-exceptional-certificate.json",
+      "bytes": 4662,
+      "sha256": "0622e96dbd17a09f22e673e3db149cd80c7960faf90b774915afaf49522a6261"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-exceptional-certificate.stderr",
+      "relative_path": "geometry_search/rowzero/trace-Bone-exceptional-certificate.stderr",
+      "bytes": 234,
+      "sha256": "b0462c1cfb61257603ee7e0a660cef9b5741e975a7cd3d0a5db7a4b325337be4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-exceptional-certificate.stdout",
+      "relative_path": "geometry_search/rowzero/trace-Bone-exceptional-certificate.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-exceptional-kernel.json",
+      "relative_path": "geometry_search/rowzero/trace-Bone-exceptional-kernel.json",
+      "bytes": 901,
+      "sha256": "118e7bbad06611813e20173c5e43fa14850b7c3dd92b11babe55e144da3b6103"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-exceptional-linear.json",
+      "relative_path": "geometry_search/rowzero/trace-Bone-exceptional-linear.json",
+      "bytes": 1739,
+      "sha256": "e7176399cd96cb910c2b9f3fecb168fe3e01e112fe6d02441743fb5155107f7b"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-exceptional-linear.stderr",
+      "relative_path": "geometry_search/rowzero/trace-Bone-exceptional-linear.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-exceptional-linear.stdout",
+      "relative_path": "geometry_search/rowzero/trace-Bone-exceptional-linear.stdout",
+      "bytes": 1431,
+      "sha256": "e5a20482d66d9e1fc2221f9645049184180ffdb2ebbfa521e1a1cff84ff909c3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-generator.stderr",
+      "relative_path": "geometry_search/rowzero/trace-Bone-generator.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-generator.stdout",
+      "relative_path": "geometry_search/rowzero/trace-Bone-generator.stdout",
+      "bytes": 177,
+      "sha256": "fdf7b083e4214d9b0059056afd50e1ff0ac54cb1d4cd9e9f116e988f6d1dca8d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-other-index.sing",
+      "relative_path": "geometry_search/rowzero/trace-Bone-other-index.sing",
+      "bytes": 4873,
+      "sha256": "5ae2de05601b8d465ef8bec3e267a5b82f1cbb15b4df3891d3534dab038c07b9"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-same-index.sing",
+      "relative_path": "geometry_search/rowzero/trace-Bone-same-index.sing",
+      "bytes": 4923,
+      "sha256": "6c67e9c8d72daf4a5a31aeac80b75a47c02405c85f766ab4f36d9c0013ba1933"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-systems.json",
+      "relative_path": "geometry_search/rowzero/trace-Bone-systems.json",
+      "bytes": 14009,
+      "sha256": "d91739a9f1ef62c6387be2983df45bf04a5f103372a811e2d880e587403fc8af"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace_Bone_exceptional_certificate.py",
+      "relative_path": "geometry_search/rowzero/trace_Bone_exceptional_certificate.py",
+      "bytes": 6452,
+      "sha256": "99856118317032c846a8f40ddfd58f99b285b7a19e37b4c453990c0f04d6babc"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace_Bone_exceptional_linear.py",
+      "relative_path": "geometry_search/rowzero/trace_Bone_exceptional_linear.py",
+      "bytes": 1877,
+      "sha256": "f488abfee280a12ac41126c72a45dd19b3610cbdb0f4d44ad2cbd6b5148f3777"
+    }
+  ],
+  "file_count": 22,
+  "total_bytes": 55290
+}

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace_Bone_exceptional_certificate.py", line 44, in <module>
+    assert solution == expected
+           ^^^^^^^^^^^^^^^^^^^^
+AssertionError

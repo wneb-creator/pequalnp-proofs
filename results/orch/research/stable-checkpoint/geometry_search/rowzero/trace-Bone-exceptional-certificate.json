@@ -1,0 +1,165 @@
+{
+  "status": "PASS",
+  "source": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-Bone-systems.json",
+  "source_sha256": "d91739a9f1ef62c6387be2983df45bf04a5f103372a811e2d880e587403fc8af",
+  "scope": "Exact exclusion of the exceptional disjoint-support B-rank-one chart. The same-index B-rank-one chart is not excluded here. This is an algebraic certificate, not a Lean theorem.",
+  "field_polynomial": "5*alpha**2 + 14*alpha + 10",
+  "normalization": {
+    "tau": "0",
+    "d1": "0",
+    "d3": "0",
+    "p3": "alpha",
+    "p1": "-2*alpha - 2",
+    "p5": "0",
+    "d0": "u",
+    "d2": "v"
+  },
+  "first_variation_indices": [
+    1,
+    5,
+    10
+  ],
+  "linear_matrix": [
+    [
+      "2*alpha + 2",
+      "-alpha - 3",
+      "0"
+    ],
+    [
+      "0",
+      "0",
+      "-18*alpha/5 - 4"
+    ],
+    [
+      "-12*alpha/5 - 4",
+      "16*alpha/5 + 4",
+      "0"
+    ]
+  ],
+  "linear_rhs": [
+    "-6*alpha*u - 6*u",
+    "4*alpha*v + 4*v",
+    "12*alpha*u/5 + 4*u"
+  ],
+  "linear_determinant_mod_F": "136*alpha/25 + 48/5",
+  "linear_determinant_inverse_mod_F": "-17*alpha/16 - 11/10",
+  "linear_determinant_Bezout_F_multiplier": "289/250",
+  "linear_solution": {
+    "p0": "-12*alpha*u/5 - 5*u",
+    "p2": "16*alpha*u/5 + 4*u",
+    "p4": "-alpha*v - 14*v/5"
+  },
+  "all_reduced_residuals": [
+    "48*alpha*u**2/5 + 16*alpha*v**2/5 + 15*u**2 + 124*v**2/25 + 2",
+    "0",
+    "0",
+    "44*alpha*u**2*v/25 + 16*u**2*v/5 + u**2 - v**2",
+    "24*alpha*u*v/5 + 34*u*v/5",
+    "0",
+    "0",
+    "1536*alpha*u**4/125 - 8*alpha*u**2*v**2/5 + 96*alpha*u**2*v/125 + 224*alpha*v**4/125 - 16*alpha*v**2/5 + 473*u**4/25 - 112*u**2*v**2/25 - 32*u**2*v/25 + 2336*v**4/625 - 124*v**2/25 + 4",
+    "28*alpha*u**3/25 + 8*alpha*u*v**2/5 - 262*alpha*u*v/25 + 56*alpha*u/5 + 4*u**3/5 + 72*u*v**2/25 - 76*u*v/5 + 16*u",
+    "-12*alpha*u**2/5 + 16*alpha*v**2/5 - 72*alpha*v/5 + 12*alpha - 4*u**2 + 74*v**2/25 - 16*v + 12",
+    "0",
+    "0"
+  ],
+  "residual_generators": {
+    "q": "u**2*(48*alpha/5 + 15) + v**2*(16*alpha/5 + 124/25) + 2",
+    "c3": "u**2*v*(44*alpha/25 + 16/5) + u**2 - v**2",
+    "c2": "u*v*(24*alpha/5 + 34/5)"
+  },
+  "kappa_inverse_mod_F": "-150*alpha/29 - 415/58",
+  "kappa_Bezout_F_multiplier": "144/29",
+  "certificate_target": 4,
+  "certificate_original_indices": [
+    0,
+    3,
+    4
+  ],
+  "certificate_multipliers": [
+    "-64*alpha*u**2/5 - 499*u**2/25 + 2",
+    "4944*alpha*u**2/125 + 32*alpha/5 + 1341*u**2/25 + 248/25",
+    "-421326*alpha*u**3/18125 + 12234*alpha*u*v/725 + 112*alpha*u/145 - 136248*u**3/3625 + 248117*u*v/7250 - 192*u/725"
+  ],
+  "certificate_F_multiplier_reduced": "760656*u**4*v/90625 + 3072*u**4/125 - 145136*u**2*v**2/18125 - 54272*u**2*v/18125",
+  "certificate_F_multiplier_original_substituted": "8989848*alpha**2*u**4*v/453125 + 538296*alpha**2*u**2*v**2/18125 + 202816*alpha**2*u**2*v/18125 + 58250898*alpha*u**4*v/453125 - 1024*alpha*u**4/25 + 11160064*alpha*u**2*v**2/90625 + 4579824*alpha*u**2*v/90625 + 2486712*u**4*v/18125 - 4912*u**4/125 + 21892439*u**2*v**2/181250 + 169536*u**2*v/3625 + 32*u**2/5 + 2*v**2/5",
+  "symmetry_actions": [
+    {
+      "vertex_permutation": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "Hadamard_action": [
+        [
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "1"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "1",
+          "0",
+          "0"
+        ]
+      ]
+    },
+    {
+      "vertex_permutation": [
+        2,
+        3,
+        0,
+        1
+      ],
+      "Hadamard_action": [
+        [
+          "1",
+          "0",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "-1",
+          "0",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "1",
+          "0"
+        ],
+        [
+          "0",
+          "0",
+          "0",
+          "-1"
+        ]
+      ]
+    }
+  ],
+  "coverage": [
+    "If the B and D_B supports overlap, the same-index chart applies.",
+    "Otherwise nonzero sum-zero B has exactly two supported entries and D_B is supported on its missing coordinate: the exceptional chart.",
+    "Its kernel equations imply F(p3)=0, p1*p5=0, and p1^2+p5^2=4*(p3+1)^2; F(0)=10 and F(-1)=1.",
+    "The checked axis swap, accompanied by negating A, sets p5=0. The checked even sign flip sets p1=-2*(p3+1).",
+    "The invertible three first variations force the recorded solution.",
+    "The three remaining residuals have an exact polynomial combination equal to 4 modulo F, hence no complex solution."
+  ],
+  "seconds": 0.6318984310000815
+}

@@ -1,0 +1,108 @@
+{
+  "scope": "One exact quartic consequence of audited shifted full31 rank-three incidence chart;72-row rational certificate independently reconstructed from raw input. No global nonexistence or Lean verdict. All files frozen; raw binary matrix omitted.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/shifted-full31-closure.py",
+      "relative_path": "numeric/shifted-full31-closure.py",
+      "bytes": 3365,
+      "sha256": "e3eee1fb66f11f3d4073adf06196980d753e6b6377e36b540091c5511e6bd01f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/shifted-full31-driver.stdout",
+      "relative_path": "numeric/shifted-full31-driver.stdout",
+      "bytes": 344,
+      "sha256": "37e7caeb3e55f51a0194a33aa91cd021b4953230681ed83027e9f4eb78dab4ca"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/shifted-full31-driver.stderr",
+      "relative_path": "numeric/shifted-full31-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/shifted-full31/D5-certificates.jsonl",
+      "relative_path": "numeric/shifted-full31/D5-certificates.jsonl",
+      "bytes": 4194,
+      "sha256": "865290c7fddef8a0e748f5718e697c14f7a8cc519dfcef3d3a3c25c80d0f93b5"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/shifted-full31/D5-rowmap.json.zst",
+      "relative_path": "numeric/shifted-full31/D5-rowmap.json.zst",
+      "bytes": 34809,
+      "sha256": "f54583e793f8affa9db8a54cb907f21089f0d0e0f449be9a0a6fc196be394b7f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/shifted-full31/generators.json",
+      "relative_path": "numeric/shifted-full31/generators.json",
+      "bytes": 33597,
+      "sha256": "2f58453d6548bf5227baf35e8ee996c3e5493a022aedaf2d5f819c4918b7520a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/shifted-full31/D5.stdout",
+      "relative_path": "numeric/shifted-full31/D5.stdout",
+      "bytes": 182,
+      "sha256": "6a37b3549813efe2c6da30d5fca5379f8e3f7afcd5200c86066f614c09bd5a8d"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/shifted-full31/D5.stderr",
+      "relative_path": "numeric/shifted-full31/D5.stderr",
+      "bytes": 1099,
+      "sha256": "bf1b678e9efd171357d14c5fb5da378e244827ecbd9f440bb0aa0071653a875a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/shifted-full31/D5-result.json",
+      "relative_path": "numeric/shifted-full31/D5-result.json",
+      "bytes": 371,
+      "sha256": "ee58c46d4dd38422f984e30a7ebf312e631d4328c024cc482d12a2b35be2322a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/shifted-full31/new-quartic.json",
+      "relative_path": "numeric/shifted-full31/new-quartic.json",
+      "bytes": 5932,
+      "sha256": "b917ebbdc820c85ab7f45e09518068f8e479cb26bb15e096ca4c5fc725a6b8cd"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/shifted-full31/new-quartic.txt",
+      "relative_path": "numeric/shifted-full31/new-quartic.txt",
+      "bytes": 3556,
+      "sha256": "7486f9c94f39e3a36833647772968214bd0ee4ca83027ad0f4d52750d0a3b6c3"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/numeric/shifted-full31/compression.json",
+      "relative_path": "numeric/shifted-full31/compression.json",
+      "bytes": 527,
+      "sha256": "fab9ed809e5904c1cea477f20c5b572df144e52157099fe6c356a9e0ddafb68f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/tracezero_rankdrop/full31-shifted.json",
+      "relative_path": "geometry_search/tracezero_rankdrop/full31-shifted.json",
+      "bytes": 32849,
+      "sha256": "bace3d725a70b6b512b262dc2c8664519d75ab956adf24fad4d38038a54c6c52"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/shifted-new-quartic-independent-audit.stderr",
+      "relative_path": "geometry_search/shifted-new-quartic-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/audit_shifted_new_quartic.py",
+      "relative_path": "geometry_search/audit_shifted_new_quartic.py",
+      "bytes": 2195,
+      "sha256": "9787d127c0c20705cb4116c3da1327d62d5e53df3408875ea2ca6d1f8bbcb379"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/shifted-new-quartic-independent-audit.json",
+      "relative_path": "geometry_search/shifted-new-quartic-independent-audit.json",
+      "bytes": 578,
+      "sha256": "09fd0fb08590fba4042dc1ea59974f6e4c6fc2ddfc7598bf3b14d1d349e1d742"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/shifted-new-quartic-independent-audit.stdout",
+      "relative_path": "geometry_search/shifted-new-quartic-independent-audit.stdout",
+      "bytes": 578,
+      "sha256": "09fd0fb08590fba4042dc1ea59974f6e4c6fc2ddfc7598bf3b14d1d349e1d742"
+    }
+  ],
+  "total_bytes": 124176
+}

@@ -1,0 +1,12 @@
+{
+  "architecture": "avx2",
+  "environment_mode": "fixed",
+  "address_space_mib": 512,
+  "exit": -11,
+  "wall_seconds": 0.033683315999951446,
+  "cpu_seconds": 0.017882,
+  "max_rss_kib": 8448,
+  "stdout_bytes": 0,
+  "stderr_bytes": 62,
+  "input_sha256": "5af1419f335c00bd6e7b6177a71a736595cac7bdb1c25d74bc09a4d381f0792d"
+}

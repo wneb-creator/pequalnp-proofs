@@ -1,0 +1,6 @@
+{
+  "utc": "2026-11-25T12:35:54.429141+00:00",
+  "status": "interrupted_inconclusive",
+  "reason": "Use tested bounded slimgb callback extracting only unit cofactors before CRT instead of reconstructing entire syzygy basis",
+  "process_sample": "    PID     ELAPSED     TIME   RSS\n  26060       04:38 00:02:14 168040\n"
+}

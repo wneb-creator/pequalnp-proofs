@@ -1,0 +1,20 @@
+[
+  {
+    "path": "D7-input.bin",
+    "raw_bytes": 8784064,
+    "sha256": "a4ea8ddf29e9f9ade2336b4936c5c0b8b4dde7456fbcfc42bf40cd5dade9549d",
+    "compressed_bytes": 1677246
+  },
+  {
+    "path": "D7-degrees.bin",
+    "raw_bytes": 226304,
+    "sha256": "17470eca906d8bf1986dc0b8be06970ba76d80506a078a3f124dddbca8378bf8",
+    "compressed_bytes": 81
+  },
+  {
+    "path": "D7-rowmap.json",
+    "raw_bytes": 864098,
+    "sha256": "2f6697780495e594430984e837b06a79f3d84601fcdc62cc3ad4d02314e93183",
+    "compressed_bytes": 45040
+  }
+]

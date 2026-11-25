@@ -1,0 +1,9 @@
+{
+  "case": "same",
+  "algorithm": "lift2",
+  "exit_code": 0,
+  "seconds": 0.017214940000485512,
+  "input_sha256": "35bf4e18ba5efb039bc6915418692f9b19ffc233decc3a515d2840912fe38042",
+  "memory_limit_mib": 256,
+  "cpu_limit_seconds": 60
+}

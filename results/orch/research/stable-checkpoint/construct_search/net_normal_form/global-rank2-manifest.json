@@ -1,0 +1,52 @@
+{
+  "created_utc": "2026-11-25T12:17:20.400705+00:00",
+  "scope": "Complete three-chart cover of global symmetric 3-flats with diagonal projection rank 2 and permanent(J+T)=24. No claim of existence or inconsistency.",
+  "status": "GENERATION_AND_288_EXACT_RYSER_EVALUATIONS_PASS",
+  "files": [
+    {
+      "path": "construct_search/net_normal_form/global_rank2_3flat_charts.py",
+      "bytes": 9561,
+      "sha256": "7fefa092ee8cb7801f90ca9973e5422843522d91978d65260075713741730975"
+    },
+    {
+      "path": "construct_search/net_normal_form/GLOBAL-RANK2-CHARTS.md",
+      "bytes": 3150,
+      "sha256": "6dfec5b01da511a963fa636cd16c881d7398e0cb6bbd4e845e3ab01dbc7ceb2d"
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-charts.json",
+      "bytes": 426280,
+      "sha256": "3df17486ea8c45ffb20db0bafe1e8803ebd3518974107f494ee865043f93ffdb"
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-cross02.ms",
+      "bytes": 33678,
+      "sha256": "12d466e29835ec3cc16fdd04e8aba3610d2dd9f33890aa6a422b73a902a996e8"
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-generation-summary.json",
+      "bytes": 208,
+      "sha256": "cba67847208e8abc51135c53ebb4e6fbae48f0e9464812141b1a9b94da9efa94"
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-generation.stdout",
+      "bytes": 616,
+      "sha256": "ec332fe9cfca20d2225228217f7c076d0e6ac25d13f799f4b6d16129f594ac34"
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-within01.ms",
+      "bytes": 20528,
+      "sha256": "17cabda62c12ede0393598d0b82231f3a28f7134eebfbab1de6fad847b3037b7"
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-within23.ms",
+      "bytes": 38789,
+      "sha256": "29620e7294f41a5e193efa82dc7e11f410718e7254ac82589ae80cde338b807d"
+    }
+  ]
+}

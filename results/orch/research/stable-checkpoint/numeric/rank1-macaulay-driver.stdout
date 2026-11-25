@@ -1,0 +1,1 @@
+{"source_sha256": "db969d69315964f6524155b9afa6fe8e1fe7d8a72a65ed376bee34e487a85e3a", "degree": 7, "rows": 24752, "columns": 31824, "nnz": 549003, "exit": -24, "wall_seconds": 78.13555823399838, "scope": "Bounded degree7 constant-membership diagnostic over F1000000007 only; no characteristic-zero certificate."}

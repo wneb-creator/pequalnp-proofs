@@ -1,0 +1,7 @@
+{
+  "exit_code": 14,
+  "seconds": 11.702232579998963,
+  "memory_limit_mib": 256,
+  "cpu_limit_seconds": 60,
+  "scope": "Exact B-projection-rank-zero branch of tracezero D-rank-two planes in the normalized D=(s,t,ks+lt) chart. No nonemptiness or coverage conclusion assumed."
+}

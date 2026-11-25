@@ -1,0 +1,5061 @@
+{
+  "schema_version": 1,
+  "frozen_utc": "2026-11-25T12:42:13.570018+00:00",
+  "source_manifests": [
+    {
+      "path": "geometry_search/Bzero-preservation-manifest.json",
+      "bytes": 41519,
+      "sha256": "49996ba72ace6edae0dcf3199b1fde21e29ec35e9d2147fe12d725c9aec42ca2",
+      "entries": 136,
+      "scope": "Complete algebraic exclusion of B-rank-zero, D-rank-two tracezero two-planes via four generic UFD charts and four zero-factor boundary charts. Exact identities and complete chart coverage independently reviewed. Not yet Lean formalized; no global L-gct-231 result. RankB1 and global extension cases remain open."
+    },
+    {
+      "path": "geometry_search/Bone-exceptional-preservation-manifest.json",
+      "bytes": 7052,
+      "sha256": "409c81b15ce40168f50994acfbc08e1c8590095369c7521ece4c0f00359648a3",
+      "entries": 22,
+      "scope": "Exact algebraic exclusion of only the disjoint-support B-rank-one tracezero two-plane chart. Same-index B-rank-one remains open. Includes complete chart inputs, sources, failed and successful diagnostics, and an independent Ryser/certificate/symmetry audit. No Lean theorem or global L-gct-231 result is claimed."
+    },
+    {
+      "path": "geometry_search/rowzero/Bone-single-D-preservation-manifest.json",
+      "bytes": 7183,
+      "sha256": "a77d4abb11c1c7ee38ce626b7fe166ca70ce6132c7c981f74e7116c7a3d11eda",
+      "entries": 21,
+      "scope": "Exact algebraic exclusion of same-index B-projection-rank-one trace-zero planes whose B=0 kernel direction has D support one. Not a Lean theorem, not the generic B-rank-one exclusion, and not the posted L-gct-231 result."
+    },
+    {
+      "path": "geometry_search/full32-inputs-preservation-manifest.json",
+      "bytes": 8360,
+      "sha256": "c0d596c4bb82c5c5f530df343d5894ecc678436845a456294a5c729b289fd377",
+      "entries": 27,
+      "scope": "Frozen full32 modular CAS inputs and exact extra-quartic audit; completed inconclusive weaker21-equation baseline; completed inconclusive original module probe and exact encoding audit. The full32 native run is active and its growing logs are deliberately excluded. No global infeasibility or Lean checker verdict is claimed."
+    },
+    {
+      "path": "numeric/shifted-quartic-preservation-manifest.json",
+      "bytes": 4944,
+      "sha256": "9c07e1ac77663c371cea28f6627cbf9b9931ebc74a22a26dc18dca0a815ffde4",
+      "entries": 17,
+      "scope": "One exact quartic consequence of audited shifted full31 rank-three incidence chart;72-row rational certificate independently reconstructed from raw input. No global nonexistence or Lean verdict. All files frozen; raw binary matrix omitted."
+    },
+    {
+      "path": "geometry_search/transported-quartics-preservation-manifest.json",
+      "bytes": 4697,
+      "sha256": "5e95765e0a6b4b4c9f7686976dee39d68becb124a8aa0cd1f85761ea9ed1a71e",
+      "entries": 15,
+      "scope": "Exact 24 reduced canonical quartic consequences independently verified and transported to the shifted tracezero chart. All31 original coefficient relations and all24 identities checked before/after substitution. Necessary identities only; no infeasibility, Lean theorem, or full-gap result. Large regenerable native input binaries omitted; proof identities and standalone Python verifier included."
+    },
+    {
+      "path": "toolchain/environment-validation-manifest.json",
+      "bytes": 10599,
+      "sha256": "d5e927588fb0fbcbd93b0b1e88c8bf63b51d8b56243ea481881ad37927502935",
+      "entries": 33,
+      "scope": "Frozen text-only environment validation. Full checker runtime NOT retested after432,790,536-byte migration; successful checks are no-build artifact freshness checks only. No acceptance/refutation verdict."
+    },
+    {
+      "path": "construct_search/rank1-candidate-checkpoint-manifest.json",
+      "bytes": 12117,
+      "sha256": "ac5a5e1f0af7627d1fb6f47bc063a6efe27a705f50b29683635535d62e587207",
+      "entries": 60,
+      "scope": "Single-prime unit candidate only; exact certificate not yet recovered. Complete global rank2 chart coefficient audit PASS. Graph module interrupted inconclusively and superseded by active direct modular lift; active files excluded."
+    },
+    {
+      "path": "construct_search/rank1-lift-checkpoint-manifest.json",
+      "bytes": 2273,
+      "sha256": "0ceb46695d7618f95f68c7518e93009a3407f020ebaa7b020a9318ca56b2b1d9",
+      "entries": 11,
+      "scope": "Direct modular lift did not produce a certificate. Small linear reduction is exact algebra modulo hollow constraints only, no nonexistence conclusion."
+    },
+    {
+      "path": "construct_search/rank1-slimgb-checkpoint-manifest.json",
+      "bytes": 1838,
+      "sha256": "efcc2209ae215e366481490bdfe9cc59c27df62ac60910caad05789080086233",
+      "entries": 8,
+      "scope": "Full slimgb graph module recovery stopped after134CPU seconds to switch to focused unit-cofactor reconstruction. No unit or rational certificate produced. Active bounded callback excluded."
+    },
+    {
+      "path": "numeric/completed-module-D7-preservation-manifest.json",
+      "bytes": 8642,
+      "sha256": "26cf797c917661b8f9960e6508e7e2f277e005a02e67c6f3debc456e4a8219b6",
+      "entries": 30,
+      "scope": "Frozen completed diagnostics. Original93-generator incidence module modStd memory-failed exit14/72.3wall seconds before any membership verdict. Rank1D7 first run hit60CPU; one longer run completed126.42CPU/rank20747 with no constant overF1000000007. This excludes that bounded modular row span only, not a Q or global result. No process is active on these files. Active slimgb replacement and augmented-quartic work excluded. Raw regenerable binary matrices/native executables omitted."
+    }
+  ],
+  "snapshots": [
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/NOTES.md",
+      "path": "snapshots/NOTES.md",
+      "captured_utc": "2026-11-25T12:42:13.674222+00:00",
+      "sha256": "c083fddeb5dc62665ffd6d7903d4d2df3aa8824bc854ac091a7ef5f019d1d3d8",
+      "redactions": 0
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch/TIMELINE.md",
+      "path": "snapshots/TIMELINE.md",
+      "captured_utc": "2026-11-25T12:42:13.675829+00:00",
+      "sha256": "f8c6b6b61c4cb7277af4d4279902edd4aee879e4516daa0db017fa1875c6a1aa",
+      "redactions": 0
+    }
+  ],
+  "files": [
+    {
+      "path": "AUDIT.json",
+      "bytes": 546,
+      "sha256": "ff22ef536cb43109c4b9a619a3ccf5db28d01f8ab52da8c860b40ecd3dcca2fc",
+      "decoded_bytes": 546,
+      "decoded_sha256": "ff22ef536cb43109c4b9a619a3ccf5db28d01f8ab52da8c860b40ecd3dcca2fc",
+      "evidence_class": [
+        "checkpoint-audit-and-scope"
+      ],
+      "provenance": [
+        "generated packaging record"
+      ]
+    },
+    {
+      "path": "README.md",
+      "bytes": 4176,
+      "sha256": "6318e31eda12ada74abf792fba85cf339115d3676491af53ac5128e747c11088",
+      "decoded_bytes": 4176,
+      "decoded_sha256": "6318e31eda12ada74abf792fba85cf339115d3676491af53ac5128e747c11088",
+      "evidence_class": [
+        "checkpoint-audit-and-scope"
+      ],
+      "provenance": [
+        "generated packaging record"
+      ]
+    },
+    {
+      "path": "construct_search/Bone-single-D-independent-audit-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/Bone-single-D-independent-audit-2.stdout",
+      "bytes": 1452,
+      "sha256": "a35579c1a7a888b6fbf32c7bde5e1108a27ee82d5e1c447ab0a39e7687fee8fe",
+      "decoded_bytes": 1452,
+      "decoded_sha256": "a35579c1a7a888b6fbf32c7bde5e1108a27ee82d5e1c447ab0a39e7687fee8fe",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/Bone-single-D-independent-audit.json",
+      "bytes": 1628,
+      "sha256": "a7f1266ce375240082bd019c514d46792b0943c4f3f817b50da0e9384c8bd26b",
+      "decoded_bytes": 1628,
+      "decoded_sha256": "a7f1266ce375240082bd019c514d46792b0943c4f3f817b50da0e9384c8bd26b",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/Bone-single-D-independent-audit.stderr",
+      "bytes": 220,
+      "sha256": "8af08a4d6cbb0e53403c6619b1513f559db1fb235b08060f5aadd2db22ffec7f",
+      "decoded_bytes": 220,
+      "decoded_sha256": "8af08a4d6cbb0e53403c6619b1513f559db1fb235b08060f5aadd2db22ffec7f",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/Bone-single-D-independent-audit.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/audit_Bone_single_D.py",
+      "bytes": 5017,
+      "sha256": "411992e905894bea1de88d76a3c5bc2b08e98a6147ad645ead36b8c2411be461",
+      "decoded_bytes": 5017,
+      "decoded_sha256": "411992e905894bea1de88d76a3c5bc2b08e98a6147ad645ead36b8c2411be461",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/audit_global_rank2.py",
+      "bytes": 3427,
+      "sha256": "4bf82b17704cb537d7c63042421cf9eec9faf78e54349def0981335865d21859",
+      "decoded_bytes": 3427,
+      "decoded_sha256": "4bf82b17704cb537d7c63042421cf9eec9faf78e54349def0981335865d21859",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/global-rank2-independent-audit.json",
+      "bytes": 709,
+      "sha256": "a3d08cc1748ef4675c2abddc5899ee58b8cfe50ed538c0b95e2e3068d733aefe",
+      "decoded_bytes": 709,
+      "decoded_sha256": "a3d08cc1748ef4675c2abddc5899ee58b8cfe50ed538c0b95e2e3068d733aefe",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/global-rank2-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/global-rank2-independent-audit.stdout",
+      "bytes": 860,
+      "sha256": "42f64fbfa879f54c13e0214ddaa46a13e00e4da3cee807b41f29a84443e5271c",
+      "decoded_bytes": 860,
+      "decoded_sha256": "42f64fbfa879f54c13e0214ddaa46a13e00e4da3cee807b41f29a84443e5271c",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/msolve-smoke.ms",
+      "bytes": 18,
+      "sha256": "5af1419f335c00bd6e7b6177a71a736595cac7bdb1c25d74bc09a4d381f0792d",
+      "decoded_bytes": 18,
+      "decoded_sha256": "5af1419f335c00bd6e7b6177a71a736595cac7bdb1c25d74bc09a4d381f0792d",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/GLOBAL-RANK2-CHARTS.md",
+      "bytes": 3150,
+      "sha256": "6dfec5b01da511a963fa636cd16c881d7398e0cb6bbd4e845e3ab01dbc7ceb2d",
+      "decoded_bytes": 3150,
+      "decoded_sha256": "6dfec5b01da511a963fa636cd16c881d7398e0cb6bbd4e845e3ab01dbc7ceb2d",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/diagnose_msolve.py",
+      "bytes": 2168,
+      "sha256": "fd5cba118d27345da6f049aedac1556c8be72d8dbe762f75ad462a51db7af229",
+      "decoded_bytes": 2168,
+      "decoded_sha256": "fd5cba118d27345da6f049aedac1556c8be72d8dbe762f75ad462a51db7af229",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-charts.json",
+      "bytes": 426280,
+      "sha256": "3df17486ea8c45ffb20db0bafe1e8803ebd3518974107f494ee865043f93ffdb",
+      "decoded_bytes": 426280,
+      "decoded_sha256": "3df17486ea8c45ffb20db0bafe1e8803ebd3518974107f494ee865043f93ffdb",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-cross02.ms",
+      "bytes": 33678,
+      "sha256": "12d466e29835ec3cc16fdd04e8aba3610d2dd9f33890aa6a422b73a902a996e8",
+      "decoded_bytes": 33678,
+      "decoded_sha256": "12d466e29835ec3cc16fdd04e8aba3610d2dd9f33890aa6a422b73a902a996e8",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-generation-summary.json",
+      "bytes": 208,
+      "sha256": "cba67847208e8abc51135c53ebb4e6fbae48f0e9464812141b1a9b94da9efa94",
+      "decoded_bytes": 208,
+      "decoded_sha256": "cba67847208e8abc51135c53ebb4e6fbae48f0e9464812141b1a9b94da9efa94",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-generation.stdout",
+      "bytes": 616,
+      "sha256": "ec332fe9cfca20d2225228217f7c076d0e6ac25d13f799f4b6d16129f594ac34",
+      "decoded_bytes": 616,
+      "decoded_sha256": "ec332fe9cfca20d2225228217f7c076d0e6ac25d13f799f4b6d16129f594ac34",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-manifest.json",
+      "bytes": 2053,
+      "sha256": "192879f1b202c898b77b7e719b27f9a82aaae93b47e12965c0098945c2c5ff1e",
+      "decoded_bytes": 2053,
+      "decoded_sha256": "192879f1b202c898b77b7e719b27f9a82aaae93b47e12965c0098945c2c5ff1e",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-within01.ms",
+      "bytes": 20528,
+      "sha256": "17cabda62c12ede0393598d0b82231f3a28f7134eebfbab1de6fad847b3037b7",
+      "decoded_bytes": 20528,
+      "decoded_sha256": "17cabda62c12ede0393598d0b82231f3a28f7134eebfbab1de6fad847b3037b7",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/global-rank2-within23.ms",
+      "bytes": 38789,
+      "sha256": "29620e7294f41a5e193efa82dc7e11f410718e7254ac82589ae80cde338b807d",
+      "decoded_bytes": 38789,
+      "decoded_sha256": "29620e7294f41a5e193efa82dc7e11f410718e7254ac82589ae80cde338b807d",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/global_rank2_3flat_charts.py",
+      "bytes": 9561,
+      "sha256": "7fefa092ee8cb7801f90ca9973e5422843522d91978d65260075713741730975",
+      "decoded_bytes": 9561,
+      "decoded_sha256": "7fefa092ee8cb7801f90ca9973e5422843522d91978d65260075713741730975",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280-trace.json",
+      "bytes": 322,
+      "sha256": "10674ef4a29712d8436120c94d15941d5ee43331208e5bb22f137f669a3798cd",
+      "decoded_bytes": 322,
+      "decoded_sha256": "10674ef4a29712d8436120c94d15941d5ee43331208e5bb22f137f669a3798cd",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280-trace.memory-trace",
+      "bytes": 6716,
+      "sha256": "00f19ae305585c03e6569c32dc955a9c078a543602cf41a40e21961596bb6d9c",
+      "decoded_bytes": 6716,
+      "decoded_sha256": "00f19ae305585c03e6569c32dc955a9c078a543602cf41a40e21961596bb6d9c",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280-trace.out",
+      "bytes": 6,
+      "sha256": "0333251e6ebb3890ef547f522ec55f27f0cef9a860998757e31f3e1b819e7490",
+      "decoded_bytes": 6,
+      "decoded_sha256": "0333251e6ebb3890ef547f522ec55f27f0cef9a860998757e31f3e1b819e7490",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280-trace.stderr",
+      "bytes": 3191,
+      "sha256": "426f7702acf68c15663730bf1e2a81803c21cb982d2ee30e8a4527151aa04f07",
+      "decoded_bytes": 3191,
+      "decoded_sha256": "426f7702acf68c15663730bf1e2a81803c21cb982d2ee30e8a4527151aa04f07",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280-trace.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280.json",
+      "bytes": 323,
+      "sha256": "3275ce2c47d7c00290cda73708861936d465e1d873c07af4b8f8ee34d4286cde",
+      "decoded_bytes": 323,
+      "decoded_sha256": "3275ce2c47d7c00290cda73708861936d465e1d873c07af4b8f8ee34d4286cde",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280.out",
+      "bytes": 6,
+      "sha256": "0333251e6ebb3890ef547f522ec55f27f0cef9a860998757e31f3e1b819e7490",
+      "decoded_bytes": 6,
+      "decoded_sha256": "0333251e6ebb3890ef547f522ec55f27f0cef9a860998757e31f3e1b819e7490",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280.stderr",
+      "bytes": 3191,
+      "sha256": "30f4f47a0db29461d223a35af8d15800084f95efd8c74cdb7e5c9db306d7b153",
+      "decoded_bytes": 3191,
+      "decoded_sha256": "30f4f47a0db29461d223a35af8d15800084f95efd8c74cdb7e5c9db306d7b153",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-1280.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-512-trace.json",
+      "bytes": 322,
+      "sha256": "ab534a906673ce562191bee4dda4eb47b7c183f5a1c0f9fda0f796d553d2aa47",
+      "decoded_bytes": 322,
+      "decoded_sha256": "ab534a906673ce562191bee4dda4eb47b7c183f5a1c0f9fda0f796d553d2aa47",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-512-trace.memory-trace",
+      "bytes": 6946,
+      "sha256": "e98912bd7576448e2b5f593d6e834c2e728234cb07494abe09418e296ea4d1c0",
+      "decoded_bytes": 6946,
+      "decoded_sha256": "e98912bd7576448e2b5f593d6e834c2e728234cb07494abe09418e296ea4d1c0",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-512-trace.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-512-trace.stderr",
+      "bytes": 62,
+      "sha256": "a0292477916683cd530a0a530c4a5d9f76f1b311e9fdcd2e8868c5f9dc811bea",
+      "decoded_bytes": 62,
+      "decoded_sha256": "a0292477916683cd530a0a530c4a5d9f76f1b311e9fdcd2e8868c5f9dc811bea",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-fixed-512-trace.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-inherited-512.json",
+      "bytes": 325,
+      "sha256": "dfbf2ebc327a109c4f10efe848ac7bc14931d02285f90c8eeb682795f358aeab",
+      "decoded_bytes": 325,
+      "decoded_sha256": "dfbf2ebc327a109c4f10efe848ac7bc14931d02285f90c8eeb682795f358aeab",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-inherited-512.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-inherited-512.stderr",
+      "bytes": 62,
+      "sha256": "9a63362fd1b8c04b0d8c63159b5cb03061796106966e9eac8c3c052565a5668a",
+      "decoded_bytes": 62,
+      "decoded_sha256": "9a63362fd1b8c04b0d8c63159b5cb03061796106966e9eac8c3c052565a5668a",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-avx2-inherited-512.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-baseline-fixed-512.json",
+      "bytes": 326,
+      "sha256": "c80118be256423f8c2c16891edf275b5b6c40aefa9d8bfbcacbf5473bfa6412b",
+      "decoded_bytes": 326,
+      "decoded_sha256": "c80118be256423f8c2c16891edf275b5b6c40aefa9d8bfbcacbf5473bfa6412b",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-baseline-fixed-512.out",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-baseline-fixed-512.stderr",
+      "bytes": 62,
+      "sha256": "9a63362fd1b8c04b0d8c63159b5cb03061796106966e9eac8c3c052565a5668a",
+      "decoded_bytes": 62,
+      "decoded_sha256": "9a63362fd1b8c04b0d8c63159b5cb03061796106966e9eac8c3c052565a5668a",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-baseline-fixed-512.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-help.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-help.stdout",
+      "bytes": 7778,
+      "sha256": "4bd2218f9e4f152576f7f775578d4fb8593cf3729868d9656e51c545df7b0970",
+      "decoded_bytes": 7778,
+      "decoded_sha256": "4bd2218f9e4f152576f7f775578d4fb8593cf3729868d9656e51c545df7b0970",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-manifest.json",
+      "bytes": 6202,
+      "sha256": "eef8ec67003e7f4c714b66b1046b7a6e48801c39ab84984655fc1ae65ab59f52",
+      "decoded_bytes": 6202,
+      "decoded_sha256": "eef8ec67003e7f4c714b66b1046b7a6e48801c39ab84984655fc1ae65ab59f52",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-strace-help.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-strace-help.stdout",
+      "bytes": 9814,
+      "sha256": "683a562c1d4a0e0abd681a1b678d14b685bc4b89428d0fbb1425c36d3d5b2a90",
+      "decoded_bytes": 9814,
+      "decoded_sha256": "683a562c1d4a0e0abd681a1b678d14b685bc4b89428d0fbb1425c36d3d5b2a90",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/net_normal_form/msolve-diagnosis-summary.json",
+      "bytes": 2819,
+      "sha256": "ef5f77e41ff92e2ff799db88bc103cb7a72b69eef92034b03cddf0195736dc47",
+      "decoded_bytes": 2819,
+      "decoded_sha256": "ef5f77e41ff92e2ff799db88bc103cb7a72b69eef92034b03cddf0195736dc47",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-candidate-checkpoint-manifest.json",
+      "bytes": 12117,
+      "sha256": "ac5a5e1f0af7627d1fb6f47bc063a6efe27a705f50b29683635535d62e587207",
+      "decoded_bytes": 12117,
+      "decoded_sha256": "ac5a5e1f0af7627d1fb6f47bc063a6efe27a705f50b29683635535d62e587207",
+      "evidence_class": [
+        "source-manifest"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-certificate-conventions.json",
+      "bytes": 118416,
+      "sha256": "ec0dc37b0d4861cf17632d62571f9c278344f037f73cb985530b7a6def935ebd",
+      "decoded_bytes": 118416,
+      "decoded_sha256": "ec0dc37b0d4861cf17632d62571f9c278344f037f73cb985530b7a6def935ebd",
+      "evidence_class": [
+        "exact-generator-conventions"
+      ],
+      "provenance": [
+        "explicit frozen supplemental artifact"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-graph-interruption.json",
+      "bytes": 277,
+      "sha256": "5c2ea749f35a21105147466c509fca3642b712cf4e41b4a5e4ded15417cb0c3b",
+      "decoded_bytes": 277,
+      "decoded_sha256": "5c2ea749f35a21105147466c509fca3642b712cf4e41b4a5e4ded15417cb0c3b",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-graph-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-graph-run.stdout",
+      "bytes": 197,
+      "sha256": "e1d986bbec831e04180fbeee18d516d1b73b00eef959077f6ef10d64facb5eb5",
+      "decoded_bytes": 197,
+      "decoded_sha256": "e1d986bbec831e04180fbeee18d516d1b73b00eef959077f6ef10d64facb5eb5",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-graph-Q.result.json",
+      "bytes": 197,
+      "sha256": "e1d986bbec831e04180fbeee18d516d1b73b00eef959077f6ef10d64facb5eb5",
+      "decoded_bytes": 197,
+      "decoded_sha256": "e1d986bbec831e04180fbeee18d516d1b73b00eef959077f6ef10d64facb5eb5",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-graph-Q.sing",
+      "bytes": 6264,
+      "sha256": "1bf4bbebd3d2d7c69b6670120470c4d1dd30f0f53645a2fb113f322ae1405cc4",
+      "decoded_bytes": 6264,
+      "decoded_sha256": "1bf4bbebd3d2d7c69b6670120470c4d1dd30f0f53645a2fb113f322ae1405cc4",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-graph-Q.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-graph-Q.stdout",
+      "bytes": 19,
+      "sha256": "0adf1af274833db7566a62f383a1cf51ae8fc41189c1301c58b10c8935c9d8cc",
+      "decoded_bytes": 19,
+      "decoded_sha256": "0adf1af274833db7566a62f383a1cf51ae8fc41189c1301c58b10c8935c9d8cc",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-lift-Q.result.json",
+      "bytes": 193,
+      "sha256": "c67b2e14e147176d6fe4917f4e61a4dcc0c36f3419ec39fb05baa7c5bfa0df36",
+      "decoded_bytes": 193,
+      "decoded_sha256": "c67b2e14e147176d6fe4917f4e61a4dcc0c36f3419ec39fb05baa7c5bfa0df36",
+      "evidence_class": [
+        "inconclusive-certificate-recovery"
+      ],
+      "provenance": [
+        "construct_search/rank1-lift-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-lift-Q.sing",
+      "bytes": 6341,
+      "sha256": "520dd326e3d18ace5f623c896a4a1d9b722b2a301661cab28e82b2fc358631a8",
+      "decoded_bytes": 6341,
+      "decoded_sha256": "520dd326e3d18ace5f623c896a4a1d9b722b2a301661cab28e82b2fc358631a8",
+      "evidence_class": [
+        "inconclusive-certificate-recovery"
+      ],
+      "provenance": [
+        "construct_search/rank1-lift-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-lift-Q.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "inconclusive-certificate-recovery"
+      ],
+      "provenance": [
+        "construct_search/rank1-lift-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-lift-Q.stdout",
+      "bytes": 202,
+      "sha256": "ee0a385fedd6941a22766a1a32f25a613adcdd2fbd04bccf023f9a44285597b2",
+      "decoded_bytes": 202,
+      "decoded_sha256": "ee0a385fedd6941a22766a1a32f25a613adcdd2fbd04bccf023f9a44285597b2",
+      "evidence_class": [
+        "inconclusive-certificate-recovery"
+      ],
+      "provenance": [
+        "construct_search/rank1-lift-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-msolve-Q1280.out",
+      "bytes": 6,
+      "sha256": "0333251e6ebb3890ef547f522ec55f27f0cef9a860998757e31f3e1b819e7490",
+      "decoded_bytes": 6,
+      "decoded_sha256": "0333251e6ebb3890ef547f522ec55f27f0cef9a860998757e31f3e1b819e7490",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-msolve-Q1280.result.json",
+      "bytes": 184,
+      "sha256": "d38ca6fa52132ad4a998a3d0ea098111a562f585f01d8ee95a733948fd5398ba",
+      "decoded_bytes": 184,
+      "decoded_sha256": "d38ca6fa52132ad4a998a3d0ea098111a562f585f01d8ee95a733948fd5398ba",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-msolve-Q1280.stderr",
+      "bytes": 6492,
+      "sha256": "74073ed03874ff6409c1ebb5139eae39cd0bc2a0f9dbac738ba8d433ffe0b7db",
+      "decoded_bytes": 6492,
+      "decoded_sha256": "74073ed03874ff6409c1ebb5139eae39cd0bc2a0f9dbac738ba8d433ffe0b7db",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-msolve-Q1280.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-nonzero-Q.ms",
+      "bytes": 5633,
+      "sha256": "db969d69315964f6524155b9afa6fe8e1fe7d8a72a65ed376bee34e487a85e3a",
+      "decoded_bytes": 5633,
+      "decoded_sha256": "db969d69315964f6524155b9afa6fe8e1fe7d8a72a65ed376bee34e487a85e3a",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits",
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json",
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-slimgb-graph-Q.result.json",
+      "bytes": 202,
+      "sha256": "a68721353b99467cc285d569ece497c9024c0818a302f30f960b5fac663597b8",
+      "decoded_bytes": 202,
+      "decoded_sha256": "a68721353b99467cc285d569ece497c9024c0818a302f30f960b5fac663597b8",
+      "evidence_class": [
+        "inconclusive-certificate-recovery"
+      ],
+      "provenance": [
+        "construct_search/rank1-slimgb-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-slimgb-graph-Q.sing",
+      "bytes": 6286,
+      "sha256": "6012d4ea311462baa87031ddec04ba8732792fe22702ec7c859d0fb1e9e94e19",
+      "decoded_bytes": 6286,
+      "decoded_sha256": "6012d4ea311462baa87031ddec04ba8732792fe22702ec7c859d0fb1e9e94e19",
+      "evidence_class": [
+        "inconclusive-certificate-recovery"
+      ],
+      "provenance": [
+        "construct_search/rank1-slimgb-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-slimgb-graph-Q.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "inconclusive-certificate-recovery"
+      ],
+      "provenance": [
+        "construct_search/rank1-slimgb-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-slimgb-graph-Q.stdout",
+      "bytes": 25,
+      "sha256": "f00a4fa32148aaceab5d9d4b55b64b55d9fb52759160d8c8759856db42e4baba",
+      "decoded_bytes": 25,
+      "decoded_sha256": "f00a4fa32148aaceab5d9d4b55b64b55d9fb52759160d8c8759856db42e4baba",
+      "evidence_class": [
+        "inconclusive-certificate-recovery"
+      ],
+      "provenance": [
+        "construct_search/rank1-slimgb-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-lift-checkpoint-manifest.json",
+      "bytes": 2273,
+      "sha256": "0ceb46695d7618f95f68c7518e93009a3407f020ebaa7b020a9318ca56b2b1d9",
+      "decoded_bytes": 2273,
+      "decoded_sha256": "0ceb46695d7618f95f68c7518e93009a3407f020ebaa7b020a9318ca56b2b1d9",
+      "evidence_class": [
+        "source-manifest"
+      ],
+      "provenance": [
+        "construct_search/rank1-lift-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-lift-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "inconclusive-certificate-recovery"
+      ],
+      "provenance": [
+        "construct_search/rank1-lift-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-lift-run.stdout",
+      "bytes": 193,
+      "sha256": "c67b2e14e147176d6fe4917f4e61a4dcc0c36f3419ec39fb05baa7c5bfa0df36",
+      "decoded_bytes": 193,
+      "decoded_sha256": "c67b2e14e147176d6fe4917f4e61a4dcc0c36f3419ec39fb05baa7c5bfa0df36",
+      "evidence_class": [
+        "inconclusive-certificate-recovery"
+      ],
+      "provenance": [
+        "construct_search/rank1-lift-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-linear-reduction.json",
+      "bytes": 1120,
+      "sha256": "967f4790840fe2e9ba128dc1a10b0993b6fce37fcc82c50db4f5e09e5bf08584",
+      "decoded_bytes": 1120,
+      "decoded_sha256": "967f4790840fe2e9ba128dc1a10b0993b6fce37fcc82c50db4f5e09e5bf08584",
+      "evidence_class": [
+        "inconclusive-certificate-recovery"
+      ],
+      "provenance": [
+        "construct_search/rank1-lift-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-linear-reduction.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "inconclusive-certificate-recovery"
+      ],
+      "provenance": [
+        "construct_search/rank1-lift-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-linear-reduction.stdout",
+      "bytes": 1881,
+      "sha256": "8cd327b5c32652a18157ea6b632f421e2e75b04938892160e6c1493c9f8741f6",
+      "decoded_bytes": 1881,
+      "decoded_sha256": "8cd327b5c32652a18157ea6b632f421e2e75b04938892160e6c1493c9f8741f6",
+      "evidence_class": [
+        "inconclusive-certificate-recovery"
+      ],
+      "provenance": [
+        "construct_search/rank1-lift-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-msolve-big-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-msolve-big-run.stdout",
+      "bytes": 184,
+      "sha256": "d38ca6fa52132ad4a998a3d0ea098111a562f585f01d8ee95a733948fd5398ba",
+      "decoded_bytes": 184,
+      "decoded_sha256": "d38ca6fa52132ad4a998a3d0ea098111a562f585f01d8ee95a733948fd5398ba",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-slimgb-checkpoint-manifest.json",
+      "bytes": 1838,
+      "sha256": "efcc2209ae215e366481490bdfe9cc59c27df62ac60910caad05789080086233",
+      "decoded_bytes": 1838,
+      "decoded_sha256": "efcc2209ae215e366481490bdfe9cc59c27df62ac60910caad05789080086233",
+      "evidence_class": [
+        "source-manifest"
+      ],
+      "provenance": [
+        "construct_search/rank1-slimgb-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-slimgb-graph-interruption.json",
+      "bytes": 323,
+      "sha256": "f8fb9e357c1d2d7042f72a21fa6af18745dd558861da4f01a649ed3c0dd70467",
+      "decoded_bytes": 323,
+      "decoded_sha256": "f8fb9e357c1d2d7042f72a21fa6af18745dd558861da4f01a649ed3c0dd70467",
+      "evidence_class": [
+        "inconclusive-certificate-recovery"
+      ],
+      "provenance": [
+        "construct_search/rank1-slimgb-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-slimgb-graph-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "inconclusive-certificate-recovery"
+      ],
+      "provenance": [
+        "construct_search/rank1-slimgb-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1-slimgb-graph-run.stdout",
+      "bytes": 202,
+      "sha256": "a68721353b99467cc285d569ece497c9024c0818a302f30f960b5fac663597b8",
+      "decoded_bytes": 202,
+      "decoded_sha256": "a68721353b99467cc285d569ece497c9024c0818a302f30f960b5fac663597b8",
+      "evidence_class": [
+        "inconclusive-certificate-recovery"
+      ],
+      "provenance": [
+        "construct_search/rank1-slimgb-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/rank1_linear_reduction.py",
+      "bytes": 1416,
+      "sha256": "44f7d14d7f8255bfd155e6a75b5abffe0b8185243c780f9f0f7b303f0c3d0ea1",
+      "decoded_bytes": 1416,
+      "decoded_sha256": "44f7d14d7f8255bfd155e6a75b5abffe0b8185243c780f9f0f7b303f0c3d0ea1",
+      "evidence_class": [
+        "inconclusive-certificate-recovery"
+      ],
+      "provenance": [
+        "construct_search/rank1-lift-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/run_rank1_graph.py",
+      "bytes": 1289,
+      "sha256": "2d39956b131a3d0521bdfdf3c341f84cf2eb8d83fbf5d495868d16eef675fd2e",
+      "decoded_bytes": 1289,
+      "decoded_sha256": "2d39956b131a3d0521bdfdf3c341f84cf2eb8d83fbf5d495868d16eef675fd2e",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/run_rank1_lift.py",
+      "bytes": 1288,
+      "sha256": "cbad3e0ecda116eabddebd2f45271a0136cf175a0840f3062170549adfa79452",
+      "decoded_bytes": 1288,
+      "decoded_sha256": "cbad3e0ecda116eabddebd2f45271a0136cf175a0840f3062170549adfa79452",
+      "evidence_class": [
+        "inconclusive-certificate-recovery"
+      ],
+      "provenance": [
+        "construct_search/rank1-lift-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/run_rank1_msolve_big.py",
+      "bytes": 1311,
+      "sha256": "23f7890d5919ec91e48dc3d0e1f18c7879912015a0b9687abaec7c33e54c24a3",
+      "decoded_bytes": 1311,
+      "decoded_sha256": "23f7890d5919ec91e48dc3d0e1f18c7879912015a0b9687abaec7c33e54c24a3",
+      "evidence_class": [
+        "single-prime-candidate-and-exact-chart-audits"
+      ],
+      "provenance": [
+        "construct_search/rank1-candidate-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "construct_search/run_rank1_slimgb_graph.py",
+      "bytes": 1302,
+      "sha256": "3d3b2b300a60b7f85479ed2e8f254d83b31c1eea6b0be1e1b50a2bf05147b3f0",
+      "decoded_bytes": 1302,
+      "decoded_sha256": "3d3b2b300a60b7f85479ed2e8f254d83b31c1eea6b0be1e1b50a2bf05147b3f0",
+      "evidence_class": [
+        "inconclusive-certificate-recovery"
+      ],
+      "provenance": [
+        "construct_search/rank1-slimgb-checkpoint-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/Bone-exceptional-independent-audit.json",
+      "bytes": 596,
+      "sha256": "73ffcc31ccd8122e00d8018b5f62226dbd03ceb75b55059f51602a3bc12499c2",
+      "decoded_bytes": 596,
+      "decoded_sha256": "73ffcc31ccd8122e00d8018b5f62226dbd03ceb75b55059f51602a3bc12499c2",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/Bone-exceptional-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/Bone-exceptional-independent-audit.stdout",
+      "bytes": 574,
+      "sha256": "4296db2c4dd40fa2fba0a1d1f76c39375514edc64ba12c46e886f6b15f887fd5",
+      "decoded_bytes": 574,
+      "decoded_sha256": "4296db2c4dd40fa2fba0a1d1f76c39375514edc64ba12c46e886f6b15f887fd5",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/Bone-exceptional-preservation-manifest.json",
+      "bytes": 7052,
+      "sha256": "409c81b15ce40168f50994acfbc08e1c8590095369c7521ece4c0f00359648a3",
+      "decoded_bytes": 7052,
+      "decoded_sha256": "409c81b15ce40168f50994acfbc08e1c8590095369c7521ece4c0f00359648a3",
+      "evidence_class": [
+        "source-manifest"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/Bzero-boundaries-independent-audit.json",
+      "bytes": 1503,
+      "sha256": "9c522a46f6294539d191932c184fe2c40bdcdf25305034bb62ffe0ad38762b86",
+      "decoded_bytes": 1503,
+      "decoded_sha256": "9c522a46f6294539d191932c184fe2c40bdcdf25305034bb62ffe0ad38762b86",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/Bzero-boundaries-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/Bzero-boundaries-independent-audit.stdout",
+      "bytes": 1503,
+      "sha256": "9c522a46f6294539d191932c184fe2c40bdcdf25305034bb62ffe0ad38762b86",
+      "decoded_bytes": 1503,
+      "decoded_sha256": "9c522a46f6294539d191932c184fe2c40bdcdf25305034bb62ffe0ad38762b86",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/Bzero-preservation-manifest.json",
+      "bytes": 41519,
+      "sha256": "49996ba72ace6edae0dcf3199b1fde21e29ec35e9d2147fe12d725c9aec42ca2",
+      "decoded_bytes": 41519,
+      "decoded_sha256": "49996ba72ace6edae0dcf3199b1fde21e29ec35e9d2147fe12d725c9aec42ca2",
+      "evidence_class": [
+        "source-manifest"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/audit_Bone_exceptional.py",
+      "bytes": 5170,
+      "sha256": "1bb3737231264a989d3b07ffa9cd25cf7f1734c76998b31797e01bf86260a371",
+      "decoded_bytes": 5170,
+      "decoded_sha256": "1bb3737231264a989d3b07ffa9cd25cf7f1734c76998b31797e01bf86260a371",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/audit_Bzero_boundaries.py",
+      "bytes": 2945,
+      "sha256": "78c656bf242c95eee08d266db86b28b13ca3ae6777fc69b8878371d71ff31348",
+      "decoded_bytes": 2945,
+      "decoded_sha256": "78c656bf242c95eee08d266db86b28b13ca3ae6777fc69b8878371d71ff31348",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/audit_incidence_module.py",
+      "bytes": 1888,
+      "sha256": "ee620843f2d6441abea7d982329c9bbeb3237087c760d13c19a4614d4321bf04",
+      "decoded_bytes": 1888,
+      "decoded_sha256": "ee620843f2d6441abea7d982329c9bbeb3237087c760d13c19a4614d4321bf04",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/audit_shifted_new_quartic.py",
+      "bytes": 2195,
+      "sha256": "9787d127c0c20705cb4116c3da1327d62d5e53df3408875ea2ca6d1f8bbcb379",
+      "decoded_bytes": 2195,
+      "decoded_sha256": "9787d127c0c20705cb4116c3da1327d62d5e53df3408875ea2ca6d1f8bbcb379",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics",
+        "exact-necessary-identity"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json",
+        "numeric/shifted-quartic-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/extract_Bzero_generic_certificates.py",
+      "bytes": 2744,
+      "sha256": "68bca8bb28d996fbfab98fe0c1d4589732c1075cb194646510fb2482359b6315",
+      "decoded_bytes": 2744,
+      "decoded_sha256": "68bca8bb28d996fbfab98fe0c1d4589732c1075cb194646510fb2482359b6315",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/full32-inputs-preservation-manifest.json",
+      "bytes": 8360,
+      "sha256": "c0d596c4bb82c5c5f530df343d5894ecc678436845a456294a5c729b289fd377",
+      "decoded_bytes": 8360,
+      "decoded_sha256": "c0d596c4bb82c5c5f530df343d5894ecc678436845a456294a5c729b289fd377",
+      "evidence_class": [
+        "source-manifest"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/generate_Bzero_generic.py",
+      "bytes": 3480,
+      "sha256": "a9501e48bdf1d1f85063cf217dfdc493837f942934ed2197f470bd85fa888d94",
+      "decoded_bytes": 3480,
+      "decoded_sha256": "a9501e48bdf1d1f85063cf217dfdc493837f942934ed2197f470bd85fa888d94",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/hadamard-rank-three-source-audit.json",
+      "bytes": 876,
+      "sha256": "7d43d7939da35a19501d5e68fb5497963ee64b3a2166bff698e7ff90539933ec",
+      "decoded_bytes": 876,
+      "decoded_sha256": "7d43d7939da35a19501d5e68fb5497963ee64b3a2166bff698e7ff90539933ec",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/incidence-module-independent-audit.json",
+      "bytes": 725,
+      "sha256": "3a2b6f2bffc8a478ea1dfcd581b95f1cc54dd36a37b9040f2300b5b3b3cff8ca",
+      "decoded_bytes": 725,
+      "decoded_sha256": "3a2b6f2bffc8a478ea1dfcd581b95f1cc54dd36a37b9040f2300b5b3b3cff8ca",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics",
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json",
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/incidence-module-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics",
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json",
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/incidence-module-independent-audit.stdout",
+      "bytes": 725,
+      "sha256": "3a2b6f2bffc8a478ea1dfcd581b95f1cc54dd36a37b9040f2300b5b3b3cff8ca",
+      "decoded_bytes": 725,
+      "decoded_sha256": "3a2b6f2bffc8a478ea1dfcd581b95f1cc54dd36a37b9040f2300b5b3b3cff8ca",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics",
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json",
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bone-single-D-preservation-manifest.json",
+      "bytes": 7183,
+      "sha256": "a77d4abb11c1c7ee38ce626b7fe166ca70ce6132c7c981f74e7116c7a3d11eda",
+      "decoded_bytes": 7183,
+      "decoded_sha256": "a77d4abb11c1c7ee38ce626b7fe166ca70ce6132c7c981f74e7116c7a3d11eda",
+      "evidence_class": [
+        "source-manifest"
+      ],
+      "provenance": [
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundaries-generator.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundaries-generator.stdout",
+      "bytes": 401,
+      "sha256": "7704a7652e0055385c5baacb5451b12713987d730ff19c733d44d55633f902ba",
+      "decoded_bytes": 401,
+      "decoded_sha256": "7704a7652e0055385c5baacb5451b12713987d730ff19c733d44d55633f902ba",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundaries-lift-results.json",
+      "bytes": 1047,
+      "sha256": "0e05de243d3d55357360483ff235c36f397eeab16ca28defc83d7d0d8f7b604a",
+      "decoded_bytes": 1047,
+      "decoded_sha256": "0e05de243d3d55357360483ff235c36f397eeab16ca28defc83d7d0d8f7b604a",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundaries-lift-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundaries-lift-run.stdout",
+      "bytes": 904,
+      "sha256": "c04ea75cd79534709d3f19bcaaa4df9861d9a1ac46239b22bfbdb6f11e8d3648",
+      "decoded_bytes": 904,
+      "decoded_sha256": "c04ea75cd79534709d3f19bcaaa4df9861d9a1ac46239b22bfbdb6f11e8d3648",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundaries-lift2-results.json",
+      "bytes": 1052,
+      "sha256": "079b9ebdce6699c9ae9902f35e91fdfd234db40667a27d779a7e7159b6dcffb7",
+      "decoded_bytes": 1052,
+      "decoded_sha256": "079b9ebdce6699c9ae9902f35e91fdfd234db40667a27d779a7e7159b6dcffb7",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundaries-lift2-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundaries-lift2-run.stdout",
+      "bytes": 909,
+      "sha256": "8efb923603d7f3951b633f79a5c7a7b9a5eeaa2d71c32c40c962abf64f2a374f",
+      "decoded_bytes": 909,
+      "decoded_sha256": "8efb923603d7f3951b633f79a5c7a7b9a5eeaa2d71c32c40c962abf64f2a374f",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundaries-manifest.json",
+      "bytes": 3216,
+      "sha256": "f451c081da43bcbd44df71361b7ce0ea66fbd75d067707e9e0aa8a8170d445ba",
+      "decoded_bytes": 3216,
+      "decoded_sha256": "f451c081da43bcbd44df71361b7ce0ea66fbd75d067707e9e0aa8a8170d445ba",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundaries-std-results.json",
+      "bytes": 1040,
+      "sha256": "e0a965b27617b3f8f6e56b65afedd7b80a314dfc89ebbc44f54ff89399cb097a",
+      "decoded_bytes": 1040,
+      "decoded_sha256": "e0a965b27617b3f8f6e56b65afedd7b80a314dfc89ebbc44f54ff89399cb097a",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundaries-std-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundaries-std-run.stdout",
+      "bytes": 897,
+      "sha256": "0d9176f6167553d45553cd83604b899bef7fca8ce3e6ff3a6376837207354aaf",
+      "decoded_bytes": 897,
+      "decoded_sha256": "0d9176f6167553d45553cd83604b899bef7fca8ce3e6ff3a6376837207354aaf",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-certificates-verified.json",
+      "bytes": 6478,
+      "sha256": "620b2bfe57ccf36dbbcc5d6e593cba11ec48ca87a50f7906d7b532606676b65e",
+      "decoded_bytes": 6478,
+      "decoded_sha256": "620b2bfe57ccf36dbbcc5d6e593cba11ec48ca87a50f7906d7b532606676b65e",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-certificates-verified.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-certificates-verified.stdout",
+      "bytes": 1392,
+      "sha256": "a4ea11c49e47d0a35562c57e63475b734b0961fa98f2434448c0cb37409547b9",
+      "decoded_bytes": 1392,
+      "decoded_sha256": "a4ea11c49e47d0a35562c57e63475b734b0961fa98f2434448c0cb37409547b9",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-coverage.md",
+      "bytes": 2727,
+      "sha256": "cf1f5510ea90afa457f290dd2d0e862aae20c9dcec7eb1eb3da5f4c04fd0d4d5",
+      "decoded_bytes": 2727,
+      "decoded_sha256": "cf1f5510ea90afa457f290dd2d0e862aae20c9dcec7eb1eb3da5f4c04fd0d4d5",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different01-lift.result.json",
+      "bytes": 244,
+      "sha256": "8f0c1488ae609cf3ce7791e4e16a2d8741f9f81c73b0b31953eb4d3d4520f3cc",
+      "decoded_bytes": 244,
+      "decoded_sha256": "8f0c1488ae609cf3ce7791e4e16a2d8741f9f81c73b0b31953eb4d3d4520f3cc",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different01-lift.sing",
+      "bytes": 728,
+      "sha256": "9d02c33ef932b1e1d54ccb235457aadb74d9999a03d4fd91388bf9e712c94e1c",
+      "decoded_bytes": 728,
+      "decoded_sha256": "9d02c33ef932b1e1d54ccb235457aadb74d9999a03d4fd91388bf9e712c94e1c",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different01-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different01-lift.stdout",
+      "bytes": 29,
+      "sha256": "5947a0cbbfe053d598bfdac14d8d318459e24763fb2634b1c0babf3afac9f4af",
+      "decoded_bytes": 29,
+      "decoded_sha256": "5947a0cbbfe053d598bfdac14d8d318459e24763fb2634b1c0babf3afac9f4af",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different01-lift2.result.json",
+      "bytes": 245,
+      "sha256": "374bec7f2dda84c0940784228e029a2162f69c85e259b9b9dbadd885c114ac56",
+      "decoded_bytes": 245,
+      "decoded_sha256": "374bec7f2dda84c0940784228e029a2162f69c85e259b9b9dbadd885c114ac56",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different01-lift2.sing",
+      "bytes": 800,
+      "sha256": "8b5105b8bbaa1fa3d9922ca29410c847e9666739a0dad8578838636f08b7a460",
+      "decoded_bytes": 800,
+      "decoded_sha256": "8b5105b8bbaa1fa3d9922ca29410c847e9666739a0dad8578838636f08b7a460",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different01-lift2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different01-lift2.stdout",
+      "bytes": 1071,
+      "sha256": "13c793b551779c19027aaccf92d75905bb41c065ee465a6960d66e35322c32b9",
+      "decoded_bytes": 1071,
+      "decoded_sha256": "13c793b551779c19027aaccf92d75905bb41c065ee465a6960d66e35322c32b9",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different01-std.result.json",
+      "bytes": 242,
+      "sha256": "1e8cc2adeb0b28aa89e4cd365f21f6f968325afb78cac3ab9bf4f10449b2a55d",
+      "decoded_bytes": 242,
+      "decoded_sha256": "1e8cc2adeb0b28aa89e4cd365f21f6f968325afb78cac3ab9bf4f10449b2a55d",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different01-std.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different01-std.stdout",
+      "bytes": 39,
+      "sha256": "4c45b32fb88c6d2959e7a972cc2308a619c9fa16977b9091b36088386546a2fd",
+      "decoded_bytes": 39,
+      "decoded_sha256": "4c45b32fb88c6d2959e7a972cc2308a619c9fa16977b9091b36088386546a2fd",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different01.sing",
+      "bytes": 564,
+      "sha256": "60acf789f6a5ab0f1e659cb8535853b8a1ceed7f1e0cbc865dcf17f65187fe05",
+      "decoded_bytes": 564,
+      "decoded_sha256": "60acf789f6a5ab0f1e659cb8535853b8a1ceed7f1e0cbc865dcf17f65187fe05",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different02-lift.result.json",
+      "bytes": 244,
+      "sha256": "c7bfa1aea315446ccedec8e6f9a77b8d7bd20f113dca50c01b89a4431ae72e68",
+      "decoded_bytes": 244,
+      "decoded_sha256": "c7bfa1aea315446ccedec8e6f9a77b8d7bd20f113dca50c01b89a4431ae72e68",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different02-lift.sing",
+      "bytes": 571,
+      "sha256": "bbb63a6e0d42ffee45d2f0c19505f808b0b96bba022edb2255d4c018e1d98996",
+      "decoded_bytes": 571,
+      "decoded_sha256": "bbb63a6e0d42ffee45d2f0c19505f808b0b96bba022edb2255d4c018e1d98996",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different02-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different02-lift.stdout",
+      "bytes": 28,
+      "sha256": "87f11bfcb8804171dff6461213f8b09bacc9e0ffcd3e53c2018e48d343028d80",
+      "decoded_bytes": 28,
+      "decoded_sha256": "87f11bfcb8804171dff6461213f8b09bacc9e0ffcd3e53c2018e48d343028d80",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different02-lift2.result.json",
+      "bytes": 245,
+      "sha256": "9e52ac41a6613cdaf3a85be186b3fa88c78ac08f0e3ed6dbfa4712d855cbf148",
+      "decoded_bytes": 245,
+      "decoded_sha256": "9e52ac41a6613cdaf3a85be186b3fa88c78ac08f0e3ed6dbfa4712d855cbf148",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different02-lift2.sing",
+      "bytes": 643,
+      "sha256": "9a751b237244574d6ccbf42ee7deb2dfcf7be217115fe910d529649046f11c23",
+      "decoded_bytes": 643,
+      "decoded_sha256": "9a751b237244574d6ccbf42ee7deb2dfcf7be217115fe910d529649046f11c23",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different02-lift2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different02-lift2.stdout",
+      "bytes": 781,
+      "sha256": "90aa7a22562381ccaa2703593f1b8cb3b1f7d38afb9128bfed5c28c165235908",
+      "decoded_bytes": 781,
+      "decoded_sha256": "90aa7a22562381ccaa2703593f1b8cb3b1f7d38afb9128bfed5c28c165235908",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different02-std.result.json",
+      "bytes": 243,
+      "sha256": "72912a9fd7b1ea4592a48b56b2bec18a10fcc26b3f5a574f91b403a1029650a1",
+      "decoded_bytes": 243,
+      "decoded_sha256": "72912a9fd7b1ea4592a48b56b2bec18a10fcc26b3f5a574f91b403a1029650a1",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different02-std.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different02-std.stdout",
+      "bytes": 39,
+      "sha256": "4c45b32fb88c6d2959e7a972cc2308a619c9fa16977b9091b36088386546a2fd",
+      "decoded_bytes": 39,
+      "decoded_sha256": "4c45b32fb88c6d2959e7a972cc2308a619c9fa16977b9091b36088386546a2fd",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different02.sing",
+      "bytes": 407,
+      "sha256": "3bf843e1183ac7e45b04e35d8579da17e22fa0d6c3962bf6f39bd93f3eb2a2bf",
+      "decoded_bytes": 407,
+      "decoded_sha256": "3bf843e1183ac7e45b04e35d8579da17e22fa0d6c3962bf6f39bd93f3eb2a2bf",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different12-lift.result.json",
+      "bytes": 243,
+      "sha256": "1faad6853f09d82244a48f3f26c46e0b6f7bcdb5c47f2699ddb80cb62684e819",
+      "decoded_bytes": 243,
+      "decoded_sha256": "1faad6853f09d82244a48f3f26c46e0b6f7bcdb5c47f2699ddb80cb62684e819",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different12-lift.sing",
+      "bytes": 553,
+      "sha256": "821816914ec83a1478d60e0227032f6c30bd33c148728d0e1c01e117ba16a933",
+      "decoded_bytes": 553,
+      "decoded_sha256": "821816914ec83a1478d60e0227032f6c30bd33c148728d0e1c01e117ba16a933",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different12-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different12-lift.stdout",
+      "bytes": 28,
+      "sha256": "93e131ff8c6bcff7882189e29b95d85f36dda07179f3fc37b348f8f87d772682",
+      "decoded_bytes": 28,
+      "decoded_sha256": "93e131ff8c6bcff7882189e29b95d85f36dda07179f3fc37b348f8f87d772682",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different12-lift2.result.json",
+      "bytes": 245,
+      "sha256": "bcec1f5adcf78ae6cde9f15e02367bcd52eb601dd600b064b7c5d4f4e02d16fc",
+      "decoded_bytes": 245,
+      "decoded_sha256": "bcec1f5adcf78ae6cde9f15e02367bcd52eb601dd600b064b7c5d4f4e02d16fc",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different12-lift2.sing",
+      "bytes": 625,
+      "sha256": "6a0dd7a3c01400cfb0c2d1d618442cee0fe236855151ecb6cde87cfcccce3f93",
+      "decoded_bytes": 625,
+      "decoded_sha256": "6a0dd7a3c01400cfb0c2d1d618442cee0fe236855151ecb6cde87cfcccce3f93",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different12-lift2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different12-lift2.stdout",
+      "bytes": 745,
+      "sha256": "d8c6c835a50e53c956928dc954a5c861e218cac3bcb63f250e463c9485673e2c",
+      "decoded_bytes": 745,
+      "decoded_sha256": "d8c6c835a50e53c956928dc954a5c861e218cac3bcb63f250e463c9485673e2c",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different12-std.result.json",
+      "bytes": 242,
+      "sha256": "346bcacc48949f7df0b821baf750b95c4e0a156e632249bf27ae3f1b1e6d9b95",
+      "decoded_bytes": 242,
+      "decoded_sha256": "346bcacc48949f7df0b821baf750b95c4e0a156e632249bf27ae3f1b1e6d9b95",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different12-std.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different12-std.stdout",
+      "bytes": 39,
+      "sha256": "4c45b32fb88c6d2959e7a972cc2308a619c9fa16977b9091b36088386546a2fd",
+      "decoded_bytes": 39,
+      "decoded_sha256": "4c45b32fb88c6d2959e7a972cc2308a619c9fa16977b9091b36088386546a2fd",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-different12.sing",
+      "bytes": 389,
+      "sha256": "1e58cbd87b05746db308f8e0b6648112e5f945ef922562f82bed41518913fe76",
+      "decoded_bytes": 389,
+      "decoded_sha256": "1e58cbd87b05746db308f8e0b6648112e5f945ef922562f82bed41518913fe76",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-same-lift.result.json",
+      "bytes": 237,
+      "sha256": "b8afe3a92399d6db0647fcd9a3c798b95be7eb1a59d770b48a46ac0cb21c8f1c",
+      "decoded_bytes": 237,
+      "decoded_sha256": "b8afe3a92399d6db0647fcd9a3c798b95be7eb1a59d770b48a46ac0cb21c8f1c",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-same-lift.sing",
+      "bytes": 499,
+      "sha256": "8f132c244790aedf111fc3367361fc8dd4d0bbfe1af2cfe84aaeeec389927535",
+      "decoded_bytes": 499,
+      "decoded_sha256": "8f132c244790aedf111fc3367361fc8dd4d0bbfe1af2cfe84aaeeec389927535",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-same-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-same-lift.stdout",
+      "bytes": 33,
+      "sha256": "9b9be3af11c49fac50e83bc780ae8f8ac472614adadb6478835c25a2d171647a",
+      "decoded_bytes": 33,
+      "decoded_sha256": "9b9be3af11c49fac50e83bc780ae8f8ac472614adadb6478835c25a2d171647a",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-same-lift2.result.json",
+      "bytes": 238,
+      "sha256": "54abf1d7e18289ebe7909dd1e0249d3ed200100d99bde107e8b1cb01c161bc42",
+      "decoded_bytes": 238,
+      "decoded_sha256": "54abf1d7e18289ebe7909dd1e0249d3ed200100d99bde107e8b1cb01c161bc42",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-same-lift2.sing",
+      "bytes": 571,
+      "sha256": "35bf4e18ba5efb039bc6915418692f9b19ffc233decc3a515d2840912fe38042",
+      "decoded_bytes": 571,
+      "decoded_sha256": "35bf4e18ba5efb039bc6915418692f9b19ffc233decc3a515d2840912fe38042",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-same-lift2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-same-lift2.stdout",
+      "bytes": 452,
+      "sha256": "c241530e2ece56fa347f68afc62057a86bf6bea3bb59e6039a7eb6c2d1b6f978",
+      "decoded_bytes": 452,
+      "decoded_sha256": "c241530e2ece56fa347f68afc62057a86bf6bea3bb59e6039a7eb6c2d1b6f978",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-same-std.result.json",
+      "bytes": 234,
+      "sha256": "97e88a92715758966cec7597274ce136151cea0585fbf409a4e9e2dfa1fb1975",
+      "decoded_bytes": 234,
+      "decoded_sha256": "97e88a92715758966cec7597274ce136151cea0585fbf409a4e9e2dfa1fb1975",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-same-std.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-same-std.stdout",
+      "bytes": 39,
+      "sha256": "4c45b32fb88c6d2959e7a972cc2308a619c9fa16977b9091b36088386546a2fd",
+      "decoded_bytes": 39,
+      "decoded_sha256": "4c45b32fb88c6d2959e7a972cc2308a619c9fa16977b9091b36088386546a2fd",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-boundary-same.sing",
+      "bytes": 335,
+      "sha256": "381a0a41ef8914afb48694c1dbeae5d0c74e246a4fcd486d6324d7a1d237ff83",
+      "decoded_bytes": 335,
+      "decoded_sha256": "381a0a41ef8914afb48694c1dbeae5d0c74e246a4fcd486d6324d7a1d237ff83",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-generic-independent-audit.json",
+      "bytes": 2266,
+      "sha256": "3a00ffe4517420765ceb6e1f7b711007268376eccb7840511a7dc766dddf89db",
+      "decoded_bytes": 2266,
+      "decoded_sha256": "3a00ffe4517420765ceb6e1f7b711007268376eccb7840511a7dc766dddf89db",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-generic-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/Bzero-generic-independent-audit.stdout",
+      "bytes": 1313,
+      "sha256": "9f660bc8fbec95b3ed8f748cc14ba2ce8d24f06fb66a5651565d3ec2e3d044e0",
+      "decoded_bytes": 1313,
+      "decoded_sha256": "9f660bc8fbec95b3ed8f748cc14ba2ce8d24f06fb66a5651565d3ec2e3d044e0",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/TRACE_BONE_EXCEPTIONAL.md",
+      "bytes": 2559,
+      "sha256": "8543eab32ee9f70acf1dc08efbb1014232bd5658750814315e13c4f87b596286",
+      "decoded_bytes": 2559,
+      "decoded_sha256": "8543eab32ee9f70acf1dc08efbb1014232bd5658750814315e13c4f87b596286",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/audit_Bzero_generic.py",
+      "bytes": 3991,
+      "sha256": "95cdae9df2699bbe9bed562d32f6a013e1c5a5c4950e90e0280c79289d580d9b",
+      "decoded_bytes": 3991,
+      "decoded_sha256": "95cdae9df2699bbe9bed562d32f6a013e1c5a5c4950e90e0280c79289d580d9b",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/generate_Bzero_boundaries.py",
+      "bytes": 2859,
+      "sha256": "72dc655d76ad4d45928e489c3108cba35fe1fb32d25f8570c5e92288b1836212",
+      "decoded_bytes": 2859,
+      "decoded_sha256": "72dc655d76ad4d45928e489c3108cba35fe1fb32d25f8570c5e92288b1836212",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/generate_trace_Bone.py",
+      "bytes": 4796,
+      "sha256": "6c9680945ccaaca43988c11581602976920f63f1da26e3039cec07df254cd9af",
+      "decoded_bytes": 4796,
+      "decoded_sha256": "6c9680945ccaaca43988c11581602976920f63f1da26e3039cec07df254cd9af",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json",
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/run_Bzero_boundaries.py",
+      "bytes": 2506,
+      "sha256": "039c4b488f45e37aa9e26f7baaf065d232a6593e55fa5a1b0dc3f33e0a6ec368",
+      "decoded_bytes": 2506,
+      "decoded_sha256": "039c4b488f45e37aa9e26f7baaf065d232a6593e55fa5a1b0dc3f33e0a6ec368",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/run_trace_Bzero.py",
+      "bytes": 3526,
+      "sha256": "edfa216c394bbd4202fe77007a34a9dc85e1c8d2dbd000112a246d4b5fcabed7",
+      "decoded_bytes": 3526,
+      "decoded_sha256": "edfa216c394bbd4202fe77007a34a9dc85e1c8d2dbd000112a246d4b5fcabed7",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/run_trace_Bzero_std.py",
+      "bytes": 1538,
+      "sha256": "4ca620edb23fe816b37969dfc7efa4303d1fd5638c1d3165a9097dbc1ba5d3ce",
+      "decoded_bytes": 1538,
+      "decoded_sha256": "4ca620edb23fe816b37969dfc7efa4303d1fd5638c1d3165a9097dbc1ba5d3ce",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-exceptional-certificate-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-exceptional-certificate-2.stdout",
+      "bytes": 317,
+      "sha256": "d27b7d821950cd49060828a21ac48894142d54cac6f5dd47730cf6a74d07fd87",
+      "decoded_bytes": 317,
+      "decoded_sha256": "d27b7d821950cd49060828a21ac48894142d54cac6f5dd47730cf6a74d07fd87",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-exceptional-certificate.json",
+      "bytes": 4662,
+      "sha256": "0622e96dbd17a09f22e673e3db149cd80c7960faf90b774915afaf49522a6261",
+      "decoded_bytes": 4662,
+      "decoded_sha256": "0622e96dbd17a09f22e673e3db149cd80c7960faf90b774915afaf49522a6261",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-exceptional-certificate.stderr",
+      "bytes": 234,
+      "sha256": "b0462c1cfb61257603ee7e0a660cef9b5741e975a7cd3d0a5db7a4b325337be4",
+      "decoded_bytes": 234,
+      "decoded_sha256": "b0462c1cfb61257603ee7e0a660cef9b5741e975a7cd3d0a5db7a4b325337be4",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-exceptional-certificate.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-exceptional-kernel.json",
+      "bytes": 901,
+      "sha256": "118e7bbad06611813e20173c5e43fa14850b7c3dd92b11babe55e144da3b6103",
+      "decoded_bytes": 901,
+      "decoded_sha256": "118e7bbad06611813e20173c5e43fa14850b7c3dd92b11babe55e144da3b6103",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-exceptional-linear.json",
+      "bytes": 1739,
+      "sha256": "e7176399cd96cb910c2b9f3fecb168fe3e01e112fe6d02441743fb5155107f7b",
+      "decoded_bytes": 1739,
+      "decoded_sha256": "e7176399cd96cb910c2b9f3fecb168fe3e01e112fe6d02441743fb5155107f7b",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-exceptional-linear.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-exceptional-linear.stdout",
+      "bytes": 1431,
+      "sha256": "e5a20482d66d9e1fc2221f9645049184180ffdb2ebbfa521e1a1cff84ff909c3",
+      "decoded_bytes": 1431,
+      "decoded_sha256": "e5a20482d66d9e1fc2221f9645049184180ffdb2ebbfa521e1a1cff84ff909c3",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-generator.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json",
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-generator.stdout",
+      "bytes": 177,
+      "sha256": "fdf7b083e4214d9b0059056afd50e1ff0ac54cb1d4cd9e9f116e988f6d1dca8d",
+      "decoded_bytes": 177,
+      "decoded_sha256": "fdf7b083e4214d9b0059056afd50e1ff0ac54cb1d4cd9e9f116e988f6d1dca8d",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json",
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-other-index.sing",
+      "bytes": 4873,
+      "sha256": "5ae2de05601b8d465ef8bec3e267a5b82f1cbb15b4df3891d3534dab038c07b9",
+      "decoded_bytes": 4873,
+      "decoded_sha256": "5ae2de05601b8d465ef8bec3e267a5b82f1cbb15b4df3891d3534dab038c07b9",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-same-index.sing",
+      "bytes": 4923,
+      "sha256": "6c67e9c8d72daf4a5a31aeac80b75a47c02405c85f766ab4f36d9c0013ba1933",
+      "decoded_bytes": 4923,
+      "decoded_sha256": "6c67e9c8d72daf4a5a31aeac80b75a47c02405c85f766ab4f36d9c0013ba1933",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json",
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-single-D-eliminate-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-single-D-eliminate-2.stdout",
+      "bytes": 4104,
+      "sha256": "dbb4851277e8f4a294cf815862e1492e46a2c9f1991adf3d358cdd2e6dac6a73",
+      "decoded_bytes": 4104,
+      "decoded_sha256": "dbb4851277e8f4a294cf815862e1492e46a2c9f1991adf3d358cdd2e6dac6a73",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-single-D-eliminate.json",
+      "bytes": 4104,
+      "sha256": "dbb4851277e8f4a294cf815862e1492e46a2c9f1991adf3d358cdd2e6dac6a73",
+      "decoded_bytes": 4104,
+      "decoded_sha256": "dbb4851277e8f4a294cf815862e1492e46a2c9f1991adf3d358cdd2e6dac6a73",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-single-D-eliminate.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-single-D-eliminate.stdout",
+      "bytes": 3074,
+      "sha256": "4a4da0614820207027a7982b9f6e1a633c3ff948f03bdb673bf574b17806245b",
+      "decoded_bytes": 3074,
+      "decoded_sha256": "4a4da0614820207027a7982b9f6e1a633c3ff948f03bdb673bf574b17806245b",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-single-D.json",
+      "bytes": 2711,
+      "sha256": "64623253f4e96f4e6f934b8e2fb789ab1a7a6ef43dc6d3a0c8c47bbbd470ac1e",
+      "decoded_bytes": 2711,
+      "decoded_sha256": "64623253f4e96f4e6f934b8e2fb789ab1a7a6ef43dc6d3a0c8c47bbbd470ac1e",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-single-D.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-single-D.stdout",
+      "bytes": 2711,
+      "sha256": "64623253f4e96f4e6f934b8e2fb789ab1a7a6ef43dc6d3a0c8c47bbbd470ac1e",
+      "decoded_bytes": 2711,
+      "decoded_sha256": "64623253f4e96f4e6f934b8e2fb789ab1a7a6ef43dc6d3a0c8c47bbbd470ac1e",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bone-systems.json",
+      "bytes": 14009,
+      "sha256": "d91739a9f1ef62c6387be2983df45bf04a5f103372a811e2d880e587403fc8af",
+      "decoded_bytes": 14009,
+      "decoded_sha256": "d91739a9f1ef62c6387be2983df45bf04a5f103372a811e2d880e587403fc8af",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json",
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bzero-compact-identities.json",
+      "bytes": 500,
+      "sha256": "3a343e676e69624a5b04d492c8d2b2cf646568587756c55ca241ca690e7daf50",
+      "decoded_bytes": 500,
+      "decoded_sha256": "3a343e676e69624a5b04d492c8d2b2cf646568587756c55ca241ca690e7daf50",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bzero-manifest.json",
+      "bytes": 3067,
+      "sha256": "360b69cfbe23e985e90f90165668fa91300aa13f959657f6b16ea68744fffe28",
+      "decoded_bytes": 3067,
+      "decoded_sha256": "360b69cfbe23e985e90f90165668fa91300aa13f959657f6b16ea68744fffe28",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bzero-result.json",
+      "bytes": 277,
+      "sha256": "567869210acb1ab107c2f9ceb7cdb12275a5fc6ee5a98ba8591e817ce3e01b09",
+      "decoded_bytes": 277,
+      "decoded_sha256": "567869210acb1ab107c2f9ceb7cdb12275a5fc6ee5a98ba8591e817ce3e01b09",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bzero-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bzero-run.stdout",
+      "bytes": 265,
+      "sha256": "efe7ceb84ff6c225bcefe87dd8918ac0aae2dbda25bd64f9c8a5827b497762a1",
+      "decoded_bytes": 265,
+      "decoded_sha256": "efe7ceb84ff6c225bcefe87dd8918ac0aae2dbda25bd64f9c8a5827b497762a1",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bzero-singular.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bzero-singular.stdout",
+      "bytes": 164,
+      "sha256": "5ee35aab321e765492f66e33e908aa9c2c32dc8684a2bf7f8f53cafc8c9b27fc",
+      "decoded_bytes": 164,
+      "decoded_sha256": "5ee35aab321e765492f66e33e908aa9c2c32dc8684a2bf7f8f53cafc8c9b27fc",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bzero-std-result.json",
+      "bytes": 237,
+      "sha256": "f7348b1de456f283039cc25a106b32fed55f073c1992e2e0702991c2fd4e7d5d",
+      "decoded_bytes": 237,
+      "decoded_sha256": "f7348b1de456f283039cc25a106b32fed55f073c1992e2e0702991c2fd4e7d5d",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bzero-std-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bzero-std-run.stdout",
+      "bytes": 223,
+      "sha256": "5b2f28669fee84a41b041b27b70107e5195701fed1c2d2361f0e0ff7bc29ce32",
+      "decoded_bytes": 223,
+      "decoded_sha256": "5b2f28669fee84a41b041b27b70107e5195701fed1c2d2361f0e0ff7bc29ce32",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bzero-std.sing",
+      "bytes": 2413,
+      "sha256": "2a52c15e5c8aa5fe16f0e30c224329ed684477d303df7df972bb54fc5b883a6c",
+      "decoded_bytes": 2413,
+      "decoded_sha256": "2a52c15e5c8aa5fe16f0e30c224329ed684477d303df7df972bb54fc5b883a6c",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bzero-std.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bzero-std.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace-Bzero.sing",
+      "bytes": 2416,
+      "sha256": "08f7485714405136f0bb91613e5188e2458a6bb956bf66a054832eecf5680b19",
+      "decoded_bytes": 2416,
+      "decoded_sha256": "08f7485714405136f0bb91613e5188e2458a6bb956bf66a054832eecf5680b19",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace_Bone_exceptional_certificate.py",
+      "bytes": 6452,
+      "sha256": "99856118317032c846a8f40ddfd58f99b285b7a19e37b4c453990c0f04d6babc",
+      "decoded_bytes": 6452,
+      "decoded_sha256": "99856118317032c846a8f40ddfd58f99b285b7a19e37b4c453990c0f04d6babc",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace_Bone_exceptional_linear.py",
+      "bytes": 1877,
+      "sha256": "f488abfee280a12ac41126c72a45dd19b3610cbdb0f4d44ad2cbd6b5148f3777",
+      "decoded_bytes": 1877,
+      "decoded_sha256": "f488abfee280a12ac41126c72a45dd19b3610cbdb0f4d44ad2cbd6b5148f3777",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bone-exceptional-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace_Bone_single_D.py",
+      "bytes": 1811,
+      "sha256": "5d99599cf200280b087e79ac0509fc66b76f22ec5ae9c4254d1a6dce9e754b5a",
+      "decoded_bytes": 1811,
+      "decoded_sha256": "5d99599cf200280b087e79ac0509fc66b76f22ec5ae9c4254d1a6dce9e754b5a",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/trace_Bone_single_D_eliminate.py",
+      "bytes": 3526,
+      "sha256": "16fb3be23fa08c94d756e467c510e6df11167b3304ca40b9e3f32caadb948e7e",
+      "decoded_bytes": 3526,
+      "decoded_sha256": "16fb3be23fa08c94d756e467c510e6df11167b3304ca40b9e3f32caadb948e7e",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/rowzero/Bone-single-D-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/rowzero/verify_Bzero_boundary_certificates.py",
+      "bytes": 1626,
+      "sha256": "02c45f0256b0a23501d331d64ed97ffae3e47b9c023733cb75d4251f3258279e",
+      "decoded_bytes": 1626,
+      "decoded_sha256": "02c45f0256b0a23501d331d64ed97ffae3e47b9c023733cb75d4251f3258279e",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/run_Bzero_generic.py",
+      "bytes": 1392,
+      "sha256": "a0f26c8fd3547d0ea0428493a303bcc936035ebc539ab455201d4fd666dbb5ce",
+      "decoded_bytes": 1392,
+      "decoded_sha256": "a0f26c8fd3547d0ea0428493a303bcc936035ebc539ab455201d4fd666dbb5ce",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/run_tracezero_full32_modular.py",
+      "bytes": 2145,
+      "sha256": "0c7cf0d30b2d432186c7920df46f20d73bd0b4c6c0ad272e825e9cf07ec8536b",
+      "decoded_bytes": 2145,
+      "decoded_sha256": "0c7cf0d30b2d432186c7920df46f20d73bd0b4c6c0ad272e825e9cf07ec8536b",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/shifted-new-quartic-independent-audit.json",
+      "bytes": 578,
+      "sha256": "09fd0fb08590fba4042dc1ea59974f6e4c6fc2ddfc7598bf3b14d1d349e1d742",
+      "decoded_bytes": 578,
+      "decoded_sha256": "09fd0fb08590fba4042dc1ea59974f6e4c6fc2ddfc7598bf3b14d1d349e1d742",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics",
+        "exact-necessary-identity"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json",
+        "numeric/shifted-quartic-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/shifted-new-quartic-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics",
+        "exact-necessary-identity"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json",
+        "numeric/shifted-quartic-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/shifted-new-quartic-independent-audit.stdout",
+      "bytes": 578,
+      "sha256": "09fd0fb08590fba4042dc1ea59974f6e4c6fc2ddfc7598bf3b14d1d349e1d742",
+      "decoded_bytes": 578,
+      "decoded_sha256": "09fd0fb08590fba4042dc1ea59974f6e4c6fc2ddfc7598bf3b14d1d349e1d742",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics",
+        "exact-necessary-identity"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json",
+        "numeric/shifted-quartic-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/SCOPE.md",
+      "bytes": 3261,
+      "sha256": "2f9c782fca6837edf3431116cfab9e26d80075333537d93f62f7c662cc4b0fad",
+      "decoded_bytes": 3261,
+      "decoded_sha256": "2f9c782fca6837edf3431116cfab9e26d80075333537d93f62f7c662cc4b0fad",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/certificate-driver-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/certificate-driver-2.stdout",
+      "bytes": 761,
+      "sha256": "9872116903ea4198b1dca3a458d8b110810eba1637cd81a801d9b4648f9986b4",
+      "decoded_bytes": 761,
+      "decoded_sha256": "9872116903ea4198b1dca3a458d8b110810eba1637cd81a801d9b4648f9986b4",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/certificate-driver.stderr",
+      "bytes": 282,
+      "sha256": "49d60ee80338f8e4e44c8f8031cc70465e3204f9bd05c7e77083f218fc9f269d",
+      "decoded_bytes": 282,
+      "decoded_sha256": "49d60ee80338f8e4e44c8f8031cc70465e3204f9bd05c7e77083f218fc9f269d",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/certificate-driver.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/cycle-certificate.json",
+      "bytes": 8115,
+      "sha256": "ffb1490364c22a020198c8ed56a31dd12006311edeadf0839d9b8330350b1738",
+      "decoded_bytes": 8115,
+      "decoded_sha256": "ffb1490364c22a020198c8ed56a31dd12006311edeadf0839d9b8330350b1738",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/cycle-lift.sing",
+      "bytes": 1429,
+      "sha256": "867f2065209660d8a106e31baae5351b5cfbf9e8fa89f0dbf8ed865fe25f721e",
+      "decoded_bytes": 1429,
+      "decoded_sha256": "867f2065209660d8a106e31baae5351b5cfbf9e8fa89f0dbf8ed865fe25f721e",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/cycle-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/cycle-lift.stdout",
+      "bytes": 5919,
+      "sha256": "27aa69789059e204e1c94839ae73e7a95da77fc5c00bcfe2da8cebd6396832cb",
+      "decoded_bytes": 5919,
+      "decoded_sha256": "27aa69789059e204e1c94839ae73e7a95da77fc5c00bcfe2da8cebd6396832cb",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/cycle.result.json",
+      "bytes": 217,
+      "sha256": "66d623f9a2c965bf0b35b341396d2ee37b9b61c52bf73992d90f8a4dff668335",
+      "decoded_bytes": 217,
+      "decoded_sha256": "66d623f9a2c965bf0b35b341396d2ee37b9b61c52bf73992d90f8a4dff668335",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/cycle.sing",
+      "bytes": 1316,
+      "sha256": "3fc8477abd150101345ba810fb304133e1fdbf4b9137e4ebcb15b3982e677d92",
+      "decoded_bytes": 1316,
+      "decoded_sha256": "3fc8477abd150101345ba810fb304133e1fdbf4b9137e4ebcb15b3982e677d92",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/cycle.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/cycle.stdout",
+      "bytes": 53,
+      "sha256": "e859be82ddd42bc4a5c5b8a422f7fc2a9752fa8b8fb4e4272e1d38e428dfcab0",
+      "decoded_bytes": 53,
+      "decoded_sha256": "e859be82ddd42bc4a5c5b8a422f7fc2a9752fa8b8fb4e4272e1d38e428dfcab0",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/driver.stdout",
+      "bytes": 815,
+      "sha256": "b2c103221cd0684fe22338bb1c8b2a5a8a6d30c3a4ebc3c7a1c68d6c290be7b4",
+      "decoded_bytes": 815,
+      "decoded_sha256": "b2c103221cd0684fe22338bb1c8b2a5a8a6d30c3a4ebc3c7a1c68d6c290be7b4",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/generation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/generation.stdout",
+      "bytes": 400,
+      "sha256": "0b93a208eb74b12f6572d0a9d3c998f2c6f3c280f13e3b82c594593adb116de4",
+      "decoded_bytes": 400,
+      "decoded_sha256": "0b93a208eb74b12f6572d0a9d3c998f2c6f3c280f13e3b82c594593adb116de4",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/identity-certificate.json",
+      "bytes": 27942,
+      "sha256": "b381fafd7434d6faad2774781ceebc501b34bce8cdf3c02fdbe1e6fb4b97d102",
+      "decoded_bytes": 27942,
+      "decoded_sha256": "b381fafd7434d6faad2774781ceebc501b34bce8cdf3c02fdbe1e6fb4b97d102",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/identity-lift.sing",
+      "bytes": 1479,
+      "sha256": "019c017ee45ae8d2adb574542f6720739fe91779e4368cb69310dee59909f1e3",
+      "decoded_bytes": 1479,
+      "decoded_sha256": "019c017ee45ae8d2adb574542f6720739fe91779e4368cb69310dee59909f1e3",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/identity-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/identity-lift.stdout",
+      "bytes": 22078,
+      "sha256": "b4d7d1e484a9dd964906017871d8205fdc21c7038318d5c9911dd2c0157a3229",
+      "decoded_bytes": 22078,
+      "decoded_sha256": "b4d7d1e484a9dd964906017871d8205fdc21c7038318d5c9911dd2c0157a3229",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/identity.result.json",
+      "bytes": 220,
+      "sha256": "6e0c2a87747bca8eff2b4421648c3a08ada4b0eb55e95b6070977680afbf663a",
+      "decoded_bytes": 220,
+      "decoded_sha256": "6e0c2a87747bca8eff2b4421648c3a08ada4b0eb55e95b6070977680afbf663a",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/identity.sing",
+      "bytes": 1366,
+      "sha256": "8a583fb5c9ad20ad614e9f9a85b2bdace60603b57e1580b60f315d5235ded976",
+      "decoded_bytes": 1366,
+      "decoded_sha256": "8a583fb5c9ad20ad614e9f9a85b2bdace60603b57e1580b60f315d5235ded976",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/identity.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/identity.stdout",
+      "bytes": 53,
+      "sha256": "e859be82ddd42bc4a5c5b8a422f7fc2a9752fa8b8fb4e4272e1d38e428dfcab0",
+      "decoded_bytes": 53,
+      "decoded_sha256": "e859be82ddd42bc4a5c5b8a422f7fc2a9752fa8b8fb4e4272e1d38e428dfcab0",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/swap-cross-certificate.json",
+      "bytes": 11824,
+      "sha256": "a7631e5b0c500b82986c8ffb426579a10dd0887c1bffc51c8902f9aaf7631f91",
+      "decoded_bytes": 11824,
+      "decoded_sha256": "a7631e5b0c500b82986c8ffb426579a10dd0887c1bffc51c8902f9aaf7631f91",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/swap-cross-lift.sing",
+      "bytes": 1439,
+      "sha256": "81b2a68365eb5893916e34f76ff8d7f77394f7e401dab4ed7ae8703503747431",
+      "decoded_bytes": 1439,
+      "decoded_sha256": "81b2a68365eb5893916e34f76ff8d7f77394f7e401dab4ed7ae8703503747431",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/swap-cross-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/swap-cross-lift.stdout",
+      "bytes": 9520,
+      "sha256": "fab3ba68ffe6f13ba9039c42e9bf28488e8ed6ee00f7e99ea1c23f2bab1c843b",
+      "decoded_bytes": 9520,
+      "decoded_sha256": "fab3ba68ffe6f13ba9039c42e9bf28488e8ed6ee00f7e99ea1c23f2bab1c843b",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/swap-cross.result.json",
+      "bytes": 221,
+      "sha256": "16a4b87512db92765c45b25c7c88adf9d7bd18191ac475b61f32bd6f9bb13bf3",
+      "decoded_bytes": 221,
+      "decoded_sha256": "16a4b87512db92765c45b25c7c88adf9d7bd18191ac475b61f32bd6f9bb13bf3",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/swap-cross.sing",
+      "bytes": 1326,
+      "sha256": "ef904b8f324987b6629a8a1ecd1aace79c962f8ae3ca8384bd78d7b07ad28c9f",
+      "decoded_bytes": 1326,
+      "decoded_sha256": "ef904b8f324987b6629a8a1ecd1aace79c962f8ae3ca8384bd78d7b07ad28c9f",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/swap-cross.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/swap-cross.stdout",
+      "bytes": 53,
+      "sha256": "e859be82ddd42bc4a5c5b8a422f7fc2a9752fa8b8fb4e4272e1d38e428dfcab0",
+      "decoded_bytes": 53,
+      "decoded_sha256": "e859be82ddd42bc4a5c5b8a422f7fc2a9752fa8b8fb4e4272e1d38e428dfcab0",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/swap-pair-certificate.json",
+      "bytes": 34628,
+      "sha256": "4d7298fad95441c0fc9404e9843def787d84949d978cb413326c6f2e458f20be",
+      "decoded_bytes": 34628,
+      "decoded_sha256": "4d7298fad95441c0fc9404e9843def787d84949d978cb413326c6f2e458f20be",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/swap-pair-lift.sing",
+      "bytes": 1459,
+      "sha256": "b9f0a9887686fed8ecccac56bc8928e29487011487b21d6a964eaaf826c1e0ca",
+      "decoded_bytes": 1459,
+      "decoded_sha256": "b9f0a9887686fed8ecccac56bc8928e29487011487b21d6a964eaaf826c1e0ca",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/swap-pair-lift.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/swap-pair-lift.stdout",
+      "bytes": 30920,
+      "sha256": "1c8585a2bb4335f017cf02b74f36795b2a75c3a508b584c9bca0d0bf23368c84",
+      "decoded_bytes": 30920,
+      "decoded_sha256": "1c8585a2bb4335f017cf02b74f36795b2a75c3a508b584c9bca0d0bf23368c84",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/swap-pair.result.json",
+      "bytes": 221,
+      "sha256": "d7fd02fdfb028e302b6aaa93105a3c390300aba0c6202282e266496dd03fffc6",
+      "decoded_bytes": 221,
+      "decoded_sha256": "d7fd02fdfb028e302b6aaa93105a3c390300aba0c6202282e266496dd03fffc6",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/swap-pair.sing",
+      "bytes": 1346,
+      "sha256": "c1bf966990081ac9fed2f149b7646638fde5be398bee5d100f9f6f3e975c1049",
+      "decoded_bytes": 1346,
+      "decoded_sha256": "c1bf966990081ac9fed2f149b7646638fde5be398bee5d100f9f6f3e975c1049",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/swap-pair.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/swap-pair.stdout",
+      "bytes": 53,
+      "sha256": "e859be82ddd42bc4a5c5b8a422f7fc2a9752fa8b8fb4e4272e1d38e428dfcab0",
+      "decoded_bytes": 53,
+      "decoded_sha256": "e859be82ddd42bc4a5c5b8a422f7fc2a9752fa8b8fb4e4272e1d38e428dfcab0",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_Bzero_generic/systems.json",
+      "bytes": 11470,
+      "sha256": "7a69022f0978454e0853a1357553ab182025bf6719911f22d4204aa889c7740f",
+      "decoded_bytes": 11470,
+      "decoded_sha256": "7a69022f0978454e0853a1357553ab182025bf6719911f22d4204aa889c7740f",
+      "evidence_class": [
+        "exact-restricted-algebraic-exclusion"
+      ],
+      "provenance": [
+        "geometry_search/Bzero-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_rankdrop/full31-shifted.json",
+      "bytes": 32849,
+      "sha256": "bace3d725a70b6b512b262dc2c8664519d75ab956adf24fad4d38038a54c6c52",
+      "decoded_bytes": 32849,
+      "decoded_sha256": "bace3d725a70b6b512b262dc2c8664519d75ab956adf24fad4d38038a54c6c52",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics",
+        "exact-necessary-identity",
+        "exact-transported-identities"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json",
+        "numeric/shifted-quartic-preservation-manifest.json",
+        "geometry_search/transported-quartics-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_rankdrop/full32-input.json",
+      "bytes": 565,
+      "sha256": "c274ca65323ebf11e7efedf81e1b1b4c957be2c73b3247ccd8d172340689d515",
+      "decoded_bytes": 565,
+      "decoded_sha256": "c274ca65323ebf11e7efedf81e1b1b4c957be2c73b3247ccd8d172340689d515",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_rankdrop/rank3-full32-shifted-modGB.sing",
+      "bytes": 32925,
+      "sha256": "d5c5d4e1c99c7a9c6861b94b5977fd0f20f54d0ba79c9acec15ccc56fee6c94e",
+      "decoded_bytes": 32925,
+      "decoded_sha256": "d5c5d4e1c99c7a9c6861b94b5977fd0f20f54d0ba79c9acec15ccc56fee6c94e",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_rankdrop/rank3-incidence-shifted-Q-slimgb.result.json",
+      "bytes": 779,
+      "sha256": "7358f3de0f3948ee71fc8628f727735d76045678145151782f13079e0ab88b94",
+      "decoded_bytes": 779,
+      "decoded_sha256": "7358f3de0f3948ee71fc8628f727735d76045678145151782f13079e0ab88b94",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_rankdrop/rank3-incidence-shifted-Q-slimgb.sing",
+      "bytes": 14881,
+      "sha256": "acdaffddce8c78df4b56982c7f7da3b4082af7f804e7827af3c5eaebe7c8952c",
+      "decoded_bytes": 14881,
+      "decoded_sha256": "acdaffddce8c78df4b56982c7f7da3b4082af7f804e7827af3c5eaebe7c8952c",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_rankdrop/rank3-incidence-shifted-Q-slimgb.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_rankdrop/rank3-incidence-shifted-Q-slimgb.stdout.zst",
+      "bytes": 524,
+      "sha256": "7c099791bc843f754339bb889c34efc31c9a06810e4d141676619b69ecfed786",
+      "decoded_bytes": 2264,
+      "decoded_sha256": "74ab06858212e5a0a377de68b7bf720e867048fe891721880d39f81560601ee5",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/tracezero_rankdrop/shifted-matrix.json",
+      "bytes": 16539,
+      "sha256": "5a591213eff5d830ecaef80497310d9be0122e9060aa39909382276929e8bcf6",
+      "decoded_bytes": 16539,
+      "decoded_sha256": "5a591213eff5d830ecaef80497310d9be0122e9060aa39909382276929e8bcf6",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/transport-canonical-quartics.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-transported-identities"
+      ],
+      "provenance": [
+        "geometry_search/transported-quartics-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/transport-canonical-quartics.stdout",
+      "bytes": 1796,
+      "sha256": "402b4181bf7879fff0dd30e8cc288978912ddf07071f6cbb453447de374b0603",
+      "decoded_bytes": 1796,
+      "decoded_sha256": "402b4181bf7879fff0dd30e8cc288978912ddf07071f6cbb453447de374b0603",
+      "evidence_class": [
+        "exact-transported-identities"
+      ],
+      "provenance": [
+        "geometry_search/transported-quartics-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/transport_canonical_quartics.py",
+      "bytes": 4694,
+      "sha256": "bb42bb6fae2b1e008a5067d9416d7cf9f3d0cfe3bd70026c321f7cf7c86d92da",
+      "decoded_bytes": 4694,
+      "decoded_sha256": "bb42bb6fae2b1e008a5067d9416d7cf9f3d0cfe3bd70026c321f7cf7c86d92da",
+      "evidence_class": [
+        "exact-transported-identities"
+      ],
+      "provenance": [
+        "geometry_search/transported-quartics-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/transported-quartics-preservation-manifest.json",
+      "bytes": 4697,
+      "sha256": "5e95765e0a6b4b4c9f7686976dee39d68becb124a8aa0cd1f85761ea9ed1a71e",
+      "decoded_bytes": 4697,
+      "decoded_sha256": "5e95765e0a6b4b4c9f7686976dee39d68becb124a8aa0cd1f85761ea9ed1a71e",
+      "evidence_class": [
+        "source-manifest"
+      ],
+      "provenance": [
+        "geometry_search/transported-quartics-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "geometry_search/transported_quartics/transported.json",
+      "bytes": 3838784,
+      "sha256": "ac1ea6cdc79677e1141c0245cb0ca75d0ab88e347f1e1867645e8f4c03c31fc2",
+      "decoded_bytes": 3838784,
+      "decoded_sha256": "ac1ea6cdc79677e1141c0245cb0ca75d0ab88e347f1e1867645e8f4c03c31fc2",
+      "evidence_class": [
+        "exact-transported-identities"
+      ],
+      "provenance": [
+        "geometry_search/transported-quartics-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "late_checkpoint/environment-validation-independent-audit.json",
+      "bytes": 1313,
+      "sha256": "20f262298c79444e7dacf81aa3e20d8a936e67d1e1c243500ed75f8c681d94ec",
+      "decoded_bytes": 1313,
+      "decoded_sha256": "20f262298c79444e7dacf81aa3e20d8a936e67d1e1c243500ed75f8c681d94ec",
+      "evidence_class": [
+        "independent-preservation-review"
+      ],
+      "provenance": [
+        "explicit frozen supplemental artifact"
+      ]
+    },
+    {
+      "path": "numeric/SHIFTED-FILTRATION-ERRATUM.txt",
+      "bytes": 968,
+      "sha256": "14fa4ad2021c106d14f69f047c07da3dcfbe76e875cfb7868001149864a6a936",
+      "decoded_bytes": 968,
+      "decoded_sha256": "14fa4ad2021c106d14f69f047c07da3dcfbe76e875cfb7868001149864a6a936",
+      "evidence_class": [
+        "authoritative-interpretation-correction"
+      ],
+      "provenance": [
+        "explicit frozen supplemental artifact"
+      ]
+    },
+    {
+      "path": "numeric/completed-module-D7-preservation-manifest.json",
+      "bytes": 8642,
+      "sha256": "26cf797c917661b8f9960e6508e7e2f277e005a02e67c6f3debc456e4a8219b6",
+      "decoded_bytes": 8642,
+      "decoded_sha256": "26cf797c917661b8f9960e6508e7e2f277e005a02e67c6f3debc456e4a8219b6",
+      "evidence_class": [
+        "source-manifest"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/incidence-module-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/incidence-module-driver.stdout",
+      "bytes": 504,
+      "sha256": "ef501fdf57c95317cb3cc778b3495e8be3031a7e52afa15711d5bdab68412540",
+      "decoded_bytes": 504,
+      "decoded_sha256": "ef501fdf57c95317cb3cc778b3495e8be3031a7e52afa15711d5bdab68412540",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/incidence-module-probe.py",
+      "bytes": 2792,
+      "sha256": "07ba509b7bc16b5a75303716a2c28dac9752f102c50662d6f7ae344aac86f017",
+      "decoded_bytes": 2792,
+      "decoded_sha256": "07ba509b7bc16b5a75303716a2c28dac9752f102c50662d6f7ae344aac86f017",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/incidence-module/probe.sing",
+      "bytes": 53954,
+      "sha256": "874f442e4c8c4d31718b7a2c3a71a2e23fce22df633a431cdefad4a603725482",
+      "decoded_bytes": 53954,
+      "decoded_sha256": "874f442e4c8c4d31718b7a2c3a71a2e23fce22df633a431cdefad4a603725482",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics",
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json",
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/incidence-module/probe.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics",
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json",
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/incidence-module/probe.stdout",
+      "bytes": 14733,
+      "sha256": "6cb62b51b47fd63163caa5a75e68ed39a2d39ed97166281d08adf3c61967ba21",
+      "decoded_bytes": 14733,
+      "decoded_sha256": "6cb62b51b47fd63163caa5a75e68ed39a2d39ed97166281d08adf3c61967ba21",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics",
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json",
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/incidence-module/result.json",
+      "bytes": 523,
+      "sha256": "7879a7e80d3a3e3c303f35805bcc3947fc6d270f59baa50cc122140abd08b063",
+      "decoded_bytes": 523,
+      "decoded_sha256": "7879a7e80d3a3e3c303f35805bcc3947fc6d270f59baa50cc122140abd08b063",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics",
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json",
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/rank1-macaulay-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/rank1-macaulay-driver.stdout",
+      "bytes": 313,
+      "sha256": "b5e379e8f67d5e2a60d13a192cbe165f12e54c1e7d89c74ce9cca82a1777fe4b",
+      "decoded_bytes": 313,
+      "decoded_sha256": "b5e379e8f67d5e2a60d13a192cbe165f12e54c1e7d89c74ce9cca82a1777fe4b",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/rank1-macaulay.py",
+      "bytes": 3502,
+      "sha256": "937fe89e45b1126070a47f3693d5dd8d2de65f08a2673870c67da64f9d1f0264",
+      "decoded_bytes": 3502,
+      "decoded_sha256": "937fe89e45b1126070a47f3693d5dd8d2de65f08a2673870c67da64f9d1f0264",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/rank1-macaulay/D7-mod-long-constant.jsonl",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/rank1-macaulay/D7-mod-long-result.json",
+      "bytes": 304,
+      "sha256": "d8caafd8e78516d58b7fe08516c3cea401d2e8f41e74c82decf74021fbcf3fd1",
+      "decoded_bytes": 304,
+      "decoded_sha256": "d8caafd8e78516d58b7fe08516c3cea401d2e8f41e74c82decf74021fbcf3fd1",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/rank1-macaulay/D7-mod-long.stderr",
+      "bytes": 2713,
+      "sha256": "de4228af3040956eb3059b76f70f0ff18158d86af4b5120645633ae9791b5c7c",
+      "decoded_bytes": 2713,
+      "decoded_sha256": "de4228af3040956eb3059b76f70f0ff18158d86af4b5120645633ae9791b5c7c",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/rank1-macaulay/D7-mod-long.stdout",
+      "bytes": 231,
+      "sha256": "b3a43df7a8fbf00bbbb296163a48d62275bb486c95cd55a2f053ffa28d3979ee",
+      "decoded_bytes": 231,
+      "decoded_sha256": "b3a43df7a8fbf00bbbb296163a48d62275bb486c95cd55a2f053ffa28d3979ee",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/rank1-macaulay/D7-mod-result.json",
+      "bytes": 330,
+      "sha256": "bd76ceb124b9ec02f2e7ad6e2a7398ee5e0019cd79a3fe47efd9a96961ea9d36",
+      "decoded_bytes": 330,
+      "decoded_sha256": "bd76ceb124b9ec02f2e7ad6e2a7398ee5e0019cd79a3fe47efd9a96961ea9d36",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/rank1-macaulay/D7-mod.stderr",
+      "bytes": 2245,
+      "sha256": "4dd66c6851e4021af75359168b39c2c9516f526939cc88e07ff39b3003cdd43b",
+      "decoded_bytes": 2245,
+      "decoded_sha256": "4dd66c6851e4021af75359168b39c2c9516f526939cc88e07ff39b3003cdd43b",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/rank1-macaulay/D7-mod.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/rank1-macaulay/D7-rowmap.json.zst",
+      "bytes": 45040,
+      "sha256": "16cecd68c34cce5b0f4aaa1aa5e903a77dd0af8a7ed0b35dad9bfbd10131427d",
+      "decoded_bytes": 864098,
+      "decoded_sha256": "2f6697780495e594430984e837b06a79f3d84601fcdc62cc3ad4d02314e93183",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/rank1-macaulay/compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/rank1-macaulay/compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/rank1-macaulay/compression.json",
+      "bytes": 528,
+      "sha256": "e277aadd4de0f343221a9f3efd4abad66e30f77427fe315ab9a7f76b3933df01",
+      "decoded_bytes": 528,
+      "decoded_sha256": "e277aadd4de0f343221a9f3efd4abad66e30f77427fe315ab9a7f76b3933df01",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/rank1-macaulay/generators.json",
+      "bytes": 5889,
+      "sha256": "b2cb3bd4d0d142ec99593e46876c7f8b44f191dfaec592e3dea31773b4283c77",
+      "decoded_bytes": 5889,
+      "decoded_sha256": "b2cb3bd4d0d142ec99593e46876c7f8b44f191dfaec592e3dea31773b4283c77",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/rank1-macaulay/graded-constant-mod.cpp",
+      "bytes": 3162,
+      "sha256": "64329d6a4aa4272d9e579fa324876ba572f8dcbe6063ebabc3c3d0455c29330e",
+      "decoded_bytes": 3162,
+      "decoded_sha256": "64329d6a4aa4272d9e579fa324876ba572f8dcbe6063ebabc3c3d0455c29330e",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/rank1-macaulay/retry-long-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/rank1-macaulay/retry-long-driver.stdout",
+      "bytes": 289,
+      "sha256": "a40a1ed84dc8fcce68f002ec147d19dae5ff238eeaed3557a6fd26fa8b9c62a4",
+      "decoded_bytes": 289,
+      "decoded_sha256": "a40a1ed84dc8fcce68f002ec147d19dae5ff238eeaed3557a6fd26fa8b9c62a4",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/rank1-macaulay/retry-long.py",
+      "bytes": 1725,
+      "sha256": "f90b12e7fb4b0aa9846d2d21271f236e5d26337dc214002b127c114b350e22d3",
+      "decoded_bytes": 1725,
+      "decoded_sha256": "f90b12e7fb4b0aa9846d2d21271f236e5d26337dc214002b127c114b350e22d3",
+      "evidence_class": [
+        "completed-bounded-modular-diagnostics"
+      ],
+      "provenance": [
+        "numeric/completed-module-D7-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-augmented/graded-rational-reduced.cpp",
+      "bytes": 5582,
+      "sha256": "8e228795a612223b5dbd6ebe8401212bf4d28ef466b77cfc8f0ac5873a8a921f",
+      "decoded_bytes": 5582,
+      "decoded_sha256": "8e228795a612223b5dbd6ebe8401212bf4d28ef466b77cfc8f0ac5873a8a921f",
+      "evidence_class": [
+        "exact-transported-identities"
+      ],
+      "provenance": [
+        "geometry_search/transported-quartics-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-augmented/reduced-certificates.jsonl",
+      "bytes": 117773,
+      "sha256": "905c24be354861695a2b44b3cab1838e78cf67e5bf5631ddb61b3421d505aff8",
+      "decoded_bytes": 117773,
+      "decoded_sha256": "905c24be354861695a2b44b3cab1838e78cf67e5bf5631ddb61b3421d505aff8",
+      "evidence_class": [
+        "exact-transported-identities"
+      ],
+      "provenance": [
+        "geometry_search/transported-quartics-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-augmented/reduced-compile.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-transported-identities"
+      ],
+      "provenance": [
+        "geometry_search/transported-quartics-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-augmented/reduced-compile.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-transported-identities"
+      ],
+      "provenance": [
+        "geometry_search/transported-quartics-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-augmented/reduced-verification.json",
+      "bytes": 2018,
+      "sha256": "3058f810cded80e9a2c02a623679c98b70a142b08334e80f3f3eeac3762be388",
+      "decoded_bytes": 2018,
+      "decoded_sha256": "3058f810cded80e9a2c02a623679c98b70a142b08334e80f3f3eeac3762be388",
+      "evidence_class": [
+        "exact-transported-identities"
+      ],
+      "provenance": [
+        "geometry_search/transported-quartics-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-augmented/reduced.stderr",
+      "bytes": 2371,
+      "sha256": "327f8fe9a07aab33b9553e8816e19caeebc19602114ed184e4fcdc52bc60ee19",
+      "decoded_bytes": 2371,
+      "decoded_sha256": "327f8fe9a07aab33b9553e8816e19caeebc19602114ed184e4fcdc52bc60ee19",
+      "evidence_class": [
+        "exact-transported-identities"
+      ],
+      "provenance": [
+        "geometry_search/transported-quartics-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-augmented/reduced.stdout",
+      "bytes": 183,
+      "sha256": "0f307475a0092825d1ded94d352e2d704bfaa56d82bc7dc46fc0e88b384faa6c",
+      "decoded_bytes": 183,
+      "decoded_sha256": "0f307475a0092825d1ded94d352e2d704bfaa56d82bc7dc46fc0e88b384faa6c",
+      "evidence_class": [
+        "exact-transported-identities"
+      ],
+      "provenance": [
+        "geometry_search/transported-quartics-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-hadamard/chart.json",
+      "bytes": 51196,
+      "sha256": "79fae08dad2158e4274db4fd953e69c1be8f9e427453b6ce4af6fd35a34a42e5",
+      "decoded_bytes": 51196,
+      "decoded_sha256": "79fae08dad2158e4274db4fd953e69c1be8f9e427453b6ce4af6fd35a34a42e5",
+      "evidence_class": [
+        "exact-transported-identities"
+      ],
+      "provenance": [
+        "geometry_search/transported-quartics-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-structure/EXACT-QUARTICS.txt",
+      "bytes": 2457,
+      "sha256": "ab4be59d8d5dc134577e01553e0d5aecc65e7735f7f2f6e769bf19b99d32bb39",
+      "decoded_bytes": 2457,
+      "decoded_sha256": "ab4be59d8d5dc134577e01553e0d5aecc65e7735f7f2f6e769bf19b99d32bb39",
+      "evidence_class": [
+        "exact-transported-identities"
+      ],
+      "provenance": [
+        "geometry_search/transported-quartics-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/s4-structure/rational-id-rowmap.json",
+      "bytes": 634177,
+      "sha256": "fb13bf883b8a1c107953b614e58b0793849ea5d50ac3c9f17d220fac0d9a7433",
+      "decoded_bytes": 634177,
+      "decoded_sha256": "fb13bf883b8a1c107953b614e58b0793849ea5d50ac3c9f17d220fac0d9a7433",
+      "evidence_class": [
+        "exact-transported-identities"
+      ],
+      "provenance": [
+        "geometry_search/transported-quartics-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/shifted-full31-closure.py",
+      "bytes": 3365,
+      "sha256": "e3eee1fb66f11f3d4073adf06196980d753e6b6377e36b540091c5511e6bd01f",
+      "decoded_bytes": 3365,
+      "decoded_sha256": "e3eee1fb66f11f3d4073adf06196980d753e6b6377e36b540091c5511e6bd01f",
+      "evidence_class": [
+        "exact-necessary-identity"
+      ],
+      "provenance": [
+        "numeric/shifted-quartic-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/shifted-full31-driver.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "exact-necessary-identity"
+      ],
+      "provenance": [
+        "numeric/shifted-quartic-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/shifted-full31-driver.stdout",
+      "bytes": 344,
+      "sha256": "37e7caeb3e55f51a0194a33aa91cd021b4953230681ed83027e9f4eb78dab4ca",
+      "decoded_bytes": 344,
+      "decoded_sha256": "37e7caeb3e55f51a0194a33aa91cd021b4953230681ed83027e9f4eb78dab4ca",
+      "evidence_class": [
+        "exact-necessary-identity"
+      ],
+      "provenance": [
+        "numeric/shifted-quartic-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/shifted-full31/D5-certificates.jsonl",
+      "bytes": 4194,
+      "sha256": "865290c7fddef8a0e748f5718e697c14f7a8cc519dfcef3d3a3c25c80d0f93b5",
+      "decoded_bytes": 4194,
+      "decoded_sha256": "865290c7fddef8a0e748f5718e697c14f7a8cc519dfcef3d3a3c25c80d0f93b5",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics",
+        "exact-necessary-identity"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json",
+        "numeric/shifted-quartic-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/shifted-full31/D5-result.json",
+      "bytes": 371,
+      "sha256": "ee58c46d4dd38422f984e30a7ebf312e631d4328c024cc482d12a2b35be2322a",
+      "decoded_bytes": 371,
+      "decoded_sha256": "ee58c46d4dd38422f984e30a7ebf312e631d4328c024cc482d12a2b35be2322a",
+      "evidence_class": [
+        "exact-necessary-identity"
+      ],
+      "provenance": [
+        "numeric/shifted-quartic-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/shifted-full31/D5-rowmap.json.zst",
+      "bytes": 34809,
+      "sha256": "f54583e793f8affa9db8a54cb907f21089f0d0e0f449be9a0a6fc196be394b7f",
+      "decoded_bytes": 584287,
+      "decoded_sha256": "89951396762963c3d33f5c6a035d36769929fcaaef02072e2bf2d27dcdadd6c7",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics",
+        "exact-necessary-identity"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json",
+        "numeric/shifted-quartic-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/shifted-full31/D5.stderr",
+      "bytes": 1099,
+      "sha256": "bf1b678e9efd171357d14c5fb5da378e244827ecbd9f440bb0aa0071653a875a",
+      "decoded_bytes": 1099,
+      "decoded_sha256": "bf1b678e9efd171357d14c5fb5da378e244827ecbd9f440bb0aa0071653a875a",
+      "evidence_class": [
+        "exact-necessary-identity"
+      ],
+      "provenance": [
+        "numeric/shifted-quartic-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/shifted-full31/D5.stdout",
+      "bytes": 182,
+      "sha256": "6a37b3549813efe2c6da30d5fca5379f8e3f7afcd5200c86066f614c09bd5a8d",
+      "decoded_bytes": 182,
+      "decoded_sha256": "6a37b3549813efe2c6da30d5fca5379f8e3f7afcd5200c86066f614c09bd5a8d",
+      "evidence_class": [
+        "exact-necessary-identity"
+      ],
+      "provenance": [
+        "numeric/shifted-quartic-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/shifted-full31/compression.json",
+      "bytes": 527,
+      "sha256": "fab9ed809e5904c1cea477f20c5b572df144e52157099fe6c356a9e0ddafb68f",
+      "decoded_bytes": 527,
+      "decoded_sha256": "fab9ed809e5904c1cea477f20c5b572df144e52157099fe6c356a9e0ddafb68f",
+      "evidence_class": [
+        "exact-necessary-identity"
+      ],
+      "provenance": [
+        "numeric/shifted-quartic-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/shifted-full31/generators.json",
+      "bytes": 33597,
+      "sha256": "2f58453d6548bf5227baf35e8ee996c3e5493a022aedaf2d5f819c4918b7520a",
+      "decoded_bytes": 33597,
+      "decoded_sha256": "2f58453d6548bf5227baf35e8ee996c3e5493a022aedaf2d5f819c4918b7520a",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics",
+        "exact-necessary-identity"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json",
+        "numeric/shifted-quartic-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/shifted-full31/new-quartic.json",
+      "bytes": 5932,
+      "sha256": "b917ebbdc820c85ab7f45e09518068f8e479cb26bb15e096ca4c5fc725a6b8cd",
+      "decoded_bytes": 5932,
+      "decoded_sha256": "b917ebbdc820c85ab7f45e09518068f8e479cb26bb15e096ca4c5fc725a6b8cd",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics",
+        "exact-necessary-identity"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json",
+        "numeric/shifted-quartic-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/shifted-full31/new-quartic.txt",
+      "bytes": 3556,
+      "sha256": "7486f9c94f39e3a36833647772968214bd0ee4ca83027ad0f4d52750d0a3b6c3",
+      "decoded_bytes": 3556,
+      "decoded_sha256": "7486f9c94f39e3a36833647772968214bd0ee4ca83027ad0f4d52750d0a3b6c3",
+      "evidence_class": [
+        "exact-inputs-and-completed-inconclusive-diagnostics",
+        "exact-necessary-identity"
+      ],
+      "provenance": [
+        "geometry_search/full32-inputs-preservation-manifest.json",
+        "numeric/shifted-quartic-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "numeric/shifted-quartic-preservation-manifest.json",
+      "bytes": 4944,
+      "sha256": "9c07e1ac77663c371cea28f6627cbf9b9931ebc74a22a26dc18dca0a815ffde4",
+      "decoded_bytes": 4944,
+      "decoded_sha256": "9c07e1ac77663c371cea28f6627cbf9b9931ebc74a22a26dc18dca0a815ffde4",
+      "evidence_class": [
+        "source-manifest"
+      ],
+      "provenance": [
+        "numeric/shifted-quartic-preservation-manifest.json"
+      ]
+    },
+    {
+      "path": "root-algebra/audit_rank1_certificate.py",
+      "bytes": 4306,
+      "sha256": "374ecfaba7040da98122bf29edc6d10f46405ad8a27cb43c8f9e2ceace786541",
+      "decoded_bytes": 4306,
+      "decoded_sha256": "374ecfaba7040da98122bf29edc6d10f46405ad8a27cb43c8f9e2ceace786541",
+      "evidence_class": [
+        "independent-exact-generator-validator"
+      ],
+      "provenance": [
+        "explicit frozen supplemental artifact"
+      ]
+    },
+    {
+      "path": "root-algebra/rank1-generator-audit.json",
+      "bytes": 566,
+      "sha256": "ae639253feb366434351ab6e0b637a2230d041e654c886379b056a7270e6c060",
+      "decoded_bytes": 566,
+      "decoded_sha256": "ae639253feb366434351ab6e0b637a2230d041e654c886379b056a7270e6c060",
+      "evidence_class": [
+        "independent-exact-generator-validator"
+      ],
+      "provenance": [
+        "explicit frozen supplemental artifact"
+      ]
+    },
+    {
+      "path": "root-algebra/rank1-generator-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "independent-exact-generator-validator"
+      ],
+      "provenance": [
+        "explicit frozen supplemental artifact"
+      ]
+    },
+    {
+      "path": "root-algebra/rank1-generator-audit.stdout",
+      "bytes": 566,
+      "sha256": "ae639253feb366434351ab6e0b637a2230d041e654c886379b056a7270e6c060",
+      "decoded_bytes": 566,
+      "decoded_sha256": "ae639253feb366434351ab6e0b637a2230d041e654c886379b056a7270e6c060",
+      "evidence_class": [
+        "independent-exact-generator-validator"
+      ],
+      "provenance": [
+        "explicit frozen supplemental artifact"
+      ]
+    },
+    {
+      "path": "snapshots/NOTES.md",
+      "bytes": 67869,
+      "sha256": "c083fddeb5dc62665ffd6d7903d4d2df3aa8824bc854ac091a7ef5f019d1d3d8",
+      "decoded_bytes": 67869,
+      "decoded_sha256": "c083fddeb5dc62665ffd6d7903d4d2df3aa8824bc854ac091a7ef5f019d1d3d8",
+      "evidence_class": [
+        "historical-research-notes"
+      ],
+      "provenance": [
+        "repository snapshot"
+      ]
+    },
+    {
+      "path": "snapshots/TIMELINE.md",
+      "bytes": 5738,
+      "sha256": "f8c6b6b61c4cb7277af4d4279902edd4aee879e4516daa0db017fa1875c6a1aa",
+      "decoded_bytes": 5738,
+      "decoded_sha256": "f8c6b6b61c4cb7277af4d4279902edd4aee879e4516daa0db017fa1875c6a1aa",
+      "evidence_class": [
+        "historical-research-notes"
+      ],
+      "provenance": [
+        "repository snapshot"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation-manifest.json",
+      "bytes": 10599,
+      "sha256": "d5e927588fb0fbcbd93b0b1e88c8bf63b51d8b56243ea481881ad37927502935",
+      "decoded_bytes": 10599,
+      "decoded_sha256": "d5e927588fb0fbcbd93b0b1e88c8bf63b51d8b56243ea481881ad37927502935",
+      "evidence_class": [
+        "source-manifest"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/SETUP.md",
+      "bytes": 8138,
+      "sha256": "8eb54641f874420a9078fd5dc0fb21425466f29072d6a333c2de6acf49f2a9e0",
+      "decoded_bytes": 8138,
+      "decoded_sha256": "8eb54641f874420a9078fd5dc0fb21425466f29072d6a333c2de6acf49f2a9e0",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/STATUS.txt",
+      "bytes": 1664,
+      "sha256": "1afa7cd1518f7f5719dff5c1ef73a4e376a9d33018835724ddd48ef539704ccb",
+      "decoded_bytes": 1664,
+      "decoded_sha256": "1afa7cd1518f7f5719dff5c1ef73a4e376a9d33018835724ddd48ef539704ccb",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/archive-optional-metadata.py",
+      "bytes": 4299,
+      "sha256": "63c4ee88ef0b81b2f2a7180b2ad903271cdc83204f88168512ae5be4f66a130b",
+      "decoded_bytes": 4299,
+      "decoded_sha256": "63c4ee88ef0b81b2f2a7180b2ad903271cdc83204f88168512ae5be4f66a130b",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/archive-optional-metadata.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/archive-optional-metadata.stdout",
+      "bytes": 7439,
+      "sha256": "cf3a1ab1acfbbffed273a09a8f0e62e84677c99d6fd271a6708b029edeb79291",
+      "decoded_bytes": 7439,
+      "decoded_sha256": "cf3a1ab1acfbbffed273a09a8f0e62e84677c99d6fd271a6708b029edeb79291",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/checker-smoke-retry.memory.jsonl",
+      "bytes": 10053,
+      "sha256": "fd0b0e40787a6b997c6f4be46a6761eb62ca370c2e0cfe6d124a4138ab0a8647",
+      "decoded_bytes": 10053,
+      "decoded_sha256": "fd0b0e40787a6b997c6f4be46a6761eb62ca370c2e0cfe6d124a4138ab0a8647",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/checker-smoke-retry.result.json",
+      "bytes": 96,
+      "sha256": "9a00c50864f7894b63e195489ab97761d5478d721040fd10448d4b393b950a50",
+      "decoded_bytes": 96,
+      "decoded_sha256": "9a00c50864f7894b63e195489ab97761d5478d721040fd10448d4b393b950a50",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/checker-smoke-retry.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/checker-smoke-retry.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/checker-smoke.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/checker-smoke.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/memfd-disk-migration-plan.json",
+      "bytes": 115133,
+      "sha256": "5c8a209e0d5480572bb1ecc6302f4a073e9c3383191b395f0a496916e6d248a6",
+      "decoded_bytes": 115133,
+      "decoded_sha256": "5c8a209e0d5480572bb1ecc6302f4a073e9c3383191b395f0a496916e6d248a6",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/metadata-archival-plan-summary.json",
+      "bytes": 108946,
+      "sha256": "5d54a3060d8b1f0bd611dd0ba3900f0443cd89a5246fa7b6b3e5974ebed89641",
+      "decoded_bytes": 108946,
+      "decoded_sha256": "5d54a3060d8b1f0bd611dd0ba3900f0443cd89a5246fa7b6b3e5974ebed89641",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/metadata-archive-no-build-2.stderr",
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98",
+      "decoded_bytes": 105,
+      "decoded_sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/metadata-archive-no-build-2.stdout",
+      "bytes": 65058,
+      "sha256": "babf6c1464a62c6fa8d640ef8ca12fe84d83fd304235cdb9cbb7079cb0067b7b",
+      "decoded_bytes": 65058,
+      "decoded_sha256": "babf6c1464a62c6fa8d640ef8ca12fe84d83fd304235cdb9cbb7079cb0067b7b",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/metadata-archive-no-build.stderr",
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98",
+      "decoded_bytes": 105,
+      "decoded_sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/metadata-archive-no-build.stdout",
+      "bytes": 30270,
+      "sha256": "791fedbf4f096f3349ba415f9f7b809b8751a67abbcc73eb4dde8a4c0bd782ff",
+      "decoded_bytes": 30270,
+      "decoded_sha256": "791fedbf4f096f3349ba415f9f7b809b8751a67abbcc73eb4dde8a4c0bd782ff",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/optional-metadata-validation.json",
+      "bytes": 2755,
+      "sha256": "a10eae5686d58cd7b522a0ee08345be7cee7b482ad04aa7928860b5d7d95b9b0",
+      "decoded_bytes": 2755,
+      "decoded_sha256": "a10eae5686d58cd7b522a0ee08345be7cee7b482ad04aa7928860b5d7d95b9b0",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/private-migration-events.jsonl",
+      "bytes": 91810,
+      "sha256": "363a74a7b2ece65da7547dca0fd00eae0651df510c69a6dd632f9cef8ba8ecf3",
+      "decoded_bytes": 91810,
+      "decoded_sha256": "363a74a7b2ece65da7547dca0fd00eae0651df510c69a6dd632f9cef8ba8ecf3",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/private-migration-no-build.stderr",
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98",
+      "decoded_bytes": 105,
+      "decoded_sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/private-migration-no-build.stdout",
+      "bytes": 65058,
+      "sha256": "524950be23947345ae3780c035005ee07018044c6ded001b3a37e0b0fbf29ac8",
+      "decoded_bytes": 65058,
+      "decoded_sha256": "524950be23947345ae3780c035005ee07018044c6ded001b3a37e0b0fbf29ac8",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/private-migration-result.json",
+      "bytes": 669,
+      "sha256": "b2af70e198bb4ddb1a777d67c838dbb48d1eb135525c726b8ab0a862c7022920",
+      "decoded_bytes": 669,
+      "decoded_sha256": "b2af70e198bb4ddb1a777d67c838dbb48d1eb135525c726b8ab0a862c7022920",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/private-migration-validation.json",
+      "bytes": 982,
+      "sha256": "40a2238955e9ae3e129e83bcbdaf3ada30a5fe13ae7b25bc4505f25965e4c0fd",
+      "decoded_bytes": 982,
+      "decoded_sha256": "40a2238955e9ae3e129e83bcbdaf3ada30a5fe13ae7b25bc4505f25965e4c0fd",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/private-migration.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/private-migration.stdout",
+      "bytes": 1245,
+      "sha256": "b5d55a5088152c092032ba0b96fbc76171a3987ccaa5aea3ef65f2ce0dd0bfe7",
+      "decoded_bytes": 1245,
+      "decoded_sha256": "b5d55a5088152c092032ba0b96fbc76171a3987ccaa5aea3ef65f2ce0dd0bfe7",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/restore-leansearch-metadata.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/restore-leansearch-metadata.stdout",
+      "bytes": 136,
+      "sha256": "9c74fb3846069ecdddaca749250d39a4397f430f472458e1d9f4c08ae8b95afd",
+      "decoded_bytes": 136,
+      "decoded_sha256": "9c74fb3846069ecdddaca749250d39a4397f430f472458e1d9f4c08ae8b95afd",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/restore-optional-metadata-smoke.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "decoded_bytes": 0,
+      "decoded_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/restore-optional-metadata-smoke.stdout",
+      "bytes": 90,
+      "sha256": "42fba35b3dabf17566c778eca3e51dc59e1700ebdb9260380397629589ca690e",
+      "decoded_bytes": 90,
+      "decoded_sha256": "42fba35b3dabf17566c778eca3e51dc59e1700ebdb9260380397629589ca690e",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/restore-optional-metadata.py",
+      "bytes": 1825,
+      "sha256": "957142f8337f2ba6773c0b37bcf3ed1c3ed6602ba1f6379eb7e8ab5e78009d18",
+      "decoded_bytes": 1825,
+      "decoded_sha256": "957142f8337f2ba6773c0b37bcf3ed1c3ed6602ba1f6379eb7e8ab5e78009d18",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/root-sparse-checkout-validation.json",
+      "bytes": 387,
+      "sha256": "0eacd84f6f1fea8351bf21802037d6d73e6929cddb56596fe3a137d223f639aa",
+      "decoded_bytes": 387,
+      "decoded_sha256": "0eacd84f6f1fea8351bf21802037d6d73e6929cddb56596fe3a137d223f639aa",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/run-private-migration.py",
+      "bytes": 2917,
+      "sha256": "cbcff72737bc7a6bef237b1e567a3278c7fbd49a833314b6d88d8aebd6c0c8eb",
+      "decoded_bytes": 2917,
+      "decoded_sha256": "cbcff72737bc7a6bef237b1e567a3278c7fbd49a833314b6d88d8aebd6c0c8eb",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    },
+    {
+      "path": "toolchain/environment-validation/smoke-retry.py",
+      "bytes": 1435,
+      "sha256": "224f7b5a86998c9c4b8188c3f2cbfa8cf7bdaaec4efa16eba595110f357f6413",
+      "decoded_bytes": 1435,
+      "decoded_sha256": "224f7b5a86998c9c4b8188c3f2cbfa8cf7bdaaec4efa16eba595110f357f6413",
+      "evidence_class": [
+        "environment-no-build-validation"
+      ],
+      "provenance": [
+        "toolchain/environment-validation-manifest.json"
+      ]
+    }
+  ],
+  "payload_file_count": 378,
+  "payload_total_bytes": 6806070,
+  "manifest_self_excluded": true
+}

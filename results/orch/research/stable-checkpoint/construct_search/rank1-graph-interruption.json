@@ -1,0 +1,6 @@
+{
+  "status": "interrupted_inconclusive",
+  "reason": "Replace full graph-module syzygies with direct modular lift and exact raw identity gate",
+  "process_sample": "    PID     ELAPSED     TIME   RSS\n  24389       07:23 00:03:32 1063020\n",
+  "utc": "2026-11-25T12:23:38Z"
+}

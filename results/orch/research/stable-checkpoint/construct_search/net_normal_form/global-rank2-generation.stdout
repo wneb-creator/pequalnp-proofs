@@ -1,0 +1,4 @@
+{"chart": "within01", "variables": 16, "equations": 31, "terms": 2039, "max_terms": 179, "checks": 96, "elapsed_seconds": 0.2008835109991196}
+{"chart": "within23", "variables": 16, "equations": 31, "terms": 3229, "max_terms": 326, "checks": 96, "elapsed_seconds": 0.48342935199980275}
+{"chart": "cross02", "variables": 16, "equations": 31, "terms": 2898, "max_terms": 280, "checks": 96, "elapsed_seconds": 0.7861313020002854}
+{"status": "PASS", "charts": 3, "variables_each": 16, "equations_each": 31, "total_ryser_audit_checks": 288, "seconds": 0.7861662350005645, "max_rss_kib": 16512, "chart_json_bytes": 426252}

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-78/geometry_search/extract_Bzero_generic_certificates.py", line 19, in <module>
+    assert 'G[1]=1' in text and 'IDENTITY_VALID\n1' in text
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

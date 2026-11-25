@@ -1,0 +1,8 @@
+{
+  "exit_code": "wall_timeout",
+  "seconds": 75.01005814400014,
+  "memory_limit_mib": 256,
+  "cpu_limit_seconds": 60,
+  "algorithm": "exact QQ std",
+  "input_sha256": "2a52c15e5c8aa5fe16f0e30c224329ed684477d303df7df972bb54fc5b883a6c"
+}

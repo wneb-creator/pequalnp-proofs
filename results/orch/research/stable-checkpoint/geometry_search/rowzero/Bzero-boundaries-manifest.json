@@ -1,0 +1,142 @@
+{
+  "same": {
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "D_forms": [
+      "0",
+      "s",
+      "t"
+    ],
+    "r_forms": [
+      "0",
+      "a*s + b*t",
+      "c*s + d*t"
+    ],
+    "generators": [
+      "-a**2 - 4*a - c**2 - 1",
+      "-a*b - 2*b - c*d - 2*c",
+      "-b**2 - d**2 - 4*d - 1",
+      "5*a**2 + 4*a + 1",
+      "5*a*b + 4*a*c + 2*b + 2*c",
+      "8*a*d + 4*a + 5*b**2 + 8*b*c + 5*c**2 + 4*d + 1",
+      "4*b*d + 2*b + 5*c*d + 2*c",
+      "5*d**2 + 4*d + 1"
+    ],
+    "generator_count": 8,
+    "cubic_identically_zero": true,
+    "direct_permanent_coefficients_checked": 36,
+    "actual_q_and_P_scales": {
+      "2": "1",
+      "4": "1"
+    }
+  },
+  "different01": {
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "D_forms": [
+      "s",
+      "t",
+      "c*s + d*t"
+    ],
+    "r_forms": [
+      "0",
+      "-t",
+      "a*s + b*t"
+    ],
+    "generators": [
+      "-a**2 - 4*a*c - c**2 - 1",
+      "-a*b - 2*a*d - 2*b*c - c*d",
+      "-b**2 - 4*b*d - d**2 + 2",
+      "5*a**2*c**2 + 4*a*c**3 + 4*a*c + c**4 + c**2 + 1",
+      "5*a**2*c*d + 5*a*b*c**2 + 6*a*c**2*d + 2*a*d + 2*b*c**3 + 2*b*c + 2*c**3*d + c*d",
+      "5*a**2*d**2 + 20*a*b*c*d + 12*a*c*d**2 - 4*a*c + 5*b**2*c**2 + 12*b*c**2*d + 4*b*d + 6*c**2*d**2 - 3*c**2 + d**2 - 3",
+      "5*a*b*d**2 + 2*a*d**3 - 2*a*d + 5*b**2*c*d + 6*b*c*d**2 - 2*b*c + 2*c*d**3 - 3*c*d",
+      "5*b**2*d**2 + 4*b*d**3 - 4*b*d + d**4 - 3*d**2 + 2"
+    ],
+    "generator_count": 8,
+    "cubic_identically_zero": true,
+    "direct_permanent_coefficients_checked": 36,
+    "actual_q_and_P_scales": {
+      "2": "1",
+      "4": "1"
+    }
+  },
+  "different02": {
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "D_forms": [
+      "s",
+      "c*s + d*t",
+      "t"
+    ],
+    "r_forms": [
+      "0",
+      "-c*s - d*t",
+      "a*s + b*t"
+    ],
+    "generators": [
+      "-a**2 + 2*c**2 - 1",
+      "-a*b - 2*a + 2*c*d",
+      "-b**2 - 4*b + 2*d**2 - 1",
+      "2*c**4 - 3*c**2 + 1",
+      "-2*a*c**2 + 2*a + 4*c**3*d - 3*c*d",
+      "5*a**2 - 8*a*c*d - 4*b*c**2 + 4*b + 12*c**2*d**2 - 3*c**2 - 3*d**2 + 1",
+      "5*a*b - 2*a*d**2 + 2*a - 4*b*c*d + 4*c*d**3 - 3*c*d",
+      "5*b**2 - 4*b*d**2 + 4*b + 2*d**4 - 3*d**2 + 1"
+    ],
+    "generator_count": 8,
+    "cubic_identically_zero": true,
+    "direct_permanent_coefficients_checked": 36,
+    "actual_q_and_P_scales": {
+      "2": "1",
+      "4": "1"
+    }
+  },
+  "different12": {
+    "variables": [
+      "a",
+      "b",
+      "c",
+      "d"
+    ],
+    "D_forms": [
+      "c*s + d*t",
+      "s",
+      "t"
+    ],
+    "r_forms": [
+      "0",
+      "-s",
+      "a*s + b*t"
+    ],
+    "generators": [
+      "-a**2 - c**2 + 2",
+      "-a*b - 2*a - c*d",
+      "-b**2 - 4*b - d**2 - 1",
+      "c**4 - 3*c**2 + 2",
+      "2*a*c**2 - 2*a + 2*c**3*d - 3*c*d",
+      "5*a**2 + 8*a*c*d + 4*b*c**2 - 4*b + 6*c**2*d**2 + c**2 - 3*d**2 - 3",
+      "5*a*b + 2*a*d**2 + 2*a + 4*b*c*d + 2*c*d**3 + c*d",
+      "5*b**2 + 4*b*d**2 + 4*b + d**4 + d**2 + 1"
+    ],
+    "generator_count": 8,
+    "cubic_identically_zero": true,
+    "direct_permanent_coefficients_checked": 36,
+    "actual_q_and_P_scales": {
+      "2": "1",
+      "4": "1"
+    }
+  }
+}
