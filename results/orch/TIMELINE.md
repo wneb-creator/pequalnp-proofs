@@ -32,3 +32,7 @@
 
 2026-11-25T03:50:33.339518+00:00 Scoped raw replay with-j3-M6500 abortedexit134 on lean::memory_exception ininterpreter enteringC4338(prefixline5048), afterC2444 withoutprooferrors. NoFullRaw.olean produced. Full output full-raw-scoped-build.log retained. Rawvalidationpaused; compressed-j1aggregate ownsbuildslot.
 - 2026-11-25T03:53:57.802227+00:00: root independently reviewed the free-negation-to-ordinary Lower transfer and composed parent/sorted certificate benchmark; preserving checked results.
+
+- 2026-11-25T03:58:45+00:00: generic function equality strategy completed: 151 kernel-checked rfl identities; 43 deliberate nonidentities dropped; alias pass handed to structural integration.
+
+- 2026-11-25T04:03:49.801975+00:00: Independently reviewed generic equalities and cofactor argument preserved for early push.

@@ -1,0 +1,46 @@
+
+
+set_option maxRecDepth 20000 in
+theorem full_lower_of_cofactor
+    (lower : Lower true (vars 383) (graphGoal 383) 13) :
+    Lower true inputs graph 14 := by
+  have h := lift_ok
+    (u:=true) (ms:=[(zero,inputs.getD 7 zero,128)])
+    (T:=graphGoal 511) (raw:=vars 511) (base:=vars 383) (G:=graphGoal 383)
+    (xs:=[(inputs.getD 7 zero,4,132)])
+    (by decide +kernel) (by unfold proper; decide +kernel)
+    (by unfold proper; decide +kernel) lower
+  exact h
+
+theorem binary_count_of_cofactor
+    (lower : Lower true (vars 383) (graphGoal 383) 13)
+    (C : Circuit) (legal : PEqualNP.MetaComplexity.FanInTwo C)
+    (computes : PEqualNP.MetaComplexity.circuitFun 9 C = edge) :
+    14 ≤ C.gates.countP (fun g => !isNot g) := by
+  have goalEq : (execute C.gates inputs).getD C.output zero = graph := by
+    apply bit_ext
+    intro r
+    exact (table_eval C legal C.output r).trans
+      ((congrFun computes (sample r)).trans (edge_table r).symm)
+  have out := get_rep (u:=true) (execute C.gates inputs) C.output
+  rw [goalEq] at out
+  unfold Repr at out
+  have pg : bit 0 graph = false := by decide +kernel
+  rw [nrm_id pg] at out
+  have targetIn := out.resolve_right (fun hn => hn graph_proper)
+  obtain ⟨k,S,hk,run,hs⟩ := extract C.gates inputs legal
+    (by intro h; cases h) graph_proper targetIn
+  have plain : inputs.all plainWord = true := by decide +kernel
+  rw [nrm_map plain] at hs
+  have run' : Run true (observe graph) k (S.toList.map observe) :=
+    list_run run S.toList (Finset.nodup_toList S) (by simp)
+  have supply : supply true (inputs.map observe) (S.toList.map observe) := by
+    intro a ha
+    obtain ⟨v,hv,rfl⟩ := List.mem_map.mp ha
+    exact Or.inl (List.mem_map_of_mem (hs v (Finset.mem_toList.mp hv)))
+  obtain ⟨q,bank,hq,ha,hcost⟩ := contraction (observe_proper graph_proper)
+    run' (inputs.map observe) Reach.start supply
+  have h14 := full_lower_of_cofactor lower q bank hq ha
+  omega
+
+end PEqualNP.Outside.L_meta_670.C1674

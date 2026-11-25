@@ -35,3 +35,6 @@ UnifiedRecords2444Prefix.lean and UnifiedRecords1678Prefix.lean: exit 0; combine
 
 LowerTransferProbe.lean: exit 0 in 5.24 s. Every ordinary NOT step is simulated by an OR of the freely available inverse with itself; bank and gate count are preserved. Root semantic review passed. Complete log logs/lower-transfer-check-3.log.
 ParentSortedLargeProbe.lean: exit 0, through valid383. Combines the previously reviewed parent opcode/rule reconstruction and compact sorted lookup, with unchanged certificate checks. Complete log logs/parent-sorted-large-probe.log. Full gap proof/checker still pending.
+
+GenericDefEqualities.lean: exit 0; 151 unconditional definitional equalities, each proved by rfl. Independent status_review audit passed. Full log logs/generic-def-equalities.log.
+BinaryCofactorProbe.lean: exit 0, 22.445 s; full normalized lower bound 14 and non-NOT gate count from the existing checked low383 premise. Independent status_review audit passed. Full log logs/binary-cofactor-check-2.log. This is a conditional component, not the full gap theorem.
