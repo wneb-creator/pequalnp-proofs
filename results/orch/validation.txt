@@ -18,3 +18,10 @@ Includes both star orientations and rejected-input OR-reach semantics.
 Independent review SHA256: 47ba2ffa4e4436fd9bee598c94078425c6492f14d861efe8ac76537778585efc.
 Still partial: no theorem of the posted statement.
 TIMING total=14 subagents=6
+
+Checkpoint4: FirstDirtyClass and NormalizationFinal compile.
+FirstDirtyClass: earliest non-below-output AND has a rejected pair witness; before it, below-output is equivalent to acceptance of all cross-support pairs.
+NormalizationFinal: below-output wires have empty OR-input reach; every wire has monochromatic OR-input reach when tCount=0.
+Independent review: reviewer checked source bases and NormalizationFinal; root checked added iff lemma and plain-file scan.
+Still partial; posted statement unproved.
+TIMING total=15 subagents=6
