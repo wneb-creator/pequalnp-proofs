@@ -17,3 +17,7 @@ Strategies: proof_route (existing facts), counterexample (definition/small-case 
 ## First compilation
 
 The 659-line upper-bound construction and conditional normalization helper compile with Lean4.36.0. The target theorem is absent, so this is a partial result only. Exact Z3 Fano26-gate search is running; fixed27-gate sanity model verified on all16384 assignments.
+
+## Dirty-gate obstruction
+
+A five-gate AO2 circuit for a three-edge path is a lift fixed point but fails read1. Bypassing its dirty AND changes the function. A four-gate read1 circuit computes the same function. The finite example and general Boolean factoring identity compile and were independently checked. This is not a counterexample to L-meta-2583, and no saving is asserted in arbitrary shared contexts.

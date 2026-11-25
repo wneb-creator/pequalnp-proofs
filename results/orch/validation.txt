@@ -10,3 +10,5 @@ Independent source review: PASS for partial preservation.
 Lines: 659 before cleanup; 659 after (cleanup not started).
 Sub-agents: intake_review, proof_route, counterexample, combinatorial_route, lower_bound
 TIMING total=9.6 subagents=5
+Supporting partial: results/orch/lemmas/dirty_obstruction.lean
+Supporting partial build: lake env lean, exit0; independent finite semantics/source review PASS.
