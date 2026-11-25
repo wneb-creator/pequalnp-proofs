@@ -1,4 +1,6 @@
 import PEqualNP.Defs.CircuitLowerBounds
+import Mathlib.Tactic.FinCases
+import Mathlib.Tactic.NormNum
 
 namespace PEqualNP.Outside.L_meta_2602_aux.ClassificationObstruction
 
@@ -77,5 +79,25 @@ lemma filtered_pairs_not_rectangle :
   have bad : (0 : Fin 2) ≠ 0 :=
     (filtered_matching_pairs 0 0).mp ((h 0 0).mpr ⟨h0.1,h1.2⟩)
   exact bad rfl
+
+lemma filtered_size : filteredCircuit.size = 7 := rfl
+
+lemma filtered_valid_finite : ∀ j : Fin 7,
+    let g := (filteredCircuit.gates[j.val]?).getD ⟨.or, []⟩
+    (g.op = .and ∨ g.op = .or) ∧
+      ∃ a b : Nat, g.inputs = [a,b] ∧ a ≠ b ∧ a < 4+j.val ∧ b < 4+j.val := by
+  intro j
+  fin_cases j <;> norm_num [filteredCircuit]
+
+lemma filtered_valid (j : Nat) (g : Gate)
+    (hj : filteredCircuit.gates[j]? = some g) :
+    (g.op = .and ∨ g.op = .or) ∧
+      ∃ a b : Nat, g.inputs = [a,b] ∧ a ≠ b ∧ a < 4+j ∧ b < 4+j := by
+  have hjlt : j < 7 := by
+    change j < filteredCircuit.gates.length
+    by_contra! h
+    rw [List.getElem?_eq_none h] at hj
+    contradiction
+  simpa [hj] using filtered_valid_finite ⟨j,hjlt⟩
 
 end PEqualNP.Outside.L_meta_2602_aux.ClassificationObstruction

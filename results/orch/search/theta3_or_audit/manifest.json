@@ -1,0 +1,356 @@
+{
+  "recorded_at": "2026-11-25T04:04:09.305948+00:00",
+  "scope": "Theta graph: three length3 paths between0 and1; normalized OR nodes with arbitrary nonempty AND-conjunction operands and final conjunction.",
+  "status": "All three7ORattempts timed out30s; no UNSAT claim. EightORcontrolSAT independently verified all256inputs. No Lean/normalization/CNF bridge or L-meta-2602 result.",
+  "edges": [
+    [
+      0,
+      2
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      5,
+      1
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      6,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      4,
+      7
+    ],
+    [
+      7,
+      1
+    ]
+  ],
+  "files": [
+    {
+      "file": "audit_theta3_or7_sat.py",
+      "bytes": 1734,
+      "sha256": "e2d7bd4fb64a2bf467cbc712836bf52d1503b4b0a29375b4823a8230f073a8a8"
+    },
+    {
+      "file": "audit-theta3-or7-summary.json",
+      "bytes": 149,
+      "sha256": "1219e54f3fe1b5ad6f38a114cf2dd0661afbea7c0275b751a6f1bc0af8f0ba0b"
+    },
+    {
+      "file": "audit-theta3-or7-run.log",
+      "bytes": 135,
+      "sha256": "b077b9fa2141085ae14ca38d5a6b79f6a8c0ddc139c63658022195a65cf06b88"
+    },
+    {
+      "file": "audit-theta3-or7.stdout.gz",
+      "bytes": 2755,
+      "sha256": "1ecc7c513245b816236a01ac3696ca2efe4d83634f7ccf45951285592638022e",
+      "encoding": "gzip",
+      "original_bytes": 9252,
+      "original_sha256": "7632f09542582d01f0c9ff6e4c7cae1315adb517899de76baf185676d602266c"
+    },
+    {
+      "file": "audit-theta3-or7.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "encoding": "gzip",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "audit_theta3_or8_sat.py",
+      "bytes": 1734,
+      "sha256": "a659dd494bb3ec071c4e4e4aac11b2b356d8df3d26ed2237e16f62c9c37a4abb"
+    },
+    {
+      "file": "audit-theta3-or8-summary.json",
+      "bytes": 462,
+      "sha256": "e7bfb95cbd20f9935fddd18cd329218e9d85ffa749284c8e3616d37946140d40"
+    },
+    {
+      "file": "audit-theta3-or8-run.log",
+      "bytes": 262,
+      "sha256": "8b1de52adbf132a616420c6cd5e2b10d62bf841c20b9190ae492fffadb61e168"
+    },
+    {
+      "file": "audit-theta3-or8.stdout.gz",
+      "bytes": 125011,
+      "sha256": "37f5fcef2ae81edad3be71abb18a7023f013065f1202936dd00d77d8a766c4e3",
+      "encoding": "gzip",
+      "original_bytes": 319370,
+      "original_sha256": "7210f69f5233430820440d3c2b4e00714fa655d04714439de2071205fd60b7c7"
+    },
+    {
+      "file": "audit-theta3-or8.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "encoding": "gzip",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "audit_theta3_or7_basis_sat.py",
+      "bytes": 2272,
+      "sha256": "c1b1504868a0af21882ea1887096e6cb72e6c86a6faa650408a041392452cc0f"
+    },
+    {
+      "file": "audit-theta3-or7-basis-summary.json",
+      "bytes": 267,
+      "sha256": "dde14d70ce7a6383744c7ed9484c320e8496242b5c72c6b26fd7092e58760547"
+    },
+    {
+      "file": "audit-theta3-or7-basis-run.log",
+      "bytes": 209,
+      "sha256": "fec386e35db4c6681d93f53792785509da129e192183a7a2e19b82800587cf48"
+    },
+    {
+      "file": "audit-theta3-or7-basis.stdout.gz",
+      "bytes": 3465,
+      "sha256": "9b56f6213e4a1248cb4e3984a809f79558206de6b475ba495a960d52e7fca986",
+      "encoding": "gzip",
+      "original_bytes": 11873,
+      "original_sha256": "ed329f47ac5eed14c0db1f3b10df5d483142b4c42235a39d189b2c7b3bde315e"
+    },
+    {
+      "file": "audit-theta3-or7-basis.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "encoding": "gzip",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "audit_theta3_or7_basis_ordered_sat.py",
+      "bytes": 2536,
+      "sha256": "a84960f4d8ba15d0ee0fb48d6f5e426d2c53f6a51cb5caf8d4c75116f47627c3"
+    },
+    {
+      "file": "audit-theta3-or7-basis-ordered-summary.json",
+      "bytes": 302,
+      "sha256": "1e1c6f0a274b5097518875c5eecfa4a73a43de97b5c1a6b32cdfc45ba0113753"
+    },
+    {
+      "file": "audit-theta3-or7-basis-ordered-run.log",
+      "bytes": 242,
+      "sha256": "8054fc68d4c1638e35858b4f1174f108159064a7e5a38c7aefafba68e65f4f4c"
+    },
+    {
+      "file": "audit-theta3-or7-basis-ordered.stdout.gz",
+      "bytes": 3438,
+      "sha256": "92ebeddbacbba30781923e8b4e860b92c7e841f8dfea3b6291d6b10acb30f376",
+      "encoding": "gzip",
+      "original_bytes": 11899,
+      "original_sha256": "82e1852344cc7a0b752478d7f478d9018852d47a1d75ec8978dac67b0c0a075b"
+    },
+    {
+      "file": "audit-theta3-or7-basis-ordered.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "encoding": "gzip",
+      "original_bytes": 0,
+      "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "audit-theta3-validation.json",
+      "bytes": 175,
+      "sha256": "fdfa3c2cdcf6dbd0236e7b06a258de7963323f26f53cde6dc6f5ce3725ec29d3"
+    },
+    {
+      "file": "README.md",
+      "bytes": 1160,
+      "sha256": "b55a567ad73787d61b7c6acab8d150f126b73ac509bf68554a002bcc1cc543c7"
+    },
+    {
+      "file": "validate.py",
+      "bytes": 2271,
+      "sha256": "1268922bc8e59003865639e1f40da295fbb75fd029b282eb9656fa03a15a4f91"
+    },
+    {
+      "file": "validation.log",
+      "bytes": 100,
+      "sha256": "1e7ecd705b3ecd0145dc6183d65c7d7926cc5fcb991b08a9a53d886adb8531a7"
+    }
+  ],
+  "runs": [
+    {
+      "variant": "or7",
+      "encoder": "audit_theta3_or7_sat.py",
+      "encoder_sha256": "e2d7bd4fb64a2bf467cbc712836bf52d1503b4b0a29375b4823a8230f073a8a8",
+      "argv": [
+        "/tmp/oec/pequalnp-pilot-64/toolchain/lean-4.36.0-linux/bin/cadical",
+        "-t",
+        "30",
+        "/tmp/oec/pequalnp-pilot-64/audit-theta3-or7.cnf"
+      ],
+      "cnf_retained": false,
+      "cnf_bytes": 1793139,
+      "cnf_sha256": "0afebb4dc206abedcd8df197c7943944ee147684f51f65641a300833c61924ed",
+      "summary": {
+        "or_gates": 7,
+        "arbitrary_and_regions": true,
+        "variables": 38480,
+        "clauses": 115201,
+        "solver_code": 0,
+        "seconds": 30.015233755111694
+      }
+    },
+    {
+      "variant": "or8",
+      "encoder": "audit_theta3_or8_sat.py",
+      "encoder_sha256": "a659dd494bb3ec071c4e4e4aac11b2b356d8df3d26ed2237e16f62c9c37a4abb",
+      "argv": [
+        "/tmp/oec/pequalnp-pilot-64/toolchain/lean-4.36.0-linux/bin/cadical",
+        "-t",
+        "30",
+        "/tmp/oec/pequalnp-pilot-64/audit-theta3-or8.cnf"
+      ],
+      "cnf_retained": false,
+      "cnf_bytes": 2260780,
+      "cnf_sha256": "b0d598f979fb612c0c3cdb98e963061625f442b5f6f11650a17d2e0be4514ce3",
+      "summary": {
+        "or_gates": 8,
+        "arbitrary_and_regions": true,
+        "variables": 47954,
+        "clauses": 143532,
+        "solver_code": 10,
+        "seconds": 18.141217947006226,
+        "normalized_or_gates": [
+          [
+            36,
+            144
+          ],
+          [
+            256,
+            2
+          ],
+          [
+            544,
+            64
+          ],
+          [
+            4,
+            8
+          ],
+          [
+            1024,
+            128
+          ],
+          [
+            17,
+            4168
+          ],
+          [
+            2049,
+            4608
+          ],
+          [
+            16384,
+            8192
+          ],
+          32768
+        ]
+      }
+    },
+    {
+      "variant": "or7-basis",
+      "encoder": "audit_theta3_or7_basis_sat.py",
+      "encoder_sha256": "c1b1504868a0af21882ea1887096e6cb72e6c86a6faa650408a041392452cc0f",
+      "argv": [
+        "/tmp/oec/pequalnp-pilot-64/toolchain/lean-4.36.0-linux/bin/cadical",
+        "-t",
+        "30",
+        "/tmp/oec/pequalnp-pilot-64/audit-theta3-or7-basis.cnf"
+      ],
+      "cnf_retained": false,
+      "cnf_bytes": 127740,
+      "cnf_sha256": "e5bffc6c45be4d5f0a238d7656b94cecfd051c2d0b079a9228b3cf2e1081d5e0",
+      "summary": {
+        "or_gates": 7,
+        "basis_rows": 18,
+        "negative_rows": [
+          3,
+          30,
+          56,
+          84,
+          112,
+          140,
+          168,
+          196,
+          225
+        ],
+        "arbitrary_and_regions": true,
+        "variables": 3260,
+        "clauses": 9304,
+        "solver_code": 0,
+        "seconds": 30.012733936309814
+      }
+    },
+    {
+      "variant": "or7-basis-ordered",
+      "encoder": "audit_theta3_or7_basis_ordered_sat.py",
+      "encoder_sha256": "a84960f4d8ba15d0ee0fb48d6f5e426d2c53f6a51cb5caf8d4c75116f47627c3",
+      "argv": [
+        "/tmp/oec/pequalnp-pilot-64/toolchain/lean-4.36.0-linux/bin/cadical",
+        "-t",
+        "30",
+        "/tmp/oec/pequalnp-pilot-64/audit-theta3-or7-basis-ordered.cnf"
+      ],
+      "cnf_retained": false,
+      "cnf_bytes": 143309,
+      "cnf_sha256": "16bc5c954f116e1cb5a1b5056d496293f271698d2adaf7b15f17b2c0639ece18",
+      "summary": {
+        "or_gates": 7,
+        "or_operands_lex_ordered": true,
+        "basis_rows": 18,
+        "negative_rows": [
+          3,
+          30,
+          56,
+          84,
+          112,
+          140,
+          168,
+          196,
+          225
+        ],
+        "arbitrary_and_regions": true,
+        "variables": 3561,
+        "clauses": 10284,
+        "solver_code": 0,
+        "seconds": 30.02069664001465
+      }
+    }
+  ],
+  "dependencies": [
+    {
+      "file": "results/orch/search/repair_nearmiss_v3.py",
+      "bytes": 6488,
+      "sha256": "3addd1a015aca4c47d518027e4ccf1b1806a6f583edde8e5d0821891c57db36e"
+    },
+    {
+      "file": "results/orch/search/and_count_search.py",
+      "bytes": 6697,
+      "sha256": "4c119525000854c40132198f9466e94b6c7a2ed0805b8abe1216e3cba072b8d1"
+    }
+  ],
+  "solver": {
+    "file": "/tmp/oec/pequalnp-pilot-64/toolchain/lean-4.36.0-linux/bin/cadical",
+    "bytes": 1115504,
+    "sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647"
+  }
+}

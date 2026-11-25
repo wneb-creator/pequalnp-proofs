@@ -1,0 +1,1 @@
+{"or_gates": 7, "or_operands_lex_ordered": true, "basis_rows": 18, "negative_rows": [3, 30, 56, 84, 112, 140, 168, 196, 225], "arbitrary_and_regions": true, "variables": 3561, "clauses": 10284, "solver_code": 0, "seconds": 30.02069664001465}

@@ -1,0 +1,7 @@
+{
+  "result": "PASS",
+  "witness_or_count": 8,
+  "assignments": 256,
+  "seven_or_result": "UNKNOWN timeout30s",
+  "limitation": "Computational only, no lower bound claimed"
+}

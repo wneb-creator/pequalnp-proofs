@@ -49,3 +49,9 @@
 2026-11-25T04:01:17.178344+00:00 Classification shortcut obstruction compiled/reviewed, and completeC6 computational audit independently reviewed. Both preserved as partials.
 
 2026-11-25T04:03:47.805464+00:00 Cofactor influence partial and stronger classification obstruction compiled/reviewed; preserved.
+
+2026-11-25T04:05:43.017400+00:00 Re-plan: global cost coupling remains unproved despite actual39weighted-charge theorem. Fresh upstream187commits reviewed without closure. Continue12gateSATrepair,65/66neutralwalks, alternative14AND66seed, and trustedP4 encoding bridge; reject localtype-normalization shortcuts by checked counterexamples.
+
+- 2026-11-25 04:06:58 UTC: existing-reductions agent recorded complete computational nine-gate double-star UNSAT coverage, a compiled allowed-axiom concrete-CNF UNSAT replay, and the start of the five-gate typed-circuit encoding bridge.
+
+2026-11-25T04:10:59.410650+00:00 Classification legality extension and auditedtheta3/alternative66artifacts preserved; postedstatement remains unresolved.

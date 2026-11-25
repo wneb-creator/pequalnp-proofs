@@ -1,0 +1,8 @@
+{
+  "or_gates": 7,
+  "arbitrary_and_regions": true,
+  "variables": 38480,
+  "clauses": 115201,
+  "solver_code": 0,
+  "seconds": 30.015233755111694
+}
