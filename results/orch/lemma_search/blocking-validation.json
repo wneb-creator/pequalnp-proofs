@@ -1,0 +1,62 @@
+{
+  "checked_at_utc": "2026-11-25T13:02:53.209044+00:00",
+  "scope": "Necessary local structure for arbitrary circuits computing exact target; no new global lower bound claimed.",
+  "preferred_combined_file": "results/orch/lemmas/BlockingAll.lean",
+  "files": [
+    {
+      "path": "results/orch/lemmas/Blocking.lean",
+      "sha256": "50820b34499358c554921cbaf8fa50cadde281c8b3e2e9723ff0b24ee26f2c07",
+      "bytes": 10114,
+      "lines": 236,
+      "lean_exit_code": 0,
+      "warnings": 12,
+      "errors": 0,
+      "log": "results/orch/lemma_search/blocking-build.log",
+      "independent_review": "PASS"
+    },
+    {
+      "path": "results/orch/lemmas/BlockingDeeper.lean",
+      "sha256": "7337542c9cc8592b655acc3f0e713dd9428537d6f0e9f38fe9c0febd8c3b2ccb",
+      "bytes": 15159,
+      "lines": 332,
+      "lean_exit_code": 0,
+      "warnings": 16,
+      "errors": 0,
+      "log": "results/orch/lemma_search/blocking-deeper-build.log",
+      "independent_review": "PASS"
+    },
+    {
+      "path": "results/orch/lemmas/BlockingDegreeThree.lean",
+      "sha256": "9a18cf111b02c72e50b181a8a36240b8a3174f4bbcb743139234d18adf866831",
+      "bytes": 17685,
+      "lines": 387,
+      "lean_exit_code": 0,
+      "warnings": 16,
+      "errors": 0,
+      "log": "results/orch/lemma_search/blocking-degree3-build.log",
+      "independent_review": "PASS"
+    },
+    {
+      "path": "results/orch/lemmas/BlockingNeighborhood.lean",
+      "sha256": "c5cbc31d22a4ba4dc66497d8dd7f9b3fc0f2bb822a329580e4bb93091a8824f9",
+      "bytes": 20477,
+      "lines": 446,
+      "lean_exit_code": 0,
+      "warnings": 16,
+      "errors": 0,
+      "log": "results/orch/lemma_search/blocking-neighborhood-build.log",
+      "independent_review": "PASS"
+    },
+    {
+      "path": "results/orch/lemmas/BlockingAll.lean",
+      "sha256": "68527669db4674208e15e8768ae5abf788ff79cb35273142b3efdec9c6d3cc6a",
+      "bytes": 23001,
+      "lines": 487,
+      "lean_exit_code": 0,
+      "warnings": 16,
+      "errors": 0,
+      "log": "results/orch/lemma_search/blocking-all-build.log",
+      "independent_review": "PASS"
+    }
+  ]
+}
