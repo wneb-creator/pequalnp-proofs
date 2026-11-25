@@ -1,6 +1,6 @@
 Gap: L-meta-2590
 Branch: pnp/swarm-L-meta-2590-orch
-Status at 2026-11-25T23:39:42Z: partial research; full posted theorem not proved or refuted.
+Status at 2026-11-25T23:43:49Z: partial research; full posted theorem not proved or refuted.
 
 Root conditional Lean artifacts passed kernel compilation. Prior pushed artifacts
 also passed independent source and standard-axiom review. DeskDriver's new
@@ -20,8 +20,9 @@ DesignatedPairs transfers witnesses through an explicit semantic map while
 requiring both label and wire injections. ExclusiveFamilies constructs actual
 disjoint nonempty source families under Bzero=0, with empty-output copy gates
 and an exact virtual-cost equation. All three passed kernel/standard-axiom
-audits and independent source review. No virtual-append or full N0 exclusion
-is claimed here. FoundationI0I3I4 completed its full kernel build and six standard-axiom
+audits and independent source review. Those three individual artifacts do not
+themselves provide the virtual append or the full neighborhood exclusion.
+FoundationI0I3I4 completed its full kernel build and six standard-axiom
 audits. Its actual-circuit reduction leaves exactly the cardinality-1,
 cardinality-2, or canonical-neighborhood alternatives. The 681941-byte
 partial file exceeds the 512 KiB final-file cap. Exact compiled dependency
@@ -39,8 +40,14 @@ independent full kernel, three endpoint type/axiom audits, and source review
 passed. It excludes the neighborhood case with at most three center exits.
 The actual outside guard finds only the two expected absent-final-theorem
 diagnostics for this helper library. This is not final checker acceptance.
-The complete neighborhood composition is still being assembled. The
-one-ineligible case and whole-file size cap remain unresolved.
+NeighborhoodCase completed its full combined kernel build in 46.1 seconds,
+peak 3.61 GiB, with six standard-three-axiom audits and exact final type.
+Independent source, graph-bridge, literal core-deduplication, and exact namespace
+relocation reviews passed. The closed endpoint assumes only strict liveness,
+correct Petersen computation, exact ineligible set {1,4,5}, and length at most
+19. Its 355859-byte source is below the cap, but the whole-gap assembly remains
+above the cap. No Bzero, virtual, birth, or C6 assumption remains in this case.
+The one-ineligible case and whole-file size cap remain unresolved.
 
 Earlier independently rebuilt helper snapshots (additional merged checks above):
 helper-1 72b88053; helper-9 5eb83c6b; helper-6 0f38695c;
@@ -66,4 +73,4 @@ single-file budget. These are computational results, not kernel-checked lower
 bounds, and the actual Petersen budget bridge is unfinished.
 
 Sub-agents: nine external helper jobs (helper-1 through helper-9), plus four local workers (setup/review, assembly-review, dead-gate pruning, and one nested neighborhood-glue worker); 13 counted agents. External helpers own nested workers are excluded from this root-job count.
-TIMING total=152 subagents=13
+TIMING total=156 subagents=13
