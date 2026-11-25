@@ -1,6 +1,0 @@
-checker stage: started t=0s
-checker stage: build lock taken t=0s
-checker stage: building the verifier t=0s
-checker stage: building the file and the definitions root t=8s
-checker stage: verifier reading the built file t=11s
-CHECKER FAULT: the verifier ended without a verdict (exit 143).

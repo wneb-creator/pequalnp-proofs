@@ -1,8 +1,0 @@
-{
-  "module": "Sym8PhaseOnly",
-  "exit": 0,
-  "wall_seconds": 5.243989236000289,
-  "user_seconds": 3.678392,
-  "system_seconds": 1.423452,
-  "max_rss_kib": 3271984
-}

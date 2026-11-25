@@ -1,6 +1,0 @@
-/tmp/oec/pequalnp-pilot-182/Root14Safe.lean:17:0: warning: Definition `optUnary14` is a proposition; use `theorem` instead of `def`
-
-Note: This linter can be disabled with `set_option linter.defProp false`
-/tmp/oec/pequalnp-pilot-182/Root14Safe.lean:20:0: warning: Definition `optBinary14` is a proposition; use `theorem` instead of `def`
-
-Note: This linter can be disabled with `set_option linter.defProp false`

@@ -1,7 +1,0 @@
-checker stage: started t=0s
-checker stage: build lock taken t=0s
-checker stage: building the verifier t=0s
-checker stage: building the file and the definitions root t=6s
-checker stage: verifier reading the built file t=9s
-checker fault: (interpreter) unknown declaration 'Lean.Option.register._at_._private.Lean.Meta.Tactic.Simp.SimpTheorems.0.Lean.Meta.initFn._@.Lean.Meta.Tactic.Simp.SimpTheorems.838478111._hygCtx._hyg.4.spec_0'
-CHECKER FAULT: the verifier ended without a verdict (exit 3).

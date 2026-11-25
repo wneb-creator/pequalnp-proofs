@@ -1,6 +1,0 @@
-Named lake build PASSED:1196.5517seconds; sourceSHA2560199ec155b8609bb2b9412fb772637b7971e9ee9d633c08f9ae388b3f08b325d.
-Official checker has NO ACCEPTANCE verdict. Latest unchanged checker returnedFAULT exit137 after reachingproofimport, peakRSS7590976KiB under8GiBcontainercapwithoutswap.
-All helper/source/trust rules unchanged; genuine cache migration and eviction independently reviewed.
-Cleanup:read-only review recommendsretain8290lines; no finalcleanup attempted becausecheckerhasnotpassed.
-Sub-agents: repo_review, proof_template, graph_search, lower_bound, toolchain, lower_bound/not_count, advanced_certificate, tight_not_count, review_final
-TIMING total=153 subagents=9
