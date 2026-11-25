@@ -1,0 +1,32 @@
+Noncomputable definition experiment
+
+Comparison uses identical578 source definitions/abbreviations and the same representative kernel-checked theorem:
+rowCut rootM 12 476 16 12 0 12 = true.
+All plain def declarations are marked noncomputable in the alternative. No proof statements or bodies change.
+
+Original:
+compile19.480s; olean11,630,824bytes; import5.057s;
+699kernel constants =680safe +19unsafe/partial; 0axiom declarations;
+11theorems +688definitions; replay4.939s.
+
+Noncomputable:
+compile15.335s; olean1,717,320bytes; import3.570s;
+680kernel constants =680safe +0unsafe/partial; 0axiom declarations;
+11theorems +669definitions; replay5.295s.
+
+Both benchmark theorems depend exactly on propext, Classical.choice, Quot.sound.
+Both compilations and independent kernel replays succeeded.
+Single-run timings under concurrent load are directional, not precise production benchmarks.
+
+Conclusion:85percent smaller olean and lower compilation/import overhead; no demonstrated kernel replay speedup because the680safe constants are unchanged. The19removed unsafe wrappers were already skipped by the repository checker.
+
+Source evidence in pinned Lean4.36.0:
+Lean/Elab/PreDefinition/Basic.lean:135 shouldGenCodeFor excludes noncomputable declarations.
+Basic.lean:185-210 constructs the same kernel Declaration.defnDecl independently of that flag.
+Basic.lean:220 records noncomputable in an extension;222 gates compiler invocation.
+Lean/Compiler/LCNF/ExtractClosed.lean:221ff saves closed terms to compiler monoExt.
+Lean/Compiler/LCNF/PhaseExt.lean:173-184 confirms compiler phase extension storage.
+Lean/Replay.lean:167ff skips unsafe/partial declarations and replays every remaining declaration.
+lean/CheckLemma.lean:408-420 invokes replay for all project constants.
+
+Full original source with532noncomputable markers is523,984bytes, below524,288byte cap by304bytes. Main proof file was not modified by this experiment.

@@ -46,3 +46,24 @@ FastCostGuard.lean passed lake env lean (exit0). The optimization is an early te
 
 ## FastCost benchmark complete, 2026-11-25T04:50:31.385046+00:00
 Ten isolated runs of rootM level12/start476/16states/arity12/all12rows all passed. Static count≤2 guard and dynamic count≤deleted operand count guard showed no clear improvement within variability. Availability flags cached once in forcePool regressed. Full stdout/stderr, timing/source hashes, baseline and variant diffs are in results/orch/fastcost-benchmark; summary.json records exact results. Neither optimization was integrated.
+
+## Independent noncomputable review, 2026-11-25T04:52:00.712929+00:00
+Full candidate SHAaea723b22e0c is exactly PR12184 plus noncomputable markers on532 plain defs. Posted statement exact; only PEqualNP.Defs import; no forbidden root identifier, strings, axiom/sorry/native command, attributes. All17 hash symbols are array literals, no hash commands. Source523984bytes leaves304bytes under512KiB limit. Source review approved; full candidate build and checker remain pending.
+
+2026-11-25T04:52:13.974760+00:00 case_decomposition: noncomputable-all-defs reduces olean11.63MB->1.72MB and compile19.48s->15.34s, but safe replay count remains680 and replay4.939s->5.295s. Both checked, allowed axioms only. Full candidate523984bytes; structural agent reviewing. Complete data/logs results/orch/compiler-bench/. No unsupported kernel-speed claim.
+
+2026-11-25T04:52:44.624305+00:00 counterexample_search: Discarded initial batchwidth harness because one BooleanList.all wrapped96states into one kernel computation. Width16 and32 hit6500MiB; those failures are explicitly UNREPRESENTATIVE of separate-declaration checks and preserved with caveat. Corrected suite has one theorem per batch and is running.
+
+## Sample width experiments, 2026-11-25T04:54:57.545757+00:00
+Independent literal parser confirms all17sample arrays preserve every row pair in first278 positions. Generic source transform touches only27sample-dimension literals768 and25lane literals769 beforeg15d3; Sig512 and certificate suffix untouched. Width278 and320 passed representative rowCut benchmarks but showed no robust speed gain for16states. Full logs/diffs/timings retained; main source unchanged.
+
+2026-11-25T04:55:30.114072+00:00 counterexample_search: Batch size comparison, same96 certificate states (rootM, level12, start476, arity12), separate declarations, all12 rows. Lean4.36 -j1 -M6500.
+width16: PASS,46.587s process,35.8s kernel type checking, peak4185120KiB.
+width32: PASS,42.160s process,30.5s kernel type checking, peak4804900KiB.
+width48: PASS,39.918s process,29.9s kernel type checking, peak5402716KiB.
+width96: FAULT at6500MiB kernel memory cap,70.831s process, peak6657016KiB.
+Recommendation:48 is fastest measured,32 gives more memory margin.96 is unsuitable at6500MiB. These are local certificate checks, not the final theorem checker.
+The earlier single-List.all harness was unrepresentative and is labeled separately.
+
+
+2026-11-25T04:55:34.426940+00:00 root re-plan: focus full proof performance. Counterexample search returned unknown; structural partials and normalization are checked. Guards, forced batches and lazy lanes gave no consistent gain. Batches of48 checked the same96 states about14.3% faster than batches of16. Noncomputable declarations reduce compiler payload. Testing sample width320 as a possible memory reduction; no established standalone speed gain. Preparing full candidate while original baseline finishes.

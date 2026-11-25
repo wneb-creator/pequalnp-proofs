@@ -1,0 +1,59 @@
+--- baseline.lean
++++ cached.lean
+@@ -562,24 +562,29 @@
+   (cond (Nat.beq op 2) (Nat.xor x (Nat.land x y)) (Nat.xor y (Nat.land x y))))
+ def nloss (d x : Nat) (keep : Bool) : Nat := cond keep 0 (cond (nconst d x) 1 0)
+ abbrev QS := Nat × Nat × Nat × Nat × Nat × List Nat × List Nat × Bool
++abbrev CachedQS := QS × List Nat
+ noncomputable def quickSpec (u : Bool) (k : Nat) (ws : List Decor) (p : BoundPool) : QS :=
+   let d := p.domain.toNat
+   let ms := ws.map (fun w : Decor => nmask d w.1)
+   (d,ms.countP (nconst d),p.bound,Nat.add k p.paid,(ms.map fun m => cond (navail u d (p.wires.map (nmask d)) m) 0 1).sum,ms,p.wires.map (nmask d),u)
+ noncomputable def forceBool {β : Type} (b : Bool) (f : Bool → β) : β := Bool.rec (f false) (f true) b
+-noncomputable def forcePool {β : Type} (u : Bool) (k : Nat) (ws : List Decor) (p : BoundPool) (f : QS → β) : β :=
++noncomputable def cachedQuickSpec (u : Bool) (k : Nat) (ws : List Decor) (p : BoundPool) : CachedQS :=
++  let q := quickSpec u k ws p
++  (q,q.2.2.2.2.2.1.map fun m => cond (navail u q.1 q.2.2.2.2.2.2.1 m) 1 0)
++noncomputable def forcePool {β : Type} (u : Bool) (k : Nat) (ws : List Decor) (p : BoundPool) (f : CachedQS → β) : β :=
+   force p.domain.toNat fun d => forceMap (nmask d) p.wires fun pm => forceMap (fun w : Decor => nmask d w.1) ws fun ms =>
++  forceMap (fun m => cond (navail u d pm m) 1 0) ms fun avail =>
+   force (ms.countP (nconst d)) fun c => force p.bound fun l => force (Nat.add k p.paid) fun t =>
+-  force (ms.map fun m => cond (navail u d pm m) 0 1).sum fun v => forceBool u fun u => f (d,c,l,t,v,ms,pm,u)
+-noncomputable def forcePools {β : Type} (u : Bool) (k : Nat) (ws : List Decor) (ps : List BoundPool) : (List QS → β) → β :=
++  force (avail.map fun a => cond (Nat.beq a 1) 0 1).sum fun v => forceBool u fun u => f ((d,c,l,t,v,ms,pm,u),avail)
++noncomputable def forcePools {β : Type} (u : Bool) (k : Nat) (ws : List Decor) (ps : List BoundPool) : (List CachedQS → β) → β :=
+   List.rec (fun f => f []) (fun p _ ih f => forcePool u k ws p fun q => ih fun qs => f (q::qs)) ps
+ def kwN (v : Nat) : Nat :=
+   let n := v % 2305843009213693951
+   (n*(n+971)) % 2305843009213693951
+-abbrev Lane := NodeContext × Nat × Nat × List QS × List Nat × Nat
++abbrev Lane := NodeContext × Nat × Nat × List CachedQS × List Nat × Nat
+ noncomputable def laneOf (c : NodeContext) : Lane :=
+   let ws := c.2.2.1.map (fun w : Decor => w.1.toNat)
+-  (c,c.2.2.1.length,cond c.2.2.2.1.2 4 2,c.2.2.2.2.1.map (quickSpec c.2.2.2.1.2 (c.1-1) c.2.2.1),ws,(ws.map kwN).sum)
++  (c,c.2.2.1.length,cond c.2.2.2.1.2 4 2,c.2.2.2.2.1.map (cachedQuickSpec c.2.2.2.1.2 (c.1-1) c.2.2.1),ws,(ws.map kwN).sum)
+ noncomputable def forceLanes {β : Type} (cs : List NodeContext) : (List Lane → β) → β :=
+   List.rec (fun f => f []) (fun c _ ih f => force c.2.2.1.length fun n => force (cond c.2.2.2.1.2 4 2) fun l =>
+     forceMap (fun w : Decor => w.1.toNat) c.2.2.1 fun ws => force (ws.map kwN).sum fun t =>
+@@ -599,9 +604,20 @@
+     and (anyEq z ys) (and (l.2.2.2.2.1.all fun v => or (and (not ka) (Nat.beq v x)) (or (and (not kb) (Nat.beq v y)) (anyEq v ys)))
+       (ys.all fun v => or (Nat.beq v z) (and (and (or ka (not (Nat.beq v x))) (or kb (not (Nat.beq v y)))) (anyEq v l.2.2.2.2.1)))))
+     (fl (Nat.add (kwN z) (Nat.sub (Nat.sub l.2.2.2.2.2 (cond ka 0 (kwN x))) (cond kb 0 (kwN y)))))
++noncomputable def cachedFastCost (cache : CachedQS) (i j op : Nat) (ka kb : Bool) : Bool :=
++  let s := cache.1
++  force (s.2.2.2.2.2.1.getD i 0) fun x => force (s.2.2.2.2.2.1.getD j 0) fun y =>
++  let av := navail s.2.2.2.2.2.2.2 s.1 s.2.2.2.2.2.2.1
++  let hi := Nat.add s.2.2.1 (Nat.sub (Nat.sub s.2.1 (nloss s.1 x ka)) (nloss s.1 y kb))
++  let lo := s.2.2.2.1
++  and (Nat.beq s.2.2.2.2.1 (Nat.add (cond ka 0 (cond (Nat.beq (cache.2.getD i 1) 1) 0 1)) (cond kb 0 (cond (Nat.beq (cache.2.getD j 1) 1) 0 1))))
++  (cond (Nat.ble (Nat.succ lo) hi)
++    (force (zN op x y) fun z => or (av z) (and (Nat.ble (Nat.add lo 2) hi) (and (Nat.beq (cache.2.getD i 1) 1) (Nat.beq (cache.2.getD j 1) 1))))
++    (cond (Nat.ble lo hi) (nconst s.1 (zN op x y)) false))
++
+ noncomputable def fallbackAt (fl : Nat → Option (List Nat)) (l : Lane) (i j op : Nat) (ka kb : Bool) : Bool :=
+   or (and (and (Nat.ble (Nat.succ i) l.2.1) (and (Nat.ble (Nat.succ j) l.2.1) (and (Nat.ble (Nat.succ op) l.2.2.1) (not (Nat.beq i j)))))
+-    (or (l.2.2.2.1.any fun s => fastCost s i j op ka kb) (linkAt fl l i j op ka kb))) (checkAt l.1 i j op ka kb)
++    (or (l.2.2.2.1.any fun s => cachedFastCost s i j op ka kb) (linkAt fl l i j op ka kb))) (checkAt l.1 i j op ka kb)
+ def swapIdx (v t : Nat) : Nat := cond (Nat.beq t (v &&& 15)) (v >>> 4) (cond (Nat.beq t (v >>> 4)) (v &&& 15) t)
+ def validSwap (v : Nat) : Bool := and (Nat.ble ((v &&& 15)+1) (v >>> 4)) (Nat.ble ((v >>> 4)+1) 9)
+ def idxOf (perm : List Nat) (t : Nat) : Nat := perm.foldl (fun t v => swapIdx v t) t

@@ -1,0 +1,3 @@
+module=Noncomputed import_ms=3570 constants=680 safe=680 unsafe_or_partial=0 axiom_decls=0 theorem_decls=11 def_decls=669
+replay_ms=5295
+bench_axioms=[propext, Classical.choice, Quot.sound]
