@@ -1,17 +1,17 @@
 pequalnp-pilot-94 — checked partial checkpoints
 
 Current held step: L-meta-2583. Earlier L-meta-1904 lease returned HTTP410; its partials remain archived.
-Current named file: lean/PEqualNP/Outside/L_meta_2583.lean (3050 lines).
+Current named file: lean/PEqualNP/Outside/L_meta_2583.lean (3128 lines).
 Build: lake build PEqualNP.Outside.L_meta_2583
 Result: Build completed successfully (6669 jobs).
 Checked components: incidence prime implicants; point regularity; no four-cycle; line intersections; incidence nonemptiness.
 Auxiliary plane_upper.lean (648 lines): explicit AO2 READ1 circuit of size+1=N*(q+2), and conditional replacement from an unrestricted lower bound.
 Independent source/axiom audits pass, with only propext, Classical.choice, Quot.sound.
 The posted theorem is not proved. Guard refuses the absent final theorem, as expected. No full checker acceptance claimed; no proof PR opened.
-Cleanup line counts:3050/3050 for named file; full-proof cleanup not started.
+Cleanup line counts:3128/3128 for named file; full-proof cleanup not started.
 Prior L-meta-1904 named partial:315 lines, build and axiom audits passed.
-Sub-agents: 6 (status/setup/review, structure, counterexample search, lemmas, research, independent C4-free theory)
-TIMING total=50 subagents=6
+Sub-agents: 7 (status/setup/review, structure, counterexample search, lemmas, research, C4-free theory, nested-AND theory)
+TIMING total=59 subagents=7
 
 Full local checker limitation: CheckLemma imports all Mathlib; smoke test fails at missing Batteries.olean. Thousands of further pinned Mathlib modules are not cached, with only about426MiB disk free. Named-file builds and direct axiom audits succeed. No full checker acceptance claimed.
 
@@ -21,3 +21,5 @@ Shared OR checkpoint: semantic repair identity compiles with propext and Quot.so
 
 ReadLower checkpoint: self-contained integration of checked L-meta-7639 helper proof and three new plane corollaries. Any READ1 plane circuit has size+1≥N*(q+2); Fano READ1 minimum≥27; the requested replacement exists iff C satisfies that numerical threshold. None proves the unrestricted threshold. Independent provenance/axiom audit and named-file build pass.
 Fixed-edge 26gate SAT: UNKNOWN after900seconds, not UNSAT. Strengthened propagation search is ongoing.
+
+Padding checkpoint: append preserves AO2 under valid operand bounds, increases size by exactly1, and absorption preserves the function under its explicit output equation. Independent source/axiom review and named build pass. This is not a complete SAT normalization proof.

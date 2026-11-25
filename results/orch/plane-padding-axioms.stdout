@@ -1,0 +1,4 @@
+'PEqualNP.Outside.L_meta_2583.Padding.append_size' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2583.Padding.append_model' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2583.Padding.append_eval' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2583.Padding.absorption_padding' depends on axioms: [propext, Classical.choice, Quot.sound]

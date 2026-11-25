@@ -20,3 +20,12 @@
 2026-11-25T14:28:40.455267+00:00 c4free_theory finished: exactP4counterexample to naivebypass/homogenization; noexistentialnormalizationcounterexample.
 
 2026-11-25T14:34Z: independently reviewed ReadLower bridge integrated; 3050-line named partial builds. Fixed-edge SAT timed out UNKNOWN after900s. Ordered propagation run started14:32 with1800s cap.
+
+- 2026-11-25 14:35:45 UTC: root renewed L-meta-2583 before the CGP run; expiry 14:55:45.721 UTC.
+- 2026-11-25 14:36:23 UTC: counterexample agent began 480-second CGP search, using 42 gate slots and exact function preservation; pruned size target at most 26.
+- 2026-11-25 14:36:23 UTC: CGP first dirty seed evolved through correct circuits of sizes 29, 28, 27. Full checks subsequently verified all 16,384 inputs for each; evolved 27 is READ1 on all 21 incidence pairs.
+- 2026-11-25 14:40:38 UTC: CGP source, controls, generator, seeds, and exact commands archived under results/orch/search. Seed regeneration was byte-identical. Search still running, no counterexample.
+
+- 2026-11-25 14:43 UTC: research completed AND/OR separate-count census; no unconditional sharp general-plane count bounds located. Applicable OR lower bound is 2q²+1; precise candidate conditions saved in plane-research/count-census.md.
+
+2026-11-25T14:43:24.922355+00:00: padding helper integrated;3128-line named partial builds, independently reviewed. Cumulative subagents7.
