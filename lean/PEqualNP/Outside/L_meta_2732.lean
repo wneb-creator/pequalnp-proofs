@@ -389,4 +389,68 @@ lemma commonFilter_twoStars {α : Type} (R : α → α → Prop)
         exact hs.elim (fun hu => False.elim (hS ⟨u, hu⟩))
           (fun hv => False.elim (hS ⟨v, hv⟩))
 
+lemma safeFilter_coverTwo {α : Type} (R : α → α → Prop)
+    (A B S : α → Prop) (z : α)
+    (symm : ∀ u v, R u v → R v u)
+    (triangle : ∀ u v w, R u v → R v w → ¬ R u w)
+    (free : ∀ a a' b b', a ≠ a' → b ≠ b' →
+      ¬ (R a b ∧ R a b' ∧ R a' b ∧ R a' b'))
+    (safe : ∀ u v, (A u ∨ A v) → (B u ∨ B v) → (S u ∨ S v) → R u v) :
+    ∃ p q, ∀ u v, (A u ∨ A v) → (B u ∨ B v) → (S u ∨ S v) →
+      u = p ∨ v = p ∨ u = q ∨ v = q := by
+  by_cases hA : ∃ a, A a
+  · obtain ⟨a₀, ha₀⟩ := hA
+    by_cases hB : ∃ b, B b
+    · obtain ⟨b₀, hb₀⟩ := hB
+      by_cases hI : ∃ i, A i ∧ B i
+      · obtain ⟨i, hiA, hiB⟩ := hI
+        obtain ⟨p, hp⟩ := commonFilter_twoStars R A B S symm triangle free safe i hiA hiB
+        exact ⟨i, p, hp⟩
+      · by_cases hA₂ : ∃ a₁, A a₁ ∧ a₁ ≠ a₀
+        · obtain ⟨a₁, ha₁, hna⟩ := hA₂
+          by_cases hB₂ : ∃ b₁, B b₁ ∧ b₁ ≠ b₀
+          · obtain ⟨b₁, hb₁, hnb⟩ := hB₂
+            have cross : ∀ a b, A a → B b → (S a ∨ S b) → R a b := by
+              intro a b ha hb hs
+              exact safe a b (Or.inl ha) (Or.inr hb) hs
+            obtain ⟨p, q, _, _, hpq⟩ := safeFilter_doubleStar R A B S S free cross
+              a₀ a₁ ha₀ ha₁ (fun h => hna h.symm)
+              b₀ b₁ hb₀ hb₁ (fun h => hnb h.symm)
+            refine ⟨p, q, ?_⟩
+            intro u v ha hb hs
+            cases ha with
+            | inl hau =>
+                cases hb with
+                | inl hbu => exact False.elim (hI ⟨u, hau, hbu⟩)
+                | inr hbv =>
+                    exact (hpq u v hau hbv hs).elim Or.inl
+                      (fun h => Or.inr (Or.inr (Or.inr h)))
+            | inr hav =>
+                cases hb with
+                | inl hbu =>
+                    exact (hpq v u hav hbu (hs.elim Or.inr Or.inl)).elim
+                      (fun h => Or.inr (Or.inl h))
+                      (fun h => Or.inr (Or.inr (Or.inl h)))
+                | inr hbv => exact False.elim (hI ⟨v, hav, hbv⟩)
+          · have unique : ∀ b, B b → b = b₀ := by
+              intro b hb
+              apply Classical.byContradiction
+              intro h
+              exact hB₂ ⟨b, hb, h⟩
+            exact ⟨b₀, z, fun u v _ hb _ => hb.elim
+              (fun h => Or.inl (unique u h))
+              (fun h => Or.inr (Or.inl (unique v h)))⟩
+        · have unique : ∀ a, A a → a = a₀ := by
+            intro a ha
+            apply Classical.byContradiction
+            intro h
+            exact hA₂ ⟨a, ha, h⟩
+          exact ⟨a₀, z, fun u v ha _ _ => ha.elim
+            (fun h => Or.inl (unique u h))
+            (fun h => Or.inr (Or.inl (unique v h)))⟩
+    · exact ⟨z, z, fun u v _ hb _ => hb.elim
+        (fun h => False.elim (hB ⟨u, h⟩)) (fun h => False.elim (hB ⟨v, h⟩))⟩
+  · exact ⟨z, z, fun u v ha _ _ => ha.elim
+      (fun h => False.elim (hA ⟨u, h⟩)) (fun h => False.elim (hA ⟨v, h⟩))⟩
+
 end PEqualNP.Outside.L_meta_2732_aux

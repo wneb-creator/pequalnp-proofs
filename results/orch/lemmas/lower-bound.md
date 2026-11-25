@@ -20,11 +20,15 @@ Its main lemma `safeFilter_doubleStar` says: for a rectangle-free bipartite rela
 
 Conjectural route: a circuit with only one pair-dirty AND can be converted without increasing size to a pair-clean circuit; this would force at least two pair-dirty ANDs in any 26-gate witness. Filtering a raw dirty rectangle is controlled by the new double-star lemma. Two unresolved issues are previously computed clean-edge contributions inside its operands and gate accounting when the dirty gate feeds several later filters. No claim that the normalization theorem is true has been established.
 
+The finite geometry is now completely checked: `DirtyFilterOverlap.lean` handles overlapping supports, and `DirtyFilterCover.lean` (203 lines, containing all previous helpers unchanged) proves `safeFilter_coverTwo`. For any symmetric triangle-free C4-free relation and arbitrary supports A,B,S, if every pair satisfying Ahit AND Bhit AND Shit is an edge, all such pairs have a vertex cover of size at most two. No apartness, bipartition, cardinality, or nonemptiness assumptions remain. Both files compiled with exit 0 and empty logs, and `sat_review` independently approved their mathematics and format. Logs: `dirty-filter-overlap-lean.log`, `dirty-filter-cover-lean.log` in the lower-bound scratch directory.
+
+This does not by itself count circuit gates. Existing pair-clean accounting separates gates with large singleton support from gates with at most one singleton: `L_meta_1983.cover_half` bounds the cover number by one plus the number of small-support OR gates; `edge_finset_gate_bound` bounds edges by AND gates plus large-support OR gates. A sole dirty AND can break these separate inequalities, so the extension needs combined accounting. Dirty rectangles appear to introduce slack because their first clean filters consume gates, but preservation under shared precursor OR computations is not proved.
+
 ## Auxiliary finite search prepared
 
 `/tmp/oec/pequalnp-pilot-70/lower-bound/pairdirty_synthesize.py` extends the reviewed synthesis encoding with 85 additional negative rows: zero, 14 singletons, and 70 nonedge pairs. Each gate has a flag equivalent to being an AND that accepts one of these rows, and at most one flag may hold.
 
-The 26-gate instance has 143 distinct rows, 14,063 variables and 451,723 clauses. Exact files: `pairdirty1-26.cnf`, `pairdirty1-26.map.json`; complete generation log `pairdirty1-generate.log`. Root requested preparation only until a CPU slot is free. An UNSAT result would address only this restricted search and would still need a Lean certificate bridge.
+The 26-gate instance has 143 distinct rows, 14,063 variables and 451,723 clauses. Exact files: `pairdirty1-26.cnf`, `pairdirty1-26.map.json`; complete generation log `pairdirty1-generate.log`. Independent review checked all flag/cardinality semantics and the 85 row additions; the sanity log is `/tmp/oec/pequalnp-pilot-70/sat-review/pairdirty-sanity.log`. Root requested preparation only until a CPU slot is free. An UNSAT result would address only this restricted search and would still need a Lean certificate bridge.
 
 ## Research caveat
 
