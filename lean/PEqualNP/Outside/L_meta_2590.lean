@@ -4083,4 +4083,383 @@ lemma canonical_six_impossible {D : Dag} {G : V → V → Prop}
   simpa only [slotPos_bar, hsides] using he i s hvs
 end SixCase
 
+namespace DagTools.FiveCase
+
+open PEqualNP.Outside.L_meta_2590.FiveGroupGeometry (sides known flip bar leafCover member_known)
+
+lemma code_budget_tight {D : Dag} (h : StrictLive 10 D) (hC : sem_Comp 10 G D)
+    (hBp : Bplus 10 D = (eligSet 10 D).card) (v : V) :
+    (sem_W 10 D v).card + (merges 10 D (carrierT 10 D {v})).card ≤ 2 := by
+  obtain ⟨b, hb⟩ := sem_exists_pureBranch FourCase.graph h.1 hC
+  have hs := surplus_carrierT_le h.1 b hb {v}
+  have hcard : (({v} : Finset V) ∩ eligSet 10 D).card ≤ 1 :=
+    (Finset.card_le_card Finset.inter_subset_left).trans_eq (Finset.card_singleton v)
+  have hf := sem_flow1 FourCase.graph h hC v
+  omega
+
+lemma nonzero_merge_empty_tight {D : Dag} (h : StrictLive 10 D) (hC : sem_Comp 10 G D)
+    (hBp : Bplus 10 D = (eligSet 10 D).card)
+    (P : Fin 5 → Slot) (hP : Function.Injective (fun i => (P i).1))
+    (hslots : ∀ i : Fin 5, ∀ s : Bool, ∀ v ∈ PEqualNP.Outside.L_meta_2590.FiveGroupGeometry.sides i s,
+      PEqualNP.Outside.L_meta_2590.FiveGroupGeometry.flip s (P i) ∈ sem_W 10 D v)
+    (v : V) (hv : v ≠ 0) : merges 10 D (carrierT 10 D {v}) = ∅ := by
+  have hb := code_budget_tight h hC hBp v
+  have hlo : 2 ≤ (sem_W 10 D v).card := by
+    rw [← known_card P hP v hv]
+    exact Finset.card_le_card (known_subset P hslots v)
+  exact Finset.card_eq_zero.mp (by omega)
+
+lemma canonical_five_tight_impossible {D : Dag} (h : StrictLive 10 D) (hC : sem_Comp 10 G D)
+    (hBp : Bplus 10 D = (eligSet 10 D).card) (hB0 : Bzero 10 D = 0)
+    (P : Fin 5 → Slot) (hP : Function.Injective (fun i => (P i).1))
+    (hslots : ∀ i : Fin 5, ∀ s : Bool, ∀ v ∈ sides i s, flip s (P i) ∈ sem_W 10 D v) :
+    False := by
+  have hbudget := code_budget_tight h hC hBp
+  have hW (v : V) : (sem_W 10 D v).card ≤ 2 := by have := hbudget v; omega
+  have hknown := known_eq_W P hP hW hslots
+  have hM := nonzero_merge_empty_tight h hC hBp P hP hslots
+  have htype := and_input_typed h.1 P hknown hM
+  have hsource (i : Fin 3) (e : Slot) (he : e ∈ sem_W 10 D (U i))
+      (hbe : sem_bar e ∈ sem_W 10 D (Vv i)) : e.1 = (P 4).1 :=
+    inner_opposite_source P hP hknown (U i) (Vv i)
+      (matching_inner i).1 (matching_inner i).2 e he hbe
+  have hmiss (k : ℕ) (hk : k < D.length) (hkg : k ≠ (P 4).1)
+      (ht : tag D k = true) (s : Bool) :
+      ∃ i : Fin 3, U i ∉ supp 10 D (src D (k,s)) ∧ Vv i ∉ supp 10 D (src D (k,s)) :=
+    missed_of_small _ (PEqualNP.Outside.L_meta_2590.FiveGroupGeometry.support_size P hP (fun e => supp 10 D (src D e))
+      (k,s) (htype (k,s) hk ht) hkg)
+  have h6 : P 4 ∈ sem_W 10 D (6 : V) := hslots 4 false 6 (by decide +kernel)
+  have h2 : sem_bar (P 4) ∈ sem_W 10 D (2 : V) := hslots 4 true 2 (by decide +kernel)
+  have hq : ¬ sem_Edge G (sem_two (2 : V) 6) := by
+    unfold sem_Edge G PEqualNP.Outside.L_meta_2590.FourGroupGeometry.adj
+    decide +kernel
+  have hleft : val D (sem_two (2 : V) 6) (src D (P 4)) = true :=
+    sem_val_of_supp h.1 (sem_mem_W.mp h6).2.1 (by simp [sem_two])
+  have hright : val D (sem_two (2 : V) 6) (src D (sem_bar (P 4))) = true :=
+    sem_val_of_supp h.1 (sem_mem_W.mp h2).2.1 (by simp [sem_two])
+  have hqg : val D (sem_two (2 : V) 6) (10 + (P 4).1) = true := by
+    rw [val_gate h.1 _ _ (sem_mem_W.mp h6).1, sem_W_and h.1 h6, gop_true]
+    cases hs : (P 4).2
+    · simp only [src,sem_bar,hs,Bool.not_false,Bool.false_eq_true,ite_false,ite_true] at hleft hright
+      simp [hleft,hright]
+    · simp only [src,sem_bar,hs,Bool.not_true,Bool.false_eq_true,ite_false,ite_true] at hleft hright
+      simp [hleft,hright]
+  obtain ⟨cut,hchain,hfan,hmixed⟩ := sem_slot_common_branch (0 : Fin 3)
+    FourCase.graph h hC (P 4).1 U Vv matching_edges hsource hmiss (sem_two (2 : V) 6) hq hqg
+  obtain ⟨c,hpure,_⟩ := h9_all_branch_pure FourCase.graph h.1 hC hBp hB0 cut hfan
+  have hcut : c ∈ supp 10 D cut := by rw [hpure]; exact Finset.mem_singleton_self _
+  have hc : c ∉ I := by
+    intro hc
+    obtain ⟨i,hi | hi⟩ := matching_cover c hc
+    · exact (hmixed i).2.1 (by rw [hi]; exact hcut)
+    · exact (hmixed i).2.2 (by rw [hi]; exact hcut)
+  have hafter : 10 + (P 4).1 ≤ cut :=
+    PEqualNP.Outside.L_meta_2590.le_of_increasing_path _ (fun _ _ hh => sem_step_lt h.1 hh.1) hchain
+  have hcenter : P 0 ∈ sem_W 10 D (0 : V) := hslots 0 false 0 (by decide +kernel)
+  obtain ⟨T,hT,hcover⟩ := exit_cover h.1 P hP hW hknown hM hcenter cut hafter c hc
+  obtain ⟨i,hu,hv⟩ := missed_of_small T
+    ((Finset.card_le_card Finset.inter_subset_left).trans hT)
+  apply sem_slot_carrier_graph_after FourCase.graph h hC (P 4).1 cut (U i) (Vv i) c
+    (matching_edges i) (hsource i) hchain hcut
+  intro e he heafter
+  have hsub := hcover e he heafter
+  exact ⟨fun hm => hu (hsub (Finset.mem_inter.mpr ⟨hm,(matching_inner i).1⟩)),
+    fun hm => hv (hsub (Finset.mem_inter.mpr ⟨hm,(matching_inner i).2⟩))⟩
+
+end DagTools.FiveCase
+
+namespace DagTools
+
+lemma h9_exit_budget_tight {n : ℕ} {D : Dag} {G : Fin n → Fin n → Prop}
+    (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
+    (hBp : Bplus n D = (eligSet n D).card) (v : Fin n) :
+    (sem_W n D v).card + (merges n D (carrierT n D {v})).card ≤ 2 := by
+  obtain ⟨b, hb⟩ := sem_exists_pureBranch hG h.1 hC
+  have hs := surplus_carrierT_le h.1 b hb {v}
+  have hcard : (({v} : Finset (Fin n)) ∩ eligSet n D).card ≤ 1 :=
+    (Finset.card_le_card Finset.inter_subset_left).trans_eq (Finset.card_singleton v)
+  have hf := sem_flow1 hG h hC v
+  omega
+
+lemma h9_eligible_of_two_exits {n : ℕ} {D : Dag} {G : Fin n → Fin n → Prop}
+    (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
+    (hBp : Bplus n D = (eligSet n D).card) (v : Fin n)
+    (hW : 2 ≤ (sem_W n D v).card) : v ∈ eligSet n D := by
+  by_contra hv
+  obtain ⟨b, hb⟩ := sem_exists_pureBranch hG h.1 hC
+  have hs := surplus_carrierT_le h.1 b hb {v}
+  have he : ({v} : Finset (Fin n)) ∩ eligSet n D = ∅ := by
+    apply Finset.eq_empty_of_forall_notMem
+    intro u hu
+    obtain ⟨huv, hue⟩ := Finset.mem_inter.mp hu
+    have huv' : u = v := Finset.mem_singleton.mp huv
+    exact hv (huv' ▸ hue)
+  have hcard : (({v} : Finset (Fin n)) ∩ eligSet n D).card = 0 := by rw [he]; rfl
+  have hf := sem_flow1 hG h hC v
+  omega
+
+end DagTools
+
+namespace DagTools.FourCase
+
+open PEqualNP.Outside.L_meta_2590.FourGroupGeometry
+
+lemma abstract_four_forces_all_eligible {D : Dag}
+    (h : StrictLive 10 D) (hC : sem_Comp 10 adj D)
+    (hBp : Bplus 10 D = (eligSet 10 D).card)
+    (big : Slot) (matchSlot : V → Slot)
+    (hQ : ∀ v ∈ Q, big ∈ sem_W 10 D v)
+    (hR : ∀ v ∈ R, sem_bar big ∈ sem_W 10 D v ∧ matchSlot v ∈ sem_W 10 D v)
+    (hdiff : ∀ v ∈ R, (matchSlot v).1 ≠ big.1) : eligSet 10 D = Finset.univ := by
+  have hbudget := h9_exit_budget_tight graph h hC hBp
+  have hW (v : V) : (sem_W 10 D v).card ≤ 2 := by have := hbudget v; omega
+  have hextra := pure_extra h.1 hC hW big hQ
+  have hcounts := W_two big matchSlot hbudget hQ hextra hR hdiff
+  ext v
+  constructor
+  · intro _
+    exact Finset.mem_univ v
+  · intro _
+    apply h9_eligible_of_two_exits graph h hC hBp v
+    rw [(hcounts v).1]
+
+lemma canonical_four_tight_impossible {D : Dag} (h : StrictLive 10 D)
+    (hC : sem_Comp 10 adj D)
+    (hBp : Bplus 10 D = (eligSet 10 D).card) (hB0 : Bzero 10 D = 0)
+    (big a b c : Slot)
+    (hab : a.1 ≠ b.1) (hac : a.1 ≠ c.1) (hbc : b.1 ≠ c.1)
+    (hag : a.1 ≠ big.1) (hbg : b.1 ≠ big.1) (hcg : c.1 ≠ big.1)
+    (hQ : ∀ v ∈ Q, big ∈ sem_W 10 D v)
+    (hR : ∀ v ∈ R, sem_bar big ∈ sem_W 10 D v)
+    (ha0 : a ∈ sem_W 10 D (0 : V)) (ha1 : sem_bar a ∈ sem_W 10 D (1 : V))
+    (hb3 : b ∈ sem_W 10 D (3 : V)) (hb8 : sem_bar b ∈ sem_W 10 D (8 : V))
+    (hc7 : c ∈ sem_W 10 D (7 : V)) (hc9 : sem_bar c ∈ sem_W 10 D (9 : V)) : False := by
+  have hRR : ∀ v ∈ R, sem_bar big ∈ sem_W 10 D v ∧ matching a b c v ∈ sem_W 10 D v := by
+    intro v hv
+    refine ⟨hR v hv, ?_⟩
+    rw [mem_R] at hv
+    rcases hv with rfl | rfl | rfl | rfl | rfl | rfl <;> simp_all [matching]
+  have hdiff : ∀ v ∈ R, (matching a b c v).1 ≠ big.1 := by
+    intro v hv
+    rw [mem_R] at hv
+    rcases hv with rfl | rfl | rfl | rfl | rfl | rfl <;> simp_all [matching, sem_bar]
+  have hall := abstract_four_forces_all_eligible h hC hBp big (matching a b c) hQ hRR hdiff
+  have hB : Bplus 10 D = 10 := by
+    rw [hBp, hall, Finset.card_univ, Fintype.card_fin]
+  exact canonical_four_impossible h hC hall hB hB0 big a b c hab hac hbc hag hbg hcg
+    hQ hR ha0 ha1 hb3 hb8 hc7 hc9
+
+end DagTools.FourCase
+
+namespace DagTools
+
+lemma h9_two_exits_implies_eligible {n : ℕ} {D : Dag} {G : Fin n → Fin n → Prop}
+    (hG : sem_Gr G) (h : StrictLive n D) (hC : sem_Comp n G D)
+    (v : Fin n) (hW : 2 ≤ (sem_W n D v).card) : v ∈ eligSet n D := by
+  by_contra hv
+  have hs := sem_inelig_surplus (sem_mem_inelig.mpr hv)
+  have hf := sem_flow1 hG h hC v
+  omega
+
+end DagTools
+
+namespace DagTools
+
+lemma relabel_mem_image {n : ℕ} (σ : Equiv.Perm (Fin n)) (S : Finset (Fin n)) (v : Fin n) :
+    σ v ∈ S.image σ ↔ v ∈ S := by
+  constructor
+  · intro hv
+    obtain ⟨u, hu, huv⟩ := Finset.mem_image.mp hv
+    exact σ.injective huv ▸ hu
+  · intro hv
+    exact Finset.mem_image_of_mem σ hv
+
+lemma relabel_src {n : ℕ} (σ : Equiv.Perm (Fin n)) (D : Dag) (e : ℕ × Bool)
+    (he : e.1 < D.length) : src (relabel σ D) e = liftP σ (src D e) := by
+  rcases e with ⟨k,s⟩
+  cases s
+  · exact tr_opA σ D k he
+  · exact tr_opB σ D k he
+
+lemma relabel_port_support {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag}
+    (hS : Strict n D) (e : ℕ × Bool) (he : e.1 < D.length) :
+    supp n (relabel σ D) (src (relabel σ D) e) = (supp n D (src D e)).image σ := by
+  rw [relabel_src σ D e he, relabel_supp σ hS]
+
+lemma relabel_gate_support {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag}
+    (hS : Strict n D) (k : ℕ) :
+    supp n (relabel σ D) (n + k) = (supp n D (n + k)).image σ := by
+  simpa only [tr_liftP_ge σ (Nat.le_add_right n k)] using relabel_supp σ hS (n + k)
+
+lemma relabel_W {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag} (hS : Strict n D) (v : Fin n) :
+    sem_W n (relabel σ D) (σ v) = sem_W n D v := by
+  ext e
+  rw [sem_mem_W, sem_mem_W, relabel_length]
+  by_cases he : e.1 < D.length
+  · simp only [he, true_and]
+    rw [relabel_port_support σ hS e he, relabel_gate_support σ hS,
+      relabel_mem_image, relabel_mem_image]
+  · simp only [he, false_and]
+
+lemma relabel_W_preimage {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag}
+    (hS : Strict n D) (v : Fin n) :
+    sem_W n (relabel σ D) v = sem_W n D (σ.symm v) := by
+  simpa only [Equiv.apply_symm_apply] using relabel_W σ hS (σ.symm v)
+
+lemma relabel_comp {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag}
+    {G H : Fin n → Fin n → Prop}
+    (h : StrictLive n D) (hC : sem_Comp n G D)
+    (hσ : ∀ u v, H (σ u) (σ v) ↔ G u v) : sem_Comp n H (relabel σ D) := by
+  intro x
+  rw [relabel_out σ h.1 h.2.2, hC]
+  constructor
+  · rintro ⟨u,v,huv,hu,hv⟩
+    exact ⟨σ u,σ v,(hσ u v).mpr huv,hu,hv⟩
+  · rintro ⟨u,v,huv,hu,hv⟩
+    refine ⟨σ.symm u,σ.symm v,(hσ _ _).mp (by simpa using huv),?_,?_⟩
+    · simpa using hu
+    · simpa using hv
+
+lemma relabel_sem_Gr {n : ℕ} (σ : Equiv.Perm (Fin n))
+    {G H : Fin n → Fin n → Prop} (hG : sem_Gr G)
+    (hσ : ∀ u v, H (σ u) (σ v) ↔ G u v) : sem_Gr H := by
+  have hf (u v : Fin n) : H u v ↔ G (σ.symm u) (σ.symm v) := by
+    simpa using hσ (σ.symm u) (σ.symm v)
+  refine ⟨?_,?_,?_,?_⟩
+  · intro u v huv
+    exact (hf v u).mpr (hG.1 _ _ ((hf u v).mp huv))
+  · intro u huu
+    exact hG.2.1 _ ((hf u u).mp huu)
+  · intro v w hvw
+    obtain ⟨z,hvz,hwz⟩ := hG.2.2.1 (σ.symm v) (σ.symm w)
+      (fun he => hvw (σ.symm.injective he))
+    refine ⟨σ z,?_,?_⟩
+    · exact (hf v (σ z)).mpr (by simpa using hvz)
+    · intro hw
+      exact hwz (by simpa using (hf w (σ z)).mp hw)
+  · intro u v
+    obtain ⟨a,ha,hav⟩ := hG.2.2.2 (σ.symm u) (σ.symm v)
+    refine ⟨σ a,(hf u (σ a)).mpr (by simpa using ha),?_⟩
+    intro he
+    exact hav (by simpa using congrArg σ.symm he)
+
+lemma relabel_comp_auto {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag}
+    {G : Fin n → Fin n → Prop}
+    (h : StrictLive n D) (hC : sem_Comp n G D)
+    (hσ : ∀ u v, G (σ u) (σ v) ↔ G u v) : sem_Comp n G (relabel σ D) :=
+  relabel_comp σ h hC hσ
+
+end DagTools
+
+namespace DagTools
+
+lemma relabel_inner {n : ℕ} (σ : Equiv.Perm (Fin n)) (D : Dag) (hne : D ≠ []) :
+    (inner n D).image (liftP σ) = inner n (relabel σ D) := by
+  have hlen : 0 < D.length := List.length_pos_iff.mpr hne
+  have hcut : n ≤ n + D.length - 1 := by omega
+  ext w
+  simp only [Finset.mem_image, inner, Finset.mem_range, relabel_length]
+  constructor
+  · rintro ⟨v, hv, rfl⟩
+    exact (tr_liftP_lt_iff σ hcut v).2 hv
+  · intro hw
+    refine ⟨liftP σ⁻¹ w, ?_, tr_liftP_inv' σ w⟩
+    exact (tr_liftP_lt_iff σ⁻¹ hcut w).2 hw
+
+lemma relabel_Bplus {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag}
+    (hS : Strict n D) (hne : D ≠ []) : Bplus n (relabel σ D) = Bplus n D := by
+  classical
+  unfold Bplus surplusOn
+  rw [Finset.sum_filter, Finset.sum_filter, ← relabel_inner σ D hne, Finset.sum_image]
+  · apply Finset.sum_congr rfl
+    intro w hw
+    rw [relabel_supp σ hS]
+    simp only [Finset.image_nonempty, relabel_fanout]
+  · intro a ha b hb he
+    exact (tr_liftP_inj σ).mp he
+
+lemma relabel_Bzero {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag}
+    (hS : Strict n D) (hne : D ≠ []) : Bzero n (relabel σ D) = Bzero n D := by
+  classical
+  unfold Bzero surplusOn
+  rw [Finset.sum_filter, Finset.sum_filter, ← relabel_inner σ D hne, Finset.sum_image]
+  · apply Finset.sum_congr rfl
+    intro w hw
+    rw [relabel_supp σ hS]
+    simp only [Finset.image_nonempty, relabel_fanout]
+  · intro a ha b hb he
+    exact (tr_liftP_inj σ).mp he
+
+end DagTools
+
+namespace DagTools
+
+lemma relabel_all_eligible {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag}
+    (hS : Strict n D) (hall : eligSet n D = Finset.univ) :
+    eligSet n (relabel σ D) = Finset.univ := by
+  classical
+  apply Finset.eq_univ_iff_forall.mpr
+  intro v
+  rw [relabel_eligSet σ hS]
+  exact Finset.mem_image.mpr
+    ⟨σ.symm v, by rw [hall]; exact Finset.mem_univ _, σ.apply_symm_apply v⟩
+
+lemma relabel_slot_exclusion {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag}
+    {G H : Fin n → Fin n → Prop}
+    (h : StrictLive n D) (hC : sem_Comp n G D)
+    (hσ : ∀ u v, H (σ u) (σ v) ↔ G u v)
+    (b z : ℕ) (S : (Fin n → Finset (ℕ × Bool)) → Prop)
+    (hcanonical : ∀ E : Dag, StrictLive n E → sem_Comp n H E →
+      eligSet n E = Finset.univ → Bplus n E = b → Bzero n E = z →
+      S (sem_W n E) → False)
+    (hall : eligSet n D = Finset.univ) (hb : Bplus n D = b) (hz : Bzero n D = z)
+    (hslots : S (fun v => sem_W n D (σ.symm v))) : False := by
+  apply hcanonical (relabel σ D) (relabel_strictLive σ h) (relabel_comp σ h hC hσ)
+    (relabel_all_eligible σ h.1 hall)
+  · rw [relabel_Bplus σ h.1 h.2.2]
+    exact hb
+  · rw [relabel_Bzero σ h.1 h.2.2]
+    exact hz
+  · have hW : sem_W n (relabel σ D) = fun v => sem_W n D (σ.symm v) :=
+      funext (relabel_W_preimage σ h.1)
+    rw [hW]
+    exact hslots
+
+end DagTools
+
+namespace DagTools
+
+lemma relabel_elig_card {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag}
+    (hS : Strict n D) :
+    (eligSet n (relabel σ D)).card = (eligSet n D).card := by
+  rw [relabel_eligSet σ hS, Finset.card_image_of_injective _ σ.injective]
+
+lemma relabel_tight_budget {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag}
+    (hS : Strict n D) (hne : D ≠ [])
+    (hb : Bplus n D = (eligSet n D).card) :
+    Bplus n (relabel σ D) = (eligSet n (relabel σ D)).card := by
+  rw [relabel_Bplus σ hS hne, relabel_elig_card σ hS]
+  exact hb
+
+lemma relabel_tight_slot_exclusion {n : ℕ} (σ : Equiv.Perm (Fin n)) {D : Dag}
+    {G H : Fin n → Fin n → Prop}
+    (h : StrictLive n D) (hC : sem_Comp n G D)
+    (hσ : ∀ u v, H (σ u) (σ v) ↔ G u v)
+    (z : ℕ) (S : (Fin n → Finset (ℕ × Bool)) → Prop)
+    (hcanonical : ∀ E : Dag, StrictLive n E → sem_Comp n H E →
+      Bplus n E = (eligSet n E).card → Bzero n E = z →
+      S (sem_W n E) → False)
+    (hb : Bplus n D = (eligSet n D).card) (hz : Bzero n D = z)
+    (hslots : S (fun v => sem_W n D (σ.symm v))) : False := by
+  apply hcanonical (relabel σ D) (relabel_strictLive σ h) (relabel_comp σ h hC hσ)
+    (relabel_tight_budget σ h.1 h.2.2 hb)
+  · rw [relabel_Bzero σ h.1 h.2.2]
+    exact hz
+  · have hW : sem_W n (relabel σ D) = fun v => sem_W n D (σ.symm v) :=
+      funext (relabel_W_preimage σ h.1)
+    rw [hW]
+    exact hslots
+
+end DagTools
+
 end PEqualNP.Outside.L_meta_2590
