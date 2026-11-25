@@ -62,3 +62,17 @@ Command (from lean/): lake env lean ../results/orch/lemmas/CircuitBracket.lean
 Exit status: 0. Complete logs: circuit-bracket-build.stdout and .stderr.
 Independent review: status_review approved SHA256 514846d58cc061a13789493c4d06f7b5b88a7ce4f485f0ceeb569856a03bba60.
 Scope: essential exactly-one-NOT Petersen circuits yield explicit critical witnesses and a monotone prefix/suffix decomposition; full lower bound unproved.
+
+LEASE-LOSS CHECKPOINT 2026-11-25T14:44:37.622417+00:00
+Desk renewal returned HTTP410: no such live lease: it expired or was released. Full required diagnostic in desk-410-response.txt. New proof work paused; existing builds may complete.
+COMPILED: ProbesTen.lean (test-only dependency on current named partial module; remove its first32lines before final integration); exit0, empty complete probes-ten-build logs; independently reviewed.
+COMPILED: EliminationRow.lean, first-extra=1 chunk only; exit0, empty profile-row-build logs; independently reviewed. The full profile certificate is not claimed.
+PENDING, NOT CLAIMED COMPILED: TerminalTen.lean, CoverCheckEight.lean, RedundantNot.lean. Their frozen sources passed independent static review.
+ProbesTen.lean SHA256 72c53a03fb42380d6cbc5553accf1715dd20bd34a4b96cf9c44b9283623f9333
+EliminationRow.lean SHA256 cf31ebfe7004a6c03ff1a4646f6135f884610724711c21a16adaddf9d4416f08
+TerminalTen.lean SHA256 d2f56f511d5b278407bbe07976930c31ef831f993f2eb2f96b8cc035c30aa550
+CoverCheckEight.lean SHA256 40a6d8bc4f2c50abc40dc7d0c1a1effed0ba9f5cdc57eb2921d9ff1b0545ae49
+RedundantNot.lean SHA256 b7deed3aa9442221514964e53f7131e556c8da3169c4f4ad763eda4a891cb6a2
+Checker: not run on full statement; target theorem remains absent.
+Sub-agents: status_review, proof_route, circuit_search, not_elimination, toolchain_setup, gate_elimination
+TIMING total=29.48 subagents=6

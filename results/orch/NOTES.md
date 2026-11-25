@@ -15,3 +15,7 @@ The seven-row block-cover conjecture requiring ps.length+bs.length >=12 is false
 ## Stronger counting route
 
 Adding the independent core pair (0,1) to zero and six singleton rows gives eight regular rows. A complete auxiliary block-cover search found no budget11 construction, independently rerun with matching state counts. gate_elimination ports the finite CoverCheck proof; not_elimination ports terminal-class graph reasoning; toolchain_setup ports Probes and fixtures. Expected result, if linked: at least16 non-NOT gates for Petersen, excluding the four-NOT case. One/two/three-NOT cases remain.
+
+## ProbesTen adaptation checked
+
+2026-11-25T14:41:26.189111+00:00: ProbesTen.lean compiled against existing partial root module. Actual Petersen circuit-to-ledger link verified for eight regular samples plus two special rows and all five terminal layouts. no_ledger at nonNotCount<=15 reduces exactly to CoverCheckEight no_cover_build budget11. See strategy-probes.md for merge instructions and fixtures.
