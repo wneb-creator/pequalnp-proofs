@@ -1,0 +1,15 @@
+PARTIAL checkpoint. Full L-meta-1031 remains unproved.
+UTC: 2026-11-25T02:13:36.885380+00:00
+File: lean/PEqualNP/Outside/L_meta_1031.lean
+SHA256: 2011a533d49ecf0a82d095ef56836673c07337a6174bdb870e66edab55aad8e3
+Lines: 6066; bytes: 281452.
+Command (cwd lean/): LAKE_ARTIFACT_CACHE=false PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-56/lean-4.36.0-linux/bin/lake PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-56/pnp-home XDG_CACHE_HOME=/tmp/oec/pequalnp-pilot-56/cache ../tools/bin/lake build PEqualNP.Outside.L_meta_1031
+Exit status:0. Complete output: named-v2-build.stdout and named-v2-build.stderr.
+Results: exact posted existential conclusion for forests; common-center and empty cases; general existence/minimum; independent ownership construction; conditional pair-normalization bridge; strict normalization and semantic replacement lemmas; kernel-checked counterexample to the auxiliary OR-count bound.
+The source contains no final theorem named PEqualNP.Outside.L_meta_1031. The normalization hypothesis remains explicit. The OR-count counterexample does NOT refute the posted gap.
+Independent review: source composition and corrected two-line partial header passed. All imported project definitions come from PEqualNP.Defs; extra imports are Mathlib graph modules.
+Posted-statement checker: previous3027-line checkpoint ended CHECKER FAULT exit3 with no verdict; a solo retry on this updated source is planned. No checker acceptance or proof PR exists.
+Cleanup pass: not triggered. Before/after cleanup:6066/6066lines. Source consolidation is development, not a completed-proof cleanup pass.
+Desk requests:1; nulls:0; no no-gap message was returned. Only own lease renewed; latest manual expiry02:31:21.811UTC.
+Sub-agents: counterexample, independent_review, lean_setup, lemma_inventory, proof_strategy, status_review.
+TIMING total=67.80 subagents=6

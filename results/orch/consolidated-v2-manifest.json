@@ -1,0 +1,42 @@
+{
+  "status": "PASS: assembled module compiled on first attempt; partial results only, no proof of full posted statement",
+  "sources": [
+    {
+      "path": "lean/PEqualNP/Outside/L_meta_1031.lean",
+      "sha256": "c3cf7ffffc50b449695e13e6f99914ffcea66ad0eec640bf7bfa612eccc32102",
+      "lines": 3027,
+      "bytes": 144376
+    },
+    {
+      "path": "results/orch/lemmas/inventory_forest.lean",
+      "sha256": "3afed505fadbf2f6345ebb8fb21214f74b76a10bb3e64f1127a83b52c97bec65",
+      "lines": 2315,
+      "bytes": 106478
+    },
+    {
+      "path": "results/orch/lemmas/proof_edge_domination.lean",
+      "sha256": "6a40d3b6a57831cd607d1ec2483b154bfd670185838147b896cba6f0e4a482e6",
+      "lines": 1042,
+      "bytes": 46072
+    },
+    {
+      "path": "results/orch/lemmas/setup_or_counter.lean",
+      "sha256": "22f94344057d529ebfcca0a6c2e8e7a3976d2ed6ab6fff928e676116283fe90d",
+      "lines": 70,
+      "bytes": 2301
+    }
+  ],
+  "deduplication": "A Rel namespace prefix matched named source exactly and was omitted; A declarations from CycleStructure.Normal onward retained byte-for-byte. Only imports removed from source bodies and deduplicated at header. OR counterexample body appended byte-for-byte after stripping sole import and boundary whitespace.",
+  "output": {
+    "path": "results/orch/lemmas/consolidated_v2.lean",
+    "sha256": "4f0625f01b54677c9cdfb8d35452db3ae5c9e8d920a4ff580438e1c99afe82b1",
+    "lines": 6063,
+    "bytes": 281370
+  },
+  "compile": {
+    "exit_code": 0,
+    "command": "LAKE_ARTIFACT_CACHE=false PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-56/lean-4.36.0-linux/bin/lake PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-56/pnp-home XDG_CACHE_HOME=/tmp/oec/pequalnp-pilot-56/cache /workspace/pequalnp-proofs/tools/bin/lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/consolidated_v2.lean",
+    "stdout": "results/orch/consolidated-v2-build.stdout",
+    "stderr": "results/orch/consolidated-v2-build.stderr"
+  }
+}

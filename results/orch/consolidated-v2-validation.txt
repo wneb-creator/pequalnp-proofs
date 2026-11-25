@@ -1,0 +1,17 @@
+PARTIAL RESULTS ONLY: the full posted L-meta-1031 theorem is not proved.
+
+UTC: 2026-11-25T02:10:03.735011+00:00
+Source: results/orch/lemmas/consolidated_v2.lean
+SHA256: 4f0625f01b54677c9cdfb8d35452db3ae5c9e8d920a4ff580438e1c99afe82b1
+Lines: 6063
+Bytes: 281370
+Lean compile: PASS, exit0, first combined attempt
+Command from lean/: LAKE_ARTIFACT_CACHE=false PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-56/lean-4.36.0-linux/bin/lake PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-56/pnp-home XDG_CACHE_HOME=/tmp/oec/pequalnp-pilot-56/cache /workspace/pequalnp-proofs/tools/bin/lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/consolidated_v2.lean
+Complete stdout: results/orch/consolidated-v2-build.stdout (11650 bytes; SHA256 31d1743fac532856c121f4e7c529630a4a20cbc508b312717bdb10c12615da72)
+Complete stderr: results/orch/consolidated-v2-build.stderr (0 bytes; SHA256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855)
+Included: existing minimum existence, pair/global soundness bridge, essential-edge deletion, last-AND soundness, star and forest exact cases, semantic edge-domination bypass, OR-count-bound counterexample.
+The OR-count-bound counterexample does not refute the posted gap statement.
+No final module-named theorem is declared; checker against posted statement has not been run on this experiment.
+Format scan: no forbidden text, strings, custom declarations, unsupported options, sorry, axioms, or native_decide.
+Source provenance and deduplication: results/orch/consolidated-v2-manifest.json
+Independent composition review: PASS from independent_review; exact bytes reconstructed from four source bodies, Rel dedup and import header checked, source hash matched, format/namespace/option scans clear.
