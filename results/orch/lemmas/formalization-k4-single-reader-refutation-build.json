@@ -1,0 +1,7 @@
+{
+  "exit_code": 0,
+  "source_sha256": "05fed5d00b2bdb1e6ac3a6e6f3a627ff41e7c4ee36a38dd820ff26ade5ea6098",
+  "source": "results/orch/lemmas/formalization-k4-single-reader-refutation.lean",
+  "lines": 5324,
+  "warnings": "Only deprecated if_false/if_true names in the unchanged generic trace tail; no errors."
+}

@@ -20,3 +20,5 @@
 2026-11-25T10:41:16.862046+00:00 — Low equality partial compiled and independently reviewed; preserving before further work. Preparing polarity-minimality SAT cuts and high equality lemmas. No new reduction submitted because proposed cap premise faces a mathematical obstruction.
 
 2026-11-25T10:43Z — K4 equality and generic single-reader derivative bridge compiled and independently reviewed. Preserving both with low Fano equality. Combined strict-live K4 obstruction is in progress; original Fano target remains unresolved.
+
+2026-11-25T10:47:20.143078+00:00 — Combined strict-live K4 obstruction compiled and independently reviewed. Preserving it. Full Fano equality analysis continues in low/high cases, together with direct Circuit/DAG trace transport.
