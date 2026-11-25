@@ -33,3 +33,5 @@
 - 2026-11-25 19:51 UTC: Largest binaryleaf4061states kernel-checked under6000MB,8.59seconds. Root independently reviewed forceLook1 identity and ordinary closedkernel proof, preserving source/log. Runtime now drives grouping relatedleaves to reuse computation.
 
 - 2026-11-25 19:53 UTC: Lower13-t0 full21-child cut proof checked under6000MB; kernel74.9seconds. Root independently reviewed closed low0Root, exact reusedcut glue, no dependence oniroot/lower13. Preserving worstleaf and fullcut source/logs.
+
+- 2026-11-25 19:55 UTC: All remaining lower13 t1..12 closedcomputations and13-way assembly checked under6000MB;15.2s kernel. Root reviewed exact parameters and explicit t0 premise only for assembly demonstration; t0 separately proved. Savedcomplete source/log.

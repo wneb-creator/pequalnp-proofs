@@ -1,0 +1,63 @@
+import took 3.6s
+type checking took 11.8s
+/tmp/oec/pequalnp-pilot-178/proof_route/Lower13Rest.lean:3:0: warning: Definition `lower13Case1` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 2.29s
+/tmp/oec/pequalnp-pilot-178/proof_route/Lower13Rest.lean:7:0: warning: Definition `lower13Case2` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 189ms
+/tmp/oec/pequalnp-pilot-178/proof_route/Lower13Rest.lean:11:0: warning: Definition `lower13Case3` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 180ms
+/tmp/oec/pequalnp-pilot-178/proof_route/Lower13Rest.lean:15:0: warning: Definition `lower13Case4` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-178/proof_route/Lower13Rest.lean:19:0: warning: Definition `lower13Case5` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-178/proof_route/Lower13Rest.lean:23:0: warning: Definition `lower13Case6` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-178/proof_route/Lower13Rest.lean:27:0: warning: Definition `lower13Case7` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-178/proof_route/Lower13Rest.lean:31:0: warning: Definition `lower13Case8` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-178/proof_route/Lower13Rest.lean:35:0: warning: Definition `lower13Case9` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+type checking took 124ms
+/tmp/oec/pequalnp-pilot-178/proof_route/Lower13Rest.lean:39:0: warning: Definition `lower13Case10` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-178/proof_route/Lower13Rest.lean:43:0: warning: Definition `lower13Case11` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+/tmp/oec/pequalnp-pilot-178/proof_route/Lower13Rest.lean:47:0: warning: Definition `lower13Case12` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+cumulative profiling times:
+	attribute application 0.393ms
+	congr simp thm 1.01ms
+	declTypeLinter 17ms
+	elaboration 44.9ms
+	fix level params 0.23ms
+	import 3.6s
+	initialization 48.1ms
+	instantiate metavars 0.602ms
+	interpretation 449ms
+	let-to-have transformation 0.204ms
+	linting 21.1ms
+	module linting 0.0276ms
+	parsing 7.1ms
+	process pre-definitions 39.6ms
+	share common exprs 0.822ms
+	simp 20.3ms
+	tactic execution 38.8ms
+	tacticAnalysis 4.32ms
+	type checking 15.2s
+	typeclass inference 13.2ms
