@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-70/constructive/joint_phased_run.py", line 97, in <module>
+    main()
+  File "/tmp/oec/pequalnp-pilot-70/constructive/joint_phased_run.py", line 44, in main
+    assert variable <= model['nv'], 'Phase variable outside CNF range'
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Phase variable outside CNF range

@@ -1,0 +1,51 @@
+{
+  "started_at": "2026-11-25T09:52:50.880122+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=3600",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/constructive/anchored-tail26.cnf"
+  ],
+  "wall_limit_seconds": 3600,
+  "backend": "kissat",
+  "preset": "default",
+  "seed": 1,
+  "gate_count": 26,
+  "variables": 7249,
+  "clauses": 199034,
+  "wrapper_sha256": "4a90ba9cecfb1d532e1684020561686c41c1bd75d811f3e7f1c129620fb26763",
+  "pins": {
+    "source": {
+      "path": "/tmp/oec/pequalnp-pilot-70/constructive/anchored_tail.py",
+      "sha256": "62f29c9498a6e2d440ad21fde0291a8edc96d7419169c70dfe9795eea898507b"
+    },
+    "solver": {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+      "sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1"
+    },
+    "cnf": {
+      "path": "/tmp/oec/pequalnp-pilot-70/constructive/anchored-tail26.cnf",
+      "sha256": "6ff5e62b19607e099ce4c324b20e3a21d9de11da80a76d00a1bc531e9eb65538"
+    },
+    "map": {
+      "path": "/tmp/oec/pequalnp-pilot-70/constructive/anchored-tail26.map.json",
+      "sha256": "5d904111e8cf151235f40dc82f96169b6b0bf08e1370d771b56c41ea65c335a2"
+    }
+  },
+  "scope": "C OR (U AND V), with F0 <= C <= Heawood. Restricted sufficient family only.",
+  "solver_finished_at": "2026-11-25T10:09:27.189389+00:00",
+  "wall_seconds": 996.3084771409995,
+  "cpu_seconds": 948.925481,
+  "max_rss_kib": 62852,
+  "exit_code": -15,
+  "status": "INTERRUPTED",
+  "solve_log": "/tmp/oec/pequalnp-pilot-70/circuit-search/anchored-tail26-kissat-solve.log",
+  "solve_log_sha256": "a4064e3d71a8a1d132b656e425a810a3027b457945ab43da33690392e2329d89",
+  "finished_at": "2026-11-25T10:09:27.206427+00:00",
+  "driver_status": "ERROR",
+  "solver_verdict": null,
+  "interruption_reason": "withdrawn",
+  "interruption_record": "anchored-tail26-kissat-withdrawal.json",
+  "interpretation": "The desk withdrew the gap and root instructed immediate termination. SIGTERM ended this run; this is neither SAT nor UNSAT and establishes no independent nonexistence result."
+}

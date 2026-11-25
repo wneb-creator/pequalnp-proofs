@@ -1,8 +1,8 @@
 Job: pequalnp-pilot-70
 Message: msg-1005ae78a872689acc127cfe
 Gap: L-meta-2732
-Validation snapshot UTC: 2026-11-25T09:54:03.247665+00:00
-Status: unresolved. Checked partial lemmas and a 27-gate baseline exist; no 26-gate witness or unrestricted refutation has been found.
+Validation snapshot UTC: 2026-11-25T10:14:06.299154+00:00
+Status: desk withdrew the step at10:08:50UTC, reporting a checked nonexistence result. No 26-gate witness or full-gap refutation was obtained locally.
 File: lean/PEqualNP/Outside/L_meta_2732.lean
 File SHA256: aaeb9e91385f2cb04fb7232630d4dd565c26ae3f0523e930f5ea07dd3d1c0143
 Build: lake build PEqualNP.Outside.L_meta_2732 exited 0: Build completed successfully (5149 jobs). Full log: build-partial-006.log.
@@ -14,9 +14,12 @@ Witness pipeline: strict single-file generator independently reviewed, including
 Independent review: helper proofs, search encodings, model checks, runner guards and preservation inventories were checked by separate agents. Review files and complete logs are retained.
 Completed searches: F0+A24, matching14 and jointTEN each UNKNOWN after 45 minutes; general unique-input synthesis UNKNOWN after 60 minutes; short guided probe UNKNOWN after 120 seconds. Six-gate fixed-star cone and six local k2/k3/k4 neighborhoods UNSAT only in their stated restricted scopes. No unrestricted nonexistence follows.
 Interrupted searches: the environment restart killed two runs; later general final-OR synthesis was intentionally interrupted for reallocation. No verdict is attributed to these interrupted runs.
-Active at snapshot: anchored-tail26 and joint noncollinear14-live. The full soft-phase unique-input run is queued; one short dirty-TEN probe is authorized.
-PR: none. This branch contains research checkpoints and must not be submitted as a one-file proof PR in its current state.
+Active searches: none. Noncollinear completed UNKNOWN; anchored was interrupted on withdrawal with no verdict. Both planned long phased runs were cancelled before launch.
+PR: none. The step was withdrawn and the branch contains partial research checkpoints, not an exact proof of the posted theorem.
 Sub-agents: repo_review; circuit_search; lower_bound; formalization; formalization/rename_wires; constructive; sat_review
-TIMING total=275.8 subagents=7
+TIMING total=295.9 subagents=7
 Desk null count: 2
 Exact message both times: no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes
+Desk diagnostic: required curl-si retry returned HTTP410/no live lease. Full headers/bodies are in desk-withdrawal-response.txt; opaque telemetry query value redacted.
+Lease disposition: no further desk request or release call; lease already invalidated. Renewal loop stopped, exit0 confirmed.
+External report only: the desk said a checked row proves nonexistence. This job does not claim that refutation as its own result.

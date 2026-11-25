@@ -1,0 +1,38 @@
+{
+  "started_at": "2026-11-25T09:23:37.561179+00:00",
+  "wall_limit_seconds": 2700,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=2700",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/joint-noncollinear14-live.cnf"
+  ],
+  "cnf_sha256": "187d0a36ff60c1f9445b0844d3f10cebced11836a86d842cdb98429c955c2507",
+  "map_sha256": "0e9df7a883c8a61c92e9473e74dc7e025a37a8fcf90c8c56969294af5f9976b0",
+  "solver_sha256": "eb54e117279396bc1d68adb93a60d2d0852054da78f4c06608c47c624e2be9b1",
+  "backend": "kissat",
+  "preset": "default",
+  "seed": 1,
+  "finished_at": "2026-11-25T10:08:37.589454+00:00",
+  "wall_seconds": 2700.0177911460014,
+  "cpu_seconds": 2593.384997,
+  "max_rss_kib": 54776,
+  "exit_code": 0,
+  "status": "UNKNOWN",
+  "independent_reviews": [
+    "/tmp/oec/pequalnp-pilot-70/sat-review/joint-noncollinear-review.json",
+    "/tmp/oec/pequalnp-pilot-70/sat-review/correlated-liveness-review.json"
+  ],
+  "source_sha256": {
+    "joint_correlated.py": "98d3ec9c9b9bc620419d8e20fd9eb49041ec4a1e46816c677dd57716d3f8fdb1",
+    "joint_decode.py": "ee90d20929df9de1d02825f8bdfe974472cb1b38ca754a17bf15b058b789f08e",
+    "joint_run.py": "90710efbcf80a9fc7f3d42ffc24cb299810729f7425b347987e4c8bf1c4559ef",
+    "joint_smoke.py": "f6777c9120ec0afcb1e69964b2537b33e3a2755c89ad2c7383eedcfb07200d97"
+  },
+  "postprocessor_sha256": "d6e94b9976a3a4f6cadc4e1f0541d7c37271774d57a15d5a3fc0d8287ce6afaa",
+  "scope": "Seven fixed-noncollinear-three-star families, correlated cut inputs, computed-gate liveness and selected-variant essential-support coverage; not unrestricted26-gate nonexistence.",
+  "lease_renewed_at": "2026-11-25T09:22:48+00:00",
+  "lease_expiry_at_launch": "2026-11-25T09:42:48.924+00:00",
+  "verification_required": "Every model clause, selected variant, all2048 underlying assignments and all16384 full assignments"
+}

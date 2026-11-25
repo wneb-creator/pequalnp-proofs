@@ -1,0 +1,58 @@
+{
+  "status": "PASS",
+  "preflight_sha256": "7b506bcc13f810c3aefa6a0d71bf9c8b8d08b5fd9a8311fca7118e99591b7588",
+  "hashes": {
+    "cnf_sha256": "a9671e1a17acae8640d686024f43a5f162b5d3744bfe00da61620e00d8309b33",
+    "map_sha256": "2489ce76f1bba7eaf065b18a60763fe58436d322cb8963ebb475aba51f21eb2c",
+    "phase_sha256": "a7a406cf3e3132ccede311d2e417667e5079c888e67854e42816a7a2cf69200c",
+    "wrapper_sha256": "9825bffc5951099409b55c12d5324b8559147cb34a9021b1ea1c16b2d9ac2cb9",
+    "decoder_sha256": "ee90d20929df9de1d02825f8bdfe974472cb1b38ca754a17bf15b058b789f08e",
+    "helper_sha256": "3ba1edbfbc745cca6f0d75a5f0772433a30b6c8feb2cc7f3211f40f3f27615ca",
+    "helper_source_sha256": "050e6463c4ba26c564d7834021ad75ee40bc16e222cca5aabbf761294b64fa51"
+  },
+  "variables": 1503,
+  "clauses": 25019,
+  "phase_preferences": 991,
+  "new_dirty_variables_unphased": 80,
+  "all_unphased_variables": 512,
+  "all_preferences_reconstructed_from_branch3_seed": true,
+  "near_seed": {
+    "residual_misses": 16,
+    "full_misses": 47,
+    "dirty_and_rows": 0,
+    "is_satisfying_witness": false
+  },
+  "rejection_checks": [
+    {
+      "case": "zero",
+      "exit_code": 1,
+      "rejected_before_launch": true,
+      "log_sha256": "79ff01ffe52c89e6f2889fd25e10190cece9d4d0fcd11c226ce13e397b0e48a5"
+    },
+    {
+      "case": "outside",
+      "exit_code": 1,
+      "rejected_before_launch": true,
+      "log_sha256": "eabcfda64f9e0776fd71c2283f44f29a38796e2b23c3ade166deac1c04145868"
+    },
+    {
+      "case": "conflict",
+      "exit_code": 1,
+      "rejected_before_launch": true,
+      "log_sha256": "6875d37568055e0b36a570912acf830d7d9a9d746168a08b7d75aeee8feeb522"
+    }
+  ],
+  "approved_command": [
+    "python3",
+    "joint_phased_run.py",
+    "--cnf",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/joint-ten10-live-dirty.cnf",
+    "--phases",
+    "/tmp/oec/pequalnp-pilot-70/constructive/joint-ten10-branch3-near.phases",
+    "--prefix",
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/joint-ten10-live-dirty-phased15",
+    "--seconds",
+    "900"
+  ],
+  "scope": "Exact frozen inputs and soft preferences only. Joint decoder retains complete model/clause validation and all1024 residual/all16384 full assignments; runtime wrapper records source hashes rather than enforcing external preflight pins. No production solver launched."
+}

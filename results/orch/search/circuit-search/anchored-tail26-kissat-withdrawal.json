@@ -1,0 +1,15 @@
+{
+  "requested_at": "2026-11-25T10:09:27.174388+00:00",
+  "pid": 27653,
+  "command": [
+    "/tmp/oec/pequalnp-pilot-70/circuit-search/kissat/build/kissat",
+    "-s",
+    "--time=3600",
+    "--seed=1",
+    "/tmp/oec/pequalnp-pilot-70/constructive/anchored-tail26.cnf"
+  ],
+  "signal": "SIGTERM",
+  "reason": "Desk withdrew the held gap; root instructed immediate stop.",
+  "root_reported_desk_error": "this step was withdrawn: withdrawn: a checked row shows the circuit this step searches for does not exist. Stop work on it and ask /desk/next for a step the attack is waiting on.",
+  "result_scope": "Interruption only; no solver verdict or independent nonexistence claim."
+}

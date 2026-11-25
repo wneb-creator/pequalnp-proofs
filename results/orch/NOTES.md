@@ -88,3 +88,12 @@ The Fano factor route is closed without a target construction. Its16-gate formul
 The general unique-input run completed UNKNOWN at09:52:27 after3600wallseconds/3492CPUseconds. Its source and necessary constraints passed review, but the solver supplied no existence or nonexistence verdict. The anchored AND-OR search began09:52:50 for60minutes. The noncollinear family remains active until about10:08:38, when the reviewed soft-phase unique-input run is planned for60minutes. A prior120second soft-phase probe was UNKNOWN.
 
 A required-dirty-AND restriction for the correlated TEN and noncollinear cones passed independent review. Its positive28-gate and negative fixed-clean27-gate runs are regression tests, not target results. A120second dirty-TEN probe is now authorized as a temporary third process; any later final-slot run will be separately allocated. Neither long run is being changed. About84minutes of the original six-hour budget remain; no exact26-gate witness, unrestricted refutation or accepted checker result exists.
+
+
+## Desk withdrawal and final stop 2026-11-25T10:14:06.299154+00:00
+
+At10:08:50UTC the root renewal returned withdrawn=true. The desk reported that a checked row shows the searched-for circuit does not exist. The one required diagnostic retry returned HTTP410/no live lease. Work stopped under the user's desk-error rule. No new gap was requested and no release call was made for the already invalid lease. The renewal timer has stopped with exit0; its local marker explicitly records withdrawal, not a release request.
+
+Noncollinear finished UNKNOWN at10:08:37 before the failed renewal. Anchored-tail was terminated at10:09:27 and is recorded INTERRUPTED/withdrawn, with no solver verdict; the original driver's error record and complete solver output are retained. Neither planned long phased run started. This job produced checked partial components and the27-gate baseline, but no26-gate witness or locally checked refutation. The desk's nonexistence claim is an external report, not a result established here. No proof PR is appropriate for this withdrawn step.
+
+The complete error bodies and response headers are preserved in desk-withdrawal-response.txt, with one opaque telemetry query value redacted. Final preservation and review records retain all completed outputs. The assigned file is unchanged at518lines; its build and recovered artifacts passed. The latest local checker run remains a fault at exit137 without a verdict.

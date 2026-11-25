@@ -1,0 +1,28 @@
+{
+  "recorded_at": "2026-11-25T10:14:06.299154+00:00",
+  "job": "pequalnp-pilot-70",
+  "gap": "L-meta-2732",
+  "reason": "desk_withdrew_step",
+  "initial_response_utc": "2026-11-25T10:08:50.307032Z",
+  "initial_response": {
+    "error": "this step was withdrawn: withdrawn: a checked row shows the circuit this step searches for does not exist. Stop work on it and ask /desk/next for a step the attack is waiting on.",
+    "withdrawn": true
+  },
+  "diagnostic_http_status": 410,
+  "diagnostic_error": "no such live lease: it expired or was released. Ask /desk/next again.",
+  "new_gap_requested": false,
+  "release_request_made": false,
+  "lease_state": "desk confirmed no live lease",
+  "renewal_timer": "stopped through its local marker; process exit0 confirmed",
+  "all_searches_stopped": true,
+  "local_result": "No 26gate witness, unrestricted refutation or exact posted proof obtained. The nonexistence claim is reported by the desk, not proved by this job.",
+  "pr": null,
+  "subagents_used": 7,
+  "elapsed_minutes": 295.9,
+  "raw_diagnostic_sha256": "6eadf3e950cbfc00992c3792046ed77efad4452206f7269a297d69e5925a7feb",
+  "public_transcript": "results/orch/desk-withdrawal-response.txt",
+  "public_redaction": "opaque telemetry query value only",
+  "public_desk_log": "results/orch/desk-log-redacted.txt",
+  "desk_null_count": 2,
+  "lease_identifier_redactions": 186
+}

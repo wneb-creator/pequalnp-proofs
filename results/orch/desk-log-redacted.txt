@@ -1,0 +1,623 @@
+Complete desk answer log. Lease identifiers and an opaque telemetry query parameter are redacted.
+
+2026-11-25T05:19:39.492477+00:00 {
+ "gap": null,
+ "note": "no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes",
+ "retry_after_s": 300
+}
+
+2026-11-25T05:23:39.493742+00:00 {
+ "gap": null,
+ "note": "no step is free that you have not already looked at and handed back in the last hour (3); new steps are posted through the day, ask again in a few minutes",
+ "retry_after_s": 300
+}
+
+2026-11-25T05:27:39.928955+00:00 {
+ "gap": {
+  "id": "L-meta-2732",
+  "title": "A step toward: Find a circuit of AND and OR gates with at most 26 gates for 'both ends of some edge are true' on the Heawood graph, or show none exists (step 1 of 2)",
+  "statement": "have x1 : List (ℕ × ℕ) := [((0 : ℕ), (7 : ℕ)), ((0 : ℕ), (8 : ℕ)), ((0 : ℕ), (10 : ℕ)), ((1 : ℕ), (7 : ℕ)), ((1 : ℕ), (9 : ℕ)), ((1 : ℕ), (13 : ℕ)), ((2 : ℕ), (8 : ℕ)), ((2 : ℕ), (12 : ℕ)), ((2 : ℕ), (13 : ℕ)), ((3 : ℕ), (7 : ℕ)), ((3 : ℕ), (11 : ℕ)), ((3 : ℕ), (12 : ℕ)), ((4 : ℕ), (10 : ℕ)), ((4 : ℕ), (11 : ℕ)), ((4 : ℕ), (13 : ℕ)), ((5 : ℕ), (9 : ℕ)), ((5 : ℕ), (10 : ℕ)), ((5 : ℕ), (12 : ℕ)), ((6 : ℕ), (8 : ℕ)), ((6 : ℕ), (9 : ℕ)), ((6 : ℕ), (11 : ℕ))]; have x2 : (Fin (14 : ℕ) → Bool) → Bool := fun (x2 : Fin (14 : ℕ) → Bool) => Decidable.decide (∃ (x3 : Fin (14 : ℕ)) (x4 : Fin (14 : ℕ)), (↑x3, ↑x4) ∈ x1 ∧ x2 x3 = Bool.true ∧ x2 x4 = Bool.true); have x3 : ℕ → ℕ → ℕ → ℕ → ℕ := fun (x3 x4 x5 x6 : ℕ) => ((15 : ℕ) * Min.min x3 x4 + Max.max x3 x4) * (225 : ℕ) + ((15 : ℕ) * Min.min x5 x6 + Max.max x5 x6); have x4 : Equiv.Perm (Fin (14 : ℕ)) → Fin (15 : ℕ) → ℕ := fun (x4 : Equiv.Perm (Fin (14 : ℕ))) (x5 : Fin (15 : ℕ)) => if ↑x5 < (14 : ℕ) then ↑(x4 (Fin.ofNat (14 : ℕ) ↑x5)) else (14 : ℕ); ∃ (x5 : Fin (14 : ℕ)) (x6 : Fin (14 : ℕ)) (x7 : Fin (15 : ℕ)) (x8 : Fin (15 : ℕ)) (x9 : PEqualNP.CircuitLowerBounds.GateOp) (x10 : PEqualNP.CircuitLowerBounds.GateOp) (x11 : PEqualNP.CircuitLowerBounds.Circuit),   x5 < x6 ∧     x7 < x8 ∧       (x9 = PEqualNP.CircuitLowerBounds.GateOp.and ∨ x9 = PEqualNP.CircuitLowerBounds.GateOp.or) ∧         (x10 = PEqualNP.CircuitLowerBounds.GateOp.and ∨ x10 = PEqualNP.CircuitLowerBounds.GateOp.or) ∧           (∀ (x12 : Equiv.Perm (Fin (14 : ℕ))), (∀ (x13 : Fin (14 : ℕ) → Bool), x2 (x13 ∘ ⇑x12) = x2 x13) → x3 ↑x5 ↑x6 ↑x7 ↑x8 ≤ x3 (↑(x12 x5)) (↑(x12 x6)) (x4 x12 x7) (x4 x12 x8)) ∧             PEqualNP.MetaComplexity.Monotone2 x11 ∧               x11.size ≤ (24 : ℕ) ∧                 ∀ (x12 : Fin (14 : ℕ) → Bool),                   have x13 : List Bool := List.ofFn x12 ++ [x9.eval [x12 x5, x12 x6]];                   x11.eval (x13 ++ [x10.eval [x13.getD (↑x7) Bool.false, x13.getD (↑x8) Bool.false]]) = x2 x12",
+  "file": "lean/PEqualNP/Outside/L_meta_2732.lean",
+  "module": "PEqualNP.Outside.L_meta_2732",
+  "imports": [
+   "PEqualNP.Defs"
+  ],
+  "unlocks": "With its 1 sibling(s) it proves a posted step.",
+  "context": "A hypothesis of a checked reduction, as Lean printed it.",
+  "dead": [],
+  "weight": 93,
+  "parallel": 10,
+  "lane": "main",
+  "depth": 1,
+  "reductions": true,
+  "reductions_live": 3,
+  "sketch": "Step 1 of 2 of a checked cut of L-meta-582. Its sibling steps: L-meta-2734. Together they give the parent; the parent's own sketch: no proof is expected here: propose a cut: by first gates up to symmetry, by a structural invariant, by cases. the route is notes/cut/arc/SAT-SKETCH.md: row reduction by monotonicity (21 minimal true rows, the maximal false rows), symmetry breaking by the collineation group of order 168 with each clause justified, sharding by the first two gates. A found circuit is evaluated on all 2^14 inputs; a none-answer comes with a DRAT or LRAT proof on the fully written enco",
+  "pr_open": 0,
+  "pr_numbers": []
+ },
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T05:47:40.333Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ },
+ "reductions_open": true
+}
+
+2026-11-25T05:28:37.752999+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T05:48:37.540Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T05:29:21.514686+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T05:49:21.773Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T05:30:28.927863+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T05:50:29.376Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T05:31:53.353154+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T05:51:53.623Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T05:33:46.757562+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T05:53:47.192Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T05:35:02.173147+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T05:55:02.613Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T05:36:16.533575+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T05:56:16.895Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T05:36:50.934084+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T05:56:51.157Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T05:37:45.660242+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T05:57:46.117Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T05:40:04.740414+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T06:00:04.991Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T05:42:39.838015+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T06:02:40.233Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T05:44:13.150159+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T06:04:13.563Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T05:45:46.734778+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T06:05:47.022Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T05:49:06.369035+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T06:09:06.714Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T05:51:17.568820+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T06:11:17.797Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T05:53:05.258050+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T06:13:05.612Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T06:02:08.725098+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T06:22:08.883Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T06:11:36.776732+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T06:31:37.208Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T06:13:37.725411+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T06:33:37.901Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T06:16:05.365258+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T06:36:05.808Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T06:26:05.365884+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T06:46:05.576Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T06:27:52.258291+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T06:47:52.563Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T06:32:10.026187+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T06:52:10.385Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T06:36:18.853912+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T06:56:19.106Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T06:37:37.527837+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T06:57:37.745Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T06:43:41.858576+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T07:03:42.340Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T06:48:24.047584+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T07:08:24.597Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T06:50:54.752655+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T07:10:55.013Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T06:56:52.424085+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T07:16:52.835Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T07:03:01.263791+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T07:23:01.769Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T07:06:01.447205+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T07:26:01.782Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T07:07:33.538808+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T07:27:33.787Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T07:11:22.347946+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T07:31:22.519Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T07:15:53.114165+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T07:35:53.866Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T07:18:51.011854+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T07:38:51.312Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T07:28:56.065773+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T07:48:56.332Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T07:37:35.046293+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T07:57:35.362Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T07:40:16.001189+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T08:00:16.174Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T07:43:09.712837+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T08:03:09.882Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T07:46:53.613913+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T08:06:53.788Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T07:51:21.760104+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T08:11:22.010Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T07:53:59.462748+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T08:13:59.711Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T08:02:25.956367+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T08:22:26.229Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T08:06:10.275681+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T08:26:10.552Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T08:11:08.964006+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T08:31:09.471Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T08:21:08.968765+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T08:41:09.267Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T08:23:06.255865+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T08:43:06.543Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T08:33:06.257554+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T08:53:06.493Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T08:36:56.843821+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T08:56:56.962Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T08:46:39.919146+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T09:06:40.142Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T08:51:27.772179+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T09:11:28.037Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T08:56:45.377622+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T09:16:45.624Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T09:04:34.442940+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T09:24:34.702Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T09:14:34.443655+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T09:34:34.728Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T09:22:48.632757+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T09:42:48.924Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T09:32:48.639852+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T09:52:48.875Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T09:36:58.229844+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T09:56:58.393Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T09:46:58.230504+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T10:06:58.438Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T09:52:10.554489+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T10:12:10.821Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T09:53:38.991247+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T10:13:39.255Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T10:03:38.991877+00:00 BEAT {
+ "lease": {
+  "id": "[lease ID redacted]",
+  "expires_at": "2026-11-25T10:23:39.189Z",
+  "renew": "POST /desk/beat?lease=[lease ID redacted]",
+  "release": "POST /desk/release?lease=[lease ID redacted]&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>"
+ }
+}
+
+2026-11-25T10:08:50.307032+00:00 BEAT {
+ "error": "this step was withdrawn: withdrawn: a checked row shows the circuit this step searches for does not exist. Stop work on it and ask /desk/next for a step the attack is waiting on.",
+ "withdrawn": true
+}
+
+
+Diagnostic retry, HTTP410, 2026-11-25T10:08:56Z
+HTTP/1.1 200 OK
+date: Wed, 25 Nov 2026 10:08:55 GMT
+server: envoy
+
+HTTP/2 410 
+date: Wed, 25 Nov 2026 10:08:56 GMT
+content-type: application/json; charset=utf-8
+content-length: 86
+access-control-allow-origin: *
+cache-control: no-store
+x-content-type-options: nosniff
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=[redacted telemetry query]"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: envoy
+cf-ray: a5ffdadd5eea3222-SJC
+alt-svc: h3=":443"; ma=86400
+x-envoy-upstream-service-time: 189
+
+{
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}

@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-70/constructive/joint_phased_run.py", line 97, in <module>
+    main()
+  File "/tmp/oec/pequalnp-pilot-70/constructive/joint_phased_run.py", line 45, in main
+    assert variable not in preferences or preferences[variable] == value, 'Conflicting phase duplicates'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Conflicting phase duplicates

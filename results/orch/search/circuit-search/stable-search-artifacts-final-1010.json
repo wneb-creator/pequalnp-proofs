@@ -1,0 +1,128 @@
+{
+  "created_at": "2026-11-25T10:10:09.062674+00:00",
+  "frozen_files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/joint-noncollinear14-live-kissat-run.json",
+      "size": 1712,
+      "sha256": "f0b1ba1ab44c62450393fd1cd6cf776ee617fa0d7c9888c36aab6e9582d4296a"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/joint-noncollinear14-live-kissat-result.json",
+      "size": 1898,
+      "sha256": "8ac8d2156d2ad6e4eaee440f58b1500cc889634c9f87c5d52ab85a18a1aa3b9f"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/joint-noncollinear14-live-kissat-solve.log",
+      "size": 156501,
+      "sha256": "816f3f6df94e06b83ff78cd9fb1324fa7be8b038e1a96cc6e2f7e7439d46d5dc"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/joint-noncollinear14-live-kissat-wrapper.log",
+      "size": 741,
+      "sha256": "6a35aa50a905a45e29337273baeeda1ea2616ca81cd9fe4f05d4148083f01dac"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/anchored-tail26-kissat-run.json",
+      "size": 1330,
+      "sha256": "756991db657a40270b23d8c2103ec2930f491be8f235ff3f68ae08bf142de581"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/anchored-tail26-kissat-result.json",
+      "size": 2120,
+      "sha256": "66faa7a0c55574e2f657348a8472e6c16eb88bef28b37acc7ad8998f7b75b2f0"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/anchored-tail26-kissat-driver-interrupted-result.json",
+      "size": 1757,
+      "sha256": "66e98ee5591ae8e3fa569af2f405c97a9d5a5d8429d5cb58542d9bea4733bee6"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/anchored-tail26-kissat-allocation.json",
+      "size": 438,
+      "sha256": "15b2780b7d0d28b80d2c7abd04d334e4615d761d3b8e7c667e557117cc5eb7fb"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/anchored-tail26-kissat-withdrawal.json",
+      "size": 676,
+      "sha256": "48cb90a0525fef610661dd00095e8de33ed548e14cc0c2e1cc1a622378a872fa"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/anchored-tail26-kissat-solve.log",
+      "size": 116539,
+      "sha256": "a4064e3d71a8a1d132b656e425a810a3027b457945ab43da33690392e2329d89"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/anchored-tail26-kissat-wrapper.log",
+      "size": 1597,
+      "sha256": "9ab6990c9dcb431b03d3c93e6dcd45ec465faeb32a031d153c3284f9e4dc928e"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/unique0-phased-preflight.json",
+      "size": 1429,
+      "sha256": "192cb37afbe5862b590ef242626cec0d57227c4757270366a465ea9263e473a6"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/dirty-ten-phased-preflight.json",
+      "size": 2271,
+      "sha256": "ec2033da5faa7e974788d8e7a9f4f34886fbab1fb5e950c308cfe615c2da57d2"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/circuit-search/search-termination-1010.json",
+      "size": 653,
+      "sha256": "b6ea9fc7bc532e5ffdf04737f62fb99333e7e177c15b280abbd61f298917a954"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/sat-review/review_dirty_ten_phased.py",
+      "size": 5762,
+      "sha256": "6356796e3cf017b3c8ea96d01101a2f6585476bbcbd1a83969c18ef674c54fc8"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/sat-review/dirty-ten-phased-review.log",
+      "size": 2327,
+      "sha256": "cdfee69e32f2f9791402f08bf70864d91085ac0fc21a62b3f1701e38aaf21a31"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/sat-review/dirty-ten-phased-review.json",
+      "size": 2327,
+      "sha256": "cdfee69e32f2f9791402f08bf70864d91085ac0fc21a62b3f1701e38aaf21a31"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/sat-review/dirty-ten-phased-reject-zero.phases",
+      "size": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/sat-review/dirty-ten-phased-reject-zero.log",
+      "size": 329,
+      "sha256": "79ff01ffe52c89e6f2889fd25e10190cece9d4d0fcd11c226ce13e397b0e48a5"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/sat-review/dirty-ten-phased-reject-conflict.phases",
+      "size": 5,
+      "sha256": "cf1f2f9e36e5c80e0d1b261dae4179a249ec8c1262224489288d266ea39aa6a4"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/sat-review/dirty-ten-phased-reject-conflict.log",
+      "size": 447,
+      "sha256": "6875d37568055e0b36a570912acf830d7d9a9d746168a08b7d75aeee8feeb522"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/sat-review/dirty-ten-phased-reject-outside.phases",
+      "size": 5,
+      "sha256": "81afbd0eda68593a58c755fdb2a0306397292674707aeefaf10b0a5696cff0f1"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-70/sat-review/dirty-ten-phased-reject-outside.log",
+      "size": 379,
+      "sha256": "eabcfda64f9e0776fd71c2283f44f29a38796e2b23c3ade166deac1c04145868"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/circuit-search.md",
+      "size": 35224,
+      "sha256": "a0821258fb68e11c63403c17e8bce85d5d78c5c7a7b0a9f93b272f2b0f404d8c"
+    }
+  ],
+  "live_exclusions": [],
+  "future_runs": "Cancelled before launch after desk withdrawal.",
+  "scope": "Final noncollinear UNKNOWN, anchored INTERRUPTED/withdrawn, and reviewed but unlaunched phased preparations. No verified full-gap witness or refutation from this agent."
+}

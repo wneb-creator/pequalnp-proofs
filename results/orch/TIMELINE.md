@@ -50,3 +50,9 @@
 - 2026-11-25T09:52:27.520070+00:00: general unique-input Kissat completed UNKNOWN after3600.057wallseconds/3492.002CPUseconds; complete log preserved.
 - 2026-11-25T09:52:50.880122+00:00: reviewed anchored-tail26 search began with60minute cap; noncollinear remains active.
 - 2026-11-25T09:54:03.247665+00:00: strategy review retains full phased unique-input run next and authorizes one short dirty-TEN probe; target unresolved.
+- 2026-11-25T10:08:37.589Z: joint noncollinear14-live completed UNKNOWN after2700.018wallseconds/2593.385CPUseconds.
+- 2026-11-25T10:08:50.307032Z: desk withdrew the step, reporting a checked nonexistence result; planned phased handoff cancelled.
+- 2026-11-25T10:08:56Z: one required curl-si diagnostic retry returned HTTP410/no live lease; no further desk calls.
+- 2026-11-25T10:09:27Z: anchored-tail stopped by SIGTERM on withdrawal; INTERRUPTED, no solver verdict,996.308wallseconds/948.925CPUseconds.
+- 2026-11-25T10:11:59.983585+00:00: local stop marker ended renewal loop; process exit0 confirmed. No release request was made.
+- 2026-11-25T10:14:06.299154+00:00: final preservation underway; no locally obtained exact proof/refutation, no PR, no acceptance timestamp.

@@ -1,0 +1,17 @@
+{
+  "recorded_at": "2026-11-25T10:10:09.060257+00:00",
+  "reason": "Root instructed immediate stop after desk withdrew held gap L-meta-2732.",
+  "active_solver_processes": 0,
+  "remaining_old_zombies": [
+    18052
+  ],
+  "launched_after_stop": false,
+  "desk_calls_by_this_agent": false,
+  "planned_runs_cancelled_before_launch": [
+    "unique0-26-phased (3600 seconds)",
+    "joint-ten10-live-dirty-phased15 (900 seconds)"
+  ],
+  "last_completed_result": "joint-noncollinear14-live-kissat-result.json",
+  "last_interrupted_result": "anchored-tail26-kissat-result.json",
+  "local_result": "No verified26-gate witness and no full-gap Lean refutation."
+}

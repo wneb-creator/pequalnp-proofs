@@ -1,0 +1,30 @@
+Initial curl -s renewal response, 2026-11-25T10:08:50.307032Z
+{
+ "error": "this step was withdrawn: withdrawn: a checked row shows the circuit this step searches for does not exist. Stop work on it and ask /desk/next for a step the attack is waiting on.",
+ "withdrawn": true
+}
+
+One required curl -si diagnostic retry, 2026-11-25T10:08:55Z
+HTTP/1.1 200 OK
+date: Wed, 25 Nov 2026 10:08:55 GMT
+server: envoy
+
+HTTP/2 410 
+date: Wed, 25 Nov 2026 10:08:56 GMT
+content-type: application/json; charset=utf-8
+content-length: 86
+access-control-allow-origin: *
+cache-control: no-store
+x-content-type-options: nosniff
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=[redacted telemetry query]"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: envoy
+cf-ray: a5ffdadd5eea3222-SJC
+alt-svc: h3=":443"; ma=86400
+x-envoy-upstream-service-time: 189
+
+{
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+
+All response headers and both bodies are retained above. One opaque telemetry query parameter was redacted; no authentication headers were present.

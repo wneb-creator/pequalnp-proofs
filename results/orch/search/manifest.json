@@ -47,13 +47,43 @@
       "path": "circuit-search/anchored-tail26-kissat-allocation.json",
       "bytes": 438,
       "sha256": "15b2780b7d0d28b80d2c7abd04d334e4615d761d3b8e7c667e557117cc5eb7fb",
-      "captured_utc": "2026-11-25T10:00:21.151686+00:00"
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
+    },
+    {
+      "path": "circuit-search/anchored-tail26-kissat-driver-interrupted-result.json",
+      "bytes": 1757,
+      "sha256": "66e98ee5591ae8e3fa569af2f405c97a9d5a5d8429d5cb58542d9bea4733bee6",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
+    },
+    {
+      "path": "circuit-search/anchored-tail26-kissat-result.json",
+      "bytes": 2120,
+      "sha256": "66faa7a0c55574e2f657348a8472e6c16eb88bef28b37acc7ad8998f7b75b2f0",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
     },
     {
       "path": "circuit-search/anchored-tail26-kissat-run.json",
       "bytes": 1330,
       "sha256": "756991db657a40270b23d8c2103ec2930f491be8f235ff3f68ae08bf142de581",
-      "captured_utc": "2026-11-25T10:00:21.151686+00:00"
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
+    },
+    {
+      "path": "circuit-search/anchored-tail26-kissat-solve.log",
+      "bytes": 116539,
+      "sha256": "a4064e3d71a8a1d132b656e425a810a3027b457945ab43da33690392e2329d89",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
+    },
+    {
+      "path": "circuit-search/anchored-tail26-kissat-withdrawal.json",
+      "bytes": 676,
+      "sha256": "48cb90a0525fef610661dd00095e8de33ed548e14cc0c2e1cc1a622378a872fa",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
+    },
+    {
+      "path": "circuit-search/anchored-tail26-kissat-wrapper.log",
+      "bytes": 1597,
+      "sha256": "9ab6990c9dcb431b03d3c93e6dcd45ec465faeb32a031d153c3284f9e4dc928e",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
     },
     {
       "path": "circuit-search/anchored-tail26-preflight.json",
@@ -270,6 +300,12 @@
       "bytes": 42097,
       "sha256": "36fda55a652147a5337751639edb546339176d774e53a2b53f9ac640d7baab54",
       "captured_utc": "2026-11-25T09:45:20.358711+00:00"
+    },
+    {
+      "path": "circuit-search/dirty-ten-phased-preflight.json",
+      "bytes": 2271,
+      "sha256": "ec2033da5faa7e974788d8e7a9f4f34886fbab1fb5e950c308cfe615c2da57d2",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
     },
     {
       "path": "circuit-search/encode-shadow3-26.log",
@@ -1015,10 +1051,28 @@
       "captured_utc": "2026-11-25T09:00:06.515649+00:00"
     },
     {
+      "path": "circuit-search/joint-noncollinear14-live-kissat-result.json",
+      "bytes": 1898,
+      "sha256": "8ac8d2156d2ad6e4eaee440f58b1500cc889634c9f87c5d52ab85a18a1aa3b9f",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
+    },
+    {
       "path": "circuit-search/joint-noncollinear14-live-kissat-run.json",
       "bytes": 1712,
       "sha256": "f0b1ba1ab44c62450393fd1cd6cf776ee617fa0d7c9888c36aab6e9582d4296a",
-      "captured_utc": "2026-11-25T09:28:52.034425+00:00"
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
+    },
+    {
+      "path": "circuit-search/joint-noncollinear14-live-kissat-solve.log",
+      "bytes": 156501,
+      "sha256": "816f3f6df94e06b83ff78cd9fb1324fa7be8b038e1a96cc6e2f7e7439d46d5dc",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
+    },
+    {
+      "path": "circuit-search/joint-noncollinear14-live-kissat-wrapper.log",
+      "bytes": 741,
+      "sha256": "6a35aa50a905a45e29337273baeeda1ea2616ca81cd9fe4f05d4148083f01dac",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
     },
     {
       "path": "circuit-search/joint-noncollinear14-live-preflight.json",
@@ -2287,6 +2341,12 @@
       "captured_utc": "2026-11-25T07:59:53.613898+00:00"
     },
     {
+      "path": "circuit-search/search-termination-1010.json",
+      "bytes": 653,
+      "sha256": "b6ea9fc7bc532e5ffdf04737f62fb99333e7e177c15b280abbd61f298917a954",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
+    },
+    {
       "path": "circuit-search/shadow-smoke-27-encode.log",
       "bytes": 154,
       "sha256": "cfa58c790455eafd248ce39ae121a85e3d691517ddc1678ec04c3f73cf9efb05",
@@ -2393,6 +2453,12 @@
       "bytes": 3647,
       "sha256": "a367a8f146fd69fa601d41a3115a068935463b09948a526690540319f51b0773",
       "captured_utc": "2026-11-25T10:00:21.151686+00:00"
+    },
+    {
+      "path": "circuit-search/stable-search-artifacts-final-1010.json",
+      "bytes": 5368,
+      "sha256": "bb06b74a42f5923a5edda30d1cb0bf05ec2e902c663516d800a0e523d23f8f02",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
     },
     {
       "path": "circuit-search/star27.json",
@@ -2876,7 +2942,7 @@
       "path": "circuit-search/unique0-phased-preflight.json",
       "bytes": 1429,
       "sha256": "192cb37afbe5862b590ef242626cec0d57227c4757270366a465ea9263e473a6",
-      "captured_utc": "2026-11-25T09:45:20.358711+00:00"
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
     },
     {
       "path": "circuit-search/unique0-preparation.json",
@@ -4809,6 +4875,12 @@
       "captured_utc": "2026-11-25T09:00:06.515649+00:00"
     },
     {
+      "path": "research-audit-final-1013.json",
+      "bytes": 11150,
+      "sha256": "9a9afff1eea109cdf4eda817a14afd8a2c3b9a3fde5d01c07fb1376c8567ec4f",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
+    },
+    {
       "path": "research-audit-outcomes-1000.json",
       "bytes": 8499,
       "sha256": "29bb1c5be6b5af78a964e2c4a2782938229ba6af647769b34b0c46bc9e331a34",
@@ -4879,6 +4951,54 @@
       "bytes": 1090,
       "sha256": "76f811c5d0f80bd32253e8054e6c79d590cbb550aaab0cd063437f531fc8af27",
       "captured_utc": "2026-11-25T08:45:01.820991+00:00"
+    },
+    {
+      "path": "sat-review/dirty-ten-phased-reject-conflict.log",
+      "bytes": 447,
+      "sha256": "6875d37568055e0b36a570912acf830d7d9a9d746168a08b7d75aeee8feeb522",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
+    },
+    {
+      "path": "sat-review/dirty-ten-phased-reject-conflict.phases",
+      "bytes": 5,
+      "sha256": "cf1f2f9e36e5c80e0d1b261dae4179a249ec8c1262224489288d266ea39aa6a4",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
+    },
+    {
+      "path": "sat-review/dirty-ten-phased-reject-outside.log",
+      "bytes": 379,
+      "sha256": "eabcfda64f9e0776fd71c2283f44f29a38796e2b23c3ade166deac1c04145868",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
+    },
+    {
+      "path": "sat-review/dirty-ten-phased-reject-outside.phases",
+      "bytes": 5,
+      "sha256": "81afbd0eda68593a58c755fdb2a0306397292674707aeefaf10b0a5696cff0f1",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
+    },
+    {
+      "path": "sat-review/dirty-ten-phased-reject-zero.log",
+      "bytes": 329,
+      "sha256": "79ff01ffe52c89e6f2889fd25e10190cece9d4d0fcd11c226ce13e397b0e48a5",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
+    },
+    {
+      "path": "sat-review/dirty-ten-phased-reject-zero.phases",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
+    },
+    {
+      "path": "sat-review/dirty-ten-phased-review.json",
+      "bytes": 2327,
+      "sha256": "cdfee69e32f2f9791402f08bf70864d91085ac0fc21a62b3f1701e38aaf21a31",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
+    },
+    {
+      "path": "sat-review/dirty-ten-phased-review.log",
+      "bytes": 2327,
+      "sha256": "cdfee69e32f2f9791402f08bf70864d91085ac0fc21a62b3f1701e38aaf21a31",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
     },
     {
       "path": "sat-review/estimate_full_cache.py",
@@ -5005,6 +5125,12 @@
       "bytes": 5346,
       "sha256": "996ad4352b10176dfaee5156980fa9217b0fccc9746a7cd7d794ddc5cf439229",
       "captured_utc": "2026-11-25T08:45:01.820991+00:00"
+    },
+    {
+      "path": "sat-review/review_dirty_ten_phased.py",
+      "bytes": 5762,
+      "sha256": "6356796e3cf017b3c8ea96d01101a2f6585476bbcbd1a83969c18ef674c54fc8",
+      "captured_utc": "2026-11-25T10:11:58.381540+00:00"
     },
     {
       "path": "sat-review/review_five_star.py",
@@ -5307,5 +5433,5 @@
       "captured_utc": "2026-11-25T09:28:52.034425+00:00"
     }
   ],
-  "updated_utc": "2026-11-25T10:01:04.323837+00:00"
+  "updated_utc": "2026-11-25T10:17:03.974961+00:00"
 }

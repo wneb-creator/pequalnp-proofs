@@ -1,0 +1,70 @@
+{
+  "reviewed_at": "2026-11-25T10:17:59.059913+00:00",
+  "verdict": "PASS for final root records and privacy review",
+  "repo_records": [
+    {
+      "path": "results/orch/NOTES.md",
+      "bytes": 13765,
+      "sha256": "5ef4a70feb0b4765bc2f1fcde872f71c35adfc2035c94ab8d72c7eecd318724c",
+      "destination": "results/orch/NOTES.md"
+    },
+    {
+      "path": "results/orch/TIMELINE.md",
+      "bytes": 8810,
+      "sha256": "fe39eda812c9474a819d3da3b41799015d4d317167b1c9d21e3c96d865c3ad33",
+      "destination": "results/orch/TIMELINE.md"
+    },
+    {
+      "path": "results/orch/validation.txt",
+      "bytes": 3305,
+      "sha256": "7bdcaa88e50e121fffc5d27dfc8c9343410cca12d5e6e5ede247407f722e7f4c",
+      "destination": "results/orch/validation.txt"
+    },
+    {
+      "path": "results/orch/final-status.json",
+      "bytes": 1375,
+      "sha256": "1d62bf2e55a1ef87ab601890f7d05322b2d24197fafe487595015fd841aa539d",
+      "destination": "results/orch/final-status.json"
+    },
+    {
+      "path": "results/orch/desk-withdrawal-response.txt",
+      "bytes": 1156,
+      "sha256": "13c27d362575428595642cd32778d031392839472346a0099f05e6ee37c19cdf",
+      "destination": "results/orch/desk-withdrawal-response.txt"
+    },
+    {
+      "path": "results/orch/desk-log-redacted.txt",
+      "bytes": 30098,
+      "sha256": "c7f184579d05bbba52fbd103fce7924b5a3bef7df140e262583eb5bcb1a1dbf0",
+      "destination": "results/orch/desk-log-redacted.txt"
+    }
+  ],
+  "checks": [
+    "Final timing is 295.9 minutes from job start; subagent count7 and no-PR status match the records.",
+    "Initial withdrawn:true response matches the final status and complete public transcript.",
+    "Exactly one diagnostic HTTP410 response is preserved; proxy HTTP200 is not another desk verdict.",
+    "Full raw diagnostic matches the recorded SHA256; public transcript changes only one opaque telemetry query, with explanatory labels.",
+    "Public full desk log exactly equals the raw log after186 UUID substitutions plus its explanatory prefix; the appended diagnostic was already telemetry-redacted.",
+    "Both null messages remain exact; no UUID lease IDs, authentication/cookie headers, or credential patterns remain in public records.",
+    "The local timer marker explicitly says withdrawal and no release request; process exit0 is root-confirmed.",
+    "Timeline is chronological. Noncollinear UNKNOWN and anchored INTERRUPTED remain distinct from the external desk nonexistence report.",
+    "Retained build, recovered no-build and checker logs support the final partial-only status. Main source remains518lines and unchanged.",
+    "Tracked note diff-check passes. No new research, solver, build, desk call, main edit or git mutation performed."
+  ],
+  "scope": "This job has no local exact26-gate proof or unrestricted refutation and no checker acceptance. The withdrawal/nonexistence claim is attributed solely to the desk.",
+  "companion_inventory": {
+    "path": "/tmp/oec/pequalnp-pilot-70/research-audit-final-1013.json",
+    "sha256": "9a9afff1eea109cdf4eda817a14afd8a2c3b9a3fde5d01c07fb1376c8567ec4f"
+  },
+  "record_count": 6,
+  "record_bytes": 58509,
+  "safe_stage_paths": [
+    "results/orch/NOTES.md",
+    "results/orch/TIMELINE.md",
+    "results/orch/desk-log-redacted.txt",
+    "results/orch/desk-withdrawal-response.txt",
+    "results/orch/final-root-records-review.json",
+    "results/orch/final-status.json",
+    "results/orch/validation.txt"
+  ]
+}
