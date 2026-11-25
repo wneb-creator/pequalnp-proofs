@@ -1,0 +1,14 @@
+../results/orch/lemmas/reduction_analysis/DirectWeightedSlackTwo.lean:363:16: warning: This simp argument is unused:
+  ha
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hb, weight, pow_succ, Nat.mul_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/DirectWeightedSlackTwo.lean:363:20: warning: This simp argument is unused:
+  hb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ha, weight, pow_succ, Nat.mul_two]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

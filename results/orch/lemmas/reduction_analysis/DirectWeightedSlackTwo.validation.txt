@@ -1,0 +1,5 @@
+UTC 2026-11-25T05:56:22.760124+00:00
+Lean build exit 0; complete log contains only the two inherited unused-simp warnings from approved DirectWeightedPacking.
+Approved direct packing prefix unchanged. New weighted_slack_two_iff proves sum2^w≤card+2 exactly equivalent to every w≤1 and sumw≤2. thirty_negatives_five_ands applies it to ordinary Monotone2 circuits with at most5 binaryANDs and30 rejected inputs with accepted pairwise joins. No concrete graph or family enumeration is asserted.
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env lean -j1 -M4096 ../results/orch/lemmas/reduction_analysis/DirectWeightedSlackTwo.lean
+SHA256 26aa4f5a551b487369fe63f9522fe43e13439e505d5cbe040a38d7f9020ba1f5
