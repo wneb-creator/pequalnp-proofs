@@ -1,6 +1,8 @@
 import PEqualNP.Defs
 
-namespace PEqualNP.Outside.L_meta_5012.OneFlagReview
+namespace PEqualNP.Outside.L_meta_5012
+
+namespace OneFlagReview
 
 open PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover
 
@@ -142,10 +144,10 @@ lemma raw_product_not_belowF {n : ℕ} {G : SimpleGraph (Fin n)}
   rw [pair_input_graphFun_false hst] at hfalse
   cases hfalse
 
-end PEqualNP.Outside.L_meta_5012.OneFlagReview
+end OneFlagReview
 
 
-namespace PEqualNP.Outside.L_meta_5012.SingletonReview
+namespace SingletonReview
 
 open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.EdgeOwnership
   PEqualNP.MetaComplexity.NestedCover
@@ -268,4 +270,6 @@ lemma dirty_singleton_side_no_common_neighbor {n : ℕ} {G : SimpleGraph (Fin n)
   simp only [graphFun, Bool.or_eq_true, decide_eq_true_eq]
   exact Or.inr ⟨u, b, hub, hxu, hxb⟩
 
-end PEqualNP.Outside.L_meta_5012.SingletonReview
+end SingletonReview
+
+end PEqualNP.Outside.L_meta_5012
