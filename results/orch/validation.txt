@@ -26,3 +26,16 @@ lake build PEqualNP.Outside.L_meta_4970 passed (exit0).
 Complete stdout/stderr: results/orch/build-002.txt.
 Named file 475 lines; includes unique centres, witness cover, pure-OR AND choice, T=0 monochromatic OR reach, demand pruning, and the complete single-centre special case.
 Independent source and merged-diff review: PASS by status_review. Full posted theorem still unproved; no PR.
+
+Third partial checkpoint (additional standalone lemmas):
+SemanticIdentity.lean: Lean exit0; evaluation and IsAO2 preserved at +n gates; tCount=0 for every colouring. Complete diagnostics below:
+../results/orch/lemmas/SemanticIdentity.lean:112:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+
+SumOwned.lean: Lean exit0; complete diagnostics empty. Independent source review by counting_proof: PASS. SemanticIdentity independent review by status_review: PASS.
