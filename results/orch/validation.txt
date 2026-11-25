@@ -1,26 +1,24 @@
-pequalnp-pilot-94 — L-meta-4970 checked partial, full theorem unresolved
+pequalnp-pilot-94 — L-meta-4970 partial checkpoint, no full proof or refutation
 
-Current own lease issued 2026-11-25T15:22:04.914Z; latest manual renewal expiry 15:53:43.315Z. A separate timer renews every 5 minutes. The recovery desk first returned another pilot's pre-existing L-meta-2590 lease with the five-gap capacity message; it was not worked, renewed or released. The permitted retry returned this fresh own lease. Desk null answers: 0.
+Named file: lean/PEqualNP/Outside/L_meta_4970.lean (1148 lines).
+Named build: lake build PEqualNP.Outside.L_meta_4970, exit 0.
+Output: Build completed successfully (6655 jobs).
+Complete build stdout/stderr: gap4970-build.stdout and gap4970-build.stderr.
+Independent source, integration and axiom reviews passed; helpers use only propext, Classical.choice, Quot.sound.
+Named source SHA256: 276c73d6b0e605c3fc1acaae13aace996786a612cb871bf122452e341db0f17d.
 
-Named file: lean/PEqualNP/Outside/L_meta_4970.lean, 1148 lines.
-Build: lake build PEqualNP.Outside.L_meta_4970, exit 0.
-Build output: Build completed successfully (6655 jobs).
-Complete stdout/stderr: gap4970-build.stdout, gap4970-build.stderr.
+Checked components: semantic pure-star support costs, witness-centre uniqueness and finite cover selection, a direct READ1 obstruction, OR-only partition budgets, and exact selected-merge rank counts. The global remaining-gate inequality is unresolved. No final target theorem is declared.
+Source guard: REFUSED: the file holds no theorem. This is expected for the partial.
+Official tools/check-lean.mjs: CHECKER FAULT: the verifier ended without a verdict (exit null). Exit 3 after254.62s; our external memory guard stopped the run at7.25GiB non-reclaimable memory. No mathematical rejection or acceptance was reached.
+The unchanged native checker builds and complete Mathlib import passes. Genuine pinned cache artifacts are held in sealed memory files because disk was insufficient. No checker/configuration changes, fake artifacts or Mathlib source builds. Complete setup sources, manifests and all diagnostics are in checker-setup/. A reviewed migration plan is pending; no storage deletion yet.
 
-The OR-only partition invariant additionally bounds preprocessing for families of pure OR outputs by their connected components; AND gates never merge its singleton labels. This does not prove the remaining joint gate count.
+No proof PR opened. Cleanup not triggered because the full theorem/checker did not pass. Line counts before/after cleanup:1148/1148.
 
-The partial proves semantic singleton-support gate costs, disjoint support charging, uniqueness of nontrivial star centres and a finite witness-cover bound. A separate kernel-checked example shows that the posted hypotheses do not imply the given circuit itself is READ1; it is not a refutation of the posted size bound.
+Finite search: all10 admissible3x3 classes solver-UNSAT below the bound;4x4 census28UNSAT/14UNKNOWN; K4-incidence14gates UNKNOWN after600.03s. K4 mutation search480s,872429200 mutations, best15gates; no counterexample. Free-AND C6 OR4 solver-UNSAT; K4 OR10 UNKNOWN after120s. Solver-UNSAT has no Lean certificate here, and heuristic non-discovery is not a lower bound. Full source, models, complete logs and independent reviews are preserved or being archived after each completed run.
 
-Independent review of all five components passed. Principal helper axioms are only propext, Classical.choice, Quot.sound; complete review artifacts are included. StarLedger reuses the checked L_meta_782 toolkit (k-sandhu, PR149; card_assigned adapted there from L270) and adds two corollaries. Structure and ReadObstruction are new.
+Current own lease: L-meta-4970, issued2026-11-25T15:22:04.914Z, renewed by root every5minutes. Last manual renewal expiry16:17:55.623Z. Earlier own1904/2583 leases returned410; work stopped and all results were pushed. A recovery reply returned another pilot's preexisting2590 lease; it was not worked, renewed or released. Desk null answers:0.
 
-No final target theorem is declared. No full proof or refutation is claimed and no PR is opened. Full tools/check-lean.mjs runtime requires the complete Mathlib cache, which is not yet available within ordinary disk capacity. Its CheckLemma executable imports Lean, while statement checking imports Mathlib at runtime. Earlier checkpoint wording saying the executable itself imports all Mathlib was inaccurate. Genuine memory-backed cache storage is under investigation; no checker edits or Mathlib source builds.
-Cleanup has not been triggered; line counts before/after 1148/1148.
+Provenance: StarLedger adapts checked L782 (k-sandhu, PR149; card_assigned fromL270); OrPartition adapts checked L529. New corollaries and other helpers were independently reviewed. Details in research/ and NOTES.md.
 
-Sub-agents: 7 (status/setup/review, structure, counterexample search, lemmas, research, C4-free theory, nested-AND theory)
-TIMING total=117 subagents=7
-
-Source guard verdict: REFUSED: the file holds no theorem. This is expected for the partial; no acceptance is claimed.
-OrPartition adapts the checked L_meta_529 partition invariant with an OR-only charge and a component-representative corollary. Its independent eight-lemma axiom review passed.
-
-SelectedMerges adds a finite set containing only actual OR merges, with an exact equality between input cardinality, final label-image cardinality and merge count. Independent source/axiom review and integration comparison passed; named1148-line hash276c73d6b0e605c3fc1acaae13aace996786a612cb871bf122452e341db0f17d. All lemmas remain partial.
-Official checker executable now builds unchanged. The complete genuine cache has been loaded into sealed memory-backed files; full import/checker validation is pending. No cache/source or checker substitution.
+Sub-agents: 7 (setup/review, structure, counterexample search, lemmas, research, C4-free theory, nested-AND theory)
+TIMING total=134 subagents=7

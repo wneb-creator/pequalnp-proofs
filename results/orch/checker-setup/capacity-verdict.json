@@ -1,0 +1,52 @@
+{
+  "verdict": "Full Mathlib import succeeds, but the initial unchanged official checker reached no verdict: the local memory guard stopped it.",
+  "native_checker_build": {
+    "exit": 0,
+    "jobs": 5,
+    "sha256": "c054706e156f68090c9f3b0e4fca61d2a6c85a6077e6366d18cc31009520b620"
+  },
+  "full_import": {
+    "command": [
+      "lean",
+      "/tmp/oec/pequalnp-pilot-94/mathlib-import-smoke.lean"
+    ],
+    "exit": 0,
+    "seconds": 67.93209304300035,
+    "peak_nonreclaimable_bytes": 5711450112,
+    "stopped_by_guard": null
+  },
+  "official_checker": {
+    "command": [
+      "node",
+      "tools/check-lean.mjs",
+      "lean/PEqualNP/Outside/L_meta_4970.lean",
+      "/tmp/oec/pequalnp-pilot-94/gap4970-statement.txt",
+      "check"
+    ],
+    "exit": 3,
+    "seconds": 254.62296400800005,
+    "peak_nonreclaimable_bytes": 7785967616,
+    "stopped_by_guard": "non-reclaimable memory guard"
+  },
+  "genuine_cache": {
+    "additional_modules": 5875,
+    "artifact_bytes": 4088057596,
+    "storage": "sealed anonymous memory files; ordinary symlinks in ignored cache paths",
+    "hash_algorithm": "unchanged pinned Mathlib Cache.Hashing",
+    "endpoint": "https://cache.mathlib.org/mathlib4-master/f/",
+    "mathlib_commit": "fc4f59e577feb1a4956671bc04ac18aaaf8cd842",
+    "mathlib_root_cache_hash": "79da901f0eeeaa4a"
+  },
+  "cgroup": {
+    "memory_limit_bytes": 8589934592,
+    "oom": 0,
+    "oom_kill": 0
+  },
+  "limitations": [
+    "No full target theorem exists in the1148-line partial.",
+    "No checker acceptance or mathematical rejection was reached.",
+    "Checker source and configuration were unchanged.",
+    "No Mathlib source build, preload shim, or fake artifact was used.",
+    "Runtime memory holders must remain alive while these cache paths are used."
+  ]
+}

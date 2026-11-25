@@ -1,0 +1,1 @@
+{"command": ["lean", "/tmp/oec/pequalnp-pilot-94/mathlib-import-smoke.lean"], "exit": 0, "seconds": 67.93209304300035, "peak_nonreclaimable_bytes": 5711450112, "stopped_by_guard": null}

@@ -1,0 +1,35 @@
+{
+  "status": "proposal only; no archive removed and no cache artifact migrated",
+  "static_archive_inventory": "static-archive-migration-inventory.json",
+  "remove_reproducible_link_time_bytes": 427519070,
+  "leave_untouched": [
+    "all executables",
+    "all shared libraries",
+    "all public/private/server oleans",
+    "all runtime IR",
+    "all checked proof source and native-checker source/configuration",
+    "all original disk cache artifacts"
+  ],
+  "runtime_evidence": "ldd of checklemma, lean and lake contains no .a dependencies; checklemma.trace depends on source object/link arguments/toolchain identity but no archive file hashes",
+  "capacity": {
+    "disk_free_bytes_before": 58540032,
+    "maximum_migrate_bytes": 367001600,
+    "expected_disk_reserve_bytes": 119057502,
+    "memory_saving_at_most_bytes": 367001600
+  },
+  "steps": [
+    "Root reviews and pushes current checker-setup archive before mutations.",
+    "Delete only explicit .a files from verified inventory; these are reproduced by the official pinned Lean toolchain release, and no new native link is planned.",
+    "Copy selected newly fetched memory cache artifacts to ordinary files beside their current symlinks; verify original manifest SHA256 and byte count, preserve mode/timestamps, then atomically replace symlink with regular file.",
+    "For every remaining new artifact, a new holder opens the existing sealed memfd through /proc/old-pid/fd/old-fd read-only, verifies manifest SHA256, and atomically replaces symlink with its new holder path. This retains the same sealed inode without duplicating artifact bytes.",
+    "Keep every old holder alive until every original artifact is either a verified regular disk file or held by a verified new holder. Preserve all artifact types; no editor/generated-source metadata is dropped.",
+    "Only after complete manifest reconciliation, request normal old-loader STOP. Its cleanup deletes only unchanged old symlinks, so already transferred paths survive. Closing old FDs releases the migrated memory-backed bytes.",
+    "Run a short genuine Lean/build preflight, then unchanged official checker under the same external memory guard if parent renews lease. Preserve full logs and do not infer acceptance from import/build alone."
+  ],
+  "limits": [
+    "May still be insufficient for the full checker.",
+    "Static archives would need official restoration if a future native relink is necessary.",
+    "No Mathlib source build, checker configuration edits, fake artifacts, preload shims, or unapproved host access.",
+    "Any transfer failure before old-loader STOP retains all original source bytes."
+  ]
+}

@@ -1,0 +1,132 @@
+[
+  {
+    "file": "gap4970-official-checker.request.json",
+    "bytes": 348,
+    "sha256": "7aa269692bb4b1defc80adbc67b4e4c7e12a0a799a7496fa0e0642699b381191"
+  },
+  {
+    "file": "gap4970-official-checker.result.json",
+    "bytes": 320,
+    "sha256": "968f3dae89186cea7665a6c5ffdc7c46f547c6314357775ceca09ee53b816895"
+  },
+  {
+    "file": "gap4970-official-checker.stdout",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "file": "gap4970-official-checker.stderr",
+    "bytes": 287,
+    "sha256": "e766c4323957c1dd23936bbfc152ec9950e624fdc1c85f52b6b2cc6aedddaf9e"
+  },
+  {
+    "file": "gap4970-official-checker.driver.stdout",
+    "bytes": 284,
+    "sha256": "96ab24d47fd496926ecbde3d8c2971b964671cf8d48ee55280133333d23e054f"
+  },
+  {
+    "file": "gap4970-official-checker.driver.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "checklemma-build.stdout",
+    "bytes": 149,
+    "sha256": "bbbdff109357c72223c3ae0f2d11987c6bc9c8e1500069f4fa22d15514bad651"
+  },
+  {
+    "file": "checklemma-build.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "mathlib-full-import2.result.json",
+    "bytes": 210,
+    "sha256": "e8a84d529eac6e56744f65d0f5ae6c44ee03e6974ebd4fef83857e36e74d8dbe"
+  },
+  {
+    "file": "mathlib-full-import2.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "mathlib-full-import2.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "mathlib-full-import2.driver.stdout",
+    "bytes": 186,
+    "sha256": "099d6b03bba28d51623cb78096f2a063e95213ba25cdfc538cfcaa8b0f38d47d"
+  },
+  {
+    "file": "mathlib-full-import2.driver.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "memory-cache-service.py",
+    "bytes": 7212,
+    "sha256": "4fe6995b8570def95f6e5fb38db558be6ec55f6c51ba1601123bf4dc30f5bc9a"
+  },
+  {
+    "file": "checker-memory-guard.py",
+    "bytes": 1357,
+    "sha256": "1c98fcad98df34916c50f8da665279f4aa3a6aa56e725887d13627583cab0641"
+  },
+  {
+    "file": "cache-hash-inventory.lean",
+    "bytes": 292,
+    "sha256": "be48b4fa4f33c9b9e121adba94c1c80f8fb7661fd3d5bd02b9e26fe73544850e"
+  },
+  {
+    "file": "cache-hash-inventory.json",
+    "bytes": 4071775,
+    "sha256": "ba39c86434c0c640d0a7aa9c9937ac4eadc76a32ae5594a2068c7dd569422e0f"
+  },
+  {
+    "file": "cache-memory-sample.json",
+    "bytes": 34709,
+    "sha256": "5c96422d2712e4c414aaaa09baf630c17b0b7f7649d460ce8fa8a78ce85a7cb7"
+  },
+  {
+    "file": "memory-cache-service.stdout",
+    "bytes": 103,
+    "sha256": "99fb351cecef9e699eff90388060f9bd0d463c652889f406668a654eb1df9b71"
+  },
+  {
+    "file": "memory-cache-service.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "memory-cache-service2.stdout",
+    "bytes": 4741,
+    "sha256": "585b520964db61b47b4604a6d4c8009aedcf2e0fb351bfa48fc2e2aca5899c82"
+  },
+  {
+    "file": "memory-cache-service2.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "memfd-capability2.stdout",
+    "bytes": 69,
+    "sha256": "157f6dba37612685bef7792c306eb7ec5307b7f10096355da39d8a3a04b9ff8b"
+  },
+  {
+    "file": "memfd-capability2.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "fuse-capability.stdout",
+    "bytes": 51,
+    "sha256": "a4f1130a10a5bdab4d9f492b8072dacf03bcefe7b9060419293a969b94f778db"
+  },
+  {
+    "file": "fuse-capability.stderr",
+    "bytes": 51,
+    "sha256": "20fcf9801fcdb5c7284e2da69ffdb3f95a9f99fd0f17246703fccf4894450f7c"
+  }
+]
