@@ -13,3 +13,5 @@
 - 2026-11-25T05:47:41.673718+00:00: first strategy review; shifted search to smaller subgraphs and prepared incremental/near-witness alternatives.
 - 2026-11-25T05:48:47.014648+00:00: explicit27-gate Heawood baseline integrated; named-module build passed. This does not meet26-gate target.
 - 2026-11-25T05:49:06.925543+00:00: first-dirty-AND singleton/pair helper compiled and independently reviewed; preserving standalone helper while search continues.
+- 2026-11-25T05:53:05.967580+00:00: packed58-row decoder compiled and independently reviewed, including exhaustive Python boundary verification.
+- 2026-11-25T05:55:00.754184+00:00: packed-program-to-prefix-witness bridge compiled and independently reviewed. Full proof pipeline now waits for26-gate witness.

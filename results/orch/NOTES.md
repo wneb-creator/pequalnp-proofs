@@ -36,3 +36,5 @@ Each strategy records findings in its own file under lemmas/.
 - General SAT is temporarily paused for bounded three-star/four-star subgraph searches. Both three-star searches timed out UNKNOWN; no UNSAT conclusion is justified.
 - Next SAT candidates: near-witness phases, incremental counterexample-guided synthesis, and the reviewed at-most-one-dirty-AND subproblem. CPU quota is two cores, so runs must be scheduled rather than all launched together.
 - Formalization next prepares the existing packed58-row decoder to verify a found witness cheaply.
+
+The checked witness pipeline is complete: Packed.decode certifies58boundary rows; PackedWitness.raw builds the residual24-gate witness; canonical_prefix with transport_prefix supplies the exact symmetry condition. A26-gate program remains missing. AssemblyTest is a result artifact with a local test import; final proof must inline its dependencies.
