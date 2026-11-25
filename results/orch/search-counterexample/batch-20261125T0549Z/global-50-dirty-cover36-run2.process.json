@@ -1,0 +1,21 @@
+{
+  "pid": 30149,
+  "started_utc": "2026-11-25T05:34:27.406126+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-62/elan/toolchains/leanprover--lean4---v4.36.0/bin/cadical",
+    "-t",
+    "900",
+    "-w",
+    "/tmp/oec/pequalnp-pilot-62/global-50-dirty-cover36-run2.sol",
+    "-"
+  ],
+  "address_space_limit_bytes": 3221225472,
+  "input_stem": "/tmp/oec/pequalnp-pilot-62/global-50-dirty-cover36-900",
+  "shared_memory_start_limit_bytes": 4294967296,
+  "shared_memory_stop_limit_bytes": 6979321856,
+  "owned_process_group": 30149,
+  "reader_pid": 30150,
+  "input_gzip": "/workspace/pequalnp-proofs/results/orch/search-counterexample/batch-20261125T0512Z/global-50-dirty-cover36-900.cnf.gz",
+  "input_uncompressed_sha256": "3440662133d4c5e24e401a50c51f34535bc254b18ec3f1b324f382685bd81247",
+  "process_start_ticks": 1029460
+}

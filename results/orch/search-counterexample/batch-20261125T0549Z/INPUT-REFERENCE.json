@@ -1,0 +1,8 @@
+{
+  "source_batch": "batch-20261125T0512Z",
+  "compressed_cnf": "global-50-dirty-cover36-900.cnf.gz",
+  "uncompressed_cnf_sha256": "3440662133d4c5e24e401a50c51f34535bc254b18ec3f1b324f382685bd81247",
+  "mapping": "global-50-dirty-cover36-900.mapping.json",
+  "runner_batch": "batch-20261125T0537Z",
+  "runner": "solve_global_cnf_v4.py"
+}

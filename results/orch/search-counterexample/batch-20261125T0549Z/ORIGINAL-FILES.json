@@ -1,0 +1,37 @@
+[
+  {
+    "name": "global-50-dirty-cover36-run2.command.json",
+    "sha256": "320e0324b90cb2ba664d12dd3543c64ba54772a591acf33f416c289dd7e86978",
+    "size": 188
+  },
+  {
+    "name": "global-50-dirty-cover36-run2.log",
+    "sha256": "536cd52b5d1088e853da9ed2a799cfd3b6b33e97c7d4a8c32e779931a1a0381b",
+    "size": 388
+  },
+  {
+    "name": "global-50-dirty-cover36-run2.process.json",
+    "sha256": "2d750e3cdcdf1c614cc9412bd13ac1f3503b0e5246a0af01b7657cc74d157c90",
+    "size": 827
+  },
+  {
+    "name": "global-50-dirty-cover36-run2.reader.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "size": 0
+  },
+  {
+    "name": "global-50-dirty-cover36-run2.sol",
+    "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb",
+    "size": 10
+  },
+  {
+    "name": "global-50-dirty-cover36-run2.solver.log",
+    "sha256": "9cafd6783c84dfb4b112fa385637175d4dca38f84fddf5a3d473dea91cb061eb",
+    "size": 18487
+  },
+  {
+    "name": "global-50-dirty-cover36-run2.status.json",
+    "sha256": "7699112628183c457a9a5784cb872d87a7af15345729c9ec318d48e4a255cbb0",
+    "size": 307
+  }
+]
