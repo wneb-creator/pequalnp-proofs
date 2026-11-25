@@ -1,0 +1,13 @@
+{
+  "source": "lemmas/Harness.lean",
+  "sha256": "0e6350139c46f120a30d43396fd672fa0a5fa7c948c2ad78581f17bb4699e582",
+  "bytes": 3892,
+  "lines": 107,
+  "status": "Lean compiled and exported successfully, exit0",
+  "claims": [
+    "11gate exact monotone witness",
+    "conditional replacement from free-NOT binaryfloor10; lowerbound premise not proved in Harness"
+  ],
+  "stdout": "harness-checked.stdout",
+  "stderr": "harness-checked.stderr"
+}

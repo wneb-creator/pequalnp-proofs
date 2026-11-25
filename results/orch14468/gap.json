@@ -1,0 +1,40 @@
+{
+  "gap": {
+    "id": "L-meta-14468",
+    "title": "At fan-in two, one NOT gate saves nothing on edges 0-4 1-5 0-6 2-6 0-7 1-7 2-7 3-7 5-7",
+    "statement": "\u2200 (gates : List PEqualNP.CircuitLowerBounds.Gate) (o : \u2115), (\u2200 g \u2208 gates, (g.op = PEqualNP.CircuitLowerBounds.GateOp.and \u2228 g.op = PEqualNP.CircuitLowerBounds.GateOp.or \u2228 g.op = PEqualNP.CircuitLowerBounds.GateOp.not) \u2227 g.inputs.length \u2264 2) \u2192 (\u2200 i j : Fin gates.length, (gates.get i).op = PEqualNP.CircuitLowerBounds.GateOp.not \u2192 (gates.get j).op = PEqualNP.CircuitLowerBounds.GateOp.not \u2192 i = j) \u2192 (\u2200 x : Fin 8 \u2192 Bool, PEqualNP.CircuitLowerBounds.Circuit.eval \u27e8gates, o\u27e9 (List.ofFn x) = decide (\u2203 i < ([0, 4, 1, 5, 0, 6, 2, 6, 0, 7, 1, 7, 2, 7, 3, 7, 5, 7] : List \u2115).length / 2, (List.ofFn x).getD (([0, 4, 1, 5, 0, 6, 2, 6, 0, 7, 1, 7, 2, 7, 3, 7, 5, 7] : List \u2115).getD (2 * i) 0) false = true \u2227 (List.ofFn x).getD (([0, 4, 1, 5, 0, 6, 2, 6, 0, 7, 1, 7, 2, 7, 3, 7, 5, 7] : List \u2115).getD (2 * i + 1) 0) false = true)) \u2192 \u2203 (gates' : List PEqualNP.CircuitLowerBounds.Gate) (o' : \u2115), (\u2200 g \u2208 gates', (g.op = PEqualNP.CircuitLowerBounds.GateOp.and \u2228 g.op = PEqualNP.CircuitLowerBounds.GateOp.or) \u2227 g.inputs.length \u2264 2) \u2227 gates'.length \u2264 gates.length \u2227 \u2200 x : Fin 8 \u2192 Bool, PEqualNP.CircuitLowerBounds.Circuit.eval \u27e8gates', o'\u27e9 (List.ofFn x) = decide (\u2203 i < ([0, 4, 1, 5, 0, 6, 2, 6, 0, 7, 1, 7, 2, 7, 3, 7, 5, 7] : List \u2115).length / 2, (List.ofFn x).getD (([0, 4, 1, 5, 0, 6, 2, 6, 0, 7, 1, 7, 2, 7, 3, 7, 5, 7] : List \u2115).getD (2 * i) 0) false = true \u2227 (List.ofFn x).getD (([0, 4, 1, 5, 0, 6, 2, 6, 0, 7, 1, 7, 2, 7, 3, 7, 5, 7] : List \u2115).getD (2 * i + 1) 0) false = true)",
+    "file": "lean/PEqualNP/Outside/L_meta_14468.lean",
+    "module": "PEqualNP.Outside.L_meta_14468",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "unlocks": "Direction 4 (one NOT gate): the smallest graphs on which one NOT gate saves a gate, if any",
+    "dead": [],
+    "weight": 55,
+    "parallel": 3,
+    "lane": "main",
+    "depth": 0,
+    "faithful_by_template": {
+      "template": "direction4-one-not-replace-8c",
+      "hash": "cbeb8dcbdcc8453dddf6a318fd2ae93e206dcc8e5ec916fd0991605d08a107ba"
+    },
+    "sketch": "For an eight-vertex graph with a 4-cycle: show every AND/OR/NOT list (at most two inputs each, at most one NOT gate) for its edge function can be replaced by an AND/OR list no longer, or refute it with a one-NOT list shorter than every AND/OR list. Known: the replacement side was checked on 499 seven-vertex and eight six-vertex graphs. Here our NOT-gate lower bound and best AND/OR circuit differ by 1 to 21 gates, so the truth is not known. Route: exhaustive search on eight inputs with a certificate. Size: minutes to hours of solver time per graph.",
+    "pr_open": 0,
+    "pr_numbers": []
+  },
+  "lease": {
+    "id": "724ad0f9-736e-4c0b-808c-a3f1d7a0802a",
+    "expires_at": "2026-11-25T18:27:24.727Z",
+    "renew": "POST /desk/beat?lease=724ad0f9-736e-4c0b-808c-a3f1d7a0802a",
+    "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+    "release": "POST /desk/release?lease=724ad0f9-736e-4c0b-808c-a3f1d7a0802a&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+    "terms": {
+      "kind": "prove",
+      "level": "solid",
+      "points": 30,
+      "reductions_open": false,
+      "issued_at": "2026-11-25T18:07:24.727Z"
+    }
+  },
+  "rule": "Never change a file that is already on main. Every proof is a NEW file; a recorded proof is final."
+}

@@ -1,0 +1,17 @@
+{
+  "public_pr": "https://github.com/brilliant-hq/pequalnp-proofs/pull/18915",
+  "public_author": "Leg0shii",
+  "source_sha256": "81cc0c084c6e6374795ee8f2dfa86c517c61cb34434911ba54cf6b2f1bd53c74",
+  "adapted_sha256": "5c0f4a872ef18607dfa4be1c150020e256eff4df564c55e8898fdc47bd42f124",
+  "changes": [
+    "Removed redundant Mathlib line because PEqualNP.Defs already supplies it.",
+    "Added public-proof attribution comment."
+  ],
+  "bytes": 112661,
+  "lines": 2222,
+  "status": "Lean compiled and exported successfully, exit 0",
+  "stdout": "public18915-checked.stdout",
+  "stderr": "public18915-checked.stderr",
+  "olean_archived": false,
+  "official_checker": "not run by this agent"
+}

@@ -1,0 +1,103 @@
+{
+  "utc": "2026-11-25T18:14:04.754857+00:00",
+  "source": "results/orch14468/lemmas/Public18915.lean",
+  "source_sha256": "5c0f4a872ef18607dfa4be1c150020e256eff4df564c55e8898fdc47bd42f124",
+  "public_source_sha256": "81cc0c084c6e6374795ee8f2dfa86c517c61cb34434911ba54cf6b2f1bd53c74",
+  "bytes": 112661,
+  "lines": 2222,
+  "public_pr": "https://github.com/brilliant-hq/pequalnp-proofs/pull/18915",
+  "public_author": "Leg0shii",
+  "public_head": "c63b1058c3fe975a0c152a1b88930e9c6f41c837",
+  "exact_posted_statement": true,
+  "named_byte_identical": true,
+  "imports": [
+    "import PEqualNP.Defs"
+  ],
+  "options": [
+    {
+      "line": 2105,
+      "text": "set_option maxRecDepth 32768 in",
+      "allowed_scoped": true
+    },
+    {
+      "line": 2106,
+      "text": "set_option maxHeartbeats 0 in",
+      "allowed_scoped": true
+    },
+    {
+      "line": 2109,
+      "text": "set_option maxRecDepth 32768 in",
+      "allowed_scoped": true
+    },
+    {
+      "line": 2110,
+      "text": "set_option maxHeartbeats 0 in",
+      "allowed_scoped": true
+    },
+    {
+      "line": 2113,
+      "text": "set_option maxRecDepth 32768 in",
+      "allowed_scoped": true
+    },
+    {
+      "line": 2114,
+      "text": "set_option maxHeartbeats 0 in",
+      "allowed_scoped": true
+    },
+    {
+      "line": 2116,
+      "text": "set_option maxRecDepth 32768 in",
+      "allowed_scoped": true
+    },
+    {
+      "line": 2117,
+      "text": "set_option maxHeartbeats 0 in",
+      "allowed_scoped": true
+    },
+    {
+      "line": 2119,
+      "text": "set_option maxRecDepth 32768 in",
+      "allowed_scoped": true
+    },
+    {
+      "line": 2120,
+      "text": "set_option maxHeartbeats 0 in",
+      "allowed_scoped": true
+    },
+    {
+      "line": 2123,
+      "text": "set_option maxRecDepth 32768 in",
+      "allowed_scoped": true
+    },
+    {
+      "line": 2124,
+      "text": "set_option maxHeartbeats 0 in",
+      "allowed_scoped": true
+    },
+    {
+      "line": 2126,
+      "text": "set_option maxRecDepth 32768 in",
+      "allowed_scoped": true
+    },
+    {
+      "line": 2127,
+      "text": "set_option maxHeartbeats 0 in",
+      "allowed_scoped": true
+    },
+    {
+      "line": 2130,
+      "text": "set_option maxRecDepth 32768 in",
+      "allowed_scoped": true
+    },
+    {
+      "line": 2131,
+      "text": "set_option maxHeartbeats 0 in",
+      "allowed_scoped": true
+    }
+  ],
+  "prohibited_markers_found": false,
+  "compiled_status": "author-reported exit0; complete archived stdout inspected, warnings only; stderr empty",
+  "official_checker_status": "pending root",
+  "review_verdict": "PASS for exact source adaptation, interface, and format; mathematical route independently assigned to lower_bound",
+  "extraction_note": "Final proof uses := solve rather than := by; theorem type extracted before its final := token."
+}
