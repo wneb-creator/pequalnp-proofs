@@ -6997,4 +6997,263 @@ lemma plane_geometry :
   decide +kernel
 
 end Q3PackedCertificate
+
+
+namespace ChunkedBoundary
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_2583.ReducedCheck
+open PEqualNP.Outside.L_meta_2583.CircuitCheckWrapper
+
+def lowCode {a b : ℕ} (P : Finset (Fin (a + b))) : Fin (2 ^ a) :=
+  PackedInputCode.code (fun p : Fin a => decide (Fin.castAdd b p ∈ P))
+
+def highCode {a b : ℕ} (P : Finset (Fin (a + b))) : Fin (2 ^ b) :=
+  PackedInputCode.code (fun p : Fin b => decide (Fin.natAdd a p ∈ P))
+
+lemma input_bits {a b m : ℕ} (I : Fin (a + b) → Fin m → Prop) [DecidableRel I]
+    (w : Fin (2 ^ b) → List ℕ) (hlen : ∀ h, (w h).length = a + b + m)
+    (hlow : ∀ (h : Fin (2 ^ b)) (r : Fin (2 ^ a)) (p : Fin a),
+      ((w h).getD p.val 0).testBit r.val = r.val.testBit p.val)
+    (hhigh : ∀ (h : Fin (2 ^ b)) (r : Fin (2 ^ a)) (p : Fin b),
+      ((w h).getD (a + p.val) 0).testBit r.val = h.val.testBit p.val)
+    (hline : ∀ (h : Fin (2 ^ b)) (r : Fin (2 ^ a)) (l : Fin m),
+      ((w h).getD (a + b + l.val) 0).testBit r.val = decide
+        ((∀ p : Fin a, I (Fin.castAdd b p) l → r.val.testBit p.val = false) ∧
+          (∀ p : Fin b, I (Fin.natAdd a p) l → h.val.testBit p.val = false)))
+    (P : Finset (Fin (a + b))) :
+    (w (highCode P)).map (fun v => v.testBit (lowCode P).val) =
+      List.ofFn (liftInput (independentInput I P)) := by
+  let high := highCode P
+  let low := lowCode P
+  have hwire : ∀ i : Fin (a + b + m), ((w high).getD i.val 0).testBit low.val =
+      liftInput (independentInput I P) i := by
+    intro i
+    refine Fin.addCases ?_ ?_ i
+    · intro p
+      refine Fin.addCases ?_ ?_ p
+      · intro p
+        simpa [low, lowCode, liftInput, independentInput] using
+          (hlow high low p).trans
+            (PackedInputCode.code_bit (fun p : Fin a => decide (Fin.castAdd b p ∈ P)) p)
+      · intro p
+        simpa [high, highCode, liftInput, independentInput] using
+          (hhigh high low p).trans
+            (PackedInputCode.code_bit (fun p : Fin b => decide (Fin.natAdd a p ∈ P)) p)
+    · intro l
+      have hwline : ((w high).getD (a + b + l.val) 0).testBit low.val =
+          decide (l ∈ avoidingRight I P) := by
+        rw [hline high low l]
+        congr 1
+        apply propext
+        rw [mem_avoidingRight]
+        constructor
+        · intro h p
+          refine Fin.addCases ?_ ?_ p
+          · intro p hp hI
+            have hf := h.1 p hI
+            simp [low, lowCode, PackedInputCode.code_bit, hp] at hf
+          · intro p hp hI
+            have hf := h.2 p hI
+            simp [high, highCode, PackedInputCode.code_bit, hp] at hf
+        · intro h
+          constructor
+          · intro p hI
+            have hp : Fin.castAdd b p ∉ P := fun hp => h _ hp hI
+            simp [low, lowCode, PackedInputCode.code_bit, hp]
+          · intro p hI
+            have hp : Fin.natAdd a p ∉ P := fun hp => h _ hp hI
+            simp [high, highCode, PackedInputCode.code_bit, hp]
+      simpa [liftInput, independentInput] using hwline
+  apply List.ext_getElem
+  · simpa using hlen high
+  · intro i hi hj
+    have hwi : i < (w high).length := by simpa using hi
+    have hib : i < a + b + m := by simpa [hlen high] using hwi
+    simpa [List.getD_eq_getElem?_getD, hwi] using hwire ⟨i, hib⟩
+
+lemma independent_false_of_chunks {a b m : ℕ} (I : Fin (a + b) → Fin m → Prop)
+    [DecidableRel I] (C : Circuit) (hAO : IsAO2 (a + b + m) C)
+    (w : Fin (2 ^ b) → List ℕ) (hlen : ∀ h, (w h).length = a + b + m)
+    (hlow : ∀ (h : Fin (2 ^ b)) (r : Fin (2 ^ a)) (p : Fin a),
+      ((w h).getD p.val 0).testBit r.val = r.val.testBit p.val)
+    (hhigh : ∀ (h : Fin (2 ^ b)) (r : Fin (2 ^ a)) (p : Fin b),
+      ((w h).getD (a + p.val) 0).testBit r.val = h.val.testBit p.val)
+    (hline : ∀ (h : Fin (2 ^ b)) (r : Fin (2 ^ a)) (l : Fin m),
+      ((w h).getD (a + b + l.val) 0).testBit r.val = decide
+        ((∀ p : Fin a, I (Fin.castAdd b p) l → r.val.testBit p.val = false) ∧
+          (∀ p : Fin b, I (Fin.natAdd a p) l → h.val.testBit p.val = false)))
+    (hzero : ∀ h, PackedEval.eval C (w h) = 0) :
+    ∀ P : Finset (Fin (a + b)),
+      circuitFun (a + b + m) C (liftInput (independentInput I P)) = false := by
+  intro P
+  have h := PackedEval.eval_testBit_of_isAO2 (a + b + m) C (w (highCode P))
+    (lowCode P).val hAO
+  rw [hzero, input_bits I w hlen hlow hhigh hline P] at h
+  simpa [circuitFun] using h.symm
+
+end ChunkedBoundary
+
+
+namespace Q3ChunkedCertificate
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity
+open ReducedCheck CircuitCheckWrapper
+open Q3PackedCertificate (I pairWords incidenceMask canonicalC)
+
+def lowPointWords : List Nat := [
+  119846208990821060515287012719268315574531798596153771515620054105155117203667308755138984881605024014080075919914262238439193179209611081661898287092982749585178595616576990184201479734164062746302055301390003845892100454894975254315942073693884824775567007123057532159964830625653144203223570886416149424810,
+  143815450788985272618344415263121978689438158315384525818744064926186140644400770506166781857926028816896091103897114686127031815051533297994277944511579299502214314739892388221041775680996875295562466361668004615070520545873970305179130488432661789730680408547669038591957796750783773043868285063699379309772,
+  169194647987041497198052253250731739634633127429864148022051841089630753699295024124902096303442386843407166004584840807208272723590039174110915228837152117061428605576343986142402089036466912112426431013727064253024141818675259182563682927567837399683153421820787104225832702059745615345727394192587505070320,
+  179069821994067265517004719393770557123035839147560499073922571114317373565012632536861362624654977515201358572945823733699027940920197102560968646862666832065013932750060561209079253766221790251284004808302573839776523636885877422791135238515376547524582609864801915756523326693582908070186191519003118206720,
+  179766570466052360237648572536963127610949142151705149077185617265867657072940646045213890928808158455225716514812268414598264282604049739409665520460023745597470080465874001603182053859457467143941243028332742390810947146161643764595180884270010128854499581430719252352917935056902309958553029775825154539520,
+  179769313444375785814462265863485611229889718115776549548420631039577310219318555512504201030636628662239812719543346771400604958784932998973090366819193438631844709885019339289485527600645229101680144570744617427323613239093066544488844122372018577072445227788470567772585250041087614243742592599359351685120,
+  179769313486231590763185205067502474281972610037491134208877555181135709923949037735690276024213413705823039792595812100825199281213020878487102478859428781160318831728534053767098825058678708531551206723464342007537350133167915838047987720003371153224504147359993809275143228500884134199151686065190149816320,
+  179769313486231590772930519078902473361269403363094992027077741372816159198983668324764656509214724291581902479869920821760871587342679845464593386307578492764517105656857966598509267284159204378328176331317696638943488431251920295735812264550083217605459765810970935573515804682568218669795142748890432798720,
+  179769313486231590772930519078902473361797697894230657273430081157732675805499410614616176613472387041631651377316136471641673072203277570454821379686787760899244944958633938372376730076395090525612731964434268678008150116831451773765893368201788358737656950422124978427902852027528247743196825908506284523520,
+  179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474110969959963482268385702277221395399966640087262359691628045276706960578432807926936308666529070259922820652728111753896392184596904358265409895975218053120
+]
+
+def lowLineWords : List Nat := [
+  1612202362438516399445625478482434675121823726883503404772301843350203396559111756406055148913550443347281823494806389103104468523147286808346284746286493861864005434387625707294085024003364773297834340878416831890049116906832362379820380108676007858279181472248627,
+  11540594032658607306566862601501305269438134594985383637573631145613154769671340896777851149190755077723567764553128464542387995665915090527196023934338072556743923144455916925710573989989925907747028471236585529682186524614830995187538005219136435186722779142022605140153685,
+  796045880515921893740840784340009919099334674736111188786015696109986287490171558823122061988264889467792355759382783138912642201399201885270835455,
+  1393481448109428024177612725692000257830902900038233105088416187017886575689496888172687782322825188039705927097314219305260869837098837594210872808275440014594128991381499292894772743965303669543108482905900987801709156765455,
+  2743103890840491199709018373066338191222975477137875292186313895746283296032669003322018422559052964387275713433606368469654227036154980125014838340420754167662590881587937518521434647154132816349326054048752662986772727280727288952070086374316429955952552234448558758525173509399247979016332590671003649,
+  145367744859121378101984360338322011028699661524619071311737937905421215472927008112205736097024724415912224248215020537264825714291507,
+  72294757326097933040861497784880691502824544888109615384531391835929546202845673426460479344206140712111202128718028925208414114298998390254824122401745389029896603612666735780901582145914989584815640143462939230781780787,
+  59923104495410530257643506359634157787265899298076885757810027052577558601833654377569492440802512007040037959957131119219596589604805540830949143546491374792589297808288495092100739867082031373151027650695001922946050227447487627157971036846942412387783503561528766079982415312826572101611785443208074712405,
+  327479277917408467359118278243034488056076247630130719693098679591209568603539525136273912089569344449019920319495285561697522348095392811331331240221415944707369595257330459289632194594578979695157867955814655,
+  183632267622891382779718862777337890176768437789250849134046269477221477242087806515921312485605712698371734994876781313363032641283387305168655,
+  113427455640312821154458202477256070485,
+  1684641406969115364874486225963184091504279981394597057304974334423198082012594085395335671627782269635974753234311105849883066826689934540267397107598739745340130446522310749429691706754229252102351376690654656563612029603792517803755816029321629455,
+  478611500756798850801714011323471660170568768659788346620398081151254972618377633362909867462188365193808315833746849196845099826791196907804893604951762174510088758215373707240627875944495525099088412524971307892190284093278822273880968004004958098409062655
+]
+
+def allOnes : Nat := 179769313486231590772930519078902473361797697894230657273430081157732675805500963132708477322407536021120113879871393357658789768814416622492847430639474124377767893424865485276302219601246094119453082952085005768838150682342462881473913110540827237163350510684586298239947245938479716304835356329624224137215
+
+lemma lowPointWords_spec (p : Fin 10) :
+    lowPointWords.getD p.val 0 = PackedColumns.col 10 p.val := by
+  fin_cases p
+  · exact Q3PackedColumnCache.col_10_0.symm
+  · exact Q3PackedColumnCache.col_10_1.symm
+  · exact Q3PackedColumnCache.col_10_2.symm
+  · exact Q3PackedColumnCache.col_10_3.symm
+  · exact Q3PackedColumnCache.col_10_4.symm
+  · exact Q3PackedColumnCache.col_10_5.symm
+  · exact Q3PackedColumnCache.col_10_6.symm
+  · exact Q3PackedColumnCache.col_10_7.symm
+  · exact Q3PackedColumnCache.col_10_8.symm
+  · exact Q3PackedColumnCache.col_10_9.symm
+
+lemma low_point_bits (r : Fin 1024) (p : Fin 10) :
+    (lowPointWords.getD p.val 0).testBit r.val = r.val.testBit p.val := by
+  rw [lowPointWords_spec]
+  exact PackedColumns.col_testBit_lt 10 p.val r.val p.isLt r.isLt
+
+lemma allOnes_spec : allOnes = 2 ^ (2 ^ 10) - 1 := by
+  rw [Q3PackedColumnCache.power_10]
+  rfl
+
+lemma allOnes_bits (r : Fin 1024) : allOnes.testBit r.val = true := by
+  rw [allOnes_spec, Nat.testBit_two_pow_sub_one]
+  simp [r.isLt]
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma low_line_complement : ∀ l : Fin 13,
+    lowLineWords.getD l.val 0 + PackedLineColumns.joinWords
+      (List.ofFn (fun p : Fin 10 => if I (Fin.castAdd 3 p) l
+        then lowPointWords.getD p.val 0 else 0)) + 1 = 2 ^ (2 ^ 10) := by
+  rw [Q3PackedColumnCache.power_10]
+  decide +kernel
+
+lemma low_line_bits (r : Fin 1024) (l : Fin 13) :
+    (lowLineWords.getD l.val 0).testBit r.val =
+      decide (∀ p : Fin 10, I (Fin.castAdd 3 p) l → r.val.testBit p.val = false) := by
+  exact PackedLineArithmetic.line_bits (fun p : Fin 10 => I (Fin.castAdd 3 p))
+    (fun p => lowPointWords.getD p.val 0) r l _ (low_line_complement l) (low_point_bits r)
+
+def data (h : Fin 8) (i : Fin 26) : Nat :=
+  Fin.addCases (motive := fun _ => Nat)
+    (fun p : Fin 13 => Fin.addCases (motive := fun _ => Nat)
+      (fun p : Fin 10 => lowPointWords.getD p.val 0)
+      (fun p : Fin 3 => if h.val.testBit p.val then allOnes else 0) p)
+    (fun l : Fin 13 => if ∀ p : Fin 3,
+        I (Fin.natAdd 10 p) l → h.val.testBit p.val = false
+      then lowLineWords.getD l.val 0 else 0) i
+
+def words (h : Fin 8) : List Nat := List.ofFn (data h)
+
+lemma words_length (h : Fin 8) : (words h).length = 26 := by simp [words]
+
+lemma words_getD (h : Fin 8) (i : Fin 26) : (words h).getD i.val 0 = data h i := by
+  simp only [words, List.getD_eq_getElem?_getD, List.getElem?_ofFn,
+    i.isLt, dite_eq_left, Option.getD_some]
+
+lemma low_lookup (h : Fin 8) (p : Fin 10) :
+    (words h).getD p.val 0 = lowPointWords.getD p.val 0 := by
+  simpa [data] using words_getD h (Fin.castAdd 13 (Fin.castAdd 3 p))
+
+lemma high_lookup (h : Fin 8) (p : Fin 3) :
+    (words h).getD (10 + p.val) 0 = if h.val.testBit p.val then allOnes else 0 := by
+  simpa [data] using words_getD h (Fin.castAdd 13 (Fin.natAdd 10 p))
+
+lemma line_lookup (h : Fin 8) (l : Fin 13) :
+    (words h).getD (13 + l.val) 0 = if ∀ p : Fin 3,
+        I (Fin.natAdd 10 p) l → h.val.testBit p.val = false
+      then lowLineWords.getD l.val 0 else 0 := by
+  have hw := words_getD h (Fin.natAdd 13 l)
+  simp only [data, Fin.addCases_right] at hw
+  exact hw
+
+lemma low_bits (h : Fin 8) (r : Fin 1024) (p : Fin 10) :
+    ((words h).getD p.val 0).testBit r.val = r.val.testBit p.val := by
+  rw [low_lookup]
+  exact low_point_bits r p
+
+lemma high_bits (h : Fin 8) (r : Fin 1024) (p : Fin 3) :
+    ((words h).getD (10 + p.val) 0).testBit r.val = h.val.testBit p.val := by
+  rw [high_lookup]
+  cases h.val.testBit p.val <;> simp [allOnes_bits r]
+
+lemma line_bits (h : Fin 8) (r : Fin 1024) (l : Fin 13) :
+    ((words h).getD (13 + l.val) 0).testBit r.val = decide
+      ((∀ p : Fin 10, I (Fin.castAdd 3 p) l → r.val.testBit p.val = false) ∧
+        (∀ p : Fin 3, I (Fin.natAdd 10 p) l → h.val.testBit p.val = false)) := by
+  rw [line_lookup]
+  split
+  · rename_i hh
+    rw [low_line_bits r l]
+    apply Bool.eq_iff_iff.mpr
+    simp only [decide_eq_true_eq]
+    exact (and_iff_left hh).symm
+  · rename_i hh
+    simp [hh]
+
+lemma negative_of_chunks (C : Circuit) (hAO : IsAO2 26 C)
+    (hneg : ∀ h : Fin 8, PackedEval.eval C (words h) = 0) :
+    ∀ P : Finset (Fin 13), circuitFun 26 C (liftInput (independentInput I P)) = false := by
+  exact ChunkedBoundary.independent_false_of_chunks (a := 10) (b := 3)
+    I C hAO words words_length low_bits high_bits line_bits hneg
+
+lemma exact_of_chunks (C : Circuit) (hAO : IsAO2 26 C)
+    (hpos : PackedEval.eval C pairWords = incidenceMask)
+    (hneg : ∀ h : Fin 8, PackedEval.eval C (words h) = 0) :
+    ∀ z : Fin 26 → Bool, circuitFun 26 C z = decide (∃ p l : Fin 13,
+      I p l ∧ z (Fin.castAdd 13 p) = true ∧ z (Fin.natAdd 13 l) = true) := by
+  exact ao2_exact_certificate I C hAO (Q3PackedCertificate.positive_of_packed C hAO hpos)
+    (fun P _ => negative_of_chunks C hAO hneg P)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma canonical_checks : IsAO2 26 canonicalC ∧ canonicalC.size = 64 ∧
+    PackedEval.eval canonicalC pairWords = incidenceMask ∧
+    (∀ h : Fin 8, PackedEval.eval canonicalC (words h) = 0) := by decide +kernel
+
+lemma canonical_exact : ∀ z : Fin 26 → Bool, circuitFun 26 canonicalC z =
+    decide (∃ p l : Fin 13, I p l ∧ z (Fin.castAdd 13 p) = true ∧ z (Fin.natAdd 13 l) = true) :=
+  exact_of_chunks canonicalC canonical_checks.1 canonical_checks.2.2.1 canonical_checks.2.2.2
+
+end Q3ChunkedCertificate
 end PEqualNP.Outside.L_meta_2583
