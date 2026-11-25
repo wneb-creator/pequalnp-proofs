@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/Meta3773ScaffoldCore3.lean",
+  "sha256": "424bc49a4cccbc18bf8298fea76ed2aa4b81e6175a4f46a082838fc740dad90e",
+  "source_sha256_after": "424bc49a4cccbc18bf8298fea76ed2aa4b81e6175a4f46a082838fc740dad90e",
+  "started_utc": "2026-11-25T13:15:10.285293+00:00",
+  "finished_utc": "2026-11-25T13:15:12.902808+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 2953924608,
+  "seconds": 2.6175374609993014,
+  "rss_limit_bytes": 3221225472,
+  "wall_limit_seconds": 120
+}
