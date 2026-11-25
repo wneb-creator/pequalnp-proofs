@@ -59,3 +59,14 @@ Batteries.olean was absent in the partial Mathlib cache. Full output is
 checker-checkpoint-4.log. Environment repair is underway; no checker code
 or library definitions are changed. Named-module build remains successful.
 TIMING total=74 subagents=6
+
+Checkpoint 6 artifacts: every gate of a least nonzero graph circuit accepts
+some edge-pair input (PairUseful); explicit seven-gate non-read1 C5 circuit
+(minimality not proved in that artifact); normalized five-gate non-read1
+P4 circuit with an explicit four-gate read1 improvement. Independent review
+passed source, semantics, namespace, imports and absence-of-axioms checks.
+These diagnose limits of normalization assumptions; none refutes the plane
+statement. Three complete compiler logs are retained with these artifacts.
+All official cache dependencies are now available, using job-owned anonymous
+RAM storage for additional immutable library artifacts. Checker unchanged.
+TIMING total=80 subagents=6
