@@ -7170,3 +7170,65 @@ lemma restrict_four_of_least (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     hHop haH hjop hjin hkop hHk hkl
 
 end PEqualNP.Outside.L_meta_3566.FourGateRestriction
+
+namespace PEqualNP.Outside.L_meta_3566.UniformSavingPeel
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.CleanedNonEdge
+open PEqualNP.EdgeOwnership
+open Pruning GateSavings
+
+variable {n : ℕ}
+
+def UniformPeel (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (z : Fin n) : Prop :=
+  ∀ C : Circuit, IsAO2 n C → circuitFun n C = graphFun G ∅ →
+    ∃ D : Circuit, IsAO2 n D ∧ circuitFun n D =
+      (fun y : Fin n → Bool => @decide (∃ a b : Fin n,
+        (G.deleteEdges (G.incidenceSet z)).Adj a b ∧ y a = true ∧ y b = true)
+        (Classical.propDecidable _)) ∧ D.size + G.degree z ≤ C.size ∧
+      ((∃ S : Finset (Fin n), CoverPromise.IsVertexCover
+        (G.deleteEdges (G.incidenceSet z)) S ∧
+        ∀ T : Finset (Fin n), CoverPromise.IsVertexCover G T → S.card < T.card) →
+        D.size + G.degree z + 1 ≤ C.size)
+
+lemma of_saving (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C0 : Circuit) (hC0 : IsLeastAO G C0) (z : Fin n) (D : Circuit)
+    (hD : IsAO2 n D)
+    (hfun : circuitFun n D = fun x => circuitFun n C0 (cutInput z x))
+    (hs : D.size + G.degree z + 1 ≤ C0.size) : UniformPeel G z := by
+  intro C hC hF
+  have hmin := hC0.2.2 C hC hF
+  refine ⟨D, hD, ?_, by omega, fun _ => by omega⟩
+  rw [hfun, hC0.2.1]
+  exact graph_cutInput G z
+
+lemma three_gate_source (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C0 : Circuit) (hC0 : IsLeastAO G C0) (hfour : NoFourCycle G)
+    (a u : Fin n) (h j : ℕ) (hj : j < C0.size)
+    (hjor : (gateAt C0 j).op = GateOp.or) (hju : u.val ∈ (gateAt C0 j).inputs)
+    (hjh : n + h ∈ (gateAt C0 j).inputs)
+    (haonly : ∀ k < C0.size, a.val ∈ (gateAt C0 k).inputs → k = h)
+    (hdeg : G.degree a = 2) (hhand : (gateAt C0 h).op = GateOp.and)
+    (hha : a.val ∈ (gateAt C0 h).inputs) :
+    ∃ z : Fin n, 0 < G.degree z ∧ UniformPeel G z := by
+  obtain ⟨D, hD, hs, hf⟩ := PrivateOrAbsorb.restrict_source_saves_three G C0 hC0 hfour
+    a u h j hj hjor hju hjh haonly (by omega) hhand hha
+  refine ⟨a, by omega, of_saving G C0 hC0 a D hD ?_ (by omega)⟩
+  simpa only [hC0.2.1] using hf
+
+lemma four_gate_source (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C0 : Circuit) (hC0 : IsLeastAO G C0) (a u : Fin n) (H j k : ℕ)
+    (hH : H < C0.size) (hj : j < C0.size) (hk : k < C0.size)
+    (hHop : (gateAt C0 H).op = GateOp.and) (haH : a.val ∈ (gateAt C0 H).inputs)
+    (hjop : (gateAt C0 j).op = GateOp.or)
+    (hjin : (gateAt C0 j).inputs = [u.val, n + H] ∨
+      (gateAt C0 j).inputs = [n + H, u.val])
+    (hkop : (gateAt C0 k).op = GateOp.and) (hHk : n + H ∈ (gateAt C0 k).inputs)
+    (havoid : ∃ p q : Fin n, G.Adj p q ∧ p ≠ a ∧ q ≠ a)
+    (hpos : 0 < G.degree a) (hdeg : G.degree a ≤ 3) :
+    ∃ z : Fin n, 0 < G.degree z ∧ UniformPeel G z := by
+  obtain ⟨D, hD, hs, hf⟩ := FourGateRestriction.restrict_four_of_least G C0 hC0 a u H j k
+    hH hj hk hHop haH hjop hjin hkop hHk havoid
+  exact ⟨a, hpos, of_saving G C0 hC0 a D hD hf (by omega)⟩
+
+end PEqualNP.Outside.L_meta_3566.UniformSavingPeel
