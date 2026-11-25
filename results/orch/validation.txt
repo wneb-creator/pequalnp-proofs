@@ -5,6 +5,11 @@ Build: lake build PEqualNP.Outside.L_meta_1890 exited 0; Build completed success
 Content: any missing mapped vertex gives a counterexample, so a computing remapping must be surjective.
 Checker: not run against the posted statement; the final theorem is intentionally absent.
 Independent review: status_review checked mathematics, allowed imports, helper namespaces, forbidden syntax and whitespace.
-Cleanup: not yet applicable to a complete proof; 49 lines in the first checked partial.
+Cleanup: not yet applicable to a complete proof; 50 lines in the first checked partial.
 Sub-agents: status_review, toolchain, structural_proof, counterexample, finite_certificate, readtwice, finite_certificate/search_audit
 TIMING total=15.2 subagents=7
+
+Additional checked partial: results/orch/lemmas/structural/SeedErase.lean (125 lines).
+Command: lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/structural/SeedErase.lean
+Result: exit 0, empty stdout/stderr. Root independently reviewed the argument and plain-file rules.
+Meaning: for an AND/OR circuit computing Petersen, fixing the supplied nonedge conjunction to false preserves its output. This does not cover circuits containing NOT.

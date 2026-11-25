@@ -78,3 +78,11 @@ Stopped the less focused stochastic variant after observing it consistently left
 ### finite_certificate 2026-11-25T14:52:44.295154+00:00
 Replaced sampled rowpairs with exact1024row distinguishability via iterative partitioning; this checks all positive/negative pairs without quadratic enumeration. Exactfirstmove sweep443states:297collisioncuts,65restrictioncuts,80survive. No survivingfirstmove touchesx0 orx2; seed mayonly ORxi fori=1,3,4,5,6,7,8,9, keepingxi andconsumingseed. This concerns seed-live caseonly, notunusedseed.
 Weak sampleddepth3runs didnotclose (171313states/72563frontier in180s; clippedseedfalsecap17 run300000states/152657frontier). Full-depthexact run nowadds semanticstate transpositions and4graphautomorphisms fixingseedpair. Allfigures are exploratory programresults, notLeanchecks.
+
+## structural_proof caution 2026-11-25T14:55:20.141081+00:00
+
+The endpoint OR-only equality discussion is conditional: seed may be unused, and existing4-gate lemmas L4093/L7085 require globalminimum on fullPetersen inputs. Minimality among seeded suffixes doesnotimply that. No result here asserts these reductions apply unconditionally.
+
+## structural_proof CHECKED 2026-11-25T14:56:14.864102+00:00
+
+`results/orch/lemmas/structural/SeedErase.lean` (125lines) passed `lake env lean` exit0; fullstdout/stderr in `/tmp/oec/pequalnp-pilot-134/seed-erase-check-003.log` (empty). It proves `circuit_erase_seed`: anyMonotone2 circuit computing Petersen from arbitrarymappedinputs plus x0 ANDx2 also computes it with that extra input fixedfalse. This is partialprogress only; it doesnotprove the18gate lowerbound or ruleoutNOT circuits. Removed duplicated pure-only scratchfile after fullproofpassed.
