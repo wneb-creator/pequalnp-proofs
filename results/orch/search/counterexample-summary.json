@@ -1,0 +1,17 @@
+{
+  "fano-search.stdout": {
+    "recorded_lines": 242,
+    "last_progress": "progress trials=5950000000 restarts=23800 best=1 seconds=759.595",
+    "status": []
+  },
+  "fano-neutral.stdout": {
+    "recorded_lines": 41,
+    "last_progress": "progress trials=3700000000 restarts=3700 best=1 seconds=370.913",
+    "status": []
+  },
+  "subdiv-k4-14-solver.stdout": {
+    "recorded_lines": 1072,
+    "last_progress": null,
+    "status": []
+  }
+}

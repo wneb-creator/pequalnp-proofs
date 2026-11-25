@@ -1,0 +1,361 @@
+{
+  "n": 14,
+  "points": 7,
+  "lines": [
+    [
+      1,
+      3,
+      5
+    ],
+    [
+      0,
+      3,
+      4
+    ],
+    [
+      2,
+      3,
+      6
+    ],
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      1,
+      4,
+      6
+    ],
+    [
+      0,
+      5,
+      6
+    ],
+    [
+      2,
+      4,
+      5
+    ]
+  ],
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      6
+    ],
+    [
+      3,
+      0
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      4,
+      4
+    ],
+    [
+      4,
+      6
+    ],
+    [
+      5,
+      0
+    ],
+    [
+      5,
+      5
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      6,
+      2
+    ],
+    [
+      6,
+      4
+    ],
+    [
+      6,
+      5
+    ]
+  ],
+  "tests": [
+    {
+      "mask": 257,
+      "value": true
+    },
+    {
+      "mask": 1025,
+      "value": true
+    },
+    {
+      "mask": 4097,
+      "value": true
+    },
+    {
+      "mask": 130,
+      "value": true
+    },
+    {
+      "mask": 1026,
+      "value": true
+    },
+    {
+      "mask": 2050,
+      "value": true
+    },
+    {
+      "mask": 516,
+      "value": true
+    },
+    {
+      "mask": 1028,
+      "value": true
+    },
+    {
+      "mask": 8196,
+      "value": true
+    },
+    {
+      "mask": 136,
+      "value": true
+    },
+    {
+      "mask": 264,
+      "value": true
+    },
+    {
+      "mask": 520,
+      "value": true
+    },
+    {
+      "mask": 272,
+      "value": true
+    },
+    {
+      "mask": 2064,
+      "value": true
+    },
+    {
+      "mask": 8208,
+      "value": true
+    },
+    {
+      "mask": 160,
+      "value": true
+    },
+    {
+      "mask": 4128,
+      "value": true
+    },
+    {
+      "mask": 8224,
+      "value": true
+    },
+    {
+      "mask": 576,
+      "value": true
+    },
+    {
+      "mask": 2112,
+      "value": true
+    },
+    {
+      "mask": 4160,
+      "value": true
+    },
+    {
+      "mask": 16256,
+      "value": false
+    },
+    {
+      "mask": 10881,
+      "value": false
+    },
+    {
+      "mask": 13058,
+      "value": false
+    },
+    {
+      "mask": 8707,
+      "value": false
+    },
+    {
+      "mask": 6532,
+      "value": false
+    },
+    {
+      "mask": 2181,
+      "value": false
+    },
+    {
+      "mask": 4358,
+      "value": false
+    },
+    {
+      "mask": 15368,
+      "value": false
+    },
+    {
+      "mask": 10249,
+      "value": false
+    },
+    {
+      "mask": 12298,
+      "value": false
+    },
+    {
+      "mask": 6156,
+      "value": false
+    },
+    {
+      "mask": 5776,
+      "value": false
+    },
+    {
+      "mask": 657,
+      "value": false
+    },
+    {
+      "mask": 4626,
+      "value": false
+    },
+    {
+      "mask": 4244,
+      "value": false
+    },
+    {
+      "mask": 5144,
+      "value": false
+    },
+    {
+      "mask": 4126,
+      "value": false
+    },
+    {
+      "mask": 3872,
+      "value": false
+    },
+    {
+      "mask": 2593,
+      "value": false
+    },
+    {
+      "mask": 802,
+      "value": false
+    },
+    {
+      "mask": 2340,
+      "value": false
+    },
+    {
+      "mask": 3112,
+      "value": false
+    },
+    {
+      "mask": 2093,
+      "value": false
+    },
+    {
+      "mask": 1584,
+      "value": false
+    },
+    {
+      "mask": 563,
+      "value": false
+    },
+    {
+      "mask": 9664,
+      "value": false
+    },
+    {
+      "mask": 8385,
+      "value": false
+    },
+    {
+      "mask": 8514,
+      "value": false
+    },
+    {
+      "mask": 452,
+      "value": false
+    },
+    {
+      "mask": 9288,
+      "value": false
+    },
+    {
+      "mask": 8267,
+      "value": false
+    },
+    {
+      "mask": 1232,
+      "value": false
+    },
+    {
+      "mask": 213,
+      "value": false
+    },
+    {
+      "mask": 1376,
+      "value": false
+    },
+    {
+      "mask": 358,
+      "value": false
+    },
+    {
+      "mask": 1144,
+      "value": false
+    },
+    {
+      "mask": 127,
+      "value": false
+    }
+  ]
+}

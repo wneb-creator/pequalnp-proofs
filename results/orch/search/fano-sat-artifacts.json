@@ -1,0 +1,487 @@
+[
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/cadical-build.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/cadical-build.stdout",
+    "bytes": 8542,
+    "sha256": "20cc7b278d9e46ba05327a4a102d839ad3be2230bdae9ddf22d72fb83a2601f3"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/cadical-help.txt",
+    "bytes": 23598,
+    "sha256": "2b06f6e54b4194d3c5a13c16f2891eb8ddab12f8f022708a96bc104a52e1fedf"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/cadical-source-sha.txt",
+    "bytes": 41,
+    "sha256": "290b2e5bebb48186f5511fb943d03ab4e1bdc00d7184799b5ef82d826bd946f7"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-3-concurrent.json",
+    "bytes": 1502,
+    "sha256": "ba6ec2efeedb8d330ebf0d3b669d098aa9571279f5b81e09907d2a312de7e811"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-3-triangle-10.cnf.json",
+    "bytes": 2471,
+    "sha256": "27fe235634946e46736a5a3fab6d74dd61393eb9d18fa6b5669882c48c64fc4d"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-3-triangle-10.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-3-triangle-10.stdout",
+    "bytes": 64414,
+    "sha256": "93909ebda7d35fbbf96a1d68d6bc633328449a3ee82bbe7bc372e65ef3c21b71"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-3-triangle.json",
+    "bytes": 1489,
+    "sha256": "9191fced0faadc862ead9dac7998449f1081e5bc8042b81bf54919974bb089df"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-4-concurrent.json",
+    "bytes": 2176,
+    "sha256": "65a24441127dd06f7c5b9aa2507d12c028c7aee18a0ab545dbc592de41fbacd7"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-canonical27.json",
+    "bytes": 1336,
+    "sha256": "e66bd843836dbddf75b1962ccb8aaeb450871158406ec9c4135a2a400d3cd5c6"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-compile.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-compile.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-design-enumeration.json",
+    "bytes": 253,
+    "sha256": "7586cc97f4bef899fc1961d42eb80a67a30fb920d287a03195272adda8fe9be7"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-fixed27-irredundant.cnf.json",
+    "bytes": 18433,
+    "sha256": "79d29bcf8d17ff77bb819862efed5dff6f907502a61d5a26ddc24561776364df"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-fixed27-irredundant.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-fixed27-irredundant.stdout",
+    "bytes": 59336,
+    "sha256": "43acd64087069c1018f995b9a90d9029b45620f62789ba512ad08e95c74085cb"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-fixed27-minimal.cnf.json",
+    "bytes": 18505,
+    "sha256": "dd10233c7282cee90d95d8a338c2e408ea05b3527bd2f062b1759365909f065b"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-fixed27-minimal.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-fixed27-minimal.stdout",
+    "bytes": 58288,
+    "sha256": "0ce9d3d560d54817fc3e79ba24049a14b9a80457851c5a56812bae26bd9ac1f1"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-fixed27.cnf.json",
+    "bytes": 18415,
+    "sha256": "b988f0275ee6f67501ccc1f916f0a8c94ec24527adbd1ebfce255dbbbb3ff7b9"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-fixed27.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-fixed27.stdout",
+    "bytes": 39717,
+    "sha256": "e2b1ea412243299777a9da45fcd649963bd09df790b057b5168652848b4a0096"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-general26.cnf.json",
+    "bytes": 16732,
+    "sha256": "a5e2dcc92e924671e760be8405a523589bc2c8e41d1f1486cfa7896c0d3c6321"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-general26.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-general26.stdout",
+    "bytes": 86785,
+    "sha256": "8c3863a941b94bcaa6638cc8c412bd35842bd9aad7cd8890bf95170df8ad342b"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-irredundant26-first01.cnf.json",
+    "bytes": 16754,
+    "sha256": "48d7356335c90dcdd18bbbee72f40d385e31a1f50d56d52712f242ff4942ac9b"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-irredundant26-first01.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-irredundant26-first01.stdout",
+    "bytes": 78804,
+    "sha256": "693009d89cebe6d3253675715a5169e83f236d7bb2d42531353e8ddb6c48d3aa"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-neutral-compile.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-neutral-compile.stdout",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-neutral.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-neutral.stdout",
+    "bytes": 2549,
+    "sha256": "15c374364aa837c3e28e7e3f7c54ddea1518e743b3ef2dd927c7d3c8d7540268"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-boundary-validation.json",
+    "bytes": 219,
+    "sha256": "db038bc87a124c8ef2f2f98f1ccab0c4ec816210de7034f44963900539df2e10"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-stop-summary.json",
+    "bytes": 3181,
+    "sha256": "74fba8cc2751eac0e3183385b5d0b4768c236e13279a05364bec3558e09bacc9"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first0.cnf.json",
+    "bytes": 17561,
+    "sha256": "6b588c8f4402bac9a0f7d5b6016952588bc833a1b456f918ca1dd7cc797206f0"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first0.fixed.json",
+    "bytes": 816,
+    "sha256": "0d0c6d20d391fe17db5fc407ae6aac30b612934659c07cafceb0e3388ab0b3b7"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first0.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first0.stdout",
+    "bytes": 12779,
+    "sha256": "5153e4f1d3022dd49ba80463eef662729f329fd955ddbb2094236b23b25dead9"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first1.cnf.json",
+    "bytes": 17565,
+    "sha256": "6a8812a03b5349f7ada541ca18594400592823ed21b8e2919a3d3c762a43bda9"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first1.fixed.json",
+    "bytes": 816,
+    "sha256": "3f1fe96e8655e98eb5116ba4d09a887e56622465e11d8004fad0f2287bb2c9e5"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first1.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first1.stdout",
+    "bytes": 30567,
+    "sha256": "de45190573e5a59c93404c0bb166197abb42d47dea112faa0289b198bd5009f8"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first2.cnf.json",
+    "bytes": 17566,
+    "sha256": "39c6a860cd33a43dd78ef6ef22e2c89cb36da973db205e827c37b0fd910f6f39"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first2.fixed.json",
+    "bytes": 816,
+    "sha256": "1a6cb10d0aaf92a6f9cee6b0a110c569e70afaf152d1abed4f11cf99c1a09824"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first2.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first2.stdout",
+    "bytes": 28230,
+    "sha256": "0be660eeeebbeda6d22ba5f489f72bd80180f3808a97cd899cd7b6e0974db5a1"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first3.cnf.json",
+    "bytes": 17569,
+    "sha256": "5bb707a92d4aca371a338fe258b8412ba0ec8483ead43433238265b888173cee"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first3.fixed.json",
+    "bytes": 816,
+    "sha256": "722da158548e404a98a7e19fd9b2fb7d1c258d90f544b768b17eef3b63bcec57"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first3.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first3.stdout",
+    "bytes": 25770,
+    "sha256": "29fee3354b6bbecd1117c316f838e9d016cfab72ffc73e881a65f672f3ce0114"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first4.cnf.json",
+    "bytes": 17570,
+    "sha256": "4f368ecd119175d63703ad33111bde78caa698437026cee7c16b0f7e131da7b7"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first4.fixed.json",
+    "bytes": 816,
+    "sha256": "49d116999b8575d42270cfb9c7c6d0b545ee959a0bf9a30827f594ab5a7ae630"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first4.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first4.stdout",
+    "bytes": 26312,
+    "sha256": "810ec00fe181f9b99684d65cace89e256ea548539120c3790dbcee836da44da8"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first5.cnf.json",
+    "bytes": 17570,
+    "sha256": "c0cf188e1f8a1d4cc393533778cc8782f1eb910ceb7bf104c6b4dc5a951ace41"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first5.fixed.json",
+    "bytes": 816,
+    "sha256": "02d5cffcbbc2c763e5cabb16edc27dc412161eb4e9acb47f8b7323e6c49306ce"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first5.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span2-first5.stdout",
+    "bytes": 25844,
+    "sha256": "17b02bb37935ec4217d14effee85a6ddc2bc49668bd6cd977e0bea5af9403d34"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first0.cnf.json",
+    "bytes": 17574,
+    "sha256": "4be13a9d2c0651a56682755ae7e97dd73cc99f819293951123d5fca19f8d299c"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first0.fixed.json",
+    "bytes": 816,
+    "sha256": "0d0c6d20d391fe17db5fc407ae6aac30b612934659c07cafceb0e3388ab0b3b7"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first0.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first0.stdout",
+    "bytes": 48818,
+    "sha256": "cff36b7e798b6ed0a723a1cdee856e93a68b28f6d08bbec1ed2428d08f8fb505"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first1.cnf.json",
+    "bytes": 17579,
+    "sha256": "0868fbb030cbb03fd366e1e201f3cbc9c77b663843a3c9ea58a52a657dcce30e"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first1.fixed.json",
+    "bytes": 816,
+    "sha256": "3f1fe96e8655e98eb5116ba4d09a887e56622465e11d8004fad0f2287bb2c9e5"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first1.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first1.stdout",
+    "bytes": 46802,
+    "sha256": "6405a42d8ed0ec922d04b1597bfe370378f6811271893f1eb665d391afc69c82"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first2.cnf.json",
+    "bytes": 17582,
+    "sha256": "aa7b309fd7f0e740ba086854ed4fc4fc1d584bedc3c1d7f37cf261ffc8a13a2e"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first2.fixed.json",
+    "bytes": 816,
+    "sha256": "1a6cb10d0aaf92a6f9cee6b0a110c569e70afaf152d1abed4f11cf99c1a09824"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first2.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first2.stdout",
+    "bytes": 45578,
+    "sha256": "c0fdf3e23f354e4d5f43ee881ac7a63bd907e30ca655334348235cacd41710bb"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first3.cnf.json",
+    "bytes": 17585,
+    "sha256": "8c3b9c8bf0b6a0359466b1175ffa4378709983532bd48d1d94ce669d46b978e3"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first3.fixed.json",
+    "bytes": 816,
+    "sha256": "722da158548e404a98a7e19fd9b2fb7d1c258d90f544b768b17eef3b63bcec57"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first3.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first3.stdout",
+    "bytes": 45224,
+    "sha256": "6d3eb2fe352189b64a8ea4cf09f35d2015bb390bfc039c0b06914f8234e8e062"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first4.cnf.json",
+    "bytes": 17586,
+    "sha256": "12778f69ad1e10ce2590fa18679d18bc8b7f3767f3f9e62c86706866a2fc1c09"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first4.fixed.json",
+    "bytes": 816,
+    "sha256": "49d116999b8575d42270cfb9c7c6d0b545ee959a0bf9a30827f594ab5a7ae630"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first4.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span3-first4.stdout",
+    "bytes": 42865,
+    "sha256": "2b31df4517a20fc6afdc418746376b31ff1339d0fec629bda64fa25deb803bf6"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span4-first0.cnf.json",
+    "bytes": 17588,
+    "sha256": "04aecf1d5eee4cb0c317ad6e59e939996c86000dfdda4a6dfb31625c4e729b24"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span4-first0.fixed.json",
+    "bytes": 816,
+    "sha256": "0d0c6d20d391fe17db5fc407ae6aac30b612934659c07cafceb0e3388ab0b3b7"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span4-first0.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span4-first0.stdout",
+    "bytes": 33436,
+    "sha256": "6d78987839e954ee895d7dbd105ba0683d3f77c598f520f3af0e8c1a42dd9d69"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span4-first1.cnf.json",
+    "bytes": 17595,
+    "sha256": "7ccb21439882a2bfae1a2987cbf146f9d955ad0acf1146fac75e1ba3b394bcc9"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span4-first1.fixed.json",
+    "bytes": 816,
+    "sha256": "3f1fe96e8655e98eb5116ba4d09a887e56622465e11d8004fad0f2287bb2c9e5"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span4-first1.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/span4-first1.stdout",
+    "bytes": 37522,
+    "sha256": "f816f28a716ffd8268ea293ccfe13bcd15e1df98cfb53ba8ee0b350652d59994"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep/summary.json",
+    "bytes": 2540,
+    "sha256": "1a81754f12b90f3a1a1cad33d706df511533f669927e1f110736de0edd637145"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-sat-sweep.stdout",
+    "bytes": 3090,
+    "sha256": "d3d1f80f6c138c9b0b643e3680f3dfe0f9296654eff51dc7810d8a8b8b284a10"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-search.stderr",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-search.stdout",
+    "bytes": 15495,
+    "sha256": "8e7e36f2f4a93be9f6c18a0f13a54388997f1dd84d02e0488bfb642690bbe0d4"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-tests.json",
+    "bytes": 4084,
+    "sha256": "d5c216969fddd883e5cc9cda27a3c93b690c2503b2b26cdc5582d6304d7b588b"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano-verified27.json",
+    "bytes": 1654,
+    "sha256": "08d6b7190bf23772fc481b1d19b4d15dd4681fca386da25af87bbdb27af2073f"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano_sat.py",
+    "bytes": 11858,
+    "sha256": "707bf894f4f8f819a567c361d092cb783f436d263c132913aab2c879c7d6228f"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/fano_sat_sweep.py",
+    "bytes": 2356,
+    "sha256": "52e5206cb810aa75c607195ffa21d077b3d6c3f345ff1551c1fea10d7cdfb0ec"
+  },
+  {
+    "path": "/tmp/oec/pequalnp-pilot-147/q3-4-generic.json",
+    "bytes": 2643,
+    "sha256": "614d0717dff4f07d4697f8f884ebf6ccff9ddf8f6d70f87ca2b1e25a227a497b"
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "input_bits": 14,
+  "minterms": 21,
+  "maximal_false_tests": 37,
+  "all_inputs_checked": 16384,
+  "uncovered_assignments": 0,
+  "encoder_sha256": "4d4f345a07aee84dfaacb8a8a1e96cfb4d15b8abe8b129903ee12f6787d5e5f8"
+}

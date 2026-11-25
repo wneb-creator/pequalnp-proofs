@@ -1,0 +1,41 @@
+Exact monotone test set: 21 edge minterms, 37 maximal independent sets
+best=4 trials=1 restarts=1 seconds=5.989e-06
+best=2 trials=5 restarts=1 seconds=3.5393e-05
+best=1 trials=17 restarts=1 seconds=3.7947e-05
+progress trials=100000000 restarts=100 best=1 seconds=7.71148
+progress trials=200000000 restarts=200 best=1 seconds=15.7033
+progress trials=300000000 restarts=300 best=1 seconds=24.955
+progress trials=400000000 restarts=400 best=1 seconds=33.8109
+progress trials=500000000 restarts=500 best=1 seconds=43.4095
+progress trials=600000000 restarts=600 best=1 seconds=51.9472
+progress trials=700000000 restarts=700 best=1 seconds=59.9484
+progress trials=800000000 restarts=800 best=1 seconds=69.0477
+progress trials=900000000 restarts=900 best=1 seconds=77.3258
+progress trials=1000000000 restarts=1000 best=1 seconds=85.8979
+progress trials=1100000000 restarts=1100 best=1 seconds=93.9277
+progress trials=1200000000 restarts=1200 best=1 seconds=102.25
+progress trials=1300000000 restarts=1300 best=1 seconds=117.095
+progress trials=1400000000 restarts=1400 best=1 seconds=127.861
+progress trials=1500000000 restarts=1500 best=1 seconds=135.807
+progress trials=1600000000 restarts=1600 best=1 seconds=145.74
+progress trials=1700000000 restarts=1700 best=1 seconds=156.942
+progress trials=1800000000 restarts=1800 best=1 seconds=166.941
+progress trials=1900000000 restarts=1900 best=1 seconds=177.1
+progress trials=2000000000 restarts=2000 best=1 seconds=187.934
+progress trials=2100000000 restarts=2100 best=1 seconds=198.652
+progress trials=2200000000 restarts=2200 best=1 seconds=208.952
+progress trials=2300000000 restarts=2300 best=1 seconds=219.473
+progress trials=2400000000 restarts=2400 best=1 seconds=230.266
+progress trials=2500000000 restarts=2500 best=1 seconds=243.049
+progress trials=2600000000 restarts=2600 best=1 seconds=255.973
+progress trials=2700000000 restarts=2700 best=1 seconds=266.15
+progress trials=2800000000 restarts=2800 best=1 seconds=276.636
+progress trials=2900000000 restarts=2900 best=1 seconds=287.321
+progress trials=3000000000 restarts=3000 best=1 seconds=298.163
+progress trials=3100000000 restarts=3100 best=1 seconds=308.963
+progress trials=3200000000 restarts=3200 best=1 seconds=320.008
+progress trials=3300000000 restarts=3300 best=1 seconds=330.417
+progress trials=3400000000 restarts=3400 best=1 seconds=340.706
+progress trials=3500000000 restarts=3500 best=1 seconds=351
+progress trials=3600000000 restarts=3600 best=1 seconds=360.813
+progress trials=3700000000 restarts=3700 best=1 seconds=370.913

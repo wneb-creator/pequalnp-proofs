@@ -16,3 +16,14 @@ Structure.lean: lake env lean exited 0; independent partial review PASS; 117 lin
 
 Equivalence.lean: lake env lean exited 0; independent partial review PASS; 3291 lines.
 Exact arbitrary-circuit lower bound remains unproved; no target checker acceptance claimed.
+
+Axiom audit of all five main partial lemmas: Lean exit0; only propext, Classical.choice, Quot.sound.
+Posted-statement checker: NOT RUN, full proof unavailable.
+Lease renewal: HTTP410 at15:09:47UTC; repeated curl -si diagnostic same410.
+Uncompiled drafts separated under drafts/; all recorded searches are nonexhaustive except explicitly scoped UNSAT instances.
+Desk null count:0.
+Sub-agents:7 (6 direct agents plus restriction-analysis subagent)
+TIMING total=16.4 subagents=7
+
+Final preservation review: PASS; checked lemmas unchanged, drafts clearly unverified, no credentials detected.
+TIMING total=17.6 subagents=7

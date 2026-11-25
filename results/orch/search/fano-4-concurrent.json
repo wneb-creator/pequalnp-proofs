@@ -1,0 +1,202 @@
+{
+  "n": 11,
+  "points": 7,
+  "lines": [
+    [
+      1,
+      3,
+      5
+    ],
+    [
+      0,
+      3,
+      4
+    ],
+    [
+      2,
+      3,
+      6
+    ],
+    [
+      0,
+      1,
+      2
+    ]
+  ],
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      0
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      3,
+      2
+    ],
+    [
+      4,
+      1
+    ],
+    [
+      5,
+      0
+    ],
+    [
+      6,
+      2
+    ]
+  ],
+  "tests": [
+    {
+      "mask": 257,
+      "value": true
+    },
+    {
+      "mask": 1025,
+      "value": true
+    },
+    {
+      "mask": 130,
+      "value": true
+    },
+    {
+      "mask": 1026,
+      "value": true
+    },
+    {
+      "mask": 516,
+      "value": true
+    },
+    {
+      "mask": 1028,
+      "value": true
+    },
+    {
+      "mask": 136,
+      "value": true
+    },
+    {
+      "mask": 264,
+      "value": true
+    },
+    {
+      "mask": 520,
+      "value": true
+    },
+    {
+      "mask": 272,
+      "value": true
+    },
+    {
+      "mask": 160,
+      "value": true
+    },
+    {
+      "mask": 576,
+      "value": true
+    },
+    {
+      "mask": 127,
+      "value": false
+    },
+    {
+      "mask": 213,
+      "value": false
+    },
+    {
+      "mask": 358,
+      "value": false
+    },
+    {
+      "mask": 452,
+      "value": false
+    },
+    {
+      "mask": 563,
+      "value": false
+    },
+    {
+      "mask": 657,
+      "value": false
+    },
+    {
+      "mask": 802,
+      "value": false
+    },
+    {
+      "mask": 1144,
+      "value": false
+    },
+    {
+      "mask": 1232,
+      "value": false
+    },
+    {
+      "mask": 1376,
+      "value": false
+    },
+    {
+      "mask": 1472,
+      "value": false
+    },
+    {
+      "mask": 1584,
+      "value": false
+    },
+    {
+      "mask": 1680,
+      "value": false
+    },
+    {
+      "mask": 1824,
+      "value": false
+    },
+    {
+      "mask": 1920,
+      "value": false
+    }
+  ],
+  "original_lines": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "original_points": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "star_bound": 15
+}

@@ -1,0 +1,8 @@
+{
+  "unlabeled_line_systems_on_7_labeled_points": 30,
+  "line_labeled_incidence_relations": 151200,
+  "maximal_independent_set_counts": [
+    37
+  ],
+  "method": "exact backtracking partition of 21 point pairs into 7 triples; no symmetry assumptions"
+}
