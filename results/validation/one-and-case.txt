@@ -1,0 +1,6 @@
+L-meta-3457 partial: at most one AND
+2026-11-25T01:42:23.090415+00:00
+SHA256 8cc078b2dc516f1183044d39d618fa72a62709ac38a4d8b87a42ba716e221622
+Lines 639
+Central lake env lean OneGateV5.lean: exit 0, empty stdout/stderr. Independent source review approved this exact hash.
+Proves the complete desired conclusion for circuits with at most one AND gate, without requiring C4-freeness. Nonempty incidence uses the original circuit; empty incidence uses a zero-gate false circuit. The at-most-one-AND assumption is additional, so this is a subcase only.
