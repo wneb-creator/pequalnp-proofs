@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "sha256": "b25a276ea3bc5162f8decc2bb9d8656232c6a9809c2e681130426f91bf506dd5",
+  "line_count": 96,
+  "exact_three_matrix_identities": true,
+  "normalized_parameter_cases_zero_minus_one_minus_two_and_generic": true,
+  "nonzero_parameter_scaling_and_swap": true,
+  "submodule_property_and_finrank_transport": true,
+  "matrix_nonzero_iff_parameters_nonzero_direction": true,
+  "scope": "independent source/math/format review; compilation by status_review"
+}

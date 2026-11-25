@@ -1,0 +1,9 @@
+{
+  "source_sha256": "7cf6b19ebccddcec74a5e78a831c0d453267cf7709404ec35dc9c89eefb5b1ba",
+  "lines": 588,
+  "build_exit": 0,
+  "review": "PASS: rowzero/all-star-wrapper-independent-review.json, plus reviewed compiled BasicStarComplete prefix",
+  "scope": "Any valid symmetric subspace containing any nonzero starMatrix(a,b) has finrank at most two. Partial structural theorem; the posted existential statement is unresolved.",
+  "build_stdout_bytes": 1873,
+  "build_stderr_bytes": 105
+}
