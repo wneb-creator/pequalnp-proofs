@@ -1,0 +1,7 @@
+Research calibration; the posted63-gate target remains unproved.
+SubmissionCalibration64.lean compiled with lake env lean -M6000, exit0.
+It proves the exact posted26-input edge function with a64-gate circuit.
+The final proof body and certificate theorem text were copied verbatim from the reviewed production assembler; only the theorem name and gate bound changed to64.
+The production assembler retains its exact statement hash and63-gate guard. No final target file was created.
+Complete stdout/stderr is preserved in submission-calibration64.validation.log.
+Repository checker has not accepted the posted target.
