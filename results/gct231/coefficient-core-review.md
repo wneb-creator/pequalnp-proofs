@@ -1,0 +1,3 @@
+Independent root review at 2026-11-25T10:25:00.903678+00:00.
+
+PASS for frozen SHA256 7e6861ee445e8591a13f5dae87c5f37631b83bd6d1dc5d1cde644b86f1fd8d43,34 lines. The coefficient ofxy equals the constant coefficient of the two distinct partial derivatives; both factorial factors are1. Leibniz's rule for four affine factors gives exactly the12 ordered ways to place thex andy derivatives in distinct factors. The additive and constant cases are correctly scoped. Imports, helper namespace and plain-file format are compliant. Author build exits0; complete warnings-only log preserved. This is a generic coefficient-extraction helper, not an exclusion of any full chart or the posted statement.

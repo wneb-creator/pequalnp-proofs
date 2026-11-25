@@ -16,3 +16,4 @@ Sub-agents: 8 (status_review, structural_proof, library_route, finite_cases, lea
 TIMING total=199.1 subagents=8
 Message ID: msg-8f0f42bb760e4ee78f16c6cd
 F4TraceRowzero.lean:128lines71633bytes,SHA25683e92fab3fbcd7e2d8f6911457652926b97fa2102e209fec0b2e87ae61780483; full buildPASS exit0 in58.933s. Independent exact arithmetic/source reviewPASS. Scoped rowzero_even_trace contradiction only, no full231 theorem. Frozen81-file archive underf4-trace includes sources, certificates, full logs and independent verifier.
+CoefficientCore.lean:34lines, SHA2567e6861ee445e8591a13f5dae87c5f37631b83bd6d1dc5d1cde644b86f1fd8d43; author buildexit0 and independent root source/math/format reviewPASS. Generic mixed-coefficient extraction only. Complete buildlog preserved.

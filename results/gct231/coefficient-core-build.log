@@ -1,0 +1,28 @@
+/tmp/oec/pequalnp-pilot-75/gct231/library/CoefficientCore.lean:29:24: warning: This simp argument is unused:
+  MvPolynomial.pderiv_mul
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mixed, affine3, MvPolynomial.pderiv_C, MvPolynomial.pderiv_one, Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/CoefficientCore.lean:29:49: warning: This simp argument is unused:
+  MvPolynomial.pderiv_C
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mixed, affine3, MvPolynomial.pderiv_mul, MvPolynomial.pderiv_one, Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/CoefficientCore.lean:30:4: warning: This simp argument is unused:
+  MvPolynomial.pderiv_one
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mixed, affine3, MvPolynomial.pderiv_mul, MvPolynomial.pderiv_C, Pi.single_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/CoefficientCore.lean:30:29: warning: This simp argument is unused:
+  Pi.single_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mixed, affine3, MvPolynomial.pderiv_mul, MvPolynomial.pderiv_C, MvPolynomial.pderiv_one]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

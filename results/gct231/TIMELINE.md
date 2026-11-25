@@ -10,3 +10,4 @@
 2026-11-25T10:20:31.802661+00:00 — Checker05 completes with REJECTED(no-theorem), no memory fault. Frozen restricted CAS/search archives and independently verified manifests preserved. No full proof/refutation.
 2026-11-25T10:21:27.007552+00:00 — Replanned: sparse exactQQ engine and Lean grind certificates prioritized; dense full-chart runs remain unknown; scoped conceptual searches retained.
 2026-11-25T10:22:03.930970+00:00 — Exact F4 row-operation certificate translated to checked128-line Lean contradiction for restricted rowzero chart; independent polynomial DAG/source review passes. Preserved immediate checkpoint; full problem unresolved.
+2026-11-25T10:25:00.903678+00:00 — Generic mixed-coefficient extraction helper compiled and independently reviewed; preserved early while full-star equation prototype is prepared.
