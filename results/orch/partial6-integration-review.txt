@@ -1,0 +1,22 @@
+Independent integration review: PASS FOR PARTIAL PRESERVATION ONLY
+SHA256: c563ae368cf13fba89a6ebe000280ca839d9388de53eca8a7305655cd0af339c
+Lines: 3265
+Reviewer: derivative_lemmas
+
+CombinedElimination: body occurs verbatim exactly once
+Clean: body occurs verbatim exactly once
+Geometry: body occurs verbatim exactly once
+Transform: body occurs verbatim exactly once
+CanonicalFragment: body occurs verbatim exactly once
+FlagFragment: body occurs verbatim exactly once
+FlagSemanticFragment: body occurs verbatim exactly once
+FirstDirtyFragment: body occurs verbatim exactly once
+Counterexample: body occurs verbatim exactly once
+
+Only imports are PEqualNP.Defs and Mathlib.Tactic.Tauto, both allowed. All helper namespaces remain under the permitted target or target_aux prefix. No prohibited text, quotes, attributes, extra options, new axioms, or namespace escape found. Component bodies are unchanged from the reviewed sources. FirstDirty was independently reviewed semantically by this reviewer; the remaining component reviews were reported by root and their integration was checked by exact body comparison.
+
+Source guard result: REFUSED, because the partial has no main theorem. Exact messages:
+REFUSED: the file holds no theorem
+REFUSED: the theorem must stand at the top level, last, written with its full name: theorem PEqualNP.Outside.L_meta_2602 ...
+
+This source is not ready for a proof PR and is not a proof of the posted statement. Its preservation push is within the explicit push-partials instruction, contingent on the named build completing successfully.

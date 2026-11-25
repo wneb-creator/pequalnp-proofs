@@ -1,0 +1,9 @@
+Independent review: PASS for checked partial helper
+Reviewer: derivative_lemmas
+Full source: results/orch/lemmas/FirstDirty.lean
+Full SHA256: 3f96c8b673eecfa92a96bc480790cc9932e03c950f2462504a1029abbca1c702
+Fragment SHA256: 31eb6e12a224a5932a8cc1da6c333ddfd9518197f60601d3cb652c143591e135
+The full source is exactly the previously reviewed Derivative prelude plus the FirstDirty fragment.
+Semantics: first_dirty_pair derives an actual false input supported on at most two original inputs, on which the chosen AND gate is true. It permits p=q, correctly covering singleton witnesses. Earlier AND gates are false on the supplied negative input because hclean makes each imply the actual circuit output; earlier true wires therefore have OR-only paths from true inputs. Monotonicity transfers output falsity to the smaller pair input. No shadowed interpretation, hidden premise, or altered Circuit.eval semantics found.
+Format: initial allowed import only; all new declarations within the permitted descendant namespace; named end; no prohibited text, quotes, attributes, options, new types, instances, or extra axioms.
+Limitation: this is a conditional local helper, not a proof of the posted global gate bound. It does not show the dirty gate can be removed or its readers are clean.

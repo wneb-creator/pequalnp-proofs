@@ -21,3 +21,14 @@
 - 2026-11-25T03:16:10.834629+00:00: First-dirty local-bypass route narrowed by explicit 7-gate matching obstruction; root notified.
 - 2026-11-25T03:19:01.553732+00:00: lemma_search global factor rewiring compiled.
 - 2026-11-25T03:23:22.624182+00:00: Original-statement checker ended FAULT via OOM; preserving complete output plus compiled gate-elimination components.
+- 2026-11-25T03:16:50Z: First64gate repair search reached600s limit without witness.
+- 2026-11-25T03:20:23Z: Unrestricted64gate annealing reached600s limit without witness.
+- 2026-11-25T03:23:21Z: Associative-rotation search reached900s limit without witness.
+- 2026-11-25T03:23:28Z: Complete dead-gate erasure/value/derivative-witness preservation helper checked.
+- 2026-11-25T03:24:41.207105+00:00: lemma_search conditional strict-size elimination compiled.
+- 2026-11-25T03:27:03.046601+00:00: Completed5vertexOR-only census and6vertex≤4OR census; no violations, genericORbound unresolved.
+- 2026-11-25T03:28:31.888441+00:00: FirstDirty global prefix/two-vertex witness theorem and FlagSemantic reader bridge compiled; serial slot released.
+- 2026-11-25T03:29:51.418647+00:00: Audited newupstream reduction926; fourlocalobstructionchildren, no newcountingshortcut.
+
+2026-11-25 03:42 UTC — structural extraction route: identified precise properness/derivative collision obstruction before claiming a size-preserving theorem.
+- 2026-11-25T03:37:46.262947+00:00: Partial 6 built and independently reviewed: 65-gate witness, actual one-gate elimination under explicit local conditions, first-dirty singleton/pair witness, canonical/flag geometry, and derivative certificates.

@@ -1,0 +1,51 @@
+Independent final DeadGate extension review
+Reviewer: checker_review
+Gap: L-meta-2602
+
+VERDICT: PASS AS PARTIAL HELPER MATERIAL; no proof/refutation of the posted
+statement is claimed.
+
+Candidate: results/orch/lemmas/DeadGate.lean
+SHA-256: 0d2c7f7ca9909a3be67155a41114e289ddc1b8d198dab0ab7e3648186cc821c2
+526 lines; 23,520 UTF-8 bytes.
+
+The previously reviewed DeadGateChecked.lean body is an unchanged prefix
+after removing its final namespace-closing line. The extension adds exactly:
+  wire_value_beyond
+  erase_eval
+  derivative_rules_congr_base
+  erase_actual_derivative_rules
+  erase_witness
+
+Mathematical checks:
+  - The deleted gate has zero fan-out and is not the output wire. This is
+    the explicit hypothesis, stronger than merely being unreachable.
+  - erase_eval preserves evaluation on every Boolean input. Its in-range
+    output case uses the established wire-value correspondence; its
+    out-of-range case correctly preserves false-default semantics using
+    the actual one-gate size drop. No output-validity assumption is hidden.
+  - derivative_rules_congr_base changes only base values at actual earlier
+    gate inputs, where the required equality is available.
+  - erase_actual_derivative_rules transports to the actual wire values of
+    the erased circuit, not merely an arbitrary surrogate value function.
+  - erase_witness uses d'(w)=d(up(n+k,w)). Input indices below n are fixed,
+    so the same derivative seeds are retained; the output is retained via
+    up/down inversion and the explicit output-not-deleted hypothesis.
+    Its general base and seed arguments include both posted singleton
+    bases and seeds without weakening them.
+  - The existing properness lemma retains AND/OR operations, exactly two
+    distinct earlier inputs, and the existing size lemma gives a drop of
+    exactly one when k is an actual gate. These hypotheses must still be
+    supplied by any later elimination theorem.
+
+Validation evidence:
+  Root reports the frozen full candidate compiled with exit 0.
+  /tmp/oec/pequalnp-pilot-60/deadgate-check-4.log is empty (0 bytes).
+  No heavyweight checker was retried. The new extension uses ordinary
+  proof terms/tactics; no new axiom or kernel-bypass declaration is present.
+
+Official source/import and namespace guards report only the intentional
+partial-file omissions: no theorem and no final top-level target theorem.
+The sole import is permitted PEqualNP.Defs. No forbidden token/layout issue
+was reported. The embedded Derivative prefix must be deduplicated when
+integrating this standalone candidate with the existing Derivative body.

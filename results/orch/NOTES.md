@@ -46,3 +46,18 @@ Toolchain: /tmp/oec/pequalnp-pilot-60/toolchain/lean-4.36.0-linux/bin. Cache set
 - ExhaustivefreeOR/≤2ANDnormalform census finished:334 C4-free3×3bipartitegraphs,1415firstANDfunctions,4465825secondANDpairs; nocircuit belowmatching/covernumber. Source and_count_small.py, JSONlog jobscratch. Thisiscomputationalevidenceonly.
 
 - 2026-11-25T03:22:04.548672+00:00: Search64 repair and annealing completed without witness; full logs preserved in results/orch. Repair33,127,686candidates; anneal24,066,384mutations. Best64 missesoneedge, derivativeszero. Rotationsearch stillbounded/running.
+
+- 2026-11-25T03:24:19.746215+00:00: COMPLETE DeadGate.lean CHECKED exit0; erase_eval and erase_witness preserve the full Boolean function and both posted derivative witnesses after deleting an unread nonoutput gate. Distinct earlier inputs and one-gate size decrease are checked. SHA256 0d2c7f7ca9909a3be67155a41114e289ddc1b8d198dab0ab7e3648186cc821c2.
+- All bounded64searches finished without witness: repair33,127,686; rotations48,854,455 candidateevaluations; anneal24,066,384iterations. Full logs preserved; no lowerboundclaim.
+
+- 2026-11-25T03:24:41.207105+00:00 lemma_search: CombinedElimination.lean COMPILED exit0/no warnings. Actual gate-count decrease by1, proper distinct earlier inputs, unchanged Booleanfunction, and both zero derivative witnesses now proved together under explicit local guard/zero-signature/noncollision conditions. Root notified for review/push.
+
+- 2026-11-25T03:27:03.046601+00:00: OR-only route: no counterexample in exactAND-free searches covering allC4-freegraphs≤5vertices and all6vertexcircuits≤4ORs. General51ORplane bound remainsunproved. L724 suppliesdegree2 restrictionpayment, notdegree4. Fullalgorithm/results in or-bound-analysis.md; code or_free_and_search.cpp.
+
+- Fooling-set AND-count investigation: exact census of all 512 bipartite 3×3 graph functions with arbitrary free OR and ≤2 ANDs found no violation (4,465,825 second-gate candidates). A separate heuristic over 2M three-AND circuits on four variables per side found no full-function counterexample; the closest pair-correct candidate has four higher-degree false positives. This remains computational evidence, not a generic proof. First-birth rectangle ownership is obstructed by later filters.
+
+- 2026-11-25T03:28:31.888441+00:00: FirstDirty.lean CHECKED, exit 0 with empty logs. A first unclean AND always accepts a false singleton/nonedge pair; every true operand before it on a false input has an OR-only path from an active input. Full wire monotonicity is proved. FlagSemantic.lean also CHECKED: a clean fixed-line flag reader admits a safe factor. Root notified for review and preservation.
+
+- 2026-11-25T03:29:51.418647+00:00: Thirdreduction926 fetched fromupstream andhashverified. Children6064/6066/6068/6070 splitshared/distinct repeated-AND witnesses byopposite-singletontruthvalues. It formalizesourlocalderivative route butaddsno globalcountbound. See third-reduction.md.
+
+2026-11-25 03:42 UTC — structural: global clean extraction has exact semantic identity F=C[t:=0] OR t and preserves marked zeros for zero-signature t, but size preservation is blocked by duplicate-AND collisions after copy propagation. Idempotence cannot repair those collisions while preserving formal derivatives. See structural.md.

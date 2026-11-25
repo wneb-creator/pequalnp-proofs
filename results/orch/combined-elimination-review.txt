@@ -1,0 +1,11 @@
+Independent review: PARTIAL helper result, not the posted theorem.
+Reviewed UTC: 2026-11-25T03:27:54.444761+00:00
+File: results/orch/lemmas/CombinedElimination.lean
+SHA256: ca14e967c99e6c1909306df26228330839260fdffcbfa9543bdc20edf7002f4a
+Lines: 992; bytes: 45185
+
+PASS: Derivative namespace, final DeadGate namespace, and FactorElimination namespace bodies occur verbatim exactly once. The full DeadGate source already embeds Derivative; the combined file contains only one copy. The only import is PEqualNP.Defs.
+PASS: independently reviewed every FactorElimination body and the final CombinedElimination.eliminate_factor statement/proof. Evaluation follows causal induction, with out-of-range values false. Rewiring every reader to an earlier selected factor is monotone; cleanliness of enlarged readers supplies equality on false target inputs, while monotonicity supplies true target inputs. Explicit noncollision preserves distinct inputs. For each of two bases, both-zero value/derivative signatures of the kept factor imply equality with the removed AND gate; rewiring preserves actual wire values and formal derivative rules. Deleting the now-zero-fanout nonoutput gate preserves evaluation and transports both witnesses, with exactly one gate removed.
+The final theorem explicitly assumes per-reader factor choice, noncollision, nonoutput status, clean enlarged readers, and both-zero kept-factor signatures. It does not prove these assumptions exist for the posted circuit. No unsupported circuit-minimality or gap-refutation claim is made.
+PASS: no _root_ text, double quotes, sorry, axiom, native_decide, bv_decide, unsafe, or attributes. All helper declarations are under allowed auxiliary namespaces. Ordinary Lean proof terms only; no new axiom declaration. Parent reports compilation exit 0 for this exact hash; this review intentionally did not launch another heavy verifier.
+Full local checker status remains FAULT from the earlier OOM, with no acceptance verdict. This partial file lacks the required final full-name posted theorem and must not be presented as a completed proof/refutation.
