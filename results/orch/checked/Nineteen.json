@@ -1,0 +1,9 @@
+{
+  "file": "results/orch/checked/Nineteen.lean",
+  "sha256": "e6bc57d8255bb84ff1ea6eaf74d78b47901381f9c0cba4cfb4df5fe5026cb225",
+  "utc": "2026-11-25T03:40:12.753930+00:00",
+  "exit_code": 0,
+  "log": "results/orch/checked/Nineteen.log",
+  "lines": 1624,
+  "result": "Posted hypotheses imply at least19 OR gates; posted51 bound remains open"
+}
