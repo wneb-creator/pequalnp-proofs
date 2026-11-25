@@ -40,6 +40,15 @@ independent. Compile log has warnings only, no errors; stderr is empty.
 Format scan passes. Helper theorem keywords in this standalone artifact must
 be changed to lemma when incorporated into the final one-theorem PR file.
 
+inventory_mixed_overhead.lean: PASS, 2320 lines.
+SHA256 37ae79009c68add3bd24c598a12e77411a3f4beca1892498c3f0eea4e096812a
+Exact reviewed inventory_residual_split prefix. Read all 76 new lines: two
+opposite-color labels yield a charged split OR retaining both labels. Charge
+sets traced from opposite monochrome roots are disjoint, and that mixed OR is
+outside both; the cardinal inequality saves one against their combined leaf
+budgets. Explicit color, star-edge and wire-bound assumptions remain intact.
+Direct recheck has one inherited warning only and empty stderr; format passes.
+
 Reviews were read-only except for this report. No desk or git mutations.
 
 Additional independently cleared frozen partials: restriction_ustar_hit SHA25671366d8df8910b8852436bb608aab9d467e45fb774b931ddb9f1ccee98a767c5 (status reviewer); antecedent_star_dichotomy_counterexample SHA256e4b05038ecb6af6db3f4a80d6fc7d06ec4f6ebbcaf37c64c9dbecfb1af44e869 (structural reviewer). Both compiled; geometric counterexample explicitly not least and does not refute target.

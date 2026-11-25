@@ -1,0 +1,48 @@
+Further independent reviews: PASS for partial preservation.
+The exact posted theorem is still absent; no completed proof PR is claimed.
+
+restriction_ustar_hit.lean: PASS, 2310 lines, 104450 bytes.
+SHA256 71366d8df8910b8852436bb608aab9d467e45fb774b931ddb9f1ccee98a767c5
+The 87 star_edges bodies are exact; 55 shared edge_hit bodies are exact apart
+from placement of an adjacent open Classical command. Read all six new proofs.
+Forcing a dirty AND false preserves original OR paths and clean-top starEdges.
+If it accepts no Ustar edge, every graph edge remains accepted, and monotonicity
+preserves the whole graph function. The compiler removes at least one gate;
+graph nonemptiness excludes a missing output, contradicting leastness.
+Leastness, TopForm and graph nonemptiness are explicit; no hfirst or two-junk
+assumption is claimed. Successful log has warnings only; stderr is empty.
+No forbidden proof shortcuts. Inherited anonymous section/end and helper
+theorem keywords must be fixed during eventual final-file integration.
+
+inventory_independent_mix.lean: independently reviewed by toolchain, PASS.
+2690 lines; SHA256 a25c888d73c5daf53f6522830a291f3a32322463756d0ae8bf591e60631828a1
+Prefix2465 matches master_late_mixing exactly. All 225 new lines reviewed:
+direct-reader OR and extra-lambda exclusion, shared-reader empty raw support,
+and later nonempty mixing distinctness. Graph and independence hypotheses are
+retained. Format passes; compile warnings are inherited and stderr is empty.
+
+antecedent_star_dichotomy_counterexample.lean: independently reviewed by
+structural, PASS. 79 lines.
+SHA256 e4b05038ecb6af6db3f4a80d6fc7d06ec4f6ebbcaf37c64c9dbecfb1af44e869
+Six-gate P4 circuit disproves a proposed geometric subclaim. The explicit
+four-gate witness proves it is NOT least, so this is not a target refutation.
+Kernel decide only, permitted scoped limits, clean format, empty build-2 logs.
+
+Search delta: PASS for evidence preservation only.
+twojunk_normalized.py
+SHA256 86081df6594d5b1e24e8bdef30d2e39fabd534025f2581d43cd1113ff69ef59d
+Read exact strict-ancestor TopForm constraints and at-least-one dirty cleaner
+condition. Independently recomputed both saved SAT models' full truth tables,
+dirty sets, ancestor sets and maximal cleaners. P4 SAT/UNSAT and C6 SAT control
+statuses match logs. C8 and theta runs have no solver result and are accurately
+marked interrupted by the environment restart, with no exclusion conclusion.
+No credential-shaped or private-key data found in the search snapshot scan.
+
+geometric_clean_star_oracle.py
+SHA256 889329d786ef48f2a6090808e25f60ddd0f03e765c622aa8dfa3ab379079a097
+Read source and documented stop-first scope. Independently recomputed all 21
+saved witness records across three result files: full conjunction implication,
+cleaner sets, accepted edges and guarded edges match. No leastness claim.
+P4 has the separate checked artifact above; P5 remains computational evidence.
+
+No desk or git mutations by reviewers.

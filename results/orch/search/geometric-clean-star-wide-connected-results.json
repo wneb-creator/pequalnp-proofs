@@ -1,0 +1,960 @@
+{
+  "first_witnesses": {
+    "bare": {
+      "label": "bare",
+      "n": 4,
+      "left_size": 2,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "g": {
+        "arms": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "wmax": [
+          2,
+          3
+        ],
+        "accepted_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "h": {
+        "arms": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "wmax": [
+          0,
+          2
+        ],
+        "accepted_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": [
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      "shared_edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "dirty_witnesses": [
+        1,
+        10
+      ],
+      "truth_table_clean": true
+    },
+    "common_edge": {
+      "label": "common_edge",
+      "n": 4,
+      "left_size": 2,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "g": {
+        "arms": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "wmax": [
+          2,
+          3
+        ],
+        "accepted_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "h": {
+        "arms": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "wmax": [
+          0,
+          2
+        ],
+        "accepted_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": [
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      "shared_edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "dirty_witnesses": [
+        1,
+        10
+      ],
+      "truth_table_clean": true
+    },
+    "both_nonempty_wmax": {
+      "label": "both_nonempty_wmax",
+      "n": 4,
+      "left_size": 2,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "g": {
+        "arms": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "wmax": [
+          2,
+          3
+        ],
+        "accepted_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "h": {
+        "arms": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "wmax": [
+          0,
+          2
+        ],
+        "accepted_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": [
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      "shared_edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "dirty_witnesses": [
+        1,
+        10
+      ],
+      "truth_table_clean": true
+    },
+    "both_guarded_nonempty": {
+      "label": "both_guarded_nonempty",
+      "n": 4,
+      "left_size": 2,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "g": {
+        "arms": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "wmax": [
+          2,
+          3
+        ],
+        "accepted_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "h": {
+        "arms": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "wmax": [
+          0,
+          2
+        ],
+        "accepted_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": [
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      "shared_edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "dirty_witnesses": [
+        1,
+        10
+      ],
+      "truth_table_clean": true
+    },
+    "both_guarded_and_common": {
+      "label": "both_guarded_and_common",
+      "n": 4,
+      "left_size": 2,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "g": {
+        "arms": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "wmax": [
+          2,
+          3
+        ],
+        "accepted_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "h": {
+        "arms": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "wmax": [
+          0,
+          2
+        ],
+        "accepted_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": [
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      "shared_edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "dirty_witnesses": [
+        1,
+        10
+      ],
+      "truth_table_clean": true
+    },
+    "union_covers_graph": {
+      "label": "union_covers_graph",
+      "n": 4,
+      "left_size": 2,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "g": {
+        "arms": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "wmax": [
+          2,
+          3
+        ],
+        "accepted_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "h": {
+        "arms": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "wmax": [
+          0,
+          2
+        ],
+        "accepted_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": [
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      "shared_edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "dirty_witnesses": [
+        1,
+        10
+      ],
+      "truth_table_clean": true
+    },
+    "both_guarded_union_graph": {
+      "label": "both_guarded_union_graph",
+      "n": 4,
+      "left_size": 2,
+      "edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "g": {
+        "arms": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "wmax": [
+          2,
+          3
+        ],
+        "accepted_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "h": {
+        "arms": [
+          [
+            0,
+            1
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "wmax": [
+          0,
+          2
+        ],
+        "accepted_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": [
+          [
+            0,
+            2
+          ]
+        ]
+      },
+      "shared_edges": [
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "dirty_witnesses": [
+        1,
+        10
+      ],
+      "truth_table_clean": true
+    }
+  },
+  "stats": {
+    "graphs": 4,
+    "dirty_products": 69,
+    "safe_nonlowerable_pairs": 16
+  },
+  "elapsed_seconds": 0.0012288093566894531,
+  "max_n_requested": 6,
+  "no_isolates": true,
+  "wide_arms": true,
+  "connected": true,
+  "stopped_at_first": true
+}

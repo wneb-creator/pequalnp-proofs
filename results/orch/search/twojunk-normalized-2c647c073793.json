@@ -1,0 +1,61 @@
+{
+  "n": 4,
+  "gates": 4,
+  "junk": 0,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "critical": true,
+  "rows": [
+    3,
+    5,
+    6,
+    9,
+    10,
+    12
+  ],
+  "maximal_independent_sets": [
+    5,
+    9,
+    10
+  ],
+  "seed": 0,
+  "timeout_ms": 30000,
+  "prune_edge_support": true,
+  "prune_negative_support": false,
+  "top_form": true,
+  "some_junk_cleaner": false,
+  "fixed_circuit": [
+    {
+      "op": "and",
+      "a": 0,
+      "b": 1
+    },
+    {
+      "op": "or",
+      "a": 1,
+      "b": 3
+    },
+    {
+      "op": "or",
+      "a": 2,
+      "b": 4
+    },
+    {
+      "op": "and",
+      "a": 5,
+      "b": 6
+    }
+  ]
+}

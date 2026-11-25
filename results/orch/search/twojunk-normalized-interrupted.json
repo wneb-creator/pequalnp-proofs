@@ -1,0 +1,19 @@
+{
+  "status": "INTERRUPTED",
+  "recorded_utc": "2026-11-25T19:49:40.181958+00:00",
+  "reason": "Execution environment restarted. Both prior exec sessions are unknown and both solver processes are defunct; logs contain metadata only and no solver result.",
+  "cases": [
+    {
+      "graph": "C8",
+      "gates": 11,
+      "timeout_ms": 1200000,
+      "artifact": "801f8ea264fb"
+    },
+    {
+      "graph": "theta333",
+      "gates": 12,
+      "timeout_ms": 1200000,
+      "artifact": "e7a750001815"
+    }
+  ]
+}

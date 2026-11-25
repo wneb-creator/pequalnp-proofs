@@ -1,0 +1,21 @@
+usage: twojunk_normalized.py [-h] [--n N] [--gates GATES] [--junk JUNK]
+                             [--timeout TIMEOUT] [--edges EDGES] [--full]
+                             [--seed SEED] [--prune-edge-support]
+                             [--prune-negative-support] [--top-form]
+                             [--some-junk-cleaner]
+                             [--fixed-circuit FIXED_CIRCUIT]
+
+options:
+  -h, --help            show this help message and exit
+  --n N
+  --gates GATES
+  --junk JUNK
+  --timeout TIMEOUT
+  --edges EDGES
+  --full
+  --seed SEED
+  --prune-edge-support
+  --prune-negative-support
+  --top-form
+  --some-junk-cleaner
+  --fixed-circuit FIXED_CIRCUIT

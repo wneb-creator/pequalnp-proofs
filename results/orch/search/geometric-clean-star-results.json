@@ -1,0 +1,562 @@
+{
+  "first_witnesses": {
+    "bare": {
+      "label": "bare",
+      "n": 3,
+      "left_size": 1,
+      "edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "g": {
+        "arms": [
+          [
+            0
+          ],
+          [
+            2
+          ]
+        ],
+        "wmax": [
+          1
+        ],
+        "accepted_edges": [],
+        "guarded_edges": [],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "h": {
+        "arms": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "wmax": [
+          0
+        ],
+        "accepted_edges": [],
+        "guarded_edges": [],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "shared_edges": [],
+      "dirty_witnesses": [
+        5,
+        6
+      ],
+      "truth_table_clean": true
+    },
+    "both_nonempty_wmax": {
+      "label": "both_nonempty_wmax",
+      "n": 3,
+      "left_size": 1,
+      "edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "g": {
+        "arms": [
+          [
+            0
+          ],
+          [
+            2
+          ]
+        ],
+        "wmax": [
+          1
+        ],
+        "accepted_edges": [],
+        "guarded_edges": [],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "h": {
+        "arms": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "wmax": [
+          0
+        ],
+        "accepted_edges": [],
+        "guarded_edges": [],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "shared_edges": [],
+      "dirty_witnesses": [
+        5,
+        6
+      ],
+      "truth_table_clean": true
+    },
+    "union_covers_graph": {
+      "label": "union_covers_graph",
+      "n": 4,
+      "left_size": 1,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "g": {
+        "arms": [
+          [
+            0
+          ],
+          [
+            1,
+            2,
+            3
+          ]
+        ],
+        "wmax": [
+          1,
+          2
+        ],
+        "accepted_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "h": {
+        "arms": [
+          [
+            1
+          ],
+          [
+            2
+          ]
+        ],
+        "wmax": [
+          0
+        ],
+        "accepted_edges": [],
+        "guarded_edges": [],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "shared_edges": [],
+      "dirty_witnesses": [
+        9,
+        6
+      ],
+      "truth_table_clean": true
+    },
+    "common_edge": {
+      "label": "common_edge",
+      "n": 4,
+      "left_size": 1,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "g": {
+        "arms": [
+          [
+            0
+          ],
+          [
+            1,
+            2,
+            3
+          ]
+        ],
+        "wmax": [
+          1,
+          2
+        ],
+        "accepted_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "h": {
+        "arms": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "wmax": [
+          0
+        ],
+        "accepted_edges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "shared_edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "dirty_witnesses": [
+        9,
+        2
+      ],
+      "truth_table_clean": true
+    },
+    "both_guarded_nonempty": {
+      "label": "both_guarded_nonempty",
+      "n": 4,
+      "left_size": 1,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "g": {
+        "arms": [
+          [
+            0
+          ],
+          [
+            1,
+            2,
+            3
+          ]
+        ],
+        "wmax": [
+          1,
+          2
+        ],
+        "accepted_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "h": {
+        "arms": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "wmax": [
+          0
+        ],
+        "accepted_edges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "shared_edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "dirty_witnesses": [
+        9,
+        2
+      ],
+      "truth_table_clean": true
+    },
+    "both_guarded_and_common": {
+      "label": "both_guarded_and_common",
+      "n": 4,
+      "left_size": 1,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "g": {
+        "arms": [
+          [
+            0
+          ],
+          [
+            1,
+            2,
+            3
+          ]
+        ],
+        "wmax": [
+          1,
+          2
+        ],
+        "accepted_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "h": {
+        "arms": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "wmax": [
+          0
+        ],
+        "accepted_edges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "shared_edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "dirty_witnesses": [
+        9,
+        2
+      ],
+      "truth_table_clean": true
+    },
+    "both_guarded_union_graph": {
+      "label": "both_guarded_union_graph",
+      "n": 4,
+      "left_size": 1,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "g": {
+        "arms": [
+          [
+            0
+          ],
+          [
+            1,
+            2,
+            3
+          ]
+        ],
+        "wmax": [
+          1,
+          2
+        ],
+        "accepted_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "h": {
+        "arms": [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "wmax": [
+          0
+        ],
+        "accepted_edges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "guarded_edges": [
+          [
+            0,
+            1
+          ]
+        ],
+        "clean_star_centers": [],
+        "flag_centers": []
+      },
+      "shared_edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "dirty_witnesses": [
+        9,
+        2
+      ],
+      "truth_table_clean": true
+    }
+  },
+  "stats": {
+    "graphs": 8,
+    "dirty_products": 236,
+    "safe_nonlowerable_pairs": 45
+  },
+  "elapsed_seconds": 0.004858493804931641,
+  "max_n_requested": 6,
+  "stopped_at_first": true
+}

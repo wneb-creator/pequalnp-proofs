@@ -1,0 +1,2 @@
+{"n": 8, "gates": 11, "junk": 2, "edges": [[0, 1], [0, 7], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7]], "critical": true, "rows": [3, 6, 12, 24, 37, 41, 48, 73, 74, 82, 85, 96, 129, 146, 148, 164, 170, 192], "maximal_independent_sets": [37, 41, 73, 74, 82, 85, 146, 148, 164, 170], "seed": 0, "timeout_ms": 1200000, "prune_edge_support": true, "prune_negative_support": false, "top_form": true, "some_junk_cleaner": true, "fixed_circuit": null}
+artifact twojunk-normalized-801f8ea264fb
