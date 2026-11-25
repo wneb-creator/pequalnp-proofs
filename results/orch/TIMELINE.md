@@ -24,3 +24,7 @@
 - 2026-11-25T16:51:16.039188+00:00: kernelSATbridgecompiled/independentlyreviewed andpreserved; finitecertificatepending.
 
 - 2026-11-25T16:57:15.216025+00:00: Petersen 20-minute replan: prioritize retained-input signed lower bound, weighted reader elimination, and exact enc2 SAT certificate. Generic normalization infrastructure is complete enough; no full proof/refutation yet. Preserving independently reviewed 261-line unique-NOT lemma and 4726-line accepted lower-bound reconstruction.
+
+2026-11-25T17:06:50.086618+00:00: new 17 non-NOT lower-bound component compiled with explicit accepted PvLower15 premise; independent reviews passed. Its free-NOT candidate wrapper now proves at most1 actual paidNOT, also compiled/reviewed. Full accepted-certificate instantiation awaits reusable cache. No full L1884 result or acceptance.
+
+2026-11-25T17:10:21.776957+00:00: L1884 lease invalidation discovered; timer received41017:04:54 despite renewal17:03:35. Paused all new work, stopped searches and preserving checked components before recovery request.

@@ -1,0 +1,14 @@
+/tmp/oec/pequalnp-pilot-152/gap-1884/PaidNotOne.lean:129:10: warning: This simp argument is unused:
+  GateOp.eval
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-152/gap-1884/PaidNotOne.lean:146:48: warning: This simp argument is unused:
+  List.countP_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hg]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

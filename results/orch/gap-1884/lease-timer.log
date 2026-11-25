@@ -1,0 +1,135 @@
+2026-11-25T16:34:52.830390+00:00 renewal 1 {
+ "lease": {
+  "id": "de68ce60-fb13-4311-8e7e-e64ffc779aa1",
+  "expires_at": "2026-11-25T16:54:52.074Z",
+  "renew": "POST /desk/beat?lease=de68ce60-fb13-4311-8e7e-e64ffc779aa1",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=de68ce60-fb13-4311-8e7e-e64ffc779aa1&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 274,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T15:35:19.047Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T16:39:53.181354+00:00 renewal 2 {
+ "lease": {
+  "id": "de68ce60-fb13-4311-8e7e-e64ffc779aa1",
+  "expires_at": "2026-11-25T16:59:52.965Z",
+  "renew": "POST /desk/beat?lease=de68ce60-fb13-4311-8e7e-e64ffc779aa1",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=de68ce60-fb13-4311-8e7e-e64ffc779aa1&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 274,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T15:35:19.047Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T16:44:53.454757+00:00 renewal 3 {
+ "lease": {
+  "id": "de68ce60-fb13-4311-8e7e-e64ffc779aa1",
+  "expires_at": "2026-11-25T17:04:52.958Z",
+  "renew": "POST /desk/beat?lease=de68ce60-fb13-4311-8e7e-e64ffc779aa1",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=de68ce60-fb13-4311-8e7e-e64ffc779aa1&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 274,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T15:35:19.047Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T16:49:53.820330+00:00 renewal 4 {
+ "lease": {
+  "id": "de68ce60-fb13-4311-8e7e-e64ffc779aa1",
+  "expires_at": "2026-11-25T17:09:53.571Z",
+  "renew": "POST /desk/beat?lease=de68ce60-fb13-4311-8e7e-e64ffc779aa1",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=de68ce60-fb13-4311-8e7e-e64ffc779aa1&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 274,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T15:35:19.047Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T16:54:54.136434+00:00 renewal 5 {
+ "lease": {
+  "id": "de68ce60-fb13-4311-8e7e-e64ffc779aa1",
+  "expires_at": "2026-11-25T17:14:53.718Z",
+  "renew": "POST /desk/beat?lease=de68ce60-fb13-4311-8e7e-e64ffc779aa1",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=de68ce60-fb13-4311-8e7e-e64ffc779aa1&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 274,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T15:35:19.047Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T16:59:54.510123+00:00 renewal 6 {
+ "lease": {
+  "id": "de68ce60-fb13-4311-8e7e-e64ffc779aa1",
+  "expires_at": "2026-11-25T17:19:53.877Z",
+  "renew": "POST /desk/beat?lease=de68ce60-fb13-4311-8e7e-e64ffc779aa1",
+  "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+  "release": "POST /desk/release?lease=de68ce60-fb13-4311-8e7e-e64ffc779aa1&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+  "terms": {
+   "kind": "prove",
+   "level": "hard",
+   "points": 274,
+   "reductions_open": true,
+   "issued_at": "2026-11-25T15:35:19.047Z"
+  }
+ },
+ "next_beat_s": 300
+}
+
+2026-11-25T17:04:54.713256+00:00 renewal 7 {
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+
+DESK ERROR: diagnostic response follows
+HTTP/1.1 200 OK
+date: Wed, 25 Nov 2026 17:04:59 GMT
+server: envoy
+
+HTTP/2 410 
+date: Wed, 25 Nov 2026 17:04:59 GMT
+content-type: application/json; charset=utf-8
+content-length: 86
+access-control-allow-origin: *
+cache-control: no-store
+x-content-type-options: nosniff
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=dTFCioj%2FPM%2Fhb3x%2BcSnJ2jAKjI96A8k18n4RuJFALlnda%2BHfhKW57DR96RRdCw%2BaYsPBaFp4gSG4rQgaBtYXt3%2B3ofhXLxToikv%2BfVtAJMM%2BPU13k5aNgxj%2FubW5FnI%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: envoy
+cf-ray: a6023c55cbb498d8-ORD
+alt-svc: h3=":443"; ma=86400
+x-envoy-upstream-service-time: 154
+
+{
+ "error": "no such live lease: it expired or was released. Ask /desk/next again."
+}
+
