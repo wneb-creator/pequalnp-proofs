@@ -4,6 +4,7 @@ import Mathlib.Algebra.BigOperators.Group.Finset.Basic
 import Mathlib.Algebra.Order.BigOperators.Group.Finset
 import Mathlib.Data.Set.Basic
 import PEqualNP.Defs
+import Mathlib.Logic.Relation
 
 namespace PEqualNP.Outside.L_meta_4970
 
@@ -522,5 +523,168 @@ lemma or_val (n : ℕ) (C : Circuit) (hC : PEqualNP.TopForm.IsAO2 n C) (x : List
   simp [GateOp.eval, ha, hb]
 
 end Semantics
+
+noncomputable def downCone (children : ℕ → Finset ℕ) (r : ℕ) : Finset ℕ := by
+  classical
+  exact (Finset.range (r + 1)).filter fun w =>
+    Relation.ReflTransGen (fun a b => b ∈ children a) r w
+
+lemma downReach_le (children : ℕ → Finset ℕ)
+    (hback : ∀ a b, b ∈ children a → b < a) {r w : ℕ}
+    (h : Relation.ReflTransGen (fun a b => b ∈ children a) r w) : w ≤ r := by
+  induction h with
+  | refl => exact le_rfl
+  | @tail b c hbc hc ih => exact (hback b c hc).le.trans ih
+
+lemma mem_downCone_iff (children : ℕ → Finset ℕ)
+    (hback : ∀ a b, b ∈ children a → b < a) (r w : ℕ) :
+    w ∈ downCone children r ↔ Relation.ReflTransGen (fun a b => b ∈ children a) r w := by
+  classical
+  simp only [downCone, Finset.mem_filter, Finset.mem_range]
+  exact ⟨fun h => h.2, fun h => ⟨by have := downReach_le children hback h; omega, h⟩⟩
+
+lemma downCone_root (children : ℕ → Finset ℕ) (r : ℕ) : r ∈ downCone children r := by
+  classical
+  simp only [downCone, Finset.mem_filter, Finset.mem_range]
+  exact ⟨by omega, Relation.ReflTransGen.refl⟩
+
+lemma downCone_child (children : ℕ → Finset ℕ)
+    (hback : ∀ a b, b ∈ children a → b < a) {r a b : ℕ}
+    (ha : a ∈ downCone children r) (hb : b ∈ children a) : b ∈ downCone children r := by
+  apply (mem_downCone_iff children hback r b).mpr
+  exact ((mem_downCone_iff children hback r a).mp ha).tail hb
+
+lemma support_descends_to_leaf {α : Type} [DecidableEq α]
+    (support : ℕ → Finset α) (children : ℕ → Finset ℕ)
+    (hback : ∀ a b, b ∈ children a → b < a)
+    (hflow : ∀ a, 2 ≤ (support a).card → support a ⊆ (children a).biUnion support)
+    (r : ℕ) {a : ℕ} (ha : a ∈ downCone children r) {i : α} (hi : i ∈ support a) :
+    ∃ b ∈ downCone children r, (support b).card ≤ 1 ∧ i ∈ support b := by
+  induction a using Nat.strong_induction_on with
+  | ind a ih =>
+    by_cases hsmall : (support a).card ≤ 1
+    · exact ⟨a, ha, hsmall, hi⟩
+    · have hbig : 2 ≤ (support a).card := by omega
+      obtain ⟨b, hb, hib⟩ := Finset.mem_biUnion.mp (hflow a hbig hi)
+      exact ih b (hback a b hb) (downCone_child children hback ha hb) hib
+
+lemma pruned_support_card {α : Type} [DecidableEq α]
+    (support : ℕ → Finset α) (children : ℕ → Finset ℕ) (isOr : ℕ → Prop)
+    [DecidablePred isOr]
+    (hback : ∀ a b, b ∈ children a → b < a)
+    (hstop : ∀ a, (support a).card ≤ 1 → children a = ∅)
+    (hflow : ∀ a, 2 ≤ (support a).card → support a ⊆ (children a).biUnion support)
+    (hdegree : ∀ a, (children a).card ≤ 1 + if isOr a then 1 else 0)
+    (r : ℕ) :
+    (support r).card ≤ ((downCone children r).filter isOr).card + 1 := by
+  classical
+  by_cases hsmall : (support r).card ≤ 1
+  · omega
+  have hbig : 2 ≤ (support r).card := by omega
+  let D := downCone children r
+  let G := D.filter fun a => 2 ≤ (support a).card
+  let L := D.filter fun a => (support a).card ≤ 1
+  let O := G.filter isOr
+  have hrD : r ∈ D := downCone_root children r
+  have hrG : r ∈ G := Finset.mem_filter.mpr ⟨hrD, hbig⟩
+  have hO : O ⊆ G := Finset.filter_subset _ _
+  have hLG : Disjoint L G := by
+    apply Finset.disjoint_left.mpr
+    intro a haL haG
+    have ha1 := (Finset.mem_filter.mp haL).2
+    have ha2 := (Finset.mem_filter.mp haG).2
+    omega
+  have hcover : L ∪ G.erase r ⊆ G.biUnion children := by
+    intro a ha
+    have haD : a ∈ D := by
+      rcases Finset.mem_union.mp ha with haL | haG
+      · exact (Finset.mem_filter.mp haL).1
+      · exact (Finset.mem_filter.mp (Finset.mem_of_mem_erase haG)).1
+    have har : a ≠ r := by
+      rcases Finset.mem_union.mp ha with haL | haG
+      · intro he
+        subst a
+        have := (Finset.mem_filter.mp haL).2
+        omega
+      · exact Finset.ne_of_mem_erase haG
+    have hreach := (mem_downCone_iff children hback r a).mp haD
+    rcases hreach.cases_tail with he | ⟨b, hb, hba⟩
+    · exact (har he).elim
+    · have hbD : b ∈ D := (mem_downCone_iff children hback r b).mpr hb
+      have hbG : b ∈ G := by
+        apply Finset.mem_filter.mpr
+        refine ⟨hbD, ?_⟩
+        by_contra hnb
+        have he := hstop b (by omega)
+        rw [he] at hba
+        exact Finset.notMem_empty a hba
+      exact Finset.mem_biUnion.mpr ⟨b, hbG, hba⟩
+  have hdeg : ∀ a ∈ G, (children a).card ≤ 1 + if a ∈ O then 1 else 0 := by
+    intro a ha
+    simpa only [O, Finset.mem_filter, ha, true_and] using hdegree a
+  have hforest := selected_forest_card G O L children r hrG hO hLG hcover hdeg
+  have hsupport : support r ⊆ L.biUnion support := by
+    intro i hi
+    obtain ⟨a, haD, hasmall, hia⟩ :=
+      support_descends_to_leaf support children hback hflow r hrD hi
+    exact Finset.mem_biUnion.mpr ⟨a, Finset.mem_filter.mpr ⟨haD, hasmall⟩, hia⟩
+  have hleaves : (support r).card ≤ L.card := by
+    calc
+      (support r).card ≤ (L.biUnion support).card := Finset.card_le_card hsupport
+      _ ≤ ∑ a ∈ L, (support a).card := Finset.card_biUnion_le
+      _ ≤ ∑ a ∈ L, 1 := Finset.sum_le_sum fun a ha => (Finset.mem_filter.mp ha).2
+      _ = L.card := by simp
+  have hOrSub : O ⊆ D.filter isOr := by
+    intro a ha
+    exact Finset.mem_filter.mpr ⟨(Finset.mem_filter.mp (Finset.mem_filter.mp ha).1).1,
+      (Finset.mem_filter.mp ha).2⟩
+  have hOrCard := Finset.card_le_card hOrSub
+  change (support r).card ≤ (D.filter isOr).card + 1
+  omega
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover
+open Semantics
+
+noncomputable def wireSupport (n : ℕ) (C : Circuit) (w : ℕ) : Finset (Fin n) :=
+  singletonSupport (fun x => val C (List.ofFn x) w)
+
+lemma wireSupport_input (n : ℕ) (C : Circuit) (w : ℕ) (hw : w < n) :
+    wireSupport n C w = {⟨w, hw⟩} := by
+  ext i
+  simp only [wireSupport, mem_singletonSupport, val_ofFn_lt C _ w hw,
+    decide_eq_true_eq, Finset.mem_singleton]
+  exact eq_comm
+
+lemma wireSupport_ge (n : ℕ) (C : Circuit) (w : ℕ) (hw : n + C.gates.length ≤ w) :
+    wireSupport n C w = ∅ := by
+  ext i
+  simp only [wireSupport, mem_singletonSupport]
+  rw [val_ge (n := n) (by simp) hw]
+  simp
+
+lemma wireSupport_large_gate (n : ℕ) (C : Circuit) (w : ℕ)
+    (hw : 2 ≤ (wireSupport n C w).card) : n ≤ w ∧ w < n + C.gates.length := by
+  constructor
+  · by_contra h
+    have he := wireSupport_input n C w (by omega)
+    rw [he] at hw
+    simp at hw
+  · by_contra h
+    have he := wireSupport_ge n C w (by omega)
+    rw [he] at hw
+    simp at hw
+
+noncomputable def maskedSupport (n : ℕ) (C : Circuit) (S : Finset (Fin n))
+    (w : ℕ) : Finset (Fin n) :=
+  if val C (List.ofFn fun i => decide (i ∉ S)) w = false then wireSupport n C w else ∅
+
+lemma maskedSupport_large (n : ℕ) (C : Circuit) (S : Finset (Fin n)) (w : ℕ)
+    (hw : 2 ≤ (maskedSupport n C S w).card) :
+    val C (List.ofFn fun i => decide (i ∉ S)) w = false ∧
+      2 ≤ (wireSupport n C w).card ∧ n ≤ w ∧ w < n + C.gates.length := by
+  unfold maskedSupport at hw
+  split_ifs at hw with h
+  · exact ⟨h, hw, wireSupport_large_gate n C w hw⟩
+  · simp at hw
 
 end PEqualNP.Outside.L_meta_4970
