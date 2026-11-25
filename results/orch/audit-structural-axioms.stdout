@@ -1,0 +1,18 @@
+/tmp/oec/pequalnp-pilot-123/audit-structural-axioms.lean:43:12: warning: This simp argument is unused:
+  Function.update_of_ne hv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hv, x]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-123/audit-structural-axioms.lean:49:12: warning: This simp argument is unused:
+  Function.update_of_ne hv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hv, x]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'PEqualNP.Outside.L_meta_2592_aux.petersen_independence' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.petersen_independence_attained' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2592_aux.petersen_cofactor_witness' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.petersen_cofactor_dep' depends on axioms: [propext, Quot.sound]

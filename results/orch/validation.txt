@@ -1,0 +1,40 @@
+Job: pequalnp-pilot-123
+Message: msg-dc462a8ff2e7e7f80fb80c41
+Status: stopped under the existing-lease rule after the permitted retry.
+Both desk calls returned L-meta-2592 and the same lease. Its terms.issued_at was
+2026-11-25T13:44:05.796Z, before the job started at 14:25:23Z.
+Exact desk message: you hold 5 gaps, the most one handle may hold at once; release one to get another
+Desk next calls: 2. Null responses: 0. No lease release sent.
+
+CHECKED PARTIAL ONLY
+File: results/orch/lemmas/structural_petersen.lean
+Lean: v4.36.0 (pinned project toolchain)
+Command, from lean/: lake env lean ../results/orch/lemmas/structural_petersen.lean
+Exit: 0. stdout: two unused-simp warnings. stderr: empty.
+Complete output: structural-petersen.stdout and structural-petersen.stderr.
+Line count before/after cleanup: 53/53. No cleanup performed after ownership pause.
+The partial proves independence bound/witness and cofactor essentiality only.
+It does not prove the posted circuit lower bound.
+Named-file lake build: not run; no complete named proof file was written.
+Local tools/check-lean.mjs: NOT RUN (partial only, no submitted theorem).
+No proof PR opened.
+
+OTHER ARTIFACTS
+lemmas/decomposition_support.lean: UNCHECKED draft; not built.
+lemmas/counterexample_search.cpp: experimental search, no counterexample found.
+lemmas/counterexample_cegis.py: experimental SAT synthesis, no SAT/UNSAT result.
+lemmas/counterexample_upper20.json: 20-gate witness simulated on all 1024 inputs;
+not Lean checked and not a refutation of the 19-gate lower-bound statement.
+Search processes were stopped when ownership became uncertain.
+
+SPECIAL TASK
+L-meta-1035 was already refuted by paired L-meta-1036, merged PR:
+https://github.com/open-goat/pequalnp-proofs/pull/2095
+
+Sub-agents: status/independent review; structural proof; counterexample search;
+reduction/lemma decomposition; Lean setup; primary-source research.
+TIMING total=7.9 subagents=6
+
+Independent preservation review: PASS. Identical structural partial recompiled.
+All four lemmas use only propext, Classical.choice, Quot.sound (or subsets).
+Complete independent axiom output: audit-structural-axioms.stdout/.stderr.
