@@ -1,0 +1,86 @@
+{
+  "compact-witness-help.txt": {
+    "sha256": "08ff3ec3a7fc792107f6ac42be45f7920c2f5a5805cc01b573581b4238c5fe36",
+    "bytes": 246
+  },
+  "compact_canonical_witness.py": {
+    "sha256": "1ba05873eb87ec81a88519180bd22f4ac5174a9058dc1f14c21424c4c21242e1",
+    "bytes": 4405
+  },
+  "export_witness_masks.py": {
+    "sha256": "560e0de6f46a471e0e2336b9fc731e1ce594ee10ae5d743d566bbf9e973fe3b3",
+    "bytes": 1650
+  },
+  "global-control51-dirty-cover36.cnf": {
+    "sha256": "3191368ec4c6490b045384812d81299e48e6f458d1dec1da85d3064fe39b0f3b",
+    "bytes": 219771331
+  },
+  "global-control51-dirty-cover36.command.json": {
+    "sha256": "fdb791981bdcc7b0ad11d44b7a319a50494151da5a14b3d58301860cceda4b57",
+    "bytes": 249
+  },
+  "global-control51-dirty-cover36.encode.log": {
+    "sha256": "2a11154d685b3f23269e1efb144c0f3d264055876f500d5f320706076e945d28",
+    "bytes": 301
+  },
+  "global-control51-dirty-cover36.log": {
+    "sha256": "e06f4d8cd4c74f923310d288d4cbb9145fb4b89442ad5df3643a6eed8097f59b",
+    "bytes": 217
+  },
+  "global-control51-dirty-cover36.mapping.json": {
+    "sha256": "021d087236398faae6afe9c9bd7e4973fb927f5332df29a4b28a691897e8520f",
+    "bytes": 86949
+  },
+  "global-control51-dirty-cover36.sol": {
+    "sha256": "5a5eb60d4a33c22bbae9fb4b4356d0921830d6f54b8ac07e7f776c3468cfe09f",
+    "bytes": 21288427
+  },
+  "global-control51-dirty-cover36.solver.log": {
+    "sha256": "cc05084424eeb5a30441f97aeafb46db3b6a827432ecb94a041e3473761dfcd1",
+    "bytes": 3058
+  },
+  "global-control51-dirty-cover36.status.json": {
+    "sha256": "3a67a0b568219520d098c032afa1897f18c081b1c16c13f66a84e1a2c040b711",
+    "bytes": 87
+  },
+  "global-control51-dirty-cover36.witness.json": {
+    "sha256": "7249c55023ef2ec283677d2955303f7e3e2056d40bbee46abcb92f08c1176b77",
+    "bytes": 8423
+  },
+  "global_or_direct_cnf_v4.py": {
+    "sha256": "b7fddb4d805d73e563d3f35af0fdeae503f660b94c1d07a44815d93ca88dff20",
+    "bytes": 10964
+  },
+  "solve-global-cnf-help.txt": {
+    "sha256": "0a20870597bbd1066d1aa546a7ea54c8739f9baa50f0ac9a6212a3137641cbb0",
+    "bytes": 170
+  },
+  "solve-global-cnf-v2-help.txt": {
+    "sha256": "07fe79229848ca9a872225336ac14cfacf114a3cd49e9864a328ddc56122bd7b",
+    "bytes": 173
+  },
+  "solve_global_cnf.py": {
+    "sha256": "4a2a727c6d1a603a0cb2f9c5f11103206b274887be7698217284a26c38039f36",
+    "bytes": 3438
+  },
+  "solve_global_cnf_v2.py": {
+    "sha256": "3e5eaca9cacd76268abe7c459aacf1c827022c087dbb30b8cc118c27d689b1ab",
+    "bytes": 4124
+  },
+  "theta4-control-global51-compact.json": {
+    "sha256": "45a5f5adb2fd0d5b77c5fb453d554023f26fcb4f2f97626595fe8fc26c0fcdff",
+    "bytes": 4445
+  },
+  "theta4-control-global51-compact.log": {
+    "sha256": "4710c38bb90995dabcf42d993b00f3442028637d7998670b011fbb5e391a1d26",
+    "bytes": 307
+  },
+  "theta4-control-global51-masks.json": {
+    "sha256": "4b000e664e0e7beedafffaa481cb1a6e0e91c35c673dc1fd818b797aeef67a44",
+    "bytes": 12472
+  },
+  "theta4-control-global51-masks.log": {
+    "sha256": "c12217f3e7f1e5e73b305928e47e7ab255d41e9f072160f065aa87c025e7f154",
+    "bytes": 96
+  }
+}

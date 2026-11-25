@@ -1,0 +1,38 @@
+[
+  {
+    "module": "PackingThreeDefs",
+    "sha256": "9cba4395ebb179a279cc2a5aad2d10b5d7f629eab6d124841980325ae82278a0",
+    "exit_code": 0
+  },
+  {
+    "module": "PackingFamilyProofs",
+    "sha256": "b7e8d9b91535e9903ae8ca4ad0147df47bb986907984047ff5b9225361d3b1f6",
+    "exit_code": 0
+  },
+  {
+    "module": "PackingMaskProofs",
+    "sha256": "48445b4af6180a468b389e4ff5102ce6eb2f5af1117f05e4f586659c69bbb621",
+    "exit_code": 0
+  },
+  {
+    "module": "PackingTraceProofs",
+    "sha256": "3f2b19e56325ee68cd22c874a699533a78a368479b6e7ee92534bb1ac3dc130d",
+    "exit_code": 0
+  },
+  {
+    "module": "PackingPrunedProofs",
+    "sha256": "60aaee4024d7b1897fdd9e1a0e0a35bddfeffe05a22a1dd6853b7c0c52375004",
+    "exit_code": 0
+  },
+  {
+    "module": "PackingChunkProofs",
+    "sha256": "16918a937eb1a2a55ddf049b0658703952c56aa25976cde6199b2c234924a794",
+    "exit_code": 0
+  },
+  {
+    "module": "PackingRecordProofs",
+    "sha256": "1f170c17c7ff54c81307e72bd1d01aac09ffbeeb4c368744766d40a89117427b",
+    "exit_code": 0,
+    "validation": "Observed tool return exit0 before environment restart; cached olean persists."
+  }
+]

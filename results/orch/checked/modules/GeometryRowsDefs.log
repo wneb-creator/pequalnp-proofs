@@ -1,0 +1,42 @@
+import took 4.1s
+.olean serialization took 170ms
+elaboration took 1s
+compilation (LCNF base) took 210ms
+compilation (LCNF mono) took 118ms
+interpretation of _private.Mathlib.Tactic.Linter.UnusedTactic.0.Mathlib.Linter.UnusedTactic.unusedTacticLinter._lam_0._boxed took 122ms
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 211ms
+typeclass inference of Decidable took 108ms
+elaboration took 1.66s
+compilation (LCNF base) took 176ms
+compilation (LCNF mono) took 159ms
+cumulative profiling times:
+	.olean serialization 170ms
+	attribute application 0.331ms
+	compilation (IR) 117ms
+	compilation (LCNF base) 418ms
+	compilation (LCNF impure) 149ms
+	compilation (LCNF mono) 388ms
+	declTypeLinter 16.5ms
+	elaboration 2.7s
+	fix level params 0.357ms
+	import 4.1s
+	initialization 66.4ms
+	instantiate metavars 7.08ms
+	interpretation 1.22s
+	let-to-have transformation 5.75ms
+	linting 164ms
+	module linting 0.032ms
+	parsing 111ms
+	process pre-definitions 105ms
+	share common exprs 10.5ms
+	tacticAnalysis 61.1ms
+	type checking 5.08ms
+	typeclass inference 3.32s
+
+EXIT 0
+RESOURCE_STOPPED False
+WALL_SECONDS 14.040404456999568
+USER_SECONDS 8.060375
+SYS_SECONDS 1.548649
+PEAK_RSS_KIB 2994220
+PEAK_CGROUP_BYTES 6560710656

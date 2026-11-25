@@ -1,0 +1,41 @@
+{
+  "status": "Independent global finite-model, symmetry and canonical51-baseline checks passed.",
+  "source_sha256": "bf92cbb0999f2b20c1eff81496e67833d18403f23a80ded66a75c258466a33b2",
+  "symmetry_source_sha256": "d6c3855b07de2008ac08474ca2133858da43a7598b9bd8be8f46895a3db531f6",
+  "symmetry_data_sha256": "652ceb0d5f5daa4eb87bb24eba1e30b6f1107ecb10d87c674dd923c2ba34342f",
+  "positive_samples": 52,
+  "negative_samples": 468,
+  "nonempty_initial_meets": 78,
+  "incomparable_first_pairs": 2899,
+  "first_pair_orbits": 8,
+  "orbit_sizes": [
+    156,
+    52,
+    117,
+    312,
+    936,
+    156,
+    468,
+    702
+  ],
+  "generated_group_size": 11232,
+  "sensitivity_false_OR_bounds": {
+    "18": 468
+  },
+  "canonical51_baseline_sample_checks": 520,
+  "baseline_false_OR_count_histogram": {
+    "28": 47,
+    "25": 19,
+    "29": 16,
+    "27": 83,
+    "32": 48,
+    "26": 62,
+    "31": 108,
+    "30": 75,
+    "33": 10
+  },
+  "baseline_final_three_cover_size_histogram": {
+    "4": 468
+  },
+  "restriction": "Finite model covers arbitrary monotone AND/OR circuits under the stated normalization. No full-budget SAT or UNSAT result and no Lean claim."
+}

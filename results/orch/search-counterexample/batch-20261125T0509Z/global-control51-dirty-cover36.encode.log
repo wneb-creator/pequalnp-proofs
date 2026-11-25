@@ -1,0 +1,1 @@
+{"scenario": "global", "input_count": 26, "positive_count": 52, "negative_count": 494, "or_count": 51, "first_OR_orbits": 8, "false_OR_bounds": [3, 18], "cover_prefix": 48, "cover_row_count": 36, "variables": 2466813, "clauses": 10036421, "encoding_seconds": 27.316369295000186, "max_rss_KiB": 15028}

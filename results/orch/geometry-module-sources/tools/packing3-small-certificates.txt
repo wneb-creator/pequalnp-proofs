@@ -1,0 +1,33 @@
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma blocks_length : blocks.length = 351 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma vertexSet_indexOf : ∀ u v : Fin 26, vertexSet (indexOf u v) = {u, v} := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma vertices_nodup : (blocks.map Block.vertices).Nodup := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma masks_endpoints : ∀ i : Fin 351,
+    (block i).vertices = (1 <<< (endpoints i).1.val) ||| (1 <<< (endpoints i).2.val) ∧
+    (block i).active =
+      (block ⟨(endpoints i).1.val, by omega⟩).active |||
+      (block ⟨(endpoints i).2.val, by omega⟩).active ∧
+    (block i).edges =
+      (block ⟨(endpoints i).1.val, by omega⟩).edges |||
+      (block ⟨(endpoints i).2.val, by omega⟩).edges := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma masks_bounded : ∀ i : Fin 351,
+    (block i).vertices < 2^26 ∧ (block i).active < 2^468 ∧ (block i).edges < 2^52 := by
+  decide +kernel
+

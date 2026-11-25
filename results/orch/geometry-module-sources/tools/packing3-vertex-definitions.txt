@@ -1,0 +1,10 @@
+def vertexSet (i : Fin 351) : Finset (Fin 26) :=
+  {(endpoints i).1, (endpoints i).2}
+
+def indexOf (u v : Fin 26) : Fin 351 :=
+  if u = v then ⟨u.val, by omega⟩
+  else
+    let a := min u.val v.val
+    let b := max u.val v.val
+    ⟨(26 + a * (51 - a) / 2 + b - a - 1) % 351, Nat.mod_lt _ (by decide)⟩
+

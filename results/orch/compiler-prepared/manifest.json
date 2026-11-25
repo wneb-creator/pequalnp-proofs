@@ -1,0 +1,27 @@
+[
+  {
+    "file": "CanonicalSampleData.lean",
+    "sha256": "aaf1b7f9ac939d646781ea74210b1de19cbff4e791c13e7fdd8edd6061a113b5",
+    "status": "Prepared; this exact source has not yet been kernel-checked"
+  },
+  {
+    "file": "CanonicalSampleFacts.lean",
+    "sha256": "4100f2d884456b124df5592b702feda31ac4b144bd6ea5c329272928b8d3a492",
+    "status": "Prepared; this exact source has not yet been kernel-checked"
+  },
+  {
+    "file": "CanonicalSampleFactsBench.lean",
+    "sha256": "5dd3708b45378f376d90173b58d1b352073fdb392abfc58863627715df3a42b7",
+    "status": "Prepared; this exact source has not yet been kernel-checked"
+  },
+  {
+    "file": "CanonicalGlobalControl.lean",
+    "sha256": "c0521c306db3245beb24c28ed2812251e78e80313e5e198e22f882305aa00fb7",
+    "status": "Prepared; this exact source has not yet been kernel-checked"
+  },
+  {
+    "file": "CanonicalCompilerSamples.lean",
+    "sha256": "19f680a153b0e0f3ef82d173bcdf734f8388c4f5c41d5c64573433af2bdce1b2",
+    "status": "Prepared; this exact source has not yet been kernel-checked"
+  }
+]

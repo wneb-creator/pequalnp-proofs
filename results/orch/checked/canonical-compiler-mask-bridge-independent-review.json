@@ -1,0 +1,12 @@
+{
+  "source": "results/orch/checked/canonical-compiler-mask-bridge.lean",
+  "sha256": "fe169e26c32d286f916655aea37bd5d7ef274b95d871cd4e98e3dcb3657f2079",
+  "reviewer": "proof_routes",
+  "verdict": "PASS",
+  "checks": [
+    "conjunctionMasks uses bitwise AND with an identity bit explicitly assumed true",
+    "evaluateMasks uses bitwise OR for each program OR and identical Fin.snoc reference extension",
+    "Pointwise theorem follows by structural induction on the explicit OR count",
+    "No concrete mask validity, sample coverage or counterexample is assumed or claimed"
+  ]
+}

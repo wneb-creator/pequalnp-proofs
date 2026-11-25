@@ -1,0 +1,3 @@
+pairs count 325 maxdepth 7 roots [0, 12, 59]
+singletons count 26 maxdepth 5 roots [0]
+FULL_SOURCE_BYTES 112004

@@ -1,0 +1,7 @@
+{
+  "source": "results/orch/checked/modules/PackingChunkAssemblyTest.lean",
+  "sha256": "298b4b5342e86b9ea80ff73705c843ff5f6acd958ce674fc7c1ee7bd597856b7",
+  "exit_code": 0,
+  "lines": 43,
+  "kind": "symbolic assembly with finite coverage/good/chunk truths as hypotheses"
+}

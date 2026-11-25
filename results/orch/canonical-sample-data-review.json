@@ -1,0 +1,9 @@
+{
+  "verdict": "PASS (independent Python data check; Lean certificates pending)",
+  "samples": 520,
+  "flags": 52,
+  "rows": 468,
+  "coordinate_bits_checked": 13520,
+  "mask_export_sha256": "4b000e664e0e7beedafffaa481cb1a6e0e91c35c673dc1fd818b797aeef67a44",
+  "method": "Parsed exact Lean Flags.flag and AllRows.row literal tables, then recomputed every coordinate sample mask"
+}

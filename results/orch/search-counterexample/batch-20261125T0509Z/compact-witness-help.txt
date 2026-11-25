@@ -1,0 +1,11 @@
+usage: compact_canonical_witness.py [-h] [--embed-theta4]
+                                    witness mapping output
+
+positional arguments:
+  witness
+  mapping
+  output
+
+options:
+  -h, --help      show this help message and exit
+  --embed-theta4

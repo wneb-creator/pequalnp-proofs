@@ -1,0 +1,7 @@
+{
+  "source": "results/orch/checked/modules/PackingBoundedMaskProofs.lean",
+  "sha256": "834803a7afe5a4dccc6061c5b9238114c8ccf0c3159c6cd22781af8c97a271dd",
+  "exit_code": 0,
+  "lines": 32,
+  "kind": "symbolic helper; no finite packing conclusion"
+}

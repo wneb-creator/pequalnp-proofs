@@ -1,0 +1,16 @@
+def rootState (a : Fin 31) : State :=
+  (rootIndices a).foldl (fun s i => step s (blocks.getD i ⟨0, 0, 0⟩)) emptyState
+
+def rootCandidates (a : Fin 31) : List Block :=
+  (if a.val < 27 then blocks else blocks.take 26).filter (ok (rootState a))
+
+def rootCheck (a : Fin 31) : Bool :=
+  PackingPrunedDFS.check ok step good prune 26 (rootState a) (rootCandidates a)
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma root_check_21 : rootCheck 21 = true := by
+  decide +kernel
+
+end PackingThree
+end PEqualNP.Outside.L_meta_1896_aux

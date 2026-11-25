@@ -1,0 +1,23 @@
+{
+  "checked_at": "2026-11-25T04:46:44.247790+00:00",
+  "pid": 20190,
+  "state": "Z",
+  "ppid": 1,
+  "utime_ticks": 62971,
+  "stime_ticks": 909,
+  "wait_status": 9,
+  "exit_code_or_negative_signal": -9,
+  "direct-cover-full-38-900.log": {
+    "bytes": 209,
+    "final_verdict_lines": []
+  },
+  "direct-cover-full-38-900.solver.log": {
+    "bytes": 17183,
+    "final_verdict_lines": []
+  },
+  "clock_ticks_per_second": 100,
+  "cpu_seconds": 638.8,
+  "unified_exec_session": 3500,
+  "unified_exec_recovery_error": "Unknown process id 3500",
+  "verdict": "interrupted_SIGKILL_no_SAT_or_UNSAT_result"
+}

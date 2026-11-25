@@ -1,0 +1,185 @@
+import argparse
+import ast
+import itertools
+import json
+from pathlib import Path
+import resource
+import shutil
+import subprocess
+import time
+
+base = Path('/tmp/oec/pequalnp-pilot-62')
+tree = ast.parse((base / 'multi_output_direct_cnf.py').read_text())
+definition = next(n for n in tree.body if isinstance(n,ast.ClassDef) and n.name == 'CNF')
+exec(compile(ast.Module(body=[definition],type_ignores=[]),'audited_CNF_class','exec'))
+ap = argparse.ArgumentParser()
+ap.add_argument('or_count',type=int)
+ap.add_argument('--scenario',choices=['global','cycle4','cycle5'],default='global')
+ap.add_argument('--seconds',type=int,default=900)
+ap.add_argument('--tag',default='global-or')
+ap.add_argument('--fixed-baseline',action='store_true')
+ap.add_argument('--cnf-only',action='store_true')
+ap.add_argument('--cover-suffix',type=int,default=0)
+args = ap.parse_args()
+assert args.cover_suffix >= 0
+resource.setrlimit(resource.RLIMIT_AS,(3*1024**3,3*1024**3))
+stem = base / args.tag
+if args.scenario == 'global':
+    data = json.loads((base / 'global-first-or-symmetry.json').read_text())
+    positive,negative = data['positive_samples'],data['negative_samples']
+    nv = 26
+    representatives = [o['representative_masks'] for o in data['first_OR_orbits']]
+else:
+    nv = int(args.scenario[5:])
+    positive = [(1<<i)|(1<<((i+1)%nv)) for i in range(nv)]
+    false = [q for q in range(1<<nv) if not any(q&p == p for p in positive)]
+    negative = [q for q in false if not any(q != r and q&r == q for r in false)]
+    input_masks = [sum((p>>i&1)<<j for j,p in enumerate(positive)) for i in range(nv)]
+    initial = set(input_masks)
+    for a in range(1,1<<nv):
+        mask = (1<<len(positive))-1
+        for i in range(nv):
+            if a>>i&1: mask &= input_masks[i]
+        if mask: initial.add(mask)
+    representatives = [sorted([a,b]) for a,b in itertools.combinations(sorted(initial),2)
+                       if a&~b and b&~a]
+np = len(positive)
+samples = positive+negative
+input_masks = [sum((p>>i&1)<<j for j,p in enumerate(positive)) for i in range(nv)]
+baseline = []
+if args.fixed_baseline:
+    if args.scenario == 'global':
+        known = json.loads((base / 'multi-output-baseline39.json').read_text())
+        masks = input_masks.copy()
+        for a,b in known['ors']:
+            pair = sorted([masks[a+13],masks[b+13]])
+            baseline.append(pair)
+            masks.append(pair[0]|pair[1])
+        accumulated = input_masks[0]
+        for p in range(1,13):
+            baseline.append(sorted([accumulated,input_masks[p]]))
+            accumulated |= input_masks[p]
+        assert len(baseline) == 51
+    elif args.scenario == 'cycle4':
+        baseline = [sorted([input_masks[0],input_masks[2]]),
+                    sorted([input_masks[1],input_masks[3]])]
+    else:
+        accumulated = 1
+        for p in range(1,np):
+            baseline.append(sorted([accumulated,1<<p]))
+            accumulated |= 1<<p
+    assert len(baseline) == args.or_count
+start = time.monotonic()
+cnf = CNF(stem.with_suffix('.cnf'))
+wires = [[bool(q>>i&1) for q in samples] for i in range(nv)]
+signature_variables = []
+for gate in range(args.or_count):
+    terms = []
+    branches = []
+    for side in range(2):
+        sig = [cnf.var() for _ in range(np)]
+        branches.append(sig)
+        signature_variables.append(sig)
+        cnf.add(sig)
+        include = [cnf.conj(cnf.disj([-sig[b],wire[b]]) for b in range(np)) for wire in wires]
+        cnf.add(include)
+        term = [cnf.conj(cnf.disj([cnf.neg(inc),wire[row]]) for inc,wire in zip(include,wires))
+                for row in range(len(samples))]
+        for b in range(np): cnf.equal(sig[b],term[b])
+        if args.fixed_baseline:
+            for b,x in enumerate(sig): cnf.add([x if baseline[gate][side]>>b&1 else -x])
+        terms.append(term)
+    left,right = branches
+    cnf.add([cnf.conj([a,-b]) for a,b in zip(left,right)])
+    cnf.add([cnf.conj([b,-a]) for a,b in zip(left,right)])
+    equal = True
+    less = []
+    for a,b in reversed(list(zip(left,right))):
+        less.append(cnf.conj([equal,-a,b]))
+        equal = cnf.conj([equal,cnf.disj([-a,b]),cnf.disj([a,-b])])
+    cnf.add(less)
+    wires.append([cnf.disj([a,b]) for a,b in zip(*terms)])
+full_positive = (1<<np)-1
+contain = [cnf.conj(wire[:np]) for wire in wires]
+for row in range(np,len(samples)):
+    cnf.add([cnf.conj([inc,cnf.neg(wire[row])]) for inc,wire in zip(contain,wires)])
+false_bounds = []
+for row,q in enumerate(negative,np):
+    sensitive = [i for i in range(nv) if not(q>>i&1) and
+                 any(p & ~(q|(1<<i)) == 0 for p in positive)]
+    bound = max(0,len(sensitive)-1)
+    false_bounds.append(bound)
+    if bound: cnf.at_least([cnf.neg(wire[row]) for wire in wires[nv:]],bound)
+prefix = args.or_count
+if args.cover_suffix:
+    prefix = max(0,args.or_count-args.cover_suffix)
+    for row in range(np,len(samples)):
+        current = wires[:nv+prefix]
+        selected = [cnf.var() for _ in current]
+        for choose,wire in zip(selected,current): cnf.add([-choose,cnf.neg(wire[row])])
+        for bit in range(np):
+            cnf.add([cnf.conj([choose,wire[bit]]) for choose,wire in zip(selected,current)])
+        counted = selected+[wire[row] for wire in wires[nv+prefix:]]
+        bound = 1+args.or_count-prefix
+        state = [True]+[False]*(bound+1)
+        for x in counted:
+            state = [True]+[cnf.disj([state[j],cnf.conj([x,state[j-1]])]) for j in range(1,bound+2)]
+        cnf.add([cnf.neg(state[bound+1])])
+if not args.fixed_baseline:
+    choices = []
+    for a,b in representatives:
+        choices.append(cnf.conj([x if a>>j&1 else -x for j,x in enumerate(signature_variables[0])] +
+                                [x if b>>j&1 else -x for j,x in enumerate(signature_variables[1])]))
+    cnf.add(choices)
+cnf.finish()
+mapping = {'scenario':args.scenario,'input_count':nv,'positive_samples':positive,
+           'negative_samples':negative,'signature_variables':signature_variables,
+           'first_OR_representatives':representatives,'false_OR_bounds':false_bounds,
+           'cover_prefix':prefix,'variables':cnf.variables,'clauses':cnf.clauses,
+           'fixed_baseline':args.fixed_baseline}
+stem.with_suffix('.mapping.json').write_text(json.dumps(mapping,indent=2)+'\n')
+print(json.dumps({'scenario':args.scenario,'input_count':nv,'positive_count':np,
+    'negative_count':len(negative),'or_count':args.or_count,'first_OR_orbits':len(representatives),
+    'false_OR_bounds':sorted(set(false_bounds)),'cover_prefix':prefix,
+    'variables':cnf.variables,'clauses':cnf.clauses,'encoding_seconds':time.monotonic()-start,
+    'max_rss_KiB':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss}),flush=True)
+if args.cnf_only: raise SystemExit(0)
+command = ['/tmp/oec/pequalnp-pilot-62/elan/toolchains/leanprover--lean4---v4.36.0/bin/cadical',
+           '-t',str(args.seconds),'-w',str(stem.with_suffix('.sol')),str(stem.with_suffix('.cnf'))]
+stem.with_suffix('.command.json').write_text(json.dumps(command,indent=2)+'\n')
+with stem.with_suffix('.solver.log').open('w') as log:
+    done = subprocess.run(command,stdout=log,stderr=subprocess.STDOUT)
+result = {10:'sat',20:'unsat'}.get(done.returncode,'unknown')
+print('result',result,'solver_exit',done.returncode,'elapsed',time.monotonic()-start,flush=True)
+if done.returncode != 10: raise SystemExit(0)
+assignment = {}
+for line in stem.with_suffix('.sol').read_text().splitlines():
+    if line.startswith('v '):
+        for word in line.split()[1:]:
+            lit = int(word)
+            if lit: assignment[abs(lit)] = lit > 0
+assert all(var in assignment for group in signature_variables for var in group)
+sig_masks = [sum(int(assignment[var])<<b for b,var in enumerate(group)) for group in signature_variables]
+positive_wires = input_masks.copy()
+operands = []
+for g in range(args.or_count):
+    branch_masks = sig_masks[2*g:2*g+2]
+    selected = [[i for i,mask in enumerate(positive_wires) if mask & sig == sig] for sig in branch_masks]
+    assert all(selected)
+    for sig,chosen in zip(branch_masks,selected):
+        actual = full_positive
+        for i in chosen: actual &= positive_wires[i]
+        assert actual == sig
+    operands.append(selected)
+    positive_wires.append(branch_masks[0]|branch_masks[1])
+output_wires = [i for i,mask in enumerate(positive_wires) if mask == full_positive]
+assert output_wires
+for q,wanted in [(q,True) for q in positive]+[(q,False) for q in negative]:
+    values = [bool(q>>i&1) for i in range(nv)]
+    for a,b in operands: values.append(all(values[i] for i in a) or all(values[i] for i in b))
+    assert all(values[i] for i in output_wires) == wanted
+stem.with_suffix('.witness.json').write_text(json.dumps({'scenario':args.scenario,'input_count':nv,
+    'or_count':args.or_count,'operand_signatures':[sig_masks[2*g:2*g+2] for g in range(args.or_count)],
+    'operand_wire_lists':operands,'output_wire_list':output_wires,
+    'checked_positive_samples':np,'checked_negative_samples':len(negative)},indent=2)+'\n')
+print('WITNESS_VERIFIED',args.or_count,'ORs',len(samples),'samples',flush=True)

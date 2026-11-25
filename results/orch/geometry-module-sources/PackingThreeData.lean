@@ -1,0 +1,172 @@
+import PackingThreeDefs
+import TwentyOne
+
+namespace PEqualNP.Outside.L_meta_1896_aux.PackingThree
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_0 : ∀ r : AllRows.R,
+    (block 0).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 0 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_1 : ∀ r : AllRows.R,
+    (block 1).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 1 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_2 : ∀ r : AllRows.R,
+    (block 2).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 2 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_3 : ∀ r : AllRows.R,
+    (block 3).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 3 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_4 : ∀ r : AllRows.R,
+    (block 4).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 4 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_5 : ∀ r : AllRows.R,
+    (block 5).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 5 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_6 : ∀ r : AllRows.R,
+    (block 6).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 6 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_7 : ∀ r : AllRows.R,
+    (block 7).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 7 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_8 : ∀ r : AllRows.R,
+    (block 8).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 8 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_9 : ∀ r : AllRows.R,
+    (block 9).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 9 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_10 : ∀ r : AllRows.R,
+    (block 10).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 10 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_11 : ∀ r : AllRows.R,
+    (block 11).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 11 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_12 : ∀ r : AllRows.R,
+    (block 12).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 12 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_13 : ∀ r : AllRows.R,
+    (block 13).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 13 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_14 : ∀ r : AllRows.R,
+    (block 14).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 14 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_15 : ∀ r : AllRows.R,
+    (block 15).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 15 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_16 : ∀ r : AllRows.R,
+    (block 16).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 16 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_17 : ∀ r : AllRows.R,
+    (block 17).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 17 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_18 : ∀ r : AllRows.R,
+    (block 18).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 18 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_19 : ∀ r : AllRows.R,
+    (block 19).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 19 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_20 : ∀ r : AllRows.R,
+    (block 20).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 20 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_21 : ∀ r : AllRows.R,
+    (block 21).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 21 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_22 : ∀ r : AllRows.R,
+    (block 22).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 22 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_23 : ∀ r : AllRows.R,
+    (block 23).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 23 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_24 : ∀ r : AllRows.R,
+    (block 24).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 24 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_active_25 : ∀ r : AllRows.R,
+    (block 25).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r 25 := by
+  decide +kernel
+
+lemma singleton_active : ∀ v : Fin 26, ∀ r : AllRows.R,
+    (block ⟨v.val, by omega⟩).active.testBit (13 * r.1.val + r.2.val) = AllRows.row r v := by
+  exact (Fin.cases singleton_active_0 (Fin.cases singleton_active_1 (Fin.cases singleton_active_2 (Fin.cases singleton_active_3 (Fin.cases singleton_active_4 (Fin.cases singleton_active_5 (Fin.cases singleton_active_6 (Fin.cases singleton_active_7 (Fin.cases singleton_active_8 (Fin.cases singleton_active_9 (Fin.cases singleton_active_10 (Fin.cases singleton_active_11 (Fin.cases singleton_active_12 (Fin.cases singleton_active_13 (Fin.cases singleton_active_14 (Fin.cases singleton_active_15 (Fin.cases singleton_active_16 (Fin.cases singleton_active_17 (Fin.cases singleton_active_18 (Fin.cases singleton_active_19 (Fin.cases singleton_active_20 (Fin.cases singleton_active_21 (Fin.cases singleton_active_22 (Fin.cases singleton_active_23 (Fin.cases singleton_active_24 (Fin.cases singleton_active_25 (fun i => Fin.elim0 i)))))))))))))))))))))))))))
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma singleton_edges : ∀ v : Fin 26, ∀ a : Fin 52,
+    (block ⟨v.val, by omega⟩).edges.testBit a.val = Flags.input a v := by
+  decide +kernel
+
+end PEqualNP.Outside.L_meta_1896_aux.PackingThree

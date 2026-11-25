@@ -1,0 +1,10 @@
+{
+  "direct-cover-full-38-900.cnf": {
+    "sha256": "ce60ad6f3c238b7f86b22d64a83a72f7445a521c872979015e80dec7ddb0c363",
+    "preserved_in": "../batch-20261125T0428Z/direct-cover-full-38-900.cnf.gz"
+  },
+  "direct-cover-full-38-900.mapping.json": {
+    "sha256": "f6cecfc44f8fd3d8afbce0548ca46b93ab91d916752cc430e2a4d62510982db5",
+    "preserved_in": "../batch-20261125T0428Z/direct-cover-full-38-900.mapping.json"
+  }
+}

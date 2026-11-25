@@ -1,0 +1,1 @@
+{"scenario": "theta4", "input_count": 10, "positive_count": 12, "negative_count": 19, "or_count": 10, "first_OR_orbits": 18, "false_OR_bounds": [4, 5, 7], "cover_prefix": 7, "variables": 12251, "clauses": 45261, "encoding_seconds": 0.41199422699992283, "max_rss_KiB": 13312}

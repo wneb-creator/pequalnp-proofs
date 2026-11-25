@@ -1,0 +1,17 @@
+namespace PackingPrunedDFS
+
+variable {α σ : Type}
+
+def branchAt (ok : σ → α → Bool) (step : σ → α → σ)
+    (recur : σ → List α → Bool) (s : σ) (bs : List α) (i : Nat) : Bool :=
+  match bs.drop i with
+  | [] => true
+  | b :: rest =>
+      if ok s b then recur (step s b) (rest.filter (ok (step s b))) else true
+
+def chunk (ok : σ → α → Bool) (step : σ → α → σ)
+    (recur : σ → List α → Bool) (s : σ) (bs : List α)
+    (start count : Nat) : Bool :=
+  (List.range count).all (fun j => branchAt ok step recur s bs (start + j))
+
+end PackingPrunedDFS

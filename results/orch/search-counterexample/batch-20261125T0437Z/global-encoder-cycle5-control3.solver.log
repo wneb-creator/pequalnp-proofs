@@ -1,0 +1,99 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 10 seconds real time (due to '-t 10')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-62/global-encoder-cycle5-control3.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-62/global-encoder-cycle5-control3.cnf'
+c found 'p cnf 654 2390' header
+c parsed 2390 clauses in 0.00 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant irredundant
+c         MB    restarts       trail    variables
+c          level   conflicts       glue     remaining
+c 
+c *  0.00  3  0 0   0    0    0  0% 0 2283 573 88%
+c {  0.00  3  0 0   0    0    0  0% 0 2283 573 88%
+c i  0.00  3  3 0   0    3    2 61% 1 2283 571 87%
+c i  0.00  3  8 0   0   33   23 79% 2 2283 570 87%
+c i  0.00  3 11 0   3   79   66 72% 2 2283 569 87%
+c i  0.01  3 11 0  33  199  176 64% 4 2283 567 87%
+c i  0.01  3 12 0  38  217  190 64% 4 2283 565 86%
+c -  0.01  3 10 1  44  301  245 64% 3 2125 565 86%
+c i  0.01  3  9 1  44  381  296 65% 3 2125 522 80%
+c i  0.01  3  9 1  44  383  297 65% 3 2125 518 79%
+c i  0.01  3  9 1  44  434  331 66% 3 2125 517 79%
+c i  0.01  3  8 1  44  477  366 66% 3 2125 411 63%
+c i  0.01  3  8 1  44  479  367 66% 3 2125 394 60%
+c i  0.01  3  8 1  44  484  370 66% 3 2125 198 30%
+c }  0.01  3  8 1  44  487  371 66% 3 2125 170 26%
+c 0  0.01  3  8 1  44  487  371 66% 3 2125 170 26%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to '/tmp/oec/pequalnp-pilot-62/global-encoder-cycle5-control3.sol'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.01   99.11% search
+c         0.01   93.53% unstable
+c         0.00   13.97% parse
+c         0.00    1.73% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.01   83.29% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:               153        31.42 %  of conflicts
+c conflicts:                   487     48361.47    per second
+c decisions:                  1121    111320.75    per second
+c fixed:                       484        74.01 %  of all variables
+c learned:                     463        95.07 %  per conflict
+c learned_lits:               4716       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                   1382        29.30 %  learned literals
+c minishrunken:                433         9.18 %  learned literals
+c otfs:                          4         0.82 %  of conflict
+c propagations:              57777         5.74 M  per second
+c restarts:                     44        11.07    interval
+c subsumed:                     67         2.45 %  of all clauses
+c strengthened:                  4         0.15 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.01    seconds
+c total real time since initialization:            0.01    seconds
+c maximum resident set size of process:           13.00    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 20

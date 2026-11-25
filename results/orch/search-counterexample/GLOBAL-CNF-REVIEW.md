@@ -1,0 +1,16 @@
+# Independent arbitrary-circuit CNF review
+
+Approved for the planned finite search: no model, symmetry or baseline blocker found.
+
+Reviewed encoder SHA256: `bf92cbb0999f2b20c1eff81496e67833d18403f23a80ded66a75c258466a33b2`. Exact symmetry-source and data hashes are in `global-or-independent-audit.json`.
+
+- **Generalization is valid.** Positive signatures now range over the52 accepted incidence pairs. Flattening free-AND subcircuits into original inputs and earlier OR wires, then taking every available wire whose signature contains the desired signature, preserves every positive sample and can only lower other values. Empty-signature branches and ORs with comparable operand signatures can be eliminated without harming separation. The final output is the conjunction of full-positive-signature wires. Nonempty-meet strengthening remains sound because an empty meet has the full signature and cannot be an incomparable OR operand.
+- **First-gate cases are complete.** Every nonempty intersection of input-star signatures is either one of26input stars or one of52edge singletons: each positive sample contains only two input coordinates. Independent meet-closure computation confirms exactly78nonempty signatures and2,899incomparable unordered pairs. The eight representative pairs cover them under the supplied generators.
+- **Symmetry was checked directly.** All five26-coordinate permutations preserve all52positive and468negative samples. Their induced actions on signatures are correct. Independent orbit traversal reproduces the eight orbit sizes `156,52,117,312,936,156,468,702`; independent group closure contains11,232maps. These checks validate the concrete symmetries without relying on an unverified field-theory assertion.
+- **The sensitivity cut is valid.** At each negative row, exactly19 absent coordinates individually complete an accepted incidence pair. Monotonicity therefore forces sensitivity to all19coordinates, requiring at least18false OR gates. All468computed bounds equal18.
+- **The optional prefix-cover cut is valid.** Start with one false full-signature output wire. Eliminating a selected future false OR replaces it by at most two false earlier factors whose signatures cover the original signature. Thus a false prefix cover of all positive samples exists with size at most one plus the number of future false ORs. The encoded inequality `selected_count + future_true_OR_count ≤ 1 + suffix_length` expresses exactly this bound.
+- **The51-gate baseline is valid.** The39 shared line unions use the correct wire-index shift of13. Each subsequent point-star closure includes that point input and its computed line-neighborhood union. Independent canonical evaluation of all51gates accepts all52positives and rejects all468negatives, with every operand nonempty, exact-signature and incomparable. It also passes the final-three-gate cover cut constructively at every negative row.
+
+The supplied cycle-four SAT and cycle-five UNSAT control logs are consistent with the model. This review did not run a full-budget solver or Lean build. A SAT witness still needs verification against the posted statement in Lean; the finite controls and model audit are not a checker verdict.
+
+Reproducible independent checks and complete output are archived as `audit_global_or.py` and `global-or-independent-audit.{json,log}`.

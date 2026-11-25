@@ -1,0 +1,13 @@
+{
+  "source": "results/orch/checked/modules/GeometryFlags.lean",
+  "sha256": "bb3238203ab15b0a624fcfda174e36dd731a181d08837bf66ad72ed80200b075",
+  "reviewer": "proof_routes",
+  "verdict": "PASS",
+  "checks": [
+    "Flag table uses exactly Singer offsets0,1,3,9 for each of13 lines",
+    "indexFor selects the corresponding offset, and the finite certificate proves all incident point-line pairs are covered",
+    "pairInput is exactly the posted two-coordinate assignment",
+    "input_indexFor transports equality of ordered incident pairs to function equality",
+    "No assumptions weaken the finite coverage claim"
+  ]
+}

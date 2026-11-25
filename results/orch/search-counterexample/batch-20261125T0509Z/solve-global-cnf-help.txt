@@ -1,0 +1,8 @@
+usage: solve_global_cnf.py [-h] [--seconds SECONDS] stem
+
+positional arguments:
+  stem
+
+options:
+  -h, --help         show this help message and exit
+  --seconds SECONDS

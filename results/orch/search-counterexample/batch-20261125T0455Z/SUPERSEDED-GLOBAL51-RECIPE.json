@@ -1,0 +1,18 @@
+{
+  "status": "prepared_only_no_solver_superseded_by_36_row_cover_variant",
+  "source": "global_or_direct_cnf_v3.py",
+  "argv": [
+    "51",
+    "--fixed-baseline",
+    "--dirty-singletons",
+    "--cover-suffix",
+    "3",
+    "--cnf-only",
+    "--tag",
+    "global-control51-dirty-cover"
+  ],
+  "uncompressed_cnf_bytes": 322893811,
+  "uncompressed_cnf_sha256": "c362f9660fe4b024d3ca5ca01276e2e80b2021da8a30a70aa96a6c278ab49a1d",
+  "source_sha256": "c0609c8919b046ae38d274dedf82061b42e2db8fb4afb731fc7f7232f4f1f205",
+  "cnf_storage": "reproducible_from_preserved_source_and_inputs_not_archived_as_unused_duplicate"
+}

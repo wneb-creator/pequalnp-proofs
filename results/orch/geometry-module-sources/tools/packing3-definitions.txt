@@ -1,0 +1,61 @@
+namespace PackingThree
+
+structure Block where
+  vertices : Nat
+  active : Nat
+  edges : Nat
+
+structure State where
+  used : Nat
+  covered : Nat
+  seen : Nat
+  twice : Nat
+  thrice : Nat
+  count : Nat
+
+def emptyState : State := ⟨0, 0, 0, 0, 0, 0⟩
+
+def ok (s : State) (b : Block) : Bool :=
+  (s.used &&& b.vertices == 0) && (s.thrice &&& b.active == 0)
+
+def step (s : State) (b : Block) : State :=
+  ⟨s.used ||| b.vertices, s.covered ||| b.edges,
+   s.seen ||| b.active, s.twice ||| (s.seen &&& b.active),
+   s.thrice ||| (s.twice &&& b.active), s.count + 1⟩
+
+def flagCount (mask : Nat) : Nat :=
+  (Finset.univ.filter fun a : Fin 52 => mask.testBit a.val).card
+
+def good (s : State) : Bool := decide (flagCount s.covered ≤ 29 + s.count)
+
+def upperEdges (s : State) (bs : List Block) : Nat :=
+  bs.foldl (fun mask b => mask ||| b.edges) s.covered
+
+def prune (s : State) (bs : List Block) : Bool :=
+  decide (flagCount (upperEdges s bs) ≤ 29 + s.count)
+
+end PackingThree
+
+namespace PackingPrunedDFS
+
+variable {α σ : Type}
+
+def branches (ok : σ → α → Bool) (step : σ → α → σ)
+    (recur : σ → List α → Bool) (s : σ) : List α → Bool
+  | [] => true
+  | b :: bs =>
+      (if ok s b then recur (step s b) (bs.filter (ok (step s b))) else true) &&
+        branches ok step recur s bs
+
+def check (ok : σ → α → Bool) (step : σ → α → σ)
+    (good : σ → Bool) (prune : σ → List α → Bool) : Nat → σ → List α → Bool
+  | 0, s, bs => good s && bs.isEmpty
+  | fuel + 1, s, bs =>
+      if prune s bs then true
+      else good s && branches ok step (check ok step good prune fuel) s bs
+
+def validTrace (ok : σ → α → Bool) (step : σ → α → σ) : σ → List α → Bool
+  | _, [] => true
+  | s, b :: bs => ok s b && validTrace ok step (step s b) bs
+
+end PackingPrunedDFS

@@ -1,0 +1,11 @@
+/tmp/oec/pequalnp-pilot-62/lean-modules/PackingMaskProofs.lean:32:31: warning: This simp argument is unused:
+  Nat.testBit_lor
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.foldl_cons, ih, Bool.or_eq_true, or_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-62/lean-modules/PackingMaskProofs.lean:67:2: warning: Unused tactic linter: `change
+  flagCount (chosen.foldl step s).covered ≤ 29 + (chosen.foldl step s).count` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`

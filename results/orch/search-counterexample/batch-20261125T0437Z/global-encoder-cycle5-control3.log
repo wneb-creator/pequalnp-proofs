@@ -1,0 +1,2 @@
+{"scenario": "cycle5", "input_count": 5, "positive_count": 5, "negative_count": 5, "or_count": 3, "first_OR_orbits": 35, "false_OR_bounds": [2], "cover_prefix": 2, "variables": 654, "clauses": 2390, "encoding_seconds": 0.00513580799997726, "max_rss_KiB": 13312}
+result unsat solver_exit 20 elapsed 0.020780314000148792
