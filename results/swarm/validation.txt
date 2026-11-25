@@ -1,6 +1,6 @@
 Gap: L-meta-2590
 Branch: pnp/swarm-L-meta-2590-orch
-Status at 2026-11-25T23:09:18Z: partial research; full posted theorem not proved or refuted.
+Status at 2026-11-25T23:20:19Z: partial research; full posted theorem not proved or refuted.
 
 Root conditional Lean artifacts passed kernel compilation. Prior pushed artifacts
 also passed independent source and standard-axiom review. DeskDriver's new
@@ -21,10 +21,14 @@ requiring both label and wire injections. ExclusiveFamilies constructs actual
 disjoint nonempty source families under Bzero=0, with empty-output copy gates
 and an exact virtual-cost equation. All three passed kernel/standard-axiom
 audits and independent source review. No virtual-append or full N0 exclusion
-is claimed here. The i0/i3/i4 combined assembly remains under verification and
-is 681077 bytes, exceeding the 512 KiB final-file cap.
+is claimed here. FoundationI0I3I4 completed its full kernel build and six standard-axiom
+audits. Its actual-circuit reduction leaves exactly the cardinality-1,
+cardinality-2, or canonical-neighborhood alternatives. The 681941-byte
+partial file exceeds the 512 KiB final-file cap. Exact compiled dependency
+pruning and source-size experiments are ongoing; none is claimed validated
+as a final submission.
 
-Latest independently rebuilt helper snapshots:
+Earlier independently rebuilt helper snapshots (additional merged checks above):
 helper-1 72b88053; helper-9 5eb83c6b; helper-6 0f38695c;
 helper-5 f703ef1f; helper-7 47a045bb; helper-3 7a1cf165.
 The full four-ineligible case 923587456 independently rebuilt successfully.
@@ -48,4 +52,4 @@ single-file budget. These are computational results, not kernel-checked lower
 bounds, and the actual Petersen budget bridge is unfinished.
 
 Sub-agents: nine external helper jobs (helper-1 through helper-9), plus three local setup/review, assembly-review, and dead-gate pruning agents; 12 directly coordinated agents.
-TIMING total=121 subagents=12
+TIMING total=132 subagents=12
