@@ -1,0 +1,14 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/constructive-saturated-full-tail.lean",
+  "source_sha256": "7e4d2c6c10f025f8eb7c552a05f988b32a4aa02359440dea88250bff7d76c2a4",
+  "wrapper": "/tmp/oec/pequalnp-pilot-81/lean-cache/ConstructiveSaturatedFull.lean",
+  "wrapper_sha256": "f1781e612996488dae616b212e8f043b70f5cc7f330c7e6fb6f85a73271f85a5",
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T12:25:28.708038+00:00",
+  "scope": "Cached import check only; permitted-import standalone remains pending. Generic saturated protected assigned-slot exact-support lemma.",
+  "dependencies": [
+    "PNPAccepted6659",
+    "algebraic-protected-full-tail.lean"
+  ],
+  "prior_attempt": "One final definitional projection equality required rfl after rewriting equal labels; full failed diagnostics preserved."
+}

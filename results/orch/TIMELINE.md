@@ -51,3 +51,7 @@
 2026-11-25T12:19Z: Mixed p10 analytic surplus-bound tail passed cached compilation.
 2026-11-25T12:20:32Z: Complete cap finite/Finset certificate passed standalone compilation.
 2026-11-25T12:21:46Z: Carrier own-label derivative invariant passed standalone compilation.
+
+2026-11-25T12:25:12Z: Mixed p10 I01211 surplus bound completed standalone exit0.
+2026-11-25T12:25:43Z: Canonical p10 cap ordinary exclusion completed standalone exit0.
+2026-11-25T12:26:52Z: Missing49 finite/Finset sibling completed standalone exit0.

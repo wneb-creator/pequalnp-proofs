@@ -1,0 +1,8 @@
+{
+  "source": "results/orch/lemmas/structural-cofactor-main-many.lean",
+  "sha256": "ceb2269c4b67b2e9521eff63c598df8121cbde19b9746167f3fae67446390f57",
+  "tail_sha256": "08333bcd1a2300db2042344c2ff005ad2509e98a7f71e38fb086a2833cb1088d",
+  "exit_code": 0,
+  "compiled_at_utc": "2026-11-25T12:23:11.032497+00:00",
+  "scope": "General cofactor accounting counts every eligible free original label that becomes ineligible in the K4 cofactor, splitting its reserved unit into newly lost or retained nonbranching-image contributions."
+}

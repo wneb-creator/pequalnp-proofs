@@ -1,0 +1,16 @@
+{
+  "source": "results/orch/lemmas/algebraic-p10-cap.lean",
+  "sha256": "3720cc43d175dfdaf12de4b932feac34f7d832d728ee116529f254cb042b50bf",
+  "lines": 7578,
+  "bytes": 371118,
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T12:25:43.240945+00:00",
+  "command": "Pinned Lean4.36.0 lake env lean -j1 -M10000 /workspace/pequalnp-proofs/results/orch/lemmas/algebraic-p10-cap.lean",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "stdout": "algebraic-p10-cap-build.stdout",
+  "stderr": "algebraic-p10-cap-build.stderr",
+  "diagnostics": "Complete stdout and stderr are empty.",
+  "scope": "Ordinary impossibility for a strict-live correct Heawood circuit with totalSurplus\u226414 and ineligible set {0,1,2,5}. No derivative hypothesis; one complete canonical case, not the entire posted gap."
+}

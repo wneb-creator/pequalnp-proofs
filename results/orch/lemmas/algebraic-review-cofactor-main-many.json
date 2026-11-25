@@ -1,0 +1,17 @@
+{
+  "verdict": "PASS",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/structural-cofactor-main-many-tail.lean",
+  "sha256": "08333bcd1a2300db2042344c2ff005ad2509e98a7f71e38fb086a2833cb1088d",
+  "lines": 171,
+  "build_receipt": "structural-cofactor-main-many-build.json",
+  "scope": "Generic cofactor total-surplus inequality charging any finite set J of originally eligible free labels that become ineligible, outside the already charged center/X.",
+  "checks": [
+    "Initial restriction and old lost-unit set match the accepted cf_main construction.",
+    "Extra reserved units U are disjoint from residual/center/X units; purity and free-index injectivity give card U=card J.",
+    "The first-projection injectivity needed for retained-unit slack holds because all U units have slot index zero.",
+    "Retained K maps to ineligible support labels; lost U minus K contributes through cof_sur_add_lost.",
+    "Partition arithmetic adds the full card J without assuming distinct translated wires or a Bzero condition.",
+    "Cached complete logs are empty and receipt records exit 0; standalone composition remains a separate step."
+  ],
+  "forbidden_markers": []
+}

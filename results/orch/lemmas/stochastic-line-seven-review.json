@@ -1,0 +1,32 @@
+{
+  "verdict": "PASS independent finite table/bridge/composition review and standalone exit0",
+  "source": "results/orch/lemmas/formalization-line-seven-complete.lean",
+  "sha256": "af4b17cdc2de73f6af1bc217474af40c7d2b877f99028652892a72a529dae8d7",
+  "tail_sha256": "33073f4e9c7c592c6975a147d6f6497cc42735ae076d4140e829cbd6b5ff8e49",
+  "lines": 277,
+  "reviewed_utc": "2026-11-25T12:26:15.567795+00:00",
+  "checks": [
+    "Exact checkedcap7core andchoose-parentbody reused unchanged; newtail appended withonlynamespace closure.",
+    "Missing mask49 is{0,4,5}; all15strictsupersets listed inincreasingorder matchindependent enumeration. Requiredtriples andparenttables remain[11,69,98] andthechecked3\u00d710tables.",
+    "All15kernelblocks andfin_cases dispatch matchtheirfixedsuperset indices; independent15000-case census givesminimum7 andhistogram{7:5306,8:6890,9:2552,10:252}.",
+    "Generic Finset occurrence bridge is textually identicaltothecheckedcap7bridge afterrenamingonlymissing/superset/codes identifiers. Cardinalinjectivity, occurrence andpair-containment arguments unchanged.",
+    "Finalwrapper suppliesnew line7_codes_card; actualcircuitline embeddings andcounting closure remainseparate."
+  ],
+  "scope": "Checked canonical missing49 finite family certificate and generic Finset occurrence bridge; actual-circuit consequence separate.",
+  "build": {
+    "exit_code": 0,
+    "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-line-seven-complete.lean",
+    "source_sha256": "af4b17cdc2de73f6af1bc217474af40c7d2b877f99028652892a72a529dae8d7",
+    "tail_sha256": "33073f4e9c7c592c6975a147d6f6497cc42735ae076d4140e829cbd6b5ff8e49",
+    "lines": 277,
+    "bytes": 12998,
+    "cache_source": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPLineSeven.lean",
+    "cache_byte_equal": true,
+    "olean": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPLineSeven.olean",
+    "olean_sha256": "99d9b1bbe22b335c167d5a9ea8e7a5ba954d28f2f6a0a083e3732805f1770506",
+    "completed_utc": "2026-11-25T12:26:52.096545+00:00",
+    "stdout_bytes": 0,
+    "stderr_bytes": 0,
+    "scope": "Complete flattened permitted-import kernel finite certificate and arbitrary Finset occurrence bridge for missingmask49. No actual-circuit consequence is claimed."
+  }
+}

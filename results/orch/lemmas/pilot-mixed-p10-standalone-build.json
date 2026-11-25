@@ -1,0 +1,8 @@
+{
+  "source": "results/orch/lemmas/pilot-mixed-p10-standalone.lean",
+  "sha256": "43741f2c910ac1ec980b08230c4eaad8b807eba848a20cca908304ae713f0e87",
+  "exit_code": 0,
+  "started_utc": "2026-11-25T12:21:06.104411+00:00",
+  "completed_utc": "2026-11-25T12:25:12.818839+00:00",
+  "scope": "Canonical I={0,1,2,11}: Bplus\u226513 and Bzero\u22641 under totalSurplus\u226414; no complete no-quiet claim."
+}

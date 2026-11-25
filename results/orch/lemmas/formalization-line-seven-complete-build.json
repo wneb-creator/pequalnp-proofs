@@ -1,0 +1,16 @@
+{
+  "exit_code": 0,
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-line-seven-complete.lean",
+  "source_sha256": "af4b17cdc2de73f6af1bc217474af40c7d2b877f99028652892a72a529dae8d7",
+  "tail_sha256": "33073f4e9c7c592c6975a147d6f6497cc42735ae076d4140e829cbd6b5ff8e49",
+  "lines": 277,
+  "bytes": 12998,
+  "cache_source": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPLineSeven.lean",
+  "cache_byte_equal": true,
+  "olean": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPLineSeven.olean",
+  "olean_sha256": "99d9b1bbe22b335c167d5a9ea8e7a5ba954d28f2f6a0a083e3732805f1770506",
+  "completed_utc": "2026-11-25T12:26:52.096545+00:00",
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "scope": "Complete flattened permitted-import kernel finite certificate and arbitrary Finset occurrence bridge for missingmask49. No actual-circuit consequence is claimed."
+}

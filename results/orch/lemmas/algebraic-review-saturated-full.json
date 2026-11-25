@@ -1,0 +1,8 @@
+{
+  "verdict": "PASS",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/constructive-saturated-full-tail.lean",
+  "sha256": "7e4d2c6c10f025f8eb7c552a05f988b32a4aa02359440dea88250bff7d76c2a4",
+  "build_receipt": "constructive-saturated-full-cache-build.json",
+  "scope": "A protected assigned source has exact neighborhood support when known assigned consumptions and one eligible-neighbor edge slot exhaust its neighbor label consumption budget.",
+  "review": "Assigned positions are injective; the extra edge slot is fresh because its opposite eligible label cannot equal an ineligible assigned input. Cardinal saturation exhausts sem_W. Every remaining consumption has an opposite support label distinct from i, so equality_full_gen_protected applies. No assumption ru\u22641 is added."
+}

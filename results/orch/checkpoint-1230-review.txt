@@ -1,0 +1,17 @@
+PASS — independent checkpoint-1230 preservation audit
+Reviewed UTC: 2026-11-25T12:31:46.124618+00:00
+Manifest SHA-256: 66f92cc4a97bf31c0046904702b51111dc056a60e51581daadc1394881fb6785
+
+All31 files match the manifest hashes and byte counts exactly:871476 bytes total. All directly referenced source hashes in the build and independent-review receipts also match the corresponding frozen sources.
+
+The cap I={0,1,2,5} result is correctly stated as a complete ordinary impossibility for that canonical case under StrictLive, correctness and totalSurplus<=14. Its7578-line Defs-only source has exit0, empty full diagnostics, and a matching exact-composition independent review. It is not represented as a full-gap refutation.
+
+The mixed-p10 I={0,1,2,11} result is correctly stated as Bplus>=13 and Bzero<=1. Its8263-line frozen source now has a matching standalone exit0 receipt and final composition review; no no-double-quiet conclusion is claimed.
+
+The missing49 finite/Finset sibling matches its successful permitted-import standalone/cache receipt, unchanged source/tail hashes, and final independent review. Its actual-circuit consequence remains explicitly separate. The two remaining helpers—cofactor multi-unit aggregation and saturated protected-slot exact support—are consistently labeled cached compilation only; their reviews do not claim standalone archival builds.
+
+All archived successful stdout/stderr files are complete and empty. The saturated helper receipt mentions a prior short failed elaboration whose complete logs remain in scratch; the successful diagnostics included here are not excerpts or substitutions for that failure.
+
+CASE_LEDGER, NOTES, TIMELINE and validation accurately distinguish completed canonical cases, partial bounds, and the remaining full structural theorem. The local checker status remains REJECTED (no-theorem), as explicitly stated; no full-gap result or PR readiness is asserted.
+
+All listed text was scanned for credential-shaped data without inspecting environment secrets; no finding. All listed Lean sources were scanned for sorry, axioms, native_decide, bv_decide, _root_, string literals, unsupported attributes and options; no finding. Inherited local simp declarations are permitted simp attributes. This is an archival branch checkpoint, not the final single-file proof PR.

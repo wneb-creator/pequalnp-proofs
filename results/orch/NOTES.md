@@ -86,3 +86,5 @@ The exact posted-to-canonical bridge now has a successful standalone build and i
 K4 update: the full7570-line permitted-import standalone also completed exit0 and independent composition review before this checkpoint was pushed.
 
 2026-11-25T12:23:31.745069+00:00: Preserving complete cap finite/Finset certificate, three-subset helper, carrier derivative invariant, and cached mixed-p10 analytic bound. Root mixed-p10 and algebraic full cap standalone builds are active. Compact p14 encoding and exact reconstruction controls are preserved before solver completion.
+
+2026-11-25T12:30:58.577912+00:00: Full cap ordinary exclusion and mixed-p10 analytic bound now pass standalone builds. Missing49 finite sibling is checked, with circuit-line adaptation in progress. Main remaining routes are mixed p9, remaining line-q2 masks, and high cases; no full target claim.

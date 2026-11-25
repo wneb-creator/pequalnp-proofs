@@ -1,0 +1,61 @@
+{
+  "verdict": "PASS exact standalone composition and matching exit0 build",
+  "source": "results/orch/lemmas/algebraic-p10-cap.lean",
+  "sha256": "3720cc43d175dfdaf12de4b932feac34f7d832d728ee116529f254cb042b50bf",
+  "lines": 7578,
+  "bytes": 371118,
+  "reviewed_utc": "2026-11-25T12:22:07.260957+00:00",
+  "accepted_prefix_lines": 6745,
+  "accepted_original_sha256": "e856158208c582f389897b6941fd0cd675fe6e590fb09b4299b35b9c91a76a20",
+  "finite_source_sha256": "ad5b5b75cec1b0c0d471309297e40b50c9ff20477fe908dbf0daa70a9fc53e8c",
+  "tails": [
+    {
+      "source": "results/orch/lemmas/algebraic-cap-common-tail.lean",
+      "sha256": "f4c386c2d9bf63a14651f56c1c5c7e47cd1d5995e90977788ab3ef8460b89046"
+    },
+    {
+      "source": "results/orch/lemmas/algebraic-cap-count-tail.lean",
+      "sha256": "830bb373b62353622882b9d59560fabf87347c55ac332fa26afd917d6c4ba3bc"
+    },
+    {
+      "source": "results/orch/lemmas/algebraic-cap-shape-tail.lean",
+      "sha256": "619811573af92887515b11d0bafde7d527c53ed8a73aa3a4c77b94378117b4d8"
+    },
+    {
+      "source": "results/orch/lemmas/algebraic-cap-parent-tail.lean",
+      "sha256": "df027de9ce3bc2b5eb3816603e9d37b0375b17f09930b4bbcf6441eddf253f05"
+    },
+    {
+      "source": "results/orch/lemmas/algebraic-cap-family-tail.lean",
+      "sha256": "b0bac83f335a3d4ef39fca1c5638168d44298dbd4b06fc6dcbc3d6b397d05f5e"
+    },
+    {
+      "source": "results/orch/lemmas/algebraic-cap-close-tail.lean",
+      "sha256": "5ed8574e296fe92abc378a84df04026944a11c3a2ca060a64d665541cc6a79e1"
+    }
+  ],
+  "checks": [
+    "Exact accepted first6745lines, exact alreadychecked complete finite/Finsetbody, and six frozen tails occur in the stated order, with only whitespacejoining and finalnamespace closure.",
+    "Common helpers are exact declaration excerpts from previously reviewed algebraic-saturated-tail and algebraic-q5-shape-tail.",
+    "All new count/shape/parent/family/closure components have separate independent source/math reviews; the complete cached theorem hasmatchingexit0receipt andemptylogs.",
+    "No forbidden root marker, quote, sorry, native decision or axiom declaration appears. OnlyDefs is imported.",
+    "The conclusion is ordinary impossibility for exactineligiblecap{0,1,2,5} andtotalSurplus\u226414, notfullFano noquiet orpostedgapclosure."
+  ],
+  "scope": "Checked canonical p10 cap ordinary-circuit exclusion component; full posted gap remains separate.",
+  "standalone_build": {
+    "source": "results/orch/lemmas/algebraic-p10-cap.lean",
+    "sha256": "3720cc43d175dfdaf12de4b932feac34f7d832d728ee116529f254cb042b50bf",
+    "lines": 7578,
+    "bytes": 371118,
+    "exit_code": 0,
+    "completed_utc": "2026-11-25T12:25:43.240945+00:00",
+    "command": "Pinned Lean4.36.0 lake env lean -j1 -M10000 /workspace/pequalnp-proofs/results/orch/lemmas/algebraic-p10-cap.lean",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "stdout": "algebraic-p10-cap-build.stdout",
+    "stderr": "algebraic-p10-cap-build.stderr",
+    "diagnostics": "Complete stdout and stderr are empty.",
+    "scope": "Ordinary impossibility for a strict-live correct Heawood circuit with totalSurplus\u226414 and ineligible set {0,1,2,5}. No derivative hypothesis; one complete canonical case, not the entire posted gap."
+  }
+}

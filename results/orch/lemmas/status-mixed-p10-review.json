@@ -1,9 +1,9 @@
 {
-  "status": "PASS independent final tail and standalone composition review; cached check passed, standalone build pending",
+  "status": "PASS independent final tail, exact standalone composition, and successful standalone build review",
   "source": "results/orch/lemmas/pilot-mixed-p10-tail.lean",
   "sha256": "8dec1bc0a687f35ee85c39cdbb46342b71d53274bb627f5be802db9801738243",
   "lines": 174,
-  "reviewed_utc": "2026-11-25T12:21:59.475182+00:00",
+  "reviewed_utc": "2026-11-25T12:28:04.323194+00:00",
   "scope": "Under StrictLive/Correct,totalSurplus\u226414,I={0,1,2,11}, proves Bplus\u226513 and Bzero\u22641; no no-quiet conclusion.",
   "checks": [
     "Three residual subsets use ambient\u22642, not an assumed exact enumeration.",
@@ -50,5 +50,8 @@
       "lines": 174
     }
   ],
-  "elaboration_changes": "Geometry conjunction split into seven kernel decisions; explicit implicit x/t binders on distinct helper. No statement or argument change."
+  "elaboration_changes": "Geometry conjunction split into seven kernel decisions; explicit implicit x/t binders on distinct helper. No statement or argument change.",
+  "standalone_exit_code": 0,
+  "standalone_completed_utc": "2026-11-25T12:25:12.818839+00:00",
+  "standalone_logs": "Complete stdout and stderr are both empty; receipt source hash matches frozen reviewed source."
 }

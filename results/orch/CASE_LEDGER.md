@@ -1,6 +1,6 @@
 # Canonical equality-case ledger
 
-Updated 2026-11-25 12:12 UTC. All sets use the accepted edgeList labeling; point labels agree with the posted cyclic labeling and line labels are negated modulo seven. The full target remains open. The listed zero-surplus bounds alone do not rule out a quiet edge with two eligible endpoints.
+Updated 2026-11-25 12:30 UTC. All sets use the accepted edgeList labeling; point labels agree with the posted cyclic labeling and line labels are negated modulo seven. The full target remains open. The listed zero-surplus bounds alone do not rule out a quiet edge with two eligible endpoints.
 
 | Eligible inputs | Canonical ineligible set | Complete no-double-quiet result | Current component |
 |---|---|---|---|
@@ -9,8 +9,8 @@ Updated 2026-11-25 12:12 UTC. All sets use the accepted edgeList labeling; point
 | 9 | {0,1,2,3,4} | Standalone compiled ordinary impossibility | Finite residual masks, protected inputs, and sharp cofactor count |
 | 9 | {0,1,2,5,11} | Open | Mixed-cap missing-mask saturation |
 | 10 | {0,1,2,3} | Open | Standalone Bplus at least13; Bzero at most1 |
-| 10 | {0,1,2,5} | Open | Cap missing-mask saturation and protected inputs |
-| 10 | {0,1,2,11} | Open | Triangle-consumption structure |
+| 10 | {0,1,2,5} | Standalone compiled ordinary impossibility | Seven-mask family obstruction and sharp support counting |
+| 10 | {0,1,2,11} | Open | Standalone Bplus at least13; Bzero at most1 by analytic cofactor bound |
 | 10 | {0,1,11,12} | Open | Bplus at least13; Bzero at most1 |
 | 11 | {0,1,2} | Open | Bzero=0 |
 | 11 | {0,1,3} | Open | Bzero=0 from strengthened cofactor loss |
