@@ -1,0 +1,9 @@
+L-meta-1031 preservation checkpoint
+Source: public pilot56 PR11479, commit d585ca8aad082f3ec25bb50596d0824f8cfdf437.
+Named lake build PEqualNP.Outside.L_meta_1031: PASS (5149 jobs).
+This file contains checked helper lemmas only. The exact posted theorem is NOT proved.
+Format review: only expected missing-final-theorem failure; no full checker acceptance claimed.
+Independent review: REVIEW.md.
+Sub-agents: 6 (checker/setup/review, constructive matching, counterexample search, ownership exchange, minimal-cone soundness, pair normalization)
+TIMING total=6.5 subagents=6
+Cleanup: not started; baseline 3027 lines.
