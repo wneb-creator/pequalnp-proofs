@@ -1,0 +1,7 @@
+q {'degree': 8, 'terms': 19, 'seconds': 0.03652014399995096}
+c {'degree': 9, 'terms': 34, 'seconds': 0.08199533700098982}
+linear_r {'degree': 16, 'terms': 73, 'seconds': 0.23115257600147743}
+eliminate_V_q {'degree': 35, 'terms': 186, 'seconds': 0.9502367470013269}
+eliminate_V_c {'degree': 35, 'terms': 248, 'seconds': 2.0891703060005966}
+eliminate_U_01 {'degree': 173, 'terms': 344, 'seconds': 6.531062752001162}
+REVERSE_NORM_DEGREE 164 COMBINED_GCD (beta + 2)**22*(2*beta - 1)**24/16777216 SECONDS 8.952101229999244

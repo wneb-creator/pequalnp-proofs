@@ -1,0 +1,22 @@
+{
+  "c4-case3-independent-review.log": "bb8811498f74a37a4ea791f0d642cd716d5cf19c4e9b7c8a27d27d4c4983b56b",
+  "c4-case3-norm-gcd-status.json": "b18f4a0a673d29af3fc5237a1c34507c0d97aa1e98438cbe2a4be622c2fc5166",
+  "c4-case3-norm-gcd.json": "b6fc1e6aef6d4518af56445f011b50f2c3256c3a9b4ead1db113569f3f24ed7d",
+  "c4-case3-norm-gcd.log": "58c62ef4cf8b4e410ae90a696d0cad4b865743cd16e940c0d5db6c06a8c62e4c",
+  "c4-case3-resultant-progress.json": "9d4818be87ad48a64e5c1553e7c25be5c5502c9cfffb713effcf5278b64f05fb",
+  "c4-case3-resultants-status.json": "b7ccfde90a9e30a02adc45f8ef3ed469b4b5dd29d3ae1792c45b56fa37488157",
+  "c4-case3-resultants.json": "b2e6f5915dfa314e13549fa66cfedae2eb0580faf30d4dc95a6db03dbb2b3aea",
+  "c4-case3-resultants.log": "4accb57aa1653b419dc421c59a08a947aa415b6662161a8d7d80313a2a5e7510",
+  "c4-case3-reverse-firstnorm-status.json": "df664fb2e34a74833811c10ff96eb631df5def0e78eeca08e39884de44578343",
+  "c4-case3-reverse-firstnorm.json": "d11996dc94a9d510e0b9dad38d9380008527a41930a2c9e0a065d19dd71cbe74",
+  "c4-case3-reverse-firstnorm.log": "f8faa4eee2b586eefd5f3ce60ab4af371bd135df8d18eb2629eee79748aca46c",
+  "c4-case3-reverse-progress.json": "b4de4b9bab83692dca5622b23a320de26bd0350969935d2d840b2b29b480557a",
+  "c4-case3-scalar-branches.json": "d5498652a97d7f78b9325e01b6c135a6add029943b99833a9f05a17716e0f1ae",
+  "c4-case3-scalar-branches.log": "4068998b6355ad708f3e72d3eab1d23fdba4780279835a037b1f0184fb764b52",
+  "c4-nonzero-reduced-3.json": "72b12e2f543766e57aec78a88717f5133442553a207566956022363aa89a867f",
+  "c4_case3_independent_review.py": "c959c1cfb3d5cba3596fd76ad363ef3492b5961924814bc91b047ec7dda8d359",
+  "c4_case3_norm_gcd.py": "bce9ba4af8e9727b7764e5055260362b67a310c3831cc7e8ab14425d9e67724f",
+  "c4_case3_resultants.py": "dd7faeb0291d2fa440fe5fbf894b1c69a85879df054c396bce20760da48d1d32",
+  "c4_case3_reverse_firstnorm.py": "7509f09806050c9e8a81a364aec516166d11bd1a49cb9d37c51393e4ab7ef651",
+  "c4_case3_scalar_branches.py": "c58605677f87e4c8640a8678d57076a75a2d7cc2577532968f9eb978a0ff4105"
+}

@@ -1,0 +1,21 @@
+{
+  "augmented-batch-summary.json": "47198fb04287e865d3a47e97ce8880bdbda2c02dc79e503c85619f2cd99c7411",
+  "augmented-batch-summary.log": "47198fb04287e865d3a47e97ce8880bdbda2c02dc79e503c85619f2cd99c7411",
+  "neogb-c4-augmented2-p1009-b1-basis.json": "536e63695324f2bab97029de3e31da8b0d33c02b7bf83c92293efa62ad7ba0af",
+  "neogb-c4-augmented2-p1009-b1-wrapper.log": "89710871a1387b175da25aded3db00e6479e604986f0196879b806c7dd6ad367",
+  "neogb-c4-augmented2-p1009-b1.log": "c1aae1b9c57a1721a2dade586d2139385c5dc0887f3fd7bfecbd8c6e57a15819",
+  "neogb-c4-augmented2-p1009-b1.result.json": "d26e07291205872ffc322331bbd03cf8da741108876fe0b7a1c328a871e05936",
+  "neogb-c4-augmented2-p1009-b4-basis.json": "536e63695324f2bab97029de3e31da8b0d33c02b7bf83c92293efa62ad7ba0af",
+  "neogb-c4-augmented2-p1009-b4-wrapper.log": "3274a1f91d803632382b344c09bc60b46709bebb0910e3b3ae81a45310b39785",
+  "neogb-c4-augmented2-p1009-b4.log": "1c4a0d2e61deda01cecf7f93b5617e869743ccdac59ebe4cb48263cb9f49bd61",
+  "neogb-c4-augmented2-p1009-b4.result.json": "212582c220491beeff3cf747574a77af4d086f17112be277de5d0abb7da09ecb",
+  "neogb-c4-augmented3-p1009-b1-basis.json": "536e63695324f2bab97029de3e31da8b0d33c02b7bf83c92293efa62ad7ba0af",
+  "neogb-c4-augmented3-p1009-b1-wrapper.log": "e45b80da21c33fccfc21ae5429ec2b138c1e8cc9b605cef1019c54391858590a",
+  "neogb-c4-augmented3-p1009-b1.log": "f7328816db7721baba64bfa6a9945c209397c027e6131908ed34ff126f41e09d",
+  "neogb-c4-augmented3-p1009-b1.result.json": "792feb3c767440a767c1dd6484e2bc95996b0a89e87a9c6e46df1bfe9053344c",
+  "neogb-c4-augmented3-p1009-b4-basis.json": "536e63695324f2bab97029de3e31da8b0d33c02b7bf83c92293efa62ad7ba0af",
+  "neogb-c4-augmented3-p1009-b4-wrapper.log": "c391959f96404d3e75b8a76b444f719883ece2a031b397b211d331a1056963b2",
+  "neogb-c4-augmented3-p1009-b4.log": "649f243354ca94303b74bc63e017567cefe6985adb10ab1516308e83a671707d",
+  "neogb-c4-augmented3-p1009-b4.result.json": "27ec65cf9ace922de25f6ef96e97772f28a0fa86d09990a8d7fd96ea1bfb6cd7",
+  "summarize_augmented_batches.py": "35b0038ad39770f30f6db1cf80e61592b7708e0a5a466b9362f7c9fd31c7e1a6"
+}

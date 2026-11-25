@@ -1,0 +1,10 @@
+q {'degree': 8, 'terms': 19, 'seconds': 0.06948148399897036}
+c {'degree': 9, 'terms': 34, 'seconds': 0.14847391799776233}
+linear_r {'degree': 16, 'terms': 73, 'seconds': 0.4160743199972785}
+quadratic_l {'degree': 15, 'terms': 94, 'seconds': 0.7098358990006091}
+eliminate_U_q {'degree': 41, 'terms': 214, 'seconds': 2.2757252880001033}
+eliminate_U_c {'degree': 59, 'terms': 420, 'seconds': 7.240853423998487}
+eliminate_U_l {'degree': 47, 'terms': 254, 'seconds': 9.209279987997434}
+eliminate_V_01 {'degree': 219, 'terms': 436, 'seconds': 24.206862717997865}
+eliminate_V_02 {'degree': 163, 'terms': 324, 'seconds': 30.39735305999784}
+eliminate_V_12 {'degree': 238, 'terms': 474, 'seconds': 47.66667183699974}

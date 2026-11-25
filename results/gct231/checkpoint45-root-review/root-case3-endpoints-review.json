@@ -1,0 +1,5 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "7de6a5f3a9ce6f86f47012c0d6108ace25a5856b22152dec6f9fc8a68cffe4ac",
+  "scope": "Independent root reading of all40lines: only displayed conditional scalar systems are excluded/classified; no preceding parameter restriction or global theorem. Exact source prefix of axiom audit verified; standard axioms only. Source polynomial mapping supplied separately by author, not counted as independent whole-chain review."
+}

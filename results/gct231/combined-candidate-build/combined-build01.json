@@ -1,0 +1,11 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-75/gct231/integration/L_gct_231_CombinedCandidate.lean",
+  "source_sha256": "455519b9fd760d5ec45d2da6274066654d1cc37123ee75c85ec6192cb54ca5a0",
+  "source_unchanged": true,
+  "exit_code": 0,
+  "seconds": 347.06229935900046,
+  "peak_rss_kib": 5589556,
+  "resource_rss_kib": 5589020,
+  "reason": null,
+  "finished_utc": "2026-11-25T12:09:41.571660+00:00"
+}

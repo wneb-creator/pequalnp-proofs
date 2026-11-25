@@ -1,0 +1,31 @@
+{
+  "candidate": "/tmp/oec/pequalnp-pilot-75/gct231/integration/L_gct_231_CombinedCandidate.lean",
+  "candidate_sha256": "455519b9fd760d5ec45d2da6274066654d1cc37123ee75c85ec6192cb54ca5a0",
+  "bytes": 264200,
+  "lines": 2507,
+  "declaration_count": 264,
+  "new_imports": [
+    "import Mathlib.LinearAlgebra.Matrix.Determinant.Basic",
+    "import Mathlib.LinearAlgebra.Matrix.Symmetric",
+    "import Mathlib.Algebra.Polynomial.Basic",
+    "import Mathlib.LinearAlgebra.Basis.Prod",
+    "import Mathlib.LinearAlgebra.Basis.VectorSpace",
+    "import Mathlib.LinearAlgebra.Dimension.Free",
+    "import Mathlib.LinearAlgebra.FiniteDimensional.Lemmas",
+    "import Mathlib.LinearAlgebra.Matrix.Nonsingular",
+    "import Mathlib.LinearAlgebra.Projection",
+    "import Mathlib.Algebra.Polynomial.Degree.Domain",
+    "import Mathlib.Algebra.Polynomial.Coeff",
+    "import Mathlib.Algebra.BigOperators.NatAntidiagonal",
+    "import Mathlib.LinearAlgebra.Matrix.Polynomial",
+    "import Mathlib.Algebra.MvPolynomial.Eval",
+    "import Mathlib.Algebra.MvPolynomial.NoZeroDivisors",
+    "import Mathlib.Tactic",
+    "import Mathlib.Algebra.Polynomial.Roots",
+    "import Mathlib.Algebra.CharZero.Infinite",
+    "import Mathlib.Tactic.FinCases"
+  ],
+  "old_body_preserved_bytewise": true,
+  "static_safety_scan": "PASS",
+  "build_status": "NOT_RUN_WAITING_FOR_ROOT_MEMORY_SLOT"
+}

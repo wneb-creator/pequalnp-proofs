@@ -1,0 +1,47 @@
+{
+  "source": "c4-nonzero-U-saturated-2-normalized.json",
+  "source_sha256": "f3a6f5393122b0223a270279caccd7e6671d95708e7a3858f9453f155764f83a",
+  "characteristic": 0,
+  "variables": [
+    "P",
+    "B",
+    "U",
+    "V",
+    "sat",
+    "invU"
+  ],
+  "generator_count": 7,
+  "term_count": 136,
+  "dropped_modular_zero_terms": 0,
+  "equation_scalings": [
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    }
+  ],
+  "input_sha256": "3f16332c0194d505798fe8e56291f06caac76100a3f2c5f53c7c9f54c4ae2d1c"
+}

@@ -1,0 +1,8 @@
+{
+  "status": "COMPLETED",
+  "returncode": 0,
+  "seconds": 67.6396188639992,
+  "wall_limit_seconds": 90,
+  "memory_mib": 512,
+  "scope": "Necessary norm/gcd computation only; conjugate branches may be spurious."
+}

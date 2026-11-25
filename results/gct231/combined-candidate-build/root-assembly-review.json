@@ -1,0 +1,7 @@
+{
+  "verdict": "PASS",
+  "sha256": "455519b9fd760d5ec45d2da6274066654d1cc37123ee75c85ec6192cb54ca5a0",
+  "scope": "Exact body-preservation and format review only; combined compile pending; posted theorem absent.",
+  "components_checked": 6,
+  "old_body_preserved": true
+}

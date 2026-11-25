@@ -1,0 +1,10 @@
+cd72c5f71b339841ac25d74c430bb3da436100414167f0dae90ee58d2131d07a  README.md
+68f12e662badceecb3471002d4bcd11338b72b8fdc06db0974095c5961ad9f6e  compact-2g/path-c4-qc-batch32-2g.f4.in
+fc112f6df527f3295b9d578e34034342175a00bf3f2a94839436b1d0ca7e2a3c  compact-2g/path-c4-qc-batch32-2g.log
+85dfad01dffaf456edd46b3715daaf9fc00e43c45b1b08299db4ca0a9b19a9ba  compact-2g/path-c4-qc-batch32-2g.run.json
+43752fe9fa37fed879b3cde51b2ba7c836eef680d90df259bbd235d0e738a561  compact-2g/trace-summary.json
+68f12e662badceecb3471002d4bcd11338b72b8fdc06db0974095c5961ad9f6e  primitive-512m/path-c4-qc-batch32.f4.in
+a3eb388452e8bb1b8b03408e30cde822582276b9c9e28d5c7b46cc35690b51c5  primitive-512m/path-c4-qc-batch32.log
+35184599a4befd9cc67e32a3a395de0a03a263c221c3eacc628a2dad3edde803  primitive-512m/path-c4-qc-batch32.run.json
+15c53e15e8c46e08d66e34bda1ff73957d1d5775a7ba403fd1b8cce029244897  primitive-512m/trace-summary.json
+a56f0acf4a3f13db19c76e97fd0f584722a10ce7e9cacab792f6de86837204b2  primitive-comparison.json

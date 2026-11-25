@@ -1,0 +1,71 @@
+{
+  "scope": "Finite-field timing/order observations only; no implication about rational elimination cost.",
+  "records": [
+    {
+      "case": 2,
+      "pairs": 1,
+      "status": "COMPLETED",
+      "unit_F1009": true,
+      "seconds": 0.7700051390020235,
+      "printed_pair_rounds": 1117,
+      "max_matrix_entries": 46471489,
+      "max_columns": 6817,
+      "max_degree": 14
+    },
+    {
+      "case": 2,
+      "pairs": 4,
+      "status": "COMPLETED",
+      "unit_F1009": true,
+      "seconds": 0.2657187020013225,
+      "printed_pair_rounds": 297,
+      "max_matrix_entries": 14440000,
+      "max_columns": 3800,
+      "max_degree": 14
+    },
+    {
+      "case": 2,
+      "pairs": 32,
+      "status": "COMPLETED",
+      "unit_F1009": true,
+      "seconds": 0.06600099700153805,
+      "printed_pair_rounds": 43,
+      "max_matrix_entries": 2935212,
+      "max_columns": 1743,
+      "max_degree": 14
+    },
+    {
+      "case": 3,
+      "pairs": 1,
+      "status": "COMPLETED",
+      "unit_F1009": true,
+      "seconds": 0.47017174100255943,
+      "printed_pair_rounds": 1011,
+      "max_matrix_entries": 15163236,
+      "max_columns": 3894,
+      "max_degree": 14
+    },
+    {
+      "case": 3,
+      "pairs": 4,
+      "status": "COMPLETED",
+      "unit_F1009": true,
+      "seconds": 0.21610567699826788,
+      "printed_pair_rounds": 306,
+      "max_matrix_entries": 7119900,
+      "max_columns": 2700,
+      "max_degree": 14
+    },
+    {
+      "case": 3,
+      "pairs": 32,
+      "status": "COMPLETED",
+      "unit_F1009": true,
+      "seconds": 0.06541911699969205,
+      "printed_pair_rounds": 47,
+      "max_matrix_entries": 5519158,
+      "max_columns": 2381,
+      "max_degree": 14
+    }
+  ]
+}

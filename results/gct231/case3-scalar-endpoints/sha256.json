@@ -1,0 +1,11 @@
+{
+  "Case3ScalarEndpoints.lean": "7de6a5f3a9ce6f86f47012c0d6108ace25a5856b22152dec6f9fc8a68cffe4ac",
+  "Case3ScalarEndpointsAudit.lean": "a5dcfc73937d7a2ce2c6c7d09e78ab2d3541a21696b879716cb98a4f5e1ab49d",
+  "c4-case3-scalar-branches.json": "d5498652a97d7f78b9325e01b6c135a6add029943b99833a9f05a17716e0f1ae",
+  "c4-nonzero-reduced-3.json": "72b12e2f543766e57aec78a88717f5133442553a207566956022363aa89a867f",
+  "case3-scalar-endpoints-axioms.log": "d821cafc6a91afbb68af98b2f50fc2776bc55bb5fd0b6e46ea6a6c8774e6a0f8",
+  "case3-scalar-endpoints-build.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "case3-scalar-endpoints-mapping.json": "ac888f98904e7d53200aeac9716013585280b32928f871d0bcfa11c6ebbeb269",
+  "case3-scalar-endpoints-mapping.log": "ac888f98904e7d53200aeac9716013585280b32928f871d0bcfa11c6ebbeb269",
+  "review_case3_endpoint_inputs.py": "ce58c294676a5b09b22f6455b571c9f915d390a764e79e09174d49a2c0ad3954"
+}

@@ -1,0 +1,8 @@
+{
+  "status": "COMPLETED",
+  "returncode": 0,
+  "seconds": 48.673791419001645,
+  "wall_limit_seconds": 90,
+  "memory_mib": 512,
+  "scope": "Necessary symbolic resultant computation; not a branch exclusion."
+}

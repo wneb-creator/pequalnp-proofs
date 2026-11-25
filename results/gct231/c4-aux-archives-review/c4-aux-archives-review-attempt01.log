@@ -1,0 +1,7 @@
+Start UTC 2026-11-25T11:46:05.940504+00:00
+c4-U-route exact manifest coverage/hashes/text-only PASS 40 d96a269ec89ff2a1b3ea1f4b6be02d982a5b2e6cd6df523358909515cc398949
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-75/gct231/c4_aux_archives_review.py", line 22, in <module>
+    b=json.loads(basis.read_text());assert b['characteristic']==1009 and len(b['basis'])==1 and b['basis'][0]==[[1,[0]*b['nvars']]]
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

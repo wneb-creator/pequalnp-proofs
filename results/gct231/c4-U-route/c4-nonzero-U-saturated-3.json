@@ -1,0 +1,39 @@
+{
+  "variables": [
+    "A",
+    "beta",
+    "U",
+    "V",
+    "sat",
+    "invU"
+  ],
+  "equations": [
+    "2*A**2*U**2 - 3*A*U**2 + 2*A*U*V + 18*A + 2*V**2*beta**2 + 2*V**2*beta - 2*V**2",
+    "2*(A**2*U**3 - 14*A**2*U**2 - 2*A*U**2*V + 10*A*U*V - 18*A - U*V**2*beta**2 + 2*U*V**2*beta - 14*V**2*beta**2 + 10*V**2*beta - V**2)",
+    "8*A**2*beta**4 + 8*A**2*beta**3 - 8*A**2*beta**2 - 10*A*beta**4 - 8*A*beta**3 + 4*A*beta**2 - 4*A*beta + 5*A + 6*beta**2 + 6*beta - 6",
+    "16*A**3*U*beta**6 + 96*A**3*U*beta**5 + 52*A**3*U*beta**4 - 112*A**3*U*beta**3 + 20*A**3*U*beta - 192*A**3*beta**6 - 384*A**3*beta**5 + 48*A**3*beta**4 + 336*A**3*beta**3 - 108*A**3*beta**2 + 8*A**2*U*beta**6 - 132*A**2*U*beta**5 - 132*A**2*U*beta**4 + 176*A**2*U*beta**3 + 34*A**2*U*beta**2 - 44*A**2*U*beta + 16*A**2*V*beta**7 - 100*A**2*V*beta**5 - 16*A**2*V*beta**4 + 88*A**2*V*beta**3 - 40*A**2*V*beta**2 + 10*A**2*V*beta + 384*A**2*beta**6 + 480*A**2*beta**5 - 144*A**2*beta**4 - 252*A**2*beta**3 + 48*A**2*beta**2 - 120*A**2*beta + 75*A**2 - 30*A*U*beta**6 + 36*A*U*beta**5 + 84*A*U*beta**4 - 60*A*U*beta**3 - 36*A*U*beta**2 + 24*A*U*beta - 24*A*V*beta**7 + 12*A*V*beta**6 + 168*A*V*beta**5 + 12*A*V*beta**4 - 132*A*V*beta**3 + 54*A*V*beta**2 - 12*A*V*beta - 228*A*beta**6 - 108*A*beta**5 - 6*A*beta**4 - 240*A*beta**3 + 156*A*beta**2 + 324*A*beta - 180*A - 24*V*beta**6 - 72*V*beta**5 - 12*V*beta**4 + 60*V*beta**3 - 12*V*beta**2 + 108*beta**4 + 216*beta**3 - 108*beta**2 - 216*beta + 108",
+    "28*A**3*U**2*beta**3 + 42*A**3*U**2*beta**2 - 28*A**3*U**2*beta - 192*A**3*U*beta**3 - 288*A**3*U*beta**2 + 192*A**3*U*beta - 24*A**2*U**2*beta**3 - 36*A**2*U**2*beta**2 + 24*A**2*U**2*beta + 24*A**2*U*V*beta**4 - 28*A**2*U*V*beta**3 - 60*A**2*U*V*beta**2 + 44*A**2*U*V*beta - 10*A**2*U*V + 120*A**2*U*beta**3 + 180*A**2*U*beta**2 - 120*A**2*U*beta + 192*A**2*V*beta**4 + 96*A**2*V*beta**3 - 72*A**2*V*beta**2 - 36*A**2*V*beta - 36*A*U*V*beta**4 + 24*A*U*V*beta**3 + 36*A*U*V*beta**2 - 36*A*U*V*beta + 12*A*U*V - 4*A*V**2*beta**5 + 2*A*V**2*beta**4 + 24*A*V**2*beta**3 + 4*A*V**2*beta**2 - 6*A*V**2*beta - 5*A*V**2 - 288*A*V*beta**4 + 108*A*V*beta**2 - 12*V**2*beta**3 - 18*V**2*beta**2 + 6*V**2*beta + 6*V**2",
+    "A*beta*sat*(-4*A*beta**2 - 4*A*beta + 5*A + 6*beta**2 + 6*beta - 6) - 1",
+    "invU*U - 1"
+  ],
+  "original_case": 3,
+  "substitution": {
+    "gamma": "1/(alpha*beta)",
+    "u": "U",
+    "v": "V/alpha"
+  },
+  "squared_variable": {
+    "alpha**2": "A"
+  },
+  "discarded_denominators": [
+    "3*alpha**2",
+    "9*alpha**2",
+    "4*alpha**2*beta**2",
+    "12*alpha**2*beta**2",
+    "18*alpha**3*beta"
+  ],
+  "det_W_numerator": "-4*A*beta**2 - 4*A*beta + 5*A + 6*beta**2 + 6*beta - 6",
+  "det_W_denominator": "2",
+  "scope": "Original six reduced necessary equations plus the auxiliary assumption U is nonzero. A characteristic-zero unit certificate would imply U=0 for the original reduced system; no verdict claimed.",
+  "reduced_source_sha256": "72b12e2f543766e57aec78a88717f5133442553a207566956022363aa89a867f"
+}

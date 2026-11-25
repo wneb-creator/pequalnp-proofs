@@ -1,0 +1,13 @@
+{
+  "status": "UNKNOWN_OUTPUT_FILE_SIZE_LIMIT",
+  "returncode": -25,
+  "wall_seconds": 169.57615455499945,
+  "seconds_limit": 600,
+  "memory_mib_limit": 4096,
+  "output_file_mib_limit": 512,
+  "pairs": 32,
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/sparse-engine/certificate-trace-compact/path-c4-qc.in",
+  "input_sha256": "0fa4cd49e431d0a087b57b4d5961ff8e85240dec6e39369998d9544a6b0b809b",
+  "companion_sha256": "68f12e662badceecb3471002d4bcd11338b72b8fdc06db0974095c5961ad9f6e",
+  "binary_sha256": "7f424fb398ca7c5a758ba39e63461e9f0410f44975031f13936e4a7c1f89c669"
+}

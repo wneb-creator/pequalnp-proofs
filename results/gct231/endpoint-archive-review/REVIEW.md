@@ -1,0 +1,7 @@
+Independent review PASS, 2026-11-25.
+
+C4 endpoint source719ac5d4b27dd5162d3b30db96f8bdf0dabce727f7be25b41bf36ebcb6126d74: all rational linear-combination identities independently expanded, both statements are explicit normalized scalar endpoint lemmas only. Exact audit-source prefix, allowed scoped options/import and absence of prohibited constructs checked. Preserved build passes and reports only propext, Classical.choice, Quot.sound for each theorem. No resultant-chain or geometric premise is claimed by these two lemmas.
+
+Archive coverage and every file hash pass for c4-case2-endpoints (7 files), c4-augmented-qq (16 files), neogb-qq-reruns (10 files). Augmented cases2/3 are UNKNOWN_OUTPUT_FILE_SIZE_LIMIT at16.027/44.036 seconds with13/17 complete rounds. Compact2GiB and primitive512MiB reruns are UNKNOWN_OUTPUT_FILE_SIZE_LIMIT at716.184/169.576 seconds with36/31 complete rounds. Actual archived companion hashes and augmented native input hashes match metadata. Rerun native-input hashes and omitted large trace/payload comparison measurements are recorded provenance, not independently reread here. No solver failure is promoted to a unit/nonexistence claim.
+
+The first local review run expected native inputs in both archives and stopped on the rerun archive, which intentionally stores only companion input. The corrected checker distinguishes this explicitly; full corrected output is preserved.

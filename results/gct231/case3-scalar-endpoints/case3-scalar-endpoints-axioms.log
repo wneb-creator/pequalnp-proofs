@@ -1,0 +1,6 @@
+'PEqualNP.Outside.L_gct_231_aux.case3_beta_neg2_A_three32_impossible' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.case3_beta_half_A_four_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

@@ -1,0 +1,15 @@
+Start UTC 2026-11-25T11:46:15.509547+00:00
+c4-U-route exact manifest coverage/hashes/text-only PASS 40 d96a269ec89ff2a1b3ea1f4b6be02d982a5b2e6cd6df523358909515cc398949
+c4-U-route all complete finite-field unit output/input hashes and run limits PASS
+augmented-c4-small-batches exact manifest coverage/hashes/text-only PASS 19 1da49c356b698efec19b98ac2003649dc3672275b1ead8037c4a98a55bce0c11
+augmented-c4-small-batches all complete finite-field unit output/input hashes and run limits PASS
+Both independent algebra/input reviews archived verbatim: PASS
+SUMMARY case 2 pairs 1 rounds 1117 max columns 6817 seconds 0.7700051390020235 PASS
+SUMMARY case 2 pairs 4 rounds 297 max columns 3800 seconds 0.2657187020013225 PASS
+SUMMARY case 2 pairs 32 rounds 43 max columns 1743 seconds 0.06600099700153805 PASS
+SUMMARY case 3 pairs 1 rounds 1011 max columns 3894 seconds 0.47017174100255943 PASS
+SUMMARY case 3 pairs 4 rounds 306 max columns 2700 seconds 0.21610567699826788 PASS
+SUMMARY case 3 pairs 32 rounds 47 max columns 2381 seconds 0.06541911699969205 PASS
+Scope: finite-field units/timing only; U=0 classification remains conditional. No QQ unit inference or solver rerun.
+Finish UTC 2026-11-25T11:46:15.524976+00:00
+PASS

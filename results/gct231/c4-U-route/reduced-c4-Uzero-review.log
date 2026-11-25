@@ -1,0 +1,14 @@
+Start UTC 2026-11-25T11:39:06.703221+00:00
+Classification source SHA256 b44780311236fdea9b01ed054dadf317b4f4c41d93e57489a84566abaf114334
+Classification certificate SHA256 6b8dcf656bd8063bfa01df4c66d6b3eafdbb9b232b32b6a236c695f96442679a
+CASE 2 source SHA256 0ab9ffa48a2b21f637556a635ff1f835fd59836ad48c77cec594a1751f7dc87b
+CASE2 V=0 forces B=0 and contradicts saturation; remaining V=-2 or6
+CASE2 saved exact Bezout identities verified: V=-2 impossible; V=6 gives P=-2; sat=-1/26
+CASE 2 unique conditional point satisfies all six original equations: PASS
+CASE 3 source SHA256 72b12e2f543766e57aec78a88717f5133442553a207566956022363aa89a867f
+CASE3 V=0 contradicts saturation; e1+2e0=-6V^2(2beta-1)^2 forces beta=1/2
+CASE3 beta=1/2 gives (A-4)(4A-3)=0; saturation excludes A=3/4; final line gives V=-12 and sat=1/13
+CASE 3 unique conditional point satisfies all six original equations: PASS
+This classifies complex solutions only under U=0. No proof of U=0, no solver rerun.
+Finish UTC 2026-11-25T11:39:06.938349+00:00
+PASS

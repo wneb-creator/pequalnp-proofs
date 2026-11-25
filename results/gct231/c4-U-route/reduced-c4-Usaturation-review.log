@@ -1,0 +1,11 @@
+Start UTC 2026-11-25T11:39:49.544297+00:00
+Generator source SHA256 63d738b5b815369e57b0422726df4528ab70da4140b61f93c2a4d40afa8955a5
+CASE 2 exact six-equation prefix and appended invU*U-1: PASS; source SHA256 aaa912a4c745e97e084be80a028287e31e67c77e768856ba602bb7fd4237d17c
+CASE 2 qq all seven sparse rows verified; total terms 136 input SHA256 3f16332c0194d505798fe8e56291f06caac76100a3f2c5f53c7c9f54c4ae2d1c
+CASE 2 p1009 all seven sparse rows verified; total terms 136 input SHA256 7991355d70b39872026835307b7efd00d4a41b99f8980a68926dc9446c368b41
+CASE 3 exact six-equation prefix and appended invU*U-1: PASS; source SHA256 aabaf7dda448f177fcb94706ebe8a6a3c1b678e5ccc900e3d76f18c54dedf1fc
+CASE 3 qq all seven sparse rows verified; total terms 134 input SHA256 31486c8605459cfbf915f8f0fad1284294b20348e435c8926e8c032e87c9cb94
+CASE 3 p1009 all seven sparse rows verified; total terms 134 input SHA256 b288c1c0859fdf70f1903e4a9dec07d454ea5420e5fa4d0ad99c56feb7173fd9
+Over C, a point of the original reduced system with U!=0 lifts uniquely by invU=1/U. Thus a characteristic-zero unit certificate would imply U=0 for that reduced system. No solver verdict or finite-field-to-C inference.
+Finish UTC 2026-11-25T11:39:49.717110+00:00
+PASS

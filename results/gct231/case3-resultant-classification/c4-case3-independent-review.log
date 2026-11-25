@@ -1,0 +1,32 @@
+Start UTC 2026-11-25T12:04:27.549216+00:00
+SHA256 c4-case3-resultants.json b2e6f5915dfa314e13549fa66cfedae2eb0580faf30d4dc95a6db03dbb2b3aea
+SHA256 c4-case3-norm-gcd.json b6fc1e6aef6d4518af56445f011b50f2c3256c3a9b4ead1db113569f3f24ed7d
+SHA256 c4-case3-reverse-firstnorm.json d11996dc94a9d510e0b9dad38d9380008527a41930a2c9e0a065d19dd71cbe74
+SHA256 c4-case3-scalar-branches.json d5498652a97d7f78b9325e01b6c135a6add029943b99833a9f05a17716e0f1ae
+Saturation A*beta*det nonzero; exact identities force H nonzero; curve leading coefficient8beta^2H nonzero: PASS
+Exact reduced identity q nonzero rational scale 1 seconds 0.23
+Exact reduced identity c nonzero rational scale 1 seconds 0.313
+Exact reduced identity linear_r nonzero rational scale 1 seconds 0.604
+Exact reduced identity quadratic_l nonzero rational scale 1 seconds 0.895
+Exact reduced identity eliminate_U_q nonzero rational scale 1 seconds 1.824
+Exact reduced identity eliminate_U_c nonzero rational scale -1 seconds 5.846
+Exact reduced identity eliminate_U_l nonzero rational scale 1 seconds 9.512
+Exact reduced identity eliminate_V_01 nonzero rational scale 11664 seconds 34.272
+Exact reduced identity eliminate_V_02 nonzero rational scale 162 seconds 42.13
+Exact reduced identity eliminate_V_12 nonzero rational scale 648 seconds 85.299
+All forward resultants independently reconstructed by linear formula/Sylvester determinant: PASS
+Forward norm/gcd eliminate_V_01 210 210 PASS
+Forward norm/gcd eliminate_V_02 152 98 PASS
+Forward norm/gcd eliminate_V_12 224 98 PASS
+Exact reduced identity eliminate_V_q nonzero rational scale 1/4 seconds 113.143
+Exact reduced identity eliminate_V_c nonzero rational scale 1/4 seconds 114.32
+Exact reduced identity eliminate_U_01 nonzero rational scale 729 seconds 126.981
+Reverse norm and combined exact gcd=(beta+2)^22(2beta-1)^24/16777216: PASS
+Direct scalar branch A= 2 beta= -2 PASS
+Direct scalar branch A= 3/32 beta= -2 PASS
+Direct scalar branch A= 4 beta= 1/2 PASS
+Direct scalar branch A= 3/4 beta= 1/2 PASS
+Only original reduced point (A,beta,U,V,sat)=(4,1/2,0,-12,1/13); both scale lifts fail omitted square condition: PASS
+Scope: exact necessary elimination and original scalar branches close reduced open case3, given the separately reviewed geometric reduction. No case2, fullchart, main-gap or Lean claim.
+Finish UTC 2026-11-25T12:06:40.797707+00:00
+PASS

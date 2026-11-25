@@ -1,0 +1,16 @@
+[
+  {
+    "case": 2,
+    "trace_bytes": 67108864,
+    "trace_sha256": "92394173e389021c970b72f1ba49216811aada2cc7095c2bcc6dc6d30812ad6b",
+    "completed_rounds": 13,
+    "last_completed_round": "  6      31     238     145 x 361        25.55%     31 new       0 zero         1.25 | 1.24         "
+  },
+  {
+    "case": 3,
+    "trace_bytes": 67108864,
+    "trace_sha256": "7617104d5929609a5aeaad53004e8c4e03811918dc8b25bb9e850aa9ef92be32",
+    "completed_rounds": 17,
+    "last_completed_round": "  6      32     233     142 x 313        38.75%     32 new       0 zero         3.74 | 3.73         "
+  }
+]

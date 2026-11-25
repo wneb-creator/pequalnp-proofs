@@ -1,0 +1,13 @@
+ARCHIVE PASS c4-case2-endpoints 7 d266462d502076e94ccc162c14f91eb33ead90a70bb1625503db0a2d1f485b3a
+ENDPOINT PASS: exact rational identities, exact audit source, two explicit conditional scalar statements; no resultant or geometry claim
+ARCHIVE PASS c4-augmented-qq 16 9198353fb147ce3bae24250c16904d582f32e6895f2917ede9e18080d311d1bc
+UNKNOWN case2.run.json 16.027070056999946 64
+UNKNOWN case3.run.json 44.03614423500039 64
+ROUND COUNT PASS case2.log 13
+ROUND COUNT PASS case3.log 17
+ARCHIVE PASS neogb-qq-reruns 10 2d84e4065d50219cd91fd35dff4069446034ac6b52b70e2ca49b042f6f3ff107
+UNKNOWN path-c4-qc-batch32-2g.run.json 716.1839683300004 2048
+UNKNOWN path-c4-qc-batch32.run.json 169.57615455499945 512
+ROUND COUNT PASS path-c4-qc-batch32-2g.log 36
+ROUND COUNT PASS path-c4-qc-batch32.log 31
+PASS: archive hashes/coverage, archived companion hashes, augmented native input hashes, resource-limit status and completed-round counts. Rerun native inputs and omitted large trace hashes/payload-comparison measurements are recorded provenance, not independently reread in this review.

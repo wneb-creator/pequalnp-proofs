@@ -1,0 +1,43 @@
+{
+  "source_sha256": "7de6a5f3a9ce6f86f47012c0d6108ace25a5856b22152dec6f9fc8a68cffe4ac",
+  "lines": 40,
+  "checked_hypotheses": [
+    {
+      "theorem": "case3_beta_neg2_A_three32_impossible",
+      "hypothesis": "hq",
+      "source_equation": 0,
+      "source_equals_hypothesis_times": "1/512"
+    },
+    {
+      "theorem": "case3_beta_neg2_A_three32_impossible",
+      "hypothesis": "hr",
+      "source_equation": 3,
+      "source_equals_hypothesis_times": "11163/4096"
+    },
+    {
+      "theorem": "case3_beta_neg2_A_three32_impossible",
+      "hypothesis": "hl",
+      "source_equation": 4,
+      "source_equals_hypothesis_times": "-549/512"
+    },
+    {
+      "theorem": "case3_beta_half_A_four_unique",
+      "hypothesis": "hq",
+      "source_equation": 0,
+      "source_equals_hypothesis_times": "1/2"
+    },
+    {
+      "theorem": "case3_beta_half_A_four_unique",
+      "hypothesis": "hc",
+      "source_equation": 1,
+      "source_equals_hypothesis_times": "1/2"
+    },
+    {
+      "theorem": "case3_beta_half_A_four_unique",
+      "hypothesis": "hr",
+      "source_equation": 3,
+      "source_equals_hypothesis_times": "169/8"
+    }
+  ],
+  "scope": "Two conditional scalar endpoint lemmas; no claim of the preceding scale restriction."
+}

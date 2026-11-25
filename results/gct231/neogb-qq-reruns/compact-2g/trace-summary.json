@@ -1,0 +1,8 @@
+{
+  "label": "compact-2g",
+  "trace_sha256": "d0c9438828716d91c9ea722958584041d5ccbf6f954d970b9bed6657ca100446",
+  "trace_bytes": 2147483648,
+  "completed_rounds": 36,
+  "last_completed_round": "  6      32    5919    3998 x 7264        8.04%     32 new       0 zero       162.41 | 161.95       ",
+  "scope": "Truncated unsuccessful trace omitted; no certificate or basis verdict."
+}

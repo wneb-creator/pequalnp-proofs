@@ -1,0 +1,4 @@
+PASS manifest exact coverage and all 14 hashes
+PASS 2 UNKNOWN_OUTPUT_FILE_SIZE_LIMIT 69.2963657620021 seconds, completed rounds 23
+PASS 3 UNKNOWN_OUTPUT_FILE_SIZE_LIMIT 24.18312700699971 seconds, completed rounds 35
+SCOPE no basis/certificate/Lean verdict; large omitted trace hashes recorded but raw traces not reread or replayed.

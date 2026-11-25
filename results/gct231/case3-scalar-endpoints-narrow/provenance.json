@@ -1,0 +1,13 @@
+{
+  "source_sha256": "2dfae559b3eb4b7445aea3e4d483c5663f6f83ff685cde7111790946ecb4d125",
+  "original_source_sha256": "7de6a5f3a9ce6f86f47012c0d6108ace25a5856b22152dec6f9fc8a68cffe4ac",
+  "body_unchanged": true,
+  "lines": 42,
+  "compile": "Exact source followed only by two #print axioms commands; exit0.",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "scope": "Two conditional scalar endpoints; no preceding scale restriction or full-gap conclusion."
+}
