@@ -6675,4 +6675,299 @@ lemma exists_normal_allOwnerPure {p l : ℕ} (E : Finset (Fin p × Fin l))
 
 end H5Owners
 
+namespace H5Owners
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover
+open H5Pruning H5Bridge H5SemanticScore
+
+lemma pure_of_edge_agreements {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C) (hmin : scoreMinimal E C)
+    (q : Fin (p+l)) (P : ℕ → Prop)
+    (hchild : ∀ j < C.gates.length, (gateAt C j).op = .or →
+      ∀ v ∈ (gateAt C j).inputs, P (p+l+j) → P v)
+    (hagree : ∀ w, P w → wireFn (p+l) C w (singletonInput q) = true →
+      (∀ x, x q = true → wireFn (p+l) C w x = true) ∧
+      (∀ u, wireFn (p+l) C w (singletonInput u) = singletonInput u q) ∧
+      (∀ a b, (a,b) ∈ E → wireFn (p+l) C w (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) =
+        pairInput (Fin.castAdd l a) (Fin.natAdd p b) q)) :
+    ∀ w, P w → wireFn (p+l) C w (singletonInput q) = true →
+      ∀ x, wireFn (p+l) C w x = x q := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hP hq
+    by_cases hin : w < p+l
+    · have he : (⟨w,hin⟩ : Fin (p+l)) = q := by
+        rw [wireFn_input (p+l) C w hin] at hq
+        simpa [singletonInput] using hq
+      intro x
+      rw [wireFn_input (p+l) C w hin,he]
+    · have hvalid : w < p+l+C.gates.length := by
+        by_contra hn
+        rw [wireFn_ge (p+l) C w (by omega)] at hq
+        cases hq
+      let j := w-(p+l)
+      have hj : j < C.gates.length := by omega
+      have hw : p+l+j = w := by omega
+      obtain ⟨u,v,hu,hv,hinp,hop,hval⟩ := binary_gate (p+l) C hC.1 j hj
+      have ha := hagree w hP hq
+      rcases hop with hop | hop
+      · have hi : q.val < p+l+j := by have hqq := q.isLt; omega
+        have hinput : ∀ x, wireFn (p+l) C q.val x = x q := fun x => wireFn_input _ C q.val q.isLt x
+        have hl : ∀ x, wireFn (p+l) C q.val x ≤ wireFn (p+l) C (p+l+j) x := by
+          intro x
+          rw [hinput,hw]
+          exact Bool.le_iff_imp.mpr (ha.1 x)
+        have he := replacement_fixed E C hC hmin j hj q.val hi hop hl
+          (fun a b hab => by rw [hinput,hw]; exact (ha.2.2 a b hab).symm)
+          (fun a => by rw [hinput,hw]; exact (ha.2.1 a).symm)
+        intro x
+        rw [←hw,he x,hinput]
+      · have hpos : wireFn (p+l) C u (singletonInput q) = true ∨
+            wireFn (p+l) C v (singletonInput q) = true := by
+          have he := hval (singletonInput q)
+          rw [hw,hq] at he
+          simpa [hop,GateOp.eval] using he.symm
+        have step : ∀ k ∈ (gateAt C j).inputs,
+            wireFn (p+l) C k (singletonInput q) = true →
+            ∀ x, wireFn (p+l) C w x = x q := by
+          intro k hk hkq
+          have hkw : k < w := by have hh := hC.1.2.1 j hj k hk; omega
+          have hkP : P k := hchild j hj hop k hk (by simpa [hw] using hP)
+          have hkfun := ih k hkw hkP hkq
+          have hr : orIn (p+l) C k ⊆ orIn (p+l) C (p+l+j) := by
+            intro a ha
+            exact H5Reach.orIn_up (p+l) C j k a hj hop hk (by omega) ha
+          have hl : ∀ x, wireFn (p+l) C k x ≤ wireFn (p+l) C (p+l+j) x := by
+            intro x
+            rw [hkfun x,hw]
+            exact Bool.le_iff_imp.mpr (ha.1 x)
+          have he := or_replacement_fixed E C hC hmin j hj k (by omega) hop hr hl
+            (fun a b hab => by rw [hkfun,hw]; exact (ha.2.2 a b hab).symm)
+            (fun a => by rw [hkfun,hw]; exact (ha.2.1 a).symm)
+          intro x
+          rw [←hw,he x,hkfun]
+        rcases hpos with huq | hvq
+        · exact step u (by simp [hinp]) huq
+        · exact step v (by simp [hinp]) hvq
+
+
+lemma pure_of_singleton_edge_bounds {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C) (hmin : scoreMinimal E C)
+    (q : Fin (p+l)) (w : ℕ)
+    (hq : wireFn (p+l) C w (singletonInput q) = true)
+    (hsingle : ∀ u, wireFn (p+l) C w (singletonInput u) ≤ singletonInput u q)
+    (hedge : ∀ a b, (a,b) ∈ E →
+      wireFn (p+l) C w (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) ≤
+        pairInput (Fin.castAdd l a) (Fin.natAdd p b) q) :
+    ∀ x, wireFn (p+l) C w x = x q := by
+  let P := fun v =>
+    (∀ u, wireFn (p+l) C v (singletonInput u) ≤ singletonInput u q) ∧
+    (∀ a b, (a,b) ∈ E →
+      wireFn (p+l) C v (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) ≤
+        pairInput (Fin.castAdd l a) (Fin.natAdd p b) q)
+  have hchild : ∀ j < C.gates.length, (gateAt C j).op = .or →
+      ∀ v ∈ (gateAt C j).inputs, P (p+l+j) → P v := by
+    intro j hj hop v hv hP
+    have hle : ∀ x, wireFn (p+l) C v x ≤ wireFn (p+l) C (p+l+j) x := by
+      intro x
+      exact Bool.le_iff_imp.mpr (or_child_imp C hC.1 j hj hop v hv x)
+    exact ⟨fun u => (hle _).trans (hP.1 u),
+      fun a b hab => (hle _).trans (hP.2 a b hab)⟩
+  have hagree : ∀ v, P v → wireFn (p+l) C v (singletonInput q) = true →
+      (∀ x, x q = true → wireFn (p+l) C v x = true) ∧
+      (∀ u, wireFn (p+l) C v (singletonInput u) = singletonInput u q) ∧
+      (∀ a b, (a,b) ∈ E →
+        wireFn (p+l) C v (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) =
+          pairInput (Fin.castAdd l a) (Fin.natAdd p b) q) := by
+    intro v hP hvq
+    have hlower := true_singleton_lower (wireFn (p+l) C v) (wireFn_mono _ C hC.1 v) q hvq
+    refine ⟨hlower, ?_, ?_⟩
+    · intro u
+      exact le_antisymm (hP.1 u) (Bool.le_iff_imp.mpr (hlower _))
+    · intro a b hab
+      exact le_antisymm (hP.2 a b hab) (Bool.le_iff_imp.mpr (hlower _))
+  exact pure_of_edge_agreements E C hC hmin q P hchild hagree w ⟨hsingle, hedge⟩ hq
+
+lemma pure_of_singleton_edge_agreement {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C) (hmin : scoreMinimal E C)
+    (q : Fin (p+l)) (w : ℕ)
+    (hsingle : ∀ u, wireFn (p+l) C w (singletonInput u) = singletonInput u q)
+    (hedge : ∀ a b, (a,b) ∈ E →
+      wireFn (p+l) C w (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) =
+        pairInput (Fin.castAdd l a) (Fin.natAdd p b) q) :
+    ∀ x, wireFn (p+l) C w x = x q := by
+  apply pure_of_singleton_edge_bounds E C hC hmin q w
+  · simpa [singletonInput] using hsingle q
+  · intro u
+    exact le_of_eq (hsingle u)
+  · intro a b hab
+    exact le_of_eq (hedge a b hab)
+
+lemma singleton_residual_edge_of_agreement {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C) (hmin : scoreMinimal E C)
+    (q : Fin (p+l)) (w : ℕ)
+    (hsingle : ∀ u, wireFn (p+l) C w (singletonInput u) = singletonInput u q)
+    (hnotpure : ¬ ∀ x, wireFn (p+l) C w x = x q) :
+    ∃ (a : Fin p) (b : Fin l), (a,b) ∈ E ∧
+      wireFn (p+l) C w (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true ∧
+      pairInput (Fin.castAdd l a) (Fin.natAdd p b) q = false := by
+  by_contra hbad
+  apply hnotpure
+  apply pure_of_singleton_edge_bounds E C hC hmin q w
+  · simpa [singletonInput] using hsingle q
+  · intro u
+    exact le_of_eq (hsingle u)
+  · intro a b hab
+    apply Bool.le_iff_imp.mpr
+    intro hv
+    cases hq : pairInput (Fin.castAdd l a) (Fin.natAdd p b) q with
+    | true => rfl
+    | false => exact False.elim (hbad ⟨a,b,hab,hv,hq⟩)
+
+lemma singleton_residual_edge {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C) (hmin : scoreMinimal E C)
+    (q : Fin (p+l)) (w : ℕ)
+    (hsupport : ∀ u, wireFn (p+l) C w (singletonInput u) = true ↔ u = q)
+    (hnotpure : ¬ ∀ x, wireFn (p+l) C w x = x q) :
+    ∃ (a : Fin p) (b : Fin l), (a,b) ∈ E ∧
+      wireFn (p+l) C w (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true ∧
+      pairInput (Fin.castAdd l a) (Fin.natAdd p b) q = false := by
+  apply singleton_residual_edge_of_agreement E C hC hmin q w _ hnotpure
+  intro u
+  apply Bool.eq_iff_iff.mpr
+  simp only [singletonInput, decide_eq_true_eq]
+  exact (hsupport u).trans eq_comm
+
+end H5Owners
+
+namespace H5ReplacementEssential
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity.NestedCover
+open H5Pruning H5Bridge H5Stars H5AndReplace H5SemanticScore H5Owners
+
+lemma replacement_fixed_of_output {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C) (hmin : scoreMinimal E C)
+    (j : ℕ) (hj : j < C.gates.length) (i : ℕ) (hi : i < p+l+j)
+    (hop : (gateAt C j).op = .and)
+    (hle : ∀ x, wireFn (p+l) C i x ≤ wireFn (p+l) C (p+l+j) x)
+    (hsingle : ∀ u : Fin (p+l), wireFn (p+l) C i (singletonInput u) =
+      wireFn (p+l) C (p+l+j) (singletonInput u))
+    (hout : ∀ x, wireFn (p+l) (replace C j i) C.output x = wireFn (p+l) C C.output x) :
+    ∀ x, wireFn (p+l) C (p+l+j) x = wireFn (p+l) C i x := by
+  let D := replace C j i
+  have hD : admissible p l E D := by
+    apply admissible_of_keeps E C D hC (replace_good (p+l) C hC.1 j hj i hi hop) hout
+    · rw [show D = replace C j i from rfl, replace_tCount (p+l) C hC.1 j hj i hi hop]
+      exact hC.2.2.1
+    · exact replace_keepsStars (p+l) C hC.1 j hj i hi hle hsingle
+  have hscore : score (p+l) C ≤ score (p+l) D :=
+    hmin D hD (replace_size C j hj i) (replace_andCount C j hj i hop)
+      (replace_andIndexSum C j hj i hop)
+  have hweak := replace_wire_le (p+l) C hC.1 j hj i hi hle
+  intro x
+  have heq := gate_eq_of_score_le (p+l) C D (replace_length C j hj i)
+    (fun k _ x => hweak (p+l+k) x) hscore j hj x
+  rw [show wireFn (p+l) D (p+l+j) x = wireFn (p+l) C i x from
+    replace_wire_self (p+l) C j hj i hi x] at heq
+  exact heq.symm
+
+lemma replacement_loss_values (n : ℕ) (C : Circuit) (j : ℕ) (hj : j < C.gates.length)
+    (i : ℕ) (hi : i < n+j) (x : Fin n → Bool)
+    (hle : wireFn n C i x ≤ wireFn n C (n+j) x)
+    (hold : wireFn n C C.output x = true)
+    (hnew : wireFn n (replace C j i) C.output x = false) :
+    wireFn n C i x = false ∧ wireFn n C (n+j) x = true := by
+  have hne : wireFn n C i x ≠ wireFn n C (n+j) x := by
+    intro heq
+    have h := replace_wire_eq n C j hj i hi x heq C.output
+    rw [hnew, hold] at h
+    cases h
+  cases hi0 : wireFn n C i x with
+  | false =>
+      refine ⟨rfl,?_⟩
+      cases hj0 : wireFn n C (n+j) x with
+      | false => exact (hne (hi0.trans hj0.symm)).elim
+      | true => rfl
+  | true =>
+      have hj1 := Bool.le_iff_imp.mp hle hi0
+      exact (hne (hi0.trans hj1.symm)).elim
+
+lemma and_replacement_output_essential {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C) (hmin : scoreMinimal E C)
+    (j : ℕ) (hj : j < C.gates.length) (i : ℕ) (hi : i < p+l+j)
+    (hop : (gateAt C j).op = .and)
+    (hle : ∀ x, wireFn (p+l) C i x ≤ wireFn (p+l) C (p+l+j) x)
+    (hsingle : ∀ u : Fin (p+l), wireFn (p+l) C i (singletonInput u) =
+      wireFn (p+l) C (p+l+j) (singletonInput u))
+    (hneq : ¬ ∀ x, wireFn (p+l) C (p+l+j) x = wireFn (p+l) C i x) :
+    ∃ (a : Fin p) (b : Fin l), (a,b) ∈ E ∧
+      wireFn (p+l) C i (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = false ∧
+      wireFn (p+l) C (p+l+j) (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true ∧
+      wireFn (p+l) (replace C j i) C.output
+        (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = false := by
+  classical
+  by_contra hbad
+  have hspec : ∀ x, wireFn (p+l) C C.output x = H5Pruning.graphFun (bipartiteEdges E) x := by
+    intro x
+    rw [graphFun_bipartite]
+    exact hC.2.1 x
+  have hpos : ∀ a b, (a,b) ∈ E → wireFn (p+l) (replace C j i) C.output
+      (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true := by
+    intro a b hab
+    cases hnew : wireFn (p+l) (replace C j i) C.output
+      (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) with
+    | true => rfl
+    | false =>
+        have hold : wireFn (p+l) C C.output
+            (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true := by
+          rw [hspec, graphFun_bipartite]
+          exact decide_eq_true ⟨a,b,hab,by simp [pairInput],by simp [pairInput]⟩
+        obtain ⟨hi0,hj1⟩ := replacement_loss_values (p+l) C j hj i hi _ (hle _) hold hnew
+        exact (hbad ⟨a,b,hab,hi0,hj1,hnew⟩).elim
+  have hfun : ∀ x, wireFn (p+l) (replace C j i) C.output x =
+      H5Pruning.graphFun (bipartiteEdges E) x := by
+    apply H5Essential.graph_eq_of_positive_and_le (p+l) (bipartiteEdges E) _
+      (replace_wire_mono (p+l) C hC.1 j i C.output)
+    · intro x
+      rw [← hspec x]
+      exact replace_wire_le_at (p+l) C hC.1 j hj i hi x (hle x) C.output
+    · intro e he
+      obtain ⟨ab,hab,rfl⟩ := Finset.mem_image.mp he
+      exact hpos ab.1 ab.2 hab
+  apply hneq
+  apply replacement_fixed_of_output E C hC hmin j hj i hi hop hle hsingle
+  intro x
+  exact (hfun x).trans (hspec x).symm
+
+lemma singleton_remainder_output_essential {p l : ℕ} (E : Finset (Fin p × Fin l))
+    (C : Circuit) (hC : admissible p l E C) (hmin : scoreMinimal E C)
+    (j : ℕ) (hj : j < C.gates.length) (hop : (gateAt C j).op = .and)
+    (q : Fin (p+l))
+    (hsingle : ∀ u : Fin (p+l), wireFn (p+l) C (p+l+j) (singletonInput u) = singletonInput u q)
+    (hneq : ¬ ∀ x, wireFn (p+l) C (p+l+j) x = x q) :
+    ∃ (a : Fin p) (b : Fin l), (a,b) ∈ E ∧
+      pairInput (Fin.castAdd l a) (Fin.natAdd p b) q = false ∧
+      wireFn (p+l) C (p+l+j) (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = true ∧
+      wireFn (p+l) (replace C j q.val) C.output
+        (pairInput (Fin.castAdd l a) (Fin.natAdd p b)) = false := by
+  have hi : q.val < p+l+j := by have := q.isLt; omega
+  have hinput : ∀ x, wireFn (p+l) C q.val x = x q :=
+    fun x => wireFn_input (p+l) C q.val q.isLt x
+  have hle : ∀ x, wireFn (p+l) C q.val x ≤ wireFn (p+l) C (p+l+j) x := by
+    intro x
+    rw [hinput]
+    apply Bool.le_iff_imp.mpr
+    intro hx
+    have hq : wireFn (p+l) C (p+l+j) (singletonInput q) = true := by
+      rw [hsingle]
+      simp [singletonInput]
+    exact Bool.le_iff_imp.mp (wireFn_mono (p+l) C hC.1 (p+l+j) (singletonInput_le q x hx)) hq
+  obtain ⟨a,b,hab,hi0,hj1,hout⟩ := and_replacement_output_essential E C hC hmin j hj q.val hi hop hle
+    (fun u => by rw [hinput, hsingle])
+    (by intro heq; apply hneq; intro x; exact (heq x).trans (hinput x))
+  exact ⟨a,b,hab,by simpa only [hinput] using hi0,hj1,hout⟩
+
+end H5ReplacementEssential
+
 end PEqualNP.Outside.L_meta_4970_aux
