@@ -1,0 +1,11 @@
+Independent reviewer: /root/circuit_search/search_audit. Read-only audits; no searches run by reviewer.
+
+Full-plane tests regenerated exactly:52 minimal positives and704 maximal negatives.
+Conditional tap tests regenerated exactly:48+553 residual tests,4 tap-positive singletons,197 restricted tap negatives,802 total. Known62-gate control scores0; omitted-line61 scores1.
+Singleton substitution, duplicate/dead-gate pruning, exact-current-gate masks, and topology reorder reviewed sound.
+All18 seed-bank entries validated;72 padding controls preserve outputs and produce63 valid gates. Bank adds26 singleton negatives,782 total.
+Pair-priority source reviewed SHA256:7631d31233c444034d12003ccbdb377222f36f1ca1d95b1a4e0ad27dc52a3da5.1055 distinct tests fit1088 bits;64-bit fitness and strict hard/pair priorities checked. A pair-correct candidate is partial evidence until all original756tests pass.
+Free-tap source reviewed SHA256:db707addb78829acbb961445b27cbfd322c5629a7614e38cfb9df577328fe424. Selector refresh after rewrites/restores/reordering,802cases andJSON output metadata checked. Prepared only, never run. Final unchecked perturbation can miss a solution but cannot falsely accept one.
+Grid/small argument and adjacency guards reviewed; grid6.txt SHA256:729c7e1ee48dc86cbeb5971201e41aeff3ea8973646543e4687f6dcb95ebf4ac.
+
+Stopped pair-priority partial: best-pairs.json andbest.json are identical, SHA256b2ee6b5e49e1ade64d856d504c0e722bbbe1c24d71d36cfe4892bbe5645ee941.63 valid gates;0/52positive errors;0/26singleton errors;140/704maximal-negative errors. Exactly2/273false nonedge pairs: (0,15) and(1,14). Empty inputfalse. Independent enumeration of2600triples found no additional minimal false triples. Larger supports remain unclassified. This is NOT a proof ofL-meta-650.
