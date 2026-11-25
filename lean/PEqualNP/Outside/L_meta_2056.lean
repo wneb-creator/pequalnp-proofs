@@ -394,4 +394,33 @@ lemma baseline64 : ∃ (x1 : PEqualNP.CircuitLowerBounds.Circuit),   PEqualNP.Me
   · exact Nat.le_of_eq star_size
   · exact star_checks
 
+lemma conditional_reuse_of_restricted_maximal_tests
+    {α β : Type*} [Fintype α] [Fintype β] [DecidableEq α] [DecidableEq β]
+    (E : α → β → Prop) [DecidableRel E]
+    (q : Finset α → Finset β → Bool) (S : Finset β)
+    (hmono : ∀ A A' B B', A ⊆ A' → B ⊆ B' →
+      q A B = true → q A' B' = true)
+    (hsingle : ∀ j ∈ S, q ∅ {j} = true)
+    (hmax : ∀ A, q A (Finset.univ.filter
+      (fun j => j ∉ S ∧ ∀ i ∈ A, ¬ E i j)) = false)
+    (A : Finset α) (B : Finset β)
+    (hind : ∀ i ∈ A, ∀ j ∈ B, ¬ E i j) :
+    q A B = true ↔ ∃ j ∈ S, j ∈ B := by
+  classical
+  constructor
+  · intro hq
+    by_contra hn
+    let T := Finset.univ.filter (fun j => j ∉ S ∧ ∀ i ∈ A, ¬ E i j)
+    have hBT : B ⊆ T := by
+      intro j hj
+      refine Finset.mem_filter.mpr ⟨Finset.mem_univ j, ?_⟩
+      exact ⟨fun hjS => hn ⟨j, hjS, hj⟩, fun i hi => hind i hi j hj⟩
+    have ht : q A T = true := hmono A A B T (fun _ h => h) hBT hq
+    have hf : q A T = false := hmax A
+    rw [hf] at ht
+    exact Bool.false_ne_true ht
+  · rintro ⟨j, hjS, hjB⟩
+    exact hmono ∅ A {j} B (Finset.empty_subset A)
+      (Finset.singleton_subset_iff.mpr hjB) (hsingle j hjS)
+
 end PEqualNP.Outside.L_meta_2056_aux

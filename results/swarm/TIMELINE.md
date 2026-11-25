@@ -35,3 +35,4 @@ All timestamps are UTC.
 - 2026-11-25T20:54:01Z: Third coordinated replan retained full proof/refutation priority; root began structural OR-count lower-bound investigation.
 - 2026-11-25T20:56:05Z: Root began a six-row exact-care search that credits reusable line disjunctions when extending the circuit to all thirteen rows.
 - 2026-11-25T20:58:49Z: Retired two redundant deep-seed searches at the 29-gate core baseline to free resources for ABC and the reuse-aware search. Three earlier exact-care variants completed 1,800-second caps without a witness.
+- 2026-11-25T21:06:17Z: Observed successful named build after adding the general conditional-reuse lemma. Independent exact-source compile and axiom audit passed; this remains support only, with no final 63-gate theorem.
