@@ -1,0 +1,9 @@
+L-meta-1031 PARTIAL extension
+Source: results/orch/lemmas/inventory_existence.lean
+SHA256: f08012649ec8547f9a66d10ef17f938f28b2b49dd2e5a54c8edf3a390e9dafcd
+Lines: 119
+Validation: lake env lean compiled this source, exit 0. Complete stdout/stderr preserved.
+Proves: every finite graph has a minimum monotone binary edge-function circuit (first three conjuncts of posted statement).
+Does not prove: ownership condition for minimum circuits. Not PR-ready.
+Checker: not run against the full posted statement.
+Named-file incorporation/build will follow in the compile queue.
