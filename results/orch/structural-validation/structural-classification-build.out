@@ -1,0 +1,28 @@
+../results/orch/lemmas/StructuralClassification.lean:39:10: warning: This simp argument is unused:
+  singleInput
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pairInput]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/StructuralClassification.lean:40:10: warning: This simp argument is unused:
+  Function.update_of_ne hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [singleInput, pairInput, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/StructuralClassification.lean:48:10: warning: This simp argument is unused:
+  pairInput
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/StructuralClassification.lean:49:10: warning: This simp argument is unused:
+  Function.update_of_ne hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [pairInput, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

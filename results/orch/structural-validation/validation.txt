@@ -1,0 +1,11 @@
+StructuralFirstPartner.lean a1bd7419b4d99394072824dd45a8afa549920c662482d89391c25b96bf543e63 Lean exit0
+StructuralBinaryLeaf.lean 4cbd170cdad53d589c8eec605f18cc40bfaf2ea513216ad24bfa27e42bda505e Lean exit0
+StructuralBinaryPartner.lean e962ec18acb1b327acabfdcc6957c66889d50cd0f28ecb975f3ad9eaf7e31ac4 Lean exit0
+StructuralSymmetry.lean 47874ef7f38e170b815d28db3805d92973dcc963f640561f16eec15c43c05d53 Lean exit0
+StructuralClassification.lean 785befeea75da138609ad9871bf8e6d2db8583e1e616c38a7687da450d1234db Lean exit0
+StructuralRun.lean 6b50b48cf9c4bf3e0675aa70dad0df0b0945219a0fdb66eb6ad79d9278632944 Lean exit0
+FloorSecond.lean 844903b864e069e949fb2c2cc4fcecc40ceffcc199b5a20e378aa420ccdc8a80 Lean exit0
+
+These are supporting partial results, not a complete proof of posted L-meta-2592.
+StructuralRun imports FullExtension and FloorSecond imports Floor18 for development; their bodies must be concatenated into the final single allowed file.
+StructuralAdjacentOr.lean is UNVALIDATED; its redundant build was canceled with exit143.
