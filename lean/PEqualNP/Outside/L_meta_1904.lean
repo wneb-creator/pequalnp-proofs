@@ -2060,4 +2060,61 @@ lemma dirty_extremal_two_critical_edges {n : ℕ} (G : SimpleGraph (Fin n))
     rw [hz y] at hy
     cases hy
 
+lemma touching_two_edges_contains_center {V : Type*} (G : SimpleGraph V)
+    (htri : ∀ a b c, G.Adj a b → G.Adj b c → ¬ G.Adj c a)
+    (a b c u v : V) (hab : G.Adj a b) (hac : G.Adj a c) (hbc : b ≠ c)
+    (huv : G.Adj u v)
+    (h₁ : (u = a ∨ v = a) ∨ (u = b ∨ v = b))
+    (h₂ : (u = a ∨ v = a) ∨ (u = c ∨ v = c)) : u = a ∨ v = a := by
+  classical
+  by_contra h
+  rcases h₁.resolve_left h with hub | hvb
+  · rcases h₂.resolve_left h with huc | hvc
+    · exact hbc (hub.symm.trans huc)
+    · subst u
+      subst v
+      exact htri a b c hab huv hac.symm
+  · rcases h₂.resolve_left h with huc | hvc
+    · subst u
+      subst v
+      exact htri a b c hab huv.symm hac.symm
+    · exact hbc (hvb.symm.trans hvc)
+
+lemma edge_family_star_or_disjoint {V : Type*} (G : SimpleGraph V)
+    (htri : ∀ a b c, G.Adj a b → G.Adj b c → ¬ G.Adj c a)
+    (P : V → V → Prop) (hP : ∀ a b, P a b → G.Adj a b)
+    (hex : ∃ a b, P a b) :
+    (∃ v, ∀ a b, P a b → a = v ∨ b = v) ∨
+      ∃ a b c d, P a b ∧ P c d ∧ a ≠ c ∧ a ≠ d ∧ b ≠ c ∧ b ≠ d := by
+  classical
+  by_cases hd : ∃ a b c d, P a b ∧ P c d ∧ a ≠ c ∧ a ≠ d ∧ b ≠ c ∧ b ≠ d
+  · exact Or.inr hd
+  left
+  have meet (a b c d : V) (hab : P a b) (hcd : P c d) :
+      (c = a ∨ d = a) ∨ (c = b ∨ d = b) := by
+    by_contra h
+    push Not at h
+    exact hd ⟨a,b,c,d,hab,hcd,Ne.symm h.1.1,Ne.symm h.1.2,
+      Ne.symm h.2.1,Ne.symm h.2.2⟩
+  obtain ⟨a,b,hab⟩ := hex
+  by_cases ha : ∀ c d, P c d → c = a ∨ d = a
+  · exact ⟨a,ha⟩
+  push Not at ha
+  obtain ⟨c,d,hcd,hca,hda⟩ := ha
+  have hb : c = b ∨ d = b := (meet a b c d hab hcd).resolve_left
+    (not_or.mpr ⟨hca,hda⟩)
+  refine ⟨b, ?_⟩
+  intro u v huv
+  have h₁ : (u = b ∨ v = b) ∨ (u = a ∨ v = a) :=
+    (meet a b u v hab huv).symm
+  rcases hb with hcb | hdb
+  · subst c
+    exact touching_two_edges_contains_center G htri b a d u v
+      (hP a b hab).symm (hP b d hcd) (Ne.symm hda) (hP u v huv)
+      h₁ (meet b d u v hcd huv)
+  · subst d
+    exact touching_two_edges_contains_center G htri b a c u v
+      (hP a b hab).symm (hP c b hcd).symm (Ne.symm hca) (hP u v huv)
+      h₁ (meet c b u v hcd huv).symm
+
 end PEqualNP.Outside.L_meta_1904_aux

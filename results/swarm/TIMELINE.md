@@ -39,3 +39,5 @@
 - 2026-11-25 21:47:19 UTC: integrated partial named module build passed (18423 jobs; no Mathlib source builds); main theorem still absent.
 - 2026-11-25 21:47:19 UTC: independent reviewer passed trace-extremal local stability and two-distinct-critical-edge theorem.
 - 2026-11-25 21:48:14 UTC: reduced dependencies to PEqualNP.Defs only; complete integrated partial lake build passed (5149 jobs, 15-second file build), stderr empty.
+- 2026-11-25 21:55:05 UTC: partial commit 7396cce54b14db956155376b3cae719997ca3d0d, subsequently pushed; three-level minimum and dirty-count two-critical-edge lemmas compiled and independently reviewed.
+- 2026-11-25 22:06:13 UTC: triangle-free edge-family star-or-disjoint classification compiled and independently source-reviewed; assembled named build passed 5149 jobs after generated-artifact permission repair. Full posted theorem remains absent.
