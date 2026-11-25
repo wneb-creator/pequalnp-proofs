@@ -1,0 +1,137 @@
+import took 1.54s
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Fast.lean:26:35: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Fast.lean:27:35: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Fast.lean:35:35: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+type checking took 1.2s
+type checking took 1.21s
+type checking took 1.5s
+type checking took 1.4s
+type checking took 1.57s
+type checking took 1.6s
+type checking took 1.69s
+type checking took 1.34s
+type checking took 1.39s
+type checking took 1.47s
+type checking took 1.45s
+type checking took 1.49s
+type checking took 1.39s
+type checking took 1.24s
+type checking took 1.35s
+type checking took 1.74s
+type checking took 1.48s
+type checking took 1.66s
+type checking took 1.72s
+type checking took 1.68s
+type checking took 1.42s
+type checking took 1.5s
+type checking took 1.82s
+type checking took 1.72s
+type checking took 1.53s
+type checking took 1.44s
+type checking took 264ms
+type checking took 350ms
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Fast.lean:480:52: warning: This simp argument is unused:
+  ha
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Fast.lean:480:55: warning: This simp argument is unused:
+  hb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ha]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Fast.lean:497:40: warning: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.foldl_cons, ih, packedStep, Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+simp took 805ms
+simp took 823ms
+simp took 751ms
+tactic execution of Lean.Parser.Tactic.exact took 4.42s
+type checking took 7.95s
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Fast.lean:634:12: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Fast.lean:634:16: warning: Unused tactic linter: `congr 1` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Fast.lean:634:24: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Fast.lean:634:28: warning: Unused tactic linter: `funext i` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Fast.lean:634:37: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Fast.lean:634:41: warning: Unused tactic linter: `symm` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Fast.lean:634:46: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Fast.lean:635:6: warning: Unused tactic linter: `first
+| exact Fin.addCases_left i
+| exact Fin.addCases_right i` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Fast.lean:634:16: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Fast.lean:634:28: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Fast.lean:634:41: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64Fast.lean:635:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+cumulative profiling times:
+	attribute application 0.482ms
+	blocked (unaccounted) 843s
+	compilation (IR) 2.52ms
+	compilation (LCNF base) 44ms
+	compilation (LCNF impure) 10.4ms
+	compilation (LCNF mono) 25.4ms
+	congr simp thm 19.3ms
+	declTypeLinter 34.1ms
+	elaboration 288ms
+	fix level params 2.92ms
+	import 1.54s
+	initialization 37.3ms
+	instantiate metavars 15ms
+	interpretation 457ms
+	let-to-have transformation 6.67ms
+	linting 73.1ms
+	module linting 0.102ms
+	parsing 26.7ms
+	process pre-definitions 42.1ms
+	share common exprs 33.4ms
+	simp 2.92s
+	tactic execution 5.12s
+	tacticAnalysis 14.2ms
+	type checking 47.7s
+	typeclass inference 713ms

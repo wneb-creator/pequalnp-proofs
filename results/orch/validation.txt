@@ -337,3 +337,7 @@ TIMING total=328.4 subagents=7
 2026-11-25T14:05:39.820928+00:00 Preserved construction_algebra-reviewed root research packet:82 artifacts286999B plus exact manifest. Contains finite semantic-pool64 replay, bounded SAT/MILP unsuccessful diagnostics, physical-patch assemblers and independently replayed64 controls. No63-witness/globalrefutation asserted. Source/data hashes and full outputs retained; one mutable CGP seed version SHA74183949… from the first inconclusive MILP was unavailable and explicitly flagged. All other recorded inputs preserved by content hash. Packet manifest approved SHAfd963996…; root-active-MILP is a separate later run, excluded here.
 Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
 TIMING total=329.9 subagents=7
+
+2026-11-25T14:07:10.365467+00:00 Preserved independently rules_review-approved fast64 baseline and its word0 benchmark: six artifacts73541B. Complete64-gate construction source d7ef078f0fddf3efe61c6af689f9fb6fc82c6d113f40fb0c39b572b8c698e05f checks exit0/59.402s/4.239GB versus283.27s previously. The only mathematical changes are already checked direct-column rewrites; all26 literals,64 gates and quantified≤64 endpoint remain unchanged. Target63 remains unproved; no target checker or PR claimed.
+Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
+TIMING total=331.5 subagents=7

@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/Meta3773FastWord0.lean",
+  "sha256": "a0dfb458c1feac48f1350f9983a8cd19e411691092ebb9b42a32f6e12f748a9f",
+  "source_sha256_after": "a0dfb458c1feac48f1350f9983a8cd19e411691092ebb9b42a32f6e12f748a9f",
+  "started_utc": "2026-11-25T14:02:11.822327+00:00",
+  "finished_utc": "2026-11-25T14:02:15.949149+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 3160657920,
+  "seconds": 4.1268453859993315,
+  "rss_limit_bytes": 3221225472,
+  "wall_limit_seconds": 60
+}
