@@ -5,3 +5,6 @@ Independent red-team review: approved for partial preservation only.
 Compiled helpers: unique star centre; distinct centres share at most one leaf; semantic OR determines leaf set.
 Sub-agents: checker_review, lean_setup, counterexample, structural_proof, lemma_search, combinatorial_ledger
 TIMING total=21 subagents=6
+
+Checkpoint 2: named module build passed; independent review approved helpers only.
+Exact posted theorem remains unproved; no exact-statement checker acceptance.
