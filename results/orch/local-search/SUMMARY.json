@@ -1,0 +1,196 @@
+{
+  "job": "pequalnp-pilot-92",
+  "gap": "L-meta-2592",
+  "archived_at": "2026-11-25T14:39:30.347723+00:00",
+  "held_gap_refuted": false,
+  "checked_components": [
+    {
+      "file": "../lemmas/local_near.lean",
+      "meaning": "18-gate positive circuit for Petersen plus four cubic terms; not an exact Petersen circuit",
+      "independent_review": "petersen_search",
+      "final_build_log": "local-near-build.log"
+    },
+    {
+      "file": "../lemmas/local_projection.lean",
+      "meaning": "Substitution x0=not x2 yields a 15-gate circuit with14 binary gates and1 NOT; refutes a proposed proof-route hypothesis only",
+      "independent_review": "structural_bound and petersen_search",
+      "final_build_log": "local-projection-build-clean.log"
+    }
+  ],
+  "searches": [
+    {
+      "strategy": "Fixed19-gate annealing",
+      "seconds": 600,
+      "score_evaluations": 1667631432,
+      "result": "No witness. Best differs on4 maximal independent triples."
+    },
+    {
+      "strategy": "Deterministic one-deletion then two-gate edit neighborhood",
+      "seeds": 390,
+      "score_evaluations": 1078288780,
+      "result": "No witness in this finite neighborhood."
+    },
+    {
+      "strategy": "Neutral-network CGP with32 internal slots",
+      "seconds": 900,
+      "score_evaluations": 1996365633,
+      "result": "No improvement over exact20-gate monotone baseline."
+    },
+    {
+      "strategy": "C6 with3 free opposite ORs plus7 gates, heuristic",
+      "seconds": 300,
+      "score_evaluations": 2865736646,
+      "result": "No witness. Best has2 erroneous C6 rows."
+    },
+    {
+      "strategy": "Same C6 family with1..2 NOT required",
+      "completed": false,
+      "last_checkpoint_seconds": 180,
+      "last_checkpoint_score_evaluations": 2449732815,
+      "result": "Stopped after SAT agent reported UNSAT for containing family with1..3 NOT. Last best has3 erroneous rows."
+    }
+  ],
+  "limitations": "Heuristic and finite-neighborhood failures are not general lower-bound proofs. Shared C6 family UNSAT was reported by SAT agent, not Lean checked here.",
+  "files": [
+    {
+      "file": "local-search.cpp",
+      "bytes": 4578,
+      "sha256": "46784acc4b587dbe6dc6562aae6a335bb064bed31da76a3df267479f6ec0708a"
+    },
+    {
+      "file": "local-twoedit.cpp",
+      "bytes": 1803,
+      "sha256": "0beffda3c701d4e85ef5e12d1a1323b5e96cd8e3f086d7b1ac0d931292fe2bc6"
+    },
+    {
+      "file": "local-cgp.cpp",
+      "bytes": 4076,
+      "sha256": "ce69bc79c2a7ebd0e9eae6bdd822273acea96caa8dbcc2ada2a83378b1567bdd"
+    },
+    {
+      "file": "local-c6.cpp",
+      "bytes": 3577,
+      "sha256": "82d4050e3c8f2e2bb46fa30337da215dc64cec48e0f4f4c489d0a760f4493f0d"
+    },
+    {
+      "file": "local-c6-not.cpp",
+      "bytes": 3944,
+      "sha256": "4a44f4cc8dfaf0177364904b8ac6e057a61a42354830191028636f7f296ee8e0"
+    },
+    {
+      "file": "local-validate-cgp.py",
+      "bytes": 1842,
+      "sha256": "6e7a093f8b4a0ac9e07e614a15c270e102470a13ab060838e375fbe4e66ca36c"
+    },
+    {
+      "file": "local-lift-c6.py",
+      "bytes": 2739,
+      "sha256": "1d631fd8dc9a2607ad8e2c9d2db9fc7a4dab93b94c947ee607fdfcd1729152e6"
+    },
+    {
+      "file": "local-run1.log",
+      "bytes": 1385,
+      "sha256": "eeaf8cf040dacd7d9b59f94b639cf040ee6d95f6dca7570fdc9afd649c717389"
+    },
+    {
+      "file": "local-twoedit-run1.log",
+      "bytes": 1333,
+      "sha256": "7fb04db76b7b96b8ec6215220c43e251b5eaf31a31ce2f1de2028e4deb5fea4e"
+    },
+    {
+      "file": "local-twoedit-all.log",
+      "bytes": 15260,
+      "sha256": "8432c1c08532047d436c46735afb529b950d68efbc66b976b514193409d52ab4"
+    },
+    {
+      "file": "local-cgp-run1.log",
+      "bytes": 1958,
+      "sha256": "e86dc7f3684d5d3810d959f8be4d56d63e4d6569f8e0895110cc5162150395ab"
+    },
+    {
+      "file": "local-c6-bank-run1.log",
+      "bytes": 546,
+      "sha256": "56547507432212988b21eaa981fd5c3ab49067e524e9092da945dc6520bdce40"
+    },
+    {
+      "file": "local-c6-not-run1.log",
+      "bytes": 396,
+      "sha256": "49dfc013464cf0b61d98e03fd53773603424ee80e2d9611378586259376f19c1"
+    },
+    {
+      "file": "local-best.txt",
+      "bytes": 154,
+      "sha256": "f5f818daa1426d2f6fcbc7cccf7e2e62a5f95476fa064a161a1ff3b23a9e6210"
+    },
+    {
+      "file": "local-twoedit-best.txt",
+      "bytes": 151,
+      "sha256": "79eaf287d87e6b50f7775f0820394bc78696078cb81d56c5b8e1169f666c6ee3"
+    },
+    {
+      "file": "local-cgp-best.txt",
+      "bytes": 274,
+      "sha256": "6977f3c7b778f8080fc60a309d33133ad1140b3934bd3b3b38e83e5a044eb185"
+    },
+    {
+      "file": "local-c6-best.txt",
+      "bytes": 96,
+      "sha256": "e7b03dd72afd13c56eeb78b2f6b771511e993b2e6fa083ddb6036489dde0209e"
+    },
+    {
+      "file": "local-c6-not-best.txt",
+      "bytes": 96,
+      "sha256": "e1029b86f5cea80dea700f60fc53e13eed4b1d0fbdb5341a5c20a71c9dd73f4a"
+    },
+    {
+      "file": "local-c6-twoerrors.txt",
+      "bytes": 96,
+      "sha256": "e7b03dd72afd13c56eeb78b2f6b771511e993b2e6fa083ddb6036489dde0209e"
+    },
+    {
+      "file": "local-c6-overapprox.txt",
+      "bytes": 101,
+      "sha256": "5ca7549a7469151ddc3a7eae8061ca88ede028139e5f9349df4c60d77bb4b082"
+    },
+    {
+      "file": "local-seeds.json",
+      "bytes": 25804,
+      "sha256": "5d53cd4ce4c110cdecc5560234618b63272b461cb64d30a7fe276c9bc7352ee0"
+    },
+    {
+      "file": "local-improved-seed.json",
+      "bytes": 1703,
+      "sha256": "2d55724fcc68ea59948ff64de6c3c0fd5c4b0f562aa0f9dd6313576d9a57766e"
+    },
+    {
+      "file": "local-prefix-orbits.json",
+      "bytes": 11567,
+      "sha256": "a0b0183057d51312ae5baf3432a2e4c105c250c39955af1c2c6a06face176905"
+    },
+    {
+      "file": "local-projection-nonedge.json",
+      "bytes": 1413,
+      "sha256": "cf365cb4dd5b1e1a94e1cacd138d902aab7c768c085f1caa3ae6301895392e5d"
+    },
+    {
+      "file": "local-cgp-final.json",
+      "bytes": 1740,
+      "sha256": "554f5ab3ca9580a6f77b61c1e72abcdfdd7330ad5942e13fcec6f4fe4989e773"
+    },
+    {
+      "file": "local-near-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "local-projection-build.log",
+      "bytes": 1335,
+      "sha256": "f9c2e70810a9d517c9575aa3a7f3cbb5044175ecc86280f53b238734ef314451"
+    },
+    {
+      "file": "local-projection-build-clean.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

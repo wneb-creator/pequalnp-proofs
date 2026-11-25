@@ -63,3 +63,6 @@ ACTIVE L-meta-1886: map_rigidity and supplied_and_not compiled exit0 and indepen
 SharedC6 search archive independently reviewed PASS: exact64row restricted completion UNSAT; positive control independently checked64rows and20gatePetersen lift1024rows. Computed result only, no Lean certificate.
 Sub-agents:6
 TIMING total=60 subagents=6
+
+Second-root nonOR lemma compiled and independently reviewed PASS; applies only stated signed Live bank. Local-search archive independently audited PASS:29textfiles, hashes match, exact controls checked; bounded/heuristic failures are not lower-bound certificates.
+Full HTTP410 diagnostic headers/body preserved in lease-timer-error.txt.

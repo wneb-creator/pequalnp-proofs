@@ -1,0 +1,7 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/second_root_bound.lean:31:45: warning: This simp argument is unused:
+  List.mem_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.mem_append, List.mem_cons] at hh ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

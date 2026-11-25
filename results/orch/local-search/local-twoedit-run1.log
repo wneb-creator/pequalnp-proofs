@@ -1,0 +1,31 @@
+best 352 raw 60 seed 0 notGate 0 secondGate 1 evals 392
+best 316 raw 56 seed 0 notGate 0 secondGate 1 evals 447
+best 253 raw 41 seed 0 notGate 0 secondGate 1 evals 505
+best 241 raw 57 seed 0 notGate 0 secondGate 11 evals 3190
+best 178 raw 42 seed 0 notGate 0 secondGate 11 evals 3224
+best 173 raw 37 seed 0 notGate 0 secondGate 16 evals 6092
+best 162 raw 34 seed 0 notGate 0 secondGate 16 evals 6111
+best 137 raw 25 seed 0 notGate 0 secondGate 16 evals 6315
+best 110 raw 22 seed 0 notGate 0 secondGate 16 evals 6320
+best 87 raw 15 seed 0 notGate 2 secondGate 4 evals 169258
+seed_done 0 best 87 seconds 0.393049
+seed_done 1 best 87 seconds 0.68143
+seed_done 2 best 87 seconds 0.984041
+seed_done 3 best 87 seconds 1.33917
+seed_done 4 best 87 seconds 1.75387
+seed_done 5 best 87 seconds 2.10624
+seed_done 6 best 87 seconds 2.47073
+seed_done 7 best 87 seconds 2.78286
+seed_done 8 best 87 seconds 3.1009
+seed_done 9 best 87 seconds 3.39353
+seed_done 10 best 87 seconds 3.67818
+seed_done 11 best 87 seconds 4.00152
+seed_done 12 best 87 seconds 4.29712
+seed_done 13 best 87 seconds 4.57433
+seed_done 14 best 87 seconds 4.85581
+seed_done 15 best 87 seconds 5.15501
+seed_done 16 best 87 seconds 5.43924
+seed_done 17 best 87 seconds 5.74566
+seed_done 18 best 87 seconds 6.07313
+seed_done 19 best 87 seconds 6.37126
+done best 87 evals 55297240

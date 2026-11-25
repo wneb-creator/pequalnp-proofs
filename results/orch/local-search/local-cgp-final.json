@@ -1,0 +1,150 @@
+{
+  "gates": [
+    {
+      "op": "or",
+      "inputs": [
+        7,
+        3
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        0,
+        9
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        6,
+        5
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        3,
+        12
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        0,
+        6
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        14,
+        12
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        8,
+        13
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        11,
+        3
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        5,
+        9
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        14,
+        1
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        19,
+        2
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        10,
+        1
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        4,
+        17
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        15,
+        11
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        7,
+        23
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        20,
+        21
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        22,
+        25
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        24,
+        18
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        27,
+        16
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        26,
+        28
+      ]
+    }
+  ],
+  "output": 29,
+  "size": 20,
+  "not_count": 0,
+  "padded_unused_not": false,
+  "truth_table_errors": [],
+  "refutes_2592": false
+}

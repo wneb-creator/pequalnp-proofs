@@ -1,0 +1,125 @@
+{
+  "substitution": "x0 = not x2",
+  "input_order": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "gates": [
+    {
+      "op": "or",
+      "inputs": [
+        2,
+        6
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        3,
+        4
+      ]
+    },
+    {
+      "op": "not",
+      "inputs": [
+        1
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        1,
+        9
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        11,
+        10
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        12,
+        13
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        2,
+        4
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        15,
+        5
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        7,
+        16
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        3,
+        6
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        18,
+        5
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        8,
+        19
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        14,
+        17
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        21,
+        20
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        22,
+        0
+      ]
+    }
+  ],
+  "output": 23,
+  "size": 15,
+  "binary_gates": 14,
+  "not_gates": 1,
+  "truth_table_errors": []
+}

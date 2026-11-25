@@ -1,0 +1,23 @@
+initial_best 63 seeds 390
+progress seconds 30.0025 best 63 evals 135655816 restarts 5426
+best 61 raw 9 evals 142850258 restart 5713
+progress seconds 60.0038 best 61 evals 242860105 restarts 9714
+progress seconds 90.0058 best 61 evals 338838944 restarts 13553
+progress seconds 120.012 best 61 evals 408641736 restarts 16345
+progress seconds 150.012 best 61 evals 506620655 restarts 20264
+best 52 raw 4 evals 512130386 restart 20484
+progress seconds 180.017 best 52 evals 613849945 restarts 24553
+progress seconds 210.021 best 52 evals 679927588 restarts 27196
+progress seconds 240.021 best 52 evals 763855945 restarts 30553
+progress seconds 270.025 best 52 evals 869910187 restarts 34795
+progress seconds 300.031 best 52 evals 950413407 restarts 38015
+progress seconds 330.037 best 52 evals 1008015711 restarts 40319
+progress seconds 360.039 best 52 evals 1093444128 restarts 43736
+progress seconds 390.042 best 52 evals 1166897066 restarts 46674
+progress seconds 420.088 best 52 evals 1240475009 restarts 49617
+progress seconds 450.094 best 52 evals 1314927987 restarts 52595
+progress seconds 480.1 best 52 evals 1401356444 restarts 56052
+progress seconds 510.102 best 52 evals 1484334763 restarts 59371
+progress seconds 540.106 best 52 evals 1535611814 restarts 61422
+progress seconds 570.109 best 52 evals 1593464128 restarts 63736
+done best 52 evaluations 1667631432 restarts 66703

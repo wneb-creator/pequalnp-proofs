@@ -1,0 +1,20 @@
+../results/orch/lemmas/local_projection.lean:39:4: warning: This simp argument is unused:
+  List.head?_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nonedgeProjectionCircuit, PEqualNP.CircuitLowerBounds.Circuit.eval,
+    PEqualNP.CircuitLowerBounds.Circuit.wires, List.foldl_cons, List.foldl_nil, List.cons_append, List.nil_append,
+    List.map_cons, List.map_nil, List.getD_cons_zero, List.getD_cons_succ, PEqualNP.CircuitLowerBounds.GateOp.eval,
+    List.any_cons, List.any_nil, List.all_cons, List.all_nil, id, Bool.and_true, Bool.or_false, Option.getD_some]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/local_projection.lean:39:21: warning: This simp argument is unused:
+  Option.getD_some
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nonedgeProjectionCircuit, PEqualNP.CircuitLowerBounds.Circuit.eval,
+    PEqualNP.CircuitLowerBounds.Circuit.wires, List.foldl_cons, List.foldl_nil, List.cons_append, List.nil_append,
+    List.map_cons, List.map_nil, List.getD_cons_zero, List.getD_cons_succ, PEqualNP.CircuitLowerBounds.GateOp.eval,
+    List.any_cons, List.any_nil, List.all_cons, List.all_nil, id, Bool.and_true, Bool.or_false, List.head?_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
