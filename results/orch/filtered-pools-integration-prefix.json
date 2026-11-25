@@ -1,0 +1,13 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/FilteredPoolsIntegrationPrefix.lean",
+  "source_sha256": "b74daee5f62c4a85462ebef1e1e2d29ce898f590d4c2dced632ed2f84a0acdc9",
+  "source_bytes": 174062,
+  "log": "/workspace/pequalnp-proofs/results/orch/filtered-pools-integration-prefix.log",
+  "exit_code": 0,
+  "session_id": 59459,
+  "cpuAffinity": [
+    0
+  ],
+  "checked_at": "2026-11-25T05:45:14.213403+00:00",
+  "claim": "Complete generic checker prefix soundness after filtering QS pools by unavailable-count\u22642 and lo\u2264bound+constant-count; numerical replay pending"
+}

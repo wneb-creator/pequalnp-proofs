@@ -1,0 +1,13 @@
+{
+  "utc": "2026-11-25T05:37:33.899389+00:00",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/SortedLinkProbe.lean",
+  "sha256": "167183f61aa854dcf529920291e2848bcb989266acf88d19fe6514e1299b57f5",
+  "exit_metadata": {
+    "exitCode": 0,
+    "seconds": 3.66886766800053
+  },
+  "scratch_repo_bytes_identical": true,
+  "compiled_helper_core_exact": true,
+  "semantic_review": "PASS: sorted-list equality gives membership equivalence via mem_mergeSort; keptLink filtering entails both original membership checks. No extra assumptions or axioms.",
+  "limitation": "Compiled probe contains sortedLinkCheck_sound only; the linkAtSorted bridge and complete numerical replay are separate validations."
+}

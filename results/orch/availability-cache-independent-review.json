@@ -1,0 +1,47 @@
+{
+  "reviewer": "/root/structural/compact_benchmark",
+  "utc": "2026-11-25T05:38:25.106405+00:00",
+  "full_source": "/tmp/oec/pequalnp-pilot-61/PR12184_Width278CachedAvailability.lean",
+  "full_sha256": "3d57b7bf53af76071bd50935fcb9010776301f4cca7b931878df5695864c1f8a",
+  "full_bytes": 520072,
+  "base_sha256": "c0d3faac68bbbda5a51a6c588b23c24019d117cc44f88dc11981f8e263019016",
+  "new_declarations": [
+    "cacheSpec",
+    "fastCostBase",
+    "fastCost_cache",
+    "fast_slow_base",
+    "navail_zero",
+    "packUnavailable",
+    "packUnavailable_get",
+    "quickSpecBase"
+  ],
+  "changed_existing_declarations": [
+    "quickSpec",
+    "forcePool",
+    "fastCost",
+    "fast_slow"
+  ],
+  "old_specifications_preserved_by_only_name_substitution": true,
+  "unchanged_existing_declarations": 1094,
+  "checked_prefix": "/workspace/pequalnp-proofs/results/orch/lemmas/CachedAvailabilityIntegrationPrefix.lean",
+  "checked_prefix_sha256": "28b39d9ce2c1d8f9742de983366ae369f098d106a3c3f32871002c7571873ad0",
+  "checked_prefix_exit_code": 0,
+  "checked_prefix_declarations_exact_in_full_source": 527,
+  "checked_prefix_log": "/workspace/pequalnp-proofs/results/orch/cached-availability-integration-prefix.log",
+  "checked_prefix_log_sha256": "ccdc58dcfa46c9290835537519a5ab5051b1b702a6ed03383d26232c4e0dad50",
+  "certificate_suffix_byte_identical": true,
+  "certificate_suffix_sha256": "4be0b365f2dec53c38008840e38c19db64d72553bba52eff89f67d1789ce4da4",
+  "hexadecimal_blobs_identical": 463,
+  "complete_final_theorem_byte_identical": true,
+  "semantic_findings": [
+    "Mask is prepended to the original QS pool list; all other QS components retain their original order and values.",
+    "packUnavailable_get proves for every index, including out-of-range indices, that the stored bit is the negation of availability for ms.getD i0.",
+    "navail_zero proves the default out-of-range operand0 is available; the zero high bits of the finite mask therefore decode correctly.",
+    "New fastCost obtains input availability from complemented mask bits and evaluates result availability using the original pool recovered through tail.",
+    "fastCost_cache proves exact Boolean equality for cacheSpec s and the byte-preserved old fastCostBase on arbitrary s, indices, operation, and keep flags.",
+    "fast_slow transports that exact equality to the unchanged slowCost specification.",
+    "forcePool computes one forced unavailable-indicator list us, reuses it for both the original sum and packed mask, and its checked forcePool_eq retains the quickSpec contract."
+  ],
+  "verdict": "PASS: checked availability-cache identities preserve the original fastCost and forcePool contracts, including default operand0; complete certificate suffix and final goal are unchanged.",
+  "limitation": "The full520072-byte candidate has not been replayed by this review; numerical timing and any final width/schedule variant remain separate checks."
+}

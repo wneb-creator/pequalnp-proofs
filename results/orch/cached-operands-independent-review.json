@@ -1,0 +1,44 @@
+{
+  "reviewer": "/root/structural/compact_benchmark",
+  "utc": "2026-11-25T05:39:27.750987+00:00",
+  "full_source": "/tmp/oec/pequalnp-pilot-61/PR12184_Width278CachedOperands.lean",
+  "full_sha256": "2edb7feb51f1fd5f68815ce5f1269b892727cccfefacb1dea017cdc92e86a30b",
+  "full_bytes": 520501,
+  "base_sha256": "c0d3faac68bbbda5a51a6c588b23c24019d117cc44f88dc11981f8e263019016",
+  "previous_availability_sha256": "3d57b7bf53af76071bd50935fcb9010776301f4cca7b931878df5695864c1f8a",
+  "new_since_availability": [
+    "nconst_zero"
+  ],
+  "changed_since_availability": [
+    "cacheSpec",
+    "forcePool",
+    "fastCost",
+    "fastCost_cache"
+  ],
+  "changed_existing_base_declarations": [
+    "quickSpec",
+    "forcePool",
+    "fastCost",
+    "fast_slow"
+  ],
+  "old_specifications_exact_after_only_renaming": true,
+  "checked_prefix": "/workspace/pequalnp-proofs/results/orch/lemmas/CachedOperandsIntegrationPrefix.lean",
+  "checked_prefix_sha256": "9e831f50b197011f0456cb1a7bdb9bbdab1cc6884058bbd35a7a583b019c169e",
+  "checked_prefix_exit_code": 0,
+  "checked_prefix_declarations_exact_in_full": 528,
+  "checked_prefix_log": "/workspace/pequalnp-proofs/results/orch/cached-operands-integration-prefix.log",
+  "checked_prefix_log_sha256": "bde21f8339fbdb7dcc8a4180929e91c802f4b083fc0157fca0536f052aebe4d6",
+  "certificate_suffix_byte_identical": true,
+  "certificate_suffix_sha256": "4be0b365f2dec53c38008840e38c19db64d72553bba52eff89f67d1789ce4da4",
+  "hexadecimal_blobs_unchanged": 463,
+  "complete_final_theorem_byte_identical": true,
+  "semantic_findings": [
+    "QS pool-list positions0 and1 hold unavailable and nonconstant masks respectively; the original pool is recovered exactly with tail.tail.",
+    "packUnavailable_get is reused for navail and nconst predicates. navail_zero and nconst_zero prove both predicates true at default operand0, so absent high mask bits decode correctly for every out-of-range index.",
+    "Complemented first-mask bits replace input availability; complemented second-mask bits replace nconst in the exact nloss formula cond keep0(cond constant1 0). Result availability still scans only the original pool tail.",
+    "fastCost_cache proves exact equality to unchanged fastCostBase for all QS values, indices, operations, and keep flags after cacheSpec encoding.",
+    "forcePool reuses the existing unavailable-indicator list for count and first mask; it additionally computes the nonconstant mask once per pool. The original constant-count traversal remains unchanged, and checked forcePool_eq preserves the quickSpec contract."
+  ],
+  "verdict": "PASS: both operand-property masks preserve the original contracts, including constant/available default0; complete certificate data and final theorem are unchanged.",
+  "limitation": "Only the generic prefix has checked exit0 here. Numerical timing and any original-width/batch variant require separate validation."
+}

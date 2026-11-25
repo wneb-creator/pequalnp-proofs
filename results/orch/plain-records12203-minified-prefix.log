@@ -1,0 +1,425 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:123:39: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, Zdr, ha, hb, ZcN, Zc8, Bool.false_and, Bool.and_true, Bool.and_false, Bool.false_or,
+    Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:123:53: warning: This simp argument is unused:
+  Bool.false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, Zdr, ha, hb, ZcN, Zc8, Bool.true_and, Bool.and_true, Bool.and_false, Bool.false_or,
+    Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:123:97: warning: This simp argument is unused:
+  Bool.false_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, Zdr, ha, hb, ZcN, Zc8, Bool.true_and, Bool.false_and, Bool.and_true, Bool.and_false,
+    Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:124:22: warning: This simp argument is unused:
+  Bool.true_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, Zdr, ha, hb, ZcN, Zc8, Bool.true_and, Bool.false_and, Bool.and_true, Bool.and_false,
+    Bool.false_or, Bool.or_false, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:125:58: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hy, Zc8, Zdr]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:125:61: warning: This simp argument is unused:
+  hy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, Zc8, Zdr]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:125:64: warning: This simp argument is unused:
+  Zc8
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, Zdr]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:125:68: warning: This simp argument is unused:
+  Zdr
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, Zc8]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:463:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:463:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:464:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:464:28: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:637:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [eqv]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:667:60: warning: This simp argument is unused:
+  er
+
+Hint: Omit it from the simp argument list.
+  [apply] simp_all
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:881:40: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:1028:6: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [column, ite_true, BitVec.getLsbD_and, BitVec.getLsbD_not, i.isLt, decide_true, (correct.2 a i).1,
+    (correct.2 a i).2, hp, hn, Bool.not_false, Bool.and_self]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:1418:22: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:1420:22: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:1418:15: warning: This simp argument is unused:
+  ZdS
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, if_true, Bool.and_eq_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:1420:15: warning: This simp argument is unused:
+  ZdS
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [hq, if_false, Bool.and_eq_true, decide_eq_true_eq] at hh
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:1452:20: warning: Variable name `raw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _raw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:1606:14: warning: This simp argument is unused:
+  List.length_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:1854:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2100:65: warning: This simp argument is unused:
+  BitVec.getLsbD_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ZmT, hp, hq, BitVec.getLsbD_allOnes, i.isLt, decide_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2111:12: warning: `List.Sublist.cons₂` has been deprecated: Use `List.Sublist.cons_cons` instead
+
+Hint: Replace the deprecated name:
+  List.Sublist.cons₂̵_̲c̲o̲n̲s̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2136:25: warning: Variable name `data` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _data
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2138:6: warning: Variable name `width` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _width
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2245:7: warning: Variable name `num` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _num
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2245:17: warning: Variable name `cw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _cw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2245:20: warning: Variable name `iw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _iw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2245:23: warning: Variable name `pw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _pw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2245:26: warning: Variable name `offw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _offw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2245:31: warning: Variable name `lw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _lw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2245:34: warning: Variable name `data` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _data
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2270:66: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2301:15: warning: This simp argument is unused:
+  Nat.add_succ
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [block, Bool.and_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2453:17: warning: This simp argument is unused:
+  ge
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ite_false, di, List.getElem_cons_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2453:20: warning: This simp argument is unused:
+  ite_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ge, di, List.getElem_cons_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2453:30: warning: This simp argument is unused:
+  di
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ge, ite_false, List.getElem_cons_succ]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2549:43: warning: This simp argument is unused:
+  List.getElem?_map
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Zdx, Zcf, List.getD_eq_getElem?_getD, List.getElem?_range, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2549:61: warning: This simp argument is unused:
+  List.getElem?_range
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Zdx, Zcf, List.getD_eq_getElem?_getD, List.getElem?_map, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2598:33: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2737:30: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2773:22: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2773:32: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2779:17: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2773:22: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2773:32: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2779:17: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2776:13: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2781:13: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2814:85: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2814:95: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2814:85: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2814:95: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2814:85: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2814:95: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2814:85: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2814:95: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:2863:33: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3035:25: warning: Variable name `data` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _data
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3046:4: warning: exponent 512 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3100:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3111:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3111:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3090:50: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3090:50: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3163:7: warning: Variable name `num` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _num
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3163:17: warning: Variable name `cw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _cw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3163:20: warning: Variable name `iw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _iw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3163:23: warning: Variable name `pw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _pw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3163:26: warning: Variable name `offw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _offw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3163:31: warning: Variable name `lw` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _lw
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3163:34: warning: Variable name `data` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _data
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3189:24: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3525:69: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3525:69: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3567:6: warning: Variable name `rooms` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _rooms
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3705:62: warning: This simp argument is unused:
+  z
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3713:30: warning: This simp argument is unused:
+  z
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3715:38: warning: Variable name `ab` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _ab
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3755:70: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203MinifiedPrefix.lean:3755:70: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`

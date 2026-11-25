@@ -1,0 +1,10 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-61/InsertionLinkBridgeProbe.lean",
+  "sourceSha256": "21dec88817d8d80e04a5ef7dd8095f40308a593ebf15ffe603afc59b6034062f",
+  "log": "/tmp/oec/pequalnp-pilot-61/insertion-link-bridge-2.log",
+  "exitCode": 0,
+  "wallSeconds": 3.7697185140004876,
+  "userSeconds": 2.556727,
+  "systemSeconds": 1.178589,
+  "maxRssKiB": 2882916
+}

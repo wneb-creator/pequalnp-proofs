@@ -1,0 +1,10 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/CachedOperandsIntegrationPrefix.lean",
+  "source_sha256": "9e831f50b197011f0456cb1a7bdb9bbdab1cc6884058bbd35a7a583b019c169e",
+  "source_bytes": 176685,
+  "log": "/workspace/pequalnp-proofs/results/orch/cached-operands-integration-prefix.log",
+  "exit_code": 0,
+  "session_id": 45039,
+  "checked_at": "2026-11-25T05:38:22.683281+00:00",
+  "claim": "Exact availability and constant-bit cached fastCost equality and complete generic checker prefix; numerical replay pending"
+}

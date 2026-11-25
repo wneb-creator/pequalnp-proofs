@@ -1,0 +1,16 @@
+{
+  "variant": "CachedOperands",
+  "group": "rootM11-start186-count16-arity11",
+  "width": 278,
+  "cpuAffinity": [
+    4
+  ],
+  "started": "2026-11-25T05:43:56.546588+00:00",
+  "wallSeconds": 9.769030253999517,
+  "userSeconds": 8.391943,
+  "systemSeconds": 1.053471,
+  "maxRssKiB": 3355816,
+  "exitCode": 0,
+  "sourceSha256": "35c22ee083167753babdd99ef840f101bc04145c42c9438ad9537814538de721",
+  "log": "/tmp/oec/pequalnp-pilot-61/runtime-cachedoperands-hotpath-profile.log"
+}

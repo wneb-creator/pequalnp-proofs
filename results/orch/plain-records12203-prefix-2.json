@@ -1,0 +1,16 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203Prefix.lean",
+  "sha256": "703bbe152853d4496e15861348db10699521f101e7fa37e2a89589e722bfcdca",
+  "bytes": 214855,
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-j1",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/PlainRecords12203Prefix.lean"
+  ],
+  "seconds": 60.296,
+  "exit_code": 0,
+  "peak_rss_kib": 3279836,
+  "log": "/tmp/oec/pequalnp-pilot-61/plain-records12203-prefix-2.log"
+}

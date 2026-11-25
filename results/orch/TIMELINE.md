@@ -76,3 +76,7 @@
 - 2026-11-25T05:22:00.798284+00:00: Original-depth attributed12203 replay runs onCPUs0-1 while12184 optimized replay continues onCPUs2-3. Full12184 baseline has been pushed; named module build/checker remains pending. More reviewed cache/lazy/fallback numerical probes preserved.
 
 - 2026-11-25T05:36:41Z: Complete attributed public PR12203 original-depth source Compact12203OriginalCandidate.lean passed Lean4.36 kernel compilation, exit0;1042.562s wall,1000.980s user,79.011s system,7,608,148KiB maxRSS, -j3 on CPUs0–1. All original proof/data/depth bytes preserved except239 attribution comment bytes. No local checker replay claimed. Full diagnostics preserved in results/orch/compact12203-original-profile.log/json.
+
+2026-11-25T05:48:15.429127+00:00 normalization: availability and constant-mask cache strategies completed/declined for integration after matched kernel timings; filtered-pool strategy declined after full level11 pool census showed zero pruning.
+
+- 2026-11-25 05:49:12 UTC: heartbeat returnedHTTP410 before advertised06:01expiry; diagnostic exact-repeat recorded; newproofwork paused and owned heartbeat stopped.

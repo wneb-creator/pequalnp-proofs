@@ -1,0 +1,77 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/Compact12203OriginalCandidate.lean",
+  "output": "/tmp/oec/pequalnp-pilot-61/Compact12203PlainRecordsReadable.lean",
+  "source_sha256": "09489c62259abc99a74fa60f57f863ee0c0483c8972979fc7151e4e18ca85c71",
+  "output_sha256": "df42531b0fedb157bd682c7dee9ed351bf12f6177960f1e9abb314ae642b8716",
+  "source_bytes": 523721,
+  "output_bytes": 526376,
+  "hex_literals_unchanged": true,
+  "final_theorem_unchanged": true,
+  "changes": [
+    {
+      "name": "KWRooms",
+      "old": "structure KWRooms (S : Finset Sig) (T : Sig) where\n  owns : Sig \u2192 Row \u2192 Row \u2192 Prop\n  total : \u2200 p n, bit p T=true \u2192 bit n T=false \u2192 \u2203 v, owns v p n\n  valid : \u2200 {v p n}, owns v p n \u2192 v\u2208S \u2227 bit p v=true \u2227 bit n v=false\n  unique : \u2200 {v w p n}, owns v p n \u2192 owns w p n \u2192 v=w\n  rect : \u2200 {v p n p' n'}, owns v p n' \u2192 owns v p' n \u2192 owns v p n\n\n",
+      "new": "abbrev KWRooms (S : Finset Sig) (T : Sig) :=\n  { owns : Sig \u2192 Row \u2192 Row \u2192 Prop //\n    (\u2200 p n, bit p T=true \u2192 bit n T=false \u2192 \u2203 v, owns v p n) \u2227\n    (\u2200 {v p n}, owns v p n \u2192 v\u2208S \u2227 bit p v=true \u2227 bit n v=false) \u2227\n    (\u2200 {v w p n}, owns v p n \u2192 owns w p n \u2192 v=w) \u2227\n    (\u2200 {v p n p' n'}, owns v p n' \u2192 owns v p' n \u2192 owns v p n) }\nabbrev KWRooms.owns {S T} (D : KWRooms S T) := D.val\nabbrev KWRooms.total {S T} (D : KWRooms S T) := D.property.1\nabbrev KWRooms.valid {S T} (D : KWRooms S T) :\n    \u2200 {v p n}, D.owns v p n \u2192 v\u2208S \u2227 bit p v=true \u2227 bit n v=false := D.property.2.1\nabbrev KWRooms.unique {S T} (D : KWRooms S T) :\n    \u2200 {v w p n}, D.owns v p n \u2192 D.owns w p n \u2192 v=w := D.property.2.2.1\nabbrev KWRooms.rect {S T} (D : KWRooms S T) :\n    \u2200 {v p n p' n'}, D.owns v p n' \u2192 D.owns v p' n \u2192 D.owns v p n := D.property.2.2.2\ndef KWRooms.mk {S T} (owns : Sig \u2192 Row \u2192 Row \u2192 Prop)\n    (total : \u2200 p n, bit p T=true \u2192 bit n T=false \u2192 \u2203 v, owns v p n)\n    (valid : \u2200 {v p n}, owns v p n \u2192 v\u2208S \u2227 bit p v=true \u2227 bit n v=false)\n    (unique : \u2200 {v w p n}, owns v p n \u2192 owns w p n \u2192 v=w)\n    (rect : \u2200 {v p n p' n'}, owns v p n' \u2192 owns v p' n \u2192 owns v p n) : KWRooms S T :=\n  \u27e8owns,total,valid,unique,rect\u27e9\n\n"
+    },
+    {
+      "name": "FreeRooms",
+      "old": "structure FreeRooms (S : Finset Sig) (T H : Sig) where\n  owns : Sig \u2192 Row \u2192 Row \u2192 Prop\n  total : \u2200 p n, bit p T=true \u2192 bit n T=false \u2192\n    (bit p H=true \u2227 bit n H=false) \u2228 \u2203 v, owns v p n\n  valid : \u2200 {v p n}, owns v p n \u2192 v\u2208S \u2227 bit p v=true \u2227 bit n v=false\n  unique : \u2200 {v w p n}, owns v p n \u2192 owns w p n \u2192 v=w\n  rect : \u2200 {v p n p' n'}, owns v p n' \u2192 owns v p' n \u2192 owns v p n\n\n",
+      "new": "abbrev FreeRooms (S : Finset Sig) (T H : Sig) :=\n  { owns : Sig \u2192 Row \u2192 Row \u2192 Prop //\n    (\u2200 p n, bit p T=true \u2192 bit n T=false \u2192 (bit p H=true \u2227 bit n H=false) \u2228 \u2203 v, owns v p n) \u2227\n    (\u2200 {v p n}, owns v p n \u2192 v\u2208S \u2227 bit p v=true \u2227 bit n v=false) \u2227\n    (\u2200 {v w p n}, owns v p n \u2192 owns w p n \u2192 v=w) \u2227\n    (\u2200 {v p n p' n'}, owns v p n' \u2192 owns v p' n \u2192 owns v p n) }\nabbrev FreeRooms.owns {S T H} (D : FreeRooms S T H) := D.val\nabbrev FreeRooms.total {S T H} (D : FreeRooms S T H) := D.property.1\nabbrev FreeRooms.valid {S T H} (D : FreeRooms S T H) :\n    \u2200 {v p n}, D.owns v p n \u2192 v\u2208S \u2227 bit p v=true \u2227 bit n v=false := D.property.2.1\nabbrev FreeRooms.unique {S T H} (D : FreeRooms S T H) :\n    \u2200 {v w p n}, D.owns v p n \u2192 D.owns w p n \u2192 v=w := D.property.2.2.1\nabbrev FreeRooms.rect {S T H} (D : FreeRooms S T H) :\n    \u2200 {v p n p' n'}, D.owns v p n' \u2192 D.owns v p' n \u2192 D.owns v p n := D.property.2.2.2\ndef FreeRooms.mk {S T H} (owns : Sig \u2192 Row \u2192 Row \u2192 Prop)\n    (total : \u2200 p n, bit p T=true \u2192 bit n T=false \u2192 (bit p H=true \u2227 bit n H=false) \u2228 \u2203 v, owns v p n)\n    (valid : \u2200 {v p n}, owns v p n \u2192 v\u2208S \u2227 bit p v=true \u2227 bit n v=false)\n    (unique : \u2200 {v w p n}, owns v p n \u2192 owns w p n \u2192 v=w)\n    (rect : \u2200 {v p n p' n'}, owns v p n' \u2192 owns v p' n \u2192 owns v p n) : FreeRooms S T H :=\n  \u27e8owns,total,valid,unique,rect\u27e9\n\n"
+    },
+    {
+      "name": "SingleFactor",
+      "old": "structure SingleFactor (S : Finset Sig) (T : Sig) where\n  inner : Finset Sig\n  outer : Finset Sig\n  pivot : Sig\n  cover : inner \u222a outer = S\n  apart : Disjoint inner outer\n  inside : KWRooms inner pivot\n  outside : FreeRooms outer T pivot\n\n",
+      "new": "abbrev SingleFactor (S : Finset Sig) (T : Sig) :=\n  \u03a3 inner : Finset Sig, \u03a3 outer : Finset Sig, \u03a3 pivot : Sig,\n    { rooms : KWRooms inner pivot \u00d7 FreeRooms outer T pivot //\n      inner \u222a outer = S \u2227 Disjoint inner outer }\nabbrev SingleFactor.inner {S T} (F : SingleFactor S T) := F.1\nabbrev SingleFactor.outer {S T} (F : SingleFactor S T) := F.2.1\nabbrev SingleFactor.pivot {S T} (F : SingleFactor S T) := F.2.2.1\nabbrev SingleFactor.cover {S T} (F : SingleFactor S T) := F.2.2.2.property.1\nabbrev SingleFactor.apart {S T} (F : SingleFactor S T) := F.2.2.2.property.2\nabbrev SingleFactor.inside {S T} (F : SingleFactor S T) := F.2.2.2.val.1\nabbrev SingleFactor.outside {S T} (F : SingleFactor S T) := F.2.2.2.val.2\ndef SingleFactor.mk {S T} (inner outer : Finset Sig) (pivot : Sig)\n    (cover : inner \u222a outer = S) (apart : Disjoint inner outer)\n    (inside : KWRooms inner pivot) (outside : FreeRooms outer T pivot) : SingleFactor S T :=\n  \u27e8inner,outer,pivot,\u27e8inside,outside\u27e9,cover,apart\u27e9\n\n"
+    },
+    {
+      "name": "PanelProof",
+      "old": "structure PanelProof where\n  arity : Nat\n  tags : List PanelTag\n  closed : panelClosed arity tags\n",
+      "new": "abbrev PanelProof := \u03a3 arity : Nat, { tags : List PanelTag // panelClosed arity tags }\nabbrev PanelProof.arity (pc : PanelProof) := pc.1\nabbrev PanelProof.tags (pc : PanelProof) := pc.2.val\nabbrev PanelProof.closed (pc : PanelProof) : panelClosed pc.arity pc.tags := pc.2.property\n\n"
+    },
+    {
+      "name": "kwLeaf",
+      "old": "def kwLeaf (T : Sig) : KWRooms {T} T where\n  owns v p n := v=T \u2227 bit p T=true \u2227 bit n T=false\n  total p n hp hn := \u27e8T,rfl,hp,hn\u27e9\n  valid := by rintro v p n \u27e8rfl,hp,hn\u27e9; exact \u27e8by simp,hp,hn\u27e9\n  unique := by rintro v w p n \u27e8rfl,_,_\u27e9 \u27e8eq,_,_\u27e9; exact eq.symm\n  rect := by rintro v p n p' n' \u27e8e,hp,_\u27e9 \u27e8_,_,hn\u27e9; exact \u27e8e,hp,hn\u27e9\n\n",
+      "new": "def kwLeaf (T : Sig) : KWRooms {T} T :=\n  KWRooms.mk (fun v p n => v=T \u2227 bit p T=true \u2227 bit n T=false)\n    (fun p n hp hn => \u27e8T,rfl,hp,hn\u27e9)\n    (by rintro v p n \u27e8rfl,hp,hn\u27e9; exact \u27e8by simp,hp,hn\u27e9)\n    (by rintro v w p n \u27e8rfl,_,_\u27e9 \u27e8eq,_,_\u27e9; exact eq.symm)\n    (by rintro v p n p' n' \u27e8e,hp,_\u27e9 \u27e8_,_,hn\u27e9; exact \u27e8e,hp,hn\u27e9)\n\n"
+    },
+    {
+      "name": "freeFrom",
+      "old": "def freeFrom {S T} (D : KWRooms S T) (h : Sig) : FreeRooms S T h where\n  owns := D.owns\n  total p n hp hn := Or.inr (D.total p n hp hn)\n  valid := D.valid\n  unique := D.unique\n  rect := D.rect\n\n",
+      "new": "def freeFrom {S T} (D : KWRooms S T) (h : Sig) : FreeRooms S T h :=\n  FreeRooms.mk D.owns (fun p n hp hn => Or.inr (D.total p n hp hn))\n    D.valid D.unique D.rect\n\n"
+    },
+    {
+      "name": "freeHide",
+      "old": "def freeHide {S T h} (D : FreeRooms S T h) : FreeRooms (S.erase h) T h where\n  owns v p n := v\u2260h \u2227 D.owns v p n\n  total := by\n    intro p n hp hn\n    rcases D.total p n hp hn with yes | \u27e8v,hv\u27e9\n    \u00b7 exact Or.inl yes\n    \u00b7 by_cases eq : v=h\n      \u00b7 exact Or.inl (eq \u25b8 (D.valid hv).2)\n      \u00b7 exact Or.inr \u27e8v,eq,hv\u27e9\n  valid := by\n    rintro v p n \u27e8ne,hv\u27e9\n    exact \u27e8Finset.mem_erase.mpr \u27e8ne,(D.valid hv).1\u27e9,(D.valid hv).2\u27e9\n  unique := fun h1 h2 => D.unique h1.2 h2.2\n  rect := fun a b => \u27e8a.1,D.rect a.2 b.2\u27e9\n\n",
+      "new": "def freeHide {S T h} (D : FreeRooms S T h) : FreeRooms (S.erase h) T h :=\n  FreeRooms.mk (fun v p n => v\u2260h \u2227 D.owns v p n)\n    (by\n      intro p n hp hn\n      rcases D.total p n hp hn with yes | \u27e8v,hv\u27e9\n      \u00b7 exact Or.inl yes\n      \u00b7 by_cases eq : v=h\n        \u00b7 exact Or.inl (eq \u25b8 (D.valid hv).2)\n        \u00b7 exact Or.inr \u27e8v,eq,hv\u27e9)\n    (by\n      rintro v p n \u27e8ne,hv\u27e9\n      exact \u27e8Finset.mem_erase.mpr \u27e8ne,(D.valid hv).1\u27e9,(D.valid hv).2\u27e9)\n    (fun h1 h2 => D.unique h1.2 h2.2)\n    (fun a b => \u27e8a.1,D.rect a.2 b.2\u27e9)\n\n"
+    },
+    {
+      "name": "factorOfTree",
+      "old": "def factorOfTree {S T} (D : KWRooms S T) : SingleFactor S T where\n  inner := S\n  outer := \u2205\n  pivot := T\n  cover := by simp\n  apart := by simp\n  inside := D\n  outside := {\n    owns := fun _ _ _ => False\n    total := fun p n hp hn => Or.inl \u27e8hp,hn\u27e9\n    valid := fun h => h.elim\n    unique := fun h _ => h.elim\n    rect := fun h _ => h.elim }\n\n",
+      "new": "def factorOfTree {S T} (D : KWRooms S T) : SingleFactor S T :=\n  SingleFactor.mk S \u2205 T (by simp) (by simp) D\n    (FreeRooms.mk (fun _ _ _ => False)\n      (fun p n hp hn => Or.inl \u27e8hp,hn\u27e9)\n      (fun h => h.elim) (fun h _ => h.elim) (fun h _ => h.elim))\n\n"
+    },
+    {
+      "name": "KWRooms fork constructor",
+      "old": "  refine { owns := fun v p n => (v\u2208U \u2227 H.owns v p n) \u2228 (v=sel p n \u2227 H.owns z p n)\n           total := ?_\n           valid := ?_\n           unique := ?_\n           rect := ?_ }",
+      "new": "  refine KWRooms.mk (fun v p n => (v\u2208U \u2227 H.owns v p n) \u2228 (v=sel p n \u2227 H.owns z p n)) ?_ ?_ ?_ ?_"
+    },
+    {
+      "name": "FreeRooms fork constructor",
+      "old": "  refine { owns := fun v p n => (v\u2208U \u2227 H.owns v p n) \u2228 (v=sel p n \u2227 H.owns z p n)\n           total := ?_\n           valid := ?_\n           unique := ?_\n           rect := ?_ }",
+      "new": "  refine FreeRooms.mk (fun v p n => (v\u2208U \u2227 H.owns v p n) \u2228 (v=sel p n \u2227 H.owns z p n)) ?_ ?_ ?_ ?_"
+    },
+    {
+      "name": "SingleFactor constructor",
+      "old": "exact \u27e8_,F.outer,F.pivot,eq,apart,kwFork hd ha hb (by simp [z]) old,F.outside\u27e9",
+      "new": "exact SingleFactor.mk _ F.outer F.pivot eq apart (kwFork hd ha hb (by simp [z]) old) F.outside"
+    },
+    {
+      "name": "SingleFactor constructor",
+      "old": "exact \u27e8F.inner,_,F.pivot,(Finset.union_comm _ _).trans eq,apart.symm,F.inside,\n      freeFork hd ha hb (by simp [z]) old\u27e9",
+      "new": "exact SingleFactor.mk F.inner _ F.pivot ((Finset.union_comm _ _).trans eq) apart.symm F.inside\n      (freeFork hd ha hb (by simp [z]) old)"
+    },
+    {
+      "name": "SingleFactor constructor",
+      "old": "refine \u27e8{a},(insert a (insert b U)).erase a,a,?_,?_,kwLeaf a,freeHide H1'\u27e9",
+      "new": "refine SingleFactor.mk {a} ((insert a (insert b U)).erase a) a ?_ ?_ (kwLeaf a) (freeHide H1')"
+    }
+  ]
+}

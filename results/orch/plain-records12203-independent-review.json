@@ -1,0 +1,50 @@
+{
+  "reviewer": "/root/structural/compact_benchmark",
+  "utc": "2026-11-25T05:48:17.019341+00:00",
+  "source_sha256": "5bc7f362c1cf08ca49a34dea07ed4ff386f2b393efb6261efa57a20c37f10348",
+  "candidate_sha256": "53f9b6ee448c536feed536107a1da04a7e613d2e92ac47490ad07ef2f70d5a7e",
+  "candidate_bytes": 526137,
+  "exact_reverse_returns_original": true,
+  "replacements_reversed": 13,
+  "changed_original_declarations": [
+    "KWRooms",
+    "kwLeaf",
+    "kwFork",
+    "FreeRooms",
+    "SingleFactor",
+    "freeFrom",
+    "freeHide",
+    "factorOfTree",
+    "freeFork",
+    "factorExpand",
+    "factorKeep",
+    "PanelProof"
+  ],
+  "new_library_type_helpers": 23,
+  "unchanged_original_declarations": 1394,
+  "original_ownership_relation_and_four_proof_fields_preserved": true,
+  "explicit_result_types_preserve_implicit_proof_parameters": true,
+  "single_factor_projection_map": {
+    "inner": "F.1",
+    "outer": "F.2.1",
+    "pivot": "F.2.2.1",
+    "cover": "F.2.2.2.property.1",
+    "apart": "F.2.2.2.property.2",
+    "inside": "F.2.2.2.val.1",
+    "outside": "F.2.2.2.val.2"
+  },
+  "dependent_inside_outside_data_retained": true,
+  "panelAt_and_panelCheck_byte_identical": true,
+  "construction_sites_reviewed": {
+    "KWRooms": 2,
+    "FreeRooms": 4,
+    "SingleFactor": 4,
+    "PanelProof": 7
+  },
+  "custom_datatype_or_instance_commands_remaining": false,
+  "numerical_certificate_suffix_byte_identical": true,
+  "hexadecimal_blobs_identical": 639,
+  "complete_final_theorem_byte_identical": true,
+  "verdict": "PASS semantic/static audit: all original fields and constructor arguments correspond exactly to library-type encodings; complete inverse restores original source.",
+  "limitation": "Generic-prefix Lean validation and separate minification remain required; unminified candidate exceeds512KiB."
+}

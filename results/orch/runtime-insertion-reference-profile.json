@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-61/RuntimeWidth278Mono16Benchmark.lean",
+  "sourceSha256": "406f30e0cffd9ab85adc691c4de8451d037ac685ced963e1b9c1399469f317f4",
+  "log": "/tmp/oec/pequalnp-pilot-61/runtime-insertion-reference-profile.log",
+  "exitCode": 0,
+  "wallSeconds": 9.312255756000013,
+  "userSeconds": 8.191725,
+  "systemSeconds": 1.089955,
+  "maxRssKiB": 3340908,
+  "kernelSeconds": [
+    2.81
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-61/RuntimeInsertionLinksMono16Benchmark.lean",
+  "sourceSha256": "e9cd9f13dc2cb9452f4a6d570254d3dfa67ab96ea95bcdc10efe24c524e8e62f",
+  "log": "/tmp/oec/pequalnp-pilot-61/runtime-insertionlinks-profile.log",
+  "exitCode": 0,
+  "wallSeconds": 9.619780647999505,
+  "userSeconds": 8.11793,
+  "systemSeconds": 1.456159,
+  "maxRssKiB": 3346176,
+  "kernelSeconds": [
+    2.77
+  ]
+}
