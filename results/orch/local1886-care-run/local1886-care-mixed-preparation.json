@@ -1,0 +1,15 @@
+{
+  "templates": 240,
+  "exact_care_templates": 120,
+  "four_error_near_templates": 120,
+  "gate_count_histogram": {
+    "18": 120,
+    "19": 40,
+    "20": 80
+  },
+  "scope": "Prepared extension only, not executed. Adds all120 automorphisms of the checked18-gate near-witness to the original120 care-domain templates. New run outputs use a mixed prefix; previously frozen archives unchanged. One quarter of restarts now samples all deletion seeds to preserve diversity.",
+  "files": {
+    "local1886-care-search-mixed.cpp": "4a35835ce5c4bfff473bf46d3d5ee16c803be5b2327577a53dea6f299a71ea2b",
+    "local1886-care-mixed-templates.txt": "145a5d3444d34b99061b5fd4a8e4d0ed8ef465998eab28771dfee6d9e9c56f01"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-25T15:29:43.868968+00:00",
+  "verdict": "PASS, with mathematical scope conditional on checked AND-bank source-incomparability lemmas",
+  "files": {
+    "search-1886-cegis-andguard.py": "11878dcc1c98adace9326a9b28b918a9382b38efd4b490d47a5292d07331a20a",
+    "search-cadical-row-freeze-control.json": "adb2877940336225b2ace2cf37b3da4ae4f4ca6ed1c6cec60d27baa0e3b3b3cd"
+  },
+  "finite_monotone_source_checks": 122,
+  "review": [
+    "Gatei NOT implies no previousNOT under max-not1, so its source is monotone in all raw inputs with the positive freeAND bank.",
+    "The first clause requires a source-true maximal-zero row, equivalent to source not implying target by monotonicity. The second requires a source-false minimal-true edge row, equivalent to target not implying source. The NOT-selector guards disable both for binary gates.",
+    "Clauses are added only after all30 critical rows have been encoded. Source va values are now frozen immediately on creation because later guard clauses reuse them after a solve. This fixes the new incremental-reference concern.",
+    "Optional NOT-presence is added only after the initial zero-NOT warm solve and its assumptions clear. It restricts subsequent search to exactlyoneNOT; a full target exclusion would still need a separate monotone branch.",
+    "Existing one-second Petersen control was pre-freeze-fix: exact near-seed SAT, four errors restored, guarded UNKNOWN on32rows. No Petersen solver rerun was made under the withdrawn lease. New static delta is solely source-value freezing; separate tiny API regression validates frozen-row reuse SAT thenUNSAT.",
+    "This reviews encoding and control scope, not the external source-incomparability theorem or the posted target. No witness, UNSAT certificate, or Lean result is claimed."
+  ]
+}

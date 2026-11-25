@@ -1,0 +1,5 @@
+{
+  "initial": "SAT",
+  "after_new_clauses_referencing_frozen_row_variable": "UNSAT",
+  "pass": true
+}

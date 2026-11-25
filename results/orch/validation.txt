@@ -1,123 +1,49 @@
 Job: pequalnp-pilot-92
-Gap: L-meta-2592
-STATUS: PARTIAL ONLY. The exact posted theorem has not been proved. No proof PR is ready.
+Message: msg-08ee01de72c3513d90f8e50b
+Snapshot UTC: 2026-11-25T15:43:33.241752+00:00
+Status: PARTIAL RESULTS ONLY. No exact posted theorem or refutation; no proof PR.
+Branch: pnp/pilot-92 (origin fork only).
+Current owned lease: none. Polling stopped after the mandated ownership retry returned another pilot's pre-existing lease again.
+Desk requests recorded: 7. Null responses: 3. Requests6and7 returned the same pre-existing L-meta-4970 lease, issued15:22:04.914Z before either request.
+Latest exact null message: The checker is behind: 521 proofs are queued for a check and 486 were checked in the last hour, about 64 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.
+Latest exact ownership message: you hold 5 gaps, the most one handle may hold at once; release one to get another
+The returned L-meta-4970 lease was not worked, renewed, or released. No other pilot lease was touched.
+Complete seven-request desk answers and timestamps: results/orch/desk-final/desk-log.txt.
 
-Lean 4.36.0. Targeted Mathlib cache fetched; PEqualNP.Defs build passed (5147 jobs).
-results/orch/lemmas/structural.lean compiled with exit 0 and empty output.
-This component proves finite Petersen pair normalization and robust essentiality.
-The separate sixteen-binary-gate bound is still compiling.
-Checker for exact posted theorem: not run; theorem is not yet present.
+L-meta-2592: named partial5246lines312347bytes; full lake build PASS(805seconds).
+Proves17+NOTcount<=size and excludes>=3NOT atsize<=19. One/two-NOT cases unproved.
+Its own lease was rejected410 at14:38 despite confirmed14:53expiry; diagnostic matched.
 
-Sub-agents: 6 (status/definition audit, exact synthesis, structural proof, reduction analysis/review, Lean setup, local circuit optimization)
-TIMING total=14 subagents=6
+L-meta-1886: named partial7652lines421238bytes; full v2 lake build PASS(834seconds):
+Build completed successfully (5149 jobs).
+Reviewed SHA256: cf29bddc7ae40dc8aa007917066eb6d8905c95704c12fc895312bec5adf18e97.
+Includes map rigidity, exact relabeling, conditional NOT-source elimination, finite guard witnesses,
+and supplied-OR gate restrictions. The exact posted theorem remains absent.
+Its own lease was rejected410 at15:22/23 despite15:20confirmationof15:40expiry.
+Both full raw410 diagnostics are preserved; no other pilot lease was released.
 
-Independent root review PASS: bankfinite.lean exact Petersen truth table on all1024 inputs; ten pins cover all assignments; all8 witness cases checked; forbidden-token scan clean. Lean compilation separately exited0. Partial component only.
-bankfinite.lean compilation: exit0, empty output.
+Late research components: MonoNine and its bridge compiled and independently reviewed PASS,
+closing monotone nine-variable lower16 and actual nine-variable lower16. Generic monotone
+bank/circuit floor lemmas compile under that explicit premise. Endpoint0 consumed-NOT lower>=19
+also compiles under the actual-nine premise, supplied by the checked bridge. Dead-NOT semantic
+replacement and compiler components are checked separately; final wrapper remains unwritten.
+These late components are separate from the self-contained named v2 partial.
 
-2026-11-25T14:05:44Z: lake build PEqualNP.Outside.L_meta_2592 PASSED, exit0.
-Named file:4603 lines,285204 bytes. Independent review by reduction_design passed before build; source unchanged after review.
-Proved partial lemmas: sixteen_binary_floor (16+NOTcount <= size), four_not_exclusion (no <=19gate circuit with>=4NOT).
-Exact posted theorem remains absent; cases1,2,3NOT remain. No full checker acceptance is claimed.
-Sub-agents:6 (audit/integration, SAT search, structural proof, reduction/review, setup/one-NOT analysis, local search).
-TIMING total=23 subagents=6
+Actual-module axiom reports for both named partials and MonoNine use only propext,
+Classical.choice, Quot.sound. Every preservation source diff received independent review.
 
-bank16.lean compiled exit0; empty output.
-Root independent review PASS: CanonicalBank.lower proves16residual binary gates for all8 canonical signed first-gate banks. conjunction_lower proves17residual gates for AND/AND-NOT with retained extra wire. Both use the checked nineFloor and valid constant-mass contraction. This is a partial lemma, not the exact posted theorem. Scratch Outside import will be removed when integrated.
+Official local checker attempted on named1886, exit3:
+CHECKER FAULT: the prebuilt Mathlib cache is missing. Run `lake exe cache get` in lean/ (RUNBOOK.md, section 2).
+This is an environment fault, not proof acceptance or rejection. The umbrella Mathlib cache is
+absent; the project-required targeted cache supported successful builds. See the separate disk
+assessment. No Mathlib source build or lake update was run. No full-checker acceptance is claimed.
+Cleanup pass: not triggered; exact theorem and checker-pass preconditions were not met.
+Named1886 v2 line count before/after cleanup:7652/7652 (no cleanup).
 
-Axiom inspection of sixteen_binary_floor and four_not_exclusion passed: only propext, Classical.choice, Quot.sound.
-local_near.lean compiled exit0 (empty output); independent review by petersen_search passed all1024 inputs and64 K4 identity rows.
-This18gate circuit is an overapproximation with exactly4false positives, NOT a counterexample.
+No valid counterexample was found. Restricted C6 search was computationally UNSAT; broad/template
+Petersen searches ended UNKNOWN. The final600second care heuristic made1536141680evaluations;
+its18gate lift still has9false negatives. All archived candidates and controls were independently
+checked against full truth tables. Computational failures are not Lean lower-bound certificates.
 
-structural_transport.lean compiled exit0 with empty output.
-Independent review by reduction_design PASS: vertex permutation and row encoding directions are correct; target invariance preserves Petersen function; bijective row maps preserve Live properness, freshness, distinct inputs and exact binary-gate cost. Arbitrary first pair becomes edge(0,1) or nonedge(0,2). Scratch import structural is only a harness and will be removed in final single-file integration.
-
-Integrated17-bound source independently reviewed by reduction_design:643insertions, original16proof unchanged except2permitted cached Mathlib imports; all plain inserted bodies match individually checked components. No forbidden syntax or added axioms. Named integrated build pending; exact posted theorem still absent.
-Cached17-floor and>=3NOT-exclusion test passed; realizeRawPins/seventeen_binary_floor axioms only propext,Classical.choice,Quot.sound.
-first_extractor_checked.lean, transport_used.lean, bank_all_pins.lean also compiled with empty diagnostics and independent review PASS.
-Named source now5246lines312347bytes; full rebuild running.
-Sub-agents:6
-TIMING total=33 subagents=6
-
-Independent review by structural_bound PASS, also independently evaluated by petersen_search on all512 inputs. Exactly15 gates including1NOT compute the Petersen function after identifying x0=NOT x2. This refutes only the proposed stronger projection bound, NOT L-meta-2592. Post-review cleanup removed2unused simp arguments; final compilation exit0 with empty diagnostics.
-
-Computational archives independently audited by pilot92_status:50UTF8textfiles,38872bytes, hashes verified;15/15 restricted11+7prefix completions UNSAT; exact known circuit validations passed; fixed-bank DP and575subsets rerun. These are computed restricted results, NOT Lean certificates or a full lower bound.
-
-FULL INTEGRATED17 BUILD PASSED: lake build PEqualNP.Outside.L_meta_2592, exit0, target805seconds, Build completed successfully(5149jobs).
-Named source5246lines312347bytes; source unchanged since independent diff review.
-Checked partial:17+NOTcount<=size, hence no<=19gate Petersen circuit with>=3NOT. Remaining1and2NOT cases unresolved; exact posted theorem absent; no full checker acceptance claimed.
-Cleanup: not performed for full gap because full theorem/checker condition is not met.
-Sub-agents:6
-TIMING total=47 subagents=6
-
-Additional independently reviewed components compiled with exit0 and empty diagnostics: conjunction_bound, constant_sweep, first_and_circuit, two_not_structure, one_not_semantics, one_not_compile, one_not_eliminate. Standalone component imports use scratch harnesses; plain fragments are for eventual single-file integration. All claims are partial and conditional as stated.
-Actual named-module axiom inspection of seventeen_binary_floor and three_not_exclusion: only propext, Classical.choice, Quot.sound. No exact gap theorem or full checker acceptance yet.
-Sub-agents:6
-TIMING total=56 subagents=6
-
-OneNotPetersen.first_adjacent_and_not_lower compiled and independently reviewed PASS: restricted class needs20 gates. No claim for arbitrary NOT source or full gap.
-Previous2592lease was rejectedHTTP410 at14:38 despite confirmed14:53expiry; diagnostic same410. Checked results pushed before recovery. Recovery desk assigned newOWNgapL-meta-1886 at14:39:11UTC, which is now the active task. Requests2,nulls0.
-Sub-agents:6
-TIMING total=59 subagents=6
-
-ACTIVE L-meta-1886: map_rigidity and supplied_and_not compiled exit0 and independently reviewed PASS. Successful maps must be bijective. SuppliedAND with explicit consumed NOT of seed followed by monotone suffix needs19 gates. Both are partial; exact theorem not yet proved.
-SharedC6 search archive independently reviewed PASS: exact64row restricted completion UNSAT; positive control independently checked64rows and20gatePetersen lift1024rows. Computed result only, no Lean certificate.
-Sub-agents:6
-TIMING total=60 subagents=6
-
-Second-root nonOR lemma compiled and independently reviewed PASS; applies only stated signed Live bank. Local-search archive independently audited PASS:29textfiles, hashes match, exact controls checked; bounded/heuristic failures are not lower-bound certificates.
-Full HTTP410 diagnostic headers/body preserved in lease-timer-error.txt.
-
-L-meta-1886 named partial integrated:6436lines,363579bytes. Independent review PASS: all15 source splices/hashes match, plain-file scan passes. Full named build running; exact posted theorem absent. InputRelabel and arbitrary-map suppliedAND/consumedNOT component compiled exit0 and independently reviewed PASS.
-Sub-agents:6
-TIMING total=63 subagents=6
-
-SeedNotOperands compiled exit0 and independently reviewed PASS: explicit consumed NOT of suppliedAND may have ignored additional operands, preserving the checked restricted>=19 bound. Partial only.
-Sub-agents:6
-TIMING total=66 subagents=6
-
-General dominated-source lemma compiled exit0 and independently reviewed PASS by structural_bound and reduction_design. SuppliedAND, arbitrary pinmap/source index, source<=target, direct NOT consumer and monotone suffix imply>=19 seeded gates. Prefix may contain earlierNOTs. Partial only.
-Sub-agents:6
-TIMING total=69 subagents=6
-
-Further compiled components independently reviewed PASS: dominated_source_witness (arbitrary ignored operands, independent-input consequence); independent_guard (15 maximal zero rows suffice for monotone source); or_seed_conjunction (16 residual signed binary gates for two explicit suppliedOR conjunction shapes). No full gap claim.
-Sub-agents:6
-TIMING total=72 subagents=6
-
-Compiled and independently reviewed PASS: prefix_monotone; source_guard (actual monotone-prefix source has a witness among15 maximal zero rows under explicit candidate assumptions); or_seed_conjunction_used (17 residual signed binary gates when the suppliedOR also remains live). Conditional partial results only.
-Sub-agents:6
-TIMING total=75 subagents=6
-
-FULL NAMED1886 PARTIAL BUILD PASSED: exit0, target682seconds, Build completed successfully(5149jobs). File6436lines363579bytes, sourceunchanged after independent review. Exact posted theorem remains absent; full checker not run.
-Sub-agents:6
-TIMING total=76 subagents=6
-
-Actual v1 named-module axiom inspection PASS:17floor, mapbijective, arbitrary-map suppliedAND consumedNOT exclusion use only propext,Classical.choice,Quot.sound.
-MonoNine standalone extracted8367 closure independently reviewed PASS;478528bytes6442lines, source hashes/dependency closure verified. Its new heavy build is RUNNING, not yet claimed compiled. This separate research component is not included in named1886.
-New local1886 archive independently audited PASS:12textfiles,177766bytes;120automorphisms/templates, care-domain controls and stabilizer/orbits verified. Prepared heuristic is unlaunched. No fullproof/refutation.
-Sub-agents:6
-TIMING total=77 subagents=6
-
-V2 named1886 partial frozen421238bytes7652lines. All15appendices independently reconstructed/reviewedPASS; format scansclean. V2 fullbuild pending; v1 hadpassed. Includes dual guard consequences and all stated finite firstcomputedgate cases. Exact posted theorem absent.
-MonoNine firstbuild failed on10missing field-notation dependencies; full failure logs preserved. Exact copied declarations restored and independently reviewed; secondbuild RUNNING. No compilation success claimed yet.
-Initial1886 search archive independently reviewedPASS:34textfiles,32manifesthashes, completeUNKNOWN600secondlogs and full1024-row oversized controls; no counterexample/proof claim.
-Sub-agents:6
-TIMING total=83 subagents=6
-
-Generic-mode extraction, realization, bank/floor and actual-circuit wrappers compiled exit0 and independently reviewed PASS. Their stronger monotone18/AND18/OR17 conclusions still take pending MonoNine16 premise explicitly; no unconditional bound is yet claimed from that premise. NineActual similarly exposes pending monoRoot.
-Reviewed local1886-repair archive preserves exact restricted exhaustive failures; no generalcircuit exclusion or Lean certificate claimed. Shared notes/timeline preserved through latest completed components.
-Sub-agents:6
-TIMING total=92 subagents=6
-
-Compiled and independently reviewed PASS: exhaustive suppliedOR first-nonOR exclusion and40-value OR census, negative-seed absence bounds/transport, endpoint_order and actual endpoint_consumers, monotone constant sweep with reference-prefix preservation. These retain explicit Live/consumer/floor assumptions; no full target proof.
-Broad search archive independently reviewedPASS:117962clauses5832variables, full94-row CNF, complete600secondUNKNOWN logs, rejected870-error candidate, four-error warm control. No valid counterexample.
-Sub-agents:6
-TIMING total=99 subagents=6
-
-V2 FULLBUILD PASSED exit0:834seconds, Build completed successfully(5149jobs);7652lines421238bytes, reviewedhash unchanged.
-MonoNine standalone and MonoNineBridge compiledPASS; closedmonotone9floor16 and actual9floor16 now checked. MonoNine.lower16 axioms are only propext,Classical.choice,Quot.sound; prior conditional genericfloors can now be instantiated.
-Officialchecker attempted, exit3: CHECKER FAULT: the prebuilt Mathlib cache is missing. The required umbrella Mathlib.olean is absent; projecttargetedcache supportedsuccessfulbuilds. This is no proof acceptance/rejection. Exactpostedtheorem stillabsent independently. Cleanup preconditions notmet.
-Secondlease410:1886 renewal rejected despite15:20confirmationof15:40expiry; requiredcurl-si returned410. Fullheaders/body preserved. Workpaused; completedresults beingpushedbeforeauthorizedrecovery.
-Sub-agents:6
-TIMING total=104 subagents=6
-
-V2 actual-module axiom inspection PASS: SourceGuard,SourceEdgeGuard,NegativeSeedTransport use only standard3. All completed endpoint cofactor/deletion/lower components compiled and independently reviewedPASS. Endpoint0 consumed-NOT lower>=19 is conditional on actualNineLower16, now supplied by the separately compiled MonoNineBridge. DeadNOT semantic replacement and monotone compiler components are checked separately; fulldeadNOTwrapper not yet written. No full1886theorem.
+Sub-agents: 6 (Lean setup, structural proof, reduction/review, integration/audit, exact search, local search)
+TIMING total=120.3 subagents=6

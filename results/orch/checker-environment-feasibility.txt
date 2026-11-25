@@ -1,0 +1,31 @@
+UNVERIFIED size estimate: the projected full-cache size is extrapolated from the local partial cache, not measured from a downloaded full cache or a published size manifest. Observed local counts and free space are identified separately below.
+
+Checker environment feasibility, 2026-11-25T15:34:56.411202+00:00
+
+Read-only investigation. No downloads, deletions, source changes, builds, or credential access performed.
+
+Verified:
+- Repository and scratch share one filesystem (devices 27, 27).
+- Available space: 184.59 MiB of 7.839 GiB.
+- Pinned Mathlib source modules: 8712; cached Mathlib modules: 2938.
+- Mathlib umbrella has 8691 public import lines (including Std and Batteries).
+- Existing Mathlib .lake occupies 2.575 GiB.
+- tools/check-lean.mjs lines 115-117 requires authentic Mathlib.olean.
+- lean/CheckLemma.lean lines 63-64 and 351-356 actually import the full Mathlib umbrella at trustLevel 0. A marker or isolated umbrella object cannot suffice.
+- Official cache help and Cache/Main.lean lines 240-252 make Mathlib the default root and include transitive dependencies. There is no supported no-dependency or selected-artifact get option.
+- Lake/Build/Module.lean lines 914-930 checks .olean, .ilean, .olean.server, .olean.private and (when applicable) .c/.ir artifacts. Deleting cached build artifacts can trigger Mathlib rebuilding, which this task prohibits.
+
+Estimated, not verified total full-cache size:
+- Scaling existing Mathlib cache size by module count gives about 7.63 GiB total, or 5.06 GiB additional. This is an extrapolation; local official help has no byte-size manifest and no network query was authorized.
+- Even plain public .olean files alone currently occupy 704.5 MiB for the 2,938 cached modules. Their extrapolated missing portion is about 1.35 GiB, before private/server/IR/native artifacts.
+
+Possible task-generated reclaim candidates for later authorization:
+- Installed toolchain source tree: 28.49 MiB. Source is not a compiler runtime artifact.
+- Installed toolchain .ilean editor metadata: 85.53 MiB; likely safe for headless operation, but not deleted or experimentally verified here.
+- Optional standalone toolchain utilities: tens of MiB; do not delete until exact use is confirmed. Keep Lean, lake, compiler, linker, native libraries, leantar, cadical, and checker tools.
+- Duplicate scratch proof-object caches: roughly 34 MiB, but root must confirm no currently required LEAN_PATH imports before removing.
+- Native Mathlib cache executable: 119.2 MiB, only potentially reclaimable after all cache operations; it is needed by the currently supported cache workflow.
+- Compressed Mathlib caches and original Lean release archive were already removed; they offer no further reclaim.
+
+Conclusion:
+No safe supported route to the full official checker is feasible on the currently available disk using the installed workflow. Conservative reclaim is a few hundred MiB, while several GiB of additional cache space is estimated necessary. A larger filesystem (preferably at least 6 GiB additional headroom) or a correctly prepared full-cache environment is required. This does not invalidate the already successful targeted Lean builds; it prevents the repository checker from starting its full-library verification.

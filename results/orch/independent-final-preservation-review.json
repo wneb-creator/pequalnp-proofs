@@ -1,0 +1,27 @@
+{
+  "utc": "2026-11-25T15:40:41.910823+00:00",
+  "verdict": "PASS",
+  "scope": "Read-only report/archive preservation review; no proofwork or builds",
+  "reports": {
+    "validation.txt": "eb7aee9bd6e3659f84758d8fdf2be8c80cda0042613ed215b6b2af928030f306",
+    "REPRODUCE.md": "1931295a895bab7face7250b279ee3ce0c1b742a40f4a3f5e76ae24889a01293",
+    "checker-environment-feasibility.txt": "2d18258430a2e0e104d9fa68e0d32eec5a9d073e3d31154aa16030413db3741e"
+  },
+  "archives": {
+    "results/orch/local1886-care-run": {
+      "files": 14,
+      "bytes": 53063,
+      "all_manifest_hashes_match": true,
+      "scope_claims_match_frozen_reviews": true
+    },
+    "results/orch/lemmas/search_1886_guard_prepared": {
+      "files": 10,
+      "bytes": 26423,
+      "all_manifest_hashes_match": true,
+      "scope_claims_match_frozen_reviews": true
+    }
+  },
+  "checker": "Preserved exit3 matches missing authentic umbrella Mathlib.olean; checker startup fault, no exact-theorem acceptance",
+  "hygiene_findings": [],
+  "limitations": "Environment size projection explicitly UNVERIFIED and disk observations timestamped; no full-cache download or disk reclamation attempted; complete Lean acceptance for exact posted theorem is not claimed."
+}

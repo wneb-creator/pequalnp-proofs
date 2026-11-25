@@ -1,0 +1,63 @@
+{
+  "utc": "2026-11-25T15:26:00.724115+00:00",
+  "gap": "L-meta-1886",
+  "verdict": "No counterexample; completed600second heuristic and1024-row validation",
+  "evaluations": 1536141680,
+  "restarts": 61439,
+  "initial_and_final_weighted_best": 49,
+  "lifted_errors": 9,
+  "files": {
+    "local1886-care-search-mixed.cpp": {
+      "bytes": 4939,
+      "sha256": "4a35835ce5c4bfff473bf46d3d5ee16c803be5b2327577a53dea6f299a71ea2b"
+    },
+    "local1886-care-mixed-templates.txt": {
+      "bytes": 32828,
+      "sha256": "145a5d3444d34b99061b5fd4a8e4d0ed8ef465998eab28771dfee6d9e9c56f01"
+    },
+    "local1886-care-mixed-preparation.json": {
+      "bytes": 707,
+      "sha256": "b2cd71437defd0c251c204bc8bf098f1bbca078b3ae94b6e81882bfc21555a4e"
+    },
+    "local1886-care-mixed-build.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "local1886-care-mixed-run1.log": {
+      "bytes": 1292,
+      "sha256": "831f0fc8372221cf0c0c1aa4ab0e780a0a4aba03805cf64ea5e0a41b29e4f5e3"
+    },
+    "local1886-care-mixed-best.txt": {
+      "bytes": 137,
+      "sha256": "58ed8cdda6265465f6c16b315e9d448678aebc1584698562e1db74e10146b1ce"
+    },
+    "local1886-care-validate.py": {
+      "bytes": 2293,
+      "sha256": "3a990f820a8ff2aaa54639612f07c62fa4431c4949cbbe659cc0026ba9ac07d0"
+    },
+    "local1886-care-mixed-validation.json": {
+      "bytes": 1902,
+      "sha256": "b55f5ae9e5c3631918d75e0fb0e9ed5abf53782609b191128498a5b41d7c253e"
+    },
+    "local1886-care-mixed-validation.log": {
+      "bytes": 310,
+      "sha256": "932d305a9103878aefb5f28faf026d5848201883a39d372125c41f08015c63ec"
+    },
+    "local1886-care-edge-validate.py": {
+      "bytes": 1113,
+      "sha256": "c4955787360f6df79a0afbbced520eb269ab78e63f07edbcf7134220b2e2e61c"
+    },
+    "local1886-care-mixed-edge-validation.json": {
+      "bytes": 2381,
+      "sha256": "d253e5f07fea28ea060f5cb6441368a25e19e92da47ad004f0671e2f12dc6f60"
+    },
+    "independent-local1886-mixed-review.json": {
+      "bytes": 572,
+      "sha256": "7e00e9dedd4add3ee5a536e86a50a204bb1c24eb8a135f79e68c55ba664526a8"
+    },
+    "README.md": {
+      "bytes": 2326,
+      "sha256": "4de3b683d2436a79d339981c7cbb3247a9d94c8da71b326f7bdcbe4ed00585dc"
+    }
+  }
+}

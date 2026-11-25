@@ -1,0 +1,172 @@
+{
+  "claimed_score": 49,
+  "care_rows": 768,
+  "all_rows": 1024,
+  "care_errors": [
+    640,
+    641,
+    642,
+    648,
+    649,
+    650,
+    896,
+    897,
+    898
+  ],
+  "full_errors": [
+    640,
+    641,
+    642,
+    648,
+    649,
+    650,
+    896,
+    897,
+    898
+  ],
+  "counterexample": false,
+  "chooseAnd": true,
+  "pinmap": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "size": 18,
+  "not_count": 0,
+  "output": 28,
+  "gates": [
+    {
+      "op": "or",
+      "inputs": [
+        9,
+        1
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        0,
+        9
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        0,
+        7
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        6,
+        3
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        5,
+        13
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        7,
+        1
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        12,
+        3
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        14,
+        5
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        15,
+        8
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        4,
+        17
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        19,
+        18
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        20,
+        21
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        3,
+        16
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        23,
+        2
+      ]
+    },
+    {
+      "op": "and",
+      "inputs": [
+        6,
+        11
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        25,
+        24
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        22,
+        26
+      ]
+    },
+    {
+      "op": "or",
+      "inputs": [
+        10,
+        27
+      ]
+    }
+  ]
+}

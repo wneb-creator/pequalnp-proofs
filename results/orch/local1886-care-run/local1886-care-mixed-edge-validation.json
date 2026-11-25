@@ -1,0 +1,140 @@
+{
+  "utc": "2026-11-25T15:25:18.729390+00:00",
+  "scope": "Exhaustive1024-input validation only. Final17-gate raw circuit computes Petersen minus exactly two edges; no supplied edge AND followed by one final OR completes it. No new heuristic search.",
+  "raw_size": 17,
+  "raw_NOT_count": 0,
+  "missing_edges": [
+    [
+      0,
+      1
+    ],
+    [
+      7,
+      9
+    ]
+  ],
+  "subgraph_identity_checked_rows": 1024,
+  "all_supplied_edges": [
+    {
+      "supplied_AND_edge": [
+        0,
+        1
+      ],
+      "full_errors": 9,
+      "counterexample": false
+    },
+    {
+      "supplied_AND_edge": [
+        1,
+        2
+      ],
+      "full_errors": 21,
+      "counterexample": false
+    },
+    {
+      "supplied_AND_edge": [
+        2,
+        3
+      ],
+      "full_errors": 21,
+      "counterexample": false
+    },
+    {
+      "supplied_AND_edge": [
+        3,
+        4
+      ],
+      "full_errors": 21,
+      "counterexample": false
+    },
+    {
+      "supplied_AND_edge": [
+        4,
+        0
+      ],
+      "full_errors": 21,
+      "counterexample": false
+    },
+    {
+      "supplied_AND_edge": [
+        0,
+        5
+      ],
+      "full_errors": 21,
+      "counterexample": false
+    },
+    {
+      "supplied_AND_edge": [
+        1,
+        6
+      ],
+      "full_errors": 21,
+      "counterexample": false
+    },
+    {
+      "supplied_AND_edge": [
+        2,
+        7
+      ],
+      "full_errors": 21,
+      "counterexample": false
+    },
+    {
+      "supplied_AND_edge": [
+        3,
+        8
+      ],
+      "full_errors": 21,
+      "counterexample": false
+    },
+    {
+      "supplied_AND_edge": [
+        4,
+        9
+      ],
+      "full_errors": 21,
+      "counterexample": false
+    },
+    {
+      "supplied_AND_edge": [
+        5,
+        7
+      ],
+      "full_errors": 21,
+      "counterexample": false
+    },
+    {
+      "supplied_AND_edge": [
+        7,
+        9
+      ],
+      "full_errors": 9,
+      "counterexample": false
+    },
+    {
+      "supplied_AND_edge": [
+        9,
+        6
+      ],
+      "full_errors": 21,
+      "counterexample": false
+    },
+    {
+      "supplied_AND_edge": [
+        6,
+        8
+      ],
+      "full_errors": 21,
+      "counterexample": false
+    },
+    {
+      "supplied_AND_edge": [
+        8,
+        5
+      ],
+      "full_errors": 21,
+      "counterexample": false
+    }
+  ],
+  "minimum_full_errors": 9
+}

@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-25T15:33:21.318842+00:00",
+  "archive": "/workspace/pequalnp-proofs/results/orch/lemmas/search_1886_guard_prepared",
+  "verdict": "PASS",
+  "manifest_files": 8,
+  "total_files": 10,
+  "all_hashes_match": true,
+  "review_hash_matches_final_frozen_source": true,
+  "control": "Pre-freeze one-second near-seed SAT/four errors then UNKNOWN on32 rows; frozen-row regression separately SAT thenUNSAT.",
+  "scope": "README explicitly distinguishes pre-freeze Petersen control from final static source review and tiny API regression, restricts mathematical coverage to checked AND-bank source lemmas, and claims no long run, no post-withdrawal Petersen rerun, no counterexample or lower-bound result. All text; no detected credentials/binaries. No archive mutation."
+}

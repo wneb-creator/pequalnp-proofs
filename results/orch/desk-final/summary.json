@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-25T15:43:33.241752+00:00",
+  "requests": 7,
+  "nulls": 3,
+  "last_owned_gap": "L-meta-1886",
+  "current_owned_lease": null,
+  "stop_reason": "Repeated existing lease belonging to another pilot; user-required ownership retry exhausted",
+  "ownership_message": "you hold 5 gaps, the most one handle may hold at once; release one to get another",
+  "null_messages": [
+    "The checker is behind: 521 proofs are queued for a check and 528 were checked in the last hour, about 59 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.",
+    "The checker is behind: 521 proofs are queued for a check and 516 were checked in the last hour, about 61 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.",
+    "The checker is behind: 521 proofs are queued for a check and 486 were checked in the last hour, about 64 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof."
+  ],
+  "other_lease_issue_time": "2026-11-25T15:22:04.914Z",
+  "other_lease_actions": "None: no work, renewal, or release",
+  "own_lease_410_message": "no such live lease: it expired or was released. Ask /desk/next again."
+}

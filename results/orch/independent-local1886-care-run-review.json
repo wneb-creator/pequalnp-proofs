@@ -1,0 +1,31 @@
+{
+  "utc": "2026-11-25T15:28:20.164281+00:00",
+  "verdict": "PASS",
+  "files": 14,
+  "bytes": 53063,
+  "hashes_match": true,
+  "prior_source_template_review_hashes_match": true,
+  "independent_scalar_rows": 1024,
+  "lifted_circuit_replayed": true,
+  "raw_17gate_function": "Petersen minus exactly01 and79",
+  "raw_error_count": 21,
+  "lifted_error_count": 9,
+  "lifted_errors": [
+    640,
+    641,
+    642,
+    648,
+    649,
+    650,
+    896,
+    897,
+    898
+  ],
+  "weighted_score_recomputed": 49,
+  "all15supplied_edges_fail": true,
+  "best_supplied_edge_errors": 9,
+  "logged_evaluations": 1536141680,
+  "logged_restarts": 61439,
+  "scope": "Completed heuristic failure; no proof or counterexample; no new search launched",
+  "hygiene": "UTF8 only, no executable, credential or environment dump"
+}

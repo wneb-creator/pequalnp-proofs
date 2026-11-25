@@ -199,3 +199,5 @@ Lease initial expiry: 2026-11-25T14:04:05.796Z
 2026-11-25T15:22:09Z observed v2 fullbuildPASS(834seconds); exact target absent.
 2026-11-25T15:23:01Z diagnostic renewal confirmed410 despite15:20expiry15:40; allnewworkpaused andtimerstopped.
 2026-11-25T15:28:12.906629+00:00 preserving allcompletedMonoNine/bridge/endpoint components before recoveryrequest.
+
+2026-11-25T15:43:33.241752+00:00 FINAL OWNERSHIP STOP: 7next requests,3nulls. Requests6and7 returned another pilot's pre-existing4970 lease with five-gap-limit note. Required ownership retry exhausted; no action on that lease. Last owned gap1886 already410. Checked partials and final reviewed archives preserved; no exact proof, refutation, checker acceptance, or PR.

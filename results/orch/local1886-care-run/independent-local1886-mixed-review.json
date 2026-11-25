@@ -1,0 +1,13 @@
+{
+  "utc": "2026-11-25T15:11:07.786360+00:00",
+  "verdict": "PASS",
+  "source_sha256": "4a35835ce5c4bfff473bf46d3d5ee16c803be5b2327577a53dea6f299a71ea2b",
+  "template_sha256": "145a5d3444d34b99061b5fd4a8e4d0ed8ef465998eab28771dfee6d9e9c56f01",
+  "changes": "Only template/output paths and one-quarter of restart choices ranging over all seeds",
+  "templates": 240,
+  "original_exact_care_templates": 120,
+  "new_18gate_templates": 120,
+  "each_new_template_full_and_care_errors": 4,
+  "all_new_errors_false_positive_independent_inputs": true,
+  "executed_search": false
+}

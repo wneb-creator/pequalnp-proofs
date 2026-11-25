@@ -1,0 +1,11 @@
+# Completed mixed free-AND care search for L-meta-1886
+
+No counterexample was found. The one-CPU run had a600-second cap, deterministic seed92, and completed1536141680 fitness evaluations with61439 restarts. Its initial weighted best49 never improved. The run exited1, its documented non-witness result. All stdout and stderr, source, templates, best candidate, and independent validation outputs are preserved. No executable is included.
+
+The search sought a17-gate g correct on the768 inputs with x0 AND x1 false. A final OR with the free supplied AND would produce an18-counted-gate candidate. The240 initial templates contain120 exact-care variants of the known20-gate circuit and120 automorphic18-gate near-witnesses. The mixed preparation was independently reviewed before running. The source favors at most one NOT because of the checked free-AND binary lower bound; empty-input OR/AND realizes its internal constant operations3/4 if encountered.
+
+Final validation evaluated all1024 inputs twice, including an explicit lifted11-input circuit. The best17-gate circuit is monotone and computes Petersen with exactly edges01 and79 deleted. Adding the freeAND01 by one final OR restores01 but still misses exactly nine inputs:640,641,642,648,649,650,896,897,898. These are false negatives; the18-gate lift is not a counterexample. Replacing the supplied AND edge with any of the other14 Petersen edges also fails, with minimum nine errors. These are finite computational identities, not Lean proofs.
+
+Restore this archive under /tmp/oec/pequalnp-pilot-92 before reproducing. Compile local1886-care-search-mixed.cpp with g++ -O3 -std=c++17 and invoke the executable with arguments600 92. The program writes its best candidate and expects the included mixed-templates file at that explicit scratch path. The independent Python validator takes candidate and outputJSON paths; it exits1 for the archived non-witness. The additional edge validator checks the two-edge-deleted identity and all15 supplied-edge choices.
+
+This completed run followed root renewal at15:12:59UTC and the previous broadSAT process exit. Root subsequently reported the1886 lease410 and instructed no new searches. The run had already finished; only its validation and preservation were completed afterward. Earlier frozen archives were left unchanged.

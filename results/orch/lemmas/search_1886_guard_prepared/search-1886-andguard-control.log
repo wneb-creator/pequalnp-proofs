@@ -1,0 +1,5 @@
+{"round": 1, "rows": 28, "variables": 2268, "clauses": 41201, "elapsed": 0.15228248600033112}
+{"verdict": "SAT", "elapsed": 0.15308178400027828}
+{"errors": 4, "not_count": 0, "qualifies": false}
+{"round": 2, "rows": 32, "variables": 2484, "clauses": 45850, "elapsed": 0.16655533900029695}
+{"verdict": "UNKNOWN", "elapsed": 1.0036013919998368}

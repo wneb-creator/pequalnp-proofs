@@ -1,0 +1,14 @@
+{
+  "created": "2026-11-25T15:30:14.897711+00:00",
+  "status": "Prepared only; one pre-fix one-second control; no long run",
+  "files": {
+    "search-1886-cegis-andguard.py": "11878dcc1c98adace9326a9b28b918a9382b38efd4b490d47a5292d07331a20a",
+    "search-cadical-wrapper-v2.cpp": "0a004cd20d048a84e3f8096aee20ed7e60a74b799ad2e454bff4a9c829bebe11",
+    "local1886-near-canonical.json": "e50319e605b41762965fe5f1c57155424ad45994e23bd04e41f7e41ca3b2f5c0",
+    "search-1886-andguard-control.log": "536a5530bbfe2ee25035f36f5a50fcd43712670ebe4d477d7024cffb449dc549",
+    "search-1886-andguard-control.json": "d1719f0187ba60c3100af9d92b43902d81624008eb022aa57e4c9e148a94290d",
+    "search-1886-andguard-control-candidate1.json": "6ef212b79c2eac19d79a5e069dcfc44740147a507fd0b31fc5efc1dc4ddfbabd",
+    "search-cadical-row-freeze-control.json": "adb2877940336225b2ace2cf37b3da4ae4f4ca6ed1c6cec60d27baa0e3b3b3cd",
+    "local1886-review-andguard.json": "50ef22255155306dc6511b426fd05850be232f04c9248fc7c7587761c35ad6c6"
+  }
+}
