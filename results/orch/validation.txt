@@ -41,3 +41,7 @@ These are partial results. Global additive star/dirty-gate budget and exact assi
 Counterexample-search bundle preserved: 47 manifest entries verified, 13 Python programs parse and I/O reviewed; solver UNSAT is computational evidence only, timeouts explicitly UNKNOWN, no posted counterexample found.
 Sub-agents: 6 (status/library review, toolchain/star lemmas, ledger proof, semantic proof, counterexample audit, AND lowerbound)
 TIMING total=61.4 subagents=6
+
+Compiled multioutput structural budget (460 lines; SHA2569d7c326cdf35a3272e88d2931345ccece0fc16797ef590d29c10e7129aa07fef), independently reviewed and independently compiled by ledger_proof. Counts selected output and unused pure OR witness cones, without a clean-AND assumption.
+This valid structural inequality does not close the gap. A proposed semantic inequality using only its births and merges is being refuted by a finite anchored construction; positive AND filtering cannot be omitted.
+TIMING total=68.0 subagents=6

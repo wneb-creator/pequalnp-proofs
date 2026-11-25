@@ -14,3 +14,4 @@
 - 2026-11-25T16:16:13.197536+00:00: full typed cut/lift and actual forced-cofactor checkpoint compiled and independently reviewed; preservation push.
 - 2026-11-25T16:20:11.053990+00:00: second roughly20-minute replan. Typed AND cut/lift and complete T0 OR bypass compiled. Finish lexicographic TopForm normalization, then pivot most effort to global dirty-use/OR charge accounting; direct total-gate SAT searches timed out, no posted counterexample.
 - 2026-11-25T16:24:03.312753+00:00: full witness-preserving TopForm and protected dirty-use charge compiled and independently reviewed; preserving both plus finite-search bundle.
+- 2026-11-25T16:30:36.624997+00:00: selected-terminal structural budget compiled and independently reviewed; preserving while testing stronger accounting of positive AND filters.
