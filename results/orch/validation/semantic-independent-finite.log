@@ -1,0 +1,10 @@
+vertex 1 sensitive rows 40 surviving ordered gate patterns 28
+vertex 2 sensitive rows 40 surviving ordered gate patterns 28
+vertex 3 sensitive rows 40 surviving ordered gate patterns 28
+vertex 4 sensitive rows 40 surviving ordered gate patterns 28
+vertex 5 sensitive rows 40 surviving ordered gate patterns 28
+vertex 6 sensitive rows 40 surviving ordered gate patterns 28
+vertex 7 sensitive rows 40 surviving ordered gate patterns 28
+vertex 8 sensitive rows 40 surviving ordered gate patterns 28
+vertex 9 sensitive rows 40 surviving ordered gate patterns 28
+PASS: exact sensitive row tables and both directions of finite classification independently reproduced.

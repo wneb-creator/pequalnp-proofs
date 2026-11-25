@@ -48,6 +48,26 @@ def component(relative: str) -> tuple[str, dict]:
         suffix = source[position + len(closing):]
         assert "theorem PEqualNP.Outside.L_meta_7493 :" in suffix
         source = source[:position + len(closing)]
+    if relative == "results/orch/lemmas/Restriction.lean":
+        boundary = "namespace CircuitProof\n\nopen PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity\n\ndef originStep"
+        assert source.count(boundary) == 1
+        position = source.index(boundary)
+        shared = source[:position].replace(
+            "PEqualNP.Outside.L_meta_2592_restrict", "PEqualNP.Outside.L_meta_7493"
+        )
+        assert (REPO / SOURCES[0]).read_text(encoding="utf-8").startswith(shared)
+        source = "namespace PEqualNP.Outside.L_meta_2592_restrict\n\n" + source[position:]
+        source = source.replace(
+            "namespace CircuitProof\n",
+            "namespace CircuitProof\n\nopen PEqualNP.Outside.L_meta_7493.CircuitProof\n",
+            1,
+        )
+    if relative == "results/orch/lemmas/CutFloor.lean":
+        opening = "open PEqualNP.Outside.L_meta_2592_restrict.CircuitProof\n"
+        assert source.count(opening) == 1
+        source = source.replace(
+            opening, "open PEqualNP.Outside.L_meta_7493.CircuitProof\n" + opening
+        )
     source = "\n".join(
         line for line in source.splitlines()
         if not re.fullmatch(r"import [A-Za-z0-9_.]+", line)

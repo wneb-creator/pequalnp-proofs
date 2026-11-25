@@ -1,0 +1,19 @@
+PARTIAL >=16 BINARY-GATE RESULT ONLY. This is not the complete L-meta-2592 statement.
+
+Cleanup started: 2026-11-25 14:23:56 UTC
+Cleanup completed and accepted: 2026-11-25 14:32:17 UTC
+Elapsed: 8 minutes 21 seconds (within10-minute cap).
+
+Before:5781lines,280866bytes; sourcehash81d440f47787851ebc9beade91df8244f6f9bae051acbabf444c5dd78920137d
+After:5253lines,259686bytes; sourcehash39f8d64bf991a7a4ed05b2dcdbd9cc3cef75db73e37d6893e3ce5de6da221158
+Saved:528lines and21180bytes. Exact partial statement unchanged (SHA256 5bee4966e1a5d0b9ca1e3d12ece3dec520fc9ac134f8fe91433a5cd74815013d).
+
+Change: inliner verifies and removes Restriction compiler prefix duplicated from L_meta_7493, then opens the original DeletionBase.CircuitProof definitions within Elimination.CircuitProof and CutFloor. New Elimination provenance/cutCost declarations unchanged; no authored component file edited.
+
+Source guard: PASS, exit0
+Named lake build: PASS, exit0 (18423jobs)
+Official local checker: ACCEPTED(check), exit0;2605constants rechecked, onlypropext/Quot.sound/Classical.choice.
+
+ACCEPTED (check): PEqualNP.Outside.L_meta_2592_binary16; axioms [propext, Quot.sound, Classical.choice]; kernel re-checked 2605 constants of [PEqualNP.Defs.Base, PEqualNP.Defs.Classes, PEqualNP.Defs.CircuitLowerBounds, PEqualNP.Defs.MetaComplexity, PEqualNP.Defs.MetaComplexityLocal, PEqualNP.Defs.MetaComplexitySparse, PEqualNP.Defs.MetaComplexityMinimal, PEqualNP.Defs.MetaComplexityLgp, PEqualNP.Defs.MetaComplexityLgpMono, PEqualNP.Defs.BinaryCircuit, PEqualNP.Defs.MetaComplexityCoverCircuit, PEqualNP.Defs.ProofComplexity, PEqualNP.Defs.ProofComplexityLin, PEqualNP.Defs.ProofComplexityLinK, PEqualNP.Defs.ProofComplexityLift, PEqualNP.Defs.ProofComplexityResK, PEqualNP.Defs.ProofComplexityRestrict, PEqualNP.Defs.ProofComplexityBit, PEqualNP.Defs.ProofComplexityPC, PEqualNP.Defs.ProofComplexityMoment, PEqualNP.Defs.ProofComplexityChain, PEqualNP.Defs.ProofComplexityGeneral, PEqualNP.Defs.Search, PEqualNP.Defs.SearchQ, PEqualNP.Defs.SearchQTree, PEqualNP.Defs.SearchCP, PEqualNP.Defs.SearchRUP, PEqualNP.Defs.SearchQSyn, PEqualNP.Defs.SearchSoS, PEqualNP.Defs.Gct, PEqualNP.Defs.Oracle, PEqualNP.Defs.Algebraic, PEqualNP.Defs.Expanders, PEqualNP.Defs.RiffleRank, PEqualNP.Defs.TimeAlt, PEqualNP.Defs.CoverPromise, PEqualNP.Defs.SingleLevel, PEqualNP.Defs.DeMorganFormula, PEqualNP.Defs.MetaComplexityTypedRank, PEqualNP.Defs.Pebble, PEqualNP.Defs.Subdivision, PEqualNP.Defs.AndCountCircuit, PEqualNP.Defs.PebbleThreeWay, PEqualNP.Defs.CoLevel, PEqualNP.Defs.Peelable, PEqualNP.Defs.NestedCoverCircuit, PEqualNP.Defs.LiteralPartition, PEqualNP.Defs.MinimumComplex, PEqualNP.Defs.PendantBit, PEqualNP.Defs.BorrowedCoverCircuit, PEqualNP.Defs.LineDegree, PEqualNP.Defs.CircuitMoves, PEqualNP.Defs.LowMerge, PEqualNP.Defs.NewLowMerge, PEqualNP.Defs.AffinePlane, PEqualNP.Defs.EdgeOwnership, PEqualNP.Defs.PencilGate, PEqualNP.Defs.BlindGate, PEqualNP.Defs.BicliqueBlockCost, PEqualNP.Defs.SharingOrder, PEqualNP.Defs.NotPremium, PEqualNP.Defs.NotBracket, PEqualNP.Defs.PairShadow, PEqualNP.Defs.SplitCount, PEqualNP.Defs.InvisibleWire, PEqualNP.Defs.SharedOr, PEqualNP.Defs.CleanedNonEdge, PEqualNP.Defs.MergeCost, PEqualNP.Defs.CarriedProduct, PEqualNP.Defs.TopForm, PEqualNP.Defs.SyntacticMultilinear, PEqualNP.Defs.TopFormNames, PEqualNP.Defs.HeptadCover, PEqualNP.Defs.ReadK, PEqualNP.Defs.GenericRejection, PEqualNP.Defs.CrossAnd, PEqualNP.Defs.ReadKJoin, PEqualNP.Defs.SharedBlockCost, PEqualNP.Defs.ReadTwo, PEqualNP.Defs.LratEncoding, PEqualNP.Defs.Core, PEqualNP.Defs.PointTypes, PEqualNP.Defs.FactorSubst, PEqualNP.Defs.TwoColour, PEqualNP.Defs.Represents, PEqualNP.Defs, PEqualNP.Outside.L_meta_2592_binary16]
+
+Complete logs:cleanup-source-guard.stdout/stderr;cleanup-binary16-build.stdout/stderr;cleanup-binary16-checker.stdout/stderr.

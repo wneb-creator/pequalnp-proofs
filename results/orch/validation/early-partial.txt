@@ -31,3 +31,7 @@ StrictRestriction.lean: Lean compile exit0; independently reviewed by root; 151 
 SemanticClassification.lean: Lean compile exit0; independently reviewed by few_negations; 60 lines; sha256 1d02eae0d23acca77a9a743a23725949de93f016fa46f5cd9afa5160d53d6c7e. Explicit partial hypotheses only, no full-target claim.
 SemanticAllInputs.lean: Lean compile exit0; independently reviewed by few_negations; 68 lines; sha256 0326e48b00e98373d7ac917e29609b12d09d8756a21e97daf7583999ad7f61ff. Explicit partial hypotheses only, no full-target claim.
 SemanticFactorization.lean: Lean compile exit0; independently reviewed by few_negations; 31 lines; sha256 9f60a598122c8062231d14764ec4170f90276d1b1a4c18d1e56626d36a9ec0d5. Explicit partial hypotheses only, no full-target claim.
+
+2026-11-25 14:33 UTC checkpoint: cleanup passed the official local checker for the explicitly stated binary16 PARTIAL theorem; complete L-meta-2592 remains unproved. Source guard and named build passed. Cleanup reduced 5781 lines / 280866 bytes to 5253 lines / 259686 bytes in 8m21s. Exact partial statement unchanged. Root independently reviewed deduplication diff and generator assertions. StrictRestriction.lean 370-line extension compiled; existing_reductions independently reviewed and audited all six key declarations, standard axioms only. Semantic independent audit and finite enumeration logs preserved.
+Sub-agents: seven (six root agents plus one delegated catalog researcher)
+TIMING total=47 subagents=7

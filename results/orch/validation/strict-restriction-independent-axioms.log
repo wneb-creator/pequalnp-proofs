@@ -1,0 +1,18 @@
+'PEqualNP.Outside.L_meta_2592_aux.StrictRestriction.marked_gate' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.StrictRestriction.marked_final_reader' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.StrictRestriction.marked_reaches_output' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.StrictRestriction.strict_saving_of_marked' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.StrictRestriction.marked_of_constant_binary' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.StrictRestriction.strict_restriction_with_marked' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

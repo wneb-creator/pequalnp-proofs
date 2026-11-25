@@ -149,3 +149,222 @@ lemma marked_gate (n m : ℕ) (origins : List (Option ℕ)) (v : ℕ)
       exact ⟨trivial, _, rfl⟩
 
 end PEqualNP.Outside.L_meta_2592_aux.StrictRestriction
+
+
+namespace PEqualNP.Outside.L_meta_2592_aux.StrictRestriction
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_2592_restrict.CircuitProof
+open PEqualNP.Outside.L_meta_7493.PetersenCutTrace
+
+lemma origin_before_gate (pre post : List Gate) (g : Gate) (origins : List (Option ℕ))
+    (i : ℕ) (before : i < origins.length + pre.length) :
+    ((pre ++ g :: post).foldl originStep origins).getD i none =
+      (pre.foldl originStep origins).getD i none := by
+  rw [List.foldl_append]
+  apply origin_run_prefix
+  simpa only [origin_run_length] using before
+
+lemma stats_before_gate (n : ℕ) (pre post : List Gate) (g : Gate)
+    (acc : List Stat × List Gate) (i : ℕ) (before : i < acc.1.length + pre.length) :
+    (elim n (pre ++ g :: post) acc).1.getD i (Sum.inl false) =
+      (elim n pre acc).1.getD i (Sum.inl false) := by
+  rw [elim_append]
+  apply stats_run_prefix
+  simpa only [stats_run_length] using before
+
+lemma origin_at_gate (pre post : List Gate) (g : Gate) (origins : List (Option ℕ)) :
+    ((pre ++ g :: post).foldl originStep origins).getD (origins.length + pre.length) none =
+      (match g.op, g.inputs with
+      | .not, i :: _ => (pre.foldl originStep origins).getD i none
+      | _, _ => none) := by
+  rw [List.foldl_append, List.foldl_cons]
+  rw [origin_run_prefix post _ _ (by simp [originStep, origin_run_length])]
+  have length := origin_run_length pre origins
+  rw [← length]
+  exact getD_snoc_eq _ _ _
+
+lemma stats_at_gate (n : ℕ) (pre post : List Gate) (g : Gate) (acc : List Stat × List Gate) :
+    (elim n (pre ++ g :: post) acc).1.getD (acc.1.length + pre.length) (Sum.inl false) =
+      (simplify g.op (n + (elim n pre acc).2.length)
+        (g.inputs.map fun i => (elim n pre acc).1.getD i (Sum.inl false))).2 := by
+  rw [elim_append]
+  change (elim n post (elimStep n (elim n pre acc) g)).1.getD _ _ = _
+  rw [stats_run_prefix n post _ _ (by simp [elimStep, stats_run_length])]
+  have length := stats_run_length n pre acc
+  rw [← length]
+  exact getD_snoc_eq _ _ _
+
+lemma marked_final_reader (n k : ℕ) (gs : List Gate) (origins : List (Option ℕ))
+    (v : ℕ) (acc : List Stat × List Gate) (originLength : origins.length = k)
+    (statsLength : acc.1.length = k) (clean : CleanL k gs)
+    (known : OriginConstant origins v acc.1)
+    (noExtra : ∀ pre g post, gs = pre ++ g :: post →
+      isNotGate g.op = false → cutCharge (pre.foldl originStep origins) v g = 0 →
+      (simplify g.op (n + (elim n pre acc).2.length)
+        (g.inputs.map fun i => (elim n pre acc).1.getD i (Sum.inl false))).1 ≠ none)
+    (a b : Fin (k + gs.length)) (edge : readEdge gs a b)
+    (marked : Marked (gs.foldl originStep origins) (elim n gs acc).1 a.val) :
+    Marked (gs.foldl originStep origins) (elim n gs acc).1 b.val := by
+  obtain ⟨p, g, atGate, target, reads⟩ := edge
+  have gateClean := clean p g atGate
+  have before := gateClean.lt a.val reads
+  obtain ⟨pre, post, split, length⟩ := split_at gs p g atGate
+  have localMark : Marked (pre.foldl originStep origins) (elim n pre acc).1 a.val := by
+    rcases marked with ⟨originNone, ⟨c, status⟩⟩
+    simp only [split] at originNone status
+    rw [origin_before_gate pre post g origins a.val (by omega)] at originNone
+    rw [stats_before_gate n pre post g acc a.val (by omega)] at status
+    exact ⟨originNone, c, status⟩
+  have propagated := marked_gate n (k + p) (pre.foldl originStep origins) v (elim n pre acc) g
+    gateClean (originConstant_run n pre origins v acc known)
+    (noExtra pre g post split) ⟨a.val, reads, localMark⟩
+  refine ⟨?_, ?_⟩
+  · rw [target, split, ← length, ← originLength, origin_at_gate]
+    exact propagated.1
+  · obtain ⟨c, status⟩ := propagated.2
+    refine ⟨c, ?_⟩
+    rw [target, split, ← length, ← statsLength, stats_at_gate]
+    exact status
+
+lemma marked_reaches_output (n k : ℕ) (gs : List Gate) (origins : List (Option ℕ))
+    (v : ℕ) (acc : List Stat × List Gate) (originLength : origins.length = k)
+    (statsLength : acc.1.length = k) (clean : CleanL k gs)
+    (known : OriginConstant origins v acc.1)
+    (noExtra : ∀ pre g post, gs = pre ++ g :: post →
+      isNotGate g.op = false → cutCharge (pre.foldl originStep origins) v g = 0 →
+      (simplify g.op (n + (elim n pre acc).2.length)
+        (g.inputs.map fun i => (elim n pre acc).1.getD i (Sum.inl false))).1 ≠ none)
+    (out : Fin (k + gs.length))
+    (live : ∀ w : Fin (k + gs.length), w ≠ out → ∃ z, readEdge gs w z)
+    (seed : Fin (k + gs.length))
+    (seedMarked : Marked (gs.foldl originStep origins) (elim n gs acc).1 seed.val) :
+    Marked (gs.foldl originStep origins) (elim n gs acc).1 out.val := by
+  classical
+  let marked := Finset.univ.filter (fun w : Fin (k + gs.length) =>
+    Marked (gs.foldl originStep origins) (elim n gs acc).1 w.val)
+  have nonempty : marked.Nonempty := ⟨seed, Finset.mem_filter.mpr ⟨Finset.mem_univ _, seedMarked⟩⟩
+  let peak := marked.max' nonempty
+  have peakMem : peak ∈ marked := Finset.max'_mem _ _
+  have peakMarked := (Finset.mem_filter.mp peakMem).2
+  by_cases eqOut : peak = out
+  · simpa only [eqOut] using peakMarked
+  · obtain ⟨next, edge⟩ := live peak eqOut
+    have nextMarked := marked_final_reader n k gs origins v acc originLength statsLength
+      clean known noExtra peak next edge peakMarked
+    have nextMem : next ∈ marked := Finset.mem_filter.mpr ⟨Finset.mem_univ _, nextMarked⟩
+    have le : next ≤ peak := Finset.le_max' _ _ nextMem
+    have lt : peak < next := read_order clean edge
+    exact False.elim ((not_lt_of_ge le) lt)
+
+lemma strict_saving_of_marked (n k : ℕ) (gs : List Gate) (origins : List (Option ℕ))
+    (v : ℕ) (acc : List Stat × List Gate) (originLength : origins.length = k)
+    (statsLength : acc.1.length = k) (clean : CleanL k gs)
+    (known : OriginConstant origins v acc.1)
+    (out : Fin (k + gs.length))
+    (live : ∀ w : Fin (k + gs.length), w ≠ out → ∃ z, readEdge gs w z)
+    (seed : Fin (k + gs.length))
+    (seedMarked : Marked (gs.foldl originStep origins) (elim n gs acc).1 seed.val)
+    (outputNotConstant : ¬ ∃ b, (elim n gs acc).1.getD out.val (Sum.inl false) = Sum.inl b) :
+    nonNotCount (elim n gs acc).2 + cutCost origins v gs + 1 ≤
+      nonNotCount acc.2 + nonNotCount gs := by
+  by_contra fails
+  have noExtra : ∀ pre g post, gs = pre ++ g :: post →
+      isNotGate g.op = false → cutCharge (pre.foldl originStep origins) v g = 0 →
+      (simplify g.op (n + (elim n pre acc).2.length)
+        (g.inputs.map fun i => (elim n pre acc).1.getD i (Sum.inl false))).1 ≠ none := by
+    intro pre g post split notNot uncharged gone
+    apply fails
+    rw [split]
+    exact strict_saving_at n pre post g origins v acc
+      (by intro a ha; exact (clean_nok k gs clean a (split ▸ ha)).1)
+      known notNot uncharged gone
+  have reaches := marked_reaches_output n k gs origins v acc originLength statsLength clean
+    known noExtra out live seed seedMarked
+  exact outputNotConstant reaches.2
+
+end PEqualNP.Outside.L_meta_2592_aux.StrictRestriction
+
+
+namespace PEqualNP.Outside.L_meta_2592_aux.StrictRestriction
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.Outside.L_meta_2592_restrict.CircuitProof
+open PEqualNP.Outside.L_meta_7493.PetersenCutTrace
+
+lemma annihilating_status (op : GateOp) (c : Bool) (m : ℕ) (a b : Stat)
+    (annihilates : (op = GateOp.and ∧ c = false) ∨ (op = GateOp.or ∧ c = true))
+    (fixed : a = Sum.inl c ∨ b = Sum.inl c) :
+    (simplify op m [a, b]).2 = Sum.inl c := by
+  rcases annihilates with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩ <;>
+    rcases fixed with rfl | rfl
+  · cases b <;> simp [simplify, simpAnd]
+  · cases a <;> simp [simplify, simpAnd]
+  · cases b <;> simp [simplify, simpOr]
+  · cases a <;> simp [simplify, simpOr]
+
+lemma marked_of_constant_binary (n k : ℕ) (pre post : List Gate) (g : Gate)
+    (origins : List (Option ℕ)) (acc : List Stat × List Gate)
+    (originLength : origins.length = k) (statsLength : acc.1.length = k)
+    (notNot : isNotGate g.op = false)
+    (constant : ∃ b, (simplify g.op (n + (elim n pre acc).2.length)
+      (g.inputs.map fun i => (elim n pre acc).1.getD i (Sum.inl false))).2 = Sum.inl b) :
+    Marked ((pre ++ g :: post).foldl originStep origins)
+      (elim n (pre ++ g :: post) acc).1 (k + pre.length) := by
+  refine ⟨?_, ?_⟩
+  · rw [← originLength, origin_at_gate]
+    cases op : g.op <;> simp_all [isNotGate]
+  · rw [← statsLength, stats_at_gate]
+    exact constant
+
+lemma strict_restriction_with_marked (n k : ℕ) (C : Circuit) (fan : FanInTwo C)
+    (seedStats : List Stat) (origins : List (Option ℕ)) (v : ℕ)
+    (valuation : (Fin n → Bool) → (Fin k → Bool))
+    (initial : ∀ x : Fin n → Bool,
+      Inv n (List.ofFn x) (List.ofFn (valuation x)) (seedStats, []))
+    (known : OriginConstant origins v seedStats)
+    (nonconstant : ∃ x y : Fin n → Bool,
+      C.eval (List.ofFn (valuation x)) ≠ C.eval (List.ofFn (valuation y)))
+    (clean : CleanL k C.gates) (outValid : C.output < k + C.gates.length)
+    (live : ∀ w : Fin (k + C.gates.length), w ≠ ⟨C.output, outValid⟩ →
+      ∃ z, readEdge C.gates w z)
+    (source : Fin (k + C.gates.length))
+    (marked : Marked (C.gates.foldl originStep origins)
+      (elim n C.gates (seedStats, [])).1 source.val) :
+    ∃ D : Circuit, FanInTwo D ∧
+      nonNotCount D.gates + cutCost origins v C.gates + 1 ≤ nonNotCount C.gates ∧
+      ∀ x : Fin n → Bool, D.eval (List.ofFn x) = C.eval (List.ofFn (valuation x)) := by
+  let acc := elim n C.gates (seedStats, [])
+  have ok : ∀ g ∈ C.gates, Ok g := fan
+  have statsLength : seedStats.length = k := by
+    simpa only [List.length_ofFn] using (initial (fun _ => false)).1
+  have originLength : origins.length = k := known.1.trans statsLength
+  have resultInv (x : Fin n → Bool) :
+      Inv n (List.ofFn x) (wiresFrom C.gates (List.ofFn (valuation x))) acc :=
+    inv_elim n _ (by simp) C.gates _ _ ok (initial x)
+  have value (x : Fin n → Bool) :
+      (acc.1.getD C.output (Sum.inl false)).val (wiresFrom acc.2 (List.ofFn x)) =
+        C.eval (List.ofFn (valuation x)) := by
+    exact (resultInv x).2 C.output |>.2
+  have notConstant : ¬ ∃ b, acc.1.getD C.output (Sum.inl false) = Sum.inl b := by
+    rintro ⟨b, outputStat⟩
+    obtain ⟨x, y, different⟩ := nonconstant
+    apply different
+    rw [← value x, ← value y, outputStat]
+    rfl
+  have budget := strict_saving_of_marked n k C.gates origins v (seedStats, [])
+    originLength statsLength clean known ⟨C.output, outValid⟩ live source marked notConstant
+  cases outputStat : acc.1.getD C.output (Sum.inl false) with
+  | inl b => exact False.elim (notConstant ⟨b, outputStat⟩)
+  | inr j =>
+    refine ⟨⟨acc.2, j⟩, ?_, ?_, ?_⟩
+    · have newClean := clean_elim n (List.ofFn (fun _ : Fin n => false)) (by simp)
+        C.gates _ _ ok (initial (fun _ => false)) (by intro p g hp; simp at hp)
+      intro g hg
+      exact (clean_nok n acc.2 newClean g hg).1
+    · simpa only [nonNotCount, List.countP_nil, Nat.zero_add] using budget
+    · intro x
+      change (wiresFrom acc.2 (List.ofFn x)).getD j false = _
+      simpa only [outputStat, Stat.val] using value x
+
+end PEqualNP.Outside.L_meta_2592_aux.StrictRestriction

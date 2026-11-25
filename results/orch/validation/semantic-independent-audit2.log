@@ -1,0 +1,16 @@
+'PEqualNP.Outside.L_meta_2592_aux.SemanticClassification.sensitiveRows_correct' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.SemanticClassification.first_binary_boolean_check' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.SemanticClassification.first_binary_classification' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.SemanticAllInputs.sensitiveRows_correct' depends on axioms: [propext, Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.SemanticAllInputs.first_binary_boolean_check' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.SemanticAllInputs.first_binary_classification' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_2592_aux.SemanticFactorization.mate_at_sensitive_input' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_2592_aux.SemanticFactorization.pull_absorbed_term' depends on axioms: [propext]
