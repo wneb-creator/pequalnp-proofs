@@ -1,0 +1,8 @@
+L-meta-4675 PARTIAL CHECKPOINT
+Status: rectangle/star-cover helper lemmas compile; posted theorem remains unproved.
+Lean 4.36.0; pinned Mathlib cache downloaded successfully.
+Validation: lake env lean ../results/orch/lemmas/Rectangle.lean exited 0.
+Complete stdout/stderr: rectangle-check.log (empty).
+Local gap checker: not run; this helper module does not declare the required theorem.
+Sub-agents: six (status/review, combinatorial proof, normalization, counterexample search, lemma inventory, toolchain setup)
+TIMING total=7 subagents=6
