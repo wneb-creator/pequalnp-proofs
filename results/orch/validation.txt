@@ -1,0 +1,13 @@
+L-meta-2592 PARTIAL CHECKPOINT
+Not a completed proof of the posted statement; no PR is authorized by this result alone.
+Lean 4.36.0 direct compilation of identical HighNot.lean bytes exited 0 at 2026-11-25T14:09:28Z.
+Result: For a fan-in-two circuit computing the Petersen function: 15 + NOT-count <= size; size <=19 therefore implies at most four NOT gates.
+This ports the checked L_meta_4725 counting proof and adds the arithmetic consequence.
+Remaining: exclude circuits with one to four NOT gates, or find a verified counterexample.
+Full compiler stdout/stderr: results/orch/high-not-build.log.
+Target checker: not run for this partial checkpoint; target theorem absent.
+Cleanup: not started; 3228 lines before and after.
+SHA256: 7823c8648e521541c4e05085327ed3ce37e88603e56c0c86535c35db02b4ac4c
+Sub-agents: six (setup/review, structural proof, counterexample search, definition audit, library search, finite bounds)
+TIMING total=9.09 subagents=6
+Additional checked partials archived: Endpoint.lean (exit0, linter warning), Audit.lean (exit0, empty stdout/stderr).
