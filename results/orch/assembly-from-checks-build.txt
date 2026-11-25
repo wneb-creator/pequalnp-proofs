@@ -1,0 +1,47 @@
+import took 2.96s
+parsing took 178ms
+/tmp/oec/pequalnp-pilot-178/lrat_route/AssemblyFromChecks.lean:20:58: warning: Variable name `K` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _K
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+elaboration took 261ms
+elaboration took 2.28s
+process pre-definitions took 284ms
+elaboration took 12.3s
+interpretation of Mathlib.Tactic.Linter.internalConstructor._lam_0._boxed took 112ms
+interpretation of _private.Mathlib.Tactic.Linter.UnusedTactic.0.Mathlib.Linter.UnusedTactic.unusedTacticLinter._lam_0._boxed took 188ms
+interpretation of Batteries.Linter.UnreachableTactic.unreachableTacticLinter._lam_0._boxed took 337ms
+interpretation of Batteries.Linter.UnnecessarySeqFocus.unnecessarySeqFocusLinter._lam_0._boxed took 180ms
+linting took 395ms
+elaboration took 141ms
+elaboration took 150ms
+elaboration took 2.07s
+/tmp/oec/pequalnp-pilot-178/lrat_route/AssemblyFromChecks.lean:513:36: warning: exponent 501 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+/tmp/oec/pequalnp-pilot-178/lrat_route/AssemblyFromChecks.lean:516:36: warning: exponent 501 exceeds the threshold 256, exponentiation operation was not evaluated, use `set_option exponentiation.threshold <num>` to set a new threshold
+cumulative profiling times:
+	attribute application 1.42ms
+	compilation (IR) 2.2ms
+	compilation (LCNF base) 28ms
+	compilation (LCNF impure) 10.5ms
+	compilation (LCNF mono) 13.7ms
+	congr simp thm 5.48ms
+	declTypeLinter 97.9ms
+	elaboration 17.6s
+	fix level params 6.46ms
+	import 2.96s
+	initialization 56.6ms
+	instantiate metavars 63.2ms
+	interpretation 1.92s
+	let-to-have transformation 138ms
+	linting 635ms
+	module linting 0.0418ms
+	parsing 308ms
+	process pre-definitions 498ms
+	share common exprs 100ms
+	simp 51.4ms
+	tactic execution 185ms
+	tacticAnalysis 89.8ms
+	type checking 134ms
+	typeclass inference 6.76s
