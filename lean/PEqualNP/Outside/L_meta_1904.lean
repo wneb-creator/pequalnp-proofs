@@ -3410,4 +3410,296 @@ lemma selected_matching_lower_bound {I : Type*} [Fintype I] [DecidableEq I]
 
 end SelectedExtraction
 
+namespace CircuitPlug
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def wiresFrom (gs : List Gate) (w : List Bool) : List Bool :=
+  gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) w
+
+lemma wires_eq (C : Circuit) (x : List Bool) : C.wires x = wiresFrom C.gates x := rfl
+
+lemma wiresFrom_append (gs gs' : List Gate) (w : List Bool) :
+    wiresFrom (gs ++ gs') w = wiresFrom gs' (wiresFrom gs w) := by
+  simp [wiresFrom, List.foldl_append]
+
+lemma wiresFrom_prefix (gs : List Gate) : ∀ w : List Bool,
+    ∃ t : List Bool, wiresFrom gs w = w ++ t ∧ t.length = gs.length := by
+  induction gs with
+  | nil => intro w; exact ⟨[], by simp [wiresFrom], rfl⟩
+  | cons g gs ih =>
+    intro w
+    obtain ⟨t, ht, hl⟩ := ih (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
+    refine ⟨g.op.eval (g.inputs.map fun i => w.getD i false) :: t, ?_, by simp [hl]⟩
+    have : wiresFrom (g :: gs) w
+        = wiresFrom gs (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) := rfl
+    rw [this, ht]; simp
+
+lemma length_wiresFrom (gs : List Gate) (w : List Bool) :
+    (wiresFrom gs w).length = w.length + gs.length := by
+  obtain ⟨t, ht, hl⟩ := wiresFrom_prefix gs w
+  rw [ht]; simp [hl]
+
+lemma getD_wiresFrom (gs : List Gate) (w : List Bool) (i : ℕ) (h : i < w.length) :
+    (wiresFrom gs w).getD i false = w.getD i false := by
+  obtain ⟨t, ht, _⟩ := wiresFrom_prefix gs w
+  rw [ht, List.getD_append _ _ _ _ h]
+
+lemma getD_snoc_ne {α : Type} (L : List α) (S d : α) (j : ℕ) (h : j ≠ L.length) :
+    (L ++ [S]).getD j d = L.getD j d := by
+  by_cases hj : j < L.length
+  · exact List.getD_append _ _ _ _ hj
+  · rw [List.getD_eq_default _ _ (by simp; omega), List.getD_eq_default _ _ (by omega)]
+
+lemma getD_snoc_eq {α : Type} (L : List α) (S d : α) : (L ++ [S]).getD L.length d = S := by
+  simp
+
+
+
+/-- Invalid boundary sources are permanently false. Old paid wires are shifted. -/
+def rename (B p s : ℕ) (ρ : Fin B → ℕ) (i : ℕ) : ℕ :=
+  if h : i < B then if ρ ⟨i,h⟩ < p then ρ ⟨i,h⟩ else p + s else p + (i - B)
+
+def renameGate (B p s : ℕ) (ρ : Fin B → ℕ) (g : Gate) : Gate :=
+  ⟨g.op,g.inputs.map (rename B p s ρ)⟩
+
+def plug (B p : ℕ) (D : Circuit) (ρ : Fin B → ℕ) : Circuit :=
+  ⟨D.gates.map (renameGate B p D.size ρ),rename B p D.size ρ D.output⟩
+
+lemma rename_new (B p s k : ℕ) (ρ : Fin B → ℕ) :
+    rename B p s ρ (B + k) = p + k := by
+  simp [rename]
+
+lemma rename_ne_new (B p s k : ℕ) (ρ : Fin B → ℕ) (hk : k < s)
+    (i : ℕ) (hi : i ≠ B + k) : rename B p s ρ i ≠ p + k := by
+  unfold rename
+  split_ifs with h hρ
+  · omega
+  · omega
+  · omega
+
+lemma rename_step (B p s k : ℕ) (ρ : Fin B → ℕ) (old new : List Bool) (v : Bool)
+    (hold : old.length = B + k) (hnew : new.length = p + k) (hk : k < s)
+    (h : ∀ i, new.getD (rename B p s ρ i) false = old.getD i false) :
+    ∀ i, (new ++ [v]).getD (rename B p s ρ i) false = (old ++ [v]).getD i false := by
+  intro i
+  by_cases hi : i = B + k
+  · subst i
+    rw [rename_new,←hnew,←hold,getD_snoc_eq,getD_snoc_eq]
+  · rw [getD_snoc_ne _ _ _ _ (by rw [hnew];exact rename_ne_new B p s k ρ hk i hi),
+      getD_snoc_ne _ _ _ _ (by omega)]
+    exact h i
+
+lemma rename_run (B p s : ℕ) (ρ : Fin B → ℕ) (gs : List Gate) :
+    ∀ (k : ℕ) (old new : List Bool), old.length = B + k → new.length = p + k →
+    k + gs.length ≤ s →
+    (∀ i, new.getD (rename B p s ρ i) false = old.getD i false) →
+    ∀ i, (wiresFrom (gs.map (renameGate B p s ρ)) new).getD (rename B p s ρ i) false =
+      (wiresFrom gs old).getD i false := by
+  induction gs with
+  | nil => intro k old new _ _ _ h; exact h
+  | cons g gs ih =>
+    intro k old new hold hnew hcap h
+    have heval : (renameGate B p s ρ g).op.eval
+        ((renameGate B p s ρ g).inputs.map fun i => new.getD i false) =
+        g.op.eval (g.inputs.map fun i => old.getD i false) := by
+      simp only [renameGate,List.map_map]
+      congr 1
+      apply List.map_congr_left
+      intro i _
+      exact h i
+    let v := g.op.eval (g.inputs.map fun i => old.getD i false)
+    change ∀ i, (wiresFrom (gs.map (renameGate B p s ρ))
+        (new ++ [(renameGate B p s ρ g).op.eval
+          ((renameGate B p s ρ g).inputs.map fun i => new.getD i false)])).getD
+        (rename B p s ρ i) false = (wiresFrom gs (old ++ [v])).getD i false
+    rw [heval]
+    exact ih (k + 1) (old ++ [v]) (new ++ [v]) (by simp [hold];omega)
+      (by simp [hnew];omega) (by simp at hcap;omega)
+      (rename_step B p s k ρ old new v hold hnew (by simp at hcap;omega) h)
+
+lemma rename_initial (B p s : ℕ) (ρ : Fin B → ℕ) (w : List Bool) (hw : w.length = p) :
+    ∀ i, w.getD (rename B p s ρ i) false =
+      (List.ofFn (fun j : Fin B => w.getD (ρ j) false)).getD i false := by
+  intro i
+  by_cases hi : i < B
+  · have oldValue : (List.ofFn (fun j : Fin B => w.getD (ρ j) false)).getD i false =
+        w.getD (ρ ⟨i,hi⟩) false := by simp [List.getD_eq_getElem?_getD,hi]
+    rw [oldValue]
+    simp only [rename,hi,↓reduceDIte]
+    split_ifs with hρ
+    · rfl
+    · rw [List.getD_eq_default _ _ (by omega),List.getD_eq_default _ _ (by omega)]
+  · have oldFalse : (List.ofFn (fun j : Fin B => w.getD (ρ j) false)).getD i false = false :=
+      List.getD_eq_default _ _ (by simp;omega)
+    rw [oldFalse]
+    simp only [rename,hi,↓reduceDIte]
+    exact List.getD_eq_default _ _ (by omega)
+
+lemma plug_correct (B p : ℕ) (D : Circuit) (ρ : Fin B → ℕ) (w : List Bool)
+    (hw : w.length = p) :
+    (plug B p D ρ).eval w = D.eval (List.ofFn fun i : Fin B => w.getD (ρ i) false) := by
+  exact rename_run B p D.size ρ D.gates 0 (List.ofFn fun i : Fin B => w.getD (ρ i) false) w
+    (by simp) (by simpa using hw) (by simp [Circuit.size]) (rename_initial B p D.size ρ w hw) D.output
+
+end CircuitPlug
+namespace CircuitPlug
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma plug_size (B p : ℕ) (D : Circuit) (ρ : Fin B → ℕ) :
+    (plug B p D ρ).size = D.size := by
+  simp [plug,Circuit.size]
+
+lemma plug_monotone2 (B p : ℕ) (D : Circuit) (ρ : Fin B → ℕ) (hD : Monotone2 D) :
+    Monotone2 (plug B p D ρ) := by
+  intro g hg
+  obtain ⟨h,hh,rfl⟩ := List.mem_map.mp hg
+  simpa only [renameGate,List.length_map] using hD h hh
+
+/-- Append after earlier gates; their designated output is unused. -/
+def plugCircuit (n : ℕ) (P : Circuit) (B : ℕ) (D : Circuit) (ρ : Fin B → ℕ) : Circuit :=
+  ⟨P.gates ++ (plug B (n + P.size) D ρ).gates,(plug B (n + P.size) D ρ).output⟩
+
+lemma plugCircuit_wires (n : ℕ) (P : Circuit) (B : ℕ) (D : Circuit) (ρ : Fin B → ℕ)
+    (x : List Bool) :
+    (plugCircuit n P B D ρ).wires x = (plug B (n + P.size) D ρ).wires (P.wires x) := by
+  change wiresFrom (P.gates ++ (plug B (n + P.size) D ρ).gates) x =
+    wiresFrom (plug B (n + P.size) D ρ).gates (wiresFrom P.gates x)
+  exact wiresFrom_append _ _ _
+
+lemma plugCircuit_correct (n : ℕ) (P : Circuit) (B : ℕ) (D : Circuit) (ρ : Fin B → ℕ)
+    (x : List Bool) (hx : x.length = n) :
+    (plugCircuit n P B D ρ).eval x =
+      D.eval (List.ofFn fun i : Fin B => (P.wires x).getD (ρ i) false) := by
+  have hw : (P.wires x).length = n + P.size := by
+    rw [wires_eq,length_wiresFrom,hx]
+    rfl
+  change ((plugCircuit n P B D ρ).wires x).getD (plug B (n + P.size) D ρ).output false = _
+  rw [plugCircuit_wires]
+  exact plug_correct B (n + P.size) D ρ (P.wires x) hw
+
+lemma plugCircuit_size (n : ℕ) (P : Circuit) (B : ℕ) (D : Circuit) (ρ : Fin B → ℕ) :
+    (plugCircuit n P B D ρ).size = P.size + D.size := by
+  simp [plugCircuit,plug,Circuit.size]
+
+lemma plugCircuit_monotone2 (n : ℕ) (P : Circuit) (B : ℕ) (D : Circuit) (ρ : Fin B → ℕ)
+    (hP : Monotone2 P) (hD : Monotone2 D) : Monotone2 (plugCircuit n P B D ρ) := by
+  intro g hg
+  rcases List.mem_append.mp hg with hg | hg
+  · exact hP g hg
+  · exact plug_monotone2 B (n + P.size) D ρ hD g hg
+
+end CircuitPlug
+
+
+namespace SelectedExtraction
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+/-- Extract the selected gates and plug them after existing gates.
+    No graph decomposition or special boundary form is inferred here. -/
+lemma selected_subcircuit_after_prefix (n : ℕ) (C : Circuit) (M : Finset ℕ)
+    (hM : ∀ j ∈ M, j < C.size) (hC : Monotone2 C)
+    (P : Circuit) (hP : Monotone2 P) (ρ : Fin (n + C.size) → ℕ)
+    (boundary : ∀ x : Fin n → Bool, ∀ i (hi : i < n + C.size),
+      Needed n C (fun j => decide (n ≤ j ∧ j - n ∈ M)) i →
+      i < n ∨ i - n ∉ M →
+      (P.wires (List.ofFn x)).getD (ρ ⟨i,hi⟩) false =
+        (C.wires (List.ofFn x)).getD i false) :
+    ∃ E : Circuit, Monotone2 E ∧ E.size = P.size + M.card ∧
+      ∀ x : Fin n → Bool, E.eval (List.ofFn x) = C.eval (List.ofFn x) := by
+  obtain ⟨D,hD,hsize,correct⟩ := selected_subcircuit n C M hM hC
+  refine ⟨CircuitPlug.plugCircuit n P (n + C.size) D ρ,
+    CircuitPlug.plugCircuit_monotone2 n P (n + C.size) D ρ hP hD,?_,?_⟩
+  · rw [CircuitPlug.plugCircuit_size,hsize]
+  · intro x
+    rw [CircuitPlug.plugCircuit_correct n P (n + C.size) D ρ (List.ofFn x) (by simp)]
+    apply correct (List.ofFn x)
+      (List.ofFn fun i : Fin (n + C.size) => (P.wires (List.ofFn x)).getD (ρ i) false)
+      (by simp) (by simp)
+    intro i hi hn hb
+    have h := boundary x i hi hn hb
+    simpa [List.getD_eq_getElem?_getD,hi] using h
+
+end SelectedExtraction
+
+namespace MatchingLower
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+variable {I : Type*} [Fintype I] [DecidableEq I] {m : ℕ}
+
+/-- Only matching-edge positives and transversal negatives are used in the cover. -/
+lemma separation_cover_on_tests (S : Fin m → Finset (I × Bool)) (K : Finset (Fin m))
+    (C : Circuit) (hC : Monotone2 C)
+    (positive : ∀ i, C.eval (List.ofFn (input S K (MatchingCapacity.edgeInput i))) = true)
+    (negative : ∀ a, C.eval (List.ofFn (input S K (MatchingCapacity.transversalInput a))) = false) :
+    ∃ R : Finset (Fin m), R.card ≤ C.size + 1 ∧
+      ∀ p : I × (I → Bool), ∃ r ∈ R,
+        p ∈ (if r ∈ K then ∅ else MatchingCapacity.separations (S r)) := by
+  classical
+  obtain ⟨R, hcard, hsep⟩ := HelperSupport.output_support_separates m C hC
+  refine ⟨R, hcard, ?_⟩
+  intro p
+  obtain ⟨r, hr, hp, hn⟩ := hsep (input S K (MatchingCapacity.edgeInput p.1))
+    (input S K (MatchingCapacity.transversalInput p.2)) (positive p.1) (negative p.2)
+  obtain ⟨hK, hmem⟩ := input_separation S K r p.1 p.2 hp hn
+  exact ⟨r, hr, by simpa [hK] using hmem⟩
+
+/-- The bound needs output assumptions only on the two matching test families. -/
+lemma paid_gate_lower_bound_on_tests (S : Fin m → Finset (I × Bool)) (K : Finset (Fin m))
+    (C : Circuit) (hC : Monotone2 C)
+    (positive : ∀ i, C.eval (List.ofFn (input S K (MatchingCapacity.edgeInput i))) = true)
+    (negative : ∀ a, C.eval (List.ofFn (input S K (MatchingCapacity.transversalInput a))) = false) :
+    2 * Fintype.card I ≤ C.size + 1 := by
+  classical
+  obtain ⟨R, hcard, hcover⟩ := separation_cover_on_tests S K C hC positive negative
+  apply le_trans (SeparationCounting.separation_card_bound R
+    (fun r => if r ∈ K then ∅ else MatchingCapacity.separations (S r)) hcover ?_ ?_) hcard
+  · intro r _
+    by_cases hr : r ∈ K
+    · simp [hr]
+    · simpa [hr, Fintype.card_fun] using MatchingCapacity.twice_separations_card_le (S r)
+  · simp
+
+end MatchingLower
+
+namespace SelectedExtraction
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+/-- Exact-cost extraction only needs boundary agreement on matching-edge positives
+    and transversal negatives; all other original assignments are unconstrained. -/
+lemma selected_matching_lower_bound_on_tests {I : Type*} [Fintype I] [DecidableEq I]
+    (n : ℕ) (C : Circuit) (M : Finset ℕ)
+    (hM : ∀ j ∈ M, j < C.size) (hC : Monotone2 C)
+    (original : (I × Bool → Bool) → Fin n → Bool)
+    (S : Fin (n + C.size) → Finset (I × Bool)) (K : Finset (Fin (n + C.size)))
+    (positive : ∀ e, C.eval (List.ofFn (original (MatchingCapacity.edgeInput e))) = true)
+    (negative : ∀ a, C.eval (List.ofFn (original (MatchingCapacity.transversalInput a))) = false)
+    (positiveBoundary : ∀ e i, i < n + C.size →
+      Needed n C (fun j => decide (n ≤ j ∧ j - n ∈ M)) i →
+      i < n ∨ i - n ∉ M →
+      (List.ofFn (MatchingLower.input S K (MatchingCapacity.edgeInput e))).getD i false =
+        (C.wires (List.ofFn (original (MatchingCapacity.edgeInput e)))).getD i false)
+    (negativeBoundary : ∀ a i, i < n + C.size →
+      Needed n C (fun j => decide (n ≤ j ∧ j - n ∈ M)) i →
+      i < n ∨ i - n ∉ M →
+      (List.ofFn (MatchingLower.input S K (MatchingCapacity.transversalInput a))).getD i false =
+        (C.wires (List.ofFn (original (MatchingCapacity.transversalInput a)))).getD i false) :
+    2 * Fintype.card I ≤ M.card + 1 := by
+  obtain ⟨D, hD, hsize, heval⟩ := selected_subcircuit n C M hM hC
+  have pos : ∀ e, D.eval
+      (List.ofFn (MatchingLower.input S K (MatchingCapacity.edgeInput e))) = true := by
+    intro e
+    rw [heval _ _ (by simp) (by simp) (positiveBoundary e), positive]
+  have neg : ∀ a, D.eval
+      (List.ofFn (MatchingLower.input S K (MatchingCapacity.transversalInput a))) = false := by
+    intro a
+    rw [heval _ _ (by simp) (by simp) (negativeBoundary a), negative]
+  simpa only [hsize] using MatchingLower.paid_gate_lower_bound_on_tests S K D hD pos neg
+
+end SelectedExtraction
+
 end PEqualNP.Outside.L_meta_1904_aux
