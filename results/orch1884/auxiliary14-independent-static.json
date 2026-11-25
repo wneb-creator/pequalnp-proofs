@@ -1,0 +1,89 @@
+{
+  "utc": "2026-11-25T16:55:41.209368+00:00",
+  "status": "PASS static only; no full rebuild run",
+  "script_sha256": "5eec6c7c3f889d47b5579bdad5d629e600814164c973483cb1067bf5f8313dc7",
+  "modules": [
+    {
+      "module": "LeastLiftNormalization",
+      "sha256": "fff5cf7346e22d550247c94e025a1a49fac487129f4cf663de81f75e260192f8"
+    },
+    {
+      "module": "ClosedOrSet",
+      "sha256": "1f45e4239020b1583991a5ed484ea56be723359d71000f8905e8c3df21825ace"
+    },
+    {
+      "module": "ClosedOrSafety",
+      "sha256": "09ddf5d680bc8160ab2853ffd3d78cb419b5c947349dc4bfb986aba2757f84f5"
+    },
+    {
+      "module": "StrongRelaxRows",
+      "sha256": "3bda1221519d8d56b87e7b49203522274a04eaf113cb9b2d31906b9c2d07e314"
+    },
+    {
+      "module": "LeastGateFacts",
+      "sha256": "7e648c34b04364a693513f7bc3a6ced2f05d1a3ea8b0f3dbb23d4482f863ddd3"
+    },
+    {
+      "module": "GeneralReaderStandalone",
+      "sha256": "fe3aba339859099b2b5f38b9ad44ab8b41f5072079b12cf7d059160e9104d55e"
+    },
+    {
+      "module": "SoleReaderFactor",
+      "sha256": "ba81489ac7f10173082d77106c728eaf0e1d9964249de13067e48c6e75a03357"
+    },
+    {
+      "module": "RelaxedFacts",
+      "sha256": "fac8538dbbba8f689529985fc57f812ca11c4580103a936e994ea8b820269c74"
+    },
+    {
+      "module": "StrongRelaxOrSafety",
+      "sha256": "85e67209ca40652a99c1cb14c4d4cfd9c4677954969ba7f2ddd08c6ed067df46"
+    },
+    {
+      "module": "RelaxationSemantics",
+      "sha256": "d5b6b6803ca548fe09855ef6d2c034de6c8db2b600f1a6b5668d4b20dc2afd6c"
+    },
+    {
+      "module": "ClosedRelaxOr",
+      "sha256": "feba4203e7cca2b0460f374403fe8cdc8413174043edacbc72ae4ac1737b7c99"
+    },
+    {
+      "module": "ClosedRelaxOrGeneral",
+      "sha256": "2ceea11c3fe4341e37b17c882f379e76752c94fdd2741c5801287b3824dc4c7c"
+    },
+    {
+      "module": "EightExtension",
+      "sha256": "32c56c28b9d4ed667b887aa8a8bdf0a07642cad0a349c6f850e411a8b4eacbd2"
+    },
+    {
+      "module": "ElimManyCount",
+      "sha256": "eaea5c3166a5df7fd60a41d2d3dd2d4b5b471e76eae4996e51febd39716925e6"
+    },
+    {
+      "module": "Forced13Compile",
+      "sha256": "4fd60a4daa1d764e013c0c3efd713202f33366a7fb4906ddc3923f276412015f"
+    },
+    {
+      "module": "RestrictionEight",
+      "sha256": "fc349a6226f76fc768893622c3e1e93dd19d6cbfe3bd7089adccddb7573c0690"
+    },
+    {
+      "module": "UniqueReader",
+      "sha256": "a43f943861d9971e1c06f2ed36dc1d84243f0299478f8263e18772fd82c5f030"
+    },
+    {
+      "module": "PairReaderCharge",
+      "sha256": "ac073a9d55a7a8b490092fe6746e397ca22c35b78d1672418590c9251fcbc943"
+    },
+    {
+      "module": "SoleAndRestriction",
+      "sha256": "2789dde57ec26df56e426ff5e6c19e076d9037ea362943e8058ea01fa18bbf33"
+    },
+    {
+      "module": "RelaxationFloor",
+      "sha256": "f3045258a048f4fe5861d4c42fe197f838e526fab00575018f5d7776fe02e82c"
+    }
+  ],
+  "project_target_count": 8,
+  "bash_n_exit_code": 0
+}

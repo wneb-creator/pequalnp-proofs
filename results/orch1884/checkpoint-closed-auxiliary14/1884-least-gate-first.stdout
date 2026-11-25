@@ -1,0 +1,56 @@
+/workspace/pequalnp-proofs/results/orch1884/lemmas/LeastGateFacts.lean:16:42: error(lean.invalidField): Invalid field notation: Type of
+  g
+is not known; cannot resolve field `inputs`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `Lake.BuildTrace.inputs`
+  • `Gate.inputs`
+  • `ThrCircuit.inputs`
+/workspace/pequalnp-proofs/results/orch1884/lemmas/LeastGateFacts.lean:17:2: error: Tactic `introN` failed: There are no additional binders or `let` bindings in the goal to introduce
+
+case refine_1
+n : ℕ
+D : Circuit
+hAO : TopForm.IsAO2 n D
+hmin : ∀ (E : Circuit), Monotone2 E → circuitFun n E = circuitFun n D → D.size ≤ E.size
+k : ℕ
+hk : k < D.gates.length
+hout : D.output ≠ n + k
+⊢ Decidable (∃ j g, D.gates[j]? = some g ∧ n + k ∈ ?m.27)
+/workspace/pequalnp-proofs/results/orch1884/lemmas/LeastGateFacts.lean:28:6: warning: declaration uses `sorry`
+/workspace/pequalnp-proofs/results/orch1884/lemmas/LeastGateFacts.lean:29:39: warning: Variable name `hAO` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hAO
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch1884/lemmas/LeastGateFacts.lean:30:5: warning: Variable name `hmin` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hmin
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch1884/lemmas/LeastGateFacts.lean:31:5: warning: Variable name `hout` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hout
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch1884/lemmas/LeastGateFacts.lean:37:2: warning: Unused tactic linter: `have hget : post[j - (pre.length + 1)]? = some r :=
+  by
+  rw [← hd', List.getElem?_drop]
+  convert hr using 1 <;> congr 1 <;> omega` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch1884/lemmas/LeastGateFacts.lean:40:2: warning: Unused tactic linter: `exact ⟨r, List.mem_of_getElem? hget, hin⟩` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch1884/lemmas/LeastGateFacts.lean:38:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/pequalnp-proofs/results/orch1884/lemmas/LeastGateFacts.lean:39:4: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/workspace/pequalnp-proofs/results/orch1884/lemmas/LeastGateFacts.lean:40:2: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`

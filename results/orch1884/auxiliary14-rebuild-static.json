@@ -1,0 +1,14 @@
+{
+  "status": "PASS static only; no large rebuild repeated",
+  "modules": 20,
+  "project_targets": 8,
+  "target": "RelaxationFloor",
+  "toolchain": "leanprover/lean4:v4.36.0",
+  "checks": [
+    "bash -n",
+    "exact source hashes",
+    "all direct imports resolved",
+    "topological export order",
+    "all project helper targets listed"
+  ]
+}

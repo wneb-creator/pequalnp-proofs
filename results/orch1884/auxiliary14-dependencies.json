@@ -1,0 +1,143 @@
+{
+  "order": [
+    "LeastLiftNormalization",
+    "ClosedOrSet",
+    "ClosedOrSafety",
+    "StrongRelaxRows",
+    "LeastGateFacts",
+    "GeneralReaderStandalone",
+    "SoleReaderFactor",
+    "RelaxedFacts",
+    "StrongRelaxOrSafety",
+    "RelaxationSemantics",
+    "ClosedRelaxOr",
+    "ClosedRelaxOrGeneral",
+    "EightExtension",
+    "ElimManyCount",
+    "Forced13Compile",
+    "RestrictionEight",
+    "UniqueReader",
+    "PairReaderCharge",
+    "SoleAndRestriction",
+    "RelaxationFloor"
+  ],
+  "project_targets": [
+    "PEqualNP.Defs",
+    "PEqualNP.MetaComplexity.Helpers.Elim",
+    "PEqualNP.MetaComplexity.Helpers.LiftFixMain",
+    "PEqualNP.MetaComplexity.Helpers.LiveSize",
+    "PEqualNP.MetaComplexity.Helpers.LocClean",
+    "PEqualNP.MetaComplexity.Helpers.LowMergeWires",
+    "PEqualNP.MetaComplexity.Helpers.NormalFormLift",
+    "PEqualNP.MetaComplexity.Helpers.PermInputs"
+  ],
+  "dependencies": {
+    "RelaxationFloor": [
+      "LeastLiftNormalization",
+      "LeastGateFacts",
+      "RelaxationSemantics",
+      "ClosedRelaxOrGeneral",
+      "UniqueReader",
+      "SoleAndRestriction"
+    ],
+    "LeastLiftNormalization": [
+      "PEqualNP.MetaComplexity.Helpers.LocClean",
+      "PEqualNP.MetaComplexity.Helpers.NormalFormLift"
+    ],
+    "LeastGateFacts": [
+      "ClosedOrSafety",
+      "StrongRelaxRows",
+      "PEqualNP.MetaComplexity.Helpers.LiveSize",
+      "PEqualNP.MetaComplexity.Helpers.NormalFormLift"
+    ],
+    "ClosedOrSafety": [
+      "ClosedOrSet"
+    ],
+    "ClosedOrSet": [
+      "PEqualNP.MetaComplexity.Helpers.LiftFixMain",
+      "PEqualNP.MetaComplexity.Helpers.LowMergeWires"
+    ],
+    "StrongRelaxRows": [
+      "PEqualNP.Defs"
+    ],
+    "RelaxationSemantics": [
+      "GeneralReaderStandalone",
+      "RelaxedFacts",
+      "StrongRelaxOrSafety",
+      "PEqualNP.MetaComplexity.Helpers.PermInputs"
+    ],
+    "GeneralReaderStandalone": [
+      "PEqualNP.Defs"
+    ],
+    "RelaxedFacts": [
+      "ClosedOrSafety",
+      "SoleReaderFactor",
+      "StrongRelaxRows"
+    ],
+    "SoleReaderFactor": [
+      "PEqualNP.Defs"
+    ],
+    "StrongRelaxOrSafety": [
+      "PEqualNP.Defs"
+    ],
+    "ClosedRelaxOrGeneral": [
+      "ClosedRelaxOr"
+    ],
+    "ClosedRelaxOr": [
+      "ClosedOrSafety",
+      "SoleReaderFactor",
+      "StrongRelaxOrSafety"
+    ],
+    "UniqueReader": [
+      "RestrictionEight"
+    ],
+    "RestrictionEight": [
+      "EightExtension",
+      "Forced13Compile",
+      "StrongRelaxRows"
+    ],
+    "EightExtension": [
+      "GeneralReaderStandalone"
+    ],
+    "Forced13Compile": [
+      "ElimManyCount"
+    ],
+    "ElimManyCount": [
+      "PEqualNP.MetaComplexity.Helpers.Elim"
+    ],
+    "SoleAndRestriction": [
+      "ElimManyCount",
+      "PairReaderCharge",
+      "RestrictionEight"
+    ],
+    "PairReaderCharge": [
+      "ElimManyCount"
+    ]
+  },
+  "target": "RelaxationFloor",
+  "theorem": "PEqualNP.Outside.L_meta_1884.RelaxationFloor.fourteen",
+  "lean_toolchain": "leanprover/lean4:v4.36.0",
+  "lake_manifest_sha256": "d0af863cde532caaef1b1bee0d63ec47100208e33e488309cb80abc88b8f1509",
+  "source_sha256": {
+    "LeastLiftNormalization": "fff5cf7346e22d550247c94e025a1a49fac487129f4cf663de81f75e260192f8",
+    "ClosedOrSet": "1f45e4239020b1583991a5ed484ea56be723359d71000f8905e8c3df21825ace",
+    "ClosedOrSafety": "09ddf5d680bc8160ab2853ffd3d78cb419b5c947349dc4bfb986aba2757f84f5",
+    "StrongRelaxRows": "3bda1221519d8d56b87e7b49203522274a04eaf113cb9b2d31906b9c2d07e314",
+    "LeastGateFacts": "7e648c34b04364a693513f7bc3a6ced2f05d1a3ea8b0f3dbb23d4482f863ddd3",
+    "GeneralReaderStandalone": "fe3aba339859099b2b5f38b9ad44ab8b41f5072079b12cf7d059160e9104d55e",
+    "SoleReaderFactor": "ba81489ac7f10173082d77106c728eaf0e1d9964249de13067e48c6e75a03357",
+    "RelaxedFacts": "fac8538dbbba8f689529985fc57f812ca11c4580103a936e994ea8b820269c74",
+    "StrongRelaxOrSafety": "85e67209ca40652a99c1cb14c4d4cfd9c4677954969ba7f2ddd08c6ed067df46",
+    "RelaxationSemantics": "d5b6b6803ca548fe09855ef6d2c034de6c8db2b600f1a6b5668d4b20dc2afd6c",
+    "ClosedRelaxOr": "feba4203e7cca2b0460f374403fe8cdc8413174043edacbc72ae4ac1737b7c99",
+    "ClosedRelaxOrGeneral": "2ceea11c3fe4341e37b17c882f379e76752c94fdd2741c5801287b3824dc4c7c",
+    "EightExtension": "32c56c28b9d4ed667b887aa8a8bdf0a07642cad0a349c6f850e411a8b4eacbd2",
+    "ElimManyCount": "eaea5c3166a5df7fd60a41d2d3dd2d4b5b471e76eae4996e51febd39716925e6",
+    "Forced13Compile": "4fd60a4daa1d764e013c0c3efd713202f33366a7fb4906ddc3923f276412015f",
+    "RestrictionEight": "fc349a6226f76fc768893622c3e1e93dd19d6cbfe3bd7089adccddb7573c0690",
+    "UniqueReader": "a43f943861d9971e1c06f2ed36dc1d84243f0299478f8263e18772fd82c5f030",
+    "PairReaderCharge": "ac073a9d55a7a8b490092fe6746e397ca22c35b78d1672418590c9251fcbc943",
+    "SoleAndRestriction": "2789dde57ec26df56e426ff5e6c19e076d9037ea362943e8058ea01fa18bbf33",
+    "RelaxationFloor": "f3045258a048f4fe5861d4c42fe197f838e526fab00575018f5d7776fe02e82c"
+  }
+}

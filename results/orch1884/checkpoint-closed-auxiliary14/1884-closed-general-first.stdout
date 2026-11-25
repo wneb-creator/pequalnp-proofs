@@ -1,0 +1,16 @@
+/workspace/pequalnp-proofs/results/orch1884/lemmas/ClosedRelaxOrGeneral.lean:77:10: error: Type mismatch: After simplification, term
+  same
+ has type
+  @Eq Bool (x t || (SoleReader.run pre (List.ofFn x)).getD a false)
+    (y t || (SoleReader.run pre (List.ofFn y)).getD a false)
+but is expected to have type
+  @Eq Bool (x t || (false || (SoleReader.run pre (List.ofFn x)).getD a false))
+    (y t || (false || (SoleReader.run pre (List.ofFn y)).getD a false))
+/workspace/pequalnp-proofs/results/orch1884/lemmas/ClosedRelaxOrGeneral.lean:77:10: error: Type mismatch: After simplification, term
+  same
+ has type
+  @Eq Bool (x t || (SoleReader.run pre (List.ofFn x)).getD a false)
+    (y t || (SoleReader.run pre (List.ofFn y)).getD a false)
+but is expected to have type
+  @Eq Bool (false || x t || (SoleReader.run pre (List.ofFn x)).getD a false)
+    (false || y t || (SoleReader.run pre (List.ofFn y)).getD a false)

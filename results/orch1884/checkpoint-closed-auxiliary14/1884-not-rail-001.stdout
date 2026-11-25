@@ -1,0 +1,312 @@
+../results/orch1884/lemmas/NotRailOperand.lean:98:4: warning: This simp argument is unused:
+  List.all_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_nil, Bool.or_false,
+    Bool.and_true, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/NotRailOperand.lean:98:19: warning: This simp argument is unused:
+  List.all_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons,
+    Bool.or_false, Bool.and_true, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/NotRailOperand.lean:98:48: warning: This simp argument is unused:
+  Bool.and_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil,
+    Bool.or_false, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/NotRailOperand.lean:112:55: warning: This simp argument is unused:
+  List.any_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_nil, List.all_cons, List.all_nil, Bool.or_false,
+    Bool.and_true, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/NotRailOperand.lean:112:70: warning: This simp argument is unused:
+  List.any_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.all_cons, List.all_nil,
+    Bool.or_false, Bool.and_true, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/NotRailOperand.lean:113:33: warning: This simp argument is unused:
+  Bool.or_false
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [GateOp.eval, List.map_cons, List.map_nil, List.any_cons, List.any_nil, List.all_cons, List.all_nil,
+    Bool.and_true, id]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/NotRailOperand.lean:315:16: warning: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [step, Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/NotRailOperand.lean:359:4: warning: `if_false` has been deprecated: Use `ite_false` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵f̵a̵l̵s̵e̵i̲t̲e̲_̲f̲a̲l̲s̲e̲
+../results/orch1884/lemmas/NotRailOperand.lean:363:14: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch1884/lemmas/NotRailOperand.lean:486:12: error: Application type mismatch: The argument
+  pre
+has type
+  List Gate
+but is expected to have type
+  List CircuitLowerBounds.Gate
+in the application
+  operand pre
+../results/orch1884/lemmas/NotRailOperand.lean:488:27: error: Application type mismatch: The argument
+  pre
+has type
+  List.{u_1} Gate
+of sort `Type u_1` but is expected to have type
+  List.{0} CircuitLowerBounds.Gate
+of sort `Type` in the application
+  SoleReader.run_input pre
+../results/orch1884/lemmas/NotRailOperand.lean:486:39: error: unsolved goals
+Gate : Type u_1
+pre : List Gate
+tail : List ℕ
+x : Fin 10 → Bool
+⊢ (SoleReader.run sorry (seed x)).getD 0 false = x 0
+../results/orch1884/lemmas/NotRailOperand.lean:492:12: error: Application type mismatch: The argument
+  pre
+has type
+  List Gate
+but is expected to have type
+  List CircuitLowerBounds.Gate
+in the application
+  operand pre
+../results/orch1884/lemmas/NotRailOperand.lean:494:27: error: Application type mismatch: The argument
+  pre
+has type
+  List.{u_1} Gate
+of sort `Type u_1` but is expected to have type
+  List.{0} CircuitLowerBounds.Gate
+of sort `Type` in the application
+  SoleReader.run_input pre
+../results/orch1884/lemmas/NotRailOperand.lean:492:41: error: unsolved goals
+Gate : Type u_1
+pre : List Gate
+tail : List ℕ
+x : Fin 10 → Bool
+⊢ (SoleReader.run sorry (seed x)).getD 10 false = !x 0
+../results/orch1884/lemmas/NotRailOperand.lean:498:39: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  g
+has type `Gate` which does not have the necessary form.
+../results/orch1884/lemmas/NotRailOperand.lean:498:53: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  g
+has type `Gate` which does not have the necessary form.
+../results/orch1884/lemmas/NotRailOperand.lean:500:22: error: Application type mismatch: The argument
+  pre
+has type
+  List Gate
+but is expected to have type
+  List CircuitLowerBounds.Gate
+in the application
+  operand pre
+../results/orch1884/lemmas/NotRailOperand.lean:500:59: error: Application type mismatch: The argument
+  pre
+has type
+  List Gate
+but is expected to have type
+  List CircuitLowerBounds.Gate
+in the application
+  operand pre
+../results/orch1884/lemmas/NotRailOperand.lean:498:46: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.and` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `AndOp.and`
+  [apply] `BitVec.and`
+  [apply] `and`
+  [apply] `Iff.and`
+  [apply] `IsClosed.and`
+  [apply] `IsOpen.and`
+  [apply] `List.and`
+  [apply] `Bool.Internal.and`
+  [apply] `Filter.Eventually.and`
+  [apply] `Lean.LBool.and`
+  [apply] `List.Pairwise.and`
+  [apply] `Plausible.TestResult.and`
+  [apply] `CircuitLowerBounds.GateOp.and`
+  [apply] `MetaComplexity.DMFormula.and`
+  [apply] `Std.Do.ExceptConds.and`
+  [apply] `Std.Do.PostCond.and`
+  [apply] `Std.Do.SPred.and`
+  [apply] `Std.Do.Triple.and`
+../results/orch1884/lemmas/NotRailOperand.lean:498:60: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.or` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `BitVec.or`
+  [apply] `or`
+  [apply] `Iff.or`
+  [apply] `List.or`
+  [apply] `Maximal.or`
+  [apply] `Minimal.or`
+  [apply] `Option.or`
+  [apply] `OrOp.or`
+  [apply] `Xor.or`
+  [apply] `Aesop.IndexingMode.or`
+  [apply] `Bool.Internal.or`
+  [apply] `Plausible.TestResult.or`
+  [apply] `CircuitLowerBounds.GateOp.or`
+  [apply] `MetaComplexity.DMFormula.or`
+  [apply] `Std.Do.SPred.or`
+../results/orch1884/lemmas/NotRailOperand.lean:502:64: error: Application type mismatch: The argument
+  pre
+has type
+  List.{u_1} Gate
+of sort `Type u_1` but is expected to have type
+  List.{0} CircuitLowerBounds.Gate
+of sort `Type` in the application
+  operand pre
+../results/orch1884/lemmas/NotRailOperand.lean:503:24: error: Application type mismatch: The argument
+  pre
+has type
+  List.{u_1} Gate
+of sort `Type u_1` but is expected to have type
+  List.{0} CircuitLowerBounds.Gate
+of sort `Type` in the application
+  operand_fiber_mono pre
+../results/orch1884/lemmas/NotRailOperand.lean:501:66: error: unsolved goals
+Gate : Type u_1
+pre : List Gate
+tail : List ℕ
+v : Fin 10
+hv : v ≠ 0
+allowed : ∀ g ∈ pre, sorry = ?m.13 ∨ sorry = ?m.17
+hfactor :
+  ∀ (x y : Fin 10 → Bool),
+    (∀ (i : Fin 10), i ≠ v → x i = y i) →
+      (x v || operand sorry (0 :: tail) x) = (y v || operand sorry (0 :: tail) y) →
+        SoleOrPartner.target x = SoleOrPartner.target y
+h : operand (sorry ()) (0 :: tail) (SoleOrPartner.singleton 0) = false
+⊢ False
+../results/orch1884/lemmas/NotRailOperand.lean:504:8: warning: This simp argument is unused:
+  operand_positive
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [SoleOrPartner.singleton] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/NotRailOperand.lean:504:26: warning: This simp argument is unused:
+  SoleOrPartner.singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [operand_positive] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch1884/lemmas/NotRailOperand.lean:507:39: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  g
+has type `Gate` which does not have the necessary form.
+../results/orch1884/lemmas/NotRailOperand.lean:507:53: error(lean.invalidField): Invalid field notation: Field projection operates on types of the form `C ...` where C is a constant. The expression
+  g
+has type `Gate` which does not have the necessary form.
+../results/orch1884/lemmas/NotRailOperand.lean:509:22: error: Application type mismatch: The argument
+  pre
+has type
+  List Gate
+but is expected to have type
+  List CircuitLowerBounds.Gate
+in the application
+  operand pre
+../results/orch1884/lemmas/NotRailOperand.lean:509:60: error: Application type mismatch: The argument
+  pre
+has type
+  List Gate
+but is expected to have type
+  List CircuitLowerBounds.Gate
+in the application
+  operand pre
+../results/orch1884/lemmas/NotRailOperand.lean:507:46: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.and` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `AndOp.and`
+  [apply] `BitVec.and`
+  [apply] `and`
+  [apply] `Iff.and`
+  [apply] `IsClosed.and`
+  [apply] `IsOpen.and`
+  [apply] `List.and`
+  [apply] `Bool.Internal.and`
+  [apply] `Filter.Eventually.and`
+  [apply] `Lean.LBool.and`
+  [apply] `List.Pairwise.and`
+  [apply] `Plausible.TestResult.and`
+  [apply] `CircuitLowerBounds.GateOp.and`
+  [apply] `MetaComplexity.DMFormula.and`
+  [apply] `Std.Do.ExceptConds.and`
+  [apply] `Std.Do.PostCond.and`
+  [apply] `Std.Do.SPred.and`
+  [apply] `Std.Do.Triple.and`
+../results/orch1884/lemmas/NotRailOperand.lean:507:60: error(lean.invalidDottedIdent): Invalid dotted identifier notation: The expected type of `.or` could not be determined
+
+Hint: Using one of these would be unambiguous:
+  [apply] `BitVec.or`
+  [apply] `or`
+  [apply] `Iff.or`
+  [apply] `List.or`
+  [apply] `Maximal.or`
+  [apply] `Minimal.or`
+  [apply] `Option.or`
+  [apply] `OrOp.or`
+  [apply] `Xor.or`
+  [apply] `Aesop.IndexingMode.or`
+  [apply] `Bool.Internal.or`
+  [apply] `Plausible.TestResult.or`
+  [apply] `CircuitLowerBounds.GateOp.or`
+  [apply] `MetaComplexity.DMFormula.or`
+  [apply] `Std.Do.SPred.or`
+../results/orch1884/lemmas/NotRailOperand.lean:511:53: error: Application type mismatch: The argument
+  pre
+has type
+  List.{u_1} Gate
+of sort `Type u_1` but is expected to have type
+  List.{0} CircuitLowerBounds.Gate
+of sort `Type` in the application
+  operand pre
+../results/orch1884/lemmas/NotRailOperand.lean:512:24: error: Application type mismatch: The argument
+  pre
+has type
+  List.{u_1} Gate
+of sort `Type u_1` but is expected to have type
+  List.{0} CircuitLowerBounds.Gate
+of sort `Type` in the application
+  operand_fiber_mono pre
+../results/orch1884/lemmas/NotRailOperand.lean:510:66: error: unsolved goals
+Gate : Type u_1
+pre : List Gate
+tail : List ℕ
+v : Fin 10
+hv : v ≠ 0
+allowed : ∀ g ∈ pre, sorry = ?m.13 ∨ sorry = ?m.17
+hfactor :
+  ∀ (x y : Fin 10 → Bool),
+    (∀ (i : Fin 10), i ≠ v → x i = y i) →
+      (x v || operand sorry (10 :: tail) x) = (y v || operand sorry (10 :: tail) y) →
+        SoleOrPartner.target x = SoleOrPartner.target y
+h : (operand (sorry ()) (10 :: tail) fun x => false) = false
+⊢ False
+../results/orch1884/lemmas/NotRailOperand.lean:513:8: warning: This simp argument is unused:
+  operand_negative
+
+Hint: Omit it from the simp argument list.
+  [apply] simp at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

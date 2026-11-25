@@ -1,0 +1,18 @@
+{
+  "utc": "2026-11-25T16:54:44.078926+00:00",
+  "sources": {
+    "SoleAndRestriction.lean": {
+      "sha256": "2789dde57ec26df56e426ff5e6c19e076d9037ea362943e8058ea01fa18bbf33",
+      "bytes": 4906,
+      "lines": 102,
+      "log_stem": "results/orch1884/lemmas/sole-and-restriction"
+    },
+    "RelaxationFloor.lean": {
+      "sha256": "f3045258a048f4fe5861d4c42fe197f838e526fab00575018f5d7776fe02e82c",
+      "bytes": 3970,
+      "lines": 91,
+      "log_stem": "/tmp/oec/pequalnp-pilot-103/1884-relax-floor-second"
+    }
+  },
+  "verdict": "PASS for auxiliary statement; final posted target remains open"
+}

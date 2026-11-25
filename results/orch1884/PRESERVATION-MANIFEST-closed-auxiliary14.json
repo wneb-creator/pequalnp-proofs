@@ -1,0 +1,481 @@
+{
+  "utc": "2026-11-25T17:01:02.058372+00:00",
+  "verdict": "PASS preservation-only; no exact posted goal claim",
+  "entries": [
+    {
+      "path": "results/orch1884/lemmas/CanonicalTwoFilter.lean",
+      "bytes": 5662,
+      "sha256": "4c68849e8a015de9b46491d38ee02dedb66a692868e89cb7b480731485abe12b"
+    },
+    {
+      "path": "results/orch1884/lemmas/ClosedRelaxOrGeneral.lean",
+      "bytes": 4873,
+      "sha256": "2ceea11c3fe4341e37b17c882f379e76752c94fdd2741c5801287b3824dc4c7c"
+    },
+    {
+      "path": "results/orch1884/lemmas/DirectFilterCore.lean",
+      "bytes": 4243,
+      "sha256": "b56d9b5a9fbf23b5683e2085545b51d63e912a225ab23c99263e87ca8e50c4bc"
+    },
+    {
+      "path": "results/orch1884/lemmas/LeastGateFacts.lean",
+      "bytes": 2755,
+      "sha256": "7e648c34b04364a693513f7bc3a6ced2f05d1a3ea8b0f3dbb23d4482f863ddd3"
+    },
+    {
+      "path": "results/orch1884/lemmas/NotRailOperand.lean",
+      "bytes": 23678,
+      "sha256": "5d709b17806b632ae45d53b86651735bd90eec5b169dcbecbe6ac7d047a37276"
+    },
+    {
+      "path": "results/orch1884/lemmas/RelaxationFloor.lean",
+      "bytes": 3970,
+      "sha256": "f3045258a048f4fe5861d4c42fe197f838e526fab00575018f5d7776fe02e82c"
+    },
+    {
+      "path": "results/orch1884/lemmas/RelaxationSemantics.lean",
+      "bytes": 1722,
+      "sha256": "d5b6b6803ca548fe09855ef6d2c034de6c8db2b600f1a6b5668d4b20dc2afd6c"
+    },
+    {
+      "path": "results/orch1884/lemmas/SoleAndRestriction.lean",
+      "bytes": 4906,
+      "sha256": "2789dde57ec26df56e426ff5e6c19e076d9037ea362943e8058ea01fa18bbf33"
+    },
+    {
+      "path": "results/orch1884/lemmas/SoleReaderFreeCore.lean",
+      "bytes": 3020,
+      "sha256": "f998ffe6d2a4144650ade4a7deb1cd4810b52c9d31bf395dc0910973c0831727"
+    },
+    {
+      "path": "results/orch1884/lemmas/TrimNot.lean",
+      "bytes": 2655,
+      "sha256": "698c599f7e3453d4085bd4ad42f39e0aa008fbeb981dd8ac2e330b7222092f30"
+    },
+    {
+      "path": "results/orch1884/REVIEW-canonical-two-filter.md",
+      "bytes": 4305,
+      "sha256": "7ccb1738d348784d8867484af06a610167ad1ff2db8f81a684d330aafa017bf3"
+    },
+    {
+      "path": "results/orch1884/REVIEW-closed-relax-and-semantics.md",
+      "bytes": 3702,
+      "sha256": "7ba60c4e22c192d151878ef68980eff6efc0da7b6fed87be6a2ebd1900cde7cd"
+    },
+    {
+      "path": "results/orch1884/REVIEW-least-gate-facts.md",
+      "bytes": 1326,
+      "sha256": "044c2ffc51b8101ef34a3c83bbd5bf5536df8ba18f5d882354ec949ff36449ae"
+    },
+    {
+      "path": "results/orch1884/REVIEW-not-rail-operand.md",
+      "bytes": 2878,
+      "sha256": "17d8df259b65cd2b54e6e178f7bb7c5c5fe9103076b2ebaca5a6b83fbb3f3d18"
+    },
+    {
+      "path": "results/orch1884/REVIEW-relaxation-floor.md",
+      "bytes": 3404,
+      "sha256": "70b016b12ff3c6d3c09f52f3b64602136074c96535e88e9f4cea61c7a5c69abc"
+    },
+    {
+      "path": "results/orch1884/REVIEW-rebuild-auxiliary14.md",
+      "bytes": 1693,
+      "sha256": "cd6faddffae0d23d0946c186a3134fda061bb764bc25bd4f5958481d24537f06"
+    },
+    {
+      "path": "results/orch1884/REVIEW-sole-and-restriction.md",
+      "bytes": 1722,
+      "sha256": "4b1ad0c1d96e1e014ff9b3d32e536f05e4c881abc5529b8e33a34ec47302ff46"
+    },
+    {
+      "path": "results/orch1884/REVIEW-trim-not.md",
+      "bytes": 2316,
+      "sha256": "a976b81964b1f58b3e0ed981c6449b6559e0738791e51f89f46cfecec46dc2ab"
+    },
+    {
+      "path": "results/orch1884/REBUILD-auxiliary14.md",
+      "bytes": 2956,
+      "sha256": "466ea7c9764aa04c2d6326f6b7c11617c1e1969186215348ce1c25cdf30dab2b"
+    },
+    {
+      "path": "results/orch1884/rebuild-auxiliary14.sh",
+      "bytes": 1990,
+      "sha256": "5eec6c7c3f889d47b5579bdad5d629e600814164c973483cb1067bf5f8313dc7"
+    },
+    {
+      "path": "results/orch1884/auxiliary14-dependencies.json",
+      "bytes": 4919,
+      "sha256": "a82a92dbf27bf7ff77243ea02850fae48f319aab5205901be65d815d8d115d85"
+    },
+    {
+      "path": "results/orch1884/auxiliary14-independent-static.json",
+      "bytes": 2898,
+      "sha256": "dbf968172daa8e4c4f8d37a03b6047639fc90b4bcb834eae56e372497cf847fe"
+    },
+    {
+      "path": "results/orch1884/auxiliary14-rebuild-static.json",
+      "bytes": 345,
+      "sha256": "e8bdb3455910637e744c30312307c4725bdcce2ac576898cc14dee13ba2aacd9"
+    },
+    {
+      "path": "results/orch1884/relaxation-floor-proof.md",
+      "bytes": 4267,
+      "sha256": "25920606bbaaf08fcc02d8428e821bde6523bb6c06e22273f3a983e0bb46bc0a"
+    },
+    {
+      "path": "results/orch1884/relaxation-floor-review-hashes.json",
+      "bytes": 609,
+      "sha256": "96c1e56bd5985f9a7d8ac3e87e2ba6f31ac56f8d7255c899e2648c82cbb422ed"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-closed-general-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-closed-general-first.stdout",
+      "bytes": 914,
+      "sha256": "40a76d8bce4a0f1ca6f7195a9e7674c20de162b297fc2d6ec1b024678eca5c5e"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-closed-general-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-closed-general-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-least-gate-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-least-gate-first.stdout",
+      "bytes": 3264,
+      "sha256": "7dac91d8f0ef5b32cbb09f98dd5d0f6006b1e4d8fb06f14de184b6cb05e73f44"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-least-gate-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-least-gate-second.stdout",
+      "bytes": 898,
+      "sha256": "09dacb29ae85d27dbf1317d823c1192558d8b17b8367f24a9948be9aa00c649e"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-not-rail-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-not-rail-001.stdout",
+      "bytes": 11972,
+      "sha256": "b5a0b871b03317967c549c036b4de3be6b213bf9a87a91b54df377f19f68e370"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-not-rail-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-not-rail-002.stdout",
+      "bytes": 3000,
+      "sha256": "98d3e397981e88c5a2761a78d6ec28460dfc0d6f06b61b9d316385cbf2bbb743"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-floor-axioms.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-floor-axioms.stdout",
+      "bytes": 115,
+      "sha256": "c2af819ea5b387811ead1e784b944d8f12fb758bf4b2351d16e811b154c30235"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-floor-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-floor-first.stdout",
+      "bytes": 572,
+      "sha256": "1efd2258c14e28eb3e546ef33f4b58157880a5cfd41c44420d413dc10df4f61c"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-floor-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-floor-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-semantics-first.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-semantics-first.stdout",
+      "bytes": 248,
+      "sha256": "a9a7a0db3ae5a0653c918ab395c0d81bfa88670b4fe3286830f5a393fdfb76a2"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-semantics-second.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-semantics-second.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-trim-not-001.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-trim-not-001.stdout",
+      "bytes": 1026,
+      "sha256": "31c81e2eda0d0fb08c75a10e4f4f8de22caf784bf5fc9d8786137f97e53047e2"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-trim-not-002.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/1884-trim-not-002.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/DirectFilterCore-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/DirectFilterCore-export.stdout",
+      "bytes": 805,
+      "sha256": "4977e26851f49244fe18b48b0ca4743b5518c1cdcc8dae403084563b3d3e8b42"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/LOGS.json",
+      "bytes": 9178,
+      "sha256": "ad52103ffc846cac432585b0ed5fc55bf687d41af9e32cf149142ccc56c6a3a0"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/SoleReaderFreeCore-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/checkpoint-closed-auxiliary14/SoleReaderFreeCore-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/canonical-two-filter.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/canonical-two-filter.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/canonical-two-filter-export.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/lemmas/canonical-two-filter-export.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch1884/REVIEW-preservation-closed-auxiliary14.md",
+      "bytes": 1701,
+      "sha256": "03206b206af5ed9da80949ebbb46cf96b7465fbd51d6b8c5b8a7624617e5d1a0"
+    }
+  ],
+  "prior_checked_auxiliary_dependencies": [
+    {
+      "path": "results/orch1884/lemmas/LeastLiftNormalization.lean",
+      "sha256": "fff5cf7346e22d550247c94e025a1a49fac487129f4cf663de81f75e260192f8",
+      "bytes": 3588
+    },
+    {
+      "path": "results/orch1884/lemmas/ClosedOrSet.lean",
+      "sha256": "1f45e4239020b1583991a5ed484ea56be723359d71000f8905e8c3df21825ace",
+      "bytes": 3896
+    },
+    {
+      "path": "results/orch1884/lemmas/ClosedOrSafety.lean",
+      "sha256": "09ddf5d680bc8160ab2853ffd3d78cb419b5c947349dc4bfb986aba2757f84f5",
+      "bytes": 3150
+    },
+    {
+      "path": "results/orch1884/lemmas/StrongRelaxRows.lean",
+      "sha256": "3bda1221519d8d56b87e7b49203522274a04eaf113cb9b2d31906b9c2d07e314",
+      "bytes": 3297
+    },
+    {
+      "path": "results/orch1884/lemmas/LeastGateFacts.lean",
+      "sha256": "7e648c34b04364a693513f7bc3a6ced2f05d1a3ea8b0f3dbb23d4482f863ddd3",
+      "bytes": 2755
+    },
+    {
+      "path": "results/orch1884/lemmas/GeneralReaderStandalone.lean",
+      "sha256": "fe3aba339859099b2b5f38b9ad44ab8b41f5072079b12cf7d059160e9104d55e",
+      "bytes": 523379
+    },
+    {
+      "path": "results/orch1884/lemmas/SoleReaderFactor.lean",
+      "sha256": "ba81489ac7f10173082d77106c728eaf0e1d9964249de13067e48c6e75a03357",
+      "bytes": 5415
+    },
+    {
+      "path": "results/orch1884/lemmas/RelaxedFacts.lean",
+      "sha256": "fac8538dbbba8f689529985fc57f812ca11c4580103a936e994ea8b820269c74",
+      "bytes": 2973
+    },
+    {
+      "path": "results/orch1884/lemmas/StrongRelaxOrSafety.lean",
+      "sha256": "85e67209ca40652a99c1cb14c4d4cfd9c4677954969ba7f2ddd08c6ed067df46",
+      "bytes": 3524
+    },
+    {
+      "path": "results/orch1884/lemmas/RelaxationSemantics.lean",
+      "sha256": "d5b6b6803ca548fe09855ef6d2c034de6c8db2b600f1a6b5668d4b20dc2afd6c",
+      "bytes": 1722
+    },
+    {
+      "path": "results/orch1884/lemmas/ClosedRelaxOr.lean",
+      "sha256": "feba4203e7cca2b0460f374403fe8cdc8413174043edacbc72ae4ac1737b7c99",
+      "bytes": 3282
+    },
+    {
+      "path": "results/orch1884/lemmas/ClosedRelaxOrGeneral.lean",
+      "sha256": "2ceea11c3fe4341e37b17c882f379e76752c94fdd2741c5801287b3824dc4c7c",
+      "bytes": 4873
+    },
+    {
+      "path": "results/orch1884/lemmas/EightExtension.lean",
+      "sha256": "32c56c28b9d4ed667b887aa8a8bdf0a07642cad0a349c6f850e411a8b4eacbd2",
+      "bytes": 6371
+    },
+    {
+      "path": "results/orch1884/lemmas/ElimManyCount.lean",
+      "sha256": "eaea5c3166a5df7fd60a41d2d3dd2d4b5b471e76eae4996e51febd39716925e6",
+      "bytes": 5583
+    },
+    {
+      "path": "results/orch1884/lemmas/Forced13Compile.lean",
+      "sha256": "4fd60a4daa1d764e013c0c3efd713202f33366a7fb4906ddc3923f276412015f",
+      "bytes": 5269
+    },
+    {
+      "path": "results/orch1884/lemmas/RestrictionEight.lean",
+      "sha256": "fc349a6226f76fc768893622c3e1e93dd19d6cbfe3bd7089adccddb7573c0690",
+      "bytes": 4895
+    },
+    {
+      "path": "results/orch1884/lemmas/UniqueReader.lean",
+      "sha256": "a43f943861d9971e1c06f2ed36dc1d84243f0299478f8263e18772fd82c5f030",
+      "bytes": 2508
+    },
+    {
+      "path": "results/orch1884/lemmas/PairReaderCharge.lean",
+      "sha256": "ac073a9d55a7a8b490092fe6746e397ca22c35b78d1672418590c9251fcbc943",
+      "bytes": 3861
+    },
+    {
+      "path": "results/orch1884/lemmas/SoleAndRestriction.lean",
+      "sha256": "2789dde57ec26df56e426ff5e6c19e076d9037ea362943e8058ea01fa18bbf33",
+      "bytes": 4906
+    },
+    {
+      "path": "results/orch1884/lemmas/RelaxationFloor.lean",
+      "sha256": "f3045258a048f4fe5861d4c42fe197f838e526fab00575018f5d7776fe02e82c",
+      "bytes": 3970
+    }
+  ],
+  "credential_or_integrity_findings": [],
+  "new_source_format_findings": [],
+  "stage_paths": [
+    "results/orch1884/PRESERVATION-MANIFEST-closed-auxiliary14.json",
+    "results/orch1884/PRESERVATION-STAGE-closed-auxiliary14.txt",
+    "results/orch1884/REBUILD-auxiliary14.md",
+    "results/orch1884/REVIEW-canonical-two-filter.md",
+    "results/orch1884/REVIEW-closed-relax-and-semantics.md",
+    "results/orch1884/REVIEW-least-gate-facts.md",
+    "results/orch1884/REVIEW-not-rail-operand.md",
+    "results/orch1884/REVIEW-preservation-closed-auxiliary14.md",
+    "results/orch1884/REVIEW-rebuild-auxiliary14.md",
+    "results/orch1884/REVIEW-relaxation-floor.md",
+    "results/orch1884/REVIEW-sole-and-restriction.md",
+    "results/orch1884/REVIEW-trim-not.md",
+    "results/orch1884/auxiliary14-dependencies.json",
+    "results/orch1884/auxiliary14-independent-static.json",
+    "results/orch1884/auxiliary14-rebuild-static.json",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-closed-general-first.stderr",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-closed-general-first.stdout",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-closed-general-second.stderr",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-closed-general-second.stdout",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-least-gate-first.stderr",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-least-gate-first.stdout",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-least-gate-second.stderr",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-least-gate-second.stdout",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-not-rail-001.stderr",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-not-rail-001.stdout",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-not-rail-002.stderr",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-not-rail-002.stdout",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-floor-axioms.stderr",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-floor-axioms.stdout",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-floor-first.stderr",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-floor-first.stdout",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-floor-second.stderr",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-floor-second.stdout",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-semantics-first.stderr",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-semantics-first.stdout",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-semantics-second.stderr",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-relax-semantics-second.stdout",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-trim-not-001.stderr",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-trim-not-001.stdout",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-trim-not-002.stderr",
+    "results/orch1884/checkpoint-closed-auxiliary14/1884-trim-not-002.stdout",
+    "results/orch1884/checkpoint-closed-auxiliary14/DirectFilterCore-export.stderr",
+    "results/orch1884/checkpoint-closed-auxiliary14/DirectFilterCore-export.stdout",
+    "results/orch1884/checkpoint-closed-auxiliary14/LOGS.json",
+    "results/orch1884/checkpoint-closed-auxiliary14/SoleReaderFreeCore-export.stderr",
+    "results/orch1884/checkpoint-closed-auxiliary14/SoleReaderFreeCore-export.stdout",
+    "results/orch1884/lemmas/CanonicalTwoFilter.lean",
+    "results/orch1884/lemmas/ClosedRelaxOrGeneral.lean",
+    "results/orch1884/lemmas/DirectFilterCore.lean",
+    "results/orch1884/lemmas/LeastGateFacts.lean",
+    "results/orch1884/lemmas/NotRailOperand.lean",
+    "results/orch1884/lemmas/RelaxationFloor.lean",
+    "results/orch1884/lemmas/RelaxationSemantics.lean",
+    "results/orch1884/lemmas/SoleAndRestriction.lean",
+    "results/orch1884/lemmas/SoleReaderFreeCore.lean",
+    "results/orch1884/lemmas/TrimNot.lean",
+    "results/orch1884/lemmas/canonical-two-filter-export.stderr",
+    "results/orch1884/lemmas/canonical-two-filter-export.stdout",
+    "results/orch1884/lemmas/canonical-two-filter.stderr",
+    "results/orch1884/lemmas/canonical-two-filter.stdout",
+    "results/orch1884/rebuild-auxiliary14.sh",
+    "results/orch1884/relaxation-floor-proof.md",
+    "results/orch1884/relaxation-floor-review-hashes.json"
+  ],
+  "excluded": "New symmetry/order/safe-operand extensions; mutable notes/status; hot searches; generated binary artifacts; unrelated research"
+}
