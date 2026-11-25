@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "sha256": "6c28d22f2cff26825ba24ee1658eac4c155330ebc86f7aa020a01e4733a7398f",
+  "line_count": 169,
+  "coordinate_reconstruction": true,
+  "quadratic_identity": true,
+  "cubic_even_chart_identity": true,
+  "cubic_four_sample_extraction": true,
+  "rank_preservation_argument": true,
+  "submodule_polarization": true,
+  "independent_pair_triangle_existence": true,
+  "normalized_pair_classification_argument": true,
+  "scope": "independent source/math/format review only; no Lean build by reviewer",
+  "seconds": 0.14877535500090744
+}
