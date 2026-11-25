@@ -1,6 +1,6 @@
 # L-meta-10760 orchestrator notes
 
-Assigned 2026-11-25 18:58:02 UTC. Lease expires 19:18:02 UTC; root renews every 10 minutes and before long runs. Reductions closed.
+Assigned 2026-11-25 18:58:02 UTC. Root renews every5minutes and before long runs; current expiry is recorded in scratch renew-status.json. Reductions closed.
 
 Graph edges: 02, 13, 04, 14, 24, 05, 15, 35, 06, 26, 36, 56.
 
@@ -19,3 +19,7 @@ Simple gate elimination route only reaches8, theoretical restriction route ceili
 ##19:23 UTC re-plan
 
 Lower13, upper14, trackedNOT extraction, and conditional final wrapper are kernelchecked and pushed. Root t1 search succeeds. Stop all SAT/alternate searches; focus on fitting the final finite certificate within memory. Split23checks initially exceeded6000MB because theorem elaboration may run concurrently. Pinned Lean source confirms proof-valued defs serialize expensive decide+kernel work while retaining synchronous auxiliary kernel checks; trying this now. Final assembly, format guard, local checker and capped cleanup follow.
+
+## 19:50 UTC re-plan
+
+All semantic glue is checked. Remaining issue is finite-certificate resources. Generic continuation cuts, exact keyed patches, normalized initialization, largest unary leaf(519states), and54-row unary coverage are checked and pushed. certificate_search owns the single Lean compilation slot(8GiB RAM/twoCPU), checks unary/binary leaves; repo_review owns parent coverage and restoration; proof_route plus finite_search split lower13-t0 into children. Avoid simultaneous Lean processes. Proof-valued defs serialize kernel checks; compact membership splits or bounded batches keep source below512KiB and runtime below site20minutes. Current uncommitted named file is an obsolete full split candidate; compiled olean is the checked3813-line partial. Root alone assembles final target.

@@ -27,3 +27,5 @@
 - 2026-11-25 19:47 UTC: Largest unary leaf (519 recursive search states) kernel-checked under6000MB cap; kernel time1.18seconds. Independent source review by root confirmed ordinary kernel equality, no extra hypotheses, no banned declarations; parent coverage still being completed.
 
 - 2026-11-25 19:49 UTC: Generic54-row unary continuation coverage and recursive one-step cut equations kernel-checked under6000MB. Root reviewed equations and ordinary reflexivity proof; earlier independent proof_route review confirmed exact-key restoration. Preserving complete source/log.
+
+- 2026-11-25 19:50 UTC: All54 unary leaves checked in29seconds of kernel time under6000MB. Root independently compared all normalized/child definitions with checkedcoverage; identical. Proof has no hypotheses beyond membership in exact54-row table. Complete source/log saved.

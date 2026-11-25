@@ -1,0 +1,84 @@
+import took 3.1s
+tactic execution of Lean.Parser.Tactic.rcases took 871ms
+type checking took 472ms
+type checking took 358ms
+type checking took 235ms
+type checking took 440ms
+type checking took 352ms
+type checking took 231ms
+type checking took 546ms
+type checking took 401ms
+type checking took 200ms
+type checking took 472ms
+type checking took 364ms
+type checking took 195ms
+type checking took 477ms
+type checking took 442ms
+type checking took 223ms
+type checking took 571ms
+type checking took 481ms
+type checking took 229ms
+type checking took 1.85s
+type checking took 385ms
+type checking took 604ms
+type checking took 407ms
+type checking took 468ms
+type checking took 802ms
+type checking took 1.47s
+type checking took 290ms
+type checking took 802ms
+type checking took 848ms
+type checking took 540ms
+type checking took 799ms
+type checking took 1.01s
+type checking took 459ms
+type checking took 415ms
+type checking took 583ms
+type checking took 434ms
+type checking took 582ms
+type checking took 912ms
+type checking took 294ms
+type checking took 357ms
+type checking took 717ms
+type checking took 459ms
+type checking took 604ms
+type checking took 1.03s
+type checking took 392ms
+type checking took 296ms
+type checking took 390ms
+type checking took 457ms
+type checking took 762ms
+type checking took 864ms
+type checking took 363ms
+type checking took 383ms
+type checking took 484ms
+type checking took 340ms
+type checking took 451ms
+/tmp/oec/pequalnp-pilot-178/certificate_search/CompactUnaryChecks.lean:241:0: warning: Definition `unaryTableChecked` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+cumulative profiling times:
+	attribute application 2.27ms
+	compilation (IR) 12.4ms
+	compilation (LCNF base) 169ms
+	compilation (LCNF impure) 49.9ms
+	compilation (LCNF mono) 117ms
+	congr simp thm 0.723ms
+	declTypeLinter 73.3ms
+	elaboration 839ms
+	fix level params 2.33ms
+	import 3.1s
+	initialization 84.5ms
+	instantiate metavars 7.66ms
+	interpretation 750ms
+	let-to-have transformation 2.75ms
+	linting 127ms
+	module linting 0.112ms
+	parsing 71.2ms
+	process pre-definitions 75.3ms
+	share common exprs 12ms
+	simp 48.1ms
+	tactic execution 1.11s
+	tacticAnalysis 29.1ms
+	type checking 29s
+	typeclass inference 295ms
