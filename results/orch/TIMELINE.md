@@ -66,3 +66,5 @@
 - 2026-11-25T04:56:39.608512+00:00: Environment transition preserved files but ended active processes. Renewed lease and restarted timer; full original and forced replays restarted on separate CPU pairs. Eight successful components prepared for preservation.
 
 - 2026-11-25T04:57:50.205596+00:00: Width278 generic verifier compiled and independent exact-transform/sample audit passed; full numerical replay pending.
+
+- 2026-11-25T05:01:09.432476+00:00: Matched monotone16 tests passed; width278 saves about8.2% user CPU including fixed setup. Upstream status refresh confirms gap still open and peer full candidates only have timeout verdicts.

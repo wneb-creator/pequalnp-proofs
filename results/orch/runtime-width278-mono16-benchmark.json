@@ -1,0 +1,15 @@
+{
+  "variant": "Width278",
+  "group": "rootM11-start186-count16-ar11",
+  "cpuAffinity": [
+    4
+  ],
+  "started": "2026-11-25T04:57:32.351742+00:00",
+  "wallSeconds": 9.243005901000288,
+  "userSeconds": 7.899017,
+  "systemSeconds": 1.177862,
+  "maxRssKiB": 3349248,
+  "exitCode": 0,
+  "sourceSha256": "406f30e0cffd9ab85adc691c4de8451d037ac685ced963e1b9c1399469f317f4",
+  "log": "/tmp/oec/pequalnp-pilot-61/runtime-width278-mono16-benchmark.log"
+}

@@ -1,0 +1,15 @@
+{
+  "variant": "ForceBatch",
+  "group": "rootM11-start186-count16-ar11",
+  "cpuAffinity": [
+    4
+  ],
+  "started": "2026-11-25T04:57:21.728006+00:00",
+  "wallSeconds": 10.622974487999272,
+  "userSeconds": 8.584706,
+  "systemSeconds": 1.985532,
+  "maxRssKiB": 3353264,
+  "exitCode": 0,
+  "sourceSha256": "1f86a18186d29dd56915676182fc45a76f50671748be3171ff2715bca4c4aa95",
+  "log": "/tmp/oec/pequalnp-pilot-61/runtime-forcebatch-mono16-benchmark.log"
+}

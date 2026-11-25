@@ -1,0 +1,18 @@
+[
+  {
+    "candidate": "/workspace/pequalnp-proofs/results/orch/lemmas/RuntimeOriginalBenchmark.lean",
+    "sha256": "4425bfac225d49a541abead6cb5f6a871fc7e328ad0764c5a05b6077afaeda48",
+    "definitions_and_lemmas_checked": 168,
+    "mismatches": [],
+    "target": "theorem runtimeBenchmark : rowCut rootS 8 0 6 9 0 9 = true := by decide +kernel",
+    "forbidden_present": []
+  },
+  {
+    "candidate": "/workspace/pequalnp-proofs/results/orch/lemmas/RuntimeForceBatchBenchmark.lean",
+    "sha256": "76d7cd86f29cda49325ed3599afd309f1aa05c9e23926c1fb03990d6e4d20be8",
+    "definitions_and_lemmas_checked": 170,
+    "mismatches": [],
+    "target": "theorem runtimeBenchmark : rowCut rootS 8 0 6 9 0 9 = true := by decide +kernel",
+    "forbidden_present": []
+  }
+]
