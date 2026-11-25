@@ -5066,3 +5066,5 @@ Hint: Use `simp` instead of `simpa`:
   [apply] simp [graphFun, pairInput] at hF
 
 Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+
+2026-11-25T09:55:41.531914+00:00 star_tightening_prefix.lean: Lean compile exited0, independent review passed. Full successful output (empty):
