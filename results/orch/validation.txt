@@ -6,3 +6,9 @@ Complete stdout/stderr: rectangle-check.log (empty).
 Local gap checker: not run; this helper module does not declare the required theorem.
 Sub-agents: six (status/review, combinatorial proof, normalization, counterexample search, lemma inventory, toolchain setup)
 TIMING total=7 subagents=6
+
+Checkpoint 2: named file and Support, Normalization, Masking all compile.
+Named build: lake build PEqualNP.Outside.L_meta_4675, exit 0.
+Masking proves semantic colour mixing requires an earlier AND not below output; it does not prove the global bound.
+All four source files independently reviewed before push.
+TIMING total=10 subagents=6
