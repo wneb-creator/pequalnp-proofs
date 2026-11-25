@@ -106,3 +106,14 @@ results/orch/lemmas/algebraic-reader-charge.lean SHA256 1e43f511f78c2627eb827fac
 results/orch/lemmas/algebraic-cluster-charge.lean SHA256 ce18dc8cdfb07caf99d8e48eb5daeda4394e13822b02647dfef1c1ff9fddb4b2, compiled exit0; complete algebraic-cluster-charge-1.stdout/.stderr.
 results/orch/lemmas/semantic-cluster-disagreement.lean SHA256 ff63e428a7b7909965781e2927d9dc4c6725a59864ecdeb9b5b6d542872fc9d8, compiled exit0; complete semantic-cluster-disagreement.stdout/.stderr.
 Exact checker002 on unchanged9363line aggregate: REJECTED(no-theorem). Snapshot14 initialpush authenticationfailed, safe-readhelper succeeded, fencedretry toexpectedold e2bab88 succeeded; eed58e5 preserved remotely. No credentials changed or exposed.
+
+Snapshot16 2026-11-25T18:30:04.603698+00:00
+results/orch/lemmas/library-buffer-charge.lean SHA256 ef4c1433943f564b86fa431d1b4284c04f54a8c78d1a0beec1683937e0e2ba19, compiled exit0; full library-buffer-charge-build.stdout/.stderr.
+results/orch/lemmas/library-id-buffer.lean SHA256 a6a76035a526aac024f8fec7de74869a2a4ff91c650dafc9dccd30c25bf2d4f5, compiled exit0; full library-id-buffer-build.stdout/.stderr.
+results/orch/lemmas/library-row-saturation.lean SHA256 a392c8fe45c4d7eb63348b8963be7eeb79263b26b4a129ba5b676791b10f48ff, compiled exit0; full library-row-saturation-build.stdout/.stderr.
+results/orch/lemmas/structural-buffer-lex.lean SHA256 3918a5ac42b7bdb8d69563ce1e190376810284b201964a36ddc1788771ae85d1, compiled exit0; full structural-buffer-lex.stdout/.stderr.
+results/orch/lemmas/structural-buffer-normal.lean SHA256 b31821ba11f1e2ccce0e58b7442bb079816ce58c6f328e3b8b9de2c2e134ff0d, compiled exit0; full structural-buffer-normal.stdout/.stderr.
+results/orch/lemmas/structural-intersection-profile.lean SHA256 730daee6357f21f234e77dc5ba1668895bfc456dd02cafd187575381ada61aeb, compiled exit0; full structural-intersection-profile.stdout/.stderr.
+results/orch/lemmas/structural-earliest-pin.lean SHA256 4441d306a3fa79cddcd202e9905a107ce10ea50be19302417e31a2d29b52cf47, compiled exit0; full structural-earliest-pin.stdout/.stderr.
+results/orch/lemmas/algebraic-residual-cover-union.lean SHA256 31eda668b75c403536a5488a522b3734fbac97328e872b79ed41ee4fe78c2e79, compiled exit0; full algebraic-residual-cover-union-3.stdout/.stderr.
+Eight-input manifest 1406a97215adf5b06f05314def18acf1735dc5b1ff61b0ac043769e3432bc9f9 all25 hashes verified; three one-below-bound searches UNKNOWN, three SATcontrols replayed. No lower bound/refutation follows. Main aggregate unchanged9363lines; checker002 current.

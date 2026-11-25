@@ -1,0 +1,350 @@
+{
+  "gap": "L-meta-4675",
+  "snapshot_utc": "2026-11-25T18:23:25.210829+00:00",
+  "final": true,
+  "prior_manifests": [
+    {
+      "path": "results/orch/lemmas/counterexample-manifest.json",
+      "sha256": "52af8cd77906d3181a840442313a0a8f1900b3af1ae05923a929fec8a9510d21",
+      "all_files_unchanged": true
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-seven-input-manifest.json",
+      "sha256": "02602bb1a1190b6529e032ab094d1f8f01f680eaee6207edc61b3db47492a11c",
+      "all_files_unchanged": true
+    }
+  ],
+  "experiments": [
+    {
+      "id": "eight-input-extremal-census",
+      "source": "counterexample-eight-input-census.py",
+      "status": "ASSERTIONS_PASS",
+      "scope": "All32768 masks on3+5 and65536 on4+4; exact cover values; canonize maximum |E|+tau targets only",
+      "args": [],
+      "logs": [
+        "counterexample-eight-input-census.stdout",
+        "counterexample-eight-input-census.stderr"
+      ],
+      "completeness": "EXHAUSTIVE_GRAPH_CENSUS_ONLY"
+    },
+    {
+      "id": "eight-13726-known-star",
+      "source": "counterexample-eight-input-smt.py",
+      "status": "SAT",
+      "scope": "Pinned12-gate star for graph mask13726 on4+4; full256-row Python replay",
+      "args": [
+        "--p",
+        "4",
+        "--l",
+        "4",
+        "--mask",
+        "13726",
+        "--gates",
+        "11",
+        "--timeout",
+        "10000",
+        "--pin",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-eight-13726-validation.smt2"
+      ],
+      "logs": [
+        "counterexample-eight-13726-validation.stdout",
+        "counterexample-eight-13726-validation.stderr"
+      ],
+      "completeness": "ENCODING_POSITIVE_CONTROL"
+    },
+    {
+      "id": "eight-13726-one-below-bound",
+      "source": "counterexample-eight-input-smt.py",
+      "status": "UNKNOWN_TIMEOUT",
+      "scope": "Any at-most11-gate T0 binary AO circuit for graph mask13726, full256 rows",
+      "args": [
+        "--p",
+        "4",
+        "--l",
+        "4",
+        "--mask",
+        "13726",
+        "--gates",
+        "11",
+        "--timeout",
+        "300000",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-eight-13726-search.smt2"
+      ],
+      "logs": [
+        "counterexample-eight-13726-search.stdout",
+        "counterexample-eight-13726-search.stderr"
+      ],
+      "completeness": "INCONCLUSIVE",
+      "timeout_ms": 300000,
+      "elapsed_seconds": 300.9397692010007
+    },
+    {
+      "id": "eight-3262-known-star",
+      "source": "counterexample-eight-input-smt.py",
+      "status": "SAT",
+      "scope": "Pinned10-gate star for graph mask3262 on3+5; full256-row Python replay",
+      "args": [
+        "--p",
+        "3",
+        "--l",
+        "5",
+        "--mask",
+        "3262",
+        "--gates",
+        "9",
+        "--timeout",
+        "10000",
+        "--pin",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-eight-3262-validation.smt2"
+      ],
+      "logs": [
+        "counterexample-eight-3262-validation.stdout",
+        "counterexample-eight-3262-validation.stderr"
+      ],
+      "completeness": "ENCODING_POSITIVE_CONTROL"
+    },
+    {
+      "id": "eight-3262-one-below-bound",
+      "source": "counterexample-eight-input-smt.py",
+      "status": "UNKNOWN_TIMEOUT",
+      "scope": "Any at-most9-gate T0 binary AO circuit for graph mask3262, full256 rows",
+      "args": [
+        "--p",
+        "3",
+        "--l",
+        "5",
+        "--mask",
+        "3262",
+        "--gates",
+        "9",
+        "--timeout",
+        "300000",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-eight-3262-search.smt2"
+      ],
+      "logs": [
+        "counterexample-eight-3262-search.stdout",
+        "counterexample-eight-3262-search.stderr"
+      ],
+      "completeness": "INCONCLUSIVE",
+      "timeout_ms": 300000,
+      "elapsed_seconds": 300.1033931230004
+    },
+    {
+      "id": "eight-3510-known-star",
+      "source": "counterexample-eight-input-smt.py",
+      "status": "SAT",
+      "scope": "Pinned10-gate star for graph mask3510 on3+5; full256-row Python replay",
+      "args": [
+        "--p",
+        "3",
+        "--l",
+        "5",
+        "--mask",
+        "3510",
+        "--gates",
+        "9",
+        "--timeout",
+        "10000",
+        "--pin",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-eight-3510-validation.smt2"
+      ],
+      "logs": [
+        "counterexample-eight-3510-validation.stdout",
+        "counterexample-eight-3510-validation.stderr"
+      ],
+      "completeness": "ENCODING_POSITIVE_CONTROL"
+    },
+    {
+      "id": "eight-3510-one-below-bound",
+      "source": "counterexample-eight-input-smt.py",
+      "status": "UNKNOWN_TIMEOUT",
+      "scope": "Any at-most9-gate T0 binary AO circuit for graph mask3510, full256 rows",
+      "args": [
+        "--p",
+        "3",
+        "--l",
+        "5",
+        "--mask",
+        "3510",
+        "--gates",
+        "9",
+        "--timeout",
+        "300000",
+        "--output",
+        "/tmp/oec/pequalnp-pilot-163/counterexample-eight-3510-search.smt2"
+      ],
+      "logs": [
+        "counterexample-eight-3510-search.stdout",
+        "counterexample-eight-3510-search.stderr"
+      ],
+      "completeness": "INCONCLUSIVE",
+      "timeout_ms": 300000,
+      "elapsed_seconds": 300.0684167069994
+    }
+  ],
+  "files": [
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-census.py",
+      "bytes": 2949,
+      "sha256": "352e26ae57725422615796823e2158ba0adee29418de93fe133b72bcdba5e510",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-smt.py",
+      "bytes": 7030,
+      "sha256": "872de0777793783b7f108fc39aae4a31ec79e4a7e6fcece883adb6adfc5b4b77",
+      "kind": "source"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-input-census.stdout",
+      "bytes": 7768,
+      "sha256": "f33a50949c8772e271f2efb480e5e596710f7eebeff0f48e8279b05f8fca9dce",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-input-census.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-13726-validation.stdout",
+      "bytes": 756,
+      "sha256": "169d413d2eab5c78005b8a2ef46651048ed201f66147ed911b50db9f86b2928a",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-13726-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-13726-search.stdout",
+      "bytes": 276,
+      "sha256": "d011e9744ed3f17724375e7bbac7a9e8fbe3b1966710fab09655daecd6ee7ffe",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-13726-search.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-3262-validation.stdout",
+      "bytes": 668,
+      "sha256": "ae33a1f83ce8b6d95a9ce6d137417b9325e05daddd15901e60863cb49b3355b4",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-3262-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-3262-search.stdout",
+      "bytes": 272,
+      "sha256": "3c0f13322ebe528668a4ddfb497ab8513a93c1d22d10d5e67c1753f80166c542",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-3262-search.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-3510-validation.stdout",
+      "bytes": 668,
+      "sha256": "8e514e5e234466211dd59d006ef0dbb64abf11c8a992ef7c1236bbc53651b256",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-3510-validation.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-3510-search.stdout",
+      "bytes": 272,
+      "sha256": "b8bb35fcad8380d52b4c32edd87ebde6edf1888f3ad6f3420d9716f239a9a60b",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-3510-search.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_original_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-13726-validation.smt2",
+      "bytes": 39804,
+      "sha256": "6d828559114cb47c3cb7519d9cb0be057b4da3a9436994c3c78c4a30e6461573",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-13726-search.smt2",
+      "bytes": 34552,
+      "sha256": "8993b938a8d771622867ddcb65049743f77f85210fbdcb4cb563d7cf9841edac",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-3262-validation.smt2",
+      "bytes": 31150,
+      "sha256": "ff413e69a7e5a35290f882ff3621bac4aca4428e788c4f49b74550fc63d20570",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-3262-search.smt2",
+      "bytes": 26629,
+      "sha256": "6421fc23f9feb659ac16819cad1d1547ba2b6209d6e08cbdede066d79605ed96",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-3510-validation.smt2",
+      "bytes": 31150,
+      "sha256": "f00cd23a87bc071b03c0cd9f313009cbfc0bde1d1ede912de6a1dd41f766f4d4",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-3510-search.smt2",
+      "bytes": 26629,
+      "sha256": "e8a103d97bb5754d4a642b2256f7a2dcbefe02c2d24822f52b0d4f1111c2aed7",
+      "kind": "exact_generated_solver_input"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-batch.stdout",
+      "bytes": 439,
+      "sha256": "85bd3cfc7ac57f25e2b7af193f2f88afe2e6fb146aaa9000f9324cc82ab006d9",
+      "kind": "complete_batch_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-logs/counterexample-eight-batch.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_batch_log"
+    },
+    {
+      "path": "results/orch/lemmas/counterexample-eight-input-manifest.md",
+      "bytes": 1734,
+      "sha256": "581d4b38f7e16a5cf30f729e09fa73af06c4fb08bfdaef6b18b3d470377d64f9",
+      "kind": "human_readable_manifest"
+    }
+  ],
+  "interpretation": [
+    "Finite graph census and bounded synthesis only.",
+    "All three unpinned SMT runs returned UNKNOWN_TIMEOUT and are inconclusive.",
+    "All scheduled runs terminated; all archived logs are complete.",
+    "No full-gap proof, refutation, or blanket eight-input lower bound is claimed."
+  ],
+  "frozen_utc": "2026-11-25T18:27:21.559536+00:00",
+  "all_runs_terminated_by_utc": "2026-11-25T18:26:58Z"
+}

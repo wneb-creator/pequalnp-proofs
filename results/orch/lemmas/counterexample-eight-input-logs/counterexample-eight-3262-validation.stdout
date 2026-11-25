@@ -1,0 +1,36 @@
+{"p": 3, "l": 5, "mask": 3262, "gates": 9, "timeout": 10000, "pin": true, "output": "/tmp/oec/pequalnp-pilot-163/counterexample-eight-3262-validation.smt2"}
+gates 10 smt_bytes 31149 truth_rows 256 known_star_full_truth_replay True
+sat
+
+elapsed_seconds 0.010233678000076907
+((a0 #b00011)
+ (b0 #b00100)
+ (o0 true)
+ (a1 #b00011)
+ (b1 #b00101)
+ (o1 true)
+ (a2 #b00100)
+ (b2 #b00101)
+ (o2 true)
+ (a3 #b00001)
+ (b3 #b01001)
+ (o3 false)
+ (a4 #b00010)
+ (b4 #b01000)
+ (o4 false)
+ (a5 #b00110)
+ (b5 #b01010)
+ (o5 true)
+ (a6 #b00111)
+ (b6 #b01101)
+ (o6 true)
+ (a7 #b00000)
+ (b7 #b01110)
+ (o7 false)
+ (a8 #b01011)
+ (b8 #b01111)
+ (o8 true)
+ (a9 #b01100)
+ (b9 #b10000)
+ (o9 true))
+

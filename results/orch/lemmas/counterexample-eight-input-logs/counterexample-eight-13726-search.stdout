@@ -1,0 +1,5 @@
+{"p": 4, "l": 4, "mask": 13726, "gates": 11, "timeout": 300000, "pin": false, "output": "/tmp/oec/pequalnp-pilot-163/counterexample-eight-13726-search.smt2"}
+gates 11 smt_bytes 34551 truth_rows 256 known_star_full_truth_replay False
+unknown
+
+elapsed_seconds 300.9397692010007

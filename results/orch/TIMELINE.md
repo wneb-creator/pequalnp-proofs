@@ -19,3 +19,5 @@
 - 2026-11-25T18:15:28.872401+00:00: Named aggregate9363lines builds; masked-region dirty-witness extraction and distinct-AND accepted-trace counting integrated. Shared identity-buffer cut relocation checked separately. Full residual certificate remains open.
 
 - 2026-11-25T18:24:26.427273+00:00: Snapshot14 authentication failure recovered with safe read and expected-old-SHA fenced push. Current exact checker rejects absent target. New multi-root and buffer-boundary results checked; incompatible OR-choice payment remains unresolved.
+
+- 2026-11-25T18:30:04.603698+00:00: Global input-buffer charge, lex/pin normal form, earliest singleton profile bridge and K-aware cover certificate all compile. All eight-input searches ended UNKNOWN. General residual edge-cost and incompatible-payload charge unresolved.
