@@ -13,3 +13,12 @@ Lease: renewal at14:39:36UTC returned HTTP410, although previous renewal confirm
 Desk null count:0. Exact message: no such live lease: it expired or was released. Ask /desk/next again.
 Sub-agents: checker_audit, theory, counterexample, reductions, semantics, sat_search
 TIMING total=15 subagents=6
+
+Active gap: L-meta-2583 (new lease after previous410).
+Status: compiled PARTIAL ONLY; exact posted theorem still absent.
+lake build PEqualNP.Outside.L_meta_2583: PASSED exit0, Build completed successfully (6655 jobs).
+Named file:88 lines, prime-implicant and read1 characterizations; independent review by theory.
+reductions_2583_upper.lean: direct Lean PASSED exit0,1190lines; constructive read1 upper bound and conditional replacement.
+Full checker: NOT RUN; no complete posted proof. Cleanup: not started; named file88lines before/after.
+Sub-agents: checker_audit, theory, counterexample, reductions, semantics, sat_search
+TIMING total=21 subagents=6
