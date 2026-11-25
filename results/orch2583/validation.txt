@@ -10,7 +10,7 @@ No full-target checker run or proof PR. Conditional component is not a submitted
 Cleanup not attempted; lines before/after unchanged636 and678.
 
 Sub-agents:6 (status review, semantic proof, counterexample search, combinatorial bound, toolchain research, star construction)
-TIMING total=63.44 subagents=6
+TIMING total=66.45 subagents=6
 
 PlaneGeometry.lean:155lines; point regularity, edge count, Hall condition, C4 exclusion, and cover lower bound. Lean exit0; stdout/stderr empty. Independent audit PASS.
 SHA256 ba2df371d6d92b69d37c3fc019e7e594b424e19c33cd6d3d5111397ef85d10b0.
@@ -34,3 +34,8 @@ CommonFilterSemantics.lean and CommonFilterFamily.lean: exact Safe condition and
 SemanticOrSharing.lean: pairwise support intersections<=1 imply three-support sum<=distinct serving nontrivial OR gates+3. ReadsBack and exact fanin2 explicit. Lean exit0, logs empty, independent audit PASS. SHA2569f18667782f39cd41c5b20762dc43bafb821214dfdf0b33b95d54470f81fdf60.
 FanoRefutation.lean: checked concrete q2 plane and READ1 floor27. Any actual AO2 circuit ofsize<=26 computing it would refute the exact posted statement. Such a circuit remains an explicit hypothesis; no witness found or refutation claimed. Lean exit0, inherited warnings only, independent audit PASS. SHA2561f99b213e71759b193efc6d429aa9e3d5ccff08f72a37b6d51e792439df8f22b.
 Full logs are saved beside this validation; independent audit contains all hashes and scope details.
+
+SemanticReplacement.lean: constructs actual AO2 READ1 pair-core circuit within activeOR budget+2 under explicit triple-block/intersection/cardinality/C4 hypotheses. Lean exit0; inherited builder warnings only; independent audit PASS. SHA256fe1927dc45de1d3bfdbecc94d54bb177e568b1ced7f049490693b3b510ab2521.
+SemanticPairReplacement.lean: replacing an OR-top block by a below-target monotone function agreeing on target pairs preserves the whole graph function. Lean exit0; logs empty; root independent source audit PASS.
+CommonFilterSharing.lean: two common heavy points in a filtered C4-free rectangle union must coincide. Lean exit0; inherited warnings only; independent audit PASS. SHA256b85fe7131f016bdcfe4763c95e4b772eb4e739cb4212700a2b40008bbb91819e.
+Actual indexed-gate splicing and globally exclusive budget allocation remain unproved.
