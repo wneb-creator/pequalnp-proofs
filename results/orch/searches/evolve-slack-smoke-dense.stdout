@@ -1,0 +1,3 @@
+Dynamic8x8 graph search,40gate genome with9initially dead gates, exact monotone antichain tests
+best saving 0 at 9 trials; valid 1
+Completed no witness; trials 200000 valid 191023 restarts 2 best saving 0 mean valid edges 1.74681

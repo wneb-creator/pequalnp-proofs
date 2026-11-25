@@ -1,0 +1,69 @@
+{
+  "gates": [
+    [
+      1,
+      4,
+      5
+    ],
+    [
+      0,
+      0,
+      6
+    ],
+    [
+      1,
+      3,
+      5
+    ],
+    [
+      0,
+      1,
+      8
+    ],
+    [
+      1,
+      3,
+      4
+    ],
+    [
+      0,
+      2,
+      10
+    ],
+    [
+      1,
+      7,
+      9
+    ],
+    [
+      1,
+      11,
+      12
+    ]
+  ],
+  "truth_table_equal": true,
+  "all64inputs_checked": true,
+  "or_uniform": true,
+  "no_and_below_operand": true,
+  "probe_edge": [
+    0,
+    4
+  ],
+  "probe_read1": true,
+  "below": [
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    true,
+    false,
+    true,
+    false,
+    true,
+    true,
+    true
+  ]
+}

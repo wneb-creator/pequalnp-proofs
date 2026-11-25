@@ -1,0 +1,16 @@
+{
+  "source": "evolve_graph_slack.cpp",
+  "source_sha256": "0eb1d1ca33881f046daf5b9bde6b17fb269b75dbdda57554b4e3a63ad40ed8fb",
+  "binary_sha256": "a3aa0cc219d747fe7f06bc96804da5a652f88f9cd3312fca3a888d3e8bab8a3f",
+  "argv": [
+    "g++",
+    "-O3",
+    "-std=c++17",
+    "evolve_graph_slack.cpp",
+    "-o",
+    "evolve_graph_slack"
+  ],
+  "ndebug_defined_in_source": false,
+  "assertions_enabled": true,
+  "assertion_evidence": "Direct compiler argv has no NDEBUG define; source has no NDEBUG text. Dynamic hit verification uses C++ assert, so reproduction must preserve this."
+}

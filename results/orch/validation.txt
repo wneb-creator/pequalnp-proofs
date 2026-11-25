@@ -43,3 +43,5 @@ EdgeElimination.lean:815lines, Lean exit0, reviewed Body plus previously reviewe
 EdgeEssential.lean:953 lines, Lean exit0; independent construction-agent exact-source review passed. Every gate of a least nonzero incidence circuit is output-essential on an incident pair. Full statement remains unproved.
 
 LATEST assigned partial:4573lines,203937bytes,SHA256 f8af109d3a0ab3b44a44e26d3dbebe31d85f1c69379007008c46fc51810ad9d4. lake build PASSED exit0 (5149jobs); full logs retained. Independent normalization-agent assembly review passed. Full theorem absent; checker fault unchanged; cleanup skipped,4573/4573lines. LeastNormalized standalone1738lines also Lean exit0 and reviewed74-line body, yielding a least normalized edge-essential equivalent circuit.
+
+Computational archive checkpoint: free-OR counted-AND SAT, semantic-pruning SAT, dense dynamic search, C6 normalization/read1 stress tests and controls independently reviewed. UNSAT is external solver evidence only; timed-out and ongoing searches remain UNKNOWN. Exact source hashes and full retained logs are under results/orch/searches.

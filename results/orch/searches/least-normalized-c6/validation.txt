@@ -1,0 +1,8 @@
+C6 least normalized structural stress test
+Result: no 8-gate strongly normalized C6 circuit with a non-read1 edge was found; CaDiCaL returned UNSAT (exit 20). This is bounded computational evidence, not a Lean theorem and not a proof of L-meta-2585.
+Base circuit encoding: AO gates with two distinct earlier inputs, final output, no unused gates, adjacent independent-gate lexicographic sorting only; no input-automorphism breaker. All six positive edges and all maximal independent assignments force exact output by monotonicity.
+Strong normalization: each OR gate has equal below-output status on both inputs; neither operand of an AND gate is below output.
+The selected edge is (0,4). Exact formal-monomial flags track singleton p, singleton q, and pq. Requiring no pq at output is exactly lack of read1 on that edge. Edge transitivity of C6 makes one fixed edge sufficient for the least-circuit structural question.
+Controls: an explicit8gate optimal read1 circuit is SAT; an explicit11gate strongly normalized nonread1 circuit is SAT. Every CNF clause, all64 inputs, all normalization constraints, and capped read-vector sets were checked independently for both controls.
+Independent review: counterexample agent PASS. It independently checked all64 polynomial multiplication states, CNF flags, topological symmetry, full truth tables and controls.
+Known C6 minimum8 is computational evidence held by the counterexample agent and separate checked upper bound; this run alone excludes exact8 only.

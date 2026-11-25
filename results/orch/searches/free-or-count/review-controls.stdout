@@ -1,0 +1,3 @@
+/tmp/oec/pequalnp-pilot-86/fresh-cost/matching4_k4 PASS 4 edges 4 counted ANDs 31288 clauses
+/tmp/oec/pequalnp-pilot-86/fresh-cost/cycle3_k3 PASS 6 edges 3 counted ANDs 4709 clauses
+/tmp/oec/pequalnp-pilot-86/fresh-cost/cycle3_or5 PASS 6 edges 5 counted ANDs 10213 clauses

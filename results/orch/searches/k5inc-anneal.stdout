@@ -1,0 +1,4 @@
+mode 3 inputs 15 tests 47 edges 20 baseline gates 24 target gates 23
+best error 5 trials 1 restarts 1
+best error 2 trials 3 restarts 1
+best error 1 trials 350013 restarts 8

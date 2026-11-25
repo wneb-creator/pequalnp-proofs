@@ -1,0 +1,73 @@
+{
+  "name": "/tmp/oec/pequalnp-pilot-86/fresh-cost/cycle3_k3",
+  "variables": 1270,
+  "clauses_checked": 4709,
+  "assignments_checked": 64,
+  "edges": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      2
+    ]
+  ],
+  "selectors": [
+    [
+      [
+        5
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        6
+      ],
+      [
+        4,
+        6
+      ]
+    ],
+    [
+      [
+        0,
+        2,
+        6,
+        7
+      ],
+      [
+        3,
+        6,
+        7
+      ]
+    ]
+  ],
+  "output": [
+    0,
+    1,
+    2
+  ],
+  "dual": false
+}

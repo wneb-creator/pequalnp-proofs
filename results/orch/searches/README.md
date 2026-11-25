@@ -1,0 +1,17 @@
+# L-meta-2585 computational searches
+
+These artifacts are research evidence, not Lean proofs of negative search results.
+Every candidate must still be independently evaluated and Lean-checked.
+
+- `small_search.cpp` enumerates semantic circuits. Complete scans cover all333 nonempty3x3 C4-free targets through6gates. The six targets needing an8gate read1 star circuit are C6 up to the recorded permutations; its7gate SAT instance is UNSAT. Thus no smaller-than-star circuit occurs for3x3. The enormous generic7gate enumeration was stopped and did not complete.
+- `validate_search.py` compares pruned/unpruned small enumerations and checks exact truth tables plus squarefree polynomials of all333 explicit star circuits.
+- `synthesis.py` searches fixed gate counts using every edge assignment and every maximal independent assignment. This test basis is complete for monotone circuits. Adjacent independent-gate symmetry and verified graph automorphisms reduce equivalent candidates. Fixed-count UNSAT alone does not exclude all smaller counts.
+- `synthesis_semantic.py` optionally requires incomparable input signatures and each gate accepting an edge. These restrictions hold for minimum circuits. Known star positive controls remain SAT.
+- `point_read_one_search.cpp` checks an intermediate OR-count bound on point-once/line-positive proof monomials in both orientations. Its complete6gate scan checks2,036,784,434 canonical size6 circuits, finding no violation. The64 abstract multiplication states are independently checked.
+- `or_count_search.cpp` checks the unrestricted edge-count<=OR-count+1 conjecture through5gates. The separate C6 eight- and nine-gate/at-most4OR SAT instances are UNSAT, each with a fixed same-size/5OR SAT control.
+- Stochastic and time-limited SAT negatives mean UNKNOWN. K4-subdivision and Fano searches were retired after accepted full lower bounds were found upstream. Current larger targets are K5 subdivision23gates and cyclic8x8 offsets0,1,3 with30gates. PG(2,3)63gate annealing was retired after public discussion12644 revealed a much larger duplicate unsuccessful search; no lower-bound inference is made.
+- Dynamic graph search retains full monotone antichain tests and checks any hit on all65536 inputs. The initial variant was retired after a smoke test of its slack variant revealed sparse-graph drift; the original run did not record density. The dense variant has40 slots, nine initially dead gates, at least20 output edges, and charges only the live output cone.
+
+Complete logs are retained; `SHA256.json` identifies archived bytes. See adjacent `NOTES.md` for timestamped outcomes and limitations.
+
+`decode_solution.py` independently checks SAT clauses and all Boolean assignments for any candidate, prunes dead gates, computes maximum matching, and identifies missing squarefree edge witnesses. It passed known C6 and K5 star controls. `SEARCH-BUILD.json` preserves dense-search compile flags and hashes; assertions must remain enabled.
