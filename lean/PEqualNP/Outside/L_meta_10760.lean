@@ -1596,3 +1596,133 @@ lemma memoPlain_eq_search (done : Q → Bool) (admissible : Nat → Q → Bool)
     cases done s <;> cases admissible (k + 1) s <;> rfl
 
 end PEqualNP.Outside.L_meta_10760.PNQuotient
+
+namespace PEqualNP.Outside.L_meta_10760
+
+namespace MemoPruned
+
+variable {α κ : Type}
+
+def scan (next : α → κ → Bool × κ) : List α → κ → Bool × κ
+  | [], cache => (false, cache)
+  | x :: xs, cache =>
+    match next x cache with
+    | (true, cache') => (true, cache')
+    | (false, cache') => scan next xs cache'
+
+def search (hit : Nat → α → κ → Bool) (put : Nat → α → κ → κ) (admissible : Nat → α → Bool) (done : α → Bool) (children : Nat → α → List α) :
+    Nat → α → κ → Bool × κ
+  | 0, x, cache =>
+    if hit 0 x cache then (false, cache)
+    else if !admissible 0 x then (false, cache)
+    else if done x then (true, cache)
+    else (false, put 0 x cache)
+  | k+1, x, cache =>
+    if hit (k+1) x cache then (false, cache)
+    else if !admissible (k+1) x then (false, cache)
+    else if done x then (true, cache)
+    else match scan (search hit put admissible done children k) (children k x) cache with
+    | (true, cache') => (true, cache')
+    | (false, cache') => (false, put (k+1) x cache')
+
+lemma scan_semantic (Sol : α → Prop) (Good : κ → Prop)
+    (next : α → κ → Bool × κ)
+    (hnext : ∀ x cache, Good cache →
+      Good (next x cache).2 ∧ (Sol x → (next x cache).1 = true))
+    (xs : List α) (cache : κ) (hc : Good cache) :
+    Good (scan next xs cache).2 ∧
+      ((∃ x ∈ xs, Sol x) → (scan next xs cache).1 = true) := by
+  induction xs generalizing cache with
+  | nil =>
+    refine ⟨hc, ?_⟩
+    rintro ⟨x, hx, _⟩
+    simp at hx
+  | cons x xs ih =>
+    have hs := hnext x cache hc
+    cases he : next x cache with
+    | mk b cache' =>
+      simp only [he] at hs
+      cases b with
+      | false =>
+        have ht := ih cache' hs.1
+        simp only [scan, he]
+        refine ⟨ht.1, ?_⟩
+        rintro ⟨y, hy, hsol⟩
+        rcases List.mem_cons.mp hy with rfl | hy
+        · have impossible := hs.2 hsol
+          contradiction
+        · exact ht.2 ⟨y, hy, hsol⟩
+      | true =>
+        simp only [scan, he]
+        exact ⟨hs.1, fun _ => trivial⟩
+
+lemma search_semantic
+    (hit : Nat → α → κ → Bool) (put : Nat → α → κ → κ)
+    (admissible : Nat → α → Bool) (done : α → Bool)
+    (children : Nat → α → List α) (Sol : Nat → α → Prop) (Good : κ → Prop)
+    (hit_sound : ∀ k x cache, Good cache → hit k x cache = true → ¬ Sol k x)
+    (put_good : ∀ k x cache, Good cache → ¬ Sol k x → Good (put k x cache))
+    (admissible_complete : ∀ k x, Sol k x → admissible k x = true)
+    (base : ∀ x, Sol 0 x → done x = true)
+    (step : ∀ k x, Sol (k+1) x → done x = true ∨ ∃ y ∈ children k x, Sol k y)
+    (k : Nat) (x : α) (cache : κ) (hc : Good cache) :
+    Good (search hit put admissible done children k x cache).2 ∧
+      (Sol k x → (search hit put admissible done children k x cache).1 = true) := by
+  induction k generalizing x cache with
+  | zero =>
+    by_cases hh : hit 0 x cache = true
+    · simp only [search, hh, ite_true]
+      exact ⟨hc, fun hsol => (hit_sound 0 x cache hc hh hsol).elim⟩
+    · have hh' : hit 0 x cache = false := Bool.eq_false_iff.mpr hh
+      by_cases ha : admissible 0 x = true
+      · by_cases hd : done x = true
+        · simp [search, hh', ha, hd, hc]
+        · have hd' : done x = false := Bool.eq_false_iff.mpr hd
+          have hno : ¬ Sol 0 x := fun hsol => hd (base x hsol)
+          simp only [search, hh', Bool.false_eq_true, ite_false, ha, Bool.not_true,
+            hd']
+          exact ⟨put_good 0 x cache hc hno, fun hsol => (hno hsol).elim⟩
+      · have ha' : admissible 0 x = false := Bool.eq_false_iff.mpr ha
+        have hno : ¬ Sol 0 x := fun hsol => ha (admissible_complete 0 x hsol)
+        simp only [search, hh', Bool.false_eq_true, ite_false, ha', Bool.not_false,
+          ite_true]
+        exact ⟨hc, fun hsol => (hno hsol).elim⟩
+  | succ k ih =>
+    by_cases hh : hit (k+1) x cache = true
+    · simp only [search, hh, ite_true]
+      exact ⟨hc, fun hsol => (hit_sound (k+1) x cache hc hh hsol).elim⟩
+    · have hh' : hit (k+1) x cache = false := Bool.eq_false_iff.mpr hh
+      by_cases ha : admissible (k+1) x = true
+      · by_cases hd : done x = true
+        · simp [search, hh', ha, hd, hc]
+        · have hd' : done x = false := Bool.eq_false_iff.mpr hd
+          have hs := scan_semantic (Sol k) Good
+            (search hit put admissible done children k)
+            (fun y c h => ih y c h) (children k x) cache hc
+          cases he : scan (search hit put admissible done children k) (children k x) cache with
+          | mk b cache' =>
+            simp only [he] at hs
+            cases b with
+            | false =>
+              have hno : ¬ Sol (k+1) x := by
+                intro hsol
+                rcases step k x hsol with hdone | hchild
+                · exact hd hdone
+                · have impossible := hs.2 hchild
+                  contradiction
+              simp only [search, hh', Bool.false_eq_true, ite_false, ha, Bool.not_true,
+                hd', he]
+              exact ⟨put_good (k+1) x cache' hs.1 hno, fun hsol => (hno hsol).elim⟩
+            | true =>
+              simp only [search, hh', Bool.false_eq_true, ite_false, ha, Bool.not_true,
+                hd', he]
+              exact ⟨hs.1, fun _ => trivial⟩
+      · have ha' : admissible (k+1) x = false := Bool.eq_false_iff.mpr ha
+        have hno : ¬ Sol (k+1) x := fun hsol => ha (admissible_complete (k+1) x hsol)
+        simp only [search, hh', Bool.false_eq_true, ite_false, ha', Bool.not_false,
+          ite_true]
+        exact ⟨hc, fun hsol => (hno hsol).elim⟩
+
+end MemoPruned
+
+end PEqualNP.Outside.L_meta_10760
