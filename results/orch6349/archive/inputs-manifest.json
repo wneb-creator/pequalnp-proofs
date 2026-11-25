@@ -1,0 +1,46 @@
+{
+  "createdUtc": "2026-11-25T06:26:43.170714+00:00",
+  "scope": "Exact completed canonical SAT run inputs/outputmetadata. SolverUNSAT only; no kernelverification claimed.",
+  "solverExitCode": 20,
+  "solverVerdict": "UNSATISFIABLE",
+  "kernelChecked": false,
+  "recordedCnfAndLogHashesMatched": true,
+  "files": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-61/canonical6349.cnf",
+      "archivePath": "/tmp/oec/pequalnp-pilot-61/archive6349/inputs/canonical6349.cnf",
+      "bytes": 603709,
+      "sha256": "8e566577797ca06f7861f3f2a18039f9756ec4ba5eb90d35cde6946207a9fb4b"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-61/canonical6349-cadical.log",
+      "archivePath": "/tmp/oec/pequalnp-pilot-61/archive6349/inputs/canonical6349-cadical.log",
+      "bytes": 30909,
+      "sha256": "00c6606fd784348ca7504706487e92011e1298570ca2be1b30ebda18d70bac1f"
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-61/canonical6349-manifest.json",
+      "archivePath": "/tmp/oec/pequalnp-pilot-61/archive6349/inputs/canonical6349-manifest.json",
+      "bytes": 758,
+      "sha256": "b98c002e18ce448f0885440c63de631a3912c14239cf958102d9578ef1d0c50d"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch6349/canonical-solver-result.json",
+      "archivePath": "/tmp/oec/pequalnp-pilot-61/archive6349/inputs/canonical-solver-result.json",
+      "bytes": 524,
+      "sha256": "4aba2387ed1eab46040b0c24f1273c45fd592ceb5e2c844f7dd3a1ca7f17991f"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch6349/generate_canonical_cnf.py",
+      "archivePath": "/tmp/oec/pequalnp-pilot-61/archive6349/inputs/generate_canonical_cnf.py",
+      "bytes": 3738,
+      "sha256": "81e42ad3ccadc39ee4e5f6c1368277d4c671eeea982d94c5c9bee4d3d526de0e"
+    },
+    {
+      "source": "/workspace/pequalnp-proofs/results/orch6349/canonical-cnf-independent-review.json",
+      "archivePath": "/tmp/oec/pequalnp-pilot-61/archive6349/inputs/canonical-cnf-independent-review.json",
+      "bytes": 866,
+      "sha256": "3e83c461cdf66114dcdc4b8c91194783ec30e61c908929652d7bfefecdb3d6f9"
+    }
+  ]
+}

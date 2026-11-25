@@ -1,0 +1,3 @@
+This is a lossless archive of an external solver certificate, not a Lean-checked lower bound. Concatenate the seven part files in the manifest order and decompress the resulting zstd stream. The filenames are relative to this archive directory; original absolute scratch paths in the manifests record provenance only. Verify the raw SHA256 before using the result. Inputs, complete solver log, exit20 metadata, generator, and independent encoding review are in inputs/.
+
+The canonical encoding was UNSAT, but its trimmed dependency closure still contained2,036,244 derived clauses and could not fit the512KiB one-file proof limit by ordinary packing. The separately checked upper-bound and generic checker lemmas do not certify this large trace.
