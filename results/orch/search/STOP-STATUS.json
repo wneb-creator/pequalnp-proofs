@@ -1,0 +1,28 @@
+{
+  "stopped_utc": "2026-11-25 16:31:48 UTC",
+  "reason": "Root instructed stop after lease HTTP410; no new search started.",
+  "processes": [
+    {
+      "pid": 19001,
+      "job": "subK4 14-gate full SAT base",
+      "elapsed_before_stop": "16m51s",
+      "exit_code": 130,
+      "result": "Interrupted; no SAT/UNSAT verdict"
+    },
+    {
+      "pid": 19304,
+      "job": "subK4 14-gate full SAT adjacent-order symmetry",
+      "elapsed_before_stop": "15m26s",
+      "exit_code": 130,
+      "result": "Interrupted; no SAT/UNSAT verdict"
+    },
+    {
+      "pid": 21336,
+      "job": "Fano 26-gate star-aware annealer",
+      "elapsed_before_stop": "5m01s",
+      "exit_code": 130,
+      "result": "Interrupted; best one missing edge and one uncovered star, no false positives or T0 violations"
+    }
+  ],
+  "fano_26_sat": "Prepared and positive-control validated; not started."
+}

@@ -1,0 +1,2 @@
+{"full_truth": true, "T": 0, "star_covered": 21, "edges": 21, "tau": 7, "gates": 27, "claimed_bound": 27, "violates_bound": false, "C4free": true, "AND": 7, "OR": 20, "uncovered": []}
+/tmp/oec/pequalnp-pilot-157/sat_full_Fano_control.witness.json

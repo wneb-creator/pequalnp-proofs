@@ -1,0 +1,18 @@
+graph=subK4 AND=4 OR=11 tests=56 seed=1
+initial pos=0 neg=0 T=0 uncovered=0 dead=0
+DONE iterations=0 restarts=0 accepted=0 seconds=1.009e-06 best_pos=0 best_neg=0 best_T=0 best_uncovered=0 best_uncovered=0 best_dead=0
+10 OR 7 5
+11 OR 10 9
+12 AND 2 11
+13 OR 9 6
+14 OR 13 8
+15 AND 3 14
+16 OR 7 4
+17 OR 16 8
+18 AND 1 17
+19 OR 4 5
+20 OR 19 6
+21 AND 0 20
+22 OR 12 15
+23 OR 22 18
+24 OR 23 21

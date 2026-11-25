@@ -1,0 +1,2 @@
+p=2 l=2 targets=8 max_gates=6 states=699701885 target_hits=75605060 no counterexample
+p=2 l=3 targets=35 max_gates=5 states=86606101 target_hits=6770331 no counterexample

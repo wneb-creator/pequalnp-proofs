@@ -1,0 +1,43 @@
+graph=Fano AND=7 OR=19 tests=128 seed=8971
+initial pos=2 neg=0 T=0 uncovered=1 dead=1
+checkpoint iteration=0 seconds=9.04e-07 best_pos=2 best_neg=0 best_T=0 best_uncovered=1
+best iteration=200011 pos=1 neg=0 T=0 uncovered=1 dead=0
+14 OR 11 12
+15 OR 14 9
+16 AND 6 15
+17 OR 8 10
+18 AND 0 17
+19 OR 11 13
+20 OR 19 8
+21 AND 4 20
+22 OR 11 10
+23 OR 22 7
+24 AND 1 23
+25 OR 13 7
+26 OR 25 12
+27 AND 5 26
+28 OR 13 10
+29 OR 28 9
+30 AND 2 29
+31 OR 7 9
+32 OR 31 8
+33 AND 3 32
+34 OR 16 18
+35 OR 34 21
+36 OR 35 24
+37 OR 36 27
+38 OR 37 30
+39 OR 38 33
+checkpoint iteration=50000000 seconds=23.8343 best_pos=1 best_neg=0 best_T=0 best_uncovered=1
+checkpoint iteration=100000000 seconds=47.1681 best_pos=1 best_neg=0 best_T=0 best_uncovered=1
+checkpoint iteration=150000000 seconds=74.656 best_pos=1 best_neg=0 best_T=0 best_uncovered=1
+checkpoint iteration=200000000 seconds=103.361 best_pos=1 best_neg=0 best_T=0 best_uncovered=1
+checkpoint iteration=250000000 seconds=138.306 best_pos=1 best_neg=0 best_T=0 best_uncovered=1
+checkpoint iteration=300000000 seconds=160.837 best_pos=1 best_neg=0 best_T=0 best_uncovered=1
+checkpoint iteration=350000000 seconds=186.379 best_pos=1 best_neg=0 best_T=0 best_uncovered=1
+checkpoint iteration=400000000 seconds=212.045 best_pos=1 best_neg=0 best_T=0 best_uncovered=1
+checkpoint iteration=450000000 seconds=235.412 best_pos=1 best_neg=0 best_T=0 best_uncovered=1
+checkpoint iteration=500000000 seconds=262.897 best_pos=1 best_neg=0 best_T=0 best_uncovered=1
+checkpoint iteration=550000000 seconds=292.047 best_pos=1 best_neg=0 best_T=0 best_uncovered=1
+
+STOPPED 2026-11-25 16:31:48 UTC by root instruction after lease HTTP410; exit 130 (SIGINT). No SAT/refutation result. Complete output through termination retained.

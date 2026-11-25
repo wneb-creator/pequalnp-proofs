@@ -1,0 +1,102 @@
+../results/orch/lemmas/OutputBudget.lean:421:44: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+../results/orch/lemmas/OutputBudget.lean:424:33: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+../results/orch/lemmas/OutputBudget.lean:428:15: warning: `Set.mem_setOf_eq` has been deprecated: Use `Set.mem_ofPred_eq` instead
+
+Hint: Replace the deprecated name:
+  S̵e̵t̵.̵m̵e̵m̵_̵s̵e̵t̵O̵f̵_̵e̵q̵S̲e̲t̲.̲m̲e̲m̲_̲o̲f̲P̲r̲e̲d̲_̲e̲q̲
+../results/orch/lemmas/OutputBudget.lean:464:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidablePred fun j => (gateAt C j).op = GateOp.and
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+../results/orch/lemmas/OutputBudget.lean:467:2: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidablePred fun j => (gateAt C j).op = GateOp.or ∧ OrReaches n C C.output j
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+../results/orch/lemmas/OutputBudget.lean:472:28: error: Function expected at
+  circuitFun
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  n
+
+Hint: The identifier `circuitFun` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+../results/orch/lemmas/OutputBudget.lean:481:70: error: unsolved goals
+x✝ : Sort u_1
+circuitFun : x✝
+n : ℕ
+C : Circuit
+K B : Finset ℕ
+hAO : TopForm.IsAO2 n C
+hreject : ∀ (v : Fin n), sorry = false
+hK :
+  ∀ j ∈ K,
+    j < C.size ∧ (gateAt C j).op = GateOp.or ∧ ∃ v, OrSeparation.sep_W n C (fun i => decide (i = v)) (n + j) = true
+hB : ∀ j ∈ B, j < C.gates.length ∧ (gateAt C j).op = GateOp.and ∧ OrReaches n C C.output j
+hbo : B.card ≤ {i | i < C.gates.length ∧ (gateAt C i).op = GateOp.or ∧ OrReaches n C C.output i}.ncard + 1
+j : ℕ
+⊢ j < C.gates.length ∧ (gateAt C j).op = GateOp.or ∧ OrReaches n C C.output j ↔ j ∈ sorry ()
+../results/orch/lemmas/OutputBudget.lean:489:37: error: Application type mismatch: The argument
+  hk
+has type
+  j ∈ andIndices C
+but is expected to have type
+  ?m.118 ∈ Finset.filter ?m.115 ?m.117
+in the application
+  Finset.mem_filter.mp hk
+../results/orch/lemmas/OutputBudget.lean:496:20: error: Invalid projection: Type of
+  (Finset.mem_filter.mp ?m.157).right
+is not known; cannot resolve projection `2`
+../results/orch/lemmas/OutputBudget.lean:496:42: error: Application type mismatch: The argument
+  hk
+has type
+  j ∈ outputOrIndices n C
+but is expected to have type
+  ?m.154 ∈ Finset.filter ?m.151 ?m.153
+in the application
+  Finset.mem_filter.mp hk
+../results/orch/lemmas/OutputBudget.lean:500:37: error: Application type mismatch: The argument
+  hj
+has type
+  j ∈ andIndices C
+but is expected to have type
+  ?m.183 ∈ Finset.filter ?m.180 ?m.182
+in the application
+  Finset.mem_filter.mp hj
+../results/orch/lemmas/OutputBudget.lean:515:36: error: Application type mismatch: The argument
+  hj
+has type
+  j ∈ andIndices C
+but is expected to have type
+  j ∈ Finset.filter ?m.306 (Finset.range C.size)
+in the application
+  Finset.mem_filter.mp hj
+../results/orch/lemmas/OutputBudget.lean:516:34: error: Application type mismatch: The argument
+  hj
+has type
+  j ∈ outputOrIndices n C
+but is expected to have type
+  j ∈ Finset.filter ?m.316 (Finset.range C.size)
+in the application
+  Finset.mem_filter.mp hj
+../results/orch/lemmas/OutputBudget.lean:483:10: warning: declaration uses `sorry`
+../results/orch/lemmas/OutputBudget.lean:483:27: warning: This simp argument is unused:
+  Circuit.size
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [outputOrIndices, and_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/OutputBudget.lean:483:41: warning: This simp argument is unused:
+  and_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [outputOrIndices, Circuit.size]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

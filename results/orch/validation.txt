@@ -66,5 +66,14 @@ Tenth partial checkpoint:
 CircuitComponentSum.lean and StarSeparation.lean: Lean exit0, complete diagnostics empty; independent source review PASS by status_review. The aggregate bound retains the summed component counts. Concrete bipartite star supports satisfy its pairwise intersection assumption by C4-freeness. Full target still unproved.
 
 Eleventh partial checkpoint:
-StarWitnessFamilies.lean, StarEdgeCover.lean, CircuitLedger.lean, CircuitLedgerFull.lean, OutputBoundaryCount.lean, OutputOrSeparation.lean: each compiled with exit0 and empty diagnostics; independent source review PASS by status_review. Wire and gate index conventions remain explicit. The complete residual inequality is unproved.
+StarWitnessFamilies.lean, StarEdgeCover.lean, CircuitLedger.lean, CircuitLedgerFull.lean, OutputBoundaryCount.lean, OutputOrSeparation.lean: each compiled with exit0; OutputBoundaryCount has three deprecation warnings archived in output-boundary-count-check.txt; independent source review PASS by status_review. Wire and gate index conventions remain explicit. The complete residual inequality is unproved.
 Fano auxiliary CNF: CaDiCaL UNSAT; independent Std LRAT computational verification passed for 28,735 clauses and 1,417,154 certificate actions. Source, certificate, full diagnostics, controls and SHA256 manifest under results/orch/fano-and6. Independent artifact review PASS by counterexample; root reviewed verifier wrapper. This is NOT a Lean proof of the circuit encoding or L-meta-4970. README command spelling changed only from python to python3 and manifest digest updated.
+
+Lease interruption checkpoint:
+At16:30:05 UTC the desk returned HTTP410 despite the last successful expiry16:45:05. The required single curl -si retry also returned410. Complete diagnostic headers/body: results/orch/desk-error.txt. All searches stopped; no full proof or counterexample found.
+OutputBudget.lean and OutputBudgetTail.lean are UNCOMPILED attempts; complete failing output is output-budget-unfinished.txt. They are NOT checked lemmas. All other helpers are compiled or duplicated from compiled files as recorded above.
+Sub-agents: 6 (status_review, counting_proof, counterexample, semantic_bound, toolchain, cofactor_route)
+TIMING total=46.3 subagents=6
+
+Final preservation review: PASS by status_review; search artifacts independently PASS by cofactor_route. No proof submission.
+TIMING total=48.8 subagents=6
