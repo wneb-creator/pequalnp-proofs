@@ -5772,3 +5772,84 @@ lemma impossible_of_criticalK4 {u : Bool} {target a b c d : Sig} {cap : Nat}
   omega
 
 end PEqualNP.Outside.L_meta_10760.RestrictionSixProof
+
+
+namespace PEqualNP.Outside.L_meta_10760
+
+lemma live_clique_card_bound {width k : Nat} {target g : BitVec width}
+    {S C : Finset (BitVec width)} (run : live basicOps g k S)
+    (hg : g = target ∨ g = ~~~target) (sub : C ⊆ S)
+    (clique : ∀ c ∈ C, ∀ d ∈ C, c ≠ d → criticalPair target S c d) :
+    C.card + S.card ≤ k + 2 := by
+  induction k generalizing S C with
+  | zero =>
+    change S = {g} at run
+    subst S
+    have := Finset.card_le_card sub
+    simpa using Nat.add_le_add_right this 1
+  | succ k ih =>
+    rcases run with skip | ⟨a, ha, b, hb, hab, z, hz, fresh, U, rfl, tail⟩
+    · have := ih skip sub clique
+      omega
+    · let V := if a ∈ U then C.erase a else C
+      let W := if b ∈ U then V.erase b else V
+      have hWC : W ⊆ C := by
+        intro c hc
+        by_cases haU : a ∈ U <;> by_cases hbU : b ∈ U <;>
+          simp only [W, V, haU, hbU, ite_true, ite_false, Finset.mem_erase] at hc <;>
+          tauto
+      have hna : ∀ c ∈ W, c = a → a ∉ U := by
+        intro c hc eq hm
+        subst c
+        by_cases hbU : b ∈ U <;> simp [W, V, hm, hbU] at hc
+      have hnb : ∀ c ∈ W, c = b → b ∉ U := by
+        intro c hc eq hm
+        subst c
+        simp [W, hm] at hc
+      have step : ∀ c ∈ W, ∀ d ∈ W, c ≠ d →
+          criticalPair target (insert z U)
+            (ChromRelation.moved a b z c) (ChromRelation.moved a b z d) := by
+        intro c hc d hd hcd
+        exact ChromRelation.criticalPair_step hab hz fresh tail hg
+          (hna c hc) (hnb c hc) (hna d hd) (hnb d hd)
+          (clique c (hWC hc) d (hWC hd) hcd)
+      let D := W.image (ChromRelation.moved a b z)
+      have hD : D ⊆ insert z U := by
+        intro c hc
+        obtain ⟨w, hw, rfl⟩ := Finset.mem_image.mp hc
+        exact ChromRelation.moved_mem (sub (hWC hw))
+      have hclique : ∀ c ∈ D, ∀ d ∈ D, c ≠ d →
+          criticalPair target (insert z U) c d := by
+        intro c hc d hd hcd
+        obtain ⟨w, hw, rfl⟩ := Finset.mem_image.mp hc
+        obtain ⟨v, hv, rfl⟩ := Finset.mem_image.mp hd
+        exact step w hw v hv (fun eq => hcd (congrArg _ eq))
+      have hcard : D.card = W.card := by
+        apply Finset.card_image_of_injOn
+        intro c hc d hd eq
+        by_contra hne
+        exact (step c hc d hd hne).2.2.1 eq
+      have loss : C.card ≤ W.card +
+          ((if a ∈ U then 1 else 0) + (if b ∈ U then 1 else 0)) := by
+        have h₁ := Finset.pred_card_le_card_erase (s := C) (a := a)
+        have h₂ := Finset.pred_card_le_card_erase (s := C) (a := b)
+        have h₃ := Finset.pred_card_le_card_erase (s := C.erase a) (a := b)
+        by_cases haU : a ∈ U <;> by_cases hbU : b ∈ U <;>
+          simp only [W, V, haU, hbU, ite_true, ite_false] <;> omega
+      have bound := ih tail hD hclique
+      have count := ChromGeneric.retained_card hab fresh
+      omega
+
+namespace RestrictionSixProof
+
+lemma impossible_of_criticalClique {u : Bool} {target : Sig} {cap : Nat}
+    {S C : Finset Sig} (sub : C ⊆ S)
+    (clique : ∀ c ∈ C, ∀ d ∈ C, c ≠ d → criticalPair target S c d)
+    (bound : cap + 2 - S.card < C.card) : Impossible u target cap S := by
+  intro k hk run
+  have := live_clique_card_bound (live_to_basic run) (Or.inl rfl) sub clique
+  omega
+
+end RestrictionSixProof
+
+end PEqualNP.Outside.L_meta_10760
