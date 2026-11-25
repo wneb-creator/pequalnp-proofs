@@ -1364,4 +1364,223 @@ lemma forest_or_lower {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
 
 end LeafOr
 
+namespace AndSignature
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_3566.AO2Upper
+open PEqualNP.Outside.L_meta_3566.FalseRestrict
+
+def isAnd : GateOp → Bool
+  | .and => true
+  | _ => false
+
+def andCount (gs : List Gate) : ℕ := gs.countP (fun g => isAnd g.op)
+
+def step (g : Gate) (s : List Bool) : List Bool :=
+  s ++ [g.op.eval (g.inputs.map fun i => s.getD i false)]
+
+def sigRun : List Gate → List Bool → List Bool
+  | [], _ => []
+  | g :: gs, s =>
+      (if isAnd g.op then [s.getD (g.inputs.getD 0 0) false] else []) ++
+        sigRun gs (step g s)
+
+lemma sigRun_length (gs : List Gate) (s : List Bool) :
+    (sigRun gs s).length = andCount gs := by
+  induction gs generalizing s with
+  | nil => simp [sigRun, andCount]
+  | cons g gs ih =>
+    simp only [sigRun, List.length_append, ih, andCount, List.countP_cons]
+    cases isAnd g.op <;> simp [Nat.add_comm]
+
+def JoinRel (s t u : List Bool) : Prop :=
+  s.length = t.length ∧ s.length = u.length ∧
+    ∀ i, u.getD i false = (s.getD i false || t.getD i false)
+
+lemma gate_join (op : GateOp) (hop : op = GateOp.and ∨ op = GateOp.or)
+    (a b c d : Bool) (hleft : op = GateOp.and → a = c) :
+    op.eval [a || c, b || d] = (op.eval [a, b] || op.eval [c, d]) := by
+  rcases hop with rfl | rfl <;>
+    cases a <;> cases b <;> cases c <;> cases d <;> simp_all [GateOp.eval]
+
+lemma step_join (g : Gate) (s t u : List Bool) (h : JoinRel s t u)
+    (hop : g.op = GateOp.and ∨ g.op = GateOp.or) (hlen : g.inputs.length = 2)
+    (hleft : g.op = GateOp.and →
+      s.getD (g.inputs.getD 0 0) false = t.getD (g.inputs.getD 0 0) false) :
+    JoinRel (step g s) (step g t) (step g u) := by
+  refine ⟨by simp [step, h.1], by simp [step, h.2.1], ?_⟩
+  intro i
+  by_cases hi : i = s.length
+  · subst i
+    have ht := h.1
+    have hu := h.2.1
+    unfold step
+    rw [getD_snoc_eq, ht, getD_snoc_eq, ← ht, hu, getD_snoc_eq]
+    obtain ⟨a, b, hg⟩ := List.length_eq_two.mp hlen
+    have hl : g.op = GateOp.and → s.getD a false = t.getD a false := by
+      simpa [hg] using hleft
+    simp only [hg, List.map_cons, List.map_nil]
+    rw [h.2.2 a, h.2.2 b]
+    exact gate_join g.op hop _ _ _ _ hl
+  · have ht := h.1
+    have hu := h.2.1
+    unfold step
+    rw [getD_snoc_ne _ _ _ _ (by omega), getD_snoc_ne _ _ _ _ hi,
+      getD_snoc_ne _ _ _ _ (by omega)]
+    exact h.2.2 i
+
+lemma sigRun_join (gs : List Gate) (s t u : List Bool) (h : JoinRel s t u)
+    (hbasis : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length = 2)
+    (hsig : sigRun gs s = sigRun gs t) :
+    JoinRel (wiresFrom gs s) (wiresFrom gs t) (wiresFrom gs u) := by
+  induction gs generalizing s t u with
+  | nil => exact h
+  | cons g gs ih =>
+    obtain ⟨hop, hlen⟩ := hbasis g List.mem_cons_self
+    have htail : sigRun gs (step g s) = sigRun gs (step g t) := by
+      rcases hop with hp | hp
+      · have hpair :
+            s.getD (g.inputs.getD 0 0) false = t.getD (g.inputs.getD 0 0) false ∧
+            sigRun gs (step g s) = sigRun gs (step g t) := by
+          simpa [sigRun, isAnd, hp] using hsig
+        exact hpair.2
+      · simpa [sigRun, isAnd, hp] using hsig
+    have hleft : g.op = GateOp.and →
+        s.getD (g.inputs.getD 0 0) false = t.getD (g.inputs.getD 0 0) false := by
+      intro hp
+      have hpair :
+          s.getD (g.inputs.getD 0 0) false = t.getD (g.inputs.getD 0 0) false ∧
+          sigRun gs (step g s) = sigRun gs (step g t) := by
+        simpa [sigRun, isAnd, hp] using hsig
+      exact hpair.1
+    exact ih _ _ _ (step_join g s t u h hop hlen hleft)
+      (fun g' hg' => hbasis g' (List.mem_cons_of_mem g hg')) htail
+
+def signature (n : ℕ) (C : Circuit) (x : Fin n → Bool) : List Bool :=
+  sigRun C.gates (List.ofFn x)
+
+lemma signature_length (n : ℕ) (C : Circuit) (x : Fin n → Bool) :
+    (signature n C x).length = andCount C.gates := sigRun_length _ _
+
+lemma same_signature_join (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (x y : Fin n → Bool) (hsig : signature n C x = signature n C y) :
+    circuitFun n C (fun i => x i || y i) = (circuitFun n C x || circuitFun n C y) := by
+  have hinit : JoinRel (List.ofFn x) (List.ofFn y) (List.ofFn fun i => x i || y i) := by
+    refine ⟨by simp, by simp, ?_⟩
+    intro i
+    by_cases hi : i < n <;> simp [List.getD_eq_getElem?_getD, hi]
+  exact (sigRun_join C.gates _ _ _ hinit
+    (fun g hg => ⟨hAO.1 g hg, hAO.2.2 g hg⟩) hsig).2.2 C.output
+
+def signatureFn (n : ℕ) (C : Circuit) (x : Fin n → Bool) :
+    Fin (andCount C.gates) → Bool := fun i => (signature n C x).getD i.val false
+
+lemma signature_eq_of_fn_eq (n : ℕ) (C : Circuit) (x y : Fin n → Bool)
+    (h : signatureFn n C x = signatureFn n C y) : signature n C x = signature n C y := by
+  apply List.ext_getElem
+  · rw [signature_length, signature_length]
+  · intro i hi hj
+    have hi' : i < andCount C.gates := by simpa [signature_length] using hi
+    have hv := congrFun h ⟨i, hi'⟩
+    simpa [signatureFn, List.getD_eq_getElem?_getD, hi, hj] using hv
+
+lemma false_family_card_bound (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (S : Finset (Fin n → Bool))
+    (hfalse : ∀ x ∈ S, circuitFun n C x = false)
+    (hjoin : ∀ x ∈ S, ∀ y ∈ S, x ≠ y → circuitFun n C (fun i => x i || y i) = true) :
+    S.card ≤ 2 ^ andCount C.gates := by
+  classical
+  have hinj : Function.Injective (fun x : ↥S => signatureFn n C x.val) := by
+    intro x y hxy
+    apply Subtype.ext
+    by_contra hne
+    have hsig := signature_eq_of_fn_eq n C x.val y.val hxy
+    have heq := same_signature_join n C hAO x.val y.val hsig
+    rw [hfalse _ x.property, hfalse _ y.property, hjoin _ x.property _ y.property hne] at heq
+    contradiction
+  have hcard := Fintype.card_le_of_injective _ hinj
+  simpa using hcard
+
+lemma maximal_false_family_card_bound (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (S : Finset (Fin n → Bool))
+    (hmax : ∀ x ∈ S, Maximal (fun y => circuitFun n C y = false) x) :
+    S.card ≤ 2 ^ andCount C.gates := by
+  apply false_family_card_bound n C hAO S
+  · intro x hx
+    exact (hmax x hx).1
+  · intro x hx y hy hne
+    let u : Fin n → Bool := fun i => x i || y i
+    have hxu : x ≤ u := by
+      intro i
+      apply Bool.le_iff_imp.mpr
+      intro hi
+      simp [u, hi]
+    have hyu : y ≤ u := by
+      intro i
+      apply Bool.le_iff_imp.mpr
+      intro hi
+      simp [u, hi]
+    by_contra hf
+    have huf : circuitFun n C u = false := by
+      cases he : circuitFun n C u <;> simp_all [u]
+    have hux : u ≤ x := (hmax x hx).2 huf hxu
+    have huy : u ≤ y := (hmax y hy).2 huf hyu
+    exact hne (le_antisymm (hxu.trans huy) (hyu.trans hux))
+
+def charInput {n : ℕ} (S : Finset (Fin n)) : Fin n → Bool := fun i => decide (i ∈ S)
+
+lemma charInput_injective {n : ℕ} : Function.Injective (@charInput n) := by
+  intro S T h
+  ext i
+  have hi := Bool.eq_iff_iff.mp (congrFun h i)
+  simpa [charInput] using hi
+
+lemma independent_family_card_bound {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hAO : IsAO2 n C)
+    (hfun : circuitFun n C = PEqualNP.MetaComplexity.NestedCover.graphFun G ∅)
+    (F : Finset (Finset (Fin n)))
+    (hindep : ∀ S ∈ F, G.IsIndepSet (S : Set (Fin n)))
+    (hpairs : ∀ S ∈ F, ∀ T ∈ F, S ≠ T →
+      ∃ a ∈ S ∪ T, ∃ b ∈ S ∪ T, G.Adj a b) :
+    F.card ≤ 2 ^ andCount C.gates := by
+  classical
+  have hbound := false_family_card_bound n C hAO (F.image charInput) ?_ ?_
+  · simpa only [Finset.card_image_of_injective F charInput_injective] using hbound
+  · intro x hx
+    obtain ⟨S, hS, rfl⟩ := Finset.mem_image.mp hx
+    rw [hfun]
+    have hno : ¬ ∃ a b, G.Adj a b ∧ charInput S a = true ∧ charInput S b = true := by
+      rintro ⟨a, b, hab, ha, hb⟩
+      exact hindep S hS (of_decide_eq_true ha) (of_decide_eq_true hb) hab.ne hab
+    simp [PEqualNP.MetaComplexity.NestedCover.graphFun, hno]
+  · intro x hx y hy hne
+    obtain ⟨S, hS, rfl⟩ := Finset.mem_image.mp hx
+    obtain ⟨T, hT, rfl⟩ := Finset.mem_image.mp hy
+    have hST : S ≠ T := by intro h; subst T; exact hne rfl
+    obtain ⟨a, ha, b, hb, hab⟩ := hpairs S hS T hT hST
+    rw [hfun]
+    simp only [PEqualNP.MetaComplexity.NestedCover.graphFun, Finset.notMem_empty,
+      false_and, exists_false, decide_false, Bool.false_or, decide_eq_true_eq]
+    exact ⟨a, b, hab, by simpa [charInput] using ha, by simpa [charInput] using hb⟩
+
+lemma maximal_independent_family_card_bound {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (C : Circuit) (hAO : IsAO2 n C)
+    (hfun : circuitFun n C = PEqualNP.MetaComplexity.NestedCover.graphFun G ∅)
+    (F : Finset (Finset (Fin n)))
+    (hmax : ∀ S ∈ F, Maximal (fun T : Finset (Fin n) => G.IsIndepSet (T : Set (Fin n))) S) :
+    F.card ≤ 2 ^ andCount C.gates := by
+  apply independent_family_card_bound G C hAO hfun F
+    (fun S hS => (hmax S hS).1)
+  intro S hS T hT hne
+  by_contra hno
+  have hU : G.IsIndepSet ((S ∪ T : Finset (Fin n)) : Set (Fin n)) := by
+    intro a ha b hb hab hAdj
+    exact hno ⟨a, ha, b, hb, hAdj⟩
+  have hUS : S ∪ T ⊆ S := (hmax S hS).2 hU Finset.subset_union_left
+  have hUT : S ∪ T ⊆ T := (hmax T hT).2 hU Finset.subset_union_right
+  exact hne (Finset.Subset.antisymm (Finset.subset_union_left.trans hUT)
+    (Finset.subset_union_right.trans hUS))
+
+end AndSignature
+
 end PEqualNP.Outside.L_meta_3566
