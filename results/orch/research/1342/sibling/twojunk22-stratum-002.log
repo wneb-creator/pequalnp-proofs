@@ -1,0 +1,8 @@
+/tmp/oec/pequalnp-pilot-46/gap-1342/sibling/TwoJunk22Stratum.lean:120:13: error: failed to synthesize
+  Decidable ((gateAt twoJunk22 2).op = GateOp.and)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/tmp/oec/pequalnp-pilot-46/gap-1342/sibling/TwoJunk22Stratum.lean:123:13: error: failed to synthesize
+  Decidable ((gateAt twoJunk22 7).op = GateOp.and)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

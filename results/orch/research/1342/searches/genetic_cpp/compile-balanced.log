@@ -1,0 +1,7 @@
+/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/search-balanced.cpp: In function ‘bool rotate_associative(const Problem&, Circuit&)’:
+/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/search-balanced.cpp:239:3: warning: this ‘if’ clause does not guard... [-Wmisleading-indentation]
+  239 |   if(wire<p.n||uses[wire]!=1)continue;int child=wire-p.n;
+      |   ^~
+/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/search-balanced.cpp:239:39: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the ‘if’
+  239 |   if(wire<p.n||uses[wire]!=1)continue;int child=wire-p.n;
+      |                                       ^~~

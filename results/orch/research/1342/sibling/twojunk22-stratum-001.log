@@ -1,0 +1,43 @@
+/tmp/oec/pequalnp-pilot-46/gap-1342/sibling/TwoJunk22Stratum.lean:95:4: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidableRel graph.Adj
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-46/gap-1342/sibling/TwoJunk22Stratum.lean:115:41: error: Tactic `subst` failed: invalid equality proof, it is not of the form (x = t) or (t = x)
+  j = 17 ∨ j ∈ []
+
+case inr.inr.inr.inr
+j : ℕ
+x : Fin 11 → Bool
+hv : gateVal 11 twoJunk22 j x = true
+h✝ : j = 17 ∨ j ∈ []
+⊢ twoJunk22.eval (List.ofFn x) = true
+/tmp/oec/pequalnp-pilot-46/gap-1342/sibling/TwoJunk22Stratum.lean:114:28: warning: This simp argument is unused:
+  List.mem_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.mem_cons] at hj
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-46/gap-1342/sibling/TwoJunk22Stratum.lean:119:20: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidableRel graph.Adj
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-46/gap-1342/sibling/TwoJunk22Stratum.lean:122:22: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidableRel graph.Adj
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-46/gap-1342/sibling/TwoJunk22Stratum.lean:125:25: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidableRel graph.Adj
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-46/gap-1342/sibling/TwoJunk22Stratum.lean:126:2: error: No applicable extensionality theorem found for type
+  ?m.14
+
+Note: Extensionality theorems can be registered by marking them with the `[ext]` attribute
+/tmp/oec/pequalnp-pilot-46/gap-1342/sibling/TwoJunk22Stratum.lean:162:31: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  DecidableRel graph.Adj
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-46/gap-1342/sibling/TwoJunk22Stratum.lean:163:6: error(lean.unknownIdentifier): Unknown identifier `twoJunk22_junk`
+/tmp/oec/pequalnp-pilot-46/gap-1342/sibling/TwoJunk22Stratum.lean:162:65: error: unsolved goals
+⊢ sorry = 2

@@ -1,0 +1,24 @@
+START eleven seed=21342 mode=3 target_size=21 rows=40 covers=22
+BEST errors=10 junk=5 active=21 attempts=1 elapsed=0.000139061
+BEST errors=7 junk=1 active=21 attempts=9 elapsed=0.000320899
+BEST errors=5 junk=2 active=21 attempts=12 elapsed=0.000423971
+BEST errors=4 junk=4 active=21 attempts=53 elapsed=0.000932861
+BEST errors=3 junk=1 active=21 attempts=70 elapsed=0.00123896
+BEST errors=2 junk=2 active=20 attempts=86230 elapsed=0.0183042
+ACTIVE_TWO_JUNK_NEAR row=5 attempts=523702
+BEST errors=1 junk=2 active=21 attempts=523702 elapsed=0.100854
+ACTIVE_TWO_JUNK_NEAR row=4 attempts=1960993
+ACTIVE_TWO_JUNK_NEAR row=0 attempts=4886165
+ACTIVE_TWO_JUNK_NEAR row=2 attempts=9046485
+ACTIVE_TWO_JUNK_NEAR row=7 attempts=24284875
+ACTIVE_TWO_JUNK_NEAR row=6 attempts=25647521
+ACTIVE_TWO_JUNK_NEAR row=1 attempts=29882667
+ACTIVE_TWO_JUNK_NEAR row=11 attempts=37795663
+PROGRESS seconds=10 attempts=47729693 accepted=1521141 best=1 restarts=17
+ACTIVE_TWO_JUNK_NEAR row=9 attempts=75371593
+ACTIVE_TWO_JUNK_NEAR row=3 attempts=77212549
+PROGRESS seconds=20 attempts=87966556 accepted=2831184 best=1 restarts=35
+ACTIVE_TWO_JUNK_NEAR row=12 attempts=123904083
+PROGRESS seconds=30.0001 attempts=139972545 accepted=4504693 best=1 restarts=52
+PROGRESS seconds=40 attempts=191075110 accepted=6161834 best=1 restarts=69
+FINISH seconds=45 attempts=216450192 best=1 restarts=77 rss_kib=1664 status=heuristic_no_witness

@@ -1,50 +1,9 @@
-PARTIAL RESULT ONLY: mask equivalence lemma, not the L-meta-1677 lower bound.
-Lean4.36.0 compile: exit0. Independent recompile/review: PASS.
-Full candidate still compiling.
-Sub-agents:6 (checker review, sibling adaptation, counterexample search, structural audit, toolchain setup, certificate optimization)
-TIMING total=8.1 subagents=6
-Core2194-line prefix: Lean exit0. Grouping/Rule487-line extraction: Lean exit0. Independent source-extraction review: PASS.
-Full lower-bound certificate remains pending.
-AuditParts generic partition helper: Lean exit0; independent recompile/review: PASS. Optimized full certificate remains pending.
-Baseline full build: INTERRUPTED by execution-environment restart at about19minutes; no olean and no complete verdict. Partitioned candidate5439dbcaa6f90064037f257c999c1cb3cc19233ab9dd2deddf75d6821ec08f54: independent source/guard review PASS; full build pending.
-Specialized mask equations: Lean exit0; independent review/recompile PASS. Full theorem remains pending.
-NaturalChecksSpec: Lean exit0; independent recompile/review PASS. SHA256 0f6363e07da5e94434feb5b34202b7663aa471ae929a2cc6f2e483d6917ce40e. Combined preview521658bytes6319lines; statement/certificate/guard checks PASS; full build and checker PENDING.
-BASELINE FULL BUILD PASS: lake build PEqualNP.Outside.L_meta_1677; source5439dbcaa6f90064037f257c999c1cb3cc19233ab9dd2deddf75d6821ec08f54,6253lines521507bytes. Target1730s. Build log SHA d18b5b77921d1eeb7d8889fb4dc13ada0a57eb3e9c2781f8dbe7be29af0d108e. Local checker pending. Direct Nat and six-corner semantic helper compiles exit0; independently reviewed combined preview passes guard, but full optimized build/checker pending.
-CubeCheckerTest: standalone Lean exit0; independent semantic source review PASS (no independent recompilation during checker memory pressure). Full composed proof still pending.
-CornerInvariant and DecoderInvariant: Lean exit0 under512MB cap; independent semantic source/log review PASS, decoder definitions compared exactly modulo whitespace with current baseline. Full integration remains pending.
-DecoderBridgeInitSpec: Lean exit0; independent source/log review PASS. Optimized full preview814065a5d0301e00b6f2ac9969c36ea38cb8d44a15aa8344d6eee19130c76b85 passes source/guard/reproduction review;523865bytes6483lines; full BUILD/CHECKER PENDING.
-L1677 checker: INTENTIONALLY STOPPED after deskHTTP410; verifier exit143, checker fault/no verdict. Full namedbuild remains PASS; optimized candidate remains uncompiled.
-L2585 partial EdgeCases/StarRectangles/CleanBlockBridge and conditional ReductionDraft: producer Leanexit0, independent source/logreviewPASS. No full theorem or eligible reduction claim.
-Sub-agents:6 (same team reassigned to L-meta-2585)
-TIMING total=78.8 subagents=6
-R_meta_2585_46 source056667dc93e7ada5f7c31a34f55d2b2c085284a48bbf5e99fd4cf4c8825bf146: named lake buildPASS3.0s, localcheckerACCEPTED(reduce),1648constants, standardaxioms only; importguardPASS. PUBLICATION ELIGIBILITY REFUSED: current gap row has no reductions:true. FullL2585theorem not proved.
-NormalizeLeast/SharedOrBudget/NormalFormWitness standalonepartials compileexit0; independent source/logreviewPASS.
-Synthesize2585: closed read1 star-cover construction (third reduction child), standalone Leanexit0, producerlogempty; independent source review in progress at this copy.
-
-Current R46: SHA256 ea94d10a40c78564ac2154f6c5894a3c0a660476cc8789bc4296a1f51fef2070; 3435 bytes, 43 lines. Build PASS (2.4s); checker ACCEPTED (reduce), 1648 constants, standard axioms only; import/format guard PASS. Cleanup: 48 to 43 lines, 3616 to 3435 bytes. Publication still blocked: latest public gap row omits reductions:true.
-CleanNF2585: standalone Lean exit0 with empty log; proves the clean-AND case only. Full L2585 statement remains unproved.
-Sub-agents: 6 (definition audit, source review, synthesis, normalization, circuit counting, counterexample search)
-TIMING total=96.0 subagents=6
-LeastGatePrivateBoundary2585 and CoverLowerBound2585: standalone Lean exit0, independent source/provenance/log review PASS. The latter is a conditional refutation adapter only; no circuit witness is asserted. Current R46 remains locally ACCEPTED(reduce), publication ineligible.
-Sub-agents: 7 (six primary delegates plus an independent matching-bound brainstorm)
-TIMING total=108.1 subagents=7
-
-ForestElim2585: standalone Lean exit0; generic two-gate propagation budget only, not a forest theorem or full L2585 proof. Source SHA256 d27f38bec193ccb8b35853ae85da7833ae5d8a2efb24f9fe2d1e7a587028291c. Independent review requested before push.
-Sub-agents: 7 (same delegates and matching-bound brainstorm)
-TIMING total=116.9 subagents=7
-ForestElimCounts2585: standalone Lean exit0; selected-operation count drop only. Source SHA256 c4323622374375adb318bd796af1a597e034bb2c6a58e530658f0be918d0dc79. Independent review requested before push.
-ForestElimAO2585: standalone Lean exit0; exact binary AND/OR and reads-back compiler preservation under Inv. Source SHA256 19d902c7a0af4b85ca07de07c688831acf7091874097ca8e03300321b924df3f. Full posted theorem and forest induction remain unproved.
-
-ForestElim2585/Counts/AO: independent exact-source, provenance, log, format, and credential review PASS. L2585 remains unproved/unrefuted; archived R46 retains its local ACCEPTED(reduce) verdict but publication remains REFUSED. No L2585 PR opened.
-Sub-agents: 7 (six primary delegates plus matching-bound brainstorm)
-TIMING total=122.9 subagents=7
-
-L2585 released only after reviewed evidence push29d3a51782ab1355e03ffbcda78551af1d665607. Next desk answer gap:null, waiting_for_check556; no lease held. Null count1; complete desk answer and cumulative log preserved.
-Sub-agents: 7 (six primary delegates plus matching-bound brainstorm)
-TIMING total=126.4 subagents=7
-
-L1342 PARTIAL ONLY: named lake build PEqualNP.Outside.L_meta_1342 PASS2.3s,5147jobs. Source SHA256 f440326c90438da288b8d485016264fc1ed5546c4b7eba3e6ac02760dde58eb7,56lines. Proves circuit concatenation semantics/monotonicity/size, and the22-gate baseline shape/size only. Baseline functional correctness and required21-gate existence are not claimed. Full local checker is not applicable to this partial.
-Sub-agents: 7 (same delegates reassigned to1342)
-TIMING total=144.3 subagents=7
-
-Baseline22_1342: full correctness on every Fin11→Bool input is now proved in Lean. Named build PASS4.6s,5147jobs; source SHA25636264be6c60143d7c684c91d141c5438f134c2ebea84c5767daaebc9e312f82f,69lines. This is only a22-gate upper bound; the required21-gate existence is still unresolved.
+L-meta-1342 / R_meta_1342_46
+Final source SHA256 b509d19053858353214f24ba08df3cae26b176fc6a7950912b5bcebc026148f1
+Named Lake build: PASS; full logs retained.
+Local checker: ACCEPTED (reduce); 1649 constants; axioms propext, Quot.sound, Classical.choice.
+Cleanup:48lines2634bytes ->46lines2594bytes. Both versions passed build and checker.
+Exactly two children. Generic prefix child proved in archived Lean component.18-gate continuation unproved. No21-gate witness or global impossibility claimed.
+Null desk responses:2. Exact note: Every open step has a proof waiting for its check; the checker is behind today. Ask again in 20 minutes.
+Sub-agents: certificate_optimization, checker_review, counterexample, sibling_proof, structural_bound, toolchain_setup, and nested matching-bound brainstorm (7 total).
+TIMING total=166.2 subagents=7

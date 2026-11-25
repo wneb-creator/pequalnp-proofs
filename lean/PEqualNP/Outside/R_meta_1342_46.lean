@@ -21,9 +21,7 @@ theorem PEqualNP.Outside.R_meta_1342_46
         D.eval (List.ofFn x ++ [x a || x b, x c || x d, (x a || x b) && (x c || x d)]) = true ↔
           ∃ u v : Fin 11, (u.val,v.val) ∈ E ∧ x u = true ∧ x v = true) :
     ∃ C : PEqualNP.CircuitLowerBounds.Circuit, PEqualNP.MetaComplexity.Monotone2 C ∧ (∀ x : Fin 11 → Bool, (C.eval (List.ofFn x) = true ↔ ∃ u v : Fin 11, (u.val, v.val) ∈ ([(0, 9), (0, 10), (1, 4), (1, 8), (2, 5), (2, 10), (3, 6), (3, 7), (4, 8), (4, 10), (5, 8), (5, 9), (6, 7), (6, 10), (7, 9), (8, 9)] : List (ℕ × ℕ)) ∧ x u = true ∧ x v = true)) ∧ C.size ≤ 21 := by
-  obtain ⟨a,b,c,d,D,h⟩ := continuation
-  dsimp only at h
-  obtain ⟨_,_,_,model,budget,_,_,correct⟩ := h
+  obtain ⟨a,b,c,d,D,_,_,_,model,budget,_,_,correct⟩ := continuation
   let B : Circuit := ⟨[⟨.or,[a.val,b.val]⟩,⟨.or,[c.val,d.val]⟩,⟨.and,[11,12]⟩],13⟩
   have built := build 11 a b c d
   change Monotone2 B ∧ B.size = 3 ∧ _ at built

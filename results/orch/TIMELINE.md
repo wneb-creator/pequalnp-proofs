@@ -47,3 +47,7 @@
 2026-11-25T01:44:32.804504+00:00 — Full22-gate baseline correctness passed the named Lean build in4.6s. The successful proof expands the Boolean formula, distributes conjunction, then uses associativity/commutativity; no exhaustive native computation.21-gate target remains open.
 
 2026-11-25T01:54:39.617978+00:00 — Generic three-gate prefix constructor and exact two-junk22-gate witness compiled and independently reviewed. R1342_46 named build passed4.8s after replacing simplification-generated foreign equation lemmas with a direct fold calculation. First local checker rejected reduce-extra; corrected full checker is running.21-gate existence and18-gate continuation remain unresolved.
+
+2026-11-25T01:55:34.068453+00:00 — R1342_46 full local checker ACCEPTED(reduce), two independent children, permitted axioms only,1649constants kernel rechecked. Cleanup starts from48lines2634bytes; trying a two-line contraction of hypothesis decomposition.
+
+2026-11-25T01:57:00.046770+00:00 — Cleanup kept:48lines2634bytes to46lines2594bytes. Named build and local checker again passed; ACCEPTED(reduce),1649constants,only standard axioms. Full search portfolio finished without21-gate witness. The generic prefix child is closed separately; the18-gate continuation remains conjectural. Preparing one-file PR with research preserved in checkpoint history.

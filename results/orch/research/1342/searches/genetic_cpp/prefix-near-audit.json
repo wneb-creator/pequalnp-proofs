@@ -1,0 +1,107 @@
+[
+  {
+    "file": "run-51342.json.row-11.json",
+    "full_truth_mismatches": 13,
+    "junk_indices": [
+      9,
+      15
+    ],
+    "active_junk_indices": [
+      9,
+      15
+    ],
+    "full_truth_duplicate_columns": [],
+    "wrong_boundary_rows": [
+      [
+        544,
+        1
+      ]
+    ],
+    "full_truth_assignments": 2048,
+    "valid": false
+  },
+  {
+    "file": "run-51342.json.row-12.json",
+    "full_truth_mismatches": 22,
+    "junk_indices": [
+      9,
+      16
+    ],
+    "active_junk_indices": [
+      9,
+      16
+    ],
+    "full_truth_duplicate_columns": [],
+    "wrong_boundary_rows": [
+      [
+        192,
+        1
+      ]
+    ],
+    "full_truth_assignments": 2048,
+    "valid": false
+  },
+  {
+    "file": "run-51342.json.row-2.json",
+    "full_truth_mismatches": 30,
+    "junk_indices": [
+      10,
+      14
+    ],
+    "active_junk_indices": [
+      10,
+      14
+    ],
+    "full_truth_duplicate_columns": [],
+    "wrong_boundary_rows": [
+      [
+        18,
+        1
+      ]
+    ],
+    "full_truth_assignments": 2048,
+    "valid": false
+  },
+  {
+    "file": "run-51342.json.row-6.json",
+    "full_truth_mismatches": 28,
+    "junk_indices": [
+      5,
+      9
+    ],
+    "active_junk_indices": [
+      5,
+      9
+    ],
+    "full_truth_duplicate_columns": [],
+    "wrong_boundary_rows": [
+      [
+        72,
+        1
+      ]
+    ],
+    "full_truth_assignments": 2048,
+    "valid": false
+  },
+  {
+    "file": "run-51342.json.row-7.json",
+    "full_truth_mismatches": 27,
+    "junk_indices": [
+      14,
+      16
+    ],
+    "active_junk_indices": [
+      14,
+      16
+    ],
+    "full_truth_duplicate_columns": [],
+    "wrong_boundary_rows": [
+      [
+        136,
+        1
+      ]
+    ],
+    "full_truth_assignments": 2048,
+    "valid": false
+  }
+]

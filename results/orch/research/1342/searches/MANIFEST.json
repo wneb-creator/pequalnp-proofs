@@ -1,0 +1,893 @@
+{
+  "gap": "L-meta-1342",
+  "created_utc": "2026-11-25T01:55:35.222026+00:00",
+  "agent": "toolchain_setup",
+  "payload_file_count": 125,
+  "payload_bytes": 201245,
+  "complete_log_count": 25,
+  "file_hash_algorithm": "SHA256",
+  "excluded": [
+    "executable binaries",
+    "caches",
+    "lease data",
+    "raw desk payloads",
+    "credentials"
+  ],
+  "entries": [
+    {
+      "path": "genetic_cpp/FINDINGS.md",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/FINDINGS.md",
+      "bytes": 2056,
+      "sha256": "b81d86098fd4912a79edc2c6c76c66e49c642264a7e898611f3a49b9018c36f5",
+      "kind": "findings"
+    },
+    {
+      "path": "genetic_cpp/compile-active.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/compile-active.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/compile-balanced.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/compile-balanced.log",
+      "bytes": 662,
+      "sha256": "fda038b9ad4245a50ce1b8ba40f8e8f8a7639e46c66ec9936dc63d8d19655ee4",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/compile-enriched.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/compile-enriched.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/compile-irredundant.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/compile-irredundant.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/compile-prefix.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/compile-prefix.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/compile-rich.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/compile-rich.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/compile-twojunk-enriched.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/compile-twojunk-enriched.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/compile-twojunk.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/compile-twojunk.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/compile.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/compile.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/near-false-positive-audit.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/near-false-positive-audit.json",
+      "bytes": 369,
+      "sha256": "aa2ab1a5658ea2d06f7f2947365f4f536a0e9b651e9b0b6a7158dd396ee853c5",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/near-independent-audit.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/near-independent-audit.json",
+      "bytes": 365,
+      "sha256": "8254dcdaa1fabf1563cbd0bf7325691b04c9de3a03f1f9d271d9078b4824405d",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/near-missing-2-5.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/near-missing-2-5.json",
+      "bytes": 1517,
+      "sha256": "34305c2d0cf980e13173794c0dbe3ef03146ae25b9f2cb57f1daba2074738ed6",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/prefix-near-audit.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/prefix-near-audit.json",
+      "bytes": 1775,
+      "sha256": "db89051f180dbcfbb4cdc7e3e43bcf77528b053b282a97f8279579367b6a5faa",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-101342.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-101342.json",
+      "bytes": 410,
+      "sha256": "952c4489846e2f039679a85ef1f5a677eb54e5f5c12b4f885efca6305c8ff5b8",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-101342.json.row-0.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-101342.json.row-0.json",
+      "bytes": 417,
+      "sha256": "ca78b94431026565d1cc03e8764e481a807c0f6cca3c217d6d4b746fd2131ae3",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-101342.json.row-1.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-101342.json.row-1.json",
+      "bytes": 417,
+      "sha256": "c73fd21732f0e4d347dcc77d1ea7454ef4626fcf3c27378da1650e9c04f17e91",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-101342.json.row-12.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-101342.json.row-12.json",
+      "bytes": 417,
+      "sha256": "7990a9d8af955e35cc240ea719af5e14b360cf50fa733b3e55516383cfb63ac6",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-101342.json.row-2.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-101342.json.row-2.json",
+      "bytes": 415,
+      "sha256": "59f2f1f633ff91f4319ae3ffce3c5105d4016430fa3ac22d2bd2b30b42f538bf",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-101342.json.row-3.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-101342.json.row-3.json",
+      "bytes": 416,
+      "sha256": "bb021b026a434a8db252629f81482adb9ecb9d443eab0d44de29dcc5f3d4ff34",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-101342.json.row-4.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-101342.json.row-4.json",
+      "bytes": 410,
+      "sha256": "952c4489846e2f039679a85ef1f5a677eb54e5f5c12b4f885efca6305c8ff5b8",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-101342.json.row-5.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-101342.json.row-5.json",
+      "bytes": 417,
+      "sha256": "978e4614fb33252d87913c4616e738e1778df3fb2765b808cbf0d6932274c125",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-101342.json.row-6.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-101342.json.row-6.json",
+      "bytes": 416,
+      "sha256": "9f1326ac93a00837b026c0529f41ddca4efb11da598b07b47446fdc1d5a25fca",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-101342.json.row-7.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-101342.json.row-7.json",
+      "bytes": 416,
+      "sha256": "977ae27d4eaee922312933ac7cf75a79d8f391fcef468f06903635b2ed0da604",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-101342.json.row-8.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-101342.json.row-8.json",
+      "bytes": 416,
+      "sha256": "13aa5f05f44b1dc09fc6b712aadb062b458a42187613335001ca3597ac4606c4",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-101342.json.row-9.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-101342.json.row-9.json",
+      "bytes": 417,
+      "sha256": "ad3fb68c9c48c3aec1cdd6a8014c2bec33132546f108b4855e0312f3efe1b9f2",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-101342.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-101342.log",
+      "bytes": 1407,
+      "sha256": "ba8c7c671526d09c78c5d983360ff6c947f8f88dc2a60fcf2e6a71ae89c33e09",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/run-11342.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-11342.json",
+      "bytes": 415,
+      "sha256": "89c76411df1c862d131816ae9a7ebaf83e0b90b5a44f578b25c131248224a050",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-11342.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-11342.log",
+      "bytes": 784,
+      "sha256": "927de40ede3a2947df58925b85268dce20c355ff9849dc83258dd938018504ea",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/run-1342.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-1342.json",
+      "bytes": 414,
+      "sha256": "3ea28d157588c6764fad57594940df2086265797643432e76f43a4519c8d528f",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-1342.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-1342.log",
+      "bytes": 781,
+      "sha256": "67c2e75e16750368abaff36049ccbafe7b1d19be1e6e0af1930b5325467b658a",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/run-21342.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-21342.json",
+      "bytes": 417,
+      "sha256": "6332cd71e1ef268a73d5d791b2aa4a043b335f944b24afd13cb5c0a7586d5b1d",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-21342.json.row-0.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-21342.json.row-0.json",
+      "bytes": 416,
+      "sha256": "f8cd7cb0e2757e999cad0f41d117595fe12bd3c2c5e3af1528ecf3e0995c363c",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-21342.json.row-1.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-21342.json.row-1.json",
+      "bytes": 419,
+      "sha256": "5851ea20e415dbdc718586dd38aea876af4a8f7b607fb1cc29668ed3743811d5",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-21342.json.row-11.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-21342.json.row-11.json",
+      "bytes": 418,
+      "sha256": "673bca69de83fb3693201ac2a6cb0310055ab42846b432b24101e6e5f66c5a0d",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-21342.json.row-12.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-21342.json.row-12.json",
+      "bytes": 418,
+      "sha256": "a62a9378e19b060b83e304756542e99e07477bb010a14e5f7afca437cfe09e36",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-21342.json.row-2.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-21342.json.row-2.json",
+      "bytes": 413,
+      "sha256": "376a4e6618af71ce323136fe3bfc00193bc5fc601b36f792c4c94663e2aa22c1",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-21342.json.row-3.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-21342.json.row-3.json",
+      "bytes": 418,
+      "sha256": "04bf1ff850ed250aaafba2f53592148ce462311a55bf5aaea52186c9d07b118b",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-21342.json.row-4.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-21342.json.row-4.json",
+      "bytes": 416,
+      "sha256": "a6adc3e8ee291b1636873304fbb65ba7d63c83c2d8dbfe33979a68d6ed4189c4",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-21342.json.row-5.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-21342.json.row-5.json",
+      "bytes": 417,
+      "sha256": "6332cd71e1ef268a73d5d791b2aa4a043b335f944b24afd13cb5c0a7586d5b1d",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-21342.json.row-6.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-21342.json.row-6.json",
+      "bytes": 416,
+      "sha256": "eb18f3a568e69faa6e30f3b796057444cc70ca3fbd80e18db81a8ee80b4468f1",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-21342.json.row-7.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-21342.json.row-7.json",
+      "bytes": 420,
+      "sha256": "a3141cbf63e29db1e90f5f040f0197daccbe1c562fcc0daf28f05d55e89dfea5",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-21342.json.row-9.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-21342.json.row-9.json",
+      "bytes": 418,
+      "sha256": "7a6d5a8ae872e231fece7821cdc4947893707c2bbae67a88e521cdc16445b4cc",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-21342.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-21342.log",
+      "bytes": 1398,
+      "sha256": "d8c69c0a3112b3c31cdc3464b1822d0f5b7097bcdf63b8ead8345d6c558c5876",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/run-31342.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-31342.json",
+      "bytes": 414,
+      "sha256": "372a5f1b75b130f31aec9f37d207563f4e27d2589f29e8382a7b1e8d02a77608",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-31342.json.row-0.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-31342.json.row-0.json",
+      "bytes": 417,
+      "sha256": "46e5362f641d9f5a28d3a4771da46ca35d9119381616a9f538d8581a5d917a4d",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-31342.json.row-1.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-31342.json.row-1.json",
+      "bytes": 419,
+      "sha256": "175b1004d6e703913f89fc790f2ca9b2018aca3dcc6b7038a47ebf68118777e3",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-31342.json.row-11.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-31342.json.row-11.json",
+      "bytes": 419,
+      "sha256": "773ac57b4a800f106ba869348b403500f5a1c0386d02810c1652cff7386bbacc",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-31342.json.row-12.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-31342.json.row-12.json",
+      "bytes": 417,
+      "sha256": "6f0fc6c9e3688504d2fc61e74ca08fdb1687134a66c4d289d67de3c5d16c8baf",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-31342.json.row-2.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-31342.json.row-2.json",
+      "bytes": 416,
+      "sha256": "76cd762a096fd16614fd6a08a8fe34d68b69b02d9e232b7d2016722438bc23f4",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-31342.json.row-3.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-31342.json.row-3.json",
+      "bytes": 418,
+      "sha256": "d245146048b63a1086fa19b2fb6829fabc21cc696296caacd07a70e233127bf6",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-31342.json.row-4.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-31342.json.row-4.json",
+      "bytes": 416,
+      "sha256": "31a59ec6e377410580bcf03bfe171616b8b3dfdca99efdbea59546940223cbed",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-31342.json.row-5.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-31342.json.row-5.json",
+      "bytes": 420,
+      "sha256": "3edcf353406d1d1c12776c006da03aca93d0c9a5e9f36c2548b0703544dab2b6",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-31342.json.row-6.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-31342.json.row-6.json",
+      "bytes": 416,
+      "sha256": "42ef9af87b00f00f5ddca489274e85263bd3292502e7073a5a011f8ae33b0063",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-31342.json.row-7.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-31342.json.row-7.json",
+      "bytes": 416,
+      "sha256": "f888314679066eb2ad3b7e3713274330b9b4ce4a0752198aee4f892991c7fe89",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-31342.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-31342.log",
+      "bytes": 1608,
+      "sha256": "481c44a7b4f0e0eb64fe69d91ad283d685c2c1f20615ae145d6e25db3880059b",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/run-41342.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-41342.json",
+      "bytes": 410,
+      "sha256": "734e8c2ba6b37f602a9e4a965475392c9fef59170e34b46e0d0bb92cc162f8c5",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-41342.json.row-1.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-41342.json.row-1.json",
+      "bytes": 417,
+      "sha256": "4096b37ef82454eec995c002f0df820e4fc16a567a0e8e4ff8c50e212b7d63fc",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-41342.json.row-11.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-41342.json.row-11.json",
+      "bytes": 418,
+      "sha256": "d5698274b2738c94a4fcdf0af5a4c6dc09b24b94d4d501c69ed9dc9658735d35",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-41342.json.row-12.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-41342.json.row-12.json",
+      "bytes": 417,
+      "sha256": "16b808db9f2cbbc497845b60da8c79924634613aeff4b261733fa60a2d8b160a",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-41342.json.row-2.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-41342.json.row-2.json",
+      "bytes": 416,
+      "sha256": "ced9f2bacda12bd8c67fead45b18472310526414a96078979f539d3ff05ebeac",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-41342.json.row-4.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-41342.json.row-4.json",
+      "bytes": 415,
+      "sha256": "b983e37f86538b95e64aa80d45b76f60ccc25b4bb7ed2b6598197e93d40de026",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-41342.json.row-5.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-41342.json.row-5.json",
+      "bytes": 417,
+      "sha256": "6d5698bc4caaa39bb70fd1f596ebdca48d4c84a6f8c9fbcf972780858c1bb6b2",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-41342.json.row-6.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-41342.json.row-6.json",
+      "bytes": 416,
+      "sha256": "5cdf0b18b984ede1bf3bec74229130b35abade079f303dd3eb719f5e5bbab2e9",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-41342.json.row-7.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-41342.json.row-7.json",
+      "bytes": 416,
+      "sha256": "8a1a0f5db3fe7731f418899cd7bc16838b85949e11ff99d5441abd9ead3d7672",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-41342.json.row-8.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-41342.json.row-8.json",
+      "bytes": 417,
+      "sha256": "d3cfb922e5aca94639554f87ab9af874c09cc0d55a3ad5269b20732b84c296d9",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-41342.json.row-9.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-41342.json.row-9.json",
+      "bytes": 417,
+      "sha256": "ad497c5a42aebff610ae0320e99b32790683dc45c40c9053062e10d6c573e013",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-41342.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-41342.log",
+      "bytes": 1285,
+      "sha256": "15c24947ffd7601b464eaea64789e9ea5a3453fb1e80ea4a776312dde265ffe9",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/run-51342.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-51342.json",
+      "bytes": 416,
+      "sha256": "f539f1ae4a2be678314eb8ba3a1c1cef9c2a3bef990ad684d6a888d276ec4695",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-51342.json.row-11.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-51342.json.row-11.json",
+      "bytes": 418,
+      "sha256": "59c240893b94d4d331011e404458acce4f5430aac261eeba0f2f198dae39e100",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-51342.json.row-12.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-51342.json.row-12.json",
+      "bytes": 417,
+      "sha256": "4424dc78a334684c2b44efebe4aed9f52a224954c83718473e0f9432d758d4ee",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-51342.json.row-2.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-51342.json.row-2.json",
+      "bytes": 416,
+      "sha256": "f539f1ae4a2be678314eb8ba3a1c1cef9c2a3bef990ad684d6a888d276ec4695",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-51342.json.row-6.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-51342.json.row-6.json",
+      "bytes": 416,
+      "sha256": "e342f05837334312c2134ac78de875ed0d281aaa95faa63acc2abcf5c88b3e7d",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-51342.json.row-7.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-51342.json.row-7.json",
+      "bytes": 417,
+      "sha256": "656cb91dcc22cab9dd4b14b51d30ed0534a8664f7eff2d991545cc67d68e7395",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-51342.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-51342.log",
+      "bytes": 1210,
+      "sha256": "cdf341c5ed1c74a534c031d6df58d3d6ac8a16e8daa89beea3c62d816b73643f",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/run-61342.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-61342.json",
+      "bytes": 414,
+      "sha256": "71c1c719b789ebb1a57ff64a84eb90d9daddcedfe9c39f8bdcfaa4b7b0fed9f4",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-61342.json.row-11.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-61342.json.row-11.json",
+      "bytes": 420,
+      "sha256": "ef30a0d25d6c4dde639547ac55769495cac5d682a1c13d8a90eb902f21b72fec",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-61342.json.row-12.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-61342.json.row-12.json",
+      "bytes": 417,
+      "sha256": "c35d980dee024f1cda717ccc15c315970ec4ff04f6935726f34a7300b40aecac",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-61342.json.row-2.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-61342.json.row-2.json",
+      "bytes": 414,
+      "sha256": "71c1c719b789ebb1a57ff64a84eb90d9daddcedfe9c39f8bdcfaa4b7b0fed9f4",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-61342.json.row-4.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-61342.json.row-4.json",
+      "bytes": 417,
+      "sha256": "b3068e6c00da7d001f6e9924456345f36b6d610ec501d0a094b143ebc8a1b87b",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-61342.json.row-6.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-61342.json.row-6.json",
+      "bytes": 415,
+      "sha256": "6416906b149e38c70cc50e4cf53b1604cc22b5157555c674a0c578ad23eb6859",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-61342.json.row-7.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-61342.json.row-7.json",
+      "bytes": 417,
+      "sha256": "e60e54c458da9b9a2c9a64d0910ef50c281a58667f78e090a2eac60ebe600be3",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-61342.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-61342.log",
+      "bytes": 1003,
+      "sha256": "45dbf8baee5faa2b263a61bb270eb775b5e9e70addfde68e102371230a770688",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/run-71342.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-71342.json",
+      "bytes": 425,
+      "sha256": "1b5ca83e8146dd1171b1cbbbd0da7003262894927a007b49e54572503adcdcff",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-71342.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-71342.log",
+      "bytes": 1298,
+      "sha256": "aa89f06e1f9e5205ab982b112660657b01d4838f9b7deaa56b105c1ca2d71f75",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/run-81342.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-81342.json",
+      "bytes": 415,
+      "sha256": "6d2aad347eec359732267892ffdce8ca34f1262776549a42a3280e97a91c8659",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-81342.json.row-0.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-81342.json.row-0.json",
+      "bytes": 415,
+      "sha256": "42a602573e4dfaab850a4662862b7695e81d2320acbdb0dd19284410f7dab5a2",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-81342.json.row-1.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-81342.json.row-1.json",
+      "bytes": 417,
+      "sha256": "a84d41d996475ba0f8c2adf0289894d95cc02716073ad46e01413e1fe56bdfba",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-81342.json.row-12.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-81342.json.row-12.json",
+      "bytes": 417,
+      "sha256": "48b37558ccb6b16e858dd5dbec2c1f67bc5e4f5ec8e30d25a57c6971de8db555",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-81342.json.row-2.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-81342.json.row-2.json",
+      "bytes": 415,
+      "sha256": "65e6cf6bbca6aca633c51da7597e48d4525575bd12fbfc1c568bcc97f7c917b3",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-81342.json.row-3.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-81342.json.row-3.json",
+      "bytes": 415,
+      "sha256": "6d2aad347eec359732267892ffdce8ca34f1262776549a42a3280e97a91c8659",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-81342.json.row-39.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-81342.json.row-39.json",
+      "bytes": 420,
+      "sha256": "207da72ee402e7fe2f5a628458656edd660f1ec9b20cf0594bc31607db01132e",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-81342.json.row-4.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-81342.json.row-4.json",
+      "bytes": 416,
+      "sha256": "b21b4abaf972b0239da3da5dde2d7d9784f6b9ed2906ffb184af4e8208eb31ec",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-81342.json.row-5.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-81342.json.row-5.json",
+      "bytes": 417,
+      "sha256": "46ade6a5d81b6b76726efb08f904a8a54661c8de7db9e2e3c2f4527f106d4e1d",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-81342.json.row-6.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-81342.json.row-6.json",
+      "bytes": 415,
+      "sha256": "48647b0a8813d19f86ce13e5aff1cf26d464782a90747859bb5fa02134fbd6bc",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-81342.json.row-7.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-81342.json.row-7.json",
+      "bytes": 416,
+      "sha256": "a1a94620ad593c6e568a248360e2b00a37f5bf523b452f27238c48ad4472fe0f",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-81342.json.row-8.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-81342.json.row-8.json",
+      "bytes": 415,
+      "sha256": "0892424c1bba947f06a2484386e97593ebd2234da042f20c6f737313089dd3a6",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-81342.json.row-9.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-81342.json.row-9.json",
+      "bytes": 417,
+      "sha256": "b790c7a2d12c24d6d630ae2e0692d43a3cda0b38aa121b6460b6fe5af668aafe",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-81342.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-81342.log",
+      "bytes": 1379,
+      "sha256": "49b673fe5738042ad160e254ded122a59061a631d0bf44903317c377c73f7bc0",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/run-91342.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-91342.json",
+      "bytes": 418,
+      "sha256": "c6e230dd1d879948d43c29c49f772cba5e45c840c3b1f341892d7b20a91d0a33",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "genetic_cpp/run-91342.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/run-91342.log",
+      "bytes": 951,
+      "sha256": "88587cc8870c293f271cac6bade81237e6d3f6c97a7ad1042356f91c70b48c62",
+      "kind": "complete_log"
+    },
+    {
+      "path": "genetic_cpp/search-active.cpp",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/search-active.cpp",
+      "bytes": 10931,
+      "sha256": "520b7d079025c9578a290ce50ec4c00922d431828ee261339deeb95f05e4f4ac",
+      "kind": "source"
+    },
+    {
+      "path": "genetic_cpp/search-balanced.cpp",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/search-balanced.cpp",
+      "bytes": 13422,
+      "sha256": "cc92c717687adeb5b08eba20d7c6d92ddfef8ef507a5970f26c1bbae745793f3",
+      "kind": "source"
+    },
+    {
+      "path": "genetic_cpp/search-enriched.cpp",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/search-enriched.cpp",
+      "bytes": 14553,
+      "sha256": "d5ddb0e4ac67eb63764d83fee5041ec65382f0e38d1838b73820f2dc6b521614",
+      "kind": "source"
+    },
+    {
+      "path": "genetic_cpp/search-irredundant.cpp",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/search-irredundant.cpp",
+      "bytes": 12190,
+      "sha256": "b17cda9b310169f06a44c351118723cb021eee07e35af1ecfcdacd01fede3757",
+      "kind": "source"
+    },
+    {
+      "path": "genetic_cpp/search-prefix.cpp",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/search-prefix.cpp",
+      "bytes": 12967,
+      "sha256": "287ba7c32b394f43e17aedf45ba0aed052b6430d471f934e6283c97580214e63",
+      "kind": "source"
+    },
+    {
+      "path": "genetic_cpp/search-rich.cpp",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/search-rich.cpp",
+      "bytes": 11718,
+      "sha256": "75649f5971a3e9dc108a0ed459f196d807fd375f926eee86ec4712a5d0419d26",
+      "kind": "source"
+    },
+    {
+      "path": "genetic_cpp/search-twojunk-enriched.cpp",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/search-twojunk-enriched.cpp",
+      "bytes": 13725,
+      "sha256": "08a136a87cc7a2b9f8718de1b4c87d51f381db4cc5470a55091dc0cf08c02b0d",
+      "kind": "source"
+    },
+    {
+      "path": "genetic_cpp/search-twojunk.cpp",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/search-twojunk.cpp",
+      "bytes": 13005,
+      "sha256": "7b8e72a0a30a4a03d413a9db92b87f008d0d8d3f0bf22c11a76425e3169afaa0",
+      "kind": "source"
+    },
+    {
+      "path": "genetic_cpp/search.cpp",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/search.cpp",
+      "bytes": 10334,
+      "sha256": "8bd6dc17425483b86c7df9c809f34a5b2f0dd07b693cc6b7f2ed2a9ec4b06864",
+      "kind": "source"
+    },
+    {
+      "path": "genetic_cpp/validation.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/genetic_cpp/validation.json",
+      "bytes": 3349,
+      "sha256": "efd582100142f7a0717c199388cc0518a3a1fd201db8eea3fce5afeba92f35e5",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "symbolic_templates/FINDINGS.md",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/symbolic_templates/FINDINGS.md",
+      "bytes": 1518,
+      "sha256": "d6c88d213cf84beebc998eb26486033ce907e191da5db448acb25122ba7cf75a",
+      "kind": "findings"
+    },
+    {
+      "path": "symbolic_templates/eleven-two-dirty-active.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/symbolic_templates/eleven-two-dirty-active.json",
+      "bytes": 835,
+      "sha256": "83cb0f162d69ea44542cfcfa73d2279a9bf7a40f8f84a6752c0165628c54ae93",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "symbolic_templates/eleven-two-dirty-wrapped.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/symbolic_templates/eleven-two-dirty-wrapped.json",
+      "bytes": 837,
+      "sha256": "29baa6334c3a771d0013d73e6f73a95d1b14f8a6e57a9ba03792176bef13ebc6",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "symbolic_templates/eleven-two-dirty.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/symbolic_templates/eleven-two-dirty.json",
+      "bytes": 827,
+      "sha256": "986929de0ab426e77928b17f57c34c1f04def325d3c93259b15e87d07ed30eca",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "symbolic_templates/run-001.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/symbolic_templates/run-001.log",
+      "bytes": 129,
+      "sha256": "3650010676484e09433cd459c649e95c18fed853247403350359c91af0f4c59d",
+      "kind": "complete_log"
+    },
+    {
+      "path": "symbolic_templates/run-002.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/symbolic_templates/run-002.log",
+      "bytes": 391,
+      "sha256": "eb27bac87b3b9402c93ad47bc15c741a2db60f452479ccc4fd8522b8741fd1c4",
+      "kind": "complete_log"
+    },
+    {
+      "path": "symbolic_templates/run-active-001.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/symbolic_templates/run-active-001.log",
+      "bytes": 406,
+      "sha256": "690f8e611f703c45f67bd2e72c9376090b894af60d1b16b22558472059a6784f",
+      "kind": "complete_log"
+    },
+    {
+      "path": "symbolic_templates/run-wrapped-001.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/symbolic_templates/run-wrapped-001.log",
+      "bytes": 410,
+      "sha256": "393fca68f5dfeb8a8ed69bcbc9054d6017603535ad3ad5380e9560f01d4c5de8",
+      "kind": "complete_log"
+    },
+    {
+      "path": "symbolic_templates/search-active.py",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/symbolic_templates/search-active.py",
+      "bytes": 7579,
+      "sha256": "7306fa75a4b1960edb5d6976e4866c0293f842defb1dee60d49ef05564a1afbf",
+      "kind": "source"
+    },
+    {
+      "path": "symbolic_templates/search-wrapped.py",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/symbolic_templates/search-wrapped.py",
+      "bytes": 6915,
+      "sha256": "94825bcfb8f3d2d9e94db2b699d72fde18b1b20f1b8c193c4d52c18eda993e37",
+      "kind": "source"
+    },
+    {
+      "path": "symbolic_templates/search.py",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/symbolic_templates/search.py",
+      "bytes": 6656,
+      "sha256": "01735c9d68021983dae879271bd54f1bf58ae619e8ead9a5d8f2230c40725ce8",
+      "kind": "source"
+    },
+    {
+      "path": "symbolic_templates/validation.json",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/symbolic_templates/validation.json",
+      "bytes": 1157,
+      "sha256": "69376d429fed7639884f1bb155ba4c987da9e756763d1a539cde13057942f886",
+      "kind": "result_or_validation"
+    },
+    {
+      "path": "diagnostics/compiler-help.log",
+      "source": "/tmp/oec/pequalnp-pilot-46/gap-1342/compiler-help.log",
+      "bytes": 4091,
+      "sha256": "a47d05202c8797d0c508c87da67083f7d62028b9ac4a49ea8a6e3abd09f73886",
+      "kind": "complete_log"
+    },
+    {
+      "path": "README.md",
+      "source": "generated archive description",
+      "bytes": 1802,
+      "sha256": "c7fc4369201efec55d7cb4457858b763fe04cf43ad82aed78e31dcc55d0c46e0",
+      "kind": "archive_description"
+    }
+  ]
+}

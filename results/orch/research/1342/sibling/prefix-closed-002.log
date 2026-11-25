@@ -1,0 +1,25 @@
+/tmp/oec/pequalnp-pilot-46/gap-1342/sibling/PrefixClosed.lean:17:52: error: unsolved goals
+a b c d : Fin 11
+x : Fin 11 → Bool
+w : List Bool
+hw : List.ofFn x = w
+len : w.length = 11
+i : Fin 11
+⊢ [x 0, x 1, x 2, x 3, x 4, x 5, x 6, x 7, x 8, x 9, x 10][↑i] = x i
+/tmp/oec/pequalnp-pilot-46/gap-1342/sibling/PrefixClosed.lean:11:66: error: unsolved goals
+a b c d : Fin 11
+x : Fin 11 → Bool
+w : List Bool
+hw : List.ofFn x = w
+len : w.length = 11
+get : ∀ (i : Fin 11), w[↑i]? = some (x i)
+⊢ (w[↑a] || w[↑b]) = (x a || x b) ∧
+    (w[↑c] || w[↑d]) = (x c || x d) ∧ ((w[↑a] || w[↑b]) && (w[↑c] || w[↑d])) = ((x a || x b) && (x c || x d))
+/tmp/oec/pequalnp-pilot-46/gap-1342/sibling/PrefixClosed.lean:21:31: warning: This simp argument is unused:
+  get
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Circuit.wires, GateOp.eval, List.getD_eq_getElem?_getD, List.getElem?_append, len, a.isLt, b.isLt,
+    c.isLt, d.isLt, List.append_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
