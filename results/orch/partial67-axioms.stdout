@@ -1,4 +1,0 @@
-'PEqualNP.Outside.L_meta_9502.lower67' depends on axioms: [propext, Classical.choice, Quot.sound]
-'PEqualNP.Outside.L_meta_9502.P7Lower.big_no_small' depends on axioms: [propext, Classical.choice, Quot.sound]
-'PEqualNP.Outside.L_meta_9502.P7Lower.full_none' depends on axioms: [propext, Classical.choice, Quot.sound]
-'PEqualNP.Outside.L_meta_9502.P7Lower.optimized_complete' depends on axioms: [propext, Classical.choice, Quot.sound]

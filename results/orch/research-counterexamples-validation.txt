@@ -1,5 +1,0 @@
-P17_21: PASS independent root review; 72 graph cases and 17 singleton cases agree; sha256=9f3e86298e484b287f227426c278b6b6cfe2a381a0aa842d8442398e4110dfe8
-RowBoundCounterexample: PASS independent root review; 18 graph cases and 9 singleton cases agree; sha256=69ef3efd4024d1b89aa02785ddaf87d22ade68773d4219e33a182043e5b63d9a
-Both Lean files compiled successfully with empty diagnostics.
-These refute candidate auxiliary lemmas, not the posted L-meta-9502 statement.
-No full-gap result is claimed.
