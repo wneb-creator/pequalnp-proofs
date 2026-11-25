@@ -1,0 +1,33 @@
+{
+  "source_sha256": "1d902852fc9202616b3ca6abdeb8d857acfb3f075c024f86b3796d81b848de1c",
+  "source_bytes": 52816,
+  "source_lines": 1140,
+  "build_exit_code": 0,
+  "imports": [
+    "Mathlib",
+    "PEqualNP.Defs"
+  ],
+  "scope": "Graph subclass: adjacency is the conjunction of four pair-support hits, P disjoint Q and R disjoint S, plus NoFourCycle. This yields at most two vertex-disjoint stars. No given circuit, minimality, IsAO2, or junk-cardinality premise. Not the full L-meta-2448 statement.",
+  "theorem": "PEqualNP.Outside.L_meta_2448_aux.twoSilentProducts.exists_minimum_star_of_four_sides",
+  "foundation_source": "results/orch/standalone/AtMostOneJunkStandalone.lean",
+  "foundation_sha256": "72c333a765a480d06fbae71d6afa211f788c15109a7f201eae70da7a1f798890",
+  "graph_source": "results/orch/lemmas/TwoSilentProductsGraphOnly.lean",
+  "graph_source_sha256": "e504f6940b327d5af4892bcb2455c6e04088f5ae7bf819b3aee9fca2e89b2903",
+  "declarations": {
+    "foundation": 34,
+    "graph_only": 21
+  },
+  "constant_closure_count": 142,
+  "context_changes": [
+    "Retain only existing names in Close selective S98 open.",
+    "Remove selective M1528.P2 open because that namespace is absent from the required closure."
+  ],
+  "axiom_audit_exit_code": 0,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "extraction_script_sha256": "3f2ac6f55b886869134d1b473c4f83f1a88f14a66dcfaa64b664ec6ce987255d",
+  "closure_log_sha256": "db18301e3aed719018451fff05974a7132cbbf16571e72cfc1f1cb2a81b05efb"
+}

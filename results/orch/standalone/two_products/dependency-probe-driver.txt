@@ -1,0 +1,24 @@
+
+
+open Lean in
+partial def collectOutside (env : Environment) (n : Name) : StateM NameSet Unit := do
+  if !n.toString.startsWith "PEqualNP.Outside." then return
+  if (← get).contains n then return
+  modify (·.insert n)
+  match env.find? n with
+  | some ci =>
+    for d in ci.type.getUsedConstants do collectOutside env d
+    match ci.value? true with
+    | some v => for d in v.getUsedConstants do collectOutside env d
+    | none => pure ()
+  | none => pure ()
+
+open Lean in
+run_cmd do
+  let env ← getEnv
+  let ns := (collectOutside env `PEqualNP.Outside.L_meta_2448_aux.twoSilentProducts.exists_minimum_star_of_four_sides).run {} |>.2
+  for n in ns.toArray.qsort Name.lt do
+    let r ← findDeclarationRanges? n
+    match r with
+    | some r => logInfo m!"DEP {n} LINES {r.range.pos.line} {r.range.endPos.line}"
+    | none => logInfo m!"DEP {n} NONE"

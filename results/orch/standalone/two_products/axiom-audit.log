@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_meta_2448_aux.twoSilentProducts.exists_minimum_star_of_four_sides' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

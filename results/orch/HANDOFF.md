@@ -6,7 +6,7 @@ The posted theorem is unproved. No file in this branch should be submitted as an
 
 `PEqualNP.Outside.L_meta_2448_aux.oneJunkStar.posted_conclusion_of_at_most_one_junk` is the last helper in the named file. For a triangle-free graph with no four-cycle, it takes a supplied circuit C which is AO2, computes exactly the graph edge function, is a public minimum monotone circuit, and has at most one junk AND. It constructs a public minimum circuit with star profile. No singleton-silence, nonempty-graph, or TopForm hypothesis remains in this helper.
 
-The file is an exact copy of `standalone/AtMostOneJunkStandalone.lean`: 9440 lines, 476959 bytes, importing only Mathlib and PEqualNP.Defs. Its complete named build is `build-partial-12.log`. The final helper axiom audit is `standalone/axiom-audit.log`: only propext, Classical.choice, Quot.sound. `checker-partial-12.log` explicitly rejects the absent unconditional main theorem.
+The first 9440 lines are an exact copy of `standalone/AtMostOneJunkStandalone.lean` (476959 bytes). The current named file appends the reviewed graph-only two-product result: 9885 lines, 496646 bytes total, still importing only Mathlib and PEqualNP.Defs. Its latest complete named build is `build-partial-13.log`. The final helper axiom audit is `standalone/axiom-audit.log`: only propext, Classical.choice, Quot.sound. `checker-partial-13.log` explicitly rejects the absent unconditional main theorem.
 
 Independent reviewers checked all 418 retained declaration bodies and the namespace rewrite against their sources, reproduced the complete file byte-for-byte, and audited statement scope and plain-file rules. The provenance records are under `standalone/`. The preceding 2078-line collection of context-preserving circuit repairs, ownership criteria, and finite witnesses survives as `lemmas/IntegratedRepairs.lean`; its 143 lemmas have a complete axiom audit.
 
@@ -33,3 +33,9 @@ The separate free-OR archive has fourteen independently reconstructed CNFs, five
 Use the pinned Lean4.36 toolchain and Mathlib cache. Never lake update. Build the named module with lake build PEqualNP.Outside.L_meta_2448 from lean/. Invoke tools/check-lean.mjs against the exact desk statement, with the explicit PEQUALNP_REAL_LAKE and scratch PEQUALNP_HOME used by this environment. The expected checker verdict for this partial is no-theorem.
 
 A future successful proof PR must contain exactly the named Lean file, prove the exact posted statement, and pass the actual checker. Results files are preserved on this pilot branch under the user's explicit early-push instruction; they must not enter a proof PR diff. All three reduction slots were occupied when this lease was assigned.
+
+## Recovery-period checked additions
+
+`twoSilentProducts.exists_minimum_star_of_four_sides` proves minimum star existence for a graph represented by the four-support pair-hitting predicate, with P disjoint Q and R disjoint S and no four-cycle. This graph subclass has at most two disjoint stars. It needs no supplied circuit or minimum/junk hypothesis. The generalized input support lower bound applies to all public fan-in-at-most-two competitors. This does not establish the full posted statement. The compact allowed-import standalone is `standalone/two_products/TwoProductsStandalone.lean`,1140lines,52816bytes; complete build/axiom logs and extraction provenance accompany it.
+
+`lemmas/SharedNeighborhood.lean` checks semantic identities and gate-count inequalities for shared-neighborhood modules. Its preserved version does not construct or rewrite an actual Circuit; boundary assumptions and wiring remain separate obligations.
