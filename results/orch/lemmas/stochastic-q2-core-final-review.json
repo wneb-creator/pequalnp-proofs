@@ -1,0 +1,33 @@
+{
+  "verdict": "PASS independent exact finite-core and context audit; benchmark compilation is separate",
+  "source": "results/orch/lemmas/pilot-q2-core.lean",
+  "sha256": "521c01a703547de135a7b29a98320d9e0e703b5d2435dff6920050474edf3ee6",
+  "context_sha256": "73f938eb9c79472eb95b955d9ebea6c12da3d7382579cd871e5ab9801e6dbb6a",
+  "benchmark_sha256": null,
+  "checks": [
+    "All896 bit-table entries match low-bit-first mask membership.",
+    "All49 fixed-sharing entries match common membership in required triples11,69,49.",
+    "All34 contexts exactly match independent deterministic generation; rows are [S,A0,A1,S,A3].",
+    "All29 small masks and four large residual choices match the independently censused33-element domain.",
+    "Four neighborhood rows and all28 label implications have exact indices; assigned mask i is context column i+1.",
+    "Count sums exactly three unit bits; sub is coordinatewise implication; force correctly retains nonempty-source sharing.",
+    "Budget sums four assigned bits plus the eligible-neighbor extra except at0. Center counts six other residual inclusions plus own residual cardinal.",
+    "q2_bad evaluates exactly budget, center, co-label; conjunction reordering leaves the independently checked predicate unchanged."
+  ],
+  "scope": "Core computes the exact relaxed finite obstruction independently checked exhaustively in stochastic-q2-simple-independent and prefilter. This report does not claim the Lean certificate or circuit transfer has compiled.",
+  "refresh": "Final core refresh: budget-before-center order only changes evaluation order. Exact permutation section of independently checked modular tail is included, up to q2_bad_rotate; conditional block/sorting bridge stays outside core.",
+  "permutation_tail_sha256": "6dcec5bb27ece56bf298f6ba1132e3c7908d7d6ccfd00c08bea6c72dcc79c85a",
+  "permutation_receipt": {
+    "exit_code": 0,
+    "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2-permutations-test.lean",
+    "source_sha256": "c76e096a5a62b68f5d1e042b4bf286045c2df1b2d2aa49466e0b1bad550062bf",
+    "tail_sha256": "6dcec5bb27ece56bf298f6ba1132e3c7908d7d6ccfd00c08bea6c72dcc79c85a",
+    "reviewed_root_core_sha256": "9d9682a1d1198862f8e4a3d7fd0e4f29a9cef5a8615eb13bd508741e6435449a",
+    "reviewed_root_finite_sha256": "e64638938744a4e6eefc91d6d6aa4037881fa9c7d4b4d1d89dd2ad1a8ab32b50",
+    "completed_utc": "2026-11-25T12:51:03.275213+00:00",
+    "lines": 209,
+    "stdout_bytes": 2039,
+    "stderr_bytes": 0,
+    "scope": "Standalone Defs-only modular permutation invariance plus conditional sorted-block/index-cover and arbitrary-triple sorting bridges. Does not include or assume an axiom for the expensive finite contradiction; it is an explicit theorem hypothesis."
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "verdict": "PASS",
+  "reviewer": "constructive_search",
+  "reviewed_utc": "2026-11-25T13:02:07.676239+00:00",
+  "sources": {
+    "algebraic-m9-geometry-tail.lean": "84fa3b6d0fe7ff0382d6a91c1230f7ad227ee2e66322c5ecbad42207608161f2",
+    "algebraic-m9-basic-tail.lean": "bc93007d1a2f246f2477e17b9eedd441fbc6f564eb961e5907940ca5e06485ac",
+    "algebraic-m9-missing-tail.lean": "5d73ea4687eb90b5f353c890b9209655d583065dbdee11067ce41cf39e5e758a",
+    "algebraic-m9-constraints-tail.lean": "dad799a414726c5ea119c5df3758315c766dd40611df63bbf56476af01d45ddf",
+    "algebraic-m9-point-tail.lean": "96f10c59cc93e80af450edd878ff46ef32a1e43e85179e9cf4e03c5c80be24b5",
+    "algebraic-m9-all-tail.lean": "65fa8fde191ec9f99764e16baea8429b0668f583dd44eb1f0a50b7c16c0638b2"
+  },
+  "build_status": "Permitted-import standalone passed exit0; complete empty logs; accepted prefix and six reviewed transfer tails verified.",
+  "mathematical_review": [
+    "Finite line/point mappings match accepted Fano labels and all six cofactor maps have explicit kernel certificates.",
+    "Nonempty line residuals follow two assigned neighbors plus a third distinct neighbor. An all-three-unit line mask forces all other five eligible line masks into its residual support and gives cf_six15\u226414.",
+    "Missing exact neighborhoods provide an extra assigned-operand secant line for each missing point, and forbid corresponding residual unit masks.",
+    "Forced labels use residual inclusion and a positive shared residual wire; mapped consumer sets are injective. The extra eligible edge slot is distinct from every assigned ineligible slot.",
+    "Saturated protected rows invoke the independently reviewed generic saturated-full theorem.",
+    "Point budgets insert the distinct ineligible line11 position exactly once, then add a fresh eligible-neighbor edge slot. Line budgets add pos11 only when the nonempty point mask is included in the line mask. This does not double-count an existing cap position.",
+    "The final existential assembly preserves the same extra choices for all three eligible-point masks."
+  ],
+  "scope": "Actual-circuit-to-finite-predicate transfer under explicit missing2/5, protection0/1, and injective onto three-unit coordinates. Does not itself certify the finite conclusion or the full mixed case.",
+  "format": "No forbidden root marker, string literals, admissions, new axioms, or unsupported attributes/options in reviewed tails.",
+  "standalone_source": "algebraic-m9-transfer.lean",
+  "standalone_sha256": "7ab739acb68364b1701109fbbefd2bf7588d2c80f8d9a4b51ba263c273fd8ded",
+  "standalone_lines": 8342,
+  "accepted_prefix_lines": 7507,
+  "receipt": "algebraic-m9-transfer-build.json",
+  "log_hashes": {
+    "stdout": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

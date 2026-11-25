@@ -1,0 +1,23 @@
+{
+  "exit_code": 0,
+  "source": "results/orch/lemmas/stochastic-q2f-benchmark-foundations.lean",
+  "sha256": "dc0e2f4ffb62245218665d30fa136ca17546f63e0edd2119d31a12df1aef62db",
+  "bytes": 95095,
+  "lines": 248,
+  "cached_source": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FBenchmark.lean",
+  "cached_source_sha256": "dc0e2f4ffb62245218665d30fa136ca17546f63e0edd2119d31a12df1aef62db",
+  "olean": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPQ2FBenchmark.olean",
+  "olean_sha256": "de809b4a01da357742710afd1a4f82c503fc5b322055edee7de21fe3492bdf9d",
+  "completed_utc": "2026-11-25T13:00:17.964813+00:00",
+  "command": "Pinned Lean4.36.0 lake env lean -j1 -M6000 --profile -R cache -o PNPQ2FBenchmark.olean PNPQ2FBenchmark.lean",
+  "stdout": "results/orch/lemmas/stochastic-q2f-benchmark-foundations.stdout",
+  "stderr": "results/orch/lemmas/stochastic-q2f-benchmark-foundations.stderr",
+  "stdout_bytes": 543,
+  "stderr_bytes": 720,
+  "scope": "Defs-only core plus exactly ten family certificate cases s0/a0/b3 and symbolic decode/closed-generator partition foundations. This does not certify all15000 parent cases or actual circuit transfer. Logs contain profiling diagnostics only; no errors/warnings.",
+  "composition": [
+    "Exact stochastic-q2f-core.lean before closing namespace",
+    "Ten-case q2f_benchmark and namespace closure",
+    "Exact formalization-q2f-foundations-tail.lean"
+  ]
+}

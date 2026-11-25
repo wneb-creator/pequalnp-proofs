@@ -1,0 +1,77 @@
+{
+  "scope": "Frozen q2 family closed-witness generator/core/data and successful ten-case+foundations standalone benchmark, plus final root residual-core review. Full family certificate, parent/occurrence helpers, and actual-circuit closure remain separate; no complete q2 or gap claim.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-core.lean",
+      "bytes": 92216,
+      "sha256": "77d1a80d456644f424a41a835724274cbc1a72f0323c60fab8aa1f59dd8a972c"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-core-tail.lean",
+      "bytes": 91002,
+      "sha256": "0a5eb81d00c532c828013c3e7774639cee7f1c35ca95efdb2e3a96e2420d61d0"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-generate.py",
+      "bytes": 7937,
+      "sha256": "6071d07b0c4a4121001a66a17d2fb1819024feee4c33914bdd992d2eebaee8a6"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-generator-data.json",
+      "bytes": 1577039,
+      "sha256": "9f67815b47fba069eee7b3c35fcb4548ff909c7362bcb3646edc284808d53239"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-generate.stdout",
+      "bytes": 935,
+      "sha256": "424e69158709f33ac8eadf54c3243a9def01ed26455c802ba741861d2ffabbe9"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-generate.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-benchmark.lean",
+      "bytes": 92372,
+      "sha256": "45b513cfcd04a55a3ba5a16f963310ab58220cf4e0df08ac6753ce5d4960c968"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-benchmark-foundations.lean",
+      "bytes": 95095,
+      "sha256": "dc0e2f4ffb62245218665d30fa136ca17546f63e0edd2119d31a12df1aef62db"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-benchmark-foundations.stdout",
+      "bytes": 543,
+      "sha256": "6a7956c1d580fbe39001fdac1958fe87d8108259c903959825e1370eaac71d65"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-benchmark-foundations.stderr",
+      "bytes": 720,
+      "sha256": "05ea6b65db2fcdeb630198419b4754458f50631da187c4f7cf28f126b511c9b6"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2f-benchmark-foundations-build.json",
+      "bytes": 1394,
+      "sha256": "e575db59cf14b7190cd23b75b3699f6742b6186d00e2747afe94416879c5b85c"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-foundations-tail.lean",
+      "bytes": 2722,
+      "sha256": "69988cb58551dd56b9f4cea6c3441046b8087e8531d9bf1721d6c2bb61f8a942"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-q2f-foundations.lean",
+      "bytes": 94939,
+      "sha256": "7cf21d58419cd27af0823d03b4115a5c5f7f2067272d92ccfd0e64d6454d7e36"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-q2-core-final-review.json",
+      "bytes": 2770,
+      "sha256": "dbb52e868d81c80ae3005d2588c8285487dce7c903a001cd69245edd671653b0"
+    }
+  ],
+  "file_count": 14,
+  "total_bytes": 2059684
+}

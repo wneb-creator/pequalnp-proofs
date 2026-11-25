@@ -1,0 +1,15 @@
+{
+  "exit_code": 0,
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/constructive-mixed9-interface.lean",
+  "source_sha256": "dbb3ce2cc4282e96eb7d55d4e84db474f23ed8f19bccbb2dd461edb91a4df4f3",
+  "tail_sha256": "7b689a5a08e7feaa836e27ea0b514bcd5aa4530f655a253f612a9162487da590",
+  "completed_utc": "2026-11-25T12:47:45.870400+00:00",
+  "lines": 301,
+  "scope": "Defs-only standalone equivalence/implication from explicit Finset predicates to the compact Boolean mixedp9 predicates. No finite enumeration conclusion or actual-circuit transfer is included.",
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "prior_attempts": [
+    "Association/membership/coercion elaboration fixes, complete logs retained.",
+    "Fin.castLE simplification needed explicit change, complete logs retained."
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "verdict": "PASS independent emitted-table, finite-geometry and full-closure review",
+  "reviewed_utc": "2026-11-25T12:56:17.246275+00:00",
+  "source_sha256": "77d1a80d456644f424a41a835724274cbc1a72f0323c60fab8aa1f59dd8a972c",
+  "tail_sha256": "0a5eb81d00c532c828013c3e7774639cee7f1c35ca95efdb2e3a96e2420d61d0",
+  "generator_sha256": "6071d07b0c4a4121001a66a17d2fb1819024feee4c33914bdd992d2eebaee8a6",
+  "counts": {
+    "families": 15000,
+    "size7": 5307,
+    "size8_or_more": 9693,
+    "shape7": 405,
+    "bad_shape7": 4902,
+    "closure_operations": 5007270
+  },
+  "known_large_histogram": {
+    "3": 600,
+    "2": 1671,
+    "1": 1803,
+    "0": 828
+  },
+  "bitwise_pairs_checked": 16384,
+  "elapsed_seconds": 2.3174702750002325,
+  "scope": "Finite generated certificate data only. No Lean compilation, generic generator-to-closure theorem, circuit transfer, q2 exclusion or full posted result is claimed.",
+  "checks": [
+    "Parsed the actual Lean numeric vectors and checked all15,000 parameter cases against independent parent/superset enumeration.",
+    "For all4,902 bad-shape seven-families, decoded the actual base11 witness, verified the missing occurring mask, and directly checked every allowed union/intersection of all closed masks.",
+    "Checked complete small-seed partition tables,12 outside pairs and all16,384 bitwise union/intersection/difference input pairs.",
+    "Reviewed compressed closure logic: small is downward closed; large small-small unions use the three seed partitions; known-small unions use the small difference; known-known pairs are explicitly checked.",
+    "Families discharged by size or shape need no witness. Every bad-shape family is checked after decoding, including the828 cases with no reachable large mask; packed value1330 legitimately also encodes that empty-large-set witness."
+  ]
+}

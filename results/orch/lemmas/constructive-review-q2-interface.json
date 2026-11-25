@@ -1,0 +1,21 @@
+{
+  "verdict": "PASS",
+  "reviewer": "constructive_search",
+  "reviewed_utc": "2026-11-25T13:02:07.676239+00:00",
+  "source_sha256": "dc095f7122ea3961df9e6df5af15f47d3f2edb2a6702f85cb5b5c65e5a09694a",
+  "build_status": "Permitted-import standalone passed exit0; complete logs bound to receipt; exact tail composition verified modulo whitespace.",
+  "checks": [
+    "All896 bit-table entries match binary membership.",
+    "Exactly15 strict supersets of98 and29 subsets ofcardinality\u22642 are listed.",
+    "All34 contexts exactly equal independent enumeration of required neighborhood inclusion under the three binary choices.",
+    "Code/decode, completeness, cardinality, inclusion and empty-support lemmas express the expected finite-set semantics.",
+    "Unit completeness has exactly the explicit allowed family: smallsets,11,69,49,or chosencontextS. No broader library-family assertion is smuggled in."
+  ],
+  "scope": "Semantic interface only; finite infeasibility and circuit-to-interface transfer remain separate.",
+  "tail_sha256": "b81a5427729dce3ce631a3f96a545b853b24249f2a6f72609375312102f975a0",
+  "receipt": "pilot-q2-interface-build.json",
+  "log_hashes": {
+    "stdout": "ef3fdefd894b31df2ca1ea7d35c11fd3158a8ab507e9d0707ea3509edf62a6b2",
+    "stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/pilot-q2-interface.lean",
+  "sha256": "dc095f7122ea3961df9e6df5af15f47d3f2edb2a6702f85cb5b5c65e5a09694a",
+  "started_utc": "2026-11-25T12:57:16.532524+00:00",
+  "finished_utc": "2026-11-25T12:57:52.986059+00:00",
+  "exit_code": 0,
+  "scope": "Generic q2 finite-mask semantic interface only; not a proof of the posted target"
+}

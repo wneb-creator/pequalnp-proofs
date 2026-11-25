@@ -1,0 +1,69 @@
+{
+  "verdict": "PASS",
+  "reviewed_utc": "2026-11-25T12:52:05.959618+00:00",
+  "sources": [
+    {
+      "path": "results/orch/lemmas/constructive-mixed9-finite-core.lean",
+      "sha256": "fa87e0a95681d50c9b1796c9f9e704f7b070205ecf72f6537deff1a1af8ed79a",
+      "lines": 99
+    },
+    {
+      "path": "results/orch/lemmas/constructive-mixed9-interface.lean",
+      "sha256": "dbb3ce2cc4282e96eb7d55d4e84db474f23ed8f19bccbb2dd461edb91a4df4f3",
+      "lines": 301
+    },
+    {
+      "path": "results/orch/lemmas/constructive-mixed9-interface-tail.lean",
+      "sha256": "7b689a5a08e7feaa836e27ea0b514bcd5aa4530f655a253f612a9162487da590",
+      "lines": 201
+    },
+    {
+      "path": "results/orch/lemmas/constructive-mixed9-conclusion.lean",
+      "sha256": "ff1fae33ef1044faea845b42efafa295c5de0f59b77c8def091f4866190f25c8",
+      "lines": 334
+    },
+    {
+      "path": "results/orch/lemmas/constructive-mixed9-finite-conclusion-tail.lean",
+      "sha256": "2290824c0cc0ec295d43894029c0d0bcc7a15ab74ef345ecfc24e8d7513dd02a",
+      "lines": 32
+    }
+  ],
+  "builds": [
+    {
+      "exit_code": 0,
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/constructive-mixed9-interface.lean",
+      "source_sha256": "dbb3ce2cc4282e96eb7d55d4e84db474f23ed8f19bccbb2dd461edb91a4df4f3",
+      "tail_sha256": "7b689a5a08e7feaa836e27ea0b514bcd5aa4530f655a253f612a9162487da590",
+      "completed_utc": "2026-11-25T12:47:45.870400+00:00",
+      "lines": 301,
+      "scope": "Defs-only standalone equivalence/implication from explicit Finset predicates to the compact Boolean mixedp9 predicates. No finite enumeration conclusion or actual-circuit transfer is included.",
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "prior_attempts": [
+        "Association/membership/coercion elaboration fixes, complete logs retained.",
+        "Fin.castLE simplification needed explicit change, complete logs retained."
+      ]
+    },
+    {
+      "exit_code": 0,
+      "source": "/workspace/pequalnp-proofs/results/orch/lemmas/constructive-mixed9-conclusion.lean",
+      "source_sha256": "ff1fae33ef1044faea845b42efafa295c5de0f59b77c8def091f4866190f25c8",
+      "tail_sha256": "2290824c0cc0ec295d43894029c0d0bcc7a15ab74ef345ecfc24e8d7513dd02a",
+      "completed_utc": "2026-11-25T12:50:21.355339+00:00",
+      "scope": "Defs-only standalone Finset conclusion conditional on an explicit compact finite-certificate proposition. The finite decision blocks are still compiling separately; no unconditional conclusion yet.",
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    }
+  ],
+  "composition": "Exact reviewed99-line core with201-line interface tail inserted before namespace closure; exact301-line interface with32-line conditional conclusion tail inserted before closure. The only additional differences are one blank separator line at each insertion.",
+  "checks": [
+    "Mask/subset/cardinality/bit tables align with Finset(Fin3); independently checked all64 subset-table entries and both64-case unit-support encodings42/52. Fin4 cardinalities count distinct consumer indices, not support multiplicities.",
+    "m9_force matches existential subset forcing at the four explicit neighborhoods plus the two extra labels. Saturation uses exactly protected indices0/1 and equality at one of their three neighbors.",
+    "The normal implication retains nonempty proper row masks, missing unit masks, every consumer budget and the saturated protected-row subset condition. Boolean outside tests enumerate exactly each protected neighborhood complement.",
+    "Point forcing, point-count bound, exclusion from saturated protected rows and T-subset-row budget indicator align in the correct subset direction. T need only be nonempty; fullT is not silently excluded.",
+    "The final wrapper chooses codes via surjectivity, uses injectivity to encode explicit first-row normalization{0}/{0,1}, and derives normal/pointAllowed=true before contradicting the supplied certificate. The finite certificate is an explicit premise.",
+    "No actual-circuit transfer, unconditional finite enumeration conclusion, mixedp9 exclusion or full posted-gap proof is claimed. Exact source hashes bind successful Defs-only standalone builds with empty full logs."
+  ],
+  "scope": "Semantic Finset-to-Boolean bridge and conditional finite-certificate decoding only.",
+  "issues": []
+}

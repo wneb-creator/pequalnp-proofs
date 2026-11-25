@@ -1,0 +1,9 @@
+PASS — independent preservation audit by lean_setup
+UTC: 2026-11-25T13:04:15.694848+00:00
+Manifest: /tmp/oec/pequalnp-pilot-81/checkpoint-1300-files.json
+Manifest SHA256: 32148e965b9b7df451ef485b8e0cfa05d758ac37e8c4ab64b9ee42b07f8cd3d9
+Verified all115 file hashes and sizes, total3,532,277bytes; 55 nested path/hash entries and 7 explicit source/receipt bindings.
+Reviewed metadata scopes and successful/failed build receipts. Mixed-p9 transfer and q2 semantic interfaces retain explicit hypotheses. Protected K4 and protection transport have standalone exit0; supported-eight and upper wrappers remain explicitly cached-only. Conditional permutation bridge has no finite-certificate claim. The q2f benchmark certifies ten cases and foundations only. Historical benchmark2 exit1 is stated honestly and complete diagnostics are included.
+Completed quiet SAT outcome remains UNKNOWN, with complete solver/driver/wrapper diagnostics. Active solver and finite-certificate outputs are excluded. Full target remains unresolved and checker remains REJECTED(no-theorem).
+All38 selected Lean files pass forbidden trust/format scans, with inherited local simp attributes recognized as simp; selected text passes credential-pattern scans. No secrets were printed or copied. No payload files changed.
+TIMING metadata244.5minutes and six subagents is consistent with start08:57:11UTC and checkpoint13:01:43UTC.

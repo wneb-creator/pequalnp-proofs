@@ -1,0 +1,10 @@
+{
+  "exit_code": 0,
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/constructive-mixed9-conclusion.lean",
+  "source_sha256": "ff1fae33ef1044faea845b42efafa295c5de0f59b77c8def091f4866190f25c8",
+  "tail_sha256": "2290824c0cc0ec295d43894029c0d0bcc7a15ab74ef345ecfc24e8d7513dd02a",
+  "completed_utc": "2026-11-25T12:50:21.355339+00:00",
+  "scope": "Defs-only standalone Finset conclusion conditional on an explicit compact finite-certificate proposition. The finite decision blocks are still compiling separately; no unconditional conclusion yet.",
+  "stdout_bytes": 0,
+  "stderr_bytes": 0
+}

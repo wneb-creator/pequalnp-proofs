@@ -1,0 +1,28 @@
+{
+  "verdict": "PASS mathematical/source review and standalone conditional bridge test",
+  "reviewed_utc": "2026-11-25T12:51:42.834242+00:00",
+  "reviewed_root_core_sha256": "9d9682a1d1198862f8e4a3d7fd0e4f29a9cef5a8615eb13bd508741e6435449a",
+  "reviewed_root_finite_sha256": "e64638938744a4e6eefc91d6d6aa4037881fa9c7d4b4d1d89dd2ad1a8ab32b50",
+  "scope": "Permutation invariance and sorted-block/index-cover reduction only; finite contradiction and actual-circuit encoding remain separate.",
+  "checks": [
+    "Residual-slot swaps and cyclic rotations preserve q2_count, q2_sub and q2_empty, and therefore force/rows, assigned budgets, center cut and co-label constraints. Context/assigned masks stay fixed.",
+    "The six total-order branches choose respectively (a,b,d),(a,d,b),(d,a,b),(b,a,d),(b,d,a),(d,b,a), and the stated swap/rotation rewrites return each to the original order. Ties are included by weak inequalities.",
+    "Index decomposition a=3*(a/3)+(a%3) gives valid Fin11/Fin3 indices for every Fin33 label; conditional block coverage implies the ordered contradiction.",
+    "Replaced the impractical globally unfolded AC simp proof by modular specialized permutation rewrites; original root files were not modified by this task.",
+    "The independent test is Defs-only and uses explicit conditional hypotheses for sorted/block impossibility. No axiom, sorry, native_decide, or finite contradiction assumption hidden as a declaration."
+  ],
+  "test_receipt": {
+    "exit_code": 0,
+    "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-q2-permutations-test.lean",
+    "source_sha256": "c76e096a5a62b68f5d1e042b4bf286045c2df1b2d2aa49466e0b1bad550062bf",
+    "tail_sha256": "6dcec5bb27ece56bf298f6ba1132e3c7908d7d6ccfd00c08bea6c72dcc79c85a",
+    "reviewed_root_core_sha256": "9d9682a1d1198862f8e4a3d7fd0e4f29a9cef5a8615eb13bd508741e6435449a",
+    "reviewed_root_finite_sha256": "e64638938744a4e6eefc91d6d6aa4037881fa9c7d4b4d1d89dd2ad1a8ab32b50",
+    "completed_utc": "2026-11-25T12:51:03.275213+00:00",
+    "lines": 209,
+    "stdout_bytes": 2039,
+    "stderr_bytes": 0,
+    "scope": "Standalone Defs-only modular permutation invariance plus conditional sorted-block/index-cover and arbitrary-triple sorting bridges. Does not include or assume an axiom for the expensive finite contradiction; it is an explicit theorem hypothesis."
+  },
+  "diagnostics": "Six harmless unused simp-argument warnings inherited from the original small AC lemmas; no warnings in the new modular/conditional bridge proofs; stderr empty."
+}

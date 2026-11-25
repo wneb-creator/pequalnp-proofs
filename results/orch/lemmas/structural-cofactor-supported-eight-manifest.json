@@ -1,0 +1,47 @@
+{
+  "created_utc": "2026-11-25T12:59:59.364578+00:00",
+  "status": "Combined cached check exit0/empty logs, independent PASS; full supported-eight standalone still running and excluded.",
+  "scope": "Two protected matching inputs force raw cofactor supported surplus at least8. No full1479/1480 claim.",
+  "files": [
+    {
+      "path": "results/orch/lemmas/structural-cofactor-protected-restrict-tail.lean",
+      "bytes": 6077,
+      "sha256": "3b4f4cbf8ad60e86140fbff98a1897119f07bab0e7cb80b526e261d8ec577593"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-protected-restrict.lean",
+      "bytes": 10272,
+      "sha256": "856b8ba13fd7822558fb04b5fce98ae5dd0a5dd840c91fa65ddc8c0c429451af"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-supported-eight-tail.lean",
+      "bytes": 1648,
+      "sha256": "d8b1861f1c86bfe7e2663bf8d811d836e13eb09dac6a80dc2e46aee87bd3caeb"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-supported-eight.lean",
+      "bytes": 25292,
+      "sha256": "97118a67953cebe6acf13e47a91e1ee78682ec1e2390e161c03caed9af236400"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-supported-eight-build.json",
+      "bytes": 285,
+      "sha256": "69bf3fa98aa5877e1d2d5778182d8c4b6c90d2763c22aeb0461abc3f4570aae3"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-supported-eight-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-supported-eight-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/algebraic-review-cofactor-supported-eight.json",
+      "bytes": 1408,
+      "sha256": "161e5803cd06047fa00dc2200d2e914d6dc14d15201645341d923b134ef8b87a"
+    }
+  ]
+}

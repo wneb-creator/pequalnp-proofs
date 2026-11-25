@@ -1,6 +1,6 @@
 {
   "created_utc": "2026-11-25T12:45:49.132272+00:00",
-  "status": "Cached check exit0; full standalone still pending",
+  "status": "PASS cached and full Defs-only standalone, independently reviewed",
   "files": [
     {
       "path": "results/orch/lemmas/structural-cofactor-protected-tail.lean",
@@ -31,7 +31,33 @@
       "path": "results/orch/lemmas/formalization-review-cofactor-protected.json",
       "bytes": 2218,
       "sha256": "e0f3e4b5dd652f2bbbab8a65cbd5ffb4577ae1768a8352ba118c791967f7511f"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-protected-standalone.lean",
+      "bytes": 285304,
+      "sha256": "17a28ea891ee2814e6b726f274c44ceb5ca312010eb4b4bc4c4b69cc00f7b645"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-protected-standalone-build.json",
+      "bytes": 290,
+      "sha256": "2722dc44d87c6bf9d407e5ca9ea8319fba3a257ec74d4c727a7ecb060cf161f8"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-protected-standalone-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/structural-cofactor-protected-standalone-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/formalization-review-protected-standalones.json",
+      "bytes": 2276,
+      "sha256": "3b580dbb29675a1cb012af876868faa127e6a66b91ac29f7b1d1aeed2d5ddef6"
     }
   ],
-  "frozen_utc": "2026-11-25T12:46:11.081092+00:00"
+  "frozen_utc": "2026-11-25T12:46:11.081092+00:00",
+  "updated_utc": "2026-11-25T12:59:59.360383+00:00"
 }

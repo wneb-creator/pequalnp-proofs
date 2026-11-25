@@ -1,0 +1,26 @@
+{
+  "verdict": "PASS",
+  "review_utc": "2026-11-25T12:53:17.139063+00:00",
+  "sources": [
+    {
+      "file": "structural-cofactor-protected-restrict-tail.lean",
+      "sha256": "3b4f4cbf8ad60e86140fbff98a1897119f07bab0e7cb80b526e261d8ec577593"
+    },
+    {
+      "file": "structural-cofactor-supported-eight-tail.lean",
+      "sha256": "d8b1861f1c86bfe7e2663bf8d811d836e13eb09dac6a80dc2e46aee87bd3caeb"
+    }
+  ],
+  "scope": "One and the same cofactor DAG retains supported-surplus bound, protected-input ineligibility, full forward-cone protection and prior multi-unit slack; opposite protected K4 inputs then force raw cofactor-supported surplus\u22658.",
+  "review": [
+    "Restriction wrapper retains the original cof_Inv witness E,t,q across every conclusion.",
+    "The new full-protection field is supplied directly by the separately checked path-lifting/protection lemma, then threaded without loss through graph equivalence.",
+    "The final supported-eight theorem passes both protected labels to K4 ineligibility and label5 protection, on exactly the E whose Bplus\u2264cof_surP bound is retained.",
+    "No original Bzero or circuit-size assumption is introduced."
+  ],
+  "cached_source_sha256": "97118a67953cebe6acf13e47a91e1ee78682ec1e2390e161c03caed9af236400",
+  "receipt": "structural-cofactor-supported-eight-build.json",
+  "cached_exit_code": 0,
+  "stdout_bytes": 0,
+  "stderr_bytes": 0
+}

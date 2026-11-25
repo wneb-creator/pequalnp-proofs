@@ -1,13 +1,13 @@
 # Canonical equality-case ledger
 
-Updated 2026-11-25 12:47 UTC. All sets use the accepted edgeList labeling; point labels agree with the posted cyclic labeling and line labels are negated modulo seven. The full target remains open. The listed zero-surplus bounds alone do not rule out a quiet edge with two eligible endpoints.
+Updated 2026-11-25 13:01 UTC. All sets use the accepted edgeList labeling; point labels agree with the posted cyclic labeling and line labels are negated modulo seven. The full target remains open. The listed zero-surplus bounds alone do not rule out a quiet edge with two eligible endpoints.
 
 | Eligible inputs | Canonical ineligible set | Complete no-double-quiet result | Current component |
 |---|---|---|---|
 | 7 | {0,1,2,3,4,5,6} | Standalone compiled | Unique-reader chains |
 | 8 | {0,1,2,3,4,5} | Standalone compiled | Saturated carrier count and linearity |
 | 9 | {0,1,2,3,4} | Standalone compiled ordinary impossibility | Finite residual masks, protected inputs, and sharp cofactor count |
-| 9 | {0,1,2,5,11} | Open | Mixed-cap missing-mask saturation |
+| 9 | {0,1,2,5,11} | Open | Standalone transfer to finite constraints; finite-certificate/cofactor composition pending |
 | 10 | {0,1,2,3} | Open; three missing-mask subcases excluded standalone | Missing neighborhoods{4,5,6}+q impossible for q in{0,1,3}; q2 remains. Bplus at least13; Bzero at most1 |
 | 10 | {0,1,2,5} | Standalone compiled ordinary impossibility | Seven-mask family obstruction and sharp support counting |
 | 10 | {0,1,2,11} | Open | Standalone Bplus at least13; Bzero at most1 by analytic cofactor bound |
@@ -27,3 +27,5 @@ Integration: the preferred conditional exact-statement bridge passes standalone 
 New checked auxiliary results: every branch has its singleton-label value on maximal negative assignments when total surplus is at most the eligible count. The stronger K4 bound (surplus at most7 permits at most two eligible original vertices) passed both cached and standalone compilation with independent composition review. Neither alone closes the remaining Fano cases.
 
 New generic standalone tools: the cofactor cost is at least9 when three free K4 original labels were eligible; single-reader agreement and consumption blocking control insertions after a consuming gate; support-mask closure transfers finite constructibility certificates to actual circuit supports. These tools retain their explicit hypotheses and do not close the remaining canonical cases by themselves. The protected-cone K4 and cofactor protection-transport results are cached-checked components at this freeze, with separate standalone builds pending.
+
+Checkpoint1300: the protected-cone K4 bound and generic cofactor protection transport now have successful standalone builds and independent final-source reviews. The supported-eight lower wrapper and mixed-p9 upper wrapper are cached-checked only at this freeze. Mixed-p9 predicate transfer and the q2 finite-mask interface are standalone checked, while their finite contradiction and actual-case compositions remain separate. The prior quiet compact search ended UNKNOWN; the reviewed nine-free/topological quiet variant is active with no outcome claim.

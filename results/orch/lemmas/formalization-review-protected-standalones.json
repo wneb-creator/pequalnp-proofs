@@ -1,0 +1,37 @@
+{
+  "verdict": "PASS exact standalone compositions, build bindings and preserved scopes",
+  "reviewed_utc": "2026-11-25T12:58:34.443654+00:00",
+  "results": [
+    {
+      "source": "results/orch/lemmas/structural-k4-protected-supported-standalone.lean",
+      "sha256": "3a82c69206bc638e9cc7d995d5ff973b80e079b19e6ae2a3d112d9d67c975c14",
+      "lines": 7827,
+      "build": {
+        "source": "results/orch/lemmas/structural-k4-protected-supported-standalone.lean",
+        "sha256": "3a82c69206bc638e9cc7d995d5ff973b80e079b19e6ae2a3d112d9d67c975c14",
+        "exit_code": 0,
+        "started_utc": "2026-11-25T12:45:39.881449+00:00",
+        "completed_utc": "2026-11-25T12:54:41.033119+00:00"
+      },
+      "scope": "Protected-cone K4 Bplus>=8 under the explicit ineligible5/8 and protection hypotheses; no Fano/full-target conclusion.",
+      "stdout_bytes": 814
+    },
+    {
+      "source": "results/orch/lemmas/structural-cofactor-protected-standalone.lean",
+      "sha256": "17a28ea891ee2814e6b726f274c44ceb5ca312010eb4b4bc4c4b69cc00f7b645",
+      "lines": 5864,
+      "build": {
+        "source": "results/orch/lemmas/structural-cofactor-protected-standalone.lean",
+        "sha256": "17a28ea891ee2814e6b726f274c44ceb5ca312010eb4b4bc4c4b69cc00f7b645",
+        "exit_code": 0,
+        "started_utc": "2026-11-25T12:54:41.102923+00:00",
+        "completed_utc": "2026-11-25T12:56:35.064969+00:00"
+      },
+      "scope": "Generic cof_Inv preservation of all-reachable-wire fanout<=1, without extra free-live or graph assumptions.",
+      "stdout_bytes": 0
+    }
+  ],
+  "composition": "K4 source is byte-exact frozen7570line base plus reviewedtail with namespace-only rename. Generic protection is byte-exact accepted first5775lines with namespace-only rename, explicit section/namespace closures and allowed limit options, then frozen reviewedtail with same rename.",
+  "diagnostics": "K4 has exactly two inherited unused-variable warnings from its base; generic protection has empty stdout. Both stderr files are empty.",
+  "review_basis": "The new K4 tail had prior independent mathematical review by algebraic_route; generic protection tail had this agent\u2019s prior independent review. This check binds those proofs to complete permitted-import source builds."
+}

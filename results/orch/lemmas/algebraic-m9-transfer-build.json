@@ -1,0 +1,11 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/algebraic-m9-transfer.lean",
+  "sha256": "7ab739acb68364b1701109fbbefd2bf7588d2c80f8d9a4b51ba263c273fd8ded",
+  "lines": 8342,
+  "bytes": 413749,
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T12:57:40.872485+00:00",
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "scope": "Permitted-import actual-circuit transfer to mixedp9 finite constraints and conditional eligible-point constraints, under explicit missing2/5, protected0/1, and three residual-unit coordinates. No complete case exclusion yet."
+}

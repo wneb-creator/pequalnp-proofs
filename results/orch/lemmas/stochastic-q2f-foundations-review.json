@@ -1,0 +1,18 @@
+{
+  "verdict": "PASS independent mathematical and finite-table review, bound to successful standalone build",
+  "source": "results/orch/lemmas/formalization-q2f-foundations-tail.lean",
+  "sha256": "69988cb58551dd56b9f4cea6c3441046b8087e8531d9bf1721d6c2bb61f8a942",
+  "standalone_sha256": "dc0e2f4ffb62245218665d30fa136ca17546f63e0edd2119d31a12df1aef62db",
+  "receipt": "stochastic-q2f-benchmark-foundations-build.json",
+  "small_input_pairs_checked": 841,
+  "nontrivial_union_pairs_covered": 630,
+  "checks": [
+    "Projected finite-mask membership equals the ordinary low seven Nat test bits.",
+    "Modulo128 preserves all seven observed bits; OR/AND decode as union/intersection, and a xor(a andb) decodes as difference.",
+    "Nat.and_le_left eliminates modulo in the subset equivalence; inter=a is precisely decoded subset.",
+    "All29 small codes are exactly the masks of cardinality\u22642.",
+    "Independently parsed emitted cut table covers every one of841 ordered small-input pairs; for every union of size3/4, some split is subordinate to the two original operands, possibly swapped.",
+    "The symbolic and finite foundations are all unconditional theorems; they do not assume full certificate or circuit conclusions."
+  ],
+  "scope": "Generic code/Finset operation and small-union partition foundations only; generator-valid\u2192closure bridge remains separate."
+}

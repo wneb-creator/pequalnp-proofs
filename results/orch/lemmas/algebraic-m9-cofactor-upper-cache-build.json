@@ -1,0 +1,20 @@
+{
+  "cached_source": "/tmp/oec/pequalnp-pilot-81/lean-cache/AlgebraicM9CofactorUpper.lean",
+  "cached_source_sha256": "a6d3b3725b047fd5874ae0723080c789c543b1ebb5745c6053790dd27f444648",
+  "tails": [
+    {
+      "file": "algebraic-m9-cofactor-loss-tail.lean",
+      "sha256": "f0ce3b1b24f1cc4cfc348a79146c51c4a560179e0a202a3b56d46e440240ea9b"
+    },
+    {
+      "file": "algebraic-m9-cofactor-upper-tail.lean",
+      "sha256": "b019b556e63d29e0fb831a59ff6ef4937a0c8bcc1de60ac5bb810b441d270187"
+    }
+  ],
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T13:00:19.877810+00:00",
+  "scope": "Raw cofactor-supported surplus at center3 is\u22647 for canonical mixedp9 missing2/5, assuming the three eligible-point residual sets are empty. No finite certificate or fullcase assertion yet.",
+  "warnings": "Six pre-existing unnecessary-simpa/deprecated-if warnings in imported-by-copy reviewed dependency tails; no new proof errors.",
+  "archived_cached_source": "/workspace/pequalnp-proofs/results/orch/lemmas/algebraic-m9-cofactor-upper-cache.lean",
+  "archived_cached_source_sha256": "a6d3b3725b047fd5874ae0723080c789c543b1ebb5745c6053790dd27f444648"
+}

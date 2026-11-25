@@ -1,0 +1,62 @@
+{
+  "created_utc": "2026-11-25T12:53:36.127119+00:00",
+  "verdict": "UNKNOWN",
+  "scope": "Quiet compact Fano p14 model,cap18,negative-proxy,orientation,positive-atom andedge-cover cuts,exacttwo marked derivative tracks;1200-second cap. No SAT witness, no UNSAT proof, no Lean result.",
+  "variables": 26783,
+  "clauses": 115869,
+  "solver_exit": 0,
+  "wrapper_exit": 0,
+  "elapsed_seconds": 1200.1755702495575,
+  "started_utc": "2026-11-25T12:33:07.546795+00:00",
+  "completed_utc": "2026-11-25T12:53:10.495607+00:00",
+  "source_sha256": "b9ccb4c19d914d5c664266cc426272305eb23de679aa3a81920a38278691a441",
+  "static_artifact_manifest": "results/orch/lemmas/sat-p14-quiet-preservation-manifest.json",
+  "input_artifacts_identical_to_archived": true,
+  "files": [
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-quiet18-run.stdout.gz",
+      "bytes": 9734,
+      "sha256": "bded170f5910d2c33c8e349a4a27933c984cd53797ee3a3953317f49094bfb25",
+      "restore_as": "sat-p14-compact-quiet18-run.stdout",
+      "gzip": true,
+      "uncompressed_bytes": 36545,
+      "uncompressed_sha256": "7cc1f5676c276eb24cb1ec0c0f43755c6114ca759a214ab6da853bcf1c405da6"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-quiet18-run.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "restore_as": "sat-p14-compact-quiet18-run.stderr",
+      "gzip": true,
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-quiet18-run.driver.stderr.gz",
+      "bytes": 20,
+      "sha256": "f61f27bd17de546264aa58f40f3aafaac7021e0ef69c17f6b1b4cd7664a037ec",
+      "restore_as": "sat-p14-compact-quiet18-run.driver.stderr",
+      "gzip": true,
+      "uncompressed_bytes": 0,
+      "uncompressed_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-quiet18-run.runlog.gz",
+      "bytes": 159,
+      "sha256": "ac9b5aee5e6711035a31905897186b1b29507b21b443ba304a846fdfc6188a9c",
+      "restore_as": "sat-p14-compact-quiet18-run.runlog",
+      "gzip": true,
+      "uncompressed_bytes": 176,
+      "uncompressed_sha256": "c99f4b9cdf456a070902e5532a20c487a2f6a3b7f0355bad38caf982a86b2350"
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-quiet18-run.receipt.json.gz",
+      "bytes": 288,
+      "sha256": "f62376e005f95d93a4686b3b1bb90f325ccea9c3f8593fb7d3c8f9a92de765e6",
+      "restore_as": "sat-p14-compact-quiet18-run.receipt.json",
+      "gzip": true,
+      "uncompressed_bytes": 474,
+      "uncompressed_sha256": "61da0f10b34541302f667d96c4a1850e6a87105b58f365fabd8db93ed769298b"
+    }
+  ]
+}

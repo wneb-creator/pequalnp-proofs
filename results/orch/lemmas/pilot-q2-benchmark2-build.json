@@ -1,0 +1,9 @@
+{
+  "source": "results/orch/lemmas/pilot-q2-benchmark2.lean",
+  "sha256": "a8feb585d616ffc0cee86949a7aa9784132ec96b1d0bc7f26e38a0aeb462b3e6",
+  "exit_code": 1,
+  "outcome_observed_in_tool_session": 34676,
+  "exact_finish_utc": "not recorded by original shell wrapper",
+  "receipt_created_utc": "2026-11-25T12:58:04.897485+00:00",
+  "scope": "One bounded finite benchmark; second attempt failed only two permutation simplification timeouts, later replaced by reviewed modular proofs. Neither is a full q2 or posted-target proof."
+}

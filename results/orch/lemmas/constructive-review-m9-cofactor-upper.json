@@ -1,0 +1,21 @@
+{
+  "verdict": "PASS",
+  "reviewer": "constructive_search",
+  "reviewed_utc": "2026-11-25T13:02:44.845491+00:00",
+  "sources": {
+    "algebraic-m9-cofactor-loss-tail.lean": "f0ce3b1b24f1cc4cfc348a79146c51c4a560179e0a202a3b56d46e440240ea9b",
+    "algebraic-m9-cofactor-upper-tail.lean": "b019b556e63d29e0fb831a59ff6ef4937a0c8bcc1de60ac5bb810b441d270187"
+  },
+  "build_status": "Cached compilation passed exit0; complete logs preserved. Only reviewed explicit projection/cofactor arguments changed. Full standalone composition remains pending.",
+  "mathematical_review": [
+    "The generic loss theorem counts reserved units on distinct singleton-support branches and distinct empty-support branch units; empty and singleton supports prove the sets disjoint.",
+    "Missing-neighborhood points2/5 each have an empty first branch; otherwise a full input-to-output chain realizes the missing neighborhood. Shared first branches would also realize one missing neighborhood, so the branches are distinct.",
+    "Zero residual support forpoint3 gives at most2 consumption slots. Its existing assigned line11 slot and a fresh eligible line7 edge slot exclude any additional cap assigned slot carryingpoint3.",
+    "Center3 reserved unit is lost by setting3true; points4/6 reserved units are depleted because residual inclusions are vacuous and allthree share the line11 assigned operand.",
+    "Reserved units at fixed-false eligible neighbors7/12 lose singleton support by the reviewed neighbor lemma. Both missingpoint empty branches lose singleton support by the reviewed consumption/nonedge-pair lemma.",
+    "Exactly five reserved plus two distinct empty units are excluded from cof_keptP. The accepted loss inequality and totalSurplus\u226414 give raw cof_surP\u22647. No assertion that all Bzero units are covered is needed."
+  ],
+  "scope": "Raw cofactor supported-surplus upper bound for canonical mixedp9 with explicit zero point-residual sets and missing2/5. Final normalized-E/K4 contradiction remains separate.",
+  "receipt": "algebraic-m9-cofactor-upper-cache-build.json",
+  "cached_source_sha256": "a6d3b3725b047fd5874ae0723080c789c543b1ebb5745c6053790dd27f444648"
+}
