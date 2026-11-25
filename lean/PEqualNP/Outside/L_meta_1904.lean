@@ -2267,4 +2267,29 @@ lemma exists_first_dirty_split {n : ℕ} (G : SimpleGraph (Fin n))
     change i < j
     omega
 
+lemma correct_minimal_mono {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hc : Correct G C) (hmin : ∀ D, Correct G D → C.size ≤ D.size) :
+    IsMinimalMonoCircuit n C := by
+  refine ⟨hc.1, ?_⟩
+  intro D hd heq
+  apply hmin D
+  refine ⟨hd, ?_⟩
+  intro x
+  exact (congrFun heq x).trans (hc.2 x)
+
+lemma and_safe_of_no_dirty {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (h : ∀ j, ¬ PEqualNP.CleanedNonEdge.IsDirtyAnd n G C j)
+    (j : ℕ) (g : Gate) (hjg : C.gates[j]? = some g) (hg : g.op = GateOp.and)
+    (x : Fin n → Bool)
+    (hx : (C.wires (List.ofFn x)).getD (n+j) false = true) :
+    ∃ a b, G.Adj a b ∧ x a = true ∧ x b = true := by
+  classical
+  by_contra hbad
+  obtain ⟨hj, hget⟩ := List.getElem?_eq_some_iff.mp hjg
+  apply h j
+  refine ⟨?_, hj, x, hx, ?_⟩
+  · simpa [PEqualNP.MetaComplexity.NestedCover.gateAt,
+      List.getD_eq_getElem?_getD, hjg] using hg
+  · simp [PEqualNP.MetaComplexity.NestedCover.graphFun, hbad]
+
 end PEqualNP.Outside.L_meta_1904_aux

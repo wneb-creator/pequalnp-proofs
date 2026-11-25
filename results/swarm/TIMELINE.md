@@ -44,3 +44,6 @@
 - 2026-11-25 22:15:06 UTC: root integrated checked two-singleton repair and proved minimum-dirty-count exclusion of all non-AND patches and two-singleton critical covers. Independent source review passed; direct Lean diagnostics empty; named build passed 5149 jobs with shared artifact caching disabled.
 - 2026-11-25 22:15:06 UTC: previous partial push confirmed at 08e2c613c; full theorem remains open, counterexample searches ongoing.
 - 2026-11-25 22:21:09 UTC: first-dirty-gate take/get/drop decomposition elaborated with empty diagnostics and passed independent review; named build passed. Previous partial8cef7d9f3 pushed.
+- 2026-11-25 22:29:11 UTC: correct_minimal_mono and and_safe_of_no_dirty bridges compiled with empty diagnostics, independent review passed, named module build passed.
+- 2026-11-25 22:26:10 UTC: after sixty minutes without a full proof/refutation, conditional fallback reduction assigned to helper8 (bus3572); all full routes continue and supersede it if successful. No final artifact yet.
+- 2026-11-25 22:29:11 UTC: prior partial push d5d851822 confirmed; h9 independently checked all114 lemmas at that exact commit with standard axioms only.
