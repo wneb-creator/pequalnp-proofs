@@ -54,10 +54,7 @@ lemma monotone_and_eq_star {α : Type*} [DecidableEq α]
   · exact Or.inl (monotone_factor_eq_star Q f hf hzf fun x hx => (hcontains x hx).1)
   · exact Or.inr (monotone_factor_eq_star Q g hg hzg fun x hx => (hcontains x hx).2)
 
-end PEqualNP.Outside.L_meta_4970
-
-
-namespace PEqualNP.Outside.L_meta_4970.SparseTests
+namespace SparseTests
 
 def singletonInput {α : Type*} [DecidableEq α] (i : α) : α → Bool :=
   fun j => decide (j = i)
@@ -203,10 +200,7 @@ lemma conjunction_eq_of_sparse_tests {α : Type*} [DecidableEq α]
       rw [hpos] at hfx
       exact le_antisymm (by cases f x <;> decide) hfx
 
-end PEqualNP.Outside.L_meta_4970.SparseTests
-
-
-namespace PEqualNP.Outside.L_meta_4970
+end SparseTests
 
 lemma off_diagonal_factorization {α : Type*} (P Q : α → Prop) :
     (∃ a b, a ≠ b ∧ P a ∧ Q b) ↔
@@ -305,5 +299,123 @@ lemma no_nine_rectangle_cover_128 :
   rintro ⟨A, B, hdiag, hcover⟩
   have h := off_diagonal_rectangle_bound 128 9 A B hdiag hcover
   exact (by decide : ¬ 128 ≤ Nat.choose 9 (9 / 2)) h
+
+namespace MandatoryInputs
+
+-- These identities do not assert an OR-count lower bound.
+-- The ordered pair domain includes diagonal pairs, which record singleton deletions.
+-- For arbitrary functions the pair set records evaluations; its implicate meaning uses monotonicity.
+
+def Mandatory {α : Type*} (f : (α → Bool) → Bool) (a : α) : Prop :=
+  ∀ x, f x = true → x a = true
+
+def core {α : Type*} (f : (α → Bool) → Bool) : Set α :=
+  {a | Mandatory f a}
+
+
+lemma core_or {α : Type*} (f g : (α → Bool) → Bool) :
+    core (fun x => f x || g x) = core f ∩ core g := by
+  ext a
+  change Mandatory (fun x => f x || g x) a ↔ Mandatory f a ∧ Mandatory g a
+  constructor
+  · intro h
+    constructor
+    · intro x hx
+      exact h x (by simp [hx])
+    · intro x hx
+      exact h x (by simp [hx])
+  · rintro ⟨hf, hg⟩ x hx
+    have hh : f x = true ∨ g x = true := by simpa using hx
+    rcases hh with h | h
+    · exact hf x h
+    · exact hg x h
+
+lemma core_and {α : Type*} (f g : (α → Bool) → Bool)
+    (hf : Monotone f) (hg : Monotone g) :
+    core (fun x => f x && g x) = core f ∪ core g := by
+  ext a
+  change Mandatory (fun x => f x && g x) a ↔ Mandatory f a ∨ Mandatory g a
+  classical
+  constructor
+  · intro h
+    by_contra hn
+    have hnf : ¬ Mandatory f a := fun hc => hn (Or.inl hc)
+    have hng : ¬ Mandatory g a := fun hc => hn (Or.inr hc)
+    simp only [Mandatory, not_forall] at hnf hng
+    obtain ⟨x, hfx, hxa⟩ := hnf
+    obtain ⟨y, hgy, hya⟩ := hng
+    let z : α → Bool := fun i => x i || y i
+    have hxz : x ≤ z := by
+      intro i
+      dsimp [z]
+      cases x i <;> cases y i <;> first | exact le_rfl | exact Bool.false_le true
+    have hyz : y ≤ z := by
+      intro i
+      dsimp [z]
+      cases x i <;> cases y i <;> first | exact le_rfl | exact Bool.false_le true
+    have hfz : f z = true := by
+      have hh := hf hxz
+      rw [hfx] at hh
+      exact le_antisymm (Bool.le_true _) hh
+    have hgz : g z = true := by
+      have hh := hg hyz
+      rw [hgy] at hh
+      exact le_antisymm (Bool.le_true _) hh
+    have hza : z a ≠ true := by
+      dsimp [z]
+      cases hx : x a <;> cases hy : y a <;> simp_all
+    exact hza (h z (by simp [hfz, hgz]))
+  · intro h x hx
+    have hh : f x = true ∧ g x = true := by simpa using hx
+    rcases h with h | h
+    · exact h x hh.1
+    · exact h x hh.2
+
+def conjunction {α : Type*} (Q : Finset α) (x : α → Bool) : Bool :=
+  decide (∀ a ∈ Q, x a = true)
+
+lemma core_conjunction {α : Type*} [DecidableEq α] (Q : Finset α) :
+    core (conjunction Q) = (Q : Set α) := by
+  ext a
+  constructor
+  · intro h
+    by_contra ha
+    have ht : conjunction Q (fun i => decide (i ∈ Q)) = true := by
+      simp [conjunction]
+    have := h (fun i => decide (i ∈ Q)) ht
+    apply ha
+    change a ∈ Q
+    simpa only [decide_eq_true_eq] using this
+  · intro ha x hx
+    have hh : ∀ i ∈ Q, x i = true := by
+      simpa only [conjunction, decide_eq_true_eq] using hx
+    exact hh a ha
+
+def fullMinusPair {α : Type*} [DecidableEq α] (a b : α) : α → Bool :=
+  fun i => decide (i ≠ a ∧ i ≠ b)
+
+def pairImplicates {α : Type*} [DecidableEq α] (f : (α → Bool) → Bool) : Set (α × α) :=
+  {pair | f (fullMinusPair pair.1 pair.2) = false}
+
+lemma pairImplicates_and {α : Type*} [DecidableEq α] (f g : (α → Bool) → Bool) :
+    pairImplicates (fun x => f x && g x) = pairImplicates f ∪ pairImplicates g := by
+  ext pair
+  change (f (fullMinusPair pair.1 pair.2) && g (fullMinusPair pair.1 pair.2)) = false ↔
+    f (fullMinusPair pair.1 pair.2) = false ∨ g (fullMinusPair pair.1 pair.2) = false
+  cases f (fullMinusPair pair.1 pair.2) <;> cases g (fullMinusPair pair.1 pair.2) <;> simp
+
+lemma pairImplicates_or {α : Type*} [DecidableEq α] (f g : (α → Bool) → Bool) :
+    pairImplicates (fun x => f x || g x) = pairImplicates f ∩ pairImplicates g := by
+  ext pair
+  simp [pairImplicates]
+
+lemma pairImplicates_input {α : Type*} [DecidableEq α] (i : α) :
+    pairImplicates (fun x => x i) = {pair | i = pair.1 ∨ i = pair.2} := by
+  ext pair
+  by_cases ha : i = pair.1 <;> by_cases hb : i = pair.2 <;>
+    simp [pairImplicates, fullMinusPair, ha, hb]
+
+
+end MandatoryInputs
 
 end PEqualNP.Outside.L_meta_4970
