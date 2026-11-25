@@ -105,4 +105,75 @@ lemma replace_dominated_signal {α : Type*} {n : ℕ}
     · simpa [hk] using hnegative x hx
     · simp [hk]
 
+namespace NatFlip
+
+lemma xor_pow_of_testBit_false {r i : Nat} (hr : r.testBit i = false) :
+    r ^^^ 2 ^ i = r + 2 ^ i := by
+  have hpow : 0 < 2 ^ i := Nat.two_pow_pos i
+  have hbit : (r / 2 ^ i).testBit 0 = false := by
+    simpa only [Nat.testBit_div_two_pow, Nat.zero_add] using hr
+  have heven : Even (r / 2 ^ i) :=
+    Nat.even_iff.mpr (Nat.mod_two_eq_zero_iff_testBit_zero.mpr hbit)
+  have hdiv : (r ^^^ 2 ^ i) / 2 ^ i = r / 2 ^ i + 1 := by
+    rw [Nat.xor_div_two_pow, Nat.div_self hpow, Nat.xor_one_of_even heven]
+  have hmod : (r ^^^ 2 ^ i) % 2 ^ i = r % 2 ^ i := by
+    rw [Nat.xor_mod_two_pow, Nat.mod_self, Nat.xor_zero]
+  calc
+    r ^^^ 2 ^ i = (r ^^^ 2 ^ i) % 2 ^ i + 2 ^ i * ((r ^^^ 2 ^ i) / 2 ^ i) :=
+      (Nat.mod_add_div _ _).symm
+    _ = r % 2 ^ i + 2 ^ i * (r / 2 ^ i + 1) := by rw [hmod, hdiv]
+    _ = r + 2 ^ i := by
+      rw [Nat.mul_add, Nat.mul_one, ← Nat.add_assoc, Nat.mod_add_div]
+
+lemma xor_pow_of_testBit_true {r i : Nat} (hr : r.testBit i = true) :
+    r ^^^ 2 ^ i = r - 2 ^ i := by
+  have hbit : (r ^^^ 2 ^ i).testBit i = false := by
+    simp [Nat.testBit_xor, hr]
+  have h := xor_pow_of_testBit_false hbit
+  rw [Nat.xor_xor_cancel_right] at h
+  omega
+
+lemma testBit_sub_pow {r i : Nat} (h : 2 ^ i ≤ r) :
+    (r - 2 ^ i).testBit i = !r.testBit i := by
+  have hflip := Nat.testBit_two_pow_add_eq (r - 2 ^ i) i
+  rw [Nat.add_sub_of_le h] at hflip
+  simpa using (congrArg Bool.not hflip).symm
+
+def flipCoordinate (B mask i : Nat) : Nat :=
+  ((B &&& mask) <<< (2 ^ i)) ||| ((B >>> (2 ^ i)) &&& mask)
+
+lemma flipCoordinate_testBit (B mask i N r : Nat)
+    (hmask : ∀ t < N, mask.testBit t = !t.testBit i)
+    (hr : r < N) :
+    (flipCoordinate B mask i).testBit r = B.testBit (r ^^^ 2 ^ i) := by
+  simp only [flipCoordinate, Nat.testBit_or, Nat.testBit_shiftLeft,
+    Nat.testBit_shiftRight, Nat.testBit_and]
+  have hm := hmask r hr
+  cases hbit : r.testBit i with
+  | false =>
+    rw [xor_pow_of_testBit_false hbit]
+    by_cases hle : 2 ^ i ≤ r
+    · have hs : r - 2 ^ i < N := (Nat.sub_le r _).trans_lt hr
+      have hms := hmask (r - 2 ^ i) hs
+      have hsub := testBit_sub_pow hle
+      simp [hle, hm, hms, hsub, hbit, Nat.add_comm]
+    · simp [hle, hm, hbit, Nat.add_comm]
+  | true =>
+    rw [xor_pow_of_testBit_true hbit]
+    have hle : 2 ^ i ≤ r := Nat.ge_two_pow_of_testBit hbit
+    have hs : r - 2 ^ i < N := (Nat.sub_le r _).trans_lt hr
+    have hms := hmask (r - 2 ^ i) hs
+    have hsub := testBit_sub_pow hle
+    simp [hle, hm, hms, hsub, hbit]
+
+lemma flipCoordinate_testBit_of_mask (B mask m i r : Nat)
+    (hmask : ∀ t, mask.testBit t = decide (t < 2 ^ m ∧ t.testBit i = false))
+    (hr : r < 2 ^ m) :
+    (flipCoordinate B mask i).testBit r = B.testBit (r ^^^ 2 ^ i) := by
+  apply flipCoordinate_testBit B mask i (2 ^ m) r ?_ hr
+  intro t ht
+  simp [hmask, ht]
+
+end NatFlip
+
 end PEqualNP.Outside.L_meta_10760
