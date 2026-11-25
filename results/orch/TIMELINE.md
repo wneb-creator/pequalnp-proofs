@@ -10,3 +10,4 @@
 - 2026-11-25T14:19:23.314643+00:00: primary-NOT semantic identity compiled and independently reviewed; no size-preserving elimination established.
 - 2026-11-25T14:20:12.355219+00:00:20-minute strategy checkpoint; prioritized stronger binary lower bound and paused expensive baseline.
 - 2026-11-25T14:21:31.029663+00:00: structural143-line two-input compression obstruction compiled and independently reviewed.
+- 2026-11-25T14:25:22.017896+00:00: generic strict binary-count restriction lemma compiled and independently reviewed.

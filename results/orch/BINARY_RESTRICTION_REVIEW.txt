@@ -1,0 +1,67 @@
+Independent red-team review: PASS for preservation as a checked partial.
+Reviewer: lean_environment (independent of author status_and_review).
+Reviewed UTC: 2026-11-25T14:24:51.218217+00:00
+Source: results/orch/lemmas/BinaryRestriction.lean
+Source SHA-256: 08339a0b0f21e26c7065f47303e3b00d6bd58d8e630ff9c563b68a441273883d
+Source size: 534 lines, 23229 bytes; regular UTF-8 file, not a symlink or executable.
+
+Exact scope and assumptions
+The final lemma is Restriction.restrict_last_binary, inside the helper namespace for
+L-meta-2592. It assumes FanInTwo C, a nonconstant false cofactor of the last input,
+and a witness that changing only that last input changes the original output.
+It produces a FanInTwo circuit D on the remaining n inputs computing exactly that
+false cofactor, with nonNotCount D.gates + 1 <= nonNotCount C.gates.
+Here nonNotCount counts every gate whose operation is not NOT; under FanInTwo these
+are AND/OR gates, including permitted zero- and one-input gates. The claim is not a
+bound on total gates and does not claim that a NOT gate is necessarily eliminated.
+No Petersen-function hypothesis or 19-gate contradiction is established in this file.
+
+Proof review
+The original-wire-to-status map represents each old wire as a Boolean constant or
+a live wire of the simplified circuit. inv_elim proves evaluation preservation for
+all wire indices, including default-false out-of-range reads. The simplifier emits
+at most one gate with the original operation, so the operation-count bound is sound.
+
+The new PairInv tracks equality between executions where the last input is false
+and true for every status that remains live. simplify_live_equal correctly shows
+that a retained AND/OR gate depends only on live input statuses; a NOT gate uses
+only its first input, exactly as GateOp.eval does, even if a second input is present.
+If an AND/OR gate is removed, the non-NOT budget saves at least one. Induction yields
+the precise disjunction: a saving occurred, or all surviving live statuses agree
+between the two executions. The initial status map fixes only the last input false
+and handles every later index with the required default false.
+
+The nonconstant-cofactor hypothesis excludes a final constant status. A live final
+status gives the new circuit output. The essential-input witness contradicts the
+no-saving branch of PairInv, hence forces the strict non-NOT count reduction. The
+semantic invariant then proves the new circuit computes the false cofactor for every
+assignment. I found no missing premise, altered circuit definition, or circular use
+of the target statement.
+
+Copied provenance
+All 37 inherited helper declarations preceding PairInv match their counterparts in
+lean/PEqualNP/Outside/L_meta_4725.lean, modulo blank lines and changing the keyword
+theorem to lemma. No substantive proof or statement change was found in that block.
+That source entered history in commit 6cfaa2633a7edfd9699b8598c90aba2abb5ed460,
+Prove L-meta-4725 for the Petersen graph (#9152).
+The inherited source SHA-256 is
+1f9ecfd77d1ca6167a432c28243b294bb92df7242e37de34678357516ca2b3e2.
+
+Static and namespace checks
+Imports are only Mathlib.Tactic.ByContra and the permitted PEqualNP.Defs, on the
+first two lines. All declarations are under PEqualNP.Outside.L_meta_2592.Restriction
+or its CircuitProof child namespace. Explicit namespace closures are balanced.
+There are no sorry, new axioms, native_decide, unsafe declarations, forbidden code
+commands, attributes, strings, _root_ text, custom data types/instances, or options.
+Stat is an abbreviation of the library Sum type. Whitespace checks passed.
+
+Validation evidence and limits
+The source author/root reported compilation exit 0. I read the complete
+BinaryRestriction4.stdout and .stderr: stdout contains only tactic-style and unused
+simp-argument warnings; stderr is empty; neither contains errors. Both logs are
+newer than the reviewed source. I did not repeat the heavy Lean build while the
+higher-priority SignedFloor check was active.
+
+Verdict: suitable for immediate preservation on the pilot branch as a checked
+partial. This is not the exact posted theorem, not a complete proof of L-meta-2592,
+and not a submission-ready single-file proof PR or checker ACCEPTED verdict.
