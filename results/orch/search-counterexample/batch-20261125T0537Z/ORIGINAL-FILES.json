@@ -1,0 +1,284 @@
+[
+  {
+    "original_name": "solve_global_cnf_v4.py",
+    "original_sha256": "3faad646f9a5edccf0ab496651f69d0a3782ff8b0bc256e34af0b9f6952f1284",
+    "original_size": 8501,
+    "archived_name": "solve_global_cnf_v4.py"
+  },
+  {
+    "original_name": "solve_global_cnf_v5.py",
+    "original_sha256": "6f57b9b1dd15fa080cb3629058a6905d4ab6282ab7f02c82257442d68e21a585",
+    "original_size": 8659,
+    "archived_name": "solve_global_cnf_v5.py"
+  },
+  {
+    "original_name": "solve_multi_cnf_v1.py",
+    "original_sha256": "f90869f71da548f23583f9aea94f1790b51d4ac7f4e1c65a848d423c281612c2",
+    "original_size": 10957,
+    "archived_name": "solve_multi_cnf_v1.py"
+  },
+  {
+    "original_name": "global_or_repair_cnf.py",
+    "original_sha256": "68ac5c360f2f0f4d5f22ab98889b3eda4a0a89e567fbd9436b36c21ee82d771b",
+    "original_size": 12380,
+    "archived_name": "global_or_repair_cnf.py"
+  },
+  {
+    "original_name": "solve-global-cnf-v4-help.txt",
+    "original_sha256": "93c5497fc837dd78c94af6bb92c30cb0b67f5c3ea76982a4c14ffadf7577a18b",
+    "original_size": 714,
+    "archived_name": "solve-global-cnf-v4-help.txt"
+  },
+  {
+    "original_name": "solve-global-cnf-v5-help.txt",
+    "original_sha256": "db751cd5d9fe3673ff37af90d6055bb6e33a88664e31f183befedaa6490f7a63",
+    "original_size": 824,
+    "archived_name": "solve-global-cnf-v5-help.txt"
+  },
+  {
+    "original_name": "solve-multi-cnf-v1-help.txt",
+    "original_sha256": "72d985c373f8f6ec8a77571c75f7d25b4977bc654ea0e302806a6bdda5b058e4",
+    "original_size": 817,
+    "archived_name": "solve-multi-cnf-v1-help.txt"
+  },
+  {
+    "original_name": "global-wrapper-cycle4-smoke.cnf",
+    "original_sha256": "ed29a729d48923eb6c54a8f1c33a42bf46608e96ccc01921b69769a57540053b",
+    "original_size": 7253,
+    "archived_name": "global-wrapper-cycle4-smoke.cnf"
+  },
+  {
+    "original_name": "global-wrapper-cycle4-smoke.mapping.json",
+    "original_sha256": "96050b7b1fc30a8dca3b1c829e4af34856da5f07d45d5d5c406ea4083c64dd58",
+    "original_size": 1149,
+    "archived_name": "global-wrapper-cycle4-smoke.mapping.json"
+  },
+  {
+    "original_name": "repair-free5-control-compact.json",
+    "original_sha256": "1589e5feea0189ab56befb969186bffbdb7fc8362ce1ede7640577be6d1c24f2",
+    "original_size": 4014,
+    "archived_name": "repair-free5-control-compact.json"
+  },
+  {
+    "original_name": "repair-free5-control-compact.log",
+    "original_sha256": "f0a75391864ffa92c045c610dc5c747c65216118c5a03ebab50d92435b3eecb7",
+    "original_size": 281,
+    "archived_name": "repair-free5-control-compact.log"
+  },
+  {
+    "original_name": "global-guarded-stream-smoke.command.json",
+    "original_sha256": "68eab04a31ac78d9439fdbccb6f991a003e37cab35c5dcc5d0ff6db3221da244",
+    "original_size": 186,
+    "archived_name": "global-guarded-stream-smoke.command.json"
+  },
+  {
+    "original_name": "global-guarded-stream-smoke.log",
+    "original_sha256": "f7a7a558aa32a26478c6fe1b73d39f590ca9589789b9350b064a686bfd67d0a3",
+    "original_size": 404,
+    "archived_name": "global-guarded-stream-smoke.log"
+  },
+  {
+    "original_name": "global-guarded-stream-smoke.process.json",
+    "original_sha256": "b130e4db54a9b6b98ac241f70b259dede445474a4333634562395e61cf538807",
+    "original_size": 769,
+    "archived_name": "global-guarded-stream-smoke.process.json"
+  },
+  {
+    "original_name": "global-guarded-stream-smoke.reader.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "original_size": 0,
+    "archived_name": "global-guarded-stream-smoke.reader.log"
+  },
+  {
+    "original_name": "global-guarded-stream-smoke.sol",
+    "original_sha256": "da1550684eb2decb80365487261b62b63ef1745fa7584a427b2f61c7372fa40e",
+    "original_size": 897,
+    "archived_name": "global-guarded-stream-smoke.sol"
+  },
+  {
+    "original_name": "global-guarded-stream-smoke.solver.log",
+    "original_sha256": "5b70debe6daeb5007c468d191e07c8959e524c8caf842a4ba865bf7de2087f76",
+    "original_size": 2908,
+    "archived_name": "global-guarded-stream-smoke.solver.log"
+  },
+  {
+    "original_name": "global-guarded-stream-smoke.status.json",
+    "original_sha256": "d401d1cfb5c13162b927f5de76171eff6cb7b11f74ca4259212395c9a9779773",
+    "original_size": 296,
+    "archived_name": "global-guarded-stream-smoke.status.json"
+  },
+  {
+    "original_name": "global-guarded-stream-smoke.witness.json",
+    "original_sha256": "b22bece09cc5185bc5adc8f728cfb74a35de5137ff8b05c350c515adeaa64c88",
+    "original_size": 447,
+    "archived_name": "global-guarded-stream-smoke.witness.json"
+  },
+  {
+    "original_name": "repair-fixed51-stream-control.command.json",
+    "original_sha256": "c8df6c766816faaa18c4921c5f60d222075a0822b3817ff1f664492969fc1f91",
+    "original_size": 188,
+    "archived_name": "repair-fixed51-stream-control.command.json"
+  },
+  {
+    "original_name": "repair-fixed51-stream-control.log",
+    "original_sha256": "721f94061ccafe4991a3a39cebab00231019266a267d2f6784f7327055dd1be7",
+    "original_size": 430,
+    "archived_name": "repair-fixed51-stream-control.log"
+  },
+  {
+    "original_name": "repair-fixed51-stream-control.process.json",
+    "original_sha256": "6d72581328ce2815d1b21e5f08ecaaffcdb0991c1b685e0577fe9bbbe12d8035",
+    "original_size": 761,
+    "archived_name": "repair-fixed51-stream-control.process.json"
+  },
+  {
+    "original_name": "repair-fixed51-stream-control.reader.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "original_size": 0,
+    "archived_name": "repair-fixed51-stream-control.reader.log"
+  },
+  {
+    "original_name": "repair-fixed51-stream-control.sol",
+    "original_sha256": "e44f9f7bb9e59c360b704d17fb7ceb94f3d704f6503285d79efb514a078c844e",
+    "original_size": 163720,
+    "archived_name": "repair-fixed51-stream-control.sol.gz"
+  },
+  {
+    "original_name": "repair-fixed51-stream-control.solver.log",
+    "original_sha256": "4dec0d9bc651de787144450c5bc4fa8571ba2febbd4d65127d26d7a73040172d",
+    "original_size": 2931,
+    "archived_name": "repair-fixed51-stream-control.solver.log"
+  },
+  {
+    "original_name": "repair-fixed51-stream-control.status.json",
+    "original_sha256": "285cec90181714dcf227ca28402824e56301fa7001d91ecc679b9c958bc32d88",
+    "original_size": 314,
+    "archived_name": "repair-fixed51-stream-control.status.json"
+  },
+  {
+    "original_name": "repair-fixed51-stream-control.witness.json",
+    "original_sha256": "7249c55023ef2ec283677d2955303f7e3e2056d40bbee46abcb92f08c1176b77",
+    "original_size": 8423,
+    "archived_name": "repair-fixed51-stream-control.witness.json"
+  },
+  {
+    "original_name": "repair-free5-control-run.command.json",
+    "original_sha256": "d13aff713a40b9147325c22f8764134f91ded911c30c2b3b2a21b4364334b49d",
+    "original_size": 235,
+    "archived_name": "repair-free5-control-run.command.json"
+  },
+  {
+    "original_name": "repair-free5-control-run.log",
+    "original_sha256": "5375cc206657fc24a4e600718f61e30588a5f28c883aa3750998c63385aa88ec",
+    "original_size": 422,
+    "archived_name": "repair-free5-control-run.log"
+  },
+  {
+    "original_name": "repair-free5-control-run.process.json",
+    "original_sha256": "c2cfa853066394e909522f5ffc9dd73270be0405aef6453a0d29e1266e746522",
+    "original_size": 691,
+    "archived_name": "repair-free5-control-run.process.json"
+  },
+  {
+    "original_name": "repair-free5-control-run.reader.log",
+    "original_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "original_size": 0,
+    "archived_name": "repair-free5-control-run.reader.log"
+  },
+  {
+    "original_name": "repair-free5-control-run.sol",
+    "original_sha256": "2c33afd49868a8a38899e8c9c183d314b4d6df7c2dd9daf670d217ffa2f8359a",
+    "original_size": 3412273,
+    "archived_name": "repair-free5-control-run.sol.gz"
+  },
+  {
+    "original_name": "repair-free5-control-run.solver.log",
+    "original_sha256": "0817dbbc73e03f730c759ecea5fcb709a609e1675ee8745fd35487efed9ba42f",
+    "original_size": 11772,
+    "archived_name": "repair-free5-control-run.solver.log"
+  },
+  {
+    "original_name": "repair-free5-control-run.status.json",
+    "original_sha256": "ec754ef207251c08c14db06011295309766d44a943798cf9b3c7569301b93df1",
+    "original_size": 306,
+    "archived_name": "repair-free5-control-run.status.json"
+  },
+  {
+    "original_name": "repair-free5-control-run.witness.json",
+    "original_sha256": "354aa82f20008168c2d9028d92b52b43dad633cedea3f7391e20885b1cf0a0a5",
+    "original_size": 8222,
+    "archived_name": "repair-free5-control-run.witness.json"
+  },
+  {
+    "original_name": "repair-control51-fixed.cnf",
+    "original_sha256": "d411bfd19874a6d34e2a5a185c31fafda82b900fae9c0fa42aaf7eb49eaee99e",
+    "original_size": 1288893,
+    "archived_name": "repair-control51-fixed.cnf.gz"
+  },
+  {
+    "original_name": "repair-control51-fixed.mapping.json",
+    "original_sha256": "bbbcde803129fb6501d6937d7018f3a77f6470ceaf44e78ff8fd7e94b871abc3",
+    "original_size": 81685,
+    "archived_name": "repair-control51-fixed.mapping.json"
+  },
+  {
+    "original_name": "repair-control51-fixed.encode.log",
+    "original_sha256": "36ca76c071f697ae45d5fb2a4946629f86201b2c9d0af9970eb952c11fa97d21",
+    "original_size": 398,
+    "archived_name": "repair-control51-fixed.encode.log"
+  },
+  {
+    "original_name": "repair-control51-free5.cnf",
+    "original_sha256": "786553f29667bf1452c2ea1f63f6cd1ebe5919b16b9b5b09782784b837c00480",
+    "original_size": 29010506,
+    "archived_name": "repair-control51-free5.cnf.gz"
+  },
+  {
+    "original_name": "repair-control51-free5.mapping.json",
+    "original_sha256": "7ae996e3272d44a12bb89d27ad64c87ccccb704961dd9c6493c3bfaae13ad6a2",
+    "original_size": 81244,
+    "archived_name": "repair-control51-free5.mapping.json"
+  },
+  {
+    "original_name": "repair-control51-free5.encode.log",
+    "original_sha256": "a3ada767061c818d5a196742b0f65bf37e36113c4ed50fbe54fe747d9c502dec",
+    "original_size": 414,
+    "archived_name": "repair-control51-free5.encode.log"
+  },
+  {
+    "original_name": "repair50-first3-pencils.cnf",
+    "original_sha256": "26ef66a200d8c4c6bf423085c746a5c1a49a67d13e3a9eb7cb3984ff2eddda5f",
+    "original_size": 39180852,
+    "archived_name": "repair50-first3-pencils.cnf.gz"
+  },
+  {
+    "original_name": "repair50-first3-pencils.mapping.json",
+    "original_sha256": "1f87a90520b07c19afb5aa4825b2f3c96a77c287286a7f825a4d73e9d3aae45a",
+    "original_size": 79934,
+    "archived_name": "repair50-first3-pencils.mapping.json"
+  },
+  {
+    "original_name": "repair50-first3-pencils.encode.log",
+    "original_sha256": "08e93eb1405d74c711d34e5f9efe90a559f5822372acc2a877c67f55cda4780e",
+    "original_size": 419,
+    "archived_name": "repair50-first3-pencils.encode.log"
+  },
+  {
+    "original_name": "repair50-late-pencils-and-joins.cnf",
+    "original_sha256": "07dd9bf4360ca5b2fc27c25d3a737c22e8ddcd9d7d941f4dec8be3c70ca33f1d",
+    "original_size": 16730455,
+    "archived_name": "repair50-late-pencils-and-joins.cnf.gz"
+  },
+  {
+    "original_name": "repair50-late-pencils-and-joins.mapping.json",
+    "original_sha256": "66d8770ac922b5068866b0d8880ca0d349ed06758e516d640972e646dbefc867",
+    "original_size": 80154,
+    "archived_name": "repair50-late-pencils-and-joins.mapping.json"
+  },
+  {
+    "original_name": "repair50-late-pencils-and-joins.encode.log",
+    "original_sha256": "6e1bde35ae8b3dcf1ce5473eaea8ad6026673464832d0366595c0a8fa8bf0749",
+    "original_size": 431,
+    "archived_name": "repair50-late-pencils-and-joins.encode.log"
+  }
+]

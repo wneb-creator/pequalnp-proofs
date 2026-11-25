@@ -1,0 +1,21 @@
+{
+  "pid": 30140,
+  "started_utc": "2026-11-25T05:34:19.820988+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-62/elan/toolchains/leanprover--lean4---v4.36.0/bin/cadical",
+    "-t",
+    "30",
+    "-w",
+    "/tmp/oec/pequalnp-pilot-62/repair-fixed51-stream-control.sol",
+    "-"
+  ],
+  "address_space_limit_bytes": 3221225472,
+  "input_stem": "/tmp/oec/pequalnp-pilot-62/repair-control51-fixed",
+  "shared_memory_start_limit_bytes": 4294967296,
+  "shared_memory_stop_limit_bytes": 6979321856,
+  "owned_process_group": 30140,
+  "reader_pid": 30141,
+  "input_gzip": "/tmp/oec/pequalnp-pilot-62/repair-control51-fixed.cnf.gz",
+  "input_uncompressed_sha256": "d411bfd19874a6d34e2a5a185c31fafda82b900fae9c0fa42aaf7eb49eaee99e",
+  "process_start_ticks": 1028702
+}

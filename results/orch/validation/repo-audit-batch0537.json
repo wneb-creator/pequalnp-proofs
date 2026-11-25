@@ -1,0 +1,225 @@
+{
+  "scope": "Frozen batch0537 controls, prepared restricted neighborhoods, source-only multi-output runner and honest root provenance; excludes all active solver logs",
+  "checks": [
+    "49 archived and 47 original/decompressed hashes verified",
+    "C4 control replayed on all6 samples",
+    "Two51-OR controls replayed on all546 samples each",
+    "Prepared50 neighborhoods have no result asserted",
+    "Cache advice provenance records only POSIX_FADV_DONTNEED and before/after usage",
+    "No credential patterns found in archived text"
+  ],
+  "files": [
+    {
+      "path": "results/orch/NOTES.md",
+      "sha256": "be60192f1bca5cdbc1b5c262107e0ca5b6ddd56d54e89e93f966b69333195553"
+    },
+    {
+      "path": "results/orch/TIMELINE.md",
+      "sha256": "8f5be8a1b9c841f93e2770164e46f39be67de9e92cacf610f70fa6786c28a004"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/ORIGINAL-FILES.json",
+      "sha256": "61fde302e74ae8f973c8e39d6a93a197150e6747b404d716391cee2975aae6a3"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/README.md",
+      "sha256": "85dd61cdedb73b8e25961349134b9644ad225dc4aebd000a1f99993192890007"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/SHA256SUMS",
+      "sha256": "332f2036183fc45676b0fa67b43bfa603f161c826e4639ec036dcab87ab1eb0d"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/global-guarded-stream-smoke.command.json",
+      "sha256": "68eab04a31ac78d9439fdbccb6f991a003e37cab35c5dcc5d0ff6db3221da244"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/global-guarded-stream-smoke.log",
+      "sha256": "f7a7a558aa32a26478c6fe1b73d39f590ca9589789b9350b064a686bfd67d0a3"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/global-guarded-stream-smoke.process.json",
+      "sha256": "b130e4db54a9b6b98ac241f70b259dede445474a4333634562395e61cf538807"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/global-guarded-stream-smoke.reader.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/global-guarded-stream-smoke.sol",
+      "sha256": "da1550684eb2decb80365487261b62b63ef1745fa7584a427b2f61c7372fa40e"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/global-guarded-stream-smoke.solver.log",
+      "sha256": "5b70debe6daeb5007c468d191e07c8959e524c8caf842a4ba865bf7de2087f76"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/global-guarded-stream-smoke.status.json",
+      "sha256": "d401d1cfb5c13162b927f5de76171eff6cb7b11f74ca4259212395c9a9779773"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/global-guarded-stream-smoke.witness.json",
+      "sha256": "b22bece09cc5185bc5adc8f728cfb74a35de5137ff8b05c350c515adeaa64c88"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/global-wrapper-cycle4-smoke.cnf",
+      "sha256": "ed29a729d48923eb6c54a8f1c33a42bf46608e96ccc01921b69769a57540053b"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/global-wrapper-cycle4-smoke.mapping.json",
+      "sha256": "96050b7b1fc30a8dca3b1c829e4af34856da5f07d45d5d5c406ea4083c64dd58"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/global_or_repair_cnf.py",
+      "sha256": "68ac5c360f2f0f4d5f22ab98889b3eda4a0a89e567fbd9436b36c21ee82d771b"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-control51-fixed.cnf.gz",
+      "sha256": "873c807967afcc877ddb9f34df2c3979bea12cdee5e2bca2f6f6fcd309ed5353"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-control51-fixed.encode.log",
+      "sha256": "36ca76c071f697ae45d5fb2a4946629f86201b2c9d0af9970eb952c11fa97d21"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-control51-fixed.mapping.json",
+      "sha256": "bbbcde803129fb6501d6937d7018f3a77f6470ceaf44e78ff8fd7e94b871abc3"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-control51-free5.cnf.gz",
+      "sha256": "3c086b274361b60c956fcc43460fb009a2b2c9b22175819a987767269c1fd76c"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-control51-free5.encode.log",
+      "sha256": "a3ada767061c818d5a196742b0f65bf37e36113c4ed50fbe54fe747d9c502dec"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-control51-free5.mapping.json",
+      "sha256": "7ae996e3272d44a12bb89d27ad64c87ccccb704961dd9c6493c3bfaae13ad6a2"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-fixed51-stream-control.command.json",
+      "sha256": "c8df6c766816faaa18c4921c5f60d222075a0822b3817ff1f664492969fc1f91"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-fixed51-stream-control.log",
+      "sha256": "721f94061ccafe4991a3a39cebab00231019266a267d2f6784f7327055dd1be7"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-fixed51-stream-control.process.json",
+      "sha256": "6d72581328ce2815d1b21e5f08ecaaffcdb0991c1b685e0577fe9bbbe12d8035"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-fixed51-stream-control.reader.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-fixed51-stream-control.sol.gz",
+      "sha256": "80f17e1a0c5042d443ab3479205f426f62086e304bcdec22e3e4eb63006fce57"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-fixed51-stream-control.solver.log",
+      "sha256": "4dec0d9bc651de787144450c5bc4fa8571ba2febbd4d65127d26d7a73040172d"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-fixed51-stream-control.status.json",
+      "sha256": "285cec90181714dcf227ca28402824e56301fa7001d91ecc679b9c958bc32d88"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-fixed51-stream-control.witness.json",
+      "sha256": "7249c55023ef2ec283677d2955303f7e3e2056d40bbee46abcb92f08c1176b77"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-free5-control-compact.json",
+      "sha256": "1589e5feea0189ab56befb969186bffbdb7fc8362ce1ede7640577be6d1c24f2"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-free5-control-compact.log",
+      "sha256": "f0a75391864ffa92c045c610dc5c747c65216118c5a03ebab50d92435b3eecb7"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-free5-control-run.command.json",
+      "sha256": "d13aff713a40b9147325c22f8764134f91ded911c30c2b3b2a21b4364334b49d"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-free5-control-run.log",
+      "sha256": "5375cc206657fc24a4e600718f61e30588a5f28c883aa3750998c63385aa88ec"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-free5-control-run.process.json",
+      "sha256": "c2cfa853066394e909522f5ffc9dd73270be0405aef6453a0d29e1266e746522"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-free5-control-run.reader.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-free5-control-run.sol.gz",
+      "sha256": "8322d5ce27e1acbf75610eb80acadca957545e22afb334e854dd08e502c58287"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-free5-control-run.solver.log",
+      "sha256": "0817dbbc73e03f730c759ecea5fcb709a609e1675ee8745fd35487efed9ba42f"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-free5-control-run.status.json",
+      "sha256": "ec754ef207251c08c14db06011295309766d44a943798cf9b3c7569301b93df1"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair-free5-control-run.witness.json",
+      "sha256": "354aa82f20008168c2d9028d92b52b43dad633cedea3f7391e20885b1cf0a0a5"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair50-first3-pencils.cnf.gz",
+      "sha256": "6545a99885065c57a71d90b1ced91e9f4f94a847130de7d6133de7712d4a4747"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair50-first3-pencils.encode.log",
+      "sha256": "08e93eb1405d74c711d34e5f9efe90a559f5822372acc2a877c67f55cda4780e"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair50-first3-pencils.mapping.json",
+      "sha256": "1f87a90520b07c19afb5aa4825b2f3c96a77c287286a7f825a4d73e9d3aae45a"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair50-late-pencils-and-joins.cnf.gz",
+      "sha256": "d8fa94a143c6fc805b1b08e290515d5f2e876c6ba7c7dacd691c4aba8e1f7de8"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair50-late-pencils-and-joins.encode.log",
+      "sha256": "6e1bde35ae8b3dcf1ce5473eaea8ad6026673464832d0366595c0a8fa8bf0749"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/repair50-late-pencils-and-joins.mapping.json",
+      "sha256": "66d8770ac922b5068866b0d8880ca0d349ed06758e516d640972e646dbefc867"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/solve-global-cnf-v4-help.txt",
+      "sha256": "93c5497fc837dd78c94af6bb92c30cb0b67f5c3ea76982a4c14ffadf7577a18b"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/solve-global-cnf-v5-help.txt",
+      "sha256": "db751cd5d9fe3673ff37af90d6055bb6e33a88664e31f183befedaa6490f7a63"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/solve-multi-cnf-v1-help.txt",
+      "sha256": "72d985c373f8f6ec8a77571c75f7d25b4977bc654ea0e302806a6bdda5b058e4"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/solve_global_cnf_v4.py",
+      "sha256": "3faad646f9a5edccf0ab496651f69d0a3782ff8b0bc256e34af0b9f6952f1284"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/solve_global_cnf_v5.py",
+      "sha256": "6f57b9b1dd15fa080cb3629058a6905d4ab6282ab7f02c82257442d68e21a585"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0537Z/solve_multi_cnf_v1.py",
+      "sha256": "f90869f71da548f23583f9aea94f1790b51d4ac7f4e1c65a848d423c281612c2"
+    },
+    {
+      "path": "results/orch/validation/lean-cache-advice.json",
+      "sha256": "cd93861cf1a8a504efc6f0f0c390ee393228dc0071f179beb3450289c6cd9266"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+[
+  "/tmp/oec/pequalnp-pilot-62/elan/toolchains/leanprover--lean4---v4.36.0/bin/cadical",
+  "-t",
+  "30",
+  "-w",
+  "/tmp/oec/pequalnp-pilot-62/repair-fixed51-stream-control.sol",
+  "-"
+]

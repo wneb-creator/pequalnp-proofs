@@ -1,0 +1,8 @@
+{
+  "action": "POSIX_FADV_DONTNEED on existing Lean cache artifacts; bytes unchanged",
+  "files": 20445,
+  "logical_bytes_advised": 4016856160,
+  "memory_before_bytes": 5213769728,
+  "memory_after_bytes": 2615037952,
+  "errors": []
+}

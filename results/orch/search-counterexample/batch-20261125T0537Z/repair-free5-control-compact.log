@@ -1,0 +1,1 @@
+{"input_count": 26, "or_count": 51, "source_witness": "repair-free5-control-run.witness.json", "source_or_count": 51, "reduced_local_or_count": 51, "checked_positive_samples": 52, "checked_negative_samples": 494, "is_global_counterexample_candidate": false, "lean_checked": false}

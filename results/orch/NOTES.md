@@ -8,7 +8,7 @@ Goal: every monotone fan-in-two circuit true at incident point-line pairs and fa
 Reductions are advertised open, but reductions_live=3; do not assume another reduction slot is available.
 
 Build environment: source /tmp/oec/pequalnp-pilot-62/lean-env.sh.
-Use minimal Mathlib dependencies. PEqualNP.Defs and checklemma built successfully; the genuine official root Mathlib cache artifact was unpacked at04:25 UTC. A fresh statement-checker run is pending.
+Use minimal Mathlib dependencies. PEqualNP.Defs and checklemma built successfully; the genuine official root Mathlib cache artifact was unpacked at04:25 UTC. The actual statement checker now builds successfully but faults while importing the full Mathlib statement environment because Batteries.olean is missing; full dependency cache storage is insufficient by the recorded estimates.
 Keep full diagnostics in task scratch. Never build Mathlib from source or run lake update.
 
 Agents write separate strategy notes under results/orch and read this shared file. Parent alone updates this file and final target.
@@ -62,3 +62,13 @@ The named file currently contains helper proofs only; the posted 51-OR theorem r
 - Resource schedule: one large Lean job plus at most one capped SAT solver. Smaller Lean helpers run serially with a7.3GiB actual-memory guard. No large capacity3 enumeration batches are scheduled.
 - Active assignments: counterexample global50 search; proof_routes and existing child canonical compiler/certificates; lean_setup finite geometry completeness; or_lower_bound checked21 integration; repo_audit independent reviews. algebraic_witness is currently idle; the active7-slot ceiling prevented reactivation, and no new agent was created.
 - Cumulative sub-agents:7. No PR has been opened. All3 reduction slots were already occupied at last feed check.
+
+## Replan 2026-11-25T05:30Z
+- The named21-OR partial built successfully (5149 jobs,331.17 seconds); exact source SHA6c46fc133ba473daf3a9cb88dd2f9b3760e95883375e281be4b091c8ffec3aa3 is pushed. Its axioms are only propext, Classical.choice and Quot.sound. Target51 remains unproved.
+- The actual checker built its verifier and judged modules, then returned FAULT/exit3 at missingBatteries.olean. It always imports the fullMathlib statement environment. The disk report records6516 missing imported modules and642MB free at assessment time;3.04–4.97GB further artifacts is an estimate. No checker source, library proof or configuration was altered; no full fetch or Mathlib source build will be attempted in this storage limit.
+- All13520 fixed sample input bits are now kernel checked (52 positive flags and468 generic rows,26 coordinates). The51-OR baseline's literal mask certificate also compiled; it is a control, not a counterexample.
+- All8192 possible point subsets have now been classified in64 kernel-checked chunks. Eight cached groups and the aggregate prove every admissible subset appears among the468 rows. The row-input agreement bridge is finishing. The exact posted-negation wrapper is independently reviewed and will be compiled next as a conditional helper; no50-OR witness exists.
+- Fullglobal50 search was previously resource-stopped after76.08seconds/SIGINT, UNKNOWN. Its exact compressed input and complete logs are pushed. After the final small wrapper check, pause allLean jobs and run the genuine global50 model for900seconds with a shared-memory watchdog. If memory permits, use the secondCPU for the smaller canonical13-output38 model that allowsAND insideOR operands; it previously lost its worker to environment interruption, with no verdict.
+- Independent mathematics now supports a39-OR lower bound for the restricted pure-union internalDAG/freeAND output architecture. Private/shared guard charging and exact-pencil ancestry have been audited computationally, but this is not yet Lean-certified and does not cover arbitraryAND insideORs. Deprioritize pure-union38 searches. or_lower_bound will prepare this restricted formalization while solvers run.
+- Topology computations and other dead-route evidence are preserved with explicit scope. No valid full51 circuit potential has emerged. Existing capacity4 deletion obstruction still prevents that weak route from reaching51.
+- Sub-agents used cumulatively remain7. Only root manages the lease, pushes, checker and submission. No PR has been opened; no reduction slot was available at the last check.

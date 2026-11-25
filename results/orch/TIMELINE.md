@@ -45,3 +45,13 @@
 - 2026-11-25T05:15:58.946524+00:00: lease renewed; expires 2026-11-25T05:35:59.079Z.
 
 - 2026-11-25T05:17:17.122686+00:00: Named21-OR lake build passed331.17s. ActualcheckerFAULT atmissingBatteries.olean aftersuccessfulbuilds; no proofverdict. FullMathlib statementenvironment dependencycache stillincomplete; diskfeasibilityassessmentstarted.
+- 2026-11-25T05:23:16.303323+00:00: lease renewed; expires 2026-11-25T05:43:16.498Z.
+- 2026-11-25T05:30:27.500814+00:00: lease renewed; expires 2026-11-25T05:50:27.729Z.
+
+- 2026-11-25T05:31:00.173007+00:00: Full8192-subset geometry completeness compiled in64chunks/eightgroups plusaggregate. All13520 samplebits and51-ORcontrolmask certificate are checked. Conditionalrefutationwrapper follows; no50-ORwitness yet.
+- 2026-11-25T05:32:58.530962+00:00: lease renewed; expires 2026-11-25T05:52:58.795Z.
+- 2026-11-25T05:34:15.067121+00:00: lease renewed; expires 2026-11-25T05:54:15.221Z.
+- 2026-11-25T05:36:56.645503+00:00: lease renewed; expires 2026-11-25T05:56:56.783Z.
+
+- 2026-11-25T05:41:09.731631+00:00: Genuineglobal50 restarted05:34:31 for900s; nine-free-gate seeded50 repair started05:37 with1GiBcap. AllLean paused. Cleanpage-cache advice released~2.6GB of cached Lean artifacts without changing file bytes; both solvers remain under unchanged memoryguard.
+- 2026-11-25T05:44:28.920286+00:00: lease renewed; expires 2026-11-25T06:04:29.084Z.

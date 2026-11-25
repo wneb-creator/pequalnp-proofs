@@ -1,0 +1,8 @@
+[
+  "/tmp/oec/pequalnp-pilot-62/elan/toolchains/leanprover--lean4---v4.36.0/bin/cadical",
+  "-t",
+  "45",
+  "-w",
+  "/tmp/oec/pequalnp-pilot-62/repair-free5-control-run.sol",
+  "/tmp/oec/pequalnp-pilot-62/repair-control51-free5.cnf"
+]
