@@ -1,0 +1,6 @@
+INCOMPLETE checkpoint: explicit 11-gate monotone witness, no final theorem yet.
+Build: lake build PEqualNP.Outside.L_meta_14985 passed.
+Checker: not applicable until final theorem exists.
+Independent review: witness, format and all 256 inputs passed.
+Sub-agents: status/toolchain, circuit search, lower-bound bridge, proof routes, certificate verification, red-team review
+TIMING total=6.06 subagents=6
