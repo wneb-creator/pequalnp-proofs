@@ -1,0 +1,4 @@
+PASS for monotone-only computational search.
+Source SHA256: 03871c52fa150053ebf06dfc598403213dad8309676e7661a83f5d1c1f91a256
+The complete delta is exactly Cov storage18→4words, both combining loop bounds18→4, spill bound18→4, and early rejection of --signed before any column computation. Independently enumerated Petersen maximal-negative rows:15; there are15 positive edge rows, so every used coverage bit lies in225bits and fits four words. Masking with allcov removes padding in every coverage comparison; discarded high words were zero for monotone columns and irrelevant after allcov. Truth tables, memo keys, search branching, profiles and rectangle computations are unchanged.
+The recorded3000-visit smoke has equal integer counters and byte-identical completed memo. The compile and936-cost selftest are reported EXIT0. This remains an audited computation, not a Lean proof DAG.

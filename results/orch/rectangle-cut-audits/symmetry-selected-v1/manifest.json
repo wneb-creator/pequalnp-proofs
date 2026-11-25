@@ -1,0 +1,12 @@
+{
+  "REVIEW.txt": "0b6e8c873ec5f6f6d771853a69bd271da21617c436f068e8f9b2669b6ada8125",
+  "audit.py": "253d73ee30a2f1549a94ddfa077204779ae321d709462e96eb8d4d791e388d21",
+  "audit_symmetry.py": "2e0fa252dd4f21b971a032dd7dd31fdd1803956012b70acb4d82adc97b2cb415",
+  "banks.json": "d3fe717979f5694f07516b447eddc44ca2b7970b4f3f89ad7b4b13cf50f5453c",
+  "integer-audit-full-log.txt": "4fd5983eb7ba01b39a4fbc5bbdfc34dd4e81109893f35f8c4870e79222441a95",
+  "integer-audit.json": "d1e78c550656092a130c97251046c3ba2e166228d7598ab2394f157513c4ec5b",
+  "matrices.json": "bfdc91959c4f1f5e44b919178f2f74e88129ad6ae1b5eaa230165892b86cfdd0",
+  "original-matrices.json": "916de15737158512f9a5bbf8aad90419081775516bd0681e1ac4db30566fe0b0",
+  "transform-audit-full-log.txt": "74af419075581a93a03bc17dafdbb1f20f56245e6d9a8d950f0830efd438101d",
+  "transform-audit.json": "44226d5eb9cf5280480f7682f7de008f02765242b970b0de57be8c0c7edcccf6"
+}

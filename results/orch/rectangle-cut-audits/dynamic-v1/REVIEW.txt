@@ -1,0 +1,19 @@
+Independent audit by counterexample: PASS
+
+All8 immutable DynamicV1 matrices were checked against all8 actual frozen18-root/budget17 banks (64pairs). All8 own-bank claimed root_costs, cost_sum, margin, exact raw root occurrences, remaining budget, target total and canonical per-bank SHA256 match. Every root is replayable from the10 original inputs and the bank two-gate history. All row assignments classify correctly for the Petersen graph.
+
+The checker uses only unbounded Python integers. For each signed matrix/root profile, it exhausts one side of the rectangle and optimizes the other side by selecting positive sums, then repeats in the opposite orientation. Empty rectangles allow0; negative coefficients are retained. Repeated root functions remain repeated entries in the bank cost sum.162 brute-force selftests cover mixed signed and all-negative matrices.136 distinct new matrix/profile pairs were checked.
+
+Own-bank results:
+node12243: target111 > bank109, margin2.
+node4213: target127 > bank126, margin1.
+node7372: target181 > bank180, margin1.
+node81: target305 > bank303, margin2.
+node87: target1589 > bank1583, margin6.
+node89: target62 > bank59, margin3.
+node8922: target440 > bank438, margin2.
+node91: target43 > bank41, margin2.
+
+Across all64cross-pairs there are10valid positive-margin cuts. The previous13matrices exclude none ofthese8banks (104baseline combinations checked). Complete stdout/stderr, per-occurrence costs, maximizing rectangle witnesses, input hashes, raw immutable matrices/banks and source are preserved here.
+
+Scope: exact independent computational validation of terminal rectangle cuts. It is not a Lean proof or a complete search-exhaustion certificate; the reusable Lean rectangle checker must still consume the accepted matrices/profiles when assembling a final proof.

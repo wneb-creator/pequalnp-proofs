@@ -1,0 +1,27 @@
+Bounded I=empty structural investigation (counterexample agent, 2026-11-25)
+
+Outcome: no complete Petersen contradiction or cost-preserving formula conversion established. Two useful mathematical restrictions were identified, and unrestricted quadratic extraction was falsified computationally. No large Lean port was attempted.
+
+1. Carrier reconvergence exchange (mathematical argument, independently sanity-checked by status_review; not Lean formalized).
+Choose a globally gate-minimal monotone circuit among hypothetical <=19gate counterexamples, normalize strict/live, and consider its I=empty equality case. All ten surplus units are exactly the distinct reserved units: each first pure carrier b_i has fanout2, and every other wire has fanout1. For each singleton label i, carrier flow gives e_i+M_i=2, with e_i>=1.
+If M_i=1, its unique carrier branch splits into two chains reconverging once. Before the reconvergence every carrier gate is OR: an AND still carrying i would itself have both inputs carrying i and be an earlier merge. All arm wires have one reader. A side wire cannot depend on an arm wire without introducing another reader; both readers of b_i are already the two arms. Thus the arms may be collected as b_i OR H and b_i OR K without dependency cycles. If the merge is OR, flattening saves one gate. If it is AND, distributivity gives (b_i OR H) AND (b_i OR K) = b_i OR (H AND K). For nonempty arms containing r,s OR gates, the original r+s+1 gates become (r-1)+(s-1)+1+1=r+s; an empty arm is handled by absorption. Renormalize afterward if needed. This contradicts global gate-minimality. It is not a contradiction from StrictLive alone or from minimality restricted to the I=empty class.
+Hence a globally minimal equality-case candidate should have M_i=0 for every i. Every gate then has disjoint singleton supports on its operands, and every AND output has empty singleton support. This is not full functional purity or syntactic multilinearity; higher-degree terms remain possible.
+
+2. Exact independent contamination restriction (mathematical domination argument plus exhaustive finite graph verification).
+Let b_i be the chosen first carrier, which dominates input i. Suppose b_i is true on an independent assignment S omitting i. For any z adjacent to i, if S union {z} were independent, monotonicity would make b_i true both before and after adding i. Domination would equate the output on the independent set S union {z} with the output after adding i, which contains edge {i,z}; contradiction. Therefore every neighbor z must be blocked by S.
+Exhaustive Petersen enumeration shows exactly two such independent S for each i, both triples. For i=0 they are {3,6,7} and {2,8,9}; adjoining i gives one of the five maximum independent4sets. In particular, b_i cannot contain an independent quadratic payload. It may still carry arbitrary graph-edge payloads, and these two independent triple exceptions prevent blindly replacing it by x_i or moving all of its side payload to the final OR.
+
+3. Quadratic extraction is not generally free, even for a C4-free quadratic graph.
+Use variables a,b,c,d,e,f. The8leaf monotone formula
+  (a OR b OR c) AND (d OR ((a OR e) AND (b OR f)))
+has quadratic part
+  ab OR ad OR af OR bd OR be OR cd.
+An exhaustive truth-table dynamic program enumerating all formulas through8leaves found no <=8leaf formula for that quadratic function. A9leaf formula is
+  d(a OR b OR c) OR a(b OR f) OR be.
+Direct evaluation on all64 assignments confirms the input formula differs from its quadratic part only at {c,e,f}. The quadratic graph has triangle {a,b,d} and no4cycle, so this is not a counterexample to a Petersen-specific triangle-free extraction theorem.
+The exact dynamic program enumerated7579 nonconstant monotone functions on5variables and tested extraction only for those false on every singleton assignment and having a nonzero quadratic part; no increase was found in that tested subset. The6variable search enumerated890014 functions representable through10leaves and found no increase in the tested subset with no true singleton assignment and a nonzero triangle-free+C4-free quadratic part. Those finite searches are evidence only; their UNSAT/minimality conclusions have not been Lean-certified.
+
+Remaining bottleneck.
+The first compound carrier chain can indeed be OR-only and its side payload unshared. If that payload H_i is pointwise <= the target edge function, the conditional exchange to a final output OR is valid at no extra cost. What is missing is a valid way to remove independent triple contamination while preserving all needed quadratic payload edges without increasing the formula/gate count. The disjoint-singleton-support normal form may help prove a triangle-free-specific extraction statement, but this investigation did not establish it. No general star normal form or <=20leaf formula conclusion is asserted.
+
+Artifacts: formula_truncation.py (complete5variable enumeration), formula_truncation6.py (unrestricted6variable8leaf counterexamples), formula_trianglefree6.py (triangle/C4-free6variable10leaf search), complete logs and JSON outputs; semantic_checks.py verifies the64-row example and all ten Petersen blocker pairs. Earlier IndependentOrbits.lean separately certifies the six independent-set canonical representatives.

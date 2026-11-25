@@ -1,0 +1,9 @@
+Independent exact rectangle audit: PASS
+UTC: 2026-11-25T15:49:36.448214+00:00
+Reviewer: /root/counterexample
+
+Five additional transformed-weight variants,21 frozen residual banks,105 matrix/bank pairs,175 distinct signed support profiles,31 strict positive cuts. All21 banks are covered. Every covered_nodes/margins claim matches exactly. Every permutation preserves the Petersen graph and all1024 target rows; every transformed sample and integer weight matches the named source. Full raw history/root provenance and duplicate occurrence counting pass.
+
+Exact integer maxima exhaust subsets in both orientations; small profiles receive two-sided brute force and162 selftests pass. Original inputs, complete output, maximizing rectangles and per-occurrence costs are retained here. No LP floating-point output is trusted.
+
+Scope: optional reusable computational data only. The first-OR-edge whole-case search had already completed using loader IDs1001–1026; these five variants were not needed and were not published to that completed run. This archive does not claim Lean certification or validate the whole search recurrence.

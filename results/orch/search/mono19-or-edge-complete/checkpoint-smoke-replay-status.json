@@ -1,0 +1,19 @@
+{
+  "command": [
+    "./copy_search_first_checkpoint",
+    "--cap",
+    "19",
+    "--first",
+    "oredge",
+    "--seconds",
+    "30",
+    "--nodes",
+    "3000",
+    "--memo-out",
+    "checkpoint-smoke-replay.memo",
+    "--rect-trace",
+    "checkpoint-smoke-replay-cuts.jsonl"
+  ],
+  "exit_code": 0,
+  "original_smoke_memo_byte_identical": true
+}

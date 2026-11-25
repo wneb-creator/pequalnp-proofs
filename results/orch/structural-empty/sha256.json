@@ -1,0 +1,16 @@
+{
+  "REPORT.txt": "167a98df0aed95906a75aaaf425009d922111a18bcb5fcdfbd1e394fb12bcfb0",
+  "formula-trianglefree6-full-log.txt": "fc394be7b2bdd62371feff089969ed9bba29c1a15cdd851683b2056fd495ca97",
+  "formula-truncation-complete5-log.txt": "24d9c0ba075c4a77b53c7bc6ff2ba4cd865e7c74d83e78674bb8a22d8258f67e",
+  "formula-truncation-full-log.txt": "52712eba72bc9c50971dd2fabbfbf3a232722223bdfe9a6d4eff06f6b2fa98de",
+  "formula-truncation6-full-log.txt": "d05d8dff5f1a8e809ad37eeab34a5bb2c45ab258809fbaf2b4956b10376374d4",
+  "formula_trianglefree6.py": "96e01591a2254fed23d1c622b2b8506f735842edddd65f700aa081740f2fe298",
+  "formula_truncation.py": "f3bc26f4f94720d53d6c1b0ce338cec2f2a9002622919d0e30436eb85d5b9e74",
+  "formula_truncation6.py": "c3f6aa04a2f452f267fb2ee03ab5e1b9eecb9f1b5bfa0127008d7cc53a2fb4f4",
+  "semantic-check-full-log.txt": "21fafaa73a403c249ee3821b735c90be20a53bb68e1ede167850526c3902dcf2",
+  "semantic-check-results.json": "7f5a936bb4e6e262f9fe0189569680e8655d4e82f5d967f2266c294ce720fdb5",
+  "semantic_checks.py": "b338cc186ae056ecd6ec7808b969340c3ecfbb4b33f2b7cd0f05cbfa4061da8f",
+  "truncation-results.json": "187538bfba28de44ca1ae41d8493ef46be0bcace26aa241990f7ccd35a45c31d",
+  "truncation6-results.json": "682456d78acc608d529534aecb8baae4a8c81b19accc533481b5d1a121016aa5",
+  "truncation6-trianglefree-results.json": "e31187618b081a6b6229f11f87390a3f6a8726d35ae62b650f60563cadcdecf4"
+}

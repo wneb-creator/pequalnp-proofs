@@ -1,0 +1,11 @@
+PASS: bounded structural investigation archive, after correcting the finite-search scope.
+Archive: results/orch/structural-empty
+REPORT SHA256: 167a98df0aed95906a75aaaf425009d922111a18bcb5fcdfbd1e394fb12bcfb0
+
+All14 source/report/log/JSON entries match sha256.json, with no missing or extra payloads. I read the four local Python sources and the full narrative. They use only local finite computation and write named scratch results; no network or credential access occurs. The preserved scripts retain their original scratch output directory, so reproduction elsewhere requires adjusting that output path. Complete logs are preserved.
+
+The carrier-reconvergence exchange is explicitly a mathematical argument conditional on global gate minimality and the I=empty equality case, not a Lean theorem or a contradiction from StrictLive alone. The diamond/OR-chain/distributivity accounting and side-wire independence are the same conditional argument I previously sanity-checked. The report correctly keeps higher-degree contamination unresolved and does not claim pure branches equal original inputs or a cost-preserving formula conversion.
+
+I independently recomputed all10 Petersen blocker pairs over all1024 assignments per vertex. Each has exactly two independent triples, both extending with that vertex to an independent4set; the recorded examples for vertex0 are exact. I independently evaluated the8-leaf formula and9-leaf quadratic formula on all64 assignments: only row52 differs, the listed six quadratic edges are exact, a triangle is present, and no4cycle occurs.
+
+The dynamic programs enumerate minimal-leaf AND/OR truth functions by exhaustive binary splits and commutativity; lower-cost representatives suffice for minimal formulas. Their retained logs support7579 enumerated5-variable functions and8900146-variable functions through10 leaves. The report originally overstated the checked extraction property; it now correctly says only functions with no true singleton assignment and nonzero quadratic part were tested, with the extra triangle/C4-free filter in the6-variable case. I reviewed the algorithm/log claim but did not rerun the full formula search or certify its minimality in Lean. The narrative explicitly labels finite negative/minimality results as computational evidence and does not claim the posted Petersen theorem.

@@ -1,0 +1,29 @@
+{
+  "command": [
+    "./copy_search_first_dynamic",
+    "--cap",
+    "19",
+    "--first",
+    "oredge",
+    "--seconds",
+    "1200",
+    "--nodes",
+    "20000000",
+    "--memo-in",
+    "mono19-oredge-diagnostic-completed.memo",
+    "--memo-out",
+    "mono19-oredge-dynamic-completed.memo",
+    "--checkpoint-seconds",
+    "60",
+    "--bank-trace",
+    "copy-first-dynamic-slow-banks.jsonl",
+    "--rect-trace",
+    "copy-first-dynamic-oredge-cuts.jsonl",
+    "--extra-rectangles",
+    "/tmp/oec/pequalnp-pilot-87/finite_invariants/dynamic-loader/rectangles.txt"
+  ],
+  "started_utc": "2026-11-25T15:42:50.479163+00:00",
+  "ended_utc": "2026-11-25T15:47:14.319756+00:00",
+  "wall_seconds": 263.8406160760005,
+  "exit_code": 0
+}

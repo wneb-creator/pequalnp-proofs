@@ -1,0 +1,3 @@
+PASS: resource policy only, exact delta independently checked.
+Source SHA256: 8bb90a53d3a008c9a005b69e0b0bacdeca839ae61b8049b75039f427a43942c1
+Changes are one clearable projection-memory estimate, conjunctive650MB total/180MB clearable cache reset thresholds, and both hard stops850MB→1.5GB. Clearing implementation, recomputation, truth tables, memo states and recursive search logic are unchanged. This can alter interruption timing and cache performance; it does not add an exclusion or change a completed result. Recorded3000-visit smoke matches original integer counters and completed memo exactly. The hard limit is an estimate, not a bound on process RSS.

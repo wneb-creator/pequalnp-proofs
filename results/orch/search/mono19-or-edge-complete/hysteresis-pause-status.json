@@ -1,0 +1,14 @@
+{
+  "pid": 56173,
+  "utc": "2026-11-25T15:36:21.341839+00:00",
+  "checkpoint_bytes": 223487246,
+  "checkpoint_sha256": "e3228decac185646f8106fb327c330c487e77e4ad860212da6159038c3f995dd",
+  "recent_progress": [
+    "nodes=68449 steps=0 card=0 cover=0 cof=8231 formula=1280 share1=0 fullcover=0 clips=1184221 signals=464556 seconds=124.602 levels=0:57989,1:9749,2:684,3:8,4:6,5:5,6:4,7:3,8:1,",
+    "copyclosures=3242 entries=147026 subchecks=1010148 subcuts=902003",
+    "nodes=72616 steps=0 card=0 cover=0 cof=8408 formula=1524 share1=0 fullcover=0 clips=561680 signals=488009 seconds=134.609 levels=0:62147,1:9758,2:684,3:8,4:6,5:5,6:4,7:3,8:1,",
+    "copyclosures=3492 entries=167664 subchecks=1136349 subcuts=1010555",
+    "nodes=75726 steps=0 card=0 cover=0 cof=8668 formula=1791 share1=0 fullcover=0 clips=1241873 signals=508359 seconds=144.633 levels=0:65243,1:9772,2:684,3:8,4:6,5:5,6:4,7:3,8:1,",
+    "copyclosures=3766 entries=187754 subchecks=1290848 subcuts=1148360"
+  ]
+}

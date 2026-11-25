@@ -1,0 +1,9 @@
+PASS: frozen dynamic rectangle-loader research archive.
+Archive: results/orch/search/dynamic-rectangle-loader
+Manifest SHA256: a15a94b8511e3541e9712d7c33d06974ad31d258c5b5d5429aff4a708b668730
+
+All36 manifest entries are present, with exact byte counts and SHA256 values; there are no unmanifested payload files. Total payload636219 bytes. Production/baseline sources, corrected test translation unit and harness match the previously reviewed scratch files byte for byte. Both compressed smoke memos decompress to the same295568 bytes, SHA0821cd1df2e51a439955e2c5a476972497306578a2a0a69a382f4a3bc55c569f, matching test-summary.json. Complete successful compile/test/selftest/smoke outputs are preserved alongside all12 rejection fixtures and108-cost test data.
+
+Frozen plaintext/JSON versions1,2,3 contain6,13,26 records respectively. I independently parsed all three complete streams, checked every encoded ID/sample/matrix/total against JSON, and verified exact textual-prefix preservation between versions. Their plaintext hashes match the separately reviewed/published versions. V1/V2 exact labels and data checks are in the prior loader reports; V3 matrix validation was independently completed by counterexample before publication. This archive review does not repeat those mathematical cost audits.
+
+The README accurately distinguishes loader support, exact computational terminal cuts and full-case search traces. It documents the corrected test-only main-return issue and gives a local-only harness reproduction command. It makes no completed-search or Lean-exclusion claim. Later loader versions and full search traces are explicitly outside this snapshot. No credential material or external network actions are introduced; the source delta and local test/data paths were already independently reviewed. Ready for research checkpoint preservation.

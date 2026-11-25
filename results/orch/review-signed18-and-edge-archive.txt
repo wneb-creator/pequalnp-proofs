@@ -1,0 +1,9 @@
+Independent signed18 first-AND-edge archive review: PASS
+
+Reviewed by library_route. All 19 manifest entries match size and SHA256; both complete gzip streams decompress to their recorded original sizes and hashes. Source SHA b4ef1668bcf6c8f6cbdfb71e7d8c99f317a9b6e27c5a2cae7112839e1b383314 matches the previously reviewed search source exactly.
+
+Independent streaming census reproduces 446,597 nodes and done records, 4,908 signals, 249,859 cofactor leaves, 187,518 row leaves, 3,570 formula1 leaves, 1,732 formula0 leaves, 846 completed expansions, 3,067 memo references and five open nodes. The root is open; its 127 visited children comprise 78 cofactor leaves, 48 row leaves and one open child. No witness was found.
+
+Every memo reference points to a previously completed node with equal remaining budget. Every completed expansion has only previously completed recorded children. All 6,148 cache records correspond exactly to completed expand/formula0/formula1 nodes, including exact truth pools and remaining budgets; no open node enters the cache. Cache header binds the complete source trace hash.
+
+The 300-second bounded run remains incomplete. This archive review does not certify cofactor lower bounds, formula exclusions, memo automorphisms, exhaustive successor coverage, or a Lean theorem. The README states these limits accurately. Complete independent audit source/output are in /tmp/oec/pequalnp-pilot-87/library_route/audit_signed18_archive.py and audit-signed18-archive.json.

@@ -1,0 +1,11 @@
+Mono19 first-OR-edge completed checkpoint archive
+
+This is a bounded computational search, not a Lean certificate or a complete first-gate case. The copied-input orbit containing x0 and x1 closed; the second initial input-copy orbit remained open. The source uses the previously reviewed 13 exact rectangle matrices and cofactor bounds, including the checked monotone nine-variable lower bound 16.
+
+The run started from the 67-state smoke memo and reached more than 976,000 visits. Persistent signal storage triggered a resource-policy bug: projection caches were reset repeatedly even when little clearable cache remained. The process spent 700.707 seconds in 7,908 resets. At the coordinator's direction it was paused with SIGSTOP, preserving its signal dictionary and an immutable 52,200-state atomic checkpoint. After the original 1,200-second wall deadline elapsed, it resumed briefly and exited normally with status 0, a complete trace dictionary/footer, and a final 52,206-state memo. The 1234.24-second wall duration includes the pause and is not active search time. Full statuses, pause/resume records and stdout/stderr are included.
+
+The complete trace contains 678,304 strict weighted cuts and 42,821 referenced truth signatures. The census checks root multiplicities, strict sums, complete dictionary binding, memo shape and exact inclusion of the paused checkpoint in the final one. Reloading the earlier smoke memo recanonicalizes pools under the new intern registry, so literal text identity with later pools is not required. The reviewed loader preserves their symmetry orbit semantics.
+
+Memos store full truth pools, remaining budgets and multiplicities. The reviewed checkpoint source inserts only completed sparse closures or completed recursive copy branches, never active nodes. This format does not retain a complete kernel proof DAG. Source, full logs and deterministic gzip files are preserved with original and compressed SHA256 hashes. All 13 matrix literals and 1,145 cofactor profile literals are in the exact source.
+
+This census validates record consistency and dictionary completeness. It does not replace exact rectangle-cost audits, cofactor proofs or Lean replay. Later continuations use separate sources and outputs.

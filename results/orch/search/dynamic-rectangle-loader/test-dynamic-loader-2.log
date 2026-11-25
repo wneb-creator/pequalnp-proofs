@@ -1,0 +1,25 @@
+EXPERIMENTAL first-copy recurrence mode=0 group=120 first=oredge total_cap=19 remaining=18 prefix_formula_leaf_lower=20
+loaded extra rectangle index=13 id=1001
+limit reached
+nodes=0 steps=0 card=0 cover=0 cof=0 formula=0 share1=0 fullcover=0 clips=5706 signals=13 seconds=0.000222349 levels=
+copyclosures=0 entries=0 subchecks=0 subcuts=0 memory_estimate=1388220 lazy_clip_tables=10 projected_cache=8400 move_cache=0 constant_profiles=0 memo_states=0 prefix_formula_cuts=0 projection_resets=0 projection_reset_seconds=0 memo_save_seconds=0 rectangle_signals=0 rectangle_hits=0,0,0,0,0,0,0,0,0,0,0,0,0,
+cofactor_profile_hits kind=0
+cofactor_profile_hits kind=1
+loaded extra rectangle index=14 id=1002
+loaded extra rectangle index=15 id=1003
+loaded extra rectangle index=16 id=1004
+loaded extra rectangle index=17 id=1005
+loaded extra rectangle index=18 id=1006
+extra rectangle reload rejected: matrix removal
+extra rectangle reload rejected: invalid integer weight
+extra rectangle reload rejected: trailing data
+extra rectangle reload rejected: invalid header
+extra rectangle reload rejected: invalid labelled row
+extra rectangle reload rejected: invalid labelled row
+extra rectangle reload rejected: invalid labelled row
+extra rectangle reload rejected: invalid matrix header
+extra rectangle reload rejected: matrix total mismatch
+extra rectangle reload rejected: invalid integer weight
+extra rectangle reload rejected: invalid labelled row
+extra rectangle reload rejected: matrix prefix changed
+dynamic loader tests PASS rejected=12 append_count=6 root_costs=108 exact_cuts=6 preserved_existing_cache=1

@@ -1,0 +1,112 @@
+[
+  {
+    "file": "README.md",
+    "bytes": 1868,
+    "sha256": "e18493c5d1fb2b1a34c1d6e047c2f0400b78f2c1a2ed0ba7f4b1a78cf4b3c486"
+  },
+  {
+    "file": "benchmarks/RectangleVectorBenchmark20-v1-timing.json",
+    "bytes": 79,
+    "sha256": "e11b1538cdcbf563cf20fb87fbc0e3cbbc592477d84056cf951d7952bb9583e4"
+  },
+  {
+    "file": "benchmarks/RectangleVectorBenchmark20-v1.compile.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "file": "benchmarks/RectangleVectorBenchmark20.lean",
+    "bytes": 1740,
+    "sha256": "1360acf04e084d6a6185522d9a2f909f04410b1228197741fb896fd9ae7513ff"
+  },
+  {
+    "file": "cross_test_dynamic.py",
+    "bytes": 3120,
+    "sha256": "3e1209adc16603b6bdc8d758acdb35a678fb3a7632a5e84496341d78bcfd43ef"
+  },
+  {
+    "file": "dynamic-loader/matrices-v1.json",
+    "bytes": 51860,
+    "sha256": "bee95950bb06473d6bd1e859c08e88eb4b817f0b96a4149928837492aeffa071"
+  },
+  {
+    "file": "dynamic-loader/matrices-v2.json",
+    "bytes": 82848,
+    "sha256": "71f3494bc73336374c744286527ebb2805dae86c225241297853ed0ac5ffd0db"
+  },
+  {
+    "file": "dynamic-loader/matrices-v3.json",
+    "bytes": 132273,
+    "sha256": "c6d1b16105c80794b29a461a6a890facc1374e4e2c7c111fc07d8b02a5bc8c58"
+  },
+  {
+    "file": "dynamic-loader/matrices-v4.json",
+    "bytes": 188817,
+    "sha256": "b13412e941c1fd8985e9c5ecf2c05a7788418aa6f19ae25e554201199e1e9bd5"
+  },
+  {
+    "file": "dynamic-loader/rectangles-v1.txt",
+    "bytes": 3876,
+    "sha256": "0c0fa6c05d02e44c51efd1d6fbebdc1d7d1a67a7ba4bf6c774eb20449eea46d2"
+  },
+  {
+    "file": "dynamic-loader/rectangles-v2.txt",
+    "bytes": 8076,
+    "sha256": "6b6c73f27d2d4c2acb94b26aa0d76466f4b947b631dbf68501be945a3313cda4"
+  },
+  {
+    "file": "dynamic-loader/rectangles-v3.txt",
+    "bytes": 15842,
+    "sha256": "37e6f09e1de3891bd41d299717abff53f830f5d804b57659bad59478f1f3d1e5"
+  },
+  {
+    "file": "dynamic-loader/rectangles-v4.txt",
+    "bytes": 22868,
+    "sha256": "769dfb6026d762bf482cbb52534e13f77fc78e1d7e623fad5a9d3092e5f63099"
+  },
+  {
+    "file": "dynamic-matrices-v1.log",
+    "bytes": 8176,
+    "sha256": "347a2cd3cb13b2e6c15e816e6abd77ed8a5f9b0084cd50847896a9d21238ea20"
+  },
+  {
+    "file": "dynamic-matrices-v2.log",
+    "bytes": 66223,
+    "sha256": "8ce2fb4bf413a264dac94c1a68e35f176f72134c8480b76e57433a7d7e19cee7"
+  },
+  {
+    "file": "dynamic-matrices-v3.log",
+    "bytes": 4327,
+    "sha256": "86cd0f944722333aa8f86bcb70eb0c8c9fa8fe2a6ed2887573ca3e7e8f3f5d24"
+  },
+  {
+    "file": "filter_rectangle_banks.py",
+    "bytes": 2226,
+    "sha256": "75ddb2153861868159a5a574321a9870788cf3abb09cafd3bed54bc3c4282466"
+  },
+  {
+    "file": "measure_rectangle_symmetry.py",
+    "bytes": 3921,
+    "sha256": "9c8eee203d04e598190587a243a367672dab476a4d1b3f57b73cdb1cc0916884"
+  },
+  {
+    "file": "publish_rectangle_append.py",
+    "bytes": 2517,
+    "sha256": "a9bbc5d98d25daa0befd9ea388d2dd615911b0735a256988c8a2253ed72c0184"
+  },
+  {
+    "file": "select_symmetry_cover.py",
+    "bytes": 3544,
+    "sha256": "e837d7fbdfb06e6468559ce04350c16e2f122517026e7b4b57056ba3d09a85f4"
+  },
+  {
+    "file": "tailor_bank_rectangles.py",
+    "bytes": 8833,
+    "sha256": "de75033e8068cfd134d5af6225fa6adad368b4060f5ed7a4a6d178971a8c862e"
+  },
+  {
+    "file": "tailor_cover_banks.py",
+    "bytes": 3088,
+    "sha256": "964b2a1cfa02a0a7174040f6714d30646feb1ab853d6e4cd90e8ab2f5644977c"
+  }
+]

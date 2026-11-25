@@ -1,0 +1,5 @@
+PASS: diagnostic-only bank export.
+Source SHA256: 1c65521c564ccb2280f67622fb47b757feb9958cd1201ae15ffe7c7ae066d9e4
+Complete delta against reviewed hysteresis source inspected: one output stream/function, a local doubling snapshot threshold, one call before existing interruption checks, one argument and stream opening. No truth-value, canonicalization, search, cofactor, rectangle, memo or cut condition changes. The exported raw state is the original vector, preserving duplicate values; history emits each operation and both exact operand truth words, so output words are recomputable. Export only runs at tight budget remaining+1=state.size. Hist/state are read only. I/O may change wall-time interruption point, never exclusion validity.
+Recorded compile and936 rectangle selftest EXIT0;3000-visit counters and67 completed memo states match the reviewed predecessor. Trace is diagnostic data, not itself a proof certificate.
+The3000-visit smoke emitted zero snapshots: that test checks unchanged inactive-path behavior; nonempty JSON output has been source-reviewed but not exercised by that smoke.

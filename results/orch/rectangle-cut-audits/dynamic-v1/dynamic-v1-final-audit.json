@@ -1,0 +1,6408 @@
+{
+  "status": "PASS",
+  "selftests": 162,
+  "matrices_source": "/tmp/oec/pequalnp-pilot-87/counterexample/rectangle-cut-audits/dynamic-v1-matrices.json",
+  "matrices_sha256": "c21e1326472643e00b7e3c43721b0b36760011ed388fd979da1064e0a1fae999",
+  "banks_source": "/tmp/oec/pequalnp-pilot-87/library_route/copy-first-hysteresis-slow-selected-v1.json",
+  "banks_sha256": "047c2b7f47ea1dd0b54ed372a1d5f149cb04d9c6a3fe7abe57f60474ecb43261",
+  "claimed_sha256": "c21e1326472643e00b7e3c43721b0b36760011ed388fd979da1064e0a1fae999",
+  "claimed_status": "PASS",
+  "bank_facts": [
+    {
+      "node": 91,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "distinct_signatures": 12,
+      "history_gates": 2
+    },
+    {
+      "node": 87,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "distinct_signatures": 12,
+      "history_gates": 2
+    },
+    {
+      "node": 8922,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "distinct_signatures": 12,
+      "history_gates": 2
+    },
+    {
+      "node": 7372,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "distinct_signatures": 12,
+      "history_gates": 2
+    },
+    {
+      "node": 12243,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "distinct_signatures": 11,
+      "history_gates": 2
+    },
+    {
+      "node": 81,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "distinct_signatures": 12,
+      "history_gates": 2
+    },
+    {
+      "node": 89,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "distinct_signatures": 12,
+      "history_gates": 2
+    },
+    {
+      "node": 4213,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "distinct_signatures": 11,
+      "history_gates": 2
+    }
+  ],
+  "results": [
+    {
+      "matrix": "DynamicV1Node12243",
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "node": 91,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        8,
+        7,
+        5,
+        5,
+        6,
+        6,
+        8,
+        8,
+        11,
+        11,
+        9,
+        3,
+        7,
+        9,
+        7,
+        7,
+        9,
+        9
+      ],
+      "cost_sum": 135,
+      "target_total": 111,
+      "margin": -24,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node12243",
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "node": 87,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        8,
+        7,
+        5,
+        5,
+        6,
+        6,
+        8,
+        11,
+        11,
+        9,
+        3,
+        3,
+        7,
+        9,
+        7,
+        7,
+        13,
+        13
+      ],
+      "cost_sum": 138,
+      "target_total": 111,
+      "margin": -27,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node12243",
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "node": 8922,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        8,
+        7,
+        7,
+        5,
+        5,
+        6,
+        6,
+        8,
+        8,
+        11,
+        9,
+        3,
+        3,
+        7,
+        9,
+        7,
+        16,
+        16
+      ],
+      "cost_sum": 141,
+      "target_total": 111,
+      "margin": -30,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node12243",
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "node": 7372,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        8,
+        7,
+        7,
+        5,
+        5,
+        6,
+        6,
+        8,
+        8,
+        11,
+        9,
+        3,
+        7,
+        7,
+        9,
+        7,
+        10,
+        10
+      ],
+      "cost_sum": 133,
+      "target_total": 111,
+      "margin": -22,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node12243",
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "node": 12243,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        8,
+        7,
+        5,
+        5,
+        6,
+        6,
+        8,
+        8,
+        11,
+        11,
+        9,
+        3,
+        3,
+        3,
+        7,
+        9,
+        0,
+        0
+      ],
+      "cost_sum": 109,
+      "target_total": 111,
+      "margin": 2,
+      "excludes_tight_bank": true
+    },
+    {
+      "matrix": "DynamicV1Node12243",
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "node": 81,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        8,
+        7,
+        5,
+        5,
+        6,
+        6,
+        8,
+        8,
+        11,
+        9,
+        3,
+        7,
+        7,
+        9,
+        7,
+        7,
+        10,
+        10
+      ],
+      "cost_sum": 133,
+      "target_total": 111,
+      "margin": -22,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node12243",
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "node": 89,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        8,
+        7,
+        5,
+        5,
+        6,
+        6,
+        8,
+        8,
+        11,
+        9,
+        3,
+        3,
+        7,
+        9,
+        7,
+        7,
+        16,
+        16
+      ],
+      "cost_sum": 141,
+      "target_total": 111,
+      "margin": -30,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node12243",
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "node": 4213,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        8,
+        5,
+        5,
+        6,
+        6,
+        8,
+        8,
+        8,
+        11,
+        9,
+        3,
+        3,
+        7,
+        7,
+        9,
+        7,
+        15,
+        15
+      ],
+      "cost_sum": 140,
+      "target_total": 111,
+      "margin": -29,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node4213",
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "node": 91,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        13,
+        11,
+        9,
+        9,
+        5,
+        5,
+        4,
+        4,
+        8,
+        8,
+        9,
+        8,
+        6,
+        10,
+        8,
+        8,
+        14,
+        14
+      ],
+      "cost_sum": 153,
+      "target_total": 127,
+      "margin": -26,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node4213",
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "node": 87,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        13,
+        11,
+        9,
+        9,
+        5,
+        5,
+        4,
+        8,
+        8,
+        9,
+        8,
+        8,
+        6,
+        10,
+        8,
+        8,
+        9,
+        9
+      ],
+      "cost_sum": 147,
+      "target_total": 127,
+      "margin": -20,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node4213",
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "node": 8922,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        13,
+        11,
+        11,
+        9,
+        9,
+        5,
+        5,
+        4,
+        4,
+        8,
+        9,
+        8,
+        8,
+        6,
+        10,
+        8,
+        12,
+        12
+      ],
+      "cost_sum": 152,
+      "target_total": 127,
+      "margin": -25,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node4213",
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "node": 7372,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        13,
+        11,
+        11,
+        9,
+        9,
+        5,
+        5,
+        4,
+        4,
+        8,
+        9,
+        8,
+        6,
+        6,
+        10,
+        8,
+        14,
+        14
+      ],
+      "cost_sum": 154,
+      "target_total": 127,
+      "margin": -27,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node4213",
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "node": 12243,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        13,
+        11,
+        9,
+        9,
+        5,
+        5,
+        4,
+        4,
+        8,
+        8,
+        9,
+        8,
+        8,
+        8,
+        6,
+        10,
+        13,
+        13
+      ],
+      "cost_sum": 151,
+      "target_total": 127,
+      "margin": -24,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node4213",
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "node": 81,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        13,
+        11,
+        9,
+        9,
+        5,
+        5,
+        4,
+        4,
+        8,
+        9,
+        8,
+        6,
+        6,
+        10,
+        8,
+        8,
+        14,
+        14
+      ],
+      "cost_sum": 151,
+      "target_total": 127,
+      "margin": -24,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node4213",
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "node": 89,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        13,
+        11,
+        9,
+        9,
+        5,
+        5,
+        4,
+        4,
+        8,
+        9,
+        8,
+        8,
+        6,
+        10,
+        8,
+        8,
+        12,
+        12
+      ],
+      "cost_sum": 149,
+      "target_total": 127,
+      "margin": -22,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node4213",
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "node": 4213,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        13,
+        9,
+        9,
+        5,
+        5,
+        4,
+        4,
+        4,
+        8,
+        9,
+        8,
+        8,
+        6,
+        6,
+        10,
+        8,
+        5,
+        5
+      ],
+      "cost_sum": 126,
+      "target_total": 127,
+      "margin": 1,
+      "excludes_tight_bank": true
+    },
+    {
+      "matrix": "DynamicV1Node7372",
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "node": 91,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        11,
+        4,
+        15,
+        15,
+        14,
+        14,
+        12,
+        12,
+        10,
+        10,
+        13,
+        11,
+        15,
+        15,
+        0,
+        0,
+        25,
+        25
+      ],
+      "cost_sum": 221,
+      "target_total": 181,
+      "margin": -40,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node7372",
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "node": 87,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        11,
+        4,
+        15,
+        15,
+        14,
+        14,
+        12,
+        10,
+        10,
+        13,
+        11,
+        11,
+        15,
+        15,
+        0,
+        0,
+        20,
+        20
+      ],
+      "cost_sum": 210,
+      "target_total": 181,
+      "margin": -29,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node7372",
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "node": 8922,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        11,
+        4,
+        4,
+        15,
+        15,
+        14,
+        14,
+        12,
+        12,
+        10,
+        13,
+        11,
+        11,
+        15,
+        15,
+        0,
+        20,
+        20
+      ],
+      "cost_sum": 216,
+      "target_total": 181,
+      "margin": -35,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node7372",
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "node": 7372,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        11,
+        4,
+        4,
+        15,
+        15,
+        14,
+        14,
+        12,
+        12,
+        10,
+        13,
+        11,
+        15,
+        15,
+        15,
+        0,
+        0,
+        0
+      ],
+      "cost_sum": 180,
+      "target_total": 181,
+      "margin": 1,
+      "excludes_tight_bank": true
+    },
+    {
+      "matrix": "DynamicV1Node7372",
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "node": 12243,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        11,
+        4,
+        15,
+        15,
+        14,
+        14,
+        12,
+        12,
+        10,
+        10,
+        13,
+        11,
+        11,
+        11,
+        15,
+        15,
+        13,
+        13
+      ],
+      "cost_sum": 219,
+      "target_total": 181,
+      "margin": -38,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node7372",
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "node": 81,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        11,
+        4,
+        15,
+        15,
+        14,
+        14,
+        12,
+        12,
+        10,
+        13,
+        11,
+        15,
+        15,
+        15,
+        0,
+        0,
+        0,
+        0
+      ],
+      "cost_sum": 176,
+      "target_total": 181,
+      "margin": 5,
+      "excludes_tight_bank": true
+    },
+    {
+      "matrix": "DynamicV1Node7372",
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "node": 89,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        11,
+        4,
+        15,
+        15,
+        14,
+        14,
+        12,
+        12,
+        10,
+        13,
+        11,
+        11,
+        15,
+        15,
+        0,
+        0,
+        20,
+        20
+      ],
+      "cost_sum": 212,
+      "target_total": 181,
+      "margin": -31,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node7372",
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "node": 4213,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        11,
+        15,
+        15,
+        14,
+        14,
+        12,
+        12,
+        12,
+        10,
+        13,
+        11,
+        11,
+        15,
+        15,
+        15,
+        0,
+        14,
+        14
+      ],
+      "cost_sum": 223,
+      "target_total": 181,
+      "margin": -42,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node81",
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "node": 91,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        16,
+        18,
+        21,
+        21,
+        20,
+        20,
+        21,
+        21,
+        16,
+        16,
+        21,
+        17,
+        34,
+        23,
+        0,
+        0,
+        48,
+        48
+      ],
+      "cost_sum": 381,
+      "target_total": 305,
+      "margin": -76,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node81",
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "node": 87,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        16,
+        18,
+        21,
+        21,
+        20,
+        20,
+        21,
+        16,
+        16,
+        21,
+        17,
+        17,
+        34,
+        23,
+        0,
+        0,
+        41,
+        41
+      ],
+      "cost_sum": 363,
+      "target_total": 305,
+      "margin": -58,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node81",
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "node": 8922,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        16,
+        18,
+        18,
+        21,
+        21,
+        20,
+        20,
+        21,
+        21,
+        16,
+        21,
+        17,
+        17,
+        34,
+        23,
+        0,
+        34,
+        34
+      ],
+      "cost_sum": 372,
+      "target_total": 305,
+      "margin": -67,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node81",
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "node": 7372,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        16,
+        18,
+        18,
+        21,
+        21,
+        20,
+        20,
+        21,
+        21,
+        16,
+        21,
+        17,
+        34,
+        34,
+        23,
+        0,
+        0,
+        0
+      ],
+      "cost_sum": 321,
+      "target_total": 305,
+      "margin": -16,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node81",
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "node": 12243,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        16,
+        18,
+        21,
+        21,
+        20,
+        20,
+        21,
+        21,
+        16,
+        16,
+        21,
+        17,
+        17,
+        17,
+        34,
+        23,
+        23,
+        23
+      ],
+      "cost_sum": 365,
+      "target_total": 305,
+      "margin": -60,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node81",
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "node": 81,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        16,
+        18,
+        21,
+        21,
+        20,
+        20,
+        21,
+        21,
+        16,
+        21,
+        17,
+        34,
+        34,
+        23,
+        0,
+        0,
+        0,
+        0
+      ],
+      "cost_sum": 303,
+      "target_total": 305,
+      "margin": 2,
+      "excludes_tight_bank": true
+    },
+    {
+      "matrix": "DynamicV1Node81",
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "node": 89,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        16,
+        18,
+        21,
+        21,
+        20,
+        20,
+        21,
+        21,
+        16,
+        21,
+        17,
+        17,
+        34,
+        23,
+        0,
+        0,
+        34,
+        34
+      ],
+      "cost_sum": 354,
+      "target_total": 305,
+      "margin": -49,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node81",
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "node": 4213,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        16,
+        21,
+        21,
+        20,
+        20,
+        21,
+        21,
+        21,
+        16,
+        21,
+        17,
+        17,
+        34,
+        34,
+        23,
+        0,
+        32,
+        32
+      ],
+      "cost_sum": 387,
+      "target_total": 305,
+      "margin": -82,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node87",
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "node": 91,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        96,
+        96,
+        132,
+        132,
+        54,
+        54,
+        107,
+        107,
+        132,
+        132,
+        116,
+        116,
+        117,
+        125,
+        0,
+        0,
+        198,
+        198
+      ],
+      "cost_sum": 1912,
+      "target_total": 1589,
+      "margin": -323,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node87",
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "node": 87,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        96,
+        96,
+        132,
+        132,
+        54,
+        54,
+        107,
+        132,
+        132,
+        116,
+        116,
+        116,
+        117,
+        125,
+        0,
+        0,
+        29,
+        29
+      ],
+      "cost_sum": 1583,
+      "target_total": 1589,
+      "margin": 6,
+      "excludes_tight_bank": true
+    },
+    {
+      "matrix": "DynamicV1Node87",
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "node": 8922,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        96,
+        96,
+        96,
+        132,
+        132,
+        54,
+        54,
+        107,
+        107,
+        132,
+        116,
+        116,
+        116,
+        117,
+        125,
+        0,
+        188,
+        188
+      ],
+      "cost_sum": 1972,
+      "target_total": 1589,
+      "margin": -383,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node87",
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "node": 7372,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        96,
+        96,
+        96,
+        132,
+        132,
+        54,
+        54,
+        107,
+        107,
+        132,
+        116,
+        116,
+        117,
+        117,
+        125,
+        0,
+        160,
+        160
+      ],
+      "cost_sum": 1917,
+      "target_total": 1589,
+      "margin": -328,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node87",
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "node": 12243,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        96,
+        96,
+        132,
+        132,
+        54,
+        54,
+        107,
+        107,
+        132,
+        132,
+        116,
+        116,
+        116,
+        116,
+        117,
+        125,
+        111,
+        111
+      ],
+      "cost_sum": 1970,
+      "target_total": 1589,
+      "margin": -381,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node87",
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "node": 81,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        96,
+        96,
+        132,
+        132,
+        54,
+        54,
+        107,
+        107,
+        132,
+        116,
+        116,
+        117,
+        117,
+        125,
+        0,
+        0,
+        160,
+        160
+      ],
+      "cost_sum": 1821,
+      "target_total": 1589,
+      "margin": -232,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node87",
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "node": 89,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        96,
+        96,
+        132,
+        132,
+        54,
+        54,
+        107,
+        107,
+        132,
+        116,
+        116,
+        116,
+        117,
+        125,
+        0,
+        0,
+        188,
+        188
+      ],
+      "cost_sum": 1876,
+      "target_total": 1589,
+      "margin": -287,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node87",
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "node": 4213,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        96,
+        132,
+        132,
+        54,
+        54,
+        107,
+        107,
+        107,
+        132,
+        116,
+        116,
+        116,
+        117,
+        117,
+        125,
+        0,
+        206,
+        206
+      ],
+      "cost_sum": 2040,
+      "target_total": 1589,
+      "margin": -451,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node89",
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "node": 91,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        4,
+        4,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        6,
+        5,
+        4,
+        5,
+        0,
+        0,
+        7,
+        7
+      ],
+      "cost_sum": 72,
+      "target_total": 62,
+      "margin": -10,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node89",
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "node": 87,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        4,
+        4,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        6,
+        5,
+        5,
+        4,
+        5,
+        0,
+        0,
+        7,
+        7
+      ],
+      "cost_sum": 73,
+      "target_total": 62,
+      "margin": -11,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node89",
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "node": 8922,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        4,
+        4,
+        4,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        6,
+        5,
+        5,
+        4,
+        5,
+        0,
+        0,
+        0
+      ],
+      "cost_sum": 63,
+      "target_total": 62,
+      "margin": -1,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node89",
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "node": 7372,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        4,
+        4,
+        4,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        6,
+        5,
+        4,
+        4,
+        5,
+        0,
+        6,
+        6
+      ],
+      "cost_sum": 74,
+      "target_total": 62,
+      "margin": -12,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node89",
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "node": 12243,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        4,
+        4,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        6,
+        5,
+        5,
+        5,
+        4,
+        5,
+        4,
+        4
+      ],
+      "cost_sum": 76,
+      "target_total": 62,
+      "margin": -14,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node89",
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "node": 81,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        4,
+        4,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        6,
+        5,
+        4,
+        4,
+        5,
+        0,
+        0,
+        6,
+        6
+      ],
+      "cost_sum": 70,
+      "target_total": 62,
+      "margin": -8,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node89",
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "node": 89,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        4,
+        4,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        6,
+        5,
+        5,
+        4,
+        5,
+        0,
+        0,
+        0,
+        0
+      ],
+      "cost_sum": 59,
+      "target_total": 62,
+      "margin": 3,
+      "excludes_tight_bank": true
+    },
+    {
+      "matrix": "DynamicV1Node89",
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "node": 4213,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        4,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        6,
+        5,
+        5,
+        4,
+        4,
+        5,
+        0,
+        8,
+        8
+      ],
+      "cost_sum": 79,
+      "target_total": 62,
+      "margin": -17,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node8922",
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "node": 91,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        27,
+        15,
+        35,
+        35,
+        32,
+        32,
+        29,
+        29,
+        24,
+        24,
+        36,
+        36,
+        25,
+        29,
+        3,
+        3,
+        50,
+        50
+      ],
+      "cost_sum": 514,
+      "target_total": 440,
+      "margin": -74,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node8922",
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "node": 87,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        27,
+        15,
+        35,
+        35,
+        32,
+        32,
+        29,
+        24,
+        24,
+        36,
+        36,
+        36,
+        25,
+        29,
+        3,
+        3,
+        50,
+        50
+      ],
+      "cost_sum": 521,
+      "target_total": 440,
+      "margin": -81,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node8922",
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "node": 8922,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        27,
+        15,
+        15,
+        35,
+        35,
+        32,
+        32,
+        29,
+        29,
+        24,
+        36,
+        36,
+        36,
+        25,
+        29,
+        3,
+        0,
+        0
+      ],
+      "cost_sum": 438,
+      "target_total": 440,
+      "margin": 2,
+      "excludes_tight_bank": true
+    },
+    {
+      "matrix": "DynamicV1Node8922",
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "node": 7372,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        27,
+        15,
+        15,
+        35,
+        35,
+        32,
+        32,
+        29,
+        29,
+        24,
+        36,
+        36,
+        25,
+        25,
+        29,
+        3,
+        55,
+        55
+      ],
+      "cost_sum": 537,
+      "target_total": 440,
+      "margin": -97,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node8922",
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "node": 12243,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        27,
+        15,
+        35,
+        35,
+        32,
+        32,
+        29,
+        29,
+        24,
+        24,
+        36,
+        36,
+        36,
+        36,
+        25,
+        29,
+        26,
+        26
+      ],
+      "cost_sum": 532,
+      "target_total": 440,
+      "margin": -92,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node8922",
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "node": 81,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        27,
+        15,
+        35,
+        35,
+        32,
+        32,
+        29,
+        29,
+        24,
+        36,
+        36,
+        25,
+        25,
+        29,
+        3,
+        3,
+        55,
+        55
+      ],
+      "cost_sum": 525,
+      "target_total": 440,
+      "margin": -85,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node8922",
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "node": 89,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        27,
+        15,
+        35,
+        35,
+        32,
+        32,
+        29,
+        29,
+        24,
+        36,
+        36,
+        36,
+        25,
+        29,
+        3,
+        3,
+        0,
+        0
+      ],
+      "cost_sum": 426,
+      "target_total": 440,
+      "margin": 14,
+      "excludes_tight_bank": true
+    },
+    {
+      "matrix": "DynamicV1Node8922",
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "node": 4213,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        27,
+        35,
+        35,
+        32,
+        32,
+        29,
+        29,
+        29,
+        24,
+        36,
+        36,
+        36,
+        25,
+        25,
+        29,
+        3,
+        36,
+        36
+      ],
+      "cost_sum": 534,
+      "target_total": 440,
+      "margin": -94,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node91",
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "node": 91,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        3,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        4,
+        3,
+        3,
+        4,
+        0,
+        0,
+        0,
+        0
+      ],
+      "cost_sum": 41,
+      "target_total": 43,
+      "margin": 2,
+      "excludes_tight_bank": true
+    },
+    {
+      "matrix": "DynamicV1Node91",
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "node": 87,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        3,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        4,
+        3,
+        3,
+        3,
+        4,
+        0,
+        0,
+        6,
+        6
+      ],
+      "cost_sum": 53,
+      "target_total": 43,
+      "margin": -10,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node91",
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "node": 8922,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        3,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        1,
+        4,
+        3,
+        3,
+        3,
+        4,
+        0,
+        4,
+        4
+      ],
+      "cost_sum": 55,
+      "target_total": 43,
+      "margin": -12,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node91",
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "node": 7372,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        3,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        1,
+        4,
+        3,
+        3,
+        3,
+        4,
+        0,
+        3,
+        3
+      ],
+      "cost_sum": 53,
+      "target_total": 43,
+      "margin": -10,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node91",
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "node": 12243,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        3,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        1,
+        1,
+        4,
+        3,
+        3,
+        3,
+        3,
+        4,
+        3,
+        3
+      ],
+      "cost_sum": 53,
+      "target_total": 43,
+      "margin": -10,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node91",
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "node": 81,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        3,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        1,
+        4,
+        3,
+        3,
+        3,
+        4,
+        0,
+        0,
+        3,
+        3
+      ],
+      "cost_sum": 49,
+      "target_total": 43,
+      "margin": -6,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node91",
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "node": 89,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        3,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        1,
+        4,
+        3,
+        3,
+        3,
+        4,
+        0,
+        0,
+        4,
+        4
+      ],
+      "cost_sum": 51,
+      "target_total": 43,
+      "margin": -8,
+      "excludes_tight_bank": false
+    },
+    {
+      "matrix": "DynamicV1Node91",
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "node": 4213,
+      "root_count": 18,
+      "remaining": 17,
+      "tight": true,
+      "root_costs": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        1,
+        4,
+        3,
+        3,
+        3,
+        3,
+        4,
+        0,
+        5,
+        5
+      ],
+      "cost_sum": 55,
+      "target_total": 43,
+      "margin": -12,
+      "excludes_tight_bank": false
+    }
+  ],
+  "profiles": [
+    {
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "positive_support": [
+        0,
+        4,
+        5
+      ],
+      "negative_support": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13
+      ],
+      "cost": 8,
+      "rows": [
+        0,
+        4,
+        5
+      ],
+      "columns": [
+        0,
+        7,
+        9,
+        12,
+        13
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "positive_support": [
+        0,
+        1,
+        6
+      ],
+      "negative_support": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        14
+      ],
+      "cost": 7,
+      "rows": [
+        0
+      ],
+      "columns": [
+        5,
+        8,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "positive_support": [
+        1,
+        2,
+        7
+      ],
+      "negative_support": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12,
+        13
+      ],
+      "cost": 5,
+      "rows": [
+        1,
+        2
+      ],
+      "columns": [
+        2,
+        10,
+        12,
+        13
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "positive_support": [
+        2,
+        3,
+        8
+      ],
+      "negative_support": [
+        0,
+        1,
+        3,
+        6,
+        7,
+        8,
+        9,
+        11,
+        13,
+        14
+      ],
+      "cost": 6,
+      "rows": [
+        2,
+        3
+      ],
+      "columns": [
+        0,
+        1,
+        9
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "positive_support": [
+        3,
+        4,
+        9
+      ],
+      "negative_support": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 8,
+      "rows": [
+        3,
+        4,
+        9
+      ],
+      "columns": [
+        1,
+        4,
+        5,
+        12,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "positive_support": [
+        5,
+        10,
+        14
+      ],
+      "negative_support": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14
+      ],
+      "cost": 11,
+      "rows": [
+        5,
+        10
+      ],
+      "columns": [
+        1,
+        5,
+        9,
+        10
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "positive_support": [
+        6,
+        12,
+        13
+      ],
+      "negative_support": [
+        0,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 9,
+      "rows": [
+        6,
+        12
+      ],
+      "columns": [
+        10,
+        11,
+        12
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "positive_support": [
+        7,
+        10,
+        11
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 3,
+      "rows": [
+        7
+      ],
+      "columns": [
+        3,
+        7,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "positive_support": [
+        8,
+        13,
+        14
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12
+      ],
+      "cost": 7,
+      "rows": [
+        8,
+        13
+      ],
+      "columns": [
+        1,
+        5
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "positive_support": [
+        9,
+        11,
+        12
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "cost": 9,
+      "rows": [
+        9,
+        11
+      ],
+      "columns": [
+        0,
+        4,
+        9
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "positive_support": [
+        0,
+        1,
+        4,
+        5,
+        6
+      ],
+      "negative_support": [
+        2,
+        3,
+        6,
+        7,
+        11
+      ],
+      "cost": 7,
+      "rows": [
+        1,
+        4,
+        5
+      ],
+      "columns": [
+        7
+      ],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "positive_support": [
+        7,
+        8,
+        10,
+        11,
+        13,
+        14
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        10,
+        11,
+        12
+      ],
+      "cost": 9,
+      "rows": [
+        7,
+        10,
+        13,
+        14
+      ],
+      "columns": [
+        0,
+        1,
+        3
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "positive_support": [
+        3,
+        4,
+        8,
+        9,
+        13,
+        14
+      ],
+      "negative_support": [
+        1,
+        2,
+        4,
+        5,
+        10,
+        11,
+        12
+      ],
+      "cost": 13,
+      "rows": [
+        3,
+        8,
+        9,
+        13
+      ],
+      "columns": [
+        1,
+        4,
+        5,
+        12
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "positive_support": [
+        5,
+        8,
+        10,
+        13,
+        14
+      ],
+      "negative_support": [
+        1,
+        4,
+        5,
+        6,
+        10
+      ],
+      "cost": 16,
+      "rows": [
+        5,
+        8,
+        10,
+        13
+      ],
+      "columns": [
+        1,
+        5,
+        10
+      ],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "positive_support": [
+        5,
+        7,
+        10,
+        11,
+        14
+      ],
+      "negative_support": [
+        1,
+        7,
+        10,
+        13,
+        14
+      ],
+      "cost": 10,
+      "rows": [
+        5,
+        7,
+        14
+      ],
+      "columns": [
+        1,
+        7,
+        10,
+        13,
+        14
+      ],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "positive_support": [
+        0,
+        1,
+        4,
+        5,
+        6,
+        8,
+        13,
+        14
+      ],
+      "negative_support": [
+        2,
+        3,
+        6,
+        11
+      ],
+      "cost": 0,
+      "rows": [],
+      "columns": [],
+      "enumerated_subsets": 16,
+      "orientation": "columns"
+    },
+    {
+      "matrix_hash": "c945ef6164d74a4370cc898b7503843f1113bc3738fe32cbb3a5f07633a82e4d",
+      "positive_support": [
+        0,
+        1,
+        5,
+        6,
+        10,
+        14
+      ],
+      "negative_support": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        10,
+        14
+      ],
+      "cost": 15,
+      "rows": [
+        0,
+        5,
+        6,
+        10
+      ],
+      "columns": [
+        1,
+        5,
+        10
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "positive_support": [
+        0,
+        4,
+        5
+      ],
+      "negative_support": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13
+      ],
+      "cost": 13,
+      "rows": [
+        0,
+        4
+      ],
+      "columns": [
+        0,
+        3,
+        4,
+        9,
+        12
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "positive_support": [
+        0,
+        1,
+        6
+      ],
+      "negative_support": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        14
+      ],
+      "cost": 11,
+      "rows": [
+        0,
+        1
+      ],
+      "columns": [
+        1,
+        3,
+        11,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "positive_support": [
+        1,
+        2,
+        7
+      ],
+      "negative_support": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12,
+        13
+      ],
+      "cost": 9,
+      "rows": [
+        1
+      ],
+      "columns": [
+        0,
+        9,
+        12
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "positive_support": [
+        2,
+        3,
+        8
+      ],
+      "negative_support": [
+        0,
+        1,
+        3,
+        6,
+        7,
+        8,
+        9,
+        11,
+        13,
+        14
+      ],
+      "cost": 5,
+      "rows": [
+        2
+      ],
+      "columns": [
+        3,
+        7,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "positive_support": [
+        3,
+        4,
+        9
+      ],
+      "negative_support": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 4,
+      "rows": [
+        3
+      ],
+      "columns": [
+        5,
+        12
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "positive_support": [
+        5,
+        10,
+        14
+      ],
+      "negative_support": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14
+      ],
+      "cost": 8,
+      "rows": [
+        5,
+        10
+      ],
+      "columns": [
+        4,
+        5
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "positive_support": [
+        6,
+        12,
+        13
+      ],
+      "negative_support": [
+        0,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 9,
+      "rows": [
+        12,
+        13
+      ],
+      "columns": [
+        7,
+        8,
+        11,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "positive_support": [
+        7,
+        10,
+        11
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 8,
+      "rows": [
+        7
+      ],
+      "columns": [
+        1,
+        3,
+        7,
+        11,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "positive_support": [
+        8,
+        13,
+        14
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12
+      ],
+      "cost": 6,
+      "rows": [
+        8,
+        13
+      ],
+      "columns": [
+        1,
+        3,
+        4,
+        5
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "positive_support": [
+        9,
+        11,
+        12
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "cost": 10,
+      "rows": [
+        9,
+        11,
+        12
+      ],
+      "columns": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        8,
+        9
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "positive_support": [
+        0,
+        1,
+        4,
+        5,
+        6
+      ],
+      "negative_support": [
+        2,
+        3,
+        6,
+        7,
+        11
+      ],
+      "cost": 8,
+      "rows": [
+        0,
+        1
+      ],
+      "columns": [
+        3,
+        11
+      ],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "positive_support": [
+        7,
+        8,
+        10,
+        11,
+        13,
+        14
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        10,
+        11,
+        12
+      ],
+      "cost": 14,
+      "rows": [
+        8,
+        10,
+        11,
+        14
+      ],
+      "columns": [
+        12
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "positive_support": [
+        3,
+        4,
+        8,
+        9,
+        13,
+        14
+      ],
+      "negative_support": [
+        1,
+        2,
+        4,
+        5,
+        10,
+        11,
+        12
+      ],
+      "cost": 9,
+      "rows": [
+        3,
+        8
+      ],
+      "columns": [
+        4,
+        5,
+        12
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "positive_support": [
+        5,
+        8,
+        10,
+        13,
+        14
+      ],
+      "negative_support": [
+        1,
+        4,
+        5,
+        6,
+        10
+      ],
+      "cost": 12,
+      "rows": [
+        5,
+        8,
+        10,
+        13
+      ],
+      "columns": [
+        4,
+        5
+      ],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "positive_support": [
+        5,
+        7,
+        10,
+        11,
+        14
+      ],
+      "negative_support": [
+        1,
+        7,
+        10,
+        13,
+        14
+      ],
+      "cost": 14,
+      "rows": [
+        5,
+        7,
+        11,
+        14
+      ],
+      "columns": [
+        1,
+        13,
+        14
+      ],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "positive_support": [
+        0,
+        1,
+        4,
+        5,
+        6,
+        8,
+        13,
+        14
+      ],
+      "negative_support": [
+        2,
+        3,
+        6,
+        11
+      ],
+      "cost": 13,
+      "rows": [
+        0,
+        1,
+        6,
+        13,
+        14
+      ],
+      "columns": [
+        3
+      ],
+      "enumerated_subsets": 16,
+      "orientation": "columns"
+    },
+    {
+      "matrix_hash": "5d7d9fc716c0ee3126951c08ddd57ebc0539cdbcfee209f31a736802ae7b4a6b",
+      "positive_support": [
+        0,
+        1,
+        5,
+        6,
+        10,
+        14
+      ],
+      "negative_support": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        10,
+        14
+      ],
+      "cost": 5,
+      "rows": [
+        0,
+        5
+      ],
+      "columns": [
+        5,
+        8,
+        14
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "positive_support": [
+        0,
+        4,
+        5
+      ],
+      "negative_support": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13
+      ],
+      "cost": 11,
+      "rows": [
+        0,
+        5
+      ],
+      "columns": [
+        4,
+        12,
+        13
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "positive_support": [
+        0,
+        1,
+        6
+      ],
+      "negative_support": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        14
+      ],
+      "cost": 4,
+      "rows": [
+        0
+      ],
+      "columns": [
+        5,
+        10,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "positive_support": [
+        1,
+        2,
+        7
+      ],
+      "negative_support": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12,
+        13
+      ],
+      "cost": 15,
+      "rows": [
+        1,
+        2
+      ],
+      "columns": [
+        0,
+        2,
+        5,
+        10,
+        12
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "positive_support": [
+        2,
+        3,
+        8
+      ],
+      "negative_support": [
+        0,
+        1,
+        3,
+        6,
+        7,
+        8,
+        9,
+        11,
+        13,
+        14
+      ],
+      "cost": 14,
+      "rows": [
+        2,
+        3
+      ],
+      "columns": [
+        1,
+        3,
+        11
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "positive_support": [
+        3,
+        4,
+        9
+      ],
+      "negative_support": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 12,
+      "rows": [
+        4,
+        9
+      ],
+      "columns": [
+        5,
+        10,
+        11,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "positive_support": [
+        5,
+        10,
+        14
+      ],
+      "negative_support": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14
+      ],
+      "cost": 10,
+      "rows": [
+        5
+      ],
+      "columns": [
+        5,
+        8
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "positive_support": [
+        6,
+        12,
+        13
+      ],
+      "negative_support": [
+        0,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 13,
+      "rows": [
+        6,
+        13
+      ],
+      "columns": [
+        4,
+        7,
+        8,
+        9,
+        13
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "positive_support": [
+        7,
+        10,
+        11
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 11,
+      "rows": [
+        7,
+        10
+      ],
+      "columns": [
+        0,
+        2,
+        3
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "positive_support": [
+        8,
+        13,
+        14
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12
+      ],
+      "cost": 15,
+      "rows": [
+        13,
+        14
+      ],
+      "columns": [
+        1,
+        2,
+        3
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "positive_support": [
+        9,
+        11,
+        12
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "cost": 15,
+      "rows": [
+        9,
+        11
+      ],
+      "columns": [
+        0,
+        4,
+        6,
+        8,
+        9
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "positive_support": [
+        0,
+        1,
+        4,
+        5,
+        6
+      ],
+      "negative_support": [
+        2,
+        3,
+        6,
+        7,
+        11
+      ],
+      "cost": 0,
+      "rows": [],
+      "columns": [],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "positive_support": [
+        7,
+        8,
+        10,
+        11,
+        13,
+        14
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        10,
+        11,
+        12
+      ],
+      "cost": 25,
+      "rows": [
+        7,
+        10,
+        13,
+        14
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "positive_support": [
+        3,
+        4,
+        8,
+        9,
+        13,
+        14
+      ],
+      "negative_support": [
+        1,
+        2,
+        4,
+        5,
+        10,
+        11,
+        12
+      ],
+      "cost": 20,
+      "rows": [
+        3,
+        8,
+        9
+      ],
+      "columns": [
+        4,
+        5,
+        10,
+        11,
+        12
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "positive_support": [
+        5,
+        8,
+        10,
+        13,
+        14
+      ],
+      "negative_support": [
+        1,
+        4,
+        5,
+        6,
+        10
+      ],
+      "cost": 20,
+      "rows": [
+        5,
+        8,
+        10,
+        13
+      ],
+      "columns": [
+        5,
+        6
+      ],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "positive_support": [
+        5,
+        7,
+        10,
+        11,
+        14
+      ],
+      "negative_support": [
+        1,
+        7,
+        10,
+        13,
+        14
+      ],
+      "cost": 0,
+      "rows": [],
+      "columns": [],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "positive_support": [
+        0,
+        1,
+        4,
+        5,
+        6,
+        8,
+        13,
+        14
+      ],
+      "negative_support": [
+        2,
+        3,
+        6,
+        11
+      ],
+      "cost": 13,
+      "rows": [
+        13,
+        14
+      ],
+      "columns": [
+        2,
+        3
+      ],
+      "enumerated_subsets": 16,
+      "orientation": "columns"
+    },
+    {
+      "matrix_hash": "d13035de495eed141ccbd2807518b2bf4501938f929cdf6a8d37a3f9f25ee1c0",
+      "positive_support": [
+        0,
+        1,
+        5,
+        6,
+        10,
+        14
+      ],
+      "negative_support": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        10,
+        14
+      ],
+      "cost": 14,
+      "rows": [
+        0,
+        5
+      ],
+      "columns": [
+        5,
+        8,
+        10,
+        14
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "positive_support": [
+        0,
+        4,
+        5
+      ],
+      "negative_support": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13
+      ],
+      "cost": 16,
+      "rows": [
+        0
+      ],
+      "columns": [
+        4,
+        12
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "positive_support": [
+        0,
+        1,
+        6
+      ],
+      "negative_support": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        14
+      ],
+      "cost": 18,
+      "rows": [
+        1,
+        6
+      ],
+      "columns": [
+        1,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "positive_support": [
+        1,
+        2,
+        7
+      ],
+      "negative_support": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12,
+        13
+      ],
+      "cost": 21,
+      "rows": [
+        1,
+        2,
+        7
+      ],
+      "columns": [
+        5,
+        8,
+        9,
+        12
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "positive_support": [
+        2,
+        3,
+        8
+      ],
+      "negative_support": [
+        0,
+        1,
+        3,
+        6,
+        7,
+        8,
+        9,
+        11,
+        13,
+        14
+      ],
+      "cost": 20,
+      "rows": [
+        3,
+        8
+      ],
+      "columns": [
+        0,
+        6,
+        7,
+        8,
+        9
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "positive_support": [
+        3,
+        4,
+        9
+      ],
+      "negative_support": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 21,
+      "rows": [
+        3,
+        9
+      ],
+      "columns": [
+        4,
+        12,
+        13
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "positive_support": [
+        5,
+        10,
+        14
+      ],
+      "negative_support": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14
+      ],
+      "cost": 16,
+      "rows": [
+        5
+      ],
+      "columns": [
+        5,
+        8
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "positive_support": [
+        6,
+        12,
+        13
+      ],
+      "negative_support": [
+        0,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 21,
+      "rows": [
+        12,
+        13
+      ],
+      "columns": [
+        8,
+        10,
+        11,
+        13,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "positive_support": [
+        7,
+        10,
+        11
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 17,
+      "rows": [
+        10
+      ],
+      "columns": [
+        0,
+        2,
+        3,
+        12
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "positive_support": [
+        8,
+        13,
+        14
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12
+      ],
+      "cost": 34,
+      "rows": [
+        8,
+        13,
+        14
+      ],
+      "columns": [
+        0,
+        2,
+        3,
+        5,
+        6,
+        12
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "positive_support": [
+        9,
+        11,
+        12
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "cost": 23,
+      "rows": [
+        9,
+        12
+      ],
+      "columns": [
+        0,
+        2,
+        3,
+        4,
+        9
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "positive_support": [
+        0,
+        1,
+        4,
+        5,
+        6
+      ],
+      "negative_support": [
+        2,
+        3,
+        6,
+        7,
+        11
+      ],
+      "cost": 0,
+      "rows": [],
+      "columns": [],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "positive_support": [
+        7,
+        8,
+        10,
+        11,
+        13,
+        14
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        10,
+        11,
+        12
+      ],
+      "cost": 48,
+      "rows": [
+        10,
+        13,
+        14
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        3,
+        12
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "positive_support": [
+        3,
+        4,
+        8,
+        9,
+        13,
+        14
+      ],
+      "negative_support": [
+        1,
+        2,
+        4,
+        5,
+        10,
+        11,
+        12
+      ],
+      "cost": 41,
+      "rows": [
+        3,
+        8,
+        9,
+        14
+      ],
+      "columns": [
+        5,
+        12
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "positive_support": [
+        5,
+        8,
+        10,
+        13,
+        14
+      ],
+      "negative_support": [
+        1,
+        4,
+        5,
+        6,
+        10
+      ],
+      "cost": 34,
+      "rows": [
+        5,
+        8,
+        10,
+        13
+      ],
+      "columns": [
+        5,
+        6
+      ],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "positive_support": [
+        5,
+        7,
+        10,
+        11,
+        14
+      ],
+      "negative_support": [
+        1,
+        7,
+        10,
+        13,
+        14
+      ],
+      "cost": 0,
+      "rows": [],
+      "columns": [],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "positive_support": [
+        0,
+        1,
+        4,
+        5,
+        6,
+        8,
+        13,
+        14
+      ],
+      "negative_support": [
+        2,
+        3,
+        6,
+        11
+      ],
+      "cost": 23,
+      "rows": [
+        13,
+        14
+      ],
+      "columns": [
+        2,
+        3,
+        6
+      ],
+      "enumerated_subsets": 16,
+      "orientation": "columns"
+    },
+    {
+      "matrix_hash": "be96606a33589d073424763950e31d336f75d8becdc1cc7477bfdce441632cf3",
+      "positive_support": [
+        0,
+        1,
+        5,
+        6,
+        10,
+        14
+      ],
+      "negative_support": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        10,
+        14
+      ],
+      "cost": 32,
+      "rows": [
+        0,
+        5
+      ],
+      "columns": [
+        5,
+        8,
+        10
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "positive_support": [
+        0,
+        4,
+        5
+      ],
+      "negative_support": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13
+      ],
+      "cost": 96,
+      "rows": [
+        4,
+        5
+      ],
+      "columns": [
+        0
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "positive_support": [
+        0,
+        1,
+        6
+      ],
+      "negative_support": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        14
+      ],
+      "cost": 96,
+      "rows": [
+        0
+      ],
+      "columns": [
+        8,
+        10,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "positive_support": [
+        1,
+        2,
+        7
+      ],
+      "negative_support": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12,
+        13
+      ],
+      "cost": 132,
+      "rows": [
+        2,
+        7
+      ],
+      "columns": [
+        5,
+        8,
+        9,
+        10
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "positive_support": [
+        2,
+        3,
+        8
+      ],
+      "negative_support": [
+        0,
+        1,
+        3,
+        6,
+        7,
+        8,
+        9,
+        11,
+        13,
+        14
+      ],
+      "cost": 54,
+      "rows": [
+        2,
+        3,
+        8
+      ],
+      "columns": [
+        0,
+        1,
+        7,
+        11,
+        13,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "positive_support": [
+        3,
+        4,
+        9
+      ],
+      "negative_support": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 107,
+      "rows": [
+        4,
+        9
+      ],
+      "columns": [
+        8,
+        10,
+        13,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "positive_support": [
+        5,
+        10,
+        14
+      ],
+      "negative_support": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14
+      ],
+      "cost": 132,
+      "rows": [
+        5,
+        14
+      ],
+      "columns": [
+        1,
+        5,
+        7,
+        8,
+        10,
+        13,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "positive_support": [
+        6,
+        12,
+        13
+      ],
+      "negative_support": [
+        0,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 116,
+      "rows": [
+        6,
+        13
+      ],
+      "columns": [
+        7,
+        9,
+        10
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "positive_support": [
+        7,
+        10,
+        11
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 116,
+      "rows": [
+        7,
+        11
+      ],
+      "columns": [
+        1,
+        7,
+        11,
+        13,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "positive_support": [
+        8,
+        13,
+        14
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12
+      ],
+      "cost": 117,
+      "rows": [
+        13
+      ],
+      "columns": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        10
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "positive_support": [
+        9,
+        11,
+        12
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "cost": 125,
+      "rows": [
+        9,
+        11
+      ],
+      "columns": [
+        4,
+        5,
+        7,
+        9
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "positive_support": [
+        0,
+        1,
+        4,
+        5,
+        6
+      ],
+      "negative_support": [
+        2,
+        3,
+        6,
+        7,
+        11
+      ],
+      "cost": 0,
+      "rows": [],
+      "columns": [],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "positive_support": [
+        7,
+        8,
+        10,
+        11,
+        13,
+        14
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        10,
+        11,
+        12
+      ],
+      "cost": 198,
+      "rows": [
+        10,
+        14
+      ],
+      "columns": [
+        0,
+        2,
+        3,
+        11,
+        12
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "positive_support": [
+        3,
+        4,
+        8,
+        9,
+        13,
+        14
+      ],
+      "negative_support": [
+        1,
+        2,
+        4,
+        5,
+        10,
+        11,
+        12
+      ],
+      "cost": 29,
+      "rows": [
+        3,
+        8,
+        14
+      ],
+      "columns": [
+        1,
+        4,
+        11
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "positive_support": [
+        5,
+        8,
+        10,
+        13,
+        14
+      ],
+      "negative_support": [
+        1,
+        4,
+        5,
+        6,
+        10
+      ],
+      "cost": 188,
+      "rows": [
+        5,
+        10,
+        13
+      ],
+      "columns": [
+        1,
+        4,
+        5,
+        6,
+        10
+      ],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "positive_support": [
+        5,
+        7,
+        10,
+        11,
+        14
+      ],
+      "negative_support": [
+        1,
+        7,
+        10,
+        13,
+        14
+      ],
+      "cost": 160,
+      "rows": [
+        5,
+        7,
+        11,
+        14
+      ],
+      "columns": [
+        1,
+        7,
+        13,
+        14
+      ],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "positive_support": [
+        0,
+        1,
+        4,
+        5,
+        6,
+        8,
+        13,
+        14
+      ],
+      "negative_support": [
+        2,
+        3,
+        6,
+        11
+      ],
+      "cost": 111,
+      "rows": [
+        13
+      ],
+      "columns": [
+        2,
+        3,
+        6
+      ],
+      "enumerated_subsets": 16,
+      "orientation": "columns"
+    },
+    {
+      "matrix_hash": "dc499fd6106da6347dbc3e38de4430ea968ef8333163d1cb7f24b2667fc1a8a7",
+      "positive_support": [
+        0,
+        1,
+        5,
+        6,
+        10,
+        14
+      ],
+      "negative_support": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        10,
+        14
+      ],
+      "cost": 206,
+      "rows": [
+        0,
+        1,
+        5,
+        6,
+        14
+      ],
+      "columns": [
+        1,
+        5,
+        7,
+        8,
+        10,
+        14
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "positive_support": [
+        0,
+        4,
+        5
+      ],
+      "negative_support": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13
+      ],
+      "cost": 4,
+      "rows": [
+        0
+      ],
+      "columns": [
+        9,
+        12,
+        13
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "positive_support": [
+        0,
+        1,
+        6
+      ],
+      "negative_support": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        14
+      ],
+      "cost": 4,
+      "rows": [
+        0,
+        1
+      ],
+      "columns": [
+        8,
+        10,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "positive_support": [
+        1,
+        2,
+        7
+      ],
+      "negative_support": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12,
+        13
+      ],
+      "cost": 3,
+      "rows": [
+        1
+      ],
+      "columns": [
+        9,
+        12,
+        13
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "positive_support": [
+        2,
+        3,
+        8
+      ],
+      "negative_support": [
+        0,
+        1,
+        3,
+        6,
+        7,
+        8,
+        9,
+        11,
+        13,
+        14
+      ],
+      "cost": 4,
+      "rows": [
+        2,
+        8
+      ],
+      "columns": [
+        7,
+        8,
+        13,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "positive_support": [
+        3,
+        4,
+        9
+      ],
+      "negative_support": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 4,
+      "rows": [
+        3,
+        9
+      ],
+      "columns": [
+        2,
+        10,
+        12
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "positive_support": [
+        5,
+        10,
+        14
+      ],
+      "negative_support": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14
+      ],
+      "cost": 4,
+      "rows": [
+        5,
+        10
+      ],
+      "columns": [
+        8
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "positive_support": [
+        6,
+        12,
+        13
+      ],
+      "negative_support": [
+        0,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 6,
+      "rows": [
+        6,
+        13
+      ],
+      "columns": [
+        4,
+        7,
+        8,
+        9,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "positive_support": [
+        7,
+        10,
+        11
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 5,
+      "rows": [
+        7,
+        10,
+        11
+      ],
+      "columns": [
+        3,
+        7,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "positive_support": [
+        8,
+        13,
+        14
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12
+      ],
+      "cost": 4,
+      "rows": [
+        8,
+        13
+      ],
+      "columns": [
+        2
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "positive_support": [
+        9,
+        11,
+        12
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "cost": 5,
+      "rows": [
+        9,
+        11
+      ],
+      "columns": [
+        3,
+        7,
+        9
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "positive_support": [
+        0,
+        1,
+        4,
+        5,
+        6
+      ],
+      "negative_support": [
+        2,
+        3,
+        6,
+        7,
+        11
+      ],
+      "cost": 0,
+      "rows": [],
+      "columns": [],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "positive_support": [
+        7,
+        8,
+        10,
+        11,
+        13,
+        14
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        10,
+        11,
+        12
+      ],
+      "cost": 7,
+      "rows": [
+        7,
+        8,
+        10,
+        13
+      ],
+      "columns": [
+        2,
+        3
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "positive_support": [
+        3,
+        4,
+        8,
+        9,
+        13,
+        14
+      ],
+      "negative_support": [
+        1,
+        2,
+        4,
+        5,
+        10,
+        11,
+        12
+      ],
+      "cost": 7,
+      "rows": [
+        3,
+        8,
+        9
+      ],
+      "columns": [
+        2,
+        10,
+        12
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "positive_support": [
+        5,
+        8,
+        10,
+        13,
+        14
+      ],
+      "negative_support": [
+        1,
+        4,
+        5,
+        6,
+        10
+      ],
+      "cost": 0,
+      "rows": [],
+      "columns": [],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "positive_support": [
+        5,
+        7,
+        10,
+        11,
+        14
+      ],
+      "negative_support": [
+        1,
+        7,
+        10,
+        13,
+        14
+      ],
+      "cost": 6,
+      "rows": [
+        5,
+        11,
+        14
+      ],
+      "columns": [
+        10,
+        13,
+        14
+      ],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "positive_support": [
+        0,
+        1,
+        4,
+        5,
+        6,
+        8,
+        13,
+        14
+      ],
+      "negative_support": [
+        2,
+        3,
+        6,
+        11
+      ],
+      "cost": 4,
+      "rows": [
+        8,
+        13
+      ],
+      "columns": [
+        2
+      ],
+      "enumerated_subsets": 16,
+      "orientation": "columns"
+    },
+    {
+      "matrix_hash": "edd20104a3eb86521e450659dea1d3b956606667789990028b7aa25bb006e6bd",
+      "positive_support": [
+        0,
+        1,
+        5,
+        6,
+        10,
+        14
+      ],
+      "negative_support": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        10,
+        14
+      ],
+      "cost": 8,
+      "rows": [
+        1,
+        5,
+        6,
+        10
+      ],
+      "columns": [
+        1,
+        8,
+        14
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "positive_support": [
+        0,
+        4,
+        5
+      ],
+      "negative_support": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13
+      ],
+      "cost": 27,
+      "rows": [
+        0,
+        4
+      ],
+      "columns": [
+        6,
+        9,
+        13
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "positive_support": [
+        0,
+        1,
+        6
+      ],
+      "negative_support": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        14
+      ],
+      "cost": 15,
+      "rows": [
+        0,
+        1
+      ],
+      "columns": [
+        1,
+        3,
+        8,
+        10,
+        11,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "positive_support": [
+        1,
+        2,
+        7
+      ],
+      "negative_support": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12,
+        13
+      ],
+      "cost": 35,
+      "rows": [
+        2,
+        7
+      ],
+      "columns": [
+        2,
+        4,
+        5,
+        6,
+        8,
+        10
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "positive_support": [
+        2,
+        3,
+        8
+      ],
+      "negative_support": [
+        0,
+        1,
+        3,
+        6,
+        7,
+        8,
+        9,
+        11,
+        13,
+        14
+      ],
+      "cost": 32,
+      "rows": [
+        2,
+        3,
+        8
+      ],
+      "columns": [
+        3,
+        6,
+        9,
+        11,
+        13,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "positive_support": [
+        3,
+        4,
+        9
+      ],
+      "negative_support": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 29,
+      "rows": [
+        3,
+        4
+      ],
+      "columns": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        10,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "positive_support": [
+        5,
+        10,
+        14
+      ],
+      "negative_support": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14
+      ],
+      "cost": 24,
+      "rows": [
+        5
+      ],
+      "columns": [
+        8,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "positive_support": [
+        6,
+        12,
+        13
+      ],
+      "negative_support": [
+        0,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 36,
+      "rows": [
+        6,
+        12
+      ],
+      "columns": [
+        0,
+        10,
+        11,
+        12,
+        13
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "positive_support": [
+        7,
+        10,
+        11
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 36,
+      "rows": [
+        7,
+        11
+      ],
+      "columns": [
+        1,
+        7,
+        12,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "positive_support": [
+        8,
+        13,
+        14
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12
+      ],
+      "cost": 25,
+      "rows": [
+        8,
+        13,
+        14
+      ],
+      "columns": [
+        2,
+        3,
+        12
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "positive_support": [
+        9,
+        11,
+        12
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "cost": 29,
+      "rows": [
+        9,
+        11
+      ],
+      "columns": [
+        0,
+        4,
+        6,
+        7,
+        9
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "positive_support": [
+        0,
+        1,
+        4,
+        5,
+        6
+      ],
+      "negative_support": [
+        2,
+        3,
+        6,
+        7,
+        11
+      ],
+      "cost": 3,
+      "rows": [
+        0,
+        1
+      ],
+      "columns": [
+        3,
+        11
+      ],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "positive_support": [
+        7,
+        8,
+        10,
+        11,
+        13,
+        14
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        10,
+        11,
+        12
+      ],
+      "cost": 50,
+      "rows": [
+        8,
+        10,
+        11,
+        14
+      ],
+      "columns": [
+        0,
+        1,
+        2,
+        11,
+        12
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "positive_support": [
+        3,
+        4,
+        8,
+        9,
+        13,
+        14
+      ],
+      "negative_support": [
+        1,
+        2,
+        4,
+        5,
+        10,
+        11,
+        12
+      ],
+      "cost": 50,
+      "rows": [
+        3,
+        8
+      ],
+      "columns": [
+        2,
+        4,
+        5,
+        12
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "positive_support": [
+        5,
+        8,
+        10,
+        13,
+        14
+      ],
+      "negative_support": [
+        1,
+        4,
+        5,
+        6,
+        10
+      ],
+      "cost": 0,
+      "rows": [],
+      "columns": [],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "positive_support": [
+        5,
+        7,
+        10,
+        11,
+        14
+      ],
+      "negative_support": [
+        1,
+        7,
+        10,
+        13,
+        14
+      ],
+      "cost": 55,
+      "rows": [
+        5,
+        7,
+        11,
+        14
+      ],
+      "columns": [
+        1,
+        7,
+        13,
+        14
+      ],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "positive_support": [
+        0,
+        1,
+        4,
+        5,
+        6,
+        8,
+        13,
+        14
+      ],
+      "negative_support": [
+        2,
+        3,
+        6,
+        11
+      ],
+      "cost": 26,
+      "rows": [
+        5,
+        6,
+        8,
+        13
+      ],
+      "columns": [
+        2
+      ],
+      "enumerated_subsets": 16,
+      "orientation": "columns"
+    },
+    {
+      "matrix_hash": "d6ffccdd8b31f80db329ec25d9ae59bc2ab646bd4209b8e80cc650f9cc19fabf",
+      "positive_support": [
+        0,
+        1,
+        5,
+        6,
+        10,
+        14
+      ],
+      "negative_support": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        10,
+        14
+      ],
+      "cost": 36,
+      "rows": [
+        0,
+        1,
+        5
+      ],
+      "columns": [
+        1,
+        8,
+        10,
+        14
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "positive_support": [
+        0,
+        4,
+        5
+      ],
+      "negative_support": [
+        0,
+        2,
+        3,
+        4,
+        6,
+        7,
+        9,
+        11,
+        12,
+        13
+      ],
+      "cost": 3,
+      "rows": [
+        4,
+        5
+      ],
+      "columns": [
+        0
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "positive_support": [
+        0,
+        1,
+        6
+      ],
+      "negative_support": [
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        10,
+        11,
+        14
+      ],
+      "cost": 4,
+      "rows": [
+        0,
+        6
+      ],
+      "columns": [
+        1,
+        5,
+        8
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "positive_support": [
+        1,
+        2,
+        7
+      ],
+      "negative_support": [
+        0,
+        2,
+        4,
+        5,
+        6,
+        8,
+        9,
+        10,
+        12,
+        13
+      ],
+      "cost": 3,
+      "rows": [
+        1
+      ],
+      "columns": [
+        4,
+        9,
+        13
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "positive_support": [
+        2,
+        3,
+        8
+      ],
+      "negative_support": [
+        0,
+        1,
+        3,
+        6,
+        7,
+        8,
+        9,
+        11,
+        13,
+        14
+      ],
+      "cost": 3,
+      "rows": [
+        3,
+        8
+      ],
+      "columns": [
+        8,
+        9
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "positive_support": [
+        3,
+        4,
+        9
+      ],
+      "negative_support": [
+        1,
+        2,
+        4,
+        5,
+        8,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 3,
+      "rows": [
+        3
+      ],
+      "columns": [
+        4,
+        5,
+        12
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "positive_support": [
+        5,
+        10,
+        14
+      ],
+      "negative_support": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        13,
+        14
+      ],
+      "cost": 1,
+      "rows": [
+        5
+      ],
+      "columns": [
+        5
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "positive_support": [
+        6,
+        12,
+        13
+      ],
+      "negative_support": [
+        0,
+        4,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 4,
+      "rows": [
+        6,
+        12
+      ],
+      "columns": [
+        4,
+        12,
+        14
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "positive_support": [
+        7,
+        10,
+        11
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "cost": 3,
+      "rows": [
+        7
+      ],
+      "columns": [
+        7
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "positive_support": [
+        8,
+        13,
+        14
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        10,
+        11,
+        12
+      ],
+      "cost": 3,
+      "rows": [
+        8
+      ],
+      "columns": [
+        4,
+        5
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "positive_support": [
+        9,
+        11,
+        12
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "cost": 4,
+      "rows": [
+        9
+      ],
+      "columns": [
+        7,
+        9
+      ],
+      "enumerated_subsets": 8,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "positive_support": [
+        0,
+        1,
+        4,
+        5,
+        6
+      ],
+      "negative_support": [
+        2,
+        3,
+        6,
+        7,
+        11
+      ],
+      "cost": 0,
+      "rows": [],
+      "columns": [],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "positive_support": [
+        7,
+        8,
+        10,
+        11,
+        13,
+        14
+      ],
+      "negative_support": [
+        0,
+        1,
+        2,
+        3,
+        10,
+        11,
+        12
+      ],
+      "cost": 0,
+      "rows": [],
+      "columns": [],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "positive_support": [
+        3,
+        4,
+        8,
+        9,
+        13,
+        14
+      ],
+      "negative_support": [
+        1,
+        2,
+        4,
+        5,
+        10,
+        11,
+        12
+      ],
+      "cost": 6,
+      "rows": [
+        3,
+        8
+      ],
+      "columns": [
+        4,
+        5,
+        12
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "positive_support": [
+        5,
+        8,
+        10,
+        13,
+        14
+      ],
+      "negative_support": [
+        1,
+        4,
+        5,
+        6,
+        10
+      ],
+      "cost": 4,
+      "rows": [
+        5,
+        8
+      ],
+      "columns": [
+        4,
+        5
+      ],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "positive_support": [
+        5,
+        7,
+        10,
+        11,
+        14
+      ],
+      "negative_support": [
+        1,
+        7,
+        10,
+        13,
+        14
+      ],
+      "cost": 3,
+      "rows": [
+        5,
+        7
+      ],
+      "columns": [
+        7
+      ],
+      "enumerated_subsets": 32,
+      "orientation": "rows"
+    },
+    {
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "positive_support": [
+        0,
+        1,
+        4,
+        5,
+        6,
+        8,
+        13,
+        14
+      ],
+      "negative_support": [
+        2,
+        3,
+        6,
+        11
+      ],
+      "cost": 3,
+      "rows": [
+        13
+      ],
+      "columns": [
+        3,
+        6
+      ],
+      "enumerated_subsets": 16,
+      "orientation": "columns"
+    },
+    {
+      "matrix_hash": "ddaaf4d31400a4adbd0dd779d86cff4b9a32a7ed231df4501f7239f9a32b553c",
+      "positive_support": [
+        0,
+        1,
+        5,
+        6,
+        10,
+        14
+      ],
+      "negative_support": [
+        1,
+        5,
+        6,
+        7,
+        8,
+        10,
+        14
+      ],
+      "cost": 5,
+      "rows": [
+        0,
+        5,
+        6
+      ],
+      "columns": [
+        1,
+        5,
+        8
+      ],
+      "enumerated_subsets": 64,
+      "orientation": "rows"
+    }
+  ],
+  "seconds": 0.08606937699914852,
+  "source_sha256": "253d73ee30a2f1549a94ddfa077204779ae321d709462e96eb8d4d791e388d21"
+}

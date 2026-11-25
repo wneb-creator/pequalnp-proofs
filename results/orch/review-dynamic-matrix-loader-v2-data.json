@@ -1,0 +1,115 @@
+{
+  "status": "PASS",
+  "v1_sha256": "0c0fa6c05d02e44c51efd1d6fbebdc1d7d1a67a7ba4bf6c774eb20449eea46d2",
+  "v2_sha256": "6b6c73f27d2d4c2acb94b26aa0d76466f4b947b631dbf68501be945a3313cda4",
+  "v2_json_sha256": "71f3494bc73336374c744286527ebb2805dae86c225241297853ed0ac5ffd0db",
+  "unchanged_prefix_records": 6,
+  "appended_records": 7,
+  "records": [
+    {
+      "id": 1001,
+      "name": "DynamicV1Node12243",
+      "rows": 15,
+      "cols": 15,
+      "total": 111,
+      "maximum_abs_weight": 4
+    },
+    {
+      "id": 1002,
+      "name": "DynamicV1Node4213",
+      "rows": 15,
+      "cols": 15,
+      "total": 127,
+      "maximum_abs_weight": 7
+    },
+    {
+      "id": 1003,
+      "name": "DynamicV1Node7372",
+      "rows": 15,
+      "cols": 15,
+      "total": 181,
+      "maximum_abs_weight": 7
+    },
+    {
+      "id": 1004,
+      "name": "DynamicV1Node87",
+      "rows": 15,
+      "cols": 15,
+      "total": 1589,
+      "maximum_abs_weight": 96
+    },
+    {
+      "id": 1005,
+      "name": "DynamicV1Node8922",
+      "rows": 15,
+      "cols": 15,
+      "total": 440,
+      "maximum_abs_weight": 16
+    },
+    {
+      "id": 1006,
+      "name": "DynamicV1Node91",
+      "rows": 15,
+      "cols": 15,
+      "total": 43,
+      "maximum_abs_weight": 3
+    },
+    {
+      "id": 1007,
+      "name": "SymmetryTailored37639P12",
+      "rows": 15,
+      "cols": 15,
+      "total": 184,
+      "maximum_abs_weight": 12
+    },
+    {
+      "id": 1008,
+      "name": "SymmetryTailored35467P5",
+      "rows": 15,
+      "cols": 15,
+      "total": 125,
+      "maximum_abs_weight": 6
+    },
+    {
+      "id": 1009,
+      "name": "SymmetryTailored35467P15",
+      "rows": 15,
+      "cols": 15,
+      "total": 125,
+      "maximum_abs_weight": 6
+    },
+    {
+      "id": 1010,
+      "name": "SymmetryTailored10286P73",
+      "rows": 15,
+      "cols": 15,
+      "total": 135,
+      "maximum_abs_weight": 10
+    },
+    {
+      "id": 1011,
+      "name": "SymmetryTailored34846P8",
+      "rows": 15,
+      "cols": 15,
+      "total": 271,
+      "maximum_abs_weight": 18
+    },
+    {
+      "id": 1012,
+      "name": "SymmetryTailored34846P16",
+      "rows": 15,
+      "cols": 15,
+      "total": 271,
+      "maximum_abs_weight": 18
+    },
+    {
+      "id": 1013,
+      "name": "SymmetryTailored34846P68",
+      "rows": 15,
+      "cols": 15,
+      "total": 271,
+      "maximum_abs_weight": 18
+    }
+  ],
+  "scope": "Exact append-prefix/encoding/label/weight validation only. Independent coverage and rectangle-cost validation of the seven new matrices is the separately completed counterexample audit; this script does not repeat or claim it."
+}

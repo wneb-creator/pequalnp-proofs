@@ -1,0 +1,39 @@
+{
+  "event_counts": {
+    "header": 1,
+    "rectangle": 678304,
+    "signal": 42821
+  },
+  "root_occurrences": 10764928,
+  "complete_signal_dictionary": true,
+  "memo_counts_by_deficit": {
+    "mono19-oredge-completed.memo": {
+      "0": 16358,
+      "1": 27439,
+      "5": 34,
+      "4": 204,
+      "3": 1489,
+      "2": 6675,
+      "6": 6,
+      "7": 1
+    },
+    "mono19-oredge-completed-paused.memo": {
+      "1": 27439,
+      "0": 16352,
+      "5": 34,
+      "4": 204,
+      "3": 1489,
+      "2": 6675,
+      "6": 6,
+      "7": 1
+    },
+    "checkpoint-smoke.memo": {
+      "1": 60,
+      "2": 6,
+      "3": 1
+    }
+  },
+  "paused_memo_subset_final": true,
+  "smoke_raw_subset_not_required": "Reload recanonicalizes truth pools under the new intern registry; the reviewed loader preserves their orbit semantics.",
+  "scope": "Structural trace consistency only; exact root-cost maxima and Lean certificates are not rechecked here."
+}

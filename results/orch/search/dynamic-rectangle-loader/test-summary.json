@@ -1,0 +1,16 @@
+{
+  "dynamic-smoke.memo": {
+    "original_bytes": 295568,
+    "original_sha256": "0821cd1df2e51a439955e2c5a476972497306578a2a0a69a382f4a3bc55c569f"
+  },
+  "checkpoint-smoke.memo": {
+    "original_bytes": 295568,
+    "original_sha256": "0821cd1df2e51a439955e2c5a476972497306578a2a0a69a382f4a3bc55c569f"
+  },
+  "empty_loader_memo_identical": true,
+  "test_unit_only_adds_explicit_final_return": true,
+  "parser_rejections": 12,
+  "nonempty_cost_comparisons": 108,
+  "strict_test_cuts": 6,
+  "original_rectangle_selftest_comparisons": 936
+}

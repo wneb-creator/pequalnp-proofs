@@ -1,0 +1,381 @@
+{
+  "positive_controls": "passed",
+  "monotone": {
+    "gates": [
+      {
+        "op": "or",
+        "inputs": [
+          1,
+          4
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          10,
+          5
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          0,
+          11
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          2,
+          6
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          1,
+          13
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          2,
+          4
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          15,
+          8
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          3,
+          16
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          2,
+          5
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          18,
+          9
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          7,
+          19
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          6,
+          5
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          8,
+          21
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          4,
+          6
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          9,
+          23
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          12,
+          14
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          25,
+          17
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          26,
+          20
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          27,
+          22
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          28,
+          24
+        ]
+      }
+    ],
+    "output": 29,
+    "total_gates": 20,
+    "not_gates": 0,
+    "all_1024_rows_match": true,
+    "normalized_binary_gates": 20,
+    "complemented_wire": null,
+    "phases": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  "one_not_phase_control": {
+    "gates": [
+      {
+        "op": "not",
+        "inputs": [
+          0
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          1,
+          4
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          11,
+          5
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          10,
+          12
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          0,
+          13
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          2,
+          6
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          1,
+          15
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          2,
+          4
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          17,
+          8
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          3,
+          18
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          2,
+          5
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          20,
+          9
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          7,
+          21
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          6,
+          5
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          8,
+          23
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          4,
+          6
+        ]
+      },
+      {
+        "op": "and",
+        "inputs": [
+          9,
+          25
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          14,
+          16
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          27,
+          19
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          28,
+          22
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          29,
+          24
+        ]
+      },
+      {
+        "op": "or",
+        "inputs": [
+          30,
+          26
+        ]
+      }
+    ],
+    "output": 31,
+    "total_gates": 22,
+    "not_gates": 1,
+    "all_1024_rows_match": true,
+    "normalized_binary_gates": 21,
+    "complemented_wire": 0,
+    "phases": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

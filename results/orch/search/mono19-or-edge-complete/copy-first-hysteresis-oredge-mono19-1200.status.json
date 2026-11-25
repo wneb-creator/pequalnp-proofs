@@ -1,0 +1,25 @@
+{
+  "command": [
+    "./copy_search_first_hysteresis",
+    "--cap",
+    "19",
+    "--first",
+    "oredge",
+    "--seconds",
+    "1200",
+    "--nodes",
+    "20000000",
+    "--memo-in",
+    "mono19-oredge-completed-paused.memo",
+    "--memo-out",
+    "mono19-oredge-hysteresis-completed.memo",
+    "--checkpoint-seconds",
+    "60",
+    "--rect-trace",
+    "copy-first-hysteresis-oredge-cuts.jsonl"
+  ],
+  "started_utc": "2026-11-25T15:33:44.572704+00:00",
+  "ended_utc": "2026-11-25T15:55:29.209438+00:00",
+  "wall_seconds": 1304.636753068,
+  "exit_code": 0
+}

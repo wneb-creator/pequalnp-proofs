@@ -1,0 +1,80 @@
+{
+  "previous_archive": "../mono19-or-edge-checkpoints",
+  "previous_manifest_sha256": "8f407bfbbe505764f38ed068a986b5547248c5c9c221870109669a8e84f1dd26",
+  "segments": [
+    {
+      "name": "smoke",
+      "source": "../mono19-or-edge-checkpoints/copy_search_first_checkpoint.cpp",
+      "input": null,
+      "output_memo": "../mono19-or-edge-checkpoints/checkpoint-smoke.memo.gz",
+      "trace": "checkpoint-smoke-replay-cuts.jsonl.gz",
+      "memo_reproduction": "byte-identical to original67-state input"
+    },
+    {
+      "name": "original",
+      "source": "../mono19-or-edge-checkpoints/copy_search_first_checkpoint.cpp",
+      "input_memo": "../mono19-or-edge-checkpoints/checkpoint-smoke.memo.gz",
+      "used_output_memo": "../mono19-or-edge-checkpoints/mono19-oredge-completed-paused.memo.gz",
+      "used_output_count": 52200,
+      "trace": "../mono19-or-edge-checkpoints/copy-first-checkpoint-oredge-cuts.jsonl.gz"
+    },
+    {
+      "name": "hysteresis",
+      "source": "copy_search_first_hysteresis.cpp",
+      "input_memo": "../mono19-or-edge-checkpoints/mono19-oredge-completed-paused.memo.gz",
+      "used_output_memo": "mono19-oredge-hysteresis-paused.memo.gz",
+      "used_output_count": 55426,
+      "trace": "copy-first-hysteresis-oredge-cuts.jsonl.gz"
+    },
+    {
+      "name": "diagnostic",
+      "source": "copy_search_first_hysteresis_banks.cpp",
+      "input_memo": "mono19-oredge-hysteresis-paused.memo.gz",
+      "output_memo": "mono19-oredge-diagnostic-completed.memo.gz",
+      "output_count": 59744,
+      "trace": "copy-first-hysteresis-diagnostic-cuts.jsonl.gz"
+    },
+    {
+      "name": "dynamic",
+      "source": "copy_search_first_dynamic.cpp",
+      "input_memo": "mono19-oredge-diagnostic-completed.memo.gz",
+      "output_memo": "mono19-oredge-dynamic-completed.memo.gz",
+      "output_count": 113408,
+      "trace": "copy-first-dynamic-oredge-cuts.jsonl.gz",
+      "loaded_matrix_versions": [
+        "v1",
+        "v2",
+        "v3"
+      ],
+      "loaded_extra_ids": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        1009,
+        1010,
+        1011,
+        1012,
+        1013,
+        1014,
+        1015,
+        1016,
+        1017,
+        1018,
+        1019,
+        1020,
+        1021,
+        1022,
+        1023,
+        1024,
+        1025,
+        1026
+      ]
+    }
+  ],
+  "scope": "Computational case completed; kernel PrunedNode DAG not yet instantiated. All snapshots contain only completed exclusions under the independently reviewed algorithm."
+}

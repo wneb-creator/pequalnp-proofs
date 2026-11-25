@@ -1,0 +1,461 @@
+{"node": 91, "status": "covered", "certificate": "DynamicV1Node91", "margin": 2}
+{"node": 87, "status": "covered", "certificate": "DynamicV1Node87", "margin": 6}
+{"node": 8922, "status": "covered", "certificate": "DynamicV1Node8922", "margin": 2}
+{"node": 7372, "status": "covered", "certificate": "DynamicV1Node7372", "margin": 1}
+{"node": 12243, "status": "covered", "certificate": "DynamicV1Node12243", "margin": 2}
+{"node": 81, "status": "covered", "certificate": "DynamicV1Node7372", "margin": 5}
+{"node": 89, "status": "covered", "certificate": "DynamicV1Node8922", "margin": 14}
+{"node": 4213, "status": "covered", "certificate": "DynamicV1Node4213", "margin": 1}
+{"node": 5666, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -288.0, "constraints": 12, "seconds": 0.004273847998774727}
+{"node": 5666, "iteration": 5, "lp_gap": 25.717146866579213, "valid_float_gap": -88.72007516022708, "constraints": 252, "seconds": 0.04507874899900344}
+{"node": 5666, "iteration": 10, "lp_gap": 4.970963371881979, "valid_float_gap": -16.688137953074758, "constraints": 492, "seconds": 0.18735782200019457}
+{"node": 5666, "iteration": 15, "lp_gap": 2.695242061997595, "valid_float_gap": -2.4854364578912467, "constraints": 732, "seconds": 0.41109215799951926}
+{"node": 5666, "iteration": 17, "lp_gap": 2.4940298522617583, "valid_float_gap": 0.06393892890780783, "constraints": 817, "seconds": 0.5248308640002506}
+{"node": 5666, "iteration": 18, "lp_gap": 2.3566762739978646, "valid_float_gap": 0.36347648322713155, "constraints": 853, "seconds": 0.5891916639993724}
+{"node": 5666, "iteration": 19, "lp_gap": 2.2824529550217054, "valid_float_gap": 0.9419982254468948, "constraints": 896, "seconds": 0.6449131230001512}
+{"node": 5666, "iteration": 20, "lp_gap": 2.2348569902626263, "valid_float_gap": 0.8358093782548224, "constraints": 926, "seconds": 0.7032734659987909}
+{"node": 5666, "iteration": 21, "lp_gap": 2.2057416267942607, "valid_float_gap": 0.238550922761398, "constraints": 957, "seconds": 0.7694400130003487}
+{"node": 5666, "iteration": 22, "lp_gap": 2.19018542049038, "valid_float_gap": 1.4092623966617221, "constraints": 977, "seconds": 0.8375079249999544}
+{"node": 5666, "status": "exact_separation", "total": 73, "cost_sum": 69, "margin": 4, "max_weight": 5, "file": "dynamic-matrices-v2/DynamicV2Node5666.json", "seconds": 0.8402036839997891}
+{"node": 10271, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -316.0, "constraints": 11, "seconds": 0.002876996999475523}
+{"node": 10271, "iteration": 5, "lp_gap": 30.903511769925416, "valid_float_gap": -75.81952621264435, "constraints": 231, "seconds": 0.03533275299923844}
+{"node": 10271, "iteration": 10, "lp_gap": 6.209036049925601, "valid_float_gap": -11.467565082848992, "constraints": 451, "seconds": 0.15192710399969656}
+{"node": 10271, "iteration": 15, "lp_gap": 4.358372347742813, "valid_float_gap": 1.1122485369786865, "constraints": 671, "seconds": 0.3851588899997296}
+{"node": 10271, "status": "exact_separation", "total": 31, "cost_sum": 30, "margin": 1, "max_weight": 1, "file": "dynamic-matrices-v2/DynamicV2Node10271.json", "seconds": 0.38917408599991177}
+{"node": 12240, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -309.0, "constraints": 11, "seconds": 0.046238802000516444}
+{"node": 12240, "iteration": 5, "lp_gap": 27.923997743259548, "valid_float_gap": -69.34751529757462, "constraints": 231, "seconds": 0.13484702300047502}
+{"node": 12240, "iteration": 10, "lp_gap": 6.210286780546454, "valid_float_gap": -9.189129950472452, "constraints": 451, "seconds": 0.2820893120006076}
+{"node": 12240, "iteration": 14, "lp_gap": 4.533290958136245, "valid_float_gap": 0.5217481089310674, "constraints": 627, "seconds": 0.4577327930001047}
+{"node": 12240, "iteration": 15, "lp_gap": 4.318850965518902, "valid_float_gap": 1.6122985248374633, "constraints": 671, "seconds": 0.5019791340000666}
+{"node": 12240, "status": "exact_separation", "total": 69, "cost_sum": 67, "margin": 2, "max_weight": 3, "file": "dynamic-matrices-v2/DynamicV2Node12240.json", "seconds": 0.5046484640006383}
+{"node": 2751, "iteration": 0, "lp_gap": 84.0, "valid_float_gap": -314.0, "constraints": 11, "seconds": 0.004565388999253628}
+{"node": 2751, "iteration": 5, "lp_gap": 24.715418279670246, "valid_float_gap": -94.72024249993207, "constraints": 231, "seconds": 0.044316314000752755}
+{"node": 2751, "iteration": 10, "lp_gap": 4.885404542837563, "valid_float_gap": -13.656508543120072, "constraints": 451, "seconds": 0.1852463360010006}
+{"node": 2751, "iteration": 15, "lp_gap": 2.9140984540871067, "valid_float_gap": -1.637520766958815, "constraints": 670, "seconds": 0.40005684999960067}
+{"node": 2751, "iteration": 18, "lp_gap": 2.510547646143614, "valid_float_gap": 0.3556851199607376, "constraints": 801, "seconds": 0.5808324459994765}
+{"node": 2751, "iteration": 19, "lp_gap": 2.423767436760662, "valid_float_gap": 0.9120779971835145, "constraints": 844, "seconds": 0.6494078779996926}
+{"node": 2751, "iteration": 20, "lp_gap": 2.3708665374431313, "valid_float_gap": 1.3122975721791086, "constraints": 885, "seconds": 0.7122727500009205}
+{"node": 2751, "status": "exact_separation", "total": 6, "cost_sum": 5, "margin": 1, "max_weight": 1, "file": "dynamic-matrices-v2/DynamicV2Node2751.json", "seconds": 0.7138881350001611}
+{"node": 2754, "status": "covered", "certificate": "DynamicV2Node2751", "margin": 1}
+{"node": 4216, "iteration": 0, "lp_gap": 84.0, "valid_float_gap": -298.0, "constraints": 11, "seconds": 0.002823728000294068}
+{"node": 4216, "iteration": 5, "lp_gap": 27.465463625583766, "valid_float_gap": -83.28245452544141, "constraints": 231, "seconds": 0.03669454400005634}
+{"node": 4216, "iteration": 10, "lp_gap": 5.383844906049855, "valid_float_gap": -15.848756392738167, "constraints": 451, "seconds": 0.1575188379993051}
+{"node": 4216, "iteration": 15, "lp_gap": 3.291484881377718, "valid_float_gap": -3.942380506752478, "constraints": 671, "seconds": 0.4038835779992951}
+{"node": 4216, "iteration": 18, "lp_gap": 2.624308155111329, "valid_float_gap": 0.013931300424278703, "constraints": 803, "seconds": 0.5815948309991654}
+{"node": 4216, "iteration": 19, "lp_gap": 2.577260262395134, "valid_float_gap": 0.8836045780387796, "constraints": 847, "seconds": 0.6457963470002142}
+{"node": 4216, "iteration": 20, "lp_gap": 2.5114651244772617, "valid_float_gap": 1.0473764860320092, "constraints": 883, "seconds": 0.7141053349987487}
+{"node": 4216, "status": "exact_separation", "total": 31, "cost_sum": 30, "margin": 1, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node4216.json", "seconds": 0.7156561140000122}
+{"node": 4217, "iteration": 0, "lp_gap": 84.0, "valid_float_gap": -292.0, "constraints": 11, "seconds": 0.0028498660012701293}
+{"node": 4217, "iteration": 5, "lp_gap": 27.465463625583723, "valid_float_gap": -84.21802832118551, "constraints": 231, "seconds": 0.037851361001230543}
+{"node": 4217, "iteration": 10, "lp_gap": 5.199432620281311, "valid_float_gap": -14.330512125389212, "constraints": 451, "seconds": 0.16310761700151488}
+{"node": 4217, "iteration": 15, "lp_gap": 3.1831008198384723, "valid_float_gap": -2.594072809952557, "constraints": 671, "seconds": 0.7793608520005364}
+{"node": 4217, "iteration": 19, "lp_gap": 2.6072039597124537, "valid_float_gap": 0.31624937909236195, "constraints": 844, "seconds": 1.0175133950015152}
+{"node": 4217, "iteration": 20, "lp_gap": 2.520736485277265, "valid_float_gap": 0.7305736880466185, "constraints": 888, "seconds": 1.0819193420011288}
+{"node": 4217, "iteration": 21, "lp_gap": 2.4903910909234543, "valid_float_gap": 1.1119937400001394, "constraints": 927, "seconds": 1.14686845200049}
+{"node": 4217, "status": "exact_separation", "total": 63, "cost_sum": 57, "margin": 6, "max_weight": 3, "file": "dynamic-matrices-v2/DynamicV2Node4217.json", "seconds": 1.1487481760013907}
+{"node": 70773, "status": "covered", "certificate": "DynamicV2Node5666", "margin": 6}
+{"node": 4232, "status": "covered", "certificate": "DynamicV2Node4217", "margin": 2}
+{"node": 2769, "status": "covered", "certificate": "DynamicV2Node2751", "margin": 1}
+{"node": 3469, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -282.0, "constraints": 12, "seconds": 0.003210398999726749}
+{"node": 3469, "iteration": 5, "lp_gap": 24.5821810363379, "valid_float_gap": -76.62149992098509, "constraints": 252, "seconds": 0.03865805200075556}
+{"node": 3469, "iteration": 10, "lp_gap": 6.107447049416331, "valid_float_gap": -5.3351016029867715, "constraints": 492, "seconds": 0.177622381999754}
+{"node": 3469, "iteration": 15, "lp_gap": 4.5568242599861914, "valid_float_gap": 0.6327177992133848, "constraints": 732, "seconds": 0.4209636590003356}
+{"node": 3469, "iteration": 16, "lp_gap": 4.477494544007962, "valid_float_gap": 1.7380988556867525, "constraints": 768, "seconds": 0.47556974200051627}
+{"node": 3469, "status": "exact_separation", "total": 34, "cost_sum": 31, "margin": 3, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node3469.json", "seconds": 0.47708910400069726}
+{"node": 4236, "status": "covered", "certificate": "DynamicV2Node4217", "margin": 2}
+{"node": 12241, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -312.0, "constraints": 11, "seconds": 0.002739634001045488}
+{"node": 12241, "iteration": 5, "lp_gap": 27.923997743259548, "valid_float_gap": -71.5387836225104, "constraints": 231, "seconds": 0.03560651800034975}
+{"node": 12241, "iteration": 10, "lp_gap": 6.076686436671498, "valid_float_gap": -6.441320896804545, "constraints": 451, "seconds": 0.18089337099991099}
+{"node": 12241, "iteration": 14, "lp_gap": 4.154505614429723, "valid_float_gap": 0.6271645718809715, "constraints": 627, "seconds": 0.3668958529997326}
+{"node": 12241, "iteration": 15, "lp_gap": 4.052283328736923, "valid_float_gap": 1.5992622838654285, "constraints": 671, "seconds": 0.42281040600028064}
+{"node": 12241, "status": "exact_separation", "total": 47, "cost_sum": 46, "margin": 1, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node12241.json", "seconds": 0.4250309439994453}
+{"node": 18605, "status": "covered", "certificate": "DynamicV2Node5666", "margin": 5}
+{"node": 27079, "iteration": 0, "lp_gap": 81.0, "valid_float_gap": -270.0, "constraints": 11, "seconds": 0.0028841679995821323}
+{"node": 27079, "iteration": 5, "lp_gap": 27.44781989740433, "valid_float_gap": -91.71794714259902, "constraints": 231, "seconds": 0.03742593300012231}
+{"node": 27079, "iteration": 10, "lp_gap": 5.0094932066133815, "valid_float_gap": -10.174959098596766, "constraints": 451, "seconds": 0.16436731700014207}
+{"node": 27079, "iteration": 15, "lp_gap": 3.08170128691156, "valid_float_gap": -1.9082905893866986, "constraints": 671, "seconds": 0.392942098000276}
+{"node": 27079, "iteration": 18, "lp_gap": 2.8421533706442563, "valid_float_gap": 0.9311309289308198, "constraints": 765, "seconds": 0.7056157370006986}
+{"node": 27079, "iteration": 19, "lp_gap": 2.78392948149354, "valid_float_gap": 1.422801963892459, "constraints": 789, "seconds": 0.7948001099994144}
+{"node": 27079, "status": "exact_separation", "total": 59, "cost_sum": 57, "margin": 2, "max_weight": 4, "file": "dynamic-matrices-v2/DynamicV2Node27079.json", "seconds": 0.7982985359994927}
+{"node": 138, "iteration": 0, "lp_gap": 81.0, "valid_float_gap": -278.0, "constraints": 11, "seconds": 0.003920918999938294}
+{"node": 138, "iteration": 5, "lp_gap": 25.070531523593203, "valid_float_gap": -90.78925592652934, "constraints": 231, "seconds": 0.04005378100009693}
+{"node": 138, "iteration": 10, "lp_gap": 6.4145232602353985, "valid_float_gap": -9.692905496044293, "constraints": 451, "seconds": 0.1630730130000302}
+{"node": 138, "iteration": 15, "lp_gap": 4.117129874733504, "valid_float_gap": 0.5199151564451405, "constraints": 661, "seconds": 0.3726222189998225}
+{"node": 138, "iteration": 16, "lp_gap": 3.921356267890001, "valid_float_gap": 0.12359376446092796, "constraints": 693, "seconds": 0.4303595800010953}
+{"node": 138, "iteration": 17, "lp_gap": 3.8026721285018663, "valid_float_gap": 0.9747488064562084, "constraints": 725, "seconds": 0.48975438900015433}
+{"node": 138, "iteration": 18, "lp_gap": 3.720498858199104, "valid_float_gap": 1.5683211674279818, "constraints": 757, "seconds": 0.5467613820001134}
+{"node": 138, "status": "exact_separation", "total": 36, "cost_sum": 35, "margin": 1, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node138.json", "seconds": 0.5482123639994825}
+{"node": 4234, "iteration": 0, "lp_gap": 84.0, "valid_float_gap": -324.0, "constraints": 12, "seconds": 0.00338352600010694}
+{"node": 4234, "iteration": 5, "lp_gap": 29.622773897063126, "valid_float_gap": -104.9526169463375, "constraints": 252, "seconds": 0.05053815099927306}
+{"node": 4234, "iteration": 10, "lp_gap": 6.081145424341084, "valid_float_gap": -15.93370257130806, "constraints": 492, "seconds": 0.18980762799947115}
+{"node": 4234, "iteration": 15, "lp_gap": 3.3107067712806586, "valid_float_gap": -3.992090542415145, "constraints": 732, "seconds": 0.455628837000404}
+{"node": 4234, "iteration": 18, "lp_gap": 2.963153033697628, "valid_float_gap": 0.4152890150418571, "constraints": 874, "seconds": 0.6549850880001031}
+{"node": 4234, "iteration": 19, "lp_gap": 2.9000336987961823, "valid_float_gap": 1.0858907478082642, "constraints": 921, "seconds": 0.7315053120000812}
+{"node": 4234, "status": "exact_separation", "total": 64, "cost_sum": 62, "margin": 2, "max_weight": 4, "file": "dynamic-matrices-v2/DynamicV2Node4234.json", "seconds": 0.7337077949996456}
+{"node": 5488, "iteration": 0, "lp_gap": 74.0, "valid_float_gap": -291.0, "constraints": 12, "seconds": 0.0030846139998175204}
+{"node": 5488, "iteration": 5, "lp_gap": 25.771283995557667, "valid_float_gap": -86.36180289106738, "constraints": 252, "seconds": 0.04401219499959552}
+{"node": 5488, "iteration": 10, "lp_gap": 5.407299886161255, "valid_float_gap": -14.000908561702278, "constraints": 492, "seconds": 0.1891591690000496}
+{"node": 5488, "iteration": 15, "lp_gap": 3.3437173038637287, "valid_float_gap": -0.5669865262739044, "constraints": 721, "seconds": 0.4342506350003532}
+{"node": 5488, "iteration": 17, "lp_gap": 3.0548576729694457, "valid_float_gap": 0.2836159236954998, "constraints": 817, "seconds": 0.5518530890003603}
+{"node": 5488, "iteration": 18, "lp_gap": 2.9684242562176006, "valid_float_gap": 0.6824404046094461, "constraints": 853, "seconds": 0.7457045280007151}
+{"node": 5488, "iteration": 19, "lp_gap": 2.92458324126582, "valid_float_gap": 1.4013344121697813, "constraints": 883, "seconds": 0.9517497199994978}
+{"node": 5488, "status": "exact_separation", "total": 68, "cost_sum": 64, "margin": 4, "max_weight": 4, "file": "dynamic-matrices-v2/DynamicV2Node5488.json", "seconds": 0.9568526149996615}
+{"node": 9302, "status": "covered", "certificate": "DynamicV1Node91", "margin": 3}
+{"node": 2765, "status": "covered", "certificate": "DynamicV2Node2751", "margin": 1}
+{"node": 2771, "status": "covered", "certificate": "DynamicV2Node2751", "margin": 1}
+{"node": 2915, "iteration": 0, "lp_gap": 90.0, "valid_float_gap": -273.0, "constraints": 11, "seconds": 0.003570401000615675}
+{"node": 2915, "iteration": 5, "lp_gap": 30.4748117438548, "valid_float_gap": -71.48336658533957, "constraints": 231, "seconds": 0.04079473399906419}
+{"node": 2915, "iteration": 10, "lp_gap": 6.337245216660847, "valid_float_gap": -16.214390153038394, "constraints": 451, "seconds": 0.16933246500047971}
+{"node": 2915, "iteration": 15, "lp_gap": 3.6031586982043713, "valid_float_gap": -2.4986804283234, "constraints": 671, "seconds": 0.41929039000024204}
+{"node": 2915, "iteration": 18, "lp_gap": 3.226245519066163, "valid_float_gap": 0.8070812005420454, "constraints": 803, "seconds": 0.6141997699996864}
+{"node": 2915, "iteration": 19, "lp_gap": 3.163882867404272, "valid_float_gap": 0.5936226344255395, "constraints": 846, "seconds": 0.6887069730000803}
+{"node": 2915, "iteration": 20, "lp_gap": 3.1047447083086492, "valid_float_gap": 1.2066140266018355, "constraints": 887, "seconds": 0.7606069550001848}
+{"node": 2915, "status": "exact_separation", "total": 28, "cost_sum": 24, "margin": 4, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node2915.json", "seconds": 0.7623824870006501}
+{"node": 3894, "status": "covered", "certificate": "DynamicV2Node12240", "margin": 2}
+{"node": 4240, "status": "covered", "certificate": "DynamicV2Node4217", "margin": 4}
+{"node": 4881, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -291.0, "constraints": 12, "seconds": 0.003338218999488163}
+{"node": 4881, "iteration": 5, "lp_gap": 22.776802739572602, "valid_float_gap": -87.9182553917733, "constraints": 252, "seconds": 0.04547693799941044}
+{"node": 4881, "iteration": 10, "lp_gap": 5.262813601052663, "valid_float_gap": -12.030815261380376, "constraints": 492, "seconds": 0.1935346699992806}
+{"node": 4881, "iteration": 15, "lp_gap": 3.256744169873901, "valid_float_gap": -1.7229835886025349, "constraints": 732, "seconds": 0.44874865199926717}
+{"node": 4881, "iteration": 19, "lp_gap": 2.577223457081793, "valid_float_gap": 0.5476087933866545, "constraints": 915, "seconds": 0.7017360369991366}
+{"node": 4881, "iteration": 20, "lp_gap": 2.4983735868752053, "valid_float_gap": 0.6661743802548692, "constraints": 946, "seconds": 0.775035795999429}
+{"node": 4881, "iteration": 21, "lp_gap": 2.4812668931569526, "valid_float_gap": 1.3248844286793648, "constraints": 978, "seconds": 0.8511532159991475}
+{"node": 4881, "status": "exact_separation", "total": 59, "cost_sum": 57, "margin": 2, "max_weight": 3, "file": "dynamic-matrices-v2/DynamicV2Node4881.json", "seconds": 0.8529682459993637}
+{"node": 7753, "iteration": 0, "lp_gap": 84.0, "valid_float_gap": -284.0, "constraints": 12, "seconds": 0.0030031740006961627}
+{"node": 7753, "iteration": 5, "lp_gap": 21.57475751975764, "valid_float_gap": -106.00586438709406, "constraints": 252, "seconds": 0.043434803001218825}
+{"node": 7753, "iteration": 10, "lp_gap": 5.56510404595914, "valid_float_gap": -16.015055433133227, "constraints": 492, "seconds": 0.1929128320007294}
+{"node": 7753, "iteration": 14, "lp_gap": 3.894351030156935, "valid_float_gap": 0.16483431610916455, "constraints": 684, "seconds": 0.6007229830011056}
+{"node": 7753, "iteration": 15, "lp_gap": 3.7703672418415657, "valid_float_gap": 1.171036751061136, "constraints": 732, "seconds": 0.6648602230015968}
+{"node": 7753, "status": "exact_separation", "total": 23, "cost_sum": 19, "margin": 4, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node7753.json", "seconds": 0.668085636001706}
+{"node": 129, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -308.0, "constraints": 12, "seconds": 0.004003801999715506}
+{"node": 129, "iteration": 5, "lp_gap": 27.826535077162788, "valid_float_gap": -91.34951862658524, "constraints": 252, "seconds": 0.04720348800037755}
+{"node": 129, "iteration": 10, "lp_gap": 6.332428982745768, "valid_float_gap": -6.502477808428793, "constraints": 492, "seconds": 0.18806169999879785}
+{"node": 129, "iteration": 14, "lp_gap": 4.733348481459476, "valid_float_gap": 1.7175209380569854, "constraints": 684, "seconds": 0.37044021699875884}
+{"node": 129, "status": "exact_separation", "total": 34, "cost_sum": 31, "margin": 3, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node129.json", "seconds": 0.37198596999951405}
+{"node": 2779, "status": "covered", "certificate": "DynamicV2Node2751", "margin": 1}
+{"node": 4238, "status": "covered", "certificate": "DynamicV2Node4217", "margin": 4}
+{"node": 5277, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -319.0, "constraints": 12, "seconds": 0.003930603999833693}
+{"node": 5277, "iteration": 5, "lp_gap": 28.125608050758757, "valid_float_gap": -84.60488312627464, "constraints": 252, "seconds": 0.04113067099933687}
+{"node": 5277, "iteration": 10, "lp_gap": 6.072195335700805, "valid_float_gap": -11.4792280100984, "constraints": 492, "seconds": 0.18179576699913014}
+{"node": 5277, "iteration": 15, "lp_gap": 3.7293005721047265, "valid_float_gap": -1.4554051687454503, "constraints": 732, "seconds": 0.4466131389999646}
+{"node": 5277, "iteration": 16, "lp_gap": 3.593534374167337, "valid_float_gap": 0.22841525184470335, "constraints": 779, "seconds": 0.5091482949992496}
+{"node": 5277, "iteration": 17, "lp_gap": 3.405747105438147, "valid_float_gap": 0.29909875446858436, "constraints": 817, "seconds": 0.5763362999987294}
+{"node": 5277, "iteration": 18, "lp_gap": 3.3376613968143953, "valid_float_gap": 0.42186170273708967, "constraints": 865, "seconds": 0.6397458059982455}
+{"node": 5277, "iteration": 19, "lp_gap": 3.2607803659835355, "valid_float_gap": 1.8490599753731658, "constraints": 899, "seconds": 0.709799802998532}
+{"node": 5277, "status": "exact_separation", "total": 43, "cost_sum": 37, "margin": 6, "max_weight": 3, "file": "dynamic-matrices-v2/DynamicV2Node5277.json", "seconds": 0.7116551829985838}
+{"node": 9508, "iteration": 0, "lp_gap": 80.0, "valid_float_gap": -263.0, "constraints": 12, "seconds": 0.003382484001122066}
+{"node": 9508, "iteration": 5, "lp_gap": 27.225560941096475, "valid_float_gap": -63.95093155147718, "constraints": 252, "seconds": 0.04667168200103333}
+{"node": 9508, "iteration": 10, "lp_gap": 6.101449226738374, "valid_float_gap": -11.816897178778813, "constraints": 492, "seconds": 0.1931250950001413}
+{"node": 9508, "iteration": 15, "lp_gap": 3.935999556896027, "valid_float_gap": -0.7768154832275656, "constraints": 732, "seconds": 0.4467939260011917}
+{"node": 9508, "iteration": 16, "lp_gap": 3.7536709999132025, "valid_float_gap": 0.6918239245038365, "constraints": 768, "seconds": 0.5116740539997409}
+{"node": 9508, "iteration": 17, "lp_gap": 3.608221964726562, "valid_float_gap": 1.1309291543328648, "constraints": 816, "seconds": 0.5780781920002482}
+{"node": 9508, "status": "exact_separation", "total": 102, "cost_sum": 99, "margin": 3, "max_weight": 6, "file": "dynamic-matrices-v2/DynamicV2Node9508.json", "seconds": 0.580205633001242}
+{"node": 16462, "status": "covered", "certificate": "DynamicV2Node5666", "margin": 3}
+{"node": 2773, "status": "covered", "certificate": "DynamicV2Node2751", "margin": 1}
+{"node": 3877, "status": "covered", "certificate": "DynamicV2Node4217", "margin": 3}
+{"node": 4214, "status": "covered", "certificate": "DynamicV2Node4217", "margin": 3}
+{"node": 4220, "status": "covered", "certificate": "DynamicV2Node4216", "margin": 1}
+{"node": 4242, "status": "covered", "certificate": "DynamicV2Node4217", "margin": 1}
+{"node": 6402, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -322.0, "constraints": 12, "seconds": 0.0032739140006015077}
+{"node": 6402, "iteration": 5, "lp_gap": 27.330276338980653, "valid_float_gap": -83.246038781975, "constraints": 252, "seconds": 0.041926314999727765}
+{"node": 6402, "iteration": 10, "lp_gap": 5.978485736030038, "valid_float_gap": -9.574502020751357, "constraints": 492, "seconds": 0.325145156999497}
+{"node": 6402, "iteration": 15, "lp_gap": 3.5545251616738547, "valid_float_gap": -1.1565215666646331, "constraints": 732, "seconds": 0.584315179999976}
+{"node": 6402, "iteration": 17, "lp_gap": 3.1788323560217275, "valid_float_gap": 0.3719141207921268, "constraints": 816, "seconds": 0.7047253700002329}
+{"node": 6402, "iteration": 18, "lp_gap": 3.102257850639692, "valid_float_gap": 0.7743527019514147, "constraints": 852, "seconds": 0.7704431950005528}
+{"node": 6402, "iteration": 19, "lp_gap": 3.044465734172327, "valid_float_gap": 1.04963470208288, "constraints": 888, "seconds": 0.8474651400010771}
+{"node": 6402, "status": "exact_separation", "total": 25, "cost_sum": 22, "margin": 3, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node6402.json", "seconds": 0.8496397710005112}
+{"node": 142, "status": "covered", "certificate": "DynamicV2Node6402", "margin": 3}
+{"node": 1826, "iteration": 0, "lp_gap": 84.0, "valid_float_gap": -275.0, "constraints": 12, "seconds": 0.0035309640006744303}
+{"node": 1826, "iteration": 5, "lp_gap": 25.0008804364992, "valid_float_gap": -85.35079128109257, "constraints": 252, "seconds": 0.04318146900004649}
+{"node": 1826, "iteration": 10, "lp_gap": 6.732023173351131, "valid_float_gap": -12.781191294764142, "constraints": 492, "seconds": 0.17482136000035098}
+{"node": 1826, "iteration": 14, "lp_gap": 4.878110169668627, "valid_float_gap": 1.6954666386446213, "constraints": 684, "seconds": 0.3487392949991772}
+{"node": 1826, "status": "exact_separation", "total": 39, "cost_sum": 38, "margin": 1, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node1826.json", "seconds": 0.35025195900016115}
+{"node": 2777, "status": "covered", "certificate": "DynamicV2Node2751", "margin": 1}
+{"node": 4895, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -309.0, "constraints": 13, "seconds": 0.003404947001399705}
+{"node": 4895, "iteration": 5, "lp_gap": 21.30972909614313, "valid_float_gap": -94.39394407151997, "constraints": 273, "seconds": 0.04705830300008529}
+{"node": 4895, "iteration": 10, "lp_gap": 5.901185883121897, "valid_float_gap": -13.389095050309042, "constraints": 533, "seconds": 0.2025549990012223}
+{"node": 4895, "iteration": 15, "lp_gap": 3.5915786502925133, "valid_float_gap": -1.4401801646480532, "constraints": 793, "seconds": 0.4694543880013953}
+{"node": 4895, "iteration": 17, "lp_gap": 3.357211018148604, "valid_float_gap": 0.5366101378287329, "constraints": 892, "seconds": 0.602222541001538}
+{"node": 4895, "iteration": 18, "lp_gap": 3.2307686901208683, "valid_float_gap": 0.7917346104625196, "constraints": 941, "seconds": 0.6767919350004377}
+{"node": 4895, "iteration": 19, "lp_gap": 3.1593475012452448, "valid_float_gap": 1.6245641706681422, "constraints": 988, "seconds": 0.7621883600004367}
+{"node": 4895, "status": "exact_separation", "total": 39, "cost_sum": 35, "margin": 4, "max_weight": 3, "file": "dynamic-matrices-v2/DynamicV2Node4895.json", "seconds": 0.7641021060007915}
+{"node": 6429, "iteration": 0, "lp_gap": 84.0, "valid_float_gap": -303.0, "constraints": 12, "seconds": 0.003067069001190248}
+{"node": 6429, "iteration": 5, "lp_gap": 24.374353616754732, "valid_float_gap": -88.5939612221286, "constraints": 252, "seconds": 0.040910806999818305}
+{"node": 6429, "iteration": 10, "lp_gap": 5.928066397408514, "valid_float_gap": -15.139529629287921, "constraints": 492, "seconds": 0.18614639100087516}
+{"node": 6429, "iteration": 15, "lp_gap": 3.855750905252167, "valid_float_gap": -0.397542804620981, "constraints": 732, "seconds": 0.6680334140000923}
+{"node": 6429, "iteration": 16, "lp_gap": 3.665946532650416, "valid_float_gap": 0.6984173425920144, "constraints": 780, "seconds": 0.7359378649998689}
+{"node": 6429, "iteration": 17, "lp_gap": 3.4898457039096584, "valid_float_gap": 0.5380288079812203, "constraints": 816, "seconds": 0.7994205770010012}
+{"node": 6429, "iteration": 18, "lp_gap": 3.3824051668198756, "valid_float_gap": 0.8998443872485353, "constraints": 864, "seconds": 0.8629520400008914}
+{"node": 6429, "iteration": 19, "lp_gap": 3.332618306879203, "valid_float_gap": 1.7562221730161625, "constraints": 900, "seconds": 0.9355531780001911}
+{"node": 6429, "status": "exact_separation", "total": 26, "cost_sum": 22, "margin": 4, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node6429.json", "seconds": 0.9390117950006243}
+{"node": 6570, "iteration": 0, "lp_gap": 80.0, "valid_float_gap": -276.0, "constraints": 12, "seconds": 0.005065710998678696}
+{"node": 6570, "iteration": 5, "lp_gap": 24.349197913305673, "valid_float_gap": -70.67024583001904, "constraints": 252, "seconds": 0.04491366899856075}
+{"node": 6570, "iteration": 10, "lp_gap": 5.71267236104082, "valid_float_gap": -6.9103897745268945, "constraints": 492, "seconds": 0.18745699699866236}
+{"node": 6570, "iteration": 15, "lp_gap": 3.6538015400551593, "valid_float_gap": 1.0393057467186892, "constraints": 732, "seconds": 0.4407065569994302}
+{"node": 6570, "status": "exact_separation", "total": 146, "cost_sum": 144, "margin": 2, "max_weight": 5, "file": "dynamic-matrices-v2/DynamicV2Node6570.json", "seconds": 0.44326397399890993}
+{"node": 6874, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -330.0, "constraints": 12, "seconds": 0.0036665150000771973}
+{"node": 6874, "iteration": 5, "lp_gap": 30.3652606623192, "valid_float_gap": -98.17594759749339, "constraints": 252, "seconds": 0.041581317000236595}
+{"node": 6874, "iteration": 10, "lp_gap": 5.976149744043163, "valid_float_gap": -18.280009467777173, "constraints": 492, "seconds": 0.17727056399962748}
+{"node": 6874, "iteration": 15, "lp_gap": 3.7534620358522908, "valid_float_gap": -0.9642636063391308, "constraints": 721, "seconds": 0.42549209800017707}
+{"node": 6874, "iteration": 16, "lp_gap": 3.6026121541173826, "valid_float_gap": 0.30716886416614386, "constraints": 769, "seconds": 0.4819272519998776}
+{"node": 6874, "iteration": 18, "lp_gap": 3.4724813571210618, "valid_float_gap": 1.0781762021213677, "constraints": 841, "seconds": 0.6038615649995336}
+{"node": 6874, "status": "exact_separation", "total": 44, "cost_sum": 42, "margin": 2, "max_weight": 3, "file": "dynamic-matrices-v2/DynamicV2Node6874.json", "seconds": 0.6061715760006336}
+{"node": 6893, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -303.0, "constraints": 12, "seconds": 0.0032886469998629764}
+{"node": 6893, "iteration": 5, "lp_gap": 27.040176235608428, "valid_float_gap": -82.22053423751538, "constraints": 252, "seconds": 0.04078909700001532}
+{"node": 6893, "iteration": 10, "lp_gap": 6.596198618354645, "valid_float_gap": -12.096555676944337, "constraints": 492, "seconds": 0.17717434199948912}
+{"node": 6893, "iteration": 14, "lp_gap": 4.833620666331775, "valid_float_gap": 1.5811180372433284, "constraints": 684, "seconds": 0.36723751799945603}
+{"node": 6893, "status": "exact_separation", "total": 34, "cost_sum": 31, "margin": 3, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node6893.json", "seconds": 0.3689004339994426}
+{"node": 6895, "status": "covered", "certificate": "DynamicV2Node12240", "margin": 1}
+{"node": 7882, "iteration": 0, "lp_gap": 80.0, "valid_float_gap": -296.0, "constraints": 12, "seconds": 0.0029630660010298016}
+{"node": 7882, "iteration": 5, "lp_gap": 24.254525660924898, "valid_float_gap": -81.75611137654003, "constraints": 252, "seconds": 0.04234050900049624}
+{"node": 7882, "iteration": 10, "lp_gap": 5.682437388106962, "valid_float_gap": -12.258779810908337, "constraints": 492, "seconds": 0.2421689820002939}
+{"node": 7882, "iteration": 15, "lp_gap": 3.656497083203444, "valid_float_gap": 0.35300926005320576, "constraints": 720, "seconds": 0.5246812269997463}
+{"node": 7882, "iteration": 16, "lp_gap": 3.5115007427585105, "valid_float_gap": 0.14647543435623334, "constraints": 756, "seconds": 0.5849426710010448}
+{"node": 7882, "iteration": 17, "lp_gap": 3.421618550647956, "valid_float_gap": 1.077541800982079, "constraints": 792, "seconds": 0.6466691590012488}
+{"node": 7882, "status": "exact_separation", "total": 52, "cost_sum": 50, "margin": 2, "max_weight": 3, "file": "dynamic-matrices-v2/DynamicV2Node7882.json", "seconds": 0.6488005060000432}
+{"node": 8504, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -321.0, "constraints": 12, "seconds": 0.0036011280008096946}
+{"node": 8504, "iteration": 5, "lp_gap": 26.87126114853436, "valid_float_gap": -83.75303918936741, "constraints": 252, "seconds": 0.04884323200167273}
+{"node": 8504, "iteration": 10, "lp_gap": 6.454967728393569, "valid_float_gap": -11.020175539775632, "constraints": 492, "seconds": 0.18327971899998374}
+{"node": 8504, "iteration": 14, "lp_gap": 4.129908347627282, "valid_float_gap": 0.7599326238251649, "constraints": 684, "seconds": 0.3638981670010253}
+{"node": 8504, "iteration": 15, "lp_gap": 3.985161259492793, "valid_float_gap": 1.8645329139004172, "constraints": 732, "seconds": 0.41288178600007086}
+{"node": 8504, "status": "exact_separation", "total": 30, "cost_sum": 29, "margin": 1, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node8504.json", "seconds": 0.4145151780012384}
+{"node": 8675, "iteration": 0, "lp_gap": 80.0, "valid_float_gap": -279.0, "constraints": 12, "seconds": 0.003139156000543153}
+{"node": 8675, "iteration": 5, "lp_gap": 26.323508098461872, "valid_float_gap": -73.88440717775357, "constraints": 252, "seconds": 0.0489817170000606}
+{"node": 8675, "iteration": 10, "lp_gap": 5.485450219367216, "valid_float_gap": -10.868726047692093, "constraints": 492, "seconds": 0.1918916970007558}
+{"node": 8675, "iteration": 14, "lp_gap": 4.041971218624909, "valid_float_gap": 0.02856178747440552, "constraints": 684, "seconds": 0.3883723100007046}
+{"node": 8675, "iteration": 15, "lp_gap": 3.8315719826138928, "valid_float_gap": -0.015828101115019422, "constraints": 732, "seconds": 0.449057530000573}
+{"node": 8675, "iteration": 16, "lp_gap": 3.635502668983179, "valid_float_gap": 0.5986188556213854, "constraints": 780, "seconds": 0.511083700999734}
+{"node": 8675, "iteration": 17, "lp_gap": 3.542058243260339, "valid_float_gap": 1.0718381420897067, "constraints": 828, "seconds": 0.5767811730001995}
+{"node": 8675, "status": "exact_separation", "total": 84, "cost_sum": 83, "margin": 1, "max_weight": 4, "file": "dynamic-matrices-v2/DynamicV2Node8675.json", "seconds": 0.579131223999866}
+{"node": 8925, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -261.0, "constraints": 12, "seconds": 0.002925380000306177}
+{"node": 8925, "iteration": 5, "lp_gap": 25.590119911783162, "valid_float_gap": -70.16736997634405, "constraints": 252, "seconds": 0.043022204999942915}
+{"node": 8925, "iteration": 10, "lp_gap": 5.976014764724937, "valid_float_gap": -7.37105246261611, "constraints": 492, "seconds": 0.18079325600047014}
+{"node": 8925, "iteration": 12, "lp_gap": 5.171838759817014, "valid_float_gap": 0.14374083838290375, "constraints": 588, "seconds": 0.2559430469991639}
+{"node": 8925, "iteration": 14, "lp_gap": 4.79579697970218, "valid_float_gap": 1.7379126797070548, "constraints": 673, "seconds": 0.34226873300031}
+{"node": 8925, "status": "exact_separation", "total": 69, "cost_sum": 67, "margin": 2, "max_weight": 4, "file": "dynamic-matrices-v2/DynamicV2Node8925.json", "seconds": 0.34404807099963364}
+{"node": 18000, "status": "covered", "certificate": "DynamicV1Node7372", "margin": 1}
+{"node": 127, "status": "covered", "certificate": "DynamicV2Node5666", "margin": 6}
+{"node": 159, "status": "covered", "certificate": "DynamicV2Node4881", "margin": 1}
+{"node": 186, "status": "covered", "certificate": "DynamicV1Node7372", "margin": 1}
+{"node": 399, "status": "covered", "certificate": "DynamicV2Node27079", "margin": 5}
+{"node": 1824, "iteration": 0, "lp_gap": 84.0, "valid_float_gap": -283.0, "constraints": 12, "seconds": 0.0028546160010591848}
+{"node": 1824, "iteration": 5, "lp_gap": 22.68344991175462, "valid_float_gap": -90.98501211335272, "constraints": 252, "seconds": 0.04062222200082033}
+{"node": 1824, "iteration": 10, "lp_gap": 5.6022827066544565, "valid_float_gap": -10.011199168044627, "constraints": 492, "seconds": 0.18077207500027725}
+{"node": 1824, "iteration": 15, "lp_gap": 3.5923131559612624, "valid_float_gap": 0.21333631609821424, "constraints": 731, "seconds": 0.46463902600044094}
+{"node": 1824, "iteration": 16, "lp_gap": 3.4290300684567825, "valid_float_gap": 0.4155419902707074, "constraints": 779, "seconds": 0.5358517029999348}
+{"node": 1824, "iteration": 17, "lp_gap": 3.2817129120328303, "valid_float_gap": 1.0944658998850922, "constraints": 827, "seconds": 0.5935787440012064}
+{"node": 1824, "status": "exact_separation", "total": 25, "cost_sum": 23, "margin": 2, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node1824.json", "seconds": 0.5954325719994813}
+{"node": 2763, "status": "covered", "certificate": "DynamicV2Node2751", "margin": 1}
+{"node": 2775, "status": "covered", "certificate": "DynamicV2Node2751", "margin": 1}
+{"node": 3452, "iteration": 0, "lp_gap": 84.0, "valid_float_gap": -281.0, "constraints": 12, "seconds": 0.004957741000907845}
+{"node": 3452, "iteration": 5, "lp_gap": 25.079894279367537, "valid_float_gap": -80.25242474469462, "constraints": 252, "seconds": 0.04633238400128903}
+{"node": 3452, "iteration": 10, "lp_gap": 5.22549193605612, "valid_float_gap": -10.143856441706554, "constraints": 492, "seconds": 0.18986747700000706}
+{"node": 3452, "iteration": 15, "lp_gap": 3.473576354854453, "valid_float_gap": -0.35095761061710995, "constraints": 732, "seconds": 0.4517775270014681}
+{"node": 3452, "iteration": 17, "lp_gap": 3.20079224831316, "valid_float_gap": 0.4369015000489096, "constraints": 826, "seconds": 0.5756588650001504}
+{"node": 3452, "iteration": 18, "lp_gap": 3.142022930956138, "valid_float_gap": 1.5328971362778034, "constraints": 874, "seconds": 0.6375899750000826}
+{"node": 3452, "status": "exact_separation", "total": 25, "cost_sum": 22, "margin": 3, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node3452.json", "seconds": 0.6392237780000869}
+{"node": 3465, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -299.0, "constraints": 13, "seconds": 0.003045887999178376}
+{"node": 3465, "iteration": 5, "lp_gap": 25.81816328903558, "valid_float_gap": -84.62624602308799, "constraints": 273, "seconds": 0.041044493998924736}
+{"node": 3465, "iteration": 10, "lp_gap": 5.591456260743588, "valid_float_gap": -10.444413223289697, "constraints": 533, "seconds": 0.19010223299846984}
+{"node": 3465, "iteration": 15, "lp_gap": 3.609922377750694, "valid_float_gap": -0.06340877985503113, "constraints": 792, "seconds": 0.44473352299974067}
+{"node": 3465, "iteration": 17, "lp_gap": 3.3505006892361298, "valid_float_gap": 1.0734279792388435, "constraints": 890, "seconds": 0.5709076980001555}
+{"node": 3465, "status": "exact_separation", "total": 7, "cost_sum": 6, "margin": 1, "max_weight": 1, "file": "dynamic-matrices-v2/DynamicV2Node3465.json", "seconds": 0.5725569329988502}
+{"node": 3890, "status": "covered", "certificate": "DynamicV2Node7753", "margin": 2}
+{"node": 4244, "status": "covered", "certificate": "DynamicV2Node4217", "margin": 2}
+{"node": 5067, "iteration": 0, "lp_gap": 74.0, "valid_float_gap": -257.0, "constraints": 12, "seconds": 0.003033660001165117}
+{"node": 5067, "iteration": 5, "lp_gap": 23.814225327838315, "valid_float_gap": -72.69633503271885, "constraints": 252, "seconds": 0.04372938000051363}
+{"node": 5067, "iteration": 10, "lp_gap": 5.751235216957223, "valid_float_gap": -19.745504657341016, "constraints": 492, "seconds": 0.17922104400167882}
+{"node": 5067, "iteration": 15, "lp_gap": 3.2291047247903055, "valid_float_gap": -1.050933666440752, "constraints": 732, "seconds": 0.4222568700006377}
+{"node": 5067, "iteration": 19, "lp_gap": 2.6336354622388694, "valid_float_gap": 1.000369212550135, "constraints": 917, "seconds": 0.7330907460000162}
+{"node": 5067, "status": "exact_separation", "total": 73, "cost_sum": 71, "margin": 2, "max_weight": 4, "file": "dynamic-matrices-v2/DynamicV2Node5067.json", "seconds": 0.7357339290010714}
+{"node": 5295, "status": "covered", "certificate": "DynamicV2Node5277", "margin": 4}
+{"node": 6422, "status": "covered", "certificate": "DynamicV2Node6402", "margin": 1}
+{"node": 6867, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -289.0, "constraints": 12, "seconds": 0.0033907580000231974}
+{"node": 6867, "iteration": 5, "lp_gap": 25.804240477540873, "valid_float_gap": -77.56570372023667, "constraints": 252, "seconds": 0.04211301299983461}
+{"node": 6867, "iteration": 10, "lp_gap": 5.5912868642063565, "valid_float_gap": -15.22327450612779, "constraints": 492, "seconds": 0.17439048100095533}
+{"node": 6867, "iteration": 15, "lp_gap": 3.267029652393221, "valid_float_gap": -2.4852166123960124, "constraints": 732, "seconds": 0.41932034000092244}
+{"node": 6867, "iteration": 17, "lp_gap": 2.926430603823876, "valid_float_gap": 0.10020981254742622, "constraints": 817, "seconds": 0.5411271840002883}
+{"node": 6867, "iteration": 18, "lp_gap": 2.7223020003277654, "valid_float_gap": 0.17697844508533223, "constraints": 865, "seconds": 0.6076945620006882}
+{"node": 6867, "iteration": 19, "lp_gap": 2.642384811852793, "valid_float_gap": 0.4516297815526933, "constraints": 900, "seconds": 0.6744632459995046}
+{"node": 6867, "iteration": 20, "lp_gap": 2.6106419563673704, "valid_float_gap": 1.494168131648527, "constraints": 948, "seconds": 0.7488978210003552}
+{"node": 6867, "status": "exact_separation", "total": 35, "cost_sum": 34, "margin": 1, "max_weight": 3, "file": "dynamic-matrices-v2/DynamicV2Node6867.json", "seconds": 0.7505516729997908}
+{"node": 6887, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -260.0, "constraints": 13, "seconds": 0.003278911999586853}
+{"node": 6887, "iteration": 5, "lp_gap": 20.492229311979344, "valid_float_gap": -74.60399020061986, "constraints": 273, "seconds": 0.04895692699938081}
+{"node": 6887, "iteration": 10, "lp_gap": 5.8249681609605695, "valid_float_gap": -7.67573176502307, "constraints": 533, "seconds": 0.2033667420000711}
+{"node": 6887, "iteration": 13, "lp_gap": 4.5600293565517696, "valid_float_gap": 0.9429260957483407, "constraints": 689, "seconds": 0.3520708919986646}
+{"node": 6887, "iteration": 14, "lp_gap": 4.383399261632491, "valid_float_gap": 0.03617534299827163, "constraints": 741, "seconds": 0.40975035299925366}
+{"node": 6887, "iteration": 15, "lp_gap": 4.068903889201945, "valid_float_gap": 1.40236305668369, "constraints": 793, "seconds": 0.4700997899999493}
+{"node": 6887, "status": "exact_separation", "total": 12, "cost_sum": 11, "margin": 1, "max_weight": 1, "file": "dynamic-matrices-v2/DynamicV2Node6887.json", "seconds": 0.47146611899916024}
+{"node": 7728, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -322.0, "constraints": 12, "seconds": 0.004174728999714716}
+{"node": 7728, "iteration": 5, "lp_gap": 26.66539488762038, "valid_float_gap": -75.0840150069157, "constraints": 252, "seconds": 0.046057866000410286}
+{"node": 7728, "iteration": 10, "lp_gap": 5.444317246410316, "valid_float_gap": -12.50692280433461, "constraints": 492, "seconds": 0.19643812399954186}
+{"node": 7728, "iteration": 14, "lp_gap": 3.806453177879577, "valid_float_gap": 0.06064119978502269, "constraints": 684, "seconds": 0.39061069899980794}
+{"node": 7728, "iteration": 15, "lp_gap": 3.568028807191425, "valid_float_gap": -0.5867001513480776, "constraints": 732, "seconds": 0.445025015000283}
+{"node": 7728, "iteration": 16, "lp_gap": 3.4005364686651607, "valid_float_gap": 0.28640854689390416, "constraints": 780, "seconds": 0.5015507349999098}
+{"node": 7728, "iteration": 17, "lp_gap": 3.2835616212233862, "valid_float_gap": 1.2691232593590662, "constraints": 828, "seconds": 0.627680985000552}
+{"node": 7728, "status": "exact_separation", "total": 40, "cost_sum": 39, "margin": 1, "max_weight": 3, "file": "dynamic-matrices-v2/DynamicV2Node7728.json", "seconds": 0.63582150000002}
+{"node": 8673, "iteration": 0, "lp_gap": 80.0, "valid_float_gap": -274.0, "constraints": 12, "seconds": 0.008870268999089603}
+{"node": 8673, "iteration": 5, "lp_gap": 27.6422535783296, "valid_float_gap": -71.06764387326338, "constraints": 252, "seconds": 0.05359726799906639}
+{"node": 8673, "iteration": 10, "lp_gap": 5.787958417599636, "valid_float_gap": -13.886316332935209, "constraints": 492, "seconds": 0.2058387369997945}
+{"node": 8673, "iteration": 15, "lp_gap": 3.82072623455786, "valid_float_gap": -1.6421205884258718, "constraints": 732, "seconds": 0.4638783169993985}
+{"node": 8673, "iteration": 17, "lp_gap": 3.5000829146495462, "valid_float_gap": 0.3781603753152183, "constraints": 816, "seconds": 0.5836086189992784}
+{"node": 8673, "iteration": 18, "lp_gap": 3.3744306790866183, "valid_float_gap": 0.7446674358987799, "constraints": 851, "seconds": 0.6477280170001904}
+{"node": 8673, "iteration": 19, "lp_gap": 3.343871246006106, "valid_float_gap": 2.1553810125511035, "constraints": 884, "seconds": 0.7263429979993816}
+{"node": 8673, "status": "exact_separation", "total": 51, "cost_sum": 50, "margin": 1, "max_weight": 3, "file": "dynamic-matrices-v2/DynamicV2Node8673.json", "seconds": 0.7290888560000894}
+{"node": 8952, "status": "covered", "certificate": "DynamicV1Node8922", "margin": 10}
+{"node": 9507, "iteration": 0, "lp_gap": 80.0, "valid_float_gap": -289.5, "constraints": 12, "seconds": 0.004602921999321552}
+{"node": 9507, "iteration": 5, "lp_gap": 30.339697757200085, "valid_float_gap": -88.19977078846745, "constraints": 252, "seconds": 0.047296865999669535}
+{"node": 9507, "iteration": 10, "lp_gap": 5.5837588020677345, "valid_float_gap": -12.052817888604402, "constraints": 492, "seconds": 0.1807760520005104}
+{"node": 9507, "iteration": 15, "lp_gap": 3.4526595633980186, "valid_float_gap": -0.06401558330843216, "constraints": 732, "seconds": 0.4214861119999114}
+{"node": 9507, "iteration": 16, "lp_gap": 3.269198862801172, "valid_float_gap": 0.9574325870084763, "constraints": 780, "seconds": 0.48138122700038366}
+{"node": 9507, "iteration": 17, "lp_gap": 3.1557074003213756, "valid_float_gap": 1.4083429650316823, "constraints": 826, "seconds": 0.5399463070007187}
+{"node": 9507, "status": "exact_separation", "total": 32, "cost_sum": 30, "margin": 2, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node9507.json", "seconds": 0.5417010999990453}
+{"node": 14414, "iteration": 0, "lp_gap": 85.0, "valid_float_gap": -257.0, "constraints": 10, "seconds": 0.003469716999461525}
+{"node": 14414, "iteration": 5, "lp_gap": 28.966657226085147, "valid_float_gap": -81.01166018854966, "constraints": 210, "seconds": 0.03737610499956645}
+{"node": 14414, "iteration": 10, "lp_gap": 7.283196162604355, "valid_float_gap": -26.26778127216298, "constraints": 410, "seconds": 0.15131849399949715}
+{"node": 14414, "iteration": 15, "lp_gap": 4.209153252485791, "valid_float_gap": -4.625462021789982, "constraints": 610, "seconds": 0.3481935830004659}
+{"node": 14414, "iteration": 20, "lp_gap": 3.145159866559906, "valid_float_gap": -0.43019148568524557, "constraints": 810, "seconds": 0.6362355519995617}
+{"node": 14414, "iteration": 21, "lp_gap": 3.093008643203037, "valid_float_gap": 0.8815745695805415, "constraints": 849, "seconds": 0.7018052839994198}
+{"node": 14414, "iteration": 22, "lp_gap": 3.0401062252505913, "valid_float_gap": 0.32845419216610594, "constraints": 883, "seconds": 0.7693544199992175}
+{"node": 14414, "iteration": 23, "lp_gap": 2.999693501967509, "valid_float_gap": 0.6084879050468839, "constraints": 900, "seconds": 0.8365180469991174}
+{"node": 14414, "iteration": 24, "lp_gap": 2.9525705095378854, "valid_float_gap": 0.3760613559983135, "constraints": 916, "seconds": 0.9002347599998757}
+{"node": 14414, "iteration": 25, "lp_gap": 2.91503271894024, "valid_float_gap": 1.2636005534596855, "constraints": 938, "seconds": 0.976341333000164}
+{"node": 14414, "status": "exact_separation", "total": 161, "cost_sum": 159, "margin": 2, "max_weight": 7, "file": "dynamic-matrices-v2/DynamicV2Node14414.json", "seconds": 0.978941635999945}
+{"node": 14936, "status": "covered", "certificate": "DynamicV2Node5666", "margin": 3}
+{"node": 118, "status": "covered", "certificate": "DynamicV2Node5666", "margin": 6}
+{"node": 141, "status": "covered", "certificate": "DynamicV2Node5666", "margin": 6}
+{"node": 252, "status": "covered", "certificate": "DynamicV1Node91", "margin": 1}
+{"node": 267, "status": "covered", "certificate": "DynamicV2Node7753", "margin": 1}
+{"node": 1828, "iteration": 0, "lp_gap": 84.0, "valid_float_gap": -296.0, "constraints": 12, "seconds": 0.0030147759989631595}
+{"node": 1828, "iteration": 5, "lp_gap": 26.273543142376965, "valid_float_gap": -78.95074869100677, "constraints": 252, "seconds": 0.042116851998798666}
+{"node": 1828, "iteration": 10, "lp_gap": 5.182305674248994, "valid_float_gap": -18.530417121533986, "constraints": 492, "seconds": 0.1755398499990406}
+{"node": 1828, "iteration": 15, "lp_gap": 3.591806315583053, "valid_float_gap": -0.675590609242624, "constraints": 732, "seconds": 0.431583920999401}
+{"node": 1828, "iteration": 16, "lp_gap": 3.479317519702617, "valid_float_gap": 0.4167843582133379, "constraints": 780, "seconds": 0.48484230899885006}
+{"node": 1828, "iteration": 17, "lp_gap": 3.3361780542516595, "valid_float_gap": 0.8344988618706317, "constraints": 828, "seconds": 0.5463943029990332}
+{"node": 1828, "iteration": 18, "lp_gap": 3.1728189289946105, "valid_float_gap": 0.9399460377633613, "constraints": 876, "seconds": 0.6161007669998071}
+{"node": 1828, "iteration": 19, "lp_gap": 3.107883341649641, "valid_float_gap": 1.3025445112703888, "constraints": 921, "seconds": 0.6872338609991857}
+{"node": 1828, "status": "exact_separation", "total": 26, "cost_sum": 23, "margin": 3, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node1828.json", "seconds": 0.6890709549988969}
+{"node": 2854, "iteration": 0, "lp_gap": 90.0, "valid_float_gap": -266.0, "constraints": 11, "seconds": 0.0033235819992114557}
+{"node": 2854, "iteration": 5, "lp_gap": 27.616581350385047, "valid_float_gap": -83.91529135743674, "constraints": 231, "seconds": 0.03876290600055654}
+{"node": 2854, "iteration": 10, "lp_gap": 5.922652001111409, "valid_float_gap": -18.11995250562257, "constraints": 451, "seconds": 0.15980559700074082}
+{"node": 2854, "iteration": 15, "lp_gap": 3.4930939936089924, "valid_float_gap": -2.4803884179092606, "constraints": 671, "seconds": 0.5296232220007369}
+{"node": 2854, "iteration": 18, "lp_gap": 3.202988287620501, "valid_float_gap": 0.19526874340819944, "constraints": 803, "seconds": 0.7463701689994195}
+{"node": 2854, "iteration": 19, "lp_gap": 3.122354465235068, "valid_float_gap": 1.0877095811060489, "constraints": 847, "seconds": 0.821027800999218}
+{"node": 2854, "status": "exact_separation", "total": 79, "cost_sum": 76, "margin": 3, "max_weight": 5, "file": "dynamic-matrices-v2/DynamicV2Node2854.json", "seconds": 0.8244276450004691}
+{"node": 2890, "iteration": 0, "lp_gap": 90.0, "valid_float_gap": -268.0, "constraints": 11, "seconds": 0.0037536370000452735}
+{"node": 2890, "iteration": 5, "lp_gap": 28.757728147828615, "valid_float_gap": -64.16613923829252, "constraints": 231, "seconds": 0.04037566900115053}
+{"node": 2890, "iteration": 10, "lp_gap": 5.761784202405082, "valid_float_gap": -17.628812283514392, "constraints": 451, "seconds": 0.17123000900028273}
+{"node": 2890, "iteration": 15, "lp_gap": 3.8512904601144644, "valid_float_gap": -1.6846576908418598, "constraints": 670, "seconds": 0.39876460500090616}
+{"node": 2890, "iteration": 18, "lp_gap": 3.237552816070215, "valid_float_gap": 0.5164671821869184, "constraints": 784, "seconds": 0.5735969520010258}
+{"node": 2890, "iteration": 19, "lp_gap": 3.144840608251606, "valid_float_gap": 1.6383374060113294, "constraints": 828, "seconds": 0.6463195240012283}
+{"node": 2890, "status": "exact_separation", "total": 67, "cost_sum": 66, "margin": 1, "max_weight": 3, "file": "dynamic-matrices-v2/DynamicV2Node2890.json", "seconds": 0.6481351040001755}
+{"node": 3454, "status": "covered", "certificate": "DynamicV2Node5277", "margin": 2}
+{"node": 3457, "iteration": 0, "lp_gap": 84.0, "valid_float_gap": -287.0, "constraints": 12, "seconds": 0.0031981320007616887}
+{"node": 3457, "iteration": 5, "lp_gap": 24.997012199538887, "valid_float_gap": -88.16550643260109, "constraints": 252, "seconds": 0.04294108599970059}
+{"node": 3457, "iteration": 10, "lp_gap": 5.6359588552029045, "valid_float_gap": -11.922071008789267, "constraints": 492, "seconds": 0.18859306500053208}
+{"node": 3457, "iteration": 15, "lp_gap": 3.604828983720573, "valid_float_gap": -0.308272022993906, "constraints": 731, "seconds": 0.439768730000651}
+{"node": 3457, "iteration": 16, "lp_gap": 3.4752661728569016, "valid_float_gap": 0.299015152828197, "constraints": 779, "seconds": 0.5016381759996875}
+{"node": 3457, "iteration": 18, "lp_gap": 3.121933560841626, "valid_float_gap": 0.6642781491446712, "constraints": 862, "seconds": 0.6292604619993654}
+{"node": 3457, "iteration": 19, "lp_gap": 3.0715737359150843, "valid_float_gap": 1.5240360761653484, "constraints": 898, "seconds": 0.7022558169992408}
+{"node": 3457, "status": "exact_separation", "total": 55, "cost_sum": 51, "margin": 4, "max_weight": 4, "file": "dynamic-matrices-v2/DynamicV2Node3457.json", "seconds": 0.7041833629991743}
+{"node": 3463, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -252.0, "constraints": 13, "seconds": 0.0031159400004980853}
+{"node": 3463, "iteration": 5, "lp_gap": 22.090464611892486, "valid_float_gap": -72.58953811587531, "constraints": 273, "seconds": 0.04382160600107454}
+{"node": 3463, "iteration": 10, "lp_gap": 6.460881711942179, "valid_float_gap": -3.614575155421104, "constraints": 533, "seconds": 0.1964540320004744}
+{"node": 3463, "iteration": 13, "lp_gap": 5.250078167473262, "valid_float_gap": 0.7052645465474079, "constraints": 689, "seconds": 0.3406449440008146}
+{"node": 3463, "iteration": 14, "lp_gap": 4.976560566069683, "valid_float_gap": 0.11577144198498246, "constraints": 741, "seconds": 0.5140673490004701}
+{"node": 3463, "iteration": 15, "lp_gap": 4.885328766579791, "valid_float_gap": 2.5337994927297807, "constraints": 781, "seconds": 0.6015587280016916}
+{"node": 3463, "status": "exact_separation", "total": 34, "cost_sum": 30, "margin": 4, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node3463.json", "seconds": 0.6035136040009093}
+{"node": 3595, "iteration": 0, "lp_gap": 80.0, "valid_float_gap": -277.0, "constraints": 12, "seconds": 0.0033846980004454963}
+{"node": 3595, "iteration": 5, "lp_gap": 26.356042858934472, "valid_float_gap": -77.30922251197391, "constraints": 252, "seconds": 0.04342679399996996}
+{"node": 3595, "iteration": 10, "lp_gap": 5.4583660992555565, "valid_float_gap": -20.051935718492093, "constraints": 492, "seconds": 0.1843245330001082}
+{"node": 3595, "iteration": 15, "lp_gap": 3.491723154587012, "valid_float_gap": -0.7509737940125945, "constraints": 720, "seconds": 0.463938639000844}
+{"node": 3595, "iteration": 16, "lp_gap": 3.2918917538463646, "valid_float_gap": 0.9538409728480346, "constraints": 768, "seconds": 0.5262261429998034}
+{"node": 3595, "iteration": 17, "lp_gap": 3.229369024247786, "valid_float_gap": 1.7757685323306447, "constraints": 804, "seconds": 0.587476083999718}
+{"node": 3595, "status": "exact_separation", "total": 70, "cost_sum": 69, "margin": 1, "max_weight": 3, "file": "dynamic-matrices-v2/DynamicV2Node3595.json", "seconds": 0.5894956160009315}
+{"node": 4280, "status": "covered", "certificate": "DynamicV2Node4217", "margin": 3}
+{"node": 4283, "status": "covered", "certificate": "DynamicV2Node4217", "margin": 1}
+{"node": 4355, "iteration": 0, "lp_gap": 90.0, "valid_float_gap": -272.0, "constraints": 11, "seconds": 0.0030511249988194322}
+{"node": 4355, "iteration": 5, "lp_gap": 28.349528227875638, "valid_float_gap": -81.05184124655216, "constraints": 231, "seconds": 0.03891635399850202}
+{"node": 4355, "iteration": 10, "lp_gap": 6.389392888330633, "valid_float_gap": -13.613718261090565, "constraints": 451, "seconds": 0.18205496099835727}
+{"node": 4355, "iteration": 15, "lp_gap": 3.562375051598032, "valid_float_gap": -2.6509434146218886, "constraints": 671, "seconds": 0.413841075000164}
+{"node": 4355, "iteration": 18, "lp_gap": 3.220126422255678, "valid_float_gap": 0.8887942228295636, "constraints": 799, "seconds": 0.6476860929997201}
+{"node": 4355, "iteration": 19, "lp_gap": 3.115478770844927, "valid_float_gap": 0.9911386387097316, "constraints": 828, "seconds": 0.7296796259997791}
+{"node": 4355, "iteration": 20, "lp_gap": 3.066737145502273, "valid_float_gap": 1.3131090437632444, "constraints": 864, "seconds": 0.7993395889989188}
+{"node": 4355, "status": "exact_separation", "total": 36, "cost_sum": 35, "margin": 1, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node4355.json", "seconds": 0.8009696350000013}
+{"node": 4357, "status": "covered", "certificate": "DynamicV2Node4217", "margin": 2}
+{"node": 4901, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -298.0, "constraints": 13, "seconds": 0.003183466000336921}
+{"node": 4901, "iteration": 5, "lp_gap": 22.475483746262313, "valid_float_gap": -71.17756891120177, "constraints": 273, "seconds": 0.04874656299944036}
+{"node": 4901, "iteration": 10, "lp_gap": 5.662977508096551, "valid_float_gap": -11.739760926858285, "constraints": 533, "seconds": 0.21462683800018567}
+{"node": 4901, "iteration": 15, "lp_gap": 3.6791242922419354, "valid_float_gap": -0.032250439758659155, "constraints": 793, "seconds": 0.4694908380006382}
+{"node": 4901, "iteration": 16, "lp_gap": 3.5070047606100196, "valid_float_gap": 0.8294374077761564, "constraints": 842, "seconds": 0.5287597110000206}
+{"node": 4901, "iteration": 17, "lp_gap": 3.4028028936344477, "valid_float_gap": 1.1465911187208597, "constraints": 890, "seconds": 0.6469001929999649}
+{"node": 4901, "status": "exact_separation", "total": 24, "cost_sum": 20, "margin": 4, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node4901.json", "seconds": 0.6505698609998944}
+{"node": 4907, "status": "covered", "certificate": "DynamicV2Node4881", "margin": 1}
+{"node": 5673, "status": "covered", "certificate": "DynamicV2Node5666", "margin": 3}
+{"node": 5684, "status": "covered", "certificate": "DynamicV2Node6402", "margin": 1}
+{"node": 5687, "status": "covered", "certificate": "DynamicV2Node5666", "margin": 2}
+{"node": 6426, "status": "covered", "certificate": "DynamicV2Node6402", "margin": 1}
+{"node": 6433, "status": "covered", "certificate": "DynamicV2Node6402", "margin": 3}
+{"node": 6889, "status": "covered", "certificate": "DynamicV2Node6893", "margin": 1}
+{"node": 6891, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -230.0, "constraints": 13, "seconds": 0.005831399999806308}
+{"node": 6891, "iteration": 5, "lp_gap": 22.158183432628903, "valid_float_gap": -67.432921457173, "constraints": 273, "seconds": 0.04695490900121513}
+{"node": 6891, "iteration": 10, "lp_gap": 6.70282475697466, "valid_float_gap": -4.25762157874254, "constraints": 533, "seconds": 0.18807016700156964}
+{"node": 6891, "iteration": 12, "lp_gap": 5.830082989153841, "valid_float_gap": 0.37112568327774653, "constraints": 637, "seconds": 0.274071827001535}
+{"node": 6891, "iteration": 13, "lp_gap": 5.424161044852244, "valid_float_gap": 0.029809072353096155, "constraints": 689, "seconds": 0.32832041300025594}
+{"node": 6891, "iteration": 14, "lp_gap": 5.2550066728253455, "valid_float_gap": 2.486890291329722, "constraints": 718, "seconds": 0.3874174510001467}
+{"node": 6891, "status": "exact_separation", "total": 38, "cost_sum": 33, "margin": 5, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node6891.json", "seconds": 0.3891912090002734}
+{"node": 6899, "status": "covered", "certificate": "DynamicV2Node6402", "margin": 1}
+{"node": 6903, "status": "covered", "certificate": "DynamicV2Node6874", "margin": 1}
+{"node": 7375, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -292.0, "constraints": 12, "seconds": 0.0029432909996103263}
+{"node": 7375, "iteration": 5, "lp_gap": 25.43281737242374, "valid_float_gap": -73.55357486627334, "constraints": 252, "seconds": 0.039607794000403374}
+{"node": 7375, "iteration": 10, "lp_gap": 6.6793870302333715, "valid_float_gap": -6.69281346522979, "constraints": 492, "seconds": 0.16891645299983793}
+{"node": 7375, "iteration": 13, "lp_gap": 5.076956650079277, "valid_float_gap": 0.7610638264313394, "constraints": 636, "seconds": 0.30386009799985914}
+{"node": 7375, "iteration": 14, "lp_gap": 4.917617963116289, "valid_float_gap": 0.8062576412381617, "constraints": 684, "seconds": 0.3542896839990135}
+{"node": 7375, "iteration": 15, "lp_gap": 4.766331200611891, "valid_float_gap": 1.621075942308611, "constraints": 708, "seconds": 0.4017066180003894}
+{"node": 7375, "status": "exact_separation", "total": 33, "cost_sum": 31, "margin": 2, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node7375.json", "seconds": 0.4031713580006908}
+{"node": 7400, "status": "covered", "certificate": "DynamicV2Node10271", "margin": 2}
+{"node": 8140, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -283.5, "constraints": 12, "seconds": 0.003116718000455876}
+{"node": 8140, "iteration": 5, "lp_gap": 27.04418006335743, "valid_float_gap": -73.3133205920018, "constraints": 252, "seconds": 0.04063450499961618}
+{"node": 8140, "iteration": 10, "lp_gap": 6.48267705810073, "valid_float_gap": -5.197880652782075, "constraints": 492, "seconds": 0.1722682050003641}
+{"node": 8140, "iteration": 13, "lp_gap": 4.978002017734941, "valid_float_gap": 0.04133697008195725, "constraints": 636, "seconds": 0.2963986680006201}
+{"node": 8140, "iteration": 14, "lp_gap": 4.705856640151502, "valid_float_gap": 0.9457814525318646, "constraints": 684, "seconds": 0.34195733799970185}
+{"node": 8140, "iteration": 15, "lp_gap": 4.566588857940346, "valid_float_gap": 2.075089314994754, "constraints": 732, "seconds": 0.39138740399903327}
+{"node": 8140, "status": "exact_separation", "total": 37, "cost_sum": 36, "margin": 1, "max_weight": 1, "file": "dynamic-matrices-v2/DynamicV2Node8140.json", "seconds": 0.3928866949991061}
+{"node": 8497, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -312.0, "constraints": 12, "seconds": 0.003392677001102129}
+{"node": 8497, "iteration": 5, "lp_gap": 26.091570189759267, "valid_float_gap": -78.97401359280082, "constraints": 252, "seconds": 0.04762396099977195}
+{"node": 8497, "iteration": 10, "lp_gap": 5.130566458821249, "valid_float_gap": -11.022258980423988, "constraints": 492, "seconds": 0.20730482600083633}
+{"node": 8497, "iteration": 15, "lp_gap": 3.120128017046955, "valid_float_gap": -0.9134772015071668, "constraints": 732, "seconds": 0.44178132799970626}
+{"node": 8497, "iteration": 16, "lp_gap": 3.001280678135023, "valid_float_gap": 0.9528644185945776, "constraints": 780, "seconds": 0.4963504580009612}
+{"node": 8497, "iteration": 17, "lp_gap": 2.9341967474164896, "valid_float_gap": 0.18760669223948945, "constraints": 816, "seconds": 0.5534663819998968}
+{"node": 8497, "iteration": 18, "lp_gap": 2.8540860579343157, "valid_float_gap": 1.7673116816485166, "constraints": 846, "seconds": 0.6165310489996045}
+{"node": 8497, "status": "exact_separation", "total": 27, "cost_sum": 25, "margin": 2, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node8497.json", "seconds": 0.6181679040000745}
+{"node": 8533, "status": "covered", "certificate": "DynamicV2Node8504", "margin": 3}
+{"node": 9274, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -318.0, "constraints": 12, "seconds": 0.003128514999843901}
+{"node": 9274, "iteration": 5, "lp_gap": 25.545446343247477, "valid_float_gap": -91.45929254093551, "constraints": 252, "seconds": 0.040946996999991825}
+{"node": 9274, "iteration": 10, "lp_gap": 5.388202831030535, "valid_float_gap": -11.004829647602282, "constraints": 492, "seconds": 0.18761202799942112}
+{"node": 9274, "iteration": 15, "lp_gap": 3.249582919434058, "valid_float_gap": -1.443997207859752, "constraints": 732, "seconds": 0.4522113060011179}
+{"node": 9274, "iteration": 16, "lp_gap": 3.102125677564967, "valid_float_gap": 0.38880096692514776, "constraints": 768, "seconds": 0.5113831620001292}
+{"node": 9274, "iteration": 17, "lp_gap": 3.0068112522044483, "valid_float_gap": 0.16721056265957834, "constraints": 806, "seconds": 0.573326141000507}
+{"node": 9274, "iteration": 18, "lp_gap": 2.921487284438715, "valid_float_gap": 0.3023913709226509, "constraints": 842, "seconds": 0.6527123169998958}
+{"node": 9274, "iteration": 19, "lp_gap": 2.8896848958738417, "valid_float_gap": 0.639326084508486, "constraints": 890, "seconds": 0.7274382609994063}
+{"node": 9274, "iteration": 20, "lp_gap": 2.861852173132256, "valid_float_gap": 1.2050701480827382, "constraints": 927, "seconds": 0.8030831230007607}
+{"node": 9274, "status": "exact_separation", "total": 28, "cost_sum": 25, "margin": 3, "max_weight": 2, "file": "dynamic-matrices-v2/DynamicV2Node9274.json", "seconds": 0.8047723170002428}
+{"node": 9281, "status": "covered", "certificate": "DynamicV1Node91", "margin": 2}
+{"node": 9308, "status": "covered", "certificate": "DynamicV1Node91", "margin": 5}
+{"node": 9310, "status": "covered", "certificate": "DynamicV1Node91", "margin": 1}
+{"node": 12349, "iteration": 0, "lp_gap": 81.0, "valid_float_gap": -254.0, "constraints": 11, "seconds": 0.002976475001560175}
+{"node": 12349, "iteration": 5, "lp_gap": 24.547072603050083, "valid_float_gap": -82.73242025678738, "constraints": 231, "seconds": 0.04060628100160102}
+{"node": 12349, "iteration": 10, "lp_gap": 7.105123021297416, "valid_float_gap": -9.588045756595257, "constraints": 451, "seconds": 0.16813379500126757}
+{"node": 12349, "iteration": 14, "lp_gap": 5.265290185157236, "valid_float_gap": 0.4069625799573018, "constraints": 627, "seconds": 0.3570131050000782}
+{"node": 12349, "iteration": 15, "lp_gap": 5.118895448366461, "valid_float_gap": 1.6186590244813033, "constraints": 671, "seconds": 0.41120080200016673}
+{"node": 12349, "status": "exact_separation", "total": 81, "cost_sum": 77, "margin": 4, "max_weight": 4, "file": "dynamic-matrices-v2/DynamicV2Node12349.json", "seconds": 0.4129264000002877}
+{"node": 24543, "iteration": 0, "lp_gap": 91.5, "valid_float_gap": -256.0, "constraints": 11, "seconds": 0.004229296000630711}
+{"node": 24543, "iteration": 5, "lp_gap": 25.421264133796214, "valid_float_gap": -76.63535465320653, "constraints": 231, "seconds": 0.04419509100080177}
+{"node": 24543, "iteration": 10, "lp_gap": 6.7883142658798725, "valid_float_gap": -19.284858350516718, "constraints": 451, "seconds": 0.1632535500011727}
+{"node": 24543, "iteration": 15, "lp_gap": 3.8228297189715317, "valid_float_gap": -2.202938393491351, "constraints": 671, "seconds": 0.37772187600057805}
+{"node": 24543, "iteration": 17, "lp_gap": 3.4320309234169493, "valid_float_gap": 0.5688999736238998, "constraints": 759, "seconds": 0.4995137360001536}
+{"node": 24543, "iteration": 18, "lp_gap": 3.284517540116715, "valid_float_gap": 0.025254513726572725, "constraints": 803, "seconds": 0.5623500240017165}
+{"node": 24543, "iteration": 19, "lp_gap": 3.2041672334776408, "valid_float_gap": 0.7264158160566971, "constraints": 847, "seconds": 0.6316720490012813}
+{"node": 24543, "iteration": 20, "lp_gap": 3.1419395482490255, "valid_float_gap": 1.471733812599819, "constraints": 891, "seconds": 0.7020273100006307}
+{"node": 24543, "status": "exact_separation", "total": 73, "cost_sum": 68, "margin": 5, "max_weight": 4, "file": "dynamic-matrices-v2/DynamicV2Node24543.json", "seconds": 0.7043849420006154}
+{"seconds": 34.72589209999933, "banks": 119, "certificates": 60, "excluded": 119}

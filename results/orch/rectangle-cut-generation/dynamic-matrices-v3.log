@@ -1,0 +1,26 @@
+{"node": 5091, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -302.0, "constraints": 13, "seconds": 0.007485414998882334}
+{"node": 5091, "iteration": 5, "lp_gap": 25.676673212269748, "valid_float_gap": -67.66520375216194, "constraints": 273, "seconds": 0.07606343299994478}
+{"node": 5091, "iteration": 10, "lp_gap": 5.385168974902861, "valid_float_gap": -10.551116641906106, "constraints": 533, "seconds": 0.26700396799969894}
+{"node": 5091, "iteration": 15, "lp_gap": 3.216500897369972, "valid_float_gap": -2.826986740327605, "constraints": 793, "seconds": 0.6040145360002498}
+{"node": 5091, "iteration": 19, "lp_gap": 2.746405001502538, "valid_float_gap": 0.6849648009809393, "constraints": 974, "seconds": 0.8852571560000797}
+{"node": 5091, "iteration": 20, "lp_gap": 2.709598131766162, "valid_float_gap": 0.47849041359849664, "constraints": 1014, "seconds": 0.9708024369992927}
+{"node": 5091, "iteration": 21, "lp_gap": 2.6813828544732488, "valid_float_gap": 1.0875609777241095, "constraints": 1063, "seconds": 1.048186463998718}
+{"node": 5091, "status": "exact_separation", "total": 57, "cost_sum": 56, "margin": 1, "max_weight": 4, "file": "dynamic-matrices-v3/DynamicV3Node5091.json", "seconds": 1.0501286529997742}
+{"node": 202405, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -298.0, "constraints": 13, "seconds": 0.0028795430007448886}
+{"node": 202405, "iteration": 5, "lp_gap": 24.908472893385607, "valid_float_gap": -88.84652721062824, "constraints": 273, "seconds": 0.04242540300037945}
+{"node": 202405, "iteration": 10, "lp_gap": 5.381438552333467, "valid_float_gap": -8.589493268178952, "constraints": 533, "seconds": 0.20342419000007794}
+{"node": 202405, "iteration": 15, "lp_gap": 3.445709417819156, "valid_float_gap": -1.1217101296727616, "constraints": 793, "seconds": 0.5445130829994014}
+{"node": 202405, "iteration": 16, "lp_gap": 3.3488807302517056, "valid_float_gap": 0.3244383397013557, "constraints": 845, "seconds": 0.6089682550009456}
+{"node": 202405, "iteration": 17, "lp_gap": 3.2052622605781895, "valid_float_gap": 0.4657616914368514, "constraints": 896, "seconds": 0.6819900289992802}
+{"node": 202405, "iteration": 18, "lp_gap": 3.162636653781055, "valid_float_gap": 1.8900676556662503, "constraints": 946, "seconds": 0.7600629339995066}
+{"node": 202405, "status": "exact_separation", "total": 13, "cost_sum": 12, "margin": 1, "max_weight": 1, "file": "dynamic-matrices-v3/DynamicV3Node202405.json", "seconds": 0.7617104269993433}
+{"node": 203151, "iteration": 0, "lp_gap": 75.0, "valid_float_gap": -304.0, "constraints": 13, "seconds": 0.003302336999695399}
+{"node": 203151, "iteration": 5, "lp_gap": 24.60117452287888, "valid_float_gap": -82.7537139690307, "constraints": 273, "seconds": 0.04296572099883633}
+{"node": 203151, "iteration": 10, "lp_gap": 5.209371487615581, "valid_float_gap": -16.190747567646113, "constraints": 533, "seconds": 0.22582561699891812}
+{"node": 203151, "iteration": 15, "lp_gap": 3.2641462700704214, "valid_float_gap": -4.613592544192199, "constraints": 793, "seconds": 0.5444564199988235}
+{"node": 203151, "iteration": 20, "lp_gap": 2.722885772123771, "valid_float_gap": -0.10838703698879115, "constraints": 1015, "seconds": 0.9568634110000858}
+{"node": 203151, "iteration": 21, "lp_gap": 2.673666166057922, "valid_float_gap": 0.40781726783291283, "constraints": 1050, "seconds": 1.0337768329991377}
+{"node": 203151, "iteration": 23, "lp_gap": 2.578858865096075, "valid_float_gap": 0.08197895987957438, "constraints": 1129, "seconds": 1.1992884269984643}
+{"node": 203151, "iteration": 24, "lp_gap": 2.559258309795668, "valid_float_gap": 1.409933923939926, "constraints": 1163, "seconds": 1.2874626209995768}
+{"node": 203151, "status": "exact_separation", "total": 70, "cost_sum": 65, "margin": 5, "max_weight": 4, "file": "dynamic-matrices-v3/DynamicV3Node203151.json", "seconds": 1.2895151630000328}
+{"summary": [{"node": 5091, "status": "exact_separation", "file": "dynamic-matrices-v3/DynamicV3Node5091.json", "margin": 1, "seconds": 1.0501286529997742}, {"node": 202405, "status": "exact_separation", "file": "dynamic-matrices-v3/DynamicV3Node202405.json", "margin": 1, "seconds": 0.7617104269993433}, {"node": 203151, "status": "exact_separation", "file": "dynamic-matrices-v3/DynamicV3Node203151.json", "margin": 5, "seconds": 1.2895151630000328}]}

@@ -1,0 +1,14 @@
+PASS: independent complete-case research archive integrity, context and structural census.
+Archive: results/orch/search/mono19-or-edge-complete
+Manifest SHA256: 879fa166401052f31c7c6da105b0a4ecabb448d91b01893897babb10044c379e
+Linked predecessor manifest SHA256: 8f407bfbbe505764f38ed068a986b5547248c5c9c221870109669a8e84f1dd26
+
+All33 current entries (25570361 stored bytes) and11 linked predecessor entries (13434572 stored bytes) match exact compressed/plain byte counts and SHA256 values, with no unmanifested payloads. Every gzip stream was fully decompressed and its original size/hash independently verified. Sources and V1–V3 matrix inputs match the reviewed/published hashes. Command/status records bind each child to the preserved immutable input snapshot, rather than a later overwritten final checkpoint. Pause/resume footer records explicitly explain why predecessor wall durations include idle time.
+
+The memo chain has67,52200,55426,59744 and113408 records. Every header identifies monotone mode, total cap19, first OR-edge and strong monotone-nine setting0. The exact root truth-function multiset is the ten original Petersen inputs plus x0 OR x1, remaining18. It is absent in all used predecessor snapshots and present in the final snapshot. This is the strong cofactor run; no weak15-only reconstruction is inferred.
+
+I streamed all five linked rectangle traces independently: smoke2449 cuts/513 signatures, original678304/42821, hysteresis62213/17367, diagnostic53093/12694, dynamic615095/46937. All headers have the same target/mode/cap/first-case. Every emitted cut preserves root multiplicity, has exactly one nonnegative integer cost per occurrence, the strict sum agrees, and every referenced truth signature is present in the complete footer dictionary. Every dynamic matrix-load record exactly matches its frozen V3 metadata in stable order, IDs1001–1026; V4 is not used. Census values match the archive. This structural audit does not recompute every rectangle maximum; matrix/cost audits and reviewed oracle code are separate evidence.
+
+Final status is exit0 with finished found=0 and no limit marker. The log closes initial copy entries0 through10 in order; substantial milestones are910805,947384 and947413 visits. Final memo count113408 and total947413 new visits agree with the README and status. The exact computational case is a positive Live continuation after the specified first OR-edge gate, not all first-gate cases or the posted gap.
+
+The README and lineage explicitly distinguish completed computation from a kernel certificate. Completed negative memo states are not yet a replayable Lean proof DAG, and the entire copied-bank recurrence/cut dependency graph still requires kernel reconstruction. No accepted Lean result, full monotone20 theorem or full L-meta-2373 proof is claimed by this review. This archive is ready for research checkpoint preservation.

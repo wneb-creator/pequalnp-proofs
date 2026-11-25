@@ -1,0 +1,12 @@
+remove
+truncated
+trailing
+bad_header
+wrong_positive
+wrong_negative
+duplicate_row
+duplicate_id
+wrong_total
+oversize_weight
+row_out_of_range
+changed_prefix

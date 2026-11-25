@@ -132,3 +132,8 @@
 - 2026-11-25T15:49:36.450968+00:00 counterexample: all in-flight dynamic matrix audits complete and archived. First-OR-edge search now computationally finished perlibrary; later optional matrices explicitly separated.
 
 - 2026-11-25T15:55:51.700860+00:00: independent review passed for ForcedPair and the four-gate conditional monotone bridge; strong first-OR computational case complete, weak15case remains open.
+
+- 2026-11-25 15:48:14 UTC — lean_setup started fresh weak15 mono19 first-OR-edge with immutable reviewed V2 matrices, no memo input, one CPU/hard1GB.
+- 2026-11-25 15:53:15 UTC — benchmark ended at ordinary limit:734,033nodes,26,439completed weak-only memo states, no circuit or completed-case verdict. Full archive preserved.
+
+- 2026-11-25T16:01:30.447136+00:00: full mono19 first-OR-edge computational lineage independently reviewed; allfive traces and final113408state cache preserved. ExactLean theorem remains absent.

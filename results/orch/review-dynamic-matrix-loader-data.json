@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "source_sha256": "2709cc91618d78399c15fd67bb2f8371722e7193b0c69b19e5a01470ef97742b",
+  "baseline_sha256": "1c65521c564ccb2280f67622fb47b757feb9958cd1201ae15ffe7c7ae066d9e4",
+  "loader_sha256": "0c0fa6c05d02e44c51efd1d6fbebdc1d7d1a67a7ba4bf6c774eb20449eea46d2",
+  "json_sha256": "bee95950bb06473d6bd1e859c08e88eb4b817f0b96a4149928837492aeffa071",
+  "exact_gray_routine_matches_reviewed_baseline": true,
+  "records": [
+    {
+      "id": 1001,
+      "source_bank": 12243,
+      "rows": 15,
+      "cols": 15,
+      "total": 111,
+      "roots": 18,
+      "profiles": 11,
+      "cost_sum": 109,
+      "margin": 2,
+      "maximum_abs_weight": 4
+    },
+    {
+      "id": 1002,
+      "source_bank": 4213,
+      "rows": 15,
+      "cols": 15,
+      "total": 127,
+      "roots": 18,
+      "profiles": 11,
+      "cost_sum": 126,
+      "margin": 1,
+      "maximum_abs_weight": 7
+    },
+    {
+      "id": 1003,
+      "source_bank": 7372,
+      "rows": 15,
+      "cols": 15,
+      "total": 181,
+      "roots": 18,
+      "profiles": 12,
+      "cost_sum": 180,
+      "margin": 1,
+      "maximum_abs_weight": 7
+    },
+    {
+      "id": 1004,
+      "source_bank": 87,
+      "rows": 15,
+      "cols": 15,
+      "total": 1589,
+      "roots": 18,
+      "profiles": 12,
+      "cost_sum": 1583,
+      "margin": 6,
+      "maximum_abs_weight": 96
+    },
+    {
+      "id": 1005,
+      "source_bank": 8922,
+      "rows": 15,
+      "cols": 15,
+      "total": 440,
+      "roots": 18,
+      "profiles": 12,
+      "cost_sum": 438,
+      "margin": 2,
+      "maximum_abs_weight": 16
+    },
+    {
+      "id": 1006,
+      "source_bank": 91,
+      "rows": 15,
+      "cols": 15,
+      "total": 43,
+      "roots": 18,
+      "profiles": 12,
+      "cost_sum": 41,
+      "margin": 2,
+      "maximum_abs_weight": 3
+    }
+  ],
+  "scope": "Exact loader/JSON equality and independent integer rectangle maxima for the six designated tight banks. No full search exhaustion or Lean certificate claimed."
+}

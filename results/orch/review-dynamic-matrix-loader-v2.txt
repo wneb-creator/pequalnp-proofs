@@ -1,0 +1,7 @@
+PASS: independent v2 append-prefix and encoding audit.
+Loader SHA256: 6b6c73f27d2d4c2acb94b26aa0d76466f4b947b631dbf68501be945a3313cda4
+JSON SHA256: 71f3494bc73336374c744286527ebb2805dae86c225241297853ed0ac5ffd0db
+
+All six old textual records remain byte-for-byte the prefix after the updated stream count, and all six old JSON records are unchanged. Exactly seven records were appended, giving unique stable IDs1001 through1013. The complete plaintext stream parses with no trailing tokens and agrees exactly with every JSON row, coefficient and total. Every sample is a bounded original truth assignment with the declared actual Petersen label; row lists contain no duplicates. All dimensions and coefficient magnitudes satisfy the reviewed parser limits, and every declared positive total is exactly the sum of its signed weights. The active atomically published file equals the immutable v2 bytes.
+
+The seven new entries transform sample rows of existing matrices. Runtime soundness does not assume those transformations are automorphisms: the loader checks the actual labels, and the oracle recomputes rectangle maxima on the actual samples. Counterexample separately completed the independent matrix/coverage audit. This report is limited to append-prefix/encoding/label/integer consistency; it does not independently claim the119-bank coverage result, a complete search exclusion, or a Lean proof.

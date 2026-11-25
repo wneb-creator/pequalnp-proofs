@@ -1,0 +1,54 @@
+{
+  "copy_search_first_checkpoint.cpp": {
+    "bytes": 79083,
+    "sha256": "79520fd42518f0edf0f2afca234e7fa21484484233f4afc043b153a0938930b7"
+  },
+  "copy-first-checkpoint-oredge-mono19-1200.log": {
+    "bytes": 28040,
+    "sha256": "787a7ddaecec8ac22a147ff582bc47e57ad7aefdef0a83a415a17de6166180e4"
+  },
+  "copy-first-checkpoint-oredge-mono19-1200.status.json": {
+    "bytes": 539,
+    "sha256": "abf7839402fc09c0a962d52eb1f29b6bbafe8c9d168ed924c20b19ab66b910be"
+  },
+  "checkpoint-pause-status.json": {
+    "bytes": 308,
+    "sha256": "eefcf1afbc4ea37382d9f997be9cdec3e07dd4522eaa2fdef938966fb6b43b50"
+  },
+  "checkpoint-resume-for-footer.json": {
+    "bytes": 169,
+    "sha256": "214e6883113c2fc2244985c482813ceada76209d232c85c58ccc28f3c77572c1"
+  },
+  "copy-first-checkpoint-oredge-cuts.jsonl": {
+    "original_bytes": 141148025,
+    "original_sha256": "8e657095e3ebe757545b8b3b20da35202343495310b3b294c2eff1b58b91b5e9",
+    "gzip_bytes": 8966064,
+    "gzip_sha256": "79b09e0c2657aa905484ad09020dd048496101548fbca9ad6e8d39f60fcef5ed"
+  },
+  "mono19-oredge-completed.memo": {
+    "original_bytes": 211066523,
+    "original_sha256": "7ab414ae363c9aea63efdcfdd1449936b0eb80c0e4850b226f456281c960195b",
+    "gzip_bytes": 2177454,
+    "gzip_sha256": "5e9504d1acee8e7b945279a760f8e34e82c9603a78b58ade3d3af8dd1e76d5d4"
+  },
+  "mono19-oredge-completed-paused.memo": {
+    "original_bytes": 211042906,
+    "original_sha256": "2e3b780f1482bc5e239f8f178bd88b548bba063539252b375ba2395b4227f258",
+    "gzip_bytes": 2177195,
+    "gzip_sha256": "64c4bc1a8ea18defa78ae81cd646e4b5c8c425a468a97aa8acab17e4315b6b42"
+  },
+  "checkpoint-smoke.memo": {
+    "original_bytes": 295568,
+    "original_sha256": "0821cd1df2e51a439955e2c5a476972497306578a2a0a69a382f4a3bc55c569f",
+    "gzip_bytes": 2530,
+    "gzip_sha256": "a91cc199c30a3354d3e171e8d1a3751e2cf2d3a174fa58e49c9733c9d5a693e1"
+  },
+  "census.json": {
+    "bytes": 938,
+    "sha256": "3077ab10721f8e8e0b7d49b2156d7324ed7dc31c75d9c3a6fef7dd32f771a94b"
+  },
+  "README.md": {
+    "bytes": 2252,
+    "sha256": "e4b2ef4891affa5e13db890a6540a57b5a093744ad2c322d22a36a0895c98912"
+  }
+}

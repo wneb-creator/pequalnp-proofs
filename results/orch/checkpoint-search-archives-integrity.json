@@ -1,0 +1,93 @@
+[
+  {
+    "archive": "search/mono19-or-edge-checkpoints",
+    "entries": 11,
+    "bytes": 13434572,
+    "manifest_sha256": "8f407bfbbe505764f38ed068a986b5547248c5c9c221870109669a8e84f1dd26",
+    "integrity": "PASS"
+  },
+  {
+    "archive": "search/signed18-and-edge",
+    "entries": 19,
+    "bytes": 7791082,
+    "manifest_sha256": "b5a20ea2cf80a8b824b82eb9bd05cd105d44f97f1bb7f062936264f4621cc963",
+    "integrity": "PASS"
+  },
+  {
+    "archive": "search/dynamic-rectangle-loader",
+    "entries": 36,
+    "bytes": 636219,
+    "manifest_sha256": "a15a94b8511e3541e9712d7c33d06974ad31d258c5b5d5429aff4a708b668730",
+    "integrity": "PASS"
+  },
+  {
+    "archive": "search/mono19-or-edge-complete",
+    "entries": 33,
+    "bytes": 25570361,
+    "manifest_sha256": "879fa166401052f31c7c6da105b0a4ecabb448d91b01893897babb10044c379e",
+    "integrity": "PASS"
+  },
+  {
+    "archive": "rectangle-cut-generation",
+    "entries": 22,
+    "bytes": 616122,
+    "manifest_sha256": "128f7c04e5948e6246226f8a9dd7a20732070d4ec77e20dc42cc93c259e3a3ab",
+    "integrity": "PASS"
+  },
+  {
+    "archive": "structural-empty",
+    "entries": 14,
+    "bytes": 156443,
+    "manifest_sha256": "4584f8b9270927eb5ae7b42a9acc4018c9baeb0cca2c6b604f3382511ec32ca2",
+    "integrity": "PASS"
+  },
+  {
+    "archive": "rectangle-cut-audits/all216-v4",
+    "entries": 9,
+    "bytes": 2146940,
+    "manifest_sha256": "d66df5503ce16aacbec51fb3dc9d023ba461716fb5622bd946c202d79b2389ea",
+    "integrity": "PASS"
+  },
+  {
+    "archive": "rectangle-cut-audits/symmetry-selected-v2",
+    "entries": 10,
+    "bytes": 2674355,
+    "manifest_sha256": "9bbe80e271b4a753c9eea028a64068445169c9f5027006526548dd29a11df2e9",
+    "integrity": "PASS"
+  },
+  {
+    "archive": "rectangle-cut-audits/dynamic-v1",
+    "entries": 18,
+    "bytes": 537773,
+    "manifest_sha256": "5042715b93682a810dda72db52bf7f5bb618af5d6f3a5d67ce68c9e6f8dfd70b",
+    "integrity": "PASS"
+  },
+  {
+    "archive": "rectangle-cut-audits/symmetry-selected-v3",
+    "entries": 10,
+    "bytes": 928713,
+    "manifest_sha256": "3d5e7f1edc446dceb92fa8a4be766f82e1b92594c60ad869b93d4dac97204398",
+    "integrity": "PASS"
+  },
+  {
+    "archive": "rectangle-cut-audits/symmetry-newweights-v2",
+    "entries": 10,
+    "bytes": 910788,
+    "manifest_sha256": "e86482a323c8bb0da0f18acd2dcade709d25cf8d05a49deb3c3c345b543bf6ad",
+    "integrity": "PASS"
+  },
+  {
+    "archive": "rectangle-cut-audits/symmetry-selected-v1",
+    "entries": 10,
+    "bytes": 1800908,
+    "manifest_sha256": "b9a8c26cb0dc6dbbb5ca1ffe7be2d0e60211ee8de5955c2d8d8d3b6c13247a9f",
+    "integrity": "PASS"
+  },
+  {
+    "archive": "rectangle-cut-audits/dynamic-v3",
+    "entries": 6,
+    "bytes": 225689,
+    "manifest_sha256": "b5f2ed9da632e119ac6c14a3c2d318790d0afde3110bfabb0931cc1fda2b1a96",
+    "integrity": "PASS"
+  }
+]

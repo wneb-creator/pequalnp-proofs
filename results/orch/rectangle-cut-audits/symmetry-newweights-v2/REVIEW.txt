@@ -1,0 +1,11 @@
+Independent exact rectangle audit: PASS
+UTC: 2026-11-25T15:47:53.143764+00:00
+Reviewer: /root/counterexample
+
+Nine transformed new-weight records,144 bank/matrix pairs,261 distinct signed rectangle profiles,14 strict positive cuts. All claimed coverage and margins match exactly. The union covers13/16 frozen residual banks; nodes5091,202405,203151 remain uncovered by this batch. Each permutation is a graph automorphism, each sample row follows the exact bit permutation, and source weights/totals match the named V2 records. These selected new weights are justified directly by the exact recomputed rectangles; other unused records in source-matrices.json are outside this audit.
+
+All bank histories are replayed from actual10-input truth tables and roots are full1024-bit signatures. Every listed bank is tight. Every duplicate raw function contributes separately to the bank cost. Positive/negative sample classification is verified against the exact15-edge Petersen target.
+
+Integer maxima enumerate all subsets of the smaller allowed support and select positive signed sums on the other side, permitting the empty rectangle. Every answer is recomputed in the opposite orientation; small profiles are also brute-forced in both dimensions.162 deterministic signed/extreme selftests pass. Full exact rectangle witnesses, per-occurrence bank costs, complete stdout/stderr, original inputs and auditor sources are preserved here with SHA256 hashes.
+
+This is an independent computational audit, not Lean certification or evidence that the whole search has finished. No floating-point LP output is trusted by the auditor.

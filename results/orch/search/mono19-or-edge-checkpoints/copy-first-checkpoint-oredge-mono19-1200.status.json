@@ -1,0 +1,25 @@
+{
+  "argv": [
+    "./copy_search_first_checkpoint",
+    "--cap",
+    "19",
+    "--first",
+    "oredge",
+    "--seconds",
+    "1200",
+    "--nodes",
+    "20000000",
+    "--memo-in",
+    "checkpoint-smoke.memo",
+    "--memo-out",
+    "mono19-oredge-completed.memo",
+    "--checkpoint-seconds",
+    "60",
+    "--rect-trace",
+    "copy-first-checkpoint-oredge-cuts.jsonl"
+  ],
+  "started_utc": "2026-11-25T15:19:25.656931+00:00",
+  "finished_utc": "2026-11-25T15:39:59.896412+00:00",
+  "wall_seconds": 1234.2396469140003,
+  "exit_status": 0
+}

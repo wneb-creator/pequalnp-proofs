@@ -1,0 +1,55 @@
+{
+  "verdict": "PASS",
+  "manifest_entries": 11,
+  "checks": {
+    "copy_search_first_checkpoint.cpp": "PASS",
+    "copy-first-checkpoint-oredge-mono19-1200.log": "PASS",
+    "copy-first-checkpoint-oredge-mono19-1200.status.json": "PASS",
+    "checkpoint-pause-status.json": "PASS",
+    "checkpoint-resume-for-footer.json": "PASS",
+    "copy-first-checkpoint-oredge-cuts.jsonl": "PASS",
+    "mono19-oredge-completed.memo": "PASS",
+    "mono19-oredge-completed-paused.memo": "PASS",
+    "checkpoint-smoke.memo": "PASS",
+    "census.json": "PASS",
+    "README.md": "PASS"
+  },
+  "events": {
+    "header": 1,
+    "rectangle": 678304,
+    "signal": 42821
+  },
+  "root_occurrences": 10764928,
+  "referenced_signatures": 42821,
+  "dictionary_signatures": 42821,
+  "memo_deficit_counts": {
+    "mono19-oredge-completed.memo": {
+      "0": 16358,
+      "1": 27439,
+      "2": 6675,
+      "3": 1489,
+      "4": 204,
+      "5": 34,
+      "6": 6,
+      "7": 1
+    },
+    "mono19-oredge-completed-paused.memo": {
+      "0": 16352,
+      "1": 27439,
+      "2": 6675,
+      "3": 1489,
+      "4": 204,
+      "5": 34,
+      "6": 6,
+      "7": 1
+    },
+    "checkpoint-smoke.memo": {
+      "1": 60,
+      "2": 6,
+      "3": 1
+    }
+  },
+  "paused_subset_final": true,
+  "exit_status": 0,
+  "scope": "Archive integrity and structural census only; root open, no complete Lean exclusion."
+}

@@ -1,0 +1,72 @@
+{
+  "header": {
+    "event": "header",
+    "mode": 1,
+    "cap": 18,
+    "first": "andedge",
+    "target": 11
+  },
+  "nodes": 446597,
+  "signals": 4908,
+  "terminal_kinds": {
+    "cofactor": 249859,
+    "row": 187518,
+    "formula1": 3570,
+    "expand": 846,
+    "formula0": 1732,
+    "memo": 3067,
+    "open": 5
+  },
+  "depths": {
+    "1": 1,
+    "2": 127,
+    "3": 190,
+    "4": 928,
+    "5": 38155,
+    "6": 334590,
+    "7": 71256,
+    "8": 1350
+  },
+  "root_status": "open",
+  "open_nodes": [
+    {
+      "id": 446597,
+      "remaining": 13,
+      "roots": 13
+    },
+    {
+      "id": 444991,
+      "remaining": 14,
+      "roots": 13
+    },
+    {
+      "id": 225045,
+      "remaining": 15,
+      "roots": 12
+    },
+    {
+      "id": 128,
+      "remaining": 16,
+      "roots": 12
+    },
+    {
+      "id": 1,
+      "remaining": 17,
+      "roots": 11
+    }
+  ],
+  "visited_root_children": {
+    "cofactor": 78,
+    "row": 48,
+    "open": 1
+  },
+  "all_transitions_and_signed_row_witnesses_checked": true,
+  "memo_remaining_budgets_match": true,
+  "not_rechecked": [
+    "cofactor lower bounds and supply certificates",
+    "formula closure exclusions",
+    "memo automorphism witnesses",
+    "complete successor coverage"
+  ],
+  "verdict": "Bounded computational evidence only; no UNSAT or Lean theorem."
+}

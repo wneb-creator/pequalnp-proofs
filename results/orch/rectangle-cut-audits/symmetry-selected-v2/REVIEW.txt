@@ -1,0 +1,11 @@
+Independent exact rectangle audit: PASS
+UTC: 2026-11-25T15:46:38.748150+00:00
+Reviewer: /root/counterexample
+
+Scope:13 frozen transformed-sample matrices from dynamic-symmetry-selected-v2/matrices.json against117 actual residual diagnostic banks frozen in dynamic-filter-v2/uncovered-banks.json. This is an integer computational audit, not a Lean proof or whole-case exhaustion. Set-cover optimality is not needed or reviewed.
+
+Results:1521 matrix/bank combinations,871 distinct matrix/support profiles,185 strict positive-cost gaps. All producer coverage lists and margins agree exactly, including every omitted nonpositive pair. The union covers101/117 banks. Sixteen remain uncovered by this batch: [3034, 3635, 4382, 5075, 5079, 5091, 5622, 6430, 6434, 7237, 8067, 18813, 201427, 202405, 203151, 203582]. No claim is made that no other matrix or permutation covers those sixteen; this audit only examines the13 selected records.
+
+Every permutation is bijective, maps all15 Petersen edges onto themselves, and preserves the target on all1024 assignments. Sample rows match the exact sum_i bit(row,i)<<permutation[i] convention; each weight and total equals its original source. All raw bank histories were replayed, every root is within1024 bits and has provenance, and every bank is tight. Duplicate-valued roots are charged once per occurrence.
+
+Exact signed maxima enumerate all subsets of the smaller support using integer Gray-code sums and optimal positive column sums; empty rectangles are allowed. Every maximum is also recomputed in the opposite orientation; small profiles receive a two-sided brute-force check.162 deterministic signed/extreme selftests pass. Full maximizing rectangles, per-occurrence costs, complete stdout/stderr, inputs, sources, and hashes are preserved here. V1 archives remain unchanged.

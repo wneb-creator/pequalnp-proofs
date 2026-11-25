@@ -1,0 +1,217 @@
+{
+  "status": "PASS",
+  "matrices": [
+    {
+      "name": "SymmetryDynamicV2Node2751P86",
+      "source_matrix": "DynamicV2Node2751",
+      "permutation": [
+        7,
+        2,
+        3,
+        4,
+        9,
+        5,
+        1,
+        8,
+        0,
+        6
+      ],
+      "exact_positive_cuts": 3,
+      "minimum_positive_margin": 1
+    },
+    {
+      "name": "SymmetryDynamicV2Node2915P0",
+      "source_matrix": "DynamicV2Node2915",
+      "permutation": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "exact_positive_cuts": 1,
+      "minimum_positive_margin": 2
+    },
+    {
+      "name": "SymmetryDynamicV2Node4217P13",
+      "source_matrix": "DynamicV2Node4217",
+      "permutation": [
+        1,
+        0,
+        4,
+        9,
+        6,
+        2,
+        5,
+        3,
+        7,
+        8
+      ],
+      "exact_positive_cuts": 1,
+      "minimum_positive_margin": 1
+    },
+    {
+      "name": "SymmetryDynamicV2Node129P14",
+      "source_matrix": "DynamicV2Node129",
+      "permutation": [
+        1,
+        0,
+        5,
+        7,
+        2,
+        6,
+        4,
+        8,
+        9,
+        3
+      ],
+      "exact_positive_cuts": 1,
+      "minimum_positive_margin": 1
+    },
+    {
+      "name": "SymmetryDynamicV2Node3465P54",
+      "source_matrix": "DynamicV2Node3465",
+      "permutation": [
+        4,
+        3,
+        8,
+        5,
+        0,
+        9,
+        2,
+        6,
+        7,
+        1
+      ],
+      "exact_positive_cuts": 1,
+      "minimum_positive_margin": 1
+    },
+    {
+      "name": "SymmetryDynamicV2Node3465P59",
+      "source_matrix": "DynamicV2Node3465",
+      "permutation": [
+        4,
+        9,
+        7,
+        5,
+        0,
+        3,
+        6,
+        2,
+        8,
+        1
+      ],
+      "exact_positive_cuts": 2,
+      "minimum_positive_margin": 1
+    },
+    {
+      "name": "SymmetryDynamicV2Node3465P74",
+      "source_matrix": "DynamicV2Node3465",
+      "permutation": [
+        6,
+        1,
+        2,
+        3,
+        8,
+        9,
+        0,
+        7,
+        4,
+        5
+      ],
+      "exact_positive_cuts": 1,
+      "minimum_positive_margin": 1
+    },
+    {
+      "name": "SymmetryDynamicV2Node9274P2",
+      "source_matrix": "DynamicV2Node9274",
+      "permutation": [
+        0,
+        1,
+        6,
+        8,
+        5,
+        4,
+        2,
+        9,
+        3,
+        7
+      ],
+      "exact_positive_cuts": 3,
+      "minimum_positive_margin": 1
+    },
+    {
+      "name": "SymmetryDynamicV2Node9274P12",
+      "source_matrix": "DynamicV2Node9274",
+      "permutation": [
+        1,
+        0,
+        4,
+        3,
+        2,
+        6,
+        5,
+        9,
+        8,
+        7
+      ],
+      "exact_positive_cuts": 1,
+      "minimum_positive_margin": 1
+    }
+  ],
+  "covered_banks": [
+    3034,
+    3635,
+    4382,
+    5075,
+    5079,
+    5622,
+    6430,
+    6434,
+    7237,
+    8067,
+    18813,
+    201427,
+    203582
+  ],
+  "uncovered_banks": [
+    5091,
+    202405,
+    203151
+  ],
+  "all_pairs": 144,
+  "unique_profiles": 261,
+  "positive_cuts": 14,
+  "inputs": {
+    "selected": {
+      "path": "/tmp/oec/pequalnp-pilot-87/finite_invariants/dynamic-symmetry-newweights-selected-v2/matrices.json",
+      "sha256": "da13a7db7d266a4bdc0c7241190b0a06770568c4e48613abbf576fe446787840"
+    },
+    "original": {
+      "path": "/tmp/oec/pequalnp-pilot-87/finite_invariants/dynamic-matrices-v2/all-matrices.json",
+      "sha256": "6f8ea8fe9b4193da2438356d6ec406e236671f02c5d24946fe712d2b9a8c037b"
+    },
+    "banks": {
+      "path": "/tmp/oec/pequalnp-pilot-87/finite_invariants/dynamic-filter-v2/residual-banks.json",
+      "sha256": "4c1606d9cea753a1406e0ae67458996a392e66fb36a84bf1d9325c0a25ea22f7"
+    },
+    "integer_audit": {
+      "path": "/tmp/oec/pequalnp-pilot-87/counterexample/rectangle-cut-audits/newweights-selected-v2-audit.json",
+      "sha256": "3482447048a925193fc9cbde2fc51b25a858acfdacdbbd7249f89ad6566df57b"
+    },
+    "integer_auditor": {
+      "path": "/tmp/oec/pequalnp-pilot-87/counterexample/rectangle-cut-audits/audit.py",
+      "sha256": "253d73ee30a2f1549a94ddfa077204779ae321d709462e96eb8d4d791e388d21"
+    },
+    "this_source": {
+      "path": "/tmp/oec/pequalnp-pilot-87/counterexample/rectangle-cut-audits/audit_symmetry.py",
+      "sha256": "9dcbdb0e09a5128ca35ff558c16d5510bd67b0094c8642153e4b4c971090e8db"
+    }
+  },
+  "scope": "Exact computational verification; no claim of Lean certification or whole-case exhaustion."
+}

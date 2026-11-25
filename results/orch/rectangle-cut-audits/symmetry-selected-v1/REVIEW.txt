@@ -1,0 +1,13 @@
+Independent exact rectangle audit: PASS
+UTC: 2026-11-25T15:44:34.614440+00:00
+Reviewer: /root/counterexample
+
+Scope: seven frozen transformed-sample matrices from dynamic-symmetry-selected-v1/matrices.json, against all119 actual diagnostic banks frozen in dynamic-cross-v1/banks.json. This is an integer computational audit, not a Lean proof or a claim that the whole monotone19 search is exhausted. The purported optimality of the seven-matrix set cover is not needed and was not reviewed.
+
+Results:833 matrix/bank combinations,406 distinct matrix/support profiles,305 strict positive-cost gaps. The union of the seven exact coverage sets is all119 banks. All producer covered_nodes and margins agree exactly, including every negative/nonpositive result outside those lists. Every bank is tight (root_count=remaining+1); sizes15 through18. Every occurrence contributes its cost even when its1024-bit truth function duplicates another root.
+
+Validation: each explicit10-vertex permutation is bijective, maps the15 Petersen edges onto themselves, and preserves the target on all1024 assignments. Every transformed positive/negative row equals sum_i bit(row,i)<<permutation[i] using the corresponding original matrix row. Matrix weights and total match the named original source exactly. Bank histories are replayed from the ten inputs, and every1024-bit bank root has actual provenance in that history.
+
+Signed rectangle maxima use Python unbounded integers. Every subset of the smaller allowed support is enumerated in Gray-code order; selecting the positive signed column sums gives the exact other side, with the empty rectangle allowed. The maximum is independently recomputed in the opposite orientation; small supports are also checked by two-sided brute force.162 deterministic random/extreme selftests pass. Full exact maximizing rectangles and per-occurrence bank costs are preserved, not only aggregate coverage.
+
+All input records, full stdout/stderr, both auditor sources and SHA256 manifest are in this directory. Source bank/matrix records have not been edited. V2 newly generated LP matrices are not covered by this audit; the selected seven reuse already-existing integer weights via explicitly checked sample permutations.

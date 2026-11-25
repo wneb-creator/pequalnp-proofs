@@ -1,0 +1,3 @@
+Independent review of signed18 archive audit: PASS
+
+Reviewed complete pure-Python audit source SHA256 a82d36470dac66cbf88d3342821c1470adca9fb0a9a5db96713c7b0f6df19694 and its retained PASS output. The audit verifies every manifest size/hash, deterministic gzip contents, unique node/done/signal records, exact node/status counts, earlier completed memo references with equal remaining budgets, and byte-exact cache truth tables for precisely the completed expand/formula0/formula1 nodes. Open nodes and found nodes cannot enter that selected cache. The limitations are correctly explicit: no cofactor/formula proof, no memo automorphism or complete-successor proof, and no UNSAT or Lean conclusion. This is archival/selection validation only. No search was restarted.

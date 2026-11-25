@@ -1,0 +1,13 @@
+{"leaves": 2, "new": 20, "total": 25, "seconds": 1.5503001122851856e-05}
+{"leaves": 3, "new": 80, "total": 105, "seconds": 0.00018666600044525694}
+{"leaves": 4, "new": 260, "total": 365, "seconds": 0.0005649140002788045}
+{"leaves": 5, "new": 542, "total": 907, "seconds": 0.0017866090001916746}
+{"leaves": 6, "new": 820, "total": 1727, "seconds": 0.006027403000189224}
+{"leaves": 7, "new": 1800, "total": 3527, "seconds": 0.018634794001627597}
+{"leaves": 8, "new": 1724, "total": 5251, "seconds": 0.05473230300049181}
+{"leaves": 9, "new": 1615, "total": 6866, "seconds": 0.13293542400060687}
+{"leaves": 10, "new": 530, "total": 7396, "seconds": 0.30758609300028183}
+{"leaves": 11, "new": 100, "total": 7496, "seconds": 0.6586291390012775}
+{"leaves": 12, "new": 82, "total": 7578, "seconds": 1.300183964000098}
+{"leaves": 13, "new": 0, "total": 7578, "seconds": 2.2307921270003135}
+{"leaves": 14, "new": 1, "total": 7579, "seconds": 3.765160454000579}

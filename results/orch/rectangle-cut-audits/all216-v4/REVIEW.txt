@@ -1,0 +1,9 @@
+Independent complete-snapshot integer audit: PASS
+UTC: 2026-11-25T15:49:02.774047+00:00
+Reviewer: /root/counterexample
+
+All51 currently loaded matrices (13 originals plus38 loader-v4 records) were independently recomputed against every one of the216 frozen dynamic-filter-v2 banks.11016 exact bank/matrix pairs,3876 distinct signed support profiles,756 positive cuts. Every bank is covered by at least one strict gap. Coverage uses the exact frozen truth-table/history records, not merely node IDs from older snapshots.
+
+All raw history and row classification checks pass. Root multiplicities are preserved. Signed rectangle maxima use exhaustive integer Gray-code subsets, opposite-orientation recomputation, small-profile brute force, and162 selftests. Complete per-bank costs, maximizing subrectangles, and stdout/stderr are preserved losslessly as gzip files; decompress with gzip or Python gzip.decompress for inspection. No output was truncated. Matrix names/weights/samples are identical to the two origin snapshots whose hashes are retained.
+
+This validates only the finite216-bank diagnostic snapshot. It is not a Lean certificate and does not establish that the entire monotone19 search is exhausted. No set-cover optimality claim is reviewed.

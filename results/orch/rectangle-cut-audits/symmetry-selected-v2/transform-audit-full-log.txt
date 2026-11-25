@@ -1,0 +1,1 @@
+{"status": "PASS", "matrices": 13, "covered_banks": 101, "uncovered_banks": 16, "all_pairs": 1521, "profiles": 871, "positive_cuts": 185}

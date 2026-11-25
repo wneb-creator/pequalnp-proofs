@@ -1,0 +1,7 @@
+{
+  "pid": 53164,
+  "utc": "2026-11-25T15:31:48.157652+00:00",
+  "action": "SIGSTOP preserves in-memory rectangle dictionary until natural wall limit; resume then emits full footer",
+  "checkpoint_bytes": 211042906,
+  "checkpoint_sha256": "2e3b780f1482bc5e239f8f178bd88b548bba063539252b375ba2395b4227f258"
+}
