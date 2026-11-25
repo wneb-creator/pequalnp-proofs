@@ -42,3 +42,6 @@ DirectFilterExchange.lean: lake env lean ../results/orch/lemmas/DirectFilterExch
 Independent source review: rules_review PASS; all five source hashes and all 40 archive payload hashes verified before staging.
 Search results are computational, not Lean-checked minimality. Both C5 models and all BFS models independently re-evaluated; archived SAT model also satisfies all archived CNF clauses.
 Repository checker: not run on partial artifacts; exact posted target remains unproved.
+
+2026-11-25T04:02:54.386442+00:00 StressGraph.lean: lake env lean ../results/orch/lemmas/StressGraph.lean; exit 0, full log stress-graph-lean.log. Independent source review PASS; source hash verified before staging.
+Checked thirteen-gate ownership upper bound only; no minimality or full target claim.

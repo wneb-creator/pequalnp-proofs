@@ -11,3 +11,6 @@
 - 2026-11-25 03:41:33 UTC: lease renewed; expiry 2026-11-25 04:01:33 UTC.
 - 2026-11-25T03:43:09.296986+00:00: four more compiled partials reviewed; hashes fixed for preservation push.
 - 2026-11-25T03:51:18.305244+00:00: five compiled conditional filter components and frozen computational archive reviewed and hash-verified for preservation push.
+- 2026-11-25 03:51 UTC: twenty-minute replan; stop incremental local wrappers. Prioritize global dirty-gate ownership repair and exact unrestricted/all-owned circuit comparison. Full proof bridge still unresolved; three reduction slots occupied.
+- 2026-11-25 03:52:35 UTC: renewed lease before stress-graph witness build; expiry 2026-11-25 04:12:35 UTC.
+- 2026-11-25T04:02:54.386442+00:00: preserving reviewed thirteen-gate stress-graph witness.
