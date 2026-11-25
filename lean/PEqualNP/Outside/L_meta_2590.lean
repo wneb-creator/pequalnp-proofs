@@ -2962,4 +2962,576 @@ lemma projected_first_birth_no_zero_operand {n : Nat} {D : Dag} (hD : Strict n D
 
 end ProjectedBirth
 
+
+
+namespace C6.DagTools
+
+variable {n : Nat} {D : Dag}
+
+lemma sem_first_mask (hS : Strict n D) (T M : Finset (Fin n)) (hM : 2 ≤ M.card) (w : ℕ)
+    (hw : supp n D w ∩ T = M) :
+    ∃ j, j < D.length ∧ n + j ≤ w ∧ supp n D (n + j) ∩ T = M ∧
+      j ∈ merges n D (carrierT n D T) ∧ (∀ u, u < n + j → supp n D u ∩ T ≠ M) ∧
+      ((tag D j = true ∧ M ⊂ supp n D (opA D j) ∩ T ∧ M ⊂ supp n D (opB D j) ∩ T) ∨
+        (tag D j = false ∧ supp n D (opA D j) ∩ T ⊂ M ∧ supp n D (opB D j) ∩ T ⊂ M ∧
+          (supp n D (opA D j) ∩ T) ∪ (supp n D (opB D j) ∩ T) = M ∧
+          (supp n D (opA D j) ∩ T).Nonempty ∧ (supp n D (opB D j) ∩ T).Nonempty)) := by
+  classical
+  have hex : ∃ u, supp n D u ∩ T = M := ⟨w, hw⟩
+  have hle : Nat.find hex ≤ w := Nat.find_min' hex hw
+  have hmin : ∀ u, u < Nat.find hex → supp n D u ∩ T ≠ M := fun u hu => Nat.find_min hex hu
+  have hspec := Nat.find_spec hex
+  generalize Nat.find hex = f at hle hmin hspec
+  have hMne : M.Nonempty := Finset.card_pos.mp (by omega)
+  have hmem : ∀ {u : ℕ}, (supp n D u ∩ T).Nonempty → u ∈ carrierT n D T := by
+    intro u hu
+    obtain ⟨v, hv⟩ := hu
+    exact Finset.mem_filter.mpr ⟨Finset.mem_range.mpr
+      (sem_supp_lt (Finset.mem_inter.mp hv).1), v, hv⟩
+  have hflt : f < n + D.length := by
+    obtain ⟨v, hv⟩ := hMne
+    rw [← hspec] at hv
+    exact sem_supp_lt (Finset.mem_inter.mp hv).1
+  have hfn : n ≤ f := by
+    by_contra hc
+    have hc' : f < n := by omega
+    have hs : supp n D f = {⟨f, hc'⟩} := supp_input D ⟨f, hc'⟩
+    have h1 : M.card ≤ 1 := by
+      rw [← hspec, hs]
+      exact (Finset.card_le_card Finset.inter_subset_left).trans (by simp)
+    omega
+  obtain ⟨j, rfl⟩ : ∃ j, f = n + j := ⟨f - n, by omega⟩
+  have hj : j < D.length := by omega
+  obtain ⟨ha, hb, -⟩ := hS j hj
+  have hna := hmin _ ha
+  have hnb := hmin _ hb
+  refine ⟨j, hj, hle, hspec, ?_, hmin, ?_⟩
+  · have hAB : (supp n D (opA D j) ∩ T).Nonempty ∧ (supp n D (opB D j) ∩ T).Nonempty := by
+      cases ht : tag D j
+      · rw [sem_supp_or hS hj ht, Finset.union_inter_distrib_right] at hspec
+        constructor
+        · rw [Finset.nonempty_iff_ne_empty]
+          intro he
+          rw [he, Finset.empty_union] at hspec
+          exact hnb hspec
+        · rw [Finset.nonempty_iff_ne_empty]
+          intro he
+          rw [he, Finset.union_empty] at hspec
+          exact hna hspec
+      · rw [sem_supp_and hS hj ht] at hspec
+        obtain ⟨v, hv⟩ := hMne
+        rw [← hspec] at hv
+        simp only [Finset.mem_inter] at hv
+        exact ⟨⟨v, Finset.mem_inter.mpr ⟨hv.1.1, hv.2⟩⟩, ⟨v, Finset.mem_inter.mpr ⟨hv.1.2, hv.2⟩⟩⟩
+    rw [merges, Finset.mem_filter, Finset.mem_range]
+    exact ⟨hj, hmem (by rw [hspec]; exact hMne), hmem hAB.1, hmem hAB.2⟩
+  · cases ht : tag D j
+    · right
+      rw [sem_supp_or hS hj ht, Finset.union_inter_distrib_right] at hspec
+      have hsa : supp n D (opA D j) ∩ T ⊆ M := by rw [← hspec]; exact Finset.subset_union_left
+      have hsb : supp n D (opB D j) ∩ T ⊆ M := by rw [← hspec]; exact Finset.subset_union_right
+      refine ⟨rfl, Finset.ssubset_iff_subset_ne.mpr ⟨hsa, hna⟩,
+        Finset.ssubset_iff_subset_ne.mpr ⟨hsb, hnb⟩, hspec, ?_, ?_⟩
+      · rw [Finset.nonempty_iff_ne_empty]
+        intro he
+        rw [he, Finset.empty_union] at hspec
+        exact hnb hspec
+      · rw [Finset.nonempty_iff_ne_empty]
+        intro he
+        rw [he, Finset.union_empty] at hspec
+        exact hna hspec
+    · left
+      rw [sem_supp_and hS hj ht] at hspec
+      have hsa : M ⊆ supp n D (opA D j) ∩ T := by
+        rw [← hspec]
+        intro v hv
+        simp only [Finset.mem_inter] at hv ⊢
+        exact ⟨hv.1.1, hv.2⟩
+      have hsb : M ⊆ supp n D (opB D j) ∩ T := by
+        rw [← hspec]
+        intro v hv
+        simp only [Finset.mem_inter] at hv ⊢
+        exact ⟨hv.1.2, hv.2⟩
+      exact ⟨rfl, Finset.ssubset_iff_subset_ne.mpr ⟨hsa, Ne.symm hna⟩,
+        Finset.ssubset_iff_subset_ne.mpr ⟨hsb, Ne.symm hnb⟩⟩
+
+end C6.DagTools
+
+
+namespace FirstSupportFacts
+
+variable {α ι : Type*} [DecidableEq α]
+
+lemma centered_split_contains_pattern {N A B : Finset α} {z : α}
+    (hzA : z ∈ A) (hN : 3 ≤ N.card) (hA : A ⊂ N) (hB : B ⊂ N)
+    (hunion : A ∪ B = N) :
+    ∃ Q : Finset α, (Q = A ∨ Q = B) ∧ Q ⊂ N ∧ ¬ Q ⊆ {z} ∧
+      (z ∈ Q ∨ Q = N \ {z}) := by
+  classical
+  by_cases hAz : A ⊆ {z}
+  · obtain ⟨hBN, hBne⟩ := Finset.ssubset_iff_subset_ne.mp hB
+    have hzB : z ∉ B := by
+      intro hzB
+      apply hBne
+      apply Finset.Subset.antisymm hBN
+      intro x hx
+      rw [← hunion, Finset.mem_union] at hx
+      rcases hx with hx | hx
+      · have he : x = z := Finset.mem_singleton.mp (hAz hx)
+        exact he ▸ hzB
+      · exact hx
+    have hBeq : B = N \ {z} := by
+      apply Finset.Subset.antisymm
+      · intro x hx
+        apply Finset.mem_sdiff.mpr
+        refine ⟨hBN hx, ?_⟩
+        intro hsingle
+        have he : x = z := Finset.mem_singleton.mp hsingle
+        exact hzB (he ▸ hx)
+      · intro x hx
+        obtain ⟨hxN, hxz⟩ := Finset.mem_sdiff.mp hx
+        rw [← hunion, Finset.mem_union] at hxN
+        rcases hxN with hxA | hxB
+        · exact (hxz (hAz hxA)).elim
+        · exact hxB
+    have hBz : ¬ B ⊆ {z} := by
+      intro hb
+      have hs : N ⊆ {z} := by
+        rw [← hunion]
+        exact Finset.union_subset hAz hb
+      have hh := Finset.card_le_card hs
+      simp only [Finset.card_singleton] at hh
+      omega
+    exact ⟨B, Or.inr rfl, hB, hBz, Or.inr hBeq⟩
+  · exact ⟨A, Or.inl rfl, hA, hAz, Or.inl hzA⟩
+
+lemma split_contains_pattern {N A B : Finset α} {z : α}
+    (hz : z ∈ N) (hN : 3 ≤ N.card) (hA : A ⊂ N) (hB : B ⊂ N)
+    (hunion : A ∪ B = N) :
+    ∃ Q : Finset α, (Q = A ∨ Q = B) ∧ Q ⊂ N ∧ ¬ Q ⊆ {z} ∧
+      (z ∈ Q ∨ Q = N \ {z}) := by
+  have hzAB : z ∈ A ∨ z ∈ B := by rwa [← hunion, Finset.mem_union] at hz
+  rcases hzAB with hzA | hzB
+  · exact centered_split_contains_pattern hzA hN hA hB hunion
+  · obtain ⟨Q, hQ, hQN, hQz, hpat⟩ :=
+      centered_split_contains_pattern hzB hN hB hA (by rw [Finset.union_comm]; exact hunion)
+    exact ⟨Q, hQ.symm, hQN, hQz, hpat⟩
+
+lemma proper_not_family (N : ι → Finset α) (z : α)
+    (hpair : ∀ i j, i ≠ j → N i ∩ N j ⊆ {z})
+    {i : ι} {Q : Finset α} (hQ : Q ⊂ N i) (hQz : ¬ Q ⊆ {z}) :
+    ∀ j, Q ≠ N j := by
+  classical
+  obtain ⟨hsub, hne⟩ := Finset.ssubset_iff_subset_ne.mp hQ
+  intro j he
+  by_cases hij : i = j
+  · subst j
+    exact hne he
+  · apply hQz
+    intro x hx
+    apply hpair i j hij
+    apply Finset.mem_inter.mpr
+    exact ⟨hsub hx, by rwa [← he]⟩
+
+lemma strict_super_not_family (N : ι → Finset α) (z : α)
+    (hpair : ∀ i j, i ≠ j → N i ∩ N j ⊆ {z})
+    {i : ι} {Q : Finset α} (hN : ¬ N i ⊆ {z}) (hQ : N i ⊂ Q) :
+    ∀ j, Q ≠ N j := by
+  classical
+  obtain ⟨hsub, hne⟩ := Finset.ssubset_iff_subset_ne.mp hQ
+  intro j he
+  by_cases hij : i = j
+  · subst j
+    exact hne he.symm
+  · apply hN
+    intro x hx
+    apply hpair i j hij
+    apply Finset.mem_inter.mpr
+    exact ⟨hx, by rw [← he]; exact hsub hx⟩
+
+lemma pattern_card_ge_two {N Q : Finset α} {z : α}
+    (hN : 3 ≤ N.card) (hQz : ¬ Q ⊆ {z})
+    (hpat : z ∈ Q ∨ Q = N \ {z}) : 2 ≤ Q.card := by
+  classical
+  rcases hpat with hz | he
+  · have hex : ∃ w ∈ Q, w ≠ z := by
+      by_contra hh
+      push Not at hh
+      apply hQz
+      intro w hw
+      exact Finset.mem_singleton.mpr (hh w hw)
+    obtain ⟨w, hw, hwz⟩ := hex
+    have hs : {z, w} ⊆ Q := by
+      intro x hx
+      simp only [Finset.mem_insert, Finset.mem_singleton] at hx
+      rcases hx with rfl | rfl
+      · exact hz
+      · exact hw
+    have hc := Finset.card_le_card hs
+    simpa [Ne.symm hwz] using hc
+  · have hs : N ⊆ Q ∪ {z} := by
+      intro x hx
+      by_cases hxz : x = z
+      · exact Finset.mem_union_right _ (Finset.mem_singleton.mpr hxz)
+      · apply Finset.mem_union_left
+        rw [he]
+        exact Finset.mem_sdiff.mpr ⟨hx, by simpa only [Finset.mem_singleton] using hxz⟩
+    have hc := (Finset.card_le_card hs).trans (Finset.card_union_le Q {z})
+    simp only [Finset.card_singleton] at hc
+    omega
+
+end FirstSupportFacts
+
+
+namespace SupportPattern
+
+lemma target_not_subset {α : Type*} [DecidableEq α]
+    (z : α) (N : Fin 3 → Finset α)
+    (hsep : ∀ i j, i ≠ j → N i ∩ N j ⊆ {z})
+    (hnon : ∀ i, ¬ N i ⊆ {z}) (i j : Fin 3) (hne : i ≠ j) :
+    ¬ N i ⊆ N j := by
+  intro hsub
+  apply hnon i
+  intro x hx
+  exact hsep i j hne (Finset.mem_inter.mpr ⟨hx, hsub hx⟩)
+
+lemma two_helpers_impossible {α : Type*} [DecidableEq α]
+    (z : α) (N : Fin 3 → Finset α)
+    (hsep : ∀ i j, i ≠ j → N i ∩ N j ⊆ {z})
+    (hnon : ∀ i, ¬ N i ⊆ {z}) (A B : Finset α)
+    (hgen : ∀ i,
+      (A ⊆ N i ∧ ¬ A ⊆ {z}) ∨ (B ⊆ N i ∧ ¬ B ⊆ {z}) ∨ A ∩ B = N i) :
+    False := by
+  have hnot (i : Fin 3) : A ∩ B ≠ N i := by
+    intro hi
+    obtain ⟨j, hji⟩ := exists_ne i
+    have hn := target_not_subset z N hsep hnon i j hji.symm
+    rcases hgen j with hA | hB | hAB
+    · apply hn
+      exact (show N i ⊆ A by rw [← hi]; exact Finset.inter_subset_left).trans hA.1
+    · apply hn
+      exact (show N i ⊆ B by rw [← hi]; exact Finset.inter_subset_right).trans hB.1
+    · apply hn
+      rw [← hi, hAB]
+  have hor (i : Fin 3) : (A ⊆ N i ∧ ¬ A ⊆ {z}) ∨ (B ⊆ N i ∧ ¬ B ⊆ {z}) := by
+    rcases hgen i with ha | hb | hab
+    · exact Or.inl ha
+    · exact Or.inr hb
+    · exact (hnot i hab).elim
+  have huniq {C : Finset α} {i j : Fin 3}
+      (hi : C ⊆ N i ∧ ¬ C ⊆ {z}) (hj : C ⊆ N j ∧ ¬ C ⊆ {z}) : i = j := by
+    by_contra hne
+    apply hi.2
+    intro x hx
+    exact hsep i j hne (Finset.mem_inter.mpr ⟨hi.1 hx, hj.1 hx⟩)
+  rcases hor 0 with h0 | h0 <;> rcases hor 1 with h1 | h1 <;> rcases hor 2 with h2 | h2
+  all_goals first
+    | exact (by decide : (0 : Fin 3) ≠ 1) (huniq h0 h1)
+    | exact (by decide : (0 : Fin 3) ≠ 2) (huniq h0 h2)
+    | exact (by decide : (1 : Fin 3) ≠ 2) (huniq h1 h2)
+
+end SupportPattern
+
+
+namespace SupportPattern
+
+lemma family_cover_two {α : Type*} [DecidableEq α] (H : Finset (Finset α))
+    (hH : H.card ≤ 2) : ∃ A B : Finset α, H ⊆ {A, B} := by
+  by_cases he : H.card = 2
+  · obtain ⟨A, B, hne, rfl⟩ := Finset.card_eq_two.mp he
+    exact ⟨A, B, Finset.Subset.refl _⟩
+  · have h1 : H.card ≤ 1 := by omega
+    obtain ⟨A, hA⟩ := Finset.card_le_one_iff_subset_singleton.mp h1
+    refine ⟨A, ∅, ?_⟩
+    intro C hC
+    simp only [Finset.mem_insert, Finset.mem_singleton]
+    exact Or.inl (Finset.mem_singleton.mp (hA hC))
+
+lemma helpers_card_ge_three {α : Type*} [DecidableEq α]
+    (z : α) (N : Fin 3 → Finset α)
+    (hsep : ∀ i j, i ≠ j → N i ∩ N j ⊆ {z})
+    (hnon : ∀ i, ¬ N i ⊆ {z}) (H : Finset (Finset α))
+    (hgen : ∀ i,
+      (∃ A ∈ H, A ⊆ N i ∧ ¬ A ⊆ {z}) ∨
+      (∃ A ∈ H, ∃ B ∈ H, A ∩ B = N i)) : 3 ≤ H.card := by
+  by_contra hn
+  have hle : H.card ≤ 2 := by omega
+  obtain ⟨A, B, hcover⟩ := family_cover_two H hle
+  apply two_helpers_impossible z N hsep hnon A B
+  intro i
+  rcases hgen i with ⟨C, hC, hsub, hnonC⟩ | ⟨C, hC, D, hD, hint⟩
+  · have hc : C = A ∨ C = B := by simpa using hcover hC
+    rcases hc with rfl | rfl
+    · exact Or.inl ⟨hsub, hnonC⟩
+    · exact Or.inr (Or.inl ⟨hsub, hnonC⟩)
+  · have hc : C = A ∨ C = B := by simpa using hcover hC
+    have hd : D = A ∨ D = B := by simpa using hcover hD
+    rcases hc with hc | hc <;> rcases hd with hd | hd <;> rw [hc, hd] at hint
+    · have hA : A = N i := by simpa using hint
+      exact Or.inl ⟨by rw [hA], by rw [hA]; exact hnon i⟩
+    · exact Or.inr (Or.inr hint)
+    · exact Or.inr (Or.inr (by simpa only [Finset.inter_comm] using hint))
+    · have hB : B = N i := by simpa using hint
+      exact Or.inr (Or.inl ⟨by rw [hB], by rw [hB]; exact hnon i⟩)
+
+lemma patterns_injective {α : Type*} [DecidableEq α]
+    (z : α) (N : Fin 3 → Finset α)
+    (hsep : ∀ i j, i ≠ j → N i ∩ N j ⊆ {z})
+    (hnon : ∀ i, ¬ N i ⊆ {z}) : Function.Injective N := by
+  intro i j he
+  by_contra hij
+  have hs := hsep i j hij
+  rw [← he, Finset.inter_self] at hs
+  exact hnon i hs
+
+lemma helpers_and_patterns_card_ge_six {α : Type*} [DecidableEq α]
+    (z : α) (N : Fin 3 → Finset α)
+    (hsep : ∀ i j, i ≠ j → N i ∩ N j ⊆ {z})
+    (hnon : ∀ i, ¬ N i ⊆ {z}) (H : Finset (Finset α))
+    (hgen : ∀ i,
+      (∃ A ∈ H, A ⊆ N i ∧ ¬ A ⊆ {z}) ∨
+      (∃ A ∈ H, ∃ B ∈ H, A ∩ B = N i))
+    (hdisj : Disjoint H (Finset.univ.image N)) :
+    6 ≤ (H ∪ Finset.univ.image N).card := by
+  have hH := helpers_card_ge_three z N hsep hnon H hgen
+  have hN : (Finset.univ.image N).card = 3 := by
+    rw [Finset.card_image_of_injective _ (patterns_injective z N hsep hnon)]
+    simp
+  rw [Finset.card_union_of_disjoint hdisj, hN]
+  omega
+
+end SupportPattern
+
+
+namespace ProjectedSupportCount
+open C6.DagTools FirstSupportFacts
+
+def Counted {n : ℕ} (z : Fin n) (N : Fin 3 → Finset (Fin n)) (M : Finset (Fin n)) : Prop :=
+  (z ∈ M ∧ 2 ≤ M.card) ∨ ∃ i, M = N i \ {z}
+
+noncomputable def countedMasks {n : ℕ} (D : Dag) (E : Finset (Fin n))
+    (z : Fin n) (N : Fin 3 → Finset (Fin n)) : Finset (Finset (Fin n)) := by
+  classical
+  exact ((Finset.range D.length).image (fun j => supp n D (n + j) ∩ E)).filter (Counted z N)
+
+lemma mask_mem_of_wire {n : ℕ} {D : Dag} (hD : Strict n D) (E : Finset (Fin n))
+    (z : Fin n) (N : Fin 3 → Finset (Fin n)) (M : Finset (Fin n))
+    (hcard : 2 ≤ M.card) (hcount : Counted z N M) (w : ℕ)
+    (hw : supp n D w ∩ E = M) : M ∈ countedMasks D E z N := by
+  classical
+  obtain ⟨j, hj, _, hmask, _⟩ := sem_first_mask hD E M hcard w hw
+  exact Finset.mem_filter.mpr ⟨Finset.mem_image.mpr ⟨j, Finset.mem_range.mpr hj, hmask⟩, hcount⟩
+
+lemma six_counted_projected_masks {n : ℕ} {D : Dag} (hD : Strict n D)
+    (E : Finset (Fin n)) (z : Fin n) (N : Fin 3 → Finset (Fin n))
+    (hz : ∀ i, z ∈ N i) (hcard : ∀ i, 3 ≤ (N i).card)
+    (hsep : ∀ i j, i ≠ j → N i ∩ N j ⊆ {z})
+    (hocc : ∀ i, ∃ w, supp n D w ∩ E = N i) :
+    6 ≤ (countedMasks D E z N).card := by
+  classical
+  let U := countedMasks D E z N
+  let Targets := Finset.univ.image N
+  let H := U \ Targets
+  have hnon : ∀ i, ¬ N i ⊆ {z} := by
+    intro i hi
+    have hs := Finset.card_le_card hi
+    have hn := hcard i
+    simp only [Finset.card_singleton] at hs
+    omega
+  have htargets : Targets ⊆ U := by
+    intro M hM
+    obtain ⟨i, _, rfl⟩ := Finset.mem_image.mp hM
+    obtain ⟨w, hw⟩ := hocc i
+    exact mask_mem_of_wire hD E z N (N i) (by have := hcard i; omega)
+      (Or.inl ⟨hz i, by have := hcard i; omega⟩) w hw
+  have hhelper : ∀ {M : Finset (Fin n)}, M ∈ U → (∀ i, M ≠ N i) → M ∈ H := by
+    intro M hM hne
+    apply Finset.mem_sdiff.mpr
+    refine ⟨hM, ?_⟩
+    intro ht
+    obtain ⟨i, _, hi⟩ := Finset.mem_image.mp ht
+    exact hne i hi.symm
+  have hgen : ∀ i,
+      (∃ A ∈ H, A ⊆ N i ∧ ¬ A ⊆ {z}) ∨
+      (∃ A ∈ H, ∃ B ∈ H, A ∩ B = N i) := by
+    intro i
+    obtain ⟨w, hw⟩ := hocc i
+    obtain ⟨j, hj, _, hmask, _, _, hcases⟩ :=
+      sem_first_mask hD E (N i) (by have := hcard i; omega) w hw
+    rcases hcases with ⟨ht, hA, hB⟩ | ⟨ht, hA, hB, hUnion, _, _⟩
+    · have hsubA := (Finset.ssubset_iff_subset_ne.mp hA).1
+      have hsubB := (Finset.ssubset_iff_subset_ne.mp hB).1
+      have hcardA : 2 ≤ (supp n D (opA D j) ∩ E).card := by
+        have hle := Finset.card_le_card hsubA
+        have hn := hcard i
+        omega
+      have hcardB : 2 ≤ (supp n D (opB D j) ∩ E).card := by
+        have hle := Finset.card_le_card hsubB
+        have hn := hcard i
+        omega
+      have hmemA : supp n D (opA D j) ∩ E ∈ H := hhelper
+        (mask_mem_of_wire hD E z N _ hcardA (Or.inl ⟨hsubA (hz i), hcardA⟩) _ rfl)
+        (strict_super_not_family N z hsep (hnon i) hA)
+      have hmemB : supp n D (opB D j) ∩ E ∈ H := hhelper
+        (mask_mem_of_wire hD E z N _ hcardB (Or.inl ⟨hsubB (hz i), hcardB⟩) _ rfl)
+        (strict_super_not_family N z hsep (hnon i) hB)
+      have hInter : (supp n D (opA D j) ∩ E) ∩ (supp n D (opB D j) ∩ E) = N i := by
+        rw [← hmask, sem_supp_and hD hj ht]
+        ext v
+        simp only [Finset.mem_inter]
+        tauto
+      exact Or.inr ⟨_, hmemA, _, hmemB, hInter⟩
+    · obtain ⟨Q, hQparent, hQsub, hQnon, hQpattern⟩ :=
+        split_contains_pattern (hz i) (hcard i) hA hB hUnion
+      have hQcard := pattern_card_ge_two (hcard i) hQnon hQpattern
+      have hQcount : Counted z N Q := by
+        rcases hQpattern with hzQ | he
+        · exact Or.inl ⟨hzQ, hQcard⟩
+        · exact Or.inr ⟨i, he⟩
+      have hQU : Q ∈ U := by
+        rcases hQparent with hQ | hQ
+        · exact mask_mem_of_wire hD E z N Q hQcard hQcount (opA D j) hQ.symm
+        · exact mask_mem_of_wire hD E z N Q hQcard hQcount (opB D j) hQ.symm
+      have hQH := hhelper hQU (proper_not_family N z hsep hQsub hQnon)
+      exact Or.inl ⟨Q, hQH, (Finset.ssubset_iff_subset_ne.mp hQsub).1, hQnon⟩
+  have hdisj : Disjoint H Targets := by
+    apply Finset.disjoint_left.mpr
+    intro M hM ht
+    exact (Finset.mem_sdiff.mp hM).2 ht
+  have hSix := SupportPattern.helpers_and_patterns_card_ge_six z N hsep hnon H hgen hdisj
+  have hsub : H ∪ Targets ⊆ U := by
+    intro M hM
+    rcases Finset.mem_union.mp hM with hM | hM
+    · exact (Finset.mem_sdiff.mp hM).1
+    · exact htargets hM
+  exact hSix.trans (Finset.card_le_card hsub)
+
+end ProjectedSupportCount
+
+
+namespace ProjectedSupportCount
+open C6.DagTools
+
+lemma counted_card_ge_two {n : ℕ} (z : Fin n) (N : Fin 3 → Finset (Fin n))
+    (hcard : ∀ i, 3 ≤ (N i).card) {M : Finset (Fin n)} (hM : Counted z N M) :
+    2 ≤ M.card := by
+  rcases hM with ⟨_, hc⟩ | ⟨i, rfl⟩
+  · exact hc
+  · have hs : N i ⊆ (N i \ {z}) ∪ {z} := by
+      intro v hv
+      by_cases he : v = z
+      · exact Finset.mem_union_right _ (by simp [he])
+      · exact Finset.mem_union_left _ (Finset.mem_sdiff.mpr ⟨hv, by simpa⟩)
+    have hl := Finset.card_le_card hs
+    have hu := Finset.card_union_le (N i \ {z}) {z}
+    have hn := hcard i
+    simp only [Finset.card_singleton] at hu
+    omega
+
+lemma six_first_projected_gates {n : ℕ} {D : Dag} (hD : Strict n D)
+    (E : Finset (Fin n)) (z : Fin n) (N : Fin 3 → Finset (Fin n))
+    (hz : ∀ i, z ∈ N i) (hcard : ∀ i, 3 ≤ (N i).card)
+    (hsep : ∀ i j, i ≠ j → N i ∩ N j ⊆ {z})
+    (hocc : ∀ i, ∃ w, supp n D w ∩ E = N i) :
+    ∃ J : Finset ℕ, J.card = 6 ∧
+      Set.InjOn (fun j => supp n D (n + j) ∩ E) J ∧
+      ∀ j ∈ J, j < D.length ∧ Counted z N (supp n D (n + j) ∩ E) ∧
+        (supp n D (n + j) ∩ E).Nonempty ∧
+        (∀ w, w < n + j → supp n D w ∩ E ≠ supp n D (n + j) ∩ E) := by
+  classical
+  obtain ⟨S, hS, hScard⟩ := Finset.exists_subset_card_eq
+    (six_counted_projected_masks hD E z N hz hcard hsep hocc)
+  have hspec : ∀ M : Finset (Fin n), ∃ j : ℕ, M ∈ S →
+      j < D.length ∧ supp n D (n + j) ∩ E = M ∧ Counted z N M ∧
+        M.Nonempty ∧ (∀ w, w < n + j → supp n D w ∩ E ≠ M) := by
+    intro M
+    by_cases hM : M ∈ S
+    · have hm := Finset.mem_filter.mp (hS hM)
+      obtain ⟨j, hj, he⟩ := Finset.mem_image.mp hm.1
+      have hc := counted_card_ge_two z N hcard hm.2
+      obtain ⟨k, hk, _, heq, _, hfirst, _⟩ := sem_first_mask hD E M hc (n + j) he
+      exact ⟨k, fun _ => ⟨hk, heq, hm.2, Finset.card_pos.mp (by omega), hfirst⟩⟩
+    · exact ⟨0, fun h => False.elim (hM h)⟩
+  choose f hf using hspec
+  have hinj : Set.InjOn f S := by
+    intro M hM Q hQ he
+    have hm := (hf M hM).2.1
+    have hq := (hf Q hQ).2.1
+    rw [he] at hm
+    exact hm.symm.trans hq
+  refine ⟨S.image f, (Finset.card_image_iff.mpr hinj).trans hScard, ?_, ?_⟩
+  · intro j hj k hk he
+    obtain ⟨M, hM, rfl⟩ := Finset.mem_image.mp hj
+    obtain ⟨Q, hQ, rfl⟩ := Finset.mem_image.mp hk
+    have hMQ : M = Q := ((hf M hM).2.1).symm.trans (he.trans (hf Q hQ).2.1)
+    exact congrArg f hMQ
+  · intro j hj
+    obtain ⟨M, hM, rfl⟩ := Finset.mem_image.mp hj
+    obtain ⟨hk, he, hc, hne, hfirst⟩ := hf M hM
+    exact ⟨hk, by simpa only [he] using hc, by simpa only [he] using hne,
+      fun w hw => by simpa only [he] using hfirst w hw⟩
+
+lemma six_first_projected_gates_nonzero_operands {n : ℕ} {D : Dag} (hD : Strict n D)
+    (E : Finset (Fin n)) (z : Fin n) (N : Fin 3 → Finset (Fin n))
+    (hz : ∀ i, z ∈ N i) (hcard : ∀ i, 3 ≤ (N i).card)
+    (hsep : ∀ i j, i ≠ j → N i ∩ N j ⊆ {z})
+    (hocc : ∀ i, ∃ w, supp n D w ∩ E = N i)
+    {α : Type*} (rows : α → Fin n → Bool)
+    (positive : ∀ v ∈ E, ∃ r, rows r v = true) :
+    ∃ J : Finset ℕ, J.card = 6 ∧
+      Set.InjOn (fun j => supp n D (n + j) ∩ E) J ∧
+      ∀ j ∈ J, j < D.length ∧ Counted z N (supp n D (n + j) ∩ E) ∧
+        (∀ side : Bool, ¬ ∀ r, val D (rows r) (src D (j, side)) = false) := by
+  obtain ⟨J, hJ, hinj, hspec⟩ := six_first_projected_gates hD E z N hz hcard hsep hocc
+  refine ⟨J, hJ, hinj, ?_⟩
+  intro j hj
+  obtain ⟨hjD, hc, hne, hfirst⟩ := hspec j hj
+  exact ⟨hjD, hc, fun side => ProjectedBirth.projected_first_birth_no_zero_operand
+    hD rows E _ positive hne hjD rfl hfirst side⟩
+
+end ProjectedSupportCount
+
+
+namespace ProjectedSupportCount
+open C6.DagTools
+
+lemma noncenter_selected_pair_labels {n : ℕ} {D : Dag}
+    (E : Finset (Fin n)) (z : Fin n) (N : Fin 3 → Finset (Fin n))
+    (J Q : Finset ℕ) (hQ : Q ⊆ J)
+    (hinj : Set.InjOn (fun j => supp n D (n + j) ∩ E) J)
+    (hcount : ∀ j ∈ J, Counted z N (supp n D (n + j) ∩ E))
+    (hnocenter : ∀ j ∈ Q, z ∉ supp n D (n + j) ∩ E) :
+    ∃ P : Finset (Fin 3), P.card = Q.card ∧
+      ∀ i ∈ P, ∃ j ∈ Q, supp n D (n + j) ∩ E = N i \ {z} := by
+  classical
+  have hex : ∀ j : ℕ, ∃ i : Fin 3, j ∈ Q → supp n D (n + j) ∩ E = N i \ {z} := by
+    intro j
+    by_cases hj : j ∈ Q
+    · rcases hcount j (hQ hj) with ⟨hz, _⟩ | ⟨i, hi⟩
+      · exact False.elim (hnocenter j hj hz)
+      · exact ⟨i, fun _ => hi⟩
+    · exact ⟨0, fun h => False.elim (hj h)⟩
+  choose f hf using hex
+  have hf_inj : Set.InjOn f Q := by
+    intro j hj k hk he
+    apply hinj (hQ hj) (hQ hk)
+    change supp n D (n + j) ∩ E = supp n D (n + k) ∩ E
+    rw [hf j hj, hf k hk, he]
+  refine ⟨Q.image f, Finset.card_image_iff.mpr hf_inj, ?_⟩
+  intro i hi
+  obtain ⟨j, hj, rfl⟩ := Finset.mem_image.mp hi
+  exact ⟨j, hj, hf j hj⟩
+
+lemma noncenter_selected_card_le_three {n : ℕ} {D : Dag}
+    (E : Finset (Fin n)) (z : Fin n) (N : Fin 3 → Finset (Fin n))
+    (J Q : Finset ℕ) (hQ : Q ⊆ J)
+    (hinj : Set.InjOn (fun j => supp n D (n + j) ∩ E) J)
+    (hcount : ∀ j ∈ J, Counted z N (supp n D (n + j) ∩ E))
+    (hnocenter : ∀ j ∈ Q, z ∉ supp n D (n + j) ∩ E) : Q.card ≤ 3 := by
+  obtain ⟨P, hcard, _⟩ := noncenter_selected_pair_labels E z N J Q hQ hinj hcount hnocenter
+  have hc := Finset.card_le_univ P
+  simpa only [Fintype.card_fin, hcard] using hc
+
+end ProjectedSupportCount
+
 end PEqualNP.Outside.L_meta_2590_aux
