@@ -1,0 +1,62 @@
+lake env lean /tmp/oec/pequalnp-pilot-134/SignedBridgeTest.lean
+exit_code=0
+/tmp/oec/pequalnp-pilot-134/SignedBridgeTest.lean:94:39: warning: This simp argument is unused:
+  Bool.true_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, q1q, ha, hb, q1i, q1o, Bool.false_and, Bool.and_true, Bool.and_false, Bool.false_or,
+    Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-134/SignedBridgeTest.lean:94:53: warning: This simp argument is unused:
+  Bool.false_and
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, q1q, ha, hb, q1i, q1o, Bool.true_and, Bool.and_true, Bool.and_false, Bool.false_or,
+    Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-134/SignedBridgeTest.lean:94:97: warning: This simp argument is unused:
+  Bool.false_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, q1q, ha, hb, q1i, q1o, Bool.true_and, Bool.false_and, Bool.and_true, Bool.and_false,
+    Bool.or_false, Bool.true_or, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-134/SignedBridgeTest.lean:95:22: warning: This simp argument is unused:
+  Bool.true_or
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [nrm, q1q, ha, hb, q1i, q1o, Bool.true_and, Bool.false_and, Bool.and_true, Bool.and_false,
+    Bool.false_or, Bool.or_false, Bool.or_true, Bool.false_eq_true, ite_true, ite_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-134/SignedBridgeTest.lean:96:54: warning: This simp argument is unused:
+  hx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hy, q1o, q1q]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-134/SignedBridgeTest.lean:96:57: warning: This simp argument is unused:
+  hy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, q1o, q1q]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-134/SignedBridgeTest.lean:96:60: warning: This simp argument is unused:
+  q1o
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, q1q]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-134/SignedBridgeTest.lean:96:64: warning: This simp argument is unused:
+  q1q
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hx, hy, q1o]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
