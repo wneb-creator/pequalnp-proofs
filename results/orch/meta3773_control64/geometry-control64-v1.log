@@ -1,0 +1,175 @@
+import took 2.2s
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:32:52: warning: This simp argument is unused:
+  ha
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hb]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:32:55: warning: This simp argument is unused:
+  hb
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ha]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:49:40: warning: This simp argument is unused:
+  Nat.add_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.foldl_cons, ih, packedStep, Nat.add_comm, Nat.add_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+simp took 1.05s
+simp took 1.02s
+simp took 954ms
+tactic execution of Lean.Parser.Tactic.exact took 6.48s
+type checking took 11.6s
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:186:12: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:186:16: warning: Unused tactic linter: `congr 1` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:186:24: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:186:28: warning: Unused tactic linter: `funext i` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:186:37: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:186:41: warning: Unused tactic linter: `symm` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:186:46: warning: Unused tactic linter: `<;>` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:187:6: warning: Unused tactic linter: `first
+| exact Fin.addCases_left i
+| exact Fin.addCases_right i` is never executed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:186:16: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:186:28: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:186:41: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:187:6: warning: this tactic is never executed
+
+Note: This linter can be disabled with `set_option linter.unreachableTactic false`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:309:15: error: Function expected at
+  incidenceInput
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  { p }
+
+Hint: The identifier `incidenceInput` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:312:17: error: Function expected at
+  incidenceInput
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  s
+
+Hint: The identifier `incidenceInput` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:312:53: error: Function expected at
+  incidenceInput
+but this term has type
+  ?m.1
+
+Note: Expected a function because this term is being applied to the argument
+  (disj s)
+
+Hint: The identifier `incidenceInput` is unknown, and Lean's `autoImplicit` option causes an unknown identifier to be treated as an implicitly bound variable with an unknown type. However, the unknown type cannot be a function, and a function is what Lean expects here. This is often the result of a typo or a missing `import` or `open` statement.
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:315:27: error(lean.invalidField): Invalid field notation: Type of
+  r.2
+is not known; cannot resolve field `getD`
+
+Hint: Consider replacing the field projection with a call to one of the following:
+  • `Array.getD`
+  • `ByteSlice.getD`
+  • `List.getD`
+  • `Option.getD`
+  • `Subarray.getD`
+  • `Vector.getD`
+  • `Std.DHashMap.getD`
+  • `Std.DTreeMap.getD`
+  • `Std.ExtDHashMap.getD`
+  • `Std.ExtDTreeMap.getD`
+  • `Std.ExtHashMap.getD`
+  • `Std.ExtHashSet.getD`
+  • `Std.ExtTreeMap.getD`
+  • `Std.ExtTreeSet.getD`
+  • `Std.HashMap.getD`
+  • `Std.HashSet.getD`
+  • `Std.TreeMap.getD`
+  • `Std.TreeSet.getD`
+  • `Std.DHashMap.Const.getD`
+  • `Std.DHashMap.Raw.getD`
+  • `Std.DTreeMap.Const.getD`
+  • `Std.DTreeMap.Raw.getD`
+  • `Std.ExtDHashMap.Const.getD`
+  • `Std.ExtDTreeMap.Const.getD`
+  • `Std.HashMap.Raw.getD`
+  • `Std.HashSet.Raw.getD`
+  • `Std.TreeMap.Raw.getD`
+  • `Std.TreeSet.Raw.getD`
+  • `Std.DHashMap.Internal.AssocList.getD`
+  • `Std.DHashMap.Internal.Raw₀.getD`
+  • `Std.DHashMap.Raw.Const.getD`
+  • `Std.DTreeMap.Internal.Impl.getD`
+  • `Std.DTreeMap.Raw.Const.getD`
+  • `Std.DHashMap.Internal.Raw₀.Const.getD`
+  • `Std.DTreeMap.Internal.Impl.Const.getD`
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:321:53: error: Expected type must not contain metavariables
+  (List.foldl
+          (fun w g =>
+            w ++ [if g.1 = true then w.getD g.2.1 0 ||| w.getD g.2.2 0 else w.getD g.2.1 0 &&& w.getD g.2.2 0])
+          (List.ofFn fun i => ?m.122) controlGates64).getLastD
+      0 =
+    ?m.375 {0, 1, 3, 9} (fun s => {l | ∀ p ∈ s, p + l ∉ {0, 1, 3, 9}})
+      (List.flatMap (fun p => List.map (fun d => (true, ?m.74)) [0, 1, 3, 9]) (List.finRange 13))
+      (List.flatMap (fun k => List.map List.toFinset (List.sublistsLen k (List.finRange 13))) (List.range 4))
+      (List.flatMap (fun s => [(false, ?m.103), (false, ?m.108)])
+        (List.flatMap (fun k => List.map List.toFinset (List.sublistsLen k (List.finRange 13))) (List.range 4)))
+      (List.flatMap (fun p => List.map (fun d => (true, ?m.74)) [0, 1, 3, 9]) (List.finRange 13) ++
+        List.flatMap (fun s => [(false, ?m.103), (false, ?m.108)])
+          (List.flatMap (fun k => List.map List.toFinset (List.sublistsLen k (List.finRange 13))) (List.range 4)))
+      (List.ofFn fun i => ?m.122) controlGates64 (true, 0, 1)
+elaboration took 1.02s
+/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean:328:4: error(lean.unknownIdentifier): Unknown identifier `PEqualNP.Outside.L_meta_3773_aux.Packed.control_search64`
+cumulative profiling times:
+	attribute application 0.155ms
+	blocked (unaccounted) 22.9s
+	compilation (IR) 1.27ms
+	compilation (LCNF base) 14.7ms
+	compilation (LCNF impure) 6.16ms
+	compilation (LCNF mono) 11.4ms
+	congr simp thm 20.2ms
+	declTypeLinter 9.87ms
+	elaboration 1.23s
+	fix level params 2.2ms
+	import 2.2s
+	initialization 88.7ms
+	instantiate metavars 11.1ms
+	interpretation 354ms
+	let-to-have transformation 7.84ms
+	linting 30.9ms
+	module linting 0.0174ms
+	parsing 23.1ms
+	process pre-definitions 22.5ms
+	share common exprs 31.3ms
+	simp 3.34s
+	tactic execution 6.94s
+	tacticAnalysis 5.79ms
+	type checking 11.7s
+	typeclass inference 796ms

@@ -1,0 +1,22 @@
+[
+  {
+    "file": "SparseStarPairComplete.lean",
+    "sha256": "4ae8013e04d356db3ae9c061eca976a92b6b6a58f3f599424e74b8d67a499a52",
+    "bytes": 34841
+  },
+  {
+    "file": "DenseStarMatrixConstraints.lean",
+    "sha256": "542090ab049f61c88579f77d277546a9eab0aef54bd31d1ef857fd82d8422f39",
+    "bytes": 11165
+  },
+  {
+    "file": "sparse_star_kernel.lean.txt",
+    "sha256": "fbf0529dc064656ca2c55b3c472cc61ecb858c5f58ea4d1eb7ab2645062708aa",
+    "bytes": 4885
+  },
+  {
+    "file": "dense_star_composition.lean.txt",
+    "sha256": "66241c8c14b605e6de76093d756c94b97c1f3f953325e287950c8c04d5a6abe0",
+    "bytes": 3182
+  }
+]

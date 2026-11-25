@@ -1,0 +1,12 @@
+{
+  "source_sha_before": "65507ff03246629a55a2995a138d4d60ed75a8775d162154c8e3bca32af6a107",
+  "source_sha_after": "65507ff03246629a55a2995a138d4d60ed75a8775d162154c8e3bca32af6a107",
+  "pid": 42913,
+  "mode": "dense-complete",
+  "exit": 1,
+  "timeout": false,
+  "over_memory": false,
+  "peak_rss_bytes": 3175542784,
+  "seconds": 78.17799591599942,
+  "memory_limit_bytes": 4294967296
+}

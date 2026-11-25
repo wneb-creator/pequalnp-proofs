@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/Meta3773Control64.lean",
+  "sha256": "cf4466476a2694ee34ae80d328e1fe633af30e533accbc4e5189aaabb2b39c93",
+  "source_sha256_after": "cf4466476a2694ee34ae80d328e1fe633af30e533accbc4e5189aaabb2b39c93",
+  "started_utc": "2026-11-25T13:25:30.301766+00:00",
+  "finished_utc": "2026-11-25T13:26:05.111866+00:00",
+  "exit_code": -9,
+  "reason": "rss_limit",
+  "peak_rss_bytes": 4309282816,
+  "seconds": 34.810132490001706,
+  "rss_limit_bytes": 4294967296,
+  "wall_limit_seconds": 120
+}

@@ -1,0 +1,565 @@
+import took 1.48s
+type checking took 126ms
+ring took 105ms
+share common exprs took 141ms
+type checking took 230ms
+linting took 137ms
+simp took 116ms
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+tactic execution of Lean.Parser.Tactic.congr took 10.7s
+type checking took 105ms
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:373:18: warning: Unused tactic linter: `try` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+tactic execution of Lean.Parser.Tactic.congr took 26.4s
+tactic execution of Lean.Parser.Tactic.refine took 112ms
+tactic execution of Lean.Parser.Tactic.congr took 6.62s
+tactic execution of Lean.Parser.Tactic.congr took 498ms
+simp took 117ms
+simp took 114ms
+simp took 106ms
+simp took 115ms
+ring took 241ms
+ring took 246ms
+ring took 314ms
+share common exprs took 770ms
+process pre-definitions took 262ms
+elaboration took 382ms
+type checking took 1.14s
+linting took 1.06s
+tactic execution of Lean.Parser.Tactic.congr took 138ms
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:692:65: warning: This simp argument is unused:
+  Pi.zero_apply
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Matrix.of_apply]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:718:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:726:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:713:36: warning: Variable name `hS` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hS
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:774:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:782:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:769:13: warning: Variable name `hS` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hS
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+simp took 116ms
+simp took 108ms
+simp took 124ms
+simp took 125ms
+ring took 372ms
+share common exprs took 358ms
+process pre-definitions took 148ms
+elaboration took 180ms
+type checking took 750ms
+linting took 400ms
+simp took 109ms
+simp took 115ms
+simp took 127ms
+simp took 122ms
+ring took 450ms
+share common exprs took 400ms
+process pre-definitions took 122ms
+elaboration took 190ms
+type checking took 454ms
+linting took 547ms
+instantiate metavars took 117ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 149ms
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1200:28: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1200:28: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1252:16: error: Invalid simp theorem: Expected a proposition, but found
+  ℂ → ℂ → Matrix (Fin 4) (Fin 4) ℂ
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1252:4: error: Type mismatch: After simplification, term
+  he
+ has type
+  @Eq (Matrix (Fin 4) (Fin 4) ℂ) (↑T) (L_gct_231.DenseStar.star (↑T 0 1) (↑T 0 2))
+but is expected to have type
+  @Eq (Matrix (Fin 4) (Fin 4) ℂ) ↑T
+    ![![0, ↑T 0 1, ↑T 0 2, -↑T 0 1 - ↑T 0 2], ![↑T 0 1, 0, 0, 0], ![↑T 0 2, 0, 0, 0], ![-↑T 0 1 - ↑T 0 2, 0, 0, 0]]
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1268:42: error: Invalid simp theorem: Expected a proposition, but found
+  ℂ → ℂ → Matrix (Fin 4) (Fin 4) ℂ
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1268:42: error: Ambiguous term
+  star
+Possible interpretations:
+  L_gct_231.DenseStar.star : ℂ → ℂ → Matrix (Fin 4) (Fin 4) ℂ
+  
+  Star.star : ?m.2476 → ?m.2476
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1268:42: error: Ambiguous term
+  star
+Possible interpretations:
+  L_gct_231.DenseStar.star : ℂ → ℂ → Matrix (Fin 4) (Fin 4) ℂ
+  
+  Star.star : ?m.2477 → ?m.2477
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1268:42: error: Ambiguous term
+  star
+Possible interpretations:
+  L_gct_231.DenseStar.star : ℂ → ℂ → Matrix (Fin 4) (Fin 4) ℂ
+  
+  Star.star : ?m.2478 → ?m.2478
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1268:42: error: Ambiguous term
+  star
+Possible interpretations:
+  L_gct_231.DenseStar.star : ℂ → ℂ → Matrix (Fin 4) (Fin 4) ℂ
+  
+  Star.star : ?m.2479 → ?m.2479
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1268:42: error: Ambiguous term
+  star
+Possible interpretations:
+  L_gct_231.DenseStar.star : ℂ → ℂ → Matrix (Fin 4) (Fin 4) ℂ
+  
+  Star.star : ?m.2480 → ?m.2480
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1268:42: error: Ambiguous term
+  star
+Possible interpretations:
+  L_gct_231.DenseStar.star : ℂ → ℂ → Matrix (Fin 4) (Fin 4) ℂ
+  
+  Star.star : ?m.2481 → ?m.2481
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1268:42: error: Ambiguous term
+  star
+Possible interpretations:
+  L_gct_231.DenseStar.star : ℂ → ℂ → Matrix (Fin 4) (Fin 4) ℂ
+  
+  Star.star : ?m.2482 → ?m.2482
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1268:42: error: Ambiguous term
+  star
+Possible interpretations:
+  L_gct_231.DenseStar.star : ℂ → ℂ → Matrix (Fin 4) (Fin 4) ℂ
+  
+  Star.star : ?m.2483 → ?m.2483
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1268:42: error: Ambiguous term
+  star
+Possible interpretations:
+  L_gct_231.DenseStar.star : ℂ → ℂ → Matrix (Fin 4) (Fin 4) ℂ
+  
+  Star.star : ?m.2484 → ?m.2484
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1268:42: error: Ambiguous term
+  star
+Possible interpretations:
+  L_gct_231.DenseStar.star : ℂ → ℂ → Matrix (Fin 4) (Fin 4) ℂ
+  
+  Star.star : ?m.2485 → ?m.2485
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1268:42: error: Ambiguous term
+  star
+Possible interpretations:
+  L_gct_231.DenseStar.star : ℂ → ℂ → Matrix (Fin 4) (Fin 4) ℂ
+  
+  Star.star : ?m.2486 → ?m.2486
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1268:42: error: Ambiguous term
+  star
+Possible interpretations:
+  L_gct_231.DenseStar.star : ℂ → ℂ → Matrix (Fin 4) (Fin 4) ℂ
+  
+  Star.star : ?m.2487 → ?m.2487
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1268:42: error: Ambiguous term
+  star
+Possible interpretations:
+  L_gct_231.DenseStar.star : ℂ → ℂ → Matrix (Fin 4) (Fin 4) ℂ
+  
+  Star.star : ?m.2488 → ?m.2488
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1268:42: error: Ambiguous term
+  star
+Possible interpretations:
+  L_gct_231.DenseStar.star : ℂ → ℂ → Matrix (Fin 4) (Fin 4) ℂ
+  
+  Star.star : ?m.2489 → ?m.2489
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1268:42: error: Ambiguous term
+  star
+Possible interpretations:
+  L_gct_231.DenseStar.star : ℂ → ℂ → Matrix (Fin 4) (Fin 4) ℂ
+  
+  Star.star : ?m.2490 → ?m.2490
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/tmp/oec/pequalnp-pilot-79/DenseStarComplete.lean:1266:43: error: unsolved goals
+case «0».«0»
+L : Submodule ℂ (Matrix (Fin 4) (Fin 4) ℂ)
+hL : Module.finrank ℂ ↥L = 3
+hs : ∀ T ∈ L, ∀ (i j : Fin 4), T i j = T j i
+hp : ∀ T ∈ L, (Matrix.of fun i j => 1 + T i j).permanent = 24
+u v : ℂ
+hu : u ≠ 0
+hv : v ≠ 0
+huv : u + v ≠ 0
+hstar : L_gct_231.DenseStar.star u v ∈ L
+hh : v / u ≠ 0
+hh1 : v / u + 1 ≠ 0
+⊢ u * L_gct_231.DenseStar.star 1 (v * u⁻¹) 0 0 = L_gct_231.DenseStar.star u v 0 0
+
+case «0».«1»
+L : Submodule ℂ (Matrix (Fin 4) (Fin 4) ℂ)
+hL : Module.finrank ℂ ↥L = 3
+hs : ∀ T ∈ L, ∀ (i j : Fin 4), T i j = T j i
+hp : ∀ T ∈ L, (Matrix.of fun i j => 1 + T i j).permanent = 24
+u v : ℂ
+hu : u ≠ 0
+hv : v ≠ 0
+huv : u + v ≠ 0
+hstar : L_gct_231.DenseStar.star u v ∈ L
+hh : v / u ≠ 0
+hh1 : v / u + 1 ≠ 0
+⊢ u * L_gct_231.DenseStar.star 1 (v * u⁻¹) 0 1 = L_gct_231.DenseStar.star u v 0 1
+
+case «0».«2»
+L : Submodule ℂ (Matrix (Fin 4) (Fin 4) ℂ)
+hL : Module.finrank ℂ ↥L = 3
+hs : ∀ T ∈ L, ∀ (i j : Fin 4), T i j = T j i
+hp : ∀ T ∈ L, (Matrix.of fun i j => 1 + T i j).permanent = 24
+u v : ℂ
+hu : u ≠ 0
+hv : v ≠ 0
+huv : u + v ≠ 0
+hstar : L_gct_231.DenseStar.star u v ∈ L
+hh : v / u ≠ 0
+hh1 : v / u + 1 ≠ 0
+⊢ u * L_gct_231.DenseStar.star 1 (v * u⁻¹) 0 2 = L_gct_231.DenseStar.star u v 0 2
+
+case «0».«3»
+L : Submodule ℂ (Matrix (Fin 4) (Fin 4) ℂ)
+hL : Module.finrank ℂ ↥L = 3
+hs : ∀ T ∈ L, ∀ (i j : Fin 4), T i j = T j i
+hp : ∀ T ∈ L, (Matrix.of fun i j => 1 + T i j).permanent = 24
+u v : ℂ
+hu : u ≠ 0
+hv : v ≠ 0
+huv : u + v ≠ 0
+hstar : L_gct_231.DenseStar.star u v ∈ L
+hh : v / u ≠ 0
+hh1 : v / u + 1 ≠ 0
+⊢ u * L_gct_231.DenseStar.star 1 (v * u⁻¹) 0 3 = L_gct_231.DenseStar.star u v 0 3
+
+case «1».«0»
+L : Submodule ℂ (Matrix (Fin 4) (Fin 4) ℂ)
+hL : Module.finrank ℂ ↥L = 3
+hs : ∀ T ∈ L, ∀ (i j : Fin 4), T i j = T j i
+hp : ∀ T ∈ L, (Matrix.of fun i j => 1 + T i j).permanent = 24
+u v : ℂ
+hu : u ≠ 0
+hv : v ≠ 0
+huv : u + v ≠ 0
+hstar : L_gct_231.DenseStar.star u v ∈ L
+hh : v / u ≠ 0
+hh1 : v / u + 1 ≠ 0
+⊢ u * L_gct_231.DenseStar.star 1 (v * u⁻¹) 1 0 = L_gct_231.DenseStar.star u v 1 0
+
+case «1».«1»
+L : Submodule ℂ (Matrix (Fin 4) (Fin 4) ℂ)
+hL : Module.finrank ℂ ↥L = 3
+hs : ∀ T ∈ L, ∀ (i j : Fin 4), T i j = T j i
+hp : ∀ T ∈ L, (Matrix.of fun i j => 1 + T i j).permanent = 24
+u v : ℂ
+hu : u ≠ 0
+hv : v ≠ 0
+huv : u + v ≠ 0
+hstar : L_gct_231.DenseStar.star u v ∈ L
+hh : v / u ≠ 0
+hh1 : v / u + 1 ≠ 0
+⊢ u * L_gct_231.DenseStar.star 1 (v * u⁻¹) 1 1 = L_gct_231.DenseStar.star u v 1 1
+
+case «1».«2»
+L : Submodule ℂ (Matrix (Fin 4) (Fin 4) ℂ)
+hL : Module.finrank ℂ ↥L = 3
+hs : ∀ T ∈ L, ∀ (i j : Fin 4), T i j = T j i
+hp : ∀ T ∈ L, (Matrix.of fun i j => 1 + T i j).permanent = 24
+u v : ℂ
+hu : u ≠ 0
+hv : v ≠ 0
+huv : u + v ≠ 0
+hstar : L_gct_231.DenseStar.star u v ∈ L
+hh : v / u ≠ 0
+hh1 : v / u + 1 ≠ 0
+⊢ u * L_gct_231.DenseStar.star 1 (v * u⁻¹) 1 2 = L_gct_231.DenseStar.star u v 1 2
+
+case «1».«3»
+L : Submodule ℂ (Matrix (Fin 4) (Fin 4) ℂ)
+hL : Module.finrank ℂ ↥L = 3
+hs : ∀ T ∈ L, ∀ (i j : Fin 4), T i j = T j i
+hp : ∀ T ∈ L, (Matrix.of fun i j => 1 + T i j).permanent = 24
+u v : ℂ
+hu : u ≠ 0
+hv : v ≠ 0
+huv : u + v ≠ 0
+hstar : L_gct_231.DenseStar.star u v ∈ L
+hh : v / u ≠ 0
+hh1 : v / u + 1 ≠ 0
+⊢ u * L_gct_231.DenseStar.star 1 (v * u⁻¹) 1 3 = L_gct_231.DenseStar.star u v 1 3
+
+case «2».«0»
+L : Submodule ℂ (Matrix (Fin 4) (Fin 4) ℂ)
+hL : Module.finrank ℂ ↥L = 3
+hs : ∀ T ∈ L, ∀ (i j : Fin 4), T i j = T j i
+hp : ∀ T ∈ L, (Matrix.of fun i j => 1 + T i j).permanent = 24
+u v : ℂ
+hu : u ≠ 0
+hv : v ≠ 0
+huv : u + v ≠ 0
+hstar : L_gct_231.DenseStar.star u v ∈ L
+hh : v / u ≠ 0
+hh1 : v / u + 1 ≠ 0
+⊢ u * L_gct_231.DenseStar.star 1 (v * u⁻¹) 2 0 = L_gct_231.DenseStar.star u v 2 0
+
+case «2».«1»
+L : Submodule ℂ (Matrix (Fin 4) (Fin 4) ℂ)
+hL : Module.finrank ℂ ↥L = 3
+hs : ∀ T ∈ L, ∀ (i j : Fin 4), T i j = T j i
+hp : ∀ T ∈ L, (Matrix.of fun i j => 1 + T i j).permanent = 24
+u v : ℂ
+hu : u ≠ 0
+hv : v ≠ 0
+huv : u + v ≠ 0
+hstar : L_gct_231.DenseStar.star u v ∈ L
+hh : v / u ≠ 0
+hh1 : v / u + 1 ≠ 0
+⊢ u * L_gct_231.DenseStar.star 1 (v * u⁻¹) 2 1 = L_gct_231.DenseStar.star u v 2 1
+
+case «2».«2»
+L : Submodule ℂ (Matrix (Fin 4) (Fin 4) ℂ)
+hL : Module.finrank ℂ ↥L = 3
+hs : ∀ T ∈ L, ∀ (i j : Fin 4), T i j = T j i
+hp : ∀ T ∈ L, (Matrix.of fun i j => 1 + T i j).permanent = 24
+u v : ℂ
+hu : u ≠ 0
+hv : v ≠ 0
+huv : u + v ≠ 0
+hstar : L_gct_231.DenseStar.star u v ∈ L
+hh : v / u ≠ 0
+hh1 : v / u + 1 ≠ 0
+⊢ u * L_gct_231.DenseStar.star 1 (v * u⁻¹) 2 2 = L_gct_231.DenseStar.star u v 2 2
+
+case «2».«3»
+L : Submodule ℂ (Matrix (Fin 4) (Fin 4) ℂ)
+hL : Module.finrank ℂ ↥L = 3
+hs : ∀ T ∈ L, ∀ (i j : Fin 4), T i j = T j i
+hp : ∀ T ∈ L, (Matrix.of fun i j => 1 + T i j).permanent = 24
+u v : ℂ
+hu : u ≠ 0
+hv : v ≠ 0
+huv : u + v ≠ 0
+hstar : L_gct_231.DenseStar.star u v ∈ L
+hh : v / u ≠ 0
+hh1 : v / u + 1 ≠ 0
+⊢ u * L_gct_231.DenseStar.star 1 (v * u⁻¹) 2 3 = L_gct_231.DenseStar.star u v 2 3
+
+case «3».«0»
+L : Submodule ℂ (Matrix (Fin 4) (Fin 4) ℂ)
+hL : Module.finrank ℂ ↥L = 3
+hs : ∀ T ∈ L, ∀ (i j : Fin 4), T i j = T j i
+hp : ∀ T ∈ L, (Matrix.of fun i j => 1 + T i j).permanent = 24
+u v : ℂ
+hu : u ≠ 0
+hv : v ≠ 0
+huv : u + v ≠ 0
+hstar : L_gct_231.DenseStar.star u v ∈ L
+hh : v / u ≠ 0
+hh1 : v / u + 1 ≠ 0
+⊢ u * L_gct_231.DenseStar.star 1 (v * u⁻¹) 3 0 = L_gct_231.DenseStar.star u v 3 0
+
+case «3».«1»
+L : Submodule ℂ (Matrix (Fin 4) (Fin 4) ℂ)
+hL : Module.finrank ℂ ↥L = 3
+hs : ∀ T ∈ L, ∀ (i j : Fin 4), T i j = T j i
+hp : ∀ T ∈ L, (Matrix.of fun i j => 1 + T i j).permanent = 24
+u v : ℂ
+hu : u ≠ 0
+hv : v ≠ 0
+huv : u + v ≠ 0
+hstar : L_gct_231.DenseStar.star u v ∈ L
+hh : v / u ≠ 0
+hh1 : v / u + 1 ≠ 0
+⊢ u * L_gct_231.DenseStar.star 1 (v * u⁻¹) 3 1 = L_gct_231.DenseStar.star u v 3 1
+
+case «3».«2»
+L : Submodule ℂ (Matrix (Fin 4) (Fin 4) ℂ)
+hL : Module.finrank ℂ ↥L = 3
+hs : ∀ T ∈ L, ∀ (i j : Fin 4), T i j = T j i
+hp : ∀ T ∈ L, (Matrix.of fun i j => 1 + T i j).permanent = 24
+u v : ℂ
+hu : u ≠ 0
+hv : v ≠ 0
+huv : u + v ≠ 0
+hstar : L_gct_231.DenseStar.star u v ∈ L
+hh : v / u ≠ 0
+hh1 : v / u + 1 ≠ 0
+⊢ u * L_gct_231.DenseStar.star 1 (v * u⁻¹) 3 2 = L_gct_231.DenseStar.star u v 3 2
+
+case «3».«3»
+L : Submodule ℂ (Matrix (Fin 4) (Fin 4) ℂ)
+hL : Module.finrank ℂ ↥L = 3
+hs : ∀ T ∈ L, ∀ (i j : Fin 4), T i j = T j i
+hp : ∀ T ∈ L, (Matrix.of fun i j => 1 + T i j).permanent = 24
+u v : ℂ
+hu : u ≠ 0
+hv : v ≠ 0
+huv : u + v ≠ 0
+hstar : L_gct_231.DenseStar.star u v ∈ L
+hh : v / u ≠ 0
+hh1 : v / u + 1 ≠ 0
+⊢ u * L_gct_231.DenseStar.star 1 (v * u⁻¹) 3 3 = L_gct_231.DenseStar.star u v 3 3
+cumulative profiling times:
+	attribute application 0.744ms
+	compilation (IR) 2.31ms
+	compilation (LCNF base) 30.8ms
+	compilation (LCNF impure) 11.3ms
+	compilation (LCNF mono) 28.2ms
+	congr simp thm 35.2ms
+	declTypeLinter 43.8ms
+	dsimp 16.1ms
+	elaboration 1.63s
+	fix level params 105ms
+	import 1.48s
+	initialization 76.3ms
+	instantiate metavars 536ms
+	interpretation 4.2s
+	let-to-have transformation 1.69ms
+	linting 2.87s
+	module linting 0.119ms
+	norm_num 229ms
+	parsing 62ms
+	process pre-definitions 982ms
+	ring 3.48s
+	share common exprs 2.28s
+	simp 6s
+	tactic execution 46.4s
+	tacticAnalysis 30.5ms
+	type checking 4.44s
+	typeclass inference 1.71s

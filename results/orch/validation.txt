@@ -329,3 +329,7 @@ TIMING total=323.2 subagents=7
 2026-11-25T14:00:19.107975+00:00 Kernel-checked direct input-column bridge for L-meta-3773, exact source c4c50829db484a52c5370504ce0a31ed12a52cb90d138ff6f95d8b26941dadd5; exit0/2.734s. Independent geometry_route review approved source/status/full output. This generic helper may accelerate concrete finite replay; it does not assert a new witness or literal26-column equality. Requested63 remains unresolved.
 Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
 TIMING total=324.6 subagents=7
+
+2026-11-25T14:04:08.125394+00:00 Preserved independently reviewed reproduction sources, templates and complete failed-run diagnostics for the checked64-gate L-meta-3773 control (19 files, rules_review approved). Also preserved5 previously reviewed uncompiled dense-star checkpoint files from withdrawn L-gct-231; the corrected source is explicitly unchecked, its attached log belongs to the earlier failed source, and no old-gap proof work resumed after lease loss. Neither archive asserts a posted proof or refutation.
+Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
+TIMING total=328.4 subagents=7

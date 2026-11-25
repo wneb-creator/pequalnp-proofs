@@ -1,0 +1,728 @@
+import took 1.84s
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:6:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    569003898272414231388147352808213998689581533993663473048492445795301275982208741610487648209866007342163275550248660702554618153969674678818114175714880519948925011414584708035705639225657587659244070033020121687370777785552962627372262096911
+numerals are polymorphic in Lean, but the numeral `569003898272414231388147352808213998689581533993663473048492445795301275982208741610487648209866007342163275550248660702554618153969674678818114175714880519948925011414584708035705639225657587659244070033020121687370777785552962627372262096911` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:7:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    569003762611313302029132987576854324185033938126625285624619448333451667217554247141912650399696176842408312067311799786278061437404316355102116141843912252950501476577645265717456979139039415480432194794265024167626284155691283516115730301168
+numerals are polymorphic in Lean, but the numeral `569003762611313302029132987576854324185033938126625285624619448333451667217554247141912650399696176842408312067311799786278061437404316355102116141843912252950501476577645265717456979139039415480432194794265024167626284155691283516115730301168` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:8:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    426753329888710479507384404454906809115926605761662405677341404034318072854567423557166341776909951672164983007459957357379777887917008718180313578901227897742919548648685173241237145450923688714705503305130628802255543494750611333000147767040
+numerals are polymorphic in Lean, but the numeral `426753329888710479507384404454906809115926605761662405677341404034318072854567423557166341776909951672164983007459957357379777887917008718180313578901227897742919548648685173241237145450923688714705503305130628802255543494750611333000147767040` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:9:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    106688332672032741418697918191917650577055617307364890342756037846086476838698748557401540953764616336123663937675356640375344847552501964327715235214246260307025880757106155041431524478428231196954222859455348264011975080604135277912072974336
+numerals are polymorphic in Lean, but the numeral `106688332672032741418697918191917650577055617307364890342756037846086476838698748557401540953764616336123663937675356640375344847552501964327715235214246260307025880757106155041431524478428231196954222859455348264011975080604135277912072974336` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:10:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    1151277906770936008315983448296201248512011289715401305020506143826205178298167026938063399005601463058818241730849050813338623600632234203561140387763620520183562275630763638198610350822412053945641462931447136135562300470300835404242014371840
+numerals are polymorphic in Lean, but the numeral `1151277906770936008315983448296201248512011289715401305020506143826205178298167026938063399005601463058818241730849050813338623600632234203561140387763620520183562275630763638198610350822412053945641462931447136135562300470300835404242014371840` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:11:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    1091067925568985368825312854108416830288718649999599479258113460052549750846477427077278051029124848444555528321087801859833185261946803181713582879114101056115040901072115954154826307853965541706380906274552324627722754036572583834306741272576
+numerals are polymorphic in Lean, but the numeral `1091067925568985368825312854108416830288718649999599479258113460052549750846477427077278051029124848444555528321087801859833185261946803181713582879114101056115040901072115954154826307853965541706380906274552324627722754036572583834306741272576` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:12:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    925243234671909115074560011810874089980636388185767628295487983145110086913156972753213087647756694194728421195953400163303889338342499967666103749988500135671301441473575342130287608348142192390173188532186091493579610593942422048980665892864
+numerals are polymorphic in Lean, but the numeral `925243234671909115074560011810874089980636388185767628295487983145110086913156972753213087647756694194728421195953400163303889338342499967666103749988500135671301441473575342130287608348142192390173188532186091493579610593942422048980665892864` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:13:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    280698826230443014823695842023834929902461908219381864844436253409367038218930861987527739488008708415949609159567289145728346155685711400564210234347658156205550853850502627867399300889633132356707032500907017297150262792325080117854892720128
+numerals are polymorphic in Lean, but the numeral `280698826230443014823695842023834929902461908219381864844436253409367038218930861987527739488008708415949609159567289145728346155685711400564210234347658156205550853850502627867399300889633132356707032500907017297150262792325080117854892720128` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:14:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    104443050508158172667302929662242453920331101979613313729110403936251806366018686319403169155418362193872157044271405015737359022251386935108987234608643886998108731231455547667809537250940936935597629785741938896238965281152123016692367360
+numerals are polymorphic in Lean, but the numeral `104443050508158172667302929662242453920331101979613313729110403936251806366018686319403169155418362193872157044271405015737359022251386935108987234608643886998108731231455547667809537250940936935597629785741938896238965281152123016692367360` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:15:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    26046956218821167199795327994476115498544034464555899263534080311113783987753576734120683198749227771116885648003814615308088878323243202728842672817597560846972916027119118289356595061262375190354045697031044017239936799205577153073643520
+numerals are polymorphic in Lean, but the numeral `26046956218821167199795327994476115498544034464555899263534080311113783987753576734120683198749227771116885648003814615308088878323243202728842672817597560846972916027119118289356595061262375190354045697031044017239936799205577153073643520` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:16:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    867958652240487186172240587260449468315608805679400376114418172469108178048993756227424631234502232423324850232126438512203915524652133636651608920613833329257750197885406539258925218855503853680508108888418677188460481370943894107158715826176
+numerals are polymorphic in Lean, but the numeral `867958652240487186172240587260449468315608805679400376114418172469108178048993756227424631234502232423324850232126438512203915524652133636651608920613833329257750197885406539258925218855503853680508108888418677188460481370943894107158715826176` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:17:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    57787559164431583610505514391543785117357903911451461441587250150661230169312176183090460512514228824919753541705219879919094891846950685165455812761986820384797563924545517107745041201939002766440432225810725485638329921767121819790389280768
+numerals are polymorphic in Lean, but the numeral `57787559164431583610505514391543785117357903911451461441587250150661230169312176183090460512514228824919753541705219879919094891846950685165455812761986820384797563924545517107745041201939002766440432225810725485638329921767121819790389280768` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:18:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    406983755558968441784427754261857770691991737887378584328736112696502206596319242989892763468474152530983423252968568179836693780814635025259169375344801754550121796422235299315088202535461661983133597611357192454670616378420453634473984
+numerals are polymorphic in Lean, but the numeral `406983755558968441784427754261857770691991737887378584328736112696502206596319242989892763468474152530983423252968568179836693780814635025259169375344801754550121796422235299315088202535461661983133597611357192454670616378420453634473984` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:19:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    1138007796544828462776294705616427997379163067987326946096984891590602551964416564542943246105732483588556944079361655520491414510830231838985686579684582540398099385500967006328372956440831277182946149323476902743743608849118772215577975996449
+numerals are polymorphic in Lean, but the numeral `1138007796544828462776294705616427997379163067987326946096984891590602551964416564542943246105732483588556944079361655520491414510830231838985686579684582540398099385500967006328372956440831277182946149323476902743743608849118772215577975996449` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:20:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    1138007525222626604058265975153708648370067875955125886781354840067538724245461472039662978189541958353943144405668167290382337520951379988470522616557121356898224715359332625807378427733235445989635695709364306367921518106306784797742633845762
+numerals are polymorphic in Lean, but the numeral `1138007525222626604058265975153708648370067875955125886781354840067538724245461472039662978189541958353943144405668167290382337520951379988470522616557121356898224715359332625807378427733235445989635695709364306367921518106306784797742633845762` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:21:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    853506253992278579342341933366840042405093975750754291803968318376353899316097967661578021479196033921122044174448999480939000651782819284195011827254132379361311001141295568004535677644879504617155417112873848165342894272339242653402416545856
+numerals are polymorphic in Lean, but the numeral `853506253992278579342341933366840042405093975750754291803968318376353899316097967661578021479196033921122044174448999480939000651782819284195011827254132379361311001141295568004535677644879504617155417112873848165342894272339242653402416545856` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:22:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    213376665344065482837395836383835301153801398199661671874047773586389341614444241547809749716503207477412195310620389684648335877485706660879656685552193675921236630568589611943649657758690989357654928410463608136099821857804823798757703286788
+numerals are polymorphic in Lean, but the numeral `213376665344065482837395836383835301153801398199661671874047773586389341614444241547809749716503207477412195310620389684648335877485706660879656685552193675921236630568589611943649657758690989357654928410463608136099821857804823798757703286788` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:23:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    615647078137577315496133835712190430970649137706894394265274933592922778864702994780711241226112454531478909948581085272935862371330130217137184383935641457850647251193063197652363206304424272759777142762336068810360856511630174138364923478016
+numerals are polymorphic in Lean, but the numeral `615647078137577315496133835712190430970649137706894394265274933592922778864702994780711241226112454531478909948581085272935862371330130217137184383935641457850647251193063197652363206304424272759777142762336068810360856511630174138364923478016` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:24:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    555535993972520012617355231921371358782870125580663440746869164041080749906720478149458159033252972530278439703538237868928700161963465020179965425425392454361896901819809168984379903939781274540159518667081741384017614648100295320278550446080
+numerals are polymorphic in Lean, but the numeral `555535993972520012617355231921371358782870125580663440746869164041080749906720478149458159033252972530278439703538237868928700161963465020179965425425392454361896901819809168984379903939781274540159518667081741384017614648100295320278550446080` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:25:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    465122125132961389588460356011797539095775759929916219422103665460523893157164196533206031211169556570417386813648034589110027669929328747300255426090480837040498798556400147641563582852454671817922783809136986192102091194908925721621477490688
+numerals are polymorphic in Lean, but the numeral `465122125132961389588460356011797539095775759929916219422103665460523893157164196533206031211169556570417386813648034589110027669929328747300255426090480837040498798556400147641563582852454671817922783809136986192102091194908925721621477490688` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:26:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    140974540064473215424643008883446095978284563293112085019621788275744243123834372033745346543931913266130719649988326889252837194046458886652280053110669193392876178621779403525561656998697791449166887175165628263567107612880325306391956817920
+numerals are polymorphic in Lean, but the numeral `140974540064473215424643008883446095978284563293112085019621788275744243123834372033745346543931913266130719649988326889252837194046458886652280053110669193392876178621779403525561656998697791449166887175165628263567107612880325306391956817920` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:27:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    208503262567006089532423432797645990100562761821889349880204910886381719736354622809688190906876587028761009632440882751984774172438128499271806537506626475110115795797659091550532759323377846672519180825332801498735000212753995624562557056
+numerals are polymorphic in Lean, but the numeral `208503262567006089532423432797645990100562761821889349880204910886381719736354622809688190906876587028761009632440882751984774172438128499271806537506626475110115795797659091550532759323377846672519180825332801498735000212753995624562557056` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:28:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    52093912437642334399590655988952230757961611149096822019211613033522144758308281865999764728982578792850273956250231166090047082390580049047329134240319778348302615624353836279214768179403935998379016740715253326466111779119478124369215496
+numerals are polymorphic in Lean, but the numeral `52093912437642334399590655988952230757961611149096822019211613033522144758308281865999764728982578792850273956250231166090047082390580049047329134240319778348302615624353836279214768179403935998379016740715253326466111779119478124369215496` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:29:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    433989093728825651023820216878222663034023876096937643529777443460240477486533126058852665280128274163899315796935435693003661907965090607865071178904531446112512743504160363068389040665417996928034332121311954464811819996254246919476909051904
+numerals are polymorphic in Lean, but the numeral `433989093728825651023820216878222663034023876096937643529777443460240477486533126058852665280128274163899315796935435693003661907965090607865071178904531446112512743504160363068389040665417996928034332121311954464811819996254246919476909051904` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:30:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    28896221484361306289677738007771374783377333843912353076299638044166905372179474485826345041588179425281981944851836156912720857671845129796821636736298069991005759891154335030641795721002910295833264876739673259501527825904573518550430392576
+numerals are polymorphic in Lean, but the numeral `28896221484361306289677738007771374783377333843912353076299638044166905372179474485826345041588179425281981944851836156912720857671845129796821636736298069991005759891154335030641795721002910295833264876739673259501527825904573518550430392576` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:31:3: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ
+    813967414158105327137416877001485412661066282927933628912839166339146235040033691525353315236460579471941697756295255367482242646219110365877842632647627260117467401053148626432621787088632406178391596809454545533929169398512663717478928
+numerals are polymorphic in Lean, but the numeral `813967414158105327137416877001485412661066282927933628912839166339146235040033691525353315236460579471941697756295255367482242646219110365877842632647627260117467401053148626432621787088632406178391596809454545533929169398512663717478928` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:34:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:34:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 1
+numerals are polymorphic in Lean, but the numeral `1` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:35:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 26
+numerals are polymorphic in Lean, but the numeral `26` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:35:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 3
+numerals are polymorphic in Lean, but the numeral `3` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:36:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 27
+numerals are polymorphic in Lean, but the numeral `27` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:36:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 9
+numerals are polymorphic in Lean, but the numeral `9` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:37:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 13
+numerals are polymorphic in Lean, but the numeral `13` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:37:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 28
+numerals are polymorphic in Lean, but the numeral `28` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:94:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 85
+numerals are polymorphic in Lean, but the numeral `85` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:94:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 65
+numerals are polymorphic in Lean, but the numeral `65` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:95:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 86
+numerals are polymorphic in Lean, but the numeral `86` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:95:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 69
+numerals are polymorphic in Lean, but the numeral `69` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:96:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 87
+numerals are polymorphic in Lean, but the numeral `87` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:96:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 73
+numerals are polymorphic in Lean, but the numeral `73` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:97:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 88
+numerals are polymorphic in Lean, but the numeral `88` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:97:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 77
+numerals are polymorphic in Lean, but the numeral `77` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:90:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 81
+numerals are polymorphic in Lean, but the numeral `81` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:90:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 49
+numerals are polymorphic in Lean, but the numeral `49` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:91:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 82
+numerals are polymorphic in Lean, but the numeral `82` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:91:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 53
+numerals are polymorphic in Lean, but the numeral `53` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:92:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 83
+numerals are polymorphic in Lean, but the numeral `83` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:92:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 57
+numerals are polymorphic in Lean, but the numeral `57` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:93:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 84
+numerals are polymorphic in Lean, but the numeral `84` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:93:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 61
+numerals are polymorphic in Lean, but the numeral `61` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:86:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 29
+numerals are polymorphic in Lean, but the numeral `29` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:86:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 33
+numerals are polymorphic in Lean, but the numeral `33` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:87:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 78
+numerals are polymorphic in Lean, but the numeral `78` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:87:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 37
+numerals are polymorphic in Lean, but the numeral `37` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:88:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 79
+numerals are polymorphic in Lean, but the numeral `79` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:88:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 41
+numerals are polymorphic in Lean, but the numeral `41` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:89:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 80
+numerals are polymorphic in Lean, but the numeral `80` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:89:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 45
+numerals are polymorphic in Lean, but the numeral `45` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:82:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 1
+numerals are polymorphic in Lean, but the numeral `1` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:82:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 2
+numerals are polymorphic in Lean, but the numeral `2` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:83:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 74
+numerals are polymorphic in Lean, but the numeral `74` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:83:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 4
+numerals are polymorphic in Lean, but the numeral `4` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:84:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 75
+numerals are polymorphic in Lean, but the numeral `75` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:84:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 10
+numerals are polymorphic in Lean, but the numeral `10` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:85:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 25
+numerals are polymorphic in Lean, but the numeral `25` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:85:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 76
+numerals are polymorphic in Lean, but the numeral `76` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:78:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 2
+numerals are polymorphic in Lean, but the numeral `2` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:78:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 3
+numerals are polymorphic in Lean, but the numeral `3` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:79:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 70
+numerals are polymorphic in Lean, but the numeral `70` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:79:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 5
+numerals are polymorphic in Lean, but the numeral `5` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:80:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 71
+numerals are polymorphic in Lean, but the numeral `71` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:80:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 11
+numerals are polymorphic in Lean, but the numeral `11` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:81:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 24
+numerals are polymorphic in Lean, but the numeral `24` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:81:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 72
+numerals are polymorphic in Lean, but the numeral `72` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:74:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 3
+numerals are polymorphic in Lean, but the numeral `3` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:74:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 4
+numerals are polymorphic in Lean, but the numeral `4` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:75:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 66
+numerals are polymorphic in Lean, but the numeral `66` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:75:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 6
+numerals are polymorphic in Lean, but the numeral `6` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:76:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 67
+numerals are polymorphic in Lean, but the numeral `67` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:76:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 12
+numerals are polymorphic in Lean, but the numeral `12` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:77:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 23
+numerals are polymorphic in Lean, but the numeral `23` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:77:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 68
+numerals are polymorphic in Lean, but the numeral `68` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:70:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 0
+numerals are polymorphic in Lean, but the numeral `0` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:70:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 4
+numerals are polymorphic in Lean, but the numeral `4` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:71:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 62
+numerals are polymorphic in Lean, but the numeral `62` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:71:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 5
+numerals are polymorphic in Lean, but the numeral `5` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:72:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 63
+numerals are polymorphic in Lean, but the numeral `63` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:72:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 7
+numerals are polymorphic in Lean, but the numeral `7` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:73:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 22
+numerals are polymorphic in Lean, but the numeral `22` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:73:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 64
+numerals are polymorphic in Lean, but the numeral `64` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:66:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 1
+numerals are polymorphic in Lean, but the numeral `1` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:66:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 5
+numerals are polymorphic in Lean, but the numeral `5` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:67:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 58
+numerals are polymorphic in Lean, but the numeral `58` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:67:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 6
+numerals are polymorphic in Lean, but the numeral `6` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:68:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 59
+numerals are polymorphic in Lean, but the numeral `59` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:68:12: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 8
+numerals are polymorphic in Lean, but the numeral `8` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:69:10: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 21
+numerals are polymorphic in Lean, but the numeral `21` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:69:13: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 60
+numerals are polymorphic in Lean, but the numeral `60` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:62:9: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 2
+numerals are polymorphic in Lean, but the numeral `2` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:62:11: error(lean.synthInstanceFailed): failed to synthesize instance of type class
+  OfNat ℕ 6
+numerals are polymorphic in Lean, but the numeral `6` cannot be used in a context where the expected type is
+  ℕ
+due to the absence of the instance above
+
+Hint: Type class instance resolution failures can be inspected with the `set_option trace.Meta.synthInstance true` command.
+/tmp/oec/pequalnp-pilot-79/Meta3773LiteralReplay808.lean:63:9: error: maximum number of errors (100; from option `maxErrors`) reached, exiting
