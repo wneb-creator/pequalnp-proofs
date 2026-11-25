@@ -1,0 +1,11 @@
+Validated 2026-11-25 07:50:02 UTC.
+Working directory: /workspace/pequalnp-proofs/lean
+Command: PATH=/tmp/oec/pequalnp-pilot-71/elan/bin:$PATH ELAN_HOME=/tmp/oec/pequalnp-pilot-71/elan lake env lean /tmp/oec/pequalnp-pilot-71/structural/MatchingCoverCertificate.lean
+Exit status: 0
+Complete stdout and stderr: matching-cover-certificate-build.log (empty).
+
+For a graph on Fin(2*m) containing every matching edge (i,m+i), every vertex
+cover has at least m vertices. Any cover of cardinality m is therefore minimum.
+The proof uses an injective choice of one covered endpoint per matching edge;
+it does not enumerate vertex subsets and applies in particular to m=21.
+This is a conditional supporting theorem, not a proof of L-meta-2962.
