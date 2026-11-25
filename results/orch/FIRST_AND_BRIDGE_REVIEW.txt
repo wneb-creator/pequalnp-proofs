@@ -1,0 +1,13 @@
+Independent source review by prior_gap_check
+Verdict: PASS for partial-result checkpoint; no independent compiler launched during the serialized build window.
+FirstAndBridge.lean: 1513 lines, 69748 bytes; SHA256 075eed35ccb7054f442ddc3fae67ead53f6adc442977f645eb3fd87872203fa1.
+
+Source correspondence was checked by exact substring comparison: Sem body is copied unchanged from FirstAndProfile.lean; Fresh body is copied unchanged from FreshCore.lean; Erase body is copied unchanged from existing Outside/L_meta_2859.lean. The only substantive new composition is the wrapper at lines 1407-1510. It introduces no new axioms, imports, or evaluator machinery.
+
+The literal replacement has the same gate count initially, preserves ReadsBack and Monotone2, and computes the exact graph function by the selected-context equivalence. The copied eraseGate theorem then removes the identity literal gate, redirects every later reference, preserves complete Boolean semantics, and reduces size by one. This contradicts the actual public IsMinimalMonoCircuit predicate, not a locally invented minimality condition.
+
+first_star_singleton_free explicitly assumes ReadsBack, an all-OR prefix, exact graph computation, minimum degree at least two (each vertex has two distinct neighbors), and a common center for all graph-edge SelectedOwn witnesses of the selected gate. For a first AND, SelectedOwn is exactly the raw target ownership conjunction; its definition intentionally omits the gate-op/range premise, which the posted target supplies externally. The theorem itself remains valid for any selected gate meeting its stronger raw star hypothesis. The graph-edge star assumption forces a singleton accepted at v to have center v, then allows safe substitution by literal v. This proves only the stated conditional singleton exclusion, not existence of a global star-profile optimum.
+
+Author compile log contains deprecation and unnecessary-simpa warnings only. Author axiom audit was read: literal_substitution_not_minimal and first_star_singleton_free each depend only on propext, Classical.choice, Quot.sound. No sorry, new axiom, native_decide, forbidden namespace marker, strings, directives, attributes, options, or bv_decide appears in the source.
+
+Root removed only trailing blank lines after review; retained source identical. New SHA256 8a6c9253431dc2951a68baa2601c03e4d3f763a09512f4b96eb4616f64480ec2.
