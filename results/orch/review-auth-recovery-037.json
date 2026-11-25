@@ -1,0 +1,22 @@
+{
+  "utc": "2026-11-25T18:37:49.432811+00:00",
+  "status": "APPROVED authentication/pause preservation with explicit invocation-provenance limitation",
+  "manifest_sha256": "12b6b0ce3ea41c16a01e38449b340d68cc9161c0ea563eaf3e6f7503951e0fe4",
+  "logs_checked": 12,
+  "same_public_origin_repository_branch": true,
+  "read_old_and_push_new_commit_match": true,
+  "old_commit_is_local_ancestor_of_new": true,
+  "expected_SHA_argv_correct": "reconstructed root execution record, explicitly not an independent OS argv trace",
+  "no_credential_patterns_or_URL_userinfo": true,
+  "read_completion": "2026-11-25T18:23:36.976691+00:00",
+  "fenced_push_completion": "2026-11-25T18:24:10.385995+00:00",
+  "native_pause_seconds": [
+    74.539993,
+    48.391516,
+    65.213264,
+    63.655814
+  ],
+  "latest_resume": "2026-11-25T18:25:02.514018+00:00",
+  "notes_line_counts_and_sum_read1_hash_confirmed": true,
+  "scope": "conditional/read1 lower bound and partial verifier; no full target proof/refutation/PR claimed"
+}

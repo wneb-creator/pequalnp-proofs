@@ -1,0 +1,26 @@
+{
+  "scope": "Independent native positive control and incomplete target-phase audit; future profile-only restricted construction, no target witness.",
+  "source_sha256": "dd56f6421182cbbd2c3f19e335711b2e59eab4f785be78ad7b523f133864c6fb",
+  "native_clauses_checked": 1429862,
+  "native_variables": 311024,
+  "decoded_gates": 64,
+  "complete_boundary_rows": 756,
+  "actual_internal_row_values_checked": 12096,
+  "target_clauses": 1424676,
+  "target_phase_failures": 6,
+  "target_missed_rows": [
+    33554434,
+    33554436,
+    4194432,
+    16640,
+    264192,
+    8392704
+  ],
+  "target_memberships": 80,
+  "target_active_records": 16,
+  "target_unshared_cost": 63,
+  "target_sha256": "804e29af2b88774016f3d2b27a9cb32413d693d5a598713c612ff7b41e2aa3d8",
+  "positive_model_sha256": "42ac64fdaf2905bf13e7bf7f8f0e0842fd65130f0c8fee7ede669c46e9bb523d",
+  "invalid_fixed64_at63": "external UNSAT, as expected from budget81>80",
+  "first_AND_anchor": false
+}

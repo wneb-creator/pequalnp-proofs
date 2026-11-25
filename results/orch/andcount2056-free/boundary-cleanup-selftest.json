@@ -1,0 +1,11 @@
+{
+  "source_sha256": "3e3240e6c8e1c09d943606d761656573d42d45b12a73618b31a7a9465068800e",
+  "valid_inflated_controls": 100,
+  "sizes_after": [
+    64
+  ],
+  "before_size": 86,
+  "all_complete_boundary_checks_passed": true,
+  "invalid12_star_rejected": true,
+  "seconds": 6.136173240000062
+}

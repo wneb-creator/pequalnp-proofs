@@ -1,0 +1,16 @@
+{
+  "source_sha256": "a2bb57526433757e48d7117d36ca226927f78aded5124ef3e3d9751123f48543",
+  "independent_models": 300,
+  "materializations": 1200,
+  "exhaustive_rows_per_model": 64,
+  "constant_false_results": 288,
+  "results_with_helpers": 1064,
+  "saving_example_all_assignments": 256,
+  "saving_example_before_after": [
+    11,
+    9
+  ],
+  "plane_control_gates": 64,
+  "plane_boundary_rows": 756,
+  "scope": "Model-preserving optimizer; no63 witness or new semantic constraint"
+}

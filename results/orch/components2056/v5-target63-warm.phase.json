@@ -1,0 +1,25 @@
+{
+  "variables": 876540,
+  "clauses": 2674606,
+  "bound": 63,
+  "baseline_selected_noninput_profiles": 64,
+  "initial_phase": true,
+  "inverted_variables": 241415,
+  "violated_original_clauses": [
+    {
+      "index": 1845804,
+      "literals": [
+        -90,
+        -465339
+      ]
+    }
+  ],
+  "source_sha256": "6e96a2d1166b0ea67ca55130e2ed2438fe4963f4cbf20f86c23619a0387646df",
+  "library_sha256": "e731fe5e465ae28ba320dd3a562a7f7a2b0998076caec6d74d517e8926ec89dd",
+  "mapping_sha256": "17dc89610ad908d62cc397b890dedec0dc425c643705f0ba7bc8df5906163b50",
+  "original_cnf_sha256": "7236084a40c0266039b696a65c2984d93d27736ba5ef6e05d1a0050e0bd72594",
+  "warm_cnf_sha256": "41e93ad00666f64bf01ffa406004afd76bc62c6ce37f76f93c02218df857fd2e",
+  "mask_name": "v5-target63-warm.mask.bin",
+  "mask_sha256": "d6fe0cc32a31e3a2e9090d555eb177e70f7595db14c01d2024851133e991de81",
+  "equivalence": "Each original variable equals the renamed variable XOR its mask bit; no clauses or constraints added."
+}

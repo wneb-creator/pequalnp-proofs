@@ -1,0 +1,73 @@
+{
+  "created_utc": "2026-11-25T18:32:10.027222+00:00",
+  "scope": "completed preparation and brief controls only; no long target run",
+  "entries": [
+    {
+      "prefix": "prefix-target16-nested",
+      "source_sha256": "1acc9485a918f97b95ec05d1188dadd1a3888243f630218bd6ba3ac2e3e6cea2",
+      "cnf_sha256": "dd083427c24c4092f1439a8b846e7e960192d05115e065b515d0e86bb98d4a0d",
+      "cnf_bytes": 28593201,
+      "variables": 309920,
+      "clauses": 1424708,
+      "regenerate_argv_from_this_directory": [
+        "python3",
+        "andcount_budget_profile_prefix2056.py",
+        "--ands",
+        "16",
+        "--ordinary-limit",
+        "63",
+        "--warm-model",
+        "andbudget-prefix-nested63-model.json",
+        "--prefix",
+        "REGEN/prefix-target16-nested",
+        "--emit-only"
+      ],
+      "status": "CNF emitted; solver not run"
+    },
+    {
+      "prefix": "prefix-native16-normalized64",
+      "source_sha256": "1acc9485a918f97b95ec05d1188dadd1a3888243f630218bd6ba3ac2e3e6cea2",
+      "cnf_sha256": "0d6257f25a29ff1171a006f0e28582b9de6b1e1ad61c0a0f05dd293aebdc1a16",
+      "cnf_bytes": 28664876,
+      "variables": 311024,
+      "clauses": 1429122,
+      "regenerate_argv_from_this_directory": [
+        "python3",
+        "andcount_budget_profile_prefix2056.py",
+        "--ands",
+        "16",
+        "--ordinary-limit",
+        "64",
+        "--warm-model",
+        "andbudget-prefix-gapped-control-model.json",
+        "--prefix",
+        "REGEN/prefix-native16-normalized64",
+        "--emit-only"
+      ],
+      "status": "SAT; complete boundary passed; Lean verification required"
+    },
+    {
+      "prefix": "prefix-native16-invalid63",
+      "source_sha256": "1acc9485a918f97b95ec05d1188dadd1a3888243f630218bd6ba3ac2e3e6cea2",
+      "cnf_sha256": "888e122d4500735260f982a615b52c0c109d4d22b99e2bdef5854cba74c1633e",
+      "cnf_bytes": 28577409,
+      "variables": 309920,
+      "clauses": 1425796,
+      "regenerate_argv_from_this_directory": [
+        "python3",
+        "andcount_budget_profile_prefix2056.py",
+        "--ands",
+        "16",
+        "--ordinary-limit",
+        "63",
+        "--fixed-star-prefix",
+        "16",
+        "--fix-output",
+        "--prefix",
+        "REGEN/prefix-native16-invalid63",
+        "--emit-only"
+      ],
+      "status": "UNSAT; external solver only, no Lean lower bound"
+    }
+  ]
+}

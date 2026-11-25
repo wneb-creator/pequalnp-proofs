@@ -1,0 +1,17 @@
+usage: direct_cnf_warm_nonread.py [-h] --data DATA --rows ROWS --size SIZE
+                                  --seconds SECONDS --prefix PREFIX
+                                  --warm-gates WARM_GATES
+                                  [--fixed-gates FIXED_GATES]
+                                  [--fixed-prefix FIXED_PREFIX] [--emit-only]
+
+options:
+  -h, --help            show this help message and exit
+  --data DATA
+  --rows ROWS
+  --size SIZE
+  --seconds SECONDS
+  --prefix PREFIX
+  --warm-gates WARM_GATES
+  --fixed-gates FIXED_GATES
+  --fixed-prefix FIXED_PREFIX
+  --emit-only

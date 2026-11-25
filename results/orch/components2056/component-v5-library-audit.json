@@ -1,0 +1,14 @@
+{
+  "scope": "V5 data extension only; no63 result",
+  "added_population": 148,
+  "exact_added_records": 0,
+  "minimum_added_error": 1,
+  "profiles": 6616,
+  "productions": 146124,
+  "all_V4_preserved": true,
+  "hashes": {
+    "build_expanded.py": "2e6b0ef45e06aa50c49a4fe10a88432defc8bec6d4d93e32678dc15d7e357e6b",
+    "v5-library.json": "e731fe5e465ae28ba320dd3a562a7f7a2b0998076caec6d74d517e8926ec89dd"
+  },
+  "population_sha256": "9584881347ed60e6edd710f73e74763871d00e70451984ba1c5db0ba0063f691"
+}

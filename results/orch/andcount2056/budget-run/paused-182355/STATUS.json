@@ -1,0 +1,12 @@
+{
+  "status": "paused with SIGSTOP; incomplete runtime snapshot; no witness or final solver verdict",
+  "snapshot_utc": "2026-11-25T18:24:23.835916+00:00",
+  "source_sha256": "0b7a5652d1891b11b956f93e949c7dca9d923e5f677c69723e93d222194efe3b",
+  "cnf_sha256": "c8db4692682c49fd6c5d84f63fba1320b4526ce472f4c73a14c66279f5554f13",
+  "cnf_bytes": 26632011,
+  "raw_cnf_omitted": "same exact target identity and regeneration recipe preserved in parent CNF-REGENERATION.json",
+  "cpu_limit_seconds": 3600,
+  "solver_pid": 34630,
+  "wrapper_pid": 34624,
+  "not_terminated": true
+}

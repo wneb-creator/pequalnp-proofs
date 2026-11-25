@@ -64,3 +64,13 @@
 2026-11-25T18:12:24.026+00:00: frozen K16 bounded-membership size63 SAT began,3600-second native cap,309088 variables/1324820 clauses, nested6-miss phase. All cost clauses pass; native64 controls and target phase independently reviewed.
 
 2026-11-25T18:19:48.837146+00:00: SumPlaneReadOne2056.lean compiled at18:19:48.837 UTC in97.09 seconds,2019 lines,SHA256 c7225eb37c0b218f063959cb7d92bc437d3ad4caa29fda1833f1ac543d29d7b9. It directly instantiates the generic read-one bound for the exact Nat-sum incidence function: IsAO2 26 C, full correctness, and IsReadK 26 C 1 imply64≤C.size. This closes the sum/difference labeling bridge. It does not prove an unrestricted64-gate lower bound or the posted63-gate existence statement. Full stdout/stderr/command metadata are preserved.
+
+2026-11-25T18:21:17+00:00: initial push of compiled Read1 commit2dcffd2e6f9e339e9ca81f51d7f4cac22dad3b11 failed Git authentication. Unsafe write retry declined; four native processes subsequently SIGSTOP-paused.
+
+2026-11-25T18:23:36+00:00: permitted safe-read helper recovered on third retry and confirmed remote c71da7d652990d4eef7c1e942ddfbf7c677368a6. Complete command records in auth-recovery-037.
+
+2026-11-25T18:24:10.386+00:00: successful publication of2dcffd2e6f9e339e9ca81f51d7f4cac22dad3b11 recorded. One expected-old-SHA-fenced push, same origin/credentials; invocation provenance and complete output preserved in auth-recovery-037.
+
+2026-11-25T18:25:02.514+00:00: all four native processes resumed by SIGCONT after successful publication and18:24:33 lease renewal. Pauses48–75seconds, no restarts or query changes; original timeout configuration retained.
+
+2026-11-25T18:47:35.453429+00:00: global≤12-AND native query stopped and reaped after independent identification of existing L_meta_1898≥13 ordinary-AND theorem. No solver SAT/UNSAT verdict; full diagnostics retained. All≤12 successors canceled. Three other native searches continue.

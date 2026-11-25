@@ -1,0 +1,13 @@
+# Independently reviewed existential non-read1 preparation
+
+Frozen source d94306025707d49f98f3fb60548f1ba79f34c68dc7c8dbe2edc0b27f6c347531 extends the approved full756-row/63-gate warm encoding with one existentially selected incident edge. Each wire tracks the10/01/11 capped proof-count states; OR unions states and AND can produce11 only by crossing10 with01. The output is required to lack11. The compiled sum-incidence lower bound SumPlaneReadOne2056.sum_read_one_lower makes this necessary for a correct circuit of size<=63. The existential edge preserves full graph symmetry; it is not fixed to the warm preferred edge.
+
+The emitted63-gate target has164,294 variables and8,858,897 clauses. CNF SHA a52e1ae59eff3e44fc2bb0dc7bbf2306e5e8532bef86ec938019e8449a9ea214. This query has NOT run a long search. Its phase hint still misses three positive rows; independent streaming found only those same three output-unit failures, no new-rule failure. The old8,820,813-clause prefix and old variable phases are byte-identical.
+
+The correct nonlinear67-gate positive control had64 fixed gates and3 syntactically free gates, returning the warm suffix unchanged. Native exit10; all9,832,609 clauses/175,522 variables and all756 independently regenerated boundary rows passed. Selectededge(0,13) lacks a joint11 proof while being accepted. Total64.225seconds, peak1,684,928KiB. This is a67-gate control, not a<=63 witness.
+
+The fixed known read-one64-gate negative control returned native exit20. Independent review found its preferred phase fails exactly the final no-joint11 unit and no other clause; capped-count recursion confirms a read1 proof on all52 edges. This is expected rejection of one fixed control, not a circuit lower-bound proof. Its full9,097,867 clauses/167,092 variables were inspected; total80.896seconds, peak1,540,036KiB.
+
+The combined independent audit has SHA fcca7643682d6cf0eabf988de95d88d3b477d7278a11cf0f33ae7cd8c0520b56. Source semantics/coexistence were independently reviewed by proof_route, and all actual artifacts by status_review. The independent capped-count reference additionally compared14,144 wire/edge cases across64/67/near63 controls. Large reproducible CNFs are omitted; full source, mappings, model, stdout/stderr, controls and audit scripts are saved.
+
+A temporary publication pause stopped the existing, separate hour-long first-gate run for65.213seconds on2026-11-25,18:23:50–18:24:55UTC. It then resumed the same native and wrapper PIDs without source changes or restart. The saved pause/resume record is historical metadata; that current long run remains separate from this prepared successor.

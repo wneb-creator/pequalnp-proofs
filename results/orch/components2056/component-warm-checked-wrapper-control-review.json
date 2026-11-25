@@ -1,0 +1,21 @@
+{
+  "artifacts": [
+    {
+      "suffix": ".sol",
+      "sha256": "e0e8db3058f79db024d82b3cd97477c0bf20fa1794d912a55b06b6ae2c46e18e",
+      "byte_identical_to_independently_checked_control": true
+    },
+    {
+      "suffix": ".unrenamed.sol",
+      "sha256": "1a08c935f7726af79bb4897bb790f082304f2490710b997f20b56c70ae33905b",
+      "byte_identical_to_independently_checked_control": true
+    },
+    {
+      "suffix": ".candidate.json",
+      "sha256": "0f31bc9b6dddca79e757e98322ee23ce174c8c3ea3b1b57760c38d00271afd81",
+      "byte_identical_to_independently_checked_control": true
+    }
+  ],
+  "pipeline_exit": 0,
+  "scope": "New checked wrapper control returns exactly the independently clause-verified original control model and circuit; cancellation delta pending"
+}

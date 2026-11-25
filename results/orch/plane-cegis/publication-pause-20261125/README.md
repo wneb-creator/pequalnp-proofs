@@ -1,0 +1,9 @@
+# Publication-block rescue checkpoint
+
+At 2026-11-25 18:23:50 UTC the parent ordered a reversible pause after its publication authentication failure. The existing full63 first-gate query wrapper PID34284 and native PID34382 received SIGSTOP. This is a partial runtime checkpoint, not a timeout, SAT witness, or UNSAT result. Its complete output through the pause is saved here; the original scratch processes remain paused pending the parent decision.
+
+The separate non-read1 successor source d94306025707d49f98f3fb60548f1ba79f34c68dc7c8dbe2edc0b27f6c347531 has independent static/mathematical approval. It existentially selects one of the52 incident edges, tracks the10/01/11 proof-count states, and requires no joint11 at the output. The sum-incidence ReadK1 lower-bound bridge is separately compiled in SumPlaneReadOne2056.lean. This source has NOT run a long63-gate search.
+
+A known correct nonlinear67-gate control, with its final3 gates syntactically free, finished SAT before the pause: all9,832,609 original/renamed clauses were checked by the backend and all756 boundary rows passed. The selected edge was(0,13). This is a67-gate positive control, not the63-gate target. The target warm-phase audit independently replays its hint and checks all8,858,897 clauses; only the three already-known missing-positive output units fail. The known read-one64-gate rejection control was NOT launched. Independent streaming review of these actual new artifacts is PENDING because review work was paused; only the source/semantics has independent approval.
+
+The separate capped-count reference checker compares the three-state recurrence to actual capped two-coordinate count sets at14,144 wire/edge pairs. It is an external diagnostic, not a Lean proof. Large reproducible CNFs are omitted; sources, metadata, mappings, native model, complete stdout/stderr and identities are retained.

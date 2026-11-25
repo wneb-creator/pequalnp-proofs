@@ -1,0 +1,19 @@
+{
+  "utc": "2026-11-25T18:35:10.680458+00:00",
+  "reviewer": "gate_elimination",
+  "verdict": "APPROVED warm equivalence, complete control validation and cancellation",
+  "sources": {
+    "warm_phase.py": "6e96a2d1166b0ea67ca55130e2ed2438fe4963f4cbf20f86c23619a0387646df",
+    "unrename_model.py": "a6aabcee2d4ccabf1658dd3fa657f43c1a008a847a6168e6114e7a0d8d9f3afd",
+    "run_sat_warm_checked_v2.py": "6436498c5abcfe9060a6b182e0598cb050cd3020921ade2f5917925ba4132d04",
+    "verify_cnf_model.py": "2f213c905d6425f1673de0dc5dd3ae63adf340cb36936594628fcc4e07b8e0ed"
+  },
+  "evidence": {
+    "component-warm-target-independent-review.json": "de81a43c7b4b4760202bea7cca2fb06088afe0e47fdc5c90b32df8e7b6ed783d",
+    "component-warm-control-independent-review.json": "50ce3ef7a62061df90071314b5ccd322c11ec95adbe78776cbe84e256063eb93",
+    "component-warm-overflow-independent-review.json": "a505b0a74ac7d9b319bdf97a218e72bb7b98bc95a5442305bcf54d03dd772ad9",
+    "component-warm-checked-wrapper-control-review.json": "015a01772646def1c3c2a8dbf44da2d73279b5d9fc56c3a213d676efd03a248a",
+    "warm-cancellation2-controls.json": "822dbd60915e0d0da3f9107fe5f7315580760e8fa6a63d38ed7d46a59ae24857"
+  },
+  "scope": "Warm encoding is an exact variable-sign bijection. Known64 control passes; target63 baseline phase has one cardinality overflow. No63 candidate and no unrestricted lower bound are claimed. Grammar scope remains the previously reviewed component library."
+}

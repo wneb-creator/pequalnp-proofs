@@ -1,0 +1,58 @@
+{
+  "scope": "Static source and reproduced three normalization controls; no new target solve.",
+  "helper_sha256": "1e86181d49bdba96bb8be90bcef06f55cd76add5e1c37632cd776353ae9165f1",
+  "source_sha256": "1acc9485a918f97b95ec05d1188dadd1a3888243f630218bd6ba3ac2e3e6cea2",
+  "controls": [
+    {
+      "name": "nested63",
+      "before_cost": [
+        63,
+        16,
+        80
+      ],
+      "after_cost": [
+        63,
+        16,
+        80
+      ],
+      "dual": false,
+      "misses": 6,
+      "false_positives": 0,
+      "ordinary_size": 63
+    },
+    {
+      "name": "near63",
+      "before_cost": [
+        63,
+        14,
+        78
+      ],
+      "after_cost": [
+        63,
+        14,
+        78
+      ],
+      "dual": true,
+      "misses": 3,
+      "false_positives": 0,
+      "ordinary_size": 63
+    },
+    {
+      "name": "gapped-control",
+      "before_cost": [
+        121,
+        13,
+        135
+      ],
+      "after_cost": [
+        64,
+        13,
+        78
+      ],
+      "dual": false,
+      "misses": 0,
+      "false_positives": 0,
+      "ordinary_size": 64
+    }
+  ]
+}

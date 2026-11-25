@@ -1,0 +1,1 @@
+{"verdict": "PASS complete model satisfies every clause", "variables": 908444, "clauses": 3038765, "cnf_sha256": "570b102d55fbaced43e0dcba8438da13d755096cc841775940ba8a49c7a1c097", "model_sha256": "1a08c935f7726af79bb4897bb790f082304f2490710b997f20b56c70ae33905b"}

@@ -1,0 +1,16 @@
+{
+  "counts": {
+    "or_dirty": 12861,
+    "and_clean": 74232,
+    "and_dirty": 4971,
+    "or_clean": 401084
+  },
+  "new_counts": {
+    "and_clean": 72512,
+    "or_dirty": 10907,
+    "and_dirty": 4135,
+    "or_clean": 398351
+  },
+  "seconds": 8.409061381000356,
+  "new_normalized_and": 76647
+}

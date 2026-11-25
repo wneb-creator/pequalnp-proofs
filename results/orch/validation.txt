@@ -197,3 +197,8 @@ TIMING total=237.54 subagents=6
 2026-11-25T18:20:26.018015+00:00: SumPlaneReadOne2056.lean compiled at18:19:48.837 UTC in97.09 seconds,2019 lines,SHA256 c7225eb37c0b218f063959cb7d92bc437d3ad4caa29fda1833f1ac543d29d7b9. It directly instantiates the generic read-one bound for the exact Nat-sum incidence function: IsAO2 26 C, full correctness, and IsReadK 26 C 1 imply64≤C.size. This closes the sum/difference labeling bridge. It does not prove an unrestricted64-gate lower bound or the posted63-gate existence statement. Full stdout/stderr/command metadata are preserved.
 Sub-agents: circuit_search, gate_elimination, not_elimination, proof_route, status_review, toolchain_setup
 TIMING total=245.28 subagents=6
+
+CHECKPOINT 2026-11-25T18:48:29.106960+00:00
+Existing L_meta_1898 theorem exact scope independently confirms≥13 actual AND gates, no ReadK/size condition; local rebuild pending. This rules out the twelve-AND search, stopped without solver UNSAT. Current posted target remains unproved, no accepted target checker and no PR. SumPlaneReadOne2056 compiled partial was successfully published at2dcffd2e6f9e339e9ca81f51d7f4cac22dad3b11 after a permitted expected-SHA-fenced authentication recovery; full records in auth-recovery-037.
+Sub-agents: circuit_search, gate_elimination, not_elimination, proof_route, status_review, toolchain_setup
+TIMING total=273.34 subagents=6

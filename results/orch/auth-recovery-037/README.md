@@ -1,0 +1,5 @@
+The initial publication of the compiled sum-incidence Read1 partial failed with Git authentication text. The shared helper declined to retry that unfenced write. Its permitted safe-read retry ladder recovered on the third retry and confirmed the previous remote SHA. The same fixed commit was then pushed successfully once with an explicit expected-old-SHA guard, using the same origin and credentials, as permitted by the job retry rule. No HTTP status was exposed by Git. Complete individual command stdout/stderr is preserved here.
+
+The four native searches were reversibly paused while publication was uncertain and resumed on the same processes after success and a fresh lease renewal. These snapshots and the authentication interruption are not solver verdicts.
+
+The exact credential-free read and fenced-write argument arrays are recorded in manifest.json, reconstructed from the executed root tool-call transcript after completion. They are not a separate operating-system argv trace. The command outputs were captured at execution. File-recorded completion times are18:23:36.977 UTC for the successful read and18:24:10.386 UTC for the successful guarded push.

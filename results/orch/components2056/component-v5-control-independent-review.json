@@ -1,0 +1,14 @@
+{
+  "scope": "Matching positive control, not a target63 witness",
+  "clauses_checked": 3038765,
+  "variables": 908444,
+  "selected_noninputs": 64,
+  "decoded_gates": 64,
+  "rows": 756,
+  "reachability_checked": true,
+  "library_sha256": "e731fe5e465ae28ba320dd3a562a7f7a2b0998076caec6d74d517e8926ec89dd",
+  "model_sha256": "65ef86585846650765a80855d6623f4fb43289456af29937e4466590ca51c781",
+  "cnf_sha256": "570b102d55fbaced43e0dcba8438da13d755096cc841775940ba8a49c7a1c097",
+  "independent_sum_geometry_regenerated": true,
+  "decoded_profile_order_matches_library_productions": true
+}

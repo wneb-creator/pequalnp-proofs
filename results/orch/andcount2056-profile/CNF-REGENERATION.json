@@ -1,0 +1,73 @@
+{
+  "created_utc": "2026-11-25T18:25:31.428263+00:00",
+  "entries": [
+    {
+      "prefix": "profile-target16-nested",
+      "source_sha256": "dd56f6421182cbbd2c3f19e335711b2e59eab4f785be78ad7b523f133864c6fb",
+      "cnf_sha256": "804e29af2b88774016f3d2b27a9cb32413d693d5a598713c612ff7b41e2aa3d8",
+      "cnf_bytes": 28592667,
+      "variables": 309920,
+      "clauses": 1424676,
+      "regenerate_argv_from_this_directory": [
+        "python3",
+        "andcount_budget_profile2056.py",
+        "--ands",
+        "16",
+        "--ordinary-limit",
+        "63",
+        "--warm-model",
+        "andbudget-nested63-model.json",
+        "--prefix",
+        "REGEN/profile-target16-nested",
+        "--emit-only"
+      ],
+      "status": "CNF emitted; solver not run"
+    },
+    {
+      "prefix": "profile-native16-free464",
+      "source_sha256": "dd56f6421182cbbd2c3f19e335711b2e59eab4f785be78ad7b523f133864c6fb",
+      "cnf_sha256": "ec3868a277b987925cec42f73cc76ed689992f7516675fff609040e04a2f1974",
+      "cnf_bytes": 28671106,
+      "variables": 311024,
+      "clauses": 1429862,
+      "regenerate_argv_from_this_directory": [
+        "python3",
+        "andcount_budget_profile2056.py",
+        "--ands",
+        "16",
+        "--ordinary-limit",
+        "64",
+        "--fixed-star-prefix",
+        "12",
+        "--fix-output",
+        "--prefix",
+        "REGEN/profile-native16-free464",
+        "--emit-only"
+      ],
+      "status": "SAT; complete boundary passed; Lean verification required"
+    },
+    {
+      "prefix": "profile-native16-invalid63",
+      "source_sha256": "dd56f6421182cbbd2c3f19e335711b2e59eab4f785be78ad7b523f133864c6fb",
+      "cnf_sha256": "5e2981a804a253abf31cc32c8fe82c2b95ccee69d029d457d66149b010338a3b",
+      "cnf_bytes": 28576876,
+      "variables": 309920,
+      "clauses": 1425764,
+      "regenerate_argv_from_this_directory": [
+        "python3",
+        "andcount_budget_profile2056.py",
+        "--ands",
+        "16",
+        "--ordinary-limit",
+        "63",
+        "--fixed-star-prefix",
+        "16",
+        "--fix-output",
+        "--prefix",
+        "REGEN/profile-native16-invalid63",
+        "--emit-only"
+      ],
+      "status": "UNSAT; external solver only, no Lean lower bound"
+    }
+  ]
+}

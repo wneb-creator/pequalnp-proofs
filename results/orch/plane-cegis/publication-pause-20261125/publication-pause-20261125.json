@@ -1,0 +1,30 @@
+{
+  "utc": "2026-11-25T18:23:50.483961+00:00",
+  "reason": "Parent publication authentication block; reversible pause",
+  "processes": [
+    {
+      "name": "warm-first-near63-full-run",
+      "role": "solver_pid",
+      "pid": 34382,
+      "action": "SIGSTOP"
+    },
+    {
+      "name": "warm-first-near63-full-run",
+      "role": "wrapper_pid",
+      "pid": 34284,
+      "action": "SIGSTOP"
+    },
+    {
+      "name": "warm-nonread-control67-free3",
+      "role": "solver_pid",
+      "pid": 35744,
+      "action": "already exited"
+    },
+    {
+      "name": "warm-nonread-control67-free3",
+      "role": "wrapper_pid",
+      "pid": 35692,
+      "action": "already exited"
+    }
+  ]
+}

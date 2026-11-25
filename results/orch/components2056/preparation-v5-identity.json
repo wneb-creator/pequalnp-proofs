@@ -1,0 +1,147 @@
+{
+  "scope": "Frozen V4/V5 preparation identities; no target-query verdict claimed",
+  "sources": {
+    "encode_reachable.py": {
+      "path": "results/orch/components2056/encode_reachable.py",
+      "sha256": "d26d36eb0bbb77b5ad8da3ab5cec839184dd2836d86c89cbd92729afe8f159e6",
+      "bytes": 5600
+    },
+    "decode.py": {
+      "path": "results/orch/components2056/decode.py",
+      "sha256": "6ee4ef6ab6ab6ccd45aa1bba975be6c8c18225074ed0c5a347c7c319bf03307c",
+      "bytes": 3195
+    },
+    "run_sat_reachable.py": {
+      "path": "results/orch/components2056/run_sat_reachable.py",
+      "sha256": "05e6f654a46d8ed91b41f9d557a7da58fd0b8c1819be346d41938f706409ccf4",
+      "bytes": 2338
+    },
+    "extend_shared.py": {
+      "path": "results/orch/components2056/extend_shared.py",
+      "sha256": "317b9d52c3f3473d028c49978ee5f9d81793e4c31d931b83db49ef3ea4f6ece5",
+      "bytes": 1177
+    },
+    "build_expanded.py": {
+      "path": "results/orch/components2056/build_expanded.py",
+      "sha256": "2e6b0ef45e06aa50c49a4fe10a88432defc8bec6d4d93e32678dc15d7e357e6b",
+      "bytes": 3377
+    },
+    "shared-dirty-closure-census.json": {
+      "path": "results/orch/components2056/shared-dirty-closure-census.json",
+      "sha256": "f7cd1a15ccbf9546f3cb9254615578945cb233498cb53b01eaeb47bc8140b422",
+      "bytes": 18642
+    },
+    "v4-library.json": {
+      "path": "results/orch/components2056/v4-library.json",
+      "sha256": "0fe46d741695adb40d0c3b7b024d07c6b12ed08a0d9ab921c08565e0f9fd6a7d",
+      "bytes": 3346775
+    },
+    "v5-library.json": {
+      "path": "results/orch/components2056/v5-library.json",
+      "sha256": "e731fe5e465ae28ba320dd3a562a7f7a2b0998076caec6d74d517e8926ec89dd",
+      "bytes": 3726275
+    }
+  },
+  "omitted_raw_cnfs": {
+    "v4-control64.cnf": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v4-control64.cnf",
+      "sha256": "b2e6d74796faea0c2f07bec65f97fd129d5f5e04a461eb852ba28dbe3cace08e",
+      "bytes": 56542023
+    },
+    "v4-control63.cnf": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v4-control63.cnf",
+      "sha256": "65b18e49082f6e002379458e15b159adeab3fc1862cb2bf4105e64bd642a0616",
+      "bytes": 51859176
+    },
+    "v4-cycle63.cnf": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v4-cycle63.cnf",
+      "sha256": "e1f1ca221d5e7411b0e7900e8202cd7990aa6fb3d100371011dc0b855284e22f",
+      "bytes": 748
+    },
+    "v5-control64.cnf": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v5-control64.cnf",
+      "sha256": "570b102d55fbaced43e0dcba8438da13d755096cc841775940ba8a49c7a1c097",
+      "bytes": 62399574
+    },
+    "v5-target63.cnf": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v5-target63.cnf",
+      "sha256": "7236084a40c0266039b696a65c2984d93d27736ba5ef6e05d1a0050e0bd72594",
+      "bytes": 55500371
+    }
+  },
+  "regenerate_commands": [
+    {
+      "workdir": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "results/orch/components2056/encode_reachable.py",
+        "--library",
+        "results/orch/components2056/v4-library.json",
+        "--bound",
+        "64",
+        "--prefix",
+        "/tmp/oec/pequalnp-pilot-121/components2056/v4-control64",
+        "--pin-baseline"
+      ],
+      "note": "CNF deterministic; elapsed generation seconds varies"
+    },
+    {
+      "workdir": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "results/orch/components2056/encode_reachable.py",
+        "--library",
+        "results/orch/components2056/v4-library.json",
+        "--bound",
+        "63",
+        "--prefix",
+        "/tmp/oec/pequalnp-pilot-121/components2056/v4-control63",
+        "--pin-baseline"
+      ],
+      "note": "CNF deterministic; elapsed generation seconds varies"
+    },
+    {
+      "workdir": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "results/orch/components2056/encode_reachable.py",
+        "--library",
+        "results/orch/components2056/cyclic-control-library.json",
+        "--bound",
+        "63",
+        "--prefix",
+        "/tmp/oec/pequalnp-pilot-121/components2056/v4-cycle63"
+      ],
+      "note": "CNF deterministic; elapsed generation seconds varies"
+    },
+    {
+      "workdir": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "results/orch/components2056/encode_reachable.py",
+        "--library",
+        "results/orch/components2056/v5-library.json",
+        "--bound",
+        "64",
+        "--prefix",
+        "/tmp/oec/pequalnp-pilot-121/components2056/v5-control64",
+        "--pin-baseline"
+      ],
+      "note": "CNF deterministic; elapsed generation seconds varies"
+    },
+    {
+      "workdir": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "results/orch/components2056/encode_reachable.py",
+        "--library",
+        "results/orch/components2056/v5-library.json",
+        "--bound",
+        "63",
+        "--prefix",
+        "/tmp/oec/pequalnp-pilot-121/components2056/v5-target63"
+      ],
+      "note": "CNF deterministic; elapsed generation seconds varies"
+    }
+  ]
+}

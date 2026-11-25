@@ -1,0 +1,12 @@
+{
+  "verdict": "PASS expected64th-selection overflow identified",
+  "counter_start": 463323,
+  "baseline_noninput_count": 64,
+  "expected_overflow_clauses": [
+    [
+      -90,
+      -465339
+    ]
+  ],
+  "actual_false_clause_index": 1845804
+}

@@ -292,3 +292,43 @@ checks precede population filtering. Parent renewed at17:50:44UTC; the
 finish18:11:22.938004UTC. Source and seed pool are frozen for this phase.
 Source/validation records are complete in search2056/nested-stratified/;
 active-run logs and analyses there are explicitly labelled prefix snapshots.
+
+
+The four-stratum phase completed at18:11:23UTC and exited0 after
+1200.02seconds/265012058 proposals. Best-ever errors remained1/3/4/6,
+all false negatives. All148 retained networks were exported (7/6/7/128
+by mode), and independent replay found no error/class discrepancy. The
+retained-pool minima are1/4/4/9, distinct from the best-ever history.
+Complete logs, pools and the independent audit are now preserved in
+search2056/nested-stratified/ and were pushed in checkpoint c71da7d6.
+
+The next authorized worker is a restricted AND-structure SAT model with
+K16 records and cap63. If M counts operand/output memberships and A counts
+active records, independently constructing all operand ORs costs at most
+M−A−1; the counter enforces M+(16−A)≤80. Source0b7a5652 and nested warm
+model00bdaeb5 were independently reviewed with native64-gate controls and
+complete clause/model replay. Native start was18:12:24.026UTC with a
+3600-second limit and original observed deadline19:12:24.026UTC.
+The regenerated target CNF exactly matches c8db4692.
+
+A temporary publication block caused SIGSTOP at18:23:55.564UTC. After
+parent-confirmed recovery and lease renewal, the identical process resumed
+with SIGCONT at18:24:59.220UTC, a63.655814-second pause. No source/model,
+process identity or timeout limit changed. The paused interval snapshot
+and resume event are preserved under andcount2056/budget-run/. Live full
+logs remain in scratch; no final model or verdict exists as of18:32UTC.
+
+Two separately reviewed successors are prepared but have not had long
+target runs. The profile-only source dd56f642 requires nonzero positive profiles
+for active records and direct edge ANDs for singleton profiles. The
+normalization argument preserves positive behavior while decreasing
+negative behavior and membership cost. The weaker-prefix source1acc9485
+adds active-prefix/output-active/first-left0 constraints, justified by
+compaction, dropping inactive references and an incidence-preserving
+input permutation. It has
+no right13 or disjointness condition. The stronger split-edge anchor was
+withdrawn because overlapping operands can accept an edge through one
+shared endpoint. The normalizer and actual transformed controls were
+independently checked. Sources, complete controls/logs and exact CNF
+regeneration metadata are in andcount2056-profile/ and andcount2056-prefix/.
+No63-gate witness or full refutation has been established.

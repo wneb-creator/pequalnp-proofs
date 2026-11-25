@@ -1,0 +1,21 @@
+{
+  "name": "v5-nonread-target63",
+  "command": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-121/components2056/add_nonread.py",
+    "--cnf",
+    "/tmp/oec/pequalnp-pilot-121/components2056/v5-target63.cnf",
+    "--mapping",
+    "/tmp/oec/pequalnp-pilot-121/components2056/v5-target63.mapping.json",
+    "--library",
+    "/tmp/oec/pequalnp-pilot-121/components2056/v5-library.json",
+    "--data",
+    "/workspace/pequalnp-proofs/results/orch/patch2056/full-variable-data.json",
+    "--prefix",
+    "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63"
+  ],
+  "started_utc": "2026-11-25T18:34:42.915491+00:00",
+  "ended_utc": "2026-11-25T18:34:50.949420+00:00",
+  "seconds": 8.033961368000746,
+  "returncode": 0
+}

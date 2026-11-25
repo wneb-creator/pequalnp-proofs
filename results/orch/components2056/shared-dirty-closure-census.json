@@ -1,0 +1,1462 @@
+{
+  "scope": "Diagnostic finite production alternatives only; active V3 frozen",
+  "shared_profile_count": 622,
+  "top32": [
+    {
+      "profile": 2059,
+      "shared_circuits": 8,
+      "nested_source_circuits": 3,
+      "and_candidate_sources": 90,
+      "or_candidate_sources": 4,
+      "novel_and_productions": 9,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 3391,
+      "shared_circuits": 3,
+      "nested_source_circuits": 3,
+      "and_candidate_sources": 44,
+      "or_candidate_sources": 16,
+      "novel_and_productions": 0,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 3355,
+      "shared_circuits": 7,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 43,
+      "or_candidate_sources": 16,
+      "novel_and_productions": 2,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 1944,
+      "shared_circuits": 4,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 81,
+      "or_candidate_sources": 4,
+      "novel_and_productions": 6,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 2289,
+      "shared_circuits": 4,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 92,
+      "or_candidate_sources": 5,
+      "novel_and_productions": 12,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 2507,
+      "shared_circuits": 4,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 81,
+      "or_candidate_sources": 5,
+      "novel_and_productions": 8,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 1708,
+      "shared_circuits": 3,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 95,
+      "or_candidate_sources": 4,
+      "novel_and_productions": 10,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 1826,
+      "shared_circuits": 3,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 92,
+      "or_candidate_sources": 5,
+      "novel_and_productions": 9,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 2177,
+      "shared_circuits": 3,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 83,
+      "or_candidate_sources": 5,
+      "novel_and_productions": 9,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 2398,
+      "shared_circuits": 3,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 93,
+      "or_candidate_sources": 4,
+      "novel_and_productions": 10,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 2616,
+      "shared_circuits": 3,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 89,
+      "or_candidate_sources": 4,
+      "novel_and_productions": 9,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 2725,
+      "shared_circuits": 3,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 92,
+      "or_candidate_sources": 4,
+      "novel_and_productions": 6,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 2834,
+      "shared_circuits": 3,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 92,
+      "or_candidate_sources": 5,
+      "novel_and_productions": 10,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 2943,
+      "shared_circuits": 3,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 82,
+      "or_candidate_sources": 3,
+      "novel_and_productions": 8,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 3052,
+      "shared_circuits": 3,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 93,
+      "or_candidate_sources": 5,
+      "novel_and_productions": 10,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 3227,
+      "shared_circuits": 3,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 52,
+      "or_candidate_sources": 10,
+      "novel_and_productions": 8,
+      "novel_or_productions": 1
+    },
+    {
+      "profile": 3442,
+      "shared_circuits": 3,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 58,
+      "or_candidate_sources": 10,
+      "novel_and_productions": 13,
+      "novel_or_productions": 1
+    },
+    {
+      "profile": 3457,
+      "shared_circuits": 3,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 37,
+      "or_candidate_sources": 17,
+      "novel_and_productions": 2,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 3487,
+      "shared_circuits": 3,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 41,
+      "or_candidate_sources": 16,
+      "novel_and_productions": 0,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 3504,
+      "shared_circuits": 3,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 64,
+      "or_candidate_sources": 10,
+      "novel_and_productions": 8,
+      "novel_or_productions": 1
+    },
+    {
+      "profile": 3158,
+      "shared_circuits": 2,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 64,
+      "or_candidate_sources": 10,
+      "novel_and_productions": 8,
+      "novel_or_productions": 1
+    },
+    {
+      "profile": 3165,
+      "shared_circuits": 2,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 68,
+      "or_candidate_sources": 8,
+      "novel_and_productions": 1,
+      "novel_or_productions": 1
+    },
+    {
+      "profile": 3172,
+      "shared_circuits": 2,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 41,
+      "or_candidate_sources": 16,
+      "novel_and_productions": 0,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 3191,
+      "shared_circuits": 2,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 64,
+      "or_candidate_sources": 11,
+      "novel_and_productions": 7,
+      "novel_or_productions": 1
+    },
+    {
+      "profile": 3198,
+      "shared_circuits": 2,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 65,
+      "or_candidate_sources": 9,
+      "novel_and_productions": 1,
+      "novel_or_productions": 1
+    },
+    {
+      "profile": 3205,
+      "shared_circuits": 2,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 42,
+      "or_candidate_sources": 17,
+      "novel_and_productions": 0,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 3234,
+      "shared_circuits": 2,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 63,
+      "or_candidate_sources": 8,
+      "novel_and_productions": 1,
+      "novel_or_productions": 1
+    },
+    {
+      "profile": 3242,
+      "shared_circuits": 2,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 36,
+      "or_candidate_sources": 17,
+      "novel_and_productions": 2,
+      "novel_or_productions": 1
+    },
+    {
+      "profile": 3263,
+      "shared_circuits": 2,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 59,
+      "or_candidate_sources": 10,
+      "novel_and_productions": 4,
+      "novel_or_productions": 1
+    },
+    {
+      "profile": 3270,
+      "shared_circuits": 2,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 66,
+      "or_candidate_sources": 8,
+      "novel_and_productions": 3,
+      "novel_or_productions": 1
+    },
+    {
+      "profile": 3277,
+      "shared_circuits": 2,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 41,
+      "or_candidate_sources": 16,
+      "novel_and_productions": 0,
+      "novel_or_productions": 0
+    },
+    {
+      "profile": 3298,
+      "shared_circuits": 2,
+      "nested_source_circuits": 2,
+      "and_candidate_sources": 54,
+      "or_candidate_sources": 10,
+      "novel_and_productions": 6,
+      "novel_or_productions": 1
+    }
+  ],
+  "novel_productions": [
+    [
+      2059,
+      0,
+      142,
+      1015
+    ],
+    [
+      2059,
+      0,
+      142,
+      3263
+    ],
+    [
+      2059,
+      0,
+      298,
+      3270
+    ],
+    [
+      2059,
+      0,
+      298,
+      5233
+    ],
+    [
+      2059,
+      0,
+      1015,
+      3270
+    ],
+    [
+      2059,
+      0,
+      1015,
+      5233
+    ],
+    [
+      2059,
+      0,
+      3263,
+      3270
+    ],
+    [
+      2059,
+      0,
+      3263,
+      5233
+    ],
+    [
+      2059,
+      0,
+      3270,
+      3668
+    ],
+    [
+      3355,
+      0,
+      432,
+      4441
+    ],
+    [
+      3355,
+      0,
+      432,
+      4573
+    ],
+    [
+      1944,
+      0,
+      30,
+      1104
+    ],
+    [
+      1944,
+      0,
+      30,
+      3227
+    ],
+    [
+      1944,
+      0,
+      230,
+      3234
+    ],
+    [
+      1944,
+      0,
+      1104,
+      3234
+    ],
+    [
+      1944,
+      0,
+      3227,
+      3234
+    ],
+    [
+      1944,
+      0,
+      3234,
+      4703
+    ],
+    [
+      2289,
+      0,
+      42,
+      1304
+    ],
+    [
+      2289,
+      0,
+      42,
+      3337
+    ],
+    [
+      2289,
+      0,
+      431,
+      3344
+    ],
+    [
+      2289,
+      0,
+      431,
+      4440
+    ],
+    [
+      2289,
+      0,
+      1304,
+      3344
+    ],
+    [
+      2289,
+      0,
+      1304,
+      4440
+    ],
+    [
+      2289,
+      0,
+      3337,
+      3344
+    ],
+    [
+      2289,
+      0,
+      3337,
+      4440
+    ],
+    [
+      2289,
+      0,
+      3344,
+      4060
+    ],
+    [
+      2289,
+      0,
+      3344,
+      4597
+    ],
+    [
+      2289,
+      0,
+      3344,
+      4688
+    ],
+    [
+      2289,
+      0,
+      3344,
+      4804
+    ],
+    [
+      2507,
+      0,
+      34,
+      1145
+    ],
+    [
+      2507,
+      0,
+      34,
+      3409
+    ],
+    [
+      2507,
+      0,
+      554,
+      3416
+    ],
+    [
+      2507,
+      0,
+      1145,
+      3416
+    ],
+    [
+      2507,
+      0,
+      3409,
+      3416
+    ],
+    [
+      2507,
+      0,
+      3416,
+      4685
+    ],
+    [
+      2507,
+      0,
+      3416,
+      4819
+    ],
+    [
+      2507,
+      0,
+      3416,
+      4876
+    ],
+    [
+      1708,
+      0,
+      26,
+      950
+    ],
+    [
+      1708,
+      0,
+      26,
+      3158
+    ],
+    [
+      1708,
+      0,
+      115,
+      3165
+    ],
+    [
+      1708,
+      0,
+      950,
+      3165
+    ],
+    [
+      1708,
+      0,
+      3158,
+      3165
+    ],
+    [
+      1708,
+      0,
+      3165,
+      3672
+    ],
+    [
+      1708,
+      0,
+      3165,
+      3765
+    ],
+    [
+      1708,
+      0,
+      3165,
+      4758
+    ],
+    [
+      1708,
+      0,
+      3165,
+      4761
+    ],
+    [
+      1708,
+      0,
+      3165,
+      4874
+    ],
+    [
+      1826,
+      0,
+      26,
+      995
+    ],
+    [
+      1826,
+      0,
+      26,
+      3191
+    ],
+    [
+      1826,
+      0,
+      168,
+      3198
+    ],
+    [
+      1826,
+      0,
+      995,
+      3198
+    ],
+    [
+      1826,
+      0,
+      3191,
+      3198
+    ],
+    [
+      1826,
+      0,
+      3198,
+      3718
+    ],
+    [
+      1826,
+      0,
+      3198,
+      4832
+    ],
+    [
+      1826,
+      0,
+      3198,
+      4878
+    ],
+    [
+      1826,
+      0,
+      3198,
+      4924
+    ],
+    [
+      2177,
+      0,
+      46,
+      1385
+    ],
+    [
+      2177,
+      0,
+      46,
+      3298
+    ],
+    [
+      2177,
+      0,
+      364,
+      3305
+    ],
+    [
+      2177,
+      0,
+      364,
+      4674
+    ],
+    [
+      2177,
+      0,
+      1385,
+      3305
+    ],
+    [
+      2177,
+      0,
+      1385,
+      4674
+    ],
+    [
+      2177,
+      0,
+      3298,
+      3305
+    ],
+    [
+      2177,
+      0,
+      3298,
+      4674
+    ],
+    [
+      2177,
+      0,
+      3305,
+      3668
+    ],
+    [
+      2398,
+      0,
+      38,
+      1223
+    ],
+    [
+      2398,
+      0,
+      38,
+      3374
+    ],
+    [
+      2398,
+      0,
+      38,
+      4721
+    ],
+    [
+      2398,
+      0,
+      495,
+      3381
+    ],
+    [
+      2398,
+      0,
+      1223,
+      3381
+    ],
+    [
+      2398,
+      0,
+      3374,
+      3381
+    ],
+    [
+      2398,
+      0,
+      3381,
+      3718
+    ],
+    [
+      2398,
+      0,
+      3381,
+      4721
+    ],
+    [
+      2398,
+      0,
+      3381,
+      4832
+    ],
+    [
+      2398,
+      0,
+      3381,
+      4878
+    ],
+    [
+      2616,
+      0,
+      204,
+      1071
+    ],
+    [
+      2616,
+      0,
+      204,
+      3442
+    ],
+    [
+      2616,
+      0,
+      204,
+      4770
+    ],
+    [
+      2616,
+      0,
+      607,
+      3449
+    ],
+    [
+      2616,
+      0,
+      1071,
+      3449
+    ],
+    [
+      2616,
+      0,
+      3442,
+      3449
+    ],
+    [
+      2616,
+      0,
+      3449,
+      4632
+    ],
+    [
+      2616,
+      0,
+      3449,
+      4750
+    ],
+    [
+      2616,
+      0,
+      3449,
+      4770
+    ],
+    [
+      2725,
+      0,
+      656,
+      3480
+    ],
+    [
+      2725,
+      0,
+      965,
+      1704
+    ],
+    [
+      2725,
+      0,
+      965,
+      3480
+    ],
+    [
+      2725,
+      0,
+      1704,
+      3473
+    ],
+    [
+      2725,
+      0,
+      3473,
+      3480
+    ],
+    [
+      2725,
+      0,
+      3480,
+      3866
+    ],
+    [
+      2834,
+      0,
+      473,
+      1207
+    ],
+    [
+      2834,
+      0,
+      473,
+      3504
+    ],
+    [
+      2834,
+      0,
+      706,
+      3511
+    ],
+    [
+      2834,
+      0,
+      1207,
+      3511
+    ],
+    [
+      2834,
+      0,
+      3504,
+      3511
+    ],
+    [
+      2834,
+      0,
+      3511,
+      4413
+    ],
+    [
+      2834,
+      0,
+      3511,
+      4632
+    ],
+    [
+      2834,
+      0,
+      3511,
+      4667
+    ],
+    [
+      2834,
+      0,
+      3511,
+      4750
+    ],
+    [
+      2834,
+      0,
+      3511,
+      4838
+    ],
+    [
+      2943,
+      0,
+      534,
+      1131
+    ],
+    [
+      2943,
+      0,
+      534,
+      3537
+    ],
+    [
+      2943,
+      0,
+      534,
+      4676
+    ],
+    [
+      2943,
+      0,
+      757,
+      3544
+    ],
+    [
+      2943,
+      0,
+      1131,
+      3544
+    ],
+    [
+      2943,
+      0,
+      3537,
+      3544
+    ],
+    [
+      2943,
+      0,
+      3544,
+      4676
+    ],
+    [
+      2943,
+      0,
+      3544,
+      4679
+    ],
+    [
+      3052,
+      0,
+      805,
+      3575
+    ],
+    [
+      3052,
+      0,
+      1059,
+      1734
+    ],
+    [
+      3052,
+      0,
+      1059,
+      3575
+    ],
+    [
+      3052,
+      0,
+      1734,
+      3568
+    ],
+    [
+      3052,
+      0,
+      3568,
+      3575
+    ],
+    [
+      3052,
+      0,
+      3568,
+      4988
+    ],
+    [
+      3052,
+      0,
+      3575,
+      3936
+    ],
+    [
+      3052,
+      0,
+      3575,
+      4476
+    ],
+    [
+      3052,
+      0,
+      3575,
+      4572
+    ],
+    [
+      3052,
+      0,
+      3575,
+      4642
+    ],
+    [
+      3227,
+      0,
+      31,
+      1104
+    ],
+    [
+      3227,
+      0,
+      230,
+      3242
+    ],
+    [
+      3227,
+      0,
+      230,
+      4362
+    ],
+    [
+      3227,
+      0,
+      230,
+      4363
+    ],
+    [
+      3227,
+      0,
+      1104,
+      3242
+    ],
+    [
+      3227,
+      0,
+      1104,
+      4362
+    ],
+    [
+      3227,
+      0,
+      1104,
+      4363
+    ],
+    [
+      3227,
+      0,
+      3242,
+      4703
+    ],
+    [
+      3227,
+      1,
+      1944,
+      1947
+    ],
+    [
+      3442,
+      0,
+      31,
+      1071
+    ],
+    [
+      3442,
+      0,
+      31,
+      4770
+    ],
+    [
+      3442,
+      0,
+      607,
+      3457
+    ],
+    [
+      3442,
+      0,
+      607,
+      4362
+    ],
+    [
+      3442,
+      0,
+      607,
+      4363
+    ],
+    [
+      3442,
+      0,
+      1071,
+      3457
+    ],
+    [
+      3442,
+      0,
+      1071,
+      4362
+    ],
+    [
+      3442,
+      0,
+      1071,
+      4363
+    ],
+    [
+      3442,
+      0,
+      3457,
+      4632
+    ],
+    [
+      3442,
+      0,
+      3457,
+      4750
+    ],
+    [
+      3442,
+      0,
+      3457,
+      4770
+    ],
+    [
+      3442,
+      0,
+      4362,
+      4770
+    ],
+    [
+      3442,
+      0,
+      4363,
+      4770
+    ],
+    [
+      3442,
+      1,
+      2616,
+      2619
+    ],
+    [
+      3457,
+      0,
+      608,
+      4362
+    ],
+    [
+      3457,
+      0,
+      608,
+      4363
+    ],
+    [
+      3504,
+      0,
+      39,
+      1207
+    ],
+    [
+      3504,
+      0,
+      706,
+      3521
+    ],
+    [
+      3504,
+      0,
+      1207,
+      3521
+    ],
+    [
+      3504,
+      0,
+      3521,
+      4413
+    ],
+    [
+      3504,
+      0,
+      3521,
+      4632
+    ],
+    [
+      3504,
+      0,
+      3521,
+      4667
+    ],
+    [
+      3504,
+      0,
+      3521,
+      4750
+    ],
+    [
+      3504,
+      0,
+      3521,
+      4838
+    ],
+    [
+      3504,
+      1,
+      2834,
+      2837
+    ],
+    [
+      3158,
+      0,
+      27,
+      950
+    ],
+    [
+      3158,
+      0,
+      115,
+      3172
+    ],
+    [
+      3158,
+      0,
+      950,
+      3172
+    ],
+    [
+      3158,
+      0,
+      3172,
+      3672
+    ],
+    [
+      3158,
+      0,
+      3172,
+      3765
+    ],
+    [
+      3158,
+      0,
+      3172,
+      4758
+    ],
+    [
+      3158,
+      0,
+      3172,
+      4761
+    ],
+    [
+      3158,
+      0,
+      3172,
+      4874
+    ],
+    [
+      3158,
+      1,
+      1708,
+      1711
+    ],
+    [
+      3165,
+      0,
+      26,
+      3172
+    ],
+    [
+      3165,
+      1,
+      1708,
+      1717
+    ],
+    [
+      3191,
+      0,
+      27,
+      995
+    ],
+    [
+      3191,
+      0,
+      168,
+      3205
+    ],
+    [
+      3191,
+      0,
+      995,
+      3205
+    ],
+    [
+      3191,
+      0,
+      3205,
+      3718
+    ],
+    [
+      3191,
+      0,
+      3205,
+      4832
+    ],
+    [
+      3191,
+      0,
+      3205,
+      4878
+    ],
+    [
+      3191,
+      0,
+      3205,
+      4924
+    ],
+    [
+      3191,
+      1,
+      1826,
+      1829
+    ],
+    [
+      3198,
+      0,
+      26,
+      3205
+    ],
+    [
+      3198,
+      1,
+      1826,
+      1835
+    ],
+    [
+      3234,
+      0,
+      30,
+      3242
+    ],
+    [
+      3234,
+      1,
+      1944,
+      1953
+    ],
+    [
+      3242,
+      0,
+      231,
+      4362
+    ],
+    [
+      3242,
+      0,
+      231,
+      4363
+    ],
+    [
+      3242,
+      1,
+      3234,
+      4986
+    ],
+    [
+      3263,
+      0,
+      27,
+      1015
+    ],
+    [
+      3263,
+      0,
+      298,
+      3277
+    ],
+    [
+      3263,
+      0,
+      1015,
+      3277
+    ],
+    [
+      3263,
+      0,
+      3277,
+      3668
+    ],
+    [
+      3263,
+      1,
+      2059,
+      2062
+    ],
+    [
+      3270,
+      0,
+      142,
+      3277
+    ],
+    [
+      3270,
+      0,
+      299,
+      5233
+    ],
+    [
+      3270,
+      0,
+      3277,
+      5233
+    ],
+    [
+      3270,
+      1,
+      2059,
+      2068
+    ],
+    [
+      3298,
+      0,
+      47,
+      1385
+    ],
+    [
+      3298,
+      0,
+      364,
+      3317
+    ],
+    [
+      3298,
+      0,
+      364,
+      4865
+    ],
+    [
+      3298,
+      0,
+      1385,
+      3317
+    ],
+    [
+      3298,
+      0,
+      1385,
+      4865
+    ],
+    [
+      3298,
+      0,
+      3317,
+      3668
+    ],
+    [
+      3298,
+      1,
+      2177,
+      2180
+    ]
+  ],
+  "total_novel": 194,
+  "seconds": 0.21933351900042908
+}

@@ -1,0 +1,23 @@
+{
+  "utc": "2026-11-25T18:27:10.804277+00:00",
+  "source_sha256": "1acc9485a918f97b95ec05d1188dadd1a3888243f630218bd6ba3ac2e3e6cea2",
+  "and_bound": 16,
+  "rows": 756,
+  "variables": 309920,
+  "clauses": 1424708,
+  "fixed_star_prefix": 0,
+  "ordinary_limit": 63,
+  "positive_profile_normalization": "active nonzero; singleton direct edge",
+  "and_record_symmetry": "active prefix; output active; first left contains primary0",
+  "warm_model_path": "/tmp/oec/pequalnp-pilot-121/not-elimination/andbudget-prefix-nested63-model.json",
+  "warm_model_sha256": "00bdaeb50a4f21f2cfe1f1ca12830f505d258dfa0f48be22d598744f45a42720",
+  "membership_threshold": 80,
+  "warm_budget_lhs": 80,
+  "fix_output": false,
+  "seconds_limit": 10,
+  "warm_boundary_errors": 6,
+  "conversion_seconds": 10.181142364999687,
+  "scope": "Restricted AND-structure synthesis with independent operand-OR cost budget; not an exhaustive total-gate lower-bound model",
+  "Lean_verified": false,
+  "status": "CNF emitted; solver not run"
+}

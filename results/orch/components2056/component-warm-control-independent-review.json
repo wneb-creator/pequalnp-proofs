@@ -1,0 +1,13 @@
+{
+  "source_scope": "Independent exact clause-by-clause sign-renaming and baseline replay; no added constraints",
+  "bound": 64,
+  "variables": 908444,
+  "clauses": 3038765,
+  "original_sha256": "570b102d55fbaced43e0dcba8438da13d755096cc841775940ba8a49c7a1c097",
+  "warm_sha256": "0043f74e6908c539d028b14c8cc978bb74049e7acaa3074cbca3ebfb597d65df",
+  "phase_failures": [],
+  "model_checked_both_signs": true,
+  "unrenamed_model_matches_inverse": true,
+  "decoded_size": 64,
+  "regenerated_rows_checked": 756
+}

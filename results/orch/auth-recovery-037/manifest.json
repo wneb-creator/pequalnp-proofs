@@ -1,0 +1,101 @@
+{
+  "scope": "Transient publication authentication failure and authorized expected-old-SHA recovery; no credential or remote change.",
+  "failed_commit": "2dcffd2e6f9e339e9ca81f51d7f4cac22dad3b11",
+  "expected_old_sha": "c71da7d652990d4eef7c1e942ddfbf7c677368a6",
+  "initial_write_exit": 128,
+  "initial_write_retried": false,
+  "git_error_class": "AUTH-TEXT; no HTTP status captured",
+  "safe_read_attempts": 4,
+  "safe_read_retries": 3,
+  "safe_read_result": "success, remote still at expected old SHA",
+  "fenced_write_attempts": 1,
+  "fenced_write_exit": 0,
+  "native_workers": "All four paused briefly using SIGSTOP, then resumed the same PIDs with SIGCONT; no query/source changes or solver restarts.",
+  "files": [
+    {
+      "path": "auth-read-038-02.stderr",
+      "bytes": 184,
+      "sha256": "4b334710ef34249f7a707e10ce0302c666a6caa22861e8882c7a93c85d63e7d8"
+    },
+    {
+      "path": "push-037-fenced-01.stderr",
+      "bytes": 136,
+      "sha256": "a3d95bb7a5b45a8b729e3807b216d74248b73de71db3e9bb0d5e9296afd5f972"
+    },
+    {
+      "path": "auth-read-038-01.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "auth-read-038-04.stdout",
+      "bytes": 66,
+      "sha256": "edcf4bd6aff1b0fc1b1a20d3283dcb1215aa6f729502c8ee120fb6fa7d15446f"
+    },
+    {
+      "path": "auth-read-038-01.stderr",
+      "bytes": 184,
+      "sha256": "4b334710ef34249f7a707e10ce0302c666a6caa22861e8882c7a93c85d63e7d8"
+    },
+    {
+      "path": "auth-read-038-03.stderr",
+      "bytes": 184,
+      "sha256": "4b334710ef34249f7a707e10ce0302c666a6caa22861e8882c7a93c85d63e7d8"
+    },
+    {
+      "path": "auth-read-038-04.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "push-037-fenced-01.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "push-037.stderr",
+      "bytes": 184,
+      "sha256": "4b334710ef34249f7a707e10ce0302c666a6caa22861e8882c7a93c85d63e7d8"
+    },
+    {
+      "path": "auth-read-038-03.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "push-037.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "auth-read-038-02.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "safe_read_invocation": [
+    "git",
+    "ls-remote",
+    "origin",
+    "refs/heads/pnp/pilot-121"
+  ],
+  "safe_read_helper_mode": {
+    "safe": true,
+    "retry_limit": 3
+  },
+  "fenced_write_invocation": [
+    "git",
+    "push",
+    "--force-with-lease=refs/heads/pnp/pilot-121:c71da7d652990d4eef7c1e942ddfbf7c677368a6",
+    "origin",
+    "2dcffd2e6f9e339e9ca81f51d7f4cac22dad3b11:refs/heads/pnp/pilot-121"
+  ],
+  "fenced_write_helper_mode": {
+    "safe": true,
+    "justification": "Fixed commit, expected-old-SHA guard, and local ancestor check before execution."
+  },
+  "invocation_record_provenance": "Recorded after completion from the executed root tool-call transcript; stdout/stderr were captured at execution. This is not an independent operating-system argv trace.",
+  "invocation_recorded_utc": "2026-11-25T18:36:48.955722+00:00",
+  "safe_read_completion_recorded_utc": "2026-11-25T18:23:36.977+00:00",
+  "fenced_write_completion_recorded_utc": "2026-11-25T18:24:10.386+00:00"
+}

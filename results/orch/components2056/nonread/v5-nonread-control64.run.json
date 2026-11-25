@@ -1,0 +1,18 @@
+{
+  "name": "v5-nonread-control64",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-121/toolchain/lean-4.36.0-linux/bin/cadical",
+    "-t",
+    "20",
+    "-w",
+    "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control64.sol",
+    "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control64.cnf"
+  ],
+  "started_utc": "2026-11-25T18:35:37.134288+00:00",
+  "ended_utc": "2026-11-25T18:35:42.447472+00:00",
+  "wall_seconds": 5.313193305999448,
+  "returncode": 20,
+  "expected_control_returncode": 20,
+  "source_sha256": "cb8b50bc0baa0c9ba235835539adbea7c401051df6cf2b7abf3cc60c0cf9082b",
+  "cnf_sha256": "a3786435a90ddf23bba8ba0593be3c71f76c2b104bee959fe982f87391dc5f4f"
+}

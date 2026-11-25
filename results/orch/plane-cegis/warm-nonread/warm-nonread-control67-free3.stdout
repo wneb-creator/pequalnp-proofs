@@ -1,0 +1,77 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 20 seconds real time (due to '-t 20')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from 'warm-nonread-control67-free3.cnf'
+c opening file to read 'warm-nonread-control67-free3.cnf'
+c found 'p cnf 175522 9832609' header
+c parsed 9832609 clauses in 6.28 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c   --phase=false                  (different from default 'true')
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds   reductions  redundant   irredundant
+c          MB    restarts       trail       variables
+c           level   conflicts       glue         remaining
+c 
+c *  6.28 968  0 0   0    0    0  0% 0 9721372 9403  5%
+c l  6.38 968  0 0   0    0    0  0% 0 9721372 9403  5%
+c 1  6.38 968  0 0   0    0    0  0% 0 9721372 9403  5%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to 'warm-nonread-control67-free3.sol'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         6.28 6396.59% parse
+c         0.10   99.81% search
+c         0.10   99.81% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.10    1.53% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c fixed:                    166119        94.64 %  of all variables
+c lucky:                         1       100.00 %  of tried
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                      0         0.00 %  learned literals
+c minishrunken:                  0         0.00 %  learned literals
+c propagations:             166119         1.69 M  per second
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         6.40    seconds
+c total real time since initialization:            8.15    seconds
+c maximum resident set size of process:         1627.45    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 10

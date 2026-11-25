@@ -1,0 +1,84 @@
+{
+  "scope": "Frozen equivalent V5 polarity-warm preparation; no63-gate result",
+  "sources": {
+    "warm_phase.py": {
+      "path": "results/orch/components2056/warm_phase.py",
+      "sha256": "6e96a2d1166b0ea67ca55130e2ed2438fe4963f4cbf20f86c23619a0387646df",
+      "bytes": 4274
+    },
+    "unrename_model.py": {
+      "path": "results/orch/components2056/unrename_model.py",
+      "sha256": "a6aabcee2d4ccabf1658dd3fa657f43c1a008a847a6168e6114e7a0d8d9f3afd",
+      "bytes": 987
+    },
+    "verify_cnf_model.py": {
+      "path": "results/orch/components2056/verify_cnf_model.py",
+      "sha256": "2f213c905d6425f1673de0dc5dd3ae63adf340cb36936594628fcc4e07b8e0ed",
+      "bytes": 1417
+    },
+    "run_sat_warm_checked_v2.py": {
+      "path": "results/orch/components2056/run_sat_warm_checked_v2.py",
+      "sha256": "6436498c5abcfe9060a6b182e0598cb050cd3020921ade2f5917925ba4132d04",
+      "bytes": 4673
+    },
+    "control_cancel_v2.py": {
+      "path": "results/orch/components2056/control_cancel_v2.py",
+      "sha256": "8abf29bb005644c8e65b66f2c74121adf0f77d4a4b0cd7ba13d39e8627d74600",
+      "bytes": 2045
+    },
+    "audit_component_warm.py": {
+      "path": "results/orch/components2056/audit_component_warm.py",
+      "sha256": "47e2549edd0b6cdf66d964768407317ec7d8b0dc9838b0ded20033c764ec9e91",
+      "bytes": 4946
+    },
+    "v5-library.json": {
+      "path": "results/orch/components2056/v5-library.json",
+      "sha256": "e731fe5e465ae28ba320dd3a562a7f7a2b0998076caec6d74d517e8926ec89dd",
+      "bytes": 3726275
+    }
+  },
+  "omitted_raw_cnfs": {
+    "v5-control64-warm.cnf": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v5-control64-warm.cnf",
+      "sha256": "0043f74e6908c539d028b14c8cc978bb74049e7acaa3074cbca3ebfb597d65df",
+      "bytes": 61306126
+    },
+    "v5-target63-warm.cnf": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v5-target63-warm.cnf",
+      "sha256": "41e93ad00666f64bf01ffa406004afd76bc62c6ce37f76f93c02218df857fd2e",
+      "bytes": 54632211
+    }
+  },
+  "regeneration_commands": [
+    {
+      "workdir": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "results/orch/components2056/warm_phase.py",
+        "--library",
+        "results/orch/components2056/v5-library.json",
+        "--mapping",
+        "/tmp/oec/pequalnp-pilot-121/components2056/v5-control64.mapping.json",
+        "--cnf",
+        "/tmp/oec/pequalnp-pilot-121/components2056/v5-control64.cnf",
+        "--prefix",
+        "/tmp/oec/pequalnp-pilot-121/components2056/v5-control64-warm"
+      ]
+    },
+    {
+      "workdir": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "results/orch/components2056/warm_phase.py",
+        "--library",
+        "results/orch/components2056/v5-library.json",
+        "--mapping",
+        "/tmp/oec/pequalnp-pilot-121/components2056/v5-target63.mapping.json",
+        "--cnf",
+        "/tmp/oec/pequalnp-pilot-121/components2056/v5-target63.cnf",
+        "--prefix",
+        "/tmp/oec/pequalnp-pilot-121/components2056/v5-target63-warm"
+      ]
+    }
+  ]
+}

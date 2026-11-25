@@ -1,0 +1,536 @@
+{
+  "gates": [
+    [
+      1,
+      13,
+      14
+    ],
+    [
+      1,
+      26,
+      16
+    ],
+    [
+      1,
+      27,
+      22
+    ],
+    [
+      0,
+      0,
+      28
+    ],
+    [
+      1,
+      13,
+      15
+    ],
+    [
+      1,
+      30,
+      21
+    ],
+    [
+      1,
+      31,
+      25
+    ],
+    [
+      0,
+      1,
+      32
+    ],
+    [
+      1,
+      14,
+      20
+    ],
+    [
+      1,
+      34,
+      24
+    ],
+    [
+      1,
+      35,
+      25
+    ],
+    [
+      0,
+      2,
+      36
+    ],
+    [
+      1,
+      13,
+      19
+    ],
+    [
+      1,
+      38,
+      23
+    ],
+    [
+      1,
+      39,
+      24
+    ],
+    [
+      0,
+      3,
+      40
+    ],
+    [
+      1,
+      18,
+      22
+    ],
+    [
+      1,
+      42,
+      23
+    ],
+    [
+      1,
+      43,
+      25
+    ],
+    [
+      0,
+      4,
+      44
+    ],
+    [
+      1,
+      17,
+      21
+    ],
+    [
+      1,
+      46,
+      22
+    ],
+    [
+      1,
+      47,
+      24
+    ],
+    [
+      0,
+      5,
+      48
+    ],
+    [
+      1,
+      16,
+      20
+    ],
+    [
+      1,
+      50,
+      21
+    ],
+    [
+      1,
+      51,
+      23
+    ],
+    [
+      0,
+      6,
+      52
+    ],
+    [
+      1,
+      15,
+      19
+    ],
+    [
+      1,
+      54,
+      20
+    ],
+    [
+      1,
+      55,
+      22
+    ],
+    [
+      0,
+      7,
+      56
+    ],
+    [
+      1,
+      14,
+      18
+    ],
+    [
+      1,
+      58,
+      19
+    ],
+    [
+      1,
+      59,
+      21
+    ],
+    [
+      0,
+      8,
+      60
+    ],
+    [
+      1,
+      13,
+      17
+    ],
+    [
+      1,
+      62,
+      18
+    ],
+    [
+      1,
+      63,
+      20
+    ],
+    [
+      0,
+      9,
+      64
+    ],
+    [
+      1,
+      16,
+      17
+    ],
+    [
+      1,
+      66,
+      19
+    ],
+    [
+      1,
+      67,
+      25
+    ],
+    [
+      0,
+      10,
+      68
+    ],
+    [
+      1,
+      15,
+      16
+    ],
+    [
+      1,
+      70,
+      18
+    ],
+    [
+      1,
+      71,
+      24
+    ],
+    [
+      0,
+      11,
+      72
+    ],
+    [
+      1,
+      14,
+      15
+    ],
+    [
+      1,
+      74,
+      17
+    ],
+    [
+      1,
+      75,
+      23
+    ],
+    [
+      0,
+      12,
+      76
+    ],
+    [
+      1,
+      29,
+      33
+    ],
+    [
+      1,
+      78,
+      37
+    ],
+    [
+      1,
+      79,
+      41
+    ],
+    [
+      1,
+      80,
+      45
+    ],
+    [
+      1,
+      81,
+      49
+    ],
+    [
+      1,
+      82,
+      53
+    ],
+    [
+      1,
+      83,
+      57
+    ],
+    [
+      1,
+      84,
+      61
+    ],
+    [
+      1,
+      85,
+      65
+    ],
+    [
+      1,
+      86,
+      69
+    ],
+    [
+      1,
+      87,
+      73
+    ],
+    [
+      1,
+      88,
+      77
+    ]
+  ],
+  "output": 89,
+  "constant_false": false,
+  "size": 64,
+  "ordinary_ands": 13,
+  "boundary_mismatches": [],
+  "status": "complete_boundary_valid",
+  "within_63_gate_bound": false,
+  "model_sha256": "2be2558b6110924729d715b101596627f99e6334ed60fb795817745803745acb",
+  "method_trials": [
+    {
+      "method": "base",
+      "size": 64
+    },
+    {
+      "method": "shared_pair",
+      "trial": 0,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 1,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 2,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 3,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 4,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 5,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 6,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 7,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 8,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 9,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 10,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 11,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 12,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 13,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 14,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 15,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 16,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 17,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 18,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 19,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 20,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 21,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 22,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 23,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 24,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 25,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 26,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 27,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 28,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 29,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 30,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 31,
+      "size": 64,
+      "helpers": 0
+    },
+    {
+      "method": "shared_pair",
+      "trial": 32,
+      "size": 64,
+      "helpers": 0
+    }
+  ]
+}

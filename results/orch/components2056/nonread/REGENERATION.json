@@ -1,0 +1,126 @@
+{
+  "scope": "Replace <scratch> with an existing scratch directory; run argv arrays from repository root. Raw CNFs are omitted but their complete identities are recorded.",
+  "commands_in_order": [
+    [
+      "python3",
+      "results/orch/components2056/encode_reachable.py",
+      "--library",
+      "results/orch/components2056/v5-library.json",
+      "--bound",
+      "63",
+      "--prefix",
+      "<scratch>/v5-target63"
+    ],
+    [
+      "python3",
+      "results/orch/components2056/encode_reachable.py",
+      "--library",
+      "results/orch/components2056/v5-library.json",
+      "--bound",
+      "64",
+      "--prefix",
+      "<scratch>/v5-control64",
+      "--pin-baseline"
+    ],
+    [
+      "python3",
+      "results/orch/components2056/encode_reachable.py",
+      "--library",
+      "results/orch/components2056/v5-library.json",
+      "--bound",
+      "67",
+      "--prefix",
+      "<scratch>/v5-nonread-base67"
+    ],
+    [
+      "python3",
+      "results/orch/components2056/nonread/add_nonread.py",
+      "--cnf",
+      "<scratch>/v5-target63.cnf",
+      "--mapping",
+      "<scratch>/v5-target63.mapping.json",
+      "--library",
+      "results/orch/components2056/v5-library.json",
+      "--data",
+      "results/orch/patch2056/full-variable-data.json",
+      "--prefix",
+      "<scratch>/v5-nonread-target63"
+    ],
+    [
+      "python3",
+      "results/orch/components2056/nonread/add_nonread.py",
+      "--cnf",
+      "<scratch>/v5-control64.cnf",
+      "--mapping",
+      "<scratch>/v5-control64.mapping.json",
+      "--library",
+      "results/orch/components2056/v5-library.json",
+      "--data",
+      "results/orch/patch2056/full-variable-data.json",
+      "--prefix",
+      "<scratch>/v5-nonread-control64"
+    ],
+    [
+      "python3",
+      "results/orch/components2056/nonread/add_nonread.py",
+      "--cnf",
+      "<scratch>/v5-nonread-base67.cnf",
+      "--mapping",
+      "<scratch>/v5-nonread-base67.mapping.json",
+      "--library",
+      "results/orch/components2056/v5-library.json",
+      "--data",
+      "results/orch/patch2056/full-variable-data.json",
+      "--prefix",
+      "<scratch>/v5-nonread-control67",
+      "--pin-circuit",
+      "results/orch/components2056/nonread/nonread-control67-input.json"
+    ]
+  ],
+  "raw_cnf_files": [
+    {
+      "name": "v5-nonread-base67.cnf",
+      "bytes": 60573106,
+      "sha256": "16eff958f89ddab1a3e62650d605342a0d1d04825b2cc259c8ce1c29c579403c"
+    },
+    {
+      "name": "v5-nonread-control64.cnf",
+      "bytes": 97302087,
+      "sha256": "a3786435a90ddf23bba8ba0593be3c71f76c2b104bee959fe982f87391dc5f4f"
+    },
+    {
+      "name": "v5-nonread-control64.extra.cnf",
+      "bytes": 34902513,
+      "sha256": "17275942ccac589a2dfd4a80cd564254d8046642c6daa82416edd0e3b2074fa5"
+    },
+    {
+      "name": "v5-nonread-control67.cnf",
+      "bytes": 97352834,
+      "sha256": "0a195ba6e6dcdfbd3c8d2e4b0f4466afe0f515fd017904e707ccae2fbf4a5420"
+    },
+    {
+      "name": "v5-nonread-control67.extra.cnf",
+      "bytes": 36779728,
+      "sha256": "c7651ee3277fd3640efd8bd37a116a353c01a023b479c1b6ef6fdda06f7fa9f8"
+    },
+    {
+      "name": "v5-nonread-target63.cnf",
+      "bytes": 90402884,
+      "sha256": "42dc7c44a6d99d6cea4acfd67754e30b0e2454f8d69b19b84bf77b04f8307565"
+    },
+    {
+      "name": "v5-nonread-target63.extra.cnf",
+      "bytes": 34902513,
+      "sha256": "e62a0b2bdf29d1451066377b607101646f1c183c5060a8e7f1459eb06bf8d8b3"
+    }
+  ],
+  "native_control_command": [
+    "<cadical>",
+    "-t",
+    "20",
+    "-w",
+    "<scratch>/<control>.sol",
+    "<scratch>/<control>.cnf"
+  ],
+  "cadical_sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647"
+}

@@ -1,0 +1,23 @@
+{
+  "scope": "Future full-SAT non-read1 preparation control only; no63 witness, no external UNSAT claim.",
+  "source_sha256": "d94306025707d49f98f3fb60548f1ba79f34c68dc7c8dbe2edc0b27f6c347531",
+  "target_prior_clause_prefix_byte_identical": true,
+  "target_prior_variables_phases_unchanged": true,
+  "target_added_clauses": 38084,
+  "target_added_phase_failures": 0,
+  "target_total_clauses": 8858897,
+  "target_sha256": "a52e1ae59eff3e44fc2bb0dc7bbf2306e5e8532bef86ec938019e8449a9ea214",
+  "native_clauses_checked": 9832609,
+  "native_variables": 175522,
+  "decoded_gates": 67,
+  "fixed_prefix_verified": 64,
+  "native_model_sha256": "a2bf13e8f254f926c3c73128cbb1ec3d5190196719ed9f9f31930db43333148f",
+  "native_cnf_sha256": "8dae8f28afb3e91892faf168da20e70205308ef3117ab820716af8c443ee2783",
+  "selected_edge": [
+    0,
+    13
+  ],
+  "independent_capped_read_counts_match_every_wire": true,
+  "full_geometry_rows_verified": 756,
+  "negative64_control": "pending"
+}

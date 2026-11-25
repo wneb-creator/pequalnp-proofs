@@ -1,0 +1,16 @@
+{
+  "scope": "Restricted component grammar; non-read1 is necessary for this plane only at bound<=63",
+  "library_sha256": "e731fe5e465ae28ba320dd3a562a7f7a2b0998076caec6d74d517e8926ec89dd",
+  "base_cnf_sha256": "16eff958f89ddab1a3e62650d605342a0d1d04825b2cc259c8ce1c29c579403c",
+  "base_variables": 928019,
+  "new_variables": 19848,
+  "variables": 947867,
+  "base_clauses": 2865885,
+  "new_clauses": 1508374,
+  "clauses": 4374259,
+  "cnf_sha256": "0a195ba6e6dcdfbd3c8d2e4b0f4466afe0f515fd017904e707ccae2fbf4a5420",
+  "pin_circuit": {
+    "circuit_sha256": "3533b5858eded4a525a7fa80c1f40a1e3a08610cd5eb62c83dbf1ca2d76e86ed",
+    "selected_noninputs": 67
+  }
+}

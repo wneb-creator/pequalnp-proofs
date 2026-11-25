@@ -1,0 +1,7 @@
+# Component-grammar non-read-one constraint
+
+This separate appender retains the original unrenamed V5 component CNF and adds one selected incidence edge plus three proof-count states per profile. A chosen binary producer fixes its parent states. Existing strict ranks and unique producers make the states the actual selected DAG recursion. The root must lack a joint read-one proof for the selected edge. The compiled `SumPlaneReadOne2056.lean` lower bound makes this necessary for a correct circuit with at most63 gates. At larger budgets it is an additional restriction, used only for controls here.
+
+The target63 file was emitted only; no long query or63-gate witness is claimed by this snapshot. A fixed64-star control is externally UNSAT as expected. A pinned exact67-gate nonlinear control is SAT and independently checked on every clause, every selected state, all52 capped count-vector computations and all756 boundary rows. It has three edges without joint read-one proofs. These control results are not Lean target proofs or unrestricted lower bounds.
+
+Complete source, mapping, native models, stdout/stderr, observed commands/timestamps and independent audit records are preserved. Seven raw CNF/spool files totaling452,215,665 bytes are omitted; REGENERATION.json records their exact hashes and portable regeneration argv arrays. The parent V5 library and reviewed encoder/decoder are in the containing directory. Active V3 and other approved queries were unchanged throughout preparation.

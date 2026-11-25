@@ -1,0 +1,14 @@
+{
+  "counter_start_previous_last_variable": 463323,
+  "expected_overflow": [
+    {
+      "selected_profile": 89,
+      "prefix_selected_before": 63,
+      "clause": [
+        -90,
+        -465339
+      ]
+    }
+  ],
+  "allocation_end_verified": 876540
+}

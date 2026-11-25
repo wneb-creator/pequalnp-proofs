@@ -1,0 +1,11 @@
+{
+  "source_sha256": "3e3240e6c8e1c09d943606d761656573d42d45b12a73618b31a7a9465068800e",
+  "authored86_control_before_after": [
+    86,
+    64
+  ],
+  "independent_zero_positive_live_and_early_output_cases": 10,
+  "all_rows": 756,
+  "invalid_input_rejected": true,
+  "scope": "Guarded boundary-preserving cleanup; not arbitrary model equivalence or63 witness"
+}

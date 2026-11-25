@@ -1,0 +1,15 @@
+{
+  "random_models": 1000,
+  "materializations": 4000,
+  "all_assignments_per_model": 64,
+  "factors_preserve_original_support": true,
+  "backward_sources": true,
+  "output_last_after_pruning": true,
+  "explicit_saving": {
+    "before": 11,
+    "after": 9,
+    "random_rows": 10000
+  },
+  "elapsed_seconds": 5.801852493001206,
+  "source_sha256": "a2bb57526433757e48d7117d36ca226927f78aded5124ef3e3d9751123f48543"
+}

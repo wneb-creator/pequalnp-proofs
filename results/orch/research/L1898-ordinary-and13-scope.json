@@ -1,0 +1,52 @@
+{
+  "reviewed_at_utc": "2026-11-25T18:48:26.218010+00:00",
+  "status": "Independent source-scope audit; existing theorem, no newly compiled theorem",
+  "source": "lean/PEqualNP/Outside/L_meta_1898.lean",
+  "source_sha256": "d44d58c30bc802ab764e63cac4a19218e353c38f91dc036a767367ea9ac60762",
+  "theorem_line": 7314,
+  "theorem_header": "theorem PEqualNP.Outside.L_meta_1898 :\n\u2200 (x1 : PEqualNP.CircuitLowerBounds.Circuit), PEqualNP.MetaComplexity.Monotone2 x1 \u2192 (\u2200 (x3 x4 : Fin (13 : \u2115)), x3 = x4 \u2228 x3 = x4 + (1 : Fin (13 : \u2115)) \u2228 x3 = x4 + (3 : Fin (13 : \u2115)) \u2228 x3 = x4 + (9 : Fin (13 : \u2115)) \u2192 (PEqualNP.MetaComplexity.circuitFun ((13 : \u2115) + (13 : \u2115)) x1 fun (x6 : Fin ((13 : \u2115) + (13 : \u2115))) => Decidable.decide (x6 = Fin.castAdd (13 : \u2115) x3 \u2228 x6 = Fin.natAdd (13 : \u2115) x4)) = Bool.true) \u2192 (\u2200 (x4 : Finset (Fin (13 : \u2115))), (\u2200 x5 \u2209 x4, \u2203 (x7 : Fin (13 : \u2115)), (\u2200 x8 \u2208 x4, \u00ac(x8 = x7 \u2228 x8 = x7 + (1 : Fin (13 : \u2115)) \u2228 x8 = x7 + (3 : Fin (13 : \u2115)) \u2228 x8 = x7 + (9 : Fin (13 : \u2115)))) \u2227 (x5 = x7 \u2228 x5 = x7 + (1 : Fin (13 : \u2115)) \u2228 x5 = x7 + (3 : Fin (13 : \u2115)) \u2228 x5 = x7 + (9 : Fin (13 : \u2115)))) \u2192 ((\u00ac\u2203 (x6 : Fin (13 : \u2115)), \u2200 x7 \u2208 x4, x7 = x6 \u2228 x7 = x6 + (1 : Fin (13 : \u2115)) \u2228 x7 = x6 + (3 : Fin (13 : \u2115)) \u2228 x7 = x6 + (9 : Fin (13 : \u2115))) \u2227 \u00ac\u2203 (x6 : Fin (13 : \u2115)), \u2200 (x7 : Fin (13 : \u2115)), (\u2200 x8 \u2208 x4, \u00ac(x8 = x7 \u2228 x8 = x7 + (1 : Fin (13 : \u2115)) \u2228 x8 = x7 + (3 : Fin (13 : \u2115)) \u2228 x8 = x7 + (9 : Fin (13 : \u2115)))) \u2192 x6 = x7 \u2228 x6 = x7 + (1 : Fin (13 : \u2115)) \u2228 x6 = x7 + (3 : Fin (13 : \u2115)) \u2228 x6 = x7 + (9 : Fin (13 : \u2115))) \u2192 (PEqualNP.MetaComplexity.circuitFun ((13 : \u2115) + (13 : \u2115)) x1 fun (x7 : Fin ((13 : \u2115) + (13 : \u2115))) => Decidable.decide ((\u2203 x8 \u2208 x4, x7 = Fin.castAdd (13 : \u2115) x8) \u2228 \u2203 (x8 : Fin (13 : \u2115)), x7 = Fin.natAdd (13 : \u2115) x8 \u2227 \u2200 x9 \u2208 x4, \u00ac(x9 = x8 \u2228 x9 = x8 + (1 : Fin (13 : \u2115)) \u2228 x9 = x8 + (3 : Fin (13 : \u2115)) \u2228 x9 = x8 + (9 : Fin (13 : \u2115))))) = Bool.false) \u2192 (13 : \u2115) \u2264 {x5 : Fin x1.gates.length | (x1.gates.get x5).op = PEqualNP.CircuitLowerBounds.GateOp.and}.ncard",
+  "hypotheses": [
+    "Ordinary Circuit C",
+    "Monotone2 C",
+    "All 52 difference-incidence minimal true pairs evaluate true",
+    "Specified closure-qualified independent negative rows evaluate false"
+  ],
+  "conclusion": "At least 13 actual ordinary AND-gate indices",
+  "scope_checks": {
+    "final_theorem_outside_closed_namespaces": true,
+    "no_ReadK_hypothesis": true,
+    "no_degree_or_wellformedness_hypothesis": true,
+    "negative_assignment_independent_for_every_point_subset": true,
+    "point_subsets_independently_checked": 8192,
+    "sum_to_difference_line_permutation": [
+      0,
+      12,
+      11,
+      10,
+      9,
+      8,
+      7,
+      6,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    "edge_counts": [
+      52,
+      52
+    ]
+  },
+  "mathematical_application": [
+    "Full difference-incidence correctness satisfies every required positive and negative test, regardless of the additional negative-row qualifiers.",
+    "Relabel only primary line inputs by l maps to -l modulo 13; all gate records, gate operations and AND-gate count are unchanged. Hence the same lower bound applies to the full sum-incidence function.",
+    "The free-OR decoder expands each operand subset into OR gates and creates at most one ordinary AND per record; false folding, aliasing and dead-gate pruning cannot increase that count. Therefore every K=12 full-plane query is impossible under this existing theorem."
+  ],
+  "not_claimed": [
+    "No new Lean proof or compilation was performed for this audit.",
+    "This is not a 64-total-gate lower bound and does not settle the posted L-meta-2056 existential statement.",
+    "No SAT solver UNSAT certificate is claimed; the K=12 search was superseded by an existing theorem.",
+    "K=16 bounded-membership and general 63-gate searches are not ruled out."
+  ]
+}

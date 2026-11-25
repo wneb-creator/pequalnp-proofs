@@ -1,0 +1,43 @@
+{
+  "utc": "2026-11-25T18:23:50.483961+00:00",
+  "reason": "Parent publication authentication block; reversible pause",
+  "processes": [
+    {
+      "name": "warm-first-near63-full-run",
+      "role": "solver_pid",
+      "pid": 34382,
+      "action": "SIGSTOP"
+    },
+    {
+      "name": "warm-first-near63-full-run",
+      "role": "wrapper_pid",
+      "pid": 34284,
+      "action": "SIGSTOP"
+    },
+    {
+      "name": "warm-nonread-control67-free3",
+      "role": "solver_pid",
+      "pid": 35744,
+      "action": "already exited"
+    },
+    {
+      "name": "warm-nonread-control67-free3",
+      "role": "wrapper_pid",
+      "pid": 35692,
+      "action": "already exited"
+    }
+  ],
+  "resume_utc": "2026-11-25T18:24:55.697225+00:00",
+  "resume_actions": [
+    {
+      "pid": 34284,
+      "action": "SIGCONT"
+    },
+    {
+      "pid": 34382,
+      "action": "SIGCONT"
+    }
+  ],
+  "pause_wall_seconds": 65.213264,
+  "timeout_note": "Original native process and timer retained. Native wall-time deadline may include the pause; no source/query changes or restart."
+}

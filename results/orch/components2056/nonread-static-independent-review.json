@@ -1,0 +1,7 @@
+{
+  "verdict": "STATIC APPROVED pending native controls",
+  "source_sha256": "cb8b50bc0baa0c9ba235835539adbea7c401051df6cf2b7abf3cc60c0cf9082b",
+  "guarded_AND_cases": 256,
+  "guarded_OR_cases": 1024,
+  "scope": "All base clauses preserved; chosen-production guarded exact read1 recurrences and one selected true edge; rank acyclicity gives unique selected-circuit states. Necessity at<=63 relies on the independently compiled sum-plane Read1 lower bound. Pinning may select a smaller alias-pruned realization, whose metrics must be independently measured."
+}

@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-25T18:20:16.238923+00:00",
+  "source_sha256": "dd56f6421182cbbd2c3f19e335711b2e59eab4f785be78ad7b523f133864c6fb",
+  "status": "PASS normalization semantics and membership bound",
+  "models": 600,
+  "rows_per_model": 756,
+  "active_zero_profile_clearings": 2954,
+  "singleton_replacements": 1363,
+  "strict_cost_decreases": 581,
+  "positive_wire_profiles_preserved": true,
+  "negative_wire_values_never_increased": true,
+  "active_implies_nonzero_profile": true,
+  "singleton_profiles_direct_edges": true,
+  "no_first_AND_anchor": true
+}

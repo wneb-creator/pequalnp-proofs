@@ -1,0 +1,14 @@
+{
+  "profiles": 6107,
+  "noninput_profiles": 6081,
+  "productions": 129517,
+  "rank_comparisons": 17267,
+  "bound": 64,
+  "rank_width": 7,
+  "variables": 826931,
+  "clauses": 2752859,
+  "cnf_bytes": 56542023,
+  "seconds": 9.470093641999483,
+  "pin_baseline": true,
+  "require_output_reachability": true
+}
