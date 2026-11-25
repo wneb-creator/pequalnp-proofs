@@ -2066,4 +2066,348 @@ lemma dirty_frontier_eventually_target_of_filterable_operands
 
 end FrontierPrivacy
 
+
+-- AncestorBridge extension begins here.
+namespace ProjectionAncestor
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm PEqualNP.Core PEqualNP.ReadTwo
+  PEqualNP.Outside.L_meta_5012.Projection
+
+lemma foldl_cones_len (n : ℕ) (gs : List Gate) (acc : List (List ℕ)) :
+    (gs.foldl (coneStep n) acc).length = acc.length + gs.length := by
+  induction gs generalizing acc with
+  | nil => simp
+  | cons g gs ih =>
+    simp only [List.foldl_cons, ih, coneStep, List.length_append, List.length_cons, List.length_nil]
+    omega
+
+lemma foldl_cones_getD_lt (n : ℕ) (gs : List Gate) (acc : List (List ℕ)) (i : ℕ) (hi : i < acc.length) :
+    (gs.foldl (coneStep n) acc).getD i [] = acc.getD i [] := by
+  induction gs generalizing acc with
+  | nil => rfl
+  | cons g gs ih =>
+    simp only [List.foldl_cons]
+    have hlt : i < (coneStep n acc g).length := by
+      simp only [coneStep, List.length_append, List.length_singleton]; omega
+    rw [ih _ hlt]
+    simp only [coneStep, List.getD_eq_getElem?_getD, List.getElem?_append_left hi]
+
+lemma cones_length (n : ℕ) (C : Circuit) : (cones n C).length = C.gates.length := by
+  unfold cones; rw [foldl_cones_len]; simp
+
+lemma foldl_cones_getD_gate (n : ℕ) (gs : List Gate) (acc : List (List ℕ)) (j : ℕ) (hj : j < gs.length) :
+    (gs.foldl (coneStep n) acc).getD (acc.length + j) [] =
+      (gs[j].inputs.filter (fun w => decide (n ≤ w ∧ w < n + (acc.length + j)))).flatMap
+        (fun w => (w - n) :: (gs.foldl (coneStep n) acc).getD (w - n) []) := by
+  induction gs generalizing acc j with
+  | nil => cases hj
+  | cons g gs ih =>
+    cases j with
+    | zero =>
+      simp only [Nat.add_zero, List.foldl_cons, List.getElem_cons_zero]
+      set acc' := coneStep n acc g
+      have hlen : acc.length < acc'.length := by
+        simp only [acc', coneStep, List.length_append, List.length_singleton]; omega
+      rw [foldl_cones_getD_lt n gs acc' acc.length hlen]
+      have hlhs : acc'.getD acc.length [] =
+          (g.inputs.filter (fun w => decide (n ≤ w ∧ w < n + acc.length))).flatMap
+            (fun w => (w - n) :: acc.getD (w - n) []) := by
+        simp only [acc', coneStep, List.getD_eq_getElem?_getD, List.getElem?_append_right (le_refl _),
+          Nat.sub_self, List.getElem?_cons_zero, Option.getD_some]
+      rw [hlhs]
+      apply List.flatMap_congr
+      intro w hw
+      simp only [List.mem_filter, decide_eq_true_eq] at hw
+      have hwn : w - n < acc.length := by omega
+      have hwn' : w - n < acc'.length := by omega
+      rw [foldl_cones_getD_lt n gs acc' (w - n) hwn']
+      simp only [acc', coneStep, List.getD_eq_getElem?_getD, List.getElem?_append_left hwn]
+    | succ j' =>
+      simp only [List.foldl_cons, List.getElem_cons_succ]
+      set acc' := coneStep n acc g
+      have hlen' : acc'.length = acc.length + 1 := by
+        simp only [acc', coneStep, List.length_append, List.length_singleton]
+      have hj' : j' < gs.length := by simp only [List.length_cons] at hj; omega
+      have hidx : acc.length + (j' + 1) = acc'.length + j' := by omega
+      rw [hidx]
+      exact ih acc' j' hj'
+
+lemma inCone_lt_len {n : ℕ} {C : Circuit} {i j : ℕ} (h : InCone n C i j) : j < C.gates.length := by
+  by_contra hge
+  unfold InCone at h
+  rw [List.getD_eq_getElem?_getD, List.getElem?_eq_none (by rw [cones_length]; omega)] at h
+  simp at h
+
+lemma inCone_iff {n : ℕ} {C : Circuit} {i j : ℕ} (hj : j < C.gates.length) :
+    InCone n C i j ↔
+      ∃ w ∈ (gateAt C j).inputs, n ≤ w ∧ w < n + j ∧ (i = w - n ∨ InCone n C i (w - n)) := by
+  unfold InCone cones
+  have h := foldl_cones_getD_gate n C.gates [] j hj
+  simp only [List.length_nil, Nat.zero_add] at h
+  rw [h, ← gateAt_eq hj]
+  simp only [List.mem_flatMap, List.mem_filter, decide_eq_true_eq, List.mem_cons]
+  constructor
+  · rintro ⟨w, ⟨hw1, hw2, hw3⟩, hw4⟩; exact ⟨w, hw1, hw2, hw3, hw4⟩
+  · rintro ⟨w, hw1, hw2, hw3, hw4⟩; exact ⟨w, ⟨hw1, hw2, hw3⟩, hw4⟩
+
+lemma inCone_lt {n : ℕ} {C : Circuit} {i j : ℕ} : InCone n C i j → i < j := by
+  induction j using Nat.strong_induction_on with
+  | ind j ih =>
+    intro h
+    have hj := inCone_lt_len h
+    rw [inCone_iff hj] at h
+    rcases h with ⟨w, _, hnw, hwnj, rfl | hsub⟩
+    · omega
+    · have := ih (w - n) (by omega) hsub; omega
+
+lemma inCone_trans {n : ℕ} {C : Circuit} {i j k : ℕ} (h1 : InCone n C i j) (h2 : InCone n C j k) :
+    InCone n C i k := by
+  induction k using Nat.strong_induction_on with
+  | ind k ih =>
+    have hk := inCone_lt_len h2
+    rw [inCone_iff hk] at h2 ⊢
+    rcases h2 with ⟨w, hw, hnw, hwnk, rfl | hsub⟩
+    · exact ⟨w, hw, hnw, hwnk, Or.inr h1⟩
+    · exact ⟨w, hw, hnw, hwnk, Or.inr (ih (w - n) (by omega) hsub)⟩
+
+/-- The direct-exit contract applies to any input-list member, not just a named slot. -/
+lemma exit_input_not_mem {n : ℕ} {C : Circuit} (hAO : IsAO2 n C)
+    (R : Finset ℕ) (g : ℕ)
+    (hexit : ∀ j < C.gates.length, j ∉ R → j ≠ g → ∀ b : Fin 2,
+      opnd C j b < n ∨ opnd C j b - n ∉ R)
+    {j w : ℕ} (hj : j < C.gates.length) (hjR : j ∉ R) (hjg : j ≠ g)
+    (hw : w ∈ (gateAt C j).inputs) (hnw : n ≤ w) : w - n ∉ R := by
+  rw [gate_inputs_eq hAO hj] at hw
+  simp at hw
+  rcases hw with rfl | rfl
+  · rcases hexit j hj hjR hjg 0 with hraw | hnot
+    · omega
+    · exact hnot
+  · rcases hexit j hj hjR hjg 1 with hraw | hnot
+    · omega
+    · exact hnot
+
+/-- An ancestor in the changed region must cross its designated exit before reaching
+an outside gate. The target's exclusion from R is essential. -/
+lemma region_ancestor_forces_frontier {n : ℕ} {C : Circuit} (hAO : IsAO2 n C)
+    (R : Finset ℕ) (g : ℕ)
+    (hexit : ∀ j < C.gates.length, j ∉ R → j ≠ g → ∀ b : Fin 2,
+      opnd C j b < n ∨ opnd C j b - n ∉ R)
+    {i j : ℕ} (hi : i ∈ R) (hjR : j ∉ R) (hij : InCone n C i j) :
+    g = j ∨ InCone n C g j := by
+  induction j using Nat.strong_induction_on with
+  | ind j ih =>
+    by_cases hjg : j = g
+    · exact Or.inl hjg.symm
+    · have hj := inCone_lt_len hij
+      obtain ⟨w, hw, hnw, hwj, hsub⟩ := (inCone_iff hj).mp hij
+      have hwR := exit_input_not_mem hAO R g hexit hj hjR hjg hw hnw
+      rcases hsub with hsame | hsub
+      · exact False.elim (hwR (hsame ▸ hi))
+      · have hforce := ih (w - n) (by omega) hwR hsub
+        right
+        exact (inCone_iff hj).mpr ⟨w, hw, hnw, hwj, hforce⟩
+
+def ancestorDomain (n : ℕ) (C : Circuit) (h : ℕ) : Finset ℕ :=
+  (Finset.range C.gates.length).filter fun j => j = h ∨ InCone n C j h
+
+lemma mem_ancestorDomain {n : ℕ} {C : Circuit} {h j : ℕ} :
+    j ∈ ancestorDomain n C h ↔ j < C.gates.length ∧ (j = h ∨ InCone n C j h) := by
+  simp only [ancestorDomain, Finset.mem_filter, Finset.mem_range]
+
+lemma ancestorDomain_contains {n : ℕ} {C : Circuit} {h : ℕ}
+    (hh : h < C.gates.length) : h ∈ ancestorDomain n C h :=
+  mem_ancestorDomain.mpr ⟨hh, Or.inl rfl⟩
+
+lemma ancestorDomain_hereditary {n : ℕ} {C : Circuit} (hAO : IsAO2 n C)
+    (h : ℕ) : ∀ j ∈ ancestorDomain n C h, ∀ b : Fin 2,
+      opnd C j b < n ∨ opnd C j b - n ∈ ancestorDomain n C h := by
+  intro j hj b
+  obtain ⟨hjlen, hjanc⟩ := mem_ancestorDomain.mp hj
+  by_cases hraw : opnd C j b < n
+  · exact Or.inl hraw
+  · right
+    have hback := opnd_lt hAO hjlen b
+    have hchild : InCone n C (opnd C j b - n) j :=
+      (inCone_iff hjlen).mpr ⟨opnd C j b, opnd_mem hAO hjlen b, by omega, hback, Or.inl rfl⟩
+    apply mem_ancestorDomain.mpr
+    refine ⟨by omega, Or.inr ?_⟩
+    rcases hjanc with rfl | hjanc
+    · exact hchild
+    · exact inCone_trans hchild hjanc
+
+lemma ancestorDomain_disjoint_region {n : ℕ} {C : Circuit} (hAO : IsAO2 n C)
+    (R : Finset ℕ) (g h : ℕ)
+    (hexit : ∀ j < C.gates.length, j ∉ R → j ≠ g → ∀ b : Fin 2,
+      opnd C j b < n ∨ opnd C j b - n ∉ R)
+    (hhR : h ∉ R) (hgh : g ≠ h) (hnot : ¬ InCone n C g h) :
+    ∀ j ∈ ancestorDomain n C h, j ∉ R := by
+  intro j hj hjR
+  obtain ⟨_, hjanc⟩ := mem_ancestorDomain.mp hj
+  rcases hjanc with rfl | hjanc
+  · exact hhR hjR
+  · rcases region_ancestor_forces_frontier hAO R g hexit hjR hhR hjanc with hEq | hCone
+    · exact hgh hEq
+    · exact hnot hCone
+
+lemma exists_unchanged_ancestor_domain {n : ℕ} {C : Circuit} (hAO : IsAO2 n C)
+    (R : Finset ℕ) (g h : ℕ) (hh : h < C.gates.length)
+    (hexit : ∀ j < C.gates.length, j ∉ R → j ≠ g → ∀ b : Fin 2,
+      opnd C j b < n ∨ opnd C j b - n ∉ R)
+    (hhR : h ∉ R) (hgh : g ≠ h) (hnot : ¬ InCone n C g h) :
+    ∃ A : Finset ℕ, h ∈ A ∧
+      ∀ j ∈ A, j ∉ R ∧ ∀ b : Fin 2, opnd C j b < n ∨ opnd C j b - n ∈ A := by
+  refine ⟨ancestorDomain n C h, ancestorDomain_contains hh, ?_⟩
+  intro j hj
+  exact ⟨ancestorDomain_disjoint_region hAO R g h hexit hhR hgh hnot j hj,
+    ancestorDomain_hereditary hAO h j hj⟩
+
+lemma exists_unchanged_ancestor_domain_of_and {n : ℕ} {C : Circuit} (hAO : IsAO2 n C)
+    (R : Finset ℕ) (g h : ℕ) (hh : h < C.gates.length)
+    (hRor : ∀ j ∈ R, (gateAt C j).op = GateOp.or)
+    (hhand : (gateAt C h).op = GateOp.and)
+    (hexit : ∀ j < C.gates.length, j ∉ R → j ≠ g → ∀ b : Fin 2,
+      opnd C j b < n ∨ opnd C j b - n ∉ R)
+    (hgh : g ≠ h) (hnot : ¬ InCone n C g h) :
+    ∃ A : Finset ℕ, h ∈ A ∧
+      ∀ j ∈ A, j ∉ R ∧ ∀ b : Fin 2, opnd C j b < n ∨ opnd C j b - n ∈ A := by
+  apply exists_unchanged_ancestor_domain hAO R g h hh hexit _ hgh hnot
+  intro hhR
+  have hor := hRor h hhR
+  rw [hhand] at hor
+  cases hor
+
+
+/-- The independent-gate form of the singleton exclusion: the unchanged ancestor
+domain is derived from direct-exit privacy and nondependence, rather than assumed. -/
+lemma singleton_projection_excludes_two_junk_of_independent {n : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (rungOne : ∀ E : Circuit, IsLeastAO G E → (junk G E).card ≠ 1)
+    {C : Circuit} (hL : IsLeastAO G C)
+    (Q R : Finset ℕ) (P : Finset (Fin n)) (S : ℕ → Finset (Fin n))
+    (hR : ∀ j, j ∈ R ↔ j ∈ Q ∧ selected P (S (n + j)))
+    (hSin : ∀ w (hw : w < n), S w = {⟨w, hw⟩})
+    (hQ : ∀ j ∈ Q, (gateAt C j).op = GateOp.or ∧
+      S (n + j) = S (opnd C j 0) ∪ S (opnd C j 1) ∧
+      (∀ b : Fin 2, opnd C j b < n ∨ opnd C j b - n ∈ Q))
+    (g h : ℕ) (hJ : junk G C = {g, h})
+    (hgh : g ≠ h) (hind : ¬ InCone n C g h)
+    (hgdom : ∀ b : Fin 2, opnd C g b < n ∨ opnd C g b - n ∈ Q)
+    (u : Fin n) (hsingle : S (opnd C g 0) = {u})
+    (hlarge : selected P (S (opnd C g 1)))
+    (hP : P = Finset.univ.filter fun t => G.Adj u t)
+    (huB : u ∉ S (opnd C g 1))
+    (hexit : ∀ j < C.gates.length, j ∉ R → j ≠ g → ∀ b : Fin 2,
+      opnd C j b < n ∨ opnd C j b - n ∉ R)
+    (hout : C.output < n ∨ C.output - n ∉ R) : False := by
+  have hhdirty : IsDirtyAnd n G C h := (mem_junk_iff_dirty G C h).mp (by simp [hJ])
+  have hRor : ∀ j ∈ R, (gateAt C j).op = GateOp.or :=
+    fun j hj => (hQ j ((hR j).mp hj).1).1
+  obtain ⟨A, hhA, hA⟩ := exists_unchanged_ancestor_domain_of_and hL.1 R g h hhdirty.2.1
+    hRor hhdirty.1 hexit hgh hind
+  exact singleton_projection_excludes_two_junk G rungOne hL Q R A P S hR hSin hQ
+    g h hJ hgdom u hsingle hlarge hP huB hhA hA hexit hout
+
+end ProjectionAncestor
+
+
+-- OutputBridge extension begins here.
+namespace ProjectionOutput
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge PEqualNP.TopForm PEqualNP.Core PEqualNP.ReadTwo
+  PEqualNP.Outside.L_meta_5012.Projection PEqualNP.Outside.L_meta_5012.ProjectionAncestor
+
+lemma graphFun_singleton_false {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (v : Fin n) :
+    graphFun G ∅ (fun t => decide (t = v)) = false := by
+  rw [graphFun, Bool.or_eq_false_iff]
+  constructor
+  · simp
+  · rw [decide_eq_false_iff_not]
+    rintro ⟨a, b, hab, ha, hb⟩
+    simp only [decide_eq_true_eq] at ha hb
+    subst a
+    subst b
+    exact G.loopless.irrefl v hab
+
+lemma output_valid_of_graph_edge {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] {C : Circuit} (hfun : circuitFun n C = graphFun G ∅)
+    {v w : Fin n} (hvw : G.Adj v w) : C.output < n + C.gates.length := by
+  by_contra hout
+  have htrue : circuitFun n C (pairInput v w) = true := by
+    rw [hfun]
+    unfold graphFun
+    rw [Bool.or_eq_true, decide_eq_true_eq, decide_eq_true_eq]
+    exact Or.inr ⟨v, w, hvw, by simp [pairInput], by simp [pairInput]⟩
+  change wval C (pairInput v w) C.output = true at htrue
+  rw [wval_ge_len C (pairInput v w) (by omega)] at htrue
+  cases htrue
+
+/-- A valid output computing a graph function cannot be a selected pure OR gate:
+its nonempty raw support would accept a singleton input. -/
+lemma output_outside_selected_region {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] {C : Circuit} (hAO : IsAO2 n C)
+    (Q R : Finset ℕ) (P : Finset (Fin n)) (S : ℕ → Finset (Fin n))
+    (hR : ∀ j, j ∈ R ↔ j ∈ Q ∧ selected P (S (n + j)))
+    (hSin : ∀ w (hw : w < n), S w = {⟨w, hw⟩})
+    (hQ : ∀ j ∈ Q, (gateAt C j).op = GateOp.or ∧
+      S (n + j) = S (opnd C j 0) ∪ S (opnd C j 1) ∧
+      (∀ b : Fin 2, opnd C j b < n ∨ opnd C j b - n ∈ Q))
+    (hfun : circuitFun n C = graphFun G ∅) (hout : C.output < n + C.gates.length) :
+    C.output < n ∨ C.output - n ∉ R := by
+  by_cases hraw : C.output < n
+  · exact Or.inl hraw
+  · right
+    intro hmem
+    let j := C.output - n
+    have hj : j < C.gates.length := by dsimp [j]; omega
+    have houtj : n + j = C.output := by dsimp [j]; omega
+    have hq := ((hR j).mp hmem).1
+    have hselected := ((hR j).mp hmem).2
+    obtain ⟨v, hv⟩ := selected_projected_nonempty hselected
+    have hp := pure_cone_values hAO Q S hSin hQ (fun t => decide (t = v))
+      (n + j) (by omega) (Or.inr (by simpa using hq))
+    have htrue : circuitFun n C (fun t => decide (t = v)) = true := by
+      change wval C (fun t => decide (t = v)) C.output = true
+      rw [← houtj, hp]
+      simp only [setOr, decide_eq_true_eq]
+      exact ⟨v, (Finset.mem_inter.mp hv).1, by simp⟩
+    rw [hfun, graphFun_singleton_false G v] at htrue
+    cases htrue
+
+/-- A singleton projection with a pure OR domain and full direct-exit privacy is
+incompatible with a least independent two-junk circuit under the local one-junk
+rung. The ancestor domain and output exclusion are both derived. -/
+lemma singleton_projection_excludes_independent_two_junk {n : ℕ}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (rungOne : ∀ E : Circuit, IsLeastAO G E → (junk G E).card ≠ 1)
+    {C : Circuit} (hL : IsLeastAO G C)
+    (Q R : Finset ℕ) (P : Finset (Fin n)) (S : ℕ → Finset (Fin n))
+    (hR : ∀ j, j ∈ R ↔ j ∈ Q ∧ selected P (S (n + j)))
+    (hSin : ∀ w (hw : w < n), S w = {⟨w, hw⟩})
+    (hQ : ∀ j ∈ Q, (gateAt C j).op = GateOp.or ∧
+      S (n + j) = S (opnd C j 0) ∪ S (opnd C j 1) ∧
+      (∀ b : Fin 2, opnd C j b < n ∨ opnd C j b - n ∈ Q))
+    (g h : ℕ) (hJ : junk G C = {g, h})
+    (hgh : g ≠ h) (hind : ¬ InCone n C g h)
+    (hgdom : ∀ b : Fin 2, opnd C g b < n ∨ opnd C g b - n ∈ Q)
+    (u : Fin n) (hsingle : S (opnd C g 0) = {u})
+    (hlarge : selected P (S (opnd C g 1)))
+    (hP : P = Finset.univ.filter fun t => G.Adj u t)
+    (huB : u ∉ S (opnd C g 1))
+    (hexit : ∀ j < C.gates.length, j ∉ R → j ≠ g → ∀ b : Fin 2,
+      opnd C j b < n ∨ opnd C j b - n ∉ R) : False := by
+  obtain ⟨v, hv⟩ := selected_projected_nonempty hlarge
+  have huv : G.Adj u v := by
+    have hmem := (Finset.mem_inter.mp hv).2
+    simpa [hP] using hmem
+  have houtvalid := output_valid_of_graph_edge G hL.2.1 huv
+  have hout := output_outside_selected_region G hL.1 Q R P S hR hSin hQ hL.2.1 houtvalid
+  exact singleton_projection_excludes_two_junk_of_independent G rungOne hL Q R P S
+    hR hSin hQ g h hJ hgh hind hgdom u hsingle hlarge hP huB hexit hout
+
+end ProjectionOutput
+
 end PEqualNP.Outside.L_meta_5012
