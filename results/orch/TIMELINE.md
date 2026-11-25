@@ -97,3 +97,5 @@
 
 - 2026-11-25T16:20:38Z: six-by-six AND5 batch completed: 24/24 solver-UNSAT, uncertified.
 - 2026-11-25T16:26:26.079571+00:00: final independent archive and branch review passed; exact target remains unproved, no refutation or proof PR. Preserving final artifacts before releasing own lease.
+
+- 2026-11-25T16:27:24.361385+00:00: final reviewed archive pushed at 70237abb8e78033f62b4a2ea314149e4f2e60c7d; renewal timer stopped normally; desk confirmed own L-meta-4970 released with reason=other. No proof PR opened.

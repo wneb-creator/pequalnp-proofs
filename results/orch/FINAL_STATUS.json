@@ -12,6 +12,9 @@
   "null_desk_answers": 0,
   "null_messages": [],
   "subagents": 7,
-  "elapsed_minutes": 162.4,
-  "updated_at": "2026-11-25T16:26:26.079571+00:00"
+  "elapsed_minutes": 163.4,
+  "updated_at": "2026-11-25T16:27:24.361385+00:00",
+  "lease_released": true,
+  "release_reason": "other",
+  "preservation_commit_before_release": "70237abb8e78033f62b4a2ea314149e4f2e60c7d"
 }
