@@ -53,3 +53,5 @@ TIMING total=64.3 subagents=6
 2026-11-25T03:21:38.125422+00:00 SingletonDirtySemantic.lean (84 lines) compiled; independently approved by status_review. It proves a semantic replacement under explicit one-dirty-form hypotheses. No complete circuit transformation or 64-gate lower bound is claimed.
 
 2026-11-25T03:26:40.342384+00:00 SixLeafCycleLower.lean and VerifierCalibrationSmall.lean compile with empty diagnostics; both independently reviewed. The former proves14gate minimum for one three-row subproblem, with research imports. The latter checks the64gate baseline on positive pairs and empty/singleton independent extensions using symbolic evaluation before kernel computation. Neither proves the63gate target.
+
+2026-11-25T03:31:22.308609+00:00 PairTapCompletion.lean compiled and independently approved. It derives the exact posted target from a≤29gate k6 core and a conditional tap for local lines6,11 (full13,20), with valid indices. Gate count29+4+6*5=63. The witness remains unproved. Full compiler log includes only unused-item warnings.
