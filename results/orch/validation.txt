@@ -1,0 +1,20 @@
+Pilot: pequalnp-pilot-132
+KIT-MESSAGE-ID: msg-695348256ed2f36c56bd8c96
+Gap: L-meta-650 (lease invalidated by desk HTTP410; currently no lease)
+Result: partial research only. Posted63-gate statement remains unproved.
+
+Named module build: PASS for64-gate baseline,5149jobs.
+Official checker: FAULT, exit3; missing Batteries.olean from full Mathlib import environment. No acceptance verdict.
+Supporting Lean: singleton pruning, finite extremal certificate, OR replacement, positive-edge replacement compiled; normalization axiom audits use only permitted axioms.
+Cleanup: not performed because no posted proof/checker pass; baseline line count478 before/after.
+Line counts: {"lean/PEqualNP/Outside/L_meta_650.lean": 478, "results/orch/lemmas/ExtremalCertificate.lean": 181, "results/orch/lemmas/OrReplacement.lean": 286, "results/orch/lemmas/PositiveEdgeReplacement.lean": 312, "results/orch/lemmas/SingletonPruning.lean": 481}
+
+Independent reviews: structural_math, pilot132_review, lean_semantics, search_audit, and root artifact checks; each result explicitly distinguished from a target proof.
+Sub-agents: circuit_search; search_audit; lean_semantics; pilot132_review; sat_resynthesis; structural_math
+TIMING total=51.3 subagents=6
+Timing is a checkpoint measurement; job continues polling.
+
+Desk next requests so far:2; nulls:1.
+Latest exact note: The checker is behind: 521 proofs are queued for a check and 542 were checked in the last hour, about 58 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.
+
+No PR opened: the posted theorem is not proved. All checked results and search artifacts are on the fork branch pnp/pilot-132.
