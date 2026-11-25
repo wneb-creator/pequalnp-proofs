@@ -623,4 +623,385 @@ lemma outer_right_below : ∀ a b c d e f g h : Bool,
 
 end Redistribution
 
+lemma minimal_gate_not_false_split (n : ℕ) (pre post : List Gate) (g : Gate) (out : ℕ)
+    (hm : IsMinimalMonoCircuit n ⟨pre ++ g :: post, out⟩) :
+    ¬ (∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (deletionRun pre (List.ofFn x)).getD i false) = false) := by
+  intro hz
+  have hz' : ∀ x : Fin n → Bool,
+      (Circuit.wires ⟨pre ++ g :: post, out⟩ (List.ofFn x)).getD
+        (n + pre.length) false = false := by
+    intro x
+    change (deletionRun (pre ++ g :: post) (List.ofFn x)).getD _ false = false
+    have hv := deletionRun_gate_value pre post g (List.ofFn x)
+    simp only [List.length_ofFn] at hv
+    exact hv.trans (hz x)
+  obtain ⟨D, hD, hsize, heval⟩ := delete_false_gate_split n pre post g out hm.1 hz'
+  have hle := hm.2 D hD (funext heval)
+  omega
+
+lemma minimal_gate_not_alias_split (n : ℕ) (pre post : List Gate) (g : Gate) (out r : ℕ)
+    (hm : IsMinimalMonoCircuit n ⟨pre ++ g :: post, out⟩) :
+    ¬ (∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (deletionRun pre (List.ofFn x)).getD i false) =
+        (deletionRun pre (List.ofFn x)).getD r false) := by
+  intro hz
+  by_cases hr : r < n + pre.length
+  · have hz' : ∀ x : Fin n → Bool,
+        (Circuit.wires ⟨pre ++ g :: post, out⟩ (List.ofFn x)).getD
+          (n + pre.length) false = (deletionRun pre (List.ofFn x)).getD r false := by
+      intro x
+      change (deletionRun (pre ++ g :: post) (List.ofFn x)).getD _ false = _
+      have hv := deletionRun_gate_value pre post g (List.ofFn x)
+      simp only [List.length_ofFn] at hv
+      exact hv.trans (hz x)
+    obtain ⟨D, hD, hsize, heval⟩ := delete_alias_gate_split n pre post g out r hr hm.1 hz'
+    have hle := hm.2 D hD (funext heval)
+    omega
+  · apply minimal_gate_not_false_split n pre post g out hm
+    intro x
+    rw [hz x]
+    exact List.getD_eq_default _ _ (by simp only [deletionRun_length, List.length_ofFn]; omega)
+
+lemma minimal_gate_regular_split (n : ℕ) (pre post : List Gate) (g : Gate) (out : ℕ)
+    (hm : IsMinimalMonoCircuit n ⟨pre ++ g :: post, out⟩)
+    (hn : g.op = GateOp.and → g.inputs ≠ []) :
+    g.inputs.length = 2 ∧ ∀ i ∈ g.inputs, i < n + pre.length := by
+  have hgm := hm.1 g (List.mem_append_right _ List.mem_cons_self)
+  have hop : g.op = GateOp.and ∨ g.op = GateOp.or := by simpa using hgm.1
+  have hlen := hgm.2
+  have hz := minimal_gate_not_false_split n pre post g out hm
+  have ha := fun r => minimal_gate_not_alias_split n pre post g out r hm
+  cases hins : g.inputs with
+  | nil =>
+    rcases hop with hop | hop
+    · exact False.elim (hn hop hins)
+    · exact False.elim (hz (fun x => by simp [hins, hop, GateOp.eval]))
+  | cons a ins =>
+    cases ins with
+    | nil =>
+      apply False.elim (ha a ?_)
+      intro x
+      rcases hop with hop | hop <;> simp [hins, hop, GateOp.eval]
+    | cons b ins =>
+      cases ins with
+      | cons c tail =>
+        simp only [hins, List.length_cons] at hlen
+        omega
+      | nil =>
+        refine ⟨by simp, ?_⟩
+        have hfirst : a < n + pre.length := by
+          by_contra hf
+          have hfalse : ∀ x : Fin n → Bool,
+              (deletionRun pre (List.ofFn x)).getD a false = false := fun x =>
+            List.getD_eq_default _ _ (by simp only [deletionRun_length, List.length_ofFn]; omega)
+          rcases hop with hop | hop
+          · apply hz
+            intro x
+            simp only [hins, hop, GateOp.eval, List.map_cons, List.map_nil,
+              List.all_cons, List.all_nil, id_eq]
+            rw [hfalse x]
+            simp
+          · apply ha b
+            intro x
+            simp only [hins, hop, GateOp.eval, List.map_cons, List.map_nil,
+              List.any_cons, List.any_nil, id_eq]
+            rw [hfalse x]
+            simp
+        have hsecond : b < n + pre.length := by
+          by_contra hf
+          have hfalse : ∀ x : Fin n → Bool,
+              (deletionRun pre (List.ofFn x)).getD b false = false := fun x =>
+            List.getD_eq_default _ _ (by simp only [deletionRun_length, List.length_ofFn]; omega)
+          rcases hop with hop | hop
+          · apply hz
+            intro x
+            simp only [hins, hop, GateOp.eval, List.map_cons, List.map_nil,
+              List.all_cons, List.all_nil, id_eq]
+            rw [hfalse x]
+            simp
+          · apply ha a
+            intro x
+            simp only [hins, hop, GateOp.eval, List.map_cons, List.map_nil,
+              List.any_cons, List.any_nil, id_eq]
+            rw [hfalse x]
+            simp
+        intro i hi
+        simp only [List.mem_cons, List.not_mem_nil, or_false] at hi
+        rcases hi with rfl | rfl
+        · exact hfirst
+        · exact hsecond
+
+lemma minimal_ao2_of_no_nullary_and (n : ℕ) (C : Circuit)
+    (hm : IsMinimalMonoCircuit n C)
+    (hn : ∀ g ∈ C.gates, g.op = GateOp.and → g.inputs ≠ []) :
+    PEqualNP.TopForm.IsAO2 n C := by
+  have split_regular (pre post : List Gate) (g : Gate) (hs : C.gates = pre ++ g :: post) :
+      g.inputs.length = 2 ∧ ∀ i ∈ g.inputs, i < n + pre.length := by
+    have hc : C = ⟨pre ++ g :: post, C.output⟩ := by cases C; simp_all
+    exact minimal_gate_regular_split n pre post g C.output (hc ▸ hm)
+      (hn g (by simp [hs]))
+  refine ⟨?_, ?_, ?_⟩
+  · intro g hg
+    simpa using (hm.1 g hg).1
+  · intro j hj i hi
+    let g := C.gates[j]
+    let pre := C.gates.take j
+    let post := C.gates.drop (j+1)
+    have hsplit : C.gates = pre ++ g :: post :=
+      (List.take_append_drop j C.gates).symm.trans (by rw [List.drop_eq_getElem_cons hj])
+    have hpre : pre.length = j := by simp [pre, Nat.min_eq_left (Nat.le_of_lt hj)]
+    have hgate : PEqualNP.MetaComplexity.NestedCover.gateAt C j = g := by
+      simp only [PEqualNP.MetaComplexity.NestedCover.gateAt, List.getD_eq_getElem?_getD,
+        List.getElem?_eq_getElem hj, Option.getD_some]
+      rfl
+    rw [hgate] at hi
+    simpa only [hpre] using (split_regular pre post g hsplit).2 i hi
+  · intro g hg
+    obtain ⟨pre, post, hs⟩ := List.mem_iff_append.mp hg
+    exact (split_regular pre post g hs).1
+
+lemma minimal_ao2_of_safe_empty (n : ℕ) (C : Circuit) (F : (Fin n → Bool) → Bool)
+    (hm : IsMinimalMonoCircuit n C)
+    (hfalse : F (fun _ => false) = false)
+    (hsafe : ∀ j g, C.gates[j]? = some g → g.op = GateOp.and →
+      ∀ x : Fin n → Bool, (C.wires (List.ofFn x)).getD (n+j) false = true → F x = true) :
+    PEqualNP.TopForm.IsAO2 n C := by
+  apply minimal_ao2_of_no_nullary_and n C hm
+  intro g hg hop hins
+  obtain ⟨pre, post, hs⟩ := List.mem_iff_append.mp hg
+  have hentry : C.gates[pre.length]? = some g := by simp [hs]
+  have hgate : (C.wires (List.ofFn (fun _ : Fin n => false))).getD
+      (n + pre.length) false = true := by
+    change (deletionRun C.gates (List.ofFn (fun _ : Fin n => false))).getD _ false = true
+    rw [hs]
+    have hv := deletionRun_gate_value pre post g (List.ofFn (fun _ : Fin n => false))
+    simpa only [List.length_ofFn, hins, List.map_nil, hop, GateOp.eval, List.all_nil] using hv
+  have ht := hsafe pre.length g hentry hop (fun _ => false) hgate
+  rw [hfalse] at ht
+  contradiction
+
+def familyDeletionCircuit (n : ℕ) (pre rest : List Gate) (out replacement : ℕ) : Circuit :=
+  ⟨pre ++ rest.map (deletionGate (n + pre.length) replacement),
+    deletionIndex (n + pre.length) replacement out⟩
+
+lemma deletionIndex_primary (n k replacement t : ℕ) (ht : t < n) :
+    deletionIndex (n + k) replacement t = t := by
+  simp only [deletionIndex, ite_eq_left (show t < n + k by omega)]
+
+lemma deletionGate_primary_mem (n k replacement t : ℕ) (g : Gate)
+    (ht : t < n) (hg : t ∈ g.inputs) :
+    t ∈ (deletionGate (n + k) replacement g).inputs := by
+  have h := List.mem_map_of_mem (f := deletionIndex (n+k) replacement) hg
+  rwa [deletionIndex_primary n k replacement t ht] at h
+
+lemma deletion_family_false_explicit {ι : Type*} (n : ℕ) (input : ι → List Bool)
+    (hlen : ∀ x, (input x).length = n) (pre rest : List Gate) (g : Gate) (out : ℕ)
+    (hm : Monotone2 ⟨pre ++ g :: rest, out⟩)
+    (hz : ∀ x : ι,
+      (Circuit.wires ⟨pre ++ g :: rest, out⟩ (input x)).getD
+        (n + pre.length) false = false) :
+    let D := familyDeletionCircuit n pre rest out (n + pre.length + rest.length)
+    Monotone2 D ∧ D.size + 1 = Circuit.size ⟨pre ++ g :: rest, out⟩ ∧
+      ∀ x : ι, D.eval (input x) = Circuit.eval ⟨pre ++ g :: rest, out⟩ (input x) := by
+  let k := n + pre.length
+  let q := n + pre.length + rest.length
+  let D : Circuit := ⟨pre ++ rest.map (deletionGate k q), deletionIndex k q out⟩
+  change Monotone2 D ∧ D.size + 1 = Circuit.size ⟨pre ++ g :: rest, out⟩ ∧
+    ∀ x : ι, D.eval (input x) = Circuit.eval ⟨pre ++ g :: rest, out⟩ (input x)
+  refine ⟨?_, ?_, ?_⟩
+  · intro h hh
+    change h ∈ pre ++ rest.map (deletionGate k q) at hh
+    rcases List.mem_append.mp hh with hh | hh
+    · exact hm h (List.mem_append_left _ hh)
+    · obtain ⟨a, ha, rfl⟩ := List.mem_map.mp hh
+      have H := hm a (List.mem_append_right _ (List.mem_cons_of_mem _ ha))
+      exact ⟨H.1, by simpa [deletionGate] using H.2⟩
+  · simp [D, Circuit.size, Nat.add_assoc]
+  · intro x
+    let p := deletionRun pre (input x)
+    have hp : p.length = k := by simp [p, deletionRun_length, k, hlen x]
+    have hzero : g.op.eval (g.inputs.map fun i => p.getD i false) = false := by
+      have z := hz x
+      change (deletionRun (pre ++ g :: rest) (input x)).getD
+        (n + pre.length) false = false at z
+      have hv := deletionRun_gate_value pre rest g (input x)
+      rw [hlen x] at hv
+      rw [hv] at z
+      exact z
+    obtain ⟨u, hu, hv, hl⟩ := deletionRun_suffix p [] rest q (by simp [hp, q, k])
+    have hOld : Circuit.wires ⟨pre ++ g :: rest, out⟩ (input x) =
+        p ++ false :: u := by
+      change deletionRun (pre ++ g :: rest) (input x) = _
+      rw [deletionRun_append]
+      change deletionRun rest (p ++ [g.op.eval (g.inputs.map fun i => p.getD i false)]) = _
+      rw [hzero]
+      exact hu
+    have hNew : D.wires (input x) = p ++ u := by
+      change deletionRun (pre ++ rest.map (deletionGate k q)) (input x) = _
+      rw [deletionRun_append]
+      simpa only [List.append_nil, hp] using hv
+    change (D.wires (input x)).getD (deletionIndex k q out) false =
+      (Circuit.wires ⟨pre ++ g :: rest, out⟩ (input x)).getD out false
+    rw [hOld, hNew, ← hp]
+    exact (deletion_getD p u q out (by simp only [List.length_nil, Nat.zero_add] at hl; dsimp [q, k] at hp ⊢; omega)).symm
+
+lemma deletion_family_alias_explicit {ι : Type*} (n : ℕ) (input : ι → List Bool)
+    (hlen : ∀ x, (input x).length = n) (pre rest : List Gate) (g : Gate) (out r : ℕ)
+    (hr : r < n + pre.length)
+    (hm : Monotone2 ⟨pre ++ g :: rest, out⟩)
+    (hz : ∀ x : ι,
+      (Circuit.wires ⟨pre ++ g :: rest, out⟩ (input x)).getD
+        (n + pre.length) false = (deletionRun pre (input x)).getD r false) :
+    let D := familyDeletionCircuit n pre rest out r
+    Monotone2 D ∧ D.size + 1 = Circuit.size ⟨pre ++ g :: rest, out⟩ ∧
+      ∀ x : ι, D.eval (input x) = Circuit.eval ⟨pre ++ g :: rest, out⟩ (input x) := by
+  let k := n + pre.length
+  let D : Circuit := ⟨pre ++ rest.map (deletionGate k r), deletionIndex k r out⟩
+  change Monotone2 D ∧ D.size + 1 = Circuit.size ⟨pre ++ g :: rest, out⟩ ∧
+    ∀ x : ι, D.eval (input x) = Circuit.eval ⟨pre ++ g :: rest, out⟩ (input x)
+  refine ⟨?_, ?_, ?_⟩
+  · intro h hh
+    change h ∈ pre ++ rest.map (deletionGate k r) at hh
+    rcases List.mem_append.mp hh with hh | hh
+    · exact hm h (List.mem_append_left _ hh)
+    · obtain ⟨a, ha, rfl⟩ := List.mem_map.mp hh
+      have H := hm a (List.mem_append_right _ (List.mem_cons_of_mem _ ha))
+      exact ⟨H.1, by simpa [deletionGate] using H.2⟩
+  · simp [D, Circuit.size, Nat.add_assoc]
+  · intro x
+    let p := deletionRun pre (input x)
+    have hp : p.length = k := by simp [p, deletionRun_length, k, hlen x]
+    have hzero : g.op.eval (g.inputs.map fun i => p.getD i false) = p.getD r false := by
+      have z := hz x
+      change (deletionRun (pre ++ g :: rest) (input x)).getD
+        (n + pre.length) false = p.getD r false at z
+      have hv := deletionRun_gate_value pre rest g (input x)
+      rw [hlen x] at hv
+      rw [hv] at z
+      exact z
+    obtain ⟨u, hu, hv, hl⟩ := deletionRun_alias_suffix p [] rest r (by simpa [hp, k] using hr)
+    have hOld : Circuit.wires ⟨pre ++ g :: rest, out⟩ (input x) =
+        p ++ p.getD r false :: u := by
+      change deletionRun (pre ++ g :: rest) (input x) = _
+      rw [deletionRun_append]
+      change deletionRun rest (p ++ [g.op.eval (g.inputs.map fun i => p.getD i false)]) = _
+      rw [hzero]
+      exact hu
+    have hNew : D.wires (input x) = p ++ u := by
+      change deletionRun (pre ++ rest.map (deletionGate k r)) (input x) = _
+      rw [deletionRun_append]
+      simpa only [List.append_nil, hp] using hv
+    change (D.wires (input x)).getD (deletionIndex k r out) false =
+      (Circuit.wires ⟨pre ++ g :: rest, out⟩ (input x)).getD out false
+    rw [hOld, hNew, ← hp]
+    exact (deletion_getD_core p u (p.getD r false) r out
+      (List.getD_append _ _ _ _ (by simpa [hp, k] using hr))).symm
+
+lemma deletion_family_alias_any_explicit {ι : Type*} (n : ℕ) (input : ι → List Bool)
+    (hlen : ∀ x, (input x).length = n) (pre rest : List Gate) (g : Gate) (out r : ℕ)
+    (hm : Monotone2 ⟨pre ++ g :: rest, out⟩)
+    (hz : ∀ x : ι,
+      (Circuit.wires ⟨pre ++ g :: rest, out⟩ (input x)).getD
+        (n + pre.length) false = (deletionRun pre (input x)).getD r false) :
+    ∃ replacement : ℕ,
+      let D := familyDeletionCircuit n pre rest out replacement
+      Monotone2 D ∧ D.size + 1 = Circuit.size ⟨pre ++ g :: rest, out⟩ ∧
+        ∀ x : ι, D.eval (input x) = Circuit.eval ⟨pre ++ g :: rest, out⟩ (input x) := by
+  by_cases hr : r < n + pre.length
+  · exact ⟨r, deletion_family_alias_explicit n input hlen pre rest g out r hr hm hz⟩
+  · refine ⟨n + pre.length + rest.length,
+      deletion_family_false_explicit n input hlen pre rest g out hm ?_⟩
+    intro x
+    rw [hz x]
+    exact List.getD_eq_default _ _ (by rw [deletionRun_length, hlen x]; omega)
+
+lemma deletion_family_forced_and {ι : Type*} (n : ℕ) (input : ι → List Bool)
+    (hlen : ∀ x, (input x).length = n) (pre rest : List Gate) (g : Gate) (out t : ℕ)
+    (ht : t < n) (hop : g.op = GateOp.and) (hmem : t ∈ g.inputs)
+    (hm : Monotone2 ⟨pre ++ g :: rest, out⟩)
+    (hon : ∀ x : ι, (input x).getD t false = true) :
+    ∃ replacement : ℕ,
+      let D := familyDeletionCircuit n pre rest out replacement
+      Monotone2 D ∧ D.size + 1 = Circuit.size ⟨pre ++ g :: rest, out⟩ ∧
+        ∀ x : ι, D.eval (input x) = Circuit.eval ⟨pre ++ g :: rest, out⟩ (input x) := by
+  have hprimary : ∀ x : ι, (deletionRun pre (input x)).getD t false = true := by
+    intro x
+    obtain ⟨tail, he⟩ := deletionRun_prefix pre (input x)
+    rw [he, List.getD_append _ _ _ _ (by rw [hlen x]; exact ht)]
+    exact hon x
+  have hlenG := (hm g (List.mem_append_right _ List.mem_cons_self)).2
+  have hlocal : ∃ r : ℕ, ∀ x : ι,
+      g.op.eval (g.inputs.map fun i => (deletionRun pre (input x)).getD i false) =
+        (deletionRun pre (input x)).getD r false := by
+    cases hins : g.inputs with
+    | nil => simp only [hins, List.not_mem_nil] at hmem
+    | cons a ins =>
+      cases ins with
+      | nil => exact ⟨a, fun x => by simp [hop, GateOp.eval]⟩
+      | cons b ins =>
+        cases ins with
+        | cons c tail => simp only [hins, List.length_cons] at hlenG; omega
+        | nil =>
+          simp only [hins, List.mem_cons, List.not_mem_nil, or_false] at hmem
+          rcases hmem with rfl | rfl
+          · refine ⟨b, fun x => ?_⟩
+            simp only [hop, GateOp.eval, List.map_cons, List.map_nil,
+              List.all_cons, List.all_nil, id_eq]
+            rw [hprimary x]
+            simp
+          · refine ⟨a, fun x => ?_⟩
+            simp only [hop, GateOp.eval, List.map_cons, List.map_nil,
+              List.all_cons, List.all_nil, id_eq]
+            rw [hprimary x]
+            simp
+  obtain ⟨r, hr⟩ := hlocal
+  apply deletion_family_alias_any_explicit n input hlen pre rest g out r hm
+  intro x
+  change (deletionRun (pre ++ g :: rest) (input x)).getD _ false = _
+  have hv := deletionRun_gate_value pre rest g (input x)
+  rw [hlen x] at hv
+  exact hv.trans (hr x)
+
+lemma deletion_family_two_forced_ands {ι : Type*} (n : ℕ) (input : ι → List Bool)
+    (hlen : ∀ x, (input x).length = n) (pre middle post : List Gate) (g h : Gate)
+    (out t₁ t₂ : ℕ) (ht₁ : t₁ < n) (ht₂ : t₂ < n)
+    (hop₁ : g.op = GateOp.and) (hop₂ : h.op = GateOp.and)
+    (hmem₁ : t₁ ∈ g.inputs) (hmem₂ : t₂ ∈ h.inputs)
+    (hm : Monotone2 ⟨pre ++ g :: (middle ++ h :: post), out⟩)
+    (hon₁ : ∀ x : ι, (input x).getD t₁ false = true)
+    (hon₂ : ∀ x : ι, (input x).getD t₂ false = true) :
+    ∃ D : Circuit, Monotone2 D ∧
+      D.size + 2 = Circuit.size ⟨pre ++ g :: (middle ++ h :: post), out⟩ ∧
+      ∀ x : ι, D.eval (input x) =
+        Circuit.eval ⟨pre ++ g :: (middle ++ h :: post), out⟩ (input x) := by
+  obtain ⟨replacement, hm₁, hs₁, he₁⟩ :=
+    deletion_family_forced_and n input hlen pre (middle ++ h :: post) g out t₁
+      ht₁ hop₁ hmem₁ hm hon₁
+  let k := n + pre.length
+  let D₁ := familyDeletionCircuit n pre (middle ++ h :: post) out replacement
+  let pre₂ := pre ++ middle.map (deletionGate k replacement)
+  let post₂ := post.map (deletionGate k replacement)
+  let h₂ := deletionGate k replacement h
+  let out₂ := deletionIndex k replacement out
+  have hshape : D₁ = ⟨pre₂ ++ h₂ :: post₂, out₂⟩ := by
+    simp [D₁, familyDeletionCircuit, pre₂, post₂, h₂, out₂, k,
+      List.map_append, List.append_assoc]
+  have hm₂ : Monotone2 ⟨pre₂ ++ h₂ :: post₂, out₂⟩ := by
+    rw [← hshape]
+    exact hm₁
+  have hop₂' : h₂.op = GateOp.and := hop₂
+  have hmem₂' : t₂ ∈ h₂.inputs :=
+    deletionGate_primary_mem n pre.length replacement t₂ h ht₂ hmem₂
+  obtain ⟨replacement₂, hmD, hsD, heD⟩ :=
+    deletion_family_forced_and n input hlen pre₂ post₂ h₂ out₂ t₂
+      ht₂ hop₂' hmem₂' hm₂ hon₂
+  let D := familyDeletionCircuit n pre₂ post₂ out₂ replacement₂
+  refine ⟨D, hmD, ?_, ?_⟩
+  · have hsD' : D.size + 1 = D₁.size := by rw [hshape]; exact hsD
+    change D₁.size + 1 = _ at hs₁
+    omega
+  · intro x
+    exact (heD x).trans (by rw [← hshape]; exact he₁ x)
+
 end PEqualNP.Outside.L_meta_1904_aux
