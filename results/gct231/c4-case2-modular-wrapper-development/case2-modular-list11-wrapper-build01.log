@@ -1,0 +1,253 @@
+import took 1.56s
+simp took 103ms
+ring took 1.18s
+share common exprs took 1.13s
+process pre-definitions took 567ms
+elaboration took 306ms
+type checking took 2.51s
+/tmp/oec/pequalnp-pilot-75/gct231/C4Case2NormCompactList11Audit.lean:193:33: error: unsolved goals
+P : ℂ
+h0 :
+  ((((((((((((((((((((((((⋯ * P - 849331224470998922838409216) * P - 9287726416990892341877276672) * P +
+                                                                                              1061448758026543793593909248) *
+                                                                                            P +
+                                                                                          3166660014639886112311476224) *
+                                                                                        P -
+                                                                                      488346992018460420671012864) *
+                                                                                    P -
+                                                                                  1159748526299767495140048896) *
+                                                                                P +
+                                                                              107845852978668222340399104) *
+                                                                            P +
+                                                                          432486396114255015900610560) *
+                                                                        P +
+                                                                      49991611206934768027435008) *
+                                                                    P -
+                                                                  121197021104222354114871296) *
+                                                                P -
+                                                              49755649442854917650776064) *
+                                                            P +
+                                                          13136893452334076644032512) *
+                                                        P +
+                                                      14712951262937565311795200) *
+                                                    P +
+                                                  2678174853136674497495040) *
+                                                P -
+                                              1268525215085977606815744) *
+                                            P -
+                                          738226803846107715600384) *
+                                        P -
+                                      107572956951749626691584) *
+                                    P +
+                                  22648919260852498989056) *
+                                P +
+                              10699295950030910783488) *
+                            P +
+                          1073478908235179098112) *
+                        P -
+                      167582174250891476992) *
+                    P -
+                  46387858090777116672) *
+                P -
+              1772827788139560960) *
+            P +
+          417425827093807104) *
+        P +
+      37159077792448512 =
+    0
+h1 :
+  ((((((((((((((((((((((((⋯ * P + 113650272975310010690874767906439168) * P + 12603969980817674244102982123651072) * P -
+                                                                                              25664201682247828203176965550637056) *
+                                                                                            P -
+                                                                                          8213171865480436565614861521780736) *
+                                                                                        P +
+                                                                                      4029136721124843077873089332117504) *
+                                                                                    P +
+                                                                                  2628000027848444427478534157500416) *
+                                                                                P -
+                                                                              209870594257565076122162371231744) *
+                                                                            P -
+                                                                          541349472334460140871666951520256) *
+                                                                        P -
+                                                                      94300886592682223270325756362752) *
+                                                                    P +
+                                                                  63603620476087094309433177538560) *
+                                                                P +
+                                                              29951969332659092184856092737536) *
+                                                            P -
+                                                          811246948841501998679913922560) *
+                                                        P -
+                                                      3803780183371776582423469359104) *
+                                                    P -
+                                                  899169384053324382623001214976) *
+                                                P +
+                                              123215909021032981054263132160) *
+                                            P +
+                                          103422518027332501808699408384) *
+                                        P +
+                                      17276267743810333313685520384) *
+                                    P -
+                                  1546128465399113698655600640) *
+                                P -
+                              1045375796955989283493117952) *
+                            P -
+                          142252570981505420664766464) *
+                        P +
+                      3110008645430162734710784) *
+                    P +
+                  3122292884187909537660928) *
+                P +
+              354326206326633968697344) *
+            P +
+          13371152962099620085760) *
+        P -
+      66656648611391078400 =
+    0
+⊢ Nat.Prime 11
+/tmp/oec/pequalnp-pilot-75/gct231/C4Case2NormCompactList11Audit.lean:193:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/tmp/oec/pequalnp-pilot-75/gct231/C4Case2NormCompactList11Audit.lean:202:4: error: Not a comparison: 567002529792 +
+      P *
+        (-10073660719104 +
+          P *
+            (42678213279744 +
+              P *
+                (152371420397568 +
+                  P *
+                    (-1359067682848768 +
+                      P *
+                        (1123343828107264 +
+                          P *
+                            (9770903451582464 +
+                              P *
+                                (-21913158068674560 +
+                                  P *
+                                    (-18855473919455232 +
+                                      P *
+                                        (112673564432310272 +
+                                          P *
+                                            (-61856563016427520 +
+                                              P *
+                                                (-285875542802354176 +
+                                                  P *
+                                                    (444301158301289472 +
+                                                      P *
+                                                        (348786211407216640 +
+                                                          P *
+                                                            (-1287481020019996672 +
+                                                              P *
+                                                                (83791561946866688 +
+                                                                  P *
+                                                                    (2443920984047352320 +
+                                                                      P *
+                                                                        (-1161884919701942272 +
+                                                                          P *
+                                                                            (-3522355534198141696 +
+                                                                              P *
+                                                                                (2334680495548560384 +
+                                                                                  P *
+                                                                                    (4183406015983618560 +
+                                                                                      P *
+                                                                                        (-2568987699042079744 +
+                                                                                          P *
+                                                                                            (-4170211890288527360 +
+                                                                                              P *
+                                                                                                (1330009013057276416 +
+                                                                                                  P *
+                                                                                                    (3208563686326317824 +
+                                                                                                      ⋯)))))))))))))))))))))))) =
+    0 ∨
+  P + 2 = 0 ∨ P ^ 4 - 2 * P ^ 3 + 4 * P + 2 = 0
+/tmp/oec/pequalnp-pilot-75/gct231/C4Case2NormCompactList11Audit.lean:206:4: error: Not a comparison: -1017099740774400 +
+      P *
+        (233523495053557760 +
+          P *
+            (-966635141580455936 +
+              P *
+                (-12599864265165242368 +
+                  P *
+                    (47592234513776771072 +
+                      P *
+                        (274269676855272407040 +
+                          P *
+                            (-937030822754508079104 +
+                              P *
+                                (-3246863937442460729344 +
+                                  P *
+                                    (10601983831242954768384 +
+                                      P *
+                                        (25297871917359865135104 +
+                                          P *
+                                            (-82133235006067753156608 +
+                                              P *
+                                                (-144886885351880963325952 +
+                                                  P *
+                                                    (482648840405741265616896 +
+                                                      P *
+                                                        (651809974039751452262400 +
+                                                          P *
+                                                            (-2291234664597034950262784 +
+                                                              P *
+                                                                (-2395575522675195731312640 +
+                                                                  P *
+                                                                    (9115498662659383867015168 +
+                                                                      P *
+                                                                        (7355090693682244017029120 +
+                                                                          P *
+                                                                            (-30979057935428540547874816 +
+                                                                              P *
+                                                                                (-19138309526315999749521408 +
+                                                                                  P *
+                                                                                    (90755798705449040380919808 +
+                                                                                      P *
+                                                                                        (42899295948184476459040768 +
+                                                                                          P *
+                                                                                            (-230243599088282612857778176 +
+                                                                                              P *
+                                                                                                (-85349513122274078961176576 +
+                                                                                                  P *
+                                                                                                    (507264045184196954783535104 +
+                                                                                                      ⋯)))))))))))))))))))))))) =
+    0 ∨
+  P + 2 = 0 ∨ P ^ 4 - 2 * P ^ 3 + 4 * P + 2 = 0
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 217ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 348ms
+'PEqualNP.Outside.L_gct_231.trace.case2_projective_norm_obstruction_compact' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+elaboration took 404ms
+cumulative profiling times:
+	attribute application 0.173ms
+	blocked (unaccounted) 8.79s
+	compilation (IR) 0.251ms
+	compilation (LCNF base) 1.77ms
+	compilation (LCNF impure) 0.915ms
+	compilation (LCNF mono) 1.16ms
+	congr simp thm 14ms
+	declTypeLinter 15.5ms
+	elaboration 972ms
+	fix level params 56.3ms
+	import 1.56s
+	initialization 38.7ms
+	instantiate metavars 2.54ms
+	interpretation 1.07s
+	let-to-have transformation 2.56ms
+	linting 38.2ms
+	module linting 0.0298ms
+	norm_num 399ms
+	parsing 20.1ms
+	process pre-definitions 587ms
+	ring 1.18s
+	share common exprs 1.15s
+	simp 356ms
+	tactic execution 422ms
+	tacticAnalysis 5.32ms
+	type checking 2.64s
+	typeclass inference 1.11s

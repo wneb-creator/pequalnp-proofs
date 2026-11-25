@@ -1,0 +1,5 @@
+{
+  "resultant": "A**3*G**2 - A**2*B*F*G - 2*A**2*C*E*G + A**2*C*F**2 + A*B**2*E*G + 3*A*B*C*D*G - A*B*C*E*F - 2*A*C**2*D*F + A*C**2*E**2 - B**3*D*G + B**2*C*D*F - B*C**2*D*E + C**3*D**2",
+  "quadratic_multiplier": "A**2*D*F*V**2 - A**2*D*G*V + A**2*E*F*V - A**2*E*G + A**2*F**2 - A*B*D*E*V**2 + A*B*D*G - A*B*E**2*V - A*B*E*F - A*C*D**2*V**2 - 2*A*C*D*F + A*C*E**2 + B**2*D**2*V**2 + B**2*D*E*V + B**2*D*F - B*C*D**2*V - B*C*D*E + C**2*D**2",
+  "cubic_multiplier": "-A**3*F*V + A**3*G + A**2*B*E*V - A**2*B*F + A**2*C*D*V - A**2*C*E - A*B**2*D*V + A*B**2*E + 2*A*B*C*D - B**3*D"
+}

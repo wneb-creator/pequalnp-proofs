@@ -1,0 +1,7 @@
+Start UTC 2026-11-25T11:54:29.026309+00:00
+Exact5-file coverage/all hashes; manifest SHA256 80ffe4c0e3b614991f94b2268b75d227c5f1581a16b75ba194e7e812b119b73a
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-75/gct231/star_center_partial_review.py", line 43, in <module>
+    if rowidx<31:assert values==originalrows[rowidx][termidx]
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

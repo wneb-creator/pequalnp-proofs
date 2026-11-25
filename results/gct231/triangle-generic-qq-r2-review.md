@@ -1,0 +1,3 @@
+Final genericQQ r2 archive review PASS. Archive triangle-generic-qq-r2 has8 manifest entries,50,545payload bytes, SHA2566ef63486b6b5e871d4557426024f65bbcd8775deb125a3b60d49e41506a63f74. All hashes/coverage/text-only/full scratch copies pass. Source8ded9d5e… and actual QQ input349ed837… are the previously reviewed exact files. Engine644e6506… matches. Run status is UNKNOWN_TIME_LIMIT after600.094061seconds with2,050,360KiB peak RSS under600seconds/2GiB/32pairs. The full log has32completed rounds and no basis. No characteristic-zero inconsistency or certificate is claimed. No solver rerun. Checker/log triangle_generic_qq_r2_review.py / triangle-generic-qq-r2-review.log.
+
+Saved 2026-11-25T12:33:03.540664+00:00

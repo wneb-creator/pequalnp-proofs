@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "completed_utc": "2026-11-25T12:59:04.601114+00:00",
+  "manifest_sha256": "082446e771cc11c058b501db8792396684503c911f4cb6d4b5b7f9d9cc73f484",
+  "manifest_entries": 11,
+  "total_bytes": 50499,
+  "exact_coverage": true,
+  "scratch_pairing": true,
+  "text_only": true,
+  "source_sha256": "068e69749d812de901748856d3b1a322b22ba0256005b4b70464be5c0f1aea2c",
+  "scope": "Concrete modular coprimality checked; full norm wrappers remain UNKNOWN due memory limits."
+}

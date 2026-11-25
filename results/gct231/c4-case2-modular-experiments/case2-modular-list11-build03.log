@@ -1,0 +1,53 @@
+import took 3.58s
+/tmp/oec/pequalnp-pilot-75/gct231/C4Case2ModularCoprimeList11Audit.lean:113:8: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  ↑11
+in the target expression
+  11 = 0
+
+h : 11 = 0
+⊢ 11 = 0
+tactic execution of Lean.Parser.Tactic.rewriteSeq took 110ms
+simp took 117ms
+ring took 1.19s
+share common exprs took 1.09s
+process pre-definitions took 680ms
+type checking took 2.75s
+'PEqualNP.Outside.L_gct_231.trace.case2_cofactor_degree_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231.trace.case2_left_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231.trace.case2_right_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231.trace.case2_modular_degrees' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231.trace.case2_modular_coprime' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+elaboration took 466ms
+cumulative profiling times:
+	attribute application 0.345ms
+	blocked (unaccounted) 7.44s
+	compilation (IR) 0.155ms
+	compilation (LCNF base) 2.98ms
+	compilation (LCNF impure) 1ms
+	compilation (LCNF mono) 1.1ms
+	congr simp thm 5.93ms
+	declTypeLinter 17.3ms
+	elaboration 633ms
+	fix level params 50.3ms
+	import 3.58s
+	initialization 45.2ms
+	instantiate metavars 1.54ms
+	interpretation 498ms
+	let-to-have transformation 2.75ms
+	linting 22.7ms
+	module linting 0.298ms
+	norm_num 22.6ms
+	parsing 9.68ms
+	process pre-definitions 698ms
+	ring 1.19s
+	share common exprs 1.1s
+	simp 361ms
+	tactic execution 492ms
+	tacticAnalysis 3.06ms
+	type checking 2.83s
+	typeclass inference 667ms

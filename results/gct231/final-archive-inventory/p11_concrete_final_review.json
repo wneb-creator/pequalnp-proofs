@@ -1,0 +1,55 @@
+{
+  "2": {
+    "source_sha256": "548488ed6cdac516542dbe0e73e2a1661d1c3d5e1503b8f10dfe77369402f767",
+    "degrees": [
+      54,
+      82
+    ],
+    "actual_seven_lists_exact": true,
+    "integer_bezout_exact": true,
+    "maps_and_leading_coefficients": true,
+    "audit_exact_source": true,
+    "standard_axiom_queries": 5,
+    "status": {
+      "status": "PASS",
+      "returncode": 0,
+      "wall_seconds": 12.86147493200042,
+      "seconds_limit": 60,
+      "resident_memory_mib_limit": 5120,
+      "peak_group_rss_kib": 4330956,
+      "rss_sample_seconds": 0.5,
+      "input": "/tmp/oec/pequalnp-pilot-75/gct231/C4Case2ModularCoprimeList11Audit.lean"
+    }
+  },
+  "3": {
+    "source_sha256": "068e69749d812de901748856d3b1a322b22ba0256005b4b70464be5c0f1aea2c",
+    "degrees": [
+      67,
+      85
+    ],
+    "actual_seven_lists_exact": true,
+    "integer_bezout_exact": true,
+    "maps_and_leading_coefficients": true,
+    "audit_exact_source": true,
+    "standard_axiom_queries": 1,
+    "status": {
+      "status": "PASS",
+      "returncode": 0,
+      "wall_seconds": 16.36960212700069,
+      "seconds_limit": 90,
+      "resident_memory_mib_limit": 5120,
+      "peak_group_rss_kib": 4546408,
+      "rss_sample_seconds": 0.5,
+      "input": "/tmp/oec/pequalnp-pilot-75/gct231/C4Case3ModularCoprimeList11Audit.lean"
+    }
+  },
+  "archive_case2": {
+    "manifest_sha256": "b9f0b98c5369ec89f1633114dee6e8a6e208af71c452cc298b437dd831d07e3a",
+    "entries": 8,
+    "exact_coverage": true,
+    "text_only": true,
+    "scratch_pairing": true
+  },
+  "completed_utc": "2026-11-25T12:58:31.254799+00:00",
+  "scope": "Concrete degree/map/modular coprimality only; no full norm or chart theorem."
+}

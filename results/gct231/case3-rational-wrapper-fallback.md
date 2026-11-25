@@ -1,0 +1,3 @@
+# Final rational-certificate wrapper attempt
+
+This final attempt used the exact independently checked rational Bezout certificate and norm factorizations, with the missing declaration colon corrected and scoped recursion limit 16384. It reached the 6 GiB sampled RSS cap after 47.82 seconds and did not complete Lean checking. The source is an unchecked candidate, not a machine-checked norm theorem. Complete source, audit source, stdout/stderr and run metadata are preserved; the exact arithmetic generation and independent coefficient reviews remain in the earlier case3 norm certificate archives.

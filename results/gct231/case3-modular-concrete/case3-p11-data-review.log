@@ -1,0 +1,6 @@
+Start UTC 2026-11-25T12:46:57.371878+00:00
+Frozen reviewed originalradicals exactlypreserved, leastresidue maps mod11 and exact67/85degrees, nonzero leading residues 6 7 : PASS
+Independent exactinteger identity AbarFbar+BbarGbar-1=11H: PASS; data SHA256 73cf7940ccc5eaa364908d5e69cc69de66098899a0873747bc64e5acdc5d434e
+Scope: modular coefficient/degrees/coprimality data only, to be used with separately checked resultant-transfer theorem. No unreviewed geometric or original-equation necessity claim.
+Finish UTC 2026-11-25T12:46:57.737027+00:00
+PASS

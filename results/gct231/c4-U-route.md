@@ -1,0 +1,9 @@
+# Targeting the U=0 consequence in reduced C4 cases
+
+The new auxiliary systems preserve all six original reduced equations and append a sixth variable `invU` with the equation `invU*U - 1 = 0`. A characteristic-zero unit certificate for such a system would force U=0 on the original reduced branch. Independent review checked the exact prefixes, variable order, hashes, normalized lineage, and all four actual rational/F1009 inputs. The systems have seven equations and 136 or 134 terms.
+
+The two F1009 tests returned unit bases `[1]`: case 2 in 0.115941 seconds, 7600 KiB peak RSS; case 3 in 0.165751 seconds, 7520 KiB. Both used pair-selection parameter 32, one thread, and 120-second/1-GiB caps. These results do not prove U=0 in characteristic zero. Exact rational tracing is recorded separately.
+
+There is a short, independently checked classification conditional on U=0. In case 2, eliminating B from the first two equations gives `-3*V^2*(V-6)^2*(V+2)`. Saturation excludes V=0. The V=-2 branch forces B=1/3 and is contradicted by an explicit Bezout combination of two remaining equations. The V=6 branch forces B=1, and another explicit Bezout combination gives P+2=0. In case 3, the first two equations and saturation force beta=1/2; the next equation and saturation force A=4; the linear equation then gives V=-12. The unique conditional points are exactly the two previously checked points that fail the necessary square condition.
+
+The 40-file `c4-U-route/` archive preserves both input systems, conversions and complete finite-field logs, the conditional elimination identities, and both independent review scripts and logs. Manifest SHA256: `d96a269ec89ff2a1b3ea1f4b6be02d982a5b2e6cd6df523358909515cc398949`. One initial classification script execution stopped at a structural-expression equality assertion; the corrected execution checks the expanded difference and succeeds. Both full logs are retained.

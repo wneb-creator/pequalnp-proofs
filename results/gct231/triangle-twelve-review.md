@@ -1,0 +1,11 @@
+# Twelve-variable conditional triangle system: independent review
+
+The export `triangle_concept/triangle-twelve-equations.json`, SHA256 `03a8aa61b2a83e2918457d922059fb481128cc02b3d1532c2cfcc11677ed0ce7`, passes independent exact review against the raw triangle-stratum source, SHA256 `1c6914e2effc3220482099801f6cb125b7fdf5ef1bc8f4963a39759aadbf4203`.
+
+Ryser's formula independently reconstructs all 31 raw permanent coefficients. In the three coordinate directions, vertices 2,1,0 are respectively isolated, with diagonal coefficients d6,d4,d2. The exact fourth-power identities agree with the isolated-vertex theorem and force those three parameters to vanish for any candidate. After substitution, the three pure quartics vanish identically and six other quartics are the stated diagonal multiples of pure cubic equations. The remaining 22 permanent equations are retained exactly.
+
+The export also retains the determinant of the center-star map and adds its three minors formed with the center diagonal functional. Every vector in the kernel of that star map gives an isolated vertex, so the diagonal functional annihilates the kernel and therefore belongs to the row span. The all-stars-dependent stratum bounds the star rank by two. Hence all three appended minors vanish, including when the rank is zero or one. No rank-exactly-two premise is introduced. The exported row t differs from the negative diagonal row by a linear combination of the existing star rows, and the resulting minor differences are multiples of the retained star determinant.
+
+All 26 equations, the twelve-variable order, the matrix entries and total count of 686 terms match independently. The optional quartic normal form at an assumed fourth double point (1,1,1) is also an exact checked identity; the review does not assert such a normalization covers every degeneration.
+
+Standalone source/full log: `/tmp/oec/pequalnp-pilot-75/gct231/triangle_concept/independent_review.py` and `independent-review.log`, completed 2026-11-25T11:48:27.167895+00:00. This is a necessary system only for the conditional all-four-stars-dependent triangle stratum. There is no inconsistency or global exclusion verdict, and no solver was run by this review.

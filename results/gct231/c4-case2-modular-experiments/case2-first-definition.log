@@ -1,0 +1,21 @@
+import took 1.58s
+elaboration took 328ms
+PEqualNP.Outside.L_gct_231.trace.case2CofactorLeft : Polynomial ℤ
+cumulative profiling times:
+	attribute application 0.133ms
+	declTypeLinter 5.9ms
+	elaboration 330ms
+	fix level params 0.154ms
+	import 1.58s
+	initialization 47.1ms
+	instantiate metavars 2.08ms
+	interpretation 192ms
+	let-to-have transformation 0.537ms
+	linting 6.1ms
+	module linting 0.308ms
+	parsing 5.65ms
+	process pre-definitions 7.71ms
+	share common exprs 0.967ms
+	tacticAnalysis 0.872ms
+	type checking 1.08ms
+	typeclass inference 4.96s

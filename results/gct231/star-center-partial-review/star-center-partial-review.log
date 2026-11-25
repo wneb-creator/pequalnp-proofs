@@ -1,0 +1,9 @@
+Start UTC 2026-11-25T11:54:46.251870+00:00
+Exact5-file coverage/all hashes; manifest SHA256 80ffe4c0e3b614991f94b2268b75d227c5f1581a16b75ba194e7e812b119b73a
+Complete gzip decompression/hash/42011622-byte length; all1003249 numeric terms and445 nonempty rows valid: PASS
+Same31 original polynomials retained, with identical exponent order and coefficients modulo1009;414 appended rows/999649terms; metadata accounting/budget and reviewed engine/input binding: PASS
+Captured ongoing log contains checkpoint markers [('1', '0'), ('2', '79'), ('3', '106')]
+Scope accurate: partial snapshot sequence2/round79; captured log extends beyond that snapshot to sequence3/round106 and an unfinished following round. No final solver verdict or consequence proof is inferred.
+No live solver or original snapshot touched; no polynomial membership proof attempted.
+Finish UTC 2026-11-25T11:54:53.950606+00:00
+PASS

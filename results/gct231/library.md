@@ -115,3 +115,129 @@ Named file, 624 lines / 28689 bytes, SHA256 `ad7a60b2d369921dde6ee77592c01d528e6
 The new scalar lemmas retain their explicit algebraic hypotheses and do not assert that every candidate satisfies those hypotheses. The normalized-family connection remains conditional on the symmetric constant-permanent linear family and its star pivot identities. There is still no main gap theorem. Root is running integrated build06; the driver itself was independently compiled as recorded above.
 
 Comparison script `gct231/library/review_integration06.py`; complete successful log `integration-review06-final.log`, exit 0. The first review log records a harmless scanner false positive: substring matching for the forbidden command `elab` incorrectly matched `relabel`. The corrected scanner uses word boundaries for commands while retaining literal matching for the anywhere-forbidden text.
+
+## Complete 31-equation interface preparation
+
+The complete full-star interface has been generated from the reviewed JSON in its original equation order: 6 quadratics, 10 cubics, and 15 quartics. The manifest records each zero-based JSON index, exponent, positive integer content, multi-index factorial, and derivative-to-primitive cancellation scale. All 18 complex parameters remain unrestricted. The generator `gct231/library/generate_star31.py` first produced `FullStar31.lean`, 761 lines / 65775 bytes, SHA256 `1d9ce39dfdf8a03b0c818087bd6d243bf209f89840193cf015b9f47cdb55965a`. Its single conjunction proof exceeded a sampled 7 GiB RSS guard without a Lean verdict.
+
+At the root's direction, `split_star31.py` generated one coefficient helper per equation, followed by an exact conjunction wrapper: `FullStar31Split.lean`, 976 lines / 105650 bytes, SHA256 `8f186589489eb33e2a6e9385b336b60e0f5d55513b281eaa978a6288a969602c`. Umbrella-import retries, including a serial profiling retry, also hit the RSS guard quickly. All complete logs and run-status JSON files are retained.
+
+The final candidate `FullStar31Lean.lean` narrows imports to eight Mathlib modules, uses no project imports, and adds a scoped 4-million-heartbeat limit to the final wrapper. Frozen SHA256 `4e3efa0b397320b678920ea30e5c1228261ee1d043e99e6134e2d8be60a9e6a3`, 983 lines / 105951 bytes. Narrow-import build01 used about 4.14 million KiB peak RSS and finished in 97.1 seconds: all derivative helpers and all 31 individual equation proofs elaborated, but the final exact-conjunction theorem exhausted its default 200k heartbeat budget. Build02, with the scoped wrapper limit, is currently running under the root-approved 300-second / 7168-MiB sampled-RSS limits. It is not yet reported as a fully compiled file here.
+
+Independent global_normal_form review: PASS for the original mapping and the final candidate delta. It checked all 16 matrix entries, the exact 24 permutation monomials, complete exponent coverage and JSON ordering, primitive contents, derivative multiplicities, generic factor assignments, factorials, and cancellation scales. The final proof-layout review confirms all 31 individual helpers match the original proof branches, the conjunction statement is unchanged, and the wrapper applies exactly those 31 helpers with the same parameters and hypothesis. Review artifacts are `gct231/fullstar31_review/` and `gct231/fullstar31_delta_review/`; the latter review manifest SHA256 is `ec70e2c40e562b9de491fc595fd3eca5467a35f62b2482aba7ff45001fc3f011`. The final coefficient mapping manifest is `gct231/library/full-star31-lean-manifest.json`.
+
+Final checked milestone: `FullStar31Individual.lean`, 916 lines / 73248 bytes, SHA256 `d7bf606daad095450d7e07956c199a4c53a96aab17ad1d3f93196c405f3fe351`, compiled PASS with all 31 individual primitive-equation lemmas. The larger conjunction-wrapper candidate reached the 300-second cap, so the root directed preserving the useful individual lemmas without that wrapper. The compiled file is a byte-exact prefix of the reviewed candidate, with the final wrapper/option removed and the namespace closed. Independent prefix review PASS is preserved in `gct231/fullstar31_individual_review/`.
+
+Successful complete build artifacts: `gct231/library/full-star31-individual-build01.log`, `.run.json`, and `-wrapper.log`. Compiler exit 0 in 84.875 seconds, sampled peak process-group RSS 4051760 KiB, under 300 seconds / 7168 MiB limits. The log contains profiler output and only deprecation/style warnings: the old Complex.Basic module alias and `<;>` where `;` suffices. No errors. There are only eight Mathlib imports, no project or Outside dependency. Exact final source/import/equation-to-lemma mapping: `gct231/library/full-star31-individual-manifest.json`.
+
+The result covers the complete original 31-equation system, in the original CAS order, as independent lemmas certEq400 through the remaining exponent-labelled cases. It does not prove the system inconsistent, provide a full-chart unit certificate, or prove/refute the main gap. The root was notified immediately on PASS for checkpointing before further work.
+
+Axiom audit of all 31 individual full-star equations: PASS. The fresh scratch
+`FullStar31AxiomAudit.lean` contains the frozen checked file unchanged followed by
+31 `#print axioms` commands. Its source SHA256 is
+`0f21d915a4a3fc9be9b121203e81d487359e729fd2292918467eafce66f50029`.
+Compilation exited 0 in 91.47 seconds with peak sampled process-group RSS
+4,063,820 KiB. An exact manifest-order check found every certEq theorem and
+confirmed its axiom list is exactly `propext`, `Classical.choice`, `Quot.sound`.
+Full logs/status/verification: scratch `gct231/library/full-star31-axiom-audit01.log`,
+`.run.json`, and `-verified.json`. The frozen original is unchanged.
+
+Reusable block determinant result: scratch `library/BlockDeterminant.lean`
+(29 lines, 1260 bytes; SHA256
+`e34270ccb9d6610c59a3737b6b906eaf35ea80a6fecd6fe13ef8d3478b9b317f`)
+compiles with exit 0. Over every commutative ring it proves
+`det(fromBlocks 0 B Bᵀ D) = det(B)^2` for two-by-two blocks and the
+change-of-basis form `det(P)^2 * det(M) = det(B)^2` from the stated congruence.
+Neither symmetry of D nor invertibility of P is assumed. The existence of an
+isotropic plane and an adapted invertible basis is not asserted. Structural
+independently reviewed the frozen source and final factor-order delta: PASS.
+Build03 exited 0 in 3.05 seconds, sampled peak RSS 3,061,480 KiB. A separate
+`BlockDeterminantAudit.lean` confirms both statements use only the three standard
+axioms. Full build/audit logs and a manifest remain beside the scratch source.
+
+Geometric bridge milestones, all compiled and frozen:
+- `library/PolynomialSquareBridge.lean`, 53 lines: constant invertible polynomial
+  congruence with a zero/transpose block gives an explicit determinant square.
+- `library/AdaptedPencilSquare.lean`, 95 lines: symmetry and two adapted zero
+  blocks imply `det(C(N)-X*C(M)) = p^2`. Build04 and separate axiom audit pass.
+- `library/IsotropicColumns.lean`, 145 lines, SHA256
+  `62ec7fe825ee51ba7c2ab794433edce721b75d12d4c2f3e178d32dc53ee514b9`:
+  pointwise quadratic vanishing polarizes, and an explicit invertible matrix
+  whose first two columns belong to the common vanishing submodule satisfies
+  the adapted-block hypotheses. Build01 exited 0 in 3.57 seconds; audit01
+  exited 0 in 3.55 seconds and confirms only the standard three axioms.
+These conditional milestones do not assert the adapted basis exists. That
+construction is being proved independently by `fresh_main_proof/c3_review`.
+All complete logs and scope manifests are beside the corresponding scratch files.
+
+Complete common-isotropic-plane bridge: PASS. The 200-line standalone scratch
+`library/CommonIsotropicPlane.lean` (9039 bytes; SHA256
+`ddd00bd47c8437801018a3ecb47e1929f2527ad63efdfd88ee328ed611838756`)
+proves the determinant pencil of two symmetric complex four-by-four matrices
+is a polynomial square whenever both quadratic forms vanish on a common
+submodule of finrank two. Unlike earlier milestones, this theorem constructs
+the adapted invertible matrix rather than assuming it.
+
+The adapted basis was independently implemented and compiled by
+`fresh_main_proof/c3_review`: `adapted-basis/AdaptedBasis.lean`, SHA256
+`490d6f557ea62c82aa6eebb0843e32c34c60af26d0c752661654b14df0159f3c`.
+My exact-source review passed: a complement has finrank two by dimension
+additivity; the product of two finite bases maps to an ambient basis; its
+first two vectors lie in the specified submodule; column independence gives
+a nonzero determinant. No isotropy, nonsingularity, or adapted-basis existence
+is silently assumed. Its proof bodies were copied unchanged into the aggregate
+auxiliary namespace. The prior 145-line geometric proof bodies are unchanged
+too; only imports were combined and the deprecated Complex import replaced.
+The final nine-line theorem obtains this matrix and invokes the checked
+polarization/column-membership criterion.
+
+Aggregate build01 and audit01 each exited 0 in 4.06 seconds. The final theorem
+and adapted matrix existence use only `propext`, `Classical.choice`, and
+`Quot.sound`. Full logs/status and `common-isotropic-plane-manifest.json` are
+beside the scratch source. This proves the requested reusable geometric
+criterion, not the full posted L-gct-231 existence statement.
+
+The complete 200-line bridge also passed independent body-preservation and
+final-statement review by both structural and the adapted-basis author.
+
+A small companion `library/PolynomialNonsquare.lean` (24 lines, 971 bytes;
+SHA256 `a00e214f4f3390128431db17af70a7211ac730b705d3e92bc193563f8cd95451`)
+proves over a commutative ring without zero divisors that a polynomial with
+coefficients zero at degrees zero and two, and nonzero at degree three, cannot
+be a square. No degree bound is assumed. The proof first forces a hypothetical
+square root's constant and linear coefficients to vanish, then contradicts
+the cubic coefficient. Build03 and separate audit01 exit 0 with only the
+standard three axioms. This criterion matches the separately derived C4
+determinant `λ³(13λ−4)/4`; the explicit determinant computation is a separate
+obligation and is not silently included here.
+
+Quartic-square coefficient bridge: PASS. Frozen scratch
+`library/QuarticSquareCoefficients.lean` (43 lines, 1804 bytes; SHA256
+`24051b7d2e1729780f4d74b6532e792dcca4bbda93fb443a9f6629f6b4f24a35`)
+proves both `8 a^2 d - 4 a b c + b^3 = 0` and
+`(4 a c - b^2)^2 - 64 a^3 e = 0` from `q=p^2` and
+`natDegree q <= 4`, where a,b,c,d,e are q's coefficients at 4,3,2,1,0.
+The proof is valid over any commutative ring without zero divisors, including
+complex numbers. It uses no nonzero leading coefficient, exact-degree, or
+characteristic-zero assumption and performs no division. Degree multiplicativity
+bounds the square root's degree by two; five explicit convolution formulas
+reduce the identities to ring normalization. Independent review by c3_review
+passes. Build01 and separate audit01 exit 0; only standard axioms occur. Full
+logs/status and a scope manifest are beside the source.
+
+Direct geometric-to-scalar composition: PASS. Frozen standalone scratch
+`library/CommonPlaneCoefficientIdentities.lean` (266 lines, 12024 bytes; SHA256
+`1aaaa15f2afadc317c741261a7fb57dad2dc2f408c8c41726940c7568919e522`)
+preserves the earlier common-plane and quartic coefficient proof bodies exactly.
+It then uses Mathlib's `Polynomial.natDegree_det_X_add_C_le` with A=-M, B=N
+to bound the four-by-four pencil determinant's degree by four, and concludes
+both scalar square conditions from the shared two-dimensional isotropic
+subspace alone. No nonzero determinant, exact quartic degree, explicit adapted
+basis, explicit square witness, or degree hypothesis remains in this final
+corollary. Degenerate pencils are included.
+
+Build02 exited 0 in 7.13 seconds; separate audit01 exits 0 and verifies only the
+standard three axioms. c3_review independently checked exact body preservation,
+the pencil sign convention, cardinality-four bound, and final assumptions:
+PASS. Complete logs/status and the final `common-plane-coefficients-manifest.json`
+are beside the frozen source.

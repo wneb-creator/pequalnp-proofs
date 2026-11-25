@@ -137,3 +137,32 @@ Exact expansion of all24permutation terms gives per(T)=0 identically; det(T(1,1,
 ### Sparse neogb certificate adapter checked
 
 The isolated serial QQ adapter passes three toy controls and the known rowzero system. Independent review checks every polynomial-state transition and the entire51-step certificate DAG. The unit's22-step slice emits9,528bytes/46lines of Lean. It compiled with exit0 in11.503seconds; axiom audit reports exactly propext,Classical.choice,Quot.sound. Source SHA256d39e7504d7591248b27a37320f6ce9589021360e7582b17edc4b8c0d9a6cfce8. Complete frozen archive: `neogb-trace/`. No full chart was run with this tracer and no full-gap conclusion is claimed.
+
+## 10:55 UTC: compact trace follow-up
+
+The direct fixed-C4 rational run stopped with `UNKNOWN_OUTPUT_FILE_SIZE_LIMIT` after 14.99 seconds when its trace reached the configured 256 MiB cap; no basis or contradiction was obtained. Complete diagnostics and exact trace hash are preserved in `c4-trace-capped/` (manifest `9e33fc8bae427fca26b5679aced397870da6f5d15a9a72ef72fd112d07f768eb`).
+
+A separate compact adapter replaces repeated matrix-input polynomial snapshots with references to previously verified output polynomials and explicit nonnegative monomial shifts. Toy controls and the row-zero control reproduce the same established polynomial sequence; the latter trace shrinks from 57,269 to 29,728 bytes. Independent review is pending. This is a certificate-storage change, not a new mathematical result. A 12-variable, 16-equation fixed-C4 quadratic+cubic necessary system has been prepared, with all quartic coefficients explicitly omitted; no follow-up run has started.
+
+## 11:40 UTC: four open-C4 scalar contradictions checked
+
+The corrected combined source `C4OpenCases01Scoped.lean` (124,858 bytes, 134 lines, SHA256 7944028ae577f616c88a4ba2f76717c5812c9a5fc480b73199b519797296401b) compiled with all four axiom audits reporting only propext, Classical.choice, and Quot.sound. The run took 190.063 seconds and peaked at 4,792,816 KiB sampled RSS. The checked source and complete reviews/logs are frozen in `c4-open-cases01/`, manifest d0433150d063916eb1d38b0d1e40b0251c8abf26680698e3472bd1010c1d83cb.
+
+The two case0 proofs are exact rational certificate consequences of the reviewed bivariate necessary resultants. The nonzero branch was compressed from an oversized 580,542-byte saturated emission to a 75,298-byte proof by deriving two polynomial squares and contradicting the explicit open factor. Case1 follows from gamma -> -gamma with the corresponding exact premise signs. One earlier combined wrapper incorrectly supplied unused h2; that failed source and full diagnostics are preserved separately. The final file removes the stale premise and scopes its permitted limits above each theorem.
+
+This is not the whole C4 geometric theorem or the posted gap. Fresh's geometric classification and the other open cases remain separate obligations. The generic common-isotropic-plane determinant-square bridge and the coefficient nonsquare criterion were independently source-reviewed by this agent and compiled by library_route.
+
+Large exact-QQ searches remain UNKNOWN: compact C4 quadratic+cubic reached 36 rounds before a 2 GiB trace cap; primitive normalization reached the same 31 rounds as the compact baseline at 512 MiB. Augmented five-variable cases2/3 reached 13/17 rounds before 64 MiB caps. Their complete process logs, exact inputs, and omitted-trace hashes are frozen in `neogb-qq-reruns/` and `c4-augmented-qq/`. No large failed trace was copied into git.
+
+At this checkpoint no own engine or Lean process is active. Reviewed targeted U-nonzero systems for cases2/3 are ready, awaiting root's next specific allocation and renewal. Root alone contacts the desk and performs git/PR actions.
+
+
+2026-11-25 12:15 UTC update
+
+The four scoped C4 case0/1 scalar contradictions are Lean-checked with standard axioms and frozen in c4-open-cases01/. The two case2 endpoint lemmas are also Lean-checked (source719ac5d4,1056bytes) and independently reviewed; they are in c4-case2-endpoints/. Neither result supplies the missing chart/necessity glue.
+
+The original complete exact-CAS case2 chain was independently verified: all necessary reductions and resultants, norm gcd, quartic conjugate branch, endpoint equations, and square obstruction. It classifies the six-equation open case2 system at P=-2,B=1,U=0,V=6 and then excludes that point by the separate square condition. Full chain and review are in c4-case2-resultants/ and c4-case2-resultant-review/. This is not yet a full Lean case2 theorem.
+
+A separate compressed resultant experiment divided universal affine coefficient factors before curve reduction. Its two norm polynomials have degrees112/140 and gcd(P+2)^2*(P^4-2P^3+4P+2)^14. A GMP univariate extended-gcd certificate was independently verified by exact Fraction multiplication. The frozen201340byte Lean candidate for only the explicit norm implication passed independent source review; compilation is queued. Formula derivation, exact certificate, controlled failures and source are in c4-case2-projective-certificate/, with source review in projective-norm-review/. Alternative affine coefficient charts remain a formal obligation.
+
+Both targeted U-nonzero QQ traces hit the256MiB file limit with UNKNOWN results, at23/35 completed rounds; all full logs/statuses and omitted-trace hashes are archived in c4-U-qq/. No result is inferred from those failures.

@@ -1,0 +1,2 @@
+/tmp/oec/pequalnp-pilot-75/gct231/C4Case3NormModularList11AuditAttempt01.lean:193:8: error: unexpected token '+'; expected ':'
+/tmp/oec/pequalnp-pilot-75/gct231/C4Case3NormModularList11AuditAttempt01.lean:248:14: error(lean.unknownIdentifier): Unknown constant `PEqualNP.Outside.L_gct_231_aux.case3_modular_norm_obstruction`

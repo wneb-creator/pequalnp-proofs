@@ -1,0 +1,10 @@
+{
+  "status": "FAIL",
+  "returncode": 1,
+  "wall_seconds": 13.70737499399911,
+  "seconds_limit": 90,
+  "resident_memory_mib_limit": 5120,
+  "peak_group_rss_kib": 4349144,
+  "rss_sample_seconds": 0.5,
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/C4Case2NormCompactList11Audit.lean"
+}

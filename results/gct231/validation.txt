@@ -2,7 +2,7 @@ Gap: L-gct-231
 Status: PARTIAL ONLY; no proof/refutation and no PR.
 Named file: lean/PEqualNP/Outside/L_gct_231.lean
 Source:3133lines504298bytes,SHA256f5508fba3b3c32933c3cfa55aa9b37a944c8b76b3ad031143e5ecae9bb5e30e2
-Latest named lake build10:exit0,module227s,6687jobs; fulloutput preserved underintegration10. Latest checker10running; checker09REJECTED(no-theorem). Latest audit10:all326declarations standardaxioms only.
+Latest named lake build10:exit0,module227s,6687jobs; fulloutput preserved underintegration10. Latest checker10exit1 REJECTED(no-theorem); full terminal output in integration10-checker. Latest audit10:all326declarations standardaxioms only.
 Independent source, integration and component recompilation reviews: PASS.
 Axiom audit: all audited lemmas use only propext, Classical.choice, Quot.sound.
 Checked scope: permanent expansion; diagonal rigidity; six-coordinate injectivity; total-entry sum zero and symmetric diagonal elimination; explicit finite star/triangle/path orbit witnesses; normalization of every hypothetical3D solution to one of those canonical charts; formal polynomial identity for a linear family. No candidate existence or nonexistence is proved.
@@ -13,7 +13,7 @@ The main theorem named PEqualNP.Outside.L_gct_231 remains absent. These are chec
 Rowzero archive: two explicit polynomial contradictions compile with standard axioms. Exact CAS certificates for eight restricted charts verified. Global chart coverage and full nonexistence are not formalized.
 Cleanup: not reached; final proof/checker acceptance absent. Partial source grew283→506 lines while finite proof was optimized.
 Sub-agents: 8 (status_review, structural_proof, library_route, finite_cases, lean_setup, global_normal_form, fresh_main_proof, fresh_main_proof/c3_review)
-TIMING total=346.9 subagents=8
+TIMING total=357.3 subagents=8
 Message ID: msg-8f0f42bb760e4ee78f16c6cd
 F4TraceRowzero.lean:128lines71633bytes,SHA25683e92fab3fbcd7e2d8f6911457652926b97fa2102e209fec0b2e87ae61780483; full buildPASS exit0 in58.933s. Independent exact arithmetic/source reviewPASS. Scoped rowzero_even_trace contradiction only, no full231 theorem. Frozen81-file archive underf4-trace includes sources, certificates, full logs and independent verifier.
 CoefficientCore.lean:34lines, SHA2567e6861ee445e8591a13f5dae87c5f37631b83bd6d1dc5d1cde644b86f1fd8d43; author buildexit0 and independent root source/math/format reviewPASS. Generic mixed-coefficient extraction only. Complete buildlog preserved.
@@ -61,3 +61,5 @@ Named integration09V6PASS:3039lines491683bytes,exactlyoneouterauxnamespace, inde
 Checker09 completedexit1 REJECTED(no-theorem); fullfinaloutput preserved underintegration09-checker, sourcehash matchesbuilt3039-line namedfile. Compact StarPencilClassification source10915bytes vs111187bytescheckedoriginal: samehypotheses/conclusions,244-term exactcertificate replaces991-term witness. Combinedcompactclassification+extensioncompile/auditPASS13.77s,peak2932228KiB,all3standardaxioms. Independent rational-convolution, literal-source and finalarchive/driver reviewsPASS. Bothoriginalandcompactcheckedresults preserved. No fulltheorem/refutation or PR.
 
 Final named integration10PASS:3133lines504298bytes,oneouterauxnamespace,independentroot+c3 source/format reviewPASS. Build227s/6687jobs, all326declarations axiomauditedstandardthree; fulloutputs preserved. Checker10runningatcheckpoint. Finalcleanupnotperformed becausemainproof/acceptanceabsent; final3133linesbeforeandaftercleanupstatus. Separate twoaxisreducedscalarcontradictions compiled/auditedPASS45.38s andactualsource/archive independentlyreviewed; geometriccoverage remainsunformalized. Generic coefficient-list API compiled/audited/reviewedPASS; concrete modular norm attempts remainoutsidefinalmain.
+
+Final checker10terminal:REJECTED(no-theorem),exit1. FinalredteamPASS_FOR_PRESERVATION_ONLY; no fullresult/PR. Allcheckedcomponents are archived; full case2/case3compactnorm wrappers remainuncheckedafterlimits. Lastchecked source3133lines/504298bytes,all326axiomqueriesstandard. Finalcleanupnotperformed,3133→3133. Ownlease releasependingfinalpreservationpush.

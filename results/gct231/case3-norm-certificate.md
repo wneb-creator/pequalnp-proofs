@@ -1,0 +1,7 @@
+# Exact conditional case3 norm certificate
+
+The 295,027-byte Lean candidate proves that the audited forward norm with index 1 and the first reverse norm cannot both vanish except at beta = -2 or beta = 1/2. Its source and all exact generation data are frozen in `case3-norm-certificate-inputs/` (40 files). It has not been compiled: the team prioritized a smaller modular-resultant certificate for the single-file size limit. This candidate does not assert that the original six equations imply the two norm equations.
+
+Both direct rational Euclidean attempts reached their 120-second limits. The separate modular reconstruction generator produced rational Bezout coefficients in 1.125 seconds; it checked their exact rational identity before returning. The independent Python Fraction checker then verified the complete identity by multiplication. Thus the saved identity is exact characteristic-zero arithmetic, not an inference from modular observations. The modular generator is untrusted certificate-generation code.
+
+Independent c3_review audit PASS: all original norm lineage, factor multiplicities, radical polynomials, integer Bezout identity and actual emitted Lean Horner expressions were checked coefficient-for-coefficient. The source SHA256 is 04875a577df9d5bae7e4cb1520c779fa24d7978de79adddbe4dbfd023ad5813f. The independent checker and full log are preserved in the adjacent review directory.

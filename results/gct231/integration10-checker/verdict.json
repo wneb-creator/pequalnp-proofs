@@ -1,0 +1,7 @@
+{
+  "returncode": 1,
+  "verdict": "REJECTED (no-theorem)",
+  "source_sha256": "f5508fba3b3c32933c3cfa55aa9b37a944c8b76b3ad031143e5ecae9bb5e30e2",
+  "source_archive": "../integration10/L_gct_231.lean",
+  "scope": "Partial helpers only; posted main theorem absent."
+}

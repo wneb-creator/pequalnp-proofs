@@ -1,0 +1,17 @@
+{
+  "C4Case3NormModularList11.lean": "73cd0437269ba8ef6f20e046bc8c9d749a5d7b153ed3a8d47abe7f3c62a447da",
+  "C4Case3NormModularList11Audit.lean": "4a820f71b11cfe9608b328922b290453c1674ab13578dae1b73a3590c2fd7f25",
+  "C4Case3NormModularList11AuditAttempt01.lean": "f1d3a4bbb6b1917ecc907def151b63d099e3e634a2504150a850abdf00e1519e",
+  "C4Case3NormModularList11AuditAttempt02.lean": "f2c1542ced7f910cd75cbea16e78de2dd1b4dee09bbefc19616130300b4b536d",
+  "C4Case3NormModularList11AuditAttempt03.lean": "4a820f71b11cfe9608b328922b290453c1674ab13578dae1b73a3590c2fd7f25",
+  "Case3NormModularListAdditions.txt": "2bba8c27e354093e472f7a16e9477d698511a2c597d5a98a1899ae1af0ed9c4a",
+  "case3-modular-list-build01-source.json": "035be1dd90038dce6b6cff7ba8f0a35684981371db5d2fc042cab093ca8b98e7",
+  "case3-modular-list-build01.log": "b06132205cf14c9db7f244045feb0ad325fca1b9493a3499c8d9955b9696def0",
+  "case3-modular-list-build01.run.json": "3a494051887cada8e19b2d07f86a8f4c564853094ad3a46c8f2e53384d51fed8",
+  "case3-modular-list-build02-source.json": "473918f1ce52116c597bae7b35c250967eab81e13fb794567ce14091a837aa3d",
+  "case3-modular-list-build02.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "case3-modular-list-build02.run.json": "81fd1518bbc7898cb92c018ed2e1f4f7c2058860dde3e66222458944dfb883cb",
+  "case3-modular-list-build03-source.json": "abb13b78425aa3e2f82735e85bba62c069997eb597a229df16b7b36b08374e68",
+  "case3-modular-list-build03.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "case3-modular-list-build03.run.json": "b836a77151f6ea7a80c6956996369882295af1da8c736dac198802eece51ad45"
+}

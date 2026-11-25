@@ -1,0 +1,4 @@
+per(T)= 0
+det(T(1,1,0))= 4
+The three coefficient matrices are independent from entries00,22,02; the plane has no common kernel.
+Scope: per(T)=0 only, NOT per(J+T)=24.

@@ -1,0 +1,5 @@
+# Independent source review: polynomial determinant square bridge
+
+PASS for frozen `PolynomialSquareBridge.lean`, SHA256 `f83b2f5ac13234e7b3f2ab776edbed7097440ba407aa1467f478d8f51b918ec6` (53 lines). The previously reviewed block determinant and congruence lemmas are unchanged apart from imports. The added theorem uses the exact constant-map determinant identity, the explicit hypothesis det(P) != 0, and the inverse of that constant to divide the congruence determinant identity. Its witness is C(det(P)^(-1))*det(B); both ring normalizations preserve equality.
+
+The theorem assumes the full adapted polynomial-matrix block congruence. It does not construct a basis from an isotropic subspace, assert that an arbitrary pencil admits this congruence, or prove the posted gap. No invertibility premise is omitted. Source scan found no sorry, new axiom, native_decide, prohibited root text, or string literal. The narrow scratch imports must be reconciled with the allowed gap imports during final integration. The author reports a successful compile; this independent review did not rerun it.

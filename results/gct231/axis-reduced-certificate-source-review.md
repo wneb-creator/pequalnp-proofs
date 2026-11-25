@@ -1,0 +1,7 @@
+Independent exact-arithmetic and actual Lean source review PASS at2026-11-25T12:43:30Z. For each equal/different case, all eight ordered normalized generators agree with the source JSON, actual rational sparse input and conversion provenance. Independent Fraction convolution gives exactly1 from the complete multipliers, including the u²−2 relation; this is an identity in the ordinary polynomial ring, not merely a quotient remainder. Equal uses183 multiplier terms and denominator1102555514785944508003944248832; different uses250 terms and denominator1150618043244315054530353130933604046973957739942392417022532022151259581016197436751044572672.
+
+Actual AxisReducedCertificates.lean SHA2568eeef2cb88b2869c59b72329d5b896b37f818f64b6e41c95d7ae4c10769c39cc has44,023bytes/35lines. An independent AST parser checked all actual hypothesis expressions, multiplier expressions and integer scales. Each theorem keeps exactly six used hypotheses, indices0,2,4,5,6,7; unused generators1,3 are omitted. Both conclusions are False with all scalar conditions explicit, including u²−2.
+
+Scope is only these conditional polynomial contradictions. The geometric/source chain reducing candidates to these systems has not been reviewed here. This review preceded the separately owned compile; no compiler or solver rerun. Full scripts/logs: triangle-kernel-zero/axis_four_certificate_review.py, axis-four-certificate-review.log, axis_four_lean_source_review.py, axis-four-lean-source-review.log.
+
+Saved 2026-11-25T12:44:39.037284+00:00

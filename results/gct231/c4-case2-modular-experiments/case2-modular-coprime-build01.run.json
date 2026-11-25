@@ -1,0 +1,10 @@
+{
+  "status": "UNKNOWN_TIME_LIMIT",
+  "returncode": -15,
+  "wall_seconds": 120.52567887899932,
+  "seconds_limit": 120,
+  "resident_memory_mib_limit": 4096,
+  "peak_group_rss_kib": 3938408,
+  "rss_sample_seconds": 0.5,
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/C4Case2ModularCoprimeAudit.lean"
+}

@@ -1,0 +1,60 @@
+import took 1.57s
+simp took 183ms
+ring took 1.22s
+share common exprs took 1.35s
+process pre-definitions took 647ms
+elaboration took 341ms
+type checking took 3.79s
+/tmp/oec/pequalnp-pilot-75/gct231/C4Case2NormCompactList11Audit.lean:193:2: warning: Try this: 
+  letI̵
+
+The goal is a proposition, so `let` is preferred over `letI`.
+The difference between `let` and `letI` is that `letI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/tmp/oec/pequalnp-pilot-75/gct231/C4Case2NormCompactList11Audit.lean:202:4: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+/tmp/oec/pequalnp-pilot-75/gct231/C4Case2NormCompactList11Audit.lean:206:4: error: Tactic `simp` failed with a nested error:
+maximum recursion depth has been reached
+use `set_option maxRecDepth <num>` to increase limit
+use `set_option diagnostics true` to get diagnostic information
+interpretation of _private.Mathlib.Tactic.Ring.RingNF.0.Mathlib.Tactic.RingNF.initFn._lam_0._@.Mathlib.Tactic.Ring.RingNF.1278461645._hygCtx._hyg.2._boxed took 15.8s
+ring took 1.78s
+interpretation of _private.Mathlib.Tactic.Ring.RingNF.0.Mathlib.Tactic.RingNF.initFn._lam_0._@.Mathlib.Tactic.Ring.RingNF.1278461645._hygCtx._hyg.2._boxed took 26.6s
+ring took 3.54s
+'PEqualNP.Outside.L_gct_231.trace.case2_projective_norm_obstruction_compact' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+elaboration took 482ms
+cumulative profiling times:
+	attribute application 0.537ms
+	blocked (unaccounted) 57.8s
+	compilation (IR) 0.229ms
+	compilation (LCNF base) 1.98ms
+	compilation (LCNF impure) 0.803ms
+	compilation (LCNF mono) 1.02ms
+	congr simp thm 8.37ms
+	declTypeLinter 17ms
+	elaboration 1.1s
+	fix level params 61.4ms
+	import 1.57s
+	initialization 52.5ms
+	instantiate metavars 2.74ms
+	interpretation 43.1s
+	let-to-have transformation 2.76ms
+	linting 45.3ms
+	module linting 0.0508ms
+	norm_num 117ms
+	parsing 19.6ms
+	process pre-definitions 665ms
+	ring 6.54s
+	share common exprs 1.36s
+	simp 417ms
+	tactic execution 499ms
+	tacticAnalysis 5.36ms
+	type checking 3.92s
+	typeclass inference 1.23s

@@ -1,0 +1,7 @@
+Start UTC 2026-11-25T12:29:52.628214+00:00
+Generic quadratic/cubic Sylvester formula and complete polynomial Bezout identity: PASS
+ql independent generic-determinant evaluation equals b^4 times saved quotient; forward quotient exactlyequal withsign+1: PASS
+qc independent generic-determinant evaluation equals b^6 times saved quotient; forward quotient exactlyequal withsign+1: PASS
+Scope: exact algebraic reverse quotient identities only. At b=0 they remain polynomial identities, but division/necessary normalized vanishing requires the separately established nonzero-slope chart. No Lean or complete gap result.
+Finish UTC 2026-11-25T12:31:08.548881+00:00
+PASS

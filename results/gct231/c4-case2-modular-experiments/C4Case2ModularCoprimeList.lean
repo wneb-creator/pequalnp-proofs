@@ -1,0 +1,115 @@
+import PEqualNP.Defs
+import Mathlib.Algebra.Field.ZMod
+import Mathlib.RingTheory.Polynomial.Resultant.Basic
+
+namespace PEqualNP.Outside.L_gct_231_aux
+
+noncomputable def polynomialOfCoeffs {R : Type*} [Semiring R] : List R → Polynomial R
+  | [] => 0
+  | a :: cs => Polynomial.C a + Polynomial.X * polynomialOfCoeffs cs
+
+theorem polynomialOfCoeffs_coeff {R : Type*} [Semiring R] (cs : List R) (n : ℕ) :
+    (polynomialOfCoeffs cs).coeff n = (cs[n]?).getD 0 := by
+  induction cs generalizing n with
+  | nil => simp [polynomialOfCoeffs]
+  | cons a cs ih =>
+    cases n <;> simp [polynomialOfCoeffs, Polynomial.coeff_X_mul, ih]
+
+theorem polynomialOfCoeffs_map {R S : Type*} [Semiring R] [Semiring S]
+    (f : R →+* S) (cs : List R) :
+    (polynomialOfCoeffs cs).map f = polynomialOfCoeffs (cs.map f) := by
+  induction cs with
+  | nil => simp [polynomialOfCoeffs]
+  | cons a cs ih =>
+    simp [polynomialOfCoeffs, Polynomial.map_add, Polynomial.map_mul, ih]
+
+theorem polynomialOfCoeffs_eval {R : Type*} [CommSemiring R]
+    (cs : List R) (z : R) :
+    (polynomialOfCoeffs cs).eval z = cs.foldr (fun a v => a + z*v) 0 := by
+  induction cs with
+  | nil => simp [polynomialOfCoeffs]
+  | cons a cs ih => simp [polynomialOfCoeffs, ih]
+
+theorem polynomialOfCoeffs_degree_le {R : Type*} [Semiring R] (cs : List R) :
+    (polynomialOfCoeffs cs).natDegree ≤ cs.length - 1 := by
+  apply Polynomial.natDegree_le_iff_coeff_eq_zero.mpr
+  intro n hn
+  rw [polynomialOfCoeffs_coeff]
+  have hlen : cs.length ≤ n := by omega
+  have hz : cs[n]? = none := by simp only [List.getElem?_eq_none_iff]; exact hlen
+  simp [hz]
+
+theorem polynomialOfCoeffs_degree_eq {R : Type*} [Semiring R]
+    (cs : List R) (n : ℕ) (hlen : cs.length = n + 1)
+    (hlast : (cs[n]?).getD 0 ≠ 0) :
+    (polynomialOfCoeffs cs).natDegree = n := by
+  apply le_antisymm
+  · simpa [hlen] using polynomialOfCoeffs_degree_le cs
+  · apply Polynomial.le_natDegree_of_ne_zero
+    simpa [polynomialOfCoeffs_coeff] using hlast
+
+end PEqualNP.Outside.L_gct_231_aux
+
+namespace PEqualNP.Outside.L_gct_231.trace
+open PEqualNP.Outside.L_gct_231_aux
+
+noncomputable def case2CofactorLeft : Polynomial (ℤ) := polynomialOfCoeffs ([567002529792, -10073660719104, 42678213279744, 152371420397568, -1359067682848768, 1123343828107264, 9770903451582464, -21913158068674560, -18855473919455232, 112673564432310272, -61856563016427520, -285875542802354176, 444301158301289472, 348786211407216640, -1287481020019996672, 83791561946866688, 2443920984047352320, -1161884919701942272, -3522355534198141696, 2334680495548560384, 4183406015983618560, -2568987699042079744, -4170211890288527360, 1330009013057276416, 3208563686326317824, 653937308649333760, -1354506268248111104, -1914220257439588352, -590012849004447232, 1690981156076082944, 1566376977751266432, -612696540074092288, -1307387264818277888, -197706283083905280, 520737817244340896, 320894417690460416, 6997929669710688, -111174570452081024, -110163567206321408, -29924724787167232, 42787758703178944, 38258701528660768, 984757934198440, -12038470878765808, -4804495544975020, 947427943352592, 1137298974630624, 191671121042988, -76970263268474, -34213828436096, -1863974810151, 1292042680092, 235722237716, -1805903584, -2377543112] : List (ℤ))
+
+noncomputable def case2CofactorRight : Polynomial (ℤ) := polynomialOfCoeffs ([-1017099740774400, 233523495053557760, -966635141580455936, -12599864265165242368, 47592234513776771072, 274269676855272407040, -937030822754508079104, -3246863937442460729344, 10601983831242954768384, 25297871917359865135104, -82133235006067753156608, -144886885351880963325952, 482648840405741265616896, 651809974039751452262400, -2291234664597034950262784, -2395575522675195731312640, 9115498662659383867015168, 7355090693682244017029120, -30979057935428540547874816, -19138309526315999749521408, 90755798705449040380919808, 42899295948184476459040768, -230243599088282612857778176, -85349513122274078961176576, 507264045184196954783535104, 158817057042533808122404864, -971921763696326130470858752, -293909322472348331112433664, 1617562700236806202341249024, 553187899823926021810356224, -2324156334489339003718115328, -1015431844232774516252623872, 2840406266772651398214937600, 1700592996677566661617142784, -2859921269656963992090545152, -2466877867262094237686756864, 2200004385300186351853128704, 2994421001074653676904466432, -985781654723175969084826368, -2949663311470483345254498304, -333946994407266636029055488, 2248603214458528017654275840, 1225614004914792229819510528, -1175945937757528228098195456, -1414208247643293266238062592, 207140814457419439045675264, 1038719403698342387877588992, 323823111236900794144718720, -486437910053271548527713408, -406987867969752131165071616, 82990565693533461437560128, 258279722234569603082600960, 79027187115109322128021504, -95462530634822826672088064, -83406911582790849146056592, 9713956255720571094483760, 42505651196341869637878480, 11887034372278917858974336, -13178352061056996898230480, -8732657282769218299910760, 2034969512726718054821264, 3376871404702912857475968, 249812743103490025386880, -865202433542520218120292, -255009101611082947386932, 145551312425713511931596, 82313892871204825318316, -12493362464286090753486, -16565755672036172099396, -833104763185341220048, 2226126464002506944967, 452116178126219056654, -185442598096408364716, -71193659975367893783, 6739957927110273194, 6192764800791088082, 283179930622381764, -302507267146280273, -42760118528981785, 6337101562596176, 1546727280035924, -5083517617920, -13131007671600] : List (ℤ))
+
+noncomputable def case2ModLeft : Polynomial (ZMod 1009) := polynomialOfCoeffs ([576, 45, 604, 69, 599, 245, 268, 362, 583, 369, 519, 385, 246, 122, 656, 694, 318, 33, 651, 383, 349, 949, 214, 1007, 893, 115, 552, 476, 972, 848, 479, 672, 857, 749, 901, 503, 697, 788, 128, 27, 649, 587, 158, 289, 746, 493, 204, 500, 446, 133, 906, 939, 776, 580, 921] : List (ZMod 1009))
+
+noncomputable def case2ModRight : Polynomial (ZMod 1009) := polynomialOfCoeffs ([615, 508, 918, 321, 161, 682, 672, 49, 468, 264, 396, 601, 513, 124, 334, 379, 828, 314, 707, 725, 603, 818, 178, 399, 385, 373, 980, 212, 111, 174, 646, 601, 405, 405, 555, 966, 380, 726, 121, 911, 513, 910, 966, 549, 26, 552, 946, 164, 782, 419, 734, 772, 151, 946, 860, 363, 165, 898, 860, 518, 983, 765, 815, 154, 268, 444, 291, 807, 375, 457, 805, 265, 898, 85, 937, 619, 506, 395, 902, 205, 662, 548, 952] : List (ZMod 1009))
+
+set_option maxHeartbeats 2000000 in
+set_option maxRecDepth 4096 in
+theorem case2_cofactor_degree_bounds :
+    case2CofactorLeft.natDegree ≤ 54 ∧ case2CofactorRight.natDegree ≤ 82 := by
+  constructor
+  · unfold case2CofactorLeft
+    simpa using polynomialOfCoeffs_degree_le _
+  · unfold case2CofactorRight
+    simpa using polynomialOfCoeffs_degree_le _
+
+set_option maxHeartbeats 2000000 in
+set_option maxRecDepth 4096 in
+theorem case2_left_map :
+    case2CofactorLeft.map (Int.castRingHom (ZMod 1009)) = case2ModLeft := by
+  norm_num [case2CofactorLeft, case2ModLeft, polynomialOfCoeffs_map]
+
+set_option maxHeartbeats 2000000 in
+set_option maxRecDepth 4096 in
+theorem case2_right_map :
+    case2CofactorRight.map (Int.castRingHom (ZMod 1009)) = case2ModRight := by
+  norm_num [case2CofactorRight, case2ModRight, polynomialOfCoeffs_map]
+
+set_option maxHeartbeats 2000000 in
+set_option maxRecDepth 4096 in
+theorem case2_modular_degrees :
+    (case2CofactorLeft.map (Int.castRingHom (ZMod 1009))).natDegree = 54 ∧
+    (case2CofactorRight.map (Int.castRingHom (ZMod 1009))).natDegree = 82 := by
+  rw [case2_left_map, case2_right_map]
+  constructor
+  · unfold case2ModLeft
+    apply polynomialOfCoeffs_degree_eq _ 54 (by rfl)
+    norm_num
+  · unfold case2ModRight
+    apply polynomialOfCoeffs_degree_eq _ 82 (by rfl)
+    norm_num
+
+set_option maxHeartbeats 4000000 in
+set_option maxRecDepth 4096 in
+theorem case2_modular_coprime :
+    IsCoprime (case2CofactorLeft.map (Int.castRingHom (ZMod 1009)))
+      (case2CofactorRight.map (Int.castRingHom (ZMod 1009))) := by
+  rw [case2_left_map, case2_right_map]
+  refine ⟨polynomialOfCoeffs ([391, 976, 564, 463, 725, 249, 613, 866, 981, 634, 811, 569, 711, 955, 963, 196, 143, 153, 911, 317, 707, 289, 901, 159, 606, 700, 594, 179, 338, 57, 886, 875, 925, 232, 438, 32, 848, 738, 412, 80, 672, 761, 759, 837, 360, 743, 248, 870, 278, 380, 260, 561, 798, 829, 615, 457, 603, 1007, 354, 382, 447, 876, 138, 43, 80, 29, 931, 799, 6, 801, 511, 4, 548, 623, 812, 1004, 197, 454, 184, 680, 574, 97] : List (ZMod 1009)), polynomialOfCoeffs ([651, 572, 481, 154, 945, 824, 722, 888, 905, 469, 781, 301, 983, 890, 44, 925, 953, 429, 293, 480, 811, 718, 663, 262, 443, 633, 166, 549, 1004, 379, 933, 941, 713, 980, 916, 627, 651, 686, 807, 430, 589, 772, 367, 341, 397, 125, 904, 848, 691, 69, 996, 822, 485, 399] : List (ZMod 1009)), ?_⟩
+  have hp : (1009 : Polynomial (ZMod 1009)) = 0 := by
+    have h : (1009 : ZMod 1009) = 0 := by norm_num
+    simpa using congrArg (fun x : ZMod 1009 => Polynomial.C x) h
+  have hh : polynomialOfCoeffs ([620, 1251, 1773, 1964, 2448, 2967, 4163, 4249, 5074, 5433, 6560, 6247, 7566, 7405, 7864, 8743, 9530, 9334, 10860, 9727, 11197, 12132, 13762, 12603, 14351, 14155, 14927, 15339, 16477, 15748, 17985, 18491, 19748, 20188, 21150, 21018, 23723, 22302, 23430, 23733, 24356, 26229, 26356, 26126, 25457, 26896, 28946, 28847, 28609, 28810, 29438, 31601, 32356, 32116, 33990, 33728, 31736, 32516, 34559, 33054, 32184, 34549, 34195, 33208, 33263, 33407, 34666, 33261, 32564, 32605, 33193, 32661, 33278, 33181, 33518, 32949, 34185, 33393, 32753, 32032, 32630, 33756, 34788, 32208, 32841, 32225, 30401, 32163, 31100, 30115, 30537, 27569, 27576, 27702, 27021, 26071, 24117, 24678, 24718, 21964, 21941, 22921, 21357, 21780, 20455, 19509, 19554, 19214, 18887, 17186, 17047, 16251, 14626, 13730, 12322, 11405, 10560, 10285, 9929, 9385, 10282, 8345, 8012, 7482, 7342, 6899, 6576, 5865, 5930, 4827, 3843, 3265, 2876, 2326, 1254, 465] : List (ZMod 1009)) * (1009 : Polynomial (ZMod 1009)) = 0 := by rw [hp, mul_zero]
+  unfold case2ModLeft case2ModRight
+  simp only [polynomialOfCoeffs, map_ofNat, map_neg] at hh ⊢
+  linear_combination hh
+
+end PEqualNP.Outside.L_gct_231.trace

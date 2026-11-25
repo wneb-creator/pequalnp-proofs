@@ -1,0 +1,7 @@
+Independent compressed case3 modular source review PASS at2026-11-25T12:32:52Z. Concrete C4Case3ModularCoprime.lean SHA2563487c72a1a47582e6f34d502790720c77eed18da4b8282ccd587e89f508300e7 and combined C4Case3NormModular.lean SHAb1e72dfa603f8b560b85aace6474c07dfadbe35ebbf7047f9074b9cce1ca405b were reviewed before compilation.
+
+The original integer polynomials equal the previously reviewed radicals of degrees67 and85. Their reductions mod1009 preserve both exact degrees and nonzero leading coefficients. The explicit integer identity Abar*Fbar+Bbar*Gbar−1=1009*H was independently multiplied. An independent sparse parser read the actual Lean Horner polynomial definitions, modular Bézout witnesses and quotient H and checked every coefficient. The generic transfer and concrete modular bodies are copied unchanged into the combined scratch source; all original norm hypotheses and factor/radical reasoning match the previous norm source bytewise. The final application supplies integer degree bounds, exact modular degrees, primality and coprimality explicitly.
+
+Scope is only the conditional two-norm obstruction; no original-system necessity or geometric conclusion is asserted. Combined scratch has multiple outer namespaces, so named-file integration must consolidate them and deduplicate the common-root helper. The first checker diagnostic lacked the P→beta variable alias; no source correction was needed. Complete checker/log: case3_modular_source_review.py / case3-modular-source-review.log.
+
+Saved 2026-11-25T12:33:36.460247+00:00

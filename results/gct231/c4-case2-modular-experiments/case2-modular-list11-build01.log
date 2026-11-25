@@ -1,0 +1,173 @@
+import took 1.73s
+/tmp/oec/pequalnp-pilot-75/gct231/C4Case2ModularCoprimeList11Audit.lean:81:2: error: No goals to be solved
+/tmp/oec/pequalnp-pilot-75/gct231/C4Case2ModularCoprimeList11Audit.lean:90:2: error: No goals to be solved
+/tmp/oec/pequalnp-pilot-75/gct231/C4Case2ModularCoprimeList11Audit.lean:114:35: error: unsolved goals
+⊢ 11 = 0
+/tmp/oec/pequalnp-pilot-75/gct231/C4Case2ModularCoprimeList11Audit.lean:115:4: error: Type mismatch: After simplification, term
+  congrArg (fun x => Polynomial.C x) h
+ has type
+  (11 : ZMod 11) = 0
+but is expected to have type
+  (11 : Polynomial (ZMod 11)) = 0
+/tmp/oec/pequalnp-pilot-75/gct231/C4Case2ModularCoprimeList11Audit.lean:119:2: error: ring failed, ring expressions not equal
+hp : 11 = 0
+hh :
+  (4 +
+        Polynomial.X *
+          (7 +
+            Polynomial.X *
+              (10 +
+                Polynomial.X *
+                  (12 +
+                    Polynomial.X *
+                      (17 +
+                        Polynomial.X *
+                          (16 +
+                            Polynomial.X *
+                              (25 +
+                                Polynomial.X *
+                                  (28 +
+                                    Polynomial.X *
+                                      (31 +
+                                        Polynomial.X *
+                                          (38 +
+                                            Polynomial.X *
+                                              (37 +
+                                                Polynomial.X *
+                                                  (54 +
+                                                    Polynomial.X *
+                                                      (56 +
+                                                        Polynomial.X *
+                                                          (56 +
+                                                            Polynomial.X *
+                                                              (61 +
+                                                                Polynomial.X *
+                                                                  (65 +
+                                                                    Polynomial.X *
+                                                                      (70 +
+                                                                        Polynomial.X *
+                                                                          (89 +
+                                                                            Polynomial.X *
+                                                                              (78 +
+                                                                                Polynomial.X *
+                                                                                  (74 +
+                                                                                    Polynomial.X *
+                                                                                      (90 +
+                                                                                        Polynomial.X *
+                                                                                          (87 +
+                                                                                            Polynomial.X *
+                                                                                              (92 +
+                                                                                                Polynomial.X *
+                                                                                                  (109 +
+                                                                                                    Polynomial.X *
+                                                                                                      (⋯ +
+                                                                                                        ⋯))))))))))))))))))))))))) *
+      11 =
+    0
+⊢ ⋯ + ⋯ + ⋯ * ⋯ - Polynomial.X ^ 120 * 45 + Polynomial.X ^ 120 * Polynomial.C 1 * 45 +
+                                                                                                Polynomial.X ^ 120 *
+                                                                                                    Polynomial.C 1 *
+                                                                                                  Polynomial.C 0 +
+                                                                                              Polynomial.X ^ 120 *
+                                                                                                  Polynomial.C 0 *
+                                                                                                22 -
+                                                                                            Polynomial.X ^ 121 * 40 +
+                                                                                          Polynomial.X ^ 121 *
+                                                                                              Polynomial.C 1 *
+                                                                                            40 +
+                                                                                        Polynomial.X ^ 121 *
+                                                                                            Polynomial.C 0 *
+                                                                                          18 -
+                                                                                      Polynomial.X ^ 122 * 41 +
+                                                                                    Polynomial.X ^ 122 *
+                                                                                        Polynomial.C 1 *
+                                                                                      41 +
+                                                                                  Polynomial.X ^ 122 * Polynomial.C 0 *
+                                                                                    21 -
+                                                                                Polynomial.X ^ 123 * 40 +
+                                                                              Polynomial.X ^ 123 * Polynomial.C 1 * 40 +
+                                                                            Polynomial.X ^ 123 * Polynomial.C 0 * 16 -
+                                                                          Polynomial.X ^ 124 * 10 +
+                                                                        Polynomial.X ^ 124 * Polynomial.C 1 * 9 +
+                                                                      Polynomial.X ^ 124 * Polynomial.C 1 *
+                                                                        Polynomial.C 0 +
+                                                                    Polynomial.X ^ 124 * Polynomial.C 1 ^ 2 +
+                                                                  Polynomial.X ^ 124 * Polynomial.C 0 * 10 -
+                                                                Polynomial.X ^ 125 * 13 +
+                                                              Polynomial.X ^ 125 * Polynomial.C 1 * 13 +
+                                                            Polynomial.X ^ 125 * Polynomial.C 1 * Polynomial.C 0 +
+                                                          Polynomial.X ^ 125 * Polynomial.C 0 * 7 -
+                                                        Polynomial.X ^ 126 * 26 +
+                                                      Polynomial.X ^ 126 * Polynomial.C 1 * 26 +
+                                                    Polynomial.X ^ 126 * Polynomial.C 0 * 2 -
+                                                  Polynomial.X ^ 127 * 23 +
+                                                Polynomial.X ^ 127 * Polynomial.C 1 * 23 +
+                                              Polynomial.X ^ 127 * Polynomial.C 0 * 2 -
+                                            Polynomial.X ^ 128 * 16 +
+                                          Polynomial.X ^ 128 * Polynomial.C 1 * 16 +
+                                        Polynomial.X ^ 128 * Polynomial.C 0 * 5 -
+                                      Polynomial.X ^ 129 * 24 +
+                                    Polynomial.X ^ 129 * Polynomial.C 1 * 24 +
+                                  Polynomial.X ^ 129 * Polynomial.C 0 * 6 -
+                                Polynomial.X ^ 130 * 14 +
+                              Polynomial.X ^ 130 * Polynomial.C 1 * 14 +
+                            Polynomial.X ^ 130 * Polynomial.C 0 * 2 -
+                          Polynomial.X ^ 131 * 20 +
+                        Polynomial.X ^ 131 * Polynomial.C 1 * 20 -
+                      Polynomial.X ^ 132 +
+                    Polynomial.X ^ 132 * Polynomial.C 1 ^ 2 -
+                  Polynomial.X ^ 133 * 10 +
+                Polynomial.X ^ 133 * Polynomial.C 1 * 10 -
+              Polynomial.X ^ 134 * 6 +
+            Polynomial.X ^ 134 * Polynomial.C 1 * 6 -
+          Polynomial.X ^ 135 * 10 +
+        Polynomial.X ^ 135 * Polynomial.C 1 * 10 +
+      Polynomial.C 1 * 3 =
+    0
+interpretation of _private.Mathlib.Tactic.Ring.RingNF.0.Mathlib.Tactic.RingNF.initFn._lam_0._@.Mathlib.Tactic.Ring.RingNF.1278461645._hygCtx._hyg.2._boxed took 960ms
+ring took 2.17s
+/tmp/oec/pequalnp-pilot-75/gct231/C4Case2ModularCoprimeList11Audit.lean:118:44: warning: This simp argument is unused:
+  map_neg
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [polynomialOfCoeffs, map_ofNat] at hh ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'PEqualNP.Outside.L_gct_231.trace.case2_cofactor_degree_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231.trace.case2_left_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231.trace.case2_right_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231.trace.case2_modular_degrees' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231.trace.case2_modular_coprime' depends on axioms: [propext,
+ sorryAx,
+ Classical.choice,
+ Quot.sound]
+cumulative profiling times:
+	attribute application 0.249ms
+	blocked (unaccounted) 4.5s
+	compilation (IR) 0.0539ms
+	compilation (LCNF base) 0.487ms
+	compilation (LCNF impure) 0.275ms
+	compilation (LCNF mono) 0.419ms
+	congr simp thm 8.87ms
+	declTypeLinter 8.56ms
+	elaboration 251ms
+	fix level params 0.939ms
+	import 1.73s
+	initialization 36.5ms
+	instantiate metavars 0.793ms
+	interpretation 1.34s
+	let-to-have transformation 2.83ms
+	linting 17.9ms
+	module linting 0.0396ms
+	norm_num 31.1ms
+	parsing 12.1ms
+	process pre-definitions 19.3ms
+	ring 2.17s
+	share common exprs 5.01ms
+	simp 290ms
+	tactic execution 270ms
+	tacticAnalysis 2.78ms
+	type checking 72.5ms
+	typeclass inference 1.17s

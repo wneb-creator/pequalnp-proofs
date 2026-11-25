@@ -1,0 +1,72 @@
+[
+  {
+    "manifest": "results/gct231/c4-case2-modular-coprime-checked/SHA256SUMS",
+    "files": 8,
+    "sha256": "b9f0b98c5369ec89f1633114dee6e8a6e208af71c452cc298b437dd831d07e3a"
+  },
+  {
+    "manifest": "results/gct231/c4-case2-modular-experiments/SHA256SUMS",
+    "files": 49,
+    "sha256": "2532a33507aba7a6c8663a4933fb70c176ccc12f4a62e858c0d562ac7ce34c80"
+  },
+  {
+    "manifest": "results/gct231/c4-case2-modular-wrapper-development/SHA256SUMS",
+    "files": 8,
+    "sha256": "c7dc495a478c0c0af6e7d236fa7bf5e3093d12f6b157f9a3192f60ad9df4f674"
+  },
+  {
+    "manifest": "results/gct231/c4-case2-modular-wrapper-final/SHA256SUMS",
+    "files": 12,
+    "sha256": "f7b648dde6e60c91b61ce5080bb5a8fe181e4c533e88df8a969e935509e26ec4"
+  },
+  {
+    "manifest": "results/gct231/c4-case2-reverse-quotient-independent-review/SHA256SUMS",
+    "files": 3,
+    "sha256": "d2df1ce369b0c2ded192aeb8cbb27af04d837f459fd8b3040d1e861281dcd921"
+  },
+  {
+    "manifest": "results/gct231/c4-case2-reverse-quotient/SHA256SUMS",
+    "files": 7,
+    "sha256": "31b18334dcbc5406c680d9b663bc8dbfd06b8194771992c17bc9581a0d2729e5"
+  },
+  {
+    "manifest": "results/gct231/case2-p11-review/SHA256SUMS",
+    "files": 4,
+    "sha256": "e861b3d54419e2bbf721b867e5fe494fff7a30540df87507a2af17b72c22bc1b"
+  },
+  {
+    "manifest": "results/gct231/case3-modular-concrete-review/sha256.json",
+    "files": 4,
+    "sha256": "65adb8d23acf74e708684b94e34c07857ba872da42a0d3e116ba2eb16bc411fb"
+  },
+  {
+    "manifest": "results/gct231/case3-modular-concrete/sha256.json",
+    "files": 11,
+    "sha256": "082446e771cc11c058b501db8792396684503c911f4cb6d4b5b7f9d9cc73f484"
+  },
+  {
+    "manifest": "results/gct231/case3-modular-wrapper-attempts/sha256.json",
+    "files": 15,
+    "sha256": "fcb3a87bfb53ccaf93caa3c38e4066c5b12560840ab8b3c37eb5debf9404c0da"
+  },
+  {
+    "manifest": "results/gct231/case3-norm-certificate-review/sha256.json",
+    "files": 2,
+    "sha256": "8f6cda91f80f229e3d84ccbc7d648aaf4092e210e85e584a5f20c1b3133e6636"
+  },
+  {
+    "manifest": "results/gct231/case3-rational-wrapper-fallback/sha256.json",
+    "files": 4,
+    "sha256": "affdfe73883a27b47239ba8d564887ce679ed9362f0ce57fc69f0b953db042b3"
+  },
+  {
+    "manifest": "results/gct231/final-redteam/SHA256SUMS",
+    "files": 4,
+    "sha256": "a37034b1683b0b20426c8f3bf4d780cd1ad57d2ce78ea93c0983543cb0732464"
+  },
+  {
+    "manifest": "results/gct231/star-center-partial-review/sha256.json",
+    "files": 3,
+    "sha256": "fa78eab3220470beb6668e50319c9f2a54b6701dc3476d214b78729056545555"
+  }
+]

@@ -1,0 +1,6 @@
+Start UTC 2026-11-25T12:26:41.936035+00:00
+Frozen forwardnorm1/reverse norm lineage, exact all-factor expansions, multiplicities, radicals67/85 and integer Bezout identity=nonzero scale: PASS
+Actual Lean Horner hypotheses/factors/radicals/Bézout multipliers/constant parsed independently and matched coefficient-for-coefficient: PASS
+Scope: precisely the two explicit norm-zero hypotheses imply beta+2=0 or2beta-1=0. Removing endpoint powers uses case splits; g^4=0 implies g=0 in C. No original-equation necessity or whole-gap theorem asserted. Source review only; no compiler.
+Finish UTC 2026-11-25T12:26:42.769655+00:00
+PASS

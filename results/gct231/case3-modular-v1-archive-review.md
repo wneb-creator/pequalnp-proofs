@@ -1,0 +1,3 @@
+Source-only archive review PASS at2026-11-25T12:37:09Z. case3-modular-inputs-v1 has12 manifest entries/190,053bytes includingmanifest, SHA256cad03037cfeb778620e88c6e627a69ee6bb21a3c0397bf49f7e7af923940bf29. All hashes/coverage/text-only checks pass. Concrete3487c72a… and combinedb1e72dfa… match the independently reviewed source versions. The audit driver adds only one axiom query to the exact combined source, and the additions text is an exact substring. No compiled result is asserted for this v1 archive. Checker/log: case3_modular_v1_archive_review.py / case3-modular-v1-archive-review.log.
+
+Saved 2026-11-25T12:38:38.205530+00:00

@@ -1,0 +1,13 @@
+{
+  "C4Case3ModularCoprimeList11.lean": "068e69749d812de901748856d3b1a322b22ba0256005b4b70464be5c0f1aea2c",
+  "C4Case3ModularCoprimeList11Audit.lean": "dc1c1fb3053dfe0e3aa3498bc778906978ab4dcd2fa922b41b4930732640b7d7",
+  "PolynomialCoefficientList.lean": "79560877dca8ba44836b20de8c04594b8e80ee798736b2e8c958efaf00ce0f80",
+  "c4-case3-modular-coprime-p11.json": "73cf7940ccc5eaa364908d5e69cc69de66098899a0873747bc64e5acdc5d434e",
+  "c4-case3-radical-bezout-inputs.json": "875a0d1669ea37eae733201b563ad8296198f4445ee680f3c469f3f3218350d7",
+  "case3-modular-concrete-build01.log": "87a2d62ae0e0ca0f52f2865be09b90234595d327fcd12f37e81a1c865867320f",
+  "case3-modular-concrete-build01.run.json": "0033d5e8abc7a0e6ff0c8bdca030096fc3091e08ff2c099ab01451d35b023e53",
+  "case3-p11-data-review.log": "8326cbe4056f2e732e684353eb83d6465e91787033126d588831808b654cb983",
+  "case3_p11_data_review.py": "1bd49bb1d4f75cf71ad629443ec8a8704dd6920ca438d491ecd048197bad574e",
+  "emit_case3_modular_list11.log": "9d43ffd9c2072ef62e8920a5b7ef956c3f43806e3e2101d77d258085ade2c107",
+  "emit_case3_modular_list11.py": "883ba1e457d3ec095ce9ae017020081f7b5ec66891d91e70c9b762ae26423a9a"
+}

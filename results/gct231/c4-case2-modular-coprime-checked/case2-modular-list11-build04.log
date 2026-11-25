@@ -1,0 +1,43 @@
+import took 2.57s
+simp took 100ms
+ring took 1.3s
+share common exprs took 1.2s
+process pre-definitions took 609ms
+elaboration took 355ms
+type checking took 2.84s
+'PEqualNP.Outside.L_gct_231.trace.case2_cofactor_degree_bounds' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231.trace.case2_left_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231.trace.case2_right_map' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231.trace.case2_modular_degrees' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231.trace.case2_modular_coprime' depends on axioms: [propext, Classical.choice, Quot.sound]
+elaboration took 380ms
+cumulative profiling times:
+	attribute application 0.334ms
+	blocked (unaccounted) 7.63s
+	compilation (IR) 0.618ms
+	compilation (LCNF base) 2.64ms
+	compilation (LCNF impure) 1.3ms
+	compilation (LCNF mono) 1.93ms
+	congr simp thm 5.89ms
+	declTypeLinter 27ms
+	elaboration 892ms
+	fix level params 66.6ms
+	import 2.57s
+	initialization 39.4ms
+	instantiate metavars 4.02ms
+	interpretation 436ms
+	let-to-have transformation 1.91ms
+	linting 28.6ms
+	module linting 0.489ms
+	norm_num 25.8ms
+	parsing 8.65ms
+	process pre-definitions 620ms
+	ring 1.3s
+	share common exprs 1.2s
+	simp 288ms
+	tactic execution 294ms
+	tacticAnalysis 4.52ms
+	type checking 2.93s
+	typeclass inference 529ms

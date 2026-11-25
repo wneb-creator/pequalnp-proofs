@@ -1,0 +1,16 @@
+{
+  "status": "PASS_FOR_PRESERVATION_ONLY",
+  "not_full_gap": true,
+  "source_sha256": "f5508fba3b3c32933c3cfa55aa9b37a944c8b76b3ad031143e5ecae9bb5e30e2",
+  "lines": 3133,
+  "bytes": 504298,
+  "limit_slack_bytes": 19990,
+  "archive_manifest_sha256": "605d01bd7cebfe7c5c6a7f3713bc8a05c334089c5e5a800758d5eca841deb2dd",
+  "imports": 33,
+  "outer_namespace_count": 1,
+  "declarations": 326,
+  "all_axioms_standard": true,
+  "main_theorem_present": false,
+  "checker10_observed": "REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_gct_231 (one lemma, one file: the theorem carries the module's name)",
+  "metadata_scope": "No proof/refutation/PR; timing and final checker/release/push metadata need final refresh if still running."
+}
