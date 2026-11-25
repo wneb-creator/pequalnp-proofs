@@ -6,7 +6,7 @@ Independent source review PASS; reviewer independently repeated Lean4.36 elabora
 Full local checker not yet run: no full theorem claimed.
 
 Sub-agents: 6 (status/review, structural proof, counterexample search, normalization, few-NOT analysis, restriction route)
-TIMING total=12.0 subagents=6
+TIMING total=24.1 subagents=6
 
 Named-file lake build output:
 ✔ [2/3] Built PEqualNP.Outside.L_meta_2592 (4.2s)
@@ -21,3 +21,18 @@ Build completed successfully (3 jobs).
 
 Local checker output (exit3):
 CHECKER FAULT: the prebuilt Mathlib cache is missing. Run `lake exe cache get` in lean/ (RUNBOOK.md, section 2).
+
+Third snapshot checked sources:
+- BooleanFactor.lean: 43 lines; author and root independently elaborated with pinnedLean exit0, empty output.
+- PetersenTests.lean: 66 lines; pinnedLean exit0, empty output; independent exhaustive Python check and mathematical review PASS; root reviewed final source.
+Full L-meta-2592 remains unproved; no PR opened.
+
+Fourth checked partial snapshot:
+- PetersenReadOnce.lean and PetersenElementaryRead.lean: author plus independent reviewer Lean4.36 exit0; all cofactor and finite extension checks passed.
+- ReadOnceCofactors.lean: author plus independent reviewer Lean4.36 exit0.
+- PetersenTwins.lean: author Lean4.36 exit0; root mathematical review and 15840 independent finite deletion checks passed.
+Named-file build:
+✔ [2/3] Built PEqualNP.Outside.L_meta_2592 (16s)
+Build completed successfully (3 jobs).
+
+OrbitCertificate.lean: author pinnedLean4.36 exit0 (empty output); independent reviewer verified all120 graph automorphisms and225 pair witnesses; final source hash matched.

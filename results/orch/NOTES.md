@@ -46,3 +46,7 @@
 - Proves: listed15 maximal independent masks are all independent; every negative input is below a listed mask; every positive input contains one of the15 edge inputs. These instantiate few_not_analysis single-NOT profile lemmas.
 - Independently reviewed data by prior_status: all1024 input masks checked, exactly76 independent sets and15 maximal sets.
 - Two initial Cadical synthesis runs both ended UNKNOWN at600 seconds, no candidate. Two new canonical-order runs are active.
+
+2026-11-25T14:35:13.829054+00:00 [few_not_analysis] ReadOnceCofactors.lean checked coreLean exit0, independently reviewed and compiled by prior_status. OrbitCertificate.lean core182lines currently computing120 graphautomorphism and225 pairorbit certificates. Exact pairrepresentatives(3,50),(6,50),(12,50),(3,116),(6,116). CircuitEndpoints.lean57lines still waiting on rootDefs rebuild.
+
+2026-11-25T14:37:09.139459+00:00 [few_not_analysis] OrbitCertificate.lean kernelchecked coreLean4.36 exit0, emptylog, 120automorphisms and225pairs mapped tofive representatives; independentreviewPASS. Readyarchivepush. Simple essential oneNOT operands up tovertexautomorphism havefourshapes: literalx0, ANDnonedge(x0,x2), ORedge(x0,x1), ORnonedge(x0,x2). ANDedge impliesoperand≤target and canbe replacedbytrue (ComparableNot).
