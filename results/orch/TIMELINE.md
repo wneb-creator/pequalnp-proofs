@@ -21,3 +21,5 @@
 - 2026-11-25T17:23:37.663582+00:00: lemma_search repair tCount invariance and composed inactive-dirty bipartite bound compiled, exit 0.
 - 2026-11-25T17:24:56.397887+00:00: shared-corner reader pricing Lean-checked (ReaderPricingExtended.lean), extending pure-rectangle local strategy.
 - 2026-11-25T17:25:11.796322+00:00: checked and independently reviewed OR-invariant, conditional normalization composition, and shared-corner reader pricing; archival checkpoint.
+- 2026-11-25T17:26:13.347548+00:00: first strategy review: retain exact SMT and CGP refutation searches; concentrate proof work on shared-corner and multi-generator independent-set pricing. Read-once and semantic-colour shortcuts excluded by checked countermodels.
+- 2026-11-25T17:33:18.224095+00:00: preserving independently reviewed full-input reader constraints, dirty-product counting, monotone-flag cover, and Fano27 positive baseline.

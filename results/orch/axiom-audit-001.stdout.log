@@ -1,0 +1,9 @@
+'PEqualNP.Outside.L_meta_4675.no_point_line_or' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4675.Reuse.clean_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4675_aux.rectangle_cover_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4675.Normalize.erase_edge_inactive_dirty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_4675_aux.p4_buffered_accepts_two_repeated_edges' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

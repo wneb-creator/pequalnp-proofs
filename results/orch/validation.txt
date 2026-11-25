@@ -26,3 +26,6 @@ TIMING total=15.04 subagents=6
 Further compiled partials: OrInvariant; Combined wrappers; ReaderPricing and ReaderPricingExtended (all direct Lean exit0).
 Independent review: status_review approved OrInvariant, Combined, base ReaderPricing and optimized/CGP search programs; root separately reviewed extended finite-reader shared-corner proof and empty diagnostics.
 No main theorem, proof PR, or accepted checker verdict exists.
+
+Further partials, direct Lean exit0, empty diagnostics: ReaderSemantics, DirtyProduct, FlagCover, FanoSanity. Independent status_review approved all for archival with explicit restrictions. FanoSanity namespace must be renamed before named-file integration; no minimality claim.
+Axiom audit of five main integrated partial lemmas passed; only propext, Classical.choice, Quot.sound. New partials are not covered by that first audit.
