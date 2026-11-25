@@ -1,0 +1,9 @@
+AUTOMORPHISMS 4 first_pair_reps [(0, 1), (0, 2), (0, 3), (0, 4), (2, 3), (3, 4), (3, 5), (3, 6)]
+START theta233 n 7 k 11 rows 15 mode dirty timeout 120
+CNF 951344 bytes
+RESULT unknown seconds 120.71752691268921 exit 0
+(:max-memory   38.22
+ :memory       29.93
+ :num-allocs   1417314
+ :rlimit-count 56554
+ :sat-mk-var   1)

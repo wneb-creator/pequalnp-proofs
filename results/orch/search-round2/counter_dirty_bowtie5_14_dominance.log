@@ -1,0 +1,9 @@
+AUTOMORPHISMS 8 first_pair_reps [(0, 1), (0, 2), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 3), (2, 6)]
+START bowtie5 n 9 k 14 rows 23 mode dirty timeout 120
+CNF 2327482 bytes
+RESULT unknown seconds 121.10650992393494 exit 0
+(:max-memory   67.81
+ :memory       52.23
+ :num-allocs   5645167
+ :rlimit-count 111388
+ :sat-mk-var   1)

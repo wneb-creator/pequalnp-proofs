@@ -1,0 +1,8 @@
+Checker attempt on the 3027-line partial named file, source SHA256 c3cf7ffffc50b449695e13e6f99914ffcea66ad0eec640bf7bfa612eccc32102.
+Command from repository root:
+LAKE_ARTIFACT_CACHE=false PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-56/lean-4.36.0-linux/bin/lake PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-56/pnp-home XDG_CACHE_HOME=/tmp/oec/pequalnp-pilot-56/cache node tools/check-lean.mjs lean/PEqualNP/Outside/L_meta_1031.lean /tmp/oec/pequalnp-pilot-56/statement.txt check
+Exit status:3 (CHECKER FAULT), no verdict. Complete stdout/stderr saved alongside this record.
+Final diagnostic: CHECKER FAULT: the verifier ended without a verdict (exit null).
+A concurrent experimental Lean compile was killed with status137. Resource contention is suspected, not confirmed as the checker's cause. Future Lean and checker jobs will be serialized.
+The source contains no theorem named PEqualNP.Outside.L_meta_1031 and remains an explicitly incomplete proof. This run is neither acceptance nor a proof rejection. The forest experiment was separately compiled and pushed before this failure.
+Cleanup pass: not triggered; full posted theorem and successful checker are absent.

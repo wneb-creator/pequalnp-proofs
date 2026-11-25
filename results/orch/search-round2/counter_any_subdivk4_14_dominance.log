@@ -1,0 +1,9 @@
+AUTOMORPHISMS 24 first_pair_reps [(0, 1), (0, 4), (0, 7), (4, 5), (4, 9)]
+START subdivk4 n 10 k 14 rows 24 mode any timeout 120
+CNF 2434449 bytes
+RESULT unknown seconds 120.90385270118713 exit 0
+(:max-memory   67.85
+ :memory       52.66
+ :num-allocs   6565901
+ :rlimit-count 118704
+ :sat-mk-var   1)

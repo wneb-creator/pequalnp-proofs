@@ -1,0 +1,9 @@
+AUTOMORPHISMS 2 first_pair_reps [(0, 1), (0, 2), (0, 3), (0, 6), (1, 2), (1, 3), (1, 4), (1, 5), (1, 6), (2, 3), (2, 4), (2, 6), (3, 6)]
+START c6leaf n 7 k 9 rows 13 mode dirty timeout 60
+CNF 602444 bytes
+RESULT unknown seconds 60.596559047698975 exit 0
+(:max-memory   21.18
+ :memory       20.18
+ :num-allocs   731889
+ :rlimit-count 39311
+ :sat-mk-var   1)

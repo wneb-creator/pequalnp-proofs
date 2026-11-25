@@ -1,0 +1,3 @@
+DISJOINT first-pair orbits [(0, 1), (0, 2), (0, 3), (0, 4), (2, 3), (3, 4), (3, 5), (3, 6)] automorphisms 4
+START theta233 or 6 rows 15 cnfbytes 91950
+RESULT unsat seconds 34.42943239212036 exit 20

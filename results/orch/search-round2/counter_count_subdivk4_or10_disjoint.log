@@ -1,0 +1,3 @@
+DISJOINT first-pair orbits [(0, 1), (0, 4), (0, 7), (4, 5), (4, 9)] automorphisms 24
+START subdivk4 or 10 rows 24 cnfbytes 435670
+RESULT unknown seconds 120.0114951133728 exit 0

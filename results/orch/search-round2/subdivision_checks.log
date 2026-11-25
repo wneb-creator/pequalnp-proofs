@@ -1,0 +1,4 @@
+{'base': 'K3', 'vertices': 3, 'edges': 3, 'vertex_cover': 2, 'subdivision_vertices': 9, 'subdivision_edges': 9, 'subdivision_vertex_cover': 5, 'canonical_gate_count': 13, 'full_truth_table_rows': 512, 'rectangle_identity': 'PASS', 'auxiliary_OR_guard_false_positives': 9, 'excluded_extra_quadratic_guard_edges': 0}
+{'base': 'K2,2', 'vertices': 4, 'edges': 4, 'vertex_cover': 2, 'subdivision_vertices': 12, 'subdivision_edges': 12, 'subdivision_vertex_cover': 6, 'canonical_gate_count': 17, 'full_truth_table_rows': 4096, 'rectangle_identity': 'PASS', 'auxiliary_OR_guard_false_positives': 56, 'excluded_extra_quadratic_guard_edges': 0}
+{'base': 'K4', 'vertices': 4, 'edges': 6, 'vertex_cover': 3, 'subdivision_vertices': 16, 'subdivision_edges': 18, 'subdivision_vertex_cover': 9, 'canonical_gate_count': 26, 'full_truth_table_rows': 65536, 'rectangle_identity': 'PASS', 'auxiliary_OR_guard_false_positives': 310, 'excluded_extra_quadratic_guard_edges': 102}
+exit_code=0

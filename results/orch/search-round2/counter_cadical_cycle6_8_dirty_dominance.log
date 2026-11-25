@@ -1,0 +1,9 @@
+AUTOMORPHISMS 12 first_pair_reps [(0, 1), (0, 2), (0, 3)]
+START cycle6 n 6 k 8 rows 11 mode dirty timeout 30
+CNF 333748 bytes
+RESULT unsat seconds 1.4584438800811768 exit 20
+(:max-memory   19.64
+ :memory       18.98
+ :num-allocs   375731
+ :rlimit-count 28410
+ :sat-mk-var   1)

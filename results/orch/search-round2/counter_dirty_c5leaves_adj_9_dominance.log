@@ -1,0 +1,9 @@
+AUTOMORPHISMS 2 first_pair_reps [(0, 1), (0, 2), (0, 3), (0, 4), (0, 5), (0, 6), (2, 3), (2, 4), (2, 5), (2, 6), (3, 5), (5, 6)]
+START c5leaves_adj n 7 k 9 rows 13 mode dirty timeout 60
+CNF 612107 bytes
+RESULT unknown seconds 60.39253568649292 exit 0
+(:max-memory   21.22
+ :memory       20.22
+ :num-allocs   737364
+ :rlimit-count 39807
+ :sat-mk-var   1)
