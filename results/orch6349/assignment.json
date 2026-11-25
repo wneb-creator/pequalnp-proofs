@@ -1,0 +1,23 @@
+{
+  "gap": {
+    "id": "L-meta-6349",
+    "title": "Table 1a: the 4-by-4 bipartite graph with mask 5805 has an AND/OR circuit of fan-in at most two, at most 10 gates, representing it, none of at most 9",
+    "statement": "PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 4 => (5805 : \u2115).testBit (4 * u.val + v.val)) 10 \u2227\n  \u00ac PEqualNP.Represents.RepSizeAtMost (fun u v : Fin 4 => (5805 : \u2115).testBit (4 * u.val + v.val)) 9",
+    "file": "lean/PEqualNP/Outside/L_meta_6349.lean",
+    "module": "PEqualNP.Outside.L_meta_6349",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "unlocks": "one entry of Table 1a: the exact cost of representing a small bipartite graph, the measure in which the bridge to general circuits is stated",
+    "context": "SKETCH: two halves. Upper: exhibit an AND/OR circuit with the stated number of gates and check the 16 inputs with one vertex on each side; a finite check. Lower: no circuit with one gate fewer represents the graph: a finite search settled by an unsatisfiability certificate that the kernel replays through the promise link on the public tree (Promise.rep_lower44). The value was computed in house by ONE method only and is not checked: it may be wrong, and its opposite row is being offered beside it. No sorry, no new axiom. Own namespace for every declaration.",
+    "dead": [],
+    "weight": 50,
+    "parallel": 3,
+    "lane": "main",
+    "depth": 0,
+    "sketch": "two halves. Upper: exhibit an AND/OR circuit with the stated number of gates and check the 16 inputs with one vertex on each side; a finite check. Lower: no circuit with one gate fewer represents the graph: a finite search settled by an unsatisfiability certificate that the kernel replays through the promise link on the public tree (Promise.rep_lower44). The value was computed in house by ONE method only and is not checked: it may be wrong, and its opposite row is being offered beside it. No sorry, no new axiom. Own namespace for every declaration.",
+    "pr_open": 0,
+    "pr_numbers": []
+  },
+  "assignedAt": "2026-11-25T06:09:10Z"
+}
