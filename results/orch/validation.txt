@@ -20,3 +20,5 @@ Sub-agents: status_review, lower_bound, counterexample, library_route, reduction
 TIMING total=70.9 subagents=6
 
 92 frozen search/control files and three hash manifests were independently reviewed and archived under search_artifacts/. Fano27 controls pass all16384 truth rows and joint read-one checks; the incomplete26 candidate fails47 rows. No completed UNSAT certificate or counterexample is claimed. RectangleLayer compiled and passed independent review as semantic identities only, with no shared-DAG gate-cost claim.
+
+Additional reviewed checked semantic components: TwoRectangles, RectangleCenters, RectangleWitness, RectangleWitnessInputFixed. The two-rectangle lemma preserves accepted edges by an existing star side; the witness lemma constructs a single negative Boolean input satisfying any at-most-q ideal full-neighborhood rectangles. No unrestricted shared-circuit gate bound is claimed.
