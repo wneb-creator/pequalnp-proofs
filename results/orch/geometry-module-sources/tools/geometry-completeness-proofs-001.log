@@ -1,0 +1,38 @@
+import took 2.08s
+/tmp/oec/pequalnp-pilot-62/lean-modules/GeometryCompletenessProofs.lean:15:4: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  0 ≤ b ≤ 8191
+  0 ≤ a ≤ 8191
+  a - b ≥ 1
+where
+ a := ↑↑m
+ b := ↑↑⟨128 * (↑m / 128) + ↑m % 128, ⋯⟩
+cumulative profiling times:
+	attribute application 0.0702ms
+	congr simp thm 0.961ms
+	declTypeLinter 4.63ms
+	elaboration 13.3ms
+	fix level params 0.46ms
+	import 2.08s
+	initialization 47ms
+	instantiate metavars 0.276ms
+	interpretation 335ms
+	let-to-have transformation 0.622ms
+	linting 4.16ms
+	module linting 0.0347ms
+	parsing 2.91ms
+	process pre-definitions 1.11ms
+	share common exprs 0.704ms
+	simp 7.65ms
+	tactic execution 44.6ms
+	tacticAnalysis 1.89ms
+	type checking 51.5ms
+	typeclass inference 26.8ms
+
+EXIT 1
+RESOURCE_STOPPED False
+WALL_SECONDS 4.007247491999806
+USER_SECONDS 2.255581
+SYS_SECONDS 1.314141
+PEAK_RSS_KIB 2888072
+PEAK_CGROUP_BYTES 4801380352

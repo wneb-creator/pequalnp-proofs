@@ -1,0 +1,14 @@
+{
+  "pid": 26514,
+  "started_utc": "2026-11-25T05:10:21.049121+00:00",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-62/elan/toolchains/leanprover--lean4---v4.36.0/bin/cadical",
+    "-t",
+    "900",
+    "-w",
+    "/tmp/oec/pequalnp-pilot-62/global-50-dirty-cover36-900.sol",
+    "/tmp/oec/pequalnp-pilot-62/global-50-dirty-cover36-900.cnf"
+  ],
+  "address_space_limit_bytes": 3221225472,
+  "process_start_ticks": 884824
+}

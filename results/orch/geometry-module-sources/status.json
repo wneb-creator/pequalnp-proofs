@@ -49,7 +49,7 @@
   },
   "GeometryMaskData": {
     "sha256": "5060b51121e0814b30a4481f802f4d5bc00898e9cfd2428ca5a3565265d84b86",
-    "kernel_checked": false
+    "kernel_checked": true
   },
   "GeometryCompleteness": {
     "sha256": "a443739b9b96d2b40c78d65e05c72e3cd0d1f7191571b0db4a58d66541825fad",
@@ -57,7 +57,7 @@
   },
   "GeometryCompletenessBench": {
     "sha256": "7235ddd085920862eb1cc5412af14479cd80992e75531f12f05756454b6d7d10",
-    "kernel_checked": false
+    "kernel_checked": true
   },
   "GeometryFlags": {
     "sha256": "bb3238203ab15b0a624fcfda174e36dd731a181d08837bf66ad72ed80200b075",
@@ -65,7 +65,7 @@
   },
   "GeometryCompletenessProofs": {
     "sha256": "37ef17454196bb0dba72d8c863bffd5f4fdbbe7501b3f52796738136e28f1548",
-    "kernel_checked": false
+    "kernel_checked": true
   },
   "GeometryRowsAgreement": {
     "sha256": "82005c44353bcd3d2ee344530df3638f92a7610c75401363f141511bbb9d4326",

@@ -1,0 +1,10 @@
+{
+  "verdict": "PASS independent Python certificate replay; Lean finite certificate pending",
+  "or_count": 51,
+  "sample_count": 520,
+  "positive_samples": 52,
+  "negative_samples": 468,
+  "is_counterexample": false,
+  "witness_sha256": "45a5f5adb2fd0d5b77c5fb453d554023f26fcb4f2f97626595fe8fc26c0fcdff",
+  "mask_export_sha256": "4b000e664e0e7beedafffaa481cb1a6e0e91c35c673dc1fd818b797aeef67a44"
+}

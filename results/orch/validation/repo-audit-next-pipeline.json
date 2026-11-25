@@ -1,0 +1,965 @@
+{
+  "reviewer": "repo_audit",
+  "reviewed_at": "2026-11-25T05:26:46.254462+00:00",
+  "verdict": "APPROVED for exact-hash partial/research preservation",
+  "scope_notes": [
+    "All13520 fixed sample-coordinate bits are now Lean checked; globalControl is a51OR baseline, not a counterexample.",
+    "GeometryMaskData and symbolic assembly compile; the classification benchmark checks only masks0..127. Full64chunk completeness is pending.",
+    "Algebra results are computational controls only; no full51 lower-bound or counterexample claim.",
+    "Stopped global50 run is UNKNOWN/SIGINT, not UNSAT or completed timeout.",
+    "Scratch-module dependencies require permitted flattening for final single-file submission."
+  ],
+  "group_counts": {
+    "new_pipeline_snapshots": 12,
+    "portable_compiler": 26,
+    "new_geometry_snapshots": 9,
+    "geometry_source_backups": 60,
+    "computational_algebra": 33,
+    "stopped_global50": 15,
+    "data_reviews": 2
+  },
+  "files": [
+    {
+      "path": "results/orch/checked/canonical-global-control.json",
+      "sha256": "2f33d425c1dd57ab7b273bd05344db4440cdccd4f34cff411605956c57552f7a",
+      "bytes": 365,
+      "group": "new_pipeline_snapshots"
+    },
+    {
+      "path": "results/orch/checked/canonical-global-control.lean",
+      "sha256": "c0521c306db3245beb24c28ed2812251e78e80313e5e198e22f882305aa00fb7",
+      "bytes": 5240,
+      "group": "new_pipeline_snapshots"
+    },
+    {
+      "path": "results/orch/checked/canonical-global-control.log",
+      "sha256": "fcb94614dc435dde8e4ddc1ddb30d3e4b3b69e115e38c1d64538d1735030bdf4",
+      "bytes": 844,
+      "group": "new_pipeline_snapshots"
+    },
+    {
+      "path": "results/orch/checked/canonical-sample-data.json",
+      "sha256": "230d9bd3bca1de10e06a696b7f333fc844093164eb2064d60df1f696e4c9db2a",
+      "bytes": 225,
+      "group": "new_pipeline_snapshots"
+    },
+    {
+      "path": "results/orch/checked/canonical-sample-data.lean",
+      "sha256": "aaf1b7f9ac939d646781ea74210b1de19cbff4e791c13e7fdd8edd6061a113b5",
+      "bytes": 4175,
+      "group": "new_pipeline_snapshots"
+    },
+    {
+      "path": "results/orch/checked/canonical-sample-data.log",
+      "sha256": "3afd8210af1bbeb046ab83197a86cbf506e5fa7bb8e9a098ecfffc6ac565b796",
+      "bytes": 764,
+      "group": "new_pipeline_snapshots"
+    },
+    {
+      "path": "results/orch/checked/canonical-sample-facts-bench.json",
+      "sha256": "b604554b79082865cf9be4470e57950d083e5cfd165be0d225465365e8b911b1",
+      "bytes": 330,
+      "group": "new_pipeline_snapshots"
+    },
+    {
+      "path": "results/orch/checked/canonical-sample-facts-bench.lean",
+      "sha256": "5dd3708b45378f376d90173b58d1b352073fdb392abfc58863627715df3a42b7",
+      "bytes": 589,
+      "group": "new_pipeline_snapshots"
+    },
+    {
+      "path": "results/orch/checked/canonical-sample-facts-bench.log",
+      "sha256": "ce4e0c37d958c9ee8e5630515913b32b3dd56a19547af3fa022ff0a3d4bc888c",
+      "bytes": 751,
+      "group": "new_pipeline_snapshots"
+    },
+    {
+      "path": "results/orch/checked/canonical-sample-facts-remaining.json",
+      "sha256": "189b1d7f32220205e46ca157286ed8a57f7e6f64544a8a4ca8c33d5d842fe878",
+      "bytes": 436,
+      "group": "new_pipeline_snapshots"
+    },
+    {
+      "path": "results/orch/checked/canonical-sample-facts-remaining.lean",
+      "sha256": "7b00692eb51856469bc6a9ae23fb753c497b0cc707d37ce5a94ad11c339da547",
+      "bytes": 7301,
+      "group": "new_pipeline_snapshots"
+    },
+    {
+      "path": "results/orch/checked/canonical-sample-facts-remaining.log",
+      "sha256": "95fcf9b5b71a145c2a83818aa377e444f4538a1674f49e8c4c9758b6845104cc",
+      "bytes": 1368,
+      "group": "new_pipeline_snapshots"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerDefs.lean",
+      "sha256": "dc9fc17b0b48ae7caa20f941e7a9949547133a90950b49f655a7b12b4556ccb5",
+      "bytes": 1488,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerDefs.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerMasks.lean",
+      "sha256": "e6d6fb6f54e6e20749d632aeabf6098d940a1f09b091ebb496571d9f4b705795",
+      "bytes": 3305,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerMasks.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerSamples.lean",
+      "sha256": "f0a32c04062e4e86770b14dcdea3b94bb04a9882d7182e2f976bd0c91e1a19b6",
+      "bytes": 1231,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerSamples.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerSemantics.lean",
+      "sha256": "391d99f4fbf9025d469e3aac2d51c08542a120f083b3216b110be336435d2780",
+      "bytes": 7924,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerSemantics.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerStructure.lean",
+      "sha256": "55948041b48cd85be6c7a5b89d19794748dd01e2bf38342393a34f1dde851b8c",
+      "bytes": 3635,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCompilerStructure.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCycleControl.lean",
+      "sha256": "f6db999250439424594feb586cbadd3ab05b962775af30eaf5a51cc51f456220",
+      "bytes": 1313,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalCycleControl.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalGlobalControl.lean",
+      "sha256": "c0521c306db3245beb24c28ed2812251e78e80313e5e198e22f882305aa00fb7",
+      "bytes": 5240,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalGlobalControl.log",
+      "sha256": "fcb94614dc435dde8e4ddc1ddb30d3e4b3b69e115e38c1d64538d1735030bdf4",
+      "bytes": 844,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalSampleData.lean",
+      "sha256": "aaf1b7f9ac939d646781ea74210b1de19cbff4e791c13e7fdd8edd6061a113b5",
+      "bytes": 4175,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalSampleData.log",
+      "sha256": "3afd8210af1bbeb046ab83197a86cbf506e5fa7bb8e9a098ecfffc6ac565b796",
+      "bytes": 764,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalSampleFactsBench.lean",
+      "sha256": "5dd3708b45378f376d90173b58d1b352073fdb392abfc58863627715df3a42b7",
+      "bytes": 589,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalSampleFactsBench.log",
+      "sha256": "ce4e0c37d958c9ee8e5630515913b32b3dd56a19547af3fa022ff0a3d4bc888c",
+      "bytes": 751,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalSampleFactsRemaining.lean",
+      "sha256": "7b00692eb51856469bc6a9ae23fb753c497b0cc707d37ce5a94ad11c339da547",
+      "bytes": 7301,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/CanonicalSampleFactsRemaining.log",
+      "sha256": "95fcf9b5b71a145c2a83818aa377e444f4538a1674f49e8c4c9758b6845104cc",
+      "bytes": 1368,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/GeometryFlags.lean",
+      "sha256": "bb3238203ab15b0a624fcfda174e36dd731a181d08837bf66ad72ed80200b075",
+      "bytes": 1724,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/GeometryFlags.log",
+      "sha256": "c45a3c9c3f9062fd138b60f46778916583f25f58b54496c3a757d4a74e629b8a",
+      "bytes": 820,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/GeometryRowsDefs.lean",
+      "sha256": "3b206cf10d7acd0196a5ad5dd32df658d448cad6d99861469e60a2f5ee6978cf",
+      "bytes": 20461,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/GeometryRowsDefs.log",
+      "sha256": "6e410f0874393037ab26e5264a1f854120ece77dd26337db5e2d5089c1a10d4c",
+      "bytes": 1249,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/README.md",
+      "sha256": "8133066100a5b9c516494afabe34950df6f884e8bd73e5d18bac00cfd630f922",
+      "bytes": 1032,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/compiler-modules/manifest.json",
+      "sha256": "bf3e6d06d17db9b9a8e4e731e041fcb41e006adaafbb29676cda5a6a1878779d",
+      "bytes": 3649,
+      "group": "portable_compiler"
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessBench.lean",
+      "sha256": "7235ddd085920862eb1cc5412af14479cd80992e75531f12f05756454b6d7d10",
+      "bytes": 501,
+      "group": "new_geometry_snapshots"
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessBench.log",
+      "sha256": "16b976fccfd1f400062f7205fdef7f5436b1b57facae4df015a3110ab69ca9ce",
+      "bytes": 695,
+      "group": "new_geometry_snapshots"
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessBench.sha256",
+      "sha256": "892df674a651d634d45eba8d4fbc5e64f336d79d39bfca521868959c241747b5",
+      "bytes": 97,
+      "group": "new_geometry_snapshots"
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessProofs.lean",
+      "sha256": "37ef17454196bb0dba72d8c863bffd5f4fdbbe7501b3f52796738136e28f1548",
+      "bytes": 1202,
+      "group": "new_geometry_snapshots"
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessProofs.log",
+      "sha256": "95e92a4a5752460db3ba56d53bcf550f496e5ef110e0a33fa5f6180866f73bd1",
+      "bytes": 706,
+      "group": "new_geometry_snapshots"
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryCompletenessProofs.sha256",
+      "sha256": "4ca366f7020ab704da075aa2083583b3b0bbc836ba51101f9261788c97c97401",
+      "bytes": 98,
+      "group": "new_geometry_snapshots"
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryMaskData.lean",
+      "sha256": "5060b51121e0814b30a4481f802f4d5bc00898e9cfd2428ca5a3565265d84b86",
+      "bytes": 17094,
+      "group": "new_geometry_snapshots"
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryMaskData.log",
+      "sha256": "04ce7f0864352a05e09afe8911f0ffe171b32c3d03b1c01230281360b39449b3",
+      "bytes": 818,
+      "group": "new_geometry_snapshots"
+    },
+    {
+      "path": "results/orch/checked/modules/GeometryMaskData.sha256",
+      "sha256": "0d023c221214c0970ef802dc9d8eeda14163f5abf57d2cda4f06d8eb55eec683",
+      "bytes": 88,
+      "group": "new_geometry_snapshots"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/COMPLETENESS_STATUS.md",
+      "sha256": "c2660349a8e1821879584b975212aeb4863f95616373dd41932ab4ecb1bb8b26",
+      "bytes": 2327,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryCompleteness.lean",
+      "sha256": "a443739b9b96d2b40c78d65e05c72e3cd0d1f7191571b0db4a58d66541825fad",
+      "bytes": 23308,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryCompletenessBench.lean",
+      "sha256": "7235ddd085920862eb1cc5412af14479cd80992e75531f12f05756454b6d7d10",
+      "bytes": 501,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryCompletenessProofs.lean",
+      "sha256": "37ef17454196bb0dba72d8c863bffd5f4fdbbe7501b3f52796738136e28f1548",
+      "bytes": 1202,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryFlags.lean",
+      "sha256": "bb3238203ab15b0a624fcfda174e36dd731a181d08837bf66ad72ed80200b075",
+      "bytes": 1724,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryMaskCore.lean",
+      "sha256": "32c1da597f6d84f77b41d63dc70e4ee7dee96938e96483b1e55d6d77c5fec15b",
+      "bytes": 1449,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryMaskData.lean",
+      "sha256": "5060b51121e0814b30a4481f802f4d5bc00898e9cfd2428ca5a3565265d84b86",
+      "bytes": 17094,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryRowsAgreement.lean",
+      "sha256": "82005c44353bcd3d2ee344530df3638f92a7610c75401363f141511bbb9d4326",
+      "bytes": 8433,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/GeometryRowsDefs.lean",
+      "sha256": "3b206cf10d7acd0196a5ad5dd32df658d448cad6d99861469e60a2f5ee6978cf",
+      "bytes": 20461,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/PackingChunkAssemblyTest.lean",
+      "sha256": "298b4b5342e86b9ea80ff73705c843ff5f6acd958ce674fc7c1ee7bd597856b7",
+      "bytes": 1854,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/PackingChunkLargest.lean",
+      "sha256": "6c9a5453c45a2ac148f43e12582c33baea3d419b28a1a2a6b9f92864ab631668",
+      "bytes": 269,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/PackingOrbitsDefs.lean",
+      "sha256": "1eab57df175489ceaeae474f7adea98124d931e8d08c8a889ff8c73d1da07cd0",
+      "bytes": 140043,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/PackingThreeActions.lean",
+      "sha256": "1f7976904f4595e22ce7e77e776a64b8e393c07220b0d799080bb9cdc5d2810a",
+      "bytes": 3614,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/PackingThreeChunks.lean",
+      "sha256": "9852df6b2f3eb1a4c60dd37907f6b53c97015401e5f7f1ee18b1680689d2472d",
+      "bytes": 24477,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/PackingThreeData.lean",
+      "sha256": "9d8e8afa11b09d00072c4c38a186a1781b1afdfcf288cd680a3ec249b6f48ef2",
+      "bytes": 6754,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/PackingThreeDefs.lean",
+      "sha256": "9cba4395ebb179a279cc2a5aad2d10b5d7f629eab6d124841980325ae82278a0",
+      "bytes": 71856,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/PackingThreeOrbits.lean",
+      "sha256": "2ee2ac183feacb75d9f4b4153045f1e773d12798643f73c0e2c94570d553c5ec",
+      "bytes": 16353,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/PackingThreeRootLinks.lean",
+      "sha256": "332caf454b23fbfb2e7f5c42c6bd94b886e8dcef83326787885f20c35588c4cf",
+      "bytes": 898,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/PackingThreeSmall.lean",
+      "sha256": "d545c52767651e5e189fbfd25611a1108cebf29136094501a70959b78f063ade",
+      "bytes": 1281,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/README.md",
+      "sha256": "202ef0ce2884f6bb7ada2d4f824557d2fdafc296b2cd8ee278cd1b8ea9d7c97f",
+      "bytes": 954,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/status.json",
+      "sha256": "b6266602ecd6695ccbdf252b37bc96580387cfa70093e701f380076ce907b17a",
+      "bytes": 2547,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/cache-assessment-report.md",
+      "sha256": "341a4815eee762f233620ae85b033399b582b8cbc504a9e31b0b04981a353138",
+      "bytes": 2730,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/cache-disk-census.json",
+      "sha256": "8ced76408e700752dfe9e72ffcc42d48e5b107cfd8ac5d37564ebee0859b2bea",
+      "bytes": 6502,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/cache-full-mathlib-estimate.json",
+      "sha256": "e9fd9fa9ddbb3904df220c57aeb1b83dc30de2c3b55c22008ce4db68273ecb25",
+      "bytes": 476,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/cache-missing-mathlib-modules.txt",
+      "sha256": "a8ceb0691ba78e1a7b625d8fe206170af39c689c5775a2282c944b6c70c60281",
+      "bytes": 279906,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/cache-reclaim-assessment.json",
+      "sha256": "d5fc28d233886a3e3e84827a9e440cb4722482320f5095454e00771365837e05",
+      "bytes": 1872,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-completeness-bench-001.log",
+      "sha256": "16b976fccfd1f400062f7205fdef7f5436b1b57facae4df015a3110ab69ca9ce",
+      "bytes": 695,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-completeness-index.json",
+      "sha256": "ee85bd84f34dfee649c8515190b3d2aa9ef1ff02f0b17e470deacc9fddab0c12",
+      "bytes": 5821,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-completeness-proofs-001.log",
+      "sha256": "48c88636fa22482a6df128b3e945fe97c9e06399aa79b3d2290705f63104725b",
+      "bytes": 974,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-completeness-proofs-002.log",
+      "sha256": "d267897e6c0d35bf5e103537d79e57ebb53bdc8f17d606414e0ffe6a5b4753a6",
+      "bytes": 195,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-generic-only.log",
+      "sha256": "6271e62e5e64e697f4a8cdd61a379e66126fda789fb7fe8677a873c0cb814ca5",
+      "bytes": 118,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-generic-only.py",
+      "sha256": "24f602c1c0dc20880b54775d89adc3381b53707d3dc631591a903d46bf3a6972",
+      "bytes": 815,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/geometry-mask-data-001.log",
+      "sha256": "04ce7f0864352a05e09afe8911f0ffe171b32c3d03b1c01230281360b39449b3",
+      "bytes": 818,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/make-geometry-completeness.py",
+      "sha256": "d9db8f7510d2a92b362fa8a047fd56e87f00946667f31a19538bf990ff6ffecc",
+      "bytes": 2443,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/make-packing3-actions.py",
+      "sha256": "e708d5eca18c1b0e88d9c3e03712daa868b1dfad6761547384cd7dd04a50fa85",
+      "bytes": 4000,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/make-packing3-chunks.py",
+      "sha256": "855e87c72ea69a7a5c0c0323b66ae63579ff8c49e931edb127618adf9441e5c3",
+      "bytes": 4454,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/make-packing3-mask-data.py",
+      "sha256": "7ea52b39becd784b287c31262e2431c1880f2be3e80e3a4be4409d7261ee4498",
+      "bytes": 1894,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/make-packing3-orbits.py",
+      "sha256": "730979dd329629bdff0de2278b152a678d26c465b001042c72c0907ba23d3afe",
+      "bytes": 2854,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/make-packing3-small-orbits.py",
+      "sha256": "f89dbc6e96c99b706c18cf00266005fae6f9e2e6f51cf32089a2e6f697bffb65",
+      "bytes": 4428,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/make-packing3.py",
+      "sha256": "05c0d8990b10e2811e1965ec11246344196f977a4d40a6354f664389154e2d92",
+      "bytes": 1906,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/packing3-all-checks-001.log",
+      "sha256": "ff2d2430c92125086dd358f5f216438352b5f00916ab6b4c1373e02cb2745a7c",
+      "bytes": 105,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/packing3-blocks.json",
+      "sha256": "c0fad4988ace8181d653b988277e484a96b110b0bf69ac3f3e7715aceed1ce38",
+      "bytes": 66541,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/packing3-branch-counts.json",
+      "sha256": "111248469a2e0d909d660bf552a46d631fe4359fa2169c18e32df26774723d07",
+      "bytes": 61066,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/packing3-branch-counts.log",
+      "sha256": "97727e3540a7271f0205dbcda68cbd10fc6006e976b6293baa9d516acb60bd2e",
+      "bytes": 2228,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/packing3-chunk-data.json",
+      "sha256": "e34d46bf3258e15bc578e13e7ada10a7d35135cf461954e526d353d2fe70fbad",
+      "bytes": 4219,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/packing3-chunk-definitions.txt",
+      "sha256": "373672f9a1184471e3e574150424cc24f5365b8ba3bd9daa7cdb71af5932c6ab",
+      "bytes": 590,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/packing3-count-branches.py",
+      "sha256": "22c41bf458297be1d516cb7d7120f567ebdcce58dae6fad98c5afdd6b539b026",
+      "bytes": 2050,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/packing3-data-verification.log",
+      "sha256": "0b23d3dad74a7f8678d05c5898b09c01905b422160c271c079c43e649e0253fa",
+      "bytes": 102,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/packing3-definitions.txt",
+      "sha256": "8f47ff6fca5638c86f102e94f03dac8d34a2369899cb5d94b97d31145033b842",
+      "bytes": 1827,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/packing3-export-actions.py",
+      "sha256": "61a597a1083f0a8c385753bb487987a5fe086a22809c91a47e1fdb4c40117cf5",
+      "bytes": 1115,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/packing3-finite-actions.json",
+      "sha256": "d4307744022674668e5a1efe0b22498e03f2c1a67e792af26ba7050747f9e3ad",
+      "bytes": 32161,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/packing3-finite-actions.log",
+      "sha256": "e503d4c7a7f57ba2596b118f03478fcdceb2a96ad585b66872bcda2ace4bd231",
+      "bytes": 193,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/packing3-mask-data-certificates.txt",
+      "sha256": "64ffc6c5236558a834d525d1146b19c66bad35444232e2897bd05a4292dcbe87",
+      "bytes": 6605,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/packing3-root-footer.txt",
+      "sha256": "9f75f78d0fd0023a4af4866b8839590fce4f77b6b92b1e003446bdb853f66008",
+      "bytes": 550,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/packing3-small-certificates.txt",
+      "sha256": "38cca60391f5b01dc42611c62451022c9dfcede83fb78df23ebaef333e7914e2",
+      "bytes": 1149,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/packing3-small-orbits.log",
+      "sha256": "22d3703c4f7adb0f884174cfc63f1f52a7e95e8c99b845f71de7e079641a2eff",
+      "bytes": 111,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/packing3-vertex-definitions.txt",
+      "sha256": "60f1a26ed10f76c11606531dc18e2b399547039d8e6f2b6b6d57a1fcda5f9c41",
+      "bytes": 309,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/run-lean-guarded.py",
+      "sha256": "58b023f0733b4bd7afb289a601f75c806e81b725a515c7a8b864a4fddc73a182",
+      "bytes": 1891,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/run-lean-measured.py",
+      "sha256": "8d92d2be827cff60795a6a5257f3cba60bc81f36530029ae9766cb883f153917",
+      "bytes": 601,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/geometry-module-sources/tools/verify-packing3-data.py",
+      "sha256": "a8b2c2e967cc420b2386691ec3d2a3cb47ef1b8d7f5a2ddbd95d56cb48a8d2f2",
+      "bytes": 1229,
+      "group": "geometry_source_backups"
+    },
+    {
+      "path": "results/orch/algebra-final-route/README.md",
+      "sha256": "92b750530501c33960f65d798c263d6a095554832a46751be08903809595b58e",
+      "bytes": 3228,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/SHA256.json",
+      "sha256": "48e0faaff14b33ef0d80f6d9bf9db46af4e50c818afbb5c22bd0bd28d62692a0",
+      "bytes": 3396,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-allowed-complex-fvector.json",
+      "sha256": "0ed3c6cf7af13519ac1d821132bc571eec34c888382e3b6f02505a27dcdbd454",
+      "bytes": 206,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-allowed-complex-homology.json",
+      "sha256": "3d717fb469c81207c79947e825aa7315b6fd6df5a536593abd41d3643a4ebdd7",
+      "bytes": 668,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-allowed-complex-homology.log",
+      "sha256": "c3e27f2b27885fc9ea9aee3a05aa5a3f6aae7b84ce6535ea8e542afa2d42606e",
+      "bytes": 944,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-control5.cnf",
+      "sha256": "aa52e771d3d88c9f9018342b638c882864dc86e3ef8b75c59f8811b50968ee72",
+      "bytes": 63343,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-control5.command.json",
+      "sha256": "86f544d970efa464de1f087a549c34c7d4eebeb92a6b0ebd839c6ddad2817695",
+      "bytes": 235,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-control5.log",
+      "sha256": "cffc7cbff0ef721f3b82e4f2bc87fbf1a20534f38ead993139d7b40d0414a785",
+      "bytes": 355,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-control5.mapping.json",
+      "sha256": "05a5765357bdacdbe9e92392b58bfae64939b395b60310b8b734df61c65ad47b",
+      "bytes": 1192,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-control5.sol",
+      "sha256": "6d5c8df1e0ebfb6a36c9b590104fa7aa6e3f0c91f50e33024bcfdfcb71150f9c",
+      "bytes": 6903,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-control5.solver.log",
+      "sha256": "5c9b82ab1bd3348dbe19bb25cb81a1c9cb726022ea5f92775c08733b47a7fd9d",
+      "bytes": 2994,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-control5.witness.json",
+      "sha256": "6a2c8c02fef2358e90d8b2ec2d57ed5866cdcb93a1171667b87ea8ef56593ce0",
+      "bytes": 787,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-opposite5.cnf",
+      "sha256": "522fad002171265ad47ea94443e1e3bb8054ac03794fa61231162f2682d90f94",
+      "bytes": 63149,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-opposite5.command.json",
+      "sha256": "e5d7c711db0bf30ca3edde1ebba08ef44d078df7b02590fd4cea91ffcbbec676",
+      "bytes": 237,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-opposite5.log",
+      "sha256": "fd4265259ffb653029acac2f5130857a00f9f392055d36ad6adddda3fcc02033",
+      "bytes": 321,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-opposite5.mapping.json",
+      "sha256": "ead79b32515452a157d48be3862753fb40b9cb92588b29a3aa01a4f49e2c3165",
+      "bytes": 1193,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-opposite5.sol",
+      "sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162",
+      "bytes": 16,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-opposite5.solver.log",
+      "sha256": "3f88280659c2cb054c79c3d2fc61ddc2b32ee1462432109e961b5f9c7022abe1",
+      "bytes": 6963,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-opposite6.cnf",
+      "sha256": "34b34307fd509c0a77c5266f4cd5fdcadc0c549fdd06f673b8588f8d32ba3062",
+      "bytes": 83072,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-opposite6.command.json",
+      "sha256": "1e25cb374ac90c89bd69c762a0434e1cbc9b0374c1417272efb4778c559d0b8a",
+      "bytes": 237,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-opposite6.log",
+      "sha256": "7978c7d7f758e6b80dd5aab06b431a22ff4d932cb3177616fa815223161a263a",
+      "bytes": 355,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-opposite6.mapping.json",
+      "sha256": "46fa8db309e6319239d3f51e56113c9546bd83c48469802bfc04aa44a8f11a7b",
+      "bytes": 1349,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-opposite6.sol",
+      "sha256": "1cb3d684ae6e54f77d32eff0391d1157cb3cf972f55d97bb6001111aeac79106",
+      "bytes": 9135,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-opposite6.solver.log",
+      "sha256": "54611d8cbe3af7aed21406c4dc4c5176b3f86abc6fdce764b8498b4f9f62bfc8",
+      "bytes": 3795,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-cycle6-opposite6.witness.json",
+      "sha256": "1f76f271fb8351aa503a1a6f1065cafe20a9ded97742b7d27d840689f1da0d4d",
+      "bytes": 943,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-edgefree-complex-homology.json",
+      "sha256": "73c8e9dbc701dab012d87dd30200e12bfe2b978b8098e6b7721b9b28af1ac502",
+      "bytes": 896,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-edgefree-complex-homology.log",
+      "sha256": "3378543b14d48746625db65e36ca23af1abf0e14b8407630622791baa35d8a63",
+      "bytes": 1446,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-relative-complex-homology.json",
+      "sha256": "94fb985ff870a7a426c24c380875ef9029d28ebd70a7a910269a0cef46e38d2d",
+      "bytes": 810,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra-relative-complex-homology.log",
+      "sha256": "8da039896fedcf494e8ac609969ad958ef6f21f02ee5237f617d26db7a24778c",
+      "bytes": 1460,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra_complex_homology.py",
+      "sha256": "7be44a24d614b8b75b3902e9d9686bc7c8c2adbd6c4a37f700bb9ccbaea877b3",
+      "bytes": 2044,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra_edgefree_homology.py",
+      "sha256": "5e396683d39bb2bd021428f9ab1163e38e5266dd705a36871166d5caf7e148bf",
+      "bytes": 2059,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/algebra_relative_homology.py",
+      "sha256": "fe9c0b874ff59ec2054b43e49109a4d2618094ee42a1f68af78e0b359c892f38",
+      "bytes": 2113,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/algebra-final-route/cycle6_opposite_reuse_cnf.py",
+      "sha256": "303e4e387f3dca451606c7d11b8b61f63ba83ceb081ffe12217211603cacc8a8",
+      "bytes": 9177,
+      "group": "computational_algebra"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0512Z/ORIGINAL-FILES.json",
+      "sha256": "ecd0b4739d28f5426f234f4b750ac489f134502318467e5e0823997156d28b42",
+      "bytes": 1781,
+      "group": "stopped_global50"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0512Z/README.md",
+      "sha256": "7cf68f55f857cf4af3003b115be058cfa25bf58be4e6261ea605cb1e952fc8dd",
+      "bytes": 621,
+      "group": "stopped_global50"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0512Z/SHA256SUMS",
+      "sha256": "0c65920606f54016487c436b5407d77b1acfe179bcfb017fd798148dded7da72",
+      "bytes": 1392,
+      "group": "stopped_global50"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0512Z/global-50-dirty-cover36-900.cnf.gz",
+      "sha256": "0053ce1e56d3a89b7a1b9200790bcbb713a30574e09bceeea21064ea27a293d9",
+      "bytes": 56876570,
+      "group": "stopped_global50"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0512Z/global-50-dirty-cover36-900.command.json",
+      "sha256": "2aae5613c15e6d2520a48070cbab152ef77a3d379bde81bd359e99fea596ef0c",
+      "bytes": 244,
+      "group": "stopped_global50"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0512Z/global-50-dirty-cover36-900.encode.log",
+      "sha256": "218adb949fa0bc5165306f8aba8320450478bb7ed8f5422a945ff71800cf30b6",
+      "bytes": 299,
+      "group": "stopped_global50"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0512Z/global-50-dirty-cover36-900.log",
+      "sha256": "2423fba25394e67ac0f593390ea62d5bf415777c677446dc1f3ffe5c387b4337",
+      "bytes": 291,
+      "group": "stopped_global50"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0512Z/global-50-dirty-cover36-900.mapping.json",
+      "sha256": "98c04f9bebd4e7ee57e2fba82dbcaa8fcfa49ad4bfa63a194275b3d66a1b0c63",
+      "bytes": 85365,
+      "group": "stopped_global50"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0512Z/global-50-dirty-cover36-900.process.json",
+      "sha256": "bc1f6075d0fa17f13fb560ea2d3c32c7426fc5d9826b72d1c7f0e67e8d643b86",
+      "bytes": 420,
+      "group": "stopped_global50"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0512Z/global-50-dirty-cover36-900.resource-stop-request.json",
+      "sha256": "ab3a988d3a56ffcd4fa44e3e1db65bb7389342214250b90e113aa7e40cf757ca",
+      "bytes": 202,
+      "group": "stopped_global50"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0512Z/global-50-dirty-cover36-900.solver.log",
+      "sha256": "2946b23991897054eefac7ed2e44bd13cc180e1ef07e65d795c6b589e0be06fe",
+      "bytes": 5638,
+      "group": "stopped_global50"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0512Z/global-50-dirty-cover36-900.status.json",
+      "sha256": "36f189a44fad1f34436c63d9a97bba07ea164a38106db0540b166e558eb4cf9c",
+      "bytes": 202,
+      "group": "stopped_global50"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0512Z/solve-global-cnf-v3-help.txt",
+      "sha256": "8b5fa72db7c33d4707551c1f2b36a582b11707be2e19c0e37fca64efd4b9b249",
+      "bytes": 552,
+      "group": "stopped_global50"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0512Z/solve_global_cnf_v2.py",
+      "sha256": "3e5eaca9cacd76268abe7c459aacf1c827022c087dbb30b8cc118c27d689b1ab",
+      "bytes": 4124,
+      "group": "stopped_global50"
+    },
+    {
+      "path": "results/orch/search-counterexample/batch-20261125T0512Z/solve_global_cnf_v3.py",
+      "sha256": "882a2176ff092ee00b7ddc9c7f8b0d797e3ca4f7cf88b9c9219c67dbe5ba6ad5",
+      "bytes": 6290,
+      "group": "stopped_global50"
+    },
+    {
+      "path": "results/orch/canonical-global-control-review.json",
+      "sha256": "11ff371a5ef8495b475a93d1ac9ae56157f990c31d39b4ec7a85a5a1578fea57",
+      "bytes": 399,
+      "group": "data_reviews"
+    },
+    {
+      "path": "results/orch/canonical-sample-data-review.json",
+      "sha256": "0a2eaa256d376597751eed329b1a7487fb50258359c89ec2791c4c8c19920816",
+      "bytes": 380,
+      "group": "data_reviews"
+    }
+  ]
+}

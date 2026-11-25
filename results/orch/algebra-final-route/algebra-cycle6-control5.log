@@ -1,0 +1,3 @@
+{"scenario": "cycle6", "input_count": 6, "positive_count": 6, "negative_count": 5, "or_count": 5, "first_OR_orbits": 1, "false_OR_bounds": [2, 3], "cover_prefix": 3, "variables": 1365, "clauses": 4757, "encoding_seconds": 0.009445051999136922, "max_rss_KiB": 13312}
+result sat solver_exit 10 elapsed 0.013035648998993565
+WITNESS_VERIFIED 5 ORs 11 samples

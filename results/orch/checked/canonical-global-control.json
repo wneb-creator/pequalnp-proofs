@@ -1,0 +1,9 @@
+{
+  "sha256": "c0521c306db3245beb24c28ed2812251e78e80313e5e198e22f882305aa00fb7",
+  "exit_code": 0,
+  "or_count": 51,
+  "sample_bits": 520,
+  "is_counterexample": false,
+  "scope": "Kernel-checked literal-mask certificate; fixed input-mask identities are independently Python-checked but full Lean identities remain pending",
+  "wall_seconds": 3.5027551679995668
+}

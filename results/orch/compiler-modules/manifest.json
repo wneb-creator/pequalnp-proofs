@@ -40,5 +40,47 @@
     "sha256": "f6db999250439424594feb586cbadd3ab05b962775af30eaf5a51cc51f456220",
     "status": "Compiled and independently reviewed",
     "compile_order": 5
+  },
+  {
+    "module": "GeometryRowsDefs",
+    "source_snapshot": "results/orch/checked/modules/GeometryRowsDefs.lean",
+    "sha256": "3b206cf10d7acd0196a5ad5dd32df658d448cad6d99861469e60a2f5ee6978cf",
+    "status": "Compiled; see snapshot metadata for precise finite/control scope",
+    "compile_order": 6
+  },
+  {
+    "module": "GeometryFlags",
+    "source_snapshot": "results/orch/checked/modules/GeometryFlags.lean",
+    "sha256": "bb3238203ab15b0a624fcfda174e36dd731a181d08837bf66ad72ed80200b075",
+    "status": "Compiled; see snapshot metadata for precise finite/control scope",
+    "compile_order": 7
+  },
+  {
+    "module": "CanonicalSampleData",
+    "source_snapshot": "results/orch/checked/canonical-sample-data.lean",
+    "sha256": "aaf1b7f9ac939d646781ea74210b1de19cbff4e791c13e7fdd8edd6061a113b5",
+    "status": "Compiled; see snapshot metadata for precise finite/control scope",
+    "compile_order": 8
+  },
+  {
+    "module": "CanonicalGlobalControl",
+    "source_snapshot": "results/orch/checked/canonical-global-control.lean",
+    "sha256": "c0521c306db3245beb24c28ed2812251e78e80313e5e198e22f882305aa00fb7",
+    "status": "Compiled; see snapshot metadata for precise finite/control scope",
+    "compile_order": 9
+  },
+  {
+    "module": "CanonicalSampleFactsBench",
+    "source_snapshot": "results/orch/checked/canonical-sample-facts-bench.lean",
+    "sha256": "5dd3708b45378f376d90173b58d1b352073fdb392abfc58863627715df3a42b7",
+    "status": "Compiled; see snapshot metadata for precise finite/control scope",
+    "compile_order": 10
+  },
+  {
+    "module": "CanonicalSampleFactsRemaining",
+    "source_snapshot": "results/orch/checked/canonical-sample-facts-remaining.lean",
+    "sha256": "7b00692eb51856469bc6a9ae23fb753c497b0cc707d37ce5a94ad11c339da547",
+    "status": "Compiled; all fixed520-sample input masks and truth/result masks now certified with Bench",
+    "compile_order": 11
   }
 ]

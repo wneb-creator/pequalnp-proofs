@@ -1,0 +1,7 @@
+{
+  "requested_at": "2026-11-25T05:11:37.014716+00:00",
+  "pid": 26514,
+  "signal": "SIGINT",
+  "reason": "parent_requested_stop_due_to_shared_cgroup_memory_pressure",
+  "process_start_ticks": 884824
+}

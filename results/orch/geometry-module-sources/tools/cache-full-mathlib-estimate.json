@@ -1,0 +1,16 @@
+{
+  "Mathlib_root_imports": 8689,
+  "present_direct_imports": 2173,
+  "missing_direct_imports": 6516,
+  "present_artifact_bytes_by_suffix": {
+    ".olean": 510420344,
+    ".olean.private": 931438576,
+    ".olean.server": 36780360,
+    ".ilean": 76487703,
+    ".ir": 102545632
+  },
+  "present_artifact_bytes_mean": 762849.7998159227,
+  "present_artifact_bytes_median": 466978,
+  "missing_estimate_mean_bytes": 4970729295.600553,
+  "missing_estimate_median_bytes": 3042828648
+}

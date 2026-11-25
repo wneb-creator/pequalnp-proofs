@@ -1,0 +1,65 @@
+relative_boundary_dimension 1 columns 0 rank_F2 0
+relative_boundary_dimension 2 columns 104 rank_F2 0
+relative_boundary_dimension 3 columns 1274 rank_F2 104
+relative_boundary_dimension 4 columns 4758 rank_F2 1170
+relative_boundary_dimension 5 columns 7696 rank_F2 3575
+relative_boundary_dimension 6 columns 6552 rank_F2 4082
+relative_boundary_dimension 7 columns 3666 rank_F2 2468
+relative_boundary_dimension 8 columns 1664 rank_F2 1198
+relative_boundary_dimension 9 columns 598 rank_F2 466
+relative_boundary_dimension 10 columns 156 rank_F2 132
+relative_boundary_dimension 11 columns 26 rank_F2 24
+relative_boundary_dimension 12 columns 2 rank_F2 2
+{
+  "relative_face_counts_by_cardinality": [
+    0,
+    0,
+    0,
+    104,
+    1274,
+    4758,
+    7696,
+    6552,
+    3666,
+    1664,
+    598,
+    156,
+    26,
+    2
+  ],
+  "relative_boundary_ranks_F2": {
+    "0": 0,
+    "13": 0,
+    "1": 0,
+    "2": 0,
+    "3": 104,
+    "4": 1170,
+    "5": 3575,
+    "6": 4082,
+    "7": 2468,
+    "8": 1198,
+    "9": 466,
+    "10": 132,
+    "11": 24,
+    "12": 2
+  },
+  "relative_betti_numbers_F2": {
+    "0": 0,
+    "1": 0,
+    "2": 0,
+    "3": 0,
+    "4": 13,
+    "5": 39,
+    "6": 2,
+    "7": 0,
+    "8": 0,
+    "9": 0,
+    "10": 0,
+    "11": 0,
+    "12": 0
+  },
+  "total_relative_betti": 54,
+  "exhaustive": true,
+  "elapsed_seconds": 0.11030536799989932,
+  "scope": "Finite relative homology control; no circuit-complexity implication established and no Lean proof."
+}

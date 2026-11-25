@@ -1,0 +1,37 @@
+{
+  "complex": "All subsets of the468generic negative rows.",
+  "face_count": 12234,
+  "face_counts_by_cardinality": [
+    1,
+    26,
+    273,
+    1404,
+    3510,
+    4212,
+    2340,
+    468
+  ],
+  "reduced_euler_characteristic": -14,
+  "boundary_ranks_F2": {
+    "1": 25,
+    "2": 248,
+    "3": 1156,
+    "4": 2341,
+    "5": 1871,
+    "6": 468,
+    "0": 0,
+    "7": 0
+  },
+  "betti_numbers_F2": {
+    "0": 1,
+    "1": 0,
+    "2": 0,
+    "3": 13,
+    "4": 0,
+    "5": 1,
+    "6": 0
+  },
+  "exhaustive": true,
+  "elapsed_seconds": 0.03575017500043032,
+  "scope": "Finite homology control only; no Lean certificate and no circuit lower-bound implication established."
+}

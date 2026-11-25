@@ -1,0 +1,101 @@
+{
+  "elan_bin": [
+    {
+      "name": "lean-beam-mcp",
+      "size": 14470368,
+      "blocks": 14471168,
+      "inode": 397552,
+      "links": 9
+    },
+    {
+      "name": "elan",
+      "size": 14470368,
+      "blocks": 14471168,
+      "inode": 397552,
+      "links": 9
+    },
+    {
+      "name": "lean",
+      "size": 14470368,
+      "blocks": 14471168,
+      "inode": 397552,
+      "links": 9
+    },
+    {
+      "name": "lean-beam",
+      "size": 14470368,
+      "blocks": 14471168,
+      "inode": 397552,
+      "links": 9
+    },
+    {
+      "name": "leanchecker",
+      "size": 14470368,
+      "blocks": 14471168,
+      "inode": 397552,
+      "links": 9
+    },
+    {
+      "name": "leanmake",
+      "size": 14470368,
+      "blocks": 14471168,
+      "inode": 397552,
+      "links": 9
+    },
+    {
+      "name": "lake",
+      "size": 14470368,
+      "blocks": 14471168,
+      "inode": 397552,
+      "links": 9
+    },
+    {
+      "name": "leanc",
+      "size": 14470368,
+      "blocks": 14471168,
+      "inode": 397552,
+      "links": 9
+    },
+    {
+      "name": "leanpkg",
+      "size": 14470368,
+      "blocks": 14471168,
+      "inode": 397552,
+      "links": 9
+    }
+  ],
+  "toolchain": {
+    "allocated_bytes": {
+      ".o": 36864,
+      ".a": 427573248,
+      ".ilean": 95379456,
+      ".olean.server": 38907904,
+      ".olean.private": 1401757696,
+      ".ir": 396578816
+    },
+    "counts": {
+      ".o": 8,
+      ".a": 25,
+      ".ilean": 2591,
+      ".olean.server": 2588,
+      ".olean.private": 2588,
+      ".ir": 2588
+    }
+  },
+  "lake": {
+    "allocated_bytes": {
+      ".ilean": 89489408,
+      ".c": 259801088,
+      ".ir": 157810688,
+      ".olean.server": 44277760,
+      ".olean.private": 1078460416
+    },
+    "counts": {
+      ".ilean": 2588,
+      ".c": 2588,
+      ".ir": 2500,
+      ".olean.server": 2500,
+      ".olean.private": 2500
+    }
+  }
+}

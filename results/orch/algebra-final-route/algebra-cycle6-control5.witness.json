@@ -1,0 +1,81 @@
+{
+  "scenario": "cycle6",
+  "input_count": 6,
+  "or_count": 5,
+  "operand_signatures": [
+    [
+      1,
+      2
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      7,
+      8
+    ],
+    [
+      15,
+      16
+    ],
+    [
+      31,
+      32
+    ]
+  ],
+  "operand_wire_lists": [
+    [
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ]
+    ],
+    [
+      [
+        1,
+        6
+      ],
+      [
+        2,
+        3
+      ]
+    ],
+    [
+      [
+        7
+      ],
+      [
+        3,
+        4
+      ]
+    ],
+    [
+      [
+        8
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    [
+      [
+        9
+      ],
+      [
+        0,
+        5
+      ]
+    ]
+  ],
+  "output_wire_list": [
+    10
+  ],
+  "checked_positive_samples": 6,
+  "checked_negative_samples": 5
+}

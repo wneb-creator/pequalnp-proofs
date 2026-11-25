@@ -1,0 +1,8 @@
+{
+  "result": "unknown",
+  "solver_exit": -2,
+  "solver_wall_seconds": 76.08202776899998,
+  "child_user_cpu_seconds": 32.181216,
+  "child_system_cpu_seconds": 6.678937,
+  "child_max_rss_KiB": 2081132
+}

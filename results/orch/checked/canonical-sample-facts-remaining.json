@@ -1,0 +1,8 @@
+{
+  "sha256": "7b00692eb51856469bc6a9ae23fb753c497b0cc707d37ce5a94ad11c339da547",
+  "exit_code": 0,
+  "scope": "Remaining11700 negative-coordinate bits; aggregate all26 negative coordinates; all520 truth-mask bits; positive/negative result-mask bits. Combined with Bench, all13520 prescribed input-mask bits are kernel-checked.",
+  "wall_seconds": 14.518592026000988,
+  "kernel_type_check_seconds": 11.4,
+  "is_counterexample": false
+}

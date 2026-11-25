@@ -1,0 +1,7 @@
+{
+  "sha256": "5dd3708b45378f376d90173b58d1b352073fdb392abfc58863627715df3a42b7",
+  "exit_code": 0,
+  "scope": "All1352 positive-sample coordinate bits plus all468 negative-row bits for coordinate0; other25 negative coordinates remain pending",
+  "wall_seconds": 4.01073844199891,
+  "negative_coordinate0_kernel_seconds": 0.401
+}
