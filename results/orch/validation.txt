@@ -1,3 +1,15 @@
+CURRENT ASSIGNMENT: L-meta-4970, assigned after three null responses. Live root lease renewed at15:46UTC; advertised expiry16:06:04. No proof PR yet.
+Updated 2026-11-25T15:46:54.216097+00:00
+Named partial lean/PEqualNP/Outside/L_meta_4970.lean:234 lines10368bytes, SHA25639024ed2f2f3056bff56dc112abba2d60f5c5f85e1cf378f5118a43523051752. Named lakebuild passed; fulloutput validation/4970-build-support-budget.*. Independentreview PASS; plain-fileguard only missingfinaltheorem. Officialchecker notyet rerun for this checkpoint.
+Also preserved separatelycompiled SemanticSupport:156lines6433bytes, SHA256382498a7ac184c9c633816973766263a4cd2b0eb9a7c4c73d8d485e4696ecacc; independentreview PASS, emptycompilelogs.
+These helpers prove abstract merge counting and semantic complement/monotonicity facts, not the posted gatecount. No final theorem or refutation. Newconditionalcostledgers are being checked independently against smallcases.
+Previous1967line2590target removedfromOutside; exactsnapshotalready preserved inchecked2590/NormalizedReplay.lean. Alloldwork remainsdurable.
+Cleanupnotstarted; before/aftercleanup notapplicable.
+Sub-agents: status_review, lower_bound, counterexample, library_route, reduction_strategy, sat_encoding (6).
+TIMING total=120.4 subagents=6
+
+HISTORICAL STATUS SNAPSHOT (superseded only for current assignment/timing/nullcount):
+
 Partial research archive; no completed proof, refutation, reduction submission, or PR.
 Updated 2026-11-25T15:30:04.584604+00:00
 Job: pequalnp-pilot-99; KIT-MESSAGE-ID msg-6f9c7453afc710bc87553b5d.

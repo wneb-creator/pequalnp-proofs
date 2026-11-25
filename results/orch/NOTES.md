@@ -1,13 +1,11 @@
-# Orchestration status
+# L-meta-4970 orchestration
 
-No live lease as of 2026-11-25 15:29 UTC. Recovery03 returned gap=null because of the checker backlog. Root alone polls the desk. No agent may resume withdrawn proof work without a fresh assignment.
+Root holds the only team lease and renews it. Exact statement/imports: /tmp/oec/pequalnp-pilot-99/gap4970. Desk response: desk-poll-003.json. Assigned15:40 UTC, initial expiry16:00:40.412. No reductions, no openPRs reported. Targetownedbyroot: lean/PEqualNP/Outside/L_meta_4970.lean.
 
-All three assignments remain unproved. Their checked partials, full build/checker logs, independent reviews and search evidence are preserved on pnp/pilot-99. The latest named file is L_meta_2590.lean and its checker verdict is REJECTED (no-theorem).
+Goal: bipartite C4-free edge function, AO2, tCount0, each edge has a pure star OR somewhere in the circuit; prove a vertex cover S with |E|+|S| <= size+1.
 
-- L-meta-2592: >=17 non-NOT gates; remaining one/two NOT cases unresolved. Generic circuit/CNF and conditional LRAT bridges checked.
-- L-meta-2583: requested read-one replacement characterized by the exact missing cost inequality; canonical construction and restricted gate/rectangle replacements checked. General shared-circuit cost remains unresolved.
-- L-meta-2590: exact normalized CNF bridge and conditional LRAT replay checked; structural normalization to six independent-set cases checked. No case contradiction or completed certificate.
+Routes: library_route searches/adapts existing lemmas; lower_bound develops combinatorial charging; reduction_strategy studies semantic normalization and center uniqueness; sat_encoding develops support accounting; counterexample tests weak/dead-gate assumptions; status_review independently checks all steps.
 
-Read validation.txt for current evidence and limitations, TIMELINE.md for UTC events, and lemmas/<strategy>[_2583|_2590].md for detailed strategy notes. Do not treat incomplete solver traces or abstract code models as results. The FourOrbitLowSharing draft is explicitly uncompiled.
+Critical early finding: tCount is based on syntactic OR reach, and AND resets that reach. It is not a semantic monochromatic-support condition. Hidden colors through AND require explicit accounting. Star OR witnesses are not required to be live.
 
-The historical orchestration notes are preserved in earlier branch commits. No PR has been opened. Independent preservation/reproducibility audits continue while waiting for a live assignment.
+Previous three gaps are unproved and withdrawn. Their checkpoints and exact checker rejections are preserved in results/orch. Do not resume old gap work except reusing existing checked lemmas for this live assignment.

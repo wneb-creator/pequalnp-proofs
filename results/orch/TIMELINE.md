@@ -41,3 +41,7 @@
 2026-11-25 15:29 UTC: final2590 replay file builds; official checker REJECTED (no-theorem), expected for conditional partial. Independent final33-file stopped-search archive review PASS. No full theorem, refutation, or new research after withdrawal.
 
 2026-11-25T15:28:52Z — Recovery03 returned gap=null due to checker backlog (521 queued, about59 minutes). Null count1. No live lease; root starts requested four-minute polling. All proof work remains stopped.
+
+2026-11-25T15:42:04.359126+00:00 — Poll003 assigned L-meta-4970 after3 null responses; all6 agents redirected to distinct proof/counting/counterexample/review routes.
+
+2026-11-25T15:46:54.216097+00:00 — First4970 namedSupportBudget buildpassed; SemanticSupport separatelycompiled; both independentlyreviewed andpreserved forimmediatepush.
