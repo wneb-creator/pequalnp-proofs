@@ -21,3 +21,5 @@
 2026-11-25T02:44:46.915678+00:00 Renewed lease; expiry 2026-11-25T03:04:47.278Z.
 2026-11-25T02:44:58.436053+00:00 algebra_strategy: Lean checked9input pendant-cycle lowerbound11; tinycore10gate search rigorously retired.
 2026-11-25T02:48:05.449251+00:00 Pendant-cycle lower bound compiled, reviewed, and axiom-audited; smallest search retired.
+2026-11-25T02:50:11.853627+00:00 reduction_analysis monotone input-restriction theorem compiled (research artifact).
+2026-11-25T02:51:26.239105+00:00 Monotone gate elimination compiled and reviewed; supports four-row obstruction.

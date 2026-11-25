@@ -36,3 +36,5 @@ Original SpecializedLift.lean was interrupted and is not checked.
 2026-11-25T02:48:05.449251+00:00 NormalizationMore.lean: exit0, empty full log; semantic signed-dominance and constant-true substitutions only, no Circuit rewiring or size claim. Independently reviewed.
 PendantCycleLower.lean: exit0, empty full log, dependency build passed. Independently reviewed and axiom audit gives exactly propext,Classical.choice,Quot.sound. Proves no10-gate circuit for the9-input pendant-cycle core, including AND/OR/NOT gates. RESEARCH ONLY: imports exceed L650 allowed list; not a full-gap refutation and not final-PR-ready.
 Optional public GitHub header read hit VENDOR-LIMITATION git-auth-401; no retry helper found on PATH, no credentials changed; local work continues.
+
+2026-11-25T02:51:26.239105+00:00 ResearchMonoElim.lean: exit0, only tactic-style warnings; generic essential-input elimination savesonegate and preservesMonotone2 when the restricted function remains nonconstant. Independent review passed. RESEARCH ONLY: Helpers.Elim import exceeds finalgapallowlist.
