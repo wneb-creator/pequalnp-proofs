@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "source": "/workspace/pequalnp-proofs/lean/.lake/build/lib/lean/PEqualNP/Outside/L_gct_231.olean",
+  "source_bytes": 90566120,
+  "source_sha256": "63d6045245ea7260f19565539baf0e71acf4753f24d7c24192f6e19c23f9c580",
+  "source_mode": 384,
+  "source_mtime_ns": 1795607890965240131,
+  "source_atime_ns": 1795607892293266233,
+  "backup": "/tmp/oec/pequalnp-pilot-78/toolchain/main-2629.olean.zst",
+  "backup_bytes": 29572518,
+  "backup_sha256": "e4bf901d047eb9d1a5728a7686417b857ac130427e7d86199bb701864958a8a4",
+  "roundtrip_sha256": "63d6045245ea7260f19565539baf0e71acf4753f24d7c24192f6e19c23f9c580",
+  "disk_free_bytes": 39501824,
+  "seconds": 1.0780249970011937,
+  "source_retained": true,
+  "scope": "Lossless backup only. No generated artifact removed or changed; root must coordinate idle imports before replacement/build."
+}

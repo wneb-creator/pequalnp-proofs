@@ -1,0 +1,13 @@
+{
+  "utc": "2026-11-25T12:49:19.459046+00:00",
+  "status": "INCONCLUSIVE_STOP_REQUESTED",
+  "reason": "Root requested memory slot for main Lean build; no membership or exact lift result appeared.",
+  "processes": [
+    {
+      "pid": 26396,
+      "cpu_seconds": 259.78,
+      "rss_bytes": 113971200,
+      "signal": "SIGTERM"
+    }
+  ]
+}

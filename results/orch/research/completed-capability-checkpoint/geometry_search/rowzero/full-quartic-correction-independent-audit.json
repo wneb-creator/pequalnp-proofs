@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "method": "Fresh direct 24-permutation coefficient expansion, independent of the parent Ryser computation.",
+  "scope": "Full tangent-space cubic and compact quartic identities, including arbitrary trace. No positivity, infeasibility, or dimension conclusion.",
+  "checks": {
+    "all_five_permanent_coefficients": true,
+    "cubic_trace_correction": true,
+    "compact_tracezero_quartic": true,
+    "compact_full_trace_correction": true
+  },
+  "source_sha256": "44291cc3d7a487aa1c4b0718e503d89f5cd6d9c3e08acfcee9aa35a731b7d729",
+  "parent_generator_sha256": "e21f022c7db84abfb59a4865bfb016793a21cf6797f745ce0ad75e55a08ada18",
+  "seconds": 0.14459039399844187
+}

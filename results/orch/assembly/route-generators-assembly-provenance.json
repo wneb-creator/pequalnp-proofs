@@ -1,0 +1,59 @@
+{
+  "utc": "2026-11-25T12:48:03.231062+00:00",
+  "prepared_source": "/tmp/oec/pequalnp-pilot-78/integration/MainWithRouteAndGenerators.lean",
+  "preserved_source": "/workspace/pequalnp-proofs/results/orch/assembly/MainWithRouteAndGenerators.lean",
+  "sha256": "b55fd4b239beee330a11821866d1be204f7c405502eddf617c02d1f13bc5c30e",
+  "lines": 3700,
+  "bytes": 163040,
+  "declarations": 211,
+  "duplicate_declarations": [],
+  "provenance": [
+    {
+      "role": "unchanged base",
+      "path": "/workspace/pequalnp-proofs/lean/PEqualNP/Outside/L_gct_231.lean",
+      "sha256": "25c914faaaf9345342a0060c0e9e093002e7eba1086e5df9f25d7b9b27a3a367",
+      "lines": 2629
+    },
+    {
+      "role": "append namespace body exactly once",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/PivotNormalization.lean",
+      "sha256": "f5c171c021e83a331af60424cf5680a17cb06570a18eeacbeb072ddd12f578a4",
+      "source_lines": 120,
+      "body_lines": 114,
+      "body_sha256": "e8dba39d3bdb3b2320b4fdff684518971b56752afc4ddb057524079cef69b406"
+    },
+    {
+      "role": "append namespace body exactly once",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/IncidentRankTwoComplete.lean",
+      "sha256": "49650b937b4316d51317cb8181087b0ff74cf6210477090096f61273899c433f",
+      "source_lines": 364,
+      "body_lines": 358,
+      "body_sha256": "4887ad464154b9d8ee59cc691bdb1344b0eef13bab4b908847950ed4e6dea7f3"
+    },
+    {
+      "role": "append namespace body exactly once",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/HadamardRankThreeComplete.lean",
+      "sha256": "61dcf9391cf85a98b130ac5ac5155fff2526e1635c2abdaa40fa9dd5259feb84",
+      "source_lines": 366,
+      "body_lines": 360,
+      "body_sha256": "f1ad9874ca6b471b5fd87cbeab9533eb3abb224b2149b76a34eb2e7a49f4c9c3"
+    },
+    {
+      "role": "append namespace body exactly once",
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/IncidentGenerators.lean",
+      "sha256": "131dac5e0bc3c284a5b7de3b2ffa5ff1a441efa6d22d3dd2d99ed6a4ef39d194",
+      "source_lines": 241,
+      "body_lines": 235,
+      "body_sha256": "3c1f323996a363cbd21bb1c7b31f36560c235cad50f8ef395feb49a9f1d5daae"
+    }
+  ],
+  "inherited_prefixes_deduplicated": [
+    "TraceRankTwo from IncidentRankTwoComplete",
+    "IncidentUniversalization from IncidentRankTwoComplete",
+    "OppositeStar from IncidentRankTwoComplete",
+    "HadamardCoordinates from HadamardRankThreeComplete"
+  ],
+  "main_modified": false,
+  "assembled_build": "NOT RUN; root will perform one named-module integration build after current child slot",
+  "scope": "Checked component route reductions and exact twelve incident coefficient equations only. NormalizedIncidentOppositeEdge remains an explicit unproved premise; no posted theorem or infeasibility assertion."
+}

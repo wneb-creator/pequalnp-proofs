@@ -1,0 +1,15 @@
+{
+  "name": "rank3-incidence-shifted-Q-slimgb",
+  "exit": 0,
+  "seconds": 1176.0589662670009,
+  "memory_mib": 1536,
+  "cpu_limit_seconds": 1800,
+  "scope": "Guard-free necessary first-variation system for diagonal-rank-three candidates; not sufficient for a full flat. Timeout or memory termination gives no conclusion.",
+  "stdout_sha256": "74ab06858212e5a0a377de68b7bf720e867048fe891721880d39f81560601ee5",
+  "stdout_bytes": 2264,
+  "completed_marker_present": false,
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "stderr_bytes": 0,
+  "conclusion": "INCONCLUSIVE",
+  "termination": "Parent-authorized strategy switch after14m51CPU/19m36wall: stilldegree7 withgrowingqueue. SIGTERM washandledbySingularwithexit0; no completedbasis."
+}

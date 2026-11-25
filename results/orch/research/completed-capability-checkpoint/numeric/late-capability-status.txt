@@ -1,0 +1,11 @@
+This checkpoint records bounded tool and resource validation only.
+
+The second incidence-module probe used modGB("slimgb", M, 1) with the independently audited93-column,7-component matrix. It was deliberately stopped at12:49:19UTC after259.78CPU seconds to release memory for the main Lean build. It returned no basis, target membership, or exact lift. This is inconclusive.
+
+Tiny supported Singular tests passed for ideal liftstd(I,T), a focused modular liftstd callback, natural-degree homogeneous graph extraction, and a rational-number lexer correction requiring parenthesized exponents before division. None is an inconsistency certificate for the actual target.
+
+The root's sparse rational certificate auditor and Horner emitter received an independent code review and269 exact polynomial roundtrip checks. There is still no actual target certificate or compiled generated certificate theorem.
+
+The existing2629-line generated main olean was losslessly backed up and its complete decompression SHA verified. Its original source file was retained at snapshot time. A separate root-controlled remove/restore helper checks all hashes and preserves mode/mtime. The compressed binary backup itself is omitted from this text checkpoint.
+
+Thirty-seven authentic private cache artifacts (67,457,568bytes) were temporarily returned to the existing sealed memfd holder to reserve build disk. All fullSHA/mode/mtime values and seals were verified before/after. Holder4303 then held2,947,357,632bytes across8677files. No Lean/checker runtime byte or checker implementation was changed. Full-checker runtime has still NOT been retested after the earlier432MB migration or this temporary64.3MiB reversal.

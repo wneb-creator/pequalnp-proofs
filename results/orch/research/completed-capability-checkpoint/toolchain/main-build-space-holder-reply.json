@@ -1,0 +1,303 @@
+{
+  "ok": true,
+  "count": 8677,
+  "bytes": 2947357632,
+  "results": [
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/InnerProductSpace/Reproducing.olean.private",
+      "fd": 4,
+      "bytes": 1868696,
+      "sha256": "22ae64b94a04870a623be839a3021694d9294710d4fdb732f60422e52eb44545",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/GroupTheory/CoprodI.olean.private",
+      "fd": 5,
+      "bytes": 1865336,
+      "sha256": "a5d7622a56a079f27ad0c50a0b69c3a3e99de6d8cb4ca7310400605fadaad40e",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/Set/Image.olean.private",
+      "fd": 6,
+      "bytes": 1858024,
+      "sha256": "7f3fc7f2a0c0c2c116a726c2396c7e63e4482cd367920209d3899fb023ccfa74",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/AlgebraicGeometry/AffineScheme.olean.private",
+      "fd": 7,
+      "bytes": 1854768,
+      "sha256": "21699339cfaf5a8b59d2c6851bb959719476aa64ec6ad1bd88c98be33ddf07d5",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/TacticAnalysis/Declarations.olean.private",
+      "fd": 8,
+      "bytes": 1852624,
+      "sha256": "cc302817a8de6befe6cfc7116508d36703359a768faa0d05ecd212484ffc9ea5",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/ContDiff/Bounds.olean.private",
+      "fd": 9,
+      "bytes": 1851448,
+      "sha256": "d0d74b7b4f7e67c0f62c59bb923cf62d3566a16e5b3f48c3a28aab382ace41c5",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Order/Module/HahnEmbedding.olean.private",
+      "fd": 10,
+      "bytes": 1848976,
+      "sha256": "d115b4801646eacb4de07358831e0c22564f74da6e09088f8ba74295ffb05476",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Data/List/Forall2.olean.private",
+      "fd": 11,
+      "bytes": 1847736,
+      "sha256": "4ff19b458526877e7d4e1b70bd4f0c597d35b4771f130b70811400195ebbc136",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/MvPowerSeries/Substitution.olean.private",
+      "fd": 12,
+      "bytes": 1846800,
+      "sha256": "5dec6b6a18db30157043cabbe78c2e114a4d4c436d9c4a9a374c0540263c589e",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/NumberTheory/Height/MvPolynomial.olean.private",
+      "fd": 13,
+      "bytes": 1843432,
+      "sha256": "61e650230e4f2e7cab19701fca6b46060e12cf99294be0f2454f982ac46640b8",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Lie/Basis/Prod.olean.private",
+      "fd": 14,
+      "bytes": 1841200,
+      "sha256": "2257611d258dbb7c2421061857d000e7ff8d7daadf515b4dcb11355a082df42d",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/Comma/Over/Basic.olean.private",
+      "fd": 15,
+      "bytes": 1840264,
+      "sha256": "b97aee9a0145930e1b11dbd4ff13264a04c3545c8ba225f8eb08661a766e1a2e",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/AlgebraicTopology/SimplexCategory/GeneratorsRelations/NormalForms.olean.private",
+      "fd": 16,
+      "bytes": 1839480,
+      "sha256": "88891a8fab48d0f3bd427dd5d71806572c9fb12d6cd2be55572175d35b198331",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/AdjoinRoot.olean.private",
+      "fd": 17,
+      "bytes": 1838976,
+      "sha256": "a3abfe2d534b4e3fb3a043940bfc2a5e288aea644550f503d364413cad23d2e4",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/ClickSuggestions/Util.olean.private",
+      "fd": 18,
+      "bytes": 1837376,
+      "sha256": "6abd80534547fe5c4befab5a2d8bc6ad46574ebbd3e4350770db3de52fa81548",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Combinatorics/SimpleGraph/Subgraph.olean.private",
+      "fd": 19,
+      "bytes": 1837216,
+      "sha256": "ceb41ea21450fbd2b60f58eebd26b14d724b3fd8aa6ff7b06597aae41f3b686d",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/GroupTheory/CosetCover.olean.private",
+      "fd": 20,
+      "bytes": 1830816,
+      "sha256": "c87242b32ceb135fb8e86d25a81c22679385c74fd17e0ba512e15687aa7eab25",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Reflection.olean.private",
+      "fd": 21,
+      "bytes": 1830096,
+      "sha256": "d609e1c62dc6b6593ac8e41671e0527b022725c67f7c204f5224b52ab23c4e4c",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/GroupTheory/PushoutI.olean.private",
+      "fd": 22,
+      "bytes": 1829920,
+      "sha256": "370ae77509a8cd2ba27a56d6611cbe4b8ffc69feb7eae5bf9baf6ee02c135599",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Algebra/Lie/Weights/RootSystem.olean.private",
+      "fd": 23,
+      "bytes": 1823896,
+      "sha256": "4eb8ca55118cc548a4031978d59ccac4b41b8b4f7c6c408cba4e723791fe7bc8",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Transvection/Basic.olean.private",
+      "fd": 24,
+      "bytes": 1822592,
+      "sha256": "1220c307cde0a26fdebb4f4b51cd3abb9de67f04a8b93d8e5adae6367ca87045",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/Triangulated/Subcategory.olean.private",
+      "fd": 25,
+      "bytes": 1821792,
+      "sha256": "7fd4244d4fb3a1618a7bea43dbb9bf343e087d9ee4ff781d56c8c2a1f331f3ef",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/MeasureTheory/VectorMeasure/Integral.olean.private",
+      "fd": 26,
+      "bytes": 1815768,
+      "sha256": "d406cd35064ba3f2582a3fbf13a403b5edb51f68c445c3016217e571f45ee55b",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/GroupTheory/OrderOfElement.olean.private",
+      "fd": 27,
+      "bytes": 1813432,
+      "sha256": "3176e1e52214a1ea75657771d139b9ee59eb281030f7d62702658be96a51538f",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/GroupTheory/OreLocalization/Basic.olean.private",
+      "fd": 28,
+      "bytes": 1813120,
+      "sha256": "bdb4eec3eee2c48fefe0683a7a2d33f4619554e4bd3f632bffb914d2ff2e9df6",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/RingTheory/DedekindDomain/Factorization.olean.private",
+      "fd": 29,
+      "bytes": 1805504,
+      "sha256": "45d74460709b4195376f8b9690e438c809066f7afb1bffa3e3017f0e2264120d",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Basic/Rel.olean.private",
+      "fd": 30,
+      "bytes": 1804016,
+      "sha256": "2ca3464dea981f4edeada386986d8b6588f33e88f4a3ade1d680513428d02388",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/Yoneda.olean.private",
+      "fd": 31,
+      "bytes": 1798864,
+      "sha256": "e74fdcd9e040dfbe872e055f627a20d641e06b1a24740ee67e656666220d98c2",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/batteries/.lake/build/lib/lean/Batteries/Tactic/GeneralizeProofs.olean.private",
+      "fd": 32,
+      "bytes": 1795000,
+      "sha256": "846d8e0e00b4f85adda4f0085dfc3833773763dcd1052f48bc41d33205d11cca",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Calculus/ContDiff/Convolution.olean.private",
+      "fd": 33,
+      "bytes": 1791712,
+      "sha256": "40a74afcef25b5aa0f9fbed55ee1260d59e7b4fc2b84993889a65133d1a6d87b",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/LocallyConvex/WithSeminorms.olean.private",
+      "fd": 34,
+      "bytes": 1790008,
+      "sha256": "e0dcd36b1112daab720a5567aaad5deac746ca5c08b67e4e7cf7747623a68df1",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/GroupTheory/Nilpotent.olean.private",
+      "fd": 35,
+      "bytes": 1787896,
+      "sha256": "5c86c6b4e1971669b9031b248b009a943af6fbb4301db39f60138f63b5672efb",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Tactic/TFAE.olean.private",
+      "fd": 36,
+      "bytes": 1786040,
+      "sha256": "132e09c883238e4cdf44befd4d2f4602541cbc203fb06eaf256a587a95621fff",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/Preadditive/Biproducts.olean.private",
+      "fd": 37,
+      "bytes": 1783048,
+      "sha256": "52c48d9f1a487cf1e913144d213616636e185d49ddc5a36318b96392ddd4293f",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/LinearAlgebra/Matrix/Rank.olean.private",
+      "fd": 38,
+      "bytes": 1782880,
+      "sha256": "454df3a11d2423708877bc04e12d3c2376dab160fdeca111be8e80fce22c66b2",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/Analysis/Analytic/Constructions.olean.private",
+      "fd": 39,
+      "bytes": 1781056,
+      "sha256": "52d92633b98d127a17c7077b1a91c538fad98b6f29ed25f79a3a47050035e1f8",
+      "seals": 15,
+      "pid": 4303
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib/CategoryTheory/Bicategory/Adjunction/Basic.olean.private",
+      "fd": 40,
+      "bytes": 1777760,
+      "sha256": "fdc5c503b30f24c4c6f5040033a9f260a5ca3414ce1c8a9bb7b8e1ec10655da9",
+      "seals": 15,
+      "pid": 4303
+    }
+  ]
+}

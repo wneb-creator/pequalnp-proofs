@@ -1,0 +1,58 @@
+{
+  "utc": "2026-11-25T12:49:51.078904+00:00",
+  "status": "INCONCLUSIVE_RESEARCH_AND_CHECKED_BRIDGE_REVIEW",
+  "scope": "Bounded graph first prime remained unfinished after234CPU seconds and was interrupted to use ideal-only liftstd. No rational unit certificate. Includes exact input conventions and independent review of compiled241-line Lean generator bridge. Active liftstd output excluded.",
+  "files": [
+    {
+      "path": "construct_search/run_rank1_bounded_graph.py",
+      "bytes": 1312,
+      "sha256": "7e5058193e243db0831013c10b938a8e33cc92c909693f75b2cc9a1b2cf05e0e"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-bounded-graph-Q.sing",
+      "bytes": 7098,
+      "sha256": "d81b089b8f2179272e2070e337d2a107de595678f75b864f3111fddfb11922e6"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-bounded-graph-Q.stdout",
+      "bytes": 57,
+      "sha256": "4da2ca8468b7c5a2ece3eaff10ef69690d98f131d6f201f46ab2ebae635ee22d"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-bounded-graph-Q.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/rank1-incident-opposite-bounded-graph-Q.result.json",
+      "bytes": 211,
+      "sha256": "e80dd9f784b6e8baa530f787561165d5b8f2256038e110cdf7432acce18fbe26"
+    },
+    {
+      "path": "construct_search/rank1-bounded-graph-run.stdout",
+      "bytes": 211,
+      "sha256": "e80dd9f784b6e8baa530f787561165d5b8f2256038e110cdf7432acce18fbe26"
+    },
+    {
+      "path": "construct_search/rank1-bounded-graph-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "construct_search/rank1-bounded-graph-interruption.json",
+      "bytes": 336,
+      "sha256": "596af462ae36027a3bbe7b5512d930d1c764838a808dff3ed249f9e350469b92"
+    },
+    {
+      "path": "construct_search/rank1-certificate-conventions.json",
+      "bytes": 118416,
+      "sha256": "ec0dc37b0d4861cf17632d62571f9c278344f037f73cb985530b7a6def935ebd"
+    },
+    {
+      "path": "construct_search/incident-generators-independent-review.json",
+      "bytes": 1283,
+      "sha256": "2d8073f9df00036e2d90d515abe69fc7952030fdc8417045204e3a94169ea999"
+    }
+  ],
+  "total_bytes": 128924
+}

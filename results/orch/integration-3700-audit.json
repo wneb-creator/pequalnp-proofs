@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "scope": "Independent exact integration/provenance and format audit; no rebuild. The twelve incident generator equations are derived, but their opposite-edge consequence remains an explicit unproved premise. No posted theorem or infeasibility assertion.",
+  "sha256": "b55fd4b239beee330a11821866d1be204f7c405502eddf617c02d1f13bc5c30e",
+  "lines": 3700,
+  "bytes": 163040,
+  "unique_declarations": 211,
+  "all_source_and_body_hashes_match": true,
+  "body_hashes_including_final_newline": [
+    "IncidentGenerators.lean"
+  ],
+  "exact_previous_assembly_plus_IncidentGenerators_body": true,
+  "exact_base_plus_four_bodies_reconstruction": true,
+  "preserved_copy_identical": true,
+  "single_namespace": true,
+  "format_scan": "PASS"
+}

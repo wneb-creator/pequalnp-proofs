@@ -1,0 +1,28 @@
+{
+  "variables": [
+    "p0",
+    "p1",
+    "p2",
+    "p3",
+    "p4",
+    "p5",
+    "b0",
+    "b1",
+    "b2",
+    "b3",
+    "k",
+    "l",
+    "w0",
+    "w1",
+    "w2",
+    "w3",
+    "w4",
+    "w5"
+  ],
+  "generator_count": 32,
+  "extra_quartic_scale": "8",
+  "source_full31_sha256": "bace3d725a70b6b512b262dc2c8664519d75ab956adf24fad4d38038a54c6c52",
+  "extra_quartic_exactly_verified": true,
+  "engine": "modGB(\"slimgb\",I,1)",
+  "scope": "Modular candidate needs exactQ lift and independent raw identity verification. Completion alone is not a global verdict."
+}

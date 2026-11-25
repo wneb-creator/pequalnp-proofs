@@ -1,0 +1,105 @@
+{
+  "status": "FROZEN; independent direct-permutation and Ryser checks PASS",
+  "utc": "2026-11-25T12:48:13.406428+00:00",
+  "scope": "Exact full tangent-space cubic/quartic identities and compact trace-zero formula. No infeasibility, positivity, or dimension conclusion. No Lean theorem.",
+  "independent_audit": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/full-quartic-correction-independent-audit.json",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/derive_full_quartic_correction.py",
+      "relative_path": "geometry_search/derive_full_quartic_correction.py",
+      "sha256": "e21f022c7db84abfb59a4865bfb016793a21cf6797f745ce0ad75e55a08ada18",
+      "bytes": 3416
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/full-quartic-correction.json",
+      "relative_path": "geometry_search/full-quartic-correction.json",
+      "sha256": "44291cc3d7a487aa1c4b0718e503d89f5cd6d9c3e08acfcee9aa35a731b7d729",
+      "bytes": 4878
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/full-quartic-correction.stdout",
+      "relative_path": "geometry_search/full-quartic-correction.stdout",
+      "sha256": "ccd2da8a5ea73ec78ba9df7f7682a62985149f649a2eea92a12fc019b0f6211f",
+      "bytes": 4655
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/full-quartic-correction.stderr",
+      "relative_path": "geometry_search/full-quartic-correction.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/full-quartic-correction-2.stdout",
+      "relative_path": "geometry_search/full-quartic-correction-2.stdout",
+      "sha256": "1b2ab076a3d78a76a8d6e57307dd32dafccd8b80259a67df2b47dd07398be8f2",
+      "bytes": 4844
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/full-quartic-correction-2.stderr",
+      "relative_path": "geometry_search/full-quartic-correction-2.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace_quartic_compact.py",
+      "relative_path": "geometry_search/rowzero/trace_quartic_compact.py",
+      "sha256": "af9c2934d91c941b3e5d800c7984b6bb57437b2168c5329d794ee4abbfae9e5b",
+      "bytes": 2613
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-quartic-compact.json",
+      "relative_path": "geometry_search/rowzero/trace-quartic-compact.json",
+      "sha256": "858ed512093794d991fe0c902aa71949f409a4645e0503c8a646e15cbf3a9685",
+      "bytes": 1171
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-quartic-compact.stdout",
+      "relative_path": "geometry_search/rowzero/trace-quartic-compact.stdout",
+      "sha256": "cf12a43d1a73064daf2c8005f7e8f637950dee0b879cce3d7bf2ec5200e0e264",
+      "bytes": 1064
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-quartic-compact.stderr",
+      "relative_path": "geometry_search/rowzero/trace-quartic-compact.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-quartic-compact-2.stdout",
+      "relative_path": "geometry_search/rowzero/trace-quartic-compact-2.stdout",
+      "sha256": "858ed512093794d991fe0c902aa71949f409a4645e0503c8a646e15cbf3a9685",
+      "bytes": 1171
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/trace-quartic-compact-2.stderr",
+      "relative_path": "geometry_search/rowzero/trace-quartic-compact-2.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/audit_full_quartic_correction.py",
+      "relative_path": "geometry_search/rowzero/audit_full_quartic_correction.py",
+      "sha256": "f90c19fd848111ac609675bccaa511ad67e91c766faf3aafc4184d7fff2701c0",
+      "bytes": 3237
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/full-quartic-correction-independent-audit.json",
+      "relative_path": "geometry_search/rowzero/full-quartic-correction-independent-audit.json",
+      "sha256": "06059b86c58cb2301b3dc46d69e0beac9a7a0d649642a5d31e7d5b4bfb876f24",
+      "bytes": 686
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/full-quartic-correction-independent-audit.stdout",
+      "relative_path": "geometry_search/rowzero/full-quartic-correction-independent-audit.stdout",
+      "sha256": "30f969d7db8afe857370ef1d60e72e0feb09d4bf90fdf2feb00ef89cf0540db2",
+      "bytes": 650
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/geometry_search/rowzero/full-quartic-correction-independent-audit.stderr",
+      "relative_path": "geometry_search/rowzero/full-quartic-correction-independent-audit.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    }
+  ],
+  "total_bytes": 28385
+}

@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "source_sha256": "bace3d725a70b6b512b262dc2c8664519d75ab956adf24fad4d38038a54c6c52",
+  "target_terms": 247,
+  "certificate_terms": 72,
+  "independent_exact_residual": "0",
+  "method": "Reparsed all31 source polynomials independently, checked encoded generator equality, expanded72 rational generator-monomial products via Fraction arithmetic, compared every coefficient to both exported target encodings.",
+  "scope": "Exact necessary degree4 consequence; not a unit identity or global proof. Suitable as a redundant generator in the full31 fallback."
+}

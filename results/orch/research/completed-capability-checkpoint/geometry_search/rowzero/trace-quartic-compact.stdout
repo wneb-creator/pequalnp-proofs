@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "scope": "Exact quartic identity on the trace-zero tangent space; R=P_original-3D. No positivity or dimension conclusion.",
+  "Q": "2*b0**2 + 2*b0*b1 + 2*b1**2 - R0**2 - 6*R0*D0 - R1**2 - 6*R1*D1 - R2**2 - 6*R2*D2 - 6*D0**2 - 6*D1**2 - 6*D2**2",
+  "Pmod_definition": "per(T)-Q^2/16-Q*(sum((R+D)*D)/2+sum(D^2)/4)",
+  "Pmod_B_degree_zero": "5/4*R0**2*D0**2 + 2*R0*R1*D0*D1 + 2*R0*R2*D0*D2 + 7/2*R0*D0**3 + 3*R0*D0*D1**2 + 3*R0*D0*D2**2 + 5/4*R1**2*D1**2 + 2*R1*R2*D1*D2 + 3*R1*D0**2*D1 + 7/2*R1*D1**3 + 3*R1*D1*D2**2 + 5/4*R2**2*D2**2 + 3*R2*D0**2*D2 + 3*R2*D1**2*D2 + 7/2*R2*D2**3 + 5/2*D0**4 + 17/4*D0**2*D1**2 + 17/4*D0**2*D2**2 + 5/2*D1**4 + 17/4*D1**2*D2**2 + 5/2*D2**4",
+  "Pmod_B_degree_one": "-1/2*b0*R0*R1*D2 + 1/2*b0*R1*R2*D0 - 1/2*b1*R0*R1*D2 + 1/2*b1*R0*R2*D1",
+  "Pmod_B_degree_two_coefficients": {
+    "b0**2": "-(D0**2 - 2*D1*R1 + D2**2)/4",
+    "b0*b1": "(D0*R0 + D1*R1 - D2**2 - D2*R2)/2",
+    "b1**2": "(2*D0*R0 - D1**2 - D2**2)/4"
+  },
+  "Pmod_terms": 35,
+  "direct_permanent_terms": 58,
+  "seconds": 0.06546110599992971
+}

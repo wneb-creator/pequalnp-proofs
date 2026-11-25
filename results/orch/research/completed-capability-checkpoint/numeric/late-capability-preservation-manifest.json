@@ -1,0 +1,202 @@
+{
+  "scope": "Frozen text-only capability, bounded-inconclusive module, Horner audit and authenticated build-space maintenance records; no target proof or full checker result. No active logs, binary archives, credentials, private lease or environment dumps.",
+  "files": [
+    {
+      "path": "numeric/late-capability-status.txt",
+      "bytes": 1697,
+      "sha256": "38f29c76eb5e0aaa302cc2861acbd0ff11e14a47baee2c2252761ce41036d32a"
+    },
+    {
+      "path": "numeric/audit_root_horner.py",
+      "bytes": 3590,
+      "sha256": "9da82439b72099390a2c7c47097fd7a250a80e314edad400ed3457835f9db84e"
+    },
+    {
+      "path": "numeric/root-horner-independent-audit.json",
+      "bytes": 1099,
+      "sha256": "850c8120f81f3a35d40e1975a7408fd5f60911b2460da9e5ed747d21a733f33a"
+    },
+    {
+      "path": "numeric/root-horner-independent-audit.stdout",
+      "bytes": 1099,
+      "sha256": "850c8120f81f3a35d40e1975a7408fd5f60911b2460da9e5ed747d21a733f33a"
+    },
+    {
+      "path": "numeric/root-horner-independent-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/incidence-module-slimgb-probe.py",
+      "bytes": 2807,
+      "sha256": "4441e4d4af87ec22c0ab5f3fa2ec6cbbda525b71142598a2cd89eb4c960cb325"
+    },
+    {
+      "path": "numeric/incidence-module-slimgb/probe.sing",
+      "bytes": 53962,
+      "sha256": "8f70f31eff7862143858dc1f0084b1edae684c4c15ad6c0031ecd7e93c2dfdf1"
+    },
+    {
+      "path": "numeric/incidence-module-slimgb/probe.stdout",
+      "bytes": 850,
+      "sha256": "94f7bf51b3173ba6a12d68afd8d0be1315f11bb7f3c923e56fd180500515c621"
+    },
+    {
+      "path": "numeric/incidence-module-slimgb/probe.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/incidence-module-slimgb/result.json",
+      "bytes": 522,
+      "sha256": "056596b2101b684fa754222680e84831ff6d41ce4e89c11387f50d347c004935"
+    },
+    {
+      "path": "numeric/incidence-module-slimgb/termination.json",
+      "bytes": 338,
+      "sha256": "392ed6300051aec07b27d75ada745c2930af9c9d1cf1c817aa6295fbe213f747"
+    },
+    {
+      "path": "numeric/s4-structure/homogeneous-graph-smoke.sing",
+      "bytes": 564,
+      "sha256": "56a5d55d5cc2a0d69ca8f0773ef27783e656a218885642a7088baf63af13b65f"
+    },
+    {
+      "path": "numeric/s4-structure/homogeneous-graph-smoke.stdout",
+      "bytes": 155,
+      "sha256": "2b9fa4ac2341feb05a54dd07b3b4d6afe6c2d44ce357a18d018f07bd8e59237b"
+    },
+    {
+      "path": "numeric/s4-structure/homogeneous-graph-smoke.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/homogeneous-graph-smoke.json",
+      "bytes": 79,
+      "sha256": "c65e041e7fec87acaef4b2900f996ef3000cf63a190fd82bb8d9a736d24210e4"
+    },
+    {
+      "path": "numeric/s4-structure/liftstd-transformation-smoke.sing",
+      "bytes": 462,
+      "sha256": "ecd079d3cd930befafaa4128bbeec2aa7d8767740591e752267c1d2f5071fce1"
+    },
+    {
+      "path": "numeric/s4-structure/liftstd-transformation-smoke.stdout",
+      "bytes": 164,
+      "sha256": "b31926a28223b7301c3df91cbd50ed9b531307f7810bfe153159cdc359e96073"
+    },
+    {
+      "path": "numeric/s4-structure/liftstd-transformation-smoke.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/liftstd-transformation-smoke.json",
+      "bytes": 80,
+      "sha256": "290ce7656edfc3272b98684e4cef526fc776f00ebf3e0cb0b2118579638af356"
+    },
+    {
+      "path": "numeric/s4-structure/modular-liftstd-unit-smoke.sing",
+      "bytes": 1041,
+      "sha256": "d3fcc2b5dc8db8491e9a61c13e9177153c2cd64ec1cc2797c5111d6cf2db9b6e"
+    },
+    {
+      "path": "numeric/s4-structure/modular-liftstd-unit-smoke.stdout",
+      "bytes": 100,
+      "sha256": "a6ff1220d63fd58f9b22c736211c4cfe8c4c1fdd6e17c155a90fb8e0d012015a"
+    },
+    {
+      "path": "numeric/s4-structure/modular-liftstd-unit-smoke.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "numeric/s4-structure/modular-liftstd-unit-smoke.json",
+      "bytes": 79,
+      "sha256": "bcc8095d3b0f0cc15b6ba6aa8f5384ae524bc6df18c33f2e4e3eef3a915e27e2"
+    },
+    {
+      "path": "toolchain/backup-main-2629.py",
+      "bytes": 1863,
+      "sha256": "e0176f6aaf0aa37c6bb84e191fc89b57e76c7bede69ae7e5d91d1b9b295b65fb"
+    },
+    {
+      "path": "toolchain/main-2629-backup-control.py",
+      "bytes": 1657,
+      "sha256": "cbaabc6b0135995f047d53adfe937fc03ba30f8a0a956c9b42d7f97eb622e79f"
+    },
+    {
+      "path": "toolchain/main-2629-backup-validation.json",
+      "bytes": 851,
+      "sha256": "4968b069613aa84c03f4c7592f129d99436f016f2f16bdd2c11fae8a4689a5ab"
+    },
+    {
+      "path": "toolchain/main-2629-backup.stdout",
+      "bytes": 851,
+      "sha256": "4968b069613aa84c03f4c7592f129d99436f016f2f16bdd2c11fae8a4689a5ab"
+    },
+    {
+      "path": "toolchain/main-2629-backup.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "toolchain/main-2629-compress.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "toolchain/main-2629-compress.stderr",
+      "bytes": 183,
+      "sha256": "e76017c26ebe37c0f9ae387149d8cc70711aea9c12ecf3fafe41dd941e20eee2"
+    },
+    {
+      "path": "toolchain/main-2629-decompress.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "toolchain/main-2629-check.stdout",
+      "bytes": 254,
+      "sha256": "0bfd8ba20c55ea3556d163fb832fceaa01b365a0240965de6dc48a28f2b13688"
+    },
+    {
+      "path": "toolchain/main-2629-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "toolchain/main-build-space-private-plan.json",
+      "bytes": 15955,
+      "sha256": "a40a2e14537478e107b9b34a714996d3ecba05163b6d0963f84afa67f669d751"
+    },
+    {
+      "path": "toolchain/run-main-build-space.py",
+      "bytes": 2206,
+      "sha256": "e950fe0c724ca98887596d061b66a439e18d1317cacf3731faa288b42383a81d"
+    },
+    {
+      "path": "toolchain/main-build-space-holder-reply.json",
+      "bytes": 11888,
+      "sha256": "be81409936407c450c52287d3e4aedabb00727d708f3a0d6d941c4c8eaad4347"
+    },
+    {
+      "path": "toolchain/main-build-space-validation.json",
+      "bytes": 13960,
+      "sha256": "e6dec4b0ec6de7f64748df66f2327e509cdb10cb56c5b9fdfbbdc1c2575f62cd"
+    },
+    {
+      "path": "toolchain/main-build-space.stdout",
+      "bytes": 534,
+      "sha256": "4daebae4e2a3cbe17203134c697ef06f564bd494456d3d0f0d20b9d4fea62b19"
+    },
+    {
+      "path": "toolchain/main-build-space.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "count": 39,
+  "bytes": 118890
+}

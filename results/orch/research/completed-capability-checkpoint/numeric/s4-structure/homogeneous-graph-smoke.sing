@@ -1,0 +1,24 @@
+ring r=1000000007,(x,h),(dp,c);
+ideal I=2*x^2+2,3*x;
+matrix A[3][2];
+A[1,1]=homog(I[1],h);A[1,2]=homog(I[2],h);
+A[2,1]=1;A[3,2]=1;
+module M=module(A);
+degBound=2;
+module G=slimgb(M);
+print("NATURAL_HOMOGENIZED_GRAPH");G;
+matrix B=G;
+int i;poly p;poly residual;poly C1;poly C2;
+int found=0;
+for(i=1;i<=ncols(B);i++){
+ p=B[1,i];
+ if(p!=0 && p==subst(p,x,0)){
+  C1=subst(B[2,i],h,1)/subst(p,h,1);
+  C2=subst(B[3,i],h,1)/subst(p,h,1);
+  residual=C1*I[1]+C2*I[2]-1;
+  print("EXACT_RESIDUAL");residual;C1;C2;
+  if(residual==0){found=1;}
+ }
+}
+print("FOUND");found;
+quit;

@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "scope": "Independent exact AST expansion of emitted Horner expressions; 256 deterministic edge/random polynomials plus all13 actual generators. Code review found no unsafe evaluation, I/O side effects, or mathematical-identity acceptance without exact sparse residual. This does not check any unavailable inconsistency certificate or compile generated Lean.",
+  "cases": 269,
+  "generator_source_sha256": "a347cf3eab7b3ec7a564ee8a322cc124913b31a143b5427dc60302f33bccd1c4",
+  "auditor_source_sha256": "374ecfaba7040da98122bf29edc6d10f46405ad8a27cb43c8f9e2ceace786541",
+  "conventions_sha256": "ec0dc37b0d4861cf17632d62571f9c278344f037f73cb985530b7a6def935ebd",
+  "review_notes": [
+    "Auditor rejects duplicate certificate monomials and checks full rational residual exactly.",
+    "Generator must be used after auditor PASS, since it does not itself recheck certificate identity.",
+    "Current generator imports full Mathlib; use the existing selective imports when integrating into the large proof to avoid known resource limits."
+  ],
+  "seconds": 0.11810527899979206
+}

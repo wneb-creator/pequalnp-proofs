@@ -2626,4 +2626,1075 @@ lemma containing_nonzero_starMatrix_finrank_le_two
   rcases p with ⟨i,j⟩
   fin_cases i <;> fin_cases j <;> simp [starMatrix,h.1,h.2]
 
+lemma incident_star_support (b c d e : ℂ)
+    (hbd : b*d=0) (hce : c*e=0) (hR : b*e+c*d=0) :
+    (d=0 ∧ e=0) ∨ (b=0 ∧ c=0) := by
+  by_cases hb : b=0
+  · by_cases hc : c=0
+    · exact Or.inr ⟨hb,hc⟩
+    · have he : e=0 := (mul_eq_zero.mp hce).resolve_left hc
+      have hd : d=0 := (mul_eq_zero.mp (by simpa [hb] using hR)).resolve_left hc
+      exact Or.inl ⟨hd,he⟩
+  · have hd : d=0 := (mul_eq_zero.mp hbd).resolve_left hb
+    have he : e=0 := (mul_eq_zero.mp (by simpa [hd] using hR)).resolve_left hb
+    exact Or.inl ⟨hd,he⟩
+
+lemma incident_hollow_is_permuted_star (b c d e f : ℂ)
+    (hf : f=0) (hbd : b*d=0) (hce : c*e=0) (hR : b*e+c*d=0)
+    (hS : 1+b+c+d+e+f=0) :
+    ∃ (σ : Equiv.Perm (Fin 4)) (a t : ℂ), starMatrix a t ≠ 0 ∧
+      entryPermute σ (fun p => hollowMatrix 1 b c d e f p.1 p.2)=starMatrix a t := by
+  rcases incident_star_support b c d e hbd hce hR with ⟨hd,he⟩ | ⟨hb,hc⟩
+  · have hc : c = -1-b := by linear_combination hS-hd-he-hf
+    refine ⟨Equiv.refl _,1,b,?_,?_⟩
+    · intro h
+      have hh := congrFun h (0,1)
+      norm_num [starMatrix] at hh
+    · funext p
+      rcases p with ⟨i,j⟩
+      fin_cases i <;> fin_cases j <;>
+        simp [entryPermute,hollowMatrix,starMatrix,hc,hd,he,hf]
+  · have he : e = -1-d := by linear_combination hS-hb-hc-hf
+    refine ⟨Equiv.swap 0 1,1,d,?_,?_⟩
+    · intro h
+      have hh := congrFun h (0,1)
+      norm_num [starMatrix] at hh
+    · funext p
+      rcases p with ⟨i,j⟩
+      fin_cases i <;> fin_cases j <;>
+        simp [entryPermute,Equiv.swap_apply_def,hollowMatrix,starMatrix,hb,hc,he,hf]
+
+set_option maxHeartbeats 800000 in
+lemma diagonal_edge_normalizing_permutation (i j k : Fin 4) (hjk : j ≠ k) :
+    ∃ σ : Equiv.Perm (Fin 4), σ 0=i ∧
+      ((σ 0=j ∧ σ 1=k) ∨ (σ 0=k ∧ σ 1=j) ∨
+       (σ 1=j ∧ σ 2=k) ∨ (σ 1=k ∧ σ 2=j)) := by
+  fin_cases i <;> fin_cases j <;> fin_cases k
+  all_goals first | exact False.elim (hjk rfl) | decide
+
+lemma normalize_hollow_tracezero_pair
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ)) (H V : Fin 4 × Fin 4 → ℂ)
+    (hH : H ∈ L) (hV : V ∈ L) (hHne : H ≠ 0)
+    (hHz : ∀ i : Fin 4, H (i,i)=0)
+    (hHs : ∀ i j : Fin 4, H (i,j)=H (j,i))
+    (hVdiag : ∃ i : Fin 4, V (i,i) ≠ 0)
+    (hVtrace : (∑ i : Fin 4, V (i,i))=0) :
+    ∃ σ : Equiv.Perm (Fin 4),
+      ∃ A ∈ entryPermuteSubmodule σ L, ∃ B ∈ entryPermuteSubmodule σ L,
+      A ≠ 0 ∧ (∀ i : Fin 4, A (i,i)=0) ∧
+      (∑ i : Fin 4, B (i,i))=0 ∧ B (0,0)=1 ∧
+      ((A (0,1)=1 ∧ B (0,1)=0) ∨ (A (1,2)=1 ∧ B (1,2)=0)) := by
+  obtain ⟨i,hi⟩ := hVdiag
+  have hex : ∃ j k : Fin 4, H (j,k) ≠ 0 := by
+    by_contra he
+    push Not at he
+    apply hHne
+    funext p
+    exact he p.1 p.2
+  obtain ⟨j,k,hjk⟩ := hex
+  have hjkne : j ≠ k := by
+    rintro rfl
+    exact hjk (hHz j)
+  obtain ⟨σ,hσ,hcases⟩ := diagonal_edge_normalizing_permutation i j k hjkne
+  let H' := entryPermute σ H
+  let V' := entryPermute σ V
+  let L' := entryPermuteSubmodule σ L
+  have hH' : H' ∈ L' := (entryPermute_mem_iff σ L H).mpr hH
+  have hV' : V' ∈ L' := (entryPermute_mem_iff σ L V).mpr hV
+  have hHz' : ∀ i : Fin 4, H' (i,i)=0 := entryPermute_hollow σ H hHz
+  have hV00 : V' (0,0) ≠ 0 := by simpa [V',entryPermute_apply,hσ] using hi
+  have hVtr : (∑ i : Fin 4, V' (i,i))=0 := by
+    change (∑ i : Fin 4, V (σ i,σ i))=0
+    exact (Equiv.sum_comp σ (fun i => V (i,i))).trans hVtrace
+  have hpivot : H' (0,1) ≠ 0 ∨ H' (1,2) ≠ 0 := by
+    rcases hcases with ⟨h0,h1⟩ | ⟨h0,h1⟩ | ⟨h1,h2⟩ | ⟨h1,h2⟩
+    · left
+      simpa [H',entryPermute_apply,h0,h1] using hjk
+    · left
+      simpa [H',entryPermute_apply,h0,h1,hHs k j] using hjk
+    · right
+      simpa [H',entryPermute_apply,h1,h2] using hjk
+    · right
+      simpa [H',entryPermute_apply,h1,h2,hHs k j] using hjk
+  have make (p : Fin 4 × Fin 4) (hp : H' p ≠ 0) :
+      ∃ A ∈ L', ∃ B ∈ L', A ≠ 0 ∧ (∀ i : Fin 4, A (i,i)=0) ∧
+        (∑ i : Fin 4, B (i,i))=0 ∧ B (0,0)=1 ∧ A p=1 ∧ B p=0 := by
+    let A := (H' p)⁻¹ • H'
+    let B := (V' (0,0))⁻¹ • V' - ((V' (0,0))⁻¹*V' p) • A
+    have hA : A ∈ L' := L'.smul_mem _ hH'
+    have hB : B ∈ L' := L'.sub_mem (L'.smul_mem _ hV') (L'.smul_mem _ hA)
+    have hAz : ∀ i : Fin 4, A (i,i)=0 := by intro i; simp [A,hHz']
+    have hAp : A p=1 := by simp [A,hp]
+    have hAne : A ≠ 0 := by
+      intro he
+      have hh := congrFun he p
+      rw [hAp] at hh
+      norm_num at hh
+    have hBtr : (∑ i : Fin 4, B (i,i))=0 := by
+      simp [B,hAz,← Finset.mul_sum,hVtr]
+    have hB00 : B (0,0)=1 := by simp [B,hAz,hV00]
+    have hBp : B p=0 := by simp [B,hAp]
+    exact ⟨A,hA,B,hB,hAne,hAz,hBtr,hB00,hAp,hBp⟩
+  rcases hpivot with h01 | h12
+  · obtain ⟨A,hA,B,hB,hAne,hAz,hBtr,hB00,hAp,hBp⟩ := make (0,1) h01
+    exact ⟨σ,A,hA,B,hB,hAne,hAz,hBtr,hB00,Or.inl ⟨hAp,hBp⟩⟩
+  · obtain ⟨A,hA,B,hB,hAne,hAz,hBtr,hB00,hAp,hBp⟩ := make (1,2) h12
+    exact ⟨σ,A,hA,B,hB,hAne,hAz,hBtr,hB00,Or.inr ⟨hAp,hBp⟩⟩
+
+lemma diagonal_rank_two_has_tracezero_pair
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (hL : Module.finrank ℂ L = 3)
+    (hd : Module.finrank ℂ (L.map matrixDiagonalCoordinates) = 2) :
+    ∃ H ∈ L, ∃ V ∈ L, H ≠ 0 ∧
+      (∀ i : Fin 4, H (i,i)=0) ∧
+      (∃ i : Fin 4, V (i,i) ≠ 0) ∧
+      (∑ i : Fin 4, V (i,i))=0 := by
+  let F := matrixDiagonalCoordinates.domRestrict L
+  have hrF : Module.finrank ℂ (LinearMap.range F) = 2 := by
+    change Module.finrank ℂ
+      (LinearMap.range (matrixDiagonalCoordinates.domRestrict L)) = 2
+    rw [LinearMap.range_domRestrict]
+    exact hd
+  have hkF : 0 < Module.finrank ℂ (LinearMap.ker F) := by
+    have hn := F.finrank_range_add_finrank_ker
+    omega
+  letI : Nontrivial (LinearMap.ker F) := Module.nontrivial_of_finrank_pos hkF
+  obtain ⟨h, hh⟩ := exists_ne (0 : LinearMap.ker F)
+  have hHne : h.val.val ≠ 0 := by
+    intro he
+    apply hh
+    apply Subtype.ext
+    apply Subtype.ext
+    exact he
+  have hHz : ∀ i : Fin 4, h.val.val (i,i)=0 := by
+    intro i
+    have he : F h.val=0 := h.property
+    exact congrFun he i
+  let D := L.map matrixDiagonalCoordinates
+  let G : D →ₗ[ℂ] ℂ :=
+    { toFun := fun d => ∑ i : Fin 4, d.val i
+      map_add' := by intros; simp [Finset.sum_add_distrib]
+      map_smul' := by intros; simp [Finset.mul_sum] }
+  have hrG : Module.finrank ℂ (LinearMap.range G) ≤ 1 := by
+    have hb := Submodule.finrank_le (LinearMap.range G)
+    simpa using hb
+  have hkG : 0 < Module.finrank ℂ (LinearMap.ker G) := by
+    have hn := G.finrank_range_add_finrank_ker
+    change Module.finrank ℂ D=2 at hd
+    omega
+  letI : Nontrivial (LinearMap.ker G) := Module.nontrivial_of_finrank_pos hkG
+  obtain ⟨d, hdne⟩ := exists_ne (0 : LinearMap.ker G)
+  have hdval : d.val.val ≠ 0 := by
+    intro he
+    apply hdne
+    apply Subtype.ext
+    apply Subtype.ext
+    exact he
+  obtain ⟨V,hV,hVD⟩ := d.val.property
+  have hVdiag : ∃ i : Fin 4, V (i,i) ≠ 0 := by
+    by_contra he
+    push Not at he
+    apply hdval
+    rw [← hVD]
+    funext i
+    exact he i
+  have hVtrace : (∑ i : Fin 4, V (i,i))=0 := by
+    have he : G d.val=0 := d.property
+    change (∑ i : Fin 4, d.val.val i)=0 at he
+    rw [← hVD] at he
+    exact he
+  exact ⟨h.val.val,h.val.property,V,hV,hHne,hHz,hVdiag,hVtrace⟩
+
+lemma no_diagonal_rank_two_three_flat_of_tracezero_star_classification
+    (hclass : ∀ H V : Fin 4 × Fin 4 → ℂ,
+      H ≠ 0 → (∀ i : Fin 4, H (i,i)=0) →
+      (∃ i : Fin 4, V (i,i) ≠ 0) → (∑ i : Fin 4, V (i,i))=0 →
+      (∀ i j : Fin 4, H (i,j)=H (j,i)) →
+      (∀ i j : Fin 4, V (i,j)=V (j,i)) →
+      (∀ a z : ℂ, Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+        1+a*H (i,j)+z*V (i,j))=24) →
+      ∃ (σ : Equiv.Perm (Fin 4)) (a b : ℂ),
+        starMatrix a b ≠ 0 ∧ entryPermute σ H=starMatrix a b)
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (hL : Module.finrank ℂ L = 3)
+    (hd : Module.finrank ℂ (L.map matrixDiagonalCoordinates) = 2)
+    (hs : ∀ V ∈ L, ∀ i j : Fin 4, V (i,j)=V (j,i))
+    (hp : ∀ V ∈ L, Matrix.permanent
+      (Matrix.of fun (i j : Fin 4) => 1+V (i,j))=24) : False := by
+  obtain ⟨H,hH,V,hV,hHne,hHz,hVdiag,hVtrace⟩ :=
+    diagonal_rank_two_has_tracezero_pair L hL hd
+  have hpair : ∀ a z : ℂ, Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+      1+a*H (i,j)+z*V (i,j))=24 := by
+    intro a z
+    have he := hp _ (L.add_mem (L.smul_mem a hH) (L.smul_mem z hV))
+    simpa only [Pi.add_apply,Pi.smul_apply,smul_eq_mul,add_assoc] using he
+  obtain ⟨σ,a,b,hne,heq⟩ := hclass H V hHne hHz hVdiag hVtrace (hs H hH) (hs V hV) hpair
+  have hm : starMatrix a b ∈ entryPermuteSubmodule σ L := by
+    rw [← heq]
+    exact (entryPermute_mem_iff σ L H).mpr hH
+  have hb := containing_nonzero_starMatrix_finrank_le_two
+    (entryPermuteSubmodule σ L) a b hne hm
+    (entryPermuteSubmodule_symmetric σ L hs)
+    (entryPermuteSubmodule_permanent σ L hp)
+  rw [entryPermuteSubmodule_finrank] at hb
+  omega
+
+def NormalizedIncidentOppositeEdge : Prop :=
+  ∀ H V : Fin 4 × Fin 4 → ℂ,
+    (∀ i j : Fin 4, H (i,j)=H (j,i)) →
+    (∀ i j : Fin 4, V (i,j)=V (j,i)) →
+    (∀ i : Fin 4, H (i,i)=0) →
+    (∑ i : Fin 4, V (i,i))=0 →
+    V (0,0)=1 → H (0,1)=1 → V (0,1)=0 →
+    (∀ a z : ℂ, Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+      1+a*H (i,j)+z*V (i,j))=24) → H (2,3)=0
+
+lemma incident_edge_product_zero
+    (hincident : NormalizedIncidentOppositeEdge)
+    (H V : Fin 4 × Fin 4 → ℂ)
+    (hHs : ∀ i j : Fin 4, H (i,j)=H (j,i))
+    (hVs : ∀ i j : Fin 4, V (i,j)=V (j,i))
+    (hHz : ∀ i : Fin 4, H (i,i)=0)
+    (hVtrace : (∑ i : Fin 4, V (i,i))=0) (hV00 : V (0,0) ≠ 0)
+    (hp : ∀ a z : ℂ, Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+      1+a*H (i,j)+z*V (i,j))=24) : H (0,1)*H (2,3)=0 := by
+  by_cases hH01 : H (0,1)=0
+  · simp [hH01]
+  let A := (H (0,1))⁻¹ • H
+  let B := (V (0,0))⁻¹ • V - ((V (0,0))⁻¹*V (0,1)) • A
+  have hAs : ∀ i j : Fin 4, A (i,j)=A (j,i) := by
+    intro i j
+    change (H (0,1))⁻¹*H (i,j)=(H (0,1))⁻¹*H (j,i)
+    rw [hHs i j]
+  have hBs : ∀ i j : Fin 4, B (i,j)=B (j,i) := by
+    intro i j
+    change (V (0,0))⁻¹*V (i,j)-((V (0,0))⁻¹*V (0,1))*A (i,j)=
+      (V (0,0))⁻¹*V (j,i)-((V (0,0))⁻¹*V (0,1))*A (j,i)
+    rw [hVs i j,hAs i j]
+  have hAz : ∀ i : Fin 4, A (i,i)=0 := by intro i; simp [A,hHz]
+  have hA01 : A (0,1)=1 := by simp [A,hH01]
+  have hB00 : B (0,0)=1 := by simp [B,hAz,hV00]
+  have hB01 : B (0,1)=0 := by simp [B,hA01]
+  have hBtrace : (∑ i : Fin 4, B (i,i))=0 := by
+    simp [B,hAz,← Finset.mul_sum,hVtrace]
+  have hpair : ∀ a z : ℂ, Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+      1+a*A (i,j)+z*B (i,j))=24 := by
+    intro a z
+    have heq : (Matrix.of fun (i j : Fin 4) => 1+a*A (i,j)+z*B (i,j))=
+        Matrix.of fun (i j : Fin 4) =>
+          1+((a-z*((V (0,0))⁻¹*V (0,1)))*(H (0,1))⁻¹)*H (i,j)+
+            (z*(V (0,0))⁻¹)*V (i,j) := by
+      ext i j
+      simp [A,B]
+      ring
+    rw [heq]
+    exact hp _ _
+  have hA23 := hincident A B hAs hBs hAz hBtrace hB00 hA01 hB01 hpair
+  have hH23 : H (2,3)=0 := by
+    change (H (0,1))⁻¹*H (2,3)=0 at hA23
+    exact (mul_eq_zero.mp hA23).resolve_left (inv_ne_zero hH01)
+  simp [hH23]
+
+lemma level_pair_permutation
+    (σ : Equiv.Perm (Fin 4)) (H V : Fin 4 × Fin 4 → ℂ)
+    (hp : ∀ a z : ℂ, Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+      1+a*H (i,j)+z*V (i,j))=24) :
+    ∀ a z : ℂ, Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+      1+a*entryPermute σ H (i,j)+z*entryPermute σ V (i,j))=24 := by
+  intro a z
+  have he := entryPermute_permanent σ (fun p => a*H p+z*V p)
+  have hb : Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+      1+(a*H (i,j)+z*V (i,j)))=24 := by simpa only [add_assoc] using hp a z
+  simpa only [entryPermute_apply,add_assoc] using he.trans hb
+
+lemma incident_opposite_products_zero
+    (hincident : NormalizedIncidentOppositeEdge)
+    (H V : Fin 4 × Fin 4 → ℂ)
+    (hHs : ∀ i j : Fin 4, H (i,j)=H (j,i))
+    (hVs : ∀ i j : Fin 4, V (i,j)=V (j,i))
+    (hHz : ∀ i : Fin 4, H (i,i)=0)
+    (hVtrace : (∑ i : Fin 4, V (i,i))=0) (hV00 : V (0,0) ≠ 0)
+    (hp : ∀ a z : ℂ, Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+      1+a*H (i,j)+z*V (i,j))=24) :
+    H (0,1)*H (2,3)=0 ∧ H (0,2)*H (1,3)=0 ∧ H (0,3)*H (1,2)=0 := by
+  have hperm (σ : Equiv.Perm (Fin 4)) (hσ0 : σ 0=0) :
+      H (σ 0,σ 1)*H (σ 2,σ 3)=0 := by
+    have hV00' : entryPermute σ V (0,0) ≠ 0 := by
+      simpa only [entryPermute_apply,hσ0] using hV00
+    have htrace : (∑ i : Fin 4, entryPermute σ V (i,i))=0 := by
+      change (∑ i : Fin 4, V (σ i,σ i))=0
+      exact (Equiv.sum_comp σ (fun i => V (i,i))).trans hVtrace
+    exact incident_edge_product_zero hincident (entryPermute σ H) (entryPermute σ V)
+      (entryPermute_symmetric σ H hHs) (entryPermute_symmetric σ V hVs)
+      (entryPermute_hollow σ H hHz) htrace hV00' (level_pair_permutation σ H V hp)
+  refine ⟨incident_edge_product_zero hincident H V hHs hVs hHz hVtrace hV00 hp,?_,?_⟩
+  · have h := hperm (Equiv.swap (1 : Fin 4) 2) (by decide)
+    simpa [Equiv.swap_apply_def] using h
+  · have h := hperm (Equiv.swap (1 : Fin 4) 3) (by decide)
+    simpa [Equiv.swap_apply_def,hHs 2 1] using h
+
+lemma hollow_star_support_of_opposite_products (a b c d e f : ℂ)
+    (haf : a*f=0) (hbe : b*e=0) (hcd : c*d=0)
+    (hT : a*b*d+a*c*e+b*c*f+d*e*f=0) :
+    (d=0 ∧ e=0 ∧ f=0) ∨ (b=0 ∧ c=0 ∧ f=0) ∨
+    (a=0 ∧ c=0 ∧ e=0) ∨ (a=0 ∧ b=0 ∧ d=0) := by
+  by_cases ha : a=0
+  · by_cases hb : b=0
+    · by_cases hc : c=0
+      · have hdef : d*e*f=0 := by simpa [ha,hb,hc] using hT
+        rcases mul_eq_zero.mp hdef with hde | hf
+        · rcases mul_eq_zero.mp hde with hd | he
+          · exact Or.inr (Or.inr (Or.inr ⟨ha,hb,hd⟩))
+          · exact Or.inr (Or.inr (Or.inl ⟨ha,hc,he⟩))
+        · exact Or.inr (Or.inl ⟨hb,hc,hf⟩)
+      · have hd : d=0 := (mul_eq_zero.mp hcd).resolve_left hc
+        exact Or.inr (Or.inr (Or.inr ⟨ha,hb,hd⟩))
+    · have he : e=0 := (mul_eq_zero.mp hbe).resolve_left hb
+      by_cases hc : c=0
+      · exact Or.inr (Or.inr (Or.inl ⟨ha,hc,he⟩))
+      · have hd : d=0 := (mul_eq_zero.mp hcd).resolve_left hc
+        have hbcf : b*c*f=0 := by simpa [ha,he] using hT
+        have hf : f=0 := (mul_eq_zero.mp hbcf).resolve_left (mul_ne_zero hb hc)
+        exact Or.inl ⟨hd,he,hf⟩
+  · have hf : f=0 := (mul_eq_zero.mp haf).resolve_left ha
+    have hsum : b*d+c*e=0 := by
+      have hh : a*(b*d+c*e)=0 := by linear_combination hT-(b*c+d*e)*hf
+      exact (mul_eq_zero.mp hh).resolve_left ha
+    have hbd : b*d=0 := by
+      have hh : (b*d)^2=0 := by linear_combination b*d*hsum-c*d*hbe
+      exact eq_zero_of_pow_eq_zero hh
+    have hce : c*e=0 := by linear_combination hsum-hbd
+    by_cases hb : b=0
+    · by_cases hc : c=0
+      · exact Or.inr (Or.inl ⟨hb,hc,hf⟩)
+      · have hd : d=0 := (mul_eq_zero.mp hcd).resolve_left hc
+        have he : e=0 := (mul_eq_zero.mp hce).resolve_left hc
+        exact Or.inl ⟨hd,he,hf⟩
+    · have hd : d=0 := (mul_eq_zero.mp hbd).resolve_left hb
+      have he : e=0 := (mul_eq_zero.mp hbe).resolve_left hb
+      exact Or.inl ⟨hd,he,hf⟩
+
+lemma hollow_opposite_scalar_permuted_star (a b c d e f : ℂ)
+    (hS : a+b+c+d+e+f=0)
+    (haf : a*f=0) (hbe : b*e=0) (hcd : c*d=0)
+    (hT : a*b*d+a*c*e+b*c*f+d*e*f=0) :
+    ∃ (σ : Equiv.Perm (Fin 4)) (u v : ℂ),
+      entryPermute σ (fun p => hollowMatrix a b c d e f p.1 p.2)=starMatrix u v := by
+  rcases hollow_star_support_of_opposite_products a b c d e f haf hbe hcd hT with
+    ⟨hd,he,hf⟩ | ⟨hb,hc,hf⟩ | ⟨ha,hc,he⟩ | ⟨ha,hb,hd⟩
+  · have hc : c = -a-b := by linear_combination hS-hd-he-hf
+    refine ⟨Equiv.refl _,a,b,?_⟩
+    funext p
+    rcases p with ⟨i,j⟩
+    fin_cases i <;> fin_cases j <;>
+      simp [entryPermute,hollowMatrix,starMatrix,hc,hd,he,hf]
+  · have he : e = -a-d := by linear_combination hS-hb-hc-hf
+    refine ⟨Equiv.swap 0 1,a,d,?_⟩
+    funext p
+    rcases p with ⟨i,j⟩
+    fin_cases i <;> fin_cases j <;>
+      simp [entryPermute,Equiv.swap_apply_def,hollowMatrix,starMatrix,hb,hc,he,hf]
+  · have hf : f = -d-b := by linear_combination hS-ha-hc-he
+    refine ⟨Equiv.swap 0 2,d,b,?_⟩
+    funext p
+    rcases p with ⟨i,j⟩
+    fin_cases i <;> fin_cases j <;>
+      simp [entryPermute,Equiv.swap_apply_def,hollowMatrix,starMatrix,ha,hc,he,hf]
+  · have hc : c = -e-f := by linear_combination hS-ha-hb-hd
+    refine ⟨Equiv.swap 0 3,e,f,?_⟩
+    funext p
+    rcases p with ⟨i,j⟩
+    fin_cases i <;> fin_cases j <;>
+      simp [entryPermute,Equiv.swap_apply_def,hollowMatrix,starMatrix,ha,hb,hc,hd]
+
+lemma hollow_opposite_products_permuted_star (H : Fin 4 × Fin 4 → ℂ)
+    (hs : ∀ i j : Fin 4, H (i,j)=H (j,i))
+    (hz : ∀ i : Fin 4, H (i,i)=0) (hne : H ≠ 0)
+    (hp : ∀ z : ℂ, Matrix.permanent (Matrix.of fun (i j : Fin 4) => 1+z*H (i,j))=24)
+    (haf : H (0,1)*H (2,3)=0) (hbe : H (0,2)*H (1,3)=0) (hcd : H (0,3)*H (1,2)=0) :
+    ∃ (σ : Equiv.Perm (Fin 4)) (a b : ℂ),
+      starMatrix a b ≠ 0 ∧ entryPermute σ H=starMatrix a b := by
+  have hrec : H=(fun p => hollowMatrix (H (0,1)) (H (0,2)) (H (0,3))
+      (H (1,2)) (H (1,3)) (H (2,3)) p.1 p.2) := by
+    funext p
+    exact hollow_reconstruction H hs hz p.1 p.2
+  have hp' : ∀ z : ℂ, Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+      1+z*hollowMatrix (H (0,1)) (H (0,2)) (H (0,3))
+        (H (1,2)) (H (1,3)) (H (2,3)) i j)=24 := by
+    intro z
+    convert hp z using 1
+    congr 1
+    funext i j
+    change 1+z*hollowMatrix (H (0,1)) (H (0,2)) (H (0,3))
+      (H (1,2)) (H (1,3)) (H (2,3)) i j=1+z*H (i,j)
+    rw [hollow_reconstruction H hs hz i j]
+  have hS := (hollow_coefficient_constraints _ _ _ _ _ _ hp').1
+  have hC := hollow_coefficient_cubic_zero _ _ _ _ _ _ hp'
+  have hT : H (0,1)*H (0,2)*H (1,2)+H (0,1)*H (0,3)*H (1,3)+
+      H (0,2)*H (0,3)*H (2,3)+H (1,2)*H (1,3)*H (2,3)=0 := by
+    dsimp [hollowCubic] at hC
+    linear_combination hC/2-
+      (H (0,1)+H (0,2)+H (0,3)+H (1,2)+H (1,3)+H (2,3))*(haf+hbe+hcd)
+  obtain ⟨σ,a,b,heq⟩ := hollow_opposite_scalar_permuted_star _ _ _ _ _ _ hS haf hbe hcd hT
+  have he : entryPermute σ H=starMatrix a b := by rw [hrec]; exact heq
+  refine ⟨σ,a,b,?_,he⟩
+  intro hzero
+  apply hne
+  apply (entryPermute σ).injective
+  rw [he,hzero,map_zero]
+
+lemma tracezero_pair_star_of_normalized_incident
+    (hincident : NormalizedIncidentOppositeEdge)
+    (H V : Fin 4 × Fin 4 → ℂ)
+    (hHne : H ≠ 0) (hHz : ∀ i : Fin 4, H (i,i)=0)
+    (hVdiag : ∃ i : Fin 4, V (i,i) ≠ 0)
+    (hVtrace : (∑ i : Fin 4, V (i,i))=0)
+    (hHs : ∀ i j : Fin 4, H (i,j)=H (j,i))
+    (hVs : ∀ i j : Fin 4, V (i,j)=V (j,i))
+    (hp : ∀ a z : ℂ, Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+      1+a*H (i,j)+z*V (i,j))=24) :
+    ∃ (σ : Equiv.Perm (Fin 4)) (a b : ℂ),
+      starMatrix a b ≠ 0 ∧ entryPermute σ H=starMatrix a b := by
+  obtain ⟨i,hi⟩ := hVdiag
+  let σ := Equiv.swap (0 : Fin 4) i
+  have hσ : σ 0=i := by simp [σ]
+  let H' := entryPermute σ H
+  let V' := entryPermute σ V
+  have hHne' : H' ≠ 0 := by
+    intro he
+    apply hHne
+    apply (entryPermute σ).injective
+    simpa only [map_zero] using he
+  have hHsym := entryPermute_symmetric σ H hHs
+  have hVsym := entryPermute_symmetric σ V hVs
+  have hHz' := entryPermute_hollow σ H hHz
+  have hV00 : V' (0,0) ≠ 0 := by simpa only [V',entryPermute_apply,hσ] using hi
+  have hVtr : (∑ i : Fin 4, V' (i,i))=0 := by
+    change (∑ i : Fin 4, V (σ i,σ i))=0
+    exact (Equiv.sum_comp σ (fun i => V (i,i))).trans hVtrace
+  have hpair := level_pair_permutation σ H V hp
+  obtain ⟨haf,hbe,hcd⟩ := incident_opposite_products_zero hincident H' V'
+    hHsym hVsym hHz' hVtr hV00 hpair
+  have hline : ∀ z : ℂ, Matrix.permanent
+      (Matrix.of fun (i j : Fin 4) => 1+z*H' (i,j))=24 := by
+    intro z
+    simpa only [zero_mul,add_zero] using hpair z 0
+  obtain ⟨τ,a,b,hne,heq⟩ := hollow_opposite_products_permuted_star H'
+    hHsym hHz' hHne' hline haf hbe hcd
+  refine ⟨σ*τ,a,b,hne,?_⟩
+  calc
+    entryPermute (σ*τ) H=entryPermute τ (entryPermute σ H) := by
+      funext p
+      rcases p with ⟨j,k⟩
+      simp [entryPermute_apply,Equiv.Perm.mul_apply]
+    _=starMatrix a b := heq
+
+lemma no_rank_two_diagonal_three_flat_of_normalized_incident
+    (hincident : NormalizedIncidentOppositeEdge)
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (hL : Module.finrank ℂ L=3)
+    (hd : Module.finrank ℂ (L.map matrixDiagonalCoordinates)=2)
+    (hs : ∀ V ∈ L, ∀ i j : Fin 4, V (i,j)=V (j,i))
+    (hp : ∀ V ∈ L, Matrix.permanent
+      (Matrix.of fun (i j : Fin 4) => 1+V (i,j))=24) : False := by
+  exact no_diagonal_rank_two_three_flat_of_tracezero_star_classification
+    (tracezero_pair_star_of_normalized_incident hincident) L hL hd hs hp
+
+def hadamardSigns : Matrix (Fin 4) (Fin 4) ℂ :=
+  !![1,1,1,1; 1,1,-1,-1; 1,-1,1,-1; 1,-1,-1,1]
+
+noncomputable def hadamardTransform :
+    (Fin 4 × Fin 4 → ℂ) →ₗ[ℂ] (Fin 4 × Fin 4 → ℂ) where
+  toFun V p := (∑ i : Fin 4, ∑ j : Fin 4,
+    hadamardSigns p.1 i * V (i,j) * hadamardSigns p.2 j) / 4
+  map_add' V W := by
+    funext p
+    simp [Pi.add_apply,mul_add,add_mul,Finset.sum_add_distrib,add_div]
+  map_smul' z V := by
+    funext p
+    simp only [Pi.smul_apply,smul_eq_mul,RingHom.id_apply]
+    simp [hadamardSigns,Fin.sum_univ_succ]
+    ring
+
+set_option maxHeartbeats 1600000 in
+lemma hadamardTransform_involution (V : Fin 4 × Fin 4 → ℂ) :
+    hadamardTransform (hadamardTransform V)=V := by
+  funext p
+  rcases p with ⟨i,j⟩
+  fin_cases i <;> fin_cases j <;>
+    simp [hadamardTransform,hadamardSigns,Fin.sum_univ_succ] <;> ring
+
+lemma hadamardTransform_symmetric (V : Fin 4 × Fin 4 → ℂ)
+    (hs : ∀ i j : Fin 4, V (i,j)=V (j,i)) :
+    ∀ i j : Fin 4, hadamardTransform V (i,j)=hadamardTransform V (j,i) := by
+  intro i j
+  change (∑ a : Fin 4, ∑ b : Fin 4,
+    hadamardSigns i a * V (a,b) * hadamardSigns j b) / 4 =
+    (∑ a : Fin 4, ∑ b : Fin 4,
+      hadamardSigns j a * V (a,b) * hadamardSigns i b) / 4
+  congr 1
+  rw [Finset.sum_comm]
+  apply Finset.sum_congr rfl
+  intro a ha
+  apply Finset.sum_congr rfl
+  intro b hb
+  rw [hs b a]
+  ring
+
+lemma hadamardTransform_zero_zero (V : Fin 4 × Fin 4 → ℂ) :
+    hadamardTransform V (0,0)=(∑ i : Fin 4, ∑ j : Fin 4, V (i,j))/4 := by
+  simp [hadamardTransform,hadamardSigns,Fin.sum_univ_succ]
+
+lemma hadamardTransform_trace (V : Fin 4 × Fin 4 → ℂ) :
+    (∑ i : Fin 4, hadamardTransform V (i,i))=∑ i : Fin 4, V (i,i) := by
+  simp [hadamardTransform,hadamardSigns,Fin.sum_univ_succ]
+  ring
+
+noncomputable def hadamardB : (Fin 4 × Fin 4 → ℂ) →ₗ[ℂ] (Fin 3 → ℂ) where
+  toFun V := ![hadamardTransform V (1,1),hadamardTransform V (2,2),hadamardTransform V (3,3)]
+  map_add' := by intros; ext i; fin_cases i <;> simp
+  map_smul' := by intros; ext i; fin_cases i <;> simp
+
+noncomputable def hadamardP : (Fin 4 × Fin 4 → ℂ) →ₗ[ℂ] (Fin 3 → ℂ) where
+  toFun V := ![3*hadamardTransform V (0,1)+hadamardTransform V (2,3),
+    3*hadamardTransform V (0,2)+hadamardTransform V (1,3),
+    3*hadamardTransform V (0,3)+hadamardTransform V (1,2)]
+  map_add' := by intros; ext i; fin_cases i <;> simp <;> ring
+  map_smul' := by intros; ext i; fin_cases i <;> simp <;> ring
+
+noncomputable def hadamardD : (Fin 4 × Fin 4 → ℂ) →ₗ[ℂ] (Fin 3 → ℂ) where
+  toFun V := ![hadamardTransform V (0,1)+hadamardTransform V (2,3),
+    hadamardTransform V (0,2)+hadamardTransform V (1,3),
+    hadamardTransform V (0,3)+hadamardTransform V (1,2)]
+  map_add' := by intros; ext i; fin_cases i <;> simp <;> ring
+  map_smul' := by intros; ext i; fin_cases i <;> simp <;> ring
+
+noncomputable def hadamardCoordinateMatrix (B P D : Fin 3 → ℂ) : Fin 4 × Fin 4 → ℂ :=
+  fun p => (!![0,(P 0-D 0)/2,(P 1-D 1)/2,(P 2-D 2)/2;
+    (P 0-D 0)/2,B 0,(3*D 2-P 2)/2,(3*D 1-P 1)/2;
+    (P 1-D 1)/2,(3*D 2-P 2)/2,B 1,(3*D 0-P 0)/2;
+    (P 2-D 2)/2,(3*D 1-P 1)/2,(3*D 0-P 0)/2,B 2] : Matrix (Fin 4) (Fin 4) ℂ) p.1 p.2
+
+noncomputable def hadamardReconstruct (B P D : Fin 3 → ℂ) : Fin 4 × Fin 4 → ℂ :=
+  hadamardTransform (hadamardCoordinateMatrix B P D)
+
+lemma hadamardCoordinateMatrix_coordinates (V : Fin 4 × Fin 4 → ℂ)
+    (hs : ∀ i j : Fin 4, V (i,j)=V (j,i))
+    (ht : (∑ i : Fin 4, ∑ j : Fin 4, V (i,j))=0) :
+    hadamardCoordinateMatrix (hadamardB V) (hadamardP V) (hadamardD V)=hadamardTransform V := by
+  have hsym := hadamardTransform_symmetric V hs
+  have h00 : hadamardTransform V (0,0)=0 := by rw [hadamardTransform_zero_zero,ht]; norm_num
+  have h10 := hsym 1 0
+  have h20 := hsym 2 0
+  have h30 := hsym 3 0
+  have h21 := hsym 2 1
+  have h31 := hsym 3 1
+  have h32 := hsym 3 2
+  funext p
+  rcases p with ⟨i,j⟩
+  fin_cases i <;> fin_cases j <;>
+    simp [hadamardCoordinateMatrix,hadamardB,hadamardP,hadamardD,
+      h00,h10,h20,h30,h21,h31,h32] <;> ring
+
+lemma hadamard_reconstruction (V : Fin 4 × Fin 4 → ℂ)
+    (hs : ∀ i j : Fin 4, V (i,j)=V (j,i))
+    (ht : (∑ i : Fin 4, ∑ j : Fin 4, V (i,j))=0) :
+    hadamardReconstruct (hadamardB V) (hadamardP V) (hadamardD V)=V := by
+  unfold hadamardReconstruct
+  rw [hadamardCoordinateMatrix_coordinates V hs ht,hadamardTransform_involution]
+
+lemma hadamard_trace_coordinates (V : Fin 4 × Fin 4 → ℂ)
+    (ht : (∑ i : Fin 4, ∑ j : Fin 4, V (i,j))=0) :
+    (∑ i : Fin 3, hadamardB V i)=∑ i : Fin 4, V (i,i) := by
+  have h00 : hadamardTransform V (0,0)=0 := by rw [hadamardTransform_zero_zero,ht]; norm_num
+  have hh := hadamardTransform_trace V
+  simpa [hadamardB,Fin.sum_univ_succ,h00] using hh
+
+lemma hadamard_reconstruct_diagonal (B P D : Fin 3 → ℂ) :
+    (fun i : Fin 4 => hadamardReconstruct B P D (i,i)) =
+      ![(B 0+B 1+B 2)/4+(D 0+D 1+D 2)/2,
+        (B 0+B 1+B 2)/4+(D 0-D 1-D 2)/2,
+        (B 0+B 1+B 2)/4+(-D 0+D 1-D 2)/2,
+        (B 0+B 1+B 2)/4+(-D 0-D 1+D 2)/2] := by
+  funext i
+  fin_cases i <;>
+    simp [hadamardReconstruct,hadamardTransform,hadamardCoordinateMatrix,
+      hadamardSigns,Fin.sum_univ_succ] <;> ring
+
+set_option maxHeartbeats 1600000 in
+lemma permanent_level_entry_sum_zero (V : Fin 4 × Fin 4 → ℂ)
+    (hp : ∀ z : ℂ, Matrix.permanent (Matrix.of fun (i j : Fin 4) => 1+z*V (i,j))=24) :
+    (∑ i : Fin 4, ∑ j : Fin 4, V (i,j))=0 := by
+  have h1 := hp 1
+  have hn1 := hp (-1)
+  have h2 := hp 2
+  have hn2 := hp (-2)
+  rw [permanent_four] at h1 hn1 h2 hn2
+  simp only [Matrix.of_apply] at h1 hn1 h2 hn2
+  simp [Fin.sum_univ_succ]
+  linear_combination h1/9-hn1/9-h2/72+hn2/72
+
+lemma level_flat_entry_sum_zero
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (hp : ∀ V ∈ L, Matrix.permanent (Matrix.of fun (i j : Fin 4) => 1+V (i,j))=24)
+    (V : Fin 4 × Fin 4 → ℂ) (hV : V ∈ L) :
+    (∑ i : Fin 4, ∑ j : Fin 4, V (i,j))=0 := by
+  apply permanent_level_entry_sum_zero V
+  intro z
+  simpa only [Pi.smul_apply,smul_eq_mul] using hp _ (L.smul_mem z hV)
+
+lemma hadamardD_zero_constant_diagonal (V : Fin 4 × Fin 4 → ℂ)
+    (hs : ∀ i j : Fin 4, V (i,j)=V (j,i))
+    (ht : (∑ i : Fin 4, ∑ j : Fin 4, V (i,j))=0)
+    (hD : hadamardD V=0) :
+    ∀ i : Fin 4, V (i,i)=(hadamardB V 0+hadamardB V 1+hadamardB V 2)/4 := by
+  have hd := hadamard_reconstruct_diagonal (hadamardB V) (hadamardP V) (hadamardD V)
+  rw [hadamard_reconstruction V hs ht] at hd
+  intro i
+  have hi := congrFun hd i
+  fin_cases i <;> simpa [hD] using hi
+
+lemma hadamardD_injective_on_full_diagonal_rank
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (hd : Module.finrank ℂ (L.map matrixDiagonalCoordinates)=Module.finrank ℂ L)
+    (hs : ∀ V ∈ L, ∀ i j : Fin 4, V (i,j)=V (j,i))
+    (hp : ∀ V ∈ L, Matrix.permanent (Matrix.of fun (i j : Fin 4) => 1+V (i,j))=24) :
+    Function.Injective (hadamardD.domRestrict L) := by
+  let F := matrixDiagonalCoordinates.domRestrict L
+  have hr : Module.finrank ℂ (LinearMap.range F)=Module.finrank ℂ L := by
+    change Module.finrank ℂ (LinearMap.range (matrixDiagonalCoordinates.domRestrict L)) = _
+    rw [LinearMap.range_domRestrict]
+    exact hd
+  have hk : Module.finrank ℂ (LinearMap.ker F)=0 := by
+    have hn := F.finrank_range_add_finrank_ker
+    omega
+  have hF : Function.Injective F :=
+    LinearMap.ker_eq_bot.mp (Submodule.finrank_eq_zero.mp hk)
+  have hzero (V : L) (hD : hadamardD V.val=0) : V=0 := by
+    have hc := hadamardD_zero_constant_diagonal V.val (hs V.val V.property)
+      (level_flat_entry_sum_zero L hp V.val V.property) hD
+    have hr0 := level_flat_constant_diagonal_zero L hs hp V.val V.property
+      ((hadamardB V.val 0+hadamardB V.val 1+hadamardB V.val 2)/4) hc
+    apply hF
+    change matrixDiagonalCoordinates V.val=matrixDiagonalCoordinates 0
+    funext i
+    change V.val (i,i)=0
+    rw [hc i,hr0]
+  intro V W he
+  apply sub_eq_zero.mp
+  apply hzero (V-W)
+  change (hadamardD.domRestrict L) (V-W)=0
+  rw [map_sub,he,sub_self]
+
+lemma hadamardD_bijective_on_rank_three_flat
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (hL : Module.finrank ℂ L=3)
+    (hd : Module.finrank ℂ (L.map matrixDiagonalCoordinates)=3)
+    (hs : ∀ V ∈ L, ∀ i j : Fin 4, V (i,j)=V (j,i))
+    (hp : ∀ V ∈ L, Matrix.permanent (Matrix.of fun (i j : Fin 4) => 1+V (i,j))=24) :
+    Function.Bijective (hadamardD.domRestrict L) := by
+  have hinj := hadamardD_injective_on_full_diagonal_rank L (hd.trans hL.symm) hs hp
+  refine ⟨hinj,?_⟩
+  apply LinearMap.range_eq_top.mp
+  apply Submodule.eq_top_of_finrank_eq
+  rw [LinearMap.finrank_range_of_inj hinj,hL]
+  simp
+
+noncomputable def hadamardTrace : (Fin 4 × Fin 4 → ℂ) →ₗ[ℂ] ℂ where
+  toFun V := ∑ i : Fin 4, V (i,i)
+  map_add' := by intros; simp [Finset.sum_add_distrib]
+  map_smul' := by intros; simp [Finset.mul_sum]
+
+lemma hadamardTrace_permute (σ : Equiv.Perm (Fin 4)) (V : Fin 4 × Fin 4 → ℂ) :
+    hadamardTrace (entryPermute σ V)=hadamardTrace V := by
+  exact Equiv.sum_comp σ (fun i => V (i,i))
+
+lemma hadamardD_swap13 (V : Fin 4 × Fin 4 → ℂ)
+    (hs : ∀ i j : Fin 4, V (i,j)=V (j,i)) :
+    hadamardD (entryPermute (Equiv.swap (1 : Fin 4) 3) V)=
+      ![hadamardD V 2,hadamardD V 1,hadamardD V 0] := by
+  have h10 := hs 1 0
+  have h20 := hs 2 0
+  have h30 := hs 3 0
+  have h21 := hs 2 1
+  have h31 := hs 3 1
+  have h32 := hs 3 2
+  funext i
+  fin_cases i <;>
+    simp [hadamardD,hadamardTransform,hadamardSigns,entryPermute,
+      Equiv.swap_apply_def,Fin.sum_univ_succ,h10,h20,h30,h21,h31,h32] <;> ring
+
+lemma hadamardD_swap23 (V : Fin 4 × Fin 4 → ℂ)
+    (hs : ∀ i j : Fin 4, V (i,j)=V (j,i)) :
+    hadamardD (entryPermute (Equiv.swap (2 : Fin 4) 3) V)=
+      ![hadamardD V 0,hadamardD V 2,hadamardD V 1] := by
+  have h10 := hs 1 0
+  have h20 := hs 2 0
+  have h30 := hs 3 0
+  have h21 := hs 2 1
+  have h31 := hs 3 1
+  have h32 := hs 3 2
+  funext i
+  fin_cases i <;>
+    simp [hadamardD,hadamardTransform,hadamardSigns,entryPermute,
+      Equiv.swap_apply_def,Fin.sum_univ_succ,h10,h20,h30,h21,h31,h32] <;> ring
+
+lemma rank_three_flat_has_trace_pivot_basis
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (hL : Module.finrank ℂ L=3)
+    (hd : Module.finrank ℂ (L.map matrixDiagonalCoordinates)=3)
+    (hs : ∀ V ∈ L, ∀ i j : Fin 4, V (i,j)=V (j,i))
+    (hp : ∀ V ∈ L, Matrix.permanent (Matrix.of fun (i j : Fin 4) => 1+V (i,j))=24) :
+    ∃ σ : Equiv.Perm (Fin 4),
+      ∃ U ∈ entryPermuteSubmodule σ L, ∃ V ∈ entryPermuteSubmodule σ L,
+      ∃ W ∈ entryPermuteSubmodule σ L,
+      hadamardD U=![1,0,0] ∧ hadamardD V=![0,1,0] ∧ hadamardD W=![0,0,1] ∧
+      (hadamardTrace W ≠ 0 ∨ (hadamardTrace U=0 ∧ hadamardTrace V=0)) := by
+  have hsurj := (hadamardD_bijective_on_rank_three_flat L hL hd hs hp).2
+  obtain ⟨X,hX⟩ := hsurj ![1,0,0]
+  obtain ⟨Y,hY⟩ := hsurj ![0,1,0]
+  obtain ⟨Z,hZ⟩ := hsurj ![0,0,1]
+  change hadamardD X.val=![1,0,0] at hX
+  change hadamardD Y.val=![0,1,0] at hY
+  change hadamardD Z.val=![0,0,1] at hZ
+  have hid (htrace : hadamardTrace Z.val ≠ 0 ∨
+      (hadamardTrace X.val=0 ∧ hadamardTrace Y.val=0)) :
+      ∃ σ : Equiv.Perm (Fin 4),
+        ∃ U ∈ entryPermuteSubmodule σ L, ∃ V ∈ entryPermuteSubmodule σ L,
+        ∃ W ∈ entryPermuteSubmodule σ L,
+        hadamardD U=![1,0,0] ∧ hadamardD V=![0,1,0] ∧ hadamardD W=![0,0,1] ∧
+        (hadamardTrace W ≠ 0 ∨ (hadamardTrace U=0 ∧ hadamardTrace V=0)) := by
+    refine ⟨Equiv.refl _,X.val,?_,Y.val,?_,Z.val,?_,hX,hY,hZ,htrace⟩
+    · exact ⟨X.val,X.property,rfl⟩
+    · exact ⟨Y.val,Y.property,rfl⟩
+    · exact ⟨Z.val,Z.property,rfl⟩
+  by_cases htz : hadamardTrace Z.val=0
+  · by_cases hty : hadamardTrace Y.val=0
+    · by_cases htx : hadamardTrace X.val=0
+      · exact hid (Or.inr ⟨htx,hty⟩)
+      · let σ := Equiv.swap (1 : Fin 4) 3
+        refine ⟨σ,entryPermute σ Z.val,?_,entryPermute σ Y.val,?_,
+          entryPermute σ X.val,?_,?_,?_,?_,Or.inl ?_⟩
+        · exact (entryPermute_mem_iff σ L Z.val).mpr Z.property
+        · exact (entryPermute_mem_iff σ L Y.val).mpr Y.property
+        · exact (entryPermute_mem_iff σ L X.val).mpr X.property
+        · simpa [σ,hZ] using hadamardD_swap13 Z.val (hs Z.val Z.property)
+        · simpa [σ,hY] using hadamardD_swap13 Y.val (hs Y.val Y.property)
+        · simpa [σ,hX] using hadamardD_swap13 X.val (hs X.val X.property)
+        · simpa only [hadamardTrace_permute] using htx
+    · let σ := Equiv.swap (2 : Fin 4) 3
+      refine ⟨σ,entryPermute σ X.val,?_,entryPermute σ Z.val,?_,
+        entryPermute σ Y.val,?_,?_,?_,?_,Or.inl ?_⟩
+      · exact (entryPermute_mem_iff σ L X.val).mpr X.property
+      · exact (entryPermute_mem_iff σ L Z.val).mpr Z.property
+      · exact (entryPermute_mem_iff σ L Y.val).mpr Y.property
+      · simpa [σ,hX] using hadamardD_swap23 X.val (hs X.val X.property)
+      · simpa [σ,hZ] using hadamardD_swap23 Z.val (hs Z.val Z.property)
+      · simpa [σ,hY] using hadamardD_swap23 Y.val (hs Y.val Y.property)
+      · simpa only [hadamardTrace_permute] using hty
+  · exact hid (Or.inl htz)
+
+lemma rank_three_flat_has_hadamard_incidence_basis
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (hL : Module.finrank ℂ L=3)
+    (hd : Module.finrank ℂ (L.map matrixDiagonalCoordinates)=3)
+    (hs : ∀ V ∈ L, ∀ i j : Fin 4, V (i,j)=V (j,i))
+    (hp : ∀ V ∈ L, Matrix.permanent (Matrix.of fun (i j : Fin 4) => 1+V (i,j))=24) :
+    ∃ σ : Equiv.Perm (Fin 4), ∃ k l : ℂ,
+      ∃ A ∈ entryPermuteSubmodule σ L, ∃ B ∈ entryPermuteSubmodule σ L,
+      ∃ W ∈ entryPermuteSubmodule σ L,
+      hadamardD A=![1,0,k] ∧ hadamardD B=![0,1,l] ∧ hadamardD W=![0,0,1] ∧
+      hadamardTrace A=0 ∧ hadamardTrace B=0 := by
+  obtain ⟨σ,U,hU,V,hV,W,hW,hDU,hDV,hDW,htr⟩ :=
+    rank_three_flat_has_trace_pivot_basis L hL hd hs hp
+  rcases htr with hw | ⟨hu,hv⟩
+  · let k := -hadamardTrace U/hadamardTrace W
+    let l := -hadamardTrace V/hadamardTrace W
+    let A := U+k • W
+    let B := V+l • W
+    refine ⟨σ,k,l,A,?_,B,?_,W,hW,?_,?_,hDW,?_,?_⟩
+    · exact (entryPermuteSubmodule σ L).add_mem hU ((entryPermuteSubmodule σ L).smul_mem k hW)
+    · exact (entryPermuteSubmodule σ L).add_mem hV ((entryPermuteSubmodule σ L).smul_mem l hW)
+    · simp [A,map_add,map_smul,hDU,hDW]
+    · simp [B,map_add,map_smul,hDV,hDW]
+    · simp [A,k,map_add,map_smul,hw]
+    · simp [B,l,map_add,map_smul,hw]
+  · exact ⟨σ,0,0,U,hU,V,hV,W,hW,hDU,hDV,hDW,hu,hv⟩
+
+lemma rank_three_flat_hadamard_incidence_family
+    (L : Submodule ℂ (Fin 4 × Fin 4 → ℂ))
+    (hL : Module.finrank ℂ L=3)
+    (hd : Module.finrank ℂ (L.map matrixDiagonalCoordinates)=3)
+    (hs : ∀ V ∈ L, ∀ i j : Fin 4, V (i,j)=V (j,i))
+    (hp : ∀ V ∈ L, Matrix.permanent (Matrix.of fun (i j : Fin 4) => 1+V (i,j))=24) :
+    ∃ (σ : Equiv.Perm (Fin 4)) (k l : ℂ) (BA BB BW PA PB PW : Fin 3 → ℂ),
+      (∑ i : Fin 3, BA i)=0 ∧ (∑ i : Fin 3, BB i)=0 ∧
+      ∀ s t u : ℂ,
+        hadamardReconstruct (s • BA+t • BB+u • BW) (s • PA+t • PB+u • PW)
+          ![s,t,k*s+l*t+u] ∈ entryPermuteSubmodule σ L ∧
+        Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+          1+hadamardReconstruct (s • BA+t • BB+u • BW) (s • PA+t • PB+u • PW)
+            ![s,t,k*s+l*t+u] (i,j))=24 := by
+  obtain ⟨σ,k,l,A,hA,B,hB,W,hW,hDA,hDB,hDW,htrA,htrB⟩ :=
+    rank_three_flat_has_hadamard_incidence_basis L hL hd hs hp
+  let L' := entryPermuteSubmodule σ L
+  have hs' := entryPermuteSubmodule_symmetric σ L hs
+  have hp' := entryPermuteSubmodule_permanent σ L hp
+  refine ⟨σ,k,l,hadamardB A,hadamardB B,hadamardB W,
+    hadamardP A,hadamardP B,hadamardP W,?_,?_,?_⟩
+  · exact (hadamard_trace_coordinates A (level_flat_entry_sum_zero L' hp' A hA)).trans htrA
+  · exact (hadamard_trace_coordinates B (level_flat_entry_sum_zero L' hp' B hB)).trans htrB
+  · intro s t u
+    let T := s • A+t • B+u • W
+    have hT : T ∈ L' := L'.add_mem (L'.add_mem (L'.smul_mem s hA) (L'.smul_mem t hB))
+      (L'.smul_mem u hW)
+    have hD : hadamardD T=![s,t,k*s+l*t+u] := by
+      simp only [T,map_add,map_smul,hDA,hDB,hDW]
+      funext i
+      fin_cases i <;> simp <;> ring
+    have hrec := hadamard_reconstruction T (hs' T hT) (level_flat_entry_sum_zero L' hp' T hT)
+    rw [hD] at hrec
+    simp only [T,map_add,map_smul] at hrec
+    constructor
+    · rw [hrec]
+      exact hT
+    · rw [hrec]
+      exact hp' T hT
+
+def incidentGenerator1 (_x0 _x1 _x2 x3 _x4 x5 _x6 x7 _x8 x9 : ℂ) : ℂ :=
+  4*x3*x9 - 4*x3 + 4*x5*x7 - 4*x5 - 4*x7 - 4*x9 - 4
+
+def incidentGenerator2 (x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 : ℂ) : ℂ :=
+  -4*x0*x3 - 8*x0*x7 - 4*x0*x9 - 8*x0 - 4*x1*x3 + 4*x1*x5 - 4*x1*x7 + 4*x1*x9 + 4*x2*x9 - 4*x2 +
+    4*x3*x8 - 8*x3 + 4*x4*x7 - 4*x4 + 4*x5*x6 - 4*x5 - 4*x6 - 4*x7 - 4*x8 - 8
+
+def incidentGenerator3 (x0 x1 x2 _x3 x4 _x5 x6 _x7 x8 _x9 : ℂ) : ℂ :=
+  -2*x0^2 - 2*x0*x1 - 4*x0*x2 - 8*x0*x6 - 4*x0*x8 - 2*x0 - 2*x1^2 - 4*x1*x2 + 4*x1*x4 - 4*x1*x6 +
+    4*x1*x8 - 2*x1 + 4*x2*x8 - 8*x2 + 4*x4*x6 - 4*x4 - 4*x6 - 2
+
+def incidentGenerator4 (_x0 _x1 _x2 x3 _x4 x5 _x6 x7 _x8 x9 : ℂ) : ℂ :=
+  -2*x3^2*x5 - 2*x3*x5^2 - 2*x3*x5*x7 - 2*x3*x5*x9 - 2*x3*x5 - 2*x3*x7*x9 + 2*x3*x7 - 2*x5*x7*x9 +
+    2*x5*x9 - 2*x7^2*x9 - 2*x7*x9^2 - 2*x7*x9
+
+def incidentGenerator5 (x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 : ℂ) : ℂ :=
+  -x0*x3^2 - 2*x0*x3*x7 - 2*x0*x3 + 2*x0*x7*x9 + x0*x9^2 + 2*x0*x9 - x1*x3^2 - 2*x1*x3*x7 - 2*x1*x3
+    + x1*x5^2 + 2*x1*x5*x9 + 2*x1*x5 - x1*x7^2 - 2*x1*x7 + x1*x9^2 + 2*x1*x9 - 4*x2*x3*x5 -
+    2*x2*x5^2 - 2*x2*x5*x7 - 2*x2*x5*x9 - 2*x2*x5 - 2*x2*x7*x9 + 2*x2*x7 - 2*x3^2*x4 - 4*x3*x4*x5 -
+    2*x3*x4*x7 - 2*x3*x4*x9 - 2*x3*x4 - 2*x3*x5*x6 - 2*x3*x5*x8 + 2*x3*x5 - 2*x3*x6*x9 + 2*x3*x6 -
+    2*x3*x7*x8 - 2*x3*x7 - 2*x4*x7*x9 + 2*x4*x9 + x5^2 - 2*x5*x6*x9 - 2*x5*x7*x8 + 2*x5*x8 + 2*x5 -
+    4*x6*x7*x9 - 2*x6*x9^2 - 2*x6*x9 - 2*x7^2*x8 - x7^2 - 4*x7*x8*x9 - 2*x7*x8 - 2*x7
+
+def incidentGenerator6 (x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 : ℂ) : ℂ :=
+  -2*x0^2*x3 - 2*x0*x1*x3 + 2*x0*x1*x5 - 2*x0*x1 - 2*x0*x2*x3 - 2*x0*x2*x7 - 2*x0*x2 - 2*x0*x3*x6 -
+    4*x0*x3 - 2*x0*x5 + 2*x0*x6*x9 + 2*x0*x7*x8 - 4*x0*x7 + 2*x0*x8*x9 + 2*x0*x8 - 2*x0*x9 - 2*x0 -
+    2*x1^2 - 2*x1*x2*x3 - 2*x1*x2*x7 - 2*x1*x2 - 2*x1*x3*x6 + 2*x1*x4*x5 + 2*x1*x4*x9 + 2*x1*x4 +
+    2*x1*x5*x8 - 2*x1*x6*x7 - 2*x1*x6 - 2*x1*x7 + 2*x1*x8*x9 + 2*x1*x8 + 2*x1*x9 - 2*x1 - 2*x2^2*x5
+    - 4*x2*x3*x4 - 4*x2*x4*x5 - 2*x2*x4*x7 - 2*x2*x4*x9 - 2*x2*x4 - 2*x2*x5*x6 - 2*x2*x5*x8 +
+    2*x2*x5 - 2*x2*x6*x9 + 2*x2*x6 - 2*x2*x7*x8 - 2*x2*x7 - 2*x3*x4^2 - 2*x3*x4*x6 - 2*x3*x4*x8 +
+    2*x3*x4 - 2*x3*x6*x8 - 2*x3*x6 + 2*x4*x5 - 2*x4*x6*x9 - 2*x4*x7*x8 + 2*x4*x8 + 2*x4 - 2*x5*x6*x8
+    - 2*x6^2*x9 - 4*x6*x7*x8 - 2*x6*x7 - 4*x6*x8*x9 - 2*x6*x8 - 2*x6 - 2*x7*x8^2 - 2*x7
+
+def incidentGenerator7 (x0 x1 x2 _x3 x4 _x5 x6 _x7 x8 _x9 : ℂ) : ℂ :=
+  -x0^2*x1 - 2*x0^2*x2 - x0^2 - x0*x1^2 - 2*x0*x1*x2 + 2*x0*x1*x4 - 2*x0*x1 - x0*x2^2 - 2*x0*x2*x6 -
+    4*x0*x2 - 2*x0*x4 + 2*x0*x6*x8 - 4*x0*x6 + x0*x8^2 - 2*x0*x8 - x0 - x1^2 - x1*x2^2 - 2*x1*x2*x6
+    + x1*x4^2 + 2*x1*x4*x8 - x1*x6^2 - 2*x1*x6 + x1*x8^2 + 2*x1*x8 - x1 - 2*x2^2*x4 - 2*x2*x4^2 -
+    2*x2*x4*x6 - 2*x2*x4*x8 + 2*x2*x4 - 2*x2*x6*x8 - 2*x2*x6 + x4^2 - 2*x4*x6*x8 - 2*x6^2*x8 - x6^2
+    - 2*x6*x8^2 - 2*x6
+
+def incidentGenerator8 (_x0 _x1 _x2 x3 _x4 x5 _x6 x7 _x8 x9 : ℂ) : ℂ :=
+  x3^2*x9^2 - 2*x3^2*x9 + x3^2 + 2*x3*x5*x7*x9 - 2*x3*x5*x7 - 2*x3*x5*x9 + 2*x3*x5 - 2*x3*x7*x9 +
+    2*x3*x7 - 2*x3*x9^2 + 2*x3 + x5^2*x7^2 - 2*x5^2*x7 + x5^2 - 2*x5*x7^2 - 2*x5*x7*x9 + 2*x5*x9 +
+    2*x5 + x7^2 + 2*x7*x9 + 2*x7 + x9^2 + 2*x9 + 1
+
+def incidentGenerator9 (x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 : ℂ) : ℂ :=
+  -2*x0*x3^2*x5 - 2*x0*x3*x5^2 - 2*x0*x3*x5*x7 - 2*x0*x3*x5*x9 - 2*x0*x3*x5 - 2*x0*x3*x7 -
+    2*x1*x3*x7 + 2*x1*x5*x9 + 2*x2*x3*x9^2 - 4*x2*x3*x9 + 2*x2*x3 + 2*x2*x5*x7*x9 - 2*x2*x5*x7 -
+    2*x2*x5*x9 + 2*x2*x5 - 2*x2*x7*x9 + 2*x2*x7 - 2*x2*x9^2 + 2*x2 + 2*x3^2*x8*x9 - 2*x3^2*x8 +
+    2*x3*x4*x7*x9 - 2*x3*x4*x7 - 2*x3*x4*x9 + 2*x3*x4 + 2*x3*x5*x6*x9 - 2*x3*x5*x6 + 2*x3*x5*x7*x8 -
+    2*x3*x5*x8 - 2*x3*x6*x9 + 2*x3*x6 - 2*x3*x7*x8 - 2*x3*x7*x9 - 2*x3*x7 - 4*x3*x8*x9 +
+    2*x4*x5*x7^2 - 4*x4*x5*x7 + 2*x4*x5 - 2*x4*x7^2 - 2*x4*x7*x9 + 2*x4*x9 + 2*x4 + 2*x5^2*x6*x7 -
+    2*x5^2*x6 - 4*x5*x6*x7 - 2*x5*x6*x9 - 2*x5*x7*x8 - 2*x5*x7*x9 + 2*x5*x8 + 2*x6*x7 + 2*x6*x9 +
+    2*x6 - 2*x7^2*x9 + 2*x7*x8 - 2*x7*x9^2 - 2*x7*x9 + 2*x8*x9 + 2*x8
+
+def incidentGenerator10 (x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 : ℂ) : ℂ :=
+  -x0^2*x3^2 - x0*x1*x3^2 + x0*x1*x5^2 - x0*x1 - 4*x0*x2*x3*x5 - 2*x0*x2*x5^2 - 2*x0*x2*x5*x7 -
+    2*x0*x2*x5*x9 - 2*x0*x2*x5 - 2*x0*x2*x7 - 2*x0*x3^2*x4 - 4*x0*x3*x4*x5 - 2*x0*x3*x4*x7 -
+    2*x0*x3*x4*x9 - 2*x0*x3*x4 - 2*x0*x3*x5*x6 - 2*x0*x3*x5*x8 + 2*x0*x3*x5 - 2*x0*x3*x6 +
+    2*x0*x3*x7 + 2*x0*x3*x9 + 2*x0*x3 + x0*x5^2 + 2*x0*x5*x7 + 2*x0*x5*x9 + 2*x0*x5 + 2*x0*x7*x9 +
+    2*x0*x7 + x0*x9^2 + 2*x0*x9 + x0 - x1^2 - 2*x1*x2*x7 - 2*x1*x3*x6 + 2*x1*x4*x9 + 2*x1*x5*x8 -
+    x1*x7^2 + x1*x9^2 - x1 + x2^2*x9^2 - 2*x2^2*x9 + x2^2 + 4*x2*x3*x8*x9 - 4*x2*x3*x8 +
+    2*x2*x4*x7*x9 - 2*x2*x4*x7 - 2*x2*x4*x9 + 2*x2*x4 + 2*x2*x5*x6*x9 - 2*x2*x5*x6 + 2*x2*x5*x7*x8 -
+    2*x2*x5*x8 - 2*x2*x6*x9 + 2*x2*x6 - 2*x2*x7*x8 - 2*x2*x7*x9 - 2*x2*x7 - 4*x2*x8*x9 + x3^2*x8^2 +
+    2*x3*x4*x6*x9 - 2*x3*x4*x6 + 2*x3*x4*x7*x8 - 2*x3*x4*x8 + 2*x3*x5*x6*x8 - 2*x3*x6*x8 -
+    2*x3*x6*x9 - 2*x3*x6 - 2*x3*x7*x8 - 2*x3*x8^2 + x4^2*x7^2 - 2*x4^2*x7 + x4^2 + 4*x4*x5*x6*x7 -
+    4*x4*x5*x6 - 4*x4*x6*x7 - 2*x4*x6*x9 - 2*x4*x7*x8 - 2*x4*x7*x9 + 2*x4*x8 + x5^2*x6^2 - 2*x5*x6^2
+    - 2*x5*x6*x8 - 2*x5*x6*x9 - 2*x5*x7*x8 + x6^2 - 4*x6*x7*x9 + 2*x6*x8 - 2*x6*x9^2 - 2*x6*x9 -
+    2*x7^2*x8 - x7^2 - 4*x7*x8*x9 - 2*x7*x8 + x8^2
+
+def incidentGenerator11 (x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 : ℂ) : ℂ :=
+  -2*x0^2*x2*x3 - 2*x0*x1*x2*x3 + 2*x0*x1*x4*x5 - 2*x0*x2^2*x5 - 4*x0*x2*x3*x4 - 4*x0*x2*x4*x5 -
+    2*x0*x2*x4*x7 - 2*x0*x2*x4*x9 - 2*x0*x2*x4 - 2*x0*x2*x5*x6 - 2*x0*x2*x5*x8 + 2*x0*x2*x5 -
+    2*x0*x2*x6 + 2*x0*x2*x7 + 2*x0*x2*x9 + 2*x0*x2 - 2*x0*x3*x4^2 - 2*x0*x3*x4*x6 - 2*x0*x3*x4*x8 +
+    2*x0*x3*x4 + 2*x0*x3*x6 + 2*x0*x3*x8 + 2*x0*x4*x5 + 2*x0*x4*x7 + 2*x0*x4*x9 + 2*x0*x4 +
+    2*x0*x5*x6 + 2*x0*x5*x8 + 2*x0*x6*x9 + 2*x0*x6 + 2*x0*x7*x8 + 2*x0*x8*x9 + 2*x0*x8 - 2*x1*x2*x6
+    + 2*x1*x4*x8 - 2*x1*x6*x7 + 2*x1*x8*x9 + 2*x2^2*x8*x9 - 2*x2^2*x8 + 2*x2*x3*x8^2 + 2*x2*x4*x6*x9
+    - 2*x2*x4*x6 + 2*x2*x4*x7*x8 - 2*x2*x4*x8 + 2*x2*x5*x6*x8 - 2*x2*x6*x8 - 2*x2*x6*x9 - 2*x2*x6 -
+    2*x2*x7*x8 - 2*x2*x8^2 + 2*x3*x4*x6*x8 - 2*x3*x6*x8 + 2*x4^2*x6*x7 - 2*x4^2*x6 + 2*x4*x5*x6^2 -
+    2*x4*x6^2 - 2*x4*x6*x8 - 2*x4*x6*x9 - 2*x4*x7*x8 - 2*x5*x6*x8 - 2*x6^2*x9 - 4*x6*x7*x8 - 2*x6*x7
+    - 4*x6*x8*x9 - 2*x6*x8 - 2*x7*x8^2
+
+def incidentGenerator12 (x0 x1 x2 _x3 x4 _x5 x6 _x7 x8 _x9 : ℂ) : ℂ :=
+  -x0^2*x1 - x0^2*x2^2 - x0*x1^2 - x0*x1*x2^2 + x0*x1*x4^2 - x0*x1 - 2*x0*x2^2*x4 - 2*x0*x2*x4^2 -
+    2*x0*x2*x4*x6 - 2*x0*x2*x4*x8 + 2*x0*x2*x4 + 2*x0*x2*x6 + 2*x0*x2*x8 + x0*x4^2 + 2*x0*x4*x6 +
+    2*x0*x4*x8 + 2*x0*x6*x8 + x0*x8^2 - x1*x6^2 + x1*x8^2 + x2^2*x8^2 + 2*x2*x4*x6*x8 - 2*x2*x6*x8 +
+    x4^2*x6^2 - 2*x4*x6*x8 - 2*x6^2*x8 - x6^2 - 2*x6*x8^2
+
+def incidentH (x3 x5 x7 x9 : ℂ) : Fin 4 × Fin 4 → ℂ :=
+  fun p => (!![0,1,x3,x5; 1,0,x7,x9; x3,x7,0,-1-x3-x5-x7-x9;
+    x5,x9,-1-x3-x5-x7-x9,0] : Matrix (Fin 4) (Fin 4) ℂ) p.1 p.2
+
+def incidentV (x0 x1 x2 x4 x6 x8 : ℂ) : Fin 4 × Fin 4 → ℂ :=
+  fun p => (!![1,0,x2,x4; 0,x0,x6,x8; x2,x6,x1,-x2-x4-x6-x8;
+    x4,x8,-x2-x4-x6-x8,-1-x0-x1] : Matrix (Fin 4) (Fin 4) ℂ) p.1 p.2
+
+set_option maxHeartbeats 8000000 in
+lemma permanent_incident_chart (x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 a z : ℂ) :
+    Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+      1+a*incidentH x3 x5 x7 x9 (i,j)+z*incidentV x0 x1 x2 x4 x6 x8 (i,j)) =
+    24 + incidentGenerator1 x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 * a^2 +
+      incidentGenerator2 x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 * a * z +
+      incidentGenerator3 x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 * z^2 +
+      incidentGenerator4 x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 * a^3 +
+      incidentGenerator5 x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 * a^2 * z +
+      incidentGenerator6 x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 * a * z^2 +
+      incidentGenerator7 x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 * z^3 +
+      incidentGenerator8 x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 * a^4 +
+      incidentGenerator9 x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 * a^3 * z +
+      incidentGenerator10 x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 * a^2 * z^2 +
+      incidentGenerator11 x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 * a * z^3 +
+      incidentGenerator12 x0 x1 x2 x3 x4 x5 x6 x7 x8 x9 * z^4 := by
+  rw [permanent_four]
+  simp [incidentH,incidentV]
+  dsimp [incidentGenerator1,incidentGenerator2,incidentGenerator3,incidentGenerator4,incidentGenerator5,incidentGenerator6,incidentGenerator7,incidentGenerator8,incidentGenerator9,incidentGenerator10,incidentGenerator11,incidentGenerator12]
+  ring
+
+lemma incident_bivariate_coefficients (g1 g2 g3 g4 g5 g6 g7 g8 g9 g10 g11 g12 : ℂ)
+    (hp : ∀ a z : ℂ,
+      g1*a^2+g2*a*z+g3*z^2+g4*a^3+g5*a^2*z+g6*a*z^2+g7*z^3+
+        g8*a^4+g9*a^3*z+g10*a^2*z^2+g11*a*z^3+g12*z^4=0) :
+    g1=0 ∧ g2=0 ∧ g3=0 ∧ g4=0 ∧ g5=0 ∧ g6=0 ∧ g7=0 ∧
+      g8=0 ∧ g9=0 ∧ g10=0 ∧ g11=0 ∧ g12=0 := by
+  have hd (z : ℂ) : g1+g2*z+g3*z^2=0 ∧
+      g4+g5*z+g6*z^2+g7*z^3=0 ∧
+      g8+g9*z+g10*z^2+g11*z^3+g12*z^4=0 := by
+    have h := quartic_all_coefficients 0 (g1+g2*z+g3*z^2)
+      (g4+g5*z+g6*z^2+g7*z^3) (g8+g9*z+g10*z^2+g11*z^3+g12*z^4) (by
+        intro t
+        have ht := hp t (t*z)
+        linear_combination ht)
+    exact h.2
+  have h1 : g1=0 := by simpa using (hd 0).1
+  have h4 : g4=0 := by simpa using (hd 0).2.1
+  have h8 : g8=0 := by simpa using (hd 0).2.2
+  obtain ⟨h2,h3,_,_⟩ := quartic_all_coefficients g2 g3 0 0 (by
+    intro z
+    linear_combination (hd z).1-h1)
+  obtain ⟨h5,h6,h7,_⟩ := quartic_all_coefficients g5 g6 g7 0 (by
+    intro z
+    linear_combination (hd z).2.1-h4)
+  obtain ⟨h9,h10,h11,h12⟩ := quartic_all_coefficients g9 g10 g11 g12 (by
+    intro z
+    linear_combination (hd z).2.2-h8)
+  exact ⟨h1,h2,h3,h4,h5,h6,h7,h8,h9,h10,h11,h12⟩
+
+set_option maxHeartbeats 4000000 in
+lemma incident_level_tangent (T : Fin 4 × Fin 4 → ℂ)
+    (hs : ∀ i j : Fin 4, T (i,j)=T (j,i))
+    (hp : ∀ z : ℂ, Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+      1+z*T (i,j))=24) :
+    T (0,0)+2*T (0,1)+2*T (0,2)+2*T (0,3)+T (1,1)+
+      2*T (1,2)+2*T (1,3)+T (2,2)+2*T (2,3)+T (3,3)=0 := by
+  have h1 := hp 1
+  have h2 := hp (-1)
+  have h3 := hp 2
+  have h4 := hp (-2)
+  rw [permanent_four] at h1 h2 h3 h4
+  simp only [Matrix.of_apply,hs 1 0,hs 2 0,hs 3 0,hs 2 1,hs 3 1,hs 3 2] at h1 h2 h3 h4
+  linear_combination (1/9:ℂ)*h1-(1/9:ℂ)*h2-(1/72:ℂ)*h3+(1/72:ℂ)*h4
+
+lemma normalized_incident_reconstruction (H V : Fin 4 × Fin 4 → ℂ)
+    (hHs : ∀ i j : Fin 4, H (i,j)=H (j,i))
+    (hVs : ∀ i j : Fin 4, V (i,j)=V (j,i))
+    (hHz : ∀ i : Fin 4, H (i,i)=0)
+    (hVtrace : (∑ i : Fin 4, V (i,i))=0)
+    (hV00 : V (0,0)=1) (hH01 : H (0,1)=1) (hV01 : V (0,1)=0)
+    (hp : ∀ a z : ℂ, Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+      1+a*H (i,j)+z*V (i,j))=24) :
+    H (2,3)=-1-H (0,2)-H (0,3)-H (1,2)-H (1,3) ∧
+    V (2,3)=-V (0,2)-V (0,3)-V (1,2)-V (1,3) ∧
+    V (3,3)=-1-V (1,1)-V (2,2) := by
+  have hHt := incident_level_tangent H hHs (by intro z; simpa using hp z 0)
+  have hVt := incident_level_tangent V hVs (by intro z; simpa using hp 0 z)
+  have htr : V (0,0)+V (1,1)+V (2,2)+V (3,3)=0 := by
+    simpa [Fin.sum_univ_succ,add_assoc] using hVtrace
+  simp only [hHz,hH01] at hHt
+  rw [hV01] at hVt
+  refine ⟨?_,?_,?_⟩
+  · linear_combination hHt/2
+  · linear_combination hVt/2-htr/2
+  · rw [hV00] at htr
+    linear_combination htr
+
+set_option maxHeartbeats 2000000 in
+lemma normalized_incident_generators_zero (H V : Fin 4 × Fin 4 → ℂ)
+    (hHs : ∀ i j : Fin 4, H (i,j)=H (j,i))
+    (hVs : ∀ i j : Fin 4, V (i,j)=V (j,i))
+    (hHz : ∀ i : Fin 4, H (i,i)=0)
+    (hVtrace : (∑ i : Fin 4, V (i,i))=0)
+    (hV00 : V (0,0)=1) (hH01 : H (0,1)=1) (hV01 : V (0,1)=0)
+    (hp : ∀ a z : ℂ, Matrix.permanent (Matrix.of fun (i j : Fin 4) =>
+      1+a*H (i,j)+z*V (i,j))=24) :
+    incidentGenerator1 (V (1,1)) (V (2,2)) (V (0,2)) (H (0,2)) (V (0,3)) (H (0,3))
+      (V (1,2)) (H (1,2)) (V (1,3)) (H (1,3))=0 ∧
+    incidentGenerator2 (V (1,1)) (V (2,2)) (V (0,2)) (H (0,2)) (V (0,3)) (H (0,3))
+      (V (1,2)) (H (1,2)) (V (1,3)) (H (1,3))=0 ∧
+    incidentGenerator3 (V (1,1)) (V (2,2)) (V (0,2)) (H (0,2)) (V (0,3)) (H (0,3))
+      (V (1,2)) (H (1,2)) (V (1,3)) (H (1,3))=0 ∧
+    incidentGenerator4 (V (1,1)) (V (2,2)) (V (0,2)) (H (0,2)) (V (0,3)) (H (0,3))
+      (V (1,2)) (H (1,2)) (V (1,3)) (H (1,3))=0 ∧
+    incidentGenerator5 (V (1,1)) (V (2,2)) (V (0,2)) (H (0,2)) (V (0,3)) (H (0,3))
+      (V (1,2)) (H (1,2)) (V (1,3)) (H (1,3))=0 ∧
+    incidentGenerator6 (V (1,1)) (V (2,2)) (V (0,2)) (H (0,2)) (V (0,3)) (H (0,3))
+      (V (1,2)) (H (1,2)) (V (1,3)) (H (1,3))=0 ∧
+    incidentGenerator7 (V (1,1)) (V (2,2)) (V (0,2)) (H (0,2)) (V (0,3)) (H (0,3))
+      (V (1,2)) (H (1,2)) (V (1,3)) (H (1,3))=0 ∧
+    incidentGenerator8 (V (1,1)) (V (2,2)) (V (0,2)) (H (0,2)) (V (0,3)) (H (0,3))
+      (V (1,2)) (H (1,2)) (V (1,3)) (H (1,3))=0 ∧
+    incidentGenerator9 (V (1,1)) (V (2,2)) (V (0,2)) (H (0,2)) (V (0,3)) (H (0,3))
+      (V (1,2)) (H (1,2)) (V (1,3)) (H (1,3))=0 ∧
+    incidentGenerator10 (V (1,1)) (V (2,2)) (V (0,2)) (H (0,2)) (V (0,3)) (H (0,3))
+      (V (1,2)) (H (1,2)) (V (1,3)) (H (1,3))=0 ∧
+    incidentGenerator11 (V (1,1)) (V (2,2)) (V (0,2)) (H (0,2)) (V (0,3)) (H (0,3))
+      (V (1,2)) (H (1,2)) (V (1,3)) (H (1,3))=0 ∧
+    incidentGenerator12 (V (1,1)) (V (2,2)) (V (0,2)) (H (0,2)) (V (0,3)) (H (0,3))
+      (V (1,2)) (H (1,2)) (V (1,3)) (H (1,3))=0 := by
+  obtain ⟨hH23,hV23,hV33⟩ := normalized_incident_reconstruction
+    H V hHs hVs hHz hVtrace hV00 hH01 hV01 hp
+  have hH : H=incidentH (H (0,2)) (H (0,3)) (H (1,2)) (H (1,3)) := by
+    funext p
+    rcases p with ⟨i,j⟩
+    fin_cases i <;> fin_cases j <;>
+      simp [incidentH,hHz,hH01,hH23,hHs 1 0,hHs 2 0,hHs 3 0,hHs 2 1,hHs 3 1,hHs 3 2]
+  have hV : V=incidentV (V (1,1)) (V (2,2)) (V (0,2)) (V (0,3))
+      (V (1,2)) (V (1,3)) := by
+    funext p
+    rcases p with ⟨i,j⟩
+    fin_cases i <;> fin_cases j <;>
+      simp [incidentV,hV00,hV01,hV23,hV33,hVs 1 0,hVs 2 0,hVs 3 0,hVs 2 1,hVs 3 1,hVs 3 2]
+  apply incident_bivariate_coefficients
+  intro a z
+  have h := hp a z
+  rw [hH,hV,permanent_incident_chart] at h
+  linear_combination h
+
 end PEqualNP.Outside.L_gct_231

@@ -1,0 +1,8 @@
+{
+  "reviewer": "status_review",
+  "verdict": "PASS",
+  "utc": "2026-11-25T12:51:29.355908+00:00",
+  "hash_size_mismatches": 0,
+  "sensitive_values_detected": 0,
+  "scope": "Bounded inconclusive diagnostics, exact identities and capability validation only; exit0 termination caveat explicitly retained."
+}

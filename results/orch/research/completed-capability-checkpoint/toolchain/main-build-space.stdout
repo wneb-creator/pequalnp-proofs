@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "scope": "Temporary main-build disk reserve: authentic private artifacts returned to existing sealed holder, every full SHA/mode/mtime/seal verified before and after; no checker/runtime bytes changed.",
+  "before": {
+    "ok": true,
+    "count": 8640,
+    "bytes": 2879900064,
+    "pid": 4303
+  },
+  "after": {
+    "ok": true,
+    "count": 8677,
+    "bytes": 2947357632,
+    "pid": 4303
+  },
+  "disk_free_bytes": 105451520,
+  "plan_sha256": "a40a2e14537478e107b9b34a714996d3ecba05163b6d0963f84afa67f669d751"
+}
