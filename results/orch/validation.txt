@@ -1,0 +1,8 @@
+L-meta-4675 PARTIAL RESULTS ONLY
+Exact target theorem is not proved. No PR or checker acceptance claimed.
+Checked sources: results/orch/lemmas/structural-combinatorics.lean and structural-linear.lean
+Command: lake env lean ../results/orch/lemmas/<file>
+Both runs exit 0; stdout and stderr empty.
+Independent source reviewer: preflight_review; valid partials, no forbidden constructs.
+Sub-agents: preflight_review, structural_proof, library_route, counterexample, algebraic_route, semantic_support
+TIMING total=9.4 subagents=6
