@@ -1,0 +1,45 @@
+{
+  "scope": "Full dirty2 target phase/delta audit only; no target SAT or UNSAT result",
+  "old_clauses_byte_identical": 8859647,
+  "new_clauses": 628,
+  "new_variables": 189,
+  "target_clauses": 8860275,
+  "target_variables": 164672,
+  "target_sha256": "bc3c04d5e26d21bf8b62770e405115f34bff91687d9d5f6b64e710e33cf6a347",
+  "phase_failures": [
+    {
+      "index": 8752281,
+      "clause": [
+        154919
+      ]
+    },
+    {
+      "index": 8752289,
+      "clause": [
+        154927
+      ]
+    },
+    {
+      "index": 8752315,
+      "clause": [
+        154953
+      ]
+    },
+    {
+      "index": 8860275,
+      "clause": [
+        164672
+      ]
+    }
+  ],
+  "missing_positive_rows": [
+    16385,
+    1048580,
+    2097408
+  ],
+  "actual_warm_dirty_AND_wires": [
+    75
+  ],
+  "all_old_mapping_fields_preserved": true,
+  "unexpected_failures": 0
+}

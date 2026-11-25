@@ -1,0 +1,47 @@
+{
+  "manifest_sha256": "5fd8db883f0c3d21c77f60863342f6675a29d4f627e09ff65b5e1729563a570a",
+  "files": 408,
+  "bytes": 100355961,
+  "decoded_bytes": 264745053,
+  "hash_mismatches": [],
+  "json_failures": [],
+  "json_count": 184,
+  "sensitive_pattern_paths": [],
+  "oversize": [],
+  "local_manifest_checks": 169,
+  "local_manifest_failures": [],
+  "unexpected_paths": [],
+  "symlinks": [],
+  "largest": [
+    [
+      5486064,
+      "results/orch/andcount2056-successors/active-sink-control16-padded.cnf.gz"
+    ],
+    [
+      5484918,
+      "results/orch/andcount2056-successors/active-anchor-control16-padded.cnf.gz"
+    ],
+    [
+      5484917,
+      "results/orch/andcount2056-successors/active-anchor-native16-padded.cnf.gz"
+    ],
+    [
+      3713285,
+      "results/orch/andcount2056-successors/active-sink-control13-forced-swap.cnf.gz"
+    ],
+    [
+      3713269,
+      "results/orch/andcount2056-successors/active-sink-control13-free1.cnf.gz"
+    ],
+    [
+      3713268,
+      "results/orch/andcount2056-successors/active-sink-native13-free1.cnf.gz"
+    ]
+  ],
+  "final_manifest_sha256": "cb8de205254698d6508e394ce3a6d6820ddad34a70e20b7355106a57dd38e2e8",
+  "final_files": 420,
+  "final_bytes": 100399950,
+  "final_hash_mismatches": [],
+  "appended_handoff_review": "All12 files approved; compiled64-gate control only at31c5d93c, full successful logs and honest infrastructure-only no-process first launch",
+  "verdict": "APPROVED exact420 paths for branch-only preservation; no target proof/checker/PR claim"
+}

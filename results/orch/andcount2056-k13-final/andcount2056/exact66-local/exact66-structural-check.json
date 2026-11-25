@@ -1,0 +1,30 @@
+{
+  "records": "exact66-single-record.jsonl",
+  "distinct_circuits": 1,
+  "best_gate_count": 66,
+  "best_nonread1_gate_count": 66,
+  "at_most63": [],
+  "circuits": [
+    {
+      "line": 1,
+      "kind": null,
+      "identity": "3061e07525ef30b36c83e6fcea25b6621276fe02c67d39ce0fdc682f3afecd83",
+      "gates": 66,
+      "ANDs": 14,
+      "boundary_errors": 0,
+      "missing_joint_Read1_edges": [
+        0,
+        4,
+        12,
+        36,
+        37,
+        38,
+        39
+      ],
+      "dirty_ANDs": [
+        6
+      ],
+      "shared_dirty_ANDs_direct_readers": []
+    }
+  ]
+}

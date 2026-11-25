@@ -1,0 +1,19 @@
+{
+  "raw_cnf_omitted": true,
+  "bytes": 26632011,
+  "sha256": "c8db4692682c49fd6c5d84f63fba1320b4526ce472f4c73a14c66279f5554f13",
+  "working_directory": "this archive directory",
+  "argv": [
+    "python3",
+    "andcount_budget2056.py",
+    "--ands",
+    "16",
+    "--ordinary-limit",
+    "63",
+    "--warm-model",
+    "budget16-nested-run.warm.json",
+    "--prefix",
+    "regenerated/original",
+    "--emit-only"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "scope": "Correct69-gate positive-control preparation, not a<=63candidate",
+  "size": 69,
+  "ANDs": 16,
+  "dirty_AND_wires": [
+    74,
+    76
+  ],
+  "AND_singleton_acceptances": [],
+  "first_gate": [
+    1,
+    0,
+    1
+  ],
+  "old_normalization_violations": [],
+  "full_boundary_mismatches": 0,
+  "gates_sha256": "d198b4fd3f7fc62c59d3123f725d2aec6f17626ce4a16cf51bee020d67ced1b1"
+}

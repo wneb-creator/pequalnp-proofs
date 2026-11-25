@@ -1,0 +1,11 @@
+{
+  "status": "native worker paused with SIGSTOP; not terminated",
+  "utc": "2026-11-25T18:23:55.564080+00:00",
+  "solver_pid": 34630,
+  "wrapper_pid": 34624,
+  "reason": "parent publication block; awaiting final decision",
+  "stdout_bytes": 8216,
+  "stderr_bytes": 0,
+  "source_unchanged": true,
+  "resume_permitted_only_on_parent_instruction": true
+}

@@ -1,0 +1,20 @@
+{
+  "scope": "Fixed correct67-gate one-dirty control rejected; not a global UNSAT or circuit lower-bound result",
+  "native_status": "UNSAT fixed control",
+  "native_exit": 20,
+  "clauses": 9834084,
+  "variables": 175924,
+  "cnf_sha256": "4b85faa6b6a6d5c731516c7c0d2c8673f0c130351b47f676d0d024f00b3d4649",
+  "fixed_gates": 67,
+  "warm_boundary_errors": 0,
+  "actual_warm_dirty_AND_wires": [
+    75
+  ],
+  "only_phase_failure": {
+    "index": 9834084,
+    "clause": [
+      175924
+    ]
+  },
+  "all_other_clauses_pass": true
+}

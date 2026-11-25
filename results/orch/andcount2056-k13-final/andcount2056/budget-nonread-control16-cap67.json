@@ -1,0 +1,54 @@
+{
+  "utc": "2026-11-25T18:52:55.347126+00:00",
+  "source_sha256": "4cd6d7789276a67250f6e01bd13df4eb13f738675008af7bf8fcf77959027085",
+  "and_bound": 16,
+  "rows": 756,
+  "variables": 314388,
+  "clauses": 1444029,
+  "fixed_star_prefix": 0,
+  "ordinary_limit": 67,
+  "positive_profile_normalization": "active nonzero; singleton direct edge",
+  "and_record_symmetry": "active prefix; output active; first left contains primary0",
+  "warm_model_path": "/tmp/oec/pequalnp-pilot-121/not-elimination/andbudget-nonread-control67-model.json",
+  "warm_model_sha256": "74c8e25457335babee4d68ead49b318fc31ed4b83b587057cfbcc8aef6310cfb",
+  "membership_threshold": 84,
+  "warm_budget_lhs": 84,
+  "fix_output": false,
+  "seconds_limit": 10,
+  "warm_boundary_errors": 0,
+  "warm_literal_missing_read1_edges": [
+    0,
+    1,
+    4
+  ],
+  "nonread1_cut": "some edge has no split primary memberships at any selected output AND; literal no-alias expansion",
+  "conversion_seconds": 6.401186548999249,
+  "scope": "Restricted AND-structure synthesis with independent operand-OR cost budget; not an exhaustive total-gate lower-bound model",
+  "Lean_verified": false,
+  "exit_code": 10,
+  "active_records": 15,
+  "selected_memberships": 83,
+  "unshared_cost_bound": 67,
+  "literal_size": 67,
+  "literal_missing_read1_edges": [
+    0,
+    1,
+    4
+  ],
+  "selected_nonread1_witnesses": [
+    0
+  ],
+  "optimized_missing_read1_edges": [
+    0,
+    1,
+    4
+  ],
+  "status": "SAT; complete boundary passed; Lean verification required",
+  "clauses_verified": 1444029,
+  "boundary_errors": 0,
+  "ordinary_size": 67,
+  "ordinary_ands": 15,
+  "ordinary_within63": false,
+  "elapsed_seconds": 13.077771427000698,
+  "max_rss_kb": 293888
+}

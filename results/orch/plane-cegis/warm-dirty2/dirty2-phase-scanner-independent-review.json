@@ -1,0 +1,19 @@
+{
+  "scope": "Independent source review and exhaustive local threshold fixtures; full CNF stream remains owned by status_review. No new solver or correctness claim.",
+  "scanner_sha256": "cfca3411ddc8d26e1afa48c6ba0dcf17fdeae73bb1cfd1c52287128080193294",
+  "encoder_sha256": "73bd56fbce94cc902f163a69da9f217d065a5ee3186d79a5b47a7fe6b50c5226",
+  "flag_truth_cases": 8,
+  "threshold_step_truth_cases": 16,
+  "threshold_sequences_lengths_0_to_8": 511,
+  "actual_near63_dirty_AND_wires": [
+    75
+  ],
+  "actual_near63_output_mismatch_rows": [
+    16385,
+    1048580,
+    2097408
+  ],
+  "mapping_preferred_dirty_flags_checked": true,
+  "expected_failed_final_cut_unit": true,
+  "review": "APPROVED: scanner evaluates all-false renamed phase; exactly positive-only clauses are failures; output-variable IDs classify output units; last threshold variable identifies final cut. Exact regenerated geometry and output-last assumptions match guarded encoder."
+}

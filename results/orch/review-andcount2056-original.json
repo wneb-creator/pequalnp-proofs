@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-25T19:16:39.323405+00:00",
+  "scope": "Completed original K16 preservation only; no target theorem or SAT/UNSAT conclusion",
+  "manifest_sha256": "3c1d95f1833a471ca8d0ecb4f042880306e66c673681960fa6db25a227c48ed2",
+  "files_including_manifest": 17,
+  "bytes": 720498,
+  "manifest_hashes_verified": true,
+  "all_json_parses": true,
+  "privacy_patterns_found": false,
+  "raw_cnf_identity_matches_scratch": true,
+  "complete_stdout_bytes": 20474,
+  "native_result": "UNKNOWN at configured3600-second real-time limit",
+  "model_file": "c UNKNOWN",
+  "historical_status_records": "Original launch/resume pending labels retained as history; final summary supersedes them",
+  "verdict": "APPROVED for preservation"
+}

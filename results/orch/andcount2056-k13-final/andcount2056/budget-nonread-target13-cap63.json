@@ -1,0 +1,27 @@
+{
+  "utc": "2026-11-25T18:53:11.729125+00:00",
+  "source_sha256": "4cd6d7789276a67250f6e01bd13df4eb13f738675008af7bf8fcf77959027085",
+  "and_bound": 13,
+  "rows": 756,
+  "variables": 216606,
+  "clauses": 1016018,
+  "fixed_star_prefix": 0,
+  "ordinary_limit": 63,
+  "positive_profile_normalization": "active nonzero; singleton direct edge",
+  "and_record_symmetry": "active prefix; output active; first left contains primary0",
+  "warm_model_path": "/tmp/oec/pequalnp-pilot-121/not-elimination/andbudget-nonread13-near63-model.json",
+  "warm_model_sha256": "0dffd4dcbcdac55fbbe642a878f696c51c4787e93527af16f0d6c2250afceffd",
+  "membership_threshold": 77,
+  "warm_budget_lhs": 77,
+  "fix_output": false,
+  "seconds_limit": 10,
+  "warm_boundary_errors": 1,
+  "warm_literal_missing_read1_edges": [
+    0
+  ],
+  "nonread1_cut": "some edge has no split primary memberships at any selected output AND; literal no-alias expansion",
+  "conversion_seconds": 4.921190746998036,
+  "scope": "Restricted AND-structure synthesis with independent operand-OR cost budget; not an exhaustive total-gate lower-bound model",
+  "Lean_verified": false,
+  "status": "CNF emitted; solver not run"
+}

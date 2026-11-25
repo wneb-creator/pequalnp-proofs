@@ -1,0 +1,1 @@
+Publication041 preserves the independently reviewed3231-line OneDirtyPlane2056 helper and its complete successful build records. Its singleton-false and normalization assumptions remain explicit; it is not the posted existence theorem. The ancestry-preserving same-origin push used an expected-old-SHA fence, and exact argv was recorded before execution.

@@ -1,0 +1,61 @@
+{
+  "scope": "Independent capped-count recursion compared to three-state recurrence on every wire and every incident pair; external diagnostic, not Lean proof",
+  "records": [
+    {
+      "path": "nested-control69-gates.json",
+      "sha256": "d198b4fd3f7fc62c59d3123f725d2aec6f17626ce4a16cf51bee020d67ced1b1",
+      "size": 69,
+      "first_gate": [
+        1,
+        0,
+        1
+      ],
+      "wire_edge_comparisons": 4940,
+      "missing_joint11_edges": [
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          1,
+          13
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          9,
+          17
+        ]
+      ],
+      "accepted_nonread1_edges": [
+        [
+          0,
+          13
+        ],
+        [
+          0,
+          14
+        ],
+        [
+          1,
+          13
+        ],
+        [
+          9,
+          13
+        ],
+        [
+          9,
+          17
+        ]
+      ],
+      "full_boundary_mismatches": []
+    }
+  ]
+}

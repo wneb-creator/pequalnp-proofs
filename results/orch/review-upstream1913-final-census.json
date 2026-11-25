@@ -1,0 +1,20 @@
+{
+  "utc": "2026-11-25T19:20:38.144418+00:00",
+  "manifest_sha256": "2a086bdce873194b66e526909dfd3994160df83a8d0abfce9dba41d8b37b9b3c",
+  "files": 16,
+  "bytes": 730286,
+  "headers": 288,
+  "unique_source_names": 288,
+  "source_hash_and_exact_header_verified_all": true,
+  "Fin_dimension_sets": {
+    "9": 1,
+    "6": 5,
+    "8": 281,
+    "2 and6": 1
+  },
+  "ordinary_term_proofs": 80,
+  "CRLF_correction": "Three raw source hashes corrected; normalized text hashes retained separately",
+  "errors": [],
+  "scope": "Final-header classification plus separate bounded hidden-helper scan; no new theorem or exhaustive helper-negative claim",
+  "verdict": "APPROVED"
+}

@@ -1,0 +1,140 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-directed-cleanup.json",
+  "source_sha256": "7510497e0fa486e12de2da6b9631dd9c842aa1c84a2fb7b7f13f386097704703",
+  "gate_count": 66,
+  "AND_count": 14,
+  "OR_count": 52,
+  "boundary_rows": 756,
+  "boundary_mismatches": 0,
+  "live_gate_count": 66,
+  "missing_joint_Read1_edges": [
+    {
+      "edge_index": 0,
+      "edge": [
+        0,
+        13
+      ]
+    },
+    {
+      "edge_index": 4,
+      "edge": [
+        1,
+        13
+      ]
+    },
+    {
+      "edge_index": 12,
+      "edge": [
+        3,
+        13
+      ]
+    },
+    {
+      "edge_index": 36,
+      "edge": [
+        9,
+        13
+      ]
+    },
+    {
+      "edge_index": 37,
+      "edge": [
+        9,
+        17
+      ]
+    },
+    {
+      "edge_index": 38,
+      "edge": [
+        9,
+        18
+      ]
+    },
+    {
+      "edge_index": 39,
+      "edge": [
+        9,
+        20
+      ]
+    }
+  ],
+  "dirty_ANDs": [
+    {
+      "gate": 6,
+      "wire": 32,
+      "operands": [
+        28,
+        31
+      ],
+      "positive_count": 7,
+      "negative_count": 310,
+      "singleton_inputs": [],
+      "direct_readers": [
+        8
+      ],
+      "next_AND_gates": [
+        8
+      ]
+    }
+  ],
+  "clean_AND_gate_indices": [
+    8,
+    12,
+    16,
+    19,
+    22,
+    26,
+    29,
+    33,
+    37,
+    41,
+    45,
+    49,
+    53
+  ],
+  "dirty_OR_gate_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    7,
+    9,
+    10,
+    11,
+    13,
+    14,
+    15,
+    17,
+    18,
+    20,
+    21,
+    23,
+    24,
+    25,
+    27,
+    28,
+    30,
+    31,
+    32,
+    34,
+    35,
+    36,
+    38,
+    39,
+    40,
+    42,
+    43,
+    44,
+    46,
+    47,
+    48,
+    50,
+    51,
+    52
+  ],
+  "clean_rule_violations": [],
+  "earlier_wire_dominance": [],
+  "zero_positive_gate_indices": []
+}

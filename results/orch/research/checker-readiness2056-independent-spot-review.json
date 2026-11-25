@@ -1,0 +1,14 @@
+{
+  "file": "results/orch/research/checker-readiness2056.md",
+  "sha256": "85e2da0177f2e6dc09029857dd055e4753d2a9383b9c2ada2d6c0cb2fe8cdcfe",
+  "verdict": "APPROVED read-only spot review",
+  "checked": [
+    "Pinned REAL_LAKE and PATH point to the toolchain provisioned for this job.",
+    "PEQUALNP_HOME is the existing job-local queue, avoiding fallback credential/home paths.",
+    "Explicit root/lean working directories and full stdout/stderr redirections are provided.",
+    "Generator proof/control distinction and <=63 delivery guard are stated.",
+    "Actual checker success requires exit0 and ACCEPTED(check); no checker/build success is claimed by this recipe.",
+    "Direct candidate build is explicitly scheduled by parent before queued checker run; no queue mutation or build performed by reviewer."
+  ],
+  "scope": "Toolchain and execution recipe only; generator source/data and verifier internals are covered by existing independent audits."
+}

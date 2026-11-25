@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "git",
+    "push",
+    "--force-with-lease=refs/heads/pnp/pilot-121:c7ec74ea054c1b0e3671e33e1010b256975efefa",
+    "origin",
+    "0dbd97b1f7732e7b0beab19ab493dad2d132a735:refs/heads/pnp/pilot-121"
+  ],
+  "old": "c7ec74ea054c1b0e3671e33e1010b256975efefa",
+  "new": "0dbd97b1f7732e7b0beab19ab493dad2d132a735",
+  "started_utc": "2026-11-25T19:08:31.199022+00:00",
+  "scope": "Two independently reviewed commits; same origin/branch, ancestry-preserving expected-old-SHA fence; argv saved before execution."
+}

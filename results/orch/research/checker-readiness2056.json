@@ -1,0 +1,41 @@
+{
+  "scope": "Read-only checker/handoff readiness; no checker verdict, target build or queue mutation",
+  "observed_utc": "2026-11-25T19:31:51.974685+00:00",
+  "files": {
+    "tools/check-lean.mjs": "d3f8ca82be7a4aabcf5aba7727b715140c82fa575340c6a8f5d7b134bf4d23ad",
+    "tools/bin/lake": "cb93d28f2d24e6fbff5fcd5bd408b54184119040b254a5e25c11cfb9e41a1cac",
+    "tools/build.sh": "0ddbc90616593ec69d54a4154be17af1f79b876db03cb3f0f16f691e3ca693a3",
+    "results/orch/plane-cegis/handoff/integrate_candidate2056.py": "a03b9aec532961ddef699931c85f3989b3a37609830968f6baf6831439c8d79f",
+    "results/orch/lemmas/PackedChunks2056.lean": "19c0e60b53f255ed800c96b51539473d84a44c65da699e1838c61542a85fd38d",
+    "lean/lean-toolchain": "582a63f8f9c5128067b688778c1051cf1464c3ca9d57b9325025c051c29b774a",
+    "lean/lakefile.toml": "ee756ab61cf24d2fd5f561d89080cf162e34f35b06d9b6101bc680ef1619a7bf",
+    "lean/lake-manifest.json": "d0af863cde532caaef1b1bee0d63ec47100208e33e488309cb80abc88b8f1509"
+  },
+  "statement_sha256": "268d30f0876549d130de26a713fd184e279581fafe4c986f3250474b682cae25",
+  "template_statement_exact_match": true,
+  "config_tracked_and_unchanged": true,
+  "node_version": "v24.22.3",
+  "pinned_lake_version": "Lake version 5.0.0-src+611c117 (Lean version 4.36.0)",
+  "cached_files": {
+    "lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib.olean": {
+      "exists": true,
+      "bytes": 803632
+    },
+    "lean/.lake/build/bin/checklemma": {
+      "exists": true,
+      "bytes": 238682528
+    },
+    "lean/.lake/build/lib/lean/CheckLemma.olean": {
+      "exists": true,
+      "bytes": 2092768
+    },
+    "lean/.lake/build/lib/lean/PEqualNP/Defs.olean": {
+      "exists": true,
+      "bytes": 11832
+    }
+  },
+  "plain_shell_lake_and_elan_absent": true,
+  "required_explicit_real_lake": "/tmp/oec/pequalnp-pilot-121/toolchain/lean-4.36.0-linux/bin/lake",
+  "recommended_queue_home": "/tmp/oec/pequalnp-pilot-121/build-queue",
+  "recipe_sha256": "85e2da0177f2e6dc09029857dd055e4753d2a9383b9c2ada2d6c0cb2fe8cdcfe"
+}

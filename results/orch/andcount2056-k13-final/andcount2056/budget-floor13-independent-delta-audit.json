@@ -1,0 +1,50 @@
+{
+  "reviewer": "circuit_search",
+  "source_sha256": "bfc344998a495deadbce49b7ddb05560600d0fef0b41f4e1626a9856c11449c8",
+  "base_source_sha256": "4cd6d7789276a67250f6e01bd13df4eb13f738675008af7bf8fcf77959027085",
+  "dependency": "Existing L_meta_1898: correct plane ordinary ANDcount>=13; literal expansion ordinary ANDcount<=active records; active-prefix means active[12] enforces first13. Difference-to-sum via line-index negation.",
+  "source_diff_only_unit_metadata_and_decoded_count_assertion": true,
+  "native_solver_rerun_needed": false,
+  "reports": [
+    {
+      "old_prefix": "budget-nonread-target13-cap63",
+      "new_prefix": "budget-floor-target13-cap63",
+      "mapping_and_phase_identical": true,
+      "old_clauses_preserved_exactly": 1016018,
+      "new_clauses": 1016019,
+      "added_original_unit": 148954,
+      "added_renamed_unit": -148954,
+      "unit_inserted_at_clause": 747982,
+      "warm_satisfies_added_unit": true,
+      "new_cnf_sha256": "bb4d016550f85423724bb39d2581efa168eb832627aff12c4d55d15209017526",
+      "only_phase_failure_remains_missing_positive_edge_0": true
+    },
+    {
+      "old_prefix": "budget-nonread-control16-cap67",
+      "new_prefix": "budget-floor-control16-cap67",
+      "mapping_and_phase_identical": true,
+      "old_clauses_preserved_exactly": 1444029,
+      "new_clauses": 1444030,
+      "added_original_unit": 219661,
+      "added_renamed_unit": -219661,
+      "unit_inserted_at_clause": 1068277,
+      "warm_satisfies_added_unit": true,
+      "new_cnf_sha256": "e3a29d275f48d04f6b63377b826e2d4d4fa936a321f98c12451a1189cbcd0c27",
+      "previous_independently_checked_actual_sat_model_satisfies_unit": true
+    },
+    {
+      "old_prefix": "budget-nonread-control13-star64-negative",
+      "new_prefix": "budget-floor-control13-star64-negative",
+      "mapping_and_phase_identical": true,
+      "old_clauses_preserved_exactly": 1020293,
+      "new_clauses": 1020294,
+      "added_original_unit": 148954,
+      "added_renamed_unit": -148954,
+      "unit_inserted_at_clause": 748827,
+      "warm_satisfies_added_unit": true,
+      "new_cnf_sha256": "9cb2bfab9468ca9453f2e3b5d5f28c3a0d6fa1867ddd01f48d4014f5cc8a40c2",
+      "previous_fixed_control_unsat_preserved_by_adding_unit": true
+    }
+  ],
+  "no_target_solution_claim": true
+}

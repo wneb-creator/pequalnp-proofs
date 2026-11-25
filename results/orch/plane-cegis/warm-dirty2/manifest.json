@@ -1,0 +1,306 @@
+{
+  "utc": "2026-11-25T19:32:15.394945+00:00",
+  "scope": "Reviewed two-dirty full-search successor preparation and controls; no63-gate witness",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 1356,
+      "sha256": "235239b8f6d1ff5fbe88623f30cb34af90a3c00e3c5aee125dcd8afee1e8096e"
+    },
+    {
+      "path": "audit_dirty2_native69.py",
+      "bytes": 4296,
+      "sha256": "6b6cfcc77d5072cd9deb6a90cfe940fd0cbe09b5735bc43f9b4dac0defc7a76a"
+    },
+    {
+      "path": "audit_dirty2_negative67.py",
+      "bytes": 2257,
+      "sha256": "15d3e55ef9d06b3ccfb409c685d204df31cf9082f2d2cc1a187f45d8dc413c61"
+    },
+    {
+      "path": "audit_dirty2_phase.py",
+      "bytes": 2856,
+      "sha256": "cfca3411ddc8d26e1afa48c6ba0dcf17fdeae73bb1cfd1c52287128080193294"
+    },
+    {
+      "path": "audit_dirty2_target_delta.py",
+      "bytes": 2642,
+      "sha256": "5124a34ab0028ae7709299997c346b5de654bbf2e6f3307cda3bcc9d75a0ca29"
+    },
+    {
+      "path": "direct_cnf_warm_dirty2.py",
+      "bytes": 16970,
+      "sha256": "73bd56fbce94cc902f163a69da9f217d065a5ee3186d79a5b47a7fe6b50c5226"
+    },
+    {
+      "path": "dirty2-native69-independent-review.json",
+      "bytes": 732,
+      "sha256": "22104016a0faf1c86c7efbfc0d92566fb3663da8c8875a5d540f736a1c80283a"
+    },
+    {
+      "path": "dirty2-native69-independent-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "dirty2-native69-independent-review.stdout",
+      "bytes": 732,
+      "sha256": "22104016a0faf1c86c7efbfc0d92566fb3663da8c8875a5d540f736a1c80283a"
+    },
+    {
+      "path": "dirty2-negative67-independent-review.json",
+      "bytes": 526,
+      "sha256": "609cc496986fe3883cab7b9542c84f100ab26f08aa22216c296d8c3dae6754d3"
+    },
+    {
+      "path": "dirty2-negative67-independent-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "dirty2-negative67-independent-review.stdout",
+      "bytes": 526,
+      "sha256": "609cc496986fe3883cab7b9542c84f100ab26f08aa22216c296d8c3dae6754d3"
+    },
+    {
+      "path": "dirty2-normal-form-mapping-review.json",
+      "bytes": 2351,
+      "sha256": "ac1b53ed3358975aaf2263bc2fa6d9668f06f35725d81ef1fdc1246b2e11acd1"
+    },
+    {
+      "path": "dirty2-phase-scanner-independent-review.json",
+      "bytes": 952,
+      "sha256": "939a2e24ab04d94c2e6ea5c6919e42aa60657745a7cc1760196859b9d67a0eaf"
+    },
+    {
+      "path": "dirty2-source-control-independent-review.json",
+      "bytes": 876,
+      "sha256": "41585e2f40a5a81e2e764eb1eac270daa43e85ab3acc58919b39c9ac73ef1101"
+    },
+    {
+      "path": "dirty2-target-delta-independent-review.json",
+      "bytes": 850,
+      "sha256": "4600805a5a5c0dde6a7dfebdeb9e07f4ed8460b1d89eec7c0fa29ff7b8044a08"
+    },
+    {
+      "path": "dirty2-target-delta-independent-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "dirty2-target-delta-independent-review.stdout",
+      "bytes": 850,
+      "sha256": "4600805a5a5c0dde6a7dfebdeb9e07f4ed8460b1d89eec7c0fa29ff7b8044a08"
+    },
+    {
+      "path": "first-near63-gates.json",
+      "bytes": 806,
+      "sha256": "931ea96b38f4a2be9a95b39b791d7f2086204dc0019f5195b40201edb91d40be"
+    },
+    {
+      "path": "frozen-hint-singleton-dirty-audit.json",
+      "bytes": 914,
+      "sha256": "544dd91d1189f3a0e273ccf5c1fd9824cc0469df7058596c0c032352ec041e77"
+    },
+    {
+      "path": "frozen-hint-singleton-dirty-independent-review.json",
+      "bytes": 1221,
+      "sha256": "dbda9222881d2eec773eb519261a7350fe9bc87303a7abba6e87f5dd958cd0bf"
+    },
+    {
+      "path": "nested-control69-canonical.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "nested-control69-canonical.stdout",
+      "bytes": 138,
+      "sha256": "e4ce8bb44ed436799e535a8654e1d1d6d6981a119ee775f08e27a2912118d007"
+    },
+    {
+      "path": "nested-control69-gates-mapped.json",
+      "bytes": 885,
+      "sha256": "b5da3540e72effa059ac7f2b8d82c61c9c26326cc85bb9a3f79458ed41888db1"
+    },
+    {
+      "path": "nested-control69-gates-raw.json",
+      "bytes": 2129,
+      "sha256": "1e08b503a65da9d3c641fe578be6a29fba04a99b5f755ef5e2d5ae47ba909994"
+    },
+    {
+      "path": "nested-control69-gates.json",
+      "bytes": 885,
+      "sha256": "d198b4fd3f7fc62c59d3123f725d2aec6f17626ce4a16cf51bee020d67ced1b1"
+    },
+    {
+      "path": "nested-control69-joint-audit.json",
+      "bytes": 1032,
+      "sha256": "f55d862396191b402db1fbf0846be28840d159512c822dda666f44db3d61fd7a"
+    },
+    {
+      "path": "nested-control69-joint-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "nested-control69-joint-audit.stdout",
+      "bytes": 536,
+      "sha256": "5c4da8936d281edcf7559183f6a154e5a8be3a54d51bfafce379d2b20b18d655"
+    },
+    {
+      "path": "nested-control69-map.json",
+      "bytes": 431,
+      "sha256": "859a21719b32d45afb6c16203564d09c0437a57bd64b79e9d2d5ea57560fc8e2"
+    },
+    {
+      "path": "nested-control69-map.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "nested-control69-map.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "nested-control69-normalization-audit.json",
+      "bytes": 387,
+      "sha256": "01fa14ec636d698964227b0022bda6f424f5ba05b3199ab0d3dc7a9e11ad2adc"
+    },
+    {
+      "path": "plane2056-data.json",
+      "bytes": 34435,
+      "sha256": "4081d42537366e1e623bd478fef4a4ae9f8cb5de3e8bfc74cc64a4f488545a74"
+    },
+    {
+      "path": "read1-control67-gates.json",
+      "bytes": 858,
+      "sha256": "1113558eb5a40836a278560b9ff6084a9cb480550f40e4efcaf55106467bc088"
+    },
+    {
+      "path": "rows-all756.json",
+      "bytes": 7071,
+      "sha256": "ca7b6c7c697be2aaf13b24021b68dd265a66a3ab907f1010a4cf838e985e97b9"
+    },
+    {
+      "path": "warm-dirty2-control67-fixed-negative-phase-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "warm-dirty2-control67-fixed-negative-phase-audit.stdout",
+      "bytes": 367,
+      "sha256": "a241e66bf5e370aa1e00525a3043f07caf85cc98dab70d9da75c22b78ca79340"
+    },
+    {
+      "path": "warm-dirty2-control67-fixed-negative-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "warm-dirty2-control67-fixed-negative-wrapper.stdout",
+      "bytes": 1785,
+      "sha256": "bf2fcbe25b546493853bd2f9d7ba3d3c323d317deb046725bea15e7572ccd187"
+    },
+    {
+      "path": "warm-dirty2-control67-fixed-negative.json",
+      "bytes": 1281,
+      "sha256": "523ab39cdfebe725dddaaf70de22696aadb69d0d772c696e018024ff5fbe47fd"
+    },
+    {
+      "path": "warm-dirty2-control67-fixed-negative.mapping.json",
+      "bytes": 736849,
+      "sha256": "34f5fc114f8f368276551604f688520f9c7180c2dbbcd085db279eb879e2011e"
+    },
+    {
+      "path": "warm-dirty2-control67-fixed-negative.phase-check.json",
+      "bytes": 419,
+      "sha256": "09f4d46221b6d91c7c08092e60e498262ae5887ad9cd896f3a1294cafa06c790"
+    },
+    {
+      "path": "warm-dirty2-control67-fixed-negative.sol",
+      "bytes": 16,
+      "sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162"
+    },
+    {
+      "path": "warm-dirty2-control67-fixed-negative.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "warm-dirty2-control67-fixed-negative.stdout",
+      "bytes": 2810,
+      "sha256": "43954daf83c4e12542b18d1848d7e1eb1b4712a64fa4d315f43bf765ff324905"
+    },
+    {
+      "path": "warm-dirty2-control69-free3-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "warm-dirty2-control69-free3-wrapper.stdout",
+      "bytes": 1994,
+      "sha256": "a6d3ddbe07bec38d91d8db85def11f696003211b327205258ca4648fef0019ed"
+    },
+    {
+      "path": "warm-dirty2-control69-free3.json",
+      "bytes": 4441,
+      "sha256": "62224d1d30168bea96f2ab5a83d8fbb1e43f50b25faaf9112deec1531a2a9604"
+    },
+    {
+      "path": "warm-dirty2-control69-free3.mapping.json",
+      "bytes": 754959,
+      "sha256": "99187e7108f1f21c2a9736df6215687763b83895c29d3944b7860a9da6a810d8"
+    },
+    {
+      "path": "warm-dirty2-control69-free3.sol",
+      "bytes": 1377725,
+      "sha256": "7eb2bbe4b35c0aa59833278ad4a19856555519a6501603be600b45a1a9e800ea"
+    },
+    {
+      "path": "warm-dirty2-control69-free3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "warm-dirty2-control69-free3.stdout",
+      "bytes": 2995,
+      "sha256": "73c2a16c40ec9a094e07877b7695c7feb3d074dc0a288577efc422d375a28a22"
+    },
+    {
+      "path": "warm-dirty2-near63-query-phase-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "warm-dirty2-near63-query-phase-audit.stdout",
+      "bytes": 551,
+      "sha256": "1c194a3d1841af95414148cb1038432c6c95e6c0d7fc12850614de7c61fcb205"
+    },
+    {
+      "path": "warm-dirty2-near63-query-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "warm-dirty2-near63-query-wrapper.stdout",
+      "bytes": 922,
+      "sha256": "cfb1d5454513f93d7d8d55c41f1f134b902a4ad3cf2399e0d19c1221cafa65cc"
+    },
+    {
+      "path": "warm-dirty2-near63-query.json",
+      "bytes": 1519,
+      "sha256": "c64854a43795b2892a20b63d34c860c6b363908cba581a2c389ce61c6b088e41"
+    },
+    {
+      "path": "warm-dirty2-near63-query.mapping.json",
+      "bytes": 702750,
+      "sha256": "04a1a7b00c20c2b4162024066b76bfa725c4c6e498b2b8a8cae8234248b53cd0"
+    },
+    {
+      "path": "warm-dirty2-near63-query.phase-check.json",
+      "bytes": 707,
+      "sha256": "09808133d4df6bd820a7b7783b94cab5d6ac7d239e2eec46087926fcef34798c"
+    }
+  ]
+}

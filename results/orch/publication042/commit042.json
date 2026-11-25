@@ -1,0 +1,14 @@
+{
+  "old": "406474ddf7f84a6548813b8c77948a5d4e75b0b5",
+  "new": "a773b4693bf1da13ef3fa39125345578a2071f19",
+  "created": "2026-11-25T19:27:54.314858+00:00",
+  "approved_manifest_sha256": "f01f02e0588e1fffa298a061cfaf5e7e7588e267ebfab91d8ce6e8568fef6936",
+  "files": [
+    "results/orch/lemmas/TwoDirtyNecessary2056.lean",
+    "results/orch/two-dirty-necessary-2056-build.json",
+    "results/orch/two-dirty-necessary-2056-build.stdout",
+    "results/orch/two-dirty-necessary-2056-build.stderr",
+    "results/orch/two-dirty-necessary-2056-build.resources.jsonl",
+    "results/orch/two-dirty-new-tail-independent-review.json"
+  ]
+}

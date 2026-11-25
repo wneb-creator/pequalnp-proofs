@@ -1,0 +1,11 @@
+{
+  "utc": "2026-11-25T19:17:16.083573+00:00",
+  "upstream_head": "54bebb6609e633f022b2769684051138160f0906",
+  "discovered": 288,
+  "extracted": 288,
+  "failures": [],
+  "headers_with_internal_assignments": 0,
+  "circuit_candidates": 288,
+  "Fin13_or_Fin26_candidates": 0,
+  "q3_names": []
+}

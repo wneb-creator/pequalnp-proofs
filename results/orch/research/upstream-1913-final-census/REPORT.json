@@ -1,0 +1,27 @@
+{
+  "utc": "2026-11-25T19:18:44.490042+00:00",
+  "upstream_head": "54bebb6609e633f022b2769684051138160f0906",
+  "prior_head": "6050bcb669b3391d673876601ea117e3d59075f3",
+  "scope": "Complete final theorem-header census of the288 newly exported Outside files; helper scan is separately owned by status_review",
+  "files_discovered": 288,
+  "complete_headers": 288,
+  "extraction_failures": 0,
+  "categories": {
+    "eight_input_graph_specific_one_NOT_elimination": 281,
+    "six_input_truth_table_normalization": 4,
+    "exact_six_input_table_11": 1,
+    "six_input_two_output_lower_bound": 1,
+    "nine_input_graph_lower_bound_16": 1
+  },
+  "Fin13_or_Fin26_headers": 0,
+  "generic_input_dimension_headers": 0,
+  "finding": "No applicable q3 construction, unrestricted OR-count lower bound, or generic normalization found among these final statements. This is a scoped negative census, not a proof that no helper or other upstream theorem applies.",
+  "parser_scope": "Final full-name declarations; bracket/comment aware assignment scan skips local let/have assignments. This actual snapshot has no internal assignments in final headers. Both tactic and ordinary term proofs are recognized; an initial by-only extraction missed80 term proofs and was corrected before this census.",
+  "representatives": {
+    "L_meta_11048.lean": "Specific9-input12-edge graph has general circuit lower bound16.",
+    "L_meta_13111.lean": "One of four6-input truth-table monotone-optimality statements.",
+    "L_meta_14088.lean": "Representative finite8-input graph one-NOT elimination statement; graph and input dimension are fixed.",
+    "L_meta_15074.lean": "Specific6-input two-output function cannot use at most5 fan-in-two gates.",
+    "V_meta_9972__k11.lean": "One6-input truth table has exact size11."
+  }
+}

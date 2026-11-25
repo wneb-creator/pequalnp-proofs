@@ -1,0 +1,14 @@
+{
+  "verdict": "APPROVED data-only optimizer delta and five seed networks",
+  "source_sha256": "e8c26582b9f65f7c65fd39c4cf03227af0e84b7c2db11f4cfa768ecbecf044ca",
+  "header_sha256": "cb63f59d266a32eb95bfb5f2cbcb13fe55e9a0d42988d489acd58c288b3dd653",
+  "seeds": 5,
+  "unique_seeds": 2,
+  "critical_rows_per_seed": 756,
+  "helper_hashes": {
+    "repair_shrink_full.hpp": "3e55cb3b72e8eedfc8c535052e7906dbf6f4df2be2d43986b90e6f58a83466b3",
+    "neutral_pair_care_full.hpp": "b71c28ebe7959f62031c4f5e1874410a02780107c448f7ee1bb2ba4e936b099f",
+    "scatter_spares_full.hpp": "71900b15fffab2f1c094bf208a686520a048b40f307519040ec9128db26e4d14"
+  },
+  "scope": "Exact old engine after include-name and truthful startup-count label replacements; controls independently match complete critical-row truth."
+}

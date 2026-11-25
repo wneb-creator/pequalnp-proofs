@@ -1,0 +1,46 @@
+{
+  "reviewer": "circuit_search",
+  "utc": "2026-11-25T18:59:46.480701+00:00",
+  "helper_sha256": "56ac964379fea7eef14e7ee358db123e3fbda833aee574c399792252cc55024a",
+  "runner_sha256": "a8824dea49180a56884f6300b8633f7b05db942e0477b1285c947281edf1c819",
+  "baseline_runner_sha256": "6436498c5abcfe9060a6b182e0598cb050cd3020921ade2f5917925ba4132d04",
+  "static_delta_approved": true,
+  "reports": [
+    {
+      "case": "control67",
+      "variables": 947867,
+      "clauses": 4374259,
+      "every_sign_mapping_checked": true,
+      "preferred_phase_failures": [],
+      "native_and_unrenamed_assignment_checked": true,
+      "phase_sha256": "119b1e669832ec57927708053de3df8679a2451d383ccb91e5f4f7caabb798b1"
+    },
+    {
+      "case": "target63",
+      "variables": 896388,
+      "clauses": 3984136,
+      "every_sign_mapping_checked": true,
+      "preferred_phase_failures": [
+        {
+          "index": 1845804,
+          "literals": [
+            -90,
+            -465339
+          ]
+        },
+        {
+          "index": 3984136,
+          "literals": [
+            -876810
+          ]
+        }
+      ],
+      "native_and_unrenamed_assignment_checked": false,
+      "phase_sha256": "48ceec0f655c593fa4ef46b932a6dd3c2fb75cecd803479fd4965b8775f6c598"
+    }
+  ],
+  "actual_candidate_matches_independently_reviewed_cold67": true,
+  "candidate_sha256": "0a751f1c6fbf2e5e6209239443d122f3b8334e84519ed3139ba4373f0fb33f35",
+  "elapsed_seconds": 98.13576984899919,
+  "scope": "Exact phase-renaming/helper/wrapper and actual-model validation; no63-gate witness or lower-bound claim."
+}

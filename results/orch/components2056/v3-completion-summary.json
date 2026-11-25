@@ -1,0 +1,35 @@
+{
+  "result": "UNKNOWN",
+  "started_utc": "2026-11-25T18:06:47.275396+00:00",
+  "ended_utc": "2026-11-25T19:06:48.333246+00:00",
+  "wall_seconds": 3600.8548395849994,
+  "returncode": 0,
+  "pause": {
+    "action": "SIGSTOP",
+    "child_pid": 34114,
+    "utc": "2026-11-25T18:24:14.122502+00:00",
+    "state": "State:\tT (stopped)",
+    "reason": "Parent publication authentication block; reversible pause pending root decision",
+    "stdout_bytes": 10022,
+    "stderr_bytes": 0,
+    "resumed_utc": "2026-11-25T18:25:02.514018+00:00",
+    "pause_seconds": 48.391516,
+    "resume_action": "SIGCONT",
+    "state_after_resume": "State:\tR (running)",
+    "timeout_note": "Original native3600-second limit left unchanged; actual termination time will be recorded by the existing wrapper."
+  },
+  "statistics": [
+    "c (percentage relative to total process time)",
+    "c conflicts:                810023       267.42    per second",
+    "c decisions:               8768339      2894.75    per second",
+    "c restarts:                    798      1015.07    interval",
+    "c total process time since initialization:      3030.72    seconds",
+    "c total real time since initialization:         3600.10    seconds",
+    "c maximum resident set size of process:          875.51    MB"
+  ],
+  "source_logs": [
+    "v3-target63-run.stdout",
+    "v3-target63-run.stderr",
+    "v3-target63-run.metadata.json"
+  ]
+}

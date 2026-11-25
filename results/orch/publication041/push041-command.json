@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "git",
+    "push",
+    "--force-with-lease=refs/heads/pnp/pilot-121:0dbd97b1f7732e7b0beab19ab493dad2d132a735",
+    "origin",
+    "406474ddf7f84a6548813b8c77948a5d4e75b0b5:refs/heads/pnp/pilot-121"
+  ],
+  "old": "0dbd97b1f7732e7b0beab19ab493dad2d132a735",
+  "new": "406474ddf7f84a6548813b8c77948a5d4e75b0b5",
+  "started_utc": "2026-11-25T19:22:07.722121+00:00",
+  "scope": "Independently reviewed compiled restricted lower bound; same origin/branch, ancestry-preserving expected-old-SHA fence; argv saved before execution."
+}

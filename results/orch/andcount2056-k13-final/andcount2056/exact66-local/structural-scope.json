@@ -1,0 +1,49 @@
+{
+  "actual_engine_constraints": [
+    "valid backward AND/OR gates",
+    "exact target on756 complete boundary rows",
+    "live gate count score"
+  ],
+  "not_enforced": [
+    "nonRead1 retention",
+    "shared dirty retention",
+    "clean normal form",
+    "dominance"
+  ],
+  "startup_pool_includes_control": true,
+  "main_starts_exact66": true,
+  "classifications": [
+    {
+      "name": "startup_control65",
+      "gates": 65,
+      "ANDs": 14,
+      "missing_joint_Read1_edge_indices": [],
+      "dirty_AND_gate_indices": []
+    },
+    {
+      "name": "exact66_main_start",
+      "gates": 66,
+      "ANDs": 14,
+      "missing_joint_Read1_edge_indices": [
+        0,
+        4,
+        12,
+        36,
+        37,
+        38,
+        39
+      ],
+      "dirty_AND_gate_indices": [
+        6
+      ]
+    },
+    {
+      "name": "explicit_dnf65",
+      "gates": 65,
+      "ANDs": 14,
+      "missing_joint_Read1_edge_indices": [],
+      "dirty_AND_gate_indices": []
+    }
+  ],
+  "independent_source_data_approval": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/independent-data-review.json"
+}

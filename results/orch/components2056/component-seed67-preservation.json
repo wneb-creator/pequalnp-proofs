@@ -1,0 +1,1003 @@
+{
+  "utc": "2026-11-25T19:18:36.817364+00:00",
+  "scope": "Completed seed67 and baseline64 combined-phase preparation/control/audit artifacts only. No target63 SAT result claimed.",
+  "records": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/add_nonread.py",
+      "bytes": 7981,
+      "sha256": "cb8b50bc0baa0c9ba235835539adbea7c401051df6cf2b7abf3cc60c0cf9082b",
+      "archive": "results/orch/components2056/add_nonread.py",
+      "archive_sha256": "cb8b50bc0baa0c9ba235835539adbea7c401051df6cf2b7abf3cc60c0cf9082b",
+      "archive_bytes": 7981
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/audit_nonread_control.py",
+      "bytes": 4416,
+      "sha256": "e3959707158c774620109c0fb55a59ac4aa5a05464e708977a4b4087d0cbc77a",
+      "archive": "results/orch/components2056/audit_nonread_control.py",
+      "archive_sha256": "e3959707158c774620109c0fb55a59ac4aa5a05464e708977a4b4087d0cbc77a",
+      "archive_bytes": 4416
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/extend_nonread_phase.py",
+      "bytes": 5151,
+      "sha256": "56ac964379fea7eef14e7ee358db123e3fbda833aee574c399792252cc55024a",
+      "archive": "results/orch/components2056/extend_nonread_phase.py",
+      "archive_sha256": "56ac964379fea7eef14e7ee358db123e3fbda833aee574c399792252cc55024a",
+      "archive_bytes": 5151
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/extend_nonread_phase67.py",
+      "bytes": 6354,
+      "sha256": "0c41b31903ceec2f08933136d51298dca83c0861e73741478edb4703de0e0452",
+      "archive": "results/orch/components2056/extend_nonread_phase67.py",
+      "archive_sha256": "0c41b31903ceec2f08933136d51298dca83c0861e73741478edb4703de0e0452",
+      "archive_bytes": 6354
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/nonread-control67-clauses-independent.json",
+      "bytes": 277,
+      "sha256": "7a5ff02fdef4df72b4cac7fddaccddab97eb34135d424620701c92b1d05036de",
+      "archive": "results/orch/components2056/nonread-control67-clauses-independent.json",
+      "archive_sha256": "7a5ff02fdef4df72b4cac7fddaccddab97eb34135d424620701c92b1d05036de",
+      "archive_bytes": 277
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/nonread-control67-clauses-independent.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/nonread-control67-clauses-independent.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/nonread-control67-clauses-independent.stdout",
+      "bytes": 265,
+      "sha256": "fa0b5dd1555af5ae431f64de29c52333c208c3c5ad13b5d8099c68cf5bec6053",
+      "archive": "results/orch/components2056/nonread-control67-clauses-independent.stdout",
+      "archive_sha256": "fa0b5dd1555af5ae431f64de29c52333c208c3c5ad13b5d8099c68cf5bec6053",
+      "archive_bytes": 265
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/nonread-control67-input.json",
+      "bytes": 3098,
+      "sha256": "3533b5858eded4a525a7fa80c1f40a1e3a08610cd5eb62c83dbf1ca2d76e86ed",
+      "archive": "results/orch/components2056/nonread-control67-input.json",
+      "archive_sha256": "3533b5858eded4a525a7fa80c1f40a1e3a08610cd5eb62c83dbf1ca2d76e86ed",
+      "archive_bytes": 3098
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/nonread-control67-semantic-independent.json",
+      "bytes": 574,
+      "sha256": "a85fe709de635f57bbdc3fcc09fd577691f57d8f105fbeddcc6bb0f499d56722",
+      "archive": "results/orch/components2056/nonread-control67-semantic-independent.json",
+      "archive_sha256": "a85fe709de635f57bbdc3fcc09fd577691f57d8f105fbeddcc6bb0f499d56722",
+      "archive_bytes": 574
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/nonread-control67-semantic-independent.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/nonread-control67-semantic-independent.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/nonread-control67-semantic-independent.stdout",
+      "bytes": 538,
+      "sha256": "313f4d0614dbfee99666183cc823a588b731b580e5ba056109a21d7360f1a17d",
+      "archive": "results/orch/components2056/nonread-control67-semantic-independent.stdout",
+      "archive_sha256": "313f4d0614dbfee99666183cc823a588b731b580e5ba056109a21d7360f1a17d",
+      "archive_bytes": 538
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/nonread-preparation.json",
+      "bytes": 3215,
+      "sha256": "672543c70c5fd7dac5a46b25b27f27edac9e7577d2a61293f8bf8f875e748a4d",
+      "archive": "results/orch/components2056/nonread-preparation.json",
+      "archive_sha256": "672543c70c5fd7dac5a46b25b27f27edac9e7577d2a61293f8bf8f875e748a4d",
+      "archive_bytes": 3215
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/nonread-static-independent-review.json",
+      "bytes": 560,
+      "sha256": "81fe0f005d13e069927a18c399dece968421470a71db027ca5593b6816c5b755",
+      "archive": "results/orch/components2056/nonread-static-independent-review.json",
+      "archive_sha256": "81fe0f005d13e069927a18c399dece968421470a71db027ca5593b6816c5b755",
+      "archive_bytes": 560
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/run_sat_nonread_warm.py",
+      "bytes": 5348,
+      "sha256": "a8824dea49180a56884f6300b8633f7b05db942e0477b1285c947281edf1c819",
+      "archive": "results/orch/components2056/run_sat_nonread_warm.py",
+      "archive_sha256": "a8824dea49180a56884f6300b8633f7b05db942e0477b1285c947281edf1c819",
+      "archive_bytes": 5348
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-base67.emit.json",
+      "bytes": 485,
+      "sha256": "357b336cadefe24e76e73773d7a430d3b6be63668ab108d6edfadf741bd72969",
+      "archive": "results/orch/components2056/v5-nonread-base67.emit.json",
+      "archive_sha256": "357b336cadefe24e76e73773d7a430d3b6be63668ab108d6edfadf741bd72969",
+      "archive_bytes": 485
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-base67.emit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-base67.emit.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-base67.emit.stdout",
+      "bytes": 280,
+      "sha256": "14ade0e836977f29b7da69c3ea417bc9b3f0714c7b00a45728b2dfa8b5cf55b6",
+      "archive": "results/orch/components2056/v5-nonread-base67.emit.stdout",
+      "archive_sha256": "14ade0e836977f29b7da69c3ea417bc9b3f0714c7b00a45728b2dfa8b5cf55b6",
+      "archive_bytes": 280
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-base67.mapping.json",
+      "bytes": 1294534,
+      "sha256": "c3e6de0922f53fa0ec7a0554c3727dfd509e6062d6a2cb66c7336715c540cd66",
+      "archive": "results/orch/components2056/v5-nonread-base67.mapping.json",
+      "archive_sha256": "c3e6de0922f53fa0ec7a0554c3727dfd509e6062d6a2cb66c7336715c540cd66",
+      "archive_bytes": 1294534
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-base67.summary.json",
+      "bytes": 306,
+      "sha256": "885d8c9732cf1572b26e2268d95220faa9db9fa5509f9b6ed9d5aabb2005846b",
+      "archive": "results/orch/components2056/v5-nonread-base67.summary.json",
+      "archive_sha256": "885d8c9732cf1572b26e2268d95220faa9db9fa5509f9b6ed9d5aabb2005846b",
+      "archive_bytes": 306
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control64.emit.json",
+      "bytes": 728,
+      "sha256": "ae943bc2638cc4b2370a322a9331d43c405c07cd69370e1d0315eaa0a82a427f",
+      "archive": "results/orch/components2056/v5-nonread-control64.emit.json",
+      "archive_sha256": "ae943bc2638cc4b2370a322a9331d43c405c07cd69370e1d0315eaa0a82a427f",
+      "archive_bytes": 728
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control64.emit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-control64.emit.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control64.emit.stdout",
+      "bytes": 515,
+      "sha256": "94c5c4bdca2ff56198b54460c4b54a3e120b9d51cd414578246c019d3ada7510",
+      "archive": "results/orch/components2056/v5-nonread-control64.emit.stdout",
+      "archive_sha256": "94c5c4bdca2ff56198b54460c4b54a3e120b9d51cd414578246c019d3ada7510",
+      "archive_bytes": 515
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control64.mapping.json",
+      "bytes": 1447751,
+      "sha256": "e04402d421c8196f1c9aecb1e9e0a780c140813c333f3438e3f2be66e9c64da3",
+      "archive": "results/orch/components2056/v5-nonread-control64.mapping.json",
+      "archive_sha256": "e04402d421c8196f1c9aecb1e9e0a780c140813c333f3438e3f2be66e9c64da3",
+      "archive_bytes": 1447751
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control64.run.json",
+      "bytes": 680,
+      "sha256": "5ea3431179778b306164785039ec3b5276e585df4a948545486bdd16678eb920",
+      "archive": "results/orch/components2056/v5-nonread-control64.run.json",
+      "archive_sha256": "5ea3431179778b306164785039ec3b5276e585df4a948545486bdd16678eb920",
+      "archive_bytes": 680
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control64.sol",
+      "bytes": 16,
+      "sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162",
+      "archive": "results/orch/components2056/v5-nonread-control64.sol",
+      "archive_sha256": "bde6e1eede96772c07c8ce29fd18088863815bd043aa59a06f11f5838cf8a162",
+      "archive_bytes": 16
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control64.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-control64.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control64.stdout",
+      "bytes": 3744,
+      "sha256": "25d9b40832dbd121de20b6f47ccca15906d1937d101fccb7bddbfdbb5bd8d3fa",
+      "archive": "results/orch/components2056/v5-nonread-control64.stdout",
+      "archive_sha256": "25d9b40832dbd121de20b6f47ccca15906d1937d101fccb7bddbfdbb5bd8d3fa",
+      "archive_bytes": 3744
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control64.summary.json",
+      "bytes": 539,
+      "sha256": "6f2779594b72165408b0c71cb66a310061047e949c32fbe2e0d40102fcb14187",
+      "archive": "results/orch/components2056/v5-nonread-control64.summary.json",
+      "archive_sha256": "6f2779594b72165408b0c71cb66a310061047e949c32fbe2e0d40102fcb14187",
+      "archive_bytes": 539
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-circuit.json",
+      "bytes": 3464,
+      "sha256": "0a751f1c6fbf2e5e6209239443d122f3b8334e84519ed3139ba4373f0fb33f35",
+      "archive": "results/orch/components2056/v5-nonread-control67-circuit.json",
+      "archive_sha256": "0a751f1c6fbf2e5e6209239443d122f3b8334e84519ed3139ba4373f0fb33f35",
+      "archive_bytes": 3464
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm-checked.candidate.json",
+      "bytes": 3464,
+      "sha256": "0a751f1c6fbf2e5e6209239443d122f3b8334e84519ed3139ba4373f0fb33f35",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.candidate.json",
+      "archive_sha256": "0a751f1c6fbf2e5e6209239443d122f3b8334e84519ed3139ba4373f0fb33f35",
+      "archive_bytes": 3464
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm-checked.decode.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.decode.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm-checked.decode.stdout",
+      "bytes": 104,
+      "sha256": "f594ebbbadef0ee4b6e69b5012a079e6bb256cdd5d3e918d4af1f79562e0d56c",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.decode.stdout",
+      "archive_sha256": "f594ebbbadef0ee4b6e69b5012a079e6bb256cdd5d3e918d4af1f79562e0d56c",
+      "archive_bytes": 104
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm-checked.metadata.json",
+      "bytes": 3637,
+      "sha256": "9fcfb84633f4ad14ea7f2345033db5daaa2fd9332c00406e2e4d4f7bfe01ea1c",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.metadata.json",
+      "archive_sha256": "9fcfb84633f4ad14ea7f2345033db5daaa2fd9332c00406e2e4d4f7bfe01ea1c",
+      "archive_bytes": 3637
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm-checked.original-check.json",
+      "bytes": 277,
+      "sha256": "a4eb811428730d13c815e2e74272214741c73b9fd59b875bb6bb8b8f4d7fcfe5",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.original-check.json",
+      "archive_sha256": "a4eb811428730d13c815e2e74272214741c73b9fd59b875bb6bb8b8f4d7fcfe5",
+      "archive_bytes": 277
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm-checked.original-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.original-check.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm-checked.original-check.stdout",
+      "bytes": 265,
+      "sha256": "316245815159b2ec6e1c10b5712e4b9a5aa6f54d638143874084a4b748744291",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.original-check.stdout",
+      "archive_sha256": "316245815159b2ec6e1c10b5712e4b9a5aa6f54d638143874084a4b748744291",
+      "archive_bytes": 265
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm-checked.sol",
+      "bytes": 6694442,
+      "sha256": "f53e0efc83d3c65d02d398aa401cdb3a001702581696e6a758d8bcbef2838109",
+      "compression": "gzip; decompress recovers source SHA256",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.sol.gz",
+      "archive_sha256": "e2fd197bbcb7ed64eba6858ad070902418c2b3fe390dd1613abbb0485c100568",
+      "archive_bytes": 2136257
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm-checked.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm-checked.stdout",
+      "bytes": 3114,
+      "sha256": "64268e870828fe35e8534d7c32e5aa65e3756c7e66b2d3aebbfe9c687782b632",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.stdout",
+      "archive_sha256": "64268e870828fe35e8534d7c32e5aa65e3756c7e66b2d3aebbfe9c687782b632",
+      "archive_bytes": 3114
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm-checked.unrename.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.unrename.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm-checked.unrename.stdout",
+      "bytes": 107,
+      "sha256": "b2c6aaddad7a27753393dd1a02679be4805311124e18599f6a17cb0f59b8a6c8",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.unrename.stdout",
+      "archive_sha256": "b2c6aaddad7a27753393dd1a02679be4805311124e18599f6a17cb0f59b8a6c8",
+      "archive_bytes": 107
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm-checked.unrenamed.sol",
+      "bytes": 6973513,
+      "sha256": "31e448ed40e8ba46aa920d2c2e1f7b406e03a9c655edd560bcd53c1b51ecf022",
+      "compression": "gzip; decompress recovers source SHA256",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.unrenamed.sol.gz",
+      "archive_sha256": "0b9a44a10f10f8e4eddaf15654a84ad46b09c435f342609884da9ab7cfe7d714",
+      "archive_bytes": 2171465
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm-checked.warm-check.json",
+      "bytes": 277,
+      "sha256": "293edb51cd7104a30298db3a3195325c5b8e3f937b142ceb23b7813616383bf0",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.warm-check.json",
+      "archive_sha256": "293edb51cd7104a30298db3a3195325c5b8e3f937b142ceb23b7813616383bf0",
+      "archive_bytes": 277
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm-checked.warm-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.warm-check.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm-checked.warm-check.stdout",
+      "bytes": 265,
+      "sha256": "c4e503f59c23a2cd9684bf2717a9fc3ddb624f3bcd87be2c2c1cddd0d4a80cd0",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.warm-check.stdout",
+      "archive_sha256": "c4e503f59c23a2cd9684bf2717a9fc3ddb624f3bcd87be2c2c1cddd0d4a80cd0",
+      "archive_bytes": 265
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm-checked.wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.wrapper.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm-checked.wrapper.stdout",
+      "bytes": 3277,
+      "sha256": "b47158fcd882aa5c427f1e16295a748c9fd22b9b539b4a83dc905975a57a8392",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm-checked.wrapper.stdout",
+      "archive_sha256": "b47158fcd882aa5c427f1e16295a748c9fd22b9b539b4a83dc905975a57a8392",
+      "archive_bytes": 3277
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm.mask.bin",
+      "bytes": 118484,
+      "sha256": "6096497a0192b830499cd561824d15c32297124d62f2ebca2d5699dd5331c215",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm.mask.bin",
+      "archive_sha256": "6096497a0192b830499cd561824d15c32297124d62f2ebca2d5699dd5331c215",
+      "archive_bytes": 118484
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm.phase.json",
+      "bytes": 1296,
+      "sha256": "35c15bad321615e48b327a83a80bd423e187c182581baa372ea931285227ad0f",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm.phase.json",
+      "archive_sha256": "35c15bad321615e48b327a83a80bd423e187c182581baa372ea931285227ad0f",
+      "archive_bytes": 1296
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm.prepare.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm.prepare.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm.prepare.stdout",
+      "bytes": 1240,
+      "sha256": "124907b63a4be3d0420aa8cb1c378ce8be21ec064f7bc18a7a16c135408c9b9e",
+      "archive": "results/orch/components2056/v5-nonread-control67-seed67warm.prepare.stdout",
+      "archive_sha256": "124907b63a4be3d0420aa8cb1c378ce8be21ec064f7bc18a7a16c135408c9b9e",
+      "archive_bytes": 1240
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm-checked.candidate.json",
+      "bytes": 3464,
+      "sha256": "0a751f1c6fbf2e5e6209239443d122f3b8334e84519ed3139ba4373f0fb33f35",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm-checked.candidate.json",
+      "archive_sha256": "0a751f1c6fbf2e5e6209239443d122f3b8334e84519ed3139ba4373f0fb33f35",
+      "archive_bytes": 3464
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm-checked.decode.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm-checked.decode.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm-checked.decode.stdout",
+      "bytes": 104,
+      "sha256": "f594ebbbadef0ee4b6e69b5012a079e6bb256cdd5d3e918d4af1f79562e0d56c",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm-checked.decode.stdout",
+      "archive_sha256": "f594ebbbadef0ee4b6e69b5012a079e6bb256cdd5d3e918d4af1f79562e0d56c",
+      "archive_bytes": 104
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm-checked.metadata.json",
+      "bytes": 3617,
+      "sha256": "5b0703e826ce6294823523208bf2290601dca924ff06bdbedc29dbcad47b92a6",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm-checked.metadata.json",
+      "archive_sha256": "5b0703e826ce6294823523208bf2290601dca924ff06bdbedc29dbcad47b92a6",
+      "archive_bytes": 3617
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm-checked.original-check.json",
+      "bytes": 277,
+      "sha256": "5f4f58f79b082905f00e0bb18cd0fbdb50b40d9ccd3a293bea3ef0017ae61bf0",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm-checked.original-check.json",
+      "archive_sha256": "5f4f58f79b082905f00e0bb18cd0fbdb50b40d9ccd3a293bea3ef0017ae61bf0",
+      "archive_bytes": 277
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm-checked.original-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm-checked.original-check.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm-checked.original-check.stdout",
+      "bytes": 265,
+      "sha256": "a51bed940440b0d95672400e37675887a9506e9a6527f4aeabf9fd5ac3122e18",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm-checked.original-check.stdout",
+      "archive_sha256": "a51bed940440b0d95672400e37675887a9506e9a6527f4aeabf9fd5ac3122e18",
+      "archive_bytes": 265
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm-checked.sol",
+      "bytes": 6694442,
+      "sha256": "f53e0efc83d3c65d02d398aa401cdb3a001702581696e6a758d8bcbef2838109",
+      "compression": "gzip; decompress recovers source SHA256",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm-checked.sol.gz",
+      "archive_sha256": "e2fd197bbcb7ed64eba6858ad070902418c2b3fe390dd1613abbb0485c100568",
+      "archive_bytes": 2136257
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm-checked.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm-checked.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm-checked.stdout",
+      "bytes": 3096,
+      "sha256": "9125d144574ff15e387cc070ad5418d3575d336be7d394cdd8752874743a8d85",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm-checked.stdout",
+      "archive_sha256": "9125d144574ff15e387cc070ad5418d3575d336be7d394cdd8752874743a8d85",
+      "archive_bytes": 3096
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm-checked.unrename.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm-checked.unrename.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm-checked.unrename.stdout",
+      "bytes": 107,
+      "sha256": "b182fe36cf91461c204e2eefc2d7d1765a89fd8390f2e26ef40324dfabdb20a4",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm-checked.unrename.stdout",
+      "archive_sha256": "b182fe36cf91461c204e2eefc2d7d1765a89fd8390f2e26ef40324dfabdb20a4",
+      "archive_bytes": 107
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm-checked.unrenamed.sol",
+      "bytes": 6951960,
+      "sha256": "83a6e8e58ab4990af8775e5bfbea70cd4d4af91599b1612c791f2a8ef0ac7151",
+      "compression": "gzip; decompress recovers source SHA256",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm-checked.unrenamed.sol.gz",
+      "archive_sha256": "e560613654a9592e274d995610f7381706c9d88f48d75a577e5d02d1b70a43ba",
+      "archive_bytes": 2170721
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm-checked.warm-check.json",
+      "bytes": 277,
+      "sha256": "e891b6751135b73a448527737727132725217628c93654bd24776baff294cf17",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm-checked.warm-check.json",
+      "archive_sha256": "e891b6751135b73a448527737727132725217628c93654bd24776baff294cf17",
+      "archive_bytes": 277
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm-checked.warm-check.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm-checked.warm-check.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm-checked.warm-check.stdout",
+      "bytes": 265,
+      "sha256": "9a0b5f8a12e085ee5f3714d180a48259b3cfc5ee357b8a6ae680d02e477fb46f",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm-checked.warm-check.stdout",
+      "archive_sha256": "9a0b5f8a12e085ee5f3714d180a48259b3cfc5ee357b8a6ae680d02e477fb46f",
+      "archive_bytes": 265
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm-checked.wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm-checked.wrapper.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm-checked.wrapper.stdout",
+      "bytes": 3257,
+      "sha256": "d83b9046c38b96e4fbd8977e7785fb4300238a0d805ed93c4e900d003fea6525",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm-checked.wrapper.stdout",
+      "archive_sha256": "d83b9046c38b96e4fbd8977e7785fb4300238a0d805ed93c4e900d003fea6525",
+      "archive_bytes": 3257
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm.mask.bin",
+      "bytes": 118484,
+      "sha256": "cf4176d6f0808d1868265efa8e9cd079112934c444aa11c93600ee5883d6941e",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm.mask.bin",
+      "archive_sha256": "cf4176d6f0808d1868265efa8e9cd079112934c444aa11c93600ee5883d6941e",
+      "archive_bytes": 118484
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm.phase.json",
+      "bytes": 1034,
+      "sha256": "119b1e669832ec57927708053de3df8679a2451d383ccb91e5f4f7caabb798b1",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm.phase.json",
+      "archive_sha256": "119b1e669832ec57927708053de3df8679a2451d383ccb91e5f4f7caabb798b1",
+      "archive_bytes": 1034
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm.prepare.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm.prepare.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm.prepare.stdout",
+      "bytes": 1000,
+      "sha256": "8fec13bc0a568affb7ce141e8f40da531abf0e8db0b78c1366078b6d96355b8d",
+      "archive": "results/orch/components2056/v5-nonread-control67-warm.prepare.stdout",
+      "archive_sha256": "8fec13bc0a568affb7ce141e8f40da531abf0e8db0b78c1366078b6d96355b8d",
+      "archive_bytes": 1000
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.decode.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-control67.decode.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.decode.stdout",
+      "bytes": 104,
+      "sha256": "f594ebbbadef0ee4b6e69b5012a079e6bb256cdd5d3e918d4af1f79562e0d56c",
+      "archive": "results/orch/components2056/v5-nonread-control67.decode.stdout",
+      "archive_sha256": "f594ebbbadef0ee4b6e69b5012a079e6bb256cdd5d3e918d4af1f79562e0d56c",
+      "archive_bytes": 104
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.emit.json",
+      "bytes": 839,
+      "sha256": "58dca7b33951636c0ed624b2e678c69f7d816a14173042fa280758c7b1d5dbc3",
+      "archive": "results/orch/components2056/v5-nonread-control67.emit.json",
+      "archive_sha256": "58dca7b33951636c0ed624b2e678c69f7d816a14173042fa280758c7b1d5dbc3",
+      "archive_bytes": 839
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.emit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-control67.emit.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.emit.stdout",
+      "bytes": 623,
+      "sha256": "50c74dd71f1efddb9f7b6a01fb47580e1bab801739a6d3949a4a5a9b4a53f413",
+      "archive": "results/orch/components2056/v5-nonread-control67.emit.stdout",
+      "archive_sha256": "50c74dd71f1efddb9f7b6a01fb47580e1bab801739a6d3949a4a5a9b4a53f413",
+      "archive_bytes": 623
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.mapping.json",
+      "bytes": 1447857,
+      "sha256": "f87e13eef610b7eeec2a35a9dc419ac7bd796729bf7a6c54fb4365c255fe1d50",
+      "archive": "results/orch/components2056/v5-nonread-control67.mapping.json",
+      "archive_sha256": "f87e13eef610b7eeec2a35a9dc419ac7bd796729bf7a6c54fb4365c255fe1d50",
+      "archive_bytes": 1447857
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.run.json",
+      "bytes": 680,
+      "sha256": "41e1f53ee8550d9be3bfb61d0755c5e2f528f3a9134718b7a9395be6df7f88de",
+      "archive": "results/orch/components2056/v5-nonread-control67.run.json",
+      "archive_sha256": "41e1f53ee8550d9be3bfb61d0755c5e2f528f3a9134718b7a9395be6df7f88de",
+      "archive_bytes": 680
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.sol",
+      "bytes": 6961472,
+      "sha256": "5b451c80d6e7d0e133205edf0edac9b6d7eec37a6766627b077cbfcb28ba5900",
+      "compression": "gzip; decompress recovers source SHA256",
+      "archive": "results/orch/components2056/v5-nonread-control67.sol.gz",
+      "archive_sha256": "404a48450527702932c44fd92436a2f4280a4b510733d6e63994c0d7fa3acfe9",
+      "archive_bytes": 2176008
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-control67.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.stdout",
+      "bytes": 3073,
+      "sha256": "2bb88ac42b2e1a74429c9de7590be8143969e767940a5338a65d014c0be63d03",
+      "archive": "results/orch/components2056/v5-nonread-control67.stdout",
+      "archive_sha256": "2bb88ac42b2e1a74429c9de7590be8143969e767940a5338a65d014c0be63d03",
+      "archive_bytes": 3073
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.summary.json",
+      "bytes": 659,
+      "sha256": "67140a1ffbadf3e55cdec4a518f91b14846a6050f3afe8e8dec431b02012caad",
+      "archive": "results/orch/components2056/v5-nonread-control67.summary.json",
+      "archive_sha256": "67140a1ffbadf3e55cdec4a518f91b14846a6050f3afe8e8dec431b02012caad",
+      "archive_bytes": 659
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63-seed67warm.mask.bin",
+      "bytes": 112049,
+      "sha256": "44e75ec5af3340562510044ef0b87fb7d30a7886c0c26c6b878fe855c1631dc1",
+      "archive": "results/orch/components2056/v5-nonread-target63-seed67warm.mask.bin",
+      "archive_sha256": "44e75ec5af3340562510044ef0b87fb7d30a7886c0c26c6b878fe855c1631dc1",
+      "archive_bytes": 112049
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63-seed67warm.phase.json",
+      "bytes": 1681,
+      "sha256": "b869b86a694135300d980779ff4bbfe292a82cd8d2a69ad1819e1ee8e1a95889",
+      "archive": "results/orch/components2056/v5-nonread-target63-seed67warm.phase.json",
+      "archive_sha256": "b869b86a694135300d980779ff4bbfe292a82cd8d2a69ad1819e1ee8e1a95889",
+      "archive_bytes": 1681
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63-seed67warm.prepare.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-target63-seed67warm.prepare.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63-seed67warm.prepare.stdout",
+      "bytes": 1437,
+      "sha256": "76928fc5fbbba6cb1974c53e31ab7c587139ca451f7451395446590a201b9bef",
+      "archive": "results/orch/components2056/v5-nonread-target63-seed67warm.prepare.stdout",
+      "archive_sha256": "76928fc5fbbba6cb1974c53e31ab7c587139ca451f7451395446590a201b9bef",
+      "archive_bytes": 1437
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63-warm.mask.bin",
+      "bytes": 112049,
+      "sha256": "146f7b07fb8edfe155c09531bdc0742f75f9bc24041e3a4bb7d7d44d20815fb4",
+      "archive": "results/orch/components2056/v5-nonread-target63-warm.mask.bin",
+      "archive_sha256": "146f7b07fb8edfe155c09531bdc0742f75f9bc24041e3a4bb7d7d44d20815fb4",
+      "archive_bytes": 112049
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63-warm.phase.json",
+      "bytes": 1333,
+      "sha256": "48ceec0f655c593fa4ef46b932a6dd3c2fb75cecd803479fd4965b8775f6c598",
+      "archive": "results/orch/components2056/v5-nonread-target63-warm.phase.json",
+      "archive_sha256": "48ceec0f655c593fa4ef46b932a6dd3c2fb75cecd803479fd4965b8775f6c598",
+      "archive_bytes": 1333
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63-warm.prepare.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-target63-warm.prepare.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63-warm.prepare.stdout",
+      "bytes": 1207,
+      "sha256": "3b4791e19c4ebee1aa5c39aafc797bdedbba285ca5eb6725ddbceec326c41f62",
+      "archive": "results/orch/components2056/v5-nonread-target63-warm.prepare.stdout",
+      "archive_sha256": "3b4791e19c4ebee1aa5c39aafc797bdedbba285ca5eb6725ddbceec326c41f62",
+      "archive_bytes": 1207
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63.emit.json",
+      "bytes": 725,
+      "sha256": "7ce3439e340578b1cc995ad9ceeeb5002636a813cdaca71429a5bda0b4afdd93",
+      "archive": "results/orch/components2056/v5-nonread-target63.emit.json",
+      "archive_sha256": "7ce3439e340578b1cc995ad9ceeeb5002636a813cdaca71429a5bda0b4afdd93",
+      "archive_bytes": 725
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63.emit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/v5-nonread-target63.emit.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63.emit.stdout",
+      "bytes": 515,
+      "sha256": "e27c9a14d9680c89040ae9d3e6d71fa63cccfb45489729cea4a91f16ff67b5ae",
+      "archive": "results/orch/components2056/v5-nonread-target63.emit.stdout",
+      "archive_sha256": "e27c9a14d9680c89040ae9d3e6d71fa63cccfb45489729cea4a91f16ff67b5ae",
+      "archive_bytes": 515
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63.mapping.json",
+      "bytes": 1401621,
+      "sha256": "5a6c9aecacb10edec14304115d835be9f280848ae6ffa88462f3fda1c1a411eb",
+      "archive": "results/orch/components2056/v5-nonread-target63.mapping.json",
+      "archive_sha256": "5a6c9aecacb10edec14304115d835be9f280848ae6ffa88462f3fda1c1a411eb",
+      "archive_bytes": 1401621
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63.summary.json",
+      "bytes": 539,
+      "sha256": "74fd833ed98fff82f5321e4d90e8bb87589117015a4a25bb6cadc3570108d92e",
+      "archive": "results/orch/components2056/v5-nonread-target63.summary.json",
+      "archive_sha256": "74fd833ed98fff82f5321e4d90e8bb87589117015a4a25bb6cadc3570108d92e",
+      "archive_bytes": 539
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/audit_component_seed67_phase.py",
+      "bytes": 3095,
+      "sha256": "c7d84fa7085e04f9aebaf6eeb75486a878c12dc45671b73fa34063f81ddb578b",
+      "archive": "results/orch/components2056/audit_component_seed67_phase.py",
+      "archive_sha256": "c7d84fa7085e04f9aebaf6eeb75486a878c12dc45671b73fa34063f81ddb578b",
+      "archive_bytes": 3095
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/finalize_component_seed67_review.py",
+      "bytes": 1595,
+      "sha256": "7c7b06413dc5e38fc42eef9512610626e428134d5e09dcbe21482716d771b6c0",
+      "archive": "results/orch/components2056/finalize_component_seed67_review.py",
+      "archive_sha256": "7c7b06413dc5e38fc42eef9512610626e428134d5e09dcbe21482716d771b6c0",
+      "archive_bytes": 1595
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/component-seed67-phase-independent-review.json",
+      "bytes": 2146,
+      "sha256": "5a4be676232456435455df609b6820f2e1c9809a92b6f1b3ea802627e5f9c214",
+      "archive": "results/orch/components2056/component-seed67-phase-independent-review.json",
+      "archive_sha256": "5a4be676232456435455df609b6820f2e1c9809a92b6f1b3ea802627e5f9c214",
+      "archive_bytes": 2146
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/component-seed67-phase-independent-review.stdout",
+      "bytes": 1812,
+      "sha256": "ce7b222732f1ee15be15d1ef3566b1f5185812eec1df5bc2932328f8b2c0314d",
+      "archive": "results/orch/components2056/component-seed67-phase-independent-review.stdout",
+      "archive_sha256": "ce7b222732f1ee15be15d1ef3566b1f5185812eec1df5bc2932328f8b2c0314d",
+      "archive_bytes": 1812
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/component-seed67-phase-independent-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/component-seed67-phase-independent-review.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/component-seed67-finalize-review.stdout",
+      "bytes": 2226,
+      "sha256": "8e18a813a230d9f8713bf7810d49c0b331a502b913dfcfc5b931046afbf35418",
+      "archive": "results/orch/components2056/component-seed67-finalize-review.stdout",
+      "archive_sha256": "8e18a813a230d9f8713bf7810d49c0b331a502b913dfcfc5b931046afbf35418",
+      "archive_bytes": 2226
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/component-seed67-finalize-review.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/component-seed67-finalize-review.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/audit_component_nonread_phase2056.py",
+      "bytes": 4993,
+      "sha256": "1d8f5c5050110fc7dfb367ed2480642a4b9dc21deb7ac0fd329a18dd0e233aad",
+      "archive": "results/orch/components2056/audit_component_nonread_phase2056.py",
+      "archive_sha256": "1d8f5c5050110fc7dfb367ed2480642a4b9dc21deb7ac0fd329a18dd0e233aad",
+      "archive_bytes": 4993
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/audit_component_nonread_phase2056.json",
+      "bytes": 1584,
+      "sha256": "cdc235c2a96179dbe8167cbdfd66731072e042fb13cf04709765988a8ee8bb1c",
+      "archive": "results/orch/components2056/audit_component_nonread_phase2056.json",
+      "archive_sha256": "cdc235c2a96179dbe8167cbdfd66731072e042fb13cf04709765988a8ee8bb1c",
+      "archive_bytes": 1584
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/audit_component_nonread_phase2056.stdout",
+      "bytes": 1375,
+      "sha256": "d2e834953e7772da3fe61e75740fc7c70911fc5ac1e7a46981ef2492083e711c",
+      "archive": "results/orch/components2056/audit_component_nonread_phase2056.stdout",
+      "archive_sha256": "d2e834953e7772da3fe61e75740fc7c70911fc5ac1e7a46981ef2492083e711c",
+      "archive_bytes": 1375
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/audit_component_nonread_phase2056.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive": "results/orch/components2056/audit_component_nonread_phase2056.stderr",
+      "archive_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "archive_bytes": 0
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/andcount2056/component-seed67-phase-static-review.json",
+      "bytes": 1248,
+      "sha256": "f7a4007d4f11ff5be023fc3873594af86b2cd7e60e9c88e17d6fec092aa4d20b",
+      "archive": "results/orch/components2056/component-seed67-phase-static-review.json",
+      "archive_sha256": "f7a4007d4f11ff5be023fc3873594af86b2cd7e60e9c88e17d6fec092aa4d20b",
+      "archive_bytes": 1248
+    }
+  ],
+  "omitted_raw_cnf": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-base67.cnf",
+      "bytes": 60573106,
+      "sha256": "16eff958f89ddab1a3e62650d605342a0d1d04825b2cc259c8ce1c29c579403c",
+      "reason": "Raw reproducible CNF omitted from git; exact identity retained."
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control64.cnf",
+      "bytes": 97302087,
+      "sha256": "a3786435a90ddf23bba8ba0593be3c71f76c2b104bee959fe982f87391dc5f4f",
+      "reason": "Raw reproducible CNF omitted from git; exact identity retained."
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control64.extra.cnf",
+      "bytes": 34902513,
+      "sha256": "17275942ccac589a2dfd4a80cd564254d8046642c6daa82416edd0e3b2074fa5",
+      "reason": "Raw reproducible CNF omitted from git; exact identity retained."
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm.cnf",
+      "bytes": 95335562,
+      "sha256": "32764171f75ae58ea5456533e49c3eeea9973d5ede15114fa401c97ffd65f494",
+      "reason": "Raw reproducible CNF omitted from git; exact identity retained."
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-warm.cnf",
+      "bytes": 95320787,
+      "sha256": "e9673790f296050011b5999f4077c3b728649943f42e80e8fd4467ded56a0613",
+      "reason": "Raw reproducible CNF omitted from git; exact identity retained."
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.cnf",
+      "bytes": 97352834,
+      "sha256": "0a195ba6e6dcdfbd3c8d2e4b0f4466afe0f515fd017904e707ccae2fbf4a5420",
+      "reason": "Raw reproducible CNF omitted from git; exact identity retained."
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.extra.cnf",
+      "bytes": 36779728,
+      "sha256": "c7651ee3277fd3640efd8bd37a116a353c01a023b479c1b6ef6fdda06f7fa9f8",
+      "reason": "Raw reproducible CNF omitted from git; exact identity retained."
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63-seed67warm.cnf",
+      "bytes": 88657376,
+      "sha256": "8fb79e27b8ea488ecd9263bf0d80e76c490125bed922ccbc7d54c58f1f1f2c54",
+      "reason": "Raw reproducible CNF omitted from git; exact identity retained."
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63-warm.cnf",
+      "bytes": 88512944,
+      "sha256": "393be94bdc380d54256c6ddefccb453f159c608192ca945f20dd08e63697e7ef",
+      "reason": "Raw reproducible CNF omitted from git; exact identity retained."
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63.cnf",
+      "bytes": 90402884,
+      "sha256": "42dc7c44a6d99d6cea4acfd67754e30b0e2454f8d69b19b84bf77b04f8307565",
+      "reason": "Raw reproducible CNF omitted from git; exact identity retained."
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63.extra.cnf",
+      "bytes": 34902513,
+      "sha256": "e62a0b2bdf29d1451066377b607101646f1c183c5060a8e7f1459eb06bf8d8b3",
+      "reason": "Raw reproducible CNF omitted from git; exact identity retained."
+    }
+  ],
+  "phase_regeneration_argv": [
+    [
+      "python3",
+      "/tmp/oec/pequalnp-pilot-121/components2056/extend_nonread_phase67.py",
+      "--library",
+      "results/orch/components2056/v5-library.json",
+      "--mapping",
+      "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63.mapping.json",
+      "--base-mapping",
+      "/tmp/oec/pequalnp-pilot-121/components2056/v5-target63.mapping.json",
+      "--cnf",
+      "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63.cnf",
+      "--prefix",
+      "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-target63-seed67warm",
+      "--appender-source",
+      "/tmp/oec/pequalnp-pilot-121/components2056/add_nonread.py",
+      "--preferred-model",
+      "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.sol",
+      "--preferred-mapping",
+      "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.mapping.json"
+    ],
+    [
+      "python3",
+      "/tmp/oec/pequalnp-pilot-121/components2056/extend_nonread_phase67.py",
+      "--library",
+      "results/orch/components2056/v5-library.json",
+      "--mapping",
+      "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.mapping.json",
+      "--base-mapping",
+      "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-base67.mapping.json",
+      "--cnf",
+      "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.cnf",
+      "--prefix",
+      "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm",
+      "--appender-source",
+      "/tmp/oec/pequalnp-pilot-121/components2056/add_nonread.py",
+      "--preferred-model",
+      "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.sol",
+      "--preferred-mapping",
+      "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.mapping.json"
+    ]
+  ],
+  "base_regeneration": "nonread-preparation.json has exact encode_reachable.py/add_nonread.py commands; ordinary V5 regeneration identities are already archived. Decompress .sol.gz to its original scratch .sol path before replaying commands. Scratch paths may be relocated consistently.",
+  "active_exclusion": "results/orch/components2056/v5-nonread-target63-seed67warm-run.*",
+  "v3_completed": [
+    "results/orch/components2056/v3-completion-summary.json",
+    "results/orch/components2056/v3-target63-pause.json",
+    "results/orch/components2056/v3-target63-run.stdout",
+    "results/orch/components2056/v3-target63-run.stderr",
+    "results/orch/components2056/v3-target63-run.sol",
+    "results/orch/components2056/v3-target63-run.metadata.json"
+  ]
+}

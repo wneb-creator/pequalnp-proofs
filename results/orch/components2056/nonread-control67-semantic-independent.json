@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS independent graph/producer/read1 replay and target prefix; full native clauses checked separately",
+  "control67_gates": 67,
+  "critical_rows": 756,
+  "missing_joint_read1_edges": 3,
+  "selected_missing_edge": [
+    0,
+    13
+  ],
+  "target_base_clauses_unchanged": 2674606,
+  "target_extra_clauses": 1309530,
+  "baseline64_all52_read1": true,
+  "negative_control_exit": 20,
+  "model_sha256": "5b451c80d6e7d0e133205edf0edac9b6d7eec37a6766627b077cbfcb28ba5900",
+  "target_cnf_sha256": "42dc7c44a6d99d6cea4acfd67754e30b0e2454f8d69b19b84bf77b04f8307565"
+}

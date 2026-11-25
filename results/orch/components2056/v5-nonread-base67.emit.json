@@ -1,0 +1,17 @@
+{
+  "name": "v5-nonread-base67",
+  "command": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-121/components2056/encode_reachable.py",
+    "--library",
+    "/tmp/oec/pequalnp-pilot-121/components2056/v5-library.json",
+    "--bound",
+    "67",
+    "--prefix",
+    "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-base67"
+  ],
+  "started_utc": "2026-11-25T18:34:18.256930+00:00",
+  "ended_utc": "2026-11-25T18:34:42.912850+00:00",
+  "seconds": 24.65598250400035,
+  "returncode": 0
+}

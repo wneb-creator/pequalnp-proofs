@@ -1,0 +1,1 @@
+{"scope": "Exact warm-phase diagnostic; no target correctness claim", "cnf_sha256": "4b85faa6b6a6d5c731516c7c0d2c8673f0c130351b47f676d0d024f00b3d4649", "clauses": 9834084, "dirty_AND_wires": [75], "expected_output_mismatch_rows": [], "output_unit_failures": [], "expected_dirty_cut_failures": [{"index": 9834084, "literal": 175924}], "unexpected_clause_failures": 0}

@@ -1,0 +1,23 @@
+{
+  "name": "v5-nonread-control67",
+  "command": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-121/components2056/add_nonread.py",
+    "--cnf",
+    "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-base67.cnf",
+    "--mapping",
+    "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-base67.mapping.json",
+    "--library",
+    "/tmp/oec/pequalnp-pilot-121/components2056/v5-library.json",
+    "--data",
+    "/workspace/pequalnp-proofs/results/orch/patch2056/full-variable-data.json",
+    "--prefix",
+    "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67",
+    "--pin-circuit",
+    "/tmp/oec/pequalnp-pilot-121/components2056/nonread-control67-input.json"
+  ],
+  "started_utc": "2026-11-25T18:34:58.124391+00:00",
+  "ended_utc": "2026-11-25T18:35:06.124117+00:00",
+  "seconds": 7.999742568001238,
+  "returncode": 0
+}

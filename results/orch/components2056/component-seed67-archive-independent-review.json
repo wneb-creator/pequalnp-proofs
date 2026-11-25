@@ -1,0 +1,40 @@
+{
+  "utc": "2026-11-25T19:19:25.994442+00:00",
+  "manifest_sha256": "2385318645bb8279efbcf341de52c4838a1e4383c98dd461bf65855ce83973f2",
+  "records": 109,
+  "archive_payload_bytes": 16959646,
+  "parsed_json": 35,
+  "omitted_raw_cnf_count": 11,
+  "omitted_raw_cnf_bytes": 820042334,
+  "all_omitted_identities_verified": true,
+  "errors": [],
+  "privacy_matches": [],
+  "v3_completed": {
+    "results/orch/components2056/v3-completion-summary.json": {
+      "bytes": 1406,
+      "sha256": "77d6d3b61df810ae84becff5e8936f693247227cf852f26b0d1f957c48e91a45"
+    },
+    "results/orch/components2056/v3-target63-pause.json": {
+      "bytes": 564,
+      "sha256": "f29b14023b89e3f545d27f507d613af99647fc1223109eeae67fe7d9441e5907"
+    },
+    "results/orch/components2056/v3-target63-run.stdout": {
+      "bytes": 20506,
+      "sha256": "b1d7bc72d107cfec91d777c08b5a5ca65392072df7365eea937bd895788faed2"
+    },
+    "results/orch/components2056/v3-target63-run.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "results/orch/components2056/v3-target63-run.sol": {
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    "results/orch/components2056/v3-target63-run.metadata.json": {
+      "bytes": 1625,
+      "sha256": "b591702d49e2c4b57e5e33cd331281e90b7ed532cc68b0d9f2d4d0f84e03710e"
+    }
+  },
+  "scope": "Completed phase preparations/67-gate controls and prior V3 UNKNOWN result; no63 witness; active new runtime excluded",
+  "verdict": "APPROVED"
+}

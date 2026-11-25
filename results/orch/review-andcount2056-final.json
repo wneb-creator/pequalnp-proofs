@@ -1,0 +1,48 @@
+{
+  "status": "APPROVED completed preparation preservation",
+  "archive": "results/orch/andcount2056-final",
+  "manifest_sha256": "6ff3b511d4c6c619139c14ca5d431075b18549671367798fd7040db48cd0932a",
+  "files": 85,
+  "bytes": 13056590,
+  "all_manifest_hashes_match": true,
+  "all_41_json_parse": true,
+  "sensitive_pattern_matches": 0,
+  "scope": "Final K16 source/control/phase approved; no long target run or target witness. Intermediate provenance clearly retained.",
+  "raw_CNFs_verified": [
+    {
+      "prefix": "nonread-target16-nested",
+      "bytes": 28645044,
+      "sha256": "0498aa1065492af27694f025f111928a8af9d76026cbb194b74e8ccc69239429"
+    },
+    {
+      "prefix": "dirty-native16-control67",
+      "bytes": 29600864,
+      "sha256": "888bd0804771d1932e32655f32aeb15f840aab3a2556e34580d25da8851cc639"
+    },
+    {
+      "prefix": "dirty-native16-star64-negative",
+      "bytes": 29293795,
+      "sha256": "5170256e99e39e6e45ec43fb252dccc73383ae0a3c952829c1117126093ee402"
+    },
+    {
+      "prefix": "dirty-target16-nested",
+      "bytes": 29212074,
+      "sha256": "0f46eb9ff931e255fbadc605ae425401f694eaa983b76aa6adde56e07e4ceda4"
+    },
+    {
+      "prefix": "final-native16-control67",
+      "bytes": 29600874,
+      "sha256": "643c806f667b5a4f7a571fca486219c84358a1261068c425cb88249decfcc8d6"
+    },
+    {
+      "prefix": "final-native16-star64-negative",
+      "bytes": 29293805,
+      "sha256": "50a3b543f3291f3f391cab6561c3fe02e93b21f0fd79e3a1dffaa84739c53f59"
+    },
+    {
+      "prefix": "final-target16-nested",
+      "bytes": 29212084,
+      "sha256": "e42404f6305da9ecf29c910da15f6efae829737ba5a91cb799929172f130d41d"
+    }
+  ]
+}

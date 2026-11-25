@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "git",
+    "push",
+    "--force-with-lease=refs/heads/pnp/pilot-121:406474ddf7f84a6548813b8c77948a5d4e75b0b5",
+    "origin",
+    "a773b4693bf1da13ef3fa39125345578a2071f19:refs/heads/pnp/pilot-121"
+  ],
+  "old": "406474ddf7f84a6548813b8c77948a5d4e75b0b5",
+  "new": "a773b4693bf1da13ef3fa39125345578a2071f19",
+  "started_utc": "2026-11-25T19:28:02.426794+00:00",
+  "scope": "Reviewed compiled conditional necessity; same origin/branch, ancestry-preserving expected-old-SHA fence; argv saved before execution."
+}

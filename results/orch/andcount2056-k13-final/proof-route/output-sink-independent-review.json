@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-25T18:55:13.881661+00:00",
+  "verdict": "APPROVED",
+  "source": "output_sink_model2056.py",
+  "source_sha256": "22ffe11a5b131e8190e38c729d666723cd45307895d93b84c386e1b49c2a31be",
+  "mathematical_scope": "Ordered AND-record model; keeping every selected output term while deleting its later operand occurrences preserves output pointwise. Membership expansion bound cannot increase; cached ordinary circuit size may increase, so retain smaller materialization.",
+  "source_review": "Deep-copy, ascending processing and original/output retention independently reviewed. No active solver source changed.",
+  "independent_control": {
+    "file": "output-sink-swapped76-control.best.ordinary.json",
+    "sha256": "4651e93ef054eb0ffac228279a964456e4cfe5fc3c190dc94891eb0da30b1c08",
+    "actual_size": 64,
+    "regenerated_52_positive_and_704_maximal_false_rows_pass": true
+  },
+  "author_report": "1000 random nested models on64 relevant assignments;736 changed.76-gate full-plane example becomes64 after12 membership deletions and passes all67108864 inputs. Exhaustive author checks not rerun by reviewer."
+}

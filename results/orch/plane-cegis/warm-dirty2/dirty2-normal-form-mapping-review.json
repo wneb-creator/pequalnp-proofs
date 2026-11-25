@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-25T19:28:30.814501+00:00",
+  "source_sha256": "73bd56fbce94cc902f163a69da9f217d065a5ee3186d79a5b47a7fe6b50c5226",
+  "Lean_partial_sha256": "e00a0687d35485871019237256b3c901e27d782ce26510ef54ded344fd560f9f",
+  "scope": "Independent mathematical mapping of ordinary full-row encoding to compiled normalized_small_two_dirty; not a Lean formalization of the Python encoder",
+  "hypothesis_mapping": {
+    "IsAO2": "AND/OR op bit plus exactly two selected backward sources; output is last gate.",
+    "full_correctness": "All52 minimal true and704 maximal false rows are encoded; AND/OR monotonicity and boundary completeness imply the full incidence function.",
+    "BelowF_and_clean": "A monotone gate is below the target iff it is false on all704 maximal-false inputs; clean flags encode both directions exactly.",
+    "live": "Every nonfinal gate has a later reader. Finite strictly increasing reader paths terminate at the final output, giving InOutputCone for every gate.",
+    "NoSoundOperands": "Line179 prevents every clean gate wire from feeding an AND. A primary is not below the graph function because its singleton input is false for the target. Backward sources exclude nonexistent wires.",
+    "IsLiftFixedPoint": "Line180 forces an OR reading a clean gate wire to be clean itself. Primary operands are never implicants. Thus no dirty OR can read an implicant wire, so no LiftAt exists.",
+    "dirty_count": "New flag is exactly AND and not clean; the threshold2 recurrence counts distinct gate indices."
+  },
+  "existence_completeness": "Existing arbitrary-Monotone2 to no-larger AO2 conversion (L4342), compiled least/lift-fixed normalization, and least-circuit liveness/no-clean-AND-operand properties provide a suitable circuit. Apply the compiled two-dirty theorem before padding. Final output OR copies preserve function, old dirty gates, fixedness, liveness and operand restrictions, so exact63 padding preserves the new cut. Previously reviewed other normalizations remain separate obligations.",
+  "limits": [
+    "Do not transfer this necessity directly to independent-OR-membership-cost encoders, whose budget need not survive ordinary normalization.",
+    "No unconditional64-gate lower bound or target witness is established."
+  ],
+  "verdict": "APPROVED as a necessary normalized full-circuit search cut"
+}

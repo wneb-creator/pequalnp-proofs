@@ -1,0 +1,40 @@
+{
+  "started_utc": "2026-11-25T18:06:47.275396+00:00",
+  "duration_seconds": 3600,
+  "files": {
+    "cnf": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v3-target63.cnf",
+      "sha256": "cc1febf617ec57e32c5d68eb11d05ca530d2f3ec3ddb65e9e5b7ee825cb62bea"
+    },
+    "mapping": {
+      "path": "results/orch/components2056/v3-target63.mapping.json",
+      "sha256": "416664696a93d1aded447362add116910350eaef657ff7da4fea23148f88f975"
+    },
+    "library": {
+      "path": "results/orch/components2056/v3-library.json",
+      "sha256": "c6d14c6b269b394e743d9e00b687a7c6509f8af70675bbfedd000e86ede3f293"
+    },
+    "encoder": {
+      "path": "/workspace/pequalnp-proofs/results/orch/components2056/encode.py",
+      "sha256": "edcd1ef1c4e62ffee36336fd42b756160d2b39e4ce65b688a969081c30fde59a"
+    },
+    "decoder": {
+      "path": "/workspace/pequalnp-proofs/results/orch/components2056/decode.py",
+      "sha256": "6ee4ef6ab6ab6ccd45aa1bba975be6c8c18225074ed0c5a347c7c319bf03307c"
+    },
+    "runner": {
+      "path": "/workspace/pequalnp-proofs/results/orch/components2056/run_sat.py",
+      "sha256": "7578dcb4ccdbf47aedd1a5dad5c62f59e78cce91d124087226cd153199481a77"
+    },
+    "cadical": {
+      "path": "/tmp/oec/pequalnp-pilot-121/toolchain/lean-4.36.0-linux/bin/cadical",
+      "sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647"
+    }
+  },
+  "status": "completed",
+  "child_pid": 34114,
+  "ended_utc": "2026-11-25T19:06:48.333246+00:00",
+  "wall_seconds": 3600.8548395849994,
+  "returncode": 0,
+  "model_sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+}

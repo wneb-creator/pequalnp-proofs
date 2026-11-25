@@ -1,0 +1,82 @@
+{
+  "started_utc": "2026-11-25T19:01:04.511583+00:00",
+  "duration_seconds": 30,
+  "initial_phase": true,
+  "files": {
+    "cnf": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm.cnf",
+      "sha256": "32764171f75ae58ea5456533e49c3eeea9973d5ede15114fa401c97ffd65f494"
+    },
+    "original_cnf": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.cnf",
+      "sha256": "0a195ba6e6dcdfbd3c8d2e4b0f4466afe0f515fd017904e707ccae2fbf4a5420"
+    },
+    "mapping": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67.mapping.json",
+      "sha256": "f87e13eef610b7eeec2a35a9dc419ac7bd796729bf7a6c54fb4365c255fe1d50"
+    },
+    "library": {
+      "path": "results/orch/components2056/v5-library.json",
+      "sha256": "e731fe5e465ae28ba320dd3a562a7f7a2b0998076caec6d74d517e8926ec89dd"
+    },
+    "phase": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm.phase.json",
+      "sha256": "35c15bad321615e48b327a83a80bd423e187c182581baa372ea931285227ad0f"
+    },
+    "mask": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/v5-nonread-control67-seed67warm.mask.bin",
+      "sha256": "6096497a0192b830499cd561824d15c32297124d62f2ebca2d5699dd5331c215"
+    },
+    "encoder": {
+      "path": "/workspace/pequalnp-proofs/results/orch/components2056/encode_reachable.py",
+      "sha256": "d26d36eb0bbb77b5ad8da3ab5cec839184dd2836d86c89cbd92729afe8f159e6"
+    },
+    "phase_builder": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/extend_nonread_phase67.py",
+      "sha256": "0c41b31903ceec2f08933136d51298dca83c0861e73741478edb4703de0e0452"
+    },
+    "nonread_appender": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/add_nonread.py",
+      "sha256": "cb8b50bc0baa0c9ba235835539adbea7c401051df6cf2b7abf3cc60c0cf9082b"
+    },
+    "unrenamer": {
+      "path": "/workspace/pequalnp-proofs/results/orch/components2056/unrename_model.py",
+      "sha256": "a6aabcee2d4ccabf1658dd3fa657f43c1a008a847a6168e6114e7a0d8d9f3afd"
+    },
+    "clause_checker": {
+      "path": "/workspace/pequalnp-proofs/results/orch/components2056/verify_cnf_model.py",
+      "sha256": "2f213c905d6425f1673de0dc5dd3ae63adf340cb36936594628fcc4e07b8e0ed"
+    },
+    "decoder": {
+      "path": "/workspace/pequalnp-proofs/results/orch/components2056/decode.py",
+      "sha256": "6ee4ef6ab6ab6ccd45aa1bba975be6c8c18225074ed0c5a347c7c319bf03307c"
+    },
+    "runner": {
+      "path": "/tmp/oec/pequalnp-pilot-121/components2056/run_sat_nonread_warm.py",
+      "sha256": "a8824dea49180a56884f6300b8633f7b05db942e0477b1285c947281edf1c819"
+    },
+    "cadical": {
+      "path": "/tmp/oec/pequalnp-pilot-121/toolchain/lean-4.36.0-linux/bin/cadical",
+      "sha256": "2a0137451efde370d67b88aec26f1e902870f095b1204b07049a103bc6bbd647"
+    }
+  },
+  "status": "completed",
+  "duration_requested_seconds": 30,
+  "absolute_native_stop_utc": "2026-11-25T20:00:00+00:00",
+  "stage": "decode",
+  "child_pid": 40684,
+  "native_child_pid": 40560,
+  "native_returncode": 10,
+  "returncode": 10,
+  "warm-check_returncode": 0,
+  "unrename_returncode": 0,
+  "original-check_returncode": 0,
+  "decode_returncode": 0,
+  "candidate_sha256": "0a751f1c6fbf2e5e6209239443d122f3b8334e84519ed3139ba4373f0fb33f35",
+  "unrenamed_model_sha256": "31e448ed40e8ba46aa920d2c2e1f7b406e03a9c655edd560bcd53c1b51ecf022",
+  "model_sha256": "f53e0efc83d3c65d02d398aa401cdb3a001702581696e6a758d8bcbef2838109",
+  "ended_utc": "2026-11-25T19:02:24.791131+00:00",
+  "wall_seconds": 79.57586539000113,
+  "cancel_signal": null,
+  "pipeline_returncode": 0
+}

@@ -1,0 +1,32 @@
+{
+  "base_source": "/workspace/pequalnp-proofs/results/orch/patch2056/full_variable70_pair.cpp",
+  "changes": [
+    "seed-header filename",
+    "startup count message651-to5"
+  ],
+  "seeds": "first original startup control; four copies of exact66 target, target last",
+  "long_run_authorized": true,
+  "planned_after_utc": "2026-11-25T19:44:30+00:00",
+  "absolute_stop_utc": "2026-11-25T19:55:00+00:00",
+  "hashes": {
+    "neutral_pair_care_full.hpp": "b71c28ebe7959f62031c4f5e1874410a02780107c448f7ee1bb2ba4e936b099f",
+    "rows.txt": "535859e22fe4f5f187c9655d3ba3ad15e4b6d967b51b4981eba9d56925f62f48",
+    "repair_shrink_full.hpp": "3e55cb3b72e8eedfc8c535052e7906dbf6f4df2be2d43986b90e6f58a83466b3",
+    "exact66_local.cpp": "e8c26582b9f65f7c65fd39c4cf03227af0e84b7c2db11f4cfa768ecbecf044ca",
+    "scatter_spares_full.hpp": "71900b15fffab2f1c094bf208a686520a048b40f307519040ec9128db26e4d14",
+    "exact66_seeds.hpp": "cb63f59d266a32eb95bfb5f2cbcb13fe55e9a0d42988d489acd58c288b3dd653",
+    "seeds.json": "64d3683921ca7de857bb76992f8eb4319f2803bc9adc66bd5e364007ede676b0"
+  },
+  "authorization_conditions": [
+    "K13 worker has finished",
+    "fresh root lease renewal",
+    "at most600 seconds",
+    "hard stop2026-11-25T19:55:00Z",
+    "same reviewed source/helper/seed bytes"
+  ],
+  "runtime_structural_constraints": "Only exact756-row function, valid backward binary gates and live-gate count; nonRead1 or shared-dirty retention is not enforced.",
+  "binary_sha256": "ea2d686aae39bb28589a7b42402915d84d9539657f51adb9b7420e85d3c8805c",
+  "independent_review": "/tmp/oec/pequalnp-pilot-121/andcount2056/exact66-local/independent-data-review.json",
+  "startup_control_structure": "65 gates,14AND,all52edges jointRead1,no dirtyAND",
+  "main_initial_structure": "66 gates,14AND,7 jointRead1 failures,1 dirtyAND with one cleanAND reader"
+}

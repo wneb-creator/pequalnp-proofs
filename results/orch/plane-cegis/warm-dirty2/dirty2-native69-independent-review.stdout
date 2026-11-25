@@ -1,0 +1,22 @@
+{
+  "scope": "Full-SAT dirty2 preparation positive69 control only; no63 witness.",
+  "source_sha256": "73bd56fbce94cc902f163a69da9f217d065a5ee3186d79a5b47a7fe6b50c5226",
+  "native_clauses_checked": 10339293,
+  "native_variables": 181586,
+  "decoded_gates": 69,
+  "actual_dirty_AND_wires": [
+    74,
+    76
+  ],
+  "clean_and_dirty_flags_all_replayed": true,
+  "decoded_ANDs": 16,
+  "fixed_prefix_verified": 66,
+  "native_model_sha256": "7eb2bbe4b35c0aa59833278ad4a19856555519a6501603be600b45a1a9e800ea",
+  "native_cnf_sha256": "48e533d29f69940b42f330e7d3ed7ec5871894ee4de4069a8c1b9381f287f25a",
+  "selected_edge": [
+    0,
+    13
+  ],
+  "independent_capped_read_counts_match_every_wire": true,
+  "full_geometry_rows_verified": 756
+}

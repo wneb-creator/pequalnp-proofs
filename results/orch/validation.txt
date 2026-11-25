@@ -209,3 +209,17 @@ Command and full stdout/stderr/resource samples: research/L1898-local-validation
 Exit0 in825.189seconds, stdout/stderr empty. Scope: existing13 ordinaryAND lower bound for equivalent difference-incidence plane. No new target proof, refutation, PR or accepted target checker.
 Sub-agents: circuit_search, gate_elimination, not_elimination, proof_route, status_review, toolchain_setup
 TIMING total=289.60 subagents=6
+
+COMPILED RESTRICTED LOWER BOUND 2026-11-25T19:24:25.924376+00:00
+File results/orch/lemmas/OneDirtyPlane2056.lean,3231lines,SHA5bb805978ab235aa4d6aa60dc10aaabdfccd74c55da77bb11ef897988a1a9cab.
+Exit0/69.299s/peak7,200,112KiB; full inherited-warning stdout and empty stderr in one-dirty-plane-2056-build.*. Final bytes/build records independently approved, pushed406474ddf7f84a6548813b8c77948a5d4e75b0b5.
+Scope: normalized at-most-one-dirty≥64 with explicit all-AND-singleton-false premise. Posted63-gate target remains unproved; no accepted target checker, no PR, no final cleanup. Named partial stays728lines before/after (no cleanup attempted).
+Sub-agents: circuit_search, gate_elimination, not_elimination, proof_route, status_review, toolchain_setup
+TIMING total=309.28 subagents=6
+
+COMPILED NORMALIZED NECESSITY 2026-11-25T19:31:33.899962+00:00
+TwoDirtyNecessary2056.lean,6865lines,SHAe00a0687d35485871019237256b3c901e27d782ce26510ef54ded344fd560f9f.
+Exit0/134.637s/peak7,592,764KiB; full52 inherited-warning stdout, empty stderr and resources preserved in two-dirty-necessary-2056-build.*. Independently approved and pusheda773b4693bf1da13ef3fa39125345578a2071f19.
+Scope: normalized correct≤63 circuits require two distinct dirtyANDs. No singleton premise; normalization/full correctness remain explicit. No posted target proof, refutation, accepted target checker, PR or cleanup. Named partial remains728lines.
+Sub-agents: circuit_search, gate_elimination, not_elimination, proof_route, status_review, toolchain_setup
+TIMING total=316.41 subagents=6

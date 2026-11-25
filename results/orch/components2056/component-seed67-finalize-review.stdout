@@ -1,0 +1,64 @@
+review_sha256 5a4be676232456435455df609b6820f2e1c9809a92b6f1b3ea802627e5f9c214
+{
+  "status": "PASS independent full original/warm clause sign equivalence, warm phase and actual native/inverse assignments",
+  "scope": "Optional67-preferred component preparation approved with exact actual inverse and decoded candidate;67-gate control only, no63 target result",
+  "reports": [
+    {
+      "label": "target63",
+      "variables": 896388,
+      "clauses_compared_and_checked": 3984136,
+      "exact_literal_sign_renaming": true,
+      "phase_failures": [
+        {
+          "index": 2049893,
+          "literals": [
+            -1697,
+            -566580
+          ]
+        },
+        {
+          "index": 2050020,
+          "literals": [
+            -1698,
+            -566643
+          ]
+        },
+        {
+          "index": 2050147,
+          "literals": [
+            -1699,
+            -566706
+          ]
+        },
+        {
+          "index": 2050274,
+          "literals": [
+            -1700,
+            -566769
+          ]
+        }
+      ],
+      "native_and_inverse_model_all_clauses_checked": false,
+      "native_model_sha256": null,
+      "warm_cnf_sha256": "8fb79e27b8ea488ecd9263bf0d80e76c490125bed922ccbc7d54c58f1f1f2c54",
+      "mask_sha256": "44e75ec5af3340562510044ef0b87fb7d30a7886c0c26c6b878fe855c1631dc1"
+    },
+    {
+      "label": "control67",
+      "variables": 947867,
+      "clauses_compared_and_checked": 4374259,
+      "exact_literal_sign_renaming": true,
+      "phase_failures": [],
+      "native_and_inverse_model_all_clauses_checked": true,
+      "native_model_sha256": "f53e0efc83d3c65d02d398aa401cdb3a001702581696e6a758d8bcbef2838109",
+      "warm_cnf_sha256": "32764171f75ae58ea5456533e49c3eeea9973d5ede15114fa401c97ffd65f494",
+      "mask_sha256": "6096497a0192b830499cd561824d15c32297124d62f2ebca2d5699dd5331c215"
+    }
+  ],
+  "elapsed_seconds": 57.255451737997646,
+  "actual_inverse_file_matches_every_variable": true,
+  "actual_inverse_sha256": "31e448ed40e8ba46aa920d2c2e1f7b406e03a9c655edd560bcd53c1b51ecf022",
+  "decoded_candidate_byte_identical_to_independently_checked_cold67": true,
+  "candidate_sha256": "0a751f1c6fbf2e5e6209239443d122f3b8334e84519ed3139ba4373f0fb33f35"
+}
+

@@ -1,0 +1,26 @@
+{
+  "variables": 947867,
+  "clauses": 4374259,
+  "bound": 67,
+  "initial_phase": true,
+  "preferred_selected_noninputs": 67,
+  "preferred_edge_index": 0,
+  "preferred_edge": [
+    0,
+    13
+  ],
+  "preferred_root_joint_read1": false,
+  "violated_original_clauses": [],
+  "violated_class": "cardinality_overflow_only",
+  "source_sha256": "0c41b31903ceec2f08933136d51298dca83c0861e73741478edb4703de0e0452",
+  "appender_source_sha256": "cb8b50bc0baa0c9ba235835539adbea7c401051df6cf2b7abf3cc60c0cf9082b",
+  "preferred_model_sha256": "5b451c80d6e7d0e133205edf0edac9b6d7eec37a6766627b077cbfcb28ba5900",
+  "preferred_mapping_sha256": "f87e13eef610b7eeec2a35a9dc419ac7bd796729bf7a6c54fb4365c255fe1d50",
+  "library_sha256": "e731fe5e465ae28ba320dd3a562a7f7a2b0998076caec6d74d517e8926ec89dd",
+  "mapping_sha256": "f87e13eef610b7eeec2a35a9dc419ac7bd796729bf7a6c54fb4365c255fe1d50",
+  "original_cnf_sha256": "0a195ba6e6dcdfbd3c8d2e4b0f4466afe0f515fd017904e707ccae2fbf4a5420",
+  "warm_cnf_sha256": "32764171f75ae58ea5456533e49c3eeea9973d5ede15114fa401c97ffd65f494",
+  "mask_name": "v5-nonread-control67-seed67warm.mask.bin",
+  "mask_sha256": "6096497a0192b830499cd561824d15c32297124d62f2ebca2d5699dd5331c215",
+  "equivalence": "Original variable equals renamed variable XOR mask bit; all clauses retained."
+}

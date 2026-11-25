@@ -1,0 +1,23 @@
+{
+  "status": "UNKNOWN at native time limit; no target witness or solver UNSAT",
+  "native_exit_code": 0,
+  "source_wrapper_exit_code": 0,
+  "native_start_observed_utc": "2026-11-25T18:12:24.026028+00:00",
+  "nominal_deadline_utc": "2026-11-25T19:12:24.026028+00:00",
+  "wrapper_completed_utc": "2026-11-25T19:12:25.938392+00:00",
+  "configured_native_seconds": 3600,
+  "post_conversion_elapsed_seconds": 3600.252484953002,
+  "recorded_pause_seconds": 63.655814,
+  "timeout_observation": "The post-conversion interval is about3600.25 wall seconds; the pause did not add63.66 seconds to the original deadline.",
+  "source_sha256": "0b7a5652d1891b11b956f93e949c7dca9d923e5f677c69723e93d222194efe3b",
+  "cnf_sha256": "c8db4692682c49fd6c5d84f63fba1320b4526ce472f4c73a14c66279f5554f13",
+  "warm_model_sha256": "00bdaeb50a4f21f2cfe1f1ca12830f505d258dfa0f48be22d598744f45a42720",
+  "variables": 309088,
+  "clauses": 1324820,
+  "ordinary_limit": 63,
+  "and_records": 16,
+  "max_rss_kb": 417040,
+  "stdout_bytes": 20474,
+  "stderr_bytes": 0,
+  "candidate_files_present": false
+}

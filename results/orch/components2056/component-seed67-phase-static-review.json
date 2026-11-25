@@ -1,0 +1,25 @@
+{
+  "reviewer": "circuit_search",
+  "utc": "2026-11-25T19:02:36.637567+00:00",
+  "source_sha256": "0c41b31903ceec2f08933136d51298dca83c0861e73741478edb4703de0e0452",
+  "reviewed_base_allocator_sha256": "6e96a2d1166b0ea67ca55130e2ed2438fe4963f4cbf20f86c23619a0387646df",
+  "static_approved": true,
+  "allocation_order_matches_base": [
+    "selected profiles",
+    "chosen productions",
+    "rank bits",
+    "per-profile at-most-one prefix auxiliaries",
+    "cached strict comparator and prefix-equality bits",
+    "saturated prefix-cardinality counters"
+  ],
+  "changes_checked": [
+    "67-profile preferred model decoded by semantic roles rather than assuming matching variableIDs",
+    "selected/noninput producer bijection and acyclic depth reconstruction",
+    "root rank fixed tobound; actualmappingIDs/totalbasevariables checked",
+    "exact expected cardinality-overflow literals for67selected underbound63/67",
+    "same independently reviewed appended joint-read states and fullvariablecoverage",
+    "every original clause retained under exact signbijection; entirephase evaluated before emission is accepted"
+  ],
+  "actual_new_artifact_stream_review": "delegated to status_review; not claimed here",
+  "no_target_solution_claim": true
+}

@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-25T19:18:17.710297+00:00",
+  "scope": "Completed full63 first-gate query preservation only",
+  "manifest_sha256": "5bab6aad75242a8e6179d8bffb3352325d6a7d832b6061e9fef0a81737ca1c5d",
+  "files_including_manifest": 13,
+  "bytes": 739734,
+  "hashes_verified": true,
+  "all_json_parses": true,
+  "privacy_patterns_found": false,
+  "stdout_bytes": 27846,
+  "stderr_bytes": 0,
+  "native_real_seconds": 3600.0,
+  "solver_status": "UNKNOWN",
+  "candidate": false,
+  "notes": "Earlier AND10 normalization; unchanged original query; reversible publication pause counted by wall deadline; no Lean/nonexistence result",
+  "verdict": "APPROVED for preservation"
+}

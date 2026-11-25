@@ -1,0 +1,35 @@
+{
+  "scope": "Compiled normalized two-dirty necessity, no singleton premise, no posted target proof",
+  "files": [
+    {
+      "path": "results/orch/lemmas/TwoDirtyNecessary2056.lean",
+      "bytes": 331150,
+      "sha256": "e00a0687d35485871019237256b3c901e27d782ce26510ef54ded344fd560f9f"
+    },
+    {
+      "path": "results/orch/two-dirty-necessary-2056-build.json",
+      "bytes": 996,
+      "sha256": "8ed3d357aea1bc7ac319cfabf112bc2a0b323189686a4118b5eccfc34db27b25"
+    },
+    {
+      "path": "results/orch/two-dirty-necessary-2056-build.stdout",
+      "bytes": 14439,
+      "sha256": "c43121b237a36f26004bfae81d50b85fdd73504df47eb992e446d9b68e7f70f1"
+    },
+    {
+      "path": "results/orch/two-dirty-necessary-2056-build.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/two-dirty-necessary-2056-build.resources.jsonl",
+      "bytes": 5109,
+      "sha256": "a269781fb49e2afaf1f934e56a92a686a4b71c3fcdec1fc8436429f4d6997fc1"
+    },
+    {
+      "path": "results/orch/two-dirty-new-tail-independent-review.json",
+      "bytes": 1511,
+      "sha256": "dc21c232ce3445ed192066b36015b6aef29e613205c77edd821e6d2470877362"
+    }
+  ]
+}

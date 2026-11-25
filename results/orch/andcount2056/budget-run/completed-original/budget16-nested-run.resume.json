@@ -1,0 +1,11 @@
+{
+  "status": "same native worker resumed with SIGCONT; no restart or source changes",
+  "resumed_utc": "2026-11-25T18:24:59.219894+00:00",
+  "paused_utc": "2026-11-25T18:23:55.564080+00:00",
+  "pause_seconds": 63.655814,
+  "solver_pid": 34630,
+  "wrapper_pid": 34624,
+  "timeout_limit_unchanged": 3600,
+  "original_observed_deadline_utc": "2026-11-25T19:12:24.026028+00:00",
+  "actual_timeout_behavior": "pending observation at native completion"
+}

@@ -1,0 +1,163 @@
+{
+  "status": "APPROVED source4cd6d778 actual native positive, fixed negative and K13 target phase; no target witness",
+  "source_sha256": "4cd6d7789276a67250f6e01bd13df4eb13f738675008af7bf8fcf77959027085",
+  "reports": [
+    {
+      "prefix": "budget-nonread-control16-cap67",
+      "mode": "native",
+      "variables": 314388,
+      "clauses_checked": 1444029,
+      "unsatisfied_phase_clauses": [],
+      "active_AND_records": 15,
+      "memberships": 83,
+      "literal_cost_bound": 67,
+      "missing_positive_indices": [],
+      "false_positives": 0,
+      "selected_nonread_witnesses": [
+        0
+      ],
+      "literal_split_missing_read1": [
+        0,
+        1,
+        4
+      ],
+      "circuits": {
+        ".ordinary.json": {
+          "gates": 67,
+          "ANDs": 15,
+          "missing_read1": [
+            0,
+            1,
+            4
+          ]
+        },
+        ".literal.json": {
+          "gates": 67,
+          "ANDs": 15,
+          "missing_read1": [
+            0,
+            1,
+            4
+          ]
+        }
+      },
+      "cnf_sha256": "e93531623b557d82535f950a3fa48e79edf7a726158db1fcfba3d5779297a4d1"
+    },
+    {
+      "prefix": "budget-nonread-control13-star64-negative",
+      "mode": "negative_phase",
+      "variables": 217464,
+      "clauses_checked": 1020293,
+      "unsatisfied_phase_clauses": [
+        [
+          748827,
+          [
+            149631,
+            149632,
+            149633,
+            149634,
+            149635,
+            149636,
+            149637,
+            149638,
+            149639,
+            149640,
+            149641,
+            149642,
+            149643,
+            149644,
+            149645,
+            149646,
+            149647,
+            149648,
+            149649,
+            149650,
+            149651,
+            149652,
+            149653,
+            149654,
+            149655,
+            149656,
+            149657,
+            149658,
+            149659,
+            149660,
+            149661,
+            149662,
+            149663,
+            149664,
+            149665,
+            149666,
+            149667,
+            149668,
+            149669,
+            149670,
+            149671,
+            149672,
+            149673,
+            149674,
+            149675,
+            149676,
+            149677,
+            149678,
+            149679,
+            149680,
+            149681,
+            149682
+          ]
+        ]
+      ],
+      "active_AND_records": 13,
+      "memberships": 78,
+      "literal_cost_bound": 64,
+      "missing_positive_indices": [],
+      "false_positives": 0,
+      "selected_nonread_witnesses": [],
+      "literal_split_missing_read1": [],
+      "circuits": {},
+      "cnf_sha256": "36b22df00402e36c3cd07b07f3977486229099c835a3d541a73f622d3a328fb1"
+    },
+    {
+      "prefix": "budget-nonread-target13-cap63",
+      "mode": "target_phase",
+      "variables": 216606,
+      "clauses_checked": 1016018,
+      "unsatisfied_phase_clauses": [
+        [
+          656800,
+          [
+            148266,
+            148267,
+            148268,
+            148269,
+            148270,
+            148271,
+            148272,
+            148273,
+            148274,
+            148275,
+            148276,
+            148277,
+            148278
+          ]
+        ]
+      ],
+      "active_AND_records": 13,
+      "memberships": 77,
+      "literal_cost_bound": 63,
+      "missing_positive_indices": [
+        0
+      ],
+      "false_positives": 0,
+      "selected_nonread_witnesses": [
+        0
+      ],
+      "literal_split_missing_read1": [
+        0
+      ],
+      "circuits": {},
+      "cnf_sha256": "30fd16a7f3b94e86ac1694154dc5e88c30382a3ca22192ddb2767fb6ca2aba86"
+    }
+  ]
+}
+

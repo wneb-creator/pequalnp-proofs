@@ -1,0 +1,322 @@
+[
+  {
+    "file": "L_meta_11048.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_13111.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_13139.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_13163.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_13335.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14120.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14158.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14162.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14180.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14190.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14204.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14232.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14234.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14242.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14248.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14262.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14284.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14290.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14300.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14308.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14310.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14316.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14324.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14332.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14344.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14348.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14380.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14404.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14406.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14408.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14414.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14420.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14430.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14432.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14440.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14444.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14454.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14460.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14462.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14466.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14468.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14474.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14496.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14498.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14502.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14528.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14532.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14536.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14548.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14562.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14600.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14628.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14682.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14688.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14696.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14714.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14724.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14740.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14772.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14784.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14786.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14790.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14816.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14854.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14884.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14944.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14946.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14950.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14960.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14962.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_14972.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_15016.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_15020.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_15030.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_15034.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_15038.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_15046.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_15052.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "L_meta_15058.lean",
+    "reason": "no unbracketed proof assignment := by"
+  },
+  {
+    "file": "V_meta_9972__k11.lean",
+    "reason": "no unbracketed proof assignment := by"
+  }
+]

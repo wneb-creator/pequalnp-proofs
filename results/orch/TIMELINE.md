@@ -80,3 +80,13 @@
 2026-11-25T18:49:33.227942+00:00: read-only local Lean recheck of existing L_meta_1898 started with pinned Lean4.36.0.
 
 2026-11-25T19:03:18.417174+00:00: L_meta_1898 local recheck finished exit0 after825.189seconds; unchanged7334-line source. All logs and resource samples preserved. No new total-size theorem.
+
+2026-11-25T19:07:06+00:00 (rounded): SumAndCountTransport2056 compiled,178lines,conditional count-preserving sum/difference transport; exact build metadata preserved.
+
+2026-11-25T19:20:13+00:00 (rounded): OneDirtyPlane2056 compiled,3231lines,normalized at-most-one-dirty≥64 with explicit all-AND-singleton-false premise; exit0/69.299s,peak7,200,112KiB.
+
+2026-11-25T19:22:09.524092+00:00: independently reviewed OneDirtyPlane helper successfully pushed at406474ddf7f84a6548813b8c77948a5d4e75b0b5. No full target proof or PR.
+
+2026-11-25T19:25:50+00:00 (rounded): TwoDirtyNecessary2056 compiled first try,6865lines,exit0/134.637seconds/peak7,592,764KiB. It proves normalized≤63 requires two distinct dirtyANDs, without a singleton premise.
+
+2026-11-25T19:28:04.624567+00:00: independently reviewed TwoDirtyNecessary helper and complete records pushed ata773b4693bf1da13ef3fa39125345578a2071f19.

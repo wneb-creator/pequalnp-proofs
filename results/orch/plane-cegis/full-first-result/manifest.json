@@ -1,0 +1,70 @@
+{
+  "utc": "2026-11-25T19:10:16.372939+00:00",
+  "files": [
+    {
+      "name": "README.md",
+      "bytes": 1295,
+      "sha256": "9eda8f414e6ecc7804b212f4bb79bd7e9964329fc1d8892b476fb5d9a54df433"
+    },
+    {
+      "name": "direct_cnf_warm_first.py",
+      "bytes": 12644,
+      "sha256": "b9b6a04cf8b0458ef835e42944e3dc852c270b222c4f3c4a90b485be5baf155f"
+    },
+    {
+      "name": "full-first-result-independent-review.json",
+      "bytes": 670,
+      "sha256": "af21b9211b40643e7b639211c37ddfe9d476c9192630e893141024d27435b1b8"
+    },
+    {
+      "name": "publication-pause-20261125.json",
+      "bytes": 1067,
+      "sha256": "e4b2a0b6fa1da11e09dbd0e84ad2e6b77ab5108ba61bdb8f4c150c91400cf590"
+    },
+    {
+      "name": "warm-first-near63-full-run-wrapper.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "warm-first-near63-full-run-wrapper.stdout",
+      "bytes": 1187,
+      "sha256": "be98c50ee661744cc542603dba9bee06a75eec5ebce6c881d815b2234635a4e5"
+    },
+    {
+      "name": "warm-first-near63-full-run.cnf-identity.json",
+      "bytes": 197,
+      "sha256": "950e194c5320e04e4291c984f01558d16922a0f14bd333f64243262656e009bd"
+    },
+    {
+      "name": "warm-first-near63-full-run.json",
+      "bytes": 811,
+      "sha256": "8dfdb2ff1bc9e8910fc96d16dbff7a7df45a47924284d2bf92a83e4e50125bc4"
+    },
+    {
+      "name": "warm-first-near63-full-run.mapping.json",
+      "bytes": 692468,
+      "sha256": "df1a9fdb941acb193c722c175fda5f56374c0c1535dadb5425611bde662c4d00"
+    },
+    {
+      "name": "warm-first-near63-full-run.process.json",
+      "bytes": 136,
+      "sha256": "9ab60005077b864352309c1a0109c8fff61f98b557b68d5978a21706b3997e07"
+    },
+    {
+      "name": "warm-first-near63-full-run.sol",
+      "bytes": 10,
+      "sha256": "8fba55cea0f98be36fab7b65349dda867a58aabfcf974a46098f5123830ac5cb"
+    },
+    {
+      "name": "warm-first-near63-full-run.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "warm-first-near63-full-run.stdout",
+      "bytes": 27846,
+      "sha256": "7d8e2ca3abf8f3f0b8e8f09922cd5afd2e7e27c62d615bc482591e71a14d8695"
+    }
+  ]
+}

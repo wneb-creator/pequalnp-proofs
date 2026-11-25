@@ -1,0 +1,41 @@
+{
+  "utc": "2026-11-25T19:24:05.377013+00:00",
+  "source_sha256": "73bd56fbce94cc902f163a69da9f217d065a5ee3186d79a5b47a7fe6b50c5226",
+  "control_sha256": "d198b4fd3f7fc62c59d3123f725d2aec6f17626ce4a16cf51bee020d67ced1b1",
+  "control_size": 69,
+  "ANDs": 16,
+  "independent_boundary_rows": 756,
+  "boundary_errors": 0,
+  "dirty_AND_wires": [
+    74,
+    76
+  ],
+  "singleton_AND_acceptances": [],
+  "normalization_violations": [],
+  "missing_Read1_edges": [
+    [
+      0,
+      13
+    ],
+    [
+      0,
+      14
+    ],
+    [
+      1,
+      13
+    ],
+    [
+      9,
+      13
+    ],
+    [
+      9,
+      17
+    ]
+  ],
+  "counter_truth_tables_verified": true,
+  "input_relabel_edges_verified": true,
+  "scope": "Source and69-gate positive control audit; two-dirty stratum until stronger normalization proof validated; no63candidate",
+  "verdict": "APPROVED for brief controls"
+}

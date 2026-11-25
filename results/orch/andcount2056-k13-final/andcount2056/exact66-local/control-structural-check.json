@@ -1,0 +1,20 @@
+{
+  "records": "control-dump.stdout",
+  "distinct_circuits": 1,
+  "best_gate_count": 65,
+  "best_nonread1_gate_count": null,
+  "at_most63": [],
+  "circuits": [
+    {
+      "line": 1,
+      "kind": "startup_control",
+      "identity": "b9945d091686474e033f5ae3a5e7542b0baddfb733b535837876062a26211f9d",
+      "gates": 65,
+      "ANDs": 14,
+      "boundary_errors": 0,
+      "missing_joint_Read1_edges": [],
+      "dirty_ANDs": [],
+      "shared_dirty_ANDs_direct_readers": []
+    }
+  ]
+}

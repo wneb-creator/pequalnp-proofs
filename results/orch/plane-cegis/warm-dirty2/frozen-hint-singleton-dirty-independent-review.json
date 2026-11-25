@@ -1,0 +1,41 @@
+{
+  "utc": "2026-11-25T19:16:01.956484+00:00",
+  "status": "APPROVED independent finite classification; no lower bound or witness",
+  "method": "Independently enumerated all704 maximal false rows and26 singleton assignments; direct packed evaluation of actual gates",
+  "records": [
+    {
+      "file": "first-control64-gates.json",
+      "sha256": "6fb45c50a846e9ff5c4408d4fbff8e9922d2d9a01745ec982b95116225867231",
+      "size": 64,
+      "ANDs": 13,
+      "dirty_AND_wires": [],
+      "AND_singleton_acceptances": [],
+      "positive_misses": 0,
+      "false_positives": 0
+    },
+    {
+      "file": "read1-control67-gates.json",
+      "sha256": "1113558eb5a40836a278560b9ff6084a9cb480550f40e4efcaf55106467bc088",
+      "size": 67,
+      "ANDs": 15,
+      "dirty_AND_wires": [
+        75
+      ],
+      "AND_singleton_acceptances": [],
+      "positive_misses": 0,
+      "false_positives": 0
+    },
+    {
+      "file": "first-near63-gates.json",
+      "sha256": "931ea96b38f4a2be9a95b39b791d7f2086204dc0019f5195b40201edb91d40be",
+      "size": 63,
+      "ANDs": 14,
+      "dirty_AND_wires": [
+        75
+      ],
+      "AND_singleton_acceptances": [],
+      "positive_misses": 3,
+      "false_positives": 0
+    }
+  ]
+}

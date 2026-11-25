@@ -1,0 +1,80 @@
+{
+  "utc": "2026-11-25T19:20:26.232507+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 1455,
+      "sha256": "2ca15b355ba00f6a707ac2cff1b18314bfed55fa74ac105c87a96a4cedaae6ad"
+    },
+    {
+      "file": "REPORT.json",
+      "bytes": 1798,
+      "sha256": "c546631704b16ebe87dad65d4a9a93505a6bee5627a88842544679cbf79efb95"
+    },
+    {
+      "file": "census_upstream1913.py",
+      "bytes": 3625,
+      "sha256": "7dbdbd00543872b45be8b0ddfee14de61aed2aaac8a19b29fe43aa3a58fe3d7b"
+    },
+    {
+      "file": "upstream-export-006.json",
+      "bytes": 50883,
+      "sha256": "aff0e3b481cbd5229c8580526f8324be9fb1da3e8b031844702ebf78de92305d"
+    },
+    {
+      "file": "upstream1913-census-summary.json",
+      "bytes": 293,
+      "sha256": "001aa8e249a4d99b50d53203db9fb334162ca544ea6c8f6b5407cbd27bda0f6c"
+    },
+    {
+      "file": "upstream1913-census-summary.json.initial-by-only",
+      "bytes": 8619,
+      "sha256": "65e87cc2106b948b9d917ae2f0e80e62833d744c36d3410cfafd089e6f1181fa"
+    },
+    {
+      "file": "upstream1913-census.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "upstream1913-census.stderr.initial-by-only",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "upstream1913-census.stdout",
+      "bytes": 6364,
+      "sha256": "d936535d27d8cea59ac416a9c0becada886814a6e231be887daa242685b952ab"
+    },
+    {
+      "file": "upstream1913-census.stdout.initial-by-only",
+      "bytes": 13006,
+      "sha256": "1154f5ad809f85a63b208991fa4bcb410e36e744af283b17c8076fdc1448d64b"
+    },
+    {
+      "file": "upstream1913-extraction-failures.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "file": "upstream1913-extraction-failures.json.initial-by-only",
+      "bytes": 7687,
+      "sha256": "d00d8b4466b8fa8d6ebd3c49a01d9a7a21654caebffdb57ebbcbc48c6ac46bf5"
+    },
+    {
+      "file": "upstream1913-files.txt",
+      "bytes": 24772,
+      "sha256": "f03e56380e4239ae31c1e0f9777892bc086c3e18158f49f6a491b57acd7f3bb8"
+    },
+    {
+      "file": "upstream1913-final-statements.json",
+      "bytes": 588989,
+      "sha256": "9cf6ed7e1b1d105360e8beefe4b98c95e15e55bf586ada4252aa4a06b9db6b54"
+    },
+    {
+      "file": "upstream1913-header-families.json",
+      "bytes": 20245,
+      "sha256": "aa4d2572e00cc07dc1839e6cbabc8cb9d2b2bb0900440a29c7b9ef54b4525d8f"
+    }
+  ]
+}
