@@ -71,4 +71,12 @@ lemma dependency_after_pinning (v u : Fin 10) (hne : v ≠ u) (b : Bool)
   rw [correct, correct, hex, hey] at same
   cases same
 
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma seed_pinning_dependency : ∀ (v : Fin 10) (b : Bool), v ≠ 0 → v ≠ 2 →
+    ∃ x : Fin 10 → Bool,
+      pin x 10 = b ∧ pin (Function.update x v true) 10 = b ∧
+        edge x ≠ edge (Function.update x v true) := by
+  decide +kernel
+
 end PEqualNP.Outside.L_meta_1890_aux
