@@ -9243,3 +9243,164 @@ lemma typed_six_gates {D : Dag}
     exact hn i hi
 
 end PEqualNP.Outside.L_meta_2590_aux.S50SplitTyped
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S50Normalize
+open DagTools Four SharedDom
+
+lemma normalized_ports_of_common {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (zero : Bzero 10 D = 0) (hi : (0 : V) ∈ ineligSet 10 D)
+    (budget : Bplus 10 D = (eligSet 10 D).card + 1)
+    (sat : ∀ x : V, Adj 0 x → (sem_W 10 D x).card = 3)
+    {P Q : Nat × Bool} (hpq : P.1 ≠ Q.1)
+    (common : ∀ x : V, Adj 0 x → P ∈ sem_W 10 D x ∧ Q ∈ sem_W 10 D x) :
+    ∃ e q : Nat × Bool, ∃ f : V → Nat × Bool,
+      supp 10 D (src D e) = ({0} : Finset V) ∧
+      supp 10 D (src D (sem_bar e)) = ({1,4,5} : Finset V) ∧
+      sem_W 10 D 0 = {e} ∧ e.1 ≠ q.1 ∧ supp 10 D (10+q.1) = ∅ ∧
+      (∀ x : V, Adj 0 x → sem_W 10 D x = {sem_bar e,q,f x}) ∧
+      (∀ x : V, Adj 0 x → supp 10 D (src D (f x)) = {x}) ∧
+      (∀ x : V, Adj 0 x → f x ≠ sem_bar e) ∧
+      (∀ y : V, y ≠ 0 → ¬ Adj 0 y → (sem_W 10 D y).card = 2) ∧
+      (∀ j : Nat, j < D.length → tag D j = true → supp 10 D (10+j) = ∅) := by
+  classical
+  obtain ⟨_,two,empty⟩ := case50_no_singleton_merges_of_common h hc zero hi budget sat hpq common
+  obtain ⟨e,q,ev,et,epure,ebar,eout,eqne,qmem,ports⟩ :=
+    case50_budget_ports_of_common h hc zero hi budget sat hpq common
+  have emem : e ∈ sem_W 10 D (0 : V) := by
+    apply sem_mem_W.mpr
+    refine ⟨ev,?_,?_⟩
+    · rw [epure]
+      simp
+    · rw [eout]
+      simp
+  obtain ⟨s,_,_,_,_,_,starW,_,_⟩ := budget_one_first_zero_star h hc zero hi budget
+  change sem_W 10 D (0 : V) = {s} at starW
+  have es : e = s := by rw [starW,Finset.mem_singleton] at emem; exact emem
+  have eW : sem_W 10 D (0 : V) = {e} := by simpa only [es] using starW
+  let f : V → Nat × Bool := fun x =>
+    if hx : Adj 0 x then Classical.choose (ports x hx) else e
+  have choice (x : V) (hx : Adj 0 x) :
+      sem_W 10 D x = {sem_bar e,q,f x} ∧ f x ≠ sem_bar e ∧ f x ≠ q ∧
+        supp 10 D (src D (f x)) = {x} := by
+    simpa only [f,dif_pos hx] using Classical.choose_spec (ports x hx)
+  have qx := qmem 1 (by decide +kernel)
+  have qout := empty q.1 (sem_mem_W.mp qx).1 (sem_W_and h.1 qx)
+  exact ⟨e,q,f,epure,ebar,eW,eqne,qout,
+    fun x hx => (choice x hx).1,
+    fun x hx => (choice x hx).2.2.2,
+    fun x hx => (choice x hx).2.1,two,empty⟩
+
+lemma common_source_cases {D : Dag}
+    (h : StrictLive 10 D) (hc : sem_Comp 10 Adj D)
+    (hi : (0 : V) ∈ ineligSet 10 D) (q : Nat × Bool)
+    (common : ∀ x : V, Adj 0 x → q ∈ sem_W 10 D x) :
+    supp 10 D (src D q) = ({1,4,5} : Finset V) ∨
+      ∃ u : V, u ≠ 0 ∧ ¬ Adj 0 u ∧ u ∈ supp 10 D (src D q) := by
+  classical
+  have lower : ({1,4,5} : Finset V) ⊆ supp 10 D (src D q) := by
+    intro x hx
+    exact (sem_mem_W.mp (common x ((I1Exposure.zero_neighbors x).mpr hx))).2.1
+  by_cases eq : supp 10 D (src D q) = ({1,4,5} : Finset V)
+  · exact Or.inl eq
+  · right
+    have notsub : ¬ supp 10 D (src D q) ⊆ ({1,4,5} : Finset V) :=
+      fun sub => eq (Finset.Subset.antisymm sub lower)
+    obtain ⟨u,hu,hn⟩ := Finset.not_subset.mp notsub
+    have hu0 : u ≠ 0 := by
+      intro huEq
+      subst u
+      have hp := sem_inelig_pure graph_ok h.1 hc hi hu
+      have hone := lower (show (1 : V) ∈ ({1,4,5} : Finset V) by decide)
+      rw [hp,Finset.mem_singleton] at hone
+      exact (by decide : (1 : V) ≠ 0) hone
+    exact ⟨u,hu0,fun hx => hn ((I1Exposure.zero_neighbors u).mp hx),hu⟩
+
+end PEqualNP.Outside.L_meta_2590_aux.S50Normalize
+
+
+namespace PEqualNP.Outside.L_meta_2590_aux.S50ExtraDistinct
+open DagTools Four S50Private S50ExtraSeed S50ExtraPrivate S50ExtraCoverage
+
+def baseRep (e q : Nat × Bool) (f : V → Nat × Bool) (i : Fin 5) : Nat × Bool :=
+  ([e,q,f 1,f 4,f 5] : List (Nat × Bool)).getD i.val e
+
+def sideA (u : V) (i : Fin 5) : Finset V :=
+  ([{0},({1,4,5} : Finset V) ∪ color u,{1},{4},{5}] : List (Finset V)).getD i.val ∅
+
+def sideB (u : V) (i : Fin 5) : Finset V :=
+  ([{1,4,5},oppositeColor u,{mate u 1},{mate u 4},{mate u 5}] : List (Finset V)).getD i.val ∅
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+set_option synthInstance.maxSize 65536 in
+set_option synthInstance.maxHeartbeats 1000000 in
+lemma distinct_profiles : ∀ u : V, ∀ i j : Fin 5, i ≠ j →
+    sideA u i ≠ sideA u j ∧
+      (sideA u i ≠ sideB u j ∨ sideB u i ≠ sideA u j) := by decide +kernel
+
+lemma gate_injective {D : Dag} (u : V) (r : Fin 5 → Nat × Bool)
+    (left : ∀ i, supp 10 D (src D (r i)) = sideA u i)
+    (right : ∀ i, supp 10 D (src D (sem_bar (r i))) = sideB u i) :
+    Function.Injective (fun i => (r i).1) := by
+  intro i j eq
+  by_contra hij
+  obtain ⟨hnormal,hreverse⟩ := distinct_profiles u i j hij
+  rcases S50SplitDistinct.same_gate_arc_cases (r i) (r j) eq with hs | hs
+  · exact hnormal (by rw [← left i,hs,left j])
+  · have hA : sideA u i = sideB u j := by rw [← left i,hs,right j]
+    have hB : sideB u i = sideA u j := by rw [← right i,hs,bar_bar,left j]
+    rcases hreverse with hn | hn
+    · exact hn hA
+    · exact hn hB
+
+lemma baseRep_mem (e q : Nat × Bool) (f : V → Nat × Bool) (i : Fin 5) :
+    baseRep e q f i ∈ baseArcs e q f := by
+  fin_cases i <;> simp [baseRep,baseArcs]
+
+lemma actual_base_injective {D : Dag} (e q : Nat × Bool) (f : V → Nat × Bool) (u : V)
+    (epure : supp 10 D (src D e) = {0})
+    (ebar : supp 10 D (src D (sem_bar e)) = ({1,4,5} : Finset V))
+    (qsrc : supp 10 D (src D q) = ({1,4,5} : Finset V) ∪ color u)
+    (qbar : supp 10 D (src D (sem_bar q)) = oppositeColor u)
+    (fpure : ∀ x : V, Adj 0 x → supp 10 D (src D (f x)) = {x})
+    (fbar : ∀ x : V, Adj 0 x → supp 10 D (src D (sem_bar (f x))) = {mate u x}) :
+    Function.Injective (fun i : Fin 5 => (baseRep e q f i).1) := by
+  apply gate_injective u (baseRep e q f)
+  · intro i
+    fin_cases i
+    · simpa [baseRep,sideA] using epure
+    · simpa [baseRep,sideA] using qsrc
+    · simpa [baseRep,sideA] using fpure 1 (by decide +kernel)
+    · simpa [baseRep,sideA] using fpure 4 (by decide +kernel)
+    · simpa [baseRep,sideA] using fpure 5 (by decide +kernel)
+  · intro i
+    fin_cases i
+    · simpa [baseRep,sideB] using ebar
+    · simpa [baseRep,sideB] using qbar
+    · simpa [baseRep,sideB] using fbar 1 (by decide +kernel)
+    · simpa [baseRep,sideB] using fbar 4 (by decide +kernel)
+    · simpa [baseRep,sideB] using fbar 5 (by decide +kernel)
+
+lemma pure_gate_not_base {D : Dag} (e q : Nat × Bool) (f : V → Nat × Bool) (u : V)
+    (epure : supp 10 D (src D e) = {0})
+    (ebar : supp 10 D (src D (sem_bar e)) = ({1,4,5} : Finset V))
+    (qsrc : supp 10 D (src D q) = ({1,4,5} : Finset V) ∪ color u)
+    (qbar : supp 10 D (src D (sem_bar q)) = oppositeColor u)
+    (fpure : ∀ x : V, Adj 0 x → supp 10 D (src D (f x)) = {x})
+    (fbar : ∀ x : V, Adj 0 x → supp 10 D (src D (sem_bar (f x))) = {mate u x})
+    {b : V} (hb : b ∈ oppositeColor u) {r : Nat × Bool}
+    (rpure : supp 10 D (src D r) = {b}) :
+    ∀ i : Fin 5, r.1 ≠ (baseRep e q f i).1 := by
+  have hnot := S50ExtraMatching.pure_not_base e q f u epure ebar qsrc qbar fpure fbar hb rpure
+  intro i heq
+  rcases S50SplitDistinct.same_gate_arc_cases r (baseRep e q f i) heq with he | he
+  · apply hnot
+    rw [he]
+    exact baseRep_mem e q f i
+  · apply hnot
+    rw [he]
+    exact base_bar_closed e q f (baseRep_mem e q f i)
+
+end PEqualNP.Outside.L_meta_2590_aux.S50ExtraDistinct
