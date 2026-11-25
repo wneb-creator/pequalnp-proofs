@@ -1,0 +1,5 @@
+New scoped certificate exact identity verified; its full mathematical declaration is identical inside ArrowheadAlgebra
+Classification coefficient permutations, nonzero-edge deductions, and final square identities independently verified
+ArrowheadCertificate.lean SHA256 13042f475ada032828427b627c5d158f555123352802b474fe05bc44dc08b37c format PASS
+ArrowheadAlgebra.lean SHA256 c94185a1c00ef063a5f53b983196555976da7db8ba53229f31b2f2795573e8bd format PASS
+Classification scope: seven q/c equations plus three nonzero-row disjunctions imply g=i=k=0,d=f,e=-f. No global gap theorem or unproved chart cover claimed.

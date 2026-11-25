@@ -108,3 +108,8 @@ SHA256 af72b8a295175899bb7103dfaa717dbcf131a96cd7b1fa786b184d50e04268d2;14lines.
 Scope: two orthogonal isotropic triples have vanishing first2×2minor. Auxiliary partial only, target unresolved.
 
 2026-11-25T10:41:19.592047+00:00 Centered-chart archive:71frozen artifacts plusstatusdocs, independently checked by rules_review; algorithms separately checked by three_plane_search. FrozenCRTstates62/54primes are consistent resumable candidates, not exact orLean certificates. Manifest hashes and review report preserved. Target remains unresolved.
+
+2026-11-25T10:42:43.303938+00:00 ArrowheadCertificate.lean andArrowheadAlgebra.lean: exactscoped/narrow-importsources compiledexit0. Fulloutputs archivedasarrowhead-certificate-scoped-lean.log/arrowhead-full-scoped-lean.log (deprecatedCompleximportwarningonly). Independent geometry_route exactpolynomialexpansion, source,permutationandlogicreviewpassed; reportarrowhead-scoped-independent-review.log.
+ArrowheadCertificate.lean SHA256 13042f475ada032828427b627c5d158f555123352802b474fe05bc44dc08b37c
+ArrowheadAlgebra.lean SHA256 c94185a1c00ef063a5f53b983196555976da7db8ba53229f31b2f2795573e8bd
+Scope: coefficientequations for the three-collinear arrowhead pencil force g=i=k=0,d=f,e=-f under nonzero leaf-row assumptions. This is a checked algebraic classification, not global coverage or a target refutation.

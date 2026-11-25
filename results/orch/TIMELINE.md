@@ -32,3 +32,5 @@
 - 2026-11-25T10:33:32.062815+00:00 geometry_route: first real bounded checkpoint succeeded afterround10:1828/5908 complete generators,3103077/44880532terms,53528718actual textbytes,16054279gzipbytes. Processcontinues samepairset; noGB/targetverdict.
 
 - 2026-11-25T10:36:12.194068+00:00: IsotropicThree.lean compiled and independently reviewed; preserving chart-coverage helper.
+
+- 2026-11-25T10:42:43.303938+00:00: Arrowhead certificate and full coefficient classification compiled, exact-source independently reviewed, preserving partials.
