@@ -1,0 +1,133 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:442:46: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:442:46: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:464:36: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:464:36: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:778:30: warning: This simp argument is unused:
+  nl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sp, sepb, nx, nsr, Nat.testBit_shiftRight]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:778:34: warning: This simp argument is unused:
+  nx
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sp, sepb, nl, nsr, Nat.testBit_shiftRight]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:778:38: warning: This simp argument is unused:
+  nsr
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [sp, sepb, nl, nx, Nat.testBit_shiftRight]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:785:10: warning: This simp argument is unused:
+  no
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ih]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:811:2: warning: Try this: 
+  haveI̵
+
+The goal is a proposition, so `have` is preferred over `haveI`.
+The difference between `have` and `haveI` is that `haveI` inlines the value.
+But this is not relevant for proofs because of proof irrelevance.
+
+Note: This linter can be disabled with `set_option linter.style.haveILetI false`
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:890:37: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:893:43: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:893:54: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:1058:12: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:1104:12: warning: `cond_false` has been deprecated: Use `Bool.cond_false` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_false
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:1116:52: warning: `cond_true` has been deprecated: Use `Bool.cond_true` instead
+
+Hint: Replace the deprecated name:
+  B̲o̲o̲l̲.̲cond_true
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:1116:20: warning: This simp argument is unused:
+  bR
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [child, st_eq, guard_ok X hr hm hk, cond_true, hmk] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:1116:52: warning: This simp argument is unused:
+  cond_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [child, bR, st_eq, guard_ok X hr hm hk, hmk] at h
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:1161:33: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:1196:31: warning: Variable name `hac` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hac
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:1770:4: warning: Unused tactic linter: `change a.s ^^^ m ∈ _` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:1897:99: warning: Variable name `hlen` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hlen
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:1991:52: warning: This simp argument is unused:
+  no
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mz, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:1993:39: warning: This simp argument is unused:
+  Nat.shiftLeft_eq
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mz, no, Nat.testBit_or, Bool.or_eq_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:2486:25: warning: This simp argument is unused:
+  bR
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [startv, hcov, hble, Bool.cond_true] at h3
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/RectangleParameterizedProbe.lean:2486:41: warning: This simp argument is unused:
+  Bool.cond_true
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [startv, bR, hcov, hble] at h3
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

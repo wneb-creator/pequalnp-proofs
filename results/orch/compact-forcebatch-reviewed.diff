@@ -1,0 +1,55 @@
+--- PR12184_L_meta_670.lean
++++ PR12184_ForceBatch.lean
+@@ -2586,6 +2586,27 @@
+ abbrev QuickPool := BoundPool × Nat × Bool
+ noncomputable def force {β : Type} (n : Nat) (f : Nat → β) : β := Nat.rec (f 0) (fun k _ => f (Nat.succ k)) n
+ theorem force_eq {β : Type} (n : Nat) (f : Nat → β) : force n f = f n := by cases n <;> rfl
++noncomputable def forcePacked {β : Type} (xs : List PackedSig) : (List PackedSig → β) → β :=
++  List.rec (fun f => f []) (fun p _ ih f =>
++    force p.1 fun a => force p.2 fun b => ih fun ys => f ((a,b)::ys)) xs
++
++theorem forcePacked_eq {β : Type} (xs : List PackedSig) (f : List PackedSig → β) :
++    forcePacked xs f = f xs := by
++  induction xs generalizing f with
++  | nil => rfl
++  | cons p xs ih =>
++    change force p.1 (fun a => force p.2 (fun b => forcePacked xs (fun ys => f ((a,b)::ys)))) = _
++    rw [force_eq,force_eq,ih]
++
++noncomputable def forceBatch {β : Type} (b : Batch) (f : Batch → β) : β :=
++  force b.1 fun k => force b.2.1 fun n => force b.2.2.1 fun r =>
++  forcePacked b.2.2.2.1 fun ws =>
++  force b.2.2.2.2.1 fun c0 => force b.2.2.2.2.2.1 fun c1 => force b.2.2.2.2.2.2 fun c2 =>
++  f (k,n,r,ws,c0,c1,c2)
++
++theorem forceBatch_eq {β : Type} (b : Batch) (f : Batch → β) : forceBatch b f = f b := by
++  simp only [forceBatch,force_eq,forcePacked_eq]
++
+ noncomputable def forceMap {α β : Type} (f : α → Nat) (l : List α) : (List Nat → β) → β :=
+   List.rec (fun k => k []) (fun a _ ih k => force (f a) fun x => ih fun xs => k (x::xs)) l
+ theorem forceMap_eq {α β : Type} (f : α → Nat) (l : List α) (k : List Nat → β) : forceMap f l k = k (l.map f) := by
+@@ -3230,21 +3251,21 @@
+ noncomputable def rowCut (g : Forest) (k start n ar lo len : Nat) :=
+   let xs := contexts g k start n
+   let b := makeBatch k ar xs
+-  forceLanes xs fun ys => (List.range len).all (fun d =>
++  forceBatch b fun b => forceLanes xs fun ys => (List.range len).all (fun d =>
+     let i := lo+d
+     batchRow (flOf g k) g.mode b ys i (List.range' (i+1) (ar-(i+1))))
+ theorem rowCut_at {g k start n ar lo len} (h : rowCut g k start n ar lo len=true)
+     (i : Nat) (l : lo ≤ i) (r : i < lo+len) :
+     batchRow (flOf g k) g.mode (makeBatch k ar (contexts g k start n)) ((contexts g k start n).map laneOf)
+       i (List.range' (i+1) (ar-(i+1)))=true := by
+-  simp only [rowCut,forceLanes_eq] at h
++  simp only [rowCut,forceBatch_eq,forceLanes_eq] at h
+   have ha := List.all_eq_true.mp h (i-lo) (List.mem_range.mpr (by omega))
+   simpa only [Nat.add_sub_of_le l] using ha
+ 
+ theorem rowCut_merge {g k start n ar lo a b}
+     (h : rowCut g k start n ar lo a=true) (t : rowCut g k start n ar (lo+a) b=true) :
+     rowCut g k start n ar lo (a+b)=true := by
+-  simp only [rowCut,forceLanes_eq]
++  simp only [rowCut,forceBatch_eq,forceLanes_eq]
+   apply List.all_eq_true.mpr
+   intro j hj
+   have jlt := List.mem_range.mp hj

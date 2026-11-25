@@ -60,3 +60,7 @@
 - 2026-11-25T04:33:06.204342+00:00: Parent live-mask codec small certificate replay independently reviewed for preservation.
 
 - 2026-11-25T04:37:35.029646+00:00: Budget16 checker generalization and zero-NOT semantic bridge checked and independently reviewed.
+
+- 2026-11-25T04:45:48+00:00: RelativeNamespace1673Probe passed exit0: full OR01 source and outcome compile after exact relative-namespace rewrite. No olean requested for that run.
+
+- 2026-11-25T04:56:39.608512+00:00: Environment transition preserved files but ended active processes. Renewed lease and restarted timer; full original and forced replays restarted on separate CPU pairs. Eight successful components prepared for preservation.

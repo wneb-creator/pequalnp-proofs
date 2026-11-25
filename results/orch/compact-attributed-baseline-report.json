@@ -1,0 +1,29 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-61/PR12184_L_meta_670.lean",
+  "source_revision": "23cfcb8f020d4c1dfbf6b54a16284e8f1a932234",
+  "source_url": "https://github.com/brilliant-hq/pequalnp-proofs/pull/12184",
+  "source_author": "benoitrazet",
+  "candidate": "/workspace/pequalnp-proofs/results/orch/lemmas/CompactAttributedBaseline.lean",
+  "candidate_bytes": 485260,
+  "candidate_sha256": "89767951a2e9837b7b7291997481e50ee1c7e5e57b3a8478b3243e7564e002e2",
+  "source_sha256": "1c31cfa39cea4936c1e20b0cfa430ec063d9f8cbfa5d443d9916947958146872",
+  "renaming_manifest": "/tmp/oec/pequalnp-pilot-61/pr12184-minified-defs-manifest.json",
+  "blacklist_sha256": "a3be6ed6a7991eb7a54bb6690114723b3c854dd7e16338d3087b1428b29b8f48",
+  "status": "static candidate; full Lean replay pending",
+  "prefix_validation": {
+    "source": "/workspace/pequalnp-proofs/results/orch/lemmas/CompactMinificationProbe.lean",
+    "sha256": "c8604f9b1003602e10ff07183d29d81cea44f43c55650f1c958a0830581f5385",
+    "bytes": 159195,
+    "command": [
+      "lake",
+      "env",
+      "lean",
+      "-j1",
+      "/workspace/pequalnp-proofs/results/orch/lemmas/CompactMinificationProbe.lean"
+    ],
+    "seconds": 42.535,
+    "exit_code": 0,
+    "peak_rss_kib": 3245716,
+    "log": "/tmp/oec/pequalnp-pilot-61/compact-minification-probe-build.log"
+  }
+}

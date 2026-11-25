@@ -1,0 +1,28 @@
+{
+  "reviewer": "/root/structural/compact_benchmark",
+  "utc": "2026-11-25T04:54:06.021949+00:00",
+  "original_sha256": "1c31cfa39cea4936c1e20b0cfa430ec063d9f8cbfa5d443d9916947958146872",
+  "candidate_sha256": "bf0a16701f2324834772b29ee33e0e926f125201a404b84c86eb43d59ee84aa7",
+  "original_bytes": 516536,
+  "candidate_bytes": 517562,
+  "delta_bytes": 1026,
+  "exact_inverse_returns_original": true,
+  "hexadecimal_blobs_unchanged": 463,
+  "existing_numeric_literals_unchanged": 14445,
+  "final_theorem_byte_identical": true,
+  "imports_byte_identical": true,
+  "changed_existing_declarations": [
+    "rowCut",
+    "rowCut_at",
+    "rowCut_merge"
+  ],
+  "added_declarations": [
+    "forcePacked",
+    "forcePacked_eq",
+    "forceBatch",
+    "forceBatch_eq"
+  ],
+  "unexpected_changes": [],
+  "verdict": "PASS: certificate data, root definitions, and final target/proof are exactly preserved; runtime forcing is the sole semantic-neutral computation change",
+  "limitation": "Static review plus separately checked generic equality; the complete candidate still needs Lean replay."
+}

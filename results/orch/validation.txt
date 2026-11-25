@@ -7,8 +7,8 @@ NormalizationFull.lean: lake env lean, exit 0, stdout/stderr empty.
 Search.lean: lake env lean, exit 0, stdout/stderr empty.
 Full gap checker: not run; partial results only.
 Independent review: status_review approved symmetry and upper-bound partial snapshot.
-Sub-agents: status/inventory/review, toolchain/search, structural, finite verification, normalization, restriction mathematics (6 total).
-TIMING total=61.0 subagents=6
+Sub-agents: status/inventory/review, toolchain/search, structural, finite verification, normalization, restriction mathematics, compact runtime audit (7 total).
+TIMING total=134.0 subagents=7
 
 Prepend.lean: lake env lean, exit 0, stdout/stderr empty. Root independent review passed.
 First partial snapshot pushed c570baf111e48dadc13c84178a64e977566f4670.
@@ -54,3 +54,7 @@ ParentLiveProbe.lean: exit 0 in60.756 s, common-width generic verifier plus g15/
 
 Imp16Probe.lean: exit 0,245.054s wall including180s queue wait. Independent restriction_math review confirmed exactly one mathematical edit to the original imp_of prefix: hL≤15 becomes hL≤16, with the proof unchanged. Full log logs/imp16-probe.log; this is a general checker lemma, not the posted lower bound.
 LiveZeroBridge.lean: exit 0; root independent review passed. Weighted Live with zero NOT gates is equivalent to the normalized binary-only Live relation for arbitrary supplied signals. Full log logs/live-zero-bridge-build.log.
+
+Eight additional checked components are preserved: ForceBatchProbe, TerminalNodeProbe, RectangleParameterizedProbe, ParentLiveFastStateProbe, RectangleWholeCircuitProbe, RelativeNamespace1673Probe, CompactMinificationProbe, and ForceBatchIntegrationPrefix. Complete source SHA256/size manifest: checked-probes-0455-manifest.json. Each recorded Lean invocation exited 0; full logs are retained in logs/ (compact and relative-namespace logs at orch root). The whole-circuit rectangle lemma is conditional on Parameterized.Imp rawP 0 16 and is not a full gap proof.
+
+The attributed CompactProfileBaseline, CompactAttributedBaseline, and CompactForcedCandidate are complete candidate sources with replay still pending. Public-source attribution, exact statement review, numerical/renaming audit and forceBatch inverse-diff review are preserved alongside them. Two small matched computational tests passed both original and forceBatch versions; the clean 16-state case improved user CPU only about 2%, so no substantial full-proof speedup is claimed.

@@ -1,0 +1,16 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/CompactMinificationProbe.lean",
+  "sha256": "c8604f9b1003602e10ff07183d29d81cea44f43c55650f1c958a0830581f5385",
+  "bytes": 159195,
+  "command": [
+    "lake",
+    "env",
+    "lean",
+    "-j1",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/CompactMinificationProbe.lean"
+  ],
+  "seconds": 42.535,
+  "exit_code": 0,
+  "peak_rss_kib": 3245716,
+  "log": "/tmp/oec/pequalnp-pilot-61/compact-minification-probe-build.log"
+}
