@@ -1,0 +1,9 @@
+Gap: L-meta-10760
+Status: PARTIAL ONLY; the posted replacement theorem is not yet proved.
+Named-module build: lake build PEqualNP.Outside.L_meta_10760, exit 0.
+Checked component: 14-gate monotone witness and exact truth-table evaluation on seven inputs.
+Local checker: not yet run; no final theorem declared.
+Independent pre-push audit: status_review PASS for partial witness; all 128 assignments validated.
+Cleanup: not applicable yet; witness partial 37 lines.
+Sub-agents: status_review, proof_routes, computational, toolchain, graph_search, sat_synthesis
+TIMING total=8.2 subagents=6
