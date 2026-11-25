@@ -466,4 +466,202 @@ lemma postedTests_compute_incidence
 
 end PrefixPrune
 
+namespace AndLower
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def step (w : List Bool) (g : Gate) : List Bool :=
+  w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]
+
+def andCount : List Gate → ℕ
+  | [] => 0
+  | g :: gs => (match g.op with | .and => 1 | _ => 0) + andCount gs
+
+def choices : List Gate → List Bool → List Bool
+  | [], _ => []
+  | g :: gs, w =>
+    match g.op with
+    | .and => (g.inputs.map fun i => w.getD i false).headD false :: choices gs (step w g)
+    | _ => choices gs (step w g)
+
+lemma choices_length (gs : List Gate) (w : List Bool) :
+    (choices gs w).length = andCount gs := by
+  induction gs generalizing w with
+  | nil => rfl
+  | cons g gs ih =>
+    cases h : g.op <;> simp [choices, andCount, h, ih, Nat.add_comm]
+
+def FalseUnion (a b c : List Bool) : Prop :=
+  a.length = b.length ∧ a.length = c.length ∧
+    ∀ i, a.getD i false = false → b.getD i false = false → c.getD i false = false
+
+lemma falseUnion_append (a b c : List Bool) (x y z : Bool)
+    (h : FalseUnion a b c) (hxyz : x = false → y = false → z = false) :
+    FalseUnion (a ++ [x]) (b ++ [y]) (c ++ [z]) := by
+  have hab := h.1
+  have hac := h.2.1
+  refine ⟨by simp [h.1], by simp [h.2.1], ?_⟩
+  intro i ha hb
+  by_cases hi : i < a.length
+  · rw [List.getD_append a [x] false i hi] at ha
+    rw [List.getD_append b [y] false i (by omega)] at hb
+    rw [List.getD_append c [z] false i (by omega)]
+    exact h.2.2 i ha hb
+  · rw [List.getD_append_right a [x] false i (by omega)] at ha
+    rw [List.getD_append_right b [y] false i (by omega), ← h.1] at hb
+    rw [List.getD_append_right c [z] false i (by omega), ← h.2.1]
+    cases hs : i - a.length with
+    | zero => simp only [hs, List.getD_cons_zero] at ha hb ⊢; exact hxyz ha hb
+    | succ k => simp
+
+lemma and_false_union (ix : List ℕ) (a b c : List Bool)
+    (h : ∀ i, a.getD i false = false → b.getD i false = false → c.getD i false = false)
+    (hlen : ix.length ≤ 2)
+    (hhead : (ix.map fun i => a.getD i false).headD false =
+      (ix.map fun i => b.getD i false).headD false)
+    (ha : GateOp.and.eval (ix.map fun i => a.getD i false) = false)
+    (hb : GateOp.and.eval (ix.map fun i => b.getD i false) = false) :
+    GateOp.and.eval (ix.map fun i => c.getD i false) = false := by
+  cases ix with
+  | nil => simp [GateOp.eval] at ha
+  | cons i is =>
+    cases is with
+    | nil =>
+      simpa [GateOp.eval] using h i (by simpa [GateOp.eval] using ha)
+        (by simpa [GateOp.eval] using hb)
+    | cons j js =>
+      have hjs : js = [] := by
+        cases js with
+        | nil => rfl
+        | cons k ks => simp only [List.length_cons] at hlen; omega
+      subst js
+      simp only [List.map_cons, List.map_nil, List.headD_cons] at hhead
+      simp only [GateOp.eval, List.map_cons, List.map_nil, List.all_cons,
+        List.all_nil, id_eq, Bool.and_true] at ha hb ⊢
+      cases hai : a.getD i false with
+      | false =>
+        have hbi : b.getD i false = false := hhead.symm.trans hai
+        rw [h i hai hbi]
+        rfl
+      | true =>
+        have hbi : b.getD i false = true := hhead.symm.trans hai
+        have haj : a.getD j false = false := by simpa only [hai, Bool.true_and] using ha
+        have hbj : b.getD j false = false := by simpa only [hbi, Bool.true_and] using hb
+        rw [h j haj hbj]
+        exact Bool.and_false _
+
+lemma or_false_union (ix : List ℕ) (a b c : List Bool)
+    (h : ∀ i, a.getD i false = false → b.getD i false = false → c.getD i false = false)
+    (ha : GateOp.or.eval (ix.map fun i => a.getD i false) = false)
+    (hb : GateOp.or.eval (ix.map fun i => b.getD i false) = false) :
+    GateOp.or.eval (ix.map fun i => c.getD i false) = false := by
+  simp only [GateOp.eval, List.any_map, List.any_eq_false] at ha hb ⊢
+  intro i hi
+  have hai : a.getD i false = false := Bool.eq_false_iff.mpr (by simpa using ha i hi)
+  have hbi : b.getD i false = false := Bool.eq_false_iff.mpr (by simpa using hb i hi)
+  simpa using Bool.eq_false_iff.mp (h i hai hbi)
+
+lemma fold_falseUnion (gs : List Gate) (a b c : List Bool)
+    (hm : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2)
+    (h : FalseUnion a b c) (hc : choices gs a = choices gs b) :
+    FalseUnion (gs.foldl step a) (gs.foldl step b) (gs.foldl step c) := by
+  induction gs generalizing a b c with
+  | nil => exact h
+  | cons g gs ih =>
+    have htail : ∀ g' ∈ gs, (g'.op = GateOp.and ∨ g'.op = GateOp.or) ∧ g'.inputs.length ≤ 2 :=
+      fun g' hg' => hm g' (List.mem_cons_of_mem _ hg')
+    obtain ⟨hop, hlen⟩ := hm g (by simp)
+    rcases hop with hop | hop
+    · simp only [choices, hop, List.cons.injEq] at hc
+      apply ih (step a g) (step b g) (step c g) htail _ hc.2
+      apply falseUnion_append _ _ _ _ _ _ h
+      simpa only [hop] using and_false_union g.inputs a b c h.2.2 hlen hc.1
+    · simp only [choices, hop] at hc
+      apply ih (step a g) (step b g) (step c g) htail _ hc
+      apply falseUnion_append _ _ _ _ _ _ h
+      simpa only [hop] using or_false_union g.inputs a b c h.2.2
+
+lemma falseUnion_ofFn {n : ℕ} (x y : Fin n → Bool) :
+    FalseUnion (List.ofFn x) (List.ofFn y) (List.ofFn fun i => x i || y i) := by
+  refine ⟨by simp, by simp, ?_⟩
+  intro i hx hy
+  by_cases hi : i < n
+  · simp only [List.getD_eq_getElem?_getD, List.getElem?_ofFn, dite_eq_left hi,
+      Option.getD_some] at hx hy ⊢
+    simp [hx, hy]
+  · simp [List.getD_eq_getElem?_getD, hi]
+
+lemma choices_eq_of_code_eq (gs : List Gate) (a b : List Bool)
+    (hc : (fun i : Fin (andCount gs) => (choices gs a).getD i.val false) =
+      (fun i : Fin (andCount gs) => (choices gs b).getD i.val false)) :
+    choices gs a = choices gs b := by
+  apply List.ext_getElem (by simp [choices_length])
+  intro i hi hj
+  have hlt : i < andCount gs := by simpa [choices_length] using hi
+  have hh := congrFun hc ⟨i, hlt⟩
+  simpa only [List.getD_eq_getElem _ _ hi, List.getD_eq_getElem _ _ hj] using hh
+
+lemma negative_family_bound {n m : ℕ} (C : Circuit) (hm : Monotone2 C)
+    (X : Fin m → Fin n → Bool)
+    (hneg : ∀ i, C.eval (List.ofFn (X i)) = false)
+    (hunion : ∀ i j, i ≠ j → C.eval (List.ofFn fun z => X i z || X j z) = true) :
+    m ≤ 2 ^ andCount C.gates := by
+  let code : Fin m → Fin (andCount C.gates) → Bool := fun j i =>
+    (choices C.gates (List.ofFn (X j))).getD i.val false
+  have hinj : Function.Injective code := by
+    intro i j hij
+    by_contra hne
+    have hcodes : choices C.gates (List.ofFn (X i)) = choices C.gates (List.ofFn (X j)) :=
+      choices_eq_of_code_eq C.gates _ _ hij
+    have hf := fold_falseUnion C.gates (List.ofFn (X i)) (List.ofFn (X j))
+      (List.ofFn fun z => X i z || X j z)
+      (fun g hg => ⟨by simpa using (hm g hg).1, (hm g hg).2⟩)
+      (falseUnion_ofFn (X i) (X j)) hcodes
+    have hfalse := hf.2.2 C.output (hneg i) (hneg j)
+    change C.eval (List.ofFn fun z => X i z || X j z) = false at hfalse
+    rw [hunion i j hne] at hfalse
+    contradiction
+  have hcard := Fintype.card_le_of_injective code hinj
+  simpa using hcard
+
+
+def theta4Edges : List (ℕ × ℕ) :=
+  [(0,6),(0,7),(0,8),(0,9),(1,5),(1,6),(2,5),(2,7),(3,5),(3,8),(4,5),(4,9)]
+
+abbrev theta4Edge (p q : Fin 10) : Prop := (p.val, q.val) ∈ theta4Edges
+
+def theta4Value (x : Fin 10 → Bool) : Bool :=
+  decide (∃ p q : Fin 10, theta4Edge p q ∧ x p = true ∧ x q = true)
+
+def theta4NegativeMasks : List ℕ :=
+  [31,33,92,154,216,278,340,402,464,526,588,650,712,774,836,898,992]
+
+def theta4Input (i : Fin 17) (p : Fin 10) : Bool :=
+  Nat.testBit (theta4NegativeMasks.getD i.val 0) p.val
+
+set_option maxHeartbeats 4000000 in
+lemma theta4_negative : ∀ i : Fin 17, theta4Value (theta4Input i) = false := by
+  decide +kernel
+
+set_option maxHeartbeats 4000000 in
+lemma theta4_union_positive : ∀ i j : Fin 17, i ≠ j →
+    theta4Value (fun p => theta4Input i p || theta4Input j p) = true := by
+  decide +kernel
+
+lemma theta4_and_lower (C : Circuit) (hm : Monotone2 C)
+    (hc : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = theta4Value x) :
+    5 ≤ andCount C.gates := by
+  have hb : 17 ≤ 2 ^ andCount C.gates := negative_family_bound C hm theta4Input
+    (by intro i; rw [hc]; exact theta4_negative i)
+    (by intro i j hij; rw [hc]; exact theta4_union_positive i j hij)
+  by_contra hn
+  have hk : andCount C.gates ≤ 4 := by omega
+  have hp : 2 ^ andCount C.gates ≤ 16 := by
+    calc
+      2 ^ andCount C.gates ≤ 2 ^ 4 := Nat.pow_le_pow_right (by decide) hk
+      _ = 16 := by decide
+  omega
+
+end AndLower
+
 end PEqualNP.Outside.L_meta_2056
