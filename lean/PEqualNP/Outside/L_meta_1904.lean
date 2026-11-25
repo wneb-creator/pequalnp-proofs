@@ -345,7 +345,7 @@ lemma narrowed_monotone : Monotone2 narrowed := by simp [Monotone2, narrowed]
 
 def badInput : Fin 8 → Bool := fun i => decide (i = 2 ∨ i = 7)
 
-lemma original_unsafe :
+lemma original_bad :
     (original.wires (List.ofFn badInput)).getD 13 false = true ∧
       edgeFn badInput = false := by decide
 
@@ -464,7 +464,7 @@ lemma repaired_mono : Monotone2 repaired := by
 
 lemma gate_count : witness.size = 12 ∧ repaired.size = 12 := by decide
 
-lemma unsafe_pair : adjacent 2 7 = false ∧ adjacent 8 7 = false ∧
+lemma bad_pair : adjacent 2 7 = false ∧ adjacent 8 7 = false ∧
     (witness.wires (List.ofFn (pair 2 7))).getD 15 false = true ∧
     (witness.wires (List.ofFn (pair 8 7))).getD 15 false = true := by decide
 
