@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "sha256": "f5c171c021e83a331af60424cf5680a17cb06570a18eeacbeb072ddd12f578a4",
+  "line_count": 120,
+  "finite_permutation_cases_independently_enumerated": 48,
+  "incident_support_integral_domain_split": true,
+  "both_star_identification_permutation_directions": true,
+  "nonzero_hollow_entry_is_off_diagonal": true,
+  "normalized_A_and_B_membership": true,
+  "trace_zero_and_hollowness_preserved": true,
+  "unit_diagonal_and_hollow_edge_and_zero_companion_edge": true,
+  "scope": "Independent source/math/format review only. Star identification assumes its displayed support equations; no universal classification claimed. No build by reviewer."
+}
