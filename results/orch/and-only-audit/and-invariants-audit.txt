@@ -1,0 +1,2 @@
+Shared AND, 3 paid AND gates: {'maxfalse': [23, 25, 26, 37, 38, 41, 42], 'mintrue': [11, 12, 35, 48], 'clauses': [[3, 5], [1, 2, 5], [0, 2, 5], [1, 3, 4], [0, 3, 4], [1, 2, 4], [0, 2, 4]]}
+P4 shared first birth verified: {'maxfalse': [5, 9, 10], 'mintrue': [3, 6, 12], 'clauses': [[1, 3], [1, 2], [0, 2]]}

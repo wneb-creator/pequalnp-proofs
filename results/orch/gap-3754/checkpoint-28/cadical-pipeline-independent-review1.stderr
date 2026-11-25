@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/oec/pequalnp-pilot-152/gap-3754/cadical-pipeline-independent-review.py", line 42, in <module>
+    assert all(z3.is_true(converted.eval(assertion,model_completion=True)) for assertion in original)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

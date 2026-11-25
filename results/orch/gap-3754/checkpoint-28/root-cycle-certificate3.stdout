@@ -1,0 +1,94 @@
+/tmp/oec/pequalnp-pilot-152/gap-3754/RootCycleCertificate.lean:670:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_3754.CycleBound.CycleModule599.edgeAt_mono`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-152/gap-3754/RootCycleCertificate.lean:674:8: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_3754.CycleBound.CycleModule599.no_edge_empty`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-152/gap-3754/RootCycleCertificate.lean:675:8: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_3754.CycleBound.CycleModule599.no_edge_singleton`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-152/gap-3754/RootCycleCertificate.lean:711:2: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [bit, hA.ne_empty, hB.ne_empty]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-152/gap-3754/RootCycleCertificate.lean:709:8: warning: automatically included section variable(s) unused in theorem `_private._stdin.0.PEqualNP.Outside.L_meta_3754.CycleBound.CycleModule599.bit_empty`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-152/gap-3754/RootCycleCertificate.lean:809:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [Ne.symm hpna, hab] at this
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-152/gap-3754/RootCycleCertificate.lean:813:6: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [hpna, Ne.symm hzp] at this
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+/tmp/oec/pequalnp-pilot-152/gap-3754/RootCycleCertificate.lean:821:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_3754.CycleBound.CycleModule599.twins_force_square`:
+  [DecidableEq V]
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit [DecidableEq V] in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-152/gap-3754/RootCycleCertificate.lean:828:42: warning: This simp argument is unused:
+  SimpleGraph.Walk.isPath_copy
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [W, SimpleGraph.Walk.tail_cons, SimpleGraph.Walk.isPath_def, SimpleGraph.Walk.support_cons,
+    SimpleGraph.Walk.support_nil]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-152/gap-3754/RootCycleCertificate.lean:829:4: warning: This simp argument is unused:
+  SimpleGraph.Walk.isPath_def
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [W, SimpleGraph.Walk.tail_cons, SimpleGraph.Walk.isPath_copy, SimpleGraph.Walk.support_cons,
+    SimpleGraph.Walk.support_nil]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-152/gap-3754/RootCycleCertificate.lean:829:32: warning: This simp argument is unused:
+  SimpleGraph.Walk.support_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [W, SimpleGraph.Walk.tail_cons, SimpleGraph.Walk.isPath_copy, SimpleGraph.Walk.isPath_def,
+    SimpleGraph.Walk.support_nil]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-152/gap-3754/RootCycleCertificate.lean:829:62: warning: This simp argument is unused:
+  SimpleGraph.Walk.support_nil
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [W, SimpleGraph.Walk.tail_cons, SimpleGraph.Walk.isPath_copy, SimpleGraph.Walk.isPath_def,
+    SimpleGraph.Walk.support_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-152/gap-3754/RootCycleCertificate.lean:1853:12: warning: This simp argument is unused:
+  List.countP_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hai, hoi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-152/gap-3754/RootCycleCertificate.lean:1857:12: warning: This simp argument is unused:
+  List.countP_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hai, hoi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

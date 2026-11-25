@@ -34,3 +34,7 @@
 2026-11-25T17:36:36.911332+00:00: L3754 replan: focus unique-dirty strict saving (selection + semantic restoration + three-gate surgery), with independent two-AND classification and finite counterexample search. Named2398 and reviewed partials preserved. General multiple-dirty case remains unresolved.
 
 2026-11-25T17:52:32.815717+00:00: L3754 replan after accepted one-junk exclusion found. Freeze completed alternative unique-positive proof. Redirect to multiple-dirty circuits: separate total-gate, AND-count, OR-count lower bounds; generalized per-source cover; stronger exact circuit searches. No full result.
+
+2026-11-25T18:11:53.660007+00:00: Current-gap replan: generic multiple-dirty counting approaches remain unresolved. Preserve certified cycle minima and focus direct falsification at those budgets with a second SAT backend and independently checked model conversion. Accepted one-junk and cover≤5 bounds rule out several proposed subcases; do not re-run them as new candidates. C12 free-OR≤5 was already computationally UNSAT in this job.
+
+2026-11-25T18:22:14.287279+00:00: fourgraph1930 minimum certificate and matching SAT-to-Lean control86 compiled and independently approved; preserving. Replan: all exact solver queries finished without counterexample; investigate dirty-gate dependence and strict shared-cost accounting while selecting new search families.

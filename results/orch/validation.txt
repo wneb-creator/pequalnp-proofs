@@ -110,3 +110,7 @@ TIMING total=149.9 subagents=6
 2026-11-25T18:09:58.709739+00:00 L3754 partial preservation: standalone cycle size certificate1863 passes Lean build2; independently reviewed exact full composition SHA4ad3fc8d5fec1840a355d15dfcf21821c6cf3e0e3bdfb87659179cf201e4a00b. C8≥11/C10≥14/C6leaf≥9 are genuine kernel-checked lower bounds; no dirty optimal model has been found. Generic maximal-false signature injection, counts, analytic pseudoforest proofs, no-four-cycle bridge and allowed Mathlib import all reviewed. The missing DegreeSum prebuilt cache alone was restored; Mathlib was not compiled. General per-source cover884 also compiled/reviewed. All complete successful compiler logs and manifests saved in checkpoint-27. No full posted proof/refutation or target checker acceptance.
 Sub-agents: six, reused across proof, search and independent review tasks.
 TIMING total=167.4 subagents=6
+
+2026-11-25T18:22:14.287279+00:00 PARTIAL checkpoint28: fourgraph1930 and matchingcontrol86 compile and are independently approved. Exact four-graph minima are 11/14/9/11. Matching control explicitly not least. Local target checker exit3 due missing prebuilt Batteries.olean; repair underway; target theorem absent. Complete logs and independent Cadical review saved. Searchbundle4 58 manifest entries hash-verified. No proof/refutation/PR.
+Sub-agents: six, reused for proof strategies, counterexample synthesis, independent review, and toolchain repair.
+TIMING total=179.6 subagents=6

@@ -1,0 +1,36 @@
+2026-11-25T18:00:43.897166+00:00 cycle 8 size 11 prefixTotal 8 rawReaderCap 3 dirtyANDcount 2 cleanANDs 2 samples 18 maxfalse 10 autos 16
+RESULT unknown seconds 181.53
+REASON timeout
+(:max-memory              302.11
+ :memory                  168.61
+ :num-allocs              5498296542.00
+ :rlimit-count            378757177
+ :sat-ate                 1454
+ :sat-backjumps           177233
+ :sat-bce                 1650
+ :sat-conflicts           177233
+ :sat-decisions           357327
+ :sat-del-clause          329675
+ :sat-elim-bool-vars-res  25850
+ :sat-elim-clauses        9764
+ :sat-elim-literals       160370
+ :sat-gc-clause           141859
+ :sat-minimized-lits      3509631
+ :sat-mk-clause-2ary      85326
+ :sat-mk-clause-3ary      44807
+ :sat-mk-clause-nary      426532
+ :sat-mk-var              45574
+ :sat-probing-assigned    72
+ :sat-propagations-2ary   68007393
+ :sat-propagations-nary   344888899
+ :sat-restarts            12636
+ :sat-scc-elim-binary     132
+ :sat-scc-elim-vars       993
+ :sat-subs-resolution     26664
+ :sat-subs-resolution-dyn 122481
+ :sat-subsumed            17008
+ :sat-tr                  268
+ :sat-units               350
+ :solve-eqs-elim-vars     34
+ :solve-eqs-steps         1269
+ :time                    181.53)

@@ -1,0 +1,35 @@
+2026-11-25T17:46:26.739326+00:00 cycle 8 size 11 prefixTotal 6 dirtyANDcount anypositive cleanANDs 3 samples 18 maxfalse 10 autos 16
+RESULT unsat seconds 146.161
+(:max-memory              76.61
+ :memory                  22.74
+ :num-allocs              4394165883.00
+ :rlimit-count            356567300
+ :sat-ate                 2564
+ :sat-backjumps           230862
+ :sat-bce                 1729
+ :sat-conflicts           230863
+ :sat-decisions           401051
+ :sat-del-clause          392759
+ :sat-elim-bool-vars-res  24731
+ :sat-elim-clauses        28792
+ :sat-elim-literals       195427
+ :sat-gc-clause           177213
+ :sat-minimized-lits      3639519
+ :sat-mk-clause-2ary      77725
+ :sat-mk-clause-3ary      45739
+ :sat-mk-clause-nary      433836
+ :sat-mk-var              37441
+ :sat-probing-assigned    26
+ :sat-propagations-2ary   89813833
+ :sat-propagations-nary   314162238
+ :sat-restarts            12617
+ :sat-scc-elim-binary     432
+ :sat-scc-elim-vars       1018
+ :sat-subs-resolution     23777
+ :sat-subs-resolution-dyn 165024
+ :sat-subsumed            20168
+ :sat-tr                  446
+ :sat-units               372
+ :solve-eqs-elim-vars     29
+ :solve-eqs-steps         1066
+ :time                    146.16)

@@ -1,0 +1,52 @@
+import sys,json,time
+from datetime import datetime, timezone
+sys.path.insert(0,'/tmp/oec/pequalnp-pilot-152/z3-python')
+import z3
+p=int(sys.argv[1]);q=p;n=p+q;k=p-1
+limit=int(sys.argv[2]) if len(sys.argv)>2 else 120000
+t0=len(sys.argv)>3 and sys.argv[3]=='t0'
+fullwidth=1<<n
+edges=[(a,a) for a in range(p)]+[(a,(a+1)%q) for a in range(p)]
+uv=[(a,p+b) for a,b in edges]
+neighbors=[sum(1<<w for a,b in uv for w in ([b] if a==v else [a] if b==v else [])) for v in range(n)]
+def edgefun(x):return any(x>>a&1 and x>>b&1 for a,b in uv)
+mins=[(1<<a)|(1<<b) for a,b in uv]
+maxzeros=[x for x in range(fullwidth) if not edgefun(x) and all(x>>v&1 or x&neighbors[v] for v in range(n))]
+patterns=sorted(set(mins+maxzeros));width=len(patterns)
+inputs=[sum(1<<j for j,x in enumerate(patterns) if x>>i&1) for i in range(n)]
+target=0
+for a,b in edges:target |= inputs[a]&inputs[p+b]
+s=z3.SolverFor('QF_BV');s.set(timeout=limit)
+signals=[z3.BitVecVal(x,width) for x in inputs]
+selectors=[]
+keys=[]
+zero=z3.BitVecVal(0,width)
+for i in range(k):
+    sides=[];smasks=[];selections=[]
+    for side in range(2):
+        bs=[z3.Bool(f's_{i}_{side}_{j}') for j in range(n+i)]
+        v=zero
+        mask=z3.BitVecVal(0,n+i)
+        for j,b in enumerate(bs):
+            v=v|z3.If(b,signals[j],zero)
+            mask=mask|z3.If(b,z3.BitVecVal(1<<j,n+i),z3.BitVecVal(0,n+i))
+        s.add(z3.Or(bs))
+        if t0:s.add(z3.Not(z3.And(z3.Or(bs[:p]),z3.Or(bs[p:n]))))
+        sides.append(v);smasks.append(mask);selections.append(bs)
+    s.add(z3.ULE(smasks[0],smasks[1]))
+    key=z3.Concat(z3.ZeroExt(k-i,smasks[0]),z3.ZeroExt(k-i,smasks[1]))
+    if i>0:s.add(z3.Or(selections[0][-1],selections[1][-1],z3.ULE(keys[-1],key)))
+    keys.append(key)
+
+    gi=z3.BitVec(f'g_{i}',width)
+    s.add(gi==sides[0]&sides[1])
+    signals.append(gi);selectors.append(selections)
+outs=[z3.Bool(f'out_{i}') for i in range(k)]
+for i in range(k):
+    s.add(z3.Or([outs[i]]+[selectors[j][side][n+i] for j in range(i+1,k) for side in range(2)]))
+
+out=zero
+for i,b in enumerate(outs):out=out|z3.If(b,signals[n+i],zero)
+s.add(out==z3.BitVecVal(target,width))
+from pathlib import Path
+Path('/tmp/oec/pequalnp-pilot-152/gap-3754/and-cycle-c12-regenerated.smt2').write_text(s.to_smt2())

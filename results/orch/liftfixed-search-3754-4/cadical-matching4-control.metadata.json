@@ -1,0 +1,19 @@
+{
+  "smt_file": "matching4-size7-dirty-counted-d2-q1.smt2",
+  "smt_sha256": "d3ad2423ec8a46993abe30ef98cfae56bac9afba06de9c889f71bf4d2f0d6155",
+  "cnf_sha256": "60c3a57fe61d6d4e6fc94743395b4d813191d9206e57179e29ebe10718b10434",
+  "cnf_bytes": 770605,
+  "cnf_variables": 3221,
+  "cnf_clauses": 33382,
+  "status": "SAT",
+  "returncode": 10,
+  "seconds": 0.35736375600026804,
+  "proof_enabled": false,
+  "original_assertions_verified": 130,
+  "full_assignments_verified": 16,
+  "gate_count": 7,
+  "dirty_and_indices": [
+    4,
+    5
+  ]
+}

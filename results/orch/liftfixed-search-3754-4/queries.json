@@ -1,0 +1,82 @@
+[
+  {
+    "query": "cycle10-size14-dirty-counted-d2-q3",
+    "result": "unknown",
+    "seconds": 180.29
+  },
+  {
+    "query": "cycle10-size14-dirty-reader3-d3-q2",
+    "result": "unknown",
+    "seconds": 180.254
+  },
+  {
+    "query": "cycle8-size11-dirty-counted-d2-q2",
+    "result": "unknown",
+    "seconds": 300.345
+  },
+  {
+    "query": "cycle8-size11-dirty-counted-d3-q1",
+    "result": "unknown",
+    "seconds": 300.306
+  },
+  {
+    "query": "cycle8-size11-dirty-normal-d0-q2",
+    "result": "unknown",
+    "seconds": 180.054
+  },
+  {
+    "query": "cycle8-size11-dirty-normal-d0-q3",
+    "result": "unsat",
+    "seconds": 146.161
+  },
+  {
+    "query": "cycle8-size11-dirty-pruned-d0-q1",
+    "result": "unknown",
+    "seconds": 180.078
+  },
+  {
+    "query": "cycle8-size11-dirty-pruned-d0-q2",
+    "result": "unknown",
+    "seconds": 180.069
+  },
+  {
+    "query": "cycle8-size11-dirty-reader3-d2-q2",
+    "result": "unknown",
+    "seconds": 181.53
+  },
+  {
+    "query": "cycle8-size11-dirty-reader3-d3-q1",
+    "result": "unknown",
+    "seconds": 181.438
+  },
+  {
+    "query": "cycleleaf7-size9-dirty-counted-d2-q1",
+    "result": "unsat",
+    "seconds": 75.34
+  },
+  {
+    "query": "matching4-size7-dirty-counted-d2-q1",
+    "result": "sat",
+    "seconds": 0.099
+  },
+  {
+    "query": "matching4-size7-dirty-pruned-d2-q1",
+    "result": "sat",
+    "seconds": 0.176
+  },
+  {
+    "query": "matching4-size7-dirty-reader3-d2-q1",
+    "result": "sat",
+    "seconds": 0.477
+  },
+  {
+    "query": "theta3338-size12-dirty-normal-d0-q4",
+    "result": "unsat",
+    "seconds": 100.312
+  },
+  {
+    "query": "theta3338-size12-dirty-pruned-d0-q3",
+    "result": "unknown",
+    "seconds": 180.031
+  }
+]

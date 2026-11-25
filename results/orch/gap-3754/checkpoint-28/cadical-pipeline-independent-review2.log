@@ -1,0 +1,5 @@
+Independent DIMACS verification: 33382 clauses; 3221 assigned variables
+Independent model conversion: 130 original SMT assertions satisfied; circuit matches emitted JSON
+Independent scalar verification: 16 assignments; valid AO2; exact graph output; all gates live and edge-critical; lift fixed; dirty AND gates [4, 5]
+All zero cuts and both parent bypasses change the output function.
+This seven-gate matching control is not least: its two-edge graph has a three-gate clean implementation.

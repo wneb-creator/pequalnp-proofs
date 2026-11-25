@@ -1,0 +1,36 @@
+2026-11-25T17:51:17.408827+00:00 theta333 8 size 12 prefixTotal 7 dirtyANDcount anypositive cleanANDs 3 samples 18 maxfalse 9 autos 12
+RESULT unknown seconds 180.031
+REASON timeout
+(:max-memory              82.42
+ :memory                  24.95
+ :num-allocs              5233246252.00
+ :rlimit-count            465082557
+ :sat-ate                 3074
+ :sat-backjumps           217464
+ :sat-bce                 1888
+ :sat-conflicts           217464
+ :sat-decisions           415986
+ :sat-del-clause          344752
+ :sat-elim-bool-vars-res  23327
+ :sat-elim-clauses        6676
+ :sat-elim-literals       158072
+ :sat-gc-clause           164035
+ :sat-minimized-lits      4412839
+ :sat-mk-clause-2ary      73850
+ :sat-mk-clause-3ary      41187
+ :sat-mk-clause-nary      435436
+ :sat-mk-var              39260
+ :sat-probing-assigned    47
+ :sat-propagations-2ary   90725612
+ :sat-propagations-nary   422415388
+ :sat-restarts            14090
+ :sat-scc-elim-binary     260
+ :sat-scc-elim-vars       1049
+ :sat-subs-resolution     24475
+ :sat-subs-resolution-dyn 199234
+ :sat-subsumed            17454
+ :sat-tr                  392
+ :sat-units               147
+ :solve-eqs-elim-vars     33
+ :solve-eqs-steps         1207
+ :time                    180.03)

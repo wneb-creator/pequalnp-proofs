@@ -1,0 +1,11 @@
+2026-11-25T18:11:39.186586+00:00 cycle 12 AND budget 6 truth bits 41
+RESULT sat seconds 0.002
+VERIFIED_FULL_TRUTH_TABLE {"p": 6, "q": 6, "edges": [[0, 0], [1, 1], [2, 2], [3, 3], [4, 4], [5, 5], [0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 0]], "gates": [[[0], [6, 7]], [[1], [7, 8]], [[2], [8, 9]], [[3], [9, 10]], [[4], [10, 11]], [[5], [6, 11]]], "outputs": [0, 1, 2, 3, 4, 5], "t0": false}
+(:max-memory          17.13
+ :memory              17.13
+ :num-allocs          15065
+ :rlimit-count        9692
+ :sat-mk-var          1
+ :solve-eqs-elim-vars 186
+ :solve-eqs-steps     186
+ :time                0.00)

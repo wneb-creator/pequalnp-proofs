@@ -1,0 +1,33 @@
+2026-11-25T18:00:43.578370+00:00 cycleleaf 7 size 9 prefixTotal 8 dirtyANDcount 2 cleanANDs 1 samples 13 maxfalse 6 autos 2
+RESULT unsat seconds 75.34
+(:max-memory              61.09
+ :memory                  22.81
+ :num-allocs              926803848
+ :rlimit-count            129194754
+ :sat-backjumps           98796
+ :sat-conflicts           98797
+ :sat-decisions           174926
+ :sat-del-clause          226159
+ :sat-elim-bool-vars-res  11978
+ :sat-elim-clauses        60071
+ :sat-elim-literals       155959
+ :sat-gc-clause           62793
+ :sat-minimized-lits      1713416
+ :sat-mk-clause-2ary      65364
+ :sat-mk-clause-3ary      22148
+ :sat-mk-clause-nary      223176
+ :sat-mk-var              24920
+ :sat-probing-assigned    77
+ :sat-propagations-2ary   31225841
+ :sat-propagations-nary   111363764
+ :sat-restarts            5871
+ :sat-scc-elim-binary     204
+ :sat-scc-elim-vars       1993
+ :sat-subs-resolution     16418
+ :sat-subs-resolution-dyn 77156
+ :sat-subsumed            11243
+ :sat-tr                  172
+ :sat-units               2872
+ :solve-eqs-elim-vars     33
+ :solve-eqs-steps         922
+ :time                    75.33)

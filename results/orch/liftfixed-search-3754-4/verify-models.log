@@ -1,0 +1,5 @@
+cadical-matching4-control.model.json verified 16 assignments 2 dirty ANDs
+matching4-size7-dirty-counted-d2-q1-model.json verified 16 assignments 2 dirty ANDs
+matching4-size7-dirty-pruned-d2-q1-model.json verified 16 assignments 2 dirty ANDs
+matching4-size7-dirty-reader3-d2-q1-model.json verified 16 assignments 2 dirty ANDs
+MODELS_VERIFIED 4
