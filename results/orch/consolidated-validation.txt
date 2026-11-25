@@ -1,0 +1,9 @@
+PARTIAL CHECKPOINT ONLY: the posted L-meta-1031 theorem remains unproved.
+The file contains helpers and a conditional bridge, with no module-named final theorem.
+Lean experiment compilation: PASS (exit 0).
+Checker for the posted statement: not run; missing final theorem.
+Command (from lean/): LAKE_ARTIFACT_CACHE=false PEQUALNP_REAL_LAKE=/tmp/oec/pequalnp-pilot-56/lean-4.36.0-linux/bin/lake PEQUALNP_HOME=/tmp/oec/pequalnp-pilot-56/pnp-home XDG_CACHE_HOME=/tmp/oec/pequalnp-pilot-56/cache /workspace/pequalnp-proofs/tools/bin/lake env lean ../results/orch/lemmas/consolidated.lean
+UTC: 2026-11-25T01:45:14.742868+00:00
+Lines: 3027
+Bytes: 144376
+SHA256: c3cf7ffffc50b449695e13e6f99914ffcea66ad0eec640bf7bfa612eccc32102

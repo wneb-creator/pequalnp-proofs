@@ -21,3 +21,10 @@ Hint: The binding can be removed (if unused) or named `_` (if used implicitly). 
 
 Note: This linter can be disabled with `set_option linter.unusedVariables false`
 
+
+File: results/orch/lemmas/proof_last_and.lean
+SHA256: da99bbaeefb2fb38fefe76528c1cdaafd87d4ef5c763120a1b7935cc926ae081
+Lines: 493
+Exit: 0
+Complete compiler stdout/stderr:
+
