@@ -1,0 +1,5 @@
+Command: source /tmp/oec/pequalnp-pilot-134/lean-env.sh && lake env lean /workspace/pequalnp-proofs/results/orch/lemmas/toolchain/OneNotChain.lean
+Exit: 0
+stdout/stderr: empty
+Independent review: structural_proof PASS
+Verdict: compiled partial lemma, not checker acceptance of L-meta-1890

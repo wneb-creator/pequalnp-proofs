@@ -126,3 +126,11 @@ Rootidentifiedchecked L6581 nonNOT≥16, strongerthanprior15. Thusseed-live18suf
 - PASS as compiled partial: structural/OneNot.lean; 172 lines,7435 bytes,SHA256 1efc335ed7a737abae02031b13a5f5332087fa407123278f321c11400ff15ab8. Format scans clean; allowed imports/options/namespaces, UTF8 regular nonexecutable file.
 - FormulaLower: inherited first457 lines exactly match checked L531 modulo namespace and theorem rename (complete diff in scratch review-formula-prefix.diff). Finite Petersen geometry/cover checks yield21 formula leaves. Backward binary AND/OR shape plus global internal-wire Nodup including output gives expansion leaf budget size+1. Mass-to-Nodup correctly needs allk internal wires live. Does not establish the full gap.
 - OneNot: bottom/top input bounds and opposite output endpoint values force the monotone context after its sole NOT to be the identity on that Boolean argument; the monotone prefix input of NOT computes f. Handles zero-input NOT through defaultfalse and does not assume f monotone. At least one gate saved.
+
+## toolchain 2026-11-25T15:07:59.200373+00:00
+
+One-NOT four-chain proof draft reuses checked remove_only_not: outputT atbottom andF attop makes whole circuit thecomplementofamonotoneprefix ontheboundedfamily. MiddleF→T contradictsprefixmonotonicity. GenericFin4family API andcountP(op.eval[false]); compiling results/orch/lemmas/toolchain/OneNotChain.lean.
+
+## toolchain CHECKED 2026-11-25T15:09:16.921723+00:00
+
+`OneNotChain.lean` compiled exit0, complete empty output in `/tmp/oec/pequalnp-pilot-134/one-not-chain-004.log`. Structural agent independently reviewed PASS. Theorem `no_four_chain` rules out outputs true,false,true,false along four ordered equal-length Boolean input lists when FanInTwo holds and countP(op.eval[false])<=1. Generic search cut only, not full gap. Source frozen for root early push.
