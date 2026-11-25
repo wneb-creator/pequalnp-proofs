@@ -143,3 +143,129 @@ lemma raw_product_not_belowF {n : ℕ} {G : SimpleGraph (Fin n)}
   cases hfalse
 
 end PEqualNP.Outside.L_meta_5012.OneFlagReview
+
+
+namespace PEqualNP.Outside.L_meta_5012.SingletonReview
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.EdgeOwnership
+  PEqualNP.MetaComplexity.NestedCover
+
+lemma singleton_side_no_common_neighbor {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] (h4 : NoFourCycle G) (B : Finset (Fin n))
+    {u b₁ b₂ : Fin n} (hb₁ : b₁ ∈ B) (hb₂ : b₂ ∈ B) (hne : b₁ ≠ b₂)
+    (hu₁ : G.Adj u b₁) (hu₂ : G.Adj u b₂)
+    (hbad : ∃ b ∈ B, ¬ G.Adj u b) :
+    ¬ ∃ w : Fin n, ∀ b ∈ B, G.Adj w b := by
+  rintro ⟨w, hw⟩
+  have huw : u = w := by
+    by_contra hneuw
+    have hsmall := h4 u w hneuw
+    have hlarge : 1 < (Finset.univ.filter fun b => G.Adj u b ∧ G.Adj w b).card := by
+      exact Finset.one_lt_card.mpr
+        ⟨b₁, by simp [hu₁, hw b₁ hb₁], b₂, by simp [hu₂, hw b₂ hb₂], hne⟩
+    omega
+  obtain ⟨b, hb, hub⟩ := hbad
+  exact hub (huw ▸ hw b hb)
+
+lemma independent_triple_input {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] {b c d : Fin n}
+    (hbc : ¬ G.Adj b c) (hbd : ¬ G.Adj b d) (hcd : ¬ G.Adj c d) :
+    graphFun G ∅ (fun v => decide (v = b ∨ v = c ∨ v = d)) = false := by
+  rw [graphFun, Bool.or_eq_false_iff]
+  constructor
+  · simp
+  · rw [decide_eq_false_iff_not]
+    rintro ⟨u, v, huv, hu, hv⟩
+    simp only [decide_eq_true_eq] at hu hv
+    rcases hu with rfl | rfl | rfl <;> rcases hv with rfl | rfl | rfl
+    all_goals first
+      | exact G.loopless.irrefl _ huv
+      | exact hbc huv
+      | exact hbc huv.symm
+      | exact hbd huv
+      | exact hbd huv.symm
+      | exact hcd huv
+      | exact hcd huv.symm
+
+lemma raw_dirty_has_cross_nonedge {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] (C D : Finset (Fin n)) (E : Circuit) (h : ℕ)
+    (hraw : ∀ x : Fin n → Bool, gateVal n E h x = true ↔
+      (∃ c ∈ C, x c = true) ∧ (∃ d ∈ D, x d = true))
+    (hdirty : ¬ BelowF G E h) :
+    ∃ c ∈ C, ∃ d ∈ D, ¬ G.Adj c d := by
+  unfold BelowF at hdirty
+  push Not at hdirty
+  obtain ⟨x, hx, hFx⟩ := hdirty
+  obtain ⟨⟨c, hc, hxc⟩, ⟨d, hd, hxd⟩⟩ := (hraw x).mp hx
+  refine ⟨c, hc, d, hd, ?_⟩
+  intro hcd
+  apply hFx
+  simp only [graphFun, Bool.or_eq_true, decide_eq_true_eq]
+  exact Or.inr ⟨c, d, hcd, hxc, hxd⟩
+
+lemma unowned_side_product_negative_witness {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] (B C D : Finset (Fin n))
+    (hB : ¬ ∃ w : Fin n, ∀ b ∈ B, G.Adj w b)
+    (hCD : ∃ c ∈ C, ∃ d ∈ D, ¬ G.Adj c d)
+    (hBD : ∀ b ∈ B, ∀ d ∈ D, ¬ G.Adj b d) :
+    ∃ x : Fin n → Bool, (∃ b ∈ B, x b = true) ∧
+      (∃ c ∈ C, x c = true) ∧ (∃ d ∈ D, x d = true) ∧ graphFun G ∅ x = false := by
+  obtain ⟨c, hc, d, hd, hcd⟩ := hCD
+  have hnot : ¬ ∀ b ∈ B, G.Adj c b := fun h => hB ⟨c, h⟩
+  push Not at hnot
+  obtain ⟨b, hb, hcb⟩ := hnot
+  refine ⟨fun v => decide (v = b ∨ v = c ∨ v = d), ?_, ?_, ?_, ?_⟩
+  · exact ⟨b, hb, by simp⟩
+  · exact ⟨c, hc, by simp⟩
+  · exact ⟨d, hd, by simp⟩
+  · exact independent_triple_input (fun h => hcb h.symm) (hBD b hb d hd) hcd
+
+lemma same_side_product_negative_witness {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] (s : Fin n → Bool)
+    (hbip : ∀ u v, G.Adj u v → s u ≠ s v) (B C D : Finset (Fin n))
+    (hB : ¬ ∃ w : Fin n, ∀ b ∈ B, G.Adj w b)
+    (hCD : ∃ c ∈ C, ∃ d ∈ D, ¬ G.Adj c d)
+    (hcolor : ∀ b ∈ B, ∀ d ∈ D, s b = s d) :
+    ∃ x : Fin n → Bool, (∃ b ∈ B, x b = true) ∧
+      (∃ c ∈ C, x c = true) ∧ (∃ d ∈ D, x d = true) ∧ graphFun G ∅ x = false := by
+  apply unowned_side_product_negative_witness B C D hB hCD
+  intro b hb d hd hbd
+  exact hbip b d hbd (hcolor b hb d hd)
+
+lemma or_side_times_dirty_raw_product_not_belowF {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] (B C D : Finset (Fin n))
+    (hB : ¬ ∃ w : Fin n, ∀ b ∈ B, G.Adj w b)
+    (hBD : ∀ b ∈ B, ∀ d ∈ D, ¬ G.Adj b d)
+    (E : Circuit) (h k : ℕ)
+    (hraw : ∀ x : Fin n → Bool, gateVal n E h x = true ↔
+      (∃ c ∈ C, x c = true) ∧ (∃ d ∈ D, x d = true))
+    (hdirty : ¬ BelowF G E h)
+    (hproduct : ∀ x : Fin n → Bool, gateVal n E k x = true ↔
+      (∃ b ∈ B, x b = true) ∧ gateVal n E h x = true) :
+    ¬ BelowF G E k := by
+  obtain ⟨x, hBx, hCx, hDx, hFx⟩ := unowned_side_product_negative_witness B C D hB
+    (raw_dirty_has_cross_nonedge C D E h hraw hdirty) hBD
+  intro hbelow
+  have hgood := hbelow x ((hproduct x).mpr ⟨hBx, (hraw x).mpr ⟨hCx, hDx⟩⟩)
+  rw [hFx] at hgood
+  cases hgood
+
+lemma dirty_singleton_side_no_common_neighbor {n : ℕ} {G : SimpleGraph (Fin n)}
+    [DecidableRel G.Adj] (h4 : NoFourCycle G) (B : Finset (Fin n))
+    {u b₁ b₂ : Fin n} (hb₁ : b₁ ∈ B) (hb₂ : b₂ ∈ B) (hne : b₁ ≠ b₂)
+    (hu₁ : G.Adj u b₁) (hu₂ : G.Adj u b₂) (E : Circuit) (g : ℕ)
+    (hraw : ∀ x : Fin n → Bool, gateVal n E g x = true ↔
+      x u = true ∧ ∃ b ∈ B, x b = true) (hdirty : ¬ BelowF G E g) :
+    ¬ ∃ w : Fin n, ∀ b ∈ B, G.Adj w b := by
+  apply singleton_side_no_common_neighbor h4 B hb₁ hb₂ hne hu₁ hu₂
+  unfold BelowF at hdirty
+  push Not at hdirty
+  obtain ⟨x, hx, hFx⟩ := hdirty
+  obtain ⟨hxu, b, hb, hxb⟩ := (hraw x).mp hx
+  refine ⟨b, hb, ?_⟩
+  intro hub
+  apply hFx
+  simp only [graphFun, Bool.or_eq_true, decide_eq_true_eq]
+  exact Or.inr ⟨u, b, hub, hxu, hxb⟩
+
+end PEqualNP.Outside.L_meta_5012.SingletonReview
