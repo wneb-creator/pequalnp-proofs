@@ -8,3 +8,4 @@
 - 2026-11-25T17:26:33.390071+00:00: 20-minute replan: retire direct ReadK and semantic-monochromatic shortcuts; pursue T0-preserving folding and top-form normalization, with Fano/C6 synthesis in parallel. Bipartite pair-clean bridge and constrained minimizers checked.
 - 2026-11-25T17:31:42.745072+00:00: strict pair-inactive deletion and pairactivity of fixed constrained minima checked; T0-preserving top-form core checked; negative-input rectangle characterization checked.
 - 2026-11-25T17:42:07.535980+00:00: assembled checked components and combined top-form/least/pairactive witness in named file; build passes; OR branch essentiality checked.
+- 2026-11-25T17:52:49.529956+00:00: contextual pivotality/no-unused/output-last, residual conditional bound, and free-bank matching cost checked. No general residual-cost proof.

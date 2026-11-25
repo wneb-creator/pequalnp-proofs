@@ -5,7 +5,7 @@ Command: lake env lean ../results/orch/lemmas/<file>
 Both runs exit 0; stdout and stderr empty.
 Independent source reviewer: preflight_review; valid partials, no forbidden constructs.
 Sub-agents: preflight_review, structural_proof, library_route, counterexample, algebraic_route, semantic_support
-TIMING total=9.4 subagents=6
+TIMING total=51.0 subagents=6
 
 Additional checked partials (lake env lean, exit 0):
 - library-colour.lean (current source rechecked; empty diagnostics)
@@ -48,3 +48,11 @@ library-or-essential.lean: lake env lean exit 0; SHA256 69dee56a91bb37187be154d1
 structural-classification.lean: lake env lean exit 0; SHA256 65f852a351f45fdfd4dbedff2d7fbc70cff97d61c93810cde7864577e371fd01
 Combined named helper file: 5938 lines, 263032 bytes; lake build exit 0; SHA256 fe2f4128a3ff3894dc828655e2e611232a07d29aad85d3234d7a9622d9295d10
 Exact target remains absent. Previous exact checker verdict REJECTED(no-theorem); guard currently rejects only the absent target theorem.
+semantic-no-unused.lean: lake env lean exit 0; SHA256 40915c14a6639550d506e68946673e0646861df096950fa39effa56defcfceda
+algebraic-residual-closed.lean: lake env lean exit 0; SHA256 eed9e862229644a0b1140d10bff97a9174d448bd0b5dacbed22ab2067a35dccd
+algebraic-bank.lean: lake env lean exit 0; SHA256 d94c14e796880777d41a6de553972fad2f5a1fc6de0f9f7483cb7c7f34abd365
+structural-matching-bank.lean: lake env lean exit 0; SHA256 240325a573c3e0428804c46b8de41a62f027a4a9584b3624be7a31fd7d572048
+
+Checked partial snapshot 8:
+algebraic-bipartite-reduction.lean: lake env lean exit 0; SHA256 b20ca88ab11ac6e17f187a4bd4f9ae8949468f68ca3896e8313926404c7e561e
+algebraic-residual-large.lean: lake env lean exit 0; SHA256 4f8e829b998507f89f93f2a454af9ed6f99d760324713bba914a59c4c07e7b69

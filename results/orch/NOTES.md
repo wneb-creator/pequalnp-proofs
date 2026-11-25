@@ -24,3 +24,13 @@ Only sources explicitly listed in validation.txt have compiled. No exact target 
 The complete target remains unproved. Current proof chain: choose a size/AND-pair-minimal T0 circuit (checked); preserve T0 during false-wire folding (generic builder checked, deletion wrapper pending) and top-form lifting (redirect reach lemma underway); classify the earliest dirty AND; eliminate or charge dirty rectangles; apply checked pair-clean lower bound and checked exact bipartite bridge. The dirty-rectangle step is still open.
 
 Counterexample searches: no witness found on <=6 inputs; independent 2+2 brute-force cross-check agrees. Fano 26-gate synthesis and C6 optimal-dirty SMT are ongoing. Failed searches are not proofs.
+
+## Replan at 2026-11-25T17:57:25.267409+00:00
+
+Checked chain is now complete up to ONE residual-cost certificate: normalized same-function AO2/T0 circuit, constrainedminimum, topform, allgatesedgeactive, contextual gate/OR-branch pivotality, no-unusedgate/output-last, treebalance, covered-edge accounting, exact bipartite conversion. Exact target conditional reduction is checked. Per-gap reductions remain closed; no PR is justified.
+
+Remaining core: residual edges Ustar and a cover S must fit 2*centreless+junk+(orN minus selected raw-payment gates). Stronger candidate split |U|<=centreless+o and tau(U)<=centreless+junk passed finite searches but is unproved. Refined raw-payment set excludes singleton-raw lambda gates, so those payload merges are paid. Further selected-Z/raw-slack refinements may pay shared-DAG payload factoring; no global cost argument yet.
+
+Correction: the proposed 8-gate counterexample to a weaker residual invariant was a counting error. Two upstream OR gates were omitted. Independently evaluated full finsets give equality5, not a counterexample.
+
+Free pure-bank witnesses and matching-with-two-free-side-banks are checked. Actual lambda wires carry dirty payload; treating them as purebanks would be invalid. Raw/payload OR-tree factorization is straightforward, but shared DAGs, multiple terminals and the lower bound for a potentially dense residual graph remain open.
