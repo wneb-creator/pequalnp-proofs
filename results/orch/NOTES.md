@@ -50,3 +50,13 @@ Existing L_meta_1906 transforms an all-AND-BelowF minimal graph circuit to one w
 irredundancy_route.lean compiles (exit 0), log /tmp/oec/pequalnp-pilot-77/irredundancy-route-build-1.log. It includes bypass_route as a prefix plus 3 new lemmas: minimal_no_alias, minimal_gate_true_somewhere, minimal_gate_not_input. Same ...aux.bypass namespace: choose irredundancy_route instead of bypass_route when assembling, do not include both.
 
 L_meta_4181 and L_meta_7860 establish least TopForm circuits, but TopForm permits junk AND gates not BelowF; all-AND-BelowF is not furnished by that normalization. Ownership still needs repair for such junk gates.
+
+## 2026-11-25T08:43:46.592138+00:00 graph_normal_form
+
+Compiled results/orch/lemmas/normal_form_route.lean (49 lines, empty full log normal-form-build-4.log, Lean exit 0). New lemmas: NoFourCycle forces either side of a complete bipartite pair of vertex finsets to have cardinality at most one; graphFun on pairInput equals adjacency; consequently an AND of two input-OR sets below the graph function has a singleton-or-empty side. Root and reviewer notified for push-early.
+
+Conceptual normal form: lifting a below-F AND out of later AND cones can lower AND-cone pairs without increasing size. This is essentially the already solved all-safe-AND case in L_meta_1906. The real obstruction is removing or making safe the dirty AND gates; NoFourCycle alone only bounds already-safe biclique products. EdgeFnFinal lower bound handles the much stronger T7 graph class and does not resolve arbitrary girth at least five.
+
+2026-11-25T08:45:26.896130+00:00 status_review
+
+Independent second partial review PASS. Files reviewed against empty and approved prefixes: ownership_route.lean 147 lines SHA256 d5b2b261160e1f1d4e280f3a9780de6cfd488cb06b6ecaa4464875e5f712a146; normal_form_route.lean 48 lines SHA256 ba0ccb662aa89eca0e5f01ca60c980725fb581f038d9dc3d126279fbff25568e; irredundancy_route.lean 487 lines SHA256 95eac55a7382c9ea5ed8010e01845a15b1f2d70004a4b738ff61a3b28368aed8. No prohibited syntax/axioms/evaluation/quotes/attributes/options; regular nonexecutables, correct namespace scopes. Logs contain no errors. The owning-ancestor result uses valid well-founded descent and cone transitivity; it does NOT promote ancestor ownership to the original gate. Biclique-thin and pair evaluation arguments checked. Irredundancy is the exact approved bypass prefix plus three consequences of minimum size. Do not concatenate full bypass and irredundancy files into one final source: they redeclare the same helper names.
