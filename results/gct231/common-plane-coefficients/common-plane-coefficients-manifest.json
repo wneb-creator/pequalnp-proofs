@@ -1,0 +1,18 @@
+{
+  "source": "CommonPlaneCoefficientIdentities.lean",
+  "sha256": "1aaaa15f2afadc317c741261a7fb57dad2dc2f408c8c41726940c7568919e522",
+  "build_status": "PASS",
+  "build_log": "common-plane-coefficients-build02.log",
+  "source_bodies": "Exact prior common-plane and quartic-scalar declaration bodies preserved.",
+  "scope": "Both scalar square identities for the determinant pencil of symmetric forms sharing a finrank2 quadratic-vanishing submodule; no explicit square, degree, or adapted-basis assumption remains.",
+  "audit_status": "PASS",
+  "audit_log": "common-plane-coefficients-audit01.log",
+  "audit_run": "common-plane-coefficients-audit01.run.json",
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "reviewer": "fresh_main_proof/c3_review",
+  "review_status": "PASS; exact preserved bodies and final degenerate-inclusive statement reviewed"
+}

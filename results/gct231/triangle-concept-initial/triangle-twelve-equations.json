@@ -1,0 +1,270 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-75/gct231/fresh/triangle-star-dependent-equations.json",
+  "source_sha256": "1c6914e2effc3220482099801f6cb125b7fdf5ef1bc8f4963a39759aadbf4203",
+  "unknowns": [
+    "d0",
+    "d1",
+    "d3",
+    "d5",
+    "d7",
+    "d8",
+    "o0",
+    "o1",
+    "o3",
+    "o5",
+    "o7",
+    "o8"
+  ],
+  "equations": [
+    {
+      "monomial": [
+        3,
+        0,
+        0
+      ],
+      "coefficient": "-d0**2*d3 - d0*d3**2 - 2*d0*d3*o0 - 2*d0*d3*o3 - 2*d0*d3 + d0*o3**2 - d0 + d3*o0**2 - d3 + 2*o0*o3 - 2*o0 - 2*o3 - 2",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        2,
+        2,
+        0
+      ],
+      "coefficient": "-2*d0*d1*d3*d7 - d0*d3*d7**2 - 2*d0*d3*d7*o1 - 2*d0*d3*d7*o7 - 2*d0*d3*d7 + d0*d3*o7**2 - d0*d3 - d1*d3**2*d7 - 2*d1*d3*d7*o0 - 2*d1*d3*d7*o3 - 2*d1*d3*d7 + d1*d7*o3**2 - d1*d7 - d3**2 + 2*d3*d7*o0*o1 + 2*d3*o0*o7 - 2*d3*o0 - 2*d3*o3 - 2*d3 - d7**2 + 2*d7*o1*o3 - 2*d7*o1 - 2*d7*o7 - 2*d7 + o3**2 + 2*o3*o7 + o7**2",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        2,
+        1,
+        1
+      ],
+      "coefficient": "-d0**2*d5*d7 - 2*d0*d1*d3*d8 - 2*d0*d3*d5*d7 - 2*d0*d3*d7*d8 - 2*d0*d3*d7*o5 - 2*d0*d3*d7*o8 - 2*d0*d3*d7 - 2*d0*d3*d8*o1 - 2*d0*d3*d8*o7 - 2*d0*d3*d8 + 2*d0*d3*o7*o8 - 2*d0*d5*d7*o0 - 2*d0*d5*d7*o3 - 2*d0*d5*d7 + 2*d0*d7*o3*o5 + 2*d0*o3*o7 - 2*d0 - d1*d3**2*d8 - 2*d1*d3*d8*o0 - 2*d1*d3*d8*o3 - 2*d1*d3*d8 + d1*d8*o3**2 - d1*d8 + 2*d3*d8*o0*o1 + 2*d3*o0*o8 - 2*d3 + d5*d7*o0**2 - d5*d7 - 2*d7*d8 + 2*d7*o0*o5 - 2*d7*o5 - 2*d7*o8 - 2*d7 + 2*d8*o1*o3 - 2*d8*o1 - 2*d8*o7 - 2*d8 + 2*o0*o3 + 2*o0*o7 - 4*o0 + 2*o3*o8 - 4*o3 + 2*o7*o8 - 4",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        2,
+        1,
+        0
+      ],
+      "coefficient": "-d0**2*d7 - 2*d0*d1*d3 - 2*d0*d3*d7 - 2*d0*d3*o1 - 4*d0*d3 - 2*d0*d7*o0 - 4*d0*d7 + 2*d0*o3*o7 - 2*d0 - d1*d3**2 - 2*d1*d3*o0 - 2*d1*d3*o3 - 2*d1*d3 + d1*o3**2 - d1 - d3**2*d7 - 2*d3**2 - 2*d3*d7*o3 - 4*d3*d7 + 2*d3*o0*o1 + 2*d3*o0*o7 - 2*d3*o0 - 4*d3*o3 - 6*d3 + d7*o0**2 + 2*d7*o0*o3 - 2*d7*o0 + d7*o3**2 - 2*d7*o3 - 4*d7 + 2*o0*o3 + 2*o0*o7 - 4*o0 + 2*o1*o3 - 2*o1 + 2*o3**2 + 2*o3*o7 - 2*o3 - 6",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        2,
+        0,
+        2
+      ],
+      "coefficient": "-d0**2*d5*d8 - d0**2 - 2*d0*d3*d5*d8 - d0*d3*d8**2 - 2*d0*d3*d8*o5 - 2*d0*d3*d8*o8 - 2*d0*d3*d8 + d0*d3*o8**2 - d0*d3 - 2*d0*d5*d8*o0 - 2*d0*d5*d8*o3 - 2*d0*d5*d8 + 2*d0*d8*o3*o5 - 2*d0*o0 + 2*d0*o3*o8 - 2*d0*o3 - 2*d0 + d5*d8*o0**2 - d5*d8 - d8**2 + 2*d8*o0*o5 - 2*d8*o5 - 2*d8*o8 - 2*d8 + o0**2 + 2*o0*o8 + o8**2",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        2,
+        0,
+        1
+      ],
+      "coefficient": "-d0**2*d5 - d0**2*d8 - 2*d0**2 - 2*d0*d3*d5 - 2*d0*d3*d8 - 2*d0*d3*o5 - 4*d0*d3 - 2*d0*d5*o0 - 2*d0*d5*o3 - 2*d0*d5 - 2*d0*d8*o0 - 4*d0*d8 - 4*d0*o0 + 2*d0*o3*o5 + 2*d0*o3*o8 - 2*d0*o3 - 6*d0 - d3**2*d8 - 2*d3*d8*o3 - 4*d3*d8 + 2*d3*o0*o8 - 2*d3 + d5*o0**2 - d5 + d8*o0**2 + 2*d8*o0*o3 - 2*d8*o0 + d8*o3**2 - 2*d8*o3 - 4*d8 + 2*o0**2 + 2*o0*o3 + 2*o0*o5 + 2*o0*o8 - 2*o0 + 2*o3*o8 - 4*o3 - 2*o5 - 6",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        2,
+        0,
+        0
+      ],
+      "coefficient": "-2*d0**2 - 2*d0*d3 - 4*d0*o0 - 8*d0 - 2*d3**2 - 4*d3*o3 - 8*d3 + 2*o0**2 + 4*o0*o3 - 4*o0 + 2*o3**2 - 4*o3 - 6",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        1,
+        2,
+        1
+      ],
+      "coefficient": "-2*d0*d1*d5*d7 - d0*d5*d7**2 - 2*d0*d5*d7*o1 - 2*d0*d5*d7*o7 - 2*d0*d5*d7 + d0*d5*o7**2 - d0*d5 - d1**2*d3*d8 - 2*d1*d3*d5*d7 - 2*d1*d3*d7*d8 - 2*d1*d3*d7*o5 - 2*d1*d3*d7*o8 - 2*d1*d3*d7 - 2*d1*d3*d8*o1 - 2*d1*d3*d8*o7 - 2*d1*d3*d8 + 2*d1*d3*o7*o8 - 2*d1*d5*d7*o0 - 2*d1*d5*d7*o3 - 2*d1*d5*d7 + 2*d1*d7*o3*o5 + 2*d1*o3*o7 - 2*d1 - 2*d3*d5 + d3*d8*o1**2 - d3*d8 + 2*d3*o1*o8 - 2*d3*o5 - 2*d3*o8 - 2*d3 + 2*d5*d7*o0*o1 + 2*d5*o0*o7 - 2*d5*o0 - 2*d5*o3 - 2*d5 + 2*d7*o1*o5 - 2*d7 + 2*o1*o3 + 2*o1*o7 - 4*o1 + 2*o3*o5 + 2*o5*o7 - 4*o7 - 4",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        1,
+        2,
+        0
+      ],
+      "coefficient": "-2*d0*d1*d7 - d0*d7**2 - 2*d0*d7*o1 - 2*d0*d7*o7 - 2*d0*d7 + d0*o7**2 - d0 - d1**2*d3 - 2*d1*d3*d7 - 2*d1*d3*o1 - 4*d1*d3 - 2*d1*d7*o0 - 4*d1*d7 + 2*d1*o3*o7 - 2*d1 - d3*d7**2 - 2*d3*d7*o7 - 4*d3*d7 + d3*o1**2 + 2*d3*o1*o7 - 2*d3*o1 + d3*o7**2 - 2*d3*o7 - 4*d3 - 2*d7**2 + 2*d7*o0*o1 + 2*d7*o1*o3 - 2*d7*o1 - 4*d7*o7 - 6*d7 + 2*o0*o7 - 2*o0 + 2*o1*o3 + 2*o1*o7 - 4*o1 + 2*o3*o7 + 2*o7**2 - 2*o7 - 6",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        1,
+        1,
+        2
+      ],
+      "coefficient": "-2*d0*d1*d5*d8 - 2*d0*d1 - d0*d5**2*d7 - 2*d0*d5*d7*d8 - 2*d0*d5*d7*o5 - 2*d0*d5*d7*o8 - 2*d0*d5*d7 - 2*d0*d5*d8*o1 - 2*d0*d5*d8*o7 - 2*d0*d5*d8 + 2*d0*d5*o7*o8 + d0*d7*o5**2 - d0*d7 - 2*d0*o1 + 2*d0*o5*o7 - 2*d0*o7 - 2*d0 - 2*d1*d3*d5*d8 - d1*d3*d8**2 - 2*d1*d3*d8*o5 - 2*d1*d3*d8*o8 - 2*d1*d3*d8 + d1*d3*o8**2 - d1*d3 - 2*d1*d5*d8*o0 - 2*d1*d5*d8*o3 - 2*d1*d5*d8 + 2*d1*d8*o3*o5 - 2*d1*o0 + 2*d1*o3*o8 - 2*d1*o3 - 2*d1 + 2*d5*d8*o0*o1 + 2*d5*o0*o8 - 2*d5 + 2*d8*o1*o5 - 2*d8 + 2*o0*o1 + 2*o0*o5 + 2*o1*o8 + 2*o5*o8 - 4*o5 - 4*o8 - 4",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        1,
+        1,
+        1
+      ],
+      "coefficient": "-2*d0*d1*d5 - 2*d0*d1*d8 - 4*d0*d1 - 2*d0*d5*d7 - 2*d0*d5*o1 - 4*d0*d5 - 2*d0*d7*d8 - 2*d0*d7*o8 - 4*d0*d7 - 2*d0*d8*o1 - 2*d0*d8*o7 - 2*d0*d8 - 4*d0*o1 + 2*d0*o5*o7 + 2*d0*o7*o8 - 2*d0*o7 - 6*d0 - 2*d1*d3*d5 - 2*d1*d3*d8 - 2*d1*d3*o5 - 4*d1*d3 - 2*d1*d5*o0 - 2*d1*d5*o3 - 2*d1*d5 - 2*d1*d8*o0 - 4*d1*d8 - 4*d1*o0 + 2*d1*o3*o5 + 2*d1*o3*o8 - 2*d1*o3 - 6*d1 - 2*d3*d5*d7 - 4*d3*d5 - 2*d3*d7*d8 - 2*d3*d7*o5 - 2*d3*d7*o8 - 2*d3*d7 - 2*d3*d8*o7 - 4*d3*d8 + 2*d3*o1*o8 - 4*d3*o5 + 2*d3*o7*o8 - 2*d3*o8 - 6*d3 - 2*d5*d7*o3 - 4*d5*d7 + 2*d5*o0*o1 + 2*d5*o0*o7 - 2*d5*o0 - 4*d5*o3 - 6*d5 - 4*d7*d8 + 2*d7*o0*o5 + 2*d7*o3*o5 - 2*d7*o5 - 4*d7*o8 - 6*d7 + 2*d8*o0*o1 + 2*d8*o1*o3 - 2*d8*o1 - 4*d8*o7 - 6*d8 + 4*o0*o1 + 2*o0*o5 + 2*o0*o7 + 2*o0*o8 - 2*o0 + 2*o1*o3 + 2*o1*o5 + 2*o1*o8 - 2*o1 + 4*o3*o5 + 2*o3*o7 + 2*o3*o8 - 2*o3 + 2*o5*o7 - 2*o5 + 4*o7*o8 - 2*o7 - 2*o8 - 10",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        1,
+        1,
+        0
+      ],
+      "coefficient": "-4*d0*d1 - 2*d0*d7 - 4*d0*o1 - 8*d0 - 2*d1*d3 - 4*d1*o0 - 8*d1 - 2*d3*d7 - 4*d3 - 4*d7 + 4*o0*o1 + 4*o0*o7 - 4*o0 + 4*o1*o3 - 4*o1 + 4*o3*o7 - 12",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        1,
+        0,
+        2
+      ],
+      "coefficient": "-d0*d5**2 - 2*d0*d5*d8 - 2*d0*d5*o5 - 4*d0*d5 - d0*d8**2 - 2*d0*d8*o8 - 4*d0*d8 + d0*o5**2 + 2*d0*o5*o8 - 2*d0*o5 + d0*o8**2 - 2*d0*o8 - 4*d0 - 2*d3*d5*d8 - d3*d8**2 - 2*d3*d8*o5 - 2*d3*d8*o8 - 2*d3*d8 + d3*o8**2 - d3 - 2*d5*d8*o3 - 4*d5*d8 + 2*d5*o0*o8 - 2*d5 - 2*d8**2 + 2*d8*o0*o5 + 2*d8*o3*o5 - 2*d8*o5 - 4*d8*o8 - 6*d8 + 2*o0*o5 + 2*o0*o8 + 2*o3*o8 - 2*o3 + 2*o5*o8 - 4*o5 + 2*o8**2 - 2*o8 - 6",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        1,
+        0,
+        1
+      ],
+      "coefficient": "-2*d0*d5 - 2*d0*d8 - 4*d0 - 4*d3*d5 - 2*d3*d8 - 4*d3*o5 - 8*d3 - 4*d5*o3 - 8*d5 - 4*d8 + 4*o0*o5 + 4*o0*o8 + 4*o3*o5 + 4*o3*o8 - 4*o3 - 4*o5 - 12",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        0,
+        3,
+        0
+      ],
+      "coefficient": "-d1**2*d7 - d1*d7**2 - 2*d1*d7*o1 - 2*d1*d7*o7 - 2*d1*d7 + d1*o7**2 - d1 + d7*o1**2 - d7 + 2*o1*o7 - 2*o1 - 2*o7 - 2",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        0,
+        2,
+        2
+      ],
+      "coefficient": "-d1**2*d5*d8 - d1**2 - d1*d5**2*d7 - 2*d1*d5*d7*d8 - 2*d1*d5*d7*o5 - 2*d1*d5*d7*o8 - 2*d1*d5*d7 - 2*d1*d5*d8*o1 - 2*d1*d5*d8*o7 - 2*d1*d5*d8 + 2*d1*d5*o7*o8 + d1*d7*o5**2 - d1*d7 - 2*d1*o1 + 2*d1*o5*o7 - 2*d1*o7 - 2*d1 - d5**2 + d5*d8*o1**2 - d5*d8 + 2*d5*o1*o8 - 2*d5*o5 - 2*d5*o8 - 2*d5 + o1**2 + 2*o1*o5 + o5**2",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        0,
+        2,
+        1
+      ],
+      "coefficient": "-d1**2*d5 - d1**2*d8 - 2*d1**2 - 2*d1*d5*d7 - 2*d1*d5*o1 - 4*d1*d5 - 2*d1*d7*d8 - 2*d1*d7*o8 - 4*d1*d7 - 2*d1*d8*o1 - 2*d1*d8*o7 - 2*d1*d8 - 4*d1*o1 + 2*d1*o5*o7 + 2*d1*o7*o8 - 2*d1*o7 - 6*d1 - d5*d7**2 - 2*d5*d7*o7 - 4*d5*d7 + d5*o1**2 + 2*d5*o1*o7 - 2*d5*o1 + d5*o7**2 - 2*d5*o7 - 4*d5 + 2*d7*o1*o5 - 2*d7 + d8*o1**2 - d8 + 2*o1**2 + 2*o1*o5 + 2*o1*o7 + 2*o1*o8 - 2*o1 + 2*o5*o7 - 4*o7 - 2*o8 - 6",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        0,
+        2,
+        0
+      ],
+      "coefficient": "-2*d1**2 - 2*d1*d7 - 4*d1*o1 - 8*d1 - 2*d7**2 - 4*d7*o7 - 8*d7 + 2*o1**2 + 4*o1*o7 - 4*o1 + 2*o7**2 - 4*o7 - 6",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        0,
+        1,
+        2
+      ],
+      "coefficient": "-d1*d5**2 - 2*d1*d5*d8 - 2*d1*d5*o5 - 4*d1*d5 - d1*d8**2 - 2*d1*d8*o8 - 4*d1*d8 + d1*o5**2 + 2*d1*o5*o8 - 2*d1*o5 + d1*o8**2 - 2*d1*o8 - 4*d1 - d5**2*d7 - 2*d5**2 - 2*d5*d7*d8 - 2*d5*d7*o5 - 2*d5*d7*o8 - 2*d5*d7 - 2*d5*d8*o7 - 4*d5*d8 + 2*d5*o1*o8 - 4*d5*o5 + 2*d5*o7*o8 - 2*d5*o8 - 6*d5 + d7*o5**2 - d7 + 2*d8*o1*o5 - 2*d8 + 2*o1*o5 + 2*o1*o8 + 2*o5**2 + 2*o5*o7 + 2*o5*o8 - 2*o5 - 2*o7 - 4*o8 - 6",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        0,
+        1,
+        1
+      ],
+      "coefficient": "-2*d1*d5 - 2*d1*d8 - 4*d1 - 2*d5*d7 - 4*d5 - 4*d7*d8 - 4*d7*o8 - 8*d7 - 4*d8*o7 - 8*d8 + 4*o1*o5 + 4*o1*o8 + 4*o5*o7 + 4*o7*o8 - 4*o7 - 4*o8 - 12",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        0,
+        0,
+        3
+      ],
+      "coefficient": "-d5**2*d8 - d5*d8**2 - 2*d5*d8*o5 - 2*d5*d8*o8 - 2*d5*d8 + d5*o8**2 - d5 + d8*o5**2 - d8 + 2*o5*o8 - 2*o5 - 2*o8 - 2",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": [
+        0,
+        0,
+        2
+      ],
+      "coefficient": "-2*d5**2 - 2*d5*d8 - 4*d5*o5 - 8*d5 - 2*d8**2 - 4*d8*o8 - 8*d8 + 2*o5**2 + 4*o5*o8 - 4*o5 + 2*o8**2 - 4*o8 - 6",
+      "kind": "original_after_forced_diagonal_zeros"
+    },
+    {
+      "monomial": null,
+      "coefficient": "o0*o5*o7 + o1*o3*o8",
+      "kind": "remaining_star_determinant"
+    },
+    {
+      "monomial": null,
+      "coefficient": "d0*o1*o5 - d1*o0*o5 + d3*o1*o5 - d5*o1*o3 - d7*o0*o5 - d8*o1*o3 - 2*o0*o5 - 2*o1*o3 + 2*o1*o5",
+      "kind": "center_diagonal_minor_0_1"
+    },
+    {
+      "monomial": null,
+      "coefficient": "d0*o1*o8 - d1*o0*o8 + d3*o1*o8 + d5*o0*o7 - d7*o0*o8 + d8*o0*o7 + 2*o0*o7 - 2*o0*o8 + 2*o1*o8",
+      "kind": "center_diagonal_minor_0_2"
+    },
+    {
+      "monomial": null,
+      "coefficient": "-d0*o5*o7 - d1*o3*o8 - d3*o5*o7 + d5*o3*o7 - d7*o3*o8 + d8*o3*o7 + 2*o3*o7 - 2*o3*o8 - 2*o5*o7",
+      "kind": "center_diagonal_minor_1_2"
+    }
+  ],
+  "matrix": [
+    [
+      "d0*x + d1*y",
+      "x",
+      "y",
+      "o0*x + o1*y"
+    ],
+    [
+      "x",
+      "d3*x + d5*z",
+      "z",
+      "o3*x + o5*z"
+    ],
+    [
+      "y",
+      "z",
+      "d7*y + d8*z",
+      "o7*y + o8*z"
+    ],
+    [
+      "o0*x + o1*y",
+      "o3*x + o5*z",
+      "o7*y + o8*z",
+      "-d0*x - d1*y - d3*x - d5*z - d7*y - d8*z - 2*o0*x - 2*o1*y - 2*o3*x - 2*o5*z - 2*o7*y - 2*o8*z - 2*x - 2*y - 2*z"
+    ]
+  ],
+  "forced_zero_parameters": [
+    "d2",
+    "d4",
+    "d6"
+  ],
+  "scope": "Necessary twelve-variable system for the triangle chart conditional on all four star determinants vanishing. Three diagonal zeros and three center-diagonal minors are derived from the isolated-vertex lemma; not a whole-gap result or an inconsistency verdict."
+}

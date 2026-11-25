@@ -1,0 +1,9 @@
+{
+  "REVIEW.md": "f0984df3e7a32a7342bba565b27bdc7d5badfd11d2b20f69eaf9553e5fbf7e27",
+  "certificate-verdicts.json": "5771354fcdefe788b73f13259239ee134d03a926d82c05563ef812954104ef46",
+  "check-lean.log": "b3defc45eb60e8bb7ccefb5745722e5f35c5f96735e71245dd6342dce8b61f0d",
+  "check_lean.py": "006c6faa242ca8ea369ac0406c947fd6b52d18e56288fd20c44807154162eb12",
+  "dag.log": "35492acc158959c5c7eefc1c585e13a7857ed373f6dba38750aa1fd951344799",
+  "source-hashes.json": "aea16235e95d38f851062ed16245b4a30364e91068982d8b82d8670d6ee67f28",
+  "verify_certificate.py": "13012ea03ff9a327b9beaa15b17cc78020429b7504a4f7ade618f7c56e917725"
+}

@@ -1,0 +1,16 @@
+{
+  "source": "QuarticSquareCoefficients.lean",
+  "sha256": "24051b7d2e1729780f4d74b6532e792dcca4bbda93fb443a9f6629f6b4f24a35",
+  "status": "PASS",
+  "build_log": "quartic-square-coefficients-build01.log",
+  "build_status": "quartic-square-coefficients-build01.run.json",
+  "axiom_log": "quartic-square-coefficients-audit01.log",
+  "axioms": {
+    "PEqualNP.Outside.L_gct_231_aux.quartic_square_coefficient_identities": [
+      "propext,",
+      "Classical.choice,",
+      "Quot.sound"
+    ]
+  },
+  "scope": "Both quartic square-coefficient identities in any commutative ring without zero divisors, with q=p^2 and natDegree q<=4. No nonzero leading coefficient or division assumption."
+}

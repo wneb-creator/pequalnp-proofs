@@ -1,0 +1,9 @@
+Start UTC 2026-11-25T11:47:04.782072+00:00
+Affine substitution and inverse, all 16 entries both directions, tangent, symmetry, three pivots, and free diagonal33: PASS
+All 31 coefficient equations independently match forward and inverse substitutions: PASS; 3600 terms
+Independent Ryser permanent yields exactly all 31 exported coefficients, with zero constant/linear residues: PASS
+qq actual sparse input independently reconstructed; SHA256 f962797d0daa4ddc6167aba4625804cd6d9b85323a3fca139d6fe25f744686ff
+p1009 actual sparse input independently reconstructed; SHA256 2fa7c351ed1936e1f692cf06eb791c812748653e5e96ef76f0d0048ef7c864f6
+Scope: invertible affine reparameterization of the complete original full-star chart. No solver outcome or dimension reduction.
+Finish UTC 2026-11-25T11:47:16.656600+00:00
+PASS

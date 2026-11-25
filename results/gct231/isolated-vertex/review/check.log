@@ -1,0 +1,4 @@
+PASS actual Lean block formulas via independent Ryser expansion and d^4 certificate
+PASS four displayed finite-evaluation coefficient identities
+PASS complete24-term permanent formula, source format and recorded build status
+SCOPE arbitrary isolated vertex, symmetry and constant permanent line imply its diagonal0; no tangent or rank premise is assumed.

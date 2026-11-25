@@ -1,0 +1,9 @@
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.coefficient_formulas' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.product_identity_of_constant_line' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.C4Coordinates.scaledMatrix_reconstruct_supported' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

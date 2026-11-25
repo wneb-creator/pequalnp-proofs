@@ -1,0 +1,32 @@
+import took 1.23s
+simp took 124ms
+simp took 110ms
+simp took 109ms
+tactic execution of Lean.Parser.Tactic.exact took 2.28s
+'PEqualNP.Outside.L_gct_231_aux.common_isotropic_plane_coefficient_identities' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+cumulative profiling times:
+	attribute application 0.34ms
+	blocked (unaccounted) 4.52s
+	congr simp thm 19.5ms
+	declTypeLinter 14.3ms
+	elaboration 216ms
+	fix level params 3.46ms
+	import 1.23s
+	initialization 38.6ms
+	instantiate metavars 6.06ms
+	interpretation 340ms
+	let-to-have transformation 2.19ms
+	linting 57.5ms
+	module linting 0.0344ms
+	norm_num 3.85ms
+	parsing 13.9ms
+	process pre-definitions 19.8ms
+	ring 55.2ms
+	share common exprs 25ms
+	simp 628ms
+	tactic execution 2.67s
+	tacticAnalysis 7.76ms
+	type checking 173ms
+	typeclass inference 876ms

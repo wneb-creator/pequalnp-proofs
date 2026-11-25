@@ -1,0 +1,630 @@
+Try this:
+  [apply] ring_nf
+  
+  The `ring` tactic failed to close the goal. Use `ring_nf` to obtain a normal form.
+    
+  Note that `ring` works primarily in *commutative* rings. If you have a noncommutative ring, abelian group or module, consider using `noncomm_ring`, `abel` or `module` instead.
+/tmp/oec/pequalnp-pilot-75/gct231/fresh/C4CoordinateInterface.lean:64:63: error: unsolved goals
+R : Type u_1
+inst✝ : CommRing R
+e f a b H X Y z : R
+⊢ ⋯ - ⋯ + ⋯ * 2 + ⋯ * ⋯ * 2 - ⋯ * ⋯ * Matrix.vecHead ⋯ 0 * 4 +
+                                                                                                z ^ 4 * e ^ 2 *
+                                                                                                      Matrix.vecHead ⋯
+                                                                                                        2 *
+                                                                                                    Matrix.vecHead
+                                                                                                      (Matrix.vecTail ⋯)
+                                                                                                      3 *
+                                                                                                  20 +
+                                                                                              z ^ 4 * e ^ 2 *
+                                                                                                    Matrix.vecHead
+                                                                                                      (Matrix.vecTail ⋯)
+                                                                                                      2 *
+                                                                                                  Matrix.vecHead
+                                                                                                    (Matrix.vecTail
+                                                                                                      (Matrix.vecCons ⋯
+                                                                                                        ⋯))
+                                                                                                    3 *
+                                                                                                20 -
+                                                                                            z ^ 4 * a * f *
+                                                                                                  Matrix.vecHead
+                                                                                                    (Matrix.vecTail
+                                                                                                      (Matrix.vecCons ⋯
+                                                                                                        ⋯))
+                                                                                                    2 *
+                                                                                                Matrix.vecHead
+                                                                                                  (Matrix.vecTail
+                                                                                                    (Matrix.vecTail
+                                                                                                      (Matrix.vecCons ⋯
+                                                                                                        ⋯)))
+                                                                                                  3 *
+                                                                                              4 -
+                                                                                          z ^ 4 * a * f *
+                                                                                                Matrix.vecHead
+                                                                                                  (Matrix.vecTail
+                                                                                                    (Matrix.vecTail
+                                                                                                      (Matrix.vecCons ⋯
+                                                                                                        ⋯)))
+                                                                                                  2 *
+                                                                                              Matrix.vecHead
+                                                                                                (Matrix.vecTail
+                                                                                                  ![Matrix.vecCons
+                                                                                                      (⋯ + X * 2)
+                                                                                                      (Matrix.vecCons ⋯
+                                                                                                        ⋯),
+                                                                                                    Matrix.vecCons 0 ⋯,
+                                                                                                    ⋯])
+                                                                                                3 *
+                                                                                            4 -
+                                                                                        z ^ 4 * a * X *
+                                                                                              Matrix.vecHead
+                                                                                                (Matrix.vecTail
+                                                                                                  ![Matrix.vecCons
+                                                                                                      (⋯ + X * 2)
+                                                                                                      (Matrix.vecCons ⋯
+                                                                                                        ⋯),
+                                                                                                    Matrix.vecCons 0 ⋯,
+                                                                                                    ⋯])
+                                                                                                2 *
+                                                                                            Matrix.vecHead
+                                                                                              (Matrix.vecTail
+                                                                                                (Matrix.vecTail
+                                                                                                  ![Matrix.vecCons
+                                                                                                      (⋯ + X * 2)
+                                                                                                      (Matrix.vecCons ⋯
+                                                                                                        ⋯),
+                                                                                                    Matrix.vecCons 0 ⋯,
+                                                                                                    ⋯]))
+                                                                                              3 *
+                                                                                          4 -
+                                                                                      z ^ 4 * a * X *
+                                                                                            Matrix.vecHead
+                                                                                              (Matrix.vecTail
+                                                                                                (Matrix.vecTail
+                                                                                                  ![Matrix.vecCons
+                                                                                                      (⋯ + X * 2)
+                                                                                                      (Matrix.vecCons ⋯
+                                                                                                        ⋯),
+                                                                                                    Matrix.vecCons 0 ⋯,
+                                                                                                    ⋯]))
+                                                                                              2 *
+                                                                                          Matrix.vecHead
+                                                                                            (Matrix.vecTail
+                                                                                              ![![⋯ - a + f * 2 + X * 2,
+                                                                                                  ⋯ - e * 4 + a * 2,
+                                                                                                  ⋯ + Y * 2, 0],
+                                                                                                Matrix.vecCons 0
+                                                                                                  (Matrix.vecCons
+                                                                                                    (⋯ + Y * 2)
+                                                                                                    (Matrix.vecCons ⋯
+                                                                                                      ⋯)),
+                                                                                                Matrix.vecCons
+                                                                                                  (⋯ - Y * 2)
+                                                                                                  (Matrix.vecCons 0 ⋯)])
+                                                                                            3 *
+                                                                                        4 -
+                                                                                    z ^ 4 * a *
+                                                                                          Matrix.vecHead
+                                                                                            (Matrix.vecTail
+                                                                                              ![![⋯ - a + f * 2 + X * 2,
+                                                                                                  ⋯ - e * 4 + a * 2,
+                                                                                                  ⋯ + Y * 2, 0],
+                                                                                                Matrix.vecCons 0
+                                                                                                  (Matrix.vecCons
+                                                                                                    (⋯ + Y * 2)
+                                                                                                    (Matrix.vecCons ⋯
+                                                                                                      ⋯)),
+                                                                                                Matrix.vecCons
+                                                                                                  (⋯ - Y * 2)
+                                                                                                  (Matrix.vecCons 0 ⋯)])
+                                                                                            2 *
+                                                                                        Matrix.vecHead
+                                                                                          (Matrix.vecTail
+                                                                                            (Matrix.vecTail
+                                                                                              ![-(H * 2) - e * 4 +
+                                                                                                  a * 2,
+                                                                                                ⋯ - a - f * 2 + Y * 2,
+                                                                                                0])) *
+                                                                                      Matrix.vecHead
+                                                                                        (Matrix.vecTail
+                                                                                          (Matrix.vecTail
+                                                                                            ![![-b + e * 2 - a + f * 2 +
+                                                                                                  X * 2,
+                                                                                                -(H * 2) - e * 4 +
+                                                                                                  a * 2,
+                                                                                                ⋯ - f * 2 + Y * 2, 0],
+                                                                                              ![0, ⋯ - f * 2 + Y * 2,
+                                                                                                ⋯ - e * 4, ⋯],
+                                                                                              Matrix.vecCons
+                                                                                                (⋯ - f * 2 - Y * 2)
+                                                                                                (Matrix.vecCons 0
+                                                                                                  (Matrix.vecCons ⋯
+                                                                                                    ⋯))]))
+                                                                                        0 -
+                                                                                  z ^ 4 * a *
+                                                                                        Matrix.vecHead
+                                                                                          (Matrix.vecTail
+                                                                                            ![![-b + e * 2 - a + f * 2 +
+                                                                                                  X * 2,
+                                                                                                -(H * 2) - e * 4 +
+                                                                                                  a * 2,
+                                                                                                ⋯ - f * 2 + Y * 2, 0],
+                                                                                              ![0, ⋯ - f * 2 + Y * 2,
+                                                                                                ⋯ - e * 4, ⋯],
+                                                                                              Matrix.vecCons
+                                                                                                (⋯ - f * 2 - Y * 2)
+                                                                                                (Matrix.vecCons 0
+                                                                                                  (Matrix.vecCons ⋯
+                                                                                                    ⋯))])
+                                                                                          2 *
+                                                                                      Matrix.vecHead
+                                                                                        (Matrix.vecTail
+                                                                                          (Matrix.vecTail
+                                                                                            ![![-b + e * 2 - a + f * 2 +
+                                                                                                  X * 2,
+                                                                                                -(H * 2) - e * 4 +
+                                                                                                  a * 2,
+                                                                                                ⋯ - f * 2 + Y * 2, 0],
+                                                                                              ![0, ⋯ - f * 2 + Y * 2,
+                                                                                                ⋯ - e * 4, ⋯],
+                                                                                              Matrix.vecCons
+                                                                                                (⋯ - f * 2 - Y * 2)
+                                                                                                (Matrix.vecCons 0
+                                                                                                  (Matrix.vecCons ⋯
+                                                                                                    ⋯))]))
+                                                                                        1 *
+                                                                                    Matrix.vecHead
+                                                                                      (Matrix.vecTail
+                                                                                        (Matrix.vecTail
+                                                                                          ![-b + e * 2 - a + f * 2 +
+                                                                                              X * 2,
+                                                                                            0,
+                                                                                            -b + e * 2 + a - f * 2 -
+                                                                                              Y * 2])) +
+                                                                                z ^ 4 * a *
+                                                                                        Matrix.vecHead
+                                                                                          (Matrix.vecTail
+                                                                                            ![![-b + e * 2 - a + f * 2 +
+                                                                                                  X * 2,
+                                                                                                -(H * 2) - e * 4 +
+                                                                                                  a * 2,
+                                                                                                ⋯ - f * 2 + Y * 2, 0],
+                                                                                              ![0, ⋯ - f * 2 + Y * 2,
+                                                                                                ⋯ - e * 4, ⋯],
+                                                                                              Matrix.vecCons
+                                                                                                (⋯ - f * 2 - Y * 2)
+                                                                                                (Matrix.vecCons 0
+                                                                                                  (Matrix.vecCons ⋯
+                                                                                                    ⋯))])
+                                                                                          2 *
+                                                                                      Matrix.vecHead
+                                                                                        (Matrix.vecTail
+                                                                                          (Matrix.vecTail
+                                                                                            ![-b + e * 2 - a + f * 2 +
+                                                                                                X * 2,
+                                                                                              0,
+                                                                                              ⋯ + a - f * 2 - Y * 2])) *
+                                                                                    Matrix.vecHead
+                                                                                      (Matrix.vecTail
+                                                                                        (Matrix.vecTail
+                                                                                          ![![-b + e * 2 - a + f * 2 +
+                                                                                                X * 2,
+                                                                                              -(H * 2) - e * 4 + a * 2,
+                                                                                              ⋯ - a - f * 2 + Y * 2, 0],
+                                                                                            ![0, ⋯ - a - f * 2 + Y * 2,
+                                                                                              H * 2 - b * 2 - e * 4,
+                                                                                              ⋯ - X * 2],
+                                                                                            ![⋯ + a - f * 2 - Y * 2, 0,
+                                                                                              ⋯ - X * 2, ⋯]]))
+                                                                                      0 *
+                                                                                  2 -
+                                                                              z ^ 4 * a *
+                                                                                    Matrix.vecHead
+                                                                                      (Matrix.vecTail
+                                                                                        (Matrix.vecTail
+                                                                                          ![![-b + e * 2 - a + f * 2 +
+                                                                                                X * 2,
+                                                                                              -(H * 2) - e * 4 + a * 2,
+                                                                                              ⋯ - a - f * 2 + Y * 2, 0],
+                                                                                            ![0, ⋯ - a - f * 2 + Y * 2,
+                                                                                              H * 2 - b * 2 - e * 4,
+                                                                                              ⋯ - X * 2],
+                                                                                            ![⋯ + a - f * 2 - Y * 2, 0,
+                                                                                              ⋯ - X * 2, ⋯]]))
+                                                                                      3 *
+                                                                                  Matrix.vecHead
+                                                                                    (Matrix.vecTail
+                                                                                      ![![-b + e * 2 - a + f * 2 +
+                                                                                            X * 2,
+                                                                                          -(H * 2) - e * 4 + a * 2,
+                                                                                          b + e * 2 - a - f * 2 + Y * 2,
+                                                                                          0],
+                                                                                        ![0,
+                                                                                          b + e * 2 - a - f * 2 + Y * 2,
+                                                                                          H * 2 - b * 2 - e * 4,
+                                                                                          ⋯ + a + f * 2 - X * 2],
+                                                                                        ![-b + e * 2 + a - f * 2 -
+                                                                                            Y * 2,
+                                                                                          0, ⋯ + a + f * 2 - X * 2,
+                                                                                          ⋯ - e * 4 - a * 2]])
+                                                                                    1 *
+                                                                                Matrix.vecHead
+                                                                                  (Matrix.vecTail
+                                                                                    ![-b + e * 2 - a + f * 2 + X * 2, 0,
+                                                                                      -b + e * 2 + a - f * 2 - Y * 2]) -
+                                                                            z ^ 4 * a *
+                                                                                  Matrix.vecHead
+                                                                                    (Matrix.vecTail
+                                                                                      (Matrix.vecTail
+                                                                                        ![![-b + e * 2 - a + f * 2 +
+                                                                                              X * 2,
+                                                                                            -(H * 2) - e * 4 + a * 2,
+                                                                                            b + e * 2 - a - f * 2 +
+                                                                                              Y * 2,
+                                                                                            0],
+                                                                                          ![0,
+                                                                                            b + e * 2 - a - f * 2 +
+                                                                                              Y * 2,
+                                                                                            H * 2 - b * 2 - e * 4,
+                                                                                            ⋯ + f * 2 - X * 2],
+                                                                                          ![-b + e * 2 + a - f * 2 -
+                                                                                              Y * 2,
+                                                                                            0, ⋯ + f * 2 - X * 2,
+                                                                                            ⋯ - a * 2]]))
+                                                                                    3 *
+                                                                                Matrix.vecHead
+                                                                                  (Matrix.vecTail
+                                                                                    ![-(H * 2) - e * 4 + a * 2,
+                                                                                      b + e * 2 - a - f * 2 + Y * 2,
+                                                                                      0]) *
+                                                                              Matrix.vecHead
+                                                                                (Matrix.vecTail
+                                                                                  ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                                      -(H * 2) - e * 4 + a * 2,
+                                                                                      b + e * 2 - a - f * 2 + Y * 2, 0],
+                                                                                    ![0, b + e * 2 - a - f * 2 + Y * 2,
+                                                                                      H * 2 - b * 2 - e * 4,
+                                                                                      b + e * 2 + a + f * 2 - X * 2],
+                                                                                    ![-b + e * 2 + a - f * 2 - Y * 2, 0,
+                                                                                      b + e * 2 + a + f * 2 - X * 2,
+                                                                                      -(H * 2) - e * 4 - a * 2]])
+                                                                                0 +
+                                                                          z ^ 4 * a *
+                                                                                  Matrix.vecHead
+                                                                                    (Matrix.vecTail
+                                                                                      (Matrix.vecTail
+                                                                                        ![![-b + e * 2 - a + f * 2 +
+                                                                                              X * 2,
+                                                                                            -(H * 2) - e * 4 + a * 2,
+                                                                                            b + e * 2 - a - f * 2 +
+                                                                                              Y * 2,
+                                                                                            0],
+                                                                                          ![0,
+                                                                                            b + e * 2 - a - f * 2 +
+                                                                                              Y * 2,
+                                                                                            H * 2 - b * 2 - e * 4,
+                                                                                            ⋯ + f * 2 - X * 2],
+                                                                                          ![-b + e * 2 + a - f * 2 -
+                                                                                              Y * 2,
+                                                                                            0, ⋯ + f * 2 - X * 2,
+                                                                                            ⋯ - a * 2]]))
+                                                                                    3 *
+                                                                                Matrix.vecHead
+                                                                                  (Matrix.vecTail
+                                                                                    ![-b + e * 2 - a + f * 2 + X * 2, 0,
+                                                                                      -b + e * 2 + a - f * 2 - Y * 2]) *
+                                                                              Matrix.vecHead
+                                                                                (Matrix.vecTail
+                                                                                  ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                                      -(H * 2) - e * 4 + a * 2,
+                                                                                      b + e * 2 - a - f * 2 + Y * 2, 0],
+                                                                                    ![0, b + e * 2 - a - f * 2 + Y * 2,
+                                                                                      H * 2 - b * 2 - e * 4,
+                                                                                      b + e * 2 + a + f * 2 - X * 2],
+                                                                                    ![-b + e * 2 + a - f * 2 - Y * 2, 0,
+                                                                                      b + e * 2 + a + f * 2 - X * 2,
+                                                                                      -(H * 2) - e * 4 - a * 2]])
+                                                                                0 *
+                                                                            2 -
+                                                                        z ^ 4 * a *
+                                                                              Matrix.vecHead
+                                                                                (Matrix.vecTail
+                                                                                  (Matrix.vecTail
+                                                                                    ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                                        -(H * 2) - e * 4 + a * 2,
+                                                                                        b + e * 2 - a - f * 2 + Y * 2,
+                                                                                        0],
+                                                                                      ![0,
+                                                                                        b + e * 2 - a - f * 2 + Y * 2,
+                                                                                        H * 2 - b * 2 - e * 4,
+                                                                                        b + e * 2 + a + f * 2 - X * 2],
+                                                                                      ![-b + e * 2 + a - f * 2 - Y * 2,
+                                                                                        0,
+                                                                                        b + e * 2 + a + f * 2 - X * 2,
+                                                                                        -(H * 2) - e * 4 - a * 2]]))
+                                                                                2 *
+                                                                            Matrix.vecHead
+                                                                              (Matrix.vecTail
+                                                                                ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                                    -(H * 2) - e * 4 + a * 2,
+                                                                                    b + e * 2 - a - f * 2 + Y * 2, 0],
+                                                                                  ![0, b + e * 2 - a - f * 2 + Y * 2,
+                                                                                    H * 2 - b * 2 - e * 4,
+                                                                                    b + e * 2 + a + f * 2 - X * 2],
+                                                                                  ![-b + e * 2 + a - f * 2 - Y * 2, 0,
+                                                                                    b + e * 2 + a + f * 2 - X * 2,
+                                                                                    -(H * 2) - e * 4 - a * 2]])
+                                                                              1 *
+                                                                          Matrix.vecHead
+                                                                            (Matrix.vecTail
+                                                                              (Matrix.vecTail
+                                                                                ![-b + e * 2 - a + f * 2 + X * 2, 0,
+                                                                                  -b + e * 2 + a - f * 2 - Y * 2])) -
+                                                                      z ^ 4 * a *
+                                                                            Matrix.vecHead
+                                                                              (Matrix.vecTail
+                                                                                (Matrix.vecTail
+                                                                                  ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                                      -(H * 2) - e * 4 + a * 2,
+                                                                                      b + e * 2 - a - f * 2 + Y * 2, 0],
+                                                                                    ![0, b + e * 2 - a - f * 2 + Y * 2,
+                                                                                      H * 2 - b * 2 - e * 4,
+                                                                                      b + e * 2 + a + f * 2 - X * 2],
+                                                                                    ![-b + e * 2 + a - f * 2 - Y * 2, 0,
+                                                                                      b + e * 2 + a + f * 2 - X * 2,
+                                                                                      -(H * 2) - e * 4 - a * 2]]))
+                                                                              2 *
+                                                                          Matrix.vecHead
+                                                                            (Matrix.vecTail
+                                                                              (Matrix.vecTail
+                                                                                ![-(H * 2) - e * 4 + a * 2,
+                                                                                  b + e * 2 - a - f * 2 + Y * 2, 0])) *
+                                                                        Matrix.vecHead
+                                                                          (Matrix.vecTail
+                                                                            ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                                -(H * 2) - e * 4 + a * 2,
+                                                                                b + e * 2 - a - f * 2 + Y * 2, 0],
+                                                                              ![0, b + e * 2 - a - f * 2 + Y * 2,
+                                                                                H * 2 - b * 2 - e * 4,
+                                                                                b + e * 2 + a + f * 2 - X * 2],
+                                                                              ![-b + e * 2 + a - f * 2 - Y * 2, 0,
+                                                                                b + e * 2 + a + f * 2 - X * 2,
+                                                                                -(H * 2) - e * 4 - a * 2]])
+                                                                          0 +
+                                                                    z ^ 4 * a *
+                                                                            Matrix.vecHead
+                                                                              (Matrix.vecTail
+                                                                                (Matrix.vecTail
+                                                                                  ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                                      -(H * 2) - e * 4 + a * 2,
+                                                                                      b + e * 2 - a - f * 2 + Y * 2, 0],
+                                                                                    ![0, b + e * 2 - a - f * 2 + Y * 2,
+                                                                                      H * 2 - b * 2 - e * 4,
+                                                                                      b + e * 2 + a + f * 2 - X * 2],
+                                                                                    ![-b + e * 2 + a - f * 2 - Y * 2, 0,
+                                                                                      b + e * 2 + a + f * 2 - X * 2,
+                                                                                      -(H * 2) - e * 4 - a * 2]]))
+                                                                              2 *
+                                                                          Matrix.vecHead
+                                                                            (Matrix.vecTail
+                                                                              (Matrix.vecTail
+                                                                                ![-b + e * 2 - a + f * 2 + X * 2, 0,
+                                                                                  -b + e * 2 + a - f * 2 - Y * 2])) *
+                                                                        Matrix.vecHead
+                                                                          (Matrix.vecTail
+                                                                            ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                                -(H * 2) - e * 4 + a * 2,
+                                                                                b + e * 2 - a - f * 2 + Y * 2, 0],
+                                                                              ![0, b + e * 2 - a - f * 2 + Y * 2,
+                                                                                H * 2 - b * 2 - e * 4,
+                                                                                b + e * 2 + a + f * 2 - X * 2],
+                                                                              ![-b + e * 2 + a - f * 2 - Y * 2, 0,
+                                                                                b + e * 2 + a + f * 2 - X * 2,
+                                                                                -(H * 2) - e * 4 - a * 2]])
+                                                                          0 *
+                                                                      2 -
+                                                                  z ^ 4 * a *
+                                                                        Matrix.vecHead
+                                                                          (Matrix.vecTail
+                                                                            ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                                -(H * 2) - e * 4 + a * 2,
+                                                                                b + e * 2 - a - f * 2 + Y * 2, 0],
+                                                                              ![0, b + e * 2 - a - f * 2 + Y * 2,
+                                                                                H * 2 - b * 2 - e * 4,
+                                                                                b + e * 2 + a + f * 2 - X * 2],
+                                                                              ![-b + e * 2 + a - f * 2 - Y * 2, 0,
+                                                                                b + e * 2 + a + f * 2 - X * 2,
+                                                                                -(H * 2) - e * 4 - a * 2]])
+                                                                          3 *
+                                                                      Matrix.vecHead
+                                                                        (Matrix.vecTail
+                                                                          ![-(H * 2) - e * 4 + a * 2,
+                                                                            b + e * 2 - a - f * 2 + Y * 2, 0]) *
+                                                                    Matrix.vecHead
+                                                                      (Matrix.vecTail
+                                                                        (Matrix.vecTail
+                                                                          ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                              -(H * 2) - e * 4 + a * 2,
+                                                                              b + e * 2 - a - f * 2 + Y * 2, 0],
+                                                                            ![0, b + e * 2 - a - f * 2 + Y * 2,
+                                                                              H * 2 - b * 2 - e * 4,
+                                                                              b + e * 2 + a + f * 2 - X * 2],
+                                                                            ![-b + e * 2 + a - f * 2 - Y * 2, 0,
+                                                                              b + e * 2 + a + f * 2 - X * 2,
+                                                                              -(H * 2) - e * 4 - a * 2]]))
+                                                                      0 -
+                                                                z ^ 4 * a *
+                                                                      Matrix.vecHead
+                                                                        (Matrix.vecTail
+                                                                          ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                              -(H * 2) - e * 4 + a * 2,
+                                                                              b + e * 2 - a - f * 2 + Y * 2, 0],
+                                                                            ![0, b + e * 2 - a - f * 2 + Y * 2,
+                                                                              H * 2 - b * 2 - e * 4,
+                                                                              b + e * 2 + a + f * 2 - X * 2],
+                                                                            ![-b + e * 2 + a - f * 2 - Y * 2, 0,
+                                                                              b + e * 2 + a + f * 2 - X * 2,
+                                                                              -(H * 2) - e * 4 - a * 2]])
+                                                                        3 *
+                                                                    Matrix.vecHead
+                                                                      (Matrix.vecTail
+                                                                        (Matrix.vecTail
+                                                                          ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                              -(H * 2) - e * 4 + a * 2,
+                                                                              b + e * 2 - a - f * 2 + Y * 2, 0],
+                                                                            ![0, b + e * 2 - a - f * 2 + Y * 2,
+                                                                              H * 2 - b * 2 - e * 4,
+                                                                              b + e * 2 + a + f * 2 - X * 2],
+                                                                            ![-b + e * 2 + a - f * 2 - Y * 2, 0,
+                                                                              b + e * 2 + a + f * 2 - X * 2,
+                                                                              -(H * 2) - e * 4 - a * 2]]))
+                                                                      1 *
+                                                                  Matrix.vecHead
+                                                                    (Matrix.vecTail
+                                                                      ![-b + e * 2 - a + f * 2 + X * 2, 0,
+                                                                        -b + e * 2 + a - f * 2 - Y * 2]) +
+                                                              z ^ 4 * a *
+                                                                      Matrix.vecHead
+                                                                        (Matrix.vecTail
+                                                                          ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                              -(H * 2) - e * 4 + a * 2,
+                                                                              b + e * 2 - a - f * 2 + Y * 2, 0],
+                                                                            ![0, b + e * 2 - a - f * 2 + Y * 2,
+                                                                              H * 2 - b * 2 - e * 4,
+                                                                              b + e * 2 + a + f * 2 - X * 2],
+                                                                            ![-b + e * 2 + a - f * 2 - Y * 2, 0,
+                                                                              b + e * 2 + a + f * 2 - X * 2,
+                                                                              -(H * 2) - e * 4 - a * 2]])
+                                                                        3 *
+                                                                    Matrix.vecHead
+                                                                      (Matrix.vecTail
+                                                                        ![-b + e * 2 - a + f * 2 + X * 2, 0,
+                                                                          -b + e * 2 + a - f * 2 - Y * 2]) *
+                                                                  Matrix.vecHead
+                                                                    (Matrix.vecTail
+                                                                      (Matrix.vecTail
+                                                                        ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                            -(H * 2) - e * 4 + a * 2,
+                                                                            b + e * 2 - a - f * 2 + Y * 2, 0],
+                                                                          ![0, b + e * 2 - a - f * 2 + Y * 2,
+                                                                            H * 2 - b * 2 - e * 4,
+                                                                            b + e * 2 + a + f * 2 - X * 2],
+                                                                          ![-b + e * 2 + a - f * 2 - Y * 2, 0,
+                                                                            b + e * 2 + a + f * 2 - X * 2,
+                                                                            -(H * 2) - e * 4 - a * 2]]))
+                                                                    0 *
+                                                                2 +
+                                                            z ^ 4 * a ^ 2 *
+                                                                Matrix.vecHead
+                                                                  (Matrix.vecTail
+                                                                    ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                        -(H * 2) - e * 4 + a * 2,
+                                                                        b + e * 2 - a - f * 2 + Y * 2, 0],
+                                                                      ![0, b + e * 2 - a - f * 2 + Y * 2,
+                                                                        H * 2 - b * 2 - e * 4,
+                                                                        b + e * 2 + a + f * 2 - X * 2],
+                                                                      ![-b + e * 2 + a - f * 2 - Y * 2, 0,
+                                                                        b + e * 2 + a + f * 2 - X * 2,
+                                                                        -(H * 2) - e * 4 - a * 2]])
+                                                                  2 *
+                                                              Matrix.vecHead
+                                                                (Matrix.vecTail
+                                                                  (Matrix.vecTail
+                                                                    ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                        -(H * 2) - e * 4 + a * 2,
+                                                                        b + e * 2 - a - f * 2 + Y * 2, 0],
+                                                                      ![0, b + e * 2 - a - f * 2 + Y * 2,
+                                                                        H * 2 - b * 2 - e * 4,
+                                                                        b + e * 2 + a + f * 2 - X * 2],
+                                                                      ![-b + e * 2 + a - f * 2 - Y * 2, 0,
+                                                                        b + e * 2 + a + f * 2 - X * 2,
+                                                                        -(H * 2) - e * 4 - a * 2]]))
+                                                                3 +
+                                                          z ^ 4 * a ^ 2 *
+                                                              Matrix.vecHead
+                                                                (Matrix.vecTail
+                                                                  (Matrix.vecTail
+                                                                    ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                        -(H * 2) - e * 4 + a * 2,
+                                                                        b + e * 2 - a - f * 2 + Y * 2, 0],
+                                                                      ![0, b + e * 2 - a - f * 2 + Y * 2,
+                                                                        H * 2 - b * 2 - e * 4,
+                                                                        b + e * 2 + a + f * 2 - X * 2],
+                                                                      ![-b + e * 2 + a - f * 2 - Y * 2, 0,
+                                                                        b + e * 2 + a + f * 2 - X * 2,
+                                                                        -(H * 2) - e * 4 - a * 2]]))
+                                                                2 *
+                                                            Matrix.vecHead
+                                                              (Matrix.vecTail
+                                                                ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                    -(H * 2) - e * 4 + a * 2,
+                                                                    b + e * 2 - a - f * 2 + Y * 2, 0],
+                                                                  ![0, b + e * 2 - a - f * 2 + Y * 2,
+                                                                    H * 2 - b * 2 - e * 4,
+                                                                    b + e * 2 + a + f * 2 - X * 2],
+                                                                  ![-b + e * 2 + a - f * 2 - Y * 2, 0,
+                                                                    b + e * 2 + a + f * 2 - X * 2,
+                                                                    -(H * 2) - e * 4 - a * 2]])
+                                                              3 +
+                                                        z ^ 4 * f * X *
+                                                              Matrix.vecHead
+                                                                (Matrix.vecTail
+                                                                  ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                      -(H * 2) - e * 4 + a * 2,
+                                                                      b + e * 2 - a - f * 2 + Y * 2, 0],
+                                                                    ![0, b + e * 2 - a - f * 2 + Y * 2,
+                                                                      H * 2 - b * 2 - e * 4,
+                                                                      b + e * 2 + a + f * 2 - X * 2],
+                                                                    ![-b + e * 2 + a - f * 2 - Y * 2, 0,
+                                                                      b + e * 2 + a + f * 2 - X * 2,
+                                                                      -(H * 2) - e * 4 - a * 2]])
+                                                                2 *
+                                                            Matrix.vecHead
+                                                              (Matrix.vecTail
+                                                                (Matrix.vecTail
+                                                                  ![![-b + e * 2 - a + f * 2 + X * 2,
+                                                                      -(H * 2) - e * 4 + a * 2,
+                                                                      b + e * 2 - a - f * 2 + Y * 2, 0],
+                                                                    ![0, b + e * 2 - a - f * 2 + Y * 2,
+                                                                      H * 2 - b * 2 - e * 4,
+                                                                      b + e * 2 + a + f * 2 - X * 2],
+                                                                    ![-b + e * 2 + a - f * 2 - Y * 2, 0,
+                                                                      b + e * 2 + a + f * 2 - X * 2,
+                                                                      -(H * 2) - e * 4 - a * 2]]))
+                                                              3 *
+                                                          8 +
+                                                      z ^ 4 * f * X *
+                                                            Matrix.vecHead
+                                                              (Matrix.vecTail
+                                                                (Matrix.vecTail
+                                                                  (Matrix.vecCons
+                                                                    (Matrix.vecCons (-b + e * 2 - a + f * 2 + ⋯ * ⋯) ⋯)
+                                                                    ⋯)))
+                                                              ⋯ *
+                                                          ⋯ *
+                                                        ⋯ +
+                                                    ⋯ +
+                                                  ⋯ +
+                                                ⋯ +
+                                              ⋯ +
+                                            ⋯ +
+                                          ⋯ +
+                                        ⋯ +
+                                      ⋯ +
+                                    ⋯ +
+                                  ⋯ +
+                                ⋯ +
+                              ⋯ +
+                            ⋯ +
+                          ⋯ +
+                        ⋯ +
+                      ⋯ +
+                    ⋯ +
+                  ⋯ +
+                ⋯ +
+              ⋯ +
+            ⋯ +
+          ⋯ +
+        ⋯ +
+      ⋯ =
+    ⋯

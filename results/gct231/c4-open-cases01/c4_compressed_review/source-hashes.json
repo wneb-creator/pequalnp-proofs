@@ -1,0 +1,13 @@
+{
+  "emit_c4_consequences_lean.py": "65ecae747d359e75996903c2fd3e9ec28a03b0beded93df948eaca77cb9f178a",
+  "c4_case_symmetry.py": "1bd84b6d034e3ce9633534d11595baa2ac46f241563c94fca0284f4d513d84b4",
+  "c4_case_symmetry.json": "496c8a5fdf86a9c4d9d2feb316eb26c2863ab3eb04a77e2bced6c25a2d6d2aac",
+  "c4_case_symmetry.log": "d14d2bfe17a68d36d7204f21f433a9b1cc6079ba0aa2b7023775c9d1466174f6",
+  "c4-small-certificates/C4Case0Nonzero.lean": "99a2284e7cb3e67f20d24bf7617d51416f37de56442edcfbd25e14ce770fbf46",
+  "c4-small-certificates/C4Case0NonzeroAudit.lean": "62f17798c97b820b889c935d8f40f56ab566e10a0e71e9055febae6d87fc2564",
+  "c4-small-certificates/C4OpenCases01.lean": "98ffc97fdfa13644182260bef945c6f7cd43c7e58a58954d45fc4c96d14d32b8",
+  "c4-small-certificates/C4Case1Wrappers.txt": "c7eb0345bf517064d4097851315c28461883ffe0e65e0f15c1fe31b8a460caf6",
+  "c4-small-certificates/case0-v_nonzero-nosat.certificate.json": "7cc2dd4d9493450433c53bdd94ffcd36fb9b589661f36668cef913e3a3a2d32c",
+  "c4-small-certificates/case0-nonzero-build01.run.json": "e049e47f98eeb80d6883d559f1f2ad4a201db6db22979a30123ac3c5671f116e",
+  "c4-small-certificates/case0-nonzero-build01.log": "f531bf1290c7f7b0364cbc6dbe95974ed1fefd1e510b2fdcd86d6ce676a60e69"
+}

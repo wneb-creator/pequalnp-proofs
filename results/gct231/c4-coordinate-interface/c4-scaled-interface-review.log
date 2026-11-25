@@ -1,0 +1,10 @@
+Start UTC 2026-11-25T11:36:20.637189+00:00
+Source SHA256 6a377895f62788e7126b35e93505ebe0a7586358bf83fecfa6a1374428ae99dc
+All 16 Lean matrix entries equal 8 times reviewed coordinates; symmetry, tangent and support: PASS
+Lean q/c definitions exactly match corrected Q4/C16: PASS
+Independent Ryser expansion: 24 + 16*q*z^2 + 32*c*z^3 + per(M)*z^4: PASS
+Actual matrix M/8 has coefficients q/4, c/16; e=0 gives c=2*(f*a*b-H*X*Y): PASS
+Displayed Lean perm4 right side contains each permutation exactly once: PASS
+No Lean compile or source mutation performed
+Finish UTC 2026-11-25T11:36:21.091378+00:00
+PASS

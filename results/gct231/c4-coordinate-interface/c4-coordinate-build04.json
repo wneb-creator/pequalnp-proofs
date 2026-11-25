@@ -1,0 +1,7 @@
+{
+  "exit_code": -9,
+  "seconds": 3.680361640999763,
+  "peak_rss_kib": 4275416,
+  "resource_rss_kib": 847648,
+  "reason": "RSS_LIMIT"
+}

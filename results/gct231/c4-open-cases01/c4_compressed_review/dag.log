@@ -1,0 +1,1 @@
+{"file": "c4-small-certificates/case0-v_nonzero-nosat.certificate.json", "sha256": "7cc2dd4d9493450433c53bdd94ffcd36fb9b589661f36668cef913e3a3a2d32c", "input_sha256": "6608d5e93334a6b74bd5262e725b2e4b0506b167eed77acf3747a5eb60bb2fd9", "generators": 4, "identities": 22, "product_terms": 3954, "constant": null, "wall_seconds": 0.03753775600125664, "verdict": "PASS"}

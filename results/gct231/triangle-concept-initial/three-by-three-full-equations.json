@@ -1,0 +1,79 @@
+{
+  "unknowns": [
+    "p",
+    "q",
+    "r",
+    "s",
+    "a",
+    "b"
+  ],
+  "matrix": [
+    [
+      "p*x + q*y",
+      "x",
+      "y"
+    ],
+    [
+      "x",
+      "r*x + s*y",
+      "a*x + b*y"
+    ],
+    [
+      "y",
+      "a*x + b*y",
+      "x*(-2*a - p - r - 2) - y*(2*b + q + s + 2)"
+    ]
+  ],
+  "equations": [
+    {
+      "monomial": [
+        3,
+        0
+      ],
+      "coefficient": "a**2*p - 2*a*p*r - 2*a - p**2*r - p*r**2 - 2*p*r - p - r - 2"
+    },
+    {
+      "monomial": [
+        2,
+        1
+      ],
+      "coefficient": "a**2*q + 2*a*b*p - 2*a*p*s - 2*a*q*r + 2*a - 2*b*p*r - 2*b - p**2*s - 2*p*q*r - 2*p*r*s - 2*p*r - 2*p*s - q*r**2 - 2*q*r - q - s - 2"
+    },
+    {
+      "monomial": [
+        2,
+        0
+      ],
+      "coefficient": "a**2 - 2*a*r - 2*a - p**2 - p*r - 4*p - r**2 - 4*r - 3"
+    },
+    {
+      "monomial": [
+        1,
+        2
+      ],
+      "coefficient": "2*a*b*q - 2*a*q*s + b**2*p - 2*b*p*s - 2*b*q*r + 2*b - 2*p*q*s - p*s**2 - 2*p*s - q**2*r - 2*q*r*s - 2*q*r - 2*q*s + r"
+    },
+    {
+      "monomial": [
+        1,
+        1
+      ],
+      "coefficient": "2*a*b - 2*a*s + 2*a - 2*b*r - 2*b - 2*p*q - p*s - 2*p - q*r - 4*q - 2*r*s - 4*s - 2"
+    },
+    {
+      "monomial": [
+        0,
+        3
+      ],
+      "coefficient": "b**2*q - 2*b*q*s - q**2*s - q*s**2 - 2*q*s + s"
+    },
+    {
+      "monomial": [
+        0,
+        2
+      ],
+      "coefficient": "b**2 - 2*b*s + 2*b - q**2 - q*s - 2*q - s**2 + 1"
+    }
+  ],
+  "scope": "ExactQQ diagnostic for3x3 symmetric pencils with independent entries01,02. Every off-diagonal-injective two-plane has such a chart up to vertex permutation. No solver result is a Lean theorem."
+}

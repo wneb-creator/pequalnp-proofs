@@ -1,0 +1,129 @@
+{
+  "source": "gct231/triangle_concept/triangle-twelve-equations.json",
+  "source_sha256": "03a8aa61b2a83e2918457d922059fb481128cc02b3d1532c2cfcc11677ed0ce7",
+  "characteristic": 1009,
+  "variables": [
+    "d0",
+    "d1",
+    "d3",
+    "d5",
+    "d7",
+    "d8",
+    "o0",
+    "o1",
+    "o3",
+    "o5",
+    "o7",
+    "o8"
+  ],
+  "generator_count": 26,
+  "term_count": 686,
+  "dropped_modular_zero_terms": 0,
+  "equation_scalings": [
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "2"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "2"
+    },
+    {
+      "denominator": "1",
+      "content": "2"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "2"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "2"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "2"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "2"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    },
+    {
+      "denominator": "1",
+      "content": "1"
+    }
+  ],
+  "input_sha256": "39b6adda8c99cc7cd7087165de43cb774000e3e16bd1e0aed577e05f83b85c74"
+}

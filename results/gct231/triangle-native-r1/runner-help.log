@@ -1,0 +1,26 @@
+usage: run_neogb_checkpoint_subset.py [-h] [--base-input BASE_INPUT]
+                                      [--seconds SECONDS]
+                                      [--memory-mib MEMORY_MIB]
+                                      [--output-mib OUTPUT_MIB]
+                                      [--pairs PAIRS] [--threads THREADS]
+                                      [--checkpoint-seconds CHECKPOINT_SECONDS]
+                                      [--stop-after-round STOP_AFTER_ROUND]
+                                      input output prefix
+
+Bounded finite-field run with restartable, explicitly partial checkpoints.
+
+positional arguments:
+  input
+  output
+  prefix
+
+options:
+  -h, --help            show this help message and exit
+  --base-input BASE_INPUT
+  --seconds SECONDS
+  --memory-mib MEMORY_MIB
+  --output-mib OUTPUT_MIB
+  --pairs PAIRS
+  --threads THREADS
+  --checkpoint-seconds CHECKPOINT_SECONDS
+  --stop-after-round STOP_AFTER_ROUND

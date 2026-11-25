@@ -1,0 +1,16 @@
+PASS isolated-diagonal certificate d6 [(2, 0, 0), (3, 0, 0), (4, 0, 0)]
+PASS isolated-diagonal certificate d4 [(0, 2, 0), (0, 3, 0), (0, 4, 0)]
+PASS isolated-diagonal certificate d2 [(0, 0, 2), (0, 0, 3), (0, 0, 4)]
+PASS redundant quartic (3, 1, 0) d7 (3, 0, 0)
+PASS redundant quartic (3, 0, 1) d8 (3, 0, 0)
+PASS redundant quartic (1, 3, 0) d3 (0, 3, 0)
+PASS redundant quartic (0, 3, 1) d5 (0, 3, 0)
+PASS redundant quartic (1, 0, 3) d0 (0, 0, 3)
+PASS redundant quartic (0, 1, 3) d1 (0, 0, 3)
+CENTER_RELATION 0 1 d0*o1*o5 - d1*o0*o5 + d3*o1*o5 - d5*o1*o3 - d7*o0*o5 - d8*o1*o3 - 2*o0*o5 - 2*o1*o3 + 2*o1*o5
+CENTER_RELATION 0 2 d0*o1*o8 - d1*o0*o8 + d3*o1*o8 + d5*o0*o7 - d7*o0*o8 + d8*o0*o7 + 2*o0*o7 - 2*o0*o8 + 2*o1*o8
+CENTER_RELATION 1 2 -d0*o5*o7 - d1*o3*o8 - d3*o5*o7 + d5*o3*o7 - d7*o3*o8 + d8*o3*o7 + 2*o3*o7 - 2*o3*o8 - 2*o5*o7
+EXPORT 12 26 terms 686
+PASS fourth double-point quartic normal form; mixed coefficient matrix determinant4
+EXACT_WEAK_PREMISE_COUNTEREXAMPLE {'parameters': {'o0': '2', 'o1': '3', 'o3': '-3', 'o5': '-9', 'o7': '-4', 'o8': '8', 'd0': '0', 'd1': '0', 'd3': '0', 'd5': '0', 'd7': '0', 'd8': '0'}, 'det_at_111': '361', 'quadratic_coefficient': '-4*(7*x*y - 10*x*z + 6*y*z)', 'permutation_stabilizer': [(0, 1, 2, 3)]}
+SCOPE sample violates quadratic condition; it only blocks deductions from tangent/row-rank conditions alone.

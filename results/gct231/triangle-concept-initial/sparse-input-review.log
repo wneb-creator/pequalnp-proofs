@@ -1,0 +1,6 @@
+Start UTC 2026-11-25T11:49:30.200314+00:00
+All 26 actual sparse F1009 rows, 12-variable order, primitive scaling, 686 terms and source/input provenance: PASS
+Input SHA256 39b6adda8c99cc7cd7087165de43cb774000e3e16bd1e0aed577e05f83b85c74 provenance SHA256 45feb1f989b6f58caf2f92f82427f18a2c00c5f8765a926c977e97ca38d77319
+No solver rerun; finite-field input validity only, no characteristic-zero verdict.
+Finish UTC 2026-11-25T11:49:30.455998+00:00
+PASS

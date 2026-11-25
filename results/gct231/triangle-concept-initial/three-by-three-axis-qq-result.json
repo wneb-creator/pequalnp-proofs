@@ -1,0 +1,11 @@
+{
+  "status": "COMPLETED",
+  "basis": [
+    "1"
+  ],
+  "unit": true,
+  "seconds": 0.017828257001383463,
+  "equation_count": 4,
+  "term_count": 34,
+  "scope": "Necessary exactQQ system for3x3 symmetric coordinate-edge pencils. Requires the separately proved3x3 isolated diagonal zero and chart normalization; no whole-gap or Lean claim."
+}

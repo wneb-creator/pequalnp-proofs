@@ -1,0 +1,28 @@
+import took 970ms
+'PEqualNP.Outside.L_gct_231_aux.quartic_square_coefficient_identities' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+cumulative profiling times:
+	attribute application 0.0139ms
+	blocked (unaccounted) 495ms
+	congr simp thm 7.75ms
+	declTypeLinter 2.63ms
+	elaboration 19.1ms
+	fix level params 1.57ms
+	import 970ms
+	initialization 39.5ms
+	instantiate metavars 1.74ms
+	interpretation 142ms
+	let-to-have transformation 0.0499ms
+	linting 11.7ms
+	module linting 0.0263ms
+	norm_num 1.29ms
+	parsing 1.24ms
+	process pre-definitions 4.25ms
+	ring 18.4ms
+	share common exprs 6.87ms
+	simp 259ms
+	tactic execution 38.8ms
+	tacticAnalysis 0.869ms
+	type checking 32.1ms
+	typeclass inference 140ms

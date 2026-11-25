@@ -1,0 +1,55 @@
+{
+  "unknowns": [
+    "p",
+    "k",
+    "s"
+  ],
+  "equations": [
+    {
+      "monomial": null,
+      "coefficient": "s**2 + 2*s - 1",
+      "kind": "single_edge_quadratic"
+    },
+    {
+      "monomial": [
+        3,
+        0
+      ],
+      "coefficient": "4*k**3*s + 4*k**3 - 6*k**2*p*s - 14*k**2*p + 4*k**2*s - 12*k**2 - 4*k*p**2*s + 24*k*p - 4*k*s - 20*k + p**3 + 4*p**2*s + 8*p**2 + 6*p*s - 2*p - 4*s - 4",
+      "kind": "necessary_remainder_mod_single_edge_quadratic"
+    },
+    {
+      "monomial": [
+        2,
+        1
+      ],
+      "coefficient": "k**2*s - 2*k*p*s - 2*k*p + 2*k + 2*p*s + 2*p - s - 2",
+      "kind": "necessary_remainder_mod_single_edge_quadratic"
+    },
+    {
+      "monomial": [
+        2,
+        0
+      ],
+      "coefficient": "4*k**2 - 20*k*p - 24*k - 7*p**2 - 20*p + 4",
+      "kind": "necessary_remainder_mod_single_edge_quadratic"
+    }
+  ],
+  "r_substitution": "-p/2 + (s + 1)*(2*k + p + 2)/4 - 2",
+  "r_coefficient": "-2*s - 2",
+  "discarded_zero_remainders": [
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      0,
+      2
+    ]
+  ],
+  "scope": "Necessary exactQQ system for3x3 symmetric coordinate-edge pencils. Requires the separately proved3x3 isolated diagonal zero and chart normalization; no whole-gap or Lean claim."
+}

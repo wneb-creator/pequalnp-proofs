@@ -1,0 +1,29 @@
+equation 0 exact scaled coefficient equality PASS 13
+equation 1 exact scaled coefficient equality PASS 27
+equation 2 exact scaled coefficient equality PASS 44
+equation 3 exact scaled coefficient equality PASS 39
+equation 4 exact scaled coefficient equality PASS 27
+equation 5 exact scaled coefficient equality PASS 39
+equation 6 exact scaled coefficient equality PASS 13
+equation 7 exact scaled coefficient equality PASS 44
+equation 8 exact scaled coefficient equality PASS 39
+equation 9 exact scaled coefficient equality PASS 44
+equation 10 exact scaled coefficient equality PASS 81
+equation 11 exact scaled coefficient equality PASS 17
+equation 12 exact scaled coefficient equality PASS 39
+equation 13 exact scaled coefficient equality PASS 17
+equation 14 exact scaled coefficient equality PASS 13
+equation 15 exact scaled coefficient equality PASS 27
+equation 16 exact scaled coefficient equality PASS 39
+equation 17 exact scaled coefficient equality PASS 13
+equation 18 exact scaled coefficient equality PASS 39
+equation 19 exact scaled coefficient equality PASS 17
+equation 20 exact scaled coefficient equality PASS 13
+equation 21 exact scaled coefficient equality PASS 13
+equation 22 exact scaled coefficient equality PASS 2
+equation 23 exact scaled coefficient equality PASS 9
+equation 24 exact scaled coefficient equality PASS 9
+equation 25 exact scaled coefficient equality PASS 9
+reviewed checkpoint-subset provenance: all 21 hashes PASS
+Scope: necessary reduced triangle equations over F1009 only; no complex-field conclusion.
+PREFLIGHT PASS 39b6adda8c99cc7cd7087165de43cb774000e3e16bd1e0aed577e05f83b85c74

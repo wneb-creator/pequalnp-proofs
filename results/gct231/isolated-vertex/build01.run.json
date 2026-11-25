@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "returncode": 0,
+  "wall_seconds": 4.063107812002272,
+  "seconds_limit": 120,
+  "resident_memory_mib_limit": 5120,
+  "peak_group_rss_kib": 3120660,
+  "rss_sample_seconds": 0.5,
+  "input": "/tmp/oec/pequalnp-pilot-75/gct231/isolated-vertex/IsolatedVertex.lean"
+}

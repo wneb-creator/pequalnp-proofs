@@ -1,0 +1,146 @@
+/tmp/oec/pequalnp-pilot-75/gct231/fresh/C4CoordinateInterface.lean:63:13: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  Matrix.permanent ?M
+in the target expression
+  (Matrix.permanent fun i j => 1 + z * scaledMatrix e f a b H X Y i j) =
+    24 + 16 * quadratic e f a b H X Y * z ^ 2 + 32 * cubic e f a b H X Y * z ^ 3 +
+      (scaledMatrix e f a b H X Y 0 0 * scaledMatrix e f a b H X Y 1 1 * scaledMatrix e f a b H X Y 2 2 *
+                                                        scaledMatrix e f a b H X Y 3 3 +
+                                                      scaledMatrix e f a b H X Y 0 0 * scaledMatrix e f a b H X Y 1 1 *
+                                                          scaledMatrix e f a b H X Y 3 2 *
+                                                        scaledMatrix e f a b H X Y 2 3 +
+                                                    scaledMatrix e f a b H X Y 0 0 * scaledMatrix e f a b H X Y 2 1 *
+                                                        scaledMatrix e f a b H X Y 1 2 *
+                                                      scaledMatrix e f a b H X Y 3 3 +
+                                                  scaledMatrix e f a b H X Y 0 0 * scaledMatrix e f a b H X Y 2 1 *
+                                                      scaledMatrix e f a b H X Y 3 2 *
+                                                    scaledMatrix e f a b H X Y 1 3 +
+                                                scaledMatrix e f a b H X Y 0 0 * scaledMatrix e f a b H X Y 3 1 *
+                                                    scaledMatrix e f a b H X Y 1 2 *
+                                                  scaledMatrix e f a b H X Y 2 3 +
+                                              scaledMatrix e f a b H X Y 0 0 * scaledMatrix e f a b H X Y 3 1 *
+                                                  scaledMatrix e f a b H X Y 2 2 *
+                                                scaledMatrix e f a b H X Y 1 3 +
+                                            scaledMatrix e f a b H X Y 1 0 * scaledMatrix e f a b H X Y 0 1 *
+                                                scaledMatrix e f a b H X Y 2 2 *
+                                              scaledMatrix e f a b H X Y 3 3 +
+                                          scaledMatrix e f a b H X Y 1 0 * scaledMatrix e f a b H X Y 0 1 *
+                                              scaledMatrix e f a b H X Y 3 2 *
+                                            scaledMatrix e f a b H X Y 2 3 +
+                                        scaledMatrix e f a b H X Y 1 0 * scaledMatrix e f a b H X Y 2 1 *
+                                            scaledMatrix e f a b H X Y 0 2 *
+                                          scaledMatrix e f a b H X Y 3 3 +
+                                      scaledMatrix e f a b H X Y 1 0 * scaledMatrix e f a b H X Y 2 1 *
+                                          scaledMatrix e f a b H X Y 3 2 *
+                                        scaledMatrix e f a b H X Y 0 3 +
+                                    scaledMatrix e f a b H X Y 1 0 * scaledMatrix e f a b H X Y 3 1 *
+                                        scaledMatrix e f a b H X Y 0 2 *
+                                      scaledMatrix e f a b H X Y 2 3 +
+                                  scaledMatrix e f a b H X Y 1 0 * scaledMatrix e f a b H X Y 3 1 *
+                                      scaledMatrix e f a b H X Y 2 2 *
+                                    scaledMatrix e f a b H X Y 0 3 +
+                                scaledMatrix e f a b H X Y 2 0 * scaledMatrix e f a b H X Y 0 1 *
+                                    scaledMatrix e f a b H X Y 1 2 *
+                                  scaledMatrix e f a b H X Y 3 3 +
+                              scaledMatrix e f a b H X Y 2 0 * scaledMatrix e f a b H X Y 0 1 *
+                                  scaledMatrix e f a b H X Y 3 2 *
+                                scaledMatrix e f a b H X Y 1 3 +
+                            scaledMatrix e f a b H X Y 2 0 * scaledMatrix e f a b H X Y 1 1 *
+                                scaledMatrix e f a b H X Y 0 2 *
+                              scaledMatrix e f a b H X Y 3 3 +
+                          scaledMatrix e f a b H X Y 2 0 * scaledMatrix e f a b H X Y 1 1 *
+                              scaledMatrix e f a b H X Y 3 2 *
+                            scaledMatrix e f a b H X Y 0 3 +
+                        scaledMatrix e f a b H X Y 2 0 * scaledMatrix e f a b H X Y 3 1 *
+                            scaledMatrix e f a b H X Y 0 2 *
+                          scaledMatrix e f a b H X Y 1 3 +
+                      scaledMatrix e f a b H X Y 2 0 * scaledMatrix e f a b H X Y 3 1 * scaledMatrix e f a b H X Y 1 2 *
+                        scaledMatrix e f a b H X Y 0 3 +
+                    scaledMatrix e f a b H X Y 3 0 * scaledMatrix e f a b H X Y 0 1 * scaledMatrix e f a b H X Y 1 2 *
+                      scaledMatrix e f a b H X Y 2 3 +
+                  scaledMatrix e f a b H X Y 3 0 * scaledMatrix e f a b H X Y 0 1 * scaledMatrix e f a b H X Y 2 2 *
+                    scaledMatrix e f a b H X Y 1 3 +
+                scaledMatrix e f a b H X Y 3 0 * scaledMatrix e f a b H X Y 1 1 * scaledMatrix e f a b H X Y 0 2 *
+                  scaledMatrix e f a b H X Y 2 3 +
+              scaledMatrix e f a b H X Y 3 0 * scaledMatrix e f a b H X Y 1 1 * scaledMatrix e f a b H X Y 2 2 *
+                scaledMatrix e f a b H X Y 0 3 +
+            scaledMatrix e f a b H X Y 3 0 * scaledMatrix e f a b H X Y 2 1 * scaledMatrix e f a b H X Y 0 2 *
+              scaledMatrix e f a b H X Y 1 3 +
+          scaledMatrix e f a b H X Y 3 0 * scaledMatrix e f a b H X Y 2 1 * scaledMatrix e f a b H X Y 1 2 *
+            scaledMatrix e f a b H X Y 0 3) *
+        z ^ 4
+
+R : Type u_1
+inst✝ : CommRing R
+e f a b H X Y z : R
+⊢ (Matrix.permanent fun i j => 1 + z * scaledMatrix e f a b H X Y i j) =
+    24 + 16 * quadratic e f a b H X Y * z ^ 2 + 32 * cubic e f a b H X Y * z ^ 3 +
+      (scaledMatrix e f a b H X Y 0 0 * scaledMatrix e f a b H X Y 1 1 * scaledMatrix e f a b H X Y 2 2 *
+                                                        scaledMatrix e f a b H X Y 3 3 +
+                                                      scaledMatrix e f a b H X Y 0 0 * scaledMatrix e f a b H X Y 1 1 *
+                                                          scaledMatrix e f a b H X Y 3 2 *
+                                                        scaledMatrix e f a b H X Y 2 3 +
+                                                    scaledMatrix e f a b H X Y 0 0 * scaledMatrix e f a b H X Y 2 1 *
+                                                        scaledMatrix e f a b H X Y 1 2 *
+                                                      scaledMatrix e f a b H X Y 3 3 +
+                                                  scaledMatrix e f a b H X Y 0 0 * scaledMatrix e f a b H X Y 2 1 *
+                                                      scaledMatrix e f a b H X Y 3 2 *
+                                                    scaledMatrix e f a b H X Y 1 3 +
+                                                scaledMatrix e f a b H X Y 0 0 * scaledMatrix e f a b H X Y 3 1 *
+                                                    scaledMatrix e f a b H X Y 1 2 *
+                                                  scaledMatrix e f a b H X Y 2 3 +
+                                              scaledMatrix e f a b H X Y 0 0 * scaledMatrix e f a b H X Y 3 1 *
+                                                  scaledMatrix e f a b H X Y 2 2 *
+                                                scaledMatrix e f a b H X Y 1 3 +
+                                            scaledMatrix e f a b H X Y 1 0 * scaledMatrix e f a b H X Y 0 1 *
+                                                scaledMatrix e f a b H X Y 2 2 *
+                                              scaledMatrix e f a b H X Y 3 3 +
+                                          scaledMatrix e f a b H X Y 1 0 * scaledMatrix e f a b H X Y 0 1 *
+                                              scaledMatrix e f a b H X Y 3 2 *
+                                            scaledMatrix e f a b H X Y 2 3 +
+                                        scaledMatrix e f a b H X Y 1 0 * scaledMatrix e f a b H X Y 2 1 *
+                                            scaledMatrix e f a b H X Y 0 2 *
+                                          scaledMatrix e f a b H X Y 3 3 +
+                                      scaledMatrix e f a b H X Y 1 0 * scaledMatrix e f a b H X Y 2 1 *
+                                          scaledMatrix e f a b H X Y 3 2 *
+                                        scaledMatrix e f a b H X Y 0 3 +
+                                    scaledMatrix e f a b H X Y 1 0 * scaledMatrix e f a b H X Y 3 1 *
+                                        scaledMatrix e f a b H X Y 0 2 *
+                                      scaledMatrix e f a b H X Y 2 3 +
+                                  scaledMatrix e f a b H X Y 1 0 * scaledMatrix e f a b H X Y 3 1 *
+                                      scaledMatrix e f a b H X Y 2 2 *
+                                    scaledMatrix e f a b H X Y 0 3 +
+                                scaledMatrix e f a b H X Y 2 0 * scaledMatrix e f a b H X Y 0 1 *
+                                    scaledMatrix e f a b H X Y 1 2 *
+                                  scaledMatrix e f a b H X Y 3 3 +
+                              scaledMatrix e f a b H X Y 2 0 * scaledMatrix e f a b H X Y 0 1 *
+                                  scaledMatrix e f a b H X Y 3 2 *
+                                scaledMatrix e f a b H X Y 1 3 +
+                            scaledMatrix e f a b H X Y 2 0 * scaledMatrix e f a b H X Y 1 1 *
+                                scaledMatrix e f a b H X Y 0 2 *
+                              scaledMatrix e f a b H X Y 3 3 +
+                          scaledMatrix e f a b H X Y 2 0 * scaledMatrix e f a b H X Y 1 1 *
+                              scaledMatrix e f a b H X Y 3 2 *
+                            scaledMatrix e f a b H X Y 0 3 +
+                        scaledMatrix e f a b H X Y 2 0 * scaledMatrix e f a b H X Y 3 1 *
+                            scaledMatrix e f a b H X Y 0 2 *
+                          scaledMatrix e f a b H X Y 1 3 +
+                      scaledMatrix e f a b H X Y 2 0 * scaledMatrix e f a b H X Y 3 1 * scaledMatrix e f a b H X Y 1 2 *
+                        scaledMatrix e f a b H X Y 0 3 +
+                    scaledMatrix e f a b H X Y 3 0 * scaledMatrix e f a b H X Y 0 1 * scaledMatrix e f a b H X Y 1 2 *
+                      scaledMatrix e f a b H X Y 2 3 +
+                  scaledMatrix e f a b H X Y 3 0 * scaledMatrix e f a b H X Y 0 1 * scaledMatrix e f a b H X Y 2 2 *
+                    scaledMatrix e f a b H X Y 1 3 +
+                scaledMatrix e f a b H X Y 3 0 * scaledMatrix e f a b H X Y 1 1 * scaledMatrix e f a b H X Y 0 2 *
+                  scaledMatrix e f a b H X Y 2 3 +
+              scaledMatrix e f a b H X Y 3 0 * scaledMatrix e f a b H X Y 1 1 * scaledMatrix e f a b H X Y 2 2 *
+                scaledMatrix e f a b H X Y 0 3 +
+            scaledMatrix e f a b H X Y 3 0 * scaledMatrix e f a b H X Y 2 1 * scaledMatrix e f a b H X Y 0 2 *
+              scaledMatrix e f a b H X Y 1 3 +
+          scaledMatrix e f a b H X Y 3 0 * scaledMatrix e f a b H X Y 2 1 * scaledMatrix e f a b H X Y 1 2 *
+            scaledMatrix e f a b H X Y 0 3) *
+        z ^ 4
+
+Note: The target expression is not type-correct under the `implicit` transparency level, which may have triggered the failure. This is usually caused by unfolding of semireducible definitions in prior tactic steps. Use `set_option linter.tacticCheckInstances true` to investigate the source of the issue.
+Full error:
+  function expected
+    scaledMatrix e f a b H X Y i

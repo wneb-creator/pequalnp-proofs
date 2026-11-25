@@ -1,0 +1,47 @@
+/tmp/oec/pequalnp-pilot-75/gct231/fresh/C4CoordinateInterfaceFull.lean:81:24: warning: This simp argument is unused:
+  coeff_add
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coeff_C_mul_X_pow, coeff_C]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-75/gct231/fresh/C4CoordinateInterfaceFull.lean:81:35: warning: This simp argument is unused:
+  coeff_C_mul_X_pow
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coeff_add, coeff_C]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-75/gct231/fresh/C4CoordinateInterfaceFull.lean:81:54: warning: This simp argument is unused:
+  coeff_C
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [coeff_add, coeff_C_mul_X_pow]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-75/gct231/fresh/C4CoordinateInterfaceFull.lean:89:4: error: failed to synthesize
+  Infinite ℂ
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/tmp/oec/pequalnp-pilot-75/gct231/fresh/C4CoordinateInterfaceFull.lean:95:10: warning: This simp argument is unused:
+  coeff_C
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-75/gct231/fresh/C4CoordinateInterfaceFull.lean:97:10: warning: This simp argument is unused:
+  coeff_C
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-75/gct231/fresh/C4CoordinateInterfaceFull.lean:142:73: error: unsolved goals
+M : Matrix (Fin 4) (Fin 4) ℂ
+z : ℂ
+⊢ eval z (∑ x, ∏ i, (1 + C (M (x i) i) * X)) = ∑ σ, ∏ i, (1 + z * M (σ i) i)
+/tmp/oec/pequalnp-pilot-75/gct231/fresh/C4CoordinateInterfaceFull.lean:150:2: error: failed to synthesize
+  Infinite ℂ
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

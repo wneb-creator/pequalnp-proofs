@@ -1,0 +1,4 @@
+PASS invertible affine substitution, all16 matrix entries and all31 reverse polynomial identities.
+VARIABLES ['d3', 'd6', 'n0', 'o0', 'o3', 'o6', 'd4', 'd7', 'n1', 'o1', 'o4', 'o7', 'd5', 'd8', 'n2', 'o2', 'o5', 'o8'] TOTAL_TERMS 3600
+SOURCE_SHA256 a6a49ab3dab78f0c32da78838e91b0e1d3e722406d0607ee1bcc265d62790722
+OUTPUT_SHA256 845a45f7e3374b691dc8ef76eacf59938118b7961360c99d09505559c2e39f17

@@ -1,0 +1,7 @@
+{
+  "utc": "2026-11-25T11:44:03.001511+00:00",
+  "main_source_sha256": "22de414e9c8b8b992ce11a46d8167da4f09d86ddafc71f29e7bbd84317e317fe",
+  "build_exit": 0,
+  "audit_exit": 0,
+  "review": "c4-coordinate-full-review.md"
+}

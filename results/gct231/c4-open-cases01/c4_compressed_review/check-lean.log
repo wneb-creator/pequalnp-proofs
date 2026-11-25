@@ -1,0 +1,5 @@
+PASS actual Lean arithmetic: [0, 1, 3] generator premises, 18 derived identities, exact squared targets and final contradiction identity
+PASS exact four unsaturated source roots; actual theorem uses only roots0,1,3
+PASS exact gamma-sign symmetry of all eight equations; open beta factor unchanged
+CONFIRMED failed combined wrapper has stale h2 bullet; case0 body byte-preserved
+SCOPE: scratch global options need scoped-in conversion before named-file integration.

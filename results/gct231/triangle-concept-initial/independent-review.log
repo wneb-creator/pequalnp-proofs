@@ -1,0 +1,9 @@
+Start UTC 2026-11-25T11:48:24.723491+00:00
+Source SHA256 1c6914e2effc3220482099801f6cb125b7fdf5ef1bc8f4963a39759aadbf4203 export SHA256 03a8aa61b2a83e2918457d922059fb481128cc02b3d1532c2cfcc11677ed0ce7
+Independent Ryser reconstruction of all 31 raw triangle coefficients: PASS
+Three axis isolated vertices and exact diagonal-power certificates: PASS
+All 26 exported equations, 12 variables, 686 terms, six redundant quartics and three center-diagonal minors: PASS
+Optional quartic double-point normal form at (1,1,1): exact identity PASS
+Mathematical scope: original all-four-stars-dependent stratum only. Isolated-vertex theorem forces the three diagonal zeros. At center3 its diagonal functional annihilates the kernel of the star map, hence belongs to its row span; star rank<=2 then gives all appended minors. No extra rank=2 or nonzero-coordinate hypothesis is needed for those necessary minors. No inconsistency verdict.
+Finish UTC 2026-11-25T11:48:27.167895+00:00
+PASS

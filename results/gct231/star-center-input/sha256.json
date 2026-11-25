@@ -1,0 +1,16 @@
+{
+  "eliminate_star_center_diagonal.py": "542f256d2eb2457cf604597c47bb1fe2248fc38667497ea0cc13963011ba8352",
+  "neogb-star-full-center-p1009-convert.log": "2a2c9059dfd8e8e6d2d2f46e462e3ff9c895b6a30f677b9109f72df7ae7b5d80",
+  "neogb-star-full-center-p1009-preflight.log": "36d28600505a9619aed05e03f3ffd28e10e8ec0d5f9e9eb6b92e467177994519",
+  "neogb-star-full-center-p1009.in": "2fa7c351ed1936e1f692cf06eb791c812748653e5e96ef76f0d0048ef7c864f6",
+  "neogb-star-full-center-p1009.provenance.json": "80366360db9384e5a168876d400bf1d9b95e83f9233b9cc512b0221bab90bcfe",
+  "neogb-star-full-center-qq-convert.log": "b0fab00c94964399c0094f5bc442a15e330053569cd0590e329a74d284e5dc4f",
+  "neogb-star-full-center-qq-preflight.log": "2213e6d0c81f52213a3171785cac4a362eefcefa38e4e7b8e790b5864aaf35b5",
+  "neogb-star-full-center-qq.in": "f962797d0daa4ddc6167aba4625804cd6d9b85323a3fca139d6fe25f744686ff",
+  "neogb-star-full-center-qq.provenance.json": "875d53cc9a8959dff2007ed64d3d4f85ad69d9a35f5f308853e4a782e8be9c47",
+  "star-center-elimination-review.log": "cabb39f5ce81206197fbc00463d6916f4ec43105bcd28b6bf9e3bbb002897a0a",
+  "star-center-elimination.log": "fc5f235e4d6074333eea17c4a56d54738f5de504854a737a176d3d247f36c151",
+  "star-full-center-eliminated-equations.json": "845a45f7e3374b691dc8ef76eacf59938118b7961360c99d09505559c2e39f17",
+  "star-full-grouped-equations.json": "a6a49ab3dab78f0c32da78838e91b0e1d3e722406d0607ee1bcc265d62790722",
+  "star_center_elimination_review.py": "49897f53fcdaf3a5b9658e0fe744037725d423ef9fd6cbea4a1e6e7d8fe7a9c7"
+}

@@ -1,0 +1,14 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-75/gct231/fresh/C4CoordinateInterfaceFull.lean",
+  "sha256": "22de414e9c8b8b992ce11a46d8167da4f09d86ddafc71f29e7bbd84317e317fe",
+  "bytes": 10351,
+  "build_log": "/tmp/oec/pequalnp-pilot-75/gct231/fresh/c4-coordinate-full-build03.log",
+  "build_metadata": {
+    "exit_code": 0,
+    "seconds": 14.734363976000168,
+    "peak_rss_kib": 2675068,
+    "resource_rss_kib": 2674904,
+    "reason": null
+  },
+  "utc": "2026-11-25T11:41:06.392722+00:00"
+}

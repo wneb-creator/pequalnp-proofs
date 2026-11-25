@@ -1,0 +1,16 @@
+{
+  "sign": 1,
+  "s": "-1 + sqrt(2)",
+  "r": "sqrt(2)*k/2 - p/2 + sqrt(2)*p/4 - 2 + sqrt(2)/2",
+  "equations": [
+    "sqrt(2)*k**3/2 - 3*sqrt(2)*k**2*p/4 - k**2*p - 2*k**2 + sqrt(2)*k**2/2 - sqrt(2)*k*p**2/2 + k*p**2/2 + 3*k*p - 2*k - sqrt(2)*k/2 + p**3/8 + p**2/2 + sqrt(2)*p**2/2 - p + 3*sqrt(2)*p/4 - sqrt(2)/2",
+    "-k**2 + sqrt(2)*k**2 - 2*sqrt(2)*k*p + 2*k + 2*sqrt(2)*p - sqrt(2) - 1",
+    "k**2/2 - 5*k*p/2 - 3*k - 7*p**2/8 - 5*p/2 + 1/2"
+  ],
+  "basis": [
+    "1"
+  ],
+  "unit": true,
+  "seconds": 0.07195100600074511,
+  "scope": "ExactCAS on the3x3 coordinate-edge pencil subcase after isolated diagonal zero; not full3x3 chart or Lean theorem."
+}

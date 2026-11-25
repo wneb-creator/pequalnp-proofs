@@ -1,0 +1,15 @@
+{
+  "utc": "2026-11-25T11:45:19.825875+00:00",
+  "source_sha256": "46ca6e535347b18b674028d70744585b63112c7e0c98eb6b6479614c59644470",
+  "source_bytes": 6367,
+  "source_lines": 138,
+  "status": "PASS",
+  "artifacts": {
+    "IsolatedVertex.lean": "46ca6e535347b18b674028d70744585b63112c7e0c98eb6b6479614c59644470",
+    "IsolatedVertexAdditions.txt": "1528a09dae1375675626720952ea9d8a2c7f6b35eeb852830db9e0a07da17344",
+    "algebra_review.py": "8fee45be0a0bfc92c2892ae53eea1fa2f4f080f8fbac8a8fcb86ecc085180652",
+    "algebra-review.log": "b1f152640cf1ccd38e3a004c55b570ce56b346928fd3af7c41fc617fbe4ec1ac",
+    "build01.log": "70ac6088775d6fb341489f564ff80a6a377d3359f9ef0d70bc1192616f2950ac",
+    "build01.run.json": "1f2d5ef6745db506655e9db0f86054fe4888b5b97eb2f27eab24e8329c81da83"
+  }
+}
