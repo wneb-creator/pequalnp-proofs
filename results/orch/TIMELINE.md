@@ -10,3 +10,5 @@
 - 2026-11-25T14:26:39.698337+00:00: LeastBudget helper compiled; general1/2/3NOT bounded searches ended UNKNOWN, no counterexample.
 - 2026-11-25T14:29:31.663596+00:00: named file with integrated BranchCovered built successfully.
 - 2026-11-25T14:32:48.787323+00:00: archived checked BranchLocal and maximal-independent extension helpers; reduced CPU contention.
+- 2026-11-25T14:38:05.991868+00:00: second integrated named file build passed; cofactor identities archived.
+- 2026-11-25T14:38:23.416278+00:00: five-orbit finite certificate compiled and archived.
