@@ -54,7 +54,5 @@ theorem PEqualNP.Outside.R_meta_2625_50
         hit (row z m t dual) = false := by
       decide +kernel
     change circuitFun 26 C (row z m t dual) = false
-    rw [hsem]
-    change (B.eval (inp.map (row z m t dual)) || hit (row z m t dual)) = false
-    rw [neg z hz m hmult t dual, safe z hz m hmult t dual]
-    rfl
+    rw [hsem, neg z hz m hmult t dual]
+    exact safe z hz m hmult t dual
