@@ -164,3 +164,106 @@ lemma graph_eq_of_sparse_tests {p l : ℕ} (E : Finset (Fin p × Fin l))
       exact le_antisymm (by cases f x <;> decide) hfx
 
 end PEqualNP.Outside.L_meta_4970.SparseTests
+
+
+namespace PEqualNP.Outside.L_meta_4970
+
+lemma off_diagonal_factorization {α : Type*} (P Q : α → Prop) :
+    (∃ a b, a ≠ b ∧ P a ∧ Q b) ↔
+      (∃ a, P a) ∧ (∃ b, Q b) ∧
+        ∃ a b, a ≠ b ∧ (P a ∨ Q a) ∧ (P b ∨ Q b) := by
+  classical
+  constructor
+  · rintro ⟨a, b, hab, ha, hb⟩
+    exact ⟨⟨a, ha⟩, ⟨b, hb⟩, a, b, hab, Or.inl ha, Or.inr hb⟩
+  · rintro ⟨⟨p, hp⟩, ⟨q, hq⟩, a, b, hab, ha, hb⟩
+    by_cases hpq : p = q
+    · subst q
+      have hdiff : a ≠ p ∨ b ≠ p := by
+        by_cases hap : a = p
+        · right
+          intro hbp
+          exact hab (hap.trans hbp.symm)
+        · exact Or.inl hap
+      rcases hdiff with hap | hbp
+      · rcases ha with hpa | hqa
+        · exact ⟨a, p, hap, hpa, hq⟩
+        · exact ⟨p, a, Ne.symm hap, hp, hqa⟩
+      · rcases hb with hpb | hqb
+        · exact ⟨b, p, hbp, hpb, hq⟩
+        · exact ⟨p, b, Ne.symm hbp, hp, hqb⟩
+    · exact ⟨p, q, hpq, hp, hq⟩
+
+lemma threshold_two_bit_cuts {α β : Type*} (code : α → β → Bool)
+    (hinj : Function.Injective code) (P : α → Prop) :
+    (∃ a b, a ≠ b ∧ P a ∧ P b) ↔
+      ∃ t, (∃ a, P a ∧ code a t = false) ∧ (∃ b, P b ∧ code b t = true) := by
+  classical
+  constructor
+  · rintro ⟨a, b, hab, ha, hb⟩
+    have hcodes : code a ≠ code b := fun h => hab (hinj h)
+    have ht : ∃ t, code a t ≠ code b t := by
+      by_contra hh
+      push Not at hh
+      exact hcodes (funext hh)
+    obtain ⟨t, ht⟩ := ht
+    cases hat : code a t <;> cases hbt : code b t
+    · exact False.elim (ht (hat.trans hbt.symm))
+    · exact ⟨t, ⟨a, ha, hat⟩, ⟨b, hb, hbt⟩⟩
+    · exact ⟨t, ⟨b, hb, hbt⟩, ⟨a, ha, hat⟩⟩
+    · exact False.elim (ht (hat.trans hbt.symm))
+  · rintro ⟨t, ⟨a, ha, hat⟩, ⟨b, hb, hbt⟩⟩
+    refine ⟨a, b, ?_, ha, hb⟩
+    intro hab
+    subst b
+    simp [hat] at hbt
+
+lemma off_diagonal_rectangle_bound (n k : ℕ)
+    (A B : Fin k → Finset (Fin n))
+    (hdiag : ∀ t, Disjoint (A t) (B t))
+    (hcover : ∀ i j, i ≠ j → ∃ t, i ∈ A t ∧ j ∈ B t) :
+    n ≤ k.choose (k / 2) := by
+  classical
+  let S : Fin n → Finset (Fin k) := fun i => Finset.univ.filter fun t => i ∈ A t
+  have hnon : ∀ i j, i ≠ j → ¬ S i ⊆ S j := by
+    intro i j hij hs
+    obtain ⟨t, hi, hj⟩ := hcover i j hij
+    have hti : t ∈ S i := by simp [S, hi]
+    have htj : j ∈ A t := by simpa [S] using hs hti
+    exact Finset.disjoint_left.mp (hdiag t) htj hj
+  have hinj : Function.Injective S := by
+    intro i j hij
+    by_contra hne
+    exact hnon i j hne (hij ▸ Finset.Subset.refl _)
+  let family : Finset (Finset (Fin k)) := Finset.univ.image S
+  have ha : IsAntichain (· ⊆ ·) (family : Set (Finset (Fin k))) := by
+    intro s hs t ht hst hsub
+    obtain ⟨i, _, rfl⟩ := Finset.mem_image.mp hs
+    obtain ⟨j, _, rfl⟩ := Finset.mem_image.mp ht
+    exact hnon i j (fun hij => hst (congrArg S hij)) hsub
+  have hc : family.card = n := by
+    dsimp [family]
+    rw [Finset.card_image_of_injective _ hinj]
+    simp
+  simpa [hc] using ha.sperner
+
+lemma off_diagonal_seven_cuts (P Q : (Fin 7 → Bool) → Prop) :
+    (∃ a b, a ≠ b ∧ P a ∧ Q b) ↔
+      (∃ a, P a) ∧ (∃ b, Q b) ∧
+        ∃ t : Fin 7,
+          (∃ a, (P a ∨ Q a) ∧ a t = false) ∧
+            (∃ b, (P b ∨ Q b) ∧ b t = true) := by
+  rw [off_diagonal_factorization]
+  rw [threshold_two_bit_cuts (fun a : Fin 7 → Bool => a) Function.injective_id]
+
+lemma seven_bit_card : Fintype.card (Fin 7 → Bool) = 128 := by simp
+
+lemma no_nine_rectangle_cover_128 :
+    ¬ ∃ A B : Fin 9 → Finset (Fin 128),
+      (∀ t, Disjoint (A t) (B t)) ∧
+        ∀ i j, i ≠ j → ∃ t, i ∈ A t ∧ j ∈ B t := by
+  rintro ⟨A, B, hdiag, hcover⟩
+  have h := off_diagonal_rectangle_bound 128 9 A B hdiag hcover
+  exact (by decide : ¬ 128 ≤ Nat.choose 9 (9 / 2)) h
+
+end PEqualNP.Outside.L_meta_4970
