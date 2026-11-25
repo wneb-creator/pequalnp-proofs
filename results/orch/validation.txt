@@ -55,3 +55,5 @@ Strengthened selected-terminal structural bound2B+M+J<=size+1 compiled in527line
 
 Current assigned gap L-meta-1884 after recovery; previous L-meta-4970 no longer held. Named file L_meta_1884.lean contains35lines proving finite pivotal probes only, not the target theorem. lake build PEqualNP.Outside.L_meta_1884 passed(5149jobs), full streams in gap-1884/first-build.*. Independentpartialreview approved by status_review and root. Checkeragainstpostedstatement not run; no PR.
 TIMING total=75.7 subagents=6
+
+L-meta-1884 additional partials compiled and independently reviewed by root: exact input relabeling and four unary cases(117lines), essential-input classification(88lines), pivotal/adjacency/cofactor facts(87lines). Full build streams retained in gap-1884/. No full target theorem.
