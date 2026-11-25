@@ -19,3 +19,5 @@
 
 2026-11-25T14:44:25.289991+00:00 — lower_bound_route pausedforleasefailure; SharedOrThird compileNOTstarted.
 2026-11-25T14:46:02.930588+00:00 — HTTP410 diagnosed; all workpaused; preservecheckedpartials and explicitlyunchecked drafts before reacquisition.
+2026-11-25T14:49:35.195986+00:00 — recovery and safeguard retry both returned same older L-meta-2583 lease; stopped without renewal/release of it. No accepted full proof or PR.
+2026-11-25T14:50:47.442376+00:00 — all owned solver jobs terminated; final diagnostics and source-status record prepared for preservation push.

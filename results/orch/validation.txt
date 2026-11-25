@@ -1,28 +1,33 @@
 Gap: L-meta-2592
-Status: PARTIAL ONLY; no full posted theorem and no PR.
-ReplaceLast.lean: lake env lean exit 0, compiler output empty.
-Independent red-team review: PASS for partial checkpoint, pending full theorem.
-Full checker: not run; main theorem absent, full Mathlib cache absent.
+Status: PARTIAL ONLY. The full posted theorem remains unproved; no PR was opened.
+
+Checked named file: lean/PEqualNP/Outside/L_meta_2592.lean
+It proves binaryFloor17: every FanInTwo circuit computing the Petersen edge function has 17 + notCount C <= C.size. Thus the posted <=19-gate statement is reduced to the remaining 1- and 2-NOT cases, which are not settled here.
+Build: lake build PEqualNP.Outside.L_meta_2592, exit 0.
+Final build output: Build completed successfully (5149 jobs).
+Axiom audit: [propext, Classical.choice, Quot.sound].
+Local checker: exit 3; CHECKER FAULT: the prebuilt Mathlib cache is missing.
+The checker has not accepted this file. Independently of that infrastructure fault, the complete posted main theorem is absent.
+
+Other checked partials: last-NOT replacement; sensitivity masks and extension; effective-read restriction bound; restricted anti-diagonal circuit; first non-OR 18-binary-gate case; second-gate restriction; projected-prefix replay. All received independent reviews. Historical compilation contexts and unchecked drafts are distinguished in CHECKPOINTS.md and SOURCE_STATUS.md.
+No full-gap counterexample was found. Solver UNSAT/timeout results are external computations, not Lean certificates.
+
+Cleanup: skipped because the full prebuilt Mathlib cache is unavailable. No cleanup shortening claimed.
+Line counts before/after skipped cleanup: 4804/4804. Named-file size: 297371 bytes.
+
+Lease interruption: original renewal returned HTTP 410, with exact body:
+{"error":"no such live lease: it expired or was released. Ask /desk/next again."}
+Complete diagnostic headers/body: desk-error-response.txt.
+All results were pushed before recovery, as required by the 410 rule.
+Recovery and the one allowed retry both returned the same older L-meta-2583 lease, issued_at 2026-11-25T13:59:02.364Z, and this exact note:
+you hold 5 gaps, the most one handle may hold at once; release one to get another
+Stopped under the safeguard for other pilots' leases. Did not work on L-meta-2583 or make a beat/release call for its returned lease. No release calls were made. Original invalid lease was not released again.
+Desk null assignment count: 0.
+Special first check: L-meta-1035 was not_open; desk did not distinguish checked from withdrawn.
+
 Sub-agents: protocol_review, proof_route, counterexample_route, lean_environment, lower_bound_route, or_case_route
-SensitivityMask.lean: lake env lean exit 0, compiler output empty; independent semantic and format review PASS for partial checkpoint.
-L_meta_2592.lean partial binaryFloor16: lake build PEqualNP.Outside.L_meta_2592 exit 0; Build completed successfully (5149 jobs).
-This proves 16 + notCount C <= C.size, not the full posted gap. File lines: 4589; no cleanup pass yet.
-Local checker exit 3: FAULT because full prebuilt Mathlib cache is missing; no acceptance claimed.
-BinaryFloor17Extension.lean: lake env lean exit 0; independent finite-witness and mathematical review PASS. Integrated named17 file build pending.
-binaryFloor16 axiom audit: only propext, Classical.choice, Quot.sound.
-Full checker infrastructure: compressed filesystem mount rejected with Operation not permitted; checker unchanged.
-AntiDiagonal.lean: lake env lean exit 0; independent 512-case and format review PASS. This is a restricted-function witness, not a refutation of the main gap.
-Counterexample search archive: 119 files; SHA256 53a900bb64b907a82cfaf368c4ccd592a5e1949fd6a68d0ddba659f1bcd73973. Computational searches only, no full-gap witness found.
-EffectiveReads.lean: lake env lean exit 0; independent review PASS. Parameterized restriction compiler and conditional reads_le_two; its Fin9 lowerbound hypothesis is explicit.
-Integrated L_meta_2592.lean binaryFloor17: lake build exit 0, 5149jobs. Proves17 + notCount C <= C.size. Posted theorem remains unproved; only1 or2NOT cases remain under19gates.
-binaryFloor17 axiom audit: only propext, Classical.choice, Quot.sound. Checker exit3, FAULT missing full prebuiltMathlib cache.
-SensitivityExtension.lean: lake env lean exit0, independent exhaustive review PASS.
-Current namedfile:4804lines,297371bytes. Cleanup not started because full checker cannot run offline.
-BinaryFloor18NonOrExtension.lean: lake env lean exit0; independent implementation/data review PASS. Gives18binarygates only when firstsignedgate is AND orANDNOT; OR excluded.
-Prefix search archive SHA256 df6dc8e27e9ff65685886cd6232b7714840265f80e7d77150fa33eaeabcbe08e. Computed pruning independently reviewed, not a full Lean certificate.
-SecondGate.lean and PrefixReplay.lean: lake env lean exit0; independent final reviews PASS. Their exact scopes are partial circuit restrictions, not the full gap.
-UNCHECKED drafts: SharedOrThird.lean, BinaryFloor18Compact.lean, combined BinaryFloor18NonOr.lean. Other standalone copies are historical sources; seeCHECKPOINTS.md for compilation contexts.
-Desk renewal returnedHTTP410 at14:41:50UTC (background) and14:43:30UTC (manual); required diagnostic confirmed410. All gapwork paused; no release of this invalidlease attempted.
-Counterexample archiveSHA256 07e5303c1cffe9585445180f06ddf5e4742fabb43167835f04ce646ffd31975f. No fullgapcounterexample found; activequeries paused withoutverdict.
-Desk nullassignments:0. Reacquisition notyetrequested; preservationcheckpointfirst.
-TIMING total=48.15 subagents=6
+TIMING total=52.89 subagents=6
+Acknowledged KIT-MESSAGE-ID msg-6dca10b1069b492db9f55a9c
+
+Final solver cleanup: six owned drivers stopped permanently; six solvers terminated and flushed full logs. No active search jobs remain.
+Final external-search archive: counterexample-final.tar.gz; 365 files; SHA256 6a0819d2d7f6604d7d3fbd25fb0a12206500a60acad6ccb017bb8377261c5585.
