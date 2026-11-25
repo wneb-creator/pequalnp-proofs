@@ -1,0 +1,100 @@
+{
+  "all_assignments": 256,
+  "exact_function": true,
+  "tcount_zero": true,
+  "and_count": 6,
+  "dirty_and_indices": [
+    0,
+    1,
+    3
+  ],
+  "first_dirty_readers": [
+    1,
+    3
+  ],
+  "edges_lost_when_first_dirty_forced_false": [
+    [
+      0,
+      2
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      0,
+      3
+    ]
+  ],
+  "lost_edges_nonstar": true,
+  "topform": true,
+  "all_and_live": true,
+  "all_and_positive_on_edge": true,
+  "free_operands": [
+    [
+      [
+        0,
+        2
+      ],
+      [
+        6,
+        7
+      ]
+    ],
+    [
+      [
+        0,
+        3
+      ],
+      [
+        3,
+        8
+      ]
+    ],
+    [
+      [
+        0,
+        1
+      ],
+      [
+        5
+      ]
+    ],
+    [
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        6
+      ]
+    ],
+    [
+      [
+        9
+      ],
+      [
+        7
+      ]
+    ],
+    [
+      [
+        1,
+        2,
+        9
+      ],
+      [
+        11
+      ]
+    ]
+  ],
+  "free_outputs": [
+    10,
+    12,
+    13
+  ],
+  "naive_binary_count": 17,
+  "shared_binary_count": 17,
+  "binary_output": 24
+}

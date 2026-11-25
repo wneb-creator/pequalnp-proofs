@@ -1,0 +1,11 @@
+'PEqualNP.Outside.L_meta_4675.MatchingLoss.legal' depends on axioms: [propext]
+'PEqualNP.Outside.L_meta_4675.MatchingLoss.computes' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4675.MatchingLoss.computes_graph' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4675.MatchingLoss.zero_two_colour' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4675.MatchingLoss.no_four_cycle' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4675.MatchingLoss.top_form' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4675.MatchingLoss.dirty_gates' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4675.MatchingLoss.forcing_first_dirty_loses_all' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_4675.MatchingLoss.no_single_center' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,88 @@
+{
+  "inputs": 4,
+  "gates": 9,
+  "and_gates": 5,
+  "or_gates": 4,
+  "validated_assignments": 16,
+  "exact_function": true,
+  "tcount": 0,
+  "dirty_and_wires": [
+    6,
+    7,
+    8,
+    11
+  ],
+  "and_readers": {
+    "6": [
+      12
+    ],
+    "7": [
+      11
+    ],
+    "8": [
+      11
+    ],
+    "11": [
+      12
+    ],
+    "12": []
+  },
+  "first_dirty_raw_sides": [
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "lost_edges_by_and": {
+    "6": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "7": [
+      [
+        0,
+        0
+      ]
+    ],
+    "8": [
+      [
+        1,
+        1
+      ]
+    ],
+    "11": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "12": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ]
+  },
+  "first_dirty_loss_nonstar": true,
+  "topform": true,
+  "every_and_positive_on_edge": true,
+  "all_gates_live": true
+}

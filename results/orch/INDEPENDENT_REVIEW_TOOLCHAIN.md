@@ -1,0 +1,29 @@
+# Independent review record
+
+Reviewer: `/root/toolchain`. Reviewed on 2026-11-25. Every PASS below concerns the exact intermediate statement and frozen bytes, not the full posted L-meta-4675 theorem. All checked partial assemblies fail the submission guard only because the required final top-level theorem is absent; none is claimed checker-accepted.
+
+## Search archive
+
+PASS: `results/orch/search/archive-manifest.json`, SHA256 `ab95fe3000d4da72bcccd82e0bb24b157e90801cde547b59bb753b2ff05b3631`, is the exact 447-entry original manifest after replacing absolute scratch paths with portable relative paths. Verified all 8,726,436 source/query/output bytes against both manifests and originals: zero mismatches, duplicate paths, or symlinks. The only additional archive files are README.md and the portable manifest. README and final SEARCH_REPORT clearly distinguish finite experimental UNSAT checks from UNKNOWN timeouts and heuristic failures. All four final theta/Fano CaDiCaL logs contain `c UNKNOWN`. No network calls were made for this audit.
+
+The separate `SAT_PIPELINE_REVIEW.md` records the earlier independent augmentation, symmetry-composition, CNF conversion, and clause-level positive-control review.
+
+## Frozen Lean assemblies
+
+- PASS: `ConsolidatedPartial011.lean`, 4107 lines, SHA256 `2e554326a080c14c965f1c2316b3edda73dbcf14de76d978d065af946c32d72d`. Exact reconstruction from reviewed sources, namespace rename and identical-body deduplication; parent confirmed successful named-module build.
+- PASS: `NonstarPathsAssembly.lean`, 2965 lines, SHA256 `81913d444f2ab7168d982474c1373e7a052c90391f82aaffc21647ef2a27eb7a`. Explicit restore term and full-column conclusion; actual raw paths discharge base-pair preservation. Author build succeeded.
+- PASS: `NonstarDecreaseAssembly.lean`, 3833 lines, SHA256 `7be4a83e05e1aeed38b750e215f70653d77987ae4f3d8ea4c8ec1f9c90d6ac8f`. Missing rectangle edge supplies a dirty-gate witness; explicit repair strictly decreases junk count. Author build succeeded.
+- PASS: `NonstarReachAssembly.lean`, 3934 lines, SHA256 `8b7f03c33d6fcd2c4ec4613d0213027a0c67b72640d3e3c8acbf05494f894467`. Exactly the preceding reviewed assembly plus `NonstarReach`. Actual OR paths yield a sufficient reader lower bound without exact reader semantics or global junk uniqueness. Rectangle/factor semantics and the nonstar graph configuration remain explicit assumptions. Author build succeeded.
+- PASS: `ProductiveStepAssembly-frozen.lean`, 3347 lines, SHA256 `494256713af9ab857cadb3674db5ca8518857d45cfde90bcc76991862848ea2b`. Independently rebuilt and audited axioms for `LiftMeasure.restored_andPairs_lt` and `ProductiveStep.improve`: only `propext`, `Classical.choice`, and `Quot.sound`. Full output: `productive-step-independent-build.log`.
+- PASS: `ProductiveStepWithJunkAssembly-frozen.lean`, 3595 lines, SHA256 `f4238fb00d8835d7d3d32ea9f2a68930c140f692174bbf13a994f06715b50e73`. Same explicit repair; junk-count nonincrease follows from restored AND productivity, the pruning injection, and `card_erase_le`. Exact reviewed bodies, with only blank separator-line differences from ordinary concatenation. Author build succeeded.
+- PASS: `TopFormNormalizationAssembly.lean`, 3393 lines, SHA256 `0adc8bdc1e54c5477bd74e454fc1522313f5624a4705ace37aa61d6f4f7db905`. Exact reviewed productive-step assembly plus minimum-andPairs lemma and 22-line wrapper. Natural-number minimality contradiction composes size bounds correctly. Parent confirmed successful build. This version does not state a junk-count bound.
+- PASS: `TopFormWithJunkAssembly.lean`, 3627 lines, SHA256 `21528785866cdefd8b4ba7a8f83f8a587d7a1a17b2de903dd3ed8061a5e50aaa`. Exact reviewed strengthened-step assembly plus the 31-line wrapper. Both original size and junk budgets are included in the minimization domain and preserved by composition. Independent rebuild succeeded; the final theorem uses only `propext`, `Classical.choice`, and `Quot.sound`. Full output: `topform-with-junk-independent-build.log`.
+- PASS: `MatchingLossAssembly.lean`, 368 lines, SHA256 `ccc05f218ea1203146fcfa76a95bd169f241d3280b0f3bfe18f242cd9b3024e8`. Exact reviewed PruningCore plus the 52-line concrete example. Independent rebuild and axiom audit passed all nine finite claims. The 9-gate circuit computes two disjoint matching edges, satisfies AO2/T0/TopForm, and has first dirty gate 2; pruning that gate makes the entire output false, so its loss has no single center. This is a structural obstruction to single-star repair, not a counterexample to the posted gap. Full output: `matching-loss-independent-build.log`.
+
+## Additional standalone source audits
+
+- PASS: `ProductiveLift.lean`, 786 lines, SHA256 `917855074d41b8ace151356b17ec88c83b608ac6808630d0697e2130ebc8a05b`. Independently compiled; full output `productive-lift-independent-build.log` contains only inherited deprecation warnings. Forced reader preservation requires the appropriate AND/OR path hypotheses; productive lift retains its explicit productivity premise.
+- PASS: `BoundaryTests.lean`, 58 lines, SHA256 `b4870e028755b62953015448f10e09737c52d4ea6889e1ab55532cd01d645a28`. Monotonicity plus all edge positives and maximal-independent negatives determines the full graph function. Parent confirmed successful build.
+- PASS: `SharedSupport.lean`, 47 lines, SHA256 `a57e14dd5a7a6a9228b22866cfe4bb23e41461958f7b8e7e8b3437c496966888`. Distinct common neighbors give the C4 obstruction and support size at most one; empty/singleton and Option-evaluation statements are exact. Author build succeeded with an empty log.
+
+Earlier existential-only `NonstarCircuit` returned no structural progress beyond a conclusion already witnessed by the original circuit. The explicit-construction and strict-decrease variants above address that API limitation. No claim is made that the remaining branch hypotheses have been established for every circuit.

@@ -1,0 +1,133 @@
+{
+  "args": {
+    "p": 4,
+    "l": 4,
+    "edges": "0,1;1,1;1,0;0,2;2,2;2,0;0,3;3,3;3,0",
+    "gates": 6,
+    "or_budget": null,
+    "proper_dirty": false,
+    "nonstar_first": true,
+    "lost_nonstar": true,
+    "dirty": false,
+    "prune_or": false,
+    "seed": 0,
+    "tactic": "auto",
+    "mixed": false,
+    "kind": "and",
+    "limit": 120,
+    "out": "/tmp/oec/pequalnp-pilot-161/hardcase-theta-lostnonstar6"
+  },
+  "binary_gates": [
+    {
+      "wire": 8,
+      "op": "or",
+      "left": 3,
+      "right": 2
+    },
+    {
+      "wire": 9,
+      "op": "or",
+      "left": 7,
+      "right": 4
+    },
+    {
+      "wire": 10,
+      "op": "and",
+      "left": 8,
+      "right": 9
+    },
+    {
+      "wire": 11,
+      "op": "or",
+      "left": 5,
+      "right": 4
+    },
+    {
+      "wire": 12,
+      "op": "and",
+      "left": 1,
+      "right": 11
+    },
+    {
+      "wire": 13,
+      "op": "or",
+      "left": 3,
+      "right": 0
+    },
+    {
+      "wire": 14,
+      "op": "or",
+      "left": 7,
+      "right": 6
+    },
+    {
+      "wire": 15,
+      "op": "or",
+      "left": 10,
+      "right": 0
+    },
+    {
+      "wire": 16,
+      "op": "and",
+      "left": 13,
+      "right": 15
+    },
+    {
+      "wire": 17,
+      "op": "or",
+      "left": 16,
+      "right": 4
+    },
+    {
+      "wire": 18,
+      "op": "or",
+      "left": 17,
+      "right": 6
+    },
+    {
+      "wire": 19,
+      "op": "or",
+      "left": 10,
+      "right": 5
+    },
+    {
+      "wire": 20,
+      "op": "or",
+      "left": 19,
+      "right": 14
+    },
+    {
+      "wire": 21,
+      "op": "and",
+      "left": 18,
+      "right": 20
+    },
+    {
+      "wire": 22,
+      "op": "or",
+      "left": 16,
+      "right": 2
+    },
+    {
+      "wire": 23,
+      "op": "and",
+      "left": 22,
+      "right": 21
+    },
+    {
+      "wire": 24,
+      "op": "or",
+      "left": 23,
+      "right": 12
+    }
+  ],
+  "binary_output": 24,
+  "shared_binary_count": 17,
+  "validated_assignments": 256,
+  "topform": true,
+  "first_dirty_has_no_clean_reader": true,
+  "nonstar_loss_preserved": true,
+  "trials": 5173719,
+  "accepted": 360162,
+  "seconds": 60.000161602999924
+}

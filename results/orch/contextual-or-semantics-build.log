@@ -1,0 +1,6 @@
+../results/orch/lemmas/ContextualOrSemantics.lean:531:44: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [hx]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

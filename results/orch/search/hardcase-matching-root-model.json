@@ -1,0 +1,15 @@
+{
+  "args":{"p":2,"l":2,"edges":"0,0;1,1"},
+  "binary_gates":[
+    {"wire":4,"op":"or","left":0,"right":1},
+    {"wire":5,"op":"or","left":2,"right":3},
+    {"wire":6,"op":"and","left":4,"right":5},
+    {"wire":7,"op":"and","left":0,"right":0},
+    {"wire":8,"op":"and","left":1,"right":1},
+    {"wire":9,"op":"or","left":7,"right":3},
+    {"wire":10,"op":"or","left":2,"right":8},
+    {"wire":11,"op":"and","left":9,"right":10},
+    {"wire":12,"op":"and","left":6,"right":11}
+  ],
+  "binary_output":12
+}

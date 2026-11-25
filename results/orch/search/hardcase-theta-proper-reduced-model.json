@@ -1,0 +1,118 @@
+{
+  "args": {
+    "p": 4,
+    "l": 4,
+    "edges": "0,1;1,1;1,0;0,2;2,2;2,0;0,3;3,3;3,0",
+    "gates": 6,
+    "or_budget": 10,
+    "proper_dirty": true,
+    "dirty": false,
+    "prune_or": false,
+    "seed": 0,
+    "tactic": "auto",
+    "mixed": false,
+    "kind": "and",
+    "limit": 120,
+    "out": "/tmp/oec/pequalnp-pilot-161/hardcase-theta-proper6-or10"
+  },
+  "binary_gates": [
+    {
+      "wire": 8,
+      "op": "or",
+      "left": 5,
+      "right": 4
+    },
+    {
+      "wire": 9,
+      "op": "and",
+      "left": 2,
+      "right": 8
+    },
+    {
+      "wire": 10,
+      "op": "and",
+      "left": 1,
+      "right": 8
+    },
+    {
+      "wire": 11,
+      "op": "or",
+      "left": 7,
+      "right": 4
+    },
+    {
+      "wire": 12,
+      "op": "and",
+      "left": 3,
+      "right": 11
+    },
+    {
+      "wire": 13,
+      "op": "or",
+      "left": 6,
+      "right": 4
+    },
+    {
+      "wire": 14,
+      "op": "or",
+      "left": 9,
+      "right": 6
+    },
+    {
+      "wire": 15,
+      "op": "and",
+      "left": 13,
+      "right": 14
+    },
+    {
+      "wire": 16,
+      "op": "or",
+      "left": 15,
+      "right": 5
+    },
+    {
+      "wire": 17,
+      "op": "or",
+      "left": 16,
+      "right": 7
+    },
+    {
+      "wire": 18,
+      "op": "and",
+      "left": 0,
+      "right": 17
+    },
+    {
+      "wire": 19,
+      "op": "and",
+      "left": 2,
+      "right": 15
+    },
+    {
+      "wire": 20,
+      "op": "or",
+      "left": 19,
+      "right": 10
+    },
+    {
+      "wire": 21,
+      "op": "or",
+      "left": 20,
+      "right": 12
+    },
+    {
+      "wire": 22,
+      "op": "or",
+      "left": 21,
+      "right": 18
+    }
+  ],
+  "binary_output": 22,
+  "shared_binary_count": 15,
+  "validated_assignments": 256,
+  "topform": true,
+  "first_dirty_has_no_clean_reader": true,
+  "trials": 3048380,
+  "accepted": 251497,
+  "seconds": 30.000115611999718
+}

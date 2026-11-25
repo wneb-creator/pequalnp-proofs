@@ -1,0 +1,10 @@
+/tmp/oec/pequalnp-pilot-161/FirstJunk-independent-audit.lean:16:2: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp at hm
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'PEqualNP.Outside.L_meta_4675.FirstJunk.operand_pure' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4675.FirstJunk.semantics' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4675.FirstJunk.sides_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4675.FirstJunk.sides_one_colour' depends on axioms: [propext, Classical.choice, Quot.sound]

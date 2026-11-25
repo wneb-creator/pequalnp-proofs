@@ -1,0 +1,5 @@
+local_semantic_cases_passed 90650
+local_cases_outside_free_alias_premise 9350
+eight_node_dag_plans_passed 1000
+dag_assignments_passed 8000
+verdict PASS for stated conditional compiler contracts

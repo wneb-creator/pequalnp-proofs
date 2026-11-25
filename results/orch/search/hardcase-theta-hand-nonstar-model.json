@@ -1,0 +1,27 @@
+{
+  "args": {
+    "p": 4,
+    "l": 4,
+    "edges": "0,1;1,1;1,0;0,2;2,2;2,0;0,3;3,3;3,0"
+  },
+  "binary_gates": [
+    {"wire":8,"op":"or","left":0,"right":1},
+    {"wire":9,"op":"or","left":5,"right":6},
+    {"wire":10,"op":"and","left":8,"right":9},
+    {"wire":11,"op":"or","left":10,"right":2},
+    {"wire":12,"op":"or","left":0,"right":2},
+    {"wire":13,"op":"and","left":11,"right":12},
+    {"wire":14,"op":"or","left":4,"right":6},
+    {"wire":15,"op":"and","left":13,"right":14},
+    {"wire":16,"op":"or","left":5,"right":7},
+    {"wire":17,"op":"and","left":0,"right":16},
+    {"wire":18,"op":"or","left":4,"right":5},
+    {"wire":19,"op":"and","left":1,"right":18},
+    {"wire":20,"op":"or","left":4,"right":7},
+    {"wire":21,"op":"and","left":3,"right":20},
+    {"wire":22,"op":"or","left":15,"right":17},
+    {"wire":23,"op":"or","left":22,"right":19},
+    {"wire":24,"op":"or","left":23,"right":21}
+  ],
+  "binary_output":24
+}

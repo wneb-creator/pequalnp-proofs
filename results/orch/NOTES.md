@@ -155,3 +155,121 @@ These are one-junk proof routes only. The full multiple-dirty lower bound is sti
 ## OR-reach API compiled 2026-11-25T17:39:53.553060+00:00
 
 `results/orch/lemmas/OrReachAPI.lean` (291 lines) compiles, SHA256 2f9e74db9b2e6216aa75b81fe91e753c44833249346bbb161927be2ba56e14a0. Namespace `.OrReachAPI`. New API: `orIn_input`, `orIn_non_or`, `mem_orIn_or_iff`, `orIn_or_pair`, `orReaches_append_prefix`, `orIn_append_prefix`. Arbitrary append preserves orIn below n+oldGateCount, without ReadsBack. Basis is the OR-closure portion of checked MaskingNext, extracted into own namespace, no unallowed imports. Full build output empty at `or-reach-api-build.log`; frozen copy `OrReachAPI-frozen.lean`. Normalization agent uses this for tCount-preserving pruning.
+
+## Combinatorial agent: append restored star compiler
+
+StarAppend.lean is checked with no diagnostics. It contains the unchanged 291-line OrReachAPI dependency followed by namespace StarAppend. `appendStar n C a b` adds exactly an AND of existing wires a,b and an OR of the old output with that new AND. Lemmas prove size increases by exactly 2; AO2 is preserved when a,b and the old output are valid prior wires; evaluation is exactly old-output OR (wire-a AND wire-b); and tCount is unchanged whenever the old output has empty orIn. This last assumption follows from output singleton rejection using the existing orIn_true lemma. These lemmas complement PruningCost/PruningTrace and RestoreStar; the remaining one-junk integration needs reader-cone extraction and the surviving-exception proof.
+
+UTC 2026-11-25T17:44:14.116194+00:00
+### False pruning preserves tCount = 0 (normalization agent)
+- PruningTrace.lean (231 lines) compiled in a 974-line imports-once assembly with OrReachAPI.lean (291) and Pruning.lean (455), no diagnostics.
+- Every retained OR gate has its OR-input set contained in that of an original OR gate; false branches alias a surviving operand or disappear. Thus `PruningTrace.pruned_count_zero` holds for arbitrary coloring and selected gate.
+- This complements checked AO2 preservation, exact forced-false semantics, and the bound `pruned.size + 2 <= original.size` when the forced gate has any later direct consumer.
+- Frozen assembly: /tmp/oec/pequalnp-pilot-161/PruningTraceAssembly-frozen.lean; SHA256 40cde3421fca4c00f9cbf525875bc060d1cafa84d8ccb1c466ef47ff16dcf355. Trace extension SHA256 a092edbeb3236cbb9b17cfd622b25f4a3c9e7e9c3a5dc70eed0c3f35a1722b4a.
+- Earlier-wire preservation delegated to inventory; forced semantics consequences owned by and_count; star restoration compiler owned by combinatorial. Main lower bound remains open.
+
+## Pruning prefix preservation compiled 2026-11-25T17:44:51.507982+00:00
+
+`PruningPrefix.lean` is a 123-line extension using checked PruningCost. Main lemmas: compiled_before gives identity compilation through any k<=q; alias_before gives final alias some w for w<n+q; forced_wire_before and pruned_wire_before give exact earlier-wire semantics on all inputs. Only q<=original gate count is required. Extension hash d2ff60861e768336a40d0cf179978c195e488cd4a8a52558613973b0ce4a4a7e; combined frozen scratch `PruningPrefixFinal.lean` (579 lines) hash 06885274c45c9ac596124956077e107996d7b88d152743c0d46abd5f8c68ae2a. Lean exit 0, empty `pruning-prefix-build.log`. Source stable.
+
+UTC 2026-11-25T17:50:37.880063+00:00
+### One-junk TopForm reader decomposition (normalization agent)
+- OneJunk.lean, 295-line extension over MaskingNext, compiled in 790-line imports-once assembly. Only diagnostic is an inherited MaskingNext unnecessarySimpa warning.
+- TopForm and uniqueness of dirty AND q imply every AND leaf in an AND operand's OR closure is q. Hence each operand is exactly its raw side OR, optionally OR q.
+- q itself has pure-OR operands, and equals OR(side q 0) AND OR(side q 1); both sides are nonempty when q is dirty.
+- A productive reader cannot have q in both operand OR closures. If it reads q on side b, its exact value is `(OR A AND OR B OR OR P) AND OR Q`, where A/B are q's sides, P is reader side b, Q is reader side 1-b. This supplies the circuit-to-symbolic-reader bridge.
+- Frozen extension SHA256 392e1c5c6d944a974612e8644405785387a1f0e6b60da416c39bd60ae709e65a; frozen assembly SHA256 bf0227b32056fe7b420e013d98646ce4ccc57c7fd48555921685ebe3f631b87b. Inventory reviewing independently.
+- Next mathematical normalization route: force a productive AND false and append its original AND plus output OR. This preserves function, size and T0, while strict `andPairs` decrease should follow from retained-gate/cone injection whenever q had an AND descendant. Formal injection remains open.
+
+2026-11-25 17:58:17 UTC — lemma_inventory independent OneJunk review PASS. Exact extension SHA256 392e1c5c6d944a974612e8644405785387a1f0e6b60da416c39bd60ae709e65a and frozen assembly bf0227b32056fe7b420e013d98646ce4ccc57c7fd48555921685ebe3f631b87b independently compiled; final reader, nonempty-side, and cone-bound lemmas use only propext/Classical.choice/Quot.sound. No source or formatting defects. Conditional TopForm+unique-junk bridge only, full gap remains unproved. Review/log in scratch ONE_JUNK_REVIEW.md and one-junk-independent-audit.log.
+
+## Forced evaluator semantics 2026-11-25T17:59:03.515151+00:00
+
+ForcedSemanticsCore.lean is frozen, 463 lines, SHA256 25172452539830f7588eb1da3948504db80fa0801fa768b4c61f9fa3d42b68b5, Lean exit0 with empty complete scratch/forced-semantics-core-build.log. It copies PruningCore then proves forcedValues pointwise monotone, below the original evaluator, and identical to the original whenever the original selected wire is false. Fin-input monotonicity and pruned-output wrappers are included. No ReadsBack assumption is needed for generic fold bounds/agreement; IsAO2 supplies monotone gate types. OR-path extension is compiling separately. Root/reviewer informed for immediate checkpoint.
+
+Forced OR-path extension compiled 2026-11-25T17:59:42.720952+00:00: ForcedSemantics.lean 720 lines SHA256 20c198cd41bd64f4b3d44b37ff2454ab745d50feb219b01f54b346c2c023cdb3. Complete scratch/forced-semantics-build.log has only two if_neg deprecation warnings, Lean exit0. Adds forced_input, forced_gate (explicit ReadsBack), forced_orReaches_true and forced_orIn_true. The latter two require selected gate q to be AND, ensuring no original OR path is cut. Source frozen for independent audit/checkpoint.
+
+## Combinatorial agent: checked nonstar circuit transformation
+
+NonstarCircuit.lean (110 new lines, compiled exit0 in a2544-line dependency assembly) now constructs an actual AO2 circuit D with tCount0, D.size<=C.size, and exactly the same function as C, for the nonstar rectangle case. The explicit premises are: C computes the bipartite edge function; selected dirtywire q computes OR(A_points) AND OR(B_lines); a retained earlierwire computes OR(A_points); q has a later directconsumer; the productive-reader graphconditions of ReaderCharge hold; and forcingqfalse preserves the reader's base rectangle Q×P. The proof derives monotonicity/below-original/agreement from ForcedSemantics, classifies the entire allowed E inside A×B with NonstarRepair, and applies the checked PruneRestoreSingle compiler.
+
+The remaining base-pair preservation premise should follow from the forced OR-path API: rawside cross pairs of a productive reader j survive forcing another AND qfalse, and an OR-only path from j tooutput propagates them. OneJunk supplies exact symbolic reader semantics.
+
+Crucially, this branch does not require globally unique junk. If a dirty rectangle has one simple productive nonstar reader, the same restoration works even when that dirty gate also feeds other dirty gates: C4-freeness already constrains every valid edge in its entire rectangle to the restored star plus exceptional baseedge. This gives a genuine many-junk elimination case. It does not handle a firstdirty gate with only nesteddirty descendants or onlystar readers. No general reduction to onejunk has been found.
+
+2026-11-25 18:00:27 UTC — lemma_inventory independent ForcedSemantics review PASS. Core463lines SHA25625172452539830f7588eb1da3948504db80fa0801fa768b4c61f9fa3d42b68b5 and full720lines SHA25620c198cd41bd64f4b3d44b37ff2454ab745d50feb219b01f54b346c2c023cdb3 independently compiled. Full source has exact PruningCore prefix and OR-closure block identical to MaskingNext modulo whitespace. Monotonicity/agreement/gate recurrence/OR propagation axioms standard only. No semantic/format defects; two if_neg deprecation warnings. Report FORCED_SEMANTICS_REVIEW.md and both complete independent-audit logs in scratch. Evaluator components only, full gap still unproved.
+
+ForcedReader extension compiled 2026-11-25T18:01:09.934326+00:00: ForcedReader.lean 760 lines SHA256 dae4ebd5a57f2323056f650c148c62ba7ced3c4a74bd0b9fd433e5bf21647f06. Lean exit0; complete scratch/forced-reader-build.log has only inherited two if_neg deprecation warnings. Adds forced_reader_true, forced_output_of_reader_pair, pruned_output_of_reader_pair. A true input from each original raw OR side of distinct AND reader j survives pruning q, and reaches the output along an original OR path. Explicit hypotheses q AND, j AND, j != q, j valid, IsAO2, and OrReaches output j. Parent uses this to discharge the base-pair preservation premise of ActualNonstarCircuit.
+
+## Root research cross-check, 2026-11-25
+
+Read Jukna, Disproving the Single Level Conjecture, https://web.vu.lt/mif/s.jukna/ftp/single1.pdf, especially Theorem2.1 and its construction. The paper says: “the induced subgraphs of G on U as well as on W are complete graphs.” Thus its counterexamples to unrestricted single-level optimality do not directly give bipartite C4-free counterexamples here; that last conclusion is our inference, not a statement of the paper.
+The checked BoundaryTests theorem now supplies the mathematical justification for the search boundary: monotonicity plus all edge-positive tests and all maximal-independent-negative tests implies equality on every input. The exact finite enumeration remains external experimental evidence, not a Lean proof of the full target.
+Independent review identified an API weakness in the first NonstarCircuit theorem: an existential circuit of the same function and no larger size permits the original C as witness. The author is strengthening the interface to expose the actual restoreStar(pruned C) constructor and a decreasing dirty-gate count. The earlier mathematical transformation proof is valid, but that weak conclusion alone cannot support induction.
+
+UTC 2026-11-25T18:02:28.074256+00:00
+### Pruning retains an injective gate/cone embedding (normalization agent)
+- ConeAPI.lean (71 lines) and ConeTrace.lean (281 lines) compiled and were independently reviewed by combinatorial.
+- Each retained gate has a strictly increasing original gate index, the same operation, and an alias linking its original output wire to its new output wire. Every retained cone relation maps to an original cone relation. No retained gate maps to the forced gate q.
+- `pruned_andPairs_le` is now checked by injecting the finite set of AND-cone pairs.
+- Frozen 2109-line assembly SHA256 22cfadf9f4aca24ecc4359e8c4d18de32431a76d1e80aaa794ecda953f4d12ec; ConeTrace extension SHA256 27b0a0e9923e18f2403e8a53d6cb2b9242bc4ddea4d645a721819a75a495ca1d.
+- Next: strict AND-pair measure under restoring the forced AND at the end; retained q-free origins extend by mapping the appended AND back to q. Any original outgoing AND-cone pair (q,r) is missing.
+
+Productive lift semantics compiled 2026-11-25T18:04:09.551174+00:00: ProductiveLift.lean 786 lines, SHA256 917855074d41b8ace151356b17ec88c83b608ac6808630d0697e2130ebc8a05b. Lean exit0; scratch/productive-lift-build.log contains only inherited deprecation warnings. Adds productive_lift_semantics: C.eval xs equals forcedOut xs OR original q-wire, provided original q=true implies original output=true. The proof needs only forced/original agreement at q=false; no monotonicity or AO assumptions. Also includes the pruned output and finite-input WireBelowOutput wrappers. Root/normalization/combinatorial/reviewer informed.
+
+2026-11-25 18:05:18 UTC — lemma_inventory compiled strict junk-count descent. JunkDrop64lines: retained gates have increasing op-preserving origins, forced semantics gives newtrue→oldtrue, alias at q is none, so newjunk injects into oldjunk.erase q. JunkRestore107lines: old gate values unchanged by append, newAND reachesoutput and is BelowF whenever restored D computes F, so restoration adds no junk. Final `.JunkDrop.prune_restore_junk_card_lt` assumes original AO, dirty q, restored D AO and exactgraph semantics, concludes strict junkcard drop. Both compile first pass; full scratch JunkRestoreAssembly.lean and junk-restore-build.log retained. Root notified for independent review/checkpoint.
+
+UTC 2026-11-25T18:07:51.897719+00:00
+### Productive AND lift strictly lowers andPairs (normalization agent)
+- LiftMeasure.lean (214 lines) and ProductiveStep.lean (102 lines) compile in frozen 3347-line assembly, SHA256 494256713af9ab857cadb3674db5ca8518857d45cfde90bcc76991862848ea2b.
+- `restored_andPairs_lt` is structural: force any AND q false, restore q's original two operands as a new final AND, optionally append output OR; if q originally had an AND descendant r, the new AND-cone pair set injects into the original with (q,r) removed.
+- `ProductiveStep.improve` combines this with the checked semantic identity for productive q, preserved earlier operands, empty output OR-reach, and deletion of q plus a direct consumer. From AO2, graph-function computation, T0, and not TopForm, it constructs D preserving AO2, function and T0, with size no larger and strictly fewer AND-cone pairs.
+- Root owns the natural-minimum wrapper to obtain unconditional TopForm normalization. Toolchain independently reviewing new proof/source. This removes the TopForm normalization bottleneck; multiple-dirty global charging remains open.
+
+## Nonstar branch now strictly decreases junk (checked)
+
+The first NonstarCircuit endpoint hid its constructed circuit behind an existential whose remaining properties were trivially witnessed by C. The independently reviewed fix is NonstarExplicit/NonstarPaths: the conclusion names D=restoreStar(pruned C) aWire rawLine and returns the chosen full star column. NonstarDecrease.lean (58 new lines, checked in3833-line assembly) then combines JunkDrop/JunkRestore to prove strictly fewer dirty AND gates, alongside samefunction, AO2, T0 and size<=C. This is a genuine conditional normalization step. Its hypotheses state pure rectangle semantics at q, a simple productive nonstar reader with raw OR paths, and an OR path from that reader tooutput. Other dirtygates are allowed.
+
+## Corrected allstar contextual compiler plan (not formalized)
+
+Uniform replacement of g by OR B in all line-colour cones is unsafe when a shared cone feeds a carrying reader and a reader with zero g-footprint. Example: A={a0,a1}, B={b0,b1}, E={a0b0,a0b1,a1b1,qb0}; m=g OR b0 feeds both m AND a0 and m AND q. Uniform retarget creates false q b1.
+
+The repair classifier: if an OR node w lies under both a carrying full-row centre a0 in A and a zero reader with q outside A, every raw line of w is adjacent to both a0 and q. C4-freeness forces raw-support size<=1. This applies to the shared subnode even if the zero reader has a larger full raw side. Child and_count independently checked this reasoning and is formalizing the small graph lemma.
+
+Proposed compiler for the allstar onejunk case: only modify OR nodes whose ORclosure contains g; pure OR nodes remain untouched (important because they may also feed opposite pure operands Q). A g-reaching node needed by carrying readers retains a carrying alias, computed in at most its one old OR slot after replacing g by the existing opposite-colour operand of g. A node needed only by zero readers uses a false-pruned alias. A node shared by carry and zero contexts has raw-support<=1, so its zero alias is a rawinput/false while its carry alias costs at most one OR. A g-only node has empty raw support and aliases existing OR A / OR B / false according to context, costing no gate. Cross row/column context sharing can only occur at empty-raw-support nodes by T0.
+
+At a productive top with nonempty g-footprint: if its opposite raw side Q is singleton centre c, carrying retarget is exactly equivalent because c implies the appropriate original factor of g. If Q has>1 members, allstar forces its g-side rawsupport P empty, and the top can become c AND the opposite original factor; this is below the old top and agrees on edgepairs. At zero-footprint tops, use the false-pruned alias. All other productive tops stay unchanged. Output has only productive AND leaves after trimming and TopForm, so preserving their positive edgepairs and decreasing their semantics preserves the exact graph function. This is a plausible no-extra-gate compiler; it has not been implemented or checked. General multiple-junk nested regions remain unresolved.
+
+Contextual OR compiler interface compiled 2026-11-25T18:10:59.027995+00:00: ContextualOr.lean 492 lines, SHA256 0f58d433b4ca5add4a48c991b81ca19d0fc6cbdbd504e363f62f7ae006455286. Lean exit0 and empty scratch/contextual-or-build.log. emitContexts jointly computes demanded zero/carry OR values with at most one emitted OR, requiring a free bounded zero alias only when both contexts are demanded. It preserves old aliases and AO2. A fold compiler over Node records is AO2 and adds at most one gate per node. The mapping from actual all-star circuit cones to demanded contexts/free-alias certificates remains separate.
+
+UTC 2026-11-25T18:11:34.949994+00:00
+### TopForm improvement also preserves the junk budget
+- ProductiveStepWithJunk.improve compiled (86-line extension, SHA256 6af81062a07c5804335a264dad2f4788e60a47d662aaca76bd0e470e9cc7d76b).
+- Same explicit restoreStar witness as ProductiveStep, with `(junk G D).card <= (junk G C).card` appended to the conclusion. This follows from restored AND being below the final output, the pruning origin embedding, and cardinality of erasing one index.
+- Full frozen assembly3595lines SHA256 f4238fb00d8835d7d3d32ea9f2a68930c140f692174bbf13a994f06715b50e73, Lean exit0 with inherited warnings only. Root can minimize andPairs subject to a junk budget to normalize after dirty repair.
+
+2026-11-25 18:12:11 UTC — lemma_inventory FirstJunk compiled: operand purity and exact q rectangle semantics now require only TopForm and no earlier dirty AND, allowing arbitrary later dirty ANDs. Nonempty supports from q dirty; generic T0 wire/operand supports one-colour also checked. No global unique-junk hypothesis. Frozen FirstJunk.lean and FirstJunkAssembly.lean in scratch; normalization independently source-reviewed. Also independent ContextualOr492line review/build/axioms PASS at0f58d433..., report CONTEXTUAL_OR_REVIEW.md. ContextualOr remains conditional on supplied free-zero alias semantics; no all-star theorem claimed.
+
+## Structural counterexample search, 18:12 UTC
+
+All lower-bound search processes finished; no gap counterexample. Stable initial archive contained447 files/8.73MB, including independently reviewed SMT/CNF encodings and complete query logs. Final symmetric theta7-OR/Fano19-OR CaDiCaL searches both ended UNKNOWN at600 seconds.
+
+A separate structural query found a15-gate theta circuit (standard bound12) with exactly two dirty ANDs and no clean reader of the first: g=x2 AND(y0 OR y1), h=(y0 OR y2)AND(y2 OR g), output=x1 AND(y0 OR y1) OR x3 AND(y0 OR y3) OR x0 AND(y1 OR y3 OR h) OR x2 AND h. Share y0 OR y1. All256 inputs, T0, TopForm and liveness validated; inventory independently checked on paper. Firstdirty loss is one edge, so restoration remains easy.
+
+Stronger17-gate theta witness: g=(x0 OR x2)AND(y2 OR y3); h=(x0 OR x3)AND(x3 OR g); r=(y0 OR g)AND(y0 OR y2); output=(x0 OR x1)AND y1 OR h AND y3 OR(x1 OR x2 OR h)AND r. Exactly g,h,r dirty; only h,r read g. T0/TopForm/liveness and all256 inputs validated. Forcing gfalse loses {(0,2),(2,2),(0,3)}, a nonstar3-edge path. This refutes a universal star-loss claim even when firstdirty has no clean reader, but circuit has5 spare gates versus standard bound, so is not a minimum-circuit obstruction.
+
+Root's9-gate matching gadget also independently validated on all16 inputs: T0, TopForm, all gates live, firstdirty forcing loses both disjoint matching edges. Its final reader has another dirty AND operand, so simple-raw-reader lemmas do not apply. Detailed formulas, scope, sources and complete validations are scratch/STRUCTURAL_SEARCH_REPORT.md and hardcase-*. No claimed lower-bound result follows from these structural experiments.
+
+Contextual whole-fold semantics compiled 2026-11-25T18:13:32.882269+00:00: ContextualOrSemantics.lean 599 lines SHA256 81d240631fd692db25ebe36812a3bb0c114897838d7765f921ba33202c72d044. Lean exit0; complete scratch/contextual-or-semantics-build.log has one unnecessarySimpa warning. RelatedContexts equates all compiled aliases with a masked two-channel target stream. FreeCertificate concerns only the target stream and a raw input/false alias, and is required only at nodes demanded in both contexts. Certificates collects these independent per-node conditions. compile_correct proves exact semantic equality across the entire compiler fold; compile_valid and compile_size remain inherited. Connecting a real all-star circuit to demand labels, raw-support certificates, orientation-specific virtual g sources, and a T0 invariant remains unproved.
+
+Independent Python finite validation of the same stated contracts passed 90,650 local assignment cases, excluded 9,350 cases violating the free-alias premise, and passed 1,000 random 8-node DAG plans on all 8 inputs (8,000 complete-DAG assignments). Files scratch/contextual-or-tests.py and scratch/contextual-or-tests.log. These tests do not establish the missing real-circuit plan construction.
+
+UTC 2026-11-25T18:15:39.640635+00:00
+### Zero-edge-effect dirty gates can be eliminated globally
+- ZeroEdgePruning.lean113lines compiled, SHA256 ff6ec27219cc96ce4c863710156532224b88347124ccd49a6485534bf578545d.
+- The pruned circuit is monotone and below the original. If every graph edge input remains accepted, it therefore computes exactly the graph function on all inputs.
+- In particular, any dirty gate false on every graph edge input can be forced false and pruned while preserving AO2, function, T0, and no larger size, with strictly fewer junk gates.
+- FirstJunk purity makes an earliest dirty AND with disjoint same-color raw sides false on every edge of a properly colored graph. This entire case is now eliminated even with arbitrary later dirty ANDs; no C4-free assumption is needed.
+- Frozen3791line assembly SHA256 11b09c6d557715d904fff19bc3bd6b8b3292f28c8abe9863aecc71a6fb4b073b. Combinatorial independent review requested.
+
+2026-11-25 18:16:13 UTC — lemma_inventory ContextualOrSemantics599line independent source/build/axiom audit PASS at81d240631fd692db25ebe36812a3bb0c114897838d7765f921ba33202c72d044. Certificates refer only to raw alias+target values; fold proof noncircular. Bounded finite tests rerun PASS. Actual graph demand plan/T0 remain absent. Search archive independently verified515payloads9,206,096bytes exact source copies and hashes; portablemanifest5b2ac9b3... exactprefixremoval, all447priorpaths retained+68new. README/structuralreport scope caveats accurate. Reports/logs in scratch.

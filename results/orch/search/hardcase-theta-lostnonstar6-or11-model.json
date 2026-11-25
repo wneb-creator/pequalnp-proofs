@@ -1,0 +1,239 @@
+{
+  "args": {
+    "p": 4,
+    "l": 4,
+    "edges": "0,1;1,1;1,0;0,2;2,2;2,0;0,3;3,3;3,0",
+    "gates": 6,
+    "or_budget": 11,
+    "proper_dirty": false,
+    "nonstar_first": true,
+    "lost_nonstar": true,
+    "dirty": false,
+    "prune_or": false,
+    "seed": 0,
+    "tactic": "auto",
+    "mixed": false,
+    "kind": "and",
+    "limit": 120,
+    "out": "/tmp/oec/pequalnp-pilot-161/hardcase-theta-lostnonstar6-or11"
+  },
+  "all_assignments": 256,
+  "exact_function": true,
+  "tcount_zero": true,
+  "and_count": 6,
+  "dirty_and_indices": [
+    0,
+    1,
+    3
+  ],
+  "first_dirty_readers": [
+    1,
+    3
+  ],
+  "edges_lost_when_first_dirty_forced_false": [
+    [
+      0,
+      2
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      0,
+      3
+    ]
+  ],
+  "lost_edges_nonstar": true,
+  "topform": true,
+  "all_and_live": true,
+  "all_and_positive_on_edge": true,
+  "free_operands": [
+    [
+      [
+        0,
+        2
+      ],
+      [
+        6,
+        7
+      ]
+    ],
+    [
+      [
+        0,
+        3
+      ],
+      [
+        3,
+        8
+      ]
+    ],
+    [
+      [
+        0,
+        1
+      ],
+      [
+        5
+      ]
+    ],
+    [
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        6
+      ]
+    ],
+    [
+      [
+        9
+      ],
+      [
+        7
+      ]
+    ],
+    [
+      [
+        1,
+        2,
+        9
+      ],
+      [
+        11
+      ]
+    ]
+  ],
+  "free_outputs": [
+    10,
+    12,
+    13
+  ],
+  "naive_binary_count": 17,
+  "shared_binary_count": 17,
+  "binary_gates": [
+    {
+      "wire": 8,
+      "op": "or",
+      "left": 2,
+      "right": 0,
+      "dirty": true
+    },
+    {
+      "wire": 9,
+      "op": "or",
+      "left": 7,
+      "right": 6,
+      "dirty": true
+    },
+    {
+      "wire": 10,
+      "op": "and",
+      "left": 8,
+      "right": 9,
+      "dirty": true
+    },
+    {
+      "wire": 11,
+      "op": "or",
+      "left": 3,
+      "right": 0,
+      "dirty": true
+    },
+    {
+      "wire": 12,
+      "op": "or",
+      "left": 10,
+      "right": 3,
+      "dirty": true
+    },
+    {
+      "wire": 13,
+      "op": "and",
+      "left": 11,
+      "right": 12,
+      "dirty": true
+    },
+    {
+      "wire": 14,
+      "op": "or",
+      "left": 1,
+      "right": 0,
+      "dirty": true
+    },
+    {
+      "wire": 15,
+      "op": "and",
+      "left": 14,
+      "right": 5,
+      "dirty": false
+    },
+    {
+      "wire": 16,
+      "op": "or",
+      "left": 10,
+      "right": 4,
+      "dirty": true
+    },
+    {
+      "wire": 17,
+      "op": "or",
+      "left": 6,
+      "right": 4,
+      "dirty": true
+    },
+    {
+      "wire": 18,
+      "op": "and",
+      "left": 16,
+      "right": 17,
+      "dirty": true
+    },
+    {
+      "wire": 19,
+      "op": "and",
+      "left": 13,
+      "right": 7,
+      "dirty": false
+    },
+    {
+      "wire": 20,
+      "op": "or",
+      "left": 13,
+      "right": 1,
+      "dirty": true
+    },
+    {
+      "wire": 21,
+      "op": "or",
+      "left": 20,
+      "right": 2,
+      "dirty": true
+    },
+    {
+      "wire": 22,
+      "op": "and",
+      "left": 21,
+      "right": 18,
+      "dirty": false
+    },
+    {
+      "wire": 23,
+      "op": "or",
+      "left": 22,
+      "right": 15,
+      "dirty": false
+    },
+    {
+      "wire": 24,
+      "op": "or",
+      "left": 23,
+      "right": 19,
+      "dirty": false
+    }
+  ],
+  "binary_output": 24
+}

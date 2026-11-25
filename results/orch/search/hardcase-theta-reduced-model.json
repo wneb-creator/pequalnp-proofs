@@ -1,0 +1,128 @@
+{
+  "args": {
+    "p": 4,
+    "l": 4,
+    "edges": "0,1;1,1;1,0;0,2;2,2;2,0;0,3;3,3;3,0",
+    "gates": 6,
+    "dirty": false,
+    "prune_or": false,
+    "seed": 0,
+    "tactic": "auto",
+    "mixed": false,
+    "kind": "and",
+    "limit": 120,
+    "out": "/tmp/oec/pequalnp-pilot-161/hardcase-theta-and6"
+  },
+  "binary_gates": [
+    {
+      "wire": 8,
+      "op": "or",
+      "left": 5,
+      "right": 4
+    },
+    {
+      "wire": 9,
+      "op": "and",
+      "left": 8,
+      "right": 8
+    },
+    {
+      "wire": 10,
+      "op": "or",
+      "left": 3,
+      "right": 0
+    },
+    {
+      "wire": 11,
+      "op": "and",
+      "left": 10,
+      "right": 7
+    },
+    {
+      "wire": 12,
+      "op": "or",
+      "left": 3,
+      "right": 1
+    },
+    {
+      "wire": 13,
+      "op": "or",
+      "left": 12,
+      "right": 2
+    },
+    {
+      "wire": 14,
+      "op": "and",
+      "left": 13,
+      "right": 4
+    },
+    {
+      "wire": 15,
+      "op": "or",
+      "left": 1,
+      "right": 0
+    },
+    {
+      "wire": 16,
+      "op": "or",
+      "left": 9,
+      "right": 0
+    },
+    {
+      "wire": 17,
+      "op": "and",
+      "left": 15,
+      "right": 16
+    },
+    {
+      "wire": 18,
+      "op": "or",
+      "left": 17,
+      "right": 6
+    },
+    {
+      "wire": 19,
+      "op": "and",
+      "left": 5,
+      "right": 18
+    },
+    {
+      "wire": 20,
+      "op": "or",
+      "left": 17,
+      "right": 2
+    },
+    {
+      "wire": 21,
+      "op": "or",
+      "left": 19,
+      "right": 6
+    },
+    {
+      "wire": 22,
+      "op": "and",
+      "left": 20,
+      "right": 21
+    },
+    {
+      "wire": 23,
+      "op": "or",
+      "left": 22,
+      "right": 11
+    },
+    {
+      "wire": 24,
+      "op": "or",
+      "left": 23,
+      "right": 14
+    }
+  ],
+  "binary_output": 24,
+  "shared_binary_count": 17,
+  "validated_assignments": 256,
+  "topform": true,
+  "first_dirty_has_no_clean_reader": true,
+  "trials": 2784626,
+  "accepted": 198532,
+  "seconds": 30.000053802000366
+}

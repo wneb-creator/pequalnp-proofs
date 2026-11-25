@@ -88,3 +88,9 @@ Search archive:447exact artifacts,8,726,436bytes; hashes and byte equality indep
 The posted theorem remains unproved; latest actual gap checker rejected no-theorem.
 Sub-agents: seven total (status/review, combinatorial proof, normalization, counterexample search, lemma inventory, toolchain/review, AND-count/semantics child).
 TIMING total=66.1 subagents=7
+
+Checkpoint16: TopForm normalization preserving junk budget, first-dirty pure-OR semantics, and natural raw-reader nonstar elimination compile and pass independent review.
+MatchingLoss kernel-checks a9gate/T0/TopForm matching circuit whose first-dirty pruning loses two disjoint edges. This refutes a proposed one-star-loss shortcut, not the posted lower bound.
+ContextualOrSemantics gives exact two-context compiler semantics and size/AO2 bounds under explicit free-alias certificates; graph plan and T0 remain separate obligations.
+Search archive extended to515exact artifacts9,206,096bytes; independently checked every byte/hash and all prior447 paths retained.
+TIMING total=72.0 subagents=7

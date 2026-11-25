@@ -1,0 +1,4 @@
+{"p": 4, "l": 4, "edges": "0,1;1,1;1,0;0,2;2,2;2,0;0,3;3,3;3,0", "gates": 6, "or_budget": 8, "proper_dirty": false, "dirty": false, "prune_or": false, "seed": 0, "tactic": "auto", "mixed": false, "kind": "and", "limit": 120, "out": "/tmp/oec/pequalnp-pilot-161/hardcase-theta-and6-or8"}
+unknown
+Elapsed seconds: 120.03715479499988
+

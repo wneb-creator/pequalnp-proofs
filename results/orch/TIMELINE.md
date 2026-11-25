@@ -27,3 +27,7 @@
 - 2026-11-25T18:06:13.109205+00:00: strict dirty-gate descent for correct explicit restoration and productive-gate semantic identity compiled and independently reviewed.
 - 2026-11-25T18:07:14.665687+00:00: explicit nonstar restoration/raw-path bridge and min-andPairs existence compiled and independently reviewed.
 - 2026-11-25T18:11:19.469943+00:00: unconditional TopForm normalization, strict nonstar junk decrease, and shared-support classifier compiled and independently reviewed; complete reviewed finite-search archive preserved.
+
+- 2026-11-25T18:15:39.640635+00:00: ZeroEdgePruning compiled; earliest dirty AND with disjoint same-color sides can be eliminated without larger size or T0, strictly lowering junk count.
+- 2026-11-25T18:17:09.826011+00:00: junk-budget TopForm normalization, first-dirty purity, natural nonstar branch, contextual compiler semantics, and matching obstruction compiled and independently reviewed.
+- 2026-11-25T18:17:09.826011+00:00: third replan: consolidate checked normal-form/descent machinery; pursue all-star demand certificates and nested-dirty accounting. Structural counterexamples rule out universal single-star repair, not the target bound.

@@ -1,0 +1,10 @@
+/tmp/oec/pequalnp-pilot-161/ContextualOrSemanticsIndependentAudit.lean:531:44: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [hx]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+'PEqualNP.Outside.L_meta_4675.ContextualOr.compileNode_related' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_4675.ContextualOr.compile_correct' depends on axioms: [propext, Classical.choice, Quot.sound]

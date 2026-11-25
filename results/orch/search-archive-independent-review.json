@@ -1,0 +1,16 @@
+{
+  "verdict": "PASS",
+  "count": 515,
+  "payload_bytes": 9206096,
+  "previous_count": 447,
+  "previous_paths_retained": true,
+  "added_paths": 68,
+  "extra_metadata": [
+    "archive-manifest.json",
+    "README.md"
+  ],
+  "exact_manifest_prefix_removal": true,
+  "source_manifest_sha256": "48e5f430f3ab54517b31099824d703a48949c292f289a25991c61a05edbe7b53",
+  "portable_manifest_sha256": "5b2ac9b3b841540ecba9d545270a23c129f1cb448341d339f75b38a8b9ed1113",
+  "errors": []
+}

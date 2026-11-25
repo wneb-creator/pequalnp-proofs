@@ -1,0 +1,4 @@
+{"p": 3, "l": 3, "edges": "0,0;0,1;1,1;1,2;2,2;2,0", "gates": 5, "or_budget": 6, "proper_dirty": false, "dirty": false, "prune_or": false, "seed": 0, "tactic": "auto", "mixed": false, "kind": "and", "limit": 60, "out": "/tmp/oec/pequalnp-pilot-161/hardcase-cycle6-and5-or6"}
+unsat
+Elapsed seconds: 40.22582424600023
+

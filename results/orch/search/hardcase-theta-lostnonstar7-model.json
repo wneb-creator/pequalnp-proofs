@@ -1,0 +1,299 @@
+{
+  "args": {
+    "p": 4,
+    "l": 4,
+    "edges": "0,1;1,1;1,0;0,2;2,2;2,0;0,3;3,3;3,0",
+    "gates": 7,
+    "or_budget": null,
+    "proper_dirty": false,
+    "nonstar_first": true,
+    "lost_nonstar": true,
+    "dirty": false,
+    "prune_or": false,
+    "seed": 0,
+    "tactic": "auto",
+    "mixed": false,
+    "kind": "and",
+    "limit": 120,
+    "out": "/tmp/oec/pequalnp-pilot-161/hardcase-theta-lostnonstar7"
+  },
+  "all_assignments": 256,
+  "exact_function": true,
+  "tcount_zero": true,
+  "and_count": 7,
+  "dirty_and_indices": [
+    0,
+    1,
+    4
+  ],
+  "first_dirty_readers": [
+    1,
+    4
+  ],
+  "edges_lost_when_first_dirty_forced_false": [
+    [
+      1,
+      0
+    ],
+    [
+      3,
+      3
+    ]
+  ],
+  "lost_edges_nonstar": true,
+  "topform": true,
+  "all_and_live": true,
+  "all_and_positive_on_edge": true,
+  "free_operands": [
+    [
+      [
+        1,
+        3
+      ],
+      [
+        4,
+        5,
+        7
+      ]
+    ],
+    [
+      [
+        0,
+        8
+      ],
+      [
+        5,
+        6,
+        7,
+        8
+      ]
+    ],
+    [
+      [
+        2,
+        3,
+        9
+      ],
+      [
+        4
+      ]
+    ],
+    [
+      [
+        0,
+        1
+      ],
+      [
+        5
+      ]
+    ],
+    [
+      [
+        6,
+        8,
+        9
+      ],
+      [
+        4,
+        7
+      ]
+    ],
+    [
+      [
+        0,
+        2
+      ],
+      [
+        6
+      ]
+    ],
+    [
+      [
+        0,
+        3
+      ],
+      [
+        12
+      ]
+    ]
+  ],
+  "free_outputs": [
+    10,
+    11,
+    13,
+    14
+  ],
+  "naive_binary_count": 25,
+  "shared_binary_count": 24,
+  "binary_gates": [
+    {
+      "wire": 8,
+      "op": "or",
+      "left": 3,
+      "right": 1,
+      "dirty": true
+    },
+    {
+      "wire": 9,
+      "op": "or",
+      "left": 7,
+      "right": 4,
+      "dirty": true
+    },
+    {
+      "wire": 10,
+      "op": "or",
+      "left": 9,
+      "right": 5,
+      "dirty": true
+    },
+    {
+      "wire": 11,
+      "op": "and",
+      "left": 8,
+      "right": 10,
+      "dirty": true
+    },
+    {
+      "wire": 12,
+      "op": "or",
+      "left": 11,
+      "right": 0,
+      "dirty": true
+    },
+    {
+      "wire": 13,
+      "op": "or",
+      "left": 11,
+      "right": 5,
+      "dirty": true
+    },
+    {
+      "wire": 14,
+      "op": "or",
+      "left": 13,
+      "right": 6,
+      "dirty": true
+    },
+    {
+      "wire": 15,
+      "op": "or",
+      "left": 14,
+      "right": 7,
+      "dirty": true
+    },
+    {
+      "wire": 16,
+      "op": "and",
+      "left": 12,
+      "right": 15,
+      "dirty": true
+    },
+    {
+      "wire": 17,
+      "op": "or",
+      "left": 16,
+      "right": 2,
+      "dirty": true
+    },
+    {
+      "wire": 18,
+      "op": "or",
+      "left": 17,
+      "right": 3,
+      "dirty": true
+    },
+    {
+      "wire": 19,
+      "op": "and",
+      "left": 18,
+      "right": 4,
+      "dirty": false
+    },
+    {
+      "wire": 20,
+      "op": "or",
+      "left": 1,
+      "right": 0,
+      "dirty": true
+    },
+    {
+      "wire": 21,
+      "op": "and",
+      "left": 20,
+      "right": 5,
+      "dirty": false
+    },
+    {
+      "wire": 22,
+      "op": "or",
+      "left": 16,
+      "right": 6,
+      "dirty": true
+    },
+    {
+      "wire": 23,
+      "op": "or",
+      "left": 22,
+      "right": 11,
+      "dirty": true
+    },
+    {
+      "wire": 24,
+      "op": "and",
+      "left": 23,
+      "right": 9,
+      "dirty": true
+    },
+    {
+      "wire": 25,
+      "op": "or",
+      "left": 2,
+      "right": 0,
+      "dirty": true
+    },
+    {
+      "wire": 26,
+      "op": "and",
+      "left": 25,
+      "right": 6,
+      "dirty": false
+    },
+    {
+      "wire": 27,
+      "op": "or",
+      "left": 3,
+      "right": 0,
+      "dirty": true
+    },
+    {
+      "wire": 28,
+      "op": "and",
+      "left": 27,
+      "right": 24,
+      "dirty": false
+    },
+    {
+      "wire": 29,
+      "op": "or",
+      "left": 28,
+      "right": 19,
+      "dirty": false
+    },
+    {
+      "wire": 30,
+      "op": "or",
+      "left": 29,
+      "right": 21,
+      "dirty": false
+    },
+    {
+      "wire": 31,
+      "op": "or",
+      "left": 30,
+      "right": 26,
+      "dirty": false
+    }
+  ],
+  "binary_output": 31
+}
