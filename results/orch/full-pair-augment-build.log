@@ -1,0 +1,8 @@
+results/orch/lemmas/lean_baseline/FullPairAugment.lean:104:40: warning: This simp argument is unused:
+  and_or_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [edgeExpr, augmentedEdges, targetEdges, extraEdges, Fin.exists_iff, Prod.mk.injEq, or_and_right,
+    exists_or, and_assoc, or_assoc]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
