@@ -1,0 +1,18 @@
+{
+  "graph": "Heawood12noninc, isomorphic to K3,3 with a perfect matching subdivided twice",
+  "model": "At most five binary AND gates with arbitrary free OR regions and output",
+  "status": "UNSAT",
+  "certificate": "External solver result; no Lean or DRAT certificate",
+  "solver": "libz3 4.13.3.0",
+  "elapsed_seconds": 106.59679047399959,
+  "positive_edge_rows": 15,
+  "negative_maximal_independent_rows": 26,
+  "boolean_assignments_enumerated_for_boundary": 4096,
+  "source_provenance": "Helper-2, pnp-orch-3566 message 3081; independently inspected and rerun by helper-7",
+  "source_sha256": "0e4e5c706b8fd761c41f2ce697663bfdb5c0984d99c22233e02e3076c805cb26",
+  "smt_sha256": "feba8ebfee2d453ead6a6e1cda8a90d317d70aef341349ed1d046cb60daf1499",
+  "smt_bytes": 21019,
+  "stdout": "SMT_SHA256 feba8ebfee2d453ead6a6e1cda8a90d317d70aef341349ed1d046cb60daf1499 bytes 21019\nSTATUS unsat seconds 106.59679047399959\n",
+  "stderr": "",
+  "scope": "Supports AND>=6 for this graph in the reviewed external-solver model. It is not a total-gate lower bound or a resolution of L-meta-3566."
+}

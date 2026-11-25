@@ -1,8 +1,8 @@
 Helper-7 research record for L-meta-3566
-Snapshot recorded 2026-11-25 22:01 UTC. This directory is a computational research artifact, not a proof submission.
+Snapshot recorded 2026-11-25 22:14 UTC. This directory is a computational research artifact, not a proof submission.
 No final theorem or counterexample to L-meta-3566 was produced.
-The bounded-synthesis lower results have no Lean certificate. A separate Lean diagnostic
-checks only the failed local double-cover construction described below.
+The bounded-synthesis lower results have no Lean certificate. The named Lean file
+contains a local double-cover diagnostic and general primary-reader counting helpers.
 No PR is intended for this helper record. The posted gap remains unresolved by this work.
 
 Observed bounded-synthesis results (external solver, not certified lower-bound proofs):
@@ -31,6 +31,10 @@ Full-boundary searches on Heawood12noninc (19 gates), GP8del_inc (24),
 GP8del_noninc (23), and C6book3 (21) are running at this snapshot. None has produced
 a verified witness or a completed lower-bound result. Earlier variants were interrupted
 to add reviewed constraints and retain UNKNOWN status.
+The current H12 total-19 variant uses AND>=6, supported separately by an independently
+reproduced external five-AND/free-OR UNSAT result (libz3 4.13.3, 106.5968 seconds).
+This is not a Lean or DRAT certificate, nor a total-gate result. Its complete short
+output, hashes and fixed generator are included in the research artifact.
 
 Encoding and validation:
 - Positive rows are graph edges. Negative rows are maximal independent sets.
@@ -61,6 +65,13 @@ Encoding and validation:
   and missing-solver errors. Independent finite suites checked 10,238 counter cases,
   760 selector cases, 4,608 minimum-counter cases, and 7,452 small-circuit identities.
   These are implementation checks, not Lean certificates for the solver results.
+- Primary-reader and pivotal constraints passed separate independent mathematical
+  and code review. Moved-directory checks passed 2,916 selector projections, 200
+  valid randomized circuits, 1,518 exact cut-replay circuits, 1,770 dirty-condition
+  cases, and 504,012 CNF clause checks, including shared paths. Strongest pinned
+  C6/C8 circuits passed all truth assignments. Invalid graph guards were verified
+  with solver launch forbidden. Explicit unsupported AND lower restrictions are
+  labeled as constraints on the encoded normal-form subclass, not global bounds.
 
 Solver: Kissat 4.0.4, official source commit
 8af8e56f174b778aef3aa45af9f739b2a5f492c2.
@@ -81,6 +92,8 @@ Portable reproduction (run from this directory):
   python3 count_query.py --graph C6 --k 7 --min-and 0 --mis-lower --lex --input-budget --seconds 60 --solver PATH
   python3 test_input_budget.py
   python3 test_mis_lower.py
+  python3 test_primary_reader_bound.py
+  python3 test_edge_pivotal.py
 Here PATH means the local Kissat executable. New CNFs and complete solver stdout/stderr
 are retained under synthesis/ and excluded from version control. evidence.json contains
 only small result summaries and SAT witnesses; full original diagnostics remain with
@@ -99,6 +112,20 @@ Checked local-construction diagnostic:
   optimization_review independently recomputed all finite graph certificates, read the
   full source, freshly elaborated the file, and reran all twelve axiom checks: PASS.
 
-Sub-agents: toolchain, sat_setup, optimization_review
-TIMING total=59.6 subagents=3
+Checked general primary-reader bounds:
+  ReaderCut.reader_cut uses the actual Circuit evaluation fold and separates
+  an accepting/rejecting input pair at a direct reader of the distinguished input.
+  raw_gate_inputs_repeated_of_degree proves that both primary operands of a raw/raw
+  gate occur at least twice in the full operand list, including duplicate operands.
+  count_primary_input_gates_of_degree proves n <= number of primary-reading gates.
+  count_gate_only_bound proves number of no-primary gates <= C.size - n.
+  The hypotheses are exact AO2 graph computation, NoFourCycle, and minimum degree
+  at least two; neither minimum circuit size nor bipartiteness is required.
+  Independent source reviews and fresh elaboration passed for the core, degree
+  wrapper and weighted counting appendix. The integrated named lake build passed.
+  All 41 helper lemmas use only propext, Classical.choice and Quot.sound.
+  No final theorem for the posted gap is present; the target remains unresolved.
+
+Sub-agents: toolchain, sat_setup, optimization_review, toolchain/mixed_count
+TIMING total=72.6 subagents=4
 Timing is cumulative at this research snapshot; work continues toward the full target.
