@@ -1,0 +1,8 @@
+UTC 2026-11-25T06:44:58.319717+00:00
+Lean build exit0, complete stdout/stderr empty.
+Standalone Defs-only local-core theorem FiveOwnerClean.five_and_clean: for any AndCountCircuit16 computing exactly the raw five-owner20-edge graph with at most5AND gates, every gate is false on every graph-independent input. All definitions, finite tables, packing/origin/propagation proofs are included.
+Raw-to-full map [0,1,2,5,7,13,14,15,16,17,19,20,21,22,24,25]; ownerrows[0,1,2,5,7].
+No ordinary-Circuit gate-preserving conversion,23-gate cost exclusion, full L-meta-650 proof/refutation, or accepted PR is claimed.
+Proof:30 maximal negatives give weighted wildcard budget2; singleton/pair counts restrict raw rectangles; first-active edge origins cover20edges with5≤4-edge rectangles, forcing distinct ownerpatterns; earliest active gate on a rejected input has a dirty raw rectangle; its two negative witnesses exhaust budget and make everyothergate false on the family; finite other-owner witnesses exclude the dirty signal from pointwings; no otherAND can be firstactive on its targetedges; output contradiction. Family completeness extends to all independent inputs.
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env lean -j1 -M4096 ../results/orch/lemmas/reduction_analysis/FiveOwnerClean.lean
+SHA256 a0a9edaf4287134e7c50e41e4eacc336797624989067d53768457f320f869aae
