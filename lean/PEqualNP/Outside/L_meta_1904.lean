@@ -2862,4 +2862,552 @@ lemma output_boundary_card (labels : List (Fin n))
 
 end TaggedBoundary
 
+
+
+namespace SelectedExtraction
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def wiresFrom (gs : List Gate) (w : List Bool) : List Bool :=
+  gs.foldl (fun w g => w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) w
+
+lemma wires_eq (C : Circuit) (x : List Bool) : C.wires x = wiresFrom C.gates x := rfl
+
+lemma wiresFrom_append (gs gs' : List Gate) (w : List Bool) :
+    wiresFrom (gs ++ gs') w = wiresFrom gs' (wiresFrom gs w) := by
+  simp [wiresFrom, List.foldl_append]
+
+lemma wiresFrom_prefix (gs : List Gate) : ∀ w : List Bool,
+    ∃ t : List Bool, wiresFrom gs w = w ++ t ∧ t.length = gs.length := by
+  induction gs with
+  | nil => intro w; exact ⟨[], by simp [wiresFrom], rfl⟩
+  | cons g gs ih =>
+    intro w
+    obtain ⟨t, ht, hl⟩ := ih (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
+    refine ⟨g.op.eval (g.inputs.map fun i => w.getD i false) :: t, ?_, by simp [hl]⟩
+    have : wiresFrom (g :: gs) w
+        = wiresFrom gs (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]) := rfl
+    rw [this, ht]; simp
+
+lemma length_wiresFrom (gs : List Gate) (w : List Bool) :
+    (wiresFrom gs w).length = w.length + gs.length := by
+  obtain ⟨t, ht, hl⟩ := wiresFrom_prefix gs w
+  rw [ht]; simp [hl]
+
+lemma getD_wiresFrom (gs : List Gate) (w : List Bool) (i : ℕ) (h : i < w.length) :
+    (wiresFrom gs w).getD i false = w.getD i false := by
+  obtain ⟨t, ht, _⟩ := wiresFrom_prefix gs w
+  rw [ht, List.getD_append _ _ _ _ h]
+
+lemma getD_snoc_ne {α : Type} (L : List α) (S d : α) (j : ℕ) (h : j ≠ L.length) :
+    (L ++ [S]).getD j d = L.getD j d := by
+  by_cases hj : j < L.length
+  · exact List.getD_append _ _ _ _ hj
+  · rw [List.getD_eq_default _ _ (by simp; omega), List.getD_eq_default _ _ (by omega)]
+
+lemma getD_snoc_eq {α : Type} (L : List α) (S d : α) : (L ++ [S]).getD L.length d = S := by
+  simp
+
+
+abbrev Acc := List ℕ × List Gate
+
+def remapGate (F : ℕ) (ρ : List ℕ) (g : Gate) : Gate :=
+  ⟨g.op,g.inputs.map fun i => ρ.getD i F⟩
+
+def extractStep (B F : ℕ) (keep : ℕ → Bool) (acc : Acc) (g : Gate) : Acc :=
+  if keep acc.1.length then
+    (acc.1 ++ [B + acc.2.length],acc.2 ++ [remapGate F acc.1 g])
+  else (acc.1 ++ [acc.1.length],acc.2)
+
+def extract (B F : ℕ) (keep : ℕ → Bool) (gs : List Gate) (acc : Acc) : Acc :=
+  gs.foldl (extractStep B F keep) acc
+
+def Inv (B F : ℕ) (y w : List Bool) (acc : Acc) : Prop :=
+  acc.1.length = w.length ∧
+    (∀ i < acc.1.length, acc.1.getD i F < B + acc.2.length) ∧
+    ∀ i, (wiresFrom acc.2 y).getD (acc.1.getD i F) false = w.getD i false
+
+lemma inv_extend (B F : ℕ) (y w : List Bool) (ρ : List ℕ) (gs : List Gate)
+    (r : ℕ) (v : Bool) (hlen : ρ.length = w.length) (hy : y.length = B)
+    (hvalid : ∀ i < ρ.length, ρ.getD i F < B + gs.length)
+    (hread : ∀ i < ρ.length, (wiresFrom gs y).getD (ρ.getD i F) false = w.getD i false)
+    (hr : r < B + gs.length)
+    (hv : (wiresFrom gs y).getD r false = v)
+    (hF : B + gs.length ≤ F) : Inv B F y (w ++ [v]) (ρ ++ [r],gs) := by
+  refine ⟨by simp [hlen],?_,?_⟩
+  · intro i hi
+    by_cases h : i < ρ.length
+    · rw [List.getD_append _ _ _ _ h]
+      exact hvalid i h
+    · have e : i = ρ.length := by simp only [List.length_append,List.length_singleton] at hi; omega
+      subst i
+      simpa using hr
+  · intro i
+    change (wiresFrom gs y).getD ((ρ ++ [r]).getD i F) false = (w ++ [v]).getD i false
+    by_cases h : i < ρ.length
+    · rw [List.getD_append _ _ _ _ h,List.getD_append _ _ _ _ (by omega)]
+      exact hread i h
+    · by_cases e : i = ρ.length
+      · subst i
+        rw [getD_snoc_eq,hlen,getD_snoc_eq]
+        exact hv
+      · have hm : (ρ ++ [r]).getD i F = F := List.getD_eq_default _ _ (by simp;omega)
+        rw [hm]
+        have hn : (wiresFrom gs y).getD F false = false :=
+          List.getD_eq_default _ _ (by rw [length_wiresFrom,hy];exact hF)
+        rw [hn,List.getD_eq_default _ _ (by simp;omega)]
+
+lemma step_sound (B F : ℕ) (keep : ℕ → Bool) (y w : List Bool) (acc : Acc) (g : Gate)
+    (hy : y.length = B) (hwidth : w.length < B)
+    (hcap : B + acc.2.length + 1 ≤ F) (h : Inv B F y w acc)
+    (boundary : keep w.length = false →
+      y.getD w.length false = g.op.eval (g.inputs.map fun i => w.getD i false)) :
+    Inv B F y (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
+      (extractStep B F keep acc g) := by
+  obtain ⟨hlen,hvalid,hread⟩ := h
+  have heval : (remapGate F acc.1 g).op.eval
+      ((remapGate F acc.1 g).inputs.map fun i => (wiresFrom acc.2 y).getD i false) =
+      g.op.eval (g.inputs.map fun i => w.getD i false) := by
+    simp only [remapGate,List.map_map]
+    congr 1
+    apply List.map_congr_left
+    intro i _
+    exact hread i
+  cases hk : keep acc.1.length with
+  | false =>
+    simp only [extractStep,hk,Bool.false_eq_true,↓reduceIte]
+    apply inv_extend B F y w acc.1 acc.2 acc.1.length _ hlen hy hvalid
+      (fun i _ => hread i) (by omega) ?_ (by omega)
+    rw [getD_wiresFrom _ _ _ (by omega),hlen]
+    exact boundary (by simpa [hlen] using hk)
+  | true =>
+    simp only [extractStep,hk,↓reduceIte]
+    have hnew : wiresFrom (acc.2 ++ [remapGate F acc.1 g]) y =
+        wiresFrom acc.2 y ++ [g.op.eval (g.inputs.map fun i => w.getD i false)] := by
+      rw [wiresFrom_append]
+      change wiresFrom acc.2 y ++ [_] = _
+      rw [heval]
+    apply inv_extend B F y w acc.1 (acc.2 ++ [remapGate F acc.1 g])
+      (B + acc.2.length) _ hlen hy ?_ ?_ (by simp) ?_ (by simp;omega)
+    · intro i hi
+      have := hvalid i hi
+      simp only [List.length_append,List.length_singleton]
+      omega
+    · intro i hi
+      rw [hnew,List.getD_append _ _ _ _ (by rw [length_wiresFrom,hy];exact hvalid i hi)]
+      exact hread i
+    · rw [hnew,←show (wiresFrom acc.2 y).length = B + acc.2.length by rw [length_wiresFrom,hy]]
+      exact getD_snoc_eq _ _ _
+
+
+lemma extract_sound (B F : ℕ) (keep : ℕ → Bool) (y : List Bool) (hy : y.length = B)
+    (gs : List Gate) : ∀ (w : List Bool) (acc : Acc),
+    w.length + gs.length ≤ B → B + acc.2.length + gs.length ≤ F →
+    (∀ i < (wiresFrom gs w).length, keep i = false →
+      y.getD i false = (wiresFrom gs w).getD i false) →
+    Inv B F y w acc → Inv B F y (wiresFrom gs w) (extract B F keep gs acc) := by
+  induction gs with
+  | nil => intro w acc _ _ _ h; exact h
+  | cons g gs ih =>
+    intro w acc hwidth hcap boundary h
+    let v := g.op.eval (g.inputs.map fun i => w.getD i false)
+    have hnew : Inv B F y (w ++ [v]) (extractStep B F keep acc g) := by
+      apply step_sound B F keep y w acc g hy (by simp at hwidth;omega) (by simp at hcap;omega) h
+      intro hk
+      have hb := boundary w.length (by rw [length_wiresFrom];simp) hk
+      change y.getD w.length false = v
+      change y.getD w.length false = (wiresFrom gs (w ++ [v])).getD w.length false at hb
+      rw [getD_wiresFrom _ _ _ (by simp),getD_snoc_eq] at hb
+      exact hb
+    apply ih (w ++ [v]) (extractStep B F keep acc g) (by simp at hwidth ⊢;omega) ?_ boundary hnew
+    simp only [extractStep]
+    split <;> simp at hcap ⊢ <;> omega
+
+/-- Extracted paid gates and remapping of every original wire. -/
+def compiled (n : ℕ) (C : Circuit) (keep : ℕ → Bool) : Acc :=
+  extract (n + C.size) (n + C.size + C.size) keep C.gates (List.range n,[])
+
+def extracted (n : ℕ) (C : Circuit) (keep : ℕ → Bool) : Circuit :=
+  ⟨(compiled n C keep).2,(compiled n C keep).1.getD C.output (n + C.size + C.size)⟩
+
+lemma initial_inv (n B F : ℕ) (C : Circuit) (x y : List Bool)
+    (hx : x.length = n) (hy : y.length = B) (hn : n ≤ B) (hF : B ≤ F)
+    (boundary : ∀ i < n, y.getD i false = (C.wires x).getD i false) :
+    Inv B F y x (List.range n,[]) := by
+  refine ⟨by simpa using hx.symm,?_,?_⟩
+  · intro i hi
+    have hi' : i < n := by simpa using hi
+    simpa [List.getD_eq_getElem?_getD,hi'] using (show i < B from lt_of_lt_of_le hi' hn)
+  · intro i
+    change y.getD ((List.range n).getD i F) false = x.getD i false
+    by_cases hi : i < n
+    · have hm : (List.range n).getD i F = i := by simp [List.getD_eq_getElem?_getD,hi]
+      rw [hm,boundary i hi]
+      exact getD_wiresFrom C.gates x i (by omega)
+    · have hm : (List.range n).getD i F = F := List.getD_eq_default _ _ (by simp;omega)
+      have hyF : y.getD F false = false := List.getD_eq_default _ _ (by omega)
+      have hxi : x.getD i false = false := List.getD_eq_default _ _ (by omega)
+      rw [hm,hyF,hxi]
+
+/-- Boundary slots for selected wires are unrestricted. Every primary input and
+    every unselected gate output is supplied with its original value. -/
+lemma extracted_correct (n : ℕ) (C : Circuit) (keep : ℕ → Bool) (x y : List Bool)
+    (hx : x.length = n) (hy : y.length = n + C.size)
+    (boundary : ∀ i < n + C.size, i < n ∨ keep i = false →
+      y.getD i false = (C.wires x).getD i false) :
+    (extracted n C keep).eval y = C.eval x := by
+  have hinit := initial_inv n (n + C.size) (n + C.size + C.size) C x y hx hy
+    (by omega) (by omega) (fun i hi => boundary i (by omega) (Or.inl hi))
+  have h := extract_sound (n + C.size) (n + C.size + C.size) keep y hy C.gates
+    x (List.range n,[]) (by simp [hx,Circuit.size]) (by simp [Circuit.size])
+    (by intro i hi hk;exact boundary i (by simpa [length_wiresFrom,hx,Circuit.size] using hi) (Or.inr hk)) hinit
+  exact h.2.2 C.output
+
+end SelectedExtraction
+namespace SelectedExtraction
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+lemma extractStep_map_length (B F : ℕ) (keep : ℕ → Bool) (acc : Acc) (g : Gate) :
+    (extractStep B F keep acc g).1.length = acc.1.length + 1 := by
+  simp only [extractStep]
+  split <;> simp
+
+lemma extract_map_length (B F : ℕ) (keep : ℕ → Bool) (gs : List Gate) :
+    ∀ acc : Acc, (extract B F keep gs acc).1.length = acc.1.length + gs.length := by
+  induction gs with
+  | nil => intro acc; rfl
+  | cons g gs ih =>
+    intro acc
+    change (extract B F keep gs (extractStep B F keep acc g)).1.length = _
+    rw [ih,extractStep_map_length]
+    simp only [List.length_cons]
+    omega
+
+lemma extract_paid_length (B F : ℕ) (keep : ℕ → Bool) (gs : List Gate) :
+    ∀ acc : Acc, (extract B F keep gs acc).2.length = acc.2.length +
+      ((List.range' acc.1.length gs.length).filter keep).length := by
+  induction gs with
+  | nil => intro acc; simp [extract]
+  | cons g gs ih =>
+    intro acc
+    change (extract B F keep gs (extractStep B F keep acc g)).2.length = _
+    rw [ih,extractStep_map_length]
+    simp only [List.length_cons,List.range'_succ,List.filter_cons]
+    cases hk : keep acc.1.length <;> simp [extractStep,hk,Nat.add_assoc,Nat.add_comm]
+
+lemma extract_paid_le (B F : ℕ) (keep : ℕ → Bool) (gs : List Gate) (acc : Acc) :
+    (extract B F keep gs acc).2.length ≤ acc.2.length + gs.length := by
+  rw [extract_paid_length]
+  have h := List.length_filter_le keep (List.range' acc.1.length gs.length)
+  simpa using Nat.add_le_add_left h acc.2.length
+
+lemma extract_mono (B F : ℕ) (keep : ℕ → Bool) (gs : List Gate) :
+    ∀ acc : Acc,
+    (∀ g ∈ gs, g.op ∈ ({GateOp.and,GateOp.or} : Set GateOp) ∧ g.inputs.length ≤ 2) →
+    (∀ g ∈ acc.2, g.op ∈ ({GateOp.and,GateOp.or} : Set GateOp) ∧ g.inputs.length ≤ 2) →
+    ∀ g ∈ (extract B F keep gs acc).2,
+      g.op ∈ ({GateOp.and,GateOp.or} : Set GateOp) ∧ g.inputs.length ≤ 2 := by
+  induction gs with
+  | nil => intro acc _ ha; exact ha
+  | cons g gs ih =>
+    intro acc hg ha
+    apply ih (extractStep B F keep acc g) (fun h hh => hg h (List.mem_cons_of_mem g hh))
+    intro h hh
+    cases hk : keep acc.1.length with
+    | false =>
+      simp only [extractStep,hk,Bool.false_eq_true,↓reduceIte] at hh
+      exact ha h hh
+    | true =>
+      simp only [extractStep,hk,↓reduceIte,List.mem_append,List.mem_singleton] at hh
+      rcases hh with hh | hh
+      · exact ha h hh
+      · subst h
+        simpa only [remapGate,List.length_map] using hg g (List.mem_cons_self)
+
+lemma extracted_monotone2 (n : ℕ) (C : Circuit) (keep : ℕ → Bool) (hC : Monotone2 C) :
+    Monotone2 (extracted n C keep) := by
+  exact extract_mono (n + C.size) (n + C.size + C.size) keep C.gates
+    (List.range n,[]) hC (by simp)
+
+lemma extracted_size (n : ℕ) (C : Circuit) (keep : ℕ → Bool) :
+    (extracted n C keep).size = ((List.range' n C.size).filter keep).length := by
+  unfold Circuit.size extracted compiled
+  rw [extract_paid_length]
+  simp only [List.length_nil,List.length_range,Nat.zero_add]
+
+lemma extracted_size_le (n : ℕ) (C : Circuit) (keep : ℕ → Bool) :
+    (extracted n C keep).size ≤ C.size := by
+  rw [extracted_size]
+  have h := List.length_filter_le keep (List.range' n C.size)
+  simpa using h
+
+lemma selected_range_length (n s : ℕ) (M : Finset ℕ) (hM : ∀ j ∈ M, j < s) :
+    ((List.range' n s).filter fun i => decide (n ≤ i ∧ i - n ∈ M)).length = M.card := by
+  have hfilter : (List.range' n s).filter (fun i => decide (n ≤ i ∧ i - n ∈ M)) =
+      ((List.range s).filter fun j => decide (j ∈ M)).map (fun j => n + j) := by
+    rw [List.range'_eq_map_range,List.filter_map]
+    congr 1
+    apply List.filter_congr
+    intro j _
+    simp
+  rw [hfilter,List.length_map]
+  rw [←List.toFinset_card_of_nodup ((List.nodup_range).filter _)]
+  congr 1
+  ext j
+  simp only [List.mem_toFinset,List.mem_filter,List.mem_range,decide_eq_true_eq]
+  exact ⟨fun h => h.2,fun h => ⟨hM j h,h⟩⟩
+
+lemma extracted_size_of_subset (n : ℕ) (C : Circuit) (M : Finset ℕ)
+    (hM : ∀ j ∈ M, j < C.size) :
+    (extracted n C (fun i => decide (n ≤ i ∧ i - n ∈ M))).size = M.card := by
+  rw [extracted_size]
+  exact selected_range_length n C.size M hM
+
+end SelectedExtraction
+
+namespace SelectedExtraction
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+def ReadsNeeded (keep : ℕ → Bool) (P : ℕ → Prop) : ℕ → List Gate → Prop
+  | _,[] => True
+  | j,g :: gs => (keep j = true → ∀ i ∈ g.inputs, i < j → P i) ∧ ReadsNeeded keep P (j + 1) gs
+
+def InvOn (P : ℕ → Prop) (B F : ℕ) (y w : List Bool) (acc : Acc) : Prop :=
+  acc.1.length = w.length ∧
+    (∀ i < acc.1.length, acc.1.getD i F < B + acc.2.length) ∧
+    ∀ i, P i → (wiresFrom acc.2 y).getD (acc.1.getD i F) false = w.getD i false
+
+lemma inv_extend_on (P : ℕ → Prop) (B F : ℕ) (y w : List Bool) (ρ : List ℕ) (gs : List Gate)
+    (r : ℕ) (v : Bool) (hlen : ρ.length = w.length) (hy : y.length = B)
+    (hvalid : ∀ i < ρ.length, ρ.getD i F < B + gs.length)
+    (hread : ∀ i < ρ.length, P i → (wiresFrom gs y).getD (ρ.getD i F) false = w.getD i false)
+    (hr : r < B + gs.length)
+    (hv : P ρ.length → (wiresFrom gs y).getD r false = v)
+    (hF : B + gs.length ≤ F) : InvOn P B F y (w ++ [v]) (ρ ++ [r],gs) := by
+  refine ⟨by simp [hlen],?_,?_⟩
+  · intro i hi
+    by_cases h : i < ρ.length
+    · rw [List.getD_append _ _ _ _ h]
+      exact hvalid i h
+    · have e : i = ρ.length := by simp only [List.length_append,List.length_singleton] at hi; omega
+      subst i
+      simpa using hr
+  · intro i hP
+    change (wiresFrom gs y).getD ((ρ ++ [r]).getD i F) false = (w ++ [v]).getD i false
+    by_cases h : i < ρ.length
+    · rw [List.getD_append _ _ _ _ h,List.getD_append _ _ _ _ (by omega)]
+      exact hread i h hP
+    · by_cases e : i = ρ.length
+      · subst i
+        rw [getD_snoc_eq,hlen,getD_snoc_eq]
+        exact hv hP
+      · have hm : (ρ ++ [r]).getD i F = F := List.getD_eq_default _ _ (by simp;omega)
+        have hn : (wiresFrom gs y).getD F false = false :=
+          List.getD_eq_default _ _ (by rw [length_wiresFrom,hy];exact hF)
+        rw [hm,hn,List.getD_eq_default _ _ (by simp;omega)]
+
+lemma step_sound_on (P : ℕ → Prop) (B F : ℕ) (keep : ℕ → Bool) (y w : List Bool) (acc : Acc) (g : Gate)
+    (hy : y.length = B) (hwidth : w.length < B)
+    (hcap : B + acc.2.length + 1 ≤ F) (h : InvOn P B F y w acc)
+    (reads : keep w.length = true → ∀ i ∈ g.inputs, i < w.length → P i)
+    (boundary : P w.length → keep w.length = false →
+      y.getD w.length false = g.op.eval (g.inputs.map fun i => w.getD i false)) :
+    InvOn P B F y (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
+      (extractStep B F keep acc g) := by
+  obtain ⟨hlen,hvalid,hread⟩ := h
+  cases hk : keep acc.1.length with
+  | false =>
+    simp only [extractStep,hk,Bool.false_eq_true,↓reduceIte]
+    apply inv_extend_on P B F y w acc.1 acc.2 acc.1.length _ hlen hy hvalid
+      (fun i _ => hread i) (by omega) ?_ (by omega)
+    intro hP
+    rw [getD_wiresFrom _ _ _ (by omega),hlen]
+    exact boundary (by simpa [hlen] using hP) (by simpa [hlen] using hk)
+  | true =>
+    have heval : (remapGate F acc.1 g).op.eval
+        ((remapGate F acc.1 g).inputs.map fun i => (wiresFrom acc.2 y).getD i false) =
+        g.op.eval (g.inputs.map fun i => w.getD i false) := by
+      simp only [remapGate,List.map_map]
+      congr 1
+      apply List.map_congr_left
+      intro i hi
+      change (wiresFrom acc.2 y).getD (acc.1.getD i F) false = w.getD i false
+      by_cases hlt : i < w.length
+      · exact hread i (reads (by simpa [hlen] using hk) i hi hlt)
+      · have hm : acc.1.getD i F = F := List.getD_eq_default _ _ (by omega)
+        have hn : (wiresFrom acc.2 y).getD F false = false :=
+          List.getD_eq_default _ _ (by rw [length_wiresFrom,hy];omega)
+        rw [hm,hn,List.getD_eq_default _ _ (by omega)]
+    simp only [extractStep,hk,↓reduceIte]
+    have hnew : wiresFrom (acc.2 ++ [remapGate F acc.1 g]) y =
+        wiresFrom acc.2 y ++ [g.op.eval (g.inputs.map fun i => w.getD i false)] := by
+      rw [wiresFrom_append]
+      change wiresFrom acc.2 y ++ [_] = _
+      rw [heval]
+    apply inv_extend_on P B F y w acc.1 (acc.2 ++ [remapGate F acc.1 g])
+      (B + acc.2.length) _ hlen hy ?_ ?_ (by simp) ?_ (by simp;omega)
+    · intro i hi
+      have := hvalid i hi
+      simp only [List.length_append,List.length_singleton]
+      omega
+    · intro i hi hP
+      rw [hnew,List.getD_append _ _ _ _ (by rw [length_wiresFrom,hy];exact hvalid i hi)]
+      exact hread i hP
+    · intro _
+      rw [hnew,←show (wiresFrom acc.2 y).length = B + acc.2.length by rw [length_wiresFrom,hy]]
+      exact getD_snoc_eq _ _ _
+
+lemma extract_sound_on (P : ℕ → Prop) (B F : ℕ) (keep : ℕ → Bool) (y : List Bool) (hy : y.length = B)
+    (gs : List Gate) : ∀ (w : List Bool) (acc : Acc),
+    w.length + gs.length ≤ B → B + acc.2.length + gs.length ≤ F →
+    ReadsNeeded keep P w.length gs →
+    (∀ i < (wiresFrom gs w).length, P i → keep i = false →
+      y.getD i false = (wiresFrom gs w).getD i false) →
+    InvOn P B F y w acc → InvOn P B F y (wiresFrom gs w) (extract B F keep gs acc) := by
+  induction gs with
+  | nil => intro w acc _ _ _ _ h; exact h
+  | cons g gs ih =>
+    intro w acc hwidth hcap reads boundary h
+    let v := g.op.eval (g.inputs.map fun i => w.getD i false)
+    have hnew : InvOn P B F y (w ++ [v]) (extractStep B F keep acc g) := by
+      apply step_sound_on P B F keep y w acc g hy (by simp at hwidth;omega) (by simp at hcap;omega) h reads.1
+      intro hP hk
+      have hb := boundary w.length (by rw [length_wiresFrom];simp) hP hk
+      change y.getD w.length false = v
+      change y.getD w.length false = (wiresFrom gs (w ++ [v])).getD w.length false at hb
+      rw [getD_wiresFrom _ _ _ (by simp),getD_snoc_eq] at hb
+      exact hb
+    apply ih (w ++ [v]) (extractStep B F keep acc g) (by simp at hwidth ⊢;omega) ?_
+      (by simpa using reads.2) boundary hnew
+    simp only [extractStep]
+    split <;> simp at hcap ⊢ <;> omega
+
+lemma initial_inv_on (P : ℕ → Prop) (n B F : ℕ) (C : Circuit) (x y : List Bool)
+    (hx : x.length = n) (hy : y.length = B) (hn : n ≤ B) (hF : B ≤ F)
+    (boundary : ∀ i < n, P i → y.getD i false = (C.wires x).getD i false) :
+    InvOn P B F y x (List.range n,[]) := by
+  refine ⟨by simpa using hx.symm,?_,?_⟩
+  · intro i hi
+    have hi' : i < n := by simpa using hi
+    simpa [List.getD_eq_getElem?_getD,hi'] using (show i < B from lt_of_lt_of_le hi' hn)
+  · intro i hP
+    change y.getD ((List.range n).getD i F) false = x.getD i false
+    by_cases hi : i < n
+    · have hm : (List.range n).getD i F = i := by simp [List.getD_eq_getElem?_getD,hi]
+      rw [hm,boundary i hi hP]
+      exact getD_wiresFrom C.gates x i (by omega)
+    · have hm : (List.range n).getD i F = F := List.getD_eq_default _ _ (by simp;omega)
+      have hyF : y.getD F false = false := List.getD_eq_default _ _ (by omega)
+      have hxi : x.getD i false = false := List.getD_eq_default _ _ (by omega)
+      rw [hm,hyF,hxi]
+
+/-- Only needed primary and unselected boundary slots must be correct;
+    every other boundary slot may be assigned arbitrarily. -/
+lemma extracted_correct_on (P : ℕ → Prop) (n : ℕ) (C : Circuit) (keep : ℕ → Bool) (x y : List Bool)
+    (hx : x.length = n) (hy : y.length = n + C.size)
+    (reads : ReadsNeeded keep P n C.gates) (outputNeeded : P C.output)
+    (boundary : ∀ i < n + C.size, P i → i < n ∨ keep i = false →
+      y.getD i false = (C.wires x).getD i false) :
+    (extracted n C keep).eval y = C.eval x := by
+  have hinit := initial_inv_on P n (n + C.size) (n + C.size + C.size) C x y hx hy
+    (by omega) (by omega) (fun i hi hP => boundary i (by omega) hP (Or.inl hi))
+  have h := extract_sound_on P (n + C.size) (n + C.size + C.size) keep y hy C.gates
+    x (List.range n,[]) (by simp [hx,Circuit.size]) (by simp [Circuit.size])
+    (by simpa [hx] using reads)
+    (by intro i hi hP hk;exact boundary i (by simpa [length_wiresFrom,hx,Circuit.size] using hi) hP (Or.inr hk)) hinit
+  exact h.2.2 C.output outputNeeded
+
+
+lemma readsNeeded_of_prefix (keep : ℕ → Bool) (P : ℕ → Prop) (gs : List Gate) :
+    ∀ n, (∀ pre g post, gs = pre ++ g :: post → keep (n + pre.length) = true →
+      ∀ i ∈ g.inputs, i < n + pre.length → P i) → ReadsNeeded keep P n gs := by
+  induction gs with
+  | nil => intro n _; trivial
+  | cons g gs ih =>
+    intro n h
+    constructor
+    · simpa using h [] g gs rfl
+    · apply ih (n + 1)
+      intro pre q post he hk i hi hlt
+      have hs : g :: gs = (g :: pre) ++ q :: post := by simp [he]
+      have hlen : n + (g :: pre).length = n + 1 + pre.length := by simp;omega
+      exact h (g :: pre) q post hs (by rw [hlen];exact hk) i hi (by rw [hlen];exact hlt)
+
+/-- Exactly the output and valid earlier references of selected gates.
+    Future references are omitted because their gate-time value is false. -/
+def Needed (n : ℕ) (C : Circuit) (keep : ℕ → Bool) (i : ℕ) : Prop :=
+  i = C.output ∨ ∃ pre g post, C.gates = pre ++ g :: post ∧
+    keep (n + pre.length) = true ∧ i ∈ g.inputs ∧ i < n + pre.length
+
+lemma needed_reads (n : ℕ) (C : Circuit) (keep : ℕ → Bool) :
+    ReadsNeeded keep (Needed n C keep) n C.gates := by
+  apply readsNeeded_of_prefix
+  intro pre g post he hk i hi hlt
+  exact Or.inr ⟨pre,g,post,he,hk,hi,hlt⟩
+
+lemma extracted_correct_needed (n : ℕ) (C : Circuit) (keep : ℕ → Bool) (x y : List Bool)
+    (hx : x.length = n) (hy : y.length = n + C.size)
+    (boundary : ∀ i < n + C.size, Needed n C keep i → i < n ∨ keep i = false →
+      y.getD i false = (C.wires x).getD i false) :
+    (extracted n C keep).eval y = C.eval x := by
+  exact extracted_correct_on (Needed n C keep) n C keep x y hx hy
+    (needed_reads n C keep) (Or.inl rfl) boundary
+
+/-- Conditional exact-cost extraction. The boundary may vary arbitrarily with
+    the underlying input; only actually needed primary/unselected slots constrain it. -/
+lemma selected_subcircuit (n : ℕ) (C : Circuit) (M : Finset ℕ)
+    (hM : ∀ j ∈ M, j < C.size) (hC : Monotone2 C) :
+    ∃ D : Circuit, Monotone2 D ∧ D.size = M.card ∧
+      ∀ x y : List Bool, x.length = n → y.length = n + C.size →
+      (∀ i < n + C.size,
+        Needed n C (fun j => decide (n ≤ j ∧ j - n ∈ M)) i →
+        i < n ∨ i - n ∉ M → y.getD i false = (C.wires x).getD i false) →
+      D.eval y = C.eval x := by
+  let keep : ℕ → Bool := fun i => decide (n ≤ i ∧ i - n ∈ M)
+  refine ⟨extracted n C keep,extracted_monotone2 n C keep hC,
+    extracted_size_of_subset n C M hM,?_⟩
+  intro x y hx hy boundary
+  apply extracted_correct_needed n C keep x y hx hy
+  intro i hi hn hb
+  apply boundary i hi hn
+  rcases hb with hb | hb
+  · exact Or.inl hb
+  · by_cases h : i < n
+    · exact Or.inl h
+    · right
+      have hk : ¬(n ≤ i ∧ i - n ∈ M) := of_decide_eq_false hb
+      intro hm
+      exact hk ⟨by omega,hm⟩
+
+end SelectedExtraction
+
+namespace SelectedExtraction
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+/-- Charge only the selected gates when all needed boundary signals are ORs
+    of matching variables or constants. Unused boundary slots impose no condition. -/
+lemma selected_matching_lower_bound {I : Type*} [Fintype I] [DecidableEq I]
+    (n : ℕ) (C : Circuit) (M : Finset ℕ)
+    (hM : ∀ j ∈ M, j < C.size) (hC : Monotone2 C)
+    (original : (I × Bool → Bool) → Fin n → Bool)
+    (S : Fin (n + C.size) → Finset (I × Bool)) (K : Finset (Fin (n + C.size)))
+    (correct : ∀ x, C.eval (List.ofFn (original x)) = MatchingLower.target x)
+    (boundary : ∀ x i, i < n + C.size →
+      Needed n C (fun j => decide (n ≤ j ∧ j - n ∈ M)) i →
+      i < n ∨ i - n ∉ M →
+      (List.ofFn (MatchingLower.input S K x)).getD i false =
+        (C.wires (List.ofFn (original x))).getD i false) :
+    2 * Fintype.card I ≤ M.card + 1 := by
+  obtain ⟨D,hD,hsize,heval⟩ := selected_subcircuit n C M hM hC
+  have restricted : ∀ x,
+      D.eval (List.ofFn (MatchingLower.input S K x)) = MatchingLower.target x := by
+    intro x
+    rw [heval _ _ (by simp) (by simp) (boundary x),correct]
+  simpa only [hsize] using MatchingLower.paid_gate_lower_bound S K D hD restricted
+
+end SelectedExtraction
+
 end PEqualNP.Outside.L_meta_1904_aux
