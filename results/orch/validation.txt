@@ -14,3 +14,5 @@ Assigned L_meta_2585.lean (36 lines): lake build PEqualNP.Outside.L_meta_2585 PA
 
 Normalization.lean: lake env lean exit 0, complete logs empty; independent review passed.
 Prime.lean: lake env lean exit 0, complete logs retained, one unnecessarySimpa warning; independent review passed.
+
+OrBound.lean: lake env lean exit 0, complete logs empty. Independent semantic and format review passed. Gives the sharp OR-only linear-family bound; not the full AO2 normalization theorem.

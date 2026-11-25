@@ -104,3 +104,7 @@ The full actual-circuit OR-only bound now compiles with Lean4.36 (exit0, empty s
 ## 2026-11-25T12:37:28.961952+00:00 normalization compilation and Prime review
 
 Actual Normalization.lean with allowed Defs import compiled successfully (exit 0, empty stdout/stderr), after scratch minimal-import debugging also passed. Complete logs and validation preserved in results/orch/logs/normalization.*. Independently reviewed Prime.lean: prime-incidence equivalence and read1 bridge are semantically correct, and no forbidden source features were found. Root notified both are ready for partial preservation.
+
+## 2026-11-25T12:38:01.622633+00:00 — abstract union computation bound checked (math_bound)
+
+Also checked UnionCount.lean (223 lines), the same charging theorem for any finite computation starting from singleton supports and adding one binary union per gate. It imports only narrow Mathlib modules, has no project dependency, and proves sharp sum(rowcard-1)<=number of gates for C4-free output families. Source and complete empty success logs in results/orch/lemmas/UnionCount.lean and results/orch/logs/unioncount.{stdout,stderr}.
