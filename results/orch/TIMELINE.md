@@ -19,3 +19,17 @@
 2026-11-25T14:07:13.704984+00:00 Named Sixteen build passed; Projection/Overlap/NonOr reviewed; preservation batch ready.
 2026-11-25T14:08:04.647334+00:00 Lease renewed; expires 2026-11-25T14:28:03.798Z.
 2026-11-25T14:13:04.954468+00:00 Lease renewed; expires 2026-11-25T14:33:04.641Z.
+
+2026-11-25T14:16:00.347340+00:00 Twenty.lean passed Lean; source and complete empty diagnostics preserved under results/orch/search/counterexample.
+
+- 2026-11-25T13:50:40.934677+00:00 SAT: SAT local repair with four gate changes returned UNSAT; restricted search only.
+
+- 2026-11-25T13:57:29.710541+00:00 SAT: Relocated-NOT batch finished: positions 3–17 UNSAT, positions 0–2 inconclusive at 30 seconds each.
+
+- 2026-11-25T13:59:40.464982+00:00 SAT: Six-input conditional vector, 11 gates and one NOT, first OR(a,b): UNSAT after 60 seconds; restricted architecture only.
+
+- 2026-11-25T14:16:26.036264+00:00 SAT: Seven-input vector, 13 gates and one NOT, first OR(a,b): inconclusive after 600 seconds.
+
+- 2026-11-25T14:16:26.668277+00:00 SAT: Started seven-input vector, 13 gates and exactly two NOT gates, first OR(a,b).
+2026-11-25T14:18:05.366356+00:00 Lease renewed; expires 2026-11-25T14:38:04.644Z.
+2026-11-25T14:21:35.476342+00:00 Named Seventeen partial build passed; preparing preservation push.
