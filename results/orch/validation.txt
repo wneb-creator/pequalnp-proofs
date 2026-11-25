@@ -54,3 +54,5 @@ TriangleCover.lean105-line component compiled exit0; independent geometry_search
 2026-11-25T11:24:46.054107+00:00: TriangleBridge.lean173-line component compiled exit0. Independent rowzero review PASS for SHA256e251db21a98f37c225b595aa9368663344fcfaa27ce48769e21d385898483cd7. Adds independence/minor, normalized submodule basis and even-chart bridges; includes unchanged TriangleCover prefix. Complete successful build-2 diagnostics preserved; harmless unused-tactic and Mathlib archived-source warnings. Full posted theorem remains absent.
 Sub-agents: construct_search,geometry_search,status_review,toolchain_setup,artifact_analysis,rowzero,net_normal_form
 TIMING total=189.9 subagents=7
+
+CanonicalMaximal.lean98-line component compiled exit0; rowzero independent review PASS for SHA256c2d9b421bd9c9b4a8b630729a5c2529e93bc362bcdb161df6ef895bddd4a1dca. Both normalized nonstar obstructions now imply dimension≤2 for any valid ambient submodule containing those canonical planes. Unified canonical-plane interface and hollow cubic extraction included. Full posted theorem still unresolved. Complete build diagnostics preserved.

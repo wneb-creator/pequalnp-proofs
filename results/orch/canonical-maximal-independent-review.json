@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "sha256": "c2d9b421bd9c9b4a8b630729a5c2529e93bc362bcdb161df6ef895bddd4a1dca",
+  "line_count": 98,
+  "coordinate_kernel_rank_bound": true,
+  "submodule_closure_wrappers": true,
+  "canonical_type_case_split": true,
+  "cubic_coefficient_identity": true,
+  "hollow_reconstruction_usage": true,
+  "format": true,
+  "scope": "independent source/math review, no rebuild"
+}
