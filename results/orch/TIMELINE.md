@@ -15,3 +15,5 @@
 - 2026-11-25 06:19:00: 39,049-call leaf kernel check succeeded,7.04s; planning441guarded leaf obligations.
 - 2026-11-25 06:29:24: renewal returned410; full candidate independently reviewed but build still in progress; preserving immediately.
 - 2026-11-25 06:42:05: full named build passed,1144.007s,maxRSS5065312KiB.
+- 2026-11-25 06:43:04: local checker fault before judgment: fullMathlib statementenvironment needs uncachedBatteries.olean; investigating compressed genuinecache storage.
+- 2026-11-25T06:49:41.157467+00:00: localchecker remains environmentFAULT; cleanupskipped; preparingonefilePR forauthoritativechecker.
