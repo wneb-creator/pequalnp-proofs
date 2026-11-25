@@ -1,0 +1,358 @@
+{
+  "created_utc": "2026-11-25T12:14:16.926379+00:00",
+  "scope": "Reviewed immutable compact p14 model, controls, exact reconstruction, and independent audits. Active solver outputs excluded; no target SAT/UNSAT result.",
+  "source_sha256": "fe2e8f6c4c9f9c259c91bbb0c5ebdeff0b17c7de8d925347b589f2ca75772cd1",
+  "files": [
+    {
+      "path": "results/orch/lemmas/sat-p14-compact.py",
+      "bytes": 8038,
+      "sha256": "fe2e8f6c4c9f9c259c91bbb0c5ebdeff0b17c7de8d925347b589f2ca75772cd1",
+      "restore_as": "sat-p14-compact.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-controls.py",
+      "bytes": 4551,
+      "sha256": "b6262f79b867faace2b844746309eb67d648185009c916331b2c57ce298171a0",
+      "restore_as": "sat-p14-compact-controls.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-controls-portable.py",
+      "bytes": 4488,
+      "sha256": "21fb9d6f7a3861be67c2674c7c3728ecfb3f6e293ba3f06acc47b58b105fa748",
+      "restore_as": "sat-p14-compact-controls-portable.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-controls.json",
+      "bytes": 947,
+      "sha256": "aa97e5879de8c76526ad8774bc76dd385d0a7cdc49126c058a58803e45c257d2",
+      "restore_as": "sat-p14-compact-controls.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-controls.stdout",
+      "bytes": 779,
+      "sha256": "35fe9089135ade5c47fc49b41f8bbdba3476b89a56749afc5d82994a1edb7e4e",
+      "restore_as": "sat-p14-compact-controls.stdout",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-controls.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "sat-p14-compact-controls.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-compact-audit.py",
+      "bytes": 3824,
+      "sha256": "b95f9147575bddb3605f69471fe36f2fee00f38dafc46cda432dbf661700c896",
+      "restore_as": "constructive-compact-audit.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-compact-audit-portable.py",
+      "bytes": 3888,
+      "sha256": "20009c08911112de882c8ff280b3c2a419433312ef168e3320e0b6ef4d745917",
+      "restore_as": "constructive-compact-audit-portable.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-compact-audit.stdout",
+      "bytes": 385,
+      "sha256": "824573671a8a67e3f775dbb3c43282d49559149a85d48cf2409f792089fa932c",
+      "restore_as": "constructive-compact-audit.stdout",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-compact-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "constructive-compact-audit.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-compact-portable-audit.stdout",
+      "bytes": 385,
+      "sha256": "824573671a8a67e3f775dbb3c43282d49559149a85d48cf2409f792089fa932c",
+      "restore_as": "constructive-compact-portable-audit.stdout",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-compact-portable-audit.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "constructive-compact-portable-audit.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-compact-host-control.json",
+      "bytes": 5023,
+      "sha256": "2ef820df3186c7218e97eeb738c6c8905b4317c2af09cb2c2a4ae1a3cdeb8718",
+      "restore_as": "constructive-compact-host-control.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-reconstruct.py",
+      "bytes": 3877,
+      "sha256": "073d81bbc5eda0483b4a9b13bc124e2283311ad864f2b7f777c5d5967941ebd2",
+      "restore_as": "sat-p14-reconstruct.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-reconstruct-matching.stdout",
+      "bytes": 2905,
+      "sha256": "d9d76a69148792a16835ba301ebc278da88dcedbf05eb58ecb7e14a3f9f17cb4",
+      "restore_as": "sat-p14-reconstruct-matching.stdout",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-reconstruct-matching.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "sat-p14-reconstruct-matching.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-reconstruct-nested.stdout",
+      "bytes": 2903,
+      "sha256": "53628dfa73543df23744829e22e8cfd79e0ce0b2701d34ca6cfa7483af63ffd1",
+      "restore_as": "sat-p14-reconstruct-nested.stdout",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-reconstruct-nested.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "sat-p14-reconstruct-nested.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-canonical35-control.json",
+      "bytes": 1584,
+      "sha256": "77cbb962f8378237cdc9f4a5b0aea4f0f07558ec4b4c51fbf1504f5a78bb6bcc",
+      "restore_as": "sat-p14-canonical35-control.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-matching27-structural-control.json",
+      "bytes": 1300,
+      "sha256": "976df13fefff8aba4c3ed17dc1bcbb64d64cdb75d3cb562bcca74ca1750603c9",
+      "restore_as": "sat-p14-matching27-structural-control.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact35-control.compact-control.json",
+      "bytes": 3990,
+      "sha256": "2b88237714bba215024c65b355407528352912595f00ebe32096a492d6c601c9",
+      "restore_as": "sat-p14-compact35-control.compact-control.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-matching-control.compact-control.json",
+      "bytes": 5145,
+      "sha256": "10cc4b26de09faa6a562c595a145ae649d7e73c57a67a9e84788be38a48e2597",
+      "restore_as": "sat-p14-compact-matching-control.compact-control.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-nested-control.compact-control.json",
+      "bytes": 3593,
+      "sha256": "3f57ae53d9a6e7ab3c4287372d27f366a43911543231e08f5b469db6b65bcef7",
+      "restore_as": "sat-p14-compact-nested-control.compact-control.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-matching-control.compact-control.circuit.json",
+      "bytes": 1255,
+      "sha256": "96efa45e261c11d4f12f266d974f7e69787efcb6d55c6d3abaea1af9fb834f42",
+      "restore_as": "sat-p14-compact-matching-control.compact-control.circuit.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-matching-control.compact-control.circuit.validation.json",
+      "bytes": 4359,
+      "sha256": "6f352a14d61e5c1d0460fb4708454f8f4cecb4585a7a6bd8606e436b827d0d8c",
+      "restore_as": "sat-p14-compact-matching-control.compact-control.circuit.validation.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-nested-control.compact-control.circuit.json",
+      "bytes": 1250,
+      "sha256": "3715f50a6302fe24e21a50143fefc4c91e8795556410d3be70a77ea581fc98fe",
+      "restore_as": "sat-p14-compact-nested-control.compact-control.circuit.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-compact-nested-control.compact-control.circuit.validation.json",
+      "bytes": 4357,
+      "sha256": "a00cfbeae4435de95e4f87ba62b6d6b14783053e8e8dc2110fa5db3805c4d215",
+      "restore_as": "sat-p14-compact-nested-control.compact-control.circuit.validation.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-p14-flattened-model.md",
+      "bytes": 4966,
+      "sha256": "1a968baf06c4fe6e5c63bf9d172d65aebe9da82bcbe1878f5ff65bb31c698747",
+      "restore_as": "sat-p14-flattened-model.md",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/constructive-compact-encoder-review.json",
+      "bytes": 409,
+      "sha256": "d73858947910ce3c93bf29f974f052dc6fd59f81e89a767a0e5f618ffff0f242",
+      "restore_as": "constructive-compact-encoder-review.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-flatten-review.md",
+      "bytes": 4044,
+      "sha256": "26fb189109ef39f1a04c094d7f5a4cc406a85cbfb4ca637029968abe69d52091",
+      "restore_as": "stochastic-p14-flatten-review.md",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-flatten-control.json",
+      "bytes": 1809,
+      "sha256": "5202cf4853a26e432d4c006240fd9590ca1e765e88169d9b89d497f333ac3e0b",
+      "restore_as": "stochastic-p14-flatten-control.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-flatten-control.py",
+      "bytes": 4010,
+      "sha256": "a588c26e710b19208e9efdfb1cd0e9903539796e93f1941dd8eb42cd498e0993",
+      "restore_as": "stochastic-p14-flatten-control.py",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-flatten-control.stdout",
+      "bytes": 361,
+      "sha256": "c34e2c526ddb06d18a1c3335d0654b0dae778a082a4737f01f56b4872c0303a0",
+      "restore_as": "stochastic-p14-flatten-control.stdout",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-flatten-control.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "restore_as": "stochastic-p14-flatten-control.stderr",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-flatten-compact.json",
+      "bytes": 3117,
+      "sha256": "328e45df493578a326dca78df9c5003f3e240185f5486645b039e3b5d95ce37a",
+      "restore_as": "stochastic-p14-flatten-compact.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-flatten-sat-schema.json",
+      "bytes": 3659,
+      "sha256": "affafea4024d50ff31a40a33a65b9eb43f86f821ed5cae95180709a5069db1aa",
+      "restore_as": "stochastic-p14-flatten-sat-schema.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-flatten-reconstructed.json",
+      "bytes": 1250,
+      "sha256": "3715f50a6302fe24e21a50143fefc4c91e8795556410d3be70a77ea581fc98fe",
+      "restore_as": "stochastic-p14-flatten-reconstructed.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-flatten-host-check.json",
+      "bytes": 389,
+      "sha256": "110526a5f551bfc6c51e89afc2778a01d15958c6e3bc91b8b055045cc77908fa",
+      "restore_as": "stochastic-p14-flatten-host-check.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-reconstruction-review.json",
+      "bytes": 4379,
+      "sha256": "c1f7912f0bc7c8a26a6d018e4c659e1ed6065738edd588d5960bc917b6876512",
+      "restore_as": "stochastic-p14-reconstruction-review.json",
+      "gzip": false
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact18.cnf.gz",
+      "bytes": 411021,
+      "sha256": "de9944bcc86b933622441618ec3808d9bcf2eb0cfdd047ff8641ce8b8a240ec5",
+      "restore_as": "sat-p14-compact18.cnf",
+      "gzip": true
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact18.metadata.json.gz",
+      "bytes": 83762,
+      "sha256": "1713fc60347a9d1bb347cc8153b88c06a8b1ec18f39cd988f61c2f70fe15eab6",
+      "restore_as": "sat-p14-compact18.metadata.json",
+      "gzip": true
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact35-control.cnf.gz",
+      "bytes": 343258,
+      "sha256": "c2e94f8af6bf2da4589827d4a9ceb4a38a0d5088f70d157a7678ca2a2beab8f7",
+      "restore_as": "sat-p14-compact35-control.cnf",
+      "gzip": true
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact35-control.metadata.json.gz",
+      "bytes": 68421,
+      "sha256": "86a077a59bb2afe4fcc4f027c5e8b1bac8a1fe28362cd5ce6758111b648e13d1",
+      "restore_as": "sat-p14-compact35-control.metadata.json",
+      "gzip": true
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-matching-control.cnf.gz",
+      "bytes": 1107659,
+      "sha256": "b3337cc20a73544017c146ac86ff48991dbc9cc87d3b157b435e6e9c7ba4357f",
+      "restore_as": "sat-p14-compact-matching-control.cnf",
+      "gzip": true
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-matching-control.metadata.json.gz",
+      "bytes": 225943,
+      "sha256": "3c6ec916c01bede0875fc79e15e91c5e9068ef8385245bce97444bb0fab694f5",
+      "restore_as": "sat-p14-compact-matching-control.metadata.json",
+      "gzip": true
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-nested-control.cnf.gz",
+      "bytes": 393918,
+      "sha256": "eb8b6af5ab8560636a1f28ec05ad862e643af646ee47649093a4d2ef07adf590",
+      "restore_as": "sat-p14-compact-nested-control.cnf",
+      "gzip": true
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-nested-control.metadata.json.gz",
+      "bytes": 83770,
+      "sha256": "02deadeb01a82c16732db46293d321bde945a47c771c16f2fc1d259452e49803",
+      "restore_as": "sat-p14-compact-nested-control.metadata.json",
+      "gzip": true
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-host-control.cnf.gz",
+      "bytes": 1157597,
+      "sha256": "0fd733085730bee3781bd994b1ccdc10c146292064d5d86ff3f8c3969a6aea52",
+      "restore_as": "sat-p14-compact-host-control.cnf",
+      "gzip": true
+    },
+    {
+      "path": "results/orch/lemmas/sat-archive/sat-p14-compact-host-control.metadata.json.gz",
+      "bytes": 225936,
+      "sha256": "250bde9c4bf253321f6b8ef8ce757e89fc95b10606c0222d40da6c4d43f8565c",
+      "restore_as": "sat-p14-compact-host-control.metadata.json",
+      "gzip": true
+    }
+  ],
+  "total_bytes": 4198504,
+  "active_inputs_equal_archived_target": true,
+  "reproduce": [
+    "Restore listed files into one directory, decompressing marked gzip files.",
+    "python3 constructive-compact-audit-portable.py <directory>",
+    "python3 sat-p14-compact-controls-portable.py <directory>",
+    "python3 sat-p14-reconstruct.py <directory>/sat-p14-compact-nested-control.compact-control.json --structural-control"
+  ]
+}

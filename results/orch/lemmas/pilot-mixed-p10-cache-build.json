@@ -1,0 +1,7 @@
+{
+  "source": "results/orch/lemmas/pilot-mixed-p10-tail.lean",
+  "sha256": "8dec1bc0a687f35ee85c39cdbb46342b71d53274bb627f5be802db9801738243",
+  "cached_exit_code": 0,
+  "completed_utc": "2026-11-25T12:21:05.955776+00:00",
+  "scope": "Mixed p10 I01211 Bplus\u226513 and Bzero\u22641 at surplus\u226414; analytic proof, no large certificate."
+}

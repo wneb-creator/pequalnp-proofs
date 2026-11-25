@@ -1,0 +1,13 @@
+{
+  "verdict": "PASS",
+  "source_sha256": "fe2e8f6c4c9f9c259c91bbb0c5ebdeff0b17c7de8d925347b589f2ca75772cd1",
+  "threshold_ground_cases": 320,
+  "host_control_active_atoms": 20,
+  "host_control_cap": 21,
+  "host_control_full_truth_rows": 16384,
+  "host_control_boundary_rows": 135,
+  "host_control_variables": 72122,
+  "host_control_clauses": 329451,
+  "clauses_failed": 0,
+  "negative_proxy_enabled": true
+}

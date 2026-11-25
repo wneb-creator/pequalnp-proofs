@@ -1,0 +1,18 @@
+{
+  "scope": "Negative-host condition tested on this structural control own Boolean function, not Fano.",
+  "maximal_negative_count": 80,
+  "checks": [
+    {
+      "atom": 0,
+      "owner": 6,
+      "maximal_negatives_without_owner": 50,
+      "violations": []
+    },
+    {
+      "atom": 1,
+      "owner": 7,
+      "maximal_negatives_without_owner": 60,
+      "violations": []
+    }
+  ]
+}

@@ -1,0 +1,264 @@
+{
+  "verdict": "PASS",
+  "truth_rows": 16384,
+  "all_flags": [
+    {
+      "point": 0,
+      "line": 0,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 0,
+      "line": 4,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 0,
+      "line": 6,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 1,
+      "line": 0,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 1,
+      "line": 1,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 1,
+      "line": 5,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 2,
+      "line": 1,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 2,
+      "line": 2,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 2,
+      "line": 6,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 3,
+      "line": 0,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 3,
+      "line": 2,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 3,
+      "line": 3,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 4,
+      "line": 1,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 4,
+      "line": 3,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 4,
+      "line": 4,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 5,
+      "line": 2,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 5,
+      "line": 4,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 5,
+      "line": 5,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 6,
+      "line": 3,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 6,
+      "line": 5,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 6,
+      "line": 6,
+      "forward": false,
+      "reverse": false
+    }
+  ],
+  "double_quiet_flags": [
+    {
+      "point": 0,
+      "line": 0,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 0,
+      "line": 4,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 0,
+      "line": 6,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 1,
+      "line": 0,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 1,
+      "line": 1,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 1,
+      "line": 5,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 2,
+      "line": 1,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 2,
+      "line": 2,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 2,
+      "line": 6,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 3,
+      "line": 0,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 3,
+      "line": 2,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 3,
+      "line": 3,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 4,
+      "line": 1,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 4,
+      "line": 3,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 4,
+      "line": 4,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 5,
+      "line": 2,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 5,
+      "line": 4,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 5,
+      "line": 5,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 6,
+      "line": 3,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 6,
+      "line": 5,
+      "forward": false,
+      "reverse": false
+    },
+    {
+      "point": 6,
+      "line": 6,
+      "forward": false,
+      "reverse": false
+    }
+  ],
+  "scope": "Structural control, not asserted Fano",
+  "source_sha256": "10cc4b26de09faa6a562c595a145ae649d7e73c57a67a9e84788be38a48e2597",
+  "circuit": "sat-p14-compact-matching-control.compact-control.circuit.json",
+  "verified_utc": "2026-11-25T12:11:04.215931+00:00"
+}

@@ -1,0 +1,14 @@
+{
+  "verdict": "PASS",
+  "reviewer": "constructive_search",
+  "reviewed_utc": "2026-11-25T12:22:14.508405+00:00",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-carrier-own-derivative-standalone.lean",
+  "source_sha256": "84b13c1c1344756216be48a95d88611054416269b9d860885680e94de6ed464d",
+  "tail_sha256": "f76c2a340f0d4d8c923b1fcf19332b45a7173b4ae363a8d6635cf346acbbe206",
+  "standalone_exit_code": 0,
+  "composition": "Exact accepted first216 lines, namespace close/reopen, and frozen reviewed 43-line tail.",
+  "mathematical_review": "Strong induction on wire index. Inputs use exact derivative seed. Invalid wires have empty support. An AND output cannot carry the label by the explicit andEmpty premise. An OR output carrying the label has a carrying parent, whose derivative is true by induction; the raw OR derivative recurrence propagates true. No base restriction is used.",
+  "scope": "Generic own-label carrier derivative invariant; no unconditional Fano equality or full target claim.",
+  "format_review": "No forbidden marker, admission, new axiom, string literal, unsupported attribute, or credential-shaped content in new tail.",
+  "logs": "Complete standalone stdout/stderr are empty."
+}

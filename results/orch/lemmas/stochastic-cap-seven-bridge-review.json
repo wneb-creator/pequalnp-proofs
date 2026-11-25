@@ -1,0 +1,46 @@
+{
+  "verdict": "PASS independent mathematical/source review, exact composition and complete standalone exit0",
+  "source": "results/orch/lemmas/formalization-cap-seven-bridge-tail.lean",
+  "sha256": "12a6d37857ca581d00fea2d3f0f70149c0237872eb5f08236f360a8e327d9008",
+  "reviewed_utc": "2026-11-25T12:15:45.505054+00:00",
+  "checks": [
+    "cap7_Parent is exactly the three alternatives of accepted sup_triple_parent after replacing occurrence by an arbitrary predicateQ on Finset(Fin7).",
+    "Choosing pair/four-set parents uses exact code completeness and encode/decode inversion. Five-set parents use the21five-code classification and allowbothorientations of theunorderedparent pair.",
+    "The strict-superset witnessS is encoded into oneofall15listedcodes; decodedcode equalsS exactly.",
+    "The constructed family is the image ofcap7_codes underinjectivedecode, so7distinctcodes imply7distinctFinsets without duplicate-count overclaim.",
+    "All10family entries receive Q fromtherequiredtriple/strictsuperset/selectedparent hypotheses. Allhavecardinality\u22652; onlyparententries canbe pairs, andeachsuchpair liesinitsrequiredtriple.",
+    "The finitecardinalitycertificate is an explicitpremise ofcap7_seven_occurring_of_card; no unfinishedkernelresult is hidden inthis bridge. Actualcircuitcoordinate/occurrence transfer remainsseparate.",
+    "The8-line finalwrapper instantiates theexplicit count premise withthecompiled cap7_codes_card theorem and leavesallQ/parent/strictsuperset assumptions unchanged.",
+    "Cached bridge source contains the unchanged reviewed tail and exact final wrapper; sourcehash, oleanhash and exit0receipt match. Complete cachebuild logs are empty.",
+    "Flattened262-line Defs-only source consists exactly of the checked173-line finite prefix, reviewed bridge tail, final wrapper and namespace closure, with only whitespace joining. Its standalone build remains pending.",
+    "The exact reviewed flattened Defs-only source ad5b5b75... now has matching exit0 receipt and empty complete stdout/stderr."
+  ],
+  "scope": "Generic occurring-family construction only; exactfinitekernelbuild and actualcapcircuitassembly are separate obligations.",
+  "final_wrapper_source": "results/orch/lemmas/formalization-cap-seven-final.lean",
+  "final_wrapper_sha256": "64b93554ff46dc725dbc7fcee3c057b10ca36bf0a5b98d94202bc6b8beab70de",
+  "cached_build": {
+    "exit_code": 0,
+    "source": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPCapSevenBridge.lean",
+    "sha256": "8e47916106bca6f19324bfd4c32619a7cb120ee9a4007bcec1ae9b260401eb4f",
+    "olean": "/tmp/oec/pequalnp-pilot-81/lean-cache/PNPCapSevenBridge.olean",
+    "olean_sha256": "3b0518e6196131022f006e7759d2cc3bfcba83d86bdd4db05a22dabb616de380",
+    "tail_sha256": "12a6d37857ca581d00fea2d3f0f70149c0237872eb5f08236f360a8e327d9008",
+    "completed_utc": "2026-11-25T12:17:16.405033+00:00",
+    "scope": "Cached complete Finset occurrence bridge, including unconditional cap7_seven_occurring. Flattened Defs-only recheck pending."
+  },
+  "standalone_source": "results/orch/lemmas/formalization-cap-seven-complete.lean",
+  "standalone_sha256": "ad5b5b75cec1b0c0d471309297e40b50c9ff20477fe908dbf0daa70a9fc53e8c",
+  "standalone_build_status": "Passed exit0 with empty complete logs",
+  "standalone_build": {
+    "exit_code": 0,
+    "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-cap-seven-complete.lean",
+    "source_sha256": "ad5b5b75cec1b0c0d471309297e40b50c9ff20477fe908dbf0daa70a9fc53e8c",
+    "lines": 262,
+    "bytes": 12283,
+    "completed_utc": "2026-11-25T12:20:32.399818+00:00",
+    "command": "lake env lean -M6000 /workspace/pequalnp-proofs/results/orch/lemmas/formalization-cap-seven-complete.lean",
+    "scope": "Flattened standalone complete finite cardinality certificate and arbitrary-Finset occurrence bridge; imports only PEqualNP.Defs.",
+    "stdout_bytes": 0,
+    "stderr_bytes": 0
+  }
+}

@@ -1,0 +1,360 @@
+{
+  "atoms": [
+    {
+      "slots": [
+        {
+          "primary": [
+            0
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            7
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 2
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            1
+          ],
+          "prior": [
+            0
+          ]
+        },
+        {
+          "primary": [
+            8
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [],
+          "prior": [
+            1
+          ]
+        },
+        {
+          "primary": [
+            8
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            1
+          ],
+          "prior": [
+            0
+          ]
+        },
+        {
+          "primary": [
+            0
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [],
+          "prior": [
+            3
+          ]
+        },
+        {
+          "primary": [
+            7
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            2
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            9
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [],
+          "prior": [
+            5
+          ]
+        },
+        {
+          "primary": [
+            2
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [],
+          "prior": [
+            6
+          ]
+        },
+        {
+          "primary": [
+            9
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            3
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            10
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [],
+          "prior": [
+            8
+          ]
+        },
+        {
+          "primary": [
+            3
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [],
+          "prior": [
+            9
+          ]
+        },
+        {
+          "primary": [
+            10
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            4
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            11
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [],
+          "prior": [
+            11
+          ]
+        },
+        {
+          "primary": [
+            4
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [],
+          "prior": [
+            12
+          ]
+        },
+        {
+          "primary": [
+            11
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            5
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            12
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [],
+          "prior": [
+            14
+          ]
+        },
+        {
+          "primary": [
+            5
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [],
+          "prior": [
+            15
+          ]
+        },
+        {
+          "primary": [
+            12
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            6
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            13
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [],
+          "prior": [
+            17
+          ]
+        },
+        {
+          "primary": [
+            6
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [],
+          "prior": [
+            18
+          ]
+        },
+        {
+          "primary": [
+            13
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    }
+  ],
+  "final": [
+    2,
+    4,
+    7,
+    10,
+    13,
+    16,
+    19
+  ],
+  "graph": "matching",
+  "equality": true,
+  "negative_proxy": true
+}

@@ -1,0 +1,11 @@
+{
+  "verdict": "PASS",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/structural-three-subsets-tail.lean",
+  "sha256": "e931d7697ba0713f5c6530641e837408b3f99ad52551799b812c2b8cbb21cf03",
+  "scope": "Three nonempty subsets of a set of cardinality at most two, with no repeated singleton, force one subset equal to the full two-element set.",
+  "review": "Either one subset has cardinality two and exhausts S, or all three are singletons; the hypotheses make their elements pairwise distinct, contradicting card S\u22642. No graph-specific or hidden assumptions.",
+  "standalone_sha256": "a001a3ff2e0486f75d04f7c2bd15216981ebed9a02dea975a5afd66bbf97c1b6",
+  "build_exit_code": 0,
+  "build_receipt": "structural-three-subsets-build.json",
+  "build_logs": "Complete stdout and stderr are empty."
+}

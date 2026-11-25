@@ -84,3 +84,5 @@ The exact posted-to-canonical bridge now has a successful standalone build and i
 2026-11-25T12:12:12.875241+00:00: P9 one-sided canonical case fully excluded by standalone checked theorem. P10 I0123 bound and generic maximal-negative branch-value invariant also pass standalone checks. Stronger K4 cached theorem passed; full standalone pending. Compact p14 SAT running with reviewed flattening and negative-proxy cut; no result yet.
 
 K4 update: the full7570-line permitted-import standalone also completed exit0 and independent composition review before this checkpoint was pushed.
+
+2026-11-25T12:23:31.745069+00:00: Preserving complete cap finite/Finset certificate, three-subset helper, carrier derivative invariant, and cached mixed-p10 analytic bound. Root mixed-p10 and algebraic full cap standalone builds are active. Compact p14 encoding and exact reconstruction controls are preserved before solver completion.

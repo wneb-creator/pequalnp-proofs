@@ -1,0 +1,19 @@
+{
+  "exit_code": 0,
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-carrier-own-derivative-standalone.lean",
+  "source_sha256": "84b13c1c1344756216be48a95d88611054416269b9d860885680e94de6ed464d",
+  "tail_sha256": "f76c2a340f0d4d8c923b1fcf19332b45a7173b4ae363a8d6635cf346acbbe206",
+  "lines": 261,
+  "bytes": 11291,
+  "completed_utc": "2026-11-25T12:21:46.837765+00:00",
+  "stdout_bytes": 0,
+  "stderr_bytes": 0,
+  "scope": "Generic own-label carrier derivative invariant. Accepted first216lines plus frozen newtail. Standalone import PEqualNP.Defs.",
+  "prior_attempts": [
+    {
+      "attempt": 1,
+      "exit_code": 1,
+      "reason": "One redundant simp made no progress; removed along with an unused simp argument."
+    }
+  ]
+}

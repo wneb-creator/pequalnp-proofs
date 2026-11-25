@@ -1,0 +1,17 @@
+PASS — independent preservation checkpoint audit
+
+Reviewed UTC: 2026-11-25T12:24:42.176439+00:00
+Manifest: /tmp/oec/pequalnp-pilot-81/checkpoint-1223-files.json
+Manifest SHA-256: e865ef7fb2f9246d1fe785305cb6a9a7ff4d9c10af573f9930fab13846938f9f
+
+All 80 listed files match their exact SHA-256 and byte counts; total 4,702,816 bytes. Both nested preservation manifests also match all listed file hashes. All ten compressed CNF/metadata artifacts decompress byte-for-byte to their original scratch inputs. The active target CNF is preserved as an input, with no claim about the still-running solver output.
+
+Checked metadata and review bindings for the complete cap finite/Finset certificate, own-label carrier derivative invariant, and three-subset helper. Each has a successful standalone exit-0 receipt, exact-source independent review, and complete empty stdout/stderr. The carrier lemma's earlier redundant-simp failure is preserved and correctly distinguished from the successful run.
+
+The mixed-p10 analytic result is accurately labeled cached compilation only at this freeze. Its frozen standalone source and independent composition review are preserved, while the standalone build is explicitly pending. Its scope is Bplus>=13 and Bzero<=1 under the stated hypotheses, not a no-quiet theorem or a full refutation.
+
+The compact p14 archive correctly distinguishes full-CNF positive controls from the nested structural control, which omits exactly 58 Fano-output requirements and is explicitly not Fano. The normalization/reconstruction controls are likewise not gap witnesses. The original and portable audit outputs agree, full diagnostics are retained, and the independent encoder and reconstruction reviews bind the archived source hashes. No target SAT/UNSAT conclusion is claimed.
+
+NOTES, TIMELINE and validation retain the unfinished full-target status. Earlier pending statements are chronological entries followed by their updated outcomes. The checkpoint's final metadata states the current pending builds accurately.
+
+Scanned all listed text and decompressed artifacts for credential-shaped material without reading environment secrets; no finding. Scanned the listed Lean sources for sorry, new axioms, native_decide, bv_decide, _root_, string literals, disallowed attributes and options; no finding. Existing local simp attributes are inherited permitted simp declarations. This is an archival branch checkpoint containing multiple research files, not a proposed single-file proof PR.

@@ -1,0 +1,63 @@
+{
+  "files": [
+    {
+      "path": "results/orch/lemmas/stochastic-p14-flatten-compact.json",
+      "bytes": 3117,
+      "sha256": "328e45df493578a326dca78df9c5003f3e240185f5486645b039e3b5d95ce37a"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-flatten-control.json",
+      "bytes": 1809,
+      "sha256": "5202cf4853a26e432d4c006240fd9590ca1e765e88169d9b89d497f333ac3e0b"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-flatten-control.py",
+      "bytes": 4010,
+      "sha256": "a588c26e710b19208e9efdfb1cd0e9903539796e93f1941dd8eb42cd498e0993"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-flatten-control.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-flatten-control.stdout",
+      "bytes": 361,
+      "sha256": "c34e2c526ddb06d18a1c3335d0654b0dae778a082a4737f01f56b4872c0303a0"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-flatten-host-check.json",
+      "bytes": 389,
+      "sha256": "110526a5f551bfc6c51e89afc2778a01d15958c6e3bc91b8b055045cc77908fa"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-flatten-reconstructed.json",
+      "bytes": 1250,
+      "sha256": "3715f50a6302fe24e21a50143fefc4c91e8795556410d3be70a77ea581fc98fe"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-flatten-review.md",
+      "bytes": 4044,
+      "sha256": "26fb189109ef39f1a04c094d7f5a4cc406a85cbfb4ca637029968abe69d52091"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-flatten-sat-schema.json",
+      "bytes": 3659,
+      "sha256": "affafea4024d50ff31a40a33a65b9eb43f86f821ed5cae95180709a5069db1aa"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-reconstruct-reviewed.py",
+      "bytes": 3877,
+      "sha256": "073d81bbc5eda0483b4a9b13bc124e2283311ad864f2b7f777c5d5967941ebd2"
+    },
+    {
+      "path": "results/orch/lemmas/stochastic-p14-reconstruction-review.json",
+      "bytes": 4379,
+      "sha256": "c1f7912f0bc7c8a26a6d018e4c659e1ed6065738edd588d5960bc917b6876512"
+    }
+  ],
+  "file_count": 11,
+  "bytes": 26895,
+  "scope": "Independent p14 flattening/reconstruction review and exact27gate structural control. Control is not Fano; all function/truth/negative-host scope restrictions explicit.",
+  "created_utc": "2026-11-25T12:13:08.992405+00:00"
+}

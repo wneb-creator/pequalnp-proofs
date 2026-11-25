@@ -1,0 +1,1 @@
+{"n_inputs": 14, "size": 27, "output": 40, "AND_count": 14, "OR_count": 13, "all_inputs_eligible": true, "Bzero": 0, "totalSurplus": 14, "all_AND_outputs_empty_support": true, "all_AND_outputs_fanout_one": true, "one_pure_branch_per_label": true, "no_OR_carrier_merges": true, "recursive_Q_occurrences": 3, "direct_Q_occurrences": 2, "not_Fano_witness_row": 3}

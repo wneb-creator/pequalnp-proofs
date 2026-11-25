@@ -1,0 +1,12 @@
+{
+  "exit_code": 0,
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/formalization-cap-seven-complete.lean",
+  "source_sha256": "ad5b5b75cec1b0c0d471309297e40b50c9ff20477fe908dbf0daa70a9fc53e8c",
+  "lines": 262,
+  "bytes": 12283,
+  "completed_utc": "2026-11-25T12:20:32.399818+00:00",
+  "command": "lake env lean -M6000 /workspace/pequalnp-proofs/results/orch/lemmas/formalization-cap-seven-complete.lean",
+  "scope": "Flattened standalone complete finite cardinality certificate and arbitrary-Finset occurrence bridge; imports only PEqualNP.Defs.",
+  "stdout_bytes": 0,
+  "stderr_bytes": 0
+}

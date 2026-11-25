@@ -1,0 +1,54 @@
+{
+  "status": "PASS independent final tail and standalone composition review; cached check passed, standalone build pending",
+  "source": "results/orch/lemmas/pilot-mixed-p10-tail.lean",
+  "sha256": "8dec1bc0a687f35ee85c39cdbb46342b71d53274bb627f5be802db9801738243",
+  "lines": 174,
+  "reviewed_utc": "2026-11-25T12:21:59.475182+00:00",
+  "scope": "Under StrictLive/Correct,totalSurplus\u226414,I={0,1,2,11}, proves Bplus\u226513 and Bzero\u22641; no no-quiet conclusion.",
+  "checks": [
+    "Three residual subsets use ambient\u22642, not an assumed exact enumeration.",
+    "Equal singleton pair forces all3 point rows and an extra eligible-neighbor exit.",
+    "Full residual equality is used in the correct direction for all subsets and carrier membership.",
+    "X is exactly the other5 lines among union neighborhoods; every member is eligible and shares an actual assigned source with the center.",
+    "Cofactor lists for8/13 independently checked as exact subdivided-K4 incidence isomorphisms; free index1 maps respectively to eligible points3/3.",
+    "Old +8 theorem yields2+5+8>14, with all hypotheses explicit.",
+    "Trust/format scan clean."
+  ],
+  "standalone_source": "results/orch/lemmas/pilot-mixed-p10-standalone.lean",
+  "standalone_sha256": "43741f2c910ac1ec980b08230c4eaad8b807eba848a20cca908304ae713f0e87",
+  "standalone_lines": 8263,
+  "cached_exit_code": 0,
+  "composition": [
+    {
+      "piece": "accepted_prefix7507",
+      "start_line": 1,
+      "lines": 7507
+    },
+    {
+      "piece": "high_cofactor3_349",
+      "start_line": 7509,
+      "lines": 347
+    },
+    {
+      "piece": "high_cofactor411_431",
+      "start_line": 7857,
+      "lines": 21
+    },
+    {
+      "piece": "three_subsets_helper",
+      "start_line": 7880,
+      "lines": 37
+    },
+    {
+      "piece": "protected_full",
+      "start_line": 7919,
+      "lines": 168
+    },
+    {
+      "piece": "final_tail",
+      "start_line": 8088,
+      "lines": 174
+    }
+  ],
+  "elaboration_changes": "Geometry conjunction split into seven kernel decisions; explicit implicit x/t binders on distinct helper. No statement or argument change."
+}

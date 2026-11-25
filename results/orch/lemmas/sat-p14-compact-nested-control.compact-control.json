@@ -1,0 +1,264 @@
+{
+  "atoms": [
+    {
+      "slots": [
+        {
+          "primary": [
+            0
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            1
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 7
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            6
+          ],
+          "prior": [
+            0
+          ]
+        },
+        {
+          "primary": [
+            2
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 8
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            6
+          ],
+          "prior": [
+            0
+          ]
+        },
+        {
+          "primary": [
+            3
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            7
+          ],
+          "prior": [
+            1
+          ]
+        },
+        {
+          "primary": [
+            4
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            7
+          ],
+          "prior": [
+            1
+          ]
+        },
+        {
+          "primary": [
+            5
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            0
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            1
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            2
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            3
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            4
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            5
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            8
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            9
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            9
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            10
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            10
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            11
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            11
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            12
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            12
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            13
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            13
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            8
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    }
+  ],
+  "final": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ]
+}

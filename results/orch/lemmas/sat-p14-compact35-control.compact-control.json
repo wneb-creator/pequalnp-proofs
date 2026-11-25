@@ -1,0 +1,288 @@
+{
+  "atoms": [
+    {
+      "slots": [
+        {
+          "primary": [
+            13
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            0,
+            2
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            11
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            0,
+            5
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            2
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            8,
+            9
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            3
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            9,
+            10
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            1
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            8,
+            12
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            5
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            9,
+            12
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            7
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            0,
+            1,
+            3
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            7
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            0,
+            1,
+            3
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            4
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            8,
+            10,
+            11
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            4
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            8,
+            10,
+            11
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            6
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            10,
+            12,
+            13
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [
+            6
+          ],
+          "prior": []
+        },
+        {
+          "primary": [
+            10,
+            12,
+            13
+          ],
+          "prior": []
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [],
+          "prior": [
+            6
+          ]
+        },
+        {
+          "primary": [],
+          "prior": [
+            7
+          ]
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [],
+          "prior": [
+            8
+          ]
+        },
+        {
+          "primary": [],
+          "prior": [
+            9
+          ]
+        }
+      ],
+      "mode": 0
+    },
+    {
+      "slots": [
+        {
+          "primary": [],
+          "prior": [
+            10
+          ]
+        },
+        {
+          "primary": [],
+          "prior": [
+            11
+          ]
+        }
+      ],
+      "mode": 0
+    }
+  ],
+  "final": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    12,
+    13,
+    14
+  ]
+}

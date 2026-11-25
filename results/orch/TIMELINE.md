@@ -47,3 +47,7 @@
 2026-11-25T12:09:53Z: Branch-boundary invariant finished standalone exit0.
 
 2026-11-25T12:13Z: K4 surplus≤7 eligibility bound completed standalone compilation and independent composition review.
+
+2026-11-25T12:19Z: Mixed p10 analytic surplus-bound tail passed cached compilation.
+2026-11-25T12:20:32Z: Complete cap finite/Finset certificate passed standalone compilation.
+2026-11-25T12:21:46Z: Carrier own-label derivative invariant passed standalone compilation.
