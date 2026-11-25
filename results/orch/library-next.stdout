@@ -1,0 +1,65 @@
+../results/orch/lemmas/LibraryNext.lean:2795:76: error: failed to synthesize
+  Decidable
+    (∀ i ∉ {0, 2, 8, 9},
+      ∀ j ∈ {0, 2, 8, 9},
+        ¬{ Adj := fun a b => (a, b) ∈ es ∨ (b, a) ∈ es, symm := graph._proof_1, loopless := graph._proof_2 }.Adj i j →
+          ∃ k ∈ {0, 2, 8, 9},
+            { Adj := fun a b => (a, b) ∈ es ∨ (b, a) ∈ es, symm := graph._proof_1, loopless := graph._proof_2 }.Adj i
+                k ∧
+              ∃ a,
+                response i j k a 0 ≠ response i j k a 1 ∧
+                  response i j k a 1 ≠ response i j k a 2 ∧ response i j k a 0 ≠ response i j k a 2)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+../results/orch/lemmas/LibraryNext.lean:2795:76: error: failed to synthesize
+  Decidable
+    (∀ i ∉ {0, 3, 6, 7},
+      ∀ j ∈ {0, 3, 6, 7},
+        ¬{ Adj := fun a b => (a, b) ∈ es ∨ (b, a) ∈ es, symm := graph._proof_1, loopless := graph._proof_2 }.Adj i j →
+          ∃ k ∈ {0, 3, 6, 7},
+            { Adj := fun a b => (a, b) ∈ es ∨ (b, a) ∈ es, symm := graph._proof_1, loopless := graph._proof_2 }.Adj i
+                k ∧
+              ∃ a,
+                response i j k a 0 ≠ response i j k a 1 ∧
+                  response i j k a 1 ≠ response i j k a 2 ∧ response i j k a 0 ≠ response i j k a 2)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+../results/orch/lemmas/LibraryNext.lean:2795:76: error: failed to synthesize
+  Decidable
+    (∀ i ∉ {1, 3, 5, 9},
+      ∀ j ∈ {1, 3, 5, 9},
+        ¬{ Adj := fun a b => (a, b) ∈ es ∨ (b, a) ∈ es, symm := graph._proof_1, loopless := graph._proof_2 }.Adj i j →
+          ∃ k ∈ {1, 3, 5, 9},
+            { Adj := fun a b => (a, b) ∈ es ∨ (b, a) ∈ es, symm := graph._proof_1, loopless := graph._proof_2 }.Adj i
+                k ∧
+              ∃ a,
+                response i j k a 0 ≠ response i j k a 1 ∧
+                  response i j k a 1 ≠ response i j k a 2 ∧ response i j k a 0 ≠ response i j k a 2)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+../results/orch/lemmas/LibraryNext.lean:2795:76: error: failed to synthesize
+  Decidable
+    (∀ i ∉ {1, 4, 7, 8},
+      ∀ j ∈ {1, 4, 7, 8},
+        ¬{ Adj := fun a b => (a, b) ∈ es ∨ (b, a) ∈ es, symm := graph._proof_1, loopless := graph._proof_2 }.Adj i j →
+          ∃ k ∈ {1, 4, 7, 8},
+            { Adj := fun a b => (a, b) ∈ es ∨ (b, a) ∈ es, symm := graph._proof_1, loopless := graph._proof_2 }.Adj i
+                k ∧
+              ∃ a,
+                response i j k a 0 ≠ response i j k a 1 ∧
+                  response i j k a 1 ≠ response i j k a 2 ∧ response i j k a 0 ≠ response i j k a 2)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+../results/orch/lemmas/LibraryNext.lean:2795:76: error: failed to synthesize
+  Decidable
+    (∀ i ∉ {2, 4, 5, 6},
+      ∀ j ∈ {2, 4, 5, 6},
+        ¬{ Adj := fun a b => (a, b) ∈ es ∨ (b, a) ∈ es, symm := graph._proof_1, loopless := graph._proof_2 }.Adj i j →
+          ∃ k ∈ {2, 4, 5, 6},
+            { Adj := fun a b => (a, b) ∈ es ∨ (b, a) ∈ es, symm := graph._proof_1, loopless := graph._proof_2 }.Adj i
+                k ∧
+              ∃ a,
+                response i j k a 0 ≠ response i j k a 1 ∧
+                  response i j k a 1 ≠ response i j k a 2 ∧ response i j k a 0 ≠ response i j k a 2)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.

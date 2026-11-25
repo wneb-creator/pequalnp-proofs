@@ -62,3 +62,31 @@ The fullgraph maximum independent sets ofsize4 are {0,2,8,9}, {0,3,6,7}, {1,3,5,
 
 - Structural final reviewed SHA256 772870ce2c2f869524a02d6e3d16fb48bda597c8e90fccff4b50dc09210f05ef (92 lines). Only elaboration/simplification fixes since earlier review; no logical changes. Root reports compilation exit 0; structural-002 stdout/stderr are empty. PASS for archival push.
 - Library reviewed SHA256 ea4a085368acddd6ea934082a5f06562ad28173ee0e38f27bd85b8a19bf6d63f (2735 lines). Generic prefix is identical to merged L_meta_3831 after namespace substitution. Full.es matches the exact posted fifteen-edge list. Independent Python checks validate pair_samples on all 60 ordered common-neighbor triples, alternate-neighbor witnesses, and vertex-cover minimum 6 over all 1024 subsets. Read new tie exclusion, injectivity, least selection, and arithmetic bound: all sound. Count lemma proves at least 15 non-NOT gates, not the full size-20 lower bound. PASS pending compilation; no forbidden-token hits.
+
+restriction_route strengthening: `positive_input_required` is now checked and removes the output-index hypothesis. Any monotone circuit computing Petersen from the ten inputs plus a free !x0 must have some gate that reads positive input0. This excludes only one narrow shape of a first-NOT circuit; arbitrary internal NOTs, multiple NOTs, and the 19-gate bound remain open. Compilation exit0; complete logs copied to results/orch/restriction-build.stdout and .stderr.
+
+## Counterexample strategy stop 2026-11-25T14:40:00.664462+00:00
+
+Root reported HTTP410; all seven active search processes were interrupted (exit130), and no further gap work is running. No19-gate witness found. Every SAT case remained at initial92-row instance without SAT/UNSAT verdict; these interrupted searches establish no lower bound. Stochastic unconstrained best6 weighted errors; NOT-required best15 weighted errors. Known20-gate witness passed Lean and was pushed byroot. Complete scripts/stdout/stderr and SHA256 manifest preserved under /tmp/oec/pequalnp-pilot-131/counterexample-search-manifest.json. SAT encoder sanity test with frozen20-gate witness returned SAT and passed full1024-row verification.
+
+## certificate_search finite ledger experiment
+
+2026-11-25T14:40:04.989729+00:00 Stopped after root reported desk HTTP 410.
+
+Generic Readers restriction recurrence cannot reach the needed 20: Petersen-minus-vertex has a 15-gate witness, and the true cofactor has an 11-gate witness. My initial 16 estimate for the false cofactor was only the star-cover construction cost, not a lower bound; it was corrected.
+
+A stronger ledger at binary count 15 is promising. Canonical independent terminal set T=[0,2,8,9], complement S=[1,3,4,5,6,7]. Regular sample masks [0,2,8,16,32,64,128,10] give profiles [154,198,180,104] and canonical seeds [8,16,32,64,123,125]. Exact finite cover/build search returns no ledger at pure-build+filter-block cost <=11: 223641 cover states, 41917 build states, 2.64 seconds. This is a Python computation, not yet a Lean-checked circuit lower bound.
+
+The first seven rows alone are insufficient: there is a ledger at cost 11. The eighth sample {1,3} removes that loophole. Base sample 138 (vertices1,3,7) is independent and meets every terminal neighborhood; special sample 66 (vertices1,6) contains an edge, supplying the extra baseline cost.
+
+Certificate.lean adapts the standalone CoverCheck module of L_meta_8039 to eight bits, seventeen cover cells, and budget eleven. Lean checking was started; no result yet at stop. Probes and terminal-class integration are not yet implemented. A successful integration would yield binary gates >=16, excluding circuits with at least4 NOTs under total19, while leaving1–3 NOTs. Scripts and exhaustive output are preserved in results/orch/search.
+
+## submission_rules final preservation audit after desk 410
+
+No new proof work or compilation performed by reviewer.
+
+- Strengthened Restriction.lean reviewed SHA256 add9870f833f7f8e8b75546c0122be1b054fb070860d957238a7680601e9a265 (148 lines). Original 112-line prefix matches prior reviewed hash. New preservation of input wires and singleton-input contradiction correctly remove the old output-not-zero hypothesis. PASS for archival as checked partial, per agent compile exit 0. Build logs only show deprecation warnings.
+- NotStructure.lean reviewed SHA256 8f1a01e62568383e041828e95008b67529bce62570032ae98a1718e8c15a2c7b (256 lines). Generic alias-deletion helper code matches an unchanged subsequence of merged L_meta_522. New minimal_no_alias uses valid earlier alias deletion; not_gate_value requires a valid earlier first operand; minimal_no_double_not correctly excludes a direct chain of two NOT gates in a minimal circuit under these explicit hypotheses. PASS for archival as checked partial, per agent compile exit 0.
+- LibraryNext.lean SHA256 05e498f6c4e4293cd2d0dd35f37f41ffe9d5f257c63c06c112ac59e2371472de (2899 lines): safety scan clean, archive as UNVALIDATED because compilation has reported failures.
+- Certificate.lean SHA256 49f914d27f27d158197310c44fb0dfce738e49aeec51a131d1fa173163b5051f (705 lines): safety scan clean, archive as UNVALIDATED while compilation pending. Finite ledger alone is not the full gap theorem.
+- gen_certificate.py and ledger_probe.py inspected in full: task-local source reads/writes, deterministic finite computations, no credentials, no network, no shell/subprocess execution. Safe to preserve as research artifacts; their numerical results do not substitute for the Lean checker.
