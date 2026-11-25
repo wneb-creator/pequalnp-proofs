@@ -1,0 +1,30 @@
+Independent archival review by status_review, 2026-11-25T18:05:43Z.
+
+APPROVED FOR PARTIAL ARCHIVE; MaskedThetaFormatted approval is conditional
+on its compilation succeeding. No completed gap proof or PR approval.
+
+MaskedThetaFormatted fixes both issues in review-010: options are scoped
+over individual declarations, and thetaAdj decidability is a proof-local
+letI rather than an exported instance. Definitions and theorem statements
+are unchanged; the safe-slot proof adds only local decidability. No forbidden
+constructs or credential-like content found. The obstruction still excludes
+the stated whole-operand-star strategy, not the posted lower bound.
+SHA256: 8f341c905324ec49f778cc7cfb2c5edf1dbd56de796604ca8d9c712a10e67e49.
+
+NeighborhoodSynthesis is local-only and credential-free. A SAT candidate is
+checked on every multioutput assignment, then embedded into a bipartite
+circuit and checked on every full assignment, with backward wiring and colour
+reach verified. Its search is specifically for shared OR-neighbourhood
+outputs, with additional ordering/output restrictions. UNSAT is restricted
+search evidence, not a checked statement about arbitrary graph circuits.
+SHA256: ae8ec3fe335ac9e9837404e6411d8cf02b90b817f87565bdf3c13ae3decaad99.
+
+CircuitSearchZ3Local differs from reviewed MultiDirty only in backend metadata
+and check-sat-using qfbv-sls. Its complete truth-table, wiring, colour, and
+multi-edge dirty-witness validators are unchanged. Unknown/timeouts establish
+no lower bound; restrictions also limit the interpretation of UNSAT.
+SHA256: 0cf4a8f6ea4db8fa238d06db003ecc3239864e20f74c7c60d53f0a3cf3956ddd.
+
+Neither script accesses credentials, network services, subprocesses, or output
+files. Run without Python optimization because checks use assertions.
+Only this review artifact was written.

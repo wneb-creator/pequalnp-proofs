@@ -1,0 +1,79 @@
+{
+  "n": 5,
+  "edges": 12,
+  "fixed_diagonal": true,
+  "recursion_nodes": 3194,
+  "labelled_graphs": 260,
+  "isomorphism_classes": 2,
+  "classes": [
+    {
+      "canonical_columns": [
+        3,
+        5,
+        9,
+        17,
+        30
+      ],
+      "count": 20,
+      "representative": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          0,
+          2,
+          3,
+          4
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ]
+    },
+    {
+      "canonical_columns": [
+        3,
+        5,
+        10,
+        22,
+        25
+      ],
+      "count": 240,
+      "representative": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          3,
+          4
+        ],
+        [
+          0,
+          2,
+          4
+        ]
+      ]
+    }
+  ],
+  "elapsed_seconds": 0.5021086230003675
+}

@@ -1,0 +1,11 @@
+'PEqualNP.Outside.L_meta_4675.Reuse.clean_bound' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_meta_4675.Normalize.erase_unique_edge_dirty' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_4675.Normalize.unique_dirty_graph_bound' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_4675.Reuse.unitfalse_graph_actual_slot' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'PEqualNP.Outside.L_meta_4675.FanoCleanLower.small_has_dirty' depends on axioms: [propext, Classical.choice, Quot.sound]

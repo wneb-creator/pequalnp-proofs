@@ -41,3 +41,7 @@
 - 2026-11-25T17:59:51.615374+00:00: self-AND raw-tCount charging rejected; pure same-colour OR-intersection simplification identified with unresolved shared-network cost.
 
 - 2026-11-25T18:00:52.004781+00:00: Preserving checked finite theta strategy obstruction and exact Python boundary-budget obstruction.
+
+- 2026-11-25T18:05:49.404924+00:00: Root20minute strategyreview: stopped unsuccessful heuristic runs atscheduledlimits; ruledoutlinear-neighborhood shortcut onpaper; continue exactcounterexamples and strengthened actual-slot certificates.
+
+- 2026-11-25T18:08:59.233513+00:00: Namedpartial3166lines builds; expandedaxiomaudit passed; preparingcheckpoint11 withformattheta andlinear-outputlowerbound.

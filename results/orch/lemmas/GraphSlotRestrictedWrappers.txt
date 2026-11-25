@@ -1,0 +1,25 @@
+namespace PEqualNP.Outside.L_meta_4675.Reuse
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.TwoColour
+
+lemma unitfalse_graph_actual_slot {n : ℕ} {C : Circuit}
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj] (colour : ℕ → Bool)
+    (hC : IsAO2 n C)
+    (hunit : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and →
+      singletonSupport n C (n + j) = ∅)
+    (htc : tCount n C colour = 0)
+    (hcross : ∀ u v, G.Adj u v → colour u.val ≠ colour v.val)
+    (hcorrect : ∀ x : Fin n → Bool, C.eval (List.ofFn x) =
+      decide (∃ u v, G.Adj u v ∧ x u = true ∧ x v = true))
+    (a b : Fin n) (hab : G.Adj a b) :
+    ∃ k, reachable n C k ∧ (gateAt C k).op = GateOp.and ∧
+      ∃ w ∈ (gateAt C k).inputs, a ∈ singletonSupport n C w ∧
+        ∀ u ∈ singletonSupport n C w, G.Adj u b := by
+  have hm : Monotone2 C := by
+    intro g hg
+    exact ⟨by simpa using hC.1 g hg, (hC.2.2 g hg).le⟩
+  exact graph_actual_slot G (fun u => colour u.val) hm hC.2.1 hcross hcorrect
+    (unitfalse_semantic_monochrome hC hunit colour htc) a b hab
+
+end PEqualNP.Outside.L_meta_4675.Reuse

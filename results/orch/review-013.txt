@@ -1,0 +1,27 @@
+Independent archival review by status_review, 2026-11-25T18:08:40Z.
+
+APPROVED FOR PARTIAL ARCHIVE. No full-gap theorem or PR approval.
+
+LinearBudget.lean exactly contains the reviewed Reuse prefix and unchanged
+LinearBudgetWrappers.txt. The new negative-leaf induction charges only OR
+gates: a false AND can be replaced in the support argument by one false
+operand, whereas expanding an OR costs at most one additional root. For
+linear outputs on sets intersecting pairwise in at most one point, charged
+OR pools are disjoint because each charged support has cardinality above one.
+This gives sum(|S_i|-1) <= circuit size under Monotone2 and ReadsBack, hence
+fourteen gates for seven exact triple-OR outputs. It excludes the proposed
+thirteen-gate shared-neighbourhood subroute, not arbitrary Fano graph circuits.
+Wrapper SHA256: f444ce39d899a7a52ba515913b1ce63deec1d15afc7143c71d4ac3004007a24b.
+Source imports/namespaces are permitted; no forbidden constructs or credentials
+found. Reported build exit was zero; captured diagnostics have warnings only.
+
+C4FreeCensus5.py is local-only and credential-free. Exhaustive recursion checks
+5-by-5 bipartite incidence matrices with exactly twelve edges, no four-cycle,
+and the fixed diagonal matching present. Edge-count pruning is sound. Canonical
+forms enumerate all row permutations and sort columns, so equivalence preserves
+the bipartition. The captured JSON reports 260 such labelled matrices, divided
+into two classes of 20 and 240. This is not a census of all labelled C4-free
+graphs, or of matrices without the fixed-diagonal condition, and is Python
+evidence rather than a Lean certificate.
+Script SHA256: eda2faefe7c10b7d3e8892c754bc5b50088d679b778d8fd41cadc2fe47c9a8e0.
+Only this review artifact was written.
