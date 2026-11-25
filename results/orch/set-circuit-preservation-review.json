@@ -1,0 +1,22 @@
+{
+  "reviewed_at": "2026-11-25T14:45:24.118163+00:00",
+  "reviewer": "toolchain",
+  "verdict": "PASS",
+  "safe_files": [
+    {
+      "path": "results/orch/lemmas/audit_set_circuit.py",
+      "sha256": "6b0314016cb173d4b19e9e51e9282f9d00a5c818721d8eb5775af01b53ead641",
+      "bytes": 1840
+    },
+    {
+      "path": "results/orch/lemmas/set-circuit-independent-audit.json",
+      "sha256": "da1bd74a3c801c1c6214910a233070651e50b5a9e6359693e3c4bf8bf7d7e297",
+      "bytes": 896
+    }
+  ],
+  "checks": [
+    "Source uses pure finite integer-set enumeration, standard library only, no network/environment credentials, writes only fixed scratch report.",
+    "Rerun exit0 with complete stdout/stderr captured; output report byte-identical.",
+    "Counts1,15,189,2060 and maximum goals0,1,2,3 verified. Explicitly finite Python result, no Lean theorem or guarded lower-bound claim."
+  ]
+}

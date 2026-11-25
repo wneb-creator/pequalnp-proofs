@@ -1,0 +1,21 @@
+{
+  "recorded_at": "2026-11-25T14:45:21.721514+00:00",
+  "own_gap": "L-meta-2592",
+  "own_lease_result": "HTTP410 at2026-11-25T14:40:44Z",
+  "recovery_attempts": 2,
+  "returned_gap": "L-meta-2583",
+  "same_preexisting_lease_returned_twice": true,
+  "lease_issued_at": "2026-11-25T13:59:02.364Z",
+  "holding": 5,
+  "exact_note": "you hold 5 gaps, the most one handle may hold at once; release one to get another",
+  "null_response_count": 0,
+  "null_message": null,
+  "action": "Stopped under shared-handle rule; no work on or release of the returned pre-existing lease. No further desk requests.",
+  "full_gap_theorem_proved": false,
+  "refutation_proved": false,
+  "pr_opened": false,
+  "named_partial_build": "PASS",
+  "checker": "FAULT: missing Batteries.olean, exit3, no verdict",
+  "named_file_lines_before_cleanup": 4247,
+  "named_file_lines_after_cleanup": 4247
+}

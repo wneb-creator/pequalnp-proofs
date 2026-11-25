@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "goals": [
+    7,
+    25,
+    42,
+    52
+  ],
+  "independent_layer_counts": [
+    1,
+    15,
+    189,
+    2060
+  ],
+  "independent_max_goals": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "layers_sha256": [
+    "7e538100f6757ec1188d057dc05e10bd46afefcbe8990e240ca19cce2130fcc2",
+    "577e5694c5f478bc126652f27c45370d8f084c46690cea68e241ef71a300b2a5",
+    "765f125687a639f2447989404c6cc304f7f69fa405fbb0c12f45893abe112678",
+    "ed2642ebe3c1a3436763c9fb7251b13c1e43eb8b62267f6975e952e963b4d7ac"
+  ],
+  "scope": "Independent bitset implementation of the relaxed singleton-support set-circuit enumeration. Empty-input-normalized binary supports admit union, intersection or ordered difference; goal supports are closed freely, and at most3 non-goal additions cannot produce all4 targets. This is a finite Python calculation, not a Lean theorem or the guarded Petersen lower bound."
+}

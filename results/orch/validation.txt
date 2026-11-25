@@ -252,3 +252,11 @@ All12 follow-up support files independently reviewed by toolchain and hash-match
 Sub-agents:6 (library/decomposition; proof/normalization; toolchain/review; counterexample/SAT; few-NOT/SAT audit; structural lower-bound search)
 TIMING total=57.1 subagents=6
 Timer diagnostic: the manual14:36 renewal wrote a Unix timestamp where the timer expected an ISO timestamp; the timer subsequently exited with ValueError. This automation error is distinct from the desk410: the manual14:40 retry still occurred before the explicitly returned14:56 expiry. No further timer requests occurred.
+
+Final stop status 2026-11-25T14:45:21.721514+00:00
+Recovery requests returned the same pre-existing L-meta-2583 lease twice, issued13:59:02.364Z before our14:44 requests. User shared-handle rule requires stopping; no work on or release of that lease. No further desk requests.
+Exact desk note: you hold 5 gaps, the most one handle may hold at once; release one to get another
+Null responses:0; null message:none.
+L-meta-2592 remains unresolved. Named file4247lines188910bytes compiles; exact posted theorem absent. Local checker exit3 FAULT: missing Batteries.olean, no verdict. Cleanup pass skipped: no full proof/checker verdict; line counts before4247,after4247. No PR opened.
+Sub-agents:6 (library/decomposition; proof/normalization; toolchain/review; counterexample/SAT; few-NOT/SAT audit; structural lower-bound search)
+TIMING total=60.4 subagents=6

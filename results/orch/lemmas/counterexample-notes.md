@@ -31,3 +31,27 @@ Root observed a roughly two-core CPU quota. The two running normalized CaDiCaL p
 14:30:50 UTC: the ordered first-OR-edge case ended UNKNOWN after 1,200.58 seconds, without a model or UNSAT answer. Exact CNF bytes (gzip), raw solver output, wrapper output, and observed resource snapshot are archived with `counterexample-ordered-preservation.json`; prior completed queries are covered by `counterexample-preservation-manifest.json`. All four SAT queries in this strategy ended UNKNOWN.
 
 A generic 1-to-4-NOT driver (`counterexample_sat_complete.py`) is prepared but has not run. It retains free-false reads, equal binary operands, arbitrary dead gates, and an unrestricted first gate. Its 41-row initial CNF has 3,135 variables and 74,826 clauses. These structural restrictions match the checked canonical normal form developed by proof_strategy; a CNF-to-Lean correspondence and a certificate would still be required for any lower-bound result.
+
+## K4 cover algebra, stopped after the desk's 410
+
+These are paper derivations, not a new Lean result, and no new solver was launched for them.
+Write `(a,b,c,d)=(x0,x2,x8,x9)` for the independent set. Write
+`(A,B,C,D,E,F)=(x1,x6,x5,x7,x4,x3)` for the six complementary vertices,
+with complementary K4-pair matchings `(A,B)`, `(C,D)`, `(E,F)`.
+Then the Petersen function is
+
+`M OR a*p_a OR b*p_b OR c*p_c OR d*p_d`, where
+
+- `M = A*B OR C*D OR E*F`;
+- `p_a = A OR C OR E`;
+- `p_b = A OR D OR F`;
+- `p_c = B OR C OR F`;
+- `p_d = B OR D OR E`.
+
+Every matching product in M contains one literal of each p, so M implies all four p signals. Equivalently, whenever at least one of a,b,c,d is true, the matching term is already absorbed by the incidence terms.
+
+As the six Y variables vary, the residual functions of `(a,b,c,d)` are exactly thirteen possibilities: false; the six ORs of two coordinates; the four ORs of three coordinates; the OR of all four; and true. If Y contains a complementary pair, the residual function is true. Otherwise its K4 edges are pairwise intersecting, and the residual function is the OR of their incident vertices. That vertex set has size zero, two, three, or four (the four-vertex case comes from a three-edge star). Thus a design that completely summarizes Y before combining with X needs at least four summary bits. This is only an interface-count observation, not a circuit-size lower bound.
+
+A sufficient restricted synthesis target would be an eleven-gate Y-only circuit computing all five signals `(p_a,p_b,p_c,p_d,M)` and containing a NOT. Four AND gates and four OR gates would then combine them with X to give a nineteen-gate counterexample. The direct separate monotone implementation of those five signals costs thirteen gates, so this route needs two gates of sharing savings. No such prefix was found or searched after the 410; it remains only a possible smaller synthesis problem.
+
+The closest heuristic baseline correction above was independently verified on all 1,024 rows before the stop. All own solver processes had already exited. Work was frozen when root reported the lease's 410.

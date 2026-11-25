@@ -6,3 +6,5 @@
 2026-11-25T14:42:01.456457+00:00 Lease renewal returned HTTP410 at14:40:44 UTC, despite previous successful renewal expiry14:56:01.131Z. Exact diagnostic repeated once with curl-si; full response preserved. Root stopped timer and agents stopped long tasks. Preservation checkpoint before lease recovery.
 
 14:42:17 UTC timer exit polled: ValueError parsing the14:36 manual renewal timestamp, which was written in Unix rather than ISO format. Manual renewal14:40:44 returned410 before the previous explicit14:56 expiry; cause of server-side lease loss unknown.
+
+2026-11-25T14:45:21.721514+00:00 Recovery stopped: two requests returned the same pre-existing L-meta-2583 lease issued13:59:02.364Z. No work/release of it. No own live lease and no further desk requests under user shared-handle rule. Final preservation only.
