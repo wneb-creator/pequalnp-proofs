@@ -53,3 +53,6 @@ Sub-agents: nine external helper jobs (helper-1 through helper-9), plus local se
 - 2026-11-25T22:45:58Z: Pooled helper-1 classifier kernel build passed, with three standard-axiom audits. Exact literal reconstruction saves 102042 bytes (300592 to 198550) without changing the decoder.
 - 2026-11-25T22:49:00Z (approximately): Generic dead-gate pruning and its indexed C6 bridge passed kernel and standard-axiom audits. The current exported indexed theorem still takes the live C6 lower bound as an explicit premise.
 - 2026-11-25T22:54:06Z: The merged i3/i4 foundation, abstract six-birth counting lemma, and projected first-birth/zero-row disjointness all completed kernel builds and standard-axiom audits. Independent source reviews passed; the full desk statement remains open.
+
+- 2026-11-25T22:58:10Z: Ninth partial push confirmed at 53f0ed00c after an independent seven-file red-team/source review; no FINAL or PR.
+- 2026-11-25T23:02:38Z: Closed C6 strict-circuit lower bound passed kernel/standard-axiom audit, removing the live-bound premise from the earlier pruning artifact. Generic exit-comparison propagation also passed; both received independent root source review.
