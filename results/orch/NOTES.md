@@ -61,3 +61,41 @@ L_meta_670 already packs its finite-search data: removing line comments and blan
 ## status_review: second partial review
 
 Reviewed changes after501d6e75 adding petersenEdges, vertex_cover_size, minimum_vertex_cover, independent_set_size, edge_eq_false_iff, and false_input_support_size. The Finset contains exactly the posted15edges. Cover bound6 follows the two disjoint odd5-cycles; explicit witness {1,3,4,5,6,7} covers every edge. Complement reasoning correctly bounds independent sets by4, and the Boolean bridge gives false-input support size<=4. No forbidden source tokens or new axioms; no change to theorem objective. PASS as additional PARTIAL results, subject to root Lean build.
+
+2026-11-25T13:05:33.211980+00:00: Generic `biclique_cover_size` also Lean-checked (scratch BicliqueCover.lean, exit0); preserved with all finite invariants in results/orch/lemmas/FiniteInvariants.lean. Any family of k complete bipartite subgraphs covering Petersen edges has k≥6: each biclique is a star, choose one center per family member, obtain a vertex cover of size≤k, apply mincover6. No circuit correspondence is assumed: intermediate AND outputs can contain extraneous pairs later removed by AND, so a separate normal-form argument is required.
+
+## proof_structure — checked binary-count partial
+
+Adapted the generic petersen_binary_lower development from L_meta_5238 (itself based on L_meta_2165/L_meta_1549), not merely its specialized final theorem. Standalone source results/orch/lemmas/BinaryLower.lean proves for every FanInTwo circuit computing the exact Petersen function: 15 + NotBracket.notCount C ≤ C.size. Consequently no circuit of size≤19 with≥5NOT gates computes it. This remains a PARTIAL: cases0–4NOT are open.
+
+Lean compilation completed with exit0; complete linter-only output is preserved in BinaryLower.compile.txt. The three custom datatypes were replaced with Sum Bool Nat, a product, and a conjunction predicate; all helper simp attributes are local. Independent review by lean_setup passed for source SHA2568f3f7098e38a6e84ee3f96515594eb165adfb88532e63dc26d7856cd72e19931.
+
+## status_review: backup artifact review
+
+Independent review: status_review
+FiniteInvariants.lean: PASS as a partial helper artifact. Checked cover>=6, independence<=4, false-input support<=4, common-neighbor<=1, bicliques are stars, and any biclique cover needs>=6 blocks. Helpers do not prove the target circuit lower bound. Plain-file restrictions pass; build checked separately.
+Search backup: PASS for preservation. Read all four programs and manifests/logs. No network or credential access in code; no credentials found in artifact text. Every stored manifest hash/bytecount matches. All programs concern the exact15edge Petersen function. Full1024row witness validation is present; search heuristics/UNSAT/UNKNOWN are explicitly not presented as a lower-bound proof. Initial stochastic weighted mismatch6 means six false negatives and no false positives.
+Automorphisms.lean and its full empty success log were preserved by its author for a separate independent review.
+
+## lean_setup: Live1024 verifier/extraction — 2026-11-25T13:08:10.636846+00:00
+
+Compiled exit0: results/orch/lemmas/Live1024.lean,1251lines61643bytes,SHA256 ff6605ddff5663cec2f175069edab7ad015c18e1f641da70d82b6151ec116e1b. Complete compiler output in Live1024.compile.txt. Uses only PEqualNP.Defs. No newdatatypes,instances,axioms,sorry,native_decide,bv_decide,strings,or rootnamespace escape.
+
+Adaptation from checked L_meta_670: retain generic source lines1–746 and768–1171 (width512→1024), regenerate teninputsignatures and fullPetersen truthtable(948positive,76negative rows), adapt table_eval and twoRoots/directSplit to10inputs and19totalgates. Exact Live semantics match library_route: fresh proper output from two distinct live operands, optionalretention of either operand, signed opsAND/OR/ANDNOT/NOTAND, freecomplement normalization atrow0. Included Reach,Run,projected_bound,list_run,Lower,Impossible,enum_step,Sep/cover_required,Slice/poolCut_sound.
+
+Top conditional theorem directSplit: excluding monoLive≤19 and signedLive≤18 excludes≤19gate circuits. This is only a ready-to-fill certificate framework, not a checked lowerbound; neither exclusion is claimed. A signed18binary witness alone would not refute the original19totalgate claim unless its NOT cost is≤1. No Forest packing or cofactorlowerbounds are included yet.
+
+## status_review: conditional bridge review
+
+Independent Bridge.lean review by status_review: PASS as partial conditional bridge.
+The glued circuit evaluates the first gate, the original tail, then OR(u,v), with outputindex11+C.size equal to the final appended wire. FanInTwo is inherited and size=C.size+2<=19. Exact graph expression matches postedPetersen. cover_gives_circuit has the correct orientation of Boolean equality. missed_of_no_circuit uses soundness plus failure of existential to produce exact coverage, contradicting its explicit lower-bound hypothesis. It does not prove that lower-bound hypothesis and does not claim the target theorem. No forbidden source tokens/newaxioms. Full compilelog preserves the queuewaitmessage; root reports compilerexit0.
+
+Counterexample update at2026-11-25T13:08Z: initial stochastic run completed2,120,500,000 evaluations (8,482 restarts), best weighted error6, exactly Petersen missing one edge. Global SAT firstAND-edge and firstNOT-input each timed out UNKNOWN at600 seconds. From-scratch20-gate monotone positive control likewise timed out120 seconds, showing general synthesis is too hard for this encoding. Fixed20 controls are SAT. Source and complete finished logs+SHA256 manifest are now in results/orch/search/. Local incrementalSAT is still running; no full19-gate witness.
+
+## status_review: cofactor search certificates
+
+Implemented search-side cofactor pruning in scratch cofactor_prune.py, coordinated with library_route. The exact-Live projected_bound counts every live root made constant (unlike Lower_slice on an arbitrary available pool, which requires essentiality). A paid replay of the projected prefix supplies the remaining live roots; aliases, constant outputs, and dead replay gates are removed. Cuts use lower+constant_mass>remaining+paid. Transported L_meta_670 bounds give16(monotone)/15(free-signed) for every vertex-zero cofactor and11 in bothmodes for vertex-one (three essential neighbor literals plus a six-cycle lower8). Extracting known383/known511 and their checked transports gives tight star-cover bounds for all<=8vertex inducedPetersen subgraphs; the ten9vertex signed bounds are onebelow star-cover upper16.
+
+The65restriction version includes10single-zero,10single-one,45double-zero cofactors. It passes no-false-prune checks on all21states of the explicit20gate circuit in bothmodes. Constructive paid replays additionally passed2000random checks. Directonegate synthesis seeds did not eliminate any of the first1000depth7survivors (2.69seconds), so that optimization has no demonstrated benefit. These Python bounds/cuts are search aids; new target Lean certificates still required.
+
+Live1024 count-extension 2026-11-25T13:11:57.314814+00:00: results/orch/lemmas/Live1024Count.lean compiled exit0, SHA256 686e0602a87a99ee2fed49ec3809d8e99cff0227d6b5664eb6e42b7f620302f0. Adds only circuit_live and circuit_live_signed to prior checkedframework; exposes exact countP(nonNOT) budget without19gateassumption. Full compilelog preserved. Original reviewedLive1024copy left unchanged. This enables proof_structure to combine projected_bound with ninevertexsignedlower15 and derive fullPetersenbinarylower16.

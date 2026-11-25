@@ -1,0 +1,50 @@
+{
+  "search.cpp": {
+    "sha256": "0b6cbbf24d1399c3ed26fc056f71805acfb7af997b8981d55b20a6f7b17cb9bd",
+    "bytes": 3740
+  },
+  "synth.py": {
+    "sha256": "56ebf402d9eea13401b6fcc4a04e445232ed236f68c1701bb702a52ca64a5194",
+    "bytes": 6642
+  },
+  "local_sat.py": {
+    "sha256": "56a23caeaea1886874cf249c225c6e09a0d908dda2267f8a08298082b99db3d8",
+    "bytes": 5169
+  },
+  "cadical_wrap.cpp": {
+    "sha256": "b70954ee65e9a6c72b4b0ff632b579e3b5125eeccb5a980be877b51c7672a790",
+    "bytes": 1008
+  },
+  "seed20.json": {
+    "sha256": "8a334a666a2bc8505fd1acdd48774b37ef036c238d8f6dbd5dc36cc2f6852061",
+    "bytes": 461
+  },
+  "search-log.txt": {
+    "sha256": "f192a17e846cab665c969bad94e235b0ba789197bc536a0de1a989a58770a9f2",
+    "bytes": 1478
+  },
+  "sat20-control-run.txt": {
+    "sha256": "3fd05f519d735f2cdbe6dc3a958b4013ef6a47482d91567b0f491bf3b5ec3a42",
+    "bytes": 90
+  },
+  "sat-andedge-run.txt": {
+    "sha256": "66654ce3145dff3ebdb7a47592c8cabaa79da7efac2770e55052b6a367436a74",
+    "bytes": 89
+  },
+  "sat-not-run.txt": {
+    "sha256": "3eb9963d600b4880ff98319773609a4b962413e476cbbccf7d8e58e4ffca6ab4",
+    "bytes": 89
+  },
+  "sat-andedge/round0.log": {
+    "sha256": "4003d6f4040cdb8fba1d0813154e0ec807dad4cf531fe8314a662b5026d9bf83",
+    "bytes": 27774
+  },
+  "sat-not/round0.log": {
+    "sha256": "359f9a1374277f5d590b5abd4d6aa72c8d2d88fa432401cc380462a0be5f6e79",
+    "bytes": 24940
+  },
+  "sat20-control/round0.log": {
+    "sha256": "b0cccd78f8e52801a36785442b62916c22a74ef317446ddbb928ab68034be987",
+    "bytes": 14280
+  }
+}

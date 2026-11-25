@@ -1,0 +1,13 @@
+Independent review: PASS for checked conditional partial artifact; not a lower-bound proof or exhaustive search certificate.
+Reviewer: finite_invariants
+Artifact: results/orch/lemmas/Live1024.lean
+SHA256: ff6605ddff5663cec2f175069edab7ad015c18e1f641da70d82b6151ec116e1b
+UTC: 2026-11-25T13:09:53.758277+00:00
+
+Verified byte equality with the compiledscratch and the author-reported exit0 complete log (linter warnings only). Compared all reused source against L_meta_670: prefix lines1–746 differs only by namespace, width512→1024 and removed standalone comments; generic lines754–1171 differ only by width and Fin9→Fin10; final lines6111–6186 differ only by dimension, budgets15/14→19/18, neighbor witness list and local name suffix removal. All three comparisons matched after whitespace normalization.
+
+Independently recomputed all1024 rows: ten input bit-vectors are exactly the coordinate projections, graph bit-vector is exactly the fifteen posted Petersen edges, with948 positive and76 negative rows. The explicit edge function has those same fifteen ordered pairs. Neighbor witnesses isolate each of ten inputs. Data widths are1024 throughout.
+
+Live is a recursively defined proposition using existing Mathlib types. The copied circuit extraction and truth-table semantics retain the prior proof. The signed mode grants free complementation but counts non-NOT binary gates, and the split lowers its budget to18 only after proving at least one NOT exists; monotone mode retains19. directSplit assumes impossibility of every monotone Live run≤19 and every signed Live run≤18. Neither assumption is proved in this artifact. No Forest, complete exhaustion certificate or cofactor lower-bound certificate was transplanted.
+
+No forbidden strings, sorry, native_decide, new axioms, custom instances/data types, attributes, code-running declarations or external imports were found. Only permitted scoped limit options occur. The artifact has helper theorem declarations inside its namespace and no main posted theorem; any eventual PR integration should preserve helper scope and exact final posted statement. Source provenance is L_meta_670, whose original comments credit L_meta_2446, 0xshuzo, PressF10, zakpgrove and other contributors; that provenance should remain in delivery notes.

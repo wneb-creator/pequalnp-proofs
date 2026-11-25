@@ -1,0 +1,9 @@
+Independent review: PASS for checked partial artifact; this is not a proof of the posted lower bound.
+Reviewer: finite_invariants
+Artifact: results/orch/lemmas/Automorphisms.lean
+SHA256: 57ef8ced98c54e6c69133b7110e16c22708f46664a74723041ad02967f1d154f
+UTC: 2026-11-25T13:07:57.376161+00:00
+
+The edge definition exactly matches the target file after whitespace normalization. Each table row is checked to be a bijection of Fin10, maps vertex9 to the requested vertex, and preserves the full fifteen-edge Boolean expression for every assignment. The edge-invariance proof uses only definitional simplification and Boolean associativity/commutativity; finite bijection/last-vertex claims use kernel-safe decide. There are no hidden hypotheses or altered circuit semantics.
+
+Source agrees byte-for-byte with compiledscratch. Author reports compiler exit0 and the retained complete compiler log is empty. The artifact uses only Mathlib, a correctly named helper namespace, definitions and lemmas, allowed scoped resource limits, and no forbidden strings, axioms, sorry, native_decide, custom instances, attributes, or code-running declarations. It remains a partial helper file with no posted main theorem, as intended for the checkpoint.

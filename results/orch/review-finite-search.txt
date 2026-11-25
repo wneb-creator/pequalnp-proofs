@@ -1,0 +1,4 @@
+Independent review: status_review
+FiniteInvariants.lean: PASS as a partial helper artifact. Checked cover>=6, independence<=4, false-input support<=4, common-neighbor<=1, bicliques are stars, and any biclique cover needs>=6 blocks. Helpers do not prove the target circuit lower bound. Plain-file restrictions pass; build checked separately.
+Search backup: PASS for preservation. Read all four programs and manifests/logs. No network or credential access in code; no credentials found in artifact text. Every stored manifest hash/bytecount matches. All programs concern the exact15edge Petersen function. Full1024row witness validation is present; search heuristics/UNSAT/UNKNOWN are explicitly not presented as a lower-bound proof. Initial stochastic weighted mismatch6 means six false negatives and no false positives.
+Automorphisms.lean and its full empty success log were preserved by its author for a separate independent review.

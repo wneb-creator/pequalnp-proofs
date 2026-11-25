@@ -1,0 +1,3 @@
+round 0 rows 91 vars 7341 clauses 182422
+solver exit 0 elapsed 120.48915534900004
+UNKNOWN
