@@ -1528,3 +1528,77 @@ Command: lake env lean ../results/orch/lemmas/single_edge_repair_route.lean
 Exit: 0
 Complete stdout/stderr:
 
+
+Eleventh partial review: PASS for factor-substitution adapter, source applicability notes, and augmented data checkpoint. Augmented checkpoint proves only circuit data, size and Monotone2; no minimum/girth/function claim in that checkpoint. No full-statement verdict.
+
+factor_substitution_route.lean
+Command: lake env lean ../results/orch/lemmas/factor_substitution_route.lean
+Exit: 0
+Complete stdout/stderr:
+/workspace/pequalnp-proofs/results/orch/lemmas/factor_substitution_route.lean:56:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/factor_substitution_route.lean:58:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/factor_substitution_route.lean:103:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/factor_substitution_route.lean:104:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/factor_substitution_route.lean:106:25: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/factor_substitution_route.lean:117:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/factor_substitution_route.lean:118:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/factor_substitution_route.lean:120:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+
+
+augmented_prefix.lean
+Command: lake env lean ../results/orch/lemmas/augmented_prefix.lean
+Exit: 0
+Complete stdout/stderr:
+import took 5.29s
+simp took 418ms
+simp took 511ms
+cumulative profiling times:
+	attribute application 4.04ms
+	compilation (IR) 0.235ms
+	compilation (LCNF base) 5.15ms
+	compilation (LCNF impure) 1.56ms
+	compilation (LCNF mono) 4.11ms
+	congr simp thm 4.63ms
+	declTypeLinter 1.85ms
+	elaboration 67.8ms
+	fix level params 0.434ms
+	import 5.29s
+	initialization 42.5ms
+	instantiate metavars 0.168ms
+	interpretation 434ms
+	let-to-have transformation 0.0549ms
+	linting 3.77ms
+	module linting 0.0315ms
+	parsing 2.54ms
+	process pre-definitions 3.64ms
+	share common exprs 2.67ms
+	simp 929ms
+	tactic execution 3.58ms
+	tacticAnalysis 1.08ms
+	type checking 20.3ms
+	typeclass inference 77.6ms
+

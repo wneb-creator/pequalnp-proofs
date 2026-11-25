@@ -26,3 +26,7 @@
 - 2026-11-25T09:07:33.241791+00:00: batch8 pushed 3148473edd924d08b4e9ce2d633b7ddbc263a5ba; finite-OR-side sharing and SAT archives reviewed.
 
 - 2026-11-25T09:16:54.476636+00:00: batch9 pushed 9c39745d434a7de58470cb3a797d62486adac7b6; single-edge signature repair independently reviewed.
+
+- 2026-11-25T09:20:04.684720+00:00: second major replanning. Single-edge signature repair now reduces bad-AND count. Two protected-edge conditional aliases now give a compiled arbitrary-fan-out junk-reducing patch. New live work: protected existing-wire product generalization; graph conditions forcing such alias pairs; safe four-corner clusters; finite 12-vertex exchange certificate. Broader all-minima singleton-false claim is not assumed.
+
+- 2026-11-25T09:20:42.740404+00:00: factor adapter and augmented data checkpoint reviewed; lease latest expiry09:39:38UTC.
