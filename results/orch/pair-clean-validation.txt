@@ -1,0 +1,45 @@
+Pair-clean strengthening validation
+UTC 2026-11-25T04:16:45.624679+00:00
+Source SHA256 f11dae4c6cbb9015b5955502f927b886e671cede4fc310d911d0d9d6c3707ea3
+Posted-statement comparison: exact after removing added pairClean x1 conjunct.
+Imports: Mathlib.Tactic and PEqualNP.Defs only.
+Partial result only: pair-clean restriction remains.
+
+BUILD OUTPUT
+../results/orch/lemmas/pair_clean.lean:997:56: warning: This simp argument is unused:
+  sub_eq_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_insert, Finset.mem_singleton, sub_eq_iff_eq_add, add_comm, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+
+BUILD METRICS
+{
+  "exit_code": 0,
+  "wall_seconds": 30.632647982999515,
+  "user_seconds": 44.487281,
+  "system_seconds": 3.889785,
+  "max_rss_kib": 4436904
+}
+
+AXIOM CHECK OUTPUT
+/tmp/oec/pequalnp-pilot-65/toolchain/pair-clean-axioms.lean:997:56: warning: This simp argument is unused:
+  sub_eq_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Finset.mem_insert, Finset.mem_singleton, sub_eq_iff_eq_add, add_comm, add_zero]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+'PEqualNP.Outside.L_meta_2602_aux.PairClean.pair_clean_no_double' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+
+AXIOM CHECK METRICS
+{
+  "exit_code": 0,
+  "wall_seconds": 40.13059392000014,
+  "user_seconds": 52.1438,
+  "system_seconds": 8.94878,
+  "max_rss_kib": 4041264
+}

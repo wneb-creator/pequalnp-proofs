@@ -72,3 +72,5 @@ Finite search archive: 172 exact text artifacts, 2,324,918 bytes, manifest verif
 
 Pair-clean subcase: 1021 lines, Lean exit 0 in 30.6 seconds, peak 4,436,904 KiB. Independent review and axiom audit PASS. Proves exact posted no-existence statement with one additional pairClean conjunct, permitting higher-degree dirty assignments. Does NOT establish the missing pairClean premise.
 Local exact-statement checker ran on partial snapshot: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2602 (one lemma, one file: the theorem carries the module's name). Full output preserved. No proof PR is justified yet.
+
+Integrated canonical partial: 2874 lines, 137614 bytes; lake build exit 0, 58.10 seconds, peak 4667156 KiB. Independent merged-diff review PASS. The four-center shared-rectangle cover and pair-clean subcase are included. Main theorem remains unproved.
