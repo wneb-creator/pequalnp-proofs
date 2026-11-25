@@ -78,3 +78,7 @@ TIMING total=66 subagents=6
 General dominated-source lemma compiled exit0 and independently reviewed PASS by structural_bound and reduction_design. SuppliedAND, arbitrary pinmap/source index, source<=target, direct NOT consumer and monotone suffix imply>=19 seeded gates. Prefix may contain earlierNOTs. Partial only.
 Sub-agents:6
 TIMING total=69 subagents=6
+
+Further compiled components independently reviewed PASS: dominated_source_witness (arbitrary ignored operands, independent-input consequence); independent_guard (15 maximal zero rows suffice for monotone source); or_seed_conjunction (16 residual signed binary gates for two explicit suppliedOR conjunction shapes). No full gap claim.
+Sub-agents:6
+TIMING total=72 subagents=6
