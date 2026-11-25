@@ -1,0 +1,21 @@
+{
+  "solver": "https://github.com/arminbiere/cadical",
+  "solver_commit": "e4d9bd93af444c6575a908a24da2c4130cb2a1c7",
+  "status": "No counterexample found; restricted SAT negatives are not Lean checked.",
+  "sha256": {
+    "synth.cpp": "c1a392aee62f4cb875ba1a520f513c2e95f1e778782d880ead41012705ad2464",
+    "vector.cpp": "e1e5d8ca2d0fbb0f8bb3234ed704e7a286f4903de90af114b67b72cbd2ad004a",
+    "vector-dc.cpp": "5fa373443a737db6cd65ae8c506d89038881956b80c3ae11a10286398b814f4b",
+    "vector7.cpp": "6baea05f104016533305904fcec66ffa02ea66e7695746b88c48137845922f8c",
+    "seed952.txt": "2265bc7eab696aaa06c3e6eb768a09e8d1e4b84dcb5b1cf7dd5be299e9bfc3d9",
+    "vector13-planted.txt": "657d1bb290fa367a0f33ab79a7137fcf3a259b17acf866a2b3c8390084e60d50",
+    "vector7-14-planted.txt": "a8588e62e24bef6a1baaf5fa93cdc8e4921fb9a2a0c2d904162c10bf39f6e97e",
+    "planted20.stdout": "e83e66bc507867af4646cc711554d33dbd4f2c66129cbc1c0b126e5b1ae2daf4",
+    "repair952-budget4.stdout": "3861ee51b0837c82e0f66a61129879e8eec7c36b577d354422f886c76a0220d3",
+    "relocated-not-summary.txt": "565b9edffc63de8ea0ff662131ef4fb8405c48c31289c6635c1c2d58180d524c",
+    "vector13-planted.stdout": "25d446bbc953be955f99f23857dea85e71b41a21043d9994f3fa17b7de344f37",
+    "vector-dc11-ornonedge-onenot.stdout": "2b343729881b112ccab0e591cb33dfee1fb0fb60d72a3da5df711ae8dd1c6d55",
+    "vector-dc11-unrestricted-onenot.stdout": "b9128aae0a21b8d50e4ea8772af511fd304845955ad2307eddddb6892c832853",
+    "vector7-14-planted.stdout": "6097e7652d9628abbe89ba7baa34b7f2875f5655c21111594b19e79310b12b78"
+  }
+}

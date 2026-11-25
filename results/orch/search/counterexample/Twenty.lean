@@ -31,11 +31,15 @@ def f (x : Fin 10 → Bool) : Bool :=
 
 lemma size : C.size = 20 := rfl
 
-lemma fan : PEqualNP.MetaComplexity.FanInTwo C := by decide
+lemma fan : PEqualNP.MetaComplexity.FanInTwo C := by
+  intro g hg
+  simp only [C, List.mem_cons, List.not_mem_nil, or_false] at hg
+  rcases hg with rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl | rfl
+  all_goals simp
 
 set_option maxRecDepth 100000 in
 set_option maxHeartbeats 100000000 in
 lemma computes : ∀ x : Fin 10 → Bool, C.eval (List.ofFn x) = f x := by
-  decide
+  decide +kernel
 
 end PEqualNP.Outside.L_meta_2592_aux.Twenty

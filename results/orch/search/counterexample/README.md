@@ -8,6 +8,6 @@ No counterexample has been found. These programs and candidates are exploratory,
 * `structured.cpp`: exhaustive restricted search of all 81 implementations of a fixed eight-gate OR base, followed by at most three extra gates including a NOT. The complete log `structured.stdout` records 17,860,500 checks and no witness.
 * `exact20.txt`: a known 20-gate monotone Petersen circuit. Rows give output wire, operation, first input, and second input. Operations 0, 1, 2 mean AND, OR, NOT.
 * `best95*.txt`: approximate 19-gate candidates, not witnesses. The candidates `best951` and `best952` differ from the target on 4 of 1024 assignments. Candidate `best953` uses an active NOT and differs on 8 assignments.
-* `Twenty.lean`: candidate formalization of the known 20-gate upper bound; this agent has not compiled it yet.
+* `Twenty.lean`: formalization of the known 20-gate upper bound; Lean 4.36.0 accepted it with exit code 0 and no diagnostics. It does not prove L-meta-2592.
 
 Sources, candidate data, and logs are preserved for reproduction. Search failures are not lower-bound proofs.

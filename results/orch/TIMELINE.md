@@ -17,3 +17,5 @@
 2026-11-25T14:05:12.950787+00:00 not_cases completed kernel-checked overlapping-OR retention classification (480witnesses).
 2026-11-25T14:06:09.578275+00:00 First orchestration replan: narrow to OR-first +1/2NOT frontier; retain independent SAT and stochastic searches.
 2026-11-25T14:07:13.704984+00:00 Named Sixteen build passed; Projection/Overlap/NonOr reviewed; preservation batch ready.
+2026-11-25T14:08:04.647334+00:00 Lease renewed; expires 2026-11-25T14:28:03.798Z.
+2026-11-25T14:13:04.954468+00:00 Lease renewed; expires 2026-11-25T14:33:04.641Z.
