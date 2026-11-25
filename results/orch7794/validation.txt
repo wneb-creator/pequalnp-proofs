@@ -1,3 +1,6 @@
 Wrapper.lean compiled successfully with an explicit hypothesis supplying the existing L4033 exclusion. Full named target build and checker are pending.
 Sub-agents: semantic_proof, combinatorial_bound, counterexample, few_nots, toolchain_setup, status_review
 TIMING total=128 subagents=6
+2026-11-25T16:19:13.150845+00:00
+Full candidate preserved while build002 remains active. This is NOT a completed full-build or checker verdict.
+Candidate SHA256 d714efb590571bf8c86527409b8eee7b94ea4338d5a2271c3b87f98fe8cacc2e;521570bytes;6586lines. Exactstatement and unchanged inheritedhelpers independently reviewed.
