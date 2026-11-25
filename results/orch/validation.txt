@@ -21,3 +21,12 @@ Lines: 2276
 Claims: read1 upper N*(q+2)-1; unrestricted lower 3*N-1; failure size window.
 The posted theorem is not yet proved. Checker run pending.
 readk_criterion.lean: lake env lean, exit0, empty stdout/stderr, independent review PASS.
+
+Latest named partial: 2524 lines; lake build exit0, 18423 jobs.
+Independent red-team review: PASS for partial claims.
+Added exact prime-pair criterion, output prerequisites, failure_has_unread_pair.
+Checker on previous 2276-line partial: REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2583.
+Latest source still intentionally contains no final theorem. No proof PR is warranted.
+Cleanup pass not started: full checker acceptance has not occurred.
+Sub-agents: 7 total (status review, ReadK, library route, counterexample, normal forms, toolchain, delegated gate-count theory).
+TIMING total=14.87 subagents=7
