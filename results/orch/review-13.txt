@@ -1,0 +1,39 @@
+Independent review: PASS for partial preservation; full target theorem absent.
+
+inventory_independent_cost.lean: 2744 lines, 138451 bytes.
+SHA256 e507ba57f6e76621ed4ad72db2dbf5c2dd8d6ed3dc572a99b960651aa62076e9
+Exact reviewed independent_mix prefix. Read both new lemmas. Two distinct
+extra ORs with an empty raw operand are outside the split filter, yielding
+split.card+2 <= extra.card. The all-Ustar star-cover contradiction uses the
+master lower bound: positive centreless already suffices; zero centreless uses
+those two omitted credits. Independence, exact ordered junk pair, lift fixed
+point, nonempty graph and C4 freedom are explicit in the applicable lemmas.
+
+inventory_unused_mix.lean: 2837 lines, 142359 bytes.
+SHA256 b3e7808ebd08e0ab6657ca32785c67d3424dd55144605a8a7fed77e47b1d0a32
+Exact reviewed independent_cost prefix. Read all three new lemmas. An OR path
+to a dirty gate contains a direct OR reader; that reader is extra and has an
+empty raw operand. A reader of the latest junk gate is outside the given
+antichain, or an earliest-junk direct reader on its OR path is outside instead.
+Their equality would make both raw operands empty, contradicting the asserted
+nonempty raw support. Antichain, raw support, ordered exact junk pair,
+centreless and leastness assumptions remain explicit; no independence or lift
+assumption is silently introduced in the final antichain lemma.
+
+Both compile logs contain inherited warnings only; no errors; stderr empty.
+Format scans pass. Helper sources remain partial infrastructure only.
+
+guarded_star_geometry_budget.lean: independently reviewed by proof_inventory,
+including the new forest and mixed-budget prefix tails; PASS.
+2479 lines; SHA256 0d1c937297bcf8305bfea3044255dc6a6e22129fb1fdca2839606b9b793864a0
+Forest induction partitions selected leaves, with disjoint charged OR sets.
+Opposite monochrome root families exclude a further mixed OR. The final
+overlap geometry derives r-W and t-Q adjacency from the explicit cleaner
+condition; bipartition supplies the required monochromes, and mixed P provides
+the extra charge. Actual W roots are explicit, avoiding an assumption that
+every abstract cleaner set has a circuit wire. Compile logs have only the
+inherited warning and empty stderr. Scope and format pass.
+
+No desk or git mutations by reviewer.
+
+Additional frozen artifact review: restriction agent cleared structural_operand_antichain and structural_operand_normal_form; toolchain cleared structural_overlap_top SHA256b73b6e6c16752717c9c0b7128b3ca0bca0f97bd17d3784536492761336cec394. Inventory cleared guarded_reuse_package SHA256295156d293908cf3550a7392e8a9ac0bf9598d70272bfb1f5a08101dcdffb406; old-top reuse remains an explicit caller obligation. All compiled.

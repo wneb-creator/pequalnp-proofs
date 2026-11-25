@@ -48,3 +48,4 @@
 - 2026-11-25T19:56:37+00:00: toolchain agent compiled multi-root OR forest and mixed-color guarded-star budgets.
 
 - 2026-11-25T19:58:09+00:00: toolchain compiled singleton-overlap geometry-to-forest budget wrapper and reviewed independent overhead/local top exceptions.
+- 2026-11-25T20:01:20.881850+00:00: lease renewed; expires 2026-11-25T20:21:20.170Z.
