@@ -26,3 +26,5 @@
 - 2026-11-25T04:23:44.336128+00:00: concrete literal-filter double-star repair compiled, independently reviewed and preserved. Global shape extraction remains unresolved.
 
 - 2026-11-25T04:33:13.054324+00:00: preserved checked common-factory graph restriction. Joint-pivotal repair is the new main proof route; full result still unresolved.
+
+- 2026-11-25T04:35:28.041527+00:00: reviewed and preserved pivotal-edge normalization, conditional joint-pivotal replacement, explicit P4 comparison, and search3 archive. Global combinatorial repair remains unresolved.

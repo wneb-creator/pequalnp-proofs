@@ -1,0 +1,462 @@
+{
+  "graph": "sharedpivotalc5",
+  "n": 5,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "gate_count": 9,
+  "returncode": 10,
+  "elapsed": 3.5101430416107178,
+  "star_bound": 7,
+  "forced_dirty": false,
+  "forced_unowned": true,
+  "all_owned": false,
+  "singleton_safe": false,
+  "sound_ands": false,
+  "unsound_and": false,
+  "encoding_version": 3,
+  "canonical_first": false,
+  "minimal_pruning": true,
+  "shared_or_witness": true,
+  "nonstar_unowned": true,
+  "pivotal_gates": true,
+  "gates": [
+    [
+      "and",
+      0,
+      1
+    ],
+    [
+      "or",
+      0,
+      3
+    ],
+    [
+      "or",
+      1,
+      3
+    ],
+    [
+      "or",
+      1,
+      6
+    ],
+    [
+      "and",
+      4,
+      6
+    ],
+    [
+      "and",
+      2,
+      8
+    ],
+    [
+      "or",
+      5,
+      10
+    ],
+    [
+      "and",
+      7,
+      11
+    ],
+    [
+      "or",
+      9,
+      12
+    ]
+  ],
+  "all_inputs_validated": true,
+  "ownership": [
+    {
+      "gate": 0,
+      "edges": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "gate": 4,
+      "edges": [
+        [
+          0,
+          4
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "gate": 5,
+      "edges": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "gate": 7,
+      "edges": []
+    }
+  ],
+  "singletons": [
+    {
+      "gate": 0,
+      "vertices": []
+    },
+    {
+      "gate": 4,
+      "vertices": []
+    },
+    {
+      "gate": 5,
+      "vertices": []
+    },
+    {
+      "gate": 7,
+      "vertices": []
+    }
+  ],
+  "shared_or_certificates": [
+    {
+      "unowned_and": 7,
+      "shared_or": 1,
+      "other_and": 4
+    }
+  ],
+  "positive_signatures": [
+    {
+      "gate": 0,
+      "edges": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "gate": 1,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "gate": 2,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "gate": 3,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "gate": 4,
+      "edges": [
+        [
+          0,
+          4
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "gate": 5,
+      "edges": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "gate": 6,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "gate": 7,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "gate": 8,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    }
+  ],
+  "pivotal_witnesses": [
+    {
+      "gate": 0,
+      "lost_edges": [
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "gate": 1,
+      "lost_edges": [
+        [
+          0,
+          4
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "gate": 2,
+      "lost_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "gate": 3,
+      "lost_edges": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "gate": 4,
+      "lost_edges": [
+        [
+          0,
+          4
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "gate": 5,
+      "lost_edges": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "gate": 6,
+      "lost_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "gate": 7,
+      "lost_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "gate": 8,
+      "lost_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          4
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    }
+  ]
+}

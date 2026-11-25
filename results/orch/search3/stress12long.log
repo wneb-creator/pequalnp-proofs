@@ -1,0 +1,1 @@
+graph file:/tmp/oec/pequalnp-pilot-66/subdivided-k4.json name stress12long gates 12 group 8 prefix_nodes [1, 4, 26] extra_clauses 610 minimal_pruning False

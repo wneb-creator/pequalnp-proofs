@@ -85,3 +85,14 @@ ClassIteration/ClassCover/ClassPrefix are prerequisites subsumed by CleanClassRe
 Concrete two-edit repair under explicit literal-filter shape, existing AND-free OR factor, neighborhood and OR-output-path hypotheses. Preserves size, minimality, function and unaffected ownership; repairs the two selected gates. Full statement remains unproved; repository checker not run on partial artifacts.
 
 2026-11-25T04:33:13.054324+00:00 SharedFactoryRestriction.lean:126 lines; Lean exit0, empty full log shared-factory-restriction-build.log; independent review PASS; SHA256 2a3f58092e16ed82bc638800934f2812203e82f8c9345325b3b8e296a4a8ea76. Conditional common-OR-factory geometry only, with explicit sound-filter hypotheses. No full theorem or repository-checker acceptance.
+
+2026-11-25T04:35:28.041527+00:00 joint-pivotal batch and search archive3
+SingletonPivotal.lean: Lean exit0; independent review PASS; SHA256 13386fd89aecfbacbfb998db3f17ad12389597289c3e3816ea3235741c239428; full log singleton-pivotal-build-002.log.
+JointPivotalClass.lean: Lean exit0; independent review PASS; SHA256 ce09d96de2806491812925555ee94bc80a6182fa3f583b39b02557ea0968725d; full log joint-pivotal-build-003.log.
+PivotalNormalForm.lean: Lean exit0; independent review PASS; SHA256 359c5b36eee4719de9cac501c647175b8d5f22d241a09555ce5e3bd00d78d080; full log pivotal-normal-form-build.log.
+JointPivotalReplacement.lean: Lean exit0; independent review PASS; SHA256 9f9a749779039a9d88a4c8a87ccac3c18a4cfbe31a085cb9b38f93d9ea7ed9bd; full log joint-pivotal-replacement-001.log.
+P4FixedBasis.lean: Lean exit0; independent review PASS; SHA256 5f63edc73bffca8f88210c8e450e1393df2f6d8f5cff46928ad20831f31ba2b6; full log p4-fixed-basis-small-build.log.
+PivotalNormalForm gives a minimum circuit with at least two pivotal edges per unowned AND. JointPivotalReplacement requires an explicit clean circuit fitting the deleted class budget; existence of that class remains open here. P4FixedBasis proves explicit examples only, not the abandoned universal fixed-basis lower bound. Repository checker not run on partial artifacts; exact posted theorem remains unproved.
+Search3:104 files,8,600,292 bytes; manifest SHA256 5e7ee6bdcbaf492552c93892966c7ccafc50ca2b14b0f31af552525e2db08a7a. Independent review validated hashes, six complete witness truth tables, ownership, pivotal profiles and joint-class enumeration. Petersen600s and stress1200s searches UNKNOWN; interrupted attempts labeled. Restricted SAT UNSAT results are not full Lean lower bounds.
+Sub-agents: six; independent review, minimality, normal forms, counterexample search, algebraic replacement, ownership rewrites.
+TIMING total=69.9 subagents=6

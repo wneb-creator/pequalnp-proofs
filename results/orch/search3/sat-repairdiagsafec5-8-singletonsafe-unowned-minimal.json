@@ -1,0 +1,141 @@
+{
+  "graph": "repairdiagsafec5",
+  "n": 5,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "gate_count": 8,
+  "returncode": 10,
+  "elapsed": 0.21910548210144043,
+  "star_bound": 7,
+  "forced_dirty": false,
+  "forced_unowned": true,
+  "all_owned": false,
+  "singleton_safe": true,
+  "sound_ands": false,
+  "unsound_and": false,
+  "encoding_version": 2,
+  "canonical_first": false,
+  "minimal_pruning": true,
+  "gates": [
+    [
+      "or",
+      0,
+      2
+    ],
+    [
+      "or",
+      0,
+      3
+    ],
+    [
+      "and",
+      1,
+      5
+    ],
+    [
+      "and",
+      3,
+      5
+    ],
+    [
+      "and",
+      4,
+      6
+    ],
+    [
+      "and",
+      2,
+      8
+    ],
+    [
+      "or",
+      7,
+      10
+    ],
+    [
+      "or",
+      9,
+      11
+    ]
+  ],
+  "all_inputs_validated": true,
+  "ownership": [
+    {
+      "gate": 2,
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "gate": 3,
+      "edges": [
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    {
+      "gate": 4,
+      "edges": [
+        [
+          0,
+          4
+        ],
+        [
+          3,
+          4
+        ]
+      ]
+    },
+    {
+      "gate": 5,
+      "edges": []
+    }
+  ],
+  "singletons": [
+    {
+      "gate": 2,
+      "vertices": []
+    },
+    {
+      "gate": 3,
+      "vertices": []
+    },
+    {
+      "gate": 4,
+      "vertices": []
+    },
+    {
+      "gate": 5,
+      "vertices": []
+    }
+  ]
+}

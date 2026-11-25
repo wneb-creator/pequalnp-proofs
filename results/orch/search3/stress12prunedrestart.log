@@ -1,0 +1,2 @@
+graph file:/tmp/oec/pequalnp-pilot-66/subdivided-k4.json name stress12prunedrestart gates 12 group 8 prefix_nodes [1, 4, 26] extra_clauses 610 minimal_pruning True
+{"graph": "file:/tmp/oec/pequalnp-pilot-66/subdivided-k4.json", "n": 8, "edges": [[0, 3], [0, 4], [0, 6], [1, 2], [1, 5], [1, 6], [2, 4], [2, 7], [3, 5], [3, 7]], "gate_count": 12, "seconds_limit": 1200, "returncode": 0, "elapsed": 1200.0527486801147, "group_size": 8, "prefix_depth": 3, "minimal_pruning": true, "all_owned": false}

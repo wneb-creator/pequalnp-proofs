@@ -1,0 +1,43 @@
+{
+  "graph": "repairdiagc6",
+  "n": 6,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      5
+    ]
+  ],
+  "gate_count": 9,
+  "returncode": 0,
+  "elapsed": 45.04580116271973,
+  "star_bound": 8,
+  "forced_dirty": false,
+  "forced_unowned": true,
+  "all_owned": false,
+  "singleton_safe": false,
+  "sound_ands": false,
+  "unsound_and": false,
+  "encoding_version": 2,
+  "canonical_first": false,
+  "minimal_pruning": true
+}

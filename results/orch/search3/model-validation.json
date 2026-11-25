@@ -1,0 +1,66 @@
+{
+  "note": "Independent full truth-table, exact strict-cone ownership, shared-factor and forced-false pivotal witness validation.",
+  "models": [
+    {
+      "file": "sat-pivotalcalibrationc5-7-pivotal-sym.json",
+      "sha256": "b16c49cced34b92431b09f084b6214387e60d986ff01a71a60758c1bfac86fc9",
+      "n": 5,
+      "gates": 7,
+      "all_inputs_checked": 32,
+      "all_owned": true,
+      "every_gate_pivotal": true,
+      "verdict": "PASS"
+    },
+    {
+      "file": "sat-repairdiagc5-8-unowned-minimal.json",
+      "sha256": "8ca79058f91e8cdaa60abed52ebe58208a66e51d022c8d090162d7d0ec7613cc",
+      "n": 5,
+      "gates": 8,
+      "all_inputs_checked": 32,
+      "all_owned": false,
+      "every_gate_pivotal": true,
+      "verdict": "PASS"
+    },
+    {
+      "file": "sat-repairdiagsafec5-8-singletonsafe-unowned-minimal.json",
+      "sha256": "519b06de63de68e8aa71c6ef1c6e0e74e4bc4abf28d9c3ffe581820872d256c3",
+      "n": 5,
+      "gates": 8,
+      "all_inputs_checked": 32,
+      "all_owned": false,
+      "every_gate_pivotal": true,
+      "verdict": "PASS"
+    },
+    {
+      "file": "sat-shareddiagc5-8-unowned-minimal-shared.json",
+      "sha256": "77b09c4f477c1aa3963982c39d75ef80fefce73189575702c32f3be6a932a185",
+      "n": 5,
+      "gates": 8,
+      "all_inputs_checked": 32,
+      "all_owned": false,
+      "every_gate_pivotal": true,
+      "verdict": "PASS"
+    },
+    {
+      "file": "sat-sharedpivotalc5-9-unowned-minimal-shared-nonstar-pivotal.json",
+      "sha256": "02a94f0f00d7438a977a1faed85e7781d96871fc1e62bfb0f95e773c8e4af793",
+      "n": 5,
+      "gates": 9,
+      "all_inputs_checked": 32,
+      "all_owned": false,
+      "every_gate_pivotal": true,
+      "verdict": "PASS"
+    },
+    {
+      "file": "sat-sharedpivotalc6-10-unowned-minimal-shared-nonstar-pivotal.json",
+      "sha256": "7682b804d40a41cc880a9ebb8b72e0b07565dd55eb01e19e33f1ee8befca462c",
+      "n": 6,
+      "gates": 10,
+      "all_inputs_checked": 64,
+      "all_owned": false,
+      "every_gate_pivotal": true,
+      "verdict": "PASS"
+    }
+  ],
+  "verdict": "PASS"
+}

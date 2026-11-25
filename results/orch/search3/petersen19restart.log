@@ -1,0 +1,2 @@
+graph petersen name petersen19restart gates 19 group 120 prefix_nodes [1, 2, 24] extra_clauses 847 minimal_pruning False
+{"graph": "petersen", "n": 10, "edges": [[0, 1], [0, 4], [0, 5], [1, 2], [1, 6], [2, 3], [2, 7], [3, 4], [3, 8], [4, 9], [5, 7], [5, 8], [6, 8], [6, 9], [7, 9]], "gate_count": 19, "seconds_limit": 600, "returncode": 0, "elapsed": 600.01780128479, "group_size": 120, "prefix_depth": 3, "minimal_pruning": false, "all_owned": false}

@@ -1,0 +1,19 @@
+{
+  "reviewer": "rules_review",
+  "verdict": "PASS",
+  "encoder_sha256": "2da94cb1c8a6fc4d0f3f44e8a64902b5305393b8b412bb48a57f335a6fa863c2",
+  "wrapper_sha256": "d9d3d859d3aafeb95ecc3be27da94263430b7776876a82895f828031e936cc8e",
+  "scope": [
+    "disabled gate output fixed false",
+    "identical selected operands in modified simulation",
+    "six-clause gate relation checked on all16 assignments",
+    "disjunction requires at least one lost graph edge",
+    "every gate mathematical necessity supported by L_meta_2668.lost_edge"
+  ],
+  "limitations": [
+    "No end-to-end Lean CNF translation certificate",
+    "Other local pruning and normalizations remain separate",
+    "Exact-k necessity only applies if k is a true minimum",
+    "Encoding metadata omits pivotal/shared/nonstar flags; summary and replay commands preserve them"
+  ]
+}

@@ -1,0 +1,255 @@
+{
+  "note": "Replay commands preserve formula flags. Diagnostic caps are standardized to120 seconds and are not asserted to be their original caps. The original interrupted and completed long-target caps are recorded exactly. Use fresh output names to preserve archived logs.",
+  "commands": [
+    {
+      "working_directory": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/symmetry-search.py",
+        "--graph",
+        "file:/tmp/oec/pequalnp-pilot-66/subdivided-k4.json",
+        "--name",
+        "stress12long",
+        "--gates",
+        "12",
+        "--seconds",
+        "1200",
+        "--depth",
+        "3"
+      ]
+    },
+    {
+      "working_directory": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/symmetry-search.py",
+        "--graph",
+        "file:/tmp/oec/pequalnp-pilot-66/subdivided-k4.json",
+        "--name",
+        "stress12prunedlong",
+        "--gates",
+        "12",
+        "--seconds",
+        "1200",
+        "--depth",
+        "3",
+        "--minimal-pruning"
+      ]
+    },
+    {
+      "working_directory": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/symmetry-search.py",
+        "--graph",
+        "petersen",
+        "--name",
+        "petersen19long",
+        "--gates",
+        "19",
+        "--seconds",
+        "600",
+        "--depth",
+        "3"
+      ]
+    },
+    {
+      "working_directory": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/symmetry-search.py",
+        "--graph",
+        "petersen",
+        "--name",
+        "petersen19restart",
+        "--gates",
+        "19",
+        "--seconds",
+        "600",
+        "--depth",
+        "3"
+      ]
+    },
+    {
+      "working_directory": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/circuit-sat-shared.py",
+        "--graph",
+        "cycle5",
+        "--name",
+        "repairdiagc5",
+        "--gates",
+        "8",
+        "--seconds",
+        "120",
+        "--unowned-and",
+        "--minimal-pruning"
+      ]
+    },
+    {
+      "working_directory": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/circuit-sat-shared.py",
+        "--graph",
+        "cycle6",
+        "--name",
+        "repairdiagc6",
+        "--gates",
+        "9",
+        "--seconds",
+        "120",
+        "--unowned-and",
+        "--minimal-pruning"
+      ]
+    },
+    {
+      "working_directory": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/circuit-sat-shared.py",
+        "--graph",
+        "cycle5",
+        "--name",
+        "repairdiagsafec5",
+        "--gates",
+        "8",
+        "--seconds",
+        "120",
+        "--unowned-and",
+        "--minimal-pruning",
+        "--singleton-safe"
+      ]
+    },
+    {
+      "working_directory": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/circuit-sat-shared.py",
+        "--graph",
+        "cycle5",
+        "--name",
+        "shareddiagc5",
+        "--gates",
+        "8",
+        "--seconds",
+        "120",
+        "--unowned-and",
+        "--minimal-pruning",
+        "--shared-or-witness"
+      ]
+    },
+    {
+      "working_directory": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/circuit-sat-shared.py",
+        "--graph",
+        "cycle6",
+        "--name",
+        "shareddiagc6",
+        "--gates",
+        "9",
+        "--seconds",
+        "120",
+        "--unowned-and",
+        "--minimal-pruning",
+        "--shared-or-witness"
+      ]
+    },
+    {
+      "working_directory": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/circuit-sat-shared.py",
+        "--graph",
+        "cycle5",
+        "--name",
+        "sharedpivotalc5",
+        "--gates",
+        "9",
+        "--seconds",
+        "120",
+        "--unowned-and",
+        "--minimal-pruning",
+        "--shared-or-witness",
+        "--nonstar-unowned",
+        "--pivotal-gates"
+      ]
+    },
+    {
+      "working_directory": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/circuit-sat-shared.py",
+        "--graph",
+        "cycle6",
+        "--name",
+        "sharedpivotalc6",
+        "--gates",
+        "10",
+        "--seconds",
+        "120",
+        "--unowned-and",
+        "--minimal-pruning",
+        "--shared-or-witness",
+        "--nonstar-unowned",
+        "--pivotal-gates"
+      ]
+    },
+    {
+      "working_directory": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/symmetry-pivotal-search.py",
+        "--graph",
+        "cycle5",
+        "--name",
+        "pivotalcalibrationc5",
+        "--gates",
+        "7",
+        "--seconds",
+        "30",
+        "--depth",
+        "3",
+        "--pivotal-gates"
+      ]
+    },
+    {
+      "working_directory": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/symmetry-search.py",
+        "--graph",
+        "file:/tmp/oec/pequalnp-pilot-66/subdivided-k4.json",
+        "--name",
+        "stress12restart",
+        "--gates",
+        "12",
+        "--seconds",
+        "1200",
+        "--depth",
+        "3"
+      ]
+    },
+    {
+      "working_directory": "/workspace/pequalnp-proofs",
+      "argv": [
+        "python3",
+        "/tmp/oec/pequalnp-pilot-66/symmetry-search.py",
+        "--graph",
+        "file:/tmp/oec/pequalnp-pilot-66/subdivided-k4.json",
+        "--name",
+        "stress12prunedrestart",
+        "--gates",
+        "12",
+        "--seconds",
+        "1200",
+        "--depth",
+        "3",
+        "--minimal-pruning"
+      ]
+    }
+  ]
+}

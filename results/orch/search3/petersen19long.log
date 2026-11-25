@@ -1,0 +1,1 @@
+graph petersen name petersen19long gates 19 group 120 prefix_nodes [1, 2, 24] extra_clauses 847 minimal_pruning False

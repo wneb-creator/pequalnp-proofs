@@ -1,0 +1,5 @@
+graph repairdiagc6 n 6 edges [(0, 1), (0, 5), (1, 2), (2, 3), (3, 4), (4, 5)] alpha 3 star_bound 8
+tests 11 gates 9 dirty False
+variables 936 clauses 8704
+returncode 0 elapsed 45.04569101333618
+

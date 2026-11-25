@@ -1,0 +1,30 @@
+{
+  "observed_utc": "2026-11-25T04:08:39.522172+00:00",
+  "context": "Environment/tool refresh around04:02UTC; corresponding Python/CaDiCaL processes absent on04:08 inspection. No completed solver result.",
+  "runs": [
+    {
+      "tag": "sat-stress12long-12-sym",
+      "status": "INTERRUPTED_UNKNOWN",
+      "solver_verdicts": [],
+      "full_log_bytes": 68940,
+      "full_log_sha256": "dd210a599a1f1a2522409d45bc311354ada324f86c9ee75def39bff74f3f04e0",
+      "summary_written": false
+    },
+    {
+      "tag": "sat-stress12prunedlong-12-minimal-sym",
+      "status": "INTERRUPTED_UNKNOWN",
+      "solver_verdicts": [],
+      "full_log_bytes": 67630,
+      "full_log_sha256": "432db032672b0794c2b619ab6eb55876f58e3a35ce860fa142e29e2c791445b4",
+      "summary_written": false
+    },
+    {
+      "tag": "sat-petersen19long-19-sym",
+      "status": "INTERRUPTED_UNKNOWN",
+      "solver_verdicts": [],
+      "full_log_bytes": 69191,
+      "full_log_sha256": "b569344e967e6585dc155d509e4560e29e30a97283c4153b4951a0c7c4f50d54",
+      "summary_written": false
+    }
+  ]
+}
