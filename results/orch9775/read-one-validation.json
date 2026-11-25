@@ -41,12 +41,45 @@
       "path": "results/orch9775/l2237-build.stderr",
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       "bytes": 0
+    },
+    {
+      "path": "results/orch9775/lemmas/EdgeReadDeficit.lean",
+      "sha256": "b2ae397380d4892eec92a24d1b662e447f138b3cadc9954f8d4b23f51d26c678",
+      "bytes": 2273
+    },
+    {
+      "path": "results/orch9775/edge-deficit-checked.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/edge-deficit-checked.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/read-one-axioms.stdout",
+      "sha256": "cc56ae932e9357d507806f591b18e7ddddd3a7cef98d472669c0d31017a98728",
+      "bytes": 342
+    },
+    {
+      "path": "results/orch9775/read-one-axioms.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/orch9775/READ-ONE.md",
+      "sha256": "3c9b5d45c93ad81a2ae231ad57a3b02b8b7a8d227b629905008793b26e1fd724",
+      "bytes": 2658
     }
   ],
   "checks": {
     "GraphFacts": "Lean export exit0",
     "ReadOneFloor": "Lean export exit0",
-    "L_meta_2237": "lake build exit0"
+    "L_meta_2237": "lake build exit0",
+    "EdgeReadDeficit": "Lean export exit0, empty stdout and stderr",
+    "axiom_audit": "ReadOneFloor.twenty_five and graph facts use only propext, Classical.choice, Quot.sound"
   },
-  "scope": "Conditional floor25 for IsAO2 circuits satisfying semantic ReadK.IsReadK14C1. No unrestricted24-gate impossibility or solution of postedgap is claimed."
+  "scope": "Conditional floor25 for IsAO2 circuits satisfying semantic ReadK.IsReadK14C1. No unrestricted24-gate impossibility or solution of postedgap is claimed.",
+  "deficient_edge_scope": "Every exact IsAO2 candidate of size at most24 has at leastone posted edge with readsAtMost false. No unrestricted lower25 claim."
 }

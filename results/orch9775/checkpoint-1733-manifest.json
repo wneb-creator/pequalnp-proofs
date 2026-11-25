@@ -1,0 +1,50 @@
+{
+  "results/orch9775/lemmas/EdgeReadDeficit.lean": {
+    "bytes": 2273,
+    "sha256": "b2ae397380d4892eec92a24d1b662e447f138b3cadc9954f8d4b23f51d26c678"
+  },
+  "results/orch9775/lemmas/StrictNormalization.lean": {
+    "bytes": 3374,
+    "sha256": "e2772f25e353b633c663001dd92aa6411f29836c8f3f546808889de01b96c6b2"
+  },
+  "results/orch9775/edge-deficit-checked.stdout": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/edge-deficit-checked.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/strict-normalization-checked.stdout": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/strict-normalization-checked.stderr": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "results/orch9775/READ-ONE.md": {
+    "bytes": 2658,
+    "sha256": "3c9b5d45c93ad81a2ae231ad57a3b02b8b7a8d227b629905008793b26e1fd724"
+  },
+  "results/orch9775/read-one-validation.json": {
+    "bytes": 3123,
+    "sha256": "cf31c0f0508fd591537a5d56be12ae7a5f7b64dc105522f2ed5e88c7374bf5ce"
+  },
+  "results/orch9775/REVIEW-edge-read-deficit.md": {
+    "bytes": 1540,
+    "sha256": "39cf9b741915a9c14fe2759b84af116b7591c39d048618a6a07a3e5ff4debf2e"
+  },
+  "results/orch9775/REVIEW-strict-normalization.md": {
+    "bytes": 2715,
+    "sha256": "fe970f8e33884df9a3992d78c69a4bfe6c06e80dedf74912b331789d36710fee"
+  },
+  "results/orch9775/REVIEW-checkpoint-1727.md": {
+    "bytes": 1695,
+    "sha256": "7ededaaeeaf8d1e90266a2626f88631698c3b4c3ecec24510df5a34b42e06c48"
+  },
+  "results/orch9775/REVIEW-checkpoint-1733.md": {
+    "bytes": 1769,
+    "sha256": "eed38c5d7117c805ecb0ee33bb6a454f1287702eb2d6d1b5e316d59b410a288e"
+  }
+}

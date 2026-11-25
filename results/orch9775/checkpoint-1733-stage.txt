@@ -1,0 +1,14 @@
+results/orch9775/lemmas/EdgeReadDeficit.lean
+results/orch9775/lemmas/StrictNormalization.lean
+results/orch9775/edge-deficit-checked.stdout
+results/orch9775/edge-deficit-checked.stderr
+results/orch9775/strict-normalization-checked.stdout
+results/orch9775/strict-normalization-checked.stderr
+results/orch9775/READ-ONE.md
+results/orch9775/read-one-validation.json
+results/orch9775/REVIEW-edge-read-deficit.md
+results/orch9775/REVIEW-strict-normalization.md
+results/orch9775/REVIEW-checkpoint-1727.md
+results/orch9775/REVIEW-checkpoint-1733.md
+results/orch9775/checkpoint-1733-manifest.json
+results/orch9775/checkpoint-1733-stage.txt

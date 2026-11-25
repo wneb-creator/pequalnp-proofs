@@ -37,3 +37,12 @@ bound found only `propext`, `Classical.choice`, and `Quot.sound`.
 
 These are dependency-test sources: they import other helper modules and the
 existing Outside theorem. They are not a standalone one-file submission.
+
+`EdgeReadDeficit.deficient_edge` sharpens the consequence for search: any
+`IsAO2` circuit of size at most 24 computing the posted function must have one
+of the 19 posted edges `(u,v)` with `ReadK.readsAtMost C 14 [u.val,v.val] 1 = false`.
+Its helper proves from prime-implicant minimality that every prime implicant is
+an edge, so the conclusion has no additional READ-1 assumption. This module
+imports `ReadOneFloor` and can be exported after it using the same command form.
+Its successful compile produced empty `edge-deficit-checked.stdout` and
+`edge-deficit-checked.stderr`.
