@@ -1,0 +1,17 @@
+{
+  "utc": "2026-11-25T12:48:03.961443+00:00",
+  "verdict": "PASS independent source, exact polynomial, and proof-scope review",
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/IncidentGenerators.lean",
+  "source_sha256": "131dac5e0bc3c284a5b7de3b2ffa5ff1a441efa6d22d3dd2d99ed6a4ef39d194",
+  "lines": 241,
+  "checks": [
+    "All12 scalar polynomial bodies independently parsed and matched to the audited exact certificate input; binder order x0 throughx9 verified.",
+    "Permanent identity has exactly the12 degree2/3/4 coefficients in the correct parameter order.",
+    "Bivariate extraction evaluates hp at(t,t*z), extracts total degrees, then coefficients in z; no coefficients are skipped.",
+    "Tangent interpolation uses weights1/9,-1/9,-1/72,1/72, yielding entry sum0 from the permanent derivative6*entrysum.",
+    "Normalized reconstruction uses precisely symmetry, hollow H, tracezero V,V00=H01=1,V01=0 and the two-variable level condition.",
+    "The final theorem concludes only all12 polynomial coefficients vanish; it does not assume the unproved opposite-edge implication.",
+    "Format scan clean; options only scoped maxHeartbeats."
+  ],
+  "compile": "Child reports explicit exit0; no independent rebuild run during root exclusive build reservation."
+}

@@ -1,0 +1,42 @@
+{
+  "created_utc": "2026-11-25T12:47:18.324934+00:00",
+  "status": "Lean build PASS, source frozen",
+  "scope": "Normalized incident matrices imply exactly the first 12 polynomial generator equalities; reconstruction of H23, V23, V33 included. This does not prove opposite-edge vanishing or the original gap.",
+  "files": [
+    {
+      "path": "/workspace/pequalnp-proofs/results/orch/lemmas/IncidentGenerators.lean",
+      "bytes": 14185,
+      "sha256": "131dac5e0bc3c284a5b7de3b2ffa5ff1a441efa6d22d3dd2d99ed6a4ef39d194"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/incident-generators-build.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/incident-generators-build.stderr",
+      "bytes": 105,
+      "sha256": "7efed66024f9faaae7db1588d7e4c44c58f79c4acf858b37dd15a4da630b1b98"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/incident-generators-build.exit",
+      "bytes": 2,
+      "sha256": "9a271f2a916b0b6ee6cecb2426f0b3206ef074578be55d9bc94f6f3fe3ab86aa"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/net_normal_form/incident-generators-source-audit.json",
+      "bytes": 637,
+      "sha256": "4293b8e44169a6bea2026fc07a4c0ad3e19f4edc07023747eea2fcd580281d90"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/construct_search/rank1-certificate-conventions.json",
+      "bytes": 118416,
+      "sha256": "ec0dc37b0d4861cf17632d62571f9c278344f037f73cb985530b7a6def935ebd"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-78/root-algebra/rank1-generator-audit.json",
+      "bytes": 566,
+      "sha256": "ae639253feb366434351ab6e0b637a2230d041e654c886379b056a7270e6c060"
+    }
+  ]
+}
