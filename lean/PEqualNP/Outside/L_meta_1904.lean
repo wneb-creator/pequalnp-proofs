@@ -411,4 +411,301 @@ lemma roots_and_blocker_bound {n : ℕ} (C : Circuit) (mono : Monotone2 C)
   apply roots_rectangle_lower C mono (Pair u v) a b
   exact ⟨u, v, by simp [Pair], by simp [Pair], hu, hv⟩
 
+lemma roots_trace_patch_eq {n : ℕ} (pre post : List Gate) (g d : Gate)
+    (x : Fin n → Bool) (h : rootsVal pre g x = rootsVal pre d x) :
+    rootsTrace (pre ++ g :: post) x = rootsTrace (pre ++ d :: post) x := by
+  simp only [rootsTrace, List.foldl_append, List.foldl_cons]
+  change post.foldl rootsStep (rootsTrace pre x ++ [rootsVal pre g x]) =
+    post.foldl rootsStep (rootsTrace pre x ++ [rootsVal pre d x])
+  rw [h]
+
+lemma roots_mono_prefix (pre post : List Gate) (g : Gate) (out : ℕ)
+    (mono : Monotone2 ⟨pre ++ g :: post, out⟩) : Monotone2 ⟨pre, out⟩ := by
+  intro d hd
+  exact mono d (List.mem_append_left _ hd)
+
+lemma roots_true_context_mono (pre post : List Gate) (g : Gate) (out : ℕ)
+    (mono : Monotone2 ⟨pre ++ g :: post, out⟩) :
+    Monotone2 ⟨pre ++ ⟨GateOp.and, []⟩ :: post, out⟩ := by
+  intro d hd
+  simp only [List.mem_append, List.mem_cons] at hd
+  rcases hd with hd | rfl | hd
+  · exact mono d (List.mem_append_left _ hd)
+  · simp
+  · exact mono d (List.mem_append_right _ (List.mem_cons_of_mem _ hd))
+
+lemma roots_val_increasing {n : ℕ} (C : Circuit) (mono : Monotone2 C) (g : Gate)
+    (hop : g.op = GateOp.and ∨ g.op = GateOp.or) :
+    Increasing (fun x : Fin n → Bool => rootsVal C.gates g x) := by
+  intro x y hxy hx
+  have hm (i : ℕ) := roots_wire_increasing C mono i x y hxy
+  rcases hop with ha | ho
+  · simp only [rootsVal, ha, GateOp.eval, List.all_map, List.all_eq_true,
+      Function.comp_apply, id_eq] at hx ⊢
+    exact fun i hi => hm i (hx i hi)
+  · simp only [rootsVal, ho, GateOp.eval, List.any_map, List.any_eq_true,
+      Function.comp_apply, id_eq] at hx ⊢
+    obtain ⟨i, hi, hix⟩ := hx
+    exact ⟨i, hi, hm i hix⟩
+
+lemma roots_true_context_safe {n : ℕ} (G : SimpleGraph (Fin n))
+    (pre post : List Gate) (g : Gate) (out : ℕ)
+    (sound : ∀ x : Fin n → Bool,
+      rootsWire (pre ++ g :: post) x out = true → rootsHit G x) :
+    ∀ x : Fin n → Bool, rootsVal pre g x = true →
+      rootsWire (pre ++ ⟨GateOp.and, []⟩ :: post) x out = true → rootsHit G x := by
+  intro x hx hc
+  apply sound x
+  have heq : rootsVal pre g x = rootsVal pre ⟨GateOp.and, []⟩ x := by
+    simpa [rootsVal, GateOp.eval] using hx
+  have ht := roots_trace_patch_eq pre post g ⟨GateOp.and, []⟩ x heq
+  simpa only [rootsWire, ht] using hc
+
+lemma roots_context_blocker_bound {n : ℕ} (G : SimpleGraph (Fin n))
+    (pre post : List Gate) (g : Gate) (out : ℕ)
+    (mono : Monotone2 ⟨pre ++ g :: post, out⟩)
+    (sound : ∀ x : Fin n → Bool,
+      rootsWire (pre ++ g :: post) x out = true → rootsHit G x)
+    (u v : Fin n) (hnon : ¬ G.Adj u v) (hpair : rootsVal pre g (Pair u v) = true) :
+    ∀ x : Fin n → Bool,
+      rootsWire (pre ++ ⟨GateOp.and, []⟩ :: post) x out = true →
+      rootsHit G x ∨ ∃ w, x w = true ∧ (G.Adj u w ∨ G.Adj v w) := by
+  have hp := roots_mono_prefix pre post g out mono
+  have ht := roots_true_context_mono pre post g out mono
+  have hop : g.op = GateOp.and ∨ g.op = GateOp.or := by
+    simpa using (mono g (by simp)).1
+  exact blocker_bound G _ _
+    (roots_val_increasing ⟨pre, out⟩ hp g hop)
+    (roots_wire_increasing ⟨pre ++ ⟨GateOp.and, []⟩ :: post, out⟩ ht out)
+    (roots_true_context_safe G pre post g out sound) u v hnon hpair
+
+lemma rectangle_filter_dichotomy {n : ℕ} (G : SimpleGraph (Fin n))
+    (square : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d → G.Adj d a →
+      a = c ∨ b = d)
+    (f h : (Fin n → Bool) → Bool) (hf : Increasing f) (hh : Increasing h)
+    (safe : ∀ x, f x = true → h x = true → rootsHit G x)
+    (a b c d : Fin n) (hab : G.Adj a b) (hcd : G.Adj c d)
+    (hac : a ≠ c) (hbd : b ≠ d)
+    (had : f (Pair a d) = true) (hcb : f (Pair c b) = true)
+    (habh : h (Pair a b) = true) (hcdh : h (Pair c d) = true) :
+    (h (Pair a b) = true ∧ h (Pair a a) = false ∧ h (Pair b b) = false) ∨
+    (h (Pair c d) = true ∧ h (Pair c c) = false ∧ h (Pair d d) = false) ∨
+    ∃ u v, G.Adj u v ∧ h (Pair u u) = true ∧ h (Pair v v) = true := by
+  have cross_missing : ¬ G.Adj a d ∨ ¬ G.Adj c b := by
+    by_cases hadj : G.Adj a d
+    · right
+      intro hcbj
+      exact (square a b c d hab hcbj.symm hcd hadj.symm).elim hac hbd
+    · exact Or.inl hadj
+  rcases cross_missing with hnon | hnon
+  · obtain ⟨ha, hd⟩ := blocker_endpoints_false G f h hf hh safe a d hnon had
+    by_cases hb : h (Pair b b) = true
+    · by_cases hc : h (Pair c c) = true
+      · right
+        right
+        refine ⟨b, c, ?_, hb, hc⟩
+        apply SimpleGraph.Adj.symm
+        apply (hit_pair_iff G c b).mp
+        apply safe (Pair c b) hcb
+        apply hh (Pair b b) (Pair c b) _ hb
+        intro w hw
+        have hwb : w = b := by simpa [Pair] using hw
+        simp [Pair, hwb]
+      · exact Or.inr (Or.inl ⟨hcdh, Bool.eq_false_iff.mpr hc, hd⟩)
+    · exact Or.inl ⟨habh, ha, Bool.eq_false_iff.mpr hb⟩
+  · obtain ⟨hc, hb⟩ := blocker_endpoints_false G f h hf hh safe c b hnon hcb
+    by_cases ha : h (Pair a a) = true
+    · by_cases hd : h (Pair d d) = true
+      · right
+        right
+        refine ⟨a, d, ?_, ha, hd⟩
+        apply (hit_pair_iff G a d).mp
+        apply safe (Pair a d) had
+        apply hh (Pair a a) (Pair a d) _ ha
+        intro w hw
+        have hwa : w = a := by simpa [Pair] using hw
+        simp [Pair, hwa]
+      · exact Or.inr (Or.inl ⟨hcdh, hc, Bool.eq_false_iff.mpr hd⟩)
+    · exact Or.inl ⟨habh, Bool.eq_false_iff.mpr ha, hb⟩
+
+def PairLinear {n : ℕ} (gs : List Gate) (u v : Fin n) : Prop :=
+  ∀ k, rootsWire gs (Pair u v) k = true →
+    rootsWire gs (rootsPoint u) k = true ∨ rootsWire gs (rootsPoint v) k = true
+
+def PairMerge {n : ℕ} (pre : List Gate) (g : Gate) (u v : Fin n) : Prop :=
+  rootsVal pre g (Pair u v) = true ∧
+    rootsVal pre g (rootsPoint u) = false ∧ rootsVal pre g (rootsPoint v) = false
+
+def OppositeInputs {n : ℕ} (pre : List Gate) (a b : ℕ) (u v : Fin n) : Prop :=
+  (rootsWire pre (rootsPoint u) a = true ∧ rootsWire pre (rootsPoint v) a = false ∧
+    rootsWire pre (rootsPoint u) b = false ∧ rootsWire pre (rootsPoint v) b = true) ∨
+  (rootsWire pre (rootsPoint v) a = true ∧ rootsWire pre (rootsPoint u) a = false ∧
+    rootsWire pre (rootsPoint v) b = false ∧ rootsWire pre (rootsPoint u) b = true)
+
+lemma pair_merge_binary {n : ℕ} (pre : List Gate) (g : Gate) (u v : Fin n)
+    (prior : PairLinear pre u v)
+    (ops : g.op = GateOp.and ∨ g.op = GateOp.or) (arity : g.inputs.length ≤ 2)
+    (merge : PairMerge pre g u v) :
+    g.op = GateOp.and ∧ ∃ a b, g.inputs = [a, b] ∧ OppositeInputs pre a b u v := by
+  rcases merge with ⟨hp, hu, hv⟩
+  rcases ops with ha | ho
+  · refine ⟨ha, ?_⟩
+    cases ei : g.inputs with
+    | nil => simp [rootsVal, ha, GateOp.eval, ei] at hu
+    | cons a tail =>
+      cases et : tail with
+      | nil =>
+        have hp' : rootsWire pre (Pair u v) a = true := by
+          simpa [rootsVal, ha, GateOp.eval, ei, et] using hp
+        rcases prior a hp' with hau | hav
+        · simp [rootsVal, ha, GateOp.eval, ei, et, hau] at hu
+        · simp [rootsVal, ha, GateOp.eval, ei, et, hav] at hv
+      | cons b rest =>
+        have hr : rest = [] := by simpa [ei, et] using arity
+        subst rest
+        refine ⟨a, b, rfl, ?_⟩
+        have hp' : rootsWire pre (Pair u v) a = true ∧ rootsWire pre (Pair u v) b = true := by
+          simpa [rootsVal, ha, GateOp.eval, ei, et] using hp
+        have hA := prior a hp'.1
+        have hB := prior b hp'.2
+        simp only [rootsVal, ha, GateOp.eval, ei, et, List.map_cons, List.map_nil,
+          List.all_cons, List.all_nil, id_eq, Bool.and_true] at hu hv
+        unfold OppositeInputs
+        cases au : rootsWire pre (rootsPoint u) a <;>
+          cases av : rootsWire pre (rootsPoint v) a <;>
+          cases bu : rootsWire pre (rootsPoint u) b <;>
+          cases bv : rootsWire pre (rootsPoint v) b <;> simp_all
+  · have someInput : ∃ i ∈ g.inputs, rootsWire pre (Pair u v) i = true := by
+      simpa [rootsVal, ho, GateOp.eval] using hp
+    obtain ⟨i, hi, hpi⟩ := someInput
+    rcases prior i hpi with hui | hvi
+    · have hgu : rootsVal pre g (rootsPoint u) = true := by
+        simpa [rootsVal, ho, GateOp.eval] using
+          (show ∃ k ∈ g.inputs, rootsWire pre (rootsPoint u) k = true from ⟨i, hi, hui⟩)
+      rw [hu] at hgu
+      contradiction
+    · have hgv : rootsVal pre g (rootsPoint v) = true := by
+        simpa [rootsVal, ho, GateOp.eval] using
+          (show ∃ k ∈ g.inputs, rootsWire pre (rootsPoint v) k = true from ⟨i, hi, hvi⟩)
+      rw [hv] at hgv
+      contradiction
+
+lemma pair_scan {n : ℕ} (gs : List Gate) (u v : Fin n)
+    (mono : ∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) :
+    PairLinear gs u v ∨
+      ∃ pre g rest, gs = pre ++ g :: rest ∧ PairLinear pre u v ∧
+        PairMerge pre g u v ∧ g.op = GateOp.and ∧
+        ∃ a b, g.inputs = [a, b] ∧ OppositeInputs pre a b u v := by
+  classical
+  induction gs using List.reverseRecOn with
+  | nil =>
+    left
+    intro k hp
+    by_cases hk : k < n
+    · have hc : (⟨k, hk⟩ : Fin n) = u ∨ (⟨k, hk⟩ : Fin n) = v := by
+        simpa [rootsWire, rootsTrace, List.getD, hk, Pair] using hp
+      rcases hc with hku | hkv
+      · left
+        simp [rootsWire, rootsTrace, List.getD, hk, rootsPoint, hku]
+      · right
+        simp [rootsWire, rootsTrace, List.getD, hk, rootsPoint, hkv]
+    · simp [rootsWire, rootsTrace, List.getD, hk] at hp
+  | append_singleton pre g ih =>
+    have monoPre := fun a ha => mono a (List.mem_append_left _ ha)
+    rcases ih monoPre with linear | ⟨pre', g', rest, split, prior, merge, op, a, b, inp, opp⟩
+    · by_cases hmerge : PairMerge pre g u v
+      · obtain ⟨op, a, b, inp, opp⟩ := pair_merge_binary pre g u v linear
+          (mono g (by simp)).1 (mono g (by simp)).2 hmerge
+        exact Or.inr ⟨pre, g, [], rfl, linear, hmerge, op, a, b, inp, opp⟩
+      · left
+        intro k hp
+        by_cases hk : k < n + pre.length
+        · rw [roots_wire_keep pre g (Pair u v) k hk] at hp
+          rcases linear k hp with hu | hv
+          · exact Or.inl ((roots_wire_keep pre g (rootsPoint u) k hk).trans hu)
+          · exact Or.inr ((roots_wire_keep pre g (rootsPoint v) k hk).trans hv)
+        · rw [roots_wire_access pre g (Pair u v) k hk] at hp
+          cases e : k - (n + pre.length) with
+          | succ j => simp [e, List.getD] at hp
+          | zero =>
+            rw [e] at hp
+            change rootsVal pre g (Pair u v) = true at hp
+            have someSingle : rootsVal pre g (rootsPoint u) = true ∨
+                rootsVal pre g (rootsPoint v) = true := by
+              cases hu : rootsVal pre g (rootsPoint u) <;>
+                cases hv : rootsVal pre g (rootsPoint v) <;> simp_all [PairMerge]
+            rcases someSingle with hu | hv
+            · left
+              rw [roots_wire_access pre g (rootsPoint u) k hk, e]
+              exact hu
+            · right
+              rw [roots_wire_access pre g (rootsPoint v) k hk, e]
+              exact hv
+    · right
+      refine ⟨pre', g', rest ++ [g], ?_, prior, merge, op, a, b, inp, opp⟩
+      simp [split, List.append_assoc]
+
+lemma exists_first_pair_merge {n : ℕ} (C : Circuit) (mono : Monotone2 C) (u v : Fin n)
+    (positive : C.eval (List.ofFn (Pair u v)) = true)
+    (singleU : C.eval (List.ofFn (rootsPoint u)) = false)
+    (singleV : C.eval (List.ofFn (rootsPoint v)) = false) :
+    ∃ pre g rest, C.gates = pre ++ g :: rest ∧ PairLinear pre u v ∧
+      PairMerge pre g u v ∧ g.op = GateOp.and ∧
+      ∃ a b, g.inputs = [a, b] ∧ OppositeInputs pre a b u v := by
+  have ops : ∀ g ∈ C.gates, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧
+      g.inputs.length ≤ 2 := by
+    intro g hg
+    simpa using mono g hg
+  rcases pair_scan C.gates u v ops with linear | h
+  · have hp : rootsWire C.gates (Pair u v) C.output = true := positive
+    rcases linear C.output hp with hu | hv
+    · change C.eval (List.ofFn (rootsPoint u)) = true at hu
+      rw [singleU] at hu
+      contradiction
+    · change C.eval (List.ofFn (rootsPoint v)) = true at hv
+      rw [singleV] at hv
+      contradiction
+  · exact h
+
+lemma exists_first_pair_merge_after {n : ℕ} (C : Circuit) (mono : Monotone2 C)
+    (u v : Fin n) (p : ℕ)
+    (positive : C.eval (List.ofFn (Pair u v)) = true)
+    (singleU : C.eval (List.ofFn (rootsPoint u)) = false)
+    (singleV : C.eval (List.ofFn (rootsPoint v)) = false)
+    (before : ∀ j < p, ∀ g, C.gates[j]? = some g →
+      ¬ (rootsWire C.gates (Pair u v) (n + j) = true ∧
+        rootsWire C.gates (rootsPoint u) (n + j) = false ∧
+        rootsWire C.gates (rootsPoint v) (n + j) = false)) :
+    ∃ pre g rest, C.gates = pre ++ g :: rest ∧ p ≤ pre.length ∧ PairLinear pre u v ∧
+      PairMerge pre g u v ∧ g.op = GateOp.and ∧
+      ∃ a b, g.inputs = [a, b] ∧ OppositeInputs pre a b u v := by
+  obtain ⟨pre, g, rest, split, prior, merge, op, a, b, inp, opp⟩ :=
+    exists_first_pair_merge C mono u v positive singleU singleV
+  refine ⟨pre, g, rest, split, ?_, prior, merge, op, a, b, inp, opp⟩
+  by_contra tooEarly
+  have entry : C.gates[pre.length]? = some g := by simp [split]
+  apply before pre.length (by omega) g entry
+  simpa only [split, roots_gate_value, PairMerge] using merge
+
+lemma opposite_inputs_distinct {n : ℕ} (pre : List Gate) (a b : ℕ) (u v : Fin n)
+    (opposite : OppositeInputs pre a b u v) : a ≠ b := by
+  intro h
+  subst b
+  rcases opposite with ⟨ha, _, hb, _⟩ | ⟨ha, _, hb, _⟩ <;> rw [ha] at hb <;> contradiction
+
+lemma true_wire_in_bounds {n : ℕ} (pre : List Gate) (x : Fin n → Bool) (k : ℕ)
+    (active : rootsWire pre x k = true) : k < n + pre.length := by
+  by_contra outside
+  have hn : (rootsTrace pre x)[k]? = none :=
+    List.getElem?_eq_none_iff.mpr (by rw [roots_trace_length]; omega)
+  simp [rootsWire, List.getD, hn] at active
+
+lemma opposite_inputs_in_bounds {n : ℕ} (pre : List Gate) (a b : ℕ) (u v : Fin n)
+    (opposite : OppositeInputs pre a b u v) : a < n + pre.length ∧ b < n + pre.length := by
+  rcases opposite with ⟨ha, _, _, hb⟩ | ⟨ha, _, _, hb⟩
+  · exact ⟨true_wire_in_bounds pre (rootsPoint u) a ha,
+      true_wire_in_bounds pre (rootsPoint v) b hb⟩
+  · exact ⟨true_wire_in_bounds pre (rootsPoint v) a ha,
+      true_wire_in_bounds pre (rootsPoint u) b hb⟩
+
 end PEqualNP.Outside.L_meta_1904
