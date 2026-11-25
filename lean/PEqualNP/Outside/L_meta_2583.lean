@@ -2303,4 +2303,219 @@ lemma plane_cnf_clause_bounds
 
 end CNF
 
+namespace StrictMatchingCNF
+
+lemma selected_clause_injective {P L r k : ℕ}
+    (I : Fin P → Fin L → Prop) (p : Fin r → Fin P) (l : Fin r → Fin L)
+    (Sp : Fin k → Fin P → Prop) (Sl : Fin k → Fin L → Prop)
+    (hcross : ∀ i j : Fin r, i ≠ j → ¬ (I (p i) (l j) ∧ I (p j) (l i)))
+    (hcover : ∀ c : Fin k, ∀ i : Fin r, Sp c (p i) ∨ Sl c (l i))
+    (c0 : Fin k) (hc0 : ∀ i : Fin r, ¬ Sp c0 (p i))
+    (c : Fin r → Fin k) (hc : ∀ i : Fin r,
+      ¬ Sl (c i) (l i) ∧ ∀ j : Fin r, ¬ I (p j) (l i) → ¬ Sp (c i) (p j)) :
+    Function.Injective (fun i : Option (Fin r) => i.elim c0 c) := by
+  classical
+  intro a b hab
+  cases a with
+  | none =>
+    cases b with
+    | none => rfl
+    | some i =>
+      change c0 = c i at hab
+      rcases hcover (c i) i with hp | hl
+      · rw [← hab] at hp
+        exact False.elim (hc0 i hp)
+      · exact False.elim ((hc i).1 hl)
+  | some i =>
+    cases b with
+    | none =>
+      change c i = c0 at hab
+      rcases hcover (c i) i with hp | hl
+      · rw [hab] at hp
+        exact False.elim (hc0 i hp)
+      · exact False.elim ((hc i).1 hl)
+    | some j =>
+      change c i = c j at hab
+      by_cases hij : i = j
+      · subst j
+        rfl
+      · have hpi : Sp (c i) (p i) := (hcover (c i) i).resolve_right (hc i).1
+        have hpj : Sp (c j) (p j) := (hcover (c j) j).resolve_right (hc j).1
+        have hsep : ¬ I (p i) (l j) ∨ ¬ I (p j) (l i) := not_and_or.mp (hcross i j hij)
+        rcases hsep with hsep | hsep
+        · rw [hab] at hpi
+          exact False.elim ((hc j).2 i hsep hpi)
+        · rw [← hab] at hpj
+          exact False.elim ((hc i).2 j hsep hpj)
+
+lemma strict_full_safety_matching_bound {P L r k : ℕ}
+    (I : Fin P → Fin L → Prop) (p : Fin r → Fin P) (l : Fin r → Fin L)
+    (hp : Function.Injective p) (hl : Function.Injective l)
+    (hdiag : ∀ i : Fin r, I (p i) (l i))
+    (hfour : ∀ a a' : Fin P, a ≠ a' → ∀ b b' : Fin L,
+      I a b → I a' b → I a b' → I a' b' → b = b')
+    (Sp : Fin k → Fin P → Prop) (Sl : Fin k → Fin L → Prop)
+    (hcover : ∀ c : Fin k, ∀ i : Fin r, Sp c (p i) ∨ Sl c (l i))
+    (hsafe : ∀ (x : Fin P → Bool) (y : Fin L → Bool),
+      (∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ x a = true) ∨ (∃ b : Fin L, Sl c b ∧ y b = true)) →
+      ∃ a b, I a b ∧ x a = true ∧ y b = true)
+    (hr : 3 ≤ r) : r + 2 ≤ k := by
+  classical
+  have hbase := MatchingCNF.no_four_cycle_full_safety_clause_count
+    I p l hp hl hdiag hfour Sp Sl hcover hsafe
+  by_contra hsmall
+  have hkeq : k = r + 1 := by omega
+  have hcross : ∀ i j : Fin r, i ≠ j → ¬ (I (p i) (l j) ∧ I (p j) (l i)) := by
+    intro i j hij hcross
+    have hpp : p i ≠ p j := fun h => hij (hp h)
+    have hll : l i = l j := hfour (p i) (p j) hpp (l i) (l j)
+      (hdiag i) hcross.2 hcross.1 (hdiag j)
+    exact hij (hl hll)
+  have hzero : ∃ c : Fin k, ∀ i : Fin r, ¬ Sp c (p i) := by
+    by_contra hnone
+    have hhits : ∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ (true : Bool) = true) ∨
+        (∃ b : Fin L, Sl c b ∧ (false : Bool) = true) := by
+      intro c
+      have hex : ∃ i : Fin r, Sp c (p i) := by
+        by_contra h
+        exact hnone ⟨c, fun i hi => h ⟨i, hi⟩⟩
+      obtain ⟨i, hi⟩ := hex
+      exact Or.inl ⟨p i, hi, rfl⟩
+    obtain ⟨a, b, hab, ha, hb⟩ := hsafe (fun _ => true) (fun _ => false) hhits
+    cases hb
+  have hline : ∀ i : Fin r, ∃ c : Fin k,
+      ¬ Sl c (l i) ∧ ∀ j : Fin r, ¬ I (p j) (l i) → ¬ Sp c (p j) := by
+    intro i
+    let x : Fin P → Bool := fun a => decide (¬ I a (l i))
+    let y : Fin L → Bool := fun b => decide (b = l i)
+    by_contra hnone
+    have hhits : ∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ x a = true) ∨ (∃ b : Fin L, Sl c b ∧ y b = true) := by
+      intro c
+      by_cases hli : Sl c (l i)
+      · exact Or.inr ⟨l i, hli, by simp [y]⟩
+      · have hex : ∃ j : Fin r, ¬ I (p j) (l i) ∧ Sp c (p j) := by
+          by_contra h
+          exact hnone ⟨c, hli, fun j hj hSp => h ⟨j, hj, hSp⟩⟩
+        obtain ⟨j, hj, hSp⟩ := hex
+        exact Or.inl ⟨p j, hSp, by simp [x, hj]⟩
+    obtain ⟨a, b, hab, ha, hb⟩ := hsafe x y hhits
+    have heq : b = l i := by simpa only [y, decide_eq_true_eq] using hb
+    have hnot : ¬ I a (l i) := by simpa only [x, decide_eq_true_eq] using ha
+    exact hnot (heq ▸ hab)
+  have hall : ∃ c : Fin k, ∀ i : Fin r, ¬ Sl c (l i) := by
+    by_contra hnone
+    have hhits : ∀ c : Fin k,
+        (∃ a : Fin P, Sp c a ∧ (false : Bool) = true) ∨
+        (∃ b : Fin L, Sl c b ∧ (true : Bool) = true) := by
+      intro c
+      have hex : ∃ i : Fin r, Sl c (l i) := by
+        by_contra h
+        exact hnone ⟨c, fun i hi => h ⟨i, hi⟩⟩
+      obtain ⟨i, hi⟩ := hex
+      exact Or.inr ⟨l i, hi, rfl⟩
+    obtain ⟨a, b, hab, ha, hb⟩ := hsafe (fun _ => false) (fun _ => true) hhits
+    cases ha
+  obtain ⟨c0, hc0⟩ := hzero
+  choose c hc using hline
+  let f : Option (Fin r) → Fin k := fun i => i.elim c0 c
+  have hinj : Function.Injective f := selected_clause_injective I p l Sp Sl hcross hcover c0 hc0 c hc
+  have hsurj : Function.Surjective f := by
+    by_contra hnot
+    have hc := Fintype.card_lt_of_injective_not_surjective f hinj hnot
+    simp only [Fintype.card_option, Fintype.card_fin] at hc
+    omega
+  obtain ⟨cl, hcl⟩ := hall
+  have hclP : ∀ a : Fin r, Sp cl (p a) := fun a => (hcover cl a).resolve_right (hcl a)
+  have hspecial : ∃ i : Fin r, (∀ a : Fin r, Sp (c i) (p a)) ∧
+      (∀ a : Fin r, ¬ Sl (c i) (l a)) := by
+    obtain ⟨o, ho⟩ := hsurj cl
+    cases o with
+    | none =>
+      change c0 = cl at ho
+      let a : Fin r := ⟨0, by omega⟩
+      exact False.elim (hc0 a (by rw [ho]; exact hclP a))
+    | some i =>
+      change c i = cl at ho
+      exact ⟨i, by simpa only [ho] using hclP, by simpa only [ho] using hcl⟩
+  obtain ⟨i, hiP, hiL⟩ := hspecial
+  have hiUniversal : ∀ a : Fin r, I (p a) (l i) := by
+    intro a
+    by_contra hnot
+    exact (hc i).2 a hnot (hiP a)
+  have hOtherNonedge : ∀ j : Fin r, j ≠ i → ∀ a : Fin r, a ≠ j → ¬ I (p a) (l j) := by
+    intro j hji a haj hcross
+    have hpp : p a ≠ p j := fun h => haj (hp h)
+    have hll : l i = l j := hfour (p a) (p j) hpp (l i) (l j)
+      (hiUniversal a) (hiUniversal j) hcross (hdiag j)
+    exact hji (hl hll).symm
+  have hOtherL : ∀ j : Fin r, j ≠ i → ∀ a : Fin r, a ≠ j → Sl (c j) (l a) := by
+    intro j hji a haj
+    exact (hcover (c j) a).resolve_left ((hc j).2 a (hOtherNonedge j hji a haj))
+  have h0L : ∀ a : Fin r, Sl c0 (l a) := fun a => (hcover c0 a).resolve_left (hc0 a)
+  have hremain : 1 < ((Finset.univ : Finset (Fin r)).erase i).card := by
+    simp only [Finset.card_erase_of_mem (Finset.mem_univ i), Finset.card_univ, Fintype.card_fin]
+    omega
+  obtain ⟨j, hj, t, ht, hjt⟩ := Finset.one_lt_card.mp hremain
+  have hji : j ≠ i := (Finset.mem_erase.mp hj).1
+  have hti : t ≠ i := (Finset.mem_erase.mp ht).1
+  let x : Fin P → Bool := fun a => decide (a = p i)
+  let y : Fin L → Bool := fun b => decide (b = l j ∨ b = l t)
+  have hhits : ∀ d : Fin k,
+      (∃ a : Fin P, Sp d a ∧ x a = true) ∨ (∃ b : Fin L, Sl d b ∧ y b = true) := by
+    intro d
+    obtain ⟨o, ho⟩ := hsurj d
+    cases o with
+    | none =>
+      change c0 = d at ho
+      exact Or.inr ⟨l j, ho ▸ h0L j, by simp [y]⟩
+    | some m =>
+      change c m = d at ho
+      by_cases hmi : m = i
+      · subst m
+        exact Or.inl ⟨p i, ho ▸ hiP i, by simp [x]⟩
+      · by_cases hmj : m = j
+        · subst m
+          exact Or.inr ⟨l t, ho ▸ hOtherL j hji t (Ne.symm hjt), by simp [y]⟩
+        · exact Or.inr ⟨l j, ho ▸ hOtherL m hmi j (Ne.symm hmj), by simp [y]⟩
+  obtain ⟨a, b, hab, ha, hb⟩ := hsafe x y hhits
+  have haeq : a = p i := by simpa only [x, decide_eq_true_eq] using ha
+  have hbeq : b = l j ∨ b = l t := by simpa only [y, decide_eq_true_eq] using hb
+  rcases hbeq with hb | hb
+  · rw [haeq, hb] at hab
+    exact hOtherNonedge j hji i (Ne.symm hji) hab
+  · rw [haeq, hb] at hab
+    exact hOtherNonedge t hti i (Ne.symm hti) hab
+
+lemma unified_strict_full_safety_matching_bound {P L r k : ℕ}
+    (I : Fin P → Fin L → Prop) (p : Fin r → Fin P) (l : Fin r → Fin L)
+    (hp : Function.Injective p) (hl : Function.Injective l)
+    (hdiag : ∀ i : Fin r, I (p i) (l i))
+    (hfour : ∀ a a' : Fin P, a ≠ a' → ∀ b b' : Fin L,
+      I a b → I a' b → I a b' → I a' b' → b = b')
+    (S : Fin k → Fin (P + L) → Bool)
+    (hcover : ∀ c : Fin k, ∀ i : Fin r,
+      S c (Fin.castAdd L (p i)) = true ∨ S c (Fin.natAdd P (l i)) = true)
+    (hsafe : ∀ z : Fin (P + L) → Bool,
+      (∀ c : Fin k, ∃ v : Fin (P + L), S c v = true ∧ z v = true) →
+      ∃ a b, I a b ∧ z (Fin.castAdd L a) = true ∧ z (Fin.natAdd P b) = true)
+    (hr : 3 ≤ r) : r + 2 ≤ k := by
+  apply strict_full_safety_matching_bound I p l hp hl hdiag hfour
+    (fun c a => S c (Fin.castAdd L a) = true)
+    (fun c b => S c (Fin.natAdd P b) = true) hcover ?_ hr
+  intro x y hhits
+  let z : Fin (P + L) → Bool := Fin.addCases x y
+  have hhits' : ∀ c : Fin k, ∃ v : Fin (P + L), S c v = true ∧ z v = true := by
+    intro c
+    rcases hhits c with ⟨a, ha, hxa⟩ | ⟨b, hb, hyb⟩
+    · exact ⟨Fin.castAdd L a, ha, by simpa only [z, Fin.addCases_left] using hxa⟩
+    · exact ⟨Fin.natAdd P b, hb, by simpa only [z, Fin.addCases_right] using hyb⟩
+  obtain ⟨a, b, hab, ha, hb⟩ := hsafe z hhits'
+  exact ⟨a, b, hab, by simpa only [z, Fin.addCases_left] using ha,
+    by simpa only [z, Fin.addCases_right] using hb⟩
+
+end StrictMatchingCNF
+
 end PEqualNP.Outside.L_meta_2583
