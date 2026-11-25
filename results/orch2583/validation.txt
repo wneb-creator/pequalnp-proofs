@@ -1,0 +1,8 @@
+PARTIAL PRESERVATION ONLY. No proof of L-meta-2583.
+PlaneCount.lean: lake env lean exit0, clean stdout/stderr.
+Exact incidence cardinality proved from uniform line sizes.
+PR13723.lean is an existing external partial source, not locally rechecked or submitted.
+Full local checker unavailable: unconditional Mathlib import exceeds disk capacity. See toolchain/feasibility.json.
+No PR opened for either partial gap.
+Sub-agents: proof_strategy, counterexample, reduction_strategy, sat_strategy, status_review, toolchain_setup
+TIMING total=55 subagents=6

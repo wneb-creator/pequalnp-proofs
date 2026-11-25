@@ -1,0 +1,13 @@
+{
+  "measured_at": "2026-11-25T14:55:07.980258+00:00",
+  "free_bytes": 584339456,
+  "missing_runtime_bytes_from_pinned_inventory": 4620204936,
+  "generous_cleanup_upper_bound": {
+    "all_scratch_except_lean_sysroot": 322531328,
+    "all_toolchain_static_archives_editor_files_sources_docs": 558764032,
+    "all_results": 23994368,
+    "all_other_outside_sources_via_hypothetical_sparse_checkout": 439660544
+  },
+  "total_generous_recovery_bytes": 1344950272,
+  "remaining_shortage_after_even_generous_cleanup": 2690915208
+}
