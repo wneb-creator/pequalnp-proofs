@@ -1,0 +1,88 @@
+{
+  "job": "pequalnp-pilot-53",
+  "updated_at": "2026-11-25T02:01:40.966618+00:00",
+  "gap": "L-meta-3457",
+  "full_statement_proved": false,
+  "artifacts": [
+    {
+      "file": "results/lemmas/PrefixUnion3457.lean",
+      "lines": 342,
+      "bytes": 16182,
+      "sha256": "5d0488f276860ee88e04f753bc8a2a1e8a9894b0cda2c4b9aa54dafbcfde9549",
+      "validation": "central lake env lean exit0; independently reviewed",
+      "scope": "Union preservation and first dirty AND operands"
+    },
+    {
+      "file": "results/lemmas/StarCover3457.lean",
+      "lines": 567,
+      "bytes": 27917,
+      "sha256": "b71f943f6d382947cca65664ad4ce39fb808ff2c4fd191695cadf974fa0f213b",
+      "validation": "central lake env lean exit0; independently reviewed",
+      "scope": "Clean star-cover construction and incidence specialization"
+    },
+    {
+      "file": "results/lemmas/DropUnusedAnd3457.lean",
+      "lines": 405,
+      "bytes": 17821,
+      "sha256": "3dd8b9d92db02c7d88a2d90c43e242aeaeae5a2620cd8b3ee3292a33279c48fa",
+      "validation": "central lake env lean exit0; independently reviewed",
+      "scope": "Iterated deletion of edge-useless ANDs"
+    },
+    {
+      "file": "results/lemmas/ForestCase3457.lean",
+      "lines": 2378,
+      "bytes": 108210,
+      "sha256": "104470528b1ea4649165a80ab1fe266b883dd9e8ca1fae829403de45f2277e24",
+      "validation": "central lake env lean exit0; independently reviewed",
+      "scope": "Full requested conclusion for acyclic incidence graphs"
+    },
+    {
+      "file": "results/lemmas/OneAndCase3457.lean",
+      "lines": 639,
+      "bytes": 30465,
+      "sha256": "8cc078b2dc516f1183044d39d618fa72a62709ac38a4d8b87a42ba716e221622",
+      "validation": "central lake env lean exit0; independently reviewed",
+      "scope": "Full requested conclusion with at most one AND"
+    },
+    {
+      "file": "results/lemmas/IncidenceBudget3457.lean",
+      "lines": 626,
+      "bytes": 31284,
+      "sha256": "adf3c0dbd0f29dcb44cc9d03d2088376a232493234f940619d3493f03fb48cc0",
+      "validation": "central lake env lean exit0; independently reviewed",
+      "scope": "Full conclusion conditional on an explicit cover budget"
+    },
+    {
+      "file": "results/lemmas/PairReplacement3457.lean",
+      "lines": 765,
+      "bytes": 33944,
+      "sha256": "858d332f83fb6266f21edc632596158586215a93945fabf6e71c3817ea678ff7",
+      "validation": "central lake env lean exit0; independently reviewed",
+      "scope": "Repair of an AND serving exactly one incident edge"
+    },
+    {
+      "file": "results/lemmas/JointNormalization3457.lean",
+      "lines": 943,
+      "bytes": 43223,
+      "sha256": "7dcb7d2c1fd67a19bddaede5210f8480caf0c8a9f515b5b420a38ce405fbb81e",
+      "validation": "central lake env lean exit0; independently reviewed",
+      "scope": "Every remaining dirty AND serves at least two incident edges"
+    },
+    {
+      "file": "results/lemmas/LastAnd3457.lean",
+      "lines": 271,
+      "bytes": 12179,
+      "sha256": "72b49bcdc06482e39d336565560c983982beecc4ac67dcaaa62585a5f75c5d90",
+      "validation": "central lake env lean exit0; independently reviewed",
+      "scope": "OR-suffix gate: below output or removable"
+    },
+    {
+      "file": "results/lemmas/SparseCase3457.lean",
+      "lines": 9139,
+      "bytes": 459157,
+      "sha256": "bbfe1c6235b75163605ed4ecf489b35ac2c7bc7f41e3dfbf47a37e5c0e64c49e",
+      "validation": "central lake env lean exit0; independently reviewed",
+      "scope": "Full conclusion under explicit girth and hub-separation hypotheses"
+    }
+  ]
+}

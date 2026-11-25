@@ -1,0 +1,85 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 120 seconds real time (due to '-t 120')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from 'results/search3457/free-or/free-or-n3-m238-and2-critical.cnf'
+c opening file to read 'results/search3457/free-or/free-or-n3-m238-and2-critical.cnf'
+c found 'p cnf 221 638' header
+c parsed 638 clauses in 0.00 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant irredundant
+c         MB    restarts       trail    variables
+c          level   conflicts       glue     remaining
+c 
+c *  0.00  3  0 0   0    0    0  0% 0  513 152 69%
+c {  0.00  3  0 0   0    0    0  0% 0  513 152 69%
+c }  0.00  3  4 0   0   55   39 85% 3  513 112 51%
+c 0  0.00  3  4 0   0   55   39 85% 3  513 112 51%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to 'results/search3457/free-or/free-or-n3-m238-and2-critical.sol'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.00   88.03% search
+c         0.00   76.27% unstable
+c         0.00   43.90% parse
+c         0.00    9.53% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.00   56.87% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:                13        23.64 %  of conflicts
+c conflicts:                    55    121951.22    per second
+c decisions:                    76    168514.41    per second
+c fixed:                       109        49.32 %  of all variables
+c learned:                      54        98.18 %  per conflict
+c learned_lits:                448       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                    207        46.21 %  learned literals
+c minishrunken:                  8         1.79 %  learned literals
+c otfs:                          0         0.00 %  of conflict
+c propagations:               3329         7.38 M  per second
+c subsumed:                     14         2.47 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.00    seconds
+c total real time since initialization:            0.00    seconds
+c maximum resident set size of process:            7.34    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 20

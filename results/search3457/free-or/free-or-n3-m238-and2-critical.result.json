@@ -1,0 +1,10 @@
+{
+  "stem": "free-or-n3-m238-and2-critical",
+  "elapsed_seconds": 0.009654462000071362,
+  "solver_returncode": 20,
+  "N": 3,
+  "mask": 238,
+  "ands": 2,
+  "c4free": true,
+  "status": "UNSAT"
+}

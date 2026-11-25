@@ -1,0 +1,16 @@
+Dirty states per level [12, 114, 976]
+{'incidence_mask': 0, 'dirty_min': 0, 'clean_min': 0}
+{'incidence_mask': 1, 'dirty_min': 1, 'clean_min': 1}
+{'incidence_mask': 2, 'dirty_min': 1, 'clean_min': 1}
+{'incidence_mask': 3, 'dirty_min': 2, 'clean_min': 2}
+{'incidence_mask': 4, 'dirty_min': 1, 'clean_min': 1}
+{'incidence_mask': 5, 'dirty_min': 2, 'clean_min': 2}
+{'incidence_mask': 6, 'dirty_min': 3, 'clean_min': 3}
+{'incidence_mask': 7, 'dirty_min': 4, 'clean_min': 4}
+{'incidence_mask': 8, 'dirty_min': 1, 'clean_min': 1}
+{'incidence_mask': 9, 'dirty_min': 3, 'clean_min': 3}
+{'incidence_mask': 10, 'dirty_min': 2, 'clean_min': 2}
+{'incidence_mask': 11, 'dirty_min': 4, 'clean_min': 4}
+{'incidence_mask': 12, 'dirty_min': 2, 'clean_min': 2}
+{'incidence_mask': 13, 'dirty_min': 4, 'clean_min': 4}
+{'incidence_mask': 14, 'dirty_min': 4, 'clean_min': 4}

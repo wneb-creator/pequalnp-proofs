@@ -1,0 +1,2 @@
+{"stem": "free-or-n3-m238-and2-critical", "rows": 17, "variables": 221, "clauses": 638, "c4free": true}
+{"stem": "free-or-n3-m238-and2-critical", "elapsed_seconds": 0.009654462000071362, "solver_returncode": 20, "N": 3, "mask": 238, "ands": 2, "c4free": true, "status": "UNSAT"}

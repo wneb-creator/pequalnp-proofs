@@ -18,3 +18,7 @@
 2026-11-25T01:11:36.588647+00:00 Three local checker attempts ended in confirmed container OOM faults; retained unchanged built proof for authoritative checking.
 
 2026-11-25T01:11:26.450Z Authoritative feed withdrew L-meta-3178 because its parent was proved/checked. No eligible PR can be opened. Preserve compiled result and diagnostics on own branch; resume current live L-meta-3457.
+
+2026-11-25T01:36:29.362055+00:00 Replanned after cache recovery; added sixth strategy global_route. Recovered exact missing private artifacts after workspace restart; core holder25489 and Mathlib holder25670 must remain alive. Corrected Boolean precedence in crossing helper and recompiled.
+
+2026-11-25T01:59:07.778944+00:00 Milestones pushed: ForestCase2378, OneAndCase639, IncidenceBudget626, PairReplacement765, JointNormalization943, LastAnd271, SparseCase9139. All central Lean exit0 and independent source review. Full L3457 not proved. Canonical C6 and small incidence classification are still being compiled; no PR opened.

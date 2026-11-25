@@ -1,0 +1,5 @@
+graph automorphisms 12 first pair reps [(0, 1), (0, 4), (0, 5), (1, 2), (1, 5), (1, 7)]
+CNF n4-m13726-k11-dirty-critical-ands4 rows 26 vars 1155 clauses 15689
+exit 0
+c UNKNOWN
+

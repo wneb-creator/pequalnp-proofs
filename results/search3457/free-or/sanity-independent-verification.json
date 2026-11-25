@@ -1,0 +1,21 @@
+{
+  "utc": "2026-11-25T01:56:03.598886+00:00",
+  "witnesses": [
+    {
+      "file": "free-or-n3-m238-and3-critical.witness.json",
+      "sha256": "5beec3c6a12b039a232b465482ea059252d88598c710ec7a6a0dcb0fe2746008",
+      "assignments": 64,
+      "every_AND_implies_output": true,
+      "all_ANDs_false_on_nonincident_pairs": true,
+      "result": "PASS"
+    },
+    {
+      "file": "free-or-n4-m13726-and4-critical.witness.json",
+      "sha256": "4f06ad4f22ac7dbbc939645272d8e8427a020c940e46e5c18e25c59253fba162",
+      "assignments": 256,
+      "every_AND_implies_output": true,
+      "all_ANDs_false_on_nonincident_pairs": true,
+      "result": "PASS"
+    }
+  ]
+}

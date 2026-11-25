@@ -1,0 +1,2 @@
+{"stem": "free-or-n3-m238-and3-critical", "rows": 17, "variables": 374, "clauses": 1129, "c4free": true}
+{"stem": "free-or-n3-m238-and3-critical", "elapsed_seconds": 0.01140039700021589, "solver_returncode": 10, "N": 3, "mask": 238, "ands": 3, "c4free": true, "gates": [[[5], [0, 1]], [[0, 2, 6], [4, 6]], [[1, 2, 6, 7], [3, 6, 7]]], "output": [6, 7, 8], "verified_assignments": 64, "status": "SAT: independently verified on all assignments"}

@@ -1,0 +1,5 @@
+graph automorphisms 16 first pair reps [(0, 1), (0, 4), (1, 2), (2, 4)]
+CNF n4-m13740-k10-dirty-critical-colex-useful rows 26 vars 1040 clauses 15908
+exit 0
+c UNKNOWN
+

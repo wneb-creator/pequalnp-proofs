@@ -1,0 +1,81 @@
+{
+  "N": 4,
+  "mask": 13726,
+  "gates": 11,
+  "seed": 1,
+  "temperature": 60.0,
+  "restart_steps": 100000,
+  "seconds_requested": 120,
+  "elapsed": 120.00173137500042,
+  "steps": 36660416,
+  "restarts": 367,
+  "best_score": 21,
+  "truth_error_count": 5,
+  "singleton_violation_count": 0,
+  "status": "no witness found; heuristic search only",
+  "circuit": [
+    [
+      "or",
+      4,
+      7
+    ],
+    [
+      "and",
+      1,
+      8
+    ],
+    [
+      "or",
+      6,
+      7
+    ],
+    [
+      "or",
+      5,
+      10
+    ],
+    [
+      "and",
+      0,
+      11
+    ],
+    [
+      "or",
+      4,
+      5
+    ],
+    [
+      "and",
+      3,
+      13
+    ],
+    [
+      "and",
+      2,
+      6
+    ],
+    [
+      "or",
+      12,
+      14
+    ],
+    [
+      "or",
+      15,
+      16
+    ],
+    [
+      "or",
+      9,
+      17
+    ]
+  ],
+  "truth_error_assignments": [
+    20,
+    21,
+    52,
+    148,
+    180
+  ],
+  "singleton_violations": []
+}

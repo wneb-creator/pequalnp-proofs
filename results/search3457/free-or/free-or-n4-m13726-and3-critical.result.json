@@ -1,0 +1,10 @@
+{
+  "stem": "free-or-n4-m13726-and3-critical",
+  "elapsed_seconds": 0.06809655399956682,
+  "solver_returncode": 20,
+  "N": 4,
+  "mask": 13726,
+  "ands": 3,
+  "c4free": true,
+  "status": "UNSAT"
+}

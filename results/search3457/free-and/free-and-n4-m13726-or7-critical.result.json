@@ -1,0 +1,10 @@
+{
+  "stem": "free-and-n4-m13726-or7-critical",
+  "elapsed_seconds": 120.10356263099948,
+  "solver_returncode": 0,
+  "N": 4,
+  "mask": 13726,
+  "ors": 7,
+  "c4free": true,
+  "status": "UNKNOWN"
+}

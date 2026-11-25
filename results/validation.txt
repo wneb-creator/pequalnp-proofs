@@ -24,3 +24,8 @@ Sub-agents: 5 (checker_review, counterexample_search, lower_bound, reduction_des
 TIMING total=39.8 subagents=5
 
 At2026-11-25T01:11:26.450Z the authoritative feed withdrew L-meta-3178: The statement this step was cut from has been proved and checked, so a proof of this step can no longer count. Ask the desk for another step. No PR was opened for the withdrawn step.
+
+Checkpoint 2026-11-25T02:07:04.197989+00:00
+Current gap L-meta-3457 remains unproved. No proof/reduction PR opened. Standalone partials compiled and independently reviewed; see results/README.md and per-file validation logs. Canonical C6 now also compiles; N<=3 integration is pending. All completed finite-search logs and scripts preserved with model-limited conclusions. Desk null responses: 0.
+Sub-agents: checker_review, counterexample_search, lean_route, lower_bound, reduction_design, global_route
+TIMING total=95.3 subagents=6

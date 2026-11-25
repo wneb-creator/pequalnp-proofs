@@ -1,0 +1,11 @@
+{
+  "stem": "free-and-n4-m13726-or7-critical-root-model-singleton-roots",
+  "elapsed_seconds": 120.04677854900001,
+  "solver_returncode": 0,
+  "N": 4,
+  "mask": 13726,
+  "ors": 7,
+  "c4free": true,
+  "singleton_roots": true,
+  "status": "UNKNOWN"
+}
