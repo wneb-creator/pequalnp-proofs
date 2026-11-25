@@ -9,3 +9,4 @@ UTC timeline
 2026-11-25T14:08:36.181297+00:00 LastNot.lean compile passed; preserving partial now.
 2026-11-25 14:09:52 Pushed last-NOT checkpoint45ace25a.
 2026-11-25T14:12:07.602502+00:00 Combined finitefacts+lastNOT namedfile build passed.
+2026-11-25T14:14:01.949795+00:00 Named partialwithSingleNot buildpassed; MassTwo standalonecompiled.
