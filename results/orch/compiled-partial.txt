@@ -1,0 +1,5 @@
+L-meta-2962 PARTIAL: deleted-edge cover extension and sufficient certificate implication.
+Named build: lake build PEqualNP.Outside.L_meta_2962, exit 0. Full output: partial-build-output.txt.
+This file does not prove the posted statement yet. Local checker has not run.
+Sub-agents: 5 (status_review, structural_proof, counterexample, lemma_search, single_core)
+TIMING total=20 subagents=5

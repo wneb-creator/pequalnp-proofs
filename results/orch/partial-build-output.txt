@@ -1,0 +1,7 @@
+⚠ [2078/2079] Built PEqualNP.Outside.L_meta_2962 (2.3s)
+warning: PEqualNP/Outside/L_meta_2962.lean: imports `Mathlib.Combinatorics.SimpleGraph.DeleteEdges` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2962.lean: imports `Mathlib.Combinatorics.SimpleGraph.VertexCover` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+⚠ [2079/2079] Ran PEqualNP.Outside.L_meta_2962:irArts
+warning: PEqualNP/Outside/L_meta_2962.lean: imports `Mathlib.Combinatorics.SimpleGraph.DeleteEdges` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+warning: PEqualNP/Outside/L_meta_2962.lean: imports `Mathlib.Combinatorics.SimpleGraph.VertexCover` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
+Build completed successfully (2079 jobs).

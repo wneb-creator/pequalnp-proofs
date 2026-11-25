@@ -6,3 +6,7 @@ Only parent holds lease and submits. Lease acquired 2026-11-25T05:50:41Z; expire
 Assigned: structural_proof direct counting; counterexample semantic/construction search; lemma_search reusable proofs; status_review reduction dependency review. Only PEqualNP.Defs and Mathlib allowed. Reductions live: 3, so currently cannot add another reduction.
 
 Agents write independent findings under results/orch/lemmas and notify parent.
+
+# Active step L-meta-2962
+
+Assigned at 06:06:37 UTC. Exact statement /tmp/oec/pequalnp-pilot-71/statement-2962.txt. New lease confirmed 06:06:53, expires06:26:53. Old L2602 work remains paused. Four agents reassigned: core review, core structural, core charging, core counterexample.
