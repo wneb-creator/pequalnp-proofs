@@ -20,3 +20,6 @@ OrBound.lean: lake env lean exit 0, complete logs empty. Independent semantic an
 Multilinear.lean and UnionCount.lean: lake env lean exit 0, complete logs empty. Independent reviews passed on exact checked hashes. Multilinear proves AO2 plus syntactic multilinearity implies read-1; UnionCount gives an abstract binary-union family cost bound. Neither establishes the full posted claim.
 
 SinglePoint.lean: lake env lean exit 0, full logs retained; independent exact-source review passed. Proves the exact P=1 specialization with arbitrary L and I, including size preservation and read-1. 748 source lines. Full P-arbitrary statement remains unproved.
+
+GraphTests.lean and IncidenceTests.lean: lake env lean exit 0, complete logs empty. Independent normalization-agent review passed.
+DirtyBlockExample.lean: lake env lean exit 0. Root independently reviewed exact source: 7-gate matching circuit is normalized but not read-1, proving a stronger attempted route false; this is NOT a refutation of L-meta-2585.
