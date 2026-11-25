@@ -1,0 +1,12 @@
+../results/orch/lemmas/BinarySixteen.lean:24:13: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp at high
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/BinarySixteen.lean:25:12: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp at low
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
