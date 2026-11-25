@@ -29,3 +29,5 @@
 2026-11-25T16:13:46.136934+00:00 Preserving checked global witness pruning and diagnostic ledger counterexample.
 2026-11-25T16:15:04.244835+00:00 Renewed L-meta-4970; expiry 2026-11-25T16:35:04.578Z
 2026-11-25T16:15:32.655283+00:00 Preserving checked connected-component frontier bound.
+2026-11-25T16:17:57.846453+00:00 Stopped three lower-priority annealers to leave one Fano26 annealer plus two direct subK4 SAT runs under four-CPU quota. Complete stdout logs preserved.
+2026-11-25T16:17:58.770529+00:00 Preserving checked circuit component count.

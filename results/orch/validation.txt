@@ -55,3 +55,6 @@ LedgerOverlapExample.lean: Lean exit0, complete stdout/stderr empty; independent
 
 Seventh partial checkpoint:
 ComponentGraph.lean (232 lines): Lean exit0, complete stdout/stderr empty; independent review PASS by status_review. Generic frontier bound uses connected components rather than number of roots. Vertices outside the support union count as isolated components; applying it to the support union requires the subtype restriction.
+
+Eighth partial checkpoint:
+CircuitComponents.lean: Lean exit0, complete stdout/stderr empty; independent source review PASS by status_review. count_or_components restricts carrier to S and gives S.card <= owned OR count + support-family connected components. Uncovered S vertices remain isolated and are counted; using the actual support union removes that slack.
