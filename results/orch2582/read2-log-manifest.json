@@ -1,25 +1,43 @@
 [
   {
-    "source": "/tmp/oec/pequalnp-pilot-164/read2-fixed-p4.stdout",
-    "archive": "results/orch2582/read2-fixed-p4.stdout.log",
-    "bytes": 684,
-    "sha256": "785312f2f645f31f9633ec832588c7279e1410734a9f3be50e8797c878210386"
-  },
-  {
-    "source": "/tmp/oec/pequalnp-pilot-164/read2-fixed-p4.stderr",
-    "archive": "results/orch2582/read2-fixed-p4.stderr.log",
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-bypass-fixed-p4.stderr",
+    "archive": "results/orch2582/read2-bypass-fixed-p4.stderr.log",
     "bytes": 0,
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   {
-    "source": "/tmp/oec/pequalnp-pilot-164/read2-fixed-p4-validation.stdout",
-    "archive": "results/orch2582/read2-fixed-p4-validation.stdout.log",
-    "bytes": 542,
-    "sha256": "955dbe4e73863e1e38a32b6f9766bf48f74f46783d97b1c67bc63a3e178b6549"
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-bypass-fixed-p4.stdout",
+    "archive": "results/orch2582/read2-bypass-fixed-p4.stdout.log",
+    "bytes": 363,
+    "sha256": "bf45fa6c3edbb0ce041a728e408eeaf1b0392c9958b8a6383ae7252e36949009"
   },
   {
-    "source": "/tmp/oec/pequalnp-pilot-164/read2-fixed-p4-validation.stderr",
-    "archive": "results/orch2582/read2-fixed-p4-validation.stderr.log",
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-bypass-p4-k7-validation.stderr",
+    "archive": "results/orch2582/read2-bypass-p4-k7-validation.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-bypass-p4-k7-validation.stdout",
+    "archive": "results/orch2582/read2-bypass-p4-k7-validation.stdout.log",
+    "bytes": 656,
+    "sha256": "00ee3f0a390d4794a08cb7dc7bc13a179d181c50199c1ba6b2a27c900f668bb5"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-bypass-p4-k7.stderr",
+    "archive": "results/orch2582/read2-bypass-p4-k7.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-bypass-p4-k7.stdout",
+    "archive": "results/orch2582/read2-bypass-p4-k7.stdout.log",
+    "bytes": 842,
+    "sha256": "d5ad15fc615480ca6ac8aadcb3fc890c23c62a8fa433d7d6e77ecc69da2fdfc1"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-cycle6-k8-bad.stderr",
+    "archive": "results/orch2582/read2-cycle6-k8-bad.stderr.log",
     "bytes": 0,
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
@@ -30,20 +48,32 @@
     "sha256": "89f27097c9c5d885c1ca8a82bfd919d3aa9f6fcf95d52ce57f853a3d0aa1ff92"
   },
   {
-    "source": "/tmp/oec/pequalnp-pilot-164/read2-cycle6-k8-bad.stderr",
-    "archive": "results/orch2582/read2-cycle6-k8-bad.stderr.log",
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-fixed-p4-validation.stderr",
+    "archive": "results/orch2582/read2-fixed-p4-validation.stderr.log",
     "bytes": 0,
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   {
-    "source": "/tmp/oec/pequalnp-pilot-164/read2-sanity-lean.stdout",
-    "archive": "results/orch2582/read2-sanity-lean.stdout.log",
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-fixed-p4-validation.stdout",
+    "archive": "results/orch2582/read2-fixed-p4-validation.stdout.log",
+    "bytes": 542,
+    "sha256": "955dbe4e73863e1e38a32b6f9766bf48f74f46783d97b1c67bc63a3e178b6549"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-fixed-p4.stderr",
+    "archive": "results/orch2582/read2-fixed-p4.stderr.log",
     "bytes": 0,
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   {
-    "source": "/tmp/oec/pequalnp-pilot-164/read2-sanity-lean.stderr",
-    "archive": "results/orch2582/read2-sanity-lean.stderr.log",
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-fixed-p4.stdout",
+    "archive": "results/orch2582/read2-fixed-p4.stdout.log",
+    "bytes": 684,
+    "sha256": "785312f2f645f31f9633ec832588c7279e1410734a9f3be50e8797c878210386"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-local-lean.stderr",
+    "archive": "results/orch2582/read2-local-lean.stderr.log",
     "bytes": 0,
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
@@ -54,8 +84,8 @@
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
   {
-    "source": "/tmp/oec/pequalnp-pilot-164/read2-local-lean.stderr",
-    "archive": "results/orch2582/read2-local-lean.stderr.log",
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-local-validation.stderr",
+    "archive": "results/orch2582/read2-local-validation.stderr.log",
     "bytes": 0,
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   },
@@ -66,8 +96,50 @@
     "sha256": "b9f92b7a7faadfdba693088d5c9abf76a272572c73b6e75a381b3be624d26ec9"
   },
   {
-    "source": "/tmp/oec/pequalnp-pilot-164/read2-local-validation.stderr",
-    "archive": "results/orch2582/read2-local-validation.stderr.log",
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-matching-cnf-all-bypasses.stderr",
+    "archive": "results/orch2582/read2-matching-cnf-all-bypasses.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-matching-cnf-all-bypasses.stdout",
+    "archive": "results/orch2582/read2-matching-cnf-all-bypasses.stdout.log",
+    "bytes": 5338,
+    "sha256": "5508b4c50ec5854b811c4ee19a5880d4a48c71ce7c423806d35046f59f1f1762"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-matching-cnf-complete.stderr",
+    "archive": "results/orch2582/read2-matching-cnf-complete.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-matching-cnf-complete.stdout",
+    "archive": "results/orch2582/read2-matching-cnf-complete.stdout.log",
+    "bytes": 8118,
+    "sha256": "23755d7088d18dc74e13e15cd90804e6f62746800fbbb21986ce519737b0520d"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-matching-cnf-validation.stderr",
+    "archive": "results/orch2582/read2-matching-cnf-validation.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-matching-cnf-validation.stdout",
+    "archive": "results/orch2582/read2-matching-cnf-validation.stdout.log",
+    "bytes": 2637,
+    "sha256": "ff5c2f7b1743a36f01c5cae50234560debfe18b1a3cbbadfd5c2b927980263ed"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-sanity-lean.stderr",
+    "archive": "results/orch2582/read2-sanity-lean.stderr.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "source": "/tmp/oec/pequalnp-pilot-164/read2-sanity-lean.stdout",
+    "archive": "results/orch2582/read2-sanity-lean.stdout.log",
     "bytes": 0,
     "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
   }

@@ -1,0 +1,42 @@
+Independent archival review: clean circuit read-2 normalization
+2026-11-25, status-review agent
+
+CleanNormalize.lean: 2414 lines, 111768 bytes, SHA256
+dd92ffaad50420ec3702916ddf620eda8fa95d4e7860084f57c4a41904b5a2b2.
+CleanNormalizeWrapper.txt: 78 lines, 3692 bytes, SHA256
+8da0816a513dcea9bb9f6f74c14a3238d003eeee74ec21d41165ebb513245d07.
+
+CleanReuse.lean is byte-identical to the previously reviewed 976-line
+results/orch/lemmas/Reuse.lean after its sole namespace-prefix replacement
+to PEqualNP.Outside.L_meta_2582_aux.CleanReuse. The integrated standalone
+file contains exactly one full import-stripped body each of CleanReuse,
+Canonical, ReadMono, and CleanNormalizeWrapper. Removing those exact
+bodies leaves only the single PEqualNP.Defs import and whitespace.
+
+The new split_vertex_cover lemma partitions any Fin(p+l) vertex set into
+its two input halves, using injectivity and disjointness of castAdd/natAdd
+to preserve cardinality. clean_read_two_normalize combines the explicit
+clean-bound vertex cover with canonical_cover and read-k monotonicity.
+The inequalities |E|+|S| <= C.size+1 and
+D.size <= |E|+|P|+|L|-1 yield D.size <= C.size, including natural-number
+subtraction boundary cases. The copied canonical constructor establishes
+the exact target function and read-1, which ReadMono weakens to read-2.
+
+Crucial scope: the theorem assumes a C4-free bipartite edge set, AO2,
+exact function computation, and EVERY actual AND gate below the output
+function on EVERY input. The latter hclean hypothesis is additional to
+the posted plane statement and is not proved automatic here. It applies
+even to unused AND gates. This is a valid sufficient-condition theorem,
+not the unrestricted L-meta-2582 theorem or a refutation.
+
+Static inspection: 146 unique declarations; balanced named namespaces;
+all declarations under the permitted auxiliary namespace; one top Defs
+import; no options, attributes, exported instances, forbidden proof tokens,
+_root_ text, string literals, or credential-pattern matches.
+
+The author reported clean-normalize-003 compilation exit 0. Full stdout
+contains only inherited style/unused-tactic/deprecation warnings and
+stderr is empty. No unchanged build was rerun for this review.
+
+Verdict: approved for truthful partial archival. No full-gap or proof-PR
+approval. Any later integration into the named file needs its own build.

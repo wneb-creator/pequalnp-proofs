@@ -1,0 +1,41 @@
+Independent integration and plane-wrapper review
+2026-11-25, status-review agent
+
+Named partial: lean/PEqualNP/Outside/L_meta_2582.lean
+3019 lines, 137617 bytes, SHA256
+d661504592f2887fa311570b870f52251a004e7fa67c267928e4417c0cbd250f.
+These measurements match integration-001.json. Every component source
+hash and normalized-body hash matches the manifest. Each of the eight
+component bodies occurs exactly once in the named file. Removing them
+leaves only the one top PEqualNP.Defs import and whitespace.
+
+plane_read_two_if_large assumes column sizes q+1 and the EXPLICIT bound
+N*(q+2)-1 <= C.size, then applies the canonical read-1 construction and
+read-k monotonicity. Its comparison with C is therefore valid; it does
+not establish that threshold for an arbitrary circuit.
+
+plane_clean_read_two derives the C4-free condition from uniqueness of the
+line through distinct points: two distinct common lines contradict the
+unique witness. It translates the incidence predicate to an edge finset
+and applies clean_read_two_normalize. Its EXPLICIT hclean assumption says
+every AND gate implies the circuit output on every input; that remains
+additional to the posted hypotheses. The wrapper proves only the clean
+case, with the exact incidence function and size comparison.
+
+LocalRewriteExplicit differs from previously reviewed LocalRewrite only
+by strengthening the hoist wrapper to specify D=V2, its output wire, its
+new top OR inputs, and the redirect relation. Its proof uses the existing
+V2 length/top/redirect theorems; r being an actual gate justifies the
+natural-number subtraction identity. This addresses the earlier weak
+existential-conclusion issue without adding an unsupported normalization
+claim.
+
+Static checks: 215 unique declarations in permitted module/auxiliary
+subnamespaces; balanced named namespaces; no options, attributes, global
+instances, forbidden proof tokens, _root_ text, string literals, or
+credential-pattern matches. The exact main theorem is absent, as stated
+by the manifest. No proof/refutation PR claim is supported.
+
+Verdict: approved for partial archival, conditional on the currently
+running named-file build002 passing for this exact hash. Earlier component
+builds are not treated as an integration build. No tests were rerun.

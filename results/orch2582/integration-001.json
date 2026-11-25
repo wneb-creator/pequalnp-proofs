@@ -1,0 +1,48 @@
+{
+  "components": [
+    {
+      "file": "results/orch2582/lemmas/Canonical.lean",
+      "source_sha256": "63bc175161a8bfbfbd2ae05201768bd2d1bc56e9f04e234c671b0d535f7bc110",
+      "body_sha256": "f99ec64cee3d3f29589f9dd6f230aaac6246b2846f827b45a45a2dd7055548ec"
+    },
+    {
+      "file": "results/orch2582/lemmas/ReadMono.lean",
+      "source_sha256": "2032a8d1395f839efd03c8668e3df947123fb31c2225f1fc9db33f659631a308",
+      "body_sha256": "0958db9408cca5e1ae3f9d2c0230368a897756cd9ddfef7f97d84a830b19a590"
+    },
+    {
+      "file": "results/orch2582/lemmas/CleanReuse.lean",
+      "source_sha256": "2250b7c1e4abde1220960810c2c1b050ea689238057d6c9dc6b7a7e7ae7f1de0",
+      "body_sha256": "ef6fcfe554dca2867651636984d8328f8c5d1c64af9c4e9f20b8cec58c6b3493"
+    },
+    {
+      "file": "results/orch2582/lemmas/CleanNormalizeWrapper.txt",
+      "source_sha256": "8da0816a513dcea9bb9f6f74c14a3238d003eeee74ec21d41165ebb513245d07",
+      "body_sha256": "8da0816a513dcea9bb9f6f74c14a3238d003eeee74ec21d41165ebb513245d07"
+    },
+    {
+      "file": "results/orch2582/lemmas/LocalRewriteExplicit.lean",
+      "source_sha256": "f9310d2eac57ccb921fcd2addacee33e7ba47af2ee74ea1c7bf3dc2c6d773807",
+      "body_sha256": "a0a02f6ba3d9031226251df94982ed703b52086dcb1e8efe6973f89cb987879a"
+    },
+    {
+      "file": "results/orch2582/lemmas/ReadTwoSanity.lean",
+      "source_sha256": "88adaa32d29ac7460878e6f34cf97132f12998e8afe6c387a30ce28177cf8540",
+      "body_sha256": "c0e26bb1bf4479205623c42f7cea85802d0bf2e2c3198478f53a033cbfe95ad2"
+    },
+    {
+      "file": "results/orch2582/lemmas/ReadTwoLocalObstruction.lean",
+      "source_sha256": "c6ac1370667c1bc430a441d7ac598e2bb3445beb595da81aae9cfe08e1a9ee61",
+      "body_sha256": "437cfd639a922c973eed4cea69088fefac7feb5c79ef75ceb5d192c78842ae45"
+    },
+    {
+      "file": "results/orch2582/lemmas/PlaneWrappers.txt",
+      "source_sha256": "46b6d71d6d3b3b02def6189074c4cbc2aa62754b07f66606c3ddd2237e62157a",
+      "body_sha256": "46b6d71d6d3b3b02def6189074c4cbc2aa62754b07f66606c3ddd2237e62157a"
+    }
+  ],
+  "lines": 3019,
+  "bytes": 137617,
+  "sha256": "d661504592f2887fa311570b870f52251a004e7fa67c267928e4417c0cbd250f",
+  "status": "partial; main theorem absent"
+}

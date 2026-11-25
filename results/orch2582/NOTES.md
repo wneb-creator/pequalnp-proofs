@@ -41,3 +41,13 @@ ReadK2 only needs proof trees with each endpoint appearing≤2. The desk star-co
 ### Counterexample agent: checked local-normalization obstruction
 
 ReadTwoLocalObstruction.lean compiled. Let U=a∨b, V=x∨y, W=a∨y, T=a∨V, K=U∧T, L=V∧W, output=K∧L. Seven gates compute ax∨ay∨by; the pair by has only capped proof counts(1,3), so the source is not READ2. All11 wire functions are pairwise distinct, hence no gate duplicates any wire or either of its inputs semantically. A four-gate READ2 equivalent is checked, so the source is not a minimizer. This refutes a local semantic-deduplication-only strategy; it is not a plane counterexample or refutation of L-meta-2582.
+
+### Counterexample agent: final finite handoff
+
+P4 seven-gate no-bypass query returned SAT2.842s. Circuit [(1,3,AND),(2,4,OR),(0,4,OR),(5,6,AND),(3,7,OR),(0,7,OR),(8,9,AND)] has no output-preserving operand bypass and is notREAD2 on(1,3), with exact cap3 vectors{(2,3),(3,3)}. It contains a semantic duplicate (wire9 equalswire6), so it does not combine distinctness with no-bypass. Structural agent’s matching19 CNF construction combines both, and numerical validation showed all285 gate-to-any-earlier-wire replacements changeoutput. Its exact19gates, all64truthinputs, jointcap3vectors, all25wirefunctions distinct, and explicit285bypass witnesses are reproducible with MatchingCNFValidation.py. Structural agent formalizing it. Neither graph is a projective plane; no global-optimality or2582refutation claim. No searches remain active, and no further queries planned.
+
+## Matching CNF obstruction to local cleanup (structural/counterexample, 18:46 UTC)
+
+MatchingLocalObstruction.lean compiled exit0 in about72seconds; stdout/stderr empty. It constructs a19gate monotone CNF for the three-edge matching on6inputs, proves the exact function on all64assignments, proves one prime pair has no READ2 proof, checks all25wire functions distinct, and checks all38 choices of replacing a gate by one of its own operands change the function. The replacement is represented by an AND[b,b] at the same index, so all later indices stay fixed. A5gate equivalent READ1 circuit is checked. This demonstrates that absence of duplicate wire functions and absence of local operand bypasses does not imply READ2. It does not refute L-meta-2582: matching is not a projective plane and a smaller READ1 circuit exists.
+
+Counterexample agent additionally numerically verified all285 substitutions of any gate by any earlier wire change the function. MatchingAllBypasses.lean adds that stronger finite assertion; its compile is pending as of18:46. Original checked file remains frozen.

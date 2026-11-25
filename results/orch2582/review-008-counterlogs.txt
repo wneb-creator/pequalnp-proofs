@@ -1,0 +1,31 @@
+Independent counterexample handoff and completed-log review
+2026-11-25, status-review agent
+
+read2-log-manifest.json has 24 unique source/archive pairs, 20176 bytes
+total. Every source and archive was independently compared byte-for-byte;
+every byte count and SHA256 matched. Source paths stay under the named job
+scratch directory and archive paths under results/orch2582. No credential
+patterns were found in these diagnostics.
+
+COUNTEREXAMPLE_SUMMARY.md, reviewed SHA256
+00b7000d86adc60a0347d257384836fcbf2fe5e70e62b6f039948f38f770a794,
+correctly separates Lean-checked finite examples, external search results,
+and pending matching formalization. It expressly disclaims a plane result,
+global minimum, and full-gap proof/refutation. Archived logs support C6k8
+UNKNOWN/timeout at 120.047600858 seconds, P4k7 no-bypass SAT at
+2.842209125 seconds, and fixed-P4 no-bypass UNSAT. Its caveat that the SAT
+bypass witness has duplicate wire functions is retained.
+
+MatchingCNFValidation.py: 63 lines, SHA256
+59446129ebacb133189aa936190295b6ced5048fa869968ed295ddf558ed3f44.
+The local script constructs the displayed 19-gate matching CNF, checks all
+64 inputs, literal cap-3 counts, all 25 wire signatures, and each of the
+285 earlier-wire replacements of each gate. Its archived JSON reports
+exactly all three matching edges as non-read-2, 25 distinct wire functions,
+and 285 distinguishing witnesses. The code is local-only, has no credential
+patterns, and requires Python assertions enabled. The explicit five-gate
+direct realization shows that the local obstruction is not globally
+minimum. No matching Lean result is inferred from these numeric checks.
+
+Verdict: completed-log mirror and truthful handoff approved for archival.
+No searches or unchanged tests were rerun.
