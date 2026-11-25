@@ -1798,6 +1798,29 @@ lemma d136 : LevelN d106 d105 6 d126 := levelStep d108 d125 d134 (chunks 8 d126 
   · exact d135
   ))
 lemma d137 : LowN d106 d105 7 := lowSearch d108 d136 (by decide +kernel)
+def d138 : Nat := 0xfeeefac8feeefac8feeefac8feeefac8
+def d139 : List Nat := l0
+def d140 : List (Nat × Nat × Nat) := [(0,2,3),(1,1,3),(2,2,6),(3,1,9),(4,1,17)]
+lemma d141 : baseOK d138 d139 d140 = true := by decide +kernel
+lemma d142 : SliceN d139 d138 (c25,5,[0, 1, 4, 3]) := mkSlice (w:=0) d141 d59 d68 (by decide +kernel)
+def d143 : List SliceD := [(c25,5,[0, 1, 4, 3])]
+lemma d144 : ∀ s ∈ d143, SliceN d139 d138 s := by
+  unfold d143
+  simp only [List.forall_mem_cons]
+  exact ⟨d142,by simp⟩
+def d145 : List StD := dupD [
+ (l3,[(0,[])],[],[[0],[0],[0],[0],[0],[0],[0],[0],[0],[0]])]
+def d146 : List StD := []
+lemma d147 : LevelN d139 d138 4 d146 := by intro s h; cases h
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma d148 : levelOK d138 d143 4 (d146.map Prod.fst) ((d145.drop (0*8)).take 8) = true := by decide +kernel
+lemma d149 : LevelN d139 d138 5 d145 := levelStep d141 d144 d147 (chunks 8 d145 1 (by omega) (by decide +kernel) (by
+  intro i hi
+  interval_cases i
+  · exact d148
+  ))
+lemma d150 : LowN d139 d138 6 := lowSearch d141 d149 (by decide +kernel)
 def d151 : Nat := 0xfeeefae8feeefae8feeefae8feeefae8
 def d152 : List Nat := l0
 def d153 : List (Nat × Nat × Nat) := [(0,2,3),(1,1,3),(2,1,5),(3,1,9),(4,1,17)]
@@ -1848,6 +1871,69 @@ lemma d179 : LevelN d169 d168 5 d175 := levelStep d171 d174 d177 (chunks 8 d175 
   · exact d178
   ))
 lemma d180 : LowN d169 d168 6 := lowSearch d171 d179 (by decide +kernel)
+def d181 : Nat := 0xfefefea8fefefea8fefefea8fefefea8
+def d182 : List Nat := l0
+def d183 : List (Nat × Nat × Nat) := [(0,2,3),(1,1,3),(2,1,5),(3,1,9),(4,1,17)]
+lemma d184 : baseOK d181 d182 d183 = true := by decide +kernel
+lemma d185 : SliceN d182 d181 (c24,5,[0, 2, 3, 4]) := mkSlice (w:=0) d184 d72 d81 (by decide +kernel)
+def d186 : List SliceD := [(c24,5,[0, 2, 3, 4])]
+lemma d187 : ∀ s ∈ d186, SliceN d182 d181 s := by
+  unfold d186
+  simp only [List.forall_mem_cons]
+  exact ⟨d185,by simp⟩
+def d188 : List StD := dupD [
+ (l3,[(0,[])],[],[[0],[0],[0],[0],[0],[0],[0],[0],[0],[0]])]
+def d189 : List StD := []
+lemma d190 : LevelN d182 d181 4 d189 := by intro s h; cases h
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma d191 : levelOK d181 d186 4 (d189.map Prod.fst) ((d188.drop (0*8)).take 8) = true := by decide +kernel
+lemma d192 : LevelN d182 d181 5 d188 := levelStep d184 d187 d190 (chunks 8 d188 1 (by omega) (by decide +kernel) (by
+  intro i hi
+  interval_cases i
+  · exact d191
+  ))
+lemma d193 : LowN d182 d181 6 := lowSearch d184 d192 (by decide +kernel)
+def d194 : Nat := 0xfffefeeefffafce8fffefeeefffafce8
+def d195 : List Nat := [0, 1, 2, 3, 4, 5]
+def d196 : List (Nat × Nat × Nat) := [(0,2,3),(1,1,3),(2,1,5),(3,2,10),(4,1,17),(5,1,33)]
+lemma d197 : baseOK d194 d195 d196 = true := by decide +kernel
+lemma d198 : SliceN d195 d194 (c28,7,[1, 2, 3, 4, 5]) := mkSlice (w:=0) d197 d108 d137 (by decide +kernel)
+lemma d199 : SliceN d195 d194 (c24,7,[0, 2, 4, 3, 5]) := mkSlice (w:=0) d197 d108 d137 (by decide +kernel)
+lemma d200 : SliceN d195 d194 (c25,6,[0, 1, 3, 4, 5]) := mkSlice (w:=0) d197 d141 d150 (by decide +kernel)
+lemma d201 : SliceN d195 d194 (c23,7,[0, 1, 2, 4, 5]) := mkSlice (w:=0) d197 d154 d167 (by decide +kernel)
+lemma d202 : SliceN d195 d194 (c31,7,[1, 0, 2, 3, 5]) := mkSlice (w:=0) d197 d154 d167 (by decide +kernel)
+lemma d203 : SliceN d195 d194 (c13,6,l0) := mkSlice (w:=32) d197 d171 d180 (by decide +kernel)
+lemma d204 : SliceN d195 d194 (c43,6,[2, 1, 4, 3, 0]) := mkSlice (w:=0) d197 d184 d193 (by decide +kernel)
+def d205 : List SliceD := [(c28,7,[1, 2, 3, 4, 5]),(c24,7,[0, 2, 4, 3, 5]),(c25,6,[0, 1, 3, 4, 5]),(c23,7,[0, 1, 2, 4, 5]),(c31,7,[1, 0, 2, 3, 5]),(c13,6,l0),(c43,6,[2, 1, 4, 3, 0])]
+lemma d206 : ∀ s ∈ d205, SliceN d195 d194 s := by
+  unfold d205
+  simp only [List.forall_mem_cons]
+  exact ⟨d198,d199,d200,d201,d202,d203,d204,by simp⟩
+def d207 : List StD := dupD [
+ (l6,[(0,[]),(1,[]),(2,[]),(3,[]),(4,[]),(5,[]),(6,[])],[(1,3),(4,5),(2,3),(33,40),(1,17),(1,33),(4,6),(3,9),(34,48),(2,34),(4,12),(2,10),(4,20),(12,40),(1,5),(9,17),(9,33),(18,34)],[[0,1,1000],[0,1001,2,1002],[0,3,1003],[0,4,1004],[0,5,1005,6],[1,1006,2,1000],[1,3,1007],[1,4,1008],[1,5,1009,6],[2,3,1010,1011],[2,4,1012,1004],[2,6,1005,5,1013,1014],[3,4,1015],[3,5,1016,6,1010],[4,5,1017,6,1004]])]
+def d208 : List StD := dupD [
+ ([c1,c0,c2,c3,c5,c26],[(0,[(1,1,4)]),(1,[(1,1,4)]),(2,[]),(3,[(1,2,4)]),(4,[(1,2,4)]),(5,[]),(0,[(3,1,4)])],[(1,3),(4,5),(33,40),(1,17),(2,3),(4,6),(3,9),(34,48),(4,12),(4,20),(9,17),(2,10)],[[0,1,1000],[0,2,1001],[0,3,1002],[0,4,1003],[0,5,1004],[1,2,1005],[1,3,1006],[1,4,1007],[1,5,1000],[2,3,1008],[2,4,1009],[2,5,6],[3,4,1010],[3,5,1011],[4,5,1003]]),
+ ([c57,c1,c0,c2,c3,c5],[(0,[(3,1,4)]),(6,[]),(1,[(3,1,4)]),(0,[(1,1,4)]),(3,[(3,2,4)]),(4,[(3,2,4)]),(2,[])],[(1,33),(2,34),(9,33),(18,34),(1,3),(1,5),(33,40),(1,17),(2,6),(3,9),(34,48),(5,9),(6,18),(9,17)],[[0,1,1000],[1,2,1001],[1,3],[1,4,1002],[1,5,1003],[0,2,1004],[0,6,1005],[0,4,1006],[0,5,1007],[2,6,1008],[2,4,1009],[2,5,1010],[4,6,1011],[5,6,1012],[4,5,1013]])]
+def d209 : List StD := []
+lemma d210 : LevelN d195 d194 6 d209 := by intro s h; cases h
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma d211 : levelOK d194 d205 6 (d209.map Prod.fst) ((d208.drop (0*8)).take 8) = true := by decide +kernel
+lemma d212 : LevelN d195 d194 7 d208 := levelStep d197 d206 d210 (chunks 8 d208 1 (by omega) (by decide +kernel) (by
+  intro i hi
+  interval_cases i
+  · exact d211
+  ))
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma d213 : levelOK d194 d205 7 (d208.map Prod.fst) ((d207.drop (0*8)).take 8) = true := by decide +kernel
+lemma d214 : LevelN d195 d194 8 d207 := levelStep d197 d206 d212 (chunks 8 d207 1 (by omega) (by decide +kernel) (by
+  intro i hi
+  interval_cases i
+  · exact d213
+  ))
+lemma d215 : LowN d195 d194 9 := lowSearch d197 d214 (by decide +kernel)
 def d216 : Nat := 0xeac0eac0eac0eac0eac0eac0eac0eac0
 def d217 : List Nat := [0, 1, 2, 3]
 def d218 : List (Nat × Nat × Nat) := [(0,8,9),(1,4,6),(2,2,6),(3,1,9)]
@@ -2910,6 +2996,29 @@ lemma d582 : LevelN d443 d442 9 d537 := levelStep d445 d536 d580 (chunks 8 d537 
   · exact d581
   ))
 lemma d583 : LowN d443 d442 10 := lowSearch d445 d582 (by decide +kernel)
+def d584 : Nat := 0xfffffffefffefefefffffffefffefefe
+def d585 : List Nat := [0, 1, 2, 3, 4, 5]
+def d586 : List (Nat × Nat × Nat) := [(0,0,1),(1,0,2),(2,0,4),(3,16,24),(4,8,24),(5,8,40)]
+lemma d587 : baseOK d584 d585 d586 = true := by decide +kernel
+lemma d588 : SliceN d585 d584 (c28,6,[1, 2, 3, 4, 5]) := mkSlice (w:=0) d587 d171 d180 (by decide +kernel)
+def d589 : List SliceD := [(c28,6,[1, 2, 3, 4, 5])]
+lemma d590 : ∀ s ∈ d589, SliceN d585 d584 s := by
+  unfold d589
+  simp only [List.forall_mem_cons]
+  exact ⟨d588,by simp⟩
+def d591 : List StD := dupD [
+ (l6,[(0,[])],[],[[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0],[0]])]
+def d592 : List StD := []
+lemma d593 : LevelN d585 d584 5 d592 := by intro s h; cases h
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma d594 : levelOK d584 d589 5 (d592.map Prod.fst) ((d591.drop (0*8)).take 8) = true := by decide +kernel
+lemma d595 : LevelN d585 d584 6 d591 := levelStep d587 d590 d593 (chunks 8 d591 1 (by omega) (by decide +kernel) (by
+  intro i hi
+  interval_cases i
+  · exact d594
+  ))
+lemma d596 : LowN d585 d584 7 := lowSearch d587 d595 (by decide +kernel)
 
 abbrev restriction05Target : Nat := 0xfffefeeefffafac0fffefeeefffafac0
 abbrev restriction14Target : Nat := 0xfffefeeefff8fae8fffefeeefff8fae8
