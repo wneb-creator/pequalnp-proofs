@@ -2492,4 +2492,1919 @@ lemma no_dirty_eight_unrestricted {D : Dag} (h : StrictLive 6 D)
 
 end C6
 
+namespace C6
+open DagTools
+
+lemma forward_comparable {α : Type} {R : α → α → Prop}
+    (hfun : ∀ a b c, R a b → R a c → b = c) {x a b : α}
+    (ha : Relation.ReflTransGen R x a) (hb : Relation.ReflTransGen R x b) :
+    Relation.ReflTransGen R a b ∨ Relation.ReflTransGen R b a := by
+  revert b
+  induction ha using Relation.ReflTransGen.head_induction_on with
+  | refl =>
+    intro b hb
+    exact Or.inl hb
+  | @head x y hxy hya ih =>
+    intro b hb
+    rcases Relation.ReflTransGen.cases_head hb with hxb | ⟨z, hxz, hzb⟩
+    · right
+      rw [← hxb]
+      exact Relation.ReflTransGen.head hxy hya
+    · have hyz := hfun x y z hxy hxz
+      subst z
+      exact ih hzb
+
+lemma step_reach_le {n : ℕ} {D : Dag} (hS : Strict n D) {a b : ℕ}
+    (h : Relation.ReflTransGen (sem_step n D) a b) : a ≤ b := by
+  induction h with
+  | refl => exact Nat.le_refl _
+  | tail hab hbc ih => exact ih.trans (sem_step_lt hS hbc).le
+
+lemma one_reader_successor {n : ℕ} {D : Dag} (hS : Strict n D)
+    (hone : ∀ w, w + 1 < n + D.length → fanout D w = 1)
+    {a b c : ℕ} (hab : sem_step n D a b) (hac : sem_step n D a c) : b = c := by
+  have hp := sem_step_fanout hab
+  exact sem_step_unique hab hac (hone a (lt_of_fanout_pos hS hp))
+
+lemma parents_no_common_ancestor {n : ℕ} {D : Dag} (hS : Strict n D)
+    (hone : ∀ w, w + 1 < n + D.length → fanout D w = 1)
+    {j : ℕ} (hj : j < D.length) {w : ℕ}
+    (ha : Relation.ReflTransGen (sem_step n D) w (opA D j))
+    (hb : Relation.ReflTransGen (sem_step n D) w (opB D j)) : False := by
+  have hfun : ∀ a b c, sem_step n D a b → sem_step n D a c → b = c :=
+    fun _ _ _ hab hac => one_reader_successor hS hone hab hac
+  obtain ⟨hA, hB, hne⟩ := hS j hj
+  have hstepA : sem_step n D (opA D j) (n + j) := by
+    simpa only [src, Bool.false_eq_true, ↓reduceIte] using
+      (sem_step_src (n := n) (D := D) hj false)
+  have hstepB : sem_step n D (opB D j) (n + j) := by
+    simpa only [src, ↓reduceIte] using
+      (sem_step_src (n := n) (D := D) hj true)
+  rcases forward_comparable hfun ha hb with hpath | hpath
+  · rcases Relation.ReflTransGen.cases_head hpath with heq | ⟨z, haz, hzb⟩
+    · exact hne heq
+    · have hz : z = n + j := hfun _ _ _ haz hstepA
+      have hle := step_reach_le hS hzb
+      omega
+  · rcases Relation.ReflTransGen.cases_head hpath with heq | ⟨z, hbz, hza⟩
+    · exact hne heq.symm
+    · have hz : z = n + j := hfun _ _ _ hbz hstepB
+      have hle := step_reach_le hS hza
+      omega
+
+noncomputable def dag_resources (n : ℕ) (D : Dag) (w : ℕ) : Finset (Fin n) := by
+  classical
+  exact Finset.univ.filter (fun v => Relation.ReflTransGen (sem_step n D) v.val w)
+
+lemma mem_resources {n : ℕ} {D : Dag} {w : ℕ} {v : Fin n} :
+    v ∈ dag_resources n D w ↔ Relation.ReflTransGen (sem_step n D) v.val w := by
+  classical
+  simp only [dag_resources, Finset.mem_filter, Finset.mem_univ, true_and]
+
+lemma resources_input {n : ℕ} (D : Dag) (v : Fin n) :
+    dag_resources n D v.val = {v} := by
+  classical
+  ext u
+  rw [mem_resources, Finset.mem_singleton]
+  constructor
+  · intro hp
+    rcases Relation.ReflTransGen.cases_tail hp with heq | ⟨z, _, hz⟩
+    · exact Fin.ext heq.symm
+    · have hn : n ≤ v.val := hz.2.1
+      exact (Nat.not_le_of_gt v.isLt hn).elim
+  · intro heq
+    subst u
+    exact Relation.ReflTransGen.refl
+
+lemma resources_gate {n : ℕ} {D : Dag} {j : ℕ} (hj : j < D.length) :
+    dag_resources n D (n + j) =
+      dag_resources n D (opA D j) ∪ dag_resources n D (opB D j) := by
+  classical
+  ext v
+  rw [Finset.mem_union, mem_resources, mem_resources, mem_resources]
+  constructor
+  · intro hp
+    rcases Relation.ReflTransGen.cases_tail hp with heq | ⟨w, hvw, hw⟩
+    · have hv := v.isLt
+      omega
+    · have hwhich : opA D j = w ∨ opB D j = w := by
+        simpa only [Nat.add_sub_cancel_left] using hw.2.2
+      rcases hwhich with ha | hb
+      · exact Or.inl (ha ▸ hvw)
+      · exact Or.inr (hb ▸ hvw)
+  · rintro (ha | hb)
+    · apply Relation.ReflTransGen.tail ha
+      simpa only [src, Bool.false_eq_true, ↓reduceIte] using
+        (sem_step_src (n := n) (D := D) hj false)
+    · apply Relation.ReflTransGen.tail hb
+      simpa only [src, ↓reduceIte] using
+        (sem_step_src (n := n) (D := D) hj true)
+
+lemma resources_disjoint {n : ℕ} {D : Dag} (hS : Strict n D)
+    (hone : ∀ w, w + 1 < n + D.length → fanout D w = 1)
+    {j : ℕ} (hj : j < D.length) :
+    Disjoint (dag_resources n D (opA D j)) (dag_resources n D (opB D j)) := by
+  apply Finset.disjoint_left.mpr
+  intro v ha hb
+  exact parents_no_common_ancestor hS hone hj (mem_resources.mp ha) (mem_resources.mp hb)
+
+lemma resources_nonempty {n : ℕ} {D : Dag} (hS : Strict n D) :
+    ∀ w, w < n + D.length → (dag_resources n D w).Nonempty := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    intro hw
+    by_cases hi : w < n
+    · rw [show dag_resources n D w = {⟨w, hi⟩} from resources_input D ⟨w, hi⟩]
+      exact Finset.singleton_nonempty _
+    · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
+      have hj : j < D.length := by omega
+      have hA := (hS j hj).1
+      obtain ⟨v, hv⟩ := ih (opA D j) hA (by omega)
+      rw [resources_gate hj]
+      exact ⟨v, Finset.mem_union_left _ hv⟩
+
+lemma reader_exists {D : Dag} {w : ℕ} (h : 1 ≤ fanout D w) :
+    ∃ j, j < D.length ∧ (opA D j = w ∨ opB D j = w) := by
+  have hc : (readers D w).Nonempty := Finset.card_pos.mp h
+  obtain ⟨j, hj⟩ := hc
+  rw [readers, Finset.mem_filter, Finset.mem_range] at hj
+  exact ⟨j, hj⟩
+
+lemma wire_reaches_output {n : ℕ} {D : Dag} (h : StrictLive n D) :
+    ∀ w, w < n + D.length → Relation.ReflTransGen (sem_step n D) w (outW n D) := by
+  have aux : ∀ k w, n + D.length - w = k → w < n + D.length →
+      Relation.ReflTransGen (sem_step n D) w (outW n D) := by
+    intro k
+    induction k using Nat.strong_induction_on with
+    | _ k ih =>
+      intro w hkw hw
+      by_cases heq : w = outW n D
+      · rw [heq]
+      · have hinner : w + 1 < n + D.length := by unfold outW at heq; omega
+        obtain ⟨j, hj, hsrc⟩ := reader_exists (h.2.1 w hinner)
+        have hstep : sem_step n D w (n + j) := by
+          refine ⟨by omega, by omega, ?_⟩
+          simpa only [Nat.add_sub_cancel_left] using hsrc
+        have hlt := sem_step_lt h.1 hstep
+        have hp := ih (n + D.length - (n + j)) (by omega) (n + j) rfl (by omega)
+        exact Relation.ReflTransGen.head hstep hp
+  intro w hw
+  exact aux _ w rfl hw
+
+lemma resources_output {n : ℕ} {D : Dag} (h : StrictLive n D) :
+    dag_resources n D (outW n D) = Finset.univ := by
+  apply Finset.eq_univ_of_forall
+  intro v
+  apply mem_resources.mpr
+  apply wire_reaches_output h v.val
+  have hn := v.isLt
+  omega
+
+lemma resource_induction {n : ℕ} {D : Dag} {α : Type} (h : StrictLive n D)
+    (hone : ∀ w, w + 1 < n + D.length → fanout D w = 1)
+    (x : α → Fin n → Bool) (P : Finset (Fin n) → (α → Bool) → Prop)
+    (hinput : ∀ v : Fin n, P {v} (fun a => x a v))
+    (hand : ∀ S T f g, Disjoint S T → P S f → P T g →
+      P (S ∪ T) (fun a => f a && g a))
+    (hor : ∀ S T f g, Disjoint S T → P S f → P T g →
+      P (S ∪ T) (fun a => f a || g a)) :
+    P Finset.univ (fun a => val D (x a) (outW n D)) := by
+  have all : ∀ w, w < n + D.length → P (dag_resources n D w) (fun a => val D (x a) w) := by
+    intro w
+    induction w using Nat.strong_induction_on with
+    | _ w ih =>
+      intro hw
+      by_cases hin : w < n
+      · rw [show dag_resources n D w = {⟨w, hin⟩} from resources_input D ⟨w, hin⟩]
+        have hev : (fun a => val D (x a) w) = (fun a => x a ⟨w, hin⟩) := by
+          funext a
+          exact val_input D (x a) w hin
+        rw [hev]
+        exact hinput ⟨w, hin⟩
+      · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
+        have hj : j < D.length := by omega
+        obtain ⟨hA, hB, _⟩ := h.1 j hj
+        have pA := ih (opA D j) hA (by omega)
+        have pB := ih (opB D j) hB (by omega)
+        have hdis := resources_disjoint h.1 hone hj
+        rw [resources_gate hj]
+        have hev : (fun a => val D (x a) (n + j)) =
+            (fun a => gop (tag D j) (val D (x a) (opA D j)) (val D (x a) (opB D j))) := by
+          funext a
+          exact val_gate h.1 (x a) j hj
+        rw [hev]
+        cases ht : tag D j
+        · exact hor _ _ _ _ hdis pA pB
+        · exact hand _ _ _ _ hdis pA pB
+  have hout : outW n D < n + D.length := by
+    have hp : 0 < D.length := List.length_pos_iff.mpr h.2.2
+    unfold outW
+    omega
+  have hp := all (outW n D) hout
+  rw [resources_output h] at hp
+  exact hp
+
+lemma resource_induction_nonempty {n : ℕ} {D : Dag} {α : Type} (h : StrictLive n D)
+    (hone : ∀ w, w + 1 < n + D.length → fanout D w = 1)
+    (x : α → Fin n → Bool) (P : Finset (Fin n) → (α → Bool) → Prop)
+    (hinput : ∀ v : Fin n, P {v} (fun a => x a v))
+    (hand : ∀ S T f g, S.Nonempty → T.Nonempty → Disjoint S T → P S f → P T g →
+      P (S ∪ T) (fun a => f a && g a))
+    (hor : ∀ S T f g, S.Nonempty → T.Nonempty → Disjoint S T → P S f → P T g →
+      P (S ∪ T) (fun a => f a || g a)) :
+    P Finset.univ (fun a => val D (x a) (outW n D)) := by
+  have hp := resource_induction h hone x
+    (fun S f => S.Nonempty ∧ P S f)
+    (fun v => ⟨Finset.singleton_nonempty v, hinput v⟩)
+    (fun S T f g hd hS hT =>
+      ⟨hS.1.mono Finset.subset_union_left, hand S T f g hS.1 hT.1 hd hS.2 hT.2⟩)
+    (fun S T f g hd hS hT =>
+      ⟨hS.1.mono Finset.subset_union_left, hor S T f g hS.1 hT.1 hd hS.2 hT.2⟩)
+  exact hp.2
+
+end C6
+
+namespace C6
+open DagTools
+
+lemma raw_or_branch_left {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (hS : Strict n D) (hc : sem_Comp n G D)
+    {j : ℕ} (hj : j < D.length) (ht : tag D j = false)
+    {v w : Fin n} (hv : opA D j = v.val) (hw : opB D j = w.val) (hne : v ≠ w) :
+    2 ≤ fanout D v.val := by
+  have hstep : sem_step n D v.val (n + j) := by
+    simpa only [src, Bool.false_eq_true, ↓reduceIte, hv] using
+      (sem_step_src (n := n) (D := D) hj false)
+  have hpos := sem_step_fanout hstep
+  by_contra hlt
+  have hfo : fanout D v.val = 1 := by omega
+  have hchain : sem_Chain n D v.val (n + j) :=
+    Relation.ReflTransGen.single ⟨hstep, hfo⟩
+  have hpure := sem_dom_pure hG hS hc v (n + j) (sem_chain_dom hS hchain)
+  have hmem : w ∈ supp n D (n + j) := by
+    rw [sem_supp_or hS hj ht, hw, supp_input]
+    exact Finset.mem_union_right _ (Finset.mem_singleton_self w)
+  have heq := hpure hmem
+  rw [Finset.mem_singleton] at heq
+  exact hne heq.symm
+
+lemma raw_or_branch_right {n : ℕ} {G : Fin n → Fin n → Prop} {D : Dag}
+    (hG : sem_Gr G) (hS : Strict n D) (hc : sem_Comp n G D)
+    {j : ℕ} (hj : j < D.length) (ht : tag D j = false)
+    {v w : Fin n} (hv : opA D j = v.val) (hw : opB D j = w.val) (hne : v ≠ w) :
+    2 ≤ fanout D w.val := by
+  have hstep : sem_step n D w.val (n + j) := by
+    simpa only [src, ↓reduceIte, hw] using
+      (sem_step_src (n := n) (D := D) hj true)
+  have hpos := sem_step_fanout hstep
+  by_contra hlt
+  have hfo : fanout D w.val = 1 := by omega
+  have hchain : sem_Chain n D w.val (n + j) :=
+    Relation.ReflTransGen.single ⟨hstep, hfo⟩
+  have hpure := sem_dom_pure hG hS hc w (n + j) (sem_chain_dom hS hchain)
+  have hmem : v ∈ supp n D (n + j) := by
+    rw [sem_supp_or hS hj ht, hv, supp_input]
+    exact Finset.mem_union_left _ (Finset.mem_singleton_self v)
+  have heq := hpure hmem
+  rw [Finset.mem_singleton] at heq
+  exact hne heq
+
+lemma raw_branch_eligible {n : ℕ} {D : Dag} {v : Fin n}
+    (hv : 2 ≤ fanout D v.val) : v ∈ eligSet n D := by
+  apply mem_eligSet.mpr
+  refine ⟨v.val, hv, ?_⟩
+  rw [supp_input]
+  exact Finset.mem_singleton_self v
+
+lemma c6_length_at_least_eight {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D) :
+    8 ≤ D.length := by
+  by_contra hn
+  have hl : D.length ≤ 8 := by omega
+  obtain ⟨_, _, _, _, hp, hz, _⟩ := small_budget h hc hl
+  have hs := surplus_identity h
+  rw [totalSurplus_split, hp, hz] at hs
+  omega
+
+def oppositePair (v w : V) : Prop :=
+  (v.val, w.val) ∈ [(0,5),(1,4),(2,3)] ∨ (w.val, v.val) ∈ [(0,5),(1,4),(2,3)]
+
+set_option synthInstance.maxSize 4096 in
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 10000000 in
+lemma independent_hits_opposite : ∀ I : Finset V, Independent I → I.card = 3 →
+    ∀ v w, oppositePair v w → v ∈ I ∨ w ∈ I := by
+  unfold Independent adj oppositePair
+  decide +kernel
+
+set_option synthInstance.maxSize 4096 in
+lemma opposite_distinct : ∀ v w : V, oppositePair v w → v ≠ w := by
+  unfold oppositePair
+  decide +kernel
+
+lemma no_opposite_raw_or_eight {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hl : D.length ≤ 8) {j : ℕ} (hj : j < D.length) (ht : tag D j = false)
+    {v w : V} (hv : opA D j = v.val) (hw : opB D j = w.val)
+    (hop : oppositePair v w) : False := by
+  have hve := raw_branch_eligible (raw_or_branch_left graph_ok h.1 hc hj ht hv hw
+    (opposite_distinct v w hop))
+  have hwe := raw_branch_eligible (raw_or_branch_right graph_ok h.1 hc hj ht hv hw
+    (opposite_distinct v w hop))
+  obtain ⟨_, _, hI, _, _, _, _⟩ := small_budget h hc hl
+  rcases independent_hits_opposite _ (inelig_independent h hc) hI v w hop with hi | hi
+  · exact (sem_mem_inelig.mp hi) hve
+  · exact (sem_mem_inelig.mp hi) hwe
+
+lemma six_raw_branches_length {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hraw : ∀ v : V, 2 ≤ fanout D v.val) : 11 ≤ D.length := by
+  classical
+  obtain ⟨b, hb⟩ := sem_exists_pureBranch graph_ok h.1 hc
+  have hfull : eligSet 6 D = Finset.univ := by
+    apply Finset.eq_univ_of_forall
+    exact fun v => raw_branch_eligible (hraw v)
+  have he := elig_le_Bplus h.1 b hb
+  rw [hfull] at he
+  have he6 : 6 ≤ Bplus 6 D := by simpa using he
+  have hs := surplus_identity h
+  rw [totalSurplus_split] at hs
+  omega
+
+lemma four_raw_branches_budget {D : Dag} (h : StrictLive 6 D) (hl : D.length ≤ 9)
+    (S : Finset V) (hS : S.card = 4) (hraw : ∀ v ∈ S, 2 ≤ fanout D v.val) :
+    D.length = 9 ∧ ∀ w, 2 ≤ fanout D w →
+      ∃ v ∈ S, w = v.val ∧ fanout D w = 2 := by
+  classical
+  let u : V → Σ _ : ℕ, ℕ := fun v => ⟨v.val, 0⟩
+  let U := S.image u
+  have hinj : Function.Injective u := by
+    intro v w hvw
+    apply Fin.ext
+    exact congrArg Sigma.fst hvw
+  have hU : U.card = 4 := by
+    dsimp only [U]
+    rw [Finset.card_image_of_injective _ hinj]
+    exact hS
+  have hsub : U ⊆ units 6 D := by
+    intro z hz
+    obtain ⟨v, hv, rfl⟩ := Finset.mem_image.mp hz
+    have hbr := hraw v hv
+    apply mem_units.mpr
+    change v.val ∈ inner 6 D ∧ 0 + 1 < fanout D v.val
+    exact ⟨sb_mem_inner.mpr (lt_of_fanout_pos h.1 (w := v.val) (by omega)), by omega⟩
+  have hcard : (units 6 D).card = totalSurplus 6 D := by
+    simpa only [Finset.filter_true, totalSurplus] using
+      (sb_card_units_filter 6 D (fun _ => True))
+  have htotal := surplus_identity h
+  have huc : (units 6 D).card ≤ 4 := by omega
+  have heq : U = units 6 D := Finset.eq_of_subset_of_card_le hsub (by omega)
+  have hsize : D.length = 9 := by
+    have he : (units 6 D).card = 4 := by rw [← heq]; exact hU
+    omega
+  refine ⟨hsize, ?_⟩
+  intro w hw
+  have hzero : (⟨w, 0⟩ : Σ _ : ℕ, ℕ) ∈ units 6 D := by
+    apply mem_units.mpr
+    change w ∈ inner 6 D ∧ _
+    exact ⟨sb_mem_inner.mpr (lt_of_fanout_pos h.1 (w := w) (by omega)), by dsimp; omega⟩
+  rw [← heq] at hzero
+  obtain ⟨v, hv, he0⟩ := Finset.mem_image.mp hzero
+  have hew : w = v.val := (congrArg Sigma.fst he0).symm
+  refine ⟨v, hv, hew, ?_⟩
+  by_contra hne
+  have hthree : 3 ≤ fanout D w := by omega
+  have hone : (⟨w, 1⟩ : Σ _ : ℕ, ℕ) ∈ units 6 D := by
+    apply mem_units.mpr
+    change w ∈ inner 6 D ∧ _
+    exact ⟨sb_mem_inner.mpr (lt_of_fanout_pos h.1 (w := w) (by omega)), by dsimp; omega⟩
+  rw [← heq] at hone
+  obtain ⟨v', _, he1⟩ := Finset.mem_image.mp hone
+  have : (0 : ℕ) = 1 := congrArg Sigma.snd he1
+  omega
+
+lemma fanout_append (P R : Dag) (w : ℕ) : fanout (P ++ R) w = fanout P w + fanout R w := by
+  classical
+  simp only [fanout, readers, Finset.card_filter, List.length_append]
+  rw [Finset.sum_range_add]
+  congr 1
+  · apply Finset.sum_congr rfl
+    intro j hj
+    have hj' := Finset.mem_range.mp hj
+    have hg := List.getD_append P R (false, 0, 0) j hj'
+    simp only [opA, opB, hg]
+    split_ifs with hp <;> simp_all
+  · apply Finset.sum_congr rfl
+    intro j _
+    have hg : (P ++ R).getD (P.length + j) (false, 0, 0) = R.getD j (false, 0, 0) := by
+      rw [List.getD_append_right P R (false, 0, 0) (P.length + j) (by omega)]
+      congr 1
+      omega
+    simp only [opA, opB, hg]
+    split_ifs with hp <;> simp_all
+
+lemma strict_after_prefix {n : ℕ} {P R : Dag} (h : Strict n (P ++ R)) :
+    Strict (n + P.length) R := by
+  intro j hj
+  have hj' : P.length + j < (P ++ R).length := by simp only [List.length_append]; omega
+  have hs := h (P.length + j) hj'
+  have hg : (P ++ R).getD (P.length + j) (false, 0, 0) = R.getD j (false, 0, 0) := by
+    rw [List.getD_append_right P R (false, 0, 0) (P.length + j) (by omega)]
+    congr 1
+    omega
+  simpa only [opA, opB, hg, Nat.add_assoc] using hs
+
+def prefixTwo : Dag := [(false, 0, 5), (false, 1, 4)]
+
+def fourEndpoints : Finset V := {0, 1, 4, 5}
+
+lemma prefixTwo_fanout (w : ℕ) : fanout prefixTwo w =
+    if w = 0 ∨ w = 1 ∨ w = 4 ∨ w = 5 then 1 else 0 := by
+  classical
+  by_cases hw : w < 6
+  · interval_cases w <;> decide
+  · have h0 : w ≠ 0 := by omega
+    have h1 : w ≠ 1 := by omega
+    have h4 : w ≠ 4 := by omega
+    have h5 : w ≠ 5 := by omega
+    simp [fanout, readers, prefixTwo, opA, opB, Finset.range_add_one, Finset.filter_insert, Finset.filter_singleton, eq_comm, h0, h1, h4, h5]
+
+lemma prefixTwo_branches {R : Dag} (h : StrictLive 6 (prefixTwo ++ R))
+    (hc : sem_Comp 6 adj (prefixTwo ++ R)) :
+    ∀ v ∈ fourEndpoints, 2 ≤ fanout (prefixTwo ++ R) v.val := by
+  have h0 : 0 < (prefixTwo ++ R).length := by simp [prefixTwo]
+  have h1 : 1 < (prefixTwo ++ R).length := by simp [prefixTwo]
+  have hp0 : opA (prefixTwo ++ R) 0 = (0 : V).val := by simp [opA, prefixTwo]
+  have hp5 : opB (prefixTwo ++ R) 0 = (5 : V).val := by simp [opB, prefixTwo]
+  have hp1 : opA (prefixTwo ++ R) 1 = (1 : V).val := by simp [opA, prefixTwo]
+  have hp4 : opB (prefixTwo ++ R) 1 = (4 : V).val := by simp [opB, prefixTwo]
+  have ht0 : tag (prefixTwo ++ R) 0 = false := by simp [tag, prefixTwo]
+  have ht1 : tag (prefixTwo ++ R) 1 = false := by simp [tag, prefixTwo]
+  have hb0 := raw_or_branch_left graph_ok h.1 hc h0 ht0 hp0 hp5 (by decide)
+  have hb5 := raw_or_branch_right graph_ok h.1 hc h0 ht0 hp0 hp5 (by decide)
+  have hb1 := raw_or_branch_left graph_ok h.1 hc h1 ht1 hp1 hp4 (by decide)
+  have hb4 := raw_or_branch_right graph_ok h.1 hc h1 ht1 hp1 hp4 (by decide)
+  intro v hv
+  simp only [fourEndpoints, Finset.mem_insert, Finset.mem_singleton] at hv
+  rcases hv with rfl | rfl | rfl | rfl
+  · exact hb0
+  · exact hb1
+  · exact hb4
+  · exact hb5
+
+lemma prefixTwo_residual_tree {R : Dag} (h : StrictLive 6 (prefixTwo ++ R))
+    (hc : sem_Comp 6 adj (prefixTwo ++ R)) (hl : R.length ≤ 7) :
+    R.length = 7 ∧ StrictLive 8 R ∧
+      ∀ w, w + 1 < 8 + R.length → fanout R w = 1 := by
+  classical
+  have hlen : (prefixTwo ++ R).length ≤ 9 := by
+    simp only [prefixTwo, List.length_append, List.length_cons, List.length_nil]
+    omega
+  obtain ⟨hsize, hbudget⟩ := four_raw_branches_budget h hlen fourEndpoints (by decide)
+    (prefixTwo_branches h hc)
+  have hR : R.length = 7 := by simpa [prefixTwo] using hsize
+  have hS : Strict 8 R := by simpa [prefixTwo] using strict_after_prefix h.1
+  have hfan : ∀ w, w + 1 < 8 + R.length → fanout R w = 1 := by
+    intro w hw
+    have hd : 1 ≤ fanout (prefixTwo ++ R) w := h.2.1 w (by simp only [prefixTwo, List.length_append, List.length_cons, List.length_nil]; omega)
+    have hadd := fanout_append prefixTwo R w
+    rw [prefixTwo_fanout] at hadd
+    by_cases hp : w = 0 ∨ w = 1 ∨ w = 4 ∨ w = 5
+    · have hbr : 2 ≤ fanout (prefixTwo ++ R) w := by
+        rcases hp with rfl | rfl | rfl | rfl
+        · exact prefixTwo_branches h hc 0 (by decide)
+        · exact prefixTwo_branches h hc 1 (by decide)
+        · exact prefixTwo_branches h hc 4 (by decide)
+        · exact prefixTwo_branches h hc 5 (by decide)
+      obtain ⟨_, _, _, hf⟩ := hbudget w hbr
+      simp only [hp, ↓reduceIte] at hadd
+      omega
+    · have hnot : ¬ 2 ≤ fanout (prefixTwo ++ R) w := by
+        intro hbr
+        obtain ⟨v, hv, hvw, _⟩ := hbudget w hbr
+        simp only [fourEndpoints, Finset.mem_insert, Finset.mem_singleton] at hv
+        rcases hv with rfl | rfl | rfl | rfl <;> simp_all
+      simp only [hp, ↓reduceIte] at hadd
+      omega
+  refine ⟨hR, ⟨hS, ?_, ?_⟩, hfan⟩
+  · intro w hw
+    rw [hfan w hw]
+  · intro he
+    simp [he] at hR
+
+def extendTwo (x : V → Bool) : Fin 8 → Bool :=
+  ![x 0, x 1, x 2, x 3, x 4, x 5, x 0 || x 5, x 1 || x 4]
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 1000000 in
+lemma prefixTwo_inputs : ∀ x : V → Bool,
+    wl prefixTwo (List.ofFn x) = List.ofFn (extendTwo x) := by
+  decide +kernel
+
+lemma prefixTwo_residual_computes {R : Dag}
+    (hc : sem_Comp 6 adj (prefixTwo ++ R)) (x : V → Bool) :
+    val R (extendTwo x) (outW 8 R) = true ↔ sem_Edge adj x := by
+  have ho : outW 6 (prefixTwo ++ R) = outW 8 R := by
+    simp only [outW, List.length_append, prefixTwo, List.length_cons, List.length_nil]
+    omega
+  have he : val (prefixTwo ++ R) x (outW 6 (prefixTwo ++ R)) =
+      val R (extendTwo x) (outW 8 R) := by
+    simp only [val, wl_append, prefixTwo_inputs, ho]
+  rw [← he]
+  exact hc x
+
+end C6
+
+namespace C6
+
+open DagTools
+
+def raw_prefix (n : ℕ) (P : Dag) : Prop :=
+  ∀ g ∈ P, g.2.1 < n ∧ g.2.2 < n
+
+lemma raw_prefix_sublist {n : ℕ} {P Q : Dag} (hP : raw_prefix n P)
+    (hQP : Q.Sublist P) : raw_prefix n Q := by
+  intro g hg
+  exact hP g (hQP.subset hg)
+
+lemma raw_prefix_shift {n : ℕ} {P : Dag} (hP : raw_prefix n P) (j : ℕ) :
+    P.map (fun g => (g.1, na_sh (n + j) g.2.1, na_sh (n + j) g.2.2)) = P := by
+  calc
+    _ = P.map id := List.map_congr_left (by
+      intro g hg
+      obtain ⟨ha, hb⟩ := hP g hg
+      have ha' : ¬n + j < g.2.1 := by omega
+      have hb' : ¬n + j < g.2.2 := by omega
+      simp [na_sh, ha', hb'])
+    _ = P := List.map_id P
+
+lemma na_del_raw_prefix {n : ℕ} {P R : Dag} (hP : raw_prefix n P) (j : ℕ) :
+    ∃ P' R' : Dag, P'.Sublist P ∧ R'.length ≤ R.length ∧
+      na_del n j (P ++ R) = P' ++ R' := by
+  by_cases hj : j < P.length
+  · refine ⟨P.eraseIdx j,
+      R.map (fun g => (g.1, na_sh (n + j) g.2.1, na_sh (n + j) g.2.2)),
+      List.eraseIdx_sublist P j, ?_, ?_⟩
+    · simp
+    · unfold na_del
+      rw [List.eraseIdx_append_of_lt_length hj, List.map_append,
+        raw_prefix_shift (raw_prefix_sublist hP (List.eraseIdx_sublist P j))]
+  · refine ⟨P,
+      (R.eraseIdx (j - P.length)).map
+        (fun g => (g.1, na_sh (n + j) g.2.1, na_sh (n + j) g.2.2)),
+      List.Sublist.refl P, ?_, ?_⟩
+    · simp only [List.length_map]
+      exact (List.eraseIdx_sublist R _).length_le
+    · unfold na_del
+      rw [List.eraseIdx_append_of_length_le (by omega), List.map_append,
+        raw_prefix_shift hP]
+
+lemma prefix_live_aux {n : ℕ} (F : (Fin n → Bool) → Bool)
+    (hess : ∀ i : Fin n, ∃ x y : Fin n → Bool,
+      (∀ k, k ≠ i → x k = y k) ∧ F x ≠ F y) :
+    ∀ (s : ℕ) (P R : Dag), (P ++ R).length = s → raw_prefix n P →
+      Strict n (P ++ R) → P ++ R ≠ [] →
+      (∀ x : Fin n → Bool, val (P ++ R) x (outW n (P ++ R)) = F x) →
+      ∃ P' R' : Dag, P'.Sublist P ∧ R'.length ≤ R.length ∧
+        StrictLive n (P' ++ R') ∧
+        ∀ x : Fin n → Bool, val (P' ++ R') x (outW n (P' ++ R')) = F x := by
+  intro s
+  induction s using Nat.strong_induction_on with
+  | _ s ih =>
+    intro P R hlen hP hS hne hD
+    have hpos : 0 < (P ++ R).length := List.length_pos_iff.mpr hne
+    by_cases hL : Live n (P ++ R)
+    · exact ⟨P, R, List.Sublist.refl P, le_rfl, ⟨hS, hL, hne⟩, hD⟩
+    · obtain ⟨w, hw, hf0⟩ :
+          ∃ w, w + 1 < n + (P ++ R).length ∧ fanout (P ++ R) w = 0 := by
+        by_contra hcon
+        exact hL (fun w hw => by
+          by_contra h0
+          exact hcon ⟨w, hw, by omega⟩)
+      by_cases hwn : w < n
+      · exfalso
+        obtain ⟨x, y, hxy, hFne⟩ := hess ⟨w, hwn⟩
+        apply hFne
+        rw [← hD x, ← hD y]
+        have hout : outW n (P ++ R) ≠ w := by unfold outW; omega
+        have key := val_unique hS y
+          (fun u => if u = w then y ⟨w, hwn⟩ else val (P ++ R) x u)
+          (fun i hi => by
+            by_cases hiw : i = w
+            · subst hiw; simp
+            · simp only [hiw, ite_false]
+              rw [val_input (P ++ R) x i hi]
+              exact hxy ⟨i, hi⟩ (fun h => hiw (congrArg Fin.val h)))
+          (fun j hj => by
+            obtain ⟨ha, hb⟩ := na_no_reader hf0 j hj
+            have hnj : n + j ≠ w := by omega
+            simp only [hnj, ha, hb, ite_false]
+            exact val_gate hS x j hj)
+          (outW n (P ++ R)) (by unfold outW; omega)
+        simp only [hout, ite_false] at key
+        exact key.symm
+      · obtain ⟨j, rfl⟩ : ∃ j, w = n + j := ⟨w - n, by omega⟩
+        have hj : j < (P ++ R).length := by omega
+        have hl := na_del_length n j (P ++ R) hj
+        obtain ⟨Q, S, hQP, hSR, hdel⟩ := na_del_raw_prefix hP (R := R) j
+        have hlen' : (Q ++ S).length = (P ++ R).length - 1 := by
+          rw [← hdel, hl]
+        have hS' : Strict n (Q ++ S) := by
+          rw [← hdel]
+          exact na_del_strict hS j hj hf0
+        have hne' : Q ++ S ≠ [] := by
+          intro he
+          rw [he] at hlen'
+          simp only [List.length_nil] at hlen'
+          omega
+        have hD' : ∀ x : Fin n → Bool,
+            val (Q ++ S) x (outW n (Q ++ S)) = F x := by
+          intro x
+          rw [← hdel]
+          have ho : outW n (na_del n j (P ++ R)) = n + ((P ++ R).length - 1) - 1 := by
+            unfold outW
+            rw [hl]
+          have hu : na_up (n + j) (n + ((P ++ R).length - 1) - 1) =
+              outW n (P ++ R) := by
+            unfold na_up outW
+            split_ifs <;> omega
+          rw [ho, na_del_val hS j hj hf0 x _ (by omega), hu]
+          exact hD x
+        obtain ⟨P', R', hP'Q, hR'S, hSL, hF⟩ :=
+          ih ((P ++ R).length - 1) (by omega) Q S hlen'
+            (raw_prefix_sublist hP hQP) hS' hne' hD'
+        exact ⟨P', R', hP'Q.trans hQP, hR'S.trans hSR, hSL, hF⟩
+
+lemma exists_strictLive_raw_prefix {n : ℕ} (F : (Fin n → Bool) → Bool)
+    (hess : ∀ i : Fin n, ∃ x y : Fin n → Bool,
+      (∀ k, k ≠ i → x k = y k) ∧ F x ≠ F y)
+    (P R : Dag) (hP : raw_prefix n P) (hS : Strict n (P ++ R))
+    (hne : P ++ R ≠ [])
+    (hD : ∀ x : Fin n → Bool, val (P ++ R) x (outW n (P ++ R)) = F x) :
+    ∃ P' R' : Dag, P'.Sublist P ∧ R'.length ≤ R.length ∧
+      StrictLive n (P' ++ R') ∧
+      ∀ x : Fin n → Bool, val (P' ++ R') x (outW n (P' ++ R')) = F x :=
+  prefix_live_aux F hess (P ++ R).length P R rfl hP hS hne hD
+
+end C6
+
+namespace C6
+open DagTools
+
+def swapPairs : Equiv.Perm V where
+  toFun := ![0, 2, 1, 4, 3, 5]
+  invFun := ![0, 2, 1, 4, 3, 5]
+  left_inv := by decide +kernel
+  right_inv := by decide +kernel
+
+def rotatePairs : Equiv.Perm V where
+  toFun := ![2, 0, 1, 4, 5, 3]
+  invFun := ![1, 2, 0, 5, 3, 4]
+  left_inv := by decide +kernel
+  right_inv := by decide +kernel
+
+lemma swapPairs_adj : ∀ u v : V, adj (swapPairs u) (swapPairs v) ↔ adj u v := by
+  unfold adj
+  decide +kernel
+
+lemma rotatePairs_adj : ∀ u v : V, adj (rotatePairs u) (rotatePairs v) ↔ adj u v := by
+  unfold adj
+  decide +kernel
+
+lemma c6_relabel_computes (σ : Equiv.Perm V)
+    (ha : ∀ u v, adj (σ u) (σ v) ↔ adj u v) {D : Dag}
+    (h : StrictLive 6 D) (hc : sem_Comp 6 adj D) :
+    sem_Comp 6 adj (relabel σ D) := by
+  intro x
+  rw [relabel_out σ h.1 h.2.2, hc]
+  constructor
+  · rintro ⟨u, v, huv, hu, hv⟩
+    exact ⟨σ u, σ v, (ha u v).mpr huv, hu, hv⟩
+  · rintro ⟨u, v, huv, hu, hv⟩
+    refine ⟨σ.symm u, σ.symm v, ?_, ?_, ?_⟩
+    · apply (ha _ _).mp
+      simpa using huv
+    · simpa using hu
+    · simpa using hv
+
+def prefix02 : Dag := [(false, 0, 5), (false, 2, 3)]
+def prefix12 : Dag := [(false, 1, 4), (false, 2, 3)]
+def prefixThree : Dag := [(false, 0, 5), (false, 1, 4), (false, 2, 3)]
+
+lemma relabel_prefix02 : relabel swapPairs prefix02 = prefixTwo := by decide +kernel
+lemma relabel_prefix12 : relabel rotatePairs prefix12 = prefixTwo := by decide +kernel
+
+lemma canonical_two_pair_reduction {P R : Dag}
+    (hP : P = prefixTwo ∨ P = prefix02 ∨ P = prefix12)
+    (hl : R.length ≤ 7) (h : StrictLive 6 (P ++ R))
+    (hc : sem_Comp 6 adj (P ++ R)) :
+    ∃ R', R'.length ≤ 7 ∧ StrictLive 6 (prefixTwo ++ R') ∧
+      sem_Comp 6 adj (prefixTwo ++ R') := by
+  rcases hP with rfl | rfl | rfl
+  · exact ⟨R, hl, h, hc⟩
+  · have he : relabel swapPairs (prefix02 ++ R) = prefixTwo ++ relabel swapPairs R := by
+      change relabel swapPairs prefix02 ++ relabel swapPairs R = _
+      rw [relabel_prefix02]
+    exact ⟨relabel swapPairs R, by simpa [relabel_length] using hl,
+      he ▸ relabel_strictLive swapPairs h,
+      he ▸ c6_relabel_computes swapPairs swapPairs_adj h hc⟩
+  · have he : relabel rotatePairs (prefix12 ++ R) = prefixTwo ++ relabel rotatePairs R := by
+      change relabel rotatePairs prefix12 ++ relabel rotatePairs R = _
+      rw [relabel_prefix12]
+    exact ⟨relabel rotatePairs R, by simpa [relabel_length] using hl,
+      he ▸ relabel_strictLive rotatePairs h,
+      he ▸ c6_relabel_computes rotatePairs rotatePairs_adj h hc⟩
+
+lemma prefixThree_all_branches {R : Dag}
+    (h : StrictLive 6 (prefixThree ++ R)) (hc : sem_Comp 6 adj (prefixThree ++ R)) :
+    ∀ v : V, 2 ≤ fanout (prefixThree ++ R) v.val := by
+  have h0 : 0 < (prefixThree ++ R).length := by simp [prefixThree]
+  have h1 : 1 < (prefixThree ++ R).length := by simp [prefixThree]
+  have h2 : 2 < (prefixThree ++ R).length := by simp [prefixThree]
+  have hb0 := raw_or_branch_left graph_ok h.1 hc h0
+    (by simp [tag, prefixThree]) (v := (0 : V)) (w := (5 : V))
+    (by simp [opA, prefixThree]) (by simp [opB, prefixThree]) (by decide)
+  have hb5 := raw_or_branch_right graph_ok h.1 hc h0
+    (by simp [tag, prefixThree]) (v := (0 : V)) (w := (5 : V))
+    (by simp [opA, prefixThree]) (by simp [opB, prefixThree]) (by decide)
+  have hb1 := raw_or_branch_left graph_ok h.1 hc h1
+    (by simp [tag, prefixThree]) (v := (1 : V)) (w := (4 : V))
+    (by simp [opA, prefixThree]) (by simp [opB, prefixThree]) (by decide)
+  have hb4 := raw_or_branch_right graph_ok h.1 hc h1
+    (by simp [tag, prefixThree]) (v := (1 : V)) (w := (4 : V))
+    (by simp [opA, prefixThree]) (by simp [opB, prefixThree]) (by decide)
+  have hb2 := raw_or_branch_left graph_ok h.1 hc h2
+    (by simp [tag, prefixThree]) (v := (2 : V)) (w := (3 : V))
+    (by simp [opA, prefixThree]) (by simp [opB, prefixThree]) (by decide)
+  have hb3 := raw_or_branch_right graph_ok h.1 hc h2
+    (by simp [tag, prefixThree]) (v := (2 : V)) (w := (3 : V))
+    (by simp [opA, prefixThree]) (by simp [opB, prefixThree]) (by decide)
+  intro v
+  fin_cases v <;> assumption
+
+lemma no_three_pairs_seven {R : Dag} (hl : R.length ≤ 7)
+    (h : StrictLive 6 (prefixThree ++ R)) (hc : sem_Comp 6 adj (prefixThree ++ R)) : False := by
+  have hb := six_raw_branches_length h hc (prefixThree_all_branches h hc)
+  simp only [prefixThree, List.length_append, List.length_cons, List.length_nil] at hb
+  omega
+
+end C6
+
+namespace C6
+open DagTools
+
+def edgeBool (x : V → Bool) : Bool :=
+  (x 0 && x 3) || (x 0 && x 4) || (x 1 && x 3) ||
+  (x 1 && x 5) || (x 2 && x 4) || (x 2 && x 5)
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 1000000 in
+set_option synthInstance.maxSize 4096 in
+lemma edgeBool_spec : ∀ x : V → Bool, edgeBool x = true ↔ sem_Edge adj x := by
+  unfold edgeBool sem_Edge adj
+  decide +kernel
+
+lemma edgeBool_essential : ∀ i : V, ∃ x y : V → Bool,
+    (∀ k, k ≠ i → x k = y k) ∧ edgeBool x ≠ edgeBool y := by
+  intro i
+  let v : V := ![3, 3, 4, 0, 0, 1] i
+  refine ⟨single v, sem_two i v, ?_, ?_⟩
+  · fin_cases i <;> decide +kernel
+  · fin_cases i <;> decide +kernel
+
+lemma prefixThree_classify {P : Dag} (hP : P.Sublist prefixThree) :
+    P = [] ∨ P = [(false, 0, 5)] ∨ P = [(false, 1, 4)] ∨ P = [(false, 2, 3)] ∨
+      P = prefixTwo ∨ P = prefix02 ∨ P = prefix12 ∨ P = prefixThree := by
+  have hm := List.mem_sublists.mpr hP
+  have hc : ∀ Q ∈ prefixThree.sublists,
+      Q = [] ∨ Q = [(false, 0, 5)] ∨ Q = [(false, 1, 4)] ∨ Q = [(false, 2, 3)] ∨
+        Q = prefixTwo ∨ Q = prefix02 ∨ Q = prefix12 ∨ Q = prefixThree := by
+    decide +kernel
+  exact hc P hm
+
+lemma no_one_pair_seven {v w : V} (hop : oppositePair v w) {R : Dag}
+    (hl : R.length ≤ 7) (h : StrictLive 6 ([(false, v.val, w.val)] ++ R))
+    (hc : sem_Comp 6 adj ([(false, v.val, w.val)] ++ R)) : False := by
+  have hs : ([(false, v.val, w.val)] ++ R).length ≤ 8 := by simp only [List.length_append, List.length_cons, List.length_nil]; omega
+  exact no_opposite_raw_or_eight h hc hs
+    (j := 0) (by simp) (by simp [tag]) (v := v) (w := w)
+    (by simp [opA]) (by simp [opB]) hop
+
+lemma no_free_prefix_seven_of_canonical
+    (hcanonical : ∀ R : Dag, R.length ≤ 7 → StrictLive 6 (prefixTwo ++ R) →
+      sem_Comp 6 adj (prefixTwo ++ R) → False)
+    {R : Dag} (hl : R.length ≤ 7) (h : Strict 6 (prefixThree ++ R))
+    (hc : sem_Comp 6 adj (prefixThree ++ R)) : False := by
+  have hraw : raw_prefix 6 prefixThree := by
+    intro g hg
+    simp only [prefixThree, List.mem_cons, List.not_mem_nil, or_false] at hg
+    rcases hg with rfl | rfl | rfl <;> decide
+  have hne : prefixThree ++ R ≠ [] := by simp [prefixThree]
+  have hD : ∀ x : V → Bool, val (prefixThree ++ R) x (outW 6 (prefixThree ++ R)) = edgeBool x := by
+    intro x
+    have he := (hc x).trans (edgeBool_spec x).symm
+    cases ha : val (prefixThree ++ R) x (outW 6 (prefixThree ++ R)) <;>
+      cases hb : edgeBool x <;> simp_all
+  obtain ⟨P', R', hP', hR', hSL, hcomp⟩ :=
+    exists_strictLive_raw_prefix edgeBool edgeBool_essential prefixThree R hraw h hne hD
+  have hlen : R'.length ≤ 7 := hR'.trans hl
+  have hcomp' : sem_Comp 6 adj (P' ++ R') := by
+    intro x
+    rw [hcomp x]
+    exact edgeBool_spec x
+  rcases prefixThree_classify hP' with h0 | h1 | h2 | h3 | h4 | h5 | h6 | h7
+  · subst P'
+    have hb := c6_length_at_least_eight hSL hcomp'
+    simp only [List.nil_append] at hb
+    omega
+  · subst P'
+    exact no_one_pair_seven (v := 0) (w := 5) (by unfold oppositePair; decide +kernel) hlen hSL hcomp'
+  · subst P'
+    exact no_one_pair_seven (v := 1) (w := 4) (by unfold oppositePair; decide +kernel) hlen hSL hcomp'
+  · subst P'
+    exact no_one_pair_seven (v := 2) (w := 3) (by unfold oppositePair; decide +kernel) hlen hSL hcomp'
+  · obtain ⟨S, hSlen, hSL', hcomp''⟩ := canonical_two_pair_reduction (Or.inl h4) hlen hSL hcomp'
+    exact hcanonical S hSlen hSL' hcomp''
+  · obtain ⟨S, hSlen, hSL', hcomp''⟩ := canonical_two_pair_reduction (Or.inr (Or.inl h5)) hlen hSL hcomp'
+    exact hcanonical S hSlen hSL' hcomp''
+  · obtain ⟨S, hSlen, hSL', hcomp''⟩ := canonical_two_pair_reduction (Or.inr (Or.inr h6)) hlen hSL hcomp'
+    exact hcanonical S hSlen hSL' hcomp''
+  · subst P'
+    exact no_three_pairs_seven hlen hSL hcomp'
+
+end C6
+
+namespace ReadOnceCore
+
+def listBits : List Nat → Nat
+  | [] => 0
+  | x :: xs => (2 ^ x) ||| listBits xs
+
+lemma listBits_mem (xs : List Nat) (x : Nat) :
+    (listBits xs).testBit x = true ↔ x ∈ xs := by
+  induction xs with
+  | nil => simp only [listBits, Nat.zero_testBit, Bool.false_eq_true, List.not_mem_nil]
+  | cons y ys ih =>
+    simp only [listBits, Nat.testBit_or, Bool.or_eq_true, Nat.testBit_two_pow,
+      decide_eq_true_eq, ih, List.mem_cons]
+    exact or_congr eq_comm Iff.rfl
+
+def checkTable (choices : Nat → List Nat) (bits : Nat → Nat) (s : Nat) : Bool :=
+  listBits (choices s) == bits s
+
+def checkClosed (choices : Nat → List Nat) (bits : Nat → Nat) (a b : Nat) : Bool :=
+  if a < b ∧ a &&& b = 0 then
+    (choices a).all fun x => (choices b).all fun y =>
+      (bits (a ||| b)).testBit (x &&& y) && (bits (a ||| b)).testBit (x ||| y)
+  else true
+
+def Allowed (bits : Nat → Nat) (s x : Nat) : Prop :=
+  (bits s).testBit x = true
+
+lemma allowed_iff_mem (choices : Nat → List Nat) (bits : Nat → Nat) (s x : Nat)
+    (h : checkTable choices bits s = true) : Allowed bits s x ↔ x ∈ choices s := by
+  have heq : listBits (choices s) = bits s := by
+    simpa only [checkTable, beq_iff_eq] using h
+  unfold Allowed
+  rw [← heq]
+  exact listBits_mem _ _
+
+lemma ordered_closed (choices : Nat → List Nat) (bits : Nat → Nat)
+    {a b x y : Nat} (hab : a < b) (hd : a &&& b = 0)
+    (ha : checkTable choices bits a = true) (hb : checkTable choices bits b = true)
+    (hc : checkClosed choices bits a b = true)
+    (hx : Allowed bits a x) (hy : Allowed bits b y) :
+    Allowed bits (a ||| b) (x &&& y) ∧ Allowed bits (a ||| b) (x ||| y) := by
+  have hxa := (allowed_iff_mem choices bits a x ha).mp hx
+  have hyb := (allowed_iff_mem choices bits b y hb).mp hy
+  rw [checkClosed, ite_eq_left ⟨hab, hd⟩] at hc
+  have hxy := List.all_eq_true.mp (List.all_eq_true.mp hc x hxa) y hyb
+  simpa only [Allowed, Bool.and_eq_true] using hxy
+
+lemma union_lt_two_pow {a b n : Nat} (ha : a < 2 ^ n) (hb : b < 2 ^ n) :
+    a ||| b < 2 ^ n := Nat.or_lt_two_pow ha hb
+
+lemma union_lt_256 {a b : Nat} (ha : a < 256) (hb : b < 256) :
+    a ||| b < 256 := by
+  exact union_lt_two_pow (n := 8) ha hb
+
+lemma disjoint_closed (choices : Nat → List Nat) (bits : Nat → Nat)
+    (hzero : bits 0 = 0)
+    (htable : ∀ s : Fin 256, checkTable choices bits s = true)
+    (hclosed : ∀ a b : Fin 256, checkClosed choices bits a b = true)
+    {a b x y : Nat} (ha : a < 256) (hb : b < 256) (hd : a &&& b = 0)
+    (hx : Allowed bits a x) (hy : Allowed bits b y) :
+    Allowed bits (a ||| b) (x &&& y) ∧ Allowed bits (a ||| b) (x ||| y) := by
+  rcases lt_trichotomy a b with hab | hab | hab
+  · exact ordered_closed choices bits hab hd (htable ⟨a, ha⟩) (htable ⟨b, hb⟩)
+      (hclosed ⟨a, ha⟩ ⟨b, hb⟩) hx hy
+  · subst b
+    have hz : a = 0 := by simpa only [Nat.and_self] using hd
+    subst a
+    simp only [Allowed, hzero, Nat.zero_testBit, Bool.false_eq_true] at hx
+  · have hdb : b &&& a = 0 := by simpa only [Nat.and_comm] using hd
+    have h := ordered_closed choices bits hab hdb (htable ⟨b, hb⟩) (htable ⟨a, ha⟩)
+      (hclosed ⟨b, hb⟩ ⟨a, ha⟩) hy hx
+    simpa only [Nat.or_comm, Nat.and_comm] using h
+
+lemma trace_allowed (choices : Nat → List Nat) (bits : Nat → Nat)
+    (hzero : bits 0 = 0)
+    (htable : ∀ s : Fin 256, checkTable choices bits s = true)
+    (hclosed : ∀ a b : Fin 256, checkClosed choices bits a b = true)
+    (n k : Nat) (resource value left right : Nat → Nat) (tag : Nat → Bool)
+    (hinput : ∀ i, i < n → resource i < 256 ∧ Allowed bits (resource i) (value i))
+    (hgate : ∀ i, n ≤ i → i < n + k →
+      left i < i ∧ right i < i ∧
+      resource i = resource (left i) ||| resource (right i) ∧
+      resource (left i) &&& resource (right i) = 0 ∧
+      value i = if tag i then value (left i) &&& value (right i)
+        else value (left i) ||| value (right i)) :
+    ∀ i, i < n + k → resource i < 256 ∧ Allowed bits (resource i) (value i) := by
+  intro i
+  induction i using Nat.strong_induction_on with
+  | _ i ih =>
+    intro hi
+    by_cases hin : i < n
+    · exact hinput i hin
+    · obtain ⟨hl, hr, hresource, hd, hvalue⟩ := hgate i (by omega) hi
+      obtain ⟨hbl, hal⟩ := ih (left i) hl (by omega)
+      obtain ⟨hbr, har⟩ := ih (right i) hr (by omega)
+      have hc := disjoint_closed choices bits hzero htable hclosed hbl hbr hd hal har
+      refine ⟨?_, ?_⟩
+      · rw [hresource]
+        exact union_lt_256 hbl hbr
+      · rw [hresource, hvalue]
+        cases ht : tag i
+        · exact hc.2
+        · exact hc.1
+
+end ReadOnceCore
+
+namespace ReadOnceEncoding
+
+def resourceMask (S : Finset (Fin 8)) : Nat := ∑ i ∈ S, 2 ^ i.val
+
+def truthBits {n : Nat} (f : Fin n → Bool) : Nat := ∑ i : Fin n, if f i then 2 ^ i.val else 0
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma resourceMask_bound : ∀ S : Finset (Fin 8), resourceMask S < 256 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma resourceMask_testBit : ∀ S : Finset (Fin 8), ∀ i : Fin 8,
+    (resourceMask S).testBit i.val = decide (i ∈ S) := by
+  decide +kernel
+
+lemma truthBits_zero (f : Fin 0 → Bool) : truthBits f = 0 := by
+  simp [truthBits]
+
+lemma truthBits_succ {n : Nat} (f : Fin (n + 1) → Bool) :
+    truthBits f = Nat.bit (f 0) (truthBits (fun i => f i.succ)) := by
+  rw [truthBits, Fin.sum_univ_succ, Nat.bit_val]
+  simp only [Fin.val_zero, pow_zero, Fin.val_succ, pow_succ, truthBits]
+  rw [Finset.mul_sum]
+  have h (i : Fin n) : (if f i.succ then 2 ^ i.val * 2 else 0) =
+      2 * (if f i.succ then 2 ^ i.val else 0) := by
+    split <;> simp_all [Nat.mul_comm]
+  simp_rw [h]
+  cases hf : f 0 <;> simp [Bool.toNat, Nat.add_comm]
+
+lemma truthBits_bound {n : Nat} (f : Fin n → Bool) : truthBits f < 2 ^ n := by
+  induction n with
+  | zero => simp [truthBits]
+  | succ n ih =>
+    rw [truthBits_succ, Nat.bit_val, pow_succ]
+    have h := ih (fun i => f i.succ)
+    cases hf : f 0 <;> simp only [Bool.toNat_false, Bool.toNat_true] <;> omega
+
+lemma truthBits_testBit {n : Nat} (f : Fin n → Bool) (i : Fin n) :
+    (truthBits f).testBit i.val = f i := by
+  induction n with
+  | zero => exact Fin.elim0 i
+  | succ n ih =>
+    rw [truthBits_succ]
+    refine Fin.cases ?_ (fun j => ?_) i
+    · exact Nat.testBit_bit_zero _ _
+    · simpa only [Fin.val_succ, Nat.testBit_bit_succ] using ih (fun k => f k.succ) j
+
+lemma testBit_false_of_bound {a n i : Nat} (ha : a < 2 ^ n) (hi : n ≤ i) :
+    a.testBit i = false := by
+  exact Nat.testBit_lt_two_pow (ha.trans_le (Nat.pow_le_pow_right (by decide) hi))
+
+lemma resourceMask_singleton (i : Fin 8) : resourceMask {i} = 2 ^ i.val := by
+  simp [resourceMask]
+
+lemma resourceMask_empty : resourceMask ∅ = 0 := by
+  simp [resourceMask]
+
+lemma resourceMask_univ : resourceMask Finset.univ = 255 := by
+  decide +kernel
+
+lemma resourceMask_union (S T : Finset (Fin 8)) :
+    resourceMask (S ∪ T) = resourceMask S ||| resourceMask T := by
+  apply Nat.eq_of_testBit_eq
+  intro i
+  rw [Nat.testBit_or]
+  by_cases hi : i < 8
+  · have h (U : Finset (Fin 8)) : (resourceMask U).testBit i = decide (⟨i, hi⟩ ∈ U) :=
+      resourceMask_testBit U ⟨i, hi⟩
+    rw [h, h, h]
+    simp only [Finset.mem_union, Bool.decide_or]
+  · have h (U : Finset (Fin 8)) : (resourceMask U).testBit i = false :=
+      testBit_false_of_bound (n := 8) (resourceMask_bound U) (by omega)
+    rw [h, h, h]
+    rfl
+
+lemma resourceMask_disjoint {S T : Finset (Fin 8)} (hd : Disjoint S T) :
+    resourceMask S &&& resourceMask T = 0 := by
+  apply Nat.eq_of_testBit_eq
+  intro i
+  rw [Nat.testBit_and, Nat.zero_testBit]
+  by_cases hi : i < 8
+  · have h (U : Finset (Fin 8)) : (resourceMask U).testBit i = decide (⟨i, hi⟩ ∈ U) :=
+      resourceMask_testBit U ⟨i, hi⟩
+    rw [h, h]
+    have hnot : ¬ (⟨i, hi⟩ ∈ S ∧ ⟨i, hi⟩ ∈ T) := by
+      rintro ⟨hs, ht⟩
+      exact Finset.disjoint_left.mp hd hs ht
+    simpa only [← Bool.decide_and, decide_eq_false_iff_not] using hnot
+  · have h (U : Finset (Fin 8)) : (resourceMask U).testBit i = false :=
+      testBit_false_of_bound (n := 8) (resourceMask_bound U) (by omega)
+    rw [h, h]
+    rfl
+
+lemma truthBits_and {n : Nat} (f g : Fin n → Bool) :
+    truthBits (fun i => f i && g i) = truthBits f &&& truthBits g := by
+  apply Nat.eq_of_testBit_eq
+  intro i
+  rw [Nat.testBit_and]
+  by_cases hi : i < n
+  · have h (f : Fin n → Bool) : (truthBits f).testBit i = f ⟨i, hi⟩ :=
+      truthBits_testBit f ⟨i, hi⟩
+    rw [h, h, h]
+  · have h (f : Fin n → Bool) : (truthBits f).testBit i = false :=
+      testBit_false_of_bound (n := n) (truthBits_bound f) (by omega)
+    rw [h, h, h]
+    rfl
+
+lemma truthBits_or {n : Nat} (f g : Fin n → Bool) :
+    truthBits (fun i => f i || g i) = truthBits f ||| truthBits g := by
+  apply Nat.eq_of_testBit_eq
+  intro i
+  rw [Nat.testBit_or]
+  by_cases hi : i < n
+  · have h (f : Fin n → Bool) : (truthBits f).testBit i = f ⟨i, hi⟩ :=
+      truthBits_testBit f ⟨i, hi⟩
+    rw [h, h, h]
+  · have h (f : Fin n → Bool) : (truthBits f).testBit i = false :=
+      testBit_false_of_bound (n := n) (truthBits_bound f) (by omega)
+    rw [h, h, h]
+    rfl
+
+end ReadOnceEncoding
+
+namespace ReadOnce
+
+set_option maxRecDepth 100000 in
+def choicesData : List (List Nat) := [
+  [],
+  [81],
+  [22],
+  [16, 87],
+  [24],
+  [16, 89],
+  [16, 30],
+  [16, 22, 24, 81, 95],
+  [35],
+  [1, 115],
+  [2, 55],
+  [0, 3, 17, 18, 23, 51, 83, 119],
+  [0, 59],
+  [0, 1, 16, 17, 25, 51, 81, 123],
+  [0, 2, 16, 18, 22, 26, 51, 63],
+  [0, 1, 2, 3, 16, 17, 18, 19, 22, 23, 24, 25, 26, 27, 31, 51, 55, 59, 81, 83, 87, 91, 115, 127],
+  [32],
+  [0, 113],
+  [0, 54],
+  [0, 16, 22, 48, 81, 119],
+  [0, 56],
+  [0, 16, 24, 48, 81, 121],
+  [0, 16, 22, 24, 48, 62],
+  [0, 16, 22, 24, 30, 48, 54, 56, 81, 87, 89, 113, 127],
+  [32, 35],
+  [0, 1, 32, 33, 35, 113, 115],
+  [0, 2, 32, 34, 35, 54, 55],
+  [0, 1, 2, 3, 16, 17, 18, 22, 23, 32, 35, 48, 49, 50, 51, 54, 55, 81, 83, 113, 115, 119],
+  [0, 32, 35, 56, 59],
+  [0, 1, 16, 17, 24, 25, 32, 33, 35, 48, 49, 51, 56, 57, 59, 81, 113, 115, 121, 123],
+  [0, 2, 16, 18, 22, 24, 26, 32, 34, 35, 48, 50, 51, 54, 55, 56, 58, 59, 62, 63],
+  [0, 1, 2, 3, 16, 17, 18, 19, 22, 23, 24, 25, 26, 27, 30, 31, 32, 33, 34, 35, 48, 49, 50, 51, 54, 55, 56, 57, 58, 59, 62, 63, 81, 83, 87, 89, 91, 113, 115, 119, 121, 123, 127],
+  [108],
+  [64, 125],
+  [4, 126],
+  [0, 20, 68, 80, 85, 86, 124, 127],
+  [8, 124],
+  [0, 24, 72, 80, 88, 89, 124, 125],
+  [0, 12, 20, 24, 28, 30, 124, 126],
+  [0, 4, 8, 16, 20, 22, 24, 28, 30, 64, 76, 80, 81, 84, 85, 86, 88, 89, 92, 93, 94, 95, 124, 125, 126, 127],
+  [32, 111],
+  [0, 33, 65, 96, 99, 109, 113, 127],
+  [0, 6, 34, 36, 39, 54, 110, 127],
+  [0, 1, 2, 4, 5, 16, 22, 32, 35, 48, 53, 55, 64, 66, 71, 81, 87, 100, 103, 108, 111, 114, 115, 117, 118, 119, 125, 126, 127],
+  [0, 8, 32, 40, 43, 56, 108, 127],
+  [0, 1, 8, 9, 16, 24, 32, 33, 35, 48, 57, 59, 64, 73, 81, 89, 104, 107, 108, 109, 112, 113, 115, 120, 121, 123, 124, 125, 127],
+  [0, 2, 4, 8, 10, 14, 16, 22, 24, 30, 32, 34, 35, 44, 47, 48, 52, 54, 55, 58, 59, 60, 62, 63, 108, 110, 124, 126, 127],
+  [0, 1, 2, 3, 4, 5, 6, 8, 11, 12, 13, 16, 17, 18, 20, 21, 22, 23, 24, 25, 26, 28, 29, 30, 31, 32, 33, 34, 35, 36, 39, 40, 43, 48, 49, 50, 51, 52, 53, 54, 55, 56, 59, 61, 63, 64, 65, 66, 68, 72, 74, 79, 80, 81, 82, 83, 85, 86, 87, 88, 89, 90, 91, 95, 96, 99, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 122, 123, 124, 125, 126, 127],
+  [32, 108],
+  [0, 32, 64, 96, 108, 113, 125],
+  [0, 4, 32, 36, 54, 108, 126],
+  [0, 4, 16, 20, 22, 32, 48, 52, 54, 64, 68, 80, 81, 85, 86, 100, 108, 112, 113, 117, 118, 119, 124, 125, 126, 127],
+  [0, 8, 32, 40, 56, 108, 124],
+  [0, 8, 16, 24, 32, 48, 56, 64, 72, 80, 81, 88, 89, 104, 108, 112, 113, 120, 121, 124, 125],
+  [0, 4, 8, 12, 16, 20, 22, 24, 28, 30, 32, 44, 48, 52, 54, 56, 60, 62, 108, 124, 126],
+  [0, 4, 8, 12, 16, 20, 22, 24, 28, 30, 32, 36, 40, 48, 52, 54, 56, 60, 62, 64, 68, 72, 76, 80, 81, 84, 85, 86, 87, 88, 89, 92, 93, 94, 95, 96, 108, 112, 113, 116, 117, 118, 119, 120, 121, 124, 125, 126, 127],
+  [32, 35, 108, 111],
+  [0, 1, 32, 33, 35, 64, 65, 96, 97, 99, 108, 109, 111, 113, 115, 125, 127],
+  [0, 2, 4, 6, 32, 34, 35, 36, 38, 39, 54, 55, 108, 110, 111, 126, 127],
+  [0, 1, 2, 3, 4, 5, 6, 16, 17, 18, 20, 22, 23, 32, 33, 34, 35, 36, 37, 39, 48, 49, 50, 51, 52, 53, 54, 55, 64, 65, 66, 68, 71, 80, 81, 83, 85, 86, 87, 96, 98, 99, 100, 103, 108, 109, 110, 111, 112, 113, 114, 115, 117, 118, 119, 124, 125, 126, 127],
+  [0, 8, 32, 35, 40, 43, 56, 59, 108, 111, 124, 127],
+  [0, 1, 8, 9, 16, 17, 24, 25, 32, 33, 35, 40, 41, 43, 48, 49, 51, 56, 57, 59, 64, 65, 72, 73, 80, 81, 88, 89, 96, 99, 104, 105, 107, 108, 109, 111, 112, 113, 115, 120, 121, 123, 124, 125, 127],
+  [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 35, 36, 39, 40, 42, 43, 44, 46, 47, 48, 50, 51, 52, 54, 55, 56, 58, 59, 60, 62, 63, 108, 110, 111, 124, 126, 127],
+  [0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 43, 44, 45, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 68, 71, 72, 73, 74, 76, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 103, 104, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127],
+  [125],
+  [81, 125],
+  [20, 127],
+  [16, 20, 81, 85, 87, 125, 127],
+  [24, 125],
+  [16, 24, 81, 89, 125],
+  [16, 20, 24, 28, 30, 125, 127],
+  [16, 20, 22, 24, 28, 30, 81, 85, 87, 89, 93, 95, 125, 127],
+  [33, 127],
+  [1, 33, 81, 113, 115, 125, 127],
+  [0, 22, 35, 53, 55, 127],
+  [0, 1, 3, 16, 17, 18, 20, 21, 22, 23, 33, 35, 49, 51, 53, 55, 81, 83, 87, 115, 117, 119, 125, 127],
+  [0, 24, 33, 57, 59, 125, 127],
+  [0, 1, 16, 17, 24, 25, 33, 49, 51, 57, 59, 81, 89, 113, 115, 121, 123, 125, 127],
+  [0, 2, 16, 18, 20, 22, 24, 26, 30, 33, 35, 49, 51, 53, 55, 59, 61, 63, 125, 127],
+  [0, 1, 2, 3, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 33, 35, 49, 51, 53, 55, 57, 59, 61, 63, 81, 83, 85, 87, 89, 91, 95, 113, 115, 117, 119, 123, 125, 127],
+  [32, 125],
+  [0, 32, 81, 113, 125],
+  [0, 20, 32, 52, 54, 125, 127],
+  [0, 16, 20, 22, 32, 48, 52, 54, 81, 85, 87, 113, 117, 119, 125, 127],
+  [0, 24, 32, 56, 125],
+  [0, 16, 24, 32, 48, 56, 81, 89, 113, 121, 125],
+  [0, 16, 20, 22, 24, 28, 30, 32, 48, 52, 54, 56, 60, 62, 125, 127],
+  [0, 16, 20, 22, 24, 28, 30, 32, 48, 52, 54, 56, 60, 62, 81, 85, 87, 89, 93, 95, 113, 117, 119, 121, 125, 127],
+  [32, 33, 35, 125, 127],
+  [0, 1, 32, 33, 35, 81, 113, 115, 125, 127],
+  [0, 2, 20, 22, 32, 33, 34, 35, 52, 53, 54, 55, 125, 127],
+  [0, 1, 2, 3, 16, 17, 18, 20, 21, 22, 23, 32, 33, 34, 35, 48, 49, 50, 51, 52, 53, 54, 55, 81, 83, 85, 87, 113, 115, 117, 119, 125, 127],
+  [0, 24, 32, 33, 35, 56, 57, 59, 125, 127],
+  [0, 1, 16, 17, 24, 25, 32, 33, 35, 48, 49, 51, 56, 57, 59, 81, 89, 113, 115, 121, 123, 125, 127],
+  [0, 2, 16, 18, 20, 22, 24, 26, 28, 30, 32, 33, 34, 35, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 125, 127],
+  [0, 1, 2, 3, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 81, 83, 85, 87, 89, 91, 93, 95, 113, 115, 117, 119, 121, 123, 125, 127],
+  [108, 125],
+  [64, 81, 108, 125],
+  [4, 20, 108, 124, 125, 126, 127],
+  [0, 4, 16, 20, 64, 68, 80, 81, 84, 85, 86, 87, 108, 124, 125, 126, 127],
+  [8, 24, 108, 124, 125],
+  [0, 8, 16, 24, 64, 72, 80, 81, 88, 89, 108, 124, 125],
+  [0, 4, 8, 12, 16, 20, 24, 28, 30, 108, 124, 125, 126, 127],
+  [0, 4, 8, 12, 16, 20, 22, 24, 28, 30, 64, 68, 72, 76, 80, 81, 84, 85, 86, 87, 88, 89, 92, 93, 94, 95, 108, 124, 125, 126, 127],
+  [32, 33, 108, 109, 111, 125, 127],
+  [0, 1, 32, 33, 64, 65, 81, 96, 97, 99, 108, 109, 111, 113, 115, 125, 127],
+  [0, 4, 6, 20, 22, 32, 33, 34, 35, 36, 37, 39, 52, 53, 54, 55, 108, 110, 111, 125, 126, 127],
+  [0, 1, 2, 3, 4, 5, 6, 16, 17, 18, 20, 21, 22, 23, 32, 33, 34, 35, 36, 37, 39, 48, 49, 51, 52, 53, 54, 55, 64, 65, 66, 68, 69, 71, 80, 81, 83, 85, 86, 87, 96, 99, 100, 101, 103, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 124, 125, 126, 127],
+  [0, 8, 24, 32, 33, 40, 41, 43, 56, 57, 59, 108, 109, 111, 124, 125, 127],
+  [0, 1, 8, 9, 16, 17, 24, 25, 32, 33, 35, 40, 41, 43, 48, 49, 51, 56, 57, 59, 64, 65, 72, 73, 80, 81, 88, 89, 96, 97, 99, 104, 105, 107, 108, 109, 111, 112, 113, 115, 120, 121, 123, 124, 125, 127],
+  [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 33, 34, 35, 36, 37, 39, 40, 43, 44, 45, 47, 48, 49, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 108, 109, 110, 111, 124, 125, 126, 127],
+  [0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 39, 40, 41, 43, 44, 45, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 68, 69, 71, 72, 73, 74, 76, 77, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 99, 100, 101, 103, 104, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127],
+  [32, 108, 125],
+  [0, 32, 64, 81, 96, 108, 113, 125],
+  [0, 4, 20, 32, 36, 52, 54, 108, 124, 125, 126, 127],
+  [0, 4, 16, 20, 22, 32, 36, 48, 52, 54, 64, 68, 80, 81, 84, 85, 86, 87, 96, 100, 108, 112, 113, 116, 117, 118, 119, 124, 125, 126, 127],
+  [0, 8, 24, 32, 40, 56, 108, 124, 125],
+  [0, 8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 81, 88, 89, 96, 104, 108, 112, 113, 120, 121, 124, 125],
+  [0, 4, 8, 12, 16, 20, 22, 24, 28, 30, 32, 36, 40, 44, 48, 52, 54, 56, 60, 62, 108, 124, 125, 126, 127],
+  [0, 4, 8, 12, 16, 20, 22, 24, 28, 30, 32, 36, 40, 44, 48, 52, 54, 56, 60, 62, 64, 68, 72, 76, 80, 81, 84, 85, 86, 87, 88, 89, 92, 93, 94, 95, 96, 100, 104, 108, 112, 113, 116, 117, 118, 119, 120, 121, 124, 125, 126, 127],
+  [32, 33, 35, 108, 109, 111, 125, 127],
+  [0, 1, 32, 33, 35, 64, 65, 81, 96, 97, 99, 108, 109, 111, 113, 115, 125, 127],
+  [0, 2, 4, 6, 20, 22, 32, 33, 34, 35, 36, 37, 38, 39, 52, 53, 54, 55, 108, 109, 110, 111, 124, 125, 126, 127],
+  [0, 1, 2, 3, 4, 5, 6, 16, 17, 18, 20, 21, 22, 23, 32, 33, 34, 35, 36, 37, 38, 39, 48, 49, 50, 51, 52, 53, 54, 55, 64, 65, 66, 68, 69, 71, 80, 81, 83, 84, 85, 86, 87, 96, 97, 98, 99, 100, 101, 103, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 124, 125, 126, 127],
+  [0, 8, 24, 32, 33, 35, 40, 41, 43, 56, 57, 59, 108, 109, 111, 124, 125, 127],
+  [0, 1, 8, 9, 16, 17, 24, 25, 32, 33, 35, 40, 41, 43, 48, 49, 51, 56, 57, 59, 64, 65, 72, 73, 80, 81, 88, 89, 96, 97, 99, 104, 105, 107, 108, 109, 111, 112, 113, 115, 120, 121, 123, 124, 125, 127],
+  [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 108, 109, 110, 111, 124, 125, 126, 127],
+  [0, 1, 2, 3, 4, 5, 6, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 68, 69, 71, 72, 73, 74, 76, 77, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127],
+  [54],
+  [16, 119],
+  [22, 54],
+  [16, 22, 54, 87, 119],
+  [16, 62],
+  [16, 24, 54, 81, 127],
+  [16, 22, 30, 54, 62],
+  [16, 22, 24, 30, 54, 62, 81, 87, 95, 119, 127],
+  [34, 55],
+  [0, 17, 35, 50, 51, 55, 115, 119],
+  [2, 22, 34, 54, 55],
+  [0, 2, 3, 16, 17, 18, 22, 23, 34, 35, 50, 51, 54, 55, 83, 87, 115, 119],
+  [0, 16, 34, 50, 51, 54, 58, 63],
+  [0, 1, 16, 17, 24, 25, 34, 35, 50, 51, 54, 55, 58, 59, 63, 81, 115, 119, 123, 127],
+  [0, 2, 16, 18, 22, 26, 30, 34, 50, 51, 54, 55, 58, 62, 63],
+  [0, 1, 2, 3, 16, 17, 18, 19, 22, 23, 24, 25, 26, 27, 30, 31, 34, 35, 50, 51, 54, 55, 58, 59, 62, 63, 81, 83, 87, 91, 95, 115, 119, 123, 127],
+  [32, 54],
+  [0, 16, 32, 48, 54, 113, 119],
+  [0, 22, 32, 54],
+  [0, 16, 22, 32, 48, 54, 81, 87, 113, 119],
+  [0, 16, 32, 48, 54, 56, 62],
+  [0, 16, 24, 32, 48, 54, 56, 62, 81, 113, 119, 121, 127],
+  [0, 16, 22, 24, 30, 32, 48, 54, 56, 62],
+  [0, 16, 22, 24, 30, 32, 48, 54, 56, 62, 81, 87, 89, 95, 113, 119, 121, 127],
+  [32, 34, 35, 54, 55],
+  [0, 1, 16, 17, 32, 33, 34, 35, 48, 49, 50, 51, 54, 55, 113, 115, 119],
+  [0, 2, 22, 32, 34, 35, 54, 55],
+  [0, 1, 2, 3, 16, 17, 18, 22, 23, 32, 33, 34, 35, 48, 49, 50, 51, 54, 55, 81, 83, 87, 113, 115, 119],
+  [0, 16, 32, 34, 35, 48, 50, 51, 54, 55, 56, 58, 59, 62, 63],
+  [0, 1, 16, 17, 24, 25, 32, 33, 34, 35, 48, 49, 50, 51, 54, 55, 56, 57, 58, 59, 62, 63, 81, 113, 115, 119, 121, 123, 127],
+  [0, 2, 16, 18, 22, 24, 26, 30, 32, 34, 35, 48, 50, 51, 54, 55, 56, 58, 59, 62, 63],
+  [0, 1, 2, 3, 16, 17, 18, 19, 22, 23, 24, 25, 26, 27, 30, 31, 32, 33, 34, 35, 48, 49, 50, 51, 54, 55, 56, 57, 58, 59, 62, 63, 81, 83, 87, 89, 91, 95, 113, 115, 119, 121, 123, 127],
+  [36, 126],
+  [0, 52, 80, 100, 117, 118, 124, 127],
+  [4, 22, 36, 54, 126],
+  [0, 4, 16, 20, 22, 36, 52, 54, 68, 80, 85, 86, 87, 100, 117, 118, 119, 124, 126, 127],
+  [0, 24, 44, 52, 60, 62, 124, 126],
+  [0, 8, 16, 24, 36, 52, 54, 60, 62, 64, 80, 81, 88, 89, 108, 116, 117, 118, 124, 125, 126, 127],
+  [0, 4, 12, 16, 20, 22, 24, 28, 30, 36, 44, 52, 54, 60, 62, 124, 126],
+  [0, 4, 8, 12, 16, 20, 22, 24, 28, 30, 36, 44, 52, 54, 60, 62, 64, 68, 76, 80, 81, 84, 85, 86, 87, 88, 89, 92, 93, 94, 95, 100, 108, 116, 117, 118, 119, 124, 125, 126, 127],
+  [32, 34, 36, 38, 39, 54, 110, 127],
+  [0, 1, 16, 32, 33, 34, 35, 36, 37, 48, 53, 54, 55, 64, 81, 96, 98, 100, 103, 108, 111, 113, 114, 115, 117, 118, 119, 125, 126, 127],
+  [0, 2, 4, 6, 22, 32, 34, 36, 38, 39, 54, 55, 110, 126, 127],
+  [0, 1, 2, 3, 4, 5, 6, 7, 16, 17, 18, 20, 21, 22, 23, 32, 33, 34, 35, 36, 37, 38, 39, 48, 50, 51, 52, 53, 54, 55, 64, 66, 68, 70, 71, 80, 81, 82, 83, 85, 86, 87, 96, 98, 100, 102, 103, 108, 110, 111, 113, 114, 115, 117, 118, 119, 124, 125, 126, 127],
+  [0, 8, 16, 24, 32, 34, 35, 36, 40, 42, 44, 46, 47, 48, 52, 54, 55, 56, 58, 59, 60, 62, 63, 108, 110, 124, 126, 127],
+  [0, 1, 8, 16, 17, 24, 25, 32, 33, 34, 35, 36, 37, 38, 39, 40, 43, 44, 45, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 72, 80, 81, 88, 89, 96, 98, 99, 100, 104, 106, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127],
+  [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 35, 36, 38, 39, 40, 42, 44, 46, 47, 48, 50, 51, 52, 54, 55, 56, 58, 59, 60, 62, 63, 108, 110, 124, 126, 127],
+  [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 68, 70, 71, 72, 74, 76, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 98, 99, 100, 102, 103, 104, 106, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127],
+  [32, 36, 54, 108, 126],
+  [0, 16, 32, 36, 48, 52, 54, 64, 80, 96, 100, 108, 112, 113, 117, 118, 119, 124, 125, 126, 127],
+  [0, 4, 22, 32, 36, 54, 108, 126],
+  [0, 4, 16, 20, 22, 32, 36, 48, 52, 54, 64, 68, 80, 81, 85, 86, 87, 96, 100, 108, 112, 113, 117, 118, 119, 124, 125, 126, 127],
+  [0, 8, 16, 24, 32, 36, 40, 44, 48, 52, 54, 56, 60, 62, 108, 124, 126],
+  [0, 8, 16, 24, 32, 36, 40, 44, 48, 52, 54, 56, 60, 62, 64, 72, 80, 81, 88, 89, 96, 100, 104, 108, 112, 113, 116, 117, 118, 119, 120, 121, 124, 125, 126, 127],
+  [0, 4, 8, 12, 16, 20, 22, 24, 28, 30, 32, 36, 40, 44, 48, 52, 54, 56, 60, 62, 108, 124, 126],
+  [0, 4, 8, 12, 16, 20, 22, 24, 28, 30, 32, 36, 40, 44, 48, 52, 54, 56, 60, 62, 64, 68, 72, 76, 80, 81, 84, 85, 86, 87, 88, 89, 92, 93, 94, 95, 96, 100, 104, 108, 112, 113, 116, 117, 118, 119, 120, 121, 124, 125, 126, 127],
+  [32, 34, 35, 36, 38, 39, 54, 55, 108, 110, 111, 126, 127],
+  [0, 1, 16, 17, 32, 33, 34, 35, 36, 37, 38, 39, 48, 49, 50, 51, 52, 53, 54, 55, 64, 65, 80, 81, 96, 97, 98, 99, 100, 103, 108, 109, 110, 111, 112, 113, 114, 115, 117, 118, 119, 124, 125, 126, 127],
+  [0, 2, 4, 6, 22, 32, 34, 35, 36, 38, 39, 54, 55, 108, 110, 111, 126, 127],
+  [0, 1, 2, 3, 4, 5, 6, 7, 16, 17, 18, 20, 21, 22, 23, 32, 33, 34, 35, 36, 37, 38, 39, 48, 49, 50, 51, 52, 53, 54, 55, 64, 65, 66, 68, 70, 71, 80, 81, 82, 83, 85, 86, 87, 96, 97, 98, 99, 100, 102, 103, 108, 109, 110, 111, 112, 113, 114, 115, 117, 118, 119, 124, 125, 126, 127],
+  [0, 8, 16, 24, 32, 34, 35, 36, 38, 39, 40, 42, 43, 44, 46, 47, 48, 50, 51, 52, 54, 55, 56, 58, 59, 60, 62, 63, 108, 110, 111, 124, 126, 127],
+  [0, 1, 8, 9, 16, 17, 24, 25, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 72, 73, 80, 81, 88, 89, 96, 97, 98, 99, 100, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127],
+  [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 35, 36, 38, 39, 40, 42, 43, 44, 46, 47, 48, 50, 51, 52, 54, 55, 56, 58, 59, 60, 62, 63, 108, 110, 111, 124, 126, 127],
+  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 68, 70, 71, 72, 73, 74, 76, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127],
+  [52, 127],
+  [16, 52, 81, 117, 119, 125, 127],
+  [20, 22, 52, 54, 127],
+  [16, 20, 22, 52, 54, 81, 85, 87, 117, 119, 125, 127],
+  [16, 24, 52, 60, 62, 125, 127],
+  [16, 24, 52, 54, 60, 62, 81, 89, 117, 119, 125, 127],
+  [16, 20, 22, 24, 28, 30, 52, 54, 60, 62, 125, 127],
+  [16, 20, 22, 24, 28, 30, 52, 54, 60, 62, 81, 85, 87, 89, 93, 95, 117, 119, 125, 127],
+  [32, 35, 53, 54, 55, 127],
+  [0, 1, 16, 17, 32, 33, 35, 48, 49, 50, 51, 52, 53, 54, 55, 81, 113, 115, 117, 119, 125, 127],
+  [0, 2, 20, 22, 32, 34, 35, 52, 53, 54, 55, 127],
+  [0, 1, 2, 3, 16, 17, 18, 20, 21, 22, 23, 32, 33, 34, 35, 48, 49, 50, 51, 52, 53, 54, 55, 81, 83, 85, 87, 113, 115, 117, 119, 125, 127],
+  [0, 16, 24, 32, 33, 34, 35, 48, 49, 50, 51, 52, 53, 54, 55, 56, 58, 59, 61, 62, 63, 125, 127],
+  [0, 1, 16, 17, 24, 25, 32, 33, 34, 35, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 81, 89, 113, 115, 117, 119, 121, 123, 125, 127],
+  [0, 2, 16, 18, 20, 22, 24, 26, 28, 30, 32, 33, 34, 35, 48, 49, 50, 51, 52, 53, 54, 55, 56, 58, 59, 60, 61, 62, 63, 125, 127],
+  [0, 1, 2, 3, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 81, 83, 85, 87, 89, 91, 93, 95, 113, 115, 117, 119, 121, 123, 125, 127],
+  [32, 52, 54, 125, 127],
+  [0, 16, 32, 48, 52, 54, 81, 113, 117, 119, 125, 127],
+  [0, 20, 22, 32, 52, 54, 125, 127],
+  [0, 16, 20, 22, 32, 48, 52, 54, 81, 85, 87, 113, 117, 119, 125, 127],
+  [0, 16, 24, 32, 48, 52, 54, 56, 60, 62, 125, 127],
+  [0, 16, 24, 32, 48, 52, 54, 56, 60, 62, 81, 89, 113, 117, 119, 121, 125, 127],
+  [0, 16, 20, 22, 24, 28, 30, 32, 48, 52, 54, 56, 60, 62, 125, 127],
+  [0, 16, 20, 22, 24, 28, 30, 32, 48, 52, 54, 56, 60, 62, 81, 85, 87, 89, 93, 95, 113, 117, 119, 121, 125, 127],
+  [32, 33, 34, 35, 52, 53, 54, 55, 125, 127],
+  [0, 1, 16, 17, 32, 33, 34, 35, 48, 49, 50, 51, 52, 53, 54, 55, 81, 113, 115, 117, 119, 125, 127],
+  [0, 2, 20, 22, 32, 33, 34, 35, 52, 53, 54, 55, 125, 127],
+  [0, 1, 2, 3, 16, 17, 18, 20, 21, 22, 23, 32, 33, 34, 35, 48, 49, 50, 51, 52, 53, 54, 55, 81, 83, 85, 87, 113, 115, 117, 119, 125, 127],
+  [0, 16, 24, 32, 33, 34, 35, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 125, 127],
+  [0, 1, 16, 17, 24, 25, 32, 33, 34, 35, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 81, 89, 113, 115, 117, 119, 121, 123, 125, 127],
+  [0, 2, 16, 18, 20, 22, 24, 26, 28, 30, 32, 33, 34, 35, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 125, 127],
+  [0, 1, 2, 3, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 81, 83, 85, 87, 89, 91, 93, 95, 113, 115, 117, 119, 121, 123, 125, 127],
+  [36, 52, 108, 124, 125, 126, 127],
+  [0, 16, 36, 52, 64, 80, 81, 100, 108, 116, 117, 118, 119, 124, 125, 126, 127],
+  [4, 20, 22, 36, 52, 54, 108, 124, 125, 126, 127],
+  [0, 4, 16, 20, 22, 36, 52, 54, 64, 68, 80, 81, 84, 85, 86, 87, 100, 108, 116, 117, 118, 119, 124, 125, 126, 127],
+  [0, 8, 16, 24, 36, 44, 52, 60, 62, 108, 124, 125, 126, 127],
+  [0, 8, 16, 24, 36, 44, 52, 54, 60, 62, 64, 72, 80, 81, 88, 89, 100, 108, 116, 117, 118, 119, 124, 125, 126, 127],
+  [0, 4, 8, 12, 16, 20, 22, 24, 28, 30, 36, 44, 52, 54, 60, 62, 108, 124, 125, 126, 127],
+  [0, 4, 8, 12, 16, 20, 22, 24, 28, 30, 36, 44, 52, 54, 60, 62, 64, 68, 72, 76, 80, 81, 84, 85, 86, 87, 88, 89, 92, 93, 94, 95, 100, 108, 116, 117, 118, 119, 124, 125, 126, 127],
+  [32, 33, 34, 35, 36, 37, 38, 39, 52, 53, 54, 55, 108, 110, 111, 125, 126, 127],
+  [0, 1, 16, 17, 32, 33, 34, 35, 36, 37, 38, 39, 48, 49, 50, 51, 52, 53, 54, 55, 64, 65, 80, 81, 96, 98, 99, 100, 101, 103, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 124, 125, 126, 127],
+  [0, 2, 4, 6, 20, 22, 32, 33, 34, 35, 36, 37, 38, 39, 52, 53, 54, 55, 108, 110, 111, 124, 125, 126, 127],
+  [0, 1, 2, 3, 4, 5, 6, 7, 16, 17, 18, 20, 21, 22, 23, 32, 33, 34, 35, 36, 37, 38, 39, 48, 49, 50, 51, 52, 53, 54, 55, 64, 65, 66, 68, 69, 70, 71, 80, 81, 82, 83, 84, 85, 86, 87, 96, 98, 99, 100, 101, 102, 103, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 124, 125, 126, 127],
+  [0, 8, 16, 24, 32, 33, 34, 35, 36, 37, 38, 39, 40, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 108, 109, 110, 111, 124, 125, 126, 127],
+  [0, 1, 8, 9, 16, 17, 24, 25, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 72, 73, 80, 81, 88, 89, 96, 97, 98, 99, 100, 101, 103, 104, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127],
+  [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 33, 34, 35, 36, 37, 38, 39, 40, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 108, 109, 110, 111, 124, 125, 126, 127],
+  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 68, 69, 70, 71, 72, 73, 74, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127],
+  [32, 36, 52, 54, 108, 124, 125, 126, 127],
+  [0, 16, 32, 36, 48, 52, 54, 64, 80, 81, 96, 100, 108, 112, 113, 116, 117, 118, 119, 124, 125, 126, 127],
+  [0, 4, 20, 22, 32, 36, 52, 54, 108, 124, 125, 126, 127],
+  [0, 4, 16, 20, 22, 32, 36, 48, 52, 54, 64, 68, 80, 81, 84, 85, 86, 87, 96, 100, 108, 112, 113, 116, 117, 118, 119, 124, 125, 126, 127],
+  [0, 8, 16, 24, 32, 36, 40, 44, 48, 52, 54, 56, 60, 62, 108, 124, 125, 126, 127],
+  [0, 8, 16, 24, 32, 36, 40, 44, 48, 52, 54, 56, 60, 62, 64, 72, 80, 81, 88, 89, 96, 100, 104, 108, 112, 113, 116, 117, 118, 119, 120, 121, 124, 125, 126, 127],
+  [0, 4, 8, 12, 16, 20, 22, 24, 28, 30, 32, 36, 40, 44, 48, 52, 54, 56, 60, 62, 108, 124, 125, 126, 127],
+  [0, 4, 8, 12, 16, 20, 22, 24, 28, 30, 32, 36, 40, 44, 48, 52, 54, 56, 60, 62, 64, 68, 72, 76, 80, 81, 84, 85, 86, 87, 88, 89, 92, 93, 94, 95, 96, 100, 104, 108, 112, 113, 116, 117, 118, 119, 120, 121, 124, 125, 126, 127],
+  [32, 33, 34, 35, 36, 37, 38, 39, 52, 53, 54, 55, 108, 109, 110, 111, 124, 125, 126, 127],
+  [0, 1, 16, 17, 32, 33, 34, 35, 36, 37, 38, 39, 48, 49, 50, 51, 52, 53, 54, 55, 64, 65, 80, 81, 96, 97, 98, 99, 100, 101, 103, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 124, 125, 126, 127],
+  [0, 2, 4, 6, 20, 22, 32, 33, 34, 35, 36, 37, 38, 39, 52, 53, 54, 55, 108, 109, 110, 111, 124, 125, 126, 127],
+  [0, 1, 2, 3, 4, 5, 6, 7, 16, 17, 18, 20, 21, 22, 23, 32, 33, 34, 35, 36, 37, 38, 39, 48, 49, 50, 51, 52, 53, 54, 55, 64, 65, 66, 68, 69, 70, 71, 80, 81, 82, 83, 84, 85, 86, 87, 96, 97, 98, 99, 100, 101, 102, 103, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 124, 125, 126, 127],
+  [0, 8, 16, 24, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 108, 109, 110, 111, 124, 125, 126, 127],
+  [0, 1, 8, 9, 16, 17, 24, 25, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 72, 73, 80, 81, 88, 89, 96, 97, 98, 99, 100, 101, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127],
+  [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 108, 109, 110, 111, 124, 125, 126, 127],
+  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 68, 69, 70, 71, 72, 73, 74, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127]]
+
+set_option maxRecDepth 100000 in
+def bitsData : List Nat := [
+  0,
+  2417851639229258349412352,
+  4194304,
+  154742504910672534362456064,
+  16777216,
+  618970019642690137449627648,
+  1073807360,
+  39616499108771398055142424576,
+  34359738368,
+  41538374868278621028243970633760770,
+  36028797018963972,
+  664613997902129343011072363360288777,
+  576460752303423489,
+  10633823966281744834871937540439605251,
+  9225623836740091909,
+  170182721837980222195007868413974347791,
+  4294967296,
+  10384593717069655257060992658440193,
+  18014398509481985,
+  664613997894875788091414263470555137,
+  72057594037927937,
+  2658455991572249597447124853903654913,
+  4611967493425135617,
+  170151568054962431763227310107322810369,
+  38654705664,
+  51922968585348276285305010536841219,
+  54043251363020805,
+  716536966489895470991620144026288143,
+  648518384996057089,
+  13344202926436924857758334630901252099,
+  14829509203923894277,
+  184150000388057878549757039679418335247,
+  324518553658426726783156020576256,
+  42535295865117307951368570002680578048,
+  85070591730234615865843651857942052880,
+  191408831393145151797798740889669992449,
+  21267647932558653966460912964485513472,
+  63802943798605630577032871598467579905,
+  106338239662793269832304564823787573249,
+  319014719063723768929066698511892939025,
+  2596148429267413814265252459577344,
+  170152217804347080905670457518488289281,
+  170142481534683865438612451374131052609,
+  298975385190430865555403821616998711351,
+  170141507979022890158486154365842227457,
+  248623906575191956817322407396785586947,
+  276481045716030793713537441663494997269,
+  336294359172629438232922538089469393279,
+  324518553658426726783160315543552,
+  42546005056616198547616751749198512129,
+  85070916248788274292588449485486555153,
+  320193696161591157993305598805511569425,
+  21267972451112312393259754818350612737,
+  67806549477501662627185403776936771841,
+  106338564181346928264890830166479147281,
+  324264455785639048130786677396371214609,
+  2920666982925840541048442839891968,
+  212731972869771918347136995121730420739,
+  255215993931901407145033180746809868373,
+  320260558154980124793674802542287454335,
+  191411752060010811539337793365155512577,
+  248626544001804592857832374034778751747,
+  276483641864460061127427227486625551701,
+  340282318750215161746081671482336837503,
+  42535295865117307932921825928971026432,
+  42535295865119725784561055187320438784,
+  170141183460469231731687303715885154304,
+  212676479325782385647386699571158646784,
+  42535295865117307932921825928987803648,
+  42535295865738695804203745324786843648,
+  212676479325586539664609129646215200768,
+  212676479375918957238444600705936326656,
+  170141183460469231731687303724474040320,
+  212728402294174305792533663875086680066,
+  170141183460469231731732339746521743361,
+  213548785197987222469356922643280232459,
+  212676479325586539665329705593841123329,
+  226020682252642434541937815305536602115,
+  212676479325586539676762656233380708357,
+  224192993800731236101667518726518276111,
+  42535295865117307932921825933265993728,
+  42545680458836795439818116184273846273,
+  212676479325586539664631647647288000513,
+  213517631416865027723231439453905027073,
+  42535295865117307932993883527320698881,
+  45204136451025597205340759511315578881,
+  212676479325586539670468594240700088321,
+  216176087458571431065933619826311364609,
+  212676479325586539664609129692099772416,
+  212728402294174305792533663913741385731,
+  212676479325586539664676683703695441925,
+  213559169791742977750865577164024512527,
+  212676479325586539665401763226533756929,
+  226020682252642434542010154413205946371,
+  212676479325586539683055592309444116485,
+  226851449802204588167906995933991075855,
+  42535620383670966359648609084991602688,
+  42535620383673384229734582417050566656,
+  319015043506933467923640477623304323088,
+  319015043507227237211401481765820366865,
+  63803268316229620326109522049493893376,
+  63803268317161706873845628086547185921,
+  319015043506933467923640477624663347473,
+  319015043582432174878218542251273949457,
+  212680049029676782358603744373966372864,
+  212731972869774336198776224345720094723,
+  297751289797018715077968517345819230289,
+  320343637123105233025427427561586491519,
+  233947696962235436325857302967513776385,
+  248626544160260917886361049221866652419,
+  319019586766684685916260982737838888277,
+  340282239838965449244824692424060141439,
+  42535620383670966359648609089286569984,
+  42546005056618616399255981007547924481,
+  319015043506933467923662995694455619601,
+  320276772990729963067650931010200207377,
+  63803268316229620326181580747338416385,
+  67806549556729825141449742469992349953,
+  319015043506933467929499960979565383953,
+  324264477335699252010686520432511750417,
+  212680049029676782358603744408326111232,
+  212731972869774336198776224380079833091,
+  319019586766684685897882996897223802965,
+  320343637598493550924128413364430241919,
+  233947696962235436325857303001873514753,
+  248626544160260917886361049221866652419,
+  319019586766684685916262185878437582165,
+  340282361850335721211904661523412254591,
+  18014398509481984,
+  664613997892457936451903530140237824,
+  18014398513676288,
+  664613998047200441380590463016304640,
+  4611686018427453440,
+  170141183460471649583344547372759842816,
+  4629700418014871552,
+  170805797498132931286450978253539704832,
+  36028814198833152,
+  706152372760736557519554031873294337,
+  54043212712509444,
+  706152372925150469005158015335596045,
+  9532994528416432129,
+  181481159799511713134182621069399228419,
+  14180709345008091141,
+  181481159841766088385964826005592801295,
+  18014402804449280,
+  674998591609527591727260400579837953,
+  18014402808643585,
+  674998591766687948277162193295835137,
+  4702039490246541313,
+  173474638043651008925545151107856138241,
+  4702039491341254657,
+  173474638084038802707230682577518002177,
+  54043251363020800,
+  716536966477806212795473878036185091,
+  54043251367215109,
+  716536966644637975902292704158482447,
+  14829509203835551745,
+  184150000384798614540075999420974563331,
+  14829509204997636101,
+  184150000427671959806889208476190310415,
+  85070591730234615865843651926661529600,
+  191907293159099038304540664053480030209,
+  85070591730234615865861666325175205904,
+  277642498887496911785595816023283531793,
+  106338239662793269838073693537291993089,
+  319596580756021450449192641969491345665,
+  106338239662793269838091708005868441617,
+  320261196096131129020715923179421372689,
+  170142481534683865438612451653303926784,
+  298985770180134002842119694943787220995,
+  255213073264918481304492132308269138005,
+  320254721257796210758371639383995908351,
+  276481045716030793713609575191476764929,
+  340282146112981622811741854775413768451,
+  276481045716030793713612953717245826389,
+  340282161403084702384420844106256711167,
+  85070916248788274292588449485486555136,
+  320193696240700845482099797629295722497,
+  85070916248788274292588449485490749457,
+  320193696240974063012480609002137387025,
+  106338564181346928264890831333362827521,
+  324264477261132631603844561841611145473,
+  106338564181346928264890831334710251793,
+  324264477335699252010686520432511750417,
+  255215993931901407145033180746809868288,
+  320260558313155976301934761126693896195,
+  255215993931901407145033180746814062677,
+  320260563384043687618991163225178308863,
+  276483641864460061127427227760088645889,
+  340282359236738795627543164851232899843,
+  276483641864460061127427227761503458645,
+  340282364385637073374386726704171155455,
+  170141183460469231731691807315511476224,
+  213507246822954529936817741915507195904,
+  170141183460469231731709821714026201088,
+  213507246823147958067974096981974908928,
+  212676479325586539670378240767533580288,
+  213507246823573499962243053974517252096,
+  212676479325586539670396255167390482432,
+  213507246873284529664796605639782629376,
+  170141183460469231731750354149321998336,
+  213559169791539878213170319445478014979,
+  170141183460469231731754857766134480901,
+  213559169791742977750865577164024512527,
+  212676479325586539681758555615346622465,
+  226851449750008006980225766682632847363,
+  212676479325586539682911477121368260613,
+  226851449802204588167906995933991075855,
+  212676479325586539664631647647286951936,
+  213517631416671599592093098785946796033,
+  212676479325586539664631647647292194817,
+  213517631416865027723231439453905027073,
+  212676479325586539670468594239352668161,
+  216176087408860401363380068161045987329,
+  212676479325586539670468594240700088321,
+  216176087458571431065933619826311364609,
+  212676479325586539664676683703690199040,
+  213559169791539878213170319462657884163,
+  212676479325586539664676683703695441925,
+  213559169791742977750865577164024512527,
+  212676479325586539683055592308029325313,
+  226851449750008006980225766682632847363,
+  212676479325586539683055592309444116485,
+  226851449802204588167906995933991075855,
+  319015043506933467923644981291650121728,
+  320261196020636053578627289868599885825,
+  319015043506933467923662995690164846608,
+  320261196020926196070500720448396918801,
+  319015043506933467929409606406887244033,
+  320261196021564513336240447458165981441,
+  319015043506933467929427620806744150289,
+  320261196096131133743082406049066586385,
+  297751289797018715077968517620691894272,
+  320343637439737408971921376874279927811,
+  319018937729577369044429430585182650453,
+  320343642510644463692387423398265291007,
+  319019586766684685916262183677999513857,
+  340282321207220788780661119950136738563,
+  319019586766684685916262183679414326613,
+  340282326356119218233527943990427484159,
+  319015043506933467923662995694454571008,
+  320276772990439820575795514828912656385,
+  319015043506933467923662995694459813905,
+  320276772990729963067650931010200207377,
+  319015043506933467929499960978217959681,
+  324264477261132631603844561841611145473,
+  319015043506933467929499960979565383953,
+  324264477335699252010686520432511750417,
+  319019586766684685897882996897218560000,
+  320343637598193734000450052061367828483,
+  319019586766684685897882996897223802965,
+  320343642669100788720916098585353191679,
+  319019586766684685916262185877022769409,
+  340282361772039996084001967844639310595,
+  319019586766684685916262185878437582165,
+  340282366920938425536868791884930056191]
+
+def choices (s : Nat) : List Nat := choicesData.getD s []
+
+def bits (s : Nat) : Nat := bitsData.getD s 0
+
+def listBits : List Nat → Nat
+  | [] => 0
+  | x :: xs => (2^x) ||| listBits xs
+
+def checkTable (s : Nat) : Bool := listBits (choices s) == bits s
+
+def checkClosed (a b : Nat) : Bool :=
+  if a < b ∧ a &&& b = 0 then
+    (choices a).all fun x => (choices b).all fun y =>
+      (bits (a ||| b)).testBit (x &&& y) && (bits (a ||| b)).testBit (x ||| y)
+  else true
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma all_tables : ∀ s : Fin 256, checkTable s = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma closed_0 : ∀ a : Fin 16, ∀ b : Fin 256, checkClosed (0 + a.val) b.val = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma closed_16 : ∀ a : Fin 16, ∀ b : Fin 256, checkClosed (16 + a.val) b.val = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma closed_32 : ∀ a : Fin 16, ∀ b : Fin 256, checkClosed (32 + a.val) b.val = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma closed_48 : ∀ a : Fin 16, ∀ b : Fin 256, checkClosed (48 + a.val) b.val = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma closed_64 : ∀ a : Fin 16, ∀ b : Fin 256, checkClosed (64 + a.val) b.val = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma closed_80 : ∀ a : Fin 16, ∀ b : Fin 256, checkClosed (80 + a.val) b.val = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma closed_96 : ∀ a : Fin 16, ∀ b : Fin 256, checkClosed (96 + a.val) b.val = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma closed_112 : ∀ a : Fin 16, ∀ b : Fin 256, checkClosed (112 + a.val) b.val = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma closed_128 : ∀ a : Fin 16, ∀ b : Fin 256, checkClosed (128 + a.val) b.val = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma closed_144 : ∀ a : Fin 16, ∀ b : Fin 256, checkClosed (144 + a.val) b.val = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma closed_160 : ∀ a : Fin 16, ∀ b : Fin 256, checkClosed (160 + a.val) b.val = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma closed_176 : ∀ a : Fin 16, ∀ b : Fin 256, checkClosed (176 + a.val) b.val = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma closed_192 : ∀ a : Fin 16, ∀ b : Fin 256, checkClosed (192 + a.val) b.val = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma closed_208 : ∀ a : Fin 16, ∀ b : Fin 256, checkClosed (208 + a.val) b.val = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma closed_224 : ∀ a : Fin 16, ∀ b : Fin 256, checkClosed (224 + a.val) b.val = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma closed_240 : ∀ a : Fin 16, ∀ b : Fin 256, checkClosed (240 + a.val) b.val = true := by decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma target_absent : ∀ s : Fin 256, (bits s).testBit 15 = false := by decide +kernel
+
+lemma all_closed (a b : Fin 256) : checkClosed a.val b.val = true := by
+  by_cases h16 : a.val < 16
+  · have h := closed_0 ⟨a.val - 0, by omega⟩ b
+    have heq : 0 + (a.val - 0) = a.val := by omega
+    simpa only [heq] using h
+  by_cases h32 : a.val < 32
+  · have h := closed_16 ⟨a.val - 16, by omega⟩ b
+    have heq : 16 + (a.val - 16) = a.val := by omega
+    simpa only [heq] using h
+  by_cases h48 : a.val < 48
+  · have h := closed_32 ⟨a.val - 32, by omega⟩ b
+    have heq : 32 + (a.val - 32) = a.val := by omega
+    simpa only [heq] using h
+  by_cases h64 : a.val < 64
+  · have h := closed_48 ⟨a.val - 48, by omega⟩ b
+    have heq : 48 + (a.val - 48) = a.val := by omega
+    simpa only [heq] using h
+  by_cases h80 : a.val < 80
+  · have h := closed_64 ⟨a.val - 64, by omega⟩ b
+    have heq : 64 + (a.val - 64) = a.val := by omega
+    simpa only [heq] using h
+  by_cases h96 : a.val < 96
+  · have h := closed_80 ⟨a.val - 80, by omega⟩ b
+    have heq : 80 + (a.val - 80) = a.val := by omega
+    simpa only [heq] using h
+  by_cases h112 : a.val < 112
+  · have h := closed_96 ⟨a.val - 96, by omega⟩ b
+    have heq : 96 + (a.val - 96) = a.val := by omega
+    simpa only [heq] using h
+  by_cases h128 : a.val < 128
+  · have h := closed_112 ⟨a.val - 112, by omega⟩ b
+    have heq : 112 + (a.val - 112) = a.val := by omega
+    simpa only [heq] using h
+  by_cases h144 : a.val < 144
+  · have h := closed_128 ⟨a.val - 128, by omega⟩ b
+    have heq : 128 + (a.val - 128) = a.val := by omega
+    simpa only [heq] using h
+  by_cases h160 : a.val < 160
+  · have h := closed_144 ⟨a.val - 144, by omega⟩ b
+    have heq : 144 + (a.val - 144) = a.val := by omega
+    simpa only [heq] using h
+  by_cases h176 : a.val < 176
+  · have h := closed_160 ⟨a.val - 160, by omega⟩ b
+    have heq : 160 + (a.val - 160) = a.val := by omega
+    simpa only [heq] using h
+  by_cases h192 : a.val < 192
+  · have h := closed_176 ⟨a.val - 176, by omega⟩ b
+    have heq : 176 + (a.val - 176) = a.val := by omega
+    simpa only [heq] using h
+  by_cases h208 : a.val < 208
+  · have h := closed_192 ⟨a.val - 192, by omega⟩ b
+    have heq : 192 + (a.val - 192) = a.val := by omega
+    simpa only [heq] using h
+  by_cases h224 : a.val < 224
+  · have h := closed_208 ⟨a.val - 208, by omega⟩ b
+    have heq : 208 + (a.val - 208) = a.val := by omega
+    simpa only [heq] using h
+  by_cases h240 : a.val < 240
+  · have h := closed_224 ⟨a.val - 224, by omega⟩ b
+    have heq : 224 + (a.val - 224) = a.val := by omega
+    simpa only [heq] using h
+  have h := closed_240 ⟨a.val - 240, by omega⟩ b
+  have heq : 240 + (a.val - 240) = a.val := by omega
+  simpa only [heq] using h
+
+def leafSigs : List Nat := [81, 22, 24, 35, 32, 108, 125, 54]
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 0 in
+lemma input_allowed : ∀ i : Fin 8, (bits (2^i.val)).testBit (leafSigs.getD i.val 0) = true := by decide +kernel
+
+end ReadOnce
+
+namespace ReadOnceEncoding
+open ReadOnceCore C6 C6.DagTools
+
+lemma encoded_disjoint_closed {n : Nat} (choices : Nat → List Nat) (bits : Nat → Nat)
+    (hzero : bits 0 = 0)
+    (htable : ∀ s : Fin 256, checkTable choices bits s = true)
+    (hclosed : ∀ a b : Fin 256, checkClosed choices bits a b = true)
+    {S T : Finset (Fin 8)} {f g : Fin n → Bool} (hd : Disjoint S T)
+    (hf : Allowed bits (resourceMask S) (truthBits f))
+    (hg : Allowed bits (resourceMask T) (truthBits g)) :
+    Allowed bits (resourceMask (S ∪ T)) (truthBits (fun i => f i && g i)) ∧
+    Allowed bits (resourceMask (S ∪ T)) (truthBits (fun i => f i || g i)) := by
+  rw [resourceMask_union, truthBits_and, truthBits_or]
+  exact disjoint_closed choices bits hzero htable hclosed
+    (resourceMask_bound S) (resourceMask_bound T) (resourceMask_disjoint hd) hf hg
+
+lemma encoded_read_once_allowed {n : Nat} {D : Dag}
+    (h : StrictLive 8 D)
+    (hone : ∀ w, w + 1 < 8 + D.length → fanout D w = 1)
+    (x : Fin n → Fin 8 → Bool) (choices : Nat → List Nat) (bits : Nat → Nat)
+    (hzero : bits 0 = 0)
+    (htable : ∀ s : Fin 256, checkTable choices bits s = true)
+    (hclosed : ∀ a b : Fin 256, checkClosed choices bits a b = true)
+    (hinput : ∀ v : Fin 8, Allowed bits (2 ^ v.val) (truthBits (fun i => x i v))) :
+    Allowed bits 255 (truthBits (fun i => val D (x i) (outW 8 D))) := by
+  have hP := resource_induction_nonempty h hone x
+    (fun S f => Allowed bits (resourceMask S) (truthBits f))
+    (fun v => by simpa only [resourceMask_singleton] using hinput v)
+    (fun _ _ _ _ _ _ hd hf hg =>
+      (encoded_disjoint_closed choices bits hzero htable hclosed hd hf hg).1)
+    (fun _ _ _ _ _ _ hd hf hg =>
+      (encoded_disjoint_closed choices bits hzero htable hclosed hd hf hg).2)
+  simpa only [resourceMask_univ] using hP
+
+end ReadOnceEncoding
+
+namespace ReadOnce
+open C6 C6.DagTools ReadOnceCore ReadOnceEncoding
+
+def rowNumbers : List Nat := [9, 10, 34, 36, 7, 56, 33]
+
+def rowInput (r : Fin 7) (v : Fin 6) : Bool :=
+  (rowNumbers.getD r.val 0).testBit v.val
+
+def extendedRowInput (r : Fin 7) : Fin 8 → Bool := extendTwo (rowInput r)
+
+lemma extendedRowInput_signature : ∀ v : Fin 8,
+    truthBits (fun r => extendedRowInput r v) = leafSigs.getD v.val 0 := by
+  decide +kernel
+
+lemma row_target_signature : truthBits (fun r : Fin 7 =>
+    edgeBool (rowInput r)) = 15 := by
+  decide +kernel
+
+lemma listBits_core (xs : List Nat) : ReadOnceCore.listBits xs = listBits xs := by
+  induction xs with
+  | nil => rfl
+  | cons x xs ih => simp only [ReadOnceCore.listBits, listBits, ih]
+
+lemma tables_core (s : Fin 256) : ReadOnceCore.checkTable choices bits s = true := by
+  simpa only [ReadOnceCore.checkTable, listBits_core, checkTable] using all_tables s
+
+lemma closed_core (a b : Fin 256) : ReadOnceCore.checkClosed choices bits a b = true :=
+  all_closed a b
+
+lemma bits_zero : bits 0 = 0 := by rfl
+
+lemma read_once_output_allowed {D : Dag}
+    (h : StrictLive 8 D)
+    (hone : ∀ w, w + 1 < 8 + D.length → fanout D w = 1) :
+    ReadOnceCore.Allowed bits 255
+      (truthBits (fun r => val D (extendedRowInput r) (outW 8 D))) := by
+  apply encoded_read_once_allowed h hone extendedRowInput choices bits bits_zero tables_core closed_core
+  intro v
+  rw [extendedRowInput_signature]
+  exact input_allowed v
+
+lemma no_read_once_target {D : Dag}
+    (h : StrictLive 8 D)
+    (hone : ∀ w, w + 1 < 8 + D.length → fanout D w = 1)
+    (hc : ∀ r : Fin 7,
+      val D (extendedRowInput r) (outW 8 D) = true ↔ sem_Edge adj (rowInput r)) : False := by
+  have hsig : (fun r => val D (extendedRowInput r) (outW 8 D)) =
+      (fun r : Fin 7 => edgeBool (rowInput r)) := by
+    funext r
+    exact Bool.eq_iff_iff.mpr ((hc r).trans (edgeBool_spec (rowInput r)).symm)
+  have ha := read_once_output_allowed h hone
+  rw [hsig, row_target_signature] at ha
+  have hn := target_absent (⟨255, by decide⟩ : Fin 256)
+  simp only [ReadOnceCore.Allowed] at ha
+  simp only [ha, Bool.true_eq_false] at hn
+
+lemma no_prefixTwo {R : Dag} (h : StrictLive 6 (prefixTwo ++ R))
+    (hc : sem_Comp 6 adj (prefixTwo ++ R)) (hl : R.length ≤ 7) : False := by
+  obtain ⟨_, hR, hone⟩ := prefixTwo_residual_tree h hc hl
+  apply no_read_once_target hR hone
+  intro r
+  exact prefixTwo_residual_computes hc (rowInput r)
+
+end ReadOnce
+
+namespace C6
+open DagTools
+
+def extendThree (x : V → Bool) : Fin 9 → Bool :=
+  ![x 0, x 1, x 2, x 3, x 4, x 5, x 0 || x 5, x 1 || x 4, x 2 || x 3]
+
+set_option maxRecDepth 4096 in
+set_option maxHeartbeats 1000000 in
+lemma prefixThree_inputs : ∀ x : V → Bool,
+    wl prefixThree (List.ofFn x) = List.ofFn (extendThree x) := by
+  decide +kernel
+
+lemma prefixThree_strict {R : Dag} (h : Strict 9 R) : Strict 6 (prefixThree ++ R) := by
+  intro j hj
+  by_cases hj3 : j < 3
+  · interval_cases j <;> simp [opA, opB, prefixThree]
+  · have hj' : j - 3 < R.length := by
+      simp only [prefixThree, List.length_append, List.length_cons, List.length_nil] at hj
+      omega
+    have hs := h (j - 3) hj'
+    have hg : (prefixThree ++ R).getD j (false, 0, 0) = R.getD (j - 3) (false, 0, 0) := by
+      simpa [prefixThree] using List.getD_append_right prefixThree R (false, 0, 0) j (by simp [prefixThree]; omega)
+    simp only [opA, opB, hg] at hs ⊢
+    exact ⟨by omega, by omega, hs.2.2⟩
+
+lemma prefixThree_computes {R : Dag}
+    (hc : ∀ x : V → Bool, val R (extendThree x) (outW 9 R) = true ↔ sem_Edge adj x) :
+    sem_Comp 6 adj (prefixThree ++ R) := by
+  have ho : outW 6 (prefixThree ++ R) = outW 9 R := by
+    simp only [outW, List.length_append, prefixThree, List.length_cons, List.length_nil]
+    omega
+  intro x
+  simpa only [val, wl_append, prefixThree_inputs, ho] using hc x
+
+lemma no_seven_with_three_free_pairs_of_canonical
+    (hcanonical : ∀ R : Dag, R.length ≤ 7 → StrictLive 6 (prefixTwo ++ R) →
+      sem_Comp 6 adj (prefixTwo ++ R) → False)
+    {R : Dag} (hl : R.length ≤ 7) (h : Strict 9 R)
+    (hc : ∀ x : V → Bool, val R (extendThree x) (outW 9 R) = true ↔ sem_Edge adj x) :
+    False :=
+  no_free_prefix_seven_of_canonical hcanonical hl (prefixThree_strict h)
+    (prefixThree_computes hc)
+
+end C6
+
+namespace C6
+open DagTools
+
+lemma no_free_prefix_seven {R : Dag} (hl : R.length ≤ 7)
+    (h : Strict 6 (prefixThree ++ R)) (hc : sem_Comp 6 adj (prefixThree ++ R)) : False :=
+  no_free_prefix_seven_of_canonical
+    (fun _ hl' h' hc' => ReadOnce.no_prefixTwo h' hc' hl') hl h hc
+
+lemma no_seven_with_three_free_pairs {R : Dag} (hl : R.length ≤ 7)
+    (h : Strict 9 R)
+    (hc : ∀ x : V → Bool, val R (extendThree x) (outW 9 R) = true ↔ sem_Edge adj x) :
+    False :=
+  no_seven_with_three_free_pairs_of_canonical
+    (fun _ hl' h' hc' => ReadOnce.no_prefixTwo h' hc' hl') hl h hc
+
+end C6
+
 end PEqualNP.Outside.L_meta_2590_aux
