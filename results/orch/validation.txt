@@ -48,3 +48,8 @@ Checked partial:17+NOTcount<=size, hence no<=19gate Petersen circuit with>=3NOT.
 Cleanup: not performed for full gap because full theorem/checker condition is not met.
 Sub-agents:6
 TIMING total=47 subagents=6
+
+Additional independently reviewed components compiled with exit0 and empty diagnostics: conjunction_bound, constant_sweep, first_and_circuit, two_not_structure, one_not_semantics, one_not_compile, one_not_eliminate. Standalone component imports use scratch harnesses; plain fragments are for eventual single-file integration. All claims are partial and conditional as stated.
+Actual named-module axiom inspection of seventeen_binary_floor and three_not_exclusion: only propext, Classical.choice, Quot.sound. No exact gap theorem or full checker acceptance yet.
+Sub-agents:6
+TIMING total=56 subagents=6

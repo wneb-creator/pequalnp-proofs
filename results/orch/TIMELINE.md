@@ -154,3 +154,9 @@ Lease initial expiry: 2026-11-25T14:04:05.796Z
 2026-11-25T14:28:13.344196+00:00 renewed; expiry 2026-11-25T14:48:13.407Z
 2026-11-25T14:28:56.047445+00:00 started300second local C6 search with3 fixed opposite-OR gates plus7 unknown gates; root renewal14:28:13Z.
 2026-11-25T14:30:35.338584+00:00 full integrated17bound build PASSED; cached target artifacts backed up before further edits.
+
+- 2026-11-25T14:30:51.266396+00:00: conjunction18/firstOR dichotomy and arbitrary-marked-constant sweep compiled PASS; independent review PASS; root notified.
+2026-11-25T14:33:13.754812+00:00 renewed; expiry 2026-11-25T14:53:13.616Z
+2026-11-25T14:34:57.337594+00:00 first C6/free3OR local batch finished:2865736646 evaluations,no exact circuit. Started300second pass with strictly1..2NOT under new17binary floor.
+
+- 2026-11-25T14:36:09.441896+00:00: generic bank realization and syntactic firstAND18 component compiled PASS; independent review PASS; root notified forpreservation.

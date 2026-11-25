@@ -140,3 +140,18 @@ Public metadata confirms L-meta-2593 is exactly the negation of2592 (string equa
 
 2026-11-25T14:30:21.161886+00:00 [full17 named build PASS]
 Full lake build PEqualNP.Outside.L_meta_2592 exited0, target805seconds,5149jobs. Named source5246lines/312347bytes is kernel checked, proving17+notCount<=size and>=3NOT exclusion. Complete logs partial17-build.stdout/stderr (stderr empty); root notified immediately forpush. Still no exact full2592 theorem.
+
+### 2026-11-25T14:30:51.266396+00:00 — structural agent: conjunction18 and constant sweep checked
+`results/orch/lemmas/conjunction_bound.lean` compiled exit0, empty complete log `/tmp/oec/pequalnp-pilot-92/conjunction-bound-build.txt`, emitted object `conjunction_bound.olean` in scratch. `conjunction_tail_lower` proves17 residual signed-binary gates for any first non-OR normalized binary operation, including d3 via swapping. `first_binary_or_eighteen` gives total≥18binary or an explicit firstOR residual.
+`results/orch/lemmas/constant_sweep.lean` compiled exit0, empty complete log `/tmp/oec/pequalnp-pilot-92/constant-sweep-build.txt`, emitted object `constant_sweep.olean`. It generalizes L_meta_7073 constant propagation to arbitrary finite marked original wire indices, each anyBooleanconstant. Output gate count saves every gate with an effective read from a marked index. Semantics relation and valid references are preserved.
+Both independently reviewed PASS by reduction_design; source frozen and root notified for immediate preservation.
+
+2026-11-25T14:33:39.482584+00:00 [two-NOT structure compiled]
+Frozen two_not_structure.lean compiles with empty logs (exit0); plain body two_not_structure.fragment.lean. For an actual FanInTwo circuit with<=19gates,exactly2NOTs,correct Petersen output: size=19,non-NOTcount=17, an extracted raw-pins signed Live run has17steps, and its first normalized gate is OR with16-step tail. After graph automorphism the tail is exactly the canonical11-word bank (all10pins+OR of0 with1or2). No claim both NOTs are live or actualfirstGateOp=OR. Independent review requested.
+
+2026-11-25T14:34:57.337594+00:00 [C6/free-bank search]
+First300second heuristic batch made2,865,736,646 evaluations, no exact C6 completion. Best monotone candidate misses rows12 and13 (edge23 alone and with vertex0). Replacing one AND input yields a two-false-positive completion at rows5 and21 (nonedge02 alone and with4). Stable candidates local-c6-twoerrors.txt and local-c6-overapprox.txt. A bounded second pass now requires exactly1or2 NOT gates to avoid monotone plateau and respect checked17+NOT bound. No further repeats planned without a new idea.
+
+### 2026-11-25T14:36:09.441896+00:00 — structural agent: syntactic firstAND18 checked
+`first_and_circuit.lean` compiled exit0, empty complete log `/tmp/oec/pequalnp-pilot-92/first-and-circuit-build.txt`; object `/tmp/oec/pequalnp-pilot-92/first_and_circuit.olean`. Independent review PASS by reduction_design. Public `Extended.realizeBank` handles arbitrary all-plain banks. `first_and_tail_binary_lower` gives17binary for tail supplied anAND of distinct originalinputs, whether the extra isused or not. `first_and_size_lower` proves actual circuit size≥18 whenever its firstgate is AND of two distinct valid originalinputs and it computesPetersen. No liveness or strict-read assumption is needed.
+Final splice body saved as `results/orch/lemmas/first_and_circuit.fragment.lean`; scratch harness Batteries import/export-private aliases are omitted from thatbody. Official API documentation read2026-11-25: https://leanprover.github.io/hex/docs/Batteries/Tactic/OpenPrivate.html ; module-based export-private exposes alreadychecked constants without newaxioms.
