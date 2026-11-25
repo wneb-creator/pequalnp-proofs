@@ -1,0 +1,17 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/Sym3Chart00.lean",
+  "sha256": "1d85631c86f8bfe591ebc051aa5c8f65a0b84dc77e925b549595890cfd3ffdab",
+  "started_utc": "2026-11-25T11:01:49.387914+00:00",
+  "limits": {
+    "lean_memory_mib": 10000,
+    "process_tree_rss_gib": 4,
+    "cpu_seconds": 180,
+    "wall_seconds": 300
+  },
+  "pid": 24187,
+  "peak_rss_bytes": 865935360,
+  "exit_code": 0,
+  "seconds": 35.5474333739985,
+  "finished_utc": "2026-11-25T11:02:24.935251+00:00",
+  "source_sha256_after": "1d85631c86f8bfe591ebc051aa5c8f65a0b84dc77e925b549595890cfd3ffdab"
+}

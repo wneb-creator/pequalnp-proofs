@@ -40,3 +40,7 @@
 - 2026-11-25T10:55:07.923175+00:00: Actualthree-collinear maximality compiledandtwoindependentreviewspassed; preservingpartial.
 
 - 2026-11-25T11:01:20.897611+00:00: TwoBlockAlgebra compiledandtworeviewspassed; preservingcheckedscalarobstruction.
+
+- 2026-11-25T11:05:12.514870+00:00 geometry_route: root-requested globalrowgraphF4 graceful stop completed, exit0 with explicitPARTIAL/nonGB. Wall2125.68s,CPU2535.23s; lastdegree8,15800internalgenerators/178299673terms; finalboundedsubset1834generators/3103152terms saved at round23. Fullfinaldiagnostics archived undercheckpoints; no restart planned.
+
+- 2026-11-25T11:07:19.502583+00:00: FirstSym3chartandnormalizedtwo-blockmatrixobstructioncompiledandindependentlyreviewed; preservingcheckedpartials.
