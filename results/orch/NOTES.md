@@ -235,3 +235,11 @@ Cycle-source qualification: the subdivision/lift paragraphs cite `lean/PEqualNP/
 ## Counterexample worker 2026-11-25T01:55:13.262718+00:00
 
 The N4 nine-edge target (mask51863) at budget11 remained UNKNOWN after the full1200-second CaDiCaL trial (exit0,1200.02s). Full stdout/stderr and compressed exact CNF are preserved, with hashes in lemmas/counterexample_n4_nine_extended.json. This result supplies no lower bound; verified clean12 remains an upper bound only. The stronger C8 singleton-dirty optimum query will use the freed core for at most300seconds. Colored K4/Fano-minus-line at22 gates continues on the other core.
+
+## Counterexample worker 2026-11-25T02:00:25.562880+00:00
+
+At the known C8 optimum11, requiring a singleton-accepting AND remained UNKNOWN after300.03seconds in Z3. This supplies no answer about the stronger claim that every minimum circuit is clean, and no evidence against the posted existence claim. Complete logs are frozen. The final300-second colored-lift annealing search starts now alongside its existing exact CaDiCaL run. All45 starting seeds have independently been rejected on the full16,384-assignment truth table.
+
+## Counterexample worker final computational result 2026-11-25T02:06:23.195601+00:00
+
+Both final colored-lift searches finished normally, with empty stderr. Exact unrestricted budget22 CaDiCaL: UNKNOWN after900.06seconds (exit0), no lower bound. Annealing:86,142,256 mutations and14,358 restarts in300.00seconds, no exact candidate; best boundary score1. The retained best-boundary representative fails68 of16,384 full inputs; this is not a claimed minimum full-input error. All45 initial seeds were independently rejected. Full scripts, exact seeds, stdout/stderr, best rejected candidate, and losslessly compressed31.75MB CNF are retained with hashes in lemmas/counterexample_colored_final.json. Verified clean23 remains only an upper bound. No running search remains in this worker, and no counterexample to L-meta-3451 was found.

@@ -76,3 +76,7 @@
 
 - 2026-11-25T01:59:02.220662+00:00: renewed own lease; expiry 2026-11-25T02:19:02.048Z.
 2026-11-25T01:59:53.135188+00:00 named-file build passed: completed-searches, 3662 lines
+
+- 2026-11-25T02:06:20.052839+00:00: renewed own lease; expiry 2026-11-25T02:26:19.822Z.
+
+- 2026-11-25T02:08:43.986536+00:00: all mathematical attempts and searches complete; no full proof or refutation accepted. Final source is a checked partial file; preservation and lease closure remain.
