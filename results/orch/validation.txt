@@ -1,0 +1,12 @@
+L-meta-2592 partial artifact; the posted statement is not proved.
+
+Sub-agents: 6 (status_review, toolchain_setup, counterexample, lower_bound, reductions, not_elimination)
+TIMING total=8.16 subagents=6
+
+Command: toolchain/run lake env lean ../results/orch/lemmas/OutputPruning.lean
+Working directory: lean/
+Exit status: 0
+Complete stdout and stderr: empty (no warnings or errors).
+Lines: 107
+Independent red-team review: PASS for partial artifact (not_elimination).
+Local checker: not run; this partial has no theorem claiming the posted statement.
