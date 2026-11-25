@@ -1,0 +1,17 @@
+{"event": "start", "n": 8, "gates": 12, "seconds": 600, "seed": 6602, "tests": 19}
+{"event": "best", "errors": 6, "iterations": 1, "elapsed": 0.0004130489996896358}
+{"event": "progress", "best": 6, "iterations": 1000, "restarts": 1, "elapsed": 0.0021591659997284296}
+{"event": "best", "errors": 1, "iterations": 20002, "elapsed": 0.035532048999812105}
+{"event": "progress", "best": 1, "iterations": 16737000, "restarts": 837, "elapsed": 30.002378604000114}
+{"event": "progress", "best": 1, "iterations": 33675000, "restarts": 1684, "elapsed": 60.00300399000025}
+{"event": "progress", "best": 1, "iterations": 48267000, "restarts": 2414, "elapsed": 90.00303456799975}
+{"event": "progress", "best": 1, "iterations": 64961000, "restarts": 3248, "elapsed": 120.00344002899965}
+{"event": "progress", "best": 1, "iterations": 79447000, "restarts": 3973, "elapsed": 150.0045186340003}
+{"event": "progress", "best": 1, "iterations": 96395000, "restarts": 4820, "elapsed": 180.00584909099962}
+{"event": "progress", "best": 1, "iterations": 113229000, "restarts": 5662, "elapsed": 210.00644580300013}
+{"event": "progress", "best": 1, "iterations": 129523000, "restarts": 6476, "elapsed": 240.00807376600005}
+{"event": "progress", "best": 1, "iterations": 146156000, "restarts": 7308, "elapsed": 270.0091476360003}
+{"event": "progress", "best": 1, "iterations": 160828000, "restarts": 8041, "elapsed": 300.01486476900027}
+{"event": "progress", "best": 1, "iterations": 177518000, "restarts": 8876, "elapsed": 330.01501752399963}
+{"event": "progress", "best": 1, "iterations": 193959000, "restarts": 9698, "elapsed": 360.0163845750003}
+{"event": "progress", "best": 1, "iterations": 210428000, "restarts": 10521, "elapsed": 390.0168448029999}

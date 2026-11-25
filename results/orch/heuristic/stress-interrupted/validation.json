@@ -1,0 +1,37 @@
+{
+  "reviewed_at_utc": "2026-11-25T04:44:42.499187+00:00",
+  "script_sha256": "bd10808322d217126f1b88f0933731d88c9ec9eb9eb738dc25276b3dae99ddc9",
+  "n": 8,
+  "gates": 12,
+  "gates_legal": true,
+  "test_set_exact_edges_and_maximal_independent": true,
+  "positive_edge_tests": 10,
+  "negative_maximal_independent_tests": 9,
+  "all_truth_table_inputs": 256,
+  "best_test_errors": 1,
+  "best_full_truth_table_errors": 6,
+  "best_false_positives": 0,
+  "best_false_negatives": 6,
+  "last_recorded_progress": {
+    "event": "progress",
+    "best": 1,
+    "iterations": 210428000,
+    "restarts": 10521,
+    "elapsed": 390.0168448029999
+  },
+  "finished_event_present": false,
+  "archive_status": "INTERRUPTED_UNKNOWN",
+  "actual_final_elapsed_iterations_and_restarts": "not recorded",
+  "known_v1_boundary_bug_fixed_in_archived_v2": true,
+  "replay_encoding_source": "sat-stress12restartbase-12-encoding.json",
+  "replay_equivalence_checked_against": [
+    "sat-stress12prunedlongbase-12-minimal-encoding.json",
+    "sat-stress12prunedrestartbase-12-minimal-encoding.json"
+  ],
+  "replay_fields": [
+    "n",
+    "gate_count",
+    "edges",
+    "tests"
+  ]
+}

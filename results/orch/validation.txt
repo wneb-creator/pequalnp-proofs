@@ -108,3 +108,9 @@ Selects a minimum circuit with least dirty-AND count, then least unowned-AND cou
 Heuristic v1 archive independently reviewed: manifest3a062058fadf473e26326774411e5f57ce862fe966ece10741bb10aa837c8e74. Completed600s Petersen19 search UNKNOWN, no correct candidate recorded; best candidate1 scored error/9 full errors. Known last-mutation save bug recorded. Reuse-cycle is an UNCOMPILED Lean attempt with only independent Python validation, explicitly excluded from checked-source census.
 Sub-agents: six; independent review, minimality, normal forms, counterexample search, algebraic replacement, ownership rewrites.
 TIMING total=79.3 subagents=6
+
+2026-11-25T04:50:09.678605+00:00 public-model compatibility and pair measure
+MinimalAO2.lean: standalone Lean exit0; independent review PASS; SHA256 3aed86b6b6dec6368f27b11e77f1aa2507441ebe4dac72e82860352b86c2d2f4; full log minimal-ao2-build-002.log.
+PivotalPairMeasure.lean: standalone Lean exit0; independent review PASS; SHA256 d10bef688a31052ad278c22a9e5c7c273f0edb7b140a0361f9c3fa0a3e7be696; full log pivotal-pair-measure-build.log.
+MinimalAO2 proves every public minimum graph circuit already reads earlier wires with exactly two inputs per gate. PivotalPairMeasure proves singleton repair cannot increase junk, AND-cone pairs or bad count. Simultaneous TopForm normal form is being integrated separately. Full ownership theorem and repository-checker acceptance remain absent.
+Stress heuristic v2 archive independently reviewed at manifestc52c6ef7522c6029f7eba74bf061c7765f3d7ec35a7c98c8d33a45eb2c5eeeaa. INTERRUPTED_UNKNOWN; last recorded progress390.0168s,210428000 iterations,10521 restarts, not final totals. Best circuit incorrect:1 scored error/6 full false negatives.
