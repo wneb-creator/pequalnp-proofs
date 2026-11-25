@@ -31,3 +31,7 @@
 2026-11-25T15:02:56.315095+00:00 — Two-rectangle star semantics, selector-center uniqueness, and simultaneous negative-input witnesses compiled and independently reviewed. These narrow special cases; shared AND/OR mixtures remain open.
 
 2026-11-25T15:07:37.274124+00:00 — Second premature410; all L-meta-2583 research stopped. Final7379-line named partial built successfully and independently reviewed; immediate preservation before recovery.
+
+2026-11-25T15:09:14.561104+00:00 — Recovery assigned L-meta-2590, fresh lease issued15:07:28. Team redirected to monotone Petersen with prior checked2592 machinery.
+
+2026-11-25T15:16:37.804786+00:00 — Current L-meta-2590 normalized replay named file built and independently reviewed; checked20gatecontrol and exactCNF match preserved.20minute proof-producing search active; independent structuralPetersen adaptation also active.

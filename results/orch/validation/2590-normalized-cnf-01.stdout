@@ -1,0 +1,1590 @@
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:271:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_2590_aux.SatEncoding.s_fSrcEq`:
+  hv
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hv in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:323:16: warning: This simp argument is unused:
+  or_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp (disch :=
+    first
+    | omega
+    | (apply wd_lt1; omega)
+    | (apply wd_lt2; assumption)) only [cs_cons,
+    cs_nil, litVal_Q, litVal_P, v_op, v_w, v_u1, v_u2, or_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:343:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:345:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:346:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:352:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:355:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:357:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:363:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:363:40: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:366:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:368:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:374:31: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:374:42: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:378:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:382:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_2590_aux.SatEncoding.s_fOut`:
+  hv
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hv in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:393:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_2590_aux.SatEncoding.s_fPad`:
+  hv
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hv in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:407:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_2590_aux.SatEncoding.s_fPre`:
+  hv
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hv in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:417:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_2590_aux.SatEncoding.s_fPadRd`:
+  hv
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hv in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:428:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_2590_aux.SatEncoding.s_fOrd`:
+  hv
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hv in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:439:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_2590_aux.SatEncoding.s_fUsed`:
+  hv
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hv in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:503:23: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:503:23: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:503:23: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:503:23: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
+If you'd rather continue using `push_neg` in your project, you can implement it as follows:
+```
+open Lean.Parser.Tactic in
+macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
+  `(tactic| push $cfg:optConfig Not $[$loc]?)
+```
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:480:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_2590_aux.SatEncoding.s_fLex`:
+  hv
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hv in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:606:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:608:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:608:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:609:125: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:609:23: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk, show k - n < C.gates.length by omega,
+    if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:609:36: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk, show k - n < C.gates.length by omega,
+    if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:609:49: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk, show k - n < C.gates.length by omega,
+    if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:609:62: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, show k - n < C.gates.length by omega,
+    if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:639:14: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:652:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:620:32: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:620:45: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:620:58: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:620:84: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:644:33: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ofCirc, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk, hjl, hga, code, gfun]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:644:46: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ofCirc, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk, hjl, hga, code, gfun]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:644:59: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [ofCirc, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, hjl, hga, code, gfun]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:698:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:698:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:698:62: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:699:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:699:52: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:700:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:700:48: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:702:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:702:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:702:62: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:703:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:703:54: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:692:18: warning: Variable name `hd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:699:67: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos (show k < n + d by omega), if_neg (show ¬k + 1 < n by omega),
+    if_pos (show k + 1 < n + (i + 1) by omega), if_pos h7, mv, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk,
+    if_neg (show ¬k + 1 - n = 0 by omega), if_pos (show k + 1 - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:699:80: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos (show k < n + d by omega), if_neg (show ¬k + 1 < n by omega),
+    if_pos (show k + 1 < n + (i + 1) by omega), if_pos h7, mv, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk,
+    if_neg (show ¬k + 1 - n = 0 by omega), if_pos (show k + 1 - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:699:93: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos (show k < n + d by omega), if_neg (show ¬k + 1 < n by omega),
+    if_pos (show k + 1 < n + (i + 1) by omega), if_pos h7, mv, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk,
+    if_neg (show ¬k + 1 - n = 0 by omega), if_pos (show k + 1 - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:699:106: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos (show k < n + d by omega), if_neg (show ¬k + 1 < n by omega),
+    if_pos (show k + 1 < n + (i + 1) by omega), if_pos h7, mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk,
+    if_neg (show ¬k + 1 - n = 0 by omega), if_pos (show k + 1 - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:701:14: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:701:14: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:711:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:711:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:711:39: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:712:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:712:46: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:713:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:713:48: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:715:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:715:28: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:717:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:717:98: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:718:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:719:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:712:84: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos h7, if_neg (show ¬k + 1 < n by omega), if_pos (show k + 1 < n + j by omega),
+    if_pos (show k < n + j by omega), mv, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk,
+    if_neg (show ¬k + 1 - n = 0 by omega), if_pos (show k + 1 - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:712:97: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos h7, if_neg (show ¬k + 1 < n by omega), if_pos (show k + 1 < n + j by omega),
+    if_pos (show k < n + j by omega), mv, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk,
+    if_neg (show ¬k + 1 - n = 0 by omega), if_pos (show k + 1 - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:712:110: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos h7, if_neg (show ¬k + 1 < n by omega), if_pos (show k + 1 < n + j by omega),
+    if_pos (show k < n + j by omega), mv, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk,
+    if_neg (show ¬k + 1 - n = 0 by omega), if_pos (show k + 1 - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:712:123: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos h7, if_neg (show ¬k + 1 < n by omega), if_pos (show k + 1 < n + j by omega),
+    if_pos (show k < n + j by omega), mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk,
+    if_neg (show ¬k + 1 - n = 0 by omega), if_pos (show k + 1 - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:717:34: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_pos h8, mv, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk,
+    if_neg (show ¬k - n = 0 by omega), if_neg (show ¬k - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:717:47: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_pos h8, mv, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk,
+    if_neg (show ¬k - n = 0 by omega), if_neg (show ¬k - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:717:60: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_pos h8, mv, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk,
+    if_neg (show ¬k - n = 0 by omega), if_neg (show ¬k - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:717:73: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_pos h8, mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk,
+    if_neg (show ¬k - n = 0 by omega), if_neg (show ¬k - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:714:14: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:714:14: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:726:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:730:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:730:49: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:737:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:737:49: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:742:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:742:30: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:742:68: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:743:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:736:26: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Model.sv, mv, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk, show 0 < j by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:736:39: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Model.sv, mv, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk, show 0 < j by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:736:52: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Model.sv, mv, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk, show 0 < j by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:736:65: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Model.sv, mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, show 0 < j by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:779:87: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:779:98: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:786:87: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:786:98: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:751:32: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:751:45: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:751:58: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:751:71: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:756:19: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:756:45: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:756:58: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:756:71: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:762:19: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:762:32: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:762:58: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:762:71: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:769:19: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:769:32: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:769:45: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:769:71: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:772:39: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mv, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk, gfun]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:772:52: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mv, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk, gfun]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:772:65: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, gfun]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:779:62: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, if_neg h0, if_pos h1,
+    Nat.add_sub_cancel] at e1 e2 ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:786:62: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, if_neg h0, if_neg h1] at e1 e2 ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:792:19: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk] at e ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:792:32: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk] at e ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:792:45: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk] at e ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:792:71: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk] at e ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:767:4: warning: Unused tactic linter: `skip` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:796:107: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Model.pad, mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:796:120: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Model.pad, mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:802:92: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:802:128: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:802:67: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk,
+    if_neg (show ¬i + 1 = 0 by omega), if_pos (show i + 1 ≤ d by omega), Nat.add_sub_cancel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:802:80: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk,
+    if_neg (show ¬i + 1 = 0 by omega), if_pos (show i + 1 ≤ d by omega), Nat.add_sub_cancel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:811:92: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:811:124: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:811:67: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, if_neg (show ¬j = 0 by omega),
+    if_neg (show ¬j ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:811:80: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk, if_neg (show ¬j = 0 by omega),
+    if_neg (show ¬j ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1007:19: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1007:45: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1007:58: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1007:71: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1011:19: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1011:32: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1011:58: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1011:71: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1019:58: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1028:67: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1028:80: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1038:58: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [key, sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, show i ≠ j by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1038:71: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [key, sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk, show i ≠ j by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1040:63: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [key, sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1040:76: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [key, sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1067:78: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1067:91: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1067:104: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1067:117: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1068:79: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1068:92: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1068:105: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1068:118: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1069:65: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1069:91: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1069:104: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1069:117: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1070:66: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1070:92: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1070:105: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1070:118: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1071:65: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1071:78: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1071:104: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1071:117: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1072:66: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1072:79: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1072:105: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1072:118: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1073:74: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1073:87: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1073:100: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1073:113: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1074:75: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1074:88: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1074:101: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1074:114: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1075:61: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1075:74: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1075:87: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1075:113: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1078:25: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk, show j ≠ d by omega, show j ≠ d + 1 by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1078:38: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk, show j ≠ d by omega, show j ≠ d + 1 by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1078:51: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, show j ≠ d by omega, show j ≠ d + 1 by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1078:64: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk, show j ≠ d by omega, show j ≠ d + 1 by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1080:12: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk, show j ≠ d by omega, show j ≠ d + 1 by omega,
+    show ¬d + 1 < j by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1080:38: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk, show j ≠ d by omega, show j ≠ d + 1 by omega,
+    show ¬d + 1 < j by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1080:51: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, show j ≠ d by omega, show j ≠ d + 1 by omega,
+    show ¬d + 1 < j by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1080:64: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk, show j ≠ d by omega, show j ≠ d + 1 by omega,
+    show ¬d + 1 < j by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1082:12: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk, show j ≠ d by omega, show j ≠ d + 1 by omega,
+    show ¬d + 1 < j by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1082:25: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk, show j ≠ d by omega, show j ≠ d + 1 by omega,
+    show ¬d + 1 < j by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1082:51: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, show j ≠ d by omega, show j ≠ d + 1 by omega,
+    show ¬d + 1 < j by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1082:64: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk, show j ≠ d by omega, show j ≠ d + 1 by omega,
+    show ¬d + 1 < j by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1084:25: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk, show j ≠ d by omega, show j ≠ d + 1 by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1084:38: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk, show j ≠ d by omega, show j ≠ d + 1 by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1084:51: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, show j ≠ d by omega, show j ≠ d + 1 by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1084:64: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk, show j ≠ d by omega, show j ≠ d + 1 by omega]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1086:12: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk, show j ≠ d by omega, show j ≠ d + 1 by omega, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1086:38: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk, show j ≠ d by omega, show j ≠ d + 1 by omega, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1086:51: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, show j ≠ d by omega, show j ≠ d + 1 by omega, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1086:64: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk, show j ≠ d by omega, show j ≠ d + 1 by omega, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1088:12: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk, show j ≠ d by omega, show j ≠ d + 1 by omega, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1088:25: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk, show j ≠ d by omega, show j ≠ d + 1 by omega, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1088:51: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, show j ≠ d by omega, show j ≠ d + 1 by omega, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1088:64: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk, show j ≠ d by omega, show j ≠ d + 1 by omega, h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1090:12: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk, h1, h2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1090:25: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk, h1, h2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1090:38: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk, h1, h2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1090:51: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, h1, h2]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1098:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1098:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1098:30: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1098:41: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1106:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1106:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1106:32: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1106:43: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1108:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1108:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1108:32: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1108:43: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1115:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1115:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1115:30: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1115:70: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1127:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1127:21: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1127:32: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1127:43: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1129:59: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1132:57: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1132:68: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1134:53: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1134:64: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1148:32: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xg, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1148:45: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xg, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1148:58: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1148:71: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1154:19: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xg, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1154:45: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xg, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1154:58: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1154:71: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1157:19: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xg, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1157:32: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xg, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1157:58: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1157:71: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1159:19: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xg, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1159:32: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xg, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1159:45: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xg, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1159:71: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xg, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1211:49: warning: Variable name `h1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1235:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_2590_aux.SatEncoding.copy_tgt`:
+  hv
+  hj
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hv hj in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1350:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1350:53: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1421:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/tmp/oec/pequalnp-pilot-99/gap2590/sat_encoding/NormalizedCNF.lean:1421:48: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲

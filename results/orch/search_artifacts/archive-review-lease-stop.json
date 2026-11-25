@@ -1,0 +1,61 @@
+{
+  "frozen_utc": "2026-11-25T15:06:49.513112+00:00",
+  "notes": "Final focused26 search interrupted gracefully after parent lease410. Exit -2 means SIGINT; no SAT/UNSAT verdict. Fixed27 positive control completed SAT and full truth verification. No further2583 search permitted.",
+  "files": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/fano26-firstOR.log",
+      "size": 28,
+      "sha256": "663acfcee1acda8168f00a3a3f9a15a4c4ed545f53fb637064349829775cd5a5"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/fano26-firstOR.stdout",
+      "size": 20547,
+      "sha256": "961eadc87732c7a333c0f25c27691c8cfc364c574878b5168feb0534fe93d394"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/fano26-firstOR.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/fano26-firstOR-driver.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/fano26-firstOR.meta.json",
+      "size": 7962,
+      "sha256": "86775a4eddd719f292a8b4fdab71a8cf9b96ace7742342d8a0f48c35ed40a705"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/fano27-firstOR-control.log",
+      "size": 67,
+      "sha256": "85d81a60e9a32aed9e4dffd78235a31da070db9520d008487e88d3cc26973e40"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/fano27-firstOR-control.stdout",
+      "size": 46594,
+      "sha256": "d5a9965d3b15efc632f8faadfbffcb3f248d3181dca80dbbca2ff2e4db3997f9"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/fano27-firstOR-control.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/fano27-firstOR-control-driver.stderr",
+      "size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/fano27-firstOR-control.meta.json",
+      "size": 8452,
+      "sha256": "afc6297e9a14430d09cf21e0d4fb1092abcfdaa1df460f17b832c5f4e08b5c78"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-99/gap2583/counterexample/fano27-firstOR-control.circuit.json",
+      "size": 1131,
+      "sha256": "b1002576b8b22725e85094295bb7db2ae3638a51780cca7e2179f081ba7eeae6"
+    }
+  ]
+}
