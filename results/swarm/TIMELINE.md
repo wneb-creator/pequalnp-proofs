@@ -22,3 +22,11 @@ All timestamps are UTC.
 - 2026-11-25T20:08:25Z: Checker executable built successfully in restored pinned environment.
 - 2026-11-25T20:11:49Z: Orchestrator independently built helper 8 finite verifier and 64-gate baseline. This is supporting code only; the exact 63-gate theorem remains absent.
 - 2026-11-25T20:14:07Z: Search coverage expanded to all proper-core sizes through twelve rows plus the full problem; no exact candidate yet.
+- 2026-11-25T20:16:22Z: First coordinated replan retained full proof/refutation priority and reassigned search refinements; no reduction pivot.
+- 2026-11-25T20:21:03Z: Root six-row28 approximate circuit accepts all24 edges and has exactly two extra edge minterms; exhaustive131072-input audit confirms176 false positives.
+- 2026-11-25T20:21:32Z: Extended root approximation to63 gates (13 AND,50 OR); all52 positives pass,140 of704 maximal negatives fail. Shared as bus949, explicitly not a witness.
+- 2026-11-25T20:21:49Z: First root six-row search completed1200seconds and9,567,000,000 mutations; best one missed edge, no witness.
+- 2026-11-25T20:31:42Z: Weighted six-row search ended without a witness: TIME_LIMIT seconds=1200.16 iterations=7048000000 best=8.
+- 2026-11-25T20:36:08Z: Mixed-seed six-row search ended without a witness: TIME_LIMIT seconds=1200.09 iterations=4924000000 best=8.
+- 2026-11-25T20:36:43Z: Second replan kept full proof/refutation priority and cautioned against combining partial-test normalization with full-function lower bounds.
+- 2026-11-25T20:39:33Z: Positive-preserving six-row search ended without a witness: TIME_LIMIT seconds=1200.05 iterations=5118000000 best=12.
