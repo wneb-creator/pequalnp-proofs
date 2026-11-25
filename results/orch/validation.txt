@@ -1,10 +1,10 @@
 L-meta-8032 partial backup only.
 File: lean/PEqualNP/Outside/L_meta_8032.lean
-Lines: 81.
+Lines: 239.
 Build: lake build PEqualNP.Outside.L_meta_8032, exit 0.
-Build completed successfully (5149 jobs).
+Build completed successfully.
 Full stdout/stderr preserved beside this file.
 Checker: not run; final named theorem is absent, so this is not a completed proof.
-Independent review: PASS for partial backup push only (status_review).
+Independent review: PASS for exact-test and packed-certificate partials (status_review).
 Sub-agents: status_review; toolchain_setup; structural_bound; finite_search; counterexample; finite_search/sat_encode
-TIMING total=29.4 subagents=6
+TIMING total=31.9 subagents=6
