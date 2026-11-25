@@ -1,0 +1,27 @@
+{
+  "format": "rup-restart-v1",
+  "original_cnf_sha256": "ef0b4e148274e02a07ad9e6ed2a5625bdc5006d2fd59a6719004a9d1f3d03a30",
+  "prefix_sha256": "1bb9be3f5a600adeaa1ace16808472472afe106f71557cffe2bc6076db4ba6b5",
+  "checkpoint_cnf_sha256": "b14ed75f92b8e94ae52ffb4b2a2510dc350e7aeb602af27a3becb9be07bd5149",
+  "original_clauses": 4,
+  "prefix_events": 3,
+  "prefix_additions": 2,
+  "prefix_last_id": 6,
+  "restart_initial_clauses": 5,
+  "retained_learned": 1
+}
+{
+  "original_clauses": 4,
+  "retained_learned": 1,
+  "prefix_additions": 2,
+  "resumed_additions": 1,
+  "stitched_final_id": 7,
+  "stitched_sha256": "2b6ad04f4d4db0ab9bfba526fbdea397e9d16b7f0cfe78ab4b56128e92d59ef4"
+}
+PASS gzip prefix, deletion, remapped learned input, binary resume, original-CNF packing
+PASS exact match to previously kernel-checked packed chain control
+PASS RAT, invalid RUP, deleted-hint, and truncated-binary rejection
+PASS changed-prefix hash rejection
+PASS forged learned-clause content rejection even with updated manifest hash
+PASS unfinished continuation rejection; no final output published
+ALL RESTART CONTROLS PASSED

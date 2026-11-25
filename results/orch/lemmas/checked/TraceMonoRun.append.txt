@@ -1,0 +1,50 @@
+
+lemma trace_mono_run {R : Type} [Preorder R] (rows : R → Fin 1024)
+    {P : Sig → Prop} {T : Sig} {k : Nat} {S : Finset Sig}
+    (good : ∀ a, P a → Monotone (traceObserve rows a)) (h : Trace P T k S)
+    (v : List Sig) (hv : v.Nodup) (eqv : v.toFinset = S) :
+    MonoContraction.MonoRun (traceObserve rows T) k (v.map (traceObserve rows)) := by
+  classical
+  induction h generalizing v with
+  | stop hp pt =>
+    have eq : [T].Perm v := by
+      apply List.perm_of_nodup_nodup_toFinset_eq (by simp) hv
+      simpa [eqv]
+    exact MonoContraction.MonoRun.perm (eq.map _) MonoContraction.MonoRun.stop
+  | @binary k U a b d hd ha hb hab fresh pa pb pz _ ih =>
+    let rest := ((U.erase a).erase b).toList
+    let ka := decide (a ∈ U)
+    let kb := decide (b ∈ U)
+    let mid := kept kb b rest
+    let tail := kept ka a mid
+    have er : rest.toFinset = (U.erase a).erase b := by simp [rest]
+    have ar : a ∉ rest := by simp [rest]
+    have br : b ∉ rest := by simp [rest]
+    have hr : rest.Nodup := Finset.nodup_toList _
+    have bm := trace_kept_nd kb b rest hr br
+    have am : a ∉ mid := by cases h : kb <;> simp [mid, kept, h, hab, ar]
+    have nd := trace_kept_nd ka a mid bm am
+    have ht : tail.toFinset = U := by
+      change (kept ka a (kept kb b rest)).toFinset = U
+      rw [trace_kept_fin, trace_kept_fin, er]
+      ext j
+      by_cases aa : a ∈ U <;> by_cases bb : b ∈ U <;> by_cases aj : j = a <;>
+        by_cases bj : j = b <;> simp_all [ka, kb]
+    have hf : bin d a b ∉ tail := by
+      intro hz
+      exact fresh (Finset.mem_insert_of_mem (Finset.mem_insert_of_mem (ht ▸ List.mem_toFinset.mpr hz)))
+    have progress := ih (bin d a b :: tail) (List.nodup_cons.mpr ⟨hf, nd⟩) (by simp [ht])
+    change MonoContraction.MonoRun _ _
+      ((bin d a b :: kept ka a (kept kb b rest)).map (traceObserve rows)) at progress
+    rw [List.map_cons, trace_map_kept, trace_map_kept, traceObserve_bin] at progress
+    have perm : (a :: b :: rest).Perm v := by
+      apply List.perm_of_nodup_nodup_toFinset_eq (by simp [hab, ar, br, hr]) hv
+      ext j
+      by_cases ja : j = a <;> by_cases jb : j = b <;> simp_all [er]
+    have ma := good a pa
+    have mb := good b pb
+    have mz := good (bin d a b) pz
+    rw [traceObserve_bin] at mz
+    exact MonoContraction.MonoRun.perm (perm.map _)
+      (MonoContraction.MonoRun.two d hd ka kb ma mb mz progress)
+

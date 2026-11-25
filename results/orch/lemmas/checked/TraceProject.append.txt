@@ -1,0 +1,54 @@
+
+lemma project_gate {R} (rows : R → Fin 1024) (g : Gate) (w : List Sig)
+    (hg : g.op ∈ ({GateOp.and, GateOp.or, GateOp.not} : Set GateOp)) :
+    traceObserve rows (gv w g) = Restriction.gateSignal (w.map (traceObserve rows)) g := by
+  funext r
+  simpa only [traceObserve, Restriction.gateSignal, Restriction.read_apply, List.map_map, Function.comp_def]
+    using run_bit (rows r) g w hg
+
+lemma project_execute {R} (rows : R → Fin 1024) (gs : List Gate) (w : List Sig)
+    (hg : ∀ g ∈ gs, g.op ∈ ({GateOp.and, GateOp.or, GateOp.not} : Set GateOp)) :
+    (execute gs w).map (traceObserve rows) = Restriction.execute gs (w.map (traceObserve rows)) := by
+  induction gs generalizing w with
+  | nil => rfl
+  | cons g gs ih =>
+    change (execute gs (w ++ [gv w g])).map (traceObserve rows) =
+      Restriction.execute gs (w.map (traceObserve rows) ++
+        [Restriction.gateSignal (w.map (traceObserve rows)) g])
+    rw [ih _ (fun a ha => hg a (by simp [ha]))]
+    rw [List.map_append, List.map_singleton, project_gate rows g w (hg g (by simp))]
+
+lemma project_execute_monotone {R : Type} [Preorder R] (rows : R → Fin 1024)
+    (gs : List Gate) (w : List Sig)
+    (hg : ∀ g ∈ gs, g.op ∈ ({GateOp.and, GateOp.or, GateOp.not} : Set GateOp))
+    (initial : ∀ a ∈ w, Monotone (traceObserve rows a))
+    (killed : Restriction.KilledNot gs (w.map (traceObserve rows))) :
+    ∀ a ∈ execute gs w, Monotone (traceObserve rows a) := by
+  have iw : ∀ f ∈ w.map (traceObserve rows), Monotone f := by
+    intro f hf
+    obtain ⟨a, ha, rfl⟩ := List.mem_map.mp hf
+    exact initial a ha
+  have basis : ∀ g ∈ gs, g.op = .and ∨ g.op = .or ∨ g.op = .not := by
+    intro g h
+    simpa only [Set.mem_insert_iff, Set.mem_singleton_iff] using hg g h
+  have all := Restriction.execute_mono gs (w.map (traceObserve rows)) iw basis killed
+  rw [← project_execute rows gs w hg] at all
+  intro a ha
+  exact all _ (List.mem_map.mpr ⟨a, ha, rfl⟩)
+
+lemma extract_monotone_trace {R : Type} [Preorder R] [OrderBot R]
+    (rows : R → Fin 1024) (bottom : rows ⊥ = 0)
+    (gs : List Gate) (w : List Sig) {target : Sig}
+    (legal : ∀ g ∈ gs, g.op ∈ ({GateOp.and, GateOp.or, GateOp.not} : Set GateOp) ∧ g.inputs.length ≤ 2)
+    (initial : ∀ a ∈ w, Monotone (traceObserve rows a))
+    (killed : Restriction.KilledNot gs (w.map (traceObserve rows)))
+    (hp : proper target) (hout : target ∈ (execute gs w).map (nrm true)) :
+    ∃ k S, k ≤ gs.countP (fun g => !isNot g) ∧
+      Trace (fun a => Monotone (traceObserve rows a)) target k S ∧
+      ∀ a ∈ S, a ∈ w.map (nrm true) := by
+  have rawMono := project_execute_monotone rows gs w (fun g hg => (legal g hg).1) initial killed
+  apply extract_trace gs w legal hp hout
+  intro a ha
+  obtain ⟨b, hb, rfl⟩ := List.mem_map.mp ha
+  exact normalization_projected_monotone rows bottom b (rawMono b hb)
+

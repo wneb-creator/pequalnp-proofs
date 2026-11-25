@@ -1,0 +1,12 @@
+{
+  "format": "rup-restart-v1",
+  "original_cnf_sha256": "9a6a266cba1d6f2d442a1920ef29ba4e9e1476732f0772f00e4ebd68f38d1a85",
+  "prefix_sha256": "3330514a9b80742a6f2e47ff9a38fa69e6d0047f33edf79d78c4bd45bf5a86a4",
+  "checkpoint_cnf_sha256": "076e9a6fa6eec38dd3041b5456fc133964827153aa3c97425ac1ba0e0af142c5",
+  "original_clauses": 204,
+  "prefix_events": 128,
+  "prefix_additions": 100,
+  "prefix_last_id": 304,
+  "restart_initial_clauses": 231,
+  "retained_learned": 27
+}

@@ -1,0 +1,13 @@
+{
+  "initial_clauses": 204,
+  "indexed_additions": 6923,
+  "kept_initial": 204,
+  "kept_additions": 6472,
+  "token_count": 279684,
+  "width": 13,
+  "final_original_id": 7127,
+  "binary_input": true,
+  "cnf_sha256": "9a6a266cba1d6f2d442a1920ef29ba4e9e1476732f0772f00e4ebd68f38d1a85",
+  "lrat_sha256": "6e7230a8d9c2ab0530e088ec0892c85d241feea6e53b1ba613d6f36bef988e82",
+  "packer_sha256": "e4ba1640c446382f3a66451a7348441b242a43fbfc5e9fbf778a28f3b7ee6e62"
+}

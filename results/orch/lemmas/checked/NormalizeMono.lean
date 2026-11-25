@@ -1,0 +1,32 @@
+import Partial16
+namespace PEqualNP.Outside.L_meta_2592.Extended
+
+lemma normalization_projected_monotone {R : Type} [Preorder R] [OrderBot R]
+    (rows : R → Row) (bottom : rows ⊥ = 0) (a : Sig)
+    (mono : Monotone (fun r => bit (rows r) a)) :
+    Monotone (fun r => bit (rows r) (nrm true a)) := by
+  by_cases h : bit 0 a = false
+  · rw [nrm_id h]
+    exact mono
+  · have ht : bit 0 a = true := Bool.eq_true_of_not_eq_false h
+    have all : ∀ r : R, bit (rows r) a = true := by
+      intro r
+      have le := mono (bot_le : (⊥ : R) ≤ r)
+      cases hr : bit (rows r) a with
+      | false =>
+        have bad : (true : Bool) ≤ false := by simpa [bottom, ht, hr] using le
+        exact False.elim ((by decide : ¬ ((true : Bool) ≤ false)) bad)
+      | true => rfl
+    have same : nrm true a = neg a := by simp [nrm, ht]
+    have allFalse : ∀ r : R, bit (rows r) (nrm true a) = false := by
+      intro r
+      rw [same]
+      have negBit : bit (rows r) (neg a) = !(bit (rows r) a) := by
+        simp [bit, neg, (rows r).isLt]
+      rw [negBit, all r]
+      rfl
+    intro r s _hrs
+    simp only [allFalse]
+    exact le_rfl
+
+end PEqualNP.Outside.L_meta_2592.Extended
