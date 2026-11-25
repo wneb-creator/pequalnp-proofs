@@ -1,0 +1,7 @@
+UTC 2026-11-25T05:51:57.540292+00:00
+Lean build exit 0. Complete stdout/stderr retained; two harmless unused-simp-argument warnings (ha,hb).
+Defs-only ordinary Circuit/Monotone2 weighted packing theorem.
+For uniform-length rejected input lists whose distinct Boolean joins are accepted, sum2^(binary-AND equal-operand count along the actual evaluation trace) is at most2^(number of binary AND gates). No normalization or AndCountCircuit conversion; includes constants/unary gates and default-false invalid wire references under the existing semantics.
+Accepted L267 helper prefix retained through and_up. New proof inducts over the original gate list, splitting each AND by value-preserving unary choices. Equal children enter both subsets; subsequent complete wire traces and all wildcard counts are exactly preserved.
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-57/elan PATH=/tmp/oec/pequalnp-pilot-57/elan/bin:$PATH lake env lean -j1 -M4096 ../results/orch/lemmas/reduction_analysis/DirectWeightedPacking.lean
+SHA256 c3f66496f836c6b5928c6259059e2b991b3e7687d944d000da1ea8949320f03b
