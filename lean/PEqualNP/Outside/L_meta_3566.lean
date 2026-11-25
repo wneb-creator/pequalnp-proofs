@@ -2008,3 +2008,189 @@ theorem cover_bound (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
     hfull ell r hell hr hdiag hL hR
 
 end PEqualNP.Outside.L_meta_3566.FilteredRectangleGlobal
+
+/-
+  The one-filter argument needs only safety in the ambient graph and
+  acceptance of the selected edge profile. Other ambient edges may be missed.
+-/
+namespace PEqualNP.Outside.L_meta_3566.FilteredRectangleSemantics
+
+variable {m k : ℕ}
+
+theorem matching_bound_of_sound (R : Fin m → Fin m → Prop)
+    (A B : Fin k → (Fin m → Bool) → Bool)
+    (U V : (Fin m → Bool) → Bool)
+    (hcross : ∀ a b, a ≠ b → R a b → ¬ R b a)
+    (hA : ∀ t x y, (∀ i, x i = true → y i = true) → A t x = true → A t y = true)
+    (hB : ∀ t x y, (∀ i, x i = true → y i = true) → B t x = true → B t y = true)
+    (hU : ∀ x y, (∀ i, x i = true → y i = true) → U x = true → U y = true)
+    (hV : ∀ x y, (∀ i, x i = true → y i = true) → V x = true → V y = true)
+    (hsafe : ∀ x y,
+      ((∃ t, A t x = true ∧ B t y = true) ∧ (U x = true ∨ V y = true)) →
+        ∃ a b, R a b ∧ x a = true ∧ y b = true)
+    (haccept : ∀ a,
+      (∃ t, A t (singleton a) = true ∧ B t (singleton a) = true) ∧
+        (U (singleton a) = true ∨ V (singleton a) = true)) : m ≤ k + 1 := by
+  let P : Fin k → Fin m → Prop := fun t a => A t (singleton a) = true
+  let Q : Fin k → Fin m → Prop := fun t a => B t (singleton a) = true
+  let S : Fin m → Prop := fun a => U (singleton a) = true
+  let T : Fin m → Prop := fun a => V (singleton a) = true
+  apply FilteredRectangle.matching_bound R P Q S T hcross
+  · intro t a b hp hq hs
+    obtain ⟨i, j, hij, hi, hj⟩ := hsafe (singleton a) (singleton b)
+      ⟨⟨t, hp, hq⟩, hs⟩
+    have hi' : i = a := by simpa [singleton] using hi
+    have hj' : j = b := by simpa [singleton] using hj
+    simpa [hi', hj'] using hij
+  · intro t a b c hp hq hs hn
+    let x : Fin m → Bool := fun i => decide (i = a ∨ i = c)
+    have hax : ∀ i, singleton a i = true → x i = true := by
+      intro i hi
+      have hi' : i = a := by simpa [singleton] using hi
+      simp [x, hi']
+    have hcx : ∀ i, singleton c i = true → x i = true := by
+      intro i hi
+      have hi' : i = c := by simpa [singleton] using hi
+      simp [x, hi']
+    obtain ⟨i, j, hij, hi, hj⟩ := hsafe x (singleton b)
+      ⟨⟨t, hA t _ _ hax hp, hq⟩, Or.inl (hU _ _ hcx hs)⟩
+    have hj' : j = b := by simpa [singleton] using hj
+    have hi' : i = a ∨ i = c := by simpa [x] using hi
+    rcases hi' with rfl | rfl
+    · exact False.elim (hn (by simpa [hj'] using hij))
+    · simpa [hj'] using hij
+  · intro t a b c hp hq ht hn
+    let y : Fin m → Bool := fun i => decide (i = b ∨ i = c)
+    have hby : ∀ i, singleton b i = true → y i = true := by
+      intro i hi
+      have hi' : i = b := by simpa [singleton] using hi
+      simp [y, hi']
+    have hcy : ∀ i, singleton c i = true → y i = true := by
+      intro i hi
+      have hi' : i = c := by simpa [singleton] using hi
+      simp [y, hi']
+    obtain ⟨i, j, hij, hi, hj⟩ := hsafe (singleton a) y
+      ⟨⟨t, hp, hB t _ _ hby hq⟩, Or.inr (hV _ _ hcy ht)⟩
+    have hi' : i = a := by simpa [singleton] using hi
+    have hj' : j = b ∨ j = c := by simpa [y] using hj
+    rcases hj' with rfl | rfl
+    · exact False.elim (hn (by simpa [hi'] using hij))
+    · simpa [hi'] using hij
+  · intro a
+    obtain ⟨⟨t, ha, hb⟩, h⟩ := haccept a
+    exact ⟨t, ha, hb, h⟩
+
+end PEqualNP.Outside.L_meta_3566.FilteredRectangleSemantics
+
+namespace PEqualNP.Outside.L_meta_3566.FilteredRectangleProfile
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.EdgeOwnership
+open PEqualNP.Outside.L_meta_3566.FilteredRectangleGraph
+open PEqualNP.Outside.L_meta_3566.FilteredRectangleGlobal
+  (PureOn supportInput_mono left_on_matching right_on_matching)
+open PEqualNP.Outside.L_meta_3566.FilteredRectangleSemantics (singleton)
+
+variable {n m k : ℕ}
+
+lemma matchingInput_singleton (ell r : Fin m → Fin n) (a : Fin m) :
+    matchingInput ell r (singleton a) (singleton a) = pairInput (ell a) (r a) := by
+  funext v
+  change (decide (∃ i, ell i = v ∧ decide (i = a) = true) ||
+      decide (∃ i, r i = v ∧ decide (i = a) = true)) = decide (v = ell a ∨ v = r a)
+  simp only [decide_eq_true_eq, exists_eq_right]
+  by_cases hl : v = ell a <;> by_cases hr : v = r a <;> simp [hl, hr, eq_comm]
+
+theorem graph_matching_bound_of_sound (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hno4 : NoFourCycle G) (ell r : Fin m → Fin n)
+    (hell : Function.Injective ell) (hr : Function.Injective r)
+    (hdiag : ∀ a, G.Adj (ell a) (r a)) (c : Fin n → Bool)
+    (hcolor : ∀ u v, G.Adj u v → c u ≠ c v)
+    (hL : ∀ a, c (ell a) = false) (hR : ∀ a, c (r a) = true)
+    (A B : Fin k → (Fin m → Bool) → Bool) (U V : (Fin m → Bool) → Bool)
+    (hA : ∀ t x y, (∀ i, x i = true → y i = true) → A t x = true → A t y = true)
+    (hB : ∀ t x y, (∀ i, x i = true → y i = true) → B t x = true → B t y = true)
+    (hU : ∀ x y, (∀ i, x i = true → y i = true) → U x = true → U y = true)
+    (hV : ∀ x y, (∀ i, x i = true → y i = true) → V x = true → V y = true)
+    (hsafe : ∀ x y,
+      ((∃ t, A t x = true ∧ B t y = true) ∧ (U x = true ∨ V y = true)) →
+        graphFun G ∅ (matchingInput ell r x y) = true)
+    (haccept : ∀ a,
+      (∃ t, A t (singleton a) = true ∧ B t (singleton a) = true) ∧
+        (U (singleton a) = true ∨ V (singleton a) = true)) : m ≤ k + 1 := by
+  apply FilteredRectangleSemantics.matching_bound_of_sound (fun a b => G.Adj (ell a) (r b))
+    A B U V (matching_cross G hno4 ell r hell hr hdiag) hA hB hU hV
+  · intro x y hf
+    exact (graphFun_matchingInput_of_coloring G ell r c hcolor hL hR x y).mp (hsafe x y hf)
+  · exact haccept
+
+theorem matching_bound_of_sound (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hno4 : NoFourCycle G) (c : Fin n → Bool)
+    (hcolor : ∀ u v, G.Adj u v → c u ≠ c v)
+    (A B : Fin k → (Fin n → Bool) → Bool) (U V : (Fin n → Bool) → Bool)
+    (hA : ∀ t x y, (∀ i, x i = true → y i = true) → A t x = true → A t y = true)
+    (hB : ∀ t x y, (∀ i, x i = true → y i = true) → B t x = true → B t y = true)
+    (hU : ∀ x y, (∀ i, x i = true → y i = true) → U x = true → U y = true)
+    (hV : ∀ x y, (∀ i, x i = true → y i = true) → V x = true → V y = true)
+    (hpA : ∀ t, PureOn c false (A t)) (hpB : ∀ t, PureOn c true (B t))
+    (hpU : PureOn c false U) (hpV : PureOn c true V)
+    (hsafe : ∀ z,
+      ((∃ t, A t z = true ∧ B t z = true) ∧ (U z = true ∨ V z = true)) →
+        graphFun G ∅ z = true)
+    (ell r : Fin m → Fin n) (hell : Function.Injective ell) (hr : Function.Injective r)
+    (hdiag : ∀ a, G.Adj (ell a) (r a))
+    (hL : ∀ a, c (ell a) = false) (hR : ∀ a, c (r a) = true)
+    (haccept : ∀ a,
+      (∃ t, A t (pairInput (ell a) (r a)) = true ∧ B t (pairInput (ell a) (r a)) = true) ∧
+        (U (pairInput (ell a) (r a)) = true ∨ V (pairInput (ell a) (r a)) = true)) :
+    m ≤ k + 1 := by
+  apply graph_matching_bound_of_sound G hno4 ell r hell hr hdiag c hcolor hL hR
+    (fun t x => A t (supportInput ell x)) (fun t y => B t (supportInput r y))
+    (fun x => U (supportInput ell x)) (fun y => V (supportInput r y))
+  · intro t x y hxy
+    exact hA t _ _ (supportInput_mono ell x y hxy)
+  · intro t x y hxy
+    exact hB t _ _ (supportInput_mono r x y hxy)
+  · intro x y hxy
+    exact hU _ _ (supportInput_mono ell x y hxy)
+  · intro x y hxy
+    exact hV _ _ (supportInput_mono r x y hxy)
+  · intro x y
+    have h := hsafe (matchingInput ell r x y)
+    simp only [left_on_matching c ell r hR _ (hpA _) x y,
+      right_on_matching c ell r hL _ (hpB _) x y,
+      left_on_matching c ell r hR U hpU x y,
+      right_on_matching c ell r hL V hpV x y] at h
+    exact h
+  · intro a
+    have h := haccept a
+    rw [← matchingInput_singleton ell r a] at h
+    simp only [left_on_matching c ell r hR _ (hpA _) (singleton a) (singleton a),
+      right_on_matching c ell r hL _ (hpB _) (singleton a) (singleton a),
+      left_on_matching c ell r hR U hpU (singleton a) (singleton a),
+      right_on_matching c ell r hL V hpV (singleton a) (singleton a)] at h
+    exact h
+
+theorem cover_profile_bound (G H : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    [DecidableRel H.Adj] (hsub : H ≤ G) (hno4 : NoFourCycle G) (c : Fin n → Bool)
+    (hcolor : ∀ u v, G.Adj u v → c u ≠ c v)
+    (A B : Fin k → (Fin n → Bool) → Bool) (U V : (Fin n → Bool) → Bool)
+    (hA : ∀ t x y, (∀ i, x i = true → y i = true) → A t x = true → A t y = true)
+    (hB : ∀ t x y, (∀ i, x i = true → y i = true) → B t x = true → B t y = true)
+    (hU : ∀ x y, (∀ i, x i = true → y i = true) → U x = true → U y = true)
+    (hV : ∀ x y, (∀ i, x i = true → y i = true) → V x = true → V y = true)
+    (hpA : ∀ t, PureOn c false (A t)) (hpB : ∀ t, PureOn c true (B t))
+    (hpU : PureOn c false U) (hpV : PureOn c true V)
+    (hsafe : ∀ z,
+      ((∃ t, A t z = true ∧ B t z = true) ∧ (U z = true ∨ V z = true)) →
+        graphFun G ∅ z = true)
+    (hprofile : ∀ u v, H.Adj u v →
+      (∃ t, A t (pairInput u v) = true ∧ B t (pairInput u v) = true) ∧
+        (U (pairInput u v) = true ∨ V (pairInput u v) = true)) :
+    ∃ T : Finset (Fin n), H.IsVertexCover (T : Set (Fin n)) ∧ T.card ≤ k + 1 := by
+  apply FilteredRectangleKonig.cover_of_matching_bound H c (fun u v h => hcolor u v (hsub h))
+  intro m ell r hell hr hL hR hdiag
+  exact matching_bound_of_sound G hno4 c hcolor A B U V hA hB hU hV hpA hpB hpU hpV
+    hsafe ell r hell hr (fun a => hsub (hdiag a)) hL hR
+    (fun a => hprofile (ell a) (r a) (hdiag a))
+
+end PEqualNP.Outside.L_meta_3566.FilteredRectangleProfile
