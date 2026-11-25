@@ -1,0 +1,1378 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:874:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_6349_aux.LRAT.Link.s_fSrcEq`:
+  hv
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hv in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:926:16: warning: This simp argument is unused:
+  or_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp (disch :=
+    (first
+      | omega
+      | (apply wd_lt1; omega)
+      | (apply wd_lt2; assumption))) only [cs_cons,
+    cs_nil, litVal_Q, litVal_P, v_op, v_w, v_u1, v_u2, or_false]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:946:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:948:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:949:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:955:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:958:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:960:10: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:966:29: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:966:40: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:969:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:971:12: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:977:31: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:977:42: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:981:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:985:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_6349_aux.LRAT.Link.s_fOut`:
+  hv
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hv in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:996:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_6349_aux.LRAT.Link.s_fPad`:
+  hv
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hv in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1010:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_6349_aux.LRAT.Link.s_fPre`:
+  hv
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hv in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1020:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_6349_aux.LRAT.Link.s_fPadRd`:
+  hv
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hv in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1031:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_6349_aux.LRAT.Link.s_fOrd`:
+  hv
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hv in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1042:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_6349_aux.LRAT.Link.s_fUsed`:
+  hv
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hv in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1168:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1170:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1170:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1171:125: warning: `if_true` has been deprecated: Use `ite_true` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵t̵r̵u̵e̵i̲t̲e̲_̲t̲r̲u̲e̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1171:23: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk, show k - n < C.gates.length by omega,
+    if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1171:36: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk, show k - n < C.gates.length by omega,
+    if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1171:49: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk, show k - n < C.gates.length by omega,
+    if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1171:62: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, show k - n < C.gates.length by omega,
+    if_true]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1204:14: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1217:29: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1185:23: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1185:36: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1185:49: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1185:75: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ofCirc, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1254:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1254:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1254:62: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1255:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1255:52: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1256:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1256:48: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1258:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1258:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1258:62: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1259:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1259:54: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1248:18: warning: Variable name `hd` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hd
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1255:67: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos (show k < n + d by omega), if_neg (show ¬k + 1 < n by omega),
+    if_pos (show k + 1 < n + (i + 1) by omega), if_pos h7, mv, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk,
+    if_neg (show ¬k + 1 - n = 0 by omega), if_pos (show k + 1 - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1255:80: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos (show k < n + d by omega), if_neg (show ¬k + 1 < n by omega),
+    if_pos (show k + 1 < n + (i + 1) by omega), if_pos h7, mv, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk,
+    if_neg (show ¬k + 1 - n = 0 by omega), if_pos (show k + 1 - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1255:93: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos (show k < n + d by omega), if_neg (show ¬k + 1 < n by omega),
+    if_pos (show k + 1 < n + (i + 1) by omega), if_pos h7, mv, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk,
+    if_neg (show ¬k + 1 - n = 0 by omega), if_pos (show k + 1 - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1255:106: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos (show k < n + d by omega), if_neg (show ¬k + 1 < n by omega),
+    if_pos (show k + 1 < n + (i + 1) by omega), if_pos h7, mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk,
+    if_neg (show ¬k + 1 - n = 0 by omega), if_pos (show k + 1 - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1257:14: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1257:14: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1267:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1267:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1267:39: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1268:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1268:46: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1269:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1269:48: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1271:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1271:28: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1273:19: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1273:98: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1274:10: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1275:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1268:84: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos h7, if_neg (show ¬k + 1 < n by omega), if_pos (show k + 1 < n + j by omega),
+    if_pos (show k < n + j by omega), mv, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk,
+    if_neg (show ¬k + 1 - n = 0 by omega), if_pos (show k + 1 - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1268:97: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos h7, if_neg (show ¬k + 1 < n by omega), if_pos (show k + 1 < n + j by omega),
+    if_pos (show k < n + j by omega), mv, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk,
+    if_neg (show ¬k + 1 - n = 0 by omega), if_pos (show k + 1 - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1268:110: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos h7, if_neg (show ¬k + 1 < n by omega), if_pos (show k + 1 < n + j by omega),
+    if_pos (show k < n + j by omega), mv, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk,
+    if_neg (show ¬k + 1 - n = 0 by omega), if_pos (show k + 1 - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1268:123: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos h7, if_neg (show ¬k + 1 < n by omega), if_pos (show k + 1 < n + j by omega),
+    if_pos (show k < n + j by omega), mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk,
+    if_neg (show ¬k + 1 - n = 0 by omega), if_pos (show k + 1 - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1273:34: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_pos h8, mv, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk,
+    if_neg (show ¬k - n = 0 by omega), if_neg (show ¬k - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1273:47: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_pos h8, mv, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk,
+    if_neg (show ¬k - n = 0 by omega), if_neg (show ¬k - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1273:60: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_pos h8, mv, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk,
+    if_neg (show ¬k - n = 0 by omega), if_neg (show ¬k - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1273:73: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_pos h8, mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk,
+    if_neg (show ¬k - n = 0 by omega), if_neg (show ¬k - n ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1270:14: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1270:14: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1282:8: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1286:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1286:49: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1293:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1293:49: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1298:19: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1298:30: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1298:68: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1299:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1334:87: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1334:98: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1341:87: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1341:98: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1307:32: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1307:45: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1307:58: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1307:71: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1312:19: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1312:45: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1312:58: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1312:71: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1318:19: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1318:32: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1318:58: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1318:71: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1324:19: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1324:32: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1324:45: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1324:71: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1334:62: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, if_neg h0, if_pos h1,
+    Nat.add_sub_cancel] at e1 e2 ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1341:62: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, if_neg h0, if_neg h1] at e1 e2 ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1347:19: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk] at e ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1347:32: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk] at e ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1347:45: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk] at e ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1347:71: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk] at e ⊢
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1357:92: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1357:128: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1357:67: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk,
+    if_neg (show ¬i + 1 = 0 by omega), if_pos (show i + 1 ≤ d by omega), Nat.add_sub_cancel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1357:80: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk,
+    if_neg (show ¬i + 1 = 0 by omega), if_pos (show i + 1 ≤ d by omega), Nat.add_sub_cancel]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1366:92: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1366:124: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1366:67: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, if_neg (show ¬j = 0 by omega),
+    if_neg (show ¬j ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1366:80: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, mv, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk, if_neg (show ¬j = 0 by omega),
+    if_neg (show ¬j ≤ d by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1464:19: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1464:45: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1464:58: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1464:71: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1468:19: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1468:32: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1468:58: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1468:71: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1476:58: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1486:67: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1486:80: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1499:21: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1499:47: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1499:60: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1499:73: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1510:0: warning: automatically included section variable(s) unused in theorem `PEqualNP.Outside.L_meta_6349_aux.LRAT.Link.copy_tgt`:
+  hv
+  hj
+consider restructuring your `variable` declarations so that the variables are not in scope or explicitly omit them:
+  omit hv hj in theorem ...
+
+Note: This linter can be disabled with `set_option linter.unusedSectionVars false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1619:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1619:53: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1806:91: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1806:66: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [lexKey, sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, if_pos rfl, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1806:79: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [lexKey, sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk, if_pos rfl, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1806:91: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [lexKey, sw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1832:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1832:26: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1832:60: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1833:75: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1833:109: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1833:11: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos (show k < n + i by omega), if_pos (show k < n + i' by omega), xsw, Model.s1_mk,
+    Model.s2_mk, Model.so_mk, Model.w_mk, if_neg (show k - n ≠ j by omega), if_neg (show k - n ≠ j + 1 by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1833:24: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos (show k < n + i by omega), if_pos (show k < n + i' by omega), xsw, Model.op_mk,
+    Model.s2_mk, Model.so_mk, Model.w_mk, if_neg (show k - n ≠ j by omega), if_neg (show k - n ≠ j + 1 by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1833:37: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos (show k < n + i by omega), if_pos (show k < n + i' by omega), xsw, Model.op_mk,
+    Model.s1_mk, Model.so_mk, Model.w_mk, if_neg (show k - n ≠ j by omega), if_neg (show k - n ≠ j + 1 by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1833:50: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos (show k < n + i by omega), if_pos (show k < n + i' by omega), xsw, Model.op_mk,
+    Model.s1_mk, Model.s2_mk, Model.w_mk, if_neg (show k - n ≠ j by omega), if_neg (show k - n ≠ j + 1 by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1840:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1840:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1840:108: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1841:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1842:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1842:28: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1840:44: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos h7, xsw, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk,
+    if_neg (show k - n ≠ j by omega), if_neg (show k - n ≠ j + 1 by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1840:57: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos h7, xsw, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk,
+    if_neg (show k - n ≠ j by omega), if_neg (show k - n ≠ j + 1 by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1840:70: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos h7, xsw, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk,
+    if_neg (show k - n ≠ j by omega), if_neg (show k - n ≠ j + 1 by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1840:83: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos h7, xsw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk,
+    if_neg (show k - n ≠ j by omega), if_neg (show k - n ≠ j + 1 by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1849:15: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1851:15: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1851:55: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1852:6: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1852:42: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1854:6: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1854:40: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1857:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1857:28: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1859:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1859:57: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1860:8: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1860:44: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1861:74: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1862:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1862:28: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1867:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1867:32: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1867:112: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1868:12: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1869:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1869:32: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1849:15: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1852:85: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg (show ¬n + j + 1 < n by omega), if_pos (show n + j + 1 < n + i by omega),
+    if_neg (show ¬n + j < n by omega), if_pos (show n + j < n + i by omega), xsw, Model.s1_mk, Model.s2_mk, Model.so_mk,
+    Model.w_mk, show n + j + 1 - n = j + 1 by omega, show n + j - n = j by omega, if_neg (show j + 1 ≠ j by omega),
+    if_pos rfl, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1852:98: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg (show ¬n + j + 1 < n by omega), if_pos (show n + j + 1 < n + i by omega),
+    if_neg (show ¬n + j < n by omega), if_pos (show n + j < n + i by omega), xsw, Model.op_mk, Model.s2_mk, Model.so_mk,
+    Model.w_mk, show n + j + 1 - n = j + 1 by omega, show n + j - n = j by omega, if_neg (show j + 1 ≠ j by omega),
+    if_pos rfl, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1852:111: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg (show ¬n + j + 1 < n by omega), if_pos (show n + j + 1 < n + i by omega),
+    if_neg (show ¬n + j < n by omega), if_pos (show n + j < n + i by omega), xsw, Model.op_mk, Model.s1_mk, Model.so_mk,
+    Model.w_mk, show n + j + 1 - n = j + 1 by omega, show n + j - n = j by omega, if_neg (show j + 1 ≠ j by omega),
+    if_pos rfl, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1852:124: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg (show ¬n + j + 1 < n by omega), if_pos (show n + j + 1 < n + i by omega),
+    if_neg (show ¬n + j < n by omega), if_pos (show n + j < n + i by omega), xsw, Model.op_mk, Model.s1_mk, Model.s2_mk,
+    Model.w_mk, show n + j + 1 - n = j + 1 by omega, show n + j - n = j by omega, if_neg (show j + 1 ≠ j by omega),
+    if_pos rfl, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1854:40: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg (show ¬n + j + 1 < n by omega), if_pos (show n + j + 1 < n + i by omega),
+    if_neg (show ¬n + j < n by omega), if_pos (show n + j < n + i by omega), xsw, Model.op_mk, Model.s1_mk, Model.s2_mk,
+    Model.so_mk, Model.w_mk, show n + j + 1 - n = j + 1 by omega, show n + j - n = j by omega,
+    if_neg (show j + 1 ≠ j by omega), ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1857:28: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h1, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1860:87: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg (show ¬n + j + 1 < n by omega), if_pos (show n + j + 1 < n + i by omega),
+    if_neg (show ¬n + j < n by omega), if_pos (show n + j < n + i by omega), xsw, Model.s1_mk, Model.s2_mk, Model.so_mk,
+    Model.w_mk, show n + j + 1 - n = j + 1 by omega, show n + j - n = j by omega, if_pos rfl, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1860:100: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg (show ¬n + j + 1 < n by omega), if_pos (show n + j + 1 < n + i by omega),
+    if_neg (show ¬n + j < n by omega), if_pos (show n + j < n + i by omega), xsw, Model.op_mk, Model.s2_mk, Model.so_mk,
+    Model.w_mk, show n + j + 1 - n = j + 1 by omega, show n + j - n = j by omega, if_pos rfl, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1860:113: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg (show ¬n + j + 1 < n by omega), if_pos (show n + j + 1 < n + i by omega),
+    if_neg (show ¬n + j < n by omega), if_pos (show n + j < n + i by omega), xsw, Model.op_mk, Model.s1_mk, Model.so_mk,
+    Model.w_mk, show n + j + 1 - n = j + 1 by omega, show n + j - n = j by omega, if_pos rfl, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1860:126: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg (show ¬n + j + 1 < n by omega), if_pos (show n + j + 1 < n + i by omega),
+    if_neg (show ¬n + j < n by omega), if_pos (show n + j < n + i by omega), xsw, Model.op_mk, Model.s1_mk, Model.s2_mk,
+    Model.w_mk, show n + j + 1 - n = j + 1 by omega, show n + j - n = j by omega, if_pos rfl, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1861:74: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg (show ¬n + j + 1 < n by omega), if_pos (show n + j + 1 < n + i by omega),
+    if_neg (show ¬n + j < n by omega), if_pos (show n + j < n + i by omega), xsw, Model.op_mk, Model.s1_mk, Model.s2_mk,
+    Model.so_mk, Model.w_mk, show n + j + 1 - n = j + 1 by omega, show n + j - n = j by omega, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1867:48: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos h7, xsw, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk,
+    if_neg (show k - n ≠ j by omega), if_neg (show k - n ≠ j + 1 by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1867:61: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos h7, xsw, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk,
+    if_neg (show k - n ≠ j by omega), if_neg (show k - n ≠ j + 1 by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1867:74: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos h7, xsw, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk,
+    if_neg (show k - n ≠ j by omega), if_neg (show k - n ≠ j + 1 by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1867:87: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [if_neg h6, if_pos h7, xsw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk,
+    if_neg (show k - n ≠ j by omega), if_neg (show k - n ≠ j + 1 by omega)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1884:33: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xsw, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1884:46: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xsw, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1884:59: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xsw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1884:72: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xsw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1889:20: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xsw, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1889:46: warning: This simp argument is unused:
+  Model.s2_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xsw, Model.op_mk, Model.s1_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1889:59: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xsw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1889:72: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xsw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1895:20: warning: This simp argument is unused:
+  Model.op_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xsw, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1895:33: warning: This simp argument is unused:
+  Model.s1_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xsw, Model.op_mk, Model.s2_mk, Model.so_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1895:59: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xsw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1895:72: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [xsw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1945:97: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1949:99: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1949:109: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1952:101: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1952:111: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1952:121: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1953:101: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1953:111: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1953:121: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1945:72: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, xsw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, if_pos rfl, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1945:85: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, xsw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk, if_pos rfl, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1945:97: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, xsw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk, ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1949:74: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, xsw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, if_neg a, if_pos rfl,
+    ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1949:87: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, xsw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk, if_neg a, if_pos rfl,
+    ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1949:109: warning: This simp argument is unused:
+  if_pos rfl
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, xsw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk, Model.w_mk, if_neg a,
+    ↓reduceIte]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1952:76: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, xsw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, if_neg a, if_neg b, if_pos c,
+    tsw_eq_iff c]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1952:89: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, xsw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk, if_neg a, if_neg b, if_pos c,
+    tsw_eq_iff c]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1953:76: warning: This simp argument is unused:
+  Model.so_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, xsw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.w_mk, if_neg a, if_neg b, if_neg c]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:1953:89: warning: This simp argument is unused:
+  Model.w_mk
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [Model.pad, xsw, Model.op_mk, Model.s1_mk, Model.s2_mk, Model.so_mk, if_neg a, if_neg b, if_neg c]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:2016:17: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:2016:53: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:2104:25: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:2104:36: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:2104:47: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:2108:21: warning: `if_neg` has been deprecated: Use `ite_eq_right` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵n̵e̵g̵i̲t̲e̲_̲e̲q̲_̲r̲i̲g̲h̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:2108:57: warning: `if_pos` has been deprecated: Use `ite_eq_left` instead
+
+Hint: Replace the deprecated name:
+  i̵f̵_̵p̵o̵s̵i̲t̲e̲_̲e̲q̲_̲l̲e̲f̲t̲
+/workspace/pequalnp-proofs/results/orch/lemmas/LowerCertificate.lean:2161:68: warning: Variable name `hv` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _hv
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`

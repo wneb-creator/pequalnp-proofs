@@ -1,0 +1,4 @@
+Partial checkpoint only: exact 10-gate upper bound and reusable LRAT helper engine compiled. No complete lower bound or final checker acceptance yet.
+Independent review: status_review approved partial checkpoint.
+Sub-agents: status_review (independent review), toolchain_setup (setup and enumerative proof), upper_bound (witness), lower_certificate (LRAT helper), finite_search (SAT and finite checks), structural_lower (analytic bounds)
+TIMING total=31 subagents=6
