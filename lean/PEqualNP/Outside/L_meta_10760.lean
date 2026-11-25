@@ -1150,4 +1150,196 @@ lemma or14Samples_correct_iff (F : (Fin 7 → Bool) → Bool → Bool)
       (∀ x ∈ or14Samples, F x (!(x 1 || x 4)) = edgeFun x) :=
   sample_cut_correct_iff edgeFun or14Input or14Samples F hFx hFz or14Samples_cover
 
+lemma cover_pairAnd_nonedge : ∀ p ∈ nonedgePairs, ∀ q ∈ nonedgePairs,
+    pairAndInput p (pairPoint q) = true → q = p := by
+  decide
+
+lemma cover_bad_nonedge_eq (p : Fin 7 × Fin 7) (hp : p ∈ nonedgePairs)
+    (F : (Fin 7 → Bool) → Bool → Bool)
+    (hdiag : ∀ x, F x (!(pairAndInput p x)) = edgeFun x)
+    (q : Fin 7 × Fin 7) (hq : q ∈ nonedgePairs)
+    (hbad : F (pairPoint q) true = true) : q = p := by
+  apply cover_pairAnd_nonedge p hp q hq
+  have hd := hdiag (pairPoint q)
+  rw [nonedgePoint_false q hq] at hd
+  cases hh : pairAndInput p (pairPoint q) with
+  | false =>
+    simp only [hh, Bool.not_false] at hd
+    have he : false = true := hd.symm.trans hbad
+    cases he
+  | true => rfl
+
+lemma cover_true_replacement (p : Fin 7 × Fin 7) (hp : p ∈ nonedgePairs)
+    (F : (Fin 7 → Bool) → Bool → Bool)
+    (hFx : ∀ z, Monotone (fun x => F x z))
+    (hFz : ∀ x, Monotone (F x))
+    (hdiag : ∀ x, F x (!(pairAndInput p x)) = edgeFun x)
+    (hb : F (pairPoint p) true = false) :
+    ∀ x, F x true = edgeFun x := by
+  apply monotone_cut_replacement F (pairAndInput p) (fun _ => true) hFx hFz
+  · exact fun _ _ _ => le_rfl
+  · exact hdiag
+  · intro e he hm
+    rfl
+  · intro q hq hbad
+    have heq := cover_bad_nonedge_eq p hp F hdiag q hq hbad
+    subst q
+    rw [hb] at hbad
+    cases hbad
+
+lemma cover_or_mono : ∀ {a b c d : Bool}, a ≤ c → b ≤ d → (a || b) ≤ (c || d) := by
+  decide
+
+lemma cover_point_outside (p : Fin 7 × Fin 7) (u : Fin 7)
+    (hu1 : u ≠ p.1) (hu2 : u ≠ p.2) : pairPoint p u = false := by
+  simp [pairPoint, hu1, hu2]
+
+lemma cover_or_replacement (p : Fin 7 × Fin 7) (hp : p ∈ nonedgePairs)
+    (F : (Fin 7 → Bool) → Bool → Bool)
+    (hFx : ∀ z, Monotone (fun x => F x z))
+    (hFz : ∀ x, Monotone (F x))
+    (hdiag : ∀ x, F x (!(pairAndInput p x)) = edgeFun x)
+    (u v : Fin 7) (hu1 : u ≠ p.1) (hu2 : u ≠ p.2)
+    (hv1 : v ≠ p.1) (hv2 : v ≠ p.2)
+    (hcover : ∀ e ∈ edgePairs, F (pairPoint e) false = false →
+      (pairPoint e u || pairPoint e v) = true) :
+    ∀ x, F x (x u || x v) = edgeFun x := by
+  apply monotone_cut_replacement F (pairAndInput p) (fun x => x u || x v) hFx hFz
+  · intro x y hxy
+    exact cover_or_mono (hxy u) (hxy v)
+  · exact hdiag
+  · exact hcover
+  · intro q hq hbad
+    have heq := cover_bad_nonedge_eq p hp F hdiag q hq hbad
+    subst q
+    rw [cover_point_outside p u hu1 hu2, cover_point_outside p v hv1 hv2]
+    rfl
+
+lemma cover_pruning_constraints (p : Fin 7 × Fin 7) (hp : p ∈ nonedgePairs)
+    (F : (Fin 7 → Bool) → Bool → Bool)
+    (hFx : ∀ z, Monotone (fun x => F x z))
+    (hFz : ∀ x, Monotone (F x))
+    (hdiag : ∀ x, F x (!(pairAndInput p x)) = edgeFun x)
+    (htrue : ¬ ∀ x, F x true = edgeFun x)
+    (hor : ∀ u v : Fin 7, u ≠ p.1 → u ≠ p.2 → v ≠ p.1 → v ≠ p.2 →
+      ¬ ∀ x, F x (x u || x v) = edgeFun x) :
+    F (pairPoint p) true = true ∧
+    ∀ u v : Fin 7, u ≠ p.1 → u ≠ p.2 → v ≠ p.1 → v ≠ p.2 →
+      ∃ e ∈ edgePairs, F (pairPoint e) false = false ∧
+        pairPoint e u = false ∧ pairPoint e v = false := by
+  classical
+  constructor
+  · cases hb : F (pairPoint p) true with
+    | false => exact (htrue (cover_true_replacement p hp F hFx hFz hdiag hb)).elim
+    | true => rfl
+  · intro u v hu1 hu2 hv1 hv2
+    by_contra hn
+    have hc : ∀ e ∈ edgePairs, F (pairPoint e) false = false →
+        (pairPoint e u || pairPoint e v) = true := by
+      intro e he hm
+      cases hu : pairPoint e u <;> cases hv : pairPoint e v
+      · exact (hn ⟨e, he, hm, hu, hv⟩).elim
+      all_goals rfl
+    exact hor u v hu1 hu2 hv1 hv2 (cover_or_replacement p hp F hFx hFz hdiag
+      u v hu1 hu2 hv1 hv2 hc)
+
+lemma cover_getD_ofFn (x : Fin 7 → Bool) (i : Fin 7) :
+    (List.ofFn x).getD i.val false = x i := by
+  rw [List.getD_eq_getElem?_getD, List.getElem?_eq_getElem (by simp)]
+  simp only [Option.getD_some, List.getElem_ofFn]
+
+lemma cover_circuit_pruning_constraints (pre suffix : List Gate) (inputs : List ℕ) (o : ℕ)
+    (p : Fin 7 × Fin 7) (hp : p ∈ nonedgePairs)
+    (hpre : ∀ g ∈ pre, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (hsuf : ∀ g ∈ suffix, g.op = GateOp.and ∨ g.op = GateOp.or)
+    (hc : ∀ x : Fin 7 → Bool, cutInput pre inputs (List.ofFn x) = pairAndInput p x)
+    (hf : ∀ x : Fin 7 → Bool,
+      Circuit.eval ⟨pre ++ ⟨GateOp.not, inputs⟩ :: suffix, o⟩ (List.ofFn x) = postedEdgeFun x)
+    (hno : ∀ g : Gate, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2 →
+      ¬ ∀ x : Fin 7 → Bool,
+        Circuit.eval ⟨pre ++ g :: suffix, o⟩ (List.ofFn x) = postedEdgeFun x) :
+    Circuit.eval ⟨pre ++ ⟨GateOp.and, []⟩ :: suffix, o⟩ (List.ofFn (pairPoint p)) = true ∧
+    ∀ u v : Fin 7, u ≠ p.1 → u ≠ p.2 → v ≠ p.1 → v ≠ p.2 →
+      ∃ e ∈ edgePairs,
+        Circuit.eval ⟨pre ++ ⟨GateOp.or, []⟩ :: suffix, o⟩ (List.ofFn (pairPoint e)) = false ∧
+        pairPoint e u = false ∧ pairPoint e v = false := by
+  have hdiag : ∀ x : Fin 7 → Bool,
+      cutOutput pre suffix o (List.ofFn x) (!(pairAndInput p x)) = edgeFun x := by
+    intro x
+    simpa only [cut_not_eval, hc x] using (hf x).trans (edgeFun_eq_posted x).symm
+  have ht : ¬ ∀ x : Fin 7 → Bool,
+      cutOutput pre suffix o (List.ofFn x) true = edgeFun x := by
+    intro ht
+    apply hno ⟨GateOp.and, []⟩ ⟨Or.inl rfl, by simp⟩
+    intro x
+    rw [cut_true_eval]
+    exact (ht x).trans (edgeFun_eq_posted x)
+  have ho : ∀ u v : Fin 7, u ≠ p.1 → u ≠ p.2 → v ≠ p.1 → v ≠ p.2 →
+      ¬ ∀ x : Fin 7 → Bool,
+        cutOutput pre suffix o (List.ofFn x) (x u || x v) = edgeFun x := by
+    intro u v _ _ _ _ hor
+    apply hno ⟨GateOp.or, [u.val, v.val]⟩ ⟨Or.inr rfl, by simp⟩
+    intro x
+    rw [cut_or_inputs_eval pre suffix o (List.ofFn x) u.val v.val (by simp) (by simp),
+      cover_getD_ofFn x u, cover_getD_ofFn x v]
+    exact (hor x).trans (edgeFun_eq_posted x)
+  have hh := cover_pruning_constraints p hp
+    (fun x => cutOutput pre suffix o (List.ofFn x))
+    (cutOutput_fn_x_mono pre suffix o hpre hsuf)
+    (cutOutput_fn_z_mono pre suffix o hsuf) hdiag ht ho
+  simpa only [cut_true_eval, cut_false_eval] using hh
+
+lemma cover_pairAnd_point_le (p : Fin 7 × Fin 7) (x : Fin 7 → Bool)
+    (hh : pairAndInput p x = true) : pairPoint p ≤ x := by
+  have ha := (Bool.and_eq_true_iff.mp hh).1
+  have hb := (Bool.and_eq_true_iff.mp hh).2
+  intro i
+  by_cases hi : i = p.1 ∨ i = p.2
+  · rcases hi with rfl | rfl <;> simp [pairPoint, ha, hb]
+  · simp [pairPoint, hi]
+
+lemma cover_false_input_eq_pair (p : Fin 7 × Fin 7) (hp : p ∈ nonedgePairs)
+    (x : Fin 7 → Bool) (hf : edgeFun x = false) (hh : pairAndInput p x = true) :
+    x = pairPoint p := by
+  obtain ⟨q, hq, hxq⟩ := (false_iff_below_nonedge x).1 hf
+  have hle : pairAndInput p x ≤ pairAndInput p (pairPoint q) :=
+    and_mono (hxq p.1) (hxq p.2)
+  have hhq : pairAndInput p (pairPoint q) = true :=
+    eq_true_of_true_le (by simpa only [hh] using hle)
+  have heq := cover_pairAnd_nonedge p hp q hq hhq
+  subst q
+  exact le_antisymm hxq (cover_pairAnd_point_le p x hh)
+
+lemma cover_true_completion (p : Fin 7 × Fin 7) (hp : p ∈ nonedgePairs)
+    (F : (Fin 7 → Bool) → Bool → Bool)
+    (hFz : ∀ x, Monotone (F x))
+    (hdiag : ∀ x, F x (!(pairAndInput p x)) = edgeFun x) :
+    ∀ x, F x true = edgeFun x || (pairAndInput p x && F (pairPoint p) true) := by
+  intro x
+  cases hf : edgeFun x with
+  | true =>
+    have hd := hdiag x
+    have hle := hFz x (show (!(pairAndInput p x)) ≤ true by simp)
+    have hb : F x true = true := eq_true_of_true_le (by simpa only [hd, hf] using hle)
+    simp [hb]
+  | false =>
+    cases hh : pairAndInput p x with
+    | false =>
+      have hd := hdiag x
+      simp only [hh, Bool.not_false, hf] at hd
+      simp [hd]
+    | true =>
+      have heq := cover_false_input_eq_pair p hp x hf hh
+      subst x
+      simp
+
+lemma cover_true_completion_bad (p : Fin 7 × Fin 7) (hp : p ∈ nonedgePairs)
+    (F : (Fin 7 → Bool) → Bool → Bool)
+    (hFz : ∀ x, Monotone (F x))
+    (hdiag : ∀ x, F x (!(pairAndInput p x)) = edgeFun x)
+    (hb : F (pairPoint p) true = true) :
+    ∀ x, F x true = edgeFun x || pairAndInput p x := by
+  intro x
+  simpa only [hb, Bool.and_true] using cover_true_completion p hp F hFz hdiag x
+
 end PEqualNP.Outside.L_meta_10760
