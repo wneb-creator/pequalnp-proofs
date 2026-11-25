@@ -1,7 +1,10 @@
 L-meta-4970: PARTIAL preservation; no complete theorem and no proof PR yet.
 Named file: empty-edge base case, lake build passed.
-lemmas/stars.lean: five combinatorial ownership/star helpers; lake env lean passed.
-Independent review: approved for partial preservation only by status_review.
+lemmas/stars.lean: nine graph/semantic star helpers; lake env lean passed.
+lemmas/ledger.lean: two exact T=0 syntactic OR-reach helpers; lake env lean passed.
+lemmas/semantic.lean: semantic OR-family gate lowerbound; lake env lean passed.
+lemmas/counterexample.lean: checked audit of a tempting auxiliary claim, NOT refutation of the posted statement; lake env lean passed.
+Independent review: all approved for partial preservation only by status_review.
 Checker: not run against posted statement; full theorem absent.
-Sub-agents: 5 (status/library review, toolchain/star lemmas, ledger proof, semantic proof, counterexample audit)
-TIMING total=21.2 subagents=5
+Sub-agents: 6 (status/library review, toolchain/star lemmas, ledger proof, semantic proof, counterexample audit, AND lowerbound)
+TIMING total=24.9 subagents=6
