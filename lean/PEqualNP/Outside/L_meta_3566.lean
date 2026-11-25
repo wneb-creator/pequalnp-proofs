@@ -1360,3 +1360,322 @@ lemma pairLeakyAnds_card {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj
       (pairInput a b) (HoistDirty.graphFun_pair_false G a b hab)
 
 end PEqualNP.Outside.L_meta_3566.HoistDirtyUnordered
+
+/-
+  A full-function bound for one mixed OR filter over k pure products.
+  Correctness on all embedded inputs, including triples, is essential.
+  This bounds matching size by k+1 for this expression shape only.
+-/
+namespace PEqualNP.Outside.L_meta_3566.FilteredRectangle
+
+variable {m k : ℕ}
+
+def hit (P Q : Fin k → Fin m → Prop) (S T : Fin m → Prop)
+    (t : Fin k) (a : Fin m) : Prop := P t a ∧ Q t a ∧ (S a ∨ T a)
+
+section
+
+variable (R : Fin m → Fin m → Prop) (P Q : Fin k → Fin m → Prop)
+  (S T : Fin m → Prop)
+  (hcross : ∀ a b, a ≠ b → R a b → ¬ R b a)
+  (hrect : ∀ t a b, P t a → Q t b → (S a ∨ T b) → R a b)
+  (hleft : ∀ t a b c, P t a → Q t b → S c → ¬ R a b → R c b)
+  (hright : ∀ t a b c, P t a → Q t b → T c → ¬ R a b → R a c)
+
+include hcross hrect
+
+lemma no_two_left (t : Fin k) (a b : Fin m)
+    (ha : hit P Q S T t a) (hb : hit P Q S T t b) (hab : a ≠ b)
+    (hSa : S a) (hSb : S b) : False := by
+  exact hcross a b hab (hrect t a b ha.1 hb.2.1 (Or.inl hSa))
+    (hrect t b a hb.1 ha.2.1 (Or.inl hSb))
+
+lemma no_two_right (t : Fin k) (a b : Fin m)
+    (ha : hit P Q S T t a) (hb : hit P Q S T t b) (hab : a ≠ b)
+    (hTa : T a) (hTb : T b) : False := by
+  exact hcross a b hab (hrect t a b ha.1 hb.2.1 (Or.inr hTb))
+    (hrect t b a hb.1 ha.2.1 (Or.inr hTa))
+
+lemma double_types (t : Fin k) (a b : Fin m)
+    (ha : hit P Q S T t a) (hb : hit P Q S T t b) (hab : a ≠ b) :
+    (S a ∧ ¬ T a ∧ ¬ S b ∧ T b) ∨ (S b ∧ ¬ T b ∧ ¬ S a ∧ T a) := by
+  rcases ha.2.2 with hSa | hTa
+  · have hSb : ¬ S b := no_two_left R P Q S T hcross hrect t a b ha hb hab hSa
+    have hTb := hb.2.2.resolve_left hSb
+    have hTa : ¬ T a := fun h => no_two_right R P Q S T hcross hrect t a b ha hb hab h hTb
+    exact Or.inl ⟨hSa, hTa, hSb, hTb⟩
+  · have hTb : ¬ T b := no_two_right R P Q S T hcross hrect t a b ha hb hab hTa
+    have hSb := hb.2.2.resolve_right hTb
+    have hSa : ¬ S a := fun h => no_two_left R P Q S T hcross hrect t a b ha hb hab h hSb
+    exact Or.inr ⟨hSb, hTb, hSa, hTa⟩
+
+include hleft hright
+
+lemma oriented_double_unique (t t' : Fin k) (a b c d : Fin m)
+    (ha : hit P Q S T t a) (hb : hit P Q S T t b) (hab : a ≠ b)
+    (hSa : S a) (hTb : T b)
+    (hc : hit P Q S T t' c) (hd : hit P Q S T t' d) (hcd : c ≠ d)
+    (hSc : S c) (hTd : T d) : a = c ∧ b = d := by
+  have hnba : ¬ R b a := hcross a b hab (hrect t a b ha.1 hb.2.1 (Or.inl hSa))
+  have hndc : ¬ R d c := hcross c d hcd (hrect t' c d hc.1 hd.2.1 (Or.inl hSc))
+  constructor
+  · by_contra hac
+    exact hcross a c hac
+      (hleft t' d c a hd.1 hc.2.1 hSa hndc)
+      (hleft t b a c hb.1 ha.2.1 hSc hnba)
+  · by_contra hbd
+    exact hcross b d hbd
+      (hright t b a d hb.1 ha.2.1 hTd hnba)
+      (hright t' d c b hd.1 hc.2.1 hTb hndc)
+
+lemma double_same_pair (t t' : Fin k) (a b c d : Fin m)
+    (ha : hit P Q S T t a) (hb : hit P Q S T t b) (hab : a ≠ b)
+    (hc : hit P Q S T t' c) (hd : hit P Q S T t' d) (hcd : c ≠ d) :
+    (a = c ∧ b = d) ∨ (a = d ∧ b = c) := by
+  rcases double_types R P Q S T hcross hrect t a b ha hb hab with
+    ⟨hSa, _, _, hTb⟩ | ⟨hSb, _, _, hTa⟩
+  · rcases double_types R P Q S T hcross hrect t' c d hc hd hcd with
+      ⟨hSc, _, _, hTd⟩ | ⟨hSd, _, _, hTc⟩
+    · exact Or.inl (oriented_double_unique R P Q S T hcross hrect hleft hright
+        t t' a b c d ha hb hab hSa hTb hc hd hcd hSc hTd)
+    · exact Or.inr (oriented_double_unique R P Q S T hcross hrect hleft hright
+        t t' a b d c ha hb hab hSa hTb hd hc hcd.symm hSd hTc)
+  · rcases double_types R P Q S T hcross hrect t' c d hc hd hcd with
+      ⟨hSc, _, _, hTd⟩ | ⟨hSd, _, _, hTc⟩
+    · obtain ⟨hbc, had⟩ := oriented_double_unique R P Q S T hcross hrect hleft hright
+        t t' b a c d hb ha hab.symm hSb hTa hc hd hcd hSc hTd
+      exact Or.inr ⟨had, hbc⟩
+    · obtain ⟨hbd, hac⟩ := oriented_double_unique R P Q S T hcross hrect hleft hright
+        t t' b a d c hb ha hab.symm hSb hTa hd hc hcd.symm hSd hTc
+      exact Or.inl ⟨hac, hbd⟩
+
+theorem matching_bound (hcover : ∀ a, ∃ t, hit P Q S T t a) : m ≤ k + 1 := by
+  classical
+  let owner : Fin m → Fin k := fun a => Classical.choose (hcover a)
+  have howner (a : Fin m) : hit P Q S T (owner a) a := Classical.choose_spec (hcover a)
+  by_cases hinj : Function.Injective owner
+  · have hcard := Fintype.card_le_of_injective owner hinj
+    simp only [Fintype.card_fin] at hcard
+    omega
+  · have hcoll : ∃ a b, a ≠ b ∧ owner a = owner b := by
+      by_contra hn
+      apply hinj
+      intro a b hab
+      by_contra hne
+      exact hn ⟨a, b, hne, hab⟩
+    obtain ⟨a, b, hab, heq⟩ := hcoll
+    let f : Fin m → Option (Fin k) := fun x => if x = a then none else some (owner x)
+    have hf : Function.Injective f := by
+      intro c d hcd
+      by_cases hca : c = a
+      · by_cases hda : d = a
+        · exact hca.trans hda.symm
+        · simp [f, hca, hda] at hcd
+      · by_cases hda : d = a
+        · simp [f, hca, hda] at hcd
+        · have he : owner c = owner d := by simpa [f, hca, hda] using hcd
+          by_contra hne
+          have hb : hit P Q S T (owner a) b := by rw [heq]; exact howner b
+          have hd : hit P Q S T (owner c) d := by rw [he]; exact howner d
+          rcases double_same_pair R P Q S T hcross hrect hleft hright
+            (owner a) (owner c) a b c d (howner a) hb hab (howner c) hd hne with hp | hp
+          · exact hca hp.1.symm
+          · exact hda hp.1.symm
+    have hcard := Fintype.card_le_of_injective f hf
+    simpa using hcard
+
+end
+
+end PEqualNP.Outside.L_meta_3566.FilteredRectangle
+
+namespace PEqualNP.Outside.L_meta_3566.FilteredRectangleSemantics
+
+variable {m k : ℕ}
+
+def singleton (a : Fin m) : Fin m → Bool := fun i => decide (i = a)
+
+theorem matching_bound (R : Fin m → Fin m → Prop)
+    (A B : Fin k → (Fin m → Bool) → Bool)
+    (U V : (Fin m → Bool) → Bool)
+    (hdiag : ∀ a, R a a)
+    (hcross : ∀ a b, a ≠ b → R a b → ¬ R b a)
+    (hA : ∀ t x y, (∀ i, x i = true → y i = true) → A t x = true → A t y = true)
+    (hB : ∀ t x y, (∀ i, x i = true → y i = true) → B t x = true → B t y = true)
+    (hU : ∀ x y, (∀ i, x i = true → y i = true) → U x = true → U y = true)
+    (hV : ∀ x y, (∀ i, x i = true → y i = true) → V x = true → V y = true)
+    (hfull : ∀ x y,
+      ((∃ t, A t x = true ∧ B t y = true) ∧ (U x = true ∨ V y = true)) ↔
+        ∃ a b, R a b ∧ x a = true ∧ y b = true) : m ≤ k + 1 := by
+  let P : Fin k → Fin m → Prop := fun t a => A t (singleton a) = true
+  let Q : Fin k → Fin m → Prop := fun t a => B t (singleton a) = true
+  let S : Fin m → Prop := fun a => U (singleton a) = true
+  let T : Fin m → Prop := fun a => V (singleton a) = true
+  apply FilteredRectangle.matching_bound R P Q S T hcross
+  · intro t a b hp hq hs
+    obtain ⟨i, j, hij, hi, hj⟩ := (hfull (singleton a) (singleton b)).mp
+      ⟨⟨t, hp, hq⟩, hs⟩
+    have hi' : i = a := by simpa [singleton] using hi
+    have hj' : j = b := by simpa [singleton] using hj
+    simpa [hi', hj'] using hij
+  · intro t a b c hp hq hs hn
+    let x : Fin m → Bool := fun i => decide (i = a ∨ i = c)
+    have hax : ∀ i, singleton a i = true → x i = true := by
+      intro i hi
+      have hi' : i = a := by simpa [singleton] using hi
+      simp [x, hi']
+    have hcx : ∀ i, singleton c i = true → x i = true := by
+      intro i hi
+      have hi' : i = c := by simpa [singleton] using hi
+      simp [x, hi']
+    obtain ⟨i, j, hij, hi, hj⟩ := (hfull x (singleton b)).mp
+      ⟨⟨t, hA t _ _ hax hp, hq⟩, Or.inl (hU _ _ hcx hs)⟩
+    have hj' : j = b := by simpa [singleton] using hj
+    have hi' : i = a ∨ i = c := by simpa [x] using hi
+    rcases hi' with rfl | rfl
+    · exact False.elim (hn (by simpa [hj'] using hij))
+    · simpa [hj'] using hij
+  · intro t a b c hp hq ht hn
+    let y : Fin m → Bool := fun i => decide (i = b ∨ i = c)
+    have hby : ∀ i, singleton b i = true → y i = true := by
+      intro i hi
+      have hi' : i = b := by simpa [singleton] using hi
+      simp [y, hi']
+    have hcy : ∀ i, singleton c i = true → y i = true := by
+      intro i hi
+      have hi' : i = c := by simpa [singleton] using hi
+      simp [y, hi']
+    obtain ⟨i, j, hij, hi, hj⟩ := (hfull (singleton a) y).mp
+      ⟨⟨t, hp, hB t _ _ hby hq⟩, Or.inr (hV _ _ hcy ht)⟩
+    have hi' : i = a := by simpa [singleton] using hi
+    have hj' : j = b ∨ j = c := by simpa [y] using hj
+    rcases hj' with rfl | rfl
+    · exact False.elim (hn (by simpa [hi'] using hij))
+    · simpa [hi'] using hij
+  · intro a
+    have hf := (hfull (singleton a) (singleton a)).mpr
+      ⟨a, a, hdiag a, by simp [singleton], by simp [singleton]⟩
+    obtain ⟨⟨t, ha, hb⟩, h⟩ := hf
+    exact ⟨t, ha, hb, h⟩
+
+end PEqualNP.Outside.L_meta_3566.FilteredRectangleSemantics
+
+namespace PEqualNP.Outside.L_meta_3566.FilteredRectangleGraph
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+
+variable {n m : ℕ}
+
+lemma matching_cross (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hno4 : NoFourCycle G) (ell r : Fin m → Fin n)
+    (hell : Function.Injective ell) (hr : Function.Injective r)
+    (hdiag : ∀ a, G.Adj (ell a) (r a)) :
+    ∀ a b, a ≠ b → G.Adj (ell a) (r b) → ¬ G.Adj (ell b) (r a) := by
+  classical
+  intro a b hab hab' hba'
+  have habL : ell a ≠ ell b := fun h => hab (hell h)
+  have habR : r a ≠ r b := fun h => hab (hr h)
+  have hs : ({r a, r b} : Finset (Fin n)) ⊆
+      Finset.univ.filter (fun w => G.Adj (ell a) w ∧ G.Adj (ell b) w) := by
+    intro w hw
+    have hw' : w = r a ∨ w = r b := by simpa only [Finset.mem_insert, Finset.mem_singleton] using hw
+    rcases hw' with rfl | rfl
+    · exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, hdiag a, hba'⟩
+    · exact Finset.mem_filter.mpr ⟨Finset.mem_univ _, hab', hdiag b⟩
+  have hc := (Finset.card_le_card hs).trans (hno4 (ell a) (ell b) habL)
+  simp [habR] at hc
+
+def supportInput (e : Fin m → Fin n) (x : Fin m → Bool) : Fin n → Bool :=
+  fun v => decide (∃ a, e a = v ∧ x a = true)
+
+def matchingInput (ell r : Fin m → Fin n) (x y : Fin m → Bool) : Fin n → Bool :=
+  fun v => supportInput ell x v || supportInput r y v
+
+lemma supportInput_true (e : Fin m → Fin n) (x : Fin m → Bool) (v : Fin n) :
+    supportInput e x v = true ↔ ∃ a, e a = v ∧ x a = true := by
+  simp [supportInput]
+
+lemma matchingInput_true (ell r : Fin m → Fin n) (x y : Fin m → Bool) (v : Fin n) :
+    matchingInput ell r x y v = true ↔
+      (∃ a, ell a = v ∧ x a = true) ∨ (∃ b, r b = v ∧ y b = true) := by
+  simp [matchingInput, supportInput]
+
+lemma graphFun_matchingInput (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (ell r : Fin m → Fin n)
+    (hLL : ∀ a b, ¬ G.Adj (ell a) (ell b))
+    (hRR : ∀ a b, ¬ G.Adj (r a) (r b)) (x y : Fin m → Bool) :
+    graphFun G ∅ (matchingInput ell r x y) = true ↔
+      ∃ a b, G.Adj (ell a) (r b) ∧ x a = true ∧ y b = true := by
+  have hf : graphFun G ∅ (matchingInput ell r x y) = true ↔
+      ∃ p q, G.Adj p q ∧ matchingInput ell r x y p = true ∧
+        matchingInput ell r x y q = true := by simp [graphFun]
+  rw [hf]
+  constructor
+  · rintro ⟨p, q, hpq, hp, hq⟩
+    rcases (matchingInput_true ell r x y p).mp hp with ⟨a, rfl, ha⟩ | ⟨a, rfl, ha⟩
+    · rcases (matchingInput_true ell r x y q).mp hq with ⟨b, rfl, hb⟩ | ⟨b, rfl, hb⟩
+      · exact (hLL a b hpq).elim
+      · exact ⟨a, b, hpq, ha, hb⟩
+    · rcases (matchingInput_true ell r x y q).mp hq with ⟨b, rfl, hb⟩ | ⟨b, rfl, hb⟩
+      · exact ⟨b, a, hpq.symm, hb, ha⟩
+      · exact (hRR a b hpq).elim
+  · rintro ⟨a, b, hab, ha, hb⟩
+    exact ⟨ell a, r b, hab,
+      (matchingInput_true ell r x y (ell a)).mpr (Or.inl ⟨a, rfl, ha⟩),
+      (matchingInput_true ell r x y (r b)).mpr (Or.inr ⟨b, rfl, hb⟩)⟩
+
+lemma graphFun_matchingInput_of_coloring (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (ell r : Fin m → Fin n) (c : Fin n → Bool)
+    (hcolor : ∀ u v, G.Adj u v → c u ≠ c v)
+    (hL : ∀ a, c (ell a) = false) (hR : ∀ a, c (r a) = true)
+    (x y : Fin m → Bool) :
+    graphFun G ∅ (matchingInput ell r x y) = true ↔
+      ∃ a b, G.Adj (ell a) (r b) ∧ x a = true ∧ y b = true := by
+  apply graphFun_matchingInput G ell r
+  · intro a b hab
+    have h := hcolor (ell a) (ell b) hab
+    rw [hL a, hL b] at h
+    exact h rfl
+  · intro a b hab
+    have h := hcolor (r a) (r b) hab
+    rw [hR a, hR b] at h
+    exact h rfl
+
+theorem matching_bound {k : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hno4 : NoFourCycle G) (ell r : Fin m → Fin n)
+    (hell : Function.Injective ell) (hr : Function.Injective r)
+    (hdiag : ∀ a, G.Adj (ell a) (r a))
+    (hLL : ∀ a b, ¬ G.Adj (ell a) (ell b))
+    (hRR : ∀ a b, ¬ G.Adj (r a) (r b))
+    (A B : Fin k → (Fin m → Bool) → Bool) (U V : (Fin m → Bool) → Bool)
+    (hA : ∀ t x y, (∀ i, x i = true → y i = true) → A t x = true → A t y = true)
+    (hB : ∀ t x y, (∀ i, x i = true → y i = true) → B t x = true → B t y = true)
+    (hU : ∀ x y, (∀ i, x i = true → y i = true) → U x = true → U y = true)
+    (hV : ∀ x y, (∀ i, x i = true → y i = true) → V x = true → V y = true)
+    (hfull : ∀ x y,
+      ((∃ t, A t x = true ∧ B t y = true) ∧ (U x = true ∨ V y = true)) ↔
+        graphFun G ∅ (matchingInput ell r x y) = true) : m ≤ k + 1 := by
+  apply FilteredRectangleSemantics.matching_bound (fun a b => G.Adj (ell a) (r b))
+    A B U V hdiag (matching_cross G hno4 ell r hell hr hdiag) hA hB hU hV
+  intro x y
+  exact (hfull x y).trans (graphFun_matchingInput G ell r hLL hRR x y)
+
+theorem matching_bound_of_coloring {k : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (hno4 : NoFourCycle G) (ell r : Fin m → Fin n)
+    (hell : Function.Injective ell) (hr : Function.Injective r)
+    (hdiag : ∀ a, G.Adj (ell a) (r a)) (c : Fin n → Bool)
+    (hcolor : ∀ u v, G.Adj u v → c u ≠ c v)
+    (hL : ∀ a, c (ell a) = false) (hR : ∀ a, c (r a) = true)
+    (A B : Fin k → (Fin m → Bool) → Bool) (U V : (Fin m → Bool) → Bool)
+    (hA : ∀ t x y, (∀ i, x i = true → y i = true) → A t x = true → A t y = true)
+    (hB : ∀ t x y, (∀ i, x i = true → y i = true) → B t x = true → B t y = true)
+    (hU : ∀ x y, (∀ i, x i = true → y i = true) → U x = true → U y = true)
+    (hV : ∀ x y, (∀ i, x i = true → y i = true) → V x = true → V y = true)
+    (hfull : ∀ x y,
+      ((∃ t, A t x = true ∧ B t y = true) ∧ (U x = true ∨ V y = true)) ↔
+        graphFun G ∅ (matchingInput ell r x y) = true) : m ≤ k + 1 := by
+  apply FilteredRectangleSemantics.matching_bound (fun a b => G.Adj (ell a) (r b))
+    A B U V hdiag (matching_cross G hno4 ell r hell hr hdiag) hA hB hU hV
+  intro x y
+  exact (hfull x y).trans (graphFun_matchingInput_of_coloring G ell r c hcolor hL hR x y)
+
+end PEqualNP.Outside.L_meta_3566.FilteredRectangleGraph
