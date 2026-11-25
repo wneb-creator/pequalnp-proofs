@@ -2031,7 +2031,7 @@ def poolRun : List Nat → List (Nat × Nat × Nat) → List Nat
 
 def available (d : Nat) (pool : List Nat) (raw : Nat) : Bool :=
   let w := raw &&& d
-  w == 0 || w == d || pool.any (fun a => w == (a &&& d) || w == (a &&& d ^^^ d))
+  w == 0 || w == d || pool.any (fun a => w == a || w == (a ^^^ d))
 
 def truth (anchor : Nat) (support : List Nat) (w : Nat) : Nat :=
   (List.range 8).foldl (fun bits r =>
@@ -2065,28 +2065,416 @@ def guessAux (d : Nat) (vs : List Nat) : List Nat → List Nat → List (Nat × 
 def guess (d : Nat) (vs ws : List Nat) : List (Nat × Nat × Nat) :=
   guessAux d vs (vs.map (fun v => var v &&& d)) ws
 
+
+def autoCut (k : Nat) (ws : List Nat) (spec : Nat × Nat × List Nat) : Bool :=
+  let (d,L,vs) := spec
+  let constants := ws.countP (fun w => w &&& d == 0 || w &&& d == d)
+  if L+constants <= k then false else
+    let program := guess d vs ws
+    decide (k+program.length < L+constants) &&
+      ws.all (available d (poolRun (vs.map (fun v => var v &&& d)) program))
+
 end AutoPool
 
 namespace RestrictionSixProof
 
-def autoCuts (Z : List SliceD) (ws : List Nat)
-    (k : Nat) (rest : List Nat) (a b z : Nat) (ka kb : Bool) : Bool :=
-  guessCuts Z (fun s => AutoPool.guess s.1 s.2.2 ws) k rest a b z ka kb
+lemma autoPool_var_eq_xN {v : Nat} (hv : v < 7) : AutoPool.var v = xN v := by
+  interval_cases v <;> rfl
+
+lemma autoPool_var_eq_zero {v : Nat} (hv : 7 ≤ v) : AutoPool.var v = 0 := by
+  apply List.getD_eq_default
+  simpa only [AutoPool.inputs, List.length_cons, List.length_nil] using hv
+
+lemma autoPool_op_eq_nb (o a b : Nat) : AutoPool.op o a b = nb o a b := by
+  cases h0 : (o == 0) <;> cases h1 : (o == 1) <;> cases h2 : (o == 2) <;>
+    simp_all [AutoPool.op, nb]
+
+lemma autoPool_poolRun_eq_mkPool (pool : List Nat) (cs : List (Nat × Nat × Nat)) :
+    AutoPool.poolRun pool cs = mkPool pool cs := by
+  induction cs generalizing pool with
+  | nil => rfl
+  | cons c cs ih =>
+    obtain ⟨o, a, b⟩ := c
+    rw [AutoPool.poolRun, mkPool, autoPool_op_eq_nb]
+    exact ih _
+
+lemma autoPool_available_eq_av (d : Nat) (pool : List Nat) :
+    AutoPool.available d pool = av d pool := by
+  funext raw
+  have hx (a w : Nat) : w = a ^^^ d ↔ a = d ^^^ w := by
+    constructor
+    · intro h
+      rw [h, Nat.xor_comm a d, ← Nat.xor_assoc, Nat.xor_self, Nat.zero_xor]
+    · intro h
+      rw [h, Nat.xor_comm (d ^^^ w) d, ← Nat.xor_assoc, Nat.xor_self, Nat.zero_xor]
+  have hp : (fun a => (raw &&& d == a || raw &&& d == (a ^^^ d))) =
+      (fun a => (a == raw &&& d || a == (d ^^^ (raw &&& d)))) := by
+    funext a
+    apply Bool.eq_iff_iff.mpr
+    simp only [Bool.or_eq_true, beq_iff_eq]
+    exact or_congr eq_comm (hx a (raw &&& d))
+  simp only [AutoPool.available, av, hp]
+  rfl
+
+lemma autoPool_countConstants_eq_sumc (d : Nat) (ws : List Nat) :
+    ws.countP (fun w => w &&& d == 0 || w &&& d == d) = sumc d ws := by
+  induction ws with
+  | nil => rfl
+  | cons w ws ih =>
+    cases h : (w &&& d == 0 || w &&& d == d) <;>
+      simp_all [sumc, cn, Nat.add_comm]
+
+def autoProgramCut (s : SliceD) (cs : List (Nat × Nat × Nat)) : CutV :=
+  (s.1, s.2.1, cs.length,
+    AutoPool.poolRun (s.2.2.map (fun v => AutoPool.var v &&& s.1)) cs)
+
+lemma autoProgramCut_sound {R T s} (hs : SliceN R T s)
+    (cs : List (Nat × Nat × Nat)) : CutP R T (autoProgramCut s cs) := by
+  obtain ⟨⟨f, roots, dom, base, nc, lo⟩, hv⟩ := hs
+  have ps : PS f (roots.map observe)
+      (s.2.2.map (fun v => AutoPool.var v &&& s.1)) := by
+    intro w hw
+    obtain ⟨v, hvs, rfl⟩ := List.mem_map.mp hw
+    change Available true (roots.map observe) (RF f (Nat.land (AutoPool.var v) s.1))
+    rw [rf_land dom]
+    by_cases h7 : v < 7
+    · rw [autoPool_var_eq_xN h7]
+      exact base _ (List.mem_map_of_mem (hv v hvs))
+    · rw [autoPool_var_eq_zero (by omega)]
+      exact Or.inr (Or.inl ⟨false, rf_zero⟩)
+  obtain ⟨bank, hb, hp⟩ :=
+    mkPool_ok cs (Reach.start (u := true) (roots := roots.map observe)) ps
+  refine ⟨f, roots, bank, dom, nc, ?_, ?_, lo⟩
+  · simpa [autoProgramCut] using hb
+  · simpa only [autoProgramCut, autoPool_poolRun_eq_mkPool] using hp
+
+lemma cutEval_of_whole_list (d L paid : Nat) (pool : List Nat)
+    (k : Nat) (rest : List Nat) (a b z : Nat) (ka kb : Bool)
+    (ha : (z :: kept ka a (kept kb b rest)).all (av d pool) = true)
+    (hl : k + paid < L + sumc d (z :: kept ka a (kept kb b rest))) :
+    cutEval k rest a b z ka kb (d, L, paid, pool) = true := by
+  cases ka <;> cases kb <;>
+    simp_all [kept, keepB, keepC, sumc, cutEval, Nat.blt_eq] <;> omega
+
+lemma autoCut_to_cutEval (s : SliceD) (k : Nat) (rest : List Nat)
+    (a b z : Nat) (ka kb : Bool)
+    (h : AutoPool.autoCut k (z :: kept ka a (kept kb b rest)) s = true) :
+    cutEval k rest a b z ka kb
+      (autoProgramCut s (AutoPool.guess s.1 s.2.2
+        (z :: kept ka a (kept kb b rest)))) = true := by
+  obtain ⟨d, L, vs⟩ := s
+  dsimp only [AutoPool.autoCut] at h
+  split at h
+  · cases h
+  · simp only [Bool.and_eq_true] at h
+    obtain ⟨hl, ha⟩ := h
+    apply cutEval_of_whole_list
+    · simpa only [autoPool_available_eq_av] using ha
+    · simpa only [autoPool_countConstants_eq_sumc] using of_decide_eq_true hl
 
 lemma autoCut_sound {R T s k rest a b o ka kb}
-    (hs : SliceN R T s) (ws : List Nat)
+    (hs : SliceN R T s)
     (nd : (kidW rest a b (nb o a b) ka kb).Nodup)
-    (h : cutEval k rest a b (nb o a b) ka kb
-      (programCut s (AutoPool.guess s.1 s.2.2 ws)) = true) :
+    (h : AutoPool.autoCut k (nb o a b :: kept ka a (kept kb b rest)) s = true) :
     Impossible true (W T) k (kidW rest a b (nb o a b) ka kb).toFinset :=
-  guessCut_sound hs (AutoPool.guess s.1 s.2.2 ws) nd h
+  cut_sound (autoProgramCut_sound hs _ ) nd
+    (autoCut_to_cutEval s k rest a b (nb o a b) ka kb h)
 
-lemma autoCuts_sound {R T Z k rest a b o ka kb}
-    (hZ : ∀ s ∈ Z, SliceN R T s) (ws : List Nat)
+lemma autoCuts_sound {R T k rest a b o ka kb} {Z : List SliceD}
+    (hZ : ∀ s ∈ Z, SliceN R T s)
     (nd : (kidW rest a b (nb o a b) ka kb).Nodup)
-    (h : autoCuts Z ws k rest a b (nb o a b) ka kb = true) :
-    Impossible true (W T) k (kidW rest a b (nb o a b) ka kb).toFinset :=
-  guessCuts_sound hZ (fun s => AutoPool.guess s.1 s.2.2 ws) nd h
+    (h : Z.any (AutoPool.autoCut k (nb o a b :: kept ka a (kept kb b rest))) = true) :
+    Impossible true (W T) k (kidW rest a b (nb o a b) ka kb).toFinset := by
+  obtain ⟨s, hs, hc⟩ := List.any_eq_true.mp h
+  exact autoCut_sound (hZ s hs) nd hc
+
+lemma append_child_eq_kept {α : Type} (z a b : α) (rest : List α) (ka kb : Bool) :
+    z :: ((if ka then [a] else []) ++ (if kb then [b] else []) ++ rest) =
+      z :: kept ka a (kept kb b rest) := by
+  cases ka <;> cases kb <;> rfl
+
+end RestrictionSixProof
+
+namespace RestrictionSixProof
+open PEqualNP.CircuitLowerBounds
+private lemma physical_live_proper {u target k S} (h : Live u target k S) : ∀ a ∈ S, proper a := by
+  induction h using Live.ind with
+  | stop hp => simpa using hp
+  | binary hd ha hb hab hf _ ih =>
+    simp only [Finset.forall_mem_insert]
+    exact ⟨ha,hb,fun a h => ih a (Finset.mem_insert_of_mem h)⟩
+
+private lemma physical_bit_zero (i) : bit i zero = false := by simp [bit,zero]
+private lemma physical_bit_one (i) : bit i one = true := by unfold bit one; rw [BitVec.getLsbD_allOnes]; simp
+private lemma physical_bit_neg (i) (a : Sig) : bit i (neg a) = !(bit i a) := by simp [bit,neg,i.isLt]
+def physical_gv (w : List Sig) (g : Gate) : Sig :=
+  let xs := g.inputs.map (fun i => w.getD i zero)
+  match g.op with
+  | .and => xs.foldr (prime false) one
+  | .or => xs.foldr (prime true) zero
+  | .not => neg (xs.headD zero)
+  | _ => zero
+
+def physical_execute (gs : List Gate) (w : List Sig) : List Sig :=
+  gs.foldl (fun l g => l ++ [physical_gv l g]) w
+
+private lemma physical_neg_laws : neg zero = one ∧ neg one = zero := by simp [neg,zero,one]
+
+private lemma physical_get_rep {u} (w : List Sig) (i : Nat) : Repr u (w.map (nrm u)) (w.getD i zero) := by
+  simp only [List.getD_eq_getElem?_getD]
+  cases h : w[i]? with
+  | none => exact repr_const (Or.inl rfl)
+  | some a => exact Or.inl (List.mem_map_of_mem (List.mem_of_getElem? h))
+lemma physical_repr_neg {w a} (h : Repr true w a) : Repr true w (neg a) := by
+  unfold Repr
+  rwa [nrm_neg]
+
+def physical_isNot (g : Gate) : Bool := match g.op with
+  | .not => true
+  | _ => false
+private lemma physical_gate_rep (u : Bool) (w : List Sig) (g : Gate)
+    (h : g.op ∈ ({GateOp.and,GateOp.or,GateOp.not} : Set GateOp) ∧ g.inputs.length≤2)
+    (mono : u=false → physical_isNot g=false) :
+    Repr u (w.map (nrm u)) (physical_gv w g) ∨ (physical_isNot g=false ∧ witness u (w.map (nrm u)) (nrm u (physical_gv w g))) := by
+  obtain ⟨o,l⟩ := g
+  simp only [Set.mem_insert_iff,Set.mem_singleton_iff] at h
+  obtain ⟨ho,hl⟩ := h
+  have prim (d : Bool) : Repr u (w.map (nrm u)) ((l.map (fun i => w.getD i zero)).foldr (prime d) (if d then zero else one)) ∨
+      witness u (w.map (nrm u)) (nrm u ((l.map (fun i => w.getD i zero)).foldr (prime d) (if d then zero else one))) := by
+    have unit (v : Sig) : prime d v (if d then zero else one) = v := by
+      apply bit_ext
+      intro i
+      cases d <;> simp [bit_prime,physical_bit_zero,physical_bit_one]
+    cases l with
+    | nil => exact Or.inl (repr_const (by cases d <;> simp))
+    | cons i l =>
+      cases l with
+      | nil =>
+        simp only [List.map_cons,List.map_nil,List.foldr_cons,List.foldr_nil,unit]
+        exact Or.inl (physical_get_rep w i)
+      | cons j l =>
+        cases l with
+        | cons a l => simp at hl
+        | nil =>
+          simp only [List.map_cons,List.map_nil,List.foldr_cons,List.foldr_nil,unit]
+          exact prime_rep d (physical_get_rep w i) (physical_get_rep w j)
+  rcases ho with rfl | rfl | rfl
+  · exact (prim false).imp id (fun h => ⟨rfl,h⟩)
+  · exact (prim true).imp id (fun h => ⟨rfl,h⟩)
+  · cases u
+    · exact absurd (mono rfl) (by simp [physical_isNot])
+    left
+    cases l with
+    | nil => exact repr_const (Or.inr (by simp [physical_gv,physical_neg_laws]))
+    | cons i l => exact physical_repr_neg (physical_get_rep w i)
+
+-- Remove a last computed signal from a backward derivation. A gate whose value
+-- is already available, or is unused by the suffix, needs no entry in the plan.
+private lemma physical_pull_gate {u target} {w : List Sig} {z : Sig} {k S c} (h : Live u target k S)
+    (hz : represented w z ∨ (c=1 ∧ witness u w z)) (sub : ∀ a ∈ S, a ∈ w++[z]) :
+    ∃ k' S', k' ≤ k+c ∧ Live u target k' S' ∧ ∀ a ∈ S', a ∈ w := by
+  by_cases hm : z ∈ S
+  · by_cases hw : z ∈ w
+    · refine ⟨k,S,by omega,h,?_⟩
+      intro a ha
+      have hu : a ∈ w ∨ a = z := by simpa using sub a ha
+      rcases hu with hu | rfl
+      · exact hu
+      · exact hw
+    · have hp := physical_live_proper h z hm
+      rcases hz with hr | ⟨rfl,d,a,b,hd,ha,hb,pa,pb,hab,eq⟩
+      · exact False.elim ((hr.resolve_left hw) hp)
+      · subst z
+        let U := S.erase (bin d a b)
+        have ht : Live u target k (insert (bin d a b) U) := by simpa [U,Finset.insert_erase hm] using h
+        have hu : ∀ v ∈ U, v ∈ w := by
+          intro v hv
+          obtain ⟨hne,hm⟩ := Finset.mem_erase.mp hv
+          simpa [hne] using sub v hm
+        have hf : bin d a b ∉ insert a (insert b U) := by
+          intro hh
+          rcases Finset.mem_insert.mp hh with eq | u
+          · exact hw (eq.symm ▸ ha)
+          rcases Finset.mem_insert.mp u with eq | u
+          · exact hw (eq.symm ▸ hb)
+          · exact hw (hu _ u)
+        exact ⟨_,_,Nat.le_refl _,Live.binary hd pa pb hab hf ht,by simpa using And.intro ha (And.intro hb hu)⟩
+  · refine ⟨k,S,by omega,h,?_⟩
+    intro a ha
+    have hn : a ≠ z := fun hh => hm (hh ▸ ha)
+    simpa [hn] using sub a ha
+
+private lemma physical_extract {u target} (gs : List Gate) (w : List Sig)
+    (legal : ∀ g ∈ gs, g.op ∈ ({GateOp.and,GateOp.or,GateOp.not} : Set GateOp) ∧ g.inputs.length≤2)
+    (mono : u=false → ∀ g ∈ gs, physical_isNot g=false)
+    (hp : proper target) (hout : target ∈ (physical_execute gs w).map (nrm u)) :
+    ∃ k S, k ≤ gs.countP (fun g => !physical_isNot g) ∧ Live u target k S ∧ ∀ a ∈ S, a ∈ w.map (nrm u) := by
+  induction gs generalizing w with
+  | nil => exact ⟨0,{target},by simp,Live.stop hp,by simpa [physical_execute] using hout⟩
+  | cons g gs ih =>
+    obtain ⟨k,S,hk,ht,hs⟩ := ih (w++[physical_gv w g]) (fun a ha => legal a (by simp [ha]))
+      (fun hu a ha => mono hu a (by simp [ha])) hout
+    have rep := physical_gate_rep u w g (legal g (by simp)) (fun hu => mono hu g (by simp))
+    rw [List.map_append] at hs
+    have rep' : represented (w.map (nrm u)) (nrm u (physical_gv w g)) ∨
+        ((if physical_isNot g then 0 else 1)=1 ∧ witness u (w.map (nrm u)) (nrm u (physical_gv w g))) :=
+      rep.imp id (fun h => ⟨by simp [h.1],h.2⟩)
+    obtain ⟨l,T,hl,hu,hT⟩ := physical_pull_gate ht rep' hs
+    refine ⟨l,T,?_,hu,hT⟩
+    rw [List.countP_cons]
+    cases hn : physical_isNot g <;> simp [hn] at hl ⊢ <;> omega
+
+private lemma physical_b_read (i) (w : List Sig) (j : Nat) :
+    (w.map (bit i)).getD j false = bit i (w.getD j zero) := by
+  simp only [List.getD_eq_getElem?_getD,List.getElem?_map]
+  cases w[j]? with
+  | none => exact (physical_bit_zero _).symm
+  | some a => rfl
+
+private lemma physical_run_bit (i) (g : Gate) (w : List Sig)
+    (hg : g.op ∈ ({GateOp.and,GateOp.or,GateOp.not} : Set GateOp)) :
+    bit i (physical_gv w g) = g.op.eval (g.inputs.map fun j => (w.map (bit i)).getD j false) := by
+  obtain ⟨o,l⟩ := g
+  simp only [Set.mem_insert_iff,Set.mem_singleton_iff] at hg
+  simp only [physical_b_read]
+  rcases hg with rfl | rfl | rfl
+  · induction l with
+    | nil => exact physical_bit_one _
+    | cons a l ih =>
+      change bit i (prime false _ _) = (_ && _)
+      rw [bit_prime]; exact congrArg (fun x => bit i (w.getD a zero) && x) ih
+  · induction l with
+    | nil => exact physical_bit_zero _
+    | cons a l ih =>
+      change bit i (prime true _ _) = (_ || _)
+      rw [bit_prime]; exact congrArg (fun x => bit i (w.getD a zero) || x) ih
+  · cases l with
+    | nil =>
+      change bit i (neg zero) = !false
+      rw [physical_bit_neg,physical_bit_zero]
+    | cons a l => exact physical_bit_neg _ _
+
+private lemma physical_execute_bits (gs : List Gate) (i) (w : List Sig)
+    (hg : ∀ g ∈ gs, g.op ∈ ({GateOp.and,GateOp.or,GateOp.not} : Set GateOp)) :
+    (physical_execute gs w).map (bit i) =
+    gs.foldl (fun (l : List Bool) g => l++[g.op.eval (g.inputs.map fun j => l.getD j false)]) (w.map (bit i)) := by
+  induction gs generalizing w with
+  | nil => rfl
+  | cons g gs ih =>
+    change (physical_execute gs (w++[physical_gv w g])).map _ = _
+    rw [ih _ (fun a ha => hg a (by simp [ha]))]
+    simp only [List.foldl_cons,List.map_append,List.map_singleton,physical_run_bit i g w (hg g (by simp))]
+
+lemma physical_lower_bound {roots : List Sig} {T : Sig} {L : Nat}
+    (hp : proper T) (hT : plainWord T = true) (hroots : roots.all plainWord = true)
+    (lower : Lower true roots T L) (C : Circuit)
+    (legal : PEqualNP.MetaComplexity.FanInTwo C)
+    (computes : ∀ r : Row, C.eval (roots.map (bit r)) = bit r T) :
+    L ≤ C.gates.countP (fun g => !physical_isNot g) := by
+  classical
+  have goalEq : (physical_execute C.gates roots).getD C.output zero = T := by
+    apply BitVec.eq_of_getLsbD_eq
+    intro j hj
+    let r : Row := ⟨j, hj⟩
+    have evalEq : bit r ((physical_execute C.gates roots).getD C.output zero) =
+        C.eval (roots.map (bit r)) := by
+      rw [←physical_b_read, physical_execute_bits _ _ _ (fun g hg => (legal g hg).1)]
+      rfl
+    exact evalEq.trans (computes r)
+  have out := physical_get_rep (u := true) (physical_execute C.gates roots) C.output
+  rw [goalEq] at out
+  unfold Repr at out
+  have ht : bit 0 T = false := by simpa [plainWord] using hT
+  rw [nrm_id ht] at out
+  obtain ⟨k, S, hk, run, sub⟩ := physical_extract (u := true) C.gates roots legal
+    (by simp) hp (out.resolve_right (fun hn => hn hp))
+  rw [nrm_map hroots] at sub
+  have steps := list_run run S.toList (Finset.nodup_toList _) (by simp)
+  have supplied : supply true (roots.map observe) (S.toList.map observe) := by
+    intro f hf
+    obtain ⟨a, ha, rfl⟩ := List.mem_map.mp hf
+    exact Or.inl (List.mem_map_of_mem (sub a (by simpa using ha)))
+  obtain ⟨q, bank, built, hit, limit⟩ := contraction (observe_proper hp)
+    steps (roots.map observe) Reach.start supplied
+  have bound := lower q bank built hit
+  omega
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 4000000 in
+lemma originalG_input_rows : ∀ r : Row,
+    (rootsW originalGRoots).map (bit r) =
+      List.ofFn (fun i : Fin 7 => r.val.testBit i.val) := by
+  decide
+
+lemma posted_binary_lower (L : Nat)
+    (lower : LowN originalGRoots originalGWord L) (C : Circuit)
+    (legal : PEqualNP.MetaComplexity.FanInTwo C)
+    (computes : ∀ x : Fin 7 → Bool, C.eval (List.ofFn x) = postedEdgeFun x) :
+    L ≤ C.gates.countP (fun g => !physical_isNot g) := by
+  have base := baseOK_ok originalG_baseOK
+  apply physical_lower_bound base.prop base.plain base.plainR lower C legal
+  intro r
+  rw [originalG_input_rows r]
+  exact (computes (fun i => r.val.testBit i.val)).trans (originalG_posted_table r)
+
+def graphWitness14Gates : List Gate :=
+  [⟨GateOp.or, [0, 1]⟩, ⟨GateOp.or, [0, 4]⟩,
+   ⟨GateOp.or, [1, 5]⟩, ⟨GateOp.or, [4, 5]⟩,
+   ⟨GateOp.or, [0, 2]⟩, ⟨GateOp.or, [11, 3]⟩,
+   ⟨GateOp.or, [12, 5]⟩, ⟨GateOp.and, [13, 6]⟩,
+   ⟨GateOp.and, [3, 9]⟩, ⟨GateOp.and, [2, 8]⟩,
+   ⟨GateOp.and, [7, 10]⟩, ⟨GateOp.or, [14, 15]⟩,
+   ⟨GateOp.or, [18, 16]⟩, ⟨GateOp.or, [19, 17]⟩]
+
+lemma graphWitness14_basis : ∀ g ∈ graphWitness14Gates,
+    (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2 := by
+  simp [graphWitness14Gates]
+
+lemma graphWitness14_length : graphWitness14Gates.length = 14 := rfl
+
+set_option maxRecDepth 10000 in
+set_option maxHeartbeats 4000000 in
+lemma graphWitness14_correct : ∀ x : Fin 7 → Bool,
+    Circuit.eval ⟨graphWitness14Gates, 20⟩ (List.ofFn x) = postedEdgeFun x := by
+  decide
+
+lemma graph_replacement_of_fourteen_le (k : ℕ) (hk : 14 ≤ k) :
+    ∃ (gs : List Gate) (out : ℕ),
+      (∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
+      gs.length ≤ k ∧
+      ∀ x : Fin 7 → Bool, Circuit.eval ⟨gs, out⟩ (List.ofFn x) = postedEdgeFun x :=
+  ⟨graphWitness14Gates, 20, graphWitness14_basis,
+    by simpa only [graphWitness14_length] using hk, graphWitness14_correct⟩
+
+lemma physical_count_lt_of_not (gs : List Gate)
+    (hasNot : ∃ g ∈ gs, g.op = GateOp.not) :
+    gs.countP (fun g => !physical_isNot g) < gs.length := by
+  by_contra! hn
+  have eq : gs.countP (fun g => !physical_isNot g) = gs.length :=
+    Nat.le_antisymm List.countP_le_length hn
+  have all := List.countP_eq_length.mp eq
+  obtain ⟨g, hg, hop⟩ := hasNot
+  simpa [physical_isNot, hop] using all g hg
+
+lemma positive_replacement_of_lowN13
+    (lower : LowN originalGRoots originalGWord 13) (C : Circuit)
+    (legal : PEqualNP.MetaComplexity.FanInTwo C)
+    (computes : ∀ x : Fin 7 → Bool, C.eval (List.ofFn x) = postedEdgeFun x) :
+    ∃ (gs : List Gate) (out : Nat),
+      (∀ g ∈ gs, (g.op = GateOp.and ∨ g.op = GateOp.or) ∧ g.inputs.length ≤ 2) ∧
+      gs.length ≤ C.gates.length ∧
+      ∀ x : Fin 7 → Bool, Circuit.eval ⟨gs, out⟩ (List.ofFn x) = postedEdgeFun x := by
+  by_cases hasNot : ∃ g ∈ C.gates, g.op = GateOp.not
+  · have bound := posted_binary_lower 13 lower C legal computes
+    have strict := physical_count_lt_of_not C.gates hasNot
+    exact graph_replacement_of_fourteen_le _ (by omega)
+  · refine ⟨C.gates, C.output, ?_, Nat.le_refl _, computes⟩
+    intro g hg
+    refine ⟨?_, (legal g hg).2⟩
+    rcases (legal g hg).1 with ha | ho | hn
+    · exact Or.inl ha
+    · exact Or.inr ho
+    · exact False.elim (hasNot ⟨g, hg, hn⟩)
 
 end RestrictionSixProof
 
