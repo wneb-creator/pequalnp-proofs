@@ -97,6 +97,18 @@ def solve(args):
         for g in range(k-1):
             for i in range(n+g):
                 for j in range(i):cnf.clause(-sels[g][1][i],-sels[g+1][1][j])
+    if args.min_ands > k:
+        cnf.clause()
+    elif args.min_ands > 0:
+        bound = k - args.min_ands
+        previous = [True] + [False] * (bound + 1)
+        for op in ops:
+            current = [True] + [cnf.var() for _ in range(bound + 1)]
+            for j in range(1, bound + 2):
+                cnf.clause(neg(previous[j]), current[j])
+                cnf.clause(-op, neg(previous[j-1]), current[j])
+            previous = current
+        cnf.clause(-previous[bound+1])
     for t,x in enumerate(tests):cnf.clause(vals[-1][t] if target(x) else -vals[-1][t])
     if args.dirty:
         dirty=[]
@@ -160,7 +172,7 @@ def solve(args):
     start=time.monotonic()
     with base.with_suffix('.solver.stdout').open('w') as out,base.with_suffix('.solver.stderr').open('w') as err:
         proc=subprocess.run([args.solver,'-t',str(args.seconds),str(base.with_suffix('.cnf'))],stdout=out,stderr=err)
-    result={'graph':args.graph,'n':n,'edges':edges,'gates':k,'tests':len(tests),'variables':cnf.n,'clauses':len(cnf.rows),'seconds':time.monotonic()-start,'returncode':proc.returncode,'status':{10:'SAT',20:'UNSAT',0:'UNKNOWN'}.get(proc.returncode,'ERROR'),'ordered':args.ordered,'edge_stabilizer':args.edge_stabilizer,'propagate':args.propagate}
+    result={'graph':args.graph,'n':n,'edges':edges,'gates':k,'tests':len(tests),'variables':cnf.n,'clauses':len(cnf.rows),'seconds':time.monotonic()-start,'returncode':proc.returncode,'status':{10:'SAT',20:'UNSAT',0:'UNKNOWN'}.get(proc.returncode,'ERROR'),'ordered':args.ordered,'edge_stabilizer':args.edge_stabilizer,'propagate':args.propagate,'min_ands':args.min_ands}
     if proc.returncode==10:
         assignment=set()
         for line in base.with_suffix('.solver.stdout').read_text().splitlines():
@@ -208,6 +220,7 @@ if __name__=='__main__':
     p.add_argument('--require-read',action='store_true')
     p.add_argument('--edge-stabilizer',action='store_true')
     p.add_argument('--propagate',action='store_true')
+    p.add_argument('--min-ands',type=int,default=0)
     p.add_argument('--solver',default='/tmp/oec/pequalnp-pilot-94/toolchain/toolchains/leanprover--lean4---v4.36.0/bin/cadical')
     p.add_argument('--output',required=True)
     solve(p.parse_args())

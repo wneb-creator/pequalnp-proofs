@@ -1,0 +1,129 @@
+[
+  {
+    "kind": "control_honest",
+    "active_gates": 27,
+    "and_gates": 7,
+    "or_gates": 20,
+    "inputs_verified": 16384,
+    "wrong_inputs": 0,
+    "unread_edges": [],
+    "dirty_AND_gates": [],
+    "counterexample_candidate": false
+  },
+  {
+    "kind": "control_dirty",
+    "active_gates": 29,
+    "and_gates": 8,
+    "or_gates": 21,
+    "inputs_verified": 16384,
+    "wrong_inputs": 0,
+    "unread_edges": [
+      [
+        0,
+        7
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        12
+      ]
+    ],
+    "dirty_AND_gates": [
+      20
+    ],
+    "counterexample_candidate": false
+  },
+  {
+    "kind": "improvement",
+    "active_gates": 29,
+    "and_gates": 8,
+    "or_gates": 21,
+    "inputs_verified": 16384,
+    "wrong_inputs": 0,
+    "unread_edges": [
+      [
+        0,
+        7
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        1,
+        8
+      ],
+      [
+        1,
+        12
+      ]
+    ],
+    "dirty_AND_gates": [
+      20
+    ],
+    "counterexample_candidate": false
+  },
+  {
+    "kind": "improvement",
+    "active_gates": 28,
+    "and_gates": 8,
+    "or_gates": 20,
+    "inputs_verified": 16384,
+    "wrong_inputs": 0,
+    "unread_edges": [
+      [
+        3,
+        10
+      ],
+      [
+        4,
+        10
+      ],
+      [
+        6,
+        10
+      ]
+    ],
+    "dirty_AND_gates": [
+      0
+    ],
+    "counterexample_candidate": false
+  },
+  {
+    "kind": "improvement",
+    "active_gates": 27,
+    "and_gates": 7,
+    "or_gates": 20,
+    "inputs_verified": 16384,
+    "wrong_inputs": 0,
+    "unread_edges": [],
+    "dirty_AND_gates": [],
+    "counterexample_candidate": false
+  },
+  {
+    "kind": "final",
+    "active_gates": 27,
+    "and_gates": 7,
+    "or_gates": 20,
+    "inputs_verified": 16384,
+    "wrong_inputs": 0,
+    "unread_edges": [],
+    "dirty_AND_gates": [],
+    "counterexample_candidate": false
+  }
+]

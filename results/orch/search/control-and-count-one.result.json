@@ -1,0 +1,38 @@
+{
+  "graph": "cycle",
+  "n": 2,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      0
+    ]
+  ],
+  "gates": 1,
+  "tests": 5,
+  "variables": 34,
+  "clauses": 106,
+  "seconds": 0.010495145000277262,
+  "returncode": 10,
+  "status": "SAT",
+  "ordered": false,
+  "edge_stabilizer": false,
+  "propagate": true,
+  "min_ands": 1,
+  "circuit": [
+    [
+      0,
+      0,
+      1
+    ]
+  ],
+  "dirty": [],
+  "fixed_edge": [
+    0,
+    1
+  ],
+  "fixed_edge_read1": true
+}

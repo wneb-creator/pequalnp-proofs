@@ -1,0 +1,19 @@
+{
+  "file": "results/orch/lemmas/extremal_tests.lean",
+  "theorem": "PEqualNP.Outside.L_meta_2583.ExtremalTests.eq_of_extremal_tests",
+  "result": "Lean compilation passed with exit0 and empty stdout/stderr.",
+  "command": [
+    "/tmp/oec/pequalnp-pilot-94/toolchain/toolchains/leanprover--lean4---v4.36.0/bin/lake",
+    "env",
+    "/tmp/oec/pequalnp-pilot-94/toolchain/toolchains/leanprover--lean4---v4.36.0/bin/lean",
+    "/workspace/pequalnp-proofs/results/orch/lemmas/extremal_tests.lean"
+  ],
+  "workdir": "/workspace/pequalnp-proofs/lean",
+  "stdout": "",
+  "stderr": "",
+  "scope": "Generic finite-order extremal-test sufficiency. Fano boundary enumeration and circuit monotonicity are not instantiated here.",
+  "source_sha256": "5d41d60a8593e1a41161307307fdd818f21e717cb35d42738da0ab3b4bf86669",
+  "independent_reviewer": "root",
+  "review_result": "Proof and source reviewed; helper changed from theorem to lemma; independent compile and permitted-axiom audit passed",
+  "reviewed_at": "2026-11-25T14:59:18.045982+00:00"
+}

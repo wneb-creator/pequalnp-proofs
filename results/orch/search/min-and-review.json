@@ -1,0 +1,7 @@
+{
+  "reviewer": "pilot94_status",
+  "source_sha256": "8882561c53555213b7f672f9b633f4088c4db5e42443f8fe501c5abacb453c39",
+  "verdict": "Source cardinality constraints correct; controls SAT, UNSAT, SAT verified",
+  "premise": "Fano AND count at least7 from existing L_meta_634 and L_meta_910; formal SAT normalization remains unproved",
+  "reviewed_at": "2026-11-25T14:56:35.997054+00:00"
+}

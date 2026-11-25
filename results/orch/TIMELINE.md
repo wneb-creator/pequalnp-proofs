@@ -33,3 +33,7 @@
 2026-11-25T14:48:27.027033+00:00: independently reviewed reproducible CGP and research archive checkpoint; full target still unproved.
 
 2026-11-25T14:54:24.393602+00:00: concrete Fano geometry and exact READ1 minimum integrated;3168-line named partial builds. No full proof/refutation.
+
+2026-11-25T14:56:35.997054+00:00: independent weighted/normalized CGP and dual-model controls archived; both active SAT searches continue.
+
+2026-11-25T14:59:18.045982+00:00: extremal-test sufficiency integrated and reviewed;3207-line named partial builds. Full target remains unproved.

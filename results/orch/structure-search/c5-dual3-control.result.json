@@ -1,0 +1,47 @@
+{
+  "graph": "cycle5",
+  "dual": true,
+  "n": 5,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      0
+    ]
+  ],
+  "and_gates": 3,
+  "positive_tests": [
+    11,
+    13,
+    21,
+    22,
+    26
+  ],
+  "negative_tests": [
+    7,
+    14,
+    19,
+    25,
+    28
+  ],
+  "variables": 204,
+  "clauses": 635,
+  "returncode": 20,
+  "seconds": 0.009260762999474537,
+  "status": "UNSAT"
+}

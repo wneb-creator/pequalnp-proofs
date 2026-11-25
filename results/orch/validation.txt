@@ -1,17 +1,17 @@
 pequalnp-pilot-94 — checked partial checkpoints
 
 Current held step: L-meta-2583. Earlier L-meta-1904 lease returned HTTP410; its partials remain archived.
-Current named file: lean/PEqualNP/Outside/L_meta_2583.lean (3168 lines).
+Current named file: lean/PEqualNP/Outside/L_meta_2583.lean (3207 lines).
 Build: lake build PEqualNP.Outside.L_meta_2583
 Result: Build completed successfully (6669 jobs).
 Checked components: incidence prime implicants; point regularity; no four-cycle; line intersections; incidence nonemptiness.
 Auxiliary plane_upper.lean (648 lines): explicit AO2 READ1 circuit of size+1=N*(q+2), and conditional replacement from an unrestricted lower bound.
 Independent source/axiom audits pass, with only propext, Classical.choice, Quot.sound.
 The posted theorem is not proved. Guard refuses the absent final theorem, as expected. No full checker acceptance claimed; no proof PR opened.
-Cleanup line counts:3168/3168 for named file; full-proof cleanup not started.
+Cleanup line counts:3207/3207 for named file; full-proof cleanup not started.
 Prior L-meta-1904 named partial:315 lines, build and axiom audits passed.
 Sub-agents: 7 (status/setup/review, structure, counterexample search, lemmas, research, C4-free theory, nested-AND theory)
-TIMING total=70 subagents=7
+TIMING total=75 subagents=7
 
 Full local checker limitation: CheckLemma imports all Mathlib; smoke test fails at missing Batteries.olean. Thousands of further pinned Mathlib modules are not cached, with only about426MiB disk free. Named-file builds and direct axiom audits succeed. No full checker acceptance claimed.
 
@@ -27,3 +27,7 @@ Padding checkpoint: append preserves AO2 under valid operand bounds, increases s
 CGP archive independently rebuilt/replayed:480s,3,997,351,680 mutations,1,999 restarts,best27,no26witness. The28intermediate has a redundant equal-input AND; no minimality claim. The3128-line partial passes forbidden-text scans, while source guard correctly refuses because it contains no final theorem. Full check-lean was not run: it would build missing Mathlib dependencies from source, which this job prohibits.
 
 Concrete Fano checkpoint: kernel-checked seven line cards and unique point-pair incidence exactlymatch the search; READ1 minimum is27. The ≤26 replacement obstruction has an explicit small-circuit premise; no such correct circuit has been found. Independent source/axiom review passes and named3168-line build succeeds.
+
+Weighted CGP480.014s:3,900,573,440 mutations,best27total/20OR,no counterexample. Signature-normalized CGP source and virtual-constant controls independently rebuilt/replayed, prepared for next run. Free-OR/dual encoder controls independently verified; K4-incidence search ongoing. New minimum-AND7 SAT constraint independently reviewed and controls passed.
+
+Extremal-test helper independently reviewed and kernel checked, then integrated: a monotone Bool function on a finite partial order is determined by target minimal-positive and maximal-negative inputs. Fano boundary enumeration is not formally instantiated. Named3207-line partial builds successfully.

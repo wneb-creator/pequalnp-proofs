@@ -1,0 +1,48 @@
+{
+  "workdir": "/workspace/pequalnp-proofs",
+  "compile": [
+    "g++",
+    "-O3",
+    "-std=c++17",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp_normalized.cpp",
+    "-o",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp_normalized"
+  ],
+  "ordinary_controls": [
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp_normalized",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-sls.input",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-dirty29-sls.input",
+    "0",
+    "794",
+    "42",
+    "1"
+  ],
+  "virtual_controls": [
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp_normalized",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-virtual-zero.input",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-virtual-one.input",
+    "0",
+    "794",
+    "42",
+    "1"
+  ],
+  "verify_ordinary": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/verify_cgp_output.py",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-sls-meta.json",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/cgp-normalized-controls.stdout"
+  ],
+  "verify_virtual": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/verify_cgp_output.py",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-sls-meta.json",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/cgp-virtual-controls.stdout"
+  ],
+  "regenerate_virtual": [
+    "python3",
+    "results/orch/search/make_virtual_seeds.py",
+    "results/orch/search/fano-sls.input",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/virtual-reproduced"
+  ],
+  "status": "Compiled; ordinary and virtual-constant controls passed full validation. Timed normalized search has not begun."
+}

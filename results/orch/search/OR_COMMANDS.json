@@ -1,0 +1,46 @@
+{
+  "workdir": "/workspace/pequalnp-proofs",
+  "compile": [
+    "g++",
+    "-O3",
+    "-std=c++17",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp_or_objective.cpp",
+    "-o",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp_or_objective"
+  ],
+  "controls": [
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp_or_objective",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-sls.input",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-dirty29-sls.input",
+    "0",
+    "794",
+    "42",
+    "1"
+  ],
+  "search": [
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/circuit_cgp_or_objective",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-sls.input",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-dirty29-sls.input",
+    "480",
+    "994",
+    "42",
+    "0"
+  ],
+  "verify": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/verify_cgp_output.py",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-sls-meta.json",
+    "/tmp/oec/pequalnp-pilot-94/plane-counterexample/fano-cgp-or.stdout"
+  ],
+  "started_utc": "2026-11-25 14:44:34",
+  "finished_utc": "2026-11-25 14:52:34",
+  "result": {
+    "seconds": 480.014,
+    "active_gates": 27,
+    "and_gates": 7,
+    "or_gates": 20,
+    "iterations": 3900573440,
+    "restarts": 1951
+  },
+  "status": "Completed without counterexample or a circuit with at most19 OR gates. This heuristic search proves no lower bound."
+}

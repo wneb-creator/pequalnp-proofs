@@ -1,0 +1,35 @@
+{
+  "review": "PASS",
+  "results": [
+    {
+      "graph": "fano",
+      "dual": false,
+      "and_gates": 7,
+      "status": "SAT",
+      "returncode": 10,
+      "binary_size": 27,
+      "binary_and_count": 7,
+      "binary_or_count": 20,
+      "verified_assignments": 16384
+    },
+    {
+      "graph": "cycle5",
+      "dual": true,
+      "and_gates": 3,
+      "status": "UNSAT",
+      "returncode": 20
+    },
+    {
+      "graph": "cycle5",
+      "dual": true,
+      "and_gates": 4,
+      "status": "SAT",
+      "returncode": 10,
+      "binary_size": 9,
+      "binary_and_count": 5,
+      "binary_or_count": 4,
+      "verified_assignments": 32
+    }
+  ],
+  "limits": "UNSAT is the SAT solver verdict, not a Lean certificate; intended singleton-rejecting scope enforced in source."
+}

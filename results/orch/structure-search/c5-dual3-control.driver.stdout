@@ -1,0 +1,1 @@
+{"graph": "cycle5", "dual": true, "n": 5, "and_gates": 3, "variables": 204, "clauses": 635, "returncode": 20, "seconds": 0.009260762999474537, "status": "UNSAT"}

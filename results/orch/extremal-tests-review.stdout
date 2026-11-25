@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_meta_2583.ExtremalTests.eq_of_extremal_tests' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

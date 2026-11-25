@@ -1,0 +1,24 @@
+[
+  {
+    "kind": "control_honest",
+    "active_gates": 27,
+    "and_gates": 7,
+    "or_gates": 20,
+    "inputs_verified": 16384,
+    "wrong_inputs": 0,
+    "unread_edges": [],
+    "dirty_AND_gates": [],
+    "counterexample_candidate": false
+  },
+  {
+    "kind": "control_dirty",
+    "active_gates": 27,
+    "and_gates": 7,
+    "or_gates": 20,
+    "inputs_verified": 16384,
+    "wrong_inputs": 0,
+    "unread_edges": [],
+    "dirty_AND_gates": [],
+    "counterexample_candidate": false
+  }
+]

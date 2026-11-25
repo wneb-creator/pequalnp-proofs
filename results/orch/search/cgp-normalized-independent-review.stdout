@@ -1,0 +1,633 @@
+{
+  "status": "PASS",
+  "minimum_gates": 27,
+  "records": [
+    {
+      "source": "cgp-or-objective-controls.stdout",
+      "kind": "control_honest",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "cgp-or-objective-controls.stdout",
+      "kind": "control_dirty",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        19
+      ]
+    },
+    {
+      "source": "fano-cgp-or.stdout",
+      "kind": "control_honest",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "fano-cgp-or.stdout",
+      "kind": "control_dirty",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        15
+      ]
+    },
+    {
+      "source": "fano-cgp-or.stdout",
+      "kind": "improvement",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        26
+      ]
+    },
+    {
+      "source": "fano-cgp-or.stdout",
+      "kind": "improvement",
+      "size": 28,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "fano-cgp-or.stdout",
+      "kind": "improvement",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "fano-cgp-or.stdout",
+      "kind": "final",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "cgp-normalized-controls.stdout",
+      "kind": "control_honest",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "cgp-normalized-controls.stdout",
+      "kind": "control_dirty",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        19
+      ]
+    },
+    {
+      "source": "cgp-virtual-controls.stdout",
+      "kind": "control_honest",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "cgp-virtual-controls.stdout",
+      "kind": "control_dirty",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "normalization_check",
+      "kind": "control_honest",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "normalization_check",
+      "kind": "control_honest",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "normalization_check",
+      "kind": "control_dirty",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        20
+      ]
+    },
+    {
+      "source": "normalization_check",
+      "kind": "control_dirty",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        20
+      ]
+    },
+    {
+      "source": "normalization_check",
+      "kind": "improvement",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        20
+      ]
+    },
+    {
+      "source": "normalization_check",
+      "kind": "improvement",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        20
+      ]
+    },
+    {
+      "source": "normalization_check",
+      "kind": "improvement",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "normalization_check",
+      "kind": "improvement",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "normalization_check",
+      "kind": "improvement",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "normalization_check",
+      "kind": "improvement",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "normalization_check",
+      "kind": "final",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "normalization_check",
+      "kind": "final",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "normalization_check",
+      "kind": "control_honest",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "normalization_check",
+      "kind": "control_honest",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "normalization_check",
+      "kind": "control_dirty",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        15
+      ]
+    },
+    {
+      "source": "normalization_check",
+      "kind": "control_dirty",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        15
+      ]
+    },
+    {
+      "source": "normalization_check",
+      "kind": "improvement",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        26
+      ]
+    },
+    {
+      "source": "normalization_check",
+      "kind": "improvement",
+      "size": 29,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          0,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "dirty_AND_gates": [
+        26
+      ]
+    },
+    {
+      "source": "normalization_check",
+      "kind": "improvement",
+      "size": 28,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "normalization_check",
+      "kind": "improvement",
+      "size": 28,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "normalization_check",
+      "kind": "improvement",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "normalization_check",
+      "kind": "improvement",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "normalization_check",
+      "kind": "final",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    },
+    {
+      "source": "normalization_check",
+      "kind": "final",
+      "size": 27,
+      "inputs_verified": 16384,
+      "wrong_inputs": 0,
+      "unread_edges": [],
+      "dirty_AND_gates": []
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+# Weighted and normalized Fano search
+
+The completed weighted run minimized 4 times the reachable OR count plus the reachable AND count while preserving the exact target function. Any function-correct candidate with at most 26 gates was checked before accepting or rejecting it by fitness. It also recorded any new OR minimum below 20 and any 27-gate circuit with a missing READ1 proof. Neither event occurred. Exact commands and completion statistics are in OR_COMMANDS.json.
+
+verify_cgp_output.py independently validates Fano plane axioms, every emitted circuit on all 16,384 inputs, operation counts, and joint READ1 proofs for all 21 incidence pairs. normalize_cgp_output.py additionally eliminates equal operands, merges commutative duplicate gates, applies direct absorption, and optionally aliases equal 58-vector signatures. Every normalized logged circuit was fully rechecked; the minimum remained 27 gates.
+
+The prepared circuit_cgp_normalized.cpp variant additionally uses signature normalization in its fitness and immediate witness detection. It aliases equal 58-bit signatures and propagates virtual constant signatures before emitting a circuit; no constant gates are emitted. All emitted circuits receive an internal complete truth-table check, followed by the independent Python verifier. Known 27/29 controls pass, and specially constructed 30/41-gate virtual-constant controls both reduce to 27. This variant has not yet begun its timed search.
