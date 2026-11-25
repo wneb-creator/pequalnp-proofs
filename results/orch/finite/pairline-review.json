@@ -1,0 +1,47 @@
+{
+  "points": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    9,
+    10
+  ],
+  "omitted_points": [
+    5,
+    6,
+    7,
+    8,
+    11,
+    12
+  ],
+  "positive_incident_pairs": 28,
+  "projected_rows": 468,
+  "undominated_projected_rows": 243,
+  "maximal_row_shapes": {
+    "(0, 4)": 18,
+    "(1, 4)": 81,
+    "(2, 4)": 108,
+    "(3, 4)": 27,
+    "(4, 3)": 9
+  },
+  "line_neighborhood_sizes": [
+    4,
+    4,
+    2,
+    2,
+    2,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    1,
+    2
+  ],
+  "collinear_point_triples": 8,
+  "baseline_residual_gates": 34,
+  "boundary_gates_including_join": 30
+}

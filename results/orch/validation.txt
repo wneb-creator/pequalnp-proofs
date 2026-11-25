@@ -1,8 +1,17 @@
-L-meta-2625 reduction R_meta_2625_50
-Named module build: exit0; Build completed successfully (5147 jobs).
-Local checker: exit0; ACCEPTED (reduce): PEqualNP.Outside.R_meta_2625_50
-Guard: exit0; imports allowed: PEqualNP.Defs
-Initial source lines:60. Cleanup pending.
-Compiler remapping partial: lake env lean exit0; SHA256 4061359d12b1fd06ecbc98cac9f0f968b042bea35c9f1bac43c30d74ecbd7ae5
-Sub-agents:6 (rules/toolchain, reduction design, construction, finite checks, independent math review, compiler proof)
-TIMING total=9.2 subagents=6
+Gap: L-meta-2625 (assigned as a reduction-only task)
+Final file: lean/PEqualNP/Outside/R_meta_2625_50.lean
+Named module build: exit 0; Build completed successfully (5147 jobs).
+Local checker: exit 0; ACCEPTED (reduce): PEqualNP.Outside.R_meta_2625_50
+Axioms: propext, Quot.sound, Classical.choice.
+Format/import guard: exit 0; imports allowed: PEqualNP.Defs.
+Cleanup: 60 lines before, 58 after; final build and checker passed again.
+Forbidden text scan: no matches (_root_, double quotes, or attributes).
+Exact assembly hypothesis: Compiler.lean, 234 lines, lake env lean exit 0, no diagnostics.
+34-gate baseline: Core34.lean, 61 lines, lake env lean exit 0, no diagnostics.
+No 33-gate witness or refutation was found.
+Independent review: reduction, full assembly theorem, and baseline passed.
+Desk null assignment count: 0.
+Sub-agents: 6 (rules/toolchain, reduction design, construction, finite checks, independent mathematical review, compiler proof)
+TIMING total=19.0 subagents=6
+Compiler.lean SHA256 a63899b8a95105b5a9e5147e32b3f744294055faed7c38892cc0ec6e952ec713
+Core34.lean SHA256 126cd419eb8fa90e127d5bb31d3c62a225972c3dfd87cd5fce9c02b5ddd16003
