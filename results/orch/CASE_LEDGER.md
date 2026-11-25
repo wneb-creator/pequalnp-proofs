@@ -22,4 +22,4 @@ Updated 2026-11-25 11:27 UTC. All sets use the accepted edgeList labeling; point
 
 Additional cross-case result: if all seven line-neighborhood masks occur, the new false-wire surplus argument forces every point to be ineligible at27 gates and hence rules out double quiet. The standalone build and independent composition review passed.
 
-Integration: a conditional exact-statement bridge passed cached compilation and independent review; its standalone build is underway. It uses ordinary minimality only to justify direct StrictLive conversion of the actual witness, preserving its traces; arbitrary competitors may be normalized for the ordinary lower bound. Relabeling and canonicalization are explicit.
+Integration: a conditional exact-statement bridge passed standalone compilation and independent review. It uses ordinary minimality only to justify direct StrictLive conversion of the actual witness, preserving its traces; arbitrary competitors may be normalized for the ordinary lower bound. Relabeling and canonicalization are explicit.

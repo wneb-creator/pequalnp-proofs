@@ -1,0 +1,1 @@
+{"verdict": "PASS", "cases": 160, "scope": "Threshold roots with enforce=False, including zero and impossible thresholds; intended complete auxiliary assignments checked"}

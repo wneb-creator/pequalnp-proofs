@@ -1,0 +1,34 @@
+{
+  "verdict": "PASS (independent mathematical/source review; exact frozen standalone build exit0)",
+  "reviewed_utc": "2026-11-25T11:35:37.270416+00:00",
+  "source": "results/orch/lemmas/formalization-posted-bridge-tail.lean",
+  "sha256": "bccb7584151b38f216b07c2cdab44da33dcecc0c54cc9385988d167b398291e6",
+  "checks": [
+    "Posted1479 and both final negated conclusions match the complete desk statement exactly modulo whitespace.",
+    "The cyclic label permutation fixes points and negates line labels, maps every posted incidence to the accepted graph and is involutive.",
+    "Ordinary normalization applies only to competitors in cyclic_lb_27. The actual witness is shown minimal from the accepted ordinary lower bound and then converted through directDag with original wire indices and both traces preserved.",
+    "The d trace uses base point p and seed line l; the e trace uses base line l and seed point p. All four input equations match the posted statement.",
+    "Relabeling pulls traces back through the inverse input permutation and leaves output wires fixed, preserving both quiet outputs.",
+    "Canonicalization handles the empty ineligible set explicitly and otherwise transports the independent set, endpoints, adjacency and traces by an actual graph automorphism.",
+    "Both final refutation lemmas retain an explicit universal no-double-quiet premise; this is conditional plumbing and does not claim the missing structural result.",
+    "The standalone source ends with the exact reviewed frozen tail and has matching successful build receipt; no new Lean process was launched for review."
+  ],
+  "issues": [],
+  "limits": [
+    "Both final conclusions remain conditional on an explicit universal no-double-quiet hypothesis."
+  ],
+  "build": {
+    "source": "results/orch/lemmas/formalization-posted-bridge-standalone.lean",
+    "source_sha256": "6f104d87501947ac8d0cbdb6753976a4e595ab0149c59d8c93f841fc23cb5f8a",
+    "lines": 9955,
+    "bytes": 502345,
+    "exit_code": 0,
+    "completed_utc": "2026-11-25T11:35:14.488577+00:00",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "scope": "Conditional exact posted-statement refutation bridge. Missing universal or canonical StrictLive no-double-quiet theorem remains an explicit hypothesis.",
+    "stdout": "results/orch/lemmas/formalization-posted-bridge-standalone.stdout",
+    "stderr": "results/orch/lemmas/formalization-posted-bridge-standalone.stderr"
+  }
+}

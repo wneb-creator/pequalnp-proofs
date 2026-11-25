@@ -1,0 +1,14 @@
+{
+  "source": "results/orch/lemmas/formalization-posted-bridge-standalone.lean",
+  "source_sha256": "6f104d87501947ac8d0cbdb6753976a4e595ab0149c59d8c93f841fc23cb5f8a",
+  "lines": 9955,
+  "bytes": 502345,
+  "exit_code": 0,
+  "completed_utc": "2026-11-25T11:35:14.488577+00:00",
+  "imports": [
+    "PEqualNP.Defs"
+  ],
+  "scope": "Conditional exact posted-statement refutation bridge. Missing universal or canonical StrictLive no-double-quiet theorem remains an explicit hypothesis.",
+  "stdout": "results/orch/lemmas/formalization-posted-bridge-standalone.stdout",
+  "stderr": "results/orch/lemmas/formalization-posted-bridge-standalone.stderr"
+}

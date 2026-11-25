@@ -66,3 +66,5 @@ Root must renew before long runs and every ten minutes, preserve all compiled pr
 - Public snapshot generated11:21:13UTC still lists L-meta-1479 and L-meta-1480 as conjectures.
 
 The all-mask combination now has a successful standalone build and independent composition review. P14 structural restrictions also have a successful standalone build. The one-sided p9 case is reduced in the active proof work to a finite residual-support predicate; its certificate and actual-circuit transfer are still being checked. The exact posted-to-canonical bridge has a reviewed cached build, with standalone recheck pending.
+
+The exact posted-to-canonical bridge now has a successful standalone build and independent review. Its missing structural theorem remains an explicit hypothesis. A shorter direct dead-gate/trim transport is being developed to avoid the ordinary lower-bound dependency. The reviewed p14 ordinary-feasibility SAT worker is scheduled to take the stochastic slot after11:37:50, while the broad quiet27 solver continues.

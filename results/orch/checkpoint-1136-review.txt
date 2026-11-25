@@ -1,0 +1,13 @@
+Independent preservation review by stochastic_search
+UTC: 2026-11-25T11:36:57.805246+00:00
+Verdict: PASS, push-ready for archival partial preservation.
+
+Reviewed all27 exact paths in checkpoint-1136-files.json, totaling3489918 bytes. Every current hash and byte count matches, and all paths stay within results/orch/. No main proof or unrelated repository change is selected. Selected files were not modified.
+
+The9955-line/502345-byte standalone exact-statement bridge matches its exit0 receipt and independent review hashes, including the frozen644-line tail. The metadata and documentation consistently retain the missing structural no-double-quiet theorem as an explicit hypothesis. Exact statement/trace transport is not represented as an unconditional refutation. CASE_LEDGER's status-only update from cached/pending to standalone/passed is supported by the receipt. Checker remains REJECTED(no-theorem), and the full target remains open.
+
+The p14 SAT metadata distinguishes two controls correctly: exact35-gate Fano validates413289 clauses and generic eligibility; the synthetic matching27 control validates5866 equality and11464 eligibility clauses and is explicitly not a Fano witness. Neither control supplies a target27 SAT/UNSAT conclusion. The independent review records the same frozen encoder hash and scopes. Mathematical arguments and SAT clauses already independently audited were not re-reviewed here.
+
+Sensitive-data scans, including decompressed gzip content, found no common GitHub/API credential, private-key marker, credential-bearing URL userinfo or literal Authorization value. No credential values were printed or copied.
+
+No blocking findings. This approves preservation on the designated fork branch, not submission of an incomplete proof PR.
