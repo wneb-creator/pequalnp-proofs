@@ -1,0 +1,16 @@
+{
+  "utc": "2026-11-25T17:10:11.782879+00:00",
+  "source": "results/orch9248/lemmas/RUPHarness.lean",
+  "sha256": "8f5f89f7f1abd53fd77eef5c439a8e68780c9308c58a6381ce0542a8529e1cee",
+  "bytes": 5302,
+  "lines": 137,
+  "author_reported_check_exit": 0,
+  "author_reported_export_exit": 0,
+  "independent_review": "PASS; no rebuild",
+  "accepted_generic_base": "L_meta_9477 exact replay-through-verify_sound text",
+  "empty_logs": [
+    "results/orch9248/rup-harness-checked.stdout",
+    "results/orch9248/rup-harness-checked.stderr"
+  ],
+  "complete_posted_goal": false
+}

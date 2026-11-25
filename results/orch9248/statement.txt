@@ -1,0 +1,1 @@
+¬ (∃ ρ : List (PEqualNP.ProofComplexity.Clause (Fin (4 + 1) × Fin 4)), PEqualNP.Search.IsRUPRun (PEqualNP.ProofComplexity.PHP (4 + 1) 4) ρ ∧ (∅ : PEqualNP.ProofComplexity.Clause (Fin (4 + 1) × Fin 4)) ∈ ρ ∧ ρ.length ≤ 12)

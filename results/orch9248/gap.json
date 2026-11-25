@@ -1,0 +1,39 @@
+{
+  "gap": {
+    "id": "L-meta-9248",
+    "title": "No run of clause learning by unit propagation refutes the pigeonhole formula with 4 holes and one more pigeon learning at most 12 clauses",
+    "statement": "\u00ac (\u2203 \u03c1 : List (PEqualNP.ProofComplexity.Clause (Fin (4 + 1) \u00d7 Fin 4)), PEqualNP.Search.IsRUPRun (PEqualNP.ProofComplexity.PHP (4 + 1) 4) \u03c1 \u2227 (\u2205 : PEqualNP.ProofComplexity.Clause (Fin (4 + 1) \u00d7 Fin 4)) \u2208 \u03c1 \u2227 \u03c1.length \u2264 12)",
+    "file": "lean/PEqualNP/Outside/L_meta_9248.lean",
+    "module": "PEqualNP.Outside.L_meta_9248",
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "unlocks": "one exact outcome of a proof-search procedure on a small pigeonhole formula: the smallest cases of running proof search exactly",
+    "context": "SKETCH: truth not known to us; the opposite row is offered beside it. Proved by exhibiting the run: the stated procedure's steps on this formula, within the stated bound, checked step by step by evaluation. Our own run met the bound by one more step than this row allows (computed, not checked). Size: minutes if such a run exists. No sorry, no new axiom. Own namespace for every declaration.",
+    "dead": [],
+    "weight": 50,
+    "parallel": 3,
+    "lane": "main",
+    "depth": 0,
+    "sketch": "truth not known to us; the opposite row is offered beside it. Proved by exhibiting the run: the stated procedure's steps on this formula, within the stated bound, checked step by step by evaluation. Our own run met the bound by one more step than this row allows (computed, not checked). Size: minutes if such a run exists.",
+    "pr_open": 0,
+    "pr_numbers": [],
+    "answer_known": false,
+    "level": "open"
+  },
+  "lease": {
+    "id": "9dc943a3-73cd-4318-8eee-47ddbcce228c",
+    "expires_at": "2026-11-25T17:27:31.622Z",
+    "renew": "POST /desk/beat?lease=9dc943a3-73cd-4318-8eee-47ddbcce228c",
+    "beat": "Renew every 5 minutes (POST the renew link). A 410 means stop: the step was withdrawn or proved.",
+    "release": "POST /desk/release?lease=9dc943a3-73cd-4318-8eee-47ddbcce228c&reason=<submitted|hypothesis_too_weak|missing_lemma|statement_seems_false|does_not_elaborate|exhausted|rechecked|recheck_failed|reduced|out_of_time|other>",
+    "terms": {
+      "kind": "prove",
+      "level": "open",
+      "points": 724,
+      "reductions_open": false,
+      "issued_at": "2026-11-25T17:07:31.622Z"
+    }
+  },
+  "rule": "Never change a file that is already on main. Every proof is a NEW file; a recorded proof is final."
+}
