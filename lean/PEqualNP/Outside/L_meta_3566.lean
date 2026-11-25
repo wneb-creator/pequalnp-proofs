@@ -4702,3 +4702,205 @@ lemma erase_alias_family_with_junk (n : ℕ) (G : SimpleGraph (Fin n))
   exact ⟨D, hD, hfun, hsize, by omega⟩
 
 end PEqualNP.Outside.L_meta_3566.Absorption
+
+namespace PEqualNP.Outside.L_meta_3566.GateWeight
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.EdgeOwnership PEqualNP.TopForm
+open scoped BigOperators
+
+lemma sum_add_discarded_le_of_gate_embedding {n : ℕ} (C D : Circuit)
+    (f : Fin D.size → Fin C.size) (hf : Function.Injective f)
+    (hOp : ∀ i, (gateAt D i.val).op = (gateAt C (f i).val).op)
+    (hVal : ∀ i x, gateVal n D i.val x = gateVal n C (f i).val x)
+    (J : Finset ℕ) (hAvoid : ∀ i, (f i).val ∉ J)
+    (W : GateOp → ((Fin n → Bool) → Bool) → ℕ) :
+    (∑ i : Fin D.size, W (gateAt D i.val).op (gateVal n D i.val)) +
+      (∑ j : Fin C.size with j.val ∈ J,
+        W (gateAt C j.val).op (gateVal n C j.val)) ≤
+      ∑ k : Fin C.size, W (gateAt C k.val).op (gateVal n C k.val) := by
+  classical
+  let w : Fin C.size → ℕ := fun k => W (gateAt C k.val).op (gateVal n C k.val)
+  let I : Finset (Fin C.size) := Finset.univ.image f
+  let K : Finset (Fin C.size) := Finset.univ.filter fun k => k.val ∈ J
+  have hweight (i : Fin D.size) : W (gateAt D i.val).op (gateVal n D i.val) = w (f i) := by
+    have hv : gateVal n D i.val = gateVal n C (f i).val := funext (hVal i)
+    dsimp [w]
+    rw [hOp i, hv]
+  have hsum : (∑ i : Fin D.size, W (gateAt D i.val).op (gateVal n D i.val)) =
+      ∑ k ∈ I, w k := by
+    simp only [hweight]
+    exact (Finset.sum_image fun i _ j _ h => hf h).symm
+  have hd : Disjoint I K := by
+    apply Finset.disjoint_left.mpr
+    intro k hk hK
+    obtain ⟨i, _, rfl⟩ := Finset.mem_image.mp hk
+    exact hAvoid i (Finset.mem_filter.mp hK).2
+  rw [hsum]
+  change (∑ k ∈ I, w k) + (∑ k ∈ K, w k) ≤ ∑ k : Fin C.size, w k
+  rw [← Finset.sum_union hd]
+  exact Finset.sum_le_sum_of_subset (Finset.subset_univ _)
+
+lemma sum_le_of_gate_embedding {n : ℕ} (C D : Circuit)
+    (f : Fin D.size → Fin C.size) (hf : Function.Injective f)
+    (hOp : ∀ i, (gateAt D i.val).op = (gateAt C (f i).val).op)
+    (hVal : ∀ i x, gateVal n D i.val x = gateVal n C (f i).val x)
+    (W : GateOp → ((Fin n → Bool) → Bool) → ℕ) :
+    (∑ i : Fin D.size, W (gateAt D i.val).op (gateVal n D i.val)) ≤
+      ∑ k : Fin C.size, W (gateAt C k.val).op (gateVal n C k.val) := by
+  simpa using sum_add_discarded_le_of_gate_embedding C D f hf hOp hVal ∅ (by simp) W
+
+end PEqualNP.Outside.L_meta_3566.GateWeight
+
+namespace PEqualNP.Outside.L_meta_3566.Absorption
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+  PEqualNP.TopForm PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge
+open PEqualNP.Outside.L_meta_3566.LeafStep.Pruning
+
+lemma erase_alias_family_with_embedding (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (J : Finset ℕ) (hJ : J ⊆ Finset.range C.size) (s : ℕ)
+    (hs : ∀ j ∈ J, s < n + j)
+    (heq : ∀ j ∈ J, ∀ x : Fin n → Bool,
+      wireVal n C (n + j) x = wireVal n C s x) :
+    ∃ D : Circuit, IsAO2 n D ∧ circuitFun n D = circuitFun n C ∧
+      D.size + J.card ≤ C.size ∧
+      ∃ f : Fin D.size → Fin C.size, Function.Injective f ∧
+        (∀ i, (f i).val ∉ J) ∧
+        (∀ i, (gateAt D i.val).op = (gateAt C (f i).val).op) ∧
+        ∀ i x, gateVal n D i.val x = gateVal n C (f i).val x := by
+  classical
+  by_cases ho : C.output < n + C.size
+  · let K := Finset.range C.size \ J
+    let red : ℕ → Src n ℕ := fun w =>
+      if n ≤ w ∧ w - n ∈ J then srcOf n s else srcOf n w
+    let P : Prog n ℕ := progOf C fun i b => red (opnd C i b)
+    let v : ℕ → (Fin n → Bool) → Bool := fun i x => gateVal n C i x
+    have hmem (i : ℕ) (hi : i < C.size) (b : Fin 2) :
+        opnd C i b ∈ (gateAt C i).inputs := by
+      have hg : gateAt C i ∈ C.gates :=
+        FalseRestrict.list_getD_mem C.gates i _ hi
+      have hlen := hC.2.2 _ hg
+      obtain ⟨a, d, h⟩ := List.length_eq_two.mp hlen
+      fin_cases b <;> simp [opnd, h]
+    have hred (w j : ℕ) (hw : w < n + C.size)
+        (h : red w = some (Sum.inr j)) : j ∈ K := by
+      dsimp [red] at h
+      split_ifs at h with hcase
+      · have hj := srcOf_inr s j h
+        have hsj := hs (w - n) hcase.2
+        have hwj : w - n < C.size := Finset.mem_range.mp (hJ hcase.2)
+        apply Finset.mem_sdiff.mpr
+        refine ⟨Finset.mem_range.mpr (by omega), ?_⟩
+        intro hjJ
+        have hlt := hs j hjJ
+        omega
+      · have hj := srcOf_inr w j h
+        apply Finset.mem_sdiff.mpr
+        refine ⟨Finset.mem_range.mpr (by omega), ?_⟩
+        intro hjJ
+        apply hcase
+        refine ⟨by omega, ?_⟩
+        have hsub : w - n = j := by omega
+        simpa only [hsub] using hjJ
+    have hcl : Closed P id K := by
+      intro i hi b j h
+      have hi' : i < C.size := Finset.mem_range.mp (Finset.mem_sdiff.mp hi).1
+      have hb := hC.2.1 i hi' (opnd C i b) (hmem i hi' b)
+      change red (opnd C i b) = some (Sum.inr j) at h
+      refine ⟨hred _ j (by omega) h, ?_⟩
+      dsimp [red] at h
+      split_ifs at h with hcase
+      · have hj := srcOf_inr s j h
+        have hsj := hs (opnd C i b - n) hcase.2
+        change j < i
+        omega
+      · have hj := srcOf_inr (opnd C i b) j h
+        change j < i
+        omega
+    have hval (w : ℕ) (x : Fin n → Bool) :
+        srcAt x (fun j => v j x) (red w) = wireVal n C w x := by
+      dsimp [red, v]
+      split_ifs with hcase
+      · rw [srcAt_srcOf]
+        have hw : n + (w - n) = w := by omega
+        simpa only [hw] using (heq (w - n) hcase.2 x).symm
+      · exact srcAt_srcOf C w x
+    have hsol : Sol P K v := by
+      intro x i hi
+      have hi' : i < C.size := Finset.mem_range.mp (Finset.mem_sdiff.mp hi).1
+      change gateVal n C i x = opv (isA (gateAt C i).op)
+        (srcAt x (fun j => v j x) (red (opnd C i 0)))
+        (srcAt x (fun j => v j x) (red (opnd C i 1)))
+      rw [hval, hval]
+      exact gate_eq C hC i hi' x
+    have hout : ∀ j, red C.output = some (Sum.inr j) → j ∈ K :=
+      fun j h => hred C.output j ho h
+    obtain ⟨D, hD, hsize, hfun, htrace⟩ :=
+      fold_total_with_trace P id v K hcl hsol (red C.output) hout
+    have hcard : K.card + J.card = C.size := by
+      simpa [K] using Finset.card_sdiff_add_card_eq_card hJ
+    have hkept : (kept P v K).card ≤ K.card := Finset.card_filter_le _ _
+    obtain ⟨f, hf, hfK, hfOp, hfVal⟩ := htrace
+    let e : Fin D.size → Fin C.size := fun i =>
+      ⟨f i, Finset.mem_range.mp (Finset.mem_sdiff.mp (hfK i)).1⟩
+    have he : Function.Injective e := by
+      intro i l hil
+      exact hf (congrArg Fin.val hil)
+    have heOp (i : Fin D.size) : (gateAt D i.val).op = (gateAt C (e i).val).op := by
+      have hop := hfOp i
+      change (gateAt D i.val).op =
+        if isA (gateAt C (f i)).op then GateOp.and else GateOp.or at hop
+      rw [hop]
+      have hi : f i < C.size := (e i).isLt
+      have hiMem : gateAt C (f i) ∈ C.gates :=
+        FalseRestrict.list_getD_mem C.gates (f i) _ hi
+      rcases hC.1 _ hiMem with ha | ho
+      · simp [e, ha, isA]
+      · simp [e, ho, isA]
+    have heVal (i : Fin D.size) (x : Fin n → Bool) :
+        gateVal n D i.val x = gateVal n C (e i).val x := hfVal i x
+    have hAvoid (i : Fin D.size) : (e i).val ∉ J :=
+      (Finset.mem_sdiff.mp (hfK i)).2
+    refine ⟨D, hD, ?_, by omega, e, he, hAvoid, heOp, heVal⟩
+    funext x
+    rw [hfun x, hval]
+    rfl
+  · refine ⟨⟨[], n⟩, zero_ao n, ?_, ?_, ?_⟩
+    · funext x
+      rw [zero_fun]
+      have hlen : (C.wires (List.ofFn x)).length = n + C.size := by
+        rw [SharedRewrite.wires_eq_foldl, SharedRewrite.foldl_stepWire_length]
+        simp [Circuit.size]
+      change false = (C.wires (List.ofFn x)).getD C.output false
+      rw [List.getD_eq_default _ _ (by omega)]
+    · have hcard := Finset.card_le_card hJ
+      simpa [Circuit.size] using hcard
+    · refine ⟨Fin.elim0, ?_, ?_, ?_, ?_⟩ <;> intro i <;> exact Fin.elim0 i
+
+end PEqualNP.Outside.L_meta_3566.Absorption
+
+namespace PEqualNP.Outside.L_meta_3566.Absorption
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+  PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge
+open scoped BigOperators
+
+lemma erase_alias_family_with_weights (n : ℕ) (C : Circuit) (hC : IsAO2 n C)
+    (J : Finset ℕ) (hJ : J ⊆ Finset.range C.size) (s : ℕ)
+    (hs : ∀ j ∈ J, s < n + j)
+    (heq : ∀ j ∈ J, ∀ x : Fin n → Bool,
+      wireVal n C (n + j) x = wireVal n C s x) :
+    ∃ D : Circuit, IsAO2 n D ∧ circuitFun n D = circuitFun n C ∧
+      D.size + J.card ≤ C.size ∧
+      ∀ W : GateOp → ((Fin n → Bool) → Bool) → ℕ,
+        (∑ i : Fin D.size, W (gateAt D i.val).op (gateVal n D i.val)) +
+          (∑ j : Fin C.size with j.val ∈ J,
+            W (gateAt C j.val).op (gateVal n C j.val)) ≤
+          ∑ k : Fin C.size, W (gateAt C k.val).op (gateVal n C k.val) := by
+  obtain ⟨D, hD, hFun, hSize, f, hf, hAvoid, hOp, hVal⟩ :=
+    erase_alias_family_with_embedding n C hC J hJ s hs heq
+  exact ⟨D, hD, hFun, hSize,
+    fun W => GateWeight.sum_add_discarded_le_of_gate_embedding C D f hf hOp hVal J hAvoid W⟩
+
+end PEqualNP.Outside.L_meta_3566.Absorption
