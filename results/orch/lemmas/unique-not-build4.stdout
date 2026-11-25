@@ -1,0 +1,13 @@
+/tmp/oec/pequalnp-pilot-152/gap-1884/unique-not-work.lean:15:12: warning: This simp argument is unused:
+  List.countP_cons
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [h]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-152/gap-1884/unique-not-work.lean:60:8: warning: Unused tactic linter: `change (C.gates.get k).op.eval [false] = true` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-152/gap-1884/unique-not-work.lean:61:8: warning: Unused tactic linter: `change (C.gates.get j).op.eval [false] = true` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
