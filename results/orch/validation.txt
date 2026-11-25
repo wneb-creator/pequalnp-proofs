@@ -168,3 +168,10 @@ Sym3MatrixBridge.lean: SHA256 af2443d8790f7cf2e404167ae4ce37293b11cfd65bd77df384
 Scope: dependent-triple normalization, surjective row-chart construction, and conditional Sym3 actual-matrix bridge. The posted target remains unresolved; target checker not run.
 Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
 TIMING total=170.1 subagents=7
+
+2026-11-25T11:31:38.094665+00:00 Additional checked, independently reviewed local theorems.
+Sym3ZeroRowDependent.lean: SHA256 e52d94517d5d199d0df2c498f33d31ff67d684e657d2b3765ab3e58403956376; exit0 in146.42s; full log lemmas/geometry-sym3zerorowdependent-lean.log; independent review lemmas/sym3-zero-row-independent-review.log.
+FourDirectionCover.lean: SHA256 3f0e92e7e5ab0cdbb8df60abe9299e6ab16b3326b262e16aceab3292fc1f7c6c; exit0 in3.01s; full log lemmas/four-direction-cover-lean-v2.log; independent review lemmas/four-direction-cover-independent-review.log.
+The same-zero-row proportionality theorem now has every coordinate/certificate assumption discharged. FourDirectionCover exhausts projective configurations but keeps obstruction hypotheses. Full target remains unresolved; local target checker not run.
+Sub-agents: construction_algebra, construction_search, geometry_route, three_plane_search, rules_review, lean_setup, fresh_geometry (7 distinct).
+TIMING total=175.9 subagents=7

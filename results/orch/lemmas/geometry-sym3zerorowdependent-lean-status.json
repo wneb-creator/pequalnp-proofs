@@ -1,0 +1,17 @@
+{
+  "source": "/workspace/pequalnp-proofs/results/orch/lemmas/Sym3ZeroRowDependent.lean",
+  "sha256": "e52d94517d5d199d0df2c498f33d31ff67d684e657d2b3765ab3e58403956376",
+  "started_utc": "2026-11-25T11:23:58.303430+00:00",
+  "limits": {
+    "lean_memory_mib": 10000,
+    "process_tree_rss_gib": 4,
+    "cpu_seconds": 180,
+    "wall_seconds": 300
+  },
+  "pid": 29714,
+  "peak_rss_bytes": 863440896,
+  "exit_code": 0,
+  "seconds": 146.41885025600095,
+  "finished_utc": "2026-11-25T11:26:24.720681+00:00",
+  "source_sha256_after": "e52d94517d5d199d0df2c498f33d31ff67d684e657d2b3765ab3e58403956376"
+}
