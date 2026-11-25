@@ -67,3 +67,5 @@
 2026-11-25T04:31:06.186101+00:00 Checked six-gate P4 control and explicit unverified bridge drafts preserved. Full-plane 12-gate repair ended UNKNOWN at1800 seconds; archive review pending.
 
 2026-11-25T04:31:28.913604+00:00 Broad12-gate repair final UNKNOWN archive independently reviewed and preserved. Full and chunked P4 clause bridge remain active; no posted-statement proof or refutation.
+
+2026-11-25T04:34:17.784841+00:00 Desk HTTP410 recovery: old renewal timer stopped, all checked results pushed, next request returned null. Corrected local P4 bridge check continues; four-minute desk polling resumes.

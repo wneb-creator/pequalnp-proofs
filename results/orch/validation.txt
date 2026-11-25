@@ -77,3 +77,6 @@ P4SixWitness.lean: lake env lean passed, exit0;58 lines, empty output. Actual si
 Pending full/chunked P4 clause bridge and NoFive composition sources are preserved as explicitly UNVERIFIED drafts, with incomplete snapshot logs. Their compilation status is RUNNING/NOT_STARTED, not PASS. Independent review covers archive integrity/scope only.
 
 Broad12-gate repair archive: UNKNOWN after1800-second solver limit, no candidate/no UNSAT. All756 boundary rows and both derivative constraints included;30,583variables/1,224,855clauses. Complete CNF/stdout/stderr compressed losslessly. Independent reviewer regenerated the entire CNF byte-for-byte and verified all source/seed/solver/artifact hashes.
+
+Desk renewal unexpectedly returned HTTP410 although the preceding renewal promised expiry04:47UTC. Required curl-si diagnostic retained in scratch; renewal timer stopped. Recovery request returned gapnull with no new lease. All checked results were pushed before recovery. No release was sent for another pilot.
+P4 recovery archive preserves the failed chunked assembly and stopped monolithic attempt, plus corrected unverified retry sources; independently reviewed for archive integrity only.

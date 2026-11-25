@@ -1,0 +1,7 @@
+# P4 bridge recovery snapshot
+
+This is a frozen recovery snapshot requested after the desk returned HTTP410 to the parent agent. It contains the exact corrected chunked bridge currently being compiled, the uncompiled final composition draft, and complete output from the first failed chunked build and the terminated monolithic build. **The corrected bridge and composition are still unverified; no theorem result is claimed here.**
+
+The first chunked build reported only final aggregation errors: each chunk supplied `trivial` where the empty-list universally quantified tail was required, and the final conjunction associated differently. The retry uses `by simp` for those tails and normalizes the final conjunction with `and_assoc`. No clause-level elaboration error was reported, but the failed file exported no trusted theorem result. The monolithic attempt shared the faulty tail and was deliberately terminated; its exact original source is preserved in the earlier p4_bridge_pending archive, and its complete empty diagnostic output and termination record are retained here.
+
+The corrected build remains active in scratch and its current log is explicitly a snapshot. Full final output will be preserved separately on completion. The pending NoFive draft now imports the corrected chunked module. Even if both eventually pass, the result will concern exact-five typed P4 circuits with distinct earlier operands and output wire8, not the eight-input double-star or the leased plane gap.
