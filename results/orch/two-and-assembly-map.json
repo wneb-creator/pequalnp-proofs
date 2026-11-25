@@ -1,0 +1,100 @@
+{
+  "source_bytes": 376638,
+  "source_sha256": "c74bd69129237388a77bda176728dad78f13ff3a502f3f98c66075dbc5b8caec",
+  "base_bytes": 353344,
+  "added_bytes": 23294,
+  "pieces": [
+    {
+      "kind": "base",
+      "source": "results/orch/lemmas/TwoAndAssemblyBase.lean",
+      "bytes": 353344,
+      "sha256": "8c4c7d99c9079fb7fe118236e2cd7f9f248273a82071a29e349a62ddf81bb85f",
+      "output_start": 0,
+      "output_end": 353344
+    },
+    {
+      "kind": "append",
+      "source": "results/orch/lemmas/FreeBankExtraction.lean",
+      "source_bytes": 8491,
+      "source_sha256": "7aa500427f2c9bd37fdd1b790a2f07529f2d3c0c02c105bbddb74e5d08eb5d15",
+      "appended_bytes": 2379,
+      "appended_sha256": "2aae3e0f899930bfacd34dce0d23d0b56e177033980210d9b73b8110e8b06de9",
+      "output_start": 353344,
+      "output_end": 355723,
+      "mode": "new helpers only",
+      "source_start_character": 5950,
+      "omitted": "Checked Count/PositiveTail helper copies; resolve original same-file Live1024 private gate_rep/pull_gate"
+    },
+    {
+      "kind": "append",
+      "source": "results/orch/lemmas/TwoZeroInfluence.lean",
+      "source_bytes": 1378,
+      "source_sha256": "53646a74fa9026943cd16e90f597d8c75239dddaf5e029ffd48d0fefb75ff74d",
+      "appended_bytes": 1345,
+      "appended_sha256": "1b60b850e447575450cd1cab9dd9492923a6955385166093fbae3e1abba811a9",
+      "output_start": 355723,
+      "output_end": 357068,
+      "mode": "strip import lines only"
+    },
+    {
+      "kind": "append",
+      "source": "results/orch/lemmas/TwoAndBank.lean",
+      "source_bytes": 4745,
+      "source_sha256": "07f1bfd45bf8d1e1cb1b0d0270113dabbdca500ce65d0b3dfcc6faba2274bca8",
+      "appended_bytes": 4686,
+      "appended_sha256": "51428f13eef6aa2d85165ef86c63dd58c026f8259a25958b47fe6a530ee49781",
+      "output_start": 357068,
+      "output_end": 361754,
+      "mode": "strip import lines only"
+    },
+    {
+      "kind": "append",
+      "source": "results/orch/lemmas/TwoAndBankLower.lean",
+      "source_bytes": 4081,
+      "source_sha256": "a7bd3098b69a17e454200d26abdcd923da95f4d76d235b58ea3b82c011001a20",
+      "appended_bytes": 4039,
+      "appended_sha256": "67129aa59d815d24dfe0e2208063062712b43ddbcb3ecac22bf398fb85054633",
+      "output_start": 361754,
+      "output_end": 365793,
+      "mode": "strip import lines only"
+    },
+    {
+      "kind": "append",
+      "source": "results/orch/lemmas/FreeSegments.lean",
+      "source_bytes": 2861,
+      "source_sha256": "7943a4d09c6fb2dbfe356c93eb4a1e88e2750ae672ca21405953e9806c9c94d2",
+      "appended_bytes": 2835,
+      "appended_sha256": "76b30de5e6fca88aacec29350b24954347fdc39867e65d4222d3c016bc46baa1",
+      "output_start": 365793,
+      "output_end": 368628,
+      "mode": "strip import lines only"
+    },
+    {
+      "kind": "append",
+      "source": "results/orch/lemmas/TwoAndOrdinary.lean",
+      "source_bytes": 8053,
+      "source_sha256": "01f51fac820146c82c78bc37b81ebfb48037eeda648aee7e68e9060d125fa240",
+      "appended_bytes": 8010,
+      "appended_sha256": "75559c6f2dad690c9a0db6d807cec060d013616ff42c2bf204713a9381c18a9b",
+      "output_start": 368628,
+      "output_end": 376638,
+      "mode": "strip import lines only"
+    }
+  ],
+  "format_scan": {
+    "imports": [
+      "PEqualNP.Defs"
+    ],
+    "forbidden_substring": false,
+    "quotes": false,
+    "new_datatype_declarations": false,
+    "attributes": []
+  },
+  "scope": "Adds restricted twoNOT helper/circuit lower only; required gap theorem still absent.",
+  "compiler_exit_code": 0,
+  "warning_diagnostics": 140,
+  "raw_compiler_log_sha256": "a2bf7b7e534c4c039d9f17658f6093d5ef71b5ea9328177f0d1945c0d6466756",
+  "archived_compiler_log_sha256": "f9cd4bdbeae733a630574801d51549a7cd6a897f7e0af28cc61b5a669c9da2a3",
+  "compile_log_archive_suffix": "\\nCompiler exit code: 0\\n",
+  "warning_count_rule": "140 file:line:column: warning: diagnostics; 61 additional hint lines mention the word warning, yielding 201 substring occurrences."
+}

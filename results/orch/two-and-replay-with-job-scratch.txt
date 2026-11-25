@@ -1,0 +1,2 @@
+{"source_bytes": 376638, "source_sha256": "c74bd69129237388a77bda176728dad78f13ff3a502f3f98c66075dbc5b8caec", "base_bytes": 353344, "added_bytes": 23294, "scope": "Adds restricted twoNOT helper/circuit lower only; required gap theorem still absent."}
+Exact archived source replay verified

@@ -1,0 +1,7 @@
+Independent integrity/scope review: PASS
+UTC: 2026-11-25T16:22:28.184355+00:00
+Reviewer: /root/counterexample
+
+Verified all28 manifest sizes/SHA256 entries; exact source hash87fe191b1270850fdb7bdeb0eee553959d0cb16dc4ddf789aa75a218948c5e26 and exact parameter-only diff against previously reviewed focused.py; Python syntax parses. All20 trial records have exact-one-NOT,45second and1000000conflict limits. Aggregate results are1localUNSAT,19UNKNOWN,0SAT/candidates, matching summary and full stdout/stderr. Known20gate positivecontrol is logged SAT on1024rows; process exit0 and897.407second summary are consistent. No solver rerun.
+
+README accurately describes local fixed-neighborhood scope, possible mandatory-neighbor enlargement, unchanged encoder/default/bypass semantics and full truth-table candidate validation. No global or Lean-certified UNSAT conclusion is claimed. The single localUNSAT is not a proof of the posted gap; unknown trials are explicitly unresolved. Prepared helper sources remain in the parent archivedsearch directory.

@@ -1,0 +1,50 @@
+{
+  "status": "PASS",
+  "source_sha256": "c74bd69129237388a77bda176728dad78f13ff3a502f3f98c66075dbc5b8caec",
+  "source_bytes": 376638,
+  "lines": 8179,
+  "base_unchanged_from_active_target": true,
+  "ingredients": [
+    {
+      "module": "FreeBankExtraction",
+      "source_sha256": "7aa500427f2c9bd37fdd1b790a2f07529f2d3c0c02c105bbddb74e5d08eb5d15",
+      "appended_bytes": 2379
+    },
+    {
+      "module": "TwoZeroInfluence",
+      "source_sha256": "53646a74fa9026943cd16e90f597d8c75239dddaf5e029ffd48d0fefb75ff74d",
+      "appended_bytes": 1345
+    },
+    {
+      "module": "TwoAndBank",
+      "source_sha256": "07f1bfd45bf8d1e1cb1b0d0270113dabbdca500ce65d0b3dfcc6faba2274bca8",
+      "appended_bytes": 4686
+    },
+    {
+      "module": "TwoAndBankLower",
+      "source_sha256": "a7bd3098b69a17e454200d26abdcd923da95f4d76d235b58ea3b82c011001a20",
+      "appended_bytes": 4039
+    },
+    {
+      "module": "FreeSegments",
+      "source_sha256": "7943a4d09c6fb2dbfe356c93eb4a1e88e2750ae672ca21405953e9806c9c94d2",
+      "appended_bytes": 2835
+    },
+    {
+      "module": "TwoAndOrdinary",
+      "source_sha256": "01f51fac820146c82c78bc37b81ebfb48037eeda648aee7e68e9060d125fa240",
+      "appended_bytes": 8010
+    }
+  ],
+  "reused_private_helpers_byte_identical": [
+    "Live1024.gate_rep",
+    "Live1024.pull_gate"
+  ],
+  "warnings": 140,
+  "compiler_exit_code": 0,
+  "archive_log_sha256": "f9cd4bdbeae733a630574801d51549a7cd6a897f7e0af28cc61b5a669c9da2a3",
+  "raw_log_sha256": "a2bf7b7e534c4c039d9f17658f6093d5ef71b5ea9328177f0d1945c0d6466756",
+  "sole_import": "PEqualNP.Defs",
+  "new_datatypes_or_forbidden_constructs": false,
+  "scope": "Restricted two-NOT partial; posted full gap theorem absent."
+}

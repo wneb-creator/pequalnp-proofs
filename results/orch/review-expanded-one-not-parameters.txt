@@ -1,0 +1,7 @@
+Parameter-only independent review: PASS
+UTC: 2026-11-25T16:00:09.000757+00:00
+Reviewer: /root/counterexample
+Base SHA256: 26f75be957201d0d8ca866885a75af476065a0579feac8f2c4e20fd7b4604e51
+Expanded SHA256: 87fe191b1270850fdb7bdeb0eee553959d0cb16dc4ddf789aa75a218948c5e26
+
+Verified exact source diff against the previously reviewed focused.py, and parsed Python syntax. Changes only output directory,20trial cap,900second global cap,45second pertrial cap,1000000conflicts perround, and8/10/12/14base neighborhood sizes with the existing adjacency expansion. Actual relax sets may exceed those base sizes because required parent/child neighbors are retained. Encoder, exactly-one-NOT constraint, ordering/bypass semantics, fixed20gate positivecontrol and full1024-row witness validation are unchanged. At most20trials and all unknown/UNSAT scopes remain local; no global lower-bound conclusion follows. This was a read-only parameter review, with no solver execution.

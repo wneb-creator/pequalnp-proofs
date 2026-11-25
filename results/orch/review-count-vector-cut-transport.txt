@@ -1,0 +1,9 @@
+PASS: independent immutable review of CountVectorCutTransport.lean
+Reviewed 2026-11-25 UTC by lean_setup.
+SHA256 476fab45481696e17bab76f7ef6e3b53d076f2d27000dd7197d6e8eb1beb062e;3525 bytes. Entire source, full compiler log, and CountVectorTransport dependencies read. Author reports EXIT0; full log has one unused section-instance warning and no errors. No additional build launched.
+
+compress_cut_transport and duplicate_cut_transport preserve BudgetRunCut between different original label types when both the full-root class counts and removed-support class counts agree. The proof embeds original classes through Sum.inl and tags the inserted arbitrary truth value v as the separate Sum.inr false class. count_compress/count_duplicate then give identical residual counts plus exactly one or two new occurrences; the unused inr true class has count zero. This remains valid when v equals an original signal, because class equality is a sufficient finer partition, not an assumed injective encoding of truth values. The actual raw functions are definitionally the original signal on inl labels and v on both Bool copy labels.
+
+budgetRunCut_transport obtains a permutation from equal class counts, so actual root-list multiplicities and lengths are preserved. That transfers both Run and the precise n+1<=card+depth budget without a hidden loss. No finite-class assumption, distinct-signature assumption, or equality of the source/target label types is required. The explicit subset hypotheses justify subtraction in residual counts.
+
+No axioms/sorry/native_decide/bv_decide, forbidden _root_ text, strings, new datatypes/instances, attributes or options. Sum is an existing library type; the extra tagging functions are local lets. This is a generic transport helper and claims no concrete cut or posted gap result. The cached import belongs to archived modular work and must be assembled appropriately for a final PR.

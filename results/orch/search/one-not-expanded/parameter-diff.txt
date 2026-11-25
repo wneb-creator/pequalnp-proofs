@@ -1,0 +1,46 @@
+--- reviewed-focused.py
++++ expanded.py
+@@ -1,6 +1,6 @@
+ import ctypes,itertools,json,random,runpy,time
+ from pathlib import Path
+-ROOT=Path('/tmp/oec/pequalnp-pilot-87/counterexample');OUT=ROOT/'one-not-local'
++ROOT=Path('/tmp/oec/pequalnp-pilot-87/counterexample');OUT=Path('/tmp/oec/pequalnp-pilot-87/root-expanded-one-not')
+ core=runpy.run_path(str(ROOT/'synth.py'));target=core['target'];evaluate=core['evaluate']
+ old=runpy.run_path(str(ROOT/'local_sat.py'));seed=old['seed'];lib=old['lib'];CB=old['CB']
+ end=0
+@@ -75,16 +75,16 @@
+  sl=solver();c.load(sl);end=time.monotonic()+10;control=lib.sat_solve(sl);lib.sat_release(sl)
+  print(json.dumps({'positive_control':control,'rows':1024,'elapsed':time.monotonic()-start}),flush=True);assert control==10
+  counts={0:0,10:0,20:0};trials=[]
+- for t in range(100):
+-  if time.monotonic()-start>=480:break
++ for t in range(20):
++  if time.monotonic()-start>=900:break
+   if t%8==0:gs=seed(rng)
+   d=(t//2)%19
+   neighbors={d}
+   parents={a-11 for a in gs[d][1:] if a>=11};children={i for i,g in enumerate(gs) if d+11 in g[1:]}
+   neighbors|=parents|children
+-  # Small overlapping topological neighborhoods, never the old unrestricted lane.
++  # Larger overlapping topological neighborhoods; gates outside remain fixed.
+   candidates=list(set(range(20))-neighbors);rng.shuffle(candidates)
+-  size=[3,4,5,6][t%4]
++  size=[8,10,12,14][t%4]
+   relax=neighbors|set(candidates[:max(0,size-len(neighbors))])
+   if t%4==3:
+    for i in list(children):relax.update(j for j,g in enumerate(gs) if i+11 in g[1:])
+@@ -95,11 +95,11 @@
+   for vs in list(c.typ.values())+list(c.left.values())+list(c.right.values()):
+    for v in vs:lib.sat_freeze(sl,v)
+   c.load(sl);trialstart=time.monotonic();rounds=[];outcome=0;witness=None
+-  meta={'trial':t,'seed':gs,'skip':d,'relax':sorted(relax),'exactly_one_not':True,'time_cap':25,'conflict_cap_per_round':200000}
++  meta={'trial':t,'seed':gs,'skip':d,'relax':sorted(relax),'exactly_one_not':True,'time_cap':45,'conflict_cap_per_round':1000000}
+   for it in range(12):
+-   remaining=min(start+480,trialstart+25)-time.monotonic()
++   remaining=min(start+900,trialstart+45)-time.monotonic()
+    if remaining<=0:break
+-   end=time.monotonic()+remaining;lib.sat_limit(sl,b'conflicts',200000)
++   end=time.monotonic()+remaining;lib.sat_limit(sl,b'conflicts',1000000)
+    tick=time.monotonic();result=lib.sat_solve(sl)
+    detail={'round':it,'result':result,'seconds':time.monotonic()-tick,'rows':len(c.rows),'variables':c.n,'clauses':len(c.cs)}
+    if result!=10:rounds.append(detail);outcome=result;break

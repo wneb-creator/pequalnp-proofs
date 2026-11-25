@@ -153,3 +153,5 @@
 - 2026-11-25T16:14:16.482762+00:00 counterexample: provenance binarybridge andbothcutextensions compiled; standardaxiomaudit passed.
 
 - 2026-11-25T16:18:33.309355+00:00: reviewed count/provenance adapters, actual leaf1099 and conditional finite parent table preserved; V3 weak continuation and exporter smoke archived; exact independent profile audit passed.
+
+- 2026-11-25T16:25:23.499172+00:00: sole-Defs TwoAndCombined candidate compiled EXIT0,376638bytes/8179lines; exact assembly independently reviewed and replayed. Archival push precedes named-target replacement/build. Fresh mono18 OR-edge computational case also completed in2.79seconds with29449visits; its full prooftrace is24.55MB and remains to be audited/converted.

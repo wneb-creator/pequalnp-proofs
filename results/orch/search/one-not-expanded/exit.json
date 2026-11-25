@@ -1,0 +1,12 @@
+{
+  "started_at": "2026-11-25T16:00:22.430295+00:00",
+  "cpu": 4,
+  "address_space_bytes": 1610612736,
+  "command": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-87/root-expanded-one-not/expanded.py"
+  ],
+  "exit_code": 0,
+  "wall_seconds": 897.5654045440006,
+  "finished_at": "2026-11-25T16:15:19.995766+00:00"
+}

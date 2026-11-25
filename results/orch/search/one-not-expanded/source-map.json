@@ -1,0 +1,38 @@
+{
+  "base_sha256": "26f75be957201d0d8ca866885a75af476065a0579feac8f2c4e20fd7b4604e51",
+  "expanded_sha256": "87fe191b1270850fdb7bdeb0eee553959d0cb16dc4ddf789aa75a218948c5e26",
+  "changes": [
+    [
+      "OUT=ROOT/'one-not-local'",
+      "OUT=Path('/tmp/oec/pequalnp-pilot-87/root-expanded-one-not')"
+    ],
+    [
+      "range(100):",
+      "range(20):"
+    ],
+    [
+      ">=480:",
+      ">=900:"
+    ],
+    [
+      "size=[3,4,5,6]",
+      "size=[8,10,12,14]"
+    ],
+    [
+      "'time_cap':25,'conflict_cap_per_round':200000",
+      "'time_cap':45,'conflict_cap_per_round':1000000"
+    ],
+    [
+      "min(start+480,trialstart+25)",
+      "min(start+900,trialstart+45)"
+    ],
+    [
+      "b'conflicts',200000",
+      "b'conflicts',1000000"
+    ],
+    [
+      "# Small overlapping topological neighborhoods, never the old unrestricted lane.",
+      "# Larger overlapping topological neighborhoods; gates outside remain fixed."
+    ]
+  ]
+}
