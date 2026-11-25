@@ -1,0 +1,12 @@
+L-meta-2592 research checkpoint
+
+Status: full posted statement remains unproved; no proof PR opened.
+Mathlib cache: 9117 files downloaded and decompressed successfully.
+PEqualNP.Defs build: passed (5147 jobs).
+Named partial file lake build: passed.
+Full-gap checker: not yet run; the partial file has helpers only, no theorem claiming the posted statement.
+Independent review: helper mathematics and forbidden-form audit passed; last-NOT helper Lean compilation passed.
+SAT positive control: checked20gate L_meta_587 witness accepted on all1024 rows. Search UNSAT would not yet be a Lean proof.
+
+Sub-agents:5 (rules and independent review, lower bounds, counterexample search, library search, formal symmetry/invariants)
+TIMING total=13 subagents=5
