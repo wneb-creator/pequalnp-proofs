@@ -6058,3 +6058,806 @@ lemma negativeAnds_eq_junk {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.A
     PEqualNP.CleanedNonEdge.IsDirty, Circuit.size, and_left_comm, and_comm]
 
 end PEqualNP.Outside.L_meta_3566.NegativeMetrics
+
+namespace PEqualNP.Outside.L_meta_3566.InPlaceAndReassociate
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.EdgeOwnership
+open PEqualNP.CleanedNonEdge
+open Pruning ANDRotationEvaluation AndRotation
+
+variable {n : ℕ}
+
+def newGate (n : ℕ) (C : Circuit) (q k A B R i : ℕ) : Gate :=
+  if i = q then ⟨GateOp.and, [A, R]⟩
+  else if i = k then ⟨GateOp.and, [n + q, B]⟩
+  else gateAt C i
+
+def reassoc (n : ℕ) (C : Circuit) (q k A B R : ℕ) : Circuit :=
+  ⟨List.ofFn (fun i : Fin C.size => newGate n C q k A B R i.val), C.output⟩
+
+lemma reassoc_size (C : Circuit) (q k A B R : ℕ) :
+    (reassoc n C q k A B R).size = C.size := by simp [reassoc, Circuit.size]
+
+lemma reassoc_gateAt (C : Circuit) (q k A B R i : ℕ) (hi : i < C.size) :
+    gateAt (reassoc n C q k A B R) i = newGate n C q k A B R i := by
+  simp [reassoc, gateAt, List.getD_eq_getElem?_getD, hi]
+
+lemma reassoc_ao (C : Circuit) (hao : IsAO2 n C) (q k A B R : ℕ)
+    (hqk : q < k) (_hk : k < C.size)
+    (hA : A < n + q) (hB : B < n + q) (hR : R < n + q) :
+    IsAO2 n (reassoc n C q k A B R) := by
+  have hOp (i : ℕ) (hi : i < C.size) :
+      (newGate n C q k A B R i).op = GateOp.and ∨
+      (newGate n C q k A B R i).op = GateOp.or := by
+    unfold newGate
+    split_ifs
+    · exact Or.inl rfl
+    · exact Or.inl rfl
+    · exact hao.1 _ (old_gate_mem C i hi)
+  have hLen (i : ℕ) (hi : i < C.size) :
+      (newGate n C q k A B R i).inputs.length = 2 := by
+    unfold newGate
+    split_ifs
+    · rfl
+    · rfl
+    · exact hao.2.2 _ (old_gate_mem C i hi)
+  have hBack (i : ℕ) (hi : i < C.size) (w : ℕ)
+      (hw : w ∈ (newGate n C q k A B R i).inputs) : w < n + i := by
+    unfold newGate at hw
+    split_ifs at hw with hiq hik
+    · simp only [List.mem_cons, List.not_mem_nil, or_false] at hw
+      rcases hw with rfl | rfl <;> omega
+    · simp only [List.mem_cons, List.not_mem_nil, or_false] at hw
+      rcases hw with rfl | rfl <;> omega
+    · exact hao.2.1 i hi w hw
+  refine ⟨?_, ?_, ?_⟩
+  · intro g hg
+    obtain ⟨i, rfl⟩ := List.mem_ofFn.mp hg
+    exact hOp i.val i.isLt
+  · intro i hi w hw
+    change i < (reassoc n C q k A B R).size at hi
+    rw [reassoc_size] at hi
+    change w ∈ (gateAt (reassoc n C q k A B R) i).inputs at hw
+    rw [reassoc_gateAt C q k A B R i hi] at hw
+    exact hBack i hi w hw
+  · intro g hg
+    obtain ⟨i, rfl⟩ := List.mem_ofFn.mp hg
+    exact hLen i.val i.isLt
+
+def model (C : Circuit) (q A R : ℕ) (x : Fin n → Bool) (w : ℕ) : Bool :=
+  if w = n + q then wireVal n C A x && wireVal n C R x else wireVal n C w x
+
+lemma model_eq_before (C : Circuit) (q A R : ℕ) (x : Fin n → Bool)
+    (w : ℕ) (hw : w < n + q) : model C q A R x w = wireVal n C w x := by
+  simp [model, Nat.ne_of_lt hw]
+
+lemma reassoc_model (C : Circuit) (hao : IsAO2 n C) (q k A B R : ℕ)
+    (hqk : q < k) (hk : k < C.size)
+    (hqop : (gateAt C q).op = GateOp.and)
+    (hqin : (gateAt C q).inputs = [A, B] ∨ (gateAt C q).inputs = [B, A])
+    (hkop : (gateAt C k).op = GateOp.and)
+    (hkin : (gateAt C k).inputs = [n + q, R] ∨ (gateAt C k).inputs = [R, n + q])
+    (hA : A < n + q) (hB : B < n + q) (hR : R < n + q)
+    (honly : ∀ i < C.size, i ≠ k → n + q ∉ (gateAt C i).inputs)
+    (x : Fin n → Bool) :
+    ∀ i < C.size, model C q A R x (n + i) =
+      (newGate n C q k A B R i).op.eval
+        ((newGate n C q k A B R i).inputs.map (model C q A R x)) := by
+  intro i hi
+  by_cases hiq : i = q
+  · subst i
+    simp [newGate, model, Nat.ne_of_lt hA, Nat.ne_of_lt hR, GateOp.eval]
+  by_cases hik : i = k
+  · subst i
+    have hqv := and_gate_value C hao q A B (by omega) hqop hqin x
+    have hkv := and_gate_value C hao k (n + q) R hk hkop hkin x
+    have hqwire : wireVal n C (n + q) x = (wireVal n C A x && wireVal n C B x) := hqv
+    have hkwire : wireVal n C (n + k) x =
+        ((wireVal n C A x && wireVal n C B x) && wireVal n C R x) := by
+      change gateVal n C k x = _
+      rw [hkv, hqwire]
+    simp [newGate, model, Nat.ne_of_gt hqk, Nat.ne_of_lt hB,
+      hkwire, GateOp.eval, Bool.and_assoc, Bool.and_comm, Bool.and_left_comm]
+  · rw [show model C q A R x (n + i) = gateVal n C i x by simp [model, hiq, wireVal, gateVal]]
+    rw [gate_eq_eval C hao i hi x]
+    simp only [newGate, hiq, hik, ite_false]
+    congr 1
+    apply List.map_congr_left
+    intro w hw
+    have hwq : w ≠ n + q := by intro he; exact honly i hi hik (he ▸ hw)
+    simp [model, hwq]
+
+lemma reassoc_wire_valid (C : Circuit) (hao : IsAO2 n C) (q k A B R : ℕ)
+    (hqk : q < k) (hk : k < C.size)
+    (hqop : (gateAt C q).op = GateOp.and)
+    (hqin : (gateAt C q).inputs = [A, B] ∨ (gateAt C q).inputs = [B, A])
+    (hkop : (gateAt C k).op = GateOp.and)
+    (hkin : (gateAt C k).inputs = [n + q, R] ∨ (gateAt C k).inputs = [R, n + q])
+    (hA : A < n + q) (hB : B < n + q) (hR : R < n + q)
+    (honly : ∀ i < C.size, i ≠ k → n + q ∉ (gateAt C i).inputs)
+    (x : Fin n → Bool) (w : ℕ) (hw : w < n + C.size) :
+    wireVal n (reassoc n C q k A B R) w x = model C q A R x w := by
+  have hnew := reassoc_ao C hao q k A B R hqk hk hA hB hR
+  apply wireVal_eq_of_solution (reassoc n C q k A B R) hnew x (model C q A R x)
+  · intro u
+    rw [model_eq_before C q A R x u.val (by have hu := u.isLt; omega)]
+    exact wireVal_lt C u.val u.isLt x
+  · intro i hi
+    rw [reassoc_size] at hi
+    rw [reassoc_gateAt C q k A B R i hi]
+    exact reassoc_model C hao q k A B R hqk hk hqop hqin hkop hkin hA hB hR honly x i hi
+  · simpa only [reassoc_size] using hw
+
+lemma wireVal_outside (C : Circuit) (x : Fin n → Bool) (w : ℕ)
+    (hw : n + C.size ≤ w) : wireVal n C w x = false := by
+  have hlen : (C.wires (List.ofFn x)).length = n + C.size := by
+    unfold Circuit.wires
+    rw [wires_length, List.length_ofFn]
+    rfl
+  change (C.wires (List.ofFn x)).getD w false = false
+  simp [List.getD_eq_getElem?_getD, List.getElem?_eq_none (by omega :
+    (C.wires (List.ofFn x)).length ≤ w)]
+
+lemma reassoc_wire (C : Circuit) (hao : IsAO2 n C) (q k A B R : ℕ)
+    (hqk : q < k) (hk : k < C.size)
+    (hqop : (gateAt C q).op = GateOp.and)
+    (hqin : (gateAt C q).inputs = [A, B] ∨ (gateAt C q).inputs = [B, A])
+    (hkop : (gateAt C k).op = GateOp.and)
+    (hkin : (gateAt C k).inputs = [n + q, R] ∨ (gateAt C k).inputs = [R, n + q])
+    (hA : A < n + q) (hB : B < n + q) (hR : R < n + q)
+    (honly : ∀ i < C.size, i ≠ k → n + q ∉ (gateAt C i).inputs)
+    (x : Fin n → Bool) (w : ℕ) :
+    wireVal n (reassoc n C q k A B R) w x =
+      if w = n + q then wireVal n C A x && wireVal n C R x else wireVal n C w x := by
+  by_cases hw : w < n + C.size
+  · exact reassoc_wire_valid C hao q k A B R hqk hk hqop hqin hkop hkin hA hB hR honly x w hw
+  · have hwq : w ≠ n + q := by omega
+    rw [ite_eq_right hwq, wireVal_outside C x w (by omega),
+      wireVal_outside (reassoc n C q k A B R) x w (by rw [reassoc_size]; omega)]
+
+lemma reassoc_fun (C : Circuit) (hao : IsAO2 n C) (q k A B R : ℕ)
+    (hqk : q < k) (hk : k < C.size)
+    (hqop : (gateAt C q).op = GateOp.and)
+    (hqin : (gateAt C q).inputs = [A, B] ∨ (gateAt C q).inputs = [B, A])
+    (hkop : (gateAt C k).op = GateOp.and)
+    (hkin : (gateAt C k).inputs = [n + q, R] ∨ (gateAt C k).inputs = [R, n + q])
+    (hA : A < n + q) (hB : B < n + q) (hR : R < n + q)
+    (honly : ∀ i < C.size, i ≠ k → n + q ∉ (gateAt C i).inputs)
+    (hout : C.output ≠ n + q) :
+    circuitFun n (reassoc n C q k A B R) = circuitFun n C := by
+  funext x
+  change wireVal n (reassoc n C q k A B R) C.output x = wireVal n C C.output x
+  rw [reassoc_wire C hao q k A B R hqk hk hqop hqin hkop hkin hA hB hR honly x C.output,
+    ite_eq_right hout]
+
+end PEqualNP.Outside.L_meta_3566.InPlaceAndReassociate
+
+namespace PEqualNP.Outside.L_meta_3566.InPlaceAndReassociate
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.EdgeOwnership
+open PEqualNP.CleanedNonEdge
+open Pruning AvailableProductExchange
+open scoped BigOperators
+
+variable {n : ℕ}
+
+lemma reassoc_gate_values (C : Circuit) (hao : IsAO2 n C) (q k A B R : ℕ)
+    (hqk : q < k) (hk : k < C.size)
+    (hqop : (gateAt C q).op = GateOp.and)
+    (hqin : (gateAt C q).inputs = [A, B] ∨ (gateAt C q).inputs = [B, A])
+    (hkop : (gateAt C k).op = GateOp.and)
+    (hkin : (gateAt C k).inputs = [n + q, R] ∨ (gateAt C k).inputs = [R, n + q])
+    (hA : A < n + q) (hB : B < n + q) (hR : R < n + q)
+    (honly : ∀ i < C.size, i ≠ k → n + q ∉ (gateAt C i).inputs)
+    (x : Fin n → Bool) (i : ℕ) :
+    gateVal n (reassoc n C q k A B R) i x =
+      if i = q then wireVal n C A x && wireVal n C R x else gateVal n C i x := by
+  have hh := reassoc_wire C hao q k A B R hqk hk hqop hqin hkop hkin hA hB hR honly x (n + i)
+  simpa only [gateVal, wireVal, Nat.add_left_cancel_iff] using hh
+
+lemma sum_replace_coordinate (S : Finset ℕ) (q : ℕ) (hq : q ∈ S) (f g : ℕ → ℕ)
+    (hsame : ∀ i ∈ S, i ≠ q → f i = g i) :
+    (∑ i ∈ S, f i) + g q = (∑ i ∈ S, g i) + f q := by
+  have hf := Finset.sum_erase_add S f hq
+  have hg := Finset.sum_erase_add S g hq
+  have hrest : (∑ i ∈ S.erase q, f i) = ∑ i ∈ S.erase q, g i := by
+    apply Finset.sum_congr rfl
+    intro i hi
+    obtain ⟨hiq, hiS⟩ := Finset.mem_erase.mp hi
+    exact hsame i hiS hiq
+  omega
+
+lemma reassoc_trueGateCount_balance (C : Circuit) (hao : IsAO2 n C) (q k A B R : ℕ)
+    (hqk : q < k) (hk : k < C.size)
+    (hqop : (gateAt C q).op = GateOp.and)
+    (hqin : (gateAt C q).inputs = [A, B] ∨ (gateAt C q).inputs = [B, A])
+    (hkop : (gateAt C k).op = GateOp.and)
+    (hkin : (gateAt C k).inputs = [n + q, R] ∨ (gateAt C k).inputs = [R, n + q])
+    (hA : A < n + q) (hB : B < n + q) (hR : R < n + q)
+    (honly : ∀ i < C.size, i ≠ k → n + q ∉ (gateAt C i).inputs)
+    (x : Fin n → Bool) :
+    trueGateCount n (reassoc n C q k A B R) x + FrontierWireCount.bit (gateVal n C q x) =
+      trueGateCount n C x + FrontierWireCount.bit (wireVal n C A x && wireVal n C R x) := by
+  have hprofile := reassoc_gate_values C hao q k A B R hqk hk hqop hqin hkop hkin hA hB hR honly x
+  have hbalance := sum_replace_coordinate (Finset.range C.size) q
+    (Finset.mem_range.mpr (by omega))
+    (fun i => FrontierWireCount.bit (gateVal n (reassoc n C q k A B R) i x))
+    (fun i => FrontierWireCount.bit (gateVal n C i x)) (by
+      intro i hi hiq
+      rw [hprofile i, ite_eq_right hiq])
+  rw [hprofile q, ite_eq_left rfl] at hbalance
+  simpa only [trueGateCount, reassoc_size, FrontierWireCount.bit] using hbalance
+
+lemma reassoc_wire_count_balance (C : Circuit) (hao : IsAO2 n C) (q k A B R : ℕ)
+    (hqk : q < k) (hk : k < C.size)
+    (hqop : (gateAt C q).op = GateOp.and)
+    (hqin : (gateAt C q).inputs = [A, B] ∨ (gateAt C q).inputs = [B, A])
+    (hkop : (gateAt C k).op = GateOp.and)
+    (hkin : (gateAt C k).inputs = [n + q, R] ∨ (gateAt C k).inputs = [R, n + q])
+    (hA : A < n + q) (hB : B < n + q) (hR : R < n + q)
+    (honly : ∀ i < C.size, i ≠ k → n + q ∉ (gateAt C i).inputs)
+    (x : Fin n → Bool) :
+    ((reassoc n C q k A B R).wires (List.ofFn x)).count true + FrontierWireCount.bit (gateVal n C q x) =
+      (C.wires (List.ofFn x)).count true + FrontierWireCount.bit (wireVal n C A x && wireVal n C R x) := by
+  have hh := reassoc_trueGateCount_balance C hao q k A B R hqk hk hqop hqin hkop hkin
+    hA hB hR honly x
+  rw [AvailableProductWireMass.wire_count, AvailableProductWireMass.wire_count]
+  omega
+
+end PEqualNP.Outside.L_meta_3566.InPlaceAndReassociate
+
+
+namespace PEqualNP.Outside.L_meta_3566.TwoRowReassociation
+
+def rowTrueCount (a b : Bool) : ℕ := (if a then 1 else 0) + (if b then 1 else 0)
+
+def selectedPair (chooseA a b r : Bool) : Bool := if chooseA then a && r else b && r
+
+lemma clean_two_rows_strict :
+    ∀ a0 b0 r0 a1 b1 r1 : Bool,
+      ((a0 && b0) && r0) = false → ((a1 && b1) && r1) = false →
+      (a0 && b0) = true ∨ (a1 && b1) = true →
+      ∃ chooseA : Bool,
+        selectedPair chooseA a0 b0 r0 = false ∧
+        selectedPair chooseA a1 b1 r1 = false ∧
+        rowTrueCount (selectedPair chooseA a0 b0 r0) (selectedPair chooseA a1 b1 r1) = 0 ∧
+        rowTrueCount (selectedPair chooseA a0 b0 r0) (selectedPair chooseA a1 b1 r1) <
+          rowTrueCount (a0 && b0) (a1 && b1) := by
+  decide
+
+end PEqualNP.Outside.L_meta_3566.TwoRowReassociation
+
+namespace PEqualNP.Outside.L_meta_3566.InPlaceAndReassociate
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.EdgeOwnership
+open PEqualNP.CleanedNonEdge
+open Pruning AvailableProductExchange
+
+variable {n : ℕ}
+
+lemma reassoc_op (C : Circuit) (q k A B R i : ℕ) (hi : i < C.size)
+    (hqop : (gateAt C q).op = GateOp.and) (hkop : (gateAt C k).op = GateOp.and) :
+    (gateAt (reassoc n C q k A B R) i).op = (gateAt C i).op := by
+  rw [reassoc_gateAt C q k A B R i hi]
+  unfold newGate
+  split_ifs with hiq hik
+  · subst i
+    exact hqop.symm
+  · subst i
+    exact hkop.symm
+  · rfl
+
+lemma reassoc_negativeAnds_subset (C : Circuit) (hao : IsAO2 n C)
+    (F : (Fin n → Bool) → Bool) (q k A B R : ℕ)
+    (hqk : q < k) (hk : k < C.size)
+    (hqop : (gateAt C q).op = GateOp.and)
+    (hqin : (gateAt C q).inputs = [A, B] ∨ (gateAt C q).inputs = [B, A])
+    (hkop : (gateAt C k).op = GateOp.and)
+    (hkin : (gateAt C k).inputs = [n + q, R] ∨ (gateAt C k).inputs = [R, n + q])
+    (hA : A < n + q) (hB : B < n + q) (hR : R < n + q)
+    (honly : ∀ i < C.size, i ≠ k → n + q ∉ (gateAt C i).inputs)
+    (hqdirty : q ∈ negativeAnds n C F) :
+    negativeAnds n (reassoc n C q k A B R) F ⊆ negativeAnds n C F := by
+  classical
+  intro i hi
+  by_cases hiq : i = q
+  · exact hiq ▸ hqdirty
+  obtain ⟨hiD, hop, x, hFx, hx⟩ := (mem_negativeAnds (reassoc n C q k A B R) F i).mp hi
+  have hiC : i < C.size := by simpa only [reassoc_size] using hiD
+  apply (mem_negativeAnds C F i).mpr
+  refine ⟨hiC, ?_, x, hFx, ?_⟩
+  · rw [← reassoc_op C q k A B R i hiC hqop hkop]
+    exact hop
+  · have he := reassoc_wire C hao q k A B R hqk hk hqop hqin hkop hkin hA hB hR honly x (n + i)
+    simp only [Nat.add_left_cancel_iff, hiq, ite_false] at he
+    change gateVal n (reassoc n C q k A B R) i x = gateVal n C i x at he
+    rw [← he]
+    exact hx
+
+lemma reassoc_negativeAnds_card_le (C : Circuit) (hao : IsAO2 n C)
+    (F : (Fin n → Bool) → Bool) (q k A B R : ℕ)
+    (hqk : q < k) (hk : k < C.size)
+    (hqop : (gateAt C q).op = GateOp.and)
+    (hqin : (gateAt C q).inputs = [A, B] ∨ (gateAt C q).inputs = [B, A])
+    (hkop : (gateAt C k).op = GateOp.and)
+    (hkin : (gateAt C k).inputs = [n + q, R] ∨ (gateAt C k).inputs = [R, n + q])
+    (hA : A < n + q) (hB : B < n + q) (hR : R < n + q)
+    (honly : ∀ i < C.size, i ≠ k → n + q ∉ (gateAt C i).inputs)
+    (hqdirty : q ∈ negativeAnds n C F) :
+    (negativeAnds n (reassoc n C q k A B R) F).card ≤ (negativeAnds n C F).card := by
+  exact Finset.card_le_card (reassoc_negativeAnds_subset C hao F q k A B R hqk hk hqop hqin
+    hkop hkin hA hB hR honly hqdirty)
+
+end PEqualNP.Outside.L_meta_3566.InPlaceAndReassociate
+
+namespace PEqualNP.Outside.L_meta_3566.InPlaceAndReassociate
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.EdgeOwnership
+open PEqualNP.CleanedNonEdge
+open Pruning AndRotation FrontierWireCount TwoRowReassociation AvailableProductExchange
+
+variable {n : ℕ}
+
+lemma reassoc_two_rows_strict (C : Circuit) (hao : IsAO2 n C) (q k A B R : ℕ)
+    (hqk : q < k) (hk : k < C.size)
+    (hqop : (gateAt C q).op = GateOp.and)
+    (hqin : (gateAt C q).inputs = [A, B] ∨ (gateAt C q).inputs = [B, A])
+    (hkop : (gateAt C k).op = GateOp.and)
+    (hkin : (gateAt C k).inputs = [n + q, R] ∨ (gateAt C k).inputs = [R, n + q])
+    (hA : A < n + q) (hB : B < n + q) (hR : R < n + q)
+    (honly : ∀ i < C.size, i ≠ k → n + q ∉ (gateAt C i).inputs)
+    (x y : Fin n → Bool)
+    (hxnew : (wireVal n C A x && wireVal n C R x) = false)
+    (hynew : (wireVal n C A y && wireVal n C R y) = false)
+    (hpositive : gateVal n C q x = true ∨ gateVal n C q y = true) :
+    ((reassoc n C q k A B R).wires (List.ofFn x)).count true +
+        ((reassoc n C q k A B R).wires (List.ofFn y)).count true <
+      (C.wires (List.ofFn x)).count true + (C.wires (List.ofFn y)).count true := by
+  have hx := reassoc_wire_count_balance C hao q k A B R hqk hk hqop hqin hkop hkin hA hB hR honly x
+  have hy := reassoc_wire_count_balance C hao q k A B R hqk hk hqop hqin hkop hkin hA hB hR honly y
+  have hzx : bit (wireVal n C A x && wireVal n C R x) = 0 := by rw [hxnew]; rfl
+  have hzy : bit (wireVal n C A y && wireVal n C R y) = 0 := by rw [hynew]; rfl
+  rw [hzx] at hx
+  rw [hzy] at hy
+  have hpos : 0 < bit (gateVal n C q x) + bit (gateVal n C q y) := by
+    cases hqx : gateVal n C q x <;> cases hqy : gateVal n C q y <;> simp_all [bit]
+  omega
+
+lemma exists_two_rows_strict (C : Circuit) (hao : IsAO2 n C) (q k A B R : ℕ)
+    (hqk : q < k) (hk : k < C.size)
+    (hqop : (gateAt C q).op = GateOp.and)
+    (hqin : (gateAt C q).inputs = [A, B] ∨ (gateAt C q).inputs = [B, A])
+    (hkop : (gateAt C k).op = GateOp.and)
+    (hkin : (gateAt C k).inputs = [n + q, R] ∨ (gateAt C k).inputs = [R, n + q])
+    (hA : A < n + q) (hB : B < n + q) (hR : R < n + q)
+    (honly : ∀ i < C.size, i ≠ k → n + q ∉ (gateAt C i).inputs)
+    (hout : C.output ≠ n + q) (x y : Fin n → Bool)
+    (hcleanx : gateVal n C k x = false) (hcleany : gateVal n C k y = false)
+    (hpositive : gateVal n C q x = true ∨ gateVal n C q y = true) :
+    ∃ D : Circuit, IsAO2 n D ∧ D.size = C.size ∧ circuitFun n D = circuitFun n C ∧
+      (∀ z w, w ≠ n + q → wireVal n D w z = wireVal n C w z) ∧
+      (∀ F : (Fin n → Bool) → Bool, q ∈ negativeAnds n C F →
+        negativeAnds n D F ⊆ negativeAnds n C F) ∧
+      (D.wires (List.ofFn x)).count true + (D.wires (List.ofFn y)).count true <
+        (C.wires (List.ofFn x)).count true + (C.wires (List.ofFn y)).count true := by
+  have hqvalue (z : Fin n → Bool) : gateVal n C q z =
+      (wireVal n C A z && wireVal n C B z) :=
+    and_gate_value C hao q A B (by omega) hqop hqin z
+  have hkvalue (z : Fin n → Bool) : gateVal n C k z =
+      ((wireVal n C A z && wireVal n C B z) && wireVal n C R z) := by
+    rw [and_gate_value C hao k (n + q) R hk hkop hkin z]
+    change (gateVal n C q z && wireVal n C R z) = _
+    rw [hqvalue]
+  obtain ⟨chooseA, hzeroX, hzeroY, hzeroCount, hstrict⟩ := clean_two_rows_strict
+    (wireVal n C A x) (wireVal n C B x) (wireVal n C R x)
+    (wireVal n C A y) (wireVal n C B y) (wireVal n C R y)
+    (by simpa only [hkvalue x] using hcleanx)
+    (by simpa only [hkvalue y] using hcleany)
+    (by simpa only [hqvalue x, hqvalue y] using hpositive)
+  have hbranch (P Q : ℕ)
+      (hin : (gateAt C q).inputs = [P, Q] ∨ (gateAt C q).inputs = [Q, P])
+      (hP : P < n + q) (hQ : Q < n + q)
+      (hPx : (wireVal n C P x && wireVal n C R x) = false)
+      (hPy : (wireVal n C P y && wireVal n C R y) = false) :
+      ∃ D : Circuit, IsAO2 n D ∧ D.size = C.size ∧ circuitFun n D = circuitFun n C ∧
+        (∀ z w, w ≠ n + q → wireVal n D w z = wireVal n C w z) ∧
+        (∀ F : (Fin n → Bool) → Bool, q ∈ negativeAnds n C F →
+          negativeAnds n D F ⊆ negativeAnds n C F) ∧
+        (D.wires (List.ofFn x)).count true + (D.wires (List.ofFn y)).count true <
+          (C.wires (List.ofFn x)).count true + (C.wires (List.ofFn y)).count true := by
+    refine ⟨reassoc n C q k P Q R, reassoc_ao C hao q k P Q R hqk hk hP hQ hR,
+      reassoc_size C q k P Q R, ?_, ?_, ?_, ?_⟩
+    · exact reassoc_fun C hao q k P Q R hqk hk hqop hin hkop hkin hP hQ hR honly hout
+    · intro z w hw
+      rw [reassoc_wire C hao q k P Q R hqk hk hqop hin hkop hkin hP hQ hR honly z w,
+        ite_eq_right hw]
+    · intro F hqdirty
+      exact reassoc_negativeAnds_subset C hao F q k P Q R hqk hk hqop hin hkop hkin
+        hP hQ hR honly hqdirty
+    · exact reassoc_two_rows_strict C hao q k P Q R hqk hk hqop hin hkop hkin hP hQ hR
+        honly x y hPx hPy hpositive
+  cases chooseA with
+  | false =>
+    apply hbranch B A (hqin.elim Or.inr Or.inl) hB hA
+    · simpa only [selectedPair, Bool.false_eq_true, ite_false] using hzeroX
+    · simpa only [selectedPair, Bool.false_eq_true, ite_false] using hzeroY
+  | true =>
+    apply hbranch A B hqin hA hB
+    · simpa only [selectedPair, ite_true] using hzeroX
+    · simpa only [selectedPair, ite_true] using hzeroY
+
+end PEqualNP.Outside.L_meta_3566.InPlaceAndReassociate
+
+namespace PEqualNP.Outside.L_meta_3566.SoleOrColor
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.CleanedNonEdge
+open PEqualNP.EdgeOwnership
+open Pruning SingleRead
+
+variable {n : ℕ}
+
+lemma opposite_color_graph_false (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (c : Fin n → Bool) (hc : ∀ v w, G.Adj v w → c v ≠ c w) (u : Fin n) :
+    graphFun G ∅ (fun v => decide (c v ≠ c u)) = false := by
+  apply Bool.eq_false_iff.mpr
+  intro htrue
+  have hex : ∃ a b, G.Adj a b ∧ c a ≠ c u ∧ c b ≠ c u := by
+    simpa [graphFun] using htrue
+  obtain ⟨a, b, hab, ha, hb⟩ := hex
+  have hne := hc a b hab
+  cases hua : c u <;> cases haa : c a <;> cases hbb : c b <;> simp_all
+
+lemma source_opposite_color_false (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (c : Fin n → Bool) (hc : ∀ v w, G.Adj v w → c v ≠ c w)
+    (C : Circuit) (u : Fin n) (pre post : List Gate) (g : Gate) (t : ℕ)
+    (hshape : C.gates = pre ++ g :: post) (hop : g.op = GateOp.or)
+    (hinputs : g.inputs = [u.val, t] ∨ g.inputs = [t, u.val])
+    (hao : IsAO2 n C) (hno : ∀ q ∈ pre ++ post, u.val ∉ q.inputs)
+    (hfun : circuitFun n C = graphFun G ∅) (w : Fin n) (huw : G.Adj u w) :
+    wireVal n C t (fun v => decide (c v ≠ c u)) = false := by
+  apply Bool.eq_false_iff.mpr
+  intro ht
+  have htrue := sole_or_neighbor_multiplier G C u pre post g t hshape hop hinputs hao hno
+    hfun w huw (fun v => decide (c v ≠ c u)) ht
+    (by simpa using (Ne.symm (hc u w huw)))
+  rw [opposite_color_graph_false G c hc u] at htrue
+  cases htrue
+
+lemma source_opposite_support_false (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (c : Fin n → Bool) (hc : ∀ v w, G.Adj v w → c v ≠ c w)
+    (C : Circuit) (u : Fin n) (pre post : List Gate) (g : Gate) (t : ℕ)
+    (hshape : C.gates = pre ++ g :: post) (hop : g.op = GateOp.or)
+    (hinputs : g.inputs = [u.val, t] ∨ g.inputs = [t, u.val])
+    (hao : IsAO2 n C) (hno : ∀ q ∈ pre ++ post, u.val ∉ q.inputs)
+    (hfun : circuitFun n C = graphFun G ∅) (w : Fin n) (huw : G.Adj u w)
+    (x : Fin n → Bool) (hsupport : ∀ v, x v = true → c v ≠ c u) :
+    wireVal n C t x = false := by
+  apply Bool.eq_false_iff.mpr
+  intro ht
+  by_cases htu : t = u.val
+  · rw [htu, wireVal_lt C u.val u.isLt] at ht
+    exact hsupport u ht rfl
+  · have htmem : t ∈ g.inputs := by rcases hinputs with h | h <;> simp [h]
+    have hlarge := other_wire_compare C u pre post g t hshape htmem hao hno htu
+      x (fun v => decide (c v ≠ c u)) (fun v _ hv => by simpa using hsupport v hv) ht
+    change wireVal n C t (fun v => decide (c v ≠ c u)) = true at hlarge
+    rw [source_opposite_color_false G c hc C u pre post g t hshape hop hinputs hao hno
+      hfun w huw] at hlarge
+    cases hlarge
+
+lemma raw_product_one_color_of_neighbor (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (c : Fin n → Bool) (hc : ∀ v w, G.Adj v w → c v ≠ c w)
+    (C : Circuit) (u : Fin n) (pre post : List Gate) (g : Gate) (t : ℕ)
+    (hshape : C.gates = pre ++ g :: post) (hop : g.op = GateOp.or)
+    (hinputs : g.inputs = [u.val, t] ∨ g.inputs = [t, u.val])
+    (hao : IsAO2 n C) (hno : ∀ q ∈ pre ++ post, u.val ∉ q.inputs)
+    (hfun : circuitFun n C = graphFun G ∅) (w : Fin n) (huw : G.Adj u w)
+    (A B : Finset (Fin n))
+    (hprod : ∀ a ∈ A, ∀ b ∈ B, wireVal n C t (pairInput a b) = true) :
+    (∀ a ∈ A, c a = c u) ∨ (∀ b ∈ B, c b = c u) := by
+  classical
+  by_cases hA : ∀ a ∈ A, c a = c u
+  · exact Or.inl hA
+  · right
+    push Not at hA
+    obtain ⟨a, ha, hca⟩ := hA
+    intro b hb
+    by_contra hcb
+    have hz := source_opposite_support_false G c hc C u pre post g t hshape hop hinputs
+      hao hno hfun w huw (pairInput a b) (by
+        intro v hv
+        simp only [pairInput, decide_eq_true_eq] at hv
+        rcases hv with rfl | rfl
+        · exact hca
+        · exact hcb)
+    rw [hprod a ha b hb] at hz
+    cases hz
+
+end PEqualNP.Outside.L_meta_3566.SoleOrColor
+
+namespace PEqualNP.Outside.L_meta_3566.PrivateAndMasking
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.EdgeOwnership
+open PEqualNP.CleanedNonEdge
+open Pruning
+
+variable {n : ℕ}
+
+lemma gate_eq_eval_of_readsBack (C : Circuit) (hC : ReadsBack n C)
+    (j : ℕ) (hj : j < C.size) (x : Fin n → Bool) :
+    gateVal n C j x = (gateAt C j).op.eval
+      ((gateAt C j).inputs.map fun i => wireVal n C i x) := by
+  have hj' : j < C.gates.length := hj
+  have hsplit : C.gates = C.gates.take j ++ gateAt C j :: C.gates.drop (j + 1) := by
+    have h := List.take_append_drop j C.gates
+    rw [List.drop_eq_getElem_cons hj'] at h
+    have e : C.gates[j] = gateAt C j := by
+      simp [gateAt, List.getD_eq_getElem?_getD, hj']
+    rw [e] at h
+    exact h.symm
+  have htake : (C.gates.take j).length = j := by simp; omega
+  have hold : ∀ w < n + j, wireVal n C w x = wireVal n ⟨C.gates.take j, 0⟩ w x := by
+    intro w hw
+    unfold wireVal Circuit.wires
+    conv_lhs => rw [hsplit, List.foldl_append]
+    rw [wires_prefix]
+    rw [wires_length, htake]
+    simpa using hw
+  have hnew : gateVal n C j x = (gateAt C j).op.eval
+      ((gateAt C j).inputs.map fun i => wireVal n ⟨C.gates.take j, 0⟩ i x) := by
+    rw [← wireVal_new, htake]
+    unfold gateVal wireVal Circuit.wires
+    conv_lhs => rw [hsplit, List.foldl_append, List.foldl_cons]
+    rw [wires_prefix]
+    · simp [List.foldl_append]
+    · rw [List.length_append, wires_length, htake, List.length_ofFn]; simp
+  rw [hnew]
+  congr 1
+  apply List.map_congr_left
+  intro i hi
+  exact (hold i (hC j hj i hi)).symm
+
+lemma wireVal_eq_of_readsBack_solution (C : Circuit) (hC : ReadsBack n C)
+    (x : Fin n → Bool) (V : ℕ → Bool)
+    (hinput : ∀ i : Fin n, V i.val = x i)
+    (hgate : ∀ j < C.size,
+      V (n + j) = (gateAt C j).op.eval ((gateAt C j).inputs.map V)) :
+    ∀ w < n + C.size, wireVal n C w x = V w := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw
+    by_cases hin : w < n
+    · rw [wireVal_lt C w hin]
+      exact (hinput ⟨w, hin⟩).symm
+    · let j := w - n
+      have hwj : n + j = w := by dsimp [j]; omega
+      have hj : j < C.size := by dsimp [j]; omega
+      rw [← hwj]
+      change gateVal n C j x = V (n + j)
+      rw [gate_eq_eval_of_readsBack C hC j hj x, hgate j hj]
+      congr 1
+      apply List.map_congr_left
+      intro i hi
+      have hib := hC j hj i hi
+      apply ih i
+      · omega
+      · omega
+
+def disable (C : Circuit) (j : ℕ) : Circuit :=
+  ⟨C.gates.set j ⟨GateOp.or, []⟩, C.output⟩
+
+lemma disable_size (C : Circuit) (j : ℕ) : (disable C j).size = C.size := by
+  simp [disable, Circuit.size]
+
+lemma disable_gateAt (C : Circuit) (j i : ℕ) :
+    gateAt (disable C j) i = if j = i then ⟨GateOp.or, []⟩ else gateAt C i := by
+  simp only [gateAt, disable, List.getD_eq_getElem?_getD, List.getElem?_set]
+  split_ifs <;> simp_all
+
+lemma disable_readsBack (C : Circuit) (hC : ReadsBack n C) (j : ℕ) :
+    ReadsBack n (disable C j) := by
+  intro i hi w hw
+  have hiC : i < C.size := by simpa [disable, Circuit.size] using hi
+  rw [disable_gateAt] at hw
+  split_ifs at hw with he
+  · simp at hw
+  · exact hC i hiC w hw
+
+lemma disable_wire_eq_away (C : Circuit) (hC : ReadsBack n C)
+    (j k s : ℕ)
+    (hop : (gateAt C k).op = GateOp.and)
+    (hin : (gateAt C k).inputs = [n + j, s] ∨ (gateAt C k).inputs = [s, n + j])
+    (hsj : s ≠ n + j)
+    (hprivate : ∀ i < C.size, i ≠ k → n + j ∉ (gateAt C i).inputs)
+    (x : Fin n → Bool) (hs : wireVal n C s x = false) :
+    ∀ w < n + C.size, w ≠ n + j →
+      wireVal n (disable C j) w x = wireVal n C w x := by
+  let V : ℕ → Bool := fun w => if w = n + j then false else wireVal n C w x
+  have hinput (u : Fin n) : V u.val = x u := by
+    have hu : u.val ≠ n + j := by have := u.isLt; omega
+    simp only [V, ite_eq_right hu]
+    exact wireVal_lt C u.val u.isLt x
+  have hgate (i : ℕ) (hi : i < (disable C j).size) :
+      V (n + i) = (gateAt (disable C j) i).op.eval
+        ((gateAt (disable C j) i).inputs.map V) := by
+    have hiC : i < C.size := by simpa [disable_size] using hi
+    rw [disable_gateAt]
+    by_cases hji : j = i
+    · subst i
+      simp [V, GateOp.eval]
+    · simp only [ite_eq_right hji]
+      have hnji : n + i ≠ n + j := by omega
+      rw [show V (n + i) = wireVal n C (n + i) x by simp only [V, ite_eq_right hnji]]
+      change gateVal n C i x = _
+      rw [gate_eq_eval_of_readsBack C hC i hiC x]
+      by_cases hik : i = k
+      · subst i
+        rcases hin with hin | hin <;>
+          simp [hin, hop, V, hsj, hs, GateOp.eval]
+      · congr 1
+        apply List.map_congr_left
+        intro w hw
+        have hne : w ≠ n + j := by
+          intro he
+          exact hprivate i hiC hik (he ▸ hw)
+        simp [V, hne]
+  intro w hw hne
+  have hD := wireVal_eq_of_readsBack_solution (disable C j)
+    (disable_readsBack C hC j) x V hinput hgate w (by simpa [disable_size] using hw)
+  simpa [V, hne] using hD
+
+lemma disable_output_eq_of_private_and_false (C : Circuit) (hC : ReadsBack n C)
+    (j k s : ℕ)
+    (hop : (gateAt C k).op = GateOp.and)
+    (hin : (gateAt C k).inputs = [n + j, s] ∨ (gateAt C k).inputs = [s, n + j])
+    (hsj : s ≠ n + j)
+    (hprivate : ∀ i < C.size, i ≠ k → n + j ∉ (gateAt C i).inputs)
+    (hout : C.output < n + C.size) (hoj : C.output ≠ n + j)
+    (x : Fin n → Bool) (hs : wireVal n C s x = false) :
+    circuitFun n (disable C j) x = circuitFun n C x := by
+  exact disable_wire_eq_away C hC j k s hop hin hsj hprivate x hs
+    C.output hout hoj
+
+lemma disable_wire_eq_of_gate_false (C : Circuit) (hC : ReadsBack n C)
+    (j : ℕ) (x : Fin n → Bool) (hjfalse : gateVal n C j x = false) :
+    ∀ w < n + C.size, wireVal n (disable C j) w x = wireVal n C w x := by
+  intro w hw
+  refine wireVal_eq_of_readsBack_solution (disable C j) (disable_readsBack C hC j)
+    x (fun w => wireVal n C w x) ?_ ?_ w (by simpa [disable_size] using hw)
+  · intro u
+    exact wireVal_lt C u.val u.isLt x
+  · intro i hi
+    have hiC : i < C.size := by simpa [disable_size] using hi
+    rw [disable_gateAt]
+    by_cases hji : j = i
+    · subst i
+      simpa [GateOp.eval, gateVal, wireVal] using hjfalse
+    · simp only [ite_eq_right hji]
+      exact gate_eq_eval_of_readsBack C hC i hiC x
+
+lemma private_and_pivotal_true (C : Circuit) (hC : ReadsBack n C)
+    (j k s : ℕ)
+    (hop : (gateAt C k).op = GateOp.and)
+    (hin : (gateAt C k).inputs = [n + j, s] ∨ (gateAt C k).inputs = [s, n + j])
+    (hsj : s ≠ n + j)
+    (hprivate : ∀ i < C.size, i ≠ k → n + j ∉ (gateAt C i).inputs)
+    (hout : C.output < n + C.size) (hoj : C.output ≠ n + j)
+    (x : Fin n → Bool) (htrue : circuitFun n C x = true)
+    (hpivotal : circuitFun n (disable C j) x = false) :
+    gateVal n C j x = true ∧ wireVal n C s x = true := by
+  constructor
+  · apply Bool.eq_true_of_not_eq_false
+    intro hf
+    have he := disable_wire_eq_of_gate_false C hC j x hf C.output hout
+    change circuitFun n (disable C j) x = circuitFun n C x at he
+    rw [hpivotal, htrue] at he
+    cases he
+  · apply Bool.eq_true_of_not_eq_false
+    intro hf
+    have he := disable_output_eq_of_private_and_false C hC j k s
+      hop hin hsj hprivate hout hoj x hf
+    rw [hpivotal, htrue] at he
+    cases he
+
+lemma private_or_and_noninput_edge (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hao : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (u : Fin n) (j k t s : ℕ) (hj : j < C.size)
+    (hjor : (gateAt C j).op = GateOp.or)
+    (hjin : (gateAt C j).inputs = [u.val, t] ∨ (gateAt C j).inputs = [t, u.val])
+    (hkand : (gateAt C k).op = GateOp.and)
+    (hkin : (gateAt C k).inputs = [n + j, s] ∨ (gateAt C k).inputs = [s, n + j])
+    (hsj : s ≠ n + j)
+    (hprivate : ∀ i < C.size, i ≠ k → n + j ∉ (gateAt C i).inputs)
+    (hout : C.output < n + C.size) (hoj : C.output ≠ n + j)
+    (hpivotal : ∃ a b : Fin n, G.Adj a b ∧
+      circuitFun n (disable C j) (pairInput a b) = false ∧ pairInput a b u = false) :
+    ∃ a b : Fin n, G.Adj a b ∧ a ≠ u ∧ b ≠ u ∧
+      wireVal n C t (pairInput a b) = true ∧ wireVal n C s (pairInput a b) = true := by
+  obtain ⟨a, b, hab, hp, hu⟩ := hpivotal
+  have htrue : circuitFun n C (pairInput a b) = true := by
+    rw [hfun]
+    simp only [graphFun, Finset.notMem_empty, false_and, exists_false, decide_false,
+      Bool.false_or, decide_eq_true_eq]
+    exact ⟨a, b, hab, by simp [pairInput], by simp [pairInput]⟩
+  obtain ⟨hjtrue, hstrue⟩ := private_and_pivotal_true C hao.2.1 j k s
+    hkand hkin hsj hprivate hout hoj (pairInput a b) htrue hp
+  have hufalse : wireVal n C u.val (pairInput a b) = false := by
+    rw [wireVal_lt C u.val u.isLt]
+    exact hu
+  have httrue : wireVal n C t (pairInput a b) = true := by
+    rw [gate_eq_eval_of_readsBack C hao.2.1 j hj (pairInput a b)] at hjtrue
+    rcases hjin with hin | hin <;>
+      simpa [hjor, hin, GateOp.eval, hufalse] using hjtrue
+  refine ⟨a, b, hab, ?_, ?_, httrue, hstrue⟩
+  · intro he
+    subst a
+    simp [pairInput] at hu
+  · intro he
+    subst b
+    simp [pairInput] at hu
+
+lemma output_bound_of_true (C : Circuit) (x : Fin n → Bool)
+    (hx : circuitFun n C x = true) : C.output < n + C.size := by
+  by_contra hbad
+  have hlen : (C.wires (List.ofFn x)).length = n + C.size := by
+    unfold Circuit.wires
+    rw [wires_length, List.length_ofFn]
+    rfl
+  have hfalse : (C.wires (List.ofFn x)).getD C.output false = false := by
+    simp [List.getD_eq_getElem?_getD, List.getElem?_eq_none (by omega :
+      (C.wires (List.ofFn x)).length ≤ C.output)]
+  change (C.wires (List.ofFn x)).getD C.output false = true at hx
+  rw [hfalse] at hx
+  cases hx
+
+lemma or_raw_output_ne (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hao : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (u : Fin n) (j t : ℕ) (hj : j < C.size)
+    (hop : (gateAt C j).op = GateOp.or)
+    (hin : (gateAt C j).inputs = [u.val, t] ∨ (gateAt C j).inputs = [t, u.val]) :
+    C.output ≠ n + j := by
+  intro he
+  have hfalse : graphFun G ∅ (pairInput u u) = false := by
+    apply Bool.eq_false_iff.mpr
+    intro h
+    exact G.irrefl ((SingleRead.graph_pair G u u).mp h)
+  have hv := congrFun hfun (pairInput u u)
+  change wireVal n C C.output (pairInput u u) = _ at hv
+  rw [he] at hv
+  change gateVal n C j (pairInput u u) = _ at hv
+  rw [gate_eq_eval_of_readsBack C hao.2.1 j hj (pairInput u u)] at hv
+  have hu : wireVal n C u.val (pairInput u u) = true := by
+    rw [wireVal_lt C u.val u.isLt]
+    simp [pairInput]
+  rcases hin with hin | hin <;> simp [hop, hin, GateOp.eval, hu, hfalse] at hv
+
+lemma private_or_and_noninput_edge_auto_output
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hao : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (u : Fin n) (j k t s : ℕ) (hj : j < C.size)
+    (hjor : (gateAt C j).op = GateOp.or)
+    (hjin : (gateAt C j).inputs = [u.val, t] ∨ (gateAt C j).inputs = [t, u.val])
+    (hkand : (gateAt C k).op = GateOp.and)
+    (hkin : (gateAt C k).inputs = [n + j, s] ∨ (gateAt C k).inputs = [s, n + j])
+    (hsj : s ≠ n + j)
+    (hprivate : ∀ i < C.size, i ≠ k → n + j ∉ (gateAt C i).inputs)
+    (hpivotal : ∃ a b : Fin n, G.Adj a b ∧
+      circuitFun n (disable C j) (pairInput a b) = false ∧ pairInput a b u = false) :
+    ∃ a b : Fin n, G.Adj a b ∧ a ≠ u ∧ b ≠ u ∧
+      wireVal n C t (pairInput a b) = true ∧ wireVal n C s (pairInput a b) = true := by
+  have hout : C.output < n + C.size := by
+    obtain ⟨a, b, hab, _⟩ := hpivotal
+    apply output_bound_of_true C (pairInput a b)
+    rw [hfun, SingleRead.graph_pair]
+    exact hab
+  exact private_or_and_noninput_edge G C hao hfun u j k t s hj hjor hjin
+    hkand hkin hsj hprivate hout (or_raw_output_ne G C hao hfun u j t hj hjor hjin) hpivotal
+
+end PEqualNP.Outside.L_meta_3566.PrivateAndMasking
