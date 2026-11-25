@@ -2471,4 +2471,485 @@ lemma repair_merge_complete_no_larger {n : ℕ} {G : SimpleGraph (Fin n)} [Decid
 
 end Cost
 
+
+namespace Assignment
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.TopForm PEqualNP.CleanedNonEdge
+
+lemma labels_of_disjoint_resources {α : Type*} [DecidableEq α]
+    (E : Finset α) (hE : E.Nonempty) (H : α → Finset ℕ)
+    (hdisjoint : ∀ e ∈ E, ∀ f ∈ E, e ≠ f → Disjoint (H e) (H f)) :
+    ∃ pick : ℕ → α, (∀ j, pick j ∈ E) ∧ ∀ e ∈ E, ∀ j ∈ H e, pick j = e := by
+  classical
+  let pick : ℕ → α := fun j => if h : ∃ e ∈ E, j ∈ H e then Classical.choose h else hE.choose
+  have hmem : ∀ j, pick j ∈ E := by
+    intro j
+    dsimp [pick]
+    split_ifs with h
+    · exact (Classical.choose_spec h).1
+    · exact hE.choose_spec
+  refine ⟨pick, hmem, ?_⟩
+  intro e he j hj
+  have h : ∃ e ∈ E, j ∈ H e := ⟨e, he, hj⟩
+  have hpick : pick j = Classical.choose h := by simp [pick, h]
+  rw [hpick]
+  by_contra hne
+  have hd := hdisjoint (Classical.choose h) (Classical.choose_spec h).1 e he hne
+  exact Finset.disjoint_left.mp hd (Classical.choose_spec h).2 hj
+
+lemma repair_labels_of_disjoint_certificates {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hAO : IsAO2 n C) (E : Finset (Fin n × Fin n)) (hE : E.Nonempty)
+    (he : ∀ e ∈ E, G.Adj e.1 e.2) (H : (Fin n × Fin n) → Finset ℕ)
+    (hdisjoint : ∀ e ∈ E, ∀ f ∈ E, e ≠ f → Disjoint (H e) (H f))
+    (hcert : ∀ e ∈ E, ∃ a ∈ tops G C, OrReaches n C C.output a ∧
+      ∀ b : Fin 2, (∃ t ∈ side (n := n) C a b, t = e.1 ∨ t = e.2) ∨
+        ∃ j ∈ H e, j ∈ junk G C ∧ OrReaches n C (opnd C a b) j) :
+    ∃ pick : ℕ → Fin n × Fin n,
+      (∀ j, G.Adj (pick j).1 (pick j).2) ∧
+      (∀ e ∈ E, circuitFun n (Repair.repair G C pick) (pairInput e.1 e.2) = true) ∧
+      ∀ T : Finset ℕ, (T.image fun k => s((pick k).1, (pick k).2)).card ≤ E.card := by
+  classical
+  obtain ⟨pick, hpick, hlabels⟩ := labels_of_disjoint_resources E hE H hdisjoint
+  refine ⟨pick, fun j => he (pick j) (hpick j), ?_, ?_⟩
+  · intro e heE
+    obtain ⟨a, ha, hr, hab⟩ := hcert e heE
+    apply Labeling.repair_accepts_frontier_certificate hAO pick ha hr
+    intro b
+    rcases hab b with h | ⟨j, hjH, hj, hjr⟩
+    · exact Or.inl h
+    · exact Or.inr ⟨j, hj, hjr, by rw [hlabels e heE j hjH]⟩
+  · intro T
+    have hsub : (T.image fun k => s((pick k).1, (pick k).2)) ⊆
+        E.image (fun e => s(e.1, e.2)) := by
+      intro e heT
+      obtain ⟨j, _, rfl⟩ := Finset.mem_image.mp heT
+      exact Finset.mem_image.mpr ⟨pick j, hpick j, rfl⟩
+    exact (Finset.card_le_card hsub).trans Finset.card_image_le
+
+lemma clean_repair_of_disjoint_certificates {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (ho : C.output < n + C.gates.length)
+    (E : Finset (Fin n × Fin n)) (hE : E.Nonempty) (he : ∀ e ∈ E, G.Adj e.1 e.2)
+    (H : (Fin n × Fin n) → Finset ℕ)
+    (hdisjoint : ∀ e ∈ E, ∀ f ∈ E, e ≠ f → Disjoint (H e) (H f))
+    (hcert : ∀ e ∈ E, ∃ a ∈ tops G C, OrReaches n C C.output a ∧
+      ∀ b : Fin 2, (∃ t ∈ side (n := n) C a b, t = e.1 ∨ t = e.2) ∨
+        ∃ j ∈ H e, j ∈ junk G C ∧ OrReaches n C (opnd C a b) j)
+    (T : Finset ℕ) (hT : ∀ k ∈ T, k < C.gates.length ∧ Repair.dirty G C k)
+    (es : List (Fin n × Fin n)) (hes : ∀ e ∈ es, G.Adj e.1 e.2)
+    (hcover : ∀ u v : Fin n, G.Adj u v →
+      (∃ a ∈ tops G C, OrReaches n C C.output a ∧
+        ((u ∈ side (n := n) C a 0 ∧ v ∈ side (n := n) C a 1) ∨
+         (v ∈ side (n := n) C a 0 ∧ u ∈ side (n := n) C a 1))) ∨
+      (∃ e ∈ E, s(e.1, e.2) = s(u, v)) ∨ (∃ e ∈ es, s(e.1, e.2) = s(u, v)))
+    (hcost : E.card + 2 * es.length ≤ T.card) :
+    ∃ D : Circuit, IsAO2 n D ∧ circuitFun n D = graphFun G ∅ ∧ D.size ≤ C.size ∧
+      ∀ i < D.gates.length, (gateAt D i).op = GateOp.and → BelowF G D i := by
+  classical
+  obtain ⟨pick, hpick, haccept, hcard⟩ := repair_labels_of_disjoint_certificates hAO E hE he H hdisjoint hcert
+  apply Cost.repair_merge_complete_no_larger hAO hfun ho pick (fun j _ _ => hpick j) T hT es hes
+  · intro u v huv
+    rcases hcover u v huv with ⟨a, ha, hr, hraw⟩ | ⟨e, heE, heq⟩ | hmissing
+    · apply Or.inl
+      rcases hraw with ⟨hu, hv⟩ | ⟨hv, hu⟩
+      · exact Labeling.repair_accepts_raw_top_pair hAO pick ha hr hu hv
+      · have h := Labeling.repair_accepts_raw_top_pair hAO pick ha hr hv hu
+        have hswap : pairInput v u = pairInput u v := by funext x; simp [pairInput, or_comm]
+        rwa [hswap] at h
+    · apply Or.inl
+      have hv := haccept e heE
+      have hinput : pairInput e.1 e.2 = pairInput u v := by
+        funext x
+        rcases Sym2.eq_iff.mp heq with ⟨h₁, h₂⟩ | ⟨h₁, h₂⟩ <;>
+          simp [pairInput, h₁, h₂, or_comm]
+      rwa [hinput] at hv
+    · exact Or.inr hmissing
+  · have hb := hcard T
+    omega
+
+end Assignment
+
+namespace StarCompletion
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+def appendBinary (n : ℕ) (C : Circuit) (op : GateOp) (a b : ℕ) : Circuit :=
+  ⟨C.gates ++ [⟨op, [a, b]⟩], n + C.gates.length⟩
+
+lemma appendBinary_size (n : ℕ) (C : Circuit) (op : GateOp) (a b : ℕ) :
+    (appendBinary n C op a b).size = C.size + 1 := by simp [appendBinary, Circuit.size]
+
+lemma appendBinary_output (n : ℕ) (C : Circuit) (op : GateOp) (a b : ℕ) :
+    (appendBinary n C op a b).output < n + (appendBinary n C op a b).gates.length := by
+  simp [appendBinary]
+
+lemma appendBinary_gate_old (n : ℕ) (C : Circuit) (op : GateOp) (a b : ℕ)
+    {j : ℕ} (hj : j < C.gates.length) : gateAt (appendBinary n C op a b) j = gateAt C j := by
+  simp [gateAt, appendBinary, List.getD_eq_getElem?_getD, List.getElem?_append_left hj]
+
+lemma appendBinary_gate_new (n : ℕ) (C : Circuit) (op : GateOp) (a b : ℕ) :
+    gateAt (appendBinary n C op a b) C.gates.length = ⟨op, [a, b]⟩ := by
+  simp [gateAt, appendBinary, List.getD_eq_getElem?_getD]
+
+lemma appendBinary_ao (n : ℕ) (C : Circuit) (op : GateOp) (a b : ℕ)
+    (hAO : IsAO2 n C) (hop : op = GateOp.and ∨ op = GateOp.or)
+    (ha : a < n + C.gates.length) (hb : b < n + C.gates.length) :
+    IsAO2 n (appendBinary n C op a b) := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro g hg
+    simp only [appendBinary, List.mem_append, List.mem_singleton] at hg
+    rcases hg with hg | rfl
+    · exact hAO.1 g hg
+    · exact hop
+  · intro j hj i hi
+    have hj' : j < C.gates.length + 1 := by simpa [appendBinary] using hj
+    by_cases hlt : j < C.gates.length
+    · rw [appendBinary_gate_old n C op a b hlt] at hi
+      exact hAO.2.1 j hlt i hi
+    · have heq : j = C.gates.length := by omega
+      subst j
+      rw [appendBinary_gate_new] at hi
+      simp only [List.mem_cons, List.not_mem_nil, or_false] at hi
+      rcases hi with rfl | rfl
+      · exact ha
+      · exact hb
+  · intro g hg
+    simp only [appendBinary, List.mem_append, List.mem_singleton] at hg
+    rcases hg with hg | rfl
+    · exact hAO.2.2 g hg
+    · rfl
+
+lemma appendBinary_val_old {n : ℕ} (C : Circuit) (op : GateOp) (a b : ℕ)
+    (x : Fin n → Bool) {i : ℕ} (hi : i < n + C.gates.length) :
+    val (appendBinary n C op a b) (List.ofFn x) i = val C (List.ofFn x) i := by
+  change (W (C.gates ++ _) (List.ofFn x)).getD i false = _
+  rw [W_append, W_prefix]
+  · rfl
+  · simpa [W_length] using hi
+
+lemma appendBinary_fun {n : ℕ} (C : Circuit) (op : GateOp) (a b : ℕ)
+    (ha : a < n + C.gates.length) (hb : b < n + C.gates.length) (x : Fin n → Bool) :
+    circuitFun n (appendBinary n C op a b) x =
+      op.eval [val C (List.ofFn x) a, val C (List.ofFn x) b] := by
+  have hj : C.gates.length < (appendBinary n C op a b).gates.length := by simp [appendBinary]
+  change val (appendBinary n C op a b) (List.ofFn x) (n + C.gates.length) = _
+  rw [val_gate (by simp) hj, appendBinary_gate_new]
+  simp only [List.map_cons, List.map_nil, ite_eq_left ha, ite_eq_left hb]
+  rw [appendBinary_val_old C op a b x ha, appendBinary_val_old C op a b x hb]
+
+lemma appendBinary_clean {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (op : GateOp) (a b : ℕ)
+    (ha : a < n + C.gates.length) (hb : b < n + C.gates.length)
+    (hc : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and → BelowF G C j)
+    (hnew : op = GateOp.and → ∀ x : Fin n → Bool,
+      op.eval [val C (List.ofFn x) a, val C (List.ofFn x) b] = true → graphFun G ∅ x = true) :
+    ∀ j < (appendBinary n C op a b).gates.length,
+      (gateAt (appendBinary n C op a b) j).op = GateOp.and → BelowF G (appendBinary n C op a b) j := by
+  intro j hj hop x hx
+  have hj' : j < C.gates.length + 1 := by simpa [appendBinary] using hj
+  by_cases hlt : j < C.gates.length
+  · rw [appendBinary_gate_old n C op a b hlt] at hop
+    apply hc j hlt hop x
+    change val C (List.ofFn x) (n + j) = true
+    change val (appendBinary n C op a b) (List.ofFn x) (n + j) = true at hx
+    rwa [appendBinary_val_old C op a b x (by omega)] at hx
+  · have heq : j = C.gates.length := by omega
+    subst j
+    rw [appendBinary_gate_new] at hop
+    apply hnew hop x
+    rw [← appendBinary_fun C op a b ha hb]
+    exact hx
+
+def orTail {n : ℕ} (C : Circuit) : List (Fin n) → Circuit
+  | [] => C
+  | v :: vs => orTail (appendBinary n C GateOp.or C.output v.val) vs
+
+lemma orTail_size {n : ℕ} (C : Circuit) (vs : List (Fin n)) :
+    (orTail C vs).size = C.size + vs.length := by
+  induction vs generalizing C with
+  | nil => simp [orTail]
+  | cons v vs ih => rw [orTail, ih, appendBinary_size, List.length_cons]; omega
+
+lemma orTail_ao_output {n : ℕ} (C : Circuit) (vs : List (Fin n))
+    (hAO : IsAO2 n C) (ho : C.output < n + C.gates.length) :
+    IsAO2 n (orTail C vs) ∧ (orTail C vs).output < n + (orTail C vs).gates.length := by
+  induction vs generalizing C with
+  | nil => exact ⟨hAO, ho⟩
+  | cons v vs ih =>
+    exact ih _ (appendBinary_ao n C GateOp.or C.output v.val hAO (Or.inr rfl) ho (by omega))
+      (appendBinary_output n C GateOp.or C.output v.val)
+
+lemma orTail_fun {n : ℕ} (C : Circuit) (vs : List (Fin n))
+    (ho : C.output < n + C.gates.length) (x : Fin n → Bool) :
+    circuitFun n (orTail C vs) x = (circuitFun n C x || vs.any x) := by
+  induction vs generalizing C with
+  | nil => simp [orTail]
+  | cons v vs ih =>
+    rw [orTail, ih _ (appendBinary_output n C GateOp.or C.output v.val),
+      appendBinary_fun C GateOp.or C.output v.val ho (by omega)]
+    rw [val_ofFn]
+    simp only [GateOp.eval, List.any_cons, List.any_nil, id_eq, Bool.or_false]
+    change ((circuitFun n C x || x v) || vs.any x) = (circuitFun n C x || (x v || vs.any x))
+    exact Bool.or_assoc _ _ _
+
+lemma orTail_val_old {n : ℕ} (C : Circuit) (vs : List (Fin n))
+    (x : Fin n → Bool) {i : ℕ} (hi : i < n + C.gates.length) :
+    val (orTail C vs) (List.ofFn x) i = val C (List.ofFn x) i := by
+  induction vs generalizing C with
+  | nil => rfl
+  | cons v vs ih =>
+    rw [orTail, ih _ (by simp only [appendBinary, List.length_append, List.length_singleton]; omega)]
+    exact appendBinary_val_old C GateOp.or C.output v.val x hi
+
+lemma orTail_clean {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (vs : List (Fin n)) (ho : C.output < n + C.gates.length)
+    (hc : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and → BelowF G C j) :
+    ∀ j < (orTail C vs).gates.length, (gateAt (orTail C vs) j).op = GateOp.and → BelowF G (orTail C vs) j := by
+  induction vs generalizing C with
+  | nil => exact hc
+  | cons v vs ih =>
+    apply ih _ (appendBinary_output n C GateOp.or C.output v.val)
+    exact appendBinary_clean G C GateOp.or C.output v.val ho (by omega) hc (by intro h; cases h)
+
+def appendStarHead {n : ℕ} (C : Circuit) (c v : Fin n) (vs : List (Fin n)) : Circuit :=
+  let B := orTail ⟨C.gates, v.val⟩ vs
+  let A := appendBinary n B GateOp.and c.val B.output
+  appendBinary n A GateOp.or C.output A.output
+
+lemma appendStarHead_size {n : ℕ} (C : Circuit) (c v : Fin n) (vs : List (Fin n)) :
+    (appendStarHead C c v vs).size = C.size + vs.length + 2 := by
+  dsimp only [appendStarHead]
+  rw [appendBinary_size, appendBinary_size, orTail_size]
+  change C.size + vs.length + 1 + 1 = C.size + vs.length + 2
+  omega
+
+lemma appendStarHead_spec {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (c v : Fin n) (vs : List (Fin n))
+    (hAO : IsAO2 n C) (ho : C.output < n + C.gates.length)
+    (he : ∀ w ∈ v :: vs, G.Adj c w)
+    (hc : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and → BelowF G C j) :
+    IsAO2 n (appendStarHead C c v vs) ∧
+      (appendStarHead C c v vs).output < n + (appendStarHead C c v vs).gates.length ∧
+      (∀ x : Fin n → Bool, circuitFun n (appendStarHead C c v vs) x =
+        (circuitFun n C x || (x c && (v :: vs).any x))) ∧
+      (∀ j < (appendStarHead C c v vs).gates.length,
+        (gateAt (appendStarHead C c v vs) j).op = GateOp.and → BelowF G (appendStarHead C c v vs) j) := by
+  let S : Circuit := ⟨C.gates, v.val⟩
+  let B := orTail S vs
+  let A := appendBinary n B GateOp.and c.val B.output
+  have hS : IsAO2 n S := hAO
+  have hSo : S.output < n + S.gates.length := by change v.val < n + C.gates.length; omega
+  have hB := orTail_ao_output S vs hS hSo
+  have hBlen : B.gates.length = C.gates.length + vs.length := orTail_size S vs
+  have hcB : c.val < n + B.gates.length := by omega
+  have hoB : C.output < n + B.gates.length := by omega
+  have hBfun (x : Fin n → Bool) : circuitFun n B x = (v :: vs).any x := by
+    rw [orTail_fun S vs hSo]
+    change (val C (List.ofFn x) v.val || vs.any x) = _
+    rw [val_ofFn]
+    rfl
+  have hBclean : ∀ j < B.gates.length, (gateAt B j).op = GateOp.and → BelowF G B j :=
+    orTail_clean G S vs hSo hc
+  have hAOA : IsAO2 n A := appendBinary_ao n B GateOp.and c.val B.output hB.1 (Or.inl rfl) hcB hB.2
+  have hAo : A.output < n + A.gates.length := appendBinary_output n B GateOp.and c.val B.output
+  have hoA : C.output < n + A.gates.length := by
+    change C.output < n + (appendBinary n B GateOp.and c.val B.output).gates.length
+    simp only [appendBinary, List.length_append, List.length_singleton]
+    omega
+  have hAfun (x : Fin n → Bool) : circuitFun n A x = (x c && (v :: vs).any x) := by
+    rw [appendBinary_fun B GateOp.and c.val B.output hcB hB.2, val_ofFn]
+    simp only [GateOp.eval, List.all_cons, List.all_nil, id_eq, Bool.and_true]
+    change (x c && circuitFun n B x) = _
+    rw [hBfun]
+  have hAclean : ∀ j < A.gates.length, (gateAt A j).op = GateOp.and → BelowF G A j := by
+    apply appendBinary_clean G B GateOp.and c.val B.output hcB hB.2 hBclean
+    intro _ x hx
+    have hAx : circuitFun n A x = true := by
+      rw [appendBinary_fun B GateOp.and c.val B.output hcB hB.2]
+      exact hx
+    rw [hAfun] at hAx
+    obtain ⟨hxc, hAny⟩ : x c = true ∧ (v :: vs).any x = true := by simpa using hAx
+    obtain ⟨w, hw, hxw⟩ := List.any_eq_true.mp hAny
+    exact Repair.graph_true.mpr ⟨c, w, he w hw, hxc, hxw⟩
+  refine ⟨appendBinary_ao n A GateOp.or C.output A.output hAOA (Or.inr rfl) hoA hAo,
+    appendBinary_output n A GateOp.or C.output A.output, ?_, ?_⟩
+  · intro x
+    change circuitFun n (appendBinary n A GateOp.or C.output A.output) x = _
+    rw [appendBinary_fun A GateOp.or C.output A.output hoA hAo]
+    simp only [GateOp.eval, List.any_cons, List.any_nil, id_eq, Bool.or_false]
+    have hOld : val A (List.ofFn x) C.output = val C (List.ofFn x) C.output := by
+      rw [appendBinary_val_old B GateOp.and c.val B.output x hoB, orTail_val_old S vs x ho]
+      rfl
+    rw [hOld]
+    change (circuitFun n C x || circuitFun n A x) = _
+    rw [hAfun]
+    simp only [List.any_cons]
+  · exact appendBinary_clean G A GateOp.or C.output A.output hoA hAo hAclean (by intro h; cases h)
+
+def appendStar {n : ℕ} (C : Circuit) (c : Fin n) : List (Fin n) → Circuit
+  | [] => C
+  | v :: vs => appendStarHead C c v vs
+
+lemma appendStar_spec {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (c : Fin n) (vs : List (Fin n)) (hne : vs ≠ [])
+    (hAO : IsAO2 n C) (ho : C.output < n + C.gates.length)
+    (he : ∀ w ∈ vs, G.Adj c w)
+    (hc : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and → BelowF G C j) :
+    IsAO2 n (appendStar C c vs) ∧
+      (appendStar C c vs).output < n + (appendStar C c vs).gates.length ∧
+      (appendStar C c vs).size = C.size + vs.length + 1 ∧
+      (∀ x : Fin n → Bool, circuitFun n (appendStar C c vs) x =
+        (circuitFun n C x || (x c && vs.any x))) ∧
+      (∀ j < (appendStar C c vs).gates.length,
+        (gateAt (appendStar C c vs) j).op = GateOp.and → BelowF G (appendStar C c vs) j) := by
+  cases vs with
+  | nil => exact False.elim (hne rfl)
+  | cons v vs =>
+    obtain ⟨hD, hDo, hDf, hDc⟩ := appendStarHead_spec G C c v vs hAO ho he hc
+    refine ⟨hD, hDo, ?_, hDf, hDc⟩
+    rw [appendStar, appendStarHead_size, List.length_cons]
+    omega
+
+def appendStars {n : ℕ} (C : Circuit) : List (Fin n × List (Fin n)) → Circuit
+  | [] => C
+  | s :: ss => appendStars (appendStar C s.1 s.2) ss
+
+lemma appendStars_spec {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (ss : List (Fin n × List (Fin n)))
+    (hne : ∀ s ∈ ss, s.2 ≠ [])
+    (hAO : IsAO2 n C) (ho : C.output < n + C.gates.length)
+    (he : ∀ s ∈ ss, ∀ w ∈ s.2, G.Adj s.1 w)
+    (hc : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and → BelowF G C j) :
+    IsAO2 n (appendStars C ss) ∧
+      (appendStars C ss).output < n + (appendStars C ss).gates.length ∧
+      (appendStars C ss).size = C.size + (ss.map fun s => s.2.length + 1).sum ∧
+      (∀ x : Fin n → Bool, circuitFun n (appendStars C ss) x =
+        (circuitFun n C x || ss.any (fun s => x s.1 && s.2.any x))) ∧
+      (∀ j < (appendStars C ss).gates.length,
+        (gateAt (appendStars C ss) j).op = GateOp.and → BelowF G (appendStars C ss) j) := by
+  induction ss generalizing C with
+  | nil =>
+    refine ⟨hAO, ho, by simp [appendStars], ?_, hc⟩
+    intro x
+    simp [appendStars]
+  | cons s ss ih =>
+    obtain ⟨hS, hSo, hSsize, hSf, hSc⟩ := appendStar_spec G C s.1 s.2 (hne s (by simp))
+      hAO ho (he s (by simp)) hc
+    obtain ⟨hD, hDo, hDsize, hDf, hDc⟩ := ih (appendStar C s.1 s.2)
+      (fun t ht => hne t (List.mem_cons_of_mem _ ht)) hS hSo
+      (fun t ht => he t (List.mem_cons_of_mem _ ht)) hSc
+    refine ⟨hD, hDo, ?_, ?_, hDc⟩
+    · rw [appendStars, hDsize, hSsize, List.map_cons, List.sum_cons]
+      omega
+    · intro x
+      rw [appendStars, hDf, hSf]
+      simp only [List.any_cons, Bool.or_assoc]
+
+lemma complete_missing_stars {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (ss : List (Fin n × List (Fin n)))
+    (hne : ∀ s ∈ ss, s.2 ≠ [])
+    (hAO : IsAO2 n C) (ho : C.output < n + C.gates.length)
+    (he : ∀ s ∈ ss, ∀ w ∈ s.2, G.Adj s.1 w)
+    (hsafe : ∀ x, circuitFun n C x = true → graphFun G ∅ x = true)
+    (hc : ∀ j < C.gates.length, (gateAt C j).op = GateOp.and → BelowF G C j)
+    (hcover : ∀ u v : Fin n, G.Adj u v → circuitFun n C (pairInput u v) = true ∨
+      ∃ s ∈ ss, ∃ w ∈ s.2, s(s.1, w) = s(u, v)) :
+    IsAO2 n (appendStars C ss) ∧
+      (appendStars C ss).output < n + (appendStars C ss).gates.length ∧
+      (appendStars C ss).size = C.size + (ss.map fun s => s.2.length + 1).sum ∧
+      circuitFun n (appendStars C ss) = graphFun G ∅ ∧
+      (∀ j < (appendStars C ss).gates.length,
+        (gateAt (appendStars C ss) j).op = GateOp.and → BelowF G (appendStars C ss) j) := by
+  obtain ⟨hD, hDo, hsize, hfun, hclean⟩ := appendStars_spec G C ss hne hAO ho he hc
+  refine ⟨hD, hDo, hsize, ?_, hclean⟩
+  apply eq_graphFun_of_boundary G _ hD
+  · intro u v huv
+    rw [hfun]
+    rcases hcover u v huv with h | ⟨s, hs, w, hw, hEq⟩
+    · simp [h]
+    · have hpair : pairInput u v s.1 = true ∧ pairInput u v w = true := by
+        rcases Sym2.eq_iff.mp hEq with ⟨h₁, h₂⟩ | ⟨h₁, h₂⟩ <;> simp [h₁, h₂, pairInput]
+      have hLeaf : s.2.any (pairInput u v) = true :=
+        List.any_eq_true.mpr ⟨w, hw, hpair.2⟩
+      have hAny : ss.any (fun t => pairInput u v t.1 && t.2.any (pairInput u v)) = true := by
+        apply List.any_eq_true.mpr
+        exact ⟨s, hs, by simp [hpair.1, hLeaf]⟩
+      simp [hAny]
+  · intro x hx
+    apply Bool.eq_false_iff.mpr
+    intro h
+    rw [hfun] at h
+    have hF : graphFun G ∅ x = true := by
+      rcases Bool.or_eq_true_iff.mp h with h | h
+      · exact hsafe x h
+      · obtain ⟨s, hs, hsVal⟩ := List.any_eq_true.mp h
+        obtain ⟨hcVal, hLeaf⟩ : x s.1 = true ∧ s.2.any x = true := by simpa using hsVal
+        obtain ⟨w, hw, hxw⟩ := List.any_eq_true.mp hLeaf
+        exact Repair.graph_true.mpr ⟨s.1, w, he s hs w hw, hcVal, hxw⟩
+    rw [hx.1] at hF
+    cases hF
+
+end StarCompletion
+
+
+namespace StarCost
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.MetaComplexity.NestedCover
+open PEqualNP.EdgeOwnership PEqualNP.TopForm
+
+lemma repair_merge_complete_stars {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (ho : C.output < n + C.gates.length) (pick : ℕ → Fin n × Fin n)
+    (hpick : ∀ i < C.gates.length, Repair.dirty G C i → G.Adj (pick i).1 (pick i).2)
+    (T : Finset ℕ) (hT : ∀ k ∈ T, k < C.gates.length ∧ Repair.dirty G C k)
+    (ss : List (Fin n × List (Fin n))) (hne : ∀ s ∈ ss, s.2 ≠ [])
+    (he : ∀ s ∈ ss, ∀ w ∈ s.2, G.Adj s.1 w)
+    (hcover : ∀ u v : Fin n, G.Adj u v →
+      circuitFun n (Repair.repair G C pick) (pairInput u v) = true ∨
+      ∃ s ∈ ss, ∃ w ∈ s.2, s(s.1, w) = s(u, v)) :
+    ∃ D : Circuit, IsAO2 n D ∧ circuitFun n D = graphFun G ∅ ∧
+      (∀ i < D.gates.length, (gateAt D i).op = GateOp.and → BelowF G D i) ∧
+      D.size + T.card = C.size + (T.image fun k => s((pick k).1, (pick k).2)).card + (ss.map fun s => s.2.length + 1).sum := by
+  obtain ⟨R, hRAO, hRclean, hRsize, hRfun⟩ :=
+    Duplicate.collapse_labeled_dirty_set hAO hfun pick hpick T hT
+  obtain ⟨hPAO, _, hPsafe, _⟩ := Repair.arbitrary_edge_repair hAO hfun pick hpick
+  have hpo : (Repair.repair G C pick).output < n + (Repair.repair G C pick).gates.length := by
+    change C.output < n + (Repair.repair G C pick).gates.length
+    rwa [Repair.repair_len]
+  have hRtrue : circuitFun n R (fun _ => true) = true := by
+    rw [hRfun]
+    exact Completion.ao2_all_true (Repair.repair G C pick) hPAO _ hpo
+  have hRo := Completion.output_valid_of_true R (fun _ => true) hRtrue
+  have hRsafe : ∀ x, circuitFun n R x = true → graphFun G ∅ x = true := by
+    intro x hx
+    rw [hRfun] at hx
+    exact hPsafe x hx
+  have hRcover : ∀ u v : Fin n, G.Adj u v → circuitFun n R (pairInput u v) = true ∨
+      ∃ s ∈ ss, ∃ w ∈ s.2, s(s.1, w) = s(u, v) := by
+    intro u v huv
+    rw [hRfun]
+    exact hcover u v huv
+  obtain ⟨hDAO, _, hDsize, hDfun, hDclean⟩ :=
+    StarCompletion.complete_missing_stars G R ss hne hRAO hRo he hRsafe hRclean hRcover
+  refine ⟨StarCompletion.appendStars R ss, hDAO, hDfun, hDclean, ?_⟩
+  omega
+
+lemma repair_merge_complete_stars_no_larger {n : ℕ} {G : SimpleGraph (Fin n)} [DecidableRel G.Adj]
+    {C : Circuit} (hAO : IsAO2 n C) (hfun : circuitFun n C = graphFun G ∅)
+    (ho : C.output < n + C.gates.length) (pick : ℕ → Fin n × Fin n)
+    (hpick : ∀ i < C.gates.length, Repair.dirty G C i → G.Adj (pick i).1 (pick i).2)
+    (T : Finset ℕ) (hT : ∀ k ∈ T, k < C.gates.length ∧ Repair.dirty G C k)
+    (ss : List (Fin n × List (Fin n))) (hne : ∀ s ∈ ss, s.2 ≠ [])
+    (he : ∀ s ∈ ss, ∀ w ∈ s.2, G.Adj s.1 w)
+    (hcover : ∀ u v : Fin n, G.Adj u v →
+      circuitFun n (Repair.repair G C pick) (pairInput u v) = true ∨
+      ∃ s ∈ ss, ∃ w ∈ s.2, s(s.1, w) = s(u, v))
+    (hcost : (T.image fun k => s((pick k).1, (pick k).2)).card + (ss.map fun s => s.2.length + 1).sum ≤ T.card) :
+    ∃ D : Circuit, IsAO2 n D ∧ circuitFun n D = graphFun G ∅ ∧ D.size ≤ C.size ∧
+      ∀ i < D.gates.length, (gateAt D i).op = GateOp.and → BelowF G D i := by
+  obtain ⟨D, hDAO, hDfun, hDclean, hDsize⟩ := repair_merge_complete_stars hAO hfun ho pick hpick T hT ss hne he hcover
+  exact ⟨D, hDAO, hDfun, by omega, hDclean⟩
+
+end StarCost
+
 end PEqualNP.Outside.L_meta_2583
