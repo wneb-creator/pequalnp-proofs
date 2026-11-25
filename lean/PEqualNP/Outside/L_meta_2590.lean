@@ -6580,4 +6580,442 @@ lemma two_pair_occurrences_length_ge_ten_add_Bzero {D : Dag}
 
 end C6.GenericPair
 
+
+
+namespace C6.GenericPair
+open DagTools
+
+lemma opposite_joint_Bplus_ge_four {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) {u v : V} (hop : oppositePair u v)
+    (hjoint : ∃ w, u ∈ supp 6 D w ∧ v ∈ supp 6 D w) : 4 ≤ Bplus 6 D := by
+  obtain ⟨w, hwu, hwv⟩ := hjoint
+  have he := joint_support_eligible h hc (opposite_distinct u v hop) hwu hwv
+  by_contra hn
+  have hB : Bplus 6 D ≤ 3 := by omega
+  obtain ⟨b, hb⟩ := sem_exists_pureBranch graph_ok h.1 hc
+  have hi := (independent_facts _ (inelig_independent h hc)).1
+  have hel := elig_le_Bplus h.1 b hb
+  have hsum := inelig_card_add 6 D
+  have hI : (ineligSet 6 D).card = 3 := by omega
+  rcases independent_hits_opposite _ (inelig_independent h hc) hI u v hop with hui | hvi
+  · exact (sem_mem_inelig.mp hui) he.1
+  · exact (sem_mem_inelig.mp hvi) he.2
+
+lemma opposite_joint_length_ge_nine_add_Bzero {D : Dag} (h : StrictLive 6 D)
+    (hc : sem_Comp 6 adj D) {u v : V} (hop : oppositePair u v)
+    (hjoint : ∃ w, u ∈ supp 6 D w ∧ v ∈ supp 6 D w) :
+    9 + Bzero 6 D ≤ D.length := by
+  have hb := opposite_joint_Bplus_ge_four h hc hop hjoint
+  have hs := surplus_identity h
+  rw [totalSurplus_split] at hs
+  omega
+
+lemma three_pair_occurrences_Bplus_ge_six {D : Dag}
+    (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hAF : ∃ w, (0 : V) ∈ supp 6 D w ∧ (5 : V) ∈ supp 6 D w)
+    (hBE : ∃ w, (1 : V) ∈ supp 6 D w ∧ (4 : V) ∈ supp 6 D w)
+    (hCD : ∃ w, (2 : V) ∈ supp 6 D w ∧ (3 : V) ∈ supp 6 D w) :
+    6 ≤ Bplus 6 D := by
+  classical
+  obtain ⟨wa, ha0, ha5⟩ := hAF
+  obtain ⟨wb, hb1, hb4⟩ := hBE
+  obtain ⟨wc, hc2, hc3⟩ := hCD
+  have heAF := joint_support_eligible h hc (by decide : (0 : V) ≠ 5) ha0 ha5
+  have heBE := joint_support_eligible h hc (by decide : (1 : V) ≠ 4) hb1 hb4
+  have heCD := joint_support_eligible h hc (by decide : (2 : V) ≠ 3) hc2 hc3
+  have heq : eligSet 6 D = Finset.univ := by
+    apply Finset.eq_univ_of_forall
+    intro v
+    fin_cases v
+    · exact heAF.1
+    · exact heBE.1
+    · exact heCD.1
+    · exact heCD.2
+    · exact heBE.2
+    · exact heAF.2
+  obtain ⟨b, hb⟩ := sem_exists_pureBranch graph_ok h.1 hc
+  have hB := elig_le_Bplus h.1 b hb
+  rw [heq] at hB
+  simpa using hB
+
+lemma three_pair_occurrences_length_ge_eleven_add_Bzero {D : Dag}
+    (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hAF : ∃ w, (0 : V) ∈ supp 6 D w ∧ (5 : V) ∈ supp 6 D w)
+    (hBE : ∃ w, (1 : V) ∈ supp 6 D w ∧ (4 : V) ∈ supp 6 D w)
+    (hCD : ∃ w, (2 : V) ∈ supp 6 D w ∧ (3 : V) ∈ supp 6 D w) :
+    11 + Bzero 6 D ≤ D.length := by
+  have hb := three_pair_occurrences_Bplus_ge_six h hc hAF hBE hCD
+  have hs := surplus_identity h
+  rw [totalSurplus_split] at hs
+  omega
+
+end C6.GenericPair
+
+
+namespace C6.GenericPair
+open DagTools
+
+lemma joint_relabel {D : Dag} (σ : Equiv.Perm V) (hS : Strict 6 D) {u v : V}
+    (hJ : ∃ w, u ∈ supp 6 D w ∧ v ∈ supp 6 D w) :
+    ∃ w, σ u ∈ supp 6 (relabel σ D) w ∧ σ v ∈ supp 6 (relabel σ D) w := by
+  obtain ⟨w, hu, hv⟩ := hJ
+  refine ⟨liftP σ w, ?_, ?_⟩
+  · rw [relabel_supp σ hS]
+    exact Finset.mem_image.mpr ⟨u, hu, rfl⟩
+  · rw [relabel_supp σ hS]
+    exact Finset.mem_image.mpr ⟨v, hv, rfl⟩
+
+lemma pair01_length {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hAF : ∃ w, (0 : V) ∈ supp 6 D w ∧ (5 : V) ∈ supp 6 D w)
+    (hBE : ∃ w, (1 : V) ∈ supp 6 D w ∧ (4 : V) ∈ supp 6 D w) : 10 ≤ D.length := by
+  have hb := two_pair_occurrences_length_ge_ten_add_Bzero h hc hAF hBE
+  omega
+
+lemma pair02_length {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hAF : ∃ w, (0 : V) ∈ supp 6 D w ∧ (5 : V) ∈ supp 6 D w)
+    (hCD : ∃ w, (2 : V) ∈ supp 6 D w ∧ (3 : V) ∈ supp 6 D w) : 10 ≤ D.length := by
+  have ha : ∃ w, (0 : V) ∈ supp 6 (relabel swapPairs D) w ∧
+      (5 : V) ∈ supp 6 (relabel swapPairs D) w := by
+    simpa [swapPairs] using joint_relabel swapPairs h.1 hAF
+  have hb : ∃ w, (1 : V) ∈ supp 6 (relabel swapPairs D) w ∧
+      (4 : V) ∈ supp 6 (relabel swapPairs D) w := by
+    simpa [swapPairs] using joint_relabel swapPairs h.1 hCD
+  have hs := pair01_length (relabel_strictLive swapPairs h)
+    (c6_relabel_computes swapPairs swapPairs_adj h hc) ha hb
+  simpa only [relabel_length] using hs
+
+lemma pair12_length {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hBE : ∃ w, (1 : V) ∈ supp 6 D w ∧ (4 : V) ∈ supp 6 D w)
+    (hCD : ∃ w, (2 : V) ∈ supp 6 D w ∧ (3 : V) ∈ supp 6 D w) : 10 ≤ D.length := by
+  have ha : ∃ w, (0 : V) ∈ supp 6 (relabel rotatePairs D) w ∧
+      (5 : V) ∈ supp 6 (relabel rotatePairs D) w := by
+    simpa [rotatePairs] using joint_relabel rotatePairs h.1 hBE
+  have hb : ∃ w, (1 : V) ∈ supp 6 (relabel rotatePairs D) w ∧
+      (4 : V) ∈ supp 6 (relabel rotatePairs D) w := by
+    simpa [rotatePairs] using joint_relabel rotatePairs h.1 hCD
+  have hs := pair01_length (relabel_strictLive rotatePairs h)
+    (c6_relabel_computes rotatePairs rotatePairs_adj h hc) ha hb
+  simpa only [relabel_length] using hs
+
+def PairOccurs (D : Dag) (p : Fin 3) : Prop :=
+  ∃ w, (![0, 1, 2] p : V) ∈ supp 6 D w ∧ (![5, 4, 3] p : V) ∈ supp 6 D w
+
+lemma two_distinct_pair_occurrences_length {D : Dag}
+    (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (p q : Fin 3) (hne : p ≠ q) (hp : PairOccurs D p) (hq : PairOccurs D q) :
+    10 ≤ D.length := by
+  fin_cases p <;> fin_cases q
+  · exact (hne rfl).elim
+  · exact pair01_length h hc (by simpa [PairOccurs] using hp) (by simpa [PairOccurs] using hq)
+  · exact pair02_length h hc (by simpa [PairOccurs] using hp) (by simpa [PairOccurs] using hq)
+  · exact pair01_length h hc (by simpa [PairOccurs] using hq) (by simpa [PairOccurs] using hp)
+  · exact (hne rfl).elim
+  · exact pair12_length h hc (by simpa [PairOccurs] using hp) (by simpa [PairOccurs] using hq)
+  · exact pair02_length h hc (by simpa [PairOccurs] using hq) (by simpa [PairOccurs] using hp)
+  · exact pair12_length h hc (by simpa [PairOccurs] using hq) (by simpa [PairOccurs] using hp)
+  · exact (hne rfl).elim
+
+end C6.GenericPair
+
+
+namespace C6.GenericPair
+open DagTools
+
+lemma one_pair_occurs_length {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (p : Fin 3) (hp : PairOccurs D p) : 9 ≤ D.length := by
+  fin_cases p
+  · have hb := opposite_joint_length_ge_nine_add_Bzero h hc
+      (u := (0 : V)) (v := (5 : V)) (by unfold oppositePair; decide)
+      (by simpa [PairOccurs] using hp)
+    omega
+  · have hb := opposite_joint_length_ge_nine_add_Bzero h hc
+      (u := (1 : V)) (v := (4 : V)) (by unfold oppositePair; decide)
+      (by simpa [PairOccurs] using hp)
+    omega
+  · have hb := opposite_joint_length_ge_nine_add_Bzero h hc
+      (u := (2 : V)) (v := (3 : V)) (by unfold oppositePair; decide)
+      (by simpa [PairOccurs] using hp)
+    omega
+
+lemma all_pair_occurrences_length {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hp : ∀ p : Fin 3, PairOccurs D p) : 11 ≤ D.length := by
+  have hb := three_pair_occurrences_length_ge_eleven_add_Bzero h hc
+    (by simpa [PairOccurs] using hp 0)
+    (by simpa [PairOccurs] using hp 1)
+    (by simpa [PairOccurs] using hp 2)
+  omega
+
+lemma pair_occurrences_length {D : Dag} (h : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (S : Finset (Fin 3)) (hocc : ∀ p ∈ S, PairOccurs D p) :
+    8 + S.card ≤ D.length := by
+  classical
+  have hmax : S.card ≤ 3 := by simpa using Finset.card_le_univ S
+  rcases (by omega : S.card = 0 ∨ S.card = 1 ∨ S.card = 2 ∨ S.card = 3) with h0 | h1 | h2 | h3
+  · have hb := c6_length_ge_eight_add_Bzero h hc
+    omega
+  · obtain ⟨p, hp⟩ := Finset.card_pos.mp (show 0 < S.card by omega)
+    have hb := one_pair_occurs_length h hc p (hocc p hp)
+    omega
+  · obtain ⟨p, hp⟩ := Finset.card_pos.mp (show 0 < S.card by omega)
+    have hq : ∃ q ∈ S, q ≠ p := by
+      by_contra hn
+      push Not at hn
+      have hs : S ⊆ {p} := by
+        intro q hq
+        exact Finset.mem_singleton.mpr (hn q hq)
+      have hle := Finset.card_le_card hs
+      simp only [Finset.card_singleton] at hle
+      omega
+    obtain ⟨q, hq, hqp⟩ := hq
+    have hb := two_distinct_pair_occurrences_length h hc p q (Ne.symm hqp) (hocc p hp) (hocc q hq)
+    omega
+  · have heq : S = Finset.univ := Finset.eq_univ_of_card S (by simpa using h3)
+    have hb := all_pair_occurrences_length h hc (fun p => hocc p (by rw [heq]; simp))
+    omega
+
+end C6.GenericPair
+
+
+namespace RetainedGateCount
+
+lemma retained_unmarked_le_seven {α : Type*} [DecidableEq α]
+    (U B M S : Finset α) (hU : U.card ≤ 19)
+    (hB : B ⊆ U) (hM : M ⊆ U) (hS : S ⊆ U)
+    (hBc : B.card = 6) (hMc : M.card = 6)
+    (hBM : Disjoint B M) (hSB : Disjoint S B) : (S \ M).card ≤ 7 := by
+  have hBMcard : (B ∪ M).card = 12 := by
+    rw [Finset.card_union_of_disjoint hBM, hBc, hMc]
+  have hdis : Disjoint (S \ M) (B ∪ M) := by
+    apply Finset.disjoint_left.mpr
+    intro x hx hy
+    obtain ⟨hxS, hxM⟩ := Finset.mem_sdiff.mp hx
+    rcases Finset.mem_union.mp hy with hxB | hxM'
+    · exact Finset.disjoint_left.mp hSB hxS hxB
+    · exact hxM hxM'
+  have hsub : (S \ M) ∪ (B ∪ M) ⊆ U := by
+    intro x hx
+    rcases Finset.mem_union.mp hx with hx | hx
+    · exact hS (Finset.mem_sdiff.mp hx).1
+    · rcases Finset.mem_union.mp hx with hx | hx
+      · exact hB hx
+      · exact hM hx
+  have hc := Finset.card_le_card hsub
+  rw [Finset.card_union_of_disjoint hdis, hBMcard] at hc
+  omega
+
+lemma retained_le_seven_add_marked {α : Type*} [DecidableEq α]
+    (U B M S : Finset α) (hU : U.card ≤ 19)
+    (hB : B ⊆ U) (hM : M ⊆ U) (hS : S ⊆ U)
+    (hBc : B.card = 6) (hMc : M.card = 6)
+    (hBM : Disjoint B M) (hSB : Disjoint S B) :
+    S.card ≤ 7 + (S ∩ M).card := by
+  have hd := retained_unmarked_le_seven U B M S hU hB hM hS hBc hMc hBM hSB
+  have hc := Finset.card_sdiff_add_card_inter S M
+  omega
+
+end RetainedGateCount
+
+
+namespace MarkedC6Contradiction
+
+open C6 C6.DagTools C6.GenericPair
+
+lemma retained_marked_impossible {α : Type*} [DecidableEq α]
+    (U B M S : Finset α) (hU : U.card ≤ 19)
+    (hB : B ⊆ U) (hM : M ⊆ U) (hS : S ⊆ U)
+    (hBc : B.card = 6) (hMc : M.card = 6)
+    (hBM : Disjoint B M) (hSB : Disjoint S B)
+    (label : α → Fin 3) (hinj : Set.InjOn label ↑(S ∩ M))
+    (D : Dag) (hD : StrictLive 6 D) (hc : sem_Comp 6 adj D)
+    (hlen : D.length ≤ S.card)
+    (hocc : ∀ j ∈ S ∩ M, PairOccurs D (label j)) : False := by
+  classical
+  have hu := RetainedGateCount.retained_le_seven_add_marked
+    U B M S hU hB hM hS hBc hMc hBM hSB
+  have hl := pair_occurrences_length hD hc ((S ∩ M).image label) (by
+    intro p hp
+    obtain ⟨j, hj, rfl⟩ := Finset.mem_image.mp hp
+    exact hocc j hj)
+  have he := Finset.card_image_of_injOn hinj
+  rw [he] at hl
+  omega
+
+end MarkedC6Contradiction
+
+
+namespace FreePairNoise
+open C6.DagTools LinearNoise
+
+lemma linear_mono {n : Nat} {S T : Finset (Fin n)} (h : S ⊆ T) (x : Fin n → Bool) :
+    linear S x = true → linear T x = true := by
+  intro hs
+  obtain ⟨v,hv,hx⟩ := of_decide_eq_true hs
+  exact decide_eq_true (Exists.intro v ⟨h hv,hx⟩)
+
+lemma linear_absorb_subset {n : Nat} {S T : Finset (Fin n)}
+    (h : S ⊆ T) (x : Fin n → Bool) : (linear T x || linear S x) = linear T x := by
+  apply Bool.eq_iff_iff.mpr
+  simp only [Bool.or_eq_true]
+  exact ⟨fun hst => hst.elim id (linear_mono h x), Or.inl⟩
+
+lemma linear_absorb_wire {n : Nat} {D : Dag} (hD : Strict n D)
+    (P : Finset (Fin n)) (u : Nat) (hP : P ⊆ supp n D u) (x : Fin n → Bool) :
+    (linear P x || val D x u) = val D x u := by
+  have hh : linear P x = true → val D x u = true := by
+    intro hp
+    obtain ⟨v,hv,hx⟩ := of_decide_eq_true hp
+    apply val_mono hD (single v) x ?_ u (mem_supp.mp (hP hv))
+    intro i hi
+    have he : i = v := by simpa [single] using hi
+    subst i
+    exact hx
+  apply Bool.eq_iff_iff.mpr
+  simp only [Bool.or_eq_true]
+  exact ⟨fun hv => hv.elim hh id, Or.inr⟩
+
+lemma join_augmented (l a b f g : Bool) (ha : (l || a) = (l || f))
+    (hb : (l || b) = (l || g)) : (l || (a || b)) = (l || (f || g)) := by
+  cases l <;> simp_all
+
+lemma paid_coordinate {n k : Nat} {D : Dag} (Free : Finset (Fin n) → Prop)
+    (birth : Fin k → Nat)
+    (hbirth : ∀ j, j < D.length → ¬ Free (supp n D (n+j)) → ∃ i, birth i = j)
+    (u : Nat) (hnu : n ≤ u) (hu : u < n + D.length) (hf : ¬ Free (supp n D u)) :
+    ∃ i, n + birth i = u := by
+  have he : n + (u-n) = u := by omega
+  obtain ⟨i,hi⟩ := hbirth (u-n) (by omega) (by simpa only [he] using hf)
+  exact ⟨i,by omega⟩
+
+lemma carrier_noise {n k : Nat} {D : Dag} (hD : Strict n D)
+    (Free : Finset (Fin n) → Prop) (hsize : ∀ S, Free S → S.card = 2)
+    (birth : Fin k → Nat)
+    (hbirth : ∀ j, j < D.length → ¬ Free (supp n D (n+j)) → ∃ i, birth i = j) :
+    ∀ w, w < n + D.length → Free (supp n D w) →
+      ∃ f : (Fin k → Bool) → Bool, ZeroMono f ∧ UsesAtMost n birth w f ∧
+      ∀ x : Fin n → Bool, val D x w =
+        (linear (supp n D w) x || f (fun i => val D x (n + birth i))) := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | _ w ih =>
+    intro hw hfree
+    by_cases hin : w < n
+    · have hh := hsize _ hfree
+      rw [show supp n D w = {⟨w,hin⟩} from supp_input D ⟨w,hin⟩,
+        Finset.card_singleton] at hh
+      omega
+    · obtain ⟨j,rfl⟩ : ∃ j, w = n+j := ⟨w-n,by omega⟩
+      have hj : j < D.length := by omega
+      let P := supp n D (n+j)
+      have hcard : P.card = 2 := hsize _ hfree
+      have hsame (S : Finset (Fin n)) (hS : Free S) (hc : S ⊆ P ∨ P ⊆ S) : S = P := by
+        rcases hc with hs | hs
+        · exact Finset.eq_of_subset_of_card_le hs (by rw [hsize S hS,hcard])
+        · exact (Finset.eq_of_subset_of_card_le hs (by rw [hsize S hS,hcard])).symm
+      have down (u : Nat) (hu : u < n+j) (hsub : supp n D u ⊆ P) :
+          ∃ f : (Fin k → Bool) → Bool, ZeroMono f ∧ UsesAtMost n birth (n+j) f ∧
+            ∀ x, (linear P x || val D x u) =
+              (linear P x || f (fun i => val D x (n+birth i))) := by
+        by_cases hinput : u < n
+        · refine ⟨fun _ => false, ⟨rfl,fun a b hab hh => hh⟩, ?_, ?_⟩
+          · intro a b hab
+            rfl
+          · intro x
+            rw [val_input D x u hinput, ← linear_singleton ⟨u,hinput⟩ x, Bool.or_false]
+            apply linear_absorb_subset
+            simpa only [show supp n D u = {⟨u,hinput⟩} from supp_input D ⟨u,hinput⟩] using hsub
+        · by_cases hf : Free (supp n D u)
+          · have hs := hsame _ hf (Or.inl hsub)
+            obtain ⟨f,hf0,hfu,hfv⟩ := ih u hu (by omega) hf
+            refine ⟨f,hf0,uses_mono hfu hu.le,?_⟩
+            intro x
+            rw [hfv x,hs]
+            simp
+          · obtain ⟨i,hi⟩ := paid_coordinate Free birth hbirth u (by omega) (by omega) hf
+            refine ⟨fun z => z i, ⟨rfl,fun a b hab hh => hab i hh⟩, ?_, ?_⟩
+            · intro a b hab
+              exact hab i (by omega)
+            · intro x
+              simp only [hi]
+      have up (u : Nat) (hu : u < n+j) (hsub : P ⊆ supp n D u) :
+          ∃ f : (Fin k → Bool) → Bool, ZeroMono f ∧ UsesAtMost n birth (n+j) f ∧
+            ∀ x, val D x u = (linear P x || f (fun i => val D x (n+birth i))) := by
+        have hnu : n ≤ u := by
+          by_contra hh
+          have hinput : u < n := by omega
+          have hle := Finset.card_le_card hsub
+          rw [show supp n D u = {⟨u,hinput⟩} from supp_input D ⟨u,hinput⟩,
+            Finset.card_singleton,hcard] at hle
+          omega
+        by_cases hf : Free (supp n D u)
+        · have hs := hsame _ hf (Or.inr hsub)
+          obtain ⟨f,hf0,hfu,hfv⟩ := ih u hu (by omega) hf
+          refine ⟨f,hf0,uses_mono hfu hu.le,?_⟩
+          intro x
+          simpa only [hs] using hfv x
+        · obtain ⟨i,hi⟩ := paid_coordinate Free birth hbirth u hnu (by omega) hf
+          refine ⟨fun z => z i, ⟨rfl,fun a b hab hh => hab i hh⟩, ?_, ?_⟩
+          · intro a b hab
+            exact hab i (by omega)
+          · intro x
+            simpa only [hi] using (linear_absorb_wire hD P u hsub x).symm
+      obtain ⟨ha,hb,_⟩ := hD j hj
+      by_cases ht : tag D j = true
+      · have hs : supp n D (opA D j) ∩ supp n D (opB D j) = P :=
+          (sem_supp_and hD hj ht).symm
+        obtain ⟨f,hf,hu,hvf⟩ := up _ ha (by rw [← hs]; exact Finset.inter_subset_left)
+        obtain ⟨g,hg,hv,hvg⟩ := up _ hb (by rw [← hs]; exact Finset.inter_subset_right)
+        refine ⟨fun z => f z && g z,zeroMono_and hf hg,?_,?_⟩
+        · intro a b hab
+          dsimp only
+          rw [hu a b hab,hv a b hab]
+        · intro x
+          change val D x (n+j) = (linear P x || _)
+          rw [val_gate hD x j hj,ht,gop_true,hvf x,hvg x]
+          cases linear P x <;> simp
+      · have ht0 := Bool.eq_false_of_not_eq_true ht
+        have hs : supp n D (opA D j) ∪ supp n D (opB D j) = P :=
+          (sem_supp_or hD hj ht0).symm
+        obtain ⟨f,hf,hu,hvf⟩ := down _ ha (by rw [← hs]; exact Finset.subset_union_left)
+        obtain ⟨g,hg,hv,hvg⟩ := down _ hb (by rw [← hs]; exact Finset.subset_union_right)
+        refine ⟨fun z => f z || g z,zeroMono_or hf hg,?_,?_⟩
+        · intro a b hab
+          dsimp only
+          rw [hu a b hab,hv a b hab]
+        · intro x
+          change val D x (n+j) = (linear P x || _)
+          calc
+            val D x (n+j) = (linear P x || val D x (n+j)) :=
+              (linear_absorb_wire hD P (n+j) (Finset.Subset.refl _) x).symm
+            _ = (linear P x || (val D x (opA D j) || val D x (opB D j))) := by
+              rw [val_gate hD x j hj,ht0,gop_false]
+            _ = (linear P x || (f (fun i => val D x (n+birth i)) ||
+                g (fun i => val D x (n+birth i)))) := join_augmented _ _ _ _ _ (hvf x) (hvg x)
+
+end FreePairNoise
+
+
+namespace FreePairNoise
+open C6.DagTools LinearNoise
+
+lemma paid_carrier_noise {n k : Nat} {D : Dag} (hD : Strict n D)
+    (Free : Finset (Fin n) → Prop) (hsize : ∀ S, Free S → S.card = 2)
+    (birth : Fin k → Nat)
+    (hbirth : ∀ j, j < D.length → ¬ Free (supp n D (n+j)) → ∃ i, birth i = j)
+    (hpaid : ∀ i, ¬ Free (supp n D (n + birth i)))
+    (w : Nat) (hw : w < n + D.length) (hfree : Free (supp n D w)) :
+    ∃ f : (Fin k → Bool) → Bool, ZeroMono f ∧ UsesAtMost n birth (w-1) f ∧
+      ∀ x : Fin n → Bool, val D x w =
+        (linear (supp n D w) x || f (fun i => val D x (n + birth i))) := by
+  obtain ⟨f,hf,hu,hval⟩ := carrier_noise hD Free hsize birth hbirth w hw hfree
+  refine ⟨f,hf,?_,hval⟩
+  intro a b hab
+  apply hu a b
+  intro i hi
+  have hne : n + birth i ≠ w := by
+    intro he
+    exact hpaid i (by simpa only [he] using hfree)
+  exact hab i (by omega)
+
+end FreePairNoise
+
 end PEqualNP.Outside.L_meta_2590_aux
