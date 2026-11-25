@@ -1,0 +1,16 @@
+Start UTC 2026-11-25T10:51:52.556504+00:00
+GENERAL_IDENTITY 2*a*b*y**2 + 6*a*y + 6*b*y + 2*y**2 + 12*y + 24
+CONSTANT_PERMANENT24; BASIS_RANK2; DIAGONAL_RANK1: PASS
+Normalized first variation matches three-parameter solution {c00: -4*sqrt(2)*c22 - 8*sqrt(2)*c23 + c33*(-2*sqrt(2) - 1), c01: 0, c02: c22*(-2 + 2*sqrt(2)) + c23*(-2 + 4*sqrt(2)) + sqrt(2)*c33, c03: 0, c11: c22, c12: c22, c13: c23, c22: c22, c23: c23, c33: c33}
+Residual equations [c22**2*(12 - 32*sqrt(2)) + c22*c23*(56 - 88*sqrt(2)) + c22*c33*(8 - 16*sqrt(2)) + c23**2*(56 - 48*sqrt(2)) + c23*c33*(16 - 12*sqrt(2)) + 2*c33**2, c22**2*(-44 + 28*sqrt(2)) + c22*c23*(-128 + 88*sqrt(2)) + c22*c33*(-24 + 12*sqrt(2)) + c23**2*(-80 + 64*sqrt(2)) + c23*c33*(-24 + 24*sqrt(2)) + c33**2*(-2 + 2*sqrt(2)), c22**3*(12 - 16*sqrt(2)) + c22**2*c23*(56 - 80*sqrt(2)) + c22**2*c33*(12 - 24*sqrt(2)) + c22*c23**2*(104 - 120*sqrt(2)) + c22*c23*c33*(56 - 64*sqrt(2)) + c22*c33**2*(6 - 8*sqrt(2)) + c23**3*(64 - 48*sqrt(2)) + c23**2*c33*(64 - 28*sqrt(2)) + c23*c33**2*(20 - 4*sqrt(2)) + 2*c33**3, c22**3*(-44 + 28*sqrt(2)) + c22**2*c23*(-128 + 88*sqrt(2)) + c22**2*c33*(-24 + 12*sqrt(2)) + c22*c23**2*(-80 + 64*sqrt(2)) + c22*c23*c33*(-24 + 24*sqrt(2)) + c22*c33**2*(-2 + 2*sqrt(2)), c22**3*c33*(12 - 16*sqrt(2)) + c22**2*c23**2*(12 - 24*sqrt(2)) + c22**2*c23*c33*(40 - 40*sqrt(2)) + c22**2*c33**2*(6 - 8*sqrt(2)) + c22*c23**3*(40 - 56*sqrt(2)) + c22*c23**2*c33*(40 - 28*sqrt(2)) + c22*c23*c33**2*(16 - 4*sqrt(2)) + 2*c22*c33**3 + c23**4*(36 - 16*sqrt(2)) + c23**3*c33*(16 - 4*sqrt(2)) + 2*c23**2*c33**2]
+GROEBNER [c22*c33**3, c23*c33**3, c33**4, c22*c33**2*(-1568893/5634076 - 341899*sqrt(2)/11268152) + c23**3 + c23*c33**2*(325657/1408519 - 360373*sqrt(2)/1408519) + c33**3*(164847/11268152 - 86038*sqrt(2)/1408519), c22*c33**2*(-1685569/5634076 - 330529*sqrt(2)/2817038) + c23**2*c33 + c23*c33**2*(1501839/1408519 - 448075*sqrt(2)/2817038) + c33**3*(696411/5634076 - 500585*sqrt(2)/11268152), c22**2 + c22*c33*(102/113 + 115*sqrt(2)/113) + c23**2*(-280/113 - 134*sqrt(2)/113) + c23*c33*(-284*sqrt(2)/113 - 20/113) + c33**2*(35/226 - 34*sqrt(2)/113), c22*c23 + c22*c33*(-101*sqrt(2)/226 - 33/113) + c23**2*(50*sqrt(2)/113 + 177/113) + c23*c33*(53/113 + 217*sqrt(2)/226) + c33**2*(-4/113 + 11*sqrt(2)/113)]
+NILPOTENT_PARAMETER c22 power4: PASS
+NILPOTENT_PARAMETER c23 power4: PASS
+NILPOTENT_PARAMETER c33 power4: PASS
+This pencil has no independent third direction: PASS
+STAR first variation {c00: -2*c02 - 2*c03 - 4*c22 - 4*c23 - c33, c01: 0, c02: c02, c03: c03, c11: -c13 + c22 + c23, c12: -c13/2 + c22 + c23/2, c13: c13, c22: c22, c23: c23, c33: c33}
+STAR mixed quartic x2z2 (c13 - c23)**2
+Any constant-permanent space containing A is stable under(12): PASS
+Combined with the previously reviewed transposition-stable three-plane exclusion, no three-plane contains A
+Finish UTC 2026-11-25T10:51:53.955505+00:00
+PASS

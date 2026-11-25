@@ -1,0 +1,5 @@
+archive PASS native-star-r1 6 9cc0437d52990f4ec3c89b54af1b0446e43bb4a769af671c3d7ba3dc01cd848d
+status PASS UNKNOWN600.295s;9completedrounds;no basis;2357776KiB
+archive PASS native-b32-control 10 fd8d9740378f3a99aafa8495ccfb0b55616b95192bf9beda2b7cf939abbb09f9
+status PASS F1009unit1;0.033956s;15rounds+final;selections32and33
+source/input PASS all31polynomials655terms;allscalingsinvertibleF1009

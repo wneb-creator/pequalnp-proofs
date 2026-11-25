@@ -1,0 +1,4 @@
+linear {b00: -2*b02 - 2*b03 - 4*b22 - 4*b23 - b33, b01: 0, b02: b02, b03: b03, b11: -b13 + b22 + b23, b12: -b13/2 + b22 + b23/2, b13: b13, b22: b22, b23: b23, b33: b33}
+mixed coefficient (b13 - b23)**2
+T plus T02/2 A is invariant under (1 2); A is anti-invariant
+ALL_CHECKS_PASSED

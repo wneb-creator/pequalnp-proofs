@@ -1,0 +1,22 @@
+{
+  "raw_bytes": 268435456,
+  "compressed_bytes": 122016828,
+  "counts": {
+    "G": 31,
+    "I": 15685,
+    "O": 738,
+    "A": 126838,
+    "S": 15810
+  },
+  "bytes_by_kind": {
+    "G": 21522,
+    "I": 146316158,
+    "O": 47824599,
+    "A": 72059717,
+    "S": 2213460
+  },
+  "largest_line_bytes": 815889,
+  "raw_sha256": "173114e22def4645729b82cc79bb6f6e82b7e070af2e58e2335effa179f60e7d",
+  "elapsed_seconds": 4.108353826000894,
+  "scope": "Truncated unsuccessful trace; no certificate or solver verdict."
+}

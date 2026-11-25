@@ -1,0 +1,2 @@
+A Matrix([[0, 1, -1, 0], [1, 0, 0, 0], [-1, 0, 0, 0], [0, 0, 0, 0]]) B Matrix([[-sqrt(2) - 1, 0, 0, 1], [0, 0, 0, 0], [0, 0, 0, 0], [1, 0, 0, -1 + sqrt(2)]])
+PERMANENT_IDENTITY_24; BASIS_RANK_2; DIAGONAL_PROJECTION_RANK_1
