@@ -1,0 +1,8 @@
+L-meta-1031 PARTIAL implication
+Source: results/orch/lemmas/proof_pair_sound.lean
+SHA256: 4eb4244757d6fecf5abb7e86dc777a26ab0d4ab76e51543c5864396367bee8d0
+Lines: 310
+Validation: lake env lean compiled this source, exit 0; complete output and status preserved.
+Proves: for n>0, if every AND gate is sound on pair inputs (including repeated vertices), every AND gate is globally sound.
+Does not prove: a minimum circuit satisfying pair soundness exists. Not the posted theorem, not PR-ready.
+Checker: not run against full posted statement.
