@@ -1,0 +1,13 @@
+Unordered encoding controls
+monotone-positive gates=20 direct=1 solver=10
+unused-not-positive gates=21 direct=1 solver=10
+double-not-positive gates=22 direct=1 solver=10
+mutated-negative gates=20 direct=0 solver=20
+PASS all controls on all1024 inputs
+
+Ordered encoding controls
+monotone-positive gates=20 direct=1 solver=10
+unused-not-positive gates=21 direct=1 solver=10
+double-not-positive gates=22 direct=1 solver=10
+mutated-negative gates=20 direct=0 solver=20
+PASS all controls on all1024 inputs

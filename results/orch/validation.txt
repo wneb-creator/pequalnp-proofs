@@ -1,0 +1,16 @@
+L-meta-2592 partial checkpoint, not a proof submission.
+
+Toolchain: Lean 4.36.0.
+Mathlib cache: 9117 files, cache command exit 0.
+Shared prerequisite build: lake build +PEqualNP.Defs checklemma, exit 0, 5151 jobs.
+Structural.lean: compile failed, diagnostics retained.
+LeanRoute.lean: compile failed, diagnostics retained.
+CaseBounds.lean: compile pending.
+NotComparison.lean: compile pending.
+Posted theorem: not proved. Local full-statement checker: not run.
+No counterexample found; SAT searches are restricted and incomplete.
+
+Lease renewal returned HTTP 410 at 2026-11-25T14:38:51Z despite previous expiry14:53:54Z. Work paused; checkpoint pushed before reacquisition as instructed.
+Null desk responses: 0.
+Sub-agents: 6 (checker_review, structural_proof, counterexample, lean_route, case_bounds, status_research)
+TIMING total=12.7 subagents=6

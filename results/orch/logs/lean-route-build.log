@@ -1,0 +1,220 @@
+../results/orch/lemmas/LeanRoute.lean:129:4: error: unsolved goals
+case inr.inr.cons
+v : ℕ
+g : Gate
+reads : (g.op = GateOp.not → g.inputs.head? = some v) ∧ (g.op = GateOp.and ∨ g.op = GateOp.or → v ∉ g.inputs)
+U V : List Bool
+atV : U.getD v false = true
+other : ∀ (i : ℕ), i ≠ v → U.getD i false = true → V.getD i false = true
+hnot : g.op = GateOp.not
+head : g.inputs.head? = some v
+rest : List ℕ
+args : g.inputs = v :: rest
+⊢ U[v]?.getD false = false → V[v]?.getD false = false
+../results/orch/lemmas/LeanRoute.lean:131:31: warning: This simp argument is unused:
+  args
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hnot, GateOp.eval, atV]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/LeanRoute.lean:131:37: warning: This simp argument is unused:
+  atV
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [hnot, GateOp.eval, args]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/LeanRoute.lean:173:18: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/LeanRoute.lean:174:38: warning: This simp argument is unused:
+  List.getElem?_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, v.isLt, hy]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/LeanRoute.lean:218:38: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/LeanRoute.lean:214:34: error: unsolved goals
+C : Circuit
+v : Fin 10
+hleg :
+  ∀ g ∈ C.gates,
+    (g.op = GateOp.and ∨ g.op = GateOp.or ∨ g.op = GateOp.not) ∧
+      (g.op = GateOp.not → g.inputs.head? = some ↑v) ∧ (g.op = GateOp.and ∨ g.op = GateOp.or → ↑v ∉ g.inputs)
+computes : ∀ (x : Fin 10 → Bool), C.eval (List.ofFn x) = petersen x
+out : C.output = ↑v
+computed :
+  [decide (0 = v), decide (1 = v), decide (2 = v), decide (3 = v), decide (4 = v), decide (5 = v), decide (6 = v),
+        decide (7 = v), decide (8 = v), decide (9 = v)][↑v] =
+    false
+⊢ False
+../results/orch/lemmas/LeanRoute.lean:219:38: warning: This simp argument is unused:
+  List.getElem?_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, v.isLt, petersen_singleton] at computed
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/LeanRoute.lean:241:57: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.105 = ?m.105
+but is expected to have type
+  ¬id false = true
+in the application
+  ⟨List.mem_map.mpr (Exists.intro u ⟨present, hU⟩), rfl⟩
+../results/orch/lemmas/LeanRoute.lean:244:57: error: Application type mismatch: The argument
+  rfl
+has type
+  ?m.138 = ?m.138
+but is expected to have type
+  ¬id false = true
+in the application
+  ⟨List.mem_map.mpr (Exists.intro u ⟨present, hV⟩), rfl⟩
+../results/orch/lemmas/LeanRoute.lean:245:6: error: Tactic `assumption` failed
+
+case pos.false
+g : Gate
+v u : ℕ
+U V : List Bool
+other : ∀ (i : ℕ), i ≠ v → U.getD i false = V.getD i false
+occurs : v ∈ g.inputs
+present : u ∈ g.inputs
+masked : v ∈ g.inputs → u ∈ g.inputs ∧ g.op = if false = true then GateOp.or else GateOp.and
+hU : U.getD u false = false
+hV : V.getD u false = false
+op : g.op = if false = true then GateOp.or else GateOp.and
+uu : (List.map (fun i => U.getD i false) g.inputs).all id = false
+vv : (List.map (fun i => V.getD i false) g.inputs).all id = false
+⊢ (g.inputs.all fun i => U[i]?.getD false) = g.inputs.all fun i => V[i]?.getD false
+../results/orch/lemmas/LeanRoute.lean:253:6: error: Tactic `assumption` failed
+
+case pos.true
+g : Gate
+v u : ℕ
+U V : List Bool
+other : ∀ (i : ℕ), i ≠ v → U.getD i false = V.getD i false
+occurs : v ∈ g.inputs
+present : u ∈ g.inputs
+masked : v ∈ g.inputs → u ∈ g.inputs ∧ g.op = if true = true then GateOp.or else GateOp.and
+hU : U.getD u false = true
+hV : V.getD u false = true
+op : g.op = if true = true then GateOp.or else GateOp.and
+uu : (List.map (fun i => U.getD i false) g.inputs).any id = true
+vv : (List.map (fun i => V.getD i false) g.inputs).any id = true
+⊢ (g.inputs.any fun i => U[i]?.getD false) = g.inputs.any fun i => V[i]?.getD false
+../results/orch/lemmas/LeanRoute.lean:297:12: error: Application type mismatch: The argument
+  hw
+has type
+  let x := fun i => if b = true then decide (i = u ∨ i = w) else decide (i = w);
+  x u = b ∧ petersen x = false ∧ petersen (Function.update x v true) = true
+but is expected to have type
+  ?m.55 u = b ∧ petersen ?m.55 = false ∧ petersen (Function.update ?m.55 v true) = true
+in the application
+  Exists.intro ?m.55 hw
+../results/orch/lemmas/LeanRoute.lean:309:38: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/LeanRoute.lean:305:34: error: unsolved goals
+C : Circuit
+v u : Fin 10
+distinct : v ≠ u
+b : Bool
+masked : ∀ g ∈ C.gates, ↑v ∈ g.inputs → ↑u ∈ g.inputs ∧ g.op = if b = true then GateOp.or else GateOp.and
+computes : ∀ (x : Fin 10 → Bool), C.eval (List.ofFn x) = petersen x
+out : C.output = ↑v
+computed :
+  [decide (0 = v), decide (1 = v), decide (2 = v), decide (3 = v), decide (4 = v), decide (5 = v), decide (6 = v),
+        decide (7 = v), decide (8 = v), decide (9 = v)][↑v] =
+    false
+⊢ False
+../results/orch/lemmas/LeanRoute.lean:314:18: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/LeanRoute.lean:315:5: error: unsolved goals
+C : Circuit
+v u : Fin 10
+distinct : v ≠ u
+b : Bool
+masked : ∀ g ∈ C.gates, ↑v ∈ g.inputs → ↑u ∈ g.inputs ∧ g.op = if b = true then GateOp.or else GateOp.and
+computes : ∀ (x : Fin 10 → Bool), C.eval (List.ofFn x) = petersen x
+hout : C.output ≠ ↑v
+x : Fin 10 → Bool
+hu : x u = b
+hx : petersen x = false
+hy : petersen (Function.update x v true) = true
+⊢ [x 0, x 1, x 2, x 3, x 4, x 5, x 6, x 7, x 8, x 9][↑u] = b
+../results/orch/lemmas/LeanRoute.lean:316:5: error: unsolved goals
+C : Circuit
+v u : Fin 10
+distinct : v ≠ u
+b : Bool
+masked : ∀ g ∈ C.gates, ↑v ∈ g.inputs → ↑u ∈ g.inputs ∧ g.op = if b = true then GateOp.or else GateOp.and
+computes : ∀ (x : Fin 10 → Bool), C.eval (List.ofFn x) = petersen x
+hout : C.output ≠ ↑v
+x : Fin 10 → Bool
+hu : x u = b
+hx : petersen x = false
+hy : petersen (Function.update x v true) = true
+⊢ [Function.update x v true 0, Function.update x v true 1, Function.update x v true 2, Function.update x v true 3,
+        Function.update x v true 4, Function.update x v true 5, Function.update x v true 6, Function.update x v true 7,
+        Function.update x v true 8, Function.update x v true 9][↑u] =
+    b
+../results/orch/lemmas/LeanRoute.lean:310:38: warning: This simp argument is unused:
+  List.getElem?_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, v.isLt, petersen_singleton] at computed
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/LeanRoute.lean:315:42: warning: This simp argument is unused:
+  List.getElem?_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, u.isLt, hu]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/LeanRoute.lean:315:70: warning: This simp argument is unused:
+  hu
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, List.getElem?_ofFn, u.isLt]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/LeanRoute.lean:316:42: warning: This simp argument is unused:
+  List.getElem?_ofFn
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, u.isLt, Function.update_of_ne (Ne.symm distinct), hu]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/LeanRoute.lean:317:6: warning: This simp argument is unused:
+  Function.update_of_ne (Ne.symm distinct)
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, List.getElem?_ofFn, u.isLt, hu]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/LeanRoute.lean:317:48: warning: This simp argument is unused:
+  hu
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [List.getD_eq_getElem?_getD, List.getElem?_ofFn, u.isLt, Function.update_of_ne (Ne.symm distinct)]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

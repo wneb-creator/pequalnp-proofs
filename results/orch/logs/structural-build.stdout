@@ -1,0 +1,22 @@
+../results/orch/lemmas/Structural.lean:21:20: error(lean.unknownIdentifier): Unknown identifier `g.inputs`
+../results/orch/lemmas/Structural.lean:22:16: error(lean.unknownIdentifier): Unknown identifier `g`
+../results/orch/lemmas/Structural.lean:23:10: error: Invalid alternative name `mk`: Expected `nil` or `cons`
+../results/orch/lemmas/Structural.lean:22:10: error: Alternative `nil` has not been provided
+../results/orch/lemmas/Structural.lean:22:10: error: Alternative `cons` has not been provided
+../results/orch/lemmas/Structural.lean:38:6: error: omega could not prove the goal:
+a possible counterexample may satisfy the constraints
+  c ≥ 0
+  b ≥ 0
+  b ≥ 1
+  a ≥ 0
+where
+ a := ↑x.length
+ b := ↑[].length
+ c := ↑gs.length
+../results/orch/lemmas/Structural.lean:36:58: warning: This simp argument is unused:
+  List.length_singleton
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [List.foldl_cons, ih, List.length_append, List.length_cons]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
