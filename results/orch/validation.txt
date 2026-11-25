@@ -74,3 +74,7 @@ TIMING total=63 subagents=6
 SeedNotOperands compiled exit0 and independently reviewed PASS: explicit consumed NOT of suppliedAND may have ignored additional operands, preserving the checked restricted>=19 bound. Partial only.
 Sub-agents:6
 TIMING total=66 subagents=6
+
+General dominated-source lemma compiled exit0 and independently reviewed PASS by structural_bound and reduction_design. SuppliedAND, arbitrary pinmap/source index, source<=target, direct NOT consumer and monotone suffix imply>=19 seeded gates. Prefix may contain earlierNOTs. Partial only.
+Sub-agents:6
+TIMING total=69 subagents=6
