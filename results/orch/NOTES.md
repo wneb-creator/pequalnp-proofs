@@ -92,3 +92,28 @@ The branchB=C has z² coefficient−8(B²+6B+3) and z³ coefficient−16B(B+1)²
 If a is constant1, write b=1+β,c=1+γ,d=1+δ,e=1+ε,f=1+φ. The quartic4β²γ² forcesoneofβ,γ to vanish; assumeβ=0. Ifγ≠0, cubic4γ²δ forcesδ=0 and per=6f+2(e+2c)² then forcesφ=0,ε=−2γ, givingdimension≤1. Ifγ=0 too, tangentφ=−δ−2ε and quadratic−δ²−2δε+ε² factor into two linearforms, again givingdimension≤1. Entirecoverage and normalization were independently reviewed byrowzero.
 
 These are mathematical/symbolic obstructions, NOT a Lean proof of the postednegation. A general3D space with no commonkernel and diagonalprojectionrank2or3 is still not excluded.
+
+### Toolchain/numeric update 2026-11-25 10:05 UTC
+
+Global complex least-squares search: 5,480 starts across all 120 coordinate charts and 1,250 random tangent gauges found no zero (best scaled residual about 0.0018174). This is numerical evidence only. Full scripts/logs are in `/tmp/oec/pequalnp-pilot-78/numeric/`.
+
+Native msolve 0.11.0 now runs from `numeric/cas/bin/msolve`, installed from published-SHA256-verified Julia BinaryBuilder/Yggdrasil GitHub artifacts. Upstream msolve source pin is cc044551f8e202d00691990fd3fd0b1226a88ea2. FLINT 3.6.1 debugging sections were stripped; every allocated ELF section was hash-verified unchanged. All installed dependencies remain in scratch; no Lean/cache runtime bytes changed. The first characteristic-101 full chart (diagonal coordinate pivots 0,4,7) reached degree 6 with a 39770-by-115456 matrix but was stopped for concurrent Lean-build memory safety; no algebraic conclusion. Heavy CAS is paused pending root clearance. Eleven S4 chart representatives and Q/F101/F2147483647 inputs are generated.
+
+Restored authentic optional `.c` and `.ilean` artifacts for the complete BilinearForm.Orthogonal import closure: 22 files in 11 modules, 1,838,693 bytes. Existing runtime files were compared against the official pinned archives and untouched. Full restoration log and manifest: `toolchain/orthogonal-restore.*`, `toolchain/orthogonal-restored.json`. Cache executable was re-removed after backup-hash verification.
+
+## Lean-checked star-plane maximality
+
+At10:06UTC, results/orch/lemmas/StarMaximal.lean passed lake env lean with exit0 and empty stdout/stderr. It proves starLinear_zero by four z-evaluations and star_two_plane_maximal: any symmetricV whose addition to every standard2Dstar matrix preserves permanent24 is already in the starplane. Six evaluations of the first-z coefficient force its lower3×3blockconstant; quadratic/cubic coefficients then force that constant and the firstrow sum to vanish. The scratch file imports the compiled partial target and contains a renamed duplicate of quartic_first_coefficients; root can remove this duplicate when merging. Full logs under scratch/construct_search/star-maximal-build.stdout and .stderr.
+
+Independent chart-generator audit (artifact_analysis): PASS. All 11 S4 pivot orbits are disjoint and cover all 120 minors (sizes 12,6,24,24,12,4,6,12,4,4,12). Exact Fraction checks compared 1,705 evaluated polynomial coefficients across 55 chart assignments and 110 direct permanent evaluations; all matched. Modular infeasibility alone does not imply infeasibility over Q/C. A rigorous global refutation still requires characteristic-zero certificates for every chart and their Lean verification.
+
+2026-11-25T10:07:19.099715+00:00 status_review: Independent review and rebuild of construct_search StarMaximal.lean PASS. All 126 lines reviewed, no forbidden plain-file constructs, only allowed scoped heartbeat limits. Six interpolated linear constraints force the lower block to rJ and V00=−2s−9r; scalar coefficients then give 96r³=0 and s²=0, hence V is in the original star plane. Independent compiler exited 0 with empty star-maximal-independent.stdout/.stderr. Scratch self-import and duplicated coefficient helper should be removed at integration.
+
+
+## Geometry test: rank-three singular directions exist
+
+2026-11-25T10:07:45.708286+00:00 The proposed auxiliary claim that every singular symmetric constant-permanent direction has rank≤2 is FALSE, even overR. Set b=(3+√7)/2,c=(3−√7)/2 and
+T=[[-8,b,c,0],[b,1,0,0],[c,0,1,0],[0,0,0,0]].
+Then b+c=3,b²+c²=8,bc=1/2. Direct exact24-term expansion gives per(J+zT)=24 identically. The upper-left3×3 determinant is−16 and the lastrow iszero, so rankT=3. This refutes ONLY the auxiliary structural lead, NOT L-gct-231.
+
+The132smallreal directions in construct_search/directions-real.txt have ranks36ofrank2 and96ofrank4, explaining why that sample missedrank3. Finitefield valid-direction datasets containmanyrank3 directions: F5=828,F7=2240,F11=15984. Rank3 directions also occurinsideenumerated2flats, with incidencecounts228,380,408 respectively. Thosefinitefieldstatistics are not bythemselves characteristic-zero statements.

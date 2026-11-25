@@ -10,3 +10,6 @@
 - 2026-11-25T09:42:01.727509+00:00: combined named-file partial helpers compiled; independent review passed.
 - 2026-11-25T09:48:01.032854+00:00: two-dimensional star partial result integrated, built, and independently reviewed.
 - 2026-11-25T10:01:23.194170+00:00: full hollow dimension-at-most-two obstruction integrated, independently reviewed, and compiled.
+
+- 2026-11-25T10:06:26Z — construct_search: StarMaximal.lean compiled, proving exact maximality of the standard2Dstarflat; all earlier small-alphabet and numerical construction searches found no3Dcandidate.
+- 2026-11-25T10:09:19.501736+00:00: star nonextension obstruction integrated; full named-file lake build passed, with independent review.

@@ -22,3 +22,9 @@ Named file: 322 lines. Added hollow_flat_finrank_le_two: every symmetric zero-di
 Validation: lake env lean PEqualNP/Outside/L_gct_231.lean; exit 0; stdout and stderr empty.
 Independent review and independent rebuild: PASS (status_review). Complete direct Lean logs: hollow-lean.stdout and hollow-lean.stderr.
 Normal lake build awaits restoration of 22 optional prebuilt Mathlib artifacts; no Mathlib source compilation attempted. Still not a proof or refutation of the unrestricted dimension-three claim.
+
+FOURTH PARTIAL CHECKPOINT
+Named file: 431 lines. Added star_two_plane_maximal; its duplicate coefficient-extraction helper was removed during integration.
+Build: lake build PEqualNP.Outside.L_gct_231; exit 0; Build completed successfully (5159 jobs). Complete logs: maximal-build.stdout and maximal-build.stderr.
+Independent source review and rebuild: PASS (status_review). All newly needed Mathlib optional build artifacts were restored from the pinned official cache before this build; no Mathlib source build was used.
+The posted dimension-three existence theorem remains unproved, and no global refutation is claimed.
