@@ -1,0 +1,8 @@
+L-meta-2583 partial checkpoint 04
+Named lake build PASS: Build completed successfully (5149 jobs).
+Main file: 3507 lines, 170439 bytes, SHA256 a4744e2c47a48c89af511e858edff76be56380dab6b9c879f9aefc83221f044e.
+Independent review PASS. Only Defs imported.
+The file proves sharp read-one lower/upper bounds and an exact equivalence between the requested normalization and the unrestricted gate lower bound. It does NOT prove that unrestricted bound and has no final posted theorem.
+Plain logs normalize trailing whitespace; .raw.gz files preserve the complete exact original logs.
+Sub-agents: six (structure, direct lower bound, exact synthesis, counterexample search, reductions mapping, independent review)
+TIMING total=71 subagents=6
