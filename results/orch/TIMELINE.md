@@ -12,3 +12,4 @@
 
 - 2026-11-25T14:39:03.757542+00:00: Petersen neighborhood separation and no twins after three deletions Lean-checked; fast proof generalized to arbitrary natural-number masks.
 - 2026-11-25T14:39:16.771604+00:00: Renewal HTTP410 despite last successful renewal14:36:19 and stated expiry14:56:19. Work paused; preserving artifacts before requested recovery.
+- 2026-11-25T14:43:35.441025+00:00: Recovery request and one retry returned same pre-existing L-meta-2583 lease; stopped under ownership rule. No PR or release.

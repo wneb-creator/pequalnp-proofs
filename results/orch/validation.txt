@@ -17,4 +17,6 @@ Lease renewal HTTP410 at 2026-11-25 14:38:58UTC; exact full response is desk-err
 Desk null answers: 0. Exact error: no such live lease: it expired or was released. Ask /desk/next again.
 
 Sub-agents: 6 (status/review, structural proof, counterexample search, normalization, few-NOT analysis, restriction route)
-TIMING total=28.8 subagents=6
+TIMING total=31 subagents=6
+
+Recovery request and permitted retry returned the same pre-existing L-meta-2583 lease, issued before this job. No further proof work or release. Exact desk note: you hold 5 gaps, the most one handle may hold at once; release one to get another

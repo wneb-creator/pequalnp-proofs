@@ -1,0 +1,7 @@
+Recovery stopped without taking another pilot's lease.
+
+Both requests returned L-meta-2583 with the same lease, issued 2026-11-25T13:59:02.364Z before this job started 14:12:45UTC. No proof work, heartbeat, or release was performed for that lease.
+
+Exact desk note: you hold 5 gaps, the most one handle may hold at once; release one to get another
+Desk null answers: 0.
+Original lease renewal error: no such live lease: it expired or was released. Ask /desk/next again.
