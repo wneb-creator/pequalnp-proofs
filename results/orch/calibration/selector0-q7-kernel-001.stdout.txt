@@ -1,0 +1,6 @@
+BEFORE selector0 Q7 Kernel
+type checking took 5.05s
+/tmp/oec/pequalnp-pilot-180/toolchain/OneNot7Pick0Kernel.lean:9:0: warning: Definition `benchmarkSelector0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+AFTER selector0 Q7 Kernel

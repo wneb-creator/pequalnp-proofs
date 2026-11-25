@@ -1,0 +1,6 @@
+BEFORE selector0 Kernel
+type checking took 4.09s
+/tmp/oec/pequalnp-pilot-180/computational/OneNot35Pick0Kernel.lean:9:0: warning: Definition `benchmarkSelector0` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+AFTER selector0 Kernel

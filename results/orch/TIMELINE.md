@@ -30,3 +30,5 @@ Pilot pequalnp-pilot-180
 - 2026-11-25 20:31 UTC:48 additional mixed-assignment restriction bounds compiled and independently reviewed; checkpointing for search optimization.
 
 - 2026-11-25 20:33:49 UTC: status_review completed kernel compilation of NodeContinuationSplit.lean, exit 0, then handed compile slot to proof_routes. Independent checkpoint audit requested.
+
+- 2026-11-25 20:39 UTC: Beat022 unexpectedly returned no-live-lease despite prior expiry20:54. Preserving StateMaskCover and calibrated numerical certificates before required desk diagnostic. No complete proof verdict yet.

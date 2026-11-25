@@ -1,0 +1,13 @@
+{
+  "started_utc": "2026-11-25T20:32:54.856233+00:00",
+  "finished_utc": "2026-11-25T20:33:02.558973+00:00",
+  "elapsed_seconds": 7.702876287000436,
+  "exit_code": 0,
+  "timeout": false,
+  "peak_rss_kib": 3660676,
+  "user_seconds": 6.350168,
+  "system_seconds": 1.327515,
+  "source": "/tmp/oec/pequalnp-pilot-180/toolchain/OneNot7Pick0Kernel.lean",
+  "stdout": "/tmp/oec/pequalnp-pilot-180/toolchain/selector0-q7-kernel-001.stdout.txt",
+  "stderr": "/tmp/oec/pequalnp-pilot-180/toolchain/selector0-q7-kernel-001.stderr.txt"
+}

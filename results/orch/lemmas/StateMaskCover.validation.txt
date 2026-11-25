@@ -1,0 +1,11 @@
+Source: results/orch/lemmas/StateMaskCover.lean
+SHA256: 01151f4e04236795815920044af3d5f915a5e14e4a4032a7dff5aa92d897871f
+Validation: exit 0; complete stdout and stderr both empty.
+Command cwd: /workspace/pequalnp-proofs/lean
+Command: ELAN_HOME=/tmp/oec/pequalnp-pilot-180/toolchain/elan LEAN_PATH=/workspace/pequalnp-proofs/results/orch/lemmas PATH=/tmp/oec/pequalnp-pilot-180/toolchain/elan/bin:$PATH lake env lean -M5000 -j3 -R ../results/orch/lemmas -o ../results/orch/lemmas/StateMaskCover.olean ../results/orch/lemmas/StateMaskCover.lean
+Full stdout: /tmp/oec/pequalnp-pilot-180/proof_routes/state-mask-cover-003.stdout.txt
+Full stderr: /tmp/oec/pequalnp-pilot-180/proof_routes/state-mask-cover-003.stderr.txt
+
+Complete stdout:
+
+Complete stderr:

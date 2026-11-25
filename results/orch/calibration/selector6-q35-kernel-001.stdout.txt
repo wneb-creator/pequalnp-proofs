@@ -1,0 +1,6 @@
+BEFORE selector6 Kernel
+type checking took 8.17s
+/tmp/oec/pequalnp-pilot-180/toolchain/OneNot35Pick6Kernel.lean:9:0: warning: Definition `benchmarkSelector6` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+AFTER selector6 Kernel

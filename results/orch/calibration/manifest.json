@@ -1,0 +1,137 @@
+{
+  "classification": "Lean-checked research diagnostics; not final proof/checker acceptance",
+  "lean_version": "4.36.0",
+  "memory_limit_mb": 5500,
+  "lean_threads": 3,
+  "measurement": "elapsed from Python monotonic clock; peak RSS from Linux resource.RUSAGE_CHILDREN, in KiB, maximum child/descendant process usage",
+  "records": [
+    {
+      "id": "selector0_q35",
+      "claim": "chkSel (notPick 0) [] (grpSix ++ tg0 ++ grp5) 0 13 1 0 1 = false",
+      "source": "OneNot35Pick0Kernel.lean",
+      "source_sha256": "e6d7665b450b56893c382f35b7ed829216e68e651f6fb1acd503e2061707281a",
+      "exit_code": 0,
+      "kernel_profile_seconds": 4.09,
+      "elapsed_seconds": 6.589497011000276,
+      "peak_rss_kib": 3505884,
+      "files": [
+        {
+          "file": "OneNot35Pick0Kernel.lean",
+          "sha256": "e6d7665b450b56893c382f35b7ed829216e68e651f6fb1acd503e2061707281a",
+          "bytes": 452
+        },
+        {
+          "file": "selector0-kernel-001.stdout.txt",
+          "sha256": "5415d0419b869c92ecd2355ec36592f5b47eb4c691c5c6cc158b9fceca3ed220",
+          "bytes": 308
+        },
+        {
+          "file": "selector0-kernel-001.stderr.txt",
+          "sha256": "d0b0b4be2c0132e0a4a3a6b2176ab4bfd786715ffc14bf3017c18e2f4df9ae23",
+          "bytes": 673
+        },
+        {
+          "file": "selector0-kernel-001.metrics.json",
+          "sha256": "a3a9fa7da1cbcbf453a2abeee7e8e0ac083f780879fc022ac55d1c6cd96c2fe7",
+          "bytes": 525
+        }
+      ]
+    },
+    {
+      "id": "selector6_q35",
+      "claim": "chkSel (notPick 6) [] (grpSix ++ tg0 ++ grp5) 0 13 1 0 1 = false",
+      "source": "OneNot35Pick6Kernel.lean",
+      "source_sha256": "3621e945f62851ccd8a3790821b2c2692eb43706c110b307e9d1c5e173fd49f6",
+      "exit_code": 0,
+      "kernel_profile_seconds": 8.17,
+      "elapsed_seconds": 10.853673417999744,
+      "peak_rss_kib": 4040888,
+      "files": [
+        {
+          "file": "OneNot35Pick6Kernel.lean",
+          "sha256": "3621e945f62851ccd8a3790821b2c2692eb43706c110b307e9d1c5e173fd49f6",
+          "bytes": 452
+        },
+        {
+          "file": "selector6-q35-kernel-001.stdout.txt",
+          "sha256": "425741aca42672caa14319d2cdd61a309908385e8f64e87445046f0d7bd7eea4",
+          "bytes": 304
+        },
+        {
+          "file": "selector6-q35-kernel-001.stderr.txt",
+          "sha256": "547cfa3df5a2ca606109991e5b5a3c9432df5cc61d425f8f4590a17eba8e20dd",
+          "bytes": 674
+        },
+        {
+          "file": "selector6-q35-kernel-001.metrics.json",
+          "sha256": "a962d2983b24238ab10e7c1dbe7adc843593fbbbe4653307bb47bb8a1c29f9d8",
+          "bytes": 540
+        }
+      ]
+    },
+    {
+      "id": "selector0_q7",
+      "claim": "chkSel (notPick 0) [] grpSix 0 13 1 0 1 = false",
+      "source": "OneNot7Pick0Kernel.lean",
+      "source_sha256": "b71f280e291a8d69ecf640358c018150c508bf61be1cbbcf59a1e29bd4f69ed1",
+      "exit_code": 0,
+      "kernel_profile_seconds": 5.05,
+      "elapsed_seconds": 7.702876287000436,
+      "peak_rss_kib": 3660676,
+      "files": [
+        {
+          "file": "OneNot7Pick0Kernel.lean",
+          "sha256": "b71f280e291a8d69ecf640358c018150c508bf61be1cbbcf59a1e29bd4f69ed1",
+          "bytes": 441
+        },
+        {
+          "file": "selector0-q7-kernel-001.stdout.txt",
+          "sha256": "ea11d3e0eec102a61115ef4e2b52bf0d8c2181ab0422dc526e9379c7db1c1385",
+          "bytes": 309
+        },
+        {
+          "file": "selector0-q7-kernel-001.stderr.txt",
+          "sha256": "f5fe3ecbbf57cf0e19695ab80048e46a07486b9fe55d3b27eb73200376f94724",
+          "bytes": 671
+        },
+        {
+          "file": "selector0-q7-kernel-001.metrics.json",
+          "sha256": "fe7863f8f5e824e619feabbf85a6484f99314a13fce9e9d546203d1864ee59cc",
+          "bytes": 526
+        }
+      ]
+    },
+    {
+      "id": "heavy_leaf67_hash79",
+      "claim": "chkDeepSel (fun _ _ _ r => Nat.beq ((r.foldl (fun h w => h * 17 + w.s) 0) % 127) 79) [] (grpSix ++ tg0 ++ grp5) 0 13 1 (2 ^ 67) 0 = false",
+      "source": "HeavyLeaf67Hash79.lean",
+      "source_sha256": "d4c51fa80b81babe1e4847f4d746ddc375d8ae3cb42a959f0545beb79f299647",
+      "exit_code": 0,
+      "kernel_profile_seconds": 10.7,
+      "elapsed_seconds": 13.415315780000128,
+      "peak_rss_kib": 4453220,
+      "files": [
+        {
+          "file": "HeavyLeaf67Hash79.lean",
+          "sha256": "d4c51fa80b81babe1e4847f4d746ddc375d8ae3cb42a959f0545beb79f299647",
+          "bytes": 565
+        },
+        {
+          "file": "heavy-leaf67-hash79-001.stdout.txt",
+          "sha256": "a6b0a2574e18b586c4722dfb8d437fdada465418784951cf6ede8da062f9a2d9",
+          "bytes": 322
+        },
+        {
+          "file": "heavy-leaf67-hash79-001.stderr.txt",
+          "sha256": "bde51d144aa875131c499ecefa271c053aee89f9dfe3efd8b5d364a6a761d00c",
+          "bytes": 674
+        },
+        {
+          "file": "heavy-leaf67-hash79-001.metrics.json",
+          "sha256": "dc43f8c53b9581bf120c63a03dd0becf4e350e15091ba67d2c6c0efe37e1b328",
+          "bytes": 527
+        }
+      ]
+    }
+  ]
+}

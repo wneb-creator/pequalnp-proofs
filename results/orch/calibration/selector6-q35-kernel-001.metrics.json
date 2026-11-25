@@ -1,0 +1,13 @@
+{
+  "started_utc": "2026-11-25T20:32:34.476194+00:00",
+  "finished_utc": "2026-11-25T20:32:45.329842+00:00",
+  "elapsed_seconds": 10.853673417999744,
+  "exit_code": 0,
+  "timeout": false,
+  "peak_rss_kib": 4040888,
+  "user_seconds": 9.489687,
+  "system_seconds": 1.2730679999999999,
+  "source": "/tmp/oec/pequalnp-pilot-180/toolchain/OneNot35Pick6Kernel.lean",
+  "stdout": "/tmp/oec/pequalnp-pilot-180/toolchain/selector6-q35-kernel-001.stdout.txt",
+  "stderr": "/tmp/oec/pequalnp-pilot-180/toolchain/selector6-q35-kernel-001.stderr.txt"
+}

@@ -1,0 +1,13 @@
+{
+  "started_utc": "2026-11-25T20:35:50.041307+00:00",
+  "finished_utc": "2026-11-25T20:36:03.456593+00:00",
+  "elapsed_seconds": 13.415315780000128,
+  "exit_code": 0,
+  "timeout": false,
+  "peak_rss_kib": 4453220,
+  "user_seconds": 11.996247,
+  "system_seconds": 1.301379,
+  "source": "/tmp/oec/pequalnp-pilot-180/toolchain/HeavyLeaf67Hash79.lean",
+  "stdout": "/tmp/oec/pequalnp-pilot-180/toolchain/heavy-leaf67-hash79-001.stdout.txt",
+  "stderr": "/tmp/oec/pequalnp-pilot-180/toolchain/heavy-leaf67-hash79-001.stderr.txt"
+}

@@ -1,0 +1,6 @@
+BEFORE heavy leaf67 hash79 mod127
+type checking took 10.7s
+/tmp/oec/pequalnp-pilot-180/toolchain/HeavyLeaf67Hash79.lean:9:0: warning: Definition `benchmarkHeavyLeaf` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+AFTER heavy leaf67 hash79 mod127
