@@ -41,3 +41,10 @@ TIMING total=33 subagents=6
 Independent review by structural_bound PASS, also independently evaluated by petersen_search on all512 inputs. Exactly15 gates including1NOT compute the Petersen function after identifying x0=NOT x2. This refutes only the proposed stronger projection bound, NOT L-meta-2592. Post-review cleanup removed2unused simp arguments; final compilation exit0 with empty diagnostics.
 
 Computational archives independently audited by pilot92_status:50UTF8textfiles,38872bytes, hashes verified;15/15 restricted11+7prefix completions UNSAT; exact known circuit validations passed; fixed-bank DP and575subsets rerun. These are computed restricted results, NOT Lean certificates or a full lower bound.
+
+FULL INTEGRATED17 BUILD PASSED: lake build PEqualNP.Outside.L_meta_2592, exit0, target805seconds, Build completed successfully(5149jobs).
+Named source5246lines312347bytes; source unchanged since independent diff review.
+Checked partial:17+NOTcount<=size, hence no<=19gate Petersen circuit with>=3NOT. Remaining1and2NOT cases unresolved; exact posted theorem absent; no full checker acceptance claimed.
+Cleanup: not performed for full gap because full theorem/checker condition is not met.
+Sub-agents:6
+TIMING total=47 subagents=6

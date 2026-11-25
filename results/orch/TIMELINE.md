@@ -149,3 +149,8 @@ Lease initial expiry: 2026-11-25T14:04:05.796Z
 2026-11-25T14:19:35.933229+00:00 local_projection.lean compiled and independently reviewed: nonedge alias x0=not x2 has15 total gates,14 binary,1 NOT; proposed projection bound false.
 2026-11-25T14:19:53.487345+00:00 checked nonedge-projection witness preserved; projection lower-bound route dropped.
 2026-11-25T14:21:19.487905+00:00 frozen computational archives independently audited; preserving scripts and complete logs.
+2026-11-25T14:23:12.754557+00:00 renewed; expiry 2026-11-25T14:43:12.835Z
+2026-11-25T14:28:06.166089+00:00 neutral-network900second run finished,1996365633 evaluations,no improvement of exact20gate baseline.
+2026-11-25T14:28:13.344196+00:00 renewed; expiry 2026-11-25T14:48:13.407Z
+2026-11-25T14:28:56.047445+00:00 started300second local C6 search with3 fixed opposite-OR gates plus7 unknown gates; root renewal14:28:13Z.
+2026-11-25T14:30:35.338584+00:00 full integrated17bound build PASSED; cached target artifacts backed up before further edits.
