@@ -15,3 +15,4 @@
 - 2026-11-25T19:49:26.957428+00:00: advanced engine, tight NOT invariant,184 restriction certificates and exact conditional final step checked/reviewed; checkpointing.
 - 2026-11-25T19:55:35.574985+00:00: advanced bound13 and first three catalogue cases checked and reviewed; complete native catalogue found, kernel verification ongoing.
 - 2026-11-25T20:04:32.817239+00:00: complete staticcandidate reviewed; mostnumericcases checked; individualcaseOOM requires smaller hash partitions; archival checkpoint.
+- 2026-11-25T20:06:26.763634+00:00: generic complete-hash-cover adapter checked and independently reviewed; smaller numerical partitions now being checked.
