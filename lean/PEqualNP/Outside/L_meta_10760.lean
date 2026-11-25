@@ -7555,4 +7555,466 @@ lemma colorablePN_of_live_concrete {width : Nat} {goal g : BitVec width} {k : Na
 
 end RootPN1439
 
+
+namespace PNGraphBridge
+
+lemma bitmaps_disjoint_of_live {width : Nat} {goal g : BitVec width} {k : Nat}
+    {ws : List (BitVec width)} (hg : g = goal ∨ g = ~~~goal)
+    (hl : live basicOps g k ws.toFinset) (P N : Nat)
+    (hP : ∀ x, P.testBit x = true →
+      ∃ r : Fin width, goal[r.val] = true ∧ pat ws r = x)
+    (hN : ∀ x, N.testBit x = true →
+      ∃ r : Fin width, goal[r.val] = false ∧ pat ws r = x) :
+    P &&& N = 0 := by
+  by_contra hne
+  obtain ⟨x,hx⟩ := Nat.exists_testBit_of_ne_zero hne
+  simp only [Nat.testBit_and, Bool.and_eq_true] at hx
+  obtain ⟨p,hp,hpp⟩ := hP x hx.1
+  obtain ⟨q,hq,hqq⟩ := hN x hx.2
+  have hd : goal[p.val] ≠ goal[q.val] := by rw [hp,hq]; decide
+  obtain ⟨w,hw,hdiff⟩ := live_target_separates hl hg hd
+  obtain ⟨i,hi,he⟩ := List.mem_iff_getElem.mp (List.mem_toFinset.mp hw)
+  have hb := congrArg (fun t : Nat => t.testBit i) (hpp.trans hqq.symm)
+  simp only [pat_bit, List.getD_eq_getElem _ _ hi, he] at hb
+  exact hdiff hb
+
+end PNGraphBridge
+
+namespace RootPN1439
+
+def allowed (budget : Nat) (state : Nat × Nat × Nat) : Bool :=
+  let (m,P,N) := state
+  if budget + 1 < m || !(P &&& N == 0) then false
+  else
+    let extra := budget + 1 - m
+    if extra <= 3 then colorablePN m P N (extra + 1) PNFlip.flipPatternBits
+    else true
+
+lemma allowed_of_live {width : Nat} {goal g : BitVec width} {k : Nat}
+    {ws : List (BitVec width)} (hg : g = goal ∨ g = ~~~goal) (hn : ws.Nodup)
+    (hm : ws.length ≤ 10) (hl : live basicOps g k ws.toFinset) (P N : Nat)
+    (hP : ∀ x, P.testBit x = true →
+      ∃ r : Fin width, goal[r.val] = true ∧ PNGraphBridge.pat ws r = x)
+    (hN : ∀ x, N.testBit x = true →
+      ∃ r : Fin width, goal[r.val] = false ∧ PNGraphBridge.pat ws r = x) :
+    allowed k (ws.length,P,N) = true := by
+  have hc : ws.length ≤ k + 1 := by
+    simpa only [List.toFinset_card_of_nodup hn] using live_card hl
+  have hs := PNGraphBridge.bitmaps_disjoint_of_live hg hl P N hP hN
+  have hnlt : ¬k + 1 < ws.length := by omega
+  simp only [allowed, hnlt, decide_false, hs, beq_self_eq_true, Bool.not_true,
+    Bool.false_or, Bool.false_eq_true, ite_false]
+  split
+  · have he : k + 1 - ws.length + 1 = k + 2 - ws.length := by omega
+    rw [he]
+    exact colorablePN_of_live_concrete hg hn hm hl P N hP hN
+  · rfl
+
+end RootPN1439
+
+namespace PNMaxCache
+
+abbrev Key := Nat × Nat × Nat
+
+def keyCompare (a b : Key) : Ordering :=
+  match compare a.1 b.1 with
+  | .eq => match compare a.2.1 b.2.1 with
+    | .eq => compare a.2.2 b.2.2
+    | other => other
+  | other => other
+
+lemma keyCompare_eq_lex : keyCompare =
+    compareLex (compareOn (fun a : Key => a.1))
+      (compareLex (compareOn (fun a : Key => a.2.1))
+        (compareOn (fun a : Key => a.2.2))) := by
+  rfl
+
+lemma keyCompare_trans : Std.TransCmp keyCompare := by
+  rw [keyCompare_eq_lex]
+  infer_instance
+
+lemma keyCompare_eq_iff (a b : Key) : keyCompare a b = .eq ↔ a = b := by
+  rw [keyCompare_eq_lex]
+  simp only [compareLex_eq_eq, compareOn, Std.LawfulEqCmp.compare_eq_iff_eq]
+  constructor
+  · intro h
+    exact Prod.ext h.1 (Prod.ext h.2.1 h.2.2)
+  · intro h
+    cases h
+    exact ⟨rfl, rfl, rfl⟩
+
+
+def stateKey (n positive negative : Nat) : Key :=
+  if positive ≤ negative then (n, positive, negative) else (n, negative, positive)
+
+def Good {State : Type} (failed : Nat → State → Prop) (key : State → Key)
+    (lookup : Key → Option Nat) : Prop :=
+  ∀ state budget, lookup (key state) = some budget → failed budget state
+
+def Downward {State : Type} (failed : Nat → State → Prop) : Prop :=
+  ∀ state budget rejected, budget ≤ rejected → failed rejected state → failed budget state
+
+def KeyInvariant {State : Type} (failed : Nat → State → Prop) (key : State → Key) : Prop :=
+  ∀ left right budget, key left = key right → failed budget left → failed budget right
+
+lemma good_none {State : Type} (failed : Nat → State → Prop) (key : State → Key) :
+    Good failed key (fun _ => none) := by
+  intro state budget h
+  cases h
+
+lemma hit_sound {State : Type} {failed : Nat → State → Prop} {key : State → Key}
+    {lookup : Key → Option Nat} (hgood : Good failed key lookup) (hdown : Downward failed)
+    {state : State} {budget : Nat}
+    (hhit : (lookup (key state)).any (fun rejected => decide (budget ≤ rejected)) = true) :
+    failed budget state := by
+  cases hlookup : lookup (key state) with
+  | none => simp [hlookup] at hhit
+  | some rejected =>
+    have hle : budget ≤ rejected := by simpa [hlookup] using hhit
+    exact hdown state budget rejected hle (hgood state rejected hlookup)
+
+lemma good_update {State : Type} {failed : Nat → State → Prop} {key : State → Key}
+    {lookup : Key → Option Nat} (hgood : Good failed key lookup)
+    (hkey : KeyInvariant failed key) {state : State} {budget : Nat}
+    (hfailed : failed budget state) :
+    Good failed key (fun query =>
+      if keyCompare (key state) query = .eq then some budget else lookup query) := by
+  intro other rejected hlookup
+  by_cases hcmp : keyCompare (key state) (key other) = .eq
+  · simp only [ite_eq_left hcmp] at hlookup
+    cases Option.some.inj hlookup
+    exact hkey state other budget ((keyCompare_eq_iff _ _).1 hcmp) hfailed
+  · simp only [ite_eq_right hcmp] at hlookup
+    exact hgood other rejected hlookup
+
+abbrev Cache := Std.TreeMap Key Nat keyCompare
+abbrev RawCache := Std.TreeMap.Raw Key Nat keyCompare
+
+lemma tree_empty_good {State : Type} (failed : Nat → State → Prop) (key : State → Key) :
+    Good failed key (fun query => (∅ : Cache).get? query) := by
+  let : Std.TransCmp keyCompare := keyCompare_trans
+  intro state budget h
+  simp only [Std.TreeMap.get?_eq_getElem?, Std.TreeMap.getElem?_emptyc] at h
+  cases h
+
+lemma tree_insert_good {State : Type} {failed : Nat → State → Prop} {key : State → Key}
+    {cache : Cache} (hgood : Good failed key cache.get?)
+    (hkey : KeyInvariant failed key) {state : State} {budget : Nat}
+    (hfailed : failed budget state) :
+    Good failed key (cache.insert (key state) budget).get? := by
+  let : Std.TransCmp keyCompare := keyCompare_trans
+  have hu := good_update hgood hkey hfailed
+  intro other rejected hlookup
+  apply hu other rejected
+  simpa only [Std.TreeMap.get?_eq_getElem?, Std.TreeMap.getElem?_insert] using hlookup
+
+lemma raw_empty_wf : (∅ : RawCache).WF :=
+  ⟨⟨(∅ : Cache).inner.wf⟩⟩
+
+lemma raw_get_empty (query : Key) : (∅ : RawCache).get? query = none := rfl
+
+lemma raw_get_insert {cache : RawCache} (hwf : cache.WF)
+    (key query : Key) (budget : Nat) :
+    (cache.insert key budget).get? query =
+      if keyCompare key query = .eq then some budget else cache.get? query := by
+  exact @Std.DTreeMap.Internal.Impl.Const.get?_insert! Key
+    ⟨keyCompare⟩ Nat cache.inner.inner keyCompare_trans hwf.out.out query key budget
+
+lemma raw_empty_good {State : Type} (failed : Nat → State → Prop) (key : State → Key) :
+    Good failed key (fun query => (∅ : RawCache).get? query) := by
+  intro state budget h
+  change none = some budget at h
+  cases h
+
+lemma raw_insert_wf {cache : RawCache} (hwf : cache.WF) (key : Key) (budget : Nat) :
+    (cache.insert key budget).WF :=
+  ⟨⟨@Std.DTreeMap.Internal.Impl.WF.insert! Key (fun _ => Nat)
+    ⟨keyCompare⟩ keyCompare_trans key budget cache.inner.inner hwf.out.out⟩⟩
+
+lemma raw_insert_good {State : Type} {failed : Nat → State → Prop} {key : State → Key}
+    {cache : RawCache} (hwf : cache.WF) (hgood : Good failed key cache.get?)
+    (hkey : KeyInvariant failed key) {state : State} {budget : Nat}
+    (hfailed : failed budget state) :
+    Good failed key (cache.insert (key state) budget).get? := by
+  let : Std.TransCmp keyCompare := keyCompare_trans
+  have hu := good_update hgood hkey hfailed
+  intro other rejected hlookup
+  apply hu other rejected
+  simpa only [raw_get_insert hwf] using hlookup
+
+
+lemma sorted_key_invariant_of_swap (failed : Nat → Key → Prop)
+    (hswap : ∀ budget n positive negative,
+      failed budget (n, positive, negative) → failed budget (n, negative, positive)) :
+    KeyInvariant failed (fun state => stateKey state.1 state.2.1 state.2.2) := by
+  intro left right budget hkey hfailed
+  rcases left with ⟨n, positive, negative⟩
+  rcases right with ⟨m, positive', negative'⟩
+  by_cases hpn : positive ≤ negative
+  · by_cases hpn' : positive' ≤ negative'
+    · simp only [stateKey, hpn, hpn', ↓reduceIte, Prod.mk.injEq] at hkey
+      rcases hkey with ⟨rfl, rfl, rfl⟩
+      exact hfailed
+    · simp only [stateKey, hpn, hpn', ↓reduceIte, Prod.mk.injEq] at hkey
+      rcases hkey with ⟨rfl, rfl, rfl⟩
+      exact hswap _ _ _ _ hfailed
+  · by_cases hpn' : positive' ≤ negative'
+    · simp only [stateKey, hpn, hpn', ↓reduceIte, Prod.mk.injEq] at hkey
+      rcases hkey with ⟨rfl, rfl, rfl⟩
+      exact hswap _ _ _ _ hfailed
+    · simp only [stateKey, hpn, hpn', ↓reduceIte, Prod.mk.injEq] at hkey
+      rcases hkey with ⟨rfl, rfl, rfl⟩
+      exact hfailed
+
+lemma downward_not_of_monotone {State : Type} (solved : Nat → State → Prop)
+    (hmono : ∀ state budget larger, budget ≤ larger → solved budget state → solved larger state) :
+    Downward (fun budget state => ¬ solved budget state) := by
+  intro state budget rejected hle hfailed hsolved
+  exact hfailed (hmono state budget rejected hle hsolved)
+
+def RawGood {State : Type} (failed : Nat → State → Prop) (key : State → Key)
+    (cache : RawCache) : Prop :=
+  cache.WF ∧ Good failed key cache.get?
+
+lemma raw_good_empty {State : Type} (failed : Nat → State → Prop) (key : State → Key) :
+    RawGood failed key ∅ :=
+  ⟨raw_empty_wf, raw_empty_good failed key⟩
+
+lemma raw_good_insert {State : Type} {failed : Nat → State → Prop} {key : State → Key}
+    {cache : RawCache} (hgood : RawGood failed key cache)
+    (hkey : KeyInvariant failed key) {state : State} {budget : Nat}
+    (hfailed : failed budget state) :
+    RawGood failed key (cache.insert (key state) budget) :=
+  ⟨raw_insert_wf hgood.1 _ _, raw_insert_good hgood.1 hgood.2 hkey hfailed⟩
+
+lemma raw_hit_sound {State : Type} {failed : Nat → State → Prop} {key : State → Key}
+    {cache : RawCache} (hgood : RawGood failed key cache) (hdown : Downward failed)
+    {state : State} {budget : Nat}
+    (hhit : (cache.get? (key state)).any (fun rejected => decide (budget ≤ rejected)) = true) :
+    failed budget state :=
+  hit_sound hgood.2 hdown hhit
+
+end PNMaxCache
+
+namespace MemoPruned
+
+variable {α κ : Type}
+
+lemma scan_semantic (Sol : α → Prop) (Good : κ → Prop)
+    (next : α → κ → Bool × κ)
+    (hnext : ∀ x cache, Good cache →
+      Good (next x cache).2 ∧ (Sol x → (next x cache).1 = true))
+    (xs : List α) (cache : κ) (hc : Good cache) :
+    Good (scan next xs cache).2 ∧
+      ((∃ x ∈ xs, Sol x) → (scan next xs cache).1 = true) := by
+  induction xs generalizing cache with
+  | nil =>
+    refine ⟨hc, ?_⟩
+    rintro ⟨x, hx, _⟩
+    simp at hx
+  | cons x xs ih =>
+    have hs := hnext x cache hc
+    cases he : next x cache with
+    | mk b cache' =>
+      simp only [he] at hs
+      cases b with
+      | false =>
+        have ht := ih cache' hs.1
+        simp only [scan, he]
+        refine ⟨ht.1, ?_⟩
+        rintro ⟨y, hy, hsol⟩
+        rcases List.mem_cons.mp hy with rfl | hy
+        · have impossible := hs.2 hsol
+          contradiction
+        · exact ht.2 ⟨y, hy, hsol⟩
+      | true =>
+        simp only [scan, he]
+        exact ⟨hs.1, fun _ => trivial⟩
+
+lemma search_semantic
+    (hit : Nat → α → κ → Bool) (put : Nat → α → κ → κ)
+    (admissible : Nat → α → Bool) (done : α → Bool)
+    (children : Nat → α → List α) (Sol : Nat → α → Prop) (Good : κ → Prop)
+    (hit_sound : ∀ k x cache, Good cache → hit k x cache = true → ¬ Sol k x)
+    (put_good : ∀ k x cache, Good cache → ¬ Sol k x → Good (put k x cache))
+    (admissible_complete : ∀ k x, Sol k x → admissible k x = true)
+    (base : ∀ x, Sol 0 x → done x = true)
+    (step : ∀ k x, Sol (k+1) x → done x = true ∨ ∃ y ∈ children k x, Sol k y)
+    (k : Nat) (x : α) (cache : κ) (hc : Good cache) :
+    Good (search hit put admissible done children k x cache).2 ∧
+      (Sol k x → (search hit put admissible done children k x cache).1 = true) := by
+  induction k generalizing x cache with
+  | zero =>
+    by_cases hh : hit 0 x cache = true
+    · simp only [search, hh, ite_true]
+      exact ⟨hc, fun hsol => (hit_sound 0 x cache hc hh hsol).elim⟩
+    · have hh' : hit 0 x cache = false := Bool.eq_false_iff.mpr hh
+      by_cases ha : admissible 0 x = true
+      · by_cases hd : done x = true
+        · simp [search, hh', ha, hd, hc]
+        · have hd' : done x = false := Bool.eq_false_iff.mpr hd
+          have hno : ¬ Sol 0 x := fun hsol => hd (base x hsol)
+          simp only [search, hh', Bool.false_eq_true, ite_false, ha, Bool.not_true,
+            hd']
+          exact ⟨put_good 0 x cache hc hno, fun hsol => (hno hsol).elim⟩
+      · have ha' : admissible 0 x = false := Bool.eq_false_iff.mpr ha
+        have hno : ¬ Sol 0 x := fun hsol => ha (admissible_complete 0 x hsol)
+        simp only [search, hh', Bool.false_eq_true, ite_false, ha', Bool.not_false,
+          ite_true]
+        exact ⟨hc, fun hsol => (hno hsol).elim⟩
+  | succ k ih =>
+    by_cases hh : hit (k+1) x cache = true
+    · simp only [search, hh, ite_true]
+      exact ⟨hc, fun hsol => (hit_sound (k+1) x cache hc hh hsol).elim⟩
+    · have hh' : hit (k+1) x cache = false := Bool.eq_false_iff.mpr hh
+      by_cases ha : admissible (k+1) x = true
+      · by_cases hd : done x = true
+        · simp [search, hh', ha, hd, hc]
+        · have hd' : done x = false := Bool.eq_false_iff.mpr hd
+          have hs := scan_semantic (Sol k) Good
+            (search hit put admissible done children k)
+            (fun y c h => ih y c h) (children k x) cache hc
+          cases he : scan (search hit put admissible done children k) (children k x) cache with
+          | mk b cache' =>
+            simp only [he] at hs
+            cases b with
+            | false =>
+              have hno : ¬ Sol (k+1) x := by
+                intro hsol
+                rcases step k x hsol with hdone | hchild
+                · exact hd hdone
+                · have impossible := hs.2 hchild
+                  contradiction
+              simp only [search, hh', Bool.false_eq_true, ite_false, ha, Bool.not_true,
+                hd', he]
+              exact ⟨put_good (k+1) x cache' hs.1 hno, fun hsol => (hno hsol).elim⟩
+            | true =>
+              simp only [search, hh', Bool.false_eq_true, ite_false, ha, Bool.not_true,
+                hd', he]
+              exact ⟨hs.1, fun _ => trivial⟩
+      · have ha' : admissible (k+1) x = false := Bool.eq_false_iff.mpr ha
+        have hno : ¬ Sol (k+1) x := fun hsol => ha (admissible_complete (k+1) x hsol)
+        simp only [search, hh', Bool.false_eq_true, ite_false, ha', Bool.not_false,
+          ite_true]
+        exact ⟨hc, fun hsol => (hno hsol).elim⟩
+
+end MemoPruned
+
+namespace PNMaxMemo
+
+abbrev State := PNMaxCache.Key
+
+def key (state : State) : PNMaxCache.Key :=
+  PNMaxCache.stateKey state.1 state.2.1 state.2.2
+
+def hit (budget : Nat) (state : State) (cache : PNMaxCache.RawCache) : Bool :=
+  (cache.get? (key state)).any (fun rejected => decide (budget ≤ rejected))
+
+def put (budget : Nat) (state : State) (cache : PNMaxCache.RawCache) : PNMaxCache.RawCache :=
+  cache.insert (key state) budget
+
+def Good (Sol : Nat → State → Prop) (cache : PNMaxCache.RawCache) : Prop :=
+  PNMaxCache.RawGood (fun budget state => ¬ Sol budget state) key cache
+
+lemma key_invariant (Sol : Nat → State → Prop)
+    (hswap : ∀ budget n positive negative,
+      Sol budget (n,positive,negative) → Sol budget (n,negative,positive)) :
+    PNMaxCache.KeyInvariant (fun budget state => ¬ Sol budget state) key := by
+  apply PNMaxCache.sorted_key_invariant_of_swap
+  intro budget n positive negative hfailed hsol
+  exact hfailed (hswap budget n negative positive hsol)
+
+lemma hit_sound (Sol : Nat → State → Prop)
+    (hmono : ∀ state budget larger, budget ≤ larger → Sol budget state → Sol larger state)
+    {budget : Nat} {state : State} {cache : PNMaxCache.RawCache}
+    (hc : Good Sol cache) (hh : hit budget state cache = true) : ¬ Sol budget state :=
+  PNMaxCache.raw_hit_sound hc (PNMaxCache.downward_not_of_monotone Sol hmono) hh
+
+lemma put_good (Sol : Nat → State → Prop)
+    (hswap : ∀ budget n positive negative,
+      Sol budget (n,positive,negative) → Sol budget (n,negative,positive))
+    {budget : Nat} {state : State} {cache : PNMaxCache.RawCache}
+    (hc : Good Sol cache) (hfailed : ¬ Sol budget state) : Good Sol (put budget state cache) :=
+  PNMaxCache.raw_good_insert hc (key_invariant Sol hswap) hfailed
+
+def search (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) : Nat → State → PNMaxCache.RawCache → Bool × PNMaxCache.RawCache :=
+  MemoPruned.search hit put admissible done children
+
+lemma search_semantic (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) (Sol : Nat → State → Prop)
+    (hmono : ∀ state budget larger, budget ≤ larger → Sol budget state → Sol larger state)
+    (hswap : ∀ budget n positive negative,
+      Sol budget (n,positive,negative) → Sol budget (n,negative,positive))
+    (admissible_complete : ∀ budget state, Sol budget state → admissible budget state = true)
+    (base : ∀ state, Sol 0 state → done state = true)
+    (step : ∀ budget state, Sol (budget+1) state →
+      done state = true ∨ ∃ next ∈ children budget state, Sol budget next)
+    (budget : Nat) (state : State) (cache : PNMaxCache.RawCache) (hc : Good Sol cache) :
+    Good Sol (search admissible done children budget state cache).2 ∧
+      (Sol budget state → (search admissible done children budget state cache).1 = true) := by
+  exact MemoPruned.search_semantic hit put admissible done children Sol (Good Sol)
+    (fun j s c hgood hhit => hit_sound Sol hmono hgood hhit)
+    (fun j s c hgood hfailed => put_good Sol hswap hgood hfailed)
+    admissible_complete base step budget state cache hc
+
+def run (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) (budget : Nat) (state : State) : Bool :=
+  (search admissible done children budget state ∅).1
+
+lemma run_complete (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) (Sol : Nat → State → Prop)
+    (hmono : ∀ state budget larger, budget ≤ larger → Sol budget state → Sol larger state)
+    (hswap : ∀ budget n positive negative,
+      Sol budget (n,positive,negative) → Sol budget (n,negative,positive))
+    (admissible_complete : ∀ budget state, Sol budget state → admissible budget state = true)
+    (base : ∀ state, Sol 0 state → done state = true)
+    (step : ∀ budget state, Sol (budget+1) state →
+      done state = true ∨ ∃ next ∈ children budget state, Sol budget next)
+    (budget : Nat) (state : State) : Sol budget state → run admissible done children budget state = true :=
+  (search_semantic admissible done children Sol hmono hswap admissible_complete base step
+    budget state ∅ (PNMaxCache.raw_good_empty _ _)).2
+
+lemma run_reject (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) (Sol : Nat → State → Prop)
+    (hmono : ∀ state budget larger, budget ≤ larger → Sol budget state → Sol larger state)
+    (hswap : ∀ budget n positive negative,
+      Sol budget (n,positive,negative) → Sol budget (n,negative,positive))
+    (admissible_complete : ∀ budget state, Sol budget state → admissible budget state = true)
+    (base : ∀ state, Sol 0 state → done state = true)
+    (step : ∀ budget state, Sol (budget+1) state →
+      done state = true ∨ ∃ next ∈ children budget state, Sol budget next)
+    (budget : Nat) (state : State) (rejected : run admissible done children budget state = false) :
+    ¬ Sol budget state := by
+  intro hs
+  have found := run_complete admissible done children Sol hmono hswap admissible_complete base step
+    budget state hs
+  rw [rejected] at found
+  contradiction
+
+def runGuardFirst (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) (budget : Nat) (state : State) : Bool :=
+  (MemoPruned.searchGuardFirst hit put admissible done children budget state ∅).1
+
+lemma runGuardFirst_eq (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) (budget : Nat) (state : State) :
+    runGuardFirst admissible done children budget state = run admissible done children budget state := by
+  simp only [runGuardFirst, run, search, MemoPruned.searchGuardFirst_eq_search]
+
+lemma runGuardFirst_reject (admissible : Nat → State → Bool) (done : State → Bool)
+    (children : Nat → State → List State) (Sol : Nat → State → Prop)
+    (hmono : ∀ state budget larger, budget ≤ larger → Sol budget state → Sol larger state)
+    (hswap : ∀ budget n positive negative,
+      Sol budget (n,positive,negative) → Sol budget (n,negative,positive))
+    (admissible_complete : ∀ budget state, Sol budget state → admissible budget state = true)
+    (base : ∀ state, Sol 0 state → done state = true)
+    (step : ∀ budget state, Sol (budget+1) state →
+      done state = true ∨ ∃ next ∈ children budget state, Sol budget next)
+    (budget : Nat) (state : State)
+    (rejected : runGuardFirst admissible done children budget state = false) : ¬ Sol budget state :=
+  run_reject admissible done children Sol hmono hswap admissible_complete base step budget state
+    (by simpa only [runGuardFirst_eq] using rejected)
+
+end PNMaxMemo
+
 end PEqualNP.Outside.L_meta_10760
