@@ -1,0 +1,139 @@
+{"graph": "theta233.graph", "n": 7, "edges": [[0, 2], [0, 3], [0, 5], [1, 2], [1, 4], [1, 6], [3, 4], [5, 6]], "K": 10, "rows": [5, 9, 33, 6, 18, 66, 24, 96, 3, 42, 44, 52, 76, 81, 84], "variables": 690, "constraints": 5752, "force_seed": false}
+/tmp/oec/pequalnp-pilot-75/finite/synth_milp.py:73: RuntimeWarning: Unrecognized options detected: {'parallel', 'threads'}. These will be passed to HiGHS verbatim.
+  res=milp(np.zeros(len(variables)),integrality=np.ones(len(variables)),bounds=Bounds(0,1),constraints=LinearConstraint(A,np.array(low),np.array(high)),options={'time_limit':limit,'mip_rel_gap':0,'disp':True,'threads':1,'parallel':'off'})
+/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/site-packages/scipy/optimize/_milp.py:374: OptimizeWarning: Option f"parallel" is "off", but only True or False is allowed. Using default.
+  highs_res = _highs_wrapper(c, indptr, indices, data, b_l, b_u,
+Running HiGHS 1.8.0 (git hash: 222cce7): Copyright (c) 2024 HiGHS under MIT licence terms
+Coefficient ranges:
+  Matrix [1e+00, 2e+01]
+  Cost   [0e+00, 0e+00]
+  Bound  [1e+00, 1e+00]
+  RHS    [1e+00, 1e+00]
+Presolving model
+5737 rows, 675 cols, 15790 nonzeros  0s
+4207 rows, 661 cols, 13005 nonzeros  0s
+4095 rows, 658 cols, 12856 nonzeros  0s
+Objective function is integral with scale 1
+
+Solving MIP model with:
+   4095 rows
+   658 cols (658 binary, 0 integer, 0 implied int., 0 continuous)
+   12856 nonzeros
+MIP-Timing:       0.068 - starting analytic centre calculation
+
+Src: B => Branching; C => Central rounding; F => Feasibility pump; H => Heuristic; L => Sub-MIP;
+     P => Empty MIP; R => Randomized rounding; S => Solve LP; T => Evaluate node; U => Unbounded;
+     z => Trivial zero; l => Trivial lower; u => Trivial upper; p => Trivial point
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+         0       0         0   0.00%   0               inf                  inf        0      0      0         0     0.1s
+         0       0         0   0.00%   0               inf                  inf        0      0      6       259     0.1s
+
+1.5% inactive integer columns, restarting
+Model after restart has 4027 rows, 648 cols (648 bin., 0 int., 0 impl., 0 cont.), and 12594 nonzeros
+
+MIP-Timing:         2.6 - starting analytic centre calculation
+         0       0         0   0.00%   0               inf                  inf       33      0      0      4931     2.6s
+         0       0         0   0.00%   0               inf                  inf       33     13      5      5004     2.7s
+         0       0         0   0.00%   0               inf                  inf     1706     30    435     14455     7.9s
+       217      65        64   0.00%   0               inf                  inf     2550     43   1303     28270    12.9s
+       450     101       145   0.00%   0               inf                  inf     3250     42   2321     58662    20.8s
+       578     118       180   0.00%   0               inf                  inf     3562     60   2855     78372    26.2s
+       875     136       288   0.00%   0               inf                  inf     3659     62   4132    112505    34.8s
+
+Restarting search from the root node
+Model after restart has 3865 rows, 640 cols (640 bin., 0 int., 0 impl., 0 cont.), and 12079 nonzeros
+
+MIP-Timing:          36 - starting analytic centre calculation
+      1070       0         0   0.00%   0               inf                  inf       47      0      0    118830    36.3s
+      1070       0         0   0.00%   0               inf                  inf       47     12     11    118888    36.3s
+      1070       0         0   0.00%   0               inf                  inf     1994     47    352    134596    44.8s
+      1491      62       130   0.01%   0               inf                  inf     2824     59   1642    148020    49.8s
+      1739     100       199   0.01%   0               inf                  inf     3587     48   2348    161946    55.1s
+      2048     170       293   0.20%   0               inf                  inf     4056     27   3184    178860    60.3s
+      2220     190       355   0.20%   0               inf                  inf     4490     64   3801    211986    72.8s
+      2362     209       411   0.20%   0               inf                  inf     4618     57   4402    227479    78.5s
+      2465     225       446   0.21%   0               inf                  inf     4393     66   4792    252715    85.8s
+      2656     255       512   0.21%   0               inf                  inf     4989     84   5676    285432    94.6s
+
+Restarting search from the root node
+Model after restart has 3743 rows, 635 cols (635 bin., 0 int., 0 impl., 0 cont.), and 11703 nonzeros
+
+MIP-Timing:          96 - starting analytic centre calculation
+      2763       0         0   0.00%   0               inf                  inf       49      0      0    293066    96.4s
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+      2763       0         0   0.00%   0               inf                  inf       49     12      5    293115    96.4s
+      2994      43        65   0.00%   0               inf                  inf     3487     73   1065    306804   101.5s
+      3340     119       163   0.00%   0               inf                  inf     3714     54   1971    323124   106.6s
+      3689     193       268   0.10%   0               inf                  inf     3834     35   2949    337673   111.8s
+      4041     243       374   0.13%   0               inf                  inf     4076     39   4300    352542   116.8s
+      4609     328       550   0.13%   0               inf                  inf     4386     57   6635    380684   121.8s
+      4657     340       562   0.13%   0               inf                  inf     4264     31   6768    405544   126.8s
+      5058     375       696   0.13%   0               inf                  inf     4930     60   8656    436366   132.0s
+
+Restarting search from the root node
+Model after restart has 3743 rows, 635 cols (635 bin., 0 int., 0 impl., 0 cont.), and 11703 nonzeros
+
+MIP-Timing:     1.3e+02 - starting analytic centre calculation
+      5228       0         0   0.00%   0               inf                  inf       40      0      0    445847   134.7s
+      5228       0         0   0.00%   0               inf                  inf       40     14      2    445900   134.7s
+      5444      23        67   0.15%   0               inf                  inf     2325     79   1116    463631   139.7s
+      6169      84       309   0.24%   0               inf                  inf     3811     35   3976    495755   144.7s
+      7012     134       612   1.81%   0               inf                  inf     4647     49   7211    526205   149.7s
+      7831     179       906   1.81%   0               inf                  inf     4363     69   9437    555852   154.8s
+      8273     208      1072   1.81%   0               inf                  inf     4331     56   9687    578999   159.8s
+      8760     226      1253   1.81%   0               inf                  inf     4161     87   9614    600852   164.8s
+      9395     243      1511   1.81%   0               inf                  inf     4542     80   9576    621036   169.8s
+
+Restarting search from the root node
+Model after restart has 3743 rows, 635 cols (635 bin., 0 int., 0 impl., 0 cont.), and 11703 nonzeros
+
+MIP-Timing:     1.7e+02 - starting analytic centre calculation
+      9767       0         0   0.00%   0               inf                  inf       70      0      0    632482   172.6s
+      9767       0         0   0.00%   0               inf                  inf       70     14      2    632557   172.6s
+      9767       0         0   0.00%   0               inf                  inf     1946     55    722    667830   185.0s
+
+        Nodes      |    B&B Tree     |            Objective Bounds              |  Dynamic Constraints |       Work      
+Src  Proc. InQueue |  Leaves   Expl. | BestBound       BestSol              Gap |   Cuts   InLp Confl. | LpIters     Time
+
+     10478     105       226   0.78%   0               inf                  inf     2971     58   3594    693088   190.1s
+     11070     144       441   0.78%   0               inf                  inf     4246     43   5554    718234   195.1s
+     11822     223       699   0.78%   0               inf                  inf     4527     53   8190    745168   200.1s
+     12233     241       836   0.78%   0               inf                  inf     4357     77   9763    761106   205.2s
+     12609     263       957   0.78%   0               inf                  inf     4575     61   9926    774123   210.2s
+     13016     294      1092   0.78%   0               inf                  inf     4540     94   9998    787706   215.2s
+     13254     291      1169   0.78%   0               inf                  inf     4727     74   9484    831603   228.9s
+     13460     318      1252   0.78%   0               inf                  inf     4701    106   9978    840490   233.9s
+     13651     345      1321   0.80%   0               inf                  inf     4736     60   9705    857608   239.2s
+     13775     367      1364   0.80%   0               inf                  inf     4925    105   9898    902265   252.2s
+     14184     391      1510   0.80%   0               inf                  inf     4652     97   9752    958229   265.0s
+     14536     410      1636   0.81%   0               inf                  inf     4744     75   9795    974726   270.0s
+     14666     414      1682   0.81%   0               inf                  inf     4868     87   9734    989319   279.8s
+     14818     432      1730   0.81%   0               inf                  inf     4953     57   9767     1011k   293.7s
+     15030     437      1811   0.81%   0               inf                  inf     4547     56   9476     1032k   300.0s
+     15030     437      1811   0.81%   0               inf                  inf     4547     56   9476     1032k   300.0s
+
+Solving report
+  Status            Time limit reached
+  Primal bound      inf
+  Dual bound        0
+  Gap               inf
+  P-D integral      0
+  Solution status   -
+  Timing            300.01 (total)
+                    0.00 (presolve)
+                    0.00 (solve)
+                    0.00 (postsolve)
+  Max sub-MIP depth 5
+  Nodes             15030
+  Repair LPs        0 (0 feasible; 0 iterations)
+  LP iterations     1032049 (total)
+                    0 (strong br.)
+                    24637 (separation)
+                    409423 (heuristics)
+RESULT 1 Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None) SECONDS 300.019555739

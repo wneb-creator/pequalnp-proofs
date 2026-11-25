@@ -54,3 +54,21 @@ New checked artifacts (only Mathlib, no extra axioms):
 Potential target-specific repair avoids proving one-junk impossibility: if all indispensable graph edges of AND g contain z and z OR-reaches one operand, replace that operand by z. The new g is old g AND z, requires no extra gate, preserves all graph edges, and its owned edges form a star. Earlier gate profiles stay fixed. For one-junk circuits, edges in starEdges have witnesses independent of g, so a residual Ustar star may provide the indispensable-edge condition. This is only a sufficient repair, not an established universal existence claim.
 
 The finite agent disproved the unrestricted claim that indispensable edges of every minimum AND form a star: minimum P4 circuit AND01; OR13; OR(2,AND01); final AND has all three edges indispensable, but owns only the last two. Thus only nonstar ownership gates could satisfy any proposed additional existence theorem.
+
+## Checked weaker accounting for one dirty AND
+
+At 07:48 UTC, `OneJunkAll.lean` (1327 lines, 75,497 bytes; SHA256 `f1ece5b1a70acb180e3ab37905534addaa2e3e1dea06d7a6110ba19a7103ae9c`) compiled with exit 0. Its final helper `one_junk_cover_all` proves:
+
+`NoFourCycle G` + triangle-freeness + `IsLeastAO G C` + `TopForm G C` + `junk G C = {g}` imply a vertex cover T with `G.edgeFinset.card + T.card <= C.size + 1`.
+
+This removes both bipartiteness and singleton silence from the earlier 601-line `OneJunk.lean` prototype. All frozen scratch artifacts are in `/tmp/oec/pequalnp-pilot-75/library/`; the complete build log is `one-junk-all-build.log` and contains only two unused-hypothesis warnings. The prototype still imports `PEqualNP.Outside.L_meta_3760`, so it is not eligible for final submission without extracting allowed-import dependencies. Root is preserving and independently reviewing it.
+
+The mathematical change is that a same-size star-cover circuit only needs one fewer unit than the original L3760 contradiction. For disjoint pure OR sides, the cone counts alone plus one mixing/centreless gate pay for one or two cover centers. If the sides intersect in at least two vertices, use only the residual common-neighbor leaf set in the cone count; no extra leaf selected by bipartite color is needed. If their intersection is one vertex, the relevant lambda block cannot contain adjacent vertices because it has a common center and G is triangle-free. This replaces the early color argument, and the later strict-improvement exchange is unnecessary.
+
+This is a result for ONE dirty AND. It does not establish that an optimum with at most one dirty AND exists. A possible general accounting target is `E + K + |junk| + |mixing| + 2|centreless| + |unused OR| <= C.size + |Ustar| + 1`, together with a residual-cover bound `|Ustar| + |X\K| <= |junk| + |mixing| + 2|centreless| + |unused OR|`. These are only a roadmap: multiple dirty ancestors and shared OR cones remain unaccounted for.
+
+`OneJunkTopFree.lean` adds `least_single_junk_cover`, removing the TopForm assumption by applying `thm_1501`, which preserves both minimum size and junk cardinality. It is frozen at 1347 lines, 76,404 bytes, SHA256 `3e52b5593b90cf015501d49aedbfc153edc88f3f0d4f577362404b4f07a233d7`; the complete `one-junk-topfree-build.log` reports exit 0 with the same two warnings.
+
+`EarliestJunk.lean` is a separate checked local generalization, frozen at 130 lines, 6,355 bytes, SHA256 `81583b47c30731c317fd95887c32450ba3cdae1a64a5a798073d55cb519d7f2d`. For any IsAO2 circuit in TopForm, an earliest dirty AND has no AND ancestors, equals OR(P) AND OR(Q), and has the same Wmax guard characterization used by L3760. Neither circuit minimality nor uniqueness of junk is assumed. Build log `earliest-junk-build.log` is empty, exit 0.
+
+The exact localization blocker is now downstream: a clean top may have two different dirty ancestors. Its operand opposite the selected g need not be pure OR, and there may be no vertex guard in Wmax(g). Thus preserving the region's boundary needs a rule for interactions between dirty signals, in addition to avoiding double-counting of shared OR cones.

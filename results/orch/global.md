@@ -29,3 +29,23 @@ For a dirty singleton diamond `g=(u OR a) AND (u OR b)` owning edge `ab`, a dire
 Diamonds sharing factors `u OR a_i` form a graph on the `a_i`. Its owned edges may form long cycles even when triangles/four-cycles are forbidden, so earliest-gate arguments do not ensure an unshared factor. Whole components satisfy the common-input identity `C(u OR a_i)=u OR C(a_i)`, but outside masks must be charged together.
 
 A single-mask special case is tractable: suppose a component output `u OR f_H` is cleaned by `OR(S)` and all `H` edges are preserved. Then `S` covers `H`, and correctness adds edges from `u` to every vertex of `S`. Triangle freedom makes `S` independent; four-cycle freedom forces every outside vertex to have at most one neighbor in `S`. Consequently `H` is a star forest. This does not handle multiple nonlinear masks.
+
+## Checked common-input component extraction
+
+Frozen fragments in the scratch `global/` directory, to be appended in order inside the existing `cross` namespace:
+
+1. `Component.lean` (175 lines): a closed AND/OR core commutes with joining every input with a common Boolean value. It constructs the old block with `p` initial OR gates and the new block with `t` boundary OR gates, proves the boundary values equal, and proves exact size difference `p-t`.
+2. `ComponentExtras.lean` (55 lines): fan-in-two monotonicity preservation, indexed output equality, and single-output circuit evaluation equality.
+3. `Continuation.lean` (76 lines): generic suffix rewiring. Every old-prefix wire read by a suffix gate must map to an existing new-prefix wire with the same value; later suffix wires are shifted automatically. The suffix retains its gate count and gate operations.
+4. `ComponentContext.lean` (122 lines): explicit `InterfaceRead` conditions allow consumers to read original base inputs or listed boundary outputs, but not unlisted internal block wires. Under these conditions, the complete old and rewritten circuit functions agree, fan-in two is preserved, and the size difference remains exactly `p-t`.
+5. `MinimalBoundary.lean` (51 lines): a minimum circuit containing such a component must have `p <= t`; if additionally `t <= p`, extraction preserves minimality and exact size.
+
+All five fragments compiled together in `MinimalBoundaryIntegrated.lean`; the final build log is empty. The only dependencies outside these fragments are the shared `cross.wf`, `wf_len`, and `wf_keep` foundations.
+
+Scope is explicit: the base input list is `[u] ++ a`, where `a` contains the `p` factor inputs. This is not yet an embedding into arbitrary additional ambient input wires. An ambient extension would retain an arbitrary prefix containing `u` and change offsets from `1` to the prefix length, or instantiate the general prefix-renaming lemma.
+
+## Remaining boundary-count issue
+
+Triangle/four-cycle freedom plus correct output alone cannot imply `t <= p`. For example, the ten common-u factors corresponding to Petersen vertices can feed fifteen boundary ANDs corresponding to Petersen edges; filtering each boundary with its direct edge term and OR-ing gives the Petersen edge function with `u` isolated. All fifteen boundaries are used, but the circuit is redundant. Minimum/irredundancy must therefore be essential in any boundary-count theorem.
+
+Potential measure for a successful equal-size extraction: each core signal changes from `u OR v` to `v`, so core AND functions decrease pointwise. Added and removed boundary gates are ORs, and all suffix gate values remain unchanged. Hence AND gates cannot acquire new false-positive inputs. Every core AND loses the singleton-u input. This suggests minimizing circuit size and then total AND truth on nonedge/singleton pairs. The existence of an extractable region with `t <= p` is still unproved.

@@ -1,0 +1,24 @@
+{
+  "observed_at": "2026-11-25T07:43:27.806496+00:00",
+  "reason": "execution environment refresh; Python wrappers disappeared and CaDiCaL processes are zombies; no final solver status",
+  "runs": {
+    "theta233-k10-sat": {
+      "status": "UNKNOWN_INTERRUPTED",
+      "pid": 12114,
+      "cpu_seconds": 294,
+      "native_limit_seconds": 900
+    },
+    "theta333-k11-sat": {
+      "status": "UNKNOWN_INTERRUPTED",
+      "pid": 12119,
+      "cpu_seconds": 299,
+      "native_limit_seconds": 900
+    },
+    "c6-k8-shared-sat": {
+      "status": "UNKNOWN_INTERRUPTED",
+      "pid": 12930,
+      "cpu_seconds": 55,
+      "native_limit_seconds": 300
+    }
+  }
+}

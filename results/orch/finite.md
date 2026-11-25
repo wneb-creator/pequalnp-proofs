@@ -48,3 +48,22 @@ Theta targets now running: theta(2,3,3) has vertices0..6 and edges02,03,05,12,14
 A distinct bounded MILP synthesis model is also running on each theta target for300s with HiGHS threads=1. Gate operations, fanin selectors, and all critical-row wire values are binary variables; last-wire outputs are fixed to the graph truth values. The model was validated with a fixed C5 seven-gate cover circuit and its returned circuit independently rechecked on all32 assignments (no failures). Source run1 is preserved because SciPy ignored parallel='off'; threads=1 was accepted. Future source uses parallel=False. A timeout will be reported only as a timeout; numerical solver infeasibility would still not be a Lean proof.
 
 Updated 2026-11-25T07:25:46.035318+00:00
+
+## SAT outcomes and environment interruption
+
+The bundled Lean toolchain includes CaDiCaL. Base synth_sat.py and the shared variant have now passed independent review by lean_setup. The model is exactly K topological binary AND/OR gates, with distinct operands ordered a<b, every primary input mentioned, and last-gate output. It does not directly encode nullary/unary gates, constants, or bad-wire reads. Removing constants, aliases, duplicate signals and unused gates justifies this normalization for minimum circuits of the current nonconstant graphs without isolated vertices; this reduction has not been formalized in Lean here. No depth-sorting restriction was used in the reported SAT runs.
+
+- C5 K=7: SAT in0.115s. Decoded circuit independently verified on all32 input assignments; no failures.
+- C5 K=6: UNSAT in0.215s, agreeing with the earlier exhaustive semantic BFS.
+- C6 K=7: UNSAT in5.808s.
+- C5 K=7 plus a shared pure OR: UNSAT in4.377s. This query checks all32 truth rows, enumerates all subsets of at least2 primary inputs as the possible pure-OR support, requires the selected gate to be OR and used by at least2 distinct later parents, and requires every gate to be in the output ancestor cone. It has also been independently reviewed.
+- Theta233 K=10 and Theta333 K=11: UNKNOWN/interrupted by execution-environment refresh, with solver CPU times294s and299s. These were not UNSAT outcomes and did not reach their native900s wall limit.
+- C6 K=8 shared pure OR: UNKNOWN/interrupted by the same refresh, solver CPU time55s. No verdict was emitted before interruption.
+
+The old solver processes were observed as zombies (STAT Z), not live searches. Full logs end in progress lines without an s-status. Recovery metadata is saved as sat-recovery-run1.json; no incomplete run has been relabeled timeout or UNSAT. CaDiCaL had native -t limits, independently of vanished Python wrappers.
+
+Theta heuristic600s results:233 used4,805,000,000 mutations and333 used4,432,800,000; best one failed critical row in each, no exact smaller circuit. Both theta MILP300s runs returned time-limit status with no incumbent. Unrestricted C5 ordered-MILP validation also timed out30s; the pinned known-valid reordered seed passed and was checked on all32 assignments.
+
+All78 preserved artifacts are under results/orch/finite/ with hashes in sha256.json, including every full stdout/stderr solver log, model CNF, metadata, program source, graph and critical rows. Solver UNSAT is computational evidence about its encoding; none of these results is a Lean-checked lower-bound theorem.
+
+Updated 2026-11-25T07:43:44.857028+00:00

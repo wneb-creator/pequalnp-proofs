@@ -976,6 +976,258 @@ lemma single_output_gate_saving (gs : List Gate) (o n : ℕ) :
 
 end component
 
+namespace component
+
+def renameWire (n m : ℕ) (rho : ℕ → ℕ) (i : ℕ) : ℕ :=
+  if i < n then rho i else m + (i - n)
+
+def renameGate (rho : ℕ → ℕ) (g : Gate) : Gate :=
+  ⟨g.op, g.inputs.map rho⟩
+
+lemma wf_rename_prefix_aux (gs : List Gate) (old new : List Bool) (rho : ℕ → ℕ)
+    (hread : ∀ g ∈ gs, ∀ i ∈ g.inputs, i < old.length →
+      rho i < new.length ∧ new.getD (rho i) false = old.getD i false)
+    (acc : List Bool) :
+    wf (gs.map (renameGate (renameWire old.length new.length rho))) (new ++ acc) =
+      new ++ (wf gs (old ++ acc)).drop old.length := by
+  induction gs generalizing acc with
+  | nil => simp [wf]
+  | cons g gs ih =>
+    have hvals : (renameGate (renameWire old.length new.length rho) g).inputs.map
+        (fun i => (new ++ acc).getD i false) =
+        g.inputs.map (fun i => (old ++ acc).getD i false) := by
+      simp only [renameGate, List.map_map]
+      apply List.map_congr_left
+      intro i hi
+      change (new ++ acc).getD (renameWire old.length new.length rho i) false = _
+      by_cases hio : i < old.length
+      · obtain ⟨hir, he⟩ := hread g List.mem_cons_self i hi hio
+        simp only [renameWire, hio, ite_true]
+        rw [List.getD_append _ _ _ _ hir, List.getD_append _ _ _ _ hio]
+        exact he
+      · simp only [renameWire, hio, ite_false]
+        rw [getD_shift, List.getD_append_right _ _ _ _ (by omega)]
+    change wf (gs.map (renameGate (renameWire old.length new.length rho)))
+        ((new ++ acc) ++ [(renameGate _ g).op.eval _]) =
+      new ++ (wf gs ((old ++ acc) ++ [g.op.eval _])).drop old.length
+    rw [hvals]
+    change wf (gs.map (renameGate (renameWire old.length new.length rho)))
+        ((new ++ acc) ++ [g.op.eval _]) =
+      new ++ (wf gs ((old ++ acc) ++ [g.op.eval _])).drop old.length
+    rw [List.append_assoc, List.append_assoc]
+    exact ih (fun a ha i hi hio => hread a (List.mem_cons_of_mem g ha) i hi hio) _
+
+lemma wf_rename_prefix (gs : List Gate) (old new : List Bool) (rho : ℕ → ℕ)
+    (hread : ∀ g ∈ gs, ∀ i ∈ g.inputs, i < old.length →
+      rho i < new.length ∧ new.getD (rho i) false = old.getD i false) :
+    wf (gs.map (renameGate (renameWire old.length new.length rho))) new =
+      new ++ (wf gs old).drop old.length := by
+  simpa using wf_rename_prefix_aux gs old new rho hread []
+
+lemma output_rename_prefix (gs : List Gate) (old new : List Bool) (rho : ℕ → ℕ)
+    (hread : ∀ g ∈ gs, ∀ i ∈ g.inputs, i < old.length →
+      rho i < new.length ∧ new.getD (rho i) false = old.getD i false)
+    (o : ℕ) (hout : o < old.length →
+      rho o < new.length ∧ new.getD (rho o) false = old.getD o false) :
+    (wf (gs.map (renameGate (renameWire old.length new.length rho))) new).getD
+        (renameWire old.length new.length rho o) false = (wf gs old).getD o false := by
+  by_cases ho : o < old.length
+  · obtain ⟨hr, he⟩ := hout ho
+    simp only [renameWire, ho, ite_true]
+    rw [wf_keep _ _ _ hr, wf_keep _ _ _ ho]
+    exact he
+  · rw [wf_rename_prefix gs old new rho hread]
+    simp only [renameWire, ho, ite_false]
+    rw [getD_shift]
+    simp [List.getD_eq_getElem?_getD, List.getElem?_drop, Nat.add_sub_of_le (by omega : old.length ≤ o)]
+
+lemma rename_mono (gs : List Gate) (rho : ℕ → ℕ) (o : ℕ)
+    (h : PEqualNP.MetaComplexity.Monotone2 ⟨gs, 0⟩) :
+    PEqualNP.MetaComplexity.Monotone2 ⟨gs.map (renameGate rho), o⟩ := by
+  intro g hg
+  obtain ⟨a, ha, rfl⟩ := List.mem_map.mp hg
+  simpa [renameGate] using h a ha
+
+lemma renameGate_length (gs : List Gate) (rho : ℕ → ℕ) :
+    (gs.map (renameGate rho)).length = gs.length := by simp
+
+end component
+
+namespace component
+
+def oldBoundaryLength (n : ℕ) (gs : List Gate) : ℕ :=
+  n + 1 + (joinedBlock n gs).length
+
+def newBoundaryLength (n : ℕ) (gs : List Gate) (outs : List ℕ) : ℕ :=
+  n + 1 + (extractedBlock gs outs).length
+
+def InterfaceRead (n : ℕ) (gs : List Gate) (outs : List ℕ) (rho : ℕ → ℕ) (i : ℕ) : Prop :=
+  (i < n + 1 ∧ rho i = i) ∨
+    ∃ j, ∃ hj : j < outs.length,
+      i = n + 1 + outs[j] ∧ rho i = n + 1 + gs.length + j
+
+def oldContext (n : ℕ) (gs tail : List Gate) (o : ℕ) : Circuit :=
+  ⟨joinedBlock n gs ++ tail, o⟩
+
+def extractedContext (n : ℕ) (gs : List Gate) (outs : List ℕ) (tail : List Gate)
+    (rho : ℕ → ℕ) (o : ℕ) : Circuit :=
+  let re := renameWire (oldBoundaryLength n gs) (newBoundaryLength n gs outs) rho
+  ⟨extractedBlock gs outs ++ tail.map (renameGate re), re o⟩
+
+lemma interface_values (n : ℕ) (gs : List Gate) (outs : List ℕ) (rho : ℕ → ℕ)
+    (u : Bool) (x : List Bool) (hx : x.length = n)
+    (hcore : ClosedCore n gs) (houts : ∀ i ∈ outs, i < n + gs.length)
+    (i : ℕ) (hi : InterfaceRead n gs outs rho i) :
+    rho i < (wf (extractedBlock gs outs) (u :: x)).length ∧
+      (wf (extractedBlock gs outs) (u :: x)).getD (rho i) false =
+        (wf (joinedBlock n gs) (u :: x)).getD i false := by
+  subst n
+  rcases hi with ⟨hi, hr⟩ | ⟨j, hj, hi, hr⟩
+  · rw [hr]
+    constructor
+    · rw [wf_len]
+      simp only [List.length_cons]
+      omega
+    · rw [wf_keep _ _ _ (by simpa using hi), wf_keep _ _ _ (by simpa using hi)]
+  · rw [hr, hi]
+    constructor
+    · rw [wf_len, extractedBlock_length]
+      simp only [List.length_cons]
+      omega
+    · exact component_output gs outs u x hcore houts j hj
+
+lemma component_context_eval (n : ℕ) (gs : List Gate) (outs : List ℕ) (tail : List Gate)
+    (rho : ℕ → ℕ) (o : ℕ) (hcore : ClosedCore n gs)
+    (houts : ∀ i ∈ outs, i < n + gs.length)
+    (hreads : ∀ g ∈ tail, ∀ i ∈ g.inputs, i < oldBoundaryLength n gs →
+      InterfaceRead n gs outs rho i)
+    (hout : o < oldBoundaryLength n gs → InterfaceRead n gs outs rho o)
+    (u : Bool) (x : List Bool) (hx : x.length = n) :
+    (extractedContext n gs outs tail rho o).eval (u :: x) =
+      (oldContext n gs tail o).eval (u :: x) := by
+  let old := wf (joinedBlock n gs) (u :: x)
+  let new := wf (extractedBlock gs outs) (u :: x)
+  have hold : old.length = oldBoundaryLength n gs := by
+    simp [old, wf_len, hx, oldBoundaryLength]
+  have hnew : new.length = newBoundaryLength n gs outs := by
+    simp [new, wf_len, hx, newBoundaryLength]
+  have hread : ∀ g ∈ tail, ∀ i ∈ g.inputs, i < old.length →
+      rho i < new.length ∧ new.getD (rho i) false = old.getD i false := by
+    intro g hg i hi hio
+    exact interface_values n gs outs rho u x hx hcore houts i
+      (hreads g hg i hi (by simpa [hold] using hio))
+  have hout' : o < old.length →
+      rho o < new.length ∧ new.getD (rho o) false = old.getD o false := by
+    intro ho
+    exact interface_values n gs outs rho u x hx hcore houts o (hout (by simpa [hold] using ho))
+  have he := output_rename_prefix tail old new rho hread o hout'
+  change (wf (extractedBlock gs outs ++ tail.map (renameGate
+      (renameWire (oldBoundaryLength n gs) (newBoundaryLength n gs outs) rho))) (u :: x)).getD
+      (renameWire (oldBoundaryLength n gs) (newBoundaryLength n gs outs) rho o) false =
+    (wf (joinedBlock n gs ++ tail) (u :: x)).getD o false
+  have happ (a b : List Gate) (w : List Bool) : wf (a ++ b) w = wf b (wf a w) := List.foldl_append
+  rw [happ, happ]
+  simpa only [hold, hnew] using he
+
+lemma component_context_eval_list (n : ℕ) (gs : List Gate) (outs : List ℕ) (tail : List Gate)
+    (rho : ℕ → ℕ) (o : ℕ) (hcore : ClosedCore n gs)
+    (houts : ∀ i ∈ outs, i < n + gs.length)
+    (hreads : ∀ g ∈ tail, ∀ i ∈ g.inputs, i < oldBoundaryLength n gs →
+      InterfaceRead n gs outs rho i)
+    (hout : o < oldBoundaryLength n gs → InterfaceRead n gs outs rho o)
+    (z : List Bool) (hz : z.length = n + 1) :
+    (extractedContext n gs outs tail rho o).eval z = (oldContext n gs tail o).eval z := by
+  cases z with
+  | nil => simp at hz
+  | cons u x =>
+    exact component_context_eval n gs outs tail rho o hcore houts hreads hout u x (by simpa using hz)
+
+lemma component_context_function (n : ℕ) (gs : List Gate) (outs : List ℕ) (tail : List Gate)
+    (rho : ℕ → ℕ) (o : ℕ) (hcore : ClosedCore n gs)
+    (houts : ∀ i ∈ outs, i < n + gs.length)
+    (hreads : ∀ g ∈ tail, ∀ i ∈ g.inputs, i < oldBoundaryLength n gs →
+      InterfaceRead n gs outs rho i)
+    (hout : o < oldBoundaryLength n gs → InterfaceRead n gs outs rho o) :
+    PEqualNP.MetaComplexity.circuitFun (n + 1) (extractedContext n gs outs tail rho o) =
+      PEqualNP.MetaComplexity.circuitFun (n + 1) (oldContext n gs tail o) := by
+  funext x
+  exact component_context_eval_list n gs outs tail rho o hcore houts hreads hout (List.ofFn x) (by simp)
+
+lemma extractedContext_mono (n : ℕ) (gs : List Gate) (outs : List ℕ) (tail : List Gate)
+    (rho : ℕ → ℕ) (o : ℕ)
+    (hcore : PEqualNP.MetaComplexity.Monotone2 ⟨gs, 0⟩)
+    (htail : PEqualNP.MetaComplexity.Monotone2 ⟨tail, 0⟩) :
+    PEqualNP.MetaComplexity.Monotone2 (extractedContext n gs outs tail rho o) :=
+  append_mono _ _ _ (extractedBlock_mono gs outs 0 hcore) (rename_mono tail _ 0 htail)
+
+lemma context_gate_saving (n : ℕ) (gs : List Gate) (outs : List ℕ) (tail : List Gate)
+    (rho : ℕ → ℕ) (o : ℕ) :
+    (extractedContext n gs outs tail rho o).size + n =
+      (oldContext n gs tail o).size + outs.length := by
+  simp only [extractedContext, oldContext, Circuit.size, List.length_append, List.length_map,
+    extractedBlock_length, joinedBlock_length]
+  omega
+
+lemma context_no_larger (n : ℕ) (gs : List Gate) (outs : List ℕ) (tail : List Gate)
+    (rho : ℕ → ℕ) (o : ℕ) (hboundary : outs.length ≤ n) :
+    (extractedContext n gs outs tail rho o).size ≤ (oldContext n gs tail o).size := by
+  have := context_gate_saving n gs outs tail rho o
+  omega
+
+end component
+
+namespace component
+
+lemma context_parts_mono (n : ℕ) (gs tail : List Gate) (o : ℕ)
+    (h : PEqualNP.MetaComplexity.Monotone2 (oldContext n gs tail o)) :
+    PEqualNP.MetaComplexity.Monotone2 ⟨gs, 0⟩ ∧
+      PEqualNP.MetaComplexity.Monotone2 ⟨tail, 0⟩ := by
+  constructor
+  · intro g hg
+    have hs := h (shiftGate (n + 1) g) (by
+      change shiftGate (n + 1) g ∈
+        (boundaryGates (allInputs n) ++ gs.map (shiftGate (n + 1))) ++ tail
+      exact List.mem_append.mpr (Or.inl (List.mem_append.mpr
+        (Or.inr (List.mem_map.mpr ⟨g, hg, rfl⟩)))))
+    simpa [shiftGate] using hs
+  · intro g hg
+    exact h g (List.mem_append.mpr (Or.inr hg))
+
+lemma minimal_boundary_bound (n : ℕ) (gs : List Gate) (outs : List ℕ) (tail : List Gate)
+    (rho : ℕ → ℕ) (o : ℕ) (hcore : ClosedCore n gs)
+    (houts : ∀ i ∈ outs, i < n + gs.length)
+    (hreads : ∀ g ∈ tail, ∀ i ∈ g.inputs, i < oldBoundaryLength n gs →
+      InterfaceRead n gs outs rho i)
+    (hout : o < oldBoundaryLength n gs → InterfaceRead n gs outs rho o)
+    (hmin : PEqualNP.MetaComplexity.IsMinimalMonoCircuit (n + 1) (oldContext n gs tail o)) :
+    n ≤ outs.length := by
+  obtain ⟨hgm, htm⟩ := context_parts_mono n gs tail o hmin.1
+  have hsz := hmin.2 (extractedContext n gs outs tail rho o)
+    (extractedContext_mono n gs outs tail rho o hgm htm)
+    (component_context_function n gs outs tail rho o hcore houts hreads hout)
+  have hcount := context_gate_saving n gs outs tail rho o
+  omega
+
+lemma context_preserves_minimality (n : ℕ) (gs : List Gate) (outs : List ℕ) (tail : List Gate)
+    (rho : ℕ → ℕ) (o : ℕ) (hcore : ClosedCore n gs)
+    (houts : ∀ i ∈ outs, i < n + gs.length)
+    (hreads : ∀ g ∈ tail, ∀ i ∈ g.inputs, i < oldBoundaryLength n gs →
+      InterfaceRead n gs outs rho i)
+    (hout : o < oldBoundaryLength n gs → InterfaceRead n gs outs rho o)
+    (hboundary : outs.length ≤ n)
+    (hmin : PEqualNP.MetaComplexity.IsMinimalMonoCircuit (n + 1) (oldContext n gs tail o)) :
+    PEqualNP.MetaComplexity.IsMinimalMonoCircuit (n + 1)
+      (extractedContext n gs outs tail rho o) ∧
+      (extractedContext n gs outs tail rho o).size = (oldContext n gs tail o).size := by
+  obtain ⟨hgm, htm⟩ := context_parts_mono n gs tail o hmin.1
+  have hf := component_context_function n gs outs tail rho o hcore houts hreads hout
+  have hm := extractedContext_mono n gs outs tail rho o hgm htm
+  have hle := context_no_larger n gs outs tail rho o hboundary
+  refine ⟨⟨hm, fun D hD hDf => hle.trans (hmin.2 D hD (hDf.trans hf))⟩,
+    Nat.le_antisymm hle (hmin.2 _ hm hf)⟩
+
+end component
+
 end PEqualNP.Outside.L_meta_2448.cross
 
 namespace PEqualNP.Outside.L_meta_2448.diamond

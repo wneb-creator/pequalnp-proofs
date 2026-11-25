@@ -4,10 +4,12 @@ File: lean/PEqualNP/Outside/L_meta_2448.lean
 Build: lake build PEqualNP.Outside.L_meta_2448, exit 0
 Local checker: REJECTED (no-theorem), expected for partial; full output retained.
 Independent red-team reviews: PASS for minimum existence, cross-nonedge witness, proper-pair-sound star criterion, and bipartite ownership lemma.
-Line counts: first partial 142; integrated partial 1717; final cleanup not started.
+Line counts: first partial 142; integrated partial 1969; final cleanup not started.
 Sub-agents: 6 (status review, structural proof, library route, finite cases, Lean setup, global normal form)
-TIMING total=39.7 subagents=6
+TIMING total=50.2 subagents=6
 Finite artifacts: independent review passed; 38 manifest entries validated, 1197 BFS witnesses rechecked. Heuristic negatives are not proofs.
 Independent review passed: equal-size star-prefix repair, component extraction with explicit boundary bound, and generalized two-center lemma.
 OneJunk.lean: independently reviewed conditional cover bound; lake env lean exit 0, empty full log. Its Outside import is prototype-only, not allowed in a final gap PR.
 Axiom audit: 14 exposed integrated helpers use only propext, Classical.choice and Quot.sound.
+Latest named-file build: exit0 at1969lines. Conditional TopForm-free one-junk bound, earliest-junk semantics, and star-cover witness compiled and independently reviewed; prototype imports remain outside final-file allowance.
+Finite checkpoint: 78 reviewed artifacts; interrupted SAT runs are UNKNOWN, not UNSAT.

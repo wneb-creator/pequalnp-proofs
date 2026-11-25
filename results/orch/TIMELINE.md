@@ -23,3 +23,5 @@ No complete proof or accepted submission yet.
 - 2026-11-25T07:36:33.702174+00:00: Integrated star-prefix extension and component extraction; named file builds at 1717 lines. All added fragments independently reviewed.
 
 - 2026-11-25T07:42:41.587429+00:00: Frozen 601-line one-junk conditional cover result independently reviewed and preserved as a scratch artifact; full target remains open. Integrated helper axiom audit passed.
+
+- 2026-11-25T07:53:11.085048+00:00: 1969-line named partial builds. Preserved broader one-junk bound, earliest-junk local semantics, star-cover construction, and reviewed interrupted-search evidence.
