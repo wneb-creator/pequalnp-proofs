@@ -2573,3 +2573,250 @@ lemma replace_pure_family {n k : ℕ} (hk : 0 < k)
     simpa using ht
 
 end PEqualNP.Outside.L_meta_3566.PureFunctionCircuit
+
+namespace PEqualNP.Outside.L_meta_3566.OneMixedFrontier
+
+open PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_3566.PureFunctionFamily
+
+lemma augment_left_true {n k : ℕ} (hk : 0 < k)
+    (L R : Fin k → (Fin n → Bool) → Bool) (U : (Fin n → Bool) → Bool)
+    (x : Fin n → Bool) :
+    family (Fin.cases U L) (Fin.cases (R ⟨0, hk⟩) R) x = true ↔
+      family L R x = true ∧ U x = true := by
+  constructor
+  · intro h
+    have hh := of_decide_eq_true h
+    exact ⟨decide_eq_true (fun i => hh i.succ), (hh 0).1⟩
+  · rintro ⟨h, hu⟩
+    have hh := of_decide_eq_true h
+    apply decide_eq_true
+    exact Fin.cases ⟨hu, (hh ⟨0, hk⟩).2⟩ hh
+
+lemma augment_right_true {n k : ℕ} (hk : 0 < k)
+    (L R : Fin k → (Fin n → Bool) → Bool) (V : (Fin n → Bool) → Bool)
+    (x : Fin n → Bool) :
+    family (Fin.cases (L ⟨0, hk⟩) L) (Fin.cases V R) x = true ↔
+      family L R x = true ∧ V x = true := by
+  constructor
+  · intro h
+    have hh := of_decide_eq_true h
+    exact ⟨decide_eq_true (fun i => hh i.succ), (hh 0).2⟩
+  · rintro ⟨h, hv⟩
+    have hh := of_decide_eq_true h
+    apply decide_eq_true
+    exact Fin.cases ⟨(hh ⟨0, hk⟩).1, hv⟩ hh
+
+lemma select_extra_left {n k : ℕ} (hk : 0 < k)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v) (h4 : NoFourCycle G)
+    (L R : Fin k → (Fin n → Bool) → Bool) (U : (Fin n → Bool) → Bool)
+    (hLmono : ∀ i, Monotone (L i)) (hRmono : ∀ i, Monotone (R i)) (hUmono : Monotone U)
+    (hLpure : ∀ i x, L i x = L i (maskTrue (fun w => !(s w)) x))
+    (hRpure : ∀ i x, R i x = R i (maskTrue s x))
+    (hUpure : ∀ x, U x = U (maskTrue (fun w => !(s w)) x))
+    (hLzero : ∀ i, L i (fun _ => false) = false)
+    (hRzero : ∀ i, R i (fun _ => false) = false) (hUzero : U (fun _ => false) = false)
+    (hbelow : ∀ x, family L R x = true → U x = true → graphFun G ∅ x = true)
+    (haccept : ∃ a b, G.Adj a b ∧ family L R (pairInput a b) = true ∧ U (pairInput a b) = true) :
+    ∃ (u : Fin n) (f : (Fin n → Bool) → Bool),
+      (f = U ∨ ∃ i, f = L i ∨ f = R i) ∧
+      (∀ x, x u && f x = true → graphFun G ∅ x = true) ∧
+      (∀ a b, G.Adj a b → family L R (pairInput a b) = true → U (pairInput a b) = true →
+        pairInput a b u && f (pairInput a b) = true) := by
+  let i0 : Fin k := ⟨0, hk⟩
+  let L' : Fin (k + 1) → (Fin n → Bool) → Bool := Fin.cases U L
+  let R' : Fin (k + 1) → (Fin n → Bool) → Bool := Fin.cases (R i0) R
+  have hbelow' : ∀ x, family L' R' x = true → graphFun G ∅ x = true := by
+    intro x hx
+    obtain ⟨hh, hu⟩ := (augment_left_true hk L R U x).mp hx
+    exact hbelow x hh hu
+  have haccept' : ∃ a b, G.Adj a b ∧ family L' R' (pairInput a b) = true := by
+    obtain ⟨a, b, hab, hh, hu⟩ := haccept
+    exact ⟨a, b, hab, (augment_left_true hk L R U _).2 ⟨hh, hu⟩⟩
+  obtain ⟨u, j, f, hf, hfbelow, hfretain⟩ := replacement_existing_side (Nat.succ_pos k)
+    G s hbip h4 L' R'
+    (Fin.cases hUmono hLmono) (Fin.cases (hRmono i0) hRmono)
+    (Fin.cases hUpure hLpure) (Fin.cases (hRpure i0) hRpure)
+    (Fin.cases hUzero hLzero) (Fin.cases (hRzero i0) hRzero) hbelow' haccept'
+  refine ⟨u, f, ?_, hfbelow, ?_⟩
+  · cases j using Fin.cases with
+    | zero =>
+      change f = U ∨ f = R i0 at hf
+      exact hf.elim Or.inl (fun h => Or.inr ⟨i0, Or.inr h⟩)
+    | succ i =>
+      change f = L i ∨ f = R i at hf
+      exact Or.inr ⟨i, hf⟩
+  · intro a b hab hh hu
+    exact hfretain a b hab ((augment_left_true hk L R U _).2 ⟨hh, hu⟩)
+
+lemma select_extra_right {n k : ℕ} (hk : 0 < k)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v) (h4 : NoFourCycle G)
+    (L R : Fin k → (Fin n → Bool) → Bool) (V : (Fin n → Bool) → Bool)
+    (hLmono : ∀ i, Monotone (L i)) (hRmono : ∀ i, Monotone (R i)) (hVmono : Monotone V)
+    (hLpure : ∀ i x, L i x = L i (maskTrue (fun w => !(s w)) x))
+    (hRpure : ∀ i x, R i x = R i (maskTrue s x))
+    (hVpure : ∀ x, V x = V (maskTrue s x))
+    (hLzero : ∀ i, L i (fun _ => false) = false)
+    (hRzero : ∀ i, R i (fun _ => false) = false) (hVzero : V (fun _ => false) = false)
+    (hbelow : ∀ x, family L R x = true → V x = true → graphFun G ∅ x = true)
+    (haccept : ∃ a b, G.Adj a b ∧ family L R (pairInput a b) = true ∧ V (pairInput a b) = true) :
+    ∃ (u : Fin n) (f : (Fin n → Bool) → Bool),
+      (f = V ∨ ∃ i, f = L i ∨ f = R i) ∧
+      (∀ x, x u && f x = true → graphFun G ∅ x = true) ∧
+      (∀ a b, G.Adj a b → family L R (pairInput a b) = true → V (pairInput a b) = true →
+        pairInput a b u && f (pairInput a b) = true) := by
+  let i0 : Fin k := ⟨0, hk⟩
+  let L' : Fin (k + 1) → (Fin n → Bool) → Bool := Fin.cases (L i0) L
+  let R' : Fin (k + 1) → (Fin n → Bool) → Bool := Fin.cases V R
+  have hbelow' : ∀ x, family L' R' x = true → graphFun G ∅ x = true := by
+    intro x hx
+    obtain ⟨hh, hv⟩ := (augment_right_true hk L R V x).mp hx
+    exact hbelow x hh hv
+  have haccept' : ∃ a b, G.Adj a b ∧ family L' R' (pairInput a b) = true := by
+    obtain ⟨a, b, hab, hh, hv⟩ := haccept
+    exact ⟨a, b, hab, (augment_right_true hk L R V _).2 ⟨hh, hv⟩⟩
+  obtain ⟨u, j, f, hf, hfbelow, hfretain⟩ := replacement_existing_side (Nat.succ_pos k)
+    G s hbip h4 L' R'
+    (Fin.cases (hLmono i0) hLmono) (Fin.cases hVmono hRmono)
+    (Fin.cases (hLpure i0) hLpure) (Fin.cases hVpure hRpure)
+    (Fin.cases (hLzero i0) hLzero) (Fin.cases hVzero hRzero) hbelow' haccept'
+  refine ⟨u, f, ?_, hfbelow, ?_⟩
+  · cases j using Fin.cases with
+    | zero =>
+      change f = L i0 ∨ f = V at hf
+      exact hf.elim (fun h => Or.inr ⟨i0, Or.inl h⟩) Or.inl
+    | succ i =>
+      change f = L i ∨ f = R i at hf
+      exact Or.inr ⟨i, hf⟩
+  · intro a b hab hh hv
+    exact hfretain a b hab ((augment_right_true hk L R V _).2 ⟨hh, hv⟩)
+
+lemma select_two_stars {n k : ℕ} (hk : 0 < k)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (s : Fin n → Bool) (hbip : ∀ u v, G.Adj u v → s u ≠ s v) (h4 : NoFourCycle G)
+    (L R : Fin k → (Fin n → Bool) → Bool) (U V : (Fin n → Bool) → Bool)
+    (hLmono : ∀ i, Monotone (L i)) (hRmono : ∀ i, Monotone (R i))
+    (hUmono : Monotone U) (hVmono : Monotone V)
+    (hLpure : ∀ i x, L i x = L i (maskTrue (fun w => !(s w)) x))
+    (hRpure : ∀ i x, R i x = R i (maskTrue s x))
+    (hUpure : ∀ x, U x = U (maskTrue (fun w => !(s w)) x))
+    (hVpure : ∀ x, V x = V (maskTrue s x))
+    (hLzero : ∀ i, L i (fun _ => false) = false)
+    (hRzero : ∀ i, R i (fun _ => false) = false)
+    (hUzero : U (fun _ => false) = false) (hVzero : V (fun _ => false) = false)
+    (hbelow : ∀ x, family L R x && (U x || V x) = true → graphFun G ∅ x = true)
+    (haccept : ∃ a b, G.Adj a b ∧
+      family L R (pairInput a b) && (U (pairInput a b) || V (pairInput a b)) = true) :
+    ∃ (u v : Fin n) (f g : (Fin n → Bool) → Bool),
+      (f = U ∨ f = V ∨ ∃ i, f = L i ∨ f = R i) ∧
+      (g = U ∨ g = V ∨ ∃ i, g = L i ∨ g = R i) ∧
+      (∀ x, ((x u && f x) || (x v && g x)) = true → graphFun G ∅ x = true) ∧
+      (∀ a b, G.Adj a b → family L R (pairInput a b) &&
+        (U (pairInput a b) || V (pairInput a b)) = true →
+        ((pairInput a b u && f (pairInput a b)) ||
+          (pairInput a b v && g (pairInput a b))) = true) := by
+  classical
+  have hbelowU : ∀ x, family L R x = true → U x = true → graphFun G ∅ x = true := by
+    intro x hh hu
+    exact hbelow x (by simp [hh, hu])
+  have hbelowV : ∀ x, family L R x = true → V x = true → graphFun G ∅ x = true := by
+    intro x hh hv
+    exact hbelow x (by simp [hh, hv])
+  have hmemberU : ∀ f : (Fin n → Bool) → Bool,
+      (f = U ∨ ∃ i, f = L i ∨ f = R i) → (f = U ∨ f = V ∨ ∃ i, f = L i ∨ f = R i) := by
+    intro f hf
+    exact hf.elim Or.inl (fun h => Or.inr (Or.inr h))
+  have hmemberV : ∀ f : (Fin n → Bool) → Bool,
+      (f = V ∨ ∃ i, f = L i ∨ f = R i) → (f = U ∨ f = V ∨ ∃ i, f = L i ∨ f = R i) := by
+    intro f hf
+    exact Or.inr hf
+  by_cases hU : ∃ a b, G.Adj a b ∧ family L R (pairInput a b) = true ∧ U (pairInput a b) = true
+  · obtain ⟨u, f, hf, hfb, hfr⟩ := select_extra_left hk G s hbip h4 L R U
+      hLmono hRmono hUmono hLpure hRpure hUpure hLzero hRzero hUzero hbelowU hU
+    by_cases hV : ∃ a b, G.Adj a b ∧ family L R (pairInput a b) = true ∧ V (pairInput a b) = true
+    · obtain ⟨v, g, hg, hgb, hgr⟩ := select_extra_right hk G s hbip h4 L R V
+        hLmono hRmono hVmono hLpure hRpure hVpure hLzero hRzero hVzero hbelowV hV
+      refine ⟨u, v, f, g, hmemberU f hf, hmemberV g hg, ?_, ?_⟩
+      · intro x hx
+        have hx' : (x u && f x) = true ∨ (x v && g x) = true := by simpa using hx
+        exact hx'.elim (hfb x) (hgb x)
+      · intro a b hab hx
+        have hx' : family L R (pairInput a b) = true ∧
+            (U (pairInput a b) = true ∨ V (pairInput a b) = true) := by simpa using hx
+        rcases hx'.2 with hu | hv
+        · simp only [Bool.or_eq_true, Bool.and_eq_true]
+          left
+          simpa using hfr a b hab hx'.1 hu
+        · simp only [Bool.or_eq_true, Bool.and_eq_true]
+          right
+          simpa using hgr a b hab hx'.1 hv
+    · refine ⟨u, u, f, f, hmemberU f hf, hmemberU f hf, ?_, ?_⟩
+      · intro x hx
+        exact hfb x (by simpa using hx)
+      · intro a b hab hx
+        have hx' : family L R (pairInput a b) = true ∧
+            (U (pairInput a b) = true ∨ V (pairInput a b) = true) := by simpa using hx
+        rcases hx'.2 with hu | hv
+        · simpa using hfr a b hab hx'.1 hu
+        · exact (hV ⟨a, b, hab, hx'.1, hv⟩).elim
+  · have hV : ∃ a b, G.Adj a b ∧ family L R (pairInput a b) = true ∧ V (pairInput a b) = true := by
+      obtain ⟨a, b, hab, hx⟩ := haccept
+      have hx' : family L R (pairInput a b) = true ∧
+          (U (pairInput a b) = true ∨ V (pairInput a b) = true) := by simpa using hx
+      rcases hx'.2 with hu | hv
+      · exact (hU ⟨a, b, hab, hx'.1, hu⟩).elim
+      · exact ⟨a, b, hab, hx'.1, hv⟩
+    obtain ⟨v, g, hg, hgb, hgr⟩ := select_extra_right hk G s hbip h4 L R V
+      hLmono hRmono hVmono hLpure hRpure hVpure hLzero hRzero hVzero hbelowV hV
+    refine ⟨v, v, g, g, hmemberV g hg, hmemberV g hg, ?_, ?_⟩
+    · intro x hx
+      exact hgb x (by simpa using hx)
+    · intro a b hab hx
+      have hx' : family L R (pairInput a b) = true ∧
+          (U (pairInput a b) = true ∨ V (pairInput a b) = true) := by simpa using hx
+      rcases hx'.2 with hu | hv
+      · exact (hU ⟨a, b, hab, hx'.1, hu⟩).elim
+      · simpa using hgr a b hab hx'.1 hv
+
+end PEqualNP.Outside.L_meta_3566.OneMixedFrontier
+
+
+namespace PEqualNP.Outside.L_meta_3566.AndChild
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+
+lemma not_below {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hLeast : IsLeastAO G C)
+    (j i : ℕ) (hj : j < C.gates.length)
+    (hop : (gateAt C j).op = .and) (hi : i ∈ (gateAt C j).inputs) :
+    ¬ (∀ x : Fin n → Bool,
+      (C.wires (List.ofFn x)).getD i false = true → graphFun G ∅ x = true) := by
+  intro hbelow
+  have hib : i < n + j := hLeast.1.2.1 j hj i hi
+  rcases least_boundary_separation G C hLeast j i hj hib with
+    ⟨u, v, _, hgate, hchild⟩ | ⟨S, hS, _, hchild⟩
+  · have hchild' :=
+      (((MixedColor.val_and (n := n) (C := C) (x := List.ofFn (PEqualNP.EdgeOwnership.pairInput u v))
+        (by simp) hj hop).mp hgate) i hi).2
+    change (C.wires (List.ofFn (PEqualNP.EdgeOwnership.pairInput u v))).getD i false = true at hchild'
+    rw [hchild] at hchild'
+    cases hchild'
+  · have hf := hbelow (supportInput S) hchild
+    rw [graphFun_independent_false G hS.1] at hf
+    cases hf
+
+lemma dirty_witness {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (C : Circuit) (hLeast : IsLeastAO G C)
+    (j i : ℕ) (hj : j < C.gates.length)
+    (hop : (gateAt C j).op = .and) (hi : i ∈ (gateAt C j).inputs) :
+    ∃ x : Fin n → Bool,
+      (C.wires (List.ofFn x)).getD i false = true ∧ graphFun G ∅ x = false := by
+  classical
+  have h := not_below G C hLeast j i hj hop hi
+  push Not at h
+  obtain ⟨x, hx, hg⟩ := h
+  exact ⟨x, hx, Bool.eq_false_iff.mpr hg⟩
+
+end PEqualNP.Outside.L_meta_3566.AndChild
