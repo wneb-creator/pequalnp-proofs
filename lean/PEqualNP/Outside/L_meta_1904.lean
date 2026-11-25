@@ -1514,4 +1514,306 @@ lemma packing_paid_gate_lower_bound {n m : ℕ}
 
 end PackingSources
 
+
+namespace WeightedSourceCount
+
+lemma card_le_of_small_incidence_blocks_general {α ι : Type}
+    [DecidableEq α] [DecidableEq ι]
+    (V : Finset α) (U : Finset ι) (B : ι → Finset α)
+    (hblocks : ∀ v ∈ V, ∃ J : Finset ι, J.Nonempty ∧ J ⊆ U ∧
+      ∀ i ∈ J, v ∈ B i ∧ (B i).card ≤ J.card) :
+    V.card ≤ U.card := by
+  classical
+  let weight : α → ι → ℚ := fun v i => if v ∈ B i then 1 / (B i).card else 0
+  have nonneg (v : α) (i : ι) : 0 ≤ weight v i := by
+    dsimp only [weight]
+    split_ifs
+    · positivity
+    · exact le_rfl
+  have row (v : α) (hv : v ∈ V) : 1 ≤ ∑ i ∈ U, weight v i := by
+    obtain ⟨J, hJ, hJU, hJi⟩ := hblocks v hv
+    have hposJ : (0 : ℚ) < J.card := by exact_mod_cast hJ.card_pos
+    calc
+      (1 : ℚ) = ∑ i ∈ J, (1 : ℚ) / J.card := by
+        simp only [Finset.sum_const, nsmul_eq_mul]
+        field_simp
+      _ ≤ ∑ i ∈ J, weight v i := by
+        apply Finset.sum_le_sum
+        intro i hi
+        obtain ⟨hvi, hc⟩ := hJi i hi
+        have hpos : (0 : ℚ) < (B i).card := by
+          exact_mod_cast (Finset.card_pos.mpr ⟨v, hvi⟩)
+        dsimp only [weight]
+        rw [ite_eq_left hvi]
+        exact one_div_le_one_div_of_le hpos (by exact_mod_cast hc)
+      _ ≤ ∑ i ∈ U, weight v i :=
+        Finset.sum_le_sum_of_subset_of_nonneg hJU (fun i _ _ => nonneg v i)
+  have column (i : ι) : (∑ v ∈ V, weight v i) ≤ 1 := by
+    simp only [weight, Finset.sum_ite_mem, Finset.sum_const, nsmul_eq_mul]
+    by_cases empty : (B i).card = 0
+    · simp [empty]
+    · have nz : ((B i).card : ℚ) ≠ 0 := by exact_mod_cast empty
+      calc
+        ((V ∩ B i).card : ℚ) * (1 / (B i).card) ≤
+            ((B i).card : ℚ) * (1 / (B i).card) := by
+          apply mul_le_mul_of_nonneg_right
+          · exact_mod_cast Finset.card_le_card (Finset.inter_subset_right : V ∩ B i ⊆ B i)
+          · positivity
+        _ = 1 := by field_simp
+  have bound : (V.card : ℚ) ≤ U.card := by
+    calc
+      (V.card : ℚ) = ∑ v ∈ V, (1 : ℚ) := by simp
+      _ ≤ ∑ v ∈ V, ∑ i ∈ U, weight v i := Finset.sum_le_sum row
+      _ = ∑ i ∈ U, ∑ v ∈ V, weight v i := Finset.sum_comm
+      _ ≤ ∑ i ∈ U, (1 : ℚ) := Finset.sum_le_sum (fun i _ => column i)
+      _ = U.card := by simp
+  exact_mod_cast bound
+
+end WeightedSourceCount
+
+namespace InputSupport
+
+open PEqualNP.CircuitLowerBounds
+
+def SupportsAgreement {n : ℕ} (x y : Fin n → Bool) (L : List (Finset (Fin n)))
+    (w w' : List Bool) : Prop :=
+  L.length = w.length ∧ w.length = w'.length ∧
+    ∀ j : ℕ, (∀ i ∈ L.getD j ∅, x i = y i) →
+      w.getD j false = w'.getD j false
+
+lemma agreement_wiresFrom {n : ℕ} (x y : Fin n → Bool) (gs : List Gate) :
+    ∀ (L : List (Finset (Fin n))) (w w' : List Bool), SupportsAgreement x y L w w' →
+      SupportsAgreement x y (suppsFrom gs L) (wiresFrom gs w) (wiresFrom gs w') := by
+  induction gs with
+  | nil => intro L w w' h; exact h
+  | cons g gs ih =>
+    intro L w w' h
+    obtain ⟨h1, h2, h3⟩ := h
+    apply ih (L ++ [gateSupp L g])
+      (w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)])
+      (w' ++ [g.op.eval (g.inputs.map fun i => w'.getD i false)])
+    refine ⟨by simp [h1], by simp [h2], ?_⟩
+    intro j hj
+    by_cases hjl : j = L.length
+    · subst hjl
+      rw [getD_snoc_eq] at hj
+      rw [h1, getD_snoc_eq, h2, getD_snoc_eq]
+      apply congrArg g.op.eval
+      apply List.map_congr_left
+      intro a ha
+      apply h3 a
+      intro i hi
+      exact hj i ((mem_gateSupp L g i).mpr ⟨a, ha, hi⟩)
+    · rw [getD_snoc_ne _ _ _ _ hjl] at hj
+      rw [getD_snoc_ne _ _ _ _ (by omega), getD_snoc_ne _ _ _ _ (by omega)]
+      exact h3 j hj
+
+lemma agreement_inputs {n : ℕ} (x y : Fin n → Bool) :
+    SupportsAgreement x y (inputSupps n) (List.ofFn x) (List.ofFn y) := by
+  refine ⟨by simp [inputSupps], by simp, ?_⟩
+  intro j hj
+  by_cases hjn : j < n
+  · have hxy : x ⟨j, hjn⟩ = y ⟨j, hjn⟩ := hj _ (by simp [inputSupps, hjn])
+    simpa [hjn] using hxy
+  · rw [List.getD_eq_default _ _ (by simp; omega), List.getD_eq_default _ _ (by simp; omega)]
+
+lemma small_input_agree_support {n : ℕ} (C : Circuit)
+    (hfanin : ∀ g ∈ C.gates, g.inputs.length ≤ 2) :
+    ∃ S : Finset (Fin n), S.card ≤ C.size + 1 ∧
+      ∀ x y : Fin n → Bool, (∀ i ∈ S, x i = y i) →
+        C.eval (List.ofFn x) = C.eval (List.ofFn y) := by
+  let S := (suppsFrom C.gates (inputSupps n)).getD C.output ∅
+  refine ⟨S, ?_, ?_⟩
+  · have hc := cnt_suppsFrom C.gates 0 (inputSupps n) hfanin cnt_inputs {C.output}
+    simpa only [Finset.singleton_biUnion, Finset.card_singleton, zero_add, S, Circuit.size] using hc
+  · intro x y hS
+    have hagree := agreement_wiresFrom x y C.gates _ _ _ (agreement_inputs x y)
+    exact hagree.2.2 C.output hS
+
+lemma small_clause_agree_support {n m : ℕ}
+    (G : SimpleGraph (Fin n)) (B : Fin m → Finset (Fin n))
+    (C : Circuit) (hfanin : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (hcorrect : ∀ x : Fin n → Bool,
+      C.eval (List.ofFn (clauseInput B x)) = true ↔ UniqueClause.hit G x) :
+    ∃ U : Finset (Fin m), U.card ≤ C.size + 1 ∧
+      ∀ x y : Fin n → Bool,
+        (∀ i ∈ U, UniqueClause.clause (B i) x ↔ UniqueClause.clause (B i) y) →
+        (UniqueClause.hit G x ↔ UniqueClause.hit G y) := by
+  obtain ⟨U, hcard, hsupport⟩ := small_input_agree_support (n := m) C hfanin
+  refine ⟨U, hcard, ?_⟩
+  intro x y hxy
+  have hinputs : ∀ i ∈ U, clauseInput B x i = clauseInput B y i := by
+    intro i hi
+    apply Bool.eq_iff_iff.mpr
+    simpa only [clauseInput_eq_true] using hxy i hi
+  have heq := hsupport (clauseInput B x) (clauseInput B y) hinputs
+  rw [← hcorrect x, ← hcorrect y, heq]
+
+end InputSupport
+
+namespace PackingSources
+
+open PEqualNP.CircuitLowerBounds
+
+lemma essential_set_card_le_used_packing_sources {n : ℕ} {I : Type} [DecidableEq I]
+    (G : SimpleGraph (Fin n)) (B : I → Finset (Fin n)) (U : Finset I)
+    (V : Finset (Fin n)) (hne : ∀ v ∈ V, ∃ w, G.Adj v w)
+    (hpacking : ∀ i ∈ U, ∀ a ∈ B i, ∀ b ∈ B i, a ≠ b →
+      ∀ w, ¬ (G.Adj a w ∧ G.Adj b w))
+    (hagree : ∀ x y : Fin n → Bool,
+      (∀ i ∈ U, SignalAgreement.clause (B i) x ↔
+        SignalAgreement.clause (B i) y) →
+      SignalAgreement.hit G x → SignalAgreement.hit G y) :
+    V.card ≤ U.card := by
+  exact WeightedSourceCount.card_le_of_small_incidence_blocks_general V U B
+    (fun v hv => small_subfamily_of_essential_vertex G B U v (hne v hv) hpacking hagree)
+
+lemma packing_binary_gate_lower_bound {n m : ℕ}
+    (G : SimpleGraph (Fin n)) (B : Fin m → Finset (Fin n))
+    (C : Circuit) (hfanin : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (V : Finset (Fin n)) (hne : ∀ v ∈ V, ∃ w, G.Adj v w)
+    (hpacking : ∀ i, ∀ a ∈ B i, ∀ b ∈ B i, a ≠ b →
+      ∀ w, ¬ (G.Adj a w ∧ G.Adj b w))
+    (hcorrect : ∀ x : Fin n → Bool,
+      C.eval (List.ofFn (InputSupport.clauseInput B x)) = true ↔
+        UniqueClause.hit G x) :
+    V.card ≤ C.size + 1 := by
+  classical
+  obtain ⟨U, hU, hagree⟩ := InputSupport.small_clause_agree_support G B C hfanin hcorrect
+  have hc := essential_set_card_le_used_packing_sources G B U V hne
+    (fun i _ => hpacking i) (fun x y hxy => (hagree x y hxy).mp)
+  exact hc.trans hU
+
+lemma packing_binary_gate_lower_bound_no_isolates {n m : ℕ}
+    (G : SimpleGraph (Fin n)) (B : Fin m → Finset (Fin n))
+    (C : Circuit) (hfanin : ∀ g ∈ C.gates, g.inputs.length ≤ 2)
+    (hne : ∀ v, ∃ w, G.Adj v w)
+    (hpacking : ∀ i, ∀ a ∈ B i, ∀ b ∈ B i, a ≠ b →
+      ∀ w, ¬ (G.Adj a w ∧ G.Adj b w))
+    (hcorrect : ∀ x : Fin n → Bool,
+      C.eval (List.ofFn (InputSupport.clauseInput B x)) = true ↔
+        UniqueClause.hit G x) :
+    n ≤ C.size + 1 := by
+  simpa using packing_binary_gate_lower_bound G B C hfanin Finset.univ
+    (fun v _ => hne v) hpacking hcorrect
+
+end PackingSources
+
+namespace RectangleNeighborhood
+
+open SoleOrToggle
+
+lemma pair_edge {V : Type*} [DecidableEq V] {G : SimpleGraph V} {a b : V}
+    (h : edgePresent G {a, b}) : G.Adj a b := by
+  obtain ⟨u, hu, v, hv, huv⟩ := h
+  simp only [Finset.mem_insert, Finset.mem_singleton] at hu hv
+  rcases hu with rfl | rfl <;> rcases hv with rfl | rfl
+  · exact (G.irrefl huv).elim
+  · exact huv
+  · exact huv.symm
+  · exact (G.irrefl huv).elim
+
+lemma triple_edge {V : Type*} [DecidableEq V] {G : SimpleGraph V} {a b s : V}
+    (h : edgePresent G {a, b, s}) (hab : ¬ G.Adj a b) (hbs : ¬ G.Adj b s) :
+    G.Adj a s := by
+  obtain ⟨u, hu, v, hv, huv⟩ := h
+  simp only [Finset.mem_insert, Finset.mem_singleton] at hu hv
+  rcases hu with rfl | rfl | rfl <;> rcases hv with rfl | rfl | rfl
+  · exact (G.irrefl huv).elim
+  · exact (hab huv).elim
+  · exact huv
+  · exact (hab huv.symm).elim
+  · exact (G.irrefl huv).elim
+  · exact (hbs huv).elim
+  · exact huv.symm
+  · exact (hbs huv.symm).elim
+  · exact (G.irrefl huv).elim
+
+end RectangleNeighborhood
+
+namespace RectangleNeighborhood
+
+open SoleOrToggle
+
+lemma crossing_of_large_neighborhood_filter_without_overlap
+    {V : Type*} [DecidableEq V] (G : SimpleGraph V)
+    (hfour : ∀ a b c d : V, G.Adj a b → G.Adj b c →
+      G.Adj c d → G.Adj d a → a = c ∨ b = d)
+    (c : V) (A B R : Finset V) (hcA : c ∉ A) (hcB : c ∉ B)
+    (hR : ∀ r ∈ R, G.Adj c r) (hcard : 3 ≤ R.card)
+    (hsafe : ∀ S : Finset V,
+      (∃ a ∈ A, a ∈ S) → (∃ b ∈ B, b ∈ S) → (∃ r ∈ R, r ∈ S) →
+      edgePresent G S) :
+    ∀ a ∈ A, ∀ b ∈ B, G.Adj a b := by
+  classical
+  have hnonempty : R.Nonempty := Finset.card_pos.mp (by omega)
+  obtain ⟨r, hrR⟩ := hnonempty
+  have htwo : 1 < (R.erase r).card := by
+    have hc := Finset.card_erase_add_one hrR
+    omega
+  obtain ⟨s, hs, t, ht, hst⟩ := Finset.one_lt_card.mp htwo
+  obtain ⟨hsr, hsR⟩ := Finset.mem_erase.mp hs
+  obtain ⟨htr, htR⟩ := Finset.mem_erase.mp ht
+  have hone (x : V) (hxc : x ≠ c) (v : V) (hv : v ∈ R)
+      (w : V) (hw : w ∈ R) (hvw : v ≠ w)
+      (hxv : G.Adj x v) : ¬ G.Adj x w := by
+    intro hxw
+    rcases hfour c v x w (hR v hv) hxv.symm hxw (hR w hw).symm with h | h
+    · exact hxc h.symm
+    · exact hvw h
+  intro a ha b hb
+  have hac : a ≠ c := fun h => hcA (h ▸ ha)
+  have hbc : b ≠ c := fun h => hcB (h ▸ hb)
+  by_contra hab
+  have hedge (v : V) (hv : v ∈ R) : edgePresent G {a, b, v} := by
+    apply hsafe {a, b, v}
+    · exact ⟨a, ha, by simp⟩
+    · exact ⟨b, hb, by simp⟩
+    · exact ⟨v, hv, by simp⟩
+  by_cases hbr : G.Adj b r
+  · have hbs : ¬ G.Adj b s := hone b hbc r hrR s hsR hsr.symm hbr
+    have hbt : ¬ G.Adj b t := hone b hbc r hrR t htR htr.symm hbr
+    have has : G.Adj a s := triple_edge (hedge s hsR) hab hbs
+    have hat : G.Adj a t := triple_edge (hedge t htR) hab hbt
+    exact hone a hac s hsR t htR hst has hat
+  · have har : G.Adj a r := triple_edge (hedge r hrR) hab hbr
+    have has : ¬ G.Adj a s := hone a hac r hrR s hsR hsr.symm har
+    have hat : ¬ G.Adj a t := hone a hac r hrR t htR htr.symm har
+    have hbs : G.Adj b s := by
+      by_contra hbs
+      exact has (triple_edge (hedge s hsR) hab hbs)
+    have hbt : G.Adj b t := by
+      by_contra hbt
+      exact hat (triple_edge (hedge t htR) hab hbt)
+    exact hone b hbc s hsR t htR hst hbs hbt
+
+lemma crossing_or_center_of_large_neighborhood_filter
+    {V : Type*} [DecidableEq V] (G : SimpleGraph V)
+    (hfour : ∀ a b c d : V, G.Adj a b → G.Adj b c →
+      G.Adj c d → G.Adj d a → a = c ∨ b = d)
+    (c : V) (A B R : Finset V)
+    (hR : ∀ r ∈ R, G.Adj c r) (hcard : 3 ≤ R.card)
+    (hsafe : ∀ S : Finset V,
+      (∃ a ∈ A, a ∈ S) → (∃ b ∈ B, b ∈ S) → (∃ r ∈ R, r ∈ S) →
+      edgePresent G S) :
+    ∀ a ∈ A, ∀ b ∈ B, a = c ∨ b = c ∨ G.Adj a b := by
+  have herased : ∀ a ∈ A.erase c, ∀ b ∈ B.erase c, G.Adj a b := by
+    apply crossing_of_large_neighborhood_filter_without_overlap
+      G hfour c (A.erase c) (B.erase c) R
+      (Finset.notMem_erase _ _) (Finset.notMem_erase _ _) hR hcard
+    intro S hAS hBS hRS
+    obtain ⟨a, ha, haS⟩ := hAS
+    obtain ⟨b, hb, hbS⟩ := hBS
+    exact hsafe S ⟨a, Finset.mem_of_mem_erase ha, haS⟩
+      ⟨b, Finset.mem_of_mem_erase hb, hbS⟩ hRS
+  intro a ha b hb
+  by_cases hac : a = c
+  · exact Or.inl hac
+  by_cases hbc : b = c
+  · exact Or.inr (Or.inl hbc)
+  exact Or.inr (Or.inr (herased a (Finset.mem_erase.mpr ⟨hac, ha⟩)
+    b (Finset.mem_erase.mpr ⟨hbc, hb⟩)))
+
+end RectangleNeighborhood
+
 end PEqualNP.Outside.L_meta_1904_aux
