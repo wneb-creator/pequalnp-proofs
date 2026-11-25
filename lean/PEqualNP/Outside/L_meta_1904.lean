@@ -1788,4 +1788,99 @@ lemma paid_gate_lower_bound (S : Fin m → Finset (I × Bool)) (K : Finset (Fin 
 
 end MatchingLower
 
+
+namespace InducedMatchingRestriction
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity
+
+variable {n m k : ℕ}
+
+def graphInput (S : Fin m → Finset (Fin n)) (K : Finset (Fin m))
+    (x : Fin n → Bool) (r : Fin m) : Bool :=
+  decide (r ∈ K) || decide (∃ v ∈ S r, x v = true)
+
+def liftInput (e : Fin k × Bool → Fin n) (x : Fin k × Bool → Bool) : Fin n → Bool :=
+  fun v => decide (∃ p, e p = v ∧ x p = true)
+
+def pullback (e : Fin k × Bool → Fin n) (S : Finset (Fin n)) :
+    Finset (Fin k × Bool) := Finset.univ.filter (fun p => e p ∈ S)
+
+lemma source_pullback (e : Fin k × Bool → Fin n) (S : Finset (Fin n))
+    (x : Fin k × Bool → Bool) :
+    decide (∃ v ∈ S, liftInput e x v = true) = MatchingCapacity.source (pullback e S) x := by
+  apply Bool.eq_iff_iff.mpr
+  simp only [decide_eq_true_iff, MatchingCapacity.source, pullback,
+    Finset.mem_filter, Finset.mem_univ, true_and]
+  constructor
+  · rintro ⟨v,hv,hx⟩
+    obtain ⟨p,hpv,hp⟩ := of_decide_eq_true hx
+    exact ⟨p,hpv ▸ hv,hp⟩
+  · rintro ⟨p,hp,hx⟩
+    exact ⟨e p,hp,decide_eq_true ⟨p,rfl,hx⟩⟩
+
+lemma graphInput_pullback (e : Fin k × Bool → Fin n)
+    (S : Fin m → Finset (Fin n)) (K : Finset (Fin m)) (x : Fin k × Bool → Bool) :
+    graphInput S K (liftInput e x) = MatchingLower.input (fun r => pullback e (S r)) K x := by
+  funext r
+  simp only [graphInput,MatchingLower.input,source_pullback]
+
+lemma edge_target (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (e : Fin k × Bool → Fin n)
+    (hmatch : ∀ i j (s t : Bool), G.Adj (e (i,s)) (e (j,t)) ↔ i = j ∧ s ≠ t)
+    (x : Fin k × Bool → Bool) :
+    decide (∃ u v, G.Adj u v ∧ liftInput e x u = true ∧ liftInput e x v = true) =
+      MatchingLower.target x := by
+  apply Bool.eq_iff_iff.mpr
+  simp only [decide_eq_true_iff,MatchingLower.target]
+  constructor
+  · rintro ⟨u,v,huv,hu,hv⟩
+    obtain ⟨⟨i,s⟩,rfl,hp⟩ := of_decide_eq_true hu
+    obtain ⟨⟨j,t⟩,rfl,hq⟩ := of_decide_eq_true hv
+    obtain ⟨rfl,hst⟩ := (hmatch i j s t).mp huv
+    cases s <;> cases t
+    · exact False.elim (hst rfl)
+    · exact ⟨i,hp,hq⟩
+    · exact ⟨i,hq,hp⟩
+    · exact False.elim (hst rfl)
+  · rintro ⟨i,hi0,hi1⟩
+    refine ⟨e (i,false),e (i,true),(hmatch i i false true).mpr ⟨rfl,by decide⟩,?_,?_⟩
+    · exact decide_eq_true ⟨(i,false),rfl,hi0⟩
+    · exact decide_eq_true ⟨(i,true),rfl,hi1⟩
+
+lemma paid_gate_lower_bound (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (S : Fin m → Finset (Fin n)) (K : Finset (Fin m)) (C : Circuit) (hC : Monotone2 C)
+    (correct : ∀ x : Fin n → Bool, C.eval (List.ofFn (graphInput S K x)) =
+      decide (∃ u v, G.Adj u v ∧ x u = true ∧ x v = true))
+    (e : Fin k × Bool → Fin n)
+    (hmatch : ∀ i j (s t : Bool), G.Adj (e (i,s)) (e (j,t)) ↔ i = j ∧ s ≠ t) :
+    2 * k ≤ C.size + 1 := by
+  have hrestricted : ∀ x : Fin k × Bool → Bool,
+      C.eval (List.ofFn (MatchingLower.input (fun r => pullback e (S r)) K x)) =
+        MatchingLower.target x := by
+    intro x
+    rw [←graphInput_pullback e S K x,correct,edge_target G e hmatch x]
+  simpa only [Fintype.card_fin] using
+    MatchingLower.paid_gate_lower_bound (fun r => pullback e (S r)) K C hC hrestricted
+
+lemma lower_bound_of_induced_matching (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (S : Fin m → Finset (Fin n)) (K : Finset (Fin m)) (C : Circuit) (hC : Monotone2 C)
+    (correct : ∀ x : Fin n → Bool, C.eval (List.ofFn (graphInput S K x)) =
+      decide (∃ u v, G.Adj u v ∧ x u = true ∧ x v = true))
+    (a b : Fin k → Fin n) (hedge : ∀ i, G.Adj (a i) (b i))
+    (hmatching : ∀ i j (s t : Bool),
+      G.Adj (if s then a i else b i) (if t then a j else b j) → i = j ∧ s ≠ t) :
+    2 * k ≤ C.size + 1 := by
+  apply paid_gate_lower_bound G S K C hC correct (fun p => if p.2 then a p.1 else b p.1)
+  intro i j s t
+  constructor
+  · exact hmatching i j s t
+  · rintro ⟨rfl,hst⟩
+    cases s <;> cases t
+    · exact False.elim (hst rfl)
+    · exact (hedge i).symm
+    · exact hedge i
+    · exact False.elim (hst rfl)
+
+end InducedMatchingRestriction
+
 end PEqualNP.Outside.L_meta_1904_aux
