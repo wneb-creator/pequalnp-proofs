@@ -12,3 +12,4 @@ UTC timeline
 2026-11-25T14:14:01.949795+00:00 Named partialwithSingleNot buildpassed; MassTwo standalonecompiled.
 2026-11-25T14:17:45.277288+00:00 Namedfilewith20gateconstruction buildpassed; preservingcheckpoint.
 2026-11-25T14:22:07.009352+00:00 GeometryCheck and NotElimination compiled and independentlyreviewed; preserving.
+2026-11-25T14:25:55.414635+00:00 Binary17 fullLeanexportpassed; independentreviewpassed; preserving17+NOT bound.

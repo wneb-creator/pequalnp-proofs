@@ -1,15 +1,16 @@
 L-meta-2592 preservation checkpoint
 
-PARTIAL ONLY: the posted theorem is not proved. No proof PR is open.
+PARTIAL ONLY: the exact posted theorem is not proved; no proof PR is open.
 
-Command: lake build PEqualNP.Outside.L_meta_2592
-Exit: 0
-Complete build stdout/stderr: results/orch/build.stdout and build.stderr.
-Local checker on posted statement: not run; the exact target theorem is absent.
+New checked result: every fan-in-two circuit computing the postedPetersenfunction satisfies17 + notCount C ≤ C.size. Hence a size≤19 counterexample containingNOT has1or2NOT gates.
+Command: lake env lean -R ../results/orch/lemmas -o ../results/orch/lemmas/Binary17.olean ../results/orch/lemmas/Binary17.lean
+Exit:0. Complete output: binary17-build.stdout and binary17-build.stderr.
+Namedfile is byte-identical to this checked source; namedfileLakebuild is pending afterreplacement. Previous smaller namedpartial passedLakebuild; itscompleteoutput remainsbuild.stdout/build.stderr.
 
-Checked content in named file: general last-NOT factorization; Petersen finite graph invariants and all-input essentiality; restricted star-cover arithmetic bound; first/uniqueNOT output exclusion and endpoint simplifications; explicit20-gate monotone circuit computing the posted function.
-Separately checked and archived: MassTwo projection-counting lemma; actual finiteBitVec projection/witness identities in GeometryCheck; semantic last-NOT constant-replacement identities in NotElimination.
-Independent review records are in results/orch/REVIEW-*.md.
+Checker attempted onpreviouspartial: CHECKER FAULT: the verifier ended without a verdict (exit137). Cgroupmemory.events confirmedoneOOMkill. Completecheckeroutput: checker.stdout/checker.stderr. RetryplannedwithheavyparallelLeanpaused.
 
-Sub-agents: status_check (proof map, review, geometry), counterexample (SAT), lower_bound (structural bounds), lean_setup (bootstrap and review), partial_lean (finite facts and supporting proofs), circuit_search (stochastic search)
-TIMING total=23 subagents=6
+Earlier checked components remain inresults/orch/lemmas andcommit history: Petersenfiniteinvariants,20gateupperbound,lastNOTfactorization,singleNOToutputexclusions,projectionidentities,semanticNOTreplacements,MassTwo.
+Independentreview: REVIEW-binary17.md; exactsourceSHA256824549cea61a489c8821209214cf8d631ef13ac9741611f3c21caf9135c72bcd.
+
+Sub-agents: status_check, counterexample, lower_bound, lean_setup, partial_lean, circuit_search
+TIMING total=28 subagents=6
