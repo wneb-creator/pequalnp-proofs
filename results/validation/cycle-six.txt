@@ -1,0 +1,7 @@
+L-meta-3457 partial: canonical six-cycle incidence
+2026-11-25T02:03:02.470184+00:00
+SHA256 df92f46c80940a7c715f14b3523c2d430115de71de1ed7d24bb7f9a8347449a1
+Lines 4544
+Central lake env lean: exit 0, warnings only, no sorry warnings. Full stdout/stderr preserved. Independent review approved this exact hash and checked all64 truth-table assignments.
+Inlines the L106 cycle lower bound, derives8<=C.size for canonical Fin3 six-cycle incidence, and constructs an explicit clean8-gate circuit satisfying the requested conclusion. Finite proof steps use kernel decide, not native computation. This is a canonical C6 subcase only.
+Retained copied data/proposition structures make this a partial artifact with a manual-format limitation, not an automated-PR-ready proof of the posted statement.
