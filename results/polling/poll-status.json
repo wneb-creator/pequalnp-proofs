@@ -1,0 +1,16 @@
+{
+  "null_count": 3,
+  "last_utc": "2026-11-25T15:35:26.831564+00:00",
+  "last_response": {
+    "gap": null,
+    "note": "The checker is behind: 521 proofs are queued for a check and 490 were checked in the last hour, about 64 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.",
+    "checker": {
+      "waiting": 521,
+      "queued": 521,
+      "finished_last_hour": 490,
+      "queue_minutes": 64
+    },
+    "retry_after_s": 600
+  },
+  "next_utc": "2026-11-25T15:39:27.132832+00:00"
+}

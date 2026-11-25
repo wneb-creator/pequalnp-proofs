@@ -1,0 +1,127 @@
+{
+  "gates": 11,
+  "reads_back": true,
+  "all_ops_ao": true,
+  "full_truth_errors": [
+    17
+  ],
+  "two_colour_gates": [],
+  "uncovered_edges": [],
+  "star_witnesses": {
+    "(0, 5)": [
+      {
+        "center": 5,
+        "leaves": [
+          0,
+          1
+        ],
+        "gate": 0
+      }
+    ],
+    "(0, 6)": [
+      {
+        "center": 6,
+        "leaves": [
+          0,
+          2
+        ],
+        "gate": 3
+      }
+    ],
+    "(0, 7)": [
+      {
+        "center": 7,
+        "leaves": [
+          0,
+          3
+        ],
+        "gate": 6
+      }
+    ],
+    "(1, 5)": [
+      {
+        "center": 1,
+        "leaves": [
+          5,
+          4
+        ],
+        "gate": 1
+      },
+      {
+        "center": 5,
+        "leaves": [
+          0,
+          1
+        ],
+        "gate": 0
+      }
+    ],
+    "(1, 4)": [
+      {
+        "center": 1,
+        "leaves": [
+          5,
+          4
+        ],
+        "gate": 1
+      }
+    ],
+    "(2, 6)": [
+      {
+        "center": 2,
+        "leaves": [
+          6,
+          4
+        ],
+        "gate": 4
+      },
+      {
+        "center": 6,
+        "leaves": [
+          0,
+          2
+        ],
+        "gate": 3
+      }
+    ],
+    "(2, 4)": [
+      {
+        "center": 2,
+        "leaves": [
+          6,
+          4
+        ],
+        "gate": 4
+      }
+    ],
+    "(3, 7)": [
+      {
+        "center": 3,
+        "leaves": [
+          7,
+          4
+        ],
+        "gate": 7
+      },
+      {
+        "center": 7,
+        "leaves": [
+          0,
+          3
+        ],
+        "gate": 6
+      }
+    ],
+    "(3, 4)": [
+      {
+        "center": 3,
+        "leaves": [
+          7,
+          4
+        ],
+        "gate": 7
+      }
+    ]
+  },
+  "satisfies_4970_hypotheses": false
+}

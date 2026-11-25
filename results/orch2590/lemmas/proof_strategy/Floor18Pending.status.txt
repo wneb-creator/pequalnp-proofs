@@ -1,1 +1,1 @@
-PENDING: compiler suspended on lease withdrawal at 2026-11-25T15:24:20.607530+00:00. Not claimed Lean-checked.
+PENDING UNVERIFIED: compiler PID52284 suspended on L2590 withdrawal then killed by root instruction at 2026-11-25T15:40:57.179616+00:00. Exit137. No full Lean result claimed; partial components separately checked.

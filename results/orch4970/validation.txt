@@ -1,7 +1,9 @@
 L-meta-4970 partial preservation; no complete proof or refutation.
 Eleven independently reviewed Lean artifacts compile with Lean 4.36.0 and the pinned Defs cache.
-StarCentersChecked and CountedCentersChecked each emit two harmless unused-tactic warnings. Other included checked artifacts have empty diagnostics; some log files include command/status metadata.
+StarCentersChecked and CountedCentersChecked each emit two harmless unused-tactic warnings. The other nine primary snapshots have empty diagnostics; some log files include command/status metadata. The additional historical OrCharge.prefix snapshot has one unused-simp warning. Historical ReadOneObstructionChecked retains nonlocal options; use its reviewed V2 replacement for any final proof.
 Local checker has not verified this gap. Prior checker attempts faulted due unavailable full Mathlib cache and insufficient disk.
 No proof PR opened. Final single-file cleanup remains contingent on a full proof.
 Sub-agents: proof_strategy, counterexample, reduction_strategy, sat_strategy, status_review, toolchain_setup
-TIMING total=114 subagents=6
+TIMING total=119 subagents=6
+Ownership correction: all four returned leases were pre-existing shared-handle leases; this pilot never established a fresh allocation. The permitted retry returned the same L4970 lease and five-gap limit note. All work and renewal stopped; no release occurred.
+Final archival diff check reports trailing whitespace only in six unmodified solver logs and the raw desk HTTP log (including HTTP/2 status lines). Those diagnostic bytes are intentionally preserved. No new Lean source has a diff-check whitespace warning.

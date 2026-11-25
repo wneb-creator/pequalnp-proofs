@@ -1,0 +1,10 @@
+{
+  "gates": 11,
+  "rows": 40,
+  "stars": 14,
+  "variables": 2057,
+  "clauses": 26102,
+  "seconds": 60.0075754089994,
+  "exit_code": 0,
+  "status": "UNKNOWN"
+}

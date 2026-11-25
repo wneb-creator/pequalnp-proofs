@@ -1,0 +1,2 @@
+{"window": [10, 13, 16, 17, 18], "iterations": 1, "rows": 18, "status": "UNSAT", "seconds": 0.11347208400002273, "returncode": 20}
+{"window": [8, 9, 10, 11, 12, 13, 14, 15, 16], "iterations": 1, "rows": 18, "status": "UNKNOWN", "seconds": 60.03026203000081, "returncode": 0}

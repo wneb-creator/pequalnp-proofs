@@ -1,0 +1,7 @@
+../results/orch4970/lemmas/sat_strategy/OrCharge.lean:455:82: warning: This simp argument is unused:
+  Nat.add_zero
+
+Hint: Omit it from the simp argument list.
+  [apply] simp only [ts, List.length_append, List.length_cons, List.length_nil]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

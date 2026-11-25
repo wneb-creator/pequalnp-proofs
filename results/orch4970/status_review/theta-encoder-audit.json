@@ -1,0 +1,18 @@
+{
+  "files": {
+    "theta_structured.py": "e6eb24655893ed6c52f9adfa1eabd22a2e854215e4fcaeaa57f9fc0701d41a1e",
+    "theta_validate.py": "c1b59dd518ca5d4b280f826dc61d7f12f823b8283ca5a61587708aefa641e03a",
+    "theta_local.py": "e5491b9482b91486dbdd354949a2fe610f7d21dd9d094fe46bf93fb3ab9176c2"
+  },
+  "positive_model_missing_variables": 0,
+  "positive_model_violated_clauses": 0,
+  "cnf_variables": 2256,
+  "cnf_clauses": 29933,
+  "rows": 40,
+  "stars": 14,
+  "edge_count": 9,
+  "rectangles": [],
+  "minimum_cover": 4,
+  "boundary_false_coverage": true,
+  "assessment": "Approved as finite SAT search encoding; no UNSAT proof or theorem claim."
+}

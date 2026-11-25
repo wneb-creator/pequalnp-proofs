@@ -1,0 +1,4 @@
+lake env lean ../results/orch4970/lemmas/reduction_strategy/ReadOneObstruction.lean
+Exit status: 0
+stdout: empty
+stderr: empty

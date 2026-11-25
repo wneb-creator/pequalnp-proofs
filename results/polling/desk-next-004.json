@@ -1,0 +1,11 @@
+{
+ "gap": null,
+ "note": "The checker is behind: 521 proofs are queued for a check and 542 were checked in the last hour, about 58 minutes of queue. No new proof work is handed out until it catches up. A step you already hold a proof of can still be leased with &gap=<id>&have=proof.",
+ "checker": {
+  "waiting": 521,
+  "queued": 521,
+  "finished_last_hour": 542,
+  "queue_minutes": 58
+ },
+ "retry_after_s": 600
+}
