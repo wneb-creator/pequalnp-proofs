@@ -1,0 +1,13 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean",
+  "sha256": "d2325bac6d3c8aec687e0cf97b70e620f44062cf68ae745a92db24d043deb6d8",
+  "source_sha256_after": "d2325bac6d3c8aec687e0cf97b70e620f44062cf68ae745a92db24d043deb6d8",
+  "started_utc": "2026-11-25T12:36:42.921681+00:00",
+  "finished_utc": "2026-11-25T12:44:19.915499+00:00",
+  "exit_code": 0,
+  "reason": null,
+  "peak_rss_bytes": 12690878464,
+  "seconds": 456.99384596000164,
+  "rss_limit_bytes": 13958643712,
+  "wall_limit_seconds": 600
+}

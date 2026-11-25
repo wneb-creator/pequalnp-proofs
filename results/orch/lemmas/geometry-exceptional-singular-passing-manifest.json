@@ -1,0 +1,20 @@
+{
+  "scope": "Lean-checked complete local singular-direction partner obstruction, including all scalar certificates and actual-matrix bridges; does not claim a global refutation of L-gct-231",
+  "files": [
+    {
+      "file": "ExceptionalSingularDirection.lean",
+      "bytes": 390042,
+      "sha256": "d2325bac6d3c8aec687e0cf97b70e620f44062cf68ae745a92db24d043deb6d8"
+    },
+    {
+      "file": "root-ExceptionalSingularDirection-lean-13g-profile.log",
+      "bytes": 15331,
+      "sha256": "4c3a87d00d395858dc2c3d156185d7d344fd2fd96f8c599563cfb22f960c91c8"
+    },
+    {
+      "file": "root-ExceptionalSingularDirection-lean-13g-profile-status.json",
+      "bytes": 524,
+      "sha256": "775a88b909e2cd99047717a000df0a4b7420edc0ac9a06ab105e02a6972ebc39"
+    }
+  ]
+}

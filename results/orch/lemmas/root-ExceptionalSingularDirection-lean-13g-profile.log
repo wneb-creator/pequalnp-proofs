@@ -1,0 +1,315 @@
+import took 1.23s
+elaboration took 137ms
+ring took 2.6s
+interpretation of Mathlib.Tactic.LinearCombination._aux_Mathlib_Tactic_LinearCombination___elabRules_Mathlib_Tactic_LinearCombination_linearCombination_1._boxed took 142ms
+share common exprs took 4.61s
+fix level params took 256ms
+process pre-definitions took 6.44s
+elaboration took 1.87s
+type checking took 8.24s
+linting took 2.22s
+elaboration took 154ms
+ring took 3.61s
+interpretation of Mathlib.Tactic.LinearCombination._aux_Mathlib_Tactic_LinearCombination___elabRules_Mathlib_Tactic_LinearCombination_linearCombination_1._boxed took 230ms
+share common exprs took 6.54s
+fix level params took 451ms
+process pre-definitions took 8.42s
+elaboration took 2.71s
+type checking took 10.5s
+linting took 3.47s
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:72:41: warning: Variable name `b5` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b5
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+elaboration took 159ms
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:75:41: warning: Variable name `b5` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b5
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:76:24: warning: Variable name `r` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _r
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:77:24: warning: Variable name `r` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _r
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:78:24: warning: Variable name `r` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _r
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:89:31: warning: Variable name `b1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:89:34: warning: Variable name `b2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:89:43: warning: Variable name `b5` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b5
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:90:28: warning: Variable name `b0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:90:34: warning: Variable name `b2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:90:43: warning: Variable name `b5` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b5
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:91:28: warning: Variable name `b0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:91:31: warning: Variable name `b1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:91:37: warning: Variable name `b3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:91:43: warning: Variable name `b5` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b5
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:92:32: warning: Variable name `b1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:92:35: warning: Variable name `b2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:93:29: warning: Variable name `b0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:93:35: warning: Variable name `b2` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b2
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:94:29: warning: Variable name `b0` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b0
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:94:32: warning: Variable name `b1` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b1
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:94:38: warning: Variable name `b3` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _b3
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+ring took 3.11s
+interpretation of Mathlib.Tactic.LinearCombination._aux_Mathlib_Tactic_LinearCombination___elabRules_Mathlib_Tactic_LinearCombination_linearCombination_1._boxed took 136ms
+tactic execution of Lean.Parser.Tactic.exact took 2.51s
+share common exprs took 2.92s
+fix level params took 182ms
+process pre-definitions took 3.13s
+elaboration took 1.49s
+type checking took 6.23s
+linting took 1.96s
+ring took 460ms
+tactic execution of Lean.Parser.Tactic.exact took 380ms
+share common exprs took 448ms
+process pre-definitions took 273ms
+elaboration took 244ms
+type checking took 917ms
+linting took 292ms
+ring took 6.87s
+interpretation of Mathlib.Tactic.LinearCombination._aux_Mathlib_Tactic_LinearCombination___elabRules_Mathlib_Tactic_LinearCombination_linearCombination_1._boxed took 254ms
+tactic execution of Lean.Parser.Tactic.exact took 7.77s
+share common exprs took 9.27s
+fix level params took 768ms
+process pre-definitions took 14.7s
+elaboration took 4.46s
+type checking took 16.7s
+linting took 6.66s
+ring took 1.28s
+tactic execution of Lean.Parser.Tactic.exact took 1.55s
+share common exprs took 1.65s
+process pre-definitions took 1.37s
+elaboration took 881ms
+type checking took 2.99s
+linting took 1.13s
+ring took 201ms
+tactic execution of Lean.Parser.Tactic.exact took 136ms
+share common exprs took 166ms
+process pre-definitions took 118ms
+type checking took 282ms
+linting took 133ms
+ring took 3.11s
+interpretation of Mathlib.Tactic.LinearCombination._aux_Mathlib_Tactic_LinearCombination___elabRules_Mathlib_Tactic_LinearCombination_linearCombination_1._boxed took 170ms
+tactic execution of Lean.Parser.Tactic.exact took 3.53s
+share common exprs took 4.75s
+fix level params took 274ms
+process pre-definitions took 6.04s
+elaboration took 2.35s
+type checking took 8.79s
+linting took 3.1s
+ring took 618ms
+tactic execution of Lean.Parser.Tactic.exact took 573ms
+share common exprs took 702ms
+process pre-definitions took 385ms
+elaboration took 378ms
+type checking took 1.27s
+linting took 437ms
+ring took 9.87s
+interpretation of Mathlib.Tactic.LinearCombination._aux_Mathlib_Tactic_LinearCombination___elabRules_Mathlib_Tactic_LinearCombination_linearCombination_1._boxed took 351ms
+tactic execution of Lean.Parser.Tactic.exact took 13.6s
+share common exprs took 15.6s
+fix level params took 1.44s
+process pre-definitions took 29.1s
+elaboration took 8.51s
+type checking took 34.3s
+linting took 10.7s
+ring took 2.08s
+interpretation of Mathlib.Tactic.LinearCombination._aux_Mathlib_Tactic_LinearCombination___elabRules_Mathlib_Tactic_LinearCombination_linearCombination_1._boxed took 158ms
+tactic execution of Lean.Parser.Tactic.exact took 2.39s
+share common exprs took 2.82s
+fix level params took 153ms
+process pre-definitions took 2.92s
+elaboration took 1.51s
+type checking took 5.08s
+linting took 2.27s
+ring took 322ms
+tactic execution of Lean.Parser.Tactic.exact took 219ms
+share common exprs took 286ms
+process pre-definitions took 205ms
+elaboration took 164ms
+type checking took 778ms
+linting took 197ms
+tactic execution of Lean.Parser.Tactic.exact took 122ms
+tactic execution of Lean.Parser.Tactic.exact took 125ms
+tactic execution of Lean.Parser.Tactic.exact took 117ms
+tactic execution of Lean.Parser.Tactic.exact took 127ms
+share common exprs took 259ms
+process pre-definitions took 116ms
+elaboration took 150ms
+type checking took 288ms
+linting took 248ms
+simp took 131ms
+simp took 835ms
+ring took 7.2s
+interpretation of Mathlib.Tactic.LinearCombination._aux_Mathlib_Tactic_LinearCombination___elabRules_Mathlib_Tactic_LinearCombination_linearCombination_1._boxed took 116ms
+share common exprs took 11.2s
+fix level params took 835ms
+process pre-definitions took 15.8s
+elaboration took 5.6s
+type checking took 18.7s
+linting took 15.7s
+ring took 103ms
+share common exprs took 224ms
+elaboration took 128ms
+type checking took 129ms
+linting took 175ms
+ring took 315ms
+share common exprs took 220ms
+elaboration took 128ms
+type checking took 218ms
+linting took 247ms
+ring took 230ms
+ring took 133ms
+ring took 116ms
+ring took 260ms
+ring took 146ms
+instantiate metavars took 191ms
+share common exprs took 1.12s
+process pre-definitions took 362ms
+elaboration took 360ms
+type checking took 1.45s
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 141ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 111ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 105ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 102ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 108ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 109ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 101ms
+interpretation of Mathlib.Tactic._aux_Mathlib_Tactic_NormNum_Core___elabRules_Mathlib_Tactic_normNum_1._boxed took 103ms
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:517:20: warning: Unused tactic linter: `rfl` does not change the goal.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:538:90: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-79/ExceptionalSingularDirection.lean:538:90: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+cumulative profiling times:
+	attribute application 1.89ms
+	compilation (IR) 0.779ms
+	compilation (LCNF base) 8.29ms
+	compilation (LCNF impure) 3.03ms
+	compilation (LCNF mono) 6.16ms
+	congr simp thm 13.2ms
+	declTypeLinter 104ms
+	dsimp 458ms
+	elaboration 32.2s
+	fix level params 4.58s
+	import 1.23s
+	initialization 37.1ms
+	instantiate metavars 371ms
+	interpretation 10.3s
+	let-to-have transformation 6.61ms
+	linting 49.2s
+	module linting 0.135ms
+	norm_num 2.25s
+	parsing 589ms
+	process pre-definitions 89.8s
+	ring 44.1s
+	share common exprs 63s
+	simp 1.85s
+	tactic execution 33.9s
+	tacticAnalysis 52.8ms
+	type checking 117s
+	typeclass inference 4.72s
