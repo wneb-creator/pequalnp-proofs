@@ -51,3 +51,5 @@ Generic witness verifier is fully checked and independently reviewed. All four k
 Reviewed research checkpoint: amplification/pendant transformations, combined scorer, observed-helper SAT mode and overlapping safe-pair encoder PASS independent review. Reproducible sources, frozen inputs and complete logs preserved under research3566/. Negative results have explicitly limited search scope. No new full proof; local checker not run.
 Sub-agents: six (proof routes, finite search, certificate search, gate elimination, Lean setup, independent review).
 TIMING total=177.0 subagents=6
+
+Symbolic extension partials: SymbolicPrefix.lean passes4.696s and SymbolicCut.lean passes7.080s. These check31-input63-gate circuit arity/backward wiring/size, and the15-input base graph identity. The full31-input circuit correctness theorem remains pending; no new counterexample. Root independent review PASS for these limited claims; source contains no forbidden commands/strings/axioms. Full successful logs preserved in witness3566/.

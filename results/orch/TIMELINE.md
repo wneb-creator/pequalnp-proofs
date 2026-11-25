@@ -70,3 +70,5 @@
 - 2026-11-25T21:18:55.141853+00:00: Generic kernel-only witness pipeline and both graph sizes independently checked; preserving all successful artifacts.
 
 - 2026-11-25T21:52:59.564882+00:00: Preserved reviewed helper/pendant amplification sources, full run logs, frozen circuit inputs and replay wrappers. Completed native C8 helper sweep:137233 cases, no candidate. Helper-objective mutation:260997 evaluations, no candidate. Current3566 target remains a checked619-line partial; neither posted theorem nor negation is proved.
+
+- 2026-11-25T21:59:08.864310+00:00: Checked and preserved31-input circuit-prefix and15-input Boolean-cut partials. Full symbolic extension correctness still pending.

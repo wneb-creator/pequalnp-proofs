@@ -1,0 +1,73 @@
+import took 2.42s
+elaboration took 140ms
+tactic execution of Lean.Parser.Tactic.decide took 275ms
+type checking took 230ms
+simp took 1.35s
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicCut.lean:194:34: warning: This simp argument is unused:
+  Bool.and_or_distrib_right
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.and_or_distrib_left, Bool.and_assoc, Bool.and_comm, Bool.and_left_comm, Bool.or_assoc,
+    Bool.or_comm, Bool.or_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicCut.lean:195:4: warning: This simp argument is unused:
+  Bool.and_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.and_or_distrib_left, Bool.and_or_distrib_right, Bool.and_comm, Bool.and_left_comm, Bool.or_assoc,
+    Bool.or_comm, Bool.or_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicCut.lean:195:20: warning: This simp argument is unused:
+  Bool.and_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.and_or_distrib_left, Bool.and_or_distrib_right, Bool.and_assoc, Bool.and_left_comm, Bool.or_assoc,
+    Bool.or_comm, Bool.or_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicCut.lean:195:35: warning: This simp argument is unused:
+  Bool.and_left_comm
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.and_or_distrib_left, Bool.and_or_distrib_right, Bool.and_assoc, Bool.and_comm, Bool.or_assoc,
+    Bool.or_comm, Bool.or_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+/tmp/oec/pequalnp-pilot-178/gap3566/lean_setup/SymbolicCut.lean:196:4: warning: This simp argument is unused:
+  Bool.or_assoc
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [Bool.and_or_distrib_left, Bool.and_or_distrib_right, Bool.and_assoc, Bool.and_comm, Bool.and_left_comm,
+    Bool.or_comm, Bool.or_left_comm]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+cumulative profiling times:
+	.olean serialization 22.1ms
+	attribute application 8.94ms
+	compilation (IR) 1.3ms
+	compilation (LCNF base) 15.8ms
+	compilation (LCNF impure) 7.37ms
+	compilation (LCNF mono) 14.6ms
+	congr simp thm 3.66ms
+	declTypeLinter 8.22ms
+	elaboration 285ms
+	fix level params 0.811ms
+	import 2.42s
+	initialization 37.9ms
+	instantiate metavars 1.25ms
+	interpretation 403ms
+	let-to-have transformation 2.05ms
+	linting 29.8ms
+	module linting 0.0443ms
+	parsing 16ms
+	process pre-definitions 12.2ms
+	share common exprs 5.84ms
+	simp 1.41s
+	tactic execution 321ms
+	tacticAnalysis 5.02ms
+	type checking 253ms
+	typeclass inference 42.9ms
+
+RESULT exit=0 elapsed_seconds=7.080 max_rss_kib=2924308
