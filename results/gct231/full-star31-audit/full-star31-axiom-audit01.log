@@ -1,0 +1,405 @@
+import took 1.58s
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:4:0: warning: 
+'Mathlib.Data.Complex.Basic' has been deprecated: please replace this import by
+
+import Mathlib.Basic.Complex.Basic
+simp took 151ms
+simp took 194ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:62:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:62:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 311ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:78:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:78:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 327ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:94:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:94:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 230ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:110:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:110:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 338ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:126:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:126:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 471ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:142:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:142:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 372ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:158:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:158:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 334ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:174:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:174:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 528ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:190:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:190:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 320ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:206:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:206:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 350ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:222:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:222:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 471ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:238:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:238:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 543ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:254:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:254:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 738ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:270:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:270:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 465ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:286:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:286:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 334ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:302:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:302:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 360ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:318:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:318:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 400ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:334:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:334:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 333ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:350:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:350:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 207ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:366:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:366:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 355ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:382:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:382:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 249ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:398:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:398:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 340ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:414:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:414:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 360ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:430:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:430:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 209ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:446:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:446:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 321ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:462:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:462:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 388ms
+type checking took 103ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:478:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:478:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 311ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:494:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:494:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 200ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:510:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:510:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 241ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:526:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:526:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 227ms
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:542:30: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean:542:30: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+simp took 181ms
+type checking took 132ms
+simp took 239ms
+ring took 143ms
+type checking took 324ms
+linting took 135ms
+simp took 239ms
+ring took 141ms
+type checking took 339ms
+linting took 137ms
+simp took 211ms
+ring took 109ms
+type checking took 171ms
+elaboration took 136ms
+simp took 280ms
+ring took 195ms
+type checking took 461ms
+linting took 235ms
+elaboration took 170ms
+simp took 406ms
+ring took 436ms
+share common exprs took 167ms
+type checking took 960ms
+linting took 495ms
+elaboration took 108ms
+simp took 492ms
+ring took 536ms
+share common exprs took 156ms
+type checking took 606ms
+linting took 389ms
+elaboration took 135ms
+simp took 455ms
+ring took 380ms
+share common exprs took 108ms
+type checking took 501ms
+linting took 254ms
+elaboration took 145ms
+simp took 555ms
+ring took 477ms
+share common exprs took 143ms
+type checking took 756ms
+linting took 456ms
+simp took 280ms
+type checking took 228ms
+elaboration took 117ms
+simp took 233ms
+ring took 137ms
+type checking took 211ms
+elaboration took 184ms
+simp took 388ms
+ring took 402ms
+share common exprs took 172ms
+type checking took 637ms
+linting took 300ms
+simp took 343ms
+ring took 288ms
+share common exprs took 109ms
+type checking took 360ms
+linting took 208ms
+elaboration took 182ms
+simp took 403ms
+ring took 388ms
+share common exprs took 150ms
+type checking took 545ms
+linting took 278ms
+simp took 547ms
+ring took 540ms
+share common exprs took 235ms
+process pre-definitions took 114ms
+elaboration took 122ms
+type checking took 659ms
+linting took 395ms
+simp took 403ms
+ring took 264ms
+type checking took 145ms
+simp took 321ms
+ring took 195ms
+type checking took 170ms
+simp took 347ms
+ring took 227ms
+type checking took 340ms
+linting took 157ms
+simp took 284ms
+ring took 167ms
+type checking took 138ms
+simp took 171ms
+simp took 232ms
+ring took 178ms
+type checking took 192ms
+simp took 288ms
+ring took 132ms
+type checking took 135ms
+elaboration took 109ms
+simp took 396ms
+ring took 261ms
+share common exprs took 103ms
+type checking took 240ms
+linting took 124ms
+simp took 504ms
+ring took 485ms
+share common exprs took 202ms
+elaboration took 106ms
+type checking took 339ms
+linting took 221ms
+simp took 435ms
+ring took 218ms
+type checking took 123ms
+simp took 505ms
+ring took 261ms
+type checking took 174ms
+simp took 717ms
+ring took 573ms
+share common exprs took 327ms
+process pre-definitions took 105ms
+elaboration took 141ms
+type checking took 299ms
+linting took 146ms
+simp took 724ms
+ring took 343ms
+type checking took 137ms
+simp took 373ms
+simp took 390ms
+ring took 139ms
+type checking took 109ms
+simp took 408ms
+ring took 150ms
+'PEqualNP.Outside.L_gct_231_aux.certEq400' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq310' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq301' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq300' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq220' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq211' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq210' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq202' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq201' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq200' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq130' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq121' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq120' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq112' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq111' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq110' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq103' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq102' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq101' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq040' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq031' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq030' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq022' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq021' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq020' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq013' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq012' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq011' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq004' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq003' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.certEq002' depends on axioms: [propext, Classical.choice, Quot.sound]
+cumulative profiling times:
+	attribute application 2.18ms
+	blocked (unaccounted) 69.2s
+	congr simp thm 76.7ms
+	declTypeLinter 110ms
+	elaboration 5.47s
+	fix level params 171ms
+	import 1.58s
+	initialization 36.2ms
+	instantiate metavars 541ms
+	interpretation 3.13s
+	let-to-have transformation 8.02ms
+	linting 5.06s
+	module linting 0.0418ms
+	norm_num 325ms
+	parsing 96ms
+	process pre-definitions 1.25s
+	ring 8.55s
+	share common exprs 3.3s
+	simp 23.4s
+	tactic execution 447ms
+	tacticAnalysis 82.2ms
+	type checking 12.1s
+	typeclass inference 23s

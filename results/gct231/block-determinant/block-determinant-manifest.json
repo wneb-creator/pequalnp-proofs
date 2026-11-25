@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "source": "BlockDeterminant.lean",
+  "sha256": "e34270ccb9d6610c59a3737b6b906eaf35ea80a6fecd6fe13ef8d3478b9b317f",
+  "lines": 29,
+  "bytes": 1260,
+  "axioms": {
+    "PEqualNP.Outside.L_gct_231_aux.block_zero_det_square": "propext, Classical.choice, Quot.sound",
+    "PEqualNP.Outside.L_gct_231_aux.block_zero_det_congruence": "propext, Classical.choice, Quot.sound"
+  },
+  "reviewer": "structural_proof",
+  "review": "Independent source/math/format review PASS; final mul_comm delta PASS.",
+  "scope": "Zero/transpose block determinant identity and congruence corollary over every commutative ring. Basis adaptation and isotropic plane existence remain hypotheses/external obligations."
+}

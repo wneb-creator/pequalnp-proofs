@@ -1,0 +1,25 @@
+import took 1.04s
+'PEqualNP.Outside.L_gct_231_aux.block_zero_det_square' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231_aux.block_zero_det_congruence' depends on axioms: [propext, Classical.choice, Quot.sound]
+cumulative profiling times:
+	attribute application 0.0201ms
+	blocked (unaccounted) 134ms
+	congr simp thm 1.42ms
+	declTypeLinter 2.91ms
+	elaboration 13.3ms
+	fix level params 0.233ms
+	import 1.04s
+	initialization 40.9ms
+	instantiate metavars 0.33ms
+	interpretation 136ms
+	let-to-have transformation 0.0565ms
+	linting 3.11ms
+	module linting 0.0246ms
+	parsing 1.53ms
+	process pre-definitions 1.62ms
+	share common exprs 0.882ms
+	simp 66.9ms
+	tactic execution 25.9ms
+	tacticAnalysis 0.892ms
+	type checking 9.18ms
+	typeclass inference 32.7ms

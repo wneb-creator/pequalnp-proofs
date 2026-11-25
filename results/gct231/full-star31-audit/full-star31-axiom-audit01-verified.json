@@ -1,0 +1,21 @@
+{
+  "source": "/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean",
+  "source_sha256": "0f21d915a4a3fc9be9b121203e81d487359e729fd2292918467eafce66f50029",
+  "checked_lemmas": 31,
+  "axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "status": "PASS",
+  "build": {
+    "status": "PASS",
+    "returncode": 0,
+    "wall_seconds": 91.47318458399968,
+    "seconds_limit": 300,
+    "resident_memory_mib_limit": 7168,
+    "peak_group_rss_kib": 4063820,
+    "rss_sample_seconds": 0.5,
+    "input": "/tmp/oec/pequalnp-pilot-75/gct231/library/FullStar31AxiomAudit.lean"
+  }
+}
