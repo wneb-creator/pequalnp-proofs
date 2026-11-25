@@ -5,7 +5,7 @@ Command: lake env lean ../results/orch/lemmas/<file>
 Both runs exit 0; stdout and stderr empty.
 Independent source reviewer: preflight_review; valid partials, no forbidden constructs.
 Sub-agents: preflight_review, structural_proof, library_route, counterexample, algebraic_route, semantic_support
-TIMING total=51.0 subagents=6
+TIMING total=69.01 subagents=6
 
 Additional checked partials (lake env lean, exit 0):
 - library-colour.lean (current source rechecked; empty diagnostics)
@@ -84,3 +84,11 @@ results/orch/lemmas/semantic-masked-region.lean SHA256 73650448692abd15d37f77350
 results/orch/lemmas/algebraic-centres.lean SHA256 a9d0c47a18b64fe2adb203c0cc2a8e75dea0d9e706b4e8f0c56be966ee204fcc, compiled exit0; complete algebraic-centres-2.stdout/.stderr.
 Computational manifest SHA256 52af8cd77906d3181a840442313a0a8f1900b3af1ae05923a929fec8a9510d21; all61 hash/size records verified. Finite searches are evidence only; UNKNOWN is inconclusive.
 Named aggregate8777lines398014bytes SHA256 e5dc2fc72ec0678b366dda909efc11c3b4cf916710167591a6aef6ac7a72b697, lake build exit0; guard only missing target. Added MaskMerge and paid singleton-mixing declarations without duplicated prefixes.
+
+Snapshot13 2026-11-25T18:15:28.872401+00:00
+results/orch/lemmas/semantic-masked-witness.lean SHA256 137fe456df3149fed203fb2e85fd053f786e9058a3ab4b5f563d721281fa0c0d, compiled exit0; complete semantic-masked-witness.stdout/.stderr.
+results/orch/lemmas/library-mask-smaller.lean SHA256 60ffe82f03204cb8fc66ca4f368978bbcb2bf954bec4e7738b07cf56f9a7eb0a, compiled exit0; complete library-mask-smaller-build.stdout/.stderr.
+results/orch/lemmas/algebraic-centres-trace.lean SHA256 121a6804f2d3a9013b05b26b4941f1634cae270a746c6d64ba7696a155b5127c, compiled exit0; complete algebraic-centres-trace-2.stdout/.stderr.
+results/orch/lemmas/algebraic-and-trace.lean SHA256 61c4a0f3307d64155d74c5a3249456adce37ab44767a136e465b6e14fec983ac, compiled exit0; complete algebraic-and-trace-4.stdout/.stderr.
+results/orch/lemmas/library-mask-cut.lean SHA256 7597afcc544fa3958b6b8ab85333184e81564aabeb973cdd9e7e7e375ff460b1, compiled exit0; complete library-mask-cut-build.stdout/.stderr.
+Named aggregate9363lines424733bytes SHA256 3b61b43dfce7c70c897b830c031e7fc4d52071c112a66f19c44d061360b42d5b, lake build exit0, guardmissingtargetonly. No complete proof/refutation.

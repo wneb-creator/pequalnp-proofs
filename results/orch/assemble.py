@@ -12,7 +12,7 @@ names = [
     'semantic-support', 'algebraic-mask', 'algebraic-certificate',
     'library-onecolour', 'semantic-linear', 'semantic-starforest',
     'semantic-minterms', 'algebraic-private', 'structural-partners',
-    'algebraic-bridge', 'semantic-no-unused', 'library-or-essential',
+    'algebraic-bridge', 'semantic-masked-witness', 'library-or-essential',
     'structural-classification',
 ]
 chunks = []
@@ -59,7 +59,9 @@ sections = [
     ('algebraic-bipartite-reduction', 'namespace PEqualNP.Outside.L_meta_4675.Residual', True),
     ('algebraic-residual-large', 'namespace PEqualNP.Outside.L_meta_4675.Residual', True),
     ('algebraic-bipartite-large', 'namespace PEqualNP.Outside.L_meta_4675.Residual', True),
-    ('library-mask-merge', 'namespace PEqualNP.Outside.L_meta_4675.MaskMerge', False),
+    ('library-mask-smaller', 'namespace PEqualNP.Outside.L_meta_4675.MaskMerge', False),
+    ('algebraic-centres-trace', 'namespace PEqualNP.Outside.L_meta_4675.Centres', False),
+    ('algebraic-and-trace', 'namespace PEqualNP.Outside.L_meta_4675.AndTrace', False),
 ]
 for name, marker, last in sections:
     source = (src / (name + '.lean')).read_text()

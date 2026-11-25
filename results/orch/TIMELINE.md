@@ -15,3 +15,5 @@
 - 2026-11-25T18:05:41.110120+00:00: Retired false split residual-cover bound and unrestricted per-centre bank factoring; redirected effort to paid semantic-mixing ORs and minimum-preserving buffer/absorption transformations.
 
 - 2026-11-25T18:11:08.075586+00:00: 8777-line aggregate builds; exact private-buffer merge and paid singleton-mixed OR charge integrated. Separate masked-region strict simplification and explicit13-gate shortcut regression also compile.
+
+- 2026-11-25T18:15:28.872401+00:00: Named aggregate9363lines builds; masked-region dirty-witness extraction and distinct-AND accepted-trace counting integrated. Shared identity-buffer cut relocation checked separately. Full residual certificate remains open.
