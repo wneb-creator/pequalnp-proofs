@@ -7256,4 +7256,353 @@ lemma canonical_exact : ∀ z : Fin 26 → Bool, circuitFun 26 canonicalC z =
   exact_of_chunks canonicalC canonical_checks.1 canonical_checks.2.2.1 canonical_checks.2.2.2
 
 end Q3ChunkedCertificate
+
+namespace SingleUse
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover
+
+def stepW (w : List Bool) (g : Gate) : List Bool :=
+  w ++ [g.op.eval (g.inputs.map fun i => w.getD i false)]
+
+lemma foldl_len (gs : List Gate) (w : List Bool) :
+    (gs.foldl stepW w).length = w.length + gs.length := by
+  induction gs generalizing w with
+  | nil => simp
+  | cons g gs ih =>
+    rw [List.foldl_cons, ih]
+    simp [stepW]
+    omega
+
+lemma foldl_getD_lt (gs : List Gate) (w : List Bool) (i : ℕ) (hi : i < w.length) :
+    (gs.foldl stepW w).getD i false = w.getD i false := by
+  induction gs generalizing w with
+  | nil => rfl
+  | cons g gs ih =>
+    simp only [List.foldl_cons]
+    have hlt : i < (stepW w g).length := by simp [stepW]; omega
+    rw [ih (stepW w g) hlt]
+    simp [stepW, List.getD_eq_getElem?_getD, List.getElem?_append_left hi]
+
+lemma foldl_char (gs : List Gate) (w : List Bool) :
+    ∀ j, j < gs.length → (gs.foldl stepW w).getD (w.length + j) false =
+      (gs.getD j ⟨GateOp.or, []⟩).op.eval ((gs.getD j ⟨GateOp.or, []⟩).inputs.map fun i =>
+        if i < w.length + j then (gs.foldl stepW w).getD i false else false) := by
+  induction gs using List.reverseRecOn with
+  | nil => intro j hj; simp at hj
+  | append_singleton gs g ih =>
+    intro j hj
+    rw [List.foldl_append, List.foldl_cons, List.foldl_nil]
+    have hlen := foldl_len gs w
+    simp only [List.length_append, List.length_singleton] at hj
+    have key : ∀ i, i < w.length + gs.length →
+        (stepW (gs.foldl stepW w) g).getD i false = (gs.foldl stepW w).getD i false := by
+      intro i hi
+      simp only [stepW, List.getD_eq_getElem?_getD]
+      rw [List.getElem?_append_left (by omega)]
+    rcases Nat.lt_or_ge j gs.length with h | h
+    · have e1 : (gs ++ [g]).getD j ⟨GateOp.or, []⟩ = gs.getD j ⟨GateOp.or, []⟩ := by
+        simp only [List.getD_eq_getElem?_getD]
+        rw [List.getElem?_append_left h]
+      rw [e1, key _ (by omega), ih j h]
+      congr 1
+      apply List.map_congr_left
+      intro i _
+      split_ifs with hi
+      · rw [key i (by omega)]
+      · rfl
+    · have hj' : j = gs.length := by omega
+      subst hj'
+      have e1 : (gs ++ [g]).getD gs.length ⟨GateOp.or, []⟩ = g := by
+        simp [List.getD_eq_getElem?_getD]
+      rw [e1]
+      have e2 : (stepW (gs.foldl stepW w) g).getD (w.length + gs.length) false =
+          g.op.eval (g.inputs.map fun i => (gs.foldl stepW w).getD i false) := by
+        simp only [stepW, List.getD_eq_getElem?_getD]
+        rw [List.getElem?_append_right (by omega)]
+        simp [hlen]
+      rw [e2]
+      congr 1
+      apply List.map_congr_left
+      intro i _
+      split_ifs with hi
+      · rw [key i hi]
+      · simp only [List.getD_eq_getElem?_getD]
+        rw [List.getElem?_eq_none (by omega)]
+        rfl
+
+def wv (n : ℕ) (C : Circuit) (x : Fin n → Bool) (w : ℕ) : Bool :=
+  (C.wires (List.ofFn x)).getD w false
+
+lemma wires_eq (C : Circuit) (x : List Bool) : C.wires x = C.gates.foldl stepW x := rfl
+
+lemma wv_input (n : ℕ) (C : Circuit) (x : Fin n → Bool) (w : ℕ) (hw : w < n) :
+    wv n C x w = x ⟨w, hw⟩ := by
+  unfold wv
+  rw [wires_eq, foldl_getD_lt _ _ _ (by simpa using hw)]
+  simp [List.getD_eq_getElem?_getD, hw]
+
+lemma wv_rec (n : ℕ) (C : Circuit) (x : Fin n → Bool)
+    (hC : ReadsBack n C) (j : ℕ) (hj : j < C.gates.length) :
+    wv n C x (n + j) = (gateAt C j).op.eval ((gateAt C j).inputs.map (wv n C x)) := by
+  have h := foldl_char C.gates (List.ofFn x) j hj
+  simp only [List.length_ofFn] at h
+  unfold wv gateAt
+  rw [wires_eq, h]
+  congr 1
+  apply List.map_congr_left
+  intro i hi
+  rw [ite_eq_left (hC j hj i hi)]
+
+lemma wv_missing (n : ℕ) (C : Circuit) (x : Fin n → Bool)
+    (w : ℕ) (hw : n + C.gates.length ≤ w) : wv n C x w = false := by
+  have hlen : (C.wires (List.ofFn x)).length = n + C.gates.length := by
+    rw [wires_eq, foldl_len, List.length_ofFn]
+  unfold wv
+  simp only [List.getD_eq_getElem?_getD]
+  rw [List.getElem?_eq_none (by omega)]
+  rfl
+
+
+end SingleUse
+
+namespace MintermCircuit
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm PEqualNP.ReadK
+  PEqualNP.Outside.L_meta_2583.SingleUse
+
+lemma gate_mem (C : Circuit) (k : ℕ) (hk : k < C.gates.length) : gateAt C k ∈ C.gates := by
+  unfold gateAt
+  rw [List.getD_eq_getElem?_getD, List.getElem?_eq_getElem hk]
+  exact List.getElem_mem hk
+
+lemma inputs_two (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (k : ℕ) (hk : k < C.gates.length) :
+    (gateAt C k).inputs = [opnd C k 0, opnd C k 1] := by
+  obtain ⟨a, b, hin⟩ := List.length_eq_two.mp (hAO.2.2 _ (gate_mem C k hk))
+  simp [opnd, hin]
+
+lemma opnd_back (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (k : ℕ) (hk : k < C.gates.length) (b : Fin 2) : opnd C k b < n + k := by
+  apply hAO.2.1 k hk
+  rw [inputs_two n C hAO k hk]
+  fin_cases b <;> simp
+
+
+end MintermCircuit
+
+namespace AndSignature
+
+open PEqualNP.CircuitLowerBounds PEqualNP.EdgeOwnership PEqualNP.MetaComplexity
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.TopForm
+  PEqualNP.Outside.L_meta_2583.SingleUse PEqualNP.Outside.L_meta_2583.MintermCircuit
+
+def isAnd (C : Circuit) (k : ℕ) : Bool :=
+  match (gateAt C k).op with
+  | GateOp.and => true
+  | _ => false
+
+def andPrefix (C : Circuit) (r : ℕ) : Finset ℕ :=
+  (Finset.range r).filter (fun k => isAnd C k = true)
+
+lemma false_join_of_signature_eq (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (r : ℕ) (hr : r ≤ C.gates.length) (x y : Fin n → Bool)
+    (hsig : ∀ k < r, (gateAt C k).op = GateOp.and →
+      wv n C x (opnd C k 0) = wv n C y (opnd C k 0)) :
+    ∀ w, w < n + r → wv n C x w = false → wv n C y w = false →
+      wv n C (fun i => x i || y i) w = false := by
+  intro w
+  induction w using Nat.strong_induction_on with
+  | ind w ih =>
+    intro hw hx hy
+    by_cases hwn : w < n
+    · rw [wv_input n C x w hwn] at hx
+      rw [wv_input n C y w hwn] at hy
+      rw [wv_input n C _ w hwn]
+      simp [hx, hy]
+    · obtain ⟨k, rfl⟩ : ∃ k, w = n + k := ⟨w - n, by omega⟩
+      have hkr : k < r := by omega
+      have hk : k < C.gates.length := by omega
+      have ha := opnd_back n C hAO k hk 0
+      have hb := opnd_back n C hAO k hk 1
+      rw [wv_rec n C x hAO.2.1 k hk, inputs_two n C hAO k hk] at hx
+      rw [wv_rec n C y hAO.2.1 k hk, inputs_two n C hAO k hk] at hy
+      rw [wv_rec n C _ hAO.2.1 k hk, inputs_two n C hAO k hk]
+      rcases hAO.1 _ (gate_mem C k hk) with hop | hop
+      · have heq := hsig k hkr hop
+        cases hl : wv n C x (opnd C k 0) with
+        | false =>
+          have hly : wv n C y (opnd C k 0) = false := heq.symm.trans hl
+          have hj := ih _ ha (by omega) hl hly
+          simp [hop, GateOp.eval, hj]
+        | true =>
+          have hly : wv n C y (opnd C k 0) = true := heq.symm.trans hl
+          have hxr : wv n C x (opnd C k 1) = false := by
+            simpa [hop, GateOp.eval, hl] using hx
+          have hyr : wv n C y (opnd C k 1) = false := by
+            simpa [hop, GateOp.eval, hly] using hy
+          have hj := ih _ hb (by omega) hxr hyr
+          simp [hop, GateOp.eval, hj]
+      · have hxx : wv n C x (opnd C k 0) = false ∧
+            wv n C x (opnd C k 1) = false := by simpa [hop, GateOp.eval] using hx
+        have hyy : wv n C y (opnd C k 0) = false ∧
+            wv n C y (opnd C k 1) = false := by simpa [hop, GateOp.eval] using hy
+        have hj0 := ih _ ha (by omega) hxx.1 hyy.1
+        have hj1 := ih _ hb (by omega) hxx.2 hyy.2
+        simp [hop, GateOp.eval, hj0, hj1]
+
+lemma false_family_card_le_signatures {α : Type} [Fintype α]
+    (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (r : ℕ) (hr : r ≤ C.gates.length) (w : ℕ) (hw : w < n + r)
+    (f : α → Fin n → Bool)
+    (hfalse : ∀ a, wv n C (f a) w = false)
+    (hjoin : ∀ a b, a ≠ b → wv n C (fun i => f a i || f b i) w = true) :
+    Fintype.card α ≤ 2 ^ (andPrefix C r).card := by
+  classical
+  let sig : α → ((andPrefix C r) → Bool) := fun a k => wv n C (f a) (opnd C k.val 0)
+  have hinj : Function.Injective sig := by
+    intro a b hab
+    by_contra hne
+    have heq : ∀ k < r, (gateAt C k).op = GateOp.and →
+        wv n C (f a) (opnd C k 0) = wv n C (f b) (opnd C k 0) := by
+      intro k hk hop
+      have hkA : k ∈ andPrefix C r := by
+        apply Finset.mem_filter.mpr
+        exact ⟨Finset.mem_range.mpr hk, by simp [isAnd, hop]⟩
+      exact congrFun hab ⟨k, hkA⟩
+    have hf := false_join_of_signature_eq n C hAO r hr (f a) (f b) heq w hw
+      (hfalse a) (hfalse b)
+    rw [hjoin a b hne] at hf
+    cases hf
+  have hcard := Fintype.card_le_of_injective sig hinj
+  simpa only [Fintype.card_fun, Fintype.card_bool, Fintype.card_coe] using hcard
+
+lemma false_cube_le_and_count (n : ℕ) (C : Circuit) (hAO : IsAO2 n C)
+    (r : ℕ) (hr : r ≤ C.gates.length) (w : ℕ) (hw : w < n + r)
+    (d : ℕ) (f : (Fin d → Bool) → Fin n → Bool)
+    (hfalse : ∀ a, wv n C (f a) w = false)
+    (hjoin : ∀ a b, a ≠ b → wv n C (fun i => f a i || f b i) w = true) :
+    d ≤ (andPrefix C r).card := by
+  have hc := false_family_card_le_signatures n C hAO r hr w hw f hfalse hjoin
+  simp only [Fintype.card_fun, Fintype.card_bool, Fintype.card_fin] at hc
+  exact (Nat.pow_le_pow_iff_right (by decide : 1 < 2)).mp hc
+
+end AndSignature
+
+namespace ThetaFalseFamily
+
+def edges : List (Fin 8 × Fin 8) :=
+  [(0, 2), (0, 3), (0, 4), (2, 5), (3, 6), (4, 7), (5, 1), (6, 1), (7, 1)]
+
+def graphFun (x : Fin 8 → Bool) : Bool :=
+  edges.any (fun e => x e.1 && x e.2)
+
+def masks : List Nat := [3, 30, 56, 84, 112, 140, 168, 196, 225]
+
+def falseInput (i : Fin 9) (v : Fin 8) : Bool :=
+  (masks.getD i.val 0).testBit v.val
+
+lemma false_inputs : ∀ i : Fin 9, graphFun (falseInput i) = false := by
+  decide +kernel
+
+lemma distinct_union_true : ∀ i j : Fin 9, i ≠ j →
+    graphFun (fun v => falseInput i v || falseInput j v) = true := by
+  decide +kernel
+
+lemma falseInput_injective : Function.Injective falseInput := by
+  intro i j hij
+  by_contra hne
+  have ht := distinct_union_true i j hne
+  have ht' : graphFun (falseInput j) = true := by
+    simpa only [hij, Bool.or_self] using ht
+  rw [false_inputs j] at ht'
+  cases ht'
+
+lemma graphFun_eq_true (x : Fin 8 → Bool) :
+    graphFun x = true ↔ ∃ p q : Fin 8, (p, q) ∈ edges ∧ x p = true ∧ x q = true := by
+  simp only [graphFun, List.any_eq_true, Bool.and_eq_true]
+  constructor
+  · rintro ⟨⟨p, q⟩, hmem, hp, hq⟩
+    exact ⟨p, q, hmem, hp, hq⟩
+  · rintro ⟨p, q, hmem, hp, hq⟩
+    exact ⟨(p, q), hmem, hp, hq⟩
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm PEqualNP.MetaComplexity
+
+def canonicalC : Circuit := ⟨[
+  ⟨.or, [2, 3]⟩,
+  ⟨.or, [8, 4]⟩,
+  ⟨.and, [0, 9]⟩,
+  ⟨.or, [1, 2]⟩,
+  ⟨.and, [5, 11]⟩,
+  ⟨.or, [1, 3]⟩,
+  ⟨.and, [6, 13]⟩,
+  ⟨.or, [1, 4]⟩,
+  ⟨.and, [7, 15]⟩,
+  ⟨.or, [10, 12]⟩,
+  ⟨.or, [14, 16]⟩,
+  ⟨.or, [17, 18]⟩], 19⟩
+
+lemma canonical_checks : IsAO2 8 canonicalC ∧ canonicalC.size = 12 ∧
+    (canonicalC.gates.filter (fun g => match g.op with | .and => true | _ => false)).length = 4 ∧
+    (canonicalC.gates.filter (fun g => match g.op with | .or => true | _ => false)).length = 8 := by
+  decide +kernel
+
+set_option maxRecDepth 100000 in
+set_option maxHeartbeats 10000000 in
+lemma canonical_exact : ∀ x : Fin 8 → Bool, canonicalC.eval (List.ofFn x) = graphFun x := by
+  decide +kernel
+
+end ThetaFalseFamily
+
+namespace ThetaAndBound
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm
+open PEqualNP.Outside.L_meta_2583.SingleUse
+open PEqualNP.Outside.L_meta_2583.AndSignature
+open PEqualNP.Outside.L_meta_2583.ThetaFalseFamily
+
+lemma and_count_ge_four (C : Circuit) (hAO : IsAO2 8 C)
+    (hcompute : ∀ x : Fin 8 → Bool, C.eval (List.ofFn x) = graphFun x) :
+    4 ≤ (andPrefix C C.gates.length).card := by
+  have hvalid : C.output < 8 + C.gates.length := by
+    by_contra hbad
+    have hf := wv_missing 8 C (fun v => falseInput 0 v || falseInput 1 v)
+      C.output (by omega)
+    change C.eval (List.ofFn _) = false at hf
+    rw [hcompute, distinct_union_true 0 1 (by decide)] at hf
+    cases hf
+  have hc := false_family_card_le_signatures 8 C hAO C.gates.length le_rfl
+    C.output hvalid falseInput
+    (fun i => by
+      change C.eval (List.ofFn _) = false
+      rw [hcompute]
+      exact false_inputs i)
+    (fun i j hij => by
+      change C.eval (List.ofFn _) = true
+      rw [hcompute]
+      exact distinct_union_true i j hij)
+  simp only [Fintype.card_fin] at hc
+  by_contra hsmall
+  have hk : (andPrefix C C.gates.length).card ≤ 3 := by omega
+  have hp : 2 ^ (andPrefix C C.gates.length).card ≤ 2 ^ 3 :=
+    (Nat.pow_le_pow_iff_right (by decide : 1 < 2)).mpr hk
+  norm_num at hp
+  omega
+
+lemma canonical_and_count : (andPrefix canonicalC canonicalC.gates.length).card = 4 := by
+  decide +kernel
+
+lemma exact_and_complexity_four :
+    (∃ C : Circuit, IsAO2 8 C ∧
+      (∀ x : Fin 8 → Bool, C.eval (List.ofFn x) = graphFun x) ∧
+      (andPrefix C C.gates.length).card = 4 ∧ C.size = 12) ∧
+    (∀ C : Circuit, IsAO2 8 C →
+      (∀ x : Fin 8 → Bool, C.eval (List.ofFn x) = graphFun x) →
+      4 ≤ (andPrefix C C.gates.length).card) := by
+  exact ⟨⟨canonicalC, canonical_checks.1, canonical_exact, canonical_and_count,
+    canonical_checks.2.1⟩, and_count_ge_four⟩
+
+end ThetaAndBound
+
 end PEqualNP.Outside.L_meta_2583
