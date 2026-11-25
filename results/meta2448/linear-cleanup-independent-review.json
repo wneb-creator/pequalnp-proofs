@@ -1,0 +1,15 @@
+{
+  "source": "results/meta2448/checked/linear-cleanup.lean",
+  "sha256": "5eded49fcfbe8e21b395df4e6e82546ae825df9f52f9cdc911d5f50cdabcc2f3",
+  "status": "Independent source/mathematical review PASS on exact compiled snapshot",
+  "reviewer": "/root/or_lower_bound",
+  "scope": "Semantic disjoint-linear-product cleanup under pair-only soundness: Reduced is below Cleanup, agrees on pair valuations, is globally graph-sound, and sound contexts select at most one universal-neighbor center on each side in C4-free graphs. No circuit-count/ownership/minimum normalization conclusion.",
+  "findings": [
+    "Disjoint A B forces the two positive pair witnesses to exhaust the two-point input; the T witness therefore lies in one side intersection.",
+    "Soundness is tested on a pair to prove every surviving side vertex is adjacent to the full opposite set.",
+    "Two distinct opposite-side vertices force the center set subsingleton by the posted no-four-cycle condition.",
+    "The shared theorem fixes center sets independently of T; all hypotheses and conclusions match the proof."
+  ],
+  "compile_fix": "Named equality transports fix the vanished identifiers. The source additionally weakens cleanup soundness to PairSound and proves reduced_sound; both changes were independently inspected and are mathematically valid.",
+  "compile_confirmation": "Author confirmed SHA5eded49fcfbe8e21b395df4e6e82546ae825df9f52f9cdc911d5f50cdabcc2f3 compiled EXIT0 in validation/linear-cleanup-003.log and matches checked/linear-cleanup.lean byte-for-byte."
+}

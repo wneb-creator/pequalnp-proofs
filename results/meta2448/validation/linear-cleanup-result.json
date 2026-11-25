@@ -1,0 +1,9 @@
+{
+  "source": "results/meta2448/checked/linear-cleanup.lean",
+  "sha256": "5eded49fcfbe8e21b395df4e6e82546ae825df9f52f9cdc911d5f50cdabcc2f3",
+  "lines": 119,
+  "exit": 0,
+  "log": "results/meta2448/validation/linear-cleanup-003.log",
+  "scope": "Semantic classification of pair-sound linear cleanup contexts; no circuit rewrite, gate count theorem or full L-meta-2448 result.",
+  "first_attempt": "Wrapper could not find lake before sourcing the task Lean environment; no Lean process started."
+}

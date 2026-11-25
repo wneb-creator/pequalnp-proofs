@@ -1,0 +1,42 @@
+{
+  "review": "PASS: adjacent-independent ordering cut, correct MSB comparator, full gate/reference renaming, unchanged group guardian except allowlist",
+  "source_sha256": "82dd6b04479fd690b49dff10e42e8c00e5194ac7ceb559df02003cd5cf760e83",
+  "guardian_sha256": "28a2cd03ab74ee440abb7dc82293548d5cd293c1b81fd4e0933ad26892d51d83",
+  "mathematical_scope": "Swaps preserve all functions and dependency cones after relabeling, gate0 remains fixed, and last output cannot move because every preceding gate is consumed. Inversion count guarantees termination. This normalization is not Lean-formalized.",
+  "controls": [
+    {
+      "tag": "c5-star7-ordered-control",
+      "all_input_count": 32,
+      "star": true,
+      "ordering_checked": true,
+      "baseline_swaps": []
+    },
+    {
+      "tag": "p4-nonstar5-ordered-control",
+      "all_input_count": 16,
+      "star": false,
+      "ordering_checked": true,
+      "baseline_swaps": []
+    },
+    {
+      "tag": "theta233-star11-ordered-control",
+      "all_input_count": 128,
+      "star": true,
+      "ordering_checked": true,
+      "baseline_swaps": [
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          9
+        ],
+        [
+          6,
+          7
+        ]
+      ]
+    }
+  ]
+}

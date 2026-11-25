@@ -1,0 +1,26 @@
+{
+  "review": "PASS: graph-only v3 delta and allowlist-only guardian v4; independent all-assignment control/cone/ownership replay",
+  "source_sha256": "554a6f9ca58d2892ed9df45479f48d0af99baf33416b9c88bd6c41712d306934",
+  "guardian_sha256": "4efeeb37bae47991610df2411bb51324aebcf04b396f12bbb69182f275e361f1",
+  "controls": [
+    {
+      "tag": "theta233-star11-control",
+      "vertices": 7,
+      "edges": 8,
+      "vertex_cover_minimum_computed": 4,
+      "star_control_gates": 11,
+      "all_assignments": 128,
+      "maximal_independent_negatives": 7
+    },
+    {
+      "tag": "theta333-star12-control",
+      "vertices": 8,
+      "edges": 9,
+      "vertex_cover_minimum_computed": 4,
+      "star_control_gates": 12,
+      "all_assignments": 256,
+      "maximal_independent_negatives": 9
+    }
+  ],
+  "scope": "Finite normalized-model research controls only; no Lean minimum proof or posted theorem."
+}

@@ -1,0 +1,21 @@
+# A precise private cleanup exchange and its interface obstruction
+
+These results concern a local circuit rewrite. They do not prove L-meta-2448.
+
+Suppose prefix wires A,B and raw inputs a,b satisfy a⇒A and b⇒B pointwise. Then
+
+    (A AND B) AND (a OR b) = (a AND B) OR (b AND A).
+
+This replaces three gates by three gates: a product AND, a cleanup OR and their final AND become two literal-centered ANDs and their final OR. A and B can retain arbitrary outside uses. The two replaced intermediate wires must be private to the final gate: all later gates and the circuit output avoid them. The final wire position and all other wire indices can remain unchanged when these are consecutive slots and A,B are already available before them.
+
+Proof of the circuit claim under those exact interface assumptions: both three-gate blocks append three values to the same prefix wire list. Their last appended values agree by the displayed identity, and only the first two appended values may differ. Every subsequent gate reads equal values because it avoids precisely those two positions; induction through the common tail gives equal final outputs. Gate counts and fan-in bounds are unchanged. The new two ANDs read raw inputs, so each owns only edges incident to its raw input; the checked StarExistence.raw_ands_star/and_reads_input lemmas provide that ownership argument.
+
+Earlier gates and their ownership are unchanged. Later gates can gain owned edges: an old product can be true while its cleaned output is false, whereas both new literal-centered products are false. Such an old true ancestor formerly blocked ownership in a later cone. Therefore the correct immediate conclusion is a clean-prefix extension, not preservation of star profile for every later gate. Arbitrary reordering of a private cleanup OR that originally preceded its product also requires a separate topological-layout proof; no such transformation is silently assumed here.
+
+For a four-vertex path a-b-c-d, take A=a∨c, B=b∨d, and cleanup R=b∨c. The rewrite gives b∧A and c∧B, followed by OR. It preserves A and B as shared wires. If B also has no outside use, a different equivalent factorization b∧A ∨ c∧d lets B be deleted and reduces the complete five-gate formula to four gates.
+
+Privacy of the product alone is insufficient for a purely local two-gate repair when all three original OR wires must remain. Fix the interface a,b,c,d,A=a∨c,B=b∨d,R=b∨c. Exhaustive Python enumeration of all 9900 two-gate AND/OR extensions of fan-in at most two, including nullary and unary gates, repeated operands, and invalid reads represented by one false reference, finds exactly three extensions computing the path edge function. They AND two of A,B,R and then AND the third. In all three, the first AND owns all three path edges, which have no common endpoint. No two-gate extension with a star profile exists at this interface.
+
+Commutative operand ordering is the only quotient used in that enumeration. It preserves gate values and strict cone membership. Every unavailable wire reads false and contributes no cone dependency, so one canonical invalid reference suffices. Fewer gates can be padded by OR identities, and the desired path function is not an initial interface wire; hence the obstruction also rules out a star-profile realization with fewer than two new gates at the fixed interface. This does not rule out deleting or rewiring one of the shared OR gates as part of a larger global transformation.
+
+The complete evaluator, circuit/cone construction, exact surviving extensions and full output are in private_exchange_audit.py and private-exchange-audit.json/.log. The evaluator stops at the first nonstar gate, so each report field `owned_edge_indices` is the owner-list prefix through that gate, not a list for every gate. These are Python checks, not Lean results. The unchanged PrivateProductIdentity.lean source compiled successfully with exit 0 and no warnings in 7.01 seconds; immutable source, full log and status are under checked/PrivateProductIdentity.*. Its three Boolean identities are checked; the general circuit-layout/exchange statement above is a mathematical argument with explicit interface assumptions, not a separately checked Circuit theorem.

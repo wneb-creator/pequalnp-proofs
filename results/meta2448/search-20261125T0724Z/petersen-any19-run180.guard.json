@@ -1,0 +1,22 @@
+{
+  "command": [
+    "python3",
+    "/tmp/oec/pequalnp-pilot-62/meta2448/synthesize.py",
+    "--graph",
+    "petersen",
+    "--gates",
+    "19",
+    "--profile",
+    "any",
+    "--seconds",
+    "180",
+    "--tag",
+    "petersen-any19-run180"
+  ],
+  "pid": 37653,
+  "owned_process_group": 37653,
+  "process_start_ticks": 1609458,
+  "started_utc": "2026-11-25T07:11:07.379532+00:00",
+  "synthesis_address_space_limit_bytes": 1073741824,
+  "shared_stop_limit_bytes": 6979321856
+}

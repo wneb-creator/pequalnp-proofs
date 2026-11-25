@@ -1,0 +1,146 @@
+{
+  "review": "APPROVED exact compiled local partials, reviewed research notes and dated root status; no full target proof",
+  "files": [
+    {
+      "path": "results/meta2448/checked/PrivateProductIdentity.lean",
+      "sha256": "7b14d8a5ddf76acc1a53b75dcf2952a6c6015094c7dbbb6bf8b86283812305fd",
+      "bytes": 703
+    },
+    {
+      "path": "results/meta2448/checked/PrivateProductIdentity.log",
+      "sha256": "df01b2823aa031270da1f2f9bf4232fb60ed7cfc698ad0a21adc48403830d2ca",
+      "bytes": 672
+    },
+    {
+      "path": "results/meta2448/checked/PrivateProductIdentity.json",
+      "sha256": "ad12b520ad6f2a804705b33813f095d55f0f65d34a951219966812deeefbe663",
+      "bytes": 354
+    },
+    {
+      "path": "results/meta2448/PrivateProductIdentity.lean",
+      "sha256": "7b14d8a5ddf76acc1a53b75dcf2952a6c6015094c7dbbb6bf8b86283812305fd",
+      "bytes": 703
+    },
+    {
+      "path": "results/meta2448/private-exchange.md",
+      "sha256": "c0a41a929c01f0276d6fd4bd9dc0e2ad90271db11da3b6263e132ac006d56f29",
+      "bytes": 4272
+    },
+    {
+      "path": "results/meta2448/private_exchange_audit.py",
+      "sha256": "1c0f42da10488cb4699205455881f29bb1edcd79c111c36e0eb76a07d339d537",
+      "bytes": 4003
+    },
+    {
+      "path": "results/meta2448/private-exchange-audit.json",
+      "sha256": "1d7fcb8070c08088812f98be5eca7f8bf3316d3e38675acf2321b688835198f8",
+      "bytes": 3226
+    },
+    {
+      "path": "results/meta2448/private-exchange-audit.log",
+      "sha256": "1d7fcb8070c08088812f98be5eca7f8bf3316d3e38675acf2321b688835198f8",
+      "bytes": 3226
+    },
+    {
+      "path": "results/meta2448/private-exchange-independent-review.json",
+      "sha256": "3a3703ba4c6e4e96e6e67ccb9473ec55657930274dd499f74686b931fd8d243c",
+      "bytes": 408
+    },
+    {
+      "path": "results/meta2448/checked/linear-cleanup.lean",
+      "sha256": "5eded49fcfbe8e21b395df4e6e82546ae825df9f52f9cdc911d5f50cdabcc2f3",
+      "bytes": 4716
+    },
+    {
+      "path": "results/meta2448/LinearCleanup.lean",
+      "sha256": "5eded49fcfbe8e21b395df4e6e82546ae825df9f52f9cdc911d5f50cdabcc2f3",
+      "bytes": 4716
+    },
+    {
+      "path": "results/meta2448/linear-cleanup-independent-review.json",
+      "sha256": "0f286f293dd15ee187018fa1be71a42a3871f5c70c4a42c241fc738e675971aa",
+      "bytes": 1548
+    },
+    {
+      "path": "results/meta2448/validation/linear-cleanup-result.json",
+      "sha256": "1d91cd6d86fe7896a7e084fb340c1dcf64f7610c16b6393e0f02a41da19e5db0",
+      "bytes": 497
+    },
+    {
+      "path": "results/meta2448/validation/linear-cleanup-001.guard.log",
+      "sha256": "268886a1fccee96aab3305c6d8449623ee8b106bf03d6cb9e73e66dd328c97af",
+      "bytes": 666
+    },
+    {
+      "path": "results/meta2448/validation/linear-cleanup-002.log",
+      "sha256": "011ea2d7c617829420252009fbace668a062566a700a919bbe3c82b3ea448d84",
+      "bytes": 1006
+    },
+    {
+      "path": "results/meta2448/validation/linear-cleanup-002.guard.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/meta2448/validation/linear-cleanup-003.log",
+      "sha256": "32dbf437f36cd86b05b3debbc6b915208598c0e7fb6ecf655c6fff9646f1c7ec",
+      "bytes": 787
+    },
+    {
+      "path": "results/meta2448/validation/linear-cleanup-003.guard.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/meta2448/validation/local-cleanup-independent-review.json",
+      "sha256": "6e14279bec48683addde4296d6b19db4e511697b364c75dfe603b0197ed0310c",
+      "bytes": 1007
+    },
+    {
+      "path": "results/meta2448/NOTES.md",
+      "sha256": "f094f3ce41f0d69bfd66c1933d46cef560ff6fdb57bc384ecf0e1e35ec0f8c86",
+      "bytes": 2871
+    },
+    {
+      "path": "results/meta2448/TIMELINE.md",
+      "sha256": "97f52c8f4250b68bcf0b0e24d7b3440a0cb7d4c8580e6191b579dcf7a219ed2c",
+      "bytes": 1399
+    },
+    {
+      "path": "results/meta2448/literature-check.md",
+      "sha256": "248394b82917f42f5e57acebf784b6f724052b0fb2daa7fb396097606a6824b9",
+      "bytes": 2912
+    },
+    {
+      "path": "results/meta2448/theta-source-independent-review.json",
+      "sha256": "c3823b727d49102cd2482f766d23b3a6806f6ee8d004a8f23b2cd3c64fe33438",
+      "bytes": 906
+    },
+    {
+      "path": "results/meta2448/ordered-synthesis-independent-review.json",
+      "sha256": "e291a3a3cb8f74f1cf89a4ad8cbdbe8341f10342434cbdfcdebb9ce40279af11",
+      "bytes": 1262
+    },
+    {
+      "path": "results/meta2448/checked/edge-context.lean",
+      "sha256": "5eae25128b70ac757f400dbc829f31713e69dc0a74baf0d02de19b166c739fbf",
+      "bytes": 1914
+    },
+    {
+      "path": "results/meta2448/checked/edge-context.log",
+      "sha256": "36f431e4d95f3268bde363501568f02282608b0016e1abdd1ff6be43f68bd47d",
+      "bytes": 705
+    },
+    {
+      "path": "results/meta2448/checked/edge-context.runner.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "results/meta2448/checked/edge-context.json",
+      "sha256": "003de32e805a3f8c46d0e5ca42632293bc720c2ad298fb1b6173690333c71bb0",
+      "bytes": 457
+    }
+  ],
+  "edge_context_review": "PASS exact41-line source/full EXIT0; triangle-free semantic context singleton rejection only. Development import EdgePruning must flatten after its reviewed body for a final onlyDefs file."
+}

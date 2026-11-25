@@ -1,0 +1,94 @@
+c --- [ banner ] -------------------------------------------------------------
+c 
+c CaDiCaL SAT Solver
+c Copyright (c) 2016-2024
+c A. Biere, M. Fleury, N. Froleyks, K. Fazekas, F. Pollitt, T. Faller
+c JKU Linz, University of Freiburg, TU Wien
+c 
+c Version 2.1.2
+c clang++-Clang 23.1.1 (https://github.com/llvm/llvm-project 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+c Jan  1 1980 00:00:00
+c 
+c --- [ limit ] --------------------------------------------------------------
+c 
+c setting time limit to 30 seconds real time (due to '-t 30')
+c 
+c --- [ parsing input ] ------------------------------------------------------
+c 
+c reading DIMACS file from '/tmp/oec/pequalnp-pilot-62/meta2448/c5-star7-strong-control.cnf'
+c opening file to read '/tmp/oec/pequalnp-pilot-62/meta2448/c5-star7-strong-control.cnf'
+c found 'p cnf 702 4139' header
+c parsed 4139 clauses in 0.00 seconds process time
+c 
+c --- [ options ] ------------------------------------------------------------
+c 
+c all options are set to their default value
+c 
+c --- [ solving ] ------------------------------------------------------------
+c 
+c time measured in process time since initialization
+c 
+c  seconds  reductions  redundant irredundant
+c         MB    restarts       trail    variables
+c          level   conflicts       glue     remaining
+c 
+c *  0.00  3  0 0   0    0    0  0% 0 4129 692 99%
+c {  0.00  3  0 0   0    0    0  0% 0 4129 692 99%
+c i  0.01  3 17 0  14  140  122 62% 6 4129 684 97%
+c i  0.01  3 17 0  18  177  153 63% 6 4129 662 94%
+c i  0.01  3 17 0  32  292  256 63% 6 4129 630 90%
+c -  0.01  4 17 1  32  300  259 63% 6 3510 630 90%
+c i  0.01  4 16 1  32  352  299 64% 6 3510 626 89%
+c i  0.01  4 14 1  32  440  363 65% 5 3510 623 89%
+c i  0.02  4 12 1  32  746  562 71% 5 3510 621 88%
+c }  0.02  4 11 1  32  813  600 71% 5 3510 620 88%
+c 1  0.02  4 11 1  32  813  600 71% 5 3510 620 88%
+c 
+c --- [ result ] -------------------------------------------------------------
+c 
+c writing result to '/tmp/oec/pequalnp-pilot-62/meta2448/c5-star7-strong-control.sol'
+c 
+c --- [ run-time profiling ] -------------------------------------------------
+c 
+c process time taken by individual solving procedures
+c (percentage relative to process time for solving)
+c 
+c         0.02   99.35% search
+c         0.02   98.33% unstable
+c         0.00    8.76% parse
+c         0.00    0.81% lucky
+c         0.00    0.00% simplify
+c   =================================
+c         0.02   88.28% solve
+c 
+c last line shows process time for solving
+c (percentage relative to total process time)
+c 
+c --- [ statistics ] ---------------------------------------------------------
+c 
+c chronological:               247        30.38 %  of conflicts
+c conflicts:                   813     43839.31    per second
+c decisions:                  1635     88163.93    per second
+c fixed:                        82        11.68 %  of all variables
+c learned:                     777        95.57 %  per conflict
+c learned_lits:              12932       100.00 %  learned literals
+c minimized:                     0         0.00 %  learned literals
+c shrunken:                   4261        32.95 %  learned literals
+c minishrunken:                775         5.99 %  learned literals
+c otfs:                          9         1.11 %  of conflict
+c propagations:              70440         3.80 M  per second
+c restarts:                     32        25.41    interval
+c subsumed:                    168         3.43 %  of all clauses
+c strengthened:                  9         0.18 %  of all clauses
+c 
+c seconds are measured in process time for solving
+c 
+c --- [ resources ] ----------------------------------------------------------
+c 
+c total process time since initialization:         0.02    seconds
+c total real time since initialization:            0.02    seconds
+c maximum resident set size of process:           12.38    MB
+c 
+c --- [ shutting down ] ------------------------------------------------------
+c 
+c exit 10

@@ -1,0 +1,8 @@
+{
+  "source": "results/meta2448/EdgeContext.lean",
+  "sha256": "5eae25128b70ac757f400dbc829f31713e69dc0a74baf0d02de19b166c739fbf",
+  "lines": 41,
+  "exit_code": 0,
+  "scope": "For a triangle-free graph, monotone f and k with f AND k below graphFun cannot have k accept a singleton if f accepts both endpoint singletons of an edge. No circuit-cost, exchange or normalization conclusion.",
+  "olean": "/tmp/oec/pequalnp-pilot-62/meta2448/EdgeContext.olean"
+}

@@ -1,0 +1,2 @@
+{"graph": "cycle7", "input_count": 7, "gate_count": 9, "profile": "any", "variables": 1356, "clauses": 9253}
+{"result": "unknown", "solver_exit": 0, "elapsed": 60.0140318019985, "peak_child_KiB": 32128}

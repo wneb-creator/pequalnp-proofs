@@ -1,0 +1,31 @@
+import took 5.69s
+cumulative profiling times:
+	.olean serialization 3.56ms
+	attribute application 0.0594ms
+	congr simp thm 0.376ms
+	declTypeLinter 7.79ms
+	elaboration 22.1ms
+	fix level params 0.139ms
+	import 5.69s
+	initialization 43ms
+	instantiate metavars 0.639ms
+	interpretation 238ms
+	let-to-have transformation 0.0779ms
+	linting 7.47ms
+	module linting 0.063ms
+	parsing 3.96ms
+	process pre-definitions 1.88ms
+	share common exprs 0.755ms
+	simp 6.6ms
+	tactic execution 26.2ms
+	tacticAnalysis 1.51ms
+	type checking 2.73ms
+	typeclass inference 5.39ms
+
+EXIT 0
+RESOURCE_STOPPED False
+WALL_SECONDS 9.507197323000582
+USER_SECONDS 4.181902
+SYS_SECONDS 2.242216
+PEAK_RSS_KIB 2890804
+PEAK_CGROUP_BYTES 4219174912

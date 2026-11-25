@@ -1,0 +1,15 @@
+{
+  "status": "PASS independent source, format, scope and full success logs",
+  "PrivateProductIdentity": {
+    "lines": 19,
+    "sha256": "7b14d8a5ddf76acc1a53b75dcf2952a6c6015094c7dbbb6bf8b86283812305fd",
+    "scope": "Three Boolean identities only; the general raw Circuit exchange is not formalized."
+  },
+  "LinearCleanup": {
+    "lines": 119,
+    "sha256": "5eded49fcfbe8e21b395df4e6e82546ae825df9f52f9cdc911d5f50cdabcc2f3",
+    "scope": "Pair-sound cleanup of disjoint linear supports has at most one center on each side; Reduced decreases Cleanup, preserves pair behavior and is graph-sound. No circuit-size/ownership/minimality normalization."
+  },
+  "history": "Linear run001 failed before launching Lean, run002 failed with two unknown identifiers, run003 successfully compiled the frozen119-line source.",
+  "literature": "Historical and explicitly qualified background; no source result is an imported premise. The externally hosted pages were not independently reopened during this review."
+}

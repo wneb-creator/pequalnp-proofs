@@ -1,0 +1,167 @@
+{
+  "graph": "path4",
+  "input_count": 4,
+  "edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ]
+  ],
+  "positive_samples": [
+    3,
+    6,
+    12
+  ],
+  "negative_samples": [
+    5,
+    9,
+    10
+  ],
+  "gate_count": 5,
+  "profile": "nonstar",
+  "operations": [
+    1,
+    43,
+    91,
+    147,
+    213
+  ],
+  "selectors": [
+    [
+      [
+        2,
+        3,
+        4,
+        5
+      ],
+      [
+        6,
+        7,
+        8,
+        9
+      ]
+    ],
+    [
+      [
+        44,
+        45,
+        46,
+        47,
+        48
+      ],
+      [
+        49,
+        50,
+        51,
+        52,
+        53
+      ]
+    ],
+    [
+      [
+        92,
+        93,
+        94,
+        95,
+        96,
+        97
+      ],
+      [
+        98,
+        99,
+        100,
+        101,
+        102,
+        103
+      ]
+    ],
+    [
+      [
+        148,
+        149,
+        150,
+        151,
+        152,
+        153,
+        154
+      ],
+      [
+        155,
+        156,
+        157,
+        158,
+        159,
+        160,
+        161
+      ]
+    ],
+    [
+      [
+        214,
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221
+      ],
+      [
+        222,
+        223,
+        224,
+        225,
+        226,
+        227,
+        228,
+        229
+      ]
+    ]
+  ],
+  "baseline": [],
+  "variables": 299,
+  "clauses": 1484,
+  "essential_gates": true,
+  "symmetry_first": true,
+  "automorphisms": [
+    [
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      3,
+      2,
+      1,
+      0
+    ]
+  ],
+  "first_pairs": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      1,
+      2
+    ]
+  ],
+  "scope": "Proper binary AND/OR gates, final output, all gates used and separating-row operand incomparability; normalization requires proof for claims about arbitrary Lean circuits."
+}

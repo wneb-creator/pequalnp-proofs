@@ -1,0 +1,8 @@
+{
+  "status": "Lean EXIT0; no warnings",
+  "scope": "Three Boolean identities only; no general Circuit exchange theorem asserted",
+  "source_sha256": "7b14d8a5ddf76acc1a53b75dcf2952a6c6015094c7dbbb6bf8b86283812305fd",
+  "line_count": 19,
+  "wall_seconds": 7.0102,
+  "review": "Mathematically reviewed by repo_audit before the unchanged-source compile"
+}
