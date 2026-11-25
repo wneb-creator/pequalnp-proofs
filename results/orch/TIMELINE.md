@@ -53,3 +53,7 @@
 - 2026-11-25T20:11:21.811796+00:00: lease renewed; expires 2026-11-25T20:31:20.601Z.
 
 2026-11-25T20:13:46.278617+00:00 restriction: completed and froze nested strategy family; stronger clean rewrite and concrete flag singleton/shared-support cases compile, independent review pending for newest wrappers; full target absent.
+
+- 2026-11-25T20:16:16+00:00: toolchain agent final zero-centreless guarded-star exclusion compiled; frozen 5951-line aggregate SHA256 b6276f1222a085e5c5f342c92217ceb30bc824f1ea40ecd59274d6c8ee999890, independent review requested.
+- 2026-11-25T20:16:22.448783+00:00: lease renewed; expires 2026-11-25T20:36:21.129Z.
+- 2026-11-25T20:21:22.809950+00:00: lease renewed; expires 2026-11-25T20:41:22.232Z.

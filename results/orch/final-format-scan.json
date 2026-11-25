@@ -1,0 +1,14 @@
+{
+  "file": "lean/PEqualNP/Outside/L_meta_5012.lean",
+  "sha256": "253bde6b2e77ec04d7a8db65fb79747bc78af0cf26705b2b3f7ee3eede7e2636",
+  "lines": 8633,
+  "checks": {
+    "no_forbidden_root_marker": true,
+    "no_string_literals": true,
+    "no_sorry_axiom_native_decide": true,
+    "single_permitted_import": true,
+    "partial_no_posted_theorem": true,
+    "under_512_kib": true
+  },
+  "scope": "partial only; exact posted theorem absent"
+}

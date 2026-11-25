@@ -18,6 +18,7 @@ The exact posted theorem is **not proved**. The branch is a preservation branch;
 | Residual cover | inventory_residual_split.lean | Covers edges outside clean-top edges and outside all junk-guarded edges with two stars and a splitting-OR budget. |
 | Extra OR cost | inventory_independent_cost.lean; inventory_antichain_cost.lean | Explicit cover-cost criteria contradict leastness. Cover hypotheses still need to be established globally. |
 | Guarded leaves | structural_guarded_mixing_antichain.lean; structural_guarded_mixing_strict.lean | Actual clean-top path witnesses inject fixed-junk guarded leaves into an OR antichain, leaving a strict extra credit in the stated case. |
+| Concrete zero-centreless exclusion | guarded_singleton_exclusion.lean | Whole-Ustar two-star coverage, specified physical OR supports and rejection by the later junk on reused leaves imply a contradiction. These explicit hypotheses are not derived in all cases. |
 | Reused stars | guarded_reuse_package.lean; guarded_reuse_exclusion.lean | Packages a cover reusing old tops; whole-Ustar coverage and reuse conditions are explicit caller obligations. |
 
 ## Remaining mathematical work

@@ -1,0 +1,460 @@
+{
+  "scope": "checked partial research artifacts; posted theorem absent",
+  "files": [
+    {
+      "file": "lean/PEqualNP/Outside/L_meta_5012.lean",
+      "sha256": "253bde6b2e77ec04d7a8db65fb79747bc78af0cf26705b2b3f7ee3eede7e2636",
+      "lines": 8633
+    },
+    {
+      "file": "results/orch/lemmas/antecedent_cycle_six.lean",
+      "sha256": "405d65d48efe1a76538ad1b20ec7025c297ca8bd2d9d2fc1a62835aea2f5a02f",
+      "lines": 36
+    },
+    {
+      "file": "results/orch/lemmas/antecedent_cycle_six_two_junk.lean",
+      "sha256": "ebccc21019d7e20b054472ac7816c731ff9e86fe03296046134f0bf1045b100c",
+      "lines": 72
+    },
+    {
+      "file": "results/orch/lemmas/antecedent_five_independent.lean",
+      "sha256": "4767f14083ea7294f1370ce04f48e5492b34b35bebbf469ed937fcfae8c57bea",
+      "lines": 68
+    },
+    {
+      "file": "results/orch/lemmas/antecedent_star_dichotomy_counterexample.lean",
+      "sha256": "e4b05038ecb6af6db3f4a80d6fc7d06ec4f6ebbcaf37c64c9dbecfb1af44e869",
+      "lines": 79
+    },
+    {
+      "file": "results/orch/lemmas/empty_wmax_exclusion.lean",
+      "sha256": "36472dc546cdd1ae95752d2d80d51611631ac0b0d3bba0435cc79e284e7e82f8",
+      "lines": 4095
+    },
+    {
+      "file": "results/orch/lemmas/guarded_neighbor_anchor_budget.lean",
+      "sha256": "4f32276174b29ba5f081ebeb7faf7e264e09dc71fac349921301e6d0f2c79f78",
+      "lines": 2607
+    },
+    {
+      "file": "results/orch/lemmas/guarded_reuse_exclusion.lean",
+      "sha256": "4b7b159fb7dc185cab5fa2a2b2160ee7feb607d147ac795656a47f779f1abd83",
+      "lines": 2409
+    },
+    {
+      "file": "results/orch/lemmas/guarded_reuse_exclusion_cases.lean",
+      "sha256": "91187f813db05b332985b9d92d82d2a9f0e97b0e2997557fc33d4dac36a7e630",
+      "lines": 2413
+    },
+    {
+      "file": "results/orch/lemmas/guarded_reuse_overlap_package.lean",
+      "sha256": "8f0810710fe0a0f5886429f06862d1747cb119c284f3ca231b7ee9b9590e915d",
+      "lines": 121
+    },
+    {
+      "file": "results/orch/lemmas/guarded_reuse_package.lean",
+      "sha256": "295156d293908cf3550a7392e8a9ac0bf9598d70272bfb1f5a08101dcdffb406",
+      "lines": 91
+    },
+    {
+      "file": "results/orch/lemmas/guarded_singleton_cost.lean",
+      "sha256": "8b7602b302dca85c005e1697a7a4058b317e54a2a8959f2d479a1fa6a260e94f",
+      "lines": 5886
+    },
+    {
+      "file": "results/orch/lemmas/guarded_singleton_exclusion.lean",
+      "sha256": "b6276f1222a085e5c5f342c92217ceb30bc824f1ea40ecd59274d6c8ee999890",
+      "lines": 5951
+    },
+    {
+      "file": "results/orch/lemmas/guarded_star_forest.lean",
+      "sha256": "4ca1a96d5f6c0bfe9860ac9d14e0c94403acd7b210041d0f38e67550aef34825",
+      "lines": 2400
+    },
+    {
+      "file": "results/orch/lemmas/guarded_star_forest_mixed.lean",
+      "sha256": "0a44b8b85f70e1492585c797211ade2ed5d3f41d67a4459e34620faf7ed12a25",
+      "lines": 2439
+    },
+    {
+      "file": "results/orch/lemmas/guarded_star_geometry_budget.lean",
+      "sha256": "0d1c937297bcf8305bfea3044255dc6a6e22129fb1fdca2839606b9b793864a0",
+      "lines": 2479
+    },
+    {
+      "file": "results/orch/lemmas/guarded_star_separated_budget.lean",
+      "sha256": "a06713476484b28b66baaf5590194774d2f9b7410c25f886dd33b209c20607d4",
+      "lines": 2516
+    },
+    {
+      "file": "results/orch/lemmas/inventory_antichain_cost.lean",
+      "sha256": "6c5bf44dd34d75983bdb64dca15b701783bedcacc037cbcedd1042af6fb19f8f",
+      "lines": 2909
+    },
+    {
+      "file": "results/orch/lemmas/inventory_branch_budget.lean",
+      "sha256": "043d422b680a678b047fa90da140a0dcbad4b12c345407c38d27340b2f829fb7",
+      "lines": 1930
+    },
+    {
+      "file": "results/orch/lemmas/inventory_centreless_roots.lean",
+      "sha256": "3efa860ef0d87076b181ab97c3839037e807ca1137c88f6b7f1abf40fdf5eb1a",
+      "lines": 1813
+    },
+    {
+      "file": "results/orch/lemmas/inventory_colored_budget_core.lean",
+      "sha256": "2669c55999bb9dc3bd2bb3f86af958496a47483c68c53925947a9675f60ab080",
+      "lines": 1294
+    },
+    {
+      "file": "results/orch/lemmas/inventory_colored_crossed.lean",
+      "sha256": "84e3cdc436589b2be9d9d2ab8c88beea04c8df3228088fbb62f367ed554367b0",
+      "lines": 1519
+    },
+    {
+      "file": "results/orch/lemmas/inventory_colored_stars.lean",
+      "sha256": "b8e150a462f2c10c02d184d194cbf318fb70932fedb759b6f18ce0223c62c0e1",
+      "lines": 1490
+    },
+    {
+      "file": "results/orch/lemmas/inventory_independent_cost.lean",
+      "sha256": "e507ba57f6e76621ed4ad72db2dbf5c2dd8d6ed3dc572a99b960651aa62076e9",
+      "lines": 2744
+    },
+    {
+      "file": "results/orch/lemmas/inventory_independent_mix.lean",
+      "sha256": "a25c888d73c5daf53f6522830a291f3a32322463756d0ae8bf591e60631828a1",
+      "lines": 2690
+    },
+    {
+      "file": "results/orch/lemmas/inventory_lift_bridge.lean",
+      "sha256": "c7a8cc3d653927b14fa226819dc7dbef88e9f99d11706ad5bb8d3c92e1e185e4",
+      "lines": 306
+    },
+    {
+      "file": "results/orch/lemmas/inventory_mixed_overhead.lean",
+      "sha256": "37ae79009c68add3bd24c598a12e77411a3f4beca1892498c3f0eea4e096812a",
+      "lines": 2320
+    },
+    {
+      "file": "results/orch/lemmas/inventory_mutual_budget.lean",
+      "sha256": "d5e21a5d0641678bc365a4b67cdb019074004ce95a85fd082026d80d7a22a416",
+      "lines": 1181
+    },
+    {
+      "file": "results/orch/lemmas/inventory_normalize.lean",
+      "sha256": "ba6dbacc755c50bffbeef6eed62ae5a7b457b4bd5b0f1fdde6387cd0c3a3778f",
+      "lines": 1435
+    },
+    {
+      "file": "results/orch/lemmas/inventory_overlap_budget.lean",
+      "sha256": "e0efb0d11a715297608c4614c682ee105dda88e02c4cac79beaeebac031f7c66",
+      "lines": 2307
+    },
+    {
+      "file": "results/orch/lemmas/inventory_residual_bounded.lean",
+      "sha256": "dd902d33a6d279a15c5a1420f4dc85a0256bb84883efc9eee23c0507e0de35e6",
+      "lines": 2055
+    },
+    {
+      "file": "results/orch/lemmas/inventory_residual_complete.lean",
+      "sha256": "301f39408fdce739c2ac5fdbfcbc3a305a7c95b01d06c2117d6a4ca66f366ba8",
+      "lines": 1775
+    },
+    {
+      "file": "results/orch/lemmas/inventory_residual_overlap.lean",
+      "sha256": "beea6e5932e4a58b5dd63ee4192d3e796e999611d700cac46d557b59b8cdec57",
+      "lines": 1855
+    },
+    {
+      "file": "results/orch/lemmas/inventory_residual_split.lean",
+      "sha256": "d004e75606048c737a606149f99c89732d18ccf49c1fa92ccd9ddcd1a83c1658",
+      "lines": 2244
+    },
+    {
+      "file": "results/orch/lemmas/inventory_split_budget.lean",
+      "sha256": "37cbd2faefe4eee9b140ae5adbe69b27387c63b0972d93d9b8379924d2e2778e",
+      "lines": 2007
+    },
+    {
+      "file": "results/orch/lemmas/inventory_strict_budget.lean",
+      "sha256": "98b351017263669111e0a4529753ecfab3f9d601f1494ec5d1896573b3fef7b8",
+      "lines": 2146
+    },
+    {
+      "file": "results/orch/lemmas/inventory_unused_mix.lean",
+      "sha256": "b3e7808ebd08e0ab6657ca32785c67d3424dd55144605a8a7fed77e47b1d0a32",
+      "lines": 2837
+    },
+    {
+      "file": "results/orch/lemmas/master_late_mixing.lean",
+      "sha256": "ee74db34ed3c503fa22b78b51718b69a2b1ed9447026a9e5ed94850c45ff2f0e",
+      "lines": 2466
+    },
+    {
+      "file": "results/orch/lemmas/master_surgery.lean",
+      "sha256": "0bd9a5ad827220dd611213eb0f0c6f4d2c63a8953d66ef2d828df9a3c8e6635b",
+      "lines": 2283
+    },
+    {
+      "file": "results/orch/lemmas/matching_cover.lean",
+      "sha256": "9c92230e530afe64879e5bef40967eaf70d29bcaa86619349553ba5811521be0",
+      "lines": 145
+    },
+    {
+      "file": "results/orch/lemmas/no_guarded_residual_exclusion.lean",
+      "sha256": "e9f283249da9a9519cb2a788a3b54a702f40ae2aa3fafe19083533fe81902eb8",
+      "lines": 4574
+    },
+    {
+      "file": "results/orch/lemmas/overlap_cleaners.lean",
+      "sha256": "add53cefbcf8646ee203b61f0e0324e0dfaf2a80470663b16b6a8322947c15ce",
+      "lines": 143
+    },
+    {
+      "file": "results/orch/lemmas/overlap_star_decomposition.lean",
+      "sha256": "19938455e938d67fb14d9cb35ae44d92e37980cdc6b82828223dc11b1120bbbf",
+      "lines": 43
+    },
+    {
+      "file": "results/orch/lemmas/pure_product_classification.lean",
+      "sha256": "35791c62303e8b7fbec85566053b75a9a859ef937b8dab933a5097835d56e0f3",
+      "lines": 421
+    },
+    {
+      "file": "results/orch/lemmas/restriction_absorb.lean",
+      "sha256": "996c13f428ed0ad65c721de5b20ebaeb577fb559a02801bc279002372e5b63e3",
+      "lines": 544
+    },
+    {
+      "file": "results/orch/lemmas/restriction_absorb_cone.lean",
+      "sha256": "67888609b47cf4d044402b17eb90fb682a623c69240dd0918683c11faf3f8c57",
+      "lines": 726
+    },
+    {
+      "file": "results/orch/lemmas/restriction_clean_rewrite.lean",
+      "sha256": "0d676fb0d7c07e5d8f59ea5840c4deadaea57727a8d5e59740fd84b5feb4f6eb",
+      "lines": 1863
+    },
+    {
+      "file": "results/orch/lemmas/restriction_edge_hit.lean",
+      "sha256": "340fb9b665822d0e722155086ee59c216f421faa9df9f90c3a5f2c89172f88c6",
+      "lines": 774
+    },
+    {
+      "file": "results/orch/lemmas/restriction_essential_cross.lean",
+      "sha256": "0098adb1afae1d5462cb92a317cd3f3bcb1d5acfe57ccf9a13d5f71e7ef35bde",
+      "lines": 1733
+    },
+    {
+      "file": "results/orch/lemmas/restriction_example.lean",
+      "sha256": "a199b4188443ea2030d5e3e89d47a6cdd72a90e84db5c13f180b4315c2445541",
+      "lines": 85
+    },
+    {
+      "file": "results/orch/lemmas/restriction_first_rung.lean",
+      "sha256": "b843957b532f8c08f1f07d38db5d60fbd848620479e34f0aa1d0b5a9c17d0f34",
+      "lines": 1088
+    },
+    {
+      "file": "results/orch/lemmas/restriction_graph.lean",
+      "sha256": "a45e021b74d20f9d30bf78420f0b857fd9e0cc3c8794e09b5cb180084f56e8d5",
+      "lines": 107
+    },
+    {
+      "file": "results/orch/lemmas/restriction_independent.lean",
+      "sha256": "629d3f3cb49577d37246b46b9caedffe6c63b1d18767dfec1847f943e494887c",
+      "lines": 775
+    },
+    {
+      "file": "results/orch/lemmas/restriction_lowering.lean",
+      "sha256": "380cf7a7e2070e0464f16402d13f4238abdf38537d9472cd112cba91e6481383",
+      "lines": 960
+    },
+    {
+      "file": "results/orch/lemmas/restriction_nested.lean",
+      "sha256": "4a1fbbc51b0d1a5c453a85bd04e9b7f502200320fd80fe44e684039966b11057",
+      "lines": 427
+    },
+    {
+      "file": "results/orch/lemmas/restriction_nested_centers.lean",
+      "sha256": "4555a9f365e6734e78f9a72e26130c66361339dddbebcf25b7df0136e681c8e9",
+      "lines": 2060
+    },
+    {
+      "file": "results/orch/lemmas/restriction_nested_flag.lean",
+      "sha256": "c4c0b8f0a50c3c90b85141c85b352b185ff00fa663311a5db7a8ae31a8f09b59",
+      "lines": 1984
+    },
+    {
+      "file": "results/orch/lemmas/restriction_nested_joint.lean",
+      "sha256": "36827edc83edbd2acd406a0d2288c7d9c11392d8a54c61e8ba315de6ef7c6b7a",
+      "lines": 84
+    },
+    {
+      "file": "results/orch/lemmas/restriction_nested_obstruction.lean",
+      "sha256": "d3bdb404177fdb16652a73cbdfdf2aa8cc774e6a83bf16c2f3e1a572faccefc6",
+      "lines": 86
+    },
+    {
+      "file": "results/orch/lemmas/restriction_nested_shared.lean",
+      "sha256": "8f137d55f57e5c12779ddb9bbc80dd0234e877bbd1bd215b63c310d1d7c7a127",
+      "lines": 2177
+    },
+    {
+      "file": "results/orch/lemmas/restriction_nested_singleton.lean",
+      "sha256": "69ad20fefa7244f711090c7cdaef38ecee9919552dfca849c68d514668f851d5",
+      "lines": 2025
+    },
+    {
+      "file": "results/orch/lemmas/restriction_nested_surgery.lean",
+      "sha256": "5b423f49c95aaed6408c9bcd3b6e3e06acd523986238e274ef5c67d0982e347c",
+      "lines": 277
+    },
+    {
+      "file": "results/orch/lemmas/restriction_star_edges.lean",
+      "sha256": "3455594d5afb8e01885db8afb3f3fd548d0eb5f78b72ae880803eb4423b92f10",
+      "lines": 1611
+    },
+    {
+      "file": "results/orch/lemmas/restriction_ustar_hit.lean",
+      "sha256": "71366d8df8910b8852436bb608aab9d467e45fb774b931ddb9f1ccee98a767c5",
+      "lines": 2310
+    },
+    {
+      "file": "results/orch/lemmas/structural_canonical_support.lean",
+      "sha256": "f90b9f5fde56962bd129c94d2da464f4012220a1da86599042c647257d74e2b5",
+      "lines": 688
+    },
+    {
+      "file": "results/orch/lemmas/structural_cleaner_dichotomy.lean",
+      "sha256": "935396a606db722d98936f370bc9f26f0e48eea56c323eb0a1b5e9a29c9f1021",
+      "lines": 182
+    },
+    {
+      "file": "results/orch/lemmas/structural_cleaner_unique.lean",
+      "sha256": "2a018da6df169941cad86dbc10052dcfa4a99becc817c14b316f3f1a2cc15bcf",
+      "lines": 287
+    },
+    {
+      "file": "results/orch/lemmas/structural_flag_budget.lean",
+      "sha256": "9808a0823239edb0120746cc27a0256ebf72f78c0f97db0a6553276993f2ecb0",
+      "lines": 65
+    },
+    {
+      "file": "results/orch/lemmas/structural_four_clause.lean",
+      "sha256": "3a06a133f44b846f79c664fb11931e86229f338600307c3d6dc87a17612c7ceb",
+      "lines": 47
+    },
+    {
+      "file": "results/orch/lemmas/structural_guarded_mixing_antichain.lean",
+      "sha256": "3d3fc221eede5de45886f7db19fb5027726650dcbef8333e5121583e1c826f26",
+      "lines": 3273
+    },
+    {
+      "file": "results/orch/lemmas/structural_guarded_mixing_budget.lean",
+      "sha256": "218b26ac8b020b2803ab7c692a43462a6d70292885e751223c568453123fe7fa",
+      "lines": 3252
+    },
+    {
+      "file": "results/orch/lemmas/structural_guarded_mixing_strict.lean",
+      "sha256": "b2db33e8c92d20279b8dcb4f4476a259b60f80b8ca6447c828b4d4794246e98c",
+      "lines": 3668
+    },
+    {
+      "file": "results/orch/lemmas/structural_marked_normal_form.lean",
+      "sha256": "440289bbcea2e660e98a44bac8d62acb72d9dd090ea6214295632c438fbb36d3",
+      "lines": 584
+    },
+    {
+      "file": "results/orch/lemmas/structural_marked_two_junk.lean",
+      "sha256": "8d7f5e94326de7207e482f98cc1a776c50373a4dacdd1d2df978f719187695fb",
+      "lines": 869
+    },
+    {
+      "file": "results/orch/lemmas/structural_matching_cover.lean",
+      "sha256": "76513032f5ba5d86122030aa14432adfb6e034b48b8146f2871f577b2b98a30c",
+      "lines": 354
+    },
+    {
+      "file": "results/orch/lemmas/structural_matching_three.lean",
+      "sha256": "9f4e96e96a48e0fb59babd2c1a00c64b0d2be25cc7b90ad6f379d58dbeeae3c6",
+      "lines": 181
+    },
+    {
+      "file": "results/orch/lemmas/structural_missing_side.lean",
+      "sha256": "e422c900ea23b448a07c26cf15782497edf978ca822b58b8fe0a1b2d1ebe95bb",
+      "lines": 724
+    },
+    {
+      "file": "results/orch/lemmas/structural_mutual_budget.lean",
+      "sha256": "829ffc51b188555c12aaf2c0e0f61de2d6e4fd0731da8c81dc97ae2ee2cbb748",
+      "lines": 82
+    },
+    {
+      "file": "results/orch/lemmas/structural_normal_form.lean",
+      "sha256": "44826700dbcc66c75807b41d2c872d93ea966946401885a86b4b8fb845d94244",
+      "lines": 608
+    },
+    {
+      "file": "results/orch/lemmas/structural_operand_antichain.lean",
+      "sha256": "83957255952085e85623c358bb4470f2e210278deaf46bab3a7859fcfa19fa8c",
+      "lines": 384
+    },
+    {
+      "file": "results/orch/lemmas/structural_operand_normal_form.lean",
+      "sha256": "267c1a2ca28bf123a82a416728b3090708aeef94c53affcdc09027ba2dcc7220",
+      "lines": 370
+    },
+    {
+      "file": "results/orch/lemmas/structural_or_reconvergence.lean",
+      "sha256": "6f9ba3d09f18c774efde5a69c4222d9b89139b689b39a1e93e18c4c3cce59457",
+      "lines": 982
+    },
+    {
+      "file": "results/orch/lemmas/structural_order.lean",
+      "sha256": "ec10b6238ec8eabebf862328495f142825472f9030653f88787453ca9c735498",
+      "lines": 114
+    },
+    {
+      "file": "results/orch/lemmas/structural_overlap_top.lean",
+      "sha256": "b73b6e6c16752717c9c0b7128b3ca0bca0f97bd17d3784536492761336cec394",
+      "lines": 719
+    },
+    {
+      "file": "results/orch/lemmas/structural_reconvergence.lean",
+      "sha256": "2915ecc43b50e8ea5a8bf9d82cbb6fdd900ec1ebad0dc04465d1ede729286ebd",
+      "lines": 40
+    },
+    {
+      "file": "results/orch/lemmas/structural_residual_independent.lean",
+      "sha256": "0ecee10e152b2c0055c0b7142c4bc65ebb9f066c3e7974ef4d3cb8b6f2d702bd",
+      "lines": 1683
+    },
+    {
+      "file": "results/orch/lemmas/structural_residual_overlap_charge.lean",
+      "sha256": "3ee628ab126b7c8ecfadf768620ecb585e5f2db3bdfe6972816582b2343be44b",
+      "lines": 2415
+    },
+    {
+      "file": "results/orch/lemmas/structural_semantics.lean",
+      "sha256": "c4ecc3701d37cb69be9bd162c6350430a8d8553fea1563aad26ad15cdd329dd4",
+      "lines": 455
+    },
+    {
+      "file": "results/orch/lemmas/structural_singleton_nonh_budget.lean",
+      "sha256": "de1c52633c7cfca33494a95dd9b627d1340e0f51ad153f7351a4d5db24067088",
+      "lines": 3801
+    },
+    {
+      "file": "results/orch/lemmas/structural_singleton_trace.lean",
+      "sha256": "961b5d65a199142e1333a1df48852c6692157150274c6d4ff9f3f0b373a62afe",
+      "lines": 755
+    },
+    {
+      "file": "results/orch/lemmas/structural_star_replacement.lean",
+      "sha256": "8aeb2924306fdf4205dc85f493e2b6408bfaa2d6ac1368064822adb490e681b8",
+      "lines": 70
+    }
+  ]
+}

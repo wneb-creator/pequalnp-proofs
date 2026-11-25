@@ -34,7 +34,7 @@ For the earliest junk with singleton overlap {r}, internal cleaner t, and pure r
 - Toolchain's checked `forest_neighbor_star_mixed_overhead` in `guarded_neighbor_anchor_budget.lean` uses the ordinary neighbor anchor r in Q and the opposite-color mixed P root to pay the extra h root: selected forest leaves plus Y are bounded by `splitExtra.card + centreless.card`.
 - Combine with |A| charged leaves and two active centers, then apply `guarded_antichain_cover_exclusion`.
 
-The remaining formal step in this subcase is the **actual finite edge assignment and root selection/cardinality proof**, including mixed/centreless/h-accepted cases and all empty-set cases. No claim is made that arbitrary remaining Ustar edges satisfy the guarded-only hypothesis.
+The remaining formal step in this subcase is the **actual finite edge assignment and trace-to-root membership proof**, including mixed/centreless/h-accepted cases and all empty-set cases. The finite root selector itself is now checked: `inventory_centreless_roots.lean`, final `centreless_guard_roots`, constructs at most one valid raw root per centreless top whose two raw sides exclude r, proves every selected root excludes r, and covers each nonempty side of every such top. It does not yet derive both-side exclusion from an arbitrary guarded-star trace. No claim is made that arbitrary remaining Ustar edges satisfy the guarded-only hypothesis.
 
 ## Global unresolved cases
 
@@ -50,3 +50,5 @@ Do not assume any of these false shortcuts:
 `inventory_colored_budget.lean` is an untracked working duplicate, byte-for-byte identical to frozen `inventory_residual_complete.lean` (1775 lines, SHA256 `301f39408fdce739c2ac5fdbfcbc3a305a7c95b01d06c2117d6a4ca66f366ba8`). It contains no unique result and does not need separate preservation.
 
 The latest inventory source family has no sorry, new axioms, native_decide, forbidden namespace escape text, string literals, attributes, or set_option commands. Imports are Defs/Mathlib only. Final PR integration still must respect the single-file size and single-theorem rules; copied helper declarations may need theorem-to-lemma normalization by root.
+
+Final selector snapshot: `inventory_centreless_roots.lean`, 1813 lines, SHA256 `3efa860ef0d87076b181ab97c3839037e807ca1137c88f6b7f1abf40fdf5eb1a`, direct Lean exit 0. Complete logs `inventory-centreless-roots.stdout` and `.stderr` in scratch have only inherited/deprecation warnings. Structural agent independently cleared the frozen selector snapshot.
