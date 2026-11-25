@@ -3,7 +3,7 @@ Named file: 10,255 lines, 519,732 bytes; independently reviewed OneJunkProfile.l
 Lean 4.36.0: lake build PEqualNP.Outside.L_meta_1031 passed (exit 0).
 Strongest partial: exact posted existential conclusion follows if a globally least public circuit is AO2 and has exactly one unsound AND. The extra premise remains unproved in general.
 Independent review: PASS for conditional partial scope; prior core axiom audit uses only propext, Classical.choice, Quot.sound.
-Latest full checker run on previous OneJunk target: REJECTED (no-theorem). Current target still lacks the unconditional named theorem.
+Latest checker run on the current namespace-normalized OneJunkProfile target: REJECTED (no-theorem). The unconditional named theorem remains missing. Full output: checker-latest.log.
 Other checked partials, numerical evidence, source reviews and full outputs are under results/orch/. Numerical UNSAT claims have no Lean certificate; timeouts are inconclusive.
 No full-proof PR opened. Cleanup requiring a full checker pass has not been triggered.
 Sub-agents: 9 across proof strategies, counterexample search and independent reviews; two fresh-core agents use gpt-6.2-astra at ultra effort.

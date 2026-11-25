@@ -45,3 +45,10 @@ No implicit existence, strict cost improvement, minimum-circuit theorem, or glob
 Format/security checks remain clean: imports only at top, all declarations under PEqualNP.Outside.L_meta_1031.FreshCore, no sorry/new axioms/native_decide, no forbidden root spelling, strings, attributes, unsafe code, custom syntax, or option changes.
 
 Independent recompilation of the exact source plus twelve #print axioms commands passed with exit 0. Audited selectedContext_mono, selected_eval, selected_size, selected_ao2, selected_computes_iff, selectedSignal_at, selected_first_owns_iff, selected_first_center_repair, selected_rewire_path, selected_owned_survives, selected_center_repair, selected_prior_owns_iff. Dependencies are only propext, Classical.choice, Quot.sound. Complete audit log: /tmp/oec/pequalnp-pilot-54/freshcore-concrete-review-axioms-confirm.log.
+
+Independent root review of the 914-to-1182 extension
+Verdict: PASS as conditional circuit-repair lemmas and an abstract obstruction; no full theorem.
+Read the complete 268-line addition against the previously audited source. exact_hits_iff characterizes linear replacement by safe vertices covering all pivotal edges. The opposed independent-set certificates retain their explicit no-linear-replacement premise. selected_or_repair preserves actual public Circuit.eval, size and gate legality under those safe-cover premises; selected_or_wires_iff gives an exact test for two existing prefix wires. literal_guard_iff retains both the pivotal-star and independent-input constraints.
+path_context_obstruction constructs an abstract monotone context with two disjoint pivotal edges, showing that all exact replacement signals must accept both. It also rules out any linear hit-set replacement for that context. The theorem claims no circuit implementation, size bound, minimality, or refutation of the posted statement. The original 914-line prefix is unchanged. Exact-source author compilation passed with no diagnostics (freshcore-build-05.log).
+Reviewed SHA256: ff337bf670b932e228164b99642d4c5d48071947d928187f5d7c501da5a14bdf
+UTC: 2026-11-25T01:58:48.050824+00:00

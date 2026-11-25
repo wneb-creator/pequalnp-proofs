@@ -1,0 +1,11 @@
+Independent root review of FreshMixed.lean
+Verdict: PASS for partial local gate-count bounds; not a proof of L-meta-1031.
+
+Read all 456 lines. The generic lower bounds count distinct gates outside an explicitly assumed set of pure row-only or column-only signals. Inputs must be pure on the selected four assignments. A direct reader of an earlier constant-one signal cannot be the first producer of a mixed signature. A diagonal output first requires two distinct earlier mixed signatures, hence those three first producers plus the direct reader give four distinct gates. A non-pure output requires at least two. The proof treats arbitrary shared consumers and public Circuit.eval behavior, including forward or invalid wires evaluating false at the gate.
+
+The graph-facing wrappers retain explicit cross-input disjointness, cone purity, direct-reader, and output-profile premises. The closed-cone lemma derives purity from structural input closure and row/column input dependence. Neither the wrappers nor the sharp examples claim an unconditional graph normalization, gate deletion, or global cost bound. The sharp examples certify only the stated four-assignment profiles.
+
+Source has only allowed imports and its own namespace; no sorry, custom axioms, native_decide, forbidden root spelling, strings, attributes, option settings, or meta commands. Author exact-source Lean compilation passed; full output preserved in fresh-mixed-check.log.
+
+Reviewed SHA256: d677958c8ce802989a5895ee5d3916d44d3aa354fe8cee270cd1696050dcd1c3
+UTC: 2026-11-25T01:55:12.316892+00:00

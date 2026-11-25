@@ -911,4 +911,272 @@ lemma selected_prior_owns_iff {n : ℕ} (pre post : List Gate) (out : ℕ) (g h 
       SelectedOwn (selectedCircuit pre h post out) t u v :=
   ⟨selected_prior_owns pre post out g h ht u v, selected_prior_owns pre post out h g ht u v⟩
 
+def SafeVertices {V : Type*} (G : SimpleGraph V) (K : Set V → Prop → Prop) : Set V :=
+  {v | Permitted G K {v}}
+
+lemma unsafe_vertex_iff {V : Type*} (G : SimpleGraph V) (K : Set V → Prop → Prop)
+    (v : V) : v ∉ SafeVertices G K ↔ ∃ I, v ∈ I ∧ ¬ HasEdge G I ∧ K I True := by
+  classical
+  simp only [SafeVertices, Set.mem_ofPred_eq, Permitted, Set.singleton_subset_iff]
+  push Not
+  rfl
+
+lemma exact_hits_iff {V : Type*} {G : SimpleGraph V} {K : Set V → Prop → Prop}
+    {s : Set V → Prop} (hK : ContextMono K) (hs : Exact G K s) (A : Set V) :
+    Exact G K (Hits A) ↔ A ⊆ SafeVertices G K ∧
+      ∀ u v, Pivotal G K u v → u ∈ A ∨ v ∈ A := by
+  constructor
+  · intro h
+    obtain ⟨_, hperm⟩ := (exact_iff_interval hK hs (hits_mono A)).1 h
+    exact ⟨fun v hv => hperm {v} ⟨v,hv,by simp⟩,
+      fun u v he => (hits_pair A _ _).1 (pivotal_requires hK h he)⟩
+  · rintro ⟨ha,hcov⟩
+    apply (exact_iff_interval hK hs (hits_mono A)).2
+    constructor
+    · rintro X ⟨u,hu,v,hv,he⟩
+      rcases hcov _ _ he with h | h
+      · exact ⟨u,h,hu⟩
+      · exact ⟨v,h,hv⟩
+    · rintro X ⟨a,haA,haX⟩
+      exact permitted_mono G K (Set.singleton_subset_iff.mpr haX) (ha haA)
+
+lemma pivotal_symm {V : Type*} {G : SimpleGraph V} {K : Set V → Prop → Prop}
+    {u v : V} (h : Pivotal G K u v) : Pivotal G K v u := by
+  exact ⟨h.1.symm, by simpa only [Set.pair_comm v u] using h.2⟩
+
+lemma no_linear_obstruction {V : Type*} {G : SimpleGraph V} {K : Set V → Prop → Prop}
+    {s : Set V → Prop} (hK : ContextMono K) (hs : Exact G K s)
+    (hbad : ¬ ∃ A, Exact G K (Hits A)) :
+    ∃ u v I J, Pivotal G K u v ∧ u ∈ I ∧ v ∈ J ∧
+      ¬ HasEdge G I ∧ ¬ HasEdge G J ∧ K I True ∧ K J True := by
+  classical
+  have hnc : ¬ ∀ u v, Pivotal G K u v → u ∈ SafeVertices G K ∨ v ∈ SafeVertices G K :=
+    fun h => hbad ⟨_, (exact_hits_iff hK hs _).2 ⟨Set.Subset.rfl, h⟩⟩
+  push Not at hnc
+  obtain ⟨u,v,he,hu,hv⟩ := hnc
+  obtain ⟨I,huI,hi,hKI⟩ := (unsafe_vertex_iff G K u).1 hu
+  obtain ⟨J,hvJ,hj,hKJ⟩ := (unsafe_vertex_iff G K v).1 hv
+  exact ⟨u,v,I,J,he,huI,hvJ,hi,hj,hKI,hKJ⟩
+
+lemma unsafe_rectangle_certificates {V : Type*} {G : SimpleGraph V}
+    {K : Set V → Prop → Prop} {A B : Set V} (hK : ContextMono K)
+    (hold : Exact G K (fun X => Hits A X ∧ Hits B X))
+    (hbad : ¬ ∃ S, Exact G K (Hits S)) :
+    ∃ a b I J, a ∈ A ∧ a ∉ B ∧ b ∈ B ∧ b ∉ A ∧ Pivotal G K a b ∧
+      a ∈ I ∧ b ∈ J ∧ ¬ HasEdge G I ∧ ¬ HasEdge G J ∧ K I True ∧ K J True ∧
+      (∀ y ∈ B, ∃ i ∈ I, G.Adj y i) ∧ (∀ x ∈ A, ∃ j ∈ J, G.Adj x j) := by
+  classical
+  obtain ⟨u,v,I,J,he,huI,hvJ,hi,hj,hki,hkj⟩ := no_linear_obstruction hK hold hbad
+  have old := pivotal_requires hK hold he
+  have huA := (hits_pair A u v).1 old.1
+  have huB := (hits_pair B u v).1 old.2
+  have block {x : V} {Z : Set V} (hx : x ∈ Z) (hz : ¬ HasEdge G Z) (hk : K Z True) :
+      ¬ (x ∈ A ∧ x ∈ B) := by
+    rintro ⟨ha,hb⟩
+    exact hz ((hold Z).1 (hK Set.Subset.rfl (fun _ => ⟨⟨x,ha,hx⟩,⟨x,hb,hx⟩⟩) hk))
+  have hU := block huI hi hki
+  have hV := block hvJ hj hkj
+  have hrev : Exact G K (fun X => Hits B X ∧ Hits A X) := by
+    simpa only [and_comm] using hold
+  by_cases ha : u ∈ A
+  · have hnb : u ∉ B := fun h => hU ⟨ha,h⟩
+    have hb := huB.resolve_left hnb
+    exact ⟨u,v,I,J,ha,hnb,hb,fun h => hV ⟨h,hb⟩,he,huI,hvJ,hi,hj,hki,hkj,
+      independent_pivot_dominates hK hold hi hki ⟨u,ha,huI⟩,
+      independent_pivot_dominates hK hrev hj hkj ⟨v,hb,hvJ⟩⟩
+  · have hva := huA.resolve_left ha
+    have hvb : v ∉ B := fun h => hV ⟨hva,h⟩
+    have hb := huB.resolve_right hvb
+    exact ⟨v,u,J,I,hva,hvb,hb,ha,pivotal_symm he,hvJ,huI,hj,hi,hkj,hki,
+      independent_pivot_dominates hK hold hj hkj ⟨v,hva,hvJ⟩,
+      independent_pivot_dominates hK hrev hi hki ⟨u,hb,huI⟩⟩
+
+lemma selectedSignal_literalOr {n : ℕ} (pre : List Gate) (a b : Fin n)
+    (X : Set (Fin n)) : selectedSignal pre ⟨GateOp.or, [a,b]⟩ X ↔ Hits {a,b} X := by
+  have hor : selectedSignal pre ⟨GateOp.or, [a,b]⟩ X ↔
+      (selectedWire pre a X ∨ selectedWire pre b X) := by
+    simp [selectedSignal, selectedValue, GateOp.eval, selectedWire]
+  rw [hor, selectedWire_literal, selectedWire_literal]
+  constructor
+  · rintro (ha|hb)
+    · exact ⟨a,by simp,ha⟩
+    · exact ⟨b,by simp,hb⟩
+  · rintro ⟨c,hc,hX⟩
+    rcases (Set.mem_insert_iff.mp hc) with rfl | h
+    · exact Or.inl hX
+    · exact Or.inr ((Set.mem_singleton_iff.mp h) ▸ hX)
+
+lemma selected_or_repair {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (pre post : List Gate) (out : ℕ) (g : Gate) (a b : Fin n)
+    (hC : ∀ z ∈ (selectedCircuit pre g post out).gates,
+      (z.op = GateOp.and ∨ z.op = GateOp.or) ∧ z.inputs.length ≤ 2)
+    (hold : ∀ x : Fin n → Bool, (selectedCircuit pre g post out).eval
+      (List.ofFn x) = decide (∃ u v, G.Adj u v ∧ x u = true ∧ x v = true))
+    (ha : a ∈ SafeVertices G (selectedContext pre post out))
+    (hb : b ∈ SafeVertices G (selectedContext pre post out))
+    (hcov : ∀ u v, Pivotal G (selectedContext pre post out) u v →
+      u ∈ ({a,b} : Set _) ∨ v ∈ ({a,b} : Set _)) :
+    let D := selectedCircuit pre ⟨GateOp.or, [a,b]⟩ post out
+    D.size = (selectedCircuit pre g post out).size ∧
+    (∀ z ∈ D.gates, (z.op = GateOp.and ∨ z.op = GateOp.or) ∧ z.inputs.length ≤ 2) ∧
+    (∀ x : Fin n → Bool, D.eval (List.ofFn x) =
+      decide (∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)) := by
+  dsimp only
+  have hp : ∀ z ∈ pre, z.op = GateOp.and ∨ z.op = GateOp.or := by
+    intro z hz
+    exact (hC z (List.mem_append_left _ hz)).1
+  have hs : ∀ z ∈ post, z.op = GateOp.and ∨ z.op = GateOp.or := by
+    intro z hz
+    exact (hC z (List.mem_append_right _ (List.mem_cons_of_mem _ hz))).1
+  have hm := selectedContext_mono (n := n) pre post out hp hs
+  have he : Exact G (selectedContext pre post out) (selectedSignal pre g) :=
+    (selected_computes_iff G pre post out g).1 hold
+  have h := (exact_hits_iff hm he {a,b}).2 ⟨Set.pair_subset ha hb, hcov⟩
+  refine ⟨selected_size _ _ _ _ _, selected_ao2 _ _ _ _ _ hC (by simp),
+    (selected_computes_iff G pre post out _).2 ?_⟩
+  intro X
+  simpa only [selectedSignal_literalOr, HasEdge] using h X
+
+lemma exact_iff_pivot_tests {V : Type*} {G : SimpleGraph V} {K : Set V → Prop → Prop}
+    {s h : Set V → Prop} (hK : ContextMono K) (hs : Exact G K s) (hm : SignalMono h) :
+    Exact G K h ↔ (∀ u v, Pivotal G K u v → h {u,v}) ∧
+      (∀ I, ¬ HasEdge G I → K I True → ¬ h I) := by
+  rw [exact_iff_interval hK hs hm]
+  constructor
+  · rintro ⟨hR,hP⟩
+    exact ⟨fun u v he => hR {u,v} ⟨u,by simp,v,by simp,he⟩,
+      fun I hi hk hI => hP I hI I Set.Subset.rfl hi hk⟩
+  · rintro ⟨hR,hP⟩
+    constructor
+    · rintro X ⟨u,hu,v,hv,he⟩
+      exact hm (Set.pair_subset hu hv) (hR u v he)
+    · intro X hX I hXI hi hk
+      exact hP I hi hk (hm hXI hX)
+
+lemma literal_guard_iff {V : Type*} {G : SimpleGraph V} {K : Set V → Prop → Prop}
+    {A B : Set V → Prop} (hK : ContextMono K) (hs : Exact G K (fun X => A X ∧ B X))
+    (hB : SignalMono B) (c : V) :
+    Exact G K (fun X => c ∈ X ∧ B X) ↔
+      (∀ u v, Pivotal G K u v → u = c ∨ v = c) ∧
+      (∀ I, ¬ HasEdge G I → K I True → c ∈ I → ¬ B I) := by
+  have hm : SignalMono (fun X => c ∈ X ∧ B X) :=
+    fun _ _ hXY h => ⟨hXY h.1, hB hXY h.2⟩
+  rw [exact_iff_pivot_tests hK hs hm]
+  constructor
+  · rintro ⟨hR,hP⟩
+    refine ⟨?_, fun I hi hk hc hb => hP I hi hk ⟨hc,hb⟩⟩
+    intro u v he
+    have hc := (hR u v he).1
+    simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at hc
+    exact hc.imp Eq.symm Eq.symm
+  · rintro ⟨hR,hP⟩
+    refine ⟨?_, fun I hi hk h => hP I hi hk h.1 h.2⟩
+    intro u v he
+    refine ⟨?_, (pivotal_requires hK hs he).2⟩
+    rcases hR _ _ he with rfl | rfl <;> simp
+
+lemma selectedSignal_binaryOr {n : ℕ} (pre : List Gate) (i j : ℕ) (X : Set (Fin n)) :
+    selectedSignal pre ⟨GateOp.or,[i,j]⟩ X ↔ selectedWire pre i X ∨ selectedWire pre j X := by
+  simp [selectedSignal, selectedValue, GateOp.eval, selectedWire]
+
+lemma selected_or_wires_iff {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (pre post : List Gate) (out : ℕ) (g : Gate) (i j : ℕ)
+    (hC : ∀ z ∈ (selectedCircuit pre g post out).gates, z.op = GateOp.and ∨ z.op = GateOp.or)
+    (hold : ∀ x : Fin n → Bool, (selectedCircuit pre g post out).eval
+      (List.ofFn x) = decide (∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)) :
+    (∀ x : Fin n → Bool, (selectedCircuit pre ⟨GateOp.or,[i,j]⟩ post out).eval
+      (List.ofFn x) = decide (∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)) ↔
+    (∀ u v, Pivotal G (selectedContext pre post out) u v →
+      selectedWire pre i {u,v} ∨ selectedWire pre j {u,v}) ∧
+    (∀ I, ¬ HasEdge G I → selectedContext pre post out I True →
+      ¬ selectedWire pre i I ∧ ¬ selectedWire pre j I) := by
+  simp only [selected_computes_iff] at hold ⊢
+  have hp : ∀ z ∈ pre, z.op = GateOp.and ∨ z.op = GateOp.or :=
+    fun z hz => hC z (List.mem_append_left _ hz)
+  have hs : ∀ z ∈ post, z.op = GateOp.and ∨ z.op = GateOp.or :=
+    fun z hz => hC z (List.mem_append_right _ (List.mem_cons_of_mem _ hz))
+  have hm := selectedContext_mono (n := n) pre post out hp hs
+  have he : Exact G (selectedContext pre post out) (selectedSignal pre g) := hold
+  have hw := selectedSignal_mono (n := n) pre ⟨GateOp.or,[i,j]⟩ hp (Or.inr rfl)
+  have h := exact_iff_pivot_tests hm he hw
+  simpa only [Exact, HasEdge, selectedSignal_binaryOr, not_or] using h
+
+lemma pair_hasEdge_iff {V : Type*} (G : SimpleGraph V) (u v : V) :
+    HasEdge G {u,v} ↔ G.Adj u v := by
+  constructor
+  · rintro ⟨a,ha,b,hb,he⟩
+    simp only [Set.mem_insert_iff, Set.mem_singleton_iff] at ha hb
+    rcases ha with rfl | rfl <;> rcases hb with rfl | rfl
+    · exact (he.ne rfl).elim
+    · exact he
+    · exact he.symm
+    · exact (he.ne rfl).elim
+  · exact hasEdge_pair G
+
+lemma path_context_obstruction {V : Type*} (G : SimpleGraph V) (a b c d : V)
+    (hab : G.Adj a b) (hbc : G.Adj b c) (hcd : G.Adj c d)
+    (hac : a ≠ c) (had : a ≠ d) (hbd : b ≠ d) (hnac : ¬ G.Adj a c) :
+    ∃ K : Set V → Prop → Prop, ContextMono K ∧
+      Exact G K (fun X => (a ∈ X ∨ c ∈ X) ∧ (b ∈ X ∨ d ∈ X)) ∧
+      (¬ ∃ S, Exact G K (Hits S)) ∧
+      (∀ h : Set V → Prop, Exact G K h →
+        ¬ ∃ z, ∀ u v, G.Adj u v → h {u,v} → u = z ∨ v = z) := by
+  classical
+  let H := SimpleGraph.fromRel (fun x y : V => (x = a ∧ y = b) ∨ (x = c ∧ y = d))
+  let N : Set V → Prop := fun X => b ∈ X ∨ c ∈ X
+  let s : Set V → Prop := fun X => (a ∈ X ∨ c ∈ X) ∧ (b ∈ X ∨ d ∈ X)
+  let K := Realize G H N
+  have hHG : H ≤ G := by
+    intro u v he
+    obtain ⟨_,h⟩ := (SimpleGraph.fromRel_adj _ _ _).1 he
+    rcases h with (⟨rfl,rfl⟩|⟨rfl,rfl⟩)|(⟨rfl,rfl⟩|⟨rfl,rfl⟩)
+    · exact hab
+    · exact hcd
+    · exact hab.symm
+    · exact hcd.symm
+  have hp : ∀ u v, H.Adj u v → s {u,v} := by
+    intro u v he
+    obtain ⟨_,h⟩ := (SimpleGraph.fromRel_adj _ _ _).1 he
+    rcases h with (⟨rfl,rfl⟩|⟨rfl,rfl⟩)|(⟨rfl,rfl⟩|⟨rfl,rfl⟩) <;> simp [s]
+  have hN : SignalMono N := fun _ _ hXY h => h.imp (hXY ·) (hXY ·)
+  have hS : SignalMono s := fun _ _ hXY h =>
+    ⟨h.1.imp (hXY ·) (hXY ·), h.2.imp (hXY ·) (hXY ·)⟩
+  have hK : ContextMono K := realize_mono G H hN
+  have hs : Exact G K s := by
+    apply realize_exact hHG hS hp
+    intro X hNx hSx
+    rcases hNx with hb|hc
+    · rcases hSx.1 with ha|hc
+      · exact ⟨a,ha,b,hb,hab⟩
+      · exact ⟨b,hb,c,hc,hbc⟩
+    · rcases hSx.2 with hb|hd
+      · exact ⟨b,hb,c,hc,hbc⟩
+      · exact ⟨c,hc,d,hd,hcd⟩
+  have pAB : Pivotal G K a b :=
+    (realize_pivotal hHG N a b).2 ⟨hab.ne, Or.inl (Or.inl ⟨rfl,rfl⟩)⟩
+  have pCD : Pivotal G K c d :=
+    (realize_pivotal hHG N c d).2 ⟨hcd.ne, Or.inl (Or.inr ⟨rfl,rfl⟩)⟩
+  refine ⟨K,hK,hs,?_,?_⟩
+  · rintro ⟨S, h⟩
+    obtain ⟨hSsafe,hcover⟩ := (exact_hits_iff hK hs S).1 h
+    rcases hcover a b pAB with ha|hb
+    · have hforbid : a ∉ SafeVertices G K := by
+        apply (unsafe_vertex_iff G K a).2
+        refine ⟨{a,c},by simp,(fun hi => hnac ((pair_hasEdge_iff G a c).1 hi)),?_⟩
+        exact Or.inr ⟨trivial,Or.inr (Or.inr (by simp))⟩
+      exact hforbid (hSsafe ha)
+    · have hforbid : b ∉ SafeVertices G K := by
+        apply (unsafe_vertex_iff G K b).2
+        refine ⟨{b,b},by simp,(fun hi => ((pair_hasEdge_iff G b b).1 hi).ne rfl),?_⟩
+        exact Or.inr ⟨trivial,Or.inr (Or.inl (by simp))⟩
+      exact hforbid (hSsafe hb)
+  · rintro h he ⟨z,hz⟩
+    have h₁ := hz a b hab (pivotal_requires hK he pAB)
+    have h₂ := hz c d hcd (pivotal_requires hK he pCD)
+    rcases h₁ with rfl|rfl <;> rcases h₂ with h₂|h₂
+    · exact hac h₂.symm
+    · exact had h₂.symm
+    · exact hbc.ne h₂.symm
+    · exact hbd h₂.symm
+
 end PEqualNP.Outside.L_meta_1031.FreshCore
