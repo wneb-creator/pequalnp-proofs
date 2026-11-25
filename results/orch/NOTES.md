@@ -90,3 +90,11 @@ Read-only child search_audit independently regenerated all52positive+704maximal-
 ## 2026-11-25T14:59:31.031579+00:00 — minimality corollary compiled and axiom audit
 
 SingletonPruning.lean now has 481 lines and proves `minimal_gate_has_offstar_edge`: in a minimum-size monotone circuit computing the edge relation E, every gate accepting singleton p must also accept an E-edge whose two endpoints both differ from p. The endpoints are not assumed or claimed distinct from each other. Derivation uses the checked erasure lemma and size minimality. Both final helper lemmas compiled and their axiom reports contain exactly propext, Classical.choice, Quot.sound. Complete logs are preserved in SingletonPruning.validation.txt and SingletonPruning.axioms.txt. Source SHA256 aa537d8a40363b1f344b99110e42ada90e9006a6399a96c085e929f43750f1fc. File frozen for checkpoint review.
+
+## 2026-11-25T15:00:15.724031+00:00 — incremental solver ready
+
+CaDiCaL3.1.0 built locally fromGitHub release source; singlethread,nice10. Unpinned64gate8window control solves0.08s andall756independent tests pass. Source-selector encoding now at-least-one only (as repo genmono.py); eachselected source agrees ontestedrows, so anyselector decodesvalidly onrows. Allwiresused andsourceordera≤b preserve identitypadding. Fullall-free circuits add adjacent-independent operator/first-source canonical ordering; windowproblems omitthatordering. Exact14gate subdivisionK4core synthesis nowrunningwithincrementalCEGIS. Greedynegativecovers:17maximalnegative rows coverall273nonedgepairs,28coverall1508independenttriples; available under job scratch. Scripts preserved inresults/orch/lemmas/sat_resynthesis.py andsat_incremental.py.
+
+## 2026-11-25T15:03:22.994853+00:00 — Baseline64 checked
+
+Named Lean module build passed (5149 jobs). `L_meta_650.lean` contains a checked64-gate baseline, 478lines, SHA256`f37b93c9e99fc12fa2eb9c99c0b4cdc8830539cfa2dd58595bc2668c0eee91cd`. No claim of posted63-gate theorem. Direct all-circuit simplification and broad propositional tauto were replaced by explicit wire equations and targeted simp normalization. Full build output preserved in `results/orch/lemmas/Star64.validation.txt`. Source frozen for independent review/checkpoint push.
