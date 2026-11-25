@@ -5684,4 +5684,179 @@ end OrBound603
 
 end RelativeOrBound
 
+
+
+namespace IncidenceCoverTransport
+
+open PEqualNP.MetaComplexity.NestedCover
+
+lemma finite_min_cover_exists
+    (n : ℕ) (G : SimpleGraph (Fin n)) :
+    ∃ K : Finset (Fin n), IsMinCover G K := by
+  classical
+  let P : ℕ → Prop := fun k => ∃ K : Finset (Fin n),
+    G.IsVertexCover (K : Set (Fin n)) ∧ K.card = k
+  have hex : ∃ k, P k := by
+    refine ⟨n, Finset.univ, ?_, by simp⟩
+    simp
+  obtain ⟨K, hK, hcard⟩ := Nat.find_spec hex
+  refine ⟨K, hK, ?_⟩
+  intro K' hK'
+  rw [hcard]
+  exact Nat.find_min' hex ⟨K', hK', rfl⟩
+
+lemma pair_embedding_injective {N n : ℕ}
+    (P L : Fin N → Fin n) (hP : Function.Injective P) (hL : Function.Injective L)
+    (hdis : ∀ p l, P p ≠ L l) :
+    Function.Injective (fun e : Fin N × Fin N => s(P e.1, L e.2)) := by
+  rintro ⟨p,l⟩ ⟨p',l'⟩ he
+  rcases Sym2.eq_iff.mp he with h | h
+  · exact Prod.ext (hP h.1) (hL h.2)
+  · exact False.elim (hdis p l' h.1)
+
+lemma of_deleted_cover {N n : ℕ}
+    (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (G : SimpleGraph (Fin n)) (U : Finset (Sym2 (Fin n)))
+    (P L : Fin N → Fin n) (hP : Function.Injective P) (hL : Function.Injective L)
+    (hdis : ∀ p l, P p ≠ L l)
+    (hI : ∀ p l, I p l → G.Adj (P p) (L l))
+    (K : Finset (Fin n))
+    (hK : (G.deleteEdges (U : Set (Sym2 (Fin n)))).IsVertexCover
+      (K : Set (Fin n))) :
+    ∃ A B : Finset (Fin N),
+      A.card + B.card ≤ K.card ∧
+      (∀ p, p ∈ A ↔ P p ∈ K) ∧ (∀ l, l ∈ B ↔ L l ∈ K) ∧
+      (∀ p l, I p l → p ∉ A → l ∉ B → s(P p,L l) ∈ U) ∧
+      (Finset.univ.filter (fun e : Fin N × Fin N =>
+        I e.1 e.2 ∧ e.1 ∉ A ∧ e.2 ∉ B)).card ≤ U.card := by
+  classical
+  let A := Finset.univ.filter (fun p => P p ∈ K)
+  let B := Finset.univ.filter (fun l => L l ∈ K)
+  have hA : ∀ p, p ∈ A ↔ P p ∈ K := by simp [A]
+  have hB : ∀ l, l ∈ B ↔ L l ∈ K := by simp [B]
+  have hAB : Disjoint (A.image P) (B.image L) := by
+    apply Finset.disjoint_left.mpr
+    intro x hx hy
+    obtain ⟨p,_,rfl⟩ := Finset.mem_image.mp hx
+    obtain ⟨l,_,he⟩ := Finset.mem_image.mp hy
+    exact hdis p l he.symm
+  have hsub : A.image P ∪ B.image L ⊆ K := by
+    intro x hx
+    rcases Finset.mem_union.mp hx with hx | hx
+    · obtain ⟨p,hp,rfl⟩ := Finset.mem_image.mp hx
+      exact (hA p).mp hp
+    · obtain ⟨l,hl,rfl⟩ := Finset.mem_image.mp hx
+      exact (hB l).mp hl
+  have hsize := Finset.card_le_card hsub
+  rw [Finset.card_union_of_disjoint hAB,
+    Finset.card_image_of_injective A hP, Finset.card_image_of_injective B hL] at hsize
+  have hmiss : ∀ p l, I p l → p ∉ A → l ∉ B → s(P p,L l) ∈ U := by
+    intro p l hi hp hl
+    by_contra hu
+    have he : (G.deleteEdges (U : Set (Sym2 (Fin n)))).Adj (P p) (L l) := by
+      rw [SimpleGraph.deleteEdges_adj]
+      exact ⟨hI p l hi, hu⟩
+    rcases hK he with hk | hk
+    · exact hp ((hA p).mpr hk)
+    · exact hl ((hB l).mpr hk)
+  refine ⟨A,B,hsize,hA,hB,hmiss,?_⟩
+  let M := Finset.univ.filter (fun e : Fin N × Fin N =>
+    I e.1 e.2 ∧ e.1 ∉ A ∧ e.2 ∉ B)
+  have hMU : M.image (fun e => s(P e.1,L e.2)) ⊆ U := by
+    intro e he
+    obtain ⟨⟨p,l⟩,hm,rfl⟩ := Finset.mem_image.mp he
+    have hm' := (Finset.mem_filter.mp hm).2
+    exact hmiss p l hm'.1 hm'.2.1 hm'.2.2
+  have hc := Finset.card_le_card hMU
+  rwa [Finset.card_image_of_injective M (pair_embedding_injective P L hP hL hdis)] at hc
+
+lemma of_min_deleted_cover_budget {N n t : ℕ}
+    (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (G : SimpleGraph (Fin n)) (U : Finset (Sym2 (Fin n)))
+    (P L : Fin N → Fin n) (hP : Function.Injective P) (hL : Function.Injective L)
+    (hdis : ∀ p l, P p ≠ L l)
+    (hI : ∀ p l, I p l → G.Adj (P p) (L l))
+    (hbudget : ∀ K : Finset (Fin n),
+      IsMinCover (G.deleteEdges (U : Set (Sym2 (Fin n)))) K → K.card ≤ t) :
+    ∃ A B : Finset (Fin N), A.card + B.card ≤ t ∧
+      (∀ p l, I p l → p ∉ A → l ∉ B → s(P p,L l) ∈ U) ∧
+      (Finset.univ.filter (fun e : Fin N × Fin N =>
+        I e.1 e.2 ∧ e.1 ∉ A ∧ e.2 ∉ B)).card ≤ U.card := by
+  obtain ⟨K,hK⟩ := finite_min_cover_exists n (G.deleteEdges (U : Set (Sym2 (Fin n))))
+  obtain ⟨A,B,hs,_,_,hm,hc⟩ := of_deleted_cover I G U P L hP hL hdis hI K hK.1
+  exact ⟨A,B,hs.trans (hbudget K hK),hm,hc⟩
+
+end IncidenceCoverTransport
+
+
+namespace IncidenceCoverTransport
+
+open PEqualNP.CircuitLowerBounds PEqualNP.TopForm
+open PEqualNP.MetaComplexity.NestedCover
+
+lemma small_residual_plane_exclusion
+    {n : ℕ} (q N : ℕ) (I : Fin N → Fin N → Prop) [DecidableRel I]
+    (hq : 2 ≤ q) (hN : N = q ^ 2 + q + 1)
+    (hcol : ∀ l : Fin N, (Finset.univ.filter (fun p => I p l)).card = q + 1)
+    (hunique : ∀ p r : Fin N, p ≠ r → ∃! l : Fin N, I p l ∧ I r l)
+    (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (pi li : Fin N → Fin n) (hpi : Function.Injective pi) (hli : Function.Injective li)
+    (hdis : ∀ p l, pi p ≠ li l)
+    (hI : ∀ p l, I p l → G.Adj (pi p) (li l))
+    (C : Circuit) (hL : IsLeastAO G C) (hT : TopForm G C)
+    (hfour : NoFourCycle G)
+    (hbudget : ∀ K : Finset (Fin n),
+      IsMinCover (G.deleteEdges (Ustar G C : Set (Sym2 (Fin n)))) K →
+        K.card ≤ (tops G C \ centreless G C).card)
+    (hcounter : (tops G C \ centreless G C).card +
+      (2 * (centreless G C).card + (junk G C).card + (orN G C \ lam G C).card) + 1 ≤
+        N + (Ustar G C).card)
+    (hpaid : (Ustar G C).card ≤
+      2 * (centreless G C).card + (junk G C).card + (orN G C \ lam G C).card)
+    (hsmall : (Ustar G C).card ≤ q + 1) : False := by
+  classical
+  obtain ⟨A,B,hs,hm,hc⟩ := of_min_deleted_cover_budget I G (Ustar G C)
+    pi li hpi hli hdis hI hbudget
+  obtain ⟨_,_,hQ,_,shape⟩ := CircuitLedger.low_residual_cover_shape q N
+    (tops G C \ centreless G C).card (Ustar G C).card
+    (2 * (centreless G C).card + (junk G C).card + (orN G C \ lam G C).card)
+    I hq hN hcol hunique A B hs hc hcounter (by omega) hpaid
+  rcases shape with ⟨p,hA,hB⟩ | ⟨l,hA,hB⟩
+  · let X := (Finset.univ.filter (I p)).image li
+    have hXcard : X.card = q + 1 := by
+      rw [Finset.card_image_of_injective _ hli]
+      exact plane_point_degree q N I (by omega) hN hcol hunique p
+    have hXne : X.Nonempty := Finset.card_pos.mp (by omega)
+    have hX : ∀ v ∈ X, G.Adj (pi p) v := by
+      intro v hv
+      obtain ⟨l,hl,rfl⟩ := Finset.mem_image.mp hv
+      exact hI p l (Finset.mem_filter.mp hl).2
+    have hstar : ∀ v ∈ X, s(pi p,v) ∈ Ustar G C := by
+      intro v hv
+      obtain ⟨l,hl,rfl⟩ := Finset.mem_image.mp hv
+      exact hm p l (Finset.mem_filter.mp hl).2 (by simp [hA]) (by simp [hB])
+    have hpen := FirstMixing.residual_pencil_penalty G C hL hT hfour (pi p)
+      X hXne hX hstar
+    omega
+  · let X := (Finset.univ.filter (fun p => I p l)).image pi
+    have hXcard : X.card = q + 1 := by
+      rw [Finset.card_image_of_injective _ hpi]
+      exact hcol l
+    have hXne : X.Nonempty := Finset.card_pos.mp (by omega)
+    have hX : ∀ v ∈ X, G.Adj (li l) v := by
+      intro v hv
+      obtain ⟨p,hp,rfl⟩ := Finset.mem_image.mp hv
+      exact (hI p l (Finset.mem_filter.mp hp).2).symm
+    have hstar : ∀ v ∈ X, s(li l,v) ∈ Ustar G C := by
+      intro v hv
+      obtain ⟨p,hp,rfl⟩ := Finset.mem_image.mp hv
+      rw [Sym2.eq_swap]
+      exact hm p l (Finset.mem_filter.mp hp).2 (by simp [hA]) (by simp [hB])
+    have hpen := FirstMixing.residual_pencil_penalty G C hL hT hfour (li l)
+      X hXne hX hstar
+    omega
+
+end IncidenceCoverTransport
+
+
 end PEqualNP.Outside.L_meta_2583
