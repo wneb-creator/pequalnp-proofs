@@ -1,29 +1,14 @@
-L-meta-1884 partial validation
-UTC: 2026-11-25T16:52:40.633248+00:00
+L-meta-1884 checked partial
+UTC: 2026-11-25T16:58:31.958129+00:00
 Source: results/orch/lemmas/structural.lean
+SHA256: 6afed0e604d5b82dd7ee18be173a3f705708b0a197d8c36c8fa988c64a45298f
+Lines: 132
 Command: lake env lean ../results/orch/lemmas/structural.lean
 Exit status: 0
 Complete stdout:
-../results/orch/lemmas/structural.lean:79:2: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
-If you'd rather continue using `push_neg` in your project, you can implement it as follows:
-```
-open Lean.Parser.Tactic in
-macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
-  `(tactic| push $cfg:optConfig Not $[$loc]?)
-```
-../results/orch/lemmas/structural.lean:93:4: warning: `push_neg` has been deprecated. Prefer using `push Not` instead.
-If you'd rather continue using `push_neg` in your project, you can implement it as follows:
-```
-open Lean.Parser.Tactic in
-macro "push_neg" cfg:optConfig loc:(location)? : tactic =>
-  `(tactic| push $cfg:optConfig Not $[$loc]?)
-```
 
 Complete stderr:
 
-Scope: checked omission/coverage/unary helpers only. Full gap remains unproved.
-Independent review: status_review and root.
+Independent review: root and structural/combinatorial agents. The exact posted gap remains unproved.
 Sub-agents: 6 (rules/toolchain/normalization; structural proof; counterexample search; existing lemmas; combinatorial review; finite certificates)
-TIMING total=14 subagents=6
-
-Revision clarification: the first compiled source had120lines, SHA2567943e5aabe2c733559f494ffd54d4c46b87b7a44ed237a4c9ae5f79de41a02f5. Commit a263234b also included a new12line target_separation helper which was pending its followup compile. No full-gap acceptance is claimed.
+TIMING total=21 subagents=6
