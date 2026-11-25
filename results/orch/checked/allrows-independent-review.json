@@ -1,0 +1,25 @@
+{
+  "source_sha256": "68bba49f71c30510ec294b3f0b563cd3b80c0d502656b857ac3ff5a771c4dac4",
+  "rows": 468,
+  "unique_rows": 468,
+  "shape": [
+    36,
+    13
+  ],
+  "all_row_cardinality": 7,
+  "all_missing_cardinality": 19,
+  "all_rows_admissible": true,
+  "singletons": [
+    126
+  ],
+  "pair_union_min": 204,
+  "pair_union_max": 252,
+  "forbidden_constructs": [],
+  "options": [
+    "maxHeartbeats",
+    "maxRecDepth",
+    "synthInstance.maxSize"
+  ],
+  "kernel_build_status_at_review": "pending",
+  "reviewed_at_utc": "2026-11-25T04:10:06.097695+00:00"
+}
