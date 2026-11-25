@@ -8,3 +8,5 @@
 - 2026-11-25T08:43:37.591290+00:00: edgeless, minimal-existence, and pivotal-edge components compile; independent review passed; preserving first partials.
 
 - 2026-11-25T08:45:30.493606+00:00: first partials pushed ee8a651780c007e6d186f8a54ad7b82629379b4e; ownership, graph biclique, and irredundancy components compiled and independently reviewed.
+
+- 2026-11-25T08:48:21.223963+00:00: second partials pushed 44dbe920fb2376c304f52eaa76157fbb29a1f505; reviewed cycle/path and clean-circuit components ready.
