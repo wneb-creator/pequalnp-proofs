@@ -56,3 +56,6 @@ Sub-agents: nine external helper jobs (helper-1 through helper-9), plus local se
 
 - 2026-11-25T22:58:10Z: Ninth partial push confirmed at 53f0ed00c after an independent seven-file red-team/source review; no FINAL or PR.
 - 2026-11-25T23:02:38Z: Closed C6 strict-circuit lower bound passed kernel/standard-axiom audit, removing the live-bound premise from the earlier pruning artifact. Generic exit-comparison propagation also passed; both received independent root source review.
+
+- 2026-11-25T23:03:43Z: Tenth partial push confirmed at 34a1c1653 after independent root review of the two proof artifacts and measurement logs.
+- 2026-11-25T23:09:18Z: Annotated C6 pruning, designated-pair transfer, and exclusive neighborhood families completed kernel and standard-axiom audits. Independent source reviews passed. The combined i0/i3/i4 assembly is still building and exceeds the final file-size cap.
