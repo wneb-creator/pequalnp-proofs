@@ -32,3 +32,8 @@
 2026-11-25T16:25:03.663805+00:00 Global independent strategy completed more than 20 minutes of research; three helper files compiled, full lower bound and dirty-AND residual charge remain open.
 
 2026-11-25T16:26:33.718218+00:00 — Archived independently reviewed tagged normalization, reach bridge, tagged pool/model and provenance counterexample. Main theorem remains unproved.
+2026-11-25T16:26:44.155609+00:00 Strategy C completed normalized finite tests and froze finite artifacts for archival.
+
+2026-11-25 16:27:21 UTC — Toolchain/certificate agent found and exhaustively verified counterexample to residual tau<=B+|U|; parent notified. Original gap remains open.
+
+2026-11-25T16:29:11.287152+00:00 — Named module 4005lines buildPASS, independentreviewPASS; preserving before handlingunexpectedHTTP410 lease loss.

@@ -1,0 +1,10 @@
+Independent pre-push review of cda02211..worktree: PASS for archival partial push.
+Final file: lean/PEqualNP/Outside/L_meta_4970.lean
+Diff adds1445lines only to thisfile (4005total); no deleted/changed priorproofbodies.
+Certificate source matches exactly after namespace shortening and removal of its Outside import.
+TaggedNormalization matches reviewed source under namespace prefix substitution, except two fully qualified open lines and one explicit W/step qualification to disambiguate identical declarations. Those changes preserve referenced declarations.
+New Global.clean_rt_has_star_support body checked: applies semantic rectangle/star lemma to output-OR-cone AND using monotonicity and exact output semantics; conclusion concerns singleton supports, not allacceptededges.
+Forbiddenmarker scan: none (_root_, quotes, attributes, options, sorry, axioms, native_decide, codegeneration commands).
+Imports remain allowedDefs/Mathlib; no added Outside import. gitdiff --check passed.
+Build partial-build-010.log reports success. File remains helper-only: no finaltheorem; safe to archive aspartial, not submit ascompletedproof.
+SHA256: f9c41953983f47c4f17d4399c2e634d68c0293dbae44c995bb76aa0b04f6a056
