@@ -12,3 +12,5 @@ Lemmas: derivative_unique, audit_wires_length, output_in_range.
 Line count: 65 before cleanup; cleanup not yet applicable to full proof.
 Checker: not run on partial lemmas; no theorem proves the posted statement.
 Full proof search continues.
+
+Structural.lean: lake env lean passed, exit0; 154 lines, one unnecessarySimpa warning. Exact finite geometry and minimum vertex-cover rigidity.

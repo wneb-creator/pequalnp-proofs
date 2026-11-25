@@ -1,0 +1,6 @@
+../results/orch/lemmas/Structural.lean:80:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [hi] at hm
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

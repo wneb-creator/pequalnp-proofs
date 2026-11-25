@@ -56,3 +56,7 @@ A full-plane stochastic search is running for 20 minutes from star64 and double-
 - Research checked 2026-11-25: Jukna, Disproving the Single Level Conjecture, https://eccc.weizmann.ac.il/report/2005/021/download/ . General quadratic circuits cannot be flattened without cost: linear circuits versus nearly quadratic one-AND-level circuits exist. This does not itself settle the C4-free/order-3 case, but rules out using a universal flattening assertion.
 
 Independent audit update 2026-11-25T03:15:27.411594+00:00: `Audit.lean` compiled via `lake env lean` exit0. Derivative witnesses agree on every real wire under fixed initial values and topological recurrences; any circuit accepting some input has its output in range. Full logs are scratch `audit-build-3.stdout.txt` and `.stderr.txt` (both empty).
+
+### Checked structural partial at 2026-11-25T03:17:10.809115+00:00
+
+`results/orch/lemmas/Structural.lean` passed direct `lake env lean` (exit 0). Proven: point/line degree 4, no rectangle, 52 incidences, 45 after deleting endpoints, vertex-cover bound 13, deleted-face cover bound 12, exactly two minimum covers (the full sides), all incidence bicliques are stars, all incidence bicliques have at most 4 edges. Log: `/tmp/oec/pequalnp-pilot-64/structural-build.log`. One harmless unnecessarySimpa warning. These are geometry/normal-form facts, not a lower bound for arbitrary circuits.
