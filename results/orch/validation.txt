@@ -18,3 +18,8 @@ Additional checked partial: results/orch/lemmas/status_review/RawRaw.lean (208 l
 Command: lake env lean -R /workspace/pequalnp-proofs results/orch/lemmas/status_review/RawRaw.lean
 Result: exit 0. Full stdout/stderr preserved separately. Independent structural_proof review passed.
 Meaning: in a Petersen circuit, a binary AND/OR gate using distinct raw vertices forces each endpoint to be read at least twice. No global-minimality assumption.
+
+Named-file extension: size-preserving relabeling reduces arbitrary input maps to identity, preserving FanInTwo and evaluation.
+Build: lake build PEqualNP.Outside.L_meta_1890 exited 0; Build completed successfully (5149 jobs). Named file now 124 lines. Independent status_review review passed.
+Additional checked partial: results/orch/lemmas/finite/FirstStep.lean (39 lines). lake env lean exited 0, empty stdout/stderr. Root independently reviewed the finite witness argument and format.
+Full posted theorem remains absent; local checker would reject no-theorem, so no full-proof checker pass or PR is claimed.

@@ -5,3 +5,4 @@
 2026-11-25T14:53:48.297486+00:00 First named-file build passed: input-remapping partial. Full theorem remains open.
 2026-11-25T14:56:35.566928+00:00 SeedErase partial compiled and root independently reviewed it; preserving separately.
 2026-11-25T14:58:01.975104+00:00 RawRaw partial compiled and independently reviewed; preserving separately.
+2026-11-25T15:00:00.190412+00:00 Input relabeling and endpoint OR-obstruction partials compiled and independently reviewed.

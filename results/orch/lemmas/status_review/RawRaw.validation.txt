@@ -1,0 +1,23 @@
+Partial lemma validation
+UTC 2026-11-25T14:57:57+00:00
+Source: results/orch/lemmas/status_review/RawRaw.lean
+Lines: 208
+Bytes: 9350
+Command: source /tmp/oec/pequalnp-pilot-134/lean-env.sh && lake env lean -R /workspace/pequalnp-proofs -o /tmp/oec/pequalnp-pilot-134/RawRaw.olean ../results/orch/lemmas/status_review/RawRaw.lean
+Exit status: 0
+Independent review: structural_proof PASS for semantics and format; partial only, no final gap theorem.
+Finite witness validation: all 90 distinct ordered vertex pairs independently checked by Python.
+
+STDOUT
+../results/orch/lemmas/status_review/RawRaw.lean:86:67: warning: Unused tactic linter: `<;>` can be replaced with `;`.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/status_review/RawRaw.lean:93:6: warning: Unused tactic linter: `all_goals` can be removed.
+
+Note: This linter can be disabled with `set_option linter.unusedTactic false`
+../results/orch/lemmas/status_review/RawRaw.lean:86:67: warning: Used `tac1 <;> tac2` where `(tac1; tac2)` would suffice
+
+Note: This linter can be disabled with `set_option linter.unnecessarySeqFocus false`
+
+STDERR
+build queue: waiting 60s for one of 3 slots

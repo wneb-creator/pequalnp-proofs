@@ -93,3 +93,7 @@ The endpoint OR-only equality discussion is conditional: seed may be unused, and
 
 ### Raw-raw lemma checked 2026-11-25T14:57:57+00:00
 - RawRaw.lean compiled exit0; complete output in same folder RawRaw.validation.txt. Structural agent independently reviewed semantics and format PASS. Ready early partial push. No minimality assumption: every raw-raw AND/OR gate computing Petersen forces each distinct raw endpoint to have at least2 effective readers.
+
+### Root relabel partial review 2026-11-25T14:59:54+00:00
+- Independent status reviewer PASS for current L_meta_1890.lean (124 lines,5256 bytes,SHA256 345da3289a2e0e4d1e01944a5177f7232ae0f9c25d2e68863286d12d7e5ba7e7). Address map affects exactly raw0..9; seed10 and generated addresses remain fixed. Getter relation handles arbitraryp, defaultfalse reads, and forward addresses. FanInTwo and size preserved. Raw surjectivity witness proof reviewed earlier remains valid. Root reports lake build exit0. Format scans and git diff --check pass; partial only.
+- Checker source inspected without running: CheckLemma.lean408-419 replays project constants;432-436 rejects no-theorem when module-named final theorem is absent. Modes are only check/refute/reduce; no helper-only acceptance mode. Posted statement must remain unchanged.
