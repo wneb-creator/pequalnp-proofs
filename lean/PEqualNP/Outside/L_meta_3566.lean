@@ -9403,3 +9403,167 @@ lemma exists_normalized_pivotal {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRe
   exact ⟨D,hD,hs,hf,all_dirty_pivotal G color hBip hE D hD⟩
 
 end PEqualNP.Outside.L_meta_3566.NormalizedMono
+
+namespace PEqualNP.Outside.L_meta_3566.MonoSingletonPivotal
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+  PEqualNP.MetaComplexity.NestedCover PEqualNP.EdgeOwnership PEqualNP.CleanedNonEdge
+
+lemma mass_le_of_downward_replace {n : ℕ} (color : Fin n → Bool)
+    (C : Circuit) (hAO : AndOrOnly C) (j : ℕ) (hj : j < C.gates.length) (g : Gate)
+    (hback : ∀ i ∈ g.inputs, i < n + j)
+    (hDown : ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (C.wires (List.ofFn x)).getD i false) ≤
+        (C.wires (List.ofFn x)).getD (n + j) false) :
+    MonoNormalize.mass color (SharedRewrite.replace C j g) ≤ MonoNormalize.mass color C := by
+  let D := SharedRewrite.replace C j g
+  have hlen : D.gates.length = C.gates.length := by simp [D, SharedRewrite.replace]
+  have hCount (b : Bool) : (D.wires (List.ofFn (MonoNormalize.input color b))).count true ≤
+      (C.wires (List.ofFn (MonoNormalize.input color b))).count true := by
+    apply WireProfile.wire_count_le C D id
+      (by intro k hk; simpa only [id_eq, hlen] using hk)
+      (by intro a ha b hb hab; exact hab)
+    intro k hk hOn
+    exact Bool.le_iff_imp.mp (JunkNormalize.gateVal_le_of_replace n C hAO j hj g hback
+      hDown k (MonoNormalize.input color b)) hOn
+  exact Nat.add_le_add (hCount false) (hCount true)
+
+lemma pivotal_rejects_downward_or {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (color : Fin n → Bool) (C : Circuit)
+    (hC : MonoNormalize.IsMonoJunkLeastAO G color C)
+    (j : ℕ) (hDirty : j ∈ junk G C) (g : Gate) (hor : g.op = GateOp.or)
+    (hlen : g.inputs.length = 2) (hback : ∀ i ∈ g.inputs, i < n + j)
+    (hDown : ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (C.wires (List.ofFn x)).getD i false) ≤
+        (C.wires (List.ofFn x)).getD (n + j) false) :
+    ∃ a b : Fin n, G.Adj a b ∧ JunkPivotal.pivotal C j a b ∧
+      g.op.eval (g.inputs.map fun i =>
+        (C.wires (List.ofFn (pairInput a b))).getD i false) = false := by
+  classical
+  by_contra hnone
+  have hj := ((JunkNormalize.mem_junk_iff G C j).mp hDirty).1
+  have hPos : ∀ a b : Fin n, G.Adj a b → JunkPivotal.pivotal C j a b →
+      g.op.eval (g.inputs.map fun i =>
+        (C.wires (List.ofFn (pairInput a b))).getD i false) = true := by
+    intro a b hab hp
+    apply Bool.eq_true_of_not_eq_false
+    intro hf
+    exact hnone ⟨a, b, hab, hp, hf⟩
+  obtain ⟨hAO, hFun, hsize⟩ := SingletonPivotal.correct_of_pivotal_cover_below G C
+    hC.1.1 hC.1.2.1 j hj g (Or.inr hor) hlen hback hPos hDown
+  have hLeast : IsLeastAO G (SharedRewrite.replace C j g) :=
+    ⟨hAO, hFun, fun D hD hDF => hsize.trans_le (hC.1.2.2 D hD hDF)⟩
+  have hm := mass_le_of_downward_replace color C hC.1.1.1 j hj g hback hDown
+  have he := MonoNormalize.mass_eq_of_le G color C hC _ hLeast hm
+  have hlt := SingletonPivotal.junk_card_lt_of_or_replace G C hC.1.1.1
+    j hj g hor hback hDown hDirty
+  have hle := hC.2.2 _ hLeast he
+  omega
+
+lemma pivotal_rejects_two_wires {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (color : Fin n → Bool) (C : Circuit)
+    (hC : MonoNormalize.IsMonoJunkLeastAO G color C)
+    (j : ℕ) (hDirty : j ∈ junk G C) (s t : ℕ) (hs : s < n + j) (ht : t < n + j)
+    (hS : ∀ x : Fin n → Bool, wireVal n C s x ≤ gateVal n C j x)
+    (hT : ∀ x : Fin n → Bool, wireVal n C t x ≤ gateVal n C j x) :
+    ∃ a b : Fin n, G.Adj a b ∧ JunkPivotal.pivotal C j a b ∧
+      wireVal n C s (pairInput a b) = false ∧ wireVal n C t (pairInput a b) = false := by
+  let g : Gate := ⟨GateOp.or, [s, t]⟩
+  have hback : ∀ i ∈ g.inputs, i < n + j := by
+    intro i hi
+    simp only [g, List.mem_cons, List.not_mem_nil, or_false] at hi
+    rcases hi with rfl | rfl
+    · exact hs
+    · exact ht
+  have hDown : ∀ x : Fin n → Bool,
+      g.op.eval (g.inputs.map fun i => (C.wires (List.ofFn x)).getD i false) ≤
+        (C.wires (List.ofFn x)).getD (n + j) false := by
+    intro x
+    apply Bool.le_iff_imp.mpr
+    intro h
+    have hab : wireVal n C s x = true ∨ wireVal n C t x = true := by
+      simpa [g, GateOp.eval, wireVal] using h
+    rcases hab with h | h
+    · exact Bool.le_iff_imp.mp (hS x) h
+    · exact Bool.le_iff_imp.mp (hT x) h
+  obtain ⟨a, b, hab, hp, hf⟩ := pivotal_rejects_downward_or G color C hC j hDirty
+    g rfl rfl hback hDown
+  refine ⟨a, b, hab, hp, ?_⟩
+  simpa [g, GateOp.eval, wireVal] using hf
+
+lemma pivotal_edge_avoids_two_singletons {n : ℕ} (G : SimpleGraph (Fin n))
+    [DecidableRel G.Adj] (color : Fin n → Bool) (C : Circuit)
+    (hC : MonoNormalize.IsMonoJunkLeastAO G color C)
+    (j : ℕ) (hDirty : j ∈ junk G C) (a b : Fin n)
+    (ha : gateVal n C j (pairInput a a) = true)
+    (hb : gateVal n C j (pairInput b b) = true) :
+    ∃ c d : Fin n, G.Adj c d ∧ JunkPivotal.pivotal C j c d ∧
+      a ≠ c ∧ a ≠ d ∧ b ≠ c ∧ b ≠ d := by
+  have hDown (v : Fin n) (hv : gateVal n C j (pairInput v v) = true) :
+      ∀ x : Fin n → Bool, wireVal n C v.val x ≤ gateVal n C j x := by
+    intro x
+    change (C.wires (List.ofFn x)).getD v.val false ≤ _
+    rw [SharedRewrite.input_val]
+    exact Bool.le_iff_imp.mpr (SingletonPivotal.singleton_implies_gate C hC.1.1.1 j v hv x)
+  obtain ⟨c, d, hcd, hp, ha0, hb0⟩ := pivotal_rejects_two_wires G color C hC j hDirty
+    a.val b.val (by omega) (by omega) (hDown a ha) (hDown b hb)
+  change (C.wires (List.ofFn (pairInput c d))).getD a.val false = false at ha0
+  change (C.wires (List.ofFn (pairInput c d))).getD b.val false = false at hb0
+  rw [SharedRewrite.input_val] at ha0 hb0
+  have ha' : a ≠ c ∧ a ≠ d := by simpa [pairInput] using ha0
+  have hb' : b ≠ c ∧ b ≠ d := by simpa [pairInput] using hb0
+  exact ⟨c, d, hcd, hp, ha'.1, ha'.2, hb'.1, hb'.2⟩
+
+end PEqualNP.Outside.L_meta_3566.MonoSingletonPivotal
+
+namespace PEqualNP.Outside.L_meta_3566.NormalizedUstar
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.TopForm
+open PEqualNP.MetaComplexity.NestedCover
+
+def IsNormalizedMonoUstarLeastAO {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C : Circuit) : Prop :=
+  NormalizedMono.IsNormalizedMonoLeastAO G color C ∧
+    ∀ D : Circuit, NormalizedMono.IsNormalizedMonoLeastAO G color D →
+      (Ustar G C).card ≤ (Ustar G D).card
+
+lemma exists_minimum {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (C : Circuit)
+    (hC : NormalizedMono.IsNormalizedMonoLeastAO G color C) :
+    ∃ D : Circuit, IsNormalizedMonoUstarLeastAO G color D ∧ D.size = C.size ∧
+      circuitFun n D = circuitFun n C ∧ MonoNormalize.mass color D = MonoNormalize.mass color C ∧
+      (junk G D).card = (junk G C).card ∧ WireMass.mass G D = WireMass.mass G C := by
+  classical
+  have hex : ∃ k : ℕ, ∃ D : Circuit,
+      NormalizedMono.IsNormalizedMonoLeastAO G color D ∧ (Ustar G D).card = k :=
+    ⟨(Ustar G C).card, C, hC, rfl⟩
+  obtain ⟨D, hD, hd⟩ := Nat.find_spec hex
+  have hDL := hD.1.1.1
+  have hCL := hC.1.1.1
+  have hs : D.size = C.size := Nat.le_antisymm
+    (hDL.2.2 C hCL.1 hCL.2.1) (hCL.2.2 D hDL.1 hDL.2.1)
+  obtain ⟨hm, hj, hw⟩ := MonoSelectorNormalization.selected_values_eq G color C D hC.1 hD.1
+  refine ⟨D, ⟨hD, ?_⟩, hs, hDL.2.1.trans hCL.2.1.symm, hm, hj, hw⟩
+  intro E hE
+  rw [hd]
+  exact Nat.find_min' hex ⟨E, hE, rfl⟩
+
+lemma exists_from_least {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hBip : ∀ a b, G.Adj a b → color a ≠ color b)
+    (C : Circuit) (hC : IsLeastAO G C) :
+    ∃ D : Circuit, IsNormalizedMonoUstarLeastAO G color D ∧ D.size = C.size ∧
+      circuitFun n D = circuitFun n C := by
+  obtain ⟨A, hA, hsA, hfA⟩ := NormalizedMono.exists_normalized G color hBip C hC
+  obtain ⟨D, hD, hsD, hfD, _⟩ := exists_minimum G color A hA
+  exact ⟨D, hD, hsD.trans hsA, hfD.trans hfA⟩
+
+lemma all_dirty_pivotal {n : ℕ} (G : SimpleGraph (Fin n)) [DecidableRel G.Adj]
+    (color : Fin n → Bool) (hBip : ∀ a b, G.Adj a b → color a ≠ color b)
+    (hE : ∃ a b : Fin n, G.Adj a b) (C : Circuit)
+    (hC : IsNormalizedMonoUstarLeastAO G color C) :
+    ∀ j < C.gates.length, ¬ BelowF G C j →
+      ∃ a b c d : Fin n, G.Adj a b ∧ G.Adj c d ∧
+        JunkPivotal.pivotal C j a b ∧ JunkPivotal.pivotal C j c d ∧ s(a,b) ≠ s(c,d) :=
+  NormalizedMono.all_dirty_pivotal G color hBip hE C hC.1
+
+end PEqualNP.Outside.L_meta_3566.NormalizedUstar
