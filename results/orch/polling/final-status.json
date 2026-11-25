@@ -1,0 +1,20 @@
+{
+  "status": "stopped_existing_lease_returned_twice",
+  "utc": "2026-11-25T15:43:44.367296+00:00",
+  "null_count": 3,
+  "null_breakdown": {
+    "checker_backlog": 2,
+    "specific_completed_proof_request_declined": 1
+  },
+  "existing_lease_responses": 2,
+  "exact_final_note": "you hold 5 gaps, the most one handle may hold at once; release one to get another",
+  "worked_gaps": [
+    "L-meta-2592",
+    "L-meta-2583",
+    "L-meta-2590"
+  ],
+  "live_own_lease": false,
+  "submitted_pr": null,
+  "subagents": 6,
+  "elapsed_minutes": 103.8
+}

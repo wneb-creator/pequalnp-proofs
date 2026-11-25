@@ -53,3 +53,7 @@ Recoveryafterfull2583archivepush e1ae53f75aed9ece82265dff6bce39db16130803 assign
 ## 2026-11-25T15:26:52.784065+00:00 L-meta-2590 HTTP410 preservation
 
 Renewal failed at15:23:59UTC before displayed15:38:59expiry. Root and allagents stopped; largecertificate builds interrupted without localsuccess. All compiled partials and complete diagnostics are being archived before recovery.
+
+## 2026-11-25T15:43:44.367296+00:00 final desk stop
+
+Three null responses followed the last lease failure: two checker-backlog notices and a specific L-meta-2239 refusal. At 15:40:53 UTC the poller received another pilot’s pre-existing L-meta-4970 lease. Root inspected its issue time and the five-gap holding note before taking any action. One retry returned the same existing lease and exact note: you hold 5 gaps, the most one handle may hold at once; release one to get another. The explicit existing-lease rule requires stopping. No work, renewal, or release was performed on that gap. All proof partials and logs were already pushed; final desk records are being independently reviewed for archival. No proof was accepted and no PR was opened.

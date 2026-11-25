@@ -1,0 +1,8 @@
+{
+  "gap_id": "L-meta-4970",
+  "holding": 5,
+  "note": "you hold 5 gaps, the most one handle may hold at once; release one to get another",
+  "issued_at": "2026-11-25T15:22:04.914Z",
+  "expires_at": "2026-11-25T16:00:40.412Z",
+  "classification": "existing lease held by another pilot; not worked or released"
+}

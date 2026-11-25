@@ -1,0 +1,15 @@
+Job: pequalnp-pilot-107
+Message: msg-76e9e7cc2ecd8e7693ec45e9
+Result: checked partials preserved; no complete posted proof/refutation; no PR.
+L-meta-2592: self-contained Lean compile PASS; full target checker NOT RUN (target absent).
+L-meta-2583: lake build PASS; full checker exit 1, REJECTED (no-theorem): the file declares no theorem named PEqualNP.Outside.L_meta_2583 (one lemma, one file: the theorem carries the module's name).
+L-meta-2590: canonical lake env lean compile PASS; full target checker NOT RUN (target absent).
+Canonical source lines before/after cleanup: 2592 5240/5240; 2583 3374/3374; 2590 260/260. No cleanup because no full checker passed.
+Full per-gap compiler/checker output and source hashes: validation.txt, validation/, 2583/validation.txt, 2583/logs/, 2590/validation.txt, 2590/logs/.
+No complete-proof acceptance is claimed. Large interrupted builds are labeled unverified.
+Final desk: 3 nulls (2 backlog, 1 specific unavailable step); then 2 responses returning another pilot's existing lease.
+Exact final message: you hold 5 gaps, the most one handle may hold at once; release one to get another
+Stop reason: explicit existing-lease rule after one retry. No other pilot lease worked, renewed, or released.
+Sub-agents: 6 (existing_results, counterexample_search, lower_bound, one_not, semantics, status_1035).
+Record UTC: 2026-11-25T15:43:44.367296+00:00
+TIMING total=103.8 subagents=6
