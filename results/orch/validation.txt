@@ -25,3 +25,9 @@ NormalizationFinal: below-output wires have empty OR-input reach; every wire has
 Independent review: reviewer checked source bases and NormalizationFinal; root checked added iff lemma and plain-file scan.
 Still partial; posted statement unproved.
 TIMING total=15 subagents=6
+
+Checkpoint5: StarForest, RowSharing, Buffering compile with no diagnostics.
+Root independently reviewed each new statement/proof and exact circuit identities.
+StarForest extends the exact bound to degree-one on either side. RowSharing disproves a candidate per-row OR-charge shortcut, not the posted statement. Buffering proves any AO2 circuit has an equivalent T0 circuit with n additional AND gates.
+Sub-agents: seven total, including a focused AND-count child.
+TIMING total=20 subagents=7

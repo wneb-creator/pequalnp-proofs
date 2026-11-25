@@ -9,3 +9,5 @@
 - 2026-11-25T17:17:07.757241+00:00: first-dirty-AND two-input false-positive witness helper compiled.
 - 2026-11-25T17:17:27.476019+00:00: consolidated1053-line partial compiled and independently reviewed.
 - 2026-11-25T17:19:19.615014+00:00: first-dirty-AND classification and extended OR-reach lemmas compiled and reviewed.
+- 2026-11-25T17:22:52.459285+00:00: RowSharing.lean compiled, refuting naive no-sharing-of-row-OR-gates subclaim. No diagnostics.
+- 2026-11-25T17:24:23.528979+00:00: star-forest bounds, row-sharing obstacle, additive buffering compiled and reviewed.

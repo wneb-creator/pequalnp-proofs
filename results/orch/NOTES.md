@@ -74,3 +74,22 @@ Correction to an attempted simplification: on edge inputs, earlier BelowF ANDs n
 3x3 exhaustive search completed: 333 nonempty C4-free edge sets; 9,281,809,818 canonical depth-seven extensions; no violation, 299 seconds. Together with 2x4 and trivial stars this covers all bipartite graphs on at most six inputs below the claimed bound. Full log: `/tmp/oec/pequalnp-pilot-161/counterexample-3x3.log`.
 
 Split-bound evidence: exhaustive 2x3 through5 gates has AND >= tau and OR >= edges-1. Native `libz3.so.4` is available through ctypes despite absent Python bindings. `/tmp/oec/pequalnp-pilot-161/freegate-synth.py` tests one gate count with the other type free: AND operands become arbitrary ORs of prior AND outputs and raw inputs of a single colour; OR operands become arbitrary ANDs of inputs/prior OR outputs. Repeated functions and AND input buffers are allowed. Positive edge assignments plus all maximal independent-set negative assignments exactly characterize the monotone edge function. C6 with at most4 ORs and arbitrary ANDs: UNSAT (no colour restriction, hence stronger); theta(3,3,3) with at most3 ANDs and arbitrary tCount0 ORs: UNSAT. Theta OR7 and Fano AND6 underway. These are exploratory solver results, not Lean proofs.
+
+- 2026-11-25T17:19:49.416257+00:00: `FirstDirtyClass.lean` compiled (603 lines, SHA256 ff8e6d730c08495d308a6e3f3ff3d9aa26045fe3fb77ec2366ca57baa56abbaf). Adds `and_below_iff_cross_pairs`: after a clean prefix, an AND is BelowOutput exactly when all cross pairs of its two child OR-reaches are accepted. This yields the exact first-dirty classification, but not a global gate charge. The two files share frozen normalization helpers; retain only the latest if consolidating.
+
+## Star forest partial compiled 2026-11-25T17:21:38.951423+00:00
+
+`results/orch/lemmas/StarForest.lean` (282 lines, including unchanged201-line Support) compiles with Mathlib + Defs only. `StarForest.endpoint_card_le` gives the bound on the sum of distinct point and line endpoints. `point_degree_one_bound` proves the exact target conclusion if Prod.fst is injective on E, using all nonisolated lines as cover; `line_degree_one_bound` is symmetric. Only fanin<=2 and computed edge-function equality needed. SHA256 fb1028deed3b55fd1749a1aea16aefc03676099ba35a46495f78f148156329bd. Lean exit0, no diagnostics (`/tmp/oec/pequalnp-pilot-161/star-forest-build.log`). Source stable.
+
+## Restriction/rank strategy (2026-11-25T17:22:52.459285+00:00)
+
+Candidate split is OR-count >= |E|-1 plus AND-count >= tau. Neither is proved. Ordinary real matrix rank cannot imply tau: the C8 bipartite adjacency matrix has rank 3 but matching/cover number 4. Point restrictions give a pairwise-linear family of neighbor ORs, but one circuit OR gate can serve two distinct rows: `RowSharing.lean` is kernel-checked and demonstrates this on the C4-free path with 2 point inputs, 3 line inputs, 4 edges. The 6-gate circuit is a=x0 AND y0; b=x1 AND y1; c=a OR b; d=c OR y2; e=x0 OR x1; output=d AND e. Gate d becomes y0 OR y2 on row0 and y1 OR y2 on row1, although its syntactic OR reach is only {y2}. An extra AND supplies this sharing, so row counting needs an explicit AND credit. This is not a counterexample to the posted theorem.
+
+Boolean equality also implies equality of the corresponding min/max lattice polynomial by thresholding: target becomes max over edges min(vertex weights). A comparison-network adversary might supply a separate route, but no invariant yet handles reuse of selected values. No general lower bound is being assumed.
+
+### Additive buffering conversion (compiled)
+
+`Buffering.lean`, namespace `.Buffering`, proves additive_buffering: any IsAO2 circuit on n inputs has an equivalent IsAO2 circuit of exactly size+n with tCount=0 for every coloring. Construction prepends n AND[i,i] gates and shifts every old wire by n. Full wire-list invariant is D.wires xs = xs ++ C.wires xs. All old OR inputs now name gate wires, giving empty orIn at every gate. Compiled cleanly (exit0) at 2026-11-25T17:23:01.563928+00:00. This is a conversion/partial, not the target lower bound.
+
+## Root: one-sided buffering idea
+Buffer only all point inputs, leaving raw line inputs unchanged. Original OR reaches then contain only lines, so T=0 with p extra AND gates (symmetrically l). This strengthens the n-buffer construction; normalization agent formalizing. For tau=p on balanced graphs, the target would imply arbitrary AO circuit size >= |E|-1.
