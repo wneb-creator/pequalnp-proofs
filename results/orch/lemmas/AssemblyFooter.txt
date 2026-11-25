@@ -1,0 +1,46 @@
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity PEqualNP.Outside.L_meta_670
+
+set_option maxHeartbeats 2000000 in
+theorem PEqualNP.Outside.L_meta_670 :
+    ¬ PEqualNP.MetaComplexity.HasCircuitSize 9 (fun x : Fin 9 → Bool => (x 0 && x 1) || (x 1 && x 2) || (x 2 && x 3) || (x 3 && x 4) || (x 4 && x 0) || (x 0 && x 5) || (x 1 && x 6) || (x 2 && x 7) || (x 3 && x 8) || (x 5 && x 7) || (x 6 && x 8) || (x 8 && x 5)) 15 := by
+  rintro ⟨C, legal, small, computes⟩
+  obtain ⟨D, k, a, b, fan, size, shape, priority, eval⟩ :=
+    Normalize.normalization C legal (funext computes)
+  have op : k = .and ∨ k = .or ∨ k = .not := by
+    rcases shape with ⟨h, _⟩ | ⟨h | h, _⟩
+    · exact Or.inr (Or.inr h)
+    · exact Or.inl h
+    · exact Or.inr (Or.inl h)
+  let E := Seed.seedCircuit D k a b
+  have legalE : FanInTwo E := Seed.seed_fanin D k a b op fan
+  have smallE : E.size ≤ 15 := by
+    calc E.size = D.size + 1 := Seed.seed_size D k a b
+         _ ≤ C.size := size
+         _ ≤ 15 := small
+  have computesE : circuitFun 9 E =
+      (fun x : Fin 9 → Bool => (x 0 && x 1) || (x 1 && x 2) || (x 2 && x 3) ||
+        (x 3 && x 4) || (x 4 && x 0) || (x 0 && x 5) || (x 1 && x 6) ||
+        (x 2 && x 7) || (x 3 && x 8) || (x 5 && x 7) || (x 6 && x 8) || (x 8 && x 5)) := by
+    funext x
+    exact (Seed.seed_eval D k a b x).trans (eval x)
+  have firstE (x : Fin 9 → Bool) :
+      (E.wires (List.ofFn x)).getD 9 false = k.eval [x a, x b] :=
+    Seed.seed_first D k a b x
+  have lower : 16 ≤ E.size := by
+    rcases shape with ⟨rfl, ha⟩ | ⟨hk, hab⟩
+    · obtain ⟨x, hx⟩ := C4338.outcome a ha D fan (by omega)
+        (fun g hg hraw => ((priority g hg hraw).1).resolve_left (by intro h; cases h))
+      exact (hx (by simpa [GateOp.eval] using eval x)).elim
+    · rcases hk with rfl | rfl
+      · exact C2444.outcome (a, b) hab E legalE
+          (fun x => by simpa [GateOp.eval] using firstE x) computesE
+      · simp only [List.mem_cons, List.not_mem_nil, or_false] at hab
+        rcases hab with hab | hab | hab | hab | hab | hab
+        all_goals obtain ⟨rfl, rfl⟩ := Prod.mk.inj hab
+        · exact C1673.outcome E legalE (fun x => by simpa [GateOp.eval] using firstE x) computesE
+        · exact C1674.outcome E legalE (fun x => by simpa [GateOp.eval] using firstE x) computesE
+        · exact C5120.bound E legalE (fun x => by simpa [GateOp.eval] using firstE x) computesE
+        · exact C1676.outcome E legalE (fun x => by simpa [GateOp.eval] using firstE x) computesE
+        · exact C1677.outcome E legalE (fun x => by simpa [GateOp.eval] using firstE x) computesE
+        · exact C1678.outcome E legalE (fun x => by simpa [GateOp.eval] using firstE x) computesE
+  omega

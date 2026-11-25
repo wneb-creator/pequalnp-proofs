@@ -47,3 +47,31 @@ Full 512-row synthesis for 15 gates with first AND(0,1) returned UNKNOWN after 1
 ## 2026-11-25T03:07:40.485490+00:00 — suffix-to-circuit bridge compiled
 
 `results/orch/lemmas/Prepend.lean` compiled exit 0 (empty `prepend-build.log`). Namespace `PEqualNP.Outside.L_meta_670.Seed`. `seedCircuit D k a b` prepends the legal fanin-two seed gate. `seed_fanin`, `seed_size`, `seed_eval`, and `seed_first` prove legality, exact size increase by one, suffix evaluation equivalence, and semantic first-wire value. This lets Normalize.normalization feed every existing whole-circuit first-gate lower-bound case. APIs sent to assembly authors and root immediately.
+
+2026-11-25T03:09:11.475395+00:00 status_review assembly:
+- Exact L-meta-670 theorem footer authored at results/orch/lemmas/AssemblyFooter.txt (about2.9KB). Uses full priority normalization, Seed prepend bridge, NOT0/4, six AND cases, six OR cases including C5120.bound.
+- Proof logic compiled in /tmp/oec/pequalnp-pilot-61/AssemblyTest.lean with real normalization/Seed and explicit theorem-shaped hypotheses for the nine case result packages; exit0 and no diagnostics. This is a conditional assembly check, not yet the unconditional full gap proof. No missing proofs or new axioms were introduced.
+- Toolchain agent is inserting this footer into the fully inlined case aggregation; unconditional raw build remains outstanding.
+
+## 2026-11-25T03:10:31.397295+00:00 Structural route pivot and compression
+
+Confirmed L_meta_5120.bound is an unconditional first-OR03 size≥16 helper; the final theorem’s reader hypotheses are unused. Reader-bound proof is unnecessary for assembly.
+
+Compression probe prepared in results/orch/lemmas/CompressionProbe.lean: copies the common L5120 verifier plus first small forest g15, and substitutes all columns × all paid masks for stored per-node rule pairs. Each candidate is still validated by buildRule_sound, so logical soundness is unchanged. Benchmark is serialized with other heavy Lean builds, uses -j1, and retains complete logs in job scratch.
+
+Restriction_math found a stronger lossless representation: almost every opcode sequence is a one-step extension of a prior depth node. Parent index plus last opcode saves roughly90KB of hex text. Blocked offset tables and duplicate rule-list dictionaries are being quantified.
+
+## 2026-11-25T03:11:11.150579+00:00 — aggregate integration
+
+Initial fully inlined helper aggregate was 3,737,833 bytes. Namespace transformation preserved source cases and renamed source theorem endings to C{id}.outcome; no stale original module references remain. Its Lean run was intentionally interrupted (exit130) after~2min with no errors reported, sampled RSS8.2GB. Not a successful proof check. Switching to combinedcase files L2444(all six AND) and L4338(both NOT) instead of L1665/L1666/L4734; revised footer is being independently checked. All future large validation uses -j1.
+
+## Finite verification 2026-11-25T03:11:40.590470+00:00
+
+- Existing LRAT encoder is monotone AND/OR only, but first-gate files use a separate truth-table forest checker covering NOT.
+- L5120 internal bound proves full OR03 case; its final readers restriction is redundant (status-review discovery).
+- Initial nine-case raw assembly is 3.738 MB. Text/dependency-aware alias dedup produces 2.905 MB with 2790 aliases; numeric literal text 1.060 MB, alias text 182 KB. Dead-code closure saves less than 10 KB per case.
+- Generic checked chunk/table batching helper compiled: results/orch/lemmas/Finite.lean. It can replace hundreds of repeated streamBlock and block_merge declarations while retaining the same Boolean tests and hints. Root notified immediately.
+
+2026-11-25T03:11:40.811155+00:00 status_review combined assembly verified:
+- Replaced separate NOT0/NOT4/allAND packages with combined C4338 (both NOT suffixes) and C2444 (six AND first gates). NOT pureinput restriction follows from Normalize.priority; no extra assumption needed.
+- Revised conditional assembly harness compiled exit0 with empty diagnostics. Immutable snapshot: results/orch/lemmas/AssemblyConditional.lean; complete log: results/orch/assembly-conditional-build.log. Exact final footer: results/orch/lemmas/AssemblyFooter.txt. This remains conditional until the inlined case package compilation succeeds.

@@ -12,3 +12,9 @@ TIMING total=21.9 subagents=6
 
 Prepend.lean: lake env lean, exit 0, stdout/stderr empty. Root independent review passed.
 First partial snapshot pushed c570baf111e48dadc13c84178a64e977566f4670.
+
+Finite.lean: exit 0, empty diagnostics; generic chunk/table soundness.
+AssemblyConditional.lean: exit 0, empty diagnostics; exact conclusion conditioned on eight explicit case propositions. Not an unconditional gap proof.
+CompressionBaseline.lean: exit 0, 55.22 s, peak RSS 4.520 GB; full diagnostics logs/compression-baseline.log.
+CompressionProbe.lean: exit 0, 59.16 s, peak RSS 4.523 GB; all rule pairs regenerated; full diagnostics logs/compression-allrules.log.
+Root independent review: imports, forbidden text, mathematical claims, and 29-line compression diff passed for partial preservation.
