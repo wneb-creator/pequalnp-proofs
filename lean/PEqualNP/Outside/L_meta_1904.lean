@@ -2699,4 +2699,167 @@ lemma path_blocks_suffix_eq {m : ℕ} (a b c d e ae eb ad : Fin m) (x : Fin m �
 
 end BlockSubstitution
 
+
+
+namespace SeparateAndBound
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity OverlapAndCover
+
+lemma support_is_cover {n : ℕ} (G : SimpleGraph (Fin n))
+    (f : (Fin n → Bool) → Bool) (S : Finset (Fin n))
+    (zero : f (fun _ => false) = false)
+    (edges : ∀ u v, G.Adj u v → f (pairInput u v) = true)
+    (support : ∀ x y, (∀ i ∈ S, x i = y i) → f x = f y) :
+    G.IsVertexCover (S : Set (Fin n)) := by
+  intro u v huv
+  change u ∈ S ∨ v ∈ S
+  by_contra hn
+  push Not at hn
+  have hz := support (pairInput u v) (fun _ => false) (by
+    intro i hi
+    have hiu : i ≠ u := fun h => hn.1 (h ▸ hi)
+    have hiv : i ≠ v := fun h => hn.2 (h ▸ hi)
+    simp [pairInput, hiu, hiv])
+  rw [edges u v huv, zero] at hz
+  contradiction
+
+lemma support_card_of_depends {n : ℕ} (f : (Fin n → Bool) → Bool)
+    (S : Finset (Fin n))
+    (support : ∀ x y, (∀ i ∈ S, x i = y i) → f x = f y)
+    (depends : ∀ v, ∃ x, f (Function.update x v true) ≠ f x) : n ≤ S.card := by
+  have all : ∀ v, v ∈ S := by
+    intro v
+    by_contra hv
+    obtain ⟨x, hx⟩ := depends v
+    apply hx (support _ _ ?_)
+    intro i hi
+    have hiv : i ≠ v := fun e => hv (e ▸ hi)
+    simp [Function.update, hiv]
+  have heq : S = Finset.univ := Finset.eq_univ_of_forall all
+  simp [heq]
+
+/-- The costs are those of two separately given circuits; shared gates are counted
+    in each branch in which they occur. No monotonicity assumption is needed. -/
+lemma separate_and_lower_bound {n : ℕ} (G : SimpleGraph (Fin n))
+    (C₁ C₂ : Circuit)
+    (fan₁ : ∀ g ∈ C₁.gates, g.inputs.length ≤ 2)
+    (fan₂ : ∀ g ∈ C₂.gates, g.inputs.length ≤ 2)
+    (zero₁ : C₁.eval (List.ofFn (fun _ : Fin n => false)) = false)
+    (zero₂ : C₂.eval (List.ofFn (fun _ : Fin n => false)) = false)
+    (correct : ∀ x : Fin n → Bool,
+      (C₁.eval (List.ofFn x) && C₂.eval (List.ofFn x)) = true ↔
+        ∃ u v, G.Adj u v ∧ x u = true ∧ x v = true)
+    (noSquare : ∀ a b c d, G.Adj a b → G.Adj b c → G.Adj c d →
+      G.Adj d a → a = c ∨ b = d)
+    (noLeaves : ∀ a b, G.Adj a b → ∃ c, G.Adj a c ∧ c ≠ b)
+    (noIsolated : ∀ v, ∃ u, G.Adj v u) :
+    ∃ T : Finset (Fin n), G.IsVertexCover (T : Set (Fin n)) ∧
+      n + T.card ≤ C₁.size + C₂.size + 2 := by
+  obtain ⟨S₁, bound₁, support₁, _⟩ := HelperSupport.output_support n C₁ fan₁
+  obtain ⟨S₂, bound₂, support₂, _⟩ := HelperSupport.output_support n C₂ fan₂
+  have edges : ∀ u v, G.Adj u v →
+      C₁.eval (List.ofFn (pairInput u v)) = true ∧
+        C₂.eval (List.ofFn (pairInput u v)) = true := by
+    intro u v huv
+    exact Bool.and_eq_true_iff.mp ((correct _).mpr ((pair_edge_iff G u v).mpr huv))
+  rcases and_factor_one_depends_on_all_nonisolated G
+    (fun x => C₁.eval (List.ofFn x)) (fun x => C₂.eval (List.ofFn x))
+    correct noSquare noLeaves with left | right
+  · have hn := support_card_of_depends _ S₁ support₁ (fun v => left v (noIsolated v))
+    refine ⟨S₂, support_is_cover G _ S₂ zero₂ (fun u v h => (edges u v h).2) support₂, ?_⟩
+    omega
+  · have hn := support_card_of_depends _ S₂ support₂ (fun v => right v (noIsolated v))
+    refine ⟨S₁, support_is_cover G _ S₁ zero₁ (fun u v h => (edges u v h).1) support₁, ?_⟩
+    omega
+
+end SeparateAndBound
+
+namespace TaggedBoundary
+
+open PEqualNP.CircuitLowerBounds PEqualNP.MetaComplexity HelperSupport
+
+variable {n : ℕ}
+
+/-- Adding a boundary wire costs no selected gate. Label freshness is unnecessary. -/
+lemma cnt_boundary (t : ℕ) (L : List (Finset (Fin n))) (b : Fin n)
+    (h : Cnt t L) : Cnt t (L ++ [{b}]) := by
+  intro W
+  by_cases hW : L.length ∈ W
+  · have hsub : (W.biUnion fun j => (L ++ [{b}]).getD j ∅) ⊆
+        (W.erase L.length).biUnion (fun j => L.getD j ∅) ∪ {b} := by
+      intro i hi
+      obtain ⟨j, hj, hij⟩ := Finset.mem_biUnion.mp hi
+      by_cases heq : j = L.length
+      · subst j
+        exact Finset.mem_union_right _ (by simpa only [getD_snoc_eq] using hij)
+      · exact Finset.mem_union_left _ (Finset.mem_biUnion.mpr
+          ⟨j, Finset.mem_erase.mpr ⟨heq, hj⟩, by
+            simpa only [getD_snoc_ne _ _ _ _ heq] using hij⟩)
+    have hcard := Finset.card_le_card hsub
+    have hunion := Finset.card_union_le
+      ((W.erase L.length).biUnion fun j => L.getD j ∅) {b}
+    have hold := h (W.erase L.length)
+    have herase := Finset.card_erase_of_mem hW
+    have hpos : 0 < W.card := Finset.card_pos.mpr ⟨_, hW⟩
+    simp only [Finset.card_singleton] at hunion
+    omega
+  · have heq : (W.biUnion fun j => (L ++ [{b}]).getD j ∅) =
+        W.biUnion (fun j => L.getD j ∅) := by
+      apply Finset.biUnion_congr rfl
+      intro j hj
+      exact getD_snoc_ne _ _ _ _ (fun e => hW (e ▸ hj))
+    rw [heq]
+    exact h W
+
+lemma cnt_singletons (labels : List (Fin n)) :
+    Cnt 0 (labels.map fun b => ({b} : Finset (Fin n))) := by
+  intro W
+  refine le_trans Finset.card_biUnion_le ?_
+  rw [zero_add, Finset.card_eq_sum_ones]
+  apply Finset.sum_le_sum
+  intro j _
+  simp only [List.getD_eq_getElem?_getD, List.getElem?_map]
+  cases labels[j]? <;> simp
+
+/-- Selected gates expand their input frontiers; other gates stop at their label.
+    Missing and forward wire reads have empty frontier, matching circuit defaults. -/
+def boundaryFrom (gs : List (Bool × Gate × Fin n)) (L : List (Finset (Fin n))) :
+    List (Finset (Fin n)) :=
+  gs.foldl (fun L q => L ++ [if q.1 then gateSupp L q.2.1 else {q.2.2}]) L
+
+def selectedCount (gs : List (Bool × Gate × Fin n)) : ℕ :=
+  (gs.filter fun q => q.1).length
+
+lemma cnt_boundaryFrom (gs : List (Bool × Gate × Fin n)) :
+    ∀ (t : ℕ) (L : List (Finset (Fin n))),
+      (∀ q ∈ gs, q.1 = true → q.2.1.inputs.length ≤ 2) → Cnt t L →
+      Cnt (t + selectedCount gs) (boundaryFrom gs L) := by
+  induction gs with
+  | nil => intro t L _ h; simpa [selectedCount, boundaryFrom] using h
+  | cons q qs ih =>
+    intro t L hfan h
+    have htail : ∀ r ∈ qs, r.1 = true → r.2.1.inputs.length ≤ 2 :=
+      fun r hr => hfan r (List.mem_cons_of_mem _ hr)
+    cases hq : q.1 with
+    | false =>
+      have hi := ih t (L ++ [{q.2.2}]) htail (cnt_boundary t L q.2.2 h)
+      simpa [selectedCount, boundaryFrom, hq, List.foldl_cons] using hi
+    | true =>
+      have hi := ih (t + 1) (L ++ [gateSupp L q.2.1]) htail
+        (cnt_step t L q.2.1 (hfan q List.mem_cons_self hq) h)
+      simpa [selectedCount, boundaryFrom, hq, List.foldl_cons,
+        Nat.add_assoc, Nat.add_comm, Nat.add_left_comm] using hi
+
+/-- The exact recursively computed boundary of one output has at most one more
+    distinct label than there are selected gates in the traversed list. -/
+lemma output_boundary_card (labels : List (Fin n))
+    (gs : List (Bool × Gate × Fin n)) (out : ℕ)
+    (hfan : ∀ q ∈ gs, q.1 = true → q.2.1.inputs.length ≤ 2) :
+    ((boundaryFrom gs (labels.map fun b => ({b} : Finset (Fin n)))).getD out ∅).card ≤
+      selectedCount gs + 1 := by
+  have h := cnt_boundaryFrom gs 0 _ hfan (cnt_singletons labels) {out}
+  simpa only [Finset.singleton_biUnion, Finset.card_singleton, zero_add] using h
+
+end TaggedBoundary
+
 end PEqualNP.Outside.L_meta_1904_aux
