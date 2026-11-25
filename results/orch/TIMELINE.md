@@ -19,3 +19,5 @@ No complete proof or accepted submission yet.
 - 2026-11-25T07:24:41.264064+00:00: First strategy review: dropped direct reuse of general lower bounds/one-junk induction; concentrated on component extraction, guard classification, contextual repairs, and synthesis.
 
 - 2026-11-25T07:29:41.065612+00:00: Matching repair, local odd-walk obstruction, and double-star guard lemmas integrated; 1166-line file builds. Finite artifacts independently reviewed and preserved.
+
+- 2026-11-25T07:36:33.702174+00:00: Integrated star-prefix extension and component extraction; named file builds at 1717 lines. All added fragments independently reviewed.

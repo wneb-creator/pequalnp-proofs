@@ -41,3 +41,16 @@ Exact uses of `junk G C = {g}`:
 5. Lines 7678–7708 (`replace_gate_by_wire`): for a clean top, an operand not reaching g has no AND ancestor and therefore is a pure OR. With a second dirty gate, that operand may reach the other gate, so deletion soundness fails.
 
 Earliest/latest induction: earliest g gives pure input cones, while latest g rules out dirty descendants; neither eliminates other dirty ancestors of affected clean tops or disjoint dirty subsystems. A valid generalization needs a local residual-edge partition and disjoint accounting of shared OR/cone resources. Merely summing the one-gate counting argument would count shared gates multiple times. No valid iterative repair was obtained from this proof.
+
+## Local coloring and newly checked combinatorics
+
+The bipartition of a singleton-silent AND ownership graph does not replace all global coloring in `L_meta_3760`. At lines 9010–9017, the proof forbids an edge across the endpoints of a four-edge path; that requires excluding an odd five-cycle. On C5 with edges 01,12,23,34,40, choose P={0,2}, Q={1,4}. The ownership cross graph is bipartite, the two centers are p=0,q=1, and w=3 covers every missing P×Q pair. Nevertheless w is adjacent to both noncenters 2 and 4, defeating the global coloring step.
+
+New checked artifacts (only Mathlib, no extra axioms):
+
+- `/tmp/oec/pequalnp-pilot-75/library/DoubleStar.lean`, 73 lines, frozen: `doubleStar_guards` proves that for C4-free double-star sides P,Q each of cardinal at least three, a vertex covering all missing P×Q pairs must be one of the centers. `doubleStar_guard_adjacent` proves the directional version: if P has cardinal at least three, every guard other than its common neighbor q is adjacent to all Q vertices except q. Build exited 0.
+- `/tmp/oec/pequalnp-pilot-75/library/TwoCenter.lean`, 35 lines, frozen: `twoCenter_guard_adjacent` allows the other center p to lie outside P, requiring only the center edge p–q. This fits an auxiliary center supplied by a shared pure OR block. Build exited 0.
+
+Potential target-specific repair avoids proving one-junk impossibility: if all indispensable graph edges of AND g contain z and z OR-reaches one operand, replace that operand by z. The new g is old g AND z, requires no extra gate, preserves all graph edges, and its owned edges form a star. Earlier gate profiles stay fixed. For one-junk circuits, edges in starEdges have witnesses independent of g, so a residual Ustar star may provide the indispensable-edge condition. This is only a sufficient repair, not an established universal existence claim.
+
+The finite agent disproved the unrestricted claim that indispensable edges of every minimum AND form a star: minimum P4 circuit AND01; OR13; OR(2,AND01); final AND has all three edges indispensable, but owns only the last two. Thus only nonstar ownership gates could satisfy any proposed additional existence theorem.
