@@ -18,3 +18,6 @@
 2026-11-25T14:45:35.434458+00:002583 semantic and canonicalconstruction components compiled; Fano26search stopped after discovery of checked27lowerbound onmain.
 
 2026-11-25T14:50:53.266584+00:00 New pencil-cover component compiled and independently reviewed.
+2026-11-25T14:52:09.633727+00:00 critical-row completeness compiled; closed-pointset extension in separate scratch file.
+
+2026-11-25T14:52:55.966602+00:00 Critical-row completeness and OR input transfer compiled and independently reviewed.

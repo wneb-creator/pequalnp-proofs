@@ -153,3 +153,17 @@ Build exit 0; logs `/tmp/oec/pequalnp-pilot-131/incidence-pruning-2.stdout` and 
 Minimality caveat for synthesis: constraints apply to globally least circuits; near-seed searches freezing most gates may not contain a normalized candidate after bypass. Therefore they are sound for exhaustive search over the least size, but a local search returning UNSAT under these constraints is not a global lower bound.
 
 Dirty gate counterexamples: merged L-meta-4849 has 8 inputs, 8 edges, 11 gates and dirty AND in a minimal monotone circuit, but graph contains a 5-cycle and is not bipartite. Merged L-meta-3679 refutes AND-antichain normalization in a 39-vertex bipartite graph, but graph has 4-cycles. Neither refutes bipartite+C4-free cleanup specifically.
+
+## restriction_route: generic critical-row completeness
+
+`lemmas/IncidenceCriticalRows.lean` compiled exit0 with no diagnostics. For any m-point/n-line incidence relation and any semantic monotone Boolean function f, exact incidence computation is equivalent to f being true on every incident singleton pair and false on all completions X together with every line avoiding X. This is independent of the original normalization claim and supplies the determining-row bridge for signature pruning.
+
+AND-count search found existing L_meta_1898: arbitrary Monotone2 circuits for cyclic q3 incidence require at least13 AND gates (no ReadK/bilinearity assumption). L634/L910 give Fano's7 bound. General C4-free full-computation bound found only up to cover5 in L2399. L1006 refutes a weaker boundary-only statement, not full computation: Python checked all2048 inputs of its11-variable witness and found39 false negatives, including edge{6,7}.
+
+Python independently enumerated closed point sets for cyclic q3 offsets0,1,3,9:704, matching the maximal-independent-row count. Full list /tmp/oec/pequalnp-pilot-131/q3-closed-pointsets.txt. Lean closure reduction is being added separately.
+
+## Counterexample strategy replan 2026-11-25T14:52:24.587377+00:00
+
+Stopped Fano26 search after certificateagent found checked arbitrarymonotone≥27 result in L_meta_7997. Its FanoE atline9403 exactlymatchesour cyclicoffsets0,1,3, ao27at9428 doesnotassumeReadK. Fano searches unresolvedandinterrupted; noFALSEclaim.
+
+q3 incidence offsets0,1,3,9 has52edges,704maxfalse assignments,756completecriticalrows. Full63gatebaselinefoundone missingprimeedge; rereadbiasedvariantfoundtwo missingedges but its badproof was onlyAND(4,4), spottedbycertificateagent. Bothbaselines stopped. Newvariantpenalizescomparableoperand signatures, duplicateinputs, andfewerthan13ANDgates (checkedlower L_meta_1898), plusREAD1lack. Runningtwo nearseedSATvariants: removeoneORfrom64seed, freeze50gates, synthesize13gates aroundthreepointstars andfinaljoins, CEGIS112initialrows, seed25831noncollinearpoints0,1,2 and25832collinear0,1,3. Alsofast23gateGPfor5-lineblock0,1,2,3,9 with50criticalrows, independentlypairedwithcertificateagentSAT. Noexactcounterexample yet.
