@@ -23,3 +23,6 @@
 - 2026-11-25T18:30:04.603698+00:00: Global input-buffer charge, lex/pin normal form, earliest singleton profile bridge and K-aware cover certificate all compile. All eight-input searches ended UNKNOWN. General residual edge-cost and incompatible-payload charge unresolved.
 
 - 2026-11-25T18:29:20Z: Automatic lease renewal returned no-such-live-lease despite the prior18:44:20 expiry. Same curl diagnostic returned HTTP410; heartbeat stopped. Root observed the termination at18:34 and is preserving pending results before one normal reacquisition request under the user410 rule.
+
+- 2026-11-25T18:36:29Z: All pending checked results and archives pushed as e3a6951c.
+- 2026-11-25T18:36:38Z and18:36:58Z: Reacquisition and one mandated retry returned the same existing L-meta-2582 lease issued18:31:31, with the handle-cap message. Neither worked nor released it; stopped under shared-handle rule.

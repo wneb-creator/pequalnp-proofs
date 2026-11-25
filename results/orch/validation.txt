@@ -5,7 +5,7 @@ Command: lake env lean ../results/orch/lemmas/<file>
 Both runs exit 0; stdout and stderr empty.
 Independent source reviewer: preflight_review; valid partials, no forbidden constructs.
 Sub-agents: preflight_review, structural_proof, library_route, counterexample, algebraic_route, semantic_support
-TIMING total=69.01 subagents=6
+TIMING total=91.71 subagents=6
 
 Additional checked partials (lake env lean, exit 0):
 - library-colour.lean (current source rechecked; empty diagnostics)
@@ -122,3 +122,5 @@ Snapshot17 2026-11-25T18:33:35.845368+00:00
 Portable preservation inventory now records34 sources with full archived logs and explicit standalone/compile-witness status. New outside-payload extraction is checked; no final cost bound. Exploratory manifest e9e7680f0e1bde5a11bf07459532deb8ca13fa97b55e8a0326a6c4d7b6893dca has23 experiments79 files; every hash verified. No new tests were run for archive-only copies. Main remains9363 lines; cleanup not eligible because exactchecker rejects missingtheorem.
 
 Lease diagnostic: HTTP410 no-such-live-lease at18:29:20; prior success expiry18:44:20.261. Full response in desk-error-410.txt, with only opaque telemetry URL redacted. No other pilot lease released.
+
+Final status 2026-11-25T18:38:10.723630+00:00: exactgap unproved, noPR, mainbuildpassed, checker REJECTED(no-theorem), lines9363→9363; cleanup noteligible. Ownlease invalidated; two reacquisition responses returned same older otherpilotlease, untouched. Desknulls0. Diffscope verified: named Leanfile plus results/orch only.

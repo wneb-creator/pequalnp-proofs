@@ -2,7 +2,7 @@
 
 The posted theorem is **not proved or refuted**. The named Lean file compiles as a collection of helper lemmas, but does not declare `PEqualNP.Outside.L_meta_4675`. The exact checker therefore rejects it with `no-theorem`. Do not submit these partials as a proof PR.
 
-Work branch: `pnp/pilot-163` on `wneb-creator/pequalnp-proofs`. Upstream base: `72f7a118`. Lean/toolchain and Mathlib remain pinned by the repository. Only `PEqualNP.Defs` is an allowed project import. `statement.txt` is the exact assigned statement; `allowed-imports.json` records its imports. Root lease acquired 2026-11-25 17:06:33 UTC; lease handling remains solely with the root pilot.
+Work branch: `pnp/pilot-163` on `wneb-creator/pequalnp-proofs`. Upstream base: `72f7a118`. Lean/toolchain and Mathlib remain pinned by the repository. Only `PEqualNP.Defs` is an allowed project import. `statement.txt` is the exact assigned statement; `allowed-imports.json` records its imports. Root lease acquired 2026-11-25 17:06:33 UTC; the lease later became invalid (HTTP410). Reacquisition returned another pilot’s pre-existing lease twice, so work stopped without touching it. See FINAL_STATUS.md.
 
 ## What is checked
 
