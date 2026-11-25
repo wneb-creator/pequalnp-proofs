@@ -1,0 +1,12 @@
+../results/orch/lemmas/reduction_analysis/ResidualPairDirtyNoncopy.lean:486:4: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp only [Bool.false_or, Bool.and_eq_true, hr, false_or]
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`
+../results/orch/lemmas/reduction_analysis/ResidualPairDirtyNoncopy.lean:533:29: warning: `simp` already closes the goal
+
+Hint: Use `simp` instead of `simpa`:
+  [apply] simp [uncopiedGate, h] at hop
+
+Note: This linter can be disabled with `set_option linter.unnecessarySimpa false`

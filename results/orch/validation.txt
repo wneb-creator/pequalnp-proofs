@@ -65,3 +65,7 @@ TIMING total=64.3 subagents=6
 2026-11-25T04:45:04.119902+00:00 Fifth research checkpoint: exact target still unproved and unrefuted. Compiled, independently reviewed additions include CertifiedFullTwoExtra, SubmissionCalibration64, FreeFeatureElimination, FourOwnerFreeRestriction, RepairGuardLower, GlobalOrCharge, OrEncodedAndBound, SixCoreOrEncodedAndBound and AffineNineRowCompletion. Their precise conditional or overbudget scopes are recorded in RESULTS.md; none is a target proof.
 Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review.
 TIMING total=163.9 subagents=6
+
+2026-11-25T05:10:37.943944+00:00 Sixth research checkpoint: full posted target remains unproved/unrefuted. PlaneAndThirteen compiled with the full accepted upstream proof and exact posted adapter; unconditional13-AND lower bound only. PairDirtyNecessary, ResidualPairDirtyR517 and ResidualPairDirtyNoncopy compile and are independently approved, proving necessary structural conditions only. All are pushed with complete logs. New search profiles, symmetries, exact-DNF cuts and overapproximate candidates retain their explicit qualifications.
+Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review.
+TIMING total=189.5 subagents=6

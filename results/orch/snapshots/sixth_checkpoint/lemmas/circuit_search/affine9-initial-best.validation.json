@@ -1,0 +1,22 @@
+{
+  "case": "affine9_0000",
+  "raw_assignments": 2097152,
+  "gates": 43,
+  "active_gates": 43,
+  "active_ands": 9,
+  "omitted_raw_inputs": [],
+  "false_positives": 536,
+  "false_negatives": 0,
+  "boundary_false": 46,
+  "boundary_misses": 0,
+  "extra_monomials": [
+    [
+      2,
+      11
+    ],
+    [
+      1,
+      15
+    ]
+  ]
+}

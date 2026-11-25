@@ -1,0 +1,388 @@
+{
+  "gates": [
+    [
+      1,
+      5,
+      7
+    ],
+    [
+      1,
+      9,
+      13
+    ],
+    [
+      0,
+      2,
+      14
+    ],
+    [
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      3,
+      16
+    ],
+    [
+      0,
+      3,
+      13
+    ],
+    [
+      1,
+      10,
+      18
+    ],
+    [
+      1,
+      4,
+      9
+    ],
+    [
+      0,
+      16,
+      20
+    ],
+    [
+      1,
+      19,
+      21
+    ],
+    [
+      1,
+      6,
+      22
+    ],
+    [
+      0,
+      17,
+      23
+    ],
+    [
+      1,
+      15,
+      24
+    ]
+  ],
+  "output": 25,
+  "inputs": 13,
+  "raw_inputs": 10,
+  "source": "feature6-context-27g-best-25.json",
+  "source_output": 46,
+  "source_points": [
+    0,
+    2,
+    3,
+    5
+  ],
+  "source_private_lines": [
+    9,
+    16,
+    14,
+    8
+  ],
+  "kernel_to_source": [
+    0,
+    2,
+    3,
+    5,
+    7,
+    6,
+    13,
+    10,
+    11,
+    15
+  ],
+  "source_zeroed_raw": [
+    1,
+    4,
+    8,
+    9,
+    12,
+    14,
+    16
+  ],
+  "feature_substitutions": [
+    {
+      "old_wire": 17,
+      "old_support": [
+        13,
+        16
+      ],
+      "restricted_support": [
+        6
+      ],
+      "new_wire": 6
+    },
+    {
+      "old_wire": 18,
+      "old_support": [
+        13,
+        14,
+        16
+      ],
+      "restricted_support": [
+        6
+      ],
+      "new_wire": 6
+    },
+    {
+      "old_wire": 19,
+      "old_support": [
+        13,
+        15
+      ],
+      "restricted_support": [
+        6,
+        9
+      ],
+      "new_wire": 12
+    },
+    {
+      "old_wire": 20,
+      "old_support": [
+        12,
+        13,
+        15
+      ],
+      "restricted_support": [
+        6,
+        9
+      ],
+      "new_wire": 12
+    },
+    {
+      "old_wire": 21,
+      "old_support": [
+        7,
+        10
+      ],
+      "restricted_support": [
+        4,
+        7
+      ],
+      "new_wire": 11
+    },
+    {
+      "old_wire": 22,
+      "old_support": [
+        7,
+        10,
+        12
+      ],
+      "restricted_support": [
+        4,
+        7
+      ],
+      "new_wire": 11
+    },
+    {
+      "old_wire": 23,
+      "old_support": [
+        6,
+        11
+      ],
+      "restricted_support": [
+        5,
+        8
+      ],
+      "new_wire": 10
+    },
+    {
+      "old_wire": 24,
+      "old_support": [
+        9,
+        16
+      ],
+      "restricted_support": [],
+      "new_wire": null
+    },
+    {
+      "old_wire": 25,
+      "old_support": [
+        9,
+        10,
+        16
+      ],
+      "restricted_support": [
+        7
+      ],
+      "new_wire": 7
+    },
+    {
+      "old_wire": 26,
+      "old_support": [
+        9,
+        15
+      ],
+      "restricted_support": [
+        9
+      ],
+      "new_wire": 9
+    },
+    {
+      "old_wire": 27,
+      "old_support": [
+        8,
+        9,
+        15
+      ],
+      "restricted_support": [
+        9
+      ],
+      "new_wire": 9
+    },
+    {
+      "old_wire": 28,
+      "old_support": [
+        7,
+        8
+      ],
+      "restricted_support": [
+        4
+      ],
+      "new_wire": 4
+    },
+    {
+      "old_wire": 29,
+      "old_support": [
+        7,
+        8,
+        14
+      ],
+      "restricted_support": [
+        4
+      ],
+      "new_wire": 4
+    }
+  ],
+  "gate_count": 13,
+  "and_count": 4,
+  "full_false_negatives": [],
+  "full_false_positives": [
+    34,
+    40,
+    42,
+    56,
+    66,
+    70,
+    98,
+    162,
+    194,
+    226,
+    257,
+    261,
+    385,
+    513,
+    521,
+    552,
+    568,
+    641,
+    769,
+    897
+  ],
+  "boundary_errors": [
+    42,
+    70,
+    226,
+    261,
+    521,
+    568,
+    897
+  ],
+  "minimal_terms": [
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      3,
+      6
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      0,
+      8
+    ],
+    [
+      1,
+      8
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      0,
+      9
+    ],
+    [
+      1,
+      9
+    ],
+    [
+      2,
+      9
+    ]
+  ],
+  "extra_minimal_terms": [
+    [
+      1,
+      5
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      0,
+      8
+    ],
+    [
+      0,
+      9
+    ]
+  ],
+  "status": "Approximation phase only. No exactness or restoration claim."
+}

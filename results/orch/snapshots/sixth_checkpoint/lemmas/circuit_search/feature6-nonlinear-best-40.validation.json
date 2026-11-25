@@ -1,0 +1,77 @@
+{
+  "case": "core6_02",
+  "raw_assignments": 131072,
+  "gates": 28,
+  "active_gates": 28,
+  "active_ands": 6,
+  "omitted_raw_inputs": [
+    10,
+    13
+  ],
+  "false_positives": 588,
+  "false_negatives": 0,
+  "boundary_false": 40,
+  "boundary_misses": 0,
+  "extra_monomials": [
+    [
+      5,
+      6
+    ],
+    [
+      3,
+      7
+    ],
+    [
+      5,
+      7
+    ],
+    [
+      0,
+      8
+    ],
+    [
+      3,
+      8
+    ],
+    [
+      3,
+      9
+    ],
+    [
+      5,
+      9
+    ],
+    [
+      0,
+      10
+    ],
+    [
+      0,
+      11
+    ],
+    [
+      3,
+      11
+    ],
+    [
+      3,
+      13
+    ],
+    [
+      0,
+      14
+    ],
+    [
+      5,
+      14
+    ],
+    [
+      0,
+      15
+    ],
+    [
+      5,
+      15
+    ]
+  ]
+}

@@ -29,6 +29,9 @@ The posted claim is not proved or refuted. No proof PR has been opened, and the 
 | algebra_strategy/SixCoreOrEncodedAndBound.lean | The six-row core requires at least six paid AND gates even with arbitrary free OR features. Research imports. |
 | algebra_strategy/GlobalOrCharge.lean | A two-OR deletion step extends to arbitrary no-C4 graphs of minimum active degree two. It does not prove the needed 51-OR bound. Research imports. |
 | reduction_analysis/RepairGuardLower.lean | A separately computed monotone guard rejecting both extra pairs while preserving all required edges needs at least 13 gates. Sharing remains possible. Research imports. |
+| algebra_strategy/PlaneAndThirteen.lean | The complete accepted upstream proof plus a checked relabeling proves at least 13 AND gates for the exact posted graph. Research imports. |
+| reduction_analysis/PairDirtyNecessary.lean | Every exact circuit with at most 63 gates has an AND true on an independent input with at most two active bits. Research imports. |
+| reduction_analysis/ResidualPairDirtyNoncopy.lean | Every qualifying binary joint61 residual/tap circuit has such a dirty AND with distinct operand indices. No H-cone relevance is asserted. Research imports. |
 
 Further checked monotonicity, geometry, lifting and normalization lemmas are recorded in NOTES.md and validation.txt. Research imports are not eligible for the final file without permitted inlining. The fixed-feature lower bound does not automatically exclude the more general interleaved multioutput completion theorem.
 
@@ -40,7 +43,11 @@ Construction routes now include free-feature gadgets, full-plane coupled repair,
 
 The full-plane 63-gate near miss has exactly two extra prime terms and fails 140 of the 704 maximal-negative tests. The reduced four-owner kernel has nonlinear and quadratic near misses, but no exact 14-gate witness or verified restoration. A new OR-only synthesis model tests lower bounds with unrestricted AND counts; its computational outcomes are not Lean proofs.
 
-The second upstream refresh found the accepted L_meta_1898 theorem, which proves at least 13 AND gates for the isomorphic projective-plane function. Two agents independently checked the statement and relabeling argument; the concrete local adapter is still being compiled. No general 51-OR theorem or completed L_meta_650 proof was found. Fixed searches below 13 global AND gates were retired.
+The second upstream refresh found the accepted L_meta_1898 theorem, which proves at least 13 AND gates for the isomorphic projective-plane function. The complete upstream proof and the exact posted-edge adapter have now compiled together and passed independent review. No general 51-OR theorem or completed L_meta_650 proof was found. Fixed searches below 13 global AND gates were retired.
+
+The context-based two-edit search escaped its initial nonlinear plateau. A 27-gate six-core approximation lifts to a 62-gate full-plane circuit with six extra pairs; a subsequent 28-gate core lifts to 63 gates with five extra pairs. These are different, still incorrect constructions. A separately derived 63-gate filtered pair-merge candidate also has five extra pairs and supplies a verified phase for the residual SAT search. The first-gate symmetry datasets and all search constraints retain their documented scope; heuristic profiles do not establish impossibility.
+
+The workspace restart at 04:48 interrupted running jobs. The lease was renewed immediately and its timer restarted. Interrupted solver runs are distinguished from reported UNKNOWN timeouts; complete available logs and restart metadata are retained.
 
 The DNF verifier now avoids large input enumeration for Lean proofs. Its concrete augmented-circuit certificate passed in about eight seconds including imports. Earlier large finite-set batches were stopped for memory and are retained as unsuccessful diagnostics. The submission assembler binds the exact assigned statement, rejects incorrect circuits, and creates no target file until a candidate has at most 63 gates and exactly the 52 required prime terms. Its proof body has now compiled in the exact-function 64-gate calibration. A genuine 63-gate candidate still needs its own build and repository checker run.
 
@@ -56,6 +63,6 @@ L-meta-650 was assigned on 2026-11-25 at 02:14:27 UTC. Only this job's lease is 
 
 Sub-agents: algebra_strategy, circuit_search, lean_baseline, lower_bound, reduction_analysis, status_review (6 distinct agents).
 
-TIMING total=163.9 subagents=6 (checkpoint at 2026-11-25T04:45:04.119902+00:00; work continues).
+TIMING total=189.5 subagents=6 (checkpoint at 2026-11-25T05:10:37.943944+00:00; work continues).
 
 Job ID: msg-e98796d0d0ad050188abca1f.

@@ -1,0 +1,599 @@
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:31:2: error: failed to synthesize
+  Decidable (∀ (p l : Fin 13), sumInc p (-l) ↔ diffInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨0, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨0, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨1, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨1, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨2, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨2, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨3, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨3, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨4, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨4, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨5, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨5, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨6, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨6, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨7, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨7, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨8, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨8, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨9, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨9, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨10, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨10, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨11, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨11, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨12, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨12, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨13, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨13, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨14, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨14, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨15, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨15, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨16, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨16, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨17, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨17, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨18, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨18, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨19, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨19, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨20, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨20, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨21, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨21, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨22, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨22, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨23, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨23, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨24, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨24, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨0, ⋯⟩), ↑((fun i => i) ⟨25, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨0, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨25, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨0, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨0, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨1, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨1, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨2, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨2, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨3, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨3, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨4, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨4, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨5, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨5, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨6, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨6, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨7, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨7, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨8, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨8, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨9, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨9, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨10, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨10, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨11, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨11, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨12, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨12, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨13, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨13, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨14, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨14, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨15, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨15, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨16, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨16, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨17, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨17, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨18, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨18, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨19, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨19, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨20, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨20, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨21, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨21, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨22, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨22, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨23, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨23, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨24, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨24, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨1, ⋯⟩), ↑((fun i => i) ⟨25, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨1, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨25, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨0, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨0, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨1, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨1, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨2, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨2, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨3, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨3, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨4, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨4, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨5, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨5, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨6, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨6, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨7, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨7, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨8, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨8, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨9, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨9, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨10, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨10, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨11, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨11, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨12, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨12, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨13, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨13, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨14, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨14, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨15, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨15, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨16, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨16, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨17, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨17, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨18, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨18, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨19, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨19, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨20, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨20, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨21, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨21, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨22, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨22, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨23, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨23, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨24, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨24, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨2, ⋯⟩), ↑((fun i => i) ⟨25, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨2, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨25, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨0, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨0, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨1, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨1, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨2, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨2, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨3, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨3, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨4, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨4, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨5, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨5, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨6, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨6, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨7, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨7, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨8, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨8, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨9, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨9, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨10, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨10, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨11, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨11, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨12, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨12, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨13, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨13, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨14, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨14, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨15, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨15, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨16, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨16, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨17, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨17, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨18, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨18, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨19, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨19, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: failed to synthesize
+  Decidable
+    ((↑((fun i => i) ⟨3, ⋯⟩), ↑((fun i => i) ⟨20, ⋯⟩)) ∈ edges ↔
+      ∃ p l, (fun i => i) ⟨3, ⋯⟩ = Fin.castAdd 13 p ∧ (fun i => i) ⟨20, ⋯⟩ = Fin.natAdd 13 l ∧ sumInc p l)
+
+Hint: Additional diagnostic information may be available using the `set_option diagnostics true` command.
+/workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/PlaneAndThirteenTransfer.lean:37:34: error: maximum number of errors (100; from option `maxErrors`) reached, exiting

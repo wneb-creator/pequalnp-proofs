@@ -1,0 +1,102 @@
+../results/orch/lemmas/reduction_analysis/ResidualPairDirtyR517.lean:403:12: error: Tactic `rewrite` failed: Did not find an occurrence of the pattern
+  x 0 && (D.wires (List.ofFn y)).getD j false
+in the target expression
+  (x 0 && decide ((D.wires (List.ofFn y)).getD j false = true)) = true
+
+D : Circuit
+j : ℕ
+mono : Monotone2 D
+size : D.size ≤ 61
+hout : D.output < 25 + D.size
+correct : ∀ (x : Fin 26 → Bool), (attachedPoint D j).eval (List.ofFn x) = true ↔ postedValue x
+i : Fin (attachedPoint D j).gates.length
+x : Fin 26 → Bool
+hsmall : smallInput x
+hop : ((attachedPoint D j).gates.get i).op = GateOp.and
+hfalse : ¬postedValue x
+y : Fin 25 → Bool := fun k => x k.succ
+hval : ((attachedPoint D j).wires (x 0 :: List.ofFn y)).getD (26 + ↑i) false = true
+xsplit : List.ofFn x = x 0 :: List.ofFn y
+hge : ¬↑i < D.gates.length
+length : (attachedPoint D j).gates.length = D.gates.length + 2
+upper : ↑i < D.gates.length + 2
+hi : ↑i = D.gates.length
+⊢ (x 0 && decide ((D.wires (List.ofFn y)).getD j false = true)) = true
+../results/orch/lemmas/reduction_analysis/ResidualPairDirtyR517.lean:401:4: error: unsolved goals
+case inl
+D : Circuit
+j : ℕ
+mono : Monotone2 D
+size : D.size ≤ 61
+hout : D.output < 25 + D.size
+correct : ∀ (x : Fin 26 → Bool), (attachedPoint D j).eval (List.ofFn x) = true ↔ postedValue x
+i : Fin (attachedPoint D j).gates.length
+x : Fin 26 → Bool
+hsmall : smallInput x
+hop : ((attachedPoint D j).gates.get i).op = GateOp.and
+hval : ((attachedPoint D j).wires (List.ofFn x)).getD (26 + ↑i) false = true
+hfalse : ¬postedValue x
+y : Fin 25 → Bool := fun k => x k.succ
+xsplit : List.ofFn x = x 0 :: List.ofFn y
+hge : ¬↑i < D.gates.length
+length : (attachedPoint D j).gates.length = D.gates.length + 2
+upper : ↑i < D.gates.length + 2
+hi : ↑i = D.gates.length
+hv : (x 0 && decide ((D.wires (List.ofFn y)).getD j false = true)) = true
+⊢ D.eval
+        [y 0, y 1, y 2, y 3, y 4, y 5, y 6, y 7, y 8, y 9, y 10, y 11, y 12, y 13, y 14, y 15, y 16, y 17, y 18, y 19,
+          y 20, y 21, y 22, y 23, y 24] =
+      true ∨
+    x 0 = true ∧
+      (D.wires
+                [y 0, y 1, y 2, y 3, y 4, y 5, y 6, y 7, y 8, y 9, y 10, y 11, y 12, y 13, y 14, y 15, y 16, y 17, y 18,
+                  y 19, y 20, y 21, y 22, y 23, y 24])[j]?.getD
+          false =
+        true
+../results/orch/lemmas/reduction_analysis/ResidualPairDirtyR517.lean:408:12: warning: This simp argument is unused:
+  hv
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/ResidualPairDirtyR517.lean:480:9: error: unsolved goals
+case true
+D : Circuit
+j : ℕ
+hout : D.output < 25 + D.size
+reads :
+  ∀ (y : Fin 25 → Bool),
+    (D.eval (List.ofFn y) = true ↔ residualValue y) ∧
+      (D.eval (List.ofFn y) = false → (D.wires (List.ofFn y)).getD j false = residualNeighbor y)
+x : Fin 26 → Bool
+y : Fin 25 → Bool := fun i => x i.succ
+detect : D.eval (List.ofFn y) = true ↔ residualValue y
+tap : D.eval (List.ofFn y) = false → (D.wires (List.ofFn y)).getD j false = residualNeighbor y
+h : D.eval (List.ofFn y) = true
+⊢ (residualValue fun i => x i.succ) ∨ x 0 = true ∧ (residualNeighbor fun i => x i.succ) = true
+../results/orch/lemmas/reduction_analysis/ResidualPairDirtyR517.lean:484:4: error: Tactic `assumption` failed
+
+case false
+D : Circuit
+j : ℕ
+hout : D.output < 25 + D.size
+reads :
+  ∀ (y : Fin 25 → Bool),
+    (D.eval (List.ofFn y) = true ↔ residualValue y) ∧
+      (D.eval (List.ofFn y) = false → (D.wires (List.ofFn y)).getD j false = residualNeighbor y)
+x : Fin 26 → Bool
+y : Fin 25 → Bool := fun i => x i.succ
+detect : D.eval (List.ofFn y) = true ↔ residualValue y
+tap : D.eval (List.ofFn y) = false → (D.wires (List.ofFn y)).getD j false = residualNeighbor y
+h : D.eval (List.ofFn y) = false
+hr : ¬residualValue y
+⊢ x 0 = true ∧ residualNeighbor y = true ↔
+    (residualValue fun i => x i.succ) ∨ x 0 = true ∧ (residualNeighbor fun i => x i.succ) = true
+../results/orch/lemmas/reduction_analysis/ResidualPairDirtyR517.lean:480:18: warning: This simp argument is unused:
+  detect.mp h
+
+Hint: Omit it from the simp argument list.
+  [apply] simp
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`

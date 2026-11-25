@@ -1,0 +1,1 @@
+{"case": "collinear_triple_kernel", "sources": 8, "completed": true, "seconds": 0.09376375499959977, "pair_operations": 376450, "reachable_signature_count": 5944, "target_read_once": false, "scope": "Every raw input and the single correlated OR feature occurs exactly once."}

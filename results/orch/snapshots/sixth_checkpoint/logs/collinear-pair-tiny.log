@@ -1,0 +1,6 @@
+2026-11-25T05:01:38.055059+00:00 VERIFIED BASIS AND DIRECT ESSENTIALITY collinear_pair_kernel 6
+2026-11-25T05:01:38.133818+00:00 FEATURE GADGET collinear_pair_kernel 7 gates variables 1646 clauses 7384 raw 6 features 1 excess 2 minimum_ands 3 join_crossings True
+2026-11-25T05:01:38.134178+00:00 RESULT collinear_pair_kernel 7 10 seconds 0.0
+2026-11-25T05:01:38.134303+00:00 VERIFIED ALL RAW INPUTS collinear_pair_kernel 64
+2026-11-25T05:01:38.175036+00:00 FEATURE GADGET collinear_pair_kernel 6 gates variables 1221 clauses 5466 raw 6 features 1 excess 1 minimum_ands 3 join_crossings True
+2026-11-25T05:01:38.471737+00:00 RESULT collinear_pair_kernel 6 20 seconds 0.3

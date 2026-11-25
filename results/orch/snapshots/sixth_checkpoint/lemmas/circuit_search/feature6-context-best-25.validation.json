@@ -1,0 +1,38 @@
+{
+  "case": "core6_02",
+  "raw_assignments": 131072,
+  "gates": 28,
+  "active_gates": 28,
+  "active_ands": 7,
+  "omitted_raw_inputs": [],
+  "false_positives": 386,
+  "false_negatives": 0,
+  "boundary_false": 25,
+  "boundary_misses": 0,
+  "extra_monomials": [
+    [
+      2,
+      6
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      2,
+      9
+    ],
+    [
+      0,
+      11
+    ],
+    [
+      2,
+      13
+    ],
+    [
+      0,
+      15
+    ]
+  ]
+}

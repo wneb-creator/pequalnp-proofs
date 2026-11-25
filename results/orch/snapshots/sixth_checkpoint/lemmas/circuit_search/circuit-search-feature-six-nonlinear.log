@@ -1,0 +1,56 @@
+ALLPOS initial false 45
+POLISH seconds 0.00301907 sweeps 1 evaluations 56028 best 45 current 45
+POLISH BEST false 43 sweep 2 evaluations 112056
+POLISH BEST false 42 sweep 903 evaluations 50593284
+POLISH seconds 10.0018 sweeps 3369 evaluations 188758332 best 42 current 45
+POLISH seconds 20.0015 sweeps 6673 evaluations 373874844 best 42 current 42
+POLISH BEST false 41 sweep 8227 evaluations 460942356
+POLISH seconds 30.0011 sweeps 9976 evaluations 558935328 best 41 current 47
+POLISH seconds 40.0018 sweeps 13265 evaluations 743211420 best 41 current 41
+POLISH seconds 50.0005 sweeps 16493 evaluations 924069804 best 41 current 47
+POLISH seconds 60.0021 sweeps 19607 evaluations 1098540996 best 41 current 42
+POLISH seconds 70.0023 sweeps 22165 evaluations 1241860620 best 41 current 41
+POLISH seconds 80.0007 sweeps 24684 evaluations 1382995152 best 41 current 47
+POLISH seconds 90.0012 sweeps 27976 evaluations 1567439328 best 41 current 43
+POLISH seconds 100.001 sweeps 31232 evaluations 1749866496 best 41 current 41
+POLISH seconds 110.001 sweeps 34562 evaluations 1936439736 best 41 current 41
+POLISH seconds 120.004 sweeps 37528 evaluations 2102618784 best 41 current 41
+POLISH seconds 130.002 sweeps 40047 evaluations 2243753316 best 41 current 46
+POLISH seconds 140.001 sweeps 43267 evaluations 2424163476 best 41 current 46
+POLISH seconds 150.002 sweeps 46511 evaluations 2605918308 best 41 current 42
+POLISH seconds 160.002 sweeps 49292 evaluations 2761732176 best 41 current 42
+POLISH seconds 170.001 sweeps 52276 evaluations 2928919728 best 41 current 46
+POLISH seconds 180.003 sweeps 54879 evaluations 3074760612 best 41 current 41
+POLISH seconds 190.002 sweeps 57499 evaluations 3221553972 best 41 current 47
+POLISH seconds 200.002 sweeps 60057 evaluations 3364873596 best 41 current 41
+POLISH seconds 210.002 sweeps 62349 evaluations 3493289772 best 41 current 41
+POLISH seconds 220.001 sweeps 64514 evaluations 3614590392 best 41 current 41
+POLISH seconds 230.002 sweeps 67143 evaluations 3761888004 best 41 current 45
+POLISH seconds 240.001 sweeps 69674 evaluations 3903694872 best 41 current 41
+POLISH seconds 250 sweeps 72174 evaluations 4043764872 best 41 current 41
+POLISH seconds 260.001 sweeps 74762 evaluations 4188765336 best 41 current 47
+POLISH seconds 270.001 sweeps 76712 evaluations 4298019936 best 41 current 47
+POLISH BEST false 40 sweep 78599 evaluations 4403744772
+POLISH seconds 280.003 sweeps 79326 evaluations 4444477128 best 40 current 46
+POLISH seconds 290.004 sweeps 82045 evaluations 4596817260 best 40 current 40
+POLISH seconds 300.001 sweeps 84200 evaluations 4717557600 best 40 current 43
+POLISH seconds 310 sweeps 86800 evaluations 4863230400 best 40 current 47
+POLISH seconds 320.002 sweeps 89265 evaluations 5001339420 best 40 current 40
+POLISH seconds 330.002 sweeps 91764 evaluations 5141353392 best 40 current 42
+POLISH seconds 340.001 sweeps 94418 evaluations 5290051704 best 40 current 42
+POLISH seconds 350.002 sweeps 96998 evaluations 5434603944 best 40 current 42
+POLISH seconds 360.001 sweeps 99372 evaluations 5567614416 best 40 current 47
+POLISH seconds 370.001 sweeps 101988 evaluations 5714183664 best 40 current 47
+POLISH seconds 380.001 sweeps 104685 evaluations 5865291180 best 40 current 40
+POLISH seconds 390.002 sweeps 107120 evaluations 6001719360 best 40 current 43
+POLISH seconds 400.002 sweeps 109669 evaluations 6144534732 best 40 current 40
+POLISH seconds 410 sweeps 112232 evaluations 6288134496 best 40 current 40
+POLISH seconds 420.002 sweeps 114906 evaluations 6437953368 best 40 current 47
+POLISH seconds 430.002 sweeps 117934 evaluations 6607606152 best 40 current 40
+POLISH seconds 440.002 sweeps 121231 evaluations 6792330468 best 40 current 40
+POLISH seconds 450.003 sweeps 124601 evaluations 6981144828 best 40 current 40
+POLISH seconds 460.001 sweeps 128045 evaluations 7174105260 best 40 current 43
+POLISH seconds 470.003 sweeps 131373 evaluations 7360566444 best 40 current 42
+POLISH seconds 480.001 sweeps 134693 evaluations 7546579404 best 40 current 40
+POLISH seconds 490.003 sweeps 137997 evaluations 7731695916 best 40 current 40
+POLISH seconds 500.001 sweeps 141374 evaluations 7920902472 best 40 current 40

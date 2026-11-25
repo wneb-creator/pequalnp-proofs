@@ -1,0 +1,59 @@
+ALLPOS initial false 40
+POLISH seconds 0.000143963 sweeps 1 evaluations 56028 best 40 current 40
+POLISH BEST false 38 sweep 67 evaluations 4085720
+POLISH BEST false 37 sweep 414 evaluations 25436960
+POLISH BEST false 35 sweep 617 evaluations 37938482
+POLISH BEST false 32 sweep 9694 evaluations 595759426
+POLISH seconds 10.0002 sweeps 64663 evaluations 3970547584 best 32 current 41
+POLISH seconds 20.0002 sweeps 116614 evaluations 7160666702 best 32 current 43
+POLISH seconds 30.0001 sweeps 176764 evaluations 10854383634 best 32 current 32
+POLISH seconds 40.0001 sweeps 238631 evaluations 14653280336 best 32 current 44
+POLISH BEST false 31 sweep 299990 evaluations 18420044426
+POLISH BEST false 30 sweep 299991 evaluations 18420100454
+POLISH BEST false 28 sweep 300069 evaluations 18424913748
+POLISH seconds 50 sweeps 302032 evaluations 18545326840 best 28 current 28
+POLISH seconds 60.0002 sweeps 361169 evaluations 22175819838 best 28 current 40
+POLISH seconds 70.0002 sweeps 419735 evaluations 25772836954 best 28 current 40
+POLISH seconds 80.0001 sweeps 469157 evaluations 28806265674 best 28 current 46
+POLISH BEST false 25 sweep 507049 evaluations 31132119924
+POLISH seconds 90.0014 sweeps 511883 evaluations 31428990592 best 25 current 25
+POLISH seconds 100 sweeps 556643 evaluations 34177552168 best 25 current 42
+POLISH seconds 110 sweeps 606708 evaluations 37252014006 best 25 current 25
+POLISH seconds 120 sweeps 670494 evaluations 41170373472 best 25 current 45
+POLISH seconds 130 sweeps 737803 evaluations 45303940106 best 25 current 47
+POLISH seconds 140 sweeps 797128 evaluations 48947348644 best 25 current 46
+POLISH seconds 150 sweeps 850418 evaluations 52220612660 best 25 current 46
+POLISH seconds 160 sweeps 913718 evaluations 56108562364 best 25 current 25
+POLISH seconds 170.001 sweeps 972822 evaluations 59737999700 best 25 current 46
+POLISH seconds 180 sweeps 1030525 evaluations 63283005372 best 25 current 42
+POLISH seconds 190 sweeps 1081045 evaluations 66385939148 best 25 current 47
+POLISH seconds 200 sweeps 1130119 evaluations 69400624080 best 25 current 25
+POLISH seconds 210 sweeps 1178473 evaluations 72371173298 best 25 current 47
+POLISH seconds 220 sweeps 1222901 evaluations 75100637432 best 25 current 48
+POLISH seconds 230 sweeps 1275521 evaluations 78332501264 best 25 current 47
+POLISH seconds 240 sweeps 1328990 evaluations 81618578180 best 25 current 25
+POLISH seconds 250 sweeps 1381158 evaluations 84824217436 best 25 current 46
+POLISH seconds 260 sweeps 1430359 evaluations 87845573334 best 25 current 47
+POLISH seconds 270 sweeps 1476273 evaluations 90666222144 best 25 current 47
+POLISH seconds 280 sweeps 1525468 evaluations 93686956196 best 25 current 25
+POLISH seconds 290 sweeps 1575217 evaluations 96743290206 best 25 current 42
+POLISH seconds 300 sweeps 1623797 evaluations 99726671676 best 25 current 44
+POLISH seconds 310 sweeps 1674725 evaluations 102854396534 best 25 current 42
+POLISH seconds 320 sweeps 1725141 evaluations 105951227646 best 25 current 46
+POLISH seconds 330 sweeps 1774139 evaluations 108963018628 best 25 current 40
+POLISH seconds 340 sweeps 1835012 evaluations 112703677994 best 25 current 43
+POLISH seconds 350 sweeps 1899261 evaluations 116649975860 best 25 current 45
+POLISH seconds 360 sweeps 1962079 evaluations 120510079978 best 25 current 43
+POLISH seconds 370 sweeps 2026540 evaluations 124468802580 best 25 current 48
+POLISH seconds 380 sweeps 2088647 evaluations 128284485762 best 25 current 25
+POLISH seconds 390 sweeps 2154980 evaluations 132358125984 best 25 current 25
+POLISH seconds 400 sweeps 2219211 evaluations 136303355428 best 25 current 25
+POLISH seconds 410 sweeps 2284650 evaluations 140323424004 best 25 current 47
+POLISH seconds 420 sweeps 2344785 evaluations 144017724196 best 25 current 40
+POLISH seconds 430 sweeps 2408268 evaluations 147917976168 best 25 current 25
+POLISH seconds 440 sweeps 2470432 evaluations 151736766994 best 25 current 46
+POLISH seconds 450.002 sweeps 2533934 evaluations 155637944464 best 25 current 48
+POLISH seconds 460.002 sweeps 2596855 evaluations 159503388632 best 25 current 47
+POLISH seconds 470 sweeps 2660319 evaluations 163400999030 best 25 current 25
+POLISH seconds 480 sweeps 2716973 evaluations 166881345548 best 25 current 25
+POLISH seconds 490 sweeps 2775570 evaluations 170480066812 best 25 current 25

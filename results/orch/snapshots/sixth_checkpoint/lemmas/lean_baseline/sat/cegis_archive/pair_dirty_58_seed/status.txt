@@ -1,0 +1,1 @@
+INTENTIONALLY INTERRUPTED at05:08UTC to switch to the stronger verified filtered61 seed. Final SOLVER0 was triggered bySIGINT, not a completed walltimebudget. TwoSATpartialmodels retained; neitheris atargetwitness.

@@ -1,0 +1,18 @@
+2026-11-25T05:05:09.661614+00:00 START full_point0_residual_tap samples 77 full-care 756 slots 64 cost 61 target 61 minimum-noncopy-ands 12 exact-noncopy-ands None require-nonstar-and False require-assembled-nested-and True forbid-raw-absorption True forbid-parent-absorption True first-gate-orbits 9 require-pair-dirty-and True paid-parents-noncopy True lazy-absorption True variables 35407 clauses 1235484
+2026-11-25T05:05:53.046385+00:00 ROUND 0 ATTEMPT 0 COST 61 SOLVER 10
+2026-11-25T05:05:53.051548+00:00 DIRTY-INTERMEDIATE-WITNESS 131074
+2026-11-25T05:05:53.059408+00:00 CANDIDATE joint-size 58 H-size 56 H-errors 544 tap-errors 0
+2026-11-25T05:05:53.060528+00:00 ABSORPTION-CUTS 0
+2026-11-25T05:05:53.112409+00:00 ADD [(4098, 2)]
+2026-11-25T05:08:21.969956+00:00 ROUND 1 ATTEMPT 0 COST 61 SOLVER 10
+2026-11-25T05:08:21.978984+00:00 DIRTY-INTERMEDIATE-WITNESS 8519680
+2026-11-25T05:08:21.998516+00:00 CANDIDATE joint-size 59 H-size 49 H-errors 701 tap-errors 137
+2026-11-25T05:08:22.006792+00:00 ABSORPTION-CUTS 3
+2026-11-25T05:08:22.096283+00:00 ADD [(4104, 2)]
+Exception ignored on calling ctypes callback function: <function Solver.__init__.<locals>.<lambda> at 0x7fce827bb740>
+Traceback (most recent call last):
+  File "/workspace/pequalnp-proofs/results/orch/lemmas/lower_bound/sat/incremental_cegis.py", line 38, in <lambda>
+    self.callback = callback_type(lambda _: int(time.monotonic() >= self.deadline))
+
+KeyboardInterrupt: 
+2026-11-25T05:08:26.698057+00:00 ROUND 2 ATTEMPT 0 COST 61 SOLVER 0

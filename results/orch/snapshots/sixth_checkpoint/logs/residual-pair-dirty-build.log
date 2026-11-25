@@ -1,0 +1,84 @@
+../results/orch/lemmas/reduction_analysis/ResidualPairDirty.lean:340:4: error: 'change' tactic failed, pattern
+  (b :: w).getD (25 + i).succ false = ?m.104
+is not definitionally equal to target
+  (b :: attachRun D.gates (List.ofFn y)).getD (26 + i) false = (D.wires (List.ofFn y)).getD (25 + i) false
+../results/orch/lemmas/reduction_analysis/ResidualPairDirty.lean:356:2: error: 'change' tactic failed, pattern
+  (attachRun [{ op := GateOp.or, inputs := [D.output + 1, 26 + D.size] }] (b :: w ++ [b && w.getD j false])).getD
+      (26 + D.size) false =
+    ?m.113
+is not definitionally equal to target
+  (attachRun [{ op := GateOp.and, inputs := [0, j + 1] }, { op := GateOp.or, inputs := [D.output + 1, 26 + D.size] }]
+          (b :: attachRun D.gates (List.ofFn y))).getD
+      (26 + D.size) false =
+    (b && (D.wires (List.ofFn y)).getD j false)
+../results/orch/lemmas/reduction_analysis/ResidualPairDirty.lean:370:74: error: unsolved goals
+D : Circuit
+j : ℕ
+i : Fin (attachedPoint D j).gates.length
+hi : ↑i < D.gates.length
+⊢ ((List.map shiftedGate D.gates ++
+            [{ op := GateOp.and, inputs := [0, j + 1] },
+              { op := GateOp.or, inputs := [D.output + 1, 26 + D.size] }]).get
+        i).op =
+    D.gates[↑i].op
+../results/orch/lemmas/reduction_analysis/ResidualPairDirty.lean:371:42: warning: This simp argument is unused:
+  List.getElem_append_left
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [attachedPoint, List.get_eq_getElem, hi, shiftedGate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/ResidualPairDirty.lean:371:67: warning: This simp argument is unused:
+  hi
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [attachedPoint, List.get_eq_getElem, List.getElem_append_left, shiftedGate]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/ResidualPairDirty.lean:371:70: warning: This simp argument is unused:
+  shiftedGate
+
+Hint: Omit it from the simp argument list.
+  [apply] simp [attachedPoint, List.get_eq_getElem, List.getElem_append_left, hi]
+
+Note: This linter can be disabled with `set_option linter.unusedSimpArgs false`
+../results/orch/lemmas/reduction_analysis/ResidualPairDirty.lean:384:52: error: Function expected at
+  List.ofFn_succ
+but this term has type
+  List.ofFn ?m.101 = ?m.101 0 :: List.ofFn fun i => ?m.101 i.succ
+
+Note: Expected a function because this term is being applied to the argument
+  x
+../results/orch/lemmas/reduction_analysis/ResidualPairDirty.lean:390:8: error: Tactic `rewrite` failed: motive is not type correct:
+  fun _a => ↑i < _a
+Error: Application type mismatch: The argument
+  i
+has type
+  Fin (attachedPoint D j).gates.length
+but is expected to have type
+  Fin _a
+in the application
+  ↑i
+
+Explanation: The rewrite tactic rewrites an expression 'e' using an equality 'a = b' by the following process. First, it looks for all 'a' in 'e'. Second, it tries to abstract these occurrences of 'a' to create a function 'm := fun _a => ...', called the *motive*, with the property that 'm a' is definitionally equal to 'e'. Third, we observe that 'congrArg' implies that 'm a = m b', which can be used with lemmas such as 'Eq.mpr' to change the goal. However, if 'e' depends on specific properties of 'a', then the motive 'm' might not typecheck.
+
+Possible solutions: use rewrite's 'occs' configuration option to limit which occurrences are rewritten, or use 'simp' or 'conv' mode, which have strategies for certain kinds of dependencies (these tactics can handle proofs and 'Decidable' instances whose types depend on the rewritten term, and 'simp' can apply user-defined '@[congr]' theorems as well).
+
+D : Circuit
+j : ℕ
+mono : Monotone2 D
+size : D.size ≤ 61
+hout : D.output < 25 + D.size
+correct : ∀ (x : Fin 26 → Bool), (attachedPoint D j).eval (List.ofFn x) = true ↔ postedValue x
+i : Fin (attachedPoint D j).gates.length
+x : Fin 26 → Bool
+hsmall : smallInput x
+hop : ((attachedPoint D j).gates.get i).op = GateOp.and
+hval : ((attachedPoint D j).wires (List.ofFn x)).getD (26 + ↑i) false = true
+hfalse : ¬postedValue x
+y : Fin 25 → Bool := fun k => x k.succ
+xsplit : List.ofFn x = x 0 :: List.ofFn y
+hge : ¬↑i < D.gates.length
+upper : ↑i < (attachedPoint D j).gates.length
+length : (attachedPoint D j).gates.length = D.gates.length + 2
+⊢ False

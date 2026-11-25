@@ -1,0 +1,1 @@
+{"case": "collinear_pair_kernel", "sources": 7, "completed": true, "seconds": 0.0078666780009371, "pair_operations": 36629, "reachable_signature_count": 672, "target_read_once": false, "scope": "Every raw input and the single correlated OR feature occurs exactly once."}

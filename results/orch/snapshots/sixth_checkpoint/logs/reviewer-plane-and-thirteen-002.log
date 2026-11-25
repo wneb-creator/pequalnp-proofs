@@ -1,0 +1,5 @@
+PASS exact upstream proof body, imports only changed.
+PASS exact approved adapter after removing explicit hypothesis and invoking accepted theorem.
+PASS forbidden-text/attribute/limit-option scan; complete successful log copy identical and empty.
+PASS metadata accurately says unconditional 13 ANDs, research import, no OR bound/full refutation.
+source_sha256 d06130173f0021dc028289a66daa1c919c90bad6dc9c991a1bfec0aaa679c04d

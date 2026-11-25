@@ -1,0 +1,7 @@
+{
+  "all_raw_assignments": 131072,
+  "equivalent": true,
+  "false_negative_count": 0,
+  "false_positive_count": 327,
+  "mutation": "source wire36: OR(raw15,feature17={raw13,raw16}) becomes OR(raw15,raw16); raw13 term is absorbed downstream by wire43"
+}

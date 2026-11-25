@@ -1,0 +1,5 @@
+gates 13 AND 4
+full errors 0 20
+boundary errors 7
+extra minimal terms [[1, 5], [3, 5], [1, 6], [0, 8], [0, 9]]
+written /workspace/pequalnp-proofs/results/orch/lemmas/algebra_strategy/context27-four-owner-kernel.json

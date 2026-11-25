@@ -85,3 +85,13 @@
 2026-11-25T04:44:52.521150+00:00 Renewed lease; expiry 2026-11-25T05:04:52.888Z.
 
 - 2026-11-25T04:45:12.749532+00:00 lean_baseline: priorCegisUNKNOWN;58seed/nonstar/min12 profileactive; assembleddepth andrawabsorption guards prepared.
+
+- 2026-11-25T04:52:19.469939+00:00 lean_baseline: restart-interrupted profile archived; reviewed structural/symmetry residual lane started.
+2026-11-25T04:58:51.303800+00:00 Renewed lease; expiry 2026-11-25T05:18:51.393Z.
+
+- 2026-11-25T05:05:18.976504+00:00 lean_baseline: combinedreviewed pair-dirty/absorption/symmetry solelane started afterlease renewal; priorstructuralrun UNKNOWN.
+2026-11-25T05:08:51.633789+00:00 Renewed lease; expiry 2026-11-25T05:28:51.864Z.
+
+- 2026-11-25T05:09:09.771679+00:00 lean_baseline: verified/reviewedgenuinefiltered61seed; intentionallyswitchedsoleSATlane afterrenewal.
+
+2026-11-25T05:10:37.943944+00:00 Sixth checkpoint frozen. Workspace restart04:48 stopped renewal process; manual renewal04:48:51 succeeded and timer restarted. Full13-AND adapter compiled05:04:18; residual noncopy necessity compiled and preserved. No full target proof.

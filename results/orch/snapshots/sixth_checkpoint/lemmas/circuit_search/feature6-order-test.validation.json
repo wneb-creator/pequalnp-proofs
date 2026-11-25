@@ -1,0 +1,6 @@
+{
+  "rewrites": 5000,
+  "context_comparisons": 20000,
+  "raw_assignments": 131072,
+  "equivalent": true
+}

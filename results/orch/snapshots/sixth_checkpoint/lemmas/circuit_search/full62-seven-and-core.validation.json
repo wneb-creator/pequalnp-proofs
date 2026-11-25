@@ -1,0 +1,34 @@
+{
+  "status": "approximate only",
+  "case": "core6_02",
+  "gates": 62,
+  "ands": 14,
+  "boundary_errors": 309,
+  "positive_misses": 0,
+  "extra_monomials": [
+    [
+      2,
+      13
+    ],
+    [
+      7,
+      13
+    ],
+    [
+      2,
+      16
+    ],
+    [
+      0,
+      20
+    ],
+    [
+      2,
+      22
+    ],
+    [
+      0,
+      24
+    ]
+  ]
+}
