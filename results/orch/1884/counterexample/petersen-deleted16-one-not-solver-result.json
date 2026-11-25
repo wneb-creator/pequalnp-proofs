@@ -1,0 +1,11 @@
+{
+  "started_utc": "2026-11-25T16:51:40.004602+00:00",
+  "finished_utc": "2026-11-25T16:56:40.032991+00:00",
+  "elapsed_seconds": 300.0284796770002,
+  "exit_code": 0,
+  "limit_seconds": 300,
+  "address_space_limit_bytes": 402653184,
+  "max_child_rss_kib": 166444,
+  "seed": 154,
+  "lrat_requested": false
+}

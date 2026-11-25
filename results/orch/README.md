@@ -14,7 +14,7 @@ The C6 external enumerator excludes seven-gate witness-served monotone circuits 
 
 ## L-meta-1884
 
-See `1884/statement.txt` for the exact assignment. No target Lean theorem is proved. The dependency audit identifies unresolved ordinary-Petersen and near-monotone lower-bound cores; all three reduction slots are occupied. Source audits and solver experiments are in `1884/`.
+See `1884/statement.txt` for the exact assignment. The50-line named file `lean/PEqualNP/Outside/L_meta_1884.lean` builds and proves only concrete model, reader, chain, trace and Petersen-disagreement facts. Its column-count claims were removed after two resource-killed attempts and remain external evidence; the full failed certificate is explicitly `UNVERIFIED_column_certificate.lean`. The source guard refuses the absent target theorem. No target Lean theorem is proved. The dependency audit identifies unresolved ordinary-Petersen and near-monotone lower-bound cores; all three reduction slots are occupied. Source audits and solver experiments are in `1884/`.
 
 ## Measurement
 

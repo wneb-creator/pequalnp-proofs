@@ -1,0 +1,2 @@
+exit_code=0
+Lean compiler log is empty. Only model, chain, trace and explicit Petersen-difference lemmas checked. No column-cardinality declaration remains in this checked subset.

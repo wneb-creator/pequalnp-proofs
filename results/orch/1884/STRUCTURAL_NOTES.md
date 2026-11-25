@@ -49,3 +49,11 @@ Already in the special case h=(complement 0) AND q, the cut at the NOT has the f
     F0 = A OR (B AND NOT q)
 
 with A and B monotone and A <= F0. The three neighbor-singleton traces force q to accept those neighbors. For any edge e of the vertex-deleted graph, degree three and girth five give a neighbor v of 0 nonadjacent to both endpoints of e. If q(e)=false and B(e) is responsible for accepting e, then q(e+v)=true and therefore A(e+v)=true. This does not imply A(e)=true: A may contain a conditional cubic term e AND v. Consequently monotonicity alone does not remove the NOT. One would need a size argument showing these compensation terms are wasteful. The factorization h=(complement 0) AND q is a special case, not a consequence of merely having one direct AND reader of the free complement; later OR gates can add terms independent of that source.
+
+## Concrete obstruction witness (2026-11-25T17:02:11.460898+00:00)
+
+The independent 18-gate circuit in `column_witness.lean` has now been Lean-checked only for model/reader counts, a chain using every gate, the unique NOT trace for all three neighbors, and an explicit failure on input {0,1}. It is NOT a counterexample to L-meta-1884: its output is false on that Petersen edge. Immutable checked source: `/tmp/oec/pequalnp-pilot-154/column_witness_core_checked_1.lean`; full compiler log `column_witness_core_build.log` is empty, exit status 0.
+
+External exact 64-row evaluation gives the eight wire-column cardinalities [19,19,19,16,19,16,19,18]. These cardinalities are NOT Lean-checked. Two kernel certificate attempts were killed for memory pressure; the candidate was moved to the explicitly named `UNVERIFIED_column_certificate.lean`, and every column-cardinality declaration was removed from the checked subset. No further expensive kernel attempts are authorized in this work. External search logs are `column_count_search.log` and `column_count_chain_search.log` in the task scratch directory.
+
+The witness shows why the eight column-count inequalities, syntactic liveness, reader counts, and the local NOT trace alone cannot establish a contradiction. The exact output function or a stronger semantic minimality condition is still required.

@@ -134,3 +134,19 @@ Complementary monotone-internal18gate search allows AND/OR plus free!x0 only. Ea
 Independent checker_review audit passed both Petersen CNF encodings and controls. It confirms signed phase variables, selector one-hot constraints, mux and AND/OR/NOT gate semantics. Both controls independently verify every CNF clause and all1,024truth assignments. UNSAT is not a proof of fullL1884 without normalizing arbitrary unaryx3, input relabels, nullary/unary AND/OR and invalid reads; a found circuit would directly refute it after Lean verification.
 
 [2026-11-25 16:46:08 UTC] global_bridge /1884: audited L670/2446 finite live-wire certificate provenance. No generator in localrepo or completePR12203forktree(3667entries,truncated=false). Mono15 certificate1471states, signed14certificate698states, storeddepth≤6; formats hardcode9vars/512truthbits,152KWsamples,10bits/instruction=2op+4+4indices. PR12680reports19m18sbuild+24m35skernelreplay,5118constants. Audit withsourceURLs in results/orch/1884/CERTIFICATE_AUDIT.md; ten-inputcostUNVERIFIED. Newmathcandidate: signedbinaryPetersen≥17 fromP-vsigned≥15 +NoFunnel: somevariablehas2readers(otherwisefirstbinarygateisPairFunnel), falsefixdeletes2. Thiswouldexclude≥2ordinaryNOTsina18gatecircuitwithfree¬x0. NotLeanchecked; parentnotified.
+
+### 2026-11-25T16:58:56.287380+00:00 — L1884 targeted synthesis results
+
+The generic18-gate full1,024-row model hit its600.15-second wall limit with no verdict (286,716KiB peakRSS). The AND/OR-only18-gate model with free!x0 and38exact cofactor extremal rows also hit600.015seconds with no verdict (136,504KiB). Neither is UNSAT.
+
+CEGAR on the general18-gate model found a38-row SAT candidate in10.87seconds, but full1,024-row verification rejected it on856assignments. EveryCNFclause was independently verified. Added16diverse failures, includingall-ones; the54-row refinement hit120.009seconds with no verdict. No refutation. The driver fresh-JSON issue found by independent review was fixed before starting this experiment.
+
+Petersen-minus0 diagnostic:16gates,9positiveinputs,no free complement,exactlyoneNOT,all512rows. Its fixed16-gate monotone control passed everyCNFclause andall512rows. Genericdiagnostic hit300.028seconds with no verdict (166,444KiB).
+
+The final restricted18-gate experiment requires exactlyone raw0 reader (OR) andexactlyone raw!0 reader (AND), arbitrarygatepositions,AND/OR only. A24-gate positivecontrol constructed from the known20-gate seed passed all1,024rows,all79,936CNFclauses,andreader counts. Final18 model has3,580variables/50,024clauses/38rows,300-second limit,expectedend17:01:49UTC. No further search batches planned. Allcompletedprograms,metadataandfullsolverlogsarearchivedunder results/orch/1884/counterexample; no largeCNFs.
+
+### 2026-11-25T17:00:52.391494+00:00 — Final restricted search termination
+
+The unique-reader eighteen-gate experiment was killed by signal 9 at 16:59:42 UTC after 173.795 seconds, before its 300-second wall limit. Peak child RSS was 57,544 KiB. The cause of the signal is not established; this was not a SAT/UNSAT verdict and is not recorded as a normal timeout. No automatic restart or further search batch was started.
+
+Final computational archive: `results/orch/1884/counterexample/`, 61 small files totaling about 271 KB, including all complete emitted stdout/stderr logs, compact model metadata, four successful positive controls, programs, result timestamps, and synchronized SHA-256 manifest. Large reproducible CNFs are omitted. The README reports every exact exit status and clearly states that no full-table counterexample or UNSAT result was found. Final parameterization review requested.

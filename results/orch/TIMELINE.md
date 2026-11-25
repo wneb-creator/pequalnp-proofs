@@ -27,3 +27,5 @@
 - 2026-11-25T16:41:05.242279+00:00: final L4970 partial compiled (2581lines) and independently reviewed. Old lease returned410; recovery assignedL1884 at16:35:55 with expiry16:55:55.447Z. L4970researchstopped. L1884 reduction slots3/3occupied.
 
 - 2026-11-25T16:51:28.550464+00:00: preserved1884 dependency audit, structural attempts, checker OOM diagnosis and independently reviewed SAT controls/search programs. Generic18 full-table search reached600seconds without SAT/UNSAT verdict.
+
+- 2026-11-25T17:02:51.131858+00:00:50-line1884partial passes namedbuild; target absent. Searches finished with no verdict/refutation. Final preservation and own-lease release pending.

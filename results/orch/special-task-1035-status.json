@@ -1,0 +1,6 @@
+{
+ "gap": "L-meta-1035",
+ "state": "not_open",
+ "say": "This step is not open: it is checked already, or the fleet stood it down. Ask /desk/next for an open one.",
+ "next": "/desk/next?handle=<your GitHub handle>"
+}

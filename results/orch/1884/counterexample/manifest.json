@@ -1,15 +1,15 @@
 {
-  "archived_utc": "2026-11-25T16:51:17.495199+00:00",
+  "archived_utc": "2026-11-25T17:00:45.618227+00:00",
   "files": [
     {
       "name": "petersen_sat.py",
-      "bytes": 5348,
-      "sha256": "dd4487063837d32b474f9af61bc736d702c4d8368d154b698c85eaad2d5d2a74"
+      "bytes": 6608,
+      "sha256": "14aacf17031e1266b8476f40555df59948bbe7f068a2add6cb0ee75143f6d7e6"
     },
     {
       "name": "petersen_verify.py",
-      "bytes": 1943,
-      "sha256": "001f6a09ffd97046d6a559ba1fbf953b6451dad23bc955aad896ee7eed07d399"
+      "bytes": 3012,
+      "sha256": "c9aba2daebc29f3bc1777a55f42d9421aaba434cef3c24ad91911f031bd0c66d"
     },
     {
       "name": "petersen_cegar.py",
@@ -25,6 +25,76 @@
       "name": "cadical-help.txt",
       "bytes": 14905,
       "sha256": "3130f29128ff982dbf028386f6af7e99342bde5f9dd10db4a65ab0b91a7da23c"
+    },
+    {
+      "name": "petersen-cegar-00-generation.log",
+      "bytes": 118,
+      "sha256": "a534f96c2e30d31e1a56576913ac83a50f032b8a4134dc6ad205b72a3cb124f8"
+    },
+    {
+      "name": "petersen-cegar-00-next-rows.json",
+      "bytes": 257,
+      "sha256": "7d19005ca48dc6c49582fe85c7cac07bcbf71ad0f91de02f6c9f946cff466ec2"
+    },
+    {
+      "name": "petersen-cegar-00-next-seed.json",
+      "bytes": 221,
+      "sha256": "eed0c72cec203f5ed8c83a49e1014fdf766846db46c183b76173a541ba0ada32"
+    },
+    {
+      "name": "petersen-cegar-00-solver-result.json",
+      "bytes": 307,
+      "sha256": "4683a63608a7d45d75664d1027c8f7d5e353b8f165f59a7a3ea777455cd5b573"
+    },
+    {
+      "name": "petersen-cegar-00-solver.log",
+      "bytes": 10788,
+      "sha256": "5ce767573eda00f6b21935a1fd95fd0ae103ed8f03e6841376274716d5a62f0f"
+    },
+    {
+      "name": "petersen-cegar-00-verification.json",
+      "bytes": 8641,
+      "sha256": "398744d15045d0d96d87355e40962a4325564018e558b5859dc69c944e97748b"
+    },
+    {
+      "name": "petersen-cegar-00-verification.log",
+      "bytes": 4867,
+      "sha256": "c8dc12b1679a30e14105ff7188177599ec1d29930dafb48390cd04a8f377593b"
+    },
+    {
+      "name": "petersen-cegar-00.json",
+      "bytes": 6079,
+      "sha256": "44d39641ef5bec815a30014d82afed4ad8cdec7e3a713ffc0f9598f782fb34c5"
+    },
+    {
+      "name": "petersen-cegar-01-generation.log",
+      "bytes": 118,
+      "sha256": "cb0b7d0ba5150272f00b32929cea850142b0bed6c2a9cc19904725df8674b189"
+    },
+    {
+      "name": "petersen-cegar-01-solver-result.json",
+      "bytes": 306,
+      "sha256": "94413b1be20721c2221360247370cd2e19c7776126517559bd838b5a7e9a9478"
+    },
+    {
+      "name": "petersen-cegar-01-solver.log",
+      "bytes": 20203,
+      "sha256": "80d958a8f195684b0c53e01c9b85d9b8782cc347b38008dcb147d452fb72684a"
+    },
+    {
+      "name": "petersen-cegar-01.json",
+      "bytes": 6201,
+      "sha256": "c5611662ae6ac0b9adc800806e9505449bbc9f538a2bba5722d8f3df29eec93a"
+    },
+    {
+      "name": "petersen-cegar-result.json",
+      "bytes": 1482,
+      "sha256": "c21115e54ac17cbcb8e78aed2c512085ae2e3f790cebc057886e95fcc5032cee"
+    },
+    {
+      "name": "petersen-cegar-run.log",
+      "bytes": 2157,
+      "sha256": "a38b1547b5d548636e36bc7ccb2d5275824cd559c8a7ecff3202168453f6aa9f"
     },
     {
       "name": "petersen-control-generation.log",
@@ -52,19 +122,69 @@
       "sha256": "c9413c5a9ec8a8ad9a20b1d873ab346a83fdcf1ccd82b9022eeda1ab12dc9e7c"
     },
     {
+      "name": "petersen-deleted-control-generation.log",
+      "bytes": 120,
+      "sha256": "1eb0ac1cdcee0bc97faf15beb251d32293efdc5d3fb24cc1a08a43fd9d45c4be"
+    },
+    {
+      "name": "petersen-deleted-control-solver-result.json",
+      "bytes": 306,
+      "sha256": "71d887159ca7ba7a12252f031f92c87baa475b412933c177a9f34d4fda434027"
+    },
+    {
+      "name": "petersen-deleted-control-solver.log",
+      "bytes": 3083,
+      "sha256": "75c7e75e9a1eecf95f368d1abe52fcb7682be1d4316e421d282cddc9cd6e4d90"
+    },
+    {
+      "name": "petersen-deleted-control-verification.json",
+      "bytes": 895,
+      "sha256": "e818682b989d6b56d0ed6098f2161ca144b6d2b6640b0695847fa6512b1ead1c"
+    },
+    {
+      "name": "petersen-deleted-control-verification.log",
+      "bytes": 418,
+      "sha256": "024a61487be791180e119c522de8cd2168e5e31226a6d6169d2b7b5e04633400"
+    },
+    {
+      "name": "petersen-deleted-control.json",
+      "bytes": 7579,
+      "sha256": "187f4ad2af6fc09609f820da481a552409719023de7900c56a7a04ee0ab6ee9d"
+    },
+    {
+      "name": "petersen-deleted16-one-not-generation.log",
+      "bytes": 121,
+      "sha256": "81e5e2a553ed8bc6d8b3fd1db4ad255298cc56d348695f9505b0bdac8a283f9c"
+    },
+    {
+      "name": "petersen-deleted16-one-not-solver-result.json",
+      "bytes": 306,
+      "sha256": "a89b53f4afa2a513a8495f0686a5d95f58ec74618ffa5dd1d84e8eb20f90d846"
+    },
+    {
+      "name": "petersen-deleted16-one-not-solver.log",
+      "bytes": 20615,
+      "sha256": "83abe762f1daf46fe171e5bdd4d039c2f394d52b948cf0b3b9897d94899c3dfa"
+    },
+    {
+      "name": "petersen-deleted16-one-not.json",
+      "bytes": 7577,
+      "sha256": "f15902e563b06bd15b831c8d155713b8fd469d35abb6e869c639878b68fde809"
+    },
+    {
       "name": "petersen-monotone-control-generation.log",
       "bytes": 117,
       "sha256": "523e8f37a80729a319858b63467d987be6e170c6423ea174c89037336b1e51a5"
     },
     {
-      "name": "petersen-monotone-control-solver.log",
-      "bytes": 3077,
-      "sha256": "5c19651cedc77dd394a3e8c95113beb05f44a7baa03762ee9b921e7497563b07"
-    },
-    {
       "name": "petersen-monotone-control-solver-result.json",
       "bytes": 263,
       "sha256": "6e3adadde99080448219c1cf48dffeb91dc0058fcdad7299077e8df833cb6bc5"
+    },
+    {
+      "name": "petersen-monotone-control-solver.log",
+      "bytes": 3077,
+      "sha256": "5c19651cedc77dd394a3e8c95113beb05f44a7baa03762ee9b921e7497563b07"
     },
     {
       "name": "petersen-monotone-control-verification.json",
@@ -82,14 +202,89 @@
       "sha256": "f3da266f63f8d1524adb335549d253b175bf0cd8da6ab23384d1ed800cf0adf7"
     },
     {
+      "name": "petersen-monotone18-generation.log",
+      "bytes": 118,
+      "sha256": "cc30451c3280e37a0ebc7f88d6b5152b8ef70b84b71cf5bece04868a8963b80b"
+    },
+    {
+      "name": "petersen-monotone18-solver-result.json",
+      "bytes": 265,
+      "sha256": "580fe4988f8667f7d19f9598bedb00b0b2ede89e61ae4a68ca4b43c22035381e"
+    },
+    {
+      "name": "petersen-monotone18-solver.log",
+      "bytes": 37418,
+      "sha256": "803d164862f37f3f4179d67eaf402ce3d74926a74d52efda65b998d09f30e530"
+    },
+    {
+      "name": "petersen-monotone18.json",
+      "bytes": 5965,
+      "sha256": "51f5c806d69a460983dc84c0ed362dfc8fe6ce5f9e55641f9e66e870ecd6a484"
+    },
+    {
+      "name": "petersen-reader-control-generation.log",
+      "bytes": 117,
+      "sha256": "ed9a8f8440f0dcdb7752387341848ee53a6b640d3f4860e2c6034595d739a0c1"
+    },
+    {
+      "name": "petersen-reader-control-seed.json",
+      "bytes": 291,
+      "sha256": "9c1bc0b3aa0bd1a9f9ab50ec4e64b54086ecc3b2c79559b9a29f7205a2fb95f0"
+    },
+    {
+      "name": "petersen-reader-control-solver-result.json",
+      "bytes": 306,
+      "sha256": "38054c92299a4a2e016314552f73afd329f1f15927743f457f0c511273a37e4d"
+    },
+    {
+      "name": "petersen-reader-control-solver.log",
+      "bytes": 3071,
+      "sha256": "5728ca42f1c5db20faa044583a8c835715f0e7c4249e13d66d5a40eadd254061"
+    },
+    {
+      "name": "petersen-reader-control-verification.json",
+      "bytes": 1267,
+      "sha256": "dbb6e8152b7ce8b0ecc32d0d0d39e56a8dd55361d91dfead8c0bf9246b451a0e"
+    },
+    {
+      "name": "petersen-reader-control-verification.log",
+      "bytes": 562,
+      "sha256": "189daaf557f0f501f97a1bb43bcaab7ae653c969ee6a7577a7876ed47db80821"
+    },
+    {
+      "name": "petersen-reader-control.json",
+      "bytes": 9351,
+      "sha256": "6586d523be339a36f45ab4851e396384e425398776175df194e6d2202a6b185d"
+    },
+    {
+      "name": "petersen-reader18-generation.log",
+      "bytes": 118,
+      "sha256": "114dbd54401913a55ebd09003c4800683116c8d6a56724fcfa2d9004c0cb8e06"
+    },
+    {
+      "name": "petersen-reader18-solver-result.json",
+      "bytes": 307,
+      "sha256": "49b55f768783bf8f460d99efdf63e05fe49624610272815733395053b00be4cd"
+    },
+    {
+      "name": "petersen-reader18-solver.log",
+      "bytes": 21241,
+      "sha256": "93a43c98bfb8129281a1b094e6859b43d0bed040d77f329e6e7b49ba6db6a096"
+    },
+    {
+      "name": "petersen-reader18.json",
+      "bytes": 6387,
+      "sha256": "8c495de12c7417064cb243050037d12aed815b2cdb7c23f60835c9d2cf8a53fb"
+    },
+    {
+      "name": "petersen-upper-existing-search.log",
+      "bytes": 500,
+      "sha256": "a51fb852aafc1106c181bbd4e4184931db7f1c9b620c6e135ac0b710637565cf"
+    },
+    {
       "name": "petersen18-generation.log",
       "bytes": 123,
       "sha256": "1cca3ed0c4efce6a0865f557f2a54f0f15a71901dd1aeef4f4b12c251fec7054"
-    },
-    {
-      "name": "petersen18-solver.log",
-      "bytes": 18051,
-      "sha256": "fb5b706e04c24feb3920de542cc56e028ba756615500221099268d8c1297e1b1"
     },
     {
       "name": "petersen18-solver-result.json",
@@ -97,9 +292,19 @@
       "sha256": "85d10edc386a928da72ea45439d9f3adc34c091edc4bbb663df434ecabbbfb4c"
     },
     {
+      "name": "petersen18-solver.log",
+      "bytes": 18051,
+      "sha256": "fb5b706e04c24feb3920de542cc56e028ba756615500221099268d8c1297e1b1"
+    },
+    {
       "name": "petersen18.json",
       "bytes": 6566,
       "sha256": "aa7d8c222bf6e01b88000f74f01cf659a0b529d01203b06af69d0addaebc66e2"
+    },
+    {
+      "name": "README.md",
+      "bytes": 2878,
+      "sha256": "2732a3ff3b52363b9a6b1858cc06d7640080d8bfa66a00b2f74984040abb8238"
     }
   ]
 }

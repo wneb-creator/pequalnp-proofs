@@ -1,0 +1,3 @@
+The full column certificate in UNVERIFIED_column_certificate.lean has NOT passed Lean. Both a direct cardinality calculation and a finite separating-row certificate were killed by resource limits. The empty emitted log is preserved; exit status137 was observed by the execution tool. Do not use this file as an accepted theorem or as evidence that the column cardinalities were kernel checked.
+
+The separate50-line column_witness.lean and named L_meta_1884.lean contain only the inexpensive subset that did compile. The complete named build log is build-partial.txt. They do not prove the posted target.
