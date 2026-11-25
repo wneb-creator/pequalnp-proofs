@@ -1,0 +1,14 @@
+/workspace/pequalnp-proofs/results/gct231/RowzeroChartsAudit.lean:17:5: warning: Variable name `h9` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h9
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+/workspace/pequalnp-proofs/results/gct231/RowzeroChartsAudit.lean:33:5: warning: Variable name `h9` is not explicitly referenced.
+
+Hint: The binding can be removed (if unused) or named `_` (if used implicitly). Alternatively, prefix the name with `_` to silence this warning:
+  [apply] _h9
+
+Note: This linter can be disabled with `set_option linter.unusedVariables false`
+'PEqualNP.Outside.L_gct_231.rowzero.even_chart_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'PEqualNP.Outside.L_gct_231.rowzero.odd_chart_empty' depends on axioms: [propext, Classical.choice, Quot.sound]

@@ -1,0 +1,3 @@
+'PEqualNP.Outside.L_gct_231_aux.candidate_three_coordinate_chart' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
