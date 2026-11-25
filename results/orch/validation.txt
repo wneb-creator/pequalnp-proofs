@@ -10,3 +10,9 @@ Independent red-team review: status_review approved source SHA256 d63099b3262a1e
 Checker: not run; this is a partial lemma collection, not the posted theorem.
 Sub-agents: status_review, proof_route, circuit_search, not_elimination, toolchain_setup, gate_elimination
 TIMING total=11.87 subagents=6
+
+Compiled partial: results/orch/lemmas/EliminationSound.lean
+Command (from lean/): lake env lean ../results/orch/lemmas/EliminationSound.lean
+Exit status: 0; complete stdout/stderr preserved as profile-sound-build.* (empty).
+Independent review: status_review approved SHA256 6b34a3d59df3101cd32166aa655bf1c2b61ef1749dbc36c3ced8ad83e8f9c932.
+Scope: conditional soundness of a finite profile obstruction; checked = true remains an explicit hypothesis. No full gap proof claimed.
