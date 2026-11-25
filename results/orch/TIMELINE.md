@@ -7,3 +7,4 @@
 - 2026-11-25T14:07:49.048218+00:00: Lean4.36, pinned Mathlib dependencies, Defs and checker ready; Defs/checklemma build passed5151 jobs. Started compiling compact new partials.
 - 2026-11-25T14:08:44.068702+00:00: CutLast.lean compiled with exit0; preparing immediate partial push.
 - 2026-11-25T14:11:40.657060+00:00: EmbedExtra.lean and Combinatorial.lean compiled; independently source-reviewed by root; preserving partials.
+- 2026-11-25T14:15:02.062054+00:00: signed restriction helpers compiled; cofactor and graph symmetry helpers compiled; independently audited; preserving partials.

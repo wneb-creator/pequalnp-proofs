@@ -66,3 +66,32 @@ Verdict: PASS as a generic decomposition partial, pending compilation evidence. 
 - The suffix receives the complete original prefix wire list followed by the NOT value, preserving all original wire indices and the original output index. Ignored extra NOT operands do not affect the argument.
 - Allowed imports only; all declarations are in the assigned namespace; no forbidden constructs found.
 - Official plain/import guards report only that this lemma-only partial contains no theorem. Namespace guard reports only the absent final target theorem. Those are expected partial-file limitations, not a claim of full-proof format compliance.
+
+## Stronger binary floor and extra-input embedding
+
+Independently verified `L_meta_5236.lean`'s internal proof is stronger than its exported theorem:
+
+- `Extended.realize` (line 4456) requires only FanInTwo and correct computation on `List.ofFn x ++ [x 0 || x 2]`. It gives a signed live trace with binary count at most the original non-NOT gate count.
+- `atLeastSixteen` (line 4504) proves every such trace has at least 16 binary gates.
+- The exported theorem's ReadsBack, output validity, and NOT upper bound are unused in deriving this floor.
+- Consequently an ordinary circuit also has at least 16 non-NOT gates: insert an unused extra input and shift original gate/output wire indices at or above the original input length.
+- This strengthens the partial exclusion to **four or more NOT gates**, leaving only counts 1–3.
+- L5236 is 285226 bytes. Copying its helpers plus the 3522-byte generic embedding stays below 512 KiB and can replace the earlier 146636-byte binary-floor source.
+
+Implemented and compiled `results/orch/lemmas/EmbedExtra.lean` (85 lines, 3522 bytes, SHA256 `1f03ccc3b52b2ef37687ba0519b2c9966704d4eb0eae908da5d3c201c4e97bc7`). Lean exit 0; complete stdout/stderr logs are empty. Only `PEqualNP.Defs` is imported.
+
+Its `extraCircuit n` shifts indices at or above n upward by one. `extra_eval_ofFn` preserves the evaluated function for any appended bit, including malformed/out-of-range wire reads. `extra_fan`, `extra_size`, and `extra_not_count` preserve the required counts and gate constraints.
+
+## Counterexample encoder review
+
+Read-only review of `counterexample.cpp` and `counterexample_aig.cpp`: ordinary AND/OR/NOT clauses, one-hot source selection, both directions of exact-k NOT cardinality, AIG XOR clauses, output phase, and phase-switching NOT optimization are consistent. No sign or cardinality defect found.
+
+These are witness searches only. Sorted-source mode and positiveMask impose additional search restrictions. An ordinary-model witness uses virtual false source 10 and gate sources 11+g, which must be translated to the Lean model; the AIG emitter already uses explicit Lean-like indices with invalid wire 1000000 representing false. Every discovered witness still requires independent 1024-row evaluation and Lean checking.
+
+## SignedRestriction and Combinatorial partial audits
+
+`SignedRestriction.lean`: PASS as partial, SHA256 `bc8917ac2c49733e26c9291397ea2d8cee8f5352beb320fe27303030324aeaf5`, 1784 lines, 90415 bytes. Exact source comparison against the generic prefix of L5971 found no edits except namespace rename, removal of private qualifiers, and replacing the literal input dimension 9 by 10. Its conversion theorem preserves arbitrary computation within size minus NOT-count binary gates. Its two-read restriction theorem saves at least two binary gates for either Boolean restriction. The single-fanout-first-gate theorem correctly asserts independence only after the other input is fixed to the blocking phase, under explicit no-other-read and no-direct-output assumptions. Root reports compilation exit 0. Two structures and one local instance remain: partial/manual-format status, not a claim of PR readiness. Automated guards report only the missing final theorem.
+
+`Combinatorial.lean`: PASS as partial, SHA256 `74cf2dc383821ca0280b85cce138044567571665cd7116f293cd28edd609163c`, 78 lines, 3020 bytes. Kernel-checked finite witnesses isolate each of any two distinct input coordinates. `noPairFactor` correctly obtains three distinct Boolean outputs from a hypothetical factorization, a contradiction. `cofactorKeepsOtherInput` states that fixing either value of one input leaves any other input essential; this matches the contradiction needed against `single_fanout_first_gate`. Sole Defs import, helpers in assigned auxiliary namespace, no forbidden constructs. Full-file compilation confirmation belongs to the owning agent.
+
+The intended 17-binary-gate route is mathematically consistent: first-gate input must be read again by the cofactor-essentiality result; restricting it removes at least two binary gates; the nine-input restricted graph has the existing binary lower bound 15. The remaining interface is conversion from the restricted signed circuit into the nine-input certificate semantics.

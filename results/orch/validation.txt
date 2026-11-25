@@ -26,3 +26,13 @@ Scope: Petersen pair cofactors cannot factor through one Boolean value.
 Lean exit: 0; stdout empty; stderr empty.
 Independent review: root read complete source and verified the stated scope and format. PASS as partial only.
 SHA256: 9ee8658365e528be8e10283fddf7e3031c2dace8cd8a7bd29f50c9fba5e6c0cc
+
+Artifact: results/orch/lemmas/SignedRestriction.lean
+Scope: generic signed circuit normalization and restriction helpers adapted from L_meta_5971, dimension9 to10.
+Lean exit: 0; stdout empty; stderr empty. Five comment headings normalized afterward; no code changes.
+Independent source review: status_review PASS; root checked comment-only delta.
+Format limitation: two helper structures and one local instance remain; not presented as a PR-ready file.
+SHA256: 7b295abf20add60ea4064f42e47409db9e2c9e634cbc5846f7417c5d5b03560a
+
+Combinatorial.lean extended with cofactor essentiality and vertex automorphisms. Lean exit0, stdout/stderr empty. Source delta independently reviewed by root: PASS.
+SHA256: 21722978b382c7d1d07cd26b810fa990aa89e2b6586d1e64db5c860fb55b381f

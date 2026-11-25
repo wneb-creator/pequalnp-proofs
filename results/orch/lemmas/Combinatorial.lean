@@ -61,4 +61,42 @@ lemma noPairFactor (a b : Fin 10) (hne : a ≠ b) (q : Bool → Bool → Bool)
   cases h0 : q false false <;> cases h1 : q false true <;>
     cases h2 : q true false <;> simp_all
 
+set_option maxHeartbeats 1000000 in
+lemma cofactorWitness : ∀ v u : Fin 10, v ≠ u → ∀ val : Bool,
+    ∃ w : Fin 10,
+      pet (Function.update (Function.update (fun i => decide (i = w)) u val) v false) ≠
+      pet (Function.update (Function.update (fun i => decide (i = w)) u val) v true) := by
+  decide +kernel
+
+lemma cofactorKeepsOtherInput (v u : Fin 10) (hne : v ≠ u) (val : Bool) :
+    ∃ x : Fin 10 → Bool,
+      pet (Function.update (Function.update x u val) v false) ≠
+      pet (Function.update (Function.update x u val) v true) := by
+  obtain ⟨w, hw⟩ := cofactorWitness v u hne val
+  exact ⟨fun i => decide (i = w), hw⟩
+
+def vertexPerm (v : Fin 10) : Fin 10 → Fin 10 :=
+  (![![0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    ![1, 2, 3, 4, 0, 6, 7, 8, 9, 5],
+    ![2, 3, 4, 0, 1, 7, 8, 9, 5, 6],
+    ![3, 4, 0, 1, 2, 8, 9, 5, 6, 7],
+    ![4, 0, 1, 2, 3, 9, 5, 6, 7, 8],
+    ![5, 7, 9, 6, 8, 0, 2, 4, 1, 3],
+    ![6, 8, 5, 7, 9, 1, 3, 0, 2, 4],
+    ![7, 9, 6, 8, 5, 2, 4, 1, 3, 0],
+    ![8, 5, 7, 9, 6, 3, 0, 2, 4, 1],
+    ![9, 6, 8, 5, 7, 4, 1, 3, 0, 2]]) v
+
+lemma vertexPerm_bijective : ∀ v : Fin 10, Function.Bijective (vertexPerm v) := by
+  decide +kernel
+
+lemma vertexPerm_zero : ∀ v : Fin 10, vertexPerm v 0 = v := by
+  decide +kernel
+
+set_option maxHeartbeats 1000000 in
+set_option maxRecDepth 4096 in
+lemma pet_vertexPerm : ∀ (v : Fin 10) (x : Fin 10 → Bool),
+    pet (x ∘ vertexPerm v) = pet x := by
+  decide +kernel
+
 end PEqualNP.Outside.L_meta_2592_aux.PairSeparation
