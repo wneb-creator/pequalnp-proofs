@@ -21,3 +21,24 @@ No full proof or counterexample found. No new Lean declaration is proposed for t
 ## Potential next mathematical target
 
 A useful genuinely global statement would be an extraction theorem assigning a vertex cover T to a canonical top-form circuit with |T| no larger than its AND count, together with an independent OR-count lower bound |E|-1. Neither inequality is established here. Even the first needs to handle several dirty cones sharing AND ancestors; local ownership stars and pair-truth constraints are insufficient. Exactness on independent inputs of size three and larger is essential.
+
+## Final targeted common-singleton/component route
+
+For a fixed vertex u, all signals true on singleton u have semantic form u OR H after setting u=0. Their interface to signals false on u consists of AND uses. The existing extraction moves the common u from p mixed-OR source gates to t boundary OR gates, with exact gate saving p-t. Minimality only gives p<=t; neither connectedness nor terminality alone gives the reverse inequality.
+
+A useful semantic observation: if a clean boundary has form (u OR H) AND Q, then Q is false on every independent input avoiding N(u). Otherwise adding u creates an independent false-positive input at that boundary. Consequently the restriction of Q obtained by setting N(u)=0 and u=0 is clean. The obstacle is extracting that restricted clean portion of a shared dirty Q without increasing cost.
+
+Graph structure helps only locally: after deleting u, all edges meeting N(u) form a star forest. N(u) is independent by triangle freedom, and an outside vertex has at most one neighbor in N(u) by four-cycle freedom. This suggests an injection from essential boundary outputs to mixed-OR source gates, but boundaries can use other dirty cones and can have critical edges avoiding N(u). No such injection was established.
+
+Library_route's mixed-support lemma says that a pure-OR support containing at least two neighbors of each of two different centers has no common graph neighbor; any clean top reached through ORs by that support must therefore be centreless. However centreless-reader credit alone cannot pay each incoming dirty cone: an irredundant monotone CNF can have many dirty internal ANDs and a single clean output AND. The |junk| credit for intermediate merges must participate, and fanout prevents naive tree counting.
+
+The general checked budget in L_meta_3760.M1528.prev1 is useful here and does not assume a single dirty gate:
+
+    |E| + #noncentre_tops + 2 #centreless_tops + #junk + #(orN minus lam)
+      <= size + |Ustar| + 1.
+
+Thus a genuinely global sufficient target is a vertex cover T satisfying
+
+    |T| + |Ustar| <= #noncentre_tops + 2 #centreless_tops + #junk + #(orN minus lam).
+
+The earlier one-dirty theorem proves a specialized version using forced centers and penalties. I found no general weighted incidence/Hall proof for several interacting dirty cones. Constructing a smaller circuit for the residual Ustar graph would give a possible induction, but removing shared lambda factors is precisely the unresolved operation.

@@ -1,0 +1,19 @@
+{
+  "recorded_at": "2026-11-25T08:12:51.183612+00:00",
+  "dirty_encoding": {
+    "reviewer": "/root/lean_setup",
+    "verdict": "PASS",
+    "source_sha256": "43821c638037f6f5d61a4986322b7414d52c59a0459e942206e681b428cfb6ac"
+  },
+  "context_cpp": {
+    "reviewer": "/root/library_route",
+    "verdict": "PASS",
+    "source_sha256": "7d70bfd60e82ced7ea23918101a538dedfa82ebd538d19f2005137b8313eaf5c"
+  },
+  "context_python": {
+    "reviewer": "/root/finite_cases",
+    "verdict": "PASS",
+    "source_sha256": "a329dd50571f2e61be8489769cdec03e43e7006d7311fd4d44a934b9795c996f"
+  },
+  "scope": "Finite computational evidence only; fixed-prefix obstruction is not a counterexample to the existential minimum-star-profile goal."
+}

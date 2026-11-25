@@ -1,0 +1,73 @@
+{
+  "n": 6,
+  "edges": [
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      3
+    ]
+  ],
+  "initial_wires": [
+    "a",
+    "b",
+    "c0",
+    "c1",
+    "d0",
+    "d1",
+    "P",
+    "c0|d0",
+    "c0|c1|d0",
+    "Q",
+    "a|c0",
+    "R",
+    "b|d0",
+    "S",
+    "false",
+    "true"
+  ],
+  "old_extension": [
+    [
+      "AND",
+      6,
+      9
+    ],
+    [
+      "AND",
+      11,
+      13
+    ],
+    [
+      "AND",
+      16,
+      17
+    ]
+  ],
+  "old_extension_equals_target_on_all_64_inputs": true,
+  "free_constants_allowed": true,
+  "commutative_gate_choices_with_repeated_inputs": true,
+  "candidate_gate_count_by_depth": [
+    0,
+    272,
+    69462,
+    19867122
+  ],
+  "nonstar_gate_rejections_by_depth": [
+    0,
+    45,
+    11371,
+    3209920
+  ],
+  "star_profile_solutions_with_at_most_three_gates": [],
+  "seconds": 10.625231664999774
+}

@@ -23,3 +23,5 @@
 2026-11-25T07:24:59.985343+00:00 {"lease": {"expires_at": "2026-11-25T07:44:59.755Z"}}
 2026-11-25T07:33:00.362137+00:00 {"lease": {"expires_at": "2026-11-25T07:53:00.168Z"}}
 2026-11-25T08:09:28.381000+00:00 {"kind": "renewal", "lease": {"expires_at": "2026-11-25T08:29:28.381Z"}, "timestamp_basis": "expiry minus posted 20-minute duration", "source": "beat-17.json"}
+2026-11-25T08:15:22.976416+00:00 {"lease": {"expires_at": "2026-11-25T08:35:22.831Z"}}
+2026-11-25T08:15:17.191000+00:00 {"kind": "renewal", "lease": {"expires_at": "2026-11-25T08:35:17.191Z"}, "timestamp_basis": "expiry minus posted 20-minute duration", "source": "beat-18.json"}

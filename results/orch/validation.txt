@@ -20,3 +20,4 @@ Desk: first next request assigned own gap; null count 0. Sanitized response log 
 Build09: exit 0, 2012 lines; TwoJunkExample integrated exactly after independent review. It is a nonminimum witness, not a refutation of the posted gap.
 Checker09: REJECTED (no-theorem), full output retained. TwoJunkContrast independently reviewed and compiled; explicitly proves the local obstruction witness is nonminimum by a five-gate star competitor.
 Build10: exit 0, 2049 lines; reviewed TwoJunkContrast integrated. Current source remains helper-only.
+Build11: exit0,2078lines. Axiom audit covers all143 integrated lemmas and finds only the three standard axioms. Full output saved. MixedSupport common-neighbor obstruction independently reviewed and integrated. Finite archive121files, final independent manifest review PASS.
