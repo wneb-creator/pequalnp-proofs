@@ -1,0 +1,5 @@
+Successful standalone build: lake env lean -j 1 -M 4096; exit0.
+Defs-only import. Full stdout/stderr: FiveOwnerBridge.build.log (empty).
+SHA256 85aecb6534f85016b56bde408ab6ed2b2dc855e386cbb0b040fd149c0905fdf4
+Lines 490
+Copies frozen GeometryComplete and NegativesComplete; adds only the narrow FiveOwnerBridge namespace. Research integration component, no complete circuit lower-bound or L650 claim.
