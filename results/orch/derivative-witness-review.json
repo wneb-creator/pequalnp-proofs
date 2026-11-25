@@ -1,0 +1,7 @@
+{
+  "reviewer": "root, independent of author",
+  "verdict": "PASS for compiled partial preservation",
+  "sha256": "562cda535b73fe0f6a6eface36aea24c462ddeda26f3c9ed0b047576b1ea40f2",
+  "lines": 358,
+  "reason": "Canonical derivative evaluates a topological list fold with prescribed input seed. Properness supplies earlier operand indices; reviewed fold recurrence yields both posted derivative equations exactly. Existential theorem is witnessed explicitly, with no additional hypothesis on value function or seed."
+}

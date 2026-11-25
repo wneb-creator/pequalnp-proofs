@@ -1,0 +1,181 @@
+[
+  {
+    "archive": "results/orch/and-count-sat/fooling4-and3.cnf.gz",
+    "sha256": "f07b239282f98a1c2961f3d8c917590fa37ded6e7b1202f708412ac29f486850",
+    "uncompressed_bytes": 279346,
+    "variables": 4937,
+    "clauses": 20770,
+    "max_literal": 4937,
+    "verified": true,
+    "metadata_keys": [
+      "n",
+      "k",
+      "selectors",
+      "outputs",
+      "graph",
+      "variables",
+      "clauses",
+      "tests",
+      "mode"
+    ],
+    "metadata_variables": 4937,
+    "metadata_clauses": 20770
+  },
+  {
+    "archive": "results/orch/and-count-sat/fooling4-and4.cnf.gz",
+    "sha256": "f4e65fe2e6e98b21f6e415dbad8f8c72c885a34886f1720b7277adb5bf3988fb",
+    "uncompressed_bytes": 429517,
+    "variables": 7520,
+    "clauses": 31274,
+    "max_literal": 7520,
+    "verified": true,
+    "metadata_keys": [
+      "n",
+      "k",
+      "selectors",
+      "outputs",
+      "graph",
+      "variables",
+      "clauses",
+      "tests",
+      "mode"
+    ],
+    "metadata_variables": 7520,
+    "metadata_clauses": 31274
+  },
+  {
+    "archive": "results/orch/and-count-sat/fooling5-and4.cnf.gz",
+    "sha256": "6334aeb6219bcd1c73807e24f21876f07cd9cc6fe18bdb12c0282df29f3d2007",
+    "uncompressed_bytes": 2041535,
+    "variables": 29817,
+    "clauses": 135479,
+    "max_literal": 29817,
+    "verified": true,
+    "metadata_keys": [
+      "n",
+      "k",
+      "selectors",
+      "outputs",
+      "graph",
+      "variables",
+      "clauses",
+      "tests",
+      "mode"
+    ],
+    "metadata_variables": 29817,
+    "metadata_clauses": 135479
+  },
+  {
+    "archive": "results/orch/and-count-sat/fooling5-and4-ordered.cnf.gz",
+    "sha256": "d9997b610cd31dc203aec8c35ae6959e02808e24bc06ac3082651cddc014c593",
+    "uncompressed_bytes": 2046063,
+    "variables": 29867,
+    "clauses": 135621,
+    "max_literal": 29867,
+    "verified": true,
+    "metadata_keys": [
+      "n",
+      "k",
+      "selectors",
+      "outputs",
+      "graph",
+      "variables",
+      "clauses",
+      "tests",
+      "mode",
+      "row_cuts",
+      "side_order"
+    ],
+    "metadata_variables": 29867,
+    "metadata_clauses": 135621
+  },
+  {
+    "archive": "results/orch/and-count-sat/plane-and12.cnf.gz",
+    "sha256": "d3fd42b9be833551f61cf8963da1c3e801de57d7ef24ad2a0f5b4de372b1c65d",
+    "uncompressed_bytes": 10467781,
+    "variables": 137604,
+    "clauses": 608064,
+    "max_literal": 137604,
+    "verified": true,
+    "metadata_keys": [
+      "n",
+      "k",
+      "selectors",
+      "outputs",
+      "graph",
+      "variables",
+      "clauses",
+      "tests",
+      "mode"
+    ],
+    "metadata_variables": 137604,
+    "metadata_clauses": 608064
+  },
+  {
+    "archive": "results/orch/and-count-sat/plane-and12-cuts.cnf.gz",
+    "sha256": "0a72da70a63d99bdcde22247723b372db168e10cebb75cc2518cb4563be10976",
+    "uncompressed_bytes": 11538237,
+    "variables": 158989,
+    "clauses": 659349,
+    "max_literal": 158989,
+    "verified": true,
+    "metadata_keys": [
+      "n",
+      "k",
+      "selectors",
+      "outputs",
+      "graph",
+      "variables",
+      "clauses",
+      "tests",
+      "mode",
+      "row_cuts"
+    ],
+    "metadata_variables": 158989,
+    "metadata_clauses": 659349
+  },
+  {
+    "archive": "results/orch/and-count-sat/plane-and12-anchored.cnf.gz",
+    "sha256": "e4c3f0bbb11c966bdf4cd83b68ea165e0d12b5c7fa12db6316c000aa87be4d4c",
+    "uncompressed_bytes": 11570443,
+    "variables": 159381,
+    "clauses": 660514,
+    "max_literal": 159381,
+    "verified": true,
+    "metadata_keys": [
+      "n",
+      "k",
+      "selectors",
+      "outputs",
+      "graph",
+      "variables",
+      "clauses",
+      "tests",
+      "mode",
+      "row_cuts",
+      "side_order",
+      "positive_use",
+      "anchor_flag"
+    ],
+    "metadata_variables": 159381,
+    "metadata_clauses": 660514
+  },
+  {
+    "archive": "results/orch/and-count-sat/signed-new-gadget.cnf.gz",
+    "sha256": "7ed3051f496efaa3601ea400a573a543071112b0db1ba20ce881bab5a3f860ab",
+    "uncompressed_bytes": 22128944,
+    "variables": 367558,
+    "clauses": 1195595,
+    "max_literal": 367558,
+    "verified": true
+  },
+  {
+    "archive": "results/orch/and-count-sat/signed-new-gadget-wide.cnf.gz",
+    "sha256": "beeb94919aa7dd8e052675ff868fc95c043391cd9e4feb4f6d4ecc7ba0646d6b",
+    "uncompressed_bytes": 20421072,
+    "variables": 337632,
+    "clauses": 1105518,
+    "max_literal": 337632,
+    "verified": true
+  }
+]

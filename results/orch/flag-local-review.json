@@ -1,0 +1,7 @@
+{
+  "reviewer": "root",
+  "verdict": "PASS for compiled partial preservation",
+  "sha256": "008bde32803b4466707d03a3e33d8cb48e6bec248e51c114e0c148cbd8f198a4",
+  "lines": 367,
+  "reason": "After removing only option lines and blank whitespace, source is identical to independently reviewed checked52-flag certificate. All option lines now have declaration-local in form. New standalone compile passed."
+}

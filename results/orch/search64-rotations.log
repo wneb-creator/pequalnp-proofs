@@ -1,0 +1,340 @@
+{"utc": "2026-11-25T03:08:21.692040+00:00", "phase": "rotations_start", "elapsed": 0.0, "tested": 0, "neutral": 0, "best": null}
+{"utc": "2026-11-25T03:08:21.694376+00:00", "phase": "best", "elapsed": 0.002, "tested": 1, "neutral": 0, "best": [1, 1, 64], "label": "rotation1:delete:0:0", "errors": [1, 0, 0], "gates": 64}
+{"utc": "2026-11-25T03:08:21.913671+00:00", "phase": "deletion_done", "elapsed": 0.222, "tested": 3770, "neutral": 0, "best": [1, 1, 64], "label": "rotation1"}
+{"utc": "2026-11-25T03:08:23.559578+00:00", "phase": "mutation_done", "elapsed": 1.868, "tested": 233466, "neutral": 0, "best": [1, 1, 64], "label": "rotation1-repair0", "queue": 0}
+{"utc": "2026-11-25T03:08:25.180143+00:00", "phase": "mutation_done", "elapsed": 3.488, "tested": 463162, "neutral": 0, "best": [1, 1, 64], "label": "rotation1-repair1", "queue": 0}
+{"utc": "2026-11-25T03:08:25.392097+00:00", "phase": "deletion_done", "elapsed": 3.7, "tested": 466932, "neutral": 0, "best": [1, 1, 64], "label": "rotation2"}
+{"utc": "2026-11-25T03:08:27.039058+00:00", "phase": "mutation_done", "elapsed": 5.347, "tested": 696628, "neutral": 0, "best": [1, 1, 64], "label": "rotation2-repair0", "queue": 0}
+{"utc": "2026-11-25T03:08:28.729158+00:00", "phase": "mutation_done", "elapsed": 7.037, "tested": 926324, "neutral": 0, "best": [1, 1, 64], "label": "rotation2-repair1", "queue": 0}
+{"utc": "2026-11-25T03:08:28.963191+00:00", "phase": "deletion_done", "elapsed": 7.271, "tested": 930094, "neutral": 0, "best": [1, 1, 64], "label": "rotation3"}
+{"utc": "2026-11-25T03:08:30.831505+00:00", "phase": "mutation_done", "elapsed": 9.14, "tested": 1159790, "neutral": 0, "best": [1, 1, 64], "label": "rotation3-repair0", "queue": 0}
+{"utc": "2026-11-25T03:08:32.552732+00:00", "phase": "mutation_done", "elapsed": 10.861, "tested": 1389486, "neutral": 0, "best": [1, 1, 64], "label": "rotation3-repair1", "queue": 0}
+{"utc": "2026-11-25T03:08:32.766617+00:00", "phase": "deletion_done", "elapsed": 11.075, "tested": 1393256, "neutral": 0, "best": [1, 1, 64], "label": "rotation4"}
+{"utc": "2026-11-25T03:08:36.086641+00:00", "phase": "mutation_done", "elapsed": 14.395, "tested": 1622952, "neutral": 0, "best": [1, 1, 64], "label": "rotation4-repair0", "queue": 0}
+{"utc": "2026-11-25T03:08:40.021294+00:00", "phase": "mutation_done", "elapsed": 18.329, "tested": 1852648, "neutral": 0, "best": [1, 1, 64], "label": "rotation4-repair1", "queue": 0}
+{"utc": "2026-11-25T03:08:40.722117+00:00", "phase": "deletion_done", "elapsed": 19.03, "tested": 1856418, "neutral": 0, "best": [1, 1, 64], "label": "rotation5"}
+{"utc": "2026-11-25T03:08:46.476599+00:00", "phase": "mutation_done", "elapsed": 24.785, "tested": 2086114, "neutral": 0, "best": [1, 1, 64], "label": "rotation5-repair0", "queue": 0}
+{"utc": "2026-11-25T03:08:51.827031+00:00", "phase": "mutation_done", "elapsed": 30.135, "tested": 2315810, "neutral": 0, "best": [1, 1, 64], "label": "rotation5-repair1", "queue": 0}
+{"utc": "2026-11-25T03:08:51.827815+00:00", "phase": "rotation_progress", "elapsed": 30.136, "tested": 2315810, "neutral": 0, "best": [1, 1, 64], "rounds": 5, "near": 8294}
+{"utc": "2026-11-25T03:08:52.543456+00:00", "phase": "deletion_done", "elapsed": 30.851, "tested": 2319580, "neutral": 0, "best": [1, 1, 64], "label": "rotation6"}
+{"utc": "2026-11-25T03:08:59.440073+00:00", "phase": "mutation_done", "elapsed": 37.748, "tested": 2549276, "neutral": 0, "best": [1, 1, 64], "label": "rotation6-repair0", "queue": 0}
+{"utc": "2026-11-25T03:09:09.436231+00:00", "phase": "mutation_done", "elapsed": 47.744, "tested": 2778972, "neutral": 0, "best": [1, 1, 64], "label": "rotation6-repair1", "queue": 0}
+{"utc": "2026-11-25T03:09:10.056262+00:00", "phase": "deletion_done", "elapsed": 48.364, "tested": 2782742, "neutral": 0, "best": [1, 1, 64], "label": "rotation7"}
+{"utc": "2026-11-25T03:09:16.703246+00:00", "phase": "mutation_done", "elapsed": 55.011, "tested": 3012438, "neutral": 0, "best": [1, 1, 64], "label": "rotation7-repair0", "queue": 0}
+{"utc": "2026-11-25T03:09:22.538629+00:00", "phase": "mutation_done", "elapsed": 60.847, "tested": 3242134, "neutral": 0, "best": [1, 1, 64], "label": "rotation7-repair1", "queue": 0}
+{"utc": "2026-11-25T03:09:23.757921+00:00", "phase": "deletion_done", "elapsed": 62.066, "tested": 3245904, "neutral": 0, "best": [1, 1, 64], "label": "rotation8"}
+{"utc": "2026-11-25T03:09:32.004860+00:00", "phase": "mutation_done", "elapsed": 70.313, "tested": 3475600, "neutral": 0, "best": [1, 1, 64], "label": "rotation8-repair0", "queue": 0}
+{"utc": "2026-11-25T03:09:37.414966+00:00", "phase": "mutation_done", "elapsed": 75.723, "tested": 3705296, "neutral": 0, "best": [1, 1, 64], "label": "rotation8-repair1", "queue": 0}
+{"utc": "2026-11-25T03:09:38.060347+00:00", "phase": "deletion_done", "elapsed": 76.368, "tested": 3709066, "neutral": 0, "best": [1, 1, 64], "label": "rotation9"}
+{"utc": "2026-11-25T03:09:45.030686+00:00", "phase": "mutation_done", "elapsed": 83.339, "tested": 3938762, "neutral": 0, "best": [1, 1, 64], "label": "rotation9-repair0", "queue": 0}
+{"utc": "2026-11-25T03:09:50.820645+00:00", "phase": "mutation_done", "elapsed": 89.129, "tested": 4168458, "neutral": 0, "best": [1, 1, 64], "label": "rotation9-repair1", "queue": 0}
+{"utc": "2026-11-25T03:09:51.549784+00:00", "phase": "deletion_done", "elapsed": 89.858, "tested": 4172228, "neutral": 0, "best": [1, 1, 64], "label": "rotation10"}
+{"utc": "2026-11-25T03:09:57.438454+00:00", "phase": "mutation_done", "elapsed": 95.747, "tested": 4401924, "neutral": 0, "best": [1, 1, 64], "label": "rotation10-repair0", "queue": 0}
+{"utc": "2026-11-25T03:10:02.644776+00:00", "phase": "mutation_done", "elapsed": 100.953, "tested": 4631620, "neutral": 0, "best": [1, 1, 64], "label": "rotation10-repair1", "queue": 0}
+{"utc": "2026-11-25T03:10:02.645904+00:00", "phase": "rotation_progress", "elapsed": 100.954, "tested": 4631620, "neutral": 0, "best": [1, 1, 64], "rounds": 10, "near": 16481}
+{"utc": "2026-11-25T03:10:03.352924+00:00", "phase": "deletion_done", "elapsed": 101.661, "tested": 4635390, "neutral": 0, "best": [1, 1, 64], "label": "rotation11"}
+{"utc": "2026-11-25T03:10:09.956997+00:00", "phase": "mutation_done", "elapsed": 108.265, "tested": 4865086, "neutral": 0, "best": [1, 1, 64], "label": "rotation11-repair0", "queue": 0}
+{"utc": "2026-11-25T03:10:16.621347+00:00", "phase": "mutation_done", "elapsed": 114.93, "tested": 5094782, "neutral": 0, "best": [1, 1, 64], "label": "rotation11-repair1", "queue": 0}
+{"utc": "2026-11-25T03:10:17.908506+00:00", "phase": "deletion_done", "elapsed": 116.217, "tested": 5098552, "neutral": 0, "best": [1, 1, 64], "label": "rotation12"}
+{"utc": "2026-11-25T03:10:26.540192+00:00", "phase": "mutation_done", "elapsed": 124.848, "tested": 5328248, "neutral": 0, "best": [1, 1, 64], "label": "rotation12-repair0", "queue": 0}
+{"utc": "2026-11-25T03:10:29.055976+00:00", "phase": "mutation_done", "elapsed": 127.364, "tested": 5557944, "neutral": 0, "best": [1, 1, 64], "label": "rotation12-repair1", "queue": 0}
+{"utc": "2026-11-25T03:10:29.368399+00:00", "phase": "deletion_done", "elapsed": 127.676, "tested": 5561714, "neutral": 0, "best": [1, 1, 64], "label": "rotation13"}
+{"utc": "2026-11-25T03:10:31.826179+00:00", "phase": "mutation_done", "elapsed": 130.134, "tested": 5791410, "neutral": 0, "best": [1, 1, 64], "label": "rotation13-repair0", "queue": 0}
+{"utc": "2026-11-25T03:10:34.321626+00:00", "phase": "mutation_done", "elapsed": 132.63, "tested": 6021106, "neutral": 0, "best": [1, 1, 64], "label": "rotation13-repair1", "queue": 0}
+{"utc": "2026-11-25T03:10:34.640768+00:00", "phase": "deletion_done", "elapsed": 132.949, "tested": 6024876, "neutral": 0, "best": [1, 1, 64], "label": "rotation14"}
+{"utc": "2026-11-25T03:10:37.251691+00:00", "phase": "mutation_done", "elapsed": 135.56, "tested": 6254572, "neutral": 0, "best": [1, 1, 64], "label": "rotation14-repair0", "queue": 0}
+{"utc": "2026-11-25T03:10:40.224536+00:00", "phase": "mutation_done", "elapsed": 138.533, "tested": 6484268, "neutral": 0, "best": [1, 1, 64], "label": "rotation14-repair1", "queue": 0}
+{"utc": "2026-11-25T03:10:40.535694+00:00", "phase": "deletion_done", "elapsed": 138.844, "tested": 6488038, "neutral": 0, "best": [1, 1, 64], "label": "rotation15"}
+{"utc": "2026-11-25T03:10:43.026836+00:00", "phase": "mutation_done", "elapsed": 141.335, "tested": 6717734, "neutral": 0, "best": [1, 1, 64], "label": "rotation15-repair0", "queue": 0}
+{"utc": "2026-11-25T03:10:45.446526+00:00", "phase": "mutation_done", "elapsed": 143.755, "tested": 6947430, "neutral": 0, "best": [1, 1, 64], "label": "rotation15-repair1", "queue": 0}
+{"utc": "2026-11-25T03:10:45.449594+00:00", "phase": "rotation_progress", "elapsed": 143.758, "tested": 6947430, "neutral": 0, "best": [1, 1, 64], "rounds": 15, "near": 24769}
+{"utc": "2026-11-25T03:10:45.806305+00:00", "phase": "deletion_done", "elapsed": 144.114, "tested": 6951200, "neutral": 0, "best": [1, 1, 64], "label": "rotation16"}
+{"utc": "2026-11-25T03:10:48.243941+00:00", "phase": "mutation_done", "elapsed": 146.552, "tested": 7180896, "neutral": 0, "best": [1, 1, 64], "label": "rotation16-repair0", "queue": 0}
+{"utc": "2026-11-25T03:10:50.726699+00:00", "phase": "mutation_done", "elapsed": 149.035, "tested": 7410592, "neutral": 0, "best": [1, 1, 64], "label": "rotation16-repair1", "queue": 0}
+{"utc": "2026-11-25T03:10:51.034131+00:00", "phase": "deletion_done", "elapsed": 149.342, "tested": 7414362, "neutral": 0, "best": [1, 1, 64], "label": "rotation17"}
+{"utc": "2026-11-25T03:10:53.521237+00:00", "phase": "mutation_done", "elapsed": 151.829, "tested": 7644058, "neutral": 0, "best": [1, 1, 64], "label": "rotation17-repair0", "queue": 0}
+{"utc": "2026-11-25T03:10:56.019207+00:00", "phase": "mutation_done", "elapsed": 154.327, "tested": 7873754, "neutral": 0, "best": [1, 1, 64], "label": "rotation17-repair1", "queue": 0}
+{"utc": "2026-11-25T03:10:56.332789+00:00", "phase": "deletion_done", "elapsed": 154.641, "tested": 7877524, "neutral": 0, "best": [1, 1, 64], "label": "rotation18"}
+{"utc": "2026-11-25T03:10:58.769528+00:00", "phase": "mutation_done", "elapsed": 157.078, "tested": 8107220, "neutral": 0, "best": [1, 1, 64], "label": "rotation18-repair0", "queue": 0}
+{"utc": "2026-11-25T03:11:01.163569+00:00", "phase": "mutation_done", "elapsed": 159.472, "tested": 8336916, "neutral": 0, "best": [1, 1, 64], "label": "rotation18-repair1", "queue": 0}
+{"utc": "2026-11-25T03:11:01.471993+00:00", "phase": "deletion_done", "elapsed": 159.78, "tested": 8340686, "neutral": 0, "best": [1, 1, 64], "label": "rotation19"}
+{"utc": "2026-11-25T03:11:03.868090+00:00", "phase": "mutation_done", "elapsed": 162.176, "tested": 8570382, "neutral": 0, "best": [1, 1, 64], "label": "rotation19-repair0", "queue": 0}
+{"utc": "2026-11-25T03:11:06.336504+00:00", "phase": "mutation_done", "elapsed": 164.645, "tested": 8800078, "neutral": 0, "best": [1, 1, 64], "label": "rotation19-repair1", "queue": 0}
+{"utc": "2026-11-25T03:11:06.644662+00:00", "phase": "deletion_done", "elapsed": 164.953, "tested": 8803848, "neutral": 0, "best": [1, 1, 64], "label": "rotation20"}
+{"utc": "2026-11-25T03:11:09.112286+00:00", "phase": "mutation_done", "elapsed": 167.42, "tested": 9033544, "neutral": 0, "best": [1, 1, 64], "label": "rotation20-repair0", "queue": 0}
+{"utc": "2026-11-25T03:11:11.548045+00:00", "phase": "mutation_done", "elapsed": 169.856, "tested": 9263240, "neutral": 0, "best": [1, 1, 64], "label": "rotation20-repair1", "queue": 0}
+{"utc": "2026-11-25T03:11:11.548431+00:00", "phase": "rotation_progress", "elapsed": 169.856, "tested": 9263240, "neutral": 0, "best": [1, 1, 64], "rounds": 20, "near": 33125}
+{"utc": "2026-11-25T03:11:11.908666+00:00", "phase": "deletion_done", "elapsed": 170.217, "tested": 9267010, "neutral": 0, "best": [1, 1, 64], "label": "rotation21"}
+{"utc": "2026-11-25T03:11:14.502979+00:00", "phase": "mutation_done", "elapsed": 172.811, "tested": 9496706, "neutral": 0, "best": [1, 1, 64], "label": "rotation21-repair0", "queue": 0}
+{"utc": "2026-11-25T03:11:16.907120+00:00", "phase": "mutation_done", "elapsed": 175.215, "tested": 9726402, "neutral": 0, "best": [1, 1, 64], "label": "rotation21-repair1", "queue": 0}
+{"utc": "2026-11-25T03:11:17.223651+00:00", "phase": "deletion_done", "elapsed": 175.532, "tested": 9730172, "neutral": 0, "best": [1, 1, 64], "label": "rotation22"}
+{"utc": "2026-11-25T03:11:19.658058+00:00", "phase": "mutation_done", "elapsed": 177.966, "tested": 9959868, "neutral": 0, "best": [1, 1, 64], "label": "rotation22-repair0", "queue": 0}
+{"utc": "2026-11-25T03:11:22.065229+00:00", "phase": "mutation_done", "elapsed": 180.373, "tested": 10189564, "neutral": 0, "best": [1, 1, 64], "label": "rotation22-repair1", "queue": 0}
+{"utc": "2026-11-25T03:11:22.416117+00:00", "phase": "deletion_done", "elapsed": 180.724, "tested": 10193334, "neutral": 0, "best": [1, 1, 64], "label": "rotation23"}
+{"utc": "2026-11-25T03:11:24.813859+00:00", "phase": "mutation_done", "elapsed": 183.122, "tested": 10423030, "neutral": 0, "best": [1, 1, 64], "label": "rotation23-repair0", "queue": 0}
+{"utc": "2026-11-25T03:11:27.409842+00:00", "phase": "mutation_done", "elapsed": 185.718, "tested": 10652726, "neutral": 0, "best": [1, 1, 64], "label": "rotation23-repair1", "queue": 0}
+{"utc": "2026-11-25T03:11:27.750205+00:00", "phase": "deletion_done", "elapsed": 186.058, "tested": 10656496, "neutral": 0, "best": [1, 1, 64], "label": "rotation24"}
+{"utc": "2026-11-25T03:11:31.226572+00:00", "phase": "mutation_done", "elapsed": 189.535, "tested": 10886192, "neutral": 0, "best": [1, 1, 64], "label": "rotation24-repair0", "queue": 0}
+{"utc": "2026-11-25T03:11:34.213945+00:00", "phase": "mutation_done", "elapsed": 192.522, "tested": 11115888, "neutral": 0, "best": [1, 1, 64], "label": "rotation24-repair1", "queue": 0}
+{"utc": "2026-11-25T03:11:34.535509+00:00", "phase": "deletion_done", "elapsed": 192.844, "tested": 11119658, "neutral": 0, "best": [1, 1, 64], "label": "rotation25"}
+{"utc": "2026-11-25T03:11:37.758579+00:00", "phase": "mutation_done", "elapsed": 196.067, "tested": 11349354, "neutral": 0, "best": [1, 1, 64], "label": "rotation25-repair0", "queue": 0}
+{"utc": "2026-11-25T03:11:40.764921+00:00", "phase": "mutation_done", "elapsed": 199.073, "tested": 11579050, "neutral": 0, "best": [1, 1, 64], "label": "rotation25-repair1", "queue": 0}
+{"utc": "2026-11-25T03:11:40.800816+00:00", "phase": "rotation_progress", "elapsed": 199.109, "tested": 11579050, "neutral": 0, "best": [1, 1, 64], "rounds": 25, "near": 41401}
+{"utc": "2026-11-25T03:11:41.145470+00:00", "phase": "deletion_done", "elapsed": 199.453, "tested": 11582820, "neutral": 0, "best": [1, 1, 64], "label": "rotation26"}
+{"utc": "2026-11-25T03:11:43.566426+00:00", "phase": "mutation_done", "elapsed": 201.874, "tested": 11812516, "neutral": 0, "best": [1, 1, 64], "label": "rotation26-repair0", "queue": 0}
+{"utc": "2026-11-25T03:11:47.771081+00:00", "phase": "mutation_done", "elapsed": 206.079, "tested": 12042212, "neutral": 0, "best": [1, 1, 64], "label": "rotation26-repair1", "queue": 0}
+{"utc": "2026-11-25T03:11:48.106570+00:00", "phase": "deletion_done", "elapsed": 206.415, "tested": 12045982, "neutral": 0, "best": [1, 1, 64], "label": "rotation27"}
+{"utc": "2026-11-25T03:11:50.543073+00:00", "phase": "mutation_done", "elapsed": 208.851, "tested": 12275678, "neutral": 0, "best": [1, 1, 64], "label": "rotation27-repair0", "queue": 0}
+{"utc": "2026-11-25T03:11:52.961273+00:00", "phase": "mutation_done", "elapsed": 211.269, "tested": 12505374, "neutral": 0, "best": [1, 1, 64], "label": "rotation27-repair1", "queue": 0}
+{"utc": "2026-11-25T03:11:53.666719+00:00", "phase": "deletion_done", "elapsed": 211.975, "tested": 12509144, "neutral": 0, "best": [1, 1, 64], "label": "rotation28"}
+{"utc": "2026-11-25T03:11:58.003540+00:00", "phase": "mutation_done", "elapsed": 216.312, "tested": 12738840, "neutral": 0, "best": [1, 1, 64], "label": "rotation28-repair0", "queue": 0}
+{"utc": "2026-11-25T03:12:00.941833+00:00", "phase": "mutation_done", "elapsed": 219.25, "tested": 12968536, "neutral": 0, "best": [1, 1, 64], "label": "rotation28-repair1", "queue": 0}
+{"utc": "2026-11-25T03:12:01.604026+00:00", "phase": "deletion_done", "elapsed": 219.912, "tested": 12972306, "neutral": 0, "best": [1, 1, 64], "label": "rotation29"}
+{"utc": "2026-11-25T03:12:09.106097+00:00", "phase": "mutation_done", "elapsed": 227.414, "tested": 13202002, "neutral": 0, "best": [1, 1, 64], "label": "rotation29-repair0", "queue": 0}
+{"utc": "2026-11-25T03:12:14.262109+00:00", "phase": "mutation_done", "elapsed": 232.57, "tested": 13431698, "neutral": 0, "best": [1, 1, 64], "label": "rotation29-repair1", "queue": 0}
+{"utc": "2026-11-25T03:12:15.014903+00:00", "phase": "deletion_done", "elapsed": 233.323, "tested": 13435468, "neutral": 0, "best": [1, 1, 64], "label": "rotation30"}
+{"utc": "2026-11-25T03:12:20.119588+00:00", "phase": "mutation_done", "elapsed": 238.428, "tested": 13665164, "neutral": 0, "best": [1, 1, 64], "label": "rotation30-repair0", "queue": 0}
+{"utc": "2026-11-25T03:12:25.550584+00:00", "phase": "mutation_done", "elapsed": 243.859, "tested": 13894860, "neutral": 0, "best": [1, 1, 64], "label": "rotation30-repair1", "queue": 0}
+{"utc": "2026-11-25T03:12:25.556051+00:00", "phase": "rotation_progress", "elapsed": 243.864, "tested": 13894860, "neutral": 0, "best": [1, 1, 64], "rounds": 30, "near": 49599}
+{"utc": "2026-11-25T03:12:26.332733+00:00", "phase": "deletion_done", "elapsed": 244.641, "tested": 13898630, "neutral": 0, "best": [1, 1, 64], "label": "rotation31"}
+{"utc": "2026-11-25T03:12:32.068180+00:00", "phase": "mutation_done", "elapsed": 250.376, "tested": 14128326, "neutral": 0, "best": [1, 1, 64], "label": "rotation31-repair0", "queue": 0}
+{"utc": "2026-11-25T03:12:38.402656+00:00", "phase": "mutation_done", "elapsed": 256.711, "tested": 14358022, "neutral": 0, "best": [1, 1, 64], "label": "rotation31-repair1", "queue": 0}
+{"utc": "2026-11-25T03:12:39.104364+00:00", "phase": "deletion_done", "elapsed": 257.412, "tested": 14361792, "neutral": 0, "best": [1, 1, 64], "label": "rotation32"}
+{"utc": "2026-11-25T03:12:44.509589+00:00", "phase": "mutation_done", "elapsed": 262.818, "tested": 14591488, "neutral": 0, "best": [1, 1, 64], "label": "rotation32-repair0", "queue": 0}
+{"utc": "2026-11-25T03:12:49.643142+00:00", "phase": "mutation_done", "elapsed": 267.951, "tested": 14821184, "neutral": 0, "best": [1, 1, 64], "label": "rotation32-repair1", "queue": 0}
+{"utc": "2026-11-25T03:12:50.421263+00:00", "phase": "deletion_done", "elapsed": 268.729, "tested": 14824954, "neutral": 0, "best": [1, 1, 64], "label": "rotation33"}
+{"utc": "2026-11-25T03:12:55.835069+00:00", "phase": "mutation_done", "elapsed": 274.143, "tested": 15054650, "neutral": 0, "best": [1, 1, 64], "label": "rotation33-repair0", "queue": 0}
+{"utc": "2026-11-25T03:13:00.962036+00:00", "phase": "mutation_done", "elapsed": 279.27, "tested": 15284346, "neutral": 0, "best": [1, 1, 64], "label": "rotation33-repair1", "queue": 0}
+{"utc": "2026-11-25T03:13:01.648861+00:00", "phase": "deletion_done", "elapsed": 279.957, "tested": 15288116, "neutral": 0, "best": [1, 1, 64], "label": "rotation34"}
+{"utc": "2026-11-25T03:13:06.954950+00:00", "phase": "mutation_done", "elapsed": 285.263, "tested": 15517812, "neutral": 0, "best": [1, 1, 64], "label": "rotation34-repair0", "queue": 0}
+{"utc": "2026-11-25T03:13:12.112338+00:00", "phase": "mutation_done", "elapsed": 290.42, "tested": 15747508, "neutral": 0, "best": [1, 1, 64], "label": "rotation34-repair1", "queue": 0}
+{"utc": "2026-11-25T03:13:12.763988+00:00", "phase": "deletion_done", "elapsed": 291.072, "tested": 15751278, "neutral": 0, "best": [1, 1, 64], "label": "rotation35"}
+{"utc": "2026-11-25T03:13:18.166733+00:00", "phase": "mutation_done", "elapsed": 296.475, "tested": 15980974, "neutral": 0, "best": [1, 1, 64], "label": "rotation35-repair0", "queue": 0}
+{"utc": "2026-11-25T03:13:23.251615+00:00", "phase": "mutation_done", "elapsed": 301.56, "tested": 16210670, "neutral": 0, "best": [1, 1, 64], "label": "rotation35-repair1", "queue": 0}
+{"utc": "2026-11-25T03:13:23.253592+00:00", "phase": "rotation_progress", "elapsed": 301.562, "tested": 16210670, "neutral": 0, "best": [1, 1, 64], "rounds": 35, "near": 57657}
+{"utc": "2026-11-25T03:13:23.957070+00:00", "phase": "deletion_done", "elapsed": 302.265, "tested": 16214440, "neutral": 0, "best": [1, 1, 64], "label": "rotation36"}
+{"utc": "2026-11-25T03:13:29.344019+00:00", "phase": "mutation_done", "elapsed": 307.652, "tested": 16444136, "neutral": 0, "best": [1, 1, 64], "label": "rotation36-repair0", "queue": 0}
+{"utc": "2026-11-25T03:13:34.410550+00:00", "phase": "mutation_done", "elapsed": 312.719, "tested": 16673832, "neutral": 0, "best": [1, 1, 64], "label": "rotation36-repair1", "queue": 0}
+{"utc": "2026-11-25T03:13:35.055207+00:00", "phase": "deletion_done", "elapsed": 313.363, "tested": 16677602, "neutral": 0, "best": [1, 1, 64], "label": "rotation37"}
+{"utc": "2026-11-25T03:13:40.113230+00:00", "phase": "mutation_done", "elapsed": 318.421, "tested": 16907298, "neutral": 0, "best": [1, 1, 64], "label": "rotation37-repair0", "queue": 0}
+{"utc": "2026-11-25T03:13:45.161928+00:00", "phase": "mutation_done", "elapsed": 323.47, "tested": 17136994, "neutral": 0, "best": [1, 1, 64], "label": "rotation37-repair1", "queue": 0}
+{"utc": "2026-11-25T03:13:45.946345+00:00", "phase": "deletion_done", "elapsed": 324.254, "tested": 17140764, "neutral": 0, "best": [1, 1, 64], "label": "rotation38"}
+{"utc": "2026-11-25T03:13:52.462229+00:00", "phase": "mutation_done", "elapsed": 330.77, "tested": 17370460, "neutral": 0, "best": [1, 1, 64], "label": "rotation38-repair0", "queue": 0}
+{"utc": "2026-11-25T03:13:57.460461+00:00", "phase": "mutation_done", "elapsed": 335.769, "tested": 17600156, "neutral": 0, "best": [1, 1, 64], "label": "rotation38-repair1", "queue": 0}
+{"utc": "2026-11-25T03:13:58.204058+00:00", "phase": "deletion_done", "elapsed": 336.512, "tested": 17603926, "neutral": 0, "best": [1, 1, 64], "label": "rotation39"}
+{"utc": "2026-11-25T03:14:03.240057+00:00", "phase": "mutation_done", "elapsed": 341.548, "tested": 17833622, "neutral": 0, "best": [1, 1, 64], "label": "rotation39-repair0", "queue": 0}
+{"utc": "2026-11-25T03:14:09.804896+00:00", "phase": "mutation_done", "elapsed": 348.113, "tested": 18063318, "neutral": 0, "best": [1, 1, 64], "label": "rotation39-repair1", "queue": 0}
+{"utc": "2026-11-25T03:14:11.144193+00:00", "phase": "deletion_done", "elapsed": 349.452, "tested": 18067088, "neutral": 0, "best": [1, 1, 64], "label": "rotation40"}
+{"utc": "2026-11-25T03:14:17.913649+00:00", "phase": "mutation_done", "elapsed": 356.222, "tested": 18296784, "neutral": 0, "best": [1, 1, 64], "label": "rotation40-repair0", "queue": 0}
+{"utc": "2026-11-25T03:14:23.019138+00:00", "phase": "mutation_done", "elapsed": 361.327, "tested": 18526480, "neutral": 0, "best": [1, 1, 64], "label": "rotation40-repair1", "queue": 0}
+{"utc": "2026-11-25T03:14:23.020188+00:00", "phase": "rotation_progress", "elapsed": 361.328, "tested": 18526480, "neutral": 0, "best": [1, 1, 64], "rounds": 40, "near": 65652}
+{"utc": "2026-11-25T03:14:23.722233+00:00", "phase": "deletion_done", "elapsed": 362.03, "tested": 18530250, "neutral": 0, "best": [1, 1, 64], "label": "rotation41"}
+{"utc": "2026-11-25T03:14:30.752935+00:00", "phase": "mutation_done", "elapsed": 369.061, "tested": 18759946, "neutral": 0, "best": [1, 1, 64], "label": "rotation41-repair0", "queue": 0}
+{"utc": "2026-11-25T03:14:36.303536+00:00", "phase": "mutation_done", "elapsed": 374.612, "tested": 18989642, "neutral": 0, "best": [1, 1, 64], "label": "rotation41-repair1", "queue": 0}
+{"utc": "2026-11-25T03:14:36.766675+00:00", "phase": "deletion_done", "elapsed": 375.075, "tested": 18993412, "neutral": 0, "best": [1, 1, 64], "label": "rotation42"}
+{"utc": "2026-11-25T03:14:40.229153+00:00", "phase": "mutation_done", "elapsed": 378.537, "tested": 19223108, "neutral": 0, "best": [1, 1, 64], "label": "rotation42-repair0", "queue": 0}
+{"utc": "2026-11-25T03:14:43.035085+00:00", "phase": "mutation_done", "elapsed": 381.343, "tested": 19452804, "neutral": 0, "best": [1, 1, 64], "label": "rotation42-repair1", "queue": 0}
+{"utc": "2026-11-25T03:14:43.404189+00:00", "phase": "deletion_done", "elapsed": 381.712, "tested": 19456574, "neutral": 0, "best": [1, 1, 64], "label": "rotation43"}
+{"utc": "2026-11-25T03:14:46.650831+00:00", "phase": "mutation_done", "elapsed": 384.959, "tested": 19686270, "neutral": 0, "best": [1, 1, 64], "label": "rotation43-repair0", "queue": 0}
+{"utc": "2026-11-25T03:14:49.860236+00:00", "phase": "mutation_done", "elapsed": 388.168, "tested": 19915966, "neutral": 0, "best": [1, 1, 64], "label": "rotation43-repair1", "queue": 0}
+{"utc": "2026-11-25T03:14:50.252208+00:00", "phase": "deletion_done", "elapsed": 388.56, "tested": 19919736, "neutral": 0, "best": [1, 1, 64], "label": "rotation44"}
+{"utc": "2026-11-25T03:14:53.138357+00:00", "phase": "mutation_done", "elapsed": 391.446, "tested": 20149432, "neutral": 0, "best": [1, 1, 64], "label": "rotation44-repair0", "queue": 0}
+{"utc": "2026-11-25T03:14:55.971895+00:00", "phase": "mutation_done", "elapsed": 394.28, "tested": 20379128, "neutral": 0, "best": [1, 1, 64], "label": "rotation44-repair1", "queue": 0}
+{"utc": "2026-11-25T03:14:56.762561+00:00", "phase": "deletion_done", "elapsed": 395.071, "tested": 20382898, "neutral": 0, "best": [1, 1, 64], "label": "rotation45"}
+{"utc": "2026-11-25T03:15:02.812639+00:00", "phase": "mutation_done", "elapsed": 401.121, "tested": 20612594, "neutral": 0, "best": [1, 1, 64], "label": "rotation45-repair0", "queue": 0}
+{"utc": "2026-11-25T03:15:11.563941+00:00", "phase": "mutation_done", "elapsed": 409.873, "tested": 20842290, "neutral": 0, "best": [1, 1, 64], "label": "rotation45-repair1", "queue": 0}
+{"utc": "2026-11-25T03:15:11.601387+00:00", "phase": "rotation_progress", "elapsed": 409.909, "tested": 20842290, "neutral": 0, "best": [1, 1, 64], "rounds": 45, "near": 73880}
+{"utc": "2026-11-25T03:15:12.811144+00:00", "phase": "deletion_done", "elapsed": 411.119, "tested": 20846060, "neutral": 0, "best": [1, 1, 64], "label": "rotation46"}
+{"utc": "2026-11-25T03:15:22.266136+00:00", "phase": "mutation_done", "elapsed": 420.574, "tested": 21075756, "neutral": 0, "best": [1, 1, 64], "label": "rotation46-repair0", "queue": 0}
+{"utc": "2026-11-25T03:15:30.903042+00:00", "phase": "mutation_done", "elapsed": 429.211, "tested": 21305452, "neutral": 0, "best": [1, 1, 64], "label": "rotation46-repair1", "queue": 0}
+{"utc": "2026-11-25T03:15:32.056021+00:00", "phase": "deletion_done", "elapsed": 430.364, "tested": 21309222, "neutral": 0, "best": [1, 1, 64], "label": "rotation47"}
+{"utc": "2026-11-25T03:15:41.650186+00:00", "phase": "mutation_done", "elapsed": 439.958, "tested": 21538918, "neutral": 0, "best": [1, 1, 64], "label": "rotation47-repair0", "queue": 0}
+{"utc": "2026-11-25T03:15:50.259428+00:00", "phase": "mutation_done", "elapsed": 448.567, "tested": 21768614, "neutral": 0, "best": [1, 1, 64], "label": "rotation47-repair1", "queue": 0}
+{"utc": "2026-11-25T03:15:51.963276+00:00", "phase": "deletion_done", "elapsed": 450.271, "tested": 21772384, "neutral": 0, "best": [1, 1, 64], "label": "rotation48"}
+{"utc": "2026-11-25T03:15:58.325021+00:00", "phase": "mutation_done", "elapsed": 456.633, "tested": 22002080, "neutral": 0, "best": [1, 1, 64], "label": "rotation48-repair0", "queue": 0}
+{"utc": "2026-11-25T03:16:08.724195+00:00", "phase": "mutation_done", "elapsed": 467.032, "tested": 22231776, "neutral": 0, "best": [1, 1, 64], "label": "rotation48-repair1", "queue": 0}
+{"utc": "2026-11-25T03:16:10.067514+00:00", "phase": "deletion_done", "elapsed": 468.376, "tested": 22235546, "neutral": 0, "best": [1, 1, 64], "label": "rotation49"}
+{"utc": "2026-11-25T03:16:19.963682+00:00", "phase": "mutation_done", "elapsed": 478.272, "tested": 22465242, "neutral": 0, "best": [1, 1, 64], "label": "rotation49-repair0", "queue": 0}
+{"utc": "2026-11-25T03:16:25.225805+00:00", "phase": "mutation_done", "elapsed": 483.534, "tested": 22694938, "neutral": 0, "best": [1, 1, 64], "label": "rotation49-repair1", "queue": 0}
+{"utc": "2026-11-25T03:16:25.937893+00:00", "phase": "deletion_done", "elapsed": 484.246, "tested": 22698708, "neutral": 0, "best": [1, 1, 64], "label": "rotation50"}
+{"utc": "2026-11-25T03:16:37.626603+00:00", "phase": "mutation_done", "elapsed": 495.935, "tested": 22928404, "neutral": 0, "best": [1, 1, 64], "label": "rotation50-repair0", "queue": 0}
+{"utc": "2026-11-25T03:16:46.268181+00:00", "phase": "mutation_done", "elapsed": 504.576, "tested": 23158100, "neutral": 0, "best": [1, 1, 64], "label": "rotation50-repair1", "queue": 0}
+{"utc": "2026-11-25T03:16:46.301895+00:00", "phase": "rotation_progress", "elapsed": 504.61, "tested": 23158100, "neutral": 0, "best": [1, 1, 64], "rounds": 50, "near": 82044}
+{"utc": "2026-11-25T03:16:47.903817+00:00", "phase": "deletion_done", "elapsed": 506.212, "tested": 23161870, "neutral": 0, "best": [1, 1, 64], "label": "rotation51"}
+{"utc": "2026-11-25T03:16:54.361097+00:00", "phase": "mutation_done", "elapsed": 512.669, "tested": 23391566, "neutral": 0, "best": [1, 1, 64], "label": "rotation51-repair0", "queue": 0}
+{"utc": "2026-11-25T03:16:59.703240+00:00", "phase": "mutation_done", "elapsed": 518.011, "tested": 23621262, "neutral": 0, "best": [1, 1, 64], "label": "rotation51-repair1", "queue": 0}
+{"utc": "2026-11-25T03:17:00.434857+00:00", "phase": "deletion_done", "elapsed": 518.743, "tested": 23625032, "neutral": 0, "best": [1, 1, 64], "label": "rotation52"}
+{"utc": "2026-11-25T03:17:05.637588+00:00", "phase": "mutation_done", "elapsed": 523.946, "tested": 23854728, "neutral": 0, "best": [1, 1, 64], "label": "rotation52-repair0", "queue": 0}
+{"utc": "2026-11-25T03:17:10.846785+00:00", "phase": "mutation_done", "elapsed": 529.155, "tested": 24084424, "neutral": 0, "best": [1, 1, 64], "label": "rotation52-repair1", "queue": 0}
+{"utc": "2026-11-25T03:17:11.629091+00:00", "phase": "deletion_done", "elapsed": 529.937, "tested": 24088194, "neutral": 0, "best": [1, 1, 64], "label": "rotation53"}
+{"utc": "2026-11-25T03:17:17.316506+00:00", "phase": "mutation_done", "elapsed": 535.625, "tested": 24317890, "neutral": 0, "best": [1, 1, 64], "label": "rotation53-repair0", "queue": 0}
+{"utc": "2026-11-25T03:17:22.340115+00:00", "phase": "mutation_done", "elapsed": 540.648, "tested": 24547586, "neutral": 0, "best": [1, 1, 64], "label": "rotation53-repair1", "queue": 0}
+{"utc": "2026-11-25T03:17:23.122405+00:00", "phase": "deletion_done", "elapsed": 541.431, "tested": 24551356, "neutral": 0, "best": [1, 1, 64], "label": "rotation54"}
+{"utc": "2026-11-25T03:17:28.642100+00:00", "phase": "mutation_done", "elapsed": 546.95, "tested": 24781052, "neutral": 0, "best": [1, 1, 64], "label": "rotation54-repair0", "queue": 0}
+{"utc": "2026-11-25T03:17:33.750400+00:00", "phase": "mutation_done", "elapsed": 552.058, "tested": 25010748, "neutral": 0, "best": [1, 1, 64], "label": "rotation54-repair1", "queue": 0}
+{"utc": "2026-11-25T03:17:34.528926+00:00", "phase": "deletion_done", "elapsed": 552.837, "tested": 25014518, "neutral": 0, "best": [1, 1, 64], "label": "rotation55"}
+{"utc": "2026-11-25T03:17:39.861669+00:00", "phase": "mutation_done", "elapsed": 558.17, "tested": 25244214, "neutral": 0, "best": [1, 1, 64], "label": "rotation55-repair0", "queue": 0}
+{"utc": "2026-11-25T03:17:45.559533+00:00", "phase": "mutation_done", "elapsed": 563.868, "tested": 25473910, "neutral": 0, "best": [1, 1, 64], "label": "rotation55-repair1", "queue": 0}
+{"utc": "2026-11-25T03:17:45.560665+00:00", "phase": "rotation_progress", "elapsed": 563.869, "tested": 25473910, "neutral": 0, "best": [1, 1, 64], "rounds": 55, "near": 90143}
+{"utc": "2026-11-25T03:17:47.753695+00:00", "phase": "deletion_done", "elapsed": 566.062, "tested": 25477680, "neutral": 0, "best": [1, 1, 64], "label": "rotation56"}
+{"utc": "2026-11-25T03:17:54.078641+00:00", "phase": "mutation_done", "elapsed": 572.387, "tested": 25707376, "neutral": 0, "best": [1, 1, 64], "label": "rotation56-repair0", "queue": 0}
+{"utc": "2026-11-25T03:18:00.948026+00:00", "phase": "mutation_done", "elapsed": 579.256, "tested": 25937072, "neutral": 0, "best": [1, 1, 64], "label": "rotation56-repair1", "queue": 0}
+{"utc": "2026-11-25T03:18:01.814574+00:00", "phase": "deletion_done", "elapsed": 580.123, "tested": 25940842, "neutral": 0, "best": [1, 1, 64], "label": "rotation57"}
+{"utc": "2026-11-25T03:18:06.922393+00:00", "phase": "mutation_done", "elapsed": 585.231, "tested": 26170538, "neutral": 0, "best": [1, 1, 64], "label": "rotation57-repair0", "queue": 0}
+{"utc": "2026-11-25T03:18:12.258938+00:00", "phase": "mutation_done", "elapsed": 590.567, "tested": 26400234, "neutral": 0, "best": [1, 1, 64], "label": "rotation57-repair1", "queue": 0}
+{"utc": "2026-11-25T03:18:13.018995+00:00", "phase": "deletion_done", "elapsed": 591.327, "tested": 26404004, "neutral": 0, "best": [1, 1, 64], "label": "rotation58"}
+{"utc": "2026-11-25T03:18:18.635151+00:00", "phase": "mutation_done", "elapsed": 596.943, "tested": 26633700, "neutral": 0, "best": [1, 1, 64], "label": "rotation58-repair0", "queue": 0}
+{"utc": "2026-11-25T03:18:24.407114+00:00", "phase": "mutation_done", "elapsed": 602.715, "tested": 26863396, "neutral": 0, "best": [1, 1, 64], "label": "rotation58-repair1", "queue": 0}
+{"utc": "2026-11-25T03:18:25.155793+00:00", "phase": "deletion_done", "elapsed": 603.464, "tested": 26867166, "neutral": 0, "best": [1, 1, 64], "label": "rotation59"}
+{"utc": "2026-11-25T03:18:30.734191+00:00", "phase": "mutation_done", "elapsed": 609.042, "tested": 27096862, "neutral": 0, "best": [1, 1, 64], "label": "rotation59-repair0", "queue": 0}
+{"utc": "2026-11-25T03:18:36.340760+00:00", "phase": "mutation_done", "elapsed": 614.649, "tested": 27326558, "neutral": 0, "best": [1, 1, 64], "label": "rotation59-repair1", "queue": 0}
+{"utc": "2026-11-25T03:18:37.111578+00:00", "phase": "deletion_done", "elapsed": 615.42, "tested": 27330328, "neutral": 0, "best": [1, 1, 64], "label": "rotation60"}
+{"utc": "2026-11-25T03:18:42.925586+00:00", "phase": "mutation_done", "elapsed": 621.234, "tested": 27560024, "neutral": 0, "best": [1, 1, 64], "label": "rotation60-repair0", "queue": 0}
+{"utc": "2026-11-25T03:18:48.669219+00:00", "phase": "mutation_done", "elapsed": 626.977, "tested": 27789720, "neutral": 0, "best": [1, 1, 64], "label": "rotation60-repair1", "queue": 0}
+{"utc": "2026-11-25T03:18:48.671143+00:00", "phase": "rotation_progress", "elapsed": 626.979, "tested": 27789720, "neutral": 0, "best": [1, 1, 64], "rounds": 60, "near": 98430}
+{"utc": "2026-11-25T03:18:49.439177+00:00", "phase": "deletion_done", "elapsed": 627.747, "tested": 27793490, "neutral": 0, "best": [1, 1, 64], "label": "rotation61"}
+{"utc": "2026-11-25T03:18:55.433369+00:00", "phase": "mutation_done", "elapsed": 633.741, "tested": 28023186, "neutral": 0, "best": [1, 1, 64], "label": "rotation61-repair0", "queue": 0}
+{"utc": "2026-11-25T03:19:00.970228+00:00", "phase": "mutation_done", "elapsed": 639.278, "tested": 28252882, "neutral": 0, "best": [1, 1, 64], "label": "rotation61-repair1", "queue": 0}
+{"utc": "2026-11-25T03:19:01.803002+00:00", "phase": "deletion_done", "elapsed": 640.111, "tested": 28256652, "neutral": 0, "best": [1, 1, 64], "label": "rotation62"}
+{"utc": "2026-11-25T03:19:07.701557+00:00", "phase": "mutation_done", "elapsed": 646.01, "tested": 28486348, "neutral": 0, "best": [1, 1, 64], "label": "rotation62-repair0", "queue": 0}
+{"utc": "2026-11-25T03:19:13.371081+00:00", "phase": "mutation_done", "elapsed": 651.679, "tested": 28716044, "neutral": 0, "best": [1, 1, 64], "label": "rotation62-repair1", "queue": 0}
+{"utc": "2026-11-25T03:19:14.129598+00:00", "phase": "deletion_done", "elapsed": 652.438, "tested": 28719814, "neutral": 0, "best": [1, 1, 64], "label": "rotation63"}
+{"utc": "2026-11-25T03:19:19.826979+00:00", "phase": "mutation_done", "elapsed": 658.135, "tested": 28949510, "neutral": 0, "best": [1, 1, 64], "label": "rotation63-repair0", "queue": 0}
+{"utc": "2026-11-25T03:19:25.727924+00:00", "phase": "mutation_done", "elapsed": 664.036, "tested": 29179206, "neutral": 0, "best": [1, 1, 64], "label": "rotation63-repair1", "queue": 0}
+{"utc": "2026-11-25T03:19:26.603776+00:00", "phase": "deletion_done", "elapsed": 664.912, "tested": 29182976, "neutral": 0, "best": [1, 1, 64], "label": "rotation64"}
+{"utc": "2026-11-25T03:19:32.311690+00:00", "phase": "mutation_done", "elapsed": 670.62, "tested": 29412672, "neutral": 0, "best": [1, 1, 64], "label": "rotation64-repair0", "queue": 0}
+{"utc": "2026-11-25T03:19:38.369552+00:00", "phase": "mutation_done", "elapsed": 676.678, "tested": 29642368, "neutral": 0, "best": [1, 1, 64], "label": "rotation64-repair1", "queue": 0}
+{"utc": "2026-11-25T03:19:39.168193+00:00", "phase": "deletion_done", "elapsed": 677.476, "tested": 29646138, "neutral": 0, "best": [1, 1, 64], "label": "rotation65"}
+{"utc": "2026-11-25T03:19:46.804349+00:00", "phase": "mutation_done", "elapsed": 685.112, "tested": 29875834, "neutral": 0, "best": [1, 1, 64], "label": "rotation65-repair0", "queue": 0}
+{"utc": "2026-11-25T03:19:52.438370+00:00", "phase": "mutation_done", "elapsed": 690.746, "tested": 30105530, "neutral": 0, "best": [1, 1, 64], "label": "rotation65-repair1", "queue": 0}
+{"utc": "2026-11-25T03:19:52.440855+00:00", "phase": "rotation_progress", "elapsed": 690.749, "tested": 30105530, "neutral": 0, "best": [1, 1, 64], "rounds": 65, "near": 106597}
+{"utc": "2026-11-25T03:19:53.219038+00:00", "phase": "deletion_done", "elapsed": 691.527, "tested": 30109300, "neutral": 0, "best": [1, 1, 64], "label": "rotation66"}
+{"utc": "2026-11-25T03:19:58.564638+00:00", "phase": "mutation_done", "elapsed": 696.873, "tested": 30338996, "neutral": 0, "best": [1, 1, 64], "label": "rotation66-repair0", "queue": 0}
+{"utc": "2026-11-25T03:20:04.468912+00:00", "phase": "mutation_done", "elapsed": 702.777, "tested": 30568692, "neutral": 0, "best": [1, 1, 64], "label": "rotation66-repair1", "queue": 0}
+{"utc": "2026-11-25T03:20:05.183250+00:00", "phase": "deletion_done", "elapsed": 703.491, "tested": 30572462, "neutral": 0, "best": [1, 1, 64], "label": "rotation67"}
+{"utc": "2026-11-25T03:20:10.338693+00:00", "phase": "mutation_done", "elapsed": 708.647, "tested": 30802158, "neutral": 0, "best": [1, 1, 64], "label": "rotation67-repair0", "queue": 0}
+{"utc": "2026-11-25T03:20:16.050000+00:00", "phase": "mutation_done", "elapsed": 714.358, "tested": 31031854, "neutral": 0, "best": [1, 1, 64], "label": "rotation67-repair1", "queue": 0}
+{"utc": "2026-11-25T03:20:16.740694+00:00", "phase": "deletion_done", "elapsed": 715.049, "tested": 31035624, "neutral": 0, "best": [1, 1, 64], "label": "rotation68"}
+{"utc": "2026-11-25T03:20:21.932039+00:00", "phase": "mutation_done", "elapsed": 720.24, "tested": 31265320, "neutral": 0, "best": [1, 1, 64], "label": "rotation68-repair0", "queue": 0}
+{"utc": "2026-11-25T03:20:25.484037+00:00", "phase": "mutation_done", "elapsed": 723.792, "tested": 31495016, "neutral": 0, "best": [1, 1, 64], "label": "rotation68-repair1", "queue": 0}
+{"utc": "2026-11-25T03:20:25.711793+00:00", "phase": "deletion_done", "elapsed": 724.02, "tested": 31498786, "neutral": 0, "best": [1, 1, 64], "label": "rotation69"}
+{"utc": "2026-11-25T03:20:27.422744+00:00", "phase": "mutation_done", "elapsed": 725.731, "tested": 31728482, "neutral": 0, "best": [1, 1, 64], "label": "rotation69-repair0", "queue": 0}
+{"utc": "2026-11-25T03:20:29.783354+00:00", "phase": "mutation_done", "elapsed": 728.092, "tested": 31958178, "neutral": 0, "best": [1, 1, 64], "label": "rotation69-repair1", "queue": 0}
+{"utc": "2026-11-25T03:20:30.268404+00:00", "phase": "deletion_done", "elapsed": 728.577, "tested": 31961948, "neutral": 0, "best": [1, 1, 64], "label": "rotation70"}
+{"utc": "2026-11-25T03:20:33.661439+00:00", "phase": "mutation_done", "elapsed": 731.969, "tested": 32191644, "neutral": 0, "best": [1, 1, 64], "label": "rotation70-repair0", "queue": 0}
+{"utc": "2026-11-25T03:20:37.078855+00:00", "phase": "mutation_done", "elapsed": 735.387, "tested": 32421340, "neutral": 0, "best": [1, 1, 64], "label": "rotation70-repair1", "queue": 0}
+{"utc": "2026-11-25T03:20:37.080588+00:00", "phase": "rotation_progress", "elapsed": 735.389, "tested": 32421340, "neutral": 0, "best": [1, 1, 64], "rounds": 70, "near": 114752}
+{"utc": "2026-11-25T03:20:37.553380+00:00", "phase": "deletion_done", "elapsed": 735.861, "tested": 32425110, "neutral": 0, "best": [1, 1, 64], "label": "rotation71"}
+{"utc": "2026-11-25T03:20:40.620531+00:00", "phase": "mutation_done", "elapsed": 738.929, "tested": 32654806, "neutral": 0, "best": [1, 1, 64], "label": "rotation71-repair0", "queue": 0}
+{"utc": "2026-11-25T03:20:43.234853+00:00", "phase": "mutation_done", "elapsed": 741.543, "tested": 32884502, "neutral": 0, "best": [1, 1, 64], "label": "rotation71-repair1", "queue": 0}
+{"utc": "2026-11-25T03:20:43.539475+00:00", "phase": "deletion_done", "elapsed": 741.848, "tested": 32888272, "neutral": 0, "best": [1, 1, 64], "label": "rotation72"}
+{"utc": "2026-11-25T03:20:46.731681+00:00", "phase": "mutation_done", "elapsed": 745.04, "tested": 33117968, "neutral": 0, "best": [1, 1, 64], "label": "rotation72-repair0", "queue": 0}
+{"utc": "2026-11-25T03:20:49.994760+00:00", "phase": "mutation_done", "elapsed": 748.303, "tested": 33347664, "neutral": 0, "best": [1, 1, 64], "label": "rotation72-repair1", "queue": 0}
+{"utc": "2026-11-25T03:20:50.455963+00:00", "phase": "deletion_done", "elapsed": 748.764, "tested": 33351434, "neutral": 0, "best": [1, 1, 64], "label": "rotation73"}
+{"utc": "2026-11-25T03:20:52.944248+00:00", "phase": "mutation_done", "elapsed": 751.252, "tested": 33581130, "neutral": 0, "best": [1, 1, 64], "label": "rotation73-repair0", "queue": 0}
+{"utc": "2026-11-25T03:20:55.229012+00:00", "phase": "mutation_done", "elapsed": 753.537, "tested": 33810826, "neutral": 0, "best": [1, 1, 64], "label": "rotation73-repair1", "queue": 0}
+{"utc": "2026-11-25T03:20:55.501520+00:00", "phase": "deletion_done", "elapsed": 753.81, "tested": 33814596, "neutral": 0, "best": [1, 1, 64], "label": "rotation74"}
+{"utc": "2026-11-25T03:20:57.781494+00:00", "phase": "mutation_done", "elapsed": 756.09, "tested": 34044292, "neutral": 0, "best": [1, 1, 64], "label": "rotation74-repair0", "queue": 0}
+{"utc": "2026-11-25T03:21:00.567654+00:00", "phase": "mutation_done", "elapsed": 758.876, "tested": 34273988, "neutral": 0, "best": [1, 1, 64], "label": "rotation74-repair1", "queue": 0}
+{"utc": "2026-11-25T03:21:00.951500+00:00", "phase": "deletion_done", "elapsed": 759.26, "tested": 34277758, "neutral": 0, "best": [1, 1, 64], "label": "rotation75"}
+{"utc": "2026-11-25T03:21:03.285011+00:00", "phase": "mutation_done", "elapsed": 761.593, "tested": 34507454, "neutral": 0, "best": [1, 1, 64], "label": "rotation75-repair0", "queue": 0}
+{"utc": "2026-11-25T03:21:05.575558+00:00", "phase": "mutation_done", "elapsed": 763.884, "tested": 34737150, "neutral": 0, "best": [1, 1, 64], "label": "rotation75-repair1", "queue": 0}
+{"utc": "2026-11-25T03:21:05.576658+00:00", "phase": "rotation_progress", "elapsed": 763.885, "tested": 34737150, "neutral": 0, "best": [1, 1, 64], "rounds": 75, "near": 122899}
+{"utc": "2026-11-25T03:21:05.857296+00:00", "phase": "deletion_done", "elapsed": 764.166, "tested": 34740920, "neutral": 0, "best": [1, 1, 64], "label": "rotation76"}
+{"utc": "2026-11-25T03:21:07.926268+00:00", "phase": "mutation_done", "elapsed": 766.234, "tested": 34970616, "neutral": 0, "best": [1, 1, 64], "label": "rotation76-repair0", "queue": 0}
+{"utc": "2026-11-25T03:21:11.039015+00:00", "phase": "mutation_done", "elapsed": 769.347, "tested": 35200312, "neutral": 0, "best": [1, 1, 64], "label": "rotation76-repair1", "queue": 0}
+{"utc": "2026-11-25T03:21:11.643653+00:00", "phase": "deletion_done", "elapsed": 769.952, "tested": 35204082, "neutral": 0, "best": [1, 1, 64], "label": "rotation77"}
+{"utc": "2026-11-25T03:21:14.856103+00:00", "phase": "mutation_done", "elapsed": 773.165, "tested": 35433778, "neutral": 0, "best": [1, 1, 64], "label": "rotation77-repair0", "queue": 0}
+{"utc": "2026-11-25T03:21:17.986399+00:00", "phase": "mutation_done", "elapsed": 776.294, "tested": 35663474, "neutral": 0, "best": [1, 1, 64], "label": "rotation77-repair1", "queue": 0}
+{"utc": "2026-11-25T03:21:18.456525+00:00", "phase": "deletion_done", "elapsed": 776.765, "tested": 35667244, "neutral": 0, "best": [1, 1, 64], "label": "rotation78"}
+{"utc": "2026-11-25T03:21:20.557741+00:00", "phase": "mutation_done", "elapsed": 778.866, "tested": 35896940, "neutral": 0, "best": [1, 1, 64], "label": "rotation78-repair0", "queue": 0}
+{"utc": "2026-11-25T03:21:22.516382+00:00", "phase": "mutation_done", "elapsed": 780.825, "tested": 36126636, "neutral": 0, "best": [1, 1, 64], "label": "rotation78-repair1", "queue": 0}
+{"utc": "2026-11-25T03:21:22.775394+00:00", "phase": "deletion_done", "elapsed": 781.083, "tested": 36130406, "neutral": 0, "best": [1, 1, 64], "label": "rotation79"}
+{"utc": "2026-11-25T03:21:24.794988+00:00", "phase": "mutation_done", "elapsed": 783.103, "tested": 36360102, "neutral": 0, "best": [1, 1, 64], "label": "rotation79-repair0", "queue": 0}
+{"utc": "2026-11-25T03:21:26.666945+00:00", "phase": "mutation_done", "elapsed": 784.975, "tested": 36589798, "neutral": 0, "best": [1, 1, 64], "label": "rotation79-repair1", "queue": 0}
+{"utc": "2026-11-25T03:21:27.056615+00:00", "phase": "deletion_done", "elapsed": 785.365, "tested": 36593568, "neutral": 0, "best": [1, 1, 64], "label": "rotation80"}
+{"utc": "2026-11-25T03:21:28.745658+00:00", "phase": "mutation_done", "elapsed": 787.054, "tested": 36823264, "neutral": 0, "best": [1, 1, 64], "label": "rotation80-repair0", "queue": 0}
+{"utc": "2026-11-25T03:21:30.779281+00:00", "phase": "mutation_done", "elapsed": 789.087, "tested": 37052960, "neutral": 0, "best": [1, 1, 64], "label": "rotation80-repair1", "queue": 0}
+{"utc": "2026-11-25T03:21:30.782285+00:00", "phase": "rotation_progress", "elapsed": 789.09, "tested": 37052960, "neutral": 0, "best": [1, 1, 64], "rounds": 80, "near": 131035}
+{"utc": "2026-11-25T03:21:31.020321+00:00", "phase": "deletion_done", "elapsed": 789.328, "tested": 37056730, "neutral": 0, "best": [1, 1, 64], "label": "rotation81"}
+{"utc": "2026-11-25T03:21:33.873030+00:00", "phase": "mutation_done", "elapsed": 792.181, "tested": 37286426, "neutral": 0, "best": [1, 1, 64], "label": "rotation81-repair0", "queue": 0}
+{"utc": "2026-11-25T03:21:35.705350+00:00", "phase": "mutation_done", "elapsed": 794.013, "tested": 37516122, "neutral": 0, "best": [1, 1, 64], "label": "rotation81-repair1", "queue": 0}
+{"utc": "2026-11-25T03:21:36.131040+00:00", "phase": "deletion_done", "elapsed": 794.439, "tested": 37519892, "neutral": 0, "best": [1, 1, 64], "label": "rotation82"}
+{"utc": "2026-11-25T03:21:37.943143+00:00", "phase": "mutation_done", "elapsed": 796.251, "tested": 37749588, "neutral": 0, "best": [1, 1, 64], "label": "rotation82-repair0", "queue": 0}
+{"utc": "2026-11-25T03:21:39.831558+00:00", "phase": "mutation_done", "elapsed": 798.14, "tested": 37979284, "neutral": 0, "best": [1, 1, 64], "label": "rotation82-repair1", "queue": 0}
+{"utc": "2026-11-25T03:21:40.056150+00:00", "phase": "deletion_done", "elapsed": 798.364, "tested": 37983054, "neutral": 0, "best": [1, 1, 64], "label": "rotation83"}
+{"utc": "2026-11-25T03:21:42.120148+00:00", "phase": "mutation_done", "elapsed": 800.428, "tested": 38212750, "neutral": 0, "best": [1, 1, 64], "label": "rotation83-repair0", "queue": 0}
+{"utc": "2026-11-25T03:21:44.062754+00:00", "phase": "mutation_done", "elapsed": 802.371, "tested": 38442446, "neutral": 0, "best": [1, 1, 64], "label": "rotation83-repair1", "queue": 0}
+{"utc": "2026-11-25T03:21:44.304950+00:00", "phase": "deletion_done", "elapsed": 802.613, "tested": 38446216, "neutral": 0, "best": [1, 1, 64], "label": "rotation84"}
+{"utc": "2026-11-25T03:21:46.249253+00:00", "phase": "mutation_done", "elapsed": 804.557, "tested": 38675912, "neutral": 0, "best": [1, 1, 64], "label": "rotation84-repair0", "queue": 0}
+{"utc": "2026-11-25T03:21:48.106323+00:00", "phase": "mutation_done", "elapsed": 806.414, "tested": 38905608, "neutral": 0, "best": [1, 1, 64], "label": "rotation84-repair1", "queue": 0}
+{"utc": "2026-11-25T03:21:48.343050+00:00", "phase": "deletion_done", "elapsed": 806.651, "tested": 38909378, "neutral": 0, "best": [1, 1, 64], "label": "rotation85"}
+{"utc": "2026-11-25T03:21:50.147683+00:00", "phase": "mutation_done", "elapsed": 808.456, "tested": 39139074, "neutral": 0, "best": [1, 1, 64], "label": "rotation85-repair0", "queue": 0}
+{"utc": "2026-11-25T03:21:51.990670+00:00", "phase": "mutation_done", "elapsed": 810.299, "tested": 39368770, "neutral": 0, "best": [1, 1, 64], "label": "rotation85-repair1", "queue": 0}
+{"utc": "2026-11-25T03:21:51.991095+00:00", "phase": "rotation_progress", "elapsed": 810.299, "tested": 39368770, "neutral": 0, "best": [1, 1, 64], "rounds": 85, "near": 139143}
+{"utc": "2026-11-25T03:21:52.232163+00:00", "phase": "deletion_done", "elapsed": 810.54, "tested": 39372540, "neutral": 0, "best": [1, 1, 64], "label": "rotation86"}
+{"utc": "2026-11-25T03:21:54.034973+00:00", "phase": "mutation_done", "elapsed": 812.343, "tested": 39602236, "neutral": 0, "best": [1, 1, 64], "label": "rotation86-repair0", "queue": 0}
+{"utc": "2026-11-25T03:21:55.679036+00:00", "phase": "mutation_done", "elapsed": 813.987, "tested": 39831932, "neutral": 0, "best": [1, 1, 64], "label": "rotation86-repair1", "queue": 0}
+{"utc": "2026-11-25T03:21:55.889649+00:00", "phase": "deletion_done", "elapsed": 814.198, "tested": 39835702, "neutral": 0, "best": [1, 1, 64], "label": "rotation87"}
+{"utc": "2026-11-25T03:21:57.552201+00:00", "phase": "mutation_done", "elapsed": 815.86, "tested": 40065398, "neutral": 0, "best": [1, 1, 64], "label": "rotation87-repair0", "queue": 0}
+{"utc": "2026-11-25T03:21:59.147340+00:00", "phase": "mutation_done", "elapsed": 817.455, "tested": 40295094, "neutral": 0, "best": [1, 1, 64], "label": "rotation87-repair1", "queue": 0}
+{"utc": "2026-11-25T03:21:59.360781+00:00", "phase": "deletion_done", "elapsed": 817.669, "tested": 40298864, "neutral": 0, "best": [1, 1, 64], "label": "rotation88"}
+{"utc": "2026-11-25T03:22:01.132669+00:00", "phase": "mutation_done", "elapsed": 819.441, "tested": 40528560, "neutral": 0, "best": [1, 1, 64], "label": "rotation88-repair0", "queue": 0}
+{"utc": "2026-11-25T03:22:03.763555+00:00", "phase": "mutation_done", "elapsed": 822.072, "tested": 40758256, "neutral": 0, "best": [1, 1, 64], "label": "rotation88-repair1", "queue": 0}
+{"utc": "2026-11-25T03:22:04.060450+00:00", "phase": "deletion_done", "elapsed": 822.368, "tested": 40762026, "neutral": 0, "best": [1, 1, 64], "label": "rotation89"}
+{"utc": "2026-11-25T03:22:06.061472+00:00", "phase": "mutation_done", "elapsed": 824.37, "tested": 40991722, "neutral": 0, "best": [1, 1, 64], "label": "rotation89-repair0", "queue": 0}
+{"utc": "2026-11-25T03:22:07.859036+00:00", "phase": "mutation_done", "elapsed": 826.167, "tested": 41221418, "neutral": 0, "best": [1, 1, 64], "label": "rotation89-repair1", "queue": 0}
+{"utc": "2026-11-25T03:22:08.096687+00:00", "phase": "deletion_done", "elapsed": 826.405, "tested": 41225188, "neutral": 0, "best": [1, 1, 64], "label": "rotation90"}
+{"utc": "2026-11-25T03:22:10.101147+00:00", "phase": "mutation_done", "elapsed": 828.409, "tested": 41454884, "neutral": 0, "best": [1, 1, 64], "label": "rotation90-repair0", "queue": 0}
+{"utc": "2026-11-25T03:22:11.902496+00:00", "phase": "mutation_done", "elapsed": 830.211, "tested": 41684580, "neutral": 0, "best": [1, 1, 64], "label": "rotation90-repair1", "queue": 0}
+{"utc": "2026-11-25T03:22:11.903703+00:00", "phase": "rotation_progress", "elapsed": 830.212, "tested": 41684580, "neutral": 0, "best": [1, 1, 64], "rounds": 90, "near": 147488}
+{"utc": "2026-11-25T03:22:12.169852+00:00", "phase": "deletion_done", "elapsed": 830.478, "tested": 41688350, "neutral": 0, "best": [1, 1, 64], "label": "rotation91"}
+{"utc": "2026-11-25T03:22:15.457837+00:00", "phase": "mutation_done", "elapsed": 833.766, "tested": 41918046, "neutral": 0, "best": [1, 1, 64], "label": "rotation91-repair0", "queue": 0}
+{"utc": "2026-11-25T03:22:18.055491+00:00", "phase": "mutation_done", "elapsed": 836.364, "tested": 42147742, "neutral": 0, "best": [1, 1, 64], "label": "rotation91-repair1", "queue": 0}
+{"utc": "2026-11-25T03:22:18.327444+00:00", "phase": "deletion_done", "elapsed": 836.636, "tested": 42151512, "neutral": 0, "best": [1, 1, 64], "label": "rotation92"}
+{"utc": "2026-11-25T03:22:20.024193+00:00", "phase": "mutation_done", "elapsed": 838.332, "tested": 42381208, "neutral": 0, "best": [1, 1, 64], "label": "rotation92-repair0", "queue": 0}
+{"utc": "2026-11-25T03:22:23.295575+00:00", "phase": "mutation_done", "elapsed": 841.604, "tested": 42610904, "neutral": 0, "best": [1, 1, 64], "label": "rotation92-repair1", "queue": 0}
+{"utc": "2026-11-25T03:22:23.516850+00:00", "phase": "deletion_done", "elapsed": 841.825, "tested": 42614674, "neutral": 0, "best": [1, 1, 64], "label": "rotation93"}
+{"utc": "2026-11-25T03:22:25.744428+00:00", "phase": "mutation_done", "elapsed": 844.053, "tested": 42844370, "neutral": 0, "best": [1, 1, 64], "label": "rotation93-repair0", "queue": 0}
+{"utc": "2026-11-25T03:22:28.618073+00:00", "phase": "mutation_done", "elapsed": 846.926, "tested": 43074066, "neutral": 0, "best": [1, 1, 64], "label": "rotation93-repair1", "queue": 0}
+{"utc": "2026-11-25T03:22:28.841056+00:00", "phase": "deletion_done", "elapsed": 847.149, "tested": 43077836, "neutral": 0, "best": [1, 1, 64], "label": "rotation94"}
+{"utc": "2026-11-25T03:22:30.495528+00:00", "phase": "mutation_done", "elapsed": 848.804, "tested": 43307532, "neutral": 0, "best": [1, 1, 64], "label": "rotation94-repair0", "queue": 0}
+{"utc": "2026-11-25T03:22:33.110330+00:00", "phase": "mutation_done", "elapsed": 851.418, "tested": 43537228, "neutral": 0, "best": [1, 1, 64], "label": "rotation94-repair1", "queue": 0}
+{"utc": "2026-11-25T03:22:33.336008+00:00", "phase": "deletion_done", "elapsed": 851.644, "tested": 43540998, "neutral": 0, "best": [1, 1, 64], "label": "rotation95"}
+{"utc": "2026-11-25T03:22:35.053608+00:00", "phase": "mutation_done", "elapsed": 853.362, "tested": 43770694, "neutral": 0, "best": [1, 1, 64], "label": "rotation95-repair0", "queue": 0}
+{"utc": "2026-11-25T03:22:36.750128+00:00", "phase": "mutation_done", "elapsed": 855.058, "tested": 44000390, "neutral": 0, "best": [1, 1, 64], "label": "rotation95-repair1", "queue": 0}
+{"utc": "2026-11-25T03:22:36.750534+00:00", "phase": "rotation_progress", "elapsed": 855.059, "tested": 44000390, "neutral": 0, "best": [1, 1, 64], "rounds": 95, "near": 155904}
+{"utc": "2026-11-25T03:22:36.963568+00:00", "phase": "deletion_done", "elapsed": 855.272, "tested": 44004160, "neutral": 0, "best": [1, 1, 64], "label": "rotation96"}
+{"utc": "2026-11-25T03:22:38.586673+00:00", "phase": "mutation_done", "elapsed": 856.895, "tested": 44233856, "neutral": 0, "best": [1, 1, 64], "label": "rotation96-repair0", "queue": 0}
+{"utc": "2026-11-25T03:22:40.290227+00:00", "phase": "mutation_done", "elapsed": 858.599, "tested": 44463552, "neutral": 0, "best": [1, 1, 64], "label": "rotation96-repair1", "queue": 0}
+{"utc": "2026-11-25T03:22:40.506338+00:00", "phase": "deletion_done", "elapsed": 858.814, "tested": 44467322, "neutral": 0, "best": [1, 1, 64], "label": "rotation97"}
+{"utc": "2026-11-25T03:22:42.159781+00:00", "phase": "mutation_done", "elapsed": 860.468, "tested": 44697018, "neutral": 0, "best": [1, 1, 64], "label": "rotation97-repair0", "queue": 0}
+{"utc": "2026-11-25T03:22:44.788439+00:00", "phase": "mutation_done", "elapsed": 863.096, "tested": 44926714, "neutral": 0, "best": [1, 1, 64], "label": "rotation97-repair1", "queue": 0}
+{"utc": "2026-11-25T03:22:45.027236+00:00", "phase": "deletion_done", "elapsed": 863.335, "tested": 44930484, "neutral": 0, "best": [1, 1, 64], "label": "rotation98"}
+{"utc": "2026-11-25T03:22:47.433856+00:00", "phase": "mutation_done", "elapsed": 865.742, "tested": 45160180, "neutral": 0, "best": [1, 1, 64], "label": "rotation98-repair0", "queue": 0}
+{"utc": "2026-11-25T03:22:49.280260+00:00", "phase": "mutation_done", "elapsed": 867.588, "tested": 45389876, "neutral": 0, "best": [1, 1, 64], "label": "rotation98-repair1", "queue": 0}
+{"utc": "2026-11-25T03:22:49.526219+00:00", "phase": "deletion_done", "elapsed": 867.834, "tested": 45393646, "neutral": 0, "best": [1, 1, 64], "label": "rotation99"}
+{"utc": "2026-11-25T03:22:51.292126+00:00", "phase": "mutation_done", "elapsed": 869.6, "tested": 45623342, "neutral": 0, "best": [1, 1, 64], "label": "rotation99-repair0", "queue": 0}
+{"utc": "2026-11-25T03:22:53.081756+00:00", "phase": "mutation_done", "elapsed": 871.39, "tested": 45853038, "neutral": 0, "best": [1, 1, 64], "label": "rotation99-repair1", "queue": 0}
+{"utc": "2026-11-25T03:22:53.326286+00:00", "phase": "deletion_done", "elapsed": 871.634, "tested": 45856808, "neutral": 0, "best": [1, 1, 64], "label": "rotation100"}
+{"utc": "2026-11-25T03:22:55.165703+00:00", "phase": "mutation_done", "elapsed": 873.474, "tested": 46086504, "neutral": 0, "best": [1, 1, 64], "label": "rotation100-repair0", "queue": 0}
+{"utc": "2026-11-25T03:22:57.020590+00:00", "phase": "mutation_done", "elapsed": 875.329, "tested": 46316200, "neutral": 0, "best": [1, 1, 64], "label": "rotation100-repair1", "queue": 0}
+{"utc": "2026-11-25T03:22:57.021387+00:00", "phase": "rotation_progress", "elapsed": 875.329, "tested": 46316200, "neutral": 0, "best": [1, 1, 64], "rounds": 100, "near": 164319}
+{"utc": "2026-11-25T03:22:57.285381+00:00", "phase": "deletion_done", "elapsed": 875.593, "tested": 46319970, "neutral": 0, "best": [1, 1, 64], "label": "rotation101"}
+{"utc": "2026-11-25T03:22:59.121046+00:00", "phase": "mutation_done", "elapsed": 877.429, "tested": 46549666, "neutral": 0, "best": [1, 1, 64], "label": "rotation101-repair0", "queue": 0}
+{"utc": "2026-11-25T03:23:00.957950+00:00", "phase": "mutation_done", "elapsed": 879.266, "tested": 46779362, "neutral": 0, "best": [1, 1, 64], "label": "rotation101-repair1", "queue": 0}
+{"utc": "2026-11-25T03:23:01.215386+00:00", "phase": "deletion_done", "elapsed": 879.523, "tested": 46783132, "neutral": 0, "best": [1, 1, 64], "label": "rotation102"}
+{"utc": "2026-11-25T03:23:03.115352+00:00", "phase": "mutation_done", "elapsed": 881.423, "tested": 47012828, "neutral": 0, "best": [1, 1, 64], "label": "rotation102-repair0", "queue": 0}
+{"utc": "2026-11-25T03:23:05.241806+00:00", "phase": "mutation_done", "elapsed": 883.55, "tested": 47242524, "neutral": 0, "best": [1, 1, 64], "label": "rotation102-repair1", "queue": 0}
+{"utc": "2026-11-25T03:23:05.496739+00:00", "phase": "deletion_done", "elapsed": 883.805, "tested": 47246294, "neutral": 0, "best": [1, 1, 64], "label": "rotation103"}
+{"utc": "2026-11-25T03:23:07.624448+00:00", "phase": "mutation_done", "elapsed": 885.933, "tested": 47475990, "neutral": 0, "best": [1, 1, 64], "label": "rotation103-repair0", "queue": 0}
+{"utc": "2026-11-25T03:23:09.515792+00:00", "phase": "mutation_done", "elapsed": 887.824, "tested": 47705686, "neutral": 0, "best": [1, 1, 64], "label": "rotation103-repair1", "queue": 0}
+{"utc": "2026-11-25T03:23:09.770485+00:00", "phase": "deletion_done", "elapsed": 888.079, "tested": 47709456, "neutral": 0, "best": [1, 1, 64], "label": "rotation104"}
+{"utc": "2026-11-25T03:23:11.601014+00:00", "phase": "mutation_done", "elapsed": 889.909, "tested": 47939152, "neutral": 0, "best": [1, 1, 64], "label": "rotation104-repair0", "queue": 0}
+{"utc": "2026-11-25T03:23:13.305309+00:00", "phase": "mutation_done", "elapsed": 891.613, "tested": 48168848, "neutral": 0, "best": [1, 1, 64], "label": "rotation104-repair1", "queue": 0}
+{"utc": "2026-11-25T03:23:13.533349+00:00", "phase": "deletion_done", "elapsed": 891.841, "tested": 48172618, "neutral": 0, "best": [1, 1, 64], "label": "rotation105"}
+{"utc": "2026-11-25T03:23:15.328556+00:00", "phase": "mutation_done", "elapsed": 893.637, "tested": 48402314, "neutral": 0, "best": [1, 1, 64], "label": "rotation105-repair0", "queue": 0}
+{"utc": "2026-11-25T03:23:18.931913+00:00", "phase": "mutation_done", "elapsed": 897.24, "tested": 48632010, "neutral": 0, "best": [1, 1, 64], "label": "rotation105-repair1", "queue": 0}
+{"utc": "2026-11-25T03:23:18.937447+00:00", "phase": "rotation_progress", "elapsed": 897.246, "tested": 48632010, "neutral": 0, "best": [1, 1, 64], "rounds": 105, "near": 172462}
+{"utc": "2026-11-25T03:23:19.476170+00:00", "phase": "deletion_done", "elapsed": 897.784, "tested": 48635780, "neutral": 0, "best": [1, 1, 64], "label": "rotation106"}
+{"utc": "2026-11-25T03:23:21.703663+00:00", "phase": "rotations_finished", "elapsed": 900.012, "tested": 48854455, "neutral": 0, "best": [1, 1, 64], "rounds": 106, "found": false}

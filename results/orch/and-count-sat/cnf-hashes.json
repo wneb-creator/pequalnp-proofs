@@ -1,0 +1,51 @@
+[
+  {
+    "file": "fooling4-and3.cnf",
+    "sha256": "f07b239282f98a1c2961f3d8c917590fa37ded6e7b1202f708412ac29f486850",
+    "uncompressed_bytes": 279346,
+    "archive": "results/orch/and-count-sat/fooling4-and3.cnf.gz",
+    "compressed_bytes": 73079
+  },
+  {
+    "file": "fooling4-and4.cnf",
+    "sha256": "f4e65fe2e6e98b21f6e415dbad8f8c72c885a34886f1720b7277adb5bf3988fb",
+    "uncompressed_bytes": 429517,
+    "archive": "results/orch/and-count-sat/fooling4-and4.cnf.gz",
+    "compressed_bytes": 113422
+  },
+  {
+    "file": "fooling5-and4.cnf",
+    "sha256": "6334aeb6219bcd1c73807e24f21876f07cd9cc6fe18bdb12c0282df29f3d2007",
+    "uncompressed_bytes": 2041535,
+    "archive": "results/orch/and-count-sat/fooling5-and4.cnf.gz",
+    "compressed_bytes": 491619
+  },
+  {
+    "file": "fooling5-and4-ordered.cnf",
+    "sha256": "d9997b610cd31dc203aec8c35ae6959e02808e24bc06ac3082651cddc014c593",
+    "uncompressed_bytes": 2046063,
+    "archive": "results/orch/and-count-sat/fooling5-and4-ordered.cnf.gz",
+    "compressed_bytes": 492587
+  },
+  {
+    "file": "plane-and12.cnf",
+    "sha256": "d3fd42b9be833551f61cf8963da1c3e801de57d7ef24ad2a0f5b4de372b1c65d",
+    "uncompressed_bytes": 10467781,
+    "archive": "results/orch/and-count-sat/plane-and12.cnf.gz",
+    "compressed_bytes": 2561559
+  },
+  {
+    "file": "plane-and12-cuts.cnf",
+    "sha256": "0a72da70a63d99bdcde22247723b372db168e10cebb75cc2518cb4563be10976",
+    "uncompressed_bytes": 11538237,
+    "archive": "results/orch/and-count-sat/plane-and12-cuts.cnf.gz",
+    "compressed_bytes": 2757498
+  },
+  {
+    "file": "plane-and12-anchored.cnf",
+    "sha256": "e4c3f0bbb11c966bdf4cd83b68ea165e0d12b5c7fa12db6316c000aa87be4d4c",
+    "uncompressed_bytes": 11570443,
+    "archive": "results/orch/and-count-sat/plane-and12-anchored.cnf.gz",
+    "compressed_bytes": 2764891
+  }
+]

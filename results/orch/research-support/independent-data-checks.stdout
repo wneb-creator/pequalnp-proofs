@@ -1,0 +1,27 @@
+{
+  "signed5-4-witness.json": {
+    "assignments": 81,
+    "all_required_subsets_separated": true,
+    "unrealizable_subsets": [
+      29
+    ]
+  },
+  "signed6-5-witness.json": {
+    "assignments": 243,
+    "all_required_subsets_separated": true,
+    "unrealizable_subsets": [
+      45,
+      57,
+      61
+    ]
+  },
+  "full_point_countermodel": {
+    "maximal_false_rows": 704,
+    "row_separation_witnesses_checked": 704,
+    "point_subset_count_bounds_checked": 8192,
+    "width_and_union_bounds_checked": true
+  },
+  "no_private_block_inequalities": {
+    "nonnegative_integer_solution": false
+  }
+}

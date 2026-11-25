@@ -1,0 +1,505 @@
+{
+  "scope": "Finished research only; excludes Lean drafts and mutable notes",
+  "files": [
+    {
+      "path": "results/orch/and-count-sat/README.md",
+      "bytes": 1105,
+      "sha256": "7fe22eef933e41f584635c9ef545e4e627c82f735a879105d8b4be3b6c03690d"
+    },
+    {
+      "path": "results/orch/and-count-sat/and-fooling-search-best.json",
+      "bytes": 180,
+      "sha256": "855d2bcba946587052ce4c0fd21b4d8a7cfc0b78a9b0b6d34cda63d213a5ce35"
+    },
+    {
+      "path": "results/orch/and-count-sat/and-fooling-small.json",
+      "bytes": 147,
+      "sha256": "55b68cabaaacaf811fd11767cab097ba3b39275f4e79184b1d16b4d7b5250322"
+    },
+    {
+      "path": "results/orch/and-count-sat/cnf-hashes.json",
+      "bytes": 1829,
+      "sha256": "e1760af7863d745ef7808aae8146ccbfb26db6fb8d6b02a63037cf174f80d60f"
+    },
+    {
+      "path": "results/orch/and-count-sat/fooling4-and3-encode.log",
+      "bytes": 87,
+      "sha256": "cdaa3c15cb893676694ad0dc114ad90e3f95cf51ea605b89dc6e55d3d6d4626a"
+    },
+    {
+      "path": "results/orch/and-count-sat/fooling4-and3-solve.log",
+      "bytes": 5968,
+      "sha256": "b71e6678d438e3fb75979d6cf7f73d80f3c8dde595f4cc4044924ac5dad07a76"
+    },
+    {
+      "path": "results/orch/and-count-sat/fooling4-and3.cnf.gz",
+      "bytes": 73079,
+      "sha256": "ea97a88f22e2336892f903956cc116f208db4cd7be053e201a50ecbe8e56abb6"
+    },
+    {
+      "path": "results/orch/and-count-sat/fooling4-and3.meta.json",
+      "bytes": 426,
+      "sha256": "12551db32244296996350ca0cbc083ecb2447f9daaf0db62f3308712c1713b23"
+    },
+    {
+      "path": "results/orch/and-count-sat/fooling4-and4-encode.log",
+      "bytes": 87,
+      "sha256": "fa9b84c999f94c29b00d35e2346852a1d3020be2e378c066f3d1f36d900cba5f"
+    },
+    {
+      "path": "results/orch/and-count-sat/fooling4-and4-solve.log",
+      "bytes": 42794,
+      "sha256": "855f9f2d10d69e1bd50e60f06a856cd77764a35c3f88ad04dba38a74bda99b45"
+    },
+    {
+      "path": "results/orch/and-count-sat/fooling4-and4.cnf.gz",
+      "bytes": 113422,
+      "sha256": "2309cfd588e3b282cd171ba20244fbd5279ecfc4c50d472c324104eee3b0b6e4"
+    },
+    {
+      "path": "results/orch/and-count-sat/fooling4-and4.meta.json",
+      "bytes": 524,
+      "sha256": "8b45ac2f4e6f7a5c491325c529b8af31762c2dfe92655deb05bdbeb1dd90bbad"
+    },
+    {
+      "path": "results/orch/and-count-sat/fooling5-and4-encode.log",
+      "bytes": 91,
+      "sha256": "1991624801bb59bf97148748dbd9e3c7923b0d4ae5ca35b8b8a015098d6f4d85"
+    },
+    {
+      "path": "results/orch/and-count-sat/fooling5-and4-ordered-encode.log",
+      "bytes": 91,
+      "sha256": "63ceb1314d9e973046709c666f1c6abe2b5b6b60ed4aa763c8bdaf2f9076d9dd"
+    },
+    {
+      "path": "results/orch/and-count-sat/fooling5-and4-ordered-solve.log",
+      "bytes": 19600,
+      "sha256": "6fcb78a2fd0d828cf3e4414618f6e259ab0109ea3229aa2335181b606ddb76fa"
+    },
+    {
+      "path": "results/orch/and-count-sat/fooling5-and4-ordered.cnf.gz",
+      "bytes": 492587,
+      "sha256": "61405c294a71a19b007aaf44733c2701373c16fe111223b716bd37f3792e7ef5"
+    },
+    {
+      "path": "results/orch/and-count-sat/fooling5-and4-ordered.meta.json",
+      "bytes": 692,
+      "sha256": "b31ff2580e0f00715640ee676151f66e8152655faa98c6e67f218b3a5c47c9f9"
+    },
+    {
+      "path": "results/orch/and-count-sat/fooling5-and4-solve.log",
+      "bytes": 10489,
+      "sha256": "5dcbfc03949e376673cc0276ce7c84d344d2929913d7f3c4ee5f2db9351bf951"
+    },
+    {
+      "path": "results/orch/and-count-sat/fooling5-and4.cnf.gz",
+      "bytes": 491619,
+      "sha256": "e3c39ab3b73900d1fc01e4d85af566ab883ba14f743481e20498d3b41ea41452"
+    },
+    {
+      "path": "results/orch/and-count-sat/fooling5-and4.meta.json",
+      "bytes": 650,
+      "sha256": "8ba87e26aeb0be22cb31dff5e0e2854bb3edf1c3a2d8d7eac0701e12e13d8835"
+    },
+    {
+      "path": "results/orch/and-count-sat/full-point-side-countermodel.json",
+      "bytes": 87132,
+      "sha256": "447f82f308ec67a45d3b289ba7cb428f89d355823c30d51c46d43048663d3b61"
+    },
+    {
+      "path": "results/orch/and-count-sat/matching-other-clean-general.json",
+      "bytes": 670,
+      "sha256": "7d2ad36c0bf574886803b56a79c16779cb5b8656b07c173078f82f7d5b95dc95"
+    },
+    {
+      "path": "results/orch/and-count-sat/matching-other-clean-search.json",
+      "bytes": 670,
+      "sha256": "7d8a5a35584076a8513d23daf36389f6fffff687862aa55f70dd30f7587b087d"
+    },
+    {
+      "path": "results/orch/and-count-sat/plane-and12-anchored-encode.log",
+      "bytes": 90,
+      "sha256": "4e9d7eb85f0800ae2a674a64fc3cb20e3dea96ffd5ecdecf7d3474a45d8ece98"
+    },
+    {
+      "path": "results/orch/and-count-sat/plane-and12-anchored-solve.log",
+      "bytes": 15044,
+      "sha256": "9f312839ff62f988e5564d9a6839646ffeb410038e5f2902bc4d6cf39274caa7"
+    },
+    {
+      "path": "results/orch/and-count-sat/plane-and12-anchored.cnf.gz",
+      "bytes": 2764891,
+      "sha256": "813e11e757a5e9858f11bcc89af633be0423e83f0ad481f1d9fa6b31522336a5"
+    },
+    {
+      "path": "results/orch/and-count-sat/plane-and12-anchored.meta.json",
+      "bytes": 4015,
+      "sha256": "aa12dfe64af358d13fc16c7e6f44376778dc4c0a4247607e5dbbc5f0d37389cf"
+    },
+    {
+      "path": "results/orch/and-count-sat/plane-and12-cuts-encode.log",
+      "bytes": 90,
+      "sha256": "843a45a48aafdc816bc6095639939a58d198aacf613050545a7b8b744774ccda"
+    },
+    {
+      "path": "results/orch/and-count-sat/plane-and12-cuts-solve.log",
+      "bytes": 11568,
+      "sha256": "056929bdaf374415dfc253228c8dcfa63113ebfa17a5f41f85a43d199737c6a1"
+    },
+    {
+      "path": "results/orch/and-count-sat/plane-and12-cuts.cnf.gz",
+      "bytes": 2757498,
+      "sha256": "d7ac77f51c030c4508ebae4e0601d96d9f308d205fc598a88ec64fab83a35404"
+    },
+    {
+      "path": "results/orch/and-count-sat/plane-and12-cuts.meta.json",
+      "bytes": 3952,
+      "sha256": "5154dccd0ac1bd93f87e393771fe95364aa37be533d40670a12724c5f3a65392"
+    },
+    {
+      "path": "results/orch/and-count-sat/plane-and12-encode.log",
+      "bytes": 90,
+      "sha256": "d08bfffcd0cb935e929142904492bffb52a3a6af78bbc8858422237c9d8564b5"
+    },
+    {
+      "path": "results/orch/and-count-sat/plane-and12-solve.log",
+      "bytes": 11547,
+      "sha256": "d836f10c1b577b78c897be858186b9660c59a6c710f352b1bbb32a779ceeaee2"
+    },
+    {
+      "path": "results/orch/and-count-sat/plane-and12.cnf.gz",
+      "bytes": 2561559,
+      "sha256": "bfac57f59d4ad7fe4ce7d8f7709dc534ed555c9f3fae909ee4bc2e4a0cc38509"
+    },
+    {
+      "path": "results/orch/and-count-sat/plane-and12.meta.json",
+      "bytes": 3934,
+      "sha256": "d98d391a779fecfa138eef05686c3157d67561e9dc2e547f847d09534b539cf6"
+    },
+    {
+      "path": "results/orch/and-count-sat/plane-flag-automorphisms.json",
+      "bytes": 21952,
+      "sha256": "eed607afcb86245611164128c611eb9d7c752b2cc10484d20325abe9400f20b5"
+    },
+    {
+      "path": "results/orch/and-count-sat/plane-tuple-row-counts.json",
+      "bytes": 463,
+      "sha256": "e585435b612a80fa2f9c06aaca0613ee2881b3ed00c11041b65c8ae61dd68218"
+    },
+    {
+      "path": "results/orch/and-count-sat/signed-five-word-all-subsets.json",
+      "bytes": 283,
+      "sha256": "f0aa78fef1d447c9641369b2e5e6933ab3e96e0f06882694cff240a0d59cd883"
+    },
+    {
+      "path": "results/orch/and-count-sat/signed-new-gadget-cnf-hash.json",
+      "bytes": 97,
+      "sha256": "7c2733b7b71e67d39abbb450d4ecf233fb4106e0748d0fb60c63812e5ded2a74"
+    },
+    {
+      "path": "results/orch/and-count-sat/signed-new-gadget-encode-resources.json",
+      "bytes": 190,
+      "sha256": "78aa280b6549971241aac97b64260f0b946364dc61702af0500aa6f05bf7ab59"
+    },
+    {
+      "path": "results/orch/and-count-sat/signed-new-gadget-encode.log",
+      "bytes": 101,
+      "sha256": "62573fd0f73b4f8a2dec95e64a26f92015d19f17b17a4a84c08991179555692a"
+    },
+    {
+      "path": "results/orch/and-count-sat/signed-new-gadget-solve-resources.json",
+      "bytes": 194,
+      "sha256": "8bbd35173c236c0b7aeae81d584deada29971c1804ceb441e6e119786b073829"
+    },
+    {
+      "path": "results/orch/and-count-sat/signed-new-gadget-solve.log",
+      "bytes": 2755,
+      "sha256": "94f1f3b82a1b88c2bd3347433f88077dc7bc1198807de21860249dd57c7d9dda"
+    },
+    {
+      "path": "results/orch/and-count-sat/signed-new-gadget-wide-cnf-hash.json",
+      "bytes": 97,
+      "sha256": "1b2f9f0e43146111555e1c8b7c8a140fe55863fa6ce5d2786061cd0c1409790a"
+    },
+    {
+      "path": "results/orch/and-count-sat/signed-new-gadget-wide-encode-resources.json",
+      "bytes": 191,
+      "sha256": "0c72962d0b7812e25fe85fe36eaffdccea2fdbffd7e354a248e96002eaf213b7"
+    },
+    {
+      "path": "results/orch/and-count-sat/signed-new-gadget-wide-encode.log",
+      "bytes": 106,
+      "sha256": "8791bf591c880ba1b7e66b84f1b893d071ac0a23f159265762df4aa373c38cd1"
+    },
+    {
+      "path": "results/orch/and-count-sat/signed-new-gadget-wide-solve-resources.json",
+      "bytes": 192,
+      "sha256": "6b46af1f4847a3ff43886e45f54a17e66234cfa907eaaafaa590df0304db5939"
+    },
+    {
+      "path": "results/orch/and-count-sat/signed-new-gadget-wide-solve.log",
+      "bytes": 2762,
+      "sha256": "c747e9dcb3a11b3012db7639486d89aa7ae6486d97a16d3eb490a6fc031ce882"
+    },
+    {
+      "path": "results/orch/and-count-sat/signed-new-gadget-wide.cnf.gz",
+      "bytes": 5414077,
+      "sha256": "b09bd41902a218e9927b06bbd9192716ae952e33cc0c06764df27bd16dd58ffa"
+    },
+    {
+      "path": "results/orch/and-count-sat/signed-new-gadget.cnf.gz",
+      "bytes": 5749327,
+      "sha256": "508dd5a04e4c260b0757c1c84f304f767198adedc15ed99a00b08dfd13c14612"
+    },
+    {
+      "path": "results/orch/and-count-sat-review.txt",
+      "bytes": 1391,
+      "sha256": "30bd1b64eceec7bdeef783fd1cb5edba600b338c1a57313206365591bd38bc2d"
+    },
+    {
+      "path": "results/orch/and_count_sat.py",
+      "bytes": 5603,
+      "sha256": "3275d38f0139ecdbf236e2b6754663db1678924361bb00a837158bc5399ba469"
+    },
+    {
+      "path": "results/orch/and_count_small.py",
+      "bytes": 1511,
+      "sha256": "8456f0efb27b894b775ab885ba0b5b5138f428e7e2cde1561ddeb93242ac4a5d"
+    },
+    {
+      "path": "results/orch/and_fooling_search.py",
+      "bytes": 2958,
+      "sha256": "a6be401fd5723075266530408de46055f376118db5cc59507cc90aecc2678559"
+    },
+    {
+      "path": "results/orch/and_fooling_small.py",
+      "bytes": 1453,
+      "sha256": "04ee7679bfc2a6bfe0f77d0cb962ff984179122eb6c4d8ce740ef2dfe8f1cd6c"
+    },
+    {
+      "path": "results/orch/counterexample.md",
+      "bytes": 7524,
+      "sha256": "96b04458b469942f6efa2f23927c09a9bddef150d8d0e2d6b313fe3511575936"
+    },
+    {
+      "path": "results/orch/no-private-point-proof.md",
+      "bytes": 7255,
+      "sha256": "fa8421aae41f1b3b35444a5063c967d6cd7d065717872314237b61eebb6bd776"
+    },
+    {
+      "path": "results/orch/plane_automorphisms.py",
+      "bytes": 2618,
+      "sha256": "30638e7c97dd78f2dd52b31e8591882faf55045b1d27aa6b0ef94ba0ed831263"
+    },
+    {
+      "path": "results/orch/plane_signed_code.py",
+      "bytes": 3488,
+      "sha256": "3caf413281510fd2a8b18ca8c7c67e0fa4286d35981939518c35aa5f64b1216c"
+    },
+    {
+      "path": "results/orch/plane_signed_new_gadget.py",
+      "bytes": 3488,
+      "sha256": "d4b84af50329669d6e8f1c9768fd2237fb3da2c5b2bd43926a7b9cce6f4ed760"
+    },
+    {
+      "path": "results/orch/reduction-design.md",
+      "bytes": 3991,
+      "sha256": "36f8ad9a75563ded9deed8774c0119ebff016201d42cd89d70f39be0f3252ced"
+    },
+    {
+      "path": "results/orch/research-cnf-verification.json",
+      "bytes": 4375,
+      "sha256": "309d77ca6334c26d12ebc8dbeedd856f5217ecaebc72b6bfb105fad82eb19ed3"
+    },
+    {
+      "path": "results/orch/research-independent-data-verification.json",
+      "bytes": 604,
+      "sha256": "e455a233f411ad630a4680c17d78403af483c6f0be4ec994960586db7190317d"
+    },
+    {
+      "path": "results/orch/research-preservation-review.txt",
+      "bytes": 5428,
+      "sha256": "95ed7f71dc8f6fb195974c5cc7b112f9498a7f5bb0e5c4a45d9c618e2395c64f"
+    },
+    {
+      "path": "results/orch/research-sat-witness-verification.json",
+      "bytes": 547,
+      "sha256": "2189b2895c8cf0402c4a9d226e6728e194ab06ee4caafcb1541d3112bd5e4a9d"
+    },
+    {
+      "path": "results/orch/research-support/README.md",
+      "bytes": 975,
+      "sha256": "7280021becda4e7fe27188a4089149d22bcb71ca79ef826952716692219ecef8"
+    },
+    {
+      "path": "results/orch/research-support/independent-data-checks.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "results/orch/research-support/independent-data-checks.stdout",
+      "bytes": 604,
+      "sha256": "e455a233f411ad630a4680c17d78403af483c6f0be4ec994960586db7190317d"
+    },
+    {
+      "path": "results/orch/research-support/plane-signed-fixed-no-pair-solve.log",
+      "bytes": 2764,
+      "sha256": "e0c497f50e84a9121e7f9d86cbfeb70d03661fe9455be8c53c1c1220bfb0b037"
+    },
+    {
+      "path": "results/orch/research-support/plane-signed-fixed-solve.log",
+      "bytes": 2755,
+      "sha256": "4b826cec7bc048ff8df72ff0710786dc808352a431918cef84c380cb80fb3ed0"
+    },
+    {
+      "path": "results/orch/research-support/plane-signed-fixed-wide-solve.log",
+      "bytes": 2762,
+      "sha256": "b55efdccde1b3846b7a7e798a6ad32ed609531e1c720c68e0e74a58019a7130f"
+    },
+    {
+      "path": "results/orch/research-support/plane-signed-generic-solve.log",
+      "bytes": 5091,
+      "sha256": "85bead748aa17159ef378e2842c2a0daa0ddbeffcddaefb1efe9c93bb7bed87e"
+    },
+    {
+      "path": "results/orch/research-support/signed-cover-counterexample.json",
+      "bytes": 822,
+      "sha256": "fa90a0e5bad04e4968ff5d223c450f2f9eaefd82e4c1df5ddbf02fcb47692760"
+    },
+    {
+      "path": "results/orch/research-support/signed5-4-encode.log",
+      "bytes": 88,
+      "sha256": "56585f027f7c0aacda28d1383ebb58831dc44b46c6fdcfa764c7006d7e8cbc6d"
+    },
+    {
+      "path": "results/orch/research-support/signed5-4-solve.log",
+      "bytes": 7632,
+      "sha256": "85c77ec03ef7dd52a2e1b7c3aec4491a4817af5ff1c7dac5ff3a02ba7a456a17"
+    },
+    {
+      "path": "results/orch/research-support/signed5-4-witness.json",
+      "bytes": 582,
+      "sha256": "481a7d39f891d2e780948536db988481108b5132146a277bf057cf8fcd3a1189"
+    },
+    {
+      "path": "results/orch/research-support/signed6-5-encode.log",
+      "bytes": 89,
+      "sha256": "46ef7b6a8cdd7bb0a51abbe3524f892c98bfff177ec79b0c6e40ab6fad075571"
+    },
+    {
+      "path": "results/orch/research-support/signed6-5-solve.log",
+      "bytes": 15024,
+      "sha256": "d4ad74ef6897421e5b254593ee4e43a13977cf50b471afc61ebfec3f43aed446"
+    },
+    {
+      "path": "results/orch/research-support/signed6-5-witness.json",
+      "bytes": 708,
+      "sha256": "6169d12060f22aae314864f298c7586bc8e543961cefcd67ede6ae760dfd90b6"
+    },
+    {
+      "path": "results/orch/research-support/small-double-extra.log",
+      "bytes": 830,
+      "sha256": "3f173320cadc5028afa01e9cf86b9ffdf65f9d04be12c80794ec75aad3138a9d"
+    },
+    {
+      "path": "results/orch/research-support/small-double-search.log",
+      "bytes": 606,
+      "sha256": "fa6621239cda6355e10f5f4e232ef692cd117f5a79e8b42a317940ae48d4926f"
+    },
+    {
+      "path": "results/orch/research-support/structural-max-independent.json",
+      "bytes": 24882,
+      "sha256": "d61e43baefca6169b2bbbd4426e7afb9a15ae9c9242fb7cafc4507b2506ce26c"
+    },
+    {
+      "path": "results/orch/research-support/tight-circuit.json",
+      "bytes": 3289,
+      "sha256": "e6709553b9fbd912939bdc0f126a4bbdd00489e481398dd75ebc53bef72e4e4d"
+    },
+    {
+      "path": "results/orch/research-support/verify-research-data.py",
+      "bytes": 3327,
+      "sha256": "159672dbe06c0a657a73a0089ea854ffc4b4c657c2c9a54b8542c02bd2628377"
+    },
+    {
+      "path": "results/orch/search64-anneal.log",
+      "bytes": 6059,
+      "sha256": "dd1132da3c08ed2d55371b58a6f6bfe5b0841f4155390f166650679d18d60330"
+    },
+    {
+      "path": "results/orch/search64-cgp.log",
+      "bytes": 2574,
+      "sha256": "c190d8d1fbbf7ba8dba80be9195f8e05e19460ee64f30bd0233ff6306992f8de"
+    },
+    {
+      "path": "results/orch/search64-notes.md",
+      "bytes": 2410,
+      "sha256": "1774d318c598aaaae0b6fdb0d3cb56eba7128866a7fc30df006d1b880d759e5d"
+    },
+    {
+      "path": "results/orch/search64-repair.log",
+      "bytes": 26409,
+      "sha256": "8dd46be438f9bac31a93ceb6340112d788c2757018b513d8c0e66afed7f177e6"
+    },
+    {
+      "path": "results/orch/search64-results.json",
+      "bytes": 1710,
+      "sha256": "50a052fc107b10169715175628ca044e3d0ac06fa86fb5a536477531729d3889"
+    },
+    {
+      "path": "results/orch/search64-rotations.log",
+      "bytes": 61035,
+      "sha256": "cfd4576aa40dc26cc778756e68daabfb9adb29962da1e0bcca76efa0fa65b6e0"
+    },
+    {
+      "path": "results/orch/search64.py",
+      "bytes": 10682,
+      "sha256": "9f674a1f1b45bdd8ad9c52df8ad824e142e17bc46161379d07d92021e08e04e7"
+    },
+    {
+      "path": "results/orch/search64_anneal.py",
+      "bytes": 4654,
+      "sha256": "5972ef9feb277de82d75cb4ca926d9b2fa827fae41c7bb485f7f29f646b7319c"
+    },
+    {
+      "path": "results/orch/search64_cgp.py",
+      "bytes": 3538,
+      "sha256": "aaf05b7fbf67a3abca40fad7f951c85cceecc960dc6138faa0d96e6a2f2660cd"
+    },
+    {
+      "path": "results/orch/search64_rotations.py",
+      "bytes": 3137,
+      "sha256": "4b52aa999c0770a17656e504b0fb6f714e2f92a2248a18eeb157cc56e35a15c7"
+    },
+    {
+      "path": "results/orch/signed-code-analysis.md",
+      "bytes": 4922,
+      "sha256": "f4c0cdad6718dde0b4a5b40fc7fd13b9ee2222b50172914db00fab2d1fd7fe66"
+    },
+    {
+      "path": "results/orch/signed_code_sat.py",
+      "bytes": 4542,
+      "sha256": "6b095e52f7dc9881bb1eb42f372d496109de5b8926588398b8f64803ee90594d"
+    },
+    {
+      "path": "results/orch/small_double_search.py",
+      "bytes": 2700,
+      "sha256": "d7669cb04e345da31c48ef541ed2dffcfd509e378bfd9616985773eceab906cf"
+    },
+    {
+      "path": "results/orch/structural.md",
+      "bytes": 9421,
+      "sha256": "d93b40fa1384c1eae3e5acf922ef499378feb72f605a7aa9a65d4c293f82d532"
+    },
+    {
+      "path": "results/orch/third-reduction.md",
+      "bytes": 3037,
+      "sha256": "437e00d40b2b3a2c3f199fd7d9bd110dd88197da9ba5e8b66d8344390c8d2320"
+    },
+    {
+      "path": "results/orch/transform-search.md",
+      "bytes": 5960,
+      "sha256": "9810215f4c2600d9ab84d9aff57fcdb91b4e631d083d082ca9dea4a128e5e6ef"
+    }
+  ]
+}

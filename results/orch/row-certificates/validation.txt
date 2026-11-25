@@ -1,0 +1,18 @@
+All three listed source files passed Lean with exit0 and no warnings or errors.
+Command prefix: LEAN_NUM_THREADS=1 PATH=/tmp/oec/pequalnp-pilot-60/toolchain/lean-4.36.0-linux/bin:$PATH lake env lean
+Working directory: /workspace/pequalnp-proofs/lean
+
+FalseRows.lean
+lines=650
+sha256=a87be81f8c1cc595e1ea8016bd0cb672c3c1709a8e44b82235e4f08636552346
+complete_output=false-rows-batched-lean.log (empty; exit0)
+
+FreeRows.lean
+lines=159
+sha256=6fc36382a13dc36048f35dd80c908a966367205918e5efc9a0e770cf7bce9449
+complete_output=free-rows-lean-final.log (empty; exit0)
+
+FlagAutomorphisms.lean
+lines=367
+sha256=008bde32803b4466707d03a3e33d8cb48e6bec248e51c114e0c148cbd8f198a4
+complete_output=flag-automorphisms-local-lean.log (empty; exit0)

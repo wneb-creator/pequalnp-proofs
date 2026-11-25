@@ -1,0 +1,9 @@
+{
+  "step": "encode",
+  "exit": 0,
+  "elapsed": 3.582244537000406,
+  "user_cpu": 1.6552310000000001,
+  "system_cpu": 0.5779409999999999,
+  "max_rss_kib": 159488,
+  "address_limit_mib": 300
+}

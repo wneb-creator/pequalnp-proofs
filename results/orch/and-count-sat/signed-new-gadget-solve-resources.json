@@ -1,0 +1,9 @@
+{
+  "step": "solve",
+  "exit": 20,
+  "elapsed": 0.44072907800000394,
+  "user_cpu": 0.26386299999999974,
+  "system_cpu": 0.07959800000000006,
+  "max_rss_kib": 159488,
+  "address_limit_mib": 300
+}

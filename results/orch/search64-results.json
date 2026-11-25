@@ -1,0 +1,75 @@
+{
+  "utc": "2026-11-25T03:24:19.746215+00:00",
+  "proof_scope": "Heuristic local searches only; absence of a witness is not a lower-bound proof.",
+  "test_set": {
+    "positive_edges": 52,
+    "maximal_negative_inputs": 704,
+    "singleton_bases": 2,
+    "canonical_negative_inputs_independently_covered": 8192
+  },
+  "repair": {
+    "utc": "2026-11-25T03:16:50.421069+00:00",
+    "phase": "finished",
+    "elapsed": 600.095,
+    "tested": 33127686,
+    "neutral": 1,
+    "best": [
+      1,
+      1,
+      64
+    ],
+    "neutral_states_examined": 0,
+    "queue": 1,
+    "found": false
+  },
+  "annealing": {
+    "utc": "2026-11-25T03:20:23.112981+00:00",
+    "phase": "finished",
+    "elapsed": 600.0,
+    "iterations": 24066384,
+    "accepted": 22540878,
+    "restarts": 803,
+    "current_cost": 52,
+    "current_errors": [
+      52,
+      0,
+      0
+    ],
+    "best": 1,
+    "seeds": 282
+  },
+  "rotation_search": {
+    "utc": "2026-11-25T03:23:21.703663+00:00",
+    "phase": "rotations_finished",
+    "elapsed": 900.012,
+    "tested": 48854455,
+    "neutral": 0,
+    "best": [
+      1,
+      1,
+      64
+    ],
+    "rounds": 106,
+    "found": false
+  },
+  "best_64": {
+    "missing_edges": [
+      [
+        1,
+        0
+      ]
+    ],
+    "false_positive_maximal_inputs": 0,
+    "derivatives": [
+      0,
+      0
+    ]
+  },
+  "scripts": {
+    "search64.py": "9f674a1f1b45bdd8ad9c52df8ad824e142e17bc46161379d07d92021e08e04e7",
+    "search64_rotations.py": "4b52aa999c0770a17656e504b0fb6f714e2f92a2248a18eeb157cc56e35a15c7",
+    "search64_anneal.py": "5972ef9feb277de82d75cb4ca926d9b2fa827fae41c7bb485f7f29f646b7319c"
+  },
+  "total_main_candidate_evaluations": 81982141,
+  "annealing_iterations": 24066384
+}

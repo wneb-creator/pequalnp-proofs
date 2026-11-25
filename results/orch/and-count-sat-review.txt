@@ -1,0 +1,22 @@
+Independent source review by structural_proof
+SHA256: 0a4dd974539e2579acb9776ef881881bfb06c3461b101e8fac1daf1d14060046
+
+No logical overrestriction found in the core selector/Tseitin encoding. Exact
+AND and OR encodings include the empty-side case. Earlier AND summands and
+dead-gate padding represent circuits with at most k AND gates and free OR.
+Bare output variables are correctly omitted for singleton-rejecting targets.
+The disjoint-bare-side restriction relies on the cited L_meta_563 normalization.
+Plane tests comprise all 52 minimal true edges and all 704 maximal false inputs,
+which determine the full target for a monotone candidate.
+
+The row cuts have a valid choice-code argument: each maximal false input has a
+zero certificate described by one side choice for each reachable AND gate. For
+rows containing S, a gate whose one bare side meets S must choose the other if
+reachable. If both sides meet S, that gate is unreachable and its choice bit
+can be fixed arbitrarily. The choices for all gates touching S can therefore
+be fixed uniformly. Distinct maximal false inputs cannot share a completed
+certificate code. This supports the stated cardinality bound.
+
+Robustness issue: a negative cardinality bound makes at_most index an empty
+array. Current plane k=12 bounds are nonnegative, so this does not affect those
+runs. Solver results from this program are not Lean proofs.

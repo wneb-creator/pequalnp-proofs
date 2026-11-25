@@ -1,0 +1,8 @@
+{
+  "graphs": 512,
+  "first_functions": 1415,
+  "second_pairs": 4465825,
+  "found": 356,
+  "counterexamples": [],
+  "elapsed": 1.9850977430000967
+}

@@ -1,0 +1,29 @@
+Independent research-preservation audit (2026-11-25T04:11:54.026420+00:00)
+Verdict: PASS for the bounded finished research bundle listed in research-preservation-files.txt. These are research artifacts, not proof PR files. No completed proof/refutation of L-meta-2602 is asserted.
+
+Frozen scope and security
+Owners confirmed the SAT artifacts, signed-code scripts/notes, all search64 runs and scripts, counterexample/no-private notes, structural.md and transform-search.md are finished and frozen for this snapshot. The initial 79-file inventory remained unchanged except for two explicitly approved final wording/status corrections by root in counterexample.md and no-private-point-proof.md; their final bytes were rechecked and recorded. Credential-pattern inspection found no presence in those files (including decompressed CNFs), nor in the added supporting logs/inputs. No credential values were emitted or retained by the audit. The stage list excludes every Lean draft, __pycache__, generic mutable NOTES/TIMELINE/derivative notes, and unconfirmed OR-census material.
+
+CNF and solver verification
+All nine compressed CNFs were fully decompressed and SHA256/byte-count checked against their records. DIMACS headers, actual clause totals, literal bounds and all supplied metadata totals agree. Full solver logs contain the claimed outcomes:
+- fooling4/3: UNSAT; fooling4/4: SAT.
+- fooling5/4: UNKNOWN after60s; ordered version UNKNOWN after600s.
+- all three plane12 variants: UNKNOWN after600s.
+- both fixed new signed-gadget extensions: UNSAT. The reported0.44/0.34s are resource-wrapper wall times; internal solver times are0.40/0.32s.
+No UNKNOWN is treated as UNSAT. No UNSAT solver outcome is presented as a Lean certificate.
+The four-AND SAT model was independently decoded: all7520 variable assignments satisfy all31274 clauses; its circuit computes the encoded bipartite graph on all256 Boolean inputs, and the graph contains the required diagonal fooling set of size4.
+
+Encoder changes after earlier review
+Current and_count_sat.py SHA256 is3275d38f0139ecdbf236e2b6754663db1678924361bb00a837158bc5399ba469. The earlier review hash covers its core before optional side-order/positive-use/flag-anchor additions and the negative-cardinality-bound fix. I independently read all139 current lines. The original Tseitin and full-target constraints remain sound. The lexicographic prefix clauses permit exactly a valid operand ordering; positive-use follows monotone inactive-gate pruning plus duplication of a surviving positive gate; the anchor permits either orientation of the distinguished flag and uses the checked52-flag automorphisms. A negative cardinality bound now correctly adds the empty clause. These additions do not turn bounded unsuccessful searches into proofs.
+
+Heuristic logs
+Terminal JSON records match search64-results.json and the notes: repair33127686 evaluations, rotation48854455 evaluations, combined81982141 (repetition allowed); annealing24066384 iterations and803 restarts; CGP12996427 proposals,2882599 accepted neutral mutations and599 size changes, best65 after600s. All four completed runs found no64-gate witness. The three script hashes stored in search64-results.json match the preserved files. CGP is explicitly in its full log/notes rather than that older JSON summary.
+
+Independent finite data and mathematical scope
+I re-enumerated all81/243 ternary assignments for the signed5/4 and6/5 witnesses and checked every claimed small-subset separation. The five-word code has exactly the one claimed missing subset. I independently enumerated all8192 point subsets to recover exactly the704 maximal false rows, checked all704 supplied point-code separation witnesses, and verified all8192 point-subset information inequalities. Width and pair-union bounds also hold. The no-private-point note's geometric branch is a mathematical argument conditional on its stated coding properties; its final block-count inequalities have no nonnegative integer solution. This does not handle the private case or establish the global13-AND bound. The full point-side countermodel is correctly identified as a countermodel to sufficient coding conditions, not a circuit.
+Signed-code full logs agree with SAT for both small codes, UNSAT for the three fixed old-code extensions, and UNKNOWN45s for the generic instance. Small-double logs agree with the5/6/5 path-end/path-middle/C4 minima used in reduction-design.md. Completed supporting logs and original row/seed inputs were copied to research-support so these references survive the container. A portable independent data verifier and its full output are included.
+
+Research-note caveats, not blockers to preserving this historical snapshot
+Root corrected counterexample.md to state only feasibility at65 gates, with no minimum/refutation claim, and updated no-private-point-proof.md to record the compiled/pushed FalseRows and FreeRows snapshots while retaining the unformalized status of its structural argument. Other older notes retain conservative historical status descriptions for subsequently compiled helpers. Structural and transformation notes mark global normalization/counting obligations as unresolved. The no-private geometric argument and computational censuses are not represented as Lean-checked lower bounds.
+
+No commits or pushes were performed by this reviewer. All checked Lean snapshots remain outside this research stage list.

@@ -1,0 +1,15 @@
+PASS: lake env lean ../results/orch/lemmas/DerivativeWitness.lean, exit0, no diagnostics.
+Full log copied to results/orch/derivative-witness-check.log.
+Constructs a canonical derivative witness for any proper circuit, arbitrary base-wire values, and chosen input seed; only existing Bool/List/Nat types are used. No full target theorem claimed.
+[
+  {
+    "file": "results/orch/lemmas/DerivativeWitness.lean",
+    "lines": 358,
+    "sha256": "562cda535b73fe0f6a6eface36aea24c462ddeda26f3c9ed0b047576b1ea40f2"
+  },
+  {
+    "file": "results/orch/lemmas/DerivativeWitnessFragment.lean",
+    "lines": 56,
+    "sha256": "d39c55c5760e5b3812c5f6780aa7333edd2709e9e80ec263887b2e1c6d70d760"
+  }
+]

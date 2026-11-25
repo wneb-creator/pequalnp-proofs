@@ -1,0 +1,85 @@
+[
+  {
+    "selected": [],
+    "assignment": [
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "selected": [
+      0
+    ],
+    "assignment": [
+      null,
+      0,
+      1
+    ]
+  },
+  {
+    "selected": [
+      1
+    ],
+    "assignment": [
+      null,
+      1,
+      0
+    ]
+  },
+  {
+    "selected": [
+      0,
+      1
+    ],
+    "assignment": [
+      null,
+      null,
+      0
+    ]
+  },
+  {
+    "selected": [
+      2
+    ],
+    "assignment": [
+      null,
+      1,
+      1
+    ]
+  },
+  {
+    "selected": [
+      0,
+      2
+    ],
+    "assignment": [
+      null,
+      null,
+      1
+    ]
+  },
+  {
+    "selected": [
+      1,
+      2
+    ],
+    "assignment": [
+      null,
+      1,
+      null
+    ]
+  },
+  {
+    "selected": [
+      0,
+      1,
+      2
+    ],
+    "assignment": [
+      null,
+      null,
+      null
+    ]
+  }
+]
