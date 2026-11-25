@@ -1,0 +1,31 @@
+import took 3.08s
+type checking took 8.59s
+/tmp/oec/pequalnp-pilot-178/certificate_search/BinaryChildWorst.lean:34:0: warning: Definition `binaryWorstChecked` is a proposition; use `theorem` instead of `def`
+
+Note: This linter can be disabled with `set_option linter.defProp false`
+cumulative profiling times:
+	attribute application 0.358ms
+	blocked (unaccounted) 2.85ms
+	compilation (IR) 1.28ms
+	compilation (LCNF base) 14.2ms
+	compilation (LCNF impure) 4.8ms
+	compilation (LCNF mono) 8.75ms
+	congr simp thm 0.182ms
+	declTypeLinter 7.13ms
+	elaboration 74.2ms
+	fix level params 0.288ms
+	import 3.08s
+	initialization 44.1ms
+	instantiate metavars 21.6ms
+	interpretation 268ms
+	let-to-have transformation 0.103ms
+	linting 14.6ms
+	module linting 0.039ms
+	parsing 9.62ms
+	process pre-definitions 6.38ms
+	share common exprs 0.908ms
+	simp 3.24ms
+	tactic execution 5.29ms
+	tacticAnalysis 3.43ms
+	type checking 8.6s
+	typeclass inference 27.8ms

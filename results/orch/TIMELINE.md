@@ -29,3 +29,5 @@
 - 2026-11-25 19:49 UTC: Generic54-row unary continuation coverage and recursive one-step cut equations kernel-checked under6000MB. Root reviewed equations and ordinary reflexivity proof; earlier independent proof_route review confirmed exact-key restoration. Preserving complete source/log.
 
 - 2026-11-25 19:50 UTC: All54 unary leaves checked in29seconds of kernel time under6000MB. Root independently compared all normalized/child definitions with checkedcoverage; identical. Proof has no hypotheses beyond membership in exact54-row table. Complete source/log saved.
+
+- 2026-11-25 19:51 UTC: Largest binaryleaf4061states kernel-checked under6000MB,8.59seconds. Root independently reviewed forceLook1 identity and ordinary closedkernel proof, preserving source/log. Runtime now drives grouping relatedleaves to reuse computation.
