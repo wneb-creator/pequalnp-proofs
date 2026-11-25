@@ -1,0 +1,10 @@
+{"storage_phase": "prepared", "files": 2, "compressed_added": 135, "pending_backups": 0, "disk_free": 145481728}
+{"storage_phase": "prepared", "files": 2, "compressed_added": 0, "pending_backups": 0, "disk_free": 145477632}
+{"storage_phase": "planned", "build_files": 2, "build_bytes": 1940, "ram_files": 2, "pinned_before": 3721, "evacuation_bytes": 3721}
+{"storage_phase": "entered", "pinned_after": 0, "disk_free": 145473536}
+{"storage_phase": "restored", "ram_files": 2, "build_files": 2, "disk_free": 145473536}
+{"storage_phase": "already_restored"}
+{"storage_phase": "prepared", "files": 2, "compressed_added": 0, "pending_backups": 0, "disk_free": 145469440}
+{"storage_phase": "restored", "ram_files": 2, "build_files": 2, "disk_free": 145469440}
+{"storage_phase": "prepared", "files": 2, "compressed_added": 0, "pending_backups": 0, "disk_free": 145469440}
+{"storage_phase": "prepared", "files": 2, "compressed_added": 0, "pending_backups": 0, "disk_free": 145469440}

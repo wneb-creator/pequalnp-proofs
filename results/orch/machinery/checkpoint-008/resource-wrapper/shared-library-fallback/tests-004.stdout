@@ -1,0 +1,15 @@
+PASS exact library and retained-core path allowlists
+PASS lossless full cycle and idempotent restore
+PASS unapproved library and incomplete whitelist refused
+PASS changed library bytes refused without removal
+PASS core content and backing identity pins enforced
+PASS retained-core source manifest hash enforced
+PASS excluded-core path, backing alias, and manifest hash guards
+PASS selected core must occur in supplied backing manifests
+PASS retained core backing cannot alias another runtime path
+PASS partial-enter restoration through original machinery
+PASS corrupt backup blocks deletion of shared library
+PASS actual owned mmap blocks shared-library unlink and core truncation
+PASS same-byte library inode replacement is refused after planning
+PASS standalone CLI validates reviewed configuration hash
+PASS original production storage source unchanged

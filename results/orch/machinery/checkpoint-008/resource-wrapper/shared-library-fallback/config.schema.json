@@ -1,0 +1,201 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Reviewed shared-library fallback configuration",
+  "type": "object",
+  "required": [
+    "fallback_schema",
+    "state_dir",
+    "packages_root",
+    "project_build_root",
+    "toolchain_root",
+    "editor_index",
+    "editor_manifest",
+    "editor_pack",
+    "ram_manifests",
+    "disk_reserve_bytes",
+    "ram_limit_bytes",
+    "shared_library_whitelist",
+    "retained_core_whitelist",
+    "excluded_core_manifests",
+    "retained_core_source_manifest"
+  ],
+  "properties": {
+    "fallback_schema": {
+      "const": 1
+    },
+    "state_dir": {
+      "type": "string",
+      "pattern": "^/"
+    },
+    "packages_root": {
+      "type": "string",
+      "pattern": "^/"
+    },
+    "project_build_root": {
+      "type": "string",
+      "pattern": "^/"
+    },
+    "toolchain_root": {
+      "type": "string",
+      "pattern": "^/"
+    },
+    "editor_index": {
+      "type": "string",
+      "pattern": "^/"
+    },
+    "editor_manifest": {
+      "type": "string",
+      "pattern": "^/"
+    },
+    "editor_pack": {
+      "type": "string",
+      "pattern": "^/"
+    },
+    "phase_lock": {
+      "type": "string",
+      "pattern": "^/"
+    },
+    "ram_manifests": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^/"
+      },
+      "minItems": 1
+    },
+    "disk_reserve_bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "ram_limit_bytes": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "shared_library_whitelist": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "$ref": "#/$defs/contentPin"
+      }
+    },
+    "retained_core_whitelist": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "allOf": [
+          {
+            "$ref": "#/$defs/contentPin"
+          },
+          {
+            "type": "object",
+            "required": [
+              "pid",
+              "fd",
+              "target",
+              "fd_dev",
+              "fd_ino",
+              "symlink_mtime_ns"
+            ],
+            "properties": {
+              "pid": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "fd": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "fd_dev": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "fd_ino": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "target": {
+                "type": "string",
+                "pattern": "^/proc/[0-9]+/fd/[0-9]+$"
+              },
+              "symlink_mtime_ns": {
+                "type": "integer"
+              }
+            }
+          }
+        ]
+      }
+    },
+    "excluded_core_manifests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "pattern": "^/"
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          }
+        }
+      }
+    },
+    "retained_core_source_manifest": {
+      "type": "object",
+      "required": [
+        "path",
+        "sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^/"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "contentPin": {
+      "type": "object",
+      "required": [
+        "path",
+        "size",
+        "sha256",
+        "mode",
+        "mtime_ns"
+      ],
+      "properties": {
+        "path": {
+          "type": "string",
+          "pattern": "^/"
+        },
+        "size": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "mode": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4095
+        },
+        "mtime_ns": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

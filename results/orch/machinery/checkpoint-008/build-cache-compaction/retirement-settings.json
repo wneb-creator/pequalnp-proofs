@@ -1,0 +1,124 @@
+{
+  "retirement_dir": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/retirement-001",
+  "original_config": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/storage_config.json",
+  "generation_config": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/generation-001-config.json",
+  "prune_plan": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/transaction-001/plan.json.gz",
+  "storage_source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/storage_phase.py",
+  "obsolete": {
+    "/tmp/oec/pequalnp-pilot-45/compressed-artifacts/data.zstpack": {
+      "identity": {
+        "dev": 27,
+        "ino": 266470,
+        "size": 93722986,
+        "mtime_ns": 1795558238924113034,
+        "mode": 384
+      },
+      "sha256": "232257ee555a469dd4d79b8a98e3f69372e3c08f3e889bf60aabbebd5f328a4e"
+    },
+    "/tmp/oec/pequalnp-pilot-45/compressed-artifacts/index.tsv": {
+      "identity": {
+        "dev": 27,
+        "ino": 266472,
+        "size": 2143112,
+        "mtime_ns": 1795558238928113106,
+        "mode": 384
+      },
+      "sha256": "3cb880afce1c2ef242bafc63ae1fa9e2cccb4f460bfbfb9e0bea9869a516e8de"
+    },
+    "/tmp/oec/pequalnp-pilot-45/compressed-artifacts/editor-manifest.jsonl": {
+      "identity": {
+        "dev": 27,
+        "ino": 266507,
+        "size": 6758120,
+        "mtime_ns": 1795558238928113106,
+        "mode": 384
+      },
+      "sha256": "1d34e7a88d35b641f95e4919f7bcc6832519f4e225ab406e652038370e3a1129"
+    },
+    "/tmp/oec/pequalnp-pilot-45/resource-wrapper/storage-state/extra.zstpack": {
+      "identity": {
+        "dev": 27,
+        "ino": 276270,
+        "size": 48661957,
+        "mtime_ns": 1795563504789657003,
+        "mode": 384
+      },
+      "sha256": "dcac16e69a468b7d39d0e496e3b1e82a45c99c4572d97305d0d122d0b33383b9"
+    },
+    "/tmp/oec/pequalnp-pilot-45/resource-wrapper/storage-state/prepared.json": {
+      "identity": {
+        "dev": 27,
+        "ino": 275897,
+        "size": 50404203,
+        "mtime_ns": 1795567450743766544,
+        "mode": 384
+      },
+      "sha256": "d1df906a9cac88a7f3083435f540edfd196801d18736c9eff601ec9b873a971c"
+    }
+  },
+  "pinned_files": {
+    "/tmp/oec/pequalnp-pilot-45/resource-wrapper/storage_config.json": "9db77ec0a92d0b741fb612871f491a0cd36c3705ab76b80c6dd3db892858ef03",
+    "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/generation-001-config.json": "4dc9d098fabb52c4365351b7f7044588848f7033b5b8d718e16db7a16dd2701b",
+    "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/generation-001-commands.json": "7dacaee3a31ef55845455a47aee3caa8b2d368a79af0af7d6202ddf8c124e6a9",
+    "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/generation-001-core-config.json": "b936cce19f4d8c268eae98a511989b8f6675cf17d6d444319769ab1a0e9fc428",
+    "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/generation-001-handoff-config.json": "02f1d5178a69e8bdf0f603d385a43b99a1fbb338b30f615950e4c67203834fa0",
+    "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/review-generation-002.stdout": "6f63a52612614f0b9e322e5203450022745ee414c79bc9381059d6e553c739fb",
+    "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/review-library-backups.stdout": "6ceb3a03663140dd826a7e11e107a8fa99012c6d7092feadf09a2e09b1524864",
+    "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/transaction-001/after-prune.json": "9b3b63d16ee49b96c109b1178e26d371fac74bfda5797a0738e5987ab62c9e6d",
+    "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/transaction-001/after-stage.json": "8bc6f37c8ef13cf70ca9ebdf56061ae184b11aa1f1ff6a48ad25f11794ecb8af",
+    "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-001/editor/data.zstpack": "94526fd3522cca54ce7da2665eb2faf91103840f10d71a157d5f4a6bc39eec91",
+    "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-001/editor/index.tsv": "2d48724c24b7a3676741a64255ad9442b606a0ab61c30bdc17f2e476e749e1d4",
+    "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-001/editor/manifest.jsonl": "f15de56701d16b515fd4e13a054d8da2447c343b731f92980bc2d207fc368e5b",
+    "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-001/state/extra.zstpack": "5b269c724c7c82555c5a0ae0dd61aa48aebc9079463161a42e0a4b173daed6ee",
+    "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-001/state/prepared.json": "a4c07d469e90757bfdc3d5b8880e584780cec09275515d214d37183ded6a71f9",
+    "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/transaction-001/plan.json.gz": "1ffd13ec3cf0d74aad84f90e8c329f409440c9c91cd2f6af03dfb601f63a0dd7",
+    "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/transaction-001/original-prepared.json.gz": "95b496225a37e397a4e6bd60aaa5abd9e14804de352dd51a594020d7c571ab25",
+    "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/compact_cache.py": "70c764e38849fb26f19937660b636ee197b64bb51b3ea8a99a10e2b98c698b44",
+    "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/retire_generation.py": "b118db721842c6513bbec64ef80b0ac013ffb67ccee600dc2d43cd4c5c5c9ca4",
+    "/tmp/oec/pequalnp-pilot-45/core-phase/storage_sequence.py": "940eff8b930e95526e3bbd0828b333b6db107e05b2322abcdc27e3dc1eaaa9c1",
+    "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/storage_phase.py": "3d21f96490c4a2e3c5a4d68c3c444a44496359fc3023754ec83b003eafd14cf8",
+    "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/storage_phase_base.py": "a43b13fa9556910376ae08131bbc8228b8318be81ab986f74a9ddf4427f1feb2",
+    "/tmp/oec/pequalnp-pilot-45/core-phase/core_phase.py": "d91225cbfe02e7ab5b03f49daf89077cafdf14f327b1aa9d5dd7b0f1f22048f3",
+    "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/sequence_launcher.py": "034a2628a985a62275bee37e4265a0415d6087ff7f8df5b4e5e7dec72e26b43d",
+    "/tmp/oec/pequalnp-pilot-45/resource-wrapper/storage_phase.py": "a43b13fa9556910376ae08131bbc8228b8318be81ab986f74a9ddf4427f1feb2"
+  },
+  "phase_lock": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/storage-state/phase.lock",
+  "journals": [
+    "/tmp/oec/pequalnp-pilot-45/resource-wrapper/storage-state/transaction.json",
+    "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-001/state/transaction.json",
+    "/tmp/oec/pequalnp-pilot-45/core-phase/state/transaction.json"
+  ],
+  "review_reports": [
+    "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/review-generation-002.stdout",
+    "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/review-library-backups.stdout"
+  ],
+  "gates": [
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/transaction-001/after-prune.json"
+    },
+    {
+      "path": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/transaction-001/after-stage.json"
+    }
+  ],
+  "no_build_commands": [
+    [
+      "/tmp/oec/pequalnp-pilot-45/toolchain/lean-4.36.0-linux/bin/lake",
+      "build",
+      "--no-build",
+      "checklemma"
+    ],
+    [
+      "/tmp/oec/pequalnp-pilot-45/toolchain/lean-4.36.0-linux/bin/lake",
+      "build",
+      "--no-build",
+      "+PEqualNP.Outside.R_meta_1768_45",
+      "+PEqualNP.Defs"
+    ]
+  ],
+  "core_config": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/generation-001-core-config.json",
+  "commands": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/generation-001-commands.json",
+  "staged_handoff": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/generation-001-handoff-config.json",
+  "original_prepared_gzip": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/transaction-001/original-prepared.json.gz",
+  "active_handoff": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/handoff-prototype/config.json",
+  "old_handoff_sha256": "15626a62ca6ac1d4e48a410c146fffa113c49dcbb4a3755e0ca0cfd1708e5041"
+}

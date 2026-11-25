@@ -1,0 +1,7 @@
+PASS actual launcher enter runs base then core
+PASS core restoration failure still runs base and preserves failure status
+PASS failed base entry prevents later core entry
+PASS modified required file is refused before any phase
+PASS modified command bundle is refused before any phase
+PASS unpinned sequence source is refused before any phase
+{"status": "PASS", "cases": 6, "source_sha256": "034a2628a985a62275bee37e4265a0415d6087ff7f8df5b4e5e7dec72e26b43d", "fixture_directory": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/shared-library-fallback/launcher-fixture-3gr32sh2", "production_invocations": 0}

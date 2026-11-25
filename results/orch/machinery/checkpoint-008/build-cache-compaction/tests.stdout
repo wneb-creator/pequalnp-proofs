@@ -1,0 +1,13 @@
+test_complete PASS
+test_partial PASS
+test_changed_source PASS
+test_corrupt_backup PASS
+test_gate_failure PASS
+test_regenerated PASS
+test_runtime_candidate_refused PASS
+test_lock PASS
+test_interrupted_rollback_temp PASS
+test_temporary_symlink_rejected PASS
+test_pinned_inputs PASS
+test_interrupted_metadata PASS
+{"passed": 12}

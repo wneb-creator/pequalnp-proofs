@@ -1,0 +1,33 @@
+{
+  "utc": "2026-11-25T01:18:48.063442+00:00",
+  "status": "ready_independent_postcommit_review_pass",
+  "handoff_adapter": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/handoff-prototype/lake",
+  "handoff_config_sha256": "02f1d5178a69e8bdf0f603d385a43b99a1fbb338b30f615950e4c67203834fa0",
+  "base_journal": "/tmp/oec/pequalnp-pilot-45/build-cache-compaction/generation-001/state/transaction.json",
+  "core_journal": "/tmp/oec/pequalnp-pilot-45/core-phase/state/transaction.json",
+  "disk_free": 1024868352,
+  "conservative_verify_disk_free": 120348672,
+  "disk_reserve": 104857600,
+  "entry_guard_bytes": 51583417,
+  "entry_guard_spare": 973284935,
+  "restore_atomic_headroom": 1001660416,
+  "effective_pinned_logical_bytes": 1368375240,
+  "effective_pinned_allocated_bytes": 1385463808,
+  "no_build_jobs": [
+    5,
+    5147
+  ],
+  "no_build_exit_codes": [
+    0,
+    0
+  ],
+  "no_live_lean_processes": true,
+  "pending_backups": 0,
+  "smoke_argv": [
+    "/tmp/oec/pequalnp-pilot-45/resource-wrapper/handoff-prototype/lake",
+    "env",
+    "/workspace/pequalnp-proofs/lean/.lake/build/bin/checklemma"
+  ],
+  "smoke_expected_exit": 3,
+  "smoke_expected_output": "native usage only, not a proof verdict"
+}

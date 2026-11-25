@@ -1,0 +1,28 @@
+{
+  "status": "PASS",
+  "metadata_snapshots": [
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/compressed-artifacts/index.tsv",
+      "decoded_bytes": 2143112,
+      "sha256": "3cb880afce1c2ef242bafc63ae1fa9e2cccb4f460bfbfb9e0bea9869a516e8de",
+      "compressed_bytes": 449647
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/compressed-artifacts/editor-manifest.jsonl",
+      "decoded_bytes": 6758120,
+      "sha256": "1d34e7a88d35b641f95e4919f7bcc6832519f4e225ab406e652038370e3a1129",
+      "compressed_bytes": 1234837
+    },
+    {
+      "source": "/tmp/oec/pequalnp-pilot-45/resource-wrapper/storage-state/prepared.json",
+      "decoded_bytes": 50404203,
+      "sha256": "d1df906a9cac88a7f3083435f540edfd196801d18736c9eff601ec9b873a971c",
+      "compressed_bytes": 6594819
+    }
+  ],
+  "original_five_files": "all unchanged with exact identity/hash/metadata",
+  "active_handoff": "unchanged; independent regular backup exact",
+  "replacement_rows": 28998,
+  "settings_sha256": "84338eeed152a14c57c7ec4cb5a108462fdb9c8c4941f23e4f9c7dec11c9ae53",
+  "ready_for_atomic_cutover_and_retirement": true
+}

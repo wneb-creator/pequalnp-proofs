@@ -1,0 +1,53 @@
+{
+  "count": 71764,
+  "ineligible_count": 11,
+  "ineligible_examples": [
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/ir/Mathlib.c",
+      "module": "Mathlib"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib.ilean",
+      "module": "Mathlib"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/Mathlib.lean",
+      "module": "Mathlib"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/ir/Mathlib.c.hash",
+      "module": "Mathlib"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib.ilean.hash",
+      "module": "Mathlib"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib.ir.hash",
+      "module": "Mathlib"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib.ir.sig.hash",
+      "module": "Mathlib"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib.olean.hash",
+      "module": "Mathlib"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib.olean.private.hash",
+      "module": "Mathlib"
+    },
+    {
+      "path": "/workspace/pequalnp-proofs/lean/.lake/packages/mathlib/.lake/build/lib/lean/Mathlib.olean.server.hash",
+      "module": "Mathlib"
+    }
+  ],
+  "suffix_counts": {
+    ".c": 6524,
+    ".ilean": 6524,
+    ".lean": 6524,
+    ".hash": 45668,
+    ".trace": 6524
+  }
+}

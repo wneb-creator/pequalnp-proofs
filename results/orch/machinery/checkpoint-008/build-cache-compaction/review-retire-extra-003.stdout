@@ -1,0 +1,5 @@
+unlink_intent_before_failure PASS
+interrupted_activation_sync PASS
+shared_lock_identity PASS
+metadata_reconstruction_after_retire PASS
+PASS 4 independent tiny recovery fixtures; production actions 0

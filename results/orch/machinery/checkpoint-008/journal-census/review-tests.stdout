@@ -1,0 +1,6 @@
+roundtrip PASS
+corrupt_outer PASS
+changed_source PASS
+partial_retirement PASS
+rejects_active_name PASS
+PASS 5 tiny fixture cases; real journal mutations 0
